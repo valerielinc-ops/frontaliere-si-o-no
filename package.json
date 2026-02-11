@@ -14,7 +14,8 @@
     "react": "^19.2.4",
     "recharts": "^3.7.0",
     "jspdf": "^4.1.0",
-    "react-dom": "^19.2.4"
+    "react-dom": "^19.2.4",
+    "@google/genai": "^1.40.0"
   },
   "devDependencies": {
     "@types/node": "^22.14.0",

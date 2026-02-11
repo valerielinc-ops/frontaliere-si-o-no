@@ -1,17 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import { InputCard } from './components/InputCard';
 import { ResultsView } from './components/ResultsView';
+import { FeedbackSection } from './components/FeedbackSection';
 import { calculateSimulation } from './services/calculationService';
 import { DEFAULT_INPUTS } from './constants';
 import { SimulationInputs, SimulationResult } from './types';
-import { Rocket, Moon, Sun } from 'lucide-react';
+import { Rocket, Moon, Sun, Target, MessageSquare, Maximize2, Minimize2, Calculator, HelpCircle } from 'lucide-react';
 
 const App: React.FC = () => {
   const [inputs, setInputs] = useState<SimulationInputs>(DEFAULT_INPUTS);
   const [result, setResult] = useState<SimulationResult | null>(null);
   const [isDarkMode, setIsDarkMode] = useState(false);
+  const [isFocusMode, setIsFocusMode] = useState(false);
+  const [activeTab, setActiveTab] = useState<'calculator' | 'feedback'>('calculator');
 
-  // Initialize theme from localStorage (defaulting to Light if not set)
+  // Initialize theme from localStorage
   useEffect(() => {
     if (localStorage.theme === 'dark') {
       setIsDarkMode(true);
@@ -39,78 +42,114 @@ const App: React.FC = () => {
     setResult(res);
   };
 
-  // Live calculation whenever inputs change
-  React.useEffect(() => {
+  useEffect(() => {
     handleCalculate();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [inputs]);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50/30 to-slate-100 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 flex flex-col font-sans text-slate-800 dark:text-slate-100 transition-colors duration-300">
-      {/* Navbar with Glassmorphism */}
-      <nav className="sticky top-0 z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-white/20 dark:border-slate-800/50 shadow-sm transition-all duration-300">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className={`min-h-screen relative flex flex-col font-sans text-slate-800 dark:text-slate-100 transition-colors duration-300 overflow-hidden`}>
+      {/* Fun & Modern Background Blobs */}
+      <div className="absolute inset-0 bg-gradient-to-br from-indigo-50 via-slate-50 to-purple-50 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 -z-20"></div>
+      <div className="absolute top-0 left-0 w-full h-full overflow-hidden -z-10 opacity-60 dark:opacity-30 pointer-events-none">
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-purple-300 dark:bg-purple-900 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob"></div>
+        <div className="absolute top-0 right-1/4 w-96 h-96 bg-indigo-300 dark:bg-indigo-900 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob animation-delay-2000"></div>
+        <div className="absolute -bottom-32 left-1/3 w-96 h-96 bg-pink-300 dark:bg-pink-900 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob animation-delay-4000"></div>
+      </div>
+
+      {/* Navbar */}
+      <nav className="sticky top-0 z-50 bg-white/70 dark:bg-slate-900/70 backdrop-blur-lg border-b border-slate-200/50 dark:border-slate-800/50 shadow-sm transition-all duration-300">
+        <div className="max-w-[1800px] w-[95%] mx-auto px-4 sm:px-6">
           <div className="flex justify-between h-16 items-center">
-            <div className="flex items-center gap-3 group cursor-default">
-              <div className="bg-gradient-to-br from-blue-600 to-indigo-600 p-2.5 rounded-xl text-white shadow-lg shadow-blue-500/30 transform group-hover:scale-110 transition-transform duration-300">
-                <Rocket size={24} />
+            {/* Logo Section */}
+            <div className="flex items-center gap-3 cursor-pointer" onClick={() => setActiveTab('calculator')}>
+              <div className="relative group">
+                <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-xl blur opacity-25 group-hover:opacity-50 transition duration-200"></div>
+                <div className="relative bg-white dark:bg-slate-900 p-2 rounded-xl text-blue-600 dark:text-blue-500 ring-1 ring-slate-200 dark:ring-slate-800">
+                  <Rocket size={22} className="transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-transform" />
+                </div>
               </div>
-              <div>
-                <h1 className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-slate-800 to-slate-600 dark:from-slate-100 dark:to-slate-400 leading-none">
+              <div className="hidden sm:block">
+                <h1 className="text-lg font-bold text-slate-800 dark:text-slate-100 leading-none tracking-tight">
                   Frontaliere Si o No?
                 </h1>
-                <p className="text-xs text-blue-500 dark:text-blue-400 font-semibold tracking-wide mt-0.5">Analisi Fiscale 2026</p>
+                <p className="text-[10px] text-slate-500 dark:text-slate-400 font-bold uppercase tracking-widest mt-0.5">Analisi Fiscale 2026</p>
               </div>
             </div>
             
-            <button 
-              onClick={toggleTheme}
-              className="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400"
-              aria-label="Toggle Dark Mode"
-            >
-              {isDarkMode ? <Sun size={20} className="text-yellow-400" /> : <Moon size={20} className="text-slate-600" />}
-            </button>
+            {/* Navigation Links */}
+            <div className="flex items-center gap-1 sm:gap-6 mx-4">
+              <button 
+                onClick={() => setActiveTab('calculator')}
+                className={`relative px-3 py-2 text-sm font-bold transition-colors flex items-center gap-2 group ${activeTab === 'calculator' ? 'text-blue-600 dark:text-blue-400' : 'text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200'}`}
+              >
+                <Calculator size={16} />
+                <span className="hidden sm:inline">Simulatore</span>
+                {activeTab === 'calculator' && (
+                  <span className="absolute bottom-0 left-0 w-full h-0.5 bg-blue-600 dark:bg-blue-400 rounded-full animate-fade-in" />
+                )}
+              </button>
+
+              <button 
+                onClick={() => setActiveTab('feedback')}
+                className={`relative px-3 py-2 text-sm font-bold transition-colors flex items-center gap-2 group ${activeTab === 'feedback' ? 'text-indigo-600 dark:text-indigo-400' : 'text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200'}`}
+              >
+                <HelpCircle size={16} />
+                <span className="hidden sm:inline">Supporto & Community</span>
+                {activeTab === 'feedback' && (
+                  <span className="absolute bottom-0 left-0 w-full h-0.5 bg-indigo-600 dark:bg-indigo-400 rounded-full animate-fade-in" />
+                )}
+              </button>
+            </div>
+
+            {/* Actions */}
+            <div className="flex items-center gap-2 pl-4 border-l border-slate-200 dark:border-slate-800">
+              {activeTab === 'calculator' && (
+                <button 
+                  onClick={() => setIsFocusMode(!isFocusMode)}
+                  className={`p-2 rounded-xl transition-all ${isFocusMode ? 'bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400' : 'text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800'}`}
+                  title={isFocusMode ? "Esci da Fullscreen" : "Fullscreen"}
+                >
+                  {isFocusMode ? <Minimize2 size={18} /> : <Maximize2 size={18} />}
+                </button>
+              )}
+
+              <button 
+                onClick={toggleTheme}
+                className="p-2 rounded-xl text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+              >
+                {isDarkMode ? <Sun size={18} className="text-amber-400" /> : <Moon size={18} className="text-slate-600" />}
+              </button>
+            </div>
           </div>
         </div>
       </nav>
 
       {/* Main Content */}
-      <main className="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 h-full">
-          
-          {/* Input Section - Slight delay animation */}
-          <div className="lg:col-span-4 h-full animate-fade-in-up">
-             <InputCard 
-               inputs={inputs} 
-               setInputs={setInputs} 
-               onCalculate={handleCalculate} 
-             />
+      <main className="flex-grow max-w-[1800px] w-[95%] mx-auto px-2 sm:px-4 py-6 transition-all duration-500 relative z-10">
+        {activeTab === 'calculator' ? (
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-6 h-full">
+            <div className={`transition-all duration-500 ease-in-out ${isFocusMode ? 'hidden md:hidden' : 'md:col-span-4 lg:col-span-4 xl:col-span-3'} h-full animate-fade-in-up`}>
+               <InputCard 
+                 inputs={inputs} 
+                 setInputs={setInputs} 
+                 onCalculate={handleCalculate}
+                 isFocusMode={isFocusMode}
+               />
+            </div>
+            <div className={`transition-all duration-500 ease-in-out ${isFocusMode ? 'md:col-span-12' : 'md:col-span-8 lg:col-span-8 xl:col-span-9'} h-full animate-fade-in-up delay-100`}>
+              {result && <ResultsView result={result} inputs={inputs} isDarkMode={isDarkMode} isFocusMode={isFocusMode} />}
+            </div>
           </div>
-
-          {/* Output Section - Staggered animation */}
-          <div className="lg:col-span-8 h-full animate-fade-in-up delay-100">
-            {result ? (
-              <ResultsView result={result} isDarkMode={isDarkMode} />
-            ) : (
-              <div className="h-full min-h-[400px] flex items-center justify-center bg-white/60 dark:bg-slate-900/60 backdrop-blur-sm rounded-3xl shadow-sm border border-white/50 dark:border-slate-800 text-slate-400 dark:text-slate-600">
-                <div className="text-center animate-pulse">
-                   <div className="mx-auto bg-slate-100 dark:bg-slate-800 w-16 h-16 rounded-full flex items-center justify-center mb-4 text-slate-300 dark:text-slate-600">
-                      <Rocket size={32} />
-                   </div>
-                   <p className="font-medium">Caricamento calcolatore...</p>
-                </div>
-              </div>
-            )}
+        ) : (
+          <div className="max-w-4xl mx-auto animate-fade-in">
+             <FeedbackSection />
           </div>
-
-        </div>
+        )}
       </main>
       
-      {/* Footer */}
-      <footer className="border-t border-slate-200/60 dark:border-slate-800 bg-white/50 dark:bg-slate-900/50 backdrop-blur-sm py-8 mt-auto">
+      <footer className="border-t border-slate-200/60 dark:border-slate-800 bg-white/50 dark:bg-slate-900/50 backdrop-blur-sm py-8 mt-auto relative z-10">
         <div className="max-w-7xl mx-auto px-4 text-center text-slate-500 dark:text-slate-400 text-sm">
           <p className="font-medium">© 2026 Frontaliere Si o No? <span className="text-slate-300 dark:text-slate-600 mx-2">|</span> Simulatore a scopo puramente indicativo.</p>
-          <p className="mt-2 text-xs text-slate-400 dark:text-slate-500">Le aliquote fiscali e i tassi di cambio possono variare. Consultare un commercialista per decisioni ufficiali.</p>
         </div>
       </footer>
     </div>

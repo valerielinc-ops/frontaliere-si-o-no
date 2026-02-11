@@ -1,20 +1,62 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# Frontaliere Si o No?
 
-# Run and deploy your AI Studio app
+**Simulatore Fiscale Avanzato Svizzera-Italia**
 
-This contains everything you need to run your app locally.
+Questa applicazione web single-page (SPA) aiuta i lavoratori a valutare la convenienza economica tra il vivere in Svizzera (Residente B) e il lavorare come Frontaliere (Permesso G), tenendo conto del **Nuovo Accordo Fiscale 2026** tra Svizzera e Italia.
 
-View your app in AI Studio: https://ai.studio/apps/drive/1SHGYkJYt02ausE6l-V_DZx5WunX7bOEk
+![App Screenshot](https://raw.githubusercontent.com/valerielinc-ops/frontaliere-si-o-no/main/public/screenshot.png)
 
-## Run Locally
+## 🚀 Funzionalità Principali
 
-**Prerequisites:**  Node.js
+*   **Calcolo Real-Time**: Simulazione istantanea del netto mensile basata su reddito lordo, stato civile e figli a carico.
+*   **Doppio Regime Fiscale**:
+    *   **Vecchio Frontaliere**: Tassazione esclusiva alla fonte in Svizzera (per chi ha lavorato in CH tra il 2018 e il 17.07.2023).
+    *   **Nuovo Frontaliere**: Tassazione concorrente Svizzera + IRPEF Italia con franchigia di 10.000€ e credito d'imposta.
+*   **Analisi Dettagliata**:
+    *   Scomposizione delle deduzioni sociali svizzere (AVS, LPP, ecc.).
+    *   Calcolo imposte alla fonte Canton Ticino.
+    *   Calcolo IRPEF italiana (scaglioni 2026) e Addizionali.
+*   **Personalizzazione Spese**: Possibilità di aggiungere spese ricorrenti (affitto, auto, spesa) per calcolare il vero "residuo netto" a fine mese.
+*   **Export PDF Professionale**: Generazione di un report dettagliato scaricabile per uso personale.
+*   **Dati Aggiornati**: Tassi di cambio in tempo reale e parametri fiscali configurabili.
 
+## 🛠 Tech Stack
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+Il progetto è costruito con tecnologie web moderne per garantire performance e usabilità:
+
+*   **React 19**: Core framework per l'interfaccia utente.
+*   **TypeScript**: Per la sicurezza dei tipi e la robustezza del codice.
+*   **Tailwind CSS**: Per lo styling responsivo e il supporto Dark Mode nativo.
+*   **Recharts**: Per la visualizzazione grafica dei dati comparativi.
+*   **jsPDF & autoTable**: Per la generazione dei report PDF client-side.
+*   **Lucide React**: Per icone vettoriali leggere e moderne.
+
+## 📦 Installazione e Avvio
+
+1.  Clona il repository:
+    ```bash
+    git clone https://github.com/valerielinc-ops/frontaliere-si-o-no.git
+    ```
+2.  Installa le dipendenze:
+    ```bash
+    npm install
+    ```
+3.  Avvia il server di sviluppo:
+    ```bash
+    npm start
+    ```
+
+## 📝 Note Fiscali
+
+Questo strumento fornisce stime basate sulle aliquote e le leggi vigenti (o previste) per il 2026. Sebbene accurato, non sostituisce il parere di un commercialista o fiduciario professionista.
+
+*   **Canton Ticino**: Le aliquote alla fonte sono stimate interpolando le tabelle A, B, C e H.
+*   **Italia**: Il calcolo IRPEF include le detrazioni per lavoro dipendente e familiari a carico standard.
+
+## 🤝 Contribuire
+
+Il progetto è aperto a contributi. Se trovi un bug nel calcolo o vuoi aggiungere una funzionalità, sentiti libero di aprire una Issue o una Pull Request.
+
+## 📄 Licenza
+
+Distribuito sotto licenza MIT. Vedi `LICENSE` per maggiori informazioni.
