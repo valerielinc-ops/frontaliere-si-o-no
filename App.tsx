@@ -1,21 +1,29 @@
 import React, { useState, useEffect } from 'react';
-import { InputCard } from './components/InputCard';
-import { ResultsView } from './components/ResultsView';
-import { FeedbackSection } from './components/FeedbackSection';
-import { calculateSimulation } from './services/calculationService';
-import { DEFAULT_INPUTS } from './constants';
-import { SimulationInputs, SimulationResult } from './types';
-import { Moon, Sun, Target, MessageSquare, Maximize2, Minimize2, Calculator, HelpCircle } from 'lucide-react';
+import { InputCard } from '@/components/InputCard';
+import { ResultsView } from '@/components/ResultsView';
+import { FeedbackSection } from '@/components/FeedbackSection';
+import { StatsView } from '@/components/StatsView';
+import { ErrorBoundary } from '@/components/ErrorBoundary';
+import { calculateSimulation } from '@/services/calculationService';
+import { Analytics } from '@/services/analytics';
+import { DEFAULT_INPUTS } from '@/constants';
+import { SimulationInputs, SimulationResult } from '@/types';
+import { Moon, Sun, Maximize2, Minimize2, Calculator, HelpCircle, BarChart2 } from 'lucide-react';
 
 const App: React.FC = () => {
   const [inputs, setInputs] = useState<SimulationInputs>(DEFAULT_INPUTS);
   const [result, setResult] = useState<SimulationResult | null>(null);
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [isFocusMode, setIsFocusMode] = useState(false);
-  const [activeTab, setActiveTab] = useState<'calculator' | 'feedback'>('calculator');
+  const [activeTab, setActiveTab] = useState<'calculator' | 'feedback' | 'stats'>('calculator');
 
-  // Initialize theme from localStorage
+  // Initialize theme and Analytics
   useEffect(() => {
+    // Analytics Init
+    Analytics.init();
+    Analytics.trackPageView('/');
+
+    // Theme Init
     if (localStorage.theme === 'dark') {
       setIsDarkMode(true);
       document.documentElement.classList.add('dark');
@@ -26,15 +34,22 @@ const App: React.FC = () => {
   }, []);
 
   const toggleTheme = () => {
-    if (isDarkMode) {
-      document.documentElement.classList.remove('dark');
-      localStorage.theme = 'light';
-      setIsDarkMode(false);
-    } else {
+    const newMode = !isDarkMode;
+    setIsDarkMode(newMode);
+    Analytics.trackEvent('UX', 'Toggle Theme', newMode ? 'Dark' : 'Light');
+    
+    if (newMode) {
       document.documentElement.classList.add('dark');
       localStorage.theme = 'dark';
-      setIsDarkMode(true);
+    } else {
+      document.documentElement.classList.remove('dark');
+      localStorage.theme = 'light';
     }
+  };
+
+  const handleTabChange = (tab: 'calculator' | 'feedback' | 'stats') => {
+    setActiveTab(tab);
+    Analytics.trackPageView(`/${tab}`);
   };
 
   const handleCalculate = () => {
@@ -47,127 +62,148 @@ const App: React.FC = () => {
   }, [inputs]);
 
   return (
-    <div className={`min-h-screen relative flex flex-col font-sans text-slate-800 dark:text-slate-100 transition-colors duration-300 overflow-hidden`}>
-      {/* Fun & Modern Background Blobs */}
-      <div className="absolute inset-0 bg-gradient-to-br from-indigo-50 via-slate-50 to-purple-50 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 -z-20"></div>
-      <div className="absolute top-0 left-0 w-full h-full overflow-hidden -z-10 opacity-60 dark:opacity-30 pointer-events-none">
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-purple-300 dark:bg-purple-900 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob"></div>
-        <div className="absolute top-0 right-1/4 w-96 h-96 bg-indigo-300 dark:bg-indigo-900 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob animation-delay-2000"></div>
-        <div className="absolute -bottom-32 left-1/3 w-96 h-96 bg-pink-300 dark:bg-pink-900 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob animation-delay-4000"></div>
-      </div>
+    <ErrorBoundary>
+      <div className={`min-h-screen relative flex flex-col font-sans text-slate-800 dark:text-slate-100 transition-colors duration-300 overflow-hidden`}>
+        {/* Fun & Modern Background Blobs */}
+        <div className="absolute inset-0 bg-gradient-to-br from-indigo-50 via-slate-50 to-purple-50 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 -z-20"></div>
+        <div className="absolute top-0 left-0 w-full h-full overflow-hidden -z-10 opacity-60 dark:opacity-30 pointer-events-none">
+          <div className="absolute top-0 left-1/4 w-96 h-96 bg-purple-300 dark:bg-purple-900 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob"></div>
+          <div className="absolute top-0 right-1/4 w-96 h-96 bg-indigo-300 dark:bg-indigo-900 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob animation-delay-2000"></div>
+          <div className="absolute -bottom-32 left-1/3 w-96 h-96 bg-pink-300 dark:bg-pink-900 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob animation-delay-4000"></div>
+        </div>
 
-      {/* Navbar */}
-      <nav className="sticky top-0 z-50 bg-white/70 dark:bg-slate-900/70 backdrop-blur-lg border-b border-slate-200/50 dark:border-slate-800/50 shadow-sm transition-all duration-300">
-        <div className="max-w-[1800px] w-[95%] mx-auto px-4 sm:px-6">
-          <div className="flex justify-between h-16 items-center">
-            {/* Logo Section */}
-            <div className="flex items-center gap-3 cursor-pointer" onClick={() => setActiveTab('calculator')}>
-              <div className="relative group">
-                <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-xl blur opacity-25 group-hover:opacity-50 transition duration-200"></div>
-                <div className="relative bg-white dark:bg-slate-900 p-2 rounded-xl text-blue-600 dark:text-blue-500 ring-1 ring-slate-200 dark:ring-slate-800">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" className="w-[22px] h-[22px] transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-transform">
-                    <rect x="10" y="10" width="80" height="80" rx="16" fill="#1e293b" />
-                    <rect x="22" y="22" width="56" height="20" rx="4" fill="#94a3b8" />
-                    {/* CH Button */}
-                    <rect x="22" y="52" width="24" height="24" rx="6" fill="#dc2626" />
-                    <path d="M34 58v12M28 64h12" stroke="white" strokeWidth="3" strokeLinecap="round" />
-                    {/* IT Button */}
-                    <mask id="m-logo">
-                      <rect x="54" y="52" width="24" height="24" rx="6" fill="white" />
-                    </mask>
-                    <g mask="url(#m-logo)">
-                      <rect x="54" y="52" width="8" height="24" fill="#16a34a" />
-                      <rect x="62" y="52" width="8" height="24" fill="white" />
-                      <rect x="70" y="52" width="8" height="24" fill="#dc2626" />
-                    </g>
-                  </svg>
+        {/* Navbar */}
+        <nav className="sticky top-0 z-50 bg-white/70 dark:bg-slate-900/70 backdrop-blur-lg border-b border-slate-200/50 dark:border-slate-800/50 shadow-sm transition-all duration-300">
+          <div className="max-w-[1800px] w-[95%] mx-auto px-4 sm:px-6">
+            <div className="flex justify-between h-16 items-center">
+              {/* Logo Section */}
+              <div className="flex items-center gap-3 cursor-pointer" onClick={() => handleTabChange('calculator')}>
+                <div className="relative group">
+                  <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-xl blur opacity-25 group-hover:opacity-50 transition duration-200"></div>
+                  <div className="relative bg-white dark:bg-slate-900 p-2 rounded-xl text-blue-600 dark:text-blue-500 ring-1 ring-slate-200 dark:ring-slate-800">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" className="w-[22px] h-[22px] transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-transform">
+                      <rect x="10" y="10" width="80" height="80" rx="16" fill="#1e293b" />
+                      <rect x="22" y="22" width="56" height="20" rx="4" fill="#94a3b8" />
+                      {/* CH Button */}
+                      <rect x="22" y="52" width="24" height="24" rx="6" fill="#dc2626" />
+                      <path d="M34 58v12M28 64h12" stroke="white" strokeWidth="3" strokeLinecap="round" />
+                      {/* IT Button */}
+                      <mask id="m-logo">
+                        <rect x="54" y="52" width="24" height="24" rx="6" fill="white" />
+                      </mask>
+                      <g mask="url(#m-logo)">
+                        <rect x="54" y="52" width="8" height="24" fill="#16a34a" />
+                        <rect x="62" y="52" width="8" height="24" fill="white" />
+                        <rect x="70" y="52" width="8" height="24" fill="#dc2626" />
+                      </g>
+                    </svg>
+                  </div>
+                </div>
+                <div className="hidden sm:block">
+                  <h1 className="text-lg font-bold text-slate-800 dark:text-slate-100 leading-none tracking-tight">
+                    Frontaliere Si o No?
+                  </h1>
+                  <p className="text-[10px] text-slate-500 dark:text-slate-400 font-bold uppercase tracking-widest mt-0.5">Analisi Fiscale 2026</p>
                 </div>
               </div>
-              <div className="hidden sm:block">
-                <h1 className="text-lg font-bold text-slate-800 dark:text-slate-100 leading-none tracking-tight">
-                  Frontaliere Si o No?
-                </h1>
-                <p className="text-[10px] text-slate-500 dark:text-slate-400 font-bold uppercase tracking-widest mt-0.5">Analisi Fiscale 2026</p>
+              
+              {/* Navigation Links */}
+              <div className="flex items-center gap-1 sm:gap-4 mx-4">
+                <button 
+                  onClick={() => handleTabChange('calculator')}
+                  className={`relative px-3 py-2 text-sm font-bold transition-colors flex items-center gap-2 group ${activeTab === 'calculator' ? 'text-blue-600 dark:text-blue-400' : 'text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200'}`}
+                >
+                  <Calculator size={16} />
+                  <span className="hidden lg:inline">Simulatore</span>
+                  {activeTab === 'calculator' && (
+                    <span className="absolute bottom-0 left-0 w-full h-0.5 bg-blue-600 dark:bg-blue-400 rounded-full animate-fade-in" />
+                  )}
+                </button>
+
+                <button 
+                  onClick={() => handleTabChange('stats')}
+                  className={`relative px-3 py-2 text-sm font-bold transition-colors flex items-center gap-2 group ${activeTab === 'stats' ? 'text-emerald-600 dark:text-emerald-400' : 'text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200'}`}
+                >
+                  <BarChart2 size={16} />
+                  <span className="hidden lg:inline">Curiosità</span>
+                  {activeTab === 'stats' && (
+                    <span className="absolute bottom-0 left-0 w-full h-0.5 bg-emerald-600 dark:bg-emerald-400 rounded-full animate-fade-in" />
+                  )}
+                </button>
+
+                <button 
+                  onClick={() => handleTabChange('feedback')}
+                  className={`relative px-3 py-2 text-sm font-bold transition-colors flex items-center gap-2 group ${activeTab === 'feedback' ? 'text-indigo-600 dark:text-indigo-400' : 'text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200'}`}
+                >
+                  <HelpCircle size={16} />
+                  <span className="hidden lg:inline">Supporto</span>
+                  {activeTab === 'feedback' && (
+                    <span className="absolute bottom-0 left-0 w-full h-0.5 bg-indigo-600 dark:bg-indigo-400 rounded-full animate-fade-in" />
+                  )}
+                </button>
+              </div>
+
+              {/* Actions */}
+              <div className="flex items-center gap-2 pl-4 border-l border-slate-200 dark:border-slate-800">
+                {activeTab === 'calculator' && (
+                  <button 
+                    onClick={() => {
+                      const newFocus = !isFocusMode;
+                      setIsFocusMode(newFocus);
+                      Analytics.trackEvent('UX', 'Focus Mode', newFocus ? 'Enabled' : 'Disabled');
+                    }}
+                    className={`p-2 rounded-xl transition-all ${isFocusMode ? 'bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400' : 'text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800'}`}
+                    title={isFocusMode ? "Esci da Fullscreen" : "Fullscreen"}
+                  >
+                    {isFocusMode ? <Minimize2 size={18} /> : <Maximize2 size={18} />}
+                  </button>
+                )}
+
+                <button 
+                  onClick={toggleTheme}
+                  className="p-2 rounded-xl text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+                >
+                  {isDarkMode ? <Sun size={18} className="text-amber-400" /> : <Moon size={18} className="text-slate-600" />}
+                </button>
               </div>
             </div>
-            
-            {/* Navigation Links */}
-            <div className="flex items-center gap-1 sm:gap-6 mx-4">
-              <button 
-                onClick={() => setActiveTab('calculator')}
-                className={`relative px-3 py-2 text-sm font-bold transition-colors flex items-center gap-2 group ${activeTab === 'calculator' ? 'text-blue-600 dark:text-blue-400' : 'text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200'}`}
-              >
-                <Calculator size={16} />
-                <span className="hidden sm:inline">Simulatore</span>
-                {activeTab === 'calculator' && (
-                  <span className="absolute bottom-0 left-0 w-full h-0.5 bg-blue-600 dark:bg-blue-400 rounded-full animate-fade-in" />
-                )}
-              </button>
-
-              <button 
-                onClick={() => setActiveTab('feedback')}
-                className={`relative px-3 py-2 text-sm font-bold transition-colors flex items-center gap-2 group ${activeTab === 'feedback' ? 'text-indigo-600 dark:text-indigo-400' : 'text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200'}`}
-              >
-                <HelpCircle size={16} />
-                <span className="hidden sm:inline">Supporto & Community</span>
-                {activeTab === 'feedback' && (
-                  <span className="absolute bottom-0 left-0 w-full h-0.5 bg-indigo-600 dark:bg-indigo-400 rounded-full animate-fade-in" />
-                )}
-              </button>
-            </div>
-
-            {/* Actions */}
-            <div className="flex items-center gap-2 pl-4 border-l border-slate-200 dark:border-slate-800">
-              {activeTab === 'calculator' && (
-                <button 
-                  onClick={() => setIsFocusMode(!isFocusMode)}
-                  className={`p-2 rounded-xl transition-all ${isFocusMode ? 'bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400' : 'text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800'}`}
-                  title={isFocusMode ? "Esci da Fullscreen" : "Fullscreen"}
-                >
-                  {isFocusMode ? <Minimize2 size={18} /> : <Maximize2 size={18} />}
-                </button>
-              )}
-
-              <button 
-                onClick={toggleTheme}
-                className="p-2 rounded-xl text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
-              >
-                {isDarkMode ? <Sun size={18} className="text-amber-400" /> : <Moon size={18} className="text-slate-600" />}
-              </button>
-            </div>
           </div>
-        </div>
-      </nav>
+        </nav>
 
-      {/* Main Content */}
-      <main className="flex-grow max-w-[1800px] w-[95%] mx-auto px-2 sm:px-4 py-6 transition-all duration-500 relative z-10">
-        {activeTab === 'calculator' ? (
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-6 h-full">
-            <div className={`transition-all duration-500 ease-in-out ${isFocusMode ? 'hidden md:hidden' : 'md:col-span-4 lg:col-span-4 xl:col-span-3'} h-full animate-fade-in-up`}>
-               <InputCard 
-                 inputs={inputs} 
-                 setInputs={setInputs} 
-                 onCalculate={handleCalculate}
-                 isFocusMode={isFocusMode}
-               />
+        {/* Main Content */}
+        <main className="flex-grow max-w-[1800px] w-[95%] mx-auto px-2 sm:px-4 py-6 transition-all duration-500 relative z-10">
+          {activeTab === 'calculator' ? (
+            <div className="grid grid-cols-1 md:grid-cols-12 gap-6 h-full">
+              <div className={`transition-all duration-500 ease-in-out ${isFocusMode ? 'hidden md:hidden' : 'md:col-span-4 lg:col-span-4 xl:col-span-3'} h-full animate-fade-in-up`}>
+                <InputCard 
+                  inputs={inputs} 
+                  setInputs={setInputs} 
+                  onCalculate={handleCalculate}
+                  isFocusMode={isFocusMode}
+                />
+              </div>
+              <div className={`transition-all duration-500 ease-in-out ${isFocusMode ? 'md:col-span-12' : 'md:col-span-8 lg:col-span-8 xl:col-span-9'} h-full animate-fade-in-up delay-100`}>
+                {result && <ResultsView result={result} inputs={inputs} isDarkMode={isDarkMode} isFocusMode={isFocusMode} />}
+              </div>
             </div>
-            <div className={`transition-all duration-500 ease-in-out ${isFocusMode ? 'md:col-span-12' : 'md:col-span-8 lg:col-span-8 xl:col-span-9'} h-full animate-fade-in-up delay-100`}>
-              {result && <ResultsView result={result} inputs={inputs} isDarkMode={isDarkMode} isFocusMode={isFocusMode} />}
+          ) : activeTab === 'stats' ? (
+            <div className="max-w-5xl mx-auto">
+              <StatsView />
             </div>
+          ) : (
+            <div className="max-w-4xl mx-auto animate-fade-in">
+              <FeedbackSection />
+            </div>
+          )}
+        </main>
+        
+        <footer className="border-t border-slate-200/60 dark:border-slate-800 bg-white/50 dark:bg-slate-900/50 backdrop-blur-sm py-8 mt-auto relative z-10">
+          <div className="max-w-7xl mx-auto px-4 text-center text-slate-500 dark:text-slate-400 text-sm">
+            <p className="font-medium">© 2026 Frontaliere Si o No? <span className="text-slate-300 dark:text-slate-600 mx-2">|</span> Simulatore a scopo puramente indicativo.</p>
           </div>
-        ) : (
-          <div className="max-w-4xl mx-auto animate-fade-in">
-             <FeedbackSection />
-          </div>
-        )}
-      </main>
-      
-      <footer className="border-t border-slate-200/60 dark:border-slate-800 bg-white/50 dark:bg-slate-900/50 backdrop-blur-sm py-8 mt-auto relative z-10">
-        <div className="max-w-7xl mx-auto px-4 text-center text-slate-500 dark:text-slate-400 text-sm">
-          <p className="font-medium">© 2026 Frontaliere Si o No? <span className="text-slate-300 dark:text-slate-600 mx-2">|</span> Simulatore a scopo puramente indicativo.</p>
-        </div>
-      </footer>
-    </div>
+        </footer>
+      </div>
+    </ErrorBoundary>
   );
 };
 

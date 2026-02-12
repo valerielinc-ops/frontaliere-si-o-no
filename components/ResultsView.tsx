@@ -4,6 +4,7 @@ import { jsPDF } from 'jspdf';
 import autoTable from 'jspdf-autotable';
 import { SimulationResult, TaxResult, TaxBreakdownItem, SimulationInputs } from '../types';
 import { ComparisonChart } from './ComparisonChart';
+import { Analytics } from '../services/analytics';
 
 interface Props {
   result: SimulationResult;
@@ -131,6 +132,9 @@ export const ResultsView: React.FC<Props> = ({ result, inputs, isDarkMode, isFoc
   const profileTags = getProfileTags();
 
   const exportPDF = () => {
+    // Analytics tracking
+    Analytics.trackEvent('Conversion', 'Download PDF', 'Report Comparison');
+    
     try {
       const doc = new jsPDF();
       
@@ -268,6 +272,7 @@ export const ResultsView: React.FC<Props> = ({ result, inputs, isDarkMode, isFoc
       doc.save('Analisi_Fiscale_Frontaliere_2026.pdf');
     } catch (error) {
       console.error("PDF Export failed:", error);
+      Analytics.trackError('PDF Export Failed');
     }
   };
 

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Send, Bug, Lightbulb, Github, CheckCircle, Clock, Sparkles, Loader2, MessageSquare, AlertTriangle, ChevronRight, ExternalLink, Lock } from 'lucide-react';
 import { GoogleGenAI, GenerateContentResponse } from '@google/genai';
+import { Analytics } from '../services/analytics';
 
 interface FeedbackItem {
   id: string;
@@ -67,6 +68,8 @@ export const FeedbackSection: React.FC = () => {
   const handleOptimize = async () => {
     if (!formData.description) return;
     setIsOptimizing(true);
+    Analytics.trackEvent('AI', 'Optimize Description', formData.type);
+    
     try {
       const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
       const prompt = `Agisci come un esperto Product Manager. 
@@ -84,6 +87,7 @@ export const FeedbackSection: React.FC = () => {
       setFormData(prev => ({ ...prev, description: optimizedText }));
     } catch (e) {
       console.error("AI Optimization failed", e);
+      Analytics.trackError('AI Optimization Failed');
     } finally {
       setIsOptimizing(false);
     }
@@ -95,6 +99,7 @@ export const FeedbackSection: React.FC = () => {
     
     if (!GITHUB_TOKEN) {
       setSubmitError("Token GitHub mancante. Impossibile inviare la segnalazione.");
+      Analytics.trackError('Missing GitHub Token');
       return;
     }
 
@@ -130,6 +135,7 @@ export const FeedbackSection: React.FC = () => {
            url: newIssue.html_url
         };
         setItems(prev => [newItem, ...prev]);
+        Analytics.trackEvent('Engagement', 'Issue Created', formData.type);
         setFormData({ title: '', description: '', type: 'BUG' });
         alert("Segnalazione creata con successo su GitHub!");
       } else {
@@ -139,6 +145,7 @@ export const FeedbackSection: React.FC = () => {
     } catch (error: any) {
       console.error("Failed to post issue", error);
       setSubmitError(`Errore API: ${error.message}`);
+      Analytics.trackError(`GitHub Issue Post Failed: ${error.message}`);
     } finally {
       setIsSubmitting(false);
     }
@@ -258,6 +265,7 @@ export const FeedbackSection: React.FC = () => {
                   target="_blank"
                   rel="noreferrer"
                   className="block bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 p-4 rounded-2xl shadow-sm hover:shadow-md transition-all group hover:border-indigo-200 dark:hover:border-indigo-900"
+                  onClick={() => Analytics.trackEvent('Engagement', 'Click Issue', item.id)}
                 >
                   <div className="flex items-start justify-between gap-3">
                     <div className="flex gap-3">

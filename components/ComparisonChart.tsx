@@ -6,6 +6,7 @@ import {
 import { SimulationResult, TaxResult, SimulationInputs } from '../types';
 import { BarChart3, PieChart as PieIcon, TrendingUp, Wallet, Percent, ArrowUpRight, Info, LineChart as LineIcon, Layers } from 'lucide-react';
 import { calculateSimulation } from '../services/calculationService';
+import { Analytics } from '../services/analytics';
 
 interface Props {
   result: SimulationResult;
@@ -72,6 +73,11 @@ const KpiCard = ({ title, value, subtext, icon: Icon, colorClass }: any) => (
 export const ComparisonChart: React.FC<Props> = ({ result, inputs, isDarkMode, isFocusMode }) => {
   const [activeTab, setActiveTab] = useState<'overview' | 'breakdown' | 'projection' | 'breakeven'>('overview');
   const [analysisMode, setAnalysisMode] = useState<'NET' | 'TAX'>('NET');
+
+  const handleTabChange = (tabId: 'overview' | 'breakdown' | 'projection' | 'breakeven') => {
+      setActiveTab(tabId);
+      Analytics.trackEvent('Interaction', 'Change Chart', tabId);
+  };
 
   const { chResident, itResident, savingsCHF } = result;
   
@@ -212,7 +218,7 @@ export const ComparisonChart: React.FC<Props> = ({ result, inputs, isDarkMode, i
             ].map(tab => (
               <button
                 key={tab.id}
-                onClick={() => setActiveTab(tab.id as any)}
+                onClick={() => handleTabChange(tab.id as any)}
                 className={`flex flex-col sm:flex-row items-center justify-center gap-1.5 py-3 px-1 rounded-xl text-[9px] sm:text-xs font-bold uppercase tracking-wide transition-all ${
                   activeTab === tab.id 
                   ? 'bg-white dark:bg-slate-800 text-indigo-600 dark:text-indigo-400 shadow-sm scale-[0.98]' 

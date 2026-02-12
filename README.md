@@ -4,7 +4,7 @@
 
 Questa applicazione web single-page (SPA) aiuta i lavoratori a valutare la convenienza economica tra il vivere in Svizzera (Residente B) e il lavorare come Frontaliere (Permesso G), tenendo conto del **Nuovo Accordo Fiscale 2026** tra Svizzera e Italia.
 
-![App Screenshot](public/screenshot.svg)
+![App Screenshot](./public/screenshot.svg)
 
 ## 🚀 Funzionalità Principali
 
