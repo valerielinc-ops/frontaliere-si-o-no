@@ -326,7 +326,7 @@ export const ResultsView: React.FC<Props> = ({ result, inputs, isDarkMode, isFoc
                    {isBetterFrontaliere && <PartyPopper size={24} className="animate-bounce text-yellow-300" />}
                 </div>
                 <div className="text-white/90 font-medium flex flex-wrap items-center gap-x-2 gap-y-1 text-sm">
-                  <span>Vantaggio netto finale:</span>
+                  <span>Vantaggio netto finale (Annuo):</span>
                   <span className="font-bold font-mono text-base sm:text-lg bg-white/20 px-2 py-0.5 rounded-lg border border-white/10 animate-pulse">
                       CHF {formatCurrency(savingsCHF)}
                   </span>
@@ -471,7 +471,7 @@ export const ResultsView: React.FC<Props> = ({ result, inputs, isDarkMode, isFoc
            <h3 className="text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-4 flex items-center gap-2">
               <Calculator size={14} className="text-indigo-500" /> Grafico delle Riserve Mensili
            </h3>
-           <ComparisonChart result={result} isDarkMode={isDarkMode} isFocusMode={isFocusMode} />
+           <ComparisonChart result={result} inputs={inputs} isDarkMode={isDarkMode} isFocusMode={isFocusMode} />
         </div>
       </div>
     </div>

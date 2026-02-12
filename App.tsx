@@ -5,7 +5,7 @@ import { FeedbackSection } from './components/FeedbackSection';
 import { calculateSimulation } from './services/calculationService';
 import { DEFAULT_INPUTS } from './constants';
 import { SimulationInputs, SimulationResult } from './types';
-import { Rocket, Moon, Sun, Target, MessageSquare, Maximize2, Minimize2, Calculator, HelpCircle } from 'lucide-react';
+import { Moon, Sun, Target, MessageSquare, Maximize2, Minimize2, Calculator, HelpCircle } from 'lucide-react';
 
 const App: React.FC = () => {
   const [inputs, setInputs] = useState<SimulationInputs>(DEFAULT_INPUTS);
@@ -65,7 +65,22 @@ const App: React.FC = () => {
               <div className="relative group">
                 <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-xl blur opacity-25 group-hover:opacity-50 transition duration-200"></div>
                 <div className="relative bg-white dark:bg-slate-900 p-2 rounded-xl text-blue-600 dark:text-blue-500 ring-1 ring-slate-200 dark:ring-slate-800">
-                  <Rocket size={22} className="transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-transform" />
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" className="w-[22px] h-[22px] transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-transform">
+                    <rect x="10" y="10" width="80" height="80" rx="16" fill="#1e293b" />
+                    <rect x="22" y="22" width="56" height="20" rx="4" fill="#94a3b8" />
+                    {/* CH Button */}
+                    <rect x="22" y="52" width="24" height="24" rx="6" fill="#dc2626" />
+                    <path d="M34 58v12M28 64h12" stroke="white" strokeWidth="3" strokeLinecap="round" />
+                    {/* IT Button */}
+                    <mask id="m-logo">
+                      <rect x="54" y="52" width="24" height="24" rx="6" fill="white" />
+                    </mask>
+                    <g mask="url(#m-logo)">
+                      <rect x="54" y="52" width="8" height="24" fill="#16a34a" />
+                      <rect x="62" y="52" width="8" height="24" fill="white" />
+                      <rect x="70" y="52" width="8" height="24" fill="#dc2626" />
+                    </g>
+                  </svg>
                 </div>
               </div>
               <div className="hidden sm:block">

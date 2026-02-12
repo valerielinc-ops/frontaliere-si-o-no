@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Wand2, Castle, Bandage, PiggyBank, CalendarClock, Joystick, Plus, Minus, ChevronDown, ChevronUp, Check, TrainFront, Coins, Receipt, Car, Home, User, Heart, Briefcase, Ruler, Baby, Users, Sliders, Calculator, PersonStanding, RotateCcw, Settings2, RefreshCw, X, Zap, Wifi, ShoppingBasket, Bus, Fuel } from 'lucide-react';
+import { Wand2, Castle, Bandage, PiggyBank, CalendarClock, Joystick, Plus, Minus, ChevronDown, ChevronUp, Check, TrainFront, Coins, Receipt, Car, Home, User, Heart, Briefcase, Ruler, Baby, Users, Sliders, Calculator, PersonStanding, RotateCcw, Settings2, RefreshCw, X, Zap, Wifi, ShoppingBasket, Bus, Fuel, Info } from 'lucide-react';
 import { SimulationInputs, ExpenseItem } from '../types';
 import { DEFAULT_INPUTS, DEFAULT_TECH_PARAMS, PRESET_EXPENSES_CH, PRESET_EXPENSES_IT } from '../constants';
 
@@ -16,6 +16,16 @@ const IconsMap: Record<string, any> = {
 };
 
 // --- Reusable Components ---
+
+const InfoTooltip = ({ text }: { text: string }) => (
+  <div className="group relative inline-flex items-center ml-1.5 cursor-help z-50">
+    <Info size={12} className="text-slate-400 hover:text-indigo-500 transition-colors" />
+    <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 hidden group-hover:block w-48 p-2.5 bg-slate-800 dark:bg-slate-700 text-white text-[10px] font-medium leading-relaxed rounded-xl shadow-xl border border-slate-600 pointer-events-none animate-fade-in text-center">
+      {text}
+      <div className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-slate-800 dark:border-t-slate-700"></div>
+    </div>
+  </div>
+);
 
 const SectionHeader = ({ title, icon: Icon, isOpen, onToggle, subtext, iconColor = "text-indigo-600", action }: any) => (
   <button 
@@ -40,9 +50,9 @@ const SectionHeader = ({ title, icon: Icon, isOpen, onToggle, subtext, iconColor
   </button>
 );
 
-const StepperInput = ({ value, onChange, min = 0, max, label, icon: Icon, iconColor = "text-slate-400" }: any) => (
+const StepperInput = ({ value, onChange, min = 0, max, label, icon: Icon, iconColor = "text-slate-400", tooltip }: any) => (
   <div className="space-y-2">
-    {label && <label className="text-[10px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wide flex items-center gap-1.5 h-4">{Icon && <Icon size={12} className={iconColor}/>} {label}</label>}
+    {label && <label className="text-[10px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wide flex items-center gap-1.5 h-4">{Icon && <Icon size={12} className={iconColor}/>} {label} {tooltip && <InfoTooltip text={tooltip} />}</label>}
     <div className="flex items-center bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl overflow-hidden h-11 shadow-sm focus-within:ring-2 focus-within:ring-indigo-500/20 focus-within:border-indigo-500 transition-all">
       <button 
         onClick={() => onChange(Math.max(min, value - 1))}
@@ -68,9 +78,9 @@ const StepperInput = ({ value, onChange, min = 0, max, label, icon: Icon, iconCo
   </div>
 );
 
-const SegmentControl = ({ options, value, onChange, label, icon: Icon, iconColor = "text-slate-400" }: any) => (
+const SegmentControl = ({ options, value, onChange, label, icon: Icon, iconColor = "text-slate-400", tooltip }: any) => (
   <div className="space-y-2">
-    {label && <label className="text-[10px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wide flex items-center gap-1.5 h-4">{Icon && <Icon size={12} className={iconColor}/>} {label}</label>}
+    {label && <label className="text-[10px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wide flex items-center gap-1.5 h-4">{Icon && <Icon size={12} className={iconColor}/>} {label} {tooltip && <InfoTooltip text={tooltip} />}</label>}
     <div className="flex bg-slate-100 dark:bg-slate-900 p-1 rounded-xl relative h-11">
       {options.map((opt: any) => (
         <button
@@ -216,11 +226,14 @@ export const InputCard: React.FC<Props> = ({ inputs, setInputs }) => {
       <div className="flex-grow overflow-y-auto custom-scrollbar p-3 space-y-3 pb-20">
         
         {/* SECTION 1: MAIN INPUTS */}
-        <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-100 dark:border-slate-700 overflow-hidden shadow-sm">
+        <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-100 dark:border-slate-700 shadow-sm">
            <div className="p-5 space-y-6">
               {/* Income Input - Prominent */}
               <div className="space-y-2">
-                 <label className="text-[11px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wide flex items-center gap-1.5"><Coins size={14} className="text-amber-500"/> Reddito Lordo Annuo</label>
+                 <label className="text-[11px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wide flex items-center gap-1.5">
+                   <Coins size={14} className="text-amber-500"/> Reddito Lordo Annuo 
+                   <InfoTooltip text="Inserisci il reddito lordo da contratto, inclusa eventuale 13esima (es. 6000 * 13 = 78000)." />
+                 </label>
                  <div className="relative group transition-transform duration-200 focus-within:scale-[1.01]">
                     <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
                       <span className="text-slate-400 font-bold text-lg">CHF</span>
@@ -238,7 +251,7 @@ export const InputCard: React.FC<Props> = ({ inputs, setInputs }) => {
 
               {/* Demographics Grid */}
               <div className="grid grid-cols-2 gap-4">
-                 <StepperInput label="Età" value={inputs.age} onChange={(v: number) => handleChange('age', v)} min={18} max={99} icon={User} iconColor="text-blue-500" />
+                 <StepperInput label="Età" value={inputs.age} onChange={(v: number) => handleChange('age', v)} min={18} max={99} icon={User} iconColor="text-blue-500" tooltip="L'età influenza i contributi pensionistici LPP (Pilastro 2)." />
                  <SegmentControl 
                     label="Sesso" 
                     icon={PersonStanding}
@@ -251,7 +264,10 @@ export const InputCard: React.FC<Props> = ({ inputs, setInputs }) => {
 
               {/* Marital Status */}
               <div className="space-y-2">
-                <label className="text-[10px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wide flex items-center gap-1.5 h-4"><Heart size={12} className="text-rose-500"/> Stato Civile</label>
+                <label className="text-[10px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wide flex items-center gap-1.5 h-4">
+                  <Heart size={12} className="text-rose-500"/> Stato Civile
+                  <InfoTooltip text="Lo stato civile determina la tabella fiscale applicata in Svizzera (A, B, C o H)." />
+                </label>
                 <div className="relative">
                   <select 
                     value={inputs.maritalStatus} 
@@ -270,7 +286,10 @@ export const InputCard: React.FC<Props> = ({ inputs, setInputs }) => {
               {/* Spouse Works Toggle */}
               {inputs.maritalStatus === 'MARRIED' && (
                  <div className="flex items-center justify-between bg-indigo-50/50 dark:bg-indigo-900/10 p-3 rounded-xl border border-indigo-100 dark:border-indigo-900/30 animate-fade-in mt-2">
-                    <span className="text-[10px] font-bold text-indigo-900 dark:text-indigo-300 flex items-center gap-1.5"><Briefcase size={14} className="text-indigo-500"/> Coniuge lavora?</span>
+                    <span className="text-[10px] font-bold text-indigo-900 dark:text-indigo-300 flex items-center gap-1.5">
+                      <Briefcase size={14} className="text-indigo-500"/> Coniuge lavora?
+                      <InfoTooltip text="Se il coniuge lavora, si applica la Tabella C (Doppio Reddito) con aliquote diverse." />
+                    </span>
                     <button 
                       onClick={() => handleChange('spouseWorks', !inputs.spouseWorks)}
                       className={`relative w-11 h-6 rounded-full transition-all duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 ${inputs.spouseWorks ? 'bg-indigo-500' : 'bg-slate-300 dark:bg-slate-600'}`}
@@ -283,8 +302,11 @@ export const InputCard: React.FC<Props> = ({ inputs, setInputs }) => {
         </div>
 
         {/* SECTION 2: FRONTIER TYPE */}
-        <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-100 dark:border-slate-700 overflow-hidden shadow-sm p-5 space-y-4">
-           <h3 className="text-[10px] font-bold text-slate-400 uppercase tracking-widest flex items-center gap-2"><TrainFront size={14} className="text-emerald-500"/> Tipologia Frontaliere</h3>
+        <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-100 dark:border-slate-700 shadow-sm p-5 space-y-4">
+           <h3 className="text-[10px] font-bold text-slate-400 uppercase tracking-widest flex items-center gap-2">
+             <TrainFront size={14} className="text-emerald-500"/> Tipologia Frontaliere
+             <InfoTooltip text="Definisce il regime fiscale. 'Vecchio' (prima 2023) paga solo in CH. 'Nuovo' paga in CH e IT." />
+           </h3>
            
            <div className="grid grid-cols-2 gap-3">
               <button 
@@ -311,6 +333,7 @@ export const InputCard: React.FC<Props> = ({ inputs, setInputs }) => {
                     label="Fascia di Confine" 
                     icon={Ruler}
                     iconColor="text-orange-500"
+                    tooltip="Entro 20km: Franchigia 10k e aliquota CH max 80%. Oltre 20km: Regime ordinario."
                     options={[{label: 'Entro 20km', value: 'WITHIN_20KM'}, {label: 'Oltre 20km', value: 'OVER_20KM'}]} 
                     value={inputs.distanceZone} 
                     onChange={(v: any) => handleChange('distanceZone', v)} 
@@ -320,16 +343,19 @@ export const InputCard: React.FC<Props> = ({ inputs, setInputs }) => {
         </div>
 
         {/* SECTION 3: FAMILY & INSURANCE */}
-        <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-100 dark:border-slate-700 overflow-hidden shadow-sm p-5 space-y-5">
+        <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-100 dark:border-slate-700 shadow-sm p-5 space-y-5">
            <h3 className="text-[10px] font-bold text-slate-400 uppercase tracking-widest flex items-center gap-2"><Castle size={14} className="text-purple-500"/> Famiglia & Salute</h3>
            
            <div className="grid grid-cols-2 gap-4">
               <StepperInput label="Membri Nucleo" value={inputs.familyMembers} onChange={(v: number) => handleChange('familyMembers', v)} min={1} icon={Users} iconColor="text-cyan-500" />
-              <StepperInput label="Figli a Carico" value={inputs.children} onChange={(v: number) => handleChange('children', v)} min={0} icon={Baby} iconColor="text-pink-500" />
+              <StepperInput label="Figli a Carico" value={inputs.children} onChange={(v: number) => handleChange('children', v)} min={0} icon={Baby} iconColor="text-pink-500" tooltip="Numero figli minorenni per assegni familiari e deduzioni." />
            </div>
 
            <div className="space-y-2">
-               <label className="text-[10px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wide flex items-center gap-1.5 h-4"><Bandage size={12} className="text-rose-500"/> Cassa Malati (Mese)</label>
+               <label className="text-[10px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wide flex items-center gap-1.5 h-4">
+                 <Bandage size={12} className="text-rose-500"/> Cassa Malati (Mese)
+                 <InfoTooltip text="Premio mensile per l'assicurazione sanitaria obbligatoria (LAMal) in Svizzera." />
+               </label>
                <div className="relative group">
                    <input type="number" value={inputs.healthInsuranceCHF || ''} onChange={(e) => handleChange('healthInsuranceCHF', Number(e.target.value))} className="w-full pl-3 pr-10 py-3 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl focus:ring-4 focus:ring-blue-100 focus:border-blue-500 outline-none transition-all font-bold text-slate-800 dark:text-slate-100 text-sm h-11" placeholder="0" />
                    <span className="absolute right-3 top-3.5 text-slate-400 dark:text-slate-500 font-bold text-xs">CHF</span>
@@ -445,7 +471,10 @@ export const InputCard: React.FC<Props> = ({ inputs, setInputs }) => {
                   <div className="grid grid-cols-2 gap-4 items-end">
                      <div className="space-y-2">
                         <div className="flex justify-between items-center h-4">
-                            <label className="text-[10px] font-bold text-slate-500 uppercase flex items-center gap-1"><Coins size={10} className="text-yellow-500" /> Cambio EUR/CHF</label>
+                            <label className="text-[10px] font-bold text-slate-500 uppercase flex items-center gap-1">
+                                <Coins size={10} className="text-yellow-500" /> Cambio EUR/CHF
+                                <InfoTooltip text="Tasso usato per convertire lo stipendio in Euro per il calcolo delle tasse italiane." />
+                            </label>
                             <button onClick={fetchRate} disabled={loadingRate} className={`text-[9px] flex items-center gap-1 px-1.5 py-0.5 rounded bg-slate-100 dark:bg-slate-700 hover:text-indigo-500 font-bold transition-all ${loadingRate ? 'opacity-50' : ''}`}>
                                 <RefreshCw size={8} className={loadingRate ? 'animate-spin' : ''} /> {lastRateUpdate ? 'Live' : 'Aggiorna'}
                             </button>
@@ -458,7 +487,7 @@ export const InputCard: React.FC<Props> = ({ inputs, setInputs }) => {
                            className="w-full h-11 bg-slate-50 dark:bg-slate-900 px-3 rounded-xl border border-slate-200 dark:border-slate-700 outline-none text-base font-bold focus:border-indigo-500 transition-colors" 
                         />
                      </div>
-                     <StepperInput label="Mensilità" value={inputs.monthsBasis} onChange={(v: number) => handleChange('monthsBasis', v)} min={12} max={15} icon={CalendarClock} iconColor="text-orange-400" />
+                     <StepperInput label="Mensilità" value={inputs.monthsBasis} onChange={(v: number) => handleChange('monthsBasis', v)} min={12} max={15} icon={CalendarClock} iconColor="text-orange-400" tooltip="Numero di mensilità (es. 13) per calcolare il netto mensile corretto." />
                   </div>
               </div>
            )}
