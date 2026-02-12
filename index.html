@@ -12,6 +12,7 @@
     <meta name="robots" content="index, follow" />
     <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
     <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)">
+    <link rel="canonical" href="https://frontaliereticino.ch/" />
 
     <!-- Open Graph / Social Sharing -->
     <meta property="og:type" content="website" />
@@ -19,14 +20,17 @@
     <meta property="og:description" content="Conviene fare il frontaliere? Calcola subito la differenza tra vecchio e nuovo accordo fiscale Svizzera-Italia." />
     <meta property="og:locale" content="it_IT" />
     <meta property="og:site_name" content="Frontaliere Si o No?" />
+    <meta property="og:image" content="/screenshot.svg" />
+    <meta property="og:image:alt" content="Anteprima del simulatore fiscale" />
+    <meta name="twitter:card" content="summary_large_image" />
     
     <!-- Mobile Web App -->
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <meta name="format-detection" content="telephone=no">
 
-    <!-- Favicon (Embedded SVG for performance and aesthetics) -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%234f46e5'/%3E%3Cpath d='M30 50h40M30 35h40M50 20v60' stroke='white' stroke-width='8' stroke-linecap='round'/%3E%3Cpath d='M70 70l-15 15-15-15' stroke='white' stroke-width='6' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+    <!-- Favicon (Calculator with CH/IT flags) -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect x='10' y='10' width='80' height='80' rx='16' fill='%231e293b'/%3E%3Crect x='22' y='22' width='56' height='20' rx='4' fill='%2394a3b8'/%3E%3C!-- CH Button --%3E%3Crect x='22' y='52' width='24' height='24' rx='6' fill='%23dc2626'/%3E%3Cpath d='M34 58v12M28 64h12' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C!-- IT Button --%3E%3Cmask id='m'%3E%3Crect x='54' y='52' width='24' height='24' rx='6' fill='white'/%3E%3C/mask%3E%3Cg mask='url(%23m)'%3E%3Crect x='54' y='52' width='8' height='24' fill='%2316a34a'/%3E%3Crect x='62' y='52' width='8' height='24' fill='white'/%3E%3Crect x='70' y='52' width='8' height='24' fill='%23dc2626'/%3E%3C/g%3E%3C/svg%3E">
 
     <!-- Structured Data (JSON-LD) for Google Rich Results -->
     <script type="application/ld+json">
@@ -166,11 +170,14 @@
     "recharts": "https://esm.sh/recharts@^3.7.0",
     "jspdf": "https://esm.sh/jspdf@^4.1.0",
     "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
-    "@google/genai": "https://esm.sh/@google/genai@^1.40.0"
+    "@google/genai": "https://esm.sh/@google/genai@^1.40.0",
+    "path": "https://esm.sh/path@^0.12.7",
+    "vite": "https://esm.sh/vite@^7.3.1",
+    "@vitejs/plugin-react": "https://esm.sh/@vitejs/plugin-react@^5.1.4"
   }
 }
 </script>
-  <script type="module" crossorigin src="/frontaliere-si-o-no/assets/index-mdG_Kkcu.js"></script>
+  <script type="module" crossorigin src="/assets/index-CXujtBeh.js"></script>
 </head>
   <body class="bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 transition-colors duration-300 overflow-x-hidden">
     <div id="root"></div>
