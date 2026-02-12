@@ -42,7 +42,7 @@
         <!-- Income Input -->
         <text x="0" y="0" font-family="'Inter', sans-serif" font-weight="700" font-size="10" fill="#64748b" letter-spacing="0.5">REDDITO LORDO ANNUO</text>
         <rect x="0" y="10" width="260" height="56" rx="16" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
-        <text x="20" y="46" font-family="'Inter', sans-serif" font-weight="700" font-size="22" fill="#0f172a">85'000</text>
+        <text x="20" y="46" font-family="'Inter', sans-serif" font-weight="700" font-size="22" fill="#0f172a">85&#39;000</text>
         <text x="220" y="46" font-family="'Inter', sans-serif" font-weight="600" font-size="14" fill="#94a3b8" text-anchor="end">CHF</text>
         
         <!-- Other Inputs -->
@@ -84,7 +84,7 @@
         <circle cx="40" cy="35" r="16" fill="#ffffff" fill-opacity="0.2"/>
         <text x="40" y="42" text-anchor="middle" font-family="'Inter', sans-serif" font-size="20">🏆</text>
         <text x="70" y="32" font-family="'Inter', sans-serif" font-weight="700" font-size="16" fill="#ffffff">Meglio fare il Frontaliere!</text>
-        <text x="70" y="50" font-family="'Inter', sans-serif" font-weight="500" font-size="12" fill="#d1fae5">Vantaggio netto stimato: CHF 9'240 / anno</text>
+        <text x="70" y="50" font-family="'Inter', sans-serif" font-weight="500" font-size="12" fill="#d1fae5">Vantaggio netto stimato: CHF 9&#39;240 / anno</text>
         
         <!-- Cards Grid -->
         <g transform="translate(0, 90)">
@@ -96,7 +96,7 @@
             <text x="25" y="30" font-family="'Inter', sans-serif" font-weight="700" font-size="10" fill="#3b82f6" letter-spacing="1">VIVERE IN TICINO</text>
             <image href="https://flagcdn.com/w40/ch.png" x="240" y="15" height="15" width="20" />
             
-            <text x="25" y="70" font-family="'Inter', sans-serif" font-weight="800" font-size="28" fill="#0f172a">CHF 4'850</text>
+            <text x="25" y="70" font-family="'Inter', sans-serif" font-weight="800" font-size="28" fill="#0f172a">CHF 4&#39;850</text>
             <text x="25" y="90" font-family="'Inter', sans-serif" font-weight="500" font-size="11" fill="#64748b">Netto Mensile Residuo</text>
             
             <!-- Breakdown Lines -->
@@ -115,7 +115,7 @@
                 <text x="25" y="30" font-family="'Inter', sans-serif" font-weight="700" font-size="10" fill="#ef4444" letter-spacing="1">VIVERE IN ITALIA</text>
                  <image href="https://flagcdn.com/w40/it.png" x="240" y="15" height="15" width="20" />
                 
-                <text x="25" y="70" font-family="'Inter', sans-serif" font-weight="800" font-size="28" fill="#0f172a">CHF 5'620</text>
+                <text x="25" y="70" font-family="'Inter', sans-serif" font-weight="800" font-size="28" fill="#0f172a">CHF 5&#39;620</text>
                 <text x="25" y="90" font-family="'Inter', sans-serif" font-weight="500" font-size="11" fill="#64748b">Netto Mensile Residuo</text>
                 
                  <line x1="25" y1="110" x2="265" y2="110" stroke="#f1f5f9" />
