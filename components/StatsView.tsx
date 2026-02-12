@@ -420,28 +420,72 @@ export const StatsView: React.FC = () => {
         
         {/* KPI Row */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            <div className="bg-blue-50/50 dark:bg-blue-900/20 p-4 rounded-2xl border border-blue-100 dark:border-blue-800">
-               <p className="text-[10px] font-bold text-blue-500 uppercase">Totale Frontalieri</p>
+            <div className="bg-blue-50/50 dark:bg-blue-900/20 p-4 rounded-2xl border border-blue-100 dark:border-blue-800 group relative">
+               <p className="text-[10px] font-bold text-blue-500 uppercase flex items-center gap-1">
+                 Totale Frontalieri
+                 <Info size={12} className="text-blue-400 cursor-help" />
+               </p>
                <p className="text-2xl font-extrabold text-slate-800 dark:text-slate-100 mt-1">
                  {loading ? <Loader2 className="animate-spin h-6 w-6"/> : (latestValue / 1000).toFixed(1) + 'k'}
                </p>
+               {/* Tooltip */}
+               <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 hidden group-hover:block z-20 w-56">
+                 <div className="bg-slate-900 text-white text-xs rounded-xl p-3 shadow-xl">
+                   <p className="font-semibold mb-1">Numero totale di frontalieri</p>
+                   <p className="text-slate-300">Lavoratori italiani con permesso G che lavorano in Svizzera e rientrano in Italia quotidianamente. Dati aggiornati dall'Ufficio Federale di Statistica (BFS).</p>
+                   <div className="absolute top-full left-1/2 -translate-x-1/2 -mt-1 border-4 border-transparent border-t-slate-900"></div>
+                 </div>
+               </div>
             </div>
-            <div className={`p-4 rounded-2xl border ${Number(qoqPercent) >= 0 ? 'bg-emerald-50/50 border-emerald-100 dark:bg-emerald-900/20 dark:border-emerald-800' : 'bg-red-50/50 border-red-100'}`}>
-               <p className={`text-[10px] font-bold uppercase ${Number(qoqPercent) >= 0 ? 'text-emerald-500' : 'text-red-500'}`}>Trend Trimestrale</p>
+            <div className={`p-4 rounded-2xl border group relative ${Number(qoqPercent) >= 0 ? 'bg-emerald-50/50 border-emerald-100 dark:bg-emerald-900/20 dark:border-emerald-800' : 'bg-red-50/50 border-red-100'}`}>
+               <p className={`text-[10px] font-bold uppercase flex items-center gap-1 ${Number(qoqPercent) >= 0 ? 'text-emerald-500' : 'text-red-500'}`}>
+                 Trend Trimestrale
+                 <Info size={12} className={`cursor-help ${Number(qoqPercent) >= 0 ? 'text-emerald-400' : 'text-red-400'}`} />
+               </p>
                <div className="flex items-center gap-2 mt-1">
                  <p className="text-2xl font-extrabold text-slate-800 dark:text-slate-100">{qoqPercent}%</p>
                  {Number(qoqPercent) >= 0 ? <TrendingUp size={18} className="text-emerald-500"/> : <TrendingUp size={18} className="text-red-500 rotate-180"/>}
                </div>
+               {/* Tooltip */}
+               <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 hidden group-hover:block z-20 w-56">
+                 <div className="bg-slate-900 text-white text-xs rounded-xl p-3 shadow-xl">
+                   <p className="font-semibold mb-1">Crescita trimestrale</p>
+                   <p className="text-slate-300">Variazione percentuale del numero di frontalieri rispetto al trimestre precedente. Un valore positivo indica crescita, negativo indica calo.</p>
+                   <div className="absolute top-full left-1/2 -translate-x-1/2 -mt-1 border-4 border-transparent border-t-slate-900"></div>
+                 </div>
+               </div>
             </div>
-            <div className="bg-indigo-50/50 dark:bg-indigo-900/20 p-4 rounded-2xl border border-indigo-100 dark:border-indigo-800">
-               <p className="text-[10px] font-bold text-indigo-500 uppercase">Permessi (Stimati)</p>
+            <div className="bg-indigo-50/50 dark:bg-indigo-900/20 p-4 rounded-2xl border border-indigo-100 dark:border-indigo-800 group relative">
+               <p className="text-[10px] font-bold text-indigo-500 uppercase flex items-center gap-1">
+                 Permessi (Stimati)
+                 <Info size={12} className="text-indigo-400 cursor-help" />
+               </p>
                <p className="text-lg font-extrabold text-slate-800 dark:text-slate-100 mt-2 truncate">G (5 Anni)</p>
+               {/* Tooltip */}
+               <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 hidden group-hover:block z-20 w-56">
+                 <div className="bg-slate-900 text-white text-xs rounded-xl p-3 shadow-xl">
+                   <p className="font-semibold mb-1">Tipo di permesso</p>
+                   <p className="text-slate-300">Il permesso G (frontaliere) ha validità di 5 anni e consente di lavorare in Svizzera pur mantenendo la residenza in Italia. Deve essere rinnovato alla scadenza.</p>
+                   <div className="absolute top-full left-1/2 -translate-x-1/2 -mt-1 border-4 border-transparent border-t-slate-900"></div>
+                 </div>
+               </div>
             </div>
-            <div className="bg-purple-50/50 dark:bg-purple-900/20 p-4 rounded-2xl border border-purple-100 dark:border-purple-800">
-               <p className="text-[10px] font-bold text-purple-500 uppercase">Uomini vs Donne</p>
+            <div className="bg-purple-50/50 dark:bg-purple-900/20 p-4 rounded-2xl border border-purple-100 dark:border-purple-800 group relative">
+               <p className="text-[10px] font-bold text-purple-500 uppercase flex items-center gap-1">
+                 Uomini vs Donne
+                 <Info size={12} className="text-purple-400 cursor-help" />
+               </p>
                <div className="flex items-end gap-1 mt-1">
                   <p className="text-2xl font-extrabold text-slate-800 dark:text-slate-100">{malePercent}%</p>
                   <span className="text-xs text-slate-400 mb-1">M</span>
+               </div>
+               {/* Tooltip */}
+               <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 hidden group-hover:block z-20 w-56">
+                 <div className="bg-slate-900 text-white text-xs rounded-xl p-3 shadow-xl">
+                   <p className="font-semibold mb-1">Distribuzione di genere</p>
+                   <p className="text-slate-300">Percentuale di lavoratori frontalieri di sesso maschile. La restante percentuale rappresenta le donne frontaliere. Dati basati sulle statistiche BFS.</p>
+                   <div className="absolute top-full left-1/2 -translate-x-1/2 -mt-1 border-4 border-transparent border-t-slate-900"></div>
+                 </div>
                </div>
             </div>
         </div>
