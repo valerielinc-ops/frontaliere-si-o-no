@@ -40,7 +40,20 @@ export const FeedbackSection: React.FC = () => {
     const fetchIssues = async () => {
       try {
         setLoading(true);
-        const response = await fetch(`https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/issues?state=all&per_page=10`);
+        const headers: HeadersInit = {
+          'Accept': 'application/vnd.github.v3+json'
+        };
+        
+        // Aggiungi autenticazione se il token è disponibile (necessario per repository privati)
+        if (GITHUB_TOKEN) {
+          headers['Authorization'] = `token ${GITHUB_TOKEN}`;
+        }
+        
+        const response = await fetch(
+          `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/issues?state=all&per_page=10`,
+          { headers }
+        );
+        
         if (response.ok) {
           const data = await response.json();
           const mappedItems: FeedbackItem[] = data.map((issue: any) => ({
