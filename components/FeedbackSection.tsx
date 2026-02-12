@@ -94,7 +94,7 @@ export const FeedbackSection: React.FC = () => {
     if (!formData.title) return;
     
     if (!GITHUB_TOKEN) {
-      setSubmitError("Token GitHub mancante (REACT_APP_GITHUB_TOKEN). Impossibile inviare API.");
+      setSubmitError("Token GitHub mancante. Impossibile inviare la segnalazione.");
       return;
     }
 
