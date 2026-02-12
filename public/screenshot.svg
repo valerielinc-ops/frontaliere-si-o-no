@@ -1,162 +1,283 @@
 <svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
   <defs>
+    <!-- Modern gradient background -->
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#0f172a"/>
-      <stop offset="1" stop-color="#1e293b"/>
+      <stop offset="0" stop-color="#eef2ff"/>
+      <stop offset="0.5" stop-color="#f8fafc"/>
+      <stop offset="1" stop-color="#faf5ff"/>
     </linearGradient>
-    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="10" stdDeviation="15" flood-color="#000" flood-opacity="0.3"/>
+    
+    <!-- Blob gradients -->
+    <radialGradient id="blob1" cx="50%" cy="50%">
+      <stop offset="0%" stop-color="#c4b5fd" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#c4b5fd" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="blob2" cx="50%" cy="50%">
+      <stop offset="0%" stop-color="#a5b4fc" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#a5b4fc" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="blob3" cx="50%" cy="50%">
+      <stop offset="0%" stop-color="#f9a8d4" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#f9a8d4" stop-opacity="0"/>
+    </radialGradient>
+    
+    <!-- Card gradients -->
+    <linearGradient id="card-ch" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#f8fafc"/>
+    </linearGradient>
+    <linearGradient id="card-it" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#f8fafc"/>
+    </linearGradient>
+    
+    <!-- Result banner gradient -->
+    <linearGradient id="result-grad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#10b981"/>
+      <stop offset="1" stop-color="#059669"/>
+    </linearGradient>
+    
+    <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="12"/>
+      <feOffset dx="0" dy="8" result="offsetblur"/>
+      <feComponentTransfer>
+        <feFuncA type="linear" slope="0.15"/>
+      </feComponentTransfer>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
     </filter>
-    <linearGradient id="banner-grad" x1="0" y1="0" x2="1" y2="0">
-        <stop offset="0" stop-color="#10b981"/>
-        <stop offset="1" stop-color="#0d9488"/>
-    </linearGradient>
   </defs>
   
   <!-- Background -->
   <rect width="1200" height="630" fill="url(#bg)"/>
   
-  <!-- Background Blobs -->
-  <circle cx="200" cy="100" r="200" fill="#6366f1" opacity="0.1" filter="blur(60px)"/>
-  <circle cx="1000" cy="500" r="250" fill="#db2777" opacity="0.05" filter="blur(80px)"/>
-
-  <!-- App Window Container -->
-  <g transform="translate(100, 65)">
-     <!-- Main Window Frame -->
-     <rect width="1000" height="500" rx="24" fill="#ffffff" fill-opacity="0.95" stroke="#e2e8f0" stroke-width="1" filter="url(#shadow)"/>
-     
-     <!-- Sidebar (Inputs) -->
-     <path d="M0 24C0 10.7452 10.7452 0 24 0H320V500H24C10.7452 500 0 489.255 0 476V24Z" fill="#f8fafc"/>
-     <line x1="320" y1="0" x2="320" y2="500" stroke="#e2e8f0"/>
-     
-     <!-- Logo Area -->
-     <g transform="translate(30, 40)">
-        <rect width="36" height="36" rx="10" fill="#1e293b"/>
-        <path d="M12 18h12M18 12v12" stroke="white" stroke-width="3" stroke-linecap="round"/>
-        <text x="48" y="24" font-family="'Inter', sans-serif" font-weight="800" font-size="18" fill="#0f172a">Frontaliere Si o No?</text>
-        <text x="48" y="38" font-family="'Inter', sans-serif" font-weight="600" font-size="10" fill="#64748b" letter-spacing="1">SIMULATORE 2026</text>
-     </g>
-     
-     <!-- Inputs Mockup -->
-     <g transform="translate(30, 100)">
+  <!-- Animated Background Blobs -->
+  <circle cx="250" cy="120" r="200" fill="url(#blob1)" filter="blur(60px)"/>
+  <circle cx="950" cy="150" r="220" fill="url(#blob2)" filter="blur(70px)"/>
+  <circle cx="600" cy="500" r="180" fill="url(#blob3)" filter="blur(80px)"/>
+  
+  <!-- Container -->
+  <g transform="translate(60, 50)">
+    
+    <!-- Header / Navbar -->
+    <rect width="1080" height="60" rx="16" fill="#ffffff" fill-opacity="0.7" filter="url(#shadow)" stroke="#e2e8f0" stroke-width="1"/>
+    
+    <!-- Logo -->
+    <g transform="translate(24, 14)">
+      <!-- Logo background glow -->
+      <rect x="-3" y="-3" width="38" height="38" rx="14" fill="#3b82f6" opacity="0.15" filter="blur(8px)"/>
+      
+      <!-- Calculator Icon -->
+      <rect width="32" height="32" rx="10" fill="#1e293b"/>
+      <rect x="6" y="6" width="20" height="7" rx="2" fill="#94a3b8"/>
+      <!-- CH Button (Red with cross) -->
+      <rect x="6" y="17" width="8" height="8" rx="3" fill="#dc2626"/>
+      <path d="M10 19v4M8 21h4" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+      <!-- IT Button (Green/White/Red flag) -->
+      <rect x="18" y="17" width="2.6" height="8" rx="1.5" fill="#16a34a"/>
+      <rect x="20.6" y="17" width="2.6" height="8" fill="white"/>
+      <rect x="23.2" y="17" width="2.6" height="8" rx="1.5" fill="#dc2626"/>
+      
+      <!-- Title Text -->
+      <text x="44" y="19" font-family="'Inter', -apple-system, sans-serif" font-weight="800" font-size="16" fill="#0f172a">Frontaliere Si o No?</text>
+      <text x="44" y="30" font-family="'Inter', -apple-system, sans-serif" font-weight="600" font-size="8" fill="#64748b" letter-spacing="1.5">ANALISI FISCALE 2026</text>
+    </g>
+    
+    <!-- Nav Pills -->
+    <g transform="translate(420, 22)">
+      <!-- Active Calculator Tab -->
+      <rect width="100" height="28" rx="8" fill="#3b82f6"/>
+      <text x="50" y="18" text-anchor="middle" font-family="'Inter', -apple-system, sans-serif" font-size="11" font-weight="700" fill="#ffffff">📊 Simulatore</text>
+      
+      <!-- Inactive Stats Tab -->
+      <rect x="110" width="90" height="28" rx="8" fill="#f1f5f9"/>
+      <text x="155" y="18" text-anchor="middle" font-family="'Inter', -apple-system, sans-serif" font-size="11" font-weight="600" fill="#64748b">📈 Curiosità</text>
+      
+      <!-- Inactive Support Tab -->
+      <rect x="210" width="90" height="28" rx="8" fill="#f1f5f9"/>
+      <text x="255" y="18" text-anchor="middle" font-family="'Inter', -apple-system, sans-serif" font-size="11" font-weight="600" fill="#64748b">❓ Supporto</text>
+    </g>
+    
+    <!-- Main Content Area -->
+    <g transform="translate(0, 80)">
+      
+      <!-- Left Panel: Input Card -->
+      <g>
+        <rect width="360" height="480" rx="20" fill="#ffffff" filter="url(#shadow)" stroke="#e2e8f0" stroke-width="1"/>
+        
+        <!-- Input Card Header -->
+        <text x="24" y="35" font-family="'Inter', -apple-system, sans-serif" font-weight="800" font-size="15" fill="#0f172a">⚙️ Parametri di Simulazione</text>
+        <text x="24" y="50" font-family="'Inter', -apple-system, sans-serif" font-weight="500" font-size="9" fill="#94a3b8">Inserisci i tuoi dati per il calcolo</text>
+        
         <!-- Income Input -->
-        <text x="0" y="0" font-family="'Inter', sans-serif" font-weight="700" font-size="10" fill="#64748b" letter-spacing="0.5">REDDITO LORDO ANNUO</text>
-        <rect x="0" y="10" width="260" height="56" rx="16" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
-        <text x="20" y="46" font-family="'Inter', sans-serif" font-weight="700" font-size="22" fill="#0f172a">85&#39;000</text>
-        <text x="220" y="46" font-family="'Inter', sans-serif" font-weight="600" font-size="14" fill="#94a3b8" text-anchor="end">CHF</text>
-        
-        <!-- Other Inputs -->
-        <g transform="translate(0, 90)">
-            <text x="0" y="0" font-family="'Inter', sans-serif" font-weight="700" font-size="10" fill="#64748b" letter-spacing="0.5">STATO CIVILE</text>
-            <rect x="0" y="10" width="260" height="44" rx="12" fill="#f1f5f9" stroke="#e2e8f0"/>
-            <text x="16" y="36" font-family="'Inter', sans-serif" font-weight="600" font-size="13" fill="#334155">Celibe / Nubile</text>
-            <path d="M240 25 l-4 4 l-4 -4" stroke="#94a3b8" stroke-width="2" fill="none"/>
+        <g transform="translate(24, 70)">
+          <text x="0" y="0" font-family="'Inter', -apple-system, sans-serif" font-weight="700" font-size="9" fill="#64748b" letter-spacing="0.8">💰 REDDITO LORDO ANNUO</text>
+          <rect x="0" y="8" width="312" height="48" rx="12" fill="#f8fafc" stroke="#e2e8f0" stroke-width="2"/>
+          <text x="20" y="40" font-family="'Inter', -apple-system, sans-serif" font-weight="800" font-size="20" fill="#0f172a">CHF 100&#39;000</text>
         </g>
         
-        <g transform="translate(0, 160)">
-            <text x="0" y="0" font-family="'Inter', sans-serif" font-weight="700" font-size="10" fill="#64748b" letter-spacing="0.5">TIPOLOGIA FRONTALIERE</text>
-            <rect x="0" y="10" width="125" height="70" rx="12" fill="#eff6ff" stroke="#3b82f6" stroke-width="2"/>
-            <text x="62.5" y="40" font-family="'Inter', sans-serif" font-weight="700" font-size="13" fill="#1d4ed8" text-anchor="middle">Nuovo</text>
-            <text x="62.5" y="55" font-family="'Inter', sans-serif" font-weight="500" font-size="9" fill="#60a5fa" text-anchor="middle">Post 2023</text>
-            
-            <rect x="135" y="10" width="125" height="70" rx="12" fill="#f8fafc" stroke="#e2e8f0"/>
-            <text x="197.5" y="40" font-family="'Inter', sans-serif" font-weight="600" font-size="13" fill="#64748b" text-anchor="middle">Vecchio</text>
-             <text x="197.5" y="55" font-family="'Inter', sans-serif" font-weight="500" font-size="9" fill="#94a3b8" text-anchor="middle">Pre 2023</text>
+        <!-- Marital Status -->
+        <g transform="translate(24, 150)">
+          <text x="0" y="0" font-family="'Inter', -apple-system, sans-serif" font-weight="700" font-size="9" fill="#64748b" letter-spacing="0.8">💑 STATO CIVILE</text>
+          <rect x="0" y="8" width="312" height="40" rx="10" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1"/>
+          <text x="16" y="33" font-family="'Inter', -apple-system, sans-serif" font-weight="600" font-size="12" fill="#334155">Sposato/a</text>
+          <path d="M288 22 l-3 3 l-3 -3" stroke="#94a3b8" stroke-width="2" fill="none"/>
         </g>
         
-         <g transform="translate(0, 260)">
-            <text x="0" y="0" font-family="'Inter', sans-serif" font-weight="700" font-size="10" fill="#64748b" letter-spacing="0.5">FASCIA DI CONFINE</text>
-             <g transform="translate(0, 10)">
-                <rect width="125" height="36" rx="8" fill="#ffffff" stroke="#e2e8f0"/>
-                <text x="62.5" y="22" text-anchor="middle" font-family="'Inter', sans-serif" font-size="11" font-weight="600" fill="#3b82f6">Entro 20km</text>
-                
-                <rect x="135" y="0" width="125" height="36" rx="8" fill="#f1f5f9"/>
-                <text x="197.5" y="22" text-anchor="middle" font-family="'Inter', sans-serif" font-size="11" font-weight="600" fill="#94a3b8">Oltre 20km</text>
-             </g>
-         </g>
-     </g>
-
-     <!-- Right Content (Results) -->
-     <g transform="translate(360, 40)">
+        <!-- Worker Type Buttons -->
+        <g transform="translate(24, 220)">
+          <text x="0" y="0" font-family="'Inter', -apple-system, sans-serif" font-weight="700" font-size="9" fill="#64748b" letter-spacing="0.8">🚄 TIPOLOGIA FRONTALIERE</text>
+          
+          <!-- New Frontaliere (Active) -->
+          <rect x="0" y="8" width="150" height="70" rx="12" fill="#eff6ff" stroke="#3b82f6" stroke-width="2"/>
+          <circle cx="75" cy="30" r="3" fill="#3b82f6"/>
+          <text x="75" y="50" text-anchor="middle" font-family="'Inter', -apple-system, sans-serif" font-weight="700" font-size="13" fill="#1d4ed8">Nuovo</text>
+          <text x="75" y="63" text-anchor="middle" font-family="'Inter', -apple-system, sans-serif" font-weight="500" font-size="9" fill="#60a5fa">Post 2023</text>
+          
+          <!-- Old Frontaliere (Inactive) -->
+          <rect x="162" y="8" width="150" height="70" rx="12" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+          <text x="237" y="50" text-anchor="middle" font-family="'Inter', -apple-system, sans-serif" font-weight="600" font-size="13" fill="#94a3b8">Vecchio</text>
+          <text x="237" y="63" text-anchor="middle" font-family="'Inter', -apple-system, sans-serif" font-weight="500" font-size="9" fill="#cbd5e1">Pre 2023</text>
+        </g>
         
-        <!-- Banner -->
-        <rect width="600" height="70" rx="16" fill="url(#banner-grad)"/>
-        <circle cx="40" cy="35" r="16" fill="#ffffff" fill-opacity="0.2"/>
-        <text x="40" y="42" text-anchor="middle" font-family="'Inter', sans-serif" font-size="20">🏆</text>
-        <text x="70" y="32" font-family="'Inter', sans-serif" font-weight="700" font-size="16" fill="#ffffff">Meglio fare il Frontaliere!</text>
-        <text x="70" y="50" font-family="'Inter', sans-serif" font-weight="500" font-size="12" fill="#d1fae5">Vantaggio netto stimato: CHF 9&#39;240 / anno</text>
+        <!-- Distance Zone -->
+        <g transform="translate(24, 320)">
+          <text x="0" y="0" font-family="'Inter', -apple-system, sans-serif" font-weight="700" font-size="9" fill="#64748b" letter-spacing="0.8">📍 FASCIA DI CONFINE</text>
+          
+          <!-- Within 20km (Active) -->
+          <rect x="0" y="8" width="150" height="34" rx="8" fill="#ffffff" stroke="#3b82f6" stroke-width="2"/>
+          <text x="75" y="30" text-anchor="middle" font-family="'Inter', -apple-system, sans-serif" font-size="11" font-weight="700" fill="#3b82f6">Entro 20km</text>
+          
+          <!-- Over 20km (Inactive) -->
+          <rect x="162" y="8" width="150" height="34" rx="8" fill="#f1f5f9" stroke="#e2e8f0" stroke-width="1"/>
+          <text x="237" y="30" text-anchor="middle" font-family="'Inter', -apple-system, sans-serif" font-size="11" font-weight="600" fill="#94a3b8">Oltre 20km</text>
+        </g>
         
-        <!-- Cards Grid -->
-        <g transform="translate(0, 90)">
-            <!-- CH Card -->
-            <rect width="290" height="160" rx="20" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
-            <path d="M20 0 h250 a20 20 0 0 1 20 20 v140 a0 0 0 0 1 0 0 h-290 a0 0 0 0 1 0 0 v-140 a20 20 0 0 1 20 -20" fill="none"/>
-            <rect x="0" y="0" width="6" height="160" rx="3" fill="#3b82f6"/>
+        <!-- Calculate Button -->
+        <g transform="translate(24, 390)">
+          <rect width="312" height="50" rx="12" fill="#3b82f6"/>
+          <rect width="312" height="50" rx="12" fill="url(#result-grad)"/>
+          <text x="156" y="32" text-anchor="middle" font-family="'Inter', -apple-system, sans-serif" font-size="14" font-weight="700" fill="#ffffff">✨ Calcola la Convenienza</text>
+        </g>
+        
+      </g>
+      
+      <!-- Right Panel: Results -->
+      <g transform="translate(390, 0)">
+        
+        <!-- Result Banner -->
+        <rect width="660" height="85" rx="16" fill="url(#result-grad)" filter="url(#shadow)"/>
+        <circle cx="45" cy="42" r="20" fill="#ffffff" fill-opacity="0.15"/>
+        <text x="45" y="52" text-anchor="middle" font-size="26">🏆</text>
+        <text x="80" y="37" font-family="'Inter', -apple-system, sans-serif" font-weight="800" font-size="18" fill="#ffffff">Meglio fare il Frontaliere!</text>
+        <text x="80" y="58" font-family="'Inter', -apple-system, sans-serif" font-weight="600" font-size="13" fill="#d1fae5">Vantaggio netto annuo stimato: CHF 11&#39;450</text>
+        
+        <!-- Comparison Cards -->
+        <g transform="translate(0, 105)">
+          
+          <!-- Switzerland Card (Left) -->
+          <rect width="320" height="190" rx="18" fill="url(#card-ch)" filter="url(#shadow)" stroke="#e2e8f0" stroke-width="1"/>
+          <rect x="0" y="0" width="6" height="190" rx="3" fill="#3b82f6"/>
+          
+          <text x="24" y="30" font-family="'Inter', -apple-system, sans-serif" font-weight="700" font-size="11" fill="#3b82f6" letter-spacing="1">VIVERE IN SVIZZERA</text>
+          
+          <!-- Main Value -->
+          <text x="24" y="80" font-family="'Inter', -apple-system, sans-serif" font-weight="800" font-size="32" fill="#0f172a">CHF 5&#39;850</text>
+          <text x="24" y="100" font-family="'Inter', -apple-system, sans-serif" font-weight="500" font-size="11" fill="#64748b">Netto Mensile Disponibile</text>
+          
+          <!-- Breakdown -->
+          <line x1="24" y1="120" x2="296" y2="120" stroke="#f1f5f9" stroke-width="2"/>
+          <g transform="translate(24, 140)">
+            <circle r="3" fill="#8b5cf6"/>
+            <text x="12" y="4" font-family="'Inter', -apple-system, sans-serif" font-size="10" fill="#64748b">Imposte & Contributi</text>
+            <text x="272" y="4" font-family="'Inter', -apple-system, sans-serif" font-size="10" font-weight="700" fill="#0f172a" text-anchor="end">-23.5%</text>
+          </g>
+          <g transform="translate(24, 162)">
+            <circle r="3" fill="#f59e0b"/>
+            <text x="12" y="4" font-family="'Inter', -apple-system, sans-serif" font-size="10" fill="#64748b">Cassa Malati</text>
+            <text x="272" y="4" font-family="'Inter', -apple-system, sans-serif" font-size="10" font-weight="700" fill="#0f172a" text-anchor="end">-14.4%</text>
+          </g>
+          
+          <!-- Italy Card (Right) -->
+          <g transform="translate(340, 0)">
+            <rect width="320" height="190" rx="18" fill="url(#card-it)" filter="url(#shadow)" stroke="#e2e8f0" stroke-width="1"/>
+            <rect x="0" y="0" width="6" height="190" rx="3" fill="#10b981"/>
             
-            <text x="25" y="30" font-family="'Inter', sans-serif" font-weight="700" font-size="10" fill="#3b82f6" letter-spacing="1">VIVERE IN TICINO</text>
-            <image href="https://flagcdn.com/w40/ch.png" x="240" y="15" height="15" width="20" />
+            <text x="24" y="30" font-family="'Inter', -apple-system, sans-serif" font-weight="700" font-size="11" fill="#10b981" letter-spacing="1">VIVERE IN ITALIA</text>
             
-            <text x="25" y="70" font-family="'Inter', sans-serif" font-weight="800" font-size="28" fill="#0f172a">CHF 4&#39;850</text>
-            <text x="25" y="90" font-family="'Inter', sans-serif" font-weight="500" font-size="11" fill="#64748b">Netto Mensile Residuo</text>
+            <!-- Main Value -->
+            <text x="24" y="80" font-family="'Inter', -apple-system, sans-serif" font-weight="800" font-size="32" fill="#0f172a">CHF 6&#39;800</text>
+            <text x="24" y="100" font-family="'Inter', -apple-system, sans-serif" font-weight="500" font-size="11" fill="#64748b">Netto Mensile Disponibile</text>
             
-            <!-- Breakdown Lines -->
-             <line x1="25" y1="110" x2="265" y2="110" stroke="#f1f5f9" />
-             <g transform="translate(25, 125)">
-                <circle r="3" cx="0" cy="-3" fill="#8b5cf6"/>
-                <text x="10" y="0" font-family="'Inter', sans-serif" font-size="10" fill="#64748b">Tasse & Sociali</text>
-                <text x="240" y="0" font-family="'Inter', sans-serif" font-size="10" font-weight="600" fill="#0f172a" text-anchor="end">-18%</text>
-             </g>
-             
-            <!-- IT Card -->
-            <g transform="translate(310, 0)">
-                <rect width="290" height="160" rx="20" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
-                <rect x="0" y="0" width="6" height="160" rx="3" fill="#ef4444"/>
-                
-                <text x="25" y="30" font-family="'Inter', sans-serif" font-weight="700" font-size="10" fill="#ef4444" letter-spacing="1">VIVERE IN ITALIA</text>
-                 <image href="https://flagcdn.com/w40/it.png" x="240" y="15" height="15" width="20" />
-                
-                <text x="25" y="70" font-family="'Inter', sans-serif" font-weight="800" font-size="28" fill="#0f172a">CHF 5&#39;620</text>
-                <text x="25" y="90" font-family="'Inter', sans-serif" font-weight="500" font-size="11" fill="#64748b">Netto Mensile Residuo</text>
-                
-                 <line x1="25" y1="110" x2="265" y2="110" stroke="#f1f5f9" />
-                 <g transform="translate(25, 125)">
-                    <circle r="3" cx="0" cy="-3" fill="#ef4444"/>
-                    <text x="10" y="0" font-family="'Inter', sans-serif" font-size="10" fill="#64748b">Nuova Irpef</text>
-                    <text x="240" y="0" font-family="'Inter', sans-serif" font-size="10" font-weight="600" fill="#0f172a" text-anchor="end">-12%</text>
-                 </g>
-                 
-                 <rect x="180" y="60" width="85" height="24" rx="6" fill="#dcfce7"/>
-                 <text x="222.5" y="76" font-family="'Inter', sans-serif" font-weight="700" font-size="10" fill="#15803d" text-anchor="middle">+770 CHF</text>
+            <!-- Advantage Badge -->
+            <rect x="200" y="64" width="96" height="26" rx="8" fill="#dcfce7"/>
+            <text x="248" y="82" text-anchor="middle" font-family="'Inter', -apple-system, sans-serif" font-weight="800" font-size="11" fill="#15803d">+950 CHF</text>
+            
+            <!-- Breakdown -->
+            <line x1="24" y1="120" x2="296" y2="120" stroke="#f1f5f9" stroke-width="2"/>
+            <g transform="translate(24, 140)">
+              <circle r="3" fill="#ef4444"/>
+              <text x="12" y="4" font-family="'Inter', -apple-system, sans-serif" font-size="10" fill="#64748b">Nuova IRPEF + Addizionali</text>
+              <text x="272" y="4" font-family="'Inter', -apple-system, sans-serif" font-size="10" font-weight="700" fill="#0f172a" text-anchor="end">-18.2%</text>
             </g>
+            <g transform="translate(24, 162)">
+              <circle r="3" fill="#8b5cf6"/>
+              <text x="12" y="4" font-family="'Inter', -apple-system, sans-serif" font-size="10" fill="#64748b">Contributi Sociali CH</text>
+              <text x="272" y="4" font-family="'Inter', -apple-system, sans-serif" font-size="10" font-weight="700" fill="#0f172a" text-anchor="end">-10.8%</text>
+            </g>
+          </g>
+          
         </g>
         
-        <!-- Chart Mockup -->
-        <g transform="translate(0, 270)">
-            <text x="0" y="0" font-family="'Inter', sans-serif" font-weight="700" font-size="11" fill="#64748b" uppercase="true">PROIEZIONE RISPARMIO CUMULATIVO (5 ANNI)</text>
-            <rect x="0" y="15" width="600" height="130" rx="16" fill="#f8fafc" stroke="#f1f5f9"/>
-            
-            <!-- Chart Area -->
-            <path d="M30 115 L140 95 L250 75 L360 55 L470 35 L570 15" stroke="none" fill="#dcfce7" opacity="0.5"/>
-            <path d="M30 115 L30 130 H570 V 15 Z" fill="#dcfce7" opacity="0.2"/>
-            
-            <polyline points="30,115 140,95 250,75 360,55 470,35 570,15" fill="none" stroke="#10b981" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-            
-            <!-- Dots -->
-            <circle cx="30" cy="115" r="4" fill="#10b981"/>
-            <circle cx="140" cy="95" r="4" fill="#10b981"/>
-            <circle cx="250" cy="75" r="4" fill="#10b981"/>
-            <circle cx="360" cy="55" r="4" fill="#10b981"/>
-            <circle cx="470" cy="35" r="4" fill="#10b981"/>
-            <circle cx="570" cy="15" r="4" fill="#10b981"/>
-            
-            <!-- Labels -->
-            <text x="30" y="140" text-anchor="middle" font-size="9" fill="#94a3b8" font-family="'Inter', sans-serif">Oggi</text>
-            <text x="140" y="140" text-anchor="middle" font-size="9" fill="#94a3b8" font-family="'Inter', sans-serif">Anno 1</text>
-            <text x="250" y="140" text-anchor="middle" font-size="9" fill="#94a3b8" font-family="'Inter', sans-serif">Anno 2</text>
-            <text x="360" y="140" text-anchor="middle" font-size="9" fill="#94a3b8" font-family="'Inter', sans-serif">Anno 3</text>
-            <text x="470" y="140" text-anchor="middle" font-size="9" fill="#94a3b8" font-family="'Inter', sans-serif">Anno 4</text>
-            <text x="570" y="140" text-anchor="middle" font-size="9" fill="#94a3b8" font-family="'Inter', sans-serif">Anno 5</text>
+        <!-- Chart Section -->
+        <g transform="translate(0, 320)">
+          <text x="0" y="0" font-family="'Inter', -apple-system, sans-serif" font-weight="700" font-size="11" fill="#64748b">📊 PROIEZIONE RISPARMIO CUMULATIVO (5 ANNI)</text>
+          
+          <rect x="0" y="12" width="660" height="135" rx="16" fill="#f8fafc" stroke="#f1f5f9" stroke-width="1"/>
+          
+          <!-- Chart Area with gradient -->
+          <defs>
+            <linearGradient id="chart-fill" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#10b981" stop-opacity="0.3"/>
+              <stop offset="100%" stop-color="#10b981" stop-opacity="0.05"/>
+            </linearGradient>
+          </defs>
+          
+          <!-- Chart path -->
+          <path d="M40 120 L160 95 L280 70 L400 50 L520 35 L620 22" 
+                fill="none" stroke="#10b981" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          
+          <!-- Fill under curve -->
+          <path d="M40 120 L160 95 L280 70 L400 50 L520 35 L620 22 L620 135 L40 135 Z" 
+                fill="url(#chart-fill)"/>
+          
+          <!-- Data points -->
+          <circle cx="40" cy="120" r="5" fill="#10b981" stroke="#ffffff" stroke-width="2"/>
+          <circle cx="160" cy="95" r="5" fill="#10b981" stroke="#ffffff" stroke-width="2"/>
+          <circle cx="280" cy="70" r="5" fill="#10b981" stroke="#ffffff" stroke-width="2"/>
+          <circle cx="400" cy="50" r="5" fill="#10b981" stroke="#ffffff" stroke-width="2"/>
+          <circle cx="520" cy="35" r="5" fill="#10b981" stroke="#ffffff" stroke-width="2"/>
+          <circle cx="620" cy="22" r="5" fill="#10b981" stroke="#ffffff" stroke-width="2"/>
+          
+          <!-- X-axis labels -->
+          <text x="40" y="155" text-anchor="middle" font-size="9" fill="#94a3b8" font-family="'Inter', -apple-system, sans-serif">Oggi</text>
+          <text x="160" y="155" text-anchor="middle" font-size="9" fill="#94a3b8" font-family="'Inter', -apple-system, sans-serif">Anno 1</text>
+          <text x="280" y="155" text-anchor="middle" font-size="9" fill="#94a3b8" font-family="'Inter', -apple-system, sans-serif">Anno 2</text>
+          <text x="400" y="155" text-anchor="middle" font-size="9" fill="#94a3b8" font-family="'Inter', -apple-system, sans-serif">Anno 3</text>
+          <text x="520" y="155" text-anchor="middle" font-size="9" fill="#94a3b8" font-family="'Inter', -apple-system, sans-serif">Anno 4</text>
+          <text x="620" y="155" text-anchor="middle" font-size="9" fill="#94a3b8" font-family="'Inter', -apple-system, sans-serif">Anno 5</text>
+          
+          <!-- Value label at peak -->
+          <rect x="575" y="8" width="60" height="20" rx="6" fill="#10b981"/>
+          <text x="605" y="21" text-anchor="middle" font-family="'Inter', -apple-system, sans-serif" font-size="9" font-weight="700" fill="#ffffff">+57K CHF</text>
         </g>
-     </g>
+        
+      </g>
+      
+    </g>
+    
   </g>
+  
 </svg>
