@@ -190,12 +190,12 @@ export const InputCard: React.FC<Props> = ({ inputs, setInputs }) => {
     }));
   };
 
-  const addExpense = (target: 'CH' | 'IT', preset?: {label: string, amount: number, tooltip?: string}) => {
+  const addExpense = (target: 'CH' | 'IT', preset?: {label: string, amount: number, frequency?: 'MONTHLY' | 'ANNUAL', tooltip?: string}) => {
     const newItem: ExpenseItem = { 
         id: Math.random().toString(36).substr(2, 9), 
         label: preset ? preset.label : 'Nuova spesa', 
         amount: preset ? preset.amount : 0, 
-        frequency: 'MONTHLY',
+        frequency: preset?.frequency || 'MONTHLY',
         tooltip: preset?.tooltip
     };
     setInputs(prev => ({ ...prev, [target === 'CH' ? 'expensesCH' : 'expensesIT']: [...prev[target === 'CH' ? 'expensesCH' : 'expensesIT'], newItem] }));
@@ -212,7 +212,7 @@ export const InputCard: React.FC<Props> = ({ inputs, setInputs }) => {
       id: Math.random().toString(36).substr(2, 9),
       label: preset.label,
       amount: preset.amount,
-      frequency: 'MONTHLY',
+      frequency: (preset.frequency || 'MONTHLY') as 'MONTHLY' | 'ANNUAL',
       tooltip: preset.tooltip
     }));
     setInputs(prev => ({ ...prev, [target === 'CH' ? 'expensesCH' : 'expensesIT']: newExpenses }));
@@ -379,7 +379,10 @@ export const InputCard: React.FC<Props> = ({ inputs, setInputs }) => {
                 {/* Switzerland Expenses */}
                 <div className="space-y-3">
                    <div className="flex items-center justify-between gap-2">
-                      <div className="flex items-center gap-2 text-[10px] font-bold text-blue-500 uppercase"><Home size={12}/> Vivere in CH</div>
+                      <div className="flex items-center gap-2">
+                        <div className="text-[10px] font-bold text-blue-500 uppercase flex items-center gap-1.5"><Home size={12}/> Vivere in CH</div>
+                        <div className="text-[8px] text-slate-400 italic">(importi in CHF)</div>
+                      </div>
                       <div className="flex items-center gap-1.5">
                         <button onClick={() => resetExpenses('CH')} className="p-1.5 rounded-lg bg-slate-100 dark:bg-slate-700 text-slate-500 dark:text-slate-400 hover:bg-red-100 dark:hover:bg-red-900/30 hover:text-red-600 transition-all text-[10px] font-bold uppercase flex items-center gap-1" title="Svuota tutto">
                           <RotateCcw size={12}/>
@@ -404,7 +407,7 @@ export const InputCard: React.FC<Props> = ({ inputs, setInputs }) => {
                              return (
                                <button 
                                  key={idx}
-                                 onClick={() => addExpense('CH', preset)}
+                                 onClick={() => addExpense('CH', {...preset, frequency: preset.frequency as 'MONTHLY' | 'ANNUAL'})}
                                  className="px-2 py-1.5 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-[10px] font-bold text-slate-600 dark:text-slate-400 hover:border-blue-400 hover:text-blue-500 transition-colors flex items-center gap-1.5"
                                >
                                   <Icon size={10} />
@@ -429,7 +432,7 @@ export const InputCard: React.FC<Props> = ({ inputs, setInputs }) => {
                             />
                             {exp.tooltip && <InfoTooltip text={exp.tooltip} />}
                           </div>
-                          <input type="number" value={exp.amount || ''} onChange={e => updateExpense('CH', exp.id, { amount: Number(e.target.value) })} placeholder="0" className="w-16 sm:w-20 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg px-1 sm:px-2 py-2 text-[10px] font-mono font-bold outline-none focus:border-indigo-500 text-right transition-colors" />
+                          <input type="number" value={exp.amount || ''} onChange={e => updateExpense('CH', exp.id, { amount: Number(e.target.value) })} placeholder="0" className="w-14 sm:w-16 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg px-1 sm:px-2 py-2 text-[10px] font-mono font-bold outline-none focus:border-indigo-500 text-right transition-colors" />
                           <button onClick={() => updateExpense('CH', exp.id, { frequency: exp.frequency === 'MONTHLY' ? 'ANNUAL' : 'MONTHLY' })} className="px-1.5 sm:px-2 py-2 bg-slate-100 dark:bg-slate-800 rounded-lg text-[9px] font-bold uppercase text-slate-500 w-10 sm:w-12 text-center hover:bg-slate-200 transition-colors flex-shrink-0">{exp.frequency === 'MONTHLY' ? '/m' : '/a'}</button>
                           <button onClick={() => removeExpense('CH', exp.id)} className="p-1 sm:p-1.5 text-slate-300 hover:text-red-500 transition-colors flex-shrink-0"><X size={14}/></button>
                         </div>
@@ -441,7 +444,10 @@ export const InputCard: React.FC<Props> = ({ inputs, setInputs }) => {
                 {/* Italy Expenses */}
                 <div className="space-y-3">
                    <div className="flex items-center justify-between gap-2">
-                      <div className="flex items-center gap-2 text-[10px] font-bold text-red-500 uppercase"><Car size={12}/> Vivere in IT</div>
+                      <div className="flex items-center gap-2">
+                        <div className="text-[10px] font-bold text-red-500 uppercase flex items-center gap-1.5"><Car size={12}/> Vivere in IT</div>
+                        <div className="text-[8px] text-slate-400 italic">(importi in EUR)</div>
+                      </div>
                       <div className="flex items-center gap-1.5">
                         <button onClick={() => resetExpenses('IT')} className="p-1.5 rounded-lg bg-slate-100 dark:bg-slate-700 text-slate-500 dark:text-slate-400 hover:bg-red-100 dark:hover:bg-red-900/30 hover:text-red-600 transition-all text-[10px] font-bold uppercase flex items-center gap-1" title="Svuota tutto">
                           <RotateCcw size={12}/>
@@ -466,7 +472,7 @@ export const InputCard: React.FC<Props> = ({ inputs, setInputs }) => {
                              return (
                                <button 
                                  key={idx}
-                                 onClick={() => addExpense('IT', preset)}
+                                 onClick={() => addExpense('IT', {...preset, frequency: preset.frequency as 'MONTHLY' | 'ANNUAL'})}
                                  className="px-2 py-1.5 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-[10px] font-bold text-slate-600 dark:text-slate-400 hover:border-red-400 hover:text-red-500 transition-colors flex items-center gap-1.5"
                                >
                                   <Icon size={10} />
@@ -491,7 +497,7 @@ export const InputCard: React.FC<Props> = ({ inputs, setInputs }) => {
                             />
                             {exp.tooltip && <InfoTooltip text={exp.tooltip} />}
                           </div>
-                          <input type="number" value={exp.amount || ''} onChange={e => updateExpense('IT', exp.id, { amount: Number(e.target.value) })} placeholder="0" className="w-16 sm:w-20 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg px-1 sm:px-2 py-2 text-[10px] font-mono font-bold outline-none focus:border-indigo-500 text-right transition-colors" />
+                          <input type="number" value={exp.amount || ''} onChange={e => updateExpense('IT', exp.id, { amount: Number(e.target.value) })} placeholder="0" className="w-14 sm:w-16 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg px-1 sm:px-2 py-2 text-[10px] font-mono font-bold outline-none focus:border-indigo-500 text-right transition-colors" />
                           <button onClick={() => updateExpense('IT', exp.id, { frequency: exp.frequency === 'MONTHLY' ? 'ANNUAL' : 'MONTHLY' })} className="px-1.5 sm:px-2 py-2 bg-slate-100 dark:bg-slate-800 rounded-lg text-[9px] font-bold uppercase text-slate-500 w-10 sm:w-12 text-center hover:bg-slate-200 transition-colors flex-shrink-0">{exp.frequency === 'MONTHLY' ? '/m' : '/a'}</button>
                           <button onClick={() => removeExpense('IT', exp.id)} className="p-1 sm:p-1.5 text-slate-300 hover:text-red-500 transition-colors flex-shrink-0"><X size={14}/></button>
                         </div>
