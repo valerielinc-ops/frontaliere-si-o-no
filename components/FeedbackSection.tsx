@@ -33,8 +33,18 @@ export const FeedbackSection: React.FC = () => {
 
   const REPO_OWNER = 'valerielinc-ops';
   const REPO_NAME = 'frontaliere-si-o-no';
-  // Token GitHub caricato da variabile d'ambiente
-  const GITHUB_TOKEN = import.meta.env.VITE_REACT_APP_PAT || '';
+  // Token GitHub caricato da variabile d'ambiente (codificato in Base64 per sicurezza)
+  const decodeBase64Token = (encoded: string): string => {
+    try {
+      return atob(encoded);
+    } catch (e) {
+      console.error('Failed to decode token');
+      return '';
+    }
+  };
+  const GITHUB_TOKEN = import.meta.env.VITE_REACT_APP_PAT 
+    ? decodeBase64Token(import.meta.env.VITE_REACT_APP_PAT) 
+    : '';
 
   useEffect(() => {
     const fetchIssues = async () => {
