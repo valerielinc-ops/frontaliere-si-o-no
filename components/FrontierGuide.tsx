@@ -83,9 +83,8 @@ const FrontierGuide: React.FC = () => {
 
   // Comuni frontalieri Lombardia con dati completi (ordinati per default per popolazione)
   const lombardyMunicipalities: Municipality[] = [
-    // PROVINCIA DI COMO - Nuovi Frontalieri (entro 20km)
+    // PROVINCIA DI COMO E VARESE - Comuni Frontalieri (fonte: CSV ufficiale ti.ch 2024)
     { name: "Como", province: "Como", distance: 6, borderCrossing: "Chiasso", population: 84000, type: 'both', lat: 45.8081, lng: 9.0852 },
-    { name: "Busto Arsizio", province: "Varese", distance: 25, borderCrossing: "Gaggiolo", population: 84000, type: 'both', lat: 45.6107, lng: 8.8510 },
     { name: "Varese", province: "Varese", distance: 10, borderCrossing: "Ponte Tresa", population: 80000, type: 'both', lat: 45.8206, lng: 8.8250 },
     { name: "Gallarate", province: "Varese", distance: 24, borderCrossing: "Gaggiolo", population: 54000, type: 'both', lat: 45.6580, lng: 8.7915 },
     { name: "Saronno", province: "Varese", distance: 22, borderCrossing: "Gaggiolo", population: 39000, type: 'old', lat: 45.6263, lng: 9.0337 },
@@ -101,12 +100,12 @@ const FrontierGuide: React.FC = () => {
     { name: "Uggiate-Trevano", province: "Como", distance: 1, borderCrossing: "Chiasso", population: 4800, type: 'both', lat: 45.8458, lng: 9.0186 },
     { name: "Cantello", province: "Varese", distance: 1, borderCrossing: "Gaggiolo", population: 4700, type: 'both', lat: 45.8336, lng: 8.9131 },
     { name: "Azzate", province: "Varese", distance: 12, borderCrossing: "Ponte Tresa", population: 4600, type: 'both', lat: 45.7878, lng: 8.7681 },
-    { name: "Faloppio", province: "Como", distance: 4.5, borderCrossing: "Chiasso-Brogeda", population: 4200, type: 'new', lat: 45.8294, lng: 9.0286 },
+    { name: "Faloppio", province: "Como", distance: 4.5, borderCrossing: "Chiasso-Brogeda", population: 4200, type: 'both', lat: 45.8294, lng: 9.0286 },
     { name: "Bisuschio", province: "Varese", distance: 2, borderCrossing: "Gaggiolo", population: 3900, type: 'both', lat: 45.8753, lng: 8.8833 },
     { name: "Maslianico", province: "Como", distance: 3, borderCrossing: "Chiasso", population: 3400, type: 'both', lat: 45.8194, lng: 9.0522 },
     { name: "Menaggio", province: "Como", distance: 15, borderCrossing: "Ponte Tresa", population: 3200, type: 'both', lat: 46.0156, lng: 9.2372 },
     { name: "Saltrio", province: "Varese", distance: 3.5, borderCrossing: "Gaggiolo", population: 3150, type: 'both', lat: 45.8636, lng: 8.9133 },
-    { name: "Bellagio", province: "Como", distance: 18, borderCrossing: "Chiasso", population: 3050, type: 'new', lat: 45.9792, lng: 9.2586 },
+    { name: "Bellagio", province: "Como", distance: 18, borderCrossing: "Chiasso", population: 3050, type: 'both', lat: 45.9792, lng: 9.2586 },
     { name: "Porto Ceresio", province: "Varese", distance: 2, borderCrossing: "Porto Ceresio", population: 3000, type: 'both', lat: 45.9103, lng: 8.8947 },
     { name: "Grandate", province: "Como", distance: 8, borderCrossing: "Chiasso", population: 2850, type: 'both', lat: 45.7700, lng: 9.0464 },
     { name: "Valmorea", province: "Como", distance: 2, borderCrossing: "Chiasso", population: 2650, type: 'both', lat: 45.8331, lng: 8.9847 },
