@@ -41,10 +41,29 @@ Il progetto è costruito con tecnologie web moderne per garantire performance e 
     ```bash
     npm install
     ```
-3.  Avvia il server di sviluppo:
+3.  (Opzionale) Configura Google Maps API per dati traffico reali:
     ```bash
-    npm start
+    cp .env.example .env
+    # Aggiungi la tua API key nel file .env
     ```
+4.  Avvia il server di sviluppo:
+    ```bash
+    npm run dev
+    ```
+
+## 🗺️ API Esterne (Opzionali)
+
+### Google Maps Distance Matrix API
+Per ottenere dati di traffico reali ai valichi di confine CH-IT:
+
+1. Crea un progetto su [Google Cloud Console](https://console.cloud.google.com)
+2. Abilita "Distance Matrix API"
+3. Crea una API key
+4. Aggiungi la chiave al file `.env`: `VITE_GOOGLE_MAPS_API_KEY=your_key`
+
+**Costi**: Gratuito fino a 40.000 richieste/mese. L'app usa circa 8 richieste ogni 2 minuti quando la sezione traffico è aperta.
+
+Senza API key configurata, l'app usa dati di traffico simulati basati su orari di punta tipici.
 
 ## 📝 Note Fiscali
 

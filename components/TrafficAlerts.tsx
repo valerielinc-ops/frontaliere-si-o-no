@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { AlertTriangle, MapPin, Clock, Car, TrendingUp, RefreshCw, Navigation } from 'lucide-react';
+import { AlertTriangle, MapPin, Clock, Car, TrendingUp, RefreshCw, Navigation, Key, CheckCircle2 } from 'lucide-react';
+import { trafficService, type TrafficData } from '../services/trafficService';
 
 interface BorderCrossing {
   name: string;
@@ -22,71 +23,52 @@ const borderCrossings: BorderCrossing[] = [
   { name: 'Maslianico-Ponte Chiasso', canton: 'TI', province: 'CO', coordinates: [45.8186, 9.0706], type: 'statale', open24h: true, customsPresent: false }
 ];
 
-interface TrafficStatus {
-  crossing: string;
-  status: 'green' | 'yellow' | 'red';
-  waitTime: number; // minuti
-  lastUpdate: Date;
-  direction: 'CH->IT' | 'IT->CH' | 'entrambi';
-}
-
 const TrafficAlerts: React.FC = () => {
-  const [selectedCrossing, setSelectedCrossing] = useState<string>('Chiasso-Brogeda');
-  const [trafficData, setTrafficData] = useState<TrafficStatus[]>([]);
+  const [trafficData, setTrafficData] = useState<TrafficData[]>([]);
   const [loading, setLoading] = useState(false);
   const [lastRefresh, setLastRefresh] = useState<Date>(new Date());
+  const [apiKey, setApiKey] = useState<string>('');
+  const [showApiKeyInput, setShowApiKeyInput] = useState(false);
+  const [apiKeyConfigured, setApiKeyConfigured] = useState(false);
 
-  // Simula traffico (in produzione andrebbero usate API reali come TomTom, Google Maps Traffic)
-  const generateMockTraffic = (): TrafficStatus[] => {
-    const now = new Date();
-    const hour = now.getHours();
-    const isPeakMorning = hour >= 7 && hour <= 9;
-    const isPeakEvening = hour >= 17 && hour <= 19;
-    
-    return borderCrossings.map(crossing => {
-      let baseWait = crossing.type === 'autostrada' ? 10 : crossing.type === 'statale' ? 5 : 2;
-      
-      if (isPeakMorning) {
-        baseWait *= (crossing.name.includes('Chiasso') ? 3 : 2);
-      }
-      if (isPeakEvening) {
-        baseWait *= (crossing.name.includes('Chiasso') ? 4 : 2);
-      }
-      
-      // Aggiunge variazione random
-      const waitTime = Math.max(0, baseWait + (Math.random() * 10 - 5));
-      
-      let status: 'green' | 'yellow' | 'red';
-      if (waitTime < 5) status = 'green';
-      else if (waitTime < 15) status = 'yellow';
-      else status = 'red';
-
-      return {
-        crossing: crossing.name,
-        status,
-        waitTime: Math.round(waitTime),
-        lastUpdate: now,
-        direction: isPeakMorning ? 'IT->CH' : isPeakEvening ? 'CH->IT' : 'entrambi'
-      };
-    });
-  };
-
-  const refreshTraffic = () => {
+  // Carica i dati di traffico
+  const loadTrafficData = async () => {
     setLoading(true);
-    setTimeout(() => {
-      setTrafficData(generateMockTraffic());
+    try {
+      const data = await trafficService.getTrafficData();
+      setTrafficData(data);
       setLastRefresh(new Date());
+      setApiKeyConfigured(trafficService.hasApiKey());
+    } catch (error) {
+      console.error('Error loading traffic data:', error);
+    } finally {
       setLoading(false);
-    }, 500);
+    }
   };
 
+  // Carica inizialmente
   useEffect(() => {
-    refreshTraffic();
-    const interval = setInterval(refreshTraffic, 120000); // aggiorna ogni 2 minuti
+    loadTrafficData();
+    
+    // Auto-refresh ogni 2 minuti
+    const interval = setInterval(() => {
+      loadTrafficData();
+    }, 2 * 60 * 1000);
+    
     return () => clearInterval(interval);
   }, []);
 
-  const sortedTraffic = [...trafficData].sort((a, b) => a.waitTime - b.waitTime);
+  // Salva API key
+  const handleSaveApiKey = () => {
+    if (apiKey.trim()) {
+      trafficService.setApiKey(apiKey.trim());
+      setShowApiKeyInput(false);
+      setApiKey('');
+      loadTrafficData();
+    }
+  };
+
+  const sortedTraffic = [...trafficData].sort((a, b) => a.waitTimeMinutes - b.waitTimeMinutes);
   const fastest = sortedTraffic[0];
   const slowest = sortedTraffic[sortedTraffic.length - 1];
 
@@ -102,18 +84,97 @@ const TrafficAlerts: React.FC = () => {
         </p>
       </div>
 
-      <div className="bg-blue-50 dark:bg-blue-950/30 border-l-4 border-blue-500 p-4 rounded-lg">
-        <div className="flex items-start gap-3">
-          <AlertTriangle className="text-blue-600 flex-shrink-0 mt-0.5" size={20} />
-          <div className="text-sm text-blue-900 dark:text-blue-200">
-            <p className="font-bold mb-1">⚠️ Dati simulati</p>
-            <p>
-              Questa è una demo. In produzione verrebbero usate API reali (TomTom, Google Maps, Waze) per dati traffico effettivi.
-              Orari di punta: 7-9 (IT→CH), 17-19 (CH→IT)
-            </p>
+      {/* API Key Configuration */}
+      {!apiKeyConfigured && !showApiKeyInput && (
+        <div className="bg-amber-50 dark:bg-amber-950/30 border-l-4 border-amber-500 p-4 rounded-lg">
+          <div className="flex items-start gap-3">
+            <Key className="text-amber-600 flex-shrink-0 mt-0.5" size={20} />
+            <div className="flex-1">
+              <p className="font-bold text-amber-900 dark:text-amber-200 mb-2">
+                🔑 Configura Google Maps API
+              </p>
+              <p className="text-sm text-amber-800 dark:text-amber-300 mb-3">
+                Per ottenere dati di traffico reali, configura una API key di Google Maps (gratuita fino a 40.000 richieste/mese).
+              </p>
+              <button
+                onClick={() => setShowApiKeyInput(true)}
+                className="px-4 py-2 bg-amber-600 hover:bg-amber-700 text-white rounded-lg text-sm font-medium transition-colors"
+              >
+                Configura API Key
+              </button>
+            </div>
           </div>
         </div>
-      </div>
+      )}
+
+      {showApiKeyInput && (
+        <div className="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 p-6 rounded-xl">
+          <div className="flex items-start gap-3 mb-4">
+            <Key className="text-blue-600 flex-shrink-0 mt-0.5" size={24} />
+            <div className="flex-1">
+              <h3 className="font-bold text-lg mb-2">Configura Google Maps API Key</h3>
+              <p className="text-sm text-slate-600 dark:text-slate-400 mb-4">
+                1. Vai su <a href="https://console.cloud.google.com/apis/credentials" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">Google Cloud Console</a><br/>
+                2. Crea un progetto e abilita "Distance Matrix API"<br/>
+                3. Crea una API key e copiala qui sotto
+              </p>
+              <div className="flex gap-2">
+                <input
+                  type="password"
+                  value={apiKey}
+                  onChange={(e) => setApiKey(e.target.value)}
+                  placeholder="AIza..."
+                  className="flex-1 px-4 py-2 border border-slate-300 dark:border-slate-600 rounded-lg bg-white dark:bg-slate-900 focus:ring-2 focus:ring-blue-500"
+                />
+                <button
+                  onClick={handleSaveApiKey}
+                  disabled={!apiKey.trim()}
+                  className="px-6 py-2 bg-blue-600 hover:bg-blue-700 disabled:bg-slate-300 disabled:cursor-not-allowed text-white rounded-lg font-medium transition-colors"
+                >
+                  Salva
+                </button>
+                <button
+                  onClick={() => {
+                    setShowApiKeyInput(false);
+                    setApiKey('');
+                  }}
+                  className="px-4 py-2 border border-slate-300 dark:border-slate-600 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+                >
+                  Annulla
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Status Badge */}
+      {apiKeyConfigured && (
+        <div className="bg-emerald-50 dark:bg-emerald-950/30 border-l-4 border-emerald-500 p-4 rounded-lg">
+          <div className="flex items-start gap-3">
+            <CheckCircle2 className="text-emerald-600 flex-shrink-0 mt-0.5" size={20} />
+            <div className="text-sm text-emerald-900 dark:text-emerald-200">
+              <p className="font-bold mb-1">✅ Google Maps API configurata</p>
+              <p>Stai usando dati di traffico reali da Google Maps Distance Matrix API.</p>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {!apiKeyConfigured && (
+        <div className="bg-blue-50 dark:bg-blue-950/30 border-l-4 border-blue-500 p-4 rounded-lg">
+          <div className="flex items-start gap-3">
+            <AlertTriangle className="text-blue-600 flex-shrink-0 mt-0.5" size={20} />
+            <div className="text-sm text-blue-900 dark:text-blue-200">
+              <p className="font-bold mb-1">⚠️ Usando dati simulati</p>
+              <p>
+                Configurando una API key di Google Maps potrai vedere dati di traffico reali.
+                Orari di punta stimati: 7-9 (IT→CH), 17-19 (CH→IT)
+              </p>
+            </div>
+          </div>
+        </div>
+      )}
 
       <div className="bg-white dark:bg-slate-800 rounded-xl p-4 border border-slate-200 dark:border-slate-700">
         <div className="flex items-center justify-between">
@@ -124,7 +185,7 @@ const TrafficAlerts: React.FC = () => {
             </span>
           </div>
           <button
-            onClick={refreshTraffic}
+            onClick={loadTrafficData}
             disabled={loading}
             className="flex items-center gap-2 px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 disabled:opacity-50 transition-colors"
           >
@@ -143,14 +204,14 @@ const TrafficAlerts: React.FC = () => {
               </div>
               <div>
                 <p className="text-sm font-bold text-emerald-700 dark:text-emerald-400">Valico più veloce</p>
-                <h3 className="text-2xl font-extrabold text-slate-800 dark:text-slate-100">{fastest.crossing}</h3>
+                <h3 className="text-2xl font-extrabold text-slate-800 dark:text-slate-100">{fastest.crossingName}</h3>
               </div>
             </div>
             <div className="text-3xl font-extrabold text-emerald-600 mb-2">
-              {fastest.waitTime} min
+              {fastest.waitTimeMinutes} min
             </div>
             <p className="text-sm text-slate-600 dark:text-slate-400">
-              {fastest.direction === 'CH->IT' ? '🇨🇭 → 🇮🇹' : fastest.direction === 'IT->CH' ? '🇮🇹 → 🇨🇭' : 'Entrambe le direzioni'}
+              {fastest.direction}
             </p>
           </div>
 
@@ -161,11 +222,11 @@ const TrafficAlerts: React.FC = () => {
               </div>
               <div>
                 <p className="text-sm font-bold text-red-700 dark:text-red-400">Valico più congestionato</p>
-                <h3 className="text-2xl font-extrabold text-slate-800 dark:text-slate-100">{slowest.crossing}</h3>
+                <h3 className="text-2xl font-extrabold text-slate-800 dark:text-slate-100">{slowest.crossingName}</h3>
               </div>
             </div>
             <div className="text-3xl font-extrabold text-red-600 mb-2">
-              {slowest.waitTime} min
+              {slowest.waitTimeMinutes} min
             </div>
             <p className="text-sm text-slate-600 dark:text-slate-400">
               Considera valichi alternativi
@@ -176,14 +237,14 @@ const TrafficAlerts: React.FC = () => {
 
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
         {sortedTraffic.map((traffic) => {
-          const crossing = borderCrossings.find(c => c.name === traffic.crossing);
+          const crossing = borderCrossings.find(c => c.name === traffic.crossingName);
           if (!crossing) return null;
 
           const statusColor = traffic.status === 'green' ? 'emerald' : traffic.status === 'yellow' ? 'amber' : 'red';
 
           return (
             <div
-              key={traffic.crossing}
+              key={traffic.crossingName}
               className={`bg-white dark:bg-slate-800 rounded-2xl border-2 p-6 hover:shadow-lg transition-all border-${statusColor}-500 ring-2 ring-${statusColor}-500/20`}
             >
               <div className="flex items-start justify-between gap-4 mb-4">
@@ -201,7 +262,7 @@ const TrafficAlerts: React.FC = () => {
 
                 <div className="text-right">
                   <div className={`text-2xl font-extrabold text-${statusColor}-600`}>
-                    {traffic.waitTime} min
+                    {traffic.waitTimeMinutes} min
                   </div>
                   <div className="text-xs text-slate-500">attesa</div>
                 </div>
@@ -219,9 +280,17 @@ const TrafficAlerts: React.FC = () => {
                 <div className="flex items-center justify-between text-sm">
                   <span className="text-slate-600 dark:text-slate-400">Direzione</span>
                   <span className="font-bold text-slate-800 dark:text-slate-100">
-                    {traffic.direction === 'CH->IT' ? '🇨🇭→🇮🇹' : traffic.direction === 'IT->CH' ? '🇮🇹→🇨🇭' : '↔️'}
+                    {traffic.direction}
                   </span>
                 </div>
+                {traffic.source && (
+                  <div className="flex items-center justify-between text-sm">
+                    <span className="text-slate-600 dark:text-slate-400">Fonte</span>
+                    <span className="text-xs font-medium text-slate-800 dark:text-slate-100">
+                      {traffic.source === 'google-maps' ? '📍 Google Maps' : '🎲 Simulato'}
+                    </span>
+                  </div>
+                )}
               </div>
 
               <div className={`p-3 bg-${statusColor}-50 dark:bg-${statusColor}-950/30 rounded-lg flex items-center gap-2`}>
@@ -237,8 +306,8 @@ const TrafficAlerts: React.FC = () => {
 
       <div className="bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-950/30 dark:to-indigo-950/30 rounded-2xl border border-blue-200 dark:border-blue-800 p-6">
         <h3 className="text-xl font-bold text-slate-800 dark:text-slate-100 mb-4 flex items-center gap-2">
-          <Navigation size={20} className="text-blue-600" />
-          Suggerimenti per evitare code
+          <Navigation size={24} className="text-blue-600" />
+          Consigli per Evitare le Code
         </h3>
         
         <div className="grid md:grid-cols-2 gap-4">
