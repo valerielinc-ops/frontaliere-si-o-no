@@ -593,21 +593,6 @@ const FrontierGuide: React.FC = () => {
                   🌙 Notte
                 </button>
               </div>
-                  🌅 Mattina (7-9)
-                </button>
-                <button
-                  onClick={() => setSelectedTime('evening')}
-                  className={`flex-1 px-3 py-2 rounded-lg text-xs font-bold transition-all ${selectedTime === 'evening' ? 'bg-purple-500 text-white' : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-400'}`}
-                >
-                  🌆 Sera (17-19)
-                </button>
-                <button
-                  onClick={() => setSelectedTime('night')}
-                  className={`flex-1 px-3 py-2 rounded-lg text-xs font-bold transition-all ${selectedTime === 'night' ? 'bg-indigo-500 text-white' : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-400'}`}
-                >
-                  🌙 Notte
-                </button>
-              </div>
             </div>
           </div>
 
