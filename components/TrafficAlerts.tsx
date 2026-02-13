@@ -48,10 +48,10 @@ const TrafficAlerts: React.FC = () => {
   useEffect(() => {
     loadTrafficData();
     
-    // Auto-refresh ogni 2 minuti
+    // Auto-refresh ogni 1 ora (rispetta cache API)
     const interval = setInterval(() => {
       loadTrafficData();
-    }, 2 * 60 * 1000);
+    }, 60 * 60 * 1000); // 1 ora
     
     return () => clearInterval(interval);
   }, []);
@@ -94,7 +94,7 @@ const TrafficAlerts: React.FC = () => {
             </p>
             <p>
               {apiKeyConfigured 
-                ? 'Traffico in tempo reale da Google Maps Distance Matrix API' 
+                ? 'Traffico in tempo reale da Google Maps. Cache: 1 ora per ottimizzare l\'utilizzo API.' 
                 : 'Orari di punta stimati: 7-9 (IT→CH), 17-19 (CH→IT)'}
             </p>
           </div>
@@ -102,21 +102,29 @@ const TrafficAlerts: React.FC = () => {
       </div>
 
       <div className="bg-white dark:bg-slate-800 rounded-xl p-4 border border-slate-200 dark:border-slate-700">
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between flex-wrap gap-3">
           <div className="flex items-center gap-2">
             <Clock size={16} className="text-slate-500" />
             <span className="text-sm text-slate-600 dark:text-slate-400">
               Ultimo aggiornamento: {lastRefresh.toLocaleTimeString('it-IT')}
             </span>
           </div>
-          <button
-            onClick={loadTrafficData}
-            disabled={loading}
-            className="flex items-center gap-2 px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 disabled:opacity-50 transition-colors"
-          >
-            <RefreshCw size={16} className={loading ? 'animate-spin' : ''} />
-            Aggiorna
-          </button>
+          <div className="flex items-center gap-3">
+            {apiKeyConfigured && (
+              <span className="text-xs text-slate-500 dark:text-slate-400 hidden sm:block">
+                🔄 Cache: 1 ora
+              </span>
+            )}
+            <button
+              onClick={loadTrafficData}
+              disabled={loading}
+              className="flex items-center gap-2 px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 disabled:opacity-50 transition-colors"
+              title={apiKeyConfigured ? "I dati sono cachati per 1 ora. Clicca per verificare se ci sono aggiornamenti." : "Aggiorna i dati di traffico"}
+            >
+              <RefreshCw size={16} className={loading ? 'animate-spin' : ''} />
+              Aggiorna
+            </button>
+          </div>
         </div>
       </div>
 

@@ -85,7 +85,7 @@ const BORDER_CROSSINGS: BorderCrossingCoordinates[] = [
 class TrafficService {
   private apiKey: string | null = null;
   private cache: Map<string, { data: TrafficData; timestamp: number }> = new Map();
-  private readonly CACHE_DURATION = 2 * 60 * 1000; // 2 minuti
+  private readonly CACHE_DURATION = 60 * 60 * 1000; // 1 ora (60 minuti)
   private distanceMatrixService: google.maps.DistanceMatrixService | null = null;
   private mapsLoaded = false;
   private mapsLoadPromise: Promise<void> | null = null;
