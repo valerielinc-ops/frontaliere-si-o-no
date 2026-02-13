@@ -22,13 +22,12 @@ const ApiStatus: React.FC = () => {
     const checks: ApiCheck[] = [];
 
     // 1. Google Maps API
-    const mapsKey = import.meta.env.VITE_GOOGLE_MAPS_API_KEY;
     const hasMapsKey = trafficService.hasApiKey();
     checks.push({
       name: 'Google Maps Distance Matrix API',
-      key: 'VITE_GOOGLE_MAPS_API_KEY',
+      key: '****',
       configured: hasMapsKey,
-      value: mapsKey ? `${mapsKey.substring(0, 10)}...` : 'Non configurata',
+      value: hasMapsKey ? '✓ Configurata' : '✗ Non configurata',
       status: hasMapsKey ? 'success' : 'warning',
       message: hasMapsKey 
         ? 'Configurata correttamente - Traffico valichi usa dati reali'
@@ -38,15 +37,14 @@ const ApiStatus: React.FC = () => {
 
     // 2. Google Gemini API
     const geminiKey = import.meta.env.GEMINI_API_KEY;
+    const hasGemini = !!geminiKey && geminiKey !== 'your_gemini_api_key_here';
     checks.push({
       name: 'Google Gemini API',
-      key: 'GEMINI_API_KEY',
-      configured: !!geminiKey && geminiKey !== 'your_gemini_api_key_here',
-      value: geminiKey && geminiKey !== 'your_gemini_api_key_here' 
-        ? `${geminiKey.substring(0, 10)}...` 
-        : 'Non configurata',
-      status: geminiKey && geminiKey !== 'your_gemini_api_key_here' ? 'success' : 'warning',
-      message: geminiKey && geminiKey !== 'your_gemini_api_key_here'
+      key: '****',
+      configured: hasGemini,
+      value: hasGemini ? '✓ Configurata' : '✗ Non configurata',
+      status: hasGemini ? 'success' : 'warning',
+      message: hasGemini
         ? 'Configurata correttamente - Funzionalità AI attive nel feedback'
         : 'Non configurata - Funzionalità AI nel feedback disabilitate',
       testUrl: 'https://aistudio.google.com/app/apikey'
@@ -54,15 +52,14 @@ const ApiStatus: React.FC = () => {
 
     // 3. GitHub PAT
     const githubPat = import.meta.env.VITE_REACT_APP_PAT;
+    const hasGithub = !!githubPat && githubPat !== 'your_github_pat_here';
     checks.push({
       name: 'GitHub Personal Access Token',
-      key: 'VITE_REACT_APP_PAT',
-      configured: !!githubPat && githubPat !== 'your_github_pat_here',
-      value: githubPat && githubPat !== 'your_github_pat_here'
-        ? `${githubPat.substring(0, 10)}...`
-        : 'Non configurato',
-      status: githubPat && githubPat !== 'your_github_pat_here' ? 'success' : 'warning',
-      message: githubPat && githubPat !== 'your_github_pat_here'
+      key: '****',
+      configured: hasGithub,
+      value: hasGithub ? '✓ Configurato' : '✗ Non configurato',
+      status: hasGithub ? 'success' : 'warning',
+      message: hasGithub
         ? 'Configurato correttamente - Issue tracking GitHub attivo'
         : 'Non configurato - Issue tracking GitHub disabilitato',
       testUrl: 'https://github.com/settings/tokens'
@@ -70,15 +67,14 @@ const ApiStatus: React.FC = () => {
 
     // 4. Google OAuth Client ID
     const oauthClientId = import.meta.env.VITE_GOOGLE_OAUTH_CLIENT_ID;
+    const hasOAuth = !!oauthClientId;
     checks.push({
       name: 'Google OAuth Client ID',
-      key: 'VITE_GOOGLE_OAUTH_CLIENT_ID',
-      configured: !!oauthClientId,
-      value: oauthClientId 
-        ? `${oauthClientId.substring(0, 20)}...`
-        : 'Non configurato',
-      status: oauthClientId ? 'success' : 'warning',
-      message: oauthClientId
+      key: '****',
+      configured: hasOAuth,
+      value: hasOAuth ? '✓ Configurato' : '✗ Non configurato',
+      status: hasOAuth ? 'success' : 'warning',
+      message: hasOAuth
         ? 'Configurato correttamente - Pronto per autenticazione OAuth'
         : 'Non configurato - Autenticazione OAuth non disponibile',
       testUrl: 'https://console.cloud.google.com/apis/credentials'
@@ -190,44 +186,22 @@ const ApiStatus: React.FC = () => {
               {getStatusIcon(check.status)}
               <div className="flex-1">
                 <div className="flex items-start justify-between mb-2">
-                  <div>
-                    <h3 className="font-bold text-lg text-slate-900 dark:text-slate-100">
-                      {check.name}
-                    </h3>
-                    <p className="text-sm text-slate-500 dark:text-slate-400 font-mono">
-                      {check.key}
-                    </p>
-                  </div>
-                  {check.testUrl && (
-                    <a
-                      href={check.testUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-1 text-sm text-blue-600 hover:text-blue-700 dark:text-blue-400"
-                    >
-                      <ExternalLink size={14} />
-                      Gestisci
-                    </a>
-                  )}
+                  <h3 className="font-bold text-lg text-slate-900 dark:text-slate-100">
+                    {check.name}
+                  </h3>
                 </div>
 
                 <div className="space-y-2">
-                  <div className="flex items-center gap-2">
-                    <span className="text-sm font-medium text-slate-700 dark:text-slate-300">
-                      Valore:
-                    </span>
-                    <code className="text-sm bg-slate-100 dark:bg-slate-900 px-2 py-1 rounded font-mono">
-                      {check.value}
-                    </code>
-                  </div>
-
-                  <p className={`text-sm ${
+                  <p className={`text-sm font-medium ${
                     check.status === 'success'
                       ? 'text-green-700 dark:text-green-400'
                       : check.status === 'warning'
                       ? 'text-amber-700 dark:text-amber-400'
                       : 'text-red-700 dark:text-red-400'
                   }`}>
+                    {check.value}
+                  </p>
+                  <p className="text-sm text-slate-600 dark:text-slate-400">
                     {check.message}
                   </p>
                 </div>
@@ -237,24 +211,11 @@ const ApiStatus: React.FC = () => {
         ))}
       </div>
 
-      {/* Instructions */}
-      <div className="bg-blue-50 dark:bg-blue-950/30 border-l-4 border-blue-500 p-6 rounded-lg">
-        <h3 className="font-bold text-blue-900 dark:text-blue-200 mb-2">
-          📝 Come configurare le API
-        </h3>
-        <div className="text-sm text-blue-800 dark:text-blue-300 space-y-2">
-          <p>
-            Le API vanno configurate nel file <code className="bg-blue-100 dark:bg-blue-900 px-1 py-0.5 rounded">.env</code> nella root del progetto:
-          </p>
-          <ol className="list-decimal list-inside space-y-1 ml-2">
-            <li>Copia <code className="bg-blue-100 dark:bg-blue-900 px-1 py-0.5 rounded">.env.example</code> in <code className="bg-blue-100 dark:bg-blue-900 px-1 py-0.5 rounded">.env</code></li>
-            <li>Inserisci le chiavi API ottenute dai rispettivi servizi</li>
-            <li>Riavvia il server di sviluppo per caricare le nuove variabili</li>
-          </ol>
-          <p className="mt-3 pt-3 border-t border-blue-200 dark:border-blue-800">
-            <strong>Nota:</strong> Il file .env non viene committato su Git per motivi di sicurezza.
-          </p>
-        </div>
+      {/* Info Note */}
+      <div className="bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 p-6 rounded-xl">
+        <p className="text-sm text-slate-600 dark:text-slate-400 text-center">
+          🔒 <strong>Privacy:</strong> I dettagli delle chiavi API sono nascosti per motivi di sicurezza.
+        </p>
       </div>
     </div>
   );

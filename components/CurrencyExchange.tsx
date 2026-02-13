@@ -319,23 +319,51 @@ const CurrencyExchange: React.FC = () => {
 
       {/* Best vs Worst Summary */}
       <div className="grid md:grid-cols-2 gap-4">
-        <div className="bg-gradient-to-br from-emerald-50 to-teal-50 dark:from-emerald-950/30 dark:to-teal-950/30 rounded-2xl border-2 border-emerald-200 dark:border-emerald-800 p-6">
-          <div className="flex items-center gap-3 mb-3">
-            <div className="p-2 bg-emerald-500 rounded-xl">
-              <TrendingUp className="text-white" size={20} />
+        {best.provider.referralUrl ? (
+          <a
+            href={best.provider.referralUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-gradient-to-br from-emerald-50 to-teal-50 dark:from-emerald-950/30 dark:to-teal-950/30 rounded-2xl border-2 border-emerald-200 dark:border-emerald-800 p-6 hover:shadow-lg hover:border-emerald-400 transition-all cursor-pointer"
+          >
+            <div className="flex items-center gap-3 mb-3">
+              <div className="p-2 bg-emerald-500 rounded-xl">
+                <TrendingUp className="text-white" size={20} />
+              </div>
+              <div>
+                <div className="text-xs font-bold text-emerald-600 dark:text-emerald-400 uppercase">Migliore Offerta</div>
+                <div className="text-xl font-extrabold text-slate-800 dark:text-slate-100">{best.provider.name}</div>
+              </div>
             </div>
-            <div>
-              <div className="text-xs font-bold text-emerald-600 dark:text-emerald-400 uppercase">Migliore Offerta</div>
-              <div className="text-xl font-extrabold text-slate-800 dark:text-slate-100">{best.provider.name}</div>
+            <div className="text-3xl font-extrabold text-emerald-600 mb-1">
+              € {best.netAmount.toFixed(2)}
+            </div>
+            <div className="text-sm text-slate-600 dark:text-slate-400">
+              Costo totale: <strong>CHF {best.totalCost.toFixed(2)}</strong> ({best.costPercent.toFixed(2)}%)
+            </div>
+            <div className="text-xs text-emerald-600 dark:text-emerald-400 mt-2 font-bold">
+              👆 Clicca per iscriverti con referral
+            </div>
+          </a>
+        ) : (
+          <div className="bg-gradient-to-br from-emerald-50 to-teal-50 dark:from-emerald-950/30 dark:to-teal-950/30 rounded-2xl border-2 border-emerald-200 dark:border-emerald-800 p-6">
+            <div className="flex items-center gap-3 mb-3">
+              <div className="p-2 bg-emerald-500 rounded-xl">
+                <TrendingUp className="text-white" size={20} />
+              </div>
+              <div>
+                <div className="text-xs font-bold text-emerald-600 dark:text-emerald-400 uppercase">Migliore Offerta</div>
+                <div className="text-xl font-extrabold text-slate-800 dark:text-slate-100">{best.provider.name}</div>
+              </div>
+            </div>
+            <div className="text-3xl font-extrabold text-emerald-600 mb-1">
+              € {best.netAmount.toFixed(2)}
+            </div>
+            <div className="text-sm text-slate-600 dark:text-slate-400">
+              Costo totale: <strong>CHF {best.totalCost.toFixed(2)}</strong> ({best.costPercent.toFixed(2)}%)
             </div>
           </div>
-          <div className="text-3xl font-extrabold text-emerald-600 mb-1">
-            € {best.netAmount.toFixed(2)}
-          </div>
-          <div className="text-sm text-slate-600 dark:text-slate-400">
-            Costo totale: <strong>CHF {best.totalCost.toFixed(2)}</strong> ({best.costPercent.toFixed(2)}%)
-          </div>
-        </div>
+        )}
 
         <div className="bg-gradient-to-br from-red-50 to-orange-50 dark:from-red-950/30 dark:to-orange-950/30 rounded-2xl border-2 border-red-200 dark:border-red-800 p-6">
           <div className="flex items-center gap-3 mb-3">

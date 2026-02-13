@@ -978,6 +978,14 @@ const FrontierGuide: React.FC = () => {
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircle2 size={16} className="text-emerald-600 flex-shrink-0 mt-0.5" />
+                  <span><strong>Zero tassa capital gain:</strong> Nessuna tassazione del 26% sugli investimenti (come invece in Italia)</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 size={16} className="text-emerald-600 flex-shrink-0 mt-0.5" />
+                  <span><strong>Tax free shopping:</strong> Diritto alla restituzione parziale dell'IVA su acquisti in Italia e UE</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 size={16} className="text-emerald-600 flex-shrink-0 mt-0.5" />
                   <span><strong>Sanità svizzera:</strong> Sistema sanitario di alta qualità</span>
                 </li>
                 <li className="flex items-start gap-2">
@@ -1003,6 +1011,10 @@ const FrontierGuide: React.FC = () => {
                 </li>
                 <li className="flex items-start gap-2">
                   <AlertCircle size={16} className="text-orange-600 flex-shrink-0 mt-0.5" />
+                  <span><strong>Imposta sul patrimonio:</strong> Tassa cantonale su patrimonio complessivo (aliquote variabili)</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <AlertCircle size={16} className="text-orange-600 flex-shrink-0 mt-0.5" />
                   <span><strong>Distanza familiari:</strong> Se la famiglia rimane in Italia</span>
                 </li>
                 <li className="flex items-start gap-2">
@@ -1014,6 +1026,102 @@ const FrontierGuide: React.FC = () => {
                   <span><strong>Integrazione:</strong> Possibile barriera linguistica (tedesco/dialetto)</span>
                 </li>
               </ul>
+            </InfoCard>
+          </div>
+
+          <div className="grid md:grid-cols-1 gap-6">
+            <InfoCard icon={Euro} title="💰 Investimenti & Fiscalità" color="teal">
+              <div className="space-y-4">
+                <div className="p-4 bg-emerald-50 dark:bg-emerald-900/20 rounded-xl border-2 border-emerald-200 dark:border-emerald-800">
+                  <div className="flex items-center gap-2 mb-2">
+                    <CheckCircle2 size={18} className="text-emerald-600" />
+                    <strong className="text-emerald-700 dark:text-emerald-300">✅ Capital Gain Esente</strong>
+                  </div>
+                  <p className="text-sm text-slate-700 dark:text-slate-300 mb-2">
+                    Con residenza in Svizzera, <strong>non paghi la tassa del 26% sul capital gain</strong> che invece è dovuta in Italia sugli investimenti finanziari (azioni, ETF, fondi, obbligazioni).
+                  </p>
+                  <p className="text-xs text-slate-600 dark:text-slate-400">
+                    💡 In Svizzera i guadagni da investimenti privati sono considerati <strong>reddito esente</strong>, a patto che tu sia un investitore privato (non trader professionale).
+                  </p>
+                </div>
+
+                <div className="p-4 bg-orange-50 dark:bg-orange-900/20 rounded-xl border-2 border-orange-200 dark:border-orange-800">
+                  <div className="flex items-center gap-2 mb-2">
+                    <AlertCircle size={18} className="text-orange-600" />
+                    <strong className="text-orange-700 dark:text-orange-300">⚠️ Imposta sul Patrimonio</strong>
+                  </div>
+                  <p className="text-sm text-slate-700 dark:text-slate-300 mb-2">
+                    Però, in Svizzera esiste l'<strong>imposta sul patrimonio complessivo</strong> (Vermögenssteuer), applicata a livello cantonale sul valore totale dei tuoi beni (conti correnti, investimenti, immobili, ecc.).
+                  </p>
+                  <div className="text-xs space-y-1 text-slate-600 dark:text-slate-400">
+                    <div className="flex items-start gap-2">
+                      <span>📊</span>
+                      <span><strong>Aliquota Canton Ticino:</strong> Progressiva, circa 0.1-0.5% annuo sul patrimonio netto</span>
+                    </div>
+                    <div className="flex items-start gap-2">
+                      <span>💼</span>
+                      <span><strong>Franchigia:</strong> Esenzione per patrimoni sotto una certa soglia (varia per Comune)</span>
+                    </div>
+                    <div className="flex items-start gap-2">
+                      <span>🧮</span>
+                      <span><strong>Esempio:</strong> Con CHF 200'000 di patrimonio, paghi circa CHF 200-1000/anno (dipende dal Comune)</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </InfoCard>
+
+            <InfoCard icon={ShoppingCart} title="🛍️ Tax Free & Restituzione IVA" color="purple">
+              <div className="space-y-4">
+                <div className="p-4 bg-purple-50 dark:bg-purple-900/20 rounded-xl border-2 border-purple-200 dark:border-purple-800">
+                  <div className="flex items-center gap-2 mb-2">
+                    <CheckCircle2 size={18} className="text-purple-600" />
+                    <strong className="text-purple-700 dark:text-purple-300">✨ Diritto al Tax Free</strong>
+                  </div>
+                  <p className="text-sm text-slate-700 dark:text-slate-300 mb-3">
+                    Come <strong>residente in Svizzera</strong>, hai diritto alla <strong>restituzione parziale dell'IVA</strong> su acquisti effettuati in Italia e nell'Unione Europea.
+                  </p>
+                  <div className="space-y-2 text-xs text-slate-600 dark:text-slate-400">
+                    <div className="flex items-start gap-2">
+                      <span>🏷️</span>
+                      <div>
+                        <strong>Soglia minima:</strong> Acquisto minimo di €154.94 (Italia) per richiedere il rimborso
+                      </div>
+                    </div>
+                    <div className="flex items-start gap-2">
+                      <span>📄</span>
+                      <div>
+                        <strong>Procedura:</strong> Richiedi il modulo Tax Free nel negozio, fai timbrare in dogana al rientro in CH, invia per rimborso
+                      </div>
+                    </div>
+                    <div className="flex items-start gap-2">
+                      <span>💵</span>
+                      <div>
+                        <strong>Rimborso IVA:</strong> Circa 15-18% del valore dell'acquisto (dopo commissioni operatore Tax Free)
+                      </div>
+                    </div>
+                    <div className="flex items-start gap-2">
+                      <span>⏱️</span>
+                      <div>
+                        <strong>Tempi:</strong> Rimborso entro 2-3 mesi su carta di credito o bonifico
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-xl border border-blue-200 dark:border-blue-800">
+                  <div className="text-xs space-y-2 text-blue-700 dark:text-blue-300">
+                    <p><strong>💡 Consigli pratici:</strong></p>
+                    <ul className="space-y-1 ml-4">
+                      <li>• Porta sempre con te il <strong>permesso B svizzero</strong> per dimostrare la residenza</li>
+                      <li>• Usa servizi come <strong>Global Blue</strong> o <strong>Planet</strong> per tax free digitale (più veloce)</li>
+                      <li>• Valido anche in aeroporti UE per acquisti duty-free</li>
+                      <li>• Funziona per abbigliamento, elettronica, gioielli, ma <strong>NON</strong> per alimentari o servizi</li>
+                      <li>• Risparmio reale: su €1000 di spesa, recuperi circa €130-150</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
             </InfoCard>
           </div>
         </div>
