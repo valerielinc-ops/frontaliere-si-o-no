@@ -13,6 +13,7 @@ interface ExchangeProvider {
   color: string;
   features: string[];
   type: 'neobank' | 'traditional' | 'service';
+  referralUrl?: string; // Optional referral link
 }
 
 const providers: ExchangeProvider[] = [
@@ -27,7 +28,8 @@ const providers: ExchangeProvider[] = [
     transferTime: '1-2 giorni lavorativi',
     color: 'from-emerald-500 to-teal-600',
     features: ['Tasso medio di mercato reale', 'Trasparenza totale', 'App mobile eccellente'],
-    type: 'service'
+    type: 'service',
+    referralUrl: 'https://wise.com/invite/dic/luigis147'
   },
   {
     name: 'Revolut',
@@ -394,7 +396,18 @@ const CurrencyExchange: React.FC = () => {
                     {result.provider.logo}
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold text-slate-800 dark:text-slate-100">{result.provider.name}</h3>
+                    {result.provider.referralUrl ? (
+                      <a 
+                        href={result.provider.referralUrl} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="text-xl font-bold text-slate-800 dark:text-slate-100 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors cursor-pointer"
+                      >
+                        {result.provider.name}
+                      </a>
+                    ) : (
+                      <h3 className="text-xl font-bold text-slate-800 dark:text-slate-100">{result.provider.name}</h3>
+                    )}
                     <p className="text-sm text-slate-500 dark:text-slate-400">{result.provider.transferTime}</p>
                   </div>
                 </div>
