@@ -45,12 +45,12 @@ const operators: MobileOperator[] = [
     roamingInSwitzerland: {
       included: true,
       dataLimit: 13,
-      notes: 'Roaming UE+CH incluso: 13 GB, minuti/SMS illimitati'
+      notes: 'Roaming UE+Svizzera incluso: 13 GB, minuti/SMS illimitati (fair use)'
     },
     setupCost: 9.99,
     contractType: 'prepagato',
     color: 'from-red-500 to-orange-600',
-    features: ['13 GB roaming CH incluso', 'Nessun costo aggiuntivo', 'Tariffa trasparente'],
+    features: ['13 GB roaming CH incluso', 'Minuti/SMS illimitati', 'Migliore per frontalieri'],
     website: 'https://www.iliad.it'
   },
   {
@@ -64,18 +64,16 @@ const operators: MobileOperator[] = [
     roamingInSwitzerland: {
       included: false,
       costPerDay: 3.00,
-      costPerMB: 0.19,
-      costPerMinute: 1.80,
-      notes: 'Roaming Extra UE: 3€/giorno per 500MB + 100 min, oppure 0.19€/MB'
+      notes: 'Roaming Extra UE: 3€/giorno per 500MB + 100 min. Svizzera Extra UE'
     },
     setupCost: 0,
     contractType: 'prepagato',
     color: 'from-green-500 to-emerald-600',
-    features: ['Rete Vodafone', 'Nessun costo attivazione', 'Roaming CH costoso'],
+    features: ['Rete Vodafone', 'Nessun costo attivazione', 'Roaming CH a pagamento'],
     website: 'https://www.ho-mobile.it'
   },
   {
-    name: 'Vodafone Silver',
+    name: 'Vodafone',
     logo: '🔴',
     country: 'IT',
     monthlyCost: 9.99,
@@ -85,16 +83,16 @@ const operators: MobileOperator[] = [
     roamingInSwitzerland: {
       included: false,
       costPerDay: 6.00,
-      notes: 'Travel +: 6€/giorno per 1GB + minuti/SMS UE. CH = Extra UE (costoso)'
+      notes: 'Travel World: 6€/giorno per 1GB + min/SMS. Svizzera Extra UE'
     },
     setupCost: 0,
     contractType: 'prepagato',
     color: 'from-red-600 to-rose-700',
-    features: ['Travel+ disponibile', 'Roaming CH molto costoso', 'Rete proprietaria'],
+    features: ['Rete proprietaria', 'Travel World a pagamento', 'Costoso per frontalieri'],
     website: 'https://www.vodafone.it'
   },
   {
-    name: 'TIM Young',
+    name: 'TIM',
     logo: '🔵',
     country: 'IT',
     monthlyCost: 14.99,
@@ -104,31 +102,31 @@ const operators: MobileOperator[] = [
     roamingInSwitzerland: {
       included: false,
       costPerDay: 6.00,
-      notes: 'TIM in Viaggio Pass: 6€/giorno per traffico UE. CH = Extra UE'
+      notes: 'TIM in Viaggio Pass: 6€/giorno per 1GB. Svizzera Extra UE'
     },
     setupCost: 25,
     contractType: 'abbonamento',
     color: 'from-blue-600 to-indigo-700',
-    features: ['Rete TIM proprietaria', 'Costi attivazione alti', 'Roaming costoso'],
+    features: ['Rete proprietaria', 'Costi attivazione alti', 'Roaming Extra UE costoso'],
     website: 'https://www.tim.it'
   },
   {
-    name: 'WindTre',
+    name: 'WindTre Call Your Country',
     logo: '🟠',
     country: 'IT',
-    monthlyCost: 12.99,
+    monthlyCost: 14.99,
     dataGB: 100,
     minutes: 'illimitati',
     sms: 200,
     roamingInSwitzerland: {
-      included: false,
-      costPerDay: 6.00,
-      notes: 'In Viaggio Full: 6€/giorno UE. Svizzera = Extra UE (molto costoso)'
+      included: true,
+      dataLimit: 8,
+      notes: 'Call Your Country World: roaming CH incluso con 8 GB, minuti/SMS illimitati'
     },
     setupCost: 10,
-    contractType: 'prepagato',
+    contractType: 'abbonamento',
     color: 'from-orange-600 to-amber-700',
-    features: ['Rete WindTre', 'Roaming CH escluso', 'Costi variabili'],
+    features: ['8 GB roaming CH incluso', 'Minuti verso CH inclusi', 'Buona opzione frontalieri'],
     website: 'https://www.windtre.it'
   },
   {
@@ -160,14 +158,14 @@ const operators: MobileOperator[] = [
     minutes: 'illimitati',
     sms: 100,
     roamingInSwitzerland: {
-      included: false,
-      costPerDay: 6.00,
-      notes: 'Roaming Extra UE: 6€/giorno per 500MB. CH escluso'
+      included: true,
+      dataLimit: 11,
+      notes: 'Roaming Svizzera incluso: 11 GB, minuti/SMS illimitati (fair use policy)'
     },
     setupCost: 10,
     contractType: 'prepagato',
     color: 'from-yellow-600 to-orange-700',
-    features: ['Rete WindTre', 'Sconto con fibra Fastweb', 'Roaming limitato'],
+    features: ['11 GB roaming CH incluso', 'Rete WindTre', 'Ottimo rapporto qualità/prezzo'],
     website: 'https://www.fastweb.it/mobile'
   },
 
