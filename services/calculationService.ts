@@ -89,6 +89,7 @@ export const calculateSimulation = (inputs: SimulationInputs): SimulationResult 
   let chTaxShare = (frontierWorkerType === 'NEW' && distanceZone === 'WITHIN_20KM') ? 0.8 : 1.0;
   const taxWithheldInCH_CHF = totalTaxCH * chTaxShare;
   const expensesTotalIT = calcExpensesTotal(expensesIT);
+  const expensesTotalIT_CHF = expensesTotalIT / EXCHANGE_RATE; // Convert EUR to CHF
 
   const grossIncomeEUR = annualIncomeCHF * EXCHANGE_RATE;
   const allowanceEUR = annualFamilyAllowanceCHF * EXCHANGE_RATE;
@@ -109,7 +110,7 @@ export const calculateSimulation = (inputs: SimulationInputs): SimulationResult 
     // Calculate SSN Health Tax for Old Frontier Workers (if enabled)
     let ssnHealthTaxEUR = 0;
     let ssnHealthTaxCHF = 0;
-    const netBeforeSsnEUR = (grossTotalCH - totalSocialDeductions - taxWithheldInCH_CHF - expensesTotalIT) * EXCHANGE_RATE;
+    const netBeforeSsnEUR = (grossTotalCH - totalSocialDeductions - taxWithheldInCH_CHF - expensesTotalIT_CHF) * EXCHANGE_RATE;
     
     if (enableOldFrontierHealthTax) {
       // SSN Tax: configurable % of net income, min 30€/month (360€/year), max 200€/month (2400€/year)
@@ -138,15 +139,15 @@ export const calculateSimulation = (inputs: SimulationInputs): SimulationResult 
     
     itBreakdown.push({ 
       label: 'Spese Personali IT', 
-      amount: -expensesTotalIT, 
-      amountEUR: -(expensesTotalIT * EXCHANGE_RATE), 
-      percentage: (expensesTotalIT/grossTotalCH)*100, 
-      description: 'Totale spese fisse in Italia' 
+      amount: -expensesTotalIT_CHF, 
+      amountEUR: -expensesTotalIT, 
+      percentage: (expensesTotalIT_CHF/grossTotalCH)*100, 
+      description: 'Totale spese fisse in Italia (convertite da EUR a CHF)' 
     });
     
     // Update totalTaxIT_CHF to include SSN if enabled
     const totalTaxIT_CHF_OLD = taxWithheldInCH_CHF + ssnHealthTaxCHF;
-    const netAnnualIT_CHF_OLD = grossTotalCH - totalSocialDeductions - totalTaxIT_CHF_OLD - expensesTotalIT;
+    const netAnnualIT_CHF_OLD = grossTotalCH - totalSocialDeductions - totalTaxIT_CHF_OLD - expensesTotalIT_CHF;
     
     itBreakdown.push({
       label: 'Reddito Netto Annuo',
@@ -167,7 +168,7 @@ export const calculateSimulation = (inputs: SimulationInputs): SimulationResult 
         taxableIncome: annualIncomeCHF, 
         taxes: totalTaxIT_CHF_OLD, 
         healthInsurance: 0, 
-        customExpensesTotal: expensesTotalIT, 
+        customExpensesTotal: expensesTotalIT_CHF, 
         netIncomeAnnual: netAnnualIT_CHF_OLD, 
         netIncomeMonthly: netAnnualIT_CHF_OLD / monthsBasis, 
         swissNetIncomeMonthlyCHF: netSwissSalaryAnnual_OLD / monthsBasis,
@@ -203,12 +204,12 @@ export const calculateSimulation = (inputs: SimulationInputs): SimulationResult 
       { label: 'Contributi Sociali CH', amount: -totalSocialDeductions, amountEUR: -socialEUR, percentage: (totalSocialDeductions/grossTotalCH)*100, description: 'Contributi (AVS/LPP) versati in Svizzera (Deducibili)' },
       { label: `Fonte CH (${Math.round(chTaxShare * 100)}%)`, amount: -taxWithheldInCH_CHF, amountEUR: -paidSourceTaxEUR, percentage: (taxWithheldInCH_CHF/grossTotalCH)*100, description: 'Imposta prelevata in Svizzera (Credito d\'imposta)' },
       { label: 'IRPEF Italia (Saldo)', amount: -finalItTaxCHF, amountEUR: -finalItTaxEUR, percentage: (finalItTaxCHF/grossTotalCH)*100, description: 'Tassazione italiana al netto del credito svizzero' },
-      { label: 'Spese Personali IT', amount: -expensesTotalIT, amountEUR: -(expensesTotalIT * EXCHANGE_RATE), percentage: (expensesTotalIT/grossTotalCH)*100, description: 'Totale spese fisse in Italia' },
+      { label: 'Spese Personali IT', amount: -expensesTotalIT_CHF, amountEUR: -expensesTotalIT, percentage: (expensesTotalIT_CHF/grossTotalCH)*100, description: 'Totale spese fisse in Italia (convertite da EUR a CHF)' },
     ];
   }
 
   const totalTaxIT_CHF = taxWithheldInCH_CHF + (finalItTaxEUR / EXCHANGE_RATE);
-  const netAnnualIT_CHF = grossTotalCH - totalSocialDeductions - totalTaxIT_CHF - expensesTotalIT;
+  const netAnnualIT_CHF = grossTotalCH - totalSocialDeductions - totalTaxIT_CHF - expensesTotalIT_CHF;
   const netSwissSalaryAnnual = grossTotalCH - totalSocialDeductions - taxWithheldInCH_CHF;
   
   // Add Net Income Row
@@ -229,7 +230,7 @@ export const calculateSimulation = (inputs: SimulationInputs): SimulationResult 
       taxableIncome: annualIncomeCHF, 
       taxes: totalTaxIT_CHF, 
       healthInsurance: 0, 
-      customExpensesTotal: expensesTotalIT, 
+      customExpensesTotal: expensesTotalIT_CHF, 
       netIncomeAnnual: netAnnualIT_CHF, 
       netIncomeMonthly: netAnnualIT_CHF / monthsBasis, 
       swissNetIncomeMonthlyCHF: netSwissSalaryAnnual / monthsBasis,

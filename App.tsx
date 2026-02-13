@@ -5,6 +5,8 @@ import { FeedbackSection } from '@/components/FeedbackSection';
 import { StatsView } from '@/components/StatsView';
 import PensionPlanner from '@/components/PensionPlanner';
 import FrontierGuide from '@/components/FrontierGuide';
+import { PrivacyPolicy } from '@/components/PrivacyPolicy';
+import { DataDeletion } from '@/components/DataDeletion';
 import { ErrorBoundary } from '@/components/ErrorBoundary';
 import { calculateSimulation } from '@/services/calculationService';
 import { Analytics } from '@/services/analytics';
@@ -17,7 +19,7 @@ const App: React.FC = () => {
   const [result, setResult] = useState<SimulationResult | null>(null);
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [isFocusMode, setIsFocusMode] = useState(false);
-  const [activeTab, setActiveTab] = useState<'calculator' | 'feedback' | 'stats' | 'pension' | 'guide'>('calculator');
+  const [activeTab, setActiveTab] = useState<'calculator' | 'feedback' | 'stats' | 'pension' | 'guide' | 'privacy' | 'data-deletion'>('calculator');
 
   // Initialize theme and Analytics
   useEffect(() => {
@@ -222,6 +224,14 @@ const App: React.FC = () => {
             <div className="max-w-5xl mx-auto">
               <StatsView />
             </div>
+          ) : activeTab === 'privacy' ? (
+            <div className="animate-fade-in">
+              <PrivacyPolicy onBack={() => setActiveTab('calculator')} />
+            </div>
+          ) : activeTab === 'data-deletion' ? (
+            <div className="animate-fade-in">
+              <DataDeletion />
+            </div>
           ) : (
             <div className="max-w-4xl mx-auto animate-fade-in">
               <FeedbackSection />
@@ -236,7 +246,14 @@ const App: React.FC = () => {
               <span className="text-slate-300 dark:text-slate-600 mx-2">|</span> 
               Simulatore a scopo puramente indicativo.
             </p>
-            <div className="flex items-center justify-center gap-2 text-xs">
+            <div className="flex items-center justify-center gap-3 text-xs flex-wrap">
+              <button
+                onClick={() => setActiveTab('privacy')}
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 text-slate-600 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 bg-slate-100/50 dark:bg-slate-800/50 hover:bg-indigo-50 dark:hover:bg-indigo-950/30 rounded-md transition-all duration-200 border border-slate-200/50 dark:border-slate-700/50 hover:border-indigo-300 dark:hover:border-indigo-700"
+              >
+                Privacy Policy
+              </button>
+              <span className="text-slate-300 dark:text-slate-600">•</span>
               <span className="text-slate-400 dark:text-slate-500">Seguici su</span>
               <a 
                 href="https://www.facebook.com/profile.php?id=61588174947294" 

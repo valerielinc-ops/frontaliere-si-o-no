@@ -380,8 +380,10 @@ export const InputCard: React.FC<Props> = ({ inputs, setInputs }) => {
                 <div className="space-y-3">
                    <div className="flex items-center justify-between gap-2">
                       <div className="flex items-center gap-2">
-                        <div className="text-[10px] font-bold text-blue-500 uppercase flex items-center gap-1.5"><Home size={12}/> Vivere in CH</div>
-                        <div className="text-[8px] text-slate-400 italic">(importi in CHF)</div>
+                        <div className="text-[10px] font-bold text-indigo-500 uppercase flex items-center gap-1.5">
+                          <Home size={12}/> Vivere in CH
+                          <InfoTooltip text="Tutti gli importi sono in CHF (Franchi Svizzeri)" />
+                        </div>
                       </div>
                       <div className="flex items-center gap-1.5">
                         <button onClick={() => resetExpenses('CH')} className="p-1.5 rounded-lg bg-slate-100 dark:bg-slate-700 text-slate-500 dark:text-slate-400 hover:bg-red-100 dark:hover:bg-red-900/30 hover:text-red-600 transition-all text-[10px] font-bold uppercase flex items-center gap-1" title="Svuota tutto">
@@ -445,8 +447,10 @@ export const InputCard: React.FC<Props> = ({ inputs, setInputs }) => {
                 <div className="space-y-3">
                    <div className="flex items-center justify-between gap-2">
                       <div className="flex items-center gap-2">
-                        <div className="text-[10px] font-bold text-red-500 uppercase flex items-center gap-1.5"><Car size={12}/> Vivere in IT</div>
-                        <div className="text-[8px] text-slate-400 italic">(importi in EUR)</div>
+                        <div className="text-[10px] font-bold text-red-500 uppercase flex items-center gap-1.5">
+                          <Car size={12}/> Vivere in IT
+                          <InfoTooltip text="Tutti gli importi sono in EUR (Euro)" />
+                        </div>
                       </div>
                       <div className="flex items-center gap-1.5">
                         <button onClick={() => resetExpenses('IT')} className="p-1.5 rounded-lg bg-slate-100 dark:bg-slate-700 text-slate-500 dark:text-slate-400 hover:bg-red-100 dark:hover:bg-red-900/30 hover:text-red-600 transition-all text-[10px] font-bold uppercase flex items-center gap-1" title="Svuota tutto">
