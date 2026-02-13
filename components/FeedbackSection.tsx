@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Send, Bug, Lightbulb, Github, CheckCircle, Clock, Sparkles, Loader2, MessageSquare, AlertTriangle, ChevronRight, ExternalLink, Lock } from 'lucide-react';
 import { GoogleGenAI, GenerateContentResponse } from '@google/genai';
 import { Analytics } from '../services/analytics';
+import recaptchaService from '../services/recaptchaService';
 
 interface FeedbackItem {
   id: string;
@@ -130,6 +131,9 @@ export const FeedbackSection: React.FC = () => {
     setSubmitError(null);
 
     try {
+      // Verifica reCAPTCHA prima di inviare il feedback
+      await recaptchaService.canProceed('FEEDBACK_SUBMIT');
+
       const response = await fetch(`https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/issues`, {
         method: 'POST',
         headers: {

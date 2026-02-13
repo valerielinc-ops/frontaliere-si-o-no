@@ -1,9 +1,12 @@
 /**
  * Traffic Service - Google Maps Distance Matrix API Integration
  * Provides real-time traffic data for border crossings using Google Maps free tier
+ * Protected by reCAPTCHA Enterprise to prevent API abuse
  */
 
 /// <reference types="@types/google.maps" />
+
+import recaptchaService from './recaptchaService';
 
 interface BorderCrossingCoordinates {
   name: string;
@@ -165,8 +168,12 @@ class TrafficService {
 
   /**
    * Ottiene i dati di traffico per tutti i valichi
+   * Protetto da reCAPTCHA per prevenire abusi API
    */
   async getTrafficData(): Promise<TrafficData[]> {
+    // Verifica reCAPTCHA prima di procedere con la richiesta API
+    await recaptchaService.canProceed('TRAFFIC_DATA');
+
     if (!this.hasApiKey()) {
       console.warn('Google Maps API key not configured. Using mock data.');
       return this.getMockTrafficData();
