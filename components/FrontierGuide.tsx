@@ -22,10 +22,10 @@ const createCustomIcon = (type: 'new' | 'old' | 'both') => {
   
   return L.divIcon({
     className: 'custom-marker',
-    html: `<div style="background-color: ${colors[type]}; width: 24px; height: 24px; border-radius: 50% 50% 50% 0; transform: rotate(-45deg); border: 2px solid white; box-shadow: 0 2px 4px rgba(0,0,0,0.3);"></div>`,
-    iconSize: [24, 24],
-    iconAnchor: [12, 24],
-    popupAnchor: [0, -24]
+    html: `<div style="background-color: ${colors[type]}; width: 28px; height: 28px; border-radius: 50% 50% 50% 0; transform: rotate(-45deg); border: 3px solid white; box-shadow: 0 3px 6px rgba(0,0,0,0.4);"></div>`,
+    iconSize: [28, 28],
+    iconAnchor: [14, 28],
+    popupAnchor: [0, -28]
   });
 };
 
@@ -382,8 +382,8 @@ const FrontierGuide: React.FC = () => {
 
             <div className="h-[500px] rounded-xl overflow-hidden border-2 border-slate-200 dark:border-slate-700">
               <MapContainer
-                center={[45.85, 8.95]}
-                zoom={10}
+                center={[45.88, 8.95]}
+                zoom={9}
                 style={{ height: '100%', width: '100%' }}
               >
                 <TileLayer
