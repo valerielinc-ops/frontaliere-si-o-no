@@ -240,13 +240,6 @@ const App: React.FC = () => {
                   Telefonia Mobile
                 </button>
                 <button
-                  onClick={() => setComparatoriSubTab('transport')}
-                  className={`px-4 py-2 text-sm font-medium rounded-lg whitespace-nowrap transition-colors flex items-center gap-2 ${comparatoriSubTab === 'transport' ? 'bg-violet-100 dark:bg-violet-900/30 text-violet-700 dark:text-violet-300' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800'}`}
-                >
-                  <Car size={16} />
-                  Costi Trasporto
-                </button>
-                <button
                   onClick={() => setComparatoriSubTab('health')}
                   className={`px-4 py-2 text-sm font-medium rounded-lg whitespace-nowrap transition-colors flex items-center gap-2 ${comparatoriSubTab === 'health' ? 'bg-violet-100 dark:bg-violet-900/30 text-violet-700 dark:text-violet-300' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800'}`}
                 >
@@ -266,6 +259,13 @@ const App: React.FC = () => {
                 >
                   <AlertTriangle size={16} />
                   Traffico Valichi
+                </button>
+                <button
+                  onClick={() => setComparatoriSubTab('transport')}
+                  className={`px-4 py-2 text-sm font-medium rounded-lg whitespace-nowrap transition-colors flex items-center gap-2 ${comparatoriSubTab === 'transport' ? 'bg-violet-100 dark:bg-violet-900/30 text-violet-700 dark:text-violet-300' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800'}`}
+                >
+                  <Car size={16} />
+                  Costi Trasporto
                 </button>
               </div>
             </div>

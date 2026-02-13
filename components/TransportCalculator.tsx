@@ -164,6 +164,24 @@ const TransportCalculator: React.FC = () => {
 
   return (
     <div className="space-y-6 pb-8">
+      {/* Experimental Warning Banner */}
+      <div className="bg-amber-50 dark:bg-amber-950/30 border-2 border-amber-300 dark:border-amber-700 rounded-xl p-4">
+        <div className="flex items-start gap-3">
+          <AlertCircle className="text-amber-600 dark:text-amber-400 flex-shrink-0 mt-0.5" size={22} />
+          <div>
+            <p className="font-bold text-amber-900 dark:text-amber-200 mb-1">
+              ⚠️ Funzionalità Sperimentale
+            </p>
+            <p className="text-sm text-amber-800 dark:text-amber-300">
+              Questo calcolatore fornisce una <strong>stima approssimativa</strong> e non tiene conto di molte variabili importanti come: 
+              costo iniziale del veicolo, ammortamento dettagliato, assicurazione personalizzata, manutenzione straordinaria, 
+              costi di parcheggio variabili, pedaggi stagionali, usura pneumatici, bollo auto specifico, e altri costi accessori.
+              Usa i risultati come riferimento generale, non come calcolo definitivo.
+            </p>
+          </div>
+        </div>
+      </div>
+
       {/* Header */}
       <div className="bg-gradient-to-br from-blue-600 to-cyan-700 rounded-2xl p-8 text-white">
         <div className="flex items-center gap-3 mb-4">
