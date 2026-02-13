@@ -45,13 +45,13 @@ const operators: MobileOperator[] = [
     roamingInSwitzerland: {
       included: true,
       dataLimit: 13,
-      notes: 'Roaming UE+Svizzera incluso: 13 GB, minuti/SMS illimitati (fair use)'
+      notes: 'Roaming UE+Svizzera incluso: 13 GB + 5GB on top mensili, minuti/SMS illimitati (fair use)'
     },
     setupCost: 9.99,
     contractType: 'prepagato',
     color: 'from-red-500 to-orange-600',
-    features: ['13 GB roaming CH incluso', 'Minuti/SMS illimitati', 'Migliore per frontalieri'],
-    website: 'https://www.iliad.it/offerta-iliad-giga-250.html'
+    features: ['13 GB + 5GB extra roaming CH', 'Minuti/SMS illimitati', 'Migliore per frontalieri'],
+    website: 'https://www.iliad.it/offerte-iliad-mobile.html'
   },
   {
     name: 'ho. Mobile',
@@ -111,23 +111,23 @@ const operators: MobileOperator[] = [
     website: 'https://www.tim.it/offerte/mobile'
   },
   {
-    name: 'WindTre Call Your Country',
+    name: 'WindTre All Inclusive',
     logo: '🟠',
     country: 'IT',
     monthlyCost: 14.99,
-    dataGB: 100,
+    dataGB: 'illimitati',
     minutes: 'illimitati',
-    sms: 200,
+    sms: 'illimitati',
     roamingInSwitzerland: {
-      included: true,
-      dataLimit: 8,
-      notes: 'Call Your Country World: roaming CH incluso con 8 GB, minuti/SMS illimitati'
+      included: false,
+      costPerDay: 3,
+      notes: 'Travel Pass Svizzera: 3€/giorno per giga illimitati e minuti/SMS illimitati in CH'
     },
-    setupCost: 10,
+    setupCost: 0,
     contractType: 'abbonamento',
     color: 'from-orange-600 to-amber-700',
-    features: ['8 GB roaming CH incluso', 'Minuti verso CH inclusi', 'Buona opzione frontalieri'],
-    website: 'https://www.windtre.it/offerte-mobile/call-your-country/'
+    features: ['Giga illimitati in Italia', 'Travel Pass CH: 3€/giorno', 'Opzione con pass giornaliero'],
+    website: 'https://www.windtre.it/all-inclusive'
   },
   {
     name: 'Very Mobile',
@@ -166,7 +166,7 @@ const operators: MobileOperator[] = [
     contractType: 'prepagato',
     color: 'from-yellow-600 to-orange-700',
     features: ['11 GB roaming CH incluso', 'Rete WindTre', 'Ottimo rapporto qualità/prezzo'],
-    website: 'https://www.fastweb.it/mobile/offerte-mobile/'
+    website: 'https://www.fastweb.it/adsl-fibra-ottica/offerta-mobile/'
   },
 
   // Swiss Operators
@@ -206,7 +206,7 @@ const operators: MobileOperator[] = [
     contractType: 'abbonamento',
     color: 'from-pink-600 to-rose-700',
     features: ['Dati illimitati CH', '10 GB roaming UE', 'Buon rapporto qualità/prezzo'],
-    website: 'https://www.salt.ch'
+    website: 'https://www.salt.ch/en'
   },
   {
     name: 'Sunrise',
@@ -263,7 +263,7 @@ const operators: MobileOperator[] = [
     contractType: 'prepagato',
     color: 'from-cyan-600 to-blue-700',
     features: ['Rete Swisscom', 'Roaming UE incluso', 'Buon prezzo'],
-    website: 'https://www.wingo.ch'
+    website: 'https://www.wingo.ch/it'
   },
   {
     name: 'Aldi Mobile CH',
