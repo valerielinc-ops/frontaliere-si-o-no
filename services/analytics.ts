@@ -1,9 +1,21 @@
 import ReactGA from 'react-ga4';
-import { getConfigValue } from './firebase';
+import { getConfigValue, analytics as firebaseAnalytics } from './firebase';
+import { logEvent, setUserProperties, setUserId, type Analytics as FirebaseAnalyticsType } from 'firebase/analytics';
 
 // Safely access environment variable to prevent runtime crashes
 // We use optional chaining because import.meta.env might be undefined in some environments
 let GA_MEASUREMENT_ID: string | null = null;
+
+// Helper to safely use Firebase Analytics
+const logFirebaseEvent = (eventName: string, params?: Record<string, any>) => {
+  try {
+    if (firebaseAnalytics) {
+      logEvent(firebaseAnalytics, eventName as any, params);
+    }
+  } catch (error) {
+    console.warn('Firebase Analytics event error:', error);
+  }
+};
 
 // Inizializza l'ID da Firebase Remote Config
 async function initGAMeasurementId() {
@@ -15,6 +27,7 @@ async function initGAMeasurementId() {
 
 export const Analytics = {
   isInitialized: false,
+  firebaseEnabled: true,
 
   init: async () => {
     const measurementId = await initGAMeasurementId();
@@ -22,16 +35,27 @@ export const Analytics = {
       ReactGA.initialize(measurementId);
       Analytics.isInitialized = true;
       console.log('✅ GA4 Initialized with Firebase Remote Config');
+      console.log('✅ Firebase Analytics Enabled');
     }
   },
 
   trackPageView: (path: string, title?: string) => {
     if (!Analytics.isInitialized) return;
+    
+    // Google Analytics
     ReactGA.send({ 
       hitType: "pageview", 
       page: path,
       title: title || path
     });
+    
+    // Firebase Analytics
+    if (Analytics.firebaseEnabled) {
+      logFirebaseEvent('page_view', {
+        page_path: path,
+        page_title: title || path
+      });
+    }
   },
 
   trackEvent: (category: string, action: string, label?: string, value?: number) => {
@@ -40,12 +64,24 @@ export const Analytics = {
       console.log(`[Analytics] ${category} - ${action}`, label, value);
       return;
     }
+    
+    // Google Analytics
     ReactGA.event({
       category,
       action,
       label,
       value
     });
+    
+    // Firebase Analytics (converti in snake_case per convenzione Firebase)
+    if (Analytics.firebaseEnabled) {
+      const eventName = `${category.toLowerCase().replace(/\s+/g, '_')}_${action.toLowerCase().replace(/\s+/g, '_')}`;
+      logFirebaseEvent(eventName, {
+        event_category: category,
+        event_label: label,
+        value: value
+      });
+    }
   },
 
   // Track calculator interactions
@@ -132,12 +168,22 @@ export const Analytics = {
       console.error(`[Analytics Error] ${description}`);
       return;
     }
+    
+    // Google Analytics
     ReactGA.event({
       category: 'Exception',
       action: 'App Crash',
       label: description,
       nonInteraction: true
     });
+    
+    // Firebase Analytics
+    if (Analytics.firebaseEnabled) {
+      logFirebaseEvent('exception', {
+        description: description,
+        fatal: fatal
+      });
+    }
   },
 
   // Track comparator tool usage
@@ -197,5 +243,46 @@ export const Analytics = {
   // Track feedback interactions
   trackFeedback: (action: 'open' | 'submit' | 'cancel', type?: 'bug' | 'feature' | 'question') => {
     Analytics.trackEvent('Feedback', action, type);
+  }
+};
+
+// Export Firebase Analytics helpers
+export const FirebaseAnalytics = {
+  setUser: (userId: string) => {
+    if (firebaseAnalytics) {
+      setUserId(firebaseAnalytics, userId);
+    }
+  },
+
+  setUserProperty: (name: string, value: string) => {
+    if (firebaseAnalytics) {
+      setUserProperties(firebaseAnalytics, { [name]: value });
+    }
+  },
+
+  logCustomEvent: (eventName: string, params?: Record<string, any>) => {
+    logFirebaseEvent(eventName, params);
+  },
+
+  // Track recommended Firebase events
+  trackPurchase: (value: number, currency: string = 'CHF', items?: any[]) => {
+    logFirebaseEvent('purchase', {
+      value,
+      currency,
+      items
+    });
+  },
+
+  trackSelectContent: (contentType: string, itemId: string) => {
+    logFirebaseEvent('select_content', {
+      content_type: contentType,
+      item_id: itemId
+    });
+  },
+
+  trackSearch: (searchTerm: string) => {
+    logFirebaseEvent('search', {
+      search_term: searchTerm
+    });
   }
 };

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { CheckCircle2, XCircle, AlertTriangle, Key, RefreshCw, ExternalLink } from 'lucide-react';
 import { trafficService } from '../services/trafficService';
+import { getConfigValue } from '../services/firebase';
 
 interface ApiCheck {
   name: string;
@@ -35,9 +36,9 @@ const ApiStatus: React.FC = () => {
       testUrl: 'https://console.cloud.google.com/apis/api/distance_matrix_backend.googleapis.com'
     });
 
-    // 2. Google Gemini API
-    const geminiKey = import.meta.env.GEMINI_API_KEY;
-    const hasGemini = !!geminiKey && geminiKey !== 'your_gemini_api_key_here';
+    // 2. Google Gemini API - Carica da Firebase Remote Config
+    const geminiKey = await getConfigValue('GEMINI_API_KEY');
+    const hasGemini = !!geminiKey && geminiKey !== 'your_gemini_api_key_here' && geminiKey !== '';
     checks.push({
       name: 'Google Gemini API',
       key: '****',
@@ -50,9 +51,9 @@ const ApiStatus: React.FC = () => {
       testUrl: 'https://aistudio.google.com/app/apikey'
     });
 
-    // 3. GitHub PAT
-    const githubPat = import.meta.env.VITE_REACT_APP_PAT;
-    const hasGithub = !!githubPat && githubPat !== 'your_github_pat_here';
+    // 3. GitHub PAT - Carica da Firebase Remote Config
+    const githubPat = await getConfigValue('GITHUB_PAT');
+    const hasGithub = !!githubPat && githubPat !== 'your_github_pat_here' && githubPat !== '';
     checks.push({
       name: 'GitHub Personal Access Token',
       key: '****',
@@ -65,9 +66,9 @@ const ApiStatus: React.FC = () => {
       testUrl: 'https://github.com/settings/tokens'
     });
 
-    // 4. Google OAuth Client ID
+    // 4. Google OAuth Client ID (questo rimane da env vars perché non è in Remote Config)
     const oauthClientId = import.meta.env.VITE_GOOGLE_OAUTH_CLIENT_ID;
-    const hasOAuth = !!oauthClientId;
+    const hasOAuth = !!oauthClientId && oauthClientId !== '';
     checks.push({
       name: 'Google OAuth Client ID',
       key: '****',

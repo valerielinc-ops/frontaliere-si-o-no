@@ -28,10 +28,43 @@ const analytics: FirebaseAnalytics = getAnalytics(app);
 // La Site Key viene caricata da Remote Config
 let appCheck: AppCheck | null = null;
 let recaptchaSiteKey: string | null = null;
+let recaptchaScriptLoaded = false;
+
+/**
+ * Carica lo script reCAPTCHA dinamicamente con la site key da Remote Config
+ */
+async function loadRecaptchaScript(siteKey: string): Promise<void> {
+  if (recaptchaScriptLoaded) return;
+
+  return new Promise((resolve, reject) => {
+    const script = document.createElement('script');
+    script.src = `https://www.google.com/recaptcha/enterprise.js?render=${siteKey}`;
+    script.async = true;
+    script.defer = true;
+    
+    script.onload = () => {
+      recaptchaScriptLoaded = true;
+      console.log('✅ reCAPTCHA script caricato dinamicamente');
+      resolve();
+    };
+    
+    script.onerror = () => {
+      console.error('❌ Errore caricamento script reCAPTCHA');
+      reject(new Error('Failed to load reCAPTCHA script'));
+    };
+
+    // Aggiungi lo script al documento
+    const loader = document.getElementById('recaptcha-loader');
+    if (loader) {
+      loader.parentNode?.insertBefore(script, loader.nextSibling);
+    } else {
+      document.head.appendChild(script);
+    }
+  });
+}
 
 /**
  * Attende che lo script reCAPTCHA sia completamente caricato
- * Lo script viene caricato in modo asincrono da index.html
  */
 async function waitForRecaptcha(maxAttempts = 50, delayMs = 100): Promise<boolean> {
   for (let i = 0; i < maxAttempts; i++) {
@@ -59,16 +92,21 @@ async function initAppCheck(): Promise<void> {
       return;
     }
 
-    // Attende che lo script reCAPTCHA sia caricato
-    console.log('⏳ Attendo caricamento reCAPTCHA...');
+    console.log('🔑 reCAPTCHA Site Key caricata da Firebase Remote Config');
+
+    // Carica lo script reCAPTCHA con la site key corretta
+    await loadRecaptchaScript(recaptchaSiteKey);
+
+    // Attende che lo script reCAPTCHA sia completamente inizializzato
+    console.log('⏳ Attendo inizializzazione reCAPTCHA...');
     const recaptchaReady = await waitForRecaptcha();
     
     if (!recaptchaReady) {
-      console.warn('⚠️ reCAPTCHA script non disponibile dopo 5 secondi');
+      console.warn('⚠️ reCAPTCHA non disponibile dopo 5 secondi');
       return;
     }
 
-    console.log('✅ reCAPTCHA script caricato');
+    console.log('✅ reCAPTCHA pronto');
     
     appCheck = initializeAppCheck(app, {
       provider: new ReCaptchaV3Provider(recaptchaSiteKey),
