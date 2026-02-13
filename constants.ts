@@ -55,7 +55,9 @@ export const DEFAULT_INPUTS = {
   expensesCH: [],
   expensesIT: [],
   // Spread technical defaults
-  ...DEFAULT_TECH_PARAMS
+  ...DEFAULT_TECH_PARAMS,
+  // Experimental Features
+  enableOldFrontierHealthTax: false
 };
 
 export const COLORS = {

@@ -32,6 +32,8 @@ export interface SimulationInputs {
   lppRate55_plus: number;
   itAddizionaleRate: number;
   itWorkDeduction: number;
+  // Experimental Features
+  enableOldFrontierHealthTax: boolean;
 }
 
 export interface TaxBreakdownItem {

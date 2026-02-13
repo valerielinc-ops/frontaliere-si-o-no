@@ -350,17 +350,6 @@ export const InputCard: React.FC<Props> = ({ inputs, setInputs }) => {
               <StepperInput label="Membri Nucleo" value={inputs.familyMembers} onChange={(v: number) => handleChange('familyMembers', v)} min={1} icon={Users} iconColor="text-cyan-500" />
               <StepperInput label="Figli a Carico" value={inputs.children} onChange={(v: number) => handleChange('children', v)} min={0} icon={Baby} iconColor="text-pink-500" tooltip="Numero figli minorenni per assegni familiari e deduzioni." />
            </div>
-
-           <div className="space-y-2">
-               <label className="text-[10px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wide flex items-center gap-1.5 h-4">
-                 <Bandage size={12} className="text-rose-500"/> Cassa Malati (Mese)
-                 <InfoTooltip text="Premio mensile per l'assicurazione sanitaria obbligatoria (LAMal) in Svizzera." />
-               </label>
-               <div className="relative group">
-                   <input type="number" value={inputs.healthInsuranceCHF || ''} onChange={(e) => handleChange('healthInsuranceCHF', Number(e.target.value))} className="w-full pl-3 pr-10 py-3 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl focus:ring-4 focus:ring-blue-100 focus:border-blue-500 outline-none transition-all font-bold text-slate-800 dark:text-slate-100 text-sm h-11" placeholder="0" />
-                   <span className="absolute right-3 top-3.5 text-slate-400 dark:text-slate-500 font-bold text-xs">CHF</span>
-               </div>
-           </div>
         </div>
 
         {/* SECTION 4: EXPENSES (COLLAPSIBLE) */}
@@ -404,10 +393,10 @@ export const InputCard: React.FC<Props> = ({ inputs, setInputs }) => {
                    <div className="space-y-2">
                      {inputs.expensesCH.map(exp => (
                         <div key={exp.id} className="flex gap-2 items-center group/exp animate-fade-in">
-                          <input type="text" value={exp.label} onChange={e => updateExpense('CH', exp.id, { label: e.target.value })} className="flex-1 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg px-2 py-2 text-[10px] font-bold outline-none focus:border-indigo-500 transition-colors" />
-                          <input type="number" value={exp.amount || ''} onChange={e => updateExpense('CH', exp.id, { amount: Number(e.target.value) })} placeholder="0" className="w-16 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg px-2 py-2 text-[10px] font-mono font-bold outline-none focus:border-indigo-500 text-right transition-colors" />
-                          <button onClick={() => updateExpense('CH', exp.id, { frequency: exp.frequency === 'MONTHLY' ? 'ANNUAL' : 'MONTHLY' })} className="px-2 py-2 bg-slate-100 dark:bg-slate-800 rounded-lg text-[9px] font-bold uppercase text-slate-500 w-12 text-center hover:bg-slate-200 transition-colors">{exp.frequency === 'MONTHLY' ? '/m' : '/a'}</button>
-                          <button onClick={() => removeExpense('CH', exp.id)} className="p-1.5 text-slate-300 hover:text-red-500 transition-colors"><X size={14}/></button>
+                          <input type="text" value={exp.label} onChange={e => updateExpense('CH', exp.id, { label: e.target.value })} className="flex-1 min-w-0 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg px-2 py-2 text-[10px] font-bold outline-none focus:border-indigo-500 transition-colors" />
+                          <input type="number" value={exp.amount || ''} onChange={e => updateExpense('CH', exp.id, { amount: Number(e.target.value) })} placeholder="0" className="w-14 sm:w-16 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg px-1 sm:px-2 py-2 text-[10px] font-mono font-bold outline-none focus:border-indigo-500 text-right transition-colors" />
+                          <button onClick={() => updateExpense('CH', exp.id, { frequency: exp.frequency === 'MONTHLY' ? 'ANNUAL' : 'MONTHLY' })} className="px-1.5 sm:px-2 py-2 bg-slate-100 dark:bg-slate-800 rounded-lg text-[9px] font-bold uppercase text-slate-500 w-10 sm:w-12 text-center hover:bg-slate-200 transition-colors flex-shrink-0">{exp.frequency === 'MONTHLY' ? '/m' : '/a'}</button>
+                          <button onClick={() => removeExpense('CH', exp.id)} className="p-1 sm:p-1.5 text-slate-300 hover:text-red-500 transition-colors flex-shrink-0"><X size={14}/></button>
                         </div>
                      ))}
                      {inputs.expensesCH.length === 0 && !showPresets && <div className="text-[10px] text-slate-400 italic text-center py-4 bg-slate-50/50 rounded-xl border border-dashed border-slate-200">Nessuna spesa aggiunta</div>}
@@ -449,10 +438,10 @@ export const InputCard: React.FC<Props> = ({ inputs, setInputs }) => {
                    <div className="space-y-2">
                      {inputs.expensesIT.map(exp => (
                         <div key={exp.id} className="flex gap-2 items-center group/exp animate-fade-in">
-                          <input type="text" value={exp.label} onChange={e => updateExpense('IT', exp.id, { label: e.target.value })} className="flex-1 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg px-2 py-2 text-[10px] font-bold outline-none focus:border-indigo-500 transition-colors" />
-                          <input type="number" value={exp.amount || ''} onChange={e => updateExpense('IT', exp.id, { amount: Number(e.target.value) })} placeholder="0" className="w-16 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg px-2 py-2 text-[10px] font-mono font-bold outline-none focus:border-indigo-500 text-right transition-colors" />
-                          <button onClick={() => updateExpense('IT', exp.id, { frequency: exp.frequency === 'MONTHLY' ? 'ANNUAL' : 'MONTHLY' })} className="px-2 py-2 bg-slate-100 dark:bg-slate-800 rounded-lg text-[9px] font-bold uppercase text-slate-500 w-12 text-center hover:bg-slate-200 transition-colors">{exp.frequency === 'MONTHLY' ? '/m' : '/a'}</button>
-                          <button onClick={() => removeExpense('IT', exp.id)} className="p-1.5 text-slate-300 hover:text-red-500 transition-colors"><X size={14}/></button>
+                          <input type="text" value={exp.label} onChange={e => updateExpense('IT', exp.id, { label: e.target.value })} className="flex-1 min-w-0 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg px-2 py-2 text-[10px] font-bold outline-none focus:border-indigo-500 transition-colors" />
+                          <input type="number" value={exp.amount || ''} onChange={e => updateExpense('IT', exp.id, { amount: Number(e.target.value) })} placeholder="0" className="w-14 sm:w-16 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg px-1 sm:px-2 py-2 text-[10px] font-mono font-bold outline-none focus:border-indigo-500 text-right transition-colors" />
+                          <button onClick={() => updateExpense('IT', exp.id, { frequency: exp.frequency === 'MONTHLY' ? 'ANNUAL' : 'MONTHLY' })} className="px-1.5 sm:px-2 py-2 bg-slate-100 dark:bg-slate-800 rounded-lg text-[9px] font-bold uppercase text-slate-500 w-10 sm:w-12 text-center hover:bg-slate-200 transition-colors flex-shrink-0">{exp.frequency === 'MONTHLY' ? '/m' : '/a'}</button>
+                          <button onClick={() => removeExpense('IT', exp.id)} className="p-1 sm:p-1.5 text-slate-300 hover:text-red-500 transition-colors flex-shrink-0"><X size={14}/></button>
                         </div>
                      ))}
                       {inputs.expensesIT.length === 0 && !showPresets && <div className="text-[10px] text-slate-400 italic text-center py-4 bg-slate-50/50 rounded-xl border border-dashed border-slate-200">Nessuna spesa aggiunta</div>}
@@ -489,8 +478,72 @@ export const InputCard: React.FC<Props> = ({ inputs, setInputs }) => {
                      </div>
                      <StepperInput label="Mensilità" value={inputs.monthsBasis} onChange={(v: number) => handleChange('monthsBasis', v)} min={12} max={15} icon={CalendarClock} iconColor="text-orange-400" tooltip="Numero di mensilità (es. 13) per calcolare il netto mensile corretto." />
                   </div>
+                  
+                  {/* Cassa Malati Moved Here */}
+                  <div className="space-y-2 pt-2">
+                      <label className="text-[10px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wide flex items-center gap-1.5 h-4">
+                        <Bandage size={12} className="text-rose-500"/> Cassa Malati (Mese)
+                        <InfoTooltip text="Premio mensile per l'assicurazione sanitaria obbligatoria (LAMal) in Svizzera." />
+                      </label>
+                      <div className="relative group">
+                          <input type="number" value={inputs.healthInsuranceCHF || ''} onChange={(e) => handleChange('healthInsuranceCHF', Number(e.target.value))} className="w-full pl-3 pr-10 py-3 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl focus:ring-4 focus:ring-blue-100 focus:border-blue-500 outline-none transition-all font-bold text-slate-800 dark:text-slate-100 text-sm h-11" placeholder="0" />
+                          <span className="absolute right-3 top-3.5 text-slate-400 dark:text-slate-500 font-bold text-xs">CHF</span>
+                      </div>
+                  </div>
               </div>
            )}
+        </div>
+
+        {/* SECTION 5.5: EXPERIMENTAL FEATURES */}
+        <div className="bg-gradient-to-br from-amber-50 to-orange-50 dark:from-amber-950/30 dark:to-orange-950/30 rounded-2xl border-2 border-dashed border-amber-200 dark:border-amber-800 overflow-hidden shadow-sm">
+           <div className="p-5 space-y-4">
+              <div className="flex items-center justify-between">
+                 <div className="flex items-center gap-2">
+                    <div className="p-1.5 bg-amber-500 text-white rounded-lg">
+                       <Joystick size={14} />
+                    </div>
+                    <div>
+                       <h3 className="text-[11px] font-bold text-amber-900 dark:text-amber-200 uppercase tracking-wide">Funzionalità Sperimentali</h3>
+                       <p className="text-[9px] text-amber-600 dark:text-amber-400">Feature in Beta Testing</p>
+                    </div>
+                 </div>
+              </div>
+              
+              {/* SSN Health Tax Toggle */}
+              <div className="bg-white dark:bg-slate-900/50 p-4 rounded-xl border border-amber-100 dark:border-amber-900">
+                 <div className="flex items-start justify-between gap-3">
+                    <div className="flex-1 min-w-0">
+                       <div className="flex items-center gap-2 mb-1">
+                          <PiggyBank size={14} className="text-amber-600 flex-shrink-0" />
+                          <h4 className="text-[11px] font-bold text-slate-800 dark:text-slate-100">Tassa Salute SSN (Vecchi Frontalieri)</h4>
+                          <InfoTooltip text="Contributo SSN 3% del reddito netto per vecchi frontalieri (pre 17/7/2023). Min 30€/mese, max 200€/mese. Retroattivo 2024-2025, basato su autocertificazione." />
+                       </div>
+                       <p className="text-[9px] text-slate-500 dark:text-slate-400 leading-relaxed">
+                          Attiva il calcolo della tassa sanitaria italiana (3% netto, 30-200€/mese) per vecchi frontalieri. Si applica solo al regime "Vecchio Frontaliere".
+                       </p>
+                    </div>
+                    
+                    {/* Beautiful Toggle Switch */}
+                    <button 
+                      onClick={() => handleChange('enableOldFrontierHealthTax', !inputs.enableOldFrontierHealthTax)}
+                      className={`relative flex-shrink-0 w-14 h-7 rounded-full transition-all duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-amber-500 shadow-inner ${inputs.enableOldFrontierHealthTax ? 'bg-gradient-to-r from-amber-500 to-orange-500' : 'bg-slate-300 dark:bg-slate-600'}`}
+                    >
+                      <span className={`block w-5 h-5 bg-white rounded-full shadow-lg transform transition-transform duration-300 ease-[cubic-bezier(0.34,1.56,0.64,1)] mt-1 ml-1 ${inputs.enableOldFrontierHealthTax ? 'translate-x-7' : 'translate-x-0'}`}/>
+                      {inputs.enableOldFrontierHealthTax && (
+                         <span className="absolute inset-0 flex items-center justify-start pl-2 text-white text-[8px] font-bold pointer-events-none">ON</span>
+                      )}
+                    </button>
+                 </div>
+                 
+                 {/* Active Indicator */}
+                 {inputs.enableOldFrontierHealthTax && (
+                    <div className="mt-3 flex items-center gap-2 bg-amber-50 dark:bg-amber-900/20 p-2 rounded-lg animate-fade-in">
+                       <Check size={12} className="text-amber-600" />
+                       <span className="text-[9px] font-bold text-amber-700 dark:text-amber-300">Tassa SSN attiva - Applicata ai calcoli vecchio frontaliere</span>
+                    </div>
+                 )}
+              </div>
+           </div>
         </div>
 
         {/* SECTION 6: TECHNICAL PARAMETERS (Now Top-Level) */}

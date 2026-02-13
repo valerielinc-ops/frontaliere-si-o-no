@@ -45,7 +45,7 @@ const calcExpensesTotal = (expenses: ExpenseItem[]): number => {
 };
 
 export const calculateSimulation = (inputs: SimulationInputs): SimulationResult => {
-  const { annualIncomeCHF, children, healthInsuranceCHF, frontierWorkerType, customExchangeRate, monthsBasis, distanceZone, age, maritalStatus, spouseWorks, avsRate, acRate, laaRate, ijmRate, lppRate25_34, lppRate35_44, lppRate45_54, lppRate55_plus, itAddizionaleRate, itWorkDeduction, expensesCH, expensesIT } = inputs;
+  const { annualIncomeCHF, children, healthInsuranceCHF, frontierWorkerType, customExchangeRate, monthsBasis, distanceZone, age, maritalStatus, spouseWorks, avsRate, acRate, laaRate, ijmRate, lppRate25_34, lppRate35_44, lppRate45_54, lppRate55_plus, itAddizionaleRate, itWorkDeduction, expensesCH, expensesIT, enableOldFrontierHealthTax } = inputs;
   const EXCHANGE_RATE = customExchangeRate;
 
   const avsAmount = annualIncomeCHF * avsRate;
@@ -103,13 +103,81 @@ export const calculateSimulation = (inputs: SimulationInputs): SimulationResult 
 
   if (frontierWorkerType === 'OLD') {
     notesIT = ["Tassazione esclusiva in Svizzera (Accordo 1974)"];
+    
+    // Calculate SSN Health Tax for Old Frontier Workers (if enabled)
+    let ssnHealthTaxEUR = 0;
+    let ssnHealthTaxCHF = 0;
+    const netBeforeSsnEUR = (grossTotalCH - totalSocialDeductions - taxWithheldInCH_CHF - expensesTotalIT) * EXCHANGE_RATE;
+    
+    if (enableOldFrontierHealthTax) {
+      // SSN Tax: 3% of net income, min 30€/month (360€/year), max 200€/month (2400€/year)
+      ssnHealthTaxEUR = Math.max(360, Math.min(2400, netBeforeSsnEUR * 0.03));
+      ssnHealthTaxCHF = ssnHealthTaxEUR / EXCHANGE_RATE;
+      notesIT.push(`Tassa Salute SSN: ${Math.round(ssnHealthTaxEUR/12)}€/mese`);
+    }
+    
     itBreakdown = [
       { label: 'Reddito Lordo', amount: annualIncomeCHF, amountEUR: grossIncomeEUR, percentage: (annualIncomeCHF/grossTotalCH)*100, description: 'Salario lordo convertito in CHF' },
       { label: 'Assegni Familiari (CH)', amount: annualFamilyAllowanceCHF, amountEUR: allowanceEUR, percentage: (annualFamilyAllowanceCHF/grossTotalCH)*100, description: 'Supporto per figli versato in Svizzera' },
       { label: 'Contributi Sociali CH', amount: -totalSocialDeductions, amountEUR: -socialEUR, percentage: (totalSocialDeductions/grossTotalCH)*100, description: 'Contributi AVS, AC e LPP versati in Svizzera' },
       { label: 'Fonte CH (100%)', amount: -taxWithheldInCH_CHF, amountEUR: -paidSourceTaxEUR, percentage: (taxWithheldInCH_CHF/grossTotalCH)*100, description: 'Tassazione esclusiva in Svizzera (Accordo 1974)' },
-      { label: 'Spese Personali IT', amount: -expensesTotalIT, amountEUR: -(expensesTotalIT * EXCHANGE_RATE), percentage: (expensesTotalIT/grossTotalCH)*100, description: 'Totale spese fisse in Italia' },
     ];
+    
+    // Add SSN Tax line if enabled
+    if (enableOldFrontierHealthTax && ssnHealthTaxCHF > 0) {
+      itBreakdown.push({ 
+        label: 'Tassa Salute SSN Italia', 
+        amount: -ssnHealthTaxCHF, 
+        amountEUR: -ssnHealthTaxEUR, 
+        percentage: (ssnHealthTaxCHF/grossTotalCH)*100, 
+        description: `Contributo obbligatorio SSN 3% netto (${Math.round(ssnHealthTaxEUR/12)}€/mese, min 30€ max 200€)` 
+      });
+    }
+    
+    itBreakdown.push({ 
+      label: 'Spese Personali IT', 
+      amount: -expensesTotalIT, 
+      amountEUR: -(expensesTotalIT * EXCHANGE_RATE), 
+      percentage: (expensesTotalIT/grossTotalCH)*100, 
+      description: 'Totale spese fisse in Italia' 
+    });
+    
+    // Update totalTaxIT_CHF to include SSN if enabled
+    const totalTaxIT_CHF_OLD = taxWithheldInCH_CHF + ssnHealthTaxCHF;
+    const netAnnualIT_CHF_OLD = grossTotalCH - totalSocialDeductions - totalTaxIT_CHF_OLD - expensesTotalIT;
+    
+    itBreakdown.push({
+      label: 'Reddito Netto Annuo',
+      amount: netAnnualIT_CHF_OLD,
+      amountEUR: netAnnualIT_CHF_OLD * EXCHANGE_RATE,
+      percentage: (netAnnualIT_CHF_OLD/grossTotalCH)*100,
+      description: notesIT.join(". ")
+    });
+    
+    const netSwissSalaryAnnual_OLD = grossTotalCH - totalSocialDeductions - taxWithheldInCH_CHF;
+    
+    return {
+      chResident: chResidentResult,
+      itResident: { 
+        grossIncome: annualIncomeCHF, 
+        familyAllowance: annualFamilyAllowanceCHF, 
+        socialContributions: totalSocialDeductions, 
+        taxableIncome: annualIncomeCHF, 
+        taxes: totalTaxIT_CHF_OLD, 
+        healthInsurance: 0, 
+        customExpensesTotal: expensesTotalIT, 
+        netIncomeAnnual: netAnnualIT_CHF_OLD, 
+        netIncomeMonthly: netAnnualIT_CHF_OLD / monthsBasis, 
+        swissNetIncomeMonthlyCHF: netSwissSalaryAnnual_OLD / monthsBasis,
+        currency: 'CHF', 
+        breakdown: itBreakdown, 
+        details: { regime: "Vecchio Frontaliere", effectiveRate: (totalTaxIT_CHF_OLD / grossTotalCH) * 100, source: "Accordo Fiscale CH-IT", franchigiaEUR: 0, notes: notesIT } 
+      },
+      savingsCHF: netAnnualIT_CHF_OLD - netIncomeAnnualCH,
+      savingsEUR: (netAnnualIT_CHF_OLD - netIncomeAnnualCH) * EXCHANGE_RATE,
+      exchangeRate: EXCHANGE_RATE,
+      monthsBasis: monthsBasis
+    };
   } else {
     franchigiaUsed = (distanceZone === 'WITHIN_20KM') ? FRANCHIGIA_NUOVI_FRONTALIERI : 0;
     const italianTaxableBaseEUR = Math.max(0, grossIncomeEUR + allowanceEUR - socialEUR - franchigiaUsed);
@@ -165,11 +233,12 @@ export const calculateSimulation = (inputs: SimulationInputs): SimulationResult 
       swissNetIncomeMonthlyCHF: netSwissSalaryAnnual / monthsBasis,
       currency: 'CHF', 
       breakdown: itBreakdown, 
-      details: { regime: frontierWorkerType === 'OLD' ? "Vecchio Frontaliere" : "Nuovo Frontaliere", effectiveRate: (totalTaxIT_CHF / grossTotalCH) * 100, source: "Accordo Fiscale CH-IT", franchigiaEUR: franchigiaUsed, notes: notesIT, irpefDetails: irpefDetails } 
+      details: { regime: "Nuovo Frontaliere", effectiveRate: (totalTaxIT_CHF / grossTotalCH) * 100, source: "Accordo Fiscale CH-IT", franchigiaEUR: franchigiaUsed, notes: notesIT, irpefDetails: irpefDetails } 
     },
     savingsCHF: netAnnualIT_CHF - netIncomeAnnualCH,
     savingsEUR: (netAnnualIT_CHF - netIncomeAnnualCH) * EXCHANGE_RATE,
     exchangeRate: EXCHANGE_RATE,
     monthsBasis: monthsBasis
   };
+  }
 };
