@@ -21,7 +21,7 @@ const firebaseConfig = {
 };
 
 // reCAPTCHA Site Key per App Check
-const RECAPTCHA_SITE_KEY = "6LeGWWosAAAAAFSgorUe63qmWd03Bu6qMNdF_AdJ";
+const RECAPTCHA_SITE_KEY = "6LcvRmosAAAAANg2upkWsseTFrN6eO5erywetm59";
 
 // Inizializza Firebase
 const app: FirebaseApp = initializeApp(firebaseConfig);
