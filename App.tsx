@@ -17,6 +17,7 @@ import { DataDeletion } from '@/components/DataDeletion';
 import { ErrorBoundary } from '@/components/ErrorBoundary';
 import { calculateSimulation } from '@/services/calculationService';
 import { Analytics } from '@/services/analytics';
+import { updateMetaTags, trackSectionView } from '@/services/seoService';
 import { DEFAULT_INPUTS } from '@/constants';
 import { SimulationInputs, SimulationResult } from '@/types';
 import { Moon, Sun, Maximize2, Minimize2, Calculator, HelpCircle, BarChart2, PiggyBank, BookOpen, Facebook, ArrowRightLeft, Phone, Car, Heart, Building2, AlertTriangle, Layers } from 'lucide-react';
@@ -73,6 +74,10 @@ const App: React.FC = () => {
     const previousTab = activeTab;
     setActiveTab(tab);
     Analytics.trackTabNavigation(previousTab, tab);
+    
+    // Update SEO meta tags for the new section
+    updateMetaTags(tab);
+    trackSectionView(tab);
   };
 
   const handleCalculate = () => {
@@ -84,6 +89,22 @@ const App: React.FC = () => {
       inputs.hasChildren
     );
   };
+
+  // Update SEO tags when comparatori sub-tab changes
+  useEffect(() => {
+    if (activeTab === 'comparatori') {
+      updateMetaTags(comparatoriSubTab);
+      trackSectionView(comparatoriSubTab);
+    }
+  }, [comparatoriSubTab]);
+
+  // Update SEO tags when active tab changes
+  useEffect(() => {
+    if (activeTab !== 'comparatori') {
+      updateMetaTags(activeTab);
+      trackSectionView(activeTab);
+    }
+  }, [activeTab]);
 
   useEffect(() => {
     handleCalculate();
@@ -149,17 +170,6 @@ const App: React.FC = () => {
                 </button>
 
                 <button 
-                  onClick={() => handleTabChange('pension')}
-                  className={`relative px-3 py-2 text-sm font-bold transition-colors flex items-center gap-2 group ${activeTab === 'pension' ? 'text-emerald-600 dark:text-emerald-400' : 'text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200'}`}
-                >
-                  <PiggyBank size={16} />
-                  <span className="hidden lg:inline">Pensione</span>
-                  {activeTab === 'pension' && (
-                    <span className="absolute bottom-0 left-0 w-full h-0.5 bg-emerald-600 dark:bg-emerald-400 rounded-full animate-fade-in" />
-                  )}
-                </button>
-
-                <button 
                   onClick={() => handleTabChange('comparatori')}
                   className={`relative px-3 py-2 text-sm font-bold transition-colors flex items-center gap-2 group ${activeTab === 'comparatori' ? 'text-violet-600 dark:text-violet-400' : 'text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200'}`}
                 >
@@ -167,6 +177,17 @@ const App: React.FC = () => {
                   <span className="hidden lg:inline">Comparatori</span>
                   {activeTab === 'comparatori' && (
                     <span className="absolute bottom-0 left-0 w-full h-0.5 bg-violet-600 dark:bg-violet-400 rounded-full animate-fade-in" />
+                  )}
+                </button>
+
+                <button 
+                  onClick={() => handleTabChange('pension')}
+                  className={`relative px-3 py-2 text-sm font-bold transition-colors flex items-center gap-2 group ${activeTab === 'pension' ? 'text-emerald-600 dark:text-emerald-400' : 'text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200'}`}
+                >
+                  <PiggyBank size={16} />
+                  <span className="hidden lg:inline">Pensione</span>
+                  {activeTab === 'pension' && (
+                    <span className="absolute bottom-0 left-0 w-full h-0.5 bg-emerald-600 dark:bg-emerald-400 rounded-full animate-fade-in" />
                   )}
                 </button>
 

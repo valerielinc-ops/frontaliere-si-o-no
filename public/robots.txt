@@ -1,4 +1,43 @@
+# robots.txt for Frontaliere Si o No - www.frontaliereticino.ch
+# Allow all search engines to crawl
+
 User-agent: *
 Allow: /
+Disallow: /api/
+Disallow: /*.json$
+Disallow: /*?debug=*
+Disallow: /*?status=*
 
-Sitemap: https://frontaliereticino.ch/sitemap.xml
+# Crawl-delay for well-behaved bots
+Crawl-delay: 1
+
+# Sitemap locations
+Sitemap: https://www.frontaliereticino.ch/sitemap.xml
+
+# Popular search engines
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: Baiduspider
+Allow: /
+
+User-agent: YandexBot
+Allow: /
+
+User-agent: facebot
+Allow: /
+
+User-agent: ia_archiver
+Allow: /

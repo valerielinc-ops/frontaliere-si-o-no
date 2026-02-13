@@ -61,7 +61,24 @@
     <!-- Mobile Web App -->
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Frontaliere CH-IT">
     <meta name="format-detection" content="telephone=no">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="Frontaliere Si o No">
+
+    <!-- Additional SEO Meta Tags -->
+    <meta name="geo.region" content="CH-TI" />
+    <meta name="geo.placename" content="Canton Ticino" />
+    <meta name="geo.position" content="46.0037;8.9511" />
+    <meta name="ICBM" content="46.0037, 8.9511" />
+    <meta name="language" content="Italian">
+    <meta name="coverage" content="Worldwide">
+    <meta name="distribution" content="Global">
+    <meta name="rating" content="General">
+    <meta name="target" content="all">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
     <!-- Favicon (Calculator with CH/IT flags) -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect x='10' y='10' width='80' height='80' rx='16' fill='%231e293b'/%3E%3Crect x='22' y='22' width='56' height='20' rx='4' fill='%2394a3b8'/%3E%3C!-- CH Button --%3E%3Crect x='22' y='52' width='24' height='24' rx='6' fill='%23dc2626'/%3E%3Cpath d='M34 58v12M28 64h12' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C!-- IT Button --%3E%3Cmask id='m'%3E%3Crect x='54' y='52' width='24' height='24' rx='6' fill='white'/%3E%3C/mask%3E%3Cg mask='url(%23m)'%3E%3Crect x='54' y='52' width='8' height='24' fill='%2316a34a'/%3E%3Crect x='62' y='52' width='8' height='24' fill='white'/%3E%3Crect x='70' y='52' width='8' height='24' fill='%23dc2626'/%3E%3C/g%3E%3C/svg%3E">
@@ -109,6 +126,115 @@
       "audience": {
         "@type": "Audience",
         "audienceType": "Frontalieri Svizzera-Italia, Lavoratori Canton Ticino"
+      }
+    }
+    </script>
+
+    <!-- FAQ Schema for Rich Results -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Qual è la differenza tra vecchio e nuovo frontaliere?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Il vecchio frontaliere paga solo l'imposta alla fonte in Svizzera con franchigia del 70% in Italia. Il nuovo frontaliere (dal 2026) paga sia tasse in Svizzera che IRPEF in Italia con detrazione per evitare doppia imposizione."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Conviene essere vecchio o nuovo frontaliere?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Dipende dal tuo salario e comune di residenza. Generalmente il vecchio frontaliere è più conveniente per salari medio-alti, mentre il nuovo può essere vantaggioso per salari più bassi e detrazioni familiari. Usa il nostro simulatore per calcolare il tuo caso specifico."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Come si calcola l'imposta alla fonte in Ticino?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "L'imposta alla fonte in Ticino si calcola applicando aliquote progressive sul salario lordo annuo. Le aliquote variano dal 0% per redditi bassi fino al 23-24% per redditi oltre CHF 150'000. Il nostro simulatore applica le aliquote ufficiali 2026 del Canton Ticino."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Che documenti servono per lavorare come frontaliere?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Servono: permesso G (frontaliere), contratto di lavoro svizzero, residenza in zona di frontiera, iscrizione all'assicurazione sanitaria svizzera obbligatoria (LAMal) e eventualmente iscrizione all'AIRE se vivi in Italia."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Quali comuni italiani sono considerati frontalieri?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "I comuni frontalieri sono nelle province di Como, Varese, Lecco, Verbano-Cusio-Ossola e Sondrio. Per il vecchio ordinamento: 40 km dal confine. Per il nuovo: 20 km dal confine. La lista completa è disponibile nella nostra guida."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <!-- BreadcrumbList Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.frontaliereticino.ch/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Simulatore Fiscale",
+          "item": "https://www.frontaliereticino.ch/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Comparatori Servizi",
+          "item": "https://www.frontaliereticino.ch/comparatori"
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "name": "Pianificatore Pensione",
+          "item": "https://www.frontaliereticino.ch/pianificatore-pensione"
+        },
+        {
+          "@type": "ListItem",
+          "position": 5,
+          "name": "Guida Frontalieri",
+          "item": "https://www.frontaliereticino.ch/guida-frontalieri"
+        }
+      ]
+    }
+    </script>
+
+    <!-- Organization Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Frontaliere Si o No",
+      "url": "https://www.frontaliereticino.ch",
+      "logo": "https://www.frontaliereticino.ch/og-image.png",
+      "sameAs": [
+        "https://www.facebook.com/profile.php?id=61588174947294"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "Customer Support",
+        "availableLanguage": ["Italian"]
       }
     }
     </script>
