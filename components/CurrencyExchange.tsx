@@ -376,12 +376,24 @@ const CurrencyExchange: React.FC = () => {
           const isBest = idx === 0;
           const isWorst = idx === results.length - 1;
           
+          const CardWrapper = result.provider.referralUrl ? 'a' : 'div';
+          const cardProps = result.provider.referralUrl ? {
+            href: result.provider.referralUrl,
+            target: '_blank',
+            rel: 'noopener noreferrer',
+            className: `block bg-white dark:bg-slate-800 rounded-2xl border-2 p-6 hover:shadow-lg transition-all cursor-pointer ${
+              isBest ? 'border-emerald-500 ring-2 ring-emerald-500/20 hover:ring-emerald-500/40' : isWorst ? 'border-red-500 ring-2 ring-red-500/20' : 'border-slate-200 dark:border-slate-700 hover:border-emerald-400'
+            }`
+          } : {
+            className: `bg-white dark:bg-slate-800 rounded-2xl border-2 p-6 hover:shadow-lg transition-all ${
+              isBest ? 'border-emerald-500 ring-2 ring-emerald-500/20' : isWorst ? 'border-red-500 ring-2 ring-red-500/20' : 'border-slate-200 dark:border-slate-700'
+            }`
+          };
+          
           return (
-            <div
+            <CardWrapper
               key={result.provider.name}
-              className={`bg-white dark:bg-slate-800 rounded-2xl border-2 p-6 hover:shadow-lg transition-all ${
-                isBest ? 'border-emerald-500 ring-2 ring-emerald-500/20' : isWorst ? 'border-red-500 ring-2 ring-red-500/20' : 'border-slate-200 dark:border-slate-700'
-              }`}
+              {...cardProps}
             >
               {isBest && (
                 <div className="mb-3 inline-flex items-center gap-1.5 px-3 py-1.5 bg-emerald-500 text-white text-xs font-bold rounded-full">
@@ -396,18 +408,7 @@ const CurrencyExchange: React.FC = () => {
                     {result.provider.logo}
                   </div>
                   <div>
-                    {result.provider.referralUrl ? (
-                      <a 
-                        href={result.provider.referralUrl} 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="text-xl font-bold text-slate-800 dark:text-slate-100 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors cursor-pointer"
-                      >
-                        {result.provider.name}
-                      </a>
-                    ) : (
-                      <h3 className="text-xl font-bold text-slate-800 dark:text-slate-100">{result.provider.name}</h3>
-                    )}
+                    <h3 className="text-xl font-bold text-slate-800 dark:text-slate-100">{result.provider.name}</h3>
                     <p className="text-sm text-slate-500 dark:text-slate-400">{result.provider.transferTime}</p>
                   </div>
                 </div>
@@ -471,7 +472,7 @@ const CurrencyExchange: React.FC = () => {
                   ))}
                 </div>
               </div>
-            </div>
+            </CardWrapper>
           );
         })}
       </div>
