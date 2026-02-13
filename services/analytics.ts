@@ -1,17 +1,27 @@
 import ReactGA from 'react-ga4';
+import { getConfigValue } from './firebase';
 
 // Safely access environment variable to prevent runtime crashes
 // We use optional chaining because import.meta.env might be undefined in some environments
-const GA_MEASUREMENT_ID = import.meta.env?.VITE_GA_MEASUREMENT_ID;
+let GA_MEASUREMENT_ID: string | null = null;
+
+// Inizializza l'ID da Firebase Remote Config
+async function initGAMeasurementId() {
+  if (!GA_MEASUREMENT_ID) {
+    GA_MEASUREMENT_ID = await getConfigValue('GA_MEASUREMENT_ID');
+  }
+  return GA_MEASUREMENT_ID;
+}
 
 export const Analytics = {
   isInitialized: false,
 
-  init: () => {
-    if (GA_MEASUREMENT_ID && !Analytics.isInitialized) {
-      ReactGA.initialize(GA_MEASUREMENT_ID);
+  init: async () => {
+    const measurementId = await initGAMeasurementId();
+    if (measurementId && !Analytics.isInitialized) {
+      ReactGA.initialize(measurementId);
       Analytics.isInitialized = true;
-      console.log('GA4 Initialized');
+      console.log('✅ GA4 Initialized with Firebase Remote Config');
     }
   },
 

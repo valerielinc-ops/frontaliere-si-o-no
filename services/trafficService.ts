@@ -2,11 +2,13 @@
  * Traffic Service - Google Maps Distance Matrix API Integration
  * Provides real-time traffic data for border crossings using Google Maps free tier
  * Protected by reCAPTCHA Enterprise to prevent API abuse
+ * API key loaded from Firebase Remote Config
  */
 
 /// <reference types="@types/google.maps" />
 
 import recaptchaService from './recaptchaService';
+import { getConfigValue } from './firebase';
 
 interface BorderCrossingCoordinates {
   name: string;
@@ -92,14 +94,32 @@ class TrafficService {
   private distanceMatrixService: google.maps.DistanceMatrixService | null = null;
   private mapsLoaded = false;
   private mapsLoadPromise: Promise<void> | null = null;
+  private apiKeyInitialized = false;
 
   constructor() {
-    // Tenta di leggere la API key dalle variabili d'ambiente
-    this.apiKey = import.meta.env.VITE_GOOGLE_MAPS_API_KEY || null;
+    // API key sarà caricata da Firebase Remote Config al primo utilizzo
+    this.initApiKey();
+  }
+
+  /**
+   * Inizializza l'API key da Firebase Remote Config
+   */
+  private async initApiKey(): Promise<void> {
+    if (this.apiKeyInitialized) return;
     
-    // Carica Google Maps API se disponibile
-    if (this.hasApiKey()) {
-      this.loadGoogleMaps();
+    try {
+      this.apiKey = await getConfigValue('GOOGLE_MAPS_API_KEY');
+      this.apiKeyInitialized = true;
+      
+      if (this.hasApiKey()) {
+        console.log('✅ Google Maps API key caricata da Firebase Remote Config');
+        await this.loadGoogleMaps();
+      }
+    } catch (error) {
+      console.warn('⚠️ Errore caricamento API key da Firebase:', error);
+      // Fallback: usa env var locale
+      this.apiKey = import.meta.env.VITE_GOOGLE_MAPS_API_KEY || null;
+      this.apiKeyInitialized = true;
     }
   }
 
@@ -171,6 +191,9 @@ class TrafficService {
    * Protetto da reCAPTCHA per prevenire abusi API
    */
   async getTrafficData(): Promise<TrafficData[]> {
+    // Assicurati che l'API key sia inizializzata
+    await this.initApiKey();
+    
     // Verifica reCAPTCHA prima di procedere con la richiesta API
     await recaptchaService.canProceed('TRAFFIC_DATA');
 

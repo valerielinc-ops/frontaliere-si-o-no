@@ -3,6 +3,7 @@ import { Send, Bug, Lightbulb, Github, CheckCircle, Clock, Sparkles, Loader2, Me
 import { GoogleGenAI, GenerateContentResponse } from '@google/genai';
 import { Analytics } from '../services/analytics';
 import recaptchaService from '../services/recaptchaService';
+import { getConfigValue } from '../services/firebase';
 
 interface FeedbackItem {
   id: string;
@@ -21,6 +22,8 @@ export const FeedbackSection: React.FC = () => {
   const [isOptimizing, setIsOptimizing] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
+  const [githubToken, setGithubToken] = useState<string>('');
+  const [geminiApiKey, setGeminiApiKey] = useState<string>('');
   
   const [formData, setFormData] = useState<{
     title: string;
@@ -34,7 +37,8 @@ export const FeedbackSection: React.FC = () => {
 
   const REPO_OWNER = 'valerielinc-ops';
   const REPO_NAME = 'frontaliere-si-o-no';
-  // Token GitHub caricato da variabile d'ambiente (codificato in Base64 per sicurezza)
+  
+  // Decodifica Base64
   const decodeBase64Token = (encoded: string): string => {
     try {
       return atob(encoded);
@@ -43,12 +47,34 @@ export const FeedbackSection: React.FC = () => {
       return '';
     }
   };
-  const GITHUB_TOKEN = import.meta.env.VITE_REACT_APP_PAT 
-    ? decodeBase64Token(import.meta.env.VITE_REACT_APP_PAT) 
-    : '';
+
+  // Carica le API keys da Firebase Remote Config
+  useEffect(() => {
+    async function loadApiKeys() {
+      try {
+        const githubPat = await getConfigValue('GITHUB_PAT');
+        const geminiKey = await getConfigValue('GEMINI_API_KEY');
+        
+        setGithubToken(githubPat ? decodeBase64Token(githubPat) : '');
+        setGeminiApiKey(geminiKey);
+        
+        console.log('✅ API keys caricate da Firebase Remote Config');
+      } catch (error) {
+        console.warn('⚠️ Errore caricamento API keys, uso fallback locali:', error);
+        // Fallback: usa env vars
+        setGithubToken(import.meta.env.VITE_REACT_APP_PAT ? decodeBase64Token(import.meta.env.VITE_REACT_APP_PAT) : '');
+        setGeminiApiKey(import.meta.env.GEMINI_API_KEY || '');
+      }
+    }
+    
+    loadApiKeys();
+  }, []);
 
   useEffect(() => {
     const fetchIssues = async () => {
+      // Attendi che il token sia caricato
+      if (!githubToken) return;
+      
       try {
         setLoading(true);
         const headers: HeadersInit = {
@@ -56,8 +82,8 @@ export const FeedbackSection: React.FC = () => {
         };
         
         // Aggiungi autenticazione se il token è disponibile (necessario per repository privati)
-        if (GITHUB_TOKEN) {
-          headers['Authorization'] = `token ${GITHUB_TOKEN}`;
+        if (githubToken) {
+          headers['Authorization'] = `token ${githubToken}`;
         }
         
         const response = await fetch(
@@ -87,15 +113,15 @@ export const FeedbackSection: React.FC = () => {
     };
 
     fetchIssues();
-  }, []);
+  }, [githubToken]);
 
   const handleOptimize = async () => {
-    if (!formData.description) return;
+    if (!formData.description || !geminiApiKey) return;
     setIsOptimizing(true);
     Analytics.trackEvent('AI', 'Optimize Description', formData.type);
     
     try {
-      const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+      const ai = new GoogleGenAI({ apiKey: geminiApiKey });
       const prompt = `Agisci come un esperto Product Manager. 
       L'utente vuole segnalare un problema o un'idea per un'app di calcolo tasse frontalieri.
       Testo utente: "${formData.description}".
@@ -121,7 +147,7 @@ export const FeedbackSection: React.FC = () => {
     e.preventDefault();
     if (!formData.title) return;
     
-    if (!GITHUB_TOKEN) {
+    if (!githubToken) {
       setSubmitError("Token GitHub mancante. Impossibile inviare la segnalazione.");
       Analytics.trackError('Missing GitHub Token');
       return;
@@ -137,7 +163,7 @@ export const FeedbackSection: React.FC = () => {
       const response = await fetch(`https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/issues`, {
         method: 'POST',
         headers: {
-          'Authorization': `token ${GITHUB_TOKEN}`,
+          'Authorization': `token ${githubToken}`,
           'Content-Type': 'application/json',
           'Accept': 'application/vnd.github.v3+json'
         },
@@ -261,7 +287,7 @@ export const FeedbackSection: React.FC = () => {
               Apri Issue su GitHub
             </button>
             
-            {!GITHUB_TOKEN && (
+            {!githubToken && (
               <p className="text-[10px] text-center text-slate-400">
                 <Lock size={10} className="inline mr-1"/>
                 Richiede token API configurato.
