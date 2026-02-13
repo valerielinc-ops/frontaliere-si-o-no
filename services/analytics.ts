@@ -128,5 +128,64 @@ export const Analytics = {
       label: description,
       nonInteraction: true
     });
+  },
+
+  // Track comparator tool usage
+  trackComparatorView: (tool: 'exchange' | 'mobile' | 'transport' | 'health' | 'banks' | 'traffic') => {
+    const toolNames: Record<string, string> = {
+      exchange: 'Cambio Valuta',
+      mobile: 'Telefonia Mobile',
+      transport: 'Costi Trasporto',
+      health: 'Assicurazione Sanitaria',
+      banks: 'Conti Correnti',
+      traffic: 'Traffico Valichi'
+    };
+    Analytics.trackEvent('Comparatori', 'View Tool', toolNames[tool]);
+    Analytics.trackPageView(`/comparatori/${tool}`, `Comparatori - ${toolNames[tool]}`);
+  },
+
+  // Track currency exchange interactions
+  trackCurrencyExchange: (action: 'convert' | 'swap' | 'provider_view', provider?: string, amount?: number) => {
+    Analytics.trackEvent('Currency Exchange', action, provider, amount);
+  },
+
+  // Track mobile operator comparisons
+  trackMobileOperator: (action: 'view' | 'filter' | 'sort' | 'link_click', operator?: string, filter?: string) => {
+    Analytics.trackEvent('Mobile Operators', action, operator || filter);
+  },
+
+  // Track transport calculator usage
+  trackTransportCalculator: (action: 'calculate' | 'change_type' | 'change_param', transportType?: string, value?: number) => {
+    Analytics.trackEvent('Transport Calculator', action, transportType, value);
+  },
+
+  // Track health insurance interactions
+  trackHealthInsurance: (action: 'view_provider' | 'filter' | 'compare', provider?: string) => {
+    Analytics.trackEvent('Health Insurance', action, provider);
+  },
+
+  // Track bank comparison
+  trackBankComparison: (action: 'view_bank' | 'filter' | 'link_click', bank?: string, country?: string) => {
+    Analytics.trackEvent('Bank Comparison', action, bank || country);
+  },
+
+  // Track traffic alerts usage
+  trackTrafficAlerts: (action: 'view' | 'refresh' | 'filter', crossing?: string, waitTime?: number) => {
+    Analytics.trackEvent('Traffic Alerts', action, crossing, waitTime);
+  },
+
+  // Track API diagnostics page
+  trackApiDiagnostics: (action: 'view' | 'refresh' | 'test_api', apiName?: string) => {
+    Analytics.trackEvent('API Diagnostics', action, apiName);
+  },
+
+  // Track guide sections
+  trackGuideSection: (section: string, action: 'view' | 'expand' | 'link_click') => {
+    Analytics.trackEvent('Frontier Guide', action, section);
+  },
+
+  // Track feedback interactions
+  trackFeedback: (action: 'open' | 'submit' | 'cancel', type?: 'bug' | 'feature' | 'question') => {
+    Analytics.trackEvent('Feedback', action, type);
   }
 };

@@ -237,42 +237,60 @@ const App: React.FC = () => {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="flex gap-2 py-3 overflow-x-auto">
                 <button
-                  onClick={() => setComparatoriSubTab('exchange')}
+                  onClick={() => {
+                    setComparatoriSubTab('exchange');
+                    Analytics.trackComparatorView('exchange');
+                  }}
                   className={`px-4 py-2 text-sm font-medium rounded-lg whitespace-nowrap transition-colors flex items-center gap-2 ${comparatoriSubTab === 'exchange' ? 'bg-violet-100 dark:bg-violet-900/30 text-violet-700 dark:text-violet-300' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800'}`}
                 >
                   <ArrowRightLeft size={16} />
                   Cambio Valuta
                 </button>
                 <button
-                  onClick={() => setComparatoriSubTab('traffic')}
+                  onClick={() => {
+                    setComparatoriSubTab('traffic');
+                    Analytics.trackComparatorView('traffic');
+                  }}
                   className={`px-4 py-2 text-sm font-medium rounded-lg whitespace-nowrap transition-colors flex items-center gap-2 ${comparatoriSubTab === 'traffic' ? 'bg-violet-100 dark:bg-violet-900/30 text-violet-700 dark:text-violet-300' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800'}`}
                 >
                   <AlertTriangle size={16} />
                   Traffico Valichi
                 </button>
                 <button
-                  onClick={() => setComparatoriSubTab('mobile')}
+                  onClick={() => {
+                    setComparatoriSubTab('mobile');
+                    Analytics.trackComparatorView('mobile');
+                  }}
                   className={`px-4 py-2 text-sm font-medium rounded-lg whitespace-nowrap transition-colors flex items-center gap-2 ${comparatoriSubTab === 'mobile' ? 'bg-violet-100 dark:bg-violet-900/30 text-violet-700 dark:text-violet-300' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800'}`}
                 >
                   <Phone size={16} />
                   Telefonia Mobile
                 </button>
                 <button
-                  onClick={() => setComparatoriSubTab('banks')}
+                  onClick={() => {
+                    setComparatoriSubTab('banks');
+                    Analytics.trackComparatorView('banks');
+                  }}
                   className={`px-4 py-2 text-sm font-medium rounded-lg whitespace-nowrap transition-colors flex items-center gap-2 ${comparatoriSubTab === 'banks' ? 'bg-violet-100 dark:bg-violet-900/30 text-violet-700 dark:text-violet-300' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800'}`}
                 >
                   <Building2 size={16} />
                   Conti Correnti
                 </button>
                 <button
-                  onClick={() => setComparatoriSubTab('health')}
+                  onClick={() => {
+                    setComparatoriSubTab('health');
+                    Analytics.trackComparatorView('health');
+                  }}
                   className={`px-4 py-2 text-sm font-medium rounded-lg whitespace-nowrap transition-colors flex items-center gap-2 ${comparatoriSubTab === 'health' ? 'bg-violet-100 dark:bg-violet-900/30 text-violet-700 dark:text-violet-300' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800'}`}
                 >
                   <Heart size={16} />
                   Assicurazione Sanitaria
                 </button>
                 <button
-                  onClick={() => setComparatoriSubTab('transport')}
+                  onClick={() => {
+                    setComparatoriSubTab('transport');
+                    Analytics.trackComparatorView('transport');
+                  }}
                   className={`px-4 py-2 text-sm font-medium rounded-lg whitespace-nowrap transition-colors flex items-center gap-2 ${comparatoriSubTab === 'transport' ? 'bg-violet-100 dark:bg-violet-900/30 text-violet-700 dark:text-violet-300' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800'}`}
                 >
                   <Car size={16} />
@@ -359,6 +377,16 @@ const App: React.FC = () => {
                 className="inline-flex items-center gap-1.5 px-3 py-1.5 text-slate-600 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 bg-slate-100/50 dark:bg-slate-800/50 hover:bg-indigo-50 dark:hover:bg-indigo-950/30 rounded-md transition-all duration-200 border border-slate-200/50 dark:border-slate-700/50 hover:border-indigo-300 dark:hover:border-indigo-700"
               >
                 Privacy Policy
+              </button>
+              <span className="text-slate-300 dark:text-slate-600">•</span>
+              <button
+                onClick={() => {
+                  setActiveTab('api-status');
+                  Analytics.trackApiDiagnostics('view');
+                }}
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 text-slate-600 dark:text-slate-400 hover:text-slate-600 dark:hover:text-slate-300 bg-slate-100/50 dark:bg-slate-800/50 hover:bg-slate-200/50 dark:hover:bg-slate-700/50 rounded-md transition-all duration-200 border border-slate-200/50 dark:border-slate-700/50"
+              >
+                Stato API
               </button>
               <span className="text-slate-300 dark:text-slate-600">•</span>
               <span className="text-slate-400 dark:text-slate-500">Seguici su</span>
