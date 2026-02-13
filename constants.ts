@@ -40,51 +40,51 @@ export const calculateDynamicExpenses = (familyMembers: number, target: 'CH' | '
   
   if (target === 'CH') {
     return [
-      { label: 'Affitto (varia per nucleo)', amount: Math.round(1450 * coeff), icon: 'Home' },
-      { label: 'Spesa Alimentare', amount: Math.round(500 * coeff), icon: 'ShoppingBasket' },
-      { label: 'Internet & TV (Billag)', amount: 110, icon: 'Tv' }, // TV obbligatoria inclusa
-      { label: 'Cellulare Swisscom', amount: familyMembers === 1 ? 45 : Math.round(45 * Math.min(familyMembers, 3) * 0.7), icon: 'Smartphone' },
-      { label: 'Elettricità & Riscaldamento', amount: Math.round(100 * coeff), icon: 'Zap' },
-      { label: 'Trasporti/Abbonamento TPL', amount: 80, icon: 'Bus' },
-      { label: 'Leasing/Rata Auto', amount: 400, icon: 'Car' },
-      { label: 'Tassa Rifiuti/Acqua', amount: Math.round(50 * coeff), icon: 'Droplet' },
+      { label: 'Affitto (varia per nucleo)', amount: Math.round(1450 * coeff), icon: 'Home', tooltip: 'Tutte le spese Svizzera sono in CHF (Franchi Svizzeri).' },
+      { label: 'Spesa Alimentare', amount: Math.round(500 * coeff), icon: 'ShoppingBasket', tooltip: 'Tutte le spese Svizzera sono in CHF (Franchi Svizzeri).' },
+      { label: 'Internet & TV (Billag)', amount: 110, icon: 'Tv', tooltip: 'Include canone TV obbligatorio (Billag/Serafe). Tutte le spese Svizzera sono in CHF.' },
+      { label: 'Cellulare Swisscom', amount: familyMembers === 1 ? 45 : Math.round(45 * Math.min(familyMembers, 3) * 0.7), icon: 'Smartphone', tooltip: 'Abbonamento cellulare svizzero. Tutte le spese Svizzera sono in CHF.' },
+      { label: 'Elettricità & Riscaldamento', amount: Math.round(100 * coeff), icon: 'Zap', tooltip: 'Tutte le spese Svizzera sono in CHF (Franchi Svizzeri).' },
+      { label: 'Trasporti/Abbonamento TPL', amount: 80, icon: 'Bus', tooltip: 'Tutte le spese Svizzera sono in CHF (Franchi Svizzeri).' },
+      { label: 'Leasing/Rata Auto', amount: 400, icon: 'Car', tooltip: 'Tutte le spese Svizzera sono in CHF (Franchi Svizzeri).' },
+      { label: 'Tassa Rifiuti/Acqua', amount: Math.round(50 * coeff), icon: 'Droplet', tooltip: 'Tutte le spese Svizzera sono in CHF (Franchi Svizzeri).' },
     ];
   } else {
     return [
       { label: 'Affitto/Mutuo (varia per nucleo)', amount: Math.round(750 * coeff), icon: 'Home' },
       { label: 'Spesa Alimentare', amount: Math.round(350 * coeff), icon: 'ShoppingBasket' },
       { label: 'Internet Casa Fibra', amount: 30, icon: 'Wifi' },
-      { label: 'Cellulare (Tim/Vodafone)', amount: familyMembers === 1 ? 15 : Math.round(15 * Math.min(familyMembers, 3) * 0.8), icon: 'Smartphone' },
+      { label: 'Cellulare (Tim/Vodafone)', amount: familyMembers === 1 ? 12 : Math.round(12 * Math.min(familyMembers, 3) * 0.8), icon: 'Smartphone', tooltip: 'Solo costo SIM (abbonamento voce/dati). Importi in EUR. Se hai cellulare a rate, aggiungilo come spesa separata.' },
       { label: 'Bollette Luce & Gas', amount: Math.round(120 * coeff), icon: 'Zap' },
       { label: 'Benzina/Autostrada', amount: 150, icon: 'Fuel' },
       { label: 'Rata Auto/Assicurazione', amount: 300, icon: 'Car' },
-      { label: 'Canone RAI', amount: 90, icon: 'Tv' },
-      { label: 'IMU/TARI (se proprietari)', amount: Math.round(100 * coeff), icon: 'Home' },
+      { label: 'Canone RAI', amount: 90, icon: 'Tv', tooltip: 'Canone RAI annuale: 90€/anno (importo fisso, non mensile). Tutte le spese Italia sono in EUR.' },
+      { label: 'IMU/TARI (se proprietari)', amount: Math.round(800 * coeff), icon: 'Home', tooltip: 'IMU: Non dovuta su prima casa (salvo immobili di lusso A/1, A/8, A/9). TARI: Molto variabile per comune e superficie (200-1000€/anno). Importi annuali in EUR, non mensili.' },
     ];
   }
 };
 
 export const PRESET_EXPENSES_CH = [
-  { label: 'Affitto 2.5/3.5 Locali', amount: 1450, icon: 'Home' },
-  { label: 'Spesa Alimentare', amount: 500, icon: 'ShoppingBasket' },
-  { label: 'Internet & TV (Billag)', amount: 110, icon: 'Tv' },
-  { label: 'Cellulare Swisscom', amount: 45, icon: 'Smartphone' },
-  { label: 'Elettricità & Riscaldamento', amount: 100, icon: 'Zap' },
-  { label: 'Trasporti/Abbonamento TPL', amount: 80, icon: 'Bus' },
-  { label: 'Leasing/Rata Auto', amount: 400, icon: 'Car' },
-  { label: 'Tassa Rifiuti/Acqua', amount: 50, icon: 'Droplet' },
+  { label: 'Affitto 2.5/3.5 Locali', amount: 1450, icon: 'Home', tooltip: 'Tutte le spese Svizzera sono in CHF (Franchi Svizzeri).' },
+  { label: 'Spesa Alimentare', amount: 500, icon: 'ShoppingBasket', tooltip: 'Tutte le spese Svizzera sono in CHF (Franchi Svizzeri).' },
+  { label: 'Internet & TV (Billag)', amount: 110, icon: 'Tv', tooltip: 'Include canone TV obbligatorio (Billag/Serafe). Tutte le spese Svizzera sono in CHF.' },
+  { label: 'Cellulare Swisscom', amount: 45, icon: 'Smartphone', tooltip: 'Abbonamento cellulare svizzero. Tutte le spese Svizzera sono in CHF.' },
+  { label: 'Elettricità & Riscaldamento', amount: 100, icon: 'Zap', tooltip: 'Tutte le spese Svizzera sono in CHF (Franchi Svizzeri).' },
+  { label: 'Trasporti/Abbonamento TPL', amount: 80, icon: 'Bus', tooltip: 'Tutte le spese Svizzera sono in CHF (Franchi Svizzeri).' },
+  { label: 'Leasing/Rata Auto', amount: 400, icon: 'Car', tooltip: 'Tutte le spese Svizzera sono in CHF (Franchi Svizzeri).' },
+  { label: 'Tassa Rifiuti/Acqua', amount: 50, icon: 'Droplet', tooltip: 'Tutte le spese Svizzera sono in CHF (Franchi Svizzeri).' },
 ];
 
 export const PRESET_EXPENSES_IT = [
   { label: 'Affitto/Mutuo', amount: 750, icon: 'Home' },
   { label: 'Spesa Alimentare', amount: 350, icon: 'ShoppingBasket' },
   { label: 'Internet Casa Fibra', amount: 30, icon: 'Wifi' },
-  { label: 'Cellulare (Tim/Vodafone)', amount: 15, icon: 'Smartphone' },
+  { label: 'Cellulare (Tim/Vodafone)', amount: 12, icon: 'Smartphone', tooltip: 'Solo costo SIM (abbonamento voce/dati). Importi in EUR. Se hai cellulare a rate, aggiungilo come spesa separata.' },
   { label: 'Bollette Luce & Gas', amount: 120, icon: 'Zap' },
   { label: 'Benzina/Autostrada', amount: 150, icon: 'Fuel' },
   { label: 'Rata Auto/Assicurazione', amount: 300, icon: 'Car' },
-  { label: 'Canone RAI', amount: 90, icon: 'Tv' },
-  { label: 'IMU/TARI (se proprietari)', amount: 100, icon: 'Home' },
+  { label: 'Canone RAI', amount: 90, icon: 'Tv', tooltip: 'Canone RAI annuale: 90€/anno (importo fisso, non mensile). Tutte le spese Italia sono in EUR.' },
+  { label: 'IMU/TARI (se proprietari)', amount: 800, icon: 'Home', tooltip: 'IMU: Non dovuta su prima casa (salvo immobili di lusso A/1, A/8, A/9). TARI: Molto variabile per comune e superficie (200-1000€/anno). Importi annuali in EUR, non mensili.' },
 ];
 
 export const DEFAULT_INPUTS = {

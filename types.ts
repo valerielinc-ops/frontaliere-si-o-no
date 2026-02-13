@@ -3,6 +3,7 @@ export interface ExpenseItem {
   label: string;
   amount: number;
   frequency: 'MONTHLY' | 'ANNUAL';
+  tooltip?: string;
 }
 
 export interface SimulationInputs {

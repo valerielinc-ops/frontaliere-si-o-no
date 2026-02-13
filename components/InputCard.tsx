@@ -190,12 +190,13 @@ export const InputCard: React.FC<Props> = ({ inputs, setInputs }) => {
     }));
   };
 
-  const addExpense = (target: 'CH' | 'IT', preset?: {label: string, amount: number}) => {
+  const addExpense = (target: 'CH' | 'IT', preset?: {label: string, amount: number, tooltip?: string}) => {
     const newItem: ExpenseItem = { 
         id: Math.random().toString(36).substr(2, 9), 
         label: preset ? preset.label : 'Nuova spesa', 
         amount: preset ? preset.amount : 0, 
-        frequency: 'MONTHLY' 
+        frequency: 'MONTHLY',
+        tooltip: preset?.tooltip
     };
     setInputs(prev => ({ ...prev, [target === 'CH' ? 'expensesCH' : 'expensesIT']: [...prev[target === 'CH' ? 'expensesCH' : 'expensesIT'], newItem] }));
     setShowPresets(null); // Close presets after adding
@@ -211,7 +212,8 @@ export const InputCard: React.FC<Props> = ({ inputs, setInputs }) => {
       id: Math.random().toString(36).substr(2, 9),
       label: preset.label,
       amount: preset.amount,
-      frequency: 'MONTHLY'
+      frequency: 'MONTHLY',
+      tooltip: preset.tooltip
     }));
     setInputs(prev => ({ ...prev, [target === 'CH' ? 'expensesCH' : 'expensesIT']: newExpenses }));
     setShowPresets(null);
@@ -417,13 +419,16 @@ export const InputCard: React.FC<Props> = ({ inputs, setInputs }) => {
                    <div className="space-y-2">
                      {inputs.expensesCH.map(exp => (
                         <div key={exp.id} className="flex gap-2 items-center group/exp animate-fade-in">
-                          <input 
-                            type="text" 
-                            value={exp.label} 
-                            onChange={e => updateExpense('CH', exp.id, { label: e.target.value })} 
-                            className="flex-1 min-w-0 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg px-2 py-2 text-[10px] font-bold outline-none focus:border-indigo-500 transition-colors truncate" 
-                            title={exp.label}
-                          />
+                          <div className="flex items-center flex-1 min-w-0">
+                            <input 
+                              type="text" 
+                              value={exp.label} 
+                              onChange={e => updateExpense('CH', exp.id, { label: e.target.value })} 
+                              className="flex-1 min-w-0 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg px-2 py-2 text-[10px] font-bold outline-none focus:border-indigo-500 transition-colors truncate" 
+                              title={exp.label}
+                            />
+                            {exp.tooltip && <InfoTooltip text={exp.tooltip} />}
+                          </div>
                           <input type="number" value={exp.amount || ''} onChange={e => updateExpense('CH', exp.id, { amount: Number(e.target.value) })} placeholder="0" className="w-16 sm:w-20 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg px-1 sm:px-2 py-2 text-[10px] font-mono font-bold outline-none focus:border-indigo-500 text-right transition-colors" />
                           <button onClick={() => updateExpense('CH', exp.id, { frequency: exp.frequency === 'MONTHLY' ? 'ANNUAL' : 'MONTHLY' })} className="px-1.5 sm:px-2 py-2 bg-slate-100 dark:bg-slate-800 rounded-lg text-[9px] font-bold uppercase text-slate-500 w-10 sm:w-12 text-center hover:bg-slate-200 transition-colors flex-shrink-0">{exp.frequency === 'MONTHLY' ? '/m' : '/a'}</button>
                           <button onClick={() => removeExpense('CH', exp.id)} className="p-1 sm:p-1.5 text-slate-300 hover:text-red-500 transition-colors flex-shrink-0"><X size={14}/></button>
@@ -476,13 +481,16 @@ export const InputCard: React.FC<Props> = ({ inputs, setInputs }) => {
                    <div className="space-y-2">
                      {inputs.expensesIT.map(exp => (
                         <div key={exp.id} className="flex gap-2 items-center group/exp animate-fade-in">
-                          <input 
-                            type="text" 
-                            value={exp.label} 
-                            onChange={e => updateExpense('IT', exp.id, { label: e.target.value })} 
-                            className="flex-1 min-w-0 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg px-2 py-2 text-[10px] font-bold outline-none focus:border-indigo-500 transition-colors truncate" 
-                            title={exp.label}
-                          />
+                          <div className="flex items-center flex-1 min-w-0">
+                            <input 
+                              type="text" 
+                              value={exp.label} 
+                              onChange={e => updateExpense('IT', exp.id, { label: e.target.value })} 
+                              className="flex-1 min-w-0 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg px-2 py-2 text-[10px] font-bold outline-none focus:border-indigo-500 transition-colors truncate" 
+                              title={exp.label}
+                            />
+                            {exp.tooltip && <InfoTooltip text={exp.tooltip} />}
+                          </div>
                           <input type="number" value={exp.amount || ''} onChange={e => updateExpense('IT', exp.id, { amount: Number(e.target.value) })} placeholder="0" className="w-16 sm:w-20 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg px-1 sm:px-2 py-2 text-[10px] font-mono font-bold outline-none focus:border-indigo-500 text-right transition-colors" />
                           <button onClick={() => updateExpense('IT', exp.id, { frequency: exp.frequency === 'MONTHLY' ? 'ANNUAL' : 'MONTHLY' })} className="px-1.5 sm:px-2 py-2 bg-slate-100 dark:bg-slate-800 rounded-lg text-[9px] font-bold uppercase text-slate-500 w-10 sm:w-12 text-center hover:bg-slate-200 transition-colors flex-shrink-0">{exp.frequency === 'MONTHLY' ? '/m' : '/a'}</button>
                           <button onClick={() => removeExpense('IT', exp.id)} className="p-1 sm:p-1.5 text-slate-300 hover:text-red-500 transition-colors flex-shrink-0"><X size={14}/></button>
