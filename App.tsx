@@ -230,21 +230,25 @@ const App: React.FC = () => {
         </main>
         
         <footer className="border-t border-slate-200/60 dark:border-slate-800 bg-white/50 dark:bg-slate-900/50 backdrop-blur-sm py-8 mt-auto relative z-10">
-          <div className="max-w-7xl mx-auto px-4 text-center text-slate-500 dark:text-slate-400 text-sm space-y-4">
-            <div className="flex items-center justify-center gap-2">
-              <span className="text-slate-600 dark:text-slate-300 font-medium">Seguici sui social</span>
+          <div className="max-w-7xl mx-auto px-4 text-center text-slate-500 dark:text-slate-400 text-sm space-y-3">
+            <p className="font-medium">
+              © 2026 Frontaliere Si o No? 
+              <span className="text-slate-300 dark:text-slate-600 mx-2">|</span> 
+              Simulatore a scopo puramente indicativo.
+            </p>
+            <div className="flex items-center justify-center gap-2 text-xs">
+              <span className="text-slate-400 dark:text-slate-500">Seguici su</span>
               <a 
                 href="https://www.facebook.com/profile.php?id=61588174947294" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-all duration-200 shadow-sm hover:shadow-md transform hover:scale-105"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 bg-slate-100/50 dark:bg-slate-800/50 hover:bg-blue-50 dark:hover:bg-blue-950/30 rounded-md transition-all duration-200 border border-slate-200/50 dark:border-slate-700/50 hover:border-blue-300 dark:hover:border-blue-700"
                 aria-label="Seguici su Facebook"
               >
-                <Facebook className="w-5 h-5" />
-                <span className="font-medium">Facebook</span>
+                <Facebook className="w-3.5 h-3.5" />
+                <span>Facebook</span>
               </a>
             </div>
-            <p className="font-medium">© 2026 Frontaliere Si o No? <span className="text-slate-300 dark:text-slate-600 mx-2">|</span> Simulatore a scopo puramente indicativo.</p>
           </div>
         </footer>
       </div>
