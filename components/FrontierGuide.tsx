@@ -134,20 +134,35 @@ const FrontierGuide: React.FC = () => {
       return b.population - a.population;
     });
 
-  // Dogane Canton Ticino - Italia (fonte: Wikipedia + dati frontalieri, solo Ticino)
+  // Dogane Canton Ticino - Italia (fonte: Wikipedia + tabella valichi ufficiali Lombardia-Ticino 2026)
   const borderCrossings = [
-    // Como - Ticino (Principale)
-    { name: "Chiasso Centro", italianSide: "Como", avgWaitMorning: "15-30 min", avgWaitEvening: "20-40 min", peak: "7:00-8:30, 17:00-18:30", hours: "24h", tips: "Principale, molto trafficato ore punta" },
-    { name: "Chiasso-Brogeda", italianSide: "Como", avgWaitMorning: "8-15 min", avgWaitEvening: "12-25 min", peak: "7:00-8:30, 17:00-18:30", hours: "24h", tips: "Usa quando Chiasso Centro è bloccato" },
-    { name: "Maslianico-Casteggio", italianSide: "Maslianico", avgWaitMorning: "5-10 min", avgWaitEvening: "8-15 min", peak: "7:30-8:30, 17:30-18:30", hours: "24h", tips: "Alternativa veloce a Chiasso" },
-    { name: "Ronago-Novazzano", italianSide: "Ronago", avgWaitMorning: "5-12 min", avgWaitEvening: "10-18 min", peak: "7:00-8:30, 17:00-18:30", hours: "24h", tips: "Poco traffico, buona alternativa" },
-    { name: "Campione d'Italia", italianSide: "Campione (enclave)", avgWaitMorning: "2-5 min", avgWaitEvening: "3-8 min", peak: "Sempre tranquillo", hours: "24h", tips: "Enclave italiana, controlli rapidi" },
+    // COMO - TICINO (Valichi Principali)
+    { name: "Chiasso Centro (Ponte Chiasso)", italianSide: "Como", avgWaitMorning: "15-30 min", avgWaitEvening: "20-40 min", peak: "7:00-8:30, 17:00-18:30", hours: "24h", tips: "Principale, molto trafficato ore punta. Tipo: Residenziale" },
+    { name: "Chiasso-Brogeda", italianSide: "Como", avgWaitMorning: "8-15 min", avgWaitEvening: "12-25 min", peak: "7:00-8:30, 17:00-18:30", hours: "24h", tips: "Turistico. Usa quando Chiasso Centro è bloccato" },
+    { name: "Chiasso-Strada", italianSide: "Como", avgWaitMorning: "10-18 min", avgWaitEvening: "15-25 min", peak: "7:00-8:30, 17:00-18:30", hours: "24h", tips: "Commerciale. Per traffico pesante" },
+    { name: "Maslianico-Pizzamiglio", italianSide: "Maslianico", avgWaitMorning: "3-8 min", avgWaitEvening: "5-12 min", peak: "7:30-8:30, 17:30-18:30", hours: "06:00-22:00", tips: "Residenziale. Poco traffico, chiusura notturna" },
+    { name: "Maslianico-Roggiana", italianSide: "Maslianico", avgWaitMorning: "---", avgWaitEvening: "---", peak: "---", hours: "Chiuso", tips: "Valico pedonale CHIUSO" },
+    { name: "Bizzarone-Novazzano (Brusata)", italianSide: "Bizzarone", avgWaitMorning: "5-12 min", avgWaitEvening: "8-15 min", peak: "7:30-8:30, 17:30-18:30", hours: "24h", tips: "Turistico/Residenziale. Buona alternativa" },
+    { name: "Ronago-Novazzano (Marcetto)", italianSide: "Ronago", avgWaitMorning: "5-12 min", avgWaitEvening: "10-18 min", peak: "7:00-8:30, 17:00-18:30", hours: "24h", tips: "Turistico/Residenziale. Poco traffico" },
+    { name: "Crociale dei Mulini-Ponte Faloppia", italianSide: "Faloppio", avgWaitMorning: "3-8 min", avgWaitEvening: "5-10 min", peak: "7:30-8:30", hours: "24h", tips: "Turistico/Residenziale. Valico tranquillo" },
+    { name: "Drezzo-Pedrinate", italianSide: "Drezzo", avgWaitMorning: "2-5 min", avgWaitEvening: "3-8 min", peak: "Poco traffico", hours: "24h (pedonale notturno)", tips: "Turistico/Residenziale. Traffico veicolare diurno" },
+    { name: "Lanzo d'Intelvi-Arogno", italianSide: "Lanzo d'Intelvi", avgWaitMorning: "2-5 min", avgWaitEvening: "3-8 min", peak: "Poco traffico", hours: "24h", tips: "Valico montano. Ideale per zone interne" },
+    { name: "Campione d'Italia-Bissone", italianSide: "Campione (enclave)", avgWaitMorning: "2-5 min", avgWaitEvening: "3-8 min", peak: "Sempre tranquillo", hours: "24h", tips: "Enclave italiana. Controlli rapidi, zona lago" },
+    { name: "Oria-Gandria", italianSide: "Valsolda", avgWaitMorning: "2-5 min", avgWaitEvening: "3-6 min", peak: "Poco traffico", hours: "24h", tips: "Valico panoramico sul Lago di Lugano" },
     
-    // Varese - Ticino
-    { name: "Gaggiolo-Stabio", italianSide: "Cantello", avgWaitMorning: "10-20 min", avgWaitEvening: "15-30 min", peak: "7:00-8:30, 17:00-18:30", hours: "24h", tips: "Seconda dogana più trafficata" },
-    { name: "Ponte Tresa", italianSide: "Lavena Ponte Tresa", avgWaitMorning: "5-15 min", avgWaitEvening: "10-20 min", peak: "7:30-8:30, 17:30-18:30", hours: "24h", tips: "Generalmente più veloce, zona lago" },
-    { name: "Porto Ceresio-Bissone", italianSide: "Porto Ceresio", avgWaitMorning: "3-8 min", avgWaitEvening: "5-12 min", peak: "7:30-8:30, 17:30-18:30", hours: "06:00-22:00", tips: "Poco trafficato, chiusura notturna" },
-    { name: "Cremenaga", italianSide: "Cremenaga", avgWaitMorning: "2-5 min", avgWaitEvening: "3-8 min", peak: "Poco traffico", hours: "06:00-20:00", tips: "Valico minore, chiusura notturna" },
+    // VARESE - TICINO (Valichi Principali)
+    { name: "Gaggiolo (Cantello-Stabio)", italianSide: "Cantello", avgWaitMorning: "10-20 min", avgWaitEvening: "15-30 min", peak: "7:00-8:30, 17:00-18:30", hours: "24h", tips: "Turistico-Commerciale. Seconda dogana più trafficata" },
+    { name: "San Pietro (Clivio-Stabio)", italianSide: "Clivio", avgWaitMorning: "5-12 min", avgWaitEvening: "8-18 min", peak: "7:00-8:30, 17:00-18:30", hours: "24h", tips: "Residenziale-Traffico veicolare. Buona alternativa a Gaggiolo" },
+    { name: "Clivio-Ligornetto", italianSide: "Clivio", avgWaitMorning: "4-10 min", avgWaitEvening: "6-15 min", peak: "7:30-8:30, 17:30-18:30", hours: "24h", tips: "Residenziale-Traffico veicolare. Parallelo a San Pietro" },
+    { name: "Rodero-Stabio (Dogana da Rödur)", italianSide: "Rodero", avgWaitMorning: "---", avgWaitEvening: "---", peak: "---", hours: "Solo pedonale", tips: "Valico pedonale. No traffico veicolare" },
+    { name: "Saltrio-Arzo", italianSide: "Saltrio", avgWaitMorning: "3-8 min", avgWaitEvening: "5-12 min", peak: "7:30-8:30", hours: "24h", tips: "Turistico. Valico montano poco trafficato" },
+    { name: "Ponte Tresa", italianSide: "Lavena Ponte Tresa", avgWaitMorning: "5-15 min", avgWaitEvening: "10-20 min", peak: "7:30-8:30, 17:30-18:30", hours: "24h", tips: "Turistico-Commerciale. Zona lago, generalmente veloce" },
+    { name: "Porto Ceresio-Brusino Arsizio", italianSide: "Porto Ceresio", avgWaitMorning: "3-8 min", avgWaitEvening: "5-12 min", peak: "7:30-8:30, 17:30-18:30", hours: "06:00-22:00", tips: "Turistico. Poco trafficato, chiusura notturna" },
+    { name: "Cremenaga-Ponte Cremenaga", italianSide: "Cremenaga", avgWaitMorning: "2-5 min", avgWaitEvening: "3-8 min", peak: "Poco traffico", hours: "06:00-20:00", tips: "Turistico. Valico minore, chiusura notturna" },
+    { name: "Luino-Fornasette", italianSide: "Luino", avgWaitMorning: "4-10 min", avgWaitEvening: "6-15 min", peak: "7:30-8:30", hours: "24h", tips: "Turistico. Zona lago settentrionale" },
+    { name: "Zenna-Dirinella", italianSide: "Zenna", avgWaitMorning: "2-5 min", avgWaitEvening: "3-8 min", peak: "Poco traffico", hours: "24h", tips: "Turistico. Valico tranquillo zona montuosa" },
+    { name: "Biegno-Indemini", italianSide: "Curiglia con Monteviasco", avgWaitMorning: "2-5 min", avgWaitEvening: "3-6 min", peak: "Poco traffico", hours: "24h", tips: "Residenziale. Valico montano (950m), panoramico" },
+    { name: "Dumenza (Palone)-Cassinone", italianSide: "Dumenza", avgWaitMorning: "2-5 min", avgWaitEvening: "3-6 min", peak: "Poco traffico", hours: "24h", tips: "Residenziale. Valico montano poco frequentato" },
     { name: "Marchirolo-Cuasso al Piano", italianSide: "Marchirolo", avgWaitMorning: "3-7 min", avgWaitEvening: "5-10 min", peak: "Poco traffico", hours: "06:00-22:00", tips: "Alternativa tranquilla" },
   ];
 
