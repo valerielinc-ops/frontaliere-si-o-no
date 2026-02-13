@@ -289,19 +289,37 @@ const operators: MobileOperator[] = [
 const MobileOperators: React.FC = () => {
   const [filterCountry, setFilterCountry] = useState<'all' | 'IT' | 'CH'>('all');
   const [sortBy, setSortBy] = useState<'price' | 'roaming'>('roaming');
+  const WORKING_DAYS_PER_MONTH = 20; // Giorni lavorativi medi per frontalieri
+
+  // Calcola il costo mensile reale per un frontaliere
+  const calculateRealMonthlyCost = (operator: MobileOperator): number => {
+    let totalCost = operator.monthlyCost;
+    
+    // Se è un operatore italiano e il roaming in CH non è incluso, aggiungi il costo del pass giornaliero
+    if (operator.country === 'IT' && operator.roamingInSwitzerland?.costPerDay) {
+      totalCost += operator.roamingInSwitzerland.costPerDay * WORKING_DAYS_PER_MONTH;
+    }
+    
+    // Se è un operatore svizzero e il roaming in IT non è incluso, aggiungi il costo del pass giornaliero
+    if (operator.country === 'CH' && operator.roamingInItaly?.costPerDay) {
+      totalCost += operator.roamingInItaly.costPerDay * WORKING_DAYS_PER_MONTH;
+    }
+    
+    return totalCost;
+  };
 
   const filteredOperators = operators
     .filter(op => filterCountry === 'all' || op.country === filterCountry)
     .sort((a, b) => {
       if (sortBy === 'price') {
-        return a.monthlyCost - b.monthlyCost;
+        return calculateRealMonthlyCost(a) - calculateRealMonthlyCost(b);
       } else {
         // Sort by roaming availability
         const aHasRoaming = a.country === 'IT' ? a.roamingInSwitzerland?.included : a.roamingInItaly?.included;
         const bHasRoaming = b.country === 'IT' ? b.roamingInSwitzerland?.included : b.roamingInItaly?.included;
         if (aHasRoaming && !bHasRoaming) return -1;
         if (!aHasRoaming && bHasRoaming) return 1;
-        return a.monthlyCost - b.monthlyCost;
+        return calculateRealMonthlyCost(a) - calculateRealMonthlyCost(b);
       }
     });
 
@@ -422,9 +440,11 @@ const MobileOperators: React.FC = () => {
 
       {/* Operators Grid */}
       <div className="grid md:grid-cols-2 gap-6">
-        {filteredOperators.map((operator) => {
+        {sortedOperators.map((operator) => {
           const roaming = operator.country === 'IT' ? operator.roamingInSwitzerland : operator.roamingInItaly;
           const hasGoodRoaming = roaming?.included === true;
+          const realMonthlyCost = calculateRealMonthlyCost(operator);
+          const hasExtraCost = realMonthlyCost > operator.monthlyCost;
           
           const CardWrapper = operator.website ? 'a' : 'div';
           const cardProps = operator.website ? {
@@ -467,12 +487,49 @@ const MobileOperators: React.FC = () => {
                 </div>
 
                 <div className="text-right">
-                  <div className="text-2xl font-extrabold text-slate-800 dark:text-slate-100">
-                    {operator.country === 'IT' ? '€' : 'CHF'} {operator.monthlyCost.toFixed(2)}
-                  </div>
-                  <div className="text-xs text-slate-500 dark:text-slate-400">al mese</div>
+                  {hasExtraCost ? (
+                    <>
+                      <div className="text-sm text-slate-500 dark:text-slate-400 line-through">
+                        {operator.country === 'IT' ? '€' : 'CHF'} {operator.monthlyCost.toFixed(2)}
+                      </div>
+                      <div className="text-2xl font-extrabold text-red-600 dark:text-red-400">
+                        {operator.country === 'IT' ? '€' : 'CHF'} {realMonthlyCost.toFixed(2)}
+                      </div>
+                      <div className="text-xs text-red-600 dark:text-red-400 font-medium">costo reale/mese</div>
+                    </>
+                  ) : (
+                    <>
+                      <div className="text-2xl font-extrabold text-slate-800 dark:text-slate-100">
+                        {operator.country === 'IT' ? '€' : 'CHF'} {operator.monthlyCost.toFixed(2)}
+                      </div>
+                      <div className="text-xs text-slate-500 dark:text-slate-400">al mese</div>
+                    </>
+                  )}
                 </div>
               </div>
+
+              {/* Cost Breakdown se ci sono costi extra */}
+              {hasExtraCost && (
+                <div className="mb-4 p-3 bg-amber-50 dark:bg-amber-950/30 border border-amber-200 dark:border-amber-800 rounded-lg">
+                  <p className="text-xs font-bold text-amber-800 dark:text-amber-300 mb-2">💰 Breakdown costo frontaliere:</p>
+                  <div className="space-y-1 text-xs text-amber-700 dark:text-amber-400">
+                    <div className="flex justify-between">
+                      <span>Abbonamento base:</span>
+                      <span className="font-medium">{operator.country === 'IT' ? '€' : 'CHF'} {operator.monthlyCost.toFixed(2)}</span>
+                    </div>
+                    {roaming?.costPerDay && (
+                      <div className="flex justify-between">
+                        <span>Pass giornaliero ({roaming.costPerDay}{operator.country === 'IT' ? '€' : 'CHF'} × {WORKING_DAYS_PER_MONTH} gg):</span>
+                        <span className="font-medium">+ {(roaming.costPerDay * WORKING_DAYS_PER_MONTH).toFixed(2)}{operator.country === 'IT' ? '€' : 'CHF'}</span>
+                      </div>
+                    )}
+                    <div className="flex justify-between border-t border-amber-300 dark:border-amber-700 pt-1 mt-1">
+                      <span className="font-bold">Totale mensile:</span>
+                      <span className="font-bold">{operator.country === 'IT' ? '€' : 'CHF'} {realMonthlyCost.toFixed(2)}</span>
+                    </div>
+                  </div>
+                </div>
+              )}
 
               {/* Plan Details */}
               <div className="grid grid-cols-3 gap-3 mb-4">
@@ -518,7 +575,11 @@ const MobileOperators: React.FC = () => {
                     </p>
                     {roaming?.costPerDay && (
                       <p className="text-xs font-bold text-red-600 dark:text-red-400 mt-1">
-                        💰 {roaming.costPerDay.toFixed(2)} {operator.country === 'IT' ? '€' : 'CHF'}/giorno
+                        ⚠️ Pass obbligatorio: +{(roaming.costPerDay * WORKING_DAYS_PER_MONTH).toFixed(2)}{operator.country === 'IT' ? '€' : 'CHF'}/mese ({roaming.costPerDay}{operator.country === 'IT' ? '€' : 'CHF'}/giorno × {WORKING_DAYS_PER_MONTH} giorni lavorativi)
+                      </p>
+                    )}
+                      <p className="text-xs font-bold text-red-600 dark:text-red-400 mt-1">
+                        ⚠️ Pass obbligatorio: +{(roaming.costPerDay * WORKING_DAYS_PER_MONTH).toFixed(2)}{operator.country === 'IT' ? '€' : 'CHF'}/mese ({roaming.costPerDay}{operator.country === 'IT' ? '€' : 'CHF'}/giorno × {WORKING_DAYS_PER_MONTH} giorni lavorativi)
                       </p>
                     )}
                   </div>
