@@ -3,6 +3,8 @@
  * Provides real-time traffic data for border crossings using Google Maps free tier
  */
 
+/// <reference types="@types/google.maps" />
+
 interface BorderCrossingCoordinates {
   name: string;
   lat: number;
@@ -84,11 +86,67 @@ class TrafficService {
   private apiKey: string | null = null;
   private cache: Map<string, { data: TrafficData; timestamp: number }> = new Map();
   private readonly CACHE_DURATION = 2 * 60 * 1000; // 2 minuti
-  private readonly API_ENDPOINT = 'https://maps.googleapis.com/maps/api/distancematrix/json';
+  private distanceMatrixService: google.maps.DistanceMatrixService | null = null;
+  private mapsLoaded = false;
+  private mapsLoadPromise: Promise<void> | null = null;
 
   constructor() {
     // Tenta di leggere la API key dalle variabili d'ambiente
     this.apiKey = import.meta.env.VITE_GOOGLE_MAPS_API_KEY || null;
+    
+    // Carica Google Maps API se disponibile
+    if (this.hasApiKey()) {
+      this.loadGoogleMaps();
+    }
+  }
+
+  /**
+   * Carica dinamicamente lo script di Google Maps
+   */
+  private loadGoogleMaps(): Promise<void> {
+    if (this.mapsLoadPromise) {
+      return this.mapsLoadPromise;
+    }
+
+    this.mapsLoadPromise = new Promise((resolve) => {
+      // Se già caricato
+      if (typeof google !== 'undefined' && google.maps) {
+        this.initDistanceMatrixService();
+        this.mapsLoaded = true;
+        resolve();
+        return;
+      }
+
+      // Carica lo script
+      const script = document.createElement('script');
+      script.src = `https://maps.googleapis.com/maps/api/js?key=${this.apiKey}&libraries=places`;
+      script.async = true;
+      script.defer = true;
+      
+      script.onload = () => {
+        this.initDistanceMatrixService();
+        this.mapsLoaded = true;
+        resolve();
+      };
+      
+      script.onerror = () => {
+        console.error('Failed to load Google Maps API');
+        resolve(); // Resolve comunque per non bloccare l'app
+      };
+      
+      document.head.appendChild(script);
+    });
+
+    return this.mapsLoadPromise;
+  }
+
+  /**
+   * Inizializza il servizio Distance Matrix di Google Maps
+   */
+  private initDistanceMatrixService() {
+    if (this.hasApiKey() && typeof google !== 'undefined' && google.maps) {
+      this.distanceMatrixService = new google.maps.DistanceMatrixService();
+    }
   }
 
   /**
@@ -146,28 +204,47 @@ class TrafficService {
       return cached.data;
     }
 
+    // Attendi il caricamento di Google Maps
+    if (this.hasApiKey() && !this.mapsLoaded) {
+      await this.loadGoogleMaps();
+    }
+
+    // Se il servizio non è disponibile, usa i dati mock
+    if (!this.distanceMatrixService) {
+      return this.getMockTrafficForCrossing(crossing.name);
+    }
+
     try {
-      const origins = `${crossing.lat},${crossing.lng}`;
-      const destinations = `${crossing.checkpointLat},${crossing.checkpointLng}`;
+      const origin = new google.maps.LatLng(crossing.lat, crossing.lng);
+      const destination = new google.maps.LatLng(crossing.checkpointLat, crossing.checkpointLng);
       
-      const url = `${this.API_ENDPOINT}?origins=${origins}&destinations=${destinations}&departure_time=now&traffic_model=best_guess&key=${this.apiKey}`;
+      // Chiamata al Distance Matrix Service (risolve CORS)
+      const result = await new Promise<google.maps.DistanceMatrixResponse>((resolve, reject) => {
+        this.distanceMatrixService!.getDistanceMatrix(
+          {
+            origins: [origin],
+            destinations: [destination],
+            travelMode: google.maps.TravelMode.DRIVING,
+            drivingOptions: {
+              departureTime: new Date(), // Usa orario corrente per traffico real-time
+              trafficModel: google.maps.TrafficModel.BEST_GUESS
+            },
+            unitSystem: google.maps.UnitSystem.METRIC
+          },
+          (response, status) => {
+            if (status === google.maps.DistanceMatrixStatus.OK && response) {
+              resolve(response);
+            } else {
+              reject(new Error(`Distance Matrix API error: ${status}`));
+            }
+          }
+        );
+      });
       
-      const response = await fetch(url);
+      const element = result.rows[0]?.elements[0];
       
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-      
-      const data = await response.json();
-      
-      if (data.status !== 'OK' || !data.rows?.[0]?.elements?.[0]) {
-        throw new Error(`API error: ${data.status}`);
-      }
-      
-      const element = data.rows[0].elements[0];
-      
-      if (element.status !== 'OK') {
-        throw new Error(`Route error: ${element.status}`);
+      if (!element || element.status !== google.maps.DistanceMatrixElementStatus.OK) {
+        throw new Error(`Route error: ${element?.status || 'NO_DATA'}`);
       }
       
       // Tempo con traffico in secondi
