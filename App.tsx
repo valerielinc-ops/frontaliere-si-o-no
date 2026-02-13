@@ -40,7 +40,7 @@ const App: React.FC = () => {
   const toggleTheme = () => {
     const newMode = !isDarkMode;
     setIsDarkMode(newMode);
-    Analytics.trackEvent('UX', 'Toggle Theme', newMode ? 'Dark' : 'Light');
+    Analytics.trackSettingsChange('theme', newMode ? 'dark' : 'light');
     
     if (newMode) {
       document.documentElement.classList.add('dark');
@@ -52,13 +52,19 @@ const App: React.FC = () => {
   };
 
   const handleTabChange = (tab: 'calculator' | 'feedback' | 'stats' | 'pension' | 'guide') => {
+    const previousTab = activeTab;
     setActiveTab(tab);
-    Analytics.trackPageView(`/${tab}`);
+    Analytics.trackTabNavigation(previousTab, tab);
   };
 
   const handleCalculate = () => {
     const res = calculateSimulation(inputs);
     setResult(res);
+    Analytics.trackCalculation(
+      inputs.workerType,
+      inputs.grossSalary,
+      inputs.hasChildren
+    );
   };
 
   useEffect(() => {
@@ -176,7 +182,7 @@ const App: React.FC = () => {
                     onClick={() => {
                       const newFocus = !isFocusMode;
                       setIsFocusMode(newFocus);
-                      Analytics.trackEvent('UX', 'Focus Mode', newFocus ? 'Enabled' : 'Disabled');
+                      Analytics.trackFocusMode(newFocus);
                     }}
                     className={`p-2 rounded-xl transition-all ${isFocusMode ? 'bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400' : 'text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800'}`}
                     title={isFocusMode ? "Esci da Fullscreen" : "Fullscreen"}

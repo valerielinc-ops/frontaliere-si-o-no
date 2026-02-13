@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Wand2, Castle, Bandage, PiggyBank, CalendarClock, Joystick, Plus, Minus, ChevronDown, ChevronUp, Check, TrainFront, Coins, Receipt, Car, Home, User, Heart, Briefcase, Ruler, Baby, Users, Sliders, Calculator, PersonStanding, RotateCcw, Settings2, RefreshCw, X, Zap, Wifi, ShoppingBasket, Bus, Fuel, Info, Smartphone, Droplet, Tv } from 'lucide-react';
 import { SimulationInputs, ExpenseItem } from '../types';
 import { DEFAULT_INPUTS, DEFAULT_TECH_PARAMS, PRESET_EXPENSES_CH, PRESET_EXPENSES_IT, calculateDynamicExpenses } from '../constants';
+import { Analytics } from '../services/analytics';
 
 interface Props {
   inputs: SimulationInputs;
@@ -145,9 +146,16 @@ export const InputCard: React.FC<Props> = ({ inputs, setInputs }) => {
 
   const handleChange = (field: keyof SimulationInputs, value: any) => {
     setInputs(prev => ({ ...prev, [field]: value }));
+    // Track important input changes
+    if (['annualIncomeCHF', 'age', 'sex', 'maritalStatus', 'hasChildren', 'numChildren', 'workerType', 'monthsWorked', 'hasHealthInsurance', 'cantonCode'].includes(field)) {
+      Analytics.trackInputChange(field, value);
+    }
   };
 
-  const handleReset = () => setInputs(DEFAULT_INPUTS);
+  const handleReset = () => {
+    setInputs(DEFAULT_INPUTS);
+    Analytics.trackUIInteraction('InputCard', 'Reset All Inputs');
+  };
   
   const handleResetTech = () => {
     setInputs(prev => ({...prev, ...DEFAULT_TECH_PARAMS}));
@@ -200,10 +208,16 @@ export const InputCard: React.FC<Props> = ({ inputs, setInputs }) => {
     };
     setInputs(prev => ({ ...prev, [target === 'CH' ? 'expensesCH' : 'expensesIT']: [...prev[target === 'CH' ? 'expensesCH' : 'expensesIT'], newItem] }));
     setShowPresets(null); // Close presets after adding
+    Analytics.trackExpense('add', preset?.label || 'Custom', preset?.amount);
   };
 
   const removeExpense = (target: 'CH' | 'IT', id: string) => {
+    const expenses = inputs[target === 'CH' ? 'expensesCH' : 'expensesIT'];
+    const expense = expenses.find(e => e.id === id);
     setInputs(prev => ({ ...prev, [target === 'CH' ? 'expensesCH' : 'expensesIT']: prev[target === 'CH' ? 'expensesCH' : 'expensesIT'].filter(e => e.id !== id) }));
+    if (expense) {
+      Analytics.trackExpense('delete', expense.label, expense.amount);
+    }
   };
 
   const loadAllPresets = (target: 'CH' | 'IT') => {

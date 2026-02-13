@@ -3,6 +3,7 @@ import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import { MapPin, Clock, TrendingUp, Home, Car, ShoppingCart, FileText, AlertCircle, CheckCircle2, Info, ArrowRight, Building2, Landmark, Shield, Users, Navigation, Timer, BarChart3, Euro, Heart, Briefcase, Calendar } from 'lucide-react';
+import { Analytics } from '../services/analytics';
 
 // Fix per i marker icon di Leaflet
 delete (L.Icon.Default.prototype as any)._getIconUrl;
@@ -82,6 +83,22 @@ const FrontierGuide: React.FC = () => {
   const [filterType, setFilterType] = useState<'all' | 'new' | 'old'>('all');
   const [borderFilter, setBorderFilter] = useState<'all' | 'low-traffic' | '24h' | 'morning' | 'evening'>('all');
   const [selectedTime, setSelectedTime] = useState<'morning' | 'evening' | 'night'>('morning');
+
+  // Track section navigation
+  const handleSectionChange = (section: 'municipalities' | 'living-ch' | 'living-it' | 'border' | 'costs') => {
+    setActiveSection(section);
+    Analytics.trackUIInteraction('FrontierGuide', 'Change Section', section);
+  };
+
+  // Track municipality view
+  const handleMunicipalityClick = (municipality: Municipality) => {
+    Analytics.trackMunicipalityView(municipality.name, municipality.type);
+  };
+
+  // Track map marker click
+  const handleMapMarkerClick = (location: string, type: string) => {
+    Analytics.trackMapInteraction(type === 'border' ? 'Border Crossings' : 'Municipalities', 'Click Marker', location);
+  };
 
   // Comuni frontalieri Lombardia con dati completi (ordinati per default per popolazione)
   const lombardyMunicipalities: Municipality[] = [
@@ -196,7 +213,7 @@ const FrontierGuide: React.FC = () => {
       {/* Navigation Tabs */}
       <div className="flex flex-wrap gap-2 justify-center mb-8">
         <button
-          onClick={() => setActiveSection('municipalities')}
+          onClick={() => handleSectionChange('municipalities')}
           className={`px-4 py-2.5 rounded-xl font-bold text-sm transition-all flex items-center gap-2 ${
             activeSection === 'municipalities'
               ? 'bg-indigo-600 text-white shadow-lg scale-105'
@@ -207,7 +224,7 @@ const FrontierGuide: React.FC = () => {
           Comuni Frontalieri
         </button>
         <button
-          onClick={() => setActiveSection('border')}
+          onClick={() => handleSectionChange('border')}
           className={`px-4 py-2.5 rounded-xl font-bold text-sm transition-all flex items-center gap-2 ${
             activeSection === 'border'
               ? 'bg-orange-600 text-white shadow-lg scale-105'
@@ -218,7 +235,7 @@ const FrontierGuide: React.FC = () => {
           Dogane & Tempi
         </button>
         <button
-          onClick={() => setActiveSection('costs')}
+          onClick={() => handleSectionChange('costs')}
           className={`px-4 py-2.5 rounded-xl font-bold text-sm transition-all flex items-center gap-2 ${
             activeSection === 'costs'
               ? 'bg-emerald-600 text-white shadow-lg scale-105'
@@ -229,7 +246,7 @@ const FrontierGuide: React.FC = () => {
           Costi & Consumi
         </button>
         <button
-          onClick={() => setActiveSection('living-ch')}
+          onClick={() => handleSectionChange('living-ch')}
           className={`px-4 py-2.5 rounded-xl font-bold text-sm transition-all flex items-center gap-2 ${
             activeSection === 'living-ch'
               ? 'bg-red-600 text-white shadow-lg scale-105'
@@ -240,7 +257,7 @@ const FrontierGuide: React.FC = () => {
           Vivere in CH
         </button>
         <button
-          onClick={() => setActiveSection('living-it')}
+          onClick={() => handleSectionChange('living-it')}
           className={`px-4 py-2.5 rounded-xl font-bold text-sm transition-all flex items-center gap-2 ${
             activeSection === 'living-it'
               ? 'bg-green-600 text-white shadow-lg scale-105'
@@ -476,31 +493,57 @@ const FrontierGuide: React.FC = () => {
             
             <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-3">
               <button
-                onClick={() => setBorderFilter('all')}
+                onClick={() => {
+                  setBorderFilter('all');
+                  const count = borderCrossings.filter(b => b.traffic !== 'closed').length;
+                  Analytics.trackBorderFilter('all', count);
+                }}
                 className={`px-4 py-2.5 rounded-xl text-sm font-bold transition-all ${borderFilter === 'all' ? 'bg-indigo-500 text-white shadow-lg' : 'bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-800'}`}
               >
                 🔍 Tutte ({borderCrossings.filter(b => b.traffic !== 'closed').length})
               </button>
               <button
-                onClick={() => setBorderFilter('low-traffic')}
+                onClick={() => {
+                  setBorderFilter('low-traffic');
+                  const count = borderCrossings.filter(b => b.traffic === 'low').length;
+                  Analytics.trackBorderFilter('low-traffic', count);
+                }}
                 className={`px-4 py-2.5 rounded-xl text-sm font-bold transition-all ${borderFilter === 'low-traffic' ? 'bg-emerald-500 text-white shadow-lg' : 'bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-800'}`}
               >
                 ✅ Poco Traffico ({borderCrossings.filter(b => b.traffic === 'low').length})
               </button>
               <button
-                onClick={() => setBorderFilter('24h')}
+                onClick={() => {
+                  setBorderFilter('24h');
+                  const count = borderCrossings.filter(b => b.hours === '24h').length;
+                  Analytics.trackBorderFilter('24h', count);
+                }}
                 className={`px-4 py-2.5 rounded-xl text-sm font-bold transition-all ${borderFilter === '24h' ? 'bg-blue-500 text-white shadow-lg' : 'bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-800'}`}
               >
                 ⏰ Aperte 24h ({borderCrossings.filter(b => b.hours === '24h').length})
               </button>
               <button
-                onClick={() => setBorderFilter('morning')}
+                onClick={() => {
+                  setBorderFilter('morning');
+                  const count = borderCrossings.filter(b => {
+                    const maxWait = parseInt(b.avgWaitMorning.split('-')[1]);
+                    return !isNaN(maxWait) && maxWait <= 10;
+                  }).length;
+                  Analytics.trackBorderFilter('morning', count);
+                }}
                 className={`px-4 py-2.5 rounded-xl text-sm font-bold transition-all ${borderFilter === 'morning' ? 'bg-orange-500 text-white shadow-lg' : 'bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-800'}`}
               >
                 🌅 Veloci Mattina
               </button>
               <button
-                onClick={() => setBorderFilter('evening')}
+                onClick={() => {
+                  setBorderFilter('evening');
+                  const count = borderCrossings.filter(b => {
+                    const maxWait = parseInt(b.avgWaitEvening.split('-')[1]);
+                    return !isNaN(maxWait) && maxWait <= 12;
+                  }).length;
+                  Analytics.trackBorderFilter('evening', count);
+                }}
                 className={`px-4 py-2.5 rounded-xl text-sm font-bold transition-all ${borderFilter === 'evening' ? 'bg-purple-500 text-white shadow-lg' : 'bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-800'}`}
               >
                 🌆 Veloci Sera
@@ -514,9 +557,42 @@ const FrontierGuide: React.FC = () => {
               </div>
               <div className="flex gap-2">
                 <button
-                  onClick={() => setSelectedTime('morning')}
+                  onClick={() => {
+                    setSelectedTime('morning');
+                    const count = borderCrossings.filter(b => {
+                      const maxWait = parseInt(b.avgWaitMorning.split('-')[1]);
+                      return !isNaN(maxWait) && maxWait <= 8;
+                    }).length;
+                    Analytics.trackBorderTimeSelection('morning', count);
+                  }}
                   className={`flex-1 px-3 py-2 rounded-lg text-xs font-bold transition-all ${selectedTime === 'morning' ? 'bg-orange-500 text-white' : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-400'}`}
                 >
+                  🌅 Mattina (7-9)
+                </button>
+                <button
+                  onClick={() => {
+                    setSelectedTime('evening');
+                    const count = borderCrossings.filter(b => {
+                      const maxWait = parseInt(b.avgWaitEvening.split('-')[1]);
+                      return !isNaN(maxWait) && maxWait <= 12;
+                    }).length;
+                    Analytics.trackBorderTimeSelection('evening', count);
+                  }}
+                  className={`flex-1 px-3 py-2 rounded-lg text-xs font-bold transition-all ${selectedTime === 'evening' ? 'bg-purple-500 text-white' : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-400'}`}
+                >
+                  🌆 Sera (17-19)
+                </button>
+                <button
+                  onClick={() => {
+                    setSelectedTime('night');
+                    const count = borderCrossings.filter(b => b.hours === '24h' && b.traffic === 'low').length;
+                    Analytics.trackBorderTimeSelection('night', count);
+                  }}
+                  className={`flex-1 px-3 py-2 rounded-lg text-xs font-bold transition-all ${selectedTime === 'night' ? 'bg-indigo-500 text-white' : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-400'}`}
+                >
+                  🌙 Notte
+                </button>
+              </div>
                   🌅 Mattina (7-9)
                 </button>
                 <button
