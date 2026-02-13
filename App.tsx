@@ -11,6 +11,7 @@ import TransportCalculator from '@/components/TransportCalculator';
 import HealthInsurance from '@/components/HealthInsurance';
 import BankComparison from '@/components/BankComparison';
 import TrafficAlerts from '@/components/TrafficAlerts';
+import ApiStatus from '@/components/ApiStatus';
 import { PrivacyPolicy } from '@/components/PrivacyPolicy';
 import { DataDeletion } from '@/components/DataDeletion';
 import { ErrorBoundary } from '@/components/ErrorBoundary';
@@ -25,8 +26,18 @@ const App: React.FC = () => {
   const [result, setResult] = useState<SimulationResult | null>(null);
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [isFocusMode, setIsFocusMode] = useState(false);
-  const [activeTab, setActiveTab] = useState<'calculator' | 'feedback' | 'stats' | 'pension' | 'guide' | 'comparatori' | 'privacy' | 'data-deletion'>('calculator');
+  const [activeTab, setActiveTab] = useState<'calculator' | 'feedback' | 'stats' | 'pension' | 'guide' | 'comparatori' | 'privacy' | 'data-deletion' | 'api-status'>('calculator');
   const [comparatoriSubTab, setComparatoriSubTab] = useState<'exchange' | 'mobile' | 'transport' | 'health' | 'banks' | 'traffic'>('exchange');
+  const [showApiStatus, setShowApiStatus] = useState(false);
+
+  // Check for hidden API status page via URL parameter
+  useEffect(() => {
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('debug') === 'api' || urlParams.get('status') === 'api') {
+      setShowApiStatus(true);
+      setActiveTab('api-status');
+    }
+  }, []);
 
   // Initialize theme and Analytics
   useEffect(() => {
@@ -233,18 +244,18 @@ const App: React.FC = () => {
                   Cambio Valuta
                 </button>
                 <button
+                  onClick={() => setComparatoriSubTab('traffic')}
+                  className={`px-4 py-2 text-sm font-medium rounded-lg whitespace-nowrap transition-colors flex items-center gap-2 ${comparatoriSubTab === 'traffic' ? 'bg-violet-100 dark:bg-violet-900/30 text-violet-700 dark:text-violet-300' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800'}`}
+                >
+                  <AlertTriangle size={16} />
+                  Traffico Valichi
+                </button>
+                <button
                   onClick={() => setComparatoriSubTab('mobile')}
                   className={`px-4 py-2 text-sm font-medium rounded-lg whitespace-nowrap transition-colors flex items-center gap-2 ${comparatoriSubTab === 'mobile' ? 'bg-violet-100 dark:bg-violet-900/30 text-violet-700 dark:text-violet-300' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800'}`}
                 >
                   <Phone size={16} />
                   Telefonia Mobile
-                </button>
-                <button
-                  onClick={() => setComparatoriSubTab('health')}
-                  className={`px-4 py-2 text-sm font-medium rounded-lg whitespace-nowrap transition-colors flex items-center gap-2 ${comparatoriSubTab === 'health' ? 'bg-violet-100 dark:bg-violet-900/30 text-violet-700 dark:text-violet-300' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800'}`}
-                >
-                  <Heart size={16} />
-                  Assicurazione Sanitaria
                 </button>
                 <button
                   onClick={() => setComparatoriSubTab('banks')}
@@ -254,11 +265,11 @@ const App: React.FC = () => {
                   Conti Correnti
                 </button>
                 <button
-                  onClick={() => setComparatoriSubTab('traffic')}
-                  className={`px-4 py-2 text-sm font-medium rounded-lg whitespace-nowrap transition-colors flex items-center gap-2 ${comparatoriSubTab === 'traffic' ? 'bg-violet-100 dark:bg-violet-900/30 text-violet-700 dark:text-violet-300' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800'}`}
+                  onClick={() => setComparatoriSubTab('health')}
+                  className={`px-4 py-2 text-sm font-medium rounded-lg whitespace-nowrap transition-colors flex items-center gap-2 ${comparatoriSubTab === 'health' ? 'bg-violet-100 dark:bg-violet-900/30 text-violet-700 dark:text-violet-300' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800'}`}
                 >
-                  <AlertTriangle size={16} />
-                  Traffico Valichi
+                  <Heart size={16} />
+                  Assicurazione Sanitaria
                 </button>
                 <button
                   onClick={() => setComparatoriSubTab('transport')}
@@ -323,6 +334,10 @@ const App: React.FC = () => {
           ) : activeTab === 'data-deletion' ? (
             <div className="animate-fade-in">
               <DataDeletion />
+            </div>
+          ) : activeTab === 'api-status' ? (
+            <div className="max-w-5xl mx-auto animate-fade-in">
+              <ApiStatus />
             </div>
           ) : (
             <div className="max-w-4xl mx-auto animate-fade-in">
