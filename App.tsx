@@ -3,19 +3,20 @@ import { InputCard } from '@/components/InputCard';
 import { ResultsView } from '@/components/ResultsView';
 import { FeedbackSection } from '@/components/FeedbackSection';
 import { StatsView } from '@/components/StatsView';
+import PensionPlanner from '@/components/PensionPlanner';
 import { ErrorBoundary } from '@/components/ErrorBoundary';
 import { calculateSimulation } from '@/services/calculationService';
 import { Analytics } from '@/services/analytics';
 import { DEFAULT_INPUTS } from '@/constants';
 import { SimulationInputs, SimulationResult } from '@/types';
-import { Moon, Sun, Maximize2, Minimize2, Calculator, HelpCircle, BarChart2 } from 'lucide-react';
+import { Moon, Sun, Maximize2, Minimize2, Calculator, HelpCircle, BarChart2, PiggyBank } from 'lucide-react';
 
 const App: React.FC = () => {
   const [inputs, setInputs] = useState<SimulationInputs>(DEFAULT_INPUTS);
   const [result, setResult] = useState<SimulationResult | null>(null);
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [isFocusMode, setIsFocusMode] = useState(false);
-  const [activeTab, setActiveTab] = useState<'calculator' | 'feedback' | 'stats'>('calculator');
+  const [activeTab, setActiveTab] = useState<'calculator' | 'feedback' | 'stats' | 'pension'>('calculator');
 
   // Initialize theme and Analytics
   useEffect(() => {
@@ -47,7 +48,7 @@ const App: React.FC = () => {
     }
   };
 
-  const handleTabChange = (tab: 'calculator' | 'feedback' | 'stats') => {
+  const handleTabChange = (tab: 'calculator' | 'feedback' | 'stats' | 'pension') => {
     setActiveTab(tab);
     Analytics.trackPageView(`/${tab}`);
   };
@@ -121,13 +122,24 @@ const App: React.FC = () => {
                 </button>
 
                 <button 
+                  onClick={() => handleTabChange('pension')}
+                  className={`relative px-3 py-2 text-sm font-bold transition-colors flex items-center gap-2 group ${activeTab === 'pension' ? 'text-emerald-600 dark:text-emerald-400' : 'text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200'}`}
+                >
+                  <PiggyBank size={16} />
+                  <span className="hidden lg:inline">Pensione</span>
+                  {activeTab === 'pension' && (
+                    <span className="absolute bottom-0 left-0 w-full h-0.5 bg-emerald-600 dark:bg-emerald-400 rounded-full animate-fade-in" />
+                  )}
+                </button>
+
+                <button 
                   onClick={() => handleTabChange('stats')}
-                  className={`relative px-3 py-2 text-sm font-bold transition-colors flex items-center gap-2 group ${activeTab === 'stats' ? 'text-emerald-600 dark:text-emerald-400' : 'text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200'}`}
+                  className={`relative px-3 py-2 text-sm font-bold transition-colors flex items-center gap-2 group ${activeTab === 'stats' ? 'text-purple-600 dark:text-purple-400' : 'text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200'}`}
                 >
                   <BarChart2 size={16} />
                   <span className="hidden lg:inline">Curiosità</span>
                   {activeTab === 'stats' && (
-                    <span className="absolute bottom-0 left-0 w-full h-0.5 bg-emerald-600 dark:bg-emerald-400 rounded-full animate-fade-in" />
+                    <span className="absolute bottom-0 left-0 w-full h-0.5 bg-purple-600 dark:bg-purple-400 rounded-full animate-fade-in" />
                   )}
                 </button>
 
@@ -185,6 +197,10 @@ const App: React.FC = () => {
               <div className={`transition-all duration-500 ease-in-out ${isFocusMode ? 'md:col-span-12' : 'md:col-span-8 lg:col-span-8 xl:col-span-9'} h-full animate-fade-in-up delay-100`}>
                 {result && <ResultsView result={result} inputs={inputs} isDarkMode={isDarkMode} isFocusMode={isFocusMode} />}
               </div>
+            </div>
+          ) : activeTab === 'pension' ? (
+            <div className="max-w-7xl mx-auto animate-fade-in">
+              <PensionPlanner />
             </div>
           ) : activeTab === 'stats' ? (
             <div className="max-w-5xl mx-auto">
