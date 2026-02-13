@@ -88,39 +88,39 @@ const FrontierGuide: React.FC = () => {
     { name: "Busto Arsizio", province: "Varese", distance: 25, borderCrossing: "Gaggiolo", population: 84000, type: 'both', lat: 45.6107, lng: 8.8510 },
     { name: "Varese", province: "Varese", distance: 10, borderCrossing: "Ponte Tresa", population: 80000, type: 'both', lat: 45.8206, lng: 8.8250 },
     { name: "Gallarate", province: "Varese", distance: 24, borderCrossing: "Gaggiolo", population: 54000, type: 'both', lat: 45.6580, lng: 8.7915 },
-    { name: "Saronno", province: "Varese", distance: 22, borderCrossing: "Gaggiolo", population: 39000, type: 'both', lat: 45.6263, lng: 9.0337 },
+    { name: "Saronno", province: "Varese", distance: 22, borderCrossing: "Gaggiolo", population: 39000, type: 'old', lat: 45.6263, lng: 9.0337 },
     { name: "Tradate", province: "Varese", distance: 18, borderCrossing: "Gaggiolo", population: 18500, type: 'both', lat: 45.7089, lng: 8.9080 },
-    { name: "Malnate", province: "Varese", distance: 5, borderCrossing: "Gaggiolo", population: 17000, type: 'new', lat: 45.8016, lng: 8.8759 },
-    { name: "Luino", province: "Varese", distance: 15, borderCrossing: "Ponte Tresa", population: 14500, type: 'new', lat: 46.0011, lng: 8.7447 },
-    { name: "Induno Olona", province: "Varese", distance: 6, borderCrossing: "Gaggiolo", population: 10500, type: 'new', lat: 45.8461, lng: 8.8403 },
-    { name: "Arcisate", province: "Varese", distance: 4, borderCrossing: "Gaggiolo", population: 9800, type: 'new', lat: 45.8608, lng: 8.8513 },
-    { name: "Gavirate", province: "Varese", distance: 14, borderCrossing: "Ponte Tresa", population: 9300, type: 'new', lat: 45.8475, lng: 8.7139 },
-    { name: "Cernobbio", province: "Como", distance: 4, borderCrossing: "Chiasso", population: 6800, type: 'new', lat: 45.8486, lng: 9.0731 },
-    { name: "Lavena Ponte Tresa", province: "Varese", distance: 0.5, borderCrossing: "Ponte Tresa", population: 5600, type: 'new', lat: 45.9714, lng: 8.8589 },
-    { name: "Viggiù", province: "Varese", distance: 2.5, borderCrossing: "Gaggiolo", population: 5100, type: 'new', lat: 45.8892, lng: 8.9486 },
-    { name: "Uggiate-Trevano", province: "Como", distance: 1, borderCrossing: "Chiasso", population: 4800, type: 'new', lat: 45.8458, lng: 9.0186 },
-    { name: "Cantello", province: "Varese", distance: 1, borderCrossing: "Gaggiolo", population: 4700, type: 'new', lat: 45.8336, lng: 8.9131 },
-    { name: "Azzate", province: "Varese", distance: 12, borderCrossing: "Ponte Tresa", population: 4600, type: 'new', lat: 45.7878, lng: 8.7681 },
+    { name: "Malnate", province: "Varese", distance: 5, borderCrossing: "Gaggiolo", population: 17000, type: 'both', lat: 45.8016, lng: 8.8759 },
+    { name: "Luino", province: "Varese", distance: 15, borderCrossing: "Ponte Tresa", population: 14500, type: 'both', lat: 46.0011, lng: 8.7447 },
+    { name: "Induno Olona", province: "Varese", distance: 6, borderCrossing: "Gaggiolo", population: 10500, type: 'both', lat: 45.8461, lng: 8.8403 },
+    { name: "Arcisate", province: "Varese", distance: 4, borderCrossing: "Gaggiolo", population: 9800, type: 'both', lat: 45.8608, lng: 8.8513 },
+    { name: "Gavirate", province: "Varese", distance: 14, borderCrossing: "Ponte Tresa", population: 9300, type: 'both', lat: 45.8475, lng: 8.7139 },
+    { name: "Cernobbio", province: "Como", distance: 4, borderCrossing: "Chiasso", population: 6800, type: 'both', lat: 45.8486, lng: 9.0731 },
+    { name: "Lavena Ponte Tresa", province: "Varese", distance: 0.5, borderCrossing: "Ponte Tresa", population: 5600, type: 'both', lat: 45.9714, lng: 8.8589 },
+    { name: "Viggiù", province: "Varese", distance: 2.5, borderCrossing: "Gaggiolo", population: 5100, type: 'both', lat: 45.8892, lng: 8.9486 },
+    { name: "Uggiate-Trevano", province: "Como", distance: 1, borderCrossing: "Chiasso", population: 4800, type: 'both', lat: 45.8458, lng: 9.0186 },
+    { name: "Cantello", province: "Varese", distance: 1, borderCrossing: "Gaggiolo", population: 4700, type: 'both', lat: 45.8336, lng: 8.9131 },
+    { name: "Azzate", province: "Varese", distance: 12, borderCrossing: "Ponte Tresa", population: 4600, type: 'both', lat: 45.7878, lng: 8.7681 },
     { name: "Faloppio", province: "Como", distance: 4.5, borderCrossing: "Chiasso-Brogeda", population: 4200, type: 'new', lat: 45.8294, lng: 9.0286 },
-    { name: "Bisuschio", province: "Varese", distance: 2, borderCrossing: "Gaggiolo", population: 3900, type: 'new', lat: 45.8753, lng: 8.8833 },
-    { name: "Maslianico", province: "Como", distance: 3, borderCrossing: "Chiasso", population: 3400, type: 'new', lat: 45.8194, lng: 9.0522 },
-    { name: "Menaggio", province: "Como", distance: 15, borderCrossing: "Ponte Tresa", population: 3200, type: 'new', lat: 46.0156, lng: 9.2372 },
-    { name: "Saltrio", province: "Varese", distance: 3.5, borderCrossing: "Gaggiolo", population: 3150, type: 'new', lat: 45.8636, lng: 8.9133 },
+    { name: "Bisuschio", province: "Varese", distance: 2, borderCrossing: "Gaggiolo", population: 3900, type: 'both', lat: 45.8753, lng: 8.8833 },
+    { name: "Maslianico", province: "Como", distance: 3, borderCrossing: "Chiasso", population: 3400, type: 'both', lat: 45.8194, lng: 9.0522 },
+    { name: "Menaggio", province: "Como", distance: 15, borderCrossing: "Ponte Tresa", population: 3200, type: 'both', lat: 46.0156, lng: 9.2372 },
+    { name: "Saltrio", province: "Varese", distance: 3.5, borderCrossing: "Gaggiolo", population: 3150, type: 'both', lat: 45.8636, lng: 8.9133 },
     { name: "Bellagio", province: "Como", distance: 18, borderCrossing: "Chiasso", population: 3050, type: 'new', lat: 45.9792, lng: 9.2586 },
-    { name: "Porto Ceresio", province: "Varese", distance: 2, borderCrossing: "Porto Ceresio", population: 3000, type: 'new', lat: 45.9103, lng: 8.8947 },
-    { name: "Grandate", province: "Como", distance: 8, borderCrossing: "Chiasso", population: 2850, type: 'new', lat: 45.7700, lng: 9.0464 },
-    { name: "Valmorea", province: "Como", distance: 2, borderCrossing: "Chiasso", population: 2650, type: 'new', lat: 45.8331, lng: 8.9847 },
-    { name: "Clivio", province: "Varese", distance: 3, borderCrossing: "Gaggiolo", population: 2100, type: 'new', lat: 45.8581, lng: 8.9292 },
-    { name: "Campione d'Italia", province: "Como", distance: 0, borderCrossing: "Campione (enclave)", population: 2000, type: 'new', lat: 45.9681, lng: 8.9722 },
-    { name: "Brunate", province: "Como", distance: 7, borderCrossing: "Chiasso", population: 1750, type: 'new', lat: 45.8244, lng: 9.0922 },
-    { name: "Bizzarone", province: "Como", distance: 0.5, borderCrossing: "Chiasso", population: 1650, type: 'new', lat: 45.8433, lng: 8.9564 },
-    { name: "Moltrasio", province: "Como", distance: 8, borderCrossing: "Chiasso", population: 1650, type: 'new', lat: 45.8542, lng: 9.1197 },
-    { name: "Valganna", province: "Varese", distance: 8, borderCrossing: "Ponte Tresa", population: 1500, type: 'new', lat: 45.9044, lng: 8.8333 },
-    { name: "Rodero", province: "Como", distance: 1.5, borderCrossing: "Chiasso", population: 1350, type: 'new', lat: 45.8508, lng: 8.9731 },
-    { name: "Carate Urio", province: "Como", distance: 10, borderCrossing: "Chiasso", population: 1300, type: 'new', lat: 45.8778, lng: 9.1508 },
-    { name: "Blevio", province: "Como", distance: 5, borderCrossing: "Chiasso", population: 1250, type: 'new', lat: 45.8306, lng: 9.1106 },
-    { name: "Brusimpiano", province: "Varese", distance: 1.5, borderCrossing: "Porto Ceresio", population: 1200, type: 'new', lat: 45.9600, lng: 8.8783 },
-    { name: "Argegno", province: "Como", distance: 12, borderCrossing: "Chiasso", population: 680, type: 'new', lat: 45.9322, lng: 9.1514 },
+    { name: "Porto Ceresio", province: "Varese", distance: 2, borderCrossing: "Porto Ceresio", population: 3000, type: 'both', lat: 45.9103, lng: 8.8947 },
+    { name: "Grandate", province: "Como", distance: 8, borderCrossing: "Chiasso", population: 2850, type: 'both', lat: 45.7700, lng: 9.0464 },
+    { name: "Valmorea", province: "Como", distance: 2, borderCrossing: "Chiasso", population: 2650, type: 'both', lat: 45.8331, lng: 8.9847 },
+    { name: "Clivio", province: "Varese", distance: 3, borderCrossing: "Gaggiolo", population: 2100, type: 'both', lat: 45.8581, lng: 8.9292 },
+    { name: "Campione d'Italia", province: "Como", distance: 0, borderCrossing: "Campione (enclave)", population: 2000, type: 'both', lat: 45.9681, lng: 8.9722 },
+    { name: "Brunate", province: "Como", distance: 7, borderCrossing: "Chiasso", population: 1750, type: 'both', lat: 45.8244, lng: 9.0922 },
+    { name: "Bizzarone", province: "Como", distance: 0.5, borderCrossing: "Chiasso", population: 1650, type: 'both', lat: 45.8433, lng: 8.9564 },
+    { name: "Moltrasio", province: "Como", distance: 8, borderCrossing: "Chiasso", population: 1650, type: 'both', lat: 45.8542, lng: 9.1197 },
+    { name: "Valganna", province: "Varese", distance: 8, borderCrossing: "Ponte Tresa", population: 1500, type: 'both', lat: 45.9044, lng: 8.8333 },
+    { name: "Rodero", province: "Como", distance: 1.5, borderCrossing: "Chiasso", population: 1350, type: 'both', lat: 45.8508, lng: 8.9731 },
+    { name: "Carate Urio", province: "Como", distance: 10, borderCrossing: "Chiasso", population: 1300, type: 'both', lat: 45.8778, lng: 9.1508 },
+    { name: "Blevio", province: "Como", distance: 5, borderCrossing: "Chiasso", population: 1250, type: 'both', lat: 45.8306, lng: 9.1106 },
+    { name: "Brusimpiano", province: "Varese", distance: 1.5, borderCrossing: "Porto Ceresio", population: 1200, type: 'both', lat: 45.9600, lng: 8.8783 },
+    { name: "Argegno", province: "Como", distance: 12, borderCrossing: "Chiasso", population: 680, type: 'both', lat: 45.9322, lng: 9.1514 },
   ];
 
   const filteredMunicipalities = lombardyMunicipalities
@@ -135,7 +135,7 @@ const FrontierGuide: React.FC = () => {
       return b.population - a.population;
     });
 
-  // Dogane Canton Ticino - Italia (fonte: Wikipedia + dati frontalieri)
+  // Dogane Canton Ticino - Italia (fonte: Wikipedia + dati frontalieri, solo Ticino)
   const borderCrossings = [
     // Como - Ticino (Principale)
     { name: "Chiasso Centro", italianSide: "Como", avgWaitMorning: "15-30 min", avgWaitEvening: "20-40 min", peak: "7:00-8:30, 17:00-18:30", hours: "24h", tips: "Principale, molto trafficato ore punta" },
@@ -148,11 +148,8 @@ const FrontierGuide: React.FC = () => {
     { name: "Gaggiolo-Stabio", italianSide: "Cantello", avgWaitMorning: "10-20 min", avgWaitEvening: "15-30 min", peak: "7:00-8:30, 17:00-18:30", hours: "24h", tips: "Seconda dogana più trafficata" },
     { name: "Ponte Tresa", italianSide: "Lavena Ponte Tresa", avgWaitMorning: "5-15 min", avgWaitEvening: "10-20 min", peak: "7:30-8:30, 17:30-18:30", hours: "24h", tips: "Generalmente più veloce, zona lago" },
     { name: "Porto Ceresio-Bissone", italianSide: "Porto Ceresio", avgWaitMorning: "3-8 min", avgWaitEvening: "5-12 min", peak: "7:30-8:30, 17:30-18:30", hours: "06:00-22:00", tips: "Poco trafficato, chiusura notturna" },
-    { name: "Cremenaga-Cremenaga", italianSide: "Cremenaga", avgWaitMorning: "2-5 min", avgWaitEvening: "3-8 min", peak: "Poco traffico", hours: "06:00-20:00", tips: "Valico minore, chiusura notturna" },
+    { name: "Cremenaga", italianSide: "Cremenaga", avgWaitMorning: "2-5 min", avgWaitEvening: "3-8 min", peak: "Poco traffico", hours: "06:00-20:00", tips: "Valico minore, chiusura notturna" },
     { name: "Marchirolo-Cuasso al Piano", italianSide: "Marchirolo", avgWaitMorning: "3-7 min", avgWaitEvening: "5-10 min", peak: "Poco traffico", hours: "06:00-22:00", tips: "Alternativa tranquilla" },
-    
-    // Lecco/Sondrio - Grigioni (non Ticino, ma utile)
-    { name: "Campocologno-Tirano", italianSide: "Tirano (SO)", avgWaitMorning: "2-5 min", avgWaitEvening: "3-8 min", peak: "Poco traffico", hours: "06:00-22:00", tips: "Valico verso Grigioni (non Ticino)" },
   ];
 
   const costComparison = [
