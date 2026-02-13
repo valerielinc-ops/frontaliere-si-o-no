@@ -37,16 +37,6 @@ export const FeedbackSection: React.FC = () => {
 
   const REPO_OWNER = 'valerielinc-ops';
   const REPO_NAME = 'frontaliere-si-o-no';
-  
-  // Decodifica Base64
-  const decodeBase64Token = (encoded: string): string => {
-    try {
-      return atob(encoded);
-    } catch (e) {
-      console.error('Failed to decode token');
-      return '';
-    }
-  };
 
   // Carica le API keys da Firebase Remote Config
   useEffect(() => {
@@ -55,14 +45,14 @@ export const FeedbackSection: React.FC = () => {
         const githubPat = await getConfigValue('GITHUB_PAT');
         const geminiKey = await getConfigValue('GEMINI_API_KEY');
         
-        setGithubToken(githubPat ? decodeBase64Token(githubPat) : '');
+        setGithubToken(githubPat || '');
         setGeminiApiKey(geminiKey);
         
         console.log('✅ API keys caricate da Firebase Remote Config');
       } catch (error) {
         console.warn('⚠️ Errore caricamento API keys, uso fallback locali:', error);
         // Fallback: usa env vars
-        setGithubToken(import.meta.env.VITE_REACT_APP_PAT ? decodeBase64Token(import.meta.env.VITE_REACT_APP_PAT) : '');
+        setGithubToken(import.meta.env.VITE_REACT_APP_PAT || '');
         setGeminiApiKey(import.meta.env.GEMINI_API_KEY || '');
       }
     }

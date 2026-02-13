@@ -29,6 +29,22 @@ const analytics: FirebaseAnalytics = getAnalytics(app);
 let appCheck: AppCheck | null = null;
 let recaptchaSiteKey: string | null = null;
 
+/**
+ * Attende che lo script reCAPTCHA sia completamente caricato
+ * Lo script viene caricato in modo asincrono da index.html
+ */
+async function waitForRecaptcha(maxAttempts = 50, delayMs = 100): Promise<boolean> {
+  for (let i = 0; i < maxAttempts; i++) {
+    if (typeof window !== 'undefined' && 
+        typeof (window as any).grecaptcha !== 'undefined' && 
+        typeof (window as any).grecaptcha.ready === 'function') {
+      return true;
+    }
+    await new Promise(resolve => setTimeout(resolve, delayMs));
+  }
+  return false;
+}
+
 async function initAppCheck(): Promise<void> {
   if (typeof window === 'undefined' || appCheck !== null) {
     return;
@@ -43,6 +59,17 @@ async function initAppCheck(): Promise<void> {
       return;
     }
 
+    // Attende che lo script reCAPTCHA sia caricato
+    console.log('⏳ Attendo caricamento reCAPTCHA...');
+    const recaptchaReady = await waitForRecaptcha();
+    
+    if (!recaptchaReady) {
+      console.warn('⚠️ reCAPTCHA script non disponibile dopo 5 secondi');
+      return;
+    }
+
+    console.log('✅ reCAPTCHA script caricato');
+    
     appCheck = initializeAppCheck(app, {
       provider: new ReCaptchaV3Provider(recaptchaSiteKey),
       isTokenAutoRefreshEnabled: true
