@@ -108,7 +108,7 @@ export const FeedbackSection: React.FC = () => {
   const handleOptimize = async () => {
     if (!formData.description || !geminiApiKey) return;
     setIsOptimizing(true);
-    Analytics.trackEvent('AI', 'Optimize Description', formData.type);
+    Analytics.trackUIInteraction('AI', 'optimize_description', formData.type);
     
     try {
       const ai = new GoogleGenAI({ apiKey: geminiApiKey });
@@ -178,7 +178,7 @@ export const FeedbackSection: React.FC = () => {
            url: newIssue.html_url
         };
         setItems(prev => [newItem, ...prev]);
-        Analytics.trackEvent('Engagement', 'Issue Created', formData.type);
+        Analytics.trackFeedback('submit', formData.type);
         setFormData({ title: '', description: '', type: 'BUG' });
         alert("Segnalazione creata con successo su GitHub!");
       } else {
@@ -308,7 +308,7 @@ export const FeedbackSection: React.FC = () => {
                   target="_blank"
                   rel="noreferrer"
                   className="block bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 p-4 rounded-2xl shadow-sm hover:shadow-md transition-all group hover:border-indigo-200 dark:hover:border-indigo-900"
-                  onClick={() => Analytics.trackEvent('Engagement', 'Click Issue', item.id)}
+                  onClick={() => Analytics.trackSelectContent('issue', String(item.id))}
                 >
                   <div className="flex items-start justify-between gap-3">
                     <div className="flex gap-3">

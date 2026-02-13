@@ -1,192 +1,303 @@
-import ReactGA from 'react-ga4';
-import { getConfigValue, analytics as firebaseAnalytics } from './firebase';
-import { logEvent, setUserProperties, setUserId, type Analytics as FirebaseAnalyticsType } from 'firebase/analytics';
+/**
+ * Analytics Service - Firebase Analytics (GA4)
+ * 
+ * Usa SOLO Firebase Analytics SDK (che invia a GA4 tramite measurementId).
+ * NON serve react-ga4 separato: Firebase Analytics già invia a Google Analytics 4.
+ * 
+ * Best practices implementate:
+ * - Eventi GA4 raccomandati (screen_view, select_content, share, generate_lead, search)
+ * - User properties per segmentazione (worker_type, theme, locale)
+ * - Engagement tracking (tempo sulla pagina, profondità scroll)
+ * - Nomi eventi in snake_case (max 40 char, convenzione Firebase)
+ * - Parametri personalizzati per report custom
+ */
 
-// Safely access environment variable to prevent runtime crashes
-// We use optional chaining because import.meta.env might be undefined in some environments
-let GA_MEASUREMENT_ID: string | null = null;
+import { analytics as firebaseAnalytics } from './firebase';
+import { logEvent, setUserProperties, setUserId } from 'firebase/analytics';
 
-// Helper to safely use Firebase Analytics
-const logFirebaseEvent = (eventName: string, params?: Record<string, any>) => {
+// ─── Core Helper ───────────────────────────────────────────────
+
+const log = (eventName: string, params?: Record<string, any>) => {
   try {
     if (firebaseAnalytics) {
       logEvent(firebaseAnalytics, eventName as any, params);
     }
   } catch (error) {
-    console.warn('Firebase Analytics event error:', error);
+    if (import.meta.env.DEV) {
+      console.warn(`[Analytics] ${eventName}`, params, error);
+    }
   }
 };
 
-// Inizializza l'ID da Firebase Remote Config
-async function initGAMeasurementId() {
-  if (!GA_MEASUREMENT_ID) {
-    GA_MEASUREMENT_ID = await getConfigValue('GA_MEASUREMENT_ID');
-  }
-  return GA_MEASUREMENT_ID;
-}
+const setProps = (properties: Record<string, string>) => {
+  try {
+    if (firebaseAnalytics) {
+      setUserProperties(firebaseAnalytics, properties);
+    }
+  } catch {}
+};
+
+// ─── Engagement Tracking ────────────────────────────────────────
+
+let sessionStartTime = Date.now();
+let currentScreen = '/';
+
+const getEngagementTime = () => Math.round((Date.now() - sessionStartTime) / 1000);
+
+// ─── Main Analytics Object ──────────────────────────────────────
 
 export const Analytics = {
   isInitialized: false,
-  firebaseEnabled: true,
 
-  init: async () => {
-    const measurementId = await initGAMeasurementId();
-    if (measurementId && !Analytics.isInitialized) {
-      ReactGA.initialize(measurementId);
-      Analytics.isInitialized = true;
-      console.log('✅ GA4 Initialized with Firebase Remote Config');
-      console.log('✅ Firebase Analytics Enabled');
-    }
+  /**
+   * Inizializza Analytics e imposta user properties base
+   */
+  init: () => {
+    if (Analytics.isInitialized || !firebaseAnalytics) return;
+    
+    Analytics.isInitialized = true;
+    sessionStartTime = Date.now();
+    
+    // User properties automatiche
+    setProps({
+      app_version: '2.0',
+      platform: 'web',
+      locale: navigator.language || 'it-IT',
+    });
+
+    // Scroll depth tracking
+    let maxScroll = 0;
+    const onScroll = () => {
+      const scrollPercent = Math.round(
+        (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100
+      );
+      if (scrollPercent > maxScroll) {
+        maxScroll = scrollPercent;
+        // Log ai quarti: 25%, 50%, 75%, 100%
+        if ([25, 50, 75, 100].includes(maxScroll)) {
+          log('scroll', { percent_scrolled: maxScroll, page_path: currentScreen });
+        }
+      }
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+
+    // Session end tracking
+    window.addEventListener('beforeunload', () => {
+      log('session_end', {
+        engagement_time_sec: getEngagementTime(),
+        page_path: currentScreen,
+      });
+    });
+
+    console.log('✅ Firebase Analytics initialized');
   },
 
+  // ─── GA4 Recommended Events ─────────────────────────────────
+
+  /**
+   * screen_view — evento raccomandato GA4 per navigazione pagine web
+   */
   trackPageView: (path: string, title?: string) => {
-    if (!Analytics.isInitialized) return;
-    
-    // Google Analytics
-    ReactGA.send({ 
-      hitType: "pageview", 
-      page: path,
-      title: title || path
+    currentScreen = path;
+    log('screen_view', {
+      firebase_screen: title || path,
+      firebase_screen_class: path,
     });
-    
-    // Firebase Analytics
-    if (Analytics.firebaseEnabled) {
-      logFirebaseEvent('page_view', {
-        page_path: path,
-        page_title: title || path
-      });
-    }
+    // Anche page_view per report web standard
+    log('page_view', {
+      page_path: path,
+      page_title: title || path,
+      page_location: window.location.origin + path,
+    });
   },
 
-  trackEvent: (category: string, action: string, label?: string, value?: number) => {
-    if (!Analytics.isInitialized) {
-      // In dev mode or without ID, log to console for debugging
-      console.log(`[Analytics] ${category} - ${action}`, label, value);
-      return;
-    }
-    
-    // Google Analytics
-    ReactGA.event({
-      category,
-      action,
-      label,
-      value
+  /**
+   * select_content — evento raccomandato GA4
+   */
+  trackSelectContent: (contentType: string, itemId: string) => {
+    log('select_content', {
+      content_type: contentType,
+      item_id: itemId,
     });
-    
-    // Firebase Analytics (converti in snake_case per convenzione Firebase)
-    if (Analytics.firebaseEnabled) {
-      const eventName = `${category.toLowerCase().replace(/\s+/g, '_')}_${action.toLowerCase().replace(/\s+/g, '_')}`;
-      logFirebaseEvent(eventName, {
-        event_category: category,
-        event_label: label,
-        value: value
-      });
-    }
   },
 
-  // Track calculator interactions
+  /**
+   * share — evento raccomandato GA4
+   */
+  trackShare: (method: string, contentType: string, itemId?: string) => {
+    log('share', {
+      method,
+      content_type: contentType,
+      item_id: itemId,
+    });
+  },
+
+  /**
+   * search — evento raccomandato GA4
+   */
+  trackSearch: (searchTerm: string) => {
+    log('search', { search_term: searchTerm });
+  },
+
+  /**
+   * generate_lead — evento raccomandato GA4 (utente completa una simulazione)
+   */
+  trackGenerateLead: (value?: number, currency: string = 'CHF') => {
+    log('generate_lead', { value, currency });
+  },
+
+  /**
+   * exception — evento raccomandato GA4
+   */
+  trackError: (description: string, fatal: boolean = false) => {
+    log('exception', { description, fatal });
+  },
+
+  // ─── User Properties ────────────────────────────────────────
+
+  /**
+   * Imposta il tipo di lavoratore per segmentazione report
+   */
+  setWorkerType: (type: 'old' | 'new') => {
+    setProps({ worker_type: type });
+  },
+
+  /**
+   * Imposta preferenze utente come user properties
+   */
+  setUserPreferences: (prefs: { theme?: string; focusMode?: boolean; currency?: string }) => {
+    const props: Record<string, string> = {};
+    if (prefs.theme) props.preferred_theme = prefs.theme;
+    if (prefs.focusMode !== undefined) props.focus_mode = String(prefs.focusMode);
+    if (prefs.currency) props.preferred_currency = prefs.currency;
+    setProps(props);
+  },
+
+  // ─── App-Specific Events (snake_case, max 40 char) ──────────
+
+  /**
+   * Simulazione fiscale completata — evento principale dell'app
+   */
   trackCalculation: (workerType: 'old' | 'new', salary: number, hasChildren: boolean) => {
-    Analytics.trackEvent('Calculator', 'Calculate', workerType, salary);
-    if (hasChildren) {
-      Analytics.trackEvent('Calculator', 'Calculate with Children', workerType);
+    Analytics.setWorkerType(workerType);
+    log('simulation_complete', {
+      worker_type: workerType,
+      gross_salary: salary,
+      has_children: hasChildren,
+      engagement_time_sec: getEngagementTime(),
+    });
+    // Anche come generate_lead (l'utente ha completato il "funnel")
+    Analytics.trackGenerateLead(salary, 'CHF');
+  },
+
+  /**
+   * Cambio di un campo input
+   */
+  trackInputChange: (field: string, value: string | number | boolean) => {
+    log('input_change', {
+      field_name: field,
+      field_value: String(value).substring(0, 100),
+    });
+  },
+
+  /**
+   * Interazione UI generica
+   */
+  trackUIInteraction: (element: string, action: string, details?: string) => {
+    log('ui_interaction', {
+      element_name: element,
+      action,
+      details: details?.substring(0, 100),
+    });
+  },
+
+  /**
+   * Toggle focus mode
+   */
+  trackFocusMode: (enabled: boolean) => {
+    Analytics.setUserPreferences({ focusMode: enabled });
+    log('toggle_focus_mode', { enabled });
+  },
+
+  /**
+   * Filtro valichi
+   */
+  trackBorderFilter: (filterType: string, resultCount: number) => {
+    log('border_filter', { filter_type: filterType, result_count: resultCount });
+  },
+
+  /**
+   * Vista dettaglio comune
+   */
+  trackMunicipalityView: (name: string, taxLevel: string) => {
+    Analytics.trackSelectContent('municipality', name);
+    log('municipality_view', { municipality_name: name, tax_level: taxLevel });
+  },
+
+  /**
+   * Gestione spese
+   */
+  trackExpense: (action: 'add' | 'edit' | 'delete', category: string, amount?: number) => {
+    log('expense_action', { action, expense_category: category, amount });
+  },
+
+  /**
+   * Pianificatore pensione
+   */
+  trackPensionPlanner: (action: string, years?: number, amount?: number) => {
+    log('pension_planner', { action, retirement_years: years, amount });
+  },
+
+  /**
+   * Link esterno cliccato
+   */
+  trackExternalLink: (url: string, label?: string) => {
+    log('click', { link_url: url, link_text: label || url, outbound: true });
+  },
+
+  /**
+   * Interazione grafico
+   */
+  trackChartInteraction: (chartType: string, action: string) => {
+    Analytics.trackSelectContent('chart', chartType);
+    log('chart_interaction', { chart_type: chartType, action });
+  },
+
+  /**
+   * Cambio impostazioni
+   */
+  trackSettingsChange: (setting: string, value: string | boolean) => {
+    log('settings_change', { setting_name: setting, setting_value: String(value) });
+    if (setting === 'theme') {
+      Analytics.setUserPreferences({ theme: String(value) });
     }
   },
 
-  // Track input changes
-  trackInputChange: (field: string, value: string | number | boolean) => {
-    Analytics.trackEvent('Input', 'Change Field', field, typeof value === 'number' ? value : undefined);
-  },
-
-  // Track UI interactions
-  trackUIInteraction: (element: string, action: string, details?: string) => {
-    Analytics.trackEvent('UI Interaction', action, `${element}${details ? ` - ${details}` : ''}`);
-  },
-
-  // Track focus mode toggle
-  trackFocusMode: (enabled: boolean) => {
-    Analytics.trackEvent('UX', 'Focus Mode', enabled ? 'Enabled' : 'Disabled');
-  },
-
-  // Track border crossing filter usage
-  trackBorderFilter: (filterType: string, resultCount: number) => {
-    Analytics.trackEvent('Border Crossings', 'Apply Filter', filterType, resultCount);
-  },
-
-  // Track municipality selection
-  trackMunicipalityView: (municipalityName: string, taxLevel: string) => {
-    Analytics.trackEvent('Municipalities', 'View Details', `${municipalityName} - ${taxLevel}`);
-  },
-
-  // Track expense management
-  trackExpense: (action: 'add' | 'edit' | 'delete', category: string, amount?: number) => {
-    Analytics.trackEvent('Expenses', action, category, amount);
-  },
-
-  // Track pension planner interactions
-  trackPensionPlanner: (action: string, years?: number, amount?: number) => {
-    Analytics.trackEvent('Pension Planner', action, years ? `${years} years` : undefined, amount);
-  },
-
-  // Track social sharing
-  trackShare: (platform: string, content: string) => {
-    Analytics.trackEvent('Social', 'Share', `${platform} - ${content}`);
-  },
-
-  // Track external links
-  trackExternalLink: (url: string, label?: string) => {
-    Analytics.trackEvent('External Link', 'Click', label || url);
-  },
-
-  // Track comparison chart interactions
-  trackChartInteraction: (chartType: string, action: string) => {
-    Analytics.trackEvent('Chart', action, chartType);
-  },
-
-  // Track settings changes
-  trackSettingsChange: (setting: string, value: string | boolean) => {
-    Analytics.trackEvent('Settings', 'Change', `${setting}: ${value}`);
-  },
-
-  // Track tab navigation with more details
+  /**
+   * Navigazione tra tab — usa screen_view raccomandato
+   */
   trackTabNavigation: (from: string, to: string) => {
-    Analytics.trackEvent('Navigation', 'Tab Change', `${from} → ${to}`);
+    log('tab_navigation', { from_tab: from, to_tab: to });
     Analytics.trackPageView(`/${to}`, `Frontaliere - ${to}`);
   },
 
-  // Track time-based border crossing recommendations
+  /**
+   * Selezione orario traffico
+   */
   trackBorderTimeSelection: (timeSlot: string, recommendedCount: number) => {
-    Analytics.trackEvent('Border Crossings', 'Time Selection', timeSlot, recommendedCount);
+    log('border_time_select', { time_slot: timeSlot, recommended_count: recommendedCount });
   },
 
-  // Track map interactions
+  /**
+   * Interazione mappa
+   */
   trackMapInteraction: (mapType: string, action: string, location?: string) => {
-    Analytics.trackEvent('Map', action, `${mapType}${location ? ` - ${location}` : ''}`);
+    log('map_interaction', { map_type: mapType, action, location });
   },
 
-  trackError: (description: string, fatal: boolean = false) => {
-    if (!Analytics.isInitialized) {
-      console.error(`[Analytics Error] ${description}`);
-      return;
-    }
-    
-    // Google Analytics
-    ReactGA.event({
-      category: 'Exception',
-      action: 'App Crash',
-      label: description,
-      nonInteraction: true
-    });
-    
-    // Firebase Analytics
-    if (Analytics.firebaseEnabled) {
-      logFirebaseEvent('exception', {
-        description: description,
-        fatal: fatal
-      });
-    }
-  },
-
-  // Track comparator tool usage
+  /**
+   * Vista strumento comparatore — usa screen_view raccomandato
+   */
   trackComparatorView: (tool: 'exchange' | 'mobile' | 'transport' | 'health' | 'banks' | 'traffic') => {
     const toolNames: Record<string, string> = {
       exchange: 'Cambio Valuta',
@@ -194,95 +305,83 @@ export const Analytics = {
       transport: 'Costi Trasporto',
       health: 'Assicurazione Sanitaria',
       banks: 'Conti Correnti',
-      traffic: 'Traffico Valichi'
+      traffic: 'Traffico Valichi',
     };
-    Analytics.trackEvent('Comparatori', 'View Tool', toolNames[tool]);
+    Analytics.trackSelectContent('comparator_tool', tool);
     Analytics.trackPageView(`/comparatori/${tool}`, `Comparatori - ${toolNames[tool]}`);
   },
 
-  // Track currency exchange interactions
+  /**
+   * Cambio valuta
+   */
   trackCurrencyExchange: (action: 'convert' | 'swap' | 'provider_view', provider?: string, amount?: number) => {
-    Analytics.trackEvent('Currency Exchange', action, provider, amount);
+    log('currency_exchange', { action, provider, amount });
   },
 
-  // Track mobile operator comparisons
+  /**
+   * Operatori mobili
+   */
   trackMobileOperator: (action: 'view' | 'filter' | 'sort' | 'link_click', operator?: string, filter?: string) => {
-    Analytics.trackEvent('Mobile Operators', action, operator || filter);
+    log('mobile_operator', { action, operator_name: operator, filter_type: filter });
   },
 
-  // Track transport calculator usage
+  /**
+   * Calcolatore trasporti
+   */
   trackTransportCalculator: (action: 'calculate' | 'change_type' | 'change_param', transportType?: string, value?: number) => {
-    Analytics.trackEvent('Transport Calculator', action, transportType, value);
+    log('transport_calc', { action, transport_type: transportType, value });
   },
 
-  // Track health insurance interactions
+  /**
+   * Assicurazione sanitaria
+   */
   trackHealthInsurance: (action: 'view_provider' | 'filter' | 'compare', provider?: string) => {
-    Analytics.trackEvent('Health Insurance', action, provider);
+    log('health_insurance', { action, provider_name: provider });
   },
 
-  // Track bank comparison
+  /**
+   * Confronto banche
+   */
   trackBankComparison: (action: 'view_bank' | 'filter' | 'link_click', bank?: string, country?: string) => {
-    Analytics.trackEvent('Bank Comparison', action, bank || country);
+    log('bank_comparison', { action, bank_name: bank, country });
   },
 
-  // Track traffic alerts usage
+  /**
+   * Traffico ai valichi
+   */
   trackTrafficAlerts: (action: 'view' | 'refresh' | 'filter', crossing?: string, waitTime?: number) => {
-    Analytics.trackEvent('Traffic Alerts', action, crossing, waitTime);
+    log('traffic_alerts', { action, crossing_name: crossing, wait_time_min: waitTime });
   },
 
-  // Track API diagnostics page
+  /**
+   * Diagnostica API
+   */
   trackApiDiagnostics: (action: 'view' | 'refresh' | 'test_api', apiName?: string) => {
-    Analytics.trackEvent('API Diagnostics', action, apiName);
+    log('api_diagnostics', { action, api_name: apiName });
   },
 
-  // Track guide sections
+  /**
+   * Guida frontaliere
+   */
   trackGuideSection: (section: string, action: 'view' | 'expand' | 'link_click') => {
-    Analytics.trackEvent('Frontier Guide', action, section);
+    Analytics.trackSelectContent('guide_section', section);
+    log('guide_interaction', { section, action });
   },
 
-  // Track feedback interactions
+  /**
+   * Feedback
+   */
   trackFeedback: (action: 'open' | 'submit' | 'cancel', type?: 'bug' | 'feature' | 'question') => {
-    Analytics.trackEvent('Feedback', action, type);
-  }
-};
-
-// Export Firebase Analytics helpers
-export const FirebaseAnalytics = {
-  setUser: (userId: string) => {
-    if (firebaseAnalytics) {
-      setUserId(firebaseAnalytics, userId);
+    log('feedback', { action, feedback_type: type });
+    if (action === 'submit') {
+      Analytics.trackGenerateLead(0, 'EUR');
     }
   },
 
-  setUserProperty: (name: string, value: string) => {
-    if (firebaseAnalytics) {
-      setUserProperties(firebaseAnalytics, { [name]: value });
-    }
+  /**
+   * Download PDF report
+   */
+  trackDownload: (fileType: string, fileName?: string) => {
+    log('file_download', { file_extension: fileType, file_name: fileName });
   },
-
-  logCustomEvent: (eventName: string, params?: Record<string, any>) => {
-    logFirebaseEvent(eventName, params);
-  },
-
-  // Track recommended Firebase events
-  trackPurchase: (value: number, currency: string = 'CHF', items?: any[]) => {
-    logFirebaseEvent('purchase', {
-      value,
-      currency,
-      items
-    });
-  },
-
-  trackSelectContent: (contentType: string, itemId: string) => {
-    logFirebaseEvent('select_content', {
-      content_type: contentType,
-      item_id: itemId
-    });
-  },
-
-  trackSearch: (searchTerm: string) => {
-    logFirebaseEvent('search', {
-      search_term: searchTerm
-    });
-  }
 };

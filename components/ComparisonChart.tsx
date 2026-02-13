@@ -76,7 +76,7 @@ export const ComparisonChart: React.FC<Props> = ({ result, inputs, isDarkMode, i
 
   const handleTabChange = (tabId: 'overview' | 'breakdown' | 'projection' | 'breakeven') => {
       setActiveTab(tabId);
-      Analytics.trackEvent('Interaction', 'Change Chart', tabId);
+      Analytics.trackChartInteraction(tabId, 'change_tab');
   };
 
   const { chResident, itResident, savingsCHF } = result;

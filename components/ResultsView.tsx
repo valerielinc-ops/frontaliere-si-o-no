@@ -133,7 +133,7 @@ export const ResultsView: React.FC<Props> = ({ result, inputs, isDarkMode, isFoc
 
   const exportPDF = () => {
     // Analytics tracking
-    Analytics.trackEvent('Conversion', 'Download PDF', 'Report Comparison');
+    Analytics.trackDownload('pdf', 'Report Comparison');
     
     try {
       const doc = new jsPDF();
