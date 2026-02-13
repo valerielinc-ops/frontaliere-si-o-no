@@ -45,7 +45,7 @@ const calcExpensesTotal = (expenses: ExpenseItem[]): number => {
 };
 
 export const calculateSimulation = (inputs: SimulationInputs): SimulationResult => {
-  const { annualIncomeCHF, children, healthInsuranceCHF, frontierWorkerType, customExchangeRate, monthsBasis, distanceZone, age, maritalStatus, spouseWorks, avsRate, acRate, laaRate, ijmRate, lppRate25_34, lppRate35_44, lppRate45_54, lppRate55_plus, itAddizionaleRate, itWorkDeduction, expensesCH, expensesIT, enableOldFrontierHealthTax } = inputs;
+  const { annualIncomeCHF, children, healthInsuranceCHF, frontierWorkerType, customExchangeRate, monthsBasis, distanceZone, age, maritalStatus, spouseWorks, avsRate, acRate, laaRate, ijmRate, lppRate25_34, lppRate35_44, lppRate45_54, lppRate55_plus, itAddizionaleRate, itWorkDeduction, expensesCH, expensesIT, enableOldFrontierHealthTax, ssnHealthTaxPercentage } = inputs;
   const EXCHANGE_RATE = customExchangeRate;
 
   const avsAmount = annualIncomeCHF * avsRate;
@@ -98,6 +98,8 @@ export const calculateSimulation = (inputs: SimulationInputs): SimulationResult 
   let finalItTaxEUR = 0;
   let notesIT: string[] = [];
   let itBreakdown: TaxBreakdownItem[] = [];
+
+  const taxPercentage = ssnHealthTaxPercentage ?? 3;
   let franchigiaUsed = 0;
   let irpefDetails = undefined;
 
@@ -110,10 +112,10 @@ export const calculateSimulation = (inputs: SimulationInputs): SimulationResult 
     const netBeforeSsnEUR = (grossTotalCH - totalSocialDeductions - taxWithheldInCH_CHF - expensesTotalIT) * EXCHANGE_RATE;
     
     if (enableOldFrontierHealthTax) {
-      // SSN Tax: 3% of net income, min 30€/month (360€/year), max 200€/month (2400€/year)
-      ssnHealthTaxEUR = Math.max(360, Math.min(2400, netBeforeSsnEUR * 0.03));
+      // SSN Tax: configurable % of net income, min 30€/month (360€/year), max 200€/month (2400€/year)
+      ssnHealthTaxEUR = Math.max(360, Math.min(2400, netBeforeSsnEUR * (taxPercentage / 100)));
       ssnHealthTaxCHF = ssnHealthTaxEUR / EXCHANGE_RATE;
-      notesIT.push(`Tassa Salute SSN: ${Math.round(ssnHealthTaxEUR/12)}€/mese`);
+      notesIT.push(`Tassa Salute SSN: ${Math.round(ssnHealthTaxEUR/12)}€/mese (${taxPercentage}% netto)`);
     }
     
     itBreakdown = [
@@ -240,5 +242,4 @@ export const calculateSimulation = (inputs: SimulationInputs): SimulationResult 
     exchangeRate: EXCHANGE_RATE,
     monthsBasis: monthsBasis
   };
-  }
 };

@@ -34,6 +34,7 @@ export interface SimulationInputs {
   itWorkDeduction: number;
   // Experimental Features
   enableOldFrontierHealthTax: boolean;
+  ssnHealthTaxPercentage: number;
 }
 
 export interface TaxBreakdownItem {

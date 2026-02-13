@@ -494,20 +494,20 @@ export const InputCard: React.FC<Props> = ({ inputs, setInputs }) => {
            )}
         </div>
 
-        {/* SECTION 5.5: EXPERIMENTAL FEATURES */}
-        <div className="bg-gradient-to-br from-amber-50 to-orange-50 dark:from-amber-950/30 dark:to-orange-950/30 rounded-2xl border-2 border-dashed border-amber-200 dark:border-amber-800 overflow-hidden shadow-sm">
-           <div className="p-5 space-y-4">
-              <div className="flex items-center justify-between">
-                 <div className="flex items-center gap-2">
-                    <div className="p-1.5 bg-amber-500 text-white rounded-lg">
-                       <Joystick size={14} />
-                    </div>
-                    <div>
-                       <h3 className="text-[11px] font-bold text-amber-900 dark:text-amber-200 uppercase tracking-wide">Funzionalità Sperimentali</h3>
-                       <p className="text-[9px] text-amber-600 dark:text-amber-400">Feature in Beta Testing</p>
-                    </div>
-                 </div>
-              </div>
+        {/* SECTION 5: EXPERIMENTAL FEATURES - Only visible for OLD frontier workers */}
+        {inputs.frontierWorkerType === 'OLD' && (
+        <div className="bg-gradient-to-br from-amber-50 via-orange-50 to-amber-100 dark:from-amber-950/30 dark:via-orange-950/30 dark:to-amber-900/40 rounded-2xl border border-amber-200 dark:border-amber-800 overflow-hidden shadow-md">
+           <SectionHeader 
+             title="Funzionalità Sperimentali" 
+             icon={Joystick} 
+             isOpen={openSections.experimental} 
+             onToggle={() => toggleSection('experimental')} 
+             subtext="Feature in Beta Testing" 
+             iconColor="text-amber-600"
+           />
+           
+           {openSections.experimental && (
+           <div className="p-4 space-y-3">
               
               {/* SSN Health Tax Toggle */}
               <div className="bg-white dark:bg-slate-900/50 p-4 rounded-xl border border-amber-100 dark:border-amber-900">
@@ -515,11 +515,11 @@ export const InputCard: React.FC<Props> = ({ inputs, setInputs }) => {
                     <div className="flex-1 min-w-0">
                        <div className="flex items-center gap-2 mb-1">
                           <PiggyBank size={14} className="text-amber-600 flex-shrink-0" />
-                          <h4 className="text-[11px] font-bold text-slate-800 dark:text-slate-100">Tassa Salute SSN (Vecchi Frontalieri)</h4>
-                          <InfoTooltip text="Contributo SSN 3% del reddito netto per vecchi frontalieri (pre 17/7/2023). Min 30€/mese, max 200€/mese. Retroattivo 2024-2025, basato su autocertificazione." />
+                          <h4 className="text-[11px] font-bold text-slate-800 dark:text-slate-100">Tassa Salute SSN Italia</h4>
+                          <InfoTooltip text="Contributo SSN per vecchi frontalieri (pre 17/7/2023). Min 30€/mese, max 200€/mese. Retroattivo 2024-2025, basato su autocertificazione." />
                        </div>
                        <p className="text-[9px] text-slate-500 dark:text-slate-400 leading-relaxed">
-                          Attiva il calcolo della tassa sanitaria italiana (3% netto, 30-200€/mese) per vecchi frontalieri. Si applica solo al regime "Vecchio Frontaliere".
+                          Attiva il calcolo della tassa sanitaria italiana per vecchi frontalieri. Percentuale personalizzabile, massimali fissi 30-200€/mese.
                        </p>
                     </div>
                     
@@ -535,16 +535,40 @@ export const InputCard: React.FC<Props> = ({ inputs, setInputs }) => {
                     </button>
                  </div>
                  
-                 {/* Active Indicator */}
+                 {/* Percentage Input - Only shown when enabled */}
                  {inputs.enableOldFrontierHealthTax && (
-                    <div className="mt-3 flex items-center gap-2 bg-amber-50 dark:bg-amber-900/20 p-2 rounded-lg animate-fade-in">
-                       <Check size={12} className="text-amber-600" />
-                       <span className="text-[9px] font-bold text-amber-700 dark:text-amber-300">Tassa SSN attiva - Applicata ai calcoli vecchio frontaliere</span>
+                    <div className="mt-3 space-y-2">
+                       <div className="flex items-center gap-2 bg-amber-50 dark:bg-amber-900/20 p-2 rounded-lg">
+                          <Check size={12} className="text-amber-600" />
+                          <span className="text-[9px] font-bold text-amber-700 dark:text-amber-300">Tassa SSN attiva</span>
+                       </div>
+                       
+                       <div className="flex items-center gap-2 bg-white dark:bg-slate-800 p-3 rounded-lg border border-amber-200 dark:border-amber-700">
+                          <label className="text-[10px] font-semibold text-slate-700 dark:text-slate-300 flex-1">Percentuale Reddito Netto</label>
+                          <div className="flex items-center gap-1">
+                             <input 
+                               type="number" 
+                               value={inputs.ssnHealthTaxPercentage} 
+                               onChange={(e) => handleChange('ssnHealthTaxPercentage', Math.max(0, Math.min(100, parseFloat(e.target.value) || 0)))} 
+                               step="0.1"
+                               min="0"
+                               max="100"
+                               className="w-14 text-right bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-200 border border-slate-200 dark:border-slate-700 rounded px-2 py-1 text-[10px] font-bold focus:outline-none focus:ring-1 focus:ring-amber-500" 
+                             />
+                             <span className="text-[10px] font-bold text-slate-500">%</span>
+                          </div>
+                       </div>
+                       
+                       <p className="text-[8px] text-amber-600 dark:text-amber-400 italic px-2">
+                          ℹ️ Massimali sempre applicati: min 30€/mese, max 200€/mese (360-2400€/anno)
+                       </p>
                     </div>
                  )}
               </div>
            </div>
+           )}
         </div>
+        )}
 
         {/* SECTION 6: TECHNICAL PARAMETERS (Now Top-Level) */}
         <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-100 dark:border-slate-700 overflow-hidden shadow-sm">

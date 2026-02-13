@@ -57,7 +57,8 @@ export const DEFAULT_INPUTS = {
   // Spread technical defaults
   ...DEFAULT_TECH_PARAMS,
   // Experimental Features
-  enableOldFrontierHealthTax: false
+  enableOldFrontierHealthTax: false,
+  ssnHealthTaxPercentage: 3
 };
 
 export const COLORS = {
