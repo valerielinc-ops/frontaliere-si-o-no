@@ -80,6 +80,8 @@ const FrontierGuide: React.FC = () => {
   const [activeSection, setActiveSection] = useState<'municipalities' | 'living-ch' | 'living-it' | 'border' | 'costs'>('municipalities');
   const [sortBy, setSortBy] = useState<'distance' | 'population'>('population');
   const [filterType, setFilterType] = useState<'all' | 'new' | 'old'>('all');
+  const [borderFilter, setBorderFilter] = useState<'all' | 'low-traffic' | '24h' | 'morning' | 'evening'>('all');
+  const [selectedTime, setSelectedTime] = useState<'morning' | 'evening' | 'night'>('morning');
 
   // Comuni frontalieri Lombardia con dati completi (ordinati per default per popolazione)
   const lombardyMunicipalities: Municipality[] = [
@@ -137,33 +139,32 @@ const FrontierGuide: React.FC = () => {
   // Dogane Canton Ticino - Italia (fonte: Wikipedia + tabella valichi ufficiali Lombardia-Ticino 2026)
   const borderCrossings = [
     // COMO - TICINO (Valichi Principali)
-    { name: "Chiasso Centro (Ponte Chiasso)", italianSide: "Como", avgWaitMorning: "15-30 min", avgWaitEvening: "20-40 min", peak: "7:00-8:30, 17:00-18:30", hours: "24h", tips: "Principale, molto trafficato ore punta. Tipo: Residenziale" },
-    { name: "Chiasso-Brogeda", italianSide: "Como", avgWaitMorning: "8-15 min", avgWaitEvening: "12-25 min", peak: "7:00-8:30, 17:00-18:30", hours: "24h", tips: "Turistico. Usa quando Chiasso Centro è bloccato" },
-    { name: "Chiasso-Strada", italianSide: "Como", avgWaitMorning: "10-18 min", avgWaitEvening: "15-25 min", peak: "7:00-8:30, 17:00-18:30", hours: "24h", tips: "Commerciale. Per traffico pesante" },
-    { name: "Maslianico-Pizzamiglio", italianSide: "Maslianico", avgWaitMorning: "3-8 min", avgWaitEvening: "5-12 min", peak: "7:30-8:30, 17:30-18:30", hours: "06:00-22:00", tips: "Residenziale. Poco traffico, chiusura notturna" },
-    { name: "Maslianico-Roggiana", italianSide: "Maslianico", avgWaitMorning: "---", avgWaitEvening: "---", peak: "---", hours: "Chiuso", tips: "Valico pedonale CHIUSO" },
-    { name: "Bizzarone-Novazzano (Brusata)", italianSide: "Bizzarone", avgWaitMorning: "5-12 min", avgWaitEvening: "8-15 min", peak: "7:30-8:30, 17:30-18:30", hours: "24h", tips: "Turistico/Residenziale. Buona alternativa" },
-    { name: "Ronago-Novazzano (Marcetto)", italianSide: "Ronago", avgWaitMorning: "5-12 min", avgWaitEvening: "10-18 min", peak: "7:00-8:30, 17:00-18:30", hours: "24h", tips: "Turistico/Residenziale. Poco traffico" },
-    { name: "Crociale dei Mulini-Ponte Faloppia", italianSide: "Faloppio", avgWaitMorning: "3-8 min", avgWaitEvening: "5-10 min", peak: "7:30-8:30", hours: "24h", tips: "Turistico/Residenziale. Valico tranquillo" },
-    { name: "Drezzo-Pedrinate", italianSide: "Drezzo", avgWaitMorning: "2-5 min", avgWaitEvening: "3-8 min", peak: "Poco traffico", hours: "24h (pedonale notturno)", tips: "Turistico/Residenziale. Traffico veicolare diurno" },
-    { name: "Lanzo d'Intelvi-Arogno", italianSide: "Lanzo d'Intelvi", avgWaitMorning: "2-5 min", avgWaitEvening: "3-8 min", peak: "Poco traffico", hours: "24h", tips: "Valico montano. Ideale per zone interne" },
-    { name: "Campione d'Italia-Bissone", italianSide: "Campione (enclave)", avgWaitMorning: "2-5 min", avgWaitEvening: "3-8 min", peak: "Sempre tranquillo", hours: "24h", tips: "Enclave italiana. Controlli rapidi, zona lago" },
-    { name: "Oria-Gandria", italianSide: "Valsolda", avgWaitMorning: "2-5 min", avgWaitEvening: "3-6 min", peak: "Poco traffico", hours: "24h", tips: "Valico panoramico sul Lago di Lugano" },
+    { name: "Chiasso Centro (Ponte Chiasso)", italianSide: "Como", avgWaitMorning: "15-30 min", avgWaitEvening: "20-40 min", peak: "7:00-8:30, 17:00-18:30", hours: "24h", tips: "Principale, molto trafficato ore punta. Tipo: Residenziale", lat: 45.8326, lng: 9.0340, traffic: "high" },
+    { name: "Chiasso-Brogeda", italianSide: "Como", avgWaitMorning: "8-15 min", avgWaitEvening: "12-25 min", peak: "7:00-8:30, 17:00-18:30", hours: "24h", tips: "Turistico. Usa quando Chiasso Centro è bloccato", lat: 45.8409, lng: 9.0376, traffic: "medium" },
+    { name: "Chiasso-Strada", italianSide: "Como", avgWaitMorning: "10-18 min", avgWaitEvening: "15-25 min", peak: "7:00-8:30, 17:00-18:30", hours: "24h", tips: "Commerciale. Per traffico pesante", lat: 45.8332, lng: 9.0374, traffic: "medium" },
+    { name: "Maslianico-Pizzamiglio", italianSide: "Maslianico", avgWaitMorning: "3-8 min", avgWaitEvening: "5-12 min", peak: "7:30-8:30, 17:30-18:30", hours: "06:00-22:00", tips: "Residenziale. Poco traffico, chiusura notturna", lat: 45.8438, lng: 9.0386, traffic: "low" },
+    { name: "Maslianico-Roggiana", italianSide: "Maslianico", avgWaitMorning: "---", avgWaitEvening: "---", peak: "---", hours: "Chiuso", tips: "Valico pedonale CHIUSO", lat: 45.8476, lng: 9.0446, traffic: "closed" },
+    { name: "Bizzarone-Novazzano (Brusata)", italianSide: "Bizzarone", avgWaitMorning: "5-12 min", avgWaitEvening: "8-15 min", peak: "7:30-8:30, 17:30-18:30", hours: "24h", tips: "Turistico/Residenziale. Buona alternativa", lat: 45.8401, lng: 8.9593, traffic: "low" },
+    { name: "Ronago-Novazzano (Marcetto)", italianSide: "Ronago", avgWaitMorning: "5-12 min", avgWaitEvening: "10-18 min", peak: "7:00-8:30, 17:00-18:30", hours: "24h", tips: "Turistico/Residenziale. Poco traffico", lat: 45.8362, lng: 8.9830, traffic: "low" },
+    { name: "Crociale dei Mulini-Ponte Faloppia", italianSide: "Faloppio", avgWaitMorning: "3-8 min", avgWaitEvening: "5-10 min", peak: "7:30-8:30", hours: "24h", tips: "Turistico/Residenziale. Valico tranquillo", lat: 45.8340, lng: 8.9939, traffic: "low" },
+    { name: "Drezzo-Pedrinate", italianSide: "Drezzo", avgWaitMorning: "2-5 min", avgWaitEvening: "3-8 min", peak: "Poco traffico", hours: "24h (pedonale notturno)", tips: "Turistico/Residenziale. Traffico veicolare diurno", lat: 45.8206, lng: 9.0031, traffic: "low" },
+    { name: "Lanzo d'Intelvi-Arogno", italianSide: "Lanzo d'Intelvi", avgWaitMorning: "2-5 min", avgWaitEvening: "3-8 min", peak: "Poco traffico", hours: "24h", tips: "Valico montano. Ideale per zone interne", lat: 45.9624, lng: 9.0091, traffic: "low" },
+    { name: "Campione d'Italia-Bissone", italianSide: "Campione (enclave)", avgWaitMorning: "2-5 min", avgWaitEvening: "3-8 min", peak: "Sempre tranquillo", hours: "24h", tips: "Enclave italiana. Controlli rapidi, zona lago", lat: 45.9618, lng: 8.9686, traffic: "low" },
+    { name: "Oria-Gandria", italianSide: "Valsolda", avgWaitMorning: "2-5 min", avgWaitEvening: "3-6 min", peak: "Poco traffico", hours: "24h", tips: "Valico panoramico sul Lago di Lugano", lat: 46.0168, lng: 9.0223, traffic: "low" },
     
     // VARESE - TICINO (Valichi Principali)
-    { name: "Gaggiolo (Cantello-Stabio)", italianSide: "Cantello", avgWaitMorning: "10-20 min", avgWaitEvening: "15-30 min", peak: "7:00-8:30, 17:00-18:30", hours: "24h", tips: "Turistico-Commerciale. Seconda dogana più trafficata" },
-    { name: "San Pietro (Clivio-Stabio)", italianSide: "Clivio", avgWaitMorning: "5-12 min", avgWaitEvening: "8-18 min", peak: "7:00-8:30, 17:00-18:30", hours: "24h", tips: "Residenziale-Traffico veicolare. Buona alternativa a Gaggiolo" },
-    { name: "Clivio-Ligornetto", italianSide: "Clivio", avgWaitMorning: "4-10 min", avgWaitEvening: "6-15 min", peak: "7:30-8:30, 17:30-18:30", hours: "24h", tips: "Residenziale-Traffico veicolare. Parallelo a San Pietro" },
-    { name: "Rodero-Stabio (Dogana da Rödur)", italianSide: "Rodero", avgWaitMorning: "---", avgWaitEvening: "---", peak: "---", hours: "Solo pedonale", tips: "Valico pedonale. No traffico veicolare" },
-    { name: "Saltrio-Arzo", italianSide: "Saltrio", avgWaitMorning: "3-8 min", avgWaitEvening: "5-12 min", peak: "7:30-8:30", hours: "24h", tips: "Turistico. Valico montano poco trafficato" },
-    { name: "Ponte Tresa", italianSide: "Lavena Ponte Tresa", avgWaitMorning: "5-15 min", avgWaitEvening: "10-20 min", peak: "7:30-8:30, 17:30-18:30", hours: "24h", tips: "Turistico-Commerciale. Zona lago, generalmente veloce" },
-    { name: "Porto Ceresio-Brusino Arsizio", italianSide: "Porto Ceresio", avgWaitMorning: "3-8 min", avgWaitEvening: "5-12 min", peak: "7:30-8:30, 17:30-18:30", hours: "06:00-22:00", tips: "Turistico. Poco trafficato, chiusura notturna" },
-    { name: "Cremenaga-Ponte Cremenaga", italianSide: "Cremenaga", avgWaitMorning: "2-5 min", avgWaitEvening: "3-8 min", peak: "Poco traffico", hours: "06:00-20:00", tips: "Turistico. Valico minore, chiusura notturna" },
-    { name: "Luino-Fornasette", italianSide: "Luino", avgWaitMorning: "4-10 min", avgWaitEvening: "6-15 min", peak: "7:30-8:30", hours: "24h", tips: "Turistico. Zona lago settentrionale" },
-    { name: "Zenna-Dirinella", italianSide: "Zenna", avgWaitMorning: "2-5 min", avgWaitEvening: "3-8 min", peak: "Poco traffico", hours: "24h", tips: "Turistico. Valico tranquillo zona montuosa" },
-    { name: "Biegno-Indemini", italianSide: "Curiglia con Monteviasco", avgWaitMorning: "2-5 min", avgWaitEvening: "3-6 min", peak: "Poco traffico", hours: "24h", tips: "Residenziale. Valico montano (950m), panoramico" },
-    { name: "Dumenza (Palone)-Cassinone", italianSide: "Dumenza", avgWaitMorning: "2-5 min", avgWaitEvening: "3-6 min", peak: "Poco traffico", hours: "24h", tips: "Residenziale. Valico montano poco frequentato" },
-    { name: "Marchirolo-Cuasso al Piano", italianSide: "Marchirolo", avgWaitMorning: "3-7 min", avgWaitEvening: "5-10 min", peak: "Poco traffico", hours: "06:00-22:00", tips: "Alternativa tranquilla" },
+    { name: "Gaggiolo (Cantello-Stabio)", italianSide: "Cantello", avgWaitMorning: "10-20 min", avgWaitEvening: "15-30 min", peak: "7:00-8:30, 17:00-18:30", hours: "24h", tips: "Turistico-Commerciale. Seconda dogana più trafficata", lat: 45.8411, lng: 8.9134, traffic: "high" },
+    { name: "San Pietro (Clivio-Stabio)", italianSide: "Clivio", avgWaitMorning: "5-12 min", avgWaitEvening: "8-18 min", peak: "7:00-8:30, 17:00-18:30", hours: "24h", tips: "Residenziale-Traffico veicolare. Buona alternativa a Gaggiolo", lat: 45.8595, lng: 8.9321, traffic: "medium" },
+    { name: "Clivio-Ligornetto", italianSide: "Clivio", avgWaitMorning: "4-10 min", avgWaitEvening: "6-15 min", peak: "7:30-8:30, 17:30-18:30", hours: "24h", tips: "Residenziale-Traffico veicolare. Parallelo a San Pietro", lat: 45.8638, lng: 8.9395, traffic: "low" },
+    { name: "Rodero-Stabio (Dogana da Rödur)", italianSide: "Rodero", avgWaitMorning: "---", avgWaitEvening: "---", peak: "---", hours: "Solo pedonale", tips: "Valico pedonale. No traffico veicolare", lat: 45.8334, lng: 8.9262, traffic: "closed" },
+    { name: "Saltrio-Arzo", italianSide: "Saltrio", avgWaitMorning: "3-8 min", avgWaitEvening: "5-12 min", peak: "7:30-8:30", hours: "24h", tips: "Turistico. Valico montano poco trafficato", lat: 45.8740, lng: 8.9336, traffic: "low" },
+    { name: "Ponte Tresa", italianSide: "Lavena Ponte Tresa", avgWaitMorning: "5-15 min", avgWaitEvening: "10-20 min", peak: "7:30-8:30, 17:30-18:30", hours: "24h", tips: "Turistico-Commerciale. Zona lago, generalmente veloce", lat: 45.9670, lng: 8.8589, traffic: "medium" },
+    { name: "Porto Ceresio-Brusino Arsizio", italianSide: "Porto Ceresio", avgWaitMorning: "3-8 min", avgWaitEvening: "5-12 min", peak: "7:30-8:30, 17:30-18:30", hours: "06:00-22:00", tips: "Turistico. Poco trafficato, chiusura notturna", lat: 45.9135, lng: 8.9042, traffic: "low" },
+    { name: "Cremenaga-Ponte Cremenaga", italianSide: "Cremenaga", avgWaitMorning: "2-5 min", avgWaitEvening: "3-8 min", peak: "Poco traffico", hours: "06:00-20:00", tips: "Turistico. Valico minore, chiusura notturna", lat: 45.9907, lng: 8.8075, traffic: "low" },
+    { name: "Luino-Fornasette", italianSide: "Luino", avgWaitMorning: "4-10 min", avgWaitEvening: "6-15 min", peak: "7:30-8:30", hours: "24h", tips: "Turistico. Zona lago settentrionale", lat: 45.9931, lng: 8.7878, traffic: "medium" },
+    { name: "Zenna-Dirinella", italianSide: "Zenna", avgWaitMorning: "2-5 min", avgWaitEvening: "3-8 min", peak: "Poco traffico", hours: "24h", tips: "Turistico. Valico tranquillo zona montuosa", lat: 46.1040, lng: 8.7579, traffic: "low" },
+    { name: "Biegno-Indemini", italianSide: "Curiglia con Monteviasco", avgWaitMorning: "2-5 min", avgWaitEvening: "3-6 min", peak: "Poco traffico", hours: "24h", tips: "Residenziale. Valico montano (950m), panoramico", lat: 46.0955, lng: 8.8164, traffic: "low" },
+    { name: "Dumenza (Palone)-Cassinone", italianSide: "Dumenza", avgWaitMorning: "2-5 min", avgWaitEvening: "3-6 min", peak: "Poco traffico", hours: "24h", tips: "Residenziale. Valico montano poco frequentato", lat: 46.0052, lng: 8.7921, traffic: "low" },
   ];
 
   const costComparison = [
@@ -466,44 +467,229 @@ const FrontierGuide: React.FC = () => {
             subtitle="Attese medie e consigli per attraversare il confine"
           />
 
-          <div className="grid md:grid-cols-2 gap-4">
-            {borderCrossings.map((border, idx) => (
-              <div key={idx} className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-5 hover:shadow-lg transition-shadow">
-                <div className="flex items-center gap-3 mb-3">
-                  <div className="p-2 bg-orange-500 rounded-lg">
-                    <Navigation className="text-white" size={18} />
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="text-lg font-bold text-slate-800 dark:text-slate-100">{border.name}</h3>
-                    <p className="text-xs text-slate-500 dark:text-slate-400">📍 {border.italianSide}</p>
-                  </div>
-                </div>
+          {/* Smart Filters */}
+          <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-5 shadow-sm">
+            <h3 className="text-sm font-bold text-slate-700 dark:text-slate-300 mb-4 flex items-center gap-2">
+              <BarChart3 size={16} className="text-indigo-500" />
+              Filtri Intelligenti
+            </h3>
+            
+            <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-3">
+              <button
+                onClick={() => setBorderFilter('all')}
+                className={`px-4 py-2.5 rounded-xl text-sm font-bold transition-all ${borderFilter === 'all' ? 'bg-indigo-500 text-white shadow-lg' : 'bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-800'}`}
+              >
+                🔍 Tutte ({borderCrossings.filter(b => b.traffic !== 'closed').length})
+              </button>
+              <button
+                onClick={() => setBorderFilter('low-traffic')}
+                className={`px-4 py-2.5 rounded-xl text-sm font-bold transition-all ${borderFilter === 'low-traffic' ? 'bg-emerald-500 text-white shadow-lg' : 'bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-800'}`}
+              >
+                ✅ Poco Traffico ({borderCrossings.filter(b => b.traffic === 'low').length})
+              </button>
+              <button
+                onClick={() => setBorderFilter('24h')}
+                className={`px-4 py-2.5 rounded-xl text-sm font-bold transition-all ${borderFilter === '24h' ? 'bg-blue-500 text-white shadow-lg' : 'bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-800'}`}
+              >
+                ⏰ Aperte 24h ({borderCrossings.filter(b => b.hours === '24h').length})
+              </button>
+              <button
+                onClick={() => setBorderFilter('morning')}
+                className={`px-4 py-2.5 rounded-xl text-sm font-bold transition-all ${borderFilter === 'morning' ? 'bg-orange-500 text-white shadow-lg' : 'bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-800'}`}
+              >
+                🌅 Veloci Mattina
+              </button>
+              <button
+                onClick={() => setBorderFilter('evening')}
+                className={`px-4 py-2.5 rounded-xl text-sm font-bold transition-all ${borderFilter === 'evening' ? 'bg-purple-500 text-white shadow-lg' : 'bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-800'}`}
+              >
+                🌆 Veloci Sera
+              </button>
+            </div>
 
-                <div className="space-y-2">
-                  <div className="flex items-center justify-between">
-                    <span className="text-xs text-slate-600 dark:text-slate-400">Attesa Mattina (🌅 7-9)</span>
-                    <span className="text-sm font-bold text-orange-600">{border.avgWaitMorning}</span>
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <span className="text-xs text-slate-600 dark:text-slate-400">Attesa Sera (🌆 17-19)</span>
-                    <span className="text-sm font-bold text-red-600">{border.avgWaitEvening}</span>
-                  </div>
-                  <div className="pt-2 border-t border-slate-200 dark:border-slate-700">
-                    <div className="text-xs text-slate-500 dark:text-slate-400 mb-1">⏰ Orari Apertura</div>
-                    <div className="text-sm font-semibold text-emerald-600">{border.hours}</div>
-                  </div>
-                  <div className="pt-2 border-t border-slate-200 dark:border-slate-700">
-                    <div className="text-xs text-slate-500 dark:text-slate-400 mb-1">🔴 Orari di Punta</div>
-                    <div className="text-xs font-semibold text-slate-800 dark:text-slate-100">{border.peak}</div>
-                  </div>
-                  <div className="p-2.5 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
-                    <div className="text-xs text-blue-700 dark:text-blue-300">
-                      <strong>💡 Consiglio:</strong> {border.tips}
+            {/* Time selector */}
+            <div className="mt-4 p-4 bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 rounded-xl border border-blue-200 dark:border-blue-800">
+              <div className="text-sm font-bold text-slate-700 dark:text-slate-300 mb-2">
+                💡 Consiglio in base all'orario:
+              </div>
+              <div className="flex gap-2">
+                <button
+                  onClick={() => setSelectedTime('morning')}
+                  className={`flex-1 px-3 py-2 rounded-lg text-xs font-bold transition-all ${selectedTime === 'morning' ? 'bg-orange-500 text-white' : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-400'}`}
+                >
+                  🌅 Mattina (7-9)
+                </button>
+                <button
+                  onClick={() => setSelectedTime('evening')}
+                  className={`flex-1 px-3 py-2 rounded-lg text-xs font-bold transition-all ${selectedTime === 'evening' ? 'bg-purple-500 text-white' : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-400'}`}
+                >
+                  🌆 Sera (17-19)
+                </button>
+                <button
+                  onClick={() => setSelectedTime('night')}
+                  className={`flex-1 px-3 py-2 rounded-lg text-xs font-bold transition-all ${selectedTime === 'night' ? 'bg-indigo-500 text-white' : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-400'}`}
+                >
+                  🌙 Notte
+                </button>
+              </div>
+            </div>
+          </div>
+
+          {/* Interactive Map */}
+          <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-5 shadow-sm">
+            <h3 className="text-sm font-bold text-slate-700 dark:text-slate-300 mb-4 flex items-center gap-2">
+              <MapPin size={16} className="text-red-500" />
+              Mappa Interattiva Dogane
+            </h3>
+            <div className="h-[500px] rounded-xl overflow-hidden border-2 border-slate-200 dark:border-slate-700">
+              <MapContainer center={[45.87, 8.95]} zoom={10} style={{ height: '100%', width: '100%' }}>
+                <TileLayer
+                  url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                  attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+                />
+                {borderCrossings
+                  .filter(border => {
+                    if (border.traffic === 'closed') return false;
+                    if (borderFilter === 'low-traffic') return border.traffic === 'low';
+                    if (borderFilter === '24h') return border.hours === '24h';
+                    if (borderFilter === 'morning') {
+                      const maxWait = parseInt(border.avgWaitMorning.split('-')[1]);
+                      return !isNaN(maxWait) && maxWait <= 10;
+                    }
+                    if (borderFilter === 'evening') {
+                      const maxWait = parseInt(border.avgWaitEvening.split('-')[1]);
+                      return !isNaN(maxWait) && maxWait <= 12;
+                    }
+                    return true;
+                  })
+                  .map((border, idx) => {
+                    const trafficColor = border.traffic === 'high' ? '#ef4444' : border.traffic === 'medium' ? '#f59e0b' : '#10b981';
+                    const customIcon = L.divIcon({
+                      className: 'custom-border-marker',
+                      html: `<div style="background-color: ${trafficColor}; width: 24px; height: 24px; border-radius: 50%; border: 3px solid white; box-shadow: 0 2px 5px rgba(0,0,0,0.3);"></div>`,
+                      iconSize: [24, 24],
+                      iconAnchor: [12, 12],
+                    });
+
+                    return (
+                      <Marker key={idx} position={[border.lat, border.lng]} icon={customIcon}>
+                        <Popup>
+                          <div className="text-sm min-w-[200px]">
+                            <div className="font-bold text-slate-800 mb-1">{border.name}</div>
+                            <div className="text-xs text-slate-600 mb-2">📍 {border.italianSide}</div>
+                            <div className="text-xs space-y-1">
+                              <div><strong>🌅 Mattina:</strong> {border.avgWaitMorning}</div>
+                              <div><strong>🌆 Sera:</strong> {border.avgWaitEvening}</div>
+                              <div><strong>⏰ Orari:</strong> {border.hours}</div>
+                              <div className="pt-2 border-t border-slate-200">
+                                <strong>💡</strong> {border.tips}
+                              </div>
+                            </div>
+                          </div>
+                        </Popup>
+                      </Marker>
+                    );
+                  })}
+              </MapContainer>
+            </div>
+            <div className="mt-3 flex items-center justify-center gap-6 text-xs">
+              <div className="flex items-center gap-2">
+                <div className="w-3 h-3 rounded-full bg-red-500 border-2 border-white"></div>
+                <span className="text-slate-600 dark:text-slate-400">Alto Traffico</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="w-3 h-3 rounded-full bg-orange-500 border-2 border-white"></div>
+                <span className="text-slate-600 dark:text-slate-400">Medio Traffico</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="w-3 h-3 rounded-full bg-emerald-500 border-2 border-white"></div>
+                <span className="text-slate-600 dark:text-slate-400">Basso Traffico</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Border Crossings Grid */}
+          <div className="grid md:grid-cols-2 gap-4">
+            {borderCrossings
+              .filter(border => {
+                if (border.traffic === 'closed') return false;
+                if (borderFilter === 'low-traffic') return border.traffic === 'low';
+                if (borderFilter === '24h') return border.hours === '24h';
+                if (borderFilter === 'morning') {
+                  const maxWait = parseInt(border.avgWaitMorning.split('-')[1]);
+                  return !isNaN(maxWait) && maxWait <= 10;
+                }
+                if (borderFilter === 'evening') {
+                  const maxWait = parseInt(border.avgWaitEvening.split('-')[1]);
+                  return !isNaN(maxWait) && maxWait <= 12;
+                }
+                return true;
+              })
+              .sort((a, b) => {
+                if (selectedTime === 'morning') {
+                  const aWait = parseInt(a.avgWaitMorning.split('-')[0]) || 999;
+                  const bWait = parseInt(b.avgWaitMorning.split('-')[0]) || 999;
+                  return aWait - bWait;
+                } else if (selectedTime === 'evening') {
+                  const aWait = parseInt(a.avgWaitEvening.split('-')[0]) || 999;
+                  const bWait = parseInt(b.avgWaitEvening.split('-')[0]) || 999;
+                  return aWait - bWait;
+                }
+                return 0;
+              })
+              .map((border, idx) => {
+                const isRecommended = 
+                  (selectedTime === 'morning' && parseInt(border.avgWaitMorning.split('-')[1]) <= 8) ||
+                  (selectedTime === 'evening' && parseInt(border.avgWaitEvening.split('-')[1]) <= 12) ||
+                  (selectedTime === 'night' && border.hours === '24h' && border.traffic === 'low');
+
+                return (
+                  <div 
+                    key={idx} 
+                    className={`bg-white dark:bg-slate-800 rounded-2xl border-2 p-5 hover:shadow-lg transition-all ${isRecommended ? 'border-emerald-500 ring-2 ring-emerald-500/20' : 'border-slate-200 dark:border-slate-700'}`}
+                  >
+                    {isRecommended && (
+                      <div className="mb-3 px-3 py-1.5 bg-emerald-500 text-white text-xs font-bold rounded-full inline-flex items-center gap-1.5">
+                        ⭐ Consigliata per {selectedTime === 'morning' ? 'Mattina' : selectedTime === 'evening' ? 'Sera' : 'Notte'}
+                      </div>
+                    )}
+                    
+                    <div className="flex items-center gap-3 mb-3">
+                      <div className={`p-2 rounded-lg ${border.traffic === 'high' ? 'bg-red-500' : border.traffic === 'medium' ? 'bg-orange-500' : 'bg-emerald-500'}`}>
+                        <Navigation className="text-white" size={18} />
+                      </div>
+                      <div className="flex-1">
+                        <h3 className="text-lg font-bold text-slate-800 dark:text-slate-100">{border.name}</h3>
+                        <p className="text-xs text-slate-500 dark:text-slate-400">📍 {border.italianSide}</p>
+                      </div>
+                    </div>
+
+                    <div className="space-y-2">
+                      <div className="flex items-center justify-between">
+                        <span className="text-xs text-slate-600 dark:text-slate-400">Attesa Mattina (🌅 7-9)</span>
+                        <span className={`text-sm font-bold ${selectedTime === 'morning' ? 'text-orange-600' : 'text-slate-600'}`}>{border.avgWaitMorning}</span>
+                      </div>
+                      <div className="flex items-center justify-between">
+                        <span className="text-xs text-slate-600 dark:text-slate-400">Attesa Sera (🌆 17-19)</span>
+                        <span className={`text-sm font-bold ${selectedTime === 'evening' ? 'text-purple-600' : 'text-slate-600'}`}>{border.avgWaitEvening}</span>
+                      </div>
+                      <div className="pt-2 border-t border-slate-200 dark:border-slate-700">
+                        <div className="text-xs text-slate-500 dark:text-slate-400 mb-1">⏰ Orari Apertura</div>
+                        <div className={`text-sm font-semibold ${border.hours === '24h' ? 'text-emerald-600' : 'text-orange-600'}`}>{border.hours}</div>
+                      </div>
+                      <div className="pt-2 border-t border-slate-200 dark:border-slate-700">
+                        <div className="text-xs text-slate-500 dark:text-slate-400 mb-1">🔴 Orari di Punta</div>
+                        <div className="text-xs font-semibold text-slate-800 dark:text-slate-100">{border.peak}</div>
+                      </div>
+                      <div className="p-2.5 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+                        <div className="text-xs text-blue-700 dark:text-blue-300">
+                          <strong>💡 Consiglio:</strong> {border.tips}
+                        </div>
+                      </div>
                     </div>
                   </div>
-                </div>
-              </div>
-            ))}
+                );
+              })}
           </div>
 
           <InfoCard icon={Clock} title="Tempi di Percorrenza Medi" color="blue">

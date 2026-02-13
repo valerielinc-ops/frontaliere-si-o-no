@@ -200,7 +200,7 @@ const App: React.FC = () => {
         <main className="flex-grow max-w-[1800px] w-[95%] mx-auto px-2 sm:px-4 py-6 transition-all duration-500 relative z-10">
           {activeTab === 'calculator' ? (
             <div className="grid grid-cols-1 md:grid-cols-12 gap-6 h-full">
-              <div className={`transition-all duration-500 ease-in-out ${isFocusMode ? 'hidden md:hidden' : 'md:col-span-4 lg:col-span-4 xl:col-span-3'} h-full animate-fade-in-up`}>
+              <div className={`transition-all duration-500 ease-in-out ${isFocusMode ? 'hidden md:hidden' : 'md:col-span-4 lg:col-span-4 xl:col-span-3'} h-full`}>
                 <InputCard 
                   inputs={inputs} 
                   setInputs={setInputs} 
@@ -208,7 +208,7 @@ const App: React.FC = () => {
                   isFocusMode={isFocusMode}
                 />
               </div>
-              <div className={`transition-all duration-500 ease-in-out ${isFocusMode ? 'md:col-span-12' : 'md:col-span-8 lg:col-span-8 xl:col-span-9'} h-full animate-fade-in-up delay-100`}>
+              <div className={`transition-all duration-500 ease-in-out ${isFocusMode ? 'md:col-span-12' : 'md:col-span-8 lg:col-span-8 xl:col-span-9'} h-full`}>
                 {result && <ResultsView result={result} inputs={inputs} isDarkMode={isDarkMode} isFocusMode={isFocusMode} />}
               </div>
             </div>
