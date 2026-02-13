@@ -20,20 +20,32 @@ const firebaseConfig = {
   measurementId: "G-G1E84HYGB7"
 };
 
-// reCAPTCHA Site Key per App Check
-const RECAPTCHA_SITE_KEY = "6LcvRmosAAAAANg2upkWsseTFrN6eO5erywetm59";
-
 // Inizializza Firebase
 const app: FirebaseApp = initializeApp(firebaseConfig);
 const analytics: FirebaseAnalytics = getAnalytics(app);
 
 // Inizializza App Check con reCAPTCHA v3
+// La Site Key viene caricata da Remote Config
 let appCheck: AppCheck | null = null;
-if (typeof window !== 'undefined') {
+let recaptchaSiteKey: string | null = null;
+
+async function initAppCheck(): Promise<void> {
+  if (typeof window === 'undefined' || appCheck !== null) {
+    return;
+  }
+
   try {
+    // Carica la Site Key da Remote Config
+    recaptchaSiteKey = await getConfigValue('RECAPTCHA_SITE_KEY');
+    
+    if (!recaptchaSiteKey) {
+      console.warn('⚠️ RECAPTCHA_SITE_KEY non trovata in Remote Config');
+      return;
+    }
+
     appCheck = initializeAppCheck(app, {
-      provider: new ReCaptchaV3Provider(RECAPTCHA_SITE_KEY),
-      isTokenAutoRefreshEnabled: true // Aggiorna automaticamente il token
+      provider: new ReCaptchaV3Provider(recaptchaSiteKey),
+      isTokenAutoRefreshEnabled: true
     });
     console.log('✅ Firebase App Check inizializzato con reCAPTCHA v3');
   } catch (error) {
@@ -65,10 +77,10 @@ async function initRemoteConfig(): Promise<void> {
     // Valori di default (fallback se Remote Config non disponibile)
     remoteConfig.defaultConfig = {
       GOOGLE_MAPS_API_KEY: import.meta.env.VITE_GOOGLE_MAPS_API_KEY || '',
-      GA_MEASUREMENT_ID: import.meta.env.VITE_GA_MEASUREMENT_ID || 'G-HRJEW4REGH',
+      GA_MEASUREMENT_ID: import.meta.env.VITE_GA_MEASUREMENT_ID || '',
       GITHUB_PAT: import.meta.env.VITE_REACT_APP_PAT || '',
       GEMINI_API_KEY: import.meta.env.GEMINI_API_KEY || '',
-      RECAPTCHA_SITE_KEY: RECAPTCHA_SITE_KEY
+      RECAPTCHA_SITE_KEY: import.meta.env.VITE_RECAPTCHA_SITE_KEY || ''
     };
 
     // Impostazioni cache: fetch ogni ora in produzione, ogni 5 minuti in dev
@@ -113,7 +125,7 @@ export async function getConfigValue(key: string): Promise<string> {
     GA_MEASUREMENT_ID: import.meta.env.VITE_GA_MEASUREMENT_ID || '',
     GITHUB_PAT: import.meta.env.VITE_REACT_APP_PAT || '',
     GEMINI_API_KEY: import.meta.env.GEMINI_API_KEY || '',
-    RECAPTCHA_SITE_KEY: RECAPTCHA_SITE_KEY
+    RECAPTCHA_SITE_KEY: import.meta.env.VITE_RECAPTCHA_SITE_KEY || ''
   };
 
   return envValues[key] || '';
@@ -152,7 +164,12 @@ export { app, analytics, appCheck, remoteConfig };
 
 // Auto-inizializza Remote Config al caricamento del modulo
 if (typeof window !== 'undefined') {
-  initRemoteConfig().catch(err => {
-    console.error('Errore auto-inizializzazione Remote Config:', err);
-  });
+  initRemoteConfig()
+    .then(() => {
+      // Dopo Remote Config, inizializza App Check
+      return initAppCheck();
+    })
+    .catch(err => {
+      console.error('Errore auto-inizializzazione Firebase:', err);
+    });
 }
