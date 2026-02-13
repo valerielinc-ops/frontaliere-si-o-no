@@ -1,5 +1,33 @@
 import React, { useState } from 'react';
+import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+import L from 'leaflet';
+import 'leaflet/dist/leaflet.css';
 import { MapPin, Clock, TrendingUp, Home, Car, ShoppingCart, FileText, AlertCircle, CheckCircle2, Info, ArrowRight, Building2, Landmark, Shield, Users, Navigation, Timer, BarChart3, Euro, Heart, Briefcase, Calendar } from 'lucide-react';
+
+// Fix per i marker icon di Leaflet
+delete (L.Icon.Default.prototype as any)._getIconUrl;
+L.Icon.Default.mergeOptions({
+  iconRetinaUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon-2x.png',
+  iconUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon.png',
+  shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png',
+});
+
+// Custom marker icons per tipo
+const createCustomIcon = (type: 'new' | 'old' | 'both') => {
+  const colors = {
+    new: '#2563eb', // blue-600
+    old: '#ea580c', // orange-600
+    both: '#9333ea' // purple-600
+  };
+  
+  return L.divIcon({
+    className: 'custom-marker',
+    html: `<div style="background-color: ${colors[type]}; width: 24px; height: 24px; border-radius: 50% 50% 50% 0; transform: rotate(-45deg); border: 2px solid white; box-shadow: 0 2px 4px rgba(0,0,0,0.3);"></div>`,
+    iconSize: [24, 24],
+    iconAnchor: [12, 24],
+    popupAnchor: [0, -24]
+  });
+};
 
 const InfoCard = ({ icon: Icon, title, children, color = "blue" }: any) => {
   const colorClasses = {
@@ -37,44 +65,94 @@ const SectionHeader = ({ icon: Icon, title, subtitle }: any) => (
   </div>
 );
 
+interface Municipality {
+  name: string;
+  province: string;
+  distance: number;
+  borderCrossing: string;
+  population: number;
+  type: 'new' | 'old' | 'both';
+  lat: number;
+  lng: number;
+}
+
 const FrontierGuide: React.FC = () => {
   const [activeSection, setActiveSection] = useState<'municipalities' | 'living-ch' | 'living-it' | 'border' | 'costs'>('municipalities');
+  const [sortBy, setSortBy] = useState<'distance' | 'population'>('population');
+  const [filterType, setFilterType] = useState<'all' | 'new' | 'old'>('all');
 
-  // Comuni frontalieri Vecchio Ordinamento (pre 17/07/2023) - Solo Fascia 1
-  // Totale: 180 comuni nelle province di Como, Varese, Lecco, Sondrio, Verbano-Cusio-Ossola, Aosta, Bergamo, Brescia, Bolzano, Trento
-  const oldFrontierMunicipalities = [
-    "ALAGNA VALSESIA", "ANDALO VALTELLINO", "APRICA", "BARLASSINA", "BERBENNO DI VALTELLINA", 
-    "BIANZONE", "BORMIO", "BREBBIA", "BRIOSCO", "BULCIAGO", "CAMPODOLCINO", "CASPOGGIO", 
-    "CHIAVENNA", "CHIESA IN VALMALENCO", "CHIURO", "COGLIATE", "COLORINA", "CORTENO GOLGI", 
-    "COSIO VALTELLINO", "CRAVAGLIANA", "CURON VENOSTA", "DAZIO", "DELEBIO", "DRUOGNO", "DUBINO", 
-    "EDOLO", "FAEDO VALTELLINO", "FOBELLO", "FORCOLA", "FORMAZZA", "FUSINE", "GERENZANO", 
-    "GIUSSANO", "GLORENZA", "GORDONA", "GROSIO", "GROSOTTO", "INCUDINE", "LANZADA", "LASA", 
-    "LENTATE SUL SEVESO", "LIVIGNO", "LOVERO", "MADESIMO", "MALONNO", "MANTELLO", "MARTELLO", 
-    "MAZZO DI VALTELLINA", "MELLO", "MESE", "MOLLIA", "MOLTENO", "MONNO", "MONTAGNA IN VALTELLINA",
-    "E 130+ altri comuni oltre i 20 km dal confine"
+  // Comuni frontalieri Lombardia con dati completi (ordinati per default per popolazione)
+  const lombardyMunicipalities: Municipality[] = [
+    // PROVINCIA DI COMO - Nuovi Frontalieri (entro 20km)
+    { name: "Como", province: "Como", distance: 6, borderCrossing: "Chiasso", population: 84000, type: 'both', lat: 45.8081, lng: 9.0852 },
+    { name: "Busto Arsizio", province: "Varese", distance: 25, borderCrossing: "Gaggiolo", population: 84000, type: 'both', lat: 45.6107, lng: 8.8510 },
+    { name: "Varese", province: "Varese", distance: 10, borderCrossing: "Ponte Tresa", population: 80000, type: 'both', lat: 45.8206, lng: 8.8250 },
+    { name: "Gallarate", province: "Varese", distance: 24, borderCrossing: "Gaggiolo", population: 54000, type: 'both', lat: 45.6580, lng: 8.7915 },
+    { name: "Saronno", province: "Varese", distance: 22, borderCrossing: "Gaggiolo", population: 39000, type: 'both', lat: 45.6263, lng: 9.0337 },
+    { name: "Tradate", province: "Varese", distance: 18, borderCrossing: "Gaggiolo", population: 18500, type: 'both', lat: 45.7089, lng: 8.9080 },
+    { name: "Malnate", province: "Varese", distance: 5, borderCrossing: "Gaggiolo", population: 17000, type: 'new', lat: 45.8016, lng: 8.8759 },
+    { name: "Luino", province: "Varese", distance: 15, borderCrossing: "Ponte Tresa", population: 14500, type: 'new', lat: 46.0011, lng: 8.7447 },
+    { name: "Induno Olona", province: "Varese", distance: 6, borderCrossing: "Gaggiolo", population: 10500, type: 'new', lat: 45.8461, lng: 8.8403 },
+    { name: "Arcisate", province: "Varese", distance: 4, borderCrossing: "Gaggiolo", population: 9800, type: 'new', lat: 45.8608, lng: 8.8513 },
+    { name: "Gavirate", province: "Varese", distance: 14, borderCrossing: "Ponte Tresa", population: 9300, type: 'new', lat: 45.8475, lng: 8.7139 },
+    { name: "Cernobbio", province: "Como", distance: 4, borderCrossing: "Chiasso", population: 6800, type: 'new', lat: 45.8486, lng: 9.0731 },
+    { name: "Lavena Ponte Tresa", province: "Varese", distance: 0.5, borderCrossing: "Ponte Tresa", population: 5600, type: 'new', lat: 45.9714, lng: 8.8589 },
+    { name: "Viggiù", province: "Varese", distance: 2.5, borderCrossing: "Gaggiolo", population: 5100, type: 'new', lat: 45.8892, lng: 8.9486 },
+    { name: "Uggiate-Trevano", province: "Como", distance: 1, borderCrossing: "Chiasso", population: 4800, type: 'new', lat: 45.8458, lng: 9.0186 },
+    { name: "Cantello", province: "Varese", distance: 1, borderCrossing: "Gaggiolo", population: 4700, type: 'new', lat: 45.8336, lng: 8.9131 },
+    { name: "Azzate", province: "Varese", distance: 12, borderCrossing: "Ponte Tresa", population: 4600, type: 'new', lat: 45.7878, lng: 8.7681 },
+    { name: "Faloppio", province: "Como", distance: 4.5, borderCrossing: "Chiasso-Brogeda", population: 4200, type: 'new', lat: 45.8294, lng: 9.0286 },
+    { name: "Bisuschio", province: "Varese", distance: 2, borderCrossing: "Gaggiolo", population: 3900, type: 'new', lat: 45.8753, lng: 8.8833 },
+    { name: "Maslianico", province: "Como", distance: 3, borderCrossing: "Chiasso", population: 3400, type: 'new', lat: 45.8194, lng: 9.0522 },
+    { name: "Menaggio", province: "Como", distance: 15, borderCrossing: "Ponte Tresa", population: 3200, type: 'new', lat: 46.0156, lng: 9.2372 },
+    { name: "Saltrio", province: "Varese", distance: 3.5, borderCrossing: "Gaggiolo", population: 3150, type: 'new', lat: 45.8636, lng: 8.9133 },
+    { name: "Bellagio", province: "Como", distance: 18, borderCrossing: "Chiasso", population: 3050, type: 'new', lat: 45.9792, lng: 9.2586 },
+    { name: "Porto Ceresio", province: "Varese", distance: 2, borderCrossing: "Porto Ceresio", population: 3000, type: 'new', lat: 45.9103, lng: 8.8947 },
+    { name: "Grandate", province: "Como", distance: 8, borderCrossing: "Chiasso", population: 2850, type: 'new', lat: 45.7700, lng: 9.0464 },
+    { name: "Valmorea", province: "Como", distance: 2, borderCrossing: "Chiasso", population: 2650, type: 'new', lat: 45.8331, lng: 8.9847 },
+    { name: "Clivio", province: "Varese", distance: 3, borderCrossing: "Gaggiolo", population: 2100, type: 'new', lat: 45.8581, lng: 8.9292 },
+    { name: "Campione d'Italia", province: "Como", distance: 0, borderCrossing: "Campione (enclave)", population: 2000, type: 'new', lat: 45.9681, lng: 8.9722 },
+    { name: "Brunate", province: "Como", distance: 7, borderCrossing: "Chiasso", population: 1750, type: 'new', lat: 45.8244, lng: 9.0922 },
+    { name: "Bizzarone", province: "Como", distance: 0.5, borderCrossing: "Chiasso", population: 1650, type: 'new', lat: 45.8433, lng: 8.9564 },
+    { name: "Moltrasio", province: "Como", distance: 8, borderCrossing: "Chiasso", population: 1650, type: 'new', lat: 45.8542, lng: 9.1197 },
+    { name: "Valganna", province: "Varese", distance: 8, borderCrossing: "Ponte Tresa", population: 1500, type: 'new', lat: 45.9044, lng: 8.8333 },
+    { name: "Rodero", province: "Como", distance: 1.5, borderCrossing: "Chiasso", population: 1350, type: 'new', lat: 45.8508, lng: 8.9731 },
+    { name: "Carate Urio", province: "Como", distance: 10, borderCrossing: "Chiasso", population: 1300, type: 'new', lat: 45.8778, lng: 9.1508 },
+    { name: "Blevio", province: "Como", distance: 5, borderCrossing: "Chiasso", population: 1250, type: 'new', lat: 45.8306, lng: 9.1106 },
+    { name: "Brusimpiano", province: "Varese", distance: 1.5, borderCrossing: "Porto Ceresio", population: 1200, type: 'new', lat: 45.9600, lng: 8.8783 },
+    { name: "Argegno", province: "Como", distance: 12, borderCrossing: "Chiasso", population: 680, type: 'new', lat: 45.9322, lng: 9.1514 },
   ];
 
-  // Comuni frontalieri Nuovo Ordinamento (entro 20 km dal confine) - Fascia 1A
-  // Totale: 338 comuni principalmente in province di Como e Varese
-  const newFrontierMunicipalities = [
-    "ABBADIA LARIANA", "AGRA", "ALBAVILLA", "ALBESE CON CASSANO", "ALBIOLO", "ALBIZZATE", 
-    "ALSERIO", "ALTA VALLE INTELVI", "ALZATE BRIANZA", "ANZANO DEL PARCO", "APPIANO GENTILE", 
-    "ARCISATE", "ARGEGNO", "ARIZZANO", "AROSIO", "ARSAGO SEPRIO", "ASSO", "AZZATE", "AZZIO", 
-    "BARASSO", "BARDELLO CON MALGESSO E BREGANO", "BARNI", "BEDERO VALCUVIA", "BEE", "BELLAGIO", 
-    "BELLANO", "BENE LARIO", "BESANO", "BESNATE", "BESOZZO", "BIANDRONNO", "BINAGO", "BISUSCHIO", 
-    "BIZZARONE", "BLESSAGNO", "BLEVIO", "BODIO LOMNAGO", "BOSISIO PARINI", "BREGNANO", "BRENNA", 
-    "BRENTA", "BREZZO DI BEDERO", "BRIENNO", "BRINZIO", "BRISSAGO-VALTRAVAGLIA", "BRUNATE", 
-    "BRUNELLO", "BRUSIMPIANO", "BUGUGGIATE", "BULGAROGRASSO", "CABIATE", "CADEGLIANO-VICONAGO", 
-    "CADORAGO", "CADREZZATE CON OSMATE", "CAGLIO", "CAIRATE", "CAMPIONE D'ITALIA", "CANNERO RIVIERA", 
-    "CANNOBIO", "CANTELLO", "CANTÙ", "CANZO", "CAPIAGO INTIMIANO", "CARATE URIO", "CARAVATE",
-    "E 288+ altri comuni entro 20 km dal confine (vedi www.ti.ch/fonte per lista completa)"
-  ];
+  const filteredMunicipalities = lombardyMunicipalities
+    .filter(m => {
+      if (filterType === 'all') return true;
+      if (filterType === 'new') return m.type === 'new' || m.type === 'both';
+      if (filterType === 'old') return m.type === 'old' || m.type === 'both';
+      return true;
+    })
+    .sort((a, b) => {
+      if (sortBy === 'distance') return a.distance - b.distance;
+      return b.population - a.population;
+    });
 
+  // Dogane Canton Ticino - Italia (fonte: Wikipedia + dati frontalieri)
   const borderCrossings = [
-    { name: "Chiasso-Como", avgWaitMorning: "15-30 min", avgWaitEvening: "20-40 min", peak: "7:00-8:30, 17:00-18:30", tips: "Usa Brogeda se molto traffico" },
-    { name: "Gaggiolo-Stabio", avgWaitMorning: "10-20 min", avgWaitEvening: "15-30 min", peak: "7:00-8:30, 17:00-18:30", tips: "Alternativa a Chiasso" },
-    { name: "Ponte Tresa", avgWaitMorning: "5-15 min", avgWaitEvening: "10-20 min", peak: "7:30-8:30, 17:30-18:30", tips: "Generalmente più veloce" },
-    { name: "Brogeda (Chiasso 2)", avgWaitMorning: "8-15 min", avgWaitEvening: "12-25 min", peak: "7:00-8:30, 17:00-18:30", tips: "Usa quando Chiasso è bloccato" }
+    // Como - Ticino (Principale)
+    { name: "Chiasso Centro", italianSide: "Como", avgWaitMorning: "15-30 min", avgWaitEvening: "20-40 min", peak: "7:00-8:30, 17:00-18:30", hours: "24h", tips: "Principale, molto trafficato ore punta" },
+    { name: "Chiasso-Brogeda", italianSide: "Como", avgWaitMorning: "8-15 min", avgWaitEvening: "12-25 min", peak: "7:00-8:30, 17:00-18:30", hours: "24h", tips: "Usa quando Chiasso Centro è bloccato" },
+    { name: "Maslianico-Casteggio", italianSide: "Maslianico", avgWaitMorning: "5-10 min", avgWaitEvening: "8-15 min", peak: "7:30-8:30, 17:30-18:30", hours: "24h", tips: "Alternativa veloce a Chiasso" },
+    { name: "Ronago-Novazzano", italianSide: "Ronago", avgWaitMorning: "5-12 min", avgWaitEvening: "10-18 min", peak: "7:00-8:30, 17:00-18:30", hours: "24h", tips: "Poco traffico, buona alternativa" },
+    { name: "Campione d'Italia", italianSide: "Campione (enclave)", avgWaitMorning: "2-5 min", avgWaitEvening: "3-8 min", peak: "Sempre tranquillo", hours: "24h", tips: "Enclave italiana, controlli rapidi" },
+    
+    // Varese - Ticino
+    { name: "Gaggiolo-Stabio", italianSide: "Cantello", avgWaitMorning: "10-20 min", avgWaitEvening: "15-30 min", peak: "7:00-8:30, 17:00-18:30", hours: "24h", tips: "Seconda dogana più trafficata" },
+    { name: "Ponte Tresa", italianSide: "Lavena Ponte Tresa", avgWaitMorning: "5-15 min", avgWaitEvening: "10-20 min", peak: "7:30-8:30, 17:30-18:30", hours: "24h", tips: "Generalmente più veloce, zona lago" },
+    { name: "Porto Ceresio-Bissone", italianSide: "Porto Ceresio", avgWaitMorning: "3-8 min", avgWaitEvening: "5-12 min", peak: "7:30-8:30, 17:30-18:30", hours: "06:00-22:00", tips: "Poco trafficato, chiusura notturna" },
+    { name: "Cremenaga-Cremenaga", italianSide: "Cremenaga", avgWaitMorning: "2-5 min", avgWaitEvening: "3-8 min", peak: "Poco traffico", hours: "06:00-20:00", tips: "Valico minore, chiusura notturna" },
+    { name: "Marchirolo-Cuasso al Piano", italianSide: "Marchirolo", avgWaitMorning: "3-7 min", avgWaitEvening: "5-10 min", peak: "Poco traffico", hours: "06:00-22:00", tips: "Alternativa tranquilla" },
+    
+    // Lecco/Sondrio - Grigioni (non Ticino, ma utile)
+    { name: "Campocologno-Tirano", italianSide: "Tirano (SO)", avgWaitMorning: "2-5 min", avgWaitEvening: "3-8 min", peak: "Poco traffico", hours: "06:00-22:00", tips: "Valico verso Grigioni (non Ticino)" },
   ];
 
   const costComparison = [
@@ -167,79 +245,187 @@ const FrontierGuide: React.FC = () => {
         <div className="space-y-6 animate-fade-in">
           <SectionHeader 
             icon={MapPin} 
-            title="Comuni Frontalieri" 
-            subtitle="Elenco aggiornato secondo nuovo e vecchio ordinamento fiscale"
+            title="Comuni Frontalieri Lombardia" 
+            subtitle="Elenco principali comuni con distanze, dogane e popolazione"
           />
 
-          <div className="grid md:grid-cols-2 gap-6">
-            {/* Nuovo Ordinamento */}
-            <div className="bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-950/30 dark:to-indigo-950/30 rounded-2xl border-2 border-blue-200 dark:border-blue-800 p-6">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="p-2 bg-blue-600 rounded-lg">
-                  <Calendar className="text-white" size={20} />
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold text-slate-800 dark:text-slate-100">Nuovo Ordinamento</h3>
-                  <p className="text-xs text-blue-600 dark:text-blue-400 font-semibold">Dal 17/07/2023 - Entro 20 km dal confine</p>
-                </div>
+          {/* Filtri e Ordinamento */}
+          <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-4">
+            <div className="flex flex-wrap gap-4 items-center justify-between">
+              <div className="flex items-center gap-2">
+                <span className="text-sm font-bold text-slate-700 dark:text-slate-300">Ordina per:</span>
+                <button
+                  onClick={() => setSortBy('distance')}
+                  className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
+                    sortBy === 'distance'
+                      ? 'bg-indigo-600 text-white shadow-md'
+                      : 'bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-600'
+                  }`}
+                >
+                  📍 Distanza
+                </button>
+                <button
+                  onClick={() => setSortBy('population')}
+                  className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
+                    sortBy === 'population'
+                      ? 'bg-indigo-600 text-white shadow-md'
+                      : 'bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-600'
+                  }`}
+                >
+                  👥 Popolazione
+                </button>
               </div>
+              <div className="flex items-center gap-2">
+                <span className="text-sm font-bold text-slate-700 dark:text-slate-300">Mostra:</span>
+                <button
+                  onClick={() => setFilterType('all')}
+                  className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
+                    filterType === 'all'
+                      ? 'bg-purple-600 text-white shadow-md'
+                      : 'bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-600'
+                  }`}
+                >
+                  Tutti
+                </button>
+                <button
+                  onClick={() => setFilterType('new')}
+                  className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
+                    filterType === 'new'
+                      ? 'bg-blue-600 text-white shadow-md'
+                      : 'bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-600'
+                  }`}
+                >
+                  Nuovo (entro 20km)
+                </button>
+                <button
+                  onClick={() => setFilterType('old')}
+                  className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
+                    filterType === 'old'
+                      ? 'bg-orange-600 text-white shadow-md'
+                      : 'bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-600'
+                  }`}
+                >
+                  Vecchio (oltre 20km)
+                </button>
+              </div>
+            </div>
+          </div>
 
-              <div className="space-y-1 max-h-96 overflow-y-auto pr-2">
-                <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
-                  {newFrontierMunicipalities.slice(0, 60).map((name, idx) => (
-                    <div key={idx} className="bg-white dark:bg-slate-800 rounded-lg px-3 py-2 text-xs font-medium text-slate-700 dark:text-slate-300 hover:bg-blue-50 dark:hover:bg-slate-700 transition-colors flex items-center gap-2">
-                      <CheckCircle2 size={12} className="text-blue-600 flex-shrink-0" />
-                      <span className="truncate">{name}</span>
+          {/* Lista Comuni */}
+          <div className="grid gap-4">
+            {filteredMunicipalities.map((m, idx) => (
+              <div key={idx} className={`bg-gradient-to-br ${m.type === 'new' ? 'from-blue-50 to-indigo-50 dark:from-blue-950/30 dark:to-indigo-950/30 border-blue-200 dark:border-blue-800' : 'from-orange-50 to-red-50 dark:from-orange-950/30 dark:to-red-950/30 border-orange-200 dark:border-orange-800'} rounded-2xl border-2 p-5 hover:shadow-lg transition-all`}>
+                <div className="flex items-start justify-between gap-4">
+                  <div className="flex-1">
+                    <div className="flex items-center gap-3 mb-2 flex-wrap">
+                      <h3 className="text-xl font-bold text-slate-800 dark:text-slate-100">{m.name}</h3>
+                      {m.type === 'both' ? (
+                        <>
+                          <span className="px-2.5 py-1 rounded-lg text-xs font-bold bg-blue-600 text-white">
+                            NUOVO
+                          </span>
+                          <span className="px-2.5 py-1 rounded-lg text-xs font-bold bg-orange-600 text-white">
+                            VECCHIO
+                          </span>
+                        </>
+                      ) : (
+                        <span className={`px-2.5 py-1 rounded-lg text-xs font-bold ${m.type === 'new' ? 'bg-blue-600 text-white' : 'bg-orange-600 text-white'}`}>
+                          {m.type === 'new' ? 'NUOVO' : 'VECCHIO'}
+                        </span>
+                      )}
                     </div>
-                  ))}
-                </div>
-                <div className="mt-3 p-2 bg-blue-50 dark:bg-blue-900/20 rounded text-xs text-blue-700 dark:text-blue-300 text-center">
-                  {newFrontierMunicipalities.length > 60 && `+ altri ${newFrontierMunicipalities.length - 60} comuni`}
-                  <br />
-                  <a href="https://www.ti.ch/fonte" target="_blank" rel="noopener noreferrer" className="underline font-semibold">
-                    Lista completa su www.ti.ch/fonte
-                  </a>
+                    <div className="grid sm:grid-cols-2 gap-3 text-sm">
+                      <div className="flex items-center gap-2 text-slate-700 dark:text-slate-300">
+                        <MapPin size={16} className="text-indigo-600" />
+                        <span><strong>Provincia:</strong> {m.province}</span>
+                      </div>
+                      <div className="flex items-center gap-2 text-slate-700 dark:text-slate-300">
+                        <Navigation size={16} className="text-emerald-600" />
+                        <span><strong>Distanza:</strong> {m.distance} km dal confine</span>
+                      </div>
+                      <div className="flex items-center gap-2 text-slate-700 dark:text-slate-300">
+                        <Car size={16} className="text-orange-600" />
+                        <span><strong>Dogana:</strong> {m.borderCrossing}</span>
+                      </div>
+                      <div className="flex items-center gap-2 text-slate-700 dark:text-slate-300">
+                        <Users size={16} className="text-purple-600" />
+                        <span><strong>Popolazione:</strong> {m.population.toLocaleString('it-IT')}</span>
+                      </div>
+                    </div>
+                  </div>
+                  <CheckCircle2 size={24} className={`flex-shrink-0 ${m.type === 'new' ? 'text-blue-600' : 'text-orange-600'}`} />
                 </div>
               </div>
+            ))}
+          </div>
 
-              <div className="mt-4 p-3 bg-blue-100 dark:bg-blue-900/30 rounded-lg text-xs text-blue-800 dark:text-blue-300">
-                <strong>Totale: {newFrontierMunicipalities.length} comuni</strong> • Criterio: Residenza entro 20 km dal confine svizzero più vicino (in linea d'aria)
+          {/* Mappa Interattiva */}
+          <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-6 overflow-hidden">
+            <div className="flex items-center gap-3 mb-4">
+              <div className="p-2 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-xl">
+                <MapPin className="text-white" size={20} />
+              </div>
+              <h3 className="text-xl font-bold text-slate-800 dark:text-slate-100">Mappa Comuni Frontalieri</h3>
+            </div>
+            
+            {/* Legenda */}
+            <div className="flex gap-4 mb-4 flex-wrap text-sm">
+              <div className="flex items-center gap-2">
+                <div className="w-4 h-4 rounded-full bg-blue-600"></div>
+                <span className="text-slate-700 dark:text-slate-300">Solo Nuovo (entro 20km)</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="w-4 h-4 rounded-full bg-orange-600"></div>
+                <span className="text-slate-700 dark:text-slate-300">Solo Vecchio (oltre 20km)</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="w-4 h-4 rounded-full bg-purple-600"></div>
+                <span className="text-slate-700 dark:text-slate-300">Entrambi gli elenchi</span>
               </div>
             </div>
 
-            {/* Vecchio Ordinamento */}
-            <div className="bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-950/30 dark:to-pink-950/30 rounded-2xl border-2 border-purple-200 dark:border-purple-800 p-6">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="p-2 bg-purple-600 rounded-lg">
-                  <Clock className="text-white" size={20} />
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold text-slate-800 dark:text-slate-100">Vecchio Ordinamento</h3>
-                  <p className="text-xs text-purple-600 dark:text-purple-400 font-semibold">Fino al 17/07/2023 - Zona fascia 20 km</p>
-                </div>
-              </div>
-
-              <div className="space-y-1 max-h-96 overflow-y-auto pr-2">
-                <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
-                  {oldFrontierMunicipalities.slice(0, 54).map((name, idx) => (
-                    <div key={idx} className="bg-white dark:bg-slate-800 rounded-lg px-3 py-2 text-xs font-medium text-slate-700 dark:text-slate-300 hover:bg-purple-50 dark:hover:bg-slate-700 transition-colors flex items-center gap-2">
-                      <CheckCircle2 size={12} className="text-purple-600 flex-shrink-0" />
-                      <span className="truncate">{name}</span>
-                    </div>
-                  ))}
-                </div>
-                <div className="mt-3 p-2 bg-purple-50 dark:bg-purple-900/20 rounded text-xs text-purple-700 dark:text-purple-300 text-center">
-                  {oldFrontierMunicipalities.length > 54 && `+ ${oldFrontierMunicipalities[54]}`}
-                  <br />
-                  <a href="https://www.ti.ch/fonte" target="_blank" rel="noopener noreferrer" className="underline font-semibold">
-                    Lista completa su www.ti.ch/fonte
-                  </a>
-                </div>
-              </div>
-
-              <div className="mt-4 p-3 bg-purple-100 dark:bg-purple-900/30 rounded-lg text-xs text-purple-800 dark:text-purple-300">
-                <strong>Totale: 180 comuni</strong> • Criterio: Comuni specificati nell'Accordo 1974, vale per chi lavorava già in CH prima del 17/07/2023 (clausola di salvaguardia)
-              </div>
+            <div className="h-[500px] rounded-xl overflow-hidden border-2 border-slate-200 dark:border-slate-700">
+              <MapContainer
+                center={[45.85, 8.95]}
+                zoom={10}
+                style={{ height: '100%', width: '100%' }}
+              >
+                <TileLayer
+                  attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+                  url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                />
+                {filteredMunicipalities.map((m, idx) => (
+                  <Marker
+                    key={idx}
+                    position={[m.lat, m.lng]}
+                    icon={createCustomIcon(m.type)}
+                  >
+                    <Popup>
+                      <div className="text-sm">
+                        <h4 className="font-bold text-base mb-1">{m.name}</h4>
+                        <div className="space-y-1 text-xs">
+                          <p><strong>Provincia:</strong> {m.province}</p>
+                          <p><strong>Distanza:</strong> {m.distance} km</p>
+                          <p><strong>Popolazione:</strong> {m.population.toLocaleString('it-IT')}</p>
+                          <p><strong>Dogana:</strong> {m.borderCrossing}</p>
+                          <div className="flex gap-1 mt-2">
+                            {m.type === 'both' ? (
+                              <>
+                                <span className="px-2 py-0.5 rounded bg-blue-600 text-white text-xs font-bold">NUOVO</span>
+                                <span className="px-2 py-0.5 rounded bg-orange-600 text-white text-xs font-bold">VECCHIO</span>
+                              </>
+                            ) : (
+                              <span className={`px-2 py-0.5 rounded ${m.type === 'new' ? 'bg-blue-600' : 'bg-orange-600'} text-white text-xs font-bold`}>
+                                {m.type === 'new' ? 'NUOVO' : 'VECCHIO'}
+                              </span>
+                            )}
+                          </div>
+                        </div>
+                      </div>
+                    </Popup>
+                  </Marker>
+                ))}
+              </MapContainer>
             </div>
           </div>
 
@@ -249,10 +435,11 @@ const FrontierGuide: React.FC = () => {
               <div className="text-sm text-amber-800 dark:text-amber-200 space-y-2">
                 <p className="font-bold">⚠️ Nota Importante</p>
                 <ul className="space-y-1 text-xs">
-                  <li>• <strong>Nuovo Ordinamento:</strong> Si applica a chi ha iniziato a lavorare in CH dal 17/07/2023 in poi</li>
-                  <li>• <strong>Vecchio Ordinamento:</strong> Vale per chi lavorava già in CH prima del 17/07/2023 (grandfathering clause)</li>
-                  <li>• La distanza di 20 km è calcolata in linea d'aria dal comune di residenza al confine svizzero più vicino</li>
-                  <li>• Verifica sempre con il tuo datore di lavoro e CAF la tua situazione specifica</li>
+                  <li>• Questa lista mostra i <strong>principali comuni lombardi</strong> (province di Como e Varese)</li>
+                  <li>• <strong>Totale Lombardia:</strong> 338 comuni entro 20 km (Nuovo), 180+ comuni oltre 20 km (Vecchio)</li>
+                  <li>• Distanze calcolate in linea d'aria dal confine svizzero più vicino</li>
+                  <li>• <strong>Lista completa ufficiale:</strong> <a href="https://www.ti.ch/fonte" target="_blank" rel="noopener noreferrer" className="underline font-semibold">www.ti.ch/fonte</a></li>
+                  <li>• Verifica sempre con CAF/datore di lavoro la tua situazione specifica</li>
                 </ul>
               </div>
             </div>
@@ -268,30 +455,37 @@ const FrontierGuide: React.FC = () => {
             subtitle="Attese medie e consigli per attraversare il confine"
           />
 
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="grid md:grid-cols-2 gap-4">
             {borderCrossings.map((border, idx) => (
-              <div key={idx} className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-6 hover:shadow-lg transition-shadow">
-                <div className="flex items-center gap-3 mb-4">
+              <div key={idx} className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-5 hover:shadow-lg transition-shadow">
+                <div className="flex items-center gap-3 mb-3">
                   <div className="p-2 bg-orange-500 rounded-lg">
-                    <Navigation className="text-white" size={20} />
+                    <Navigation className="text-white" size={18} />
                   </div>
-                  <h3 className="text-lg font-bold text-slate-800 dark:text-slate-100">{border.name}</h3>
+                  <div className="flex-1">
+                    <h3 className="text-lg font-bold text-slate-800 dark:text-slate-100">{border.name}</h3>
+                    <p className="text-xs text-slate-500 dark:text-slate-400">📍 {border.italianSide}</p>
+                  </div>
                 </div>
 
-                <div className="space-y-3">
+                <div className="space-y-2">
                   <div className="flex items-center justify-between">
-                    <span className="text-sm text-slate-600 dark:text-slate-400">Attesa Mattina (🌅 7-9)</span>
+                    <span className="text-xs text-slate-600 dark:text-slate-400">Attesa Mattina (🌅 7-9)</span>
                     <span className="text-sm font-bold text-orange-600">{border.avgWaitMorning}</span>
                   </div>
                   <div className="flex items-center justify-between">
-                    <span className="text-sm text-slate-600 dark:text-slate-400">Attesa Sera (🌆 17-19)</span>
+                    <span className="text-xs text-slate-600 dark:text-slate-400">Attesa Sera (🌆 17-19)</span>
                     <span className="text-sm font-bold text-red-600">{border.avgWaitEvening}</span>
                   </div>
-                  <div className="pt-3 border-t border-slate-200 dark:border-slate-700">
-                    <div className="text-xs text-slate-500 dark:text-slate-400 mb-1">⏰ Orari di Punta</div>
-                    <div className="text-sm font-semibold text-slate-800 dark:text-slate-100">{border.peak}</div>
+                  <div className="pt-2 border-t border-slate-200 dark:border-slate-700">
+                    <div className="text-xs text-slate-500 dark:text-slate-400 mb-1">⏰ Orari Apertura</div>
+                    <div className="text-sm font-semibold text-emerald-600">{border.hours}</div>
                   </div>
-                  <div className="p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+                  <div className="pt-2 border-t border-slate-200 dark:border-slate-700">
+                    <div className="text-xs text-slate-500 dark:text-slate-400 mb-1">🔴 Orari di Punta</div>
+                    <div className="text-xs font-semibold text-slate-800 dark:text-slate-100">{border.peak}</div>
+                  </div>
+                  <div className="p-2.5 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
                     <div className="text-xs text-blue-700 dark:text-blue-300">
                       <strong>💡 Consiglio:</strong> {border.tips}
                     </div>
