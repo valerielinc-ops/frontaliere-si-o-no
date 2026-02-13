@@ -4,7 +4,7 @@ import { Car, Train, Bike, TrendingDown, TrendingUp, AlertCircle, Calculator, Eu
 interface TransportOption {
   type: 'car-benzina' | 'car-diesel' | 'car-electric' | 'train' | 'ebike';
   name: string;
-  icon: JSX.Element;
+  icon: React.JSX.Element;
   color: string;
 }
 

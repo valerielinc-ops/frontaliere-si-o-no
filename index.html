@@ -242,41 +242,6 @@
     }
     </script>
 
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {
-        darkMode: 'class',
-        theme: {
-          extend: {
-            colors: {
-              slate: {
-                850: '#1e293b',
-                950: '#020617',
-              }
-            },
-            animation: {
-              blob: "blob 7s infinite",
-            },
-            keyframes: {
-              blob: {
-                "0%": {
-                  transform: "translate(0px, 0px) scale(1)",
-                },
-                "33%": {
-                  transform: "translate(30px, -50px) scale(1.1)",
-                },
-                "66%": {
-                  transform: "translate(-20px, 20px) scale(0.9)",
-                },
-                "100%": {
-                  transform: "translate(0px, 0px) scale(1)",
-                },
-              },
-            },
-          }
-        }
-      }
-    </script>
     <script>
       // On page load or when changing themes, best to add inline in `head` to avoid FOUC
       // Default to Light mode unless 'dark' is explicitly stored
@@ -365,7 +330,6 @@
   }
 }
 </script>
-<link rel="stylesheet" href="/assets/index.css">
 </head>
   <body class="bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 transition-colors duration-300 overflow-x-hidden">
     <div id="root"></div>

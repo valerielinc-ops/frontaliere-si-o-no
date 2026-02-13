@@ -29,9 +29,12 @@ const InfoTooltip = ({ text }: { text: string }) => (
 );
 
 const SectionHeader = ({ title, icon: Icon, isOpen, onToggle, subtext, iconColor = "text-indigo-600", action }: any) => (
-  <button 
-    onClick={onToggle} 
-    className={`w-full flex items-center justify-between p-4 rounded-xl transition-all duration-300 group ${isOpen ? 'bg-white dark:bg-slate-800 shadow-sm' : 'hover:bg-white/50 dark:hover:bg-slate-800/50'}`}
+  <div 
+    onClick={onToggle}
+    role="button"
+    tabIndex={0}
+    onKeyDown={(e: React.KeyboardEvent) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); onToggle(); } }}
+    className={`w-full flex items-center justify-between p-4 rounded-xl transition-all duration-300 group cursor-pointer ${isOpen ? 'bg-white dark:bg-slate-800 shadow-sm' : 'hover:bg-white/50 dark:hover:bg-slate-800/50'}`}
   >
     <div className="flex items-center gap-3">
       <div className={`p-2 rounded-lg transition-colors ${isOpen ? `bg-opacity-20 ${iconColor.replace('text-', 'bg-')} ${iconColor}` : 'bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400 group-hover:bg-white dark:group-hover:bg-slate-700'}`}>
@@ -48,7 +51,7 @@ const SectionHeader = ({ title, icon: Icon, isOpen, onToggle, subtext, iconColor
         <ChevronDown size={18} />
       </div>
     </div>
-  </button>
+  </div>
 );
 
 const StepperInput = ({ value, onChange, min = 0, max, label, icon: Icon, iconColor = "text-slate-400", tooltip }: any) => (

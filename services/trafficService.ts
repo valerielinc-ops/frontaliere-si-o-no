@@ -133,22 +133,26 @@ class TrafficService {
 
     this.mapsLoadPromise = new Promise((resolve) => {
       // Se già caricato
-      if (typeof google !== 'undefined' && google.maps) {
+      if (typeof google !== 'undefined' && google.maps && google.maps.DistanceMatrixService) {
         this.initDistanceMatrixService();
         this.mapsLoaded = true;
         resolve();
         return;
       }
 
-      // Carica lo script
+      // Carica lo script con loading=async
       const script = document.createElement('script');
       script.src = `https://maps.googleapis.com/maps/api/js?key=${this.apiKey}&libraries=places&loading=async`;
       script.async = true;
       script.defer = true;
       
-      script.onload = () => {
-        this.initDistanceMatrixService();
-        this.mapsLoaded = true;
+      script.onload = async () => {
+        try {
+          await this.initDistanceMatrixService();
+          this.mapsLoaded = true;
+        } catch (error) {
+          console.error('Failed to initialize Google Maps libraries:', error);
+        }
         resolve();
       };
       
@@ -166,9 +170,18 @@ class TrafficService {
   /**
    * Inizializza il servizio Distance Matrix di Google Maps
    */
-  private initDistanceMatrixService() {
+  private async initDistanceMatrixService() {
     if (this.hasApiKey() && typeof google !== 'undefined' && google.maps) {
-      this.distanceMatrixService = new google.maps.DistanceMatrixService();
+      try {
+        // Con loading=async, DistanceMatrixService è nella libreria 'routes'
+        const { DistanceMatrixService } = await google.maps.importLibrary('routes') as google.maps.RoutesLibrary;
+        this.distanceMatrixService = new DistanceMatrixService();
+      } catch {
+        // Fallback per caricamento senza loading=async
+        if (google.maps.DistanceMatrixService) {
+          this.distanceMatrixService = new google.maps.DistanceMatrixService();
+        }
+      }
     }
   }
 
