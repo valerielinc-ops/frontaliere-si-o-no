@@ -10,7 +10,7 @@ import { calculateSimulation } from '@/services/calculationService';
 import { Analytics } from '@/services/analytics';
 import { DEFAULT_INPUTS } from '@/constants';
 import { SimulationInputs, SimulationResult } from '@/types';
-import { Moon, Sun, Maximize2, Minimize2, Calculator, HelpCircle, BarChart2, PiggyBank, BookOpen } from 'lucide-react';
+import { Moon, Sun, Maximize2, Minimize2, Calculator, HelpCircle, BarChart2, PiggyBank, BookOpen, Facebook } from 'lucide-react';
 
 const App: React.FC = () => {
   const [inputs, setInputs] = useState<SimulationInputs>(DEFAULT_INPUTS);
@@ -230,7 +230,20 @@ const App: React.FC = () => {
         </main>
         
         <footer className="border-t border-slate-200/60 dark:border-slate-800 bg-white/50 dark:bg-slate-900/50 backdrop-blur-sm py-8 mt-auto relative z-10">
-          <div className="max-w-7xl mx-auto px-4 text-center text-slate-500 dark:text-slate-400 text-sm">
+          <div className="max-w-7xl mx-auto px-4 text-center text-slate-500 dark:text-slate-400 text-sm space-y-4">
+            <div className="flex items-center justify-center gap-2">
+              <span className="text-slate-600 dark:text-slate-300 font-medium">Seguici sui social</span>
+              <a 
+                href="https://www.facebook.com/profile.php?id=61588174947294" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-all duration-200 shadow-sm hover:shadow-md transform hover:scale-105"
+                aria-label="Seguici su Facebook"
+              >
+                <Facebook className="w-5 h-5" />
+                <span className="font-medium">Facebook</span>
+              </a>
+            </div>
             <p className="font-medium">© 2026 Frontaliere Si o No? <span className="text-slate-300 dark:text-slate-600 mx-2">|</span> Simulatore a scopo puramente indicativo.</p>
           </div>
         </footer>
