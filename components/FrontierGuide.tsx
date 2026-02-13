@@ -341,7 +341,7 @@ const FrontierGuide: React.FC = () => {
           </div>
 
           {/* Lista Comuni */}
-          <div className="grid gap-4">
+          <div className="grid md:grid-cols-2 gap-4">
             {filteredMunicipalities.map((m, idx) => (
               <div key={idx} className={`bg-gradient-to-br ${m.type === 'new' ? 'from-blue-50 to-indigo-50 dark:from-blue-950/30 dark:to-indigo-950/30 border-blue-200 dark:border-blue-800' : 'from-orange-50 to-red-50 dark:from-orange-950/30 dark:to-red-950/30 border-orange-200 dark:border-orange-800'} rounded-2xl border-2 p-5 hover:shadow-lg transition-all`}>
                 <div className="flex items-start justify-between gap-4">
