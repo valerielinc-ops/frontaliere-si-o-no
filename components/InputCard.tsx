@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Wand2, Castle, Bandage, PiggyBank, CalendarClock, Joystick, Plus, Minus, ChevronDown, ChevronUp, Check, TrainFront, Coins, Receipt, Car, Home, User, Heart, Briefcase, Ruler, Baby, Users, Sliders, Calculator, PersonStanding, RotateCcw, Settings2, RefreshCw, X, Zap, Wifi, ShoppingBasket, Bus, Fuel, Info, Smartphone, Droplet, Tv } from 'lucide-react';
 import { SimulationInputs, ExpenseItem } from '../types';
-import { DEFAULT_INPUTS, DEFAULT_TECH_PARAMS, PRESET_EXPENSES_CH, PRESET_EXPENSES_IT } from '../constants';
+import { DEFAULT_INPUTS, DEFAULT_TECH_PARAMS, PRESET_EXPENSES_CH, PRESET_EXPENSES_IT, calculateDynamicExpenses } from '../constants';
 
 interface Props {
   inputs: SimulationInputs;
@@ -206,7 +206,7 @@ export const InputCard: React.FC<Props> = ({ inputs, setInputs }) => {
   };
 
   const loadAllPresets = (target: 'CH' | 'IT') => {
-    const presets = target === 'CH' ? PRESET_EXPENSES_CH : PRESET_EXPENSES_IT;
+    const presets = calculateDynamicExpenses(inputs.familyMembers, target);
     const newExpenses: ExpenseItem[] = presets.map(preset => ({
       id: Math.random().toString(36).substr(2, 9),
       label: preset.label,
@@ -215,6 +215,10 @@ export const InputCard: React.FC<Props> = ({ inputs, setInputs }) => {
     }));
     setInputs(prev => ({ ...prev, [target === 'CH' ? 'expensesCH' : 'expensesIT']: newExpenses }));
     setShowPresets(null);
+  };
+
+  const resetExpenses = (target: 'CH' | 'IT') => {
+    setInputs(prev => ({ ...prev, [target === 'CH' ? 'expensesCH' : 'expensesIT']: [] }));
   };
 
   return (
@@ -372,14 +376,17 @@ export const InputCard: React.FC<Props> = ({ inputs, setInputs }) => {
              <div className="p-5 pt-0 space-y-6 animate-fade-in border-t border-slate-50 dark:border-slate-800/50 mt-2 pt-4">
                 {/* Switzerland Expenses */}
                 <div className="space-y-3">
-                   <div className="flex items-center justify-between">
+                   <div className="flex items-center justify-between gap-2">
                       <div className="flex items-center gap-2 text-[10px] font-bold text-blue-500 uppercase"><Home size={12}/> Vivere in CH</div>
-                      <div className="flex items-center gap-2">
+                      <div className="flex items-center gap-1.5">
+                        <button onClick={() => resetExpenses('CH')} className="p-1.5 rounded-lg bg-slate-100 dark:bg-slate-700 text-slate-500 dark:text-slate-400 hover:bg-red-100 dark:hover:bg-red-900/30 hover:text-red-600 transition-all text-[10px] font-bold uppercase flex items-center gap-1" title="Svuota tutto">
+                          <RotateCcw size={12}/>
+                        </button>
                         <button onClick={() => loadAllPresets('CH')} className="px-2 py-1.5 rounded-lg bg-gradient-to-r from-blue-600 to-indigo-600 text-white text-[10px] font-bold uppercase hover:from-blue-700 hover:to-indigo-700 transition-all shadow-sm hover:shadow-md flex items-center gap-1">
-                          <Home size={12}/> Precompila Tutto
+                          <Home size={12}/> Precompila
                         </button>
                         <button onClick={() => setShowPresets(showPresets === 'CH' ? null : 'CH')} className={`p-1.5 rounded-lg transition-colors flex items-center gap-1 text-[10px] font-bold uppercase ${showPresets === 'CH' ? 'bg-blue-100 text-blue-700' : 'bg-blue-50 dark:bg-blue-900/30 text-blue-600 hover:bg-blue-100'}`}>
-                          <Plus size={14}/> {showPresets === 'CH' ? 'Chiudi' : 'Aggiungi'}
+                          <Plus size={14}/>
                         </button>
                       </div>
                    </div>
@@ -410,8 +417,14 @@ export const InputCard: React.FC<Props> = ({ inputs, setInputs }) => {
                    <div className="space-y-2">
                      {inputs.expensesCH.map(exp => (
                         <div key={exp.id} className="flex gap-2 items-center group/exp animate-fade-in">
-                          <input type="text" value={exp.label} onChange={e => updateExpense('CH', exp.id, { label: e.target.value })} className="flex-1 min-w-0 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg px-2 py-2 text-[10px] font-bold outline-none focus:border-indigo-500 transition-colors" />
-                          <input type="number" value={exp.amount || ''} onChange={e => updateExpense('CH', exp.id, { amount: Number(e.target.value) })} placeholder="0" className="w-14 sm:w-16 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg px-1 sm:px-2 py-2 text-[10px] font-mono font-bold outline-none focus:border-indigo-500 text-right transition-colors" />
+                          <input 
+                            type="text" 
+                            value={exp.label} 
+                            onChange={e => updateExpense('CH', exp.id, { label: e.target.value })} 
+                            className="flex-1 min-w-0 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg px-2 py-2 text-[10px] font-bold outline-none focus:border-indigo-500 transition-colors truncate" 
+                            title={exp.label}
+                          />
+                          <input type="number" value={exp.amount || ''} onChange={e => updateExpense('CH', exp.id, { amount: Number(e.target.value) })} placeholder="0" className="w-16 sm:w-20 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg px-1 sm:px-2 py-2 text-[10px] font-mono font-bold outline-none focus:border-indigo-500 text-right transition-colors" />
                           <button onClick={() => updateExpense('CH', exp.id, { frequency: exp.frequency === 'MONTHLY' ? 'ANNUAL' : 'MONTHLY' })} className="px-1.5 sm:px-2 py-2 bg-slate-100 dark:bg-slate-800 rounded-lg text-[9px] font-bold uppercase text-slate-500 w-10 sm:w-12 text-center hover:bg-slate-200 transition-colors flex-shrink-0">{exp.frequency === 'MONTHLY' ? '/m' : '/a'}</button>
                           <button onClick={() => removeExpense('CH', exp.id)} className="p-1 sm:p-1.5 text-slate-300 hover:text-red-500 transition-colors flex-shrink-0"><X size={14}/></button>
                         </div>
@@ -422,14 +435,17 @@ export const InputCard: React.FC<Props> = ({ inputs, setInputs }) => {
                 
                 {/* Italy Expenses */}
                 <div className="space-y-3">
-                   <div className="flex items-center justify-between">
+                   <div className="flex items-center justify-between gap-2">
                       <div className="flex items-center gap-2 text-[10px] font-bold text-red-500 uppercase"><Car size={12}/> Vivere in IT</div>
-                      <div className="flex items-center gap-2">
+                      <div className="flex items-center gap-1.5">
+                        <button onClick={() => resetExpenses('IT')} className="p-1.5 rounded-lg bg-slate-100 dark:bg-slate-700 text-slate-500 dark:text-slate-400 hover:bg-red-100 dark:hover:bg-red-900/30 hover:text-red-600 transition-all text-[10px] font-bold uppercase flex items-center gap-1" title="Svuota tutto">
+                          <RotateCcw size={12}/>
+                        </button>
                         <button onClick={() => loadAllPresets('IT')} className="px-2 py-1.5 rounded-lg bg-gradient-to-r from-red-600 to-orange-600 text-white text-[10px] font-bold uppercase hover:from-red-700 hover:to-orange-700 transition-all shadow-sm hover:shadow-md flex items-center gap-1">
-                          <Home size={12}/> Precompila Tutto
+                          <Home size={12}/> Precompila
                         </button>
                         <button onClick={() => setShowPresets(showPresets === 'IT' ? null : 'IT')} className={`p-1.5 rounded-lg transition-colors flex items-center gap-1 text-[10px] font-bold uppercase ${showPresets === 'IT' ? 'bg-red-100 text-red-700' : 'bg-red-50 dark:bg-red-900/30 text-red-600 hover:bg-red-100'}`}>
-                          <Plus size={14}/> {showPresets === 'IT' ? 'Chiudi' : 'Aggiungi'}
+                          <Plus size={14}/>
                         </button>
                       </div>
                    </div>
@@ -460,8 +476,14 @@ export const InputCard: React.FC<Props> = ({ inputs, setInputs }) => {
                    <div className="space-y-2">
                      {inputs.expensesIT.map(exp => (
                         <div key={exp.id} className="flex gap-2 items-center group/exp animate-fade-in">
-                          <input type="text" value={exp.label} onChange={e => updateExpense('IT', exp.id, { label: e.target.value })} className="flex-1 min-w-0 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg px-2 py-2 text-[10px] font-bold outline-none focus:border-indigo-500 transition-colors" />
-                          <input type="number" value={exp.amount || ''} onChange={e => updateExpense('IT', exp.id, { amount: Number(e.target.value) })} placeholder="0" className="w-14 sm:w-16 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg px-1 sm:px-2 py-2 text-[10px] font-mono font-bold outline-none focus:border-indigo-500 text-right transition-colors" />
+                          <input 
+                            type="text" 
+                            value={exp.label} 
+                            onChange={e => updateExpense('IT', exp.id, { label: e.target.value })} 
+                            className="flex-1 min-w-0 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg px-2 py-2 text-[10px] font-bold outline-none focus:border-indigo-500 transition-colors truncate" 
+                            title={exp.label}
+                          />
+                          <input type="number" value={exp.amount || ''} onChange={e => updateExpense('IT', exp.id, { amount: Number(e.target.value) })} placeholder="0" className="w-16 sm:w-20 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg px-1 sm:px-2 py-2 text-[10px] font-mono font-bold outline-none focus:border-indigo-500 text-right transition-colors" />
                           <button onClick={() => updateExpense('IT', exp.id, { frequency: exp.frequency === 'MONTHLY' ? 'ANNUAL' : 'MONTHLY' })} className="px-1.5 sm:px-2 py-2 bg-slate-100 dark:bg-slate-800 rounded-lg text-[9px] font-bold uppercase text-slate-500 w-10 sm:w-12 text-center hover:bg-slate-200 transition-colors flex-shrink-0">{exp.frequency === 'MONTHLY' ? '/m' : '/a'}</button>
                           <button onClick={() => removeExpense('IT', exp.id)} className="p-1 sm:p-1.5 text-slate-300 hover:text-red-500 transition-colors flex-shrink-0"><X size={14}/></button>
                         </div>

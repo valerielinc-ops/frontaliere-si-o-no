@@ -21,10 +21,53 @@ export const DEFAULT_TECH_PARAMS = {
   itWorkDeduction: 1910,
 };
 
+// Funzione per calcolare spese in base al numero di componenti
+export const calculateDynamicExpenses = (familyMembers: number, target: 'CH' | 'IT') => {
+  // Coefficienti per scalare le spese in base ai componenti
+  const singleCoeff = 0.6; // Single person: 60% del base
+  const coupleCoeff = 0.85; // Couple (2): 85% del base
+  const familyCoeff = 1.0; // Family (3): 100% del base (default)
+  const largeFamilyCoeff = 1.25; // Large family (4+): 125% del base
+  
+  const getCoeff = () => {
+    if (familyMembers === 1) return singleCoeff;
+    if (familyMembers === 2) return coupleCoeff;
+    if (familyMembers === 3) return familyCoeff;
+    return largeFamilyCoeff;
+  };
+  
+  const coeff = getCoeff();
+  
+  if (target === 'CH') {
+    return [
+      { label: 'Affitto (varia per nucleo)', amount: Math.round(1450 * coeff), icon: 'Home' },
+      { label: 'Spesa Alimentare', amount: Math.round(500 * coeff), icon: 'ShoppingBasket' },
+      { label: 'Internet & TV (Billag)', amount: 110, icon: 'Tv' }, // TV obbligatoria inclusa
+      { label: 'Cellulare Swisscom', amount: familyMembers === 1 ? 45 : Math.round(45 * Math.min(familyMembers, 3) * 0.7), icon: 'Smartphone' },
+      { label: 'Elettricità & Riscaldamento', amount: Math.round(100 * coeff), icon: 'Zap' },
+      { label: 'Trasporti/Abbonamento TPL', amount: 80, icon: 'Bus' },
+      { label: 'Leasing/Rata Auto', amount: 400, icon: 'Car' },
+      { label: 'Tassa Rifiuti/Acqua', amount: Math.round(50 * coeff), icon: 'Droplet' },
+    ];
+  } else {
+    return [
+      { label: 'Affitto/Mutuo (varia per nucleo)', amount: Math.round(750 * coeff), icon: 'Home' },
+      { label: 'Spesa Alimentare', amount: Math.round(350 * coeff), icon: 'ShoppingBasket' },
+      { label: 'Internet Casa Fibra', amount: 30, icon: 'Wifi' },
+      { label: 'Cellulare (Tim/Vodafone)', amount: familyMembers === 1 ? 15 : Math.round(15 * Math.min(familyMembers, 3) * 0.8), icon: 'Smartphone' },
+      { label: 'Bollette Luce & Gas', amount: Math.round(120 * coeff), icon: 'Zap' },
+      { label: 'Benzina/Autostrada', amount: 150, icon: 'Fuel' },
+      { label: 'Rata Auto/Assicurazione', amount: 300, icon: 'Car' },
+      { label: 'Canone RAI', amount: 90, icon: 'Tv' },
+      { label: 'IMU/TARI (se proprietari)', amount: Math.round(100 * coeff), icon: 'Home' },
+    ];
+  }
+};
+
 export const PRESET_EXPENSES_CH = [
   { label: 'Affitto 2.5/3.5 Locali', amount: 1450, icon: 'Home' },
   { label: 'Spesa Alimentare', amount: 500, icon: 'ShoppingBasket' },
-  { label: 'Internet & TV Svizzera', amount: 80, icon: 'Wifi' },
+  { label: 'Internet & TV (Billag)', amount: 110, icon: 'Tv' },
   { label: 'Cellulare Swisscom', amount: 45, icon: 'Smartphone' },
   { label: 'Elettricità & Riscaldamento', amount: 100, icon: 'Zap' },
   { label: 'Trasporti/Abbonamento TPL', amount: 80, icon: 'Bus' },
