@@ -142,7 +142,7 @@ class TrafficService {
 
       // Carica lo script
       const script = document.createElement('script');
-      script.src = `https://maps.googleapis.com/maps/api/js?key=${this.apiKey}&libraries=places`;
+      script.src = `https://maps.googleapis.com/maps/api/js?key=${this.apiKey}&libraries=places&loading=async`;
       script.async = true;
       script.defer = true;
       
