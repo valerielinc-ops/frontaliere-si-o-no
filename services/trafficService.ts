@@ -134,24 +134,26 @@ class TrafficService {
     this.mapsLoadPromise = new Promise((resolve) => {
       // Se già caricato
       if (typeof google !== 'undefined' && google.maps && google.maps.DistanceMatrixService) {
-        this.initDistanceMatrixService();
+        this.distanceMatrixService = new google.maps.DistanceMatrixService();
         this.mapsLoaded = true;
         resolve();
         return;
       }
 
-      // Carica lo script con loading=async
       const script = document.createElement('script');
-      script.src = `https://maps.googleapis.com/maps/api/js?key=${this.apiKey}&libraries=places&loading=async`;
+      script.src = `https://maps.googleapis.com/maps/api/js?key=${this.apiKey}&libraries=routes`;
       script.async = true;
       script.defer = true;
       
-      script.onload = async () => {
+      script.onload = () => {
         try {
-          await this.initDistanceMatrixService();
+          if (typeof google !== 'undefined' && google.maps && google.maps.DistanceMatrixService) {
+            this.distanceMatrixService = new google.maps.DistanceMatrixService();
+            console.log('✅ Google Maps DistanceMatrixService initialized');
+          }
           this.mapsLoaded = true;
         } catch (error) {
-          console.error('Failed to initialize Google Maps libraries:', error);
+          console.error('Failed to initialize Google Maps:', error);
         }
         resolve();
       };
@@ -165,24 +167,6 @@ class TrafficService {
     });
 
     return this.mapsLoadPromise;
-  }
-
-  /**
-   * Inizializza il servizio Distance Matrix di Google Maps
-   */
-  private async initDistanceMatrixService() {
-    if (this.hasApiKey() && typeof google !== 'undefined' && google.maps) {
-      try {
-        // Con loading=async, DistanceMatrixService è nella libreria 'routes'
-        const { DistanceMatrixService } = await google.maps.importLibrary('routes') as google.maps.RoutesLibrary;
-        this.distanceMatrixService = new DistanceMatrixService();
-      } catch {
-        // Fallback per caricamento senza loading=async
-        if (google.maps.DistanceMatrixService) {
-          this.distanceMatrixService = new google.maps.DistanceMatrixService();
-        }
-      }
-    }
   }
 
   /**
@@ -261,7 +245,7 @@ class TrafficService {
       const origin = new google.maps.LatLng(crossing.lat, crossing.lng);
       const destination = new google.maps.LatLng(crossing.checkpointLat, crossing.checkpointLng);
       
-      // Chiamata al Distance Matrix Service (risolve CORS)
+      // Chiamata al Distance Matrix Service
       const result = await new Promise<google.maps.DistanceMatrixResponse>((resolve, reject) => {
         this.distanceMatrixService!.getDistanceMatrix(
           {
@@ -269,13 +253,13 @@ class TrafficService {
             destinations: [destination],
             travelMode: google.maps.TravelMode.DRIVING,
             drivingOptions: {
-              departureTime: new Date(), // Usa orario corrente per traffico real-time
+              departureTime: new Date(),
               trafficModel: google.maps.TrafficModel.BEST_GUESS
             },
             unitSystem: google.maps.UnitSystem.METRIC
           },
           (response, status) => {
-            if (status === google.maps.DistanceMatrixStatus.OK && response) {
+            if (status === 'OK' && response) {
               resolve(response);
             } else {
               reject(new Error(`Distance Matrix API error: ${status}`));
@@ -286,7 +270,7 @@ class TrafficService {
       
       const element = result.rows[0]?.elements[0];
       
-      if (!element || element.status !== google.maps.DistanceMatrixElementStatus.OK) {
+      if (!element || element.status !== 'OK') {
         throw new Error(`Route error: ${element?.status || 'NO_DATA'}`);
       }
       
