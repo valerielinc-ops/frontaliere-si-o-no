@@ -12,6 +12,7 @@ interface MobileOperator {
   roamingInSwitzerland?: {
     included: boolean;
     costPerDay?: number;
+    monthlyFee?: number; // Fixed monthly cost for roaming
     costPerMB?: number;
     costPerMinute?: number;
     dataLimit?: number; // GB included in roaming
@@ -20,6 +21,7 @@ interface MobileOperator {
   roamingInItaly?: {
     included: boolean;
     costPerDay?: number;
+    monthlyFee?: number; // Fixed monthly cost for roaming
     costPerMB?: number;
     costPerMinute?: number;
     dataLimit?: number;
@@ -43,9 +45,10 @@ const operators: MobileOperator[] = [
     minutes: 'illimitati',
     sms: 'illimitati',
     roamingInSwitzerland: {
-      included: true,
-      dataLimit: 13,
-      notes: 'Roaming UE+Svizzera incluso: 13 GB + 5GB on top mensili, minuti/SMS illimitati (fair use)'
+      included: false,
+      monthlyFee: 5,
+      dataLimit: 5,
+      notes: 'Roaming Svizzera: +5€/mese per 5GB extra (oltre i 13GB UE inclusi)'
     },
     setupCost: 9.99,
     contractType: 'prepagato',
@@ -295,14 +298,28 @@ const MobileOperators: React.FC = () => {
   const calculateRealMonthlyCost = (operator: MobileOperator): number => {
     let totalCost = operator.monthlyCost;
     
-    // Se è un operatore italiano e il roaming in CH non è incluso, aggiungi il costo del pass giornaliero
-    if (operator.country === 'IT' && operator.roamingInSwitzerland?.costPerDay) {
-      totalCost += operator.roamingInSwitzerland.costPerDay * WORKING_DAYS_PER_MONTH;
+    // Se è un operatore italiano e il roaming in CH non è incluso, aggiungi i costi extra
+    if (operator.country === 'IT' && !operator.roamingInSwitzerland?.included) {
+      // Costi giornalieri (es. pass giornalieri)
+      if (operator.roamingInSwitzerland?.costPerDay) {
+        totalCost += operator.roamingInSwitzerland.costPerDay * WORKING_DAYS_PER_MONTH;
+      }
+      // Costi mensili fissi (es. Iliad 5€/mese)
+      if (operator.roamingInSwitzerland?.monthlyFee) {
+        totalCost += operator.roamingInSwitzerland.monthlyFee;
+      }
     }
     
-    // Se è un operatore svizzero e il roaming in IT non è incluso, aggiungi il costo del pass giornaliero
-    if (operator.country === 'CH' && operator.roamingInItaly?.costPerDay) {
-      totalCost += operator.roamingInItaly.costPerDay * WORKING_DAYS_PER_MONTH;
+    // Se è un operatore svizzero e il roaming in IT non è incluso, aggiungi i costi extra
+    if (operator.country === 'CH' && !operator.roamingInItaly?.included) {
+      // Costi giornalieri
+      if (operator.roamingInItaly?.costPerDay) {
+        totalCost += operator.roamingInItaly.costPerDay * WORKING_DAYS_PER_MONTH;
+      }
+      // Costi mensili fissi
+      if (operator.roamingInItaly?.monthlyFee) {
+        totalCost += operator.roamingInItaly.monthlyFee;
+      }
     }
     
     return totalCost;
@@ -523,6 +540,12 @@ const MobileOperators: React.FC = () => {
                         <span className="font-medium">+ {(roaming.costPerDay * WORKING_DAYS_PER_MONTH).toFixed(2)}{operator.country === 'IT' ? '€' : 'CHF'}</span>
                       </div>
                     )}
+                    {roaming?.monthlyFee && (
+                      <div className="flex justify-between">
+                        <span>Costo fisso roaming:</span>
+                        <span className="font-medium">+ {roaming.monthlyFee.toFixed(2)}{operator.country === 'IT' ? '€' : 'CHF'}</span>
+                      </div>
+                    )}
                     <div className="flex justify-between border-t border-amber-300 dark:border-amber-700 pt-1 mt-1">
                       <span className="font-bold">Totale mensile:</span>
                       <span className="font-bold">{operator.country === 'IT' ? '€' : 'CHF'} {realMonthlyCost.toFixed(2)}</span>
@@ -576,6 +599,11 @@ const MobileOperators: React.FC = () => {
                     {roaming?.costPerDay && (
                       <p className="text-xs font-bold text-red-600 dark:text-red-400 mt-1">
                         ⚠️ Pass obbligatorio: +{(roaming.costPerDay * WORKING_DAYS_PER_MONTH).toFixed(2)}{operator.country === 'IT' ? '€' : 'CHF'}/mese ({roaming.costPerDay}{operator.country === 'IT' ? '€' : 'CHF'}/giorno × {WORKING_DAYS_PER_MONTH} giorni lavorativi)
+                      </p>
+                    )}
+                    {roaming?.monthlyFee && (
+                      <p className="text-xs font-bold text-red-600 dark:text-red-400 mt-1">
+                        ⚠️ Costo fisso: +{roaming.monthlyFee.toFixed(2)}{operator.country === 'IT' ? '€' : 'CHF'}/mese
                       </p>
                     )}
                   </div>
