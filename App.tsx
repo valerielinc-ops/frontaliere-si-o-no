@@ -7,6 +7,10 @@ import PensionPlanner from '@/components/PensionPlanner';
 import FrontierGuide from '@/components/FrontierGuide';
 import CurrencyExchange from '@/components/CurrencyExchange';
 import MobileOperators from '@/components/MobileOperators';
+import TransportCalculator from '@/components/TransportCalculator';
+import HealthInsurance from '@/components/HealthInsurance';
+import BankComparison from '@/components/BankComparison';
+import TrafficAlerts from '@/components/TrafficAlerts';
 import { PrivacyPolicy } from '@/components/PrivacyPolicy';
 import { DataDeletion } from '@/components/DataDeletion';
 import { ErrorBoundary } from '@/components/ErrorBoundary';
@@ -14,14 +18,15 @@ import { calculateSimulation } from '@/services/calculationService';
 import { Analytics } from '@/services/analytics';
 import { DEFAULT_INPUTS } from '@/constants';
 import { SimulationInputs, SimulationResult } from '@/types';
-import { Moon, Sun, Maximize2, Minimize2, Calculator, HelpCircle, BarChart2, PiggyBank, BookOpen, Facebook, ArrowRightLeft, Phone } from 'lucide-react';
+import { Moon, Sun, Maximize2, Minimize2, Calculator, HelpCircle, BarChart2, PiggyBank, BookOpen, Facebook, ArrowRightLeft, Phone, Car, Heart, Building2, AlertTriangle, Layers } from 'lucide-react';
 
 const App: React.FC = () => {
   const [inputs, setInputs] = useState<SimulationInputs>(DEFAULT_INPUTS);
   const [result, setResult] = useState<SimulationResult | null>(null);
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [isFocusMode, setIsFocusMode] = useState(false);
-  const [activeTab, setActiveTab] = useState<'calculator' | 'feedback' | 'stats' | 'pension' | 'guide' | 'exchange' | 'mobile' | 'privacy' | 'data-deletion'>('calculator');
+  const [activeTab, setActiveTab] = useState<'calculator' | 'feedback' | 'stats' | 'pension' | 'guide' | 'comparatori' | 'privacy' | 'data-deletion'>('calculator');
+  const [comparatoriSubTab, setComparatoriSubTab] = useState<'exchange' | 'mobile' | 'transport' | 'health' | 'banks' | 'traffic'>('exchange');
 
   // Initialize theme and Analytics
   useEffect(() => {
@@ -53,7 +58,7 @@ const App: React.FC = () => {
     }
   };
 
-  const handleTabChange = (tab: 'calculator' | 'feedback' | 'stats' | 'pension' | 'guide' | 'exchange' | 'mobile') => {
+  const handleTabChange = (tab: 'calculator' | 'feedback' | 'stats' | 'pension' | 'guide' | 'comparatori') => {
     const previousTab = activeTab;
     setActiveTab(tab);
     Analytics.trackTabNavigation(previousTab, tab);
@@ -155,23 +160,12 @@ const App: React.FC = () => {
                 </button>
 
                 <button 
-                  onClick={() => handleTabChange('exchange')}
-                  className={`relative px-3 py-2 text-sm font-bold transition-colors flex items-center gap-2 group ${activeTab === 'exchange' ? 'text-teal-600 dark:text-teal-400' : 'text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200'}`}
+                  onClick={() => handleTabChange('comparatori')}
+                  className={`relative px-3 py-2 text-sm font-bold transition-colors flex items-center gap-2 group ${activeTab === 'comparatori' ? 'text-violet-600 dark:text-violet-400' : 'text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200'}`}
                 >
-                  <ArrowRightLeft size={16} />
-                  <span className="hidden lg:inline">Cambio</span>
-                  {activeTab === 'exchange' && (
-                    <span className="absolute bottom-0 left-0 w-full h-0.5 bg-teal-600 dark:bg-teal-400 rounded-full animate-fade-in" />
-                  )}
-                </button>
-
-                <button 
-                  onClick={() => handleTabChange('mobile')}
-                  className={`relative px-3 py-2 text-sm font-bold transition-colors flex items-center gap-2 group ${activeTab === 'mobile' ? 'text-violet-600 dark:text-violet-400' : 'text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200'}`}
-                >
-                  <Phone size={16} />
-                  <span className="hidden lg:inline">Telefonia</span>
-                  {activeTab === 'mobile' && (
+                  <Layers size={16} />
+                  <span className="hidden lg:inline">Comparatori</span>
+                  {activeTab === 'comparatori' && (
                     <span className="absolute bottom-0 left-0 w-full h-0.5 bg-violet-600 dark:bg-violet-400 rounded-full animate-fade-in" />
                   )}
                 </button>
@@ -226,6 +220,58 @@ const App: React.FC = () => {
           </div>
         </nav>
 
+        {/* Sub-navigation for Comparatori */}
+        {activeTab === 'comparatori' && (
+          <div className="border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="flex gap-2 py-3 overflow-x-auto">
+                <button
+                  onClick={() => setComparatoriSubTab('exchange')}
+                  className={`px-4 py-2 text-sm font-medium rounded-lg whitespace-nowrap transition-colors flex items-center gap-2 ${comparatoriSubTab === 'exchange' ? 'bg-violet-100 dark:bg-violet-900/30 text-violet-700 dark:text-violet-300' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800'}`}
+                >
+                  <ArrowRightLeft size={16} />
+                  Cambio Valuta
+                </button>
+                <button
+                  onClick={() => setComparatoriSubTab('mobile')}
+                  className={`px-4 py-2 text-sm font-medium rounded-lg whitespace-nowrap transition-colors flex items-center gap-2 ${comparatoriSubTab === 'mobile' ? 'bg-violet-100 dark:bg-violet-900/30 text-violet-700 dark:text-violet-300' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800'}`}
+                >
+                  <Phone size={16} />
+                  Telefonia Mobile
+                </button>
+                <button
+                  onClick={() => setComparatoriSubTab('transport')}
+                  className={`px-4 py-2 text-sm font-medium rounded-lg whitespace-nowrap transition-colors flex items-center gap-2 ${comparatoriSubTab === 'transport' ? 'bg-violet-100 dark:bg-violet-900/30 text-violet-700 dark:text-violet-300' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800'}`}
+                >
+                  <Car size={16} />
+                  Costi Trasporto
+                </button>
+                <button
+                  onClick={() => setComparatoriSubTab('health')}
+                  className={`px-4 py-2 text-sm font-medium rounded-lg whitespace-nowrap transition-colors flex items-center gap-2 ${comparatoriSubTab === 'health' ? 'bg-violet-100 dark:bg-violet-900/30 text-violet-700 dark:text-violet-300' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800'}`}
+                >
+                  <Heart size={16} />
+                  Assicurazione Sanitaria
+                </button>
+                <button
+                  onClick={() => setComparatoriSubTab('banks')}
+                  className={`px-4 py-2 text-sm font-medium rounded-lg whitespace-nowrap transition-colors flex items-center gap-2 ${comparatoriSubTab === 'banks' ? 'bg-violet-100 dark:bg-violet-900/30 text-violet-700 dark:text-violet-300' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800'}`}
+                >
+                  <Building2 size={16} />
+                  Conti Correnti
+                </button>
+                <button
+                  onClick={() => setComparatoriSubTab('traffic')}
+                  className={`px-4 py-2 text-sm font-medium rounded-lg whitespace-nowrap transition-colors flex items-center gap-2 ${comparatoriSubTab === 'traffic' ? 'bg-violet-100 dark:bg-violet-900/30 text-violet-700 dark:text-violet-300' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800'}`}
+                >
+                  <AlertTriangle size={16} />
+                  Traffico Valichi
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
+
         {/* Main Content */}
         <main className="flex-grow max-w-[1800px] w-[95%] mx-auto px-2 sm:px-4 py-6 transition-all duration-500 relative z-10">
           {activeTab === 'calculator' ? (
@@ -250,13 +296,21 @@ const App: React.FC = () => {
             <div className="max-w-7xl mx-auto animate-fade-in">
               <PensionPlanner />
             </div>
-          ) : activeTab === 'exchange' ? (
+          ) : activeTab === 'comparatori' ? (
             <div className="max-w-7xl mx-auto animate-fade-in">
-              <CurrencyExchange />
-            </div>
-          ) : activeTab === 'mobile' ? (
-            <div className="max-w-7xl mx-auto animate-fade-in">
-              <MobileOperators />
+              {comparatoriSubTab === 'exchange' ? (
+                <CurrencyExchange />
+              ) : comparatoriSubTab === 'mobile' ? (
+                <MobileOperators />
+              ) : comparatoriSubTab === 'transport' ? (
+                <TransportCalculator />
+              ) : comparatoriSubTab === 'health' ? (
+                <HealthInsurance />
+              ) : comparatoriSubTab === 'banks' ? (
+                <BankComparison />
+              ) : (
+                <TrafficAlerts />
+              )}
             </div>
           ) : activeTab === 'stats' ? (
             <div className="max-w-5xl mx-auto">

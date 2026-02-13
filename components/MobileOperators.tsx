@@ -51,7 +51,7 @@ const operators: MobileOperator[] = [
     contractType: 'prepagato',
     color: 'from-red-500 to-orange-600',
     features: ['13 GB roaming CH incluso', 'Minuti/SMS illimitati', 'Migliore per frontalieri'],
-    website: 'https://www.iliad.it'
+    website: 'https://www.iliad.it/offerta-iliad-giga-250.html'
   },
   {
     name: 'ho. Mobile',
@@ -70,7 +70,7 @@ const operators: MobileOperator[] = [
     contractType: 'prepagato',
     color: 'from-green-500 to-emerald-600',
     features: ['Rete Vodafone', 'Nessun costo attivazione', 'Roaming CH a pagamento'],
-    website: 'https://www.ho-mobile.it'
+    website: 'https://www.ho-mobile.it/offerte-mobile.html'
   },
   {
     name: 'Vodafone',
@@ -89,7 +89,7 @@ const operators: MobileOperator[] = [
     contractType: 'prepagato',
     color: 'from-red-600 to-rose-700',
     features: ['Rete proprietaria', 'Travel World a pagamento', 'Costoso per frontalieri'],
-    website: 'https://www.vodafone.it'
+    website: 'https://www.vodafone.it/portale/Privati/Tariffe-e-Prodotti/Tariffe/Silver'
   },
   {
     name: 'TIM',
@@ -108,7 +108,7 @@ const operators: MobileOperator[] = [
     contractType: 'abbonamento',
     color: 'from-blue-600 to-indigo-700',
     features: ['Rete proprietaria', 'Costi attivazione alti', 'Roaming Extra UE costoso'],
-    website: 'https://www.tim.it'
+    website: 'https://www.tim.it/offerte/mobile'
   },
   {
     name: 'WindTre Call Your Country',
@@ -127,7 +127,7 @@ const operators: MobileOperator[] = [
     contractType: 'abbonamento',
     color: 'from-orange-600 to-amber-700',
     features: ['8 GB roaming CH incluso', 'Minuti verso CH inclusi', 'Buona opzione frontalieri'],
-    website: 'https://www.windtre.it'
+    website: 'https://www.windtre.it/offerte-mobile/call-your-country/'
   },
   {
     name: 'Very Mobile',
@@ -147,7 +147,7 @@ const operators: MobileOperator[] = [
     contractType: 'prepagato',
     color: 'from-purple-600 to-pink-700',
     features: ['Economico in Italia', 'Rete WindTre', 'Roaming molto costoso'],
-    website: 'https://www.verymobile.it'
+    website: 'https://www.verymobile.it/offerte-mobile'
   },
   {
     name: 'Fastweb Mobile',
@@ -166,7 +166,7 @@ const operators: MobileOperator[] = [
     contractType: 'prepagato',
     color: 'from-yellow-600 to-orange-700',
     features: ['11 GB roaming CH incluso', 'Rete WindTre', 'Ottimo rapporto qualità/prezzo'],
-    website: 'https://www.fastweb.it/mobile'
+    website: 'https://www.fastweb.it/mobile/offerte-mobile/'
   },
 
   // Swiss Operators
