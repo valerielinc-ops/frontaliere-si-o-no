@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Wand2, Castle, Bandage, PiggyBank, CalendarClock, Joystick, Plus, Minus, ChevronDown, ChevronUp, Check, TrainFront, Coins, Receipt, Car, Home, User, Heart, Briefcase, Ruler, Baby, Users, Sliders, Calculator, PersonStanding, RotateCcw, Settings2, RefreshCw, X, Zap, Wifi, ShoppingBasket, Bus, Fuel, Info } from 'lucide-react';
+import { Wand2, Castle, Bandage, PiggyBank, CalendarClock, Joystick, Plus, Minus, ChevronDown, ChevronUp, Check, TrainFront, Coins, Receipt, Car, Home, User, Heart, Briefcase, Ruler, Baby, Users, Sliders, Calculator, PersonStanding, RotateCcw, Settings2, RefreshCw, X, Zap, Wifi, ShoppingBasket, Bus, Fuel, Info, Smartphone, Droplet, Tv } from 'lucide-react';
 import { SimulationInputs, ExpenseItem } from '../types';
 import { DEFAULT_INPUTS, DEFAULT_TECH_PARAMS, PRESET_EXPENSES_CH, PRESET_EXPENSES_IT } from '../constants';
 
@@ -12,7 +12,7 @@ interface Props {
 
 // --- Icons Map for Dynamic Rendering ---
 const IconsMap: Record<string, any> = {
-  Home, ShoppingBasket, Wifi, Zap, Bus, Car, Fuel
+  Home, ShoppingBasket, Wifi, Zap, Bus, Car, Fuel, Smartphone, Droplet, Tv
 };
 
 // --- Reusable Components ---
@@ -205,6 +205,18 @@ export const InputCard: React.FC<Props> = ({ inputs, setInputs }) => {
     setInputs(prev => ({ ...prev, [target === 'CH' ? 'expensesCH' : 'expensesIT']: prev[target === 'CH' ? 'expensesCH' : 'expensesIT'].filter(e => e.id !== id) }));
   };
 
+  const loadAllPresets = (target: 'CH' | 'IT') => {
+    const presets = target === 'CH' ? PRESET_EXPENSES_CH : PRESET_EXPENSES_IT;
+    const newExpenses: ExpenseItem[] = presets.map(preset => ({
+      id: Math.random().toString(36).substr(2, 9),
+      label: preset.label,
+      amount: preset.amount,
+      frequency: 'MONTHLY'
+    }));
+    setInputs(prev => ({ ...prev, [target === 'CH' ? 'expensesCH' : 'expensesIT']: newExpenses }));
+    setShowPresets(null);
+  };
+
   return (
     <div className="bg-white/90 dark:bg-slate-900/90 backdrop-blur-xl rounded-[2rem] shadow-xl border border-white/60 dark:border-slate-800 h-full flex flex-col overflow-hidden transition-all duration-300">
       {/* Header */}
@@ -362,9 +374,14 @@ export const InputCard: React.FC<Props> = ({ inputs, setInputs }) => {
                 <div className="space-y-3">
                    <div className="flex items-center justify-between">
                       <div className="flex items-center gap-2 text-[10px] font-bold text-blue-500 uppercase"><Home size={12}/> Vivere in CH</div>
-                      <button onClick={() => setShowPresets(showPresets === 'CH' ? null : 'CH')} className={`p-1.5 rounded-lg transition-colors flex items-center gap-1 text-[10px] font-bold uppercase ${showPresets === 'CH' ? 'bg-blue-100 text-blue-700' : 'bg-blue-50 dark:bg-blue-900/30 text-blue-600 hover:bg-blue-100'}`}>
-                         <Plus size={14}/> {showPresets === 'CH' ? 'Chiudi' : 'Aggiungi'}
-                      </button>
+                      <div className="flex items-center gap-2">
+                        <button onClick={() => loadAllPresets('CH')} className="px-2 py-1.5 rounded-lg bg-gradient-to-r from-blue-600 to-indigo-600 text-white text-[10px] font-bold uppercase hover:from-blue-700 hover:to-indigo-700 transition-all shadow-sm hover:shadow-md flex items-center gap-1">
+                          <Home size={12}/> Precompila Tutto
+                        </button>
+                        <button onClick={() => setShowPresets(showPresets === 'CH' ? null : 'CH')} className={`p-1.5 rounded-lg transition-colors flex items-center gap-1 text-[10px] font-bold uppercase ${showPresets === 'CH' ? 'bg-blue-100 text-blue-700' : 'bg-blue-50 dark:bg-blue-900/30 text-blue-600 hover:bg-blue-100'}`}>
+                          <Plus size={14}/> {showPresets === 'CH' ? 'Chiudi' : 'Aggiungi'}
+                        </button>
+                      </div>
                    </div>
                    
                    {/* Smart Presets Area for CH */}
@@ -407,9 +424,14 @@ export const InputCard: React.FC<Props> = ({ inputs, setInputs }) => {
                 <div className="space-y-3">
                    <div className="flex items-center justify-between">
                       <div className="flex items-center gap-2 text-[10px] font-bold text-red-500 uppercase"><Car size={12}/> Vivere in IT</div>
-                      <button onClick={() => setShowPresets(showPresets === 'IT' ? null : 'IT')} className={`p-1.5 rounded-lg transition-colors flex items-center gap-1 text-[10px] font-bold uppercase ${showPresets === 'IT' ? 'bg-red-100 text-red-700' : 'bg-red-50 dark:bg-red-900/30 text-red-600 hover:bg-red-100'}`}>
-                         <Plus size={14}/> {showPresets === 'IT' ? 'Chiudi' : 'Aggiungi'}
-                      </button>
+                      <div className="flex items-center gap-2">
+                        <button onClick={() => loadAllPresets('IT')} className="px-2 py-1.5 rounded-lg bg-gradient-to-r from-red-600 to-orange-600 text-white text-[10px] font-bold uppercase hover:from-red-700 hover:to-orange-700 transition-all shadow-sm hover:shadow-md flex items-center gap-1">
+                          <Home size={12}/> Precompila Tutto
+                        </button>
+                        <button onClick={() => setShowPresets(showPresets === 'IT' ? null : 'IT')} className={`p-1.5 rounded-lg transition-colors flex items-center gap-1 text-[10px] font-bold uppercase ${showPresets === 'IT' ? 'bg-red-100 text-red-700' : 'bg-red-50 dark:bg-red-900/30 text-red-600 hover:bg-red-100'}`}>
+                          <Plus size={14}/> {showPresets === 'IT' ? 'Chiudi' : 'Aggiungi'}
+                        </button>
+                      </div>
                    </div>
 
                     {/* Smart Presets Area for IT */}

@@ -24,19 +24,24 @@ export const DEFAULT_TECH_PARAMS = {
 export const PRESET_EXPENSES_CH = [
   { label: 'Affitto 2.5/3.5 Locali', amount: 1450, icon: 'Home' },
   { label: 'Spesa Alimentare', amount: 500, icon: 'ShoppingBasket' },
-  { label: 'Internet & TV', amount: 80, icon: 'Wifi' },
-  { label: 'Elettricità', amount: 50, icon: 'Zap' },
-  { label: 'Trasporti/Abbonamento', amount: 80, icon: 'Bus' },
-  { label: 'Leasing Auto', amount: 400, icon: 'Car' },
+  { label: 'Internet & TV Svizzera', amount: 80, icon: 'Wifi' },
+  { label: 'Cellulare Swisscom', amount: 45, icon: 'Smartphone' },
+  { label: 'Elettricità & Riscaldamento', amount: 100, icon: 'Zap' },
+  { label: 'Trasporti/Abbonamento TPL', amount: 80, icon: 'Bus' },
+  { label: 'Leasing/Rata Auto', amount: 400, icon: 'Car' },
+  { label: 'Tassa Rifiuti/Acqua', amount: 50, icon: 'Droplet' },
 ];
 
 export const PRESET_EXPENSES_IT = [
   { label: 'Affitto/Mutuo', amount: 750, icon: 'Home' },
   { label: 'Spesa Alimentare', amount: 350, icon: 'ShoppingBasket' },
-  { label: 'Internet Casa', amount: 30, icon: 'Wifi' },
-  { label: 'Bollette Luce/Gas', amount: 120, icon: 'Zap' },
-  { label: 'Benzina/Trasporti', amount: 150, icon: 'Fuel' },
-  { label: 'Rata Auto', amount: 300, icon: 'Car' },
+  { label: 'Internet Casa Fibra', amount: 30, icon: 'Wifi' },
+  { label: 'Cellulare (Tim/Vodafone)', amount: 15, icon: 'Smartphone' },
+  { label: 'Bollette Luce & Gas', amount: 120, icon: 'Zap' },
+  { label: 'Benzina/Autostrada', amount: 150, icon: 'Fuel' },
+  { label: 'Rata Auto/Assicurazione', amount: 300, icon: 'Car' },
+  { label: 'Canone RAI', amount: 90, icon: 'Tv' },
+  { label: 'IMU/TARI (se proprietari)', amount: 100, icon: 'Home' },
 ];
 
 export const DEFAULT_INPUTS = {
