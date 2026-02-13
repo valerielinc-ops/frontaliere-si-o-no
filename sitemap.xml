@@ -1,9 +1,119 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-   <url>
-      <loc>https://frontaliereticino.ch/</loc>
-      <lastmod>2026-01-01</lastmod>
-      <changefreq>weekly</changefreq>
-      <priority>1.0</priority>
-   </url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+
+  <!-- Homepage / Simulatore -->
+  <url>
+    <loc>https://www.frontaliereticino.ch/</loc>
+    <lastmod>2026-02-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- Comparatori Servizi -->
+  <url>
+    <loc>https://www.frontaliereticino.ch/comparatori</loc>
+    <lastmod>2026-02-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Cambio Valuta -->
+  <url>
+    <loc>https://www.frontaliereticino.ch/comparatori/cambio-valuta</loc>
+    <lastmod>2026-02-13</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Operatori Mobili -->
+  <url>
+    <loc>https://www.frontaliereticino.ch/comparatori/operatori-mobili</loc>
+    <lastmod>2026-02-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Trasporti -->
+  <url>
+    <loc>https://www.frontaliereticino.ch/comparatori/trasporti</loc>
+    <lastmod>2026-02-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Assicurazioni Sanitarie -->
+  <url>
+    <loc>https://www.frontaliereticino.ch/comparatori/assicurazioni-sanitarie</loc>
+    <lastmod>2026-02-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Banche -->
+  <url>
+    <loc>https://www.frontaliereticino.ch/comparatori/banche</loc>
+    <lastmod>2026-02-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Traffico Valichi -->
+  <url>
+    <loc>https://www.frontaliereticino.ch/comparatori/traffico-valichi</loc>
+    <lastmod>2026-02-13</lastmod>
+    <changefreq>hourly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Pianificatore Pensione -->
+  <url>
+    <loc>https://www.frontaliereticino.ch/pianificatore-pensione</loc>
+    <lastmod>2026-02-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Guida Frontalieri -->
+  <url>
+    <loc>https://www.frontaliereticino.ch/guida-frontalieri</loc>
+    <lastmod>2026-02-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Statistiche -->
+  <url>
+    <loc>https://www.frontaliereticino.ch/statistiche</loc>
+    <lastmod>2026-02-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- Supporto -->
+  <url>
+    <loc>https://www.frontaliereticino.ch/supporto</loc>
+    <lastmod>2026-02-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <!-- Privacy Policy -->
+  <url>
+    <loc>https://www.frontaliereticino.ch/privacy</loc>
+    <lastmod>2026-02-13</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+  <!-- Data Deletion -->
+  <url>
+    <loc>https://www.frontaliereticino.ch/data-deletion</loc>
+    <lastmod>2026-02-13</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
 </urlset>
