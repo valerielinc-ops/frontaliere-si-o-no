@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { AlertTriangle, MapPin, Clock, Car, TrendingUp, RefreshCw, Navigation, Key, CheckCircle2 } from 'lucide-react';
+import { AlertTriangle, MapPin, Clock, Car, TrendingUp, RefreshCw, Navigation, CheckCircle2 } from 'lucide-react';
 import { trafficService, type TrafficData } from '../services/trafficService';
 
 interface BorderCrossing {
@@ -27,8 +27,6 @@ const TrafficAlerts: React.FC = () => {
   const [trafficData, setTrafficData] = useState<TrafficData[]>([]);
   const [loading, setLoading] = useState(false);
   const [lastRefresh, setLastRefresh] = useState<Date>(new Date());
-  const [apiKey, setApiKey] = useState<string>('');
-  const [showApiKeyInput, setShowApiKeyInput] = useState(false);
   const [apiKeyConfigured, setApiKeyConfigured] = useState(false);
 
   // Carica i dati di traffico
@@ -58,16 +56,6 @@ const TrafficAlerts: React.FC = () => {
     return () => clearInterval(interval);
   }, []);
 
-  // Salva API key
-  const handleSaveApiKey = () => {
-    if (apiKey.trim()) {
-      trafficService.setApiKey(apiKey.trim());
-      setShowApiKeyInput(false);
-      setApiKey('');
-      loadTrafficData();
-    }
-  };
-
   const sortedTraffic = [...trafficData].sort((a, b) => a.waitTimeMinutes - b.waitTimeMinutes);
   const fastest = sortedTraffic[0];
   const slowest = sortedTraffic[sortedTraffic.length - 1];
@@ -84,97 +72,34 @@ const TrafficAlerts: React.FC = () => {
         </p>
       </div>
 
-      {/* API Key Configuration */}
-      {!apiKeyConfigured && !showApiKeyInput && (
-        <div className="bg-amber-50 dark:bg-amber-950/30 border-l-4 border-amber-500 p-4 rounded-lg">
-          <div className="flex items-start gap-3">
-            <Key className="text-amber-600 flex-shrink-0 mt-0.5" size={20} />
-            <div className="flex-1">
-              <p className="font-bold text-amber-900 dark:text-amber-200 mb-2">
-                🔑 Configura Google Maps API
-              </p>
-              <p className="text-sm text-amber-800 dark:text-amber-300 mb-3">
-                Per ottenere dati di traffico reali, configura una API key di Google Maps (gratuita fino a 40.000 richieste/mese).
-              </p>
-              <button
-                onClick={() => setShowApiKeyInput(true)}
-                className="px-4 py-2 bg-amber-600 hover:bg-amber-700 text-white rounded-lg text-sm font-medium transition-colors"
-              >
-                Configura API Key
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
-
-      {showApiKeyInput && (
-        <div className="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 p-6 rounded-xl">
-          <div className="flex items-start gap-3 mb-4">
-            <Key className="text-blue-600 flex-shrink-0 mt-0.5" size={24} />
-            <div className="flex-1">
-              <h3 className="font-bold text-lg mb-2">Configura Google Maps API Key</h3>
-              <p className="text-sm text-slate-600 dark:text-slate-400 mb-4">
-                1. Vai su <a href="https://console.cloud.google.com/apis/credentials" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">Google Cloud Console</a><br/>
-                2. Crea un progetto e abilita "Distance Matrix API"<br/>
-                3. Crea una API key e copiala qui sotto
-              </p>
-              <div className="flex gap-2">
-                <input
-                  type="password"
-                  value={apiKey}
-                  onChange={(e) => setApiKey(e.target.value)}
-                  placeholder="AIza..."
-                  className="flex-1 px-4 py-2 border border-slate-300 dark:border-slate-600 rounded-lg bg-white dark:bg-slate-900 focus:ring-2 focus:ring-blue-500"
-                />
-                <button
-                  onClick={handleSaveApiKey}
-                  disabled={!apiKey.trim()}
-                  className="px-6 py-2 bg-blue-600 hover:bg-blue-700 disabled:bg-slate-300 disabled:cursor-not-allowed text-white rounded-lg font-medium transition-colors"
-                >
-                  Salva
-                </button>
-                <button
-                  onClick={() => {
-                    setShowApiKeyInput(false);
-                    setApiKey('');
-                  }}
-                  className="px-4 py-2 border border-slate-300 dark:border-slate-600 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
-                >
-                  Annulla
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* Status Badge */}
-      {apiKeyConfigured && (
-        <div className="bg-emerald-50 dark:bg-emerald-950/30 border-l-4 border-emerald-500 p-4 rounded-lg">
-          <div className="flex items-start gap-3">
+      {/* Status Indicator - solo informativo */}
+      <div className={`border-l-4 p-4 rounded-lg ${
+        apiKeyConfigured 
+          ? 'bg-emerald-50 dark:bg-emerald-950/30 border-emerald-500'
+          : 'bg-blue-50 dark:bg-blue-950/30 border-blue-500'
+      }`}>
+        <div className="flex items-start gap-3">
+          {apiKeyConfigured ? (
             <CheckCircle2 className="text-emerald-600 flex-shrink-0 mt-0.5" size={20} />
-            <div className="text-sm text-emerald-900 dark:text-emerald-200">
-              <p className="font-bold mb-1">✅ Google Maps API configurata</p>
-              <p>Stai usando dati di traffico reali da Google Maps Distance Matrix API.</p>
-            </div>
-          </div>
-        </div>
-      )}
-
-      {!apiKeyConfigured && (
-        <div className="bg-blue-50 dark:bg-blue-950/30 border-l-4 border-blue-500 p-4 rounded-lg">
-          <div className="flex items-start gap-3">
+          ) : (
             <AlertTriangle className="text-blue-600 flex-shrink-0 mt-0.5" size={20} />
-            <div className="text-sm text-blue-900 dark:text-blue-200">
-              <p className="font-bold mb-1">⚠️ Usando dati simulati</p>
-              <p>
-                Configurando una API key di Google Maps potrai vedere dati di traffico reali.
-                Orari di punta stimati: 7-9 (IT→CH), 17-19 (CH→IT)
-              </p>
-            </div>
+          )}
+          <div className={`text-sm ${
+            apiKeyConfigured 
+              ? 'text-emerald-900 dark:text-emerald-200' 
+              : 'text-blue-900 dark:text-blue-200'
+          }`}>
+            <p className="font-bold mb-1">
+              {apiKeyConfigured ? '✅ Dati di traffico reali' : '⚠️ Dati simulati'}
+            </p>
+            <p>
+              {apiKeyConfigured 
+                ? 'Traffico in tempo reale da Google Maps Distance Matrix API' 
+                : 'Orari di punta stimati: 7-9 (IT→CH), 17-19 (CH→IT)'}
+            </p>
           </div>
         </div>
-      )}
+      </div>
 
       <div className="bg-white dark:bg-slate-800 rounded-xl p-4 border border-slate-200 dark:border-slate-700">
         <div className="flex items-center justify-between">
