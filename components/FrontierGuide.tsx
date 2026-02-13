@@ -1,12 +1,6 @@
 import React, { useState } from 'react';
 import { MapPin, Clock, TrendingUp, Home, Car, ShoppingCart, FileText, AlertCircle, CheckCircle2, Info, ArrowRight, Building2, Landmark, Shield, Users, Navigation, Timer, BarChart3, Euro, Heart, Briefcase, Calendar } from 'lucide-react';
 
-interface Municipality {
-  name: string;
-  distance: string;
-  borderCrossing: string;
-}
-
 const InfoCard = ({ icon: Icon, title, children, color = "blue" }: any) => {
   const colorClasses = {
     blue: "from-blue-500 to-indigo-600 border-blue-200 dark:border-blue-800",
@@ -46,32 +40,34 @@ const SectionHeader = ({ icon: Icon, title, subtitle }: any) => (
 const FrontierGuide: React.FC = () => {
   const [activeSection, setActiveSection] = useState<'municipalities' | 'living-ch' | 'living-it' | 'border' | 'costs'>('municipalities');
 
-  // Comuni frontalieri Vecchio Ordinamento (pre 17/07/2023)
-  const oldFrontierMunicipalities: Municipality[] = [
-    { name: "Como", distance: "8 km", borderCrossing: "Chiasso" },
-    { name: "Varese", distance: "12 km", borderCrossing: "Ponte Tresa" },
-    { name: "Cantello", distance: "5 km", borderCrossing: "Gaggiolo" },
-    { name: "Malnate", distance: "7 km", borderCrossing: "Gaggiolo" },
-    { name: "Caronno Pertusella", distance: "18 km", borderCrossing: "Gaggiolo" },
-    { name: "Saronno", distance: "16 km", borderCrossing: "Gaggiolo" },
-    { name: "Cernobbio", distance: "6 km", borderCrossing: "Chiasso" },
-    { name: "Menaggio", distance: "45 km", borderCrossing: "Porlezza" },
-    { name: "Luino", distance: "20 km", borderCrossing: "Ponte Tresa" },
-    { name: "Lavena Ponte Tresa", distance: "2 km", borderCrossing: "Ponte Tresa" }
+  // Comuni frontalieri Vecchio Ordinamento (pre 17/07/2023) - Solo Fascia 1
+  // Totale: 180 comuni nelle province di Como, Varese, Lecco, Sondrio, Verbano-Cusio-Ossola, Aosta, Bergamo, Brescia, Bolzano, Trento
+  const oldFrontierMunicipalities = [
+    "ALAGNA VALSESIA", "ANDALO VALTELLINO", "APRICA", "BARLASSINA", "BERBENNO DI VALTELLINA", 
+    "BIANZONE", "BORMIO", "BREBBIA", "BRIOSCO", "BULCIAGO", "CAMPODOLCINO", "CASPOGGIO", 
+    "CHIAVENNA", "CHIESA IN VALMALENCO", "CHIURO", "COGLIATE", "COLORINA", "CORTENO GOLGI", 
+    "COSIO VALTELLINO", "CRAVAGLIANA", "CURON VENOSTA", "DAZIO", "DELEBIO", "DRUOGNO", "DUBINO", 
+    "EDOLO", "FAEDO VALTELLINO", "FOBELLO", "FORCOLA", "FORMAZZA", "FUSINE", "GERENZANO", 
+    "GIUSSANO", "GLORENZA", "GORDONA", "GROSIO", "GROSOTTO", "INCUDINE", "LANZADA", "LASA", 
+    "LENTATE SUL SEVESO", "LIVIGNO", "LOVERO", "MADESIMO", "MALONNO", "MANTELLO", "MARTELLO", 
+    "MAZZO DI VALTELLINA", "MELLO", "MESE", "MOLLIA", "MOLTENO", "MONNO", "MONTAGNA IN VALTELLINA",
+    "E 130+ altri comuni oltre i 20 km dal confine"
   ];
 
-  // Comuni frontalieri Nuovo Ordinamento (entro 20 km)
-  const newFrontierMunicipalities: Municipality[] = [
-    { name: "Como", distance: "8 km", borderCrossing: "Chiasso" },
-    { name: "Cernobbio", distance: "6 km", borderCrossing: "Chiasso" },
-    { name: "Maslianico", distance: "4 km", borderCrossing: "Chiasso" },
-    { name: "Cantello", distance: "5 km", borderCrossing: "Gaggiolo" },
-    { name: "Malnate", distance: "7 km", borderCrossing: "Gaggiolo" },
-    { name: "Varese", distance: "12 km", borderCrossing: "Ponte Tresa" },
-    { name: "Lavena Ponte Tresa", distance: "2 km", borderCrossing: "Ponte Tresa" },
-    { name: "Porto Ceresio", distance: "8 km", borderCrossing: "Stabio" },
-    { name: "Brusimpiano", distance: "10 km", borderCrossing: "Ponte Tresa" },
-    { name: "Valmorea", distance: "3 km", borderCrossing: "Chiasso" }
+  // Comuni frontalieri Nuovo Ordinamento (entro 20 km dal confine) - Fascia 1A
+  // Totale: 338 comuni principalmente in province di Como e Varese
+  const newFrontierMunicipalities = [
+    "ABBADIA LARIANA", "AGRA", "ALBAVILLA", "ALBESE CON CASSANO", "ALBIOLO", "ALBIZZATE", 
+    "ALSERIO", "ALTA VALLE INTELVI", "ALZATE BRIANZA", "ANZANO DEL PARCO", "APPIANO GENTILE", 
+    "ARCISATE", "ARGEGNO", "ARIZZANO", "AROSIO", "ARSAGO SEPRIO", "ASSO", "AZZATE", "AZZIO", 
+    "BARASSO", "BARDELLO CON MALGESSO E BREGANO", "BARNI", "BEDERO VALCUVIA", "BEE", "BELLAGIO", 
+    "BELLANO", "BENE LARIO", "BESANO", "BESNATE", "BESOZZO", "BIANDRONNO", "BINAGO", "BISUSCHIO", 
+    "BIZZARONE", "BLESSAGNO", "BLEVIO", "BODIO LOMNAGO", "BOSISIO PARINI", "BREGNANO", "BRENNA", 
+    "BRENTA", "BREZZO DI BEDERO", "BRIENNO", "BRINZIO", "BRISSAGO-VALTRAVAGLIA", "BRUNATE", 
+    "BRUNELLO", "BRUSIMPIANO", "BUGUGGIATE", "BULGAROGRASSO", "CABIATE", "CADEGLIANO-VICONAGO", 
+    "CADORAGO", "CADREZZATE CON OSMATE", "CAGLIO", "CAIRATE", "CAMPIONE D'ITALIA", "CANNERO RIVIERA", 
+    "CANNOBIO", "CANTELLO", "CANTÙ", "CANZO", "CAPIAGO INTIMIANO", "CARATE URIO", "CARAVATE",
+    "E 288+ altri comuni entro 20 km dal confine (vedi www.ti.ch/fonte per lista completa)"
   ];
 
   const borderCrossings = [
@@ -188,24 +184,26 @@ const FrontierGuide: React.FC = () => {
                 </div>
               </div>
 
-              <div className="space-y-2 max-h-96 overflow-y-auto pr-2">
-                {newFrontierMunicipalities.map((m, idx) => (
-                  <div key={idx} className="bg-white dark:bg-slate-800 rounded-lg p-3 hover:shadow-md transition-shadow">
-                    <div className="flex items-start justify-between">
-                      <div className="flex-1">
-                        <div className="font-bold text-slate-800 dark:text-slate-100">{m.name}</div>
-                        <div className="text-xs text-slate-500 dark:text-slate-400 mt-1">
-                          📍 {m.distance} da confine • 🚪 Dogana: {m.borderCrossing}
-                        </div>
-                      </div>
-                      <CheckCircle2 size={18} className="text-blue-600 flex-shrink-0 mt-1" />
+              <div className="space-y-1 max-h-96 overflow-y-auto pr-2">
+                <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
+                  {newFrontierMunicipalities.slice(0, 60).map((name, idx) => (
+                    <div key={idx} className="bg-white dark:bg-slate-800 rounded-lg px-3 py-2 text-xs font-medium text-slate-700 dark:text-slate-300 hover:bg-blue-50 dark:hover:bg-slate-700 transition-colors flex items-center gap-2">
+                      <CheckCircle2 size={12} className="text-blue-600 flex-shrink-0" />
+                      <span className="truncate">{name}</span>
                     </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
+                <div className="mt-3 p-2 bg-blue-50 dark:bg-blue-900/20 rounded text-xs text-blue-700 dark:text-blue-300 text-center">
+                  {newFrontierMunicipalities.length > 60 && `+ altri ${newFrontierMunicipalities.length - 60} comuni`}
+                  <br />
+                  <a href="https://www.ti.ch/fonte" target="_blank" rel="noopener noreferrer" className="underline font-semibold">
+                    Lista completa su www.ti.ch/fonte
+                  </a>
+                </div>
               </div>
 
               <div className="mt-4 p-3 bg-blue-100 dark:bg-blue-900/30 rounded-lg text-xs text-blue-800 dark:text-blue-300">
-                <strong>Criterio:</strong> Residenza entro 20 km dal confine svizzero più vicino
+                <strong>Totale: {newFrontierMunicipalities.length} comuni</strong> • Criterio: Residenza entro 20 km dal confine svizzero più vicino (in linea d'aria)
               </div>
             </div>
 
@@ -221,24 +219,26 @@ const FrontierGuide: React.FC = () => {
                 </div>
               </div>
 
-              <div className="space-y-2 max-h-96 overflow-y-auto pr-2">
-                {oldFrontierMunicipalities.map((m, idx) => (
-                  <div key={idx} className="bg-white dark:bg-slate-800 rounded-lg p-3 hover:shadow-md transition-shadow">
-                    <div className="flex items-start justify-between">
-                      <div className="flex-1">
-                        <div className="font-bold text-slate-800 dark:text-slate-100">{m.name}</div>
-                        <div className="text-xs text-slate-500 dark:text-slate-400 mt-1">
-                          📍 {m.distance} da confine • 🚪 Dogana: {m.borderCrossing}
-                        </div>
-                      </div>
-                      <CheckCircle2 size={18} className="text-purple-600 flex-shrink-0 mt-1" />
+              <div className="space-y-1 max-h-96 overflow-y-auto pr-2">
+                <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
+                  {oldFrontierMunicipalities.slice(0, 54).map((name, idx) => (
+                    <div key={idx} className="bg-white dark:bg-slate-800 rounded-lg px-3 py-2 text-xs font-medium text-slate-700 dark:text-slate-300 hover:bg-purple-50 dark:hover:bg-slate-700 transition-colors flex items-center gap-2">
+                      <CheckCircle2 size={12} className="text-purple-600 flex-shrink-0" />
+                      <span className="truncate">{name}</span>
                     </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
+                <div className="mt-3 p-2 bg-purple-50 dark:bg-purple-900/20 rounded text-xs text-purple-700 dark:text-purple-300 text-center">
+                  {oldFrontierMunicipalities.length > 54 && `+ ${oldFrontierMunicipalities[54]}`}
+                  <br />
+                  <a href="https://www.ti.ch/fonte" target="_blank" rel="noopener noreferrer" className="underline font-semibold">
+                    Lista completa su www.ti.ch/fonte
+                  </a>
+                </div>
               </div>
 
               <div className="mt-4 p-3 bg-purple-100 dark:bg-purple-900/30 rounded-lg text-xs text-purple-800 dark:text-purple-300">
-                <strong>Criterio:</strong> Comuni specificati nell'Accordo 1974, vale per chi lavorava già in CH prima del 17/07/2023
+                <strong>Totale: 180 comuni</strong> • Criterio: Comuni specificati nell'Accordo 1974, vale per chi lavorava già in CH prima del 17/07/2023 (clausola di salvaguardia)
               </div>
             </div>
           </div>
