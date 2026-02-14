@@ -94,7 +94,7 @@ function extractLocaleKeys(locale: string): Set<string> {
   
   const section = content.slice(startIdx, endIdx + 1);
   const keys = new Set<string>();
-  const keyRegex = /'([^']+)':\s*'/g;
+  const keyRegex = /'([^']+)':\s*['"]/g;
   let match;
   while ((match = keyRegex.exec(section)) !== null) {
     keys.add(match[1]);
