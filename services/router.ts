@@ -22,7 +22,7 @@ type ActiveTab = 'calculator' | 'feedback' | 'stats' | 'pension' | 'guide' | 'co
 type ComparatoriSubTab = 'exchange' | 'mobile' | 'transport' | 'health' | 'banks' | 'traffic' | 'jobs';
 type SimulatorSubTab = 'calculator' | 'whatif';
 type PensionSubTab = 'planner' | 'pillar3';
-type GuideSection = 'municipalities' | 'living-ch' | 'living-it' | 'border' | 'costs' | 'calendar' | 'permits' | 'companies' | 'shopping' | 'cost-of-living';
+type GuideSection = 'municipalities' | 'living-ch' | 'living-it' | 'border' | 'costs' | 'calendar' | 'permits' | 'companies' | 'shopping' | 'cost-of-living' | 'places' | 'schools';
 
 export interface AppRoute {
   activeTab: ActiveTab;
@@ -68,6 +68,8 @@ interface SlugTable {
   companies: string;
   shopping: string;
   costOfLiving: string;
+  places: string;
+  schools: string;
 }
 
 const SLUG_TABLES: Record<Locale, SlugTable> = {
@@ -100,6 +102,8 @@ const SLUG_TABLES: Record<Locale, SlugTable> = {
     companies: 'aziende-ticino',
     shopping: 'spesa-transfrontaliera',
     costOfLiving: 'costo-della-vita',
+    places: 'posti-da-visitare',
+    schools: 'scuole-ticino',
   },
   en: {
     comparatori: 'comparators',
@@ -130,6 +134,8 @@ const SLUG_TABLES: Record<Locale, SlugTable> = {
     companies: 'ticino-companies',
     shopping: 'cross-border-shopping',
     costOfLiving: 'cost-of-living',
+    places: 'places-to-visit',
+    schools: 'schools-ticino',
   },
   de: {
     comparatori: 'vergleiche',
@@ -160,6 +166,8 @@ const SLUG_TABLES: Record<Locale, SlugTable> = {
     companies: 'tessiner-unternehmen',
     shopping: 'grenz-einkauf',
     costOfLiving: 'lebenshaltungskosten',
+    places: 'sehenswuerdigkeiten',
+    schools: 'schulen-tessin',
   },
   fr: {
     comparatori: 'comparateurs',
@@ -190,6 +198,8 @@ const SLUG_TABLES: Record<Locale, SlugTable> = {
     companies: 'entreprises-tessin',
     shopping: 'achats-transfrontaliers',
     costOfLiving: 'cout-de-la-vie',
+    places: 'lieux-a-visiter',
+    schools: 'ecoles-tessin',
   },
 };
 
@@ -212,6 +222,8 @@ const GUIDE_KEYS: { key: keyof SlugTable; id: GuideSection }[] = [
   { key: 'companies', id: 'companies' },
   { key: 'shopping', id: 'shopping' },
   { key: 'costOfLiving', id: 'cost-of-living' },
+  { key: 'places', id: 'places' },
+  { key: 'schools', id: 'schools' },
 ];
 
 // Builds a single-locale reverse map for comparatori slugs
@@ -478,6 +490,8 @@ export function getSeoSection(route: AppRoute): string {
         'living-it': 'livingIT',
         border: 'border',
         costs: 'costs',
+        places: 'places',
+        schools: 'schools',
       };
       return seoMap[section] || 'guide';
     }

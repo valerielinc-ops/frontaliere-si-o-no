@@ -314,6 +314,24 @@ export const SEO_METADATA: Record<string, SEOMetadata> = {
     ogDescription: '🏢 Scopri le migliori aziende che assumono nel Canton Ticino: settori, stipendi e link alle pagine carriere.',
     canonicalPath: '/guida-frontalieri/aziende-ticino',
   },
+
+  places: {
+    title: 'Posti da Visitare in Ticino | Natura, Cultura e Attività',
+    description: 'Guida ai posti più belli del Canton Ticino: montagne, laghi, città, cultura, attività per famiglie e shopping. Consigli per frontalieri che vivono e lavorano nella regione.',
+    keywords: 'posti da visitare ticino, cosa fare ticino, lugano attrazioni, monte san salvatore, lago lugano, bellinzona castelli unesco, foxtown mendrisio, swissminiatur, locarno film festival, grotti ticinesi',
+    ogTitle: 'Posti da Visitare in Ticino | Natura, Cultura e Famiglia',
+    ogDescription: '🏔️ Scopri i posti più belli del Canton Ticino: montagne, laghi, città, eventi e attività per famiglie. Guida per frontalieri!',
+    canonicalPath: '/guida-frontalieri/posti-da-visitare',
+  },
+
+  schools: {
+    title: 'Scuole in Ticino per Frontalieri | Nido, Infanzia, Elementare, Media, Liceo',
+    description: 'Guida completa alle scuole del Canton Ticino per frontalieri: nido, scuola dell\'infanzia, elementare, media, liceo. Costi, orari, vicinanza ai valichi di frontiera e servizi complementari.',
+    keywords: 'scuole ticino frontalieri, nido svizzera costi, scuola infanzia ticino, scuola elementare ticino, scuola media mendrisio, liceo lugano, scuole vicino frontiera, costi scuola svizzera, asilo ticino',
+    ogTitle: 'Scuole in Ticino per Frontalieri | Guida Completa per Età',
+    ogDescription: '🎓 Guida alle scuole del Canton Ticino per frontalieri: tipi per età, costi, orari e scuole vicine ai valichi di frontiera.',
+    canonicalPath: '/guida-frontalieri/scuole-ticino',
+  },
 };
 
 /**

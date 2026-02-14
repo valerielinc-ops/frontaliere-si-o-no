@@ -3,7 +3,7 @@ import { useTranslation } from '../services/i18n';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
-import { MapPin, Clock, TrendingUp, Home, Car, ShoppingCart, FileText, AlertCircle, CheckCircle2, Info, ArrowRight, Building2, Landmark, Shield, Users, Navigation, Timer, BarChart3, Euro, Heart, Briefcase, Calendar } from 'lucide-react';
+import { MapPin, Clock, TrendingUp, Home, Car, ShoppingCart, FileText, AlertCircle, CheckCircle2, Info, ArrowRight, Building2, Landmark, Shield, Users, Navigation, Timer, BarChart3, Euro, Heart, Briefcase, Calendar, Mountain, GraduationCap, Baby, BookOpen } from 'lucide-react';
 import { Analytics } from '../services/analytics';
 import { updateMetaTags, trackSectionView } from '../services/seoService';
 import { pushRoute } from '../services/router';
@@ -90,7 +90,7 @@ interface FrontierGuideProps {
   activeSection?: string;
 }
 
-type GuideSection = 'municipalities' | 'living-ch' | 'living-it' | 'border' | 'costs' | 'calendar' | 'permits' | 'companies' | 'shopping' | 'cost-of-living';
+type GuideSection = 'municipalities' | 'living-ch' | 'living-it' | 'border' | 'costs' | 'calendar' | 'permits' | 'companies' | 'shopping' | 'cost-of-living' | 'places' | 'schools';
 
 const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSection }) => {
   const { t } = useTranslation();
@@ -120,6 +120,8 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
       'cost-of-living': 'costOfLiving',
       'calendar': 'calendar',
       'permits': 'permits',
+      'places': 'places',
+      'schools': 'schools',
     };
     const seoKey = seoMap[section];
     if (seoKey) {
@@ -347,6 +349,28 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
         >
           <BarChart3 size={16} />
           {t('guide.tabs.costOfLiving')}
+        </button>
+        <button
+          onClick={() => handleSectionChange('places')}
+          className={`px-4 py-2.5 rounded-xl font-bold text-sm transition-all flex items-center gap-2 ${
+            activeSection === 'places'
+              ? 'bg-emerald-600 text-white shadow-lg scale-105'
+              : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700'
+          }`}
+        >
+          <Mountain size={16} />
+          {t('guide.tabs.places')}
+        </button>
+        <button
+          onClick={() => handleSectionChange('schools')}
+          className={`px-4 py-2.5 rounded-xl font-bold text-sm transition-all flex items-center gap-2 ${
+            activeSection === 'schools'
+              ? 'bg-amber-600 text-white shadow-lg scale-105'
+              : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700'
+          }`}
+        >
+          <GraduationCap size={16} />
+          {t('guide.tabs.schools')}
         </button>
       </div>
 
@@ -1369,6 +1393,548 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
       {activeSection === 'cost-of-living' && (
         <div className="animate-fade-in">
           <CostOfLiving />
+        </div>
+      )}
+
+      {activeSection === 'places' && (
+        <div className="space-y-6 animate-fade-in">
+          <SectionHeader 
+            icon={Mountain} 
+            title={t('guide.places.title')} 
+            subtitle={t('guide.places.subtitle')}
+          />
+
+          {/* Natura e Montagne */}
+          <div className="grid md:grid-cols-2 gap-6">
+            <InfoCard icon={Mountain} title={t('guide.places.natureTitle')} color="green">
+              <div className="space-y-4">
+                <div className="p-3 bg-emerald-50 dark:bg-emerald-900/20 rounded-xl">
+                  <div className="font-bold text-emerald-700 dark:text-emerald-300 mb-1">🏔️ Monte San Salvatore</div>
+                  <p className="text-xs">{t('guide.places.sanSalvatore')}</p>
+                  <div className="mt-2 flex items-center gap-2 text-xs text-slate-500">
+                    <MapPin size={12} /> Lugano · <Clock size={12} /> {t('guide.places.funicular')}: 12 min
+                  </div>
+                </div>
+                <div className="p-3 bg-emerald-50 dark:bg-emerald-900/20 rounded-xl">
+                  <div className="font-bold text-emerald-700 dark:text-emerald-300 mb-1">🏔️ Monte Brè</div>
+                  <p className="text-xs">{t('guide.places.monteBreDesc')}</p>
+                  <div className="mt-2 flex items-center gap-2 text-xs text-slate-500">
+                    <MapPin size={12} /> Lugano · <Clock size={12} /> {t('guide.places.funicular')}: 15 min
+                  </div>
+                </div>
+                <div className="p-3 bg-emerald-50 dark:bg-emerald-900/20 rounded-xl">
+                  <div className="font-bold text-emerald-700 dark:text-emerald-300 mb-1">🏔️ Monte Generoso</div>
+                  <p className="text-xs">{t('guide.places.monteGeneroso')}</p>
+                  <div className="mt-2 flex items-center gap-2 text-xs text-slate-500">
+                    <MapPin size={12} /> Capolago · <Clock size={12} /> {t('guide.places.cograil')}: 40 min
+                  </div>
+                </div>
+                <div className="p-3 bg-emerald-50 dark:bg-emerald-900/20 rounded-xl">
+                  <div className="font-bold text-emerald-700 dark:text-emerald-300 mb-1">🥾 Sentiero dell'Olivo</div>
+                  <p className="text-xs">{t('guide.places.sentieroOlivo')}</p>
+                  <div className="mt-2 flex items-center gap-2 text-xs text-slate-500">
+                    <MapPin size={12} /> Gandria-Castagnola · <Clock size={12} /> ~2h
+                  </div>
+                </div>
+              </div>
+            </InfoCard>
+
+            <InfoCard icon={Heart} title={t('guide.places.lakesTitle')} color="blue">
+              <div className="space-y-4">
+                <div className="p-3 bg-blue-50 dark:bg-blue-900/20 rounded-xl">
+                  <div className="font-bold text-blue-700 dark:text-blue-300 mb-1">🌊 Lago di Lugano (Ceresio)</div>
+                  <p className="text-xs">{t('guide.places.lagoCeresio')}</p>
+                  <div className="mt-2 flex items-center gap-2 text-xs text-slate-500">
+                    <Navigation size={12} /> {t('guide.places.lakeActivities')}
+                  </div>
+                </div>
+                <div className="p-3 bg-blue-50 dark:bg-blue-900/20 rounded-xl">
+                  <div className="font-bold text-blue-700 dark:text-blue-300 mb-1">🌊 Lago Maggiore</div>
+                  <p className="text-xs">{t('guide.places.lagoMaggiore')}</p>
+                  <div className="mt-2 flex items-center gap-2 text-xs text-slate-500">
+                    <Navigation size={12} /> Locarno, Ascona, Brissago
+                  </div>
+                </div>
+                <div className="p-3 bg-blue-50 dark:bg-blue-900/20 rounded-xl">
+                  <div className="font-bold text-blue-700 dark:text-blue-300 mb-1">💧 Cascata di Foroglio</div>
+                  <p className="text-xs">{t('guide.places.foroglio')}</p>
+                  <div className="mt-2 flex items-center gap-2 text-xs text-slate-500">
+                    <MapPin size={12} /> Val Bavona · <Clock size={12} /> ~1.5h {t('guide.places.fromLugano')}
+                  </div>
+                </div>
+              </div>
+            </InfoCard>
+          </div>
+
+          {/* Città e Cultura */}
+          <div className="grid md:grid-cols-2 gap-6">
+            <InfoCard icon={Building2} title={t('guide.places.citiesTitle')} color="purple">
+              <div className="space-y-4">
+                <div className="p-3 bg-purple-50 dark:bg-purple-900/20 rounded-xl">
+                  <div className="font-bold text-purple-700 dark:text-purple-300 mb-1">🏙️ Lugano</div>
+                  <p className="text-xs">{t('guide.places.luganoDesc')}</p>
+                </div>
+                <div className="p-3 bg-purple-50 dark:bg-purple-900/20 rounded-xl">
+                  <div className="font-bold text-purple-700 dark:text-purple-300 mb-1">🌴 Locarno & Ascona</div>
+                  <p className="text-xs">{t('guide.places.locarnoDesc')}</p>
+                </div>
+                <div className="p-3 bg-purple-50 dark:bg-purple-900/20 rounded-xl">
+                  <div className="font-bold text-purple-700 dark:text-purple-300 mb-1">🏰 Bellinzona</div>
+                  <p className="text-xs">{t('guide.places.bellinzonaDesc')}</p>
+                </div>
+                <div className="p-3 bg-purple-50 dark:bg-purple-900/20 rounded-xl">
+                  <div className="font-bold text-purple-700 dark:text-purple-300 mb-1">🏘️ Mendrisio</div>
+                  <p className="text-xs">{t('guide.places.mendrisioDesc')}</p>
+                </div>
+              </div>
+            </InfoCard>
+
+            <InfoCard icon={Landmark} title={t('guide.places.cultureTitle')} color="orange">
+              <div className="space-y-4">
+                <div className="p-3 bg-orange-50 dark:bg-orange-900/20 rounded-xl">
+                  <div className="font-bold text-orange-700 dark:text-orange-300 mb-1">🎬 Film Festival Locarno</div>
+                  <p className="text-xs">{t('guide.places.filmFestival')}</p>
+                  <div className="mt-1 text-xs text-slate-500">📅 {t('guide.places.august')}</div>
+                </div>
+                <div className="p-3 bg-orange-50 dark:bg-orange-900/20 rounded-xl">
+                  <div className="font-bold text-orange-700 dark:text-orange-300 mb-1">🎨 LAC Lugano Arte e Cultura</div>
+                  <p className="text-xs">{t('guide.places.lacDesc')}</p>
+                </div>
+                <div className="p-3 bg-orange-50 dark:bg-orange-900/20 rounded-xl">
+                  <div className="font-bold text-orange-700 dark:text-orange-300 mb-1">🏰 Castelli di Bellinzona</div>
+                  <p className="text-xs">{t('guide.places.castelliDesc')}</p>
+                </div>
+                <div className="p-3 bg-orange-50 dark:bg-orange-900/20 rounded-xl">
+                  <div className="font-bold text-orange-700 dark:text-orange-300 mb-1">🍷 Grotti ticinesi</div>
+                  <p className="text-xs">{t('guide.places.grottiDesc')}</p>
+                </div>
+              </div>
+            </InfoCard>
+          </div>
+
+          {/* Attività e Famiglie */}
+          <div className="grid md:grid-cols-2 gap-6">
+            <InfoCard icon={Users} title={t('guide.places.familyTitle')} color="teal">
+              <div className="space-y-4">
+                <div className="p-3 bg-teal-50 dark:bg-teal-900/20 rounded-xl">
+                  <div className="font-bold text-teal-700 dark:text-teal-300 mb-1">🌿 Swissminiatur</div>
+                  <p className="text-xs">{t('guide.places.swissminiatur')}</p>
+                  <div className="mt-1 text-xs text-slate-500"><MapPin size={12} className="inline" /> Melide · 💰 CHF 19/adulto</div>
+                </div>
+                <div className="p-3 bg-teal-50 dark:bg-teal-900/20 rounded-xl">
+                  <div className="font-bold text-teal-700 dark:text-teal-300 mb-1">🦁 Parco Civico Lugano</div>
+                  <p className="text-xs">{t('guide.places.parcoCivico')}</p>
+                  <div className="mt-1 text-xs text-slate-500"><MapPin size={12} className="inline" /> Lugano · 💰 {t('guide.places.free')}</div>
+                </div>
+                <div className="p-3 bg-teal-50 dark:bg-teal-900/20 rounded-xl">
+                  <div className="font-bold text-teal-700 dark:text-teal-300 mb-1">🏊 Lido di Lugano</div>
+                  <p className="text-xs">{t('guide.places.lidoLugano')}</p>
+                  <div className="mt-1 text-xs text-slate-500"><MapPin size={12} className="inline" /> Lugano · 💰 CHF 10/adulto</div>
+                </div>
+                <div className="p-3 bg-teal-50 dark:bg-teal-900/20 rounded-xl">
+                  <div className="font-bold text-teal-700 dark:text-teal-300 mb-1">🚂 Ferrovia Monte Generoso</div>
+                  <p className="text-xs">{t('guide.places.ferroviaGeneroso')}</p>
+                  <div className="mt-1 text-xs text-slate-500"><MapPin size={12} className="inline" /> Capolago · 💰 CHF 70/A-R</div>
+                </div>
+              </div>
+            </InfoCard>
+
+            <InfoCard icon={ShoppingCart} title={t('guide.places.shoppingTitle')} color="blue">
+              <div className="space-y-4">
+                <div className="p-3 bg-blue-50 dark:bg-blue-900/20 rounded-xl">
+                  <div className="font-bold text-blue-700 dark:text-blue-300 mb-1">🛍️ FoxTown Factory Stores</div>
+                  <p className="text-xs">{t('guide.places.foxtown')}</p>
+                  <div className="mt-1 text-xs text-slate-500"><MapPin size={12} className="inline" /> Mendrisio · <Navigation size={12} className="inline" /> 5 min {t('guide.places.fromBorder')}</div>
+                </div>
+                <div className="p-3 bg-blue-50 dark:bg-blue-900/20 rounded-xl">
+                  <div className="font-bold text-blue-700 dark:text-blue-300 mb-1">🛒 Centro Commerciale Lugano Sud</div>
+                  <p className="text-xs">{t('guide.places.luganoSud')}</p>
+                  <div className="mt-1 text-xs text-slate-500"><MapPin size={12} className="inline" /> Grancia</div>
+                </div>
+                <div className="p-3 bg-blue-50 dark:bg-blue-900/20 rounded-xl">
+                  <div className="font-bold text-blue-700 dark:text-blue-300 mb-1">🏬 Manor Lugano</div>
+                  <p className="text-xs">{t('guide.places.manorDesc')}</p>
+                  <div className="mt-1 text-xs text-slate-500"><MapPin size={12} className="inline" /> Lugano centro</div>
+                </div>
+              </div>
+            </InfoCard>
+          </div>
+
+          {/* Consiglio per frontalieri */}
+          <div className="bg-gradient-to-br from-emerald-50 to-teal-50 dark:from-emerald-950/30 dark:to-teal-950/30 rounded-2xl border-2 border-emerald-200 dark:border-emerald-800 p-6">
+            <div className="flex items-start gap-3">
+              <Info size={24} className="text-emerald-600 flex-shrink-0" />
+              <div className="space-y-3 text-sm text-emerald-800 dark:text-emerald-200">
+                <p className="font-bold">💡 {t('guide.places.tipTitle')}</p>
+                <ul className="space-y-1 text-xs">
+                  <li>• {t('guide.places.tip1')}</li>
+                  <li>• {t('guide.places.tip2')}</li>
+                  <li>• {t('guide.places.tip3')}</li>
+                  <li>• {t('guide.places.tip4')}</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {activeSection === 'schools' && (
+        <div className="space-y-6 animate-fade-in">
+          <SectionHeader 
+            icon={GraduationCap} 
+            title={t('guide.schools.title')} 
+            subtitle={t('guide.schools.subtitle')}
+          />
+
+          {/* Panoramica sistema scolastico */}
+          <div className="bg-gradient-to-br from-amber-50 to-orange-50 dark:from-amber-950/30 dark:to-orange-950/30 rounded-2xl border-2 border-amber-200 dark:border-amber-800 p-6">
+            <div className="flex items-start gap-3">
+              <Info size={24} className="text-amber-600 flex-shrink-0" />
+              <div className="text-sm text-amber-800 dark:text-amber-200">
+                <p className="font-bold mb-2">📋 {t('guide.schools.overviewTitle')}</p>
+                <p className="text-xs">{t('guide.schools.overviewDesc')}</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Nido (0-3 anni) */}
+          <InfoCard icon={Baby} title={t('guide.schools.nidoTitle')} color="purple">
+            <div className="space-y-4">
+              <div className="p-4 bg-purple-50 dark:bg-purple-900/20 rounded-xl border border-purple-200 dark:border-purple-800">
+                <div className="grid sm:grid-cols-3 gap-3 mb-3">
+                  <div className="text-center p-2 bg-white dark:bg-slate-800 rounded-lg">
+                    <div className="text-xs text-slate-500">{t('guide.schools.age')}</div>
+                    <div className="font-bold text-purple-600">0-3 {t('guide.schools.years')}</div>
+                  </div>
+                  <div className="text-center p-2 bg-white dark:bg-slate-800 rounded-lg">
+                    <div className="text-xs text-slate-500">{t('guide.schools.cost')}</div>
+                    <div className="font-bold text-purple-600">CHF 1'200-2'500/{t('guide.schools.month')}</div>
+                  </div>
+                  <div className="text-center p-2 bg-white dark:bg-slate-800 rounded-lg">
+                    <div className="text-xs text-slate-500">{t('guide.schools.hours')}</div>
+                    <div className="font-bold text-purple-600">7:00-18:30</div>
+                  </div>
+                </div>
+                <p className="text-xs">{t('guide.schools.nidoDesc')}</p>
+              </div>
+              <div className="text-xs space-y-2">
+                <p className="font-bold text-slate-700 dark:text-slate-300">📍 {t('guide.schools.nearBorderTitle')}:</p>
+                <div className="grid sm:grid-cols-2 gap-2">
+                  <div className="flex items-start gap-2">
+                    <CheckCircle2 size={14} className="text-purple-600 flex-shrink-0 mt-0.5" />
+                    <span><strong>Chiasso/Mendrisio:</strong> {t('guide.schools.nidoChiasso')}</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <CheckCircle2 size={14} className="text-purple-600 flex-shrink-0 mt-0.5" />
+                    <span><strong>Stabio/Ligornetto:</strong> {t('guide.schools.nidoStabio')}</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <CheckCircle2 size={14} className="text-purple-600 flex-shrink-0 mt-0.5" />
+                    <span><strong>Ponte Tresa/Agno:</strong> {t('guide.schools.nidoPonteTresa')}</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <CheckCircle2 size={14} className="text-purple-600 flex-shrink-0 mt-0.5" />
+                    <span><strong>Lugano centro:</strong> {t('guide.schools.nidoLugano')}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </InfoCard>
+
+          {/* Scuola dell'infanzia (3-6 anni) */}
+          <InfoCard icon={Heart} title={t('guide.schools.kindergartenTitle')} color="green">
+            <div className="space-y-4">
+              <div className="p-4 bg-emerald-50 dark:bg-emerald-900/20 rounded-xl border border-emerald-200 dark:border-emerald-800">
+                <div className="grid sm:grid-cols-3 gap-3 mb-3">
+                  <div className="text-center p-2 bg-white dark:bg-slate-800 rounded-lg">
+                    <div className="text-xs text-slate-500">{t('guide.schools.age')}</div>
+                    <div className="font-bold text-emerald-600">3-6 {t('guide.schools.years')}</div>
+                  </div>
+                  <div className="text-center p-2 bg-white dark:bg-slate-800 rounded-lg">
+                    <div className="text-xs text-slate-500">{t('guide.schools.cost')}</div>
+                    <div className="font-bold text-emerald-600">{t('guide.schools.free')} (pubblica)</div>
+                  </div>
+                  <div className="text-center p-2 bg-white dark:bg-slate-800 rounded-lg">
+                    <div className="text-xs text-slate-500">{t('guide.schools.hours')}</div>
+                    <div className="font-bold text-emerald-600">8:30-15:30</div>
+                  </div>
+                </div>
+                <p className="text-xs">{t('guide.schools.kindergartenDesc')}</p>
+              </div>
+              <div className="text-xs space-y-2">
+                <p className="font-bold text-slate-700 dark:text-slate-300">📍 {t('guide.schools.nearBorderTitle')}:</p>
+                <div className="grid sm:grid-cols-2 gap-2">
+                  <div className="flex items-start gap-2">
+                    <CheckCircle2 size={14} className="text-emerald-600 flex-shrink-0 mt-0.5" />
+                    <span><strong>Chiasso:</strong> {t('guide.schools.kindergartenChiasso')}</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <CheckCircle2 size={14} className="text-emerald-600 flex-shrink-0 mt-0.5" />
+                    <span><strong>Mendrisio:</strong> {t('guide.schools.kindergartenMendrisio')}</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <CheckCircle2 size={14} className="text-emerald-600 flex-shrink-0 mt-0.5" />
+                    <span><strong>Stabio:</strong> {t('guide.schools.kindergartenStabio')}</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <CheckCircle2 size={14} className="text-emerald-600 flex-shrink-0 mt-0.5" />
+                    <span><strong>Balerna:</strong> {t('guide.schools.kindergartenBalerna')}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </InfoCard>
+
+          {/* Scuola elementare (6-11 anni) */}
+          <InfoCard icon={BookOpen} title={t('guide.schools.primaryTitle')} color="blue">
+            <div className="space-y-4">
+              <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-xl border border-blue-200 dark:border-blue-800">
+                <div className="grid sm:grid-cols-3 gap-3 mb-3">
+                  <div className="text-center p-2 bg-white dark:bg-slate-800 rounded-lg">
+                    <div className="text-xs text-slate-500">{t('guide.schools.age')}</div>
+                    <div className="font-bold text-blue-600">6-11 {t('guide.schools.years')}</div>
+                  </div>
+                  <div className="text-center p-2 bg-white dark:bg-slate-800 rounded-lg">
+                    <div className="text-xs text-slate-500">{t('guide.schools.cost')}</div>
+                    <div className="font-bold text-blue-600">{t('guide.schools.free')} (pubblica)</div>
+                  </div>
+                  <div className="text-center p-2 bg-white dark:bg-slate-800 rounded-lg">
+                    <div className="text-xs text-slate-500">{t('guide.schools.hours')}</div>
+                    <div className="font-bold text-blue-600">8:15-15:45</div>
+                  </div>
+                </div>
+                <p className="text-xs">{t('guide.schools.primaryDesc')}</p>
+              </div>
+              <div className="text-xs space-y-2">
+                <p className="font-bold text-slate-700 dark:text-slate-300">📍 {t('guide.schools.nearBorderTitle')}:</p>
+                <div className="grid sm:grid-cols-2 gap-2">
+                  <div className="flex items-start gap-2">
+                    <CheckCircle2 size={14} className="text-blue-600 flex-shrink-0 mt-0.5" />
+                    <span><strong>Chiasso:</strong> {t('guide.schools.primaryChiasso')}</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <CheckCircle2 size={14} className="text-blue-600 flex-shrink-0 mt-0.5" />
+                    <span><strong>Mendrisio:</strong> {t('guide.schools.primaryMendrisio')}</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <CheckCircle2 size={14} className="text-blue-600 flex-shrink-0 mt-0.5" />
+                    <span><strong>Stabio/Ligornetto:</strong> {t('guide.schools.primaryStabio')}</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <CheckCircle2 size={14} className="text-blue-600 flex-shrink-0 mt-0.5" />
+                    <span><strong>Balerna/Novazzano:</strong> {t('guide.schools.primaryBalerna')}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </InfoCard>
+
+          {/* Scuola media (11-15 anni) */}
+          <InfoCard icon={GraduationCap} title={t('guide.schools.middleTitle')} color="orange">
+            <div className="space-y-4">
+              <div className="p-4 bg-orange-50 dark:bg-orange-900/20 rounded-xl border border-orange-200 dark:border-orange-800">
+                <div className="grid sm:grid-cols-3 gap-3 mb-3">
+                  <div className="text-center p-2 bg-white dark:bg-slate-800 rounded-lg">
+                    <div className="text-xs text-slate-500">{t('guide.schools.age')}</div>
+                    <div className="font-bold text-orange-600">11-15 {t('guide.schools.years')}</div>
+                  </div>
+                  <div className="text-center p-2 bg-white dark:bg-slate-800 rounded-lg">
+                    <div className="text-xs text-slate-500">{t('guide.schools.cost')}</div>
+                    <div className="font-bold text-orange-600">{t('guide.schools.free')} (pubblica)</div>
+                  </div>
+                  <div className="text-center p-2 bg-white dark:bg-slate-800 rounded-lg">
+                    <div className="text-xs text-slate-500">{t('guide.schools.hours')}</div>
+                    <div className="font-bold text-orange-600">8:00-16:00</div>
+                  </div>
+                </div>
+                <p className="text-xs">{t('guide.schools.middleDesc')}</p>
+              </div>
+              <div className="text-xs space-y-2">
+                <p className="font-bold text-slate-700 dark:text-slate-300">📍 {t('guide.schools.nearBorderTitle')}:</p>
+                <div className="grid sm:grid-cols-2 gap-2">
+                  <div className="flex items-start gap-2">
+                    <CheckCircle2 size={14} className="text-orange-600 flex-shrink-0 mt-0.5" />
+                    <span><strong>Chiasso:</strong> {t('guide.schools.middleChiasso')}</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <CheckCircle2 size={14} className="text-orange-600 flex-shrink-0 mt-0.5" />
+                    <span><strong>Mendrisio:</strong> {t('guide.schools.middleMendrisio')}</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <CheckCircle2 size={14} className="text-orange-600 flex-shrink-0 mt-0.5" />
+                    <span><strong>Stabio:</strong> {t('guide.schools.middleStabio')}</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <CheckCircle2 size={14} className="text-orange-600 flex-shrink-0 mt-0.5" />
+                    <span><strong>Balerna:</strong> {t('guide.schools.middleBalerna')}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </InfoCard>
+
+          {/* Liceo / Scuole superiori (15-19 anni) */}
+          <InfoCard icon={Landmark} title={t('guide.schools.highSchoolTitle')} color="teal">
+            <div className="space-y-4">
+              <div className="p-4 bg-teal-50 dark:bg-teal-900/20 rounded-xl border border-teal-200 dark:border-teal-800">
+                <div className="grid sm:grid-cols-3 gap-3 mb-3">
+                  <div className="text-center p-2 bg-white dark:bg-slate-800 rounded-lg">
+                    <div className="text-xs text-slate-500">{t('guide.schools.age')}</div>
+                    <div className="font-bold text-teal-600">15-19 {t('guide.schools.years')}</div>
+                  </div>
+                  <div className="text-center p-2 bg-white dark:bg-slate-800 rounded-lg">
+                    <div className="text-xs text-slate-500">{t('guide.schools.cost')}</div>
+                    <div className="font-bold text-teal-600">{t('guide.schools.free')} / CHF 500-1'500</div>
+                  </div>
+                  <div className="text-center p-2 bg-white dark:bg-slate-800 rounded-lg">
+                    <div className="text-xs text-slate-500">{t('guide.schools.hours')}</div>
+                    <div className="font-bold text-teal-600">8:00-16:30</div>
+                  </div>
+                </div>
+                <p className="text-xs">{t('guide.schools.highSchoolDesc')}</p>
+              </div>
+              <div className="text-xs space-y-2">
+                <p className="font-bold text-slate-700 dark:text-slate-300">🏫 {t('guide.schools.highSchoolTypes')}:</p>
+                <div className="grid sm:grid-cols-2 gap-2">
+                  <div className="flex items-start gap-2">
+                    <CheckCircle2 size={14} className="text-teal-600 flex-shrink-0 mt-0.5" />
+                    <span><strong>{t('guide.schools.liceoTitle')}:</strong> {t('guide.schools.liceoDesc')}</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <CheckCircle2 size={14} className="text-teal-600 flex-shrink-0 mt-0.5" />
+                    <span><strong>{t('guide.schools.smsTitle')}:</strong> {t('guide.schools.smsDesc')}</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <CheckCircle2 size={14} className="text-teal-600 flex-shrink-0 mt-0.5" />
+                    <span><strong>{t('guide.schools.scTitle')}:</strong> {t('guide.schools.scDesc')}</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <CheckCircle2 size={14} className="text-teal-600 flex-shrink-0 mt-0.5" />
+                    <span><strong>{t('guide.schools.spcTitle')}:</strong> {t('guide.schools.spcDesc')}</span>
+                  </div>
+                </div>
+              </div>
+              <div className="text-xs space-y-2 mt-3">
+                <p className="font-bold text-slate-700 dark:text-slate-300">📍 {t('guide.schools.mainHighSchools')}:</p>
+                <div className="grid sm:grid-cols-2 gap-2">
+                  <div className="flex items-start gap-2">
+                    <MapPin size={14} className="text-teal-600 flex-shrink-0 mt-0.5" />
+                    <span><strong>Mendrisio:</strong> {t('guide.schools.highSchoolMendrisio')}</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <MapPin size={14} className="text-teal-600 flex-shrink-0 mt-0.5" />
+                    <span><strong>Lugano:</strong> {t('guide.schools.highSchoolLugano')}</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <MapPin size={14} className="text-teal-600 flex-shrink-0 mt-0.5" />
+                    <span><strong>Bellinzona:</strong> {t('guide.schools.highSchoolBellinzona')}</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <MapPin size={14} className="text-teal-600 flex-shrink-0 mt-0.5" />
+                    <span><strong>Locarno:</strong> {t('guide.schools.highSchoolLocarno')}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </InfoCard>
+
+          {/* Servizi complementari */}
+          <div className="grid md:grid-cols-2 gap-6">
+            <InfoCard icon={Clock} title={t('guide.schools.servicesTitle')} color="blue">
+              <div className="space-y-3">
+                <div className="flex items-start gap-2">
+                  <CheckCircle2 size={14} className="text-blue-600 flex-shrink-0 mt-0.5" />
+                  <div>
+                    <strong>{t('guide.schools.mensa')}:</strong>
+                    <div className="text-xs mt-1">{t('guide.schools.mensaDesc')}</div>
+                  </div>
+                </div>
+                <div className="flex items-start gap-2">
+                  <CheckCircle2 size={14} className="text-blue-600 flex-shrink-0 mt-0.5" />
+                  <div>
+                    <strong>{t('guide.schools.dopoScuola')}:</strong>
+                    <div className="text-xs mt-1">{t('guide.schools.dopoScuolaDesc')}</div>
+                  </div>
+                </div>
+                <div className="flex items-start gap-2">
+                  <CheckCircle2 size={14} className="text-blue-600 flex-shrink-0 mt-0.5" />
+                  <div>
+                    <strong>{t('guide.schools.trasporto')}:</strong>
+                    <div className="text-xs mt-1">{t('guide.schools.trasportoDesc')}</div>
+                  </div>
+                </div>
+              </div>
+            </InfoCard>
+
+            <InfoCard icon={Euro} title={t('guide.schools.costsTitle')} color="orange">
+              <div className="space-y-3">
+                <div className="overflow-x-auto">
+                  <table className="w-full text-xs">
+                    <thead>
+                      <tr className="border-b border-slate-200 dark:border-slate-700">
+                        <th className="text-left py-2 font-bold">{t('guide.schools.schoolType')}</th>
+                        <th className="text-right py-2 font-bold">{t('guide.schools.annualCost')}</th>
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y divide-slate-100 dark:divide-slate-700">
+                      <tr>
+                        <td className="py-2">{t('guide.schools.nidoShort')}</td>
+                        <td className="py-2 text-right font-bold text-orange-600">CHF 14'400-30'000</td>
+                      </tr>
+                      <tr>
+                        <td className="py-2">{t('guide.schools.kindergartenShort')}</td>
+                        <td className="py-2 text-right font-bold text-emerald-600">{t('guide.schools.free')}</td>
+                      </tr>
+                      <tr>
+                        <td className="py-2">{t('guide.schools.primaryShort')}</td>
+                        <td className="py-2 text-right font-bold text-emerald-600">{t('guide.schools.free')}</td>
+                      </tr>
+                      <tr>
+                        <td className="py-2">{t('guide.schools.middleShort')}</td>
+                        <td className="py-2 text-right font-bold text-emerald-600">{t('guide.schools.free')}</td>
+                      </tr>
+                      <tr>
+                        <td className="py-2">{t('guide.schools.highSchoolShort')}</td>
+                        <td className="py-2 text-right font-bold text-blue-600">{t('guide.schools.free')} / CHF 500-1'500</td>
+                      </tr>
+                      <tr>
+                        <td className="py-2">{t('guide.schools.mensaShort')}</td>
+                        <td className="py-2 text-right font-bold text-orange-600">CHF 8-15/{t('guide.schools.perDay')}</td>
+                      </tr>
+                      <tr>
+                        <td className="py-2">{t('guide.schools.dopoScuolaShort')}</td>
+                        <td className="py-2 text-right font-bold text-orange-600">CHF 15-30/{t('guide.schools.perDay')}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </InfoCard>
+          </div>
+
+          {/* Consigli per frontalieri */}
+          <div className="bg-gradient-to-br from-amber-50 to-orange-50 dark:from-amber-950/30 dark:to-orange-950/30 rounded-2xl border-2 border-amber-200 dark:border-amber-800 p-6">
+            <div className="flex items-start gap-3">
+              <AlertCircle size={24} className="text-amber-600 flex-shrink-0" />
+              <div className="space-y-3 text-sm text-amber-800 dark:text-amber-200">
+                <p className="font-bold">⚠️ {t('guide.schools.importantTitle')}</p>
+                <ul className="space-y-1 text-xs">
+                  <li>• {t('guide.schools.important1')}</li>
+                  <li>• {t('guide.schools.important2')}</li>
+                  <li>• {t('guide.schools.important3')}</li>
+                  <li>• {t('guide.schools.important4')}</li>
+                  <li>• {t('guide.schools.important5')}</li>
+                </ul>
+                <div className="mt-3 p-3 bg-white/50 dark:bg-slate-800/50 rounded-xl text-xs">
+                  <strong>🔗 {t('guide.schools.usefulLinks')}:</strong>
+                  <div className="mt-2 space-y-1">
+                    <div>• <a href="https://www4.ti.ch/decs/ds/cosa-offre-la-scuola" target="_blank" rel="noopener noreferrer" className="underline font-semibold">DECS - {t('guide.schools.linkDecs')}</a></div>
+                    <div>• <a href="https://www.ti.ch/pre-scuola" target="_blank" rel="noopener noreferrer" className="underline font-semibold">{t('guide.schools.linkPreScuola')}</a></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       )}
     </div>
