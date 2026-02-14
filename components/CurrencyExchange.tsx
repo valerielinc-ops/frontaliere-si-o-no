@@ -216,8 +216,49 @@ function analyzeTimingPatterns(historyData: Array<{ date: string; rate: number }
   return { dayOfWeek, monthOfYear, bestDay, worstDay, bestMonth, worstMonth };
 }
 
+// Volatility & advanced stats
+function analyzeVolatility(historyData: Array<{ date: string; rate: number }>) {
+  if (historyData.length < 10) return null;
+  const rates = historyData.map(d => d.rate);
+  const mean = rates.reduce((a, b) => a + b, 0) / rates.length;
+  const variance = rates.reduce((sum, r) => sum + Math.pow(r - mean, 2), 0) / rates.length;
+  const stdDev = Math.sqrt(variance);
+  const min = Math.min(...rates);
+  const max = Math.max(...rates);
+  const range = max - min;
+  const current = rates[rates.length - 1];
+  const percentile = ((current - min) / range) * 100;
+
+  // Weekly changes
+  const weeklyChanges: number[] = [];
+  for (let i = 5; i < rates.length; i++) {
+    weeklyChanges.push(((rates[i] - rates[i - 5]) / rates[i - 5]) * 100);
+  }
+  const avgWeeklyChange = weeklyChanges.length > 0 ? weeklyChanges.reduce((a, b) => a + b, 0) / weeklyChanges.length : 0;
+  const maxWeeklyGain = weeklyChanges.length > 0 ? Math.max(...weeklyChanges) : 0;
+  const maxWeeklyLoss = weeklyChanges.length > 0 ? Math.min(...weeklyChanges) : 0;
+
+  // Streak analysis
+  let currentStreak = 0;
+  let streakDirection: 'up' | 'down' | 'flat' = 'flat';
+  for (let i = rates.length - 1; i > 0; i--) {
+    const diff = rates[i] - rates[i - 1];
+    if (currentStreak === 0) {
+      streakDirection = diff > 0 ? 'up' : diff < 0 ? 'down' : 'flat';
+      currentStreak = 1;
+    } else if ((diff > 0 && streakDirection === 'up') || (diff < 0 && streakDirection === 'down')) {
+      currentStreak++;
+    } else {
+      break;
+    }
+  }
+
+  return { mean, stdDev, min, max, range, percentile, avgWeeklyChange, maxWeeklyGain, maxWeeklyLoss, currentStreak, streakDirection, current };
+}
+
 const ExchangeTimingSection: React.FC<{ historyData: Array<{ date: string; rate: number }> }> = ({ historyData }) => {
   const timing = useMemo(() => analyzeTimingPatterns(historyData), [historyData]);
+  const volatility = useMemo(() => analyzeVolatility(historyData), [historyData]);
 
   if (!timing) return null;
 
@@ -346,6 +387,108 @@ const ExchangeTimingSection: React.FC<{ historyData: Array<{ date: string; rate:
           </div>
         </div>
       </div>
+
+      {/* Volatility Analysis */}
+      {volatility && (
+        <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-purple-200 dark:border-purple-800 space-y-4">
+          <h4 className="font-extrabold text-sm text-purple-700 dark:text-purple-300 flex items-center gap-2">
+            📈 Analisi Volatilità & Trend
+          </h4>
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+            <div className="bg-purple-50 dark:bg-purple-900/20 rounded-lg p-3 text-center">
+              <div className="text-[10px] font-bold text-purple-500 uppercase tracking-wider">Tasso Attuale</div>
+              <div className="text-lg font-black text-purple-700 dark:text-purple-300">{volatility.current.toFixed(4)}</div>
+              <div className="text-[10px] text-slate-500">
+                {volatility.percentile > 70 ? '🟢 Alto nel range' : volatility.percentile < 30 ? '🔴 Basso nel range' : '🟡 Nella media'}
+              </div>
+            </div>
+            <div className="bg-slate-50 dark:bg-slate-700/30 rounded-lg p-3 text-center">
+              <div className="text-[10px] font-bold text-slate-500 uppercase tracking-wider">Range (Min–Max)</div>
+              <div className="text-sm font-bold text-slate-700 dark:text-slate-200">{volatility.min.toFixed(4)} – {volatility.max.toFixed(4)}</div>
+              <div className="text-[10px] text-slate-500">Δ {(volatility.range * 100).toFixed(2)}%</div>
+            </div>
+            <div className="bg-slate-50 dark:bg-slate-700/30 rounded-lg p-3 text-center">
+              <div className="text-[10px] font-bold text-slate-500 uppercase tracking-wider">Volatilità (σ)</div>
+              <div className="text-sm font-bold text-slate-700 dark:text-slate-200">{volatility.stdDev.toFixed(5)}</div>
+              <div className="text-[10px] text-slate-500">{volatility.stdDev < 0.005 ? '😴 Stabile' : volatility.stdDev < 0.015 ? '⚡ Moderata' : '🌊 Alta'}</div>
+            </div>
+            <div className="bg-slate-50 dark:bg-slate-700/30 rounded-lg p-3 text-center">
+              <div className="text-[10px] font-bold text-slate-500 uppercase tracking-wider">Trend Attuale</div>
+              <div className="text-sm font-bold text-slate-700 dark:text-slate-200">
+                {volatility.streakDirection === 'up' ? '📈' : volatility.streakDirection === 'down' ? '📉' : '➡️'} {volatility.currentStreak}gg {volatility.streakDirection === 'up' ? 'in salita' : volatility.streakDirection === 'down' ? 'in discesa' : 'stabile'}
+              </div>
+              <div className="text-[10px] text-slate-500">
+                {volatility.streakDirection === 'up' ? '✅ Buon momento per cambiare' : volatility.streakDirection === 'down' ? '⏳ Forse meglio aspettare' : '🤷 Neutro'}
+              </div>
+            </div>
+          </div>
+          {/* Percentile bar */}
+          <div className="space-y-1">
+            <div className="flex justify-between text-[10px] text-slate-500">
+              <span>Min {volatility.min.toFixed(4)}</span>
+              <span>Posizione attuale nel range storico</span>
+              <span>Max {volatility.max.toFixed(4)}</span>
+            </div>
+            <div className="h-3 bg-gradient-to-r from-red-400 via-yellow-400 to-emerald-400 rounded-full relative">
+              <div
+                className="absolute top-1/2 -translate-y-1/2 w-4 h-4 bg-white border-2 border-slate-800 dark:border-white rounded-full shadow-lg"
+                style={{ left: `calc(${Math.max(2, Math.min(98, volatility.percentile))}% - 8px)` }}
+              />
+            </div>
+            <div className="text-center text-xs font-bold text-slate-600 dark:text-slate-400">
+              Percentile: {volatility.percentile.toFixed(0)}%
+              {volatility.percentile > 70 ? ' — 🎯 Momento favorevole!' : volatility.percentile < 30 ? ' — ⏰ Tasso basso, valuta di aspettare' : ' — Nella norma'}
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Life Hacks */}
+      <div className="bg-gradient-to-br from-emerald-50 to-teal-50 dark:from-emerald-950/20 dark:to-teal-950/20 rounded-xl p-5 border border-emerald-200 dark:border-emerald-800 space-y-3">
+        <h4 className="font-extrabold text-sm text-emerald-700 dark:text-emerald-300 flex items-center gap-2">
+          🎯 Life Hacks per il Cambio del Frontaliere
+        </h4>
+        <div className="grid sm:grid-cols-2 gap-2">
+          {[
+            { emoji: '🏧', text: 'Preleva CHF dal Bancomat in IT il lunedì mattina — tassi migliori post-weekend' },
+            { emoji: '📱', text: 'Usa Wise/Revolut per cambio sotto 1000 CHF — zero commissioni' },
+            { emoji: '📅', text: 'Cambia lo stipendio a fine mese — i tassi tendono a essere più favorevoli' },
+            { emoji: '💡', text: 'Dividi il cambio: 50% subito, 50% tra 2 settimane — media il rischio' },
+            { emoji: '⚡', text: 'Evita il venerdì pomeriggio — spread più alti prima del weekend' },
+            { emoji: '🔔', text: 'Imposta alert su Wise per il tuo tasso target — non perdere il momento giusto' },
+          ].map((hack, i) => (
+            <div key={i} className="flex items-start gap-2 bg-white/60 dark:bg-slate-800/60 rounded-lg p-2.5 text-xs text-slate-700 dark:text-slate-300">
+              <span className="text-base flex-shrink-0">{hack.emoji}</span>
+              <span>{hack.text}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Fun stat: how much 1000 CHF gives you on best vs worst day */}
+      {volatility && (
+        <div className="bg-gradient-to-r from-indigo-500 to-purple-600 rounded-xl p-5 text-white space-y-2">
+          <h4 className="font-extrabold text-sm flex items-center gap-2">🧮 Quanto cambia davvero?</h4>
+          <div className="grid sm:grid-cols-3 gap-3 text-center">
+            <div className="bg-white/15 rounded-lg p-3">
+              <div className="text-[10px] uppercase tracking-wider text-white/70">1000 CHF al miglior tasso</div>
+              <div className="text-xl font-black">€ {(1000 * volatility.max).toFixed(2)}</div>
+            </div>
+            <div className="bg-white/15 rounded-lg p-3">
+              <div className="text-[10px] uppercase tracking-wider text-white/70">1000 CHF al peggior tasso</div>
+              <div className="text-xl font-black">€ {(1000 * volatility.min).toFixed(2)}</div>
+            </div>
+            <div className="bg-white/25 rounded-lg p-3 ring-2 ring-white/50">
+              <div className="text-[10px] uppercase tracking-wider text-white/90">Differenza potenziale</div>
+              <div className="text-xl font-black text-amber-300">€ {(1000 * volatility.range).toFixed(2)}</div>
+              <div className="text-[10px] text-white/70">su 1000 CHF nel periodo</div>
+            </div>
+          </div>
+          <p className="text-[11px] text-white/60 text-center mt-1">
+            Su 5000 CHF/mese, la differenza annuale può essere fino a <strong>€ {(5000 * volatility.range * 12).toFixed(0)}</strong>!
+          </p>
+        </div>
+      )}
     </div>
   );
 };

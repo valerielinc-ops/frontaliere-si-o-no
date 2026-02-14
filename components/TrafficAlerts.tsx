@@ -14,17 +14,39 @@ interface BorderCrossing {
   type: 'autostrada' | 'statale' | 'locale';
   open24h: boolean;
   customsPresent: boolean;
+  hours?: string;
+  avgWaitMorning?: string;
+  avgWaitEvening?: string;
+  trafficLevel?: 'high' | 'medium' | 'low' | 'closed';
 }
 
 const borderCrossings: BorderCrossing[] = [
-  { name: 'Chiasso-Brogeda', canton: 'TI', province: 'CO', coordinates: [45.8365, 9.0283], type: 'autostrada', open24h: true, customsPresent: true },
-  { name: 'Stabio-Gaggiolo', canton: 'TI', province: 'VA', coordinates: [45.8443, 8.9325], type: 'statale', open24h: true, customsPresent: true },
-  { name: 'Ponte Tresa', canton: 'TI', province: 'VA', coordinates: [45.9686, 8.8614], type: 'statale', open24h: true, customsPresent: false },
-  { name: 'Fornasette-Lavena', canton: 'TI', province: 'VA', coordinates: [46.0042, 8.8697], type: 'locale', open24h: true, customsPresent: false },
-  { name: 'Ponte Cremenaga', canton: 'TI', province: 'VA', coordinates: [46.0053, 8.9006], type: 'locale', open24h: true, customsPresent: false },
-  { name: 'Gaggiolo-Mendrisio', canton: 'TI', province: 'VA', coordinates: [45.8490, 8.9410], type: 'statale', open24h: true, customsPresent: false },
-  { name: 'Ligornetto-Saltrio', canton: 'TI', province: 'VA', coordinates: [45.8615, 8.9439], type: 'locale', open24h: true, customsPresent: false },
-  { name: 'Maslianico-Ponte Chiasso', canton: 'TI', province: 'CO', coordinates: [45.8327, 9.0458], type: 'statale', open24h: true, customsPresent: false }
+  // COMO - TICINO
+  { name: 'Chiasso Centro (Ponte Chiasso)', canton: 'TI', province: 'CO', coordinates: [45.8326, 9.0340], type: 'statale', open24h: true, customsPresent: true, hours: '24h', avgWaitMorning: '15-30 min', avgWaitEvening: '20-40 min', trafficLevel: 'high' },
+  { name: 'Chiasso-Brogeda', canton: 'TI', province: 'CO', coordinates: [45.8409, 9.0376], type: 'autostrada', open24h: true, customsPresent: true, hours: '24h', avgWaitMorning: '8-15 min', avgWaitEvening: '12-25 min', trafficLevel: 'medium' },
+  { name: 'Chiasso-Strada', canton: 'TI', province: 'CO', coordinates: [45.8332, 9.0374], type: 'statale', open24h: true, customsPresent: true, hours: '24h', avgWaitMorning: '10-18 min', avgWaitEvening: '15-25 min', trafficLevel: 'medium' },
+  { name: 'Maslianico-Pizzamiglio', canton: 'TI', province: 'CO', coordinates: [45.8438, 9.0386], type: 'locale', open24h: false, customsPresent: false, hours: '06:00-22:00', avgWaitMorning: '3-8 min', avgWaitEvening: '5-12 min', trafficLevel: 'low' },
+  { name: 'Maslianico-Roggiana', canton: 'TI', province: 'CO', coordinates: [45.8476, 9.0446], type: 'locale', open24h: false, customsPresent: false, hours: 'Chiuso', avgWaitMorning: '---', avgWaitEvening: '---', trafficLevel: 'closed' },
+  { name: 'Bizzarone-Novazzano', canton: 'TI', province: 'CO', coordinates: [45.8401, 8.9593], type: 'locale', open24h: true, customsPresent: false, hours: '24h', avgWaitMorning: '5-12 min', avgWaitEvening: '8-15 min', trafficLevel: 'low' },
+  { name: 'Ronago-Novazzano', canton: 'TI', province: 'CO', coordinates: [45.8362, 8.9830], type: 'locale', open24h: true, customsPresent: false, hours: '24h', avgWaitMorning: '5-12 min', avgWaitEvening: '10-18 min', trafficLevel: 'low' },
+  { name: 'Crociale dei Mulini', canton: 'TI', province: 'CO', coordinates: [45.8340, 8.9939], type: 'locale', open24h: true, customsPresent: false, hours: '24h', avgWaitMorning: '3-8 min', avgWaitEvening: '5-10 min', trafficLevel: 'low' },
+  { name: 'Drezzo-Pedrinate', canton: 'TI', province: 'CO', coordinates: [45.8206, 9.0031], type: 'locale', open24h: true, customsPresent: false, hours: '24h', avgWaitMorning: '2-5 min', avgWaitEvening: '3-8 min', trafficLevel: 'low' },
+  { name: "Lanzo d'Intelvi-Arogno", canton: 'TI', province: 'CO', coordinates: [45.9624, 9.0091], type: 'locale', open24h: true, customsPresent: false, hours: '24h', avgWaitMorning: '2-5 min', avgWaitEvening: '3-8 min', trafficLevel: 'low' },
+  { name: "Campione d'Italia-Bissone", canton: 'TI', province: 'CO', coordinates: [45.9618, 8.9686], type: 'locale', open24h: true, customsPresent: false, hours: '24h', avgWaitMorning: '2-5 min', avgWaitEvening: '3-8 min', trafficLevel: 'low' },
+  { name: 'Oria-Gandria', canton: 'TI', province: 'CO', coordinates: [46.0168, 9.0223], type: 'locale', open24h: true, customsPresent: false, hours: '24h', avgWaitMorning: '2-5 min', avgWaitEvening: '3-6 min', trafficLevel: 'low' },
+  // VARESE - TICINO
+  { name: 'Gaggiolo (Cantello-Stabio)', canton: 'TI', province: 'VA', coordinates: [45.8411, 8.9134], type: 'statale', open24h: true, customsPresent: true, hours: '24h', avgWaitMorning: '10-20 min', avgWaitEvening: '15-30 min', trafficLevel: 'high' },
+  { name: 'San Pietro (Clivio-Stabio)', canton: 'TI', province: 'VA', coordinates: [45.8595, 8.9321], type: 'statale', open24h: true, customsPresent: false, hours: '24h', avgWaitMorning: '5-12 min', avgWaitEvening: '8-18 min', trafficLevel: 'medium' },
+  { name: 'Clivio-Ligornetto', canton: 'TI', province: 'VA', coordinates: [45.8638, 8.9395], type: 'locale', open24h: true, customsPresent: false, hours: '24h', avgWaitMorning: '4-10 min', avgWaitEvening: '6-15 min', trafficLevel: 'low' },
+  { name: 'Rodero-Stabio', canton: 'TI', province: 'VA', coordinates: [45.8334, 8.9262], type: 'locale', open24h: false, customsPresent: false, hours: 'Solo pedonale', avgWaitMorning: '---', avgWaitEvening: '---', trafficLevel: 'closed' },
+  { name: 'Saltrio-Arzo', canton: 'TI', province: 'VA', coordinates: [45.8740, 8.9336], type: 'locale', open24h: true, customsPresent: false, hours: '24h', avgWaitMorning: '3-8 min', avgWaitEvening: '5-12 min', trafficLevel: 'low' },
+  { name: 'Ponte Tresa', canton: 'TI', province: 'VA', coordinates: [45.9670, 8.8589], type: 'statale', open24h: true, customsPresent: false, hours: '24h', avgWaitMorning: '5-15 min', avgWaitEvening: '10-20 min', trafficLevel: 'medium' },
+  { name: 'Porto Ceresio-Brusino', canton: 'TI', province: 'VA', coordinates: [45.9135, 8.9042], type: 'locale', open24h: false, customsPresent: false, hours: '06:00-22:00', avgWaitMorning: '3-8 min', avgWaitEvening: '5-12 min', trafficLevel: 'low' },
+  { name: 'Cremenaga-Ponte Cremenaga', canton: 'TI', province: 'VA', coordinates: [45.9907, 8.8075], type: 'locale', open24h: false, customsPresent: false, hours: '06:00-20:00', avgWaitMorning: '2-5 min', avgWaitEvening: '3-8 min', trafficLevel: 'low' },
+  { name: 'Luino-Fornasette', canton: 'TI', province: 'VA', coordinates: [45.9931, 8.7878], type: 'statale', open24h: true, customsPresent: false, hours: '24h', avgWaitMorning: '4-10 min', avgWaitEvening: '6-15 min', trafficLevel: 'medium' },
+  { name: 'Zenna-Dirinella', canton: 'TI', province: 'VA', coordinates: [46.1040, 8.7579], type: 'locale', open24h: true, customsPresent: false, hours: '24h', avgWaitMorning: '2-5 min', avgWaitEvening: '3-8 min', trafficLevel: 'low' },
+  { name: 'Biegno-Indemini', canton: 'TI', province: 'VA', coordinates: [46.0955, 8.8164], type: 'locale', open24h: true, customsPresent: false, hours: '24h', avgWaitMorning: '2-5 min', avgWaitEvening: '3-6 min', trafficLevel: 'low' },
+  { name: 'Dumenza-Cassinone', canton: 'TI', province: 'VA', coordinates: [46.0052, 8.7921], type: 'locale', open24h: true, customsPresent: false, hours: '24h', avgWaitMorning: '2-5 min', avgWaitEvening: '3-6 min', trafficLevel: 'low' },
 ];
 
 const STATUS_COLORS: Record<string, string> = {

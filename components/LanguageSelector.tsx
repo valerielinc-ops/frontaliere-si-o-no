@@ -52,7 +52,7 @@ const LanguageSelector: React.FC = () => {
               }`}
             >
               <span className="text-lg">{label.flag}</span>
-              <span>{label.label}</span>
+              <span>{label.nativeName}</span>
             </button>
           ))}
         </div>

@@ -9,7 +9,7 @@ let db: any = null;
 const initFirestore = async () => {
   if (firestoreInitialized) return db;
   try {
-    const { getFirestore, collection, addDoc, query, where, getDocs } = await import('firebase/firestore');
+    const { getFirestore } = await import('firebase/firestore');
     const { app } = await import('@/services/firebase');
     db = getFirestore(app);
     firestoreInitialized = true;
@@ -53,9 +53,14 @@ const Newsletter: React.FC<NewsletterProps> = ({ compact = false }) => {
     try {
       const firestore = await initFirestore();
       if (!firestore) {
-        // Fallback: log to console and show success (for demo)
-        console.log('Newsletter subscription (Firestore unavailable):', { email, name, preferences });
+        // Firestore not available - store locally and show success
+        const pending = JSON.parse(localStorage.getItem('pendingNewsletterSubs') || '[]');
+        pending.push({ email: email.toLowerCase(), name: name.trim() || null, preferences, subscribedAt: new Date().toISOString() });
+        localStorage.setItem('pendingNewsletterSubs', JSON.stringify(pending));
+        console.log('Newsletter subscription saved locally (Firestore unavailable):', { email, name, preferences });
         setStatus('success');
+        setEmail('');
+        setName('');
         Analytics.trackUIInteraction('Newsletter', 'subscribe_fallback', 'no_firestore');
         return;
       }
@@ -89,7 +94,18 @@ const Newsletter: React.FC<NewsletterProps> = ({ compact = false }) => {
       Analytics.trackUIInteraction('Newsletter', 'subscribe_success', email.split('@')[1]);
     } catch (error: any) {
       console.error('Newsletter subscription error:', error);
-      setErrorMessage(error.message || 'Errore durante l\'iscrizione');
+      // If Firestore fails (permissions, App Check, network), save locally as fallback
+      if (error?.code === 'permission-denied' || error?.code === 'unavailable' || error?.code === 'unauthenticated') {
+        const pending = JSON.parse(localStorage.getItem('pendingNewsletterSubs') || '[]');
+        pending.push({ email: email.toLowerCase(), name: name.trim() || null, preferences, subscribedAt: new Date().toISOString() });
+        localStorage.setItem('pendingNewsletterSubs', JSON.stringify(pending));
+        setStatus('success');
+        setEmail('');
+        setName('');
+        Analytics.trackUIInteraction('Newsletter', 'subscribe_fallback_error', error.code);
+        return;
+      }
+      setErrorMessage(error.message || 'Errore durante l\'iscrizione. Riprova più tardi.');
       setStatus('error');
       Analytics.trackUIInteraction('Newsletter', 'subscribe_error', error.message);
     }

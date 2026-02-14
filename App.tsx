@@ -36,7 +36,8 @@ const App: React.FC = () => {
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [isFocusMode, setIsFocusMode] = useState(false);
   const [activeTab, setActiveTab] = useState<'calculator' | 'feedback' | 'stats' | 'pension' | 'guide' | 'comparatori' | 'privacy' | 'data-deletion' | 'api-status'>('calculator');
-  const [comparatoriSubTab, setComparatoriSubTab] = useState<'exchange' | 'mobile' | 'transport' | 'health' | 'banks' | 'traffic' | 'jobs' | 'companies'>('exchange');
+  const [comparatoriSubTab, setComparatoriSubTab] = useState<'exchange' | 'mobile' | 'transport' | 'health' | 'banks' | 'traffic' | 'jobs'>('exchange');
+  const [guideSubTab, setGuideSubTab] = useState<'guide' | 'companies'>('guide');
   const [simulatorSubTab, setSimulatorSubTab] = useState<'calculator' | 'whatif'>('calculator');
   const [pensionSubTab, setPensionSubTab] = useState<'planner' | 'pillar3'>('planner');
   const [showApiStatus, setShowApiStatus] = useState(false);
@@ -342,16 +343,7 @@ const App: React.FC = () => {
                   <Briefcase size={16} />
                   {t('comparators.jobs')}
                 </button>
-                <button
-                  onClick={() => {
-                    setComparatoriSubTab('companies');
-                    Analytics.trackComparatorView('companies' as any);
-                  }}
-                  className={`px-4 py-2 text-sm font-medium rounded-lg whitespace-nowrap transition-colors flex items-center gap-2 ${comparatoriSubTab === 'companies' ? 'bg-violet-100 dark:bg-violet-900/30 text-violet-700 dark:text-violet-300' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800'}`}
-                >
-                  <MapPin size={16} />
-                  {t('comparators.companies')}
-                </button>
+
               </div>
             </div>
           </div>
@@ -408,8 +400,38 @@ const App: React.FC = () => {
               )}
             </div>
           ) : activeTab === 'guide' ? (
-            <div className="max-w-7xl mx-auto animate-fade-in">
-              <FrontierGuide />
+            <div className="max-w-7xl mx-auto animate-fade-in space-y-6">
+              {/* Guide sub-tabs */}
+              <div className="flex gap-2 bg-white dark:bg-slate-800 rounded-xl p-1.5 border border-slate-200 dark:border-slate-700 max-w-md">
+                <button
+                  onClick={() => setGuideSubTab('guide')}
+                  className={`flex-1 flex items-center justify-center gap-2 px-4 py-2 text-sm font-bold rounded-lg transition-colors ${
+                    guideSubTab === 'guide'
+                      ? 'bg-indigo-600 text-white shadow-sm'
+                      : 'text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700'
+                  }`}
+                >
+                  <BookOpen size={16} />
+                  {t('nav.guide')}
+                </button>
+                <button
+                  onClick={() => setGuideSubTab('companies')}
+                  className={`flex-1 flex items-center justify-center gap-2 px-4 py-2 text-sm font-bold rounded-lg transition-colors ${
+                    guideSubTab === 'companies'
+                      ? 'bg-indigo-600 text-white shadow-sm'
+                      : 'text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700'
+                  }`}
+                >
+                  <MapPin size={16} />
+                  {t('comparators.companies')}
+                </button>
+              </div>
+
+              {guideSubTab === 'guide' ? (
+                <FrontierGuide />
+              ) : (
+                <TicinoCompanies />
+              )}
             </div>
           ) : activeTab === 'pension' ? (
             <div className="max-w-7xl mx-auto animate-fade-in space-y-6">
@@ -459,8 +481,6 @@ const App: React.FC = () => {
                 <BankComparison />
               ) : comparatoriSubTab === 'jobs' ? (
                 <JobComparator />
-              ) : comparatoriSubTab === 'companies' ? (
-                <TicinoCompanies />
               ) : (
                 <TrafficAlerts />
               )}
