@@ -1,0 +1,66 @@
+import { describe, it, expect } from 'vitest';
+import { buildPath, parsePath } from '@/services/router';
+
+const ALL_COMPARATORI_SUBTABS = [
+  'exchange', 'mobile', 'transport', 'health', 'banks',
+  'traffic', 'jobs', 'shopping', 'cost-of-living', 'costs',
+] as const;
+
+const ALL_GUIDE_SECTIONS = [
+  'municipalities', 'living-ch', 'living-it', 'border',
+  'calendar', 'holidays', 'permits', 'companies',
+  'places', 'schools', 'unemployment',
+] as const;
+
+const ALL_LOCALES = ['it', 'en', 'de', 'fr'] as const;
+
+describe('Router — buildPath', () => {
+  describe('Comparatori subtabs produce valid paths (no undefined segments)', () => {
+    for (const locale of ALL_LOCALES) {
+      for (const sub of ALL_COMPARATORI_SUBTABS) {
+        it(`[${locale}] comparatori/${sub} → valid path`, () => {
+          const path = buildPath(
+            { activeTab: 'comparatori', comparatoriSubTab: sub },
+            locale,
+          );
+          expect(path).toBeDefined();
+          expect(path).not.toContain('undefined');
+          expect(path).toMatch(/^\/[a-z0-9/-]+$/);
+        });
+      }
+    }
+  });
+
+  describe('Guide sections produce valid paths', () => {
+    for (const locale of ALL_LOCALES) {
+      for (const section of ALL_GUIDE_SECTIONS) {
+        it(`[${locale}] guide/${section} → valid path`, () => {
+          const path = buildPath(
+            { activeTab: 'guide', guideSection: section },
+            locale,
+          );
+          expect(path).toBeDefined();
+          expect(path).not.toContain('undefined');
+        });
+      }
+    }
+  });
+});
+
+describe('Router — parsePath roundtrip', () => {
+  describe('Comparatori paths survive roundtrip', () => {
+    for (const locale of ALL_LOCALES) {
+      for (const sub of ALL_COMPARATORI_SUBTABS) {
+        it(`[${locale}] comparatori/${sub} roundtrips`, () => {
+          const path = buildPath(
+            { activeTab: 'comparatori', comparatoriSubTab: sub },
+            locale,
+          );
+          const { route } = parsePath(path);
+          expect(route.activeTab).toBe('comparatori');
+          expect(route.comparatoriSubTab).toBe(sub);
+        });
+      }
+    }
+  });
+});

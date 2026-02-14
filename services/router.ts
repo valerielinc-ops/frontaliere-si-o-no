@@ -220,7 +220,20 @@ type ComparatoriSlugMap = Record<string, ComparatoriSubTab>;
 type GuideSlugMap = Record<string, GuideSection>;
 type TopLevelSlugMap = Record<string, { tab: ActiveTab; sub?: string }>;
 
-const COMPARATORI_KEYS: (keyof SlugTable & string)[] = ['exchange', 'mobile', 'transport', 'health', 'banks', 'traffic', 'jobs', 'shopping', 'costOfLiving', 'costs'];
+// Maps ComparatoriSubTab values → SlugTable keys (handles camelCase mismatches like 'cost-of-living' → 'costOfLiving')
+const COMPARATORI_SUB_TO_SLUG: Record<ComparatoriSubTab, keyof SlugTable & string> = {
+  exchange: 'exchange',
+  mobile: 'mobile',
+  transport: 'transport',
+  health: 'health',
+  banks: 'banks',
+  traffic: 'traffic',
+  jobs: 'jobs',
+  shopping: 'shopping',
+  'cost-of-living': 'costOfLiving',
+  costs: 'costs',
+};
+const COMPARATORI_KEYS: (keyof SlugTable & string)[] = Object.values(COMPARATORI_SUB_TO_SLUG);
 const GUIDE_KEYS: { key: keyof SlugTable; id: GuideSection }[] = [
   { key: 'municipalities', id: 'municipalities' },
   { key: 'livingCH', id: 'living-ch' },
@@ -238,8 +251,8 @@ const GUIDE_KEYS: { key: keyof SlugTable; id: GuideSection }[] = [
 // Builds a single-locale reverse map for comparatori slugs
 function buildComparatoriReverse(table: SlugTable): ComparatoriSlugMap {
   const map: ComparatoriSlugMap = {};
-  for (const k of COMPARATORI_KEYS) {
-    map[table[k]] = k as ComparatoriSubTab;
+  for (const [subTab, slugKey] of Object.entries(COMPARATORI_SUB_TO_SLUG)) {
+    map[table[slugKey]] = subTab as ComparatoriSubTab;
   }
   return map;
 }
@@ -397,7 +410,8 @@ export function parseHashToPath(hash: string): string | null {
   }
   if (parts[0] === 'comparatori') {
     const subKey = parts[1] as ComparatoriSubTab;
-    const slug = COMPARATORI_KEYS.includes(subKey as any) ? table[subKey as keyof SlugTable] : table.exchange;
+    const slugKey = COMPARATORI_SUB_TO_SLUG[subKey];
+    const slug = slugKey ? table[slugKey] : table.exchange;
     return `${prefix}/${table.comparatori}/${slug}`;
   }
   if (parts[0] === 'pensione') {
@@ -433,7 +447,8 @@ export function buildPath(route: AppRoute, locale?: Locale): string {
       return route.simulatorSubTab === 'whatif' ? `${prefix}/${table.whatif}` : (prefix || '/');
     case 'comparatori': {
       const subKey = route.comparatoriSubTab || 'exchange';
-      return `${prefix}/${table.comparatori}/${table[subKey]}`;
+      const slugKey = COMPARATORI_SUB_TO_SLUG[subKey] || 'exchange';
+      return `${prefix}/${table.comparatori}/${table[slugKey]}`;
     }
     case 'pension': {
       return route.pensionSubTab === 'pillar3'

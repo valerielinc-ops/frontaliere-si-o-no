@@ -674,7 +674,11 @@ const TaxCalendar: React.FC<TaxCalendarProps> = ({ initialTab }) => {
                       <div
                         key={d.id}
                         onClick={() => setSelectedDate(d.date === selectedDate ? null : d.date)}
-                        className={`cursor-pointer transition-all ${d.date === selectedDate ? 'ring-2 ring-indigo-500 rounded-xl' : ''}`}
+                        className={`cursor-pointer transition-all rounded-xl ${
+                          d.date === selectedDate
+                            ? 'ring-2 ring-indigo-500 bg-indigo-50 dark:bg-indigo-950/40 scale-[1.02] shadow-md'
+                            : 'hover:scale-[1.01] hover:shadow-sm'
+                        }`}
                       >
                         {renderEventCard(d, true)}
                       </div>
@@ -705,7 +709,7 @@ const TaxCalendar: React.FC<TaxCalendarProps> = ({ initialTab }) => {
                 <div className="grid grid-cols-7">
                   {calendarDays.map((day, idx) => {
                     if (day === null) {
-                      return <div key={`empty-${idx}`} className="aspect-square border-b border-r border-slate-100 dark:border-slate-700/50 bg-slate-50/50 dark:bg-slate-900/30" />;
+                      return <div key={`empty-${idx}`} className="min-h-[80px] sm:min-h-[96px] border-b border-r border-slate-100 dark:border-slate-700/50 bg-slate-50/50 dark:bg-slate-900/30" />;
                     }
 
                     const dateStr = getDateStr(day);
@@ -724,28 +728,28 @@ const TaxCalendar: React.FC<TaxCalendarProps> = ({ initialTab }) => {
                             Analytics.trackUIInteraction('guida', 'calendario', 'giorno', 'click', dateStr);
                           }
                         }}
-                        className={`border-b border-r border-slate-100 dark:border-slate-700/50 p-1 min-h-[60px] sm:min-h-[72px] flex flex-col transition-all relative
+                        className={`border-b border-r border-slate-100 dark:border-slate-700/50 p-1.5 min-h-[80px] sm:min-h-[96px] flex flex-col transition-all relative
                           ${hasEvents ? 'cursor-pointer hover:bg-indigo-50 dark:hover:bg-indigo-950/20' : ''}
-                          ${isSelected ? 'bg-indigo-100 dark:bg-indigo-900/30 ring-2 ring-indigo-500 ring-inset' : ''}
+                          ${isSelected ? 'bg-indigo-100 dark:bg-indigo-900/30 ring-2 ring-indigo-500 ring-inset shadow-inner' : ''}
                           ${isPast && !hasEvents ? 'opacity-40' : ''}
                         `}
                       >
                         {/* Day number */}
-                        <div className={`text-[10px] sm:text-xs font-bold self-end w-5 h-5 sm:w-6 sm:h-6 flex items-center justify-center rounded-full ${
-                          isToday ? 'bg-indigo-600 text-white' : 'text-slate-700 dark:text-slate-300'
+                        <div className={`text-xs sm:text-sm font-bold self-end w-6 h-6 sm:w-7 sm:h-7 flex items-center justify-center rounded-full ${
+                          isToday ? 'bg-indigo-600 text-white shadow-sm' : 'text-slate-700 dark:text-slate-300'
                         }`}>
                           {day}
                         </div>
 
                         {/* Event labels */}
                         {hasEvents && (
-                          <div className="flex-grow flex flex-col gap-0.5 mt-0.5 overflow-hidden">
+                          <div className="flex-grow flex flex-col gap-0.5 mt-1 overflow-hidden">
                             {events.slice(0, 2).map((e, i) => {
                               const cfg = CATEGORY_CONFIG[e.category];
                               return (
                                 <div
                                   key={i}
-                                  className={`px-1 py-0.5 rounded text-[7px] sm:text-[8px] font-bold leading-tight truncate bg-${cfg?.color || 'indigo'}-100 dark:bg-${cfg?.color || 'indigo'}-900/30 text-${cfg?.color || 'indigo'}-700 dark:text-${cfg?.color || 'indigo'}-300`}
+                                  className={`px-1.5 py-0.5 rounded text-[8px] sm:text-[9px] font-bold leading-tight truncate bg-${cfg?.color || 'indigo'}-100 dark:bg-${cfg?.color || 'indigo'}-900/30 text-${cfg?.color || 'indigo'}-700 dark:text-${cfg?.color || 'indigo'}-300`}
                                   title={e.title}
                                 >
                                   {e.title}
@@ -753,7 +757,7 @@ const TaxCalendar: React.FC<TaxCalendarProps> = ({ initialTab }) => {
                               );
                             })}
                             {events.length > 2 && (
-                              <div className="text-[7px] font-bold text-slate-400 text-center">+{events.length - 2}</div>
+                              <div className="text-[8px] font-bold text-slate-400 text-center">+{events.length - 2}</div>
                             )}
                           </div>
                         )}
