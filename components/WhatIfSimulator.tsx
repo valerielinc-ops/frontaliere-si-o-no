@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from 'react';
-import { Sliders, Baby, MapPin, Home, TrendingUp, TrendingDown, DollarSign, Heart, RotateCcw, Zap, Info, ArrowLeftRight, FlaskConical, Terminal, Code2, AlertTriangle } from 'lucide-react';
+import { Sliders, Baby, MapPin, Home, TrendingUp, TrendingDown, DollarSign, Heart, RotateCcw, Zap, Info, ArrowLeftRight, Sparkles, AlertTriangle } from 'lucide-react';
 import { calculateSimulation } from '@/services/calculationService';
 import { Analytics } from '@/services/analytics';
 import { SimulationInputs, SimulationResult } from '@/types';
@@ -160,33 +160,31 @@ const WhatIfSimulator: React.FC<WhatIfSimulatorProps> = ({ baseInputs, baseResul
 
   return (
     <div className="space-y-6 animate-fade-in">
-      {/* Header — Lab/Experimental */}
-      <div className="bg-gradient-to-br from-slate-900 via-emerald-950 to-slate-900 rounded-3xl p-8 text-white shadow-2xl border border-emerald-500/30 relative overflow-hidden">
-        {/* Scanline effect */}
-        <div className="absolute inset-0 bg-[repeating-linear-gradient(0deg,transparent,transparent_2px,rgba(0,255,0,0.03)_2px,rgba(0,255,0,0.03)_4px)] pointer-events-none" />
+      {/* Header — Fun/Playful */}
+      <div className="bg-gradient-to-br from-violet-600 via-fuchsia-500 to-pink-500 rounded-3xl p-8 text-white shadow-2xl relative overflow-hidden">
+        {/* Decorative blobs */}
+        <div className="absolute -top-10 -right-10 w-40 h-40 bg-white/10 rounded-full blur-2xl" />
+        <div className="absolute -bottom-10 -left-10 w-32 h-32 bg-yellow-300/15 rounded-full blur-2xl" />
         <div className="relative z-10">
           <div className="flex items-center gap-4 mb-4">
-            <div className="p-3 bg-emerald-500/20 rounded-2xl backdrop-blur-sm border border-emerald-500/30">
-              <FlaskConical size={32} className="text-emerald-400" />
+            <div className="p-3 bg-white/20 rounded-2xl backdrop-blur-sm">
+              <Sparkles size={32} className="text-yellow-300" />
             </div>
-            <div className="flex-1">
+            <div className="flex-1 min-w-0">
               <div className="flex items-center gap-3 flex-wrap">
-                <h1 className="text-3xl font-extrabold font-mono">{t('whatif.title')}</h1>
-                <span className="inline-flex items-center gap-1.5 px-3 py-1 text-[10px] font-bold uppercase tracking-wider bg-amber-500/20 text-amber-400 border border-amber-500/40 rounded-full animate-pulse">
-                  <AlertTriangle size={10} />
-                  {t('whatif.experimentalBadge')}
+                <h1 className="text-2xl sm:text-3xl font-extrabold">{t('whatif.title')}</h1>
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 text-[10px] font-bold uppercase tracking-wider bg-yellow-400/25 text-yellow-200 border border-yellow-300/40 rounded-full">
+                  ✨ {t('whatif.experimentalBadge')}
                 </span>
               </div>
-              <p className="text-emerald-300/80 mt-1 font-mono text-sm">{t('whatif.subtitle')}</p>
+              <p className="text-white/70 mt-1 text-sm">{t('whatif.subtitle')}</p>
             </div>
           </div>
-          {/* Terminal-style info bar */}
-          <div className="mt-4 bg-black/40 rounded-xl p-3 border border-emerald-500/20 font-mono text-xs text-emerald-400/70">
+          {/* Fun hint bar */}
+          <div className="mt-4 bg-white/10 rounded-xl p-3 backdrop-blur-sm text-sm text-white/60">
             <div className="flex items-center gap-2">
-              <Terminal size={12} className="text-emerald-500" />
-              <span className="text-emerald-500">$</span>
+              <Sliders size={14} className="text-yellow-300" />
               <span>{t('whatif.terminalHint')}</span>
-              <span className="animate-pulse">_</span>
             </div>
           </div>
         </div>
@@ -480,13 +478,12 @@ const WhatIfSimulator: React.FC<WhatIfSimulatorProps> = ({ baseInputs, baseResul
           )}
 
           {!hasChanges && (
-            <div className="bg-slate-900/5 dark:bg-slate-950/50 rounded-2xl border-2 border-dashed border-emerald-400/40 dark:border-emerald-600/40 p-8 text-center">
+            <div className="bg-gradient-to-br from-violet-50 to-pink-50 dark:from-violet-950/30 dark:to-pink-950/30 rounded-2xl border-2 border-dashed border-violet-300/60 dark:border-violet-600/40 p-8 text-center">
               <div className="relative inline-block">
-                <Code2 size={48} className="text-emerald-500/60 mx-auto mb-4" />
-                <FlaskConical size={20} className="text-amber-500 absolute -top-1 -right-1 animate-bounce" />
+                <Sparkles size={48} className="text-violet-400 mx-auto mb-4" />
               </div>
-              <p className="text-lg font-bold text-slate-700 dark:text-slate-300 font-mono">{t('whatif.modifyParams')}</p>
-              <p className="text-sm text-emerald-600/70 dark:text-emerald-400/60 mt-1 font-mono">&gt; {t('whatif.resultsRealtime')}</p>
+              <p className="text-lg font-bold text-slate-700 dark:text-slate-300">{t('whatif.modifyParams')}</p>
+              <p className="text-sm text-violet-500/70 dark:text-violet-400/60 mt-1">{t('whatif.resultsRealtime')}</p>
               <p className="text-[10px] text-slate-400 dark:text-slate-500 mt-3 italic">{t('whatif.nerdDisclaimer')}</p>
             </div>
           )}

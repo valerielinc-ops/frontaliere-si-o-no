@@ -123,7 +123,7 @@ const translations: AllTranslations = {
     'companies.noResults': 'Nessuna azienda trovata',
     'companies.tryModifyFilters': 'Prova a modificare i filtri di ricerca',
     'simulator.calculator': 'Calcolatore',
-    'simulator.whatif': '⚗️ Lab: Cosa cambia se...',
+    'simulator.whatif': '✨ Cosa cambia se...',
     
     // Pension sub-tabs
     'pension.planner': 'Pianificatore',
@@ -232,11 +232,11 @@ const translations: AllTranslations = {
     'calc.netIncome': 'Stipendio Netto',
     
     // What-if Simulator
-    'whatif.title': 'Lab :: Cosa cambia se...',
-    'whatif.subtitle': '// Sandbox sperimentale — simula scenari alternativi in tempo reale',
-    'whatif.experimentalBadge': 'Sperimentale',
-    'whatif.terminalHint': 'tweak_params --scenario=custom --realtime | calcola_delta',
-    'whatif.nerdDisclaimer': '⚗️ Questa è una funzione sperimentale: i calcoli sono indicativi e basati su modelli semplificati. Non sostituisce una consulenza fiscale.',
+    'whatif.title': 'E se cambiasse tutto?',
+    'whatif.subtitle': 'Gioca con gli scenari e scopri come cambierebbero le tue finanze',
+    'whatif.experimentalBadge': 'Beta',
+    'whatif.terminalHint': 'Muovi gli slider qui sotto e guarda cosa succede in tempo reale 👇',
+    'whatif.nerdDisclaimer': 'I calcoli sono indicativi e basati su modelli semplificati. Non sostituisce una consulenza fiscale.',
     'whatif.scenario.child': 'Se avessi un figlio?',
     'whatif.scenario.canton': 'Se cambiassi cantone?',
     'whatif.scenario.residence': 'Se prendessi la residenza CH?',
@@ -1909,7 +1909,7 @@ const translations: AllTranslations = {
     
     // Simulator sub-tabs
     'simulator.calculator': 'Calculator',
-    'simulator.whatif': '⚗️ Lab: What if...',
+    'simulator.whatif': '✨ What if...',
     
     // Pension sub-tabs
     'pension.planner': 'Planner',
@@ -2018,11 +2018,11 @@ const translations: AllTranslations = {
     'calc.netIncome': 'Net Income',
     
     // What-if
-    'whatif.title': 'Lab :: What if...',
-    'whatif.subtitle': '// Experimental sandbox — simulate alternative scenarios in real time',
-    'whatif.experimentalBadge': 'Experimental',
-    'whatif.terminalHint': 'tweak_params --scenario=custom --realtime | calc_delta',
-    'whatif.nerdDisclaimer': '⚗️ This is an experimental feature: calculations are indicative and based on simplified models. Not a substitute for tax advice.',
+    'whatif.title': 'What if everything changed?',
+    'whatif.subtitle': 'Play with scenarios and see how your finances would change',
+    'whatif.experimentalBadge': 'Beta',
+    'whatif.terminalHint': 'Move the sliders below and watch what happens in real time 👇',
+    'whatif.nerdDisclaimer': 'Calculations are indicative and based on simplified models. Not a substitute for tax advice.',
     'whatif.scenario.child': 'What if I had a child?',
     'whatif.scenario.canton': 'What if I changed canton?',
     'whatif.scenario.residence': 'What if I took CH residence?',
@@ -3690,7 +3690,7 @@ const translations: AllTranslations = {
     
     // Simulator sub-tabs
     'simulator.calculator': 'Rechner',
-    'simulator.whatif': '⚗️ Lab: Was wäre wenn...',
+    'simulator.whatif': '✨ Was wäre wenn...',
     
     // Pension sub-tabs
     'pension.planner': 'Planer',
@@ -3799,11 +3799,11 @@ const translations: AllTranslations = {
     'calc.netIncome': 'Nettoeinkommen',
     
     // What-if
-    'whatif.title': 'Lab :: Was wäre wenn...',
-    'whatif.subtitle': '// Experimentelle Sandbox — Szenarien in Echtzeit simulieren',
-    'whatif.experimentalBadge': 'Experimentell',
-    'whatif.terminalHint': 'tweak_params --szenario=custom --echtzeit | berechne_delta',
-    'whatif.nerdDisclaimer': '⚗️ Dies ist eine experimentelle Funktion: Berechnungen sind indikativ und basieren auf vereinfachten Modellen. Kein Ersatz für Steuerberatung.',
+    'whatif.title': 'Was wäre wenn alles anders wäre?',
+    'whatif.subtitle': 'Spiele mit Szenarien und sieh, wie sich deine Finanzen ändern würden',
+    'whatif.experimentalBadge': 'Beta',
+    'whatif.terminalHint': 'Bewege die Schieberegler und beobachte in Echtzeit, was passiert 👇',
+    'whatif.nerdDisclaimer': 'Berechnungen sind indikativ und basieren auf vereinfachten Modellen. Kein Ersatz für Steuerberatung.',
     'whatif.scenario.child': 'Was, wenn ich ein Kind hätte?',
     'whatif.scenario.canton': 'Was, wenn ich den Kanton wechsle?',
     'whatif.scenario.residence': 'Was, wenn ich CH-Wohnsitz nehme?',
@@ -5471,7 +5471,7 @@ const translations: AllTranslations = {
     
     // Simulator sub-tabs
     'simulator.calculator': 'Calculateur',
-    'simulator.whatif': '⚗️ Lab: Et si...',
+    'simulator.whatif': '✨ Et si...',
     
     // Pension sub-tabs
     'pension.planner': 'Planificateur',
@@ -5580,11 +5580,11 @@ const translations: AllTranslations = {
     'calc.netIncome': 'Revenu net',
     
     // What-if
-    'whatif.title': 'Lab :: Et si...',
-    'whatif.subtitle': '// Bac à sable expérimental — simulez des scénarios alternatifs en temps réel',
-    'whatif.experimentalBadge': 'Expérimental',
-    'whatif.terminalHint': 'ajuster_params --scenario=custom --temps_reel | calculer_delta',
-    'whatif.nerdDisclaimer': '⚗️ Fonction expérimentale : les calculs sont indicatifs et basés sur des modèles simplifiés. Ne remplace pas un conseil fiscal.',
+    'whatif.title': 'Et si tout changeait ?',
+    'whatif.subtitle': 'Jouez avec les scénarios et découvrez comment vos finances changeraient',
+    'whatif.experimentalBadge': 'Bêta',
+    'whatif.terminalHint': 'Déplacez les curseurs ci-dessous et observez en temps réel 👇',
+    'whatif.nerdDisclaimer': 'Les calculs sont indicatifs et basés sur des modèles simplifiés. Ne remplace pas un conseil fiscal.',
     'whatif.scenario.child': 'Et si j\'avais un enfant ?',
     'whatif.scenario.canton': 'Et si je changeais de canton ?',
     'whatif.scenario.residence': 'Et si je prenais la résidence CH ?',

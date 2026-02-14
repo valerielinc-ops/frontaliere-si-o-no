@@ -13,19 +13,19 @@ interface MobileOperator {
   roamingInSwitzerland?: {
     included: boolean;
     costPerDay?: number;
-    monthlyFee?: number; // Fixed monthly cost for roaming
+    monthlyFee?: number;
     costPerMB?: number;
     costPerMinute?: number;
-    dataLimit?: number; // GB included in roaming
+    dataLimit?: number | string;
     notes: string;
   };
   roamingInItaly?: {
     included: boolean;
     costPerDay?: number;
-    monthlyFee?: number; // Fixed monthly cost for roaming
+    monthlyFee?: number;
     costPerMB?: number;
     costPerMinute?: number;
-    dataLimit?: number;
+    dataLimit?: number | string;
     notes: string;
   };
   color: string;
@@ -42,39 +42,40 @@ const operators: MobileOperator[] = [
     logo: '🇮🇹',
     country: 'IT',
     monthlyCost: 9.99,
-    dataGB: 250,
+    dataGB: 200,
     minutes: 'illimitati',
     sms: 'illimitati',
     roamingInSwitzerland: {
       included: false,
       monthlyFee: 5,
-      dataLimit: 5,
-      notes: 'Roaming Svizzera: +5€/mese per 5GB extra (oltre i 13GB UE inclusi)'
+      dataLimit: 1,
+      notes: 'Opzione Extra UE: 5€/mese per 1GB dati + 100 min. Senza opzione: 0.49€/min, 0.16€/SMS, 4.88€/MB'
     },
     setupCost: 9.99,
     contractType: 'prepagato',
     color: 'from-red-500 to-orange-600',
-    features: ['13 GB + 5GB extra roaming CH', 'Minuti/SMS illimitati', 'Migliore per frontalieri'],
+    features: ['200 GB + 5G incluso', 'Prezzo per sempre', 'Opzione CH 5€/mese'],
     website: 'https://www.iliad.it/offerte-iliad-mobile.html'
   },
   {
     name: 'ho. Mobile',
     logo: '🟢',
     country: 'IT',
-    monthlyCost: 9.99,
-    dataGB: 200,
+    monthlyCost: 4.95,
+    dataGB: 100,
     minutes: 'illimitati',
-    sms: 'illimitati',
+    sms: 200,
     roamingInSwitzerland: {
       included: false,
-      costPerDay: 3.00,
-      notes: 'Roaming Extra UE: 3€/giorno per 500MB + 100 min. Svizzera Extra UE'
+      costPerMB: 4.88,
+      costPerMinute: 0.49,
+      notes: 'Nessun roaming CH incluso. Extra UE: 0.49€/min, 0.16€/SMS, 4.88€/MB'
     },
-    setupCost: 0,
+    setupCost: 2.99,
     contractType: 'prepagato',
     color: 'from-green-500 to-emerald-600',
-    features: ['Rete Vodafone', 'Nessun costo attivazione', 'Roaming CH a pagamento'],
-    website: 'https://www.ho-mobile.it/offerte-mobile.html'
+    features: ['5G incluso', 'Rete Fastweb', 'Da 4.95€ per sempre', 'Roaming CH costoso'],
+    website: 'https://www.ho-mobile.it/tutte-le-offerte.html'
   },
   {
     name: 'Vodafone',
@@ -86,14 +87,14 @@ const operators: MobileOperator[] = [
     sms: 200,
     roamingInSwitzerland: {
       included: false,
-      costPerDay: 6.00,
-      notes: 'Travel World: 6€/giorno per 1GB + min/SMS. Svizzera Extra UE'
+      costPerDay: 5,
+      notes: 'Pass giornaliero 5€ per 200MB + min/SMS. Senza pass: 6.19€/min, 1.86€/SMS, 6.19€/MB'
     },
-    setupCost: 0,
+    setupCost: 6.99,
     contractType: 'prepagato',
     color: 'from-red-600 to-rose-700',
-    features: ['Rete proprietaria', 'Travel World a pagamento', 'Costoso per frontalieri'],
-    website: 'https://www.vodafone.it/portale/Privati/Tariffe-e-Prodotti/Tariffe/Silver'
+    features: ['Rete capillare', 'Roaming CH molto costoso', '5G disponibile'],
+    website: 'https://www.vodafone.it/offerte/mobile'
   },
   {
     name: 'TIM',
@@ -105,53 +106,54 @@ const operators: MobileOperator[] = [
     sms: 'illimitati',
     roamingInSwitzerland: {
       included: false,
-      costPerDay: 6.00,
-      notes: 'TIM in Viaggio Pass: 6€/giorno per 1GB. Svizzera Extra UE'
+      monthlyFee: 10,
+      dataLimit: 3,
+      notes: 'Tim in Viaggio Extra UE: 10€/mese per 3GB + 250 min. Senza opzione: tariffe Extra UE elevate'
     },
     setupCost: 25,
     contractType: 'abbonamento',
     color: 'from-blue-600 to-indigo-700',
-    features: ['Rete proprietaria', 'Costi attivazione alti', 'Roaming Extra UE costoso'],
+    features: ['Copertura eccellente', 'Opzione CH 10€/mese', 'Costoso complessivamente'],
     website: 'https://www.tim.it/offerte/mobile'
   },
   {
-    name: 'WindTre All Inclusive',
+    name: 'WindTre',
     logo: '🟠',
     country: 'IT',
     monthlyCost: 14.99,
     dataGB: 'illimitati',
     minutes: 'illimitati',
-    sms: 'illimitati',
+    sms: 200,
     roamingInSwitzerland: {
       included: false,
-      costPerDay: 3,
-      notes: 'Travel Pass Svizzera: 3€/giorno per giga illimitati e minuti/SMS illimitati in CH'
+      costPerDay: 5,
+      notes: 'Pass giornaliero 5€ per 200MB + 60 min. Senza pass: tariffe Extra UE molto elevate'
     },
     setupCost: 0,
     contractType: 'abbonamento',
     color: 'from-orange-600 to-amber-700',
-    features: ['Giga illimitati in Italia', 'Travel Pass CH: 3€/giorno', 'Opzione con pass giornaliero'],
-    website: 'https://www.windtre.it/all-inclusive'
+    features: ['Giga illimitati in Italia', 'Buona copertura', 'Roaming CH costoso'],
+    website: 'https://www.windtre.it/offerte-mobile'
   },
   {
     name: 'Very Mobile',
     logo: '🟣',
     country: 'IT',
-    monthlyCost: 5.99,
-    dataGB: 150,
+    monthlyCost: 6.99,
+    dataGB: 200,
     minutes: 'illimitati',
     sms: 'illimitati',
     roamingInSwitzerland: {
       included: false,
-      costPerMB: 0.50,
-      costPerMinute: 2.00,
-      notes: 'Nessun roaming incluso. Svizzera Extra UE: 0.50€/MB, 2€/min'
+      costPerMB: 4.88,
+      costPerMinute: 0.49,
+      notes: 'Nessun roaming CH incluso. Extra UE: 0.49€/min, 0.16€/SMS, 4.88€/MB'
     },
-    setupCost: 5,
+    setupCost: 0,
     contractType: 'prepagato',
     color: 'from-purple-600 to-pink-700',
-    features: ['Economico in Italia', 'Rete WindTre', 'Roaming molto costoso'],
-    website: 'https://www.verymobile.it/offerte-mobile'
+    features: ['200 GB + 5G Full Speed', 'SIM e spedizione gratis', 'Rete WindTre', 'Roaming CH costoso'],
+    website: 'https://www.verymobile.it/offerte'
   },
   {
     name: 'Fastweb Mobile',
@@ -175,26 +177,26 @@ const operators: MobileOperator[] = [
 
   // Swiss Operators
   {
-    name: 'Swisscom',
+    name: 'Swisscom blue M',
     logo: '🇨🇭',
     country: 'CH',
-    monthlyCost: 49.90,
+    monthlyCost: 79.90,
     dataGB: 'illimitati',
     minutes: 'illimitati',
     sms: 'illimitati',
     roamingInItaly: {
       included: true,
-      dataLimit: 20,
-      notes: 'Roaming UE incluso: 20 GB, minuti/SMS illimitati'
+      dataLimit: 'illimitati',
+      notes: 'Roaming UE/UK illimitato: dati, minuti e SMS inclusi (fair use policy)'
     },
     setupCost: 0,
     contractType: 'abbonamento',
     color: 'from-blue-700 to-indigo-800',
-    features: ['Rete migliore CH', 'Roaming UE incluso', 'Molto costoso'],
+    features: ['Rete migliore CH', 'Roaming UE illimitato', 'Premium'],
     website: 'https://www.swisscom.ch'
   },
   {
-    name: 'Salt',
+    name: 'Salt Travel',
     logo: '🧂',
     country: 'CH',
     monthlyCost: 29.95,
@@ -203,14 +205,33 @@ const operators: MobileOperator[] = [
     sms: 'illimitati',
     roamingInItaly: {
       included: true,
-      dataLimit: 10,
-      notes: 'Swiss Unlimited: 10 GB roaming UE incluso'
+      dataLimit: 20,
+      notes: 'Roaming UE/USA/CAN: dati illimitati (20 GB high-speed), 100 min chiamate in roaming. Sconto -65% a vita online'
     },
-    setupCost: 49,
+    setupCost: 0,
     contractType: 'abbonamento',
     color: 'from-pink-600 to-rose-700',
-    features: ['Dati illimitati CH', '10 GB roaming UE', 'Buon rapporto qualità/prezzo'],
-    website: 'https://www.salt.ch/en'
+    features: ['Dati illimitati CH+UE', '20 GB high-speed roaming', 'Sconto -65% a vita'],
+    website: 'https://www.salt.ch/en/mobile/plans/travel'
+  },
+  {
+    name: 'Salt Swiss Max',
+    logo: '🧂',
+    country: 'CH',
+    monthlyCost: 26.95,
+    dataGB: 'illimitati',
+    minutes: 'illimitati',
+    sms: 'illimitati',
+    roamingInItaly: {
+      included: true,
+      dataLimit: 1,
+      notes: 'Solo 1 GB roaming UE incluso. Sconto -63% a vita online. Per chi usa poco il roaming'
+    },
+    setupCost: 0,
+    contractType: 'abbonamento',
+    color: 'from-pink-500 to-rose-600',
+    features: ['Dati illimitati CH', 'Solo 1 GB roaming UE', 'Sconto -63% a vita'],
+    website: 'https://www.salt.ch/en/mobile/plans/swiss-max'
   },
   {
     name: 'Sunrise',
@@ -232,23 +253,23 @@ const operators: MobileOperator[] = [
     website: 'https://www.sunrise.ch'
   },
   {
-    name: 'Yallo',
+    name: 'Yallo Europe',
     logo: '💛',
     country: 'CH',
-    monthlyCost: 19.00,
-    dataGB: 25,
+    monthlyCost: 27.90,
+    dataGB: 'illimitati',
     minutes: 'illimitati',
     sms: 'illimitati',
     roamingInItaly: {
-      included: false,
-      costPerDay: 5.90,
-      notes: 'Yallo abroad: 5.90 CHF/giorno per 500MB roaming UE'
+      included: true,
+      dataLimit: 'illimitati',
+      notes: 'Roaming UE/USA/CAN/Turchia: dati illimitati, 60 min chiamate in roaming. Rete Sunrise 5G'
     },
-    setupCost: 0,
+    setupCost: 59,
     contractType: 'prepagato',
     color: 'from-yellow-500 to-amber-600',
-    features: ['Economico', 'Rete Sunrise', 'Roaming a pagamento'],
-    website: 'https://www.yallo.ch'
+    features: ['Roaming UE illimitato', 'Rete Sunrise 5G', '60 min chiamate roaming'],
+    website: 'https://www.yallo.ch/en/mobile-products/yallo_europe'
   },
   {
     name: 'Wingo',
@@ -438,7 +459,7 @@ const MobileOperators: React.FC = () => {
             <ul className="space-y-1 text-sm text-slate-700 dark:text-slate-300">
               {bestForFrontierWorkers.filter(op => op.country === 'IT').map(op => (
                 <li key={op.name}>
-                  <strong>{op.name}</strong> - {op.monthlyCost}€/mese - {op.roamingInSwitzerland?.dataLimit} GB roaming
+                  <strong>{op.name}</strong> - {op.monthlyCost}€/mese - {op.roamingInSwitzerland?.dataLimit === 'illimitati' ? '∞' : op.roamingInSwitzerland?.dataLimit} GB roaming
                 </li>
               ))}
             </ul>
@@ -448,7 +469,7 @@ const MobileOperators: React.FC = () => {
             <ul className="space-y-1 text-sm text-slate-700 dark:text-slate-300">
               {bestForFrontierWorkers.filter(op => op.country === 'CH').map(op => (
                 <li key={op.name}>
-                  <strong>{op.name}</strong> - {op.monthlyCost} CHF/mese - {op.roamingInItaly?.dataLimit} GB roaming
+                  <strong>{op.name}</strong> - {op.monthlyCost} CHF/mese - {op.roamingInItaly?.dataLimit === 'illimitati' ? '∞' : op.roamingInItaly?.dataLimit} GB roaming
                 </li>
               ))}
             </ul>
