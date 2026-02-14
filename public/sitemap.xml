@@ -1,228 +1,353 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
-        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
-  <!-- Homepage / Simulatore -->
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <!-- Homepage / Simulatore Fiscale                           -->
+  <!-- ═══════════════════════════════════════════════════════ -->
   <url>
     <loc>https://www.frontaliereticino.ch/</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.frontaliereticino.ch/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.frontaliereticino.ch/en/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.frontaliereticino.ch/de/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.frontaliereticino.ch/fr/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.frontaliereticino.ch/"/>
     <lastmod>2026-02-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
-
-  <!-- Comparatori Servizi -->
   <url>
-    <loc>https://www.frontaliereticino.ch/comparatori</loc>
+    <loc>https://www.frontaliereticino.ch/en/</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.frontaliereticino.ch/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.frontaliereticino.ch/en/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.frontaliereticino.ch/de/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.frontaliereticino.ch/fr/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.frontaliereticino.ch/"/>
     <lastmod>2026-02-14</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.frontaliereticino.ch/de/</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.frontaliereticino.ch/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.frontaliereticino.ch/en/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.frontaliereticino.ch/de/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.frontaliereticino.ch/fr/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.frontaliereticino.ch/"/>
+    <lastmod>2026-02-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.frontaliereticino.ch/fr/</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.frontaliereticino.ch/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.frontaliereticino.ch/en/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.frontaliereticino.ch/de/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.frontaliereticino.ch/fr/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.frontaliereticino.ch/"/>
+    <lastmod>2026-02-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
 
-  <!-- Cambio Valuta -->
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <!-- Simulatore What-If                                      -->
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <url>
+    <loc>https://www.frontaliereticino.ch/simulatore-what-if</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.frontaliereticino.ch/simulatore-what-if"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.frontaliereticino.ch/en/what-if-simulator"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.frontaliereticino.ch/de/was-waere-wenn"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.frontaliereticino.ch/fr/simulateur-hypothetique"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.frontaliereticino.ch/simulatore-what-if"/>
+    <lastmod>2026-02-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <!-- Comparatori                                             -->
+  <!-- ═══════════════════════════════════════════════════════ -->
   <url>
     <loc>https://www.frontaliereticino.ch/comparatori/cambio-valuta</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.frontaliereticino.ch/comparatori/cambio-valuta"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.frontaliereticino.ch/en/comparators/currency-exchange"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.frontaliereticino.ch/de/vergleiche/waehrungstausch"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.frontaliereticino.ch/fr/comparateurs/change-devises"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.frontaliereticino.ch/comparatori/cambio-valuta"/>
+    <lastmod>2026-02-14</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.frontaliereticino.ch/comparatori/traffico-valichi</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.frontaliereticino.ch/comparatori/traffico-valichi"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.frontaliereticino.ch/en/comparators/border-traffic"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.frontaliereticino.ch/de/vergleiche/grenzverkehr"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.frontaliereticino.ch/fr/comparateurs/trafic-frontiere"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.frontaliereticino.ch/comparatori/traffico-valichi"/>
+    <lastmod>2026-02-14</lastmod>
+    <changefreq>hourly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.frontaliereticino.ch/comparatori/operatori-mobili</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.frontaliereticino.ch/comparatori/operatori-mobili"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.frontaliereticino.ch/en/comparators/mobile-operators"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.frontaliereticino.ch/de/vergleiche/mobilfunkanbieter"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.frontaliereticino.ch/fr/comparateurs/operateurs-mobiles"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.frontaliereticino.ch/comparatori/operatori-mobili"/>
+    <lastmod>2026-02-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.frontaliereticino.ch/comparatori/banche</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.frontaliereticino.ch/comparatori/banche"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.frontaliereticino.ch/en/comparators/banks"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.frontaliereticino.ch/de/vergleiche/banken"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.frontaliereticino.ch/fr/comparateurs/banques"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.frontaliereticino.ch/comparatori/banche"/>
+    <lastmod>2026-02-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.frontaliereticino.ch/comparatori/assicurazioni-sanitarie</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.frontaliereticino.ch/comparatori/assicurazioni-sanitarie"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.frontaliereticino.ch/en/comparators/health-insurance"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.frontaliereticino.ch/de/vergleiche/krankenversicherung"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.frontaliereticino.ch/fr/comparateurs/assurance-maladie"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.frontaliereticino.ch/comparatori/assicurazioni-sanitarie"/>
+    <lastmod>2026-02-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.frontaliereticino.ch/comparatori/trasporti</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.frontaliereticino.ch/comparatori/trasporti"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.frontaliereticino.ch/en/comparators/transport"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.frontaliereticino.ch/de/vergleiche/verkehr"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.frontaliereticino.ch/fr/comparateurs/transports"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.frontaliereticino.ch/comparatori/trasporti"/>
+    <lastmod>2026-02-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.frontaliereticino.ch/comparatori/offerte-lavoro</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.frontaliereticino.ch/comparatori/offerte-lavoro"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.frontaliereticino.ch/en/comparators/job-offers"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.frontaliereticino.ch/de/vergleiche/stellenangebote"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.frontaliereticino.ch/fr/comparateurs/offres-emploi"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.frontaliereticino.ch/comparatori/offerte-lavoro"/>
     <lastmod>2026-02-14</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
 
-  <!-- Operatori Mobili -->
-  <url>
-    <loc>https://www.frontaliereticino.ch/comparatori/operatori-mobili</loc>
-    <lastmod>2026-02-14</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <!-- Trasporti -->
-  <url>
-    <loc>https://www.frontaliereticino.ch/comparatori/trasporti</loc>
-    <lastmod>2026-02-14</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <!-- Assicurazioni Sanitarie -->
-  <url>
-    <loc>https://www.frontaliereticino.ch/comparatori/assicurazioni-sanitarie</loc>
-    <lastmod>2026-02-14</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <!-- Banche -->
-  <url>
-    <loc>https://www.frontaliereticino.ch/comparatori/banche</loc>
-    <lastmod>2026-02-14</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <!-- Traffico Valichi -->
-  <url>
-    <loc>https://www.frontaliereticino.ch/comparatori/traffico-valichi</loc>
-    <lastmod>2026-02-14</lastmod>
-    <changefreq>hourly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <!-- Pianificatore Pensione -->
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <!-- Pianificatore Pensione                                  -->
+  <!-- ═══════════════════════════════════════════════════════ -->
   <url>
     <loc>https://www.frontaliereticino.ch/pianificatore-pensione</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.frontaliereticino.ch/pianificatore-pensione"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.frontaliereticino.ch/en/pension-planner"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.frontaliereticino.ch/de/rentenplaner"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.frontaliereticino.ch/fr/planificateur-retraite"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.frontaliereticino.ch/pianificatore-pensione"/>
     <lastmod>2026-02-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
+  <url>
+    <loc>https://www.frontaliereticino.ch/pianificatore-pensione/terzo-pilastro</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.frontaliereticino.ch/pianificatore-pensione/terzo-pilastro"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.frontaliereticino.ch/en/pension-planner/third-pillar"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.frontaliereticino.ch/de/rentenplaner/dritte-saeule"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.frontaliereticino.ch/fr/planificateur-retraite/troisieme-pilier"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.frontaliereticino.ch/pianificatore-pensione/terzo-pilastro"/>
+    <lastmod>2026-02-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
 
-  <!-- Guida Frontalieri -->
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <!-- Guida Frontalieri                                       -->
+  <!-- ═══════════════════════════════════════════════════════ -->
   <url>
     <loc>https://www.frontaliereticino.ch/guida-frontalieri</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.frontaliereticino.ch/guida-frontalieri"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.frontaliereticino.ch/en/frontier-guide"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.frontaliereticino.ch/de/grenzgaenger-ratgeber"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.frontaliereticino.ch/fr/guide-frontalier"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.frontaliereticino.ch/guida-frontalieri"/>
     <lastmod>2026-02-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
+  <url>
+    <loc>https://www.frontaliereticino.ch/guida-frontalieri/comuni-frontiera</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.frontaliereticino.ch/guida-frontalieri/comuni-frontiera"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.frontaliereticino.ch/en/frontier-guide/border-municipalities"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.frontaliereticino.ch/de/grenzgaenger-ratgeber/grenzgemeinden"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.frontaliereticino.ch/fr/guide-frontalier/communes-frontiere"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.frontaliereticino.ch/guida-frontalieri/comuni-frontiera"/>
+    <lastmod>2026-02-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.frontaliereticino.ch/guida-frontalieri/vivere-in-svizzera</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.frontaliereticino.ch/guida-frontalieri/vivere-in-svizzera"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.frontaliereticino.ch/en/frontier-guide/living-in-switzerland"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.frontaliereticino.ch/de/grenzgaenger-ratgeber/leben-in-der-schweiz"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.frontaliereticino.ch/fr/guide-frontalier/vivre-en-suisse"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.frontaliereticino.ch/guida-frontalieri/vivere-in-svizzera"/>
+    <lastmod>2026-02-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.frontaliereticino.ch/guida-frontalieri/vivere-in-italia</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.frontaliereticino.ch/guida-frontalieri/vivere-in-italia"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.frontaliereticino.ch/en/frontier-guide/living-in-italy"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.frontaliereticino.ch/de/grenzgaenger-ratgeber/leben-in-italien"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.frontaliereticino.ch/fr/guide-frontalier/vivre-en-italie"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.frontaliereticino.ch/guida-frontalieri/vivere-in-italia"/>
+    <lastmod>2026-02-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.frontaliereticino.ch/guida-frontalieri/valichi-frontiera</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.frontaliereticino.ch/guida-frontalieri/valichi-frontiera"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.frontaliereticino.ch/en/frontier-guide/border-crossings"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.frontaliereticino.ch/de/grenzgaenger-ratgeber/grenzuebergaenge"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.frontaliereticino.ch/fr/guide-frontalier/postes-frontiere"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.frontaliereticino.ch/guida-frontalieri/valichi-frontiera"/>
+    <lastmod>2026-02-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.frontaliereticino.ch/guida-frontalieri/costi-pendolarismo</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.frontaliereticino.ch/guida-frontalieri/costi-pendolarismo"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.frontaliereticino.ch/en/frontier-guide/commuting-costs"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.frontaliereticino.ch/de/grenzgaenger-ratgeber/pendelkosten"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.frontaliereticino.ch/fr/guide-frontalier/couts-pendulaire"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.frontaliereticino.ch/guida-frontalieri/costi-pendolarismo"/>
+    <lastmod>2026-02-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.frontaliereticino.ch/guida-frontalieri/calendario-fiscale</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.frontaliereticino.ch/guida-frontalieri/calendario-fiscale"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.frontaliereticino.ch/en/frontier-guide/tax-calendar"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.frontaliereticino.ch/de/grenzgaenger-ratgeber/steuerkalender"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.frontaliereticino.ch/fr/guide-frontalier/calendrier-fiscal"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.frontaliereticino.ch/guida-frontalieri/calendario-fiscale"/>
+    <lastmod>2026-02-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.frontaliereticino.ch/guida-frontalieri/permessi-lavoro</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.frontaliereticino.ch/guida-frontalieri/permessi-lavoro"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.frontaliereticino.ch/en/frontier-guide/work-permits"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.frontaliereticino.ch/de/grenzgaenger-ratgeber/arbeitsbewilligungen"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.frontaliereticino.ch/fr/guide-frontalier/permis-travail"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.frontaliereticino.ch/guida-frontalieri/permessi-lavoro"/>
+    <lastmod>2026-02-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.frontaliereticino.ch/guida-frontalieri/aziende-ticino</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.frontaliereticino.ch/guida-frontalieri/aziende-ticino"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.frontaliereticino.ch/en/frontier-guide/ticino-companies"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.frontaliereticino.ch/de/grenzgaenger-ratgeber/tessiner-unternehmen"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.frontaliereticino.ch/fr/guide-frontalier/entreprises-tessin"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.frontaliereticino.ch/guida-frontalieri/aziende-ticino"/>
+    <lastmod>2026-02-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.frontaliereticino.ch/guida-frontalieri/spesa-transfrontaliera</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.frontaliereticino.ch/guida-frontalieri/spesa-transfrontaliera"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.frontaliereticino.ch/en/frontier-guide/cross-border-shopping"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.frontaliereticino.ch/de/grenzgaenger-ratgeber/grenz-einkauf"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.frontaliereticino.ch/fr/guide-frontalier/achats-transfrontaliers"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.frontaliereticino.ch/guida-frontalieri/spesa-transfrontaliera"/>
+    <lastmod>2026-02-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.frontaliereticino.ch/guida-frontalieri/costo-della-vita</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.frontaliereticino.ch/guida-frontalieri/costo-della-vita"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.frontaliereticino.ch/en/frontier-guide/cost-of-living"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.frontaliereticino.ch/de/grenzgaenger-ratgeber/lebenshaltungskosten"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.frontaliereticino.ch/fr/guide-frontalier/cout-de-la-vie"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.frontaliereticino.ch/guida-frontalieri/costo-della-vita"/>
+    <lastmod>2026-02-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
 
-  <!-- Statistiche -->
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <!-- Statistiche                                             -->
+  <!-- ═══════════════════════════════════════════════════════ -->
   <url>
     <loc>https://www.frontaliereticino.ch/statistiche</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.frontaliereticino.ch/statistiche"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.frontaliereticino.ch/en/statistics"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.frontaliereticino.ch/de/statistiken"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.frontaliereticino.ch/fr/statistiques"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.frontaliereticino.ch/statistiche"/>
     <lastmod>2026-02-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
 
-  <!-- Supporto -->
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <!-- Supporto                                                -->
+  <!-- ═══════════════════════════════════════════════════════ -->
   <url>
     <loc>https://www.frontaliereticino.ch/supporto</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.frontaliereticino.ch/supporto"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.frontaliereticino.ch/en/support"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.frontaliereticino.ch/de/hilfe"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.frontaliereticino.ch/fr/assistance"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.frontaliereticino.ch/supporto"/>
     <lastmod>2026-02-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
 
-  <!-- Simulatore What-If -->
-  <url>
-    <loc>https://www.frontaliereticino.ch/simulatore-what-if</loc>
-    <lastmod>2026-02-14</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <!-- Offerte Lavoro -->
-  <url>
-    <loc>https://www.frontaliereticino.ch/comparatori/offerte-lavoro</loc>
-    <lastmod>2026-02-14</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <!-- Terzo Pilastro -->
-  <url>
-    <loc>https://www.frontaliereticino.ch/pianificatore-pensione/terzo-pilastro</loc>
-    <lastmod>2026-02-14</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <!-- Newsletter -->
-  <url>
-    <loc>https://www.frontaliereticino.ch/newsletter</loc>
-    <lastmod>2026-02-14</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-
-  <!-- Guida: Comuni di Frontiera -->
-  <url>
-    <loc>https://www.frontaliereticino.ch/guida-frontalieri/comuni-frontiera</loc>
-    <lastmod>2026-02-14</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <!-- Guida: Vivere in Svizzera -->
-  <url>
-    <loc>https://www.frontaliereticino.ch/guida-frontalieri/vivere-in-svizzera</loc>
-    <lastmod>2026-02-14</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <!-- Guida: Vivere in Italia -->
-  <url>
-    <loc>https://www.frontaliereticino.ch/guida-frontalieri/vivere-in-italia</loc>
-    <lastmod>2026-02-14</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <!-- Guida: Valichi di Frontiera -->
-  <url>
-    <loc>https://www.frontaliereticino.ch/guida-frontalieri/valichi-frontiera</loc>
-    <lastmod>2026-02-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <!-- Guida: Costi Pendolarismo -->
-  <url>
-    <loc>https://www.frontaliereticino.ch/guida-frontalieri/costi-pendolarismo</loc>
-    <lastmod>2026-02-14</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <!-- Guida: Calendario Fiscale -->
-  <url>
-    <loc>https://www.frontaliereticino.ch/guida-frontalieri/calendario-fiscale</loc>
-    <lastmod>2026-02-14</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <!-- Guida: Permessi di Lavoro -->
-  <url>
-    <loc>https://www.frontaliereticino.ch/guida-frontalieri/permessi-lavoro</loc>
-    <lastmod>2026-02-14</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <!-- Guida: Aziende Ticino -->
-  <url>
-    <loc>https://www.frontaliereticino.ch/guida-frontalieri/aziende-ticino</loc>
-    <lastmod>2026-02-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <!-- Guida: Spesa Transfrontaliera -->
-  <url>
-    <loc>https://www.frontaliereticino.ch/guida-frontalieri/spesa-transfrontaliera</loc>
-    <lastmod>2026-02-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <!-- Guida: Costo della Vita -->
-  <url>
-    <loc>https://www.frontaliereticino.ch/guida-frontalieri/costo-della-vita</loc>
-    <lastmod>2026-02-14</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <!-- Privacy Policy -->
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <!-- Privacy & Legal                                         -->
+  <!-- ═══════════════════════════════════════════════════════ -->
   <url>
     <loc>https://www.frontaliereticino.ch/privacy</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.frontaliereticino.ch/privacy"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.frontaliereticino.ch/en/privacy"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.frontaliereticino.ch/de/datenschutz"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.frontaliereticino.ch/fr/confidentialite"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.frontaliereticino.ch/privacy"/>
     <lastmod>2026-02-14</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
-
-  <!-- Data Deletion -->
   <url>
-    <loc>https://www.frontaliereticino.ch/data-deletion</loc>
+    <loc>https://www.frontaliereticino.ch/eliminazione-dati</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.frontaliereticino.ch/eliminazione-dati"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.frontaliereticino.ch/en/data-deletion"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.frontaliereticino.ch/de/daten-loeschen"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.frontaliereticino.ch/fr/suppression-donnees"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.frontaliereticino.ch/eliminazione-dati"/>
     <lastmod>2026-02-14</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>

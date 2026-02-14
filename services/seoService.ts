@@ -3,6 +3,9 @@
  * Manages SEO metadata for different sections of the app
  */
 
+import { getLocale } from './i18n';
+import { parsePath, buildPath, buildAllLocalePaths } from './router';
+
 export interface SEOMetadata {
   title: string;
   description: string;
@@ -314,10 +317,16 @@ export const SEO_METADATA: Record<string, SEOMetadata> = {
 };
 
 /**
- * Updates document meta tags dynamically
+ * Updates document meta tags dynamically.
+ * Uses the i18n router to build locale-aware canonical and hreflang URLs.
  */
 export function updateMetaTags(section: string): void {
   const metadata = SEO_METADATA[section] || SEO_METADATA.calculator;
+
+  // Build locale-aware canonical path from current URL
+  const { route } = parsePath(window.location.pathname);
+  const locale = getLocale();
+  const localePath = buildPath(route, locale);
 
   // Update title
   document.title = metadata.title;
@@ -329,19 +338,19 @@ export function updateMetaTags(section: string): void {
   // Update Open Graph tags
   updateOrCreateMetaTag('property', 'og:title', metadata.ogTitle);
   updateOrCreateMetaTag('property', 'og:description', metadata.ogDescription);
-  updateOrCreateMetaTag('property', 'og:url', `${BASE_URL}${metadata.canonicalPath}`);
+  updateOrCreateMetaTag('property', 'og:url', `${BASE_URL}${localePath}`);
   updateOrCreateMetaTag('property', 'og:locale', getOgLocale());
   
   // Update Twitter Card tags
   updateOrCreateMetaTag('name', 'twitter:title', metadata.ogTitle);
   updateOrCreateMetaTag('name', 'twitter:description', metadata.ogDescription);
-  updateOrCreateMetaTag('name', 'twitter:url', `${BASE_URL}${metadata.canonicalPath}`);
+  updateOrCreateMetaTag('name', 'twitter:url', `${BASE_URL}${localePath}`);
 
-  // Update canonical URL
-  updateCanonicalLink(`${BASE_URL}${metadata.canonicalPath}`);
+  // Update canonical URL (uses current locale path)
+  updateCanonicalLink(`${BASE_URL}${localePath}`);
 
-  // Update hreflang tags for multilingual SEO
-  updateHreflangTags(metadata.canonicalPath);
+  // Update hreflang tags with locale-specific paths
+  updateHreflangTags(route);
 
   // Update structured data if provided
   if (metadata.structuredData) {
@@ -369,26 +378,23 @@ function getOgLocale(): string {
 }
 
 /**
- * Update hreflang link tags for multilingual SEO
- * Tells search engines about language versions of the page
+ * Update hreflang link tags for multilingual SEO.
+ * Now uses locale-specific paths from the i18n router
+ * instead of ?lang= query parameters.
  */
-function updateHreflangTags(canonicalPath: string): void {
+function updateHreflangTags(route: import('./router').AppRoute): void {
   // Remove existing hreflang tags
   document.querySelectorAll('link[hreflang]').forEach(el => el.remove());
 
-  const supportedLocales = [
-    { lang: 'it', hreflang: 'it' },
-    { lang: 'en', hreflang: 'en' },
-    { lang: 'de', hreflang: 'de' },
-    { lang: 'fr', hreflang: 'fr' },
-  ];
+  // Get locale-specific paths from the router
+  const paths = buildAllLocalePaths(route);
 
   // Add hreflang for each locale
-  supportedLocales.forEach(({ hreflang }) => {
+  (['it', 'en', 'de', 'fr'] as const).forEach((lang) => {
     const link = document.createElement('link');
     link.rel = 'alternate';
-    link.hreflang = hreflang;
-    link.href = `${BASE_URL}${canonicalPath}?lang=${hreflang}`;
+    link.hreflang = lang;
+    link.href = `${BASE_URL}${paths[lang]}`;
     document.head.appendChild(link);
   });
 
@@ -396,7 +402,7 @@ function updateHreflangTags(canonicalPath: string): void {
   const xDefault = document.createElement('link');
   xDefault.rel = 'alternate';
   xDefault.setAttribute('hreflang', 'x-default');
-  xDefault.href = `${BASE_URL}${canonicalPath}`;
+  xDefault.href = `${BASE_URL}${paths.it}`;
   document.head.appendChild(xDefault);
 }
 

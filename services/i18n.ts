@@ -35,16 +35,32 @@ export function onLocaleChange(fn: (locale: Locale) => void): () => void {
 }
 
 export function initLocale(): void {
-  // Check URL parameter first (for SEO hreflang links)
+  const validLocales = ['it', 'en', 'de', 'fr'];
+
+  // 1. Check URL path prefix (/en/..., /de/..., /fr/...)
+  const pathParts = window.location.pathname.split('/').filter(Boolean);
+  if (pathParts.length > 0 && validLocales.includes(pathParts[0])) {
+    setLocale(pathParts[0] as Locale);
+    return;
+  }
+
+  // 2. Check URL ?lang= parameter (legacy hreflang links)
   const urlParams = new URLSearchParams(window.location.search);
   const urlLang = urlParams.get('lang') as Locale | null;
-  
-  let detected: Locale = 'it'; // Always default to Italian
-  if (urlLang && ['it', 'en', 'de', 'fr'].includes(urlLang)) {
-    detected = urlLang;
+  if (urlLang && validLocales.includes(urlLang)) {
+    setLocale(urlLang);
+    return;
   }
-  // Use setLocale to notify all listeners so React re-renders
-  setLocale(detected);
+
+  // 3. Check localStorage (user's previous choice)
+  const stored = localStorage.getItem('frontaliere_locale') as Locale | null;
+  if (stored && validLocales.includes(stored)) {
+    setLocale(stored);
+    return;
+  }
+
+  // 4. Default to Italian
+  setLocale('it');
 }
 
 // ─── Translation Function ────────────────────────────────────

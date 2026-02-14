@@ -24,8 +24,8 @@ import PwaInstallBanner from '@/components/PwaInstallBanner';
 import { calculateSimulation } from '@/services/calculationService';
 import { Analytics } from '@/services/analytics';
 import { updateMetaTags, trackSectionView } from '@/services/seoService';
-import { useTranslation, initLocale } from '@/services/i18n';
-import { parsePath, parseHashToPath, pushRoute, replaceRoute, buildPath, getSeoSection, AppRoute } from '@/services/router';
+import { useTranslation, initLocale, setLocale, onLocaleChange } from '@/services/i18n';
+import { parsePath, parseHashToPath, pushRoute, replaceRoute, buildPath, getSeoSection, updatePathForLocale, AppRoute } from '@/services/router';
 import { DEFAULT_INPUTS } from '@/constants';
 import { SimulationInputs, SimulationResult } from '@/types';
 import { Moon, Sun, Maximize2, Minimize2, Calculator, HelpCircle, BarChart2, PiggyBank, BookOpen, Facebook, ArrowRightLeft, Phone, Car, Heart, Building2, AlertTriangle, Layers, Briefcase, Sparkles, TrendingUp, MapPin } from 'lucide-react';
@@ -37,7 +37,12 @@ const App: React.FC = () => {
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [isFocusMode, setIsFocusMode] = useState(false);
   // Read initial route from URL path (or migrate legacy hash)
-  const initialRoute = parsePath(window.location.pathname);
+  const initialParsed = parsePath(window.location.pathname);
+  const initialRoute = initialParsed.route;
+  // If URL had a locale prefix (e.g. /en/...), set the app locale accordingly
+  if (initialParsed.locale !== 'it') {
+    setLocale(initialParsed.locale);
+  }
   const [activeTab, setActiveTab] = useState<'calculator' | 'feedback' | 'stats' | 'pension' | 'guide' | 'comparatori' | 'privacy' | 'data-deletion' | 'api-status'>(initialRoute.activeTab);
   const [comparatoriSubTab, setComparatoriSubTab] = useState<'exchange' | 'mobile' | 'transport' | 'health' | 'banks' | 'traffic' | 'jobs'>(initialRoute.comparatoriSubTab || 'exchange');
   const [simulatorSubTab, setSimulatorSubTab] = useState<'calculator' | 'whatif'>(initialRoute.simulatorSubTab || 'calculator');
@@ -57,19 +62,28 @@ const App: React.FC = () => {
   // Listen for browser back/forward navigation
   useEffect(() => {
     const onPopState = () => {
-      const route = parsePath(window.location.pathname);
+      const { route, locale: urlLocale } = parsePath(window.location.pathname);
       setActiveTab(route.activeTab);
       if (route.comparatoriSubTab) setComparatoriSubTab(route.comparatoriSubTab);
       if (route.simulatorSubTab) setSimulatorSubTab(route.simulatorSubTab);
       if (route.pensionSubTab) setPensionSubTab(route.pensionSubTab);
       if (route.guideSection) setGuideSection(route.guideSection);
+      // Sync locale from URL
+      setLocale(urlLocale);
       // Update SEO meta tags
       const seoKey = getSeoSection(route);
       updateMetaTags(seoKey);
       trackSectionView(seoKey);
     };
     window.addEventListener('popstate', onPopState);
-    return () => window.removeEventListener('popstate', onPopState);
+    // When locale changes, rewrite current URL with new locale slugs
+    const unsubLocale = onLocaleChange((newLocale) => {
+      updatePathForLocale(newLocale);
+    });
+    return () => {
+      window.removeEventListener('popstate', onPopState);
+      unsubLocale();
+    };
   }, []);
 
   // Migrate legacy hash-based URLs to clean paths
