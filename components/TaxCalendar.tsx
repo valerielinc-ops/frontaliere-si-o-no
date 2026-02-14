@@ -617,45 +617,47 @@ const TaxCalendar: React.FC<TaxCalendarProps> = ({ initialTab }) => {
       {viewMode === 'calendar' && (
         <>
           {/* Month navigation */}
-          <div className="flex items-center gap-2 bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 p-2">
-            <button
-              onClick={() => { setCurrentMonth(m => Math.max(0, m - 1)); setSelectedDate(null); }}
-              disabled={currentMonth === 0}
-              className="p-1.5 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700 disabled:opacity-30 transition-colors"
-            >
-              <ChevronLeft size={18} />
-            </button>
+          <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-4 shadow-sm">
+            <div className="flex items-center gap-3">
+              <button
+                onClick={() => { setCurrentMonth(m => Math.max(0, m - 1)); setSelectedDate(null); }}
+                disabled={currentMonth === 0}
+                className="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-700 hover:bg-indigo-100 dark:hover:bg-indigo-900/30 disabled:opacity-30 transition-all"
+              >
+                <ChevronLeft size={22} />
+              </button>
 
-            <div className="flex gap-0.5 flex-wrap justify-center flex-grow">
-              {MONTH_NAMES_IT.map((name, i) => (
-                <button
-                  key={i}
-                  onClick={() => { setCurrentMonth(i); setSelectedDate(null); }}
-                  className={`px-1.5 py-1 rounded-md text-[10px] font-bold transition-all relative ${
-                    currentMonth === i
-                      ? 'bg-indigo-600 text-white'
-                      : 'text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-700'
-                  }`}
-                >
-                  {name.substring(0, 3)}
-                  {monthEventCounts[i] > 0 && (
-                    <span className={`absolute -top-1 -right-1 w-3.5 h-3.5 rounded-full text-[8px] font-bold flex items-center justify-center ${
-                      currentMonth === i ? 'bg-white text-indigo-600' : 'bg-indigo-100 dark:bg-indigo-900/50 text-indigo-600 dark:text-indigo-300'
-                    }`}>
-                      {monthEventCounts[i]}
-                    </span>
-                  )}
-                </button>
-              ))}
+              <div className="grid grid-cols-6 sm:grid-cols-12 gap-1.5 flex-grow">
+                {MONTH_NAMES_IT.map((name, i) => (
+                  <button
+                    key={i}
+                    onClick={() => { setCurrentMonth(i); setSelectedDate(null); }}
+                    className={`relative px-2 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all ${
+                      currentMonth === i
+                        ? 'bg-gradient-to-br from-indigo-600 to-purple-600 text-white shadow-lg shadow-indigo-500/25 scale-105'
+                        : 'text-slate-600 dark:text-slate-400 hover:bg-indigo-50 dark:hover:bg-indigo-900/20 hover:text-indigo-600 dark:hover:text-indigo-300'
+                    }`}
+                  >
+                    {name.substring(0, 3)}
+                    {monthEventCounts[i] > 0 && (
+                      <span className={`absolute -top-1.5 -right-1.5 w-5 h-5 rounded-full text-[10px] font-extrabold flex items-center justify-center shadow-sm ${
+                        currentMonth === i ? 'bg-white text-indigo-600' : 'bg-indigo-500 text-white'
+                      }`}>
+                        {monthEventCounts[i]}
+                      </span>
+                    )}
+                  </button>
+                ))}
+              </div>
+
+              <button
+                onClick={() => { setCurrentMonth(m => Math.min(11, m + 1)); setSelectedDate(null); }}
+                disabled={currentMonth === 11}
+                className="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-700 hover:bg-indigo-100 dark:hover:bg-indigo-900/30 disabled:opacity-30 transition-all"
+              >
+                <ChevronRight size={22} />
+              </button>
             </div>
-
-            <button
-              onClick={() => { setCurrentMonth(m => Math.min(11, m + 1)); setSelectedDate(null); }}
-              disabled={currentMonth === 11}
-              className="p-1.5 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700 disabled:opacity-30 transition-colors"
-            >
-              <ChevronRight size={18} />
-            </button>
           </div>
 
           {/* Two-column layout: Events list (left) + Calendar grid (right) */}
@@ -709,7 +711,7 @@ const TaxCalendar: React.FC<TaxCalendarProps> = ({ initialTab }) => {
                 <div className="grid grid-cols-7">
                   {calendarDays.map((day, idx) => {
                     if (day === null) {
-                      return <div key={`empty-${idx}`} className="min-h-[72px] sm:min-h-[84px] border-b border-r border-slate-100 dark:border-slate-700/50 bg-slate-50/50 dark:bg-slate-900/30" />;
+                      return <div key={`empty-${idx}`} className="min-h-[80px] sm:min-h-[96px] border-b border-r border-slate-100 dark:border-slate-700/50 bg-slate-50/50 dark:bg-slate-900/30" />;
                     }
 
                     const dateStr = getDateStr(day);
@@ -728,7 +730,7 @@ const TaxCalendar: React.FC<TaxCalendarProps> = ({ initialTab }) => {
                             Analytics.trackUIInteraction('guida', 'calendario', 'giorno', 'click', dateStr);
                           }
                         }}
-                        className={`border-b border-r border-slate-100 dark:border-slate-700/50 p-1.5 min-h-[72px] sm:min-h-[84px] flex flex-col transition-all relative
+                        className={`border-b border-r border-slate-100 dark:border-slate-700/50 p-1.5 min-h-[80px] sm:min-h-[96px] flex flex-col transition-all relative
                           ${hasEvents ? 'cursor-pointer hover:bg-indigo-50/80 dark:hover:bg-indigo-950/30' : ''}
                           ${isSelected ? 'bg-indigo-100 dark:bg-indigo-900/40 ring-2 ring-indigo-500 ring-inset shadow-inner' : ''}
                           ${isPast && !hasEvents ? 'opacity-40' : ''}
@@ -743,21 +745,21 @@ const TaxCalendar: React.FC<TaxCalendarProps> = ({ initialTab }) => {
 
                         {/* Event labels */}
                         {hasEvents && (
-                          <div className="flex-grow flex flex-col gap-0.5 mt-1 overflow-hidden">
+                          <div className="flex-grow flex flex-col gap-1 mt-1.5 overflow-hidden">
                             {events.slice(0, 2).map((e, i) => {
                               const cfg = CATEGORY_CONFIG[e.category];
                               return (
                                 <div
                                   key={i}
-                                  className={`px-1.5 py-0.5 rounded-md text-[10px] sm:text-[11px] font-bold leading-tight truncate bg-${cfg?.color || 'indigo'}-100 dark:bg-${cfg?.color || 'indigo'}-900/40 text-${cfg?.color || 'indigo'}-700 dark:text-${cfg?.color || 'indigo'}-300 border border-${cfg?.color || 'indigo'}-200/50 dark:border-${cfg?.color || 'indigo'}-800/30`}
+                                  className={`px-1.5 py-1 rounded-lg text-[11px] sm:text-xs font-extrabold leading-snug bg-${cfg?.color || 'indigo'}-100 dark:bg-${cfg?.color || 'indigo'}-900/40 text-${cfg?.color || 'indigo'}-800 dark:text-${cfg?.color || 'indigo'}-200 border border-${cfg?.color || 'indigo'}-300 dark:border-${cfg?.color || 'indigo'}-700 shadow-sm`}
                                   title={e.title}
                                 >
-                                  {e.title}
+                                  <span className="line-clamp-2">{e.title}</span>
                                 </div>
                               );
                             })}
                             {events.length > 2 && (
-                              <div className="text-[9px] font-bold text-indigo-500 dark:text-indigo-400 text-center">+{events.length - 2}</div>
+                              <div className="text-[10px] font-extrabold text-indigo-500 dark:text-indigo-400 text-center">+{events.length - 2}</div>
                             )}
                           </div>
                         )}
