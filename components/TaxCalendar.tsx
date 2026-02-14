@@ -659,9 +659,9 @@ const TaxCalendar: React.FC<TaxCalendarProps> = ({ initialTab }) => {
           </div>
 
           {/* Two-column layout: Events list (left) + Calendar grid (right) */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-4">
-            {/* LEFT: Events list for current month */}
-            <div className="lg:col-span-5 xl:col-span-4">
+          <div className="grid grid-cols-1 lg:grid-cols-10 gap-4">
+            {/* LEFT: Events list for current month (60%) */}
+            <div className="lg:col-span-6">
               <div className="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 p-3">
                 <h3 className="text-sm font-bold text-slate-700 dark:text-slate-300 mb-3 flex items-center gap-2">
                   <Calendar size={14} />
@@ -693,13 +693,13 @@ const TaxCalendar: React.FC<TaxCalendarProps> = ({ initialTab }) => {
               </div>
             </div>
 
-            {/* RIGHT: Calendar grid */}
-            <div className="lg:col-span-7 xl:col-span-8">
+            {/* RIGHT: Calendar grid (40%) */}
+            <div className="lg:col-span-4">
               <div className="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 overflow-hidden">
                 {/* Day names header */}
                 <div className="grid grid-cols-7 bg-slate-50 dark:bg-slate-900 border-b border-slate-200 dark:border-slate-700">
                   {DAY_NAMES_IT.map(day => (
-                    <div key={day} className="py-1.5 text-center text-[10px] font-bold text-slate-500 dark:text-slate-400 uppercase">
+                    <div key={day} className="py-2 text-center text-xs font-bold text-slate-500 dark:text-slate-400 uppercase">
                       {day}
                     </div>
                   ))}
@@ -709,7 +709,7 @@ const TaxCalendar: React.FC<TaxCalendarProps> = ({ initialTab }) => {
                 <div className="grid grid-cols-7">
                   {calendarDays.map((day, idx) => {
                     if (day === null) {
-                      return <div key={`empty-${idx}`} className="min-h-[80px] sm:min-h-[96px] border-b border-r border-slate-100 dark:border-slate-700/50 bg-slate-50/50 dark:bg-slate-900/30" />;
+                      return <div key={`empty-${idx}`} className="min-h-[72px] sm:min-h-[84px] border-b border-r border-slate-100 dark:border-slate-700/50 bg-slate-50/50 dark:bg-slate-900/30" />;
                     }
 
                     const dateStr = getDateStr(day);
@@ -728,15 +728,15 @@ const TaxCalendar: React.FC<TaxCalendarProps> = ({ initialTab }) => {
                             Analytics.trackUIInteraction('guida', 'calendario', 'giorno', 'click', dateStr);
                           }
                         }}
-                        className={`border-b border-r border-slate-100 dark:border-slate-700/50 p-1.5 min-h-[80px] sm:min-h-[96px] flex flex-col transition-all relative
-                          ${hasEvents ? 'cursor-pointer hover:bg-indigo-50 dark:hover:bg-indigo-950/20' : ''}
-                          ${isSelected ? 'bg-indigo-100 dark:bg-indigo-900/30 ring-2 ring-indigo-500 ring-inset shadow-inner' : ''}
+                        className={`border-b border-r border-slate-100 dark:border-slate-700/50 p-1.5 min-h-[72px] sm:min-h-[84px] flex flex-col transition-all relative
+                          ${hasEvents ? 'cursor-pointer hover:bg-indigo-50/80 dark:hover:bg-indigo-950/30' : ''}
+                          ${isSelected ? 'bg-indigo-100 dark:bg-indigo-900/40 ring-2 ring-indigo-500 ring-inset shadow-inner' : ''}
                           ${isPast && !hasEvents ? 'opacity-40' : ''}
                         `}
                       >
                         {/* Day number */}
-                        <div className={`text-xs sm:text-sm font-bold self-end w-6 h-6 sm:w-7 sm:h-7 flex items-center justify-center rounded-full ${
-                          isToday ? 'bg-indigo-600 text-white shadow-sm' : 'text-slate-700 dark:text-slate-300'
+                        <div className={`text-sm font-bold self-end w-7 h-7 flex items-center justify-center rounded-full ${
+                          isToday ? 'bg-indigo-600 text-white shadow-sm' : isSelected ? 'bg-indigo-200 dark:bg-indigo-800 text-indigo-800 dark:text-indigo-200' : 'text-slate-700 dark:text-slate-300'
                         }`}>
                           {day}
                         </div>
@@ -749,7 +749,7 @@ const TaxCalendar: React.FC<TaxCalendarProps> = ({ initialTab }) => {
                               return (
                                 <div
                                   key={i}
-                                  className={`px-1.5 py-0.5 rounded text-[8px] sm:text-[9px] font-bold leading-tight truncate bg-${cfg?.color || 'indigo'}-100 dark:bg-${cfg?.color || 'indigo'}-900/30 text-${cfg?.color || 'indigo'}-700 dark:text-${cfg?.color || 'indigo'}-300`}
+                                  className={`px-1.5 py-0.5 rounded-md text-[9px] sm:text-[10px] font-semibold leading-tight truncate bg-${cfg?.color || 'indigo'}-100 dark:bg-${cfg?.color || 'indigo'}-900/40 text-${cfg?.color || 'indigo'}-700 dark:text-${cfg?.color || 'indigo'}-300 border border-${cfg?.color || 'indigo'}-200/50 dark:border-${cfg?.color || 'indigo'}-800/30`}
                                   title={e.title}
                                 >
                                   {e.title}
@@ -757,7 +757,7 @@ const TaxCalendar: React.FC<TaxCalendarProps> = ({ initialTab }) => {
                               );
                             })}
                             {events.length > 2 && (
-                              <div className="text-[8px] font-bold text-slate-400 text-center">+{events.length - 2}</div>
+                              <div className="text-[9px] font-bold text-indigo-500 dark:text-indigo-400 text-center">+{events.length - 2}</div>
                             )}
                           </div>
                         )}

@@ -19,7 +19,7 @@ import { getLocale, type Locale } from './i18n';
 // ── Route types ──────────────────────────────────────────────
 
 type ActiveTab = 'calculator' | 'feedback' | 'stats' | 'pension' | 'guide' | 'comparatori' | 'privacy' | 'data-deletion' | 'api-status';
-type ComparatoriSubTab = 'exchange' | 'mobile' | 'transport' | 'health' | 'banks' | 'traffic' | 'jobs' | 'shopping' | 'cost-of-living' | 'costs';
+type ComparatoriSubTab = 'exchange' | 'mobile' | 'transport' | 'health' | 'banks' | 'traffic' | 'jobs' | 'shopping' | 'cost-of-living';
 type SimulatorSubTab = 'calculator' | 'whatif';
 type PensionSubTab = 'planner' | 'pillar3';
 type GuideSection = 'municipalities' | 'living-ch' | 'living-it' | 'border' | 'calendar' | 'holidays' | 'permits' | 'companies' | 'places' | 'schools' | 'unemployment';
@@ -231,7 +231,6 @@ const COMPARATORI_SUB_TO_SLUG: Record<ComparatoriSubTab, keyof SlugTable & strin
   jobs: 'jobs',
   shopping: 'shopping',
   'cost-of-living': 'costOfLiving',
-  costs: 'costs',
 };
 const COMPARATORI_KEYS: (keyof SlugTable & string)[] = Object.values(COMPARATORI_SUB_TO_SLUG);
 const GUIDE_KEYS: { key: keyof SlugTable; id: GuideSection }[] = [
@@ -254,6 +253,8 @@ function buildComparatoriReverse(table: SlugTable): ComparatoriSlugMap {
   for (const [subTab, slugKey] of Object.entries(COMPARATORI_SUB_TO_SLUG)) {
     map[table[slugKey]] = subTab as ComparatoriSubTab;
   }
+  // Backward compat: old 'costs' slug redirects to 'cost-of-living'
+  map[table.costs] = 'cost-of-living';
   return map;
 }
 

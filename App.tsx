@@ -45,7 +45,7 @@ const App: React.FC = () => {
     return { route: parsed.route, locale: parsed.locale };
   });
   const [activeTab, setActiveTab] = useState<'calculator' | 'feedback' | 'stats' | 'pension' | 'guide' | 'comparatori' | 'privacy' | 'data-deletion' | 'api-status'>(initialRoute.route.activeTab);
-  const [comparatoriSubTab, setComparatoriSubTab] = useState<'exchange' | 'mobile' | 'transport' | 'health' | 'banks' | 'traffic' | 'jobs' | 'shopping' | 'cost-of-living' | 'costs'>(initialRoute.route.comparatoriSubTab || 'exchange');
+  const [comparatoriSubTab, setComparatoriSubTab] = useState<'exchange' | 'mobile' | 'transport' | 'health' | 'banks' | 'traffic' | 'jobs' | 'shopping' | 'cost-of-living'>(initialRoute.route.comparatoriSubTab || 'exchange');
   const [simulatorSubTab, setSimulatorSubTab] = useState<'calculator' | 'whatif'>(initialRoute.route.simulatorSubTab || 'calculator');
   const [pensionSubTab, setPensionSubTab] = useState<'planner' | 'pillar3'>(initialRoute.route.pensionSubTab || 'planner');
   const [guideSection, setGuideSection] = useState<string>(initialRoute.route.guideSection || 'municipalities');
@@ -335,7 +335,7 @@ const App: React.FC = () => {
         {activeTab === 'comparatori' && (
           <div className="border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
-              <div className="grid grid-cols-5 sm:grid-cols-5 md:grid-cols-10 gap-1.5">
+              <div className="grid grid-cols-5 sm:grid-cols-5 md:grid-cols-9 gap-1.5">
                 {([
                   { key: 'exchange' as const, icon: ArrowRightLeft, label: t('comparators.exchange') },
                   { key: 'traffic' as const, icon: AlertTriangle, label: t('comparators.traffic') },
@@ -346,7 +346,6 @@ const App: React.FC = () => {
                   { key: 'jobs' as const, icon: Briefcase, label: t('comparators.jobs') },
                   { key: 'shopping' as const, icon: ShoppingCart, label: t('comparators.shopping') },
                   { key: 'cost-of-living' as const, icon: Euro, label: t('comparators.costOfLiving') },
-                  { key: 'costs' as const, icon: BarChart2, label: t('comparators.costs') },
                 ] as const).map(({ key, icon: Icon, label }) => (
                   <button
                     key={key}
@@ -474,8 +473,6 @@ const App: React.FC = () => {
               ) : comparatoriSubTab === 'shopping' ? (
                 <ShoppingCalculator />
               ) : comparatoriSubTab === 'cost-of-living' ? (
-                <CostOfLiving />
-              ) : comparatoriSubTab === 'costs' ? (
                 <CostOfLiving />
               ) : (
                 <TrafficAlerts />

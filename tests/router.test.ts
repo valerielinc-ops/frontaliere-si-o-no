@@ -3,7 +3,7 @@ import { buildPath, parsePath } from '@/services/router';
 
 const ALL_COMPARATORI_SUBTABS = [
   'exchange', 'mobile', 'transport', 'health', 'banks',
-  'traffic', 'jobs', 'shopping', 'cost-of-living', 'costs',
+  'traffic', 'jobs', 'shopping', 'cost-of-living',
 ] as const;
 
 const ALL_GUIDE_SECTIONS = [
@@ -62,5 +62,19 @@ describe('Router — parsePath roundtrip', () => {
         });
       }
     }
+  });
+});
+
+describe('Router — backward compatibility', () => {
+  it('old /comparatori/costi-pendolarismo redirects to cost-of-living', () => {
+    const { route } = parsePath('/comparatori/costi-pendolarismo');
+    expect(route.activeTab).toBe('comparatori');
+    expect(route.comparatoriSubTab).toBe('cost-of-living');
+  });
+
+  it('old /en/comparators/commuting-costs redirects to cost-of-living', () => {
+    const { route } = parsePath('/en/comparators/commuting-costs');
+    expect(route.activeTab).toBe('comparatori');
+    expect(route.comparatoriSubTab).toBe('cost-of-living');
   });
 });
