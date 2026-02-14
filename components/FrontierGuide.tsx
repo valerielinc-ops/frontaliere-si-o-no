@@ -4,6 +4,8 @@ import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import { MapPin, Clock, TrendingUp, Home, Car, ShoppingCart, FileText, AlertCircle, CheckCircle2, Info, ArrowRight, Building2, Landmark, Shield, Users, Navigation, Timer, BarChart3, Euro, Heart, Briefcase, Calendar } from 'lucide-react';
 import { Analytics } from '../services/analytics';
+import TaxCalendar from './TaxCalendar';
+import WorkPermitsGuide from './WorkPermitsGuide';
 
 // Fix per i marker icon di Leaflet
 delete (L.Icon.Default.prototype as any)._getIconUrl;
@@ -78,14 +80,14 @@ interface Municipality {
 }
 
 const FrontierGuide: React.FC = () => {
-  const [activeSection, setActiveSection] = useState<'municipalities' | 'living-ch' | 'living-it' | 'border' | 'costs'>('municipalities');
+  const [activeSection, setActiveSection] = useState<'municipalities' | 'living-ch' | 'living-it' | 'border' | 'costs' | 'calendar' | 'permits'>('municipalities');
   const [sortBy, setSortBy] = useState<'distance' | 'population'>('population');
   const [filterType, setFilterType] = useState<'all' | 'new' | 'old'>('all');
   const [borderFilter, setBorderFilter] = useState<'all' | 'low-traffic' | '24h' | 'morning' | 'evening'>('all');
   const [selectedTime, setSelectedTime] = useState<'morning' | 'evening' | 'night'>('morning');
 
   // Track section navigation
-  const handleSectionChange = (section: 'municipalities' | 'living-ch' | 'living-it' | 'border' | 'costs') => {
+  const handleSectionChange = (section: 'municipalities' | 'living-ch' | 'living-it' | 'border' | 'costs' | 'calendar' | 'permits') => {
     setActiveSection(section);
     Analytics.trackUIInteraction('FrontierGuide', 'Change Section', section);
   };
@@ -266,6 +268,28 @@ const FrontierGuide: React.FC = () => {
         >
           <Users size={16} />
           Vivere in IT
+        </button>
+        <button
+          onClick={() => handleSectionChange('calendar')}
+          className={`px-4 py-2.5 rounded-xl font-bold text-sm transition-all flex items-center gap-2 ${
+            activeSection === 'calendar'
+              ? 'bg-purple-600 text-white shadow-lg scale-105'
+              : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700'
+          }`}
+        >
+          <Calendar size={16} />
+          Scadenze Fiscali
+        </button>
+        <button
+          onClick={() => handleSectionChange('permits')}
+          className={`px-4 py-2.5 rounded-xl font-bold text-sm transition-all flex items-center gap-2 ${
+            activeSection === 'permits'
+              ? 'bg-cyan-600 text-white shadow-lg scale-105'
+              : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700'
+          }`}
+        >
+          <Shield size={16} />
+          Permessi Lavoro
         </button>
       </div>
 
@@ -1258,6 +1282,18 @@ const FrontierGuide: React.FC = () => {
               </div>
             </div>
           </div>
+        </div>
+      )}
+
+      {activeSection === 'calendar' && (
+        <div className="animate-fade-in">
+          <TaxCalendar />
+        </div>
+      )}
+
+      {activeSection === 'permits' && (
+        <div className="animate-fade-in">
+          <WorkPermitsGuide />
         </div>
       )}
     </div>

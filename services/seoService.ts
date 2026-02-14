@@ -165,6 +165,61 @@ export const SEO_METADATA: Record<string, SEOMetadata> = {
     ogDescription: '💬 Hai domande sul lavoro frontaliero? Contattaci per supporto su tasse, pensione, servizi e comparatori!',
     canonicalPath: '/supporto',
   },
+
+  // New sections
+  whatif: {
+    title: 'Simulatore What-If Frontalieri | Scenari Cosa Cambia Se...',
+    description: 'Scopri come cambiano le tue tasse da frontaliere con scenari what-if: figlio in arrivo, cambio stipendio, stato civile, zona di residenza. Simulazione immediata e gratuita.',
+    keywords: 'what if frontalieri, simulatore scenari, cosa cambia se figlio, aumento stipendio frontaliere, detrazioni figli frontaliere, cambio stato civile tasse',
+    ogTitle: 'Simulatore What-If | Scenari Fiscali per Frontalieri',
+    ogDescription: '🔮 Scopri come cambiano le tue tasse con scenari what-if: figlio, stipendio, residenza. Simulazione in tempo reale!',
+    canonicalPath: '/simulatore-what-if',
+  },
+
+  jobs: {
+    title: 'Confronto Offerte Lavoro Svizzera | Calcolo Netto Reale per Frontalieri',
+    description: 'Confronta fino a 4 offerte di lavoro in Svizzera: calcolo netto reale considerando tasse, costi trasporto, tempo viaggio, home office e benefit. Scopri quale offerta conviene davvero.',
+    keywords: 'confronto offerte lavoro svizzera, stipendio netto reale frontaliere, calcolo netto lavoro ticino, costi pendolarismo frontaliere, home office frontaliere, benefit lavoro svizzera',
+    ogTitle: 'Confronto Offerte Lavoro Svizzera | Netto Reale Frontalieri',
+    ogDescription: '💼 Confronta offerte di lavoro in Svizzera con calcolo netto reale: tasse, trasporto, tempo e benefit inclusi.',
+    canonicalPath: '/comparatori/offerte-lavoro',
+  },
+
+  calendar: {
+    title: 'Calendario Scadenze Fiscali 2026 | Date Tasse Frontalieri CH-IT',
+    description: 'Tutte le scadenze fiscali 2026 per frontalieri Svizzera-Italia: IRPEF, 730, Modello Redditi, IMU, imposta alla fonte, AVS. Con countdown, documenti necessari e sanzioni.',
+    keywords: 'scadenze fiscali frontalieri 2026, calendario tasse frontaliere, 730 frontalieri, modello redditi frontaliere, quadro rw svizzera, imposta alla fonte scadenza, irpef frontalieri',
+    ogTitle: 'Calendario Fiscale 2026 | Scadenze Tasse per Frontalieri',
+    ogDescription: '📅 Tutte le scadenze fiscali 2026 per frontalieri: IRPEF, 730, imposta alla fonte. Con countdown e documenti necessari!',
+    canonicalPath: '/guida-frontalieri/calendario-fiscale',
+  },
+
+  permits: {
+    title: 'Permessi Lavoro Svizzera G, B, C, L | Guida Completa 2026',
+    description: 'Guida completa ai permessi di lavoro in Svizzera: permesso G (frontalieri), B (dimora), C (domicilio) e L (breve durata). Requisiti, documenti, costi, diritti e limitazioni per cittadini UE.',
+    keywords: 'permesso g svizzera, permesso b svizzera, permesso c svizzera, permesso l svizzera, permesso frontaliere requisiti, permesso dimora svizzera, documenti permesso lavoro svizzera',
+    ogTitle: 'Permessi Lavoro Svizzera | Guida G, B, C, L per Frontalieri',
+    ogDescription: '🛂 Guida completa ai permessi di lavoro svizzeri: requisiti, documenti, costi e diritti per ogni tipo di permesso.',
+    canonicalPath: '/guida-frontalieri/permessi-lavoro',
+  },
+
+  pillar3: {
+    title: 'Simulatore 3° Pilastro Svizzera | Calcolo Risparmio Fiscale',
+    description: 'Calcola il risparmio fiscale e la crescita del tuo 3° pilastro svizzero (3a e 3b). Proiezione a lungo termine con rendimento composto, deducibilità fiscale e confronto 3a vs 3b.',
+    keywords: 'terzo pilastro svizzera, pilastro 3a calcolo, pilastro 3b, risparmio fiscale svizzera, previdenza privata svizzera, deduzione fiscale pilastro 3a, investimento pilastro svizzera',
+    ogTitle: 'Simulatore 3° Pilastro | Risparmio Fiscale Svizzera',
+    ogDescription: '💰 Calcola quanto risparmi con il 3° pilastro: deducibilità fiscale, proiezione rendimento e confronto 3a vs 3b.',
+    canonicalPath: '/pianificatore-pensione/terzo-pilastro',
+  },
+
+  newsletter: {
+    title: 'Newsletter Frontalieri | Cambio CHF/EUR e Aggiornamenti Settimanali',
+    description: 'Iscriviti alla newsletter settimanale per frontalieri: cambio CHF/EUR, traffico ai valichi, novità fiscali e consigli per risparmiare. Gratuita e senza spam.',
+    keywords: 'newsletter frontalieri, cambio chf eur settimanale, aggiornamenti frontalieri, email frontalieri svizzera, traffico valichi email, novità tasse frontalieri',
+    ogTitle: 'Newsletter Frontalieri | Aggiornamenti Settimanali Gratuiti',
+    ogDescription: '📬 Iscriviti alla newsletter per frontalieri: cambio CHF/EUR, traffico ai valichi e novità fiscali ogni settimana!',
+    canonicalPath: '/newsletter',
+  },
 };
 
 /**

@@ -4,6 +4,7 @@ import { ResultsView } from '@/components/ResultsView';
 import { FeedbackSection } from '@/components/FeedbackSection';
 import { StatsView } from '@/components/StatsView';
 import PensionPlanner from '@/components/PensionPlanner';
+import Pillar3Simulator from '@/components/Pillar3Simulator';
 import FrontierGuide from '@/components/FrontierGuide';
 import CurrencyExchange from '@/components/CurrencyExchange';
 import MobileOperators from '@/components/MobileOperators';
@@ -11,6 +12,10 @@ import TransportCalculator from '@/components/TransportCalculator';
 import HealthInsurance from '@/components/HealthInsurance';
 import BankComparison from '@/components/BankComparison';
 import TrafficAlerts from '@/components/TrafficAlerts';
+import JobComparator from '@/components/JobComparator';
+import WhatIfSimulator from '@/components/WhatIfSimulator';
+import Newsletter from '@/components/Newsletter';
+import LanguageSelector from '@/components/LanguageSelector';
 import ApiStatus from '@/components/ApiStatus';
 import { PrivacyPolicy } from '@/components/PrivacyPolicy';
 import { DataDeletion } from '@/components/DataDeletion';
@@ -20,7 +25,7 @@ import { Analytics } from '@/services/analytics';
 import { updateMetaTags, trackSectionView } from '@/services/seoService';
 import { DEFAULT_INPUTS } from '@/constants';
 import { SimulationInputs, SimulationResult } from '@/types';
-import { Moon, Sun, Maximize2, Minimize2, Calculator, HelpCircle, BarChart2, PiggyBank, BookOpen, Facebook, ArrowRightLeft, Phone, Car, Heart, Building2, AlertTriangle, Layers } from 'lucide-react';
+import { Moon, Sun, Maximize2, Minimize2, Calculator, HelpCircle, BarChart2, PiggyBank, BookOpen, Facebook, ArrowRightLeft, Phone, Car, Heart, Building2, AlertTriangle, Layers, Briefcase } from 'lucide-react';
 
 const App: React.FC = () => {
   const [inputs, setInputs] = useState<SimulationInputs>(DEFAULT_INPUTS);
@@ -28,7 +33,7 @@ const App: React.FC = () => {
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [isFocusMode, setIsFocusMode] = useState(false);
   const [activeTab, setActiveTab] = useState<'calculator' | 'feedback' | 'stats' | 'pension' | 'guide' | 'comparatori' | 'privacy' | 'data-deletion' | 'api-status'>('calculator');
-  const [comparatoriSubTab, setComparatoriSubTab] = useState<'exchange' | 'mobile' | 'transport' | 'health' | 'banks' | 'traffic'>('exchange');
+  const [comparatoriSubTab, setComparatoriSubTab] = useState<'exchange' | 'mobile' | 'transport' | 'health' | 'banks' | 'traffic' | 'jobs'>('exchange');
   const [showApiStatus, setShowApiStatus] = useState(false);
 
   // Check for hidden API status page via URL parameter
@@ -227,6 +232,8 @@ const App: React.FC = () => {
 
               {/* Actions */}
               <div className="flex items-center gap-2 pl-4 border-l border-slate-200 dark:border-slate-800">
+                <LanguageSelector />
+
                 {activeTab === 'calculator' && (
                   <button 
                     onClick={() => {
@@ -317,6 +324,16 @@ const App: React.FC = () => {
                   <Car size={16} />
                   Costi Trasporto
                 </button>
+                <button
+                  onClick={() => {
+                    setComparatoriSubTab('jobs');
+                    Analytics.trackComparatorView('jobs' as any);
+                  }}
+                  className={`px-4 py-2 text-sm font-medium rounded-lg whitespace-nowrap transition-colors flex items-center gap-2 ${comparatoriSubTab === 'jobs' ? 'bg-violet-100 dark:bg-violet-900/30 text-violet-700 dark:text-violet-300' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800'}`}
+                >
+                  <Briefcase size={16} />
+                  Offerte Lavoro
+                </button>
               </div>
             </div>
           </div>
@@ -325,26 +342,35 @@ const App: React.FC = () => {
         {/* Main Content */}
         <main className="flex-grow max-w-[1800px] w-[95%] mx-auto px-2 sm:px-4 py-6 transition-all duration-500 relative z-10">
           {activeTab === 'calculator' ? (
-            <div className="grid grid-cols-1 md:grid-cols-12 gap-6 h-full">
-              <div className={`transition-all duration-500 ease-in-out ${isFocusMode ? 'hidden md:hidden' : 'md:col-span-4 lg:col-span-4 xl:col-span-3'} h-full`}>
-                <InputCard 
-                  inputs={inputs} 
-                  setInputs={setInputs} 
-                  onCalculate={handleCalculate}
-                  isFocusMode={isFocusMode}
-                />
+            <div className="space-y-6">
+              <div className="grid grid-cols-1 md:grid-cols-12 gap-6 h-full">
+                <div className={`transition-all duration-500 ease-in-out ${isFocusMode ? 'hidden md:hidden' : 'md:col-span-4 lg:col-span-4 xl:col-span-3'} h-full`}>
+                  <InputCard 
+                    inputs={inputs} 
+                    setInputs={setInputs} 
+                    onCalculate={handleCalculate}
+                    isFocusMode={isFocusMode}
+                  />
+                </div>
+                <div className={`transition-all duration-500 ease-in-out ${isFocusMode ? 'md:col-span-12' : 'md:col-span-8 lg:col-span-8 xl:col-span-9'} h-full`}>
+                  {result && <ResultsView result={result} inputs={inputs} isDarkMode={isDarkMode} isFocusMode={isFocusMode} />}
+                </div>
               </div>
-              <div className={`transition-all duration-500 ease-in-out ${isFocusMode ? 'md:col-span-12' : 'md:col-span-8 lg:col-span-8 xl:col-span-9'} h-full`}>
-                {result && <ResultsView result={result} inputs={inputs} isDarkMode={isDarkMode} isFocusMode={isFocusMode} />}
-              </div>
+              {/* What-If Simulator */}
+              {result && (
+                <div className="max-w-7xl mx-auto">
+                  <WhatIfSimulator baseInputs={inputs} baseResult={result} />
+                </div>
+              )}
             </div>
           ) : activeTab === 'guide' ? (
             <div className="max-w-7xl mx-auto animate-fade-in">
               <FrontierGuide />
             </div>
           ) : activeTab === 'pension' ? (
-            <div className="max-w-7xl mx-auto animate-fade-in">
+            <div className="max-w-7xl mx-auto animate-fade-in space-y-8">
               <PensionPlanner />
+              <Pillar3Simulator />
             </div>
           ) : activeTab === 'comparatori' ? (
             <div className="max-w-7xl mx-auto animate-fade-in">
@@ -358,6 +384,8 @@ const App: React.FC = () => {
                 <HealthInsurance />
               ) : comparatoriSubTab === 'banks' ? (
                 <BankComparison />
+              ) : comparatoriSubTab === 'jobs' ? (
+                <JobComparator />
               ) : (
                 <TrafficAlerts />
               )}
@@ -386,7 +414,13 @@ const App: React.FC = () => {
         </main>
         
         <footer className="border-t border-slate-200/60 dark:border-slate-800 bg-white/50 dark:bg-slate-900/50 backdrop-blur-sm py-8 mt-auto relative z-10">
-          <div className="max-w-7xl mx-auto px-4 text-center text-slate-500 dark:text-slate-400 text-sm space-y-3">
+          <div className="max-w-7xl mx-auto px-4 space-y-6">
+            {/* Newsletter compact */}
+            <div className="max-w-xl mx-auto">
+              <Newsletter compact />
+            </div>
+
+            <div className="text-center text-slate-500 dark:text-slate-400 text-sm space-y-3">
             <p className="font-medium">
               © 2026 Frontaliere Si o No? 
               <span className="text-slate-300 dark:text-slate-600 mx-2">|</span> 
@@ -421,6 +455,7 @@ const App: React.FC = () => {
                 <Facebook className="w-3.5 h-3.5" />
                 <span>Facebook</span>
               </a>
+            </div>
             </div>
           </div>
         </footer>

@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { ArrowRightLeft, TrendingDown, TrendingUp, AlertCircle, CheckCircle2, Info, DollarSign, Percent, Calculator, RefreshCw } from 'lucide-react';
+import { ArrowRightLeft, TrendingDown, TrendingUp, AlertCircle, CheckCircle2, Info, DollarSign, Percent, Calculator, RefreshCw, BarChart3 } from 'lucide-react';
+import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
+import { Analytics } from '@/services/analytics';
 
 interface ExchangeProvider {
   name: string;
@@ -168,6 +170,9 @@ const CurrencyExchange: React.FC = () => {
   const [realRate, setRealRate] = useState<number>(0.95);
   const [loading, setLoading] = useState(false);
   const [lastUpdate, setLastUpdate] = useState<Date | null>(null);
+  const [historyPeriod, setHistoryPeriod] = useState<'1m' | '3m' | '6m' | '1y' | '5y'>('6m');
+  const [historyData, setHistoryData] = useState<Array<{ date: string; rate: number }>>([]);
+  const [historyLoading, setHistoryLoading] = useState(false);
 
   const fetchRealRate = async () => {
     setLoading(true);
@@ -190,6 +195,42 @@ const CurrencyExchange: React.FC = () => {
     const interval = setInterval(fetchRealRate, 60000); // Update every minute
     return () => clearInterval(interval);
   }, []);
+
+  // Fetch historical exchange rate data
+  const fetchHistory = async (period: string) => {
+    setHistoryLoading(true);
+    try {
+      const end = new Date();
+      const start = new Date();
+      switch (period) {
+        case '1m': start.setMonth(end.getMonth() - 1); break;
+        case '3m': start.setMonth(end.getMonth() - 3); break;
+        case '6m': start.setMonth(end.getMonth() - 6); break;
+        case '1y': start.setFullYear(end.getFullYear() - 1); break;
+        case '5y': start.setFullYear(end.getFullYear() - 5); break;
+      }
+      const startStr = start.toISOString().split('T')[0];
+      const endStr = end.toISOString().split('T')[0];
+      const res = await fetch(`https://api.frankfurter.app/${startStr}..${endStr}?from=CHF&to=EUR`);
+      const data = await res.json();
+      if (data?.rates) {
+        const points = Object.entries(data.rates).map(([date, rates]: [string, any]) => ({
+          date,
+          rate: rates.EUR,
+        }));
+        setHistoryData(points);
+      }
+    } catch (e) {
+      console.error('Failed to fetch history', e);
+    } finally {
+      setHistoryLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchHistory(historyPeriod);
+    Analytics.trackUIInteraction('CurrencyExchange', 'history_period', historyPeriod);
+  }, [historyPeriod]);
 
   const calculateExchange = (provider: ExchangeProvider) => {
     const appliedRate = realRate * (1 - provider.exchangeRateMarkup);
@@ -317,7 +358,61 @@ const CurrencyExchange: React.FC = () => {
         </div>
       </div>
 
-      {/* Best vs Worst Summary */}
+      {/* History Chart */}
+      <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-6 shadow-sm">
+        <div className="flex items-center justify-between mb-4 flex-wrap gap-3">
+          <h3 className="text-lg font-bold text-slate-800 dark:text-slate-100 flex items-center gap-2">
+            <BarChart3 size={20} className="text-indigo-600" />
+            Storico Tasso CHF/EUR
+          </h3>
+          <div className="flex gap-1.5">
+            {(['1m', '3m', '6m', '1y', '5y'] as const).map(p => (
+              <button key={p}
+                onClick={() => setHistoryPeriod(p)}
+                className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${historyPeriod === p ? 'bg-indigo-600 text-white shadow' : 'bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-600'}`}
+              >
+                {p === '1m' ? '1M' : p === '3m' ? '3M' : p === '6m' ? '6M' : p === '1y' ? '1A' : '5A'}
+              </button>
+            ))}
+          </div>
+        </div>
+        {historyLoading ? (
+          <div className="h-64 flex items-center justify-center text-slate-400">
+            <RefreshCw size={24} className="animate-spin" />
+          </div>
+        ) : historyData.length > 0 ? (
+          <ResponsiveContainer width="100%" height={280}>
+            <AreaChart data={historyData}>
+              <defs>
+                <linearGradient id="colorRate" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="5%" stopColor="#6366f1" stopOpacity={0.3} />
+                  <stop offset="95%" stopColor="#6366f1" stopOpacity={0} />
+                </linearGradient>
+              </defs>
+              <CartesianGrid strokeDasharray="3 3" opacity={0.3} />
+              <XAxis dataKey="date" tick={{ fontSize: 10 }} tickFormatter={(v) => { const d = new Date(v); return `${d.getDate()}/${d.getMonth()+1}`; }} interval="preserveStartEnd" />
+              <YAxis domain={['auto', 'auto']} tick={{ fontSize: 11 }} tickFormatter={(v: number) => v.toFixed(3)} />
+              <Tooltip
+                formatter={(value: number) => [`${value.toFixed(4)} EUR`, '1 CHF']}
+                labelFormatter={(label) => new Date(label).toLocaleDateString('it-IT', { day: 'numeric', month: 'long', year: 'numeric' })}
+              />
+              <Area type="monotone" dataKey="rate" stroke="#6366f1" fill="url(#colorRate)" strokeWidth={2} dot={false} />
+            </AreaChart>
+          </ResponsiveContainer>
+        ) : (
+          <div className="h-64 flex items-center justify-center text-slate-400 text-sm">
+            Nessun dato disponibile
+          </div>
+        )}
+        {historyData.length > 1 && (
+          <div className="flex justify-between mt-3 text-xs text-slate-500">
+            <span>Min: {Math.min(...historyData.map(d => d.rate)).toFixed(4)}</span>
+            <span>Media: {(historyData.reduce((s, d) => s + d.rate, 0) / historyData.length).toFixed(4)}</span>
+            <span>Max: {Math.max(...historyData.map(d => d.rate)).toFixed(4)}</span>
+          </div>
+        )}
+      </div>
+
       <div className="grid md:grid-cols-2 gap-4">
         {best.provider.referralUrl ? (
           <a

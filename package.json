@@ -19,7 +19,12 @@
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
     "react-leaflet": "^5.0.0",
-    "recharts": "^3.7.0"
+    "recharts": "^3.7.0",
+    "vite-plugin-pwa": "^1.2.0",
+    "workbox-precaching": "^7.4.0",
+    "workbox-routing": "^7.4.0",
+    "workbox-strategies": "^7.4.0",
+    "workbox-window": "^7.4.0"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.1.18",

@@ -1,0 +1,306 @@
+import React, { useState, useMemo } from 'react';
+import { Briefcase, Plus, Trash2, Trophy, Car, Clock, DollarSign, TrendingUp, Home, Coffee, ParkingCircle, Info, Calculator } from 'lucide-react';
+import { calculateSimulation } from '@/services/calculationService';
+import { Analytics } from '@/services/analytics';
+import { DEFAULT_INPUTS, DEFAULT_EXCHANGE_RATE } from '@/constants';
+
+interface JobOffer {
+  id: string;
+  companyName: string;
+  grossSalaryCHF: number;
+  distanceKm: number;
+  travelTimeMin: number;
+  hasMealVouchers: boolean;
+  mealVoucherValue: number;
+  hasParking: boolean;
+  parkingCostMonthly: number;
+  homeOfficeDays: number;
+  otherBenefitsCHF: number;
+  canton: string;
+}
+
+const defaultOffer = (): JobOffer => ({
+  id: Math.random().toString(36).substr(2, 9),
+  companyName: '',
+  grossSalaryCHF: 80000,
+  distanceKm: 30,
+  travelTimeMin: 45,
+  hasMealVouchers: false,
+  mealVoucherValue: 8,
+  hasParking: false,
+  parkingCostMonthly: 150,
+  homeOfficeDays: 0,
+  otherBenefitsCHF: 0,
+  canton: 'TI',
+});
+
+const JobComparator: React.FC = () => {
+  const [offers, setOffers] = useState<JobOffer[]>([
+    { ...defaultOffer(), companyName: 'Offerta 1', grossSalaryCHF: 85000 },
+    { ...defaultOffer(), companyName: 'Offerta 2', grossSalaryCHF: 95000, distanceKm: 50, travelTimeMin: 60 },
+  ]);
+
+  const addOffer = () => {
+    if (offers.length >= 4) return;
+    setOffers([...offers, { ...defaultOffer(), companyName: `Offerta ${offers.length + 1}` }]);
+    Analytics.trackUIInteraction('JobComparator', 'add_offer', String(offers.length + 1));
+  };
+
+  const removeOffer = (id: string) => {
+    if (offers.length <= 2) return;
+    setOffers(offers.filter(o => o.id !== id));
+  };
+
+  const updateOffer = (id: string, field: keyof JobOffer, value: any) => {
+    setOffers(offers.map(o => o.id === id ? { ...o, [field]: value } : o));
+  };
+
+  const results = useMemo(() => {
+    return offers.map(offer => {
+      // Calculate net salary using the simulator
+      const inputs = {
+        ...DEFAULT_INPUTS,
+        annualIncomeCHF: offer.grossSalaryCHF,
+        frontierWorkerType: 'NEW' as const,
+      };
+      const sim = calculateSimulation(inputs);
+      const netMonthlyIT = sim.itResident.netIncomeMonthly;
+      const netMonthlyCH = sim.chResident.netIncomeMonthly;
+
+      // Transport costs (monthly)
+      const workDays = 22 - (offer.homeOfficeDays * 4.33);
+      const fuelCostPerKm = 0.15; // EUR
+      const tollsPerDay = offer.distanceKm > 40 ? 5 : 0;
+      const transportCostMonthly = (offer.distanceKm * 2 * fuelCostPerKm * workDays) + (tollsPerDay * workDays);
+
+      // Parking costs
+      const parkingCost = offer.hasParking ? 0 : offer.parkingCostMonthly;
+
+      // Meal savings
+      const mealSaving = offer.hasMealVouchers ? offer.mealVoucherValue * workDays : 0;
+
+      // Time cost (value at €15/hour)
+      const timeCostMonthly = (offer.travelTimeMin / 60 * 2 * workDays) * 15;
+
+      // Other benefits
+      const otherBenefitsMonthly = offer.otherBenefitsCHF / 12 / DEFAULT_EXCHANGE_RATE;
+
+      // Net advantage (IT resident perspective)
+      const totalCosts = transportCostMonthly + parkingCost + timeCostMonthly;
+      const totalBenefits = mealSaving + otherBenefitsMonthly;
+      const effectiveNetMonthly = netMonthlyIT - totalCosts + totalBenefits;
+
+      return {
+        offer,
+        netMonthlyIT,
+        netMonthlyCH,
+        transportCostMonthly,
+        parkingCost,
+        mealSaving,
+        timeCostMonthly,
+        otherBenefitsMonthly,
+        totalCosts,
+        totalBenefits,
+        effectiveNetMonthly,
+        workDays,
+      };
+    }).sort((a, b) => b.effectiveNetMonthly - a.effectiveNetMonthly);
+  }, [offers]);
+
+  const bestResult = results[0];
+
+  const offerColors = ['indigo', 'emerald', 'amber', 'rose'];
+
+  return (
+    <div className="space-y-6 animate-fade-in">
+      {/* Header */}
+      <div className="bg-gradient-to-br from-indigo-600 via-blue-600 to-cyan-600 rounded-3xl p-8 text-white shadow-2xl">
+        <div className="flex items-center gap-4 mb-4">
+          <div className="p-3 bg-white/20 rounded-2xl backdrop-blur-sm">
+            <Briefcase size={32} />
+          </div>
+          <div>
+            <h1 className="text-3xl font-extrabold">Confronto Offerte Lavoro</h1>
+            <p className="text-indigo-100 mt-1">Inserisci 2-3 offerte e scopri quale conviene di più al netto di tasse, trasporto e tempo</p>
+          </div>
+        </div>
+      </div>
+
+      {/* Offers Input */}
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4">
+        {offers.map((offer, idx) => (
+          <div key={offer.id} className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-5 shadow-sm space-y-4">
+            <div className="flex items-center justify-between">
+              <input
+                type="text"
+                value={offer.companyName}
+                onChange={(e) => updateOffer(offer.id, 'companyName', e.target.value)}
+                className="text-lg font-bold text-slate-800 dark:text-slate-100 bg-transparent border-none outline-none w-full"
+                placeholder="Nome azienda"
+              />
+              {offers.length > 2 && (
+                <button onClick={() => removeOffer(offer.id)} className="p-1.5 text-red-400 hover:text-red-600 hover:bg-red-50 dark:hover:bg-red-950/30 rounded-lg transition-colors">
+                  <Trash2 size={16} />
+                </button>
+              )}
+            </div>
+
+            <div className="space-y-3">
+              <div>
+                <label className="text-xs font-bold text-slate-500 uppercase">RAL Lorda (CHF)</label>
+                <input type="number" value={offer.grossSalaryCHF} onChange={(e) => updateOffer(offer.id, 'grossSalaryCHF', Number(e.target.value))}
+                  className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg font-bold text-slate-800 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                  min={0} step={1000} />
+              </div>
+
+              <div className="grid grid-cols-2 gap-2">
+                <div>
+                  <label className="text-xs font-bold text-slate-500 uppercase">Distanza (km)</label>
+                  <input type="number" value={offer.distanceKm} onChange={(e) => updateOffer(offer.id, 'distanceKm', Number(e.target.value))}
+                    className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg font-semibold text-slate-800 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                    min={0} />
+                </div>
+                <div>
+                  <label className="text-xs font-bold text-slate-500 uppercase">Viaggio (min)</label>
+                  <input type="number" value={offer.travelTimeMin} onChange={(e) => updateOffer(offer.id, 'travelTimeMin', Number(e.target.value))}
+                    className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg font-semibold text-slate-800 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                    min={0} />
+                </div>
+              </div>
+
+              <div>
+                <label className="text-xs font-bold text-slate-500 uppercase">Home Office (gg/sett)</label>
+                <input type="range" min={0} max={5} value={offer.homeOfficeDays} onChange={(e) => updateOffer(offer.id, 'homeOfficeDays', Number(e.target.value))}
+                  className="w-full accent-indigo-600" />
+                <div className="text-center text-sm font-bold text-slate-700 dark:text-slate-300">{offer.homeOfficeDays} giorni</div>
+              </div>
+
+              <div className="flex items-center gap-2">
+                <input type="checkbox" checked={offer.hasMealVouchers} onChange={(e) => updateOffer(offer.id, 'hasMealVouchers', e.target.checked)}
+                  className="w-4 h-4 text-indigo-600 rounded" />
+                <label className="text-xs font-bold text-slate-600 dark:text-slate-400">Buoni pasto (€{offer.mealVoucherValue}/gg)</label>
+              </div>
+
+              <div className="flex items-center gap-2">
+                <input type="checkbox" checked={offer.hasParking} onChange={(e) => updateOffer(offer.id, 'hasParking', e.target.checked)}
+                  className="w-4 h-4 text-indigo-600 rounded" />
+                <label className="text-xs font-bold text-slate-600 dark:text-slate-400">Parcheggio incluso</label>
+              </div>
+            </div>
+          </div>
+        ))}
+
+        {offers.length < 4 && (
+          <button
+            onClick={addOffer}
+            className="rounded-2xl border-2 border-dashed border-slate-300 dark:border-slate-600 p-6 flex flex-col items-center justify-center gap-3 text-slate-400 hover:text-indigo-600 hover:border-indigo-400 transition-all min-h-[200px]"
+          >
+            <Plus size={32} />
+            <span className="font-bold">Aggiungi Offerta</span>
+          </button>
+        )}
+      </div>
+
+      {/* Results */}
+      <div className="space-y-4">
+        <h2 className="text-2xl font-extrabold text-slate-800 dark:text-slate-100 flex items-center gap-2">
+          <Trophy size={24} className="text-amber-500" />
+          Classifica Convenienza
+        </h2>
+
+        {results.map((r, idx) => {
+          const isBest = idx === 0;
+          return (
+            <div
+              key={r.offer.id}
+              className={`bg-white dark:bg-slate-800 rounded-2xl border-2 p-6 transition-all ${
+                isBest ? 'border-emerald-500 ring-2 ring-emerald-500/20 shadow-lg' : 'border-slate-200 dark:border-slate-700'
+              }`}
+            >
+              {isBest && (
+                <div className="mb-3 inline-flex items-center gap-1.5 px-3 py-1.5 bg-emerald-500 text-white text-xs font-bold rounded-full">
+                  <Trophy size={14} />
+                  Scelta Migliore
+                </div>
+              )}
+
+              <div className="flex items-start justify-between gap-4 mb-4">
+                <div>
+                  <h3 className="text-xl font-bold text-slate-800 dark:text-slate-100">{r.offer.companyName || `Offerta ${idx + 1}`}</h3>
+                  <p className="text-sm text-slate-500">RAL CHF {r.offer.grossSalaryCHF.toLocaleString('it-IT')} • {r.offer.distanceKm} km • {r.offer.travelTimeMin} min</p>
+                </div>
+                <div className="text-right">
+                  <div className="text-xs font-bold text-slate-500 uppercase">Netto Effettivo</div>
+                  <div className={`text-3xl font-extrabold ${isBest ? 'text-emerald-600' : 'text-slate-800 dark:text-slate-100'}`}>
+                    € {Math.round(r.effectiveNetMonthly).toLocaleString('it-IT')}
+                  </div>
+                  <div className="text-xs text-slate-500">/mese</div>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+                <div className="p-3 bg-slate-50 dark:bg-slate-900 rounded-xl">
+                  <div className="flex items-center gap-1.5 text-xs text-slate-500 mb-1">
+                    <DollarSign size={12} />
+                    Netto tasse
+                  </div>
+                  <div className="font-bold text-slate-800 dark:text-slate-100">€ {Math.round(r.netMonthlyIT).toLocaleString('it-IT')}</div>
+                </div>
+                <div className="p-3 bg-red-50 dark:bg-red-950/30 rounded-xl">
+                  <div className="flex items-center gap-1.5 text-xs text-red-600 mb-1">
+                    <Car size={12} />
+                    Trasporto
+                  </div>
+                  <div className="font-bold text-red-600">-€ {Math.round(r.transportCostMonthly).toLocaleString('it-IT')}</div>
+                </div>
+                <div className="p-3 bg-amber-50 dark:bg-amber-950/30 rounded-xl">
+                  <div className="flex items-center gap-1.5 text-xs text-amber-600 mb-1">
+                    <Clock size={12} />
+                    Valore tempo
+                  </div>
+                  <div className="font-bold text-amber-600">-€ {Math.round(r.timeCostMonthly).toLocaleString('it-IT')}</div>
+                </div>
+                <div className="p-3 bg-emerald-50 dark:bg-emerald-950/30 rounded-xl">
+                  <div className="flex items-center gap-1.5 text-xs text-emerald-600 mb-1">
+                    <Coffee size={12} />
+                    Benefit
+                  </div>
+                  <div className="font-bold text-emerald-600">+€ {Math.round(r.totalBenefits).toLocaleString('it-IT')}</div>
+                </div>
+              </div>
+
+              {!isBest && bestResult && (
+                <div className="mt-3 p-3 bg-orange-50 dark:bg-orange-950/30 rounded-xl text-sm">
+                  <span className="text-orange-600 font-bold">
+                    Differenza: -€ {Math.round(bestResult.effectiveNetMonthly - r.effectiveNetMonthly).toLocaleString('it-IT')}/mese
+                  </span>
+                  <span className="text-slate-500 ml-2">
+                    (-€ {Math.round((bestResult.effectiveNetMonthly - r.effectiveNetMonthly) * 12).toLocaleString('it-IT')}/anno)
+                  </span>
+                </div>
+              )}
+            </div>
+          );
+        })}
+      </div>
+
+      {/* Info */}
+      <div className="bg-blue-50 dark:bg-blue-950/30 rounded-2xl border border-blue-200 dark:border-blue-800 p-5">
+        <div className="flex items-start gap-3">
+          <Info size={20} className="text-blue-600 flex-shrink-0 mt-0.5" />
+          <div className="text-sm text-slate-700 dark:text-slate-300">
+            <p className="font-bold mb-1">Come funziona il calcolo?</p>
+            <ul className="space-y-1 text-xs list-disc ml-4">
+              <li>Il <strong>netto tasse</strong> è calcolato con il simulatore fiscale (nuovo frontaliere, residenza IT)</li>
+              <li>I <strong>costi trasporto</strong> includono carburante (€0.15/km) e pedaggi per distanze &gt;40km</li>
+              <li>Il <strong>valore del tempo</strong> è stimato a €15/ora per il pendolarismo</li>
+              <li>L'<strong>home office</strong> riduce i giorni di viaggio (e i costi associati)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default JobComparator;

@@ -369,6 +369,51 @@ export const Analytics = {
   },
 
   /**
+   * What-if simulator
+   */
+  trackWhatIf: (scenario: string, action: 'select' | 'change_param' | 'view_result', details?: string) => {
+    log('whatif_simulator', { scenario, action, details });
+  },
+
+  /**
+   * Job comparator
+   */
+  trackJobComparison: (action: 'add_job' | 'remove_job' | 'compare' | 'view_result', jobCount?: number, bestCompany?: string) => {
+    log('job_comparison', { action, job_count: jobCount, best_company: bestCompany });
+  },
+
+  /**
+   * Tax calendar
+   */
+  trackCalendarEvent: (action: 'view' | 'filter' | 'expand_deadline', deadline?: string, daysUntil?: number) => {
+    log('tax_calendar', { action, deadline_title: deadline, days_until: daysUntil });
+  },
+
+  /**
+   * Work permits guide
+   */
+  trackPermitView: (permitType: string, action: 'select' | 'expand_section' | 'view_comparison') => {
+    log('work_permits', { permit_type: permitType, action });
+  },
+
+  /**
+   * 3rd pillar simulator
+   */
+  trackPillar3: (action: 'change_type' | 'change_param' | 'view_projection', pillarType?: string, amount?: number) => {
+    log('pillar3_simulator', { action, pillar_type: pillarType, amount });
+  },
+
+  /**
+   * Newsletter
+   */
+  trackNewsletter: (action: 'view_form' | 'subscribe' | 'unsubscribe' | 'error', emailDomain?: string) => {
+    log('newsletter', { action, email_domain: emailDomain });
+    if (action === 'subscribe') {
+      Analytics.trackGenerateLead(0, 'EUR');
+    }
+  },
+
+  /**
    * Feedback
    */
   trackFeedback: (action: 'open' | 'submit' | 'cancel', type?: 'bug' | 'feature' | 'question') => {
