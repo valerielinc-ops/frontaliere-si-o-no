@@ -26,15 +26,15 @@ const providers: ExchangeProvider[] = [
     name: 'Wise (TransferWise)',
     logo: '🌍',
     commission: 0,
-    commissionPercent: 0.43,
+    commissionPercent: 0.35,
     exchangeRateMarkup: 0, // Uses real mid-market rate
     minAmount: 1,
     maxAmount: 1000000,
     transferTime: '1-2 giorni lavorativi',
     transferTimeKey: '1_2_business_days',
     color: 'from-emerald-500 to-teal-600',
-    features: ['Tasso medio di mercato reale', 'Trasparenza totale', 'App mobile eccellente'],
-    featureKeys: ['feature_real_market_rate', 'feature_total_transparency', 'feature_excellent_mobile_app'],
+    features: ['Tasso medio di mercato reale', 'Trasparenza totale', 'Sconto volume: 0.20% sopra 22k EUR/mese'],
+    featureKeys: ['feature_real_market_rate', 'feature_total_transparency', 'feature_wise_volume_discount'],
     type: 'service',
     referralUrl: 'https://wise.com/invite/dic/luigis147'
   },
@@ -43,14 +43,14 @@ const providers: ExchangeProvider[] = [
     logo: '💳',
     commission: 0,
     commissionPercent: 0,
-    exchangeRateMarkup: 0.005, // 0.5% markup on weekends, 0% on weekdays for premium
+    exchangeRateMarkup: 0.005, // ~0.5% fair usage fee over 1000 EUR/month on Standard
     minAmount: 0,
     maxAmount: 50000,
     transferTime: 'Istantaneo',
     transferTimeKey: 'instant',
     color: 'from-blue-500 to-indigo-600',
-    features: ['Cambio gratuito fino a 1000 CHF/mese', 'Weekend: markup 0.5-1%', 'Carta multi-valuta'],
-    featureKeys: ['feature_free_exchange_1000', 'feature_weekend_markup', 'feature_multi_currency_card'],
+    features: ['Cambio gratuito fino a 1000 EUR/mese (Standard)', 'Oltre limite: 1% commissione uso corretto', 'Weekend: markup 1%'],
+    featureKeys: ['feature_free_exchange_1000', 'feature_fair_usage_1pct', 'feature_weekend_markup_1pct'],
     type: 'neobank'
   },
   {
@@ -193,14 +193,14 @@ const providers: ExchangeProvider[] = [
     logo: '🇨🇭',
     commission: 0,
     commissionPercent: 0,
-    exchangeRateMarkup: 0.006, // ~0.6% markup
+    exchangeRateMarkup: 0.0035, // ~0.35% spread
     minAmount: 100,
     maxAmount: 500000,
     transferTime: '1-2 giorni lavorativi',
     transferTimeKey: '1_2_business_days',
     color: 'from-cyan-500 to-blue-600',
-    features: ['Servizio svizzero specializzato', 'Spread competitivo ~0.6%', 'Bonifico diretto su conto italiano'],
-    featureKeys: ['feature_swiss_specialized_service', 'feature_competitive_spread_06', 'feature_direct_transfer_italy'],
+    features: ['Servizio svizzero specializzato', 'Spread competitivo ~0.35%', 'Bonifico diretto su conto italiano'],
+    featureKeys: ['feature_swiss_specialized_service', 'feature_competitive_spread_035', 'feature_direct_transfer_italy'],
     type: 'service',
     referralUrl: 'https://www.cambiovalute.ch'
   }
