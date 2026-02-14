@@ -13,6 +13,7 @@ import HealthInsurance from '@/components/HealthInsurance';
 import BankComparison from '@/components/BankComparison';
 import TrafficAlerts from '@/components/TrafficAlerts';
 import JobComparator from '@/components/JobComparator';
+import TicinoCompanies from '@/components/TicinoCompanies';
 import WhatIfSimulator from '@/components/WhatIfSimulator';
 import Newsletter from '@/components/Newsletter';
 import LanguageSelector from '@/components/LanguageSelector';
@@ -23,17 +24,21 @@ import { ErrorBoundary } from '@/components/ErrorBoundary';
 import { calculateSimulation } from '@/services/calculationService';
 import { Analytics } from '@/services/analytics';
 import { updateMetaTags, trackSectionView } from '@/services/seoService';
+import { useTranslation, initLocale } from '@/services/i18n';
 import { DEFAULT_INPUTS } from '@/constants';
 import { SimulationInputs, SimulationResult } from '@/types';
-import { Moon, Sun, Maximize2, Minimize2, Calculator, HelpCircle, BarChart2, PiggyBank, BookOpen, Facebook, ArrowRightLeft, Phone, Car, Heart, Building2, AlertTriangle, Layers, Briefcase } from 'lucide-react';
+import { Moon, Sun, Maximize2, Minimize2, Calculator, HelpCircle, BarChart2, PiggyBank, BookOpen, Facebook, ArrowRightLeft, Phone, Car, Heart, Building2, AlertTriangle, Layers, Briefcase, Sparkles, TrendingUp, MapPin } from 'lucide-react';
 
 const App: React.FC = () => {
+  const { t } = useTranslation();
   const [inputs, setInputs] = useState<SimulationInputs>(DEFAULT_INPUTS);
   const [result, setResult] = useState<SimulationResult | null>(null);
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [isFocusMode, setIsFocusMode] = useState(false);
   const [activeTab, setActiveTab] = useState<'calculator' | 'feedback' | 'stats' | 'pension' | 'guide' | 'comparatori' | 'privacy' | 'data-deletion' | 'api-status'>('calculator');
-  const [comparatoriSubTab, setComparatoriSubTab] = useState<'exchange' | 'mobile' | 'transport' | 'health' | 'banks' | 'traffic' | 'jobs'>('exchange');
+  const [comparatoriSubTab, setComparatoriSubTab] = useState<'exchange' | 'mobile' | 'transport' | 'health' | 'banks' | 'traffic' | 'jobs' | 'companies'>('exchange');
+  const [simulatorSubTab, setSimulatorSubTab] = useState<'calculator' | 'whatif'>('calculator');
+  const [pensionSubTab, setPensionSubTab] = useState<'planner' | 'pillar3'>('planner');
   const [showApiStatus, setShowApiStatus] = useState(false);
 
   // Check for hidden API status page via URL parameter
@@ -47,6 +52,9 @@ const App: React.FC = () => {
 
   // Initialize theme and Analytics
   useEffect(() => {
+    // i18n Init
+    initLocale();
+
     // Analytics Init
     Analytics.init();
     Analytics.trackPageView('/');
@@ -157,7 +165,7 @@ const App: React.FC = () => {
                   <h1 className="text-lg font-bold text-slate-800 dark:text-slate-100 leading-none tracking-tight">
                     Frontaliere Si o No?
                   </h1>
-                  <p className="text-[10px] text-slate-500 dark:text-slate-400 font-bold uppercase tracking-widest mt-0.5">Analisi Fiscale 2026</p>
+                  <p className="text-[10px] text-slate-500 dark:text-slate-400 font-bold uppercase tracking-widest mt-0.5">{t('nav.subtitle')}</p>
                 </div>
               </div>
               
@@ -168,7 +176,7 @@ const App: React.FC = () => {
                   className={`relative px-3 py-2 text-sm font-bold transition-colors flex items-center gap-2 group ${activeTab === 'calculator' ? 'text-blue-600 dark:text-blue-400' : 'text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200'}`}
                 >
                   <Calculator size={16} />
-                  <span className="hidden lg:inline">Simulatore</span>
+                  <span className="hidden lg:inline">{t('nav.simulator')}</span>
                   {activeTab === 'calculator' && (
                     <span className="absolute bottom-0 left-0 w-full h-0.5 bg-blue-600 dark:bg-blue-400 rounded-full animate-fade-in" />
                   )}
@@ -179,7 +187,7 @@ const App: React.FC = () => {
                   className={`relative px-3 py-2 text-sm font-bold transition-colors flex items-center gap-2 group ${activeTab === 'comparatori' ? 'text-violet-600 dark:text-violet-400' : 'text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200'}`}
                 >
                   <Layers size={16} />
-                  <span className="hidden lg:inline">Comparatori</span>
+                  <span className="hidden lg:inline">{t('nav.comparators')}</span>
                   {activeTab === 'comparatori' && (
                     <span className="absolute bottom-0 left-0 w-full h-0.5 bg-violet-600 dark:bg-violet-400 rounded-full animate-fade-in" />
                   )}
@@ -190,7 +198,7 @@ const App: React.FC = () => {
                   className={`relative px-3 py-2 text-sm font-bold transition-colors flex items-center gap-2 group ${activeTab === 'pension' ? 'text-emerald-600 dark:text-emerald-400' : 'text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200'}`}
                 >
                   <PiggyBank size={16} />
-                  <span className="hidden lg:inline">Pensione</span>
+                  <span className="hidden lg:inline">{t('nav.pension')}</span>
                   {activeTab === 'pension' && (
                     <span className="absolute bottom-0 left-0 w-full h-0.5 bg-emerald-600 dark:bg-emerald-400 rounded-full animate-fade-in" />
                   )}
@@ -201,7 +209,7 @@ const App: React.FC = () => {
                   className={`relative px-3 py-2 text-sm font-bold transition-colors flex items-center gap-2 group ${activeTab === 'guide' ? 'text-indigo-600 dark:text-indigo-400' : 'text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200'}`}
                 >
                   <BookOpen size={16} />
-                  <span className="hidden lg:inline">Guida</span>
+                  <span className="hidden lg:inline">{t('nav.guide')}</span>
                   {activeTab === 'guide' && (
                     <span className="absolute bottom-0 left-0 w-full h-0.5 bg-indigo-600 dark:bg-indigo-400 rounded-full animate-fade-in" />
                   )}
@@ -212,7 +220,7 @@ const App: React.FC = () => {
                   className={`relative px-3 py-2 text-sm font-bold transition-colors flex items-center gap-2 group ${activeTab === 'stats' ? 'text-purple-600 dark:text-purple-400' : 'text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200'}`}
                 >
                   <BarChart2 size={16} />
-                  <span className="hidden lg:inline">Statistiche</span>
+                  <span className="hidden lg:inline">{t('nav.stats')}</span>
                   {activeTab === 'stats' && (
                     <span className="absolute bottom-0 left-0 w-full h-0.5 bg-purple-600 dark:bg-purple-400 rounded-full animate-fade-in" />
                   )}
@@ -223,7 +231,7 @@ const App: React.FC = () => {
                   className={`relative px-3 py-2 text-sm font-bold transition-colors flex items-center gap-2 group ${activeTab === 'feedback' ? 'text-amber-600 dark:text-amber-400' : 'text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200'}`}
                 >
                   <HelpCircle size={16} />
-                  <span className="hidden lg:inline">Supporto</span>
+                  <span className="hidden lg:inline">{t('nav.support')}</span>
                   {activeTab === 'feedback' && (
                     <span className="absolute bottom-0 left-0 w-full h-0.5 bg-amber-600 dark:bg-amber-400 rounded-full animate-fade-in" />
                   )}
@@ -272,7 +280,7 @@ const App: React.FC = () => {
                   className={`px-4 py-2 text-sm font-medium rounded-lg whitespace-nowrap transition-colors flex items-center gap-2 ${comparatoriSubTab === 'exchange' ? 'bg-violet-100 dark:bg-violet-900/30 text-violet-700 dark:text-violet-300' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800'}`}
                 >
                   <ArrowRightLeft size={16} />
-                  Cambio Valuta
+                  {t('comparators.exchange')}
                 </button>
                 <button
                   onClick={() => {
@@ -282,7 +290,7 @@ const App: React.FC = () => {
                   className={`px-4 py-2 text-sm font-medium rounded-lg whitespace-nowrap transition-colors flex items-center gap-2 ${comparatoriSubTab === 'traffic' ? 'bg-violet-100 dark:bg-violet-900/30 text-violet-700 dark:text-violet-300' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800'}`}
                 >
                   <AlertTriangle size={16} />
-                  Traffico Valichi
+                  {t('comparators.traffic')}
                 </button>
                 <button
                   onClick={() => {
@@ -292,7 +300,7 @@ const App: React.FC = () => {
                   className={`px-4 py-2 text-sm font-medium rounded-lg whitespace-nowrap transition-colors flex items-center gap-2 ${comparatoriSubTab === 'mobile' ? 'bg-violet-100 dark:bg-violet-900/30 text-violet-700 dark:text-violet-300' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800'}`}
                 >
                   <Phone size={16} />
-                  Telefonia Mobile
+                  {t('comparators.mobile')}
                 </button>
                 <button
                   onClick={() => {
@@ -302,7 +310,7 @@ const App: React.FC = () => {
                   className={`px-4 py-2 text-sm font-medium rounded-lg whitespace-nowrap transition-colors flex items-center gap-2 ${comparatoriSubTab === 'banks' ? 'bg-violet-100 dark:bg-violet-900/30 text-violet-700 dark:text-violet-300' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800'}`}
                 >
                   <Building2 size={16} />
-                  Conti Correnti
+                  {t('comparators.banks')}
                 </button>
                 <button
                   onClick={() => {
@@ -312,7 +320,7 @@ const App: React.FC = () => {
                   className={`px-4 py-2 text-sm font-medium rounded-lg whitespace-nowrap transition-colors flex items-center gap-2 ${comparatoriSubTab === 'health' ? 'bg-violet-100 dark:bg-violet-900/30 text-violet-700 dark:text-violet-300' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800'}`}
                 >
                   <Heart size={16} />
-                  Assicurazione Sanitaria
+                  {t('comparators.health')}
                 </button>
                 <button
                   onClick={() => {
@@ -322,7 +330,7 @@ const App: React.FC = () => {
                   className={`px-4 py-2 text-sm font-medium rounded-lg whitespace-nowrap transition-colors flex items-center gap-2 ${comparatoriSubTab === 'transport' ? 'bg-violet-100 dark:bg-violet-900/30 text-violet-700 dark:text-violet-300' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800'}`}
                 >
                   <Car size={16} />
-                  Costi Trasporto
+                  {t('comparators.transport')}
                 </button>
                 <button
                   onClick={() => {
@@ -332,7 +340,17 @@ const App: React.FC = () => {
                   className={`px-4 py-2 text-sm font-medium rounded-lg whitespace-nowrap transition-colors flex items-center gap-2 ${comparatoriSubTab === 'jobs' ? 'bg-violet-100 dark:bg-violet-900/30 text-violet-700 dark:text-violet-300' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800'}`}
                 >
                   <Briefcase size={16} />
-                  Offerte Lavoro
+                  {t('comparators.jobs')}
+                </button>
+                <button
+                  onClick={() => {
+                    setComparatoriSubTab('companies');
+                    Analytics.trackComparatorView('companies' as any);
+                  }}
+                  className={`px-4 py-2 text-sm font-medium rounded-lg whitespace-nowrap transition-colors flex items-center gap-2 ${comparatoriSubTab === 'companies' ? 'bg-violet-100 dark:bg-violet-900/30 text-violet-700 dark:text-violet-300' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800'}`}
+                >
+                  <MapPin size={16} />
+                  {t('comparators.companies')}
                 </button>
               </div>
             </div>
@@ -343,23 +361,49 @@ const App: React.FC = () => {
         <main className="flex-grow max-w-[1800px] w-[95%] mx-auto px-2 sm:px-4 py-6 transition-all duration-500 relative z-10">
           {activeTab === 'calculator' ? (
             <div className="space-y-6">
-              <div className="grid grid-cols-1 md:grid-cols-12 gap-6 h-full">
-                <div className={`transition-all duration-500 ease-in-out ${isFocusMode ? 'hidden md:hidden' : 'md:col-span-4 lg:col-span-4 xl:col-span-3'} h-full`}>
-                  <InputCard 
-                    inputs={inputs} 
-                    setInputs={setInputs} 
-                    onCalculate={handleCalculate}
-                    isFocusMode={isFocusMode}
-                  />
-                </div>
-                <div className={`transition-all duration-500 ease-in-out ${isFocusMode ? 'md:col-span-12' : 'md:col-span-8 lg:col-span-8 xl:col-span-9'} h-full`}>
-                  {result && <ResultsView result={result} inputs={inputs} isDarkMode={isDarkMode} isFocusMode={isFocusMode} />}
-                </div>
+              {/* Simulator sub-tabs */}
+              <div className="flex gap-2 bg-white dark:bg-slate-800 rounded-xl p-1.5 border border-slate-200 dark:border-slate-700 max-w-md">
+                <button
+                  onClick={() => setSimulatorSubTab('calculator')}
+                  className={`flex-1 flex items-center justify-center gap-2 px-4 py-2 text-sm font-bold rounded-lg transition-colors ${
+                    simulatorSubTab === 'calculator'
+                      ? 'bg-blue-600 text-white shadow-sm'
+                      : 'text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700'
+                  }`}
+                >
+                  <Calculator size={16} />
+                  {t('simulator.calculator')}
+                </button>
+                <button
+                  onClick={() => setSimulatorSubTab('whatif')}
+                  className={`flex-1 flex items-center justify-center gap-2 px-4 py-2 text-sm font-bold rounded-lg transition-colors ${
+                    simulatorSubTab === 'whatif'
+                      ? 'bg-blue-600 text-white shadow-sm'
+                      : 'text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700'
+                  }`}
+                >
+                  <Sparkles size={16} />
+                  {t('simulator.whatif')}
+                </button>
               </div>
-              {/* What-If Simulator */}
-              {result && (
+
+              {simulatorSubTab === 'calculator' ? (
+                <div className="grid grid-cols-1 md:grid-cols-12 gap-6 h-full">
+                  <div className={`transition-all duration-500 ease-in-out ${isFocusMode ? 'hidden md:hidden' : 'md:col-span-4 lg:col-span-4 xl:col-span-3'} h-full`}>
+                    <InputCard 
+                      inputs={inputs} 
+                      setInputs={setInputs} 
+                      onCalculate={handleCalculate}
+                      isFocusMode={isFocusMode}
+                    />
+                  </div>
+                  <div className={`transition-all duration-500 ease-in-out ${isFocusMode ? 'md:col-span-12' : 'md:col-span-8 lg:col-span-8 xl:col-span-9'} h-full`}>
+                    {result && <ResultsView result={result} inputs={inputs} isDarkMode={isDarkMode} isFocusMode={isFocusMode} />}
+                  </div>
+                </div>
+              ) : (
                 <div className="max-w-7xl mx-auto">
-                  <WhatIfSimulator baseInputs={inputs} baseResult={result} />
+                  {result && <WhatIfSimulator baseInputs={inputs} baseResult={result} />}
                 </div>
               )}
             </div>
@@ -368,9 +412,38 @@ const App: React.FC = () => {
               <FrontierGuide />
             </div>
           ) : activeTab === 'pension' ? (
-            <div className="max-w-7xl mx-auto animate-fade-in space-y-8">
-              <PensionPlanner />
-              <Pillar3Simulator />
+            <div className="max-w-7xl mx-auto animate-fade-in space-y-6">
+              {/* Pension sub-tabs */}
+              <div className="flex gap-2 bg-white dark:bg-slate-800 rounded-xl p-1.5 border border-slate-200 dark:border-slate-700 max-w-md">
+                <button
+                  onClick={() => setPensionSubTab('planner')}
+                  className={`flex-1 flex items-center justify-center gap-2 px-4 py-2 text-sm font-bold rounded-lg transition-colors ${
+                    pensionSubTab === 'planner'
+                      ? 'bg-emerald-600 text-white shadow-sm'
+                      : 'text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700'
+                  }`}
+                >
+                  <PiggyBank size={16} />
+                  {t('pension.planner')}
+                </button>
+                <button
+                  onClick={() => setPensionSubTab('pillar3')}
+                  className={`flex-1 flex items-center justify-center gap-2 px-4 py-2 text-sm font-bold rounded-lg transition-colors ${
+                    pensionSubTab === 'pillar3'
+                      ? 'bg-emerald-600 text-white shadow-sm'
+                      : 'text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700'
+                  }`}
+                >
+                  <TrendingUp size={16} />
+                  {t('pension.pillar3')}
+                </button>
+              </div>
+
+              {pensionSubTab === 'planner' ? (
+                <PensionPlanner />
+              ) : (
+                <Pillar3Simulator />
+              )}
             </div>
           ) : activeTab === 'comparatori' ? (
             <div className="max-w-7xl mx-auto animate-fade-in">
@@ -386,6 +459,8 @@ const App: React.FC = () => {
                 <BankComparison />
               ) : comparatoriSubTab === 'jobs' ? (
                 <JobComparator />
+              ) : comparatoriSubTab === 'companies' ? (
+                <TicinoCompanies />
               ) : (
                 <TrafficAlerts />
               )}
@@ -422,16 +497,16 @@ const App: React.FC = () => {
 
             <div className="text-center text-slate-500 dark:text-slate-400 text-sm space-y-3">
             <p className="font-medium">
-              © 2026 Frontaliere Si o No? 
+              {t('footer.copyright')}
               <span className="text-slate-300 dark:text-slate-600 mx-2">|</span> 
-              Simulatore a scopo puramente indicativo.
+              {t('footer.disclaimer')}
             </p>
             <div className="flex items-center justify-center gap-3 text-xs flex-wrap">
               <button
                 onClick={() => setActiveTab('privacy')}
                 className="inline-flex items-center gap-1.5 px-3 py-1.5 text-slate-600 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 bg-slate-100/50 dark:bg-slate-800/50 hover:bg-indigo-50 dark:hover:bg-indigo-950/30 rounded-md transition-all duration-200 border border-slate-200/50 dark:border-slate-700/50 hover:border-indigo-300 dark:hover:border-indigo-700"
               >
-                Privacy Policy
+                {t('footer.privacy')}
               </button>
               <span className="text-slate-300 dark:text-slate-600">•</span>
               <button
@@ -441,10 +516,10 @@ const App: React.FC = () => {
                 }}
                 className="inline-flex items-center gap-1.5 px-3 py-1.5 text-slate-600 dark:text-slate-400 hover:text-slate-600 dark:hover:text-slate-300 bg-slate-100/50 dark:bg-slate-800/50 hover:bg-slate-200/50 dark:hover:bg-slate-700/50 rounded-md transition-all duration-200 border border-slate-200/50 dark:border-slate-700/50"
               >
-                Stato API
+                {t('footer.apiStatus')}
               </button>
               <span className="text-slate-300 dark:text-slate-600">•</span>
-              <span className="text-slate-400 dark:text-slate-500">Seguici su</span>
+              <span className="text-slate-400 dark:text-slate-500">{t('footer.followUs')}</span>
               <a 
                 href="https://www.facebook.com/profile.php?id=61588174947294" 
                 target="_blank" 

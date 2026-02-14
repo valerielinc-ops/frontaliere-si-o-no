@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import { ArrowRightLeft, TrendingDown, TrendingUp, AlertCircle, CheckCircle2, Info, DollarSign, Percent, Calculator, RefreshCw, BarChart3 } from 'lucide-react';
-import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
+import React, { useState, useEffect, useMemo } from 'react';
+import { ArrowRightLeft, TrendingDown, TrendingUp, AlertCircle, CheckCircle2, Info, DollarSign, Percent, Calculator, RefreshCw, BarChart3, Clock, Calendar, FlaskConical, Zap } from 'lucide-react';
+import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, BarChart, Bar, Cell } from 'recharts';
 import { Analytics } from '@/services/analytics';
 
 interface ExchangeProvider {
@@ -164,6 +164,191 @@ const providers: ExchangeProvider[] = [
     type: 'traditional'
   }
 ];
+
+// --- Exchange Timing Analysis (Experimental) ---
+const DAYS_IT = ['Lun', 'Mar', 'Mer', 'Gio', 'Ven', 'Sab', 'Dom'];
+const MONTHS_IT = ['Gen', 'Feb', 'Mar', 'Apr', 'Mag', 'Giu', 'Lug', 'Ago', 'Set', 'Ott', 'Nov', 'Dic'];
+
+interface TimingData {
+  dayOfWeek: { day: string; avgRate: number; sampleCount: number }[];
+  monthOfYear: { month: string; avgRate: number; sampleCount: number }[];
+  bestDay: string;
+  worstDay: string;
+  bestMonth: string;
+  worstMonth: string;
+}
+
+function analyzeTimingPatterns(historyData: Array<{ date: string; rate: number }>): TimingData | null {
+  if (historyData.length < 30) return null;
+
+  // Day of week analysis (0=Monday, 6=Sunday)
+  const dayBuckets: { sum: number; count: number }[] = Array.from({ length: 7 }, () => ({ sum: 0, count: 0 }));
+  const monthBuckets: { sum: number; count: number }[] = Array.from({ length: 12 }, () => ({ sum: 0, count: 0 }));
+
+  for (const point of historyData) {
+    const d = new Date(point.date);
+    const dow = (d.getDay() + 6) % 7; // Monday = 0
+    dayBuckets[dow].sum += point.rate;
+    dayBuckets[dow].count++;
+    monthBuckets[d.getMonth()].sum += point.rate;
+    monthBuckets[d.getMonth()].count++;
+  }
+
+  const dayOfWeek = dayBuckets.map((b, i) => ({
+    day: DAYS_IT[i],
+    avgRate: b.count > 0 ? b.sum / b.count : 0,
+    sampleCount: b.count,
+  }));
+
+  const monthOfYear = monthBuckets.map((b, i) => ({
+    month: MONTHS_IT[i],
+    avgRate: b.count > 0 ? b.sum / b.count : 0,
+    sampleCount: b.count,
+  })).filter(m => m.sampleCount > 0);
+
+  // Higher rate = more EUR per CHF = better for the frontaliere
+  const activeDays = dayOfWeek.filter(d => d.sampleCount > 0);
+  const bestDay = activeDays.reduce((a, b) => a.avgRate > b.avgRate ? a : b).day;
+  const worstDay = activeDays.reduce((a, b) => a.avgRate < b.avgRate ? a : b).day;
+  const bestMonth = monthOfYear.reduce((a, b) => a.avgRate > b.avgRate ? a : b).month;
+  const worstMonth = monthOfYear.reduce((a, b) => a.avgRate < b.avgRate ? a : b).month;
+
+  return { dayOfWeek, monthOfYear, bestDay, worstDay, bestMonth, worstMonth };
+}
+
+const ExchangeTimingSection: React.FC<{ historyData: Array<{ date: string; rate: number }> }> = ({ historyData }) => {
+  const timing = useMemo(() => analyzeTimingPatterns(historyData), [historyData]);
+
+  if (!timing) return null;
+
+  const dayMin = Math.min(...timing.dayOfWeek.filter(d => d.sampleCount > 0).map(d => d.avgRate));
+  const dayMax = Math.max(...timing.dayOfWeek.filter(d => d.sampleCount > 0).map(d => d.avgRate));
+  const monthMin = Math.min(...timing.monthOfYear.map(m => m.avgRate));
+  const monthMax = Math.max(...timing.monthOfYear.map(m => m.avgRate));
+
+  return (
+    <div className="bg-gradient-to-br from-amber-50 to-orange-50 dark:from-amber-950/20 dark:to-orange-950/20 rounded-2xl border-2 border-dashed border-amber-300 dark:border-amber-700 p-6 space-y-5">
+      <div className="flex items-center gap-3">
+        <div className="p-2 bg-amber-100 dark:bg-amber-900/40 rounded-xl">
+          <FlaskConical size={24} className="text-amber-600 dark:text-amber-400" />
+        </div>
+        <div>
+          <div className="flex items-center gap-2">
+            <h3 className="text-xl font-extrabold text-slate-800 dark:text-slate-100">Quando Conviene Cambiare?</h3>
+            <span className="px-2 py-0.5 bg-amber-200 dark:bg-amber-800 text-amber-800 dark:text-amber-200 text-[10px] font-black uppercase rounded-full tracking-wider">Sperimentale</span>
+          </div>
+          <p className="text-sm text-slate-600 dark:text-slate-400 mt-0.5">
+            Analisi basata sullo storico del tasso CHF→EUR. Tendenze statistiche, non garanzie future.
+          </p>
+        </div>
+      </div>
+
+      {/* Recommendations */}
+      <div className="grid md:grid-cols-2 gap-4">
+        <div className="bg-white dark:bg-slate-800 rounded-xl p-4 border border-emerald-200 dark:border-emerald-800">
+          <div className="flex items-center gap-2 mb-3">
+            <TrendingUp size={18} className="text-emerald-600" />
+            <span className="font-bold text-emerald-700 dark:text-emerald-400 text-sm">Momento Migliore</span>
+          </div>
+          <div className="space-y-2 text-sm">
+            <div className="flex justify-between items-center">
+              <span className="text-slate-600 dark:text-slate-400">Giorno della settimana</span>
+              <span className="font-extrabold text-emerald-600">{timing.bestDay}</span>
+            </div>
+            <div className="flex justify-between items-center">
+              <span className="text-slate-600 dark:text-slate-400">Mese dell'anno</span>
+              <span className="font-extrabold text-emerald-600">{timing.bestMonth}</span>
+            </div>
+            <div className="flex justify-between items-center">
+              <span className="text-slate-600 dark:text-slate-400">Orario consigliato</span>
+              <span className="font-extrabold text-emerald-600">10:00–12:00</span>
+            </div>
+          </div>
+        </div>
+        <div className="bg-white dark:bg-slate-800 rounded-xl p-4 border border-red-200 dark:border-red-800">
+          <div className="flex items-center gap-2 mb-3">
+            <TrendingDown size={18} className="text-red-600" />
+            <span className="font-bold text-red-700 dark:text-red-400 text-sm">Da Evitare</span>
+          </div>
+          <div className="space-y-2 text-sm">
+            <div className="flex justify-between items-center">
+              <span className="text-slate-600 dark:text-slate-400">Giorno della settimana</span>
+              <span className="font-extrabold text-red-600">{timing.worstDay}</span>
+            </div>
+            <div className="flex justify-between items-center">
+              <span className="text-slate-600 dark:text-slate-400">Mese dell'anno</span>
+              <span className="font-extrabold text-red-600">{timing.worstMonth}</span>
+            </div>
+            <div className="flex justify-between items-center">
+              <span className="text-slate-600 dark:text-slate-400">Orario sfavorevole</span>
+              <span className="font-extrabold text-red-600">Weekend / 17:00+</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Day of Week Chart */}
+      <div className="bg-white dark:bg-slate-800 rounded-xl p-4 border border-slate-200 dark:border-slate-700">
+        <h4 className="font-bold text-sm text-slate-700 dark:text-slate-300 mb-3 flex items-center gap-2">
+          <Calendar size={14} /> Tasso Medio per Giorno della Settimana
+        </h4>
+        <div className="h-[180px]">
+          <ResponsiveContainer width="100%" height="100%">
+            <BarChart data={timing.dayOfWeek.filter(d => d.sampleCount > 0)} margin={{ top: 5, right: 10, left: 10, bottom: 5 }}>
+              <CartesianGrid strokeDasharray="3 3" opacity={0.3} />
+              <XAxis dataKey="day" tick={{ fontSize: 12 }} />
+              <YAxis domain={[dayMin * 0.999, dayMax * 1.001]} tick={{ fontSize: 11 }} tickFormatter={(v: number) => v.toFixed(4)} />
+              <Tooltip formatter={(v: number) => v.toFixed(5)} />
+              <Bar dataKey="avgRate" radius={[6, 6, 0, 0]}>
+                {timing.dayOfWeek.filter(d => d.sampleCount > 0).map((entry) => (
+                  <Cell key={entry.day} fill={entry.day === timing.bestDay ? '#10b981' : entry.day === timing.worstDay ? '#ef4444' : '#8b5cf6'} />
+                ))}
+              </Bar>
+            </BarChart>
+          </ResponsiveContainer>
+        </div>
+      </div>
+
+      {/* Month Chart */}
+      <div className="bg-white dark:bg-slate-800 rounded-xl p-4 border border-slate-200 dark:border-slate-700">
+        <h4 className="font-bold text-sm text-slate-700 dark:text-slate-300 mb-3 flex items-center gap-2">
+          <Clock size={14} /> Tasso Medio per Mese dell'Anno
+        </h4>
+        <div className="h-[200px]">
+          <ResponsiveContainer width="100%" height="100%">
+            <BarChart data={timing.monthOfYear} margin={{ top: 5, right: 10, left: 10, bottom: 5 }}>
+              <CartesianGrid strokeDasharray="3 3" opacity={0.3} />
+              <XAxis dataKey="month" tick={{ fontSize: 11 }} />
+              <YAxis domain={[monthMin * 0.998, monthMax * 1.002]} tick={{ fontSize: 11 }} tickFormatter={(v: number) => v.toFixed(4)} />
+              <Tooltip formatter={(v: number) => v.toFixed(5)} />
+              <Bar dataKey="avgRate" radius={[6, 6, 0, 0]}>
+                {timing.monthOfYear.map((entry) => (
+                  <Cell key={entry.month} fill={entry.month === timing.bestMonth ? '#10b981' : entry.month === timing.worstMonth ? '#ef4444' : '#6366f1'} />
+                ))}
+              </Bar>
+            </BarChart>
+          </ResponsiveContainer>
+        </div>
+      </div>
+
+      {/* Tips */}
+      <div className="bg-amber-100/50 dark:bg-amber-900/20 rounded-xl p-4 text-sm">
+        <div className="flex items-start gap-2">
+          <Zap size={16} className="text-amber-600 mt-0.5 flex-shrink-0" />
+          <div className="text-slate-700 dark:text-slate-300 space-y-1">
+            <p className="font-bold text-amber-800 dark:text-amber-300">Consigli pratici per il timing:</p>
+            <ul className="list-disc ml-4 space-y-1 text-slate-600 dark:text-slate-400">
+              <li><strong>Mattina (10-12):</strong> I mercati europei sono aperti e il tasso tende a stabilizzarsi</li>
+              <li><strong>Evita il weekend:</strong> Molte piattaforme (es. Revolut) applicano un markup extra sabato e domenica</li>
+              <li><strong>Fine mese:</strong> Attento ai flussi salariali che possono influenzare il tasso</li>
+              <li><strong>Non aspettare troppo:</strong> La differenza tra giorni è spesso marginale (&lt; 0.1%)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
 
 const CurrencyExchange: React.FC = () => {
   const [amount, setAmount] = useState<number>(1000);
@@ -599,6 +784,9 @@ const CurrencyExchange: React.FC = () => {
           );
         })}
       </div>
+
+      {/* Experimental: Exchange Timing Analysis */}
+      <ExchangeTimingSection historyData={historyData} />
 
       {/* Educational Section */}
       <div className="bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-950/30 dark:to-indigo-950/30 rounded-2xl border border-blue-200 dark:border-blue-800 p-6">

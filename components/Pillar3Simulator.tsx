@@ -1,7 +1,8 @@
 import React, { useState, useMemo } from 'react';
-import { Shield, TrendingUp, Calculator, Info, AlertCircle, Landmark, PiggyBank, Percent, Clock } from 'lucide-react';
+import { Shield, TrendingUp, Calculator, Info, AlertCircle, Landmark, PiggyBank, Percent, Clock, Star, Building, Banknote, BarChart3, CheckCircle2, XCircle } from 'lucide-react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend, Area, AreaChart } from 'recharts';
 import { Analytics } from '@/services/analytics';
+import { useTranslation } from '@/services/i18n';
 
 interface Pillar3Inputs {
   type: '3a' | '3b';
@@ -17,6 +18,7 @@ const MAX_3A_2026 = 7258; // Max per dipendenti con 2° pilastro
 const MAX_3A_NO_LPP = 36288; // Max per autonomi senza 2° pilastro
 
 const Pillar3Simulator: React.FC = () => {
+  const { t } = useTranslation();
   const [inputs, setInputs] = useState<Pillar3Inputs>({
     type: '3a',
     annualContribution: 7258,
@@ -88,8 +90,8 @@ const Pillar3Simulator: React.FC = () => {
             <Landmark size={32} />
           </div>
           <div>
-            <h1 className="text-3xl font-extrabold">Simulatore 3° Pilastro</h1>
-            <p className="text-teal-100 mt-1">Calcola quanto risparmi con il pilastro 3a/3b e la proiezione a lungo termine</p>
+            <h1 className="text-3xl font-extrabold">{t('pillar3.title')}</h1>
+            <p className="text-teal-100 mt-1">{t('pillar3.subtitle')}</p>
           </div>
         </div>
       </div>
@@ -322,6 +324,166 @@ const Pillar3Simulator: React.FC = () => {
                   </tr>
                 </tbody>
               </table>
+            </div>
+          </div>
+
+          {/* Investment Options Comparison */}
+          <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-6 shadow-sm">
+            <h3 className="text-lg font-bold text-slate-800 dark:text-slate-100 mb-4 flex items-center gap-2">
+              <BarChart3 size={20} className="text-indigo-600" />
+              {t('pillar3.investmentComparison') || 'Come Investire il 3° Pilastro'}
+            </h3>
+            <p className="text-sm text-slate-600 dark:text-slate-400 mb-4">
+              {t('pillar3.investmentDesc') || 'Il 3° pilastro può essere investito in diverse modalità. Ecco un confronto tra le principali opzioni:'}
+            </p>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              {/* Bank Account */}
+              <div className="border-2 border-slate-200 dark:border-slate-700 rounded-xl p-5 space-y-3">
+                <div className="flex items-center gap-2">
+                  <div className="p-2 bg-blue-100 dark:bg-blue-900/30 rounded-lg">
+                    <Banknote size={20} className="text-blue-600" />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-slate-800 dark:text-slate-100">Conto Bancario</h4>
+                    <span className="text-xs px-2 py-0.5 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-full font-bold">Rischio Basso</span>
+                  </div>
+                </div>
+                <div className="text-sm text-slate-600 dark:text-slate-400">
+                  <div className="flex items-center gap-1.5 mb-1"><Percent size={12} className="text-slate-500" /> Rendimento: <span className="font-bold">0.5-1.5%</span></div>
+                </div>
+                <div className="space-y-1.5 text-xs">
+                  <div className="flex items-center gap-1.5 text-emerald-600"><CheckCircle2 size={12} /> Capitale garantito</div>
+                  <div className="flex items-center gap-1.5 text-emerald-600"><CheckCircle2 size={12} /> Nessuna conoscenza richiesta</div>
+                  <div className="flex items-center gap-1.5 text-emerald-600"><CheckCircle2 size={12} /> Massima sicurezza</div>
+                  <div className="flex items-center gap-1.5 text-red-500"><XCircle size={12} /> Rendimento sotto l'inflazione</div>
+                  <div className="flex items-center gap-1.5 text-red-500"><XCircle size={12} /> Nessuna crescita reale</div>
+                </div>
+                <div className="pt-2 border-t border-slate-100 dark:border-slate-700">
+                  <p className="text-xs text-slate-500 italic">Esempio: UBS, Credit Suisse, PostFinance, banche cantonali</p>
+                </div>
+              </div>
+
+              {/* Investment Funds */}
+              <div className="border-2 border-indigo-300 dark:border-indigo-700 rounded-xl p-5 space-y-3 ring-2 ring-indigo-100 dark:ring-indigo-900/30">
+                <div className="flex items-center gap-2">
+                  <div className="p-2 bg-indigo-100 dark:bg-indigo-900/30 rounded-lg">
+                    <TrendingUp size={20} className="text-indigo-600" />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-slate-800 dark:text-slate-100">Fondi d'Investimento</h4>
+                    <span className="text-xs px-2 py-0.5 bg-indigo-100 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300 rounded-full font-bold">Rischio Medio</span>
+                  </div>
+                </div>
+                <div className="text-sm text-slate-600 dark:text-slate-400">
+                  <div className="flex items-center gap-1.5 mb-1"><Percent size={12} className="text-slate-500" /> Rendimento: <span className="font-bold">2-5%</span></div>
+                </div>
+                <div className="space-y-1.5 text-xs">
+                  <div className="flex items-center gap-1.5 text-emerald-600"><CheckCircle2 size={12} /> Buon compromesso rischio/rendimento</div>
+                  <div className="flex items-center gap-1.5 text-emerald-600"><CheckCircle2 size={12} /> Diversificazione automatica</div>
+                  <div className="flex items-center gap-1.5 text-emerald-600"><CheckCircle2 size={12} /> Gestione professionale</div>
+                  <div className="flex items-center gap-1.5 text-red-500"><XCircle size={12} /> Commissioni di gestione (0.5-1.5%)</div>
+                  <div className="flex items-center gap-1.5 text-red-500"><XCircle size={12} /> Possibili perdite a breve termine</div>
+                </div>
+                <div className="pt-2 border-t border-slate-100 dark:border-slate-700">
+                  <p className="text-xs text-slate-500 italic">Esempio: VIAC, frankly (ZKB), finpension, Selma</p>
+                </div>
+              </div>
+
+              {/* Insurance */}
+              <div className="border-2 border-slate-200 dark:border-slate-700 rounded-xl p-5 space-y-3">
+                <div className="flex items-center gap-2">
+                  <div className="p-2 bg-purple-100 dark:bg-purple-900/30 rounded-lg">
+                    <Shield size={20} className="text-purple-600" />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-slate-800 dark:text-slate-100">Assicurazione Vita</h4>
+                    <span className="text-xs px-2 py-0.5 bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 rounded-full font-bold">Rischio Basso</span>
+                  </div>
+                </div>
+                <div className="text-sm text-slate-600 dark:text-slate-400">
+                  <div className="flex items-center gap-1.5 mb-1"><Percent size={12} className="text-slate-500" /> Rendimento: <span className="font-bold">0.5-2%</span></div>
+                </div>
+                <div className="space-y-1.5 text-xs">
+                  <div className="flex items-center gap-1.5 text-emerald-600"><CheckCircle2 size={12} /> Copertura assicurativa inclusa</div>
+                  <div className="flex items-center gap-1.5 text-emerald-600"><CheckCircle2 size={12} /> Disciplina del risparmio forzato</div>
+                  <div className="flex items-center gap-1.5 text-red-500"><XCircle size={12} /> Basso rendimento netto</div>
+                  <div className="flex items-center gap-1.5 text-red-500"><XCircle size={12} /> Vincolo contrattuale lungo</div>
+                  <div className="flex items-center gap-1.5 text-red-500"><XCircle size={12} /> Costi nascosti elevati</div>
+                  <div className="flex items-center gap-1.5 text-red-500"><XCircle size={12} /> Penali in caso di riscatto anticipato</div>
+                </div>
+                <div className="pt-2 border-t border-slate-100 dark:border-slate-700">
+                  <p className="text-xs text-slate-500 italic">Esempio: Swiss Life, AXA, Helvetia, Zurich</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Provider comparison table */}
+            <div className="mt-6 overflow-x-auto">
+              <h4 className="font-bold text-slate-800 dark:text-slate-100 mb-3 flex items-center gap-2">
+                <Star size={16} className="text-amber-500" />
+                {t('pillar3.topProviders') || 'Migliori Fornitori 3a Digitali (2026)'}
+              </h4>
+              <table className="w-full text-sm">
+                <thead>
+                  <tr className="border-b-2 border-slate-200 dark:border-slate-700">
+                    <th className="text-left py-2 text-slate-600 dark:text-slate-400">Fornitore</th>
+                    <th className="text-center py-2 text-slate-600 dark:text-slate-400">Tipo</th>
+                    <th className="text-center py-2 text-slate-600 dark:text-slate-400">Costi (TER)</th>
+                    <th className="text-center py-2 text-slate-600 dark:text-slate-400">Rend. storico</th>
+                    <th className="text-center py-2 text-slate-600 dark:text-slate-400">Min. investimento</th>
+                    <th className="text-center py-2 text-slate-600 dark:text-slate-400">Valutazione</th>
+                  </tr>
+                </thead>
+                <tbody className="text-slate-700 dark:text-slate-300">
+                  <tr className="border-b border-slate-100 dark:border-slate-800">
+                    <td className="py-2.5 font-bold">VIAC</td>
+                    <td className="text-center py-2.5">Fondi indice</td>
+                    <td className="text-center py-2.5 font-bold text-emerald-600">0.44%</td>
+                    <td className="text-center py-2.5">~4-6%</td>
+                    <td className="text-center py-2.5">CHF 0</td>
+                    <td className="text-center py-2.5">⭐⭐⭐⭐⭐</td>
+                  </tr>
+                  <tr className="border-b border-slate-100 dark:border-slate-800">
+                    <td className="py-2.5 font-bold">finpension</td>
+                    <td className="text-center py-2.5">Fondi indice</td>
+                    <td className="text-center py-2.5 font-bold text-emerald-600">0.39%</td>
+                    <td className="text-center py-2.5">~4-6%</td>
+                    <td className="text-center py-2.5">CHF 0</td>
+                    <td className="text-center py-2.5">⭐⭐⭐⭐⭐</td>
+                  </tr>
+                  <tr className="border-b border-slate-100 dark:border-slate-800">
+                    <td className="py-2.5 font-bold">frankly (ZKB)</td>
+                    <td className="text-center py-2.5">Fondi misti</td>
+                    <td className="text-center py-2.5">0.45%</td>
+                    <td className="text-center py-2.5">~3-5%</td>
+                    <td className="text-center py-2.5">CHF 0</td>
+                    <td className="text-center py-2.5">⭐⭐⭐⭐</td>
+                  </tr>
+                  <tr className="border-b border-slate-100 dark:border-slate-800">
+                    <td className="py-2.5 font-bold">Selma Finance</td>
+                    <td className="text-center py-2.5">Robo-advisor</td>
+                    <td className="text-center py-2.5">0.68%</td>
+                    <td className="text-center py-2.5">~3-5%</td>
+                    <td className="text-center py-2.5">CHF 2'000</td>
+                    <td className="text-center py-2.5">⭐⭐⭐⭐</td>
+                  </tr>
+                  <tr>
+                    <td className="py-2.5 font-bold">Banca tradizionale</td>
+                    <td className="text-center py-2.5">Conto risparmio</td>
+                    <td className="text-center py-2.5 text-red-500">0.00%</td>
+                    <td className="text-center py-2.5">~0.5-1%</td>
+                    <td className="text-center py-2.5">CHF 0</td>
+                    <td className="text-center py-2.5">⭐⭐</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div className="mt-4 p-4 bg-emerald-50 dark:bg-emerald-950/30 rounded-xl border border-emerald-200 dark:border-emerald-800">
+              <p className="text-sm text-slate-700 dark:text-slate-300">
+                <strong className="text-emerald-700 dark:text-emerald-400">💡 Consiglio:</strong> Per massimizzare il rendimento, scegli un fornitore digitale con bassi costi (TER &lt; 0.5%) e investi in fondi indicizzati globali. La differenza di costi tra una banca tradizionale e un fornitore digitale può valere decine di migliaia di CHF in 30 anni.
+              </p>
             </div>
           </div>
         </div>

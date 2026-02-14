@@ -17,14 +17,14 @@ interface BorderCrossing {
 }
 
 const borderCrossings: BorderCrossing[] = [
-  { name: 'Chiasso-Brogeda', canton: 'TI', province: 'CO', coordinates: [45.8414, 9.0372], type: 'autostrada', open24h: true, customsPresent: true },
-  { name: 'Stabio-Gaggiolo', canton: 'TI', province: 'VA', coordinates: [45.8536, 8.9342], type: 'statale', open24h: true, customsPresent: true },
-  { name: 'Ponte Tresa', canton: 'TI', province: 'VA', coordinates: [45.9779, 8.8596], type: 'statale', open24h: true, customsPresent: false },
-  { name: 'Fornasette-Lavena', canton: 'TI', province: 'VA', coordinates: [46.0089, 8.8644], type: 'locale', open24h: true, customsPresent: false },
-  { name: 'Ponte Cremenaga', canton: 'TI', province: 'VA', coordinates: [46.0006, 8.8936], type: 'locale', open24h: true, customsPresent: false },
-  { name: 'Gaggiolo-Mendrisio', canton: 'TI', province: 'VA', coordinates: [45.8625, 8.9572], type: 'statale', open24h: true, customsPresent: false },
-  { name: 'Ligornetto-Saltrio', canton: 'TI', province: 'VA', coordinates: [45.8756, 8.9514], type: 'locale', open24h: true, customsPresent: false },
-  { name: 'Maslianico-Ponte Chiasso', canton: 'TI', province: 'CO', coordinates: [45.8186, 9.0706], type: 'statale', open24h: true, customsPresent: false }
+  { name: 'Chiasso-Brogeda', canton: 'TI', province: 'CO', coordinates: [45.8365, 9.0283], type: 'autostrada', open24h: true, customsPresent: true },
+  { name: 'Stabio-Gaggiolo', canton: 'TI', province: 'VA', coordinates: [45.8443, 8.9325], type: 'statale', open24h: true, customsPresent: true },
+  { name: 'Ponte Tresa', canton: 'TI', province: 'VA', coordinates: [45.9686, 8.8614], type: 'statale', open24h: true, customsPresent: false },
+  { name: 'Fornasette-Lavena', canton: 'TI', province: 'VA', coordinates: [46.0042, 8.8697], type: 'locale', open24h: true, customsPresent: false },
+  { name: 'Ponte Cremenaga', canton: 'TI', province: 'VA', coordinates: [46.0053, 8.9006], type: 'locale', open24h: true, customsPresent: false },
+  { name: 'Gaggiolo-Mendrisio', canton: 'TI', province: 'VA', coordinates: [45.8490, 8.9410], type: 'statale', open24h: true, customsPresent: false },
+  { name: 'Ligornetto-Saltrio', canton: 'TI', province: 'VA', coordinates: [45.8615, 8.9439], type: 'locale', open24h: true, customsPresent: false },
+  { name: 'Maslianico-Ponte Chiasso', canton: 'TI', province: 'CO', coordinates: [45.8327, 9.0458], type: 'statale', open24h: true, customsPresent: false }
 ];
 
 const STATUS_COLORS: Record<string, string> = {
@@ -192,7 +192,7 @@ const TrafficAlerts: React.FC = () => {
           <span className={apiKeyConfigured ? 'text-emerald-800 dark:text-emerald-200' : 'text-blue-800 dark:text-blue-200'}>
             {apiKeyConfigured
               ? 'Dati reali da Google Maps (cache 1h)'
-              : 'Dati simulati — orari di punta: 7-9 (IT\u2192CH), 17-19 (CH\u2192IT)'}
+              : 'Dati simulati — orari di punta: 7-9 (IT→CH), 17-19 (CH→IT)'}
           </span>
         </div>
       </div>
@@ -203,7 +203,7 @@ const TrafficAlerts: React.FC = () => {
           <div className="bg-gradient-to-br from-emerald-50 to-green-50 dark:from-emerald-950/30 dark:to-green-950/30 rounded-xl border border-emerald-200 dark:border-emerald-800 p-4">
             <div className="flex items-center gap-2 mb-1">
               <TrendingUp size={18} className="text-emerald-600" />
-              <span className="text-xs font-bold text-emerald-700 dark:text-emerald-400">Pi\u00F9 veloce</span>
+              <span className="text-xs font-bold text-emerald-700 dark:text-emerald-400">Più veloce</span>
             </div>
             <p className="text-lg font-extrabold text-slate-800 dark:text-slate-100">{fastest.crossingName}</p>
             <p className="text-2xl font-extrabold text-emerald-600">{fastest.waitTimeMinutes} min</p>
@@ -211,7 +211,7 @@ const TrafficAlerts: React.FC = () => {
           <div className="bg-gradient-to-br from-red-50 to-orange-50 dark:from-red-950/30 dark:to-orange-950/30 rounded-xl border border-red-200 dark:border-red-800 p-4">
             <div className="flex items-center gap-2 mb-1">
               <AlertTriangle size={18} className="text-red-600" />
-              <span className="text-xs font-bold text-red-700 dark:text-red-400">Pi\u00F9 lento</span>
+              <span className="text-xs font-bold text-red-700 dark:text-red-400">Più lento</span>
             </div>
             <p className="text-lg font-extrabold text-slate-800 dark:text-slate-100">{slowest.crossingName}</p>
             <p className="text-2xl font-extrabold text-red-600">{slowest.waitTimeMinutes} min</p>
@@ -263,7 +263,7 @@ const TrafficAlerts: React.FC = () => {
                         <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                           <span style={{ color: '#64748b' }}>Attesa</span>
                           <span style={{ fontWeight: 700, color: STATUS_COLORS[status] }}>
-                            {waitTime} min \u2014 {STATUS_LABELS[status]}
+                            {waitTime} min — {STATUS_LABELS[status]}
                           </span>
                         </div>
                         <div style={{ display: 'flex', justifyContent: 'space-between' }}>
@@ -272,7 +272,7 @@ const TrafficAlerts: React.FC = () => {
                         </div>
                         <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                           <span style={{ color: '#64748b' }}>Zona</span>
-                          <span style={{ fontWeight: 700 }}>{crossing.canton} \u2014 {crossing.province}</span>
+                          <span style={{ fontWeight: 700 }}>{crossing.canton} — {crossing.province}</span>
                         </div>
                         <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                           <span style={{ color: '#64748b' }}>Orario</span>
@@ -294,7 +294,7 @@ const TrafficAlerts: React.FC = () => {
                           <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                             <span style={{ color: '#64748b' }}>Fonte</span>
                             <span style={{ fontWeight: 700 }}>
-                              {traffic.source === 'google-maps' ? '\uD83D\uDCCD Google Maps' : '\uD83C\uDFB2 Simulato'}
+                              {traffic.source === 'google-maps' ? '📍 Google Maps' : '🎲 Simulato'}
                             </span>
                           </div>
                         )}
@@ -367,13 +367,13 @@ const TrafficAlerts: React.FC = () => {
                   </div>
                   <div className="flex-1 min-w-0">
                     <h3 className="font-bold text-slate-800 dark:text-slate-100 truncate">{crossing.name}</h3>
-                    <p className="text-xs text-slate-500 dark:text-slate-400">{crossing.canton} \u2014 {crossing.province} \u00B7 {crossing.type}</p>
+                    <p className="text-xs text-slate-500 dark:text-slate-400">{crossing.canton} — {crossing.province} · {crossing.type}</p>
                   </div>
                 </div>
 
                 <div className="flex items-center justify-between">
                   <span className={`text-sm font-bold ${textColor}`}>
-                    {STATUS_LABELS[traffic.status]} \u2014 {traffic.waitTimeMinutes} min
+                    {STATUS_LABELS[traffic.status]} — {traffic.waitTimeMinutes} min
                   </span>
                   <span className="text-xs text-slate-400">{traffic.direction}</span>
                 </div>
@@ -386,12 +386,12 @@ const TrafficAlerts: React.FC = () => {
                     </div>
                     <div className="flex justify-between">
                       <span className="text-slate-500">Dogana</span>
-                      <span className="font-bold">{crossing.customsPresent ? 'S\u00EC' : 'No'}</span>
+                      <span className="font-bold">{crossing.customsPresent ? 'Sì' : 'No'}</span>
                     </div>
                     {traffic.source && (
                       <div className="flex justify-between">
                         <span className="text-slate-500">Fonte</span>
-                        <span className="font-bold">{traffic.source === 'google-maps' ? '\uD83D\uDCCD Google Maps' : '\uD83C\uDFB2 Simulato'}</span>
+                        <span className="font-bold">{traffic.source === 'google-maps' ? '📍 Google Maps' : '🎲 Simulato'}</span>
                       </div>
                     )}
                     <a
@@ -421,20 +421,20 @@ const TrafficAlerts: React.FC = () => {
 
         <div className="grid md:grid-cols-2 gap-4">
           <div className="p-4 bg-white/50 dark:bg-slate-900/50 rounded-xl">
-            <p className="font-bold text-blue-600 mb-2">\u23F0 Orari migliori:</p>
+            <p className="font-bold text-blue-600 mb-2">⏰ Orari migliori:</p>
             <ul className="space-y-1 text-sm text-slate-700 dark:text-slate-300 list-disc ml-4">
               <li>Mattina: partire prima delle 6:30 o dopo le 9:30</li>
               <li>Sera: partire prima delle 16:30 o dopo le 19:30</li>
-              <li>Evita venerd\u00EC sera e domenica sera</li>
+              <li>Evita venerdì sera e domenica sera</li>
             </ul>
           </div>
 
           <div className="p-4 bg-white/50 dark:bg-slate-900/50 rounded-xl">
-            <p className="font-bold text-blue-600 mb-2">\uD83D\uDEE3\uFE0F Valichi alternativi:</p>
+            <p className="font-bold text-blue-600 mb-2">🛣️ Valichi alternativi:</p>
             <ul className="space-y-1 text-sm text-slate-700 dark:text-slate-300 list-disc ml-4">
               <li>Evita sempre Chiasso nelle ore di punta</li>
               <li>Prova Ponte Tresa, Fornasette (meno traffico)</li>
-              <li>Valichi locali pi\u00F9 lenti ma senza code</li>
+              <li>Valichi locali più lenti ma senza code</li>
             </ul>
           </div>
         </div>

@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-@custom-variant dark (&.dark);
+@custom-variant dark (&:is(.dark *));
 
 @theme {
   --color-slate-850: #1e293b;

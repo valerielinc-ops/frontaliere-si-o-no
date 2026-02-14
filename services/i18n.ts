@@ -98,6 +98,29 @@ const translations: AllTranslations = {
     'nav.support': 'Supporto',
     'nav.subtitle': 'Analisi Fiscale 2026',
     
+    // Comparator sub-tabs
+    'comparators.exchange': 'Cambio Valuta',
+    'comparators.traffic': 'Traffico Valichi',
+    'comparators.mobile': 'Telefonia Mobile',
+    'comparators.banks': 'Conti Correnti',
+    'comparators.health': 'Assicurazione Sanitaria',
+    'comparators.transport': 'Costi Trasporto',
+    'comparators.jobs': 'Offerte Lavoro',
+    'comparators.companies': 'Aziende Ticino',
+    'companies.title': 'Aziende in Ticino',
+    'companies.subtitle': 'Mappa interattiva delle principali società con filtri per settore e dimensione',
+    'companies.totalCompanies': 'Aziende',
+    'companies.totalEmployees': 'Dipendenti',
+    'companies.search': 'Cerca azienda, città, settore...',
+    
+    // Simulator sub-tabs
+    'simulator.calculator': 'Calcolatore',
+    'simulator.whatif': 'Cosa cambia se...',
+    
+    // Pension sub-tabs
+    'pension.planner': 'Pianificatore',
+    'pension.pillar3': '3° Pilastro',
+    
     // Common
     'common.loading': 'Caricamento...',
     'common.error': 'Errore',
@@ -189,6 +212,7 @@ const translations: AllTranslations = {
     'jobs.bestChoice': 'Scelta Migliore',
     'jobs.netAdvantage': 'Vantaggio netto',
     'jobs.totalCost': 'Costo totale',
+    'jobs.country': 'Paese posizione',
     
     // Tax Calendar
     'calendar.title': 'Calendario Scadenze Fiscali 2026',
@@ -249,6 +273,29 @@ const translations: AllTranslations = {
     'nav.stats': 'Statistics',
     'nav.support': 'Support',
     'nav.subtitle': 'Tax Analysis 2026',
+    
+    // Comparator sub-tabs
+    'comparators.exchange': 'Currency Exchange',
+    'comparators.traffic': 'Border Traffic',
+    'comparators.mobile': 'Mobile Plans',
+    'comparators.banks': 'Bank Accounts',
+    'comparators.health': 'Health Insurance',
+    'comparators.transport': 'Transport Costs',
+    'comparators.jobs': 'Job Offers',
+    'comparators.companies': 'Ticino Companies',
+    'companies.title': 'Companies in Ticino',
+    'companies.subtitle': 'Interactive map of major companies with filters by sector and size',
+    'companies.totalCompanies': 'Companies',
+    'companies.totalEmployees': 'Employees',
+    'companies.search': 'Search company, city, sector...',
+    
+    // Simulator sub-tabs
+    'simulator.calculator': 'Calculator',
+    'simulator.whatif': 'What if...',
+    
+    // Pension sub-tabs
+    'pension.planner': 'Planner',
+    'pension.pillar3': '3rd Pillar',
     
     // Common
     'common.loading': 'Loading...',
@@ -341,6 +388,7 @@ const translations: AllTranslations = {
     'jobs.bestChoice': 'Best Choice',
     'jobs.netAdvantage': 'Net advantage',
     'jobs.totalCost': 'Total cost',
+    'jobs.country': 'Position country',
     
     // Calendar
     'calendar.title': 'Tax Deadline Calendar 2026',
@@ -401,6 +449,29 @@ const translations: AllTranslations = {
     'nav.stats': 'Statistiken',
     'nav.support': 'Hilfe',
     'nav.subtitle': 'Steueranalyse 2026',
+    
+    // Comparator sub-tabs
+    'comparators.exchange': 'Währungstausch',
+    'comparators.traffic': 'Grenzverkehr',
+    'comparators.mobile': 'Mobilfunk',
+    'comparators.banks': 'Bankkonten',
+    'comparators.health': 'Krankenversicherung',
+    'comparators.transport': 'Transportkosten',
+    'comparators.jobs': 'Stellenangebote',
+    'comparators.companies': 'Unternehmen Tessin',
+    'companies.title': 'Unternehmen im Tessin',
+    'companies.subtitle': 'Interaktive Karte der wichtigsten Unternehmen mit Filtern nach Branche und Größe',
+    'companies.totalCompanies': 'Unternehmen',
+    'companies.totalEmployees': 'Mitarbeiter',
+    'companies.search': 'Unternehmen, Stadt, Branche suchen...',
+    
+    // Simulator sub-tabs
+    'simulator.calculator': 'Rechner',
+    'simulator.whatif': 'Was wäre wenn...',
+    
+    // Pension sub-tabs
+    'pension.planner': 'Planer',
+    'pension.pillar3': '3. Säule',
     
     // Common
     'common.loading': 'Wird geladen...',
@@ -493,6 +564,7 @@ const translations: AllTranslations = {
     'jobs.bestChoice': 'Beste Wahl',
     'jobs.netAdvantage': 'Nettovorteil',
     'jobs.totalCost': 'Gesamtkosten',
+    'jobs.country': 'Land der Stelle',
     
     // Calendar
     'calendar.title': 'Steuerterminkalender 2026',
@@ -553,6 +625,29 @@ const translations: AllTranslations = {
     'nav.stats': 'Statistiques',
     'nav.support': 'Support',
     'nav.subtitle': 'Analyse Fiscale 2026',
+    
+    // Comparator sub-tabs
+    'comparators.exchange': 'Change Devise',
+    'comparators.traffic': 'Trafic Douanes',
+    'comparators.mobile': 'Téléphonie Mobile',
+    'comparators.banks': 'Comptes Bancaires',
+    'comparators.health': 'Assurance Maladie',
+    'comparators.transport': 'Coûts Transport',
+    'comparators.jobs': 'Offres d\'Emploi',
+    'comparators.companies': 'Entreprises Tessin',
+    'companies.title': 'Entreprises au Tessin',
+    'companies.subtitle': 'Carte interactive des principales entreprises avec filtres par secteur et taille',
+    'companies.totalCompanies': 'Entreprises',
+    'companies.totalEmployees': 'Employés',
+    'companies.search': 'Rechercher entreprise, ville, secteur...',
+    
+    // Simulator sub-tabs
+    'simulator.calculator': 'Calculateur',
+    'simulator.whatif': 'Et si...',
+    
+    // Pension sub-tabs
+    'pension.planner': 'Planificateur',
+    'pension.pillar3': '3ème Pilier',
     
     // Common
     'common.loading': 'Chargement...',
@@ -645,6 +740,7 @@ const translations: AllTranslations = {
     'jobs.bestChoice': 'Meilleur Choix',
     'jobs.netAdvantage': 'Avantage net',
     'jobs.totalCost': 'Coût total',
+    'jobs.country': 'Pays du poste',
     
     // Calendar
     'calendar.title': 'Calendrier Fiscal 2026',

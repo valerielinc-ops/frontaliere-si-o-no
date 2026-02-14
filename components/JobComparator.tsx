@@ -1,12 +1,14 @@
 import React, { useState, useMemo } from 'react';
-import { Briefcase, Plus, Trash2, Trophy, Car, Clock, DollarSign, TrendingUp, Home, Coffee, ParkingCircle, Info, Calculator } from 'lucide-react';
+import { Briefcase, Plus, Trash2, Trophy, Car, Clock, DollarSign, TrendingUp, Home, Coffee, ParkingCircle, Info, Calculator, MapPin } from 'lucide-react';
 import { calculateSimulation } from '@/services/calculationService';
 import { Analytics } from '@/services/analytics';
 import { DEFAULT_INPUTS, DEFAULT_EXCHANGE_RATE } from '@/constants';
+import { useTranslation } from '@/services/i18n';
 
 interface JobOffer {
   id: string;
   companyName: string;
+  country: 'CH' | 'IT';
   grossSalaryCHF: number;
   distanceKm: number;
   travelTimeMin: number;
@@ -22,6 +24,7 @@ interface JobOffer {
 const defaultOffer = (): JobOffer => ({
   id: Math.random().toString(36).substr(2, 9),
   companyName: '',
+  country: 'CH',
   grossSalaryCHF: 80000,
   distanceKm: 30,
   travelTimeMin: 45,
@@ -35,9 +38,10 @@ const defaultOffer = (): JobOffer => ({
 });
 
 const JobComparator: React.FC = () => {
+  const { t } = useTranslation();
   const [offers, setOffers] = useState<JobOffer[]>([
-    { ...defaultOffer(), companyName: 'Offerta 1', grossSalaryCHF: 85000 },
-    { ...defaultOffer(), companyName: 'Offerta 2', grossSalaryCHF: 95000, distanceKm: 50, travelTimeMin: 60 },
+    { ...defaultOffer(), companyName: '', grossSalaryCHF: 85000, country: 'CH' },
+    { ...defaultOffer(), companyName: '', grossSalaryCHF: 95000, distanceKm: 50, travelTimeMin: 60, country: 'CH' },
   ]);
 
   const addOffer = () => {
@@ -64,8 +68,14 @@ const JobComparator: React.FC = () => {
         frontierWorkerType: 'NEW' as const,
       };
       const sim = calculateSimulation(inputs);
-      const netMonthlyIT = sim.itResident.netIncomeMonthly;
-      const netMonthlyCH = sim.chResident.netIncomeMonthly;
+      
+      // For CH positions: use standard frontaliere calculation
+      // For IT positions: salary is in EUR, different tax model
+      const isIT = offer.country === 'IT';
+      const netMonthlyIT = isIT 
+        ? offer.grossSalaryCHF * 0.65 / 12 // Rough IT net estimate (~65% of gross for IT contracts)
+        : sim.itResident.netIncomeMonthly;
+      const netMonthlyCH = isIT ? 0 : sim.chResident.netIncomeMonthly;
 
       // Transport costs (monthly)
       const workDays = 22 - (offer.homeOfficeDays * 4.33);
@@ -76,14 +86,16 @@ const JobComparator: React.FC = () => {
       // Parking costs
       const parkingCost = offer.hasParking ? 0 : offer.parkingCostMonthly;
 
-      // Meal savings
-      const mealSaving = offer.hasMealVouchers ? offer.mealVoucherValue * workDays : 0;
+      // Meal savings (only for IT positions)
+      const mealSaving = (offer.hasMealVouchers && isIT) ? offer.mealVoucherValue * workDays : 0;
 
       // Time cost (value at €15/hour)
       const timeCostMonthly = (offer.travelTimeMin / 60 * 2 * workDays) * 15;
 
       // Other benefits
-      const otherBenefitsMonthly = offer.otherBenefitsCHF / 12 / DEFAULT_EXCHANGE_RATE;
+      const otherBenefitsMonthly = isIT 
+        ? offer.otherBenefitsCHF / 12 
+        : offer.otherBenefitsCHF / 12 / DEFAULT_EXCHANGE_RATE;
 
       // Net advantage (IT resident perspective)
       const totalCosts = transportCostMonthly + parkingCost + timeCostMonthly;
@@ -120,8 +132,8 @@ const JobComparator: React.FC = () => {
             <Briefcase size={32} />
           </div>
           <div>
-            <h1 className="text-3xl font-extrabold">Confronto Offerte Lavoro</h1>
-            <p className="text-indigo-100 mt-1">Inserisci 2-3 offerte e scopri quale conviene di più al netto di tasse, trasporto e tempo</p>
+            <h1 className="text-3xl font-extrabold">{t('jobs.title')}</h1>
+            <p className="text-indigo-100 mt-1">{t('jobs.subtitle')}</p>
           </div>
         </div>
       </div>
@@ -136,7 +148,7 @@ const JobComparator: React.FC = () => {
                 value={offer.companyName}
                 onChange={(e) => updateOffer(offer.id, 'companyName', e.target.value)}
                 className="text-lg font-bold text-slate-800 dark:text-slate-100 bg-transparent border-none outline-none w-full"
-                placeholder="Nome azienda"
+                placeholder={t('jobs.companyName')}
               />
               {offers.length > 2 && (
                 <button onClick={() => removeOffer(offer.id)} className="p-1.5 text-red-400 hover:text-red-600 hover:bg-red-50 dark:hover:bg-red-950/30 rounded-lg transition-colors">
@@ -146,8 +158,43 @@ const JobComparator: React.FC = () => {
             </div>
 
             <div className="space-y-3">
+              {/* Country selector */}
               <div>
-                <label className="text-xs font-bold text-slate-500 uppercase">RAL Lorda (CHF)</label>
+                <label className="text-xs font-bold text-slate-500 uppercase flex items-center gap-1">
+                  <MapPin size={12} />
+                  {t('jobs.country') || 'Paese posizione'}
+                </label>
+                <div className="flex gap-1 mt-1">
+                  <button
+                    onClick={() => {
+                      updateOffer(offer.id, 'country', 'CH');
+                      if (offer.hasMealVouchers) updateOffer(offer.id, 'hasMealVouchers', false);
+                    }}
+                    className={`flex-1 flex items-center justify-center gap-1.5 px-3 py-2 rounded-lg text-sm font-bold transition-colors ${
+                      offer.country === 'CH'
+                        ? 'bg-red-600 text-white'
+                        : 'bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-600'
+                    }`}
+                  >
+                    🇨🇭 Svizzera
+                  </button>
+                  <button
+                    onClick={() => updateOffer(offer.id, 'country', 'IT')}
+                    className={`flex-1 flex items-center justify-center gap-1.5 px-3 py-2 rounded-lg text-sm font-bold transition-colors ${
+                      offer.country === 'IT'
+                        ? 'bg-green-600 text-white'
+                        : 'bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-600'
+                    }`}
+                  >
+                    🇮🇹 Italia
+                  </button>
+                </div>
+              </div>
+
+              <div>
+                <label className="text-xs font-bold text-slate-500 uppercase">
+                  {offer.country === 'CH' ? t('jobs.grossSalary') : 'RAL Lorda (EUR)'}
+                </label>
                 <input type="number" value={offer.grossSalaryCHF} onChange={(e) => updateOffer(offer.id, 'grossSalaryCHF', Number(e.target.value))}
                   className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg font-bold text-slate-800 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-indigo-500"
                   min={0} step={1000} />
@@ -175,16 +222,18 @@ const JobComparator: React.FC = () => {
                 <div className="text-center text-sm font-bold text-slate-700 dark:text-slate-300">{offer.homeOfficeDays} giorni</div>
               </div>
 
-              <div className="flex items-center gap-2">
-                <input type="checkbox" checked={offer.hasMealVouchers} onChange={(e) => updateOffer(offer.id, 'hasMealVouchers', e.target.checked)}
-                  className="w-4 h-4 text-indigo-600 rounded" />
-                <label className="text-xs font-bold text-slate-600 dark:text-slate-400">Buoni pasto (€{offer.mealVoucherValue}/gg)</label>
-              </div>
+              {offer.country === 'IT' && (
+                <div className="flex items-center gap-2">
+                  <input type="checkbox" checked={offer.hasMealVouchers} onChange={(e) => updateOffer(offer.id, 'hasMealVouchers', e.target.checked)}
+                    className="w-4 h-4 text-indigo-600 rounded" />
+                  <label className="text-xs font-bold text-slate-600 dark:text-slate-400">{t('jobs.mealVouchers')} (€{offer.mealVoucherValue}/{t('common.day') || 'gg'})</label>
+                </div>
+              )}
 
               <div className="flex items-center gap-2">
                 <input type="checkbox" checked={offer.hasParking} onChange={(e) => updateOffer(offer.id, 'hasParking', e.target.checked)}
                   className="w-4 h-4 text-indigo-600 rounded" />
-                <label className="text-xs font-bold text-slate-600 dark:text-slate-400">Parcheggio incluso</label>
+                <label className="text-xs font-bold text-slate-600 dark:text-slate-400">{t('jobs.parking')}</label>
               </div>
             </div>
           </div>
@@ -196,7 +245,7 @@ const JobComparator: React.FC = () => {
             className="rounded-2xl border-2 border-dashed border-slate-300 dark:border-slate-600 p-6 flex flex-col items-center justify-center gap-3 text-slate-400 hover:text-indigo-600 hover:border-indigo-400 transition-all min-h-[200px]"
           >
             <Plus size={32} />
-            <span className="font-bold">Aggiungi Offerta</span>
+            <span className="font-bold">{t('jobs.addOffer')}</span>
           </button>
         )}
       </div>
@@ -220,7 +269,7 @@ const JobComparator: React.FC = () => {
               {isBest && (
                 <div className="mb-3 inline-flex items-center gap-1.5 px-3 py-1.5 bg-emerald-500 text-white text-xs font-bold rounded-full">
                   <Trophy size={14} />
-                  Scelta Migliore
+                  {t('jobs.bestChoice')}
                 </div>
               )}
 
