@@ -1,5 +1,5 @@
-import React, { useState, useMemo } from 'react';
-import { Calendar, Clock, AlertTriangle, CheckCircle2, Bell, ChevronDown, ChevronUp, FileText, Info, Euro, Landmark, Building2, Shield, Star, Gift } from 'lucide-react';
+import React, { useState, useMemo, useEffect } from 'react';
+import { Calendar, AlertTriangle, CheckCircle2, Bell, ChevronDown, FileText, Info, Euro, Landmark, Shield, Star, Gift } from 'lucide-react';
 import { Analytics } from '@/services/analytics';
 import { useTranslation } from '@/services/i18n';
 
@@ -300,15 +300,25 @@ function getDeadlines2026(t: (key: string) => string): TaxDeadline[] {
   ];
 }
 
-const TaxCalendar: React.FC = () => {
+interface TaxCalendarProps {
+  initialTab?: 'fiscal' | 'holidays';
+}
+
+const MONTH_NAMES_IT = ['Gennaio', 'Febbraio', 'Marzo', 'Aprile', 'Maggio', 'Giugno', 'Luglio', 'Agosto', 'Settembre', 'Ottobre', 'Novembre', 'Dicembre'];
+const DAY_NAMES_IT = ['Lun', 'Mar', 'Mer', 'Gio', 'Ven', 'Sab', 'Dom'];
+
+const TaxCalendar: React.FC<TaxCalendarProps> = ({ initialTab }) => {
   const { t } = useTranslation();
   const CATEGORY_CONFIG = useMemo(() => getCategoryConfig(t), [t]);
   const DEADLINES_2026 = useMemo(() => getDeadlines2026(t), [t]);
-  const [activeTab, setActiveTab] = useState<'fiscal' | 'holidays'>('fiscal');
+  const [activeTab, setActiveTab] = useState<'fiscal' | 'holidays'>(initialTab || 'fiscal');
   const [filterCategory, setFilterCategory] = useState<string>('all');
   const [filterType, setFilterType] = useState<'tutti' | 'vecchio' | 'nuovo'>('tutti');
-  const [expandedId, setExpandedId] = useState<string | null>(null);
-  const [showPast, setShowPast] = useState(false);
+  const [selectedDate, setSelectedDate] = useState<string | null>(null);
+  const [currentMonth, setCurrentMonth] = useState(() => {
+    const now = new Date();
+    return now.getFullYear() === 2026 ? now.getMonth() : 0; // default Jan 2026
+  });
 
   const today = new Date();
   const todayStr = today.toISOString().split('T')[0];
@@ -327,9 +337,18 @@ const TaxCalendar: React.FC = () => {
   const handleTabChange = (tab: 'fiscal' | 'holidays') => {
     setActiveTab(tab);
     setFilterCategory('all');
-    setExpandedId(null);
+    setSelectedDate(null);
     Analytics.trackUIInteraction('guida', 'calendario', 'tab_vista', 'click', tab);
   };
+
+  // Sync with initialTab prop
+  useEffect(() => {
+    if (initialTab && initialTab !== activeTab) {
+      setActiveTab(initialTab);
+      setFilterCategory('all');
+      setSelectedDate(null);
+    }
+  }, [initialTab]);
 
   const activeCategoryConfig = useMemo(() => {
     return Object.fromEntries(
@@ -344,11 +363,20 @@ const TaxCalendar: React.FC = () => {
       .filter(d => {
         if (filterCategory !== 'all' && d.category !== filterCategory) return false;
         if (activeTab === 'fiscal' && filterType !== 'tutti' && !d.who.includes(filterType) && !d.who.includes('tutti')) return false;
-        if (!showPast && d.date < todayStr) return false;
         return true;
       })
       .sort((a, b) => a.date.localeCompare(b.date));
-  }, [activeDeadlines, filterCategory, filterType, showPast, todayStr, activeTab]);
+  }, [activeDeadlines, filterCategory, filterType, activeTab]);
+
+  // Build a map: dateStr -> deadlines for quick lookup
+  const deadlinesByDate = useMemo(() => {
+    const map: Record<string, TaxDeadline[]> = {};
+    filteredDeadlines.forEach(d => {
+      if (!map[d.date]) map[d.date] = [];
+      map[d.date].push(d);
+    });
+    return map;
+  }, [filteredDeadlines]);
 
   const nextDeadline = useMemo(() => {
     return activeDeadlines.find(d => d.date >= todayStr);
@@ -360,33 +388,38 @@ const TaxCalendar: React.FC = () => {
     return diff;
   };
 
-  const getStatusColor = (dateStr: string) => {
-    const days = getDaysUntil(dateStr);
-    if (days < 0) return 'text-slate-400 bg-slate-50 dark:bg-slate-900';
-    if (days <= 7) return 'text-red-600 bg-red-50 dark:bg-red-950/30 border-red-200 dark:border-red-800';
-    if (days <= 30) return 'text-amber-600 bg-amber-50 dark:bg-amber-950/30 border-amber-200 dark:border-amber-800';
-    return 'text-emerald-600 bg-emerald-50 dark:bg-emerald-950/30 border-emerald-200 dark:border-emerald-800';
-  };
-
   const formatDate = (dateStr: string) => {
     const d = new Date(dateStr);
     return d.toLocaleDateString('it-IT', { day: 'numeric', month: 'long', year: 'numeric' });
   };
 
-  const getMonthName = (dateStr: string) => {
-    const d = new Date(dateStr);
-    return d.toLocaleDateString('it-IT', { month: 'long' }).toUpperCase();
-  };
+  // Calendar grid helpers
+  const year = 2026;
+  const daysInMonth = new Date(year, currentMonth + 1, 0).getDate();
+  const firstDayOfWeek = (new Date(year, currentMonth, 1).getDay() + 6) % 7; // Monday=0
 
-  // Group by month
-  const groupedByMonth = useMemo(() => {
-    const groups: Record<string, TaxDeadline[]> = {};
+  const calendarDays = useMemo(() => {
+    const days: (number | null)[] = [];
+    for (let i = 0; i < firstDayOfWeek; i++) days.push(null);
+    for (let d = 1; d <= daysInMonth; d++) days.push(d);
+    return days;
+  }, [daysInMonth, firstDayOfWeek]);
+
+  const getDateStr = (day: number) => `2026-${String(currentMonth + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+
+  const selectedDeadlines = useMemo(() => {
+    if (!selectedDate) return [];
+    return deadlinesByDate[selectedDate] || [];
+  }, [selectedDate, deadlinesByDate]);
+
+  // Count events per month for mini indicators
+  const monthEventCounts = useMemo(() => {
+    const counts: number[] = Array(12).fill(0);
     filteredDeadlines.forEach(d => {
-      const month = d.date.substring(0, 7);
-      if (!groups[month]) groups[month] = [];
-      groups[month].push(d);
+      const m = parseInt(d.date.substring(5, 7)) - 1;
+      counts[m]++;
     });
-    return groups;
+    return counts;
   }, [filteredDeadlines]);
 
   return (
@@ -403,23 +436,25 @@ const TaxCalendar: React.FC = () => {
           </div>
         </div>
 
-        {/* Tab switcher */}
-        <div className="flex gap-2 mt-4 bg-white/10 rounded-xl p-1">
-          <button
-            onClick={() => handleTabChange('fiscal')}
-            className={`flex-1 flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg text-sm font-bold transition-all ${activeTab === 'fiscal' ? 'bg-white text-indigo-700 shadow-lg' : 'text-white/80 hover:bg-white/10'}`}
-          >
-            <Calendar size={16} />
-            {t('calendar.tabFiscal')}
-          </button>
-          <button
-            onClick={() => handleTabChange('holidays')}
-            className={`flex-1 flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg text-sm font-bold transition-all ${activeTab === 'holidays' ? 'bg-white text-indigo-700 shadow-lg' : 'text-white/80 hover:bg-white/10'}`}
-          >
-            <Star size={16} />
-            {t('calendar.tabHolidays')}
-          </button>
-        </div>
+        {/* Tab switcher — only show if no initialTab forced */}
+        {!initialTab && (
+          <div className="flex gap-2 mt-4 bg-white/10 rounded-xl p-1">
+            <button
+              onClick={() => handleTabChange('fiscal')}
+              className={`flex-1 flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg text-sm font-bold transition-all ${activeTab === 'fiscal' ? 'bg-white text-indigo-700 shadow-lg' : 'text-white/80 hover:bg-white/10'}`}
+            >
+              <Calendar size={16} />
+              {t('calendar.tabFiscal')}
+            </button>
+            <button
+              onClick={() => handleTabChange('holidays')}
+              className={`flex-1 flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg text-sm font-bold transition-all ${activeTab === 'holidays' ? 'bg-white text-indigo-700 shadow-lg' : 'text-white/80 hover:bg-white/10'}`}
+            >
+              <Star size={16} />
+              {t('calendar.tabHolidays')}
+            </button>
+          </div>
+        )}
 
         {/* Next deadline highlight */}
         {nextDeadline && (
@@ -443,7 +478,6 @@ const TaxCalendar: React.FC = () => {
 
       {/* Filters */}
       <div className="flex flex-wrap gap-3">
-        {/* Category filter */}
         <div className="flex flex-wrap gap-2">
           <button
             onClick={() => { setFilterCategory('all'); Analytics.trackUIInteraction('guida', 'calendario', 'filtro_categoria', 'click', 'all'); }}
@@ -463,137 +497,215 @@ const TaxCalendar: React.FC = () => {
           ))}
         </div>
 
-        {/* Worker type filter (only for fiscal tab) */}
         {activeTab === 'fiscal' && (
-        <div className="flex gap-2 ml-auto">
-          {(['tutti', 'vecchio', 'nuovo'] as const).map(ft => (
-            <button key={ft}
-              onClick={() => { setFilterType(ft); Analytics.trackUIInteraction('guida', 'calendario', 'filtro_tipo', 'click', ft); }}
-              className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${filterType === ft ? 'bg-slate-800 dark:bg-slate-100 text-white dark:text-slate-900' : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-400 border border-slate-200 dark:border-slate-700'}`}
-            >
-              {ft === 'tutti' ? `👥 ${t('calendar.filterAll')}` : ft === 'vecchio' ? `📋 ${t('calendar.filterOld')}` : `📄 ${t('calendar.filterNew')}`}
-            </button>
-          ))}
-        </div>
+          <div className="flex gap-2 ml-auto">
+            {(['tutti', 'vecchio', 'nuovo'] as const).map(ft => (
+              <button key={ft}
+                onClick={() => { setFilterType(ft); Analytics.trackUIInteraction('guida', 'calendario', 'filtro_tipo', 'click', ft); }}
+                className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${filterType === ft ? 'bg-slate-800 dark:bg-slate-100 text-white dark:text-slate-900' : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-400 border border-slate-200 dark:border-slate-700'}`}
+              >
+                {ft === 'tutti' ? `👥 ${t('calendar.filterAll')}` : ft === 'vecchio' ? `📋 ${t('calendar.filterOld')}` : `📄 ${t('calendar.filterNew')}`}
+              </button>
+            ))}
+          </div>
         )}
       </div>
 
-      {/* Show past toggle */}
-      <label className="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-400 cursor-pointer">
-        <input type="checkbox" checked={showPast} onChange={(e) => setShowPast(e.target.checked)}
-          className="w-4 h-4 rounded border-slate-300 text-indigo-600 focus:ring-indigo-500" />
-        {t('calendar.showPast')}
-      </label>
+      {/* Month navigation */}
+      <div className="flex items-center justify-between bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-3">
+        <button
+          onClick={() => setCurrentMonth(m => Math.max(0, m - 1))}
+          disabled={currentMonth === 0}
+          className="p-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-700 disabled:opacity-30 transition-colors"
+        >
+          <ChevronDown size={20} className="rotate-90" />
+        </button>
 
-      {/* Timeline */}
-      <div className="space-y-8">
-        {(Object.entries(groupedByMonth) as [string, TaxDeadline[]][]).map(([month, deadlines]) => (
-          <div key={month}>
-            <div className="flex items-center gap-3 mb-4">
-              <div className="px-3 py-1 bg-indigo-100 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300 rounded-lg text-sm font-extrabold uppercase tracking-wider">
-                {getMonthName(deadlines[0].date)}
-              </div>
-              <div className="flex-grow h-px bg-slate-200 dark:bg-slate-700"></div>
-              <span className="text-xs text-slate-400">{deadlines.length} {deadlines.length === 1 ? t('calendar.deadlineSingular') : t('calendar.deadlinePlural')}</span>
-            </div>
+        {/* Month selector */}
+        <div className="flex gap-1 flex-wrap justify-center">
+          {MONTH_NAMES_IT.map((name, i) => (
+            <button
+              key={i}
+              onClick={() => { setCurrentMonth(i); setSelectedDate(null); }}
+              className={`px-2 py-1 rounded-lg text-xs font-bold transition-all relative ${
+                currentMonth === i
+                  ? 'bg-indigo-600 text-white'
+                  : 'text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-700'
+              }`}
+            >
+              {name.substring(0, 3)}
+              {monthEventCounts[i] > 0 && (
+                <span className={`absolute -top-1 -right-1 w-4 h-4 rounded-full text-[9px] font-bold flex items-center justify-center ${
+                  currentMonth === i ? 'bg-white text-indigo-600' : 'bg-indigo-100 dark:bg-indigo-900/50 text-indigo-600 dark:text-indigo-300'
+                }`}>
+                  {monthEventCounts[i]}
+                </span>
+              )}
+            </button>
+          ))}
+        </div>
 
-            <div className="space-y-3">
-              {deadlines.map(d => {
-                const days = getDaysUntil(d.date);
-                const isPast = days < 0;
-                const isExpanded = expandedId === d.id;
-                const cfg = CATEGORY_CONFIG[d.category] as CategoryConfig;
-
-                return (
-                  <div
-                    key={d.id}
-                    className={`rounded-2xl border p-4 transition-all cursor-pointer hover:shadow-md ${getStatusColor(d.date)} ${isPast ? 'opacity-60' : ''}`}
-                    onClick={() => {
-                      setExpandedId(isExpanded ? null : d.id);
-                      Analytics.trackUIInteraction('guida', 'calendario', 'scadenza', isExpanded ? 'chiudi' : 'espandi', d.title);
-                    }}
-                  >
-                    <div className="flex items-start gap-3">
-                      {/* Date badge */}
-                      <div className="flex-shrink-0 text-center">
-                        <div className={`w-12 h-12 rounded-xl flex flex-col items-center justify-center ${isPast ? 'bg-slate-200 dark:bg-slate-700' : days <= 7 ? 'bg-red-500 text-white' : days <= 30 ? 'bg-amber-500 text-white' : 'bg-emerald-500 text-white'}`}>
-                          <span className="text-lg font-extrabold leading-none">{new Date(d.date).getDate()}</span>
-                          <span className="text-[9px] font-bold uppercase">{new Date(d.date).toLocaleDateString('it-IT', { month: 'short' })}</span>
-                        </div>
-                      </div>
-
-                      {/* Content */}
-                      <div className="flex-grow min-w-0">
-                        <div className="flex items-center gap-2 flex-wrap">
-                          <span className={`px-2 py-0.5 rounded text-[10px] font-bold uppercase bg-${cfg.color}-100 dark:bg-${cfg.color}-900/30 text-${cfg.color}-700 dark:text-${cfg.color}-300`}>
-                            {cfg.label}
-                          </span>
-                          {d.who.map(w => (
-                            <span key={w} className="px-2 py-0.5 rounded text-[10px] font-bold bg-slate-200 dark:bg-slate-700 text-slate-600 dark:text-slate-300">
-                              {w === 'tutti' ? `👥 ${t('calendar.filterAll')}` : w === 'vecchio' ? `📋 ${t('calendar.filterOld')}` : `📄 ${t('calendar.filterNew')}`}
-                            </span>
-                          ))}
-                          {isPast && <CheckCircle2 size={14} className="text-slate-400" />}
-                        </div>
-                        <h4 className="font-bold text-slate-800 dark:text-slate-100 mt-1">{d.title}</h4>
-                        <p className="text-xs text-slate-600 dark:text-slate-400 mt-0.5">{d.description}</p>
-
-                        {!isPast && (
-                          <div className="mt-2 text-xs font-bold">
-                            {days === 0 ? <span className="text-red-600">⚠️ {t('calendar.today')}</span> :
-                             days <= 7 ? <span className="text-red-600">⏰ {t('calendar.inDays', { count: days })}</span> :
-                             days <= 30 ? <span className="text-amber-600">📅 {t('calendar.inDays', { count: days })}</span> :
-                             <span className="text-emerald-600">✅ {t('calendar.inDays', { count: days })}</span>}
-                          </div>
-                        )}
-                      </div>
-
-                      {/* Expand icon */}
-                      <div className="flex-shrink-0">
-                        {isExpanded ? <ChevronUp size={18} /> : <ChevronDown size={18} />}
-                      </div>
-                    </div>
-
-                    {/* Expanded content */}
-                    {isExpanded && (
-                      <div className="mt-4 pt-4 border-t border-slate-200 dark:border-slate-700 space-y-3 animate-fade-in">
-                        {d.documents && d.documents.length > 0 && (
-                          <div>
-                            <h5 className="text-xs font-bold text-slate-500 uppercase mb-1">📎 {t('calendar.documentsNeeded')}</h5>
-                            <div className="flex flex-wrap gap-2">
-                              {d.documents.map((doc, i) => (
-                                <span key={i} className="px-2.5 py-1 bg-white dark:bg-slate-900 rounded-lg text-xs font-medium border border-slate-200 dark:border-slate-700">
-                                  {doc}
-                                </span>
-                              ))}
-                            </div>
-                          </div>
-                        )}
-                        {d.penalty && (
-                          <div className="flex items-start gap-2 p-3 bg-red-50 dark:bg-red-950/30 rounded-xl">
-                            <AlertTriangle size={16} className="text-red-500 flex-shrink-0 mt-0.5" />
-                            <div>
-                              <div className="text-xs font-bold text-red-700 dark:text-red-300">{t('calendar.penaltyLabel')}</div>
-                              <div className="text-xs text-red-600 dark:text-red-400">{d.penalty}</div>
-                            </div>
-                          </div>
-                        )}
-                        {d.notes && (
-                          <div className="flex items-start gap-2 p-3 bg-blue-50 dark:bg-blue-950/30 rounded-xl">
-                            <Info size={16} className="text-blue-500 flex-shrink-0 mt-0.5" />
-                            <div className="text-xs text-blue-700 dark:text-blue-300">{d.notes}</div>
-                          </div>
-                        )}
-                      </div>
-                    )}
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        ))}
+        <button
+          onClick={() => setCurrentMonth(m => Math.min(11, m + 1))}
+          disabled={currentMonth === 11}
+          className="p-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-700 disabled:opacity-30 transition-colors"
+        >
+          <ChevronDown size={20} className="-rotate-90" />
+        </button>
       </div>
 
+      {/* Calendar Grid */}
+      <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 overflow-hidden">
+        {/* Day names header */}
+        <div className="grid grid-cols-7 bg-slate-50 dark:bg-slate-900 border-b border-slate-200 dark:border-slate-700">
+          {DAY_NAMES_IT.map(day => (
+            <div key={day} className="py-2 text-center text-xs font-bold text-slate-500 dark:text-slate-400 uppercase">
+              {day}
+            </div>
+          ))}
+        </div>
+
+        {/* Calendar cells */}
+        <div className="grid grid-cols-7">
+          {calendarDays.map((day, idx) => {
+            if (day === null) {
+              return <div key={`empty-${idx}`} className="aspect-square border-b border-r border-slate-100 dark:border-slate-700/50 bg-slate-50/50 dark:bg-slate-900/30" />;
+            }
+
+            const dateStr = getDateStr(day);
+            const events = deadlinesByDate[dateStr] || [];
+            const hasEvents = events.length > 0;
+            const isToday = dateStr === todayStr;
+            const isSelected = dateStr === selectedDate;
+            const isPast = dateStr < todayStr;
+
+            return (
+              <div
+                key={day}
+                onClick={() => {
+                  if (hasEvents) {
+                    setSelectedDate(isSelected ? null : dateStr);
+                    Analytics.trackUIInteraction('guida', 'calendario', 'giorno', 'click', dateStr);
+                  }
+                }}
+                className={`aspect-square border-b border-r border-slate-100 dark:border-slate-700/50 p-1 sm:p-2 flex flex-col transition-all relative
+                  ${hasEvents ? 'cursor-pointer hover:bg-indigo-50 dark:hover:bg-indigo-950/20' : ''}
+                  ${isSelected ? 'bg-indigo-100 dark:bg-indigo-900/30 ring-2 ring-indigo-500 ring-inset' : ''}
+                  ${isPast && !hasEvents ? 'opacity-40' : ''}
+                `}
+              >
+                {/* Day number */}
+                <div className={`text-xs sm:text-sm font-bold self-end w-6 h-6 sm:w-7 sm:h-7 flex items-center justify-center rounded-full ${
+                  isToday ? 'bg-indigo-600 text-white' : 'text-slate-700 dark:text-slate-300'
+                }`}>
+                  {day}
+                </div>
+
+                {/* Event dots */}
+                {hasEvents && (
+                  <div className="flex-grow flex flex-col justify-end gap-0.5 mt-1">
+                    {events.slice(0, 3).map((e, i) => {
+                      const cfg = CATEGORY_CONFIG[e.category];
+                      return (
+                        <div
+                          key={i}
+                          className={`h-1.5 sm:h-2 rounded-full bg-${cfg?.color || 'indigo'}-500 w-full`}
+                          title={e.title}
+                        />
+                      );
+                    })}
+                    {events.length > 3 && (
+                      <div className="text-[8px] font-bold text-slate-400 text-center">+{events.length - 3}</div>
+                    )}
+                  </div>
+                )}
+              </div>
+            );
+          })}
+        </div>
+      </div>
+
+      {/* Selected date detail panel */}
+      {selectedDate && selectedDeadlines.length > 0 && (
+        <div className="space-y-3 animate-fade-in">
+          <div className="flex items-center gap-3">
+            <div className="px-3 py-1 bg-indigo-100 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300 rounded-lg text-sm font-extrabold">
+              📅 {formatDate(selectedDate)}
+            </div>
+            <div className="flex-grow h-px bg-slate-200 dark:bg-slate-700"></div>
+            <button onClick={() => setSelectedDate(null)} className="text-xs text-slate-400 hover:text-slate-600 dark:hover:text-slate-300 transition-colors">
+              ✕ {t('calendar.close') || 'Chiudi'}
+            </button>
+          </div>
+
+          {selectedDeadlines.map(d => {
+            const days = getDaysUntil(d.date);
+            const isPast = days < 0;
+            const cfg = CATEGORY_CONFIG[d.category] as CategoryConfig;
+
+            return (
+              <div
+                key={d.id}
+                className={`rounded-2xl border p-4 transition-all ${
+                  isPast ? 'bg-slate-50 dark:bg-slate-900 border-slate-200 dark:border-slate-700 opacity-70'
+                    : days <= 7 ? 'bg-red-50 dark:bg-red-950/30 border-red-200 dark:border-red-800'
+                    : days <= 30 ? 'bg-amber-50 dark:bg-amber-950/30 border-amber-200 dark:border-amber-800'
+                    : 'bg-emerald-50 dark:bg-emerald-950/30 border-emerald-200 dark:border-emerald-800'
+                }`}
+              >
+                <div className="flex items-center gap-2 flex-wrap mb-2">
+                  <span className={`px-2 py-0.5 rounded text-[10px] font-bold uppercase bg-${cfg.color}-100 dark:bg-${cfg.color}-900/30 text-${cfg.color}-700 dark:text-${cfg.color}-300`}>
+                    {cfg.label}
+                  </span>
+                  {d.who.map(w => (
+                    <span key={w} className="px-2 py-0.5 rounded text-[10px] font-bold bg-slate-200 dark:bg-slate-700 text-slate-600 dark:text-slate-300">
+                      {w === 'tutti' ? `👥 ${t('calendar.filterAll')}` : w === 'vecchio' ? `📋 ${t('calendar.filterOld')}` : `📄 ${t('calendar.filterNew')}`}
+                    </span>
+                  ))}
+                  {!isPast && (
+                    <span className={`text-xs font-bold ${days <= 7 ? 'text-red-600' : days <= 30 ? 'text-amber-600' : 'text-emerald-600'}`}>
+                      {days === 0 ? `⚠️ ${t('calendar.today')}` : `📅 ${t('calendar.inDays', { count: days })}`}
+                    </span>
+                  )}
+                  {isPast && <CheckCircle2 size={14} className="text-slate-400" />}
+                </div>
+                <h4 className="font-bold text-slate-800 dark:text-slate-100 text-lg">{d.title}</h4>
+                <p className="text-sm text-slate-600 dark:text-slate-400 mt-1">{d.description}</p>
+
+                {d.documents && d.documents.length > 0 && (
+                  <div className="mt-3">
+                    <h5 className="text-xs font-bold text-slate-500 uppercase mb-1">📎 {t('calendar.documentsNeeded')}</h5>
+                    <div className="flex flex-wrap gap-2">
+                      {d.documents.map((doc, i) => (
+                        <span key={i} className="px-2.5 py-1 bg-white dark:bg-slate-900 rounded-lg text-xs font-medium border border-slate-200 dark:border-slate-700">
+                          {doc}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                )}
+                {d.penalty && (
+                  <div className="flex items-start gap-2 p-3 bg-red-50 dark:bg-red-950/30 rounded-xl mt-3">
+                    <AlertTriangle size={16} className="text-red-500 flex-shrink-0 mt-0.5" />
+                    <div>
+                      <div className="text-xs font-bold text-red-700 dark:text-red-300">{t('calendar.penaltyLabel')}</div>
+                      <div className="text-xs text-red-600 dark:text-red-400">{d.penalty}</div>
+                    </div>
+                  </div>
+                )}
+                {d.notes && (
+                  <div className="flex items-start gap-2 p-3 bg-blue-50 dark:bg-blue-950/30 rounded-xl mt-3">
+                    <Info size={16} className="text-blue-500 flex-shrink-0 mt-0.5" />
+                    <div className="text-xs text-blue-700 dark:text-blue-300">{d.notes}</div>
+                  </div>
+                )}
+              </div>
+            );
+          })}
+        </div>
+      )}
+
+      {/* Empty state when no events in current view */}
       {filteredDeadlines.length === 0 && (
         <div className="text-center py-12 text-slate-400">
           <Calendar size={48} className="mx-auto mb-3 opacity-30" />

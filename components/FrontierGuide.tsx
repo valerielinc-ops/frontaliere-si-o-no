@@ -10,8 +10,7 @@ import { pushRoute } from '../services/router';
 import TaxCalendar from './TaxCalendar';
 import WorkPermitsGuide from './WorkPermitsGuide';
 import TicinoCompanies from './TicinoCompanies';
-import ShoppingCalculator from './ShoppingCalculator';
-import CostOfLiving from './CostOfLiving';
+
 import { borderCrossings as centralizedBorderCrossings } from '../data/borderCrossings';
 
 // Fix per i marker icon di Leaflet
@@ -90,7 +89,7 @@ interface FrontierGuideProps {
   activeSection?: string;
 }
 
-type GuideSection = 'municipalities' | 'living-ch' | 'living-it' | 'border' | 'costs' | 'calendar' | 'permits' | 'companies' | 'shopping' | 'cost-of-living' | 'places' | 'schools' | 'unemployment';
+type GuideSection = 'municipalities' | 'living-ch' | 'living-it' | 'border' | 'calendar' | 'holidays' | 'permits' | 'companies' | 'places' | 'schools' | 'unemployment';
 
 const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSection }) => {
   const { t } = useTranslation();
@@ -116,9 +115,8 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
 
     // Update SEO meta tags for sections with dedicated SEO entries
     const seoMap: Record<string, string> = {
-      'shopping': 'shopping',
-      'cost-of-living': 'costOfLiving',
       'calendar': 'calendar',
+      'holidays': 'holidays',
       'permits': 'permits',
       'places': 'places',
       'schools': 'schools',
@@ -214,15 +212,6 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
     traffic: c.trafficLevel,
   }));
 
-  const costComparison = [
-    { category: t('guide.costs.rent'), switzerland: "1800-2500 CHF", italy: "700-1200 €", note: t('guide.costs.rentNote') },
-    { category: t('guide.costs.groceries'), switzerland: "600-800 CHF", italy: "350-500 €", note: t('guide.costs.groceriesNote') },
-    { category: t('guide.costs.fuel'), switzerland: "1.85 CHF", italy: "1.75 €", note: t('guide.costs.fuelNote') },
-    { category: t('guide.costs.restaurant'), switzerland: "25-40 CHF", italy: "15-25 €", note: t('guide.costs.restaurantNote') },
-    { category: t('guide.costs.carInsurance'), switzerland: "800-1200 CHF/anno", italy: "600-1000 €/anno", note: t('guide.costs.carInsuranceNote') },
-    { category: t('guide.costs.electricity'), switzerland: "0.20 CHF", italy: "0.25 €", note: t('guide.costs.electricityNote') },
-    { category: t('guide.costs.internet'), switzerland: "50-80 CHF", italy: "25-40 €", note: t('guide.costs.internetNote') }
-  ];
 
   return (
     <div className="space-y-8 pb-12">
@@ -263,17 +252,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
           <Timer size={16} />
           {t('guide.tabs.border')}
         </button>
-        <button
-          onClick={() => handleSectionChange('costs')}
-          className={`px-4 py-2.5 rounded-xl font-bold text-sm transition-all flex items-center gap-2 ${
-            activeSection === 'costs'
-              ? 'bg-emerald-600 text-white shadow-lg scale-105'
-              : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700'
-          }`}
-        >
-          <Euro size={16} />
-          {t('guide.tabs.costs')}
-        </button>
+
         <button
           onClick={() => handleSectionChange('living-ch')}
           className={`px-4 py-2.5 rounded-xl font-bold text-sm transition-all flex items-center gap-2 ${
@@ -308,6 +287,17 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
           {t('guide.tabs.calendar')}
         </button>
         <button
+          onClick={() => handleSectionChange('holidays')}
+          className={`px-4 py-2.5 rounded-xl font-bold text-sm transition-all flex items-center gap-2 ${
+            activeSection === 'holidays'
+              ? 'bg-pink-600 text-white shadow-lg scale-105'
+              : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700'
+          }`}
+        >
+          <Heart size={16} />
+          {t('guide.tabs.holidays')}
+        </button>
+        <button
           onClick={() => handleSectionChange('permits')}
           className={`px-4 py-2.5 rounded-xl font-bold text-sm transition-all flex items-center gap-2 ${
             activeSection === 'permits'
@@ -329,28 +319,8 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
           <Building2 size={16} />
           {t('guide.tabs.companies')}
         </button>
-        <button
-          onClick={() => handleSectionChange('shopping')}
-          className={`px-4 py-2.5 rounded-xl font-bold text-sm transition-all flex items-center gap-2 ${
-            activeSection === 'shopping'
-              ? 'bg-orange-600 text-white shadow-lg scale-105'
-              : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700'
-          }`}
-        >
-          <ShoppingCart size={16} />
-          {t('guide.tabs.shopping')}
-        </button>
-        <button
-          onClick={() => handleSectionChange('cost-of-living')}
-          className={`px-4 py-2.5 rounded-xl font-bold text-sm transition-all flex items-center gap-2 ${
-            activeSection === 'cost-of-living'
-              ? 'bg-violet-600 text-white shadow-lg scale-105'
-              : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700'
-          }`}
-        >
-          <BarChart3 size={16} />
-          {t('guide.tabs.costOfLiving')}
-        </button>
+
+
         <button
           onClick={() => handleSectionChange('places')}
           className={`px-4 py-2.5 rounded-xl font-bold text-sm transition-all flex items-center gap-2 ${
@@ -921,108 +891,6 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
         </div>
       )}
 
-      {activeSection === 'costs' && (
-        <div className="space-y-6 animate-fade-in">
-          <SectionHeader 
-            icon={BarChart3} 
-            title={t('guide.costs.title')} 
-            subtitle={t('guide.costs.subtitle')}
-          />
-
-          <div className="overflow-x-auto">
-            <table className="w-full bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 overflow-hidden">
-              <thead className="bg-gradient-to-r from-emerald-500 to-teal-600 text-white">
-                <tr>
-                  <th className="px-6 py-4 text-left font-bold">{t('guide.costs.category')}</th>
-                  <th className="px-6 py-4 text-left font-bold">🇨🇭 {t('guide.costs.switzerland')}</th>
-                  <th className="px-6 py-4 text-left font-bold">🇮🇹 {t('guide.costs.italy')}</th>
-                  <th className="px-6 py-4 text-left font-bold">{t('guide.costs.notes')}</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-slate-100 dark:divide-slate-700">
-                {costComparison.map((item, idx) => (
-                  <tr key={idx} className="hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-colors">
-                    <td className="px-6 py-4 font-semibold text-slate-800 dark:text-slate-100">{item.category}</td>
-                    <td className="px-6 py-4 text-red-600 dark:text-red-400 font-bold">{item.switzerland}</td>
-                    <td className="px-6 py-4 text-emerald-600 dark:text-emerald-400 font-bold">{item.italy}</td>
-                    <td className="px-6 py-4 text-xs text-slate-500 dark:text-slate-400">{item.note}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-6">
-            <InfoCard icon={ShoppingCart} title={t('guide.costs.foodTitle')} color="green">
-              <div className="space-y-3">
-                <div className="flex items-center justify-between">
-                  <span>{t('guide.costs.bread')}</span>
-                  <div className="text-right">
-                    <div className="text-sm font-bold text-red-600">CHF 5-6</div>
-                    <div className="text-xs text-emerald-600">€ 2-3</div>
-                  </div>
-                </div>
-                <div className="flex items-center justify-between">
-                  <span>{t('guide.costs.milk')}</span>
-                  <div className="text-right">
-                    <div className="text-sm font-bold text-red-600">CHF 1.5-2</div>
-                    <div className="text-xs text-emerald-600">€ 1.2-1.5</div>
-                  </div>
-                </div>
-                <div className="flex items-center justify-between">
-                  <span>{t('guide.costs.pasta')}</span>
-                  <div className="text-right">
-                    <div className="text-sm font-bold text-red-600">CHF 2-3</div>
-                    <div className="text-xs text-emerald-600">€ 0.8-1.5</div>
-                  </div>
-                </div>
-                <div className="flex items-center justify-between">
-                  <span>{t('guide.costs.meat')}</span>
-                  <div className="text-right">
-                    <div className="text-sm font-bold text-red-600">CHF 25-35</div>
-                    <div className="text-xs text-emerald-600">€ 12-18</div>
-                  </div>
-                </div>
-              </div>
-              <p className="text-xs text-slate-500 dark:text-slate-400 mt-3 pt-3 border-t border-slate-200 dark:border-slate-700">
-                💡 <strong>{t('guide.border.tip')}:</strong> {t('guide.costs.foodTip')}
-              </p>
-            </InfoCard>
-
-            <InfoCard icon={Home} title={t('guide.costs.housingTitle')} color="orange">
-              <div className="space-y-3">
-                <div>
-                  <div className="font-semibold text-slate-800 dark:text-slate-100 mb-2">{t('guide.costs.monthlyRent')}</div>
-                  <div className="grid grid-cols-2 gap-2">
-                    <div className="p-2 bg-red-50 dark:bg-red-900/20 rounded-lg text-center">
-                      <div className="text-xs text-slate-600 dark:text-slate-400">Lugano/Mendrisio</div>
-                      <div className="text-lg font-bold text-red-600">1800-2500 CHF</div>
-                    </div>
-                    <div className="p-2 bg-emerald-50 dark:bg-emerald-900/20 rounded-lg text-center">
-                      <div className="text-xs text-slate-600 dark:text-slate-400">Como/Varese</div>
-                      <div className="text-lg font-bold text-emerald-600">700-1200 €</div>
-                    </div>
-                  </div>
-                </div>
-                <div>
-                  <div className="font-semibold text-slate-800 dark:text-slate-100 mb-2">{t('guide.costs.housePurchase')}</div>
-                  <div className="grid grid-cols-2 gap-2">
-                    <div className="p-2 bg-red-50 dark:bg-red-900/20 rounded-lg text-center">
-                      <div className="text-xs text-slate-600 dark:text-slate-400">Canton Ticino</div>
-                      <div className="text-lg font-bold text-red-600">6000-9000 CHF</div>
-                    </div>
-                    <div className="p-2 bg-emerald-50 dark:bg-emerald-900/20 rounded-lg text-center">
-                      <div className="text-xs text-slate-600 dark:text-slate-400">Como/Varese</div>
-                      <div className="text-lg font-bold text-emerald-600">2000-3500 €</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </InfoCard>
-          </div>
-        </div>
-      )}
-
       {activeSection === 'living-ch' && (
         <div className="space-y-6 animate-fade-in">
           <SectionHeader 
@@ -1380,7 +1248,13 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
 
       {activeSection === 'calendar' && (
         <div className="animate-fade-in">
-          <TaxCalendar />
+          <TaxCalendar initialTab="fiscal" />
+        </div>
+      )}
+
+      {activeSection === 'holidays' && (
+        <div className="animate-fade-in">
+          <TaxCalendar initialTab="holidays" />
         </div>
       )}
 
@@ -1393,18 +1267,6 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
       {activeSection === 'companies' && (
         <div className="animate-fade-in">
           <TicinoCompanies />
-        </div>
-      )}
-
-      {activeSection === 'shopping' && (
-        <div className="animate-fade-in">
-          <ShoppingCalculator />
-        </div>
-      )}
-
-      {activeSection === 'cost-of-living' && (
-        <div className="animate-fade-in">
-          <CostOfLiving />
         </div>
       )}
 
@@ -1421,6 +1283,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
             <InfoCard icon={Mountain} title={t('guide.places.natureTitle')} color="green">
               <div className="space-y-4">
                 <div className="p-3 bg-emerald-50 dark:bg-emerald-900/20 rounded-xl">
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Monte_San_Salvatore.jpg/1280px-Monte_San_Salvatore.jpg" alt="Monte San Salvatore" className="w-full h-32 object-cover rounded-lg mb-2" loading="lazy" />
                   <div className="font-bold text-emerald-700 dark:text-emerald-300 mb-1">🏔️ Monte San Salvatore</div>
                   <p className="text-xs">{t('guide.places.sanSalvatore')}</p>
                   <div className="mt-2 flex items-center gap-2 text-xs text-slate-500">
@@ -1428,6 +1291,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
                   </div>
                 </div>
                 <div className="p-3 bg-emerald-50 dark:bg-emerald-900/20 rounded-xl">
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Monte_Br%C3%A9.jpg/1280px-Monte_Br%C3%A9.jpg" alt="Monte Brè" className="w-full h-32 object-cover rounded-lg mb-2" loading="lazy" />
                   <div className="font-bold text-emerald-700 dark:text-emerald-300 mb-1">🏔️ Monte Brè</div>
                   <p className="text-xs">{t('guide.places.monteBreDesc')}</p>
                   <div className="mt-2 flex items-center gap-2 text-xs text-slate-500">
@@ -1435,6 +1299,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
                   </div>
                 </div>
                 <div className="p-3 bg-emerald-50 dark:bg-emerald-900/20 rounded-xl">
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Fiore_di_pietra_20170610.jpg/1280px-Fiore_di_pietra_20170610.jpg" alt="Monte Generoso" className="w-full h-32 object-cover rounded-lg mb-2" loading="lazy" />
                   <div className="font-bold text-emerald-700 dark:text-emerald-300 mb-1">🏔️ Monte Generoso</div>
                   <p className="text-xs">{t('guide.places.monteGeneroso')}</p>
                   <div className="mt-2 flex items-center gap-2 text-xs text-slate-500">
@@ -1442,6 +1307,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
                   </div>
                 </div>
                 <div className="p-3 bg-emerald-50 dark:bg-emerald-900/20 rounded-xl">
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Gandria_Ticino.jpg/1280px-Gandria_Ticino.jpg" alt="Sentiero dell'Olivo" className="w-full h-32 object-cover rounded-lg mb-2" loading="lazy" />
                   <div className="font-bold text-emerald-700 dark:text-emerald-300 mb-1">🥾 Sentiero dell'Olivo</div>
                   <p className="text-xs">{t('guide.places.sentieroOlivo')}</p>
                   <div className="mt-2 flex items-center gap-2 text-xs text-slate-500">
@@ -1454,6 +1320,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
             <InfoCard icon={Heart} title={t('guide.places.lakesTitle')} color="blue">
               <div className="space-y-4">
                 <div className="p-3 bg-blue-50 dark:bg-blue-900/20 rounded-xl">
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Lugano%2C_Ticino_%2816170914842%29.jpg/1280px-Lugano%2C_Ticino_%2816170914842%29.jpg" alt="Lago di Lugano" className="w-full h-32 object-cover rounded-lg mb-2" loading="lazy" />
                   <div className="font-bold text-blue-700 dark:text-blue-300 mb-1">🌊 Lago di Lugano (Ceresio)</div>
                   <p className="text-xs">{t('guide.places.lagoCeresio')}</p>
                   <div className="mt-2 flex items-center gap-2 text-xs text-slate-500">
@@ -1461,6 +1328,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
                   </div>
                 </div>
                 <div className="p-3 bg-blue-50 dark:bg-blue-900/20 rounded-xl">
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Ascona_Ticino.jpg/1280px-Ascona_Ticino.jpg" alt="Lago Maggiore" className="w-full h-32 object-cover rounded-lg mb-2" loading="lazy" />
                   <div className="font-bold text-blue-700 dark:text-blue-300 mb-1">🌊 Lago Maggiore</div>
                   <p className="text-xs">{t('guide.places.lagoMaggiore')}</p>
                   <div className="mt-2 flex items-center gap-2 text-xs text-slate-500">
@@ -1468,6 +1336,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
                   </div>
                 </div>
                 <div className="p-3 bg-blue-50 dark:bg-blue-900/20 rounded-xl">
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Foroglio_waterfall.jpg/800px-Foroglio_waterfall.jpg" alt="Cascata di Foroglio" className="w-full h-32 object-cover rounded-lg mb-2" loading="lazy" />
                   <div className="font-bold text-blue-700 dark:text-blue-300 mb-1">💧 Cascata di Foroglio</div>
                   <p className="text-xs">{t('guide.places.foroglio')}</p>
                   <div className="mt-2 flex items-center gap-2 text-xs text-slate-500">
@@ -1483,18 +1352,22 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
             <InfoCard icon={Building2} title={t('guide.places.citiesTitle')} color="purple">
               <div className="space-y-4">
                 <div className="p-3 bg-purple-50 dark:bg-purple-900/20 rounded-xl">
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Lugano_view.jpg/1280px-Lugano_view.jpg" alt="Lugano" className="w-full h-32 object-cover rounded-lg mb-2" loading="lazy" />
                   <div className="font-bold text-purple-700 dark:text-purple-300 mb-1">🏙️ Lugano</div>
                   <p className="text-xs">{t('guide.places.luganoDesc')}</p>
                 </div>
                 <div className="p-3 bg-purple-50 dark:bg-purple-900/20 rounded-xl">
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Locarno_Piazza_Grande.jpg/1280px-Locarno_Piazza_Grande.jpg" alt="Locarno & Ascona" className="w-full h-32 object-cover rounded-lg mb-2" loading="lazy" />
                   <div className="font-bold text-purple-700 dark:text-purple-300 mb-1">🌴 Locarno & Ascona</div>
                   <p className="text-xs">{t('guide.places.locarnoDesc')}</p>
                 </div>
                 <div className="p-3 bg-purple-50 dark:bg-purple-900/20 rounded-xl">
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Bellinzona_Castelgrande.jpg/1280px-Bellinzona_Castelgrande.jpg" alt="Bellinzona" className="w-full h-32 object-cover rounded-lg mb-2" loading="lazy" />
                   <div className="font-bold text-purple-700 dark:text-purple-300 mb-1">🏰 Bellinzona</div>
                   <p className="text-xs">{t('guide.places.bellinzonaDesc')}</p>
                 </div>
                 <div className="p-3 bg-purple-50 dark:bg-purple-900/20 rounded-xl">
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Mendrisio_-_panoramio.jpg/1280px-Mendrisio_-_panoramio.jpg" alt="Mendrisio" className="w-full h-32 object-cover rounded-lg mb-2" loading="lazy" />
                   <div className="font-bold text-purple-700 dark:text-purple-300 mb-1">🏘️ Mendrisio</div>
                   <p className="text-xs">{t('guide.places.mendrisioDesc')}</p>
                 </div>
@@ -1504,15 +1377,18 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
             <InfoCard icon={Landmark} title={t('guide.places.cultureTitle')} color="orange">
               <div className="space-y-4">
                 <div className="p-3 bg-orange-50 dark:bg-orange-900/20 rounded-xl">
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Locarno_Film_Festival_Piazza.jpg/1280px-Locarno_Film_Festival_Piazza.jpg" alt="Film Festival Locarno" className="w-full h-32 object-cover rounded-lg mb-2" loading="lazy" />
                   <div className="font-bold text-orange-700 dark:text-orange-300 mb-1">🎬 Film Festival Locarno</div>
                   <p className="text-xs">{t('guide.places.filmFestival')}</p>
                   <div className="mt-1 text-xs text-slate-500">📅 {t('guide.places.august')}</div>
                 </div>
                 <div className="p-3 bg-orange-50 dark:bg-orange-900/20 rounded-xl">
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/LAC_Lugano.jpg/1280px-LAC_Lugano.jpg" alt="LAC Lugano Arte e Cultura" className="w-full h-32 object-cover rounded-lg mb-2" loading="lazy" />
                   <div className="font-bold text-orange-700 dark:text-orange-300 mb-1">🎨 LAC Lugano Arte e Cultura</div>
                   <p className="text-xs">{t('guide.places.lacDesc')}</p>
                 </div>
                 <div className="p-3 bg-orange-50 dark:bg-orange-900/20 rounded-xl">
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Castelgrande3.jpg/1280px-Castelgrande3.jpg" alt="Castelli di Bellinzona" className="w-full h-32 object-cover rounded-lg mb-2" loading="lazy" />
                   <div className="font-bold text-orange-700 dark:text-orange-300 mb-1">🏰 Castelli di Bellinzona</div>
                   <p className="text-xs">{t('guide.places.castelliDesc')}</p>
                 </div>
@@ -1529,6 +1405,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
             <InfoCard icon={Users} title={t('guide.places.familyTitle')} color="teal">
               <div className="space-y-4">
                 <div className="p-3 bg-teal-50 dark:bg-teal-900/20 rounded-xl">
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Swissminiatur_-_panoramio_%282%29.jpg/1280px-Swissminiatur_-_panoramio_%282%29.jpg" alt="Swissminiatur" className="w-full h-32 object-cover rounded-lg mb-2" loading="lazy" />
                   <div className="font-bold text-teal-700 dark:text-teal-300 mb-1">🌿 Swissminiatur</div>
                   <p className="text-xs">{t('guide.places.swissminiatur')}</p>
                   <div className="mt-1 text-xs text-slate-500"><MapPin size={12} className="inline" /> Melide · 💰 CHF 19/adulto</div>
@@ -1554,6 +1431,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
             <InfoCard icon={ShoppingCart} title={t('guide.places.shoppingTitle')} color="blue">
               <div className="space-y-4">
                 <div className="p-3 bg-blue-50 dark:bg-blue-900/20 rounded-xl">
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/FoxTown_Mendrisio.jpg/1280px-FoxTown_Mendrisio.jpg" alt="FoxTown Factory Stores" className="w-full h-32 object-cover rounded-lg mb-2" loading="lazy" />
                   <div className="font-bold text-blue-700 dark:text-blue-300 mb-1">🛍️ FoxTown Factory Stores</div>
                   <p className="text-xs">{t('guide.places.foxtown')}</p>
                   <div className="mt-1 text-xs text-slate-500"><MapPin size={12} className="inline" /> Mendrisio · <Navigation size={12} className="inline" /> 5 min {t('guide.places.fromBorder')}</div>
@@ -1953,14 +1831,13 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
       {activeSection === 'unemployment' && (
         <div className="space-y-6 animate-fade-in">
           <SectionHeader 
-            icon={<LifeBuoy className="text-rose-500" size={28} />}
+            icon={LifeBuoy}
             title={t('guide.unemployment.title')}
-            description={t('guide.unemployment.description')}
-            gradient="from-rose-600 to-pink-700"
+            subtitle={t('guide.unemployment.description')}
           />
 
           {/* Introduction */}
-          <InfoCard icon={<AlertCircle className="text-rose-500" size={22} />} title={t('guide.unemployment.intro.title')} gradient="from-rose-500/10 to-pink-500/10">
+          <InfoCard icon={AlertCircle} title={t('guide.unemployment.intro.title')} color="orange">
             <p className="text-slate-600 dark:text-slate-300 text-sm leading-relaxed mb-3">{t('guide.unemployment.intro.text')}</p>
             <div className="bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-xl p-3 text-sm">
               <strong className="text-amber-800 dark:text-amber-300">⚠️ {t('guide.unemployment.intro.important')}</strong>
@@ -1968,7 +1845,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
           </InfoCard>
 
           {/* Switzerland Unemployment */}
-          <InfoCard icon={<Shield className="text-red-500" size={22} />} title={t('guide.unemployment.ch.title')} gradient="from-red-500/10 to-red-600/10">
+          <InfoCard icon={Shield} title={t('guide.unemployment.ch.title')} color="orange">
             <div className="space-y-4">
               {/* Who is entitled */}
               <div className="bg-white dark:bg-slate-800 rounded-xl p-4 border border-slate-200 dark:border-slate-700">
@@ -2053,7 +1930,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
           </InfoCard>
 
           {/* Italy Unemployment (NASpI) */}
-          <InfoCard icon={<Landmark className="text-green-600" size={22} />} title={t('guide.unemployment.it.title')} gradient="from-green-500/10 to-emerald-500/10">
+          <InfoCard icon={Landmark} title={t('guide.unemployment.it.title')} color="green">
             <div className="space-y-4">
               {/* Who is entitled */}
               <div className="bg-white dark:bg-slate-800 rounded-xl p-4 border border-slate-200 dark:border-slate-700">
@@ -2120,7 +1997,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
           </InfoCard>
 
           {/* Comparison Table */}
-          <InfoCard icon={<BarChart3 className="text-purple-500" size={22} />} title={t('guide.unemployment.comparison.title')} gradient="from-purple-500/10 to-violet-500/10">
+          <InfoCard icon={BarChart3} title={t('guide.unemployment.comparison.title')} color="purple">
             <div className="overflow-x-auto">
               <table className="w-full text-sm">
                 <thead>
@@ -2143,7 +2020,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
           </InfoCard>
 
           {/* Useful Links */}
-          <InfoCard icon={<Info className="text-indigo-500" size={22} />} title={t('guide.unemployment.links.title')} gradient="from-indigo-500/10 to-blue-500/10">
+          <InfoCard icon={Info} title={t('guide.unemployment.links.title')} color="blue">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               <a href="https://www.arbeit.swiss" target="_blank" rel="noopener noreferrer" className="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl p-3 hover:border-red-400 transition-colors group">
                 <div className="font-bold text-sm text-slate-800 dark:text-slate-100 group-hover:text-red-600">🇨🇭 arbeit.swiss</div>

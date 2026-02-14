@@ -13,6 +13,8 @@ import HealthInsurance from '@/components/HealthInsurance';
 import BankComparison from '@/components/BankComparison';
 import TrafficAlerts from '@/components/TrafficAlerts';
 import JobComparator from '@/components/JobComparator';
+import ShoppingCalculator from '@/components/ShoppingCalculator';
+import CostOfLiving from '@/components/CostOfLiving';
 import WhatIfSimulator from '@/components/WhatIfSimulator';
 import Newsletter from '@/components/Newsletter';
 import LanguageSelector from '@/components/LanguageSelector';
@@ -28,7 +30,7 @@ import { useTranslation, initLocale, setLocale, onLocaleChange } from '@/service
 import { parsePath, parseHashToPath, pushRoute, replaceRoute, buildPath, getSeoSection, updatePathForLocale, AppRoute } from '@/services/router';
 import { DEFAULT_INPUTS } from '@/constants';
 import { SimulationInputs, SimulationResult } from '@/types';
-import { Moon, Sun, Maximize2, Minimize2, Calculator, HelpCircle, BarChart2, PiggyBank, BookOpen, Facebook, ArrowRightLeft, Phone, Car, Heart, Building2, AlertTriangle, Layers, Briefcase, Sparkles, TrendingUp, MapPin } from 'lucide-react';
+import { Moon, Sun, Maximize2, Minimize2, Calculator, HelpCircle, BarChart2, PiggyBank, BookOpen, Facebook, ArrowRightLeft, Phone, Car, Heart, Building2, AlertTriangle, Layers, Briefcase, Sparkles, TrendingUp, MapPin, ShoppingCart, Euro } from 'lucide-react';
 
 const App: React.FC = () => {
   const { t } = useTranslation();
@@ -43,7 +45,7 @@ const App: React.FC = () => {
     return { route: parsed.route, locale: parsed.locale };
   });
   const [activeTab, setActiveTab] = useState<'calculator' | 'feedback' | 'stats' | 'pension' | 'guide' | 'comparatori' | 'privacy' | 'data-deletion' | 'api-status'>(initialRoute.route.activeTab);
-  const [comparatoriSubTab, setComparatoriSubTab] = useState<'exchange' | 'mobile' | 'transport' | 'health' | 'banks' | 'traffic' | 'jobs'>(initialRoute.route.comparatoriSubTab || 'exchange');
+  const [comparatoriSubTab, setComparatoriSubTab] = useState<'exchange' | 'mobile' | 'transport' | 'health' | 'banks' | 'traffic' | 'jobs' | 'shopping' | 'cost-of-living' | 'costs'>(initialRoute.route.comparatoriSubTab || 'exchange');
   const [simulatorSubTab, setSimulatorSubTab] = useState<'calculator' | 'whatif'>(initialRoute.route.simulatorSubTab || 'calculator');
   const [pensionSubTab, setPensionSubTab] = useState<'planner' | 'pillar3'>(initialRoute.route.pensionSubTab || 'planner');
   const [guideSection, setGuideSection] = useState<string>(initialRoute.route.guideSection || 'municipalities');
@@ -404,6 +406,36 @@ const App: React.FC = () => {
                   <Briefcase size={16} />
                   {t('comparators.jobs')}
                 </button>
+                <button
+                  onClick={() => {
+                    setComparatoriSubTab('shopping');
+                    Analytics.trackComparatorView('shopping' as any);
+                  }}
+                  className={`px-4 py-2 text-sm font-medium rounded-lg whitespace-nowrap transition-colors flex items-center gap-2 ${comparatoriSubTab === 'shopping' ? 'bg-violet-100 dark:bg-violet-900/30 text-violet-700 dark:text-violet-300' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800'}`}
+                >
+                  <ShoppingCart size={16} />
+                  {t('comparators.shopping')}
+                </button>
+                <button
+                  onClick={() => {
+                    setComparatoriSubTab('cost-of-living');
+                    Analytics.trackComparatorView('cost-of-living' as any);
+                  }}
+                  className={`px-4 py-2 text-sm font-medium rounded-lg whitespace-nowrap transition-colors flex items-center gap-2 ${comparatoriSubTab === 'cost-of-living' ? 'bg-violet-100 dark:bg-violet-900/30 text-violet-700 dark:text-violet-300' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800'}`}
+                >
+                  <Euro size={16} />
+                  {t('comparators.costOfLiving')}
+                </button>
+                <button
+                  onClick={() => {
+                    setComparatoriSubTab('costs');
+                    Analytics.trackComparatorView('costs' as any);
+                  }}
+                  className={`px-4 py-2 text-sm font-medium rounded-lg whitespace-nowrap transition-colors flex items-center gap-2 ${comparatoriSubTab === 'costs' ? 'bg-violet-100 dark:bg-violet-900/30 text-violet-700 dark:text-violet-300' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800'}`}
+                >
+                  <BarChart2 size={16} />
+                  {t('comparators.costs')}
+                </button>
 
               </div>
             </div>
@@ -512,6 +544,12 @@ const App: React.FC = () => {
                 <BankComparison />
               ) : comparatoriSubTab === 'jobs' ? (
                 <JobComparator />
+              ) : comparatoriSubTab === 'shopping' ? (
+                <ShoppingCalculator />
+              ) : comparatoriSubTab === 'cost-of-living' ? (
+                <CostOfLiving />
+              ) : comparatoriSubTab === 'costs' ? (
+                <CostOfLiving />
               ) : (
                 <TrafficAlerts />
               )}

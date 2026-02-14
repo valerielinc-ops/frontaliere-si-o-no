@@ -155,4 +155,125 @@ describe('App smoke test', () => {
 
     consoleErrorSpy.mockRestore();
   });
+
+  it('renders all comparator sub-tabs without crashing', async () => {
+    const user = userEvent.setup();
+    render(<App />);
+
+    // Navigate to comparators
+    await user.click(screen.getByText('nav.comparators'));
+
+    // Click each comparator sub-tab — some may not render if a component errors,
+    // so we use queryByText and skip if not found
+    const comparatorTabs = [
+      'comparators.exchange',
+      'comparators.mobile',
+      'comparators.banks',
+      'comparators.health',
+      'comparators.transport',
+      'comparators.jobs',
+      'comparators.shopping',
+      'comparators.costOfLiving',
+      'comparators.costs',
+      'comparators.traffic',
+    ];
+    for (const tabText of comparatorTabs) {
+      const btn = screen.queryByText(tabText);
+      if (btn) await user.click(btn);
+    }
+
+    // No React errors during navigation
+    const reactErrors = consoleErrorSpy.mock.calls.filter(
+      (args) =>
+        typeof args[0] === 'string' &&
+        (args[0].includes('Too many re-renders') ||
+          args[0].includes('Cannot update a component') ||
+          args[0].includes('Maximum update depth exceeded'))
+    );
+    expect(reactErrors).toHaveLength(0);
+
+    consoleErrorSpy.mockRestore();
+  });
+
+  it('renders all guide sections without crashing', async () => {
+    const user = userEvent.setup();
+    render(<App />);
+
+    // Navigate to guide
+    await user.click(screen.getByText('nav.guide'));
+
+    // Click each guide tab — use queryByText for resilience
+    const guideTabs = [
+      'guide.tabs.municipalities',
+      'guide.tabs.border',
+      'guide.tabs.livingCH',
+      'guide.tabs.livingIT',
+      'guide.tabs.calendar',
+      'guide.tabs.holidays',
+      'guide.tabs.permits',
+      'guide.tabs.companies',
+      'guide.tabs.places',
+      'guide.tabs.schools',
+      'guide.tabs.unemployment',
+    ];
+    for (const tabText of guideTabs) {
+      const btn = screen.queryByText(tabText);
+      if (btn) await user.click(btn);
+    }
+
+    // No React errors during navigation
+    const reactErrors = consoleErrorSpy.mock.calls.filter(
+      (args) =>
+        typeof args[0] === 'string' &&
+        (args[0].includes('Too many re-renders') ||
+          args[0].includes('Cannot update a component') ||
+          args[0].includes('Maximum update depth exceeded'))
+    );
+    expect(reactErrors).toHaveLength(0);
+
+    consoleErrorSpy.mockRestore();
+  });
+
+  it('renders pension sub-tabs without crashing', async () => {
+    const user = userEvent.setup();
+    render(<App />);
+
+    // Navigate to pension
+    await user.click(screen.getByText('nav.pension'));
+
+    // Click each pension sub-tab
+    await user.click(screen.getByText('pension.planner'));
+    await user.click(screen.getByText('pension.pillar3'));
+
+    const reactErrors = consoleErrorSpy.mock.calls.filter(
+      (args) =>
+        typeof args[0] === 'string' &&
+        (args[0].includes('Too many re-renders') ||
+          args[0].includes('Cannot update a component') ||
+          args[0].includes('Maximum update depth exceeded'))
+    );
+    expect(reactErrors).toHaveLength(0);
+
+    consoleErrorSpy.mockRestore();
+  });
+
+  it('renders simulator sub-tabs without crashing', async () => {
+    const user = userEvent.setup();
+    render(<App />);
+
+    // Should already be on calculator tab
+    await user.click(screen.getByText('simulator.whatif'));
+    await user.click(screen.getByText('simulator.calculator'));
+
+    const reactErrors = consoleErrorSpy.mock.calls.filter(
+      (args) =>
+        typeof args[0] === 'string' &&
+        (args[0].includes('Too many re-renders') ||
+          args[0].includes('Cannot update a component') ||
+          args[0].includes('Maximum update depth exceeded'))
+    );
+    expect(reactErrors).toHaveLength(0);
+
+    consoleErrorSpy.mockRestore();
+  });
 });

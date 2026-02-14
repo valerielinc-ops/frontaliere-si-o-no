@@ -19,10 +19,10 @@ import { getLocale, type Locale } from './i18n';
 // ── Route types ──────────────────────────────────────────────
 
 type ActiveTab = 'calculator' | 'feedback' | 'stats' | 'pension' | 'guide' | 'comparatori' | 'privacy' | 'data-deletion' | 'api-status';
-type ComparatoriSubTab = 'exchange' | 'mobile' | 'transport' | 'health' | 'banks' | 'traffic' | 'jobs';
+type ComparatoriSubTab = 'exchange' | 'mobile' | 'transport' | 'health' | 'banks' | 'traffic' | 'jobs' | 'shopping' | 'cost-of-living' | 'costs';
 type SimulatorSubTab = 'calculator' | 'whatif';
 type PensionSubTab = 'planner' | 'pillar3';
-type GuideSection = 'municipalities' | 'living-ch' | 'living-it' | 'border' | 'costs' | 'calendar' | 'permits' | 'companies' | 'shopping' | 'cost-of-living' | 'places' | 'schools' | 'unemployment';
+type GuideSection = 'municipalities' | 'living-ch' | 'living-it' | 'border' | 'calendar' | 'holidays' | 'permits' | 'companies' | 'places' | 'schools' | 'unemployment';
 
 export interface AppRoute {
   activeTab: ActiveTab;
@@ -64,6 +64,7 @@ interface SlugTable {
   border: string;
   costs: string;
   calendar: string;
+  holidays: string;
   permits: string;
   companies: string;
   shopping: string;
@@ -99,6 +100,7 @@ const SLUG_TABLES: Record<Locale, SlugTable> = {
     border: 'valichi-frontiera',
     costs: 'costi-pendolarismo',
     calendar: 'calendario-fiscale',
+    holidays: 'festivita-ticino',
     permits: 'permessi-lavoro',
     companies: 'aziende-ticino',
     shopping: 'spesa-transfrontaliera',
@@ -132,6 +134,7 @@ const SLUG_TABLES: Record<Locale, SlugTable> = {
     border: 'border-crossings',
     costs: 'commuting-costs',
     calendar: 'tax-calendar',
+    holidays: 'ticino-holidays',
     permits: 'work-permits',
     companies: 'ticino-companies',
     shopping: 'cross-border-shopping',
@@ -165,6 +168,7 @@ const SLUG_TABLES: Record<Locale, SlugTable> = {
     border: 'grenzuebergaenge',
     costs: 'pendelkosten',
     calendar: 'steuerkalender',
+    holidays: 'tessin-feiertage',
     permits: 'arbeitsbewilligungen',
     companies: 'tessiner-unternehmen',
     shopping: 'grenz-einkauf',
@@ -198,6 +202,7 @@ const SLUG_TABLES: Record<Locale, SlugTable> = {
     border: 'postes-frontiere',
     costs: 'couts-pendulaire',
     calendar: 'calendrier-fiscal',
+    holidays: 'jours-feries-tessin',
     permits: 'permis-travail',
     companies: 'entreprises-tessin',
     shopping: 'achats-transfrontaliers',
@@ -215,18 +220,16 @@ type ComparatoriSlugMap = Record<string, ComparatoriSubTab>;
 type GuideSlugMap = Record<string, GuideSection>;
 type TopLevelSlugMap = Record<string, { tab: ActiveTab; sub?: string }>;
 
-const COMPARATORI_KEYS: (keyof SlugTable & string)[] = ['exchange', 'mobile', 'transport', 'health', 'banks', 'traffic', 'jobs'];
+const COMPARATORI_KEYS: (keyof SlugTable & string)[] = ['exchange', 'mobile', 'transport', 'health', 'banks', 'traffic', 'jobs', 'shopping', 'costOfLiving', 'costs'];
 const GUIDE_KEYS: { key: keyof SlugTable; id: GuideSection }[] = [
   { key: 'municipalities', id: 'municipalities' },
   { key: 'livingCH', id: 'living-ch' },
   { key: 'livingIT', id: 'living-it' },
   { key: 'border', id: 'border' },
-  { key: 'costs', id: 'costs' },
   { key: 'calendar', id: 'calendar' },
+  { key: 'holidays', id: 'holidays' },
   { key: 'permits', id: 'permits' },
   { key: 'companies', id: 'companies' },
-  { key: 'shopping', id: 'shopping' },
-  { key: 'costOfLiving', id: 'cost-of-living' },
   { key: 'places', id: 'places' },
   { key: 'schools', id: 'schools' },
   { key: 'unemployment', id: 'unemployment' },
@@ -487,15 +490,13 @@ export function getSeoSection(route: AppRoute): string {
       const section = route.guideSection || 'municipalities';
       const seoMap: Record<string, string> = {
         calendar: 'calendar',
+        holidays: 'holidays',
         permits: 'permits',
-        shopping: 'shopping',
-        'cost-of-living': 'costOfLiving',
         companies: 'companies',
         municipalities: 'guide',
         'living-ch': 'livingCH',
         'living-it': 'livingIT',
         border: 'border',
-        costs: 'costs',
         places: 'places',
         schools: 'schools',
         unemployment: 'unemployment',

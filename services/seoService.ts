@@ -340,6 +340,15 @@ export const SEO_METADATA: Record<string, SEOMetadata> = {
     ogDescription: '📋 Guida completa alla disoccupazione per frontalieri: NASpI Italia, AD/ALV Svizzera, procedure, importi e confronto tra i due sistemi.',
     canonicalPath: '/guida-frontalieri/disoccupazione',
   },
+
+  holidays: {
+    title: 'Festività Ticino 2026 | Giorni Festivi Canton Ticino per Frontalieri',
+    description: 'Calendario completo delle festività ufficiali del Canton Ticino 2026: giorni festivi cantonali e federali, ponti, confronto con festività italiane. Utile per frontalieri per pianificare ferie e permessi.',
+    keywords: 'festività ticino 2026, giorni festivi canton ticino, ferie svizzera frontalieri, calendario festivo ticino, ponti svizzera, festività svizzere, giorni festivi svizzera italia confronto',
+    ogTitle: 'Festività Ticino 2026 | Giorni Festivi per Frontalieri',
+    ogDescription: '📅 Calendario completo delle festività del Canton Ticino 2026: giorni festivi, ponti e confronto con le festività italiane.',
+    canonicalPath: '/guida-frontalieri/festivita-ticino',
+  },
 };
 
 /**
