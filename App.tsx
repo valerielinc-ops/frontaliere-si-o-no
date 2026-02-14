@@ -334,109 +334,36 @@ const App: React.FC = () => {
         {/* Sub-navigation for Comparatori */}
         {activeTab === 'comparatori' && (
           <div className="border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="flex gap-2 py-3 overflow-x-auto">
-                <button
-                  onClick={() => {
-                    setComparatoriSubTab('exchange');
-                    Analytics.trackComparatorView('exchange');
-                  }}
-                  className={`px-4 py-2 text-sm font-medium rounded-lg whitespace-nowrap transition-colors flex items-center gap-2 ${comparatoriSubTab === 'exchange' ? 'bg-violet-100 dark:bg-violet-900/30 text-violet-700 dark:text-violet-300' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800'}`}
-                >
-                  <ArrowRightLeft size={16} />
-                  {t('comparators.exchange')}
-                </button>
-                <button
-                  onClick={() => {
-                    setComparatoriSubTab('traffic');
-                    Analytics.trackComparatorView('traffic');
-                  }}
-                  className={`px-4 py-2 text-sm font-medium rounded-lg whitespace-nowrap transition-colors flex items-center gap-2 ${comparatoriSubTab === 'traffic' ? 'bg-violet-100 dark:bg-violet-900/30 text-violet-700 dark:text-violet-300' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800'}`}
-                >
-                  <AlertTriangle size={16} />
-                  {t('comparators.traffic')}
-                </button>
-                <button
-                  onClick={() => {
-                    setComparatoriSubTab('mobile');
-                    Analytics.trackComparatorView('mobile');
-                  }}
-                  className={`px-4 py-2 text-sm font-medium rounded-lg whitespace-nowrap transition-colors flex items-center gap-2 ${comparatoriSubTab === 'mobile' ? 'bg-violet-100 dark:bg-violet-900/30 text-violet-700 dark:text-violet-300' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800'}`}
-                >
-                  <Phone size={16} />
-                  {t('comparators.mobile')}
-                </button>
-                <button
-                  onClick={() => {
-                    setComparatoriSubTab('banks');
-                    Analytics.trackComparatorView('banks');
-                  }}
-                  className={`px-4 py-2 text-sm font-medium rounded-lg whitespace-nowrap transition-colors flex items-center gap-2 ${comparatoriSubTab === 'banks' ? 'bg-violet-100 dark:bg-violet-900/30 text-violet-700 dark:text-violet-300' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800'}`}
-                >
-                  <Building2 size={16} />
-                  {t('comparators.banks')}
-                </button>
-                <button
-                  onClick={() => {
-                    setComparatoriSubTab('health');
-                    Analytics.trackComparatorView('health');
-                  }}
-                  className={`px-4 py-2 text-sm font-medium rounded-lg whitespace-nowrap transition-colors flex items-center gap-2 ${comparatoriSubTab === 'health' ? 'bg-violet-100 dark:bg-violet-900/30 text-violet-700 dark:text-violet-300' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800'}`}
-                >
-                  <Heart size={16} />
-                  {t('comparators.health')}
-                </button>
-                <button
-                  onClick={() => {
-                    setComparatoriSubTab('transport');
-                    Analytics.trackComparatorView('transport');
-                  }}
-                  className={`px-4 py-2 text-sm font-medium rounded-lg whitespace-nowrap transition-colors flex items-center gap-2 ${comparatoriSubTab === 'transport' ? 'bg-violet-100 dark:bg-violet-900/30 text-violet-700 dark:text-violet-300' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800'}`}
-                >
-                  <Car size={16} />
-                  {t('comparators.transport')}
-                </button>
-                <button
-                  onClick={() => {
-                    setComparatoriSubTab('jobs');
-                    Analytics.trackComparatorView('jobs' as any);
-                  }}
-                  className={`px-4 py-2 text-sm font-medium rounded-lg whitespace-nowrap transition-colors flex items-center gap-2 ${comparatoriSubTab === 'jobs' ? 'bg-violet-100 dark:bg-violet-900/30 text-violet-700 dark:text-violet-300' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800'}`}
-                >
-                  <Briefcase size={16} />
-                  {t('comparators.jobs')}
-                </button>
-                <button
-                  onClick={() => {
-                    setComparatoriSubTab('shopping');
-                    Analytics.trackComparatorView('shopping' as any);
-                  }}
-                  className={`px-4 py-2 text-sm font-medium rounded-lg whitespace-nowrap transition-colors flex items-center gap-2 ${comparatoriSubTab === 'shopping' ? 'bg-violet-100 dark:bg-violet-900/30 text-violet-700 dark:text-violet-300' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800'}`}
-                >
-                  <ShoppingCart size={16} />
-                  {t('comparators.shopping')}
-                </button>
-                <button
-                  onClick={() => {
-                    setComparatoriSubTab('cost-of-living');
-                    Analytics.trackComparatorView('cost-of-living' as any);
-                  }}
-                  className={`px-4 py-2 text-sm font-medium rounded-lg whitespace-nowrap transition-colors flex items-center gap-2 ${comparatoriSubTab === 'cost-of-living' ? 'bg-violet-100 dark:bg-violet-900/30 text-violet-700 dark:text-violet-300' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800'}`}
-                >
-                  <Euro size={16} />
-                  {t('comparators.costOfLiving')}
-                </button>
-                <button
-                  onClick={() => {
-                    setComparatoriSubTab('costs');
-                    Analytics.trackComparatorView('costs' as any);
-                  }}
-                  className={`px-4 py-2 text-sm font-medium rounded-lg whitespace-nowrap transition-colors flex items-center gap-2 ${comparatoriSubTab === 'costs' ? 'bg-violet-100 dark:bg-violet-900/30 text-violet-700 dark:text-violet-300' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800'}`}
-                >
-                  <BarChart2 size={16} />
-                  {t('comparators.costs')}
-                </button>
-
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+              <div className="grid grid-cols-5 sm:grid-cols-5 md:grid-cols-10 gap-1.5">
+                {([
+                  { key: 'exchange' as const, icon: ArrowRightLeft, label: t('comparators.exchange') },
+                  { key: 'traffic' as const, icon: AlertTriangle, label: t('comparators.traffic') },
+                  { key: 'mobile' as const, icon: Phone, label: t('comparators.mobile') },
+                  { key: 'banks' as const, icon: Building2, label: t('comparators.banks') },
+                  { key: 'health' as const, icon: Heart, label: t('comparators.health') },
+                  { key: 'transport' as const, icon: Car, label: t('comparators.transport') },
+                  { key: 'jobs' as const, icon: Briefcase, label: t('comparators.jobs') },
+                  { key: 'shopping' as const, icon: ShoppingCart, label: t('comparators.shopping') },
+                  { key: 'cost-of-living' as const, icon: Euro, label: t('comparators.costOfLiving') },
+                  { key: 'costs' as const, icon: BarChart2, label: t('comparators.costs') },
+                ] as const).map(({ key, icon: Icon, label }) => (
+                  <button
+                    key={key}
+                    onClick={() => {
+                      setComparatoriSubTab(key);
+                      Analytics.trackComparatorView(key as any);
+                    }}
+                    className={`flex flex-col items-center gap-1 px-1 py-2 rounded-xl text-[11px] sm:text-xs font-semibold transition-all ${
+                      comparatoriSubTab === key
+                        ? 'bg-violet-100 dark:bg-violet-900/30 text-violet-700 dark:text-violet-300 ring-1 ring-violet-300 dark:ring-violet-700'
+                        : 'text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800'
+                    }`}
+                  >
+                    <Icon size={18} />
+                    <span className="leading-tight text-center truncate w-full">{label}</span>
+                  </button>
+                ))}
               </div>
             </div>
           </div>

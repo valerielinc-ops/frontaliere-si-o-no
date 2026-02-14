@@ -1283,7 +1283,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
             <InfoCard icon={Mountain} title={t('guide.places.natureTitle')} color="green">
               <div className="space-y-4">
                 <div className="p-3 bg-emerald-50 dark:bg-emerald-900/20 rounded-xl">
-                  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Monte_San_Salvatore.jpg/1280px-Monte_San_Salvatore.jpg" alt="Monte San Salvatore" className="w-full h-32 object-cover rounded-lg mb-2" loading="lazy" />
+                  <img src="/images/places/monte-san-salvatore.jpg" alt="Monte San Salvatore" className="w-full h-32 object-cover rounded-lg mb-2" loading="lazy" />
                   <div className="font-bold text-emerald-700 dark:text-emerald-300 mb-1">🏔️ Monte San Salvatore</div>
                   <p className="text-xs">{t('guide.places.sanSalvatore')}</p>
                   <div className="mt-2 flex items-center gap-2 text-xs text-slate-500">
@@ -1291,7 +1291,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
                   </div>
                 </div>
                 <div className="p-3 bg-emerald-50 dark:bg-emerald-900/20 rounded-xl">
-                  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Monte_Br%C3%A9.jpg/1280px-Monte_Br%C3%A9.jpg" alt="Monte Brè" className="w-full h-32 object-cover rounded-lg mb-2" loading="lazy" />
+                  <img src="/images/places/monte-bre.jpg" alt="Monte Brè" className="w-full h-32 object-cover rounded-lg mb-2" loading="lazy" />
                   <div className="font-bold text-emerald-700 dark:text-emerald-300 mb-1">🏔️ Monte Brè</div>
                   <p className="text-xs">{t('guide.places.monteBreDesc')}</p>
                   <div className="mt-2 flex items-center gap-2 text-xs text-slate-500">
@@ -1299,7 +1299,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
                   </div>
                 </div>
                 <div className="p-3 bg-emerald-50 dark:bg-emerald-900/20 rounded-xl">
-                  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Fiore_di_pietra_20170610.jpg/1280px-Fiore_di_pietra_20170610.jpg" alt="Monte Generoso" className="w-full h-32 object-cover rounded-lg mb-2" loading="lazy" />
+                  <img src="/images/places/monte-generoso.jpg" alt="Monte Generoso" className="w-full h-32 object-cover rounded-lg mb-2" loading="lazy" />
                   <div className="font-bold text-emerald-700 dark:text-emerald-300 mb-1">🏔️ Monte Generoso</div>
                   <p className="text-xs">{t('guide.places.monteGeneroso')}</p>
                   <div className="mt-2 flex items-center gap-2 text-xs text-slate-500">
@@ -1307,7 +1307,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
                   </div>
                 </div>
                 <div className="p-3 bg-emerald-50 dark:bg-emerald-900/20 rounded-xl">
-                  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Gandria_Ticino.jpg/1280px-Gandria_Ticino.jpg" alt="Sentiero dell'Olivo" className="w-full h-32 object-cover rounded-lg mb-2" loading="lazy" />
+                  <img src="/images/places/gandria.jpg" alt="Sentiero dell'Olivo" className="w-full h-32 object-cover rounded-lg mb-2" loading="lazy" />
                   <div className="font-bold text-emerald-700 dark:text-emerald-300 mb-1">🥾 Sentiero dell'Olivo</div>
                   <p className="text-xs">{t('guide.places.sentieroOlivo')}</p>
                   <div className="mt-2 flex items-center gap-2 text-xs text-slate-500">
@@ -1320,7 +1320,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
             <InfoCard icon={Heart} title={t('guide.places.lakesTitle')} color="blue">
               <div className="space-y-4">
                 <div className="p-3 bg-blue-50 dark:bg-blue-900/20 rounded-xl">
-                  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Lugano%2C_Ticino_%2816170914842%29.jpg/1280px-Lugano%2C_Ticino_%2816170914842%29.jpg" alt="Lago di Lugano" className="w-full h-32 object-cover rounded-lg mb-2" loading="lazy" />
+                  <img src="/images/places/lago-lugano.jpg" alt="Lago di Lugano" className="w-full h-32 object-cover rounded-lg mb-2" loading="lazy" />
                   <div className="font-bold text-blue-700 dark:text-blue-300 mb-1">🌊 Lago di Lugano (Ceresio)</div>
                   <p className="text-xs">{t('guide.places.lagoCeresio')}</p>
                   <div className="mt-2 flex items-center gap-2 text-xs text-slate-500">
@@ -1328,7 +1328,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
                   </div>
                 </div>
                 <div className="p-3 bg-blue-50 dark:bg-blue-900/20 rounded-xl">
-                  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Ascona_Ticino.jpg/1280px-Ascona_Ticino.jpg" alt="Lago Maggiore" className="w-full h-32 object-cover rounded-lg mb-2" loading="lazy" />
+                  <img src="/images/places/ascona.jpg" alt="Lago Maggiore" className="w-full h-32 object-cover rounded-lg mb-2" loading="lazy" />
                   <div className="font-bold text-blue-700 dark:text-blue-300 mb-1">🌊 Lago Maggiore</div>
                   <p className="text-xs">{t('guide.places.lagoMaggiore')}</p>
                   <div className="mt-2 flex items-center gap-2 text-xs text-slate-500">
@@ -1336,7 +1336,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
                   </div>
                 </div>
                 <div className="p-3 bg-blue-50 dark:bg-blue-900/20 rounded-xl">
-                  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Foroglio_waterfall.jpg/800px-Foroglio_waterfall.jpg" alt="Cascata di Foroglio" className="w-full h-32 object-cover rounded-lg mb-2" loading="lazy" />
+                  <img src="/images/places/foroglio.jpg" alt="Cascata di Foroglio" className="w-full h-32 object-cover rounded-lg mb-2" loading="lazy" />
                   <div className="font-bold text-blue-700 dark:text-blue-300 mb-1">💧 Cascata di Foroglio</div>
                   <p className="text-xs">{t('guide.places.foroglio')}</p>
                   <div className="mt-2 flex items-center gap-2 text-xs text-slate-500">
@@ -1352,22 +1352,22 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
             <InfoCard icon={Building2} title={t('guide.places.citiesTitle')} color="purple">
               <div className="space-y-4">
                 <div className="p-3 bg-purple-50 dark:bg-purple-900/20 rounded-xl">
-                  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Lugano_view.jpg/1280px-Lugano_view.jpg" alt="Lugano" className="w-full h-32 object-cover rounded-lg mb-2" loading="lazy" />
+                  <img src="/images/places/lugano-view.jpg" alt="Lugano" className="w-full h-32 object-cover rounded-lg mb-2" loading="lazy" />
                   <div className="font-bold text-purple-700 dark:text-purple-300 mb-1">🏙️ Lugano</div>
                   <p className="text-xs">{t('guide.places.luganoDesc')}</p>
                 </div>
                 <div className="p-3 bg-purple-50 dark:bg-purple-900/20 rounded-xl">
-                  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Locarno_Piazza_Grande.jpg/1280px-Locarno_Piazza_Grande.jpg" alt="Locarno & Ascona" className="w-full h-32 object-cover rounded-lg mb-2" loading="lazy" />
+                  <img src="/images/places/locarno.jpg" alt="Locarno & Ascona" className="w-full h-32 object-cover rounded-lg mb-2" loading="lazy" />
                   <div className="font-bold text-purple-700 dark:text-purple-300 mb-1">🌴 Locarno & Ascona</div>
                   <p className="text-xs">{t('guide.places.locarnoDesc')}</p>
                 </div>
                 <div className="p-3 bg-purple-50 dark:bg-purple-900/20 rounded-xl">
-                  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Bellinzona_Castelgrande.jpg/1280px-Bellinzona_Castelgrande.jpg" alt="Bellinzona" className="w-full h-32 object-cover rounded-lg mb-2" loading="lazy" />
+                  <img src="/images/places/bellinzona.jpg" alt="Bellinzona" className="w-full h-32 object-cover rounded-lg mb-2" loading="lazy" />
                   <div className="font-bold text-purple-700 dark:text-purple-300 mb-1">🏰 Bellinzona</div>
                   <p className="text-xs">{t('guide.places.bellinzonaDesc')}</p>
                 </div>
                 <div className="p-3 bg-purple-50 dark:bg-purple-900/20 rounded-xl">
-                  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Mendrisio_-_panoramio.jpg/1280px-Mendrisio_-_panoramio.jpg" alt="Mendrisio" className="w-full h-32 object-cover rounded-lg mb-2" loading="lazy" />
+                  <img src="/images/places/mendrisio.jpg" alt="Mendrisio" className="w-full h-32 object-cover rounded-lg mb-2" loading="lazy" />
                   <div className="font-bold text-purple-700 dark:text-purple-300 mb-1">🏘️ Mendrisio</div>
                   <p className="text-xs">{t('guide.places.mendrisioDesc')}</p>
                 </div>
@@ -1377,18 +1377,18 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
             <InfoCard icon={Landmark} title={t('guide.places.cultureTitle')} color="orange">
               <div className="space-y-4">
                 <div className="p-3 bg-orange-50 dark:bg-orange-900/20 rounded-xl">
-                  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Locarno_Film_Festival_Piazza.jpg/1280px-Locarno_Film_Festival_Piazza.jpg" alt="Film Festival Locarno" className="w-full h-32 object-cover rounded-lg mb-2" loading="lazy" />
+                  <img src="/images/places/film-festival.jpg" alt="Film Festival Locarno" className="w-full h-32 object-cover rounded-lg mb-2" loading="lazy" />
                   <div className="font-bold text-orange-700 dark:text-orange-300 mb-1">🎬 Film Festival Locarno</div>
                   <p className="text-xs">{t('guide.places.filmFestival')}</p>
                   <div className="mt-1 text-xs text-slate-500">📅 {t('guide.places.august')}</div>
                 </div>
                 <div className="p-3 bg-orange-50 dark:bg-orange-900/20 rounded-xl">
-                  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/LAC_Lugano.jpg/1280px-LAC_Lugano.jpg" alt="LAC Lugano Arte e Cultura" className="w-full h-32 object-cover rounded-lg mb-2" loading="lazy" />
+                  <img src="/images/places/lac-lugano.jpg" alt="LAC Lugano Arte e Cultura" className="w-full h-32 object-cover rounded-lg mb-2" loading="lazy" />
                   <div className="font-bold text-orange-700 dark:text-orange-300 mb-1">🎨 LAC Lugano Arte e Cultura</div>
                   <p className="text-xs">{t('guide.places.lacDesc')}</p>
                 </div>
                 <div className="p-3 bg-orange-50 dark:bg-orange-900/20 rounded-xl">
-                  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Castelgrande3.jpg/1280px-Castelgrande3.jpg" alt="Castelli di Bellinzona" className="w-full h-32 object-cover rounded-lg mb-2" loading="lazy" />
+                  <img src="/images/places/castelgrande.jpg" alt="Castelli di Bellinzona" className="w-full h-32 object-cover rounded-lg mb-2" loading="lazy" />
                   <div className="font-bold text-orange-700 dark:text-orange-300 mb-1">🏰 Castelli di Bellinzona</div>
                   <p className="text-xs">{t('guide.places.castelliDesc')}</p>
                 </div>
@@ -1405,7 +1405,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
             <InfoCard icon={Users} title={t('guide.places.familyTitle')} color="teal">
               <div className="space-y-4">
                 <div className="p-3 bg-teal-50 dark:bg-teal-900/20 rounded-xl">
-                  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Swissminiatur_-_panoramio_%282%29.jpg/1280px-Swissminiatur_-_panoramio_%282%29.jpg" alt="Swissminiatur" className="w-full h-32 object-cover rounded-lg mb-2" loading="lazy" />
+                  <img src="/images/places/swissminiatur.jpg" alt="Swissminiatur" className="w-full h-32 object-cover rounded-lg mb-2" loading="lazy" />
                   <div className="font-bold text-teal-700 dark:text-teal-300 mb-1">🌿 Swissminiatur</div>
                   <p className="text-xs">{t('guide.places.swissminiatur')}</p>
                   <div className="mt-1 text-xs text-slate-500"><MapPin size={12} className="inline" /> Melide · 💰 CHF 19/adulto</div>
@@ -1431,7 +1431,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
             <InfoCard icon={ShoppingCart} title={t('guide.places.shoppingTitle')} color="blue">
               <div className="space-y-4">
                 <div className="p-3 bg-blue-50 dark:bg-blue-900/20 rounded-xl">
-                  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/FoxTown_Mendrisio.jpg/1280px-FoxTown_Mendrisio.jpg" alt="FoxTown Factory Stores" className="w-full h-32 object-cover rounded-lg mb-2" loading="lazy" />
+                  <img src="/images/places/foxtown.jpg" alt="FoxTown Factory Stores" className="w-full h-32 object-cover rounded-lg mb-2" loading="lazy" />
                   <div className="font-bold text-blue-700 dark:text-blue-300 mb-1">🛍️ FoxTown Factory Stores</div>
                   <p className="text-xs">{t('guide.places.foxtown')}</p>
                   <div className="mt-1 text-xs text-slate-500"><MapPin size={12} className="inline" /> Mendrisio · <Navigation size={12} className="inline" /> 5 min {t('guide.places.fromBorder')}</div>

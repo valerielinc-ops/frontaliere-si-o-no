@@ -1,5 +1,5 @@
 import React, { useState, useMemo, useEffect } from 'react';
-import { Calendar, AlertTriangle, CheckCircle2, Bell, ChevronDown, FileText, Info, Euro, Landmark, Shield, Star, Gift } from 'lucide-react';
+import { Calendar, AlertTriangle, CheckCircle2, Bell, ChevronDown, ChevronLeft, ChevronRight, FileText, Info, Euro, Landmark, Shield, Star, Gift, List, LayoutGrid } from 'lucide-react';
 import { Analytics } from '@/services/analytics';
 import { useTranslation } from '@/services/i18n';
 
@@ -315,6 +315,7 @@ const TaxCalendar: React.FC<TaxCalendarProps> = ({ initialTab }) => {
   const [filterCategory, setFilterCategory] = useState<string>('all');
   const [filterType, setFilterType] = useState<'tutti' | 'vecchio' | 'nuovo'>('tutti');
   const [selectedDate, setSelectedDate] = useState<string | null>(null);
+  const [viewMode, setViewMode] = useState<'calendar' | 'list'>('calendar');
   const [currentMonth, setCurrentMonth] = useState(() => {
     const now = new Date();
     return now.getFullYear() === 2026 ? now.getMonth() : 0; // default Jan 2026
@@ -422,6 +423,87 @@ const TaxCalendar: React.FC<TaxCalendarProps> = ({ initialTab }) => {
     return counts;
   }, [filteredDeadlines]);
 
+  // Events for the current month (left column in calendar view)
+  const currentMonthDeadlines = useMemo(() => {
+    return filteredDeadlines.filter(d => {
+      const m = parseInt(d.date.substring(5, 7)) - 1;
+      return m === currentMonth;
+    });
+  }, [filteredDeadlines, currentMonth]);
+
+  // Group all events by month for list view
+  const groupedByMonth = useMemo(() => {
+    const groups: Record<number, TaxDeadline[]> = {};
+    filteredDeadlines.forEach(d => {
+      const m = parseInt(d.date.substring(5, 7)) - 1;
+      if (!groups[m]) groups[m] = [];
+      groups[m].push(d);
+    });
+    return groups;
+  }, [filteredDeadlines]);
+
+  // Render a single event card (reused in both views)
+  const renderEventCard = (d: TaxDeadline, compact = false) => {
+    const days = getDaysUntil(d.date);
+    const isPast = days < 0;
+    const cfg = CATEGORY_CONFIG[d.category] as CategoryConfig;
+    return (
+      <div
+        key={d.id}
+        className={`rounded-xl border p-3 transition-all ${
+          isPast ? 'bg-slate-50 dark:bg-slate-900 border-slate-200 dark:border-slate-700 opacity-60'
+            : days <= 7 ? 'bg-red-50 dark:bg-red-950/30 border-red-200 dark:border-red-800'
+            : days <= 30 ? 'bg-amber-50 dark:bg-amber-950/30 border-amber-200 dark:border-amber-800'
+            : 'bg-emerald-50 dark:bg-emerald-950/30 border-emerald-200 dark:border-emerald-800'
+        }`}
+      >
+        <div className="flex items-center gap-2 flex-wrap mb-1">
+          <span className={`px-1.5 py-0.5 rounded text-[9px] font-bold uppercase bg-${cfg.color}-100 dark:bg-${cfg.color}-900/30 text-${cfg.color}-700 dark:text-${cfg.color}-300`}>
+            {cfg.label}
+          </span>
+          {!compact && d.who.map(w => (
+            <span key={w} className="px-1.5 py-0.5 rounded text-[9px] font-bold bg-slate-200 dark:bg-slate-700 text-slate-600 dark:text-slate-300">
+              {w === 'tutti' ? `👥 ${t('calendar.filterAll')}` : w === 'vecchio' ? `📋 ${t('calendar.filterOld')}` : `📄 ${t('calendar.filterNew')}`}
+            </span>
+          ))}
+          {!isPast && (
+            <span className={`text-[10px] font-bold ml-auto ${days <= 7 ? 'text-red-600' : days <= 30 ? 'text-amber-600' : 'text-emerald-600'}`}>
+              {days === 0 ? `⚠️ ${t('calendar.today')}` : `📅 ${days}g`}
+            </span>
+          )}
+          {isPast && <CheckCircle2 size={12} className="text-slate-400 ml-auto" />}
+        </div>
+        <div className="text-xs text-slate-500 dark:text-slate-400 mb-0.5">{formatDate(d.date)}</div>
+        <h4 className="font-bold text-slate-800 dark:text-slate-100 text-sm leading-tight">{d.title}</h4>
+        {!compact && <p className="text-xs text-slate-600 dark:text-slate-400 mt-1">{d.description}</p>}
+
+        {!compact && d.documents && d.documents.length > 0 && (
+          <div className="mt-2">
+            <div className="flex flex-wrap gap-1">
+              {d.documents.map((doc, i) => (
+                <span key={i} className="px-2 py-0.5 bg-white dark:bg-slate-900 rounded text-[10px] font-medium border border-slate-200 dark:border-slate-700">
+                  📎 {doc}
+                </span>
+              ))}
+            </div>
+          </div>
+        )}
+        {!compact && d.penalty && (
+          <div className="flex items-start gap-1.5 p-2 bg-red-50 dark:bg-red-950/30 rounded-lg mt-2">
+            <AlertTriangle size={12} className="text-red-500 flex-shrink-0 mt-0.5" />
+            <div className="text-[10px] text-red-600 dark:text-red-400">{d.penalty}</div>
+          </div>
+        )}
+        {!compact && d.notes && (
+          <div className="flex items-start gap-1.5 p-2 bg-blue-50 dark:bg-blue-950/30 rounded-lg mt-2">
+            <Info size={12} className="text-blue-500 flex-shrink-0 mt-0.5" />
+            <div className="text-[10px] text-blue-700 dark:text-blue-300">{d.notes}</div>
+          </div>
+        )}
+      </div>
+    );
+  };
+
   return (
     <div className="space-y-6 animate-fade-in">
       {/* Header */}
@@ -476,9 +558,9 @@ const TaxCalendar: React.FC<TaxCalendarProps> = ({ initialTab }) => {
         )}
       </div>
 
-      {/* Filters */}
-      <div className="flex flex-wrap gap-3">
-        <div className="flex flex-wrap gap-2">
+      {/* Filters + View Toggle */}
+      <div className="flex flex-wrap items-center gap-3">
+        <div className="flex flex-wrap gap-2 flex-grow">
           <button
             onClick={() => { setFilterCategory('all'); Analytics.trackUIInteraction('guida', 'calendario', 'filtro_categoria', 'click', 'all'); }}
             className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${filterCategory === 'all' ? 'bg-indigo-600 text-white' : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-400 border border-slate-200 dark:border-slate-700'}`}
@@ -497,220 +579,239 @@ const TaxCalendar: React.FC<TaxCalendarProps> = ({ initialTab }) => {
           ))}
         </div>
 
-        {activeTab === 'fiscal' && (
-          <div className="flex gap-2 ml-auto">
-            {(['tutti', 'vecchio', 'nuovo'] as const).map(ft => (
-              <button key={ft}
-                onClick={() => { setFilterType(ft); Analytics.trackUIInteraction('guida', 'calendario', 'filtro_tipo', 'click', ft); }}
-                className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${filterType === ft ? 'bg-slate-800 dark:bg-slate-100 text-white dark:text-slate-900' : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-400 border border-slate-200 dark:border-slate-700'}`}
-              >
-                {ft === 'tutti' ? `👥 ${t('calendar.filterAll')}` : ft === 'vecchio' ? `📋 ${t('calendar.filterOld')}` : `📄 ${t('calendar.filterNew')}`}
-              </button>
-            ))}
-          </div>
-        )}
-      </div>
+        <div className="flex items-center gap-2">
+          {activeTab === 'fiscal' && (
+            <div className="flex gap-1">
+              {(['tutti', 'vecchio', 'nuovo'] as const).map(ft => (
+                <button key={ft}
+                  onClick={() => { setFilterType(ft); Analytics.trackUIInteraction('guida', 'calendario', 'filtro_tipo', 'click', ft); }}
+                  className={`px-2.5 py-1.5 rounded-lg text-[10px] font-bold transition-all ${filterType === ft ? 'bg-slate-800 dark:bg-slate-100 text-white dark:text-slate-900' : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-400 border border-slate-200 dark:border-slate-700'}`}
+                >
+                  {ft === 'tutti' ? `👥 ${t('calendar.filterAll')}` : ft === 'vecchio' ? `📋 ${t('calendar.filterOld')}` : `📄 ${t('calendar.filterNew')}`}
+                </button>
+              ))}
+            </div>
+          )}
 
-      {/* Month navigation */}
-      <div className="flex items-center justify-between bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-3">
-        <button
-          onClick={() => setCurrentMonth(m => Math.max(0, m - 1))}
-          disabled={currentMonth === 0}
-          className="p-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-700 disabled:opacity-30 transition-colors"
-        >
-          <ChevronDown size={20} className="rotate-90" />
-        </button>
-
-        {/* Month selector */}
-        <div className="flex gap-1 flex-wrap justify-center">
-          {MONTH_NAMES_IT.map((name, i) => (
+          {/* View mode toggle */}
+          <div className="flex bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg p-0.5">
             <button
-              key={i}
-              onClick={() => { setCurrentMonth(i); setSelectedDate(null); }}
-              className={`px-2 py-1 rounded-lg text-xs font-bold transition-all relative ${
-                currentMonth === i
-                  ? 'bg-indigo-600 text-white'
-                  : 'text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-700'
-              }`}
+              onClick={() => setViewMode('calendar')}
+              className={`p-1.5 rounded-md transition-all ${viewMode === 'calendar' ? 'bg-indigo-100 dark:bg-indigo-900/30 text-indigo-600' : 'text-slate-400 hover:text-slate-600'}`}
+              title="Calendario"
             >
-              {name.substring(0, 3)}
-              {monthEventCounts[i] > 0 && (
-                <span className={`absolute -top-1 -right-1 w-4 h-4 rounded-full text-[9px] font-bold flex items-center justify-center ${
-                  currentMonth === i ? 'bg-white text-indigo-600' : 'bg-indigo-100 dark:bg-indigo-900/50 text-indigo-600 dark:text-indigo-300'
-                }`}>
-                  {monthEventCounts[i]}
-                </span>
-              )}
+              <LayoutGrid size={16} />
             </button>
-          ))}
-        </div>
-
-        <button
-          onClick={() => setCurrentMonth(m => Math.min(11, m + 1))}
-          disabled={currentMonth === 11}
-          className="p-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-700 disabled:opacity-30 transition-colors"
-        >
-          <ChevronDown size={20} className="-rotate-90" />
-        </button>
-      </div>
-
-      {/* Calendar Grid */}
-      <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 overflow-hidden">
-        {/* Day names header */}
-        <div className="grid grid-cols-7 bg-slate-50 dark:bg-slate-900 border-b border-slate-200 dark:border-slate-700">
-          {DAY_NAMES_IT.map(day => (
-            <div key={day} className="py-2 text-center text-xs font-bold text-slate-500 dark:text-slate-400 uppercase">
-              {day}
-            </div>
-          ))}
-        </div>
-
-        {/* Calendar cells */}
-        <div className="grid grid-cols-7">
-          {calendarDays.map((day, idx) => {
-            if (day === null) {
-              return <div key={`empty-${idx}`} className="aspect-square border-b border-r border-slate-100 dark:border-slate-700/50 bg-slate-50/50 dark:bg-slate-900/30" />;
-            }
-
-            const dateStr = getDateStr(day);
-            const events = deadlinesByDate[dateStr] || [];
-            const hasEvents = events.length > 0;
-            const isToday = dateStr === todayStr;
-            const isSelected = dateStr === selectedDate;
-            const isPast = dateStr < todayStr;
-
-            return (
-              <div
-                key={day}
-                onClick={() => {
-                  if (hasEvents) {
-                    setSelectedDate(isSelected ? null : dateStr);
-                    Analytics.trackUIInteraction('guida', 'calendario', 'giorno', 'click', dateStr);
-                  }
-                }}
-                className={`aspect-square border-b border-r border-slate-100 dark:border-slate-700/50 p-1 sm:p-2 flex flex-col transition-all relative
-                  ${hasEvents ? 'cursor-pointer hover:bg-indigo-50 dark:hover:bg-indigo-950/20' : ''}
-                  ${isSelected ? 'bg-indigo-100 dark:bg-indigo-900/30 ring-2 ring-indigo-500 ring-inset' : ''}
-                  ${isPast && !hasEvents ? 'opacity-40' : ''}
-                `}
-              >
-                {/* Day number */}
-                <div className={`text-xs sm:text-sm font-bold self-end w-6 h-6 sm:w-7 sm:h-7 flex items-center justify-center rounded-full ${
-                  isToday ? 'bg-indigo-600 text-white' : 'text-slate-700 dark:text-slate-300'
-                }`}>
-                  {day}
-                </div>
-
-                {/* Event dots */}
-                {hasEvents && (
-                  <div className="flex-grow flex flex-col justify-end gap-0.5 mt-1">
-                    {events.slice(0, 3).map((e, i) => {
-                      const cfg = CATEGORY_CONFIG[e.category];
-                      return (
-                        <div
-                          key={i}
-                          className={`h-1.5 sm:h-2 rounded-full bg-${cfg?.color || 'indigo'}-500 w-full`}
-                          title={e.title}
-                        />
-                      );
-                    })}
-                    {events.length > 3 && (
-                      <div className="text-[8px] font-bold text-slate-400 text-center">+{events.length - 3}</div>
-                    )}
-                  </div>
-                )}
-              </div>
-            );
-          })}
-        </div>
-      </div>
-
-      {/* Selected date detail panel */}
-      {selectedDate && selectedDeadlines.length > 0 && (
-        <div className="space-y-3 animate-fade-in">
-          <div className="flex items-center gap-3">
-            <div className="px-3 py-1 bg-indigo-100 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300 rounded-lg text-sm font-extrabold">
-              📅 {formatDate(selectedDate)}
-            </div>
-            <div className="flex-grow h-px bg-slate-200 dark:bg-slate-700"></div>
-            <button onClick={() => setSelectedDate(null)} className="text-xs text-slate-400 hover:text-slate-600 dark:hover:text-slate-300 transition-colors">
-              ✕ {t('calendar.close') || 'Chiudi'}
+            <button
+              onClick={() => setViewMode('list')}
+              className={`p-1.5 rounded-md transition-all ${viewMode === 'list' ? 'bg-indigo-100 dark:bg-indigo-900/30 text-indigo-600' : 'text-slate-400 hover:text-slate-600'}`}
+              title="Lista"
+            >
+              <List size={16} />
             </button>
           </div>
+        </div>
+      </div>
 
-          {selectedDeadlines.map(d => {
-            const days = getDaysUntil(d.date);
-            const isPast = days < 0;
-            const cfg = CATEGORY_CONFIG[d.category] as CategoryConfig;
+      {/* ══════════ CALENDAR VIEW (two-column layout) ══════════ */}
+      {viewMode === 'calendar' && (
+        <>
+          {/* Month navigation */}
+          <div className="flex items-center gap-2 bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 p-2">
+            <button
+              onClick={() => { setCurrentMonth(m => Math.max(0, m - 1)); setSelectedDate(null); }}
+              disabled={currentMonth === 0}
+              className="p-1.5 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700 disabled:opacity-30 transition-colors"
+            >
+              <ChevronLeft size={18} />
+            </button>
 
-            return (
-              <div
-                key={d.id}
-                className={`rounded-2xl border p-4 transition-all ${
-                  isPast ? 'bg-slate-50 dark:bg-slate-900 border-slate-200 dark:border-slate-700 opacity-70'
-                    : days <= 7 ? 'bg-red-50 dark:bg-red-950/30 border-red-200 dark:border-red-800'
-                    : days <= 30 ? 'bg-amber-50 dark:bg-amber-950/30 border-amber-200 dark:border-amber-800'
-                    : 'bg-emerald-50 dark:bg-emerald-950/30 border-emerald-200 dark:border-emerald-800'
-                }`}
-              >
-                <div className="flex items-center gap-2 flex-wrap mb-2">
-                  <span className={`px-2 py-0.5 rounded text-[10px] font-bold uppercase bg-${cfg.color}-100 dark:bg-${cfg.color}-900/30 text-${cfg.color}-700 dark:text-${cfg.color}-300`}>
-                    {cfg.label}
-                  </span>
-                  {d.who.map(w => (
-                    <span key={w} className="px-2 py-0.5 rounded text-[10px] font-bold bg-slate-200 dark:bg-slate-700 text-slate-600 dark:text-slate-300">
-                      {w === 'tutti' ? `👥 ${t('calendar.filterAll')}` : w === 'vecchio' ? `📋 ${t('calendar.filterOld')}` : `📄 ${t('calendar.filterNew')}`}
-                    </span>
-                  ))}
-                  {!isPast && (
-                    <span className={`text-xs font-bold ${days <= 7 ? 'text-red-600' : days <= 30 ? 'text-amber-600' : 'text-emerald-600'}`}>
-                      {days === 0 ? `⚠️ ${t('calendar.today')}` : `📅 ${t('calendar.inDays', { count: days })}`}
+            <div className="flex gap-0.5 flex-wrap justify-center flex-grow">
+              {MONTH_NAMES_IT.map((name, i) => (
+                <button
+                  key={i}
+                  onClick={() => { setCurrentMonth(i); setSelectedDate(null); }}
+                  className={`px-1.5 py-1 rounded-md text-[10px] font-bold transition-all relative ${
+                    currentMonth === i
+                      ? 'bg-indigo-600 text-white'
+                      : 'text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-700'
+                  }`}
+                >
+                  {name.substring(0, 3)}
+                  {monthEventCounts[i] > 0 && (
+                    <span className={`absolute -top-1 -right-1 w-3.5 h-3.5 rounded-full text-[8px] font-bold flex items-center justify-center ${
+                      currentMonth === i ? 'bg-white text-indigo-600' : 'bg-indigo-100 dark:bg-indigo-900/50 text-indigo-600 dark:text-indigo-300'
+                    }`}>
+                      {monthEventCounts[i]}
                     </span>
                   )}
-                  {isPast && <CheckCircle2 size={14} className="text-slate-400" />}
-                </div>
-                <h4 className="font-bold text-slate-800 dark:text-slate-100 text-lg">{d.title}</h4>
-                <p className="text-sm text-slate-600 dark:text-slate-400 mt-1">{d.description}</p>
+                </button>
+              ))}
+            </div>
 
-                {d.documents && d.documents.length > 0 && (
-                  <div className="mt-3">
-                    <h5 className="text-xs font-bold text-slate-500 uppercase mb-1">📎 {t('calendar.documentsNeeded')}</h5>
-                    <div className="flex flex-wrap gap-2">
-                      {d.documents.map((doc, i) => (
-                        <span key={i} className="px-2.5 py-1 bg-white dark:bg-slate-900 rounded-lg text-xs font-medium border border-slate-200 dark:border-slate-700">
-                          {doc}
-                        </span>
-                      ))}
+            <button
+              onClick={() => { setCurrentMonth(m => Math.min(11, m + 1)); setSelectedDate(null); }}
+              disabled={currentMonth === 11}
+              className="p-1.5 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700 disabled:opacity-30 transition-colors"
+            >
+              <ChevronRight size={18} />
+            </button>
+          </div>
+
+          {/* Two-column layout: Events list (left) + Calendar grid (right) */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-4">
+            {/* LEFT: Events list for current month */}
+            <div className="lg:col-span-5 xl:col-span-4">
+              <div className="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 p-3">
+                <h3 className="text-sm font-bold text-slate-700 dark:text-slate-300 mb-3 flex items-center gap-2">
+                  <Calendar size={14} />
+                  {MONTH_NAMES_IT[currentMonth]} 2026
+                  <span className="ml-auto text-xs font-normal text-slate-400">{currentMonthDeadlines.length} {currentMonthDeadlines.length === 1 ? 'evento' : 'eventi'}</span>
+                </h3>
+                <div className="space-y-2 max-h-[520px] overflow-y-auto pr-1">
+                  {currentMonthDeadlines.length > 0 ? (
+                    currentMonthDeadlines.map(d => (
+                      <div
+                        key={d.id}
+                        onClick={() => setSelectedDate(d.date === selectedDate ? null : d.date)}
+                        className={`cursor-pointer transition-all ${d.date === selectedDate ? 'ring-2 ring-indigo-500 rounded-xl' : ''}`}
+                      >
+                        {renderEventCard(d, true)}
+                      </div>
+                    ))
+                  ) : (
+                    <div className="text-center py-8 text-slate-400">
+                      <Calendar size={32} className="mx-auto mb-2 opacity-30" />
+                      <p className="text-xs font-medium">Nessun evento questo mese</p>
                     </div>
-                  </div>
-                )}
-                {d.penalty && (
-                  <div className="flex items-start gap-2 p-3 bg-red-50 dark:bg-red-950/30 rounded-xl mt-3">
-                    <AlertTriangle size={16} className="text-red-500 flex-shrink-0 mt-0.5" />
-                    <div>
-                      <div className="text-xs font-bold text-red-700 dark:text-red-300">{t('calendar.penaltyLabel')}</div>
-                      <div className="text-xs text-red-600 dark:text-red-400">{d.penalty}</div>
-                    </div>
-                  </div>
-                )}
-                {d.notes && (
-                  <div className="flex items-start gap-2 p-3 bg-blue-50 dark:bg-blue-950/30 rounded-xl mt-3">
-                    <Info size={16} className="text-blue-500 flex-shrink-0 mt-0.5" />
-                    <div className="text-xs text-blue-700 dark:text-blue-300">{d.notes}</div>
-                  </div>
-                )}
+                  )}
+                </div>
               </div>
-            );
-          })}
-        </div>
+            </div>
+
+            {/* RIGHT: Calendar grid */}
+            <div className="lg:col-span-7 xl:col-span-8">
+              <div className="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 overflow-hidden">
+                {/* Day names header */}
+                <div className="grid grid-cols-7 bg-slate-50 dark:bg-slate-900 border-b border-slate-200 dark:border-slate-700">
+                  {DAY_NAMES_IT.map(day => (
+                    <div key={day} className="py-1.5 text-center text-[10px] font-bold text-slate-500 dark:text-slate-400 uppercase">
+                      {day}
+                    </div>
+                  ))}
+                </div>
+
+                {/* Calendar cells */}
+                <div className="grid grid-cols-7">
+                  {calendarDays.map((day, idx) => {
+                    if (day === null) {
+                      return <div key={`empty-${idx}`} className="aspect-square border-b border-r border-slate-100 dark:border-slate-700/50 bg-slate-50/50 dark:bg-slate-900/30" />;
+                    }
+
+                    const dateStr = getDateStr(day);
+                    const events = deadlinesByDate[dateStr] || [];
+                    const hasEvents = events.length > 0;
+                    const isToday = dateStr === todayStr;
+                    const isSelected = dateStr === selectedDate;
+                    const isPast = dateStr < todayStr;
+
+                    return (
+                      <div
+                        key={day}
+                        onClick={() => {
+                          if (hasEvents) {
+                            setSelectedDate(isSelected ? null : dateStr);
+                            Analytics.trackUIInteraction('guida', 'calendario', 'giorno', 'click', dateStr);
+                          }
+                        }}
+                        className={`border-b border-r border-slate-100 dark:border-slate-700/50 p-1 min-h-[60px] sm:min-h-[72px] flex flex-col transition-all relative
+                          ${hasEvents ? 'cursor-pointer hover:bg-indigo-50 dark:hover:bg-indigo-950/20' : ''}
+                          ${isSelected ? 'bg-indigo-100 dark:bg-indigo-900/30 ring-2 ring-indigo-500 ring-inset' : ''}
+                          ${isPast && !hasEvents ? 'opacity-40' : ''}
+                        `}
+                      >
+                        {/* Day number */}
+                        <div className={`text-[10px] sm:text-xs font-bold self-end w-5 h-5 sm:w-6 sm:h-6 flex items-center justify-center rounded-full ${
+                          isToday ? 'bg-indigo-600 text-white' : 'text-slate-700 dark:text-slate-300'
+                        }`}>
+                          {day}
+                        </div>
+
+                        {/* Event labels */}
+                        {hasEvents && (
+                          <div className="flex-grow flex flex-col gap-0.5 mt-0.5 overflow-hidden">
+                            {events.slice(0, 2).map((e, i) => {
+                              const cfg = CATEGORY_CONFIG[e.category];
+                              return (
+                                <div
+                                  key={i}
+                                  className={`px-1 py-0.5 rounded text-[7px] sm:text-[8px] font-bold leading-tight truncate bg-${cfg?.color || 'indigo'}-100 dark:bg-${cfg?.color || 'indigo'}-900/30 text-${cfg?.color || 'indigo'}-700 dark:text-${cfg?.color || 'indigo'}-300`}
+                                  title={e.title}
+                                >
+                                  {e.title}
+                                </div>
+                              );
+                            })}
+                            {events.length > 2 && (
+                              <div className="text-[7px] font-bold text-slate-400 text-center">+{events.length - 2}</div>
+                            )}
+                          </div>
+                        )}
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+
+              {/* Selected date detail panel (below calendar) */}
+              {selectedDate && selectedDeadlines.length > 0 && (
+                <div className="mt-3 space-y-2 animate-fade-in">
+                  <div className="flex items-center gap-2">
+                    <div className="px-2 py-1 bg-indigo-100 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300 rounded-lg text-xs font-extrabold">
+                      📅 {formatDate(selectedDate)}
+                    </div>
+                    <div className="flex-grow h-px bg-slate-200 dark:bg-slate-700"></div>
+                    <button onClick={() => setSelectedDate(null)} className="text-xs text-slate-400 hover:text-slate-600 dark:hover:text-slate-300 transition-colors">
+                      ✕ {t('calendar.close') || 'Chiudi'}
+                    </button>
+                  </div>
+                  {selectedDeadlines.map(d => renderEventCard(d, false))}
+                </div>
+              )}
+            </div>
+          </div>
+        </>
       )}
 
-      {/* Empty state when no events in current view */}
-      {filteredDeadlines.length === 0 && (
-        <div className="text-center py-12 text-slate-400">
-          <Calendar size={48} className="mx-auto mb-3 opacity-30" />
-          <p className="font-bold">{t('calendar.noDeadlinesFound')}</p>
-          <p className="text-sm">{t('calendar.noDeadlinesHint')}</p>
+      {/* ══════════ LIST VIEW (all events grouped by month) ══════════ */}
+      {viewMode === 'list' && (
+        <div className="space-y-4">
+          {Object.entries(groupedByMonth)
+            .sort(([a], [b]) => Number(a) - Number(b))
+            .map(([monthIdx, events]) => (
+              <div key={monthIdx} className="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 overflow-hidden">
+                <div className="bg-slate-50 dark:bg-slate-900 px-4 py-2 border-b border-slate-200 dark:border-slate-700 flex items-center justify-between">
+                  <h3 className="text-sm font-bold text-slate-700 dark:text-slate-300 flex items-center gap-2">
+                    <Calendar size={14} />
+                    {MONTH_NAMES_IT[Number(monthIdx)]} 2026
+                  </h3>
+                  <span className="text-[10px] font-bold text-slate-400 bg-slate-200 dark:bg-slate-700 px-2 py-0.5 rounded-full">
+                    {events.length}
+                  </span>
+                </div>
+                <div className="p-3 space-y-2">
+                  {events.map(d => renderEventCard(d, false))}
+                </div>
+              </div>
+            ))}
+
+          {filteredDeadlines.length === 0 && (
+            <div className="text-center py-12 text-slate-400">
+              <Calendar size={48} className="mx-auto mb-3 opacity-30" />
+              <p className="font-bold">{t('calendar.noDeadlinesFound')}</p>
+              <p className="text-sm">{t('calendar.noDeadlinesHint')}</p>
+            </div>
+          )}
         </div>
       )}
 
