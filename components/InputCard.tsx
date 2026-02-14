@@ -3,6 +3,7 @@ import { Wand2, Castle, Bandage, PiggyBank, CalendarClock, Joystick, Plus, Minus
 import { SimulationInputs, ExpenseItem } from '../types';
 import { DEFAULT_INPUTS, DEFAULT_TECH_PARAMS, PRESET_EXPENSES_CH, PRESET_EXPENSES_IT, calculateDynamicExpenses } from '../constants';
 import { Analytics } from '../services/analytics';
+import { useTranslation } from '../services/i18n';
 
 interface Props {
   inputs: SimulationInputs;
@@ -131,7 +132,8 @@ const TechInput: React.FC<{
   );
 };
 
-export const InputCard: React.FC<Props> = ({ inputs, setInputs }) => {
+export const InputCard: React.FC<Props> = ({ inputs, setInputs, onCalculate, isFocusMode }) => {
+  const { t } = useTranslation();
   const [loadingRate, setLoadingRate] = useState(false);
   const [lastRateUpdate, setLastRateUpdate] = useState<Date | null>(null);
   const [showPresets, setShowPresets] = useState<'CH' | 'IT' | null>(null);
@@ -204,7 +206,7 @@ export const InputCard: React.FC<Props> = ({ inputs, setInputs }) => {
   const addExpense = (target: 'CH' | 'IT', preset?: {label: string, amount: number, frequency?: 'MONTHLY' | 'ANNUAL', tooltip?: string}) => {
     const newItem: ExpenseItem = { 
         id: Math.random().toString(36).substr(2, 9), 
-        label: preset ? preset.label : 'Nuova spesa', 
+        label: preset ? preset.label : t('input.newExpense'), 
         amount: preset ? preset.amount : 0, 
         frequency: preset?.frequency || 'MONTHLY',
         tooltip: preset?.tooltip
@@ -249,14 +251,44 @@ export const InputCard: React.FC<Props> = ({ inputs, setInputs }) => {
               <Wand2 size={20} />
             </div>
             <div>
-              <h2 className="text-base font-extrabold text-slate-800 dark:text-slate-100 tracking-tight">Parametri</h2>
-              <p className="text-[10px] text-slate-500 dark:text-slate-400 font-bold uppercase tracking-wider">Configurazione</p>
+              <h2 className="text-base font-extrabold text-slate-800 dark:text-slate-100 tracking-tight">{isFocusMode ? t('input.summary') : t('input.title')}</h2>
+              <p className="text-[10px] text-slate-500 dark:text-slate-400 font-bold uppercase tracking-wider">{isFocusMode ? t('input.compactView') : t('input.subtitle')}</p>
             </div>
         </div>
-        <button onClick={handleReset} className="p-2 text-slate-400 hover:text-red-500 hover:bg-red-50 dark:hover:bg-red-900/20 rounded-xl transition-all" title="Resetta Tutto">
-          <RotateCcw size={18} />
-        </button>
+        {!isFocusMode && (
+          <button onClick={handleReset} className="p-2 text-slate-400 hover:text-red-500 hover:bg-red-50 dark:hover:bg-red-900/20 rounded-xl transition-all" title={t('input.resetAll')}>
+            <RotateCcw size={18} />
+          </button>
+        )}
       </div>
+
+      {isFocusMode ? (
+        /* COLLAPSED / FOCUS MODE VIEW */
+        <div className="flex-grow overflow-y-auto custom-scrollbar p-4 space-y-3">
+          <div className="space-y-2">
+            <div className="flex items-center justify-between p-3 bg-amber-50 dark:bg-amber-900/20 rounded-xl border border-amber-100 dark:border-amber-800/50">
+              <span className="text-[10px] font-bold text-amber-600 dark:text-amber-400 uppercase">{t('input.ral')}</span>
+              <span className="font-bold text-sm text-amber-700 dark:text-amber-300">CHF {Math.round(inputs.annualIncomeCHF).toLocaleString('it-IT')}</span>
+            </div>
+            <div className="flex items-center justify-between p-3 bg-blue-50 dark:bg-blue-900/20 rounded-xl border border-blue-100 dark:border-blue-800/50">
+              <span className="text-[10px] font-bold text-blue-600 dark:text-blue-400 uppercase">{t('input.type')}</span>
+              <span className="font-bold text-xs text-blue-700 dark:text-blue-300">{inputs.frontierWorkerType === 'NEW' ? t('input.newFrontShort') : t('input.oldFrontShort')}</span>
+            </div>
+            <div className="flex items-center justify-between p-3 bg-slate-50 dark:bg-slate-800 rounded-xl border border-slate-100 dark:border-slate-700">
+              <span className="text-[10px] font-bold text-slate-500 dark:text-slate-400 uppercase">{t('input.profile')}</span>
+              <span className="font-bold text-xs text-slate-700 dark:text-slate-300">{inputs.sex === 'M' ? '♂' : '♀'} {inputs.age}a, {inputs.children > 0 ? t('input.childrenCount', { count: inputs.children }) : t('input.noChildren')}</span>
+            </div>
+            <div className="flex items-center justify-between p-3 bg-slate-50 dark:bg-slate-800 rounded-xl border border-slate-100 dark:border-slate-700">
+              <span className="text-[10px] font-bold text-slate-500 dark:text-slate-400 uppercase">{t('input.status')}</span>
+              <span className="font-bold text-xs text-slate-700 dark:text-slate-300">{inputs.maritalStatus === 'SINGLE' ? t('input.single') : inputs.maritalStatus === 'MARRIED' ? t('input.married') : inputs.maritalStatus === 'DIVORCED' ? t('input.divorced') : t('input.widowed')}</span>
+            </div>
+            <div className="flex items-center justify-between p-3 bg-indigo-50 dark:bg-indigo-900/20 rounded-xl border border-indigo-100 dark:border-indigo-800/50">
+              <span className="text-[10px] font-bold text-indigo-600 dark:text-indigo-400 uppercase">{t('input.exchange')}</span>
+              <span className="font-bold text-xs text-indigo-700 dark:text-indigo-300">1 CHF = {inputs.customExchangeRate} EUR</span>
+            </div>
+          </div>
+        </div>
+      ) : (
 
       <div className="flex-grow overflow-y-auto custom-scrollbar p-3 space-y-3 pb-20">
         
@@ -266,8 +298,8 @@ export const InputCard: React.FC<Props> = ({ inputs, setInputs }) => {
               {/* Income Input - Prominent */}
               <div className="space-y-2">
                  <label className="text-[11px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wide flex items-center gap-1.5">
-                   <Coins size={14} className="text-amber-500"/> Reddito Lordo Annuo 
-                   <InfoTooltip text="Inserisci il reddito lordo da contratto, inclusa eventuale 13esima (es. 6000 * 13 = 78000)." />
+                   <Coins size={14} className="text-amber-500"/> {t('input.grossAnnualIncome')} 
+                   <InfoTooltip text={t('input.incomeTooltip')} />
                  </label>
                  <div className="relative group transition-transform duration-200 focus-within:scale-[1.01]">
                     <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
@@ -286,12 +318,12 @@ export const InputCard: React.FC<Props> = ({ inputs, setInputs }) => {
 
               {/* Demographics Grid */}
               <div className="grid grid-cols-2 gap-4">
-                 <StepperInput label="Età" value={inputs.age} onChange={(v: number) => handleChange('age', v)} min={18} max={99} icon={User} iconColor="text-blue-500" tooltip="L'età influenza i contributi pensionistici LPP (Pilastro 2)." />
+                 <StepperInput label={t('input.age')} value={inputs.age} onChange={(v: number) => handleChange('age', v)} min={18} max={99} icon={User} iconColor="text-blue-500" tooltip={t('input.ageTooltip')} />
                  <SegmentControl 
-                    label="Sesso" 
+                    label={t('input.sex')} 
                     icon={PersonStanding}
                     iconColor="text-pink-500"
-                    options={[{label: 'Uomo', value: 'M'}, {label: 'Donna', value: 'F'}]} 
+                    options={[{label: t('input.male'), value: 'M'}, {label: t('input.female'), value: 'F'}]} 
                     value={inputs.sex} 
                     onChange={(v: any) => handleChange('sex', v)} 
                  />
@@ -300,8 +332,8 @@ export const InputCard: React.FC<Props> = ({ inputs, setInputs }) => {
               {/* Marital Status */}
               <div className="space-y-2">
                 <label className="text-[10px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wide flex items-center gap-1.5 h-4">
-                  <Heart size={12} className="text-rose-500"/> Stato Civile
-                  <InfoTooltip text="Lo stato civile determina la tabella fiscale applicata in Svizzera (A, B, C o H)." />
+                  <Heart size={12} className="text-rose-500"/> {t('input.maritalStatus')}
+                  <InfoTooltip text={t('input.maritalStatusTooltip')} />
                 </label>
                 <div className="relative">
                   <select 
@@ -309,10 +341,10 @@ export const InputCard: React.FC<Props> = ({ inputs, setInputs }) => {
                     onChange={(e) => handleChange('maritalStatus', e.target.value)}
                     className="w-full h-11 pl-3 pr-8 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl text-xs font-bold uppercase appearance-none outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/10 transition-all cursor-pointer text-slate-700 dark:text-slate-200"
                   >
-                    <option value="SINGLE">Celibe/Nubile</option>
-                    <option value="MARRIED">Sposato/a</option>
-                    <option value="DIVORCED">Divorziato/a</option>
-                    <option value="WIDOWED">Vedovo/a</option>
+                    <option value="SINGLE">{t('input.single')}</option>
+                    <option value="MARRIED">{t('input.married')}</option>
+                    <option value="DIVORCED">{t('input.divorced')}</option>
+                    <option value="WIDOWED">{t('input.widowed')}</option>
                   </select>
                   <ChevronDown size={14} className="absolute right-3 top-3.5 text-slate-400 pointer-events-none"/>
                 </div>
@@ -322,8 +354,8 @@ export const InputCard: React.FC<Props> = ({ inputs, setInputs }) => {
               {inputs.maritalStatus === 'MARRIED' && (
                  <div className="flex items-center justify-between bg-indigo-50/50 dark:bg-indigo-900/10 p-3 rounded-xl border border-indigo-100 dark:border-indigo-900/30 animate-fade-in mt-2">
                     <span className="text-[10px] font-bold text-indigo-900 dark:text-indigo-300 flex items-center gap-1.5">
-                      <Briefcase size={14} className="text-indigo-500"/> Coniuge lavora?
-                      <InfoTooltip text="Se il coniuge lavora, si applica la Tabella C (Doppio Reddito) con aliquote diverse." />
+                      <Briefcase size={14} className="text-indigo-500"/> {t('input.spouseWorks')}
+                      <InfoTooltip text={t('input.spouseWorksTooltip')} />
                     </span>
                     <button 
                       onClick={() => handleChange('spouseWorks', !inputs.spouseWorks)}
@@ -339,8 +371,8 @@ export const InputCard: React.FC<Props> = ({ inputs, setInputs }) => {
         {/* SECTION 2: FRONTIER TYPE */}
         <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-100 dark:border-slate-700 shadow-sm p-5 space-y-4">
            <h3 className="text-[10px] font-bold text-slate-400 uppercase tracking-widest flex items-center gap-2">
-             <TrainFront size={14} className="text-emerald-500"/> Tipologia Frontaliere
-             <InfoTooltip text="Definisce il regime fiscale. 'Vecchio' (prima 2023) paga solo in CH. 'Nuovo' paga in CH e IT." />
+             <TrainFront size={14} className="text-emerald-500"/> {t('input.frontierType')}
+             <InfoTooltip text={t('input.frontierTypeTooltip')} />
            </h3>
            
            <div className="grid grid-cols-2 gap-3">
@@ -349,27 +381,27 @@ export const InputCard: React.FC<Props> = ({ inputs, setInputs }) => {
                 className={`relative p-3 rounded-xl border-2 transition-all flex flex-col items-center justify-center text-center gap-1 group ${inputs.frontierWorkerType === 'NEW' ? 'border-blue-500 bg-blue-50/50 dark:bg-blue-900/20' : 'border-slate-100 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 hover:border-slate-300'}`}
               >
                   {inputs.frontierWorkerType === 'NEW' && <div className="absolute top-2 right-2 bg-blue-500 text-white rounded-full p-0.5"><Check size={10} strokeWidth={4} /></div>}
-                  <span className={`font-bold text-sm ${inputs.frontierWorkerType === 'NEW' ? 'text-blue-700 dark:text-blue-300' : 'text-slate-600 dark:text-slate-400'}`}>Nuovo</span>
-                  <span className="text-[9px] text-slate-400 font-medium">Post 17.07.2023</span>
+                  <span className={`font-bold text-sm ${inputs.frontierWorkerType === 'NEW' ? 'text-blue-700 dark:text-blue-300' : 'text-slate-600 dark:text-slate-400'}`}>{t('input.newFrontier')}</span>
+                  <span className="text-[9px] text-slate-400 font-medium">{t('input.postDate')}</span>
               </button>
               <button 
                 onClick={() => handleChange('frontierWorkerType', 'OLD')} 
                 className={`relative p-3 rounded-xl border-2 transition-all flex flex-col items-center justify-center text-center gap-1 group ${inputs.frontierWorkerType === 'OLD' ? 'border-emerald-500 bg-emerald-50/50 dark:bg-emerald-900/20' : 'border-slate-100 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 hover:border-slate-300'}`}
               >
                    {inputs.frontierWorkerType === 'OLD' && <div className="absolute top-2 right-2 bg-emerald-500 text-white rounded-full p-0.5"><Check size={10} strokeWidth={4} /></div>}
-                  <span className={`font-bold text-sm ${inputs.frontierWorkerType === 'OLD' ? 'text-emerald-700 dark:text-emerald-300' : 'text-slate-600 dark:text-slate-400'}`}>Vecchio</span>
-                  <span className="text-[9px] text-slate-400 font-medium">Pre 17.07.2023</span>
+                  <span className={`font-bold text-sm ${inputs.frontierWorkerType === 'OLD' ? 'text-emerald-700 dark:text-emerald-300' : 'text-slate-600 dark:text-slate-400'}`}>{t('input.oldFrontier')}</span>
+                  <span className="text-[9px] text-slate-400 font-medium">{t('input.preDate')}</span>
               </button>
            </div>
            
            {inputs.frontierWorkerType === 'NEW' && (
               <div className="pt-2 animate-fade-in">
                 <SegmentControl 
-                    label="Fascia di Confine" 
+                    label={t('input.borderZone')} 
                     icon={Ruler}
                     iconColor="text-orange-500"
-                    tooltip="Entro 20km: Franchigia 10k e aliquota CH max 80%. Oltre 20km: Regime ordinario."
-                    options={[{label: 'Entro 20km', value: 'WITHIN_20KM'}, {label: 'Oltre 20km', value: 'OVER_20KM'}]} 
+                    tooltip={t('input.borderZoneTooltip')}
+                    options={[{label: t('input.within20km'), value: 'WITHIN_20KM'}, {label: t('input.over20km'), value: 'OVER_20KM'}]} 
                     value={inputs.distanceZone} 
                     onChange={(v: any) => handleChange('distanceZone', v)} 
                  />
@@ -379,17 +411,17 @@ export const InputCard: React.FC<Props> = ({ inputs, setInputs }) => {
 
         {/* SECTION 3: FAMILY & INSURANCE */}
         <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-100 dark:border-slate-700 shadow-sm p-5 space-y-5">
-           <h3 className="text-[10px] font-bold text-slate-400 uppercase tracking-widest flex items-center gap-2"><Castle size={14} className="text-purple-500"/> Famiglia & Salute</h3>
+           <h3 className="text-[10px] font-bold text-slate-400 uppercase tracking-widest flex items-center gap-2"><Castle size={14} className="text-purple-500"/> {t('input.familyHealth')}</h3>
            
            <div className="grid grid-cols-2 gap-4">
-              <StepperInput label="Membri Nucleo" value={inputs.familyMembers} onChange={(v: number) => handleChange('familyMembers', v)} min={1} icon={Users} iconColor="text-cyan-500" />
-              <StepperInput label="Figli a Carico" value={inputs.children} onChange={(v: number) => handleChange('children', v)} min={0} icon={Baby} iconColor="text-pink-500" tooltip="Numero figli minorenni per assegni familiari e deduzioni." />
+              <StepperInput label={t('input.familyMembers')} value={inputs.familyMembers} onChange={(v: number) => handleChange('familyMembers', v)} min={1} icon={Users} iconColor="text-cyan-500" />
+              <StepperInput label={t('input.dependentChildren')} value={inputs.children} onChange={(v: number) => handleChange('children', v)} min={0} icon={Baby} iconColor="text-pink-500" tooltip={t('input.childrenTooltip')} />
            </div>
         </div>
 
         {/* SECTION 4: EXPENSES (COLLAPSIBLE) */}
         <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-100 dark:border-slate-700 overflow-hidden shadow-sm">
-           <SectionHeader title="Spese Fisse Personali" icon={Receipt} isOpen={openSections.expenses} onToggle={() => toggleSection('expenses')} iconColor="text-teal-500" />
+           <SectionHeader title={t('input.fixedExpenses')} icon={Receipt} isOpen={openSections.expenses} onToggle={() => toggleSection('expenses')} iconColor="text-teal-500" />
            
            {openSections.expenses && (
              <div className="p-5 pt-0 space-y-6 animate-fade-in border-t border-slate-50 dark:border-slate-800/50 mt-2 pt-4">
@@ -398,16 +430,16 @@ export const InputCard: React.FC<Props> = ({ inputs, setInputs }) => {
                    <div className="flex items-center justify-between gap-2">
                       <div className="flex items-center gap-2">
                         <div className="text-[10px] font-bold text-indigo-500 uppercase flex items-center gap-1.5">
-                          <Home size={12}/> Vivere in CH
-                          <InfoTooltip text="Tutti gli importi sono in CHF (Franchi Svizzeri)" />
+                          <Home size={12}/> {t('input.liveInCH')}
+                          <InfoTooltip text={t('input.amountsCHF')} />
                         </div>
                       </div>
                       <div className="flex items-center gap-1.5">
-                        <button onClick={() => resetExpenses('CH')} className="p-1.5 rounded-lg bg-slate-100 dark:bg-slate-700 text-slate-500 dark:text-slate-400 hover:bg-red-100 dark:hover:bg-red-900/30 hover:text-red-600 transition-all text-[10px] font-bold uppercase flex items-center gap-1" title="Svuota tutto">
+                        <button onClick={() => resetExpenses('CH')} className="p-1.5 rounded-lg bg-slate-100 dark:bg-slate-700 text-slate-500 dark:text-slate-400 hover:bg-red-100 dark:hover:bg-red-900/30 hover:text-red-600 transition-all text-[10px] font-bold uppercase flex items-center gap-1" title={t('input.clearAll')}>
                           <RotateCcw size={12}/>
                         </button>
                         <button onClick={() => loadAllPresets('CH')} className="px-2 py-1.5 rounded-lg bg-gradient-to-r from-blue-600 to-indigo-600 text-white text-[10px] font-bold uppercase hover:from-blue-700 hover:to-indigo-700 transition-all shadow-sm hover:shadow-md flex items-center gap-1">
-                          <Home size={12}/> Precompila
+                          <Home size={12}/> {t('input.prefill')}
                         </button>
                         <button onClick={() => setShowPresets(showPresets === 'CH' ? null : 'CH')} className={`p-1.5 rounded-lg transition-colors flex items-center gap-1 text-[10px] font-bold uppercase ${showPresets === 'CH' ? 'bg-blue-100 text-blue-700' : 'bg-blue-50 dark:bg-blue-900/30 text-blue-600 hover:bg-blue-100'}`}>
                           <Plus size={14}/>
@@ -418,9 +450,9 @@ export const InputCard: React.FC<Props> = ({ inputs, setInputs }) => {
                    {/* Smart Presets Area for CH */}
                    {showPresets === 'CH' && (
                      <div className="p-3 bg-slate-50 dark:bg-slate-900/50 rounded-xl border border-dashed border-slate-200 dark:border-slate-800 mb-2 animate-fade-in">
-                        <p className="text-[10px] text-slate-400 uppercase font-bold mb-2">Suggerimenti Rapidi:</p>
+                        <p className="text-[10px] text-slate-400 uppercase font-bold mb-2">{t('input.quickSuggestions')}:</p>
                         <div className="flex flex-wrap gap-2">
-                           <button onClick={() => addExpense('CH')} className="px-2 py-1.5 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-[10px] font-bold text-slate-500 hover:border-blue-400 hover:text-blue-500 transition-colors">Vuota</button>
+                           <button onClick={() => addExpense('CH')} className="px-2 py-1.5 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-[10px] font-bold text-slate-500 hover:border-blue-400 hover:text-blue-500 transition-colors">{t('input.empty')}</button>
                            {PRESET_EXPENSES_CH.map((preset, idx) => {
                              const Icon = IconsMap[preset.icon] || Home;
                              return (
@@ -430,7 +462,7 @@ export const InputCard: React.FC<Props> = ({ inputs, setInputs }) => {
                                  className="px-2 py-1.5 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-[10px] font-bold text-slate-600 dark:text-slate-400 hover:border-blue-400 hover:text-blue-500 transition-colors flex items-center gap-1.5"
                                >
                                   <Icon size={10} />
-                                  {preset.label}
+                                  {t(preset.label)}
                                </button>
                              )
                            })}
@@ -444,19 +476,19 @@ export const InputCard: React.FC<Props> = ({ inputs, setInputs }) => {
                           <div className="flex items-center flex-1 min-w-0">
                             <input 
                               type="text" 
-                              value={exp.label} 
+                              value={t(exp.label)} 
                               onChange={e => updateExpense('CH', exp.id, { label: e.target.value })} 
                               className="flex-1 min-w-0 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg px-2 py-2 text-[10px] font-bold outline-none focus:border-indigo-500 transition-colors truncate" 
-                              title={exp.label}
+                              title={t(exp.label)}
                             />
-                            {exp.tooltip && <InfoTooltip text={exp.tooltip} />}
+                            {exp.tooltip && <InfoTooltip text={t(exp.tooltip)} />}
                           </div>
                           <input type="number" value={exp.amount || ''} onChange={e => updateExpense('CH', exp.id, { amount: Number(e.target.value) })} placeholder="0" className="w-14 sm:w-16 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg px-1 sm:px-2 py-2 text-[10px] font-mono font-bold outline-none focus:border-indigo-500 text-right transition-colors" />
                           <button onClick={() => updateExpense('CH', exp.id, { frequency: exp.frequency === 'MONTHLY' ? 'ANNUAL' : 'MONTHLY' })} className="px-1.5 sm:px-2 py-2 bg-slate-100 dark:bg-slate-800 rounded-lg text-[9px] font-bold uppercase text-slate-500 w-10 sm:w-12 text-center hover:bg-slate-200 transition-colors flex-shrink-0">{exp.frequency === 'MONTHLY' ? '/m' : '/a'}</button>
                           <button onClick={() => removeExpense('CH', exp.id)} className="p-1 sm:p-1.5 text-slate-300 hover:text-red-500 transition-colors flex-shrink-0"><X size={14}/></button>
                         </div>
                      ))}
-                     {inputs.expensesCH.length === 0 && !showPresets && <div className="text-[10px] text-slate-400 italic text-center py-4 bg-slate-50/50 rounded-xl border border-dashed border-slate-200">Nessuna spesa aggiunta</div>}
+                     {inputs.expensesCH.length === 0 && !showPresets && <div className="text-[10px] text-slate-400 italic text-center py-4 bg-slate-50/50 rounded-xl border border-dashed border-slate-200">{t('input.noExpenses')}</div>}
                    </div>
                 </div>
                 
@@ -465,16 +497,16 @@ export const InputCard: React.FC<Props> = ({ inputs, setInputs }) => {
                    <div className="flex items-center justify-between gap-2">
                       <div className="flex items-center gap-2">
                         <div className="text-[10px] font-bold text-red-500 uppercase flex items-center gap-1.5">
-                          <Car size={12}/> Vivere in IT
-                          <InfoTooltip text="Tutti gli importi sono in EUR (Euro)" />
+                          <Car size={12}/> {t('input.liveInIT')}
+                          <InfoTooltip text={t('input.amountsEUR')} />
                         </div>
                       </div>
                       <div className="flex items-center gap-1.5">
-                        <button onClick={() => resetExpenses('IT')} className="p-1.5 rounded-lg bg-slate-100 dark:bg-slate-700 text-slate-500 dark:text-slate-400 hover:bg-red-100 dark:hover:bg-red-900/30 hover:text-red-600 transition-all text-[10px] font-bold uppercase flex items-center gap-1" title="Svuota tutto">
+                        <button onClick={() => resetExpenses('IT')} className="p-1.5 rounded-lg bg-slate-100 dark:bg-slate-700 text-slate-500 dark:text-slate-400 hover:bg-red-100 dark:hover:bg-red-900/30 hover:text-red-600 transition-all text-[10px] font-bold uppercase flex items-center gap-1" title={t('input.clearAll')}>
                           <RotateCcw size={12}/>
                         </button>
                         <button onClick={() => loadAllPresets('IT')} className="px-2 py-1.5 rounded-lg bg-gradient-to-r from-red-600 to-orange-600 text-white text-[10px] font-bold uppercase hover:from-red-700 hover:to-orange-700 transition-all shadow-sm hover:shadow-md flex items-center gap-1">
-                          <Home size={12}/> Precompila
+                          <Home size={12}/> {t('input.prefill')}
                         </button>
                         <button onClick={() => setShowPresets(showPresets === 'IT' ? null : 'IT')} className={`p-1.5 rounded-lg transition-colors flex items-center gap-1 text-[10px] font-bold uppercase ${showPresets === 'IT' ? 'bg-red-100 text-red-700' : 'bg-red-50 dark:bg-red-900/30 text-red-600 hover:bg-red-100'}`}>
                           <Plus size={14}/>
@@ -485,9 +517,9 @@ export const InputCard: React.FC<Props> = ({ inputs, setInputs }) => {
                     {/* Smart Presets Area for IT */}
                    {showPresets === 'IT' && (
                      <div className="p-3 bg-slate-50 dark:bg-slate-900/50 rounded-xl border border-dashed border-slate-200 dark:border-slate-800 mb-2 animate-fade-in">
-                        <p className="text-[10px] text-slate-400 uppercase font-bold mb-2">Suggerimenti Rapidi:</p>
+                        <p className="text-[10px] text-slate-400 uppercase font-bold mb-2">{t('input.quickSuggestions')}:</p>
                         <div className="flex flex-wrap gap-2">
-                           <button onClick={() => addExpense('IT')} className="px-2 py-1.5 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-[10px] font-bold text-slate-500 hover:border-red-400 hover:text-red-500 transition-colors">Vuota</button>
+                           <button onClick={() => addExpense('IT')} className="px-2 py-1.5 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-[10px] font-bold text-slate-500 hover:border-red-400 hover:text-red-500 transition-colors">{t('input.empty')}</button>
                            {PRESET_EXPENSES_IT.map((preset, idx) => {
                              const Icon = IconsMap[preset.icon] || Home;
                              return (
@@ -497,7 +529,7 @@ export const InputCard: React.FC<Props> = ({ inputs, setInputs }) => {
                                  className="px-2 py-1.5 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-[10px] font-bold text-slate-600 dark:text-slate-400 hover:border-red-400 hover:text-red-500 transition-colors flex items-center gap-1.5"
                                >
                                   <Icon size={10} />
-                                  {preset.label}
+                                  {t(preset.label)}
                                </button>
                              )
                            })}
@@ -511,19 +543,19 @@ export const InputCard: React.FC<Props> = ({ inputs, setInputs }) => {
                           <div className="flex items-center flex-1 min-w-0">
                             <input 
                               type="text" 
-                              value={exp.label} 
+                              value={t(exp.label)} 
                               onChange={e => updateExpense('IT', exp.id, { label: e.target.value })} 
                               className="flex-1 min-w-0 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg px-2 py-2 text-[10px] font-bold outline-none focus:border-indigo-500 transition-colors truncate" 
-                              title={exp.label}
+                              title={t(exp.label)}
                             />
-                            {exp.tooltip && <InfoTooltip text={exp.tooltip} />}
+                            {exp.tooltip && <InfoTooltip text={t(exp.tooltip)} />}
                           </div>
                           <input type="number" value={exp.amount || ''} onChange={e => updateExpense('IT', exp.id, { amount: Number(e.target.value) })} placeholder="0" className="w-14 sm:w-16 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg px-1 sm:px-2 py-2 text-[10px] font-mono font-bold outline-none focus:border-indigo-500 text-right transition-colors" />
                           <button onClick={() => updateExpense('IT', exp.id, { frequency: exp.frequency === 'MONTHLY' ? 'ANNUAL' : 'MONTHLY' })} className="px-1.5 sm:px-2 py-2 bg-slate-100 dark:bg-slate-800 rounded-lg text-[9px] font-bold uppercase text-slate-500 w-10 sm:w-12 text-center hover:bg-slate-200 transition-colors flex-shrink-0">{exp.frequency === 'MONTHLY' ? '/m' : '/a'}</button>
                           <button onClick={() => removeExpense('IT', exp.id)} className="p-1 sm:p-1.5 text-slate-300 hover:text-red-500 transition-colors flex-shrink-0"><X size={14}/></button>
                         </div>
                      ))}
-                      {inputs.expensesIT.length === 0 && !showPresets && <div className="text-[10px] text-slate-400 italic text-center py-4 bg-slate-50/50 rounded-xl border border-dashed border-slate-200">Nessuna spesa aggiunta</div>}
+                      {inputs.expensesIT.length === 0 && !showPresets && <div className="text-[10px] text-slate-400 italic text-center py-4 bg-slate-50/50 rounded-xl border border-dashed border-slate-200">{t('input.noExpenses')}</div>}
                    </div>
                 </div>
              </div>
@@ -532,7 +564,7 @@ export const InputCard: React.FC<Props> = ({ inputs, setInputs }) => {
 
         {/* SECTION 5: OPTIONS */}
         <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-100 dark:border-slate-700 overflow-hidden shadow-sm">
-           <SectionHeader title="Opzioni di Calcolo" icon={Settings2} isOpen={openSections.settings} onToggle={() => toggleSection('settings')} subtext="Cambio & Mensilità" iconColor="text-gray-500" />
+           <SectionHeader title={t('input.calculationOptions')} icon={Settings2} isOpen={openSections.settings} onToggle={() => toggleSection('settings')} subtext={t('input.rateAndMonths')} iconColor="text-gray-500" />
            
            {openSections.settings && (
               <div className="p-5 pt-0 space-y-5 animate-fade-in border-t border-slate-50 dark:border-slate-800/50 mt-2 pt-4">
@@ -540,11 +572,11 @@ export const InputCard: React.FC<Props> = ({ inputs, setInputs }) => {
                      <div className="space-y-2">
                         <div className="flex justify-between items-center h-4">
                             <label className="text-[10px] font-bold text-slate-500 uppercase flex items-center gap-1">
-                                <Coins size={10} className="text-yellow-500" /> Cambio EUR/CHF
-                                <InfoTooltip text="Tasso usato per convertire lo stipendio in Euro per il calcolo delle tasse italiane." />
+                                <Coins size={10} className="text-yellow-500" /> {t('input.exchangeRate')}
+                                <InfoTooltip text={t('input.exchangeRateTooltip')} />
                             </label>
                             <button onClick={fetchRate} disabled={loadingRate} className={`text-[9px] flex items-center gap-1 px-1.5 py-0.5 rounded bg-slate-100 dark:bg-slate-700 hover:text-indigo-500 font-bold transition-all ${loadingRate ? 'opacity-50' : ''}`}>
-                                <RefreshCw size={8} className={loadingRate ? 'animate-spin' : ''} /> {lastRateUpdate ? 'Live' : 'Aggiorna'}
+                                <RefreshCw size={8} className={loadingRate ? 'animate-spin' : ''} /> {lastRateUpdate ? t('input.live') : t('input.refresh')}
                             </button>
                         </div>
                         <input 
@@ -555,14 +587,14 @@ export const InputCard: React.FC<Props> = ({ inputs, setInputs }) => {
                            className="w-full h-11 bg-slate-50 dark:bg-slate-900 px-3 rounded-xl border border-slate-200 dark:border-slate-700 outline-none text-base font-bold focus:border-indigo-500 transition-colors" 
                         />
                      </div>
-                     <StepperInput label="Mensilità" value={inputs.monthsBasis} onChange={(v: number) => handleChange('monthsBasis', v)} min={12} max={15} icon={CalendarClock} iconColor="text-orange-400" tooltip="Numero di mensilità (es. 13) per calcolare il netto mensile corretto." />
+                     <StepperInput label={t('input.monthsBasis')} value={inputs.monthsBasis} onChange={(v: number) => handleChange('monthsBasis', v)} min={12} max={15} icon={CalendarClock} iconColor="text-orange-400" tooltip={t('input.monthsTooltip')} />
                   </div>
                   
                   {/* Cassa Malati Moved Here */}
                   <div className="space-y-2 pt-2">
                       <label className="text-[10px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wide flex items-center gap-1.5 h-4">
-                        <Bandage size={12} className="text-rose-500"/> Cassa Malati (Mese)
-                        <InfoTooltip text="Premio mensile per l'assicurazione sanitaria obbligatoria (LAMal) in Svizzera." />
+                        <Bandage size={12} className="text-rose-500"/> {t('input.healthInsurance')}
+                        <InfoTooltip text={t('input.healthInsuranceTooltip')} />
                       </label>
                       <div className="relative group">
                           <input type="number" value={inputs.healthInsuranceCHF || ''} onChange={(e) => handleChange('healthInsuranceCHF', Number(e.target.value))} className="w-full pl-3 pr-10 py-3 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl focus:ring-4 focus:ring-blue-100 focus:border-blue-500 outline-none transition-all font-bold text-slate-800 dark:text-slate-100 text-sm h-11" placeholder="0" />
@@ -577,11 +609,11 @@ export const InputCard: React.FC<Props> = ({ inputs, setInputs }) => {
         {inputs.frontierWorkerType === 'OLD' && (
         <div className="bg-gradient-to-br from-amber-50 via-orange-50 to-amber-100 dark:from-amber-950/30 dark:via-orange-950/30 dark:to-amber-900/40 rounded-2xl border border-amber-200 dark:border-amber-800 overflow-hidden shadow-md">
            <SectionHeader 
-             title="Funzionalità Sperimentali" 
+             title={t('input.experimentalFeatures')} 
              icon={Joystick} 
              isOpen={openSections.experimental} 
              onToggle={() => toggleSection('experimental')} 
-             subtext="Feature in Beta Testing" 
+             subtext={t('input.betaTesting')} 
              iconColor="text-amber-600"
            />
            
@@ -594,11 +626,11 @@ export const InputCard: React.FC<Props> = ({ inputs, setInputs }) => {
                     <div className="flex-1 min-w-0">
                        <div className="flex items-center gap-2 mb-1">
                           <PiggyBank size={14} className="text-amber-600 flex-shrink-0" />
-                          <h4 className="text-[11px] font-bold text-slate-800 dark:text-slate-100">Tassa Salute SSN Italia</h4>
-                          <InfoTooltip text="Contributo SSN per vecchi frontalieri (pre 17/7/2023). Min 30€/mese, max 200€/mese. Retroattivo 2024-2025, basato su autocertificazione." />
+                          <h4 className="text-[11px] font-bold text-slate-800 dark:text-slate-100">{t('input.ssnHealthTax')}</h4>
+                          <InfoTooltip text={t('input.ssnHealthTaxTooltip')} />
                        </div>
                        <p className="text-[9px] text-slate-500 dark:text-slate-400 leading-relaxed">
-                          Attiva il calcolo della tassa sanitaria italiana per vecchi frontalieri. Percentuale personalizzabile, massimali fissi 30-200€/mese.
+                          {t('input.ssnHealthTaxDesc')}
                        </p>
                     </div>
                     
@@ -619,11 +651,11 @@ export const InputCard: React.FC<Props> = ({ inputs, setInputs }) => {
                     <div className="mt-3 space-y-2">
                        <div className="flex items-center gap-2 bg-amber-50 dark:bg-amber-900/20 p-2 rounded-lg">
                           <Check size={12} className="text-amber-600" />
-                          <span className="text-[9px] font-bold text-amber-700 dark:text-amber-300">Tassa SSN attiva</span>
+                          <span className="text-[9px] font-bold text-amber-700 dark:text-amber-300">{t('input.ssnTaxActive')}</span>
                        </div>
                        
                        <div className="flex items-center gap-2 bg-white dark:bg-slate-800 p-3 rounded-lg border border-amber-200 dark:border-amber-700">
-                          <label className="text-[10px] font-semibold text-slate-700 dark:text-slate-300 flex-1">Percentuale Reddito Netto</label>
+                          <label className="text-[10px] font-semibold text-slate-700 dark:text-slate-300 flex-1">{t('input.netIncomePercentage')}</label>
                           <div className="flex items-center gap-1">
                              <input 
                                type="number" 
@@ -639,7 +671,7 @@ export const InputCard: React.FC<Props> = ({ inputs, setInputs }) => {
                        </div>
                        
                        <p className="text-[8px] text-amber-600 dark:text-amber-400 italic px-2">
-                          ℹ️ Massimali sempre applicati: min 30€/mese, max 200€/mese (360-2400€/anno)
+                          ℹ️ {t('input.ssnCapsNote')}
                        </p>
                     </div>
                  )}
@@ -652,15 +684,15 @@ export const InputCard: React.FC<Props> = ({ inputs, setInputs }) => {
         {/* SECTION 6: TECHNICAL PARAMETERS (Now Top-Level) */}
         <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-100 dark:border-slate-700 overflow-hidden shadow-sm">
            <SectionHeader 
-             title="Parametri Tecnici" 
+             title={t('input.technicalParams')} 
              icon={Sliders} 
              isOpen={openSections.rates} 
              onToggle={() => toggleSection('rates')} 
-             subtext="Aliquote & Coefficienti" 
+             subtext={t('input.ratesAndCoefficients')} 
              iconColor="text-cyan-600"
              action={
                openSections.rates && (
-                 <button onClick={handleResetTech} className="text-[9px] font-bold text-slate-400 hover:text-red-500 bg-slate-100 dark:bg-slate-900/50 px-2 py-1 rounded transition-colors" title="Ripristina valori default">
+                 <button onClick={handleResetTech} className="text-[9px] font-bold text-slate-400 hover:text-red-500 bg-slate-100 dark:bg-slate-900/50 px-2 py-1 rounded transition-colors" title={t('input.resetDefaults')}>
                     Reset
                  </button>
                )
@@ -670,28 +702,28 @@ export const InputCard: React.FC<Props> = ({ inputs, setInputs }) => {
            {openSections.rates && (
               <div className="p-5 pt-0 space-y-4 animate-fade-in border-t border-slate-50 dark:border-slate-800/50 mt-2 pt-4">
                   <div className="bg-slate-50 dark:bg-slate-900/30 p-4 rounded-xl border border-slate-100 dark:border-slate-800 space-y-3">
-                      <h4 className="text-[10px] font-bold uppercase text-slate-400">Aliquote Svizzera (%)</h4>
+                      <h4 className="text-[10px] font-bold uppercase text-slate-400">{t('input.swissRates')}</h4>
                       <div className="grid grid-cols-2 gap-3">
-                          <TechInput label="AVS/AI/IPG" value={inputs.avsRate} onChange={(v) => handleChange('avsRate', v)} isPercentage step="0.1" />
-                          <TechInput label="AC (Disocc.)" value={inputs.acRate} onChange={(v) => handleChange('acRate', v)} isPercentage step="0.1" />
-                          <TechInput label="LAA (Infortuni)" value={inputs.laaRate} onChange={(v) => handleChange('laaRate', v)} isPercentage step="0.1" />
-                          <TechInput label="IJM (Malattia)" value={inputs.ijmRate} onChange={(v) => handleChange('ijmRate', v)} isPercentage step="0.1" />
+                          <TechInput label={t('input.avsRate')} value={inputs.avsRate} onChange={(v) => handleChange('avsRate', v)} isPercentage step="0.1" />
+                          <TechInput label={t('input.acRate')} value={inputs.acRate} onChange={(v) => handleChange('acRate', v)} isPercentage step="0.1" />
+                          <TechInput label={t('input.laaRate')} value={inputs.laaRate} onChange={(v) => handleChange('laaRate', v)} isPercentage step="0.1" />
+                          <TechInput label={t('input.ijmRate')} value={inputs.ijmRate} onChange={(v) => handleChange('ijmRate', v)} isPercentage step="0.1" />
                       </div>
                   </div>
                   <div className="bg-slate-50 dark:bg-slate-900/30 p-4 rounded-xl border border-slate-100 dark:border-slate-800 space-y-3">
-                      <h4 className="text-[10px] font-bold uppercase text-slate-400">LPP (Pensione %)</h4>
+                      <h4 className="text-[10px] font-bold uppercase text-slate-400">{t('input.lppPension')}</h4>
                       <div className="grid grid-cols-2 gap-3">
-                          <TechInput label="25-34 anni" value={inputs.lppRate25_34} onChange={(v) => handleChange('lppRate25_34', v)} isPercentage step="0.1" />
-                          <TechInput label="35-44 anni" value={inputs.lppRate35_44} onChange={(v) => handleChange('lppRate35_44', v)} isPercentage step="0.1" />
-                          <TechInput label="45-54 anni" value={inputs.lppRate45_54} onChange={(v) => handleChange('lppRate45_54', v)} isPercentage step="0.1" />
-                          <TechInput label="55+ anni" value={inputs.lppRate55_plus} onChange={(v) => handleChange('lppRate55_plus', v)} isPercentage step="0.1" />
+                          <TechInput label={t('input.lppAge25_34')} value={inputs.lppRate25_34} onChange={(v) => handleChange('lppRate25_34', v)} isPercentage step="0.1" />
+                          <TechInput label={t('input.lppAge35_44')} value={inputs.lppRate35_44} onChange={(v) => handleChange('lppRate35_44', v)} isPercentage step="0.1" />
+                          <TechInput label={t('input.lppAge45_54')} value={inputs.lppRate45_54} onChange={(v) => handleChange('lppRate45_54', v)} isPercentage step="0.1" />
+                          <TechInput label={t('input.lppAge55plus')} value={inputs.lppRate55_plus} onChange={(v) => handleChange('lppRate55_plus', v)} isPercentage step="0.1" />
                       </div>
                   </div>
                   <div className="bg-slate-50 dark:bg-slate-900/30 p-4 rounded-xl border border-slate-100 dark:border-slate-800 space-y-3">
-                      <h4 className="text-[10px] font-bold uppercase text-slate-400">Italia</h4>
+                      <h4 className="text-[10px] font-bold uppercase text-slate-400">{t('input.italy')}</h4>
                       <div className="grid grid-cols-2 gap-3">
-                          <TechInput label="Addizionali %" value={inputs.itAddizionaleRate} onChange={(v) => handleChange('itAddizionaleRate', v)} isPercentage step="0.1" />
-                          <TechInput label="Deduzione Lav. (€)" value={inputs.itWorkDeduction} onChange={(v) => handleChange('itWorkDeduction', v)} step="10" />
+                          <TechInput label={t('input.itSurchargeRate')} value={inputs.itAddizionaleRate} onChange={(v) => handleChange('itAddizionaleRate', v)} isPercentage step="0.1" />
+                          <TechInput label={t('input.itWorkDeduction')} value={inputs.itWorkDeduction} onChange={(v) => handleChange('itWorkDeduction', v)} step="10" />
                       </div>
                   </div>
               </div>
@@ -699,6 +731,7 @@ export const InputCard: React.FC<Props> = ({ inputs, setInputs }) => {
         </div>
 
       </div>
+      )}
     </div>
   );
 };

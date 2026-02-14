@@ -5,6 +5,7 @@ import autoTable from 'jspdf-autotable';
 import { SimulationResult, TaxResult, TaxBreakdownItem, SimulationInputs } from '../types';
 import { ComparisonChart } from './ComparisonChart';
 import { Analytics } from '../services/analytics';
+import { useTranslation } from '../services/i18n';
 
 interface Props {
   result: SimulationResult;
@@ -27,20 +28,34 @@ const CurrencyValue: React.FC<{ value: number; currency: string; className?: str
 
 const getBreakdownColor = (label: string): string => {
   const l = label.toLowerCase();
-  if (l.includes('netto')) return 'bg-emerald-500'; 
-  if (l.includes('sociali') || l.includes('pensione') || l.includes('contributi')) return 'bg-violet-500'; 
-  if (l.includes('malati')) return 'bg-amber-500'; 
-  if (l.includes('imposte') || l.includes('fonte') || l.includes('irpef')) return 'bg-slate-500'; 
-  if (l.includes('spese')) return 'bg-orange-400';
-  if (l.includes('reddito')) return 'bg-blue-500'; 
+  if (l.includes('netannual') || l.includes('net_annual') || l === 'calc.netannualincome') return 'bg-emerald-500'; 
+  if (l.includes('social') || l.includes('pension') || l.includes('contribut')) return 'bg-violet-500'; 
+  if (l.includes('health')) return 'bg-amber-500'; 
+  if (l.includes('tax') || l.includes('source') || l.includes('irpef') || l.includes('ssn')) return 'bg-slate-500'; 
+  if (l.includes('expense')) return 'bg-orange-400';
+  if (l.includes('income') || l.includes('allowance')) return 'bg-blue-500'; 
   return 'bg-slate-200 dark:bg-slate-700';
 };
 
-const BreakdownTable: React.FC<{ data: TaxBreakdownItem[]; currency: string; showEUR?: boolean }> = ({ data, currency, showEUR }) => (
+const BreakdownTable: React.FC<{ data: TaxBreakdownItem[]; currency: string; showEUR?: boolean }> = ({ data, currency, showEUR }) => {
+  const { t } = useTranslation();
+  const translateKey = (key: string): string => {
+    if (!key) return '';
+    // Handle pipe-delimited params: "calc.netIncomeDescCH|12.5|C" => translate key + append params
+    const parts = key.split('|');
+    const baseKey = parts[0];
+    const translated = t(baseKey);
+    // If translation found (different from key), format with params
+    if (translated !== baseKey && parts.length > 1) {
+      return `${translated}. ${parts.slice(1).map((p, i) => i === 0 ? `${t('calc.estimatedRate')}: ${p}%` : `${t('calc.table')}: ${p}`).join('. ')}.`;
+    }
+    return translated;
+  };
+  return (
   <div className="w-full text-sm">
     {data.map((item, idx) => {
       const isTotal = idx === 0;
-      const isNet = item.label.toLowerCase().includes('netto annuo');
+      const isNet = item.label === 'calc.netAnnualIncome';
       const isNegative = item.amount < 0;
       const dotColor = getBreakdownColor(item.label);
       
@@ -51,14 +66,14 @@ const BreakdownTable: React.FC<{ data: TaxBreakdownItem[]; currency: string; sho
             {!isTotal && !isNet && <div className={`w-2 h-2 rounded-full flex-shrink-0 ${dotColor}`}></div>}
             <div className="flex items-center gap-1.5 min-w-0">
               <div className={`truncate transition-colors ${isTotal || isNet ? 'font-bold text-base text-slate-900 dark:text-slate-100' : 'font-medium text-slate-600 dark:text-slate-400 group-hover:text-slate-900 dark:group-hover:text-slate-200'}`}>
-                {item.label}
+                {translateKey(item.label)}
               </div>
               
               {!isTotal && item.description && (
                 <div className="group/tooltip relative inline-flex items-center flex-shrink-0">
                   <Info size={12} className="text-slate-300 dark:text-slate-600 cursor-help group-hover/tooltip:text-indigo-500 transition-colors" />
                   <div className="absolute bottom-full left-0 mb-2 hidden group-hover/tooltip:block w-56 p-3 bg-slate-900 dark:bg-slate-800 text-white text-[11px] font-medium rounded-xl shadow-2xl z-50 animate-fade-in border border-slate-700">
-                    {item.description}
+                    {translateKey(item.description)}
                     <div className="absolute top-full left-2 -translate-x-1/2 border-8 border-transparent border-t-slate-900 dark:border-t-slate-800"></div>
                   </div>
                 </div>
@@ -88,9 +103,11 @@ const BreakdownTable: React.FC<{ data: TaxBreakdownItem[]; currency: string; sho
       );
     })}
   </div>
-);
+  );
+};
 
 export const ResultsView: React.FC<Props> = ({ result, inputs, isDarkMode, isFocusMode }) => {
+  const { t } = useTranslation();
   const { chResident, itResident, savingsCHF, savingsEUR, exchangeRate, monthsBasis } = result;
   const isBetterFrontaliere = savingsCHF > 0;
 
@@ -99,28 +116,28 @@ export const ResultsView: React.FC<Props> = ({ result, inputs, isDarkMode, isFoc
     const tags = [];
 
     // Tag 1: Gender & Age
-    const genderLabel = inputs.sex === 'M' ? 'Uomo' : 'Donna';
-    tags.push({ label: `${genderLabel}, ${inputs.age} anni`, icon: User, color: 'text-blue-500', bg: 'bg-blue-50 dark:bg-blue-900/20' });
+    const genderLabel = inputs.sex === 'M' ? t('input.male') : t('input.female');
+    tags.push({ label: `${genderLabel}, ${inputs.age} ${t('common.years')}`, icon: User, color: 'text-blue-500', bg: 'bg-blue-50 dark:bg-blue-900/20' });
 
     // Tag 2: Marital Status & Spouse
     let statusLabel = '';
-    if (inputs.maritalStatus === 'SINGLE') statusLabel = 'Celibe/Nubile';
-    else if (inputs.maritalStatus === 'MARRIED') statusLabel = inputs.spouseWorks ? 'Sposato/a (Coniuge lavora)' : 'Sposato/a (Coniuge a carico)';
-    else if (inputs.maritalStatus === 'DIVORCED') statusLabel = 'Divorziato/a';
-    else statusLabel = 'Vedovo/a';
+    if (inputs.maritalStatus === 'SINGLE') statusLabel = t('input.single');
+    else if (inputs.maritalStatus === 'MARRIED') statusLabel = inputs.spouseWorks ? `${t('input.married')} (${t('input.spouseWorks')})` : t('input.married');
+    else if (inputs.maritalStatus === 'DIVORCED') statusLabel = t('input.divorced');
+    else statusLabel = t('input.widowed');
     tags.push({ label: statusLabel, icon: Heart, color: 'text-rose-500', bg: 'bg-rose-50 dark:bg-rose-900/20' });
 
     // Tag 3: Children
     if (inputs.children > 0) {
-      tags.push({ label: `${inputs.children} ${inputs.children === 1 ? 'Figlio' : 'Figli'}`, icon: Baby, color: 'text-pink-500', bg: 'bg-pink-50 dark:bg-pink-900/20' });
+      tags.push({ label: t('input.childrenCount', { count: inputs.children }), icon: Baby, color: 'text-pink-500', bg: 'bg-pink-50 dark:bg-pink-900/20' });
     } else {
-        tags.push({ label: 'No Figli', icon: Baby, color: 'text-slate-400', bg: 'bg-slate-100 dark:bg-slate-800' });
+        tags.push({ label: t('input.noChildren'), icon: Baby, color: 'text-slate-400', bg: 'bg-slate-100 dark:bg-slate-800' });
     }
 
     // Tag 4: Work Type
     const workLabel = inputs.frontierWorkerType === 'NEW' 
-        ? `Nuovo Frontaliere (${inputs.distanceZone === 'WITHIN_20KM' ? '<20km' : '>20km'})` 
-        : 'Vecchio Frontaliere';
+        ? `${t('input.newFrontShort')} (${inputs.distanceZone === 'WITHIN_20KM' ? '<20km' : '>20km'})` 
+        : t('input.oldFrontShort');
     tags.push({ label: workLabel, icon: TrainFront, color: 'text-emerald-500', bg: 'bg-emerald-50 dark:bg-emerald-900/20' });
 
     // Tag 5: Income
@@ -145,16 +162,16 @@ export const ResultsView: React.FC<Props> = ({ result, inputs, isDarkMode, isFoc
       doc.setTextColor(255, 255, 255);
       doc.setFontSize(22);
       doc.setFont('helvetica', 'bold');
-      doc.text("Frontaliere Si o No?", 14, 18);
+      doc.text(t('results.pdf.title'), 14, 18);
       
       doc.setFontSize(10);
       doc.setFont('helvetica', 'normal');
       doc.setTextColor(148, 163, 184); // Slate 400
-      doc.text("Simulazione Fiscale 2026", 14, 24);
+      doc.text(t('results.pdf.subtitle'), 14, 24);
 
       doc.setFontSize(10);
       doc.setTextColor(255, 255, 255);
-      doc.text(`Generato il: ${new Date().toLocaleDateString('it-IT')}`, 150, 18);
+      doc.text(`${t('results.pdf.generatedOn')} ${new Date().toLocaleDateString()}`, 150, 18);
 
       // -- Summary Box --
       doc.setFillColor(241, 245, 249); // Slate 100
@@ -164,33 +181,33 @@ export const ResultsView: React.FC<Props> = ({ result, inputs, isDarkMode, isFoc
       doc.setFontSize(9);
       doc.setTextColor(71, 85, 105); // Slate 600
       doc.setFont('helvetica', 'bold');
-      doc.text("PROFILO:", 18, 56);
+      doc.text(`${t('results.pdf.profile')}:`, 18, 56);
       doc.setFont('helvetica', 'normal');
       // Create a simplified text string for PDF
-      const pdfSummary = profileTags.map(t => t.label).join(' • ');
+      const pdfSummary = profileTags.map(tag => tag.label).join(' • ');
       doc.text(pdfSummary, 40, 56);
 
       // -- Comparison Table Data Prep --
       const bodyData = [
-          ['Reddito Lordo Annuo', `CHF ${formatCurrency(chResident.grossIncome)}`, `CHF ${formatCurrency(itResident.grossIncome)}`],
-          ['Assegni Familiari', `+ CHF ${formatCurrency(chResident.familyAllowance)}`, `+ CHF ${formatCurrency(itResident.familyAllowance)}`],
-          ['Deduzioni Sociali (AVS/LPP)', `- CHF ${formatCurrency(Math.abs(chResident.socialContributions))}`, `- CHF ${formatCurrency(Math.abs(itResident.socialContributions))}`],
-          ['Imposte Totali', `- CHF ${formatCurrency(Math.abs(chResident.taxes))}`, `- CHF ${formatCurrency(Math.abs(itResident.taxes))}`],
-          ['Cassa Malati (Stimata)', `- CHF ${formatCurrency(Math.abs(chResident.healthInsurance))}`, `(Non detratta in busta)`],
-          ['Spese Personali', `- CHF ${formatCurrency(Math.abs(chResident.customExpensesTotal))}`, `- CHF ${formatCurrency(Math.abs(itResident.customExpensesTotal))}`],
-          ['REDDITO NETTO ANNUO', `CHF ${formatCurrency(chResident.netIncomeAnnual)}`, `CHF ${formatCurrency(itResident.netIncomeAnnual)}`]
+          [t('results.pdf.grossIncome'), `CHF ${formatCurrency(chResident.grossIncome)}`, `CHF ${formatCurrency(itResident.grossIncome)}`],
+          [t('results.pdf.familyAllowance'), `+ CHF ${formatCurrency(chResident.familyAllowance)}`, `+ CHF ${formatCurrency(itResident.familyAllowance)}`],
+          [t('results.pdf.socialDeductions'), `- CHF ${formatCurrency(Math.abs(chResident.socialContributions))}`, `- CHF ${formatCurrency(Math.abs(itResident.socialContributions))}`],
+          [t('results.pdf.totalTaxes'), `- CHF ${formatCurrency(Math.abs(chResident.taxes))}`, `- CHF ${formatCurrency(Math.abs(itResident.taxes))}`],
+          [t('results.pdf.healthInsurance'), `- CHF ${formatCurrency(Math.abs(chResident.healthInsurance))}`, `(${t('results.pdf.notDeducted')})`],
+          [t('results.pdf.personalExpenses'), `- CHF ${formatCurrency(Math.abs(chResident.customExpensesTotal))}`, `- CHF ${formatCurrency(Math.abs(itResident.customExpensesTotal))}`],
+          [t('results.pdf.netAnnualIncome'), `CHF ${formatCurrency(chResident.netIncomeAnnual)}`, `CHF ${formatCurrency(itResident.netIncomeAnnual)}`]
       ];
 
       // Add Pre-Tax Row for Italy if exists
       if (itResident.swissNetIncomeMonthlyCHF) {
           // Insert before Net Income (last index)
-          bodyData.splice(6, 0, ['Netto Svizzero (Pre-Tasse IT)', '-', `CHF ${formatCurrency(itResident.swissNetIncomeMonthlyCHF * inputs.monthsBasis)}`]);
+          bodyData.splice(6, 0, [t('results.pdf.swissNetPreTax'), '-', `CHF ${formatCurrency(itResident.swissNetIncomeMonthlyCHF * inputs.monthsBasis)}`]);
       }
 
       // -- Main Table --
       autoTable(doc, {
           startY: 70,
-          head: [['VOCE', 'RESIDENTE SVIZZERA', 'FRONTALIERE ITALIA']],
+          head: [[t('results.pdf.headerItem'), t('results.pdf.headerSwiss'), t('results.pdf.headerFrontier')]],
           body: bodyData,
           theme: 'grid',
           headStyles: { 
@@ -219,7 +236,7 @@ export const ResultsView: React.FC<Props> = ({ result, inputs, isDarkMode, isFoc
                   data.cell.styles.fontSize = 12;
               }
               // Style Pre-Tax Row
-              if (data.row.cells[0].raw === 'Netto Svizzero (Pre-Tasse IT)') {
+              if (data.row.cells[0].raw === t('results.pdf.swissNetPreTax')) {
                    data.cell.styles.fillColor = [248, 250, 252];
                    data.cell.styles.fontStyle = 'italic';
               }
@@ -234,7 +251,7 @@ export const ResultsView: React.FC<Props> = ({ result, inputs, isDarkMode, isFoc
       doc.setFont('helvetica', 'bold');
       
       // Winner Badge logic equivalent
-      const winnerText = isBetterFrontaliere ? "CONVIENE IL FRONTALIERE" : "CONVIENE LA RESIDENZA";
+      const winnerText = isBetterFrontaliere ? t('results.pdf.frontierWins') : t('results.pdf.residenceWins');
       const winnerColor = isBetterFrontaliere ? [22, 163, 74] : [37, 99, 235]; // Green or Blue
       
       doc.setTextColor(winnerColor[0], winnerColor[1], winnerColor[2]);
@@ -243,20 +260,20 @@ export const ResultsView: React.FC<Props> = ({ result, inputs, isDarkMode, isFoc
       doc.setFontSize(10);
       doc.setTextColor(71, 85, 105);
       doc.setFont('helvetica', 'normal');
-      doc.text(`Differenza netta stimata: CHF ${formatCurrency(savingsCHF)} / anno`, 14, finalY + 6);
+      doc.text(`${t('results.pdf.estimatedDifference')}: CHF ${formatCurrency(savingsCHF)} / ${t('results.pdf.year')}`, 14, finalY + 6);
 
       // Specific Notes Block
       let noteY = finalY + 20;
       doc.setFontSize(9);
       doc.setFont('helvetica', 'bold');
-      doc.text("Dettagli Fiscali:", 14, noteY);
+      doc.text(`${t('results.pdf.taxDetails')}:`, 14, noteY);
       
       doc.setFont('helvetica', 'normal');
       noteY += 6;
       const notes = [
-          `Cambio applicato: 1 CHF = ${inputs.customExchangeRate} EUR`,
-          `Regime Italia: ${itResident.details.regime}`,
-          ...itResident.details.notes
+          `${t('results.pdf.exchangeApplied')}: 1 CHF = ${inputs.customExchangeRate} EUR`,
+          `${t('results.pdf.italyRegime')}: ${t(itResident.details.regime)}`,
+          ...itResident.details.notes.map(n => t(n.split('|')[0]))
       ];
       
       notes.forEach(note => {
@@ -267,9 +284,9 @@ export const ResultsView: React.FC<Props> = ({ result, inputs, isDarkMode, isFoc
       // Legal Disclaimer
       doc.setFontSize(8);
       doc.setTextColor(148, 163, 184);
-      doc.text("Disclaimer: Questo documento è una simulazione a scopo indicativo e non costituisce consulenza fiscale ufficiale.", 105, 285, { align: 'center' });
+      doc.text(t('results.pdf.disclaimer'), 105, 285, { align: 'center' });
 
-      doc.save('Analisi_Fiscale_Frontaliere_2026.pdf');
+      doc.save(t('results.pdf.filename'));
     } catch (error) {
       console.error("PDF Export failed:", error);
       Analytics.trackError('PDF Export Failed');
@@ -281,8 +298,8 @@ export const ResultsView: React.FC<Props> = ({ result, inputs, isDarkMode, isFoc
       <div className="p-5 bg-white/50 dark:bg-slate-900/50 border-b border-slate-100 dark:border-slate-800 flex justify-between items-start sm:items-center sticky top-0 z-10 backdrop-blur-md gap-4 flex-col sm:flex-row">
         <div className="flex-1 w-full">
            <div className="flex justify-between items-center mb-2">
-             <h2 className="text-lg font-bold text-slate-800 dark:text-slate-100">Analisi Comparativa</h2>
-             <button onClick={exportPDF} className="p-2 text-slate-400 hover:text-blue-600 transition-all flex-shrink-0 sm:hidden" title="Scarica PDF">
+             <h2 className="text-lg font-bold text-slate-800 dark:text-slate-100">{t('results.comparativeAnalysis')}</h2>
+             <button onClick={exportPDF} className="p-2 text-slate-400 hover:text-blue-600 transition-all flex-shrink-0 sm:hidden" title={t('results.downloadPDF')}>
                <ScrollText size={20} />
              </button>
            </div>
@@ -297,7 +314,7 @@ export const ResultsView: React.FC<Props> = ({ result, inputs, isDarkMode, isFoc
               ))}
            </div>
         </div>
-        <button onClick={exportPDF} className="hidden sm:block p-2.5 text-slate-400 hover:text-blue-600 transition-all flex-shrink-0" title="Scarica PDF">
+        <button onClick={exportPDF} className="hidden sm:block p-2.5 text-slate-400 hover:text-blue-600 transition-all flex-shrink-0" title={t('results.downloadPDF')}>
           <ScrollText size={20} />
         </button>
       </div>
@@ -326,12 +343,12 @@ export const ResultsView: React.FC<Props> = ({ result, inputs, isDarkMode, isFoc
                 <div className="flex items-center gap-2 mb-1">
                    {/* Improved Wording */}
                    <h3 className="text-xl sm:text-2xl font-bold tracking-tight truncate">
-                     {isBetterFrontaliere ? "Meglio fare il Frontaliere!" : "Meglio Vivere in Svizzera!"}
+                     {isBetterFrontaliere ? t('results.frontierBetter') : t('results.swissBetter')}
                    </h3>
                    {isBetterFrontaliere && <PartyPopper size={24} className="animate-bounce text-yellow-300" />}
                 </div>
                 <div className="text-white/90 font-medium flex flex-wrap items-center gap-x-2 gap-y-1 text-sm">
-                  <span>Vantaggio netto finale (Annuo):</span>
+                  <span>{t('results.netAdvantage')}</span>
                   <span className="font-bold font-mono text-base sm:text-lg bg-white/20 px-2 py-0.5 rounded-lg border border-white/10 animate-pulse">
                       CHF {formatCurrency(savingsCHF)}
                   </span>
@@ -347,27 +364,31 @@ export const ResultsView: React.FC<Props> = ({ result, inputs, isDarkMode, isFoc
             <div className="absolute top-0 left-0 w-1 h-full bg-blue-500"></div>
             <div className="flex justify-between items-start mb-6">
                <div>
-                 <div className="text-[10px] font-bold text-blue-500 dark:text-blue-400 uppercase tracking-widest mb-1 bg-blue-50 dark:bg-blue-900/20 px-2 py-0.5 rounded-full inline-block">Vivere in Ticino</div>
-                 <div className="text-xl font-bold text-slate-800 dark:text-slate-100">Svizzera</div>
+                 <div className="text-[10px] font-bold text-blue-500 dark:text-blue-400 uppercase tracking-widest mb-1 bg-blue-50 dark:bg-blue-900/20 px-2 py-0.5 rounded-full inline-block">{t('results.liveInTicino')}</div>
+                 <div className="text-xl font-bold text-slate-800 dark:text-slate-100">{t('results.switzerland')}</div>
                </div>
                <img src="https://flagcdn.com/w80/ch.png" className="w-8 rounded opacity-90" alt="CH" />
             </div>
 
             <div className="space-y-4">
               <div className="bg-blue-50/50 dark:bg-blue-900/20 p-4 rounded-2xl border border-blue-100 dark:border-blue-800/50">
-                <div className="text-[10px] text-blue-500 dark:text-blue-400 font-bold uppercase mb-1">Netto Mensile Residuo</div>
+                <div className="text-[10px] text-blue-500 dark:text-blue-400 font-bold uppercase mb-1">{t('results.netMonthlyResidual')}</div>
                 <div className="text-2xl font-bold text-blue-700 dark:text-blue-300">
                   <CurrencyValue value={chResident.netIncomeMonthly} currency="CHF" />
                 </div>
               </div>
-              <BreakdownTable data={chResident.breakdown} currency="CHF" />
-              {chResident.details.notes.length > 0 && (
-                <div className="mt-4 p-3 bg-slate-50 dark:bg-slate-900/50 rounded-xl border border-dashed border-slate-200 dark:border-slate-800">
-                    <p className="text-[10px] font-bold uppercase text-slate-400 mb-1">Note:</p>
-                    <ul className="text-xs text-slate-500 dark:text-slate-400 list-disc list-inside">
-                        {chResident.details.notes.map((note, i) => <li key={i}>{note}</li>)}
-                    </ul>
-                </div>
+              {!isFocusMode && (
+                <>
+                  <BreakdownTable data={chResident.breakdown} currency="CHF" />
+                  {chResident.details.notes.length > 0 && (
+                    <div className="mt-4 p-3 bg-slate-50 dark:bg-slate-900/50 rounded-xl border border-dashed border-slate-200 dark:border-slate-800">
+                        <p className="text-[10px] font-bold uppercase text-slate-400 mb-1">{t('results.notes')}</p>
+                        <ul className="text-xs text-slate-500 dark:text-slate-400 list-disc list-inside">
+                            {chResident.details.notes.map((note, i) => <li key={i}>{t(note.split('|')[0])}</li>)}
+                        </ul>
+                    </div>
+                  )}
+                </>
               )}
             </div>
           </div>
@@ -377,88 +398,94 @@ export const ResultsView: React.FC<Props> = ({ result, inputs, isDarkMode, isFoc
             <div className="absolute top-0 left-0 w-1 h-full bg-red-500"></div>
             <div className="flex justify-between items-start mb-6">
                <div>
-                 <div className="text-[10px] font-bold text-red-500 dark:text-red-400 uppercase tracking-widest mb-1 bg-red-50 dark:bg-red-900/20 px-2 py-0.5 rounded-full inline-block">Vivere in Italia</div>
-                 <div className="text-xl font-bold text-slate-800 dark:text-slate-100">Italia</div>
+                 <div className="text-[10px] font-bold text-red-500 dark:text-red-400 uppercase tracking-widest mb-1 bg-red-50 dark:bg-red-900/20 px-2 py-0.5 rounded-full inline-block">{t('results.liveInItaly')}</div>
+                 <div className="text-xl font-bold text-slate-800 dark:text-slate-100">{t('results.italy')}</div>
                </div>
                <img src="https://flagcdn.com/w80/it.png" className="w-8 rounded opacity-90" alt="IT" />
             </div>
 
             <div className="space-y-4">
               <div className="bg-red-50/50 dark:bg-red-900/20 p-4 rounded-2xl border border-red-100 dark:border-red-800/50">
-                <div className="text-[10px] text-red-500 dark:text-red-400 font-bold uppercase mb-1">Netto Mensile Residuo</div>
+                <div className="text-[10px] text-red-500 dark:text-red-400 font-bold uppercase mb-1">{t('results.netMonthlyResidual')}</div>
                 <div className="text-2xl font-bold text-red-700 dark:text-red-300">
                   <CurrencyValue value={itResident.netIncomeMonthly} currency="CHF" />
                 </div>
               </div>
 
-              <BreakdownTable data={itResident.breakdown} currency="CHF" showEUR />
+              {!isFocusMode && (
+                <>
+                  <BreakdownTable data={itResident.breakdown} currency="CHF" showEUR />
 
-              {/* MOVED BLOCK: Swiss Net Salary (Pre-Italian Tax) */}
-              {itResident.swissNetIncomeMonthlyCHF && (
-                <div className="bg-slate-50 dark:bg-slate-900/50 p-4 rounded-2xl border border-slate-200 dark:border-slate-800 mt-2 relative overflow-hidden">
-                   <div className="text-[10px] text-slate-500 dark:text-slate-400 font-bold uppercase mb-1 relative z-10">
-                      Netto Busta Paga Svizzera (Pre-Tasse IT)
-                   </div>
-                   <div className="text-xl font-bold text-slate-700 dark:text-slate-200 relative z-10">
-                      <CurrencyValue value={itResident.swissNetIncomeMonthlyCHF} currency="CHF" />
-                   </div>
-                   <ul className="mt-3 space-y-1.5 relative z-10">
-                      {itResident.details.regime === "Nuovo Frontaliere" ? (
-                          <>
-                            <li className="text-[10px] text-slate-400 dark:text-slate-500 font-medium flex items-center gap-1.5"><div className="w-1.5 h-1.5 rounded-full bg-indigo-500"></div> Tassazione concorrente (Accordo 2023)</li>
-                            {itResident.details.franchigiaEUR ? (
-                              <li className="text-[10px] text-slate-400 dark:text-slate-500 font-medium flex items-center gap-1.5"><div className="w-1.5 h-1.5 rounded-full bg-emerald-500"></div> Franchigia {formatCurrency(itResident.details.franchigiaEUR)}€ applicata</li>
-                            ) : null}
-                          </>
-                      ) : (
-                          <li className="text-[10px] text-slate-400 dark:text-slate-500 font-medium flex items-center gap-1.5"><div className="w-1.5 h-1.5 rounded-full bg-emerald-500"></div> Tassazione esclusiva Svizzera</li>
-                      )}
-                   </ul>
-                </div>
-              )}
+                  {/* MOVED BLOCK: Swiss Net Salary (Pre-Italian Tax) */}
+                  {itResident.swissNetIncomeMonthlyCHF && (
+                    <div className="bg-slate-50 dark:bg-slate-900/50 p-4 rounded-2xl border border-slate-200 dark:border-slate-800 mt-2 relative overflow-hidden">
+                       <div className="text-[10px] text-slate-500 dark:text-slate-400 font-bold uppercase mb-1 relative z-10">
+                          {t('results.swissPayslipNet')}
+                       </div>
+                       <div className="text-xl font-bold text-slate-700 dark:text-slate-200 relative z-10">
+                          <CurrencyValue value={itResident.swissNetIncomeMonthlyCHF} currency="CHF" />
+                       </div>
+                       <ul className="mt-3 space-y-1.5 relative z-10">
+                          {itResident.details.regime === "calc.regime.newFrontier" ? (
+                              <>
+                                <li className="text-[10px] text-slate-400 dark:text-slate-500 font-medium flex items-center gap-1.5"><div className="w-1.5 h-1.5 rounded-full bg-indigo-500"></div> {t('results.concurrentTax')}</li>
+                                {itResident.details.franchigiaEUR ? (
+                                  <li className="text-[10px] text-slate-400 dark:text-slate-500 font-medium flex items-center gap-1.5"><div className="w-1.5 h-1.5 rounded-full bg-emerald-500"></div> {t('results.franchiseApplied', { amount: formatCurrency(itResident.details.franchigiaEUR) })}</li>
+                                ) : null}
+                              </>
+                          ) : (
+                              <li className="text-[10px] text-slate-400 dark:text-slate-500 font-medium flex items-center gap-1.5"><div className="w-1.5 h-1.5 rounded-full bg-emerald-500"></div> {t('results.exclusiveSwissTax')}</li>
+                          )}
+                       </ul>
+                    </div>
+                  )}
 
-              {itResident.details.notes.length > 0 && (
-                <div className="mt-4 p-3 bg-slate-50 dark:bg-slate-900/50 rounded-xl border border-dashed border-slate-200 dark:border-slate-800">
-                    <p className="text-[10px] font-bold uppercase text-slate-400 mb-1">Note:</p>
-                    <ul className="text-xs text-slate-500 dark:text-slate-400 list-disc list-inside">
-                        {itResident.details.notes.map((note, i) => <li key={i}>{note}</li>)}
-                    </ul>
-                </div>
+                  {itResident.details.notes.length > 0 && (
+                    <div className="mt-4 p-3 bg-slate-50 dark:bg-slate-900/50 rounded-xl border border-dashed border-slate-200 dark:border-slate-800">
+                        <p className="text-[10px] font-bold uppercase text-slate-400 mb-1">{t('results.notes')}</p>
+                        <ul className="text-xs text-slate-500 dark:text-slate-400 list-disc list-inside">
+                            {itResident.details.notes.map((note, i) => <li key={i}>{t(note.split('|')[0])}</li>)}
+                        </ul>
+                    </div>
+                  )}
+                </>
               )}
             </div>
           </div>
         </div>
 
+        {!isFocusMode && (
+        <>
         {/* WHY CHOOSE ONE OR THE OTHER? */}
         <div className="mb-8">
            <h3 className="text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-6 flex items-center gap-2">
-              <Heart size={14} className="text-rose-500" /> Perché conviene? (Analisi Stile di Vita)
+              <Heart size={14} className="text-rose-500" /> {t('results.whyConvenient')}
            </h3>
            
            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
               {/* Pros Svizzera */}
               <div className="bg-gradient-to-br from-blue-50 to-white dark:from-blue-900/10 dark:to-slate-900 p-6 rounded-3xl border border-blue-100 dark:border-blue-800 shadow-sm">
                  <h4 className="flex items-center gap-2 text-blue-700 dark:text-blue-400 font-bold mb-4">
-                    <ShieldCheck size={18} className="text-blue-500" /> Scelgo la Svizzera se:
+                    <ShieldCheck size={18} className="text-blue-500" /> {t('results.chooseSwissIf')}
                  </h4>
                  <ul className="space-y-3 text-xs text-slate-600 dark:text-slate-400 font-medium">
-                    <li className="flex gap-3"><ChevronRight size={14} className="text-blue-500 shrink-0" /> <span><b>Qualità della vita:</b> Cerco servizi pubblici d'eccellenza, sicurezza e pulizia ai massimi livelli mondiali.</span></li>
-                    <li className="flex gap-3"><ChevronRight size={14} className="text-blue-500 shrink-0" /> <span><b>Carriera locale:</b> Voglio integrarmi nel tessuto sociale svizzero per future promozioni che richiedono la residenza.</span></li>
-                    <li className="flex gap-3"><ChevronRight size={14} className="text-blue-500 shrink-0" /> <span><b>Tempo libero:</b> Voglio azzerare i tempi di commuting (frontiera) e godermi la natura ticinese.</span></li>
-                    <li className="flex gap-3"><ChevronRight size={14} className="text-blue-500 shrink-0" /> <span><b>Potere d'acquisto:</b> Anche se il costo della vita è alto, i beni tecnologici e i viaggi pesano meno sul salario CH.</span></li>
+                    <li className="flex gap-3"><ChevronRight size={14} className="text-blue-500 shrink-0" /> <span><b>{t('results.ch.quality.title')}</b> {t('results.ch.quality')}</span></li>
+                    <li className="flex gap-3"><ChevronRight size={14} className="text-blue-500 shrink-0" /> <span><b>{t('results.ch.career.title')}</b> {t('results.ch.career')}</span></li>
+                    <li className="flex gap-3"><ChevronRight size={14} className="text-blue-500 shrink-0" /> <span><b>{t('results.ch.time.title')}</b> {t('results.ch.time')}</span></li>
+                    <li className="flex gap-3"><ChevronRight size={14} className="text-blue-500 shrink-0" /> <span><b>{t('results.ch.purchasing.title')}</b> {t('results.ch.purchasing')}</span></li>
                  </ul>
               </div>
 
               {/* Pros Italia */}
               <div className="bg-gradient-to-br from-emerald-50 to-white dark:from-emerald-900/10 dark:to-slate-900 p-6 rounded-3xl border border-emerald-100 dark:border-emerald-800 shadow-sm">
                  <h4 className="flex items-center gap-2 text-emerald-700 dark:text-emerald-400 font-bold mb-4">
-                    <ShoppingBag size={18} className="text-emerald-500" /> Scelgo l'Italia se:
+                    <ShoppingBag size={18} className="text-emerald-500" /> {t('results.chooseItalyIf')}
                  </h4>
                  <ul className="space-y-3 text-xs text-slate-600 dark:text-slate-400 font-medium">
-                    <li className="flex gap-3"><ChevronRight size={14} className="text-emerald-500 shrink-0" /> <span><b>Costo della vita:</b> Voglio godermi ristoranti, servizi e svaghi a una frazione del prezzo svizzero.</span></li>
-                    <li className="flex gap-3"><ChevronRight size={14} className="text-emerald-500 shrink-0" /> <span><b>Patrimonio:</b> Ho già una casa di proprietà in Italia o voglio costruirne una con costi molto inferiori.</span></li>
-                    <li className="flex gap-3"><ChevronRight size={14} className="text-emerald-500 shrink-0" /> <span><b>Socialità:</b> Preferisco lo stile di vita italiano, il cibo e la vicinanza a famiglia e amici.</span></li>
-                    <li className="flex gap-3"><ChevronRight size={14} className="text-emerald-500 shrink-0" /> <span><b>Tassazione (Vecchi):</b> Se rientro nei "Vecchi Frontalieri", il risparmio fiscale è imbattibile.</span></li>
+                    <li className="flex gap-3"><ChevronRight size={14} className="text-emerald-500 shrink-0" /> <span><b>{t('results.it.cost.title')}</b> {t('results.it.cost')}</span></li>
+                    <li className="flex gap-3"><ChevronRight size={14} className="text-emerald-500 shrink-0" /> <span><b>{t('results.it.property.title')}</b> {t('results.it.property')}</span></li>
+                    <li className="flex gap-3"><ChevronRight size={14} className="text-emerald-500 shrink-0" /> <span><b>{t('results.it.social.title')}</b> {t('results.it.social')}</span></li>
+                    <li className="flex gap-3"><ChevronRight size={14} className="text-emerald-500 shrink-0" /> <span><b>{t('results.it.tax.title')}</b> {t('results.it.tax')}</span></li>
                  </ul>
               </div>
            </div>
@@ -467,14 +494,16 @@ export const ResultsView: React.FC<Props> = ({ result, inputs, isDarkMode, isFoc
            <div className="mt-6 p-4 bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-2xl flex gap-3">
               <AlertCircle size={20} className="text-amber-500 shrink-0" />
               <div className="text-[10px] text-amber-700 dark:text-amber-400 leading-relaxed font-medium">
-                 <b>Nota bene:</b> Il simulatore non considera le variazioni di prezzo degli immobili tra le due nazioni, che spesso è il fattore decisivo. In Ticino l'affitto può costare dal 50% al 150% in più rispetto alle zone di confine italiane.
+                 <b>{t('results.notaBene')}</b> {t('results.disclaimer.housing')}
               </div>
            </div>
         </div>
+        </>
+        )}
 
         <div className="mb-8">
            <h3 className="text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-4 flex items-center gap-2">
-              <Calculator size={14} className="text-indigo-500" /> Grafico delle Riserve Mensili
+              <Calculator size={14} className="text-indigo-500" /> {t('results.monthlyReservesChart')}
            </h3>
            <ComparisonChart result={result} inputs={inputs} isDarkMode={isDarkMode} isFocusMode={isFocusMode} />
         </div>

@@ -1,9 +1,10 @@
 import React, { useState, useMemo } from 'react';
-import { Sliders, Baby, MapPin, Home, TrendingUp, TrendingDown, DollarSign, Heart, RotateCcw, Zap, Info } from 'lucide-react';
+import { Sliders, Baby, MapPin, Home, TrendingUp, TrendingDown, DollarSign, Heart, RotateCcw, Zap, Info, ArrowLeftRight } from 'lucide-react';
 import { calculateSimulation } from '@/services/calculationService';
 import { Analytics } from '@/services/analytics';
 import { SimulationInputs, SimulationResult } from '@/types';
 import { DEFAULT_INPUTS } from '@/constants';
+import { useTranslation } from '@/services/i18n';
 
 interface WhatIfScenario {
   id: string;
@@ -27,69 +28,69 @@ interface WhatIfSimulatorProps {
   baseResult: SimulationResult;
 }
 
-const scenarios: WhatIfScenario[] = [
+const getScenarios = (t: (key: string) => string): WhatIfScenario[] => [
   {
     id: 'child',
     icon: <Baby size={24} />,
-    title: 'Se avessi un figlio?',
-    description: 'Scopri come cambiano assegni familiari e detrazioni',
+    title: t('whatif.scenario.child'),
+    description: t('whatif.scenario.child.desc'),
     color: 'pink',
     fields: [
-      { key: 'children', label: 'Numero di figli', type: 'slider', min: 0, max: 5, step: 1 },
-      { key: 'familyMembers', label: 'Componenti nucleo', type: 'slider', min: 1, max: 6, step: 1 },
+      { key: 'children', label: t('whatif.field.children'), type: 'slider', min: 0, max: 5, step: 1 },
+      { key: 'familyMembers', label: t('whatif.field.familyMembers'), type: 'slider', min: 1, max: 6, step: 1 },
     ],
   },
   {
     id: 'salary',
     icon: <DollarSign size={24} />,
-    title: 'Se cambiasse lo stipendio?',
-    description: 'Vedi l\'impatto di un aumento o riduzione di RAL',
+    title: t('whatif.scenario.salary'),
+    description: t('whatif.scenario.salary.desc'),
     color: 'emerald',
     fields: [
-      { key: 'annualIncomeCHF', label: 'RAL Annua (CHF)', type: 'slider', min: 40000, max: 250000, step: 5000 },
+      { key: 'annualIncomeCHF', label: t('whatif.field.salary'), type: 'slider', min: 40000, max: 250000, step: 5000 },
     ],
   },
   {
     id: 'residence',
     icon: <Home size={24} />,
-    title: 'Se prendessi la residenza CH?',
-    description: 'Confronta tassazione residente CH vs frontaliere IT',
+    title: t('whatif.scenario.residence'),
+    description: t('whatif.scenario.residence.desc'),
     color: 'blue',
     fields: [
-      { key: 'frontierWorkerType', label: 'Tipo Frontaliere', type: 'select', options: [
-        { value: 'NEW', label: 'Nuovo (dal 2024)' },
-        { value: 'OLD', label: 'Vecchio (ante 2024)' },
+      { key: 'frontierWorkerType', label: t('whatif.field.frontierType'), type: 'select', options: [
+        { value: 'NEW', label: t('whatif.field.frontierNew') },
+        { value: 'OLD', label: t('whatif.field.frontierOld') },
       ]},
-      { key: 'distanceZone', label: 'Zona distanza', type: 'select', options: [
-        { value: 'WITHIN_20KM', label: 'Entro 20 km' },
-        { value: 'OVER_20KM', label: 'Oltre 20 km' },
+      { key: 'distanceZone', label: t('whatif.field.distanceZone'), type: 'select', options: [
+        { value: 'WITHIN_20KM', label: t('whatif.field.within20km') },
+        { value: 'OVER_20KM', label: t('whatif.field.over20km') },
       ]},
     ],
   },
   {
     id: 'marital',
     icon: <Heart size={24} />,
-    title: 'Se mi sposassi?',
-    description: 'Effetto dello stato civile e coniuge lavoratore',
+    title: t('whatif.scenario.marital'),
+    description: t('whatif.scenario.marital.desc'),
     color: 'rose',
     fields: [
-      { key: 'maritalStatus', label: 'Stato Civile', type: 'select', options: [
-        { value: 'SINGLE', label: 'Celibe/Nubile' },
-        { value: 'MARRIED', label: 'Sposato/a' },
-        { value: 'DIVORCED', label: 'Divorziato/a' },
-        { value: 'WIDOWED', label: 'Vedovo/a' },
+      { key: 'maritalStatus', label: t('whatif.field.maritalStatus'), type: 'select', options: [
+        { value: 'SINGLE', label: t('input.single') },
+        { value: 'MARRIED', label: t('input.married') },
+        { value: 'DIVORCED', label: t('input.divorced') },
+        { value: 'WIDOWED', label: t('input.widowed') },
       ]},
-      { key: 'spouseWorks', label: 'Coniuge lavoratore', type: 'toggle' },
+      { key: 'spouseWorks', label: t('whatif.field.spouseWorks'), type: 'toggle' },
     ],
   },
   {
     id: 'age',
     icon: <Zap size={24} />,
-    title: 'Se avessi un\'altra età?',
-    description: 'I contributi LPP cambiano con l\'età',
+    title: t('whatif.scenario.age'),
+    description: t('whatif.scenario.age.desc'),
     color: 'amber',
     fields: [
-      { key: 'age', label: 'Età', type: 'slider', min: 18, max: 65, step: 1 },
+      { key: 'age', label: t('input.age'), type: 'slider', min: 18, max: 65, step: 1 },
     ],
   },
 ];
@@ -103,6 +104,7 @@ const colorMap: Record<string, { bg: string; text: string; border: string; light
 };
 
 const WhatIfSimulator: React.FC<WhatIfSimulatorProps> = ({ baseInputs, baseResult }) => {
+  const { t } = useTranslation();
   const [modifiedInputs, setModifiedInputs] = useState<Partial<SimulationInputs>>({});
   const [activeScenario, setActiveScenario] = useState<string>('child');
 
@@ -138,12 +140,21 @@ const WhatIfSimulator: React.FC<WhatIfSimulatorProps> = ({ baseInputs, baseResul
   const newNetCH = whatIfResult.chResident.netIncomeMonthly;
   const diffIT = newNetIT - baseNetIT;
   const diffCH = newNetCH - baseNetCH;
-  const baseSavings = baseResult.savingsEUR;
-  const newSavings = whatIfResult.savingsEUR;
-  const diffSavings = newSavings - baseSavings;
+  
+  // "Savings" is really IT-vs-CH differential. Positive = living in IT is better
+  const baseDifferential = baseResult.savingsEUR;
+  const newDifferential = whatIfResult.savingsEUR;
+  const diffDifferential = newDifferential - baseDifferential;
+  
+  // Best option for the user
+  const bestOptionNow = newDifferential >= 0 ? 'IT' : 'CH';
+  const bestNetNow = bestOptionNow === 'IT' ? newNetIT : newNetCH;
+  const bestNetBase = bestOptionNow === 'IT' ? baseNetIT : baseNetCH;
+  const bestNetDiff = bestNetNow - bestNetBase;
 
   const hasChanges = Object.keys(modifiedInputs).length > 0;
 
+  const scenarios = getScenarios(t);
   const currentScenario = scenarios.find(s => s.id === activeScenario)!;
   const colors = colorMap[currentScenario.color];
 
@@ -156,8 +167,8 @@ const WhatIfSimulator: React.FC<WhatIfSimulatorProps> = ({ baseInputs, baseResul
             <Sliders size={32} />
           </div>
           <div>
-            <h1 className="text-3xl font-extrabold">Simulatore "Cosa cambia se..."</h1>
-            <p className="text-violet-100 mt-1">Esplora scenari what-if e vedi come cambiano le tue tasse in tempo reale</p>
+            <h1 className="text-3xl font-extrabold">{t('whatif.title')}</h1>
+            <p className="text-violet-100 mt-1">{t('whatif.subtitle')}</p>
           </div>
         </div>
       </div>
@@ -197,7 +208,7 @@ const WhatIfSimulator: React.FC<WhatIfSimulatorProps> = ({ baseInputs, baseResul
                 className="flex items-center gap-1 px-3 py-1.5 text-xs font-bold text-slate-500 hover:text-slate-700 bg-white dark:bg-slate-800 rounded-lg border border-slate-200 dark:border-slate-700 transition-all"
               >
                 <RotateCcw size={12} />
-                Reset
+                {t('whatif.reset')}
               </button>
             )}
           </div>
@@ -217,7 +228,7 @@ const WhatIfSimulator: React.FC<WhatIfSimulatorProps> = ({ baseInputs, baseResul
                     </label>
                     {isChanged && (
                       <span className="text-xs font-bold text-violet-600 dark:text-violet-400 bg-violet-100 dark:bg-violet-900/30 px-2 py-0.5 rounded-full">
-                        Modificato
+                        {t('whatif.modified')}
                       </span>
                     )}
                   </div>
@@ -279,7 +290,9 @@ const WhatIfSimulator: React.FC<WhatIfSimulatorProps> = ({ baseInputs, baseResul
           {/* Difference Summary */}
           <div className={`grid grid-cols-1 sm:grid-cols-3 gap-4 ${!hasChanges ? 'opacity-40' : ''}`}>
             <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-5 shadow-sm">
-              <div className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase mb-1">Netto IT (mensile)</div>
+              <div className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase mb-1">
+                🇮🇹 {t('whatif.netIT')}
+              </div>
               <div className="text-2xl font-extrabold text-slate-800 dark:text-slate-100">
                 € {Math.round(newNetIT).toLocaleString('it-IT')}
               </div>
@@ -292,7 +305,9 @@ const WhatIfSimulator: React.FC<WhatIfSimulatorProps> = ({ baseInputs, baseResul
             </div>
 
             <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-5 shadow-sm">
-              <div className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase mb-1">Netto CH (mensile)</div>
+              <div className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase mb-1">
+                🇨🇭 {t('whatif.netCH')}
+              </div>
               <div className="text-2xl font-extrabold text-slate-800 dark:text-slate-100">
                 CHF {Math.round(newNetCH).toLocaleString('it-IT')}
               </div>
@@ -304,17 +319,19 @@ const WhatIfSimulator: React.FC<WhatIfSimulatorProps> = ({ baseInputs, baseResul
               )}
             </div>
 
-            <div className={`rounded-2xl border-2 p-5 shadow-sm ${newSavings >= 0 ? 'bg-emerald-50 dark:bg-emerald-950/30 border-emerald-200 dark:border-emerald-800' : 'bg-red-50 dark:bg-red-950/30 border-red-200 dark:border-red-800'}`}>
-              <div className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase mb-1">Risparmio annuo</div>
-              <div className={`text-2xl font-extrabold ${newSavings >= 0 ? 'text-emerald-600' : 'text-red-600'}`}>
-                € {Math.round(newSavings).toLocaleString('it-IT')}
+            <div className={`rounded-2xl border-2 p-5 shadow-sm ${bestOptionNow === 'IT' ? 'bg-emerald-50 dark:bg-emerald-950/30 border-emerald-200 dark:border-emerald-800' : 'bg-blue-50 dark:bg-blue-950/30 border-blue-200 dark:border-blue-800'}`}>
+              <div className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase mb-1 flex items-center gap-1">
+                <ArrowLeftRight size={12} />
+                {t('whatif.bestOption')}
               </div>
-              {hasChanges && (
-                <div className={`flex items-center gap-1 mt-1 text-sm font-bold ${diffSavings >= 0 ? 'text-emerald-600' : 'text-red-600'}`}>
-                  {diffSavings >= 0 ? <TrendingUp size={14} /> : <TrendingDown size={14} />}
-                  {diffSavings >= 0 ? '+' : ''}{Math.round(diffSavings).toLocaleString('it-IT')} €
-                </div>
-              )}
+              <div className={`text-lg font-extrabold ${bestOptionNow === 'IT' ? 'text-emerald-600' : 'text-blue-600'}`}>
+                {bestOptionNow === 'IT' ? '🇮🇹 ' + t('whatif.liveInItaly') : '🇨🇭 ' + t('whatif.liveInSwiss')}
+              </div>
+              <div className="text-xs text-slate-500 mt-1">
+                {t('whatif.diffPerYear')}: <span className={`font-bold ${newDifferential >= 0 ? 'text-emerald-600' : 'text-blue-600'}`}>
+                  € {Math.abs(Math.round(newDifferential)).toLocaleString('it-IT')}
+                </span>
+              </div>
             </div>
           </div>
 
@@ -323,56 +340,119 @@ const WhatIfSimulator: React.FC<WhatIfSimulatorProps> = ({ baseInputs, baseResul
             <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-6 shadow-sm animate-fade-in">
               <h3 className="text-lg font-bold text-slate-800 dark:text-slate-100 mb-4 flex items-center gap-2">
                 <Info size={20} className="text-violet-600" />
-                Dettaglio Impatto
+                {t('whatif.impactDetail')}
               </h3>
               <div className="space-y-3">
                 {/* IT Breakdown */}
                 <div className="space-y-2">
-                  <div className="text-sm font-bold text-slate-600 dark:text-slate-400">🇮🇹 Residenza Italia</div>
-                  <div className="grid grid-cols-2 gap-2">
+                  <div className="text-sm font-bold text-slate-600 dark:text-slate-400">🇮🇹 {t('whatif.residenceItaly')}</div>
+                  <div className="grid grid-cols-3 gap-2">
                     <div className="p-3 bg-slate-50 dark:bg-slate-900 rounded-lg">
-                      <div className="text-xs text-slate-500">Lordo annuo</div>
+                      <div className="text-xs text-slate-500">{t('whatif.grossAnnual')}</div>
                       <div className="font-bold text-slate-800 dark:text-slate-100">
-                        € {Math.round(whatIfResult.itResident.grossIncome / whatIfResult.exchangeRate).toLocaleString('it-IT')}
+                        € {Math.round(whatIfResult.itResident.grossIncome * whatIfResult.exchangeRate).toLocaleString('it-IT')}
                       </div>
                     </div>
                     <div className="p-3 bg-slate-50 dark:bg-slate-900 rounded-lg">
-                      <div className="text-xs text-slate-500">Tasse totali</div>
+                      <div className="text-xs text-slate-500">{t('whatif.totalTaxes')}</div>
                       <div className="font-bold text-red-600">
-                        € {Math.round(whatIfResult.itResident.taxes / whatIfResult.exchangeRate).toLocaleString('it-IT')}
+                        € {Math.round(whatIfResult.itResident.taxes * whatIfResult.exchangeRate).toLocaleString('it-IT')}
                       </div>
+                    </div>
+                    <div className="p-3 bg-emerald-50 dark:bg-emerald-900/20 rounded-lg">
+                      <div className="text-xs text-slate-500">{t('whatif.netMonthly')}</div>
+                      <div className="font-bold text-emerald-700 dark:text-emerald-400">
+                        € {Math.round(newNetIT).toLocaleString('it-IT')}
+                      </div>
+                      {diffIT !== 0 && (
+                        <div className={`text-[10px] font-bold ${diffIT >= 0 ? 'text-emerald-600' : 'text-red-600'}`}>
+                          {diffIT >= 0 ? '↑' : '↓'} {diffIT >= 0 ? '+' : ''}{Math.round(diffIT)} €
+                        </div>
+                      )}
                     </div>
                   </div>
                 </div>
 
                 {/* CH Breakdown */}
                 <div className="space-y-2">
-                  <div className="text-sm font-bold text-slate-600 dark:text-slate-400">🇨🇭 Residenza Svizzera</div>
-                  <div className="grid grid-cols-2 gap-2">
+                  <div className="text-sm font-bold text-slate-600 dark:text-slate-400">🇨🇭 {t('whatif.residenceSwiss')}</div>
+                  <div className="grid grid-cols-3 gap-2">
                     <div className="p-3 bg-slate-50 dark:bg-slate-900 rounded-lg">
-                      <div className="text-xs text-slate-500">Lordo annuo</div>
+                      <div className="text-xs text-slate-500">{t('whatif.grossAnnual')}</div>
                       <div className="font-bold text-slate-800 dark:text-slate-100">
                         CHF {Math.round(whatIfResult.chResident.grossIncome).toLocaleString('it-IT')}
                       </div>
                     </div>
                     <div className="p-3 bg-slate-50 dark:bg-slate-900 rounded-lg">
-                      <div className="text-xs text-slate-500">Tasse totali</div>
+                      <div className="text-xs text-slate-500">{t('whatif.totalTaxes')}</div>
                       <div className="font-bold text-red-600">
                         CHF {Math.round(whatIfResult.chResident.taxes).toLocaleString('it-IT')}
                       </div>
                     </div>
+                    <div className="p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+                      <div className="text-xs text-slate-500">{t('whatif.netMonthly')}</div>
+                      <div className="font-bold text-blue-700 dark:text-blue-400">
+                        CHF {Math.round(newNetCH).toLocaleString('it-IT')}
+                      </div>
+                      {diffCH !== 0 && (
+                        <div className={`text-[10px] font-bold ${diffCH >= 0 ? 'text-emerald-600' : 'text-red-600'}`}>
+                          {diffCH >= 0 ? '↑' : '↓'} {diffCH >= 0 ? '+' : ''}{Math.round(diffCH)} CHF
+                        </div>
+                      )}
+                    </div>
                   </div>
                 </div>
 
-                {/* Summary */}
+                {/* Summary — clearer explanation */}
                 <div className="border-t border-slate-200 dark:border-slate-700 pt-3">
-                  <div className={`p-4 rounded-xl ${diffSavings >= 0 ? 'bg-emerald-50 dark:bg-emerald-900/20' : 'bg-red-50 dark:bg-red-900/20'}`}>
-                    <div className="text-sm text-slate-600 dark:text-slate-400">Con questo scenario il risparmio annuo cambia di:</div>
-                    <div className={`text-3xl font-extrabold mt-1 ${diffSavings >= 0 ? 'text-emerald-600' : 'text-red-600'}`}>
-                      {diffSavings >= 0 ? '+' : ''}{Math.round(diffSavings).toLocaleString('it-IT')} €/anno
+                  <div className={`p-4 rounded-xl ${bestOptionNow === 'IT' ? 'bg-emerald-50 dark:bg-emerald-900/20' : 'bg-blue-50 dark:bg-blue-900/20'}`}>
+                    <div className="text-sm font-bold text-slate-700 dark:text-slate-300 mb-2">
+                      📊 {t('whatif.scenarioSummary')}
                     </div>
-                    <div className="text-xs text-slate-500 mt-1">
-                      = {diffSavings >= 0 ? '+' : ''}{Math.round(diffSavings / 12).toLocaleString('it-IT')} €/mese
+                    
+                    {/* Show what actually happens with this scenario change */}
+                    <div className="grid grid-cols-2 gap-3 mb-3">
+                      <div className="bg-white/70 dark:bg-slate-800/70 rounded-lg p-3">
+                        <div className="text-[10px] font-bold text-slate-500 uppercase">{t('whatif.yourNetChange')}</div>
+                        <div className={`text-xl font-extrabold ${diffIT >= 0 ? 'text-emerald-600' : 'text-red-600'}`}>
+                          {diffIT >= 0 ? '+' : ''}{Math.round(diffIT).toLocaleString('it-IT')} €/{t('common.months')}
+                        </div>
+                        <div className="text-[10px] text-slate-500">
+                          = {diffIT >= 0 ? '+' : ''}{Math.round(diffIT * 12).toLocaleString('it-IT')} €/{t('whatif.perYear')}
+                        </div>
+                        <div className="text-[10px] text-slate-400 mt-0.5">({t('whatif.asItalyFrontier')})</div>
+                      </div>
+                      <div className="bg-white/70 dark:bg-slate-800/70 rounded-lg p-3">
+                        <div className="text-[10px] font-bold text-slate-500 uppercase">{t('whatif.chComparison')}</div>
+                        <div className={`text-xl font-extrabold ${diffCH >= 0 ? 'text-emerald-600' : 'text-red-600'}`}>
+                          {diffCH >= 0 ? '+' : ''}{Math.round(diffCH).toLocaleString('it-IT')} CHF/{t('common.months')}
+                        </div>
+                        <div className="text-[10px] text-slate-500">
+                          = {diffCH >= 0 ? '+' : ''}{Math.round(diffCH * 12).toLocaleString('it-IT')} CHF/{t('whatif.perYear')}
+                        </div>
+                        <div className="text-[10px] text-slate-400 mt-0.5">({t('whatif.asSwissResident')})</div>
+                      </div>
+                    </div>
+
+                    {/* IT vs CH advantage explanation */}
+                    <div className="bg-white/50 dark:bg-slate-800/50 rounded-lg p-3 border border-slate-200/50 dark:border-slate-700/50">
+                      <div className="flex items-center gap-2 text-sm">
+                        <ArrowLeftRight size={14} className="text-violet-600" />
+                        <span className="text-slate-600 dark:text-slate-400">{t('whatif.comparisonLabel')}:</span>
+                      </div>
+                      <div className={`text-lg font-extrabold mt-1 ${newDifferential >= 0 ? 'text-emerald-600' : 'text-blue-600'}`}>
+                        {newDifferential >= 0 
+                          ? `🇮🇹 ${t('whatif.italyBetterBy')} € ${Math.abs(Math.round(newDifferential)).toLocaleString('it-IT')}/${t('whatif.perYear')}`
+                          : `🇨🇭 ${t('whatif.swissBetterBy')} € ${Math.abs(Math.round(newDifferential)).toLocaleString('it-IT')}/${t('whatif.perYear')}`
+                        }
+                      </div>
+                      {hasChanges && diffDifferential !== 0 && (
+                        <div className="text-xs text-slate-500 mt-1">
+                          {t('whatif.vsCurrentScenario')}: <span className={`font-bold ${diffDifferential >= 0 ? 'text-emerald-600' : 'text-red-600'}`}>
+                            {diffDifferential >= 0 ? '+' : ''}{Math.round(diffDifferential).toLocaleString('it-IT')} €
+                          </span>
+                        </div>
+                      )}
                     </div>
                   </div>
                 </div>
@@ -383,8 +463,8 @@ const WhatIfSimulator: React.FC<WhatIfSimulatorProps> = ({ baseInputs, baseResul
           {!hasChanges && (
             <div className="bg-violet-50 dark:bg-violet-950/30 rounded-2xl border-2 border-dashed border-violet-300 dark:border-violet-700 p-8 text-center">
               <Sliders size={48} className="text-violet-400 mx-auto mb-4" />
-              <p className="text-lg font-bold text-slate-700 dark:text-slate-300">Modifica i parametri a sinistra</p>
-              <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">I risultati si aggiorneranno in tempo reale</p>
+              <p className="text-lg font-bold text-slate-700 dark:text-slate-300">{t('whatif.modifyParams')}</p>
+              <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">{t('whatif.resultsRealtime')}</p>
             </div>
           )}
         </div>

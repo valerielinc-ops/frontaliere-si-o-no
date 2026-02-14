@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useTranslation } from '../services/i18n';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
@@ -6,6 +7,8 @@ import { MapPin, Clock, TrendingUp, Home, Car, ShoppingCart, FileText, AlertCirc
 import { Analytics } from '../services/analytics';
 import TaxCalendar from './TaxCalendar';
 import WorkPermitsGuide from './WorkPermitsGuide';
+import TicinoCompanies from './TicinoCompanies';
+import { borderCrossings as centralizedBorderCrossings } from '../data/borderCrossings';
 
 // Fix per i marker icon di Leaflet
 delete (L.Icon.Default.prototype as any)._getIconUrl;
@@ -80,14 +83,15 @@ interface Municipality {
 }
 
 const FrontierGuide: React.FC = () => {
-  const [activeSection, setActiveSection] = useState<'municipalities' | 'living-ch' | 'living-it' | 'border' | 'costs' | 'calendar' | 'permits'>('municipalities');
+  const { t } = useTranslation();
+  const [activeSection, setActiveSection] = useState<'municipalities' | 'living-ch' | 'living-it' | 'border' | 'costs' | 'calendar' | 'permits' | 'companies'>('municipalities');
   const [sortBy, setSortBy] = useState<'distance' | 'population'>('population');
   const [filterType, setFilterType] = useState<'all' | 'new' | 'old'>('all');
   const [borderFilter, setBorderFilter] = useState<'all' | 'low-traffic' | '24h' | 'morning' | 'evening'>('all');
   const [selectedTime, setSelectedTime] = useState<'morning' | 'evening' | 'night'>('morning');
 
   // Track section navigation
-  const handleSectionChange = (section: 'municipalities' | 'living-ch' | 'living-it' | 'border' | 'costs' | 'calendar' | 'permits') => {
+  const handleSectionChange = (section: 'municipalities' | 'living-ch' | 'living-it' | 'border' | 'costs' | 'calendar' | 'permits' | 'companies') => {
     setActiveSection(section);
     Analytics.trackUIInteraction('FrontierGuide', 'Change Section', section);
   };
@@ -155,45 +159,28 @@ const FrontierGuide: React.FC = () => {
       return b.population - a.population;
     });
 
-  // Dogane Canton Ticino - Italia (fonte: Wikipedia + tabella valichi ufficiali Lombardia-Ticino 2026)
-  const borderCrossings = [
-    // COMO - TICINO (Valichi Principali)
-    { name: "Chiasso Centro (Ponte Chiasso)", italianSide: "Como", avgWaitMorning: "15-30 min", avgWaitEvening: "20-40 min", peak: "7:00-8:30, 17:00-18:30", hours: "24h", tips: "Principale, molto trafficato ore punta. Tipo: Residenziale", lat: 45.8326, lng: 9.0340, traffic: "high" },
-    { name: "Chiasso-Brogeda", italianSide: "Como", avgWaitMorning: "8-15 min", avgWaitEvening: "12-25 min", peak: "7:00-8:30, 17:00-18:30", hours: "24h", tips: "Turistico. Usa quando Chiasso Centro è bloccato", lat: 45.8409, lng: 9.0376, traffic: "medium" },
-    { name: "Chiasso-Strada", italianSide: "Como", avgWaitMorning: "10-18 min", avgWaitEvening: "15-25 min", peak: "7:00-8:30, 17:00-18:30", hours: "24h", tips: "Commerciale. Per traffico pesante", lat: 45.8332, lng: 9.0374, traffic: "medium" },
-    { name: "Maslianico-Pizzamiglio", italianSide: "Maslianico", avgWaitMorning: "3-8 min", avgWaitEvening: "5-12 min", peak: "7:30-8:30, 17:30-18:30", hours: "06:00-22:00", tips: "Residenziale. Poco traffico, chiusura notturna", lat: 45.8438, lng: 9.0386, traffic: "low" },
-    { name: "Maslianico-Roggiana", italianSide: "Maslianico", avgWaitMorning: "---", avgWaitEvening: "---", peak: "---", hours: "Chiuso", tips: "Valico pedonale CHIUSO", lat: 45.8476, lng: 9.0446, traffic: "closed" },
-    { name: "Bizzarone-Novazzano (Brusata)", italianSide: "Bizzarone", avgWaitMorning: "5-12 min", avgWaitEvening: "8-15 min", peak: "7:30-8:30, 17:30-18:30", hours: "24h", tips: "Turistico/Residenziale. Buona alternativa", lat: 45.8401, lng: 8.9593, traffic: "low" },
-    { name: "Ronago-Novazzano (Marcetto)", italianSide: "Ronago", avgWaitMorning: "5-12 min", avgWaitEvening: "10-18 min", peak: "7:00-8:30, 17:00-18:30", hours: "24h", tips: "Turistico/Residenziale. Poco traffico", lat: 45.8362, lng: 8.9830, traffic: "low" },
-    { name: "Crociale dei Mulini-Ponte Faloppia", italianSide: "Faloppio", avgWaitMorning: "3-8 min", avgWaitEvening: "5-10 min", peak: "7:30-8:30", hours: "24h", tips: "Turistico/Residenziale. Valico tranquillo", lat: 45.8340, lng: 8.9939, traffic: "low" },
-    { name: "Drezzo-Pedrinate", italianSide: "Drezzo", avgWaitMorning: "2-5 min", avgWaitEvening: "3-8 min", peak: "Poco traffico", hours: "24h (pedonale notturno)", tips: "Turistico/Residenziale. Traffico veicolare diurno", lat: 45.8206, lng: 9.0031, traffic: "low" },
-    { name: "Lanzo d'Intelvi-Arogno", italianSide: "Lanzo d'Intelvi", avgWaitMorning: "2-5 min", avgWaitEvening: "3-8 min", peak: "Poco traffico", hours: "24h", tips: "Valico montano. Ideale per zone interne", lat: 45.9624, lng: 9.0091, traffic: "low" },
-    { name: "Campione d'Italia-Bissone", italianSide: "Campione (enclave)", avgWaitMorning: "2-5 min", avgWaitEvening: "3-8 min", peak: "Sempre tranquillo", hours: "24h", tips: "Enclave italiana. Controlli rapidi, zona lago", lat: 45.9618, lng: 8.9686, traffic: "low" },
-    { name: "Oria-Gandria", italianSide: "Valsolda", avgWaitMorning: "2-5 min", avgWaitEvening: "3-6 min", peak: "Poco traffico", hours: "24h", tips: "Valico panoramico sul Lago di Lugano", lat: 46.0168, lng: 9.0223, traffic: "low" },
-    
-    // VARESE - TICINO (Valichi Principali)
-    { name: "Gaggiolo (Cantello-Stabio)", italianSide: "Cantello", avgWaitMorning: "10-20 min", avgWaitEvening: "15-30 min", peak: "7:00-8:30, 17:00-18:30", hours: "24h", tips: "Turistico-Commerciale. Seconda dogana più trafficata", lat: 45.8411, lng: 8.9134, traffic: "high" },
-    { name: "San Pietro (Clivio-Stabio)", italianSide: "Clivio", avgWaitMorning: "5-12 min", avgWaitEvening: "8-18 min", peak: "7:00-8:30, 17:00-18:30", hours: "24h", tips: "Residenziale-Traffico veicolare. Buona alternativa a Gaggiolo", lat: 45.8595, lng: 8.9321, traffic: "medium" },
-    { name: "Clivio-Ligornetto", italianSide: "Clivio", avgWaitMorning: "4-10 min", avgWaitEvening: "6-15 min", peak: "7:30-8:30, 17:30-18:30", hours: "24h", tips: "Residenziale-Traffico veicolare. Parallelo a San Pietro", lat: 45.8638, lng: 8.9395, traffic: "low" },
-    { name: "Rodero-Stabio (Dogana da Rödur)", italianSide: "Rodero", avgWaitMorning: "---", avgWaitEvening: "---", peak: "---", hours: "Solo pedonale", tips: "Valico pedonale. No traffico veicolare", lat: 45.8334, lng: 8.9262, traffic: "closed" },
-    { name: "Saltrio-Arzo", italianSide: "Saltrio", avgWaitMorning: "3-8 min", avgWaitEvening: "5-12 min", peak: "7:30-8:30", hours: "24h", tips: "Turistico. Valico montano poco trafficato", lat: 45.8740, lng: 8.9336, traffic: "low" },
-    { name: "Ponte Tresa", italianSide: "Lavena Ponte Tresa", avgWaitMorning: "5-15 min", avgWaitEvening: "10-20 min", peak: "7:30-8:30, 17:30-18:30", hours: "24h", tips: "Turistico-Commerciale. Zona lago, generalmente veloce", lat: 45.9670, lng: 8.8589, traffic: "medium" },
-    { name: "Porto Ceresio-Brusino Arsizio", italianSide: "Porto Ceresio", avgWaitMorning: "3-8 min", avgWaitEvening: "5-12 min", peak: "7:30-8:30, 17:30-18:30", hours: "06:00-22:00", tips: "Turistico. Poco trafficato, chiusura notturna", lat: 45.9135, lng: 8.9042, traffic: "low" },
-    { name: "Cremenaga-Ponte Cremenaga", italianSide: "Cremenaga", avgWaitMorning: "2-5 min", avgWaitEvening: "3-8 min", peak: "Poco traffico", hours: "06:00-20:00", tips: "Turistico. Valico minore, chiusura notturna", lat: 45.9907, lng: 8.8075, traffic: "low" },
-    { name: "Luino-Fornasette", italianSide: "Luino", avgWaitMorning: "4-10 min", avgWaitEvening: "6-15 min", peak: "7:30-8:30", hours: "24h", tips: "Turistico. Zona lago settentrionale", lat: 45.9931, lng: 8.7878, traffic: "medium" },
-    { name: "Zenna-Dirinella", italianSide: "Zenna", avgWaitMorning: "2-5 min", avgWaitEvening: "3-8 min", peak: "Poco traffico", hours: "24h", tips: "Turistico. Valico tranquillo zona montuosa", lat: 46.1040, lng: 8.7579, traffic: "low" },
-    { name: "Biegno-Indemini", italianSide: "Curiglia con Monteviasco", avgWaitMorning: "2-5 min", avgWaitEvening: "3-6 min", peak: "Poco traffico", hours: "24h", tips: "Residenziale. Valico montano (950m), panoramico", lat: 46.0955, lng: 8.8164, traffic: "low" },
-    { name: "Dumenza (Palone)-Cassinone", italianSide: "Dumenza", avgWaitMorning: "2-5 min", avgWaitEvening: "3-6 min", peak: "Poco traffico", hours: "24h", tips: "Residenziale. Valico montano poco frequentato", lat: 46.0052, lng: 8.7921, traffic: "low" },
-  ];
+  // Dogane Canton Ticino - Italia (fonte centralizzata: data/borderCrossings.ts)
+  const borderCrossings = centralizedBorderCrossings.map(c => ({
+    name: c.name,
+    italianSide: c.italianSide,
+    avgWaitMorning: c.avgWaitMorning,
+    avgWaitEvening: c.avgWaitEvening,
+    peak: c.peak,
+    hours: c.hours,
+    tips: c.tips,
+    lat: c.lat,
+    lng: c.lng,
+    traffic: c.trafficLevel,
+  }));
 
   const costComparison = [
-    { category: "Affitto 3.5 locali", switzerland: "1800-2500 CHF", italy: "700-1200 €", note: "Lugano/Mendrisio vs Como/Varese" },
-    { category: "Spesa mensile (2 persone)", switzerland: "600-800 CHF", italy: "350-500 €", note: "Supermercati standard" },
-    { category: "Benzina (litro)", switzerland: "1.85 CHF", italy: "1.75 €", note: "Prezzi medi 2026" },
-    { category: "Ristorante (menù)", switzerland: "25-40 CHF", italy: "15-25 €", note: "Pranzo medio" },
-    { category: "Assicurazione auto", switzerland: "800-1200 CHF/anno", italy: "600-1000 €/anno", note: "Casco completo" },
-    { category: "Elettricità (kWh)", switzerland: "0.20 CHF", italy: "0.25 €", note: "Tariffa media" },
-    { category: "Internet", switzerland: "50-80 CHF", italy: "25-40 €", note: "Fibra 1 Gbps" }
+    { category: t('guide.costs.rent'), switzerland: "1800-2500 CHF", italy: "700-1200 €", note: t('guide.costs.rentNote') },
+    { category: t('guide.costs.groceries'), switzerland: "600-800 CHF", italy: "350-500 €", note: t('guide.costs.groceriesNote') },
+    { category: t('guide.costs.fuel'), switzerland: "1.85 CHF", italy: "1.75 €", note: t('guide.costs.fuelNote') },
+    { category: t('guide.costs.restaurant'), switzerland: "25-40 CHF", italy: "15-25 €", note: t('guide.costs.restaurantNote') },
+    { category: t('guide.costs.carInsurance'), switzerland: "800-1200 CHF/anno", italy: "600-1000 €/anno", note: t('guide.costs.carInsuranceNote') },
+    { category: t('guide.costs.electricity'), switzerland: "0.20 CHF", italy: "0.25 €", note: t('guide.costs.electricityNote') },
+    { category: t('guide.costs.internet'), switzerland: "50-80 CHF", italy: "25-40 €", note: t('guide.costs.internetNote') }
   ];
 
   return (
@@ -204,11 +191,10 @@ const FrontierGuide: React.FC = () => {
           <MapPin size={32} className="text-white" />
         </div>
         <h1 className="text-4xl font-extrabold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
-          Guida Completa al Frontalierato
+          {t('guide.title')}
         </h1>
         <p className="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
-          Tutte le informazioni essenziali per chi lavora in Svizzera e vive in Italia: comuni frontalieri, 
-          costi, tempi di percorrenza e consigli pratici.
+          {t('guide.subtitle')}
         </p>
       </div>
 
@@ -223,7 +209,7 @@ const FrontierGuide: React.FC = () => {
           }`}
         >
           <MapPin size={16} />
-          Comuni Frontalieri
+          {t('guide.tabs.municipalities')}
         </button>
         <button
           onClick={() => handleSectionChange('border')}
@@ -234,7 +220,7 @@ const FrontierGuide: React.FC = () => {
           }`}
         >
           <Timer size={16} />
-          Dogane & Tempi
+          {t('guide.tabs.border')}
         </button>
         <button
           onClick={() => handleSectionChange('costs')}
@@ -245,7 +231,7 @@ const FrontierGuide: React.FC = () => {
           }`}
         >
           <Euro size={16} />
-          Costi & Consumi
+          {t('guide.tabs.costs')}
         </button>
         <button
           onClick={() => handleSectionChange('living-ch')}
@@ -256,7 +242,7 @@ const FrontierGuide: React.FC = () => {
           }`}
         >
           <Home size={16} />
-          Vivere in CH
+          {t('guide.tabs.livingCH')}
         </button>
         <button
           onClick={() => handleSectionChange('living-it')}
@@ -267,7 +253,7 @@ const FrontierGuide: React.FC = () => {
           }`}
         >
           <Users size={16} />
-          Vivere in IT
+          {t('guide.tabs.livingIT')}
         </button>
         <button
           onClick={() => handleSectionChange('calendar')}
@@ -278,7 +264,7 @@ const FrontierGuide: React.FC = () => {
           }`}
         >
           <Calendar size={16} />
-          Scadenze Fiscali
+          {t('guide.tabs.calendar')}
         </button>
         <button
           onClick={() => handleSectionChange('permits')}
@@ -289,7 +275,18 @@ const FrontierGuide: React.FC = () => {
           }`}
         >
           <Shield size={16} />
-          Permessi Lavoro
+          {t('guide.tabs.permits')}
+        </button>
+        <button
+          onClick={() => handleSectionChange('companies')}
+          className={`px-4 py-2.5 rounded-xl font-bold text-sm transition-all flex items-center gap-2 ${
+            activeSection === 'companies'
+              ? 'bg-teal-600 text-white shadow-lg scale-105'
+              : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700'
+          }`}
+        >
+          <Building2 size={16} />
+          {t('guide.tabs.companies')}
         </button>
       </div>
 
@@ -298,15 +295,15 @@ const FrontierGuide: React.FC = () => {
         <div className="space-y-6 animate-fade-in">
           <SectionHeader 
             icon={MapPin} 
-            title="Comuni Frontalieri Lombardia" 
-            subtitle="Elenco principali comuni con distanze, dogane e popolazione"
+            title={t('guide.municipalities.title')} 
+            subtitle={t('guide.municipalities.subtitle')}
           />
 
           {/* Filtri e Ordinamento */}
           <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-4">
             <div className="flex flex-wrap gap-4 items-center justify-between">
               <div className="flex items-center gap-2">
-                <span className="text-sm font-bold text-slate-700 dark:text-slate-300">Ordina per:</span>
+                <span className="text-sm font-bold text-slate-700 dark:text-slate-300">{t('guide.sortBy')}:</span>
                 <button
                   onClick={() => setSortBy('distance')}
                   className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
@@ -315,7 +312,7 @@ const FrontierGuide: React.FC = () => {
                       : 'bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-600'
                   }`}
                 >
-                  📍 Distanza
+                  📍 {t('guide.distance')}
                 </button>
                 <button
                   onClick={() => setSortBy('population')}
@@ -325,11 +322,11 @@ const FrontierGuide: React.FC = () => {
                       : 'bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-600'
                   }`}
                 >
-                  👥 Popolazione
+                  👥 {t('guide.population')}
                 </button>
               </div>
               <div className="flex items-center gap-2">
-                <span className="text-sm font-bold text-slate-700 dark:text-slate-300">Mostra:</span>
+                <span className="text-sm font-bold text-slate-700 dark:text-slate-300">{t('guide.show')}:</span>
                 <button
                   onClick={() => setFilterType('all')}
                   className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
@@ -338,7 +335,7 @@ const FrontierGuide: React.FC = () => {
                       : 'bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-600'
                   }`}
                 >
-                  Tutti
+                  {t('guide.all')}
                 </button>
                 <button
                   onClick={() => setFilterType('new')}
@@ -348,7 +345,7 @@ const FrontierGuide: React.FC = () => {
                       : 'bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-600'
                   }`}
                 >
-                  Nuovo (entro 20km)
+                  {t('guide.newWithin20km')}
                 </button>
                 <button
                   onClick={() => setFilterType('old')}
@@ -358,7 +355,7 @@ const FrontierGuide: React.FC = () => {
                       : 'bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-600'
                   }`}
                 >
-                  Vecchio (oltre 20km)
+                  {t('guide.oldBeyond20km')}
                 </button>
               </div>
             </div>
@@ -375,34 +372,34 @@ const FrontierGuide: React.FC = () => {
                       {m.type === 'both' ? (
                         <>
                           <span className="px-2.5 py-1 rounded-lg text-xs font-bold bg-blue-600 text-white">
-                            NUOVO
+                            {t('guide.new')}
                           </span>
                           <span className="px-2.5 py-1 rounded-lg text-xs font-bold bg-orange-600 text-white">
-                            VECCHIO
+                            {t('guide.old')}
                           </span>
                         </>
                       ) : (
                         <span className={`px-2.5 py-1 rounded-lg text-xs font-bold ${m.type === 'new' ? 'bg-blue-600 text-white' : 'bg-orange-600 text-white'}`}>
-                          {m.type === 'new' ? 'NUOVO' : 'VECCHIO'}
+                          {m.type === 'new' ? t('guide.new') : t('guide.old')}
                         </span>
                       )}
                     </div>
                     <div className="grid sm:grid-cols-2 gap-3 text-sm">
                       <div className="flex items-center gap-2 text-slate-700 dark:text-slate-300">
                         <MapPin size={16} className="text-indigo-600" />
-                        <span><strong>Provincia:</strong> {m.province}</span>
+                        <span><strong>{t('guide.province')}:</strong> {m.province}</span>
                       </div>
                       <div className="flex items-center gap-2 text-slate-700 dark:text-slate-300">
                         <Navigation size={16} className="text-emerald-600" />
-                        <span><strong>Distanza:</strong> {m.distance} km dal confine</span>
+                        <span><strong>{t('guide.distance')}:</strong> {m.distance} {t('guide.kmFromBorder')}</span>
                       </div>
                       <div className="flex items-center gap-2 text-slate-700 dark:text-slate-300">
                         <Car size={16} className="text-orange-600" />
-                        <span><strong>Dogana:</strong> {m.borderCrossing}</span>
+                        <span><strong>{t('guide.borderCrossing')}:</strong> {m.borderCrossing}</span>
                       </div>
                       <div className="flex items-center gap-2 text-slate-700 dark:text-slate-300">
                         <Users size={16} className="text-purple-600" />
-                        <span><strong>Popolazione:</strong> {m.population.toLocaleString('it-IT')}</span>
+                        <span><strong>{t('guide.population')}:</strong> {m.population.toLocaleString('it-IT')}</span>
                       </div>
                     </div>
                   </div>
@@ -418,22 +415,22 @@ const FrontierGuide: React.FC = () => {
               <div className="p-2 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-xl">
                 <MapPin className="text-white" size={20} />
               </div>
-              <h3 className="text-xl font-bold text-slate-800 dark:text-slate-100">Mappa Comuni Frontalieri</h3>
+              <h3 className="text-xl font-bold text-slate-800 dark:text-slate-100">{t('guide.municipalities.mapTitle')}</h3>
             </div>
             
             {/* Legenda */}
             <div className="flex gap-4 mb-4 flex-wrap text-sm">
               <div className="flex items-center gap-2">
                 <div className="w-4 h-4 rounded-full bg-blue-600"></div>
-                <span className="text-slate-700 dark:text-slate-300">Solo Nuovo (entro 20km)</span>
+                <span className="text-slate-700 dark:text-slate-300">{t('guide.legendNewOnly')}</span>
               </div>
               <div className="flex items-center gap-2">
                 <div className="w-4 h-4 rounded-full bg-orange-600"></div>
-                <span className="text-slate-700 dark:text-slate-300">Solo Vecchio (oltre 20km)</span>
+                <span className="text-slate-700 dark:text-slate-300">{t('guide.legendOldOnly')}</span>
               </div>
               <div className="flex items-center gap-2">
                 <div className="w-4 h-4 rounded-full bg-purple-600"></div>
-                <span className="text-slate-700 dark:text-slate-300">Entrambi gli elenchi</span>
+                <span className="text-slate-700 dark:text-slate-300">{t('guide.legendBoth')}</span>
               </div>
             </div>
 
@@ -457,19 +454,19 @@ const FrontierGuide: React.FC = () => {
                       <div className="text-sm">
                         <h4 className="font-bold text-base mb-1">{m.name}</h4>
                         <div className="space-y-1 text-xs">
-                          <p><strong>Provincia:</strong> {m.province}</p>
-                          <p><strong>Distanza:</strong> {m.distance} km</p>
-                          <p><strong>Popolazione:</strong> {m.population.toLocaleString('it-IT')}</p>
-                          <p><strong>Dogana:</strong> {m.borderCrossing}</p>
+                          <p><strong>{t('guide.province')}:</strong> {m.province}</p>
+                          <p><strong>{t('guide.distance')}:</strong> {m.distance} km</p>
+                          <p><strong>{t('guide.population')}:</strong> {m.population.toLocaleString('it-IT')}</p>
+                          <p><strong>{t('guide.borderCrossing')}:</strong> {m.borderCrossing}</p>
                           <div className="flex gap-1 mt-2">
                             {m.type === 'both' ? (
                               <>
-                                <span className="px-2 py-0.5 rounded bg-blue-600 text-white text-xs font-bold">NUOVO</span>
-                                <span className="px-2 py-0.5 rounded bg-orange-600 text-white text-xs font-bold">VECCHIO</span>
+                                <span className="px-2 py-0.5 rounded bg-blue-600 text-white text-xs font-bold">{t('guide.new')}</span>
+                                <span className="px-2 py-0.5 rounded bg-orange-600 text-white text-xs font-bold">{t('guide.old')}</span>
                               </>
                             ) : (
                               <span className={`px-2 py-0.5 rounded ${m.type === 'new' ? 'bg-blue-600' : 'bg-orange-600'} text-white text-xs font-bold`}>
-                                {m.type === 'new' ? 'NUOVO' : 'VECCHIO'}
+                                {m.type === 'new' ? t('guide.new') : t('guide.old')}
                               </span>
                             )}
                           </div>
@@ -486,13 +483,13 @@ const FrontierGuide: React.FC = () => {
             <div className="flex items-start gap-3">
               <AlertCircle size={24} className="text-amber-600 flex-shrink-0" />
               <div className="text-sm text-amber-800 dark:text-amber-200 space-y-2">
-                <p className="font-bold">⚠️ Nota Importante</p>
+                <p className="font-bold">⚠️ {t('guide.municipalities.importantNote')}</p>
                 <ul className="space-y-1 text-xs">
-                  <li>• Questa lista mostra i <strong>principali comuni lombardi</strong> (province di Como e Varese)</li>
-                  <li>• <strong>Totale Lombardia:</strong> 338 comuni entro 20 km (Nuovo), 180+ comuni oltre 20 km (Vecchio)</li>
-                  <li>• Distanze calcolate in linea d'aria dal confine svizzero più vicino</li>
-                  <li>• <strong>Lista completa ufficiale:</strong> <a href="https://www.ti.ch/fonte" target="_blank" rel="noopener noreferrer" className="underline font-semibold">www.ti.ch/fonte</a></li>
-                  <li>• Verifica sempre con CAF/datore di lavoro la tua situazione specifica</li>
+                  <li>• {t('guide.municipalities.note1')}</li>
+                  <li>• {t('guide.municipalities.note2')}</li>
+                  <li>• {t('guide.municipalities.note3')}</li>
+                  <li>• {t('guide.municipalities.note4')} <a href="https://www.ti.ch/fonte" target="_blank" rel="noopener noreferrer" className="underline font-semibold">www.ti.ch/fonte</a></li>
+                  <li>• {t('guide.municipalities.note5')}</li>
                 </ul>
               </div>
             </div>
@@ -504,15 +501,15 @@ const FrontierGuide: React.FC = () => {
         <div className="space-y-6 animate-fade-in">
           <SectionHeader 
             icon={Timer} 
-            title="Dogane & Tempi di Percorrenza" 
-            subtitle="Attese medie e consigli per attraversare il confine"
+            title={t('guide.border.title')} 
+            subtitle={t('guide.border.subtitle')}
           />
 
           {/* Smart Filters */}
           <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-5 shadow-sm">
             <h3 className="text-sm font-bold text-slate-700 dark:text-slate-300 mb-4 flex items-center gap-2">
               <BarChart3 size={16} className="text-indigo-500" />
-              Filtri Intelligenti
+              {t('guide.border.smartFilters')}
             </h3>
             
             <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-3">
@@ -524,7 +521,7 @@ const FrontierGuide: React.FC = () => {
                 }}
                 className={`px-4 py-2.5 rounded-xl text-sm font-bold transition-all ${borderFilter === 'all' ? 'bg-indigo-500 text-white shadow-lg' : 'bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-800'}`}
               >
-                🔍 Tutte ({borderCrossings.filter(b => b.traffic !== 'closed').length})
+                🔍 {t('guide.all')} ({borderCrossings.filter(b => b.traffic !== 'closed').length})
               </button>
               <button
                 onClick={() => {
@@ -534,7 +531,7 @@ const FrontierGuide: React.FC = () => {
                 }}
                 className={`px-4 py-2.5 rounded-xl text-sm font-bold transition-all ${borderFilter === 'low-traffic' ? 'bg-emerald-500 text-white shadow-lg' : 'bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-800'}`}
               >
-                ✅ Poco Traffico ({borderCrossings.filter(b => b.traffic === 'low').length})
+                ✅ {t('guide.border.lowTraffic')} ({borderCrossings.filter(b => b.traffic === 'low').length})
               </button>
               <button
                 onClick={() => {
@@ -544,7 +541,7 @@ const FrontierGuide: React.FC = () => {
                 }}
                 className={`px-4 py-2.5 rounded-xl text-sm font-bold transition-all ${borderFilter === '24h' ? 'bg-blue-500 text-white shadow-lg' : 'bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-800'}`}
               >
-                ⏰ Aperte 24h ({borderCrossings.filter(b => b.hours === '24h').length})
+                ⏰ {t('guide.border.open24h')} ({borderCrossings.filter(b => b.hours === '24h').length})
               </button>
               <button
                 onClick={() => {
@@ -557,7 +554,7 @@ const FrontierGuide: React.FC = () => {
                 }}
                 className={`px-4 py-2.5 rounded-xl text-sm font-bold transition-all ${borderFilter === 'morning' ? 'bg-orange-500 text-white shadow-lg' : 'bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-800'}`}
               >
-                🌅 Veloci Mattina
+                🌅 {t('guide.border.fastMorning')}
               </button>
               <button
                 onClick={() => {
@@ -570,14 +567,14 @@ const FrontierGuide: React.FC = () => {
                 }}
                 className={`px-4 py-2.5 rounded-xl text-sm font-bold transition-all ${borderFilter === 'evening' ? 'bg-purple-500 text-white shadow-lg' : 'bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-800'}`}
               >
-                🌆 Veloci Sera
+                🌆 {t('guide.border.fastEvening')}
               </button>
             </div>
 
             {/* Time selector */}
             <div className="mt-4 p-4 bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 rounded-xl border border-blue-200 dark:border-blue-800">
               <div className="text-sm font-bold text-slate-700 dark:text-slate-300 mb-2">
-                💡 Consiglio in base all'orario:
+                💡 {t('guide.border.timeAdvice')}:
               </div>
               <div className="flex gap-2">
                 <button
@@ -591,7 +588,7 @@ const FrontierGuide: React.FC = () => {
                   }}
                   className={`flex-1 px-3 py-2 rounded-lg text-xs font-bold transition-all ${selectedTime === 'morning' ? 'bg-orange-500 text-white' : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-400'}`}
                 >
-                  🌅 Mattina (7-9)
+                  🌅 {t('guide.border.morning')} (7-9)
                 </button>
                 <button
                   onClick={() => {
@@ -604,7 +601,7 @@ const FrontierGuide: React.FC = () => {
                   }}
                   className={`flex-1 px-3 py-2 rounded-lg text-xs font-bold transition-all ${selectedTime === 'evening' ? 'bg-purple-500 text-white' : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-400'}`}
                 >
-                  🌆 Sera (17-19)
+                  🌆 {t('guide.border.evening')} (17-19)
                 </button>
                 <button
                   onClick={() => {
@@ -614,7 +611,7 @@ const FrontierGuide: React.FC = () => {
                   }}
                   className={`flex-1 px-3 py-2 rounded-lg text-xs font-bold transition-all ${selectedTime === 'night' ? 'bg-indigo-500 text-white' : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-400'}`}
                 >
-                  🌙 Notte
+                  🌙 {t('guide.border.night')}
                 </button>
               </div>
             </div>
@@ -624,7 +621,7 @@ const FrontierGuide: React.FC = () => {
           <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-5 shadow-sm">
             <h3 className="text-sm font-bold text-slate-700 dark:text-slate-300 mb-4 flex items-center gap-2">
               <MapPin size={16} className="text-red-500" />
-              Mappa Interattiva Dogane
+              {t('guide.border.interactiveMap')}
             </h3>
             <div className="h-[500px] rounded-xl overflow-hidden border-2 border-slate-200 dark:border-slate-700">
               <MapContainer center={[45.87, 8.95]} zoom={10} style={{ height: '100%', width: '100%' }}>
@@ -663,11 +660,11 @@ const FrontierGuide: React.FC = () => {
                             <div className="font-bold text-slate-800 mb-1">{border.name}</div>
                             <div className="text-xs text-slate-600 mb-2">📍 {border.italianSide}</div>
                             <div className="text-xs space-y-1">
-                              <div><strong>🌅 Mattina:</strong> {border.avgWaitMorning}</div>
-                              <div><strong>🌆 Sera:</strong> {border.avgWaitEvening}</div>
-                              <div><strong>⏰ Orari:</strong> {border.hours}</div>
+                              <div><strong>🌅 {t('guide.border.morning')}:</strong> {border.avgWaitMorning}</div>
+                              <div><strong>🌆 {t('guide.border.evening')}:</strong> {border.avgWaitEvening}</div>
+                              <div><strong>⏰ {t('guide.border.hours')}:</strong> {t(border.hours)}</div>
                               <div className="pt-2 border-t border-slate-200">
-                                <strong>💡</strong> {border.tips}
+                                <strong>💡</strong> {t(border.tips)}
                               </div>
                             </div>
                           </div>
@@ -680,15 +677,15 @@ const FrontierGuide: React.FC = () => {
             <div className="mt-3 flex items-center justify-center gap-6 text-xs">
               <div className="flex items-center gap-2">
                 <div className="w-3 h-3 rounded-full bg-red-500 border-2 border-white"></div>
-                <span className="text-slate-600 dark:text-slate-400">Alto Traffico</span>
+                <span className="text-slate-600 dark:text-slate-400">{t('guide.border.highTraffic')}</span>
               </div>
               <div className="flex items-center gap-2">
                 <div className="w-3 h-3 rounded-full bg-orange-500 border-2 border-white"></div>
-                <span className="text-slate-600 dark:text-slate-400">Medio Traffico</span>
+                <span className="text-slate-600 dark:text-slate-400">{t('guide.border.mediumTraffic')}</span>
               </div>
               <div className="flex items-center gap-2">
                 <div className="w-3 h-3 rounded-full bg-emerald-500 border-2 border-white"></div>
-                <span className="text-slate-600 dark:text-slate-400">Basso Traffico</span>
+                <span className="text-slate-600 dark:text-slate-400">{t('guide.border.lowTrafficLabel')}</span>
               </div>
             </div>
           </div>
@@ -735,7 +732,7 @@ const FrontierGuide: React.FC = () => {
                   >
                     {isRecommended && (
                       <div className="mb-3 px-3 py-1.5 bg-emerald-500 text-white text-xs font-bold rounded-full inline-flex items-center gap-1.5">
-                        ⭐ Consigliata per {selectedTime === 'morning' ? 'Mattina' : selectedTime === 'evening' ? 'Sera' : 'Notte'}
+                        ⭐ {t('guide.border.recommendedFor')} {selectedTime === 'morning' ? t('guide.border.morning') : selectedTime === 'evening' ? t('guide.border.evening') : t('guide.border.night')}
                       </div>
                     )}
                     
@@ -751,24 +748,24 @@ const FrontierGuide: React.FC = () => {
 
                     <div className="space-y-2">
                       <div className="flex items-center justify-between">
-                        <span className="text-xs text-slate-600 dark:text-slate-400">Attesa Mattina (🌅 7-9)</span>
+                        <span className="text-xs text-slate-600 dark:text-slate-400">{t('guide.border.waitMorning')} (🌅 7-9)</span>
                         <span className={`text-sm font-bold ${selectedTime === 'morning' ? 'text-orange-600' : 'text-slate-600'}`}>{border.avgWaitMorning}</span>
                       </div>
                       <div className="flex items-center justify-between">
-                        <span className="text-xs text-slate-600 dark:text-slate-400">Attesa Sera (🌆 17-19)</span>
+                        <span className="text-xs text-slate-600 dark:text-slate-400">{t('guide.border.waitEvening')} (🌆 17-19)</span>
                         <span className={`text-sm font-bold ${selectedTime === 'evening' ? 'text-purple-600' : 'text-slate-600'}`}>{border.avgWaitEvening}</span>
                       </div>
                       <div className="pt-2 border-t border-slate-200 dark:border-slate-700">
-                        <div className="text-xs text-slate-500 dark:text-slate-400 mb-1">⏰ Orari Apertura</div>
-                        <div className={`text-sm font-semibold ${border.hours === '24h' ? 'text-emerald-600' : 'text-orange-600'}`}>{border.hours}</div>
+                        <div className="text-xs text-slate-500 dark:text-slate-400 mb-1">⏰ {t('guide.border.openingHours')}</div>
+                        <div className={`text-sm font-semibold ${border.hours === '24h' ? 'text-emerald-600' : 'text-orange-600'}`}>{t(border.hours)}</div>
                       </div>
                       <div className="pt-2 border-t border-slate-200 dark:border-slate-700">
-                        <div className="text-xs text-slate-500 dark:text-slate-400 mb-1">🔴 Orari di Punta</div>
-                        <div className="text-xs font-semibold text-slate-800 dark:text-slate-100">{border.peak}</div>
+                        <div className="text-xs text-slate-500 dark:text-slate-400 mb-1">🔴 {t('guide.border.peakHours')}</div>
+                        <div className="text-xs font-semibold text-slate-800 dark:text-slate-100">{t(border.peak)}</div>
                       </div>
                       <div className="p-2.5 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
                         <div className="text-xs text-blue-700 dark:text-blue-300">
-                          <strong>💡 Consiglio:</strong> {border.tips}
+                          <strong>💡 {t('guide.border.tip')}:</strong> {t(border.tips)}
                         </div>
                       </div>
                     </div>
@@ -777,7 +774,7 @@ const FrontierGuide: React.FC = () => {
               })}
           </div>
 
-          <InfoCard icon={Clock} title="Tempi di Percorrenza Medi" color="blue">
+          <InfoCard icon={Clock} title={t('guide.border.travelTimes')} color="blue">
             <div className="grid sm:grid-cols-2 gap-3">
               <div className="p-3 bg-slate-50 dark:bg-slate-900 rounded-lg">
                 <div className="text-xs text-slate-500 dark:text-slate-400 mb-1">Como → Lugano</div>
@@ -797,31 +794,31 @@ const FrontierGuide: React.FC = () => {
               </div>
             </div>
             <p className="text-xs text-slate-500 dark:text-slate-400 mt-3">
-              * Tempi variabili in base a traffico e code alla dogana. Considera +10/15 min nei giorni di pioggia o neve.
+              * {t('guide.border.travelTimesNote')}
             </p>
           </InfoCard>
 
-          <InfoCard icon={Car} title="Consigli per il Pendolarismo" color="purple">
+          <InfoCard icon={Car} title={t('guide.border.commutingTips')} color="purple">
             <ul className="space-y-2">
               <li className="flex items-start gap-2">
                 <CheckCircle2 size={16} className="text-purple-600 flex-shrink-0 mt-0.5" />
-                <span><strong>Parti presto:</strong> Evita l'orario 7:30-8:30 se possibile</span>
+                <span><strong>{t('guide.border.tip1Title')}:</strong> {t('guide.border.tip1')}</span>
               </li>
               <li className="flex items-start gap-2">
                 <CheckCircle2 size={16} className="text-purple-600 flex-shrink-0 mt-0.5" />
-                <span><strong>App traffico:</strong> Usa Google Maps o Waze per monitorare code in tempo reale</span>
+                <span><strong>{t('guide.border.tip2Title')}:</strong> {t('guide.border.tip2')}</span>
               </li>
               <li className="flex items-start gap-2">
                 <CheckCircle2 size={16} className="text-purple-600 flex-shrink-0 mt-0.5" />
-                <span><strong>Documenti:</strong> Tieni sempre permesso G, carta d'identità e libretto auto a portata di mano</span>
+                <span><strong>{t('guide.border.tip3Title')}:</strong> {t('guide.border.tip3')}</span>
               </li>
               <li className="flex items-start gap-2">
                 <CheckCircle2 size={16} className="text-purple-600 flex-shrink-0 mt-0.5" />
-                <span><strong>Vignetta autostradale:</strong> Obbligatoria CHF 40/anno (valida 14 mesi)</span>
+                <span><strong>{t('guide.border.tip4Title')}:</strong> {t('guide.border.tip4')}</span>
               </li>
               <li className="flex items-start gap-2">
                 <CheckCircle2 size={16} className="text-purple-600 flex-shrink-0 mt-0.5" />
-                <span><strong>Carpool:</strong> Considera car sharing con colleghi per risparmiare benzina</span>
+                <span><strong>{t('guide.border.tip5Title')}:</strong> {t('guide.border.tip5')}</span>
               </li>
             </ul>
           </InfoCard>
@@ -832,18 +829,18 @@ const FrontierGuide: React.FC = () => {
         <div className="space-y-6 animate-fade-in">
           <SectionHeader 
             icon={BarChart3} 
-            title="Confronto Costi Svizzera-Italia" 
-            subtitle="Confronto dettagliato del costo della vita tra Ticino e Italia"
+            title={t('guide.costs.title')} 
+            subtitle={t('guide.costs.subtitle')}
           />
 
           <div className="overflow-x-auto">
             <table className="w-full bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 overflow-hidden">
               <thead className="bg-gradient-to-r from-emerald-500 to-teal-600 text-white">
                 <tr>
-                  <th className="px-6 py-4 text-left font-bold">Categoria</th>
-                  <th className="px-6 py-4 text-left font-bold">🇨🇭 Svizzera</th>
-                  <th className="px-6 py-4 text-left font-bold">🇮🇹 Italia</th>
-                  <th className="px-6 py-4 text-left font-bold">Note</th>
+                  <th className="px-6 py-4 text-left font-bold">{t('guide.costs.category')}</th>
+                  <th className="px-6 py-4 text-left font-bold">🇨🇭 {t('guide.costs.switzerland')}</th>
+                  <th className="px-6 py-4 text-left font-bold">🇮🇹 {t('guide.costs.italy')}</th>
+                  <th className="px-6 py-4 text-left font-bold">{t('guide.costs.notes')}</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-slate-100 dark:divide-slate-700">
@@ -860,31 +857,31 @@ const FrontierGuide: React.FC = () => {
           </div>
 
           <div className="grid md:grid-cols-2 gap-6">
-            <InfoCard icon={ShoppingCart} title="Spesa Alimentare" color="green">
+            <InfoCard icon={ShoppingCart} title={t('guide.costs.foodTitle')} color="green">
               <div className="space-y-3">
                 <div className="flex items-center justify-between">
-                  <span>Pane (1 kg)</span>
+                  <span>{t('guide.costs.bread')}</span>
                   <div className="text-right">
                     <div className="text-sm font-bold text-red-600">CHF 5-6</div>
                     <div className="text-xs text-emerald-600">€ 2-3</div>
                   </div>
                 </div>
                 <div className="flex items-center justify-between">
-                  <span>Latte (1L)</span>
+                  <span>{t('guide.costs.milk')}</span>
                   <div className="text-right">
                     <div className="text-sm font-bold text-red-600">CHF 1.5-2</div>
                     <div className="text-xs text-emerald-600">€ 1.2-1.5</div>
                   </div>
                 </div>
                 <div className="flex items-center justify-between">
-                  <span>Pasta (500g)</span>
+                  <span>{t('guide.costs.pasta')}</span>
                   <div className="text-right">
                     <div className="text-sm font-bold text-red-600">CHF 2-3</div>
                     <div className="text-xs text-emerald-600">€ 0.8-1.5</div>
                   </div>
                 </div>
                 <div className="flex items-center justify-between">
-                  <span>Carne (1 kg)</span>
+                  <span>{t('guide.costs.meat')}</span>
                   <div className="text-right">
                     <div className="text-sm font-bold text-red-600">CHF 25-35</div>
                     <div className="text-xs text-emerald-600">€ 12-18</div>
@@ -892,14 +889,14 @@ const FrontierGuide: React.FC = () => {
                 </div>
               </div>
               <p className="text-xs text-slate-500 dark:text-slate-400 mt-3 pt-3 border-t border-slate-200 dark:border-slate-700">
-                💡 <strong>Consiglio:</strong> Molti frontalieri fanno spesa in Italia per risparmiare 30-40%
+                💡 <strong>{t('guide.border.tip')}:</strong> {t('guide.costs.foodTip')}
               </p>
             </InfoCard>
 
-            <InfoCard icon={Home} title="Costi Abitazione" color="orange">
+            <InfoCard icon={Home} title={t('guide.costs.housingTitle')} color="orange">
               <div className="space-y-3">
                 <div>
-                  <div className="font-semibold text-slate-800 dark:text-slate-100 mb-2">Affitto Mensile (3.5 locali)</div>
+                  <div className="font-semibold text-slate-800 dark:text-slate-100 mb-2">{t('guide.costs.monthlyRent')}</div>
                   <div className="grid grid-cols-2 gap-2">
                     <div className="p-2 bg-red-50 dark:bg-red-900/20 rounded-lg text-center">
                       <div className="text-xs text-slate-600 dark:text-slate-400">Lugano/Mendrisio</div>
@@ -912,7 +909,7 @@ const FrontierGuide: React.FC = () => {
                   </div>
                 </div>
                 <div>
-                  <div className="font-semibold text-slate-800 dark:text-slate-100 mb-2">Acquisto Casa (prezzo/m²)</div>
+                  <div className="font-semibold text-slate-800 dark:text-slate-100 mb-2">{t('guide.costs.housePurchase')}</div>
                   <div className="grid grid-cols-2 gap-2">
                     <div className="p-2 bg-red-50 dark:bg-red-900/20 rounded-lg text-center">
                       <div className="text-xs text-slate-600 dark:text-slate-400">Canton Ticino</div>
@@ -934,200 +931,200 @@ const FrontierGuide: React.FC = () => {
         <div className="space-y-6 animate-fade-in">
           <SectionHeader 
             icon={Home} 
-            title="Vivere in Svizzera (Permesso B)" 
-            subtitle="Cosa sapere se decidi di trasferirti in Canton Ticino"
+            title={t('guide.livingCH.title')} 
+            subtitle={t('guide.livingCH.subtitle')}
           />
 
           <div className="grid md:grid-cols-2 gap-6">
-            <InfoCard icon={FileText} title="Documenti Necessari" color="blue">
+            <InfoCard icon={FileText} title={t('guide.livingCH.documentsTitle')} color="blue">
               <ul className="space-y-2">
                 <li className="flex items-start gap-2">
                   <CheckCircle2 size={16} className="text-blue-600 flex-shrink-0 mt-0.5" />
-                  <span><strong>Contratto di lavoro:</strong> Indispensabile per permesso B</span>
+                  <span><strong>{t('guide.livingCH.doc1Title')}:</strong> {t('guide.livingCH.doc1')}</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircle2 size={16} className="text-blue-600 flex-shrink-0 mt-0.5" />
-                  <span><strong>Contratto affitto:</strong> Prova di residenza in Svizzera</span>
+                  <span><strong>{t('guide.livingCH.doc2Title')}:</strong> {t('guide.livingCH.doc2')}</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircle2 size={16} className="text-blue-600 flex-shrink-0 mt-0.5" />
-                  <span><strong>Certificato penale:</strong> Richiesto dal Comune italiano</span>
+                  <span><strong>{t('guide.livingCH.doc3Title')}:</strong> {t('guide.livingCH.doc3')}</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircle2 size={16} className="text-blue-600 flex-shrink-0 mt-0.5" />
-                  <span><strong>Foto tessera:</strong> 2 foto formato passaporto</span>
+                  <span><strong>{t('guide.livingCH.doc4Title')}:</strong> {t('guide.livingCH.doc4')}</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircle2 size={16} className="text-blue-600 flex-shrink-0 mt-0.5" />
-                  <span><strong>Passaporto/CI:</strong> Documento d'identità valido</span>
+                  <span><strong>{t('guide.livingCH.doc5Title')}:</strong> {t('guide.livingCH.doc5')}</span>
                 </li>
               </ul>
             </InfoCard>
 
-            <InfoCard icon={Shield} title="Assicurazioni Obbligatorie" color="purple">
+            <InfoCard icon={Shield} title={t('guide.livingCH.insuranceTitle')} color="purple">
               <ul className="space-y-2">
                 <li className="flex items-start gap-2">
                   <AlertCircle size={16} className="text-purple-600 flex-shrink-0 mt-0.5" />
                   <div>
-                    <strong>LAMal (Cassa Malati):</strong>
-                    <div className="text-xs mt-1">Obbligatoria entro 3 mesi. Costo: CHF 300-500/mese</div>
+                    <strong>{t('guide.livingCH.ins1Title')}:</strong>
+                    <div className="text-xs mt-1">{t('guide.livingCH.ins1')}</div>
                   </div>
                 </li>
                 <li className="flex items-start gap-2">
                   <AlertCircle size={16} className="text-purple-600 flex-shrink-0 mt-0.5" />
                   <div>
-                    <strong>Responsabilità Civile:</strong>
-                    <div className="text-xs mt-1">Consigliata (non obbligatoria). Costo: ~CHF 100/anno</div>
+                    <strong>{t('guide.livingCH.ins2Title')}:</strong>
+                    <div className="text-xs mt-1">{t('guide.livingCH.ins2')}</div>
                   </div>
                 </li>
                 <li className="flex items-start gap-2">
                   <AlertCircle size={16} className="text-purple-600 flex-shrink-0 mt-0.5" />
                   <div>
-                    <strong>Mobilia/Economia domestica:</strong>
-                    <div className="text-xs mt-1">Spesso richiesta dal proprietario. Costo: ~CHF 150/anno</div>
+                    <strong>{t('guide.livingCH.ins3Title')}:</strong>
+                    <div className="text-xs mt-1">{t('guide.livingCH.ins3')}</div>
                   </div>
                 </li>
               </ul>
             </InfoCard>
 
-            <InfoCard icon={Briefcase} title="Vantaggi Residenza CH" color="green">
+            <InfoCard icon={Briefcase} title={t('guide.livingCH.prosTitle')} color="green">
               <ul className="space-y-2">
                 <li className="flex items-start gap-2">
                   <CheckCircle2 size={16} className="text-emerald-600 flex-shrink-0 mt-0.5" />
-                  <span><strong>Tassazione alla fonte:</strong> Aliquota più bassa (~12-18%)</span>
+                  <span><strong>{t('guide.livingCH.pro1Title')}:</strong> {t('guide.livingCH.pro1')}</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircle2 size={16} className="text-emerald-600 flex-shrink-0 mt-0.5" />
-                  <span><strong>Niente dichiarazione IT:</strong> Non sei residente fiscale italiano</span>
+                  <span><strong>{t('guide.livingCH.pro2Title')}:</strong> {t('guide.livingCH.pro2')}</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircle2 size={16} className="text-emerald-600 flex-shrink-0 mt-0.5" />
-                  <span><strong>Zero tassa capital gain:</strong> Nessuna tassazione del 26% sugli investimenti (come invece in Italia)</span>
+                  <span><strong>{t('guide.livingCH.pro3Title')}:</strong> {t('guide.livingCH.pro3')}</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircle2 size={16} className="text-emerald-600 flex-shrink-0 mt-0.5" />
-                  <span><strong>Tax free shopping:</strong> Diritto alla restituzione parziale dell'IVA su acquisti in Italia e UE</span>
+                  <span><strong>{t('guide.livingCH.pro4Title')}:</strong> {t('guide.livingCH.pro4')}</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircle2 size={16} className="text-emerald-600 flex-shrink-0 mt-0.5" />
-                  <span><strong>Sanità svizzera:</strong> Sistema sanitario di alta qualità</span>
+                  <span><strong>{t('guide.livingCH.pro5Title')}:</strong> {t('guide.livingCH.pro5')}</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircle2 size={16} className="text-emerald-600 flex-shrink-0 mt-0.5" />
-                  <span><strong>Mobilità libera:</strong> Nessun obbligo di rientro settimanale</span>
+                  <span><strong>{t('guide.livingCH.pro6Title')}:</strong> {t('guide.livingCH.pro6')}</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircle2 size={16} className="text-emerald-600 flex-shrink-0 mt-0.5" />
-                  <span><strong>Ricongiungimento:</strong> Famiglia può trasferirsi facilmente</span>
+                  <span><strong>{t('guide.livingCH.pro7Title')}:</strong> {t('guide.livingCH.pro7')}</span>
                 </li>
               </ul>
             </InfoCard>
 
-            <InfoCard icon={AlertCircle} title="Svantaggi/Criticità" color="orange">
+            <InfoCard icon={AlertCircle} title={t('guide.livingCH.consTitle')} color="orange">
               <ul className="space-y-2">
                 <li className="flex items-start gap-2">
                   <AlertCircle size={16} className="text-orange-600 flex-shrink-0 mt-0.5" />
-                  <span><strong>Costo vita alto:</strong> Affitti e spese molto più elevati</span>
+                  <span><strong>{t('guide.livingCH.con1Title')}:</strong> {t('guide.livingCH.con1')}</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <AlertCircle size={16} className="text-orange-600 flex-shrink-0 mt-0.5" />
-                  <span><strong>Cassa malati:</strong> CHF 300-500/mese per adulto (obbligatoria)</span>
+                  <span><strong>{t('guide.livingCH.con2Title')}:</strong> {t('guide.livingCH.con2')}</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <AlertCircle size={16} className="text-orange-600 flex-shrink-0 mt-0.5" />
-                  <span><strong>Imposta sul patrimonio:</strong> Tassa cantonale su patrimonio complessivo (aliquote variabili)</span>
+                  <span><strong>{t('guide.livingCH.con3Title')}:</strong> {t('guide.livingCH.con3')}</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <AlertCircle size={16} className="text-orange-600 flex-shrink-0 mt-0.5" />
-                  <span><strong>Distanza familiari:</strong> Se la famiglia rimane in Italia</span>
+                  <span><strong>{t('guide.livingCH.con4Title')}:</strong> {t('guide.livingCH.con4')}</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <AlertCircle size={16} className="text-orange-600 flex-shrink-0 mt-0.5" />
-                  <span><strong>Prelievo LPP:</strong> Vincoli maggiori su 2° pilastro</span>
+                  <span><strong>{t('guide.livingCH.con5Title')}:</strong> {t('guide.livingCH.con5')}</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <AlertCircle size={16} className="text-orange-600 flex-shrink-0 mt-0.5" />
-                  <span><strong>Integrazione:</strong> Possibile barriera linguistica (tedesco/dialetto)</span>
+                  <span><strong>{t('guide.livingCH.con6Title')}:</strong> {t('guide.livingCH.con6')}</span>
                 </li>
               </ul>
             </InfoCard>
           </div>
 
           <div className="grid md:grid-cols-1 gap-6">
-            <InfoCard icon={Euro} title="💰 Investimenti & Fiscalità" color="teal">
+            <InfoCard icon={Euro} title={t('guide.livingCH.investTitle')} color="teal">
               <div className="space-y-4">
                 <div className="p-4 bg-emerald-50 dark:bg-emerald-900/20 rounded-xl border-2 border-emerald-200 dark:border-emerald-800">
                   <div className="flex items-center gap-2 mb-2">
                     <CheckCircle2 size={18} className="text-emerald-600" />
-                    <strong className="text-emerald-700 dark:text-emerald-300">✅ Capital Gain Esente</strong>
+                    <strong className="text-emerald-700 dark:text-emerald-300">✅ {t('guide.livingCH.capitalGainTitle')}</strong>
                   </div>
                   <p className="text-sm text-slate-700 dark:text-slate-300 mb-2">
-                    Con residenza in Svizzera, <strong>non paghi la tassa del 26% sul capital gain</strong> che invece è dovuta in Italia sugli investimenti finanziari (azioni, ETF, fondi, obbligazioni).
+                    {t('guide.livingCH.capitalGainDesc')}
                   </p>
                   <p className="text-xs text-slate-600 dark:text-slate-400">
-                    💡 In Svizzera i guadagni da investimenti privati sono considerati <strong>reddito esente</strong>, a patto che tu sia un investitore privato (non trader professionale).
+                    💡 {t('guide.livingCH.capitalGainNote')}
                   </p>
                 </div>
 
                 <div className="p-4 bg-orange-50 dark:bg-orange-900/20 rounded-xl border-2 border-orange-200 dark:border-orange-800">
                   <div className="flex items-center gap-2 mb-2">
                     <AlertCircle size={18} className="text-orange-600" />
-                    <strong className="text-orange-700 dark:text-orange-300">⚠️ Imposta sul Patrimonio</strong>
+                    <strong className="text-orange-700 dark:text-orange-300">⚠️ {t('guide.livingCH.wealthTaxTitle')}</strong>
                   </div>
                   <p className="text-sm text-slate-700 dark:text-slate-300 mb-2">
-                    Però, in Svizzera esiste l'<strong>imposta sul patrimonio complessivo</strong> (Vermögenssteuer), applicata a livello cantonale sul valore totale dei tuoi beni (conti correnti, investimenti, immobili, ecc.).
+                    {t('guide.livingCH.wealthTaxDesc')}
                   </p>
                   <div className="text-xs space-y-1 text-slate-600 dark:text-slate-400">
                     <div className="flex items-start gap-2">
                       <span>📊</span>
-                      <span><strong>Aliquota Canton Ticino:</strong> Progressiva, circa 0.1-0.5% annuo sul patrimonio netto</span>
+                      <span><strong>{t('guide.livingCH.wealthTaxRate')}:</strong> {t('guide.livingCH.wealthTaxRateDesc')}</span>
                     </div>
                     <div className="flex items-start gap-2">
                       <span>💼</span>
-                      <span><strong>Franchigia:</strong> Esenzione per patrimoni sotto una certa soglia (varia per Comune)</span>
+                      <span><strong>{t('guide.livingCH.wealthTaxExemption')}:</strong> {t('guide.livingCH.wealthTaxExemptionDesc')}</span>
                     </div>
                     <div className="flex items-start gap-2">
                       <span>🧮</span>
-                      <span><strong>Esempio:</strong> Con CHF 200'000 di patrimonio, paghi circa CHF 200-1000/anno (dipende dal Comune)</span>
+                      <span><strong>{t('guide.livingCH.wealthTaxExample')}:</strong> {t('guide.livingCH.wealthTaxExampleDesc')}</span>
                     </div>
                   </div>
                 </div>
               </div>
             </InfoCard>
 
-            <InfoCard icon={ShoppingCart} title="🛍️ Tax Free & Restituzione IVA" color="purple">
+            <InfoCard icon={ShoppingCart} title={t('guide.livingCH.taxFreeTitle')} color="purple">
               <div className="space-y-4">
                 <div className="p-4 bg-purple-50 dark:bg-purple-900/20 rounded-xl border-2 border-purple-200 dark:border-purple-800">
                   <div className="flex items-center gap-2 mb-2">
                     <CheckCircle2 size={18} className="text-purple-600" />
-                    <strong className="text-purple-700 dark:text-purple-300">✨ Diritto al Tax Free</strong>
+                    <strong className="text-purple-700 dark:text-purple-300">✨ {t('guide.livingCH.taxFreeRight')}</strong>
                   </div>
                   <p className="text-sm text-slate-700 dark:text-slate-300 mb-3">
-                    Come <strong>residente in Svizzera</strong>, hai diritto alla <strong>restituzione parziale dell'IVA</strong> su acquisti effettuati in Italia e nell'Unione Europea.
+                    {t('guide.livingCH.taxFreeDesc')}
                   </p>
                   <div className="space-y-2 text-xs text-slate-600 dark:text-slate-400">
                     <div className="flex items-start gap-2">
                       <span>🏷️</span>
                       <div>
-                        <strong>Soglia minima:</strong> Acquisto minimo di €154.94 (Italia) per richiedere il rimborso
+                        <strong>{t('guide.livingCH.taxFreeMin')}:</strong> {t('guide.livingCH.taxFreeMinDesc')}
                       </div>
                     </div>
                     <div className="flex items-start gap-2">
                       <span>📄</span>
                       <div>
-                        <strong>Procedura:</strong> Richiedi il modulo Tax Free nel negozio, fai timbrare in dogana al rientro in CH, invia per rimborso
+                        <strong>{t('guide.livingCH.taxFreeProcedure')}:</strong> {t('guide.livingCH.taxFreeProcedureDesc')}
                       </div>
                     </div>
                     <div className="flex items-start gap-2">
                       <span>💵</span>
                       <div>
-                        <strong>Rimborso IVA:</strong> Circa 15-18% del valore dell'acquisto (dopo commissioni operatore Tax Free)
+                        <strong>{t('guide.livingCH.taxFreeRefund')}:</strong> {t('guide.livingCH.taxFreeRefundDesc')}
                       </div>
                     </div>
                     <div className="flex items-start gap-2">
                       <span>⏱️</span>
                       <div>
-                        <strong>Tempi:</strong> Rimborso entro 2-3 mesi su carta di credito o bonifico
+                        <strong>{t('guide.livingCH.taxFreeTiming')}:</strong> {t('guide.livingCH.taxFreeTimingDesc')}
                       </div>
                     </div>
                   </div>
@@ -1135,13 +1132,13 @@ const FrontierGuide: React.FC = () => {
 
                 <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-xl border border-blue-200 dark:border-blue-800">
                   <div className="text-xs space-y-2 text-blue-700 dark:text-blue-300">
-                    <p><strong>💡 Consigli pratici:</strong></p>
+                    <p><strong>💡 {t('guide.livingCH.taxFreeTipsTitle')}:</strong></p>
                     <ul className="space-y-1 ml-4">
-                      <li>• Porta sempre con te il <strong>permesso B svizzero</strong> per dimostrare la residenza</li>
-                      <li>• Usa servizi come <strong>Global Blue</strong> o <strong>Planet</strong> per tax free digitale (più veloce)</li>
-                      <li>• Valido anche in aeroporti UE per acquisti duty-free</li>
-                      <li>• Funziona per abbigliamento, elettronica, gioielli, ma <strong>NON</strong> per alimentari o servizi</li>
-                      <li>• Risparmio reale: su €1000 di spesa, recuperi circa €130-150</li>
+                      <li>• {t('guide.livingCH.taxFreeTip1')}</li>
+                      <li>• {t('guide.livingCH.taxFreeTip2')}</li>
+                      <li>• {t('guide.livingCH.taxFreeTip3')}</li>
+                      <li>• {t('guide.livingCH.taxFreeTip4')}</li>
+                      <li>• {t('guide.livingCH.taxFreeTip5')}</li>
                     </ul>
                   </div>
                 </div>
@@ -1155,94 +1152,94 @@ const FrontierGuide: React.FC = () => {
         <div className="space-y-6 animate-fade-in">
           <SectionHeader 
             icon={Users} 
-            title="Vivere in Italia (Permesso G)" 
-            subtitle="La vita da frontaliere: cosa comporta risiedere in Italia"
+            title={t('guide.livingIT.title')} 
+            subtitle={t('guide.livingIT.subtitle')}
           />
 
           <div className="grid md:grid-cols-2 gap-6">
-            <InfoCard icon={FileText} title="Documenti da Presentare" color="blue">
+            <InfoCard icon={FileText} title={t('guide.livingIT.documentsTitle')} color="blue">
               <ul className="space-y-2">
                 <li className="flex items-start gap-2">
                   <CheckCircle2 size={16} className="text-blue-600 flex-shrink-0 mt-0.5" />
-                  <span><strong>Permesso G:</strong> Rilasciato dal Comune CH entro 8 giorni dall'assunzione</span>
+                  <span><strong>{t('guide.livingIT.doc1Title')}:</strong> {t('guide.livingIT.doc1')}</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircle2 size={16} className="text-blue-600 flex-shrink-0 mt-0.5" />
-                  <span><strong>Certificato residenza:</strong> Estratto dal Comune italiano</span>
+                  <span><strong>{t('guide.livingIT.doc2Title')}:</strong> {t('guide.livingIT.doc2')}</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircle2 size={16} className="text-blue-600 flex-shrink-0 mt-0.5" />
-                  <span><strong>Contratto lavoro:</strong> Copia del contratto svizzero</span>
+                  <span><strong>{t('guide.livingIT.doc3Title')}:</strong> {t('guide.livingIT.doc3')}</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircle2 size={16} className="text-blue-600 flex-shrink-0 mt-0.5" />
-                  <span><strong>Carta identità:</strong> Sempre valida e aggiornata</span>
+                  <span><strong>{t('guide.livingIT.doc4Title')}:</strong> {t('guide.livingIT.doc4')}</span>
                 </li>
               </ul>
             </InfoCard>
 
-            <InfoCard icon={Heart} title="Sanità & Assicurazioni" color="purple">
+            <InfoCard icon={Heart} title={t('guide.livingIT.healthTitle')} color="purple">
               <div className="space-y-3">
                 <div>
-                  <strong className="text-purple-600">Opzione 1: LAMal Svizzera</strong>
-                  <div className="text-xs mt-1">CHF 300-500/mese, copre tutto in CH e urgenze IT</div>
+                  <strong className="text-purple-600">{t('guide.livingIT.healthOpt1')}</strong>
+                  <div className="text-xs mt-1">{t('guide.livingIT.healthOpt1Desc')}</div>
                 </div>
                 <div>
-                  <strong className="text-emerald-600">Opzione 2: SSN Italia + Integrativa</strong>
-                  <div className="text-xs mt-1">Gratis SSN + ~€50-100/mese integrativa, valida in CH con TEAM</div>
+                  <strong className="text-emerald-600">{t('guide.livingIT.healthOpt2')}</strong>
+                  <div className="text-xs mt-1">{t('guide.livingIT.healthOpt2Desc')}</div>
                 </div>
                 <div className="p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg text-xs text-blue-700 dark:text-blue-300">
-                  💡 Molti frontalieri scelgono SSN per risparmiare, ma valuta coperture e tempi d'attesa
+                  💡 {t('guide.livingIT.healthTip')}
                 </div>
               </div>
             </InfoCard>
 
-            <InfoCard icon={Briefcase} title="Vantaggi da Frontaliere" color="green">
+            <InfoCard icon={Briefcase} title={t('guide.livingIT.prosTitle')} color="green">
               <ul className="space-y-2">
                 <li className="flex items-start gap-2">
                   <CheckCircle2 size={16} className="text-emerald-600 flex-shrink-0 mt-0.5" />
-                  <span><strong>Costo vita basso:</strong> Affitto e spese molto più economici</span>
+                  <span><strong>{t('guide.livingIT.pro1Title')}:</strong> {t('guide.livingIT.pro1')}</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircle2 size={16} className="text-emerald-600 flex-shrink-0 mt-0.5" />
-                  <span><strong>Vicinanza famiglia:</strong> Mantieni legami sociali in Italia</span>
+                  <span><strong>{t('guide.livingIT.pro2Title')}:</strong> {t('guide.livingIT.pro2')}</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircle2 size={16} className="text-emerald-600 flex-shrink-0 mt-0.5" />
-                  <span><strong>Opzione SSN:</strong> Sanità gratuita se scegli sistema italiano</span>
+                  <span><strong>{t('guide.livingIT.pro3Title')}:</strong> {t('guide.livingIT.pro3')}</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircle2 size={16} className="text-emerald-600 flex-shrink-0 mt-0.5" />
-                  <span><strong>Potere d'acquisto:</strong> Stipendio CH con costi IT = risparmio alto</span>
+                  <span><strong>{t('guide.livingIT.pro4Title')}:</strong> {t('guide.livingIT.pro4')}</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircle2 size={16} className="text-emerald-600 flex-shrink-0 mt-0.5" />
-                  <span><strong>Flessibilità:</strong> Puoi cambiare lavoro senza vincoli residenza</span>
+                  <span><strong>{t('guide.livingIT.pro5Title')}:</strong> {t('guide.livingIT.pro5')}</span>
                 </li>
               </ul>
             </InfoCard>
 
-            <InfoCard icon={AlertCircle} title="Criticità da Considerare" color="orange">
+            <InfoCard icon={AlertCircle} title={t('guide.livingIT.consTitle')} color="orange">
               <ul className="space-y-2">
                 <li className="flex items-start gap-2">
                   <AlertCircle size={16} className="text-orange-600 flex-shrink-0 mt-0.5" />
-                  <span><strong>Pendolarismo:</strong> 1-2 ore/giorno in macchina (stress, costi benzina)</span>
+                  <span><strong>{t('guide.livingIT.con1Title')}:</strong> {t('guide.livingIT.con1')}</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <AlertCircle size={16} className="text-orange-600 flex-shrink-0 mt-0.5" />
-                  <span><strong>Rientri obbligatori:</strong> Vecchi frontalieri devono rientrare settimanalmente</span>
+                  <span><strong>{t('guide.livingIT.con2Title')}:</strong> {t('guide.livingIT.con2')}</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <AlertCircle size={16} className="text-orange-600 flex-shrink-0 mt-0.5" />
-                  <span><strong>Dichiarazione IRPEF:</strong> Obbligo dichiarazione annuale italiana</span>
+                  <span><strong>{t('guide.livingIT.con3Title')}:</strong> {t('guide.livingIT.con3')}</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <AlertCircle size={16} className="text-orange-600 flex-shrink-0 mt-0.5" />
-                  <span><strong>Complessità fiscale:</strong> Sistema misto CH-IT più complesso</span>
+                  <span><strong>{t('guide.livingIT.con4Title')}:</strong> {t('guide.livingIT.con4')}</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <AlertCircle size={16} className="text-orange-600 flex-shrink-0 mt-0.5" />
-                  <span><strong>Traffico:</strong> Code quotidiane alle dogane (15-40 min)</span>
+                  <span><strong>{t('guide.livingIT.con5Title')}:</strong> {t('guide.livingIT.con5')}</span>
                 </li>
               </ul>
             </InfoCard>
@@ -1252,31 +1249,31 @@ const FrontierGuide: React.FC = () => {
             <div className="flex items-start gap-3">
               <Info size={24} className="text-indigo-600 flex-shrink-0" />
               <div className="space-y-3 text-sm text-indigo-800 dark:text-indigo-200">
-                <p className="font-bold">📋 Checklist Frontaliere Perfetto</p>
+                <p className="font-bold">📋 {t('guide.livingIT.checklistTitle')}</p>
                 <div className="grid sm:grid-cols-2 gap-2 text-xs">
                   <div className="flex items-center gap-2">
                     <CheckCircle2 size={14} className="text-indigo-600" />
-                    <span>Permesso G sempre valido</span>
+                    <span>{t('guide.livingIT.check1')}</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <CheckCircle2 size={14} className="text-indigo-600" />
-                    <span>Vignetta autostradale CH aggiornata</span>
+                    <span>{t('guide.livingIT.check2')}</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <CheckCircle2 size={14} className="text-indigo-600" />
-                    <span>Assicurazione auto valida in CH</span>
+                    <span>{t('guide.livingIT.check3')}</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <CheckCircle2 size={14} className="text-indigo-600" />
-                    <span>Immatricolazione auto entro 60 giorni</span>
+                    <span>{t('guide.livingIT.check4')}</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <CheckCircle2 size={14} className="text-indigo-600" />
-                    <span>Dichiarazione redditi IT entro scadenza</span>
+                    <span>{t('guide.livingIT.check5')}</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <CheckCircle2 size={14} className="text-indigo-600" />
-                    <span>Rispetto rientri settimanali (vecchi)</span>
+                    <span>{t('guide.livingIT.check6')}</span>
                   </div>
                 </div>
               </div>
@@ -1294,6 +1291,12 @@ const FrontierGuide: React.FC = () => {
       {activeSection === 'permits' && (
         <div className="animate-fade-in">
           <WorkPermitsGuide />
+        </div>
+      )}
+
+      {activeSection === 'companies' && (
+        <div className="animate-fade-in">
+          <TicinoCompanies />
         </div>
       )}
     </div>

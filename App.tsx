@@ -13,7 +13,6 @@ import HealthInsurance from '@/components/HealthInsurance';
 import BankComparison from '@/components/BankComparison';
 import TrafficAlerts from '@/components/TrafficAlerts';
 import JobComparator from '@/components/JobComparator';
-import TicinoCompanies from '@/components/TicinoCompanies';
 import WhatIfSimulator from '@/components/WhatIfSimulator';
 import Newsletter from '@/components/Newsletter';
 import LanguageSelector from '@/components/LanguageSelector';
@@ -21,6 +20,7 @@ import ApiStatus from '@/components/ApiStatus';
 import { PrivacyPolicy } from '@/components/PrivacyPolicy';
 import { DataDeletion } from '@/components/DataDeletion';
 import { ErrorBoundary } from '@/components/ErrorBoundary';
+import PwaInstallBanner from '@/components/PwaInstallBanner';
 import { calculateSimulation } from '@/services/calculationService';
 import { Analytics } from '@/services/analytics';
 import { updateMetaTags, trackSectionView } from '@/services/seoService';
@@ -37,7 +37,6 @@ const App: React.FC = () => {
   const [isFocusMode, setIsFocusMode] = useState(false);
   const [activeTab, setActiveTab] = useState<'calculator' | 'feedback' | 'stats' | 'pension' | 'guide' | 'comparatori' | 'privacy' | 'data-deletion' | 'api-status'>('calculator');
   const [comparatoriSubTab, setComparatoriSubTab] = useState<'exchange' | 'mobile' | 'transport' | 'health' | 'banks' | 'traffic' | 'jobs'>('exchange');
-  const [guideSubTab, setGuideSubTab] = useState<'guide' | 'companies'>('guide');
   const [simulatorSubTab, setSimulatorSubTab] = useState<'calculator' | 'whatif'>('calculator');
   const [pensionSubTab, setPensionSubTab] = useState<'planner' | 'pillar3'>('planner');
   const [showApiStatus, setShowApiStatus] = useState(false);
@@ -164,7 +163,7 @@ const App: React.FC = () => {
                 </div>
                 <div className="hidden sm:block">
                   <h1 className="text-lg font-bold text-slate-800 dark:text-slate-100 leading-none tracking-tight">
-                    Frontaliere Si o No?
+                    {t('app.title')}
                   </h1>
                   <p className="text-[10px] text-slate-500 dark:text-slate-400 font-bold uppercase tracking-widest mt-0.5">{t('nav.subtitle')}</p>
                 </div>
@@ -251,9 +250,9 @@ const App: React.FC = () => {
                       Analytics.trackFocusMode(newFocus);
                     }}
                     className={`p-2 rounded-xl transition-all ${isFocusMode ? 'bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400' : 'text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800'}`}
-                    title={isFocusMode ? "Esci da Fullscreen" : "Fullscreen"}
+                    title={isFocusMode ? t('app.exitFullscreen') : t('app.fullscreen')}
                   >
-                    {isFocusMode ? <Minimize2 size={18} /> : <Maximize2 size={18} />}
+                    {isFocusMode ? <Maximize2 size={18} /> : <Minimize2 size={18} />}
                   </button>
                 )}
 
@@ -381,15 +380,15 @@ const App: React.FC = () => {
 
               {simulatorSubTab === 'calculator' ? (
                 <div className="grid grid-cols-1 md:grid-cols-12 gap-6 h-full">
-                  <div className={`transition-all duration-500 ease-in-out ${isFocusMode ? 'hidden md:hidden' : 'md:col-span-4 lg:col-span-4 xl:col-span-3'} h-full`}>
+                  <div className={`transition-all duration-500 ease-in-out md:col-span-4 lg:col-span-4 xl:col-span-3 h-full`}>
                     <InputCard 
                       inputs={inputs} 
                       setInputs={setInputs} 
                       onCalculate={handleCalculate}
-                      isFocusMode={isFocusMode}
+                      isFocusMode={false}
                     />
                   </div>
-                  <div className={`transition-all duration-500 ease-in-out ${isFocusMode ? 'md:col-span-12' : 'md:col-span-8 lg:col-span-8 xl:col-span-9'} h-full`}>
+                  <div className={`transition-all duration-500 ease-in-out md:col-span-8 lg:col-span-8 xl:col-span-9 h-full`}>
                     {result && <ResultsView result={result} inputs={inputs} isDarkMode={isDarkMode} isFocusMode={isFocusMode} />}
                   </div>
                 </div>
@@ -400,38 +399,8 @@ const App: React.FC = () => {
               )}
             </div>
           ) : activeTab === 'guide' ? (
-            <div className="max-w-7xl mx-auto animate-fade-in space-y-6">
-              {/* Guide sub-tabs */}
-              <div className="flex gap-2 bg-white dark:bg-slate-800 rounded-xl p-1.5 border border-slate-200 dark:border-slate-700 max-w-md">
-                <button
-                  onClick={() => setGuideSubTab('guide')}
-                  className={`flex-1 flex items-center justify-center gap-2 px-4 py-2 text-sm font-bold rounded-lg transition-colors ${
-                    guideSubTab === 'guide'
-                      ? 'bg-indigo-600 text-white shadow-sm'
-                      : 'text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700'
-                  }`}
-                >
-                  <BookOpen size={16} />
-                  {t('nav.guide')}
-                </button>
-                <button
-                  onClick={() => setGuideSubTab('companies')}
-                  className={`flex-1 flex items-center justify-center gap-2 px-4 py-2 text-sm font-bold rounded-lg transition-colors ${
-                    guideSubTab === 'companies'
-                      ? 'bg-indigo-600 text-white shadow-sm'
-                      : 'text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700'
-                  }`}
-                >
-                  <MapPin size={16} />
-                  {t('comparators.companies')}
-                </button>
-              </div>
-
-              {guideSubTab === 'guide' ? (
-                <FrontierGuide />
-              ) : (
-                <TicinoCompanies />
-              )}
+            <div className="max-w-7xl mx-auto animate-fade-in">
+              <FrontierGuide />
             </div>
           ) : activeTab === 'pension' ? (
             <div className="max-w-7xl mx-auto animate-fade-in space-y-6">
@@ -545,7 +514,7 @@ const App: React.FC = () => {
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-1.5 px-3 py-1.5 text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 bg-slate-100/50 dark:bg-slate-800/50 hover:bg-blue-50 dark:hover:bg-blue-950/30 rounded-md transition-all duration-200 border border-slate-200/50 dark:border-slate-700/50 hover:border-blue-300 dark:hover:border-blue-700"
-                aria-label="Seguici su Facebook"
+                aria-label={t('footer.followFacebook')}
               >
                 <Facebook className="w-3.5 h-3.5" />
                 <span>Facebook</span>
@@ -554,6 +523,7 @@ const App: React.FC = () => {
             </div>
           </div>
         </footer>
+        <PwaInstallBanner />
       </div>
     </ErrorBoundary>
   );

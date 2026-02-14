@@ -9,6 +9,7 @@
 
 import recaptchaService from './recaptchaService';
 import { getConfigValue } from './firebase';
+import { borderCrossings as centralizedCrossings } from '../data/borderCrossings';
 
 interface BorderCrossingCoordinates {
   name: string;
@@ -27,65 +28,16 @@ export interface TrafficData {
   source: 'google-maps' | 'mock';
 }
 
-// Coordinate GPS dei valichi di confine CH-IT
-const BORDER_CROSSINGS: BorderCrossingCoordinates[] = [
-  {
-    name: 'Chiasso-Brogeda',
-    lat: 45.8356,
-    lng: 9.0294,
-    checkpointLat: 45.8456,
-    checkpointLng: 9.0294
-  },
-  {
-    name: 'Stabio-Gaggiolo',
-    lat: 45.8653,
-    lng: 8.9331,
-    checkpointLat: 45.8753,
-    checkpointLng: 8.9331
-  },
-  {
-    name: 'Ponte Tresa',
-    lat: 45.9719,
-    lng: 8.8569,
-    checkpointLat: 45.9819,
-    checkpointLng: 8.8569
-  },
-  {
-    name: 'Fornasette-Lavena',
-    lat: 45.9444,
-    lng: 8.8883,
-    checkpointLat: 45.9544,
-    checkpointLng: 8.8883
-  },
-  {
-    name: 'Ponte Cremenaga',
-    lat: 45.9558,
-    lng: 8.8672,
-    checkpointLat: 45.9658,
-    checkpointLng: 8.8672
-  },
-  {
-    name: 'Gaggiolo-Mendrisio',
-    lat: 45.8678,
-    lng: 8.9817,
-    checkpointLat: 45.8778,
-    checkpointLng: 8.9817
-  },
-  {
-    name: 'Ligornetto-Saltrio',
-    lat: 45.8506,
-    lng: 8.9489,
-    checkpointLat: 45.8606,
-    checkpointLng: 8.9489
-  },
-  {
-    name: 'Maslianico',
-    lat: 45.8261,
-    lng: 9.0661,
-    checkpointLat: 45.8361,
-    checkpointLng: 9.0661
-  }
-];
+// Build BORDER_CROSSINGS from the centralized data source (excluding closed crossings)
+const BORDER_CROSSINGS: BorderCrossingCoordinates[] = centralizedCrossings
+  .filter(c => c.trafficLevel !== 'closed')
+  .map(c => ({
+    name: c.name,
+    lat: c.lat,
+    lng: c.lng,
+    checkpointLat: c.lat + 0.01, // ~1km north into CH
+    checkpointLng: c.lng,
+  }));
 
 class TrafficService {
   private apiKey: string | null = null;
@@ -346,9 +298,19 @@ class TrafficService {
     let baseWait = 3;
     let direction = 'Entrambi';
     
-    // Chiasso ha sempre più traffico
+    // Chiasso variants have more traffic
     if (crossingName.includes('Chiasso')) {
       baseWait = 8;
+    }
+    
+    // Major crossings have more traffic
+    if (crossingName.includes('Gaggiolo') || crossingName.includes('Brogeda')) {
+      baseWait = 6;
+    }
+    
+    // Medium crossings
+    if (crossingName.includes('Ponte Tresa') || crossingName.includes('San Pietro') || crossingName.includes('Luino')) {
+      baseWait = 5;
     }
     
     // Picco mattutino (7-9) IT -> CH

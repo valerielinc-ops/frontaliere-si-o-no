@@ -40,53 +40,53 @@ export const calculateDynamicExpenses = (familyMembers: number, target: 'CH' | '
   
   if (target === 'CH') {
     return [
-      { label: 'Affitto (varia per nucleo)', amount: Math.round(1450 * coeff), frequency: 'MONTHLY', icon: 'Home' },
-      { label: 'Spesa Alimentare', amount: Math.round(500 * coeff), frequency: 'MONTHLY', icon: 'ShoppingBasket' },
-      { label: 'Internet Casa', amount: 60, frequency: 'MONTHLY', icon: 'Wifi' },
-      { label: 'Canone TV (Billag/Serafe)', amount: 335, frequency: 'ANNUAL', icon: 'Tv', tooltip: 'Canone TV obbligatorio (Billag/Serafe): 335 CHF/anno fisso.' },
-      { label: 'SIM Mobile', amount: familyMembers === 1 ? 45 : Math.round(45 * Math.min(familyMembers, 3) * 0.7), frequency: 'MONTHLY', icon: 'Smartphone', tooltip: 'Solo abbonamento voce/dati (no rate telefono).' },
-      { label: 'Elettricità & Riscaldamento', amount: Math.round(100 * coeff), frequency: 'MONTHLY', icon: 'Zap' },
-      { label: 'Trasporti/Abbonamento TPL', amount: 80, frequency: 'MONTHLY', icon: 'Bus' },
-      { label: 'Leasing/Rata Auto', amount: 400, frequency: 'MONTHLY', icon: 'Car' },
-      { label: 'Tassa Rifiuti/Acqua', amount: Math.round(50 * coeff), frequency: 'MONTHLY', icon: 'Droplet' },
+      { label: 'expenses.ch.rent', amount: Math.round(1450 * coeff), frequency: 'MONTHLY', icon: 'Home' },
+      { label: 'expenses.ch.groceries', amount: Math.round(500 * coeff), frequency: 'MONTHLY', icon: 'ShoppingBasket' },
+      { label: 'expenses.ch.internet', amount: 60, frequency: 'MONTHLY', icon: 'Wifi' },
+      { label: 'expenses.ch.tvLicense', amount: 335, frequency: 'ANNUAL', icon: 'Tv', tooltip: 'expenses.ch.tvLicenseTooltip' },
+      { label: 'expenses.ch.simMobile', amount: familyMembers === 1 ? 45 : Math.round(45 * Math.min(familyMembers, 3) * 0.7), frequency: 'MONTHLY', icon: 'Smartphone', tooltip: 'expenses.ch.simMobileTooltip' },
+      { label: 'expenses.ch.electricity', amount: Math.round(100 * coeff), frequency: 'MONTHLY', icon: 'Zap' },
+      { label: 'expenses.ch.transport', amount: 80, frequency: 'MONTHLY', icon: 'Bus' },
+      { label: 'expenses.ch.carLease', amount: 400, frequency: 'MONTHLY', icon: 'Car' },
+      { label: 'expenses.ch.wasteWater', amount: Math.round(50 * coeff), frequency: 'MONTHLY', icon: 'Droplet' },
     ];
   } else {
     return [
-      { label: 'Affitto/Mutuo (varia per nucleo)', amount: Math.round(750 * coeff), frequency: 'MONTHLY', icon: 'Home' },
-      { label: 'Spesa Alimentare', amount: Math.round(350 * coeff), frequency: 'MONTHLY', icon: 'ShoppingBasket' },
-      { label: 'Internet Casa Fibra', amount: 30, frequency: 'MONTHLY', icon: 'Wifi' },
-      { label: 'SIM Internet Cellulare', amount: familyMembers === 1 ? 15 : Math.round(15 * Math.min(familyMembers, 3) * 0.8), frequency: 'MONTHLY', icon: 'Smartphone', tooltip: 'Solo SIM Internet (voce/dati). Se hai telefono a rate, aggiungilo come spesa separata.' },
-      { label: 'Bollette Luce & Gas', amount: Math.round(120 * coeff), frequency: 'MONTHLY', icon: 'Zap' },
-      { label: 'Benzina/Autostrada', amount: 150, frequency: 'MONTHLY', icon: 'Fuel' },
-      { label: 'Rata Auto/Assicurazione', amount: 300, frequency: 'MONTHLY', icon: 'Car' },
-      { label: 'Canone RAI', amount: 90, frequency: 'ANNUAL', icon: 'Tv', tooltip: 'Canone RAI: importo fisso annuale di 90€.' },
-      { label: 'IMU/TARI (se proprietari)', amount: Math.round(800 * coeff), frequency: 'ANNUAL', icon: 'Home', tooltip: 'IMU: Non dovuta su prima casa (salvo immobili di lusso A/1, A/8, A/9). TARI: Molto variabile per comune e superficie (200-1000€/anno).' },
+      { label: 'expenses.it.rent', amount: Math.round(750 * coeff), frequency: 'MONTHLY', icon: 'Home' },
+      { label: 'expenses.it.groceries', amount: Math.round(350 * coeff), frequency: 'MONTHLY', icon: 'ShoppingBasket' },
+      { label: 'expenses.it.internet', amount: 30, frequency: 'MONTHLY', icon: 'Wifi' },
+      { label: 'expenses.it.simMobile', amount: familyMembers === 1 ? 15 : Math.round(15 * Math.min(familyMembers, 3) * 0.8), frequency: 'MONTHLY', icon: 'Smartphone', tooltip: 'expenses.it.simMobileTooltip' },
+      { label: 'expenses.it.utilities', amount: Math.round(120 * coeff), frequency: 'MONTHLY', icon: 'Zap' },
+      { label: 'expenses.it.fuel', amount: 150, frequency: 'MONTHLY', icon: 'Fuel' },
+      { label: 'expenses.it.carInsurance', amount: 300, frequency: 'MONTHLY', icon: 'Car' },
+      { label: 'expenses.it.tvLicense', amount: 90, frequency: 'ANNUAL', icon: 'Tv', tooltip: 'expenses.it.tvLicenseTooltip' },
+      { label: 'expenses.it.imuTari', amount: Math.round(800 * coeff), frequency: 'ANNUAL', icon: 'Home', tooltip: 'expenses.it.imuTariTooltip' },
     ];
   }
 };
 
 export const PRESET_EXPENSES_CH = [
-  { label: 'Affitto 2.5/3.5 Locali', amount: 1450, frequency: 'MONTHLY', icon: 'Home' },
-  { label: 'Spesa Alimentare', amount: 500, frequency: 'MONTHLY', icon: 'ShoppingBasket' },
-  { label: 'Internet Casa', amount: 60, frequency: 'MONTHLY', icon: 'Wifi' },
-  { label: 'Canone TV (Billag/Serafe)', amount: 335, frequency: 'ANNUAL', icon: 'Tv', tooltip: 'Canone TV obbligatorio (Billag/Serafe): 335 CHF/anno fisso.' },
-  { label: 'SIM Mobile', amount: 45, frequency: 'MONTHLY', icon: 'Smartphone', tooltip: 'Solo abbonamento voce/dati (no rate telefono).' },
-  { label: 'Elettricità & Riscaldamento', amount: 100, frequency: 'MONTHLY', icon: 'Zap' },
-  { label: 'Trasporti/Abbonamento TPL', amount: 80, frequency: 'MONTHLY', icon: 'Bus' },
-  { label: 'Leasing/Rata Auto', amount: 400, frequency: 'MONTHLY', icon: 'Car' },
-  { label: 'Tassa Rifiuti/Acqua', amount: 50, frequency: 'MONTHLY', icon: 'Droplet' },
+  { label: 'expenses.ch.rentPreset', amount: 1450, frequency: 'MONTHLY', icon: 'Home' },
+  { label: 'expenses.ch.groceries', amount: 500, frequency: 'MONTHLY', icon: 'ShoppingBasket' },
+  { label: 'expenses.ch.internet', amount: 60, frequency: 'MONTHLY', icon: 'Wifi' },
+  { label: 'expenses.ch.tvLicense', amount: 335, frequency: 'ANNUAL', icon: 'Tv', tooltip: 'expenses.ch.tvLicenseTooltip' },
+  { label: 'expenses.ch.simMobile', amount: 45, frequency: 'MONTHLY', icon: 'Smartphone', tooltip: 'expenses.ch.simMobileTooltip' },
+  { label: 'expenses.ch.electricity', amount: 100, frequency: 'MONTHLY', icon: 'Zap' },
+  { label: 'expenses.ch.transport', amount: 80, frequency: 'MONTHLY', icon: 'Bus' },
+  { label: 'expenses.ch.carLease', amount: 400, frequency: 'MONTHLY', icon: 'Car' },
+  { label: 'expenses.ch.wasteWater', amount: 50, frequency: 'MONTHLY', icon: 'Droplet' },
 ];
 
 export const PRESET_EXPENSES_IT = [
-  { label: 'Affitto/Mutuo', amount: 750, frequency: 'MONTHLY', icon: 'Home' },
-  { label: 'Spesa Alimentare', amount: 350, frequency: 'MONTHLY', icon: 'ShoppingBasket' },
-  { label: 'Internet Casa Fibra', amount: 30, frequency: 'MONTHLY', icon: 'Wifi' },
-  { label: 'SIM Internet Cellulare', amount: 15, frequency: 'MONTHLY', icon: 'Smartphone', tooltip: 'Solo SIM Internet (voce/dati). Se hai telefono a rate, aggiungilo come spesa separata.' },
-  { label: 'Bollette Luce & Gas', amount: 120, frequency: 'MONTHLY', icon: 'Zap' },
-  { label: 'Benzina/Autostrada', amount: 150, frequency: 'MONTHLY', icon: 'Fuel' },
-  { label: 'Rata Auto/Assicurazione', amount: 300, frequency: 'MONTHLY', icon: 'Car' },
-  { label: 'Canone RAI', amount: 90, frequency: 'ANNUAL', icon: 'Tv', tooltip: 'Canone RAI: importo fisso annuale di 90€.' },
-  { label: 'IMU/TARI (se proprietari)', amount: 800, frequency: 'ANNUAL', icon: 'Home', tooltip: 'IMU: Non dovuta su prima casa (salvo immobili di lusso A/1, A/8, A/9). TARI: Molto variabile per comune e superficie (200-1000€/anno).' },
+  { label: 'expenses.it.rentPreset', amount: 750, frequency: 'MONTHLY', icon: 'Home' },
+  { label: 'expenses.it.groceries', amount: 350, frequency: 'MONTHLY', icon: 'ShoppingBasket' },
+  { label: 'expenses.it.internet', amount: 30, frequency: 'MONTHLY', icon: 'Wifi' },
+  { label: 'expenses.it.simMobile', amount: 15, frequency: 'MONTHLY', icon: 'Smartphone', tooltip: 'expenses.it.simMobileTooltip' },
+  { label: 'expenses.it.utilities', amount: 120, frequency: 'MONTHLY', icon: 'Zap' },
+  { label: 'expenses.it.fuel', amount: 150, frequency: 'MONTHLY', icon: 'Fuel' },
+  { label: 'expenses.it.carInsurance', amount: 300, frequency: 'MONTHLY', icon: 'Car' },
+  { label: 'expenses.it.tvLicense', amount: 90, frequency: 'ANNUAL', icon: 'Tv', tooltip: 'expenses.it.tvLicenseTooltip' },
+  { label: 'expenses.it.imuTari', amount: 800, frequency: 'ANNUAL', icon: 'Home', tooltip: 'expenses.it.imuTariTooltip' },
 ];
 
 export const DEFAULT_INPUTS = {

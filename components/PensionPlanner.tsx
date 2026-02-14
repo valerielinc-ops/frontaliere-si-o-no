@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { TrendingUp, PiggyBank, Calendar, Info, AlertCircle, CheckCircle2, ArrowRight, Users, Home, Banknote, Calculator, Clock, Globe, Percent } from 'lucide-react';
+import { useTranslation } from '@/services/i18n';
 
 interface PensionInputs {
   currentAge: number;
@@ -39,6 +40,7 @@ const InfoTooltip = ({ text }: { text: string }) => (
 );
 
 const PensionPlanner: React.FC = () => {
+  const { t } = useTranslation();
   const [inputs, setInputs] = useState<PensionInputs>({
     currentAge: 35,
     retirementAge: 65,
@@ -122,11 +124,10 @@ const PensionPlanner: React.FC = () => {
           <PiggyBank size={32} className="text-white" />
         </div>
         <h1 className="text-4xl font-extrabold bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent">
-          Pianificatore Pensionistico Frontaliere
+          {t('pension.title')}
         </h1>
         <p className="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
-          Simula la tua pensione futura considerando contributi svizzeri (LPP + AVS) e italiani. 
-          Scopri quanto accumulerai e quanto riceverai mensilmente alla pensione.
+          {t('pension.subtitle')}
         </p>
       </div>
 
@@ -137,14 +138,14 @@ const PensionPlanner: React.FC = () => {
           <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-6 shadow-sm">
             <div className="flex items-center gap-3 mb-4">
               <Users className="text-emerald-600" size={20} />
-              <h3 className="text-lg font-bold text-slate-800 dark:text-slate-100">Dati Personali</h3>
+              <h3 className="text-lg font-bold text-slate-800 dark:text-slate-100">{t('pension.personalData')}</h3>
             </div>
 
             <div className="space-y-4">
               <div>
                 <label className="flex items-center text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">
-                  Età Attuale
-                  <InfoTooltip text="La tua età attuale per calcolare gli anni mancanti alla pensione" />
+                  {t('pension.currentAge')}
+                  <InfoTooltip text={t('pension.currentAgeTooltip')} />
                 </label>
                 <input
                   type="number"
@@ -158,8 +159,8 @@ const PensionPlanner: React.FC = () => {
 
               <div>
                 <label className="flex items-center text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">
-                  Età Pensionamento
-                  <InfoTooltip text="Età prevista per il pensionamento (65 standard, 64 donne CH)" />
+                  {t('pension.retirementAge')}
+                  <InfoTooltip text={t('pension.retirementAgeTooltip')} />
                 </label>
                 <input
                   type="number"
@@ -175,7 +176,7 @@ const PensionPlanner: React.FC = () => {
                 <div className="flex items-center gap-2 text-emerald-700 dark:text-emerald-400">
                   <Clock size={16} />
                   <span className="text-sm font-bold">
-                    {yearsUntilRetirement} anni alla pensione
+                    {yearsUntilRetirement} {t('pension.yearsToRetirement')}
                   </span>
                 </div>
               </div>
@@ -186,14 +187,14 @@ const PensionPlanner: React.FC = () => {
           <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-6 shadow-sm">
             <div className="flex items-center gap-3 mb-4">
               <Calendar className="text-blue-600" size={20} />
-              <h3 className="text-lg font-bold text-slate-800 dark:text-slate-100">Storico Lavorativo</h3>
+              <h3 className="text-lg font-bold text-slate-800 dark:text-slate-100">{t('pension.workHistory')}</h3>
             </div>
 
             <div className="space-y-4">
               <div>
                 <label className="flex items-center text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">
-                  Anni Già Lavorati in Svizzera
-                  <InfoTooltip text="Anni di contribuzione già versati al 2° pilastro (LPP)" />
+                  {t('pension.yearsWorkedCH')}
+                  <InfoTooltip text={t('pension.yearsWorkedCHTooltip')} />
                 </label>
                 <input
                   type="number"
@@ -207,8 +208,8 @@ const PensionPlanner: React.FC = () => {
 
               <div>
                 <label className="flex items-center text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">
-                  Anni Previsti Futuri in CH
-                  <InfoTooltip text="Per quanti anni ancora prevedi di lavorare in Svizzera" />
+                  {t('pension.plannedYearsCH')}
+                  <InfoTooltip text={t('pension.plannedYearsCHTooltip')} />
                 </label>
                 <input
                   type="number"
@@ -228,16 +229,16 @@ const PensionPlanner: React.FC = () => {
                     onChange={(e) => handleChange('hasItalianContributions', e.target.checked)}
                     className="mr-2 w-4 h-4 text-blue-600 rounded focus:ring-2 focus:ring-blue-500"
                   />
-                  Ho contributi previdenziali italiani
-                  <InfoTooltip text="Se hai lavorato in Italia e versato contributi INPS" />
+                  {t('pension.hasItalianContributions')}
+                  <InfoTooltip text={t('pension.hasItalianContributionsTooltip')} />
                 </label>
               </div>
 
               {inputs.hasItalianContributions && (
                 <div>
                   <label className="flex items-center text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">
-                    Anni Lavorati in Italia
-                    <InfoTooltip text="Anni di contributi INPS versati in Italia" />
+                    {t('pension.yearsWorkedIT')}
+                    <InfoTooltip text={t('pension.yearsWorkedITTooltip')} />
                   </label>
                   <input
                     type="number"
@@ -256,14 +257,14 @@ const PensionPlanner: React.FC = () => {
           <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-6 shadow-sm">
             <div className="flex items-center gap-3 mb-4">
               <Banknote className="text-purple-600" size={20} />
-              <h3 className="text-lg font-bold text-slate-800 dark:text-slate-100">Dati Finanziari</h3>
+              <h3 className="text-lg font-bold text-slate-800 dark:text-slate-100">{t('pension.financialData')}</h3>
             </div>
 
             <div className="space-y-4">
               <div>
                 <label className="flex items-center text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">
-                  Salario Lordo Annuo (CHF)
-                  <InfoTooltip text="Il tuo stipendio lordo annuale attuale in Svizzera" />
+                  {t('pension.grossSalary')}
+                  <InfoTooltip text={t('pension.grossSalaryTooltip')} />
                 </label>
                 <input
                   type="number"
@@ -277,8 +278,8 @@ const PensionPlanner: React.FC = () => {
 
               <div>
                 <label className="flex items-center text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">
-                  Capitale LPP Attuale (CHF)
-                  <InfoTooltip text="Avere attuale nel tuo 2° pilastro (visibile sul certificato LPP)" />
+                  {t('pension.currentLPP')}
+                  <InfoTooltip text={t('pension.currentLPPTooltip')} />
                 </label>
                 <input
                   type="number"
@@ -292,8 +293,8 @@ const PensionPlanner: React.FC = () => {
 
               <div>
                 <label className="flex items-center text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">
-                  Tasso Rendimento LPP (% annuo)
-                  <InfoTooltip text="Tasso di interesse annuo previsto sul 2° pilastro (1-2% realistico)" />
+                  {t('pension.returnRate')}
+                  <InfoTooltip text={t('pension.returnRateTooltip')} />
                 </label>
                 <input
                   type="number"
@@ -312,13 +313,13 @@ const PensionPlanner: React.FC = () => {
           <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-6 shadow-sm">
             <div className="flex items-center gap-3 mb-4">
               <Globe className="text-orange-600" size={20} />
-              <h3 className="text-lg font-bold text-slate-800 dark:text-slate-100">Piano di Rimpatrio</h3>
+              <h3 className="text-lg font-bold text-slate-800 dark:text-slate-100">{t('pension.repatriationPlan')}</h3>
             </div>
 
             <div className="space-y-3">
               <label className="flex items-center text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">
-                Dove prevedi di vivere in pensione?
-                <InfoTooltip text="Importante per il calcolo delle tasse sul 2° pilastro e le procedure di ritiro" />
+                {t('pension.whereRetire')}
+                <InfoTooltip text={t('pension.whereRetireTooltip')} />
               </label>
 
               {(['stay_ch', 'return_it', 'undecided'] as const).map((option) => (
@@ -337,14 +338,14 @@ const PensionPlanner: React.FC = () => {
                     )}
                     <div className="flex-1">
                       <div className="font-bold text-slate-800 dark:text-slate-100">
-                        {option === 'stay_ch' && '🇨🇭 Resto in Svizzera'}
-                        {option === 'return_it' && '🇮🇹 Ritorno in Italia'}
-                        {option === 'undecided' && '🤔 Non ancora deciso'}
+                        {option === 'stay_ch' && `🇨🇭 ${t('pension.stayCH')}`}
+                        {option === 'return_it' && `🇮🇹 ${t('pension.returnIT')}`}
+                        {option === 'undecided' && `🤔 ${t('pension.undecided')}`}
                       </div>
                       <div className="text-xs text-slate-500 dark:text-slate-400 mt-1">
-                        {option === 'stay_ch' && 'Pensione diretta, tasse svizzere sul capitale'}
-                        {option === 'return_it' && 'Possibile anticipo LPP, tasse di uscita CH'}
-                        {option === 'undecided' && 'Valuteremo entrambe le opzioni'}
+                        {option === 'stay_ch' && t('pension.stayCHDesc')}
+                        {option === 'return_it' && t('pension.returnITDesc')}
+                        {option === 'undecided' && t('pension.undecidedDesc')}
                       </div>
                     </div>
                   </div>
@@ -363,7 +364,7 @@ const PensionPlanner: React.FC = () => {
               <div className="flex items-start justify-between mb-4">
                 <div>
                   <div className="text-emerald-100 text-sm font-semibold uppercase tracking-wide mb-1">
-                    Pensione Mensile Totale
+                    {t('pension.totalMonthlyPension')}
                   </div>
                   <div className="text-4xl font-extrabold">
                     CHF {Math.round(result.totalMonthlyPensionCHF).toLocaleString('it-IT')}
@@ -372,7 +373,7 @@ const PensionPlanner: React.FC = () => {
                 <TrendingUp size={32} className="text-emerald-200" />
               </div>
               <div className="text-emerald-100 text-xs">
-                Stima basata su {yearsUntilRetirement} anni di contributi futuri
+                {t('pension.estimateBased')} {yearsUntilRetirement} {t('pension.yearsOfFutureContributions')}
               </div>
             </div>
 
@@ -384,7 +385,7 @@ const PensionPlanner: React.FC = () => {
                 </div>
                 <div>
                   <div className="text-xs text-slate-500 dark:text-slate-400 font-semibold uppercase tracking-wide">
-                    Capitale 2° Pilastro (LPP)
+                    {t('pension.lppCapital')}
                   </div>
                   <div className="text-2xl font-extrabold text-slate-800 dark:text-slate-100">
                     CHF {Math.round(result.lppAccumulated).toLocaleString('it-IT')}
@@ -392,14 +393,14 @@ const PensionPlanner: React.FC = () => {
                 </div>
               </div>
               <div className="flex items-center justify-between pt-3 border-t border-slate-100 dark:border-slate-700">
-                <span className="text-sm text-slate-600 dark:text-slate-400">Rendita mensile:</span>
+                <span className="text-sm text-slate-600 dark:text-slate-400">{t('pension.monthlyAnnuity')}:</span>
                 <span className="text-lg font-bold text-blue-600">
                   CHF {Math.round(result.lppMonthlyPension).toLocaleString('it-IT')}
                 </span>
               </div>
               <div className="mt-2 text-xs text-slate-500 dark:text-slate-400">
                 <InfoTooltip text="Tasso conversione 6.8% - Capitale può essere prelevato in parte o totalmente" />
-                Conversione: 6.8% annuo (standard)
+                {t('pension.conversionRate')}
               </div>
             </div>
 
@@ -411,7 +412,7 @@ const PensionPlanner: React.FC = () => {
                 </div>
                 <div>
                   <div className="text-xs text-slate-500 dark:text-slate-400 font-semibold uppercase tracking-wide">
-                    Pensione AVS (1° Pilastro)
+                    {t('pension.avsPension')}
                   </div>
                   <div className="text-2xl font-extrabold text-slate-800 dark:text-slate-100">
                     CHF {Math.round(result.avsPensionCHF).toLocaleString('it-IT')}
@@ -421,7 +422,7 @@ const PensionPlanner: React.FC = () => {
               <div className="flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400">
                 <Calculator size={12} />
                 <span>
-                  {result.yearsOfContributions.switzerland} anni di contributi / 44 necessari
+                  {result.yearsOfContributions.switzerland} {t('pension.contributionsOf44')}
                 </span>
               </div>
               <div className="mt-2 w-full bg-slate-100 dark:bg-slate-700 rounded-full h-2 overflow-hidden">
@@ -441,7 +442,7 @@ const PensionPlanner: React.FC = () => {
                   </div>
                   <div>
                     <div className="text-xs text-slate-500 dark:text-slate-400 font-semibold uppercase tracking-wide">
-                      Pensione INPS Italia
+                      {t('pension.inpsPension')}
                     </div>
                     <div className="text-2xl font-extrabold text-slate-800 dark:text-slate-100">
                       € {Math.round(result.italianPensionEUR).toLocaleString('it-IT')}
@@ -451,11 +452,11 @@ const PensionPlanner: React.FC = () => {
                 <div className="flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400">
                   <Calculator size={12} />
                   <span>
-                    {inputs.yearsWorkedIT} anni di contributi italiani
+                    {inputs.yearsWorkedIT} {t('pension.italianContributionYears')}
                   </span>
                 </div>
                 <div className="mt-3 p-2 bg-blue-50 dark:bg-blue-900/20 rounded-lg text-xs text-blue-700 dark:text-blue-400">
-                  <strong>Nota:</strong> Pensione proporzionale ai contributi versati in Italia
+                  <strong>{t('pension.note')}:</strong> {t('pension.proportionalPension')}
                 </div>
               </div>
             )}
@@ -465,19 +466,19 @@ const PensionPlanner: React.FC = () => {
           <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-6 shadow-sm">
             <h3 className="text-lg font-bold text-slate-800 dark:text-slate-100 mb-4 flex items-center gap-2">
               <Calculator size={20} className="text-emerald-600" />
-              Dettaglio Pensione Mensile
+              {t('pension.monthlyBreakdown')}
             </h3>
 
             <div className="space-y-3">
               <div className="flex items-center justify-between p-3 bg-slate-50 dark:bg-slate-900 rounded-lg">
-                <span className="text-sm font-semibold text-slate-700 dark:text-slate-300">Rendita LPP (2° Pilastro)</span>
+                <span className="text-sm font-semibold text-slate-700 dark:text-slate-300">{t('pension.lppAnnuity')}</span>
                 <span className="text-lg font-bold text-blue-600">
                   CHF {Math.round(result.lppMonthlyPension).toLocaleString('it-IT')}
                 </span>
               </div>
 
               <div className="flex items-center justify-between p-3 bg-slate-50 dark:bg-slate-900 rounded-lg">
-                <span className="text-sm font-semibold text-slate-700 dark:text-slate-300">Pensione AVS (1° Pilastro)</span>
+                <span className="text-sm font-semibold text-slate-700 dark:text-slate-300">{t('pension.avsFirstPillar')}</span>
                 <span className="text-lg font-bold text-red-600">
                   CHF {Math.round(result.avsPensionCHF).toLocaleString('it-IT')}
                 </span>
@@ -485,7 +486,7 @@ const PensionPlanner: React.FC = () => {
 
               {inputs.hasItalianContributions && result.italianPensionEUR > 0 && (
                 <div className="flex items-center justify-between p-3 bg-slate-50 dark:bg-slate-900 rounded-lg">
-                  <span className="text-sm font-semibold text-slate-700 dark:text-slate-300">Pensione INPS Italia</span>
+                  <span className="text-sm font-semibold text-slate-700 dark:text-slate-300">{t('pension.inpsPension')}</span>
                   <span className="text-lg font-bold text-green-600">
                     € {Math.round(result.italianPensionEUR).toLocaleString('it-IT')}
                   </span>
@@ -494,7 +495,7 @@ const PensionPlanner: React.FC = () => {
 
               <div className="border-t-2 border-emerald-500 pt-3 mt-3">
                 <div className="flex items-center justify-between p-4 bg-gradient-to-r from-emerald-50 to-teal-50 dark:from-emerald-900/20 dark:to-teal-900/20 rounded-xl">
-                  <span className="text-base font-bold text-slate-800 dark:text-slate-100">Totale Mensile</span>
+                  <span className="text-base font-bold text-slate-800 dark:text-slate-100">{t('pension.monthlyTotal')}</span>
                   <span className="text-2xl font-extrabold text-emerald-600">
                     CHF {Math.round(result.totalMonthlyPensionCHF).toLocaleString('it-IT')}
                   </span>
@@ -517,22 +518,22 @@ const PensionPlanner: React.FC = () => {
                 />
                 <div>
                   <h4 className="font-bold text-slate-800 dark:text-slate-100 mb-2">
-                    {inputs.repatriationPlan === 'stay_ch' ? '🇨🇭 Scenario: Pensione in Svizzera' : '🇮🇹 Scenario: Rimpatrio in Italia'}
+                    {inputs.repatriationPlan === 'stay_ch' ? `🇨🇭 ${t('pension.scenarioStayCH')}` : `🇮🇹 ${t('pension.scenarioReturnIT')}`}
                   </h4>
                   <ul className="text-sm space-y-1 text-slate-600 dark:text-slate-400">
                     {inputs.repatriationPlan === 'stay_ch' ? (
                       <>
-                        <li>✓ Rendita LPP erogata direttamente dal fondo pensione</li>
-                        <li>✓ AVS versata mensilmente in Svizzera</li>
-                        <li>✓ Tassazione svizzera sulla rendita pensionistica</li>
-                        <li>✓ Possibile prelievo anticipato capitale (max 100%)</li>
+                        <li>✓ {t('pension.stayCH1')}</li>
+                        <li>✓ {t('pension.stayCH2')}</li>
+                        <li>✓ {t('pension.stayCH3')}</li>
+                        <li>✓ {t('pension.stayCH4')}</li>
                       </>
                     ) : (
                       <>
-                        <li>⚠️ Prelievo capitale LPP con tassa di uscita 5-10%</li>
-                        <li>✓ AVS versata anche all'estero (coordinate bancarie IT)</li>
-                        <li>⚠️ Pensione italiana tassata in Italia (IRPEF)</li>
-                        <li>⚠️ Convenzione fiscale: evita doppia imposizione</li>
+                        <li>⚠️ {t('pension.returnIT1')}</li>
+                        <li>✓ {t('pension.returnIT2')}</li>
+                        <li>⚠️ {t('pension.returnIT3')}</li>
+                        <li>⚠️ {t('pension.returnIT4')}</li>
                       </>
                     )}
                   </ul>
@@ -546,13 +547,13 @@ const PensionPlanner: React.FC = () => {
             <div className="flex items-start gap-3">
               <AlertCircle size={20} className="text-amber-600 flex-shrink-0 mt-0.5" />
               <div className="space-y-2 text-sm text-amber-800 dark:text-amber-200">
-                <p className="font-bold">⚠️ Disclaimer Importante</p>
+                <p className="font-bold">⚠️ {t('pension.disclaimer')}</p>
                 <ul className="space-y-1 text-xs">
-                  <li>• Calcoli indicativi basati su tassi attuali (possono cambiare)</li>
-                  <li>• Tasso conversione LPP: 6.8% per 65 anni (può variare nel futuro)</li>
-                  <li>• AVS: calcolo semplificato, per importo preciso consultare AVS</li>
-                  <li>• Pensione italiana: stima approssimativa, verificare con INPS</li>
-                  <li>• Consigliamo consultazione con consulente previdenziale certificato</li>
+                  <li>• {t('pension.disclaimer1')}</li>
+                  <li>• {t('pension.disclaimer2')}</li>
+                  <li>• {t('pension.disclaimer3')}</li>
+                  <li>• {t('pension.disclaimer4')}</li>
+                  <li>• {t('pension.disclaimer5')}</li>
                 </ul>
               </div>
             </div>

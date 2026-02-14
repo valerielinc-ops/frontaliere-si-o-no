@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Car, Train, Bike, TrendingDown, TrendingUp, AlertCircle, Calculator, Euro, Fuel, Clock, Zap } from 'lucide-react';
+import { useTranslation } from '@/services/i18n';
 
 interface TransportOption {
   type: 'car-benzina' | 'car-diesel' | 'car-electric' | 'train' | 'ebike';
@@ -17,6 +18,7 @@ const transportOptions: TransportOption[] = [
 ];
 
 const TransportCalculator: React.FC = () => {
+  const { t } = useTranslation();
   const [kmOneWay, setKmOneWay] = useState<number>(30);
   const [workDaysPerMonth, setWorkDaysPerMonth] = useState<number>(20);
   const [fuelPriceCH, setFuelPriceCH] = useState<number>(1.85); // CHF/litro benzina
@@ -170,13 +172,10 @@ const TransportCalculator: React.FC = () => {
           <AlertCircle className="text-amber-600 dark:text-amber-400 flex-shrink-0 mt-0.5" size={22} />
           <div>
             <p className="font-bold text-amber-900 dark:text-amber-200 mb-1">
-              ⚠️ Funzionalità Sperimentale
+              ⚠️ {t('transport.experimental')}
             </p>
             <p className="text-sm text-amber-800 dark:text-amber-300">
-              Questo calcolatore fornisce una <strong>stima approssimativa</strong> e non tiene conto di molte variabili importanti come: 
-              costo iniziale del veicolo, ammortamento dettagliato, assicurazione personalizzata, manutenzione straordinaria, 
-              costi di parcheggio variabili, pedaggi stagionali, usura pneumatici, bollo auto specifico, e altri costi accessori.
-              Usa i risultati come riferimento generale, non come calcolo definitivo.
+              {t('transport.experimentalDesc')}
             </p>
           </div>
         </div>
@@ -186,10 +185,10 @@ const TransportCalculator: React.FC = () => {
       <div className="bg-gradient-to-br from-blue-600 to-cyan-700 rounded-2xl p-8 text-white">
         <div className="flex items-center gap-3 mb-4">
           <Car size={32} />
-          <h2 className="text-3xl font-extrabold">Calcolatore Costi Trasporto</h2>
+          <h2 className="text-3xl font-extrabold">{t('transport.title')}</h2>
         </div>
         <p className="text-blue-100 text-lg">
-          Calcola quanto ti costa andare al lavoro ogni mese: auto, treno, eBike
+          {t('transport.subtitle')}
         </p>
       </div>
 
@@ -197,13 +196,13 @@ const TransportCalculator: React.FC = () => {
       <div className="bg-white dark:bg-slate-800 rounded-2xl p-6 border border-slate-200 dark:border-slate-700">
         <h3 className="text-xl font-bold text-slate-800 dark:text-slate-100 mb-4 flex items-center gap-2">
           <Calculator size={20} />
-          I tuoi dati di viaggio
+          {t('transport.travelData')}
         </h3>
 
         <div className="grid md:grid-cols-2 gap-6">
           <div>
             <label className="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-2">
-              Distanza casa-lavoro (andata)
+              {t('transport.distanceOneWay')}
             </label>
             <div className="flex items-center gap-2">
               <input
@@ -215,13 +214,13 @@ const TransportCalculator: React.FC = () => {
               <span className="text-sm font-bold text-slate-600 dark:text-slate-400">km</span>
             </div>
             <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
-              Andata + ritorno: {kmPerDay} km/giorno
+              {t('transport.roundTrip')}: {kmPerDay} km/{t('transport.day')}
             </p>
           </div>
 
           <div>
             <label className="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-2">
-              Giorni lavorativi al mese
+              {t('transport.workDaysPerMonth')}
             </label>
             <div className="flex items-center gap-2">
               <input
@@ -230,16 +229,16 @@ const TransportCalculator: React.FC = () => {
                 onChange={(e) => setWorkDaysPerMonth(Number(e.target.value))}
                 className="flex-1 px-4 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-100"
               />
-              <span className="text-sm font-bold text-slate-600 dark:text-slate-400">giorni</span>
+              <span className="text-sm font-bold text-slate-600 dark:text-slate-400">{t('transport.days')}</span>
             </div>
             <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
-              Totale: {kmPerMonth.toLocaleString()} km/mese, {kmPerYear.toLocaleString()} km/anno
+              {t('transport.total')}: {kmPerMonth.toLocaleString()} km/{t('transport.month')}, {kmPerYear.toLocaleString()} km/{t('transport.year')}
             </p>
           </div>
 
           <div>
             <label className="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-2">
-              Consumo auto (l/100km)
+              {t('transport.fuelConsumption')}
             </label>
             <input
               type="number"
@@ -252,7 +251,7 @@ const TransportCalculator: React.FC = () => {
 
           <div>
             <label className="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-2">
-              Pedaggi autostradali (al mese)
+              {t('transport.tollsMonthly')}
             </label>
             <div className="flex items-center gap-2">
               <input
@@ -267,7 +266,7 @@ const TransportCalculator: React.FC = () => {
 
           <div>
             <label className="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-2">
-              Prezzo benzina IT (€/litro)
+              {t('transport.fuelPriceIT')}
             </label>
             <input
               type="number"
@@ -280,7 +279,7 @@ const TransportCalculator: React.FC = () => {
 
           <div>
             <label className="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-2">
-              Prezzo benzina CH (CHF/litro)
+              {t('transport.fuelPriceCH')}
             </label>
             <input
               type="number"
@@ -293,7 +292,7 @@ const TransportCalculator: React.FC = () => {
 
           <div>
             <label className="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-2">
-              Parcheggio (al mese)
+              {t('transport.parkingMonthly')}
             </label>
             <div className="flex items-center gap-2">
               <input
@@ -316,7 +315,7 @@ const TransportCalculator: React.FC = () => {
               <TrendingDown size={24} />
             </div>
             <div>
-              <p className="text-sm font-bold text-emerald-700 dark:text-emerald-400">Opzione più economica</p>
+              <p className="text-sm font-bold text-emerald-700 dark:text-emerald-400">{t('transport.cheapestOption')}</p>
               <h3 className="text-2xl font-extrabold text-slate-800 dark:text-slate-100">{cheapest.name}</h3>
             </div>
           </div>
@@ -334,7 +333,7 @@ const TransportCalculator: React.FC = () => {
               <TrendingUp size={24} />
             </div>
             <div>
-              <p className="text-sm font-bold text-red-700 dark:text-red-400">Opzione più costosa</p>
+              <p className="text-sm font-bold text-red-700 dark:text-red-400">{t('transport.mostExpensive')}</p>
               <h3 className="text-2xl font-extrabold text-slate-800 dark:text-slate-100">{mostExpensive.name}</h3>
             </div>
           </div>
@@ -342,7 +341,7 @@ const TransportCalculator: React.FC = () => {
             € {mostExpensive.costPerMonth.toFixed(2)}/mese
           </div>
           <p className="text-sm text-slate-600 dark:text-slate-400">
-            Risparmi <strong className="text-emerald-600">{savings.toFixed(2)} €/mese</strong> con {cheapest.name}
+            {t('transport.youSave')} <strong className="text-emerald-600">{savings.toFixed(2)} €/{t('transport.month')}</strong> {t('transport.with')} {cheapest.name}
           </p>
         </div>
       </div>
@@ -360,7 +359,7 @@ const TransportCalculator: React.FC = () => {
           >
             {result.name === cheapest.name && (
               <div className="mb-3 inline-flex items-center gap-1.5 px-3 py-1.5 bg-emerald-500 text-white text-xs font-bold rounded-full">
-                ✓ Più Economico
+                ✓ {t('transport.cheapest')}
               </div>
             )}
 
@@ -372,7 +371,7 @@ const TransportCalculator: React.FC = () => {
                 <div>
                   <h3 className="text-lg font-bold text-slate-800 dark:text-slate-100">{result.name}</h3>
                   <p className="text-xs text-slate-500 dark:text-slate-400">
-                    {result.type.includes('car') ? `${kmPerYear.toLocaleString()} km/anno` : 'Trasporto pubblico'}
+                    {result.type.includes('car') ? `${kmPerYear.toLocaleString()} km/${t('transport.year')}` : t('transport.publicTransport')}
                   </p>
                 </div>
               </div>
@@ -381,41 +380,41 @@ const TransportCalculator: React.FC = () => {
                 <div className="text-2xl font-extrabold text-slate-800 dark:text-slate-100">
                   € {result.costPerMonth.toFixed(2)}
                 </div>
-                <div className="text-xs text-slate-500 dark:text-slate-400">al mese</div>
+                <div className="text-xs text-slate-500 dark:text-slate-400">{t('transport.perMonth')}</div>
               </div>
             </div>
 
             {result.details && (
               <div className="space-y-2 mt-4 pt-4 border-t border-slate-200 dark:border-slate-700">
                 <div className="flex justify-between text-sm">
-                  <span className="text-slate-600 dark:text-slate-400">Carburante/Energia</span>
+                  <span className="text-slate-600 dark:text-slate-400">{t('transport.fuelEnergy')}</span>
                   <span className="font-bold text-slate-800 dark:text-slate-100">€ {result.details.fuelCost.toFixed(2)}</span>
                 </div>
                 <div className="flex justify-between text-sm">
-                  <span className="text-slate-600 dark:text-slate-400">Assicurazione</span>
+                  <span className="text-slate-600 dark:text-slate-400">{t('transport.insurance')}</span>
                   <span className="font-bold text-slate-800 dark:text-slate-100">€ {result.details.insurance.toFixed(2)}</span>
                 </div>
                 <div className="flex justify-between text-sm">
-                  <span className="text-slate-600 dark:text-slate-400">Manutenzione</span>
+                  <span className="text-slate-600 dark:text-slate-400">{t('transport.maintenance')}</span>
                   <span className="font-bold text-slate-800 dark:text-slate-100">€ {result.details.maintenance.toFixed(2)}</span>
                 </div>
                 <div className="flex justify-between text-sm">
-                  <span className="text-slate-600 dark:text-slate-400">Usura (gomme, freni)</span>
+                  <span className="text-slate-600 dark:text-slate-400">{t('transport.wear')}</span>
                   <span className="font-bold text-slate-800 dark:text-slate-100">€ {result.details.wear.toFixed(2)}</span>
                 </div>
                 <div className="flex justify-between text-sm">
-                  <span className="text-slate-600 dark:text-slate-400">Ammortamento</span>
+                  <span className="text-slate-600 dark:text-slate-400">{t('transport.depreciation')}</span>
                   <span className="font-bold text-slate-800 dark:text-slate-100">€ {result.details.depreciation.toFixed(2)}</span>
                 </div>
                 {result.details.tolls > 0 && (
                   <div className="flex justify-between text-sm">
-                    <span className="text-slate-600 dark:text-slate-400">Pedaggi</span>
+                    <span className="text-slate-600 dark:text-slate-400">{t('transport.tolls')}</span>
                     <span className="font-bold text-slate-800 dark:text-slate-100">€ {result.details.tolls.toFixed(2)}</span>
                   </div>
                 )}
                 {result.details.parking > 0 && (
                   <div className="flex justify-between text-sm">
-                    <span className="text-slate-600 dark:text-slate-400">Parcheggio</span>
+                    <span className="text-slate-600 dark:text-slate-400">{t('transport.parking')}</span>
                     <span className="font-bold text-slate-800 dark:text-slate-100">CHF {result.details.parking.toFixed(2)}</span>
                   </div>
                 )}
@@ -425,7 +424,7 @@ const TransportCalculator: React.FC = () => {
             {result.type === 'train' && (
               <div className="mt-4 p-3 bg-blue-50 dark:bg-blue-950/30 rounded-lg">
                 <p className="text-xs text-blue-800 dark:text-blue-300">
-                  💡 Stima basata su ~0.15€/km. Controlla abbonamenti mensili/annuali per risparmiare.
+                  💡 {t('transport.trainTip')}
                 </p>
               </div>
             )}
@@ -433,7 +432,7 @@ const TransportCalculator: React.FC = () => {
             {result.type === 'ebike' && (
               <div className="mt-4 p-3 bg-purple-50 dark:bg-purple-950/30 rounded-lg">
                 <p className="text-xs text-purple-800 dark:text-purple-300">
-                  💡 Include costo eBike (2500€ ammortizzato su 5 anni) + manutenzione
+                  💡 {t('transport.ebikeTip')}
                 </p>
               </div>
             )}
@@ -445,43 +444,43 @@ const TransportCalculator: React.FC = () => {
       <div className="bg-gradient-to-br from-amber-50 to-yellow-50 dark:from-amber-950/30 dark:to-yellow-950/30 rounded-2xl border border-amber-200 dark:border-amber-800 p-6">
         <h3 className="text-xl font-bold text-slate-800 dark:text-slate-100 mb-4 flex items-center gap-2">
           <AlertCircle size={20} className="text-amber-600" />
-          Consigli per risparmiare
+          {t('transport.savingTips')}
         </h3>
         
         <div className="grid md:grid-cols-2 gap-4">
           <div className="p-4 bg-white/50 dark:bg-slate-900/50 rounded-xl">
-            <p className="font-bold text-amber-700 dark:text-amber-400 mb-2">⛽ Dove fare benzina?</p>
+            <p className="font-bold text-amber-700 dark:text-amber-400 mb-2">⛽ {t('transport.whereToFuel')}</p>
             <ul className="space-y-1 text-sm text-slate-700 dark:text-slate-300 list-disc ml-4">
-              <li>Italia: benzina più economica (~10-15 cent/litro)</li>
-              <li>Fai rifornimento vicino al confine prima di tornare</li>
-              <li>App Prezzi Benzina per trovare stazioni più economiche</li>
+              <li>{t('transport.fuelTip1')}</li>
+              <li>{t('transport.fuelTip2')}</li>
+              <li>{t('transport.fuelTip3')}</li>
             </ul>
           </div>
 
           <div className="p-4 bg-white/50 dark:bg-slate-900/50 rounded-xl">
-            <p className="font-bold text-amber-700 dark:text-amber-400 mb-2">🚗 Elettrico conviene?</p>
+            <p className="font-bold text-amber-700 dark:text-amber-400 mb-2">🚗 {t('transport.electricWorth')}</p>
             <ul className="space-y-1 text-sm text-slate-700 dark:text-slate-300 list-disc ml-4">
-              <li>Ricarica a casa IT: ~35€/mese vs 180€ benzina</li>
-              <li>Manutenzione ridotta (no olio, filtri, frizione)</li>
-              <li>Considera costo acquisto: break-even dopo 5-7 anni</li>
+              <li>{t('transport.electricTip1')}</li>
+              <li>{t('transport.electricTip2')}</li>
+              <li>{t('transport.electricTip3')}</li>
             </ul>
           </div>
 
           <div className="p-4 bg-white/50 dark:bg-slate-900/50 rounded-xl">
-            <p className="font-bold text-amber-700 dark:text-amber-400 mb-2">🚆 Treno come alternativa</p>
+            <p className="font-bold text-amber-700 dark:text-amber-400 mb-2">🚆 {t('transport.trainAlternative')}</p>
             <ul className="space-y-1 text-sm text-slate-700 dark:text-slate-300 list-disc ml-4">
-              <li>Nessun stress traffico e parcheggio</li>
-              <li>Puoi lavorare/leggere durante il viaggio</li>
-              <li>Abbonamenti mensili convenienti (Tilo, SBB)</li>
+              <li>{t('transport.trainAltTip1')}</li>
+              <li>{t('transport.trainAltTip2')}</li>
+              <li>{t('transport.trainAltTip3')}</li>
             </ul>
           </div>
 
           <div className="p-4 bg-white/50 dark:bg-slate-900/50 rounded-xl">
-            <p className="font-bold text-amber-700 dark:text-amber-400 mb-2">💰 Deduzioni fiscali</p>
+            <p className="font-bold text-amber-700 dark:text-amber-400 mb-2">💰 {t('transport.taxDeductions')}</p>
             <ul className="space-y-1 text-sm text-slate-700 dark:text-slate-300 list-disc ml-4">
-              <li>Spese trasporto deducibili in dichiarazione</li>
-              <li>Conserva ricevute abbonamenti treno</li>
-              <li>Auto: deducibile forfettario 0.30€/km</li>
+              <li>{t('transport.taxTip1')}</li>
+              <li>{t('transport.taxTip2')}</li>
+              <li>{t('transport.taxTip3')}</li>
             </ul>
           </div>
         </div>

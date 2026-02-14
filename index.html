@@ -29,6 +29,13 @@
     <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
     <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)">
     <link rel="canonical" href="https://frontaliereticino.ch/" />
+    
+    <!-- Hreflang for multilingual SEO -->
+    <link rel="alternate" hreflang="it" href="https://www.frontaliereticino.ch/?lang=it" />
+    <link rel="alternate" hreflang="en" href="https://www.frontaliereticino.ch/?lang=en" />
+    <link rel="alternate" hreflang="de" href="https://www.frontaliereticino.ch/?lang=de" />
+    <link rel="alternate" hreflang="fr" href="https://www.frontaliereticino.ch/?lang=fr" />
+    <link rel="alternate" hreflang="x-default" href="https://www.frontaliereticino.ch/" />
 
     <!-- Open Graph / Social Sharing -->
     <meta property="og:type" content="website" />
@@ -125,11 +132,15 @@
         "bestRating": "5",
         "worstRating": "1"
       },
-      "inLanguage": "it-IT",
+      "inLanguage": ["it-IT", "en-US", "de-CH", "fr-CH"],
       "audience": {
         "@type": "Audience",
         "audienceType": "Frontalieri Svizzera-Italia, Lavoratori Canton Ticino"
-      }
+      },
+      "installUrl": "https://www.frontaliereticino.ch/",
+      "browserRequirements": "Requires JavaScript. Supports PWA installation on mobile devices.",
+      "softwareVersion": "2.0",
+      "operatingSystem": "Web Browser, Android, iOS (PWA)"
     }
     </script>
 
@@ -237,7 +248,7 @@
       "contactPoint": {
         "@type": "ContactPoint",
         "contactType": "Customer Support",
-        "availableLanguage": ["Italian"]
+        "availableLanguage": ["Italian", "English", "German", "French"]
       }
     }
     </script>

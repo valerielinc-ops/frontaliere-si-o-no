@@ -7,6 +7,7 @@ import { SimulationResult, TaxResult, SimulationInputs } from '../types';
 import { BarChart3, PieChart as PieIcon, TrendingUp, Wallet, Percent, ArrowUpRight, Info, LineChart as LineIcon, Layers } from 'lucide-react';
 import { calculateSimulation } from '../services/calculationService';
 import { Analytics } from '../services/analytics';
+import { useTranslation } from '../services/i18n';
 
 interface Props {
   result: SimulationResult;
@@ -71,6 +72,7 @@ const KpiCard = ({ title, value, subtext, icon: Icon, colorClass }: any) => (
 );
 
 export const ComparisonChart: React.FC<Props> = ({ result, inputs, isDarkMode, isFocusMode }) => {
+  const { t } = useTranslation();
   const [activeTab, setActiveTab] = useState<'overview' | 'breakdown' | 'projection' | 'breakeven'>('overview');
   const [analysisMode, setAnalysisMode] = useState<'NET' | 'TAX'>('NET');
 
@@ -82,31 +84,34 @@ export const ComparisonChart: React.FC<Props> = ({ result, inputs, isDarkMode, i
   const { chResident, itResident, savingsCHF } = result;
   
   // Data for Bar Chart (Overview)
+  const netLabel = t('chart.net');
+  const taxLabel = t('chart.taxes');
+  const socialLabel = t('chart.social');
   const barData = [
-    { name: 'Svizzera', Netto: chResident.netIncomeAnnual, Tasse: chResident.taxes, Sociali: chResident.socialContributions + chResident.healthInsurance },
-    { name: 'Frontaliere', Netto: itResident.netIncomeAnnual, Tasse: itResident.taxes, Sociali: itResident.socialContributions },
+    { name: t('chart.switzerland'), [netLabel]: chResident.netIncomeAnnual, [taxLabel]: chResident.taxes, [socialLabel]: chResident.socialContributions + chResident.healthInsurance },
+    { name: t('chart.frontier_worker'), [netLabel]: itResident.netIncomeAnnual, [taxLabel]: itResident.taxes, [socialLabel]: itResident.socialContributions },
   ];
 
   // --- Data for Detailed Composition Chart ---
   const getDetailedPieData = (res: TaxResult) => {
       return res.breakdown
-        .filter(item => !item.label.includes('Reddito Lordo') && !item.label.includes('Assegni') && !item.label.includes('Reddito Netto'))
+        .filter(item => !item.label.includes('grossIncome') && !item.label.includes('Allowance') && !item.label.includes('netAnnual'))
         .map(item => {
            let color = '#cbd5e1'; 
            const l = item.label.toLowerCase();
-           if(l.includes('sociali') || l.includes('avs')) color = '#8b5cf6'; 
-           if(l.includes('pensione') || l.includes('lpp')) color = '#a78bfa'; 
-           if(l.includes('imposte') || l.includes('fonte') || l.includes('irpef')) color = '#64748b'; 
-           if(l.includes('malati') || l.includes('salute')) color = '#f43f5e'; 
-           if(l.includes('spese')) color = '#f59e0b'; 
+           if(l.includes('social') || l.includes('avs')) color = '#8b5cf6'; 
+           if(l.includes('pension') || l.includes('lpp')) color = '#a78bfa'; 
+           if(l.includes('tax') || l.includes('source') || l.includes('irpef')) color = '#64748b'; 
+           if(l.includes('health') || l.includes('ssn')) color = '#f43f5e'; 
+           if(l.includes('expense')) color = '#f59e0b'; 
            
            return {
-               name: item.label,
+               name: t(item.label.split('|')[0]),
                value: Math.abs(item.amount), 
                color: color
            };
         })
-        .concat([{ name: 'Netto Residuo', value: res.netIncomeAnnual, color: '#10b981' }]);
+        .concat([{ name: t('chart.net_residual'), value: res.netIncomeAnnual, color: '#10b981' }]);
   };
 
   const pieDataCH = getDetailedPieData(chResident);
@@ -116,9 +121,9 @@ export const ComparisonChart: React.FC<Props> = ({ result, inputs, isDarkMode, i
   const projectionYears = 5;
   const projectionData = Array.from({ length: projectionYears + 1 }, (_, i) => {
     return {
-      year: `Anno ${i}`,
-      'Accumulo Differenza': Math.abs(savingsCHF) * i,
-      beneficiary: savingsCHF > 0 ? 'Frontaliere' : 'Residente'
+      year: `${t('chart.year')} ${i}`,
+      [t('chart.accumulated_difference')]: Math.abs(savingsCHF) * i,
+      beneficiary: savingsCHF > 0 ? t('chart.frontier_worker') : t('chart.resident')
     };
   });
 
@@ -148,19 +153,19 @@ export const ComparisonChart: React.FC<Props> = ({ result, inputs, isDarkMode, i
           data.push({
             ral: `CHF ${(income/1000).toFixed(0)}k`,
             originalIncome: income,
-            'Residente CH': Math.round(simCH.chResident.netIncomeAnnual),
-            'Nuovo < 20km': Math.round(simNewLess20.itResident.netIncomeAnnual),
-            'Nuovo > 20km': Math.round(simNewMore20.itResident.netIncomeAnnual),
-            'Vecchio Frontaliere': Math.round(simOld.itResident.netIncomeAnnual),
+            [t('chart.resident_ch')]: Math.round(simCH.chResident.netIncomeAnnual),
+            [t('chart.new_less_20km')]: Math.round(simNewLess20.itResident.netIncomeAnnual),
+            [t('chart.new_more_20km')]: Math.round(simNewMore20.itResident.netIncomeAnnual),
+            [t('chart.old_frontier')]: Math.round(simOld.itResident.netIncomeAnnual),
           });
       } else {
           data.push({
             ral: `CHF ${(income/1000).toFixed(0)}k`,
             originalIncome: income,
-            'Residente CH': Math.round(getBurden(simCH.chResident)),
-            'Nuovo < 20km': Math.round(getBurden(simNewLess20.itResident)),
-            'Nuovo > 20km': Math.round(getBurden(simNewMore20.itResident)),
-            'Vecchio Frontaliere': Math.round(getBurden(simOld.itResident)),
+            [t('chart.resident_ch')]: Math.round(getBurden(simCH.chResident)),
+            [t('chart.new_less_20km')]: Math.round(getBurden(simNewLess20.itResident)),
+            [t('chart.new_more_20km')]: Math.round(getBurden(simNewMore20.itResident)),
+            [t('chart.old_frontier')]: Math.round(getBurden(simOld.itResident)),
           });
       }
     }
@@ -178,30 +183,30 @@ export const ComparisonChart: React.FC<Props> = ({ result, inputs, isDarkMode, i
       {/* KPI Section */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
          <KpiCard 
-            title="Aliquota Reale CH" 
+            title={t('chart.effective_rate_ch')} 
             value={`${effectiveTaxRateCH}%`} 
-            subtext="Incidenza imposte"
+            subtext={t('chart.tax_incidence')}
             icon={Percent} 
             colorClass="text-blue-600 dark:text-blue-400"
          />
          <KpiCard 
-            title="Aliquota Reale IT" 
+            title={t('chart.effective_rate_it')} 
             value={`${effectiveTaxRateIT}%`} 
-            subtext="Incidenza imposte"
+            subtext={t('chart.tax_incidence')}
             icon={Percent} 
             colorClass="text-red-600 dark:text-red-400"
          />
          <KpiCard 
-            title="Differenza Netta" 
+            title={t('chart.net_difference')} 
             value={`${diffPercent}%`} 
-            subtext="Delta potere d'acquisto"
+            subtext={t('chart.purchasing_power_delta')}
             icon={ArrowUpRight} 
             colorClass="text-emerald-600 dark:text-emerald-400"
          />
          <KpiCard 
-            title="Accumulo 5 Anni" 
+            title={t('chart.accumulation_5y')} 
             value={`${(Math.abs(savingsCHF) * 5 / 1000).toFixed(1)}k`} 
-            subtext="Potenziale risparmio"
+            subtext={t('chart.potential_savings')}
             icon={Wallet} 
             colorClass="text-indigo-600 dark:text-indigo-400"
          />
@@ -211,10 +216,10 @@ export const ComparisonChart: React.FC<Props> = ({ result, inputs, isDarkMode, i
       <div className="bg-white dark:bg-slate-800 rounded-3xl p-1 shadow-sm border border-slate-100 dark:border-slate-700">
          <div className="grid grid-cols-4 gap-1 p-1 bg-slate-50 dark:bg-slate-900/50 rounded-2xl">
             {[
-              { id: 'overview', label: 'Confronto', icon: BarChart3 },
-              { id: 'breakdown', label: 'Dettagli', icon: PieIcon },
-              { id: 'projection', label: 'Proiezione', icon: TrendingUp },
-              { id: 'breakeven', label: 'Analisi Salario', icon: LineIcon },
+              { id: 'overview', label: t('chart.tab_comparison'), icon: BarChart3 },
+              { id: 'breakdown', label: t('chart.tab_details'), icon: PieIcon },
+              { id: 'projection', label: t('chart.tab_projection'), icon: TrendingUp },
+              { id: 'breakeven', label: t('chart.tab_salary_analysis'), icon: LineIcon },
             ].map(tab => (
               <button
                 key={tab.id}
@@ -237,9 +242,8 @@ export const ComparisonChart: React.FC<Props> = ({ result, inputs, isDarkMode, i
                 <div className="mb-6 bg-indigo-50/50 dark:bg-indigo-900/20 p-4 rounded-xl border border-indigo-100 dark:border-indigo-800/50 flex gap-3 animate-fade-in">
                     <Info size={18} className="text-indigo-500 shrink-0 mt-0.5" />
                     <div className="text-xs text-indigo-900 dark:text-indigo-300 leading-relaxed">
-                        <strong className="block mb-1 font-bold">Come viene calcolata la proiezione?</strong>
-                        Questo grafico mostra il risparmio cumulativo (la differenza netta tra le due opzioni) accumulato anno per anno.
-                        Il calcolo è puramente matematico (Cash Flow) e non include l'inflazione, gli aumenti salariali o il rendimento di eventuali investimenti finanziari del capitale risparmiato.
+                        <strong className="block mb-1 font-bold">{t('chart.projection_title')}</strong>
+                        {t('chart.projection_description')}
                     </div>
                 </div>
             )}
@@ -248,7 +252,7 @@ export const ComparisonChart: React.FC<Props> = ({ result, inputs, isDarkMode, i
                 <div className="mb-4 animate-fade-in">
                     <div className="flex justify-between items-center mb-4">
                        <h3 className="text-sm font-bold text-slate-700 dark:text-slate-200">
-                          {analysisMode === 'NET' ? 'Confronto Reddito Netto Annuo' : 'Confronto Carico Fiscale Totale'}
+                          {analysisMode === 'NET' ? t('chart.net_income_comparison') : t('chart.tax_burden_comparison')}
                        </h3>
                        
                        {/* Toggle for Net/Tax Analysis */}
@@ -257,19 +261,19 @@ export const ComparisonChart: React.FC<Props> = ({ result, inputs, isDarkMode, i
                             onClick={() => setAnalysisMode('NET')}
                             className={`px-3 py-1.5 rounded-md text-[10px] font-bold uppercase transition-all ${analysisMode === 'NET' ? 'bg-white dark:bg-slate-700 text-emerald-600 shadow-sm' : 'text-slate-400 hover:text-slate-600'}`}
                           >
-                            Netto
+                            {t('chart.net')}
                           </button>
                           <button 
                             onClick={() => setAnalysisMode('TAX')}
                             className={`px-3 py-1.5 rounded-md text-[10px] font-bold uppercase transition-all ${analysisMode === 'TAX' ? 'bg-white dark:bg-slate-700 text-red-500 shadow-sm' : 'text-slate-400 hover:text-slate-600'}`}
                           >
-                            Tasse + Oneri
+                            {t('chart.taxes_charges')}
                           </button>
                        </div>
                     </div>
                     <div className="bg-slate-50 dark:bg-slate-900/50 p-3 rounded-xl border border-slate-100 dark:border-slate-800 text-xs text-slate-500 dark:text-slate-400 mb-4">
-                       Simulazione al variare del salario lordo (RAL), mantenendo costanti situazione familiare e spese.
-                       {analysisMode === 'NET' ? ' Visualizza il residuo netto reale.' : ' Visualizza il totale di imposte, contributi e cassa malati.'}
+                       {t('chart.salary_simulation_desc')}
+                       {analysisMode === 'NET' ? ` ${t('chart.shows_net_residual')}` : ` ${t('chart.shows_total_taxes')}`}
                     </div>
                 </div>
             )}
@@ -282,14 +286,14 @@ export const ComparisonChart: React.FC<Props> = ({ result, inputs, isDarkMode, i
                      <YAxis hide />
                      <Tooltip content={<CustomTooltip isDarkMode={isDarkMode} />} cursor={{fill: isDarkMode ? '#1e293b' : '#f8fafc'}} />
                      <Legend content={<FixedLegend isDarkMode={isDarkMode} />} />
-                     <Bar dataKey="Sociali" stackId="a" fill="#8b5cf6" radius={[0,0,4,4]} />
-                     <Bar dataKey="Tasse" stackId="a" fill="#64748b" />
-                     <Bar dataKey="Netto" stackId="a" fill="#10b981" radius={[4,4,0,0]} />
+                     <Bar dataKey={socialLabel} stackId="a" fill="#8b5cf6" radius={[0,0,4,4]} />
+                     <Bar dataKey={taxLabel} stackId="a" fill="#64748b" />
+                     <Bar dataKey={netLabel} stackId="a" fill="#10b981" radius={[4,4,0,0]} />
                   </BarChart>
                ) : activeTab === 'breakdown' ? (
                   <div className="w-full h-full flex flex-col md:flex-row gap-4">
                       <div className="flex-1 flex flex-col items-center relative">
-                          <h4 className="text-xs font-bold uppercase text-slate-400 mb-2">Residente CH</h4>
+                          <h4 className="text-xs font-bold uppercase text-slate-400 mb-2">{t('chart.resident_ch')}</h4>
                           <div className="w-full h-full relative">
                             <ResponsiveContainer>
                                 <PieChart>
@@ -306,7 +310,7 @@ export const ComparisonChart: React.FC<Props> = ({ result, inputs, isDarkMode, i
                           </div>
                       </div>
                       <div className="flex-1 flex flex-col items-center relative border-t md:border-t-0 md:border-l border-dashed border-slate-100 dark:border-slate-700 pt-4 md:pt-0">
-                          <h4 className="text-xs font-bold uppercase text-slate-400 mb-2">Frontaliere</h4>
+                          <h4 className="text-xs font-bold uppercase text-slate-400 mb-2">{t('chart.frontier_worker')}</h4>
                            <div className="w-full h-full relative">
                               <ResponsiveContainer>
                                   <PieChart>
@@ -337,7 +341,7 @@ export const ComparisonChart: React.FC<Props> = ({ result, inputs, isDarkMode, i
                      <Tooltip content={<CustomTooltip isDarkMode={isDarkMode} />} />
                      <Area 
                         type="monotone" 
-                        dataKey="Accumulo Differenza" 
+                        dataKey={t('chart.accumulated_difference')} 
                         stroke="#10b981" 
                         strokeWidth={3} 
                         fillOpacity={1} 
@@ -354,10 +358,10 @@ export const ComparisonChart: React.FC<Props> = ({ result, inputs, isDarkMode, i
                      <YAxis hide domain={['auto', 'auto']} />
                      <Tooltip content={<CustomTooltip isDarkMode={isDarkMode} />} />
                      
-                     <Line type="monotone" dataKey="Residente CH" stroke="#3b82f6" strokeWidth={3} dot={false} activeDot={{ r: 6 }} />
-                     <Line type="monotone" dataKey="Nuovo < 20km" stroke="#6366f1" strokeWidth={3} dot={false} activeDot={{ r: 6 }} />
-                     <Line type="monotone" dataKey="Nuovo > 20km" stroke="#f97316" strokeWidth={3} strokeDasharray="5 5" dot={false} activeDot={{ r: 6 }} />
-                     <Line type="monotone" dataKey="Vecchio Frontaliere" stroke="#10b981" strokeWidth={2} strokeDasharray="3 3" dot={false} activeDot={{ r: 4 }} opacity={0.6} />
+                     <Line type="monotone" dataKey={t('chart.resident_ch')} stroke="#3b82f6" strokeWidth={3} dot={false} activeDot={{ r: 6 }} />
+                     <Line type="monotone" dataKey={t('chart.new_less_20km')} stroke="#6366f1" strokeWidth={3} dot={false} activeDot={{ r: 6 }} />
+                     <Line type="monotone" dataKey={t('chart.new_more_20km')} stroke="#f97316" strokeWidth={3} strokeDasharray="5 5" dot={false} activeDot={{ r: 6 }} />
+                     <Line type="monotone" dataKey={t('chart.old_frontier')} stroke="#10b981" strokeWidth={2} strokeDasharray="3 3" dot={false} activeDot={{ r: 4 }} opacity={0.6} />
                      
                      <Legend content={<FixedLegend isDarkMode={isDarkMode} />} />
                   </LineChart>

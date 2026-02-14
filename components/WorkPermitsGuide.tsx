@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Shield, Clock, FileText, Users, CheckCircle2, AlertCircle, ChevronDown, ChevronUp, Briefcase, Globe, Calendar, Info, ArrowRight, Building2 } from 'lucide-react';
 import { Analytics } from '@/services/analytics';
+import { useTranslation } from '@/services/i18n';
 
 interface PermitType {
   id: 'G' | 'B' | 'C' | 'L';
@@ -23,212 +24,216 @@ interface PermitType {
   tips: string[];
 }
 
-const PERMITS: PermitType[] = [
-  {
-    id: 'G',
-    name: 'Permesso G',
-    fullName: 'Permesso per Frontalieri',
-    color: 'from-blue-500 to-indigo-600',
-    icon: '🔵',
-    duration: '5 anni (rinnovabile)',
-    forWhom: 'Lavoratori che risiedono in uno stato UE/AELS e lavorano in Svizzera, tornando al domicilio almeno 1 volta a settimana',
-    description: 'Il permesso G è il permesso standard per i frontalieri. Permette di lavorare in Svizzera continuando a risiedere nel paese di origine.',
-    requirements: [
-      'Cittadinanza UE/AELS',
-      'Contratto di lavoro svizzero (o promessa di assunzione)',
-      'Residenza in uno stato UE/AELS confinante (IT, FR, DE, AT)',
-      'Rientro al domicilio almeno 1 volta a settimana',
-      'Distanza ragionevole tra domicilio e luogo di lavoro',
-    ],
-    documents: [
-      'Passaporto o carta d\'identità valida',
-      'Contratto di lavoro svizzero',
-      'Foto tessera (formato passaporto)',
-      'Prova di domicilio nel paese di residenza',
-      'Formulario di richiesta compilato (modulo cantonale)',
-      'Attestato di assicurazione malattia (LAMal o equivalente)',
-    ],
-    processingTime: '2-4 settimane',
-    cost: 'CHF 65 (varia per cantone)',
-    renewal: 'Automatico con contratto attivo. Rinnovo ogni 5 anni. In caso di disoccupazione, validità ridotta a 6 mesi.',
-    rights: [
-      'Lavorare in Svizzera (dipendente)',
-      'Aprire un conto bancario svizzero',
-      'Accedere ai servizi sociali svizzeri (AVS, AI, LPP)',
-      'Accedere all\'assicurazione disoccupazione (AD)',
-      'Usare i trasporti pubblici a tariffe residenti',
-    ],
-    limitations: [
-      'Obbligo di rientro settimanale al domicilio',
-      'Non è possibile trasferire la residenza in Svizzera',
-      'Non è possibile cambiare lavoro liberamente nei primi 12 mesi',
-      'Non dà diritto al voto in Svizzera',
-      'Attività autonoma limitata al settore dichiarato',
-    ],
-    familyReunion: 'Il permesso G non prevede ricongiungimento familiare in Svizzera. La famiglia resta nel paese di residenza.',
-    taxImplications: 'Imposta alla fonte nel cantone di lavoro. Dal 2024, nuovo accordo: possibile doppia imposizione con credito d\'imposta per i nuovi frontalieri. Vecchi frontalieri mantengono il regime precedente (imponibilità solo in CH con ristorno ai comuni italiani).',
-    tips: [
-      'Chiedi sempre il Lohnausweis a fine anno al datore di lavoro',
-      'Conserva tutte le ricevute di viaggio per la deducibilità',
-      'Valuta attentamente se aderire alla LAMal o restare con SSN italiano',
-      'Controlla la tua situazione con il Quadro RW nella dichiarazione italiana',
-    ],
-  },
-  {
-    id: 'B',
-    name: 'Permesso B',
-    fullName: 'Permesso di Dimora',
-    color: 'from-emerald-500 to-teal-600',
-    icon: '🟢',
-    duration: '5 anni (rinnovabile)',
-    forWhom: 'Cittadini UE/AELS che intendono risiedere in Svizzera con contratto di lavoro di almeno 12 mesi',
-    description: 'Il permesso B permette di vivere e lavorare in Svizzera. Adatto a chi desidera trasferire la residenza dalla Svizzera.',
-    requirements: [
-      'Cittadinanza UE/AELS',
-      'Contratto di lavoro svizzero di almeno 12 mesi',
-      'Mezzi finanziari sufficienti (o contratto)',
-      'Assicurazione malattia svizzera (LAMal obbligatoria)',
-      'Alloggio adeguato in Svizzera',
-    ],
-    documents: [
-      'Passaporto o carta d\'identità valida',
-      'Contratto di lavoro (min. 12 mesi)',
-      'Prova di alloggio in Svizzera',
-      'Assicurazione malattia LAMal',
-      'Certificato di stato civile',
-      'Atto di nascita apostillato',
-      'Formulario di registrazione presso il comune svizzero',
-    ],
-    processingTime: '2-6 settimane',
-    cost: 'CHF 144 (varia per cantone)',
-    renewal: 'Rinnovo ogni 5 anni se il contratto è ancora attivo. Dopo 5 anni con B, possibilità di richiedere il C.',
-    rights: [
-      'Vivere e lavorare in Svizzera senza restrizioni',
-      'Cambiare lavoro e cantone liberamente',
-      'Accesso completo ai servizi sociali svizzeri',
-      'Diritto alla formazione professionale',
-      'Possibilità di attività autonoma',
-      'Accesso al 3° pilastro',
-    ],
-    limitations: [
-      'Non dà diritto al voto (solo alcune votazioni comunali in certi cantoni)',
-      'Legato alla condizione lavorativa (rischio non-rinnovo se disoccupato)',
-      'Servizio militare/civile non obbligatorio ma possibile contributo',
-      'Permesso limitato nel tempo (necessita rinnovo)',
-    ],
-    familyReunion: 'Sì, ricongiungimento familiare previsto per coniuge e figli sotto i 21 anni (o a carico). I familiari ricevono un permesso B.',
-    taxImplications: 'Tassazione ordinaria in Svizzera (cantone + comune + confederazione). Non più soggetto a imposizione in Italia (se cancellato dall\'AIRE). Capital gain esente in CH. Attenzione alla exit tax italiana.',
-    tips: [
-      'Registrati all\'AIRE entro 90 giorni dal trasferimento',
-      'Valuta attentamente i costi della vita in Ticino (affitto alto)',
-      'Il 3° pilastro diventa molto vantaggioso con il B',
-      'Mantieni la residenza per almeno 5 anni per accedere al permesso C',
-    ],
-  },
-  {
-    id: 'C',
-    name: 'Permesso C',
-    fullName: 'Permesso di Domicilio',
-    color: 'from-amber-500 to-orange-600',
-    icon: '🟠',
-    duration: 'Illimitato',
-    forWhom: 'Cittadini UE/AELS che hanno risieduto in Svizzera per almeno 5 anni continuativi con permesso B (10 per non-UE)',
-    description: 'Il permesso C è il permesso più stabile e desiderabile. Offre quasi tutti i diritti di un cittadino svizzero, escluso il voto federale.',
-    requirements: [
-      'Almeno 5 anni di residenza con permesso B (UE/AELS)',
-      'Nessun precedente penale rilevante',
-      'Integrazione riuscita (lingua, conoscenza locale)',
-      'Indipendenza finanziaria (nessun ricorso all\'aiuto sociale)',
-      'Rispetto dell\'ordinamento giuridico',
-    ],
-    documents: [
-      'Passaporto valido',
-      'Attestato di residenza continuativa (5+ anni)',
-      'Certificato di buona condotta (casellario giudiziale)',
-      'Prova di integrazione (certificato lingua B1+)',
-      'Dichiarazione fiscale aggiornata',
-      'Prova di indipendenza finanziaria',
-    ],
-    processingTime: '1-3 mesi',
-    cost: 'CHF 145-200 (varia per cantone)',
-    renewal: 'Non necessario. Validità illimitata. Può essere revocato solo in casi gravi (frode, reati gravi, assenza dal paese per 6+ mesi senza preavviso).',
-    rights: [
-      'Residenza illimitata in Svizzera',
-      'Cambio lavoro, cantone e attività senza restrizioni',
-      'Accesso completo a tutti i servizi sociali',
-      'Possibilità di lavoro autonomo senza restrizioni',
-      'Accesso facilitato alla naturalizzazione',
-      'Protezione contro l\'espulsione (quasi assoluta)',
-      'Diritto di voto a livello comunale in alcuni cantoni',
-    ],
-    limitations: [
-      'Nessun diritto di voto a livello federale',
-      'Non equivale alla cittadinanza svizzera',
-      'Revocabile in caso di soggiorno all\'estero prolungato (6+ mesi)',
-      'Servizio militare non obbligatorio',
-    ],
-    familyReunion: 'Ricongiungimento familiare completo. Familiari ottengono permesso B, con possibilità di richiedere il C dopo 5 anni.',
-    taxImplications: 'Tassazione ordinaria svizzera (non imposta alla fonte). Dichiarazione fiscale annuale ordinaria. Possibilità di deduzioni complete.',
-    tips: [
-      'Il C è il trampolino verso la cittadinanza svizzera (dopo 10 anni di residenza totale)',
-      'Con il C non rischi la perdita del permesso in caso di disoccupazione',
-      'Mantieni un buon profilo fiscale e sociale per conservare il C',
-      'Verifica se il tuo cantone permette il voto comunale con il C',
-    ],
-  },
-  {
-    id: 'L',
-    name: 'Permesso L',
-    fullName: 'Permesso di Soggiorno di Breve Durata',
-    color: 'from-purple-500 to-pink-600',
-    icon: '🟣',
-    duration: 'Max 1 anno (rinnovabile fino a 2 anni)',
-    forWhom: 'Lavoratori con contratto inferiore a 12 mesi o stagionali',
-    description: 'Il permesso L è per soggiorni lavorativi brevi. Tipicamente usato per contratti a tempo determinato, stage, o lavori stagionali.',
-    requirements: [
-      'Cittadinanza UE/AELS',
-      'Contratto di lavoro di durata inferiore a 12 mesi',
-      'Assicurazione malattia (LAMal o equivalente)',
-      'Alloggio adeguato',
-    ],
-    documents: [
-      'Passaporto o carta d\'identità valida',
-      'Contratto di lavoro (durata < 12 mesi)',
-      'Assicurazione malattia',
-      'Foto tessera',
-      'Formulario di richiesta',
-    ],
-    processingTime: '1-3 settimane',
-    cost: 'CHF 65 (varia per cantone)',
-    renewal: 'Rinnovabile se il contratto viene prolungato. Conversione in B possibile se il contratto supera i 12 mesi.',
-    rights: [
-      'Lavorare in Svizzera per la durata del contratto',
-      'Accesso ai servizi sociali proporzionale',
-      'Possibilità di conversione in permesso B',
-    ],
-    limitations: [
-      'Durata massima limitata',
-      'Legato strettamente al contratto specifico',
-      'Ricongiungimento familiare limitato (solo se contratto > 6 mesi)',
-      'Meno diritti sociali rispetto al B',
-      'Non conta per l\'anzianità verso il permesso C',
-    ],
-    familyReunion: 'Possibile solo con contratti superiori a 6 mesi. Familiari ricevono un permesso L della stessa durata.',
-    taxImplications: 'Imposta alla fonte nel cantone di lavoro. Stesse regole dei frontalieri per i nuovi lavoratori dal 2024.',
-    tips: [
-      'Se il contratto viene rinnovato oltre 12 mesi, chiedi la conversione in B',
-      'Verifica la copertura assicurativa per tutta la durata del soggiorno',
-      'Il permesso L non contribuisce ai 5 anni per il permesso C',
-      'Ideale per stage, tirocini o primi approcci al mercato svizzero',
-    ],
-  },
-];
+function getPermits(t: (key: string) => string): PermitType[] {
+  return [
+    {
+      id: 'G',
+      name: t('permits.g.name'),
+      fullName: t('permits.g.fullName'),
+      color: 'from-blue-500 to-indigo-600',
+      icon: '🔵',
+      duration: t('permits.g.duration'),
+      forWhom: t('permits.g.forWhom'),
+      description: t('permits.g.description'),
+      requirements: [
+        t('permits.g.req1'),
+        t('permits.g.req2'),
+        t('permits.g.req3'),
+        t('permits.g.req4'),
+        t('permits.g.req5'),
+      ],
+      documents: [
+        t('permits.g.doc1'),
+        t('permits.g.doc2'),
+        t('permits.g.doc3'),
+        t('permits.g.doc4'),
+        t('permits.g.doc5'),
+        t('permits.g.doc6'),
+      ],
+      processingTime: t('permits.g.processingTime'),
+      cost: t('permits.g.cost'),
+      renewal: t('permits.g.renewal'),
+      rights: [
+        t('permits.g.right1'),
+        t('permits.g.right2'),
+        t('permits.g.right3'),
+        t('permits.g.right4'),
+        t('permits.g.right5'),
+      ],
+      limitations: [
+        t('permits.g.limit1'),
+        t('permits.g.limit2'),
+        t('permits.g.limit3'),
+        t('permits.g.limit4'),
+        t('permits.g.limit5'),
+      ],
+      familyReunion: t('permits.g.familyReunion'),
+      taxImplications: t('permits.g.taxImplications'),
+      tips: [
+        t('permits.g.tip1'),
+        t('permits.g.tip2'),
+        t('permits.g.tip3'),
+        t('permits.g.tip4'),
+      ],
+    },
+    {
+      id: 'B',
+      name: t('permits.b.name'),
+      fullName: t('permits.b.fullName'),
+      color: 'from-emerald-500 to-teal-600',
+      icon: '🟢',
+      duration: t('permits.b.duration'),
+      forWhom: t('permits.b.forWhom'),
+      description: t('permits.b.description'),
+      requirements: [
+        t('permits.b.req1'),
+        t('permits.b.req2'),
+        t('permits.b.req3'),
+        t('permits.b.req4'),
+        t('permits.b.req5'),
+      ],
+      documents: [
+        t('permits.b.doc1'),
+        t('permits.b.doc2'),
+        t('permits.b.doc3'),
+        t('permits.b.doc4'),
+        t('permits.b.doc5'),
+        t('permits.b.doc6'),
+        t('permits.b.doc7'),
+      ],
+      processingTime: t('permits.b.processingTime'),
+      cost: t('permits.b.cost'),
+      renewal: t('permits.b.renewal'),
+      rights: [
+        t('permits.b.right1'),
+        t('permits.b.right2'),
+        t('permits.b.right3'),
+        t('permits.b.right4'),
+        t('permits.b.right5'),
+        t('permits.b.right6'),
+      ],
+      limitations: [
+        t('permits.b.limit1'),
+        t('permits.b.limit2'),
+        t('permits.b.limit3'),
+        t('permits.b.limit4'),
+      ],
+      familyReunion: t('permits.b.familyReunion'),
+      taxImplications: t('permits.b.taxImplications'),
+      tips: [
+        t('permits.b.tip1'),
+        t('permits.b.tip2'),
+        t('permits.b.tip3'),
+        t('permits.b.tip4'),
+      ],
+    },
+    {
+      id: 'C',
+      name: t('permits.c.name'),
+      fullName: t('permits.c.fullName'),
+      color: 'from-amber-500 to-orange-600',
+      icon: '🟠',
+      duration: t('permits.c.duration'),
+      forWhom: t('permits.c.forWhom'),
+      description: t('permits.c.description'),
+      requirements: [
+        t('permits.c.req1'),
+        t('permits.c.req2'),
+        t('permits.c.req3'),
+        t('permits.c.req4'),
+        t('permits.c.req5'),
+      ],
+      documents: [
+        t('permits.c.doc1'),
+        t('permits.c.doc2'),
+        t('permits.c.doc3'),
+        t('permits.c.doc4'),
+        t('permits.c.doc5'),
+        t('permits.c.doc6'),
+      ],
+      processingTime: t('permits.c.processingTime'),
+      cost: t('permits.c.cost'),
+      renewal: t('permits.c.renewal'),
+      rights: [
+        t('permits.c.right1'),
+        t('permits.c.right2'),
+        t('permits.c.right3'),
+        t('permits.c.right4'),
+        t('permits.c.right5'),
+        t('permits.c.right6'),
+        t('permits.c.right7'),
+      ],
+      limitations: [
+        t('permits.c.limit1'),
+        t('permits.c.limit2'),
+        t('permits.c.limit3'),
+        t('permits.c.limit4'),
+      ],
+      familyReunion: t('permits.c.familyReunion'),
+      taxImplications: t('permits.c.taxImplications'),
+      tips: [
+        t('permits.c.tip1'),
+        t('permits.c.tip2'),
+        t('permits.c.tip3'),
+        t('permits.c.tip4'),
+      ],
+    },
+    {
+      id: 'L',
+      name: t('permits.l.name'),
+      fullName: t('permits.l.fullName'),
+      color: 'from-purple-500 to-pink-600',
+      icon: '🟣',
+      duration: t('permits.l.duration'),
+      forWhom: t('permits.l.forWhom'),
+      description: t('permits.l.description'),
+      requirements: [
+        t('permits.l.req1'),
+        t('permits.l.req2'),
+        t('permits.l.req3'),
+        t('permits.l.req4'),
+      ],
+      documents: [
+        t('permits.l.doc1'),
+        t('permits.l.doc2'),
+        t('permits.l.doc3'),
+        t('permits.l.doc4'),
+        t('permits.l.doc5'),
+      ],
+      processingTime: t('permits.l.processingTime'),
+      cost: t('permits.l.cost'),
+      renewal: t('permits.l.renewal'),
+      rights: [
+        t('permits.l.right1'),
+        t('permits.l.right2'),
+        t('permits.l.right3'),
+      ],
+      limitations: [
+        t('permits.l.limit1'),
+        t('permits.l.limit2'),
+        t('permits.l.limit3'),
+        t('permits.l.limit4'),
+        t('permits.l.limit5'),
+      ],
+      familyReunion: t('permits.l.familyReunion'),
+      taxImplications: t('permits.l.taxImplications'),
+      tips: [
+        t('permits.l.tip1'),
+        t('permits.l.tip2'),
+        t('permits.l.tip3'),
+        t('permits.l.tip4'),
+      ],
+    },
+  ];
+}
 
 const WorkPermitsGuide: React.FC = () => {
+  const { t } = useTranslation();
   const [selectedPermit, setSelectedPermit] = useState<'G' | 'B' | 'C' | 'L'>('G');
   const [expandedSection, setExpandedSection] = useState<string | null>(null);
 
-  const permit = PERMITS.find(p => p.id === selectedPermit)!;
+  const permits = getPermits(t);
+  const permit = permits.find(p => p.id === selectedPermit)!;
 
   const toggleSection = (section: string) => {
     setExpandedSection(expandedSection === section ? null : section);
@@ -270,15 +275,15 @@ const WorkPermitsGuide: React.FC = () => {
             <Shield size={32} />
           </div>
           <div>
-            <h1 className="text-3xl font-extrabold">Permessi di Lavoro in Svizzera</h1>
-            <p className="text-cyan-100 mt-1">Guida completa ai permessi G, B, C e L per lavoratori UE</p>
+            <h1 className="text-3xl font-extrabold">{t('permits.pageTitle')}</h1>
+            <p className="text-cyan-100 mt-1">{t('permits.pageSubtitle')}</p>
           </div>
         </div>
       </div>
 
       {/* Permit Selector */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-        {PERMITS.map(p => (
+        {permits.map(p => (
           <button
             key={p.id}
             onClick={() => {
@@ -315,24 +320,24 @@ const WorkPermitsGuide: React.FC = () => {
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 mt-4">
             <div className="bg-white/15 rounded-xl p-3">
               <Clock size={14} className="text-white/70 mb-1" />
-              <div className="text-xs text-white/70">Durata</div>
+              <div className="text-xs text-white/70">{t('permits.duration')}</div>
               <div className="font-bold text-sm">{permit.duration}</div>
             </div>
             <div className="bg-white/15 rounded-xl p-3">
               <Calendar size={14} className="text-white/70 mb-1" />
-              <div className="text-xs text-white/70">Tempistiche</div>
+              <div className="text-xs text-white/70">{t('permits.processingTime')}</div>
               <div className="font-bold text-sm">{permit.processingTime}</div>
             </div>
             <div className="bg-white/15 rounded-xl p-3">
               <Building2 size={14} className="text-white/70 mb-1" />
-              <div className="text-xs text-white/70">Costo</div>
+              <div className="text-xs text-white/70">{t('permits.cost')}</div>
               <div className="font-bold text-sm">{permit.cost}</div>
             </div>
           </div>
         </div>
 
         {/* Sections */}
-        <Section id="requirements" icon={CheckCircle2} title="Requisiti">
+        <Section id="requirements" icon={CheckCircle2} title={t('permits.requirements')}>
           <ul className="space-y-2 mt-2">
             {permit.requirements.map((req, i) => (
               <li key={i} className="flex items-start gap-2 text-sm text-slate-700 dark:text-slate-300">
@@ -343,7 +348,7 @@ const WorkPermitsGuide: React.FC = () => {
           </ul>
         </Section>
 
-        <Section id="documents" icon={FileText} title="Documenti Necessari">
+        <Section id="documents" icon={FileText} title={t('permits.documents')}>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-2">
             {permit.documents.map((doc, i) => (
               <div key={i} className="flex items-center gap-2 p-2.5 bg-slate-50 dark:bg-slate-900 rounded-lg text-sm text-slate-700 dark:text-slate-300">
@@ -354,7 +359,7 @@ const WorkPermitsGuide: React.FC = () => {
           </div>
         </Section>
 
-        <Section id="rights" icon={Shield} title="Diritti">
+        <Section id="rights" icon={Shield} title={t('permits.sectionRights')}>
           <ul className="space-y-2 mt-2">
             {permit.rights.map((r, i) => (
               <li key={i} className="flex items-start gap-2 text-sm text-slate-700 dark:text-slate-300">
@@ -365,7 +370,7 @@ const WorkPermitsGuide: React.FC = () => {
           </ul>
         </Section>
 
-        <Section id="limitations" icon={AlertCircle} title="Limitazioni">
+        <Section id="limitations" icon={AlertCircle} title={t('permits.sectionLimitations')}>
           <ul className="space-y-2 mt-2">
             {permit.limitations.map((l, i) => (
               <li key={i} className="flex items-start gap-2 text-sm text-slate-700 dark:text-slate-300">
@@ -376,19 +381,19 @@ const WorkPermitsGuide: React.FC = () => {
           </ul>
         </Section>
 
-        <Section id="family" icon={Users} title="Ricongiungimento Familiare">
+        <Section id="family" icon={Users} title={t('permits.sectionFamily')}>
           <p className="text-sm text-slate-700 dark:text-slate-300 mt-2">{permit.familyReunion}</p>
         </Section>
 
-        <Section id="tax" icon={Building2} title="Implicazioni Fiscali">
+        <Section id="tax" icon={Building2} title={t('permits.sectionTax')}>
           <p className="text-sm text-slate-700 dark:text-slate-300 mt-2">{permit.taxImplications}</p>
         </Section>
 
-        <Section id="renewal" icon={Clock} title="Rinnovo & Conversione">
+        <Section id="renewal" icon={Clock} title={t('permits.sectionRenewal')}>
           <p className="text-sm text-slate-700 dark:text-slate-300 mt-2">{permit.renewal}</p>
         </Section>
 
-        <Section id="tips" icon={Info} title="Consigli Pratici">
+        <Section id="tips" icon={Info} title={t('permits.sectionTips')}>
           <ul className="space-y-2 mt-2">
             {permit.tips.map((tip, i) => (
               <li key={i} className="flex items-start gap-2 text-sm text-slate-700 dark:text-slate-300">
@@ -404,13 +409,13 @@ const WorkPermitsGuide: React.FC = () => {
       <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-6 overflow-x-auto">
         <h3 className="text-lg font-bold text-slate-800 dark:text-slate-100 mb-4 flex items-center gap-2">
           <Globe size={20} className="text-blue-600" />
-          Confronto Rapido Permessi
+          {t('permits.comparisonTitle')}
         </h3>
         <table className="w-full text-sm min-w-[600px]">
           <thead>
             <tr className="border-b-2 border-slate-200 dark:border-slate-700">
-              <th className="text-left py-3 text-slate-500 font-bold">Caratteristica</th>
-              {PERMITS.map(p => (
+              <th className="text-left py-3 text-slate-500 font-bold">{t('permits.feature')}</th>
+              {permits.map(p => (
                 <th key={p.id} className="text-center py-3 font-bold">
                   <span className="text-lg">{p.icon}</span>
                   <div className={`text-xs mt-1 ${selectedPermit === p.id ? 'text-blue-600 dark:text-blue-400' : 'text-slate-600 dark:text-slate-400'}`}>{p.name}</div>
@@ -420,13 +425,13 @@ const WorkPermitsGuide: React.FC = () => {
           </thead>
           <tbody className="text-slate-700 dark:text-slate-300">
             {[
-              { label: 'Residenza in CH', values: ['❌', '✅', '✅', '✅'] },
-              { label: 'Durata', values: ['5 anni', '5 anni', '∞', '≤1 anno'] },
-              { label: 'Cambio lavoro', values: ['Limitato', '✅ Libero', '✅ Libero', '❌'] },
-              { label: 'Famiglia in CH', values: ['❌', '✅', '✅', 'Limitato'] },
-              { label: 'Verso permesso C', values: ['❌', '✅ (5 anni)', '—', '❌'] },
-              { label: 'Lavoro autonomo', values: ['Limitato', '✅', '✅', '❌'] },
-              { label: '3° pilastro', values: ['❌', '✅', '✅', '❌'] },
+              { label: t('permits.cmp.residenceCH'), values: ['❌', '✅', '✅', '✅'] },
+              { label: t('permits.cmp.duration'), values: [t('permits.cmp.5years'), t('permits.cmp.5years'), '∞', t('permits.cmp.max1year')] },
+              { label: t('permits.cmp.jobChange'), values: [t('permits.cmp.limited'), t('permits.cmp.free'), t('permits.cmp.free'), '❌'] },
+              { label: t('permits.cmp.familyCH'), values: ['❌', '✅', '✅', t('permits.cmp.limited')] },
+              { label: t('permits.cmp.toPermitC'), values: ['❌', t('permits.cmp.5yearsParens'), '—', '❌'] },
+              { label: t('permits.cmp.selfEmployed'), values: [t('permits.cmp.limited'), '✅', '✅', '❌'] },
+              { label: t('permits.cmp.pillar3'), values: ['❌', '✅', '✅', '❌'] },
             ].map((row, i) => (
               <tr key={i} className="border-b border-slate-100 dark:border-slate-700">
                 <td className="py-2.5 font-medium">{row.label}</td>

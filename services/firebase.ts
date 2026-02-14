@@ -9,15 +9,15 @@ import { getAnalytics, Analytics as FirebaseAnalytics } from "firebase/analytics
 import { initializeAppCheck, ReCaptchaV3Provider, AppCheck } from "firebase/app-check";
 import { getRemoteConfig, RemoteConfig, fetchAndActivate, getValue, isSupported } from "firebase/remote-config";
 
-// Configurazione Firebase (pubblica, non contiene secret)
+// Configurazione Firebase — API key caricata da variabile d'ambiente
 const firebaseConfig = {
-  apiKey: "AIzaSyCxbA2_3BiBOjZryR5LOXCf_c2-Sgg7YSc",
-  authDomain: "frontaliere-ticino.firebaseapp.com",
-  projectId: "frontaliere-ticino",
-  storageBucket: "frontaliere-ticino.firebasestorage.app",
-  messagingSenderId: "957502085858",
-  appId: "1:957502085858:web:4941e8997ebf75b0145cbb",
-  measurementId: "G-G1E84HYGB7"
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY || '',
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN || 'frontaliere-ticino.firebaseapp.com',
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID || 'frontaliere-ticino',
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET || 'frontaliere-ticino.firebasestorage.app',
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID || '957502085858',
+  appId: import.meta.env.VITE_FIREBASE_APP_ID || '1:957502085858:web:4941e8997ebf75b0145cbb',
+  measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID || 'G-G1E84HYGB7'
 };
 
 // Inizializza Firebase

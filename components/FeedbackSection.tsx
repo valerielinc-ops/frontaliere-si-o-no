@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Send, Bug, Lightbulb, Github, CheckCircle, Clock, Sparkles, Loader2, MessageSquare, AlertTriangle, ChevronRight, ExternalLink, Lock } from 'lucide-react';
 import { GoogleGenAI, GenerateContentResponse } from '@google/genai';
 import { Analytics } from '../services/analytics';
+import { useTranslation } from '@/services/i18n';
 import recaptchaService from '../services/recaptchaService';
 import { getConfigValue } from '../services/firebase';
 
@@ -17,6 +18,7 @@ interface FeedbackItem {
 }
 
 export const FeedbackSection: React.FC = () => {
+  const { t } = useTranslation();
   const [items, setItems] = useState<FeedbackItem[]>([]);
   const [loading, setLoading] = useState(true);
   const [isOptimizing, setIsOptimizing] = useState(false);
@@ -86,7 +88,7 @@ export const FeedbackSection: React.FC = () => {
           const mappedItems: FeedbackItem[] = data.map((issue: any) => ({
             id: String(issue.id),
             title: issue.title,
-            description: issue.body || 'Nessuna descrizione.',
+            description: issue.body || t('feedback.noDescription'),
             type: issue.labels.some((l: any) => l.name.toLowerCase().includes('bug')) ? 'BUG' : 'FEATURE',
             status: issue.state === 'closed' ? 'CLOSED' : 'OPEN',
             createdAt: issue.created_at,
@@ -138,7 +140,7 @@ export const FeedbackSection: React.FC = () => {
     if (!formData.title) return;
     
     if (!githubToken) {
-      setSubmitError("Token GitHub mancante. Impossibile inviare la segnalazione.");
+      setSubmitError(t('feedback.missingToken'));
       Analytics.trackError('Missing GitHub Token');
       return;
     }
@@ -180,14 +182,14 @@ export const FeedbackSection: React.FC = () => {
         setItems(prev => [newItem, ...prev]);
         Analytics.trackFeedback('submit', formData.type);
         setFormData({ title: '', description: '', type: 'BUG' });
-        alert("Segnalazione creata con successo su GitHub!");
+        alert(t('feedback.submitSuccess'));
       } else {
         const err = await response.json();
         throw new Error(err.message || "Errore invio");
       }
     } catch (error: any) {
       console.error("Failed to post issue", error);
-      setSubmitError(`Errore API: ${error.message}`);
+      setSubmitError(`${t('feedback.apiError')}: ${error.message}`);
       Analytics.trackError(`GitHub Issue Post Failed: ${error.message}`);
     } finally {
       setIsSubmitting(false);
@@ -198,9 +200,9 @@ export const FeedbackSection: React.FC = () => {
     <div className="space-y-8 pb-12">
       {/* Introduction */}
       <div className="text-center space-y-3">
-        <h2 className="text-3xl font-extrabold text-slate-800 dark:text-slate-100 tracking-tight">Supporto & Community</h2>
+        <h2 className="text-3xl font-extrabold text-slate-800 dark:text-slate-100 tracking-tight">{t('feedback.title')}</h2>
         <p className="text-slate-500 dark:text-slate-400 max-w-xl mx-auto text-sm leading-relaxed">
-          Tutto lo sviluppo è open source. Contribuisci segnalando bug o proponendo idee direttamente sul nostro repository GitHub.
+          {t('feedback.subtitle')}
         </p>
       </div>
 
@@ -211,7 +213,7 @@ export const FeedbackSection: React.FC = () => {
             <div className="p-2 bg-indigo-100 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 rounded-xl">
               <MessageSquare size={20} />
             </div>
-            <h3 className="font-bold text-slate-800 dark:text-slate-100 uppercase tracking-wider text-xs">Prepara Segnalazione</h3>
+            <h3 className="font-bold text-slate-800 dark:text-slate-100 uppercase tracking-wider text-xs">{t('feedback.prepareReport')}</h3>
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-4">
@@ -233,23 +235,23 @@ export const FeedbackSection: React.FC = () => {
             </div>
 
             <div className="space-y-1">
-              <label className="text-[10px] font-bold text-slate-400 uppercase ml-1">Titolo</label>
+              <label className="text-[10px] font-bold text-slate-400 uppercase ml-1">{t('feedback.titleLabel')}</label>
               <input 
                 value={formData.title}
                 onChange={e => setFormData(prev => ({...prev, title: e.target.value}))}
                 className="w-full bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 px-4 py-3 rounded-2xl outline-none focus:ring-4 focus:ring-indigo-50 dark:focus:ring-indigo-900/20 focus:border-indigo-500 transition-all text-sm"
-                placeholder="Es: Errore calcolo AVS..."
+                placeholder={t('feedback.titlePlaceholder')}
               />
             </div>
 
             <div className="space-y-1 relative">
-              <label className="text-[10px] font-bold text-slate-400 uppercase ml-1">Dettagli</label>
+              <label className="text-[10px] font-bold text-slate-400 uppercase ml-1">{t('feedback.detailsLabel')}</label>
               <textarea 
                 value={formData.description}
                 onChange={e => setFormData(prev => ({...prev, description: e.target.value}))}
                 rows={5}
                 className="w-full bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 px-4 py-3 rounded-2xl outline-none focus:ring-4 focus:ring-indigo-50 dark:focus:ring-indigo-900/20 focus:border-indigo-500 transition-all text-sm resize-none"
-                placeholder="Descrivi il problema..."
+                placeholder={t('feedback.detailsPlaceholder')}
               />
               <button 
                 type="button"
@@ -274,13 +276,13 @@ export const FeedbackSection: React.FC = () => {
               className="w-full py-4 bg-slate-800 dark:bg-slate-100 dark:text-slate-900 text-white rounded-2xl font-bold flex items-center justify-center gap-2 hover:bg-slate-900 dark:hover:bg-white transition-all shadow-xl shadow-slate-500/10 disabled:opacity-50"
             >
               {isSubmitting ? <Loader2 size={18} className="animate-spin" /> : <Github size={18} />}
-              Apri Issue su GitHub
+              {t('feedback.openIssue')}
             </button>
             
             {!githubToken && (
               <p className="text-[10px] text-center text-slate-400">
                 <Lock size={10} className="inline mr-1"/>
-                Richiede token API configurato.
+                {t('feedback.requiresToken')}
               </p>
             )}
           </form>
@@ -290,10 +292,10 @@ export const FeedbackSection: React.FC = () => {
         <div className="space-y-4">
           <div className="flex items-center justify-between px-2">
             <h3 className="text-xs font-bold text-slate-400 uppercase tracking-widest flex items-center gap-2">
-              <Github size={14} /> Attività Recente
+              <Github size={14} /> {t('feedback.recentActivity')}
             </h3>
             <a href={`https://github.com/${REPO_OWNER}/${REPO_NAME}/issues`} target="_blank" rel="noreferrer" className="text-[10px] bg-slate-200 dark:bg-slate-800 px-2 py-0.5 rounded-full font-bold text-slate-500 hover:text-indigo-500 flex items-center gap-1 transition-colors">
-              Vedi tutte <ExternalLink size={8} />
+              {t('feedback.viewAll')} <ExternalLink size={8} />
             </a>
           </div>
 
@@ -338,7 +340,7 @@ export const FeedbackSection: React.FC = () => {
             ) : (
               <div className="text-center py-12 bg-slate-50/50 dark:bg-slate-900/50 rounded-3xl border-2 border-dashed border-slate-200 dark:border-slate-800">
                 <Github size={32} className="mx-auto text-slate-300 mb-3" />
-                <p className="text-sm text-slate-400">Nessuna segnalazione trovata.</p>
+                <p className="text-sm text-slate-400">{t('feedback.noReports')}</p>
               </div>
             )}
           </div>

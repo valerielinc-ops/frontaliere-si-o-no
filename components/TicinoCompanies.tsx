@@ -32,44 +32,125 @@ const SECTORS = [
 ] as const;
 
 const companies: Company[] = [
-  // Finanza
+  // Finanza & Banking
   { name: 'UBS', sector: 'Finanza & Banking', employees: 2500, city: 'Lugano', coordinates: [46.0037, 8.9511], website: 'https://www.ubs.com', description: 'Banca globale, sede regionale Ticino' },
   { name: 'Banca dello Stato del Canton Ticino', sector: 'Finanza & Banking', employees: 850, city: 'Bellinzona', coordinates: [46.1946, 9.0236], website: 'https://www.bancastato.ch', description: 'Banca cantonale ticinese' },
   { name: 'BSI (ora EFG)', sector: 'Finanza & Banking', employees: 600, city: 'Lugano', coordinates: [46.0050, 8.9480], website: 'https://www.efginternational.com', description: 'Private banking e gestione patrimoniale' },
   { name: 'Cornèr Banca', sector: 'Finanza & Banking', employees: 500, city: 'Lugano', coordinates: [46.0020, 8.9530], website: 'https://www.corner.ch', description: 'Banca privata, carte di credito, trading' },
   { name: 'Banca Raiffeisen', sector: 'Finanza & Banking', employees: 400, city: 'Lugano', coordinates: [46.0055, 8.9550], description: 'Banca cooperativa, rete capillare' },
+  { name: 'Julius Baer', sector: 'Finanza & Banking', employees: 300, city: 'Lugano', coordinates: [46.0042, 8.9525], website: 'https://www.juliusbaer.com', description: 'Wealth management, private banking internazionale' },
+  { name: 'Credit Suisse (ora UBS)', sector: 'Finanza & Banking', employees: 450, city: 'Lugano', coordinates: [46.0035, 8.9505], website: 'https://www.ubs.com', description: 'Ex sede CS, ora integrata in UBS' },
+  { name: 'PostFinance', sector: 'Finanza & Banking', employees: 200, city: 'Bellinzona', coordinates: [46.1950, 9.0220], website: 'https://www.postfinance.ch', description: 'Servizi finanziari postali, pagamenti' },
+  { name: 'Banca Migros', sector: 'Finanza & Banking', employees: 150, city: 'Lugano', coordinates: [46.0048, 8.9540], website: 'https://www.bancamigros.ch', description: 'Banca retail cooperativa, ipoteche' },
+  { name: 'BancaStato Advisory', sector: 'Finanza & Banking', employees: 120, city: 'Lugano', coordinates: [46.0025, 8.9515], description: 'Consulenza finanziaria e gestione portafogli' },
+  { name: 'Piguet Galland', sector: 'Finanza & Banking', employees: 80, city: 'Lugano', coordinates: [46.0032, 8.9495], website: 'https://www.pfrpartners.ch', description: 'Private banking, gestione patrimoniale' },
 
-  // Tecnologia
+  // Tecnologia & IT
   { name: 'Swiss IT Security', sector: 'Tecnologia & IT', employees: 200, city: 'Manno', coordinates: [46.0340, 8.9210], description: 'Cybersecurity e servizi IT' },
   { name: 'Doodle (parte)', sector: 'Tecnologia & IT', employees: 80, city: 'Lugano', coordinates: [46.0045, 8.9520], website: 'https://doodle.com', description: 'Pianificazione meeting e scheduling' },
   { name: 'Novalung / USI Hub', sector: 'Tecnologia & IT', employees: 150, city: 'Lugano', coordinates: [46.0100, 8.9600], description: 'Startup e innovazione tech USI campus' },
   { name: 'TIO SA', sector: 'Tecnologia & IT', employees: 120, city: 'Muzzano', coordinates: [45.9920, 8.9220], website: 'https://www.tio.ch', description: 'Media digitale, notizie online' },
+  { name: 'SUPSI / DTI', sector: 'Tecnologia & IT', employees: 400, city: 'Manno', coordinates: [46.0350, 8.9200], website: 'https://www.supsi.ch', description: 'Scuola universitaria, dipartimento tecnologie innovative' },
+  { name: 'Ated ICT Ticino', sector: 'Tecnologia & IT', employees: 50, city: 'Lugano', coordinates: [46.0065, 8.9510], website: 'https://www.ated.ch', description: 'Associazione ticinese evoluzione digitale' },
+  { name: 'ti&m', sector: 'Tecnologia & IT', employees: 100, city: 'Lugano', coordinates: [46.0070, 8.9540], website: 'https://www.ti8m.ch', description: 'Software engineering, sviluppo web & mobile' },
+  { name: 'InvestGlass', sector: 'Tecnologia & IT', employees: 40, city: 'Lugano', coordinates: [46.0028, 8.9490], website: 'https://www.investglass.com', description: 'CRM fintech per wealth management' },
+  { name: 'Quantumvis', sector: 'Tecnologia & IT', employees: 30, city: 'Manno', coordinates: [46.0330, 8.9230], description: 'Soluzioni AI e machine learning per industria' },
 
-  // Farmaceutico
+  // Farmaceutico & Chimico
   { name: 'Helsinn', sector: 'Farmaceutico & Chimico', employees: 700, city: 'Lugano', coordinates: [46.0180, 8.9480], website: 'https://www.helsinn.com', description: 'Farmaceutica, oncologia e cure palliative' },
-  { name: 'Ibsa', sector: 'Farmaceutico & Chimico', employees: 500, city: 'Lugano', coordinates: [46.0150, 8.9420], website: 'https://www.ibsa.ch', description: 'Farmaceutica, dermatologia, endocrinologia' },
+  { name: 'IBSA Institut Biochimique', sector: 'Farmaceutico & Chimico', employees: 500, city: 'Lugano', coordinates: [46.0150, 8.9420], website: 'https://www.ibsa.ch', description: 'Farmaceutica, dermatologia, endocrinologia, fertilità' },
   { name: 'Zambon', sector: 'Farmaceutico & Chimico', employees: 200, city: 'Cadempino', coordinates: [46.0380, 8.9350], website: 'https://www.zambon.com', description: 'Farmaceutica, prodotti respiratori' },
   { name: 'Humabs BioMed (Vir)', sector: 'Farmaceutico & Chimico', employees: 150, city: 'Bellinzona', coordinates: [46.1900, 9.0200], description: 'Biotech, anticorpi monoclonali' },
+  { name: 'Istituto di Ricerca in Biomedicina (IRB)', sector: 'Farmaceutico & Chimico', employees: 180, city: 'Bellinzona', coordinates: [46.1910, 9.0180], website: 'https://www.irb.usi.ch', description: 'Ricerca immunologia e biologia cellulare' },
+  { name: 'Laboratorio cantonale', sector: 'Farmaceutico & Chimico', employees: 100, city: 'Bellinzona', coordinates: [46.1930, 9.0210], description: 'Controllo qualità alimenti e acque' },
+  { name: 'Sintetica', sector: 'Farmaceutico & Chimico', employees: 250, city: 'Mendrisio', coordinates: [45.8700, 8.9820], website: 'https://www.sintetica.com', description: 'Anestetici locali iniettabili, produzione sterile' },
+  { name: 'Doppel Farmaceutici', sector: 'Farmaceutico & Chimico', employees: 80, city: 'Lugano', coordinates: [46.0110, 8.9450], description: 'Distribuzione farmaceutica, integratori' },
 
   // Lusso & Moda
   { name: 'VF International (The North Face, Timberland)', sector: 'Lusso & Moda', employees: 1200, city: 'Stabio', coordinates: [45.8520, 8.9350], website: 'https://www.vfc.com', description: 'Abbigliamento sportivo e outdoor, sede EMEA' },
   { name: 'Hugo Boss Ticino', sector: 'Lusso & Moda', employees: 350, city: 'Coldrerio', coordinates: [45.8490, 9.0050], website: 'https://www.hugoboss.com', description: 'Moda di lusso, logistica regionale' },
   { name: 'Guess Europe', sector: 'Lusso & Moda', employees: 300, city: 'Lugano', coordinates: [46.0060, 8.9490], website: 'https://www.guess.eu', description: 'Moda, sede europea' },
+  { name: 'Bally', sector: 'Lusso & Moda', employees: 400, city: 'Caslano', coordinates: [45.9670, 8.8720], website: 'https://www.bally.com', description: 'Calzature e accessori di lusso, sede storica svizzera' },
+  { name: 'Philipp Plein', sector: 'Lusso & Moda', employees: 200, city: 'Lugano', coordinates: [46.0080, 8.9560], website: 'https://www.plein.com', description: 'Moda di lusso, sede internazionale' },
+  { name: 'Diesel (OTB)', sector: 'Lusso & Moda', employees: 150, city: 'Stabio', coordinates: [45.8530, 8.9340], website: 'https://www.diesel.com', description: 'Moda casual, logistica distribuzione' },
+  { name: 'Ermenegildo Zegna (logistica)', sector: 'Lusso & Moda', employees: 180, city: 'Stabio', coordinates: [45.8510, 8.9360], website: 'https://www.zegna.com', description: 'Lusso maschile, centro logistico' },
+  { name: 'Bulgari (logistica)', sector: 'Lusso & Moda', employees: 120, city: 'Mendrisio', coordinates: [45.8710, 8.9810], website: 'https://www.bulgari.com', description: 'Gioielleria di lusso LVMH, hub logistico' },
+  { name: 'Bottega Veneta (logistica)', sector: 'Lusso & Moda', employees: 100, city: 'Mendrisio', coordinates: [45.8690, 8.9830], website: 'https://www.bottegaveneta.com', description: 'Pelletteria di lusso Kering, distribuzione' },
 
   // Alimentare
   { name: 'Rapelli', sector: 'Alimentare', employees: 400, city: 'Stabio', coordinates: [45.8540, 8.9310], website: 'https://www.rapelli.ch', description: 'Salumi e prodotti carnei svizzeri' },
-  { name: 'Mikron Group', sector: 'Altro', employees: 300, city: 'Agno', coordinates: [45.9950, 8.9010], website: 'https://www.mikron.com', description: 'Automazione industriale e precision manufacturing' },
+  { name: 'Chocolat Stella', sector: 'Alimentare', employees: 120, city: 'Giubiasco', coordinates: [46.1740, 9.0050], website: 'https://www.chocolat-stella.ch', description: 'Cioccolato svizzero artigianale dal 1930' },
+  { name: 'Migros Ticino', sector: 'Alimentare', employees: 2200, city: 'S. Antonino', coordinates: [46.1530, 8.9700], website: 'https://www.migros.ch', description: 'Grande distribuzione, supermercati e centri commerciali' },
+  { name: 'Coop Ticino', sector: 'Alimentare', employees: 1800, city: 'Mezzovico', coordinates: [46.0900, 8.9550], website: 'https://www.coop.ch', description: 'Grande distribuzione, sede regionale' },
+  { name: 'Aldi Suisse (logistica)', sector: 'Alimentare', employees: 300, city: 'Cadenazzo', coordinates: [46.1490, 8.9460], website: 'https://www.aldi-suisse.ch', description: 'Discount alimentare, centro distribuzione' },
+  { name: 'Caffè Chicco d\'Oro', sector: 'Alimentare', employees: 100, city: 'Balerna', coordinates: [45.8530, 9.0140], website: 'https://www.chiccodoro.ch', description: 'Torrefazione caffè svizzero premium' },
 
   // Assicurazioni
   { name: 'Generali Svizzera', sector: 'Assicurazioni', employees: 350, city: 'Lugano', coordinates: [46.0030, 8.9560], website: 'https://www.generali.ch', description: 'Assicurazioni vita e danni' },
+  { name: 'Zurich Insurance (sede Ticino)', sector: 'Assicurazioni', employees: 200, city: 'Lugano', coordinates: [46.0045, 8.9535], website: 'https://www.zurich.ch', description: 'Assicurazioni generali, sede regionale' },
+  { name: 'Helvetia (sede Ticino)', sector: 'Assicurazioni', employees: 150, city: 'Lugano', coordinates: [46.0038, 8.9545], website: 'https://www.helvetia.ch', description: 'Assicurazioni e previdenza' },
+  { name: 'CSS Assicurazione', sector: 'Assicurazioni', employees: 100, city: 'Bellinzona', coordinates: [46.1960, 9.0240], website: 'https://www.css.ch', description: 'Assicurazione malattia, sede regionale' },
+  { name: 'SUVA (sede Ticino)', sector: 'Assicurazioni', employees: 180, city: 'Bellinzona', coordinates: [46.1940, 9.0230], website: 'https://www.suva.ch', description: 'Assicurazione infortuni, sede regionale' },
 
   // Logistica
   { name: 'Planzer', sector: 'Logistica', employees: 250, city: 'Cadenazzo', coordinates: [46.1500, 8.9480], website: 'https://www.planzer.ch', description: 'Trasporti e logistica' },
   { name: 'Posta Svizzera Centro Regionale', sector: 'Logistica', employees: 600, city: 'Cadenazzo', coordinates: [46.1520, 8.9500], description: 'Centro pacchi e logistica' },
+  { name: 'FFS Officine (Ferrovie Federali)', sector: 'Logistica', employees: 800, city: 'Bellinzona', coordinates: [46.1980, 9.0250], website: 'https://www.sbb.ch', description: 'Officine di manutenzione treni, centro industriale' },
+  { name: 'DHL Express Ticino', sector: 'Logistica', employees: 100, city: 'Mezzovico', coordinates: [46.0910, 8.9540], website: 'https://www.dhl.ch', description: 'Spedizioni espresse internazionali' },
+  { name: 'Kuehne + Nagel', sector: 'Logistica', employees: 120, city: 'Chiasso', coordinates: [45.8350, 9.0280], website: 'https://www.kuehne-nagel.com', description: 'Logistica internazionale, spedizioni doganali' },
+  { name: 'Gondrand', sector: 'Logistica', employees: 80, city: 'Chiasso', coordinates: [45.8360, 9.0260], description: 'Spedizioni internazionali, sdoganamento' },
 
   // Consulenza
   { name: 'Deloitte Ticino', sector: 'Consulenza', employees: 150, city: 'Lugano', coordinates: [46.0070, 8.9530], website: 'https://www.deloitte.ch', description: 'Audit, consulenza, tax' },
   { name: 'KPMG Lugano', sector: 'Consulenza', employees: 100, city: 'Lugano', coordinates: [46.0040, 8.9570], website: 'https://www.kpmg.ch', description: 'Revisione e consulenza aziendale' },
+  { name: 'PwC Lugano', sector: 'Consulenza', employees: 130, city: 'Lugano', coordinates: [46.0052, 8.9555], website: 'https://www.pwc.ch', description: 'Revisione, fiscalità, consulenza strategica' },
+  { name: 'EY Lugano', sector: 'Consulenza', employees: 80, city: 'Lugano', coordinates: [46.0058, 8.9515], website: 'https://www.ey.com', description: 'Audit, advisory, tax e transaction' },
+  { name: 'BDO Ticino', sector: 'Consulenza', employees: 60, city: 'Lugano', coordinates: [46.0046, 8.9522], website: 'https://www.bdo.ch', description: 'Audit, fiduciaria, consulenza PMI' },
+
+  // Energia
+  { name: 'AET (Azienda Elettrica Ticinese)', sector: 'Energia', employees: 300, city: 'Bellinzona', coordinates: [46.1965, 9.0215], website: 'https://www.aet.ch', description: 'Produzione e distribuzione energia elettrica' },
+  { name: 'AIL (Aziende Industriali Lugano)', sector: 'Energia', employees: 250, city: 'Lugano', coordinates: [46.0015, 8.9500], website: 'https://www.ail.ch', description: 'Gas, acqua, energia per Lugano e regione' },
+  { name: 'SES (Società Elettrica Sopracenerina)', sector: 'Energia', employees: 120, city: 'Locarno', coordinates: [46.1700, 8.7980], website: 'https://www.ses.ch', description: 'Distribuzione energia elettrica Sopraceneri' },
+
+  // Altro - Industria & Manifattura
+  { name: 'Mikron Group', sector: 'Altro', employees: 300, city: 'Agno', coordinates: [45.9950, 8.9010], website: 'https://www.mikron.com', description: 'Automazione industriale e precision manufacturing' },
+  { name: 'Swatch Group Assembly', sector: 'Lusso & Moda', employees: 250, city: 'Manno', coordinates: [46.0335, 8.9220], website: 'https://www.swatchgroup.com', description: 'Assemblaggio orologi, componentistica orologiera' },
+  { name: 'ETA SA (Swatch Group)', sector: 'Lusso & Moda', employees: 180, city: 'Stabio', coordinates: [45.8545, 8.9380], website: 'https://www.eta.ch', description: 'Produzione movimenti orologieri, calibri meccanici e quarzo' },
+  { name: 'Swiss Timing (Swatch Group)', sector: 'Tecnologia & IT', employees: 100, city: 'Corgémont', coordinates: [45.8550, 8.9320], website: 'https://www.swisstiming.com', description: 'Cronometraggio sportivo ufficiale, Olimpiadi e Formula 1' },
+  { name: 'Nivarox (Swatch Group)', sector: 'Lusso & Moda', employees: 80, city: 'Stabio', coordinates: [45.8555, 8.9370], website: 'https://www.swatchgroup.com', description: 'Produzione spirali e componenti di precisione per orologi' },
+  { name: 'Comadur (Swatch Group)', sector: 'Lusso & Moda', employees: 60, city: 'Stabio', coordinates: [45.8535, 8.9390], website: 'https://www.swatchgroup.com', description: 'Materiali high-tech: zaffiro, ceramica e carburo di tungsteno per orologi' },
+  { name: 'Ente Ospedaliero Cantonale (EOC)', sector: 'Altro', employees: 5000, city: 'Bellinzona', coordinates: [46.1955, 9.0225], website: 'https://www.eoc.ch', description: 'Ospedali pubblici ticinesi, maggior datore di lavoro cantonale' },
+  { name: 'Gruppo Fidinam', sector: 'Altro', employees: 350, city: 'Lugano', coordinates: [46.0062, 8.9508], website: 'https://www.fidinam.ch', description: 'Fiduciaria, fiscalità internazionale, corporate services' },
+  { name: 'Tamedia / 20 Minuti', sector: 'Altro', employees: 100, city: 'Lugano', coordinates: [46.0055, 8.9500], website: 'https://www.20min.ch', description: 'Media, editoria digitale, notizie gratuite' },
+  { name: 'RSI (Radiotelevisione Svizzera)', sector: 'Altro', employees: 800, city: 'Lugano-Besso', coordinates: [46.0130, 8.9430], website: 'https://www.rsi.ch', description: 'Servizio pubblico radiotelevisivo in lingua italiana' },
+  { name: 'USI (Università della Svizzera Italiana)', sector: 'Altro', employees: 600, city: 'Lugano', coordinates: [46.0105, 8.9610], website: 'https://www.usi.ch', description: 'Università pubblica, informatica, economia, comunicazione' },
+  { name: 'Amministrazione cantonale TI', sector: 'Altro', employees: 3500, city: 'Bellinzona', coordinates: [46.1942, 9.0228], website: 'https://www.ti.ch', description: 'Amministrazione pubblica del Canton Ticino' },
+  { name: 'Città di Lugano', sector: 'Altro', employees: 1500, city: 'Lugano', coordinates: [46.0037, 8.9511], website: 'https://www.lugano.ch', description: 'Amministrazione comunale, servizi pubblici' },
+  { name: 'ABB Svizzera (sede Ticino)', sector: 'Altro', employees: 180, city: 'Manno', coordinates: [46.0325, 8.9215], website: 'https://www.abb.ch', description: 'Tecnologie energetiche e automazione industriale' },
+  { name: 'Benteler (Argor-Heraeus)', sector: 'Altro', employees: 220, city: 'Mendrisio', coordinates: [45.8720, 8.9800], website: 'https://www.argor.com', description: 'Raffinazione metalli preziosi, certificazione' },
+  { name: 'Interroll', sector: 'Altro', employees: 350, city: 'S. Antonino', coordinates: [46.1540, 8.9710], website: 'https://www.interroll.com', description: 'Intralogistica, rulli e convogliatori industriali' },
+  { name: 'Medacta International', sector: 'Altro', employees: 600, city: 'Castel S. Pietro', coordinates: [45.8600, 9.0080], website: 'https://www.medacta.com', description: 'Dispositivi medici ortopedici, protesi articolari' },
+  { name: 'Precicast SA', sector: 'Altro', employees: 250, city: 'Novazzano', coordinates: [45.8470, 8.9780], website: 'https://www.precicast.com', description: 'Microfusione di precisione per aeronautica' },
+  { name: 'Ferriere Cattaneo', sector: 'Altro', employees: 150, city: 'Giubiasco', coordinates: [46.1720, 9.0060], website: 'https://www.ferrierecattaneo.ch', description: 'Costruzioni metalliche, carpenteria' },
+  { name: 'Riri Group', sector: 'Altro', employees: 200, city: 'Mendrisio', coordinates: [45.8680, 8.9840], website: 'https://www.ririgroup.com', description: 'Chiusure lampo e bottoni di lusso per fashion' },
+  { name: 'Ticino Turismo', sector: 'Altro', employees: 50, city: 'Bellinzona', coordinates: [46.1935, 9.0232], website: 'https://www.ticino.ch', description: 'Promozione turistica del Canton Ticino' },
+  { name: 'TILO (Treni Regionali Ticino Lombardia)', sector: 'Logistica', employees: 200, city: 'Chiasso', coordinates: [45.8340, 9.0290], website: 'https://www.tilo.ch', description: 'Treni regionali transfrontalieri TI-Lombardia' },
+  { name: 'Hupac', sector: 'Logistica', employees: 700, city: 'Chiasso', coordinates: [45.8330, 9.0270], website: 'https://www.hupac.com', description: 'Trasporto intermodale ferroviario internazionale' },
+
+  // Industria & Manifattura aggiuntive
+  { name: 'PAMP SA', sector: 'Altro', employees: 300, city: 'Castel S. Pietro', coordinates: [45.8580, 9.0100], website: 'https://www.pamp.com', description: 'Raffineria metalli preziosi, lingotti oro e argento certificati LBMA' },
+  { name: 'Gucci (logistica)', sector: 'Lusso & Moda', employees: 150, city: 'Stabio', coordinates: [45.8525, 8.9355], website: 'https://www.gucci.com', description: 'Centro logistico e distribuzione moda di lusso Kering' },
+  { name: 'Moncler (logistica)', sector: 'Lusso & Moda', employees: 100, city: 'Stabio', coordinates: [45.8515, 8.9345], website: 'https://www.moncler.com', description: 'Abbigliamento luxury outerwear, hub logistico' },
+  { name: 'Giorgio Armani Operations', sector: 'Lusso & Moda', employees: 200, city: 'Mendrisio', coordinates: [45.8695, 8.9815], website: 'https://www.armani.com', description: 'Operazioni e logistica moda lusso italiana' },
+  { name: 'Globus / Magazine zum Globus', sector: 'Lusso & Moda', employees: 100, city: 'Lugano', coordinates: [46.0033, 8.9508], website: 'https://www.globus.ch', description: 'Grande magazzino di lusso svizzero' },
+  { name: 'Manor', sector: 'Alimentare', employees: 250, city: 'Lugano', coordinates: [46.0040, 8.9550], website: 'https://www.manor.ch', description: 'Grande magazzino e supermercato, sede regionale' },
+  { name: 'Lidl Svizzera (logistica)', sector: 'Alimentare', employees: 200, city: 'Bioggio', coordinates: [46.0100, 8.9050], website: 'https://www.lidl.ch', description: 'Discount alimentare, centro distribuzione regionale' },
+  { name: 'Cardis Sotheby\'s International Realty', sector: 'Consulenza', employees: 50, city: 'Lugano', coordinates: [46.0030, 8.9520], website: 'https://www.cardis.ch', description: 'Immobiliare di lusso, proprietà esclusive Ticino' },
+  { name: 'Bentley Lugano (Auto di lusso)', sector: 'Lusso & Moda', employees: 30, city: 'Noranco', coordinates: [45.9980, 8.9480], description: 'Concessionaria auto di lusso, servizi premium' },
+  { name: 'Swisscom (sede Ticino)', sector: 'Tecnologia & IT', employees: 200, city: 'Bellinzona', coordinates: [46.1938, 9.0222], website: 'https://www.swisscom.ch', description: 'Telecomunicazioni, rete mobile e fibra ottica' },
+  { name: 'Sunrise (sede Ticino)', sector: 'Tecnologia & IT', employees: 80, city: 'Lugano', coordinates: [46.0050, 8.9530], website: 'https://www.sunrise.ch', description: 'Telecomunicazioni e servizi internet' },
+  { name: 'Carlo Benteler (Turck Duotec)', sector: 'Tecnologia & IT', employees: 150, city: 'Novazzano', coordinates: [45.8480, 8.9770], website: 'https://www.turck-duotec.com', description: 'Microelettronica e sensori industriali' },
+  { name: 'Emmi Svizzera (Latteria Lugano)', sector: 'Alimentare', employees: 80, city: 'Lugano', coordinates: [46.0020, 8.9470], website: 'https://www.emmi.com', description: 'Latticini e formaggi svizzeri di qualità' },
 ];
 
 const SECTOR_COLORS: Record<string, string> = {
@@ -229,7 +310,7 @@ const TicinoCompanies: React.FC = () => {
         <div className="flex flex-wrap items-center gap-3">
           <div className="flex items-center gap-2 text-sm">
             <Users size={14} className="text-slate-500" />
-            <span className="text-slate-600 dark:text-slate-400 font-medium">Min. dipendenti:</span>
+            <span className="text-slate-600 dark:text-slate-400 font-medium">{t('companies.minEmployees')}:</span>
             <input type="range" min={0} max={1000} step={50} value={minEmployees}
               onChange={(e) => setMinEmployees(Number(e.target.value))}
               className="w-32 accent-violet-600" />
@@ -239,9 +320,9 @@ const TicinoCompanies: React.FC = () => {
             <ArrowUpDown size={14} className="text-slate-500" />
             <select value={sortBy} onChange={(e) => setSortBy(e.target.value as SortKey)}
               className="appearance-none px-3 py-1.5 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg text-xs font-medium focus:outline-none">
-              <option value="employees">Dipendenti</option>
-              <option value="name">Nome</option>
-              <option value="city">Città</option>
+              <option value="employees">{t('companies.totalEmployees')}</option>
+              <option value="name">{t('companies.sortName')}</option>
+              <option value="city">{t('companies.sortCity')}</option>
             </select>
             <button onClick={() => setSortDesc(!sortDesc)} className="p-1.5 rounded-lg bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-600 transition-colors">
               {sortDesc ? '↓' : '↑'}
@@ -272,18 +353,18 @@ const TicinoCompanies: React.FC = () => {
                     <p style={{ fontSize: '13px', color: '#475569', margin: '0 0 8px' }}>{company.description}</p>
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '4px', fontSize: '13px' }}>
                       <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                        <span style={{ color: '#94a3b8' }}>Dipendenti</span>
+                        <span style={{ color: '#94a3b8' }}>{t('companies.totalEmployees')}</span>
                         <span style={{ fontWeight: 700 }}>{company.employees.toLocaleString('it-IT')}</span>
                       </div>
                       <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                        <span style={{ color: '#94a3b8' }}>Città</span>
+                        <span style={{ color: '#94a3b8' }}>{t('companies.sortCity')}</span>
                         <span style={{ fontWeight: 700 }}>{company.city}</span>
                       </div>
                     </div>
                     {company.website && (
                       <a href={company.website} target="_blank" rel="noopener noreferrer"
                         style={{ marginTop: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px', width: '100%', padding: '8px', backgroundColor: '#7c3aed', color: 'white', borderRadius: '8px', fontSize: '13px', fontWeight: 700, textDecoration: 'none' }}>
-                        Visita sito web
+                        {t('companies.visitWebsite')}
                       </a>
                     )}
                   </div>
@@ -333,7 +414,7 @@ const TicinoCompanies: React.FC = () => {
                 <a href={company.website} target="_blank" rel="noopener noreferrer"
                   className="mt-3 flex items-center justify-center gap-1.5 w-full py-2 bg-violet-600 text-white rounded-lg text-xs font-bold hover:bg-violet-700 transition-colors no-underline">
                   <Globe size={12} />
-                  Visita sito web
+                  {t('companies.visitWebsite')}
                 </a>
               )}
             </div>
@@ -344,8 +425,8 @@ const TicinoCompanies: React.FC = () => {
       {filtered.length === 0 && (
         <div className="text-center py-12 text-slate-500">
           <Building2 size={48} className="mx-auto mb-3 opacity-50" />
-          <p className="font-bold">Nessuna azienda trovata</p>
-          <p className="text-sm">Prova a modificare i filtri di ricerca</p>
+          <p className="font-bold">{t('companies.noResults')}</p>
+          <p className="text-sm">{t('companies.tryModifyFilters')}</p>
         </div>
       )}
     </div>

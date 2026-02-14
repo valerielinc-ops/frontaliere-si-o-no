@@ -1,21 +1,32 @@
 import React, { useState } from 'react';
 import { Mail, Send, CheckCircle2, AlertCircle, Loader2, Bell, Shield } from 'lucide-react';
 import { Analytics } from '@/services/analytics';
+import { useTranslation } from '@/services/i18n';
 
 // Firebase Firestore will be lazily imported
 let firestoreInitialized = false;
 let db: any = null;
 
+// Timeout wrapper for Firestore operations that may hang indefinitely
+const withTimeout = <T,>(promise: Promise<T>, ms: number, label: string): Promise<T> =>
+  Promise.race([
+    promise,
+    new Promise<T>((_, reject) => setTimeout(() => reject(new Error(`timeout: ${label} after ${ms}ms`)), ms)),
+  ]);
+
 const initFirestore = async () => {
   if (firestoreInitialized) return db;
   try {
+    console.log('[Newsletter] Initializing Firestore...');
     const { getFirestore } = await import('firebase/firestore');
     const { app } = await import('@/services/firebase');
+    console.log('[Newsletter] Firebase app loaded:', app.name, '| Options:', JSON.stringify({ projectId: app.options.projectId, appId: app.options.appId?.slice(0, 10) + '...' }));
     db = getFirestore(app);
     firestoreInitialized = true;
+    console.log('[Newsletter] Firestore initialized successfully');
     return db;
   } catch (error) {
-    console.error('Failed to initialize Firestore:', error);
+    console.error('[Newsletter] Failed to initialize Firestore:', error);
     return null;
   }
 };
@@ -25,6 +36,7 @@ interface NewsletterProps {
 }
 
 const Newsletter: React.FC<NewsletterProps> = ({ compact = false }) => {
+  const { t } = useTranslation();
   const [email, setEmail] = useState('');
   const [name, setName] = useState('');
   const [preferences, setPreferences] = useState({
@@ -42,22 +54,24 @@ const Newsletter: React.FC<NewsletterProps> = ({ compact = false }) => {
     e.preventDefault();
 
     if (!validateEmail(email)) {
-      setErrorMessage('Inserisci un indirizzo email valido');
+      setErrorMessage(t('newsletter.invalidEmail'));
       setStatus('error');
       return;
     }
 
     setStatus('loading');
     Analytics.trackUIInteraction('Newsletter', 'subscribe_attempt', email.split('@')[1]);
+    console.log('[Newsletter] Subscribe attempt:', { email: email.replace(/(.{2}).*(@.*)/, '$1***$2'), name: name || '(none)', preferences });
 
     try {
       const firestore = await initFirestore();
       if (!firestore) {
+        console.warn('[Newsletter] Firestore unavailable — saving locally');
         // Firestore not available - store locally and show success
         const pending = JSON.parse(localStorage.getItem('pendingNewsletterSubs') || '[]');
         pending.push({ email: email.toLowerCase(), name: name.trim() || null, preferences, subscribedAt: new Date().toISOString() });
         localStorage.setItem('pendingNewsletterSubs', JSON.stringify(pending));
-        console.log('Newsletter subscription saved locally (Firestore unavailable):', { email, name, preferences });
+        console.log('[Newsletter] Saved to localStorage (total pending:', pending.length, ')');
         setStatus('success');
         setEmail('');
         setName('');
@@ -68,17 +82,20 @@ const Newsletter: React.FC<NewsletterProps> = ({ compact = false }) => {
       const { collection, addDoc, query, where, getDocs } = await import('firebase/firestore');
 
       // Check if email already exists
+      console.log('[Newsletter] Checking if email exists in Firestore...');
       const q = query(collection(firestore, 'newsletter_subscribers'), where('email', '==', email.toLowerCase()));
-      const existing = await getDocs(q);
+      const existing = await withTimeout(getDocs(q), 8000, 'getDocs');
 
       if (!existing.empty) {
+        console.log('[Newsletter] Email already subscribed');
         setStatus('exists');
         Analytics.trackUIInteraction('Newsletter', 'subscribe_exists', email.split('@')[1]);
         return;
       }
 
       // Add subscriber
-      await addDoc(collection(firestore, 'newsletter_subscribers'), {
+      console.log('[Newsletter] Adding subscriber to Firestore...');
+      await withTimeout(addDoc(collection(firestore, 'newsletter_subscribers'), {
         email: email.toLowerCase(),
         name: name.trim() || null,
         preferences,
@@ -86,16 +103,18 @@ const Newsletter: React.FC<NewsletterProps> = ({ compact = false }) => {
         source: 'web_app',
         locale: navigator.language || 'it-IT',
         isActive: true,
-      });
+      }), 8000, 'addDoc');
 
       setStatus('success');
       setEmail('');
       setName('');
+      console.log('[Newsletter] ✅ Subscription successful!');
       Analytics.trackUIInteraction('Newsletter', 'subscribe_success', email.split('@')[1]);
     } catch (error: any) {
-      console.error('Newsletter subscription error:', error);
-      // If Firestore fails (permissions, App Check, network), save locally as fallback
-      if (error?.code === 'permission-denied' || error?.code === 'unavailable' || error?.code === 'unauthenticated') {
+      console.error('[Newsletter] Subscription error:', { code: error?.code, message: error?.message, name: error?.name, stack: error?.stack?.split('\n').slice(0, 3).join('\n') });
+      // If Firestore fails (permissions, App Check, network, timeout), save locally as fallback
+      if (error?.code === 'permission-denied' || error?.code === 'unavailable' || error?.code === 'unauthenticated' || error?.message?.startsWith('timeout:')) {
+        console.warn(`[Newsletter] Firestore error (${error.code || error.message}) — falling back to localStorage`);
         const pending = JSON.parse(localStorage.getItem('pendingNewsletterSubs') || '[]');
         pending.push({ email: email.toLowerCase(), name: name.trim() || null, preferences, subscribedAt: new Date().toISOString() });
         localStorage.setItem('pendingNewsletterSubs', JSON.stringify(pending));
@@ -105,7 +124,7 @@ const Newsletter: React.FC<NewsletterProps> = ({ compact = false }) => {
         Analytics.trackUIInteraction('Newsletter', 'subscribe_fallback_error', error.code);
         return;
       }
-      setErrorMessage(error.message || 'Errore durante l\'iscrizione. Riprova più tardi.');
+      setErrorMessage(error.message || t('newsletter.subscribeError'));
       setStatus('error');
       Analytics.trackUIInteraction('Newsletter', 'subscribe_error', error.message);
     }
@@ -116,22 +135,22 @@ const Newsletter: React.FC<NewsletterProps> = ({ compact = false }) => {
       <div className="bg-gradient-to-r from-indigo-600 to-purple-600 rounded-2xl p-6 text-white">
         <div className="flex items-center gap-3 mb-3">
           <Bell size={20} />
-          <h3 className="font-bold text-lg">Newsletter Frontalieri</h3>
+          <h3 className="font-bold text-lg">{t('newsletter.title')}</h3>
         </div>
         <p className="text-indigo-100 text-sm mb-4">
-          Ricevi il cambio CHF/EUR, traffico valichi e aggiornamenti fiscali ogni settimana.
+          {t('newsletter.compactDescription')}
         </p>
 
         {status === 'success' ? (
           <div className="flex items-center gap-2 text-emerald-200">
-            <CheckCircle2 size={18} /> Iscrizione confermata!
+            <CheckCircle2 size={18} /> {t('newsletter.subscriptionConfirmedShort')}
           </div>
         ) : (
           <form onSubmit={handleSubscribe} className="flex gap-2">
             <input
               type="email" value={email}
               onChange={(e) => { setEmail(e.target.value); setStatus('idle'); }}
-              placeholder="La tua email..."
+              placeholder={t('newsletter.emailPlaceholder')}
               className="flex-grow px-4 py-2.5 bg-white/15 backdrop-blur-sm border border-white/25 rounded-xl text-white placeholder-white/50 text-sm focus:outline-none focus:ring-2 focus:ring-white/50"
               required
             />
@@ -143,7 +162,7 @@ const Newsletter: React.FC<NewsletterProps> = ({ compact = false }) => {
           </form>
         )}
         {status === 'error' && <p className="text-red-200 text-xs mt-2">{errorMessage}</p>}
-        {status === 'exists' && <p className="text-amber-200 text-xs mt-2">Questa email è già iscritta!</p>}
+        {status === 'exists' && <p className="text-amber-200 text-xs mt-2">{t('newsletter.alreadySubscribed')}</p>}
       </div>
     );
   }
@@ -156,26 +175,26 @@ const Newsletter: React.FC<NewsletterProps> = ({ compact = false }) => {
             <Mail size={32} />
           </div>
           <div>
-            <h1 className="text-3xl font-extrabold">Newsletter Settimanale</h1>
-            <p className="text-purple-100 mt-1">Ricevi aggiornamenti su cambio valuta, traffico e novità fiscali</p>
+            <h1 className="text-3xl font-extrabold">{t('newsletter.weeklyTitle')}</h1>
+            <p className="text-purple-100 mt-1">{t('newsletter.weeklySubtitle')}</p>
           </div>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mt-6">
           <div className="bg-white/15 backdrop-blur-sm rounded-xl p-3 text-center">
             <div className="text-2xl mb-1">💱</div>
-            <div className="text-sm font-bold">Cambio CHF/EUR</div>
-            <div className="text-xs text-white/70">Tasso settimanale</div>
+            <div className="text-sm font-bold">{t('newsletter.exchangeRate')}</div>
+            <div className="text-xs text-white/70">{t('newsletter.weeklyRate')}</div>
           </div>
           <div className="bg-white/15 backdrop-blur-sm rounded-xl p-3 text-center">
             <div className="text-2xl mb-1">🚦</div>
-            <div className="text-sm font-bold">Traffico Valichi</div>
-            <div className="text-xs text-white/70">Tempi e consigli</div>
+            <div className="text-sm font-bold">{t('newsletter.borderTraffic')}</div>
+            <div className="text-xs text-white/70">{t('newsletter.timesAndTips')}</div>
           </div>
           <div className="bg-white/15 backdrop-blur-sm rounded-xl p-3 text-center">
             <div className="text-2xl mb-1">📋</div>
-            <div className="text-sm font-bold">Novità Fiscali</div>
-            <div className="text-xs text-white/70">Scadenze e cambi</div>
+            <div className="text-sm font-bold">{t('newsletter.taxNews')}</div>
+            <div className="text-xs text-white/70">{t('newsletter.deadlinesAndChanges')}</div>
           </div>
         </div>
       </div>
@@ -183,16 +202,16 @@ const Newsletter: React.FC<NewsletterProps> = ({ compact = false }) => {
       {status === 'success' ? (
         <div className="bg-emerald-50 dark:bg-emerald-950/30 rounded-2xl border border-emerald-200 dark:border-emerald-800 p-8 text-center">
           <CheckCircle2 size={48} className="text-emerald-500 mx-auto mb-4" />
-          <h3 className="text-xl font-bold text-slate-800 dark:text-slate-100 mb-2">Iscrizione Confermata! 🎉</h3>
+          <h3 className="text-xl font-bold text-slate-800 dark:text-slate-100 mb-2">{t('newsletter.subscriptionConfirmed')} 🎉</h3>
           <p className="text-slate-600 dark:text-slate-400">
-            Riceverai la newsletter settimanale ogni lunedì mattina. Controlla la casella spam se non la ricevi.
+            {t('newsletter.subscriptionConfirmedDesc')}
           </p>
         </div>
       ) : (
         <form onSubmit={handleSubscribe} className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-6 shadow-sm space-y-5">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
-              <label className="text-xs font-bold text-slate-500 uppercase mb-1 block">Email *</label>
+              <label className="text-xs font-bold text-slate-500 uppercase mb-1 block">{t('newsletter.emailLabel')}</label>
               <input type="email" value={email}
                 onChange={(e) => { setEmail(e.target.value); setStatus('idle'); }}
                 placeholder="mario.rossi@email.com"
@@ -200,7 +219,7 @@ const Newsletter: React.FC<NewsletterProps> = ({ compact = false }) => {
                 required />
             </div>
             <div>
-              <label className="text-xs font-bold text-slate-500 uppercase mb-1 block">Nome (opzionale)</label>
+              <label className="text-xs font-bold text-slate-500 uppercase mb-1 block">{t('newsletter.nameLabel')}</label>
               <input type="text" value={name}
                 onChange={(e) => setName(e.target.value)}
                 placeholder="Mario"
@@ -210,13 +229,13 @@ const Newsletter: React.FC<NewsletterProps> = ({ compact = false }) => {
 
           {/* Preferences */}
           <div>
-            <label className="text-xs font-bold text-slate-500 uppercase mb-3 block">Cosa ti interessa?</label>
+            <label className="text-xs font-bold text-slate-500 uppercase mb-3 block">{t('newsletter.interestsLabel')}</label>
             <div className="grid grid-cols-2 gap-3">
               {[
-                { key: 'exchangeRate', label: '💱 Cambio CHF/EUR', desc: 'Tasso settimanale + trend' },
-                { key: 'traffic', label: '🚦 Traffico Valichi', desc: 'Migliori orari della settimana' },
-                { key: 'taxUpdates', label: '📋 Novità Fiscali', desc: 'Scadenze e cambiamenti' },
-                { key: 'tips', label: '💡 Consigli', desc: 'Risparmio e vita da frontaliere' },
+                { key: 'exchangeRate', label: `💱 ${t('newsletter.exchangeRate')}`, desc: t('newsletter.exchangeRateDesc') },
+                { key: 'traffic', label: `🚦 ${t('newsletter.borderTraffic')}`, desc: t('newsletter.borderTrafficDesc') },
+                { key: 'taxUpdates', label: `📋 ${t('newsletter.taxNews')}`, desc: t('newsletter.taxNewsDesc') },
+                { key: 'tips', label: `💡 ${t('newsletter.tips')}`, desc: t('newsletter.tipsDesc') },
               ].map(pref => (
                 <label key={pref.key}
                   className={`flex items-start gap-3 p-3 rounded-xl cursor-pointer transition-all border ${
@@ -245,14 +264,14 @@ const Newsletter: React.FC<NewsletterProps> = ({ compact = false }) => {
           )}
           {status === 'exists' && (
             <div className="flex items-center gap-2 p-3 bg-amber-50 dark:bg-amber-950/30 rounded-xl text-amber-600 text-sm">
-              <AlertCircle size={16} /> Questa email è già iscritta alla newsletter!
+              <AlertCircle size={16} /> {t('newsletter.alreadySubscribedFull')}
             </div>
           )}
 
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2 text-xs text-slate-400">
               <Shield size={14} />
-              Protetto da Firebase App Check
+              {t('newsletter.protectedBy')}
             </div>
             <button type="submit" disabled={status === 'loading'}
               className="px-8 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-bold rounded-xl hover:from-indigo-700 hover:to-purple-700 transition-all disabled:opacity-50 flex items-center gap-2 shadow-lg"
@@ -260,19 +279,19 @@ const Newsletter: React.FC<NewsletterProps> = ({ compact = false }) => {
               {status === 'loading' ? (
                 <>
                   <Loader2 size={18} className="animate-spin" />
-                  Iscrizione...
+                  {t('newsletter.subscribing')}
                 </>
               ) : (
                 <>
                   <Send size={18} />
-                  Iscriviti Gratis
+                  {t('newsletter.subscribeFree')}
                 </>
               )}
             </button>
           </div>
 
           <p className="text-xs text-slate-400 text-center">
-            Puoi cancellarti in qualsiasi momento. La tua email non verrà condivisa con terzi.
+            {t('newsletter.unsubscribeNotice')}
           </p>
         </form>
       )}

@@ -46,7 +46,7 @@ const JobComparator: React.FC = () => {
 
   const addOffer = () => {
     if (offers.length >= 4) return;
-    setOffers([...offers, { ...defaultOffer(), companyName: `Offerta ${offers.length + 1}` }]);
+    setOffers([...offers, { ...defaultOffer(), companyName: `${t('jobs.offer')} ${offers.length + 1}` }]);
     Analytics.trackUIInteraction('JobComparator', 'add_offer', String(offers.length + 1));
   };
 
@@ -193,7 +193,7 @@ const JobComparator: React.FC = () => {
 
               <div>
                 <label className="text-xs font-bold text-slate-500 uppercase">
-                  {offer.country === 'CH' ? t('jobs.grossSalary') : 'RAL Lorda (EUR)'}
+                  {offer.country === 'CH' ? t('jobs.grossSalary') : t('jobs.grossSalaryIT')}
                 </label>
                 <input type="number" value={offer.grossSalaryCHF} onChange={(e) => updateOffer(offer.id, 'grossSalaryCHF', Number(e.target.value))}
                   className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg font-bold text-slate-800 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-indigo-500"
@@ -202,13 +202,13 @@ const JobComparator: React.FC = () => {
 
               <div className="grid grid-cols-2 gap-2">
                 <div>
-                  <label className="text-xs font-bold text-slate-500 uppercase">Distanza (km)</label>
+                  <label className="text-xs font-bold text-slate-500 uppercase">{t('jobs.distance')}</label>
                   <input type="number" value={offer.distanceKm} onChange={(e) => updateOffer(offer.id, 'distanceKm', Number(e.target.value))}
                     className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg font-semibold text-slate-800 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-indigo-500"
                     min={0} />
                 </div>
                 <div>
-                  <label className="text-xs font-bold text-slate-500 uppercase">Viaggio (min)</label>
+                  <label className="text-xs font-bold text-slate-500 uppercase">{t('jobs.travelTime')}</label>
                   <input type="number" value={offer.travelTimeMin} onChange={(e) => updateOffer(offer.id, 'travelTimeMin', Number(e.target.value))}
                     className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg font-semibold text-slate-800 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-indigo-500"
                     min={0} />
@@ -216,10 +216,10 @@ const JobComparator: React.FC = () => {
               </div>
 
               <div>
-                <label className="text-xs font-bold text-slate-500 uppercase">Home Office (gg/sett)</label>
+                <label className="text-xs font-bold text-slate-500 uppercase">{t('jobs.homeOffice')}</label>
                 <input type="range" min={0} max={5} value={offer.homeOfficeDays} onChange={(e) => updateOffer(offer.id, 'homeOfficeDays', Number(e.target.value))}
                   className="w-full accent-indigo-600" />
-                <div className="text-center text-sm font-bold text-slate-700 dark:text-slate-300">{offer.homeOfficeDays} giorni</div>
+                <div className="text-center text-sm font-bold text-slate-700 dark:text-slate-300">{offer.homeOfficeDays} {t('jobs.days')}</div>
               </div>
 
               {offer.country === 'IT' && (
@@ -254,7 +254,7 @@ const JobComparator: React.FC = () => {
       <div className="space-y-4">
         <h2 className="text-2xl font-extrabold text-slate-800 dark:text-slate-100 flex items-center gap-2">
           <Trophy size={24} className="text-amber-500" />
-          Classifica Convenienza
+          {t('jobs.ranking')}
         </h2>
 
         {results.map((r, idx) => {
@@ -275,11 +275,11 @@ const JobComparator: React.FC = () => {
 
               <div className="flex items-start justify-between gap-4 mb-4">
                 <div>
-                  <h3 className="text-xl font-bold text-slate-800 dark:text-slate-100">{r.offer.companyName || `Offerta ${idx + 1}`}</h3>
+                  <h3 className="text-xl font-bold text-slate-800 dark:text-slate-100">{r.offer.companyName || `${t('jobs.offer')} ${idx + 1}`}</h3>
                   <p className="text-sm text-slate-500">RAL CHF {r.offer.grossSalaryCHF.toLocaleString('it-IT')} • {r.offer.distanceKm} km • {r.offer.travelTimeMin} min</p>
                 </div>
                 <div className="text-right">
-                  <div className="text-xs font-bold text-slate-500 uppercase">Netto Effettivo</div>
+                  <div className="text-xs font-bold text-slate-500 uppercase">{t('jobs.effectiveNet')}</div>
                   <div className={`text-3xl font-extrabold ${isBest ? 'text-emerald-600' : 'text-slate-800 dark:text-slate-100'}`}>
                     € {Math.round(r.effectiveNetMonthly).toLocaleString('it-IT')}
                   </div>
@@ -291,28 +291,28 @@ const JobComparator: React.FC = () => {
                 <div className="p-3 bg-slate-50 dark:bg-slate-900 rounded-xl">
                   <div className="flex items-center gap-1.5 text-xs text-slate-500 mb-1">
                     <DollarSign size={12} />
-                    Netto tasse
+                    {t('jobs.netTaxes')}
                   </div>
                   <div className="font-bold text-slate-800 dark:text-slate-100">€ {Math.round(r.netMonthlyIT).toLocaleString('it-IT')}</div>
                 </div>
                 <div className="p-3 bg-red-50 dark:bg-red-950/30 rounded-xl">
                   <div className="flex items-center gap-1.5 text-xs text-red-600 mb-1">
                     <Car size={12} />
-                    Trasporto
+                    {t('jobs.transport')}
                   </div>
                   <div className="font-bold text-red-600">-€ {Math.round(r.transportCostMonthly).toLocaleString('it-IT')}</div>
                 </div>
                 <div className="p-3 bg-amber-50 dark:bg-amber-950/30 rounded-xl">
                   <div className="flex items-center gap-1.5 text-xs text-amber-600 mb-1">
                     <Clock size={12} />
-                    Valore tempo
+                    {t('jobs.timeValue')}
                   </div>
                   <div className="font-bold text-amber-600">-€ {Math.round(r.timeCostMonthly).toLocaleString('it-IT')}</div>
                 </div>
                 <div className="p-3 bg-emerald-50 dark:bg-emerald-950/30 rounded-xl">
                   <div className="flex items-center gap-1.5 text-xs text-emerald-600 mb-1">
                     <Coffee size={12} />
-                    Benefit
+                    {t('jobs.benefits')}
                   </div>
                   <div className="font-bold text-emerald-600">+€ {Math.round(r.totalBenefits).toLocaleString('it-IT')}</div>
                 </div>
@@ -321,10 +321,10 @@ const JobComparator: React.FC = () => {
               {!isBest && bestResult && (
                 <div className="mt-3 p-3 bg-orange-50 dark:bg-orange-950/30 rounded-xl text-sm">
                   <span className="text-orange-600 font-bold">
-                    Differenza: -€ {Math.round(bestResult.effectiveNetMonthly - r.effectiveNetMonthly).toLocaleString('it-IT')}/mese
+                    {t('jobs.difference')}: -€ {Math.round(bestResult.effectiveNetMonthly - r.effectiveNetMonthly).toLocaleString('it-IT')}/{t('common.monthly').toLowerCase()}
                   </span>
                   <span className="text-slate-500 ml-2">
-                    (-€ {Math.round((bestResult.effectiveNetMonthly - r.effectiveNetMonthly) * 12).toLocaleString('it-IT')}/anno)
+                    (-€ {Math.round((bestResult.effectiveNetMonthly - r.effectiveNetMonthly) * 12).toLocaleString('it-IT')}/{t('common.annual').toLowerCase()})
                   </span>
                 </div>
               )}
@@ -338,12 +338,12 @@ const JobComparator: React.FC = () => {
         <div className="flex items-start gap-3">
           <Info size={20} className="text-blue-600 flex-shrink-0 mt-0.5" />
           <div className="text-sm text-slate-700 dark:text-slate-300">
-            <p className="font-bold mb-1">Come funziona il calcolo?</p>
+            <p className="font-bold mb-1">{t('jobs.howItWorks')}</p>
             <ul className="space-y-1 text-xs list-disc ml-4">
-              <li>Il <strong>netto tasse</strong> è calcolato con il simulatore fiscale (nuovo frontaliere, residenza IT)</li>
-              <li>I <strong>costi trasporto</strong> includono carburante (€0.15/km) e pedaggi per distanze &gt;40km</li>
-              <li>Il <strong>valore del tempo</strong> è stimato a €15/ora per il pendolarismo</li>
-              <li>L'<strong>home office</strong> riduce i giorni di viaggio (e i costi associati)</li>
+              <li>{t('jobs.howItWorks1')}</li>
+              <li>{t('jobs.howItWorks2')}</li>
+              <li>{t('jobs.howItWorks3')}</li>
+              <li>{t('jobs.howItWorks4')}</li>
             </ul>
           </div>
         </div>

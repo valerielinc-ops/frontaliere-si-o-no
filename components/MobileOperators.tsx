@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Smartphone, Wifi, Phone, MessageSquare, AlertCircle, CheckCircle2, Info, Euro, Globe } from 'lucide-react';
+import { useTranslation } from '@/services/i18n';
 
 interface MobileOperator {
   name: string;
@@ -290,6 +291,7 @@ const operators: MobileOperator[] = [
 ];
 
 const MobileOperators: React.FC = () => {
+  const { t } = useTranslation();
   const [filterCountry, setFilterCountry] = useState<'all' | 'IT' | 'CH'>('all');
   const [sortBy, setSortBy] = useState<'price' | 'roaming'>('roaming');
   const WORKING_DAYS_PER_MONTH = 20; // Giorni lavorativi medi per frontalieri
@@ -351,10 +353,10 @@ const MobileOperators: React.FC = () => {
       <div className="bg-gradient-to-br from-indigo-600 to-purple-700 rounded-2xl p-8 text-white">
         <div className="flex items-center gap-3 mb-4">
           <Smartphone size={32} />
-          <h2 className="text-3xl font-extrabold">Operatori Telefonici per Frontalieri</h2>
+          <h2 className="text-3xl font-extrabold">{t('mobile.title')}</h2>
         </div>
         <p className="text-indigo-100 text-lg">
-          Confronta gli operatori mobili italiani e svizzeri con i costi di roaming per chi lavora oltre confine
+          {t('mobile.subtitle')}
         </p>
       </div>
 
@@ -363,10 +365,9 @@ const MobileOperators: React.FC = () => {
         <div className="flex items-start gap-3">
           <AlertCircle className="text-amber-600 flex-shrink-0 mt-0.5" size={20} />
           <div className="text-sm text-amber-900 dark:text-amber-200">
-            <p className="font-bold mb-1">⚠️ Attenzione al Roaming!</p>
+            <p className="font-bold mb-1">⚠️ {t('mobile.roamingWarningTitle')}</p>
             <p>
-              La Svizzera NON è nell'Unione Europea. Molti operatori italiani applicano tariffe Extra-UE molto costose.
-              Verifica sempre le condizioni di roaming prima di sottoscrivere un contratto.
+              {t('mobile.roamingWarningDesc')}
             </p>
           </div>
         </div>
@@ -376,7 +377,7 @@ const MobileOperators: React.FC = () => {
       <div className="bg-white dark:bg-slate-800 rounded-xl p-4 border border-slate-200 dark:border-slate-700">
         <div className="flex flex-wrap gap-4 items-center">
           <div className="flex items-center gap-2">
-            <label className="text-sm font-bold text-slate-700 dark:text-slate-300">Paese:</label>
+            <label className="text-sm font-bold text-slate-700 dark:text-slate-300">{t('mobile.country')}:</label>
             <div className="flex gap-2">
               <button
                 onClick={() => setFilterCountry('all')}
@@ -386,7 +387,7 @@ const MobileOperators: React.FC = () => {
                     : 'bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-200'
                 }`}
               >
-                Tutti
+                {t('mobile.all')}
               </button>
               <button
                 onClick={() => setFilterCountry('IT')}
@@ -396,7 +397,7 @@ const MobileOperators: React.FC = () => {
                     : 'bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-200'
                 }`}
               >
-                🇮🇹 Italia
+                🇮🇹 {t('mobile.italy')}
               </button>
               <button
                 onClick={() => setFilterCountry('CH')}
@@ -406,20 +407,20 @@ const MobileOperators: React.FC = () => {
                     : 'bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-200'
                 }`}
               >
-                🇨🇭 Svizzera
+                🇨🇭 {t('mobile.switzerland')}
               </button>
             </div>
           </div>
 
           <div className="flex items-center gap-2">
-            <label className="text-sm font-bold text-slate-700 dark:text-slate-300">Ordina per:</label>
+            <label className="text-sm font-bold text-slate-700 dark:text-slate-300">{t('mobile.sortBy')}:</label>
             <select
               value={sortBy}
               onChange={(e) => setSortBy(e.target.value as 'price' | 'roaming')}
               className="px-4 py-2 rounded-lg text-sm font-bold bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300 border border-slate-300 dark:border-slate-600 cursor-pointer"
             >
-              <option value="roaming">Roaming incluso</option>
-              <option value="price">Prezzo</option>
+              <option value="roaming">{t('mobile.roamingIncluded')}</option>
+              <option value="price">{t('mobile.price')}</option>
             </select>
           </div>
         </div>
@@ -429,11 +430,11 @@ const MobileOperators: React.FC = () => {
       <div className="bg-gradient-to-br from-emerald-50 to-green-50 dark:from-emerald-950/30 dark:to-green-950/30 rounded-2xl border border-emerald-200 dark:border-emerald-800 p-6">
         <h3 className="text-xl font-bold text-slate-800 dark:text-slate-100 mb-4 flex items-center gap-2">
           <CheckCircle2 size={20} className="text-emerald-600" />
-          Migliori Opzioni per Frontalieri
+          {t('mobile.bestOptions')}
         </h3>
         <div className="grid md:grid-cols-2 gap-4">
           <div className="p-4 bg-white/50 dark:bg-slate-900/50 rounded-xl">
-            <p className="font-bold text-emerald-700 dark:text-emerald-400 mb-2">🇮🇹 Operatori Italiani con Roaming CH:</p>
+            <p className="font-bold text-emerald-700 dark:text-emerald-400 mb-2">🇮🇹 {t('mobile.italianWithRoaming')}:</p>
             <ul className="space-y-1 text-sm text-slate-700 dark:text-slate-300">
               {bestForFrontierWorkers.filter(op => op.country === 'IT').map(op => (
                 <li key={op.name}>
@@ -443,7 +444,7 @@ const MobileOperators: React.FC = () => {
             </ul>
           </div>
           <div className="p-4 bg-white/50 dark:bg-slate-900/50 rounded-xl">
-            <p className="font-bold text-emerald-700 dark:text-emerald-400 mb-2">🇨🇭 Operatori Svizzeri con Roaming UE:</p>
+            <p className="font-bold text-emerald-700 dark:text-emerald-400 mb-2">🇨🇭 {t('mobile.swissWithRoaming')}:</p>
             <ul className="space-y-1 text-sm text-slate-700 dark:text-slate-300">
               {bestForFrontierWorkers.filter(op => op.country === 'CH').map(op => (
                 <li key={op.name}>
@@ -486,7 +487,7 @@ const MobileOperators: React.FC = () => {
               {hasGoodRoaming && (
                 <div className="mb-3 inline-flex items-center gap-1.5 px-3 py-1.5 bg-emerald-500 text-white text-xs font-bold rounded-full">
                   <CheckCircle2 size={14} />
-                  Roaming Incluso
+                  {t('mobile.roamingIncluded')}
                 </div>
               )}
 
@@ -512,14 +513,14 @@ const MobileOperators: React.FC = () => {
                       <div className="text-2xl font-extrabold text-red-600 dark:text-red-400">
                         {operator.country === 'IT' ? '€' : 'CHF'} {realMonthlyCost.toFixed(2)}
                       </div>
-                      <div className="text-xs text-red-600 dark:text-red-400 font-medium">costo reale/mese</div>
+                      <div className="text-xs text-red-600 dark:text-red-400 font-medium">{t('mobile.realCostMonth')}</div>
                     </>
                   ) : (
                     <>
                       <div className="text-2xl font-extrabold text-slate-800 dark:text-slate-100">
                         {operator.country === 'IT' ? '€' : 'CHF'} {operator.monthlyCost.toFixed(2)}
                       </div>
-                      <div className="text-xs text-slate-500 dark:text-slate-400">al mese</div>
+                      <div className="text-xs text-slate-500 dark:text-slate-400">{t('mobile.perMonth')}</div>
                     </>
                   )}
                 </div>
@@ -528,10 +529,10 @@ const MobileOperators: React.FC = () => {
               {/* Cost Breakdown se ci sono costi extra */}
               {hasExtraCost && (
                 <div className="mb-4 p-3 bg-amber-50 dark:bg-amber-950/30 border border-amber-200 dark:border-amber-800 rounded-lg">
-                  <p className="text-xs font-bold text-amber-800 dark:text-amber-300 mb-2">💰 Breakdown costo frontaliere:</p>
+                  <p className="text-xs font-bold text-amber-800 dark:text-amber-300 mb-2">💰 {t('mobile.costBreakdown')}:</p>
                   <div className="space-y-1 text-xs text-amber-700 dark:text-amber-400">
                     <div className="flex justify-between">
-                      <span>Abbonamento base:</span>
+                      <span>{t('mobile.basePlan')}:</span>
                       <span className="font-medium">{operator.country === 'IT' ? '€' : 'CHF'} {operator.monthlyCost.toFixed(2)}</span>
                     </div>
                     {roaming?.costPerDay && (
@@ -547,7 +548,7 @@ const MobileOperators: React.FC = () => {
                       </div>
                     )}
                     <div className="flex justify-between border-t border-amber-300 dark:border-amber-700 pt-1 mt-1">
-                      <span className="font-bold">Totale mensile:</span>
+                      <span className="font-bold">{t('mobile.monthlyTotal')}:</span>
                       <span className="font-bold">{operator.country === 'IT' ? '€' : 'CHF'} {realMonthlyCost.toFixed(2)}</span>
                     </div>
                   </div>
@@ -558,7 +559,7 @@ const MobileOperators: React.FC = () => {
               <div className="grid grid-cols-3 gap-3 mb-4">
                 <div className="p-3 bg-slate-50 dark:bg-slate-900 rounded-xl text-center">
                   <Wifi className="mx-auto mb-1 text-indigo-600" size={18} />
-                  <div className="text-xs text-slate-500 dark:text-slate-400 mb-1">Dati</div>
+                  <div className="text-xs text-slate-500 dark:text-slate-400 mb-1">{t('mobile.data')}</div>
                   <div className="text-sm font-bold text-slate-800 dark:text-slate-100">
                     {operator.dataGB === 'illimitati' ? '∞' : `${operator.dataGB} GB`}
                   </div>
@@ -566,7 +567,7 @@ const MobileOperators: React.FC = () => {
 
                 <div className="p-3 bg-slate-50 dark:bg-slate-900 rounded-xl text-center">
                   <Phone className="mx-auto mb-1 text-emerald-600" size={18} />
-                  <div className="text-xs text-slate-500 dark:text-slate-400 mb-1">Minuti</div>
+                  <div className="text-xs text-slate-500 dark:text-slate-400 mb-1">{t('mobile.minutes')}</div>
                   <div className="text-sm font-bold text-slate-800 dark:text-slate-100">
                     {operator.minutes === 'illimitati' ? '∞' : operator.minutes}
                   </div>
@@ -574,7 +575,7 @@ const MobileOperators: React.FC = () => {
 
                 <div className="p-3 bg-slate-50 dark:bg-slate-900 rounded-xl text-center">
                   <MessageSquare className="mx-auto mb-1 text-purple-600" size={18} />
-                  <div className="text-xs text-slate-500 dark:text-slate-400 mb-1">SMS</div>
+                  <div className="text-xs text-slate-500 dark:text-slate-400 mb-1">{t('mobile.sms')}</div>
                   <div className="text-sm font-bold text-slate-800 dark:text-slate-100">
                     {operator.sms === 'illimitati' ? '∞' : operator.sms}
                   </div>
@@ -591,7 +592,7 @@ const MobileOperators: React.FC = () => {
                   <Globe className={`flex-shrink-0 ${roaming?.included ? 'text-emerald-600' : 'text-red-600'}`} size={18} />
                   <div className="flex-1">
                     <p className={`font-bold text-sm mb-1 ${roaming?.included ? 'text-emerald-700 dark:text-emerald-400' : 'text-red-700 dark:text-red-400'}`}>
-                      Roaming in {operator.country === 'IT' ? 'Svizzera 🇨🇭' : 'Italia 🇮🇹'}
+                      {t('mobile.roamingIn')} {operator.country === 'IT' ? `${t('mobile.switzerland')} 🇨🇭` : `${t('mobile.italy')} 🇮🇹`}
                     </p>
                     <p className="text-xs text-slate-700 dark:text-slate-300">
                       {roaming?.notes}
@@ -614,7 +615,7 @@ const MobileOperators: React.FC = () => {
               {operator.setupCost > 0 && (
                 <div className="mb-4 p-3 bg-amber-50 dark:bg-amber-950/30 rounded-lg border border-amber-200 dark:border-amber-800">
                   <p className="text-xs text-amber-800 dark:text-amber-300">
-                    <Euro className="inline" size={14} /> <strong>Costo attivazione:</strong> {operator.setupCost.toFixed(2)} {operator.country === 'IT' ? '€' : 'CHF'}
+                    <Euro className="inline" size={14} /> <strong>{t('mobile.setupCost')}:</strong> {operator.setupCost.toFixed(2)} {operator.country === 'IT' ? '€' : 'CHF'}
                   </p>
                 </div>
               )}
@@ -641,35 +642,35 @@ const MobileOperators: React.FC = () => {
       <div className="bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-950/30 dark:to-indigo-950/30 rounded-2xl border border-blue-200 dark:border-blue-800 p-6">
         <h3 className="text-xl font-bold text-slate-800 dark:text-slate-100 mb-4 flex items-center gap-2">
           <Info size={20} className="text-blue-600" />
-          Consigli per Frontalieri
+          {t('mobile.tipsTitle')}
         </h3>
         
         <div className="space-y-4 text-sm text-slate-700 dark:text-slate-300">
           <div className="p-4 bg-white/50 dark:bg-slate-900/50 rounded-xl">
-            <p className="font-bold text-blue-600 mb-2">📱 Quale operatore scegliere?</p>
+            <p className="font-bold text-blue-600 mb-2">📱 {t('mobile.whichOperator')}</p>
             <ul className="space-y-2 ml-4 list-disc">
-              <li><strong>Se vivi in Italia e lavori in Svizzera:</strong> Iliad è la scelta migliore (13 GB roaming incluso a 9.99€/mese)</li>
-              <li><strong>Se vivi in Svizzera e lavori in Italia:</strong> Wingo o Salt offrono il miglior rapporto qualità/prezzo</li>
-              <li><strong>Evita</strong> operatori senza roaming incluso (ho., Very Mobile, Vodafone) se attraversi il confine quotidianamente</li>
+              <li>{t('mobile.operatorTip1')}</li>
+              <li>{t('mobile.operatorTip2')}</li>
+              <li>{t('mobile.operatorTip3')}</li>
             </ul>
           </div>
 
           <div className="p-4 bg-white/50 dark:bg-slate-900/50 rounded-xl">
-            <p className="font-bold text-blue-600 mb-2">💡 Trucchi e consigli:</p>
+            <p className="font-bold text-blue-600 mb-2">💡 {t('mobile.tricksTitle')}</p>
             <ul className="space-y-2 ml-4 list-disc">
-              <li><strong>Dual SIM:</strong> Molti frontalieri usano 2 SIM (una IT + una CH) per avere sempre la migliore copertura</li>
-              <li><strong>WiFi Calling:</strong> Attivalo per usare la rete italiana anche in Svizzera via WiFi (gratis)</li>
-              <li><strong>Controlla i GB:</strong> 13 GB roaming possono non bastare se usi molto streaming/mappe</li>
-              <li><strong>Attenzione alle chiamate:</strong> Chiamare dalla Svizzera verso Italia può costare anche con roaming incluso</li>
+              <li>{t('mobile.trick1')}</li>
+              <li>{t('mobile.trick2')}</li>
+              <li>{t('mobile.trick3')}</li>
+              <li>{t('mobile.trick4')}</li>
             </ul>
           </div>
 
           <div className="p-4 bg-amber-50 dark:bg-amber-950/50 rounded-xl border border-amber-200 dark:border-amber-800">
-            <p className="font-bold text-amber-700 dark:text-amber-400 mb-2">⚠️ Costi nascosti:</p>
+            <p className="font-bold text-amber-700 dark:text-amber-400 mb-2">⚠️ {t('mobile.hiddenCosts')}</p>
             <ul className="space-y-1 ml-4 list-disc text-amber-900 dark:text-amber-200">
-              <li>Roaming "incluso" spesso ha limiti di GB (fair use policy)</li>
-              <li>Chiamare verso numeri CH da SIM italiana può costare 1-2€/minuto anche in roaming</li>
-              <li>Alcuni operatori limitano il roaming a max 2 mesi consecutivi</li>
+              <li>{t('mobile.hiddenCost1')}</li>
+              <li>{t('mobile.hiddenCost2')}</li>
+              <li>{t('mobile.hiddenCost3')}</li>
             </ul>
           </div>
         </div>

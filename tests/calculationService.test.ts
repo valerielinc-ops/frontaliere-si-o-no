@@ -37,7 +37,7 @@ describe('calculateSimulation', () => {
     }));
 
     it('uses WITHIN_20KM regime — 80% CH tax', () => {
-      expect(result.itResident.details.regime).toBe('Nuovo Frontaliere');
+      expect(result.itResident.details.regime).toBe('calc.regime.newFrontier');
       expect(result.itResident.details.franchigiaEUR).toBe(10000);
     });
 
@@ -65,7 +65,7 @@ describe('calculateSimulation', () => {
 
     it('100% CH tax withheld', () => {
       // Check notes for concorrente tassazione
-      expect(result.itResident.details.notes).toContain('Nessuna franchigia');
+      expect(result.itResident.details.notes).toContain('calc.notes.noFranchise');
     });
   });
 
@@ -76,7 +76,7 @@ describe('calculateSimulation', () => {
     }));
 
     it('regime is Vecchio Frontaliere', () => {
-      expect(result.itResident.details.regime).toBe('Vecchio Frontaliere');
+      expect(result.itResident.details.regime).toBe('calc.regime.oldFrontier');
     });
 
     it('no IRPEF details for old regime', () => {
@@ -138,22 +138,22 @@ describe('calculateSimulation', () => {
   describe('Marital status tax tables', () => {
     it('uses Table A for single without children', () => {
       const result = calculateSimulation(makeInputs({ maritalStatus: 'SINGLE', children: 0 }));
-      expect(result.chResident.details.source).toContain('Tabella A');
+      expect(result.chResident.details.source).toContain('calc.tableA');
     });
 
     it('uses Table B for married single income', () => {
       const result = calculateSimulation(makeInputs({ maritalStatus: 'MARRIED', spouseWorks: false, children: 0 }));
-      expect(result.chResident.details.source).toContain('Tabella B');
+      expect(result.chResident.details.source).toContain('calc.tableB');
     });
 
     it('uses Table C for married double income', () => {
       const result = calculateSimulation(makeInputs({ maritalStatus: 'MARRIED', spouseWorks: true, children: 0 }));
-      expect(result.chResident.details.source).toContain('Tabella C');
+      expect(result.chResident.details.source).toContain('calc.tableC');
     });
 
     it('uses Table H for single parent', () => {
       const result = calculateSimulation(makeInputs({ maritalStatus: 'SINGLE', children: 2 }));
-      expect(result.chResident.details.source).toContain('Tabella H');
+      expect(result.chResident.details.source).toContain('calc.tableH');
     });
   });
 

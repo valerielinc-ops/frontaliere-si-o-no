@@ -239,6 +239,7 @@ export function updateMetaTags(section: string): void {
   updateOrCreateMetaTag('property', 'og:title', metadata.ogTitle);
   updateOrCreateMetaTag('property', 'og:description', metadata.ogDescription);
   updateOrCreateMetaTag('property', 'og:url', `${BASE_URL}${metadata.canonicalPath}`);
+  updateOrCreateMetaTag('property', 'og:locale', getOgLocale());
   
   // Update Twitter Card tags
   updateOrCreateMetaTag('name', 'twitter:title', metadata.ogTitle);
@@ -248,10 +249,64 @@ export function updateMetaTags(section: string): void {
   // Update canonical URL
   updateCanonicalLink(`${BASE_URL}${metadata.canonicalPath}`);
 
+  // Update hreflang tags for multilingual SEO
+  updateHreflangTags(metadata.canonicalPath);
+
   // Update structured data if provided
   if (metadata.structuredData) {
     updateStructuredData(metadata.structuredData);
   }
+}
+
+/**
+ * Update document language attribute and OG locale based on current i18n locale
+ */
+export function updateDocumentLanguage(locale: string): void {
+  document.documentElement.lang = locale;
+  updateOrCreateMetaTag('property', 'og:locale', getOgLocale());
+}
+
+/**
+ * Get OG locale format from current document lang
+ */
+function getOgLocale(): string {
+  const lang = document.documentElement.lang || 'it';
+  const localeMap: Record<string, string> = {
+    'it': 'it_IT', 'en': 'en_US', 'de': 'de_CH', 'fr': 'fr_CH',
+  };
+  return localeMap[lang] || 'it_IT';
+}
+
+/**
+ * Update hreflang link tags for multilingual SEO
+ * Tells search engines about language versions of the page
+ */
+function updateHreflangTags(canonicalPath: string): void {
+  // Remove existing hreflang tags
+  document.querySelectorAll('link[hreflang]').forEach(el => el.remove());
+
+  const supportedLocales = [
+    { lang: 'it', hreflang: 'it' },
+    { lang: 'en', hreflang: 'en' },
+    { lang: 'de', hreflang: 'de' },
+    { lang: 'fr', hreflang: 'fr' },
+  ];
+
+  // Add hreflang for each locale
+  supportedLocales.forEach(({ hreflang }) => {
+    const link = document.createElement('link');
+    link.rel = 'alternate';
+    link.hreflang = hreflang;
+    link.href = `${BASE_URL}${canonicalPath}?lang=${hreflang}`;
+    document.head.appendChild(link);
+  });
+
+  // Add x-default (Italian as default)
+  const xDefault = document.createElement('link');
+  xDefault.rel = 'alternate';
+  xDefault.setAttribute('hreflang', 'x-default');
+  xDefault.href = `${BASE_URL}${canonicalPath}`;
+  document.head.appendChild(xDefault);
 }
 
 /**

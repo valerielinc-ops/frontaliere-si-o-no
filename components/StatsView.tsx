@@ -4,6 +4,7 @@ import {
   Legend, PieChart, Pie, Cell, BarChart, Bar, LineChart, Line
 } from 'recharts';
 import { TrendingUp, Users, Map, Briefcase, Info, ExternalLink, Loader2, AlertTriangle, Database, WifiOff, PersonStanding, CalendarClock, ArrowUpRight, ArrowDownRight, RefreshCw, BarChart2, Layers } from 'lucide-react';
+import { useTranslation } from '@/services/i18n';
 
 // --- API CONFIGURATION ---
 const BFS_MASTER_FILE_URL = "https://dam-api.bfs.admin.ch/hub/api/dam/assets/36198674/master";
@@ -291,6 +292,7 @@ const extractGenderSnapshot = (px: PXData) => {
 }
 
 export const StatsView: React.FC = () => {
+  const { t } = useTranslation();
   const [historicalData, setHistoricalData] = useState<any[]>([]);
   const [ageData, setAgeData] = useState<any[]>([]);
   const [genderTrendData, setGenderTrendData] = useState<any[]>([]);
@@ -397,10 +399,10 @@ export const StatsView: React.FC = () => {
        <div className="p-6 border-b border-slate-100 dark:border-slate-800 flex justify-between items-center sticky top-0 z-10 bg-white/50 dark:bg-slate-900/50 backdrop-blur-md rounded-t-3xl">
           <div>
             <h2 className="text-xl font-extrabold text-slate-800 dark:text-slate-100 tracking-tight flex items-center gap-2">
-              <Database size={20} className="text-indigo-500"/> Osservatorio Dati Reali
+              <Database size={20} className="text-indigo-500"/> {t('stats.title')}
             </h2>
             <p className="text-slate-500 dark:text-slate-400 text-xs mt-1">
-              Fonte ufficiale: Ufficio Federale di Statistica (BFS) • <i>Frontalieri (STAF)</i>
+              {t('stats.source')}
             </p>
           </div>
           
@@ -409,7 +411,7 @@ export const StatsView: React.FC = () => {
                 onClick={() => fetchBFSData(true)}
                 disabled={loading}
                 className="p-2 bg-white dark:bg-slate-800 rounded-xl shadow-sm border border-slate-100 dark:border-slate-700 text-slate-400 hover:text-indigo-500 transition-all hover:rotate-180 disabled:opacity-50"
-                title="Aggiorna Dati"
+                title={t('stats.refreshData')}
             >
                 <RefreshCw size={18} className={loading ? "animate-spin" : ""} />
             </button>
@@ -422,7 +424,7 @@ export const StatsView: React.FC = () => {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             <div className="bg-blue-50/50 dark:bg-blue-900/20 p-4 rounded-2xl border border-blue-100 dark:border-blue-800 group relative">
                <p className="text-[10px] font-bold text-blue-500 uppercase flex items-center gap-1">
-                 Totale Frontalieri
+                 {t('stats.totalFrontierWorkers')}
                  <Info size={12} className="text-blue-400 cursor-help" />
                </p>
                <p className="text-2xl font-extrabold text-slate-800 dark:text-slate-100 mt-1">
@@ -431,15 +433,15 @@ export const StatsView: React.FC = () => {
                {/* Tooltip */}
                <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 hidden group-hover:block z-20 w-56">
                  <div className="bg-slate-900 text-white text-xs rounded-xl p-3 shadow-xl">
-                   <p className="font-semibold mb-1">Numero totale di frontalieri</p>
-                   <p className="text-slate-300">Lavoratori italiani con permesso G che lavorano in Svizzera e rientrano in Italia quotidianamente. Dati aggiornati dall'Ufficio Federale di Statistica (BFS).</p>
+                   <p className="font-semibold mb-1">{t('stats.totalTooltipTitle')}</p>
+                   <p className="text-slate-300">{t('stats.totalTooltipDesc')}</p>
                    <div className="absolute top-full left-1/2 -translate-x-1/2 -mt-1 border-4 border-transparent border-t-slate-900"></div>
                  </div>
                </div>
             </div>
             <div className={`p-4 rounded-2xl border group relative ${Number(qoqPercent) >= 0 ? 'bg-emerald-50/50 border-emerald-100 dark:bg-emerald-900/20 dark:border-emerald-800' : 'bg-red-50/50 border-red-100'}`}>
                <p className={`text-[10px] font-bold uppercase flex items-center gap-1 ${Number(qoqPercent) >= 0 ? 'text-emerald-500' : 'text-red-500'}`}>
-                 Trend Trimestrale
+                 {t('stats.quarterlyTrend')}
                  <Info size={12} className={`cursor-help ${Number(qoqPercent) >= 0 ? 'text-emerald-400' : 'text-red-400'}`} />
                </p>
                <div className="flex items-center gap-2 mt-1">
@@ -449,30 +451,30 @@ export const StatsView: React.FC = () => {
                {/* Tooltip */}
                <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 hidden group-hover:block z-20 w-56">
                  <div className="bg-slate-900 text-white text-xs rounded-xl p-3 shadow-xl">
-                   <p className="font-semibold mb-1">Crescita trimestrale</p>
-                   <p className="text-slate-300">Variazione percentuale del numero di frontalieri rispetto al trimestre precedente. Un valore positivo indica crescita, negativo indica calo.</p>
+                   <p className="font-semibold mb-1">{t('stats.trendTooltipTitle')}</p>
+                   <p className="text-slate-300">{t('stats.trendTooltipDesc')}</p>
                    <div className="absolute top-full left-1/2 -translate-x-1/2 -mt-1 border-4 border-transparent border-t-slate-900"></div>
                  </div>
                </div>
             </div>
             <div className="bg-indigo-50/50 dark:bg-indigo-900/20 p-4 rounded-2xl border border-indigo-100 dark:border-indigo-800 group relative">
                <p className="text-[10px] font-bold text-indigo-500 uppercase flex items-center gap-1">
-                 Permessi (Stimati)
+                 {t('stats.permitsEstimated')}
                  <Info size={12} className="text-indigo-400 cursor-help" />
                </p>
-               <p className="text-lg font-extrabold text-slate-800 dark:text-slate-100 mt-2 truncate">G (5 Anni)</p>
+               <p className="text-lg font-extrabold text-slate-800 dark:text-slate-100 mt-2 truncate">{t('stats.permitG')}</p>
                {/* Tooltip */}
                <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 hidden group-hover:block z-20 w-56">
                  <div className="bg-slate-900 text-white text-xs rounded-xl p-3 shadow-xl">
-                   <p className="font-semibold mb-1">Tipo di permesso</p>
-                   <p className="text-slate-300">Il permesso G (frontaliere) ha validità di 5 anni e consente di lavorare in Svizzera pur mantenendo la residenza in Italia. Deve essere rinnovato alla scadenza.</p>
+                   <p className="font-semibold mb-1">{t('stats.permitTooltipTitle')}</p>
+                   <p className="text-slate-300">{t('stats.permitTooltipDesc')}</p>
                    <div className="absolute top-full left-1/2 -translate-x-1/2 -mt-1 border-4 border-transparent border-t-slate-900"></div>
                  </div>
                </div>
             </div>
             <div className="bg-purple-50/50 dark:bg-purple-900/20 p-4 rounded-2xl border border-purple-100 dark:border-purple-800 group relative">
                <p className="text-[10px] font-bold text-purple-500 uppercase flex items-center gap-1">
-                 Uomini vs Donne
+                 {t('stats.genderRatio')}
                  <Info size={12} className="text-purple-400 cursor-help" />
                </p>
                <div className="flex items-end gap-1 mt-1">
@@ -482,8 +484,8 @@ export const StatsView: React.FC = () => {
                {/* Tooltip */}
                <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 hidden group-hover:block z-20 w-56">
                  <div className="bg-slate-900 text-white text-xs rounded-xl p-3 shadow-xl">
-                   <p className="font-semibold mb-1">Distribuzione di genere</p>
-                   <p className="text-slate-300">Percentuale di lavoratori frontalieri di sesso maschile. La restante percentuale rappresenta le donne frontaliere. Dati basati sulle statistiche BFS.</p>
+                   <p className="font-semibold mb-1">{t('stats.genderTooltipTitle')}</p>
+                   <p className="text-slate-300">{t('stats.genderTooltipDesc')}</p>
                    <div className="absolute top-full left-1/2 -translate-x-1/2 -mt-1 border-4 border-transparent border-t-slate-900"></div>
                  </div>
                </div>
@@ -496,7 +498,7 @@ export const StatsView: React.FC = () => {
             {/* Chart 1: Historical Trend */}
             <div className="bg-white dark:bg-slate-800 p-5 rounded-3xl border border-slate-100 dark:border-slate-700 shadow-sm col-span-1 lg:col-span-2">
                <h3 className="text-sm font-bold text-slate-700 dark:text-slate-200 mb-6 flex items-center gap-2">
-                 <TrendingUp size={16} className="text-blue-500"/> Andamento Storico (Ultimi 4 anni)
+                 <TrendingUp size={16} className="text-blue-500"/> {t('stats.historicalTrend')}
                </h3>
                <div className="h-[300px] w-full">
                  <ResponsiveContainer width="100%" height="100%">
@@ -512,7 +514,7 @@ export const StatsView: React.FC = () => {
                      <YAxis axisLine={false} tickLine={false} tick={{fontSize: 11, fill: '#94a3b8', fontWeight: 600}} domain={['dataMin - 2000', 'auto']} width={50} tickFormatter={(val) => `${(val/1000).toFixed(0)}k`} />
                      <Tooltip 
                         contentStyle={{borderRadius: '12px', border: 'none', boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1)'}}
-                        formatter={(value: any) => [Number(value).toLocaleString('it-IT'), 'Lavoratori']}
+                        formatter={(value: any) => [Number(value).toLocaleString('it-IT'), t('stats.workers')]}
                      />
                      <Area type="monotone" dataKey="frontalieri" stroke="#3b82f6" strokeWidth={3} fillOpacity={1} fill="url(#colorFront)" animationDuration={1500} />
                    </AreaChart>
@@ -523,7 +525,7 @@ export const StatsView: React.FC = () => {
             {/* Chart 2: Age Distribution */}
             <div className="bg-white dark:bg-slate-800 p-5 rounded-3xl border border-slate-100 dark:border-slate-700 shadow-sm">
                <h3 className="text-sm font-bold text-slate-700 dark:text-slate-200 mb-6 flex items-center gap-2">
-                 <BarChart2 size={16} className="text-emerald-500"/> Distribuzione per Età
+                 <BarChart2 size={16} className="text-emerald-500"/> {t('stats.ageDistribution')}
                </h3>
                <div className="h-[250px] w-full">
                  <ResponsiveContainer width="100%" height="100%">
@@ -545,7 +547,7 @@ export const StatsView: React.FC = () => {
             {/* Chart 3: Gender Trend (Replacing Broken Sectors) */}
             <div className="bg-white dark:bg-slate-800 p-5 rounded-3xl border border-slate-100 dark:border-slate-700 shadow-sm">
                <h3 className="text-sm font-bold text-slate-700 dark:text-slate-200 mb-6 flex items-center gap-2">
-                 <PersonStanding size={16} className="text-indigo-500"/> Trend per Genere
+                 <PersonStanding size={16} className="text-indigo-500"/> {t('stats.genderTrend')}
                </h3>
                <div className="h-[250px] w-full">
                  {genderTrendData.length > 0 ? (
@@ -562,7 +564,7 @@ export const StatsView: React.FC = () => {
                     </ResponsiveContainer>
                  ) : (
                     <div className="w-full h-full flex flex-col items-center justify-center text-slate-400">
-                        {loading ? <Loader2 className="animate-spin" /> : <span className="text-xs italic">Dati non disponibili</span>}
+                        {loading ? <Loader2 className="animate-spin" /> : <span className="text-xs italic">{t('stats.dataNotAvailable')}</span>}
                     </div>
                  )}
                </div>
@@ -580,10 +582,10 @@ export const StatsView: React.FC = () => {
                     <Info size={20} />
                 </div>
                 <div className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed text-center sm:text-left">
-                    Dati estratti dal cubo statistico BFS (PxWeb).
+                    {t('stats.extractedFrom')}
                     {usingRealData ? (
                         <span className="text-emerald-600 dark:text-emerald-400 font-bold ml-1">
-                            Ultimo aggiornamento: {lastUpdated?.toLocaleDateString()}
+                            {t('stats.lastUpdate')}: {lastUpdated?.toLocaleDateString()}
                         </span>
                     ) : (
                         apiError && <span className="text-red-500 ml-1">{apiError}</span>
@@ -596,7 +598,7 @@ export const StatsView: React.FC = () => {
             rel="noreferrer"
             className="flex items-center gap-2 px-4 py-2 bg-white dark:bg-slate-700 hover:bg-indigo-50 dark:hover:bg-indigo-900/30 text-indigo-600 dark:text-indigo-300 text-xs font-bold rounded-xl transition-all border border-slate-200 dark:border-slate-600 shadow-sm"
             >
-            Fonte BFS <ExternalLink size={12} />
+            {t('stats.sourceBFS')} <ExternalLink size={12} />
             </a>
         </div>
       </div>

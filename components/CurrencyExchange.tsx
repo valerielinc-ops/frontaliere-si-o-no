@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useMemo } from 'react';
-import { ArrowRightLeft, TrendingDown, TrendingUp, AlertCircle, CheckCircle2, Info, DollarSign, Percent, Calculator, RefreshCw, BarChart3, Clock, Calendar, FlaskConical, Zap } from 'lucide-react';
+import { ArrowRightLeft, TrendingDown, TrendingUp, AlertCircle, CheckCircle2, Info, DollarSign, Percent, Calculator, RefreshCw, BarChart3, Clock, Calendar, FlaskConical, Zap, ChartBar, ArrowLeftRight } from 'lucide-react';
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, BarChart, Bar, Cell } from 'recharts';
 import { Analytics } from '@/services/analytics';
+import { useTranslation } from '@/services/i18n';
 
 interface ExchangeProvider {
   name: string;
@@ -16,6 +17,8 @@ interface ExchangeProvider {
   features: string[];
   type: 'neobank' | 'traditional' | 'service';
   referralUrl?: string; // Optional referral link
+  transferTimeKey: string;
+  featureKeys: string[];
 }
 
 const providers: ExchangeProvider[] = [
@@ -28,8 +31,10 @@ const providers: ExchangeProvider[] = [
     minAmount: 1,
     maxAmount: 1000000,
     transferTime: '1-2 giorni lavorativi',
+    transferTimeKey: '1_2_business_days',
     color: 'from-emerald-500 to-teal-600',
     features: ['Tasso medio di mercato reale', 'Trasparenza totale', 'App mobile eccellente'],
+    featureKeys: ['feature_real_market_rate', 'feature_total_transparency', 'feature_excellent_mobile_app'],
     type: 'service',
     referralUrl: 'https://wise.com/invite/dic/luigis147'
   },
@@ -42,8 +47,10 @@ const providers: ExchangeProvider[] = [
     minAmount: 0,
     maxAmount: 50000,
     transferTime: 'Istantaneo',
+    transferTimeKey: 'instant',
     color: 'from-blue-500 to-indigo-600',
     features: ['Cambio gratuito fino a 1000 CHF/mese', 'Weekend: markup 0.5-1%', 'Carta multi-valuta'],
+    featureKeys: ['feature_free_exchange_1000', 'feature_weekend_markup', 'feature_multi_currency_card'],
     type: 'neobank'
   },
   {
@@ -55,8 +62,10 @@ const providers: ExchangeProvider[] = [
     minAmount: 0,
     maxAmount: 100000,
     transferTime: 'Istantaneo',
+    transferTimeKey: 'instant',
     color: 'from-purple-500 to-pink-600',
     features: ['100% digitale', 'Nessuna commissione dichiarata', 'Spread nascosto ~0.9%'],
+    featureKeys: ['feature_100_digital', 'feature_no_declared_commission', 'feature_hidden_spread_09'],
     type: 'neobank'
   },
   {
@@ -68,8 +77,10 @@ const providers: ExchangeProvider[] = [
     minAmount: 0,
     maxAmount: 500000,
     transferTime: '1-3 giorni lavorativi',
+    transferTimeKey: '1_3_business_days',
     color: 'from-yellow-500 to-orange-600',
     features: ['Nessuna commissione dichiarata', 'Tasso sfavorevole', 'Spread nascosto ~2-3%'],
+    featureKeys: ['feature_no_declared_commission', 'feature_unfavorable_rate', 'feature_hidden_spread_2_3'],
     type: 'traditional'
   },
   {
@@ -81,8 +92,10 @@ const providers: ExchangeProvider[] = [
     minAmount: 0,
     maxAmount: 1000000,
     transferTime: '2-4 giorni lavorativi',
+    transferTimeKey: '2_4_business_days',
     color: 'from-red-500 to-pink-600',
     features: ['Commissioni fisse + spread', 'Tasso molto sfavorevole', 'Costi nascosti elevati'],
+    featureKeys: ['feature_fixed_commission_spread', 'feature_very_unfavorable_rate', 'feature_high_hidden_costs'],
     type: 'traditional'
   },
   {
@@ -94,8 +107,10 @@ const providers: ExchangeProvider[] = [
     minAmount: 0,
     maxAmount: 1000000,
     transferTime: '2-4 giorni lavorativi',
+    transferTimeKey: '2_4_business_days',
     color: 'from-slate-500 to-gray-600',
     features: ['Commissioni + spread', 'Servizio tradizionale', 'Poco trasparente'],
+    featureKeys: ['feature_commission_spread', 'feature_traditional_service', 'feature_not_transparent'],
     type: 'traditional'
   },
   {
@@ -107,8 +122,10 @@ const providers: ExchangeProvider[] = [
     minAmount: 0,
     maxAmount: 100000,
     transferTime: '1-3 giorni lavorativi',
+    transferTimeKey: '1_3_business_days',
     color: 'from-sky-500 to-blue-600',
     features: ['Banca digitale italiana', 'Commissione 0.5%', 'Spread nascosto ~1.8%'],
+    featureKeys: ['feature_italian_digital_bank', 'feature_commission_05', 'feature_hidden_spread_18'],
     type: 'traditional'
   },
   {
@@ -120,8 +137,10 @@ const providers: ExchangeProvider[] = [
     minAmount: 0,
     maxAmount: 500000,
     transferTime: '2-5 giorni lavorativi',
+    transferTimeKey: '2_5_business_days',
     color: 'from-blue-600 to-indigo-700',
     features: ['Commissione fissa + 0.25%', 'Spread molto elevato', 'Servizio bancario classico'],
+    featureKeys: ['feature_fixed_commission_025', 'feature_very_high_spread', 'feature_classic_banking'],
     type: 'traditional'
   },
   {
@@ -133,8 +152,10 @@ const providers: ExchangeProvider[] = [
     minAmount: 0,
     maxAmount: 500000,
     transferTime: '2-4 giorni lavorativi',
+    transferTimeKey: '2_4_business_days',
     color: 'from-green-600 to-teal-700',
     features: ['Commissione 4 CHF + 0.3%', 'Spread nascosto ~2.8%', 'Gruppo Crédit Agricole'],
+    featureKeys: ['feature_commission_4chf_03', 'feature_hidden_spread_28', 'feature_credit_agricole_group'],
     type: 'traditional'
   },
   {
@@ -146,8 +167,10 @@ const providers: ExchangeProvider[] = [
     minAmount: 0,
     maxAmount: 500000,
     transferTime: '2-5 giorni lavorativi',
+    transferTimeKey: '2_5_business_days',
     color: 'from-red-600 to-rose-700',
     features: ['Commissione 5 CHF + 0.2%', 'Spread ~3%', 'Banca europea'],
+    featureKeys: ['feature_commission_5chf_02', 'feature_spread_3', 'feature_european_bank'],
     type: 'traditional'
   },
   {
@@ -159,15 +182,33 @@ const providers: ExchangeProvider[] = [
     minAmount: 0,
     maxAmount: 300000,
     transferTime: '2-4 giorni lavorativi',
+    transferTimeKey: '2_4_business_days',
     color: 'from-orange-600 to-amber-700',
     features: ['Commissione 4.5 CHF + 0.25%', 'Spread nascosto ~2.9%', 'Gruppo bancario italiano'],
+    featureKeys: ['feature_commission_45chf_025', 'feature_hidden_spread_29', 'feature_italian_banking_group'],
     type: 'traditional'
+  },
+  {
+    name: 'Cambiovalute.ch',
+    logo: '🇨🇭',
+    commission: 0,
+    commissionPercent: 0,
+    exchangeRateMarkup: 0.006, // ~0.6% markup
+    minAmount: 100,
+    maxAmount: 500000,
+    transferTime: '1-2 giorni lavorativi',
+    transferTimeKey: '1_2_business_days',
+    color: 'from-cyan-500 to-blue-600',
+    features: ['Servizio svizzero specializzato', 'Spread competitivo ~0.6%', 'Bonifico diretto su conto italiano'],
+    featureKeys: ['feature_swiss_specialized_service', 'feature_competitive_spread_06', 'feature_direct_transfer_italy'],
+    type: 'service',
+    referralUrl: 'https://www.cambiovalute.ch'
   }
 ];
 
 // --- Exchange Timing Analysis (Experimental) ---
-const DAYS_IT = ['Lun', 'Mar', 'Mer', 'Gio', 'Ven', 'Sab', 'Dom'];
-const MONTHS_IT = ['Gen', 'Feb', 'Mar', 'Apr', 'Mag', 'Giu', 'Lug', 'Ago', 'Set', 'Ott', 'Nov', 'Dic'];
+const DAY_KEYS = ['day_mon', 'day_tue', 'day_wed', 'day_thu', 'day_fri', 'day_sat', 'day_sun'];
+const MONTH_KEYS = ['month_jan', 'month_feb', 'month_mar', 'month_apr', 'month_may', 'month_jun', 'month_jul', 'month_aug', 'month_sep', 'month_oct', 'month_nov', 'month_dec'];
 
 interface TimingData {
   dayOfWeek: { day: string; avgRate: number; sampleCount: number }[];
@@ -195,13 +236,13 @@ function analyzeTimingPatterns(historyData: Array<{ date: string; rate: number }
   }
 
   const dayOfWeek = dayBuckets.map((b, i) => ({
-    day: DAYS_IT[i],
+    day: DAY_KEYS[i],
     avgRate: b.count > 0 ? b.sum / b.count : 0,
     sampleCount: b.count,
   }));
 
   const monthOfYear = monthBuckets.map((b, i) => ({
-    month: MONTHS_IT[i],
+    month: MONTH_KEYS[i],
     avgRate: b.count > 0 ? b.sum / b.count : 0,
     sampleCount: b.count,
   })).filter(m => m.sampleCount > 0);
@@ -257,6 +298,7 @@ function analyzeVolatility(historyData: Array<{ date: string; rate: number }>) {
 }
 
 const ExchangeTimingSection: React.FC<{ historyData: Array<{ date: string; rate: number }> }> = ({ historyData }) => {
+  const { t } = useTranslation();
   const timing = useMemo(() => analyzeTimingPatterns(historyData), [historyData]);
   const volatility = useMemo(() => analyzeVolatility(historyData), [historyData]);
 
@@ -275,11 +317,11 @@ const ExchangeTimingSection: React.FC<{ historyData: Array<{ date: string; rate:
         </div>
         <div>
           <div className="flex items-center gap-2">
-            <h3 className="text-xl font-extrabold text-slate-800 dark:text-slate-100">Quando Conviene Cambiare?</h3>
-            <span className="px-2 py-0.5 bg-amber-200 dark:bg-amber-800 text-amber-800 dark:text-amber-200 text-[10px] font-black uppercase rounded-full tracking-wider">Sperimentale</span>
+            <h3 className="text-xl font-extrabold text-slate-800 dark:text-slate-100">{t('currency.when_to_exchange')}</h3>
+            <span className="px-2 py-0.5 bg-amber-200 dark:bg-amber-800 text-amber-800 dark:text-amber-200 text-[10px] font-black uppercase rounded-full tracking-wider">{t('currency.experimental')}</span>
           </div>
           <p className="text-sm text-slate-600 dark:text-slate-400 mt-0.5">
-            Analisi basata sullo storico del tasso CHF→EUR. Tendenze statistiche, non garanzie future.
+            {t('currency.timing_analysis_desc')}
           </p>
         </div>
       </div>
@@ -289,19 +331,19 @@ const ExchangeTimingSection: React.FC<{ historyData: Array<{ date: string; rate:
         <div className="bg-white dark:bg-slate-800 rounded-xl p-4 border border-emerald-200 dark:border-emerald-800">
           <div className="flex items-center gap-2 mb-3">
             <TrendingUp size={18} className="text-emerald-600" />
-            <span className="font-bold text-emerald-700 dark:text-emerald-400 text-sm">Momento Migliore</span>
+            <span className="font-bold text-emerald-700 dark:text-emerald-400 text-sm">{t('currency.best_time')}</span>
           </div>
           <div className="space-y-2 text-sm">
             <div className="flex justify-between items-center">
-              <span className="text-slate-600 dark:text-slate-400">Giorno della settimana</span>
-              <span className="font-extrabold text-emerald-600">{timing.bestDay}</span>
+              <span className="text-slate-600 dark:text-slate-400">{t('currency.day_of_week')}</span>
+              <span className="font-extrabold text-emerald-600">{t(`currency.${timing.bestDay}`)}</span>
             </div>
             <div className="flex justify-between items-center">
-              <span className="text-slate-600 dark:text-slate-400">Mese dell'anno</span>
-              <span className="font-extrabold text-emerald-600">{timing.bestMonth}</span>
+              <span className="text-slate-600 dark:text-slate-400">{t('currency.month_of_year')}</span>
+              <span className="font-extrabold text-emerald-600">{t(`currency.${timing.bestMonth}`)}</span>
             </div>
             <div className="flex justify-between items-center">
-              <span className="text-slate-600 dark:text-slate-400">Orario consigliato</span>
+              <span className="text-slate-600 dark:text-slate-400">{t('currency.recommended_time')}</span>
               <span className="font-extrabold text-emerald-600">10:00–12:00</span>
             </div>
           </div>
@@ -309,20 +351,20 @@ const ExchangeTimingSection: React.FC<{ historyData: Array<{ date: string; rate:
         <div className="bg-white dark:bg-slate-800 rounded-xl p-4 border border-red-200 dark:border-red-800">
           <div className="flex items-center gap-2 mb-3">
             <TrendingDown size={18} className="text-red-600" />
-            <span className="font-bold text-red-700 dark:text-red-400 text-sm">Da Evitare</span>
+            <span className="font-bold text-red-700 dark:text-red-400 text-sm">{t('currency.avoid')}</span>
           </div>
           <div className="space-y-2 text-sm">
             <div className="flex justify-between items-center">
-              <span className="text-slate-600 dark:text-slate-400">Giorno della settimana</span>
-              <span className="font-extrabold text-red-600">{timing.worstDay}</span>
+              <span className="text-slate-600 dark:text-slate-400">{t('currency.day_of_week')}</span>
+              <span className="font-extrabold text-red-600">{t(`currency.${timing.worstDay}`)}</span>
             </div>
             <div className="flex justify-between items-center">
-              <span className="text-slate-600 dark:text-slate-400">Mese dell'anno</span>
-              <span className="font-extrabold text-red-600">{timing.worstMonth}</span>
+              <span className="text-slate-600 dark:text-slate-400">{t('currency.month_of_year')}</span>
+              <span className="font-extrabold text-red-600">{t(`currency.${timing.worstMonth}`)}</span>
             </div>
             <div className="flex justify-between items-center">
-              <span className="text-slate-600 dark:text-slate-400">Orario sfavorevole</span>
-              <span className="font-extrabold text-red-600">Weekend / 17:00+</span>
+              <span className="text-slate-600 dark:text-slate-400">{t('currency.unfavorable_time')}</span>
+              <span className="font-extrabold text-red-600">{t('currency.weekend_17plus')}</span>
             </div>
           </div>
         </div>
@@ -331,13 +373,13 @@ const ExchangeTimingSection: React.FC<{ historyData: Array<{ date: string; rate:
       {/* Day of Week Chart */}
       <div className="bg-white dark:bg-slate-800 rounded-xl p-4 border border-slate-200 dark:border-slate-700">
         <h4 className="font-bold text-sm text-slate-700 dark:text-slate-300 mb-3 flex items-center gap-2">
-          <Calendar size={14} /> Tasso Medio per Giorno della Settimana
+          <Calendar size={14} /> {t('currency.avg_rate_by_day')}
         </h4>
         <div className="h-[180px]">
           <ResponsiveContainer width="100%" height="100%">
             <BarChart data={timing.dayOfWeek.filter(d => d.sampleCount > 0)} margin={{ top: 5, right: 10, left: 10, bottom: 5 }}>
               <CartesianGrid strokeDasharray="3 3" opacity={0.3} />
-              <XAxis dataKey="day" tick={{ fontSize: 12 }} />
+              <XAxis dataKey="day" tick={{ fontSize: 12 }} tickFormatter={(v: string) => t(`currency.${v}`)} />
               <YAxis domain={[dayMin * 0.999, dayMax * 1.001]} tick={{ fontSize: 11 }} tickFormatter={(v: number) => v.toFixed(4)} />
               <Tooltip formatter={(v: number) => v.toFixed(5)} />
               <Bar dataKey="avgRate" radius={[6, 6, 0, 0]}>
@@ -353,13 +395,13 @@ const ExchangeTimingSection: React.FC<{ historyData: Array<{ date: string; rate:
       {/* Month Chart */}
       <div className="bg-white dark:bg-slate-800 rounded-xl p-4 border border-slate-200 dark:border-slate-700">
         <h4 className="font-bold text-sm text-slate-700 dark:text-slate-300 mb-3 flex items-center gap-2">
-          <Clock size={14} /> Tasso Medio per Mese dell'Anno
+          <Clock size={14} /> {t('currency.avg_rate_by_month')}
         </h4>
         <div className="h-[200px]">
           <ResponsiveContainer width="100%" height="100%">
             <BarChart data={timing.monthOfYear} margin={{ top: 5, right: 10, left: 10, bottom: 5 }}>
               <CartesianGrid strokeDasharray="3 3" opacity={0.3} />
-              <XAxis dataKey="month" tick={{ fontSize: 11 }} />
+              <XAxis dataKey="month" tick={{ fontSize: 11 }} tickFormatter={(v: string) => t(`currency.${v}`)} />
               <YAxis domain={[monthMin * 0.998, monthMax * 1.002]} tick={{ fontSize: 11 }} tickFormatter={(v: number) => v.toFixed(4)} />
               <Tooltip formatter={(v: number) => v.toFixed(5)} />
               <Bar dataKey="avgRate" radius={[6, 6, 0, 0]}>
@@ -377,12 +419,12 @@ const ExchangeTimingSection: React.FC<{ historyData: Array<{ date: string; rate:
         <div className="flex items-start gap-2">
           <Zap size={16} className="text-amber-600 mt-0.5 flex-shrink-0" />
           <div className="text-slate-700 dark:text-slate-300 space-y-1">
-            <p className="font-bold text-amber-800 dark:text-amber-300">Consigli pratici per il timing:</p>
+            <p className="font-bold text-amber-800 dark:text-amber-300">{t('currency.timing_tips_title')}</p>
             <ul className="list-disc ml-4 space-y-1 text-slate-600 dark:text-slate-400">
-              <li><strong>Mattina (10-12):</strong> I mercati europei sono aperti e il tasso tende a stabilizzarsi</li>
-              <li><strong>Evita il weekend:</strong> Molte piattaforme (es. Revolut) applicano un markup extra sabato e domenica</li>
-              <li><strong>Fine mese:</strong> Attento ai flussi salariali che possono influenzare il tasso</li>
-              <li><strong>Non aspettare troppo:</strong> La differenza tra giorni è spesso marginale (&lt; 0.1%)</li>
+              <li><strong>{t('currency.tip_morning_label')}:</strong> {t('currency.tip_morning')}</li>
+              <li><strong>{t('currency.tip_avoid_weekend_label')}:</strong> {t('currency.tip_avoid_weekend')}</li>
+              <li><strong>{t('currency.tip_end_month_label')}:</strong> {t('currency.tip_end_month')}</li>
+              <li><strong>{t('currency.tip_dont_wait_label')}:</strong> {t('currency.tip_dont_wait')}</li>
             </ul>
           </div>
         </div>
@@ -392,33 +434,33 @@ const ExchangeTimingSection: React.FC<{ historyData: Array<{ date: string; rate:
       {volatility && (
         <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-purple-200 dark:border-purple-800 space-y-4">
           <h4 className="font-extrabold text-sm text-purple-700 dark:text-purple-300 flex items-center gap-2">
-            📈 Analisi Volatilità & Trend
+            📈 {t('currency.volatility_trend_analysis')}
           </h4>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
             <div className="bg-purple-50 dark:bg-purple-900/20 rounded-lg p-3 text-center">
-              <div className="text-[10px] font-bold text-purple-500 uppercase tracking-wider">Tasso Attuale</div>
+              <div className="text-[10px] font-bold text-purple-500 uppercase tracking-wider">{t('currency.current_rate')}</div>
               <div className="text-lg font-black text-purple-700 dark:text-purple-300">{volatility.current.toFixed(4)}</div>
               <div className="text-[10px] text-slate-500">
-                {volatility.percentile > 70 ? '🟢 Alto nel range' : volatility.percentile < 30 ? '🔴 Basso nel range' : '🟡 Nella media'}
+                {volatility.percentile > 70 ? `🟢 ${t('currency.high_in_range')}` : volatility.percentile < 30 ? `🔴 ${t('currency.low_in_range')}` : `🟡 ${t('currency.in_average')}`}
               </div>
             </div>
             <div className="bg-slate-50 dark:bg-slate-700/30 rounded-lg p-3 text-center">
-              <div className="text-[10px] font-bold text-slate-500 uppercase tracking-wider">Range (Min–Max)</div>
+              <div className="text-[10px] font-bold text-slate-500 uppercase tracking-wider">{t('currency.range_min_max')}</div>
               <div className="text-sm font-bold text-slate-700 dark:text-slate-200">{volatility.min.toFixed(4)} – {volatility.max.toFixed(4)}</div>
               <div className="text-[10px] text-slate-500">Δ {(volatility.range * 100).toFixed(2)}%</div>
             </div>
             <div className="bg-slate-50 dark:bg-slate-700/30 rounded-lg p-3 text-center">
-              <div className="text-[10px] font-bold text-slate-500 uppercase tracking-wider">Volatilità (σ)</div>
+              <div className="text-[10px] font-bold text-slate-500 uppercase tracking-wider">{t('currency.volatility_sigma')}</div>
               <div className="text-sm font-bold text-slate-700 dark:text-slate-200">{volatility.stdDev.toFixed(5)}</div>
-              <div className="text-[10px] text-slate-500">{volatility.stdDev < 0.005 ? '😴 Stabile' : volatility.stdDev < 0.015 ? '⚡ Moderata' : '🌊 Alta'}</div>
+              <div className="text-[10px] text-slate-500">{volatility.stdDev < 0.005 ? `😴 ${t('currency.stable')}` : volatility.stdDev < 0.015 ? `⚡ ${t('currency.moderate')}` : `🌊 ${t('currency.high')}`}</div>
             </div>
             <div className="bg-slate-50 dark:bg-slate-700/30 rounded-lg p-3 text-center">
-              <div className="text-[10px] font-bold text-slate-500 uppercase tracking-wider">Trend Attuale</div>
+              <div className="text-[10px] font-bold text-slate-500 uppercase tracking-wider">{t('currency.current_trend')}</div>
               <div className="text-sm font-bold text-slate-700 dark:text-slate-200">
-                {volatility.streakDirection === 'up' ? '📈' : volatility.streakDirection === 'down' ? '📉' : '➡️'} {volatility.currentStreak}gg {volatility.streakDirection === 'up' ? 'in salita' : volatility.streakDirection === 'down' ? 'in discesa' : 'stabile'}
+                {volatility.streakDirection === 'up' ? '📈' : volatility.streakDirection === 'down' ? '📉' : '➡️'} {volatility.currentStreak}{t('currency.days_abbr')} {volatility.streakDirection === 'up' ? t('currency.going_up') : volatility.streakDirection === 'down' ? t('currency.going_down') : t('currency.stable')}
               </div>
               <div className="text-[10px] text-slate-500">
-                {volatility.streakDirection === 'up' ? '✅ Buon momento per cambiare' : volatility.streakDirection === 'down' ? '⏳ Forse meglio aspettare' : '🤷 Neutro'}
+                {volatility.streakDirection === 'up' ? `✅ ${t('currency.good_time_to_exchange')}` : volatility.streakDirection === 'down' ? `⏳ ${t('currency.maybe_wait')}` : `🤷 ${t('currency.neutral')}`}
               </div>
             </div>
           </div>
@@ -426,7 +468,7 @@ const ExchangeTimingSection: React.FC<{ historyData: Array<{ date: string; rate:
           <div className="space-y-1">
             <div className="flex justify-between text-[10px] text-slate-500">
               <span>Min {volatility.min.toFixed(4)}</span>
-              <span>Posizione attuale nel range storico</span>
+              <span>{t('currency.current_position_in_range')}</span>
               <span>Max {volatility.max.toFixed(4)}</span>
             </div>
             <div className="h-3 bg-gradient-to-r from-red-400 via-yellow-400 to-emerald-400 rounded-full relative">
@@ -436,8 +478,8 @@ const ExchangeTimingSection: React.FC<{ historyData: Array<{ date: string; rate:
               />
             </div>
             <div className="text-center text-xs font-bold text-slate-600 dark:text-slate-400">
-              Percentile: {volatility.percentile.toFixed(0)}%
-              {volatility.percentile > 70 ? ' — 🎯 Momento favorevole!' : volatility.percentile < 30 ? ' — ⏰ Tasso basso, valuta di aspettare' : ' — Nella norma'}
+              {t('currency.percentile')}: {volatility.percentile.toFixed(0)}%
+              {volatility.percentile > 70 ? ` — 🎯 ${t('currency.favorable_moment')}` : volatility.percentile < 30 ? ` — ⏰ ${t('currency.low_rate_wait')}` : ` — ${t('currency.normal')}`}
             </div>
           </div>
         </div>
@@ -446,16 +488,16 @@ const ExchangeTimingSection: React.FC<{ historyData: Array<{ date: string; rate:
       {/* Life Hacks */}
       <div className="bg-gradient-to-br from-emerald-50 to-teal-50 dark:from-emerald-950/20 dark:to-teal-950/20 rounded-xl p-5 border border-emerald-200 dark:border-emerald-800 space-y-3">
         <h4 className="font-extrabold text-sm text-emerald-700 dark:text-emerald-300 flex items-center gap-2">
-          🎯 Life Hacks per il Cambio del Frontaliere
+          🎯 {t('currency.life_hacks_title')}
         </h4>
         <div className="grid sm:grid-cols-2 gap-2">
           {[
-            { emoji: '🏧', text: 'Preleva CHF dal Bancomat in IT il lunedì mattina — tassi migliori post-weekend' },
-            { emoji: '📱', text: 'Usa Wise/Revolut per cambio sotto 1000 CHF — zero commissioni' },
-            { emoji: '📅', text: 'Cambia lo stipendio a fine mese — i tassi tendono a essere più favorevoli' },
-            { emoji: '💡', text: 'Dividi il cambio: 50% subito, 50% tra 2 settimane — media il rischio' },
-            { emoji: '⚡', text: 'Evita il venerdì pomeriggio — spread più alti prima del weekend' },
-            { emoji: '🔔', text: 'Imposta alert su Wise per il tuo tasso target — non perdere il momento giusto' },
+            { emoji: '🏧', text: t('currency.hack_atm_monday') },
+            { emoji: '📱', text: t('currency.hack_wise_revolut') },
+            { emoji: '📅', text: t('currency.hack_end_month') },
+            { emoji: '💡', text: t('currency.hack_split_exchange') },
+            { emoji: '⚡', text: t('currency.hack_avoid_friday') },
+            { emoji: '🔔', text: t('currency.hack_set_alert') },
           ].map((hack, i) => (
             <div key={i} className="flex items-start gap-2 bg-white/60 dark:bg-slate-800/60 rounded-lg p-2.5 text-xs text-slate-700 dark:text-slate-300">
               <span className="text-base flex-shrink-0">{hack.emoji}</span>
@@ -468,24 +510,24 @@ const ExchangeTimingSection: React.FC<{ historyData: Array<{ date: string; rate:
       {/* Fun stat: how much 1000 CHF gives you on best vs worst day */}
       {volatility && (
         <div className="bg-gradient-to-r from-indigo-500 to-purple-600 rounded-xl p-5 text-white space-y-2">
-          <h4 className="font-extrabold text-sm flex items-center gap-2">🧮 Quanto cambia davvero?</h4>
+          <h4 className="font-extrabold text-sm flex items-center gap-2">🧮 {t('currency.how_much_difference')}</h4>
           <div className="grid sm:grid-cols-3 gap-3 text-center">
             <div className="bg-white/15 rounded-lg p-3">
-              <div className="text-[10px] uppercase tracking-wider text-white/70">1000 CHF al miglior tasso</div>
+              <div className="text-[10px] uppercase tracking-wider text-white/70">{t('currency.1000chf_best_rate')}</div>
               <div className="text-xl font-black">€ {(1000 * volatility.max).toFixed(2)}</div>
             </div>
             <div className="bg-white/15 rounded-lg p-3">
-              <div className="text-[10px] uppercase tracking-wider text-white/70">1000 CHF al peggior tasso</div>
+              <div className="text-[10px] uppercase tracking-wider text-white/70">{t('currency.1000chf_worst_rate')}</div>
               <div className="text-xl font-black">€ {(1000 * volatility.min).toFixed(2)}</div>
             </div>
             <div className="bg-white/25 rounded-lg p-3 ring-2 ring-white/50">
-              <div className="text-[10px] uppercase tracking-wider text-white/90">Differenza potenziale</div>
+              <div className="text-[10px] uppercase tracking-wider text-white/90">{t('currency.potential_difference')}</div>
               <div className="text-xl font-black text-amber-300">€ {(1000 * volatility.range).toFixed(2)}</div>
-              <div className="text-[10px] text-white/70">su 1000 CHF nel periodo</div>
+              <div className="text-[10px] text-white/70">{t('currency.on_1000chf_period')}</div>
             </div>
           </div>
           <p className="text-[11px] text-white/60 text-center mt-1">
-            Su 5000 CHF/mese, la differenza annuale può essere fino a <strong>€ {(5000 * volatility.range * 12).toFixed(0)}</strong>!
+            {t('currency.on_5000chf_annual')} <strong>€ {(5000 * volatility.range * 12).toFixed(0)}</strong>!
           </p>
         </div>
       )}
@@ -493,7 +535,197 @@ const ExchangeTimingSection: React.FC<{ historyData: Array<{ date: string; rate:
   );
 };
 
+// --- 5-Year Weighted Average Stats ---
+const WeightedAverageStats: React.FC<{
+  historyData: Array<{ date: string; rate: number }>;
+  currentRate: number;
+  period: string;
+}> = ({ historyData, currentRate, period }) => {
+  const { t } = useTranslation();
+  const stats = useMemo(() => {
+    if (historyData.length < 5) return null;
+
+    const rates = historyData.map(d => d.rate);
+    const n = rates.length;
+    
+    // Simple average
+    const simpleAvg = rates.reduce((a, b) => a + b, 0) / n;
+    
+    // Weighted average — more recent data weighted higher (linear decay)
+    let weightedSum = 0;
+    let totalWeight = 0;
+    for (let i = 0; i < n; i++) {
+      const weight = (i + 1) / n; // 0→1, newest data has highest weight
+      weightedSum += rates[i] * weight;
+      totalWeight += weight;
+    }
+    const weightedAvg = weightedSum / totalWeight;
+    
+    // Exponential weighted average (EWA) — alpha = 2/(N+1)
+    const alpha = 2 / (n + 1);
+    let ewa = rates[0];
+    for (let i = 1; i < n; i++) {
+      ewa = alpha * rates[i] + (1 - alpha) * ewa;
+    }
+    
+    // Yearly averages
+    const yearlyData: Record<string, { sum: number; count: number }> = {};
+    for (const point of historyData) {
+      const year = point.date.split('-')[0];
+      if (!yearlyData[year]) yearlyData[year] = { sum: 0, count: 0 };
+      yearlyData[year].sum += point.rate;
+      yearlyData[year].count++;
+    }
+    const yearlyAvgs = Object.entries(yearlyData).map(([year, d]) => ({
+      year,
+      avg: d.sum / d.count,
+      count: d.count,
+    })).sort((a, b) => a.year.localeCompare(b.year));
+    
+    // Quarterly averages
+    const quarterlyData: Record<string, { sum: number; count: number }> = {};
+    for (const point of historyData) {
+      const d = new Date(point.date);
+      const q = Math.ceil((d.getMonth() + 1) / 3);
+      const key = `${d.getFullYear()}-Q${q}`;
+      if (!quarterlyData[key]) quarterlyData[key] = { sum: 0, count: 0 };
+      quarterlyData[key].sum += point.rate;
+      quarterlyData[key].count++;
+    }
+    const quarterlyAvgs = Object.entries(quarterlyData).map(([quarter, d]) => ({
+      quarter,
+      avg: d.sum / d.count,
+    })).sort((a, b) => a.quarter.localeCompare(b.quarter));
+    
+    // Current position relative to averages
+    const currentVsSimple = ((currentRate - simpleAvg) / simpleAvg) * 100;
+    const currentVsWeighted = ((currentRate - weightedAvg) / weightedAvg) * 100;
+    
+    // Annual trend (% change per year)
+    let annualTrend = 0;
+    if (yearlyAvgs.length >= 2) {
+      const first = yearlyAvgs[0].avg;
+      const last = yearlyAvgs[yearlyAvgs.length - 1].avg;
+      const years = yearlyAvgs.length - 1;
+      annualTrend = ((last / first) - 1) * 100 / years;
+    }
+    
+    // Impact for a frontaliere: 5000 CHF/month
+    const monthlyAmount = 5000;
+    const currentMonthly = monthlyAmount * currentRate;
+    const avgMonthly = monthlyAmount * weightedAvg;
+    const monthlyDiff = currentMonthly - avgMonthly;
+    const annualDiff = monthlyDiff * 12;
+
+    return { simpleAvg, weightedAvg, ewa, yearlyAvgs, quarterlyAvgs, currentVsSimple, currentVsWeighted, annualTrend, currentMonthly, avgMonthly, monthlyDiff, annualDiff };
+  }, [historyData, currentRate]);
+
+  if (!stats || historyData.length < 30) return null;
+
+  const periodLabel = period === '5y' ? t('currency.period_5y') : period === '1y' ? t('currency.period_1y') : period === '6m' ? t('currency.period_6m') : period === '3m' ? t('currency.period_3m') : t('currency.period_1m');
+
+  return (
+    <div className="bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-950/20 dark:to-indigo-950/20 rounded-2xl border border-blue-200 dark:border-blue-800 p-6 space-y-5">
+      <div className="flex items-center gap-3">
+        <div className="p-2 bg-blue-100 dark:bg-blue-900/40 rounded-xl">
+          <BarChart3 size={24} className="text-blue-600 dark:text-blue-400" />
+        </div>
+        <div>
+          <h3 className="text-xl font-extrabold text-slate-800 dark:text-slate-100">📊 {t('currency.weighted_avg_stats')}</h3>
+          <p className="text-sm text-slate-600 dark:text-slate-400">
+            {t('currency.weighted_avg_desc', { period: periodLabel })}
+          </p>
+        </div>
+      </div>
+
+      {/* Key Averages */}
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+        <div className="bg-white dark:bg-slate-800 rounded-xl p-4 text-center border border-slate-200 dark:border-slate-700">
+          <div className="text-[10px] font-bold text-slate-500 uppercase tracking-wider">{t('currency.current_rate')}</div>
+          <div className="text-xl font-black text-indigo-600">{currentRate.toFixed(4)}</div>
+          <div className={`text-[10px] font-bold ${stats.currentVsWeighted >= 0 ? 'text-emerald-600' : 'text-red-600'}`}>
+            {stats.currentVsWeighted >= 0 ? '↑' : '↓'} {Math.abs(stats.currentVsWeighted).toFixed(2)}% vs {t('currency.vs_average')}
+          </div>
+        </div>
+        <div className="bg-white dark:bg-slate-800 rounded-xl p-4 text-center border border-slate-200 dark:border-slate-700">
+          <div className="text-[10px] font-bold text-slate-500 uppercase tracking-wider">{t('currency.simple_average')}</div>
+          <div className="text-xl font-black text-slate-700 dark:text-slate-200">{stats.simpleAvg.toFixed(4)}</div>
+          <div className="text-[10px] text-slate-500">{historyData.length} {t('currency.data_points')}</div>
+        </div>
+        <div className="bg-blue-50 dark:bg-blue-900/20 rounded-xl p-4 text-center border-2 border-blue-300 dark:border-blue-700">
+          <div className="text-[10px] font-bold text-blue-600 uppercase tracking-wider">{t('currency.weighted_average')}</div>
+          <div className="text-xl font-black text-blue-700 dark:text-blue-300">{stats.weightedAvg.toFixed(4)}</div>
+          <div className="text-[10px] text-blue-500">⭐ {t('currency.more_reliable')}</div>
+        </div>
+        <div className="bg-white dark:bg-slate-800 rounded-xl p-4 text-center border border-slate-200 dark:border-slate-700">
+          <div className="text-[10px] font-bold text-slate-500 uppercase tracking-wider">{t('currency.exponential_average')}</div>
+          <div className="text-xl font-black text-slate-700 dark:text-slate-200">{stats.ewa.toFixed(4)}</div>
+          <div className="text-[10px] text-slate-500">{t('currency.adaptive_ema')}</div>
+        </div>
+      </div>
+
+      {/* Yearly Chart */}
+      {stats.yearlyAvgs.length > 1 && (
+        <div className="bg-white dark:bg-slate-800 rounded-xl p-4 border border-slate-200 dark:border-slate-700">
+          <h4 className="font-bold text-sm text-slate-700 dark:text-slate-300 mb-3 flex items-center gap-2">
+            <Calendar size={14} /> {t('currency.yearly_avg_rate')}
+          </h4>
+          <div className="h-[200px]">
+            <ResponsiveContainer width="100%" height="100%">
+              <BarChart data={stats.yearlyAvgs} margin={{ top: 5, right: 10, left: 10, bottom: 5 }}>
+                <CartesianGrid strokeDasharray="3 3" opacity={0.3} />
+                <XAxis dataKey="year" tick={{ fontSize: 12 }} />
+                <YAxis domain={[
+                  Math.min(...stats.yearlyAvgs.map(d => d.avg)) * 0.998,
+                  Math.max(...stats.yearlyAvgs.map(d => d.avg)) * 1.002
+                ]} tick={{ fontSize: 11 }} tickFormatter={(v: number) => v.toFixed(3)} />
+                <Tooltip formatter={(v: number) => v.toFixed(5)} />
+                <Bar dataKey="avg" radius={[8, 8, 0, 0]}>
+                  {stats.yearlyAvgs.map((entry, i) => (
+                    <Cell key={entry.year} fill={i === stats.yearlyAvgs.length - 1 ? '#6366f1' : '#94a3b8'} />
+                  ))}
+                </Bar>
+              </BarChart>
+            </ResponsiveContainer>
+          </div>
+        </div>
+      )}
+
+      {/* Impact Calculator */}
+      <div className="bg-gradient-to-r from-indigo-500 to-blue-600 rounded-xl p-5 text-white space-y-3">
+        <h4 className="font-extrabold text-sm flex items-center gap-2">💰 {t('currency.impact_frontaliere')}</h4>
+        <div className="grid sm:grid-cols-3 gap-3 text-center">
+          <div className="bg-white/15 rounded-lg p-3">
+            <div className="text-[10px] uppercase tracking-wider text-white/70">{t('currency.at_current_rate')}</div>
+            <div className="text-xl font-black">€ {stats.currentMonthly.toFixed(0)}/{t('currency.month_abbr')}</div>
+          </div>
+          <div className="bg-white/15 rounded-lg p-3">
+            <div className="text-[10px] uppercase tracking-wider text-white/70">{t('currency.at_weighted_avg')}</div>
+            <div className="text-xl font-black">€ {stats.avgMonthly.toFixed(0)}/{t('currency.month_abbr')}</div>
+          </div>
+          <div className="bg-white/25 rounded-lg p-3 ring-2 ring-white/50">
+            <div className="text-[10px] uppercase tracking-wider text-white/90">{t('currency.annual_difference')}</div>
+            <div className={`text-xl font-black ${stats.annualDiff >= 0 ? 'text-emerald-300' : 'text-amber-300'}`}>
+              {stats.annualDiff >= 0 ? '+' : ''}€ {stats.annualDiff.toFixed(0)}
+            </div>
+            <div className="text-[10px] text-white/70">
+              {stats.annualDiff >= 0 ? `✅ ${t('currency.rate_favors_you')}` : `⚠️ ${t('currency.rate_below_average')}`}
+            </div>
+          </div>
+        </div>
+        {stats.annualTrend !== 0 && (
+          <p className="text-[11px] text-white/60 text-center">
+            {t('currency.avg_trend')}: {stats.annualTrend >= 0 ? '+' : ''}{stats.annualTrend.toFixed(3)}% {t('currency.annual')}
+            {stats.annualTrend > 0 ? ` (${t('currency.eur_strengthens')})` : ` (${t('currency.chf_strengthens')})`}
+          </p>
+        )}
+      </div>
+    </div>
+  );
+};
+
 const CurrencyExchange: React.FC = () => {
+  const { t } = useTranslation();
   const [amount, setAmount] = useState<number>(1000);
   const [realRate, setRealRate] = useState<number>(0.95);
   const [loading, setLoading] = useState(false);
@@ -501,6 +733,7 @@ const CurrencyExchange: React.FC = () => {
   const [historyPeriod, setHistoryPeriod] = useState<'1m' | '3m' | '6m' | '1y' | '5y'>('6m');
   const [historyData, setHistoryData] = useState<Array<{ date: string; rate: number }>>([]);
   const [historyLoading, setHistoryLoading] = useState(false);
+  const [exchangeSubTab, setExchangeSubTab] = useState<'overview' | 'statistics'>('overview');
 
   const fetchRealRate = async () => {
     setLoading(true);
@@ -602,8 +835,8 @@ const CurrencyExchange: React.FC = () => {
             <ArrowRightLeft size={32} />
           </div>
           <div>
-            <h1 className="text-3xl font-extrabold">Confronto Cambio Valuta CHF → EUR</h1>
-            <p className="text-indigo-100 mt-1">Scopri qual è la piattaforma più conveniente per convertire i tuoi franchi</p>
+            <h1 className="text-3xl font-extrabold">{t('currency.title')}</h1>
+            <p className="text-indigo-100 mt-1">{t('currency.subtitle')}</p>
           </div>
         </div>
 
@@ -612,22 +845,51 @@ const CurrencyExchange: React.FC = () => {
           <div className="flex items-start gap-3">
             <AlertCircle size={24} className="flex-shrink-0 mt-0.5" />
             <div className="text-sm">
-              <p className="font-bold mb-2">⚠️ Non guardare solo le commissioni!</p>
+              <p className="font-bold mb-2">⚠️ {t('currency.notice_title')}</p>
               <p className="text-indigo-100 leading-relaxed">
-                Molte banche tradizionali pubblicizzano <strong>"zero commissioni"</strong> ma applicano un <strong>tasso di cambio sfavorevole</strong> con uno spread nascosto del 2-3%. 
-                Questo significa che perdi più soldi rispetto a servizi come Wise che dichiarano una commissione trasparente (~0.4%) ma usano il <strong>tasso di mercato reale</strong>.
+                {t('currency.notice_text')}
               </p>
             </div>
           </div>
         </div>
       </div>
 
+      {/* Sub-tab navigation */}
+      <div className="flex gap-2 bg-white dark:bg-slate-800 rounded-2xl p-2 border border-slate-200 dark:border-slate-700 shadow-sm">
+        <button
+          onClick={() => { setExchangeSubTab('overview'); Analytics.trackUIInteraction('CurrencyExchange', 'subtab', 'overview'); }}
+          className={`flex-1 flex items-center justify-center gap-2 px-4 py-3 rounded-xl text-sm font-bold transition-all ${
+            exchangeSubTab === 'overview'
+              ? 'bg-indigo-600 text-white shadow-lg'
+              : 'text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-700'
+          }`}
+        >
+          <ArrowLeftRight size={16} />
+          {t('currency.tab_compare')}
+        </button>
+        <button
+          onClick={() => { setExchangeSubTab('statistics'); Analytics.trackUIInteraction('CurrencyExchange', 'subtab', 'statistics'); }}
+          className={`flex-1 flex items-center justify-center gap-2 px-4 py-3 rounded-xl text-sm font-bold transition-all ${
+            exchangeSubTab === 'statistics'
+              ? 'bg-indigo-600 text-white shadow-lg'
+              : 'text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-700'
+          }`}
+        >
+          <ChartBar size={16} />
+          {t('currency.tab_statistics')}
+        </button>
+      </div>
+
+      {exchangeSubTab === 'overview' ? (
+      <>
+      {/* Calculator + History Side by Side */}
+      <div className="grid lg:grid-cols-2 gap-6">
       {/* Calculator */}
       <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-6 shadow-sm">
         <div className="flex items-center justify-between mb-4">
           <h3 className="text-lg font-bold text-slate-800 dark:text-slate-100 flex items-center gap-2">
             <Calculator size={20} className="text-indigo-600" />
-            Calcola il Tuo Cambio
+            {t('currency.calculate_exchange')}
           </h3>
           <button
             onClick={fetchRealRate}
@@ -635,13 +897,13 @@ const CurrencyExchange: React.FC = () => {
             className="flex items-center gap-2 px-3 py-2 bg-indigo-50 dark:bg-indigo-900/20 text-indigo-600 dark:text-indigo-400 rounded-xl text-xs font-bold hover:bg-indigo-100 dark:hover:bg-indigo-900/40 transition-all disabled:opacity-50"
           >
             <RefreshCw size={14} className={loading ? 'animate-spin' : ''} />
-            Aggiorna Tasso
+            {t('currency.refresh_rate')}
           </button>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-4">
+        <div className="space-y-4">
           <div className="space-y-2">
-            <label className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wide">Importo da Convertire</label>
+            <label className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wide">{t('currency.amount_to_convert')}</label>
             <div className="relative">
               <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
                 <span className="text-slate-400 font-bold">CHF</span>
@@ -658,11 +920,11 @@ const CurrencyExchange: React.FC = () => {
 
           <div className="space-y-2">
             <label className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wide flex items-center gap-2">
-              Tasso di Mercato Reale
+              {t('currency.real_market_rate')}
               <div className="group relative inline-flex items-center cursor-help">
                 <Info size={12} className="text-slate-400" />
                 <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 hidden group-hover:block w-48 p-2.5 bg-slate-800 text-white text-[10px] font-medium leading-relaxed rounded-xl shadow-xl border border-slate-600 pointer-events-none z-50 text-center">
-                  Tasso medio di mercato (mid-market rate) senza markup
+                  {t('currency.mid_market_tooltip')}
                 </div>
               </div>
             </label>
@@ -679,7 +941,7 @@ const CurrencyExchange: React.FC = () => {
             </div>
             {lastUpdate && (
               <p className="text-[10px] text-slate-400 text-right">
-                Aggiornato: {lastUpdate.toLocaleTimeString('it-IT')}
+                {t('currency.updated')}: {lastUpdate.toLocaleTimeString('it-IT')}
               </p>
             )}
           </div>
@@ -691,7 +953,7 @@ const CurrencyExchange: React.FC = () => {
         <div className="flex items-center justify-between mb-4 flex-wrap gap-3">
           <h3 className="text-lg font-bold text-slate-800 dark:text-slate-100 flex items-center gap-2">
             <BarChart3 size={20} className="text-indigo-600" />
-            Storico Tasso CHF/EUR
+            {t('currency.history_title')}
           </h3>
           <div className="flex gap-1.5">
             {(['1m', '3m', '6m', '1y', '5y'] as const).map(p => (
@@ -729,16 +991,17 @@ const CurrencyExchange: React.FC = () => {
           </ResponsiveContainer>
         ) : (
           <div className="h-64 flex items-center justify-center text-slate-400 text-sm">
-            Nessun dato disponibile
+            {t('currency.no_data_available')}
           </div>
         )}
         {historyData.length > 1 && (
           <div className="flex justify-between mt-3 text-xs text-slate-500">
             <span>Min: {Math.min(...historyData.map(d => d.rate)).toFixed(4)}</span>
-            <span>Media: {(historyData.reduce((s, d) => s + d.rate, 0) / historyData.length).toFixed(4)}</span>
+            <span>{t('currency.average')}: {(historyData.reduce((s, d) => s + d.rate, 0) / historyData.length).toFixed(4)}</span>
             <span>Max: {Math.max(...historyData.map(d => d.rate)).toFixed(4)}</span>
           </div>
         )}
+      </div>
       </div>
 
       <div className="grid md:grid-cols-2 gap-4">
@@ -754,7 +1017,7 @@ const CurrencyExchange: React.FC = () => {
                 <TrendingUp className="text-white" size={20} />
               </div>
               <div>
-                <div className="text-xs font-bold text-emerald-600 dark:text-emerald-400 uppercase">Migliore Offerta</div>
+                <div className="text-xs font-bold text-emerald-600 dark:text-emerald-400 uppercase">{t('currency.best_offer')}</div>
                 <div className="text-xl font-extrabold text-slate-800 dark:text-slate-100">{best.provider.name}</div>
               </div>
             </div>
@@ -762,10 +1025,10 @@ const CurrencyExchange: React.FC = () => {
               € {best.netAmount.toFixed(2)}
             </div>
             <div className="text-sm text-slate-600 dark:text-slate-400">
-              Costo totale: <strong>CHF {best.totalCost.toFixed(2)}</strong> ({best.costPercent.toFixed(2)}%)
+              {t('currency.total_cost')}: <strong>CHF {best.totalCost.toFixed(2)}</strong> ({best.costPercent.toFixed(2)}%)
             </div>
             <div className="text-xs text-emerald-600 dark:text-emerald-400 mt-2 font-bold">
-              👆 Clicca per iscriverti con referral
+              👆 {t('currency.click_referral')}
             </div>
           </a>
         ) : (
@@ -775,7 +1038,7 @@ const CurrencyExchange: React.FC = () => {
                 <TrendingUp className="text-white" size={20} />
               </div>
               <div>
-                <div className="text-xs font-bold text-emerald-600 dark:text-emerald-400 uppercase">Migliore Offerta</div>
+                <div className="text-xs font-bold text-emerald-600 dark:text-emerald-400 uppercase">{t('currency.best_offer')}</div>
                 <div className="text-xl font-extrabold text-slate-800 dark:text-slate-100">{best.provider.name}</div>
               </div>
             </div>
@@ -783,7 +1046,7 @@ const CurrencyExchange: React.FC = () => {
               € {best.netAmount.toFixed(2)}
             </div>
             <div className="text-sm text-slate-600 dark:text-slate-400">
-              Costo totale: <strong>CHF {best.totalCost.toFixed(2)}</strong> ({best.costPercent.toFixed(2)}%)
+              {t('currency.total_cost')}: <strong>CHF {best.totalCost.toFixed(2)}</strong> ({best.costPercent.toFixed(2)}%)
             </div>
           </div>
         )}
@@ -794,7 +1057,7 @@ const CurrencyExchange: React.FC = () => {
               <TrendingDown className="text-white" size={20} />
             </div>
             <div>
-              <div className="text-xs font-bold text-red-600 dark:text-red-400 uppercase">Peggiore Offerta</div>
+              <div className="text-xs font-bold text-red-600 dark:text-red-400 uppercase">{t('currency.worst_offer')}</div>
               <div className="text-xl font-extrabold text-slate-800 dark:text-slate-100">{worst.provider.name}</div>
             </div>
           </div>
@@ -802,7 +1065,7 @@ const CurrencyExchange: React.FC = () => {
             € {worst.netAmount.toFixed(2)}
           </div>
           <div className="text-sm text-slate-600 dark:text-slate-400">
-            Costo totale: <strong>CHF {worst.totalCost.toFixed(2)}</strong> ({worst.costPercent.toFixed(2)}%)
+            {t('currency.total_cost')}: <strong>CHF {worst.totalCost.toFixed(2)}</strong> ({worst.costPercent.toFixed(2)}%)
           </div>
         </div>
       </div>
@@ -811,18 +1074,18 @@ const CurrencyExchange: React.FC = () => {
         <div className="flex items-start gap-3">
           <DollarSign size={24} className="text-amber-600 flex-shrink-0 mt-0.5" />
           <div className="text-sm text-slate-700 dark:text-slate-300">
-            <strong>Risparmio potenziale:</strong> Usando <strong>{best.provider.name}</strong> invece di <strong>{worst.provider.name}</strong> risparmi <strong className="text-amber-600">CHF {savingsVsWorst.toFixed(2)}</strong> su questa conversione!
+            <strong>{t('currency.potential_savings')}:</strong> {t('currency.savings_text', { best: best.provider.name, worst: worst.provider.name })} <strong className="text-amber-600">CHF {savingsVsWorst.toFixed(2)}</strong> {t('currency.on_this_conversion')}!
           </div>
         </div>
       </div>
 
       {/* Comparison Table */}
-      <div className="space-y-4">
-        <h2 className="text-2xl font-extrabold text-slate-800 dark:text-slate-100 flex items-center gap-2">
+      <div>
+        <h2 className="text-2xl font-extrabold text-slate-800 dark:text-slate-100 flex items-center gap-2 mb-4">
           <Percent size={24} className="text-indigo-600" />
-          Confronto Dettagliato
+          {t('currency.detailed_comparison')}
         </h2>
-
+        <div className="grid md:grid-cols-2 gap-4">
         {results.map((result, idx) => {
           const isBest = idx === 0;
           const isWorst = idx === results.length - 1;
@@ -849,7 +1112,7 @@ const CurrencyExchange: React.FC = () => {
               {isBest && (
                 <div className="mb-3 inline-flex items-center gap-1.5 px-3 py-1.5 bg-emerald-500 text-white text-xs font-bold rounded-full">
                   <CheckCircle2 size={14} />
-                  Miglior Scelta
+                  {t('currency.best_choice')}
                 </div>
               )}
 
@@ -860,7 +1123,7 @@ const CurrencyExchange: React.FC = () => {
                   </div>
                   <div>
                     <h3 className="text-xl font-bold text-slate-800 dark:text-slate-100">{result.provider.name}</h3>
-                    <p className="text-sm text-slate-500 dark:text-slate-400">{result.provider.transferTime}</p>
+                    <p className="text-sm text-slate-500 dark:text-slate-400">{t(`currency.${result.provider.transferTimeKey}`)}</p>
                   </div>
                 </div>
 
@@ -869,14 +1132,14 @@ const CurrencyExchange: React.FC = () => {
                     € {result.netAmount.toFixed(2)}
                   </div>
                   <div className={`text-sm font-bold ${isBest ? 'text-emerald-600' : isWorst ? 'text-red-600' : 'text-slate-600 dark:text-slate-400'}`}>
-                    Costo: {result.costPercent.toFixed(2)}%
+                    {t('currency.cost')}: {result.costPercent.toFixed(2)}%
                   </div>
                 </div>
               </div>
 
               <div className="grid md:grid-cols-3 gap-4 mb-4">
                 <div className="p-3 bg-slate-50 dark:bg-slate-900 rounded-xl">
-                  <div className="text-xs text-slate-500 dark:text-slate-400 mb-1">Tasso Applicato</div>
+                  <div className="text-xs text-slate-500 dark:text-slate-400 mb-1">{t('currency.applied_rate')}</div>
                   <div className="text-lg font-bold text-slate-800 dark:text-slate-100">
                     {result.appliedRate.toFixed(4)}
                   </div>
@@ -884,13 +1147,13 @@ const CurrencyExchange: React.FC = () => {
                     {result.provider.exchangeRateMarkup > 0 ? (
                       <span className="text-red-600">-{(result.provider.exchangeRateMarkup * 100).toFixed(2)}% spread</span>
                     ) : (
-                      <span className="text-emerald-600">✓ Tasso reale</span>
+                      <span className="text-emerald-600">✓ {t('currency.real_rate')}</span>
                     )}
                   </div>
                 </div>
 
                 <div className="p-3 bg-slate-50 dark:bg-slate-900 rounded-xl">
-                  <div className="text-xs text-slate-500 dark:text-slate-400 mb-1">Commissione Dichiarata</div>
+                  <div className="text-xs text-slate-500 dark:text-slate-400 mb-1">{t('currency.declared_commission')}</div>
                   <div className="text-lg font-bold text-slate-800 dark:text-slate-100">
                     {result.totalCommission.toFixed(2)} EUR
                   </div>
@@ -901,24 +1164,24 @@ const CurrencyExchange: React.FC = () => {
                 </div>
 
                 <div className="p-3 bg-slate-50 dark:bg-slate-900 rounded-xl">
-                  <div className="text-xs text-slate-500 dark:text-slate-400 mb-1">Costo Totale Reale</div>
+                  <div className="text-xs text-slate-500 dark:text-slate-400 mb-1">{t('currency.real_total_cost')}</div>
                   <div className="text-lg font-bold text-slate-800 dark:text-slate-100">
                     CHF {result.totalCost.toFixed(2)}
                   </div>
                   <div className="text-xs text-slate-500 dark:text-slate-400">
-                    Commissioni + Spread
+                    {t('currency.commissions_spread')}
                   </div>
                 </div>
               </div>
 
               <div className="border-t border-slate-200 dark:border-slate-700 pt-3">
                 <div className="flex flex-wrap gap-2">
-                  {result.provider.features.map((feature, fidx) => (
+                  {result.provider.featureKeys.map((featureKey, fidx) => (
                     <span
                       key={fidx}
                       className="px-2.5 py-1 bg-slate-100 dark:bg-slate-900 text-slate-700 dark:text-slate-300 text-xs font-medium rounded-lg"
                     >
-                      {feature}
+                      {t(`currency.${featureKey}`)}
                     </span>
                   ))}
                 </div>
@@ -926,42 +1189,51 @@ const CurrencyExchange: React.FC = () => {
             </CardWrapper>
           );
         })}
+        </div>
       </div>
 
       {/* Experimental: Exchange Timing Analysis */}
-      <ExchangeTimingSection historyData={historyData} />
+      {/* Moved to Statistics subtab */}
 
       {/* Educational Section */}
       <div className="bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-950/30 dark:to-indigo-950/30 rounded-2xl border border-blue-200 dark:border-blue-800 p-6">
         <h3 className="text-xl font-bold text-slate-800 dark:text-slate-100 mb-4 flex items-center gap-2">
           <Info size={20} className="text-blue-600" />
-          Come Funziona lo Spread Nascosto?
+          {t('currency.how_hidden_spread_works')}
         </h3>
         
         <div className="space-y-4 text-sm text-slate-700 dark:text-slate-300">
           <div className="p-4 bg-white/50 dark:bg-slate-900/50 rounded-xl">
-            <p className="font-bold text-blue-600 mb-2">📊 Esempio Pratico con CHF 1000:</p>
+            <p className="font-bold text-blue-600 mb-2">📊 {t('currency.practical_example_title')}:</p>
             <ul className="space-y-2 ml-4">
-              <li><strong>Tasso reale di mercato:</strong> 1 CHF = 0.95 EUR → Dovresti ricevere 950 EUR</li>
-              <li><strong>Banca tradizionale (zero commissioni, spread 2.5%):</strong> Applica 1 CHF = 0.9262 EUR → Ricevi solo 926.20 EUR</li>
-              <li><strong>Costo nascosto:</strong> 950 - 926.20 = <strong className="text-red-600">23.80 EUR persi</strong> (2.5%)</li>
-              <li><strong>Wise (commissione 0.43%, spread 0%):</strong> Commissione 4.09 EUR → Ricevi 945.91 EUR</li>
-              <li><strong>Risparmio con Wise:</strong> <strong className="text-emerald-600">19.71 EUR</strong> rispetto alla banca!</li>
+              <li><strong>{t('currency.example_real_rate')}:</strong> {t('currency.example_real_rate_text')}</li>
+              <li><strong>{t('currency.example_traditional_bank')}:</strong> {t('currency.example_traditional_bank_text')}</li>
+              <li><strong>{t('currency.example_hidden_cost')}:</strong> {t('currency.example_hidden_cost_text')}</li>
+              <li><strong>{t('currency.example_wise')}:</strong> {t('currency.example_wise_text')}</li>
+              <li><strong>{t('currency.example_savings')}:</strong> <strong className="text-emerald-600">{t('currency.example_savings_text')}</strong></li>
             </ul>
           </div>
 
           <div className="p-4 bg-white/50 dark:bg-slate-900/50 rounded-xl">
-            <p className="font-bold text-indigo-600 mb-2">💡 Consigli per Risparmiare:</p>
+            <p className="font-bold text-indigo-600 mb-2">💡 {t('currency.tips_to_save_title')}:</p>
             <ul className="space-y-1 ml-4 list-disc">
-              <li>Usa servizi come <strong>Wise</strong> per trasferimenti regolari (massima trasparenza)</li>
-              <li><strong>Revolut</strong> è ottimo per piccoli importi e conversioni nei giorni feriali</li>
-              <li>Evita le banche tradizionali per il cambio valuta (spread nascosto 2-3%)</li>
-              <li>Controlla sempre il <strong>tasso effettivo</strong>, non solo le commissioni dichiarate</li>
-              <li>Per grandi importi, anche 0.5% di differenza significa centinaia di euro risparmiati</li>
+              <li>{t('currency.tip_use_wise')}</li>
+              <li>{t('currency.tip_revolut_small')}</li>
+              <li>{t('currency.tip_avoid_traditional')}</li>
+              <li>{t('currency.tip_check_effective_rate')}</li>
+              <li>{t('currency.tip_large_amounts')}</li>
             </ul>
           </div>
         </div>
       </div>
+      </>
+      ) : (
+      <>
+      {/* Statistics Sub-tab Content */}
+      <WeightedAverageStats historyData={historyData} currentRate={realRate} period={historyPeriod} />
+      <ExchangeTimingSection historyData={historyData} />
+      </>
+      )}
     </div>
   );
 };
