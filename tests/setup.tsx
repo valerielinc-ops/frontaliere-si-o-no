@@ -1,5 +1,20 @@
 import '@testing-library/jest-dom/vitest';
 
+// Mock window.matchMedia (not available in jsdom)
+Object.defineProperty(window, 'matchMedia', {
+  writable: true,
+  value: vi.fn().mockImplementation((query: string) => ({
+    matches: false,
+    media: query,
+    onchange: null,
+    addListener: vi.fn(),
+    removeListener: vi.fn(),
+    addEventListener: vi.fn(),
+    removeEventListener: vi.fn(),
+    dispatchEvent: vi.fn(),
+  })),
+});
+
 // Mock localStorage
 const store: Record<string, string> = {};
 Object.defineProperty(globalThis, 'localStorage', {
@@ -22,6 +37,7 @@ vi.mock('@/services/firebase', () => ({
 vi.mock('@/services/analytics', () => ({
   Analytics: {
     init: vi.fn(),
+    isInitialized: false,
     trackPageView: vi.fn(),
     trackCalculation: vi.fn(),
     trackTabNavigation: vi.fn(),
@@ -30,6 +46,22 @@ vi.mock('@/services/analytics', () => ({
     trackComparatorView: vi.fn(),
     trackUIInteraction: vi.fn(),
     trackApiDiagnostics: vi.fn(),
+    trackError: vi.fn(),
+    trackInputChange: vi.fn(),
+    trackSelectContent: vi.fn(),
+    trackShare: vi.fn(),
+    trackSearch: vi.fn(),
+    trackGenerateLead: vi.fn(),
+    trackBorderFilter: vi.fn(),
+    trackMunicipalityView: vi.fn(),
+    trackExpense: vi.fn(),
+    trackPensionPlanner: vi.fn(),
+    trackExternalLink: vi.fn(),
+    trackChartInteraction: vi.fn(),
+    trackBorderTimeSelection: vi.fn(),
+    trackMapInteraction: vi.fn(),
+    setWorkerType: vi.fn(),
+    setUserPreferences: vi.fn(),
   },
 }));
 
@@ -47,9 +79,21 @@ vi.mock('leaflet', () => ({
     marker: vi.fn(() => ({ addTo: vi.fn(), bindPopup: vi.fn() })),
     map: vi.fn(() => ({ setView: vi.fn(), addLayer: vi.fn() })),
     tileLayer: vi.fn(() => ({ addTo: vi.fn() })),
+    Icon: {
+      Default: {
+        prototype: {},
+        mergeOptions: vi.fn(),
+      },
+    },
   },
   divIcon: vi.fn(() => ({})),
   icon: vi.fn(() => ({})),
+  Icon: {
+    Default: {
+      prototype: {},
+      mergeOptions: vi.fn(),
+    },
+  },
 }));
 
 vi.mock('react-leaflet', () => ({

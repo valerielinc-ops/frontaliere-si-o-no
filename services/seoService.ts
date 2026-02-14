@@ -332,6 +332,14 @@ export const SEO_METADATA: Record<string, SEOMetadata> = {
     ogDescription: '🎓 Guida alle scuole del Canton Ticino per frontalieri: tipi per età, costi, orari e scuole vicine ai valichi di frontiera.',
     canonicalPath: '/guida-frontalieri/scuole-ticino',
   },
+  unemployment: {
+    title: 'Disoccupazione Frontalieri | NASpI Italia e AD Svizzera - Procedure e Importi',
+    description: 'Guida completa alla disoccupazione per frontalieri: come richiedere NASpI in Italia e AD/ALV in Svizzera. Importi, durata, procedure passo per passo, formulario PD U1 e confronto tra i due sistemi.',
+    keywords: 'disoccupazione frontalieri, naspi frontalieri svizzera, disoccupazione svizzera ALV, PD U1 formulario, indennità disoccupazione frontaliere, naspi italia procedura, assicurazione disoccupazione svizzera, URC ticino, cassa disoccupazione',
+    ogTitle: 'Disoccupazione per Frontalieri | NASpI e AD Svizzera',
+    ogDescription: '📋 Guida completa alla disoccupazione per frontalieri: NASpI Italia, AD/ALV Svizzera, procedure, importi e confronto tra i due sistemi.',
+    canonicalPath: '/guida-frontalieri/disoccupazione',
+  },
 };
 
 /**

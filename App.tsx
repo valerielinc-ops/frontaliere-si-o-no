@@ -37,17 +37,16 @@ const App: React.FC = () => {
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [isFocusMode, setIsFocusMode] = useState(false);
   // Read initial route from URL path (or migrate legacy hash)
-  const initialParsed = parsePath(window.location.pathname);
-  const initialRoute = initialParsed.route;
-  // If URL had a locale prefix (e.g. /en/...), set the app locale accordingly
-  if (initialParsed.locale !== 'it') {
-    setLocale(initialParsed.locale);
-  }
-  const [activeTab, setActiveTab] = useState<'calculator' | 'feedback' | 'stats' | 'pension' | 'guide' | 'comparatori' | 'privacy' | 'data-deletion' | 'api-status'>(initialRoute.activeTab);
-  const [comparatoriSubTab, setComparatoriSubTab] = useState<'exchange' | 'mobile' | 'transport' | 'health' | 'banks' | 'traffic' | 'jobs'>(initialRoute.comparatoriSubTab || 'exchange');
-  const [simulatorSubTab, setSimulatorSubTab] = useState<'calculator' | 'whatif'>(initialRoute.simulatorSubTab || 'calculator');
-  const [pensionSubTab, setPensionSubTab] = useState<'planner' | 'pillar3'>(initialRoute.pensionSubTab || 'planner');
-  const [guideSection, setGuideSection] = useState<string>(initialRoute.guideSection || 'municipalities');
+  const [initialRoute] = useState(() => {
+    const parsed = parsePath(window.location.pathname);
+    // Defer locale side-effect to useEffect to avoid setState-during-render
+    return { route: parsed.route, locale: parsed.locale };
+  });
+  const [activeTab, setActiveTab] = useState<'calculator' | 'feedback' | 'stats' | 'pension' | 'guide' | 'comparatori' | 'privacy' | 'data-deletion' | 'api-status'>(initialRoute.route.activeTab);
+  const [comparatoriSubTab, setComparatoriSubTab] = useState<'exchange' | 'mobile' | 'transport' | 'health' | 'banks' | 'traffic' | 'jobs'>(initialRoute.route.comparatoriSubTab || 'exchange');
+  const [simulatorSubTab, setSimulatorSubTab] = useState<'calculator' | 'whatif'>(initialRoute.route.simulatorSubTab || 'calculator');
+  const [pensionSubTab, setPensionSubTab] = useState<'planner' | 'pillar3'>(initialRoute.route.pensionSubTab || 'planner');
+  const [guideSection, setGuideSection] = useState<string>(initialRoute.route.guideSection || 'municipalities');
   const [showApiStatus, setShowApiStatus] = useState(false);
 
   // Check for hidden API status page via URL parameter

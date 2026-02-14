@@ -22,7 +22,7 @@ type ActiveTab = 'calculator' | 'feedback' | 'stats' | 'pension' | 'guide' | 'co
 type ComparatoriSubTab = 'exchange' | 'mobile' | 'transport' | 'health' | 'banks' | 'traffic' | 'jobs';
 type SimulatorSubTab = 'calculator' | 'whatif';
 type PensionSubTab = 'planner' | 'pillar3';
-type GuideSection = 'municipalities' | 'living-ch' | 'living-it' | 'border' | 'costs' | 'calendar' | 'permits' | 'companies' | 'shopping' | 'cost-of-living' | 'places' | 'schools';
+type GuideSection = 'municipalities' | 'living-ch' | 'living-it' | 'border' | 'costs' | 'calendar' | 'permits' | 'companies' | 'shopping' | 'cost-of-living' | 'places' | 'schools' | 'unemployment';
 
 export interface AppRoute {
   activeTab: ActiveTab;
@@ -70,6 +70,7 @@ interface SlugTable {
   costOfLiving: string;
   places: string;
   schools: string;
+  unemployment: string;
 }
 
 const SLUG_TABLES: Record<Locale, SlugTable> = {
@@ -104,6 +105,7 @@ const SLUG_TABLES: Record<Locale, SlugTable> = {
     costOfLiving: 'costo-della-vita',
     places: 'posti-da-visitare',
     schools: 'scuole-ticino',
+    unemployment: 'disoccupazione',
   },
   en: {
     comparatori: 'comparators',
@@ -136,6 +138,7 @@ const SLUG_TABLES: Record<Locale, SlugTable> = {
     costOfLiving: 'cost-of-living',
     places: 'places-to-visit',
     schools: 'schools-ticino',
+    unemployment: 'unemployment',
   },
   de: {
     comparatori: 'vergleiche',
@@ -168,6 +171,7 @@ const SLUG_TABLES: Record<Locale, SlugTable> = {
     costOfLiving: 'lebenshaltungskosten',
     places: 'sehenswuerdigkeiten',
     schools: 'schulen-tessin',
+    unemployment: 'arbeitslosigkeit',
   },
   fr: {
     comparatori: 'comparateurs',
@@ -200,6 +204,7 @@ const SLUG_TABLES: Record<Locale, SlugTable> = {
     costOfLiving: 'cout-de-la-vie',
     places: 'lieux-a-visiter',
     schools: 'ecoles-tessin',
+    unemployment: 'chomage',
   },
 };
 
@@ -224,6 +229,7 @@ const GUIDE_KEYS: { key: keyof SlugTable; id: GuideSection }[] = [
   { key: 'costOfLiving', id: 'cost-of-living' },
   { key: 'places', id: 'places' },
   { key: 'schools', id: 'schools' },
+  { key: 'unemployment', id: 'unemployment' },
 ];
 
 // Builds a single-locale reverse map for comparatori slugs
@@ -492,6 +498,7 @@ export function getSeoSection(route: AppRoute): string {
         costs: 'costs',
         places: 'places',
         schools: 'schools',
+        unemployment: 'unemployment',
       };
       return seoMap[section] || 'guide';
     }

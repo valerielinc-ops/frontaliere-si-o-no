@@ -3,7 +3,7 @@ import { useTranslation } from '../services/i18n';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
-import { MapPin, Clock, TrendingUp, Home, Car, ShoppingCart, FileText, AlertCircle, CheckCircle2, Info, ArrowRight, Building2, Landmark, Shield, Users, Navigation, Timer, BarChart3, Euro, Heart, Briefcase, Calendar, Mountain, GraduationCap, Baby, BookOpen } from 'lucide-react';
+import { MapPin, Clock, TrendingUp, Home, Car, ShoppingCart, FileText, AlertCircle, CheckCircle2, Info, ArrowRight, Building2, Landmark, Shield, Users, Navigation, Timer, BarChart3, Euro, Heart, Briefcase, Calendar, Mountain, GraduationCap, Baby, BookOpen, LifeBuoy } from 'lucide-react';
 import { Analytics } from '../services/analytics';
 import { updateMetaTags, trackSectionView } from '../services/seoService';
 import { pushRoute } from '../services/router';
@@ -90,7 +90,7 @@ interface FrontierGuideProps {
   activeSection?: string;
 }
 
-type GuideSection = 'municipalities' | 'living-ch' | 'living-it' | 'border' | 'costs' | 'calendar' | 'permits' | 'companies' | 'shopping' | 'cost-of-living' | 'places' | 'schools';
+type GuideSection = 'municipalities' | 'living-ch' | 'living-it' | 'border' | 'costs' | 'calendar' | 'permits' | 'companies' | 'shopping' | 'cost-of-living' | 'places' | 'schools' | 'unemployment';
 
 const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSection }) => {
   const { t } = useTranslation();
@@ -122,6 +122,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
       'permits': 'permits',
       'places': 'places',
       'schools': 'schools',
+      'unemployment': 'unemployment',
     };
     const seoKey = seoMap[section];
     if (seoKey) {
@@ -371,6 +372,17 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
         >
           <GraduationCap size={16} />
           {t('guide.tabs.schools')}
+        </button>
+        <button
+          onClick={() => handleSectionChange('unemployment')}
+          className={`px-4 py-2.5 rounded-xl font-bold text-sm transition-all flex items-center gap-2 ${
+            activeSection === 'unemployment'
+              ? 'bg-rose-600 text-white shadow-lg scale-105'
+              : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700'
+          }`}
+        >
+          <LifeBuoy size={16} />
+          {t('guide.tabs.unemployment')}
         </button>
       </div>
 
@@ -1935,6 +1947,222 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
               </div>
             </div>
           </div>
+        </div>
+      )}
+
+      {activeSection === 'unemployment' && (
+        <div className="space-y-6 animate-fade-in">
+          <SectionHeader 
+            icon={<LifeBuoy className="text-rose-500" size={28} />}
+            title={t('guide.unemployment.title')}
+            description={t('guide.unemployment.description')}
+            gradient="from-rose-600 to-pink-700"
+          />
+
+          {/* Introduction */}
+          <InfoCard icon={<AlertCircle className="text-rose-500" size={22} />} title={t('guide.unemployment.intro.title')} gradient="from-rose-500/10 to-pink-500/10">
+            <p className="text-slate-600 dark:text-slate-300 text-sm leading-relaxed mb-3">{t('guide.unemployment.intro.text')}</p>
+            <div className="bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-xl p-3 text-sm">
+              <strong className="text-amber-800 dark:text-amber-300">⚠️ {t('guide.unemployment.intro.important')}</strong>
+            </div>
+          </InfoCard>
+
+          {/* Switzerland Unemployment */}
+          <InfoCard icon={<Shield className="text-red-500" size={22} />} title={t('guide.unemployment.ch.title')} gradient="from-red-500/10 to-red-600/10">
+            <div className="space-y-4">
+              {/* Who is entitled */}
+              <div className="bg-white dark:bg-slate-800 rounded-xl p-4 border border-slate-200 dark:border-slate-700">
+                <h4 className="font-bold text-slate-800 dark:text-slate-100 mb-2 flex items-center gap-2">
+                  <Users size={16} className="text-red-500" /> {t('guide.unemployment.ch.whoTitle')}
+                </h4>
+                <ul className="text-sm text-slate-600 dark:text-slate-300 space-y-1.5">
+                  <li className="flex items-start gap-2"><CheckCircle2 size={14} className="text-green-500 mt-0.5 shrink-0" /> {t('guide.unemployment.ch.who1')}</li>
+                  <li className="flex items-start gap-2"><CheckCircle2 size={14} className="text-green-500 mt-0.5 shrink-0" /> {t('guide.unemployment.ch.who2')}</li>
+                  <li className="flex items-start gap-2"><CheckCircle2 size={14} className="text-green-500 mt-0.5 shrink-0" /> {t('guide.unemployment.ch.who3')}</li>
+                  <li className="flex items-start gap-2"><CheckCircle2 size={14} className="text-green-500 mt-0.5 shrink-0" /> {t('guide.unemployment.ch.who4')}</li>
+                </ul>
+              </div>
+
+              {/* Amounts */}
+              <div className="bg-white dark:bg-slate-800 rounded-xl p-4 border border-slate-200 dark:border-slate-700">
+                <h4 className="font-bold text-slate-800 dark:text-slate-100 mb-2 flex items-center gap-2">
+                  <Euro size={16} className="text-red-500" /> {t('guide.unemployment.ch.amountsTitle')}
+                </h4>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  <div className="bg-red-50 dark:bg-red-900/20 rounded-lg p-3">
+                    <div className="text-2xl font-extrabold text-red-700 dark:text-red-300">70%</div>
+                    <div className="text-xs text-slate-500 dark:text-slate-400">{t('guide.unemployment.ch.amount70')}</div>
+                  </div>
+                  <div className="bg-red-50 dark:bg-red-900/20 rounded-lg p-3">
+                    <div className="text-2xl font-extrabold text-red-700 dark:text-red-300">80%</div>
+                    <div className="text-xs text-slate-500 dark:text-slate-400">{t('guide.unemployment.ch.amount80')}</div>
+                  </div>
+                </div>
+                <p className="text-xs text-slate-500 dark:text-slate-400 mt-2">{t('guide.unemployment.ch.maxInsured')}</p>
+              </div>
+
+              {/* Duration */}
+              <div className="bg-white dark:bg-slate-800 rounded-xl p-4 border border-slate-200 dark:border-slate-700">
+                <h4 className="font-bold text-slate-800 dark:text-slate-100 mb-2 flex items-center gap-2">
+                  <Clock size={16} className="text-red-500" /> {t('guide.unemployment.ch.durationTitle')}
+                </h4>
+                <div className="overflow-x-auto">
+                  <table className="w-full text-xs">
+                    <thead><tr className="bg-slate-100 dark:bg-slate-700">
+                      <th className="p-2 text-left rounded-tl-lg">{t('guide.unemployment.ch.contributionPeriod')}</th>
+                      <th className="p-2 text-left">{t('guide.unemployment.ch.age')}</th>
+                      <th className="p-2 text-left rounded-tr-lg">{t('guide.unemployment.ch.maxDays')}</th>
+                    </tr></thead>
+                    <tbody className="divide-y divide-slate-200 dark:divide-slate-600">
+                      <tr><td className="p-2">12 {t('guide.unemployment.ch.months')}</td><td className="p-2">&lt; 25</td><td className="p-2 font-bold">200</td></tr>
+                      <tr><td className="p-2">12 {t('guide.unemployment.ch.months')}</td><td className="p-2">25+</td><td className="p-2 font-bold">260</td></tr>
+                      <tr><td className="p-2">18 {t('guide.unemployment.ch.months')}</td><td className="p-2">25–54</td><td className="p-2 font-bold">400</td></tr>
+                      <tr><td className="p-2">22 {t('guide.unemployment.ch.months')}</td><td className="p-2">55+</td><td className="p-2 font-bold">520</td></tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              {/* Procedure */}
+              <div className="bg-white dark:bg-slate-800 rounded-xl p-4 border border-slate-200 dark:border-slate-700">
+                <h4 className="font-bold text-slate-800 dark:text-slate-100 mb-2 flex items-center gap-2">
+                  <FileText size={16} className="text-red-500" /> {t('guide.unemployment.ch.procedureTitle')}
+                </h4>
+                <ol className="text-sm text-slate-600 dark:text-slate-300 space-y-2">
+                  <li className="flex items-start gap-2"><span className="bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-300 rounded-full w-6 h-6 flex items-center justify-center text-xs font-bold shrink-0">1</span> {t('guide.unemployment.ch.step1')}</li>
+                  <li className="flex items-start gap-2"><span className="bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-300 rounded-full w-6 h-6 flex items-center justify-center text-xs font-bold shrink-0">2</span> {t('guide.unemployment.ch.step2')}</li>
+                  <li className="flex items-start gap-2"><span className="bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-300 rounded-full w-6 h-6 flex items-center justify-center text-xs font-bold shrink-0">3</span> {t('guide.unemployment.ch.step3')}</li>
+                  <li className="flex items-start gap-2"><span className="bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-300 rounded-full w-6 h-6 flex items-center justify-center text-xs font-bold shrink-0">4</span> {t('guide.unemployment.ch.step4')}</li>
+                  <li className="flex items-start gap-2"><span className="bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-300 rounded-full w-6 h-6 flex items-center justify-center text-xs font-bold shrink-0">5</span> {t('guide.unemployment.ch.step5')}</li>
+                </ol>
+              </div>
+
+              {/* Frontalieri specifics */}
+              <div className="bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-xl p-4">
+                <h4 className="font-bold text-amber-800 dark:text-amber-300 mb-2 flex items-center gap-2">
+                  <AlertCircle size={16} /> {t('guide.unemployment.ch.frontalieriTitle')}
+                </h4>
+                <ul className="text-sm text-slate-600 dark:text-slate-300 space-y-1.5">
+                  <li className="flex items-start gap-2"><ArrowRight size={14} className="text-amber-500 mt-0.5 shrink-0" /> {t('guide.unemployment.ch.frontalieri1')}</li>
+                  <li className="flex items-start gap-2"><ArrowRight size={14} className="text-amber-500 mt-0.5 shrink-0" /> {t('guide.unemployment.ch.frontalieri2')}</li>
+                  <li className="flex items-start gap-2"><ArrowRight size={14} className="text-amber-500 mt-0.5 shrink-0" /> {t('guide.unemployment.ch.frontalieri3')}</li>
+                  <li className="flex items-start gap-2"><ArrowRight size={14} className="text-amber-500 mt-0.5 shrink-0" /> {t('guide.unemployment.ch.frontalieri4')}</li>
+                </ul>
+              </div>
+            </div>
+          </InfoCard>
+
+          {/* Italy Unemployment (NASpI) */}
+          <InfoCard icon={<Landmark className="text-green-600" size={22} />} title={t('guide.unemployment.it.title')} gradient="from-green-500/10 to-emerald-500/10">
+            <div className="space-y-4">
+              {/* Who is entitled */}
+              <div className="bg-white dark:bg-slate-800 rounded-xl p-4 border border-slate-200 dark:border-slate-700">
+                <h4 className="font-bold text-slate-800 dark:text-slate-100 mb-2 flex items-center gap-2">
+                  <Users size={16} className="text-green-600" /> {t('guide.unemployment.it.whoTitle')}
+                </h4>
+                <ul className="text-sm text-slate-600 dark:text-slate-300 space-y-1.5">
+                  <li className="flex items-start gap-2"><CheckCircle2 size={14} className="text-green-500 mt-0.5 shrink-0" /> {t('guide.unemployment.it.who1')}</li>
+                  <li className="flex items-start gap-2"><CheckCircle2 size={14} className="text-green-500 mt-0.5 shrink-0" /> {t('guide.unemployment.it.who2')}</li>
+                  <li className="flex items-start gap-2"><CheckCircle2 size={14} className="text-green-500 mt-0.5 shrink-0" /> {t('guide.unemployment.it.who3')}</li>
+                </ul>
+              </div>
+
+              {/* Amounts */}
+              <div className="bg-white dark:bg-slate-800 rounded-xl p-4 border border-slate-200 dark:border-slate-700">
+                <h4 className="font-bold text-slate-800 dark:text-slate-100 mb-2 flex items-center gap-2">
+                  <Euro size={16} className="text-green-600" /> {t('guide.unemployment.it.amountsTitle')}
+                </h4>
+                <div className="text-sm text-slate-600 dark:text-slate-300 space-y-2">
+                  <p>{t('guide.unemployment.it.amount1')}</p>
+                  <p>{t('guide.unemployment.it.amount2')}</p>
+                  <div className="bg-green-50 dark:bg-green-900/20 rounded-lg p-3 mt-2">
+                    <div className="text-lg font-extrabold text-green-700 dark:text-green-300">€ 1.550,42</div>
+                    <div className="text-xs text-slate-500 dark:text-slate-400">{t('guide.unemployment.it.maxMonthly')} (2025)</div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Duration */}
+              <div className="bg-white dark:bg-slate-800 rounded-xl p-4 border border-slate-200 dark:border-slate-700">
+                <h4 className="font-bold text-slate-800 dark:text-slate-100 mb-2 flex items-center gap-2">
+                  <Clock size={16} className="text-green-600" /> {t('guide.unemployment.it.durationTitle')}
+                </h4>
+                <p className="text-sm text-slate-600 dark:text-slate-300">{t('guide.unemployment.it.duration1')}</p>
+                <p className="text-sm text-slate-600 dark:text-slate-300 mt-1">{t('guide.unemployment.it.duration2')}</p>
+              </div>
+
+              {/* Procedure */}
+              <div className="bg-white dark:bg-slate-800 rounded-xl p-4 border border-slate-200 dark:border-slate-700">
+                <h4 className="font-bold text-slate-800 dark:text-slate-100 mb-2 flex items-center gap-2">
+                  <FileText size={16} className="text-green-600" /> {t('guide.unemployment.it.procedureTitle')}
+                </h4>
+                <ol className="text-sm text-slate-600 dark:text-slate-300 space-y-2">
+                  <li className="flex items-start gap-2"><span className="bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 rounded-full w-6 h-6 flex items-center justify-center text-xs font-bold shrink-0">1</span> {t('guide.unemployment.it.step1')}</li>
+                  <li className="flex items-start gap-2"><span className="bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 rounded-full w-6 h-6 flex items-center justify-center text-xs font-bold shrink-0">2</span> {t('guide.unemployment.it.step2')}</li>
+                  <li className="flex items-start gap-2"><span className="bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 rounded-full w-6 h-6 flex items-center justify-center text-xs font-bold shrink-0">3</span> {t('guide.unemployment.it.step3')}</li>
+                  <li className="flex items-start gap-2"><span className="bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 rounded-full w-6 h-6 flex items-center justify-center text-xs font-bold shrink-0">4</span> {t('guide.unemployment.it.step4')}</li>
+                  <li className="flex items-start gap-2"><span className="bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 rounded-full w-6 h-6 flex items-center justify-center text-xs font-bold shrink-0">5</span> {t('guide.unemployment.it.step5')}</li>
+                </ol>
+              </div>
+
+              {/* Frontalieri specifics */}
+              <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-xl p-4">
+                <h4 className="font-bold text-blue-800 dark:text-blue-300 mb-2 flex items-center gap-2">
+                  <Info size={16} /> {t('guide.unemployment.it.frontalieriTitle')}
+                </h4>
+                <ul className="text-sm text-slate-600 dark:text-slate-300 space-y-1.5">
+                  <li className="flex items-start gap-2"><ArrowRight size={14} className="text-blue-500 mt-0.5 shrink-0" /> {t('guide.unemployment.it.frontalieri1')}</li>
+                  <li className="flex items-start gap-2"><ArrowRight size={14} className="text-blue-500 mt-0.5 shrink-0" /> {t('guide.unemployment.it.frontalieri2')}</li>
+                  <li className="flex items-start gap-2"><ArrowRight size={14} className="text-blue-500 mt-0.5 shrink-0" /> {t('guide.unemployment.it.frontalieri3')}</li>
+                </ul>
+              </div>
+            </div>
+          </InfoCard>
+
+          {/* Comparison Table */}
+          <InfoCard icon={<BarChart3 className="text-purple-500" size={22} />} title={t('guide.unemployment.comparison.title')} gradient="from-purple-500/10 to-violet-500/10">
+            <div className="overflow-x-auto">
+              <table className="w-full text-sm">
+                <thead>
+                  <tr className="bg-slate-100 dark:bg-slate-700">
+                    <th className="p-3 text-left rounded-tl-lg"></th>
+                    <th className="p-3 text-center text-red-600 dark:text-red-400 font-bold">🇨🇭 {t('guide.unemployment.comparison.switzerland')}</th>
+                    <th className="p-3 text-center text-green-600 dark:text-green-400 font-bold rounded-tr-lg">🇮🇹 {t('guide.unemployment.comparison.italy')}</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-slate-200 dark:divide-slate-600">
+                  <tr><td className="p-3 font-medium">{t('guide.unemployment.comparison.name')}</td><td className="p-3 text-center">AD / ALV</td><td className="p-3 text-center">NASpI</td></tr>
+                  <tr><td className="p-3 font-medium">{t('guide.unemployment.comparison.amount')}</td><td className="p-3 text-center">70-80%</td><td className="p-3 text-center">75% → 25%</td></tr>
+                  <tr><td className="p-3 font-medium">{t('guide.unemployment.comparison.maxDuration')}</td><td className="p-3 text-center">520 {t('guide.unemployment.ch.days')}</td><td className="p-3 text-center">24 {t('guide.unemployment.ch.months')}</td></tr>
+                  <tr><td className="p-3 font-medium">{t('guide.unemployment.comparison.deadline')}</td><td className="p-3 text-center">{t('guide.unemployment.comparison.chDeadline')}</td><td className="p-3 text-center">68 {t('guide.unemployment.ch.days')}</td></tr>
+                  <tr><td className="p-3 font-medium">{t('guide.unemployment.comparison.body')}</td><td className="p-3 text-center">SECO / URC</td><td className="p-3 text-center">INPS</td></tr>
+                  <tr><td className="p-3 font-medium">{t('guide.unemployment.comparison.waitingPeriod')}</td><td className="p-3 text-center">5 {t('guide.unemployment.ch.days')}</td><td className="p-3 text-center">8 {t('guide.unemployment.ch.days')}</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </InfoCard>
+
+          {/* Useful Links */}
+          <InfoCard icon={<Info className="text-indigo-500" size={22} />} title={t('guide.unemployment.links.title')} gradient="from-indigo-500/10 to-blue-500/10">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <a href="https://www.arbeit.swiss" target="_blank" rel="noopener noreferrer" className="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl p-3 hover:border-red-400 transition-colors group">
+                <div className="font-bold text-sm text-slate-800 dark:text-slate-100 group-hover:text-red-600">🇨🇭 arbeit.swiss</div>
+                <div className="text-xs text-slate-500 dark:text-slate-400">{t('guide.unemployment.links.arbeit')}</div>
+              </a>
+              <a href="https://www.seco.admin.ch/seco/it/home/Arbeit/Arbeitslosenversicherung.html" target="_blank" rel="noopener noreferrer" className="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl p-3 hover:border-red-400 transition-colors group">
+                <div className="font-bold text-sm text-slate-800 dark:text-slate-100 group-hover:text-red-600">🇨🇭 SECO</div>
+                <div className="text-xs text-slate-500 dark:text-slate-400">{t('guide.unemployment.links.seco')}</div>
+              </a>
+              <a href="https://www.inps.it/it/it/dettaglio-scheda.schede-servizio-strumento.schede-servizi.naspi-indennita-mensile-di-disoccupazione-51039.naspi-indennita-mensile-di-disoccupazione.html" target="_blank" rel="noopener noreferrer" className="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl p-3 hover:border-green-400 transition-colors group">
+                <div className="font-bold text-sm text-slate-800 dark:text-slate-100 group-hover:text-green-600">🇮🇹 INPS - NASpI</div>
+                <div className="text-xs text-slate-500 dark:text-slate-400">{t('guide.unemployment.links.inps')}</div>
+              </a>
+              <a href="https://www.ti.ch/lav" target="_blank" rel="noopener noreferrer" className="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl p-3 hover:border-red-400 transition-colors group">
+                <div className="font-bold text-sm text-slate-800 dark:text-slate-100 group-hover:text-red-600">🇨🇭 URC Ticino</div>
+                <div className="text-xs text-slate-500 dark:text-slate-400">{t('guide.unemployment.links.urc')}</div>
+              </a>
+            </div>
+          </InfoCard>
         </div>
       )}
     </div>
