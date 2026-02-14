@@ -3,7 +3,7 @@ import { useTranslation } from '../services/i18n';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
-import { MapPin, Clock, TrendingUp, Home, Car, ShoppingCart, FileText, AlertCircle, CheckCircle2, Info, ArrowRight, Building2, Landmark, Shield, Users, Navigation, Timer, BarChart3, Euro, Heart, Briefcase, Calendar, Mountain, GraduationCap, Baby, BookOpen, LifeBuoy } from 'lucide-react';
+import { MapPin, Clock, TrendingUp, Home, Car, ShoppingCart, FileText, AlertCircle, CheckCircle2, Info, ArrowRight, Building2, Landmark, Shield, Users, Navigation, Timer, BarChart3, Euro, Heart, Briefcase, Calendar, Mountain, GraduationCap, Baby, BookOpen, LifeBuoy, Search, Filter, Star, ExternalLink } from 'lucide-react';
 import { Analytics } from '../services/analytics';
 import { updateMetaTags, trackSectionView } from '../services/seoService';
 import { pushRoute } from '../services/router';
@@ -90,6 +90,243 @@ interface FrontierGuideProps {
 }
 
 type GuideSection = 'municipalities' | 'living-ch' | 'living-it' | 'border' | 'calendar' | 'holidays' | 'permits' | 'companies' | 'places' | 'schools' | 'unemployment';
+
+// ══════════ SCHOOL DIRECTORY DATA ══════════
+interface SchoolEntry {
+  name: string;
+  type: 'nido' | 'infanzia' | 'elementare' | 'media' | 'superiore';
+  city: string;
+  address?: string;
+  website?: string;
+  phone?: string;
+  nature: 'pubblica' | 'privata' | 'paritaria';
+  rating?: number; // 1-5
+  notes?: string;
+}
+
+const TICINO_SCHOOLS: SchoolEntry[] = [
+  // Nidi (0-3)
+  { name: 'Nido comunale di Chiasso', type: 'nido', city: 'Chiasso', nature: 'pubblica', address: 'Via Bossi 2a, 6830 Chiasso', phone: '+41 91 695 06 80', rating: 4 },
+  { name: 'Nido L\'Aquilone', type: 'nido', city: 'Mendrisio', nature: 'privata', address: 'Via Penate 4, 6850 Mendrisio', phone: '+41 91 646 43 21', rating: 5, website: 'https://www.nido-aquilone.ch' },
+  { name: 'Nido comunale di Stabio', type: 'nido', city: 'Stabio', nature: 'pubblica', address: 'Via Cantonale, 6855 Stabio', phone: '+41 91 647 16 05', rating: 4 },
+  { name: 'Nido Il Girotondo', type: 'nido', city: 'Lugano', nature: 'privata', address: 'Via Nassa 21, 6900 Lugano', phone: '+41 91 923 56 78', rating: 5, website: 'https://www.ilgirotondo.ch' },
+  { name: 'Nido La Coccinella', type: 'nido', city: 'Lugano', nature: 'privata', address: 'Via Trevano 6, 6900 Lugano', phone: '+41 91 966 31 21', rating: 4 },
+  { name: 'Nido comunale di Bellinzona', type: 'nido', city: 'Bellinzona', nature: 'pubblica', address: 'Viale Stazione 18, 6500 Bellinzona', phone: '+41 91 825 21 31', rating: 4 },
+  { name: 'Nido L\'Orsacchiotto', type: 'nido', city: 'Locarno', nature: 'privata', address: 'Via della Pace 8, 6600 Locarno', phone: '+41 91 752 18 90', rating: 4 },
+  { name: 'Nido comunale di Agno', type: 'nido', city: 'Agno', nature: 'pubblica', address: 'Via Molinazzo 3, 6982 Agno', phone: '+41 91 605 19 20', rating: 4 },
+  { name: 'Nido Il Sole', type: 'nido', city: 'Ponte Tresa', nature: 'privata', address: 'Via Lugano 15, 6988 Ponte Tresa', rating: 4 },
+  { name: 'Nido Peter Pan', type: 'nido', city: 'Biasca', nature: 'privata', address: 'Via Leventina 3, 6710 Biasca', rating: 3 },
+
+  // Scuola dell'infanzia (3-6)
+  { name: 'Scuola dell\'infanzia Chiasso Centro', type: 'infanzia', city: 'Chiasso', nature: 'pubblica', address: 'Via Bossi, 6830 Chiasso', rating: 4 },
+  { name: 'Scuola dell\'infanzia Mendrisio', type: 'infanzia', city: 'Mendrisio', nature: 'pubblica', address: 'Via Pontico, 6850 Mendrisio', rating: 4 },
+  { name: 'Scuola dell\'infanzia Stabio', type: 'infanzia', city: 'Stabio', nature: 'pubblica', address: 'Via San Pietro, 6855 Stabio', rating: 4 },
+  { name: 'Scuola dell\'infanzia Ligornetto', type: 'infanzia', city: 'Ligornetto', nature: 'pubblica', address: 'Via Principale, 6854 Ligornetto', rating: 4 },
+  { name: 'Scuola dell\'infanzia Lugano Centro', type: 'infanzia', city: 'Lugano', nature: 'pubblica', address: 'Via Canova, 6900 Lugano', rating: 5 },
+  { name: 'Scuola dell\'infanzia Massagno', type: 'infanzia', city: 'Massagno', nature: 'pubblica', address: 'Via San Gottardo, 6900 Massagno', rating: 4 },
+  { name: 'Scuola dell\'infanzia Bellinzona', type: 'infanzia', city: 'Bellinzona', nature: 'pubblica', address: 'Viale H. Guisan, 6500 Bellinzona', rating: 4 },
+  { name: 'Scuola dell\'infanzia Locarno', type: 'infanzia', city: 'Locarno', nature: 'pubblica', address: 'Via alla Morettina, 6600 Locarno', rating: 4 },
+  { name: 'Scuola dell\'infanzia Agno', type: 'infanzia', city: 'Agno', nature: 'pubblica', address: 'Via Molinazzo, 6982 Agno', rating: 4 },
+  { name: 'International School of Ticino', type: 'infanzia', city: 'Cadempino', nature: 'privata', address: 'Via Ponteggia 23, 6814 Cadempino', website: 'https://www.isticino.com', phone: '+41 91 971 29 65', rating: 5, notes: 'Curriculum internazionale IB, inglese/italiano' },
+  { name: 'TASIS - The American School in Switzerland', type: 'infanzia', city: 'Montagnola', nature: 'privata', address: 'Via Collina d\'Oro 15, 6926 Montagnola', website: 'https://www.tasis.ch', phone: '+41 91 960 51 51', rating: 5, notes: 'Scuola americana, boarding school dal 1956' },
+
+  // Scuola elementare (6-11)
+  { name: 'Scuola elementare Chiasso', type: 'elementare', city: 'Chiasso', nature: 'pubblica', address: 'Via Bossi, 6830 Chiasso', rating: 4 },
+  { name: 'Scuola elementare Mendrisio', type: 'elementare', city: 'Mendrisio', nature: 'pubblica', address: 'Via Zorzi, 6850 Mendrisio', rating: 4 },
+  { name: 'Scuola elementare Stabio', type: 'elementare', city: 'Stabio', nature: 'pubblica', address: 'Via Cantonale, 6855 Stabio', rating: 4 },
+  { name: 'Scuola elementare Lugano Centro', type: 'elementare', city: 'Lugano', nature: 'pubblica', address: 'Via Canova 8, 6900 Lugano', rating: 5 },
+  { name: 'Scuola elementare Massagno', type: 'elementare', city: 'Massagno', nature: 'pubblica', address: 'Via San Gottardo, 6900 Massagno', rating: 4 },
+  { name: 'Scuola elementare Viganello', type: 'elementare', city: 'Lugano', nature: 'pubblica', address: 'Via San Gottardo 54, 6962 Viganello', rating: 4 },
+  { name: 'Scuola elementare Bellinzona', type: 'elementare', city: 'Bellinzona', nature: 'pubblica', address: 'Piazza Governo, 6500 Bellinzona', rating: 4 },
+  { name: 'Scuola elementare Locarno', type: 'elementare', city: 'Locarno', nature: 'pubblica', address: 'Via Varesi, 6600 Locarno', rating: 4 },
+  { name: 'Scuola elementare Biasca', type: 'elementare', city: 'Biasca', nature: 'pubblica', address: 'Via Leventina, 6710 Biasca', rating: 3 },
+  { name: 'International School of Ticino (Primary)', type: 'elementare', city: 'Cadempino', nature: 'privata', address: 'Via Ponteggia 23, 6814 Cadempino', website: 'https://www.isticino.com', rating: 5, notes: 'Programma IB PYP, bilingue inglese/italiano' },
+  { name: 'TASIS Elementary', type: 'elementare', city: 'Montagnola', nature: 'privata', address: 'Via Collina d\'Oro 15, 6926 Montagnola', website: 'https://www.tasis.ch', rating: 5, notes: 'Curriculum americano, ambiente internazionale' },
+
+  // Scuola media (11-15)
+  { name: 'Scuola media Chiasso', type: 'media', city: 'Chiasso', nature: 'pubblica', address: 'Via Livio 4, 6830 Chiasso', phone: '+41 91 816 41 11', rating: 4 },
+  { name: 'Scuola media Mendrisio', type: 'media', city: 'Mendrisio', nature: 'pubblica', address: 'Via Industria, 6850 Mendrisio', phone: '+41 91 816 41 41', rating: 4 },
+  { name: 'Scuola media Stabio', type: 'media', city: 'Stabio', nature: 'pubblica', address: 'Via Cantonale, 6855 Stabio', phone: '+41 91 816 41 61', rating: 4 },
+  { name: 'Scuola media Lugano 1 (Besso)', type: 'media', city: 'Lugano', nature: 'pubblica', address: 'Via Besso 10, 6900 Lugano', phone: '+41 91 816 41 81', rating: 5, notes: 'Una delle scuole medie più grandi del cantone' },
+  { name: 'Scuola media Lugano 2 (Pregassona)', type: 'media', city: 'Lugano', nature: 'pubblica', address: 'Via Pregassona, 6963 Pregassona', phone: '+41 91 816 42 01', rating: 4 },
+  { name: 'Scuola media Viganello', type: 'media', city: 'Lugano', nature: 'pubblica', address: 'Via San Gottardo, 6962 Viganello', phone: '+41 91 816 42 21', rating: 4 },
+  { name: 'Scuola media Bellinzona', type: 'media', city: 'Bellinzona', nature: 'pubblica', address: 'Via Nizzola 3, 6500 Bellinzona', phone: '+41 91 816 42 51', rating: 4 },
+  { name: 'Scuola media Locarno', type: 'media', city: 'Locarno', nature: 'pubblica', address: 'Via Varesi, 6600 Locarno', phone: '+41 91 816 42 81', rating: 4 },
+  { name: 'Scuola media Gordola', type: 'media', city: 'Gordola', nature: 'pubblica', address: 'Via Cantonale, 6596 Gordola', rating: 3 },
+  { name: 'Scuola media Agno', type: 'media', city: 'Agno', nature: 'pubblica', address: 'Via Molinazzo, 6982 Agno', phone: '+41 91 816 42 91', rating: 4 },
+  { name: 'Scuola media Ambrì', type: 'media', city: 'Ambrì', nature: 'pubblica', address: 'Via Leventina, 6775 Ambrì', rating: 3 },
+
+  // Scuola superiore (15-19)
+  { name: 'Liceo cantonale di Lugano 1', type: 'superiore', city: 'Lugano', nature: 'pubblica', address: 'Viale Carlo Cattaneo 4, 6900 Lugano', website: 'https://www.liceolugano.ch', phone: '+41 91 815 31 11', rating: 5, notes: 'Il più antico liceo del Ticino, fondato nel 1852' },
+  { name: 'Liceo cantonale di Lugano 2', type: 'superiore', city: 'Savosa', nature: 'pubblica', address: 'Via Trevano, 6942 Savosa', website: 'https://www.liceolugano2.ch', phone: '+41 91 815 31 41', rating: 5 },
+  { name: 'Liceo cantonale di Mendrisio', type: 'superiore', city: 'Mendrisio', nature: 'pubblica', address: 'Via dei Fichi, 6850 Mendrisio', website: 'https://www.liceomendrisio.ch', phone: '+41 91 816 58 11', rating: 5 },
+  { name: 'Liceo cantonale di Bellinzona', type: 'superiore', city: 'Bellinzona', nature: 'pubblica', address: 'Viale Franscini 31, 6500 Bellinzona', website: 'https://www.liceobellinzona.ch', phone: '+41 91 814 18 11', rating: 5 },
+  { name: 'Liceo cantonale di Locarno', type: 'superiore', city: 'Locarno', nature: 'pubblica', address: 'Via Cappuccini 46, 6600 Locarno', website: 'https://www.liceolocarno.ch', phone: '+41 91 816 06 11', rating: 4 },
+  { name: 'Scuola cantonale di commercio (SCC)', type: 'superiore', city: 'Bellinzona', nature: 'pubblica', address: 'Viale Franscini 32, 6500 Bellinzona', website: 'https://www.scc.ti.ch', phone: '+41 91 814 01 11', rating: 4, notes: 'Formazione commerciale AFC + maturità professionale' },
+  { name: 'Centro professionale commerciale (CPC) Lugano', type: 'superiore', city: 'Lugano', nature: 'pubblica', address: 'Via Brentani 18, 6900 Lugano', phone: '+41 91 815 10 11', rating: 4, notes: 'Apprendistato commerciale e maturità professionale' },
+  { name: 'Centro professionale tecnico (CPT) Lugano-Trevano', type: 'superiore', city: 'Lugano', nature: 'pubblica', address: 'Via Trevano, 6952 Canobbio', website: 'https://www.cpttrevano.ti.ch', phone: '+41 91 815 10 51', rating: 4, notes: 'Formazione tecnica: informatica, elettronica, meccanica' },
+  { name: 'SPAI Mendrisio', type: 'superiore', city: 'Mendrisio', nature: 'pubblica', address: 'Via Motta 7, 6850 Mendrisio', phone: '+41 91 816 58 31', rating: 4, notes: 'Scuola professionale artigianato e industria' },
+  { name: 'TASIS High School', type: 'superiore', city: 'Montagnola', nature: 'privata', address: 'Via Collina d\'Oro 15, 6926 Montagnola', website: 'https://www.tasis.ch', phone: '+41 91 960 51 51', rating: 5, notes: 'American High School Diploma + IB Diploma, boarding' },
+  { name: 'International School of Ticino (Secondary)', type: 'superiore', city: 'Cadempino', nature: 'privata', address: 'Via Ponteggia 23, 6814 Cadempino', website: 'https://www.isticino.com', phone: '+41 91 971 29 65', rating: 5, notes: 'IB MYP e DP, bilingue' },
+  { name: 'Liceo artistico (CSIA)', type: 'superiore', city: 'Lugano', nature: 'pubblica', address: 'Via Brentani 16, 6900 Lugano', phone: '+41 91 815 10 71', rating: 4, notes: 'Arte, design e comunicazione visiva' },
+];
+
+const SCHOOL_TYPE_CONFIG: Record<SchoolEntry['type'], { label: string; emoji: string; color: string }> = {
+  nido: { label: 'Nido (0-3)', emoji: '🍼', color: 'purple' },
+  infanzia: { label: 'Infanzia (3-6)', emoji: '🧒', color: 'emerald' },
+  elementare: { label: 'Elementare (6-11)', emoji: '📚', color: 'blue' },
+  media: { label: 'Media (11-15)', emoji: '🎒', color: 'amber' },
+  superiore: { label: 'Superiore (15-19)', emoji: '🎓', color: 'teal' },
+};
+
+const SchoolDirectory: React.FC<{ t: (key: string) => string }> = ({ t }) => {
+  const [schoolSearch, setSchoolSearch] = useState('');
+  const [schoolTypeFilter, setSchoolTypeFilter] = useState<SchoolEntry['type'] | 'all'>('all');
+  const [schoolNatureFilter, setSchoolNatureFilter] = useState<'all' | 'pubblica' | 'privata'>('all');
+
+  const filteredSchools = TICINO_SCHOOLS.filter(s => {
+    const matchSearch = !schoolSearch ||
+      s.name.toLowerCase().includes(schoolSearch.toLowerCase()) ||
+      s.city.toLowerCase().includes(schoolSearch.toLowerCase());
+    const matchType = schoolTypeFilter === 'all' || s.type === schoolTypeFilter;
+    const matchNature = schoolNatureFilter === 'all' || s.nature === schoolNatureFilter;
+    return matchSearch && matchType && matchNature;
+  });
+
+  const groupedByType = filteredSchools.reduce((acc, s) => {
+    if (!acc[s.type]) acc[s.type] = [];
+    acc[s.type].push(s);
+    return acc;
+  }, {} as Record<string, SchoolEntry[]>);
+
+  return (
+    <div className="bg-white dark:bg-slate-800 rounded-2xl border-2 border-indigo-200 dark:border-indigo-800 overflow-hidden">
+      {/* Header */}
+      <div className="bg-gradient-to-r from-indigo-600 to-blue-600 p-5 text-white">
+        <div className="flex items-center gap-3">
+          <BookOpen size={24} />
+          <div>
+            <h3 className="text-lg font-extrabold">{t('guide.schools.directoryTitle') || 'Elenco Scuole del Ticino'}</h3>
+            <p className="text-indigo-100 text-xs">{filteredSchools.length} {t('guide.schools.schoolsFound') || 'scuole trovate'}</p>
+          </div>
+        </div>
+      </div>
+
+      {/* Filters */}
+      <div className="p-4 border-b border-slate-200 dark:border-slate-700 space-y-3">
+        {/* Search */}
+        <div className="relative">
+          <Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" />
+          <input
+            type="text"
+            value={schoolSearch}
+            onChange={(e) => setSchoolSearch(e.target.value)}
+            placeholder={t('guide.schools.searchPlaceholder') || 'Cerca per nome o città...'}
+            className="w-full pl-10 pr-4 py-2 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          />
+        </div>
+
+        {/* Type filter pills */}
+        <div className="flex flex-wrap gap-1.5">
+          <button
+            onClick={() => setSchoolTypeFilter('all')}
+            className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${schoolTypeFilter === 'all' ? 'bg-indigo-600 text-white' : 'bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-400'}`}
+          >
+            {t('calendar.all') || 'Tutte'}
+          </button>
+          {(Object.entries(SCHOOL_TYPE_CONFIG) as [SchoolEntry['type'], typeof SCHOOL_TYPE_CONFIG[SchoolEntry['type']]][]).map(([key, cfg]) => (
+            <button
+              key={key}
+              onClick={() => setSchoolTypeFilter(key)}
+              className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${schoolTypeFilter === key ? 'bg-indigo-600 text-white' : 'bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-400'}`}
+            >
+              {cfg.emoji} {cfg.label}
+            </button>
+          ))}
+        </div>
+
+        {/* Nature filter */}
+        <div className="flex gap-1.5">
+          {(['all', 'pubblica', 'privata'] as const).map(n => (
+            <button
+              key={n}
+              onClick={() => setSchoolNatureFilter(n)}
+              className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${schoolNatureFilter === n ? 'bg-slate-800 dark:bg-slate-100 text-white dark:text-slate-900' : 'bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-400'}`}
+            >
+              {n === 'all' ? (t('calendar.all') || 'Tutte') : n === 'pubblica' ? '🏛️ Pubblica' : '🏫 Privata'}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {/* School list grouped by type */}
+      <div className="p-4 space-y-4 max-h-[600px] overflow-y-auto">
+        {Object.entries(groupedByType)
+          .sort(([a], [b]) => {
+            const order = ['nido', 'infanzia', 'elementare', 'media', 'superiore'];
+            return order.indexOf(a) - order.indexOf(b);
+          })
+          .map(([type, schools]) => {
+            const cfg = SCHOOL_TYPE_CONFIG[type as SchoolEntry['type']];
+            return (
+              <div key={type}>
+                <div className="flex items-center gap-2 mb-2">
+                  <span className="text-lg">{cfg.emoji}</span>
+                  <h4 className="font-bold text-sm text-slate-700 dark:text-slate-300">{cfg.label}</h4>
+                  <span className="text-[10px] font-bold bg-slate-200 dark:bg-slate-700 text-slate-500 px-2 py-0.5 rounded-full">{schools.length}</span>
+                </div>
+                <div className="space-y-1.5">
+                  {schools.map((school, i) => (
+                    <div key={i} className="bg-slate-50 dark:bg-slate-900 rounded-xl p-3 border border-slate-200 dark:border-slate-700 hover:shadow-sm transition-all">
+                      <div className="flex items-start justify-between gap-2">
+                        <div className="flex-1 min-w-0">
+                          <div className="flex items-center gap-2 flex-wrap">
+                            <h5 className="font-bold text-sm text-slate-800 dark:text-slate-100">{school.name}</h5>
+                            <span className={`px-1.5 py-0.5 rounded text-[9px] font-bold uppercase ${school.nature === 'pubblica' ? 'bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300' : 'bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-300'}`}>
+                              {school.nature}
+                            </span>
+                          </div>
+                          <div className="flex items-center gap-3 mt-1 text-xs text-slate-500 dark:text-slate-400">
+                            <span className="flex items-center gap-1"><MapPin size={11} /> {school.city}</span>
+                            {school.address && <span className="hidden sm:inline">{school.address}</span>}
+                            {school.phone && <span className="flex items-center gap-1">📞 {school.phone}</span>}
+                          </div>
+                          {school.notes && (
+                            <p className="text-[11px] text-indigo-600 dark:text-indigo-400 mt-1 font-medium">💡 {school.notes}</p>
+                          )}
+                        </div>
+                        <div className="flex items-center gap-2 shrink-0">
+                          {school.rating && (
+                            <div className="flex items-center gap-0.5">
+                              {Array.from({ length: 5 }).map((_, si) => (
+                                <Star key={si} size={10} className={si < school.rating! ? 'text-amber-400 fill-amber-400' : 'text-slate-300 dark:text-slate-600'} />
+                              ))}
+                            </div>
+                          )}
+                          {school.website && (
+                            <a href={school.website} target="_blank" rel="noopener noreferrer" className="p-1.5 rounded-lg bg-indigo-100 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 hover:bg-indigo-200 dark:hover:bg-indigo-800/30 transition-colors">
+                              <ExternalLink size={12} />
+                            </a>
+                          )}
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            );
+          })}
+
+        {filteredSchools.length === 0 && (
+          <div className="text-center py-8 text-slate-400">
+            <GraduationCap size={32} className="mx-auto mb-2 opacity-30" />
+            <p className="text-xs font-medium">{t('guide.schools.noSchoolsFound') || 'Nessuna scuola trovata con i filtri selezionati'}</p>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+};
 
 const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSection }) => {
   const { t } = useTranslation();
@@ -1727,6 +1964,9 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
               </div>
             </div>
           </InfoCard>
+
+          {/* ══════════ ELENCO SCUOLE FILTRABILI ══════════ */}
+          <SchoolDirectory t={t} />
 
           {/* Servizi complementari */}
           <div className="grid md:grid-cols-2 gap-6">

@@ -151,6 +151,42 @@ const companies: Company[] = [
   { name: 'Sunrise (sede Ticino)', sector: 'Tecnologia & IT', employees: 80, city: 'Lugano', coordinates: [46.0050, 8.9530], website: 'https://www.sunrise.ch', description: 'Telecomunicazioni e servizi internet' },
   { name: 'Carlo Benteler (Turck Duotec)', sector: 'Tecnologia & IT', employees: 150, city: 'Novazzano', coordinates: [45.8480, 8.9770], website: 'https://www.turck-duotec.com', description: 'Microelettronica e sensori industriali' },
   { name: 'Emmi Svizzera (Latteria Lugano)', sector: 'Alimentare', employees: 80, city: 'Lugano', coordinates: [46.0020, 8.9470], website: 'https://www.emmi.com', description: 'Latticini e formaggi svizzeri di qualità' },
+
+  // Startup & Tech - Blockchain, Crypto, Fintech
+  { name: 'Tether (USDT)', sector: 'Tecnologia & IT', employees: 80, city: 'Lugano', coordinates: [46.0039, 8.9518], website: 'https://tether.to', description: 'Stablecoin più usata al mondo, sede operativa a Lugano' },
+  { name: 'Bitcoin Suisse', sector: 'Finanza & Banking', employees: 50, city: 'Lugano', coordinates: [46.0043, 8.9528], website: 'https://www.bitcoinsuisse.com', description: 'Broker crypto e servizi blockchain per istituzionali' },
+  { name: 'Polygon Labs (sede Lugano)', sector: 'Tecnologia & IT', employees: 30, city: 'Lugano', coordinates: [46.0047, 8.9505], website: 'https://polygon.technology', description: 'Infrastruttura blockchain Layer 2 per Ethereum' },
+  { name: 'Plan₿ Forum Lugano', sector: 'Tecnologia & IT', employees: 20, city: 'Lugano', coordinates: [46.0035, 8.9510], website: 'https://planb.lugano.ch', description: 'Hub Bitcoin, pagamenti crypto nella città di Lugano' },
+  { name: 'Fetch.ai (sede CH)', sector: 'Tecnologia & IT', employees: 25, city: 'Lugano', coordinates: [46.0050, 8.9495], website: 'https://fetch.ai', description: 'AI decentralizzata e agenti autonomi blockchain' },
+  { name: 'Lykke', sector: 'Tecnologia & IT', employees: 40, city: 'Lugano', coordinates: [46.0042, 8.9530], website: 'https://www.lykke.com', description: 'Exchange crypto e piattaforma trading' },
+
+  // Biotech & Medtech
+  { name: 'ADC Therapeutics', sector: 'Farmaceutico & Chimico', employees: 120, city: 'Lugano', coordinates: [46.0060, 8.9500], website: 'https://www.adctherapeutics.com', description: 'Biotecnologia oncologica, anticorpi coniugati (Nasdaq: ADCT)' },
+  { name: 'STA Pharmaceutical (WuXi)', sector: 'Farmaceutico & Chimico', employees: 100, city: 'Lugano', coordinates: [46.0055, 8.9510], website: 'https://www.wuxiapptec.com', description: 'Sviluppo e produzione farmaceutica su contratto' },
+
+  // Startup innovative
+  { name: 'NetComm Suisse', sector: 'Tecnologia & IT', employees: 15, city: 'Lugano', coordinates: [46.0045, 8.9550], website: 'https://www.netcommsuisse.ch', description: 'Associazione e-commerce e digital transformation svizzera' },
+  { name: 'Artificialy', sector: 'Tecnologia & IT', employees: 20, city: 'Manno', coordinates: [46.0342, 8.9215], website: 'https://www.artificialy.com', description: 'Startup AI, automazione processi industriali' },
+  { name: 'Supercomputing Systems (sede TI)', sector: 'Tecnologia & IT', employees: 30, city: 'Manno', coordinates: [46.0348, 8.9205], description: 'Soluzioni embedded e software ad alte prestazioni' },
+  { name: 'Varnish Software (sede TI)', sector: 'Tecnologia & IT', employees: 15, city: 'Lugano', coordinates: [46.0058, 8.9522], description: 'Content delivery, web performance e edge computing' },
+  { name: 'Nexthink (sede TI)', sector: 'Tecnologia & IT', employees: 25, city: 'Lugano', coordinates: [46.0062, 8.9535], website: 'https://www.nexthink.com', description: 'Digital employee experience, monitoraggio IT aziendale' },
+
+  // Industria & Manifattura
+  { name: 'Tenconi SA', sector: 'Altro', employees: 80, city: 'Lugano', coordinates: [46.0025, 8.9485], website: 'https://www.tenconi.ch', description: 'Costruzioni, edilizia e immobiliare Ticino' },
+  { name: 'Benteler International', sector: 'Altro', employees: 180, city: 'Mendrisio', coordinates: [45.8705, 8.9825], website: 'https://www.benteler.com', description: 'Componenti automotive e acciaio, sede regionale' },
+  { name: 'Quadroni SA', sector: 'Altro', employees: 60, city: 'Giubiasco', coordinates: [46.1730, 9.0040], description: 'Packaging industriale e soluzioni logistiche' },
+
+  // Gaming & Entertainment
+  { name: 'Playlogic', sector: 'Tecnologia & IT', employees: 15, city: 'Lugano', coordinates: [46.0068, 8.9545], description: 'Sviluppo videogiochi e app interattive' },
+
+  // Nuove startup e scaleup
+  { name: 'SARDI Innovation', sector: 'Tecnologia & IT', employees: 10, city: 'Manno', coordinates: [46.0345, 8.9225], description: 'Smart augmented reality per industria e chirurgia' },
+  { name: 'Cellestia Biotech', sector: 'Farmaceutico & Chimico', employees: 15, city: 'Bellinzona', coordinates: [46.1905, 9.0190], description: 'Biotech oncologica, terapie innovative contro il cancro' },
+  { name: 'Wyss Zurich (polo TI)', sector: 'Farmaceutico & Chimico', employees: 20, city: 'Bellinzona', coordinates: [46.1915, 9.0195], description: 'Centro ricerca traslazionale e medicina rigenerativa' },
+  { name: 'Tecnopolo Ticino', sector: 'Tecnologia & IT', employees: 10, city: 'Manno', coordinates: [46.0338, 8.9218], website: 'https://www.tecnopolo.ch', description: 'Incubatore startup, hub innovazione SUPSI-USI' },
+  { name: 'Kendrion (sede Ticino)', sector: 'Altro', employees: 90, city: 'Stabio', coordinates: [45.8518, 8.9365], website: 'https://www.kendrion.com', description: 'Componenti elettromagnetici per automotive e industria' },
+  { name: 'Glas Trösch (sede TI)', sector: 'Altro', employees: 70, city: 'Bodio', coordinates: [46.3500, 8.9130], website: 'https://www.glastroesch.ch', description: 'Lavorazione vetro industriale e isolante' },
+  { name: 'Agire Invest', sector: 'Finanza & Banking', employees: 10, city: 'Manno', coordinates: [46.0355, 8.9195], website: 'https://www.agire.ch', description: 'Fondazione per innovazione tecnologica in Ticino' },
 ];
 
 const SECTOR_COLORS: Record<string, string> = {
@@ -238,6 +274,18 @@ const TicinoCompanies: React.FC = () => {
 
   const totalEmployees = useMemo(() => filtered.reduce((sum, c) => sum + c.employees, 0), [filtered]);
   const mapCenter: [number, number] = [46.02, 8.96];
+
+  // Get company favicon from website domain
+  const getCompanyLogo = (company: Company) => {
+    if (company.logo) return company.logo;
+    if (company.website) {
+      try {
+        const domain = new URL(company.website).hostname;
+        return `https://www.google.com/s2/favicons?domain=${domain}&sz=32`;
+      } catch { return null; }
+    }
+    return null;
+  };
 
   return (
     <div className="space-y-6 animate-fade-in">
@@ -344,7 +392,11 @@ const TicinoCompanies: React.FC = () => {
                 <Popup maxWidth={300}>
                   <div style={{ padding: '4px' }}>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
-                      <span style={{ fontSize: '24px' }}>{SECTOR_ICONS[company.sector] || '🏢'}</span>
+                      {company.website ? (
+                        <img src={`https://www.google.com/s2/favicons?domain=${new URL(company.website).hostname}&sz=32`} alt="" style={{ width: 28, height: 28, borderRadius: 6, objectFit: 'contain' }} onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }} />
+                      ) : (
+                        <span style={{ fontSize: '24px' }}>{SECTOR_ICONS[company.sector] || '🏢'}</span>
+                      )}
                       <div>
                         <h3 style={{ fontWeight: 800, fontSize: '16px', margin: 0, color: '#1e293b' }}>{company.name}</h3>
                         <span style={{ fontSize: '12px', color: SECTOR_COLORS[company.sector], fontWeight: 600 }}>{company.sector}</span>
@@ -391,7 +443,13 @@ const TicinoCompanies: React.FC = () => {
           {filtered.map((company) => (
             <div key={company.name} className="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 p-5 hover:shadow-md transition-all">
               <div className="flex items-start gap-3 mb-3">
-                <div className="text-2xl">{SECTOR_ICONS[company.sector] || '🏢'}</div>
+                {getCompanyLogo(company) ? (
+                  <div className="w-10 h-10 rounded-xl bg-slate-100 dark:bg-slate-700 flex items-center justify-center overflow-hidden flex-shrink-0 border border-slate-200 dark:border-slate-600">
+                    <img src={getCompanyLogo(company)!} alt={company.name} className="w-6 h-6 object-contain" loading="lazy" onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; (e.target as HTMLImageElement).parentElement!.innerHTML = `<span class="text-xl">${SECTOR_ICONS[company.sector] || '🏢'}</span>`; }} />
+                  </div>
+                ) : (
+                  <div className="text-2xl">{SECTOR_ICONS[company.sector] || '🏢'}</div>
+                )}
                 <div className="flex-1 min-w-0">
                   <h3 className="font-bold text-slate-800 dark:text-slate-100 truncate">{company.name}</h3>
                   <span className="text-xs font-bold px-2 py-0.5 rounded-full" style={{ backgroundColor: `${SECTOR_COLORS[company.sector]}15`, color: SECTOR_COLORS[company.sector] }}>

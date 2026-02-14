@@ -360,7 +360,7 @@ const App: React.FC = () => {
                     }`}
                   >
                     <Icon size={18} />
-                    <span className="leading-tight text-center truncate w-full">{label}</span>
+                    <span className="leading-tight text-center w-full line-clamp-2">{label}</span>
                   </button>
                 ))}
               </div>

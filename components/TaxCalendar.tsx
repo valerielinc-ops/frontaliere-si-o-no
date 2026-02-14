@@ -668,7 +668,7 @@ const TaxCalendar: React.FC<TaxCalendarProps> = ({ initialTab }) => {
                   {MONTH_NAMES_IT[currentMonth]} 2026
                   <span className="ml-auto text-xs font-normal text-slate-400">{currentMonthDeadlines.length} {currentMonthDeadlines.length === 1 ? 'evento' : 'eventi'}</span>
                 </h3>
-                <div className="space-y-2 max-h-[520px] overflow-y-auto pr-1">
+                <div className="space-y-2">
                   {currentMonthDeadlines.length > 0 ? (
                     currentMonthDeadlines.map(d => (
                       <div
@@ -749,7 +749,7 @@ const TaxCalendar: React.FC<TaxCalendarProps> = ({ initialTab }) => {
                               return (
                                 <div
                                   key={i}
-                                  className={`px-1.5 py-0.5 rounded-md text-[9px] sm:text-[10px] font-semibold leading-tight truncate bg-${cfg?.color || 'indigo'}-100 dark:bg-${cfg?.color || 'indigo'}-900/40 text-${cfg?.color || 'indigo'}-700 dark:text-${cfg?.color || 'indigo'}-300 border border-${cfg?.color || 'indigo'}-200/50 dark:border-${cfg?.color || 'indigo'}-800/30`}
+                                  className={`px-1.5 py-0.5 rounded-md text-[10px] sm:text-[11px] font-bold leading-tight truncate bg-${cfg?.color || 'indigo'}-100 dark:bg-${cfg?.color || 'indigo'}-900/40 text-${cfg?.color || 'indigo'}-700 dark:text-${cfg?.color || 'indigo'}-300 border border-${cfg?.color || 'indigo'}-200/50 dark:border-${cfg?.color || 'indigo'}-800/30`}
                                   title={e.title}
                                 >
                                   {e.title}
@@ -769,7 +769,7 @@ const TaxCalendar: React.FC<TaxCalendarProps> = ({ initialTab }) => {
 
               {/* Selected date detail panel (below calendar) */}
               {selectedDate && selectedDeadlines.length > 0 && (
-                <div className="mt-3 space-y-2 animate-fade-in">
+                <div className="mt-3 space-y-2 animate-fade-in relative z-30">
                   <div className="flex items-center gap-2">
                     <div className="px-2 py-1 bg-indigo-100 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300 rounded-lg text-xs font-extrabold">
                       📅 {formatDate(selectedDate)}
