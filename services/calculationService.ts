@@ -65,7 +65,7 @@ export const calculateSimulation = (inputs: SimulationInputs): SimulationResult 
   const { rate: baseRate, table: appliedTable, tableCode } = getTicinoTaxRate(annualIncomeCHF, maritalStatus, children, spouseWorks);
   const effectiveTaxRateCH = adjustRateForChildren(baseRate, tableCode, children);
   const totalTaxCH = annualIncomeCHF * effectiveTaxRateCH;
-  const healthAnnualCH = healthInsuranceCHF * 12;
+  const healthAnnualCH = healthInsuranceCHF * inputs.familyMembers * 12;
   const expensesTotalCH = calcExpensesTotal(expensesCH);
 
   const grossTotalCH = annualIncomeCHF + annualFamilyAllowanceCHF;
@@ -79,7 +79,7 @@ export const calculateSimulation = (inputs: SimulationInputs): SimulationResult 
       { label: 'calc.socialContributions', amount: -(avsAmount + acAmount + laaAmount + ijmAmount), percentage: ((avsAmount + acAmount + laaAmount + ijmAmount)/grossTotalCH)*100, description: 'calc.socialContributionsDesc' },
       { label: 'calc.pension', amount: -lppAmount, percentage: (lppAmount/grossTotalCH)*100, description: 'calc.pensionDesc' },
       { label: 'calc.totalTaxes', amount: -totalTaxCH, percentage: (totalTaxCH/grossTotalCH)*100, description: 'calc.totalTaxesDesc' },
-      { label: 'calc.healthInsurance', amount: -healthAnnualCH, percentage: (healthAnnualCH/grossTotalCH)*100, description: 'calc.healthInsuranceDesc' },
+      { label: 'calc.healthInsurance', amount: -healthAnnualCH, percentage: (healthAnnualCH/grossTotalCH)*100, description: `calc.healthInsuranceDesc|${healthInsuranceCHF}|${inputs.familyMembers}` },
       { label: 'calc.personalExpenses', amount: -expensesTotalCH, percentage: (expensesTotalCH/grossTotalCH)*100, description: 'calc.personalExpensesDesc' },
       { label: 'calc.netAnnualIncome', amount: netIncomeAnnualCH, percentage: (netIncomeAnnualCH/grossTotalCH)*100, description: `calc.netIncomeDescCH|${(effectiveTaxRateCH*100).toFixed(1)}|${tableCode}` },
     ],

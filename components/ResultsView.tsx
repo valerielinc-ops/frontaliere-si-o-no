@@ -47,6 +47,10 @@ const BreakdownTable: React.FC<{ data: TaxBreakdownItem[]; currency: string; sho
     const translated = t(baseKey);
     // If translation found (different from key), format with params
     if (translated !== baseKey && parts.length > 1) {
+      if (baseKey === 'calc.healthInsuranceDesc') {
+        // params: [monthlyPerPerson, familyMembers]
+        return `${translated} (CHF ${parts[1]}/mese × ${parts[2]} ${t('calc.familyMembers')})`;
+      }
       return `${translated}. ${parts.slice(1).map((p, i) => i === 0 ? `${t('calc.estimatedRate')}: ${p}%` : `${t('calc.table')}: ${p}`).join('. ')}.`;
     }
     return translated;

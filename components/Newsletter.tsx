@@ -35,10 +35,13 @@ interface NewsletterProps {
   compact?: boolean;
 }
 
+const SUBSCRIBED_KEY = 'newsletter_subscribed';
+
 const Newsletter: React.FC<NewsletterProps> = ({ compact = false }) => {
   const { t } = useTranslation();
   const [email, setEmail] = useState('');
   const [name, setName] = useState('');
+  const [alreadySubscribed] = useState(() => localStorage.getItem(SUBSCRIBED_KEY) === 'true');
   const [preferences, setPreferences] = useState({
     exchangeRate: true,
     traffic: true,
@@ -72,6 +75,7 @@ const Newsletter: React.FC<NewsletterProps> = ({ compact = false }) => {
         pending.push({ email: email.toLowerCase(), name: name.trim() || null, preferences, subscribedAt: new Date().toISOString() });
         localStorage.setItem('pendingNewsletterSubs', JSON.stringify(pending));
         console.log('[Newsletter] Saved to localStorage (total pending:', pending.length, ')');
+        localStorage.setItem(SUBSCRIBED_KEY, 'true');
         setStatus('success');
         setEmail('');
         setName('');
@@ -105,6 +109,7 @@ const Newsletter: React.FC<NewsletterProps> = ({ compact = false }) => {
         isActive: true,
       }), 8000, 'addDoc');
 
+      localStorage.setItem(SUBSCRIBED_KEY, 'true');
       setStatus('success');
       setEmail('');
       setName('');
@@ -118,6 +123,7 @@ const Newsletter: React.FC<NewsletterProps> = ({ compact = false }) => {
         const pending = JSON.parse(localStorage.getItem('pendingNewsletterSubs') || '[]');
         pending.push({ email: email.toLowerCase(), name: name.trim() || null, preferences, subscribedAt: new Date().toISOString() });
         localStorage.setItem('pendingNewsletterSubs', JSON.stringify(pending));
+        localStorage.setItem(SUBSCRIBED_KEY, 'true');
         setStatus('success');
         setEmail('');
         setName('');
@@ -129,6 +135,9 @@ const Newsletter: React.FC<NewsletterProps> = ({ compact = false }) => {
       Analytics.trackUIInteraction('Newsletter', 'subscribe_error', error.message);
     }
   };
+
+  // Don't show if already subscribed
+  if (alreadySubscribed && status === 'idle') return null;
 
   if (compact) {
     return (
