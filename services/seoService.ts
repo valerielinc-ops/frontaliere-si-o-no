@@ -220,6 +220,97 @@ export const SEO_METADATA: Record<string, SEOMetadata> = {
     ogDescription: '📬 Iscriviti alla newsletter per frontalieri: cambio CHF/EUR, traffico ai valichi e novità fiscali ogni settimana!',
     canonicalPath: '/newsletter',
   },
+
+  shopping: {
+    title: 'Spesa Transfrontaliera | Confronto Prezzi Supermercato CH-IT',
+    description: 'Confronta i prezzi della spesa tra supermercati svizzeri (Migros, Coop, Lidl) e italiani (Esselunga, Conad, Eurospin). Calcola il risparmio reale con tasso di cambio CHF/EUR aggiornato.',
+    keywords: 'spesa transfrontaliera, prezzi supermercato svizzera italia, migros coop lidl prezzi, esselunga conad confronto, risparmio spesa frontaliere, costo spesa ticino, shopping transfrontaliero prezzi',
+    ogTitle: 'Spesa Transfrontaliera | Confronto Prezzi Supermercato CH-IT',
+    ogDescription: '🛒 Confronta i prezzi della spesa tra supermercati svizzeri e italiani. Calcola il risparmio reale con il tasso di cambio aggiornato!',
+    canonicalPath: '/guida-frontalieri/spesa-transfrontaliera',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Calcolatore Spesa Transfrontaliera",
+      "url": `${BASE_URL}/guida-frontalieri/spesa-transfrontaliera`,
+      "description": "Confronta prezzi della spesa tra supermercati svizzeri e italiani con tasso di cambio in tempo reale",
+      "applicationCategory": "ShoppingApplication",
+      "operatingSystem": "Web Browser",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "CHF"
+      }
+    }
+  },
+
+  costOfLiving: {
+    title: 'Costo della Vita CH vs IT | Confronto Città di Frontiera 2026',
+    description: 'Confronta il costo della vita tra le città di frontiera svizzere (Lugano, Mendrisio, Chiasso) e italiane (Como, Varese, Verbania). Affitti, spesa, trasporti, sanità, ristoranti e tempo libero.',
+    keywords: 'costo vita svizzera italia, costo vita lugano, costo vita como, affitto ticino prezzi, costo vita mendrisio chiasso, confronto prezzi svizzera italia, vivere in svizzera costi, costo vita frontiera',
+    ogTitle: 'Costo della Vita CH vs IT | Confronto Città di Frontiera',
+    ogDescription: '🏠 Confronta il costo della vita tra città di frontiera svizzere e italiane: affitti, spesa, trasporti, sanità e tempo libero.',
+    canonicalPath: '/guida-frontalieri/costo-della-vita',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Confronto Costo della Vita Svizzera-Italia",
+      "url": `${BASE_URL}/guida-frontalieri/costo-della-vita`,
+      "description": "Confronto interattivo del costo della vita tra città di frontiera svizzere e italiane",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Web Browser",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "CHF"
+      }
+    }
+  },
+
+  livingCH: {
+    title: 'Vivere in Svizzera | Guida Completa per Frontalieri e Residenti',
+    description: 'Tutto su vivere in Svizzera: costo della vita, affitti Canton Ticino, sistema sanitario LAMal, scuole, trasporti, tasse e burocrazia. Guida pratica per frontalieri che valutano il trasferimento.',
+    keywords: 'vivere in svizzera, trasferirsi in svizzera, affitti ticino, costo vita svizzera, lamal assicurazione, scuole svizzera, sistema sanitario svizzera, burocrazia svizzera, residenza svizzera',
+    ogTitle: 'Vivere in Svizzera | Guida Completa per Frontalieri',
+    ogDescription: '🇨🇭 Guida completa su vivere in Svizzera: affitti, sanità, scuole, trasporti e burocrazia nel Canton Ticino.',
+    canonicalPath: '/guida-frontalieri/vivere-in-svizzera',
+  },
+
+  livingIT: {
+    title: 'Vivere in Italia come Frontaliere | Vantaggi Residenza Italiana',
+    description: 'Vantaggi e svantaggi di vivere in Italia lavorando in Svizzera: costi più bassi, detrazioni fiscali, sanità SSN, scuole italiane, qualità della vita nelle province di frontiera Como, Varese, VCO.',
+    keywords: 'vivere in italia frontaliere, residenza italia vantaggi, como varese frontalieri, costi vivere italia, detrazioni frontalieri italia, sanità ssn frontalieri, province frontiera',
+    ogTitle: 'Vivere in Italia come Frontaliere | Vantaggi e Svantaggi',
+    ogDescription: '🇮🇹 Pro e contro di vivere in Italia lavorando in Svizzera: costi, detrazioni, sanità e qualità della vita.',
+    canonicalPath: '/guida-frontalieri/vivere-in-italia',
+  },
+
+  border: {
+    title: 'Valichi di Frontiera Svizzera-Italia | Orari, Traffico e Percorsi',
+    description: 'Guida completa ai valichi doganali Svizzera-Italia: Chiasso, Ponte Tresa, Gaggiolo, Brogeda, Stabio. Orari apertura, tempi di attesa, percorsi alternativi e consigli per evitare code.',
+    keywords: 'valichi frontiera svizzera italia, dogana chiasso, ponte tresa orari, gaggiolo brogeda, stabio valico, orari valichi, percorsi alternativi frontiera, code dogana',
+    ogTitle: 'Valichi di Frontiera CH-IT | Orari e Percorsi Alternativi',
+    ogDescription: '🛃 Guida ai valichi doganali Svizzera-Italia: orari, tempi di attesa e percorsi alternativi per evitare code.',
+    canonicalPath: '/guida-frontalieri/valichi-frontiera',
+  },
+
+  costs: {
+    title: 'Costi Pendolarismo Frontaliere | Calcolo Spese Auto, Treno, Bus',
+    description: 'Calcola i costi reali del pendolarismo come frontaliere: benzina, autostrada, usura auto, parcheggio, abbonamenti treno e bus transfrontalieri. Confronta le opzioni più convenienti.',
+    keywords: 'costi pendolarismo frontaliere, spese viaggio frontaliere, benzina frontaliere, autostrada svizzera costi, parcheggio dogana, treno frontalieri, bus transfrontaliero',
+    ogTitle: 'Costi Pendolarismo Frontaliere | Calcolo Spese Viaggio',
+    ogDescription: '🚗 Calcola quanto spendi di pendolarismo: auto, treno, bus. Confronta le opzioni per risparmiare!',
+    canonicalPath: '/guida-frontalieri/costi-pendolarismo',
+  },
+
+  companies: {
+    title: 'Aziende che Assumono in Ticino | Settori e Opportunità Lavoro',
+    description: 'Scopri le principali aziende che assumono frontalieri nel Canton Ticino: settori tecnologia, finanza, farmaceutico, industria e servizi. Link diretti alle pagine carriere e consigli per candidarsi.',
+    keywords: 'aziende ticino lavoro, aziende che assumono svizzera, lavoro canton ticino, settori lavoro ticino, opportunità lavoro frontalieri, carriere svizzera, stipendi ticino',
+    ogTitle: 'Aziende che Assumono in Ticino | Opportunità per Frontalieri',
+    ogDescription: '🏢 Scopri le migliori aziende che assumono nel Canton Ticino: settori, stipendi e link alle pagine carriere.',
+    canonicalPath: '/guida-frontalieri/aziende-ticino',
+  },
 };
 
 /**

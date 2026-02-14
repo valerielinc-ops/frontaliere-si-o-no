@@ -201,11 +201,18 @@ export const Analytics = {
   },
 
   /**
-   * Interazione UI generica
+   * Interazione UI generica — formato strutturato:
+   * page: pagina principale (es. 'simulatore', 'comparatori', 'guida')
+   * section: sezione della pagina (es. 'cambio_valuta', 'spesa', 'calendario')
+   * component: componente specifico (es. 'filtro', 'bottone', 'toggle')
+   * action: azione eseguita (es. 'click', 'cambio_valore', 'espandi')
+   * details: dettagli aggiuntivi opzionali
    */
-  trackUIInteraction: (element: string, action: string, details?: string) => {
+  trackUIInteraction: (page: string, section: string, component: string, action: string, details?: string) => {
     log('ui_interaction', {
-      element_name: element,
+      page,
+      section,
+      component,
       action,
       details: details?.substring(0, 100),
     });

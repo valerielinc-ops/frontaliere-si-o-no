@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from 'react';
-import { Calendar, Clock, AlertTriangle, CheckCircle2, Bell, ChevronDown, ChevronUp, FileText, Info, Euro, Landmark, Building2, Shield } from 'lucide-react';
+import { Calendar, Clock, AlertTriangle, CheckCircle2, Bell, ChevronDown, ChevronUp, FileText, Info, Euro, Landmark, Building2, Shield, Star, Gift } from 'lucide-react';
 import { Analytics } from '@/services/analytics';
 import { useTranslation } from '@/services/i18n';
 
@@ -8,7 +8,7 @@ interface TaxDeadline {
   date: string; // YYYY-MM-DD
   title: string;
   description: string;
-  category: 'irpef' | 'svizzera' | 'contributi' | 'dichiarazione' | 'altro';
+  category: 'irpef' | 'svizzera' | 'contributi' | 'dichiarazione' | 'altro' | 'festivo' | 'facoltativo';
   who: ('vecchio' | 'nuovo' | 'tutti')[];
   documents?: string[];
   penalty?: string;
@@ -21,6 +21,8 @@ const CATEGORY_ICONS = {
   contributi: Landmark,
   dichiarazione: FileText,
   altro: Bell,
+  festivo: Star,
+  facoltativo: Gift,
 };
 
 interface CategoryConfig {
@@ -36,6 +38,8 @@ function getCategoryConfig(t: (key: string) => string): Record<string, CategoryC
     contributi: { label: t('calendar.cat.contributi'), color: 'blue', icon: Landmark },
     dichiarazione: { label: t('calendar.cat.dichiarazione'), color: 'purple', icon: FileText },
     altro: { label: t('calendar.cat.altro'), color: 'amber', icon: Bell },
+    festivo: { label: t('calendar.cat.festivo'), color: 'rose', icon: Star },
+    facoltativo: { label: t('calendar.cat.facoltativo'), color: 'sky', icon: Gift },
   };
 }
 
@@ -151,6 +155,148 @@ function getDeadlines2026(t: (key: string) => string): TaxDeadline[] {
       penalty: t('calendar.d15.penalty'),
       notes: t('calendar.d15.notes'),
     },
+
+    // ── Festività ufficiali (giorni rossi) Canton Ticino 2026 ──
+    {
+      id: 'h1', date: '2026-01-01',
+      title: t('calendar.h1.title'),
+      description: t('calendar.h1.description'),
+      category: 'festivo', who: ['tutti'],
+    },
+    {
+      id: 'h2', date: '2026-01-06',
+      title: t('calendar.h2.title'),
+      description: t('calendar.h2.description'),
+      category: 'festivo', who: ['tutti'],
+    },
+    {
+      id: 'h3', date: '2026-03-19',
+      title: t('calendar.h3.title'),
+      description: t('calendar.h3.description'),
+      category: 'festivo', who: ['tutti'],
+    },
+    {
+      id: 'h4', date: '2026-04-03',
+      title: t('calendar.h4.title'),
+      description: t('calendar.h4.description'),
+      category: 'festivo', who: ['tutti'],
+    },
+    {
+      id: 'h5', date: '2026-04-05',
+      title: t('calendar.h5.title'),
+      description: t('calendar.h5.description'),
+      category: 'festivo', who: ['tutti'],
+    },
+    {
+      id: 'h6', date: '2026-04-06',
+      title: t('calendar.h6.title'),
+      description: t('calendar.h6.description'),
+      category: 'festivo', who: ['tutti'],
+    },
+    {
+      id: 'h7', date: '2026-05-14',
+      title: t('calendar.h7.title'),
+      description: t('calendar.h7.description'),
+      category: 'festivo', who: ['tutti'],
+    },
+    {
+      id: 'h8', date: '2026-05-25',
+      title: t('calendar.h8.title'),
+      description: t('calendar.h8.description'),
+      category: 'festivo', who: ['tutti'],
+    },
+    {
+      id: 'h9', date: '2026-06-04',
+      title: t('calendar.h9.title'),
+      description: t('calendar.h9.description'),
+      category: 'festivo', who: ['tutti'],
+    },
+    {
+      id: 'h10', date: '2026-06-29',
+      title: t('calendar.h10.title'),
+      description: t('calendar.h10.description'),
+      category: 'festivo', who: ['tutti'],
+    },
+    {
+      id: 'h11', date: '2026-08-01',
+      title: t('calendar.h11.title'),
+      description: t('calendar.h11.description'),
+      category: 'festivo', who: ['tutti'],
+    },
+    {
+      id: 'h12', date: '2026-08-15',
+      title: t('calendar.h12.title'),
+      description: t('calendar.h12.description'),
+      category: 'festivo', who: ['tutti'],
+    },
+    {
+      id: 'h13', date: '2026-11-01',
+      title: t('calendar.h13.title'),
+      description: t('calendar.h13.description'),
+      category: 'festivo', who: ['tutti'],
+    },
+    {
+      id: 'h14', date: '2026-12-08',
+      title: t('calendar.h14.title'),
+      description: t('calendar.h14.description'),
+      category: 'festivo', who: ['tutti'],
+    },
+    {
+      id: 'h15', date: '2026-12-25',
+      title: t('calendar.h15.title'),
+      description: t('calendar.h15.description'),
+      category: 'festivo', who: ['tutti'],
+    },
+    {
+      id: 'h16', date: '2026-12-26',
+      title: t('calendar.h16.title'),
+      description: t('calendar.h16.description'),
+      category: 'festivo', who: ['tutti'],
+    },
+
+    // ── Festività facoltative Canton Ticino 2026 ──
+    {
+      id: 'hf1', date: '2026-01-02',
+      title: t('calendar.hf1.title'),
+      description: t('calendar.hf1.description'),
+      category: 'facoltativo', who: ['tutti'],
+      notes: t('calendar.hf.notes'),
+    },
+    {
+      id: 'hf2', date: '2026-02-16',
+      title: t('calendar.hf2.title'),
+      description: t('calendar.hf2.description'),
+      category: 'facoltativo', who: ['tutti'],
+      notes: t('calendar.hf.notes'),
+    },
+    {
+      id: 'hf3', date: '2026-02-17',
+      title: t('calendar.hf3.title'),
+      description: t('calendar.hf3.description'),
+      category: 'facoltativo', who: ['tutti'],
+      notes: t('calendar.hf.notes'),
+    },
+    {
+      id: 'hf4', date: '2026-04-04',
+      title: t('calendar.hf4.title'),
+      description: t('calendar.hf4.description'),
+      category: 'facoltativo', who: ['tutti'],
+      notes: t('calendar.hf.notes'),
+    },
+    {
+      id: 'hf5', date: '2026-05-01',
+      title: t('calendar.hf5.title'),
+      description: t('calendar.hf5.description'),
+      category: 'facoltativo', who: ['tutti'],
+      notes: t('calendar.hf.notes'),
+    },
+    {
+      id: 'hf6', date: '2026-12-31',
+      title: t('calendar.hf6.title'),
+      description: t('calendar.hf6.description'),
+      category: 'facoltativo', who: ['tutti'],
+      notes: t('calendar.hf.notes'),
+    },
   ];
 }
 
@@ -158,6 +304,7 @@ const TaxCalendar: React.FC = () => {
   const { t } = useTranslation();
   const CATEGORY_CONFIG = useMemo(() => getCategoryConfig(t), [t]);
   const DEADLINES_2026 = useMemo(() => getDeadlines2026(t), [t]);
+  const [activeTab, setActiveTab] = useState<'fiscal' | 'holidays'>('fiscal');
   const [filterCategory, setFilterCategory] = useState<string>('all');
   const [filterType, setFilterType] = useState<'tutti' | 'vecchio' | 'nuovo'>('tutti');
   const [expandedId, setExpandedId] = useState<string | null>(null);
@@ -166,20 +313,46 @@ const TaxCalendar: React.FC = () => {
   const today = new Date();
   const todayStr = today.toISOString().split('T')[0];
 
+  // Split deadlines into fiscal and holidays
+  const fiscalCategories = new Set(['irpef', 'svizzera', 'contributi', 'dichiarazione', 'altro']);
+  const holidayCategories = new Set(['festivo', 'facoltativo']);
+
+  const activeDeadlines = useMemo(() => {
+    return DEADLINES_2026.filter(d =>
+      activeTab === 'fiscal' ? fiscalCategories.has(d.category) : holidayCategories.has(d.category)
+    );
+  }, [DEADLINES_2026, activeTab]);
+
+  // Reset filter when switching tabs
+  const handleTabChange = (tab: 'fiscal' | 'holidays') => {
+    setActiveTab(tab);
+    setFilterCategory('all');
+    setExpandedId(null);
+    Analytics.trackUIInteraction('guida', 'calendario', 'tab_vista', 'click', tab);
+  };
+
+  const activeCategoryConfig = useMemo(() => {
+    return Object.fromEntries(
+      Object.entries(CATEGORY_CONFIG).filter(([key]) =>
+        activeTab === 'fiscal' ? fiscalCategories.has(key) : holidayCategories.has(key)
+      )
+    );
+  }, [CATEGORY_CONFIG, activeTab]);
+
   const filteredDeadlines = useMemo(() => {
-    return DEADLINES_2026
+    return activeDeadlines
       .filter(d => {
         if (filterCategory !== 'all' && d.category !== filterCategory) return false;
-        if (filterType !== 'tutti' && !d.who.includes(filterType) && !d.who.includes('tutti')) return false;
+        if (activeTab === 'fiscal' && filterType !== 'tutti' && !d.who.includes(filterType) && !d.who.includes('tutti')) return false;
         if (!showPast && d.date < todayStr) return false;
         return true;
       })
       .sort((a, b) => a.date.localeCompare(b.date));
-  }, [filterCategory, filterType, showPast, todayStr]);
+  }, [activeDeadlines, filterCategory, filterType, showPast, todayStr, activeTab]);
 
   const nextDeadline = useMemo(() => {
-    return DEADLINES_2026.find(d => d.date >= todayStr);
-  }, [todayStr]);
+    return activeDeadlines.find(d => d.date >= todayStr);
+  }, [activeDeadlines, todayStr]);
 
   const getDaysUntil = (dateStr: string) => {
     const target = new Date(dateStr);
@@ -222,12 +395,30 @@ const TaxCalendar: React.FC = () => {
       <div className="bg-gradient-to-br from-purple-600 via-indigo-600 to-blue-600 rounded-3xl p-8 text-white shadow-2xl">
         <div className="flex items-center gap-4 mb-4">
           <div className="p-3 bg-white/20 rounded-2xl backdrop-blur-sm">
-            <Calendar size={32} />
+            {activeTab === 'fiscal' ? <Calendar size={32} /> : <Star size={32} />}
           </div>
           <div>
-            <h1 className="text-3xl font-extrabold">{t('calendar.title')}</h1>
-            <p className="text-purple-100 mt-1">{t('calendar.subtitle')}</p>
+            <h1 className="text-3xl font-extrabold">{activeTab === 'fiscal' ? t('calendar.title') : t('calendar.holidaysTitle')}</h1>
+            <p className="text-purple-100 mt-1">{activeTab === 'fiscal' ? t('calendar.subtitle') : t('calendar.holidaysSubtitle')}</p>
           </div>
+        </div>
+
+        {/* Tab switcher */}
+        <div className="flex gap-2 mt-4 bg-white/10 rounded-xl p-1">
+          <button
+            onClick={() => handleTabChange('fiscal')}
+            className={`flex-1 flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg text-sm font-bold transition-all ${activeTab === 'fiscal' ? 'bg-white text-indigo-700 shadow-lg' : 'text-white/80 hover:bg-white/10'}`}
+          >
+            <Calendar size={16} />
+            {t('calendar.tabFiscal')}
+          </button>
+          <button
+            onClick={() => handleTabChange('holidays')}
+            className={`flex-1 flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg text-sm font-bold transition-all ${activeTab === 'holidays' ? 'bg-white text-indigo-700 shadow-lg' : 'text-white/80 hover:bg-white/10'}`}
+          >
+            <Star size={16} />
+            {t('calendar.tabHolidays')}
+          </button>
         </div>
 
         {/* Next deadline highlight */}
@@ -255,15 +446,15 @@ const TaxCalendar: React.FC = () => {
         {/* Category filter */}
         <div className="flex flex-wrap gap-2">
           <button
-            onClick={() => { setFilterCategory('all'); Analytics.trackUIInteraction('TaxCalendar', 'filter_category', 'all'); }}
+            onClick={() => { setFilterCategory('all'); Analytics.trackUIInteraction('guida', 'calendario', 'filtro_categoria', 'click', 'all'); }}
             className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${filterCategory === 'all' ? 'bg-indigo-600 text-white' : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-400 border border-slate-200 dark:border-slate-700'}`}
           >
             {t('calendar.all')}
           </button>
-          {(Object.entries(CATEGORY_CONFIG) as [string, CategoryConfig][]).map(([key, cfg]) => (
+          {(Object.entries(activeCategoryConfig) as [string, CategoryConfig][]).map(([key, cfg]) => (
             <button
               key={key}
-              onClick={() => { setFilterCategory(key); Analytics.trackUIInteraction('TaxCalendar', 'filter_category', key); }}
+              onClick={() => { setFilterCategory(key); Analytics.trackUIInteraction('guida', 'calendario', 'filtro_categoria', 'click', key); }}
               className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 ${filterCategory === key ? `bg-${cfg.color}-600 text-white` : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-400 border border-slate-200 dark:border-slate-700'}`}
             >
               <cfg.icon size={12} />
@@ -272,17 +463,19 @@ const TaxCalendar: React.FC = () => {
           ))}
         </div>
 
-        {/* Worker type filter */}
+        {/* Worker type filter (only for fiscal tab) */}
+        {activeTab === 'fiscal' && (
         <div className="flex gap-2 ml-auto">
           {(['tutti', 'vecchio', 'nuovo'] as const).map(ft => (
             <button key={ft}
-              onClick={() => { setFilterType(ft); Analytics.trackUIInteraction('TaxCalendar', 'filter_type', ft); }}
+              onClick={() => { setFilterType(ft); Analytics.trackUIInteraction('guida', 'calendario', 'filtro_tipo', 'click', ft); }}
               className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${filterType === ft ? 'bg-slate-800 dark:bg-slate-100 text-white dark:text-slate-900' : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-400 border border-slate-200 dark:border-slate-700'}`}
             >
               {ft === 'tutti' ? `👥 ${t('calendar.filterAll')}` : ft === 'vecchio' ? `📋 ${t('calendar.filterOld')}` : `📄 ${t('calendar.filterNew')}`}
             </button>
           ))}
         </div>
+        )}
       </div>
 
       {/* Show past toggle */}
@@ -317,7 +510,7 @@ const TaxCalendar: React.FC = () => {
                     className={`rounded-2xl border p-4 transition-all cursor-pointer hover:shadow-md ${getStatusColor(d.date)} ${isPast ? 'opacity-60' : ''}`}
                     onClick={() => {
                       setExpandedId(isExpanded ? null : d.id);
-                      Analytics.trackUIInteraction('TaxCalendar', 'toggle_deadline', d.title);
+                      Analytics.trackUIInteraction('guida', 'calendario', 'scadenza', isExpanded ? 'chiudi' : 'espandi', d.title);
                     }}
                   >
                     <div className="flex items-start gap-3">

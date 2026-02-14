@@ -63,7 +63,7 @@ const Newsletter: React.FC<NewsletterProps> = ({ compact = false }) => {
     }
 
     setStatus('loading');
-    Analytics.trackUIInteraction('Newsletter', 'subscribe_attempt', email.split('@')[1]);
+    Analytics.trackUIInteraction('newsletter', 'form', 'bottone_iscrivi', 'tentativo', email.split('@')[1]);
     console.log('[Newsletter] Subscribe attempt:', { email: email.replace(/(.{2}).*(@.*)/, '$1***$2'), name: name || '(none)', preferences });
 
     try {
@@ -79,7 +79,7 @@ const Newsletter: React.FC<NewsletterProps> = ({ compact = false }) => {
         setStatus('success');
         setEmail('');
         setName('');
-        Analytics.trackUIInteraction('Newsletter', 'subscribe_fallback', 'no_firestore');
+        Analytics.trackUIInteraction('newsletter', 'form', 'bottone_iscrivi', 'fallback_no_firestore');
         return;
       }
 
@@ -93,7 +93,7 @@ const Newsletter: React.FC<NewsletterProps> = ({ compact = false }) => {
       if (!existing.empty) {
         console.log('[Newsletter] Email already subscribed');
         setStatus('exists');
-        Analytics.trackUIInteraction('Newsletter', 'subscribe_exists', email.split('@')[1]);
+        Analytics.trackUIInteraction('newsletter', 'form', 'bottone_iscrivi', 'email_esistente', email.split('@')[1]);
         return;
       }
 
@@ -114,7 +114,7 @@ const Newsletter: React.FC<NewsletterProps> = ({ compact = false }) => {
       setEmail('');
       setName('');
       console.log('[Newsletter] ✅ Subscription successful!');
-      Analytics.trackUIInteraction('Newsletter', 'subscribe_success', email.split('@')[1]);
+      Analytics.trackUIInteraction('newsletter', 'form', 'bottone_iscrivi', 'successo', email.split('@')[1]);
     } catch (error: any) {
       console.error('[Newsletter] Subscription error:', { code: error?.code, message: error?.message, name: error?.name, stack: error?.stack?.split('\n').slice(0, 3).join('\n') });
       // If Firestore fails (permissions, App Check, network, timeout), save locally as fallback
@@ -127,12 +127,12 @@ const Newsletter: React.FC<NewsletterProps> = ({ compact = false }) => {
         setStatus('success');
         setEmail('');
         setName('');
-        Analytics.trackUIInteraction('Newsletter', 'subscribe_fallback_error', error.code);
+        Analytics.trackUIInteraction('newsletter', 'form', 'bottone_iscrivi', 'errore_fallback', error.code);
         return;
       }
       setErrorMessage(error.message || t('newsletter.subscribeError'));
       setStatus('error');
-      Analytics.trackUIInteraction('Newsletter', 'subscribe_error', error.message);
+      Analytics.trackUIInteraction('newsletter', 'form', 'bottone_iscrivi', 'errore', error.message);
     }
   };
 

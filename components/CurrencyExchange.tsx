@@ -790,14 +790,39 @@ const CurrencyExchange: React.FC = () => {
 
   useEffect(() => {
     fetchHistory(historyPeriod);
-    Analytics.trackUIInteraction('CurrencyExchange', 'history_period', historyPeriod);
+    Analytics.trackUIInteraction('comparatori', 'cambio_valuta', 'periodo_storico', 'cambio', historyPeriod);
   }, [historyPeriod]);
 
   const calculateExchange = (provider: ExchangeProvider) => {
-    const appliedRate = realRate * (1 - provider.exchangeRateMarkup);
+    let markup = provider.exchangeRateMarkup;
+    let commPct = provider.commissionPercent;
+
+    // Revolut: free up to 1000 EUR/month, 1% fee above that
+    if (provider.name === 'Revolut') {
+      const freeLimit = 1000; // EUR/month free tier (Standard plan)
+      const amountEur = amount * realRate;
+      if (amountEur > freeLimit) {
+        // Fair usage: 1% on the amount exceeding free limit
+        const excessEur = amountEur - freeLimit;
+        const fairUsageFee = excessEur * 0.01; // 1%
+        commPct = (fairUsageFee / amountEur) * 100; // effective % on total
+      } else {
+        markup = 0; // Within free tier, no markup
+      }
+    }
+
+    // Wise: volume discount above 22k EUR/month (0.20% instead of 0.35%)
+    if (provider.name === 'Wise (TransferWise)') {
+      const amountEur = amount * realRate;
+      if (amountEur >= 22000) {
+        commPct = 0.20; // Discounted rate for high volume
+      }
+    }
+
+    const appliedRate = realRate * (1 - markup);
     const grossAmount = amount * appliedRate;
     const commissionFlat = provider.commission;
-    const commissionPercent = grossAmount * (provider.commissionPercent / 100);
+    const commissionPercent = grossAmount * (commPct / 100);
     const totalCommission = commissionFlat + commissionPercent;
     const netAmount = grossAmount - totalCommission;
     const effectiveRate = netAmount / amount;
@@ -857,7 +882,7 @@ const CurrencyExchange: React.FC = () => {
       {/* Sub-tab navigation */}
       <div className="flex gap-2 bg-white dark:bg-slate-800 rounded-2xl p-2 border border-slate-200 dark:border-slate-700 shadow-sm">
         <button
-          onClick={() => { setExchangeSubTab('overview'); Analytics.trackUIInteraction('CurrencyExchange', 'subtab', 'overview'); }}
+          onClick={() => { setExchangeSubTab('overview'); Analytics.trackUIInteraction('comparatori', 'cambio_valuta', 'tab_vista', 'click', 'overview'); }}
           className={`flex-1 flex items-center justify-center gap-2 px-4 py-3 rounded-xl text-sm font-bold transition-all ${
             exchangeSubTab === 'overview'
               ? 'bg-indigo-600 text-white shadow-lg'
@@ -868,7 +893,7 @@ const CurrencyExchange: React.FC = () => {
           {t('currency.tab_compare')}
         </button>
         <button
-          onClick={() => { setExchangeSubTab('statistics'); Analytics.trackUIInteraction('CurrencyExchange', 'subtab', 'statistics'); }}
+          onClick={() => { setExchangeSubTab('statistics'); Analytics.trackUIInteraction('comparatori', 'cambio_valuta', 'tab_vista', 'click', 'statistics'); }}
           className={`flex-1 flex items-center justify-center gap-2 px-4 py-3 rounded-xl text-sm font-bold transition-all ${
             exchangeSubTab === 'statistics'
               ? 'bg-indigo-600 text-white shadow-lg'

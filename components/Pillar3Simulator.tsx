@@ -31,7 +31,7 @@ const Pillar3Simulator: React.FC = () => {
 
   const handleChange = (field: keyof Pillar3Inputs, value: any) => {
     setInputs(prev => ({ ...prev, [field]: value }));
-    Analytics.trackUIInteraction('Pillar3', 'change_param', `${field}:${value}`);
+    Analytics.trackUIInteraction('pensione', 'pilastro3', 'campo_input', 'cambio', `${field}:${value}`);
   };
 
   const results = useMemo(() => {

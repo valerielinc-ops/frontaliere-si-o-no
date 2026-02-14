@@ -1,13 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useTranslation } from '../services/i18n';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import { MapPin, Clock, TrendingUp, Home, Car, ShoppingCart, FileText, AlertCircle, CheckCircle2, Info, ArrowRight, Building2, Landmark, Shield, Users, Navigation, Timer, BarChart3, Euro, Heart, Briefcase, Calendar } from 'lucide-react';
 import { Analytics } from '../services/analytics';
+import { updateMetaTags, trackSectionView } from '../services/seoService';
+import { pushRoute } from '../services/router';
 import TaxCalendar from './TaxCalendar';
 import WorkPermitsGuide from './WorkPermitsGuide';
 import TicinoCompanies from './TicinoCompanies';
+import ShoppingCalculator from './ShoppingCalculator';
+import CostOfLiving from './CostOfLiving';
 import { borderCrossings as centralizedBorderCrossings } from '../data/borderCrossings';
 
 // Fix per i marker icon di Leaflet
@@ -82,18 +86,52 @@ interface Municipality {
   lng: number;
 }
 
-const FrontierGuide: React.FC = () => {
+interface FrontierGuideProps {
+  activeSection?: string;
+}
+
+type GuideSection = 'municipalities' | 'living-ch' | 'living-it' | 'border' | 'costs' | 'calendar' | 'permits' | 'companies' | 'shopping' | 'cost-of-living';
+
+const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSection }) => {
   const { t } = useTranslation();
-  const [activeSection, setActiveSection] = useState<'municipalities' | 'living-ch' | 'living-it' | 'border' | 'costs' | 'calendar' | 'permits' | 'companies'>('municipalities');
+  const [internalSection, setInternalSection] = useState<GuideSection>((externalSection as GuideSection) || 'municipalities');
+
+  // Sync with external section from router
+  useEffect(() => {
+    if (externalSection && externalSection !== internalSection) {
+      setInternalSection(externalSection as GuideSection);
+    }
+  }, [externalSection]);
+
+  const activeSection = internalSection;
   const [sortBy, setSortBy] = useState<'distance' | 'population'>('population');
   const [filterType, setFilterType] = useState<'all' | 'new' | 'old'>('all');
   const [borderFilter, setBorderFilter] = useState<'all' | 'low-traffic' | '24h' | 'morning' | 'evening'>('all');
   const [selectedTime, setSelectedTime] = useState<'morning' | 'evening' | 'night'>('morning');
 
   // Track section navigation
-  const handleSectionChange = (section: 'municipalities' | 'living-ch' | 'living-it' | 'border' | 'costs' | 'calendar' | 'permits' | 'companies') => {
-    setActiveSection(section);
-    Analytics.trackUIInteraction('FrontierGuide', 'Change Section', section);
+  const handleSectionChange = (section: GuideSection) => {
+    setInternalSection(section);
+    Analytics.trackUIInteraction('guida', 'navigazione', 'tab_sezione', 'cambio', section);
+
+    // Update SEO meta tags for sections with dedicated SEO entries
+    const seoMap: Record<string, string> = {
+      'shopping': 'shopping',
+      'cost-of-living': 'costOfLiving',
+      'calendar': 'calendar',
+      'permits': 'permits',
+    };
+    const seoKey = seoMap[section];
+    if (seoKey) {
+      updateMetaTags(seoKey);
+      trackSectionView(seoKey);
+    } else {
+      // Reset to guide-level SEO for other sub-sections
+      updateMetaTags('guide');
+    }
+
+    // Push route to browser history
+    pushRoute({ activeTab: 'guide', guideSection: section });
   };
 
   // Track municipality view
@@ -287,6 +325,28 @@ const FrontierGuide: React.FC = () => {
         >
           <Building2 size={16} />
           {t('guide.tabs.companies')}
+        </button>
+        <button
+          onClick={() => handleSectionChange('shopping')}
+          className={`px-4 py-2.5 rounded-xl font-bold text-sm transition-all flex items-center gap-2 ${
+            activeSection === 'shopping'
+              ? 'bg-orange-600 text-white shadow-lg scale-105'
+              : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700'
+          }`}
+        >
+          <ShoppingCart size={16} />
+          {t('guide.tabs.shopping')}
+        </button>
+        <button
+          onClick={() => handleSectionChange('cost-of-living')}
+          className={`px-4 py-2.5 rounded-xl font-bold text-sm transition-all flex items-center gap-2 ${
+            activeSection === 'cost-of-living'
+              ? 'bg-violet-600 text-white shadow-lg scale-105'
+              : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700'
+          }`}
+        >
+          <BarChart3 size={16} />
+          {t('guide.tabs.costOfLiving')}
         </button>
       </div>
 
@@ -1297,6 +1357,18 @@ const FrontierGuide: React.FC = () => {
       {activeSection === 'companies' && (
         <div className="animate-fade-in">
           <TicinoCompanies />
+        </div>
+      )}
+
+      {activeSection === 'shopping' && (
+        <div className="animate-fade-in">
+          <ShoppingCalculator />
+        </div>
+      )}
+
+      {activeSection === 'cost-of-living' && (
+        <div className="animate-fade-in">
+          <CostOfLiving />
         </div>
       )}
     </div>

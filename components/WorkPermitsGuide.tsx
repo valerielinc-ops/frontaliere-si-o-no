@@ -237,7 +237,7 @@ const WorkPermitsGuide: React.FC = () => {
 
   const toggleSection = (section: string) => {
     setExpandedSection(expandedSection === section ? null : section);
-    Analytics.trackUIInteraction('WorkPermits', 'toggle_section', `${selectedPermit}:${section}`);
+    Analytics.trackUIInteraction('guida', 'permessi', 'sezione_dettaglio', 'toggle', `${selectedPermit}:${section}`);
   };
 
   const Section = ({ id, icon: Icon, title, children }: { id: string; icon: any; title: string; children: React.ReactNode }) => {
@@ -289,7 +289,7 @@ const WorkPermitsGuide: React.FC = () => {
             onClick={() => {
               setSelectedPermit(p.id);
               setExpandedSection(null);
-              Analytics.trackUIInteraction('WorkPermits', 'select_permit', p.id);
+              Analytics.trackUIInteraction('guida', 'permessi', 'tipo_permesso', 'seleziona', p.id);
             }}
             className={`p-4 rounded-2xl border-2 transition-all text-left ${
               selectedPermit === p.id

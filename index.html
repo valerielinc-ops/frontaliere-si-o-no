@@ -72,6 +72,8 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <meta name="apple-mobile-web-app-title" content="Frontaliere CH-IT">
+    <link rel="apple-touch-icon" href="/icons/icon-192x192.png">
+    <link rel="apple-touch-icon" sizes="512x512" href="/icons/icon-512x512.png">
     <meta name="format-detection" content="telephone=no">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="application-name" content="Frontaliere Si o No">
@@ -254,6 +256,25 @@
     </script>
 
     <script>
+      // GitHub Pages SPA redirect handler
+      // Restores the original path from 404.html redirect
+      (function() {
+        var redirect = sessionStorage.redirect;
+        delete sessionStorage.redirect;
+        if (redirect && redirect !== location.href) {
+          history.replaceState(null, null, redirect);
+        }
+        // Also handle ?p= parameter from 404.html
+        var params = new URLSearchParams(location.search);
+        var p = params.get('p');
+        if (p) {
+          var q = params.get('q');
+          var newPath = '/' + p.replace(/~and~/g, '&');
+          var newSearch = q ? '?' + q.replace(/~and~/g, '&') : '';
+          history.replaceState(null, null, newPath + newSearch + location.hash);
+        }
+      })();
+
       // On page load or when changing themes, best to add inline in `head` to avoid FOUC
       // Default to Light mode unless 'dark' is explicitly stored
       if (localStorage.theme === 'dark') {

@@ -314,7 +314,7 @@ const operators: MobileOperator[] = [
 const MobileOperators: React.FC = () => {
   const { t } = useTranslation();
   const [filterCountry, setFilterCountry] = useState<'all' | 'IT' | 'CH'>('all');
-  const [sortBy, setSortBy] = useState<'price' | 'roaming'>('roaming');
+  const [sortBy, setSortBy] = useState<'price' | 'roaming' | 'priceRoaming'>('roaming');
   const WORKING_DAYS_PER_MONTH = 20; // Giorni lavorativi medi per frontalieri
 
   // Calcola il costo mensile reale per un frontaliere
@@ -353,6 +353,13 @@ const MobileOperators: React.FC = () => {
     .sort((a, b) => {
       if (sortBy === 'price') {
         return calculateRealMonthlyCost(a) - calculateRealMonthlyCost(b);
+      } else if (sortBy === 'priceRoaming') {
+        // Sort by price, but penalize operators without roaming (+999)
+        const aHasRoaming = a.country === 'IT' ? a.roamingInSwitzerland?.included : a.roamingInItaly?.included;
+        const bHasRoaming = b.country === 'IT' ? b.roamingInSwitzerland?.included : b.roamingInItaly?.included;
+        const aCost = calculateRealMonthlyCost(a) + (aHasRoaming ? 0 : 999);
+        const bCost = calculateRealMonthlyCost(b) + (bHasRoaming ? 0 : 999);
+        return aCost - bCost;
       } else {
         // Sort by roaming availability
         const aHasRoaming = a.country === 'IT' ? a.roamingInSwitzerland?.included : a.roamingInItaly?.included;
@@ -437,11 +444,12 @@ const MobileOperators: React.FC = () => {
             <label className="text-sm font-bold text-slate-700 dark:text-slate-300">{t('mobile.sortBy')}:</label>
             <select
               value={sortBy}
-              onChange={(e) => setSortBy(e.target.value as 'price' | 'roaming')}
+              onChange={(e) => setSortBy(e.target.value as 'price' | 'roaming' | 'priceRoaming')}
               className="px-4 py-2 rounded-lg text-sm font-bold bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300 border border-slate-300 dark:border-slate-600 cursor-pointer"
             >
               <option value="roaming">{t('mobile.roamingIncluded')}</option>
               <option value="price">{t('mobile.price')}</option>
+              <option value="priceRoaming">{t('mobile.priceWithRoaming')}</option>
             </select>
           </div>
         </div>

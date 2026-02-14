@@ -159,7 +159,7 @@ export const InputCard: React.FC<Props> = ({ inputs, setInputs, onCalculate, isF
 
   const handleReset = () => {
     setInputs(DEFAULT_INPUTS);
-    Analytics.trackUIInteraction('InputCard', 'Reset All Inputs');
+    Analytics.trackUIInteraction('simulatore', 'input', 'bottone_reset', 'click');
   };
   
   const handleResetTech = () => {

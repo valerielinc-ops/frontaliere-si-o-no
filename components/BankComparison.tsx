@@ -121,6 +121,58 @@ function getBanks(t: (key: string) => string): Bank[] {
       color: 'from-cyan-500 to-blue-600',
       website: 'https://www.fineco.it',
       acceptsFrontalieri: true
+    },
+    {
+      name: 'Yuh',
+      country: 'CH',
+      accountFee: 0,
+      transactionFees: t('banks.yuh.transactionFees'),
+      atmFees: t('banks.yuh.atmFees'),
+      cardType: 'Mastercard Debit',
+      pros: [t('banks.yuh.pro1'), t('banks.yuh.pro2'), t('banks.yuh.pro3'), t('banks.yuh.pro4')],
+      cons: [t('banks.yuh.con1'), t('banks.yuh.con2'), t('banks.yuh.con3')],
+      color: 'from-violet-500 to-purple-600',
+      website: 'https://www.yuh.com',
+      acceptsFrontalieri: true
+    },
+    {
+      name: 'Neon',
+      country: 'CH',
+      accountFee: 0,
+      transactionFees: t('banks.neon.transactionFees'),
+      atmFees: t('banks.neon.atmFees'),
+      cardType: 'Mastercard Debit',
+      pros: [t('banks.neon.pro1'), t('banks.neon.pro2'), t('banks.neon.pro3')],
+      cons: [t('banks.neon.con1'), t('banks.neon.con2'), t('banks.neon.con3')],
+      color: 'from-green-400 to-emerald-600',
+      website: 'https://www.neon-free.ch',
+      acceptsFrontalieri: true
+    },
+    {
+      name: 'N26',
+      country: 'IT',
+      accountFee: 0,
+      transactionFees: t('banks.n26.transactionFees'),
+      atmFees: t('banks.n26.atmFees'),
+      cardType: 'Mastercard Debit (virtuale + fisica)',
+      pros: [t('banks.n26.pro1'), t('banks.n26.pro2'), t('banks.n26.pro3')],
+      cons: [t('banks.n26.con1'), t('banks.n26.con2'), t('banks.n26.con3')],
+      color: 'from-teal-500 to-cyan-600',
+      website: 'https://n26.com',
+      acceptsFrontalieri: true
+    },
+    {
+      name: 'HYPE',
+      country: 'IT',
+      accountFee: 0,
+      transactionFees: t('banks.hype.transactionFees'),
+      atmFees: t('banks.hype.atmFees'),
+      cardType: 'Visa Debit',
+      pros: [t('banks.hype.pro1'), t('banks.hype.pro2'), t('banks.hype.pro3')],
+      cons: [t('banks.hype.con1'), t('banks.hype.con2'), t('banks.hype.con3')],
+      color: 'from-indigo-500 to-blue-600',
+      website: 'https://www.hype.it',
+      acceptsFrontalieri: true
     }
   ];
 }

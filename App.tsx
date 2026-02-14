@@ -25,6 +25,7 @@ import { calculateSimulation } from '@/services/calculationService';
 import { Analytics } from '@/services/analytics';
 import { updateMetaTags, trackSectionView } from '@/services/seoService';
 import { useTranslation, initLocale } from '@/services/i18n';
+import { parsePath, parseHashToPath, pushRoute, replaceRoute, buildPath, getSeoSection, AppRoute } from '@/services/router';
 import { DEFAULT_INPUTS } from '@/constants';
 import { SimulationInputs, SimulationResult } from '@/types';
 import { Moon, Sun, Maximize2, Minimize2, Calculator, HelpCircle, BarChart2, PiggyBank, BookOpen, Facebook, ArrowRightLeft, Phone, Car, Heart, Building2, AlertTriangle, Layers, Briefcase, Sparkles, TrendingUp, MapPin } from 'lucide-react';
@@ -35,10 +36,13 @@ const App: React.FC = () => {
   const [result, setResult] = useState<SimulationResult | null>(null);
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [isFocusMode, setIsFocusMode] = useState(false);
-  const [activeTab, setActiveTab] = useState<'calculator' | 'feedback' | 'stats' | 'pension' | 'guide' | 'comparatori' | 'privacy' | 'data-deletion' | 'api-status'>('calculator');
-  const [comparatoriSubTab, setComparatoriSubTab] = useState<'exchange' | 'mobile' | 'transport' | 'health' | 'banks' | 'traffic' | 'jobs'>('exchange');
-  const [simulatorSubTab, setSimulatorSubTab] = useState<'calculator' | 'whatif'>('calculator');
-  const [pensionSubTab, setPensionSubTab] = useState<'planner' | 'pillar3'>('planner');
+  // Read initial route from URL path (or migrate legacy hash)
+  const initialRoute = parsePath(window.location.pathname);
+  const [activeTab, setActiveTab] = useState<'calculator' | 'feedback' | 'stats' | 'pension' | 'guide' | 'comparatori' | 'privacy' | 'data-deletion' | 'api-status'>(initialRoute.activeTab);
+  const [comparatoriSubTab, setComparatoriSubTab] = useState<'exchange' | 'mobile' | 'transport' | 'health' | 'banks' | 'traffic' | 'jobs'>(initialRoute.comparatoriSubTab || 'exchange');
+  const [simulatorSubTab, setSimulatorSubTab] = useState<'calculator' | 'whatif'>(initialRoute.simulatorSubTab || 'calculator');
+  const [pensionSubTab, setPensionSubTab] = useState<'planner' | 'pillar3'>(initialRoute.pensionSubTab || 'planner');
+  const [guideSection, setGuideSection] = useState<string>(initialRoute.guideSection || 'municipalities');
   const [showApiStatus, setShowApiStatus] = useState(false);
 
   // Check for hidden API status page via URL parameter
@@ -47,6 +51,34 @@ const App: React.FC = () => {
     if (urlParams.get('debug') === 'api' || urlParams.get('status') === 'api') {
       setShowApiStatus(true);
       setActiveTab('api-status');
+    }
+  }, []);
+
+  // Listen for browser back/forward navigation
+  useEffect(() => {
+    const onPopState = () => {
+      const route = parsePath(window.location.pathname);
+      setActiveTab(route.activeTab);
+      if (route.comparatoriSubTab) setComparatoriSubTab(route.comparatoriSubTab);
+      if (route.simulatorSubTab) setSimulatorSubTab(route.simulatorSubTab);
+      if (route.pensionSubTab) setPensionSubTab(route.pensionSubTab);
+      if (route.guideSection) setGuideSection(route.guideSection);
+      // Update SEO meta tags
+      const seoKey = getSeoSection(route);
+      updateMetaTags(seoKey);
+      trackSectionView(seoKey);
+    };
+    window.addEventListener('popstate', onPopState);
+    return () => window.removeEventListener('popstate', onPopState);
+  }, []);
+
+  // Migrate legacy hash-based URLs to clean paths
+  useEffect(() => {
+    if (window.location.hash && window.location.hash !== '#' && window.location.hash !== '#/') {
+      const newPath = parseHashToPath(window.location.hash);
+      if (newPath) {
+        history.replaceState(null, '', newPath);
+      }
     }
   }, []);
 
@@ -87,10 +119,19 @@ const App: React.FC = () => {
     const previousTab = activeTab;
     setActiveTab(tab);
     Analytics.trackTabNavigation(previousTab, tab);
-    
+
+    // Build route and push to history
+    const route: AppRoute = { activeTab: tab };
+    if (tab === 'comparatori') route.comparatoriSubTab = comparatoriSubTab;
+    if (tab === 'calculator') route.simulatorSubTab = simulatorSubTab;
+    if (tab === 'pension') route.pensionSubTab = pensionSubTab;
+    if (tab === 'guide') route.guideSection = guideSection as any;
+    pushRoute(route);
+
     // Update SEO meta tags for the new section
-    updateMetaTags(tab);
-    trackSectionView(tab);
+    const seoKey = getSeoSection(route);
+    updateMetaTags(seoKey);
+    trackSectionView(seoKey);
   };
 
   const handleCalculate = () => {
@@ -106,16 +147,24 @@ const App: React.FC = () => {
   // Update SEO tags when comparatori sub-tab changes
   useEffect(() => {
     if (activeTab === 'comparatori') {
-      updateMetaTags(comparatoriSubTab);
-      trackSectionView(comparatoriSubTab);
+      const route: AppRoute = { activeTab: 'comparatori', comparatoriSubTab };
+      const seoKey = getSeoSection(route);
+      updateMetaTags(seoKey);
+      trackSectionView(seoKey);
+      pushRoute(route);
     }
   }, [comparatoriSubTab]);
 
   // Update SEO tags when active tab changes
   useEffect(() => {
     if (activeTab !== 'comparatori') {
-      updateMetaTags(activeTab);
-      trackSectionView(activeTab);
+      const route: AppRoute = { activeTab };
+      if (activeTab === 'calculator') route.simulatorSubTab = simulatorSubTab;
+      if (activeTab === 'pension') route.pensionSubTab = pensionSubTab;
+      if (activeTab === 'guide') route.guideSection = guideSection as any;
+      const seoKey = getSeoSection(route);
+      updateMetaTags(seoKey);
+      trackSectionView(seoKey);
     }
   }, [activeTab]);
 
@@ -355,7 +404,7 @@ const App: React.FC = () => {
               {/* Simulator sub-tabs */}
               <div className="flex gap-2 bg-white dark:bg-slate-800 rounded-xl p-1.5 border border-slate-200 dark:border-slate-700 max-w-md">
                 <button
-                  onClick={() => setSimulatorSubTab('calculator')}
+                  onClick={() => { setSimulatorSubTab('calculator'); pushRoute({ activeTab: 'calculator', simulatorSubTab: 'calculator' }); }}
                   className={`flex-1 flex items-center justify-center gap-2 px-4 py-2 text-sm font-bold rounded-lg transition-colors ${
                     simulatorSubTab === 'calculator'
                       ? 'bg-blue-600 text-white shadow-sm'
@@ -366,7 +415,7 @@ const App: React.FC = () => {
                   {t('simulator.calculator')}
                 </button>
                 <button
-                  onClick={() => setSimulatorSubTab('whatif')}
+                  onClick={() => { setSimulatorSubTab('whatif'); pushRoute({ activeTab: 'calculator', simulatorSubTab: 'whatif' }); }}
                   className={`flex-1 flex items-center justify-center gap-2 px-4 py-2 text-sm font-bold rounded-lg transition-colors ${
                     simulatorSubTab === 'whatif'
                       ? 'bg-blue-600 text-white shadow-sm'
@@ -400,14 +449,14 @@ const App: React.FC = () => {
             </div>
           ) : activeTab === 'guide' ? (
             <div className="max-w-7xl mx-auto animate-fade-in">
-              <FrontierGuide />
+              <FrontierGuide activeSection={guideSection} />
             </div>
           ) : activeTab === 'pension' ? (
             <div className="max-w-7xl mx-auto animate-fade-in space-y-6">
               {/* Pension sub-tabs */}
               <div className="flex gap-2 bg-white dark:bg-slate-800 rounded-xl p-1.5 border border-slate-200 dark:border-slate-700 max-w-md">
                 <button
-                  onClick={() => setPensionSubTab('planner')}
+                  onClick={() => { setPensionSubTab('planner'); pushRoute({ activeTab: 'pension', pensionSubTab: 'planner' }); }}
                   className={`flex-1 flex items-center justify-center gap-2 px-4 py-2 text-sm font-bold rounded-lg transition-colors ${
                     pensionSubTab === 'planner'
                       ? 'bg-emerald-600 text-white shadow-sm'
@@ -418,7 +467,7 @@ const App: React.FC = () => {
                   {t('pension.planner')}
                 </button>
                 <button
-                  onClick={() => setPensionSubTab('pillar3')}
+                  onClick={() => { setPensionSubTab('pillar3'); pushRoute({ activeTab: 'pension', pensionSubTab: 'pillar3' }); }}
                   className={`flex-1 flex items-center justify-center gap-2 px-4 py-2 text-sm font-bold rounded-lg transition-colors ${
                     pensionSubTab === 'pillar3'
                       ? 'bg-emerald-600 text-white shadow-sm'
@@ -492,7 +541,7 @@ const App: React.FC = () => {
             </p>
             <div className="flex items-center justify-center gap-3 text-xs flex-wrap">
               <button
-                onClick={() => setActiveTab('privacy')}
+                onClick={() => { setActiveTab('privacy'); pushRoute({ activeTab: 'privacy' }); }}
                 className="inline-flex items-center gap-1.5 px-3 py-1.5 text-slate-600 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 bg-slate-100/50 dark:bg-slate-800/50 hover:bg-indigo-50 dark:hover:bg-indigo-950/30 rounded-md transition-all duration-200 border border-slate-200/50 dark:border-slate-700/50 hover:border-indigo-300 dark:hover:border-indigo-700"
               >
                 {t('footer.privacy')}
@@ -501,6 +550,7 @@ const App: React.FC = () => {
               <button
                 onClick={() => {
                   setActiveTab('api-status');
+                  pushRoute({ activeTab: 'api-status' });
                   Analytics.trackApiDiagnostics('view');
                 }}
                 className="inline-flex items-center gap-1.5 px-3 py-1.5 text-slate-600 dark:text-slate-400 hover:text-slate-600 dark:hover:text-slate-300 bg-slate-100/50 dark:bg-slate-800/50 hover:bg-slate-200/50 dark:hover:bg-slate-700/50 rounded-md transition-all duration-200 border border-slate-200/50 dark:border-slate-700/50"

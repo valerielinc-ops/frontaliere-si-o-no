@@ -47,7 +47,7 @@ const JobComparator: React.FC = () => {
   const addOffer = () => {
     if (offers.length >= 4) return;
     setOffers([...offers, { ...defaultOffer(), companyName: `${t('jobs.offer')} ${offers.length + 1}` }]);
-    Analytics.trackUIInteraction('JobComparator', 'add_offer', String(offers.length + 1));
+    Analytics.trackUIInteraction('comparatori', 'offerte_lavoro', 'bottone_aggiungi', 'click', String(offers.length + 1));
   };
 
   const removeOffer = (id: string) => {

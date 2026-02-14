@@ -66,9 +66,9 @@ const ApiStatus: React.FC = () => {
       testUrl: 'https://github.com/settings/tokens'
     });
 
-    // 4. Google OAuth Client ID (questo rimane da env vars perché non è in Remote Config)
-    const oauthClientId = import.meta.env.VITE_GOOGLE_OAUTH_CLIENT_ID;
-    const hasOAuth = !!oauthClientId && oauthClientId !== '';
+    // 4. Google OAuth Client ID - carica da Firebase Remote Config
+    const oauthClientId = await getConfigValue('GOOGLE_OAUTH_CLIENT_ID');
+    const hasOAuth = !!oauthClientId && oauthClientId !== '' && oauthClientId !== 'your_google_oauth_client_id_here';
     checks.push({
       name: 'Google OAuth Client ID',
       key: '****',

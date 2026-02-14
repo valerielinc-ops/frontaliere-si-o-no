@@ -119,18 +119,18 @@ const WhatIfSimulator: React.FC<WhatIfSimulatorProps> = ({ baseInputs, baseResul
 
   const handleFieldChange = (key: keyof SimulationInputs, value: any) => {
     setModifiedInputs(prev => ({ ...prev, [key]: value }));
-    Analytics.trackUIInteraction('WhatIf', 'change_param', `${key}:${value}`);
+    Analytics.trackUIInteraction('simulatore', 'what_if', 'campo_parametro', 'cambio', `${key}:${value}`);
   };
 
   const handleReset = () => {
     setModifiedInputs({});
-    Analytics.trackUIInteraction('WhatIf', 'reset', activeScenario);
+    Analytics.trackUIInteraction('simulatore', 'what_if', 'bottone_reset', 'click', activeScenario);
   };
 
   const handleScenarioChange = (id: string) => {
     setActiveScenario(id);
     setModifiedInputs({});
-    Analytics.trackUIInteraction('WhatIf', 'change_scenario', id);
+    Analytics.trackUIInteraction('simulatore', 'what_if', 'selettore_scenario', 'cambio', id);
   };
 
   // Calculate differences

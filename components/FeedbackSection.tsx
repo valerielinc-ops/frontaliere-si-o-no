@@ -110,7 +110,7 @@ export const FeedbackSection: React.FC = () => {
   const handleOptimize = async () => {
     if (!formData.description || !geminiApiKey) return;
     setIsOptimizing(true);
-    Analytics.trackUIInteraction('AI', 'optimize_description', formData.type);
+    Analytics.trackUIInteraction('supporto', 'feedback', 'ai_ottimizza', 'click', formData.type);
     
     try {
       const ai = new GoogleGenAI({ apiKey: geminiApiKey });
