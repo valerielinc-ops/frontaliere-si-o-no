@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from 'react';
-import { Sliders, Baby, MapPin, Home, TrendingUp, TrendingDown, DollarSign, Heart, RotateCcw, Zap, Info, ArrowLeftRight } from 'lucide-react';
+import { Sliders, Baby, MapPin, Home, TrendingUp, TrendingDown, DollarSign, Heart, RotateCcw, Zap, Info, ArrowLeftRight, FlaskConical, Terminal, Code2, AlertTriangle } from 'lucide-react';
 import { calculateSimulation } from '@/services/calculationService';
 import { Analytics } from '@/services/analytics';
 import { SimulationInputs, SimulationResult } from '@/types';
@@ -160,15 +160,34 @@ const WhatIfSimulator: React.FC<WhatIfSimulatorProps> = ({ baseInputs, baseResul
 
   return (
     <div className="space-y-6 animate-fade-in">
-      {/* Header */}
-      <div className="bg-gradient-to-br from-violet-600 via-purple-600 to-fuchsia-600 rounded-3xl p-8 text-white shadow-2xl">
-        <div className="flex items-center gap-4 mb-4">
-          <div className="p-3 bg-white/20 rounded-2xl backdrop-blur-sm">
-            <Sliders size={32} />
+      {/* Header — Lab/Experimental */}
+      <div className="bg-gradient-to-br from-slate-900 via-emerald-950 to-slate-900 rounded-3xl p-8 text-white shadow-2xl border border-emerald-500/30 relative overflow-hidden">
+        {/* Scanline effect */}
+        <div className="absolute inset-0 bg-[repeating-linear-gradient(0deg,transparent,transparent_2px,rgba(0,255,0,0.03)_2px,rgba(0,255,0,0.03)_4px)] pointer-events-none" />
+        <div className="relative z-10">
+          <div className="flex items-center gap-4 mb-4">
+            <div className="p-3 bg-emerald-500/20 rounded-2xl backdrop-blur-sm border border-emerald-500/30">
+              <FlaskConical size={32} className="text-emerald-400" />
+            </div>
+            <div className="flex-1">
+              <div className="flex items-center gap-3 flex-wrap">
+                <h1 className="text-3xl font-extrabold font-mono">{t('whatif.title')}</h1>
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 text-[10px] font-bold uppercase tracking-wider bg-amber-500/20 text-amber-400 border border-amber-500/40 rounded-full animate-pulse">
+                  <AlertTriangle size={10} />
+                  {t('whatif.experimentalBadge')}
+                </span>
+              </div>
+              <p className="text-emerald-300/80 mt-1 font-mono text-sm">{t('whatif.subtitle')}</p>
+            </div>
           </div>
-          <div>
-            <h1 className="text-3xl font-extrabold">{t('whatif.title')}</h1>
-            <p className="text-violet-100 mt-1">{t('whatif.subtitle')}</p>
+          {/* Terminal-style info bar */}
+          <div className="mt-4 bg-black/40 rounded-xl p-3 border border-emerald-500/20 font-mono text-xs text-emerald-400/70">
+            <div className="flex items-center gap-2">
+              <Terminal size={12} className="text-emerald-500" />
+              <span className="text-emerald-500">$</span>
+              <span>{t('whatif.terminalHint')}</span>
+              <span className="animate-pulse">_</span>
+            </div>
           </div>
         </div>
       </div>
@@ -461,10 +480,14 @@ const WhatIfSimulator: React.FC<WhatIfSimulatorProps> = ({ baseInputs, baseResul
           )}
 
           {!hasChanges && (
-            <div className="bg-violet-50 dark:bg-violet-950/30 rounded-2xl border-2 border-dashed border-violet-300 dark:border-violet-700 p-8 text-center">
-              <Sliders size={48} className="text-violet-400 mx-auto mb-4" />
-              <p className="text-lg font-bold text-slate-700 dark:text-slate-300">{t('whatif.modifyParams')}</p>
-              <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">{t('whatif.resultsRealtime')}</p>
+            <div className="bg-slate-900/5 dark:bg-slate-950/50 rounded-2xl border-2 border-dashed border-emerald-400/40 dark:border-emerald-600/40 p-8 text-center">
+              <div className="relative inline-block">
+                <Code2 size={48} className="text-emerald-500/60 mx-auto mb-4" />
+                <FlaskConical size={20} className="text-amber-500 absolute -top-1 -right-1 animate-bounce" />
+              </div>
+              <p className="text-lg font-bold text-slate-700 dark:text-slate-300 font-mono">{t('whatif.modifyParams')}</p>
+              <p className="text-sm text-emerald-600/70 dark:text-emerald-400/60 mt-1 font-mono">&gt; {t('whatif.resultsRealtime')}</p>
+              <p className="text-[10px] text-slate-400 dark:text-slate-500 mt-3 italic">{t('whatif.nerdDisclaimer')}</p>
             </div>
           )}
         </div>

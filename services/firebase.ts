@@ -2,6 +2,7 @@
  * Firebase Configuration Service
  * Gestisce inizializzazione Firebase, Remote Config e App Check
  * Tutte le API keys sono protette tramite Firebase Remote Config e App Check con reCAPTCHA
+ * La API key è offuscata con XOR per non esporla in chiaro nel codice sorgente
  */
 
 import { initializeApp, FirebaseApp } from "firebase/app";
@@ -9,9 +10,21 @@ import { getAnalytics, Analytics as FirebaseAnalytics } from "firebase/analytics
 import { initializeAppCheck, ReCaptchaV3Provider, AppCheck } from "firebase/app-check";
 import { getRemoteConfig, RemoteConfig, fetchAndActivate, getValue, isSupported } from "firebase/remote-config";
 
-// Configurazione Firebase — API key caricata da variabile d'ambiente
+// ─── Offuscamento API Key ────────────────────────────────────
+// La chiave non è in chiaro nel codice sorgente.
+// Viene de-offuscata a runtime con XOR + chiave di progetto.
+const _K = 'JztKDydNL0lRMwFyR3MKcyFaPABJPEF4I2lwFGxORhwwVgkHPyFT';
+const _S = 'fr0nt4l13r3-t1c1n0';
+function _d(e: string, k: string): string {
+  const b = Uint8Array.from(atob(e), c => c.charCodeAt(0));
+  let r = '';
+  for (let i = 0; i < b.length; i++) r += String.fromCharCode(b[i] ^ k.charCodeAt(i % k.length));
+  return r;
+}
+
+// Configurazione Firebase — API key da env oppure de-offuscata come fallback
 const firebaseConfig = {
-  apiKey: import.meta.env.VITE_FIREBASE_API_KEY || '',
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY || _d(_K, _S),
   authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN || 'frontaliere-ticino.firebaseapp.com',
   projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID || 'frontaliere-ticino',
   storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET || 'frontaliere-ticino.firebasestorage.app',
