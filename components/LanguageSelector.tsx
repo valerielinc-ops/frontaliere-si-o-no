@@ -1,12 +1,17 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Globe } from 'lucide-react';
-import { type Locale, getLocale, setLocale, LOCALE_LABELS } from '@/services/i18n';
+import { type Locale, getLocale, setLocale, onLocaleChange, LOCALE_LABELS } from '@/services/i18n';
 import { Analytics } from '@/services/analytics';
 
 const LanguageSelector: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [current, setCurrent] = useState<Locale>(getLocale());
   const dropdownRef = useRef<HTMLDivElement>(null);
+
+  // Stay in sync with programmatic locale changes (e.g. initLocale)
+  useEffect(() => {
+    return onLocaleChange(setCurrent);
+  }, []);
 
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {

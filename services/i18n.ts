@@ -39,18 +39,9 @@ export function initLocale(): void {
   const urlParams = new URLSearchParams(window.location.search);
   const urlLang = urlParams.get('lang') as Locale | null;
   
-  const saved = localStorage.getItem('frontaliere_locale') as Locale | null;
-  let detected: Locale = 'it';
+  let detected: Locale = 'it'; // Always default to Italian
   if (urlLang && ['it', 'en', 'de', 'fr'].includes(urlLang)) {
     detected = urlLang;
-  } else if (saved && ['it', 'en', 'de', 'fr'].includes(saved)) {
-    detected = saved;
-  } else {
-    // Auto-detect from browser
-    const browserLang = navigator.language.split('-')[0] as Locale;
-    if (['it', 'en', 'de', 'fr'].includes(browserLang)) {
-      detected = browserLang;
-    }
   }
   // Use setLocale to notify all listeners so React re-renders
   setLocale(detected);
