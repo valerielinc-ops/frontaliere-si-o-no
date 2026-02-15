@@ -180,6 +180,10 @@ describe('App smoke test', () => {
       'comparators.costOfLiving',
       'comparators.costs',
       'comparators.traffic',
+      'comparators.ral',
+      'comparators.parentalLeave',
+      'comparators.borderMap',
+      'comparators.residency',
     ];
     for (const tabText of comparatorTabs) {
       const btn = screen.queryByText(tabText);
@@ -219,6 +223,7 @@ describe('App smoke test', () => {
       'guide.tabs.places',
       'guide.tabs.schools',
       'guide.tabs.unemployment',
+      'guide.tabs.firstDay',
     ];
     for (const tabText of guideTabs) {
       const btn = screen.queryByText(tabText);

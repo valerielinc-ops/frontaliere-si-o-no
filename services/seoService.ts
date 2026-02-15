@@ -563,6 +563,113 @@ export const SEO_METADATA: Record<string, SEOMetadata> = {
       "dateModified": "2026-02-15"
     }
   },
+
+  ral: {
+    title: 'Confronto RAL Netta Italia vs Svizzera | Calcolatore Stipendio Netto',
+    description: 'Confronta lo stipendio netto a parità di RAL (Retribuzione Annua Lorda) tra Italia e Svizzera. Calcolo IRPEF, INPS, imposta alla fonte, contributi sociali svizzeri per frontalieri.',
+    keywords: 'ral netta italia svizzera, confronto stipendio netto, busta paga frontaliere, imposta alla fonte ticino, irpef vs imposta fonte, stipendio netto svizzera',
+    ogTitle: 'Confronto RAL Netta Italia vs Svizzera',
+    ogDescription: '💰 Confronta il netto in busta paga tra Italia e Svizzera a parità di stipendio lordo. Calcolo imposte e contributi.',
+    canonicalPath: '/comparatori/confronto-ral',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Calcolatore RAL Netta Italia vs Svizzera",
+      "url": `${BASE_URL}/comparatori/confronto-ral`,
+      "description": "Confronta lo stipendio netto a parità di RAL tra Italia e Svizzera: IRPEF, INPS, imposta alla fonte, contributi sociali svizzeri",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Web"
+    }
+  },
+
+  'parental-leave': {
+    title: 'Congedo Maternità e Paternità Frontalieri | IPG Svizzera vs INPS Italia',
+    description: 'Calcolatore congedo maternità e paternità per frontalieri: IPG svizzera (14 settimane, 80%) vs INPS italiana (5 mesi, 80%). Importi, durata, documenti necessari.',
+    keywords: 'congedo maternità frontalieri, congedo paternità svizzera, IPG svizzera, maternità INPS frontaliere, indennità maternità svizzera italia, congedo parentale frontaliere',
+    ogTitle: 'Congedo Maternità/Paternità per Frontalieri',
+    ogDescription: '👶 Calcola il congedo maternità e paternità per frontalieri: confronto IPG Svizzera vs INPS Italia, importi e documenti.',
+    canonicalPath: '/comparatori/congedo-genitoriale',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Calcolatore Congedo Genitoriale Frontalieri",
+      "url": `${BASE_URL}/comparatori/congedo-genitoriale`,
+      "description": "Calcola congedo maternità e paternità per frontalieri: IPG svizzera vs INPS italiana, importi e documenti",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Web"
+    }
+  },
+
+  'border-map': {
+    title: 'Mappa Comuni di Frontiera | Addizionali IRPEF e Costi per Frontalieri',
+    description: 'Mappa interattiva dei comuni italiani di frontiera vicini alla Svizzera. Confronta addizionali IRPEF, distanza dal confine, costo affitti e popolazione per scegliere dove vivere.',
+    keywords: 'comuni frontiera svizzera, mappa comuni frontalieri, addizionale irpef comuni confine, dove vivere frontaliere, comuni como varese frontalieri, affitti comuni frontiera',
+    ogTitle: 'Mappa Interattiva Comuni di Frontiera',
+    ogDescription: '🗺️ Mappa dei comuni italiani vicini al confine svizzero: addizionali IRPEF, affitti, distanza dal confine.',
+    canonicalPath: '/comparatori/mappa-comuni',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Mappa Comuni di Frontiera Italia-Svizzera",
+      "url": `${BASE_URL}/comparatori/mappa-comuni`,
+      "description": "Mappa interattiva dei comuni italiani di frontiera: addizionali IRPEF, distanza dal confine, costo affitti",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Web"
+    }
+  },
+
+  residency: {
+    title: 'Simulatore Cambio Residenza | Costi Trasferimento Italia-Svizzera',
+    description: 'Simula il costo del cambio residenza tra Italia e Svizzera. Confronto costi mensili (affitto, spesa, assicurazione), costi una tantum, break-even point per frontalieri.',
+    keywords: 'cambio residenza frontaliere, trasferimento italia svizzera costi, vivere in svizzera costi, traslocare ticino, permesso B svizzera costi, break-even residenza',
+    ogTitle: 'Simulatore Cambio Residenza Italia ↔ Svizzera',
+    ogDescription: '🏠 Simula costi e risparmi del cambio residenza tra Italia e Svizzera: affitti, spese, break-even point.',
+    canonicalPath: '/comparatori/cambio-residenza',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Simulatore Cambio Residenza Italia-Svizzera",
+      "url": `${BASE_URL}/comparatori/cambio-residenza`,
+      "description": "Simula il costo del cambio residenza tra Italia e Svizzera: confronto costi mensili, costi una tantum, break-even",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Web"
+    }
+  },
+
+  firstDay: {
+    title: 'Primo Giorno da Frontaliere | Checklist Completa Passo per Passo',
+    description: 'Guida interattiva per il primo giorno da frontaliere: checklist gamificata con tutti i passaggi necessari. Permesso G, AIRE, conto bancario svizzero, assicurazione sanitaria, trasporti.',
+    keywords: 'primo giorno frontaliere, checklist frontaliere, guida frontaliere passo passo, permesso G procedura, AIRE iscrizione, conto bancario svizzero, assicurazione LAMal',
+    ogTitle: 'Primo Giorno da Frontaliere | Checklist Interattiva',
+    ogDescription: '🚀 Checklist gamificata per il primo giorno da frontaliere: tutti i passaggi da seguire passo per passo.',
+    canonicalPath: '/guida-frontalieri/primo-giorno',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      "name": "Primo Giorno da Frontaliere: Guida Completa",
+      "url": `${BASE_URL}/guida-frontalieri/primo-giorno`,
+      "description": "Checklist completa per il primo giorno da frontaliere: permesso G, AIRE, banca, assicurazione, trasporti",
+      "totalTime": "P30D"
+    }
+  },
+
+  dashboard: {
+    title: 'Dashboard Personale | Storico Simulazioni Frontaliere',
+    description: 'Dashboard personale per frontalieri: salva le tue simulazioni fiscali, confronta risultati nel tempo, esporta report PDF. Tieni traccia del tuo percorso da frontaliere.',
+    keywords: 'dashboard frontaliere, storico simulazioni, confronto simulazioni fiscali, report PDF frontaliere, salva simulazione frontaliere',
+    ogTitle: 'Dashboard Personale Frontaliere',
+    ogDescription: '📊 Salva, confronta e esporta le tue simulazioni fiscali. Dashboard personale per frontalieri.',
+    canonicalPath: '/dashboard',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Dashboard Personale Frontaliere",
+      "url": `${BASE_URL}/dashboard`,
+      "description": "Dashboard personale per frontalieri: salva simulazioni fiscali, confronta risultati nel tempo, esporta PDF",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Web"
+    }
+  },
 };
 
 /**

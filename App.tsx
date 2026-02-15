@@ -26,6 +26,11 @@ import PwaInstallBanner from '@/components/PwaInstallBanner';
 import PwaUpdateBanner from '@/components/PwaUpdateBanner';
 import GamificationWidget, { unlockAchievement } from '@/components/GamificationWidget';
 import GamificationPage from '@/components/GamificationPage';
+import RalComparator from '@/components/RalComparator';
+import ParentalLeaveCalculator from '@/components/ParentalLeaveCalculator';
+import BorderMunicipalitiesMap from '@/components/BorderMunicipalitiesMap';
+import ResidencySimulator from '@/components/ResidencySimulator';
+import PersonalDashboard from '@/components/PersonalDashboard';
 import SiteSearch from '@/components/SiteSearch';
 import { calculateSimulation } from '@/services/calculationService';
 import { Analytics } from '@/services/analytics';
@@ -34,7 +39,7 @@ import { useTranslation, initLocale, setLocale, onLocaleChange } from '@/service
 import { parsePath, parseHashToPath, pushRoute, replaceRoute, buildPath, getSeoSection, updatePathForLocale, AppRoute } from '@/services/router';
 import { DEFAULT_INPUTS } from '@/constants';
 import { SimulationInputs, SimulationResult } from '@/types';
-import { Moon, Sun, Maximize2, Minimize2, Calculator, HelpCircle, BarChart2, PiggyBank, BookOpen, Facebook, ArrowRightLeft, Phone, Car, Heart, Building2, AlertTriangle, Layers, Briefcase, Sparkles, TrendingUp, MapPin, ShoppingCart, Euro } from 'lucide-react';
+import { Moon, Sun, Maximize2, Minimize2, Calculator, HelpCircle, BarChart2, PiggyBank, BookOpen, Facebook, ArrowRightLeft, Phone, Car, Heart, Building2, AlertTriangle, Layers, Briefcase, Sparkles, TrendingUp, MapPin, ShoppingCart, Euro, ClipboardList, Baby, Map, Home } from 'lucide-react';
 
 const App: React.FC = () => {
   const { t } = useTranslation();
@@ -48,8 +53,8 @@ const App: React.FC = () => {
     // Defer locale side-effect to useEffect to avoid setState-during-render
     return { route: parsed.route, locale: parsed.locale };
   });
-  const [activeTab, setActiveTab] = useState<'calculator' | 'feedback' | 'stats' | 'pension' | 'guide' | 'comparatori' | 'privacy' | 'data-deletion' | 'api-status' | 'gamification'>(initialRoute.route.activeTab);
-  const [comparatoriSubTab, setComparatoriSubTab] = useState<'exchange' | 'mobile' | 'transport' | 'health' | 'banks' | 'traffic' | 'jobs' | 'shopping' | 'cost-of-living'>(initialRoute.route.comparatoriSubTab || 'exchange');
+  const [activeTab, setActiveTab] = useState<'calculator' | 'feedback' | 'stats' | 'pension' | 'guide' | 'comparatori' | 'privacy' | 'data-deletion' | 'api-status' | 'gamification' | 'dashboard'>(initialRoute.route.activeTab);
+  const [comparatoriSubTab, setComparatoriSubTab] = useState<'exchange' | 'mobile' | 'transport' | 'health' | 'banks' | 'traffic' | 'jobs' | 'shopping' | 'cost-of-living' | 'ral' | 'parental-leave' | 'border-map' | 'residency'>(initialRoute.route.comparatoriSubTab || 'exchange');
   const [simulatorSubTab, setSimulatorSubTab] = useState<'calculator' | 'whatif'>(initialRoute.route.simulatorSubTab || 'calculator');
   const [pensionSubTab, setPensionSubTab] = useState<'planner' | 'pillar3'>(initialRoute.route.pensionSubTab || 'planner');
   const [guideSection, setGuideSection] = useState<string>(initialRoute.route.guideSection || 'municipalities');
@@ -135,7 +140,7 @@ const App: React.FC = () => {
     }
   };
 
-  const handleTabChange = (tab: 'calculator' | 'feedback' | 'stats' | 'pension' | 'guide' | 'comparatori') => {
+  const handleTabChange = (tab: 'calculator' | 'feedback' | 'stats' | 'pension' | 'guide' | 'comparatori' | 'dashboard') => {
     const previousTab = activeTab;
     setActiveTab(tab);
     Analytics.trackTabNavigation(previousTab, tab);
@@ -378,7 +383,7 @@ const App: React.FC = () => {
         {activeTab === 'comparatori' && (
           <div className="border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
-              <div className="grid grid-cols-5 sm:grid-cols-5 md:grid-cols-9 gap-1.5">
+              <div className="grid grid-cols-5 sm:grid-cols-5 md:grid-cols-13 gap-1.5">
                 {([
                   { key: 'exchange' as const, icon: ArrowRightLeft, label: t('comparators.exchange') },
                   { key: 'traffic' as const, icon: AlertTriangle, label: t('comparators.traffic') },
@@ -389,6 +394,10 @@ const App: React.FC = () => {
                   { key: 'jobs' as const, icon: Briefcase, label: t('comparators.jobs') },
                   { key: 'shopping' as const, icon: ShoppingCart, label: t('comparators.shopping') },
                   { key: 'cost-of-living' as const, icon: Euro, label: t('comparators.costOfLiving') },
+                  { key: 'ral' as const, icon: ClipboardList, label: t('comparators.ral') },
+                  { key: 'parental-leave' as const, icon: Baby, label: t('comparators.parentalLeave') },
+                  { key: 'border-map' as const, icon: Map, label: t('comparators.borderMap') },
+                  { key: 'residency' as const, icon: Home, label: t('comparators.residency') },
                 ] as const).map(({ key, icon: Icon, label }) => (
                   <button
                     key={key}
@@ -517,6 +526,14 @@ const App: React.FC = () => {
                 <ShoppingCalculator />
               ) : comparatoriSubTab === 'cost-of-living' ? (
                 <CostOfLiving />
+              ) : comparatoriSubTab === 'ral' ? (
+                <RalComparator />
+              ) : comparatoriSubTab === 'parental-leave' ? (
+                <ParentalLeaveCalculator />
+              ) : comparatoriSubTab === 'border-map' ? (
+                <BorderMunicipalitiesMap />
+              ) : comparatoriSubTab === 'residency' ? (
+                <ResidencySimulator />
               ) : (
                 <TrafficAlerts />
               )}
@@ -536,6 +553,10 @@ const App: React.FC = () => {
           ) : activeTab === 'gamification' ? (
             <div className="max-w-5xl mx-auto animate-fade-in">
               <GamificationPage />
+            </div>
+          ) : activeTab === 'dashboard' ? (
+            <div className="max-w-7xl mx-auto animate-fade-in">
+              <PersonalDashboard currentResult={result} currentInputs={inputs} />
             </div>
           ) : activeTab === 'api-status' ? (
             <div className="max-w-5xl mx-auto animate-fade-in">

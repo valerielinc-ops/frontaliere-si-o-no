@@ -3,13 +3,14 @@ import { useTranslation } from '../services/i18n';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
-import { MapPin, Clock, TrendingUp, Home, Car, ShoppingCart, FileText, AlertCircle, CheckCircle2, Info, ArrowRight, Building2, Landmark, Shield, Users, Navigation, Timer, BarChart3, Euro, Heart, Briefcase, Calendar, Mountain, GraduationCap, Baby, BookOpen, LifeBuoy, Search, Filter, Star, ExternalLink } from 'lucide-react';
+import { MapPin, Clock, TrendingUp, Home, Car, ShoppingCart, FileText, AlertCircle, CheckCircle2, Info, ArrowRight, Building2, Landmark, Shield, Users, Navigation, Timer, BarChart3, Euro, Heart, Briefcase, Calendar, Mountain, GraduationCap, Baby, BookOpen, LifeBuoy, Search, Filter, Star, ExternalLink, Rocket } from 'lucide-react';
 import { Analytics } from '../services/analytics';
 import { updateMetaTags, trackSectionView } from '../services/seoService';
 import { pushRoute } from '../services/router';
 import TaxCalendar from './TaxCalendar';
 import WorkPermitsGuide from './WorkPermitsGuide';
 import TicinoCompanies from './TicinoCompanies';
+import FirstDayGuide from './FirstDayGuide';
 
 import { borderCrossings as centralizedBorderCrossings } from '../data/borderCrossings';
 
@@ -89,7 +90,7 @@ interface FrontierGuideProps {
   activeSection?: string;
 }
 
-type GuideSection = 'municipalities' | 'living-ch' | 'living-it' | 'border' | 'calendar' | 'holidays' | 'permits' | 'companies' | 'places' | 'schools' | 'unemployment';
+type GuideSection = 'municipalities' | 'living-ch' | 'living-it' | 'border' | 'calendar' | 'holidays' | 'permits' | 'companies' | 'places' | 'schools' | 'unemployment' | 'first-day';
 
 // ══════════ SCHOOL DIRECTORY DATA ══════════
 interface SchoolEntry {
@@ -590,6 +591,17 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
         >
           <LifeBuoy size={16} />
           {t('guide.tabs.unemployment')}
+        </button>
+        <button
+          onClick={() => handleSectionChange('first-day')}
+          className={`px-4 py-2.5 rounded-xl font-bold text-sm transition-all flex items-center gap-2 ${
+            activeSection === 'first-day'
+              ? 'bg-sky-600 text-white shadow-lg scale-105'
+              : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700'
+          }`}
+        >
+          <Rocket size={16} />
+          {t('guide.tabs.firstDay')}
         </button>
       </div>
 
@@ -2280,6 +2292,12 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
               </a>
             </div>
           </InfoCard>
+        </div>
+      )}
+
+      {activeSection === 'first-day' && (
+        <div className="animate-fade-in">
+          <FirstDayGuide />
         </div>
       )}
     </div>

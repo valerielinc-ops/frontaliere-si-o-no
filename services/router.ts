@@ -18,11 +18,11 @@ import { getLocale, type Locale } from './i18n';
 
 // ── Route types ──────────────────────────────────────────────
 
-type ActiveTab = 'calculator' | 'feedback' | 'stats' | 'pension' | 'guide' | 'comparatori' | 'privacy' | 'data-deletion' | 'api-status' | 'gamification';
-type ComparatoriSubTab = 'exchange' | 'mobile' | 'transport' | 'health' | 'banks' | 'traffic' | 'jobs' | 'shopping' | 'cost-of-living';
+type ActiveTab = 'calculator' | 'feedback' | 'stats' | 'pension' | 'guide' | 'comparatori' | 'privacy' | 'data-deletion' | 'api-status' | 'gamification' | 'dashboard';
+type ComparatoriSubTab = 'exchange' | 'mobile' | 'transport' | 'health' | 'banks' | 'traffic' | 'jobs' | 'shopping' | 'cost-of-living' | 'ral' | 'parental-leave' | 'border-map' | 'residency';
 type SimulatorSubTab = 'calculator' | 'whatif';
 type PensionSubTab = 'planner' | 'pillar3';
-type GuideSection = 'municipalities' | 'living-ch' | 'living-it' | 'border' | 'calendar' | 'holidays' | 'permits' | 'companies' | 'places' | 'schools' | 'unemployment';
+type GuideSection = 'municipalities' | 'living-ch' | 'living-it' | 'border' | 'calendar' | 'holidays' | 'permits' | 'companies' | 'places' | 'schools' | 'unemployment' | 'first-day';
 
 export interface AppRoute {
   activeTab: ActiveTab;
@@ -73,6 +73,13 @@ interface SlugTable {
   schools: string;
   unemployment: string;
   gamification: string;
+  // new feature slugs
+  ral: string;
+  parentalLeave: string;
+  borderMap: string;
+  residency: string;
+  firstDay: string;
+  dashboard: string;
 }
 
 const SLUG_TABLES: Record<Locale, SlugTable> = {
@@ -110,6 +117,12 @@ const SLUG_TABLES: Record<Locale, SlugTable> = {
     schools: 'scuole-ticino',
     unemployment: 'disoccupazione',
     gamification: 'gamificazione',
+    ral: 'confronto-ral',
+    parentalLeave: 'congedo-genitoriale',
+    borderMap: 'mappa-comuni',
+    residency: 'cambio-residenza',
+    firstDay: 'primo-giorno',
+    dashboard: 'dashboard',
   },
   en: {
     comparatori: 'comparators',
@@ -145,6 +158,12 @@ const SLUG_TABLES: Record<Locale, SlugTable> = {
     schools: 'schools-ticino',
     unemployment: 'unemployment',
     gamification: 'gamification',
+    ral: 'salary-comparison',
+    parentalLeave: 'parental-leave',
+    borderMap: 'border-map',
+    residency: 'residency-change',
+    firstDay: 'first-day',
+    dashboard: 'dashboard',
   },
   de: {
     comparatori: 'vergleiche',
@@ -180,6 +199,12 @@ const SLUG_TABLES: Record<Locale, SlugTable> = {
     schools: 'schulen-tessin',
     unemployment: 'arbeitslosigkeit',
     gamification: 'gamification',
+    ral: 'gehaltsvergleich',
+    parentalLeave: 'elternzeit',
+    borderMap: 'grenzkarte',
+    residency: 'wohnsitzwechsel',
+    firstDay: 'erster-tag',
+    dashboard: 'dashboard',
   },
   fr: {
     comparatori: 'comparateurs',
@@ -215,6 +240,12 @@ const SLUG_TABLES: Record<Locale, SlugTable> = {
     schools: 'ecoles-tessin',
     unemployment: 'chomage',
     gamification: 'gamification',
+    ral: 'comparaison-salaire',
+    parentalLeave: 'conge-parental',
+    borderMap: 'carte-frontiere',
+    residency: 'changement-residence',
+    firstDay: 'premier-jour',
+    dashboard: 'tableau-de-bord',
   },
 };
 
@@ -236,6 +267,10 @@ const COMPARATORI_SUB_TO_SLUG: Record<ComparatoriSubTab, keyof SlugTable & strin
   jobs: 'jobs',
   shopping: 'shopping',
   'cost-of-living': 'costOfLiving',
+  ral: 'ral',
+  'parental-leave': 'parentalLeave',
+  'border-map': 'borderMap',
+  residency: 'residency',
 };
 const COMPARATORI_KEYS: (keyof SlugTable & string)[] = Object.values(COMPARATORI_SUB_TO_SLUG);
 const GUIDE_KEYS: { key: keyof SlugTable; id: GuideSection }[] = [
@@ -250,6 +285,7 @@ const GUIDE_KEYS: { key: keyof SlugTable; id: GuideSection }[] = [
   { key: 'places', id: 'places' },
   { key: 'schools', id: 'schools' },
   { key: 'unemployment', id: 'unemployment' },
+  { key: 'firstDay', id: 'first-day' },
 ];
 
 // Builds a single-locale reverse map for comparatori slugs
@@ -301,6 +337,7 @@ function buildTopLevelReverse(table: SlugTable): TopLevelSlugMap {
     [table.apiStatus]: { tab: 'api-status' },
     [table.newsletter]: { tab: 'feedback' },
     [table.gamification]: { tab: 'gamification' },
+    [table.dashboard]: { tab: 'dashboard' },
   };
 }
 
@@ -482,6 +519,8 @@ export function buildPath(route: AppRoute, locale?: Locale): string {
       return `${prefix}/${table.apiStatus}`;
     case 'gamification':
       return `${prefix}/${table.gamification}`;
+    case 'dashboard':
+      return `${prefix}/${table.dashboard}`;
     default:
       return prefix || '/';
   }
@@ -524,6 +563,7 @@ export function getSeoSection(route: AppRoute): string {
         places: 'places',
         schools: 'schools',
         unemployment: 'unemployment',
+        'first-day': 'firstDay',
       };
       return seoMap[section] || 'guide';
     }

@@ -4,12 +4,13 @@ import { buildPath, parsePath } from '@/services/router';
 const ALL_COMPARATORI_SUBTABS = [
   'exchange', 'mobile', 'transport', 'health', 'banks',
   'traffic', 'jobs', 'shopping', 'cost-of-living',
+  'ral', 'parental-leave', 'border-map', 'residency',
 ] as const;
 
 const ALL_GUIDE_SECTIONS = [
   'municipalities', 'living-ch', 'living-it', 'border',
   'calendar', 'holidays', 'permits', 'companies',
-  'places', 'schools', 'unemployment',
+  'places', 'schools', 'unemployment', 'first-day',
 ] as const;
 
 const ALL_LOCALES = ['it', 'en', 'de', 'fr'] as const;
@@ -103,5 +104,32 @@ describe('Router — gamification tab', () => {
   it('[en] uses /gamification slug', () => {
     const path = buildPath({ activeTab: 'gamification' }, 'en');
     expect(path).toContain('gamification');
+  });
+});
+
+describe('Router — dashboard tab', () => {
+  for (const locale of ALL_LOCALES) {
+    it(`[${locale}] dashboard → valid path`, () => {
+      const path = buildPath({ activeTab: 'dashboard' }, locale);
+      expect(path).toBeDefined();
+      expect(path).not.toContain('undefined');
+      expect(path).toMatch(/^\/[a-z0-9/-]+$/);
+    });
+
+    it(`[${locale}] dashboard roundtrips`, () => {
+      const path = buildPath({ activeTab: 'dashboard' }, locale);
+      const { route } = parsePath(path);
+      expect(route.activeTab).toBe('dashboard');
+    });
+  }
+
+  it('[it] uses /dashboard slug', () => {
+    const path = buildPath({ activeTab: 'dashboard' }, 'it');
+    expect(path).toContain('dashboard');
+  });
+
+  it('[fr] uses /tableau-de-bord slug', () => {
+    const path = buildPath({ activeTab: 'dashboard' }, 'fr');
+    expect(path).toContain('tableau-de-bord');
   });
 });
