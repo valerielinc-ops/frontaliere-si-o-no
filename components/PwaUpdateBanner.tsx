@@ -14,16 +14,29 @@ const PwaUpdateBanner: React.FC = () => {
 
   useEffect(() => {
     // Dynamically import to avoid SSR/test issues
+    let intervalId: ReturnType<typeof setInterval> | undefined;
     const register = async () => {
       try {
         const { registerSW } = await import('virtual:pwa-register');
         const update = registerSW({
+          immediate: true,
           onNeedRefresh() {
             setNeedRefresh(true);
             Analytics.trackUIInteraction('app', 'pwa_update', 'nuovo_aggiornamento', 'disponibile');
           },
           onOfflineReady() {
             // SW cached everything, app is ready for offline use
+          },
+          onRegistered(registration) {
+            // Periodically check for SW updates (every 60 minutes)
+            if (registration) {
+              intervalId = setInterval(() => {
+                registration.update();
+              }, 60 * 60 * 1000);
+            }
+          },
+          onRegisterError(error) {
+            console.warn('[PWA] SW registration error:', error);
           },
         });
         setUpdateSW(() => update);
@@ -32,6 +45,7 @@ const PwaUpdateBanner: React.FC = () => {
       }
     };
     register();
+    return () => { if (intervalId) clearInterval(intervalId); };
   }, []);
 
   const handleUpdate = useCallback(async () => {

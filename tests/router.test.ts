@@ -78,3 +78,30 @@ describe('Router — backward compatibility', () => {
     expect(route.comparatoriSubTab).toBe('cost-of-living');
   });
 });
+
+describe('Router — gamification tab', () => {
+  for (const locale of ALL_LOCALES) {
+    it(`[${locale}] gamification → valid path`, () => {
+      const path = buildPath({ activeTab: 'gamification' }, locale);
+      expect(path).toBeDefined();
+      expect(path).not.toContain('undefined');
+      expect(path).toMatch(/^\/[a-z0-9/-]+$/);
+    });
+
+    it(`[${locale}] gamification roundtrips`, () => {
+      const path = buildPath({ activeTab: 'gamification' }, locale);
+      const { route } = parsePath(path);
+      expect(route.activeTab).toBe('gamification');
+    });
+  }
+
+  it('[it] uses /gamificazione slug', () => {
+    const path = buildPath({ activeTab: 'gamification' }, 'it');
+    expect(path).toContain('gamificazione');
+  });
+
+  it('[en] uses /gamification slug', () => {
+    const path = buildPath({ activeTab: 'gamification' }, 'en');
+    expect(path).toContain('gamification');
+  });
+});

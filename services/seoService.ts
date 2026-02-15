@@ -20,11 +20,11 @@ const BASE_URL = 'https://www.frontaliereticino.ch';
 
 export const SEO_METADATA: Record<string, SEOMetadata> = {
   calculator: {
-    title: 'Simulatore Fiscale Frontalieri 2026 | Calcolo Tasse CH-IT',
+    title: 'Frontaliere Ticino 2026 | Simulatore Fiscale, Pensione e Guida Completa CH-IT',
     description: 'Calcola il tuo stipendio netto come frontaliere Svizzera-Italia. Confronta Vecchio vs Nuovo accordo 2026, imposta alla fonte Canton Ticino e IRPEF Italia. Simulazione gratuita e precisa.',
-    keywords: 'simulatore frontalieri, calcolo tasse svizzera, stipendio netto ticino, imposta alla fonte, nuovo accordo frontalieri 2026, vecchio frontaliere, confronto fiscale ch-it, aliquota ticino',
-    ogTitle: 'Simulatore Fiscale Frontalieri 2026 | Calcola Tasse e Stipendio Netto',
-    ogDescription: '🧮 Calcola il tuo stipendio netto come frontaliere. Confronta tassazione Vecchio vs Nuovo accordo 2026 e scopri la convenienza fiscale Canton Ticino.',
+    keywords: 'simulatore frontalieri, calcolo tasse svizzera, stipendio netto ticino, imposta alla fonte, nuovo accordo frontalieri 2026, vecchio frontaliere, confronto fiscale ch-it, aliquota ticino, pensione frontalieri, cambio chf eur',
+    ogTitle: 'Frontaliere Ticino 2026 | Simulatore Fiscale, Pensione e Guida CH-IT',
+    ogDescription: '🧮 Strumento completo per frontalieri: simulatore fiscale (Vecchio vs Nuovo 2026), pensione AVS/LPP, cambio CHF-EUR, assicurazioni LAMal e guida con 200+ comuni. Gratuito!',
     canonicalPath: '/',
     structuredData: {
       "@context": "https://schema.org",
@@ -65,6 +65,16 @@ export const SEO_METADATA: Record<string, SEOMetadata> = {
     ogTitle: 'Cambio CHF/EUR in Tempo Reale | Confronto Tassi e Commissioni',
     ogDescription: '💱 Confronta i tassi di cambio CHF/EUR di 6 provider (Wise, Revolut, PostFinance). Risparmia sulle commissioni con il confronto in tempo reale!',
     canonicalPath: '/comparatori/cambio-valuta',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Comparatore Cambio CHF/EUR",
+      "url": `${BASE_URL}/comparatori/cambio-valuta`,
+      "description": "Confronto tassi di cambio CHF/EUR in tempo reale tra 6 provider: Wise, Revolut, PostFinance, UBS, Raiffeisen, N26",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Web Browser",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CHF" }
+    }
   },
 
   mobile: {
@@ -74,6 +84,14 @@ export const SEO_METADATA: Record<string, SEOMetadata> = {
     ogTitle: 'Operatori Mobili Svizzera per Frontalieri | Confronto con Roaming',
     ogDescription: '📱 Confronta 6 operatori mobili svizzeri con roaming illimitato in Italia. Costi reali mensili da CHF 9.95/mese. Trova il piano migliore per frontalieri!',
     canonicalPath: '/comparatori/operatori-mobili',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Confronto Operatori Mobili per Frontalieri",
+      "url": `${BASE_URL}/comparatori/operatori-mobili`,
+      "description": "Confronto costi mensili di 6 operatori mobili svizzeri con roaming illimitato in Italia",
+      "about": { "@type": "Product", "category": "Mobile Phone Plans" }
+    }
   },
 
   transport: {
@@ -83,6 +101,16 @@ export const SEO_METADATA: Record<string, SEOMetadata> = {
     ogTitle: 'Calcolo Costi Trasporto Frontalieri | Auto vs Treno',
     ogDescription: '🚗 Calcola i costi reali di trasporto per frontalieri. Confronta auto, treno e bus per trovare la soluzione più conveniente!',
     canonicalPath: '/comparatori/trasporti',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Calcolatore Costi Trasporto Frontalieri",
+      "url": `${BASE_URL}/comparatori/trasporti`,
+      "description": "Calcola e confronta i costi reali di trasporto per frontalieri: auto, treno e bus",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Web Browser",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CHF" }
+    }
   },
 
   health: {
@@ -92,6 +120,16 @@ export const SEO_METADATA: Record<string, SEOMetadata> = {
     ogTitle: 'Assicurazioni Sanitarie Ticino | Confronto Casse Malati 2026',
     ogDescription: '🏥 Confronta 5 casse malati in Ticino. Premi mensili da CHF 290, franchigie da CHF 300. Trova l\'assicurazione sanitaria più conveniente!',
     canonicalPath: '/comparatori/assicurazioni-sanitarie',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Comparatore Assicurazioni Sanitarie LAMal",
+      "url": `${BASE_URL}/comparatori/assicurazioni-sanitarie`,
+      "description": "Confronta premi assicurazione sanitaria LAMal di 14 assicuratori svizzeri in 7 cantoni",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Web Browser",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CHF" }
+    }
   },
 
   banks: {
@@ -101,6 +139,13 @@ export const SEO_METADATA: Record<string, SEOMetadata> = {
     ogTitle: 'Banche per Frontalieri | Confronto Conti CH-IT',
     ogDescription: '🏦 Confronta 8 banche svizzere e italiane. Costi gestione, carte incluse e servizi per frontalieri. Scegli il conto migliore!',
     canonicalPath: '/comparatori/banche',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Confronto Banche per Frontalieri",
+      "url": `${BASE_URL}/comparatori/banche`,
+      "description": "Confronto conti correnti e servizi bancari tra banche svizzere e italiane per lavoratori frontalieri"
+    }
   },
 
   traffic: {
@@ -110,6 +155,13 @@ export const SEO_METADATA: Record<string, SEOMetadata> = {
     ogTitle: 'Traffico Valichi CH-IT in Tempo Reale | Tempi Attesa Dogane',
     ogDescription: '🚦 Controlla il traffico in tempo reale a 8 valichi doganali Svizzera-Italia. Tempi di attesa aggiornati e percorsi alternativi per evitare code!',
     canonicalPath: '/comparatori/traffico-valichi',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Traffico Valichi Doganali in Tempo Reale",
+      "url": `${BASE_URL}/comparatori/traffico-valichi`,
+      "description": "Tempi di attesa in tempo reale ai valichi doganali Svizzera-Italia con percorsi alternativi"
+    }
   },
 
   pension: {
@@ -158,6 +210,14 @@ export const SEO_METADATA: Record<string, SEOMetadata> = {
     ogTitle: 'Statistiche Frontalieri 2026 | Dati Salari e Preferenze CH-IT',
     ogDescription: '📈 Statistiche aggiornate sui frontalieri: distribuzione salari, comuni più scelti, preferenze fiscali e tendenze Canton Ticino 2026.',
     canonicalPath: '/statistiche',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Statistiche Frontalieri Svizzera-Italia 2026",
+      "url": `${BASE_URL}/statistiche`,
+      "description": "Dati statistici su salari, comuni più scelti e preferenze fiscali dei lavoratori frontalieri in Canton Ticino",
+      "about": { "@type": "Dataset", "name": "Statistiche Frontalieri 2026" }
+    }
   },
 
   feedback: {
@@ -167,6 +227,13 @@ export const SEO_METADATA: Record<string, SEOMetadata> = {
     ogTitle: 'Contatti e Supporto Frontalieri | Chiedi Aiuto',
     ogDescription: '💬 Hai domande sul lavoro frontaliero? Contattaci per supporto su tasse, pensione, servizi e comparatori!',
     canonicalPath: '/supporto',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "ContactPage",
+      "name": "Contatti e Supporto Frontalieri",
+      "url": `${BASE_URL}/supporto`,
+      "description": "Pagina di contatto e supporto per il simulatore fiscale frontalieri Svizzera-Italia"
+    }
   },
 
   // New sections
@@ -177,6 +244,16 @@ export const SEO_METADATA: Record<string, SEOMetadata> = {
     ogTitle: 'Simulatore What-If | Scenari Fiscali per Frontalieri',
     ogDescription: '🔮 Scopri come cambiano le tue tasse con scenari what-if: figlio, stipendio, residenza. Simulazione in tempo reale!',
     canonicalPath: '/simulatore-what-if',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Simulatore What-If Frontalieri",
+      "url": `${BASE_URL}/simulatore-what-if`,
+      "description": "Simulazione scenari fiscali per frontalieri: come cambiano le tasse con figlio, stipendio diverso, stato civile",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Web Browser",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CHF" }
+    }
   },
 
   jobs: {
@@ -186,6 +263,16 @@ export const SEO_METADATA: Record<string, SEOMetadata> = {
     ogTitle: 'Confronto Offerte Lavoro Svizzera | Netto Reale Frontalieri',
     ogDescription: '💼 Confronta offerte di lavoro in Svizzera con calcolo netto reale: tasse, trasporto, tempo e benefit inclusi.',
     canonicalPath: '/comparatori/offerte-lavoro',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Confronto Offerte Lavoro Svizzera",
+      "url": `${BASE_URL}/comparatori/offerte-lavoro`,
+      "description": "Confronta fino a 4 offerte di lavoro in Svizzera con calcolo netto reale: tasse, trasporto, benefit",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Web Browser",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CHF" }
+    }
   },
 
   calendar: {
@@ -195,6 +282,16 @@ export const SEO_METADATA: Record<string, SEOMetadata> = {
     ogTitle: 'Calendario Fiscale 2026 | Scadenze Tasse per Frontalieri',
     ogDescription: '📅 Tutte le scadenze fiscali 2026 per frontalieri: IRPEF, 730, imposta alla fonte. Con countdown e documenti necessari!',
     canonicalPath: '/guida-frontalieri/calendario-fiscale',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Calendario Scadenze Fiscali 2026 per Frontalieri CH-IT",
+      "url": `${BASE_URL}/guida-frontalieri/calendario-fiscale`,
+      "description": "Tutte le scadenze fiscali 2026 per frontalieri: IRPEF, 730, imposta alla fonte, AVS con countdown e documenti necessari",
+      "author": { "@type": "Organization", "name": "Frontaliere Si o No" },
+      "datePublished": "2026-01-01",
+      "dateModified": "2026-02-15"
+    }
   },
 
   permits: {
@@ -204,6 +301,16 @@ export const SEO_METADATA: Record<string, SEOMetadata> = {
     ogTitle: 'Permessi Lavoro Svizzera | Guida G, B, C, L per Frontalieri',
     ogDescription: '🛂 Guida completa ai permessi di lavoro svizzeri: requisiti, documenti, costi e diritti per ogni tipo di permesso.',
     canonicalPath: '/guida-frontalieri/permessi-lavoro',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Permessi Lavoro Svizzera G, B, C, L - Guida Completa 2026",
+      "url": `${BASE_URL}/guida-frontalieri/permessi-lavoro`,
+      "description": "Guida completa ai permessi di lavoro in Svizzera: G (frontalieri), B (dimora), C (domicilio), L (breve durata)",
+      "author": { "@type": "Organization", "name": "Frontaliere Si o No" },
+      "datePublished": "2026-01-01",
+      "dateModified": "2026-02-15"
+    }
   },
 
   pillar3: {
@@ -213,6 +320,16 @@ export const SEO_METADATA: Record<string, SEOMetadata> = {
     ogTitle: 'Simulatore 3° Pilastro | Risparmio Fiscale Svizzera',
     ogDescription: '💰 Calcola quanto risparmi con il 3° pilastro: deducibilità fiscale, proiezione rendimento e confronto 3a vs 3b.',
     canonicalPath: '/pianificatore-pensione/terzo-pilastro',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Simulatore 3° Pilastro Svizzera",
+      "url": `${BASE_URL}/pianificatore-pensione/terzo-pilastro`,
+      "description": "Calcola risparmio fiscale e crescita del 3° pilastro svizzero (3a e 3b) con proiezione a lungo termine",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Web Browser",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CHF" }
+    }
   },
 
   newsletter: {
@@ -222,6 +339,13 @@ export const SEO_METADATA: Record<string, SEOMetadata> = {
     ogTitle: 'Newsletter Frontalieri | Aggiornamenti Settimanali Gratuiti',
     ogDescription: '📬 Iscriviti alla newsletter per frontalieri: cambio CHF/EUR, traffico ai valichi e novità fiscali ogni settimana!',
     canonicalPath: '/newsletter',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Newsletter Frontalieri",
+      "url": `${BASE_URL}/newsletter`,
+      "description": "Newsletter settimanale per frontalieri con cambio CHF/EUR, traffico valichi e novità fiscali"
+    }
   },
 
   shopping: {
@@ -277,6 +401,16 @@ export const SEO_METADATA: Record<string, SEOMetadata> = {
     ogTitle: 'Vivere in Svizzera | Guida Completa per Frontalieri',
     ogDescription: '🇨🇭 Guida completa su vivere in Svizzera: affitti, sanità, scuole, trasporti e burocrazia nel Canton Ticino.',
     canonicalPath: '/guida-frontalieri/vivere-in-svizzera',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Vivere in Svizzera: Guida Completa per Frontalieri e Residenti",
+      "url": `${BASE_URL}/guida-frontalieri/vivere-in-svizzera`,
+      "description": "Tutto su vivere in Svizzera: costo della vita, affitti, sanità LAMal, scuole e burocrazia nel Canton Ticino",
+      "author": { "@type": "Organization", "name": "Frontaliere Si o No" },
+      "datePublished": "2026-01-01",
+      "dateModified": "2026-02-15"
+    }
   },
 
   livingIT: {
@@ -286,6 +420,16 @@ export const SEO_METADATA: Record<string, SEOMetadata> = {
     ogTitle: 'Vivere in Italia come Frontaliere | Vantaggi e Svantaggi',
     ogDescription: '🇮🇹 Pro e contro di vivere in Italia lavorando in Svizzera: costi, detrazioni, sanità e qualità della vita.',
     canonicalPath: '/guida-frontalieri/vivere-in-italia',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Vivere in Italia come Frontaliere: Vantaggi e Svantaggi",
+      "url": `${BASE_URL}/guida-frontalieri/vivere-in-italia`,
+      "description": "Pro e contro di vivere in Italia lavorando in Svizzera: costi, detrazioni, sanità SSN nelle province di frontiera",
+      "author": { "@type": "Organization", "name": "Frontaliere Si o No" },
+      "datePublished": "2026-01-01",
+      "dateModified": "2026-02-15"
+    }
   },
 
   border: {
@@ -295,6 +439,16 @@ export const SEO_METADATA: Record<string, SEOMetadata> = {
     ogTitle: 'Valichi di Frontiera CH-IT | Orari e Percorsi Alternativi',
     ogDescription: '🛃 Guida ai valichi doganali Svizzera-Italia: orari, tempi di attesa e percorsi alternativi per evitare code.',
     canonicalPath: '/guida-frontalieri/valichi-frontiera',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Valichi di Frontiera Svizzera-Italia: Orari, Traffico e Percorsi",
+      "url": `${BASE_URL}/guida-frontalieri/valichi-frontiera`,
+      "description": "Guida completa ai valichi doganali CH-IT: Chiasso, Ponte Tresa, Gaggiolo, Brogeda, Stabio con orari e percorsi alternativi",
+      "author": { "@type": "Organization", "name": "Frontaliere Si o No" },
+      "datePublished": "2026-01-01",
+      "dateModified": "2026-02-15"
+    }
   },
 
   costs: {
@@ -304,6 +458,16 @@ export const SEO_METADATA: Record<string, SEOMetadata> = {
     ogTitle: 'Costi Pendolarismo Frontaliere | Calcolo Spese Viaggio',
     ogDescription: '🚗 Calcola quanto spendi di pendolarismo: auto, treno, bus. Confronta le opzioni per risparmiare!',
     canonicalPath: '/guida-frontalieri/costi-pendolarismo',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Calcolatore Costi Pendolarismo Frontaliere",
+      "url": `${BASE_URL}/guida-frontalieri/costi-pendolarismo`,
+      "description": "Calcola costi reali del pendolarismo frontaliere: benzina, autostrada, usura auto, abbonamenti treno e bus",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Web Browser",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CHF" }
+    }
   },
 
   companies: {
@@ -313,6 +477,16 @@ export const SEO_METADATA: Record<string, SEOMetadata> = {
     ogTitle: 'Aziende che Assumono in Ticino | Opportunità per Frontalieri',
     ogDescription: '🏢 Scopri le migliori aziende che assumono nel Canton Ticino: settori, stipendi e link alle pagine carriere.',
     canonicalPath: '/guida-frontalieri/aziende-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Aziende che Assumono in Ticino: Settori e Opportunità Lavoro",
+      "url": `${BASE_URL}/guida-frontalieri/aziende-ticino`,
+      "description": "Principali aziende che assumono frontalieri nel Canton Ticino: settori tecnologia, finanza, farmaceutico, industria e servizi",
+      "author": { "@type": "Organization", "name": "Frontaliere Si o No" },
+      "datePublished": "2026-01-01",
+      "dateModified": "2026-02-15"
+    }
   },
 
   places: {
@@ -322,6 +496,16 @@ export const SEO_METADATA: Record<string, SEOMetadata> = {
     ogTitle: 'Posti da Visitare in Ticino | Natura, Cultura e Famiglia',
     ogDescription: '🏔️ Scopri i posti più belli del Canton Ticino: montagne, laghi, città, eventi e attività per famiglie. Guida per frontalieri!',
     canonicalPath: '/guida-frontalieri/posti-da-visitare',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Posti da Visitare in Ticino: Natura, Cultura e Attività",
+      "url": `${BASE_URL}/guida-frontalieri/posti-da-visitare`,
+      "description": "Guida ai posti più belli del Canton Ticino: montagne, laghi, città, cultura e attività per famiglie",
+      "author": { "@type": "Organization", "name": "Frontaliere Si o No" },
+      "datePublished": "2026-01-01",
+      "dateModified": "2026-02-15"
+    }
   },
 
   schools: {
@@ -331,6 +515,16 @@ export const SEO_METADATA: Record<string, SEOMetadata> = {
     ogTitle: 'Scuole in Ticino per Frontalieri | Guida Completa per Età',
     ogDescription: '🎓 Guida alle scuole del Canton Ticino per frontalieri: tipi per età, costi, orari e scuole vicine ai valichi di frontiera.',
     canonicalPath: '/guida-frontalieri/scuole-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Scuole in Ticino per Frontalieri: dalla Materna al Liceo",
+      "url": `${BASE_URL}/guida-frontalieri/scuole-ticino`,
+      "description": "Guida completa alle scuole del Canton Ticino per frontalieri: nido, infanzia, elementare, media, liceo con costi e orari",
+      "author": { "@type": "Organization", "name": "Frontaliere Si o No" },
+      "datePublished": "2026-01-01",
+      "dateModified": "2026-02-15"
+    }
   },
   unemployment: {
     title: 'Disoccupazione Frontalieri | NASpI Italia e AD Svizzera - Procedure e Importi',
@@ -339,6 +533,16 @@ export const SEO_METADATA: Record<string, SEOMetadata> = {
     ogTitle: 'Disoccupazione per Frontalieri | NASpI e AD Svizzera',
     ogDescription: '📋 Guida completa alla disoccupazione per frontalieri: NASpI Italia, AD/ALV Svizzera, procedure, importi e confronto tra i due sistemi.',
     canonicalPath: '/guida-frontalieri/disoccupazione',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Disoccupazione Frontalieri: NASpI Italia e AD Svizzera",
+      "url": `${BASE_URL}/guida-frontalieri/disoccupazione`,
+      "description": "Guida completa alla disoccupazione per frontalieri: NASpI, AD/ALV, formulario PD U1, importi e procedure passo per passo",
+      "author": { "@type": "Organization", "name": "Frontaliere Si o No" },
+      "datePublished": "2026-01-01",
+      "dateModified": "2026-02-15"
+    }
   },
 
   holidays: {
@@ -348,6 +552,16 @@ export const SEO_METADATA: Record<string, SEOMetadata> = {
     ogTitle: 'Festività Ticino 2026 | Giorni Festivi per Frontalieri',
     ogDescription: '📅 Calendario completo delle festività del Canton Ticino 2026: giorni festivi, ponti e confronto con le festività italiane.',
     canonicalPath: '/guida-frontalieri/festivita-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Festività Canton Ticino 2026: Calendario Giorni Festivi per Frontalieri",
+      "url": `${BASE_URL}/guida-frontalieri/festivita-ticino`,
+      "description": "Calendario completo delle festività ufficiali del Canton Ticino 2026: giorni festivi cantonali e federali, ponti e confronto con Italia",
+      "author": { "@type": "Organization", "name": "Frontaliere Si o No" },
+      "datePublished": "2026-01-01",
+      "dateModified": "2026-02-15"
+    }
   },
 };
 

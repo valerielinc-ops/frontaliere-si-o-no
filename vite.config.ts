@@ -19,7 +19,7 @@ export default defineConfig(({ mode }) => {
         react(),
         VitePWA({
           registerType: 'prompt',
-          includeAssets: ['favicon.svg', 'robots.txt'],
+          includeAssets: ['favicon.svg', 'robots.txt', 'icons/icon-192x192.png', 'icons/icon-512x512.png'],
           manifest: {
             name: 'Frontaliere Si o No? — Simulatore Fiscale',
             short_name: 'Frontaliere',
@@ -53,6 +53,8 @@ export default defineConfig(({ mode }) => {
           workbox: {
             maximumFileSizeToCacheInBytes: 3 * 1024 * 1024,
             globPatterns: ['**/*.{js,css,html,ico,png,svg,woff2}'],
+            clientsClaim: true,
+            skipWaiting: false,
             runtimeCaching: [
               {
                 urlPattern: /^https:\/\/api\.frankfurter\.app\/.*/i,

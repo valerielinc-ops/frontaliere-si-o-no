@@ -18,7 +18,7 @@ import { getLocale, type Locale } from './i18n';
 
 // ── Route types ──────────────────────────────────────────────
 
-type ActiveTab = 'calculator' | 'feedback' | 'stats' | 'pension' | 'guide' | 'comparatori' | 'privacy' | 'data-deletion' | 'api-status';
+type ActiveTab = 'calculator' | 'feedback' | 'stats' | 'pension' | 'guide' | 'comparatori' | 'privacy' | 'data-deletion' | 'api-status' | 'gamification';
 type ComparatoriSubTab = 'exchange' | 'mobile' | 'transport' | 'health' | 'banks' | 'traffic' | 'jobs' | 'shopping' | 'cost-of-living';
 type SimulatorSubTab = 'calculator' | 'whatif';
 type PensionSubTab = 'planner' | 'pillar3';
@@ -72,6 +72,7 @@ interface SlugTable {
   places: string;
   schools: string;
   unemployment: string;
+  gamification: string;
 }
 
 const SLUG_TABLES: Record<Locale, SlugTable> = {
@@ -108,6 +109,7 @@ const SLUG_TABLES: Record<Locale, SlugTable> = {
     places: 'posti-da-visitare',
     schools: 'scuole-ticino',
     unemployment: 'disoccupazione',
+    gamification: 'gamificazione',
   },
   en: {
     comparatori: 'comparators',
@@ -142,6 +144,7 @@ const SLUG_TABLES: Record<Locale, SlugTable> = {
     places: 'places-to-visit',
     schools: 'schools-ticino',
     unemployment: 'unemployment',
+    gamification: 'gamification',
   },
   de: {
     comparatori: 'vergleiche',
@@ -176,6 +179,7 @@ const SLUG_TABLES: Record<Locale, SlugTable> = {
     places: 'sehenswuerdigkeiten',
     schools: 'schulen-tessin',
     unemployment: 'arbeitslosigkeit',
+    gamification: 'gamification',
   },
   fr: {
     comparatori: 'comparateurs',
@@ -210,6 +214,7 @@ const SLUG_TABLES: Record<Locale, SlugTable> = {
     places: 'lieux-a-visiter',
     schools: 'ecoles-tessin',
     unemployment: 'chomage',
+    gamification: 'gamification',
   },
 };
 
@@ -295,6 +300,7 @@ function buildTopLevelReverse(table: SlugTable): TopLevelSlugMap {
     [table.dataDeletion]: { tab: 'data-deletion' },
     [table.apiStatus]: { tab: 'api-status' },
     [table.newsletter]: { tab: 'feedback' },
+    [table.gamification]: { tab: 'gamification' },
   };
 }
 
@@ -474,6 +480,8 @@ export function buildPath(route: AppRoute, locale?: Locale): string {
       return `${prefix}/${table.dataDeletion}`;
     case 'api-status':
       return `${prefix}/${table.apiStatus}`;
+    case 'gamification':
+      return `${prefix}/${table.gamification}`;
     default:
       return prefix || '/';
   }

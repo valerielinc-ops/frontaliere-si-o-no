@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef, useMemo, useCallback } from 'react';
-import { Search, X, ArrowRight, Calculator, Layers, PiggyBank, BookOpen, BarChart2, HelpCircle, ArrowRightLeft, Phone, Car, Heart, Building2, AlertTriangle, Briefcase, ShoppingCart, Euro, TrendingUp, Sparkles } from 'lucide-react';
+import { Search, X, ArrowRight, Calculator, Layers, PiggyBank, BookOpen, BarChart2, HelpCircle, ArrowRightLeft, Phone, Car, Heart, Building2, AlertTriangle, Briefcase, ShoppingCart, Euro, TrendingUp, Sparkles, MapPin, Calendar, PartyPopper, FileText, GraduationCap, Building, Compass, BriefcaseBusiness } from 'lucide-react';
 import { useTranslation } from '@/services/i18n';
 
 interface SearchResult {
@@ -9,13 +9,14 @@ interface SearchResult {
   section: string;
   tab: string;
   subTab?: string;
+  guideSection?: string;
   icon: React.ElementType;
   color: string;
   keywords: string[];
 }
 
 interface SiteSearchProps {
-  onNavigate: (tab: string, subTab?: string) => void;
+  onNavigate: (tab: string, subTab?: string, guideSection?: string) => void;
 }
 
 const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
@@ -25,9 +26,9 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
   const inputRef = useRef<HTMLInputElement>(null);
   const modalRef = useRef<HTMLDivElement>(null);
 
-  // Build the search index with all site sections
+  // Build the search index with ALL site sections including guide sub-sections
   const searchIndex: SearchResult[] = useMemo(() => [
-    // Simulator
+    // ─── Simulator ───
     {
       id: 'calculator',
       title: t('nav.simulator') || 'Simulatore',
@@ -49,7 +50,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
       color: 'text-blue-500',
       keywords: ['cosa cambia', 'what if', 'scenario', 'simulazione', 'figli', 'stipendio', 'residenza', 'bambini', 'kinder', 'enfants', 'children'],
     },
-    // Comparators
+    // ─── Comparators ───
     {
       id: 'exchange',
       title: t('comparators.exchange') || 'Cambio Valuta',
@@ -114,7 +115,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
       subTab: 'transport',
       icon: Car,
       color: 'text-teal-600',
-      keywords: ['trasporto', 'pendolare', 'treno', 'auto', 'benzina', 'abbonamento', 'arcobaleno', 'tilo', 'transport', 'commute', 'train', 'car', 'transport', 'pendeln'],
+      keywords: ['trasporto', 'pendolare', 'treno', 'auto', 'benzina', 'abbonamento', 'arcobaleno', 'tilo', 'transport', 'commute', 'train', 'car', 'pendeln'],
     },
     {
       id: 'jobs',
@@ -149,7 +150,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
       color: 'text-emerald-600',
       keywords: ['costo vita', 'affitto', 'rent', 'cost of living', 'lebenshaltungskosten', 'coût de la vie', 'bollette', 'utilities'],
     },
-    // Pension
+    // ─── Pension ───
     {
       id: 'pension-planner',
       title: t('pension.planner') || 'Pensione',
@@ -172,7 +173,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
       color: 'text-emerald-500',
       keywords: ['pilastro', 'pillar', '3a', 'terzo', 'risparmio', 'deduzione', 'fiscale', 'viac', 'frankly', 'säule', 'pilier', 'savings', 'tax deduction'],
     },
-    // Guide
+    // ─── Guide — all sub-sections ───
     {
       id: 'guide',
       title: t('nav.guide') || 'Guida',
@@ -181,9 +182,130 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
       tab: 'guide',
       icon: BookOpen,
       color: 'text-indigo-600',
-      keywords: ['guida', 'guide', 'permesso', 'permit', 'dogana', 'customs', 'comune', 'municipality', 'tasse', 'taxes', 'frontaliere', 'cross-border', 'grenzgänger', 'frontalier'],
+      keywords: ['guida', 'guide', 'frontaliere', 'cross-border', 'grenzgänger', 'frontalier', 'informazioni', 'info'],
     },
-    // Stats
+    {
+      id: 'guide-municipalities',
+      title: t('guide.tabs.municipalities') || 'Comuni Frontalieri',
+      description: 'Lista comuni italiani di confine e ristorni fiscali dalla Svizzera',
+      section: t('nav.guide') || 'Guida',
+      tab: 'guide',
+      guideSection: 'municipalities',
+      icon: MapPin,
+      color: 'text-indigo-500',
+      keywords: ['comuni', 'municipalities', 'confine', 'ristorni', 'gemeinden', 'communes', 'frontiera', 'border towns', 'fascia', '20km'],
+    },
+    {
+      id: 'guide-border',
+      title: t('guide.tabs.border') || 'Dogane & Tempi',
+      description: 'Valichi doganali, orari apertura, tempi di attesa, documenti necessari',
+      section: t('nav.guide') || 'Guida',
+      tab: 'guide',
+      guideSection: 'border',
+      icon: AlertTriangle,
+      color: 'text-amber-500',
+      keywords: ['dogana', 'customs', 'valico', 'border', 'passaporto', 'documenti', 'orari', 'zoll', 'douane', 'checkpoint'],
+    },
+    {
+      id: 'guide-living-ch',
+      title: t('guide.tabs.livingCH') || 'Vivere in CH',
+      description: 'Informazioni per chi vive o vuole trasferirsi in Svizzera',
+      section: t('nav.guide') || 'Guida',
+      tab: 'guide',
+      guideSection: 'living-ch',
+      icon: Building,
+      color: 'text-red-500',
+      keywords: ['vivere', 'svizzera', 'switzerland', 'trasferirsi', 'residenza', 'affitto', 'schweiz', 'suisse', 'abitare', 'leben'],
+    },
+    {
+      id: 'guide-living-it',
+      title: t('guide.tabs.livingIT') || 'Vivere in IT',
+      description: 'Informazioni per frontalieri residenti in Italia',
+      section: t('nav.guide') || 'Guida',
+      tab: 'guide',
+      guideSection: 'living-it',
+      icon: Building,
+      color: 'text-green-600',
+      keywords: ['vivere', 'italia', 'italy', 'residenza', 'italiana', 'abitare', 'italien', 'italie', 'casa'],
+    },
+    {
+      id: 'guide-calendar',
+      title: t('guide.tabs.calendar') || 'Scadenze Fiscali',
+      description: 'Calendario scadenze fiscali per frontalieri: dichiarazioni, acconti, saldi',
+      section: t('nav.guide') || 'Guida',
+      tab: 'guide',
+      guideSection: 'calendar',
+      icon: Calendar,
+      color: 'text-blue-600',
+      keywords: ['scadenze', 'fiscali', 'calendario', 'calendar', 'dichiarazione', 'redditi', 'tax deadline', 'steuer', 'impôts', 'unico', '730', 'acconto', 'saldo'],
+    },
+    {
+      id: 'guide-holidays',
+      title: t('guide.tabs.holidays') || 'Festività Ticino',
+      description: 'Calendario festività cantonali, federali e italiane per frontalieri',
+      section: t('nav.guide') || 'Guida',
+      tab: 'guide',
+      guideSection: 'holidays',
+      icon: PartyPopper,
+      color: 'text-pink-500',
+      keywords: ['festività', 'holidays', 'feste', 'feiertage', 'jours fériés', 'vacanze', 'ticino', 'canton', 'natale', 'pasqua', 'ferragosto', 'capodanno'],
+    },
+    {
+      id: 'guide-permits',
+      title: t('guide.tabs.permits') || 'Permessi Lavoro',
+      description: 'Tipologie permessi di lavoro: G, B, C, L — requisiti e rinnovi',
+      section: t('nav.guide') || 'Guida',
+      tab: 'guide',
+      guideSection: 'permits',
+      icon: FileText,
+      color: 'text-slate-600',
+      keywords: ['permesso', 'lavoro', 'permit', 'G', 'frontaliero', 'bewilligung', 'autorisation', 'permis', 'rinnovo', 'scadenza'],
+    },
+    {
+      id: 'guide-companies',
+      title: t('guide.tabs.companies') || 'Aziende Ticino',
+      description: 'Principali aziende e datori di lavoro nel Canton Ticino',
+      section: t('nav.guide') || 'Guida',
+      tab: 'guide',
+      guideSection: 'companies',
+      icon: BriefcaseBusiness,
+      color: 'text-cyan-600',
+      keywords: ['aziende', 'companies', 'datore', 'employer', 'ticino', 'unternehmen', 'entreprise', 'lavoro', 'impresa'],
+    },
+    {
+      id: 'guide-places',
+      title: t('guide.tabs.places') || 'Posti da Visitare',
+      description: 'Luoghi di interesse, escursioni e attività nel Canton Ticino',
+      section: t('nav.guide') || 'Guida',
+      tab: 'guide',
+      guideSection: 'places',
+      icon: Compass,
+      color: 'text-teal-500',
+      keywords: ['posti', 'visitare', 'places', 'visit', 'turismo', 'tourism', 'escursioni', 'ausflüge', 'excursions', 'lugano', 'locarno', 'bellinzona'],
+    },
+    {
+      id: 'guide-schools',
+      title: t('guide.tabs.schools') || 'Scuole in Ticino',
+      description: 'Scuole internazionali, asili e istituti nel Canton Ticino',
+      section: t('nav.guide') || 'Guida',
+      tab: 'guide',
+      guideSection: 'schools',
+      icon: GraduationCap,
+      color: 'text-purple-500',
+      keywords: ['scuola', 'school', 'scuole', 'asilo', 'kindergarten', 'schule', 'école', 'istruzione', 'education'],
+    },
+    {
+      id: 'guide-unemployment',
+      title: t('guide.tabs.unemployment') || 'Disoccupazione',
+      description: 'Indennità disoccupazione per frontalieri: NASPI, regole, requisiti',
+      section: t('nav.guide') || 'Guida',
+      tab: 'guide',
+      guideSection: 'unemployment',
+      icon: BriefcaseBusiness,
+      color: 'text-rose-600',
+      keywords: ['disoccupazione', 'unemployment', 'naspi', 'licenziamento', 'arbeitslosigkeit', 'chômage', 'indennità', 'sussidio'],
+    },
+    // ─── Stats ───
     {
       id: 'stats',
       title: t('nav.stats') || 'Statistiche',
@@ -194,7 +316,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
       color: 'text-purple-600',
       keywords: ['statistiche', 'dati', 'numeri', 'statistics', 'data', 'numbers', 'statistik', 'statistiques', 'grafico', 'chart'],
     },
-    // Feedback
+    // ─── Feedback ───
     {
       id: 'feedback',
       title: t('nav.support') || 'Supporto',
@@ -210,30 +332,26 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
   // Fuzzy search function
   const searchResults = useMemo(() => {
     if (!query.trim()) return [];
-    
+
     const q = query.toLowerCase().trim();
     const words = q.split(/\s+/);
-    
+
     const scored = searchIndex.map(item => {
       let score = 0;
       const titleLower = item.title.toLowerCase();
       const descLower = item.description.toLowerCase();
       const keywordsStr = item.keywords.join(' ').toLowerCase();
-      
+
       for (const word of words) {
-        // Exact title match = highest priority
         if (titleLower.includes(word)) score += 10;
-        // Keyword match
         if (keywordsStr.includes(word)) score += 5;
-        // Description match
         if (descLower.includes(word)) score += 3;
-        // Section match
         if (item.section.toLowerCase().includes(word)) score += 2;
       }
-      
+
       return { ...item, score };
     });
-    
+
     return scored
       .filter(r => r.score > 0)
       .sort((a, b) => b.score - a.score)
@@ -251,7 +369,6 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
         setIsOpen(false);
       }
     };
-    
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, []);
@@ -279,12 +396,12 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
   const handleSelect = useCallback((result: SearchResult) => {
     setIsOpen(false);
     setQuery('');
-    onNavigate(result.tab, result.subTab);
+    onNavigate(result.tab, result.subTab, result.guideSection);
   }, [onNavigate]);
 
   // Handle keyboard navigation
   const [selectedIndex, setSelectedIndex] = useState(0);
-  
+
   useEffect(() => {
     setSelectedIndex(0);
   }, [query]);
@@ -304,25 +421,22 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
 
   return (
     <>
-      {/* Search trigger button */}
+      {/* Search trigger — compact icon button */}
       <button
         onClick={() => setIsOpen(true)}
-        className="flex items-center gap-2 px-3 py-1.5 text-sm text-slate-400 hover:text-slate-600 dark:hover:text-slate-300 bg-slate-100/80 dark:bg-slate-800/80 hover:bg-slate-200 dark:hover:bg-slate-700 rounded-lg border border-slate-200 dark:border-slate-700 transition-all"
-        title="Search (⌘K)"
+        className="p-2 rounded-xl text-slate-400 hover:text-slate-600 dark:hover:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+        title={`${t('search.placeholder') || 'Cerca...'} (⌘K)`}
+        aria-label={t('search.placeholder') || 'Cerca'}
       >
-        <Search size={14} />
-        <span className="hidden sm:inline text-xs">{t('search.placeholder') || 'Cerca...'}</span>
-        <kbd className="hidden md:inline-flex items-center gap-0.5 px-1.5 py-0.5 text-[10px] font-mono text-slate-400 bg-white dark:bg-slate-900 rounded border border-slate-200 dark:border-slate-600">
-          ⌘K
-        </kbd>
+        <Search size={18} />
       </button>
 
-      {/* Search modal overlay */}
+      {/* Search modal overlay — centered */}
       {isOpen && (
-        <div className="fixed inset-0 z-[100] flex items-start justify-center pt-[15vh] px-4 bg-black/40 backdrop-blur-sm animate-fade-in">
+        <div className="fixed inset-0 z-[100] flex items-center justify-center px-4 bg-black/40 backdrop-blur-sm transition-opacity duration-150">
           <div
             ref={modalRef}
-            className="w-full max-w-lg bg-white dark:bg-slate-900 rounded-2xl shadow-2xl border border-slate-200 dark:border-slate-700 overflow-hidden animate-slide-up"
+            className="w-full max-w-lg max-h-[80vh] bg-white dark:bg-slate-900 rounded-2xl shadow-2xl border border-slate-200 dark:border-slate-700 flex flex-col animate-modal-in"
           >
             {/* Search input */}
             <div className="flex items-center gap-3 px-4 py-3 border-b border-slate-200 dark:border-slate-700">
@@ -336,21 +450,26 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
                 placeholder={t('search.placeholder') || 'Cerca sezioni, strumenti, funzionalità...'}
                 className="flex-1 bg-transparent text-slate-800 dark:text-slate-100 placeholder-slate-400 outline-none text-sm"
               />
-              <button
-                onClick={() => setIsOpen(false)}
-                className="p-1 text-slate-400 hover:text-slate-600 dark:hover:text-slate-300 rounded"
-              >
-                <X size={16} />
-              </button>
+              {query && (
+                <button
+                  onClick={() => setQuery('')}
+                  className="p-1 text-slate-400 hover:text-slate-600 dark:hover:text-slate-300 rounded"
+                >
+                  <X size={14} />
+                </button>
+              )}
+              <kbd className="hidden sm:inline-flex items-center px-1.5 py-0.5 text-[10px] font-mono text-slate-400 bg-slate-100 dark:bg-slate-800 rounded border border-slate-200 dark:border-slate-700">
+                esc
+              </kbd>
             </div>
 
             {/* Results */}
-            <div className="max-h-[50vh] overflow-y-auto">
+            <div className="flex-1 min-h-0 overflow-y-auto">
               {query.trim() === '' ? (
                 <div className="px-4 py-6 text-center text-sm text-slate-400">
                   <p>{t('search.hint') || 'Digita per cercare tra tutte le sezioni del sito'}</p>
-                  <p className="text-xs mt-1 text-slate-300 dark:text-slate-500">
-                    {t('search.examples') || 'Es: "cambio valuta", "pensione", "traffico", "lavoro"'}
+                  <p className="text-xs mt-1.5 text-slate-300 dark:text-slate-500">
+                    {t('search.examples') || 'Es: "cambio valuta", "pensione", "calendario festività", "permessi"'}
                   </p>
                 </div>
               ) : searchResults.length === 0 ? (
@@ -358,21 +477,21 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
                   {t('search.noResults') || 'Nessun risultato trovato'}
                 </div>
               ) : (
-                <div className="py-2">
+                <div className="py-1">
                   {searchResults.map((result, index) => {
                     const Icon = result.icon;
                     return (
                       <button
                         key={result.id}
                         onClick={() => handleSelect(result)}
-                        className={`w-full flex items-center gap-3 px-4 py-3 text-left transition-colors ${
+                        className={`w-full flex items-center gap-3 px-4 py-2.5 text-left transition-colors ${
                           index === selectedIndex
                             ? 'bg-blue-50 dark:bg-blue-950/30'
                             : 'hover:bg-slate-50 dark:hover:bg-slate-800/50'
                         }`}
                       >
-                        <div className={`p-2 rounded-lg bg-slate-100 dark:bg-slate-800 ${result.color} flex-shrink-0`}>
-                          <Icon size={16} />
+                        <div className={`p-1.5 rounded-lg bg-slate-100 dark:bg-slate-800 ${result.color} flex-shrink-0`}>
+                          <Icon size={14} />
                         </div>
                         <div className="flex-1 min-w-0">
                           <div className="flex items-center gap-2">
@@ -406,11 +525,11 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
                   <kbd className="px-1 py-0.5 bg-slate-100 dark:bg-slate-800 rounded text-[10px]">↵</kbd>
                   {t('search.select') || 'seleziona'}
                 </span>
-                <span className="flex items-center gap-1">
-                  <kbd className="px-1 py-0.5 bg-slate-100 dark:bg-slate-800 rounded text-[10px]">esc</kbd>
-                  {t('search.close') || 'chiudi'}
-                </span>
               </div>
+              <span className="hidden sm:flex items-center gap-1">
+                <kbd className="px-1 py-0.5 bg-slate-100 dark:bg-slate-800 rounded text-[10px]">⌘K</kbd>
+                {t('search.close') || 'chiudi'}
+              </span>
             </div>
           </div>
         </div>

@@ -25,6 +25,7 @@ import { ErrorBoundary } from '@/components/ErrorBoundary';
 import PwaInstallBanner from '@/components/PwaInstallBanner';
 import PwaUpdateBanner from '@/components/PwaUpdateBanner';
 import GamificationWidget, { unlockAchievement } from '@/components/GamificationWidget';
+import GamificationPage from '@/components/GamificationPage';
 import SiteSearch from '@/components/SiteSearch';
 import { calculateSimulation } from '@/services/calculationService';
 import { Analytics } from '@/services/analytics';
@@ -47,7 +48,7 @@ const App: React.FC = () => {
     // Defer locale side-effect to useEffect to avoid setState-during-render
     return { route: parsed.route, locale: parsed.locale };
   });
-  const [activeTab, setActiveTab] = useState<'calculator' | 'feedback' | 'stats' | 'pension' | 'guide' | 'comparatori' | 'privacy' | 'data-deletion' | 'api-status'>(initialRoute.route.activeTab);
+  const [activeTab, setActiveTab] = useState<'calculator' | 'feedback' | 'stats' | 'pension' | 'guide' | 'comparatori' | 'privacy' | 'data-deletion' | 'api-status' | 'gamification'>(initialRoute.route.activeTab);
   const [comparatoriSubTab, setComparatoriSubTab] = useState<'exchange' | 'mobile' | 'transport' | 'health' | 'banks' | 'traffic' | 'jobs' | 'shopping' | 'cost-of-living'>(initialRoute.route.comparatoriSubTab || 'exchange');
   const [simulatorSubTab, setSimulatorSubTab] = useState<'calculator' | 'whatif'>(initialRoute.route.simulatorSubTab || 'calculator');
   const [pensionSubTab, setPensionSubTab] = useState<'planner' | 'pillar3'>(initialRoute.route.pensionSubTab || 'planner');
@@ -202,8 +203,17 @@ const App: React.FC = () => {
     }
   }, [activeTab]);
 
-  // Handle search navigation
-  const handleSearchNavigate = (tab: string, subTab?: string) => {
+  // Gamification: track guide section visits
+  useEffect(() => {
+    if (activeTab === 'guide') {
+      if (guideSection === 'schools') unlockAchievement('school_finder');
+      if (guideSection === 'places') unlockAchievement('map_explorer');
+      if (guideSection === 'calendar') unlockAchievement('tax_calendar_user');
+    }
+  }, [activeTab, guideSection]);
+
+  // Handle search navigation (supports guide sub-sections)
+  const handleSearchNavigate = (tab: string, subTab?: string, guideSec?: string) => {
     setActiveTab(tab as any);
     if (tab === 'comparatori' && subTab) {
       setComparatoriSubTab(subTab as any);
@@ -211,11 +221,14 @@ const App: React.FC = () => {
       setSimulatorSubTab('whatif');
     } else if (tab === 'pension' && subTab) {
       setPensionSubTab(subTab as any);
+    } else if (tab === 'guide' && guideSec) {
+      setGuideSection(guideSec);
     }
     const route: AppRoute = { activeTab: tab as any };
     if (tab === 'comparatori' && subTab) route.comparatoriSubTab = subTab as any;
     if (tab === 'calculator') route.simulatorSubTab = (subTab || 'calculator') as any;
     if (tab === 'pension') route.pensionSubTab = (subTab || 'planner') as any;
+    if (tab === 'guide') route.guideSection = (guideSec || guideSection) as any;
     pushRoute(route);
     const seoKey = getSeoSection(route);
     updateMetaTags(seoKey);
@@ -272,8 +285,8 @@ const App: React.FC = () => {
                 </div>
               </div>
               
-              {/* Navigation Links */}
-              <div className="flex items-center gap-1 sm:gap-4 mx-4">
+              {/* Navigation Links — hidden on mobile, shown on md+ */}
+              <div className="hidden md:flex items-center gap-1 sm:gap-4 mx-4">
                 <button 
                   onClick={() => handleTabChange('calculator')}
                   className={`relative px-3 py-2 text-sm font-bold transition-colors flex items-center gap-2 group ${activeTab === 'calculator' ? 'text-blue-600 dark:text-blue-400' : 'text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200'}`}
@@ -328,22 +341,12 @@ const App: React.FC = () => {
                     <span className="absolute bottom-0 left-0 w-full h-0.5 bg-purple-600 dark:bg-purple-400 rounded-full animate-fade-in" />
                   )}
                 </button>
-
-                <button 
-                  onClick={() => handleTabChange('feedback')}
-                  className={`relative px-3 py-2 text-sm font-bold transition-colors flex items-center gap-2 group ${activeTab === 'feedback' ? 'text-amber-600 dark:text-amber-400' : 'text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200'}`}
-                >
-                  <HelpCircle size={16} />
-                  <span className="hidden lg:inline">{t('nav.support')}</span>
-                  {activeTab === 'feedback' && (
-                    <span className="absolute bottom-0 left-0 w-full h-0.5 bg-amber-600 dark:bg-amber-400 rounded-full animate-fade-in" />
-                  )}
-                </button>
               </div>
 
               {/* Actions */}
               <div className="flex items-center gap-2 pl-4 border-l border-slate-200 dark:border-slate-800">
                 <SiteSearch onNavigate={handleSearchNavigate} />
+                <GamificationWidget onNavigateToPage={() => { setActiveTab('gamification'); }} />
                 <LanguageSelector />
 
                 {activeTab === 'calculator' && (
@@ -426,7 +429,7 @@ const App: React.FC = () => {
                   {t('simulator.calculator')}
                 </button>
                 <button
-                  onClick={() => { setSimulatorSubTab('whatif'); pushRoute({ activeTab: 'calculator', simulatorSubTab: 'whatif' }); }}
+                  onClick={() => { setSimulatorSubTab('whatif'); pushRoute({ activeTab: 'calculator', simulatorSubTab: 'whatif' }); unlockAchievement('what_if_dreamer'); }}
                   className={`flex-1 flex items-center justify-center gap-2 px-4 py-2 text-sm font-bold rounded-lg transition-colors ${
                     simulatorSubTab === 'whatif'
                       ? 'bg-blue-600 text-white shadow-sm'
@@ -478,7 +481,7 @@ const App: React.FC = () => {
                   {t('pension.planner')}
                 </button>
                 <button
-                  onClick={() => { setPensionSubTab('pillar3'); pushRoute({ activeTab: 'pension', pensionSubTab: 'pillar3' }); }}
+                  onClick={() => { setPensionSubTab('pillar3'); pushRoute({ activeTab: 'pension', pensionSubTab: 'pillar3' }); unlockAchievement('pillar3_saver'); }}
                   className={`flex-1 flex items-center justify-center gap-2 px-4 py-2 text-sm font-bold rounded-lg transition-colors ${
                     pensionSubTab === 'pillar3'
                       ? 'bg-emerald-600 text-white shadow-sm'
@@ -530,6 +533,10 @@ const App: React.FC = () => {
             <div className="animate-fade-in">
               <DataDeletion />
             </div>
+          ) : activeTab === 'gamification' ? (
+            <div className="max-w-5xl mx-auto animate-fade-in">
+              <GamificationPage />
+            </div>
           ) : activeTab === 'api-status' ? (
             <div className="max-w-5xl mx-auto animate-fade-in">
               <ApiStatus />
@@ -540,8 +547,8 @@ const App: React.FC = () => {
             </div>
           )}
         </main>
-        
-        <footer className="border-t border-slate-200/60 dark:border-slate-800 bg-white/50 dark:bg-slate-900/50 backdrop-blur-sm py-8 mt-auto relative z-10">
+
+        <footer className="border-t border-slate-200/60 dark:border-slate-800 bg-white/50 dark:bg-slate-900/50 backdrop-blur-sm py-8 pb-20 md:pb-8 mt-auto relative z-10">
           <div className="max-w-7xl mx-auto px-4 space-y-6">
             {/* Newsletter compact */}
             <div className="max-w-xl mx-auto">
@@ -555,6 +562,14 @@ const App: React.FC = () => {
               {t('footer.disclaimer')}
             </p>
             <div className="flex items-center justify-center gap-3 text-xs flex-wrap">
+              <button
+                onClick={() => { setActiveTab('feedback'); pushRoute({ activeTab: 'feedback' }); }}
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 text-slate-600 dark:text-slate-400 hover:text-amber-600 dark:hover:text-amber-400 bg-slate-100/50 dark:bg-slate-800/50 hover:bg-amber-50 dark:hover:bg-amber-950/30 rounded-md transition-all duration-200 border border-slate-200/50 dark:border-slate-700/50 hover:border-amber-300 dark:hover:border-amber-700"
+              >
+                <HelpCircle className="w-3.5 h-3.5" />
+                <span>{t('nav.support')}</span>
+              </button>
+              <span className="text-slate-300 dark:text-slate-600">•</span>
               <button
                 onClick={() => { setActiveTab('privacy'); pushRoute({ activeTab: 'privacy' }); }}
                 className="inline-flex items-center gap-1.5 px-3 py-1.5 text-slate-600 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 bg-slate-100/50 dark:bg-slate-800/50 hover:bg-indigo-50 dark:hover:bg-indigo-950/30 rounded-md transition-all duration-200 border border-slate-200/50 dark:border-slate-700/50 hover:border-indigo-300 dark:hover:border-indigo-700"
@@ -588,9 +603,38 @@ const App: React.FC = () => {
             </div>
           </div>
         </footer>
+        {/* Mobile Bottom Navigation Bar */}
+        <nav className="fixed bottom-0 inset-x-0 z-50 md:hidden bg-white/80 dark:bg-slate-900/80 backdrop-blur-lg border-t border-slate-200/50 dark:border-slate-800/50 pb-[env(safe-area-inset-bottom)]">
+          <div className="grid grid-cols-5 h-14">
+            {([
+              { tab: 'calculator' as const, icon: Calculator, label: t('nav.simulator'), activeClass: 'text-blue-600 dark:text-blue-400', barClass: 'bg-blue-600 dark:bg-blue-400' },
+              { tab: 'comparatori' as const, icon: Layers, label: t('nav.comparators'), activeClass: 'text-violet-600 dark:text-violet-400', barClass: 'bg-violet-600 dark:bg-violet-400' },
+              { tab: 'pension' as const, icon: PiggyBank, label: t('nav.pension'), activeClass: 'text-emerald-600 dark:text-emerald-400', barClass: 'bg-emerald-600 dark:bg-emerald-400' },
+              { tab: 'guide' as const, icon: BookOpen, label: t('nav.guide'), activeClass: 'text-indigo-600 dark:text-indigo-400', barClass: 'bg-indigo-600 dark:bg-indigo-400' },
+              { tab: 'stats' as const, icon: BarChart2, label: t('nav.stats'), activeClass: 'text-purple-600 dark:text-purple-400', barClass: 'bg-purple-600 dark:bg-purple-400' },
+            ] as const).map(({ tab, icon: Icon, label, activeClass, barClass }) => {
+              const isActive = activeTab === tab;
+              return (
+                <button
+                  key={tab}
+                  onClick={() => handleTabChange(tab)}
+                  className={`relative flex flex-col items-center justify-center gap-0.5 transition-colors ${
+                    isActive ? activeClass : 'text-slate-400 dark:text-slate-500'
+                  }`}
+                >
+                  <Icon size={20} />
+                  <span className="text-[10px] font-semibold leading-none truncate max-w-[56px]">{label}</span>
+                  {isActive && (
+                    <span className={`absolute top-0 left-1/2 -translate-x-1/2 w-8 h-0.5 ${barClass} rounded-full`} />
+                  )}
+                </button>
+              );
+            })}
+          </div>
+        </nav>
+
         <PwaInstallBanner />
         <PwaUpdateBanner />
-        <GamificationWidget />
       </div>
     </ErrorBoundary>
   );

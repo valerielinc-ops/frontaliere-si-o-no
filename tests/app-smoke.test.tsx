@@ -96,12 +96,13 @@ describe('App smoke test', () => {
     render(<App />);
 
     // Verify the app rendered key navigation elements (translation keys returned as text)
+    // Nav items appear twice: desktop top bar + mobile bottom bar
     expect(screen.getByText('app.title')).toBeDefined();
-    expect(screen.getByText('nav.simulator')).toBeDefined();
-    expect(screen.getByText('nav.comparators')).toBeDefined();
-    expect(screen.getByText('nav.pension')).toBeDefined();
-    expect(screen.getByText('nav.guide')).toBeDefined();
-    expect(screen.getByText('nav.stats')).toBeDefined();
+    expect(screen.getAllByText('nav.simulator').length).toBeGreaterThanOrEqual(1);
+    expect(screen.getAllByText('nav.comparators').length).toBeGreaterThanOrEqual(1);
+    expect(screen.getAllByText('nav.pension').length).toBeGreaterThanOrEqual(1);
+    expect(screen.getAllByText('nav.guide').length).toBeGreaterThanOrEqual(1);
+    expect(screen.getAllByText('nav.stats').length).toBeGreaterThanOrEqual(1);
     expect(screen.getByText('nav.support')).toBeDefined();
 
     // Check no React errors were logged (infinite loop, setState-in-render, etc.)
@@ -122,15 +123,18 @@ describe('App smoke test', () => {
     render(<App />);
 
     // Navigate to each tab — none should cause infinite re-renders
-    const tabs = ['nav.comparators', 'nav.pension', 'nav.guide', 'nav.stats', 'nav.support'];
+    // Use getAllByText since nav items appear in both desktop and mobile nav
+    const tabs = ['nav.comparators', 'nav.pension', 'nav.guide', 'nav.stats'];
     for (const tabText of tabs) {
-      const btn = screen.getByText(tabText);
-      await user.click(btn);
+      const btns = screen.getAllByText(tabText);
+      await user.click(btns[0]);
     }
+    // nav.support only appears once (in footer)
+    await user.click(screen.getByText('nav.support'));
 
     // Back to calculator
-    const calcBtn = screen.getByText('nav.simulator');
-    await user.click(calcBtn);
+    const calcBtns = screen.getAllByText('nav.simulator');
+    await user.click(calcBtns[0]);
 
     // No React errors during navigation
     const reactErrors = consoleErrorSpy.mock.calls.filter(
@@ -161,7 +165,7 @@ describe('App smoke test', () => {
     render(<App />);
 
     // Navigate to comparators
-    await user.click(screen.getByText('nav.comparators'));
+    await user.click(screen.getAllByText('nav.comparators')[0]);
 
     // Click each comparator sub-tab — some may not render if a component errors,
     // so we use queryByText and skip if not found
@@ -200,7 +204,7 @@ describe('App smoke test', () => {
     render(<App />);
 
     // Navigate to guide
-    await user.click(screen.getByText('nav.guide'));
+    await user.click(screen.getAllByText('nav.guide')[0]);
 
     // Click each guide tab — use queryByText for resilience
     const guideTabs = [
@@ -239,7 +243,7 @@ describe('App smoke test', () => {
     render(<App />);
 
     // Navigate to pension
-    await user.click(screen.getByText('nav.pension'));
+    await user.click(screen.getAllByText('nav.pension')[0]);
 
     // Click each pension sub-tab
     await user.click(screen.getByText('pension.planner'));

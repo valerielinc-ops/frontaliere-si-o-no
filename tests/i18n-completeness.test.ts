@@ -62,6 +62,57 @@ function extractTranslationKeys(files: string[]): Set<string> {
   return keys;
 }
 
+/**
+ * Extract dynamic translation keys from template literals like:
+ *   t(`gamification.achievement.${id}`)
+ *   t(`gamification.category.${cat}`)
+ * 
+ * Cross-references with known IDs from ACHIEVEMENTS array and category definitions
+ * to generate the full set of expected keys.
+ */
+function extractDynamicTranslationKeys(files: string[]): Set<string> {
+  const keys = new Set<string>();
+  // Match t(`prefix.${expr}`) patterns — extract the prefix
+  const templateRegex = /\bt\(\s*`([^`]*?)\$\{[^}]+\}[^`]*`\s*[,)]/g;
+  const prefixes = new Set<string>();
+
+  for (const file of files) {
+    const content = fs.readFileSync(file, 'utf8');
+    let match;
+    while ((match = templateRegex.exec(content)) !== null) {
+      const prefix = match[1]; // e.g., 'gamification.achievement.'
+      if (prefix && !prefix.includes('http')) {
+        prefixes.add(prefix);
+      }
+    }
+  }
+
+  // For known gamification prefixes, expand using ACHIEVEMENTS and categories
+  const achievementIds = [
+    'first_visit', 'guide_reader', 'comparator_curious', 'comparator_master',
+    'map_explorer', 'school_finder', 'first_simulation', 'pension_planner',
+    'pillar3_saver', 'what_if_dreamer', 'simulation_pro', 'currency_watcher',
+    'tax_calendar_user', 'health_researcher', 'transport_planner', 'dark_mode_fan',
+    'feedback_giver', 'stats_checker', 'newsletter_sub', 'pwa_installer',
+  ];
+  const categoryIds = ['all', 'explorer', 'calculator', 'expert', 'social'];
+
+  for (const prefix of prefixes) {
+    if (prefix === 'gamification.achievement.' || prefix === 'gamification.achievementDesc.') {
+      for (const id of achievementIds) {
+        keys.add(`${prefix}${id}`);
+      }
+    } else if (prefix === 'gamification.category.') {
+      for (const id of categoryIds) {
+        keys.add(`${prefix}${id}`);
+      }
+    }
+    // Other dynamic prefixes could be added here as needed
+  }
+
+  return keys;
+}
+
 function extractLocaleKeys(locale: string): Set<string> {
   const i18nPath = path.join(PROJECT_ROOT, 'services', 'i18n.ts');
   const content = fs.readFileSync(i18nPath, 'utf8');
@@ -139,8 +190,9 @@ function extractDataLayerKeys(): Set<string> {
 describe('Translation Completeness', () => {
   const sourceFiles = getAllSourceFiles();
   const usedKeys = extractTranslationKeys(sourceFiles);
+  const dynamicKeys = extractDynamicTranslationKeys(sourceFiles);
   const dataLayerKeys = extractDataLayerKeys();
-  const allUsedKeys = new Set([...usedKeys, ...dataLayerKeys]);
+  const allUsedKeys = new Set([...usedKeys, ...dynamicKeys, ...dataLayerKeys]);
   const locales = ['it', 'en', 'de', 'fr'] as const;
   const localeKeys: Record<string, Set<string>> = {};
   
@@ -150,6 +202,10 @@ describe('Translation Completeness', () => {
 
   it('should find translation keys in the codebase', () => {
     expect(usedKeys.size).toBeGreaterThan(0);
+  });
+
+  it('should find dynamic translation keys (template literals)', () => {
+    expect(dynamicKeys.size).toBeGreaterThan(0);
   });
 
   it('should find data-layer i18n keys (calc, expenses, border)', () => {
@@ -171,6 +227,22 @@ describe('Translation Completeness', () => {
       }
       
       expect(missing, `Missing keys in '${locale}': ${missing.join(', ')}`).toEqual([]);
+    });
+
+    it(`should have all dynamic keys (template literals) in the '${locale}' locale`, () => {
+      const missing: string[] = [];
+      for (const key of dynamicKeys) {
+        if (!localeKeys[locale].has(key)) {
+          missing.push(key);
+        }
+      }
+
+      if (missing.length > 0) {
+        console.log(`\n❌ Missing ${missing.length} dynamic keys in '${locale}' locale:`);
+        missing.sort().forEach(k => console.log(`  - ${k}`));
+      }
+
+      expect(missing, `Missing dynamic keys in '${locale}': ${missing.join(', ')}`).toEqual([]);
     });
 
     it(`should have all data-layer keys in the '${locale}' locale`, () => {

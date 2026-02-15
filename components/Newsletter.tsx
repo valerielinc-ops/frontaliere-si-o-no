@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Mail, Send, CheckCircle2, AlertCircle, Loader2, Bell, Shield } from 'lucide-react';
 import { Analytics } from '@/services/analytics';
 import { useTranslation } from '@/services/i18n';
+import { unlockAchievement } from '@/components/GamificationWidget';
 
 // Firebase Firestore will be lazily imported
 let firestoreInitialized = false;
@@ -79,6 +80,7 @@ const Newsletter: React.FC<NewsletterProps> = ({ compact = false }) => {
         setStatus('success');
         setEmail('');
         setName('');
+        unlockAchievement('newsletter_sub');
         Analytics.trackUIInteraction('newsletter', 'form', 'bottone_iscrivi', 'fallback_no_firestore');
         return;
       }
@@ -113,6 +115,7 @@ const Newsletter: React.FC<NewsletterProps> = ({ compact = false }) => {
       setStatus('success');
       setEmail('');
       setName('');
+      unlockAchievement('newsletter_sub');
       console.log('[Newsletter] ✅ Subscription successful!');
       Analytics.trackUIInteraction('newsletter', 'form', 'bottone_iscrivi', 'successo', email.split('@')[1]);
     } catch (error: any) {
@@ -127,6 +130,7 @@ const Newsletter: React.FC<NewsletterProps> = ({ compact = false }) => {
         setStatus('success');
         setEmail('');
         setName('');
+        unlockAchievement('newsletter_sub');
         Analytics.trackUIInteraction('newsletter', 'form', 'bottone_iscrivi', 'errore_fallback', error.code);
         return;
       }

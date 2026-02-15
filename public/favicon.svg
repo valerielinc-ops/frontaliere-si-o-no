@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <rect x="10" y="10" width="80" height="80" rx="16" fill="#1e293b"/>
+  <rect x="22" y="22" width="56" height="20" rx="4" fill="#94a3b8"/>
+  <!-- CH Button -->
+  <rect x="22" y="52" width="24" height="24" rx="6" fill="#dc2626"/>
+  <path d="M34 58v12M28 64h12" stroke="white" stroke-width="3" stroke-linecap="round"/>
+  <!-- IT Button -->
+  <mask id="m">
+    <rect x="54" y="52" width="24" height="24" rx="6" fill="white"/>
+  </mask>
+  <g mask="url(#m)">
+    <rect x="54" y="52" width="8" height="24" fill="#16a34a"/>
+    <rect x="62" y="52" width="8" height="24" fill="white"/>
+    <rect x="70" y="52" width="8" height="24" fill="#dc2626"/>
+  </g>
+</svg>
