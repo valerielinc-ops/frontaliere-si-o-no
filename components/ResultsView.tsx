@@ -88,12 +88,12 @@ const BreakdownTable: React.FC<{ data: TaxBreakdownItem[]; currency: string; sho
           {/* Value Section */}
           <div className="text-right flex items-center justify-end gap-3 flex-shrink-0">
              {item.percentage !== 0 && !isNet && (
-                <div className="w-10 sm:w-12 text-[9px] sm:text-[10px] font-bold text-slate-500 dark:text-slate-500 bg-slate-100 dark:bg-slate-800 group-hover:bg-slate-200/70 rounded px-1 py-0.5 text-center flex-shrink-0 transition-colors hidden sm:block">
+                <div className="w-10 sm:w-12 text-[9px] sm:text-[10px] font-bold text-slate-600 dark:text-slate-500 bg-slate-100 dark:bg-slate-800 group-hover:bg-slate-200/70 rounded px-1 py-0.5 text-center flex-shrink-0 transition-colors hidden sm:block">
                   {Math.abs(item.percentage).toFixed(1)}%
                 </div>
              )}
              <div className="flex flex-col items-end w-[110px]">
-                <div className={`text-right font-mono font-bold whitespace-nowrap ${isNet ? 'text-lg text-emerald-600 dark:text-emerald-400' : (isNegative ? 'text-red-500 dark:text-red-400' : 'text-slate-800 dark:text-slate-100')}`}>
+                <div className={`text-right font-mono font-bold whitespace-nowrap ${isNet ? 'text-lg text-emerald-700 dark:text-emerald-400' : (isNegative ? 'text-red-700 dark:text-red-400' : 'text-slate-800 dark:text-slate-100')}`}>
                     {isNegative ? '-' : ''} <CurrencyValue value={item.amount} currency={currency} />
                 </div>
                 {showEUR && (

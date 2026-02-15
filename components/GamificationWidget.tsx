@@ -246,7 +246,7 @@ const GamificationWidget: React.FC<GamificationWidgetProps> = ({ onNavigateToPag
         >
           <Trophy size={18} />
           {/* Badge with level */}
-          <span className="absolute -top-0.5 -right-0.5 bg-gradient-to-br from-amber-400 to-orange-500 text-white text-[8px] font-black min-w-[16px] h-4 rounded-full flex items-center justify-center shadow-sm px-0.5">
+          <span aria-hidden="true" className="absolute -top-0.5 -right-0.5 bg-gradient-to-br from-amber-400 to-orange-500 text-white text-[8px] font-black min-w-[16px] h-4 rounded-full flex items-center justify-center shadow-sm px-0.5">
             {levelInfo.level}
           </span>
         </button>
