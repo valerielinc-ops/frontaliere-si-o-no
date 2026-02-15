@@ -103,6 +103,19 @@ export default defineConfig(({ mode }) => {
       },
       build: {
         sourcemap: true,
+        modulePreload: {
+          // Prevent eager preloading of lazy vendor chunks (charts, pdf, etc.)
+          resolveDependencies: (filename, deps, { hostId, hostType }) => {
+            // Only preload deps for the entry point, not for lazy chunks
+            // Filter out vendor chunks that should only load on demand
+            return deps.filter(dep => 
+              !dep.includes('vendor-charts') && 
+              !dep.includes('vendor-pdf') &&
+              !dep.includes('vendor-maps') &&
+              !dep.includes('vendor-firebase')
+            );
+          },
+        },
         rollupOptions: {
           output: {
             manualChunks: {

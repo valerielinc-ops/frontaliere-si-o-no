@@ -1,6 +1,6 @@
 import React, { useState, useEffect, lazy, Suspense } from 'react';
 import { InputCard } from '@/components/InputCard';
-import { ResultsView } from '@/components/ResultsView';
+const ResultsView = lazy(() => import('@/components/ResultsView').then(m => ({ default: m.ResultsView })));
 import { ErrorBoundary } from '@/components/ErrorBoundary';
 import PwaInstallBanner from '@/components/PwaInstallBanner';
 import PwaUpdateBanner from '@/components/PwaUpdateBanner';
@@ -473,7 +473,7 @@ const App: React.FC = () => {
                     />
                   </div>
                   <div className={`transition-all duration-500 ease-in-out md:col-span-8 lg:col-span-8 xl:col-span-9 h-full`}>
-                    {result && <ResultsView result={result} inputs={inputs} isDarkMode={isDarkMode} isFocusMode={isFocusMode} />}
+                    {result && <Suspense fallback={<LazyFallback />}><ResultsView result={result} inputs={inputs} isDarkMode={isDarkMode} isFocusMode={isFocusMode} /></Suspense>}
                   </div>
                 </div>
               ) : (

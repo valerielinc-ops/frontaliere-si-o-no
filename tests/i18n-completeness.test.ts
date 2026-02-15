@@ -114,21 +114,29 @@ function extractDynamicTranslationKeys(files: string[]): Set<string> {
 }
 
 function extractLocaleKeys(locale: string): Set<string> {
-  const i18nPath = path.join(PROJECT_ROOT, 'services', 'i18n.ts');
-  const content = fs.readFileSync(i18nPath, 'utf8');
+  let filePath: string;
+  let searchStart: string;
+
+  if (locale === 'it') {
+    // Italian translations are inline in i18n.ts as itTranslations
+    filePath = path.join(PROJECT_ROOT, 'services', 'i18n.ts');
+    searchStart = 'const itTranslations: Translations = {';
+  } else {
+    // Other locales are in separate files: services/locales/{locale}.ts
+    filePath = path.join(PROJECT_ROOT, 'services', 'locales', `${locale}.ts`);
+    searchStart = `const ${locale}: Record<string, string> = {`;
+  }
+
+  const content = fs.readFileSync(filePath, 'utf8');
   
-  // Find the translations object first, then find the locale inside it
-  const translationsStart = content.indexOf('const translations: AllTranslations = {');
-  if (translationsStart === -1) throw new Error('translations object not found');
-  
-  const localeStart = content.indexOf(`  ${locale}: {`, translationsStart);
-  if (localeStart === -1) throw new Error(`Locale '${locale}' not found`);
+  const objStart = content.indexOf(searchStart);
+  if (objStart === -1) throw new Error(`Locale '${locale}' object not found in ${filePath}`);
   
   // Find the matching closing brace (track depth)
   let depth = 0;
   let startIdx = -1;
   let endIdx = -1;
-  for (let i = localeStart; i < content.length; i++) {
+  for (let i = objStart; i < content.length; i++) {
     if (content[i] === '{') {
       if (depth === 0) startIdx = i;
       depth++;

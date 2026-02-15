@@ -1,7 +1,15 @@
-import { describe, it, expect, afterAll } from 'vitest';
-import { getLocale, setLocale, t } from '@/services/i18n';
+import { describe, it, expect, afterAll, beforeAll } from 'vitest';
+import { getLocale, setLocale, t, ensureLocaleLoaded } from '@/services/i18n';
 
 describe('i18n Service', () => {
+  // Pre-load all locale data so t() works synchronously in tests
+  beforeAll(async () => {
+    await Promise.all([
+      ensureLocaleLoaded('en'),
+      ensureLocaleLoaded('de'),
+      ensureLocaleLoaded('fr'),
+    ]);
+  });
   it('defaults to Italian locale', () => {
     expect(getLocale()).toBe('it');
   });
