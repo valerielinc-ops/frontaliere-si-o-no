@@ -1,22 +1,6 @@
 <!DOCTYPE html>
 <html lang="it">
   <head>
-    <!-- Google tag (gtag.js) — deferred to not block first paint -->
-    <script defer src="https://www.googletagmanager.com/gtag/js?id=G-HRJEW4REGH"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-HRJEW4REGH');
-    </script>
-
-    <!-- Google Maps JavaScript API (caricato dinamicamente da app) -->
-    <script id="google-maps-loader"></script>
-
-    <!-- Google reCAPTCHA Enterprise (caricato dinamicamente da Firebase Remote Config) -->
-    <script id="recaptcha-loader"></script>
-
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
@@ -429,6 +413,9 @@
         document.documentElement.classList.remove('dark')
       }
     </script>
+    <!-- Preconnect to Google Fonts for faster font loading -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap"></noscript>
     <style>
@@ -490,33 +477,31 @@
         -moz-appearance: textfield;
       }
     </style>
-
-  <script type="importmap">
-{
-  "imports": {
-    "lucide-react": "https://esm.sh/lucide-react@^0.563.0",
-    "jspdf-autotable": "https://esm.sh/jspdf-autotable@^5.0.7",
-    "react/": "https://esm.sh/react@^19.2.4/",
-    "react": "https://esm.sh/react@^19.2.4",
-    "recharts": "https://esm.sh/recharts@^3.7.0",
-    "jspdf": "https://esm.sh/jspdf@^4.1.0",
-    "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
-    "@google/genai": "https://esm.sh/@google/genai@^1.40.0",
-    "path": "https://esm.sh/path@^0.12.7",
-    "vite": "https://esm.sh/vite@^7.3.1",
-    "@vitejs/plugin-react": "https://esm.sh/@vitejs/plugin-react@^5.1.4",
-    "react-ga4": "https://esm.sh/react-ga4@^2.1.0",
-    "url": "https://esm.sh/url@^0.11.4"
-  }
-}
-</script>
-  <script type="module" crossorigin src="/assets/index-BZ7LQtDa.js"></script>
+  <script type="module" crossorigin src="/assets/index-ChZyJ9Ke.js"></script>
   <link rel="modulepreload" crossorigin href="/assets/vendor-charts-aQyCzDkf.js">
   <link rel="modulepreload" crossorigin href="/assets/vendor-pdf-og5EeDf1.js">
-  <link rel="modulepreload" crossorigin href="/assets/vendor-firebase-BEgIyS5z.js">
   <link rel="stylesheet" crossorigin href="/assets/index-FdsuknCP.css">
 <link rel="manifest" href="/manifest.webmanifest"></head>
   <body class="bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 transition-colors duration-300 overflow-x-hidden">
     <div id="root"></div>
+    <!-- Google Analytics — loaded after page is interactive to not block FCP/LCP -->
+    <script>
+      function loadGtag() {
+        var s = document.createElement('script');
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=G-HRJEW4REGH';
+        s.async = true;
+        document.head.appendChild(s);
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        window.gtag = gtag;
+        gtag('js', new Date());
+        gtag('config', 'G-HRJEW4REGH');
+      }
+      if ('requestIdleCallback' in window) {
+        requestIdleCallback(loadGtag, { timeout: 3000 });
+      } else {
+        setTimeout(loadGtag, 2000);
+      }
+    </script>
   </body>
 </html>
