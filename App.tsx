@@ -1,38 +1,40 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, lazy, Suspense } from 'react';
 import { InputCard } from '@/components/InputCard';
 import { ResultsView } from '@/components/ResultsView';
-import { FeedbackSection } from '@/components/FeedbackSection';
-import { StatsView } from '@/components/StatsView';
-import PensionPlanner from '@/components/PensionPlanner';
-import Pillar3Simulator from '@/components/Pillar3Simulator';
-import FrontierGuide from '@/components/FrontierGuide';
-import CurrencyExchange from '@/components/CurrencyExchange';
-import MobileOperators from '@/components/MobileOperators';
-import TransportCalculator from '@/components/TransportCalculator';
-import HealthInsurance from '@/components/HealthInsurance';
-import BankComparison from '@/components/BankComparison';
-import TrafficAlerts from '@/components/TrafficAlerts';
-import JobComparator from '@/components/JobComparator';
-import ShoppingCalculator from '@/components/ShoppingCalculator';
-import CostOfLiving from '@/components/CostOfLiving';
-import WhatIfSimulator from '@/components/WhatIfSimulator';
-import Newsletter from '@/components/Newsletter';
-import LanguageSelector from '@/components/LanguageSelector';
-import ApiStatus from '@/components/ApiStatus';
-import { PrivacyPolicy } from '@/components/PrivacyPolicy';
-import { DataDeletion } from '@/components/DataDeletion';
 import { ErrorBoundary } from '@/components/ErrorBoundary';
 import PwaInstallBanner from '@/components/PwaInstallBanner';
 import PwaUpdateBanner from '@/components/PwaUpdateBanner';
 import GamificationWidget, { unlockAchievement } from '@/components/GamificationWidget';
-import GamificationPage from '@/components/GamificationPage';
-import RalComparator from '@/components/RalComparator';
-import ParentalLeaveCalculator from '@/components/ParentalLeaveCalculator';
-import BorderMunicipalitiesMap from '@/components/BorderMunicipalitiesMap';
-import ResidencySimulator from '@/components/ResidencySimulator';
-import PersonalDashboard from '@/components/PersonalDashboard';
-import CommunityForum from '@/components/CommunityForum';
+import Newsletter from '@/components/Newsletter';
+import LanguageSelector from '@/components/LanguageSelector';
 import SiteSearch from '@/components/SiteSearch';
+
+// Lazy-loaded components — only loaded when their tab is active
+const FeedbackSection = lazy(() => import('@/components/FeedbackSection').then(m => ({ default: m.FeedbackSection })));
+const StatsView = lazy(() => import('@/components/StatsView').then(m => ({ default: m.StatsView })));
+const PensionPlanner = lazy(() => import('@/components/PensionPlanner'));
+const Pillar3Simulator = lazy(() => import('@/components/Pillar3Simulator'));
+const FrontierGuide = lazy(() => import('@/components/FrontierGuide'));
+const CurrencyExchange = lazy(() => import('@/components/CurrencyExchange'));
+const MobileOperators = lazy(() => import('@/components/MobileOperators'));
+const TransportCalculator = lazy(() => import('@/components/TransportCalculator'));
+const HealthInsurance = lazy(() => import('@/components/HealthInsurance'));
+const BankComparison = lazy(() => import('@/components/BankComparison'));
+const TrafficAlerts = lazy(() => import('@/components/TrafficAlerts'));
+const JobComparator = lazy(() => import('@/components/JobComparator'));
+const ShoppingCalculator = lazy(() => import('@/components/ShoppingCalculator'));
+const CostOfLiving = lazy(() => import('@/components/CostOfLiving'));
+const WhatIfSimulator = lazy(() => import('@/components/WhatIfSimulator'));
+const ApiStatus = lazy(() => import('@/components/ApiStatus'));
+const PrivacyPolicy = lazy(() => import('@/components/PrivacyPolicy').then(m => ({ default: m.PrivacyPolicy })));
+const DataDeletion = lazy(() => import('@/components/DataDeletion').then(m => ({ default: m.DataDeletion })));
+const GamificationPage = lazy(() => import('@/components/GamificationPage'));
+const RalComparator = lazy(() => import('@/components/RalComparator'));
+const ParentalLeaveCalculator = lazy(() => import('@/components/ParentalLeaveCalculator'));
+const BorderMunicipalitiesMap = lazy(() => import('@/components/BorderMunicipalitiesMap'));
+const ResidencySimulator = lazy(() => import('@/components/ResidencySimulator'));
+const PersonalDashboard = lazy(() => import('@/components/PersonalDashboard'));
+const CommunityForum = lazy(() => import('@/components/CommunityForum'));
 import { calculateSimulation } from '@/services/calculationService';
 import { Analytics } from '@/services/analytics';
 import { updateMetaTags, trackSectionView } from '@/services/seoService';
@@ -41,6 +43,12 @@ import { parsePath, parseHashToPath, pushRoute, replaceRoute, buildPath, getSeoS
 import { DEFAULT_INPUTS } from '@/constants';
 import { SimulationInputs, SimulationResult } from '@/types';
 import { Moon, Sun, Maximize2, Minimize2, Calculator, HelpCircle, BarChart2, PiggyBank, BookOpen, Facebook, ArrowRightLeft, Phone, Car, Heart, Building2, AlertTriangle, Layers, Briefcase, Sparkles, TrendingUp, MapPin, ShoppingCart, Euro, ClipboardList, Baby, Map, Home, MessageSquare } from 'lucide-react';
+
+const LazyFallback = () => (
+  <div className="flex items-center justify-center py-24">
+    <div className="animate-spin rounded-full h-8 w-8 border-2 border-indigo-500 border-t-transparent" />
+  </div>
+);
 
 const App: React.FC = () => {
   const { t } = useTranslation();
@@ -364,6 +372,7 @@ const App: React.FC = () => {
                     }}
                     className={`p-2 rounded-xl transition-all ${isFocusMode ? 'bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400' : 'text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800'}`}
                     title={isFocusMode ? t('app.exitFullscreen') : t('app.fullscreen')}
+                    aria-label={isFocusMode ? t('app.exitFullscreen') : t('app.fullscreen')}
                   >
                     {isFocusMode ? <Maximize2 size={18} /> : <Minimize2 size={18} />}
                   </button>
@@ -372,6 +381,7 @@ const App: React.FC = () => {
                 <button 
                   onClick={toggleTheme}
                   className="p-2 rounded-xl text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+                  aria-label={isDarkMode ? t('app.lightMode') : t('app.darkMode')}
                 >
                   {isDarkMode ? <Sun size={18} className="text-amber-400" /> : <Moon size={18} className="text-slate-600" />}
                 </button>
@@ -423,6 +433,7 @@ const App: React.FC = () => {
 
         {/* Main Content */}
         <main className="flex-grow max-w-[1800px] w-[95%] mx-auto px-2 sm:px-4 py-6 transition-all duration-500 relative z-10">
+         <Suspense fallback={<LazyFallback />}>
           {activeTab === 'calculator' ? (
             <div className="space-y-6">
               {/* Simulator sub-tabs */}
@@ -572,6 +583,7 @@ const App: React.FC = () => {
               <FeedbackSection />
             </div>
           )}
+         </Suspense>
         </main>
 
         <footer className="border-t border-slate-200/60 dark:border-slate-800 bg-white/50 dark:bg-slate-900/50 backdrop-blur-sm py-8 pb-20 md:pb-8 mt-auto relative z-10">

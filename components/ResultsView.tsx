@@ -88,7 +88,7 @@ const BreakdownTable: React.FC<{ data: TaxBreakdownItem[]; currency: string; sho
           {/* Value Section */}
           <div className="text-right flex items-center justify-end gap-3 flex-shrink-0">
              {item.percentage !== 0 && !isNet && (
-                <div className="w-10 sm:w-12 text-[9px] sm:text-[10px] font-bold text-slate-400 dark:text-slate-500 bg-slate-100 dark:bg-slate-800 group-hover:bg-slate-200/70 rounded px-1 py-0.5 text-center flex-shrink-0 transition-colors hidden sm:block">
+                <div className="w-10 sm:w-12 text-[9px] sm:text-[10px] font-bold text-slate-500 dark:text-slate-500 bg-slate-100 dark:bg-slate-800 group-hover:bg-slate-200/70 rounded px-1 py-0.5 text-center flex-shrink-0 transition-colors hidden sm:block">
                   {Math.abs(item.percentage).toFixed(1)}%
                 </div>
              )}
@@ -97,7 +97,7 @@ const BreakdownTable: React.FC<{ data: TaxBreakdownItem[]; currency: string; sho
                     {isNegative ? '-' : ''} <CurrencyValue value={item.amount} currency={currency} />
                 </div>
                 {showEUR && (
-                    <div className="text-[10px] font-mono text-slate-400 dark:text-slate-500 font-medium whitespace-nowrap h-4">
+                    <div className="text-[10px] font-mono text-slate-500 dark:text-slate-500 font-medium whitespace-nowrap h-4">
                        {item.amountEUR !== undefined && item.amountEUR !== 0 ? `≈ € ${formatCurrency(Math.abs(item.amountEUR))}` : ''}
                     </div>
                 )}
@@ -371,7 +371,7 @@ export const ResultsView: React.FC<Props> = ({ result, inputs, isDarkMode, isFoc
                  <div className="text-[10px] font-bold text-blue-500 dark:text-blue-400 uppercase tracking-widest mb-1 bg-blue-50 dark:bg-blue-900/20 px-2 py-0.5 rounded-full inline-block">{t('results.liveInTicino')}</div>
                  <div className="text-xl font-bold text-slate-800 dark:text-slate-100">{t('results.switzerland')}</div>
                </div>
-               <img src="https://flagcdn.com/w80/ch.png" className="w-8 rounded opacity-90" alt="CH" />
+               <img src="https://flagcdn.com/w80/ch.png" className="w-8 rounded opacity-90" alt="CH" width={32} height={21} />
             </div>
 
             <div className="space-y-4">
@@ -386,7 +386,7 @@ export const ResultsView: React.FC<Props> = ({ result, inputs, isDarkMode, isFoc
                   <BreakdownTable data={chResident.breakdown} currency="CHF" />
                   {chResident.details.notes.length > 0 && (
                     <div className="mt-4 p-3 bg-slate-50 dark:bg-slate-900/50 rounded-xl border border-dashed border-slate-200 dark:border-slate-800">
-                        <p className="text-[10px] font-bold uppercase text-slate-400 mb-1">{t('results.notes')}</p>
+                        <p className="text-[10px] font-bold uppercase text-slate-500 mb-1">{t('results.notes')}</p>
                         <ul className="text-xs text-slate-500 dark:text-slate-400 list-disc list-inside">
                             {chResident.details.notes.map((note, i) => <li key={i}>{t(note.split('|')[0])}</li>)}
                         </ul>
@@ -405,7 +405,7 @@ export const ResultsView: React.FC<Props> = ({ result, inputs, isDarkMode, isFoc
                  <div className="text-[10px] font-bold text-red-500 dark:text-red-400 uppercase tracking-widest mb-1 bg-red-50 dark:bg-red-900/20 px-2 py-0.5 rounded-full inline-block">{t('results.liveInItaly')}</div>
                  <div className="text-xl font-bold text-slate-800 dark:text-slate-100">{t('results.italy')}</div>
                </div>
-               <img src="https://flagcdn.com/w80/it.png" className="w-8 rounded opacity-90" alt="IT" />
+               <img src="https://flagcdn.com/w80/it.png" className="w-8 rounded opacity-90" alt="IT" width={32} height={21} />
             </div>
 
             <div className="space-y-4">
@@ -446,7 +446,7 @@ export const ResultsView: React.FC<Props> = ({ result, inputs, isDarkMode, isFoc
 
                   {itResident.details.notes.length > 0 && (
                     <div className="mt-4 p-3 bg-slate-50 dark:bg-slate-900/50 rounded-xl border border-dashed border-slate-200 dark:border-slate-800">
-                        <p className="text-[10px] font-bold uppercase text-slate-400 mb-1">{t('results.notes')}</p>
+                        <p className="text-[10px] font-bold uppercase text-slate-500 mb-1">{t('results.notes')}</p>
                         <ul className="text-xs text-slate-500 dark:text-slate-400 list-disc list-inside">
                             {itResident.details.notes.map((note, i) => <li key={i}>{t(note.split('|')[0])}</li>)}
                         </ul>

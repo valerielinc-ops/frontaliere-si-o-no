@@ -109,6 +109,8 @@ const translations: AllTranslations = {
     'app.subtitle': 'Calcola e confronta il tuo stipendio netto come lavoratore frontaliero',
     'app.fullscreen': 'Schermo intero',
     'app.exitFullscreen': 'Esci da Schermo intero',
+    'app.lightMode': 'Attiva tema chiaro',
+    'app.darkMode': 'Attiva tema scuro',
 
     // Nav
     'nav.simulator': 'Simulatore',
@@ -2636,6 +2638,8 @@ const translations: AllTranslations = {
     'app.subtitle': 'Calculate and compare your net salary as a cross-border worker',
     'app.fullscreen': 'Fullscreen',
     'app.exitFullscreen': 'Exit Fullscreen',
+    'app.lightMode': 'Switch to light mode',
+    'app.darkMode': 'Switch to dark mode',
 
     // Nav
     'nav.simulator': 'Simulator',
@@ -5160,6 +5164,8 @@ const translations: AllTranslations = {
     'app.subtitle': 'Berechnen und vergleichen Sie Ihr Nettogehalt als Grenzgänger',
     'app.fullscreen': 'Vollbild',
     'app.exitFullscreen': 'Vollbild beenden',
+    'app.lightMode': 'Helles Design aktivieren',
+    'app.darkMode': 'Dunkles Design aktivieren',
 
     // Nav
     'nav.simulator': 'Simulator',
@@ -7674,6 +7680,8 @@ const translations: AllTranslations = {
     'app.subtitle': 'Calculez et comparez votre salaire net en tant que travailleur frontalier',
     'app.fullscreen': 'Plein écran',
     'app.exitFullscreen': 'Quitter le plein écran',
+    'app.lightMode': 'Activer le thème clair',
+    'app.darkMode': 'Activer le thème sombre',
 
     // Nav
     'nav.simulator': 'Simulateur',

@@ -100,6 +100,19 @@ export default defineConfig(({ mode }) => {
         alias: {
           '@': path.resolve(__dirname, '.'),
         }
-      }
+      },
+      build: {
+        sourcemap: true,
+        rollupOptions: {
+          output: {
+            manualChunks: {
+              'vendor-firebase': ['firebase/app', 'firebase/analytics', 'firebase/firestore', 'firebase/remote-config', 'firebase/app-check', 'firebase/auth'],
+              'vendor-charts': ['recharts'],
+              'vendor-maps': ['leaflet', 'react-leaflet'],
+              'vendor-pdf': ['jspdf', 'jspdf-autotable'],
+            },
+          },
+        },
+      },
     };
 });

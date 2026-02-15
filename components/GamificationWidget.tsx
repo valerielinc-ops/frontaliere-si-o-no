@@ -242,7 +242,7 @@ const GamificationWidget: React.FC<GamificationWidgetProps> = ({ onNavigateToPag
           onClick={() => { setIsOpen(!isOpen); Analytics.trackUIInteraction('gamification', 'widget', 'toggle', isOpen ? 'close' : 'open'); }}
           className={`relative p-2 rounded-xl transition-all ${isOpen ? 'bg-amber-50 dark:bg-amber-900/20 text-amber-600 dark:text-amber-400' : 'text-slate-400 hover:text-slate-600 dark:hover:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800'}`}
           title={`${levelTitle} — ${state.xp} XP`}
-          aria-label="Gamification"
+          aria-label={`Gamification: ${levelTitle}, ${state.xp} XP`}
         >
           <Trophy size={18} />
           {/* Badge with level */}
