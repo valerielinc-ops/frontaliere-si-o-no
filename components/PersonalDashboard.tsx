@@ -89,7 +89,7 @@ const PersonalDashboard: React.FC<PersonalDashboardProps> = ({ currentInputs, cu
         setSimulations(merged);
       } catch (e) {
         console.warn('Cloud sync failed:', e);
-        if (mounted) setSyncError(t('dashboard.syncError') || 'Sincronizzazione cloud fallita');
+        if (mounted) setSyncError('Sincronizzazione cloud fallita');
       } finally {
         if (mounted) setSyncing(false);
       }
@@ -97,7 +97,8 @@ const PersonalDashboard: React.FC<PersonalDashboardProps> = ({ currentInputs, cu
 
     syncFromCloud();
     return () => { mounted = false; };
-  }, [user, t]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [user]);
 
   const handleSave = useCallback(async () => {
     const inputs = currentInputs || DEFAULT_INPUTS;
@@ -153,10 +154,10 @@ const PersonalDashboard: React.FC<PersonalDashboardProps> = ({ currentInputs, cu
       const rows = simulations.map(s => [
         new Date(s.date).toLocaleDateString('it-IT'),
         s.label,
-        `CHF ${s.inputs.grossSalary.toLocaleString('it-IT')}`,
-        `CHF ${Math.round(s.result.chResident.netAnnual).toLocaleString('it-IT')}`,
-        `€ ${Math.round(s.result.itResident.netAnnual).toLocaleString('it-IT')}`,
-        `CHF ${Math.round(s.result.savings.annual).toLocaleString('it-IT')}`,
+        `CHF ${(s.inputs?.grossSalary ?? 0).toLocaleString('it-IT')}`,
+        `CHF ${Math.round(s.result?.chResident?.netAnnual ?? 0).toLocaleString('it-IT')}`,
+        `€ ${Math.round(s.result?.itResident?.netAnnual ?? 0).toLocaleString('it-IT')}`,
+        `CHF ${Math.round(s.result?.savings?.annual ?? 0).toLocaleString('it-IT')}`,
       ]);
 
       autoTable(doc, {
@@ -370,9 +371,9 @@ const PersonalDashboard: React.FC<PersonalDashboardProps> = ({ currentInputs, cu
                     </div>
                     <p className="font-bold text-sm text-slate-800 dark:text-slate-200">{sim.label}</p>
                     <div className="flex flex-wrap gap-3 mt-1 text-xs text-slate-500">
-                      <span>💰 CHF {sim.inputs.grossSalary.toLocaleString('it-IT')}</span>
-                      <span>🇨🇭 CHF {Math.round(sim.result.chResident.netAnnual).toLocaleString('it-IT')}/a</span>
-                      <span>🇮🇹 € {Math.round(sim.result.itResident.netAnnual).toLocaleString('it-IT')}/a</span>
+                      <span>💰 CHF {(sim.inputs?.grossSalary ?? 0).toLocaleString('it-IT')}</span>
+                      <span>🇨🇭 CHF {Math.round(sim.result?.chResident?.netAnnual ?? 0).toLocaleString('it-IT')}/a</span>
+                      <span>🇮🇹 € {Math.round(sim.result?.itResident?.netAnnual ?? 0).toLocaleString('it-IT')}/a</span>
                     </div>
                   </div>
 
@@ -395,19 +396,19 @@ const PersonalDashboard: React.FC<PersonalDashboardProps> = ({ currentInputs, cu
                     <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-center">
                       <div className="p-2 bg-slate-50 dark:bg-slate-900 rounded-lg">
                         <p className="text-[10px] text-slate-400">{t('dashboard.gross')}</p>
-                        <p className="font-black text-sm">CHF {sim.inputs.grossSalary.toLocaleString('it-IT')}</p>
+                        <p className="font-black text-sm">CHF {(sim.inputs?.grossSalary ?? 0).toLocaleString('it-IT')}</p>
                       </div>
                       <div className="p-2 bg-slate-50 dark:bg-slate-900 rounded-lg">
                         <p className="text-[10px] text-slate-400">{t('dashboard.family')}</p>
-                        <p className="font-black text-sm">{sim.inputs.familyMembers}p, {sim.inputs.children}b</p>
+                        <p className="font-black text-sm">{sim.inputs?.familyMembers ?? 0}p, {sim.inputs?.children ?? 0}b</p>
                       </div>
                       <div className="p-2 bg-red-50 dark:bg-red-950/20 rounded-lg">
                         <p className="text-[10px] text-slate-400">🇨🇭 {t('dashboard.netCH')}</p>
-                        <p className="font-black text-sm text-red-600">CHF {Math.round(sim.result.chResident.netAnnual).toLocaleString('it-IT')}</p>
+                        <p className="font-black text-sm text-red-600">CHF {Math.round(sim.result?.chResident?.netAnnual ?? 0).toLocaleString('it-IT')}</p>
                       </div>
                       <div className="p-2 bg-green-50 dark:bg-green-950/20 rounded-lg">
                         <p className="text-[10px] text-slate-400">🇮🇹 {t('dashboard.netIT')}</p>
-                        <p className="font-black text-sm text-green-600">€ {Math.round(sim.result.itResident.netAnnual).toLocaleString('it-IT')}</p>
+                        <p className="font-black text-sm text-green-600">€ {Math.round(sim.result?.itResident?.netAnnual ?? 0).toLocaleString('it-IT')}</p>
                       </div>
                     </div>
                   </div>

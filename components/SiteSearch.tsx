@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef, useMemo, useCallback } from 'react';
+import { createPortal } from 'react-dom';
 import { Search, X, ArrowRight, Calculator, Layers, PiggyBank, BookOpen, BarChart2, HelpCircle, ArrowRightLeft, Phone, Car, Heart, Building2, AlertTriangle, Briefcase, ShoppingCart, Euro, TrendingUp, Sparkles, MapPin, Calendar, PartyPopper, FileText, GraduationCap, Building, Compass, BriefcaseBusiness, MessageSquare } from 'lucide-react';
 import { useTranslation } from '@/services/i18n';
 
@@ -442,8 +443,8 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
         <Search size={18} />
       </button>
 
-      {/* Search modal overlay — centered */}
-      {isOpen && (
+      {/* Search modal overlay — rendered via portal for true fullscreen */}
+      {isOpen && createPortal(
         <div className="fixed inset-0 z-[100] flex items-start justify-center px-4 pt-[env(safe-area-inset-top,12vh)] sm:pt-[12vh] bg-black/40 backdrop-blur-sm transition-opacity duration-150">
           <div
             ref={modalRef}
@@ -543,7 +544,8 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
               </span>
             </div>
           </div>
-        </div>
+        </div>,
+        document.body
       )}
     </>
   );

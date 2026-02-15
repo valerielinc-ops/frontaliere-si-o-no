@@ -219,9 +219,9 @@ const GamificationWidget: React.FC<GamificationWidgetProps> = ({ onNavigateToPag
 
   return (
     <>
-      {/* Achievement Toast — bottom-right */}
+      {/* Achievement Toast — top-right */}
       {toast && (
-        <div className="fixed bottom-8 right-4 sm:right-6 z-[60] animate-toast-in pointer-events-auto">
+        <div className="fixed top-20 right-4 sm:right-6 z-[60] animate-toast-in pointer-events-auto">
           <div className="bg-gradient-to-r from-amber-500 to-orange-500 text-white rounded-xl shadow-lg px-4 py-2.5 flex items-center gap-2.5 max-w-xs">
             <span className="text-xl flex-shrink-0">{ACHIEVEMENTS.find(a => a.id === toast)?.icon || '🏆'}</span>
             <div className="min-w-0">
