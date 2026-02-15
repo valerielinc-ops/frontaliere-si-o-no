@@ -444,10 +444,10 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
 
       {/* Search modal overlay — centered */}
       {isOpen && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center px-4 bg-black/40 backdrop-blur-sm transition-opacity duration-150">
+        <div className="fixed inset-0 z-[100] flex items-start justify-center px-4 pt-[env(safe-area-inset-top,12vh)] sm:pt-[12vh] bg-black/40 backdrop-blur-sm transition-opacity duration-150">
           <div
             ref={modalRef}
-            className="w-full max-w-lg max-h-[80vh] bg-white dark:bg-slate-900 rounded-2xl shadow-2xl border border-slate-200 dark:border-slate-700 flex flex-col animate-modal-in"
+            className="w-full max-w-lg max-h-[70vh] sm:max-h-[75vh] bg-white dark:bg-slate-900 rounded-2xl shadow-2xl border border-slate-200 dark:border-slate-700 flex flex-col animate-modal-in"
           >
             {/* Search input */}
             <div className="flex items-center gap-3 px-4 py-3 border-b border-slate-200 dark:border-slate-700">
