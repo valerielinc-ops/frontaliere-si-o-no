@@ -20,7 +20,7 @@ export const DataDeletion: React.FC = () => {
             </div>
             <div>
               <h1 className="text-3xl font-extrabold text-slate-800 dark:text-slate-100">Data Deletion</h1>
-              <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">Facebook App Data Deletion Callback</p>
+              <p className="text-sm text-slate-500 dark:text-slate-500 mt-1">Facebook App Data Deletion Callback</p>
             </div>
           </div>
         </div>
@@ -44,7 +44,7 @@ export const DataDeletion: React.FC = () => {
           </div>
 
           {/* Explanation */}
-          <div className="space-y-4 text-slate-600 dark:text-slate-400">
+          <div className="space-y-4 text-slate-600 dark:text-slate-500">
             <div className="flex items-start gap-3">
               <Shield className="text-indigo-500 flex-shrink-0 mt-1" size={20} />
               <div>
@@ -82,13 +82,13 @@ export const DataDeletion: React.FC = () => {
           {/* What We Do Collect */}
           <div>
             <h3 className="font-bold text-slate-800 dark:text-slate-100 mb-3">What We Do Collect:</h3>
-            <ul className="space-y-2 text-sm text-slate-600 dark:text-slate-400">
+            <ul className="space-y-2 text-sm text-slate-600 dark:text-slate-500">
               <li className="flex items-start gap-2">
-                <span className="text-slate-400">•</span>
+                <span className="text-slate-500">•</span>
                 <span><strong>Anonymous Analytics:</strong> Google Analytics collects anonymous usage statistics (page views, device type, browser). No personally identifiable information.</span>
               </li>
               <li className="flex items-start gap-2">
-                <span className="text-slate-400">•</span>
+                <span className="text-slate-500">•</span>
                 <span><strong>Local Preferences:</strong> Theme preferences (dark/light mode) stored in your browser's local storage. Never leaves your device.</span>
               </li>
             </ul>
@@ -100,10 +100,10 @@ export const DataDeletion: React.FC = () => {
           {/* Data Deletion Request */}
           <div className="bg-slate-50 dark:bg-slate-900/50 rounded-xl p-6 border border-slate-200 dark:border-slate-700">
             <h3 className="font-bold text-slate-800 dark:text-slate-100 mb-3">Data Deletion Request</h3>
-            <p className="text-sm text-slate-600 dark:text-slate-400 mb-4">
+            <p className="text-sm text-slate-600 dark:text-slate-500 mb-4">
               Since we do not collect or store any user data, there is <strong>no data to delete</strong> from our systems.
             </p>
-            <p className="text-sm text-slate-600 dark:text-slate-400">
+            <p className="text-sm text-slate-600 dark:text-slate-500">
               If you have concerns about data privacy, please refer to our <a href="/privacy" className="text-indigo-600 dark:text-indigo-400 hover:underline font-semibold">Privacy Policy</a> or contact us via our Facebook page.
             </p>
           </div>
@@ -126,7 +126,7 @@ export const DataDeletion: React.FC = () => {
 
         {/* Contact */}
         <div className="mt-6 text-center">
-          <p className="text-sm text-slate-500 dark:text-slate-400">
+          <p className="text-sm text-slate-500 dark:text-slate-500">
             Questions? Contact us via{' '}
             <a 
               href="https://www.facebook.com/profile.php?id=61588174947294" 
@@ -137,7 +137,7 @@ export const DataDeletion: React.FC = () => {
               Facebook
             </a>
           </p>
-          <p className="text-xs text-slate-400 dark:text-slate-500 mt-2">
+          <p className="text-xs text-slate-500 dark:text-slate-500 mt-2">
             © 2026 Frontaliere Si o No? | <a href="/" className="hover:underline">Back to Home</a>
           </p>
         </div>

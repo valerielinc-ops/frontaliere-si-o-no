@@ -320,7 +320,7 @@ const ExchangeTimingSection: React.FC<{ historyData: Array<{ date: string; rate:
             <h3 className="text-xl font-extrabold text-slate-800 dark:text-slate-100">{t('currency.when_to_exchange')}</h3>
             <span className="px-2 py-0.5 bg-amber-200 dark:bg-amber-800 text-amber-800 dark:text-amber-200 text-[10px] font-black uppercase rounded-full tracking-wider">{t('currency.experimental')}</span>
           </div>
-          <p className="text-sm text-slate-600 dark:text-slate-400 mt-0.5">
+          <p className="text-sm text-slate-600 dark:text-slate-500 mt-0.5">
             {t('currency.timing_analysis_desc')}
           </p>
         </div>
@@ -335,15 +335,15 @@ const ExchangeTimingSection: React.FC<{ historyData: Array<{ date: string; rate:
           </div>
           <div className="space-y-2 text-sm">
             <div className="flex justify-between items-center">
-              <span className="text-slate-600 dark:text-slate-400">{t('currency.day_of_week')}</span>
+              <span className="text-slate-600 dark:text-slate-500">{t('currency.day_of_week')}</span>
               <span className="font-extrabold text-emerald-600">{t(`currency.${timing.bestDay}`)}</span>
             </div>
             <div className="flex justify-between items-center">
-              <span className="text-slate-600 dark:text-slate-400">{t('currency.month_of_year')}</span>
+              <span className="text-slate-600 dark:text-slate-500">{t('currency.month_of_year')}</span>
               <span className="font-extrabold text-emerald-600">{t(`currency.${timing.bestMonth}`)}</span>
             </div>
             <div className="flex justify-between items-center">
-              <span className="text-slate-600 dark:text-slate-400">{t('currency.recommended_time')}</span>
+              <span className="text-slate-600 dark:text-slate-500">{t('currency.recommended_time')}</span>
               <span className="font-extrabold text-emerald-600">10:00–12:00</span>
             </div>
           </div>
@@ -355,15 +355,15 @@ const ExchangeTimingSection: React.FC<{ historyData: Array<{ date: string; rate:
           </div>
           <div className="space-y-2 text-sm">
             <div className="flex justify-between items-center">
-              <span className="text-slate-600 dark:text-slate-400">{t('currency.day_of_week')}</span>
+              <span className="text-slate-600 dark:text-slate-500">{t('currency.day_of_week')}</span>
               <span className="font-extrabold text-red-600">{t(`currency.${timing.worstDay}`)}</span>
             </div>
             <div className="flex justify-between items-center">
-              <span className="text-slate-600 dark:text-slate-400">{t('currency.month_of_year')}</span>
+              <span className="text-slate-600 dark:text-slate-500">{t('currency.month_of_year')}</span>
               <span className="font-extrabold text-red-600">{t(`currency.${timing.worstMonth}`)}</span>
             </div>
             <div className="flex justify-between items-center">
-              <span className="text-slate-600 dark:text-slate-400">{t('currency.unfavorable_time')}</span>
+              <span className="text-slate-600 dark:text-slate-500">{t('currency.unfavorable_time')}</span>
               <span className="font-extrabold text-red-600">{t('currency.weekend_17plus')}</span>
             </div>
           </div>
@@ -420,7 +420,7 @@ const ExchangeTimingSection: React.FC<{ historyData: Array<{ date: string; rate:
           <Zap size={16} className="text-amber-600 mt-0.5 flex-shrink-0" />
           <div className="text-slate-700 dark:text-slate-300 space-y-1">
             <p className="font-bold text-amber-800 dark:text-amber-300">{t('currency.timing_tips_title')}</p>
-            <ul className="list-disc ml-4 space-y-1 text-slate-600 dark:text-slate-400">
+            <ul className="list-disc ml-4 space-y-1 text-slate-600 dark:text-slate-500">
               <li><strong>{t('currency.tip_morning_label')}:</strong> {t('currency.tip_morning')}</li>
               <li><strong>{t('currency.tip_avoid_weekend_label')}:</strong> {t('currency.tip_avoid_weekend')}</li>
               <li><strong>{t('currency.tip_end_month_label')}:</strong> {t('currency.tip_end_month')}</li>
@@ -477,7 +477,7 @@ const ExchangeTimingSection: React.FC<{ historyData: Array<{ date: string; rate:
                 style={{ left: `calc(${Math.max(2, Math.min(98, volatility.percentile))}% - 8px)` }}
               />
             </div>
-            <div className="text-center text-xs font-bold text-slate-600 dark:text-slate-400">
+            <div className="text-center text-xs font-bold text-slate-600 dark:text-slate-500">
               {t('currency.percentile')}: {volatility.percentile.toFixed(0)}%
               {volatility.percentile > 70 ? ` — 🎯 ${t('currency.favorable_moment')}` : volatility.percentile < 30 ? ` — ⏰ ${t('currency.low_rate_wait')}` : ` — ${t('currency.normal')}`}
             </div>
@@ -632,7 +632,7 @@ const WeightedAverageStats: React.FC<{
         </div>
         <div>
           <h3 className="text-xl font-extrabold text-slate-800 dark:text-slate-100">📊 {t('currency.weighted_avg_stats')}</h3>
-          <p className="text-sm text-slate-600 dark:text-slate-400">
+          <p className="text-sm text-slate-600 dark:text-slate-500">
             {t('currency.weighted_avg_desc', { period: periodLabel })}
           </p>
         </div>
@@ -886,7 +886,7 @@ const CurrencyExchange: React.FC = () => {
           className={`flex-1 flex items-center justify-center gap-2 px-4 py-3 rounded-xl text-sm font-bold transition-all ${
             exchangeSubTab === 'overview'
               ? 'bg-indigo-600 text-white shadow-lg'
-              : 'text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-700'
+              : 'text-slate-600 dark:text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-700'
           }`}
         >
           <ArrowLeftRight size={16} />
@@ -897,7 +897,7 @@ const CurrencyExchange: React.FC = () => {
           className={`flex-1 flex items-center justify-center gap-2 px-4 py-3 rounded-xl text-sm font-bold transition-all ${
             exchangeSubTab === 'statistics'
               ? 'bg-indigo-600 text-white shadow-lg'
-              : 'text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-700'
+              : 'text-slate-600 dark:text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-700'
           }`}
         >
           <ChartBar size={16} />
@@ -928,10 +928,10 @@ const CurrencyExchange: React.FC = () => {
 
         <div className="space-y-4">
           <div className="space-y-2">
-            <label className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wide">{t('currency.amount_to_convert')}</label>
+            <label className="text-xs font-bold text-slate-500 dark:text-slate-500 uppercase tracking-wide">{t('currency.amount_to_convert')}</label>
             <div className="relative">
               <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                <span className="text-slate-400 font-bold">CHF</span>
+                <span className="text-slate-500 font-bold">CHF</span>
               </div>
               <input
                 type="number"
@@ -944,10 +944,10 @@ const CurrencyExchange: React.FC = () => {
           </div>
 
           <div className="space-y-2">
-            <label className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wide flex items-center gap-2">
+            <label className="text-xs font-bold text-slate-500 dark:text-slate-500 uppercase tracking-wide flex items-center gap-2">
               {t('currency.real_market_rate')}
               <div className="group relative inline-flex items-center cursor-help">
-                <Info size={12} className="text-slate-400" />
+                <Info size={12} className="text-slate-500" />
                 <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 hidden group-hover:block w-48 p-2.5 bg-slate-800 text-white text-[10px] font-medium leading-relaxed rounded-xl shadow-xl border border-slate-600 pointer-events-none z-50 text-center">
                   {t('currency.mid_market_tooltip')}
                 </div>
@@ -955,7 +955,7 @@ const CurrencyExchange: React.FC = () => {
             </label>
             <div className="relative">
               <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                <span className="text-slate-400 text-sm">1 CHF =</span>
+                <span className="text-slate-500 text-sm">1 CHF =</span>
               </div>
               <input
                 type="text"
@@ -965,7 +965,7 @@ const CurrencyExchange: React.FC = () => {
               />
             </div>
             {lastUpdate && (
-              <p className="text-[10px] text-slate-400 text-right">
+              <p className="text-[10px] text-slate-500 text-right">
                 {t('currency.updated')}: {lastUpdate.toLocaleTimeString('it-IT')}
               </p>
             )}
@@ -984,7 +984,7 @@ const CurrencyExchange: React.FC = () => {
             {(['1m', '3m', '6m', '1y', '5y'] as const).map(p => (
               <button key={p}
                 onClick={() => setHistoryPeriod(p)}
-                className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${historyPeriod === p ? 'bg-indigo-600 text-white shadow' : 'bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-600'}`}
+                className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${historyPeriod === p ? 'bg-indigo-600 text-white shadow' : 'bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-500 hover:bg-slate-200 dark:hover:bg-slate-600'}`}
               >
                 {p === '1m' ? '1M' : p === '3m' ? '3M' : p === '6m' ? '6M' : p === '1y' ? '1A' : '5A'}
               </button>
@@ -992,7 +992,7 @@ const CurrencyExchange: React.FC = () => {
           </div>
         </div>
         {historyLoading ? (
-          <div className="h-64 flex items-center justify-center text-slate-400">
+          <div className="h-64 flex items-center justify-center text-slate-500">
             <RefreshCw size={24} className="animate-spin" />
           </div>
         ) : historyData.length > 0 ? (
@@ -1015,7 +1015,7 @@ const CurrencyExchange: React.FC = () => {
             </AreaChart>
           </ResponsiveContainer>
         ) : (
-          <div className="h-64 flex items-center justify-center text-slate-400 text-sm">
+          <div className="h-64 flex items-center justify-center text-slate-500 text-sm">
             {t('currency.no_data_available')}
           </div>
         )}
@@ -1049,7 +1049,7 @@ const CurrencyExchange: React.FC = () => {
             <div className="text-3xl font-extrabold text-emerald-600 mb-1">
               € {best.netAmount.toFixed(2)}
             </div>
-            <div className="text-sm text-slate-600 dark:text-slate-400">
+            <div className="text-sm text-slate-600 dark:text-slate-500">
               {t('currency.total_cost')}: <strong>CHF {best.totalCost.toFixed(2)}</strong> ({best.costPercent.toFixed(2)}%)
             </div>
             <div className="text-xs text-emerald-600 dark:text-emerald-400 mt-2 font-bold">
@@ -1070,7 +1070,7 @@ const CurrencyExchange: React.FC = () => {
             <div className="text-3xl font-extrabold text-emerald-600 mb-1">
               € {best.netAmount.toFixed(2)}
             </div>
-            <div className="text-sm text-slate-600 dark:text-slate-400">
+            <div className="text-sm text-slate-600 dark:text-slate-500">
               {t('currency.total_cost')}: <strong>CHF {best.totalCost.toFixed(2)}</strong> ({best.costPercent.toFixed(2)}%)
             </div>
           </div>
@@ -1089,7 +1089,7 @@ const CurrencyExchange: React.FC = () => {
           <div className="text-3xl font-extrabold text-red-600 mb-1">
             € {worst.netAmount.toFixed(2)}
           </div>
-          <div className="text-sm text-slate-600 dark:text-slate-400">
+          <div className="text-sm text-slate-600 dark:text-slate-500">
             {t('currency.total_cost')}: <strong>CHF {worst.totalCost.toFixed(2)}</strong> ({worst.costPercent.toFixed(2)}%)
           </div>
         </div>
@@ -1148,7 +1148,7 @@ const CurrencyExchange: React.FC = () => {
                   </div>
                   <div>
                     <h3 className="text-xl font-bold text-slate-800 dark:text-slate-100">{result.provider.name}</h3>
-                    <p className="text-sm text-slate-500 dark:text-slate-400">{t(`currency.${result.provider.transferTimeKey}`)}</p>
+                    <p className="text-sm text-slate-500 dark:text-slate-500">{t(`currency.${result.provider.transferTimeKey}`)}</p>
                   </div>
                 </div>
 
@@ -1156,7 +1156,7 @@ const CurrencyExchange: React.FC = () => {
                   <div className="text-2xl font-extrabold text-slate-800 dark:text-slate-100">
                     € {result.netAmount.toFixed(2)}
                   </div>
-                  <div className={`text-sm font-bold ${isBest ? 'text-emerald-600' : isWorst ? 'text-red-600' : 'text-slate-600 dark:text-slate-400'}`}>
+                  <div className={`text-sm font-bold ${isBest ? 'text-emerald-600' : isWorst ? 'text-red-600' : 'text-slate-600 dark:text-slate-500'}`}>
                     {t('currency.cost')}: {result.costPercent.toFixed(2)}%
                   </div>
                 </div>
@@ -1164,11 +1164,11 @@ const CurrencyExchange: React.FC = () => {
 
               <div className="grid md:grid-cols-3 gap-4 mb-4">
                 <div className="p-3 bg-slate-50 dark:bg-slate-900 rounded-xl">
-                  <div className="text-xs text-slate-500 dark:text-slate-400 mb-1">{t('currency.applied_rate')}</div>
+                  <div className="text-xs text-slate-500 dark:text-slate-500 mb-1">{t('currency.applied_rate')}</div>
                   <div className="text-lg font-bold text-slate-800 dark:text-slate-100">
                     {result.appliedRate.toFixed(4)}
                   </div>
-                  <div className="text-xs text-slate-500 dark:text-slate-400">
+                  <div className="text-xs text-slate-500 dark:text-slate-500">
                     {result.provider.exchangeRateMarkup > 0 ? (
                       <span className="text-red-600">-{(result.provider.exchangeRateMarkup * 100).toFixed(2)}% spread</span>
                     ) : (
@@ -1178,22 +1178,22 @@ const CurrencyExchange: React.FC = () => {
                 </div>
 
                 <div className="p-3 bg-slate-50 dark:bg-slate-900 rounded-xl">
-                  <div className="text-xs text-slate-500 dark:text-slate-400 mb-1">{t('currency.declared_commission')}</div>
+                  <div className="text-xs text-slate-500 dark:text-slate-500 mb-1">{t('currency.declared_commission')}</div>
                   <div className="text-lg font-bold text-slate-800 dark:text-slate-100">
                     {result.totalCommission.toFixed(2)} EUR
                   </div>
-                  <div className="text-xs text-slate-500 dark:text-slate-400">
+                  <div className="text-xs text-slate-500 dark:text-slate-500">
                     {result.provider.commission > 0 && `CHF ${result.provider.commission} + `}
                     {result.provider.commissionPercent}%
                   </div>
                 </div>
 
                 <div className="p-3 bg-slate-50 dark:bg-slate-900 rounded-xl">
-                  <div className="text-xs text-slate-500 dark:text-slate-400 mb-1">{t('currency.real_total_cost')}</div>
+                  <div className="text-xs text-slate-500 dark:text-slate-500 mb-1">{t('currency.real_total_cost')}</div>
                   <div className="text-lg font-bold text-slate-800 dark:text-slate-100">
                     CHF {result.totalCost.toFixed(2)}
                   </div>
-                  <div className="text-xs text-slate-500 dark:text-slate-400">
+                  <div className="text-xs text-slate-500 dark:text-slate-500">
                     {t('currency.commissions_spread')}
                   </div>
                 </div>

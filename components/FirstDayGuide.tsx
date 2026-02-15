@@ -230,7 +230,7 @@ const FirstDayGuide: React.FC = () => {
                 <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-black shrink-0 ${
                   isCompleted
                     ? 'bg-emerald-500 text-white'
-                    : 'bg-slate-200 dark:bg-slate-700 text-slate-500 dark:text-slate-400'
+                    : 'bg-slate-200 dark:bg-slate-700 text-slate-500 dark:text-slate-500'
                 }`}>
                   {isCompleted ? '✓' : index + 1}
                 </div>
@@ -251,19 +251,19 @@ const FirstDayGuide: React.FC = () => {
                         {t(`firstday.step.${step.id}`)}
                       </span>
                     </div>
-                    <p className="text-xs text-slate-400 mt-0.5">{t(`firstday.step.${step.id}.desc`)}</p>
+                    <p className="text-xs text-slate-500 mt-0.5">{t(`firstday.step.${step.id}.desc`)}</p>
                   </div>
                 </button>
 
                 {/* Time estimate + expand */}
                 <div className="flex items-center gap-2 shrink-0">
-                  <span className="hidden sm:flex items-center gap-1 text-xs text-slate-400">
+                  <span className="hidden sm:flex items-center gap-1 text-xs text-slate-500">
                     <Clock className="w-3 h-3" />
                     {step.estimatedDays}
                   </span>
                   <button
                     onClick={() => setExpandedStep(isExpanded ? null : step.id)}
-                    className="p-1 text-slate-400 hover:text-slate-600 dark:hover:text-slate-300"
+                    className="p-1 text-slate-500 hover:text-slate-600 dark:hover:text-slate-300"
                   >
                     {isExpanded ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
                   </button>
@@ -277,7 +277,7 @@ const FirstDayGuide: React.FC = () => {
                   {step.substeps && (
                     <div className="space-y-1.5">
                       {step.substeps.map((sub, i) => (
-                        <div key={i} className="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-400">
+                        <div key={i} className="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-500">
                           <AlertCircle className="w-3.5 h-3.5 text-amber-400 shrink-0" />
                           {t(`firstday.${sub}`)}
                         </div>

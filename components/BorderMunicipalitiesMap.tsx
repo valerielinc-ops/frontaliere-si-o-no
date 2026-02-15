@@ -206,7 +206,7 @@ const BorderMunicipalitiesMap: React.FC = () => {
   };
 
   // Map center: adjusted to cover CO/VA/VB/SO/LC spread
-  const center: [number, number] = [46.00, 9.10];
+  const center: [number, number] = [46.05, 9.20];
 
   return (
     <div className="space-y-6">
@@ -224,7 +224,7 @@ const BorderMunicipalitiesMap: React.FC = () => {
       {/* Controls */}
       <div className="bg-white dark:bg-slate-800 rounded-xl p-4 border border-slate-200 dark:border-slate-700 flex flex-wrap gap-3 items-center">
         <div className="flex items-center gap-2">
-          <Filter className="w-4 h-4 text-slate-400" />
+          <Filter className="w-4 h-4 text-slate-500" />
           <span className="text-sm font-bold text-slate-600 dark:text-slate-300">{t('bordermap.colorBy')}:</span>
         </div>
         {([
@@ -262,23 +262,23 @@ const BorderMunicipalitiesMap: React.FC = () => {
       <div className="flex flex-wrap gap-4 text-xs">
         <div className="flex items-center gap-2">
           <div className="w-3 h-3 rounded-full bg-green-500" />
-          <span className="text-slate-600 dark:text-slate-400">
+          <span className="text-slate-600 dark:text-slate-500">
             {colorMode === 'irpef' ? '≤ 0.5%' : colorMode === 'distance' ? '≤ 5 km' : '≤ €500'}
           </span>
         </div>
         <div className="flex items-center gap-2">
           <div className="w-3 h-3 rounded-full bg-yellow-500" />
-          <span className="text-slate-600 dark:text-slate-400">
+          <span className="text-slate-600 dark:text-slate-500">
             {colorMode === 'irpef' ? '0.5–0.65%' : colorMode === 'distance' ? '5–15 km' : '€500–650'}
           </span>
         </div>
         <div className="flex items-center gap-2">
           <div className="w-3 h-3 rounded-full bg-red-500" />
-          <span className="text-slate-600 dark:text-slate-400">
+          <span className="text-slate-600 dark:text-slate-500">
             {colorMode === 'irpef' ? '> 0.65%' : colorMode === 'distance' ? '> 15 km' : '> €650'}
           </span>
         </div>
-        <div className="flex items-center gap-1 text-slate-400">
+        <div className="flex items-center gap-1 text-slate-500">
           <Info className="w-3 h-3" />
           {t('bordermap.sizeByPop')}
         </div>
@@ -286,7 +286,7 @@ const BorderMunicipalitiesMap: React.FC = () => {
 
       {/* Map */}
       <div className="rounded-xl overflow-hidden border border-slate-200 dark:border-slate-700 h-[500px]">
-        <MapContainer center={center} zoom={9} style={{ height: '100%', width: '100%' }} scrollWheelZoom={true}>
+        <MapContainer center={center} zoom={8} style={{ height: '100%', width: '100%' }} scrollWheelZoom={true}>
           <TileLayer
             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -348,19 +348,19 @@ const BorderMunicipalitiesMap: React.FC = () => {
           </div>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 text-center">
             <div className="p-3 bg-slate-50 dark:bg-slate-900 rounded-lg">
-              <p className="text-xs text-slate-400">{t('bordermap.mode.irpef')}</p>
+              <p className="text-xs text-slate-500">{t('bordermap.mode.irpef')}</p>
               <p className="text-xl font-black text-slate-800 dark:text-slate-200">{selectedMunicipality.irpefAddizionale}%</p>
             </div>
             <div className="p-3 bg-slate-50 dark:bg-slate-900 rounded-lg">
-              <p className="text-xs text-slate-400">{t('bordermap.distCrossing')}</p>
+              <p className="text-xs text-slate-500">{t('bordermap.distCrossing')}</p>
               <p className="text-xl font-black text-slate-800 dark:text-slate-200">{selectedMunicipality.distanceKm} km</p>
             </div>
             <div className="p-3 bg-slate-50 dark:bg-slate-900 rounded-lg">
-              <p className="text-xs text-slate-400">{t('bordermap.avgRent')}</p>
+              <p className="text-xs text-slate-500">{t('bordermap.avgRent')}</p>
               <p className="text-xl font-black text-slate-800 dark:text-slate-200">€{selectedMunicipality.avgRentMonthly}</p>
             </div>
             <div className="p-3 bg-slate-50 dark:bg-slate-900 rounded-lg">
-              <p className="text-xs text-slate-400">{t('bordermap.pop')}</p>
+              <p className="text-xs text-slate-500">{t('bordermap.pop')}</p>
               <p className="text-xl font-black text-slate-800 dark:text-slate-200">{selectedMunicipality.population.toLocaleString('it-IT')}</p>
             </div>
           </div>

@@ -321,7 +321,7 @@ const TicinoCompanies: React.FC = () => {
         <div className="flex flex-col sm:flex-row sm:flex-wrap items-stretch sm:items-center gap-2 sm:gap-3">
           {/* Search */}
           <div className="relative flex-1 min-w-0 w-full sm:min-w-[200px]">
-            <Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" />
+            <Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-500" />
             <input
               type="text"
               value={searchQuery}
@@ -340,7 +340,7 @@ const TicinoCompanies: React.FC = () => {
             >
               {SECTORS.map(s => <option key={s} value={s}>{s}</option>)}
             </select>
-            <ChevronDown size={14} className="absolute right-2.5 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none" />
+            <ChevronDown size={14} className="absolute right-2.5 top-1/2 -translate-y-1/2 text-slate-500 pointer-events-none" />
           </div>
 
           {/* View toggle */}
@@ -358,7 +358,7 @@ const TicinoCompanies: React.FC = () => {
         <div className="flex flex-col sm:flex-row sm:flex-wrap items-stretch sm:items-center gap-2 sm:gap-3">
           <div className="flex items-center gap-2 text-sm">
             <Users size={14} className="text-slate-500 flex-shrink-0" />
-            <span className="text-slate-600 dark:text-slate-400 font-medium whitespace-nowrap text-xs sm:text-sm">{t('companies.minEmployees')}:</span>
+            <span className="text-slate-600 dark:text-slate-500 font-medium whitespace-nowrap text-xs sm:text-sm">{t('companies.minEmployees')}:</span>
             <input type="range" min={0} max={1000} step={50} value={minEmployees}
               onChange={(e) => setMinEmployees(Number(e.target.value))}
               className="w-full sm:w-32 accent-violet-600" />
@@ -457,9 +457,9 @@ const TicinoCompanies: React.FC = () => {
                   </span>
                 </div>
               </div>
-              <p className="text-sm text-slate-600 dark:text-slate-400 mb-3">{company.description}</p>
+              <p className="text-sm text-slate-600 dark:text-slate-500 mb-3">{company.description}</p>
               <div className="flex items-center justify-between text-sm">
-                <div className="flex items-center gap-1.5 text-slate-600 dark:text-slate-400">
+                <div className="flex items-center gap-1.5 text-slate-600 dark:text-slate-500">
                   <Users size={14} />
                   <span className="font-bold">{company.employees.toLocaleString('it-IT')}</span>
                 </div>

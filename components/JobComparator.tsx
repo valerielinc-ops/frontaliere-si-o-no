@@ -226,14 +226,14 @@ const JobComparator: React.FC = () => {
                 <div className="flex items-center gap-2">
                   <input type="checkbox" checked={offer.hasMealVouchers} onChange={(e) => updateOffer(offer.id, 'hasMealVouchers', e.target.checked)}
                     className="w-4 h-4 text-indigo-600 rounded" />
-                  <label className="text-xs font-bold text-slate-600 dark:text-slate-400">{t('jobs.mealVouchers')} (€{offer.mealVoucherValue}/{t('common.day') || 'gg'})</label>
+                  <label className="text-xs font-bold text-slate-600 dark:text-slate-500">{t('jobs.mealVouchers')} (€{offer.mealVoucherValue}/{t('common.day') || 'gg'})</label>
                 </div>
               )}
 
               <div className="flex items-center gap-2">
                 <input type="checkbox" checked={offer.hasParking} onChange={(e) => updateOffer(offer.id, 'hasParking', e.target.checked)}
                   className="w-4 h-4 text-indigo-600 rounded" />
-                <label className="text-xs font-bold text-slate-600 dark:text-slate-400">{t('jobs.parking')}</label>
+                <label className="text-xs font-bold text-slate-600 dark:text-slate-500">{t('jobs.parking')}</label>
               </div>
             </div>
           </div>
@@ -242,7 +242,7 @@ const JobComparator: React.FC = () => {
         {offers.length < 4 && (
           <button
             onClick={addOffer}
-            className="rounded-2xl border-2 border-dashed border-slate-300 dark:border-slate-600 p-6 flex flex-col items-center justify-center gap-3 text-slate-400 hover:text-indigo-600 hover:border-indigo-400 transition-all min-h-[200px]"
+            className="rounded-2xl border-2 border-dashed border-slate-300 dark:border-slate-600 p-6 flex flex-col items-center justify-center gap-3 text-slate-500 hover:text-indigo-600 hover:border-indigo-400 transition-all min-h-[200px]"
           >
             <Plus size={32} />
             <span className="font-bold">{t('jobs.addOffer')}</span>

@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef, useMemo, useCallback } from 'react';
 import { createPortal } from 'react-dom';
-import { Search, X, ArrowRight, Calculator, Layers, PiggyBank, BookOpen, BarChart2, HelpCircle, ArrowRightLeft, Phone, Car, Heart, Building2, AlertTriangle, Briefcase, ShoppingCart, Euro, TrendingUp, Sparkles, MapPin, Calendar, PartyPopper, FileText, GraduationCap, Building, Compass, BriefcaseBusiness, MessageSquare } from 'lucide-react';
+import { Search, X, ArrowRight, Calculator, Layers, PiggyBank, BookOpen, BarChart2, HelpCircle, ArrowRightLeft, Phone, Car, Heart, Building2, AlertTriangle, Briefcase, ShoppingCart, Euro, TrendingUp, Sparkles, MapPin, Calendar, PartyPopper, FileText, GraduationCap, Building, Compass, BriefcaseBusiness, MessageSquare, Map, Baby, Award, LayoutDashboard, Scale, Home } from 'lucide-react';
 import { useTranslation } from '@/services/i18n';
 
 interface SearchResult {
@@ -150,6 +150,50 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
       icon: Euro,
       color: 'text-emerald-600',
       keywords: ['costo vita', 'affitto', 'rent', 'cost of living', 'lebenshaltungskosten', 'coût de la vie', 'bollette', 'utilities'],
+    },
+    {
+      id: 'ral',
+      title: t('comparators.ral') || 'Confronto RAL',
+      description: 'Confronta la tua RAL italiana con lo stipendio svizzero equivalente',
+      section: t('nav.comparators') || 'Comparatori',
+      tab: 'comparatori',
+      subTab: 'ral',
+      icon: Scale,
+      color: 'text-cyan-600',
+      keywords: ['ral', 'stipendio', 'confronto', 'salario', 'lordo', 'annuo', 'comparison', 'salary', 'gross', 'vergleich', 'comparaison', 'italia', 'svizzera'],
+    },
+    {
+      id: 'parental-leave',
+      title: t('comparators.parentalLeave') || 'Congedo Parentale',
+      description: 'Calcola indennità congedo maternità e paternità per frontalieri',
+      section: t('nav.comparators') || 'Comparatori',
+      tab: 'comparatori',
+      subTab: 'parental-leave',
+      icon: Baby,
+      color: 'text-pink-600',
+      keywords: ['congedo', 'maternità', 'paternità', 'parentale', 'parental', 'leave', 'maternity', 'paternity', 'indennità', 'mutterschutz', 'congé'],
+    },
+    {
+      id: 'border-map',
+      title: t('comparators.borderMap') || 'Mappa Interattiva Comuni',
+      description: 'Mappa interattiva dei comuni frontalieri con dati IRPEF, affitti e distanze',
+      section: t('nav.comparators') || 'Comparatori',
+      tab: 'comparatori',
+      subTab: 'border-map',
+      icon: Map,
+      color: 'text-teal-600',
+      keywords: ['mappa', 'map', 'comuni', 'municipalities', 'interattiva', 'interactive', 'irpef', 'affitto', 'rent', 'distanza', 'karte', 'carte', 'confine', 'border'],
+    },
+    {
+      id: 'residency',
+      title: t('comparators.residency') || 'Simulatore Residenza',
+      description: 'Simula il costo della vita come residente in Svizzera vs frontaliere',
+      section: t('nav.comparators') || 'Comparatori',
+      tab: 'comparatori',
+      subTab: 'residency',
+      icon: Home,
+      color: 'text-blue-600',
+      keywords: ['residenza', 'residency', 'trasferimento', 'svizzera', 'switzerland', 'costo vita', 'affitto', 'wohnsitz', 'résidence', 'permesso B', 'vivere'],
     },
     // ─── Pension ───
     {
@@ -306,6 +350,17 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
       color: 'text-rose-600',
       keywords: ['disoccupazione', 'unemployment', 'naspi', 'licenziamento', 'arbeitslosigkeit', 'chômage', 'indennità', 'sussidio'],
     },
+    {
+      id: 'guide-first-day',
+      title: t('guide.tabs.firstDay') || 'Primo Giorno',
+      description: 'Guida al primo giorno di lavoro come frontaliere in Svizzera',
+      section: t('nav.guide') || 'Guida',
+      tab: 'guide',
+      guideSection: 'first-day',
+      icon: Compass,
+      color: 'text-orange-600',
+      keywords: ['primo giorno', 'first day', 'inizio', 'start', 'erster tag', 'premier jour', 'preparazione', 'documenti', 'cosa portare', 'checklist'],
+    },
     // ─── Stats ───
     {
       id: 'stats',
@@ -338,6 +393,28 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
       icon: MessageSquare,
       color: 'text-violet-600',
       keywords: ['forum', 'community', 'domande', 'risposte', 'questions', 'answers', 'fragen', 'antworten', 'communauté', 'aiuto', 'help'],
+    },
+    // ─── Dashboard ───
+    {
+      id: 'dashboard',
+      title: t('nav.dashboard') || 'Dashboard',
+      description: 'Dashboard personale con simulazioni salvate e sincronizzazione cloud',
+      section: t('nav.dashboard') || 'Dashboard',
+      tab: 'dashboard',
+      icon: LayoutDashboard,
+      color: 'text-sky-600',
+      keywords: ['dashboard', 'personale', 'personal', 'salvate', 'saved', 'simulazioni', 'cloud', 'sync', 'profilo', 'profile', 'persönlich', 'tableau'],
+    },
+    // ─── Gamification ───
+    {
+      id: 'gamification',
+      title: t('gamification.title') || 'Obiettivi & Livelli',
+      description: 'Sblocca obiettivi, guadagna XP e sali di livello esplorando il sito',
+      section: t('gamification.title') || 'Gamification',
+      tab: 'gamification',
+      icon: Award,
+      color: 'text-amber-600',
+      keywords: ['obiettivi', 'achievements', 'livelli', 'levels', 'xp', 'gamification', 'badge', 'punti', 'points', 'erfolge', 'récompenses'],
     },
   ], [t]);
 
@@ -436,7 +513,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
       {/* Search trigger — compact icon button */}
       <button
         onClick={() => setIsOpen(true)}
-        className="p-2 rounded-xl text-slate-400 hover:text-slate-600 dark:hover:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+        className="p-2 rounded-xl text-slate-500 hover:text-slate-600 dark:hover:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
         title={`${t('search.placeholder') || 'Cerca...'} (⌘K)`}
         aria-label={t('search.placeholder') || 'Cerca'}
       >
@@ -452,7 +529,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
           >
             {/* Search input */}
             <div className="flex items-center gap-3 px-4 py-3 border-b border-slate-200 dark:border-slate-700">
-              <Search size={18} className="text-slate-400 flex-shrink-0" />
+              <Search size={18} className="text-slate-500 flex-shrink-0" />
               <input
                 ref={inputRef}
                 type="text"
@@ -465,12 +542,12 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
               {query && (
                 <button
                   onClick={() => setQuery('')}
-                  className="p-1 text-slate-400 hover:text-slate-600 dark:hover:text-slate-300 rounded"
+                  className="p-1 text-slate-500 hover:text-slate-600 dark:hover:text-slate-300 rounded"
                 >
                   <X size={14} />
                 </button>
               )}
-              <kbd className="hidden sm:inline-flex items-center px-1.5 py-0.5 text-[10px] font-mono text-slate-400 bg-slate-100 dark:bg-slate-800 rounded border border-slate-200 dark:border-slate-700">
+              <kbd className="hidden sm:inline-flex items-center px-1.5 py-0.5 text-[10px] font-mono text-slate-500 bg-slate-100 dark:bg-slate-800 rounded border border-slate-200 dark:border-slate-700">
                 esc
               </kbd>
             </div>
@@ -478,14 +555,14 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
             {/* Results */}
             <div className="flex-1 min-h-0 overflow-y-auto">
               {query.trim() === '' ? (
-                <div className="px-4 py-6 text-center text-sm text-slate-400">
+                <div className="px-4 py-6 text-center text-sm text-slate-500">
                   <p>{t('search.hint') || 'Digita per cercare tra tutte le sezioni del sito'}</p>
                   <p className="text-xs mt-1.5 text-slate-300 dark:text-slate-500">
                     {t('search.examples') || 'Es: "cambio valuta", "pensione", "calendario festività", "permessi"'}
                   </p>
                 </div>
               ) : searchResults.length === 0 ? (
-                <div className="px-4 py-6 text-center text-sm text-slate-400">
+                <div className="px-4 py-6 text-center text-sm text-slate-500">
                   {t('search.noResults') || 'Nessun risultato trovato'}
                 </div>
               ) : (
@@ -510,11 +587,11 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
                             <span className="text-sm font-semibold text-slate-800 dark:text-slate-100 truncate">
                               {result.title}
                             </span>
-                            <span className="text-[10px] uppercase tracking-wider text-slate-400 bg-slate-100 dark:bg-slate-800 px-1.5 py-0.5 rounded flex-shrink-0">
+                            <span className="text-[10px] uppercase tracking-wider text-slate-500 bg-slate-100 dark:bg-slate-800 px-1.5 py-0.5 rounded flex-shrink-0">
                               {result.section}
                             </span>
                           </div>
-                          <p className="text-xs text-slate-500 dark:text-slate-400 truncate mt-0.5">
+                          <p className="text-xs text-slate-500 dark:text-slate-500 truncate mt-0.5">
                             {result.description}
                           </p>
                         </div>
@@ -527,7 +604,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
             </div>
 
             {/* Footer */}
-            <div className="px-4 py-2 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-[10px] text-slate-400">
+            <div className="px-4 py-2 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-[10px] text-slate-500">
               <div className="flex items-center gap-3">
                 <span className="flex items-center gap-1">
                   <kbd className="px-1 py-0.5 bg-slate-100 dark:bg-slate-800 rounded text-[10px]">↑↓</kbd>

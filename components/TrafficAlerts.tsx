@@ -164,13 +164,13 @@ const TrafficAlerts: React.FC = () => {
             </div>
             <div className="flex items-center gap-2">
               <Clock size={16} className="text-slate-500" />
-              <span className="text-sm text-slate-600 dark:text-slate-400">
+              <span className="text-sm text-slate-600 dark:text-slate-500">
                 {lastRefresh.toLocaleTimeString('it-IT')}
               </span>
             </div>
           </div>
           <div className="flex items-center gap-3">
-            <div className="hidden sm:flex items-center gap-3 text-xs text-slate-500 dark:text-slate-400">
+            <div className="hidden sm:flex items-center gap-3 text-xs text-slate-500 dark:text-slate-500">
               <span className="flex items-center gap-1"><span className="w-3 h-3 rounded-full bg-emerald-500 inline-block"></span> {t('traffic.status.green')}</span>
               <span className="flex items-center gap-1"><span className="w-3 h-3 rounded-full bg-yellow-500 inline-block"></span> {t('traffic.status.yellow')}</span>
               <span className="flex items-center gap-1"><span className="w-3 h-3 rounded-full bg-red-500 inline-block"></span> {t('traffic.status.red')}</span>
@@ -374,7 +374,7 @@ const TrafficAlerts: React.FC = () => {
                   </div>
                   <div className="flex-1 min-w-0">
                     <h3 className="font-bold text-slate-800 dark:text-slate-100 truncate">{crossing.name}</h3>
-                    <p className="text-xs text-slate-500 dark:text-slate-400">{crossing.canton} — {crossing.province} · {crossing.type}</p>
+                    <p className="text-xs text-slate-500 dark:text-slate-500">{crossing.canton} — {crossing.province} · {crossing.type}</p>
                   </div>
                 </div>
 
@@ -382,7 +382,7 @@ const TrafficAlerts: React.FC = () => {
                   <span className={`text-sm font-bold ${textColor}`}>
                     {t(STATUS_LABEL_KEYS[traffic.status])} — {traffic.waitTimeMinutes} min
                   </span>
-                  <span className="text-xs text-slate-400">{traffic.direction}</span>
+                  <span className="text-xs text-slate-500">{traffic.direction}</span>
                 </div>
 
                 {isSelected && (

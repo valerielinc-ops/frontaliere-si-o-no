@@ -527,7 +527,7 @@ const MobileOperators: React.FC = () => {
                   </div>
                   <div>
                     <h3 className="text-xl font-bold text-slate-800 dark:text-slate-100">{operator.name}</h3>
-                    <p className="text-sm text-slate-500 dark:text-slate-400">
+                    <p className="text-sm text-slate-500 dark:text-slate-500">
                       {operator.country === 'IT' ? '🇮🇹 Italia' : '🇨🇭 Svizzera'} • {operator.contractType}
                     </p>
                   </div>
@@ -536,7 +536,7 @@ const MobileOperators: React.FC = () => {
                 <div className="text-right">
                   {hasExtraCost ? (
                     <>
-                      <div className="text-sm text-slate-500 dark:text-slate-400 line-through">
+                      <div className="text-sm text-slate-500 dark:text-slate-500 line-through">
                         {operator.country === 'IT' ? '€' : 'CHF'} {operator.monthlyCost.toFixed(2)}
                       </div>
                       <div className="text-2xl font-extrabold text-red-600 dark:text-red-400">
@@ -549,7 +549,7 @@ const MobileOperators: React.FC = () => {
                       <div className="text-2xl font-extrabold text-slate-800 dark:text-slate-100">
                         {operator.country === 'IT' ? '€' : 'CHF'} {operator.monthlyCost.toFixed(2)}
                       </div>
-                      <div className="text-xs text-slate-500 dark:text-slate-400">{t('mobile.perMonth')}</div>
+                      <div className="text-xs text-slate-500 dark:text-slate-500">{t('mobile.perMonth')}</div>
                     </>
                   )}
                 </div>
@@ -588,7 +588,7 @@ const MobileOperators: React.FC = () => {
               <div className="grid grid-cols-3 gap-3 mb-4">
                 <div className="p-3 bg-slate-50 dark:bg-slate-900 rounded-xl text-center">
                   <Wifi className="mx-auto mb-1 text-indigo-600" size={18} />
-                  <div className="text-xs text-slate-500 dark:text-slate-400 mb-1">{t('mobile.data')}</div>
+                  <div className="text-xs text-slate-500 dark:text-slate-500 mb-1">{t('mobile.data')}</div>
                   <div className="text-sm font-bold text-slate-800 dark:text-slate-100">
                     {operator.dataGB === 'illimitati' ? '∞' : `${operator.dataGB} GB`}
                   </div>
@@ -596,7 +596,7 @@ const MobileOperators: React.FC = () => {
 
                 <div className="p-3 bg-slate-50 dark:bg-slate-900 rounded-xl text-center">
                   <Phone className="mx-auto mb-1 text-emerald-600" size={18} />
-                  <div className="text-xs text-slate-500 dark:text-slate-400 mb-1">{t('mobile.minutes')}</div>
+                  <div className="text-xs text-slate-500 dark:text-slate-500 mb-1">{t('mobile.minutes')}</div>
                   <div className="text-sm font-bold text-slate-800 dark:text-slate-100">
                     {operator.minutes === 'illimitati' ? '∞' : operator.minutes}
                   </div>
@@ -604,7 +604,7 @@ const MobileOperators: React.FC = () => {
 
                 <div className="p-3 bg-slate-50 dark:bg-slate-900 rounded-xl text-center">
                   <MessageSquare className="mx-auto mb-1 text-purple-600" size={18} />
-                  <div className="text-xs text-slate-500 dark:text-slate-400 mb-1">{t('mobile.sms')}</div>
+                  <div className="text-xs text-slate-500 dark:text-slate-500 mb-1">{t('mobile.sms')}</div>
                   <div className="text-sm font-bold text-slate-800 dark:text-slate-100">
                     {operator.sms === 'illimitati' ? '∞' : operator.sms}
                   </div>

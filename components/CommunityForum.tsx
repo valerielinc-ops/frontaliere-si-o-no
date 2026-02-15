@@ -266,7 +266,7 @@ const CommunityForum: React.FC = () => {
                 <h2 className="text-xl font-black text-slate-800 dark:text-slate-100 mb-2">
                   {selectedQuestion.title}
                 </h2>
-                <p className="text-sm text-slate-600 dark:text-slate-400 whitespace-pre-wrap leading-relaxed">
+                <p className="text-sm text-slate-600 dark:text-slate-500 whitespace-pre-wrap leading-relaxed">
                   {selectedQuestion.body}
                 </p>
                 <div className="flex flex-wrap items-center gap-2 mt-4">
@@ -279,7 +279,7 @@ const CommunityForum: React.FC = () => {
                     </span>
                   ))}
                 </div>
-                <div className="flex items-center gap-3 mt-3 text-xs text-slate-400">
+                <div className="flex items-center gap-3 mt-3 text-xs text-slate-500">
                   {selectedQuestion.authorPhoto ? (
                     <img src={selectedQuestion.authorPhoto} alt="" className="w-5 h-5 rounded-full" referrerPolicy="no-referrer" />
                   ) : (
@@ -301,11 +301,11 @@ const CommunityForum: React.FC = () => {
           </h3>
 
           {loadingAnswers ? (
-            <div className="text-center py-8 text-slate-400">
+            <div className="text-center py-8 text-slate-500">
               <Loader2 className="w-6 h-6 animate-spin mx-auto mb-2" />
             </div>
           ) : answers.length === 0 ? (
-            <div className="text-center py-8 text-slate-400 text-sm">
+            <div className="text-center py-8 text-slate-500 text-sm">
               {t('forum.noAnswers') || 'Nessuna risposta ancora. Sii il primo!'}
             </div>
           ) : (
@@ -334,7 +334,7 @@ const CommunityForum: React.FC = () => {
                       <p className="text-sm text-slate-700 dark:text-slate-300 whitespace-pre-wrap leading-relaxed">
                         {answer.body}
                       </p>
-                      <div className="flex items-center gap-2 mt-2 text-[11px] text-slate-400">
+                      <div className="flex items-center gap-2 mt-2 text-[11px] text-slate-500">
                         {answer.authorPhoto ? (
                           <img src={answer.authorPhoto} alt="" className="w-4 h-4 rounded-full" referrerPolicy="no-referrer" />
                         ) : (
@@ -402,7 +402,7 @@ const CommunityForum: React.FC = () => {
       <div className="flex flex-col sm:flex-row gap-3">
         {/* Category filter */}
         <div className="flex-1 flex items-center gap-2">
-          <Filter className="w-4 h-4 text-slate-400 shrink-0" />
+          <Filter className="w-4 h-4 text-slate-500 shrink-0" />
           <select
             value={selectedCategory}
             onChange={(e) => setSelectedCategory(e.target.value as ForumCategory | '')}
@@ -519,7 +519,7 @@ const CommunityForum: React.FC = () => {
 
       {/* Questions list */}
       {loading ? (
-        <div className="text-center py-12 text-slate-400">
+        <div className="text-center py-12 text-slate-500">
           <Loader2 className="w-8 h-8 animate-spin mx-auto mb-2" />
           <p className="text-sm">{t('forum.loading') || 'Caricamento domande...'}</p>
         </div>
@@ -532,7 +532,7 @@ const CommunityForum: React.FC = () => {
           </button>
         </div>
       ) : questions.length === 0 ? (
-        <div className="text-center py-12 text-slate-400">
+        <div className="text-center py-12 text-slate-500">
           <MessageSquare className="w-12 h-12 mx-auto mb-3 opacity-50" />
           <p className="font-bold">{t('forum.empty') || 'Nessuna domanda ancora'}</p>
           <p className="text-sm mt-1">{t('forum.emptyDesc') || 'Sii il primo a fare una domanda alla community!'}</p>
@@ -569,7 +569,7 @@ const CommunityForum: React.FC = () => {
                         {tag}
                       </span>
                     ))}
-                    <span className="flex items-center gap-1 text-[10px] text-slate-400 ml-auto">
+                    <span className="flex items-center gap-1 text-[10px] text-slate-500 ml-auto">
                       <MessageCircle className="w-3 h-3" /> {q.answerCount}
                       <span className="mx-1">·</span>
                       <Clock className="w-3 h-3" /> {timeAgo(q.createdAt?.toDate() || null)}

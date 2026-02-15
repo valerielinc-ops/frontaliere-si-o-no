@@ -240,7 +240,7 @@ const GamificationWidget: React.FC<GamificationWidgetProps> = ({ onNavigateToPag
         {/* Trophy icon button */}
         <button
           onClick={() => { setIsOpen(!isOpen); Analytics.trackUIInteraction('gamification', 'widget', 'toggle', isOpen ? 'close' : 'open'); }}
-          className={`relative p-2 rounded-xl transition-all ${isOpen ? 'bg-amber-50 dark:bg-amber-900/20 text-amber-600 dark:text-amber-400' : 'text-slate-400 hover:text-slate-600 dark:hover:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800'}`}
+          className={`relative p-2 rounded-xl transition-all ${isOpen ? 'bg-amber-50 dark:bg-amber-900/20 text-amber-600 dark:text-amber-400' : 'text-slate-500 hover:text-slate-600 dark:hover:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800'}`}
           title={`${levelTitle} — ${state.xp} XP`}
           aria-label={`Gamification: ${levelTitle}, ${state.xp} XP`}
         >
@@ -267,7 +267,7 @@ const GamificationWidget: React.FC<GamificationWidgetProps> = ({ onNavigateToPag
                 </div>
                 <div className="flex-1 min-w-0">
                   <div className="text-sm font-bold text-slate-800 dark:text-slate-100">{levelTitle}</div>
-                  <div className="text-[11px] text-slate-500 dark:text-slate-400">{state.xp} XP</div>
+                  <div className="text-[11px] text-slate-500 dark:text-slate-500">{state.xp} XP</div>
                 </div>
                 <div className="flex items-center gap-2 flex-shrink-0">
                   {state.streak > 0 && (
@@ -290,7 +290,7 @@ const GamificationWidget: React.FC<GamificationWidgetProps> = ({ onNavigateToPag
                     style={{ width: `${xpProgressPct}%` }}
                   />
                 </div>
-                <div className="flex justify-between text-[9px] text-slate-400 mt-0.5">
+                <div className="flex justify-between text-[9px] text-slate-500 mt-0.5">
                   <span>{levelInfo.currentXp}/{levelInfo.nextLevelXp} XP</span>
                   <span>{progressPercent}%</span>
                 </div>
@@ -299,11 +299,11 @@ const GamificationWidget: React.FC<GamificationWidgetProps> = ({ onNavigateToPag
 
             {/* Recent achievements (last unlocked) */}
             <div className="px-3 py-2">
-              <div className="text-[10px] uppercase tracking-wider text-slate-400 font-bold mb-2 px-1">
+              <div className="text-[10px] uppercase tracking-wider text-slate-500 font-bold mb-2 px-1">
                 {t('gamification.recentAchievements') || 'Ultimi sbloccati'}
               </div>
               {recentAchievements.length === 0 ? (
-                <div className="text-center py-4 text-xs text-slate-400">
+                <div className="text-center py-4 text-xs text-slate-500">
                   {t('gamification.noAchievementsYet') || 'Nessun achievement sbloccato ancora. Esplora il sito!'}
                 </div>
               ) : (

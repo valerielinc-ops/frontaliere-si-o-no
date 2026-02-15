@@ -263,7 +263,7 @@ const BankComparison: React.FC = () => {
                   </div>
                   <div>
                     <h3 className="text-xl font-bold text-slate-800 dark:text-slate-100">{bank.name}</h3>
-                    <p className="text-sm text-slate-500 dark:text-slate-400">{bank.country === 'CH' ? `🇨🇭 ${t('banks.switzerland')}` : `🇮🇹 ${t('banks.italy')}`}</p>
+                    <p className="text-sm text-slate-500 dark:text-slate-500">{bank.country === 'CH' ? `🇨🇭 ${t('banks.switzerland')}` : `🇮🇹 ${t('banks.italy')}`}</p>
                   </div>
                 </div>
 
@@ -277,15 +277,15 @@ const BankComparison: React.FC = () => {
 
               <div className="space-y-2 mb-4">
                 <div className="flex justify-between text-sm">
-                  <span className="text-slate-600 dark:text-slate-400">{t('banks.transfers')}</span>
+                  <span className="text-slate-600 dark:text-slate-500">{t('banks.transfers')}</span>
                   <span className="font-bold text-slate-800 dark:text-slate-100">{bank.transactionFees}</span>
                 </div>
                 <div className="flex justify-between text-sm">
-                  <span className="text-slate-600 dark:text-slate-400">{t('banks.atmWithdrawals')}</span>
+                  <span className="text-slate-600 dark:text-slate-500">{t('banks.atmWithdrawals')}</span>
                   <span className="font-bold text-slate-800 dark:text-slate-100">{bank.atmFees}</span>
                 </div>
                 <div className="flex justify-between text-sm">
-                  <span className="text-slate-600 dark:text-slate-400">{t('banks.card')}</span>
+                  <span className="text-slate-600 dark:text-slate-500">{t('banks.card')}</span>
                   <span className="font-bold text-slate-800 dark:text-slate-100">{bank.cardType}</span>
                 </div>
               </div>

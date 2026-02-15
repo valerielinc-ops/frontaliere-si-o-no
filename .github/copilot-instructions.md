@@ -286,6 +286,61 @@ import HealthInsurance from '@/components/HealthInsurance';
 
 ---
 
+## PageSpeed & Accessibility Rules
+
+These rules prevent performance and accessibility regressions. **All new code MUST comply.**
+
+### Color Contrast (WCAG AA)
+
+- **Minimum contrast ratio**: 4.5:1 for normal text, 3:1 for large text (≥18px or ≥14px bold)
+- **Never use `text-slate-400`** on light backgrounds (white, slate-50, etc.) — it fails at ~3.0:1. Use `text-slate-500` (4.6:1) or `text-slate-600` (5.7:1) instead
+- **Never use `text-[color]-400`** for visible text — reserve `-400` for icons or dark mode only
+- **Colored text on colored backgrounds** must pass contrast:
+  - `text-[color]-500` on `bg-[color]-50` often FAILS (3.3–3.9:1). Use `text-[color]-700` instead
+  - Examples: `text-blue-700` on `bg-blue-50` (7.0:1 ✓), `text-red-700` on `bg-red-50` (5.5:1 ✓)
+- **Dark mode**: `dark:text-slate-400` or `dark:text-[color]-400` on dark backgrounds IS acceptable
+
+### Accessible Buttons & Forms
+
+- **Every button** must have an accessible name: visible text content, `aria-label`, or `title` attribute
+- **Icon-only buttons** (e.g., `<button><X size={16}/></button>`) MUST have `aria-label` describing the action
+- **All form inputs** must have associated `<label>` elements via `htmlFor`/`id`, or use `aria-label`
+- **All `<select>` elements** must have associated labels
+- **Do not use `user-scalable=no`** or `maximum-scale=1.0` in the viewport meta tag
+
+### Images
+
+- **All `<img>` tags** must have `width` and `height` attributes (prevents layout shift / CLS)
+- **All `<img>` tags** must have meaningful `alt` attributes
+- External images should use `loading="lazy"` when below the fold
+
+### Performance
+
+- **Lazy-load non-critical components** with `React.lazy()` + `Suspense` (see `App.tsx` pattern)
+- **Vendor chunking**: large deps (firebase, recharts, leaflet, jspdf) are in `manualChunks` in `vite.config.ts`
+- **Defer non-critical scripts**: Use `async` or `defer` attributes for analytics/tracking scripts (gtag, reCAPTCHA)
+- **Font loading**: Always use `font-display: swap` for custom fonts. Google Fonts URLs should include `&display=swap`
+- **Preload critical fonts**: Add `<link rel="preload">` for above-the-fold font files
+- **Source maps**: Enable `sourcemap: true` in Vite build config for debugging deployed code
+
+### Site Search
+
+- **When adding a new tab or sub-tab**, also add it to the `searchIndex` in `components/SiteSearch.tsx`
+- Every `ActiveTab`, `ComparatoriSubTab`, and `GuideSection` value must have a corresponding entry in `SiteSearch.tsx`
+
+### CSS & Styling Quick Reference
+
+| Need | Use | Don't use |
+|------|-----|-----------|
+| Muted text (light mode) | `text-slate-500` or `text-slate-600` | `text-slate-400` |
+| Muted text (dark mode) | `dark:text-slate-400` or `dark:text-slate-500` | `dark:text-slate-300` |
+| Colored label on colored bg | `text-[color]-700` on `bg-[color]-50` | `text-[color]-500` on `bg-[color]-50` |
+| Icon-only button | Add `aria-label="Action description"` | Leave button without text/label |
+| Form input | Add `id` + matching `<label htmlFor>` | Unlabeled input |
+| Image | Add `width`, `height`, `alt` | `<img>` without dimensions |
+
+---
+
 ## Completion Checklist — Before Every PR
 
 - [ ] New functionality has corresponding tests in `tests/`
@@ -296,4 +351,8 @@ import HealthInsurance from '@/components/HealthInsurance';
 - [ ] Build succeeds: `npx vite build`
 - [ ] If `t()` keys were added, all 4 locales (IT/EN/DE/FR) have the translation
 - [ ] No secrets or API keys in source code
+- [ ] No `text-slate-400` in visible text on light backgrounds
+- [ ] All buttons have accessible names (text, aria-label, or title)
+- [ ] All images have `width`, `height`, and `alt` attributes
+- [ ] New tabs/sub-tabs added to `SiteSearch.tsx` search index
 - [ ] Commit and push to repo

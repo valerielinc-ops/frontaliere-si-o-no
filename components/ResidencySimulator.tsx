@@ -217,9 +217,9 @@ const ResidencySimulator: React.FC = () => {
             <label className="block text-xs font-bold text-slate-500 mb-1">{t('residency.exchangeRate')}</label>
             <div className="flex items-center gap-2 px-3 py-2.5 rounded-lg bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700">
               <span className="text-sm font-bold text-slate-800 dark:text-slate-200">1 CHF = {chfEurRate.toFixed(4)} EUR</span>
-              {rateLoading && <RefreshCw size={12} className="animate-spin text-slate-400" />}
+              {rateLoading && <RefreshCw size={12} className="animate-spin text-slate-500" />}
             </div>
-            <p className="text-[10px] text-slate-400 mt-0.5">{t('exchange.liveRate') || 'Tasso live'}</p>
+            <p className="text-[10px] text-slate-500 mt-0.5">{t('exchange.liveRate') || 'Tasso live'}</p>
           </div>
         </div>
       </div>
@@ -230,11 +230,11 @@ const ResidencySimulator: React.FC = () => {
         {/* From card */}
         <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-slate-700">
           <div className="flex items-center gap-2 mb-3">
-            <MapPin className="w-4 h-4 text-slate-400" />
+            <MapPin className="w-4 h-4 text-slate-500" />
             <h3 className="font-bold text-sm text-slate-500">{t(`residency.loc.${from}`)} ({t('residency.current')})</h3>
           </div>
           <p className="text-2xl font-black text-slate-800 dark:text-slate-200">€{Math.round(result.fromMonthly).toLocaleString('it-IT')}</p>
-          <p className="text-xs text-slate-400">{t('residency.perMonth')}</p>
+          <p className="text-xs text-slate-500">{t('residency.perMonth')}</p>
           <div className="mt-3 space-y-1 text-xs text-slate-500">
             <p>🏠 {t('residency.rent')}: {fromLoc.currency === 'CHF' ? 'CHF' : '€'}{fromLoc.avgRent}</p>
             <p>🛒 {t('residency.groceries')}: {fromLoc.currency === 'CHF' ? 'CHF' : '€'}{fromLoc.groceries}</p>
@@ -273,7 +273,7 @@ const ResidencySimulator: React.FC = () => {
             <h3 className="font-bold text-sm text-indigo-500">{t(`residency.loc.${to}`)} ({t('residency.new')})</h3>
           </div>
           <p className="text-2xl font-black text-slate-800 dark:text-slate-200">€{Math.round(result.toMonthly).toLocaleString('it-IT')}</p>
-          <p className="text-xs text-slate-400">{t('residency.perMonth')}</p>
+          <p className="text-xs text-slate-500">{t('residency.perMonth')}</p>
           <div className="mt-3 space-y-1 text-xs text-slate-500">
             <p>🏠 {t('residency.rent')}: {toLoc.currency === 'CHF' ? 'CHF' : '€'}{toLoc.avgRent}</p>
             <p>🛒 {t('residency.groceries')}: {toLoc.currency === 'CHF' ? 'CHF' : '€'}{toLoc.groceries}</p>
@@ -295,7 +295,7 @@ const ResidencySimulator: React.FC = () => {
           </div>
           <div className="flex items-center gap-2">
             <span className="text-lg font-black text-amber-600 dark:text-amber-400">€{Math.round(result.totalOneTime).toLocaleString('it-IT')}</span>
-            {showDetails ? <ChevronUp size={16} className="text-slate-400" /> : <ChevronDown size={16} className="text-slate-400" />}
+            {showDetails ? <ChevronUp size={16} className="text-slate-500" /> : <ChevronDown size={16} className="text-slate-500" />}
           </div>
         </button>
 
@@ -303,7 +303,7 @@ const ResidencySimulator: React.FC = () => {
           <div className="mt-4 space-y-2">
             {result.oneTimeCosts.map((cost, i) => (
               <div key={i} className="flex items-center justify-between py-2 border-b border-slate-100 dark:border-slate-700 last:border-0">
-                <span className="text-sm text-slate-600 dark:text-slate-400">{t(cost.label)}</span>
+                <span className="text-sm text-slate-600 dark:text-slate-500">{t(cost.label)}</span>
                 <span className="text-sm font-bold text-slate-800 dark:text-slate-200">
                   {cost.currency === 'CHF' ? 'CHF' : '€'}{cost.amount.toLocaleString('it-IT')}
                 </span>

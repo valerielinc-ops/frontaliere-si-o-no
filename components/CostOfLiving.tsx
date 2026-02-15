@@ -353,7 +353,7 @@ const CostOfLiving: React.FC = () => {
                 </div>
                 <div className="text-center">
                   <div className="font-black text-sm">{valCH.toFixed(0)} CHF</div>
-                  <div className="text-[10px] text-slate-400">≈ € {valCH_EUR.toFixed(0)}</div>
+                  <div className="text-[10px] text-slate-500">≈ € {valCH_EUR.toFixed(0)}</div>
                 </div>
                 <div className="text-center">
                   <div className="font-black text-sm">€ {valIT_EUR.toFixed(0)}</div>
@@ -370,7 +370,7 @@ const CostOfLiving: React.FC = () => {
                       {Math.abs(diffPercent).toFixed(0)}%
                     </span>
                   ) : (
-                    <span className="text-xs text-slate-400">=</span>
+                    <span className="text-xs text-slate-500">=</span>
                   )}
                 </div>
               </div>
@@ -431,7 +431,7 @@ const CostOfLiving: React.FC = () => {
             </a>
           ))}
         </div>
-        <p className="text-[10px] text-slate-400 mt-2">{t('costOfLiving.disclaimer')}</p>
+        <p className="text-[10px] text-slate-500 mt-2">{t('costOfLiving.disclaimer')}</p>
       </div>
     </div>
   );

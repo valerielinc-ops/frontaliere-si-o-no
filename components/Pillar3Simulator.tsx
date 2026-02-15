@@ -260,7 +260,7 @@ const Pillar3Simulator: React.FC = () => {
                 <AlertCircle size={20} className="text-amber-600 flex-shrink-0 mt-0.5" />
                 <div>
                   <h4 className="font-bold text-slate-800 dark:text-slate-100 mb-2">{t('pillar3.withdrawalTitle')}</h4>
-                  <div className="space-y-2 text-sm text-slate-600 dark:text-slate-400">
+                  <div className="space-y-2 text-sm text-slate-600 dark:text-slate-500">
                     <p>{t('pillar3.withdrawalDesc')}</p>
                     <div className="grid grid-cols-2 gap-3 mt-3">
                       <div className="p-3 bg-white dark:bg-slate-900 rounded-lg">
@@ -291,7 +291,7 @@ const Pillar3Simulator: React.FC = () => {
               <table className="w-full text-sm">
                 <thead>
                   <tr className="border-b border-blue-200 dark:border-blue-700">
-                    <th className="text-left py-2 text-slate-600 dark:text-slate-400">{t('pillar3.feature')}</th>
+                    <th className="text-left py-2 text-slate-600 dark:text-slate-500">{t('pillar3.feature')}</th>
                     <th className="text-center py-2 text-teal-600 font-bold">{t('pillar3.type3aShort')}</th>
                     <th className="text-center py-2 text-purple-600 font-bold">{t('pillar3.type3bShort')}</th>
                   </tr>
@@ -333,7 +333,7 @@ const Pillar3Simulator: React.FC = () => {
               <BarChart3 size={20} className="text-indigo-600" />
               {t('pillar3.investmentComparison')}
             </h3>
-            <p className="text-sm text-slate-600 dark:text-slate-400 mb-4">
+            <p className="text-sm text-slate-600 dark:text-slate-500 mb-4">
               {t('pillar3.investmentDesc')}
             </p>
 
@@ -349,7 +349,7 @@ const Pillar3Simulator: React.FC = () => {
                     <span className="text-xs px-2 py-0.5 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-full font-bold">{t('pillar3.lowRisk')}</span>
                   </div>
                 </div>
-                <div className="text-sm text-slate-600 dark:text-slate-400">
+                <div className="text-sm text-slate-600 dark:text-slate-500">
                   <div className="flex items-center gap-1.5 mb-1"><Percent size={12} className="text-slate-500" /> {t('pillar3.return')}: <span className="font-bold">0.5-1.5%</span></div>
                 </div>
                 <div className="space-y-1.5 text-xs">
@@ -375,7 +375,7 @@ const Pillar3Simulator: React.FC = () => {
                     <span className="text-xs px-2 py-0.5 bg-indigo-100 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300 rounded-full font-bold">{t('pillar3.mediumRisk')}</span>
                   </div>
                 </div>
-                <div className="text-sm text-slate-600 dark:text-slate-400">
+                <div className="text-sm text-slate-600 dark:text-slate-500">
                   <div className="flex items-center gap-1.5 mb-1"><Percent size={12} className="text-slate-500" /> {t('pillar3.return')}: <span className="font-bold">2-5%</span></div>
                 </div>
                 <div className="space-y-1.5 text-xs">
@@ -401,7 +401,7 @@ const Pillar3Simulator: React.FC = () => {
                     <span className="text-xs px-2 py-0.5 bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 rounded-full font-bold">{t('pillar3.lowRisk')}</span>
                   </div>
                 </div>
-                <div className="text-sm text-slate-600 dark:text-slate-400">
+                <div className="text-sm text-slate-600 dark:text-slate-500">
                   <div className="flex items-center gap-1.5 mb-1"><Percent size={12} className="text-slate-500" /> {t('pillar3.return')}: <span className="font-bold">0.5-2%</span></div>
                 </div>
                 <div className="space-y-1.5 text-xs">
@@ -427,12 +427,12 @@ const Pillar3Simulator: React.FC = () => {
               <table className="w-full text-sm">
                 <thead>
                   <tr className="border-b-2 border-slate-200 dark:border-slate-700">
-                    <th className="text-left py-2 text-slate-600 dark:text-slate-400">{t('pillar3.provider')}</th>
-                    <th className="text-center py-2 text-slate-600 dark:text-slate-400">{t('pillar3.type')}</th>
-                    <th className="text-center py-2 text-slate-600 dark:text-slate-400">{t('pillar3.costs')}</th>
-                    <th className="text-center py-2 text-slate-600 dark:text-slate-400">{t('pillar3.historicalReturn')}</th>
-                    <th className="text-center py-2 text-slate-600 dark:text-slate-400">{t('pillar3.minInvestment')}</th>
-                    <th className="text-center py-2 text-slate-600 dark:text-slate-400">{t('pillar3.rating')}</th>
+                    <th className="text-left py-2 text-slate-600 dark:text-slate-500">{t('pillar3.provider')}</th>
+                    <th className="text-center py-2 text-slate-600 dark:text-slate-500">{t('pillar3.type')}</th>
+                    <th className="text-center py-2 text-slate-600 dark:text-slate-500">{t('pillar3.costs')}</th>
+                    <th className="text-center py-2 text-slate-600 dark:text-slate-500">{t('pillar3.historicalReturn')}</th>
+                    <th className="text-center py-2 text-slate-600 dark:text-slate-500">{t('pillar3.minInvestment')}</th>
+                    <th className="text-center py-2 text-slate-600 dark:text-slate-500">{t('pillar3.rating')}</th>
                   </tr>
                 </thead>
                 <tbody className="text-slate-700 dark:text-slate-300">

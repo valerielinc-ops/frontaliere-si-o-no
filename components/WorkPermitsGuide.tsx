@@ -300,7 +300,7 @@ const WorkPermitsGuide: React.FC = () => {
             <div className="text-2xl mb-1">{p.icon}</div>
             <div className="font-extrabold text-lg">{p.name}</div>
             <div className={`text-xs mt-0.5 ${selectedPermit === p.id ? 'text-white/80' : 'text-slate-500'}`}>{p.fullName}</div>
-            <div className={`text-[10px] mt-2 font-bold ${selectedPermit === p.id ? 'text-white/70' : 'text-slate-400'}`}>{p.duration}</div>
+            <div className={`text-[10px] mt-2 font-bold ${selectedPermit === p.id ? 'text-white/70' : 'text-slate-500'}`}>{p.duration}</div>
           </button>
         ))}
       </div>
@@ -418,7 +418,7 @@ const WorkPermitsGuide: React.FC = () => {
               {permits.map(p => (
                 <th key={p.id} className="text-center py-3 font-bold">
                   <span className="text-lg">{p.icon}</span>
-                  <div className={`text-xs mt-1 ${selectedPermit === p.id ? 'text-blue-600 dark:text-blue-400' : 'text-slate-600 dark:text-slate-400'}`}>{p.name}</div>
+                  <div className={`text-xs mt-1 ${selectedPermit === p.id ? 'text-blue-600 dark:text-blue-400' : 'text-slate-600 dark:text-slate-500'}`}>{p.name}</div>
                 </th>
               ))}
             </tr>

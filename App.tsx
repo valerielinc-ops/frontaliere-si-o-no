@@ -295,7 +295,7 @@ const App: React.FC = () => {
                   <h1 className="text-lg font-bold text-slate-800 dark:text-slate-100 leading-none tracking-tight">
                     {t('app.title')}
                   </h1>
-                  <p className="text-[10px] text-slate-500 dark:text-slate-400 font-bold uppercase tracking-widest mt-0.5">{t('nav.subtitle')}</p>
+                  <p className="text-[10px] text-slate-500 dark:text-slate-500 font-bold uppercase tracking-widest mt-0.5">{t('nav.subtitle')}</p>
                 </div>
               </div>
               
@@ -303,7 +303,7 @@ const App: React.FC = () => {
               <div className="hidden md:flex items-center gap-1 sm:gap-4 mx-4">
                 <button 
                   onClick={() => handleTabChange('calculator')}
-                  className={`relative px-3 py-2 text-sm font-bold transition-colors flex items-center gap-2 group ${activeTab === 'calculator' ? 'text-blue-600 dark:text-blue-400' : 'text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200'}`}
+                  className={`relative px-3 py-2 text-sm font-bold transition-colors flex items-center gap-2 group ${activeTab === 'calculator' ? 'text-blue-600 dark:text-blue-400' : 'text-slate-500 dark:text-slate-500 hover:text-slate-800 dark:hover:text-slate-200'}`}
                 >
                   <Calculator size={16} />
                   <span className="hidden lg:inline">{t('nav.simulator')}</span>
@@ -314,7 +314,7 @@ const App: React.FC = () => {
 
                 <button 
                   onClick={() => handleTabChange('comparatori')}
-                  className={`relative px-3 py-2 text-sm font-bold transition-colors flex items-center gap-2 group ${activeTab === 'comparatori' ? 'text-violet-600 dark:text-violet-400' : 'text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200'}`}
+                  className={`relative px-3 py-2 text-sm font-bold transition-colors flex items-center gap-2 group ${activeTab === 'comparatori' ? 'text-violet-600 dark:text-violet-400' : 'text-slate-500 dark:text-slate-500 hover:text-slate-800 dark:hover:text-slate-200'}`}
                 >
                   <Layers size={16} />
                   <span className="hidden lg:inline">{t('nav.comparators')}</span>
@@ -325,7 +325,7 @@ const App: React.FC = () => {
 
                 <button 
                   onClick={() => handleTabChange('pension')}
-                  className={`relative px-3 py-2 text-sm font-bold transition-colors flex items-center gap-2 group ${activeTab === 'pension' ? 'text-emerald-600 dark:text-emerald-400' : 'text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200'}`}
+                  className={`relative px-3 py-2 text-sm font-bold transition-colors flex items-center gap-2 group ${activeTab === 'pension' ? 'text-emerald-600 dark:text-emerald-400' : 'text-slate-500 dark:text-slate-500 hover:text-slate-800 dark:hover:text-slate-200'}`}
                 >
                   <PiggyBank size={16} />
                   <span className="hidden lg:inline">{t('nav.pension')}</span>
@@ -336,7 +336,7 @@ const App: React.FC = () => {
 
                 <button 
                   onClick={() => handleTabChange('guide')}
-                  className={`relative px-3 py-2 text-sm font-bold transition-colors flex items-center gap-2 group ${activeTab === 'guide' ? 'text-indigo-600 dark:text-indigo-400' : 'text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200'}`}
+                  className={`relative px-3 py-2 text-sm font-bold transition-colors flex items-center gap-2 group ${activeTab === 'guide' ? 'text-indigo-600 dark:text-indigo-400' : 'text-slate-500 dark:text-slate-500 hover:text-slate-800 dark:hover:text-slate-200'}`}
                 >
                   <BookOpen size={16} />
                   <span className="hidden lg:inline">{t('nav.guide')}</span>
@@ -347,7 +347,7 @@ const App: React.FC = () => {
 
                 <button 
                   onClick={() => handleTabChange('stats')}
-                  className={`relative px-3 py-2 text-sm font-bold transition-colors flex items-center gap-2 group ${activeTab === 'stats' ? 'text-purple-600 dark:text-purple-400' : 'text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200'}`}
+                  className={`relative px-3 py-2 text-sm font-bold transition-colors flex items-center gap-2 group ${activeTab === 'stats' ? 'text-purple-600 dark:text-purple-400' : 'text-slate-500 dark:text-slate-500 hover:text-slate-800 dark:hover:text-slate-200'}`}
                 >
                   <BarChart2 size={16} />
                   <span className="hidden lg:inline">{t('nav.stats')}</span>
@@ -370,7 +370,7 @@ const App: React.FC = () => {
                       setIsFocusMode(newFocus);
                       Analytics.trackFocusMode(newFocus);
                     }}
-                    className={`p-2 rounded-xl transition-all ${isFocusMode ? 'bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400' : 'text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800'}`}
+                    className={`p-2 rounded-xl transition-all ${isFocusMode ? 'bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400' : 'text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800'}`}
                     title={isFocusMode ? t('app.exitFullscreen') : t('app.fullscreen')}
                     aria-label={isFocusMode ? t('app.exitFullscreen') : t('app.fullscreen')}
                   >
@@ -380,7 +380,7 @@ const App: React.FC = () => {
 
                 <button 
                   onClick={toggleTheme}
-                  className="p-2 rounded-xl text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+                  className="p-2 rounded-xl text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
                   aria-label={isDarkMode ? t('app.lightMode') : t('app.darkMode')}
                 >
                   {isDarkMode ? <Sun size={18} className="text-amber-400" /> : <Moon size={18} className="text-slate-600" />}
@@ -419,7 +419,7 @@ const App: React.FC = () => {
                     className={`flex flex-col items-center gap-1 px-1 py-2 rounded-xl text-[11px] sm:text-xs font-semibold transition-all ${
                       comparatoriSubTab === key
                         ? 'bg-violet-100 dark:bg-violet-900/30 text-violet-700 dark:text-violet-300 ring-1 ring-violet-300 dark:ring-violet-700'
-                        : 'text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800'
+                        : 'text-slate-500 dark:text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800'
                     }`}
                   >
                     <Icon size={18} />
@@ -593,7 +593,7 @@ const App: React.FC = () => {
               <Newsletter compact />
             </div>
 
-            <div className="text-center text-slate-500 dark:text-slate-400 text-sm space-y-3">
+            <div className="text-center text-slate-500 dark:text-slate-500 text-sm space-y-3">
             <p className="font-medium">
               {t('footer.copyright')}
               <span className="text-slate-300 dark:text-slate-600 mx-2">|</span> 
@@ -602,7 +602,7 @@ const App: React.FC = () => {
             <div className="flex items-center justify-center gap-3 text-xs flex-wrap">
               <button
                 onClick={() => { setActiveTab('feedback'); pushRoute({ activeTab: 'feedback' }); }}
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 text-slate-600 dark:text-slate-400 hover:text-amber-600 dark:hover:text-amber-400 bg-slate-100/50 dark:bg-slate-800/50 hover:bg-amber-50 dark:hover:bg-amber-950/30 rounded-md transition-all duration-200 border border-slate-200/50 dark:border-slate-700/50 hover:border-amber-300 dark:hover:border-amber-700"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 text-slate-600 dark:text-slate-500 hover:text-amber-600 dark:hover:text-amber-400 bg-slate-100/50 dark:bg-slate-800/50 hover:bg-amber-50 dark:hover:bg-amber-950/30 rounded-md transition-all duration-200 border border-slate-200/50 dark:border-slate-700/50 hover:border-amber-300 dark:hover:border-amber-700"
               >
                 <HelpCircle className="w-3.5 h-3.5" />
                 <span>{t('nav.support')}</span>
@@ -610,7 +610,7 @@ const App: React.FC = () => {
               <span className="text-slate-300 dark:text-slate-600">•</span>
               <button
                 onClick={() => { setActiveTab('privacy'); pushRoute({ activeTab: 'privacy' }); }}
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 text-slate-600 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 bg-slate-100/50 dark:bg-slate-800/50 hover:bg-indigo-50 dark:hover:bg-indigo-950/30 rounded-md transition-all duration-200 border border-slate-200/50 dark:border-slate-700/50 hover:border-indigo-300 dark:hover:border-indigo-700"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 text-slate-600 dark:text-slate-500 hover:text-indigo-600 dark:hover:text-indigo-400 bg-slate-100/50 dark:bg-slate-800/50 hover:bg-indigo-50 dark:hover:bg-indigo-950/30 rounded-md transition-all duration-200 border border-slate-200/50 dark:border-slate-700/50 hover:border-indigo-300 dark:hover:border-indigo-700"
               >
                 {t('footer.privacy')}
               </button>
@@ -621,17 +621,17 @@ const App: React.FC = () => {
                   pushRoute({ activeTab: 'api-status' });
                   Analytics.trackApiDiagnostics('view');
                 }}
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 text-slate-600 dark:text-slate-400 hover:text-slate-600 dark:hover:text-slate-300 bg-slate-100/50 dark:bg-slate-800/50 hover:bg-slate-200/50 dark:hover:bg-slate-700/50 rounded-md transition-all duration-200 border border-slate-200/50 dark:border-slate-700/50"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 text-slate-600 dark:text-slate-500 hover:text-slate-600 dark:hover:text-slate-300 bg-slate-100/50 dark:bg-slate-800/50 hover:bg-slate-200/50 dark:hover:bg-slate-700/50 rounded-md transition-all duration-200 border border-slate-200/50 dark:border-slate-700/50"
               >
                 {t('footer.apiStatus')}
               </button>
               <span className="text-slate-300 dark:text-slate-600">•</span>
-              <span className="text-slate-400 dark:text-slate-500">{t('footer.followUs')}</span>
+              <span className="text-slate-500 dark:text-slate-500">{t('footer.followUs')}</span>
               <a 
                 href="https://www.facebook.com/profile.php?id=61588174947294" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 bg-slate-100/50 dark:bg-slate-800/50 hover:bg-blue-50 dark:hover:bg-blue-950/30 rounded-md transition-all duration-200 border border-slate-200/50 dark:border-slate-700/50 hover:border-blue-300 dark:hover:border-blue-700"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 text-slate-600 dark:text-slate-500 hover:text-blue-600 dark:hover:text-blue-400 bg-slate-100/50 dark:bg-slate-800/50 hover:bg-blue-50 dark:hover:bg-blue-950/30 rounded-md transition-all duration-200 border border-slate-200/50 dark:border-slate-700/50 hover:border-blue-300 dark:hover:border-blue-700"
                 aria-label={t('footer.followFacebook')}
               >
                 <Facebook className="w-3.5 h-3.5" />
@@ -657,7 +657,7 @@ const App: React.FC = () => {
                   key={tab}
                   onClick={() => handleTabChange(tab)}
                   className={`relative flex flex-col items-center justify-center gap-0.5 transition-colors ${
-                    isActive ? activeClass : 'text-slate-400 dark:text-slate-500'
+                    isActive ? activeClass : 'text-slate-500 dark:text-slate-500'
                   }`}
                 >
                   <Icon size={20} />

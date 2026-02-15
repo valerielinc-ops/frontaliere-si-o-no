@@ -22,7 +22,7 @@ const CurrencyValue: React.FC<{ value: number; currency: string; className?: str
   <span className={`font-mono font-bold tracking-tight whitespace-nowrap ${className}`}>
     {!smallCurrency && (currency === 'EUR' ? '€ ' : 'CHF ')}
     {formatCurrency(value)}
-    {smallCurrency && <span className="text-[0.7em] ml-1 font-sans font-normal text-slate-500 dark:text-slate-400">{currency}</span>}
+    {smallCurrency && <span className="text-[0.7em] ml-1 font-sans font-normal text-slate-500 dark:text-slate-500">{currency}</span>}
   </span>
 );
 
@@ -69,7 +69,7 @@ const BreakdownTable: React.FC<{ data: TaxBreakdownItem[]; currency: string; sho
           <div className="flex-1 pr-3 flex items-center gap-2 min-w-0">
             {!isTotal && !isNet && <div className={`w-2 h-2 rounded-full flex-shrink-0 ${dotColor}`}></div>}
             <div className="flex items-center gap-1.5 min-w-0">
-              <div className={`truncate transition-colors ${isTotal || isNet ? 'font-bold text-base text-slate-900 dark:text-slate-100' : 'font-medium text-slate-600 dark:text-slate-400 group-hover:text-slate-900 dark:group-hover:text-slate-200'}`}>
+              <div className={`truncate transition-colors ${isTotal || isNet ? 'font-bold text-base text-slate-900 dark:text-slate-100' : 'font-medium text-slate-600 dark:text-slate-500 group-hover:text-slate-900 dark:group-hover:text-slate-200'}`}>
                 {translateKey(item.label)}
               </div>
               
@@ -121,7 +121,7 @@ export const ResultsView: React.FC<Props> = ({ result, inputs, isDarkMode, isFoc
 
     // Tag 1: Gender & Age
     const genderLabel = inputs.sex === 'M' ? t('input.male') : t('input.female');
-    tags.push({ label: `${genderLabel}, ${inputs.age} ${t('common.years')}`, icon: User, color: 'text-blue-500', bg: 'bg-blue-50 dark:bg-blue-900/20' });
+    tags.push({ label: `${genderLabel}, ${inputs.age} ${t('common.years')}`, icon: User, color: 'text-blue-700 dark:text-blue-400', bg: 'bg-blue-50 dark:bg-blue-900/20' });
 
     // Tag 2: Marital Status & Spouse
     let statusLabel = '';
@@ -129,23 +129,23 @@ export const ResultsView: React.FC<Props> = ({ result, inputs, isDarkMode, isFoc
     else if (inputs.maritalStatus === 'MARRIED') statusLabel = inputs.spouseWorks ? `${t('input.married')} (${t('input.spouseWorks')})` : t('input.married');
     else if (inputs.maritalStatus === 'DIVORCED') statusLabel = t('input.divorced');
     else statusLabel = t('input.widowed');
-    tags.push({ label: statusLabel, icon: Heart, color: 'text-rose-500', bg: 'bg-rose-50 dark:bg-rose-900/20' });
+    tags.push({ label: statusLabel, icon: Heart, color: 'text-rose-700 dark:text-rose-400', bg: 'bg-rose-50 dark:bg-rose-900/20' });
 
     // Tag 3: Children
     if (inputs.children > 0) {
-      tags.push({ label: t('input.childrenCount', { count: inputs.children }), icon: Baby, color: 'text-pink-500', bg: 'bg-pink-50 dark:bg-pink-900/20' });
+      tags.push({ label: t('input.childrenCount', { count: inputs.children }), icon: Baby, color: 'text-pink-700 dark:text-pink-400', bg: 'bg-pink-50 dark:bg-pink-900/20' });
     } else {
-        tags.push({ label: t('input.noChildren'), icon: Baby, color: 'text-slate-400', bg: 'bg-slate-100 dark:bg-slate-800' });
+        tags.push({ label: t('input.noChildren'), icon: Baby, color: 'text-slate-500', bg: 'bg-slate-100 dark:bg-slate-800' });
     }
 
     // Tag 4: Work Type
     const workLabel = inputs.frontierWorkerType === 'NEW' 
         ? `${t('input.newFrontShort')} (${inputs.distanceZone === 'WITHIN_20KM' ? '<20km' : '>20km'})` 
         : t('input.oldFrontShort');
-    tags.push({ label: workLabel, icon: TrainFront, color: 'text-emerald-500', bg: 'bg-emerald-50 dark:bg-emerald-900/20' });
+    tags.push({ label: workLabel, icon: TrainFront, color: 'text-emerald-700 dark:text-emerald-400', bg: 'bg-emerald-50 dark:bg-emerald-900/20' });
 
     // Tag 5: Income
-    tags.push({ label: `RAL: CHF ${formatCurrency(inputs.annualIncomeCHF)}`, icon: Coins, color: 'text-amber-500', bg: 'bg-amber-50 dark:bg-amber-900/20' });
+    tags.push({ label: `RAL: CHF ${formatCurrency(inputs.annualIncomeCHF)}`, icon: Coins, color: 'text-amber-700 dark:text-amber-400', bg: 'bg-amber-50 dark:bg-amber-900/20' });
 
     return tags;
   };
@@ -303,7 +303,7 @@ export const ResultsView: React.FC<Props> = ({ result, inputs, isDarkMode, isFoc
         <div className="flex-1 w-full">
            <div className="flex justify-between items-center mb-2">
              <h2 className="text-lg font-bold text-slate-800 dark:text-slate-100">{t('results.comparativeAnalysis')}</h2>
-             <button onClick={exportPDF} className="p-2 text-slate-400 hover:text-blue-600 transition-all flex-shrink-0 sm:hidden" title={t('results.downloadPDF')}>
+             <button onClick={exportPDF} className="p-2 text-slate-500 hover:text-blue-600 transition-all flex-shrink-0 sm:hidden" title={t('results.downloadPDF')}>
                <ScrollText size={20} />
              </button>
            </div>
@@ -318,7 +318,7 @@ export const ResultsView: React.FC<Props> = ({ result, inputs, isDarkMode, isFoc
               ))}
            </div>
         </div>
-        <button onClick={exportPDF} className="hidden sm:block p-2.5 text-slate-400 hover:text-blue-600 transition-all flex-shrink-0" title={t('results.downloadPDF')}>
+        <button onClick={exportPDF} className="hidden sm:block p-2.5 text-slate-500 hover:text-blue-600 transition-all flex-shrink-0" title={t('results.downloadPDF')}>
           <ScrollText size={20} />
         </button>
       </div>
@@ -368,7 +368,7 @@ export const ResultsView: React.FC<Props> = ({ result, inputs, isDarkMode, isFoc
             <div className="absolute top-0 left-0 w-1 h-full bg-blue-500"></div>
             <div className="flex justify-between items-start mb-6">
                <div>
-                 <div className="text-[10px] font-bold text-blue-500 dark:text-blue-400 uppercase tracking-widest mb-1 bg-blue-50 dark:bg-blue-900/20 px-2 py-0.5 rounded-full inline-block">{t('results.liveInTicino')}</div>
+                 <div className="text-[10px] font-bold text-blue-700 dark:text-blue-400 uppercase tracking-widest mb-1 bg-blue-50 dark:bg-blue-900/20 px-2 py-0.5 rounded-full inline-block">{t('results.liveInTicino')}</div>
                  <div className="text-xl font-bold text-slate-800 dark:text-slate-100">{t('results.switzerland')}</div>
                </div>
                <img src="https://flagcdn.com/w80/ch.png" className="w-8 rounded opacity-90" alt="CH" width={32} height={21} />
@@ -376,7 +376,7 @@ export const ResultsView: React.FC<Props> = ({ result, inputs, isDarkMode, isFoc
 
             <div className="space-y-4">
               <div className="bg-blue-50/50 dark:bg-blue-900/20 p-4 rounded-2xl border border-blue-100 dark:border-blue-800/50">
-                <div className="text-[10px] text-blue-500 dark:text-blue-400 font-bold uppercase mb-1">{t('results.netMonthlyResidual')}</div>
+                <div className="text-[10px] text-blue-700 dark:text-blue-400 font-bold uppercase mb-1">{t('results.netMonthlyResidual')}</div>
                 <div className="text-2xl font-bold text-blue-700 dark:text-blue-300">
                   <CurrencyValue value={chResident.netIncomeMonthly} currency="CHF" />
                 </div>
@@ -387,7 +387,7 @@ export const ResultsView: React.FC<Props> = ({ result, inputs, isDarkMode, isFoc
                   {chResident.details.notes.length > 0 && (
                     <div className="mt-4 p-3 bg-slate-50 dark:bg-slate-900/50 rounded-xl border border-dashed border-slate-200 dark:border-slate-800">
                         <p className="text-[10px] font-bold uppercase text-slate-500 mb-1">{t('results.notes')}</p>
-                        <ul className="text-xs text-slate-500 dark:text-slate-400 list-disc list-inside">
+                        <ul className="text-xs text-slate-500 dark:text-slate-500 list-disc list-inside">
                             {chResident.details.notes.map((note, i) => <li key={i}>{t(note.split('|')[0])}</li>)}
                         </ul>
                     </div>
@@ -402,7 +402,7 @@ export const ResultsView: React.FC<Props> = ({ result, inputs, isDarkMode, isFoc
             <div className="absolute top-0 left-0 w-1 h-full bg-red-500"></div>
             <div className="flex justify-between items-start mb-6">
                <div>
-                 <div className="text-[10px] font-bold text-red-500 dark:text-red-400 uppercase tracking-widest mb-1 bg-red-50 dark:bg-red-900/20 px-2 py-0.5 rounded-full inline-block">{t('results.liveInItaly')}</div>
+                 <div className="text-[10px] font-bold text-red-700 dark:text-red-400 uppercase tracking-widest mb-1 bg-red-50 dark:bg-red-900/20 px-2 py-0.5 rounded-full inline-block">{t('results.liveInItaly')}</div>
                  <div className="text-xl font-bold text-slate-800 dark:text-slate-100">{t('results.italy')}</div>
                </div>
                <img src="https://flagcdn.com/w80/it.png" className="w-8 rounded opacity-90" alt="IT" width={32} height={21} />
@@ -410,7 +410,7 @@ export const ResultsView: React.FC<Props> = ({ result, inputs, isDarkMode, isFoc
 
             <div className="space-y-4">
               <div className="bg-red-50/50 dark:bg-red-900/20 p-4 rounded-2xl border border-red-100 dark:border-red-800/50">
-                <div className="text-[10px] text-red-500 dark:text-red-400 font-bold uppercase mb-1">{t('results.netMonthlyResidual')}</div>
+                <div className="text-[10px] text-red-700 dark:text-red-400 font-bold uppercase mb-1">{t('results.netMonthlyResidual')}</div>
                 <div className="text-2xl font-bold text-red-700 dark:text-red-300">
                   <CurrencyValue value={itResident.netIncomeMonthly} currency="CHF" />
                 </div>
@@ -423,7 +423,7 @@ export const ResultsView: React.FC<Props> = ({ result, inputs, isDarkMode, isFoc
                   {/* MOVED BLOCK: Swiss Net Salary (Pre-Italian Tax) */}
                   {itResident.swissNetIncomeMonthlyCHF && (
                     <div className="bg-slate-50 dark:bg-slate-900/50 p-4 rounded-2xl border border-slate-200 dark:border-slate-800 mt-2 relative overflow-hidden">
-                       <div className="text-[10px] text-slate-500 dark:text-slate-400 font-bold uppercase mb-1 relative z-10">
+                       <div className="text-[10px] text-slate-500 dark:text-slate-500 font-bold uppercase mb-1 relative z-10">
                           {t('results.swissPayslipNet')}
                        </div>
                        <div className="text-xl font-bold text-slate-700 dark:text-slate-200 relative z-10">
@@ -432,13 +432,13 @@ export const ResultsView: React.FC<Props> = ({ result, inputs, isDarkMode, isFoc
                        <ul className="mt-3 space-y-1.5 relative z-10">
                           {itResident.details.regime === "calc.regime.newFrontier" ? (
                               <>
-                                <li className="text-[10px] text-slate-400 dark:text-slate-500 font-medium flex items-center gap-1.5"><div className="w-1.5 h-1.5 rounded-full bg-indigo-500"></div> {t('results.concurrentTax')}</li>
+                                <li className="text-[10px] text-slate-500 dark:text-slate-500 font-medium flex items-center gap-1.5"><div className="w-1.5 h-1.5 rounded-full bg-indigo-500"></div> {t('results.concurrentTax')}</li>
                                 {itResident.details.franchigiaEUR ? (
-                                  <li className="text-[10px] text-slate-400 dark:text-slate-500 font-medium flex items-center gap-1.5"><div className="w-1.5 h-1.5 rounded-full bg-emerald-500"></div> {t('results.franchiseApplied', { amount: formatCurrency(itResident.details.franchigiaEUR) })}</li>
+                                  <li className="text-[10px] text-slate-500 dark:text-slate-500 font-medium flex items-center gap-1.5"><div className="w-1.5 h-1.5 rounded-full bg-emerald-500"></div> {t('results.franchiseApplied', { amount: formatCurrency(itResident.details.franchigiaEUR) })}</li>
                                 ) : null}
                               </>
                           ) : (
-                              <li className="text-[10px] text-slate-400 dark:text-slate-500 font-medium flex items-center gap-1.5"><div className="w-1.5 h-1.5 rounded-full bg-emerald-500"></div> {t('results.exclusiveSwissTax')}</li>
+                              <li className="text-[10px] text-slate-500 dark:text-slate-500 font-medium flex items-center gap-1.5"><div className="w-1.5 h-1.5 rounded-full bg-emerald-500"></div> {t('results.exclusiveSwissTax')}</li>
                           )}
                        </ul>
                     </div>
@@ -447,7 +447,7 @@ export const ResultsView: React.FC<Props> = ({ result, inputs, isDarkMode, isFoc
                   {itResident.details.notes.length > 0 && (
                     <div className="mt-4 p-3 bg-slate-50 dark:bg-slate-900/50 rounded-xl border border-dashed border-slate-200 dark:border-slate-800">
                         <p className="text-[10px] font-bold uppercase text-slate-500 mb-1">{t('results.notes')}</p>
-                        <ul className="text-xs text-slate-500 dark:text-slate-400 list-disc list-inside">
+                        <ul className="text-xs text-slate-500 dark:text-slate-500 list-disc list-inside">
                             {itResident.details.notes.map((note, i) => <li key={i}>{t(note.split('|')[0])}</li>)}
                         </ul>
                     </div>
@@ -462,7 +462,7 @@ export const ResultsView: React.FC<Props> = ({ result, inputs, isDarkMode, isFoc
         <>
         {/* WHY CHOOSE ONE OR THE OTHER? */}
         <div className="mb-8">
-           <h3 className="text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-6 flex items-center gap-2">
+           <h3 className="text-xs font-bold text-slate-500 dark:text-slate-500 uppercase tracking-widest mb-6 flex items-center gap-2">
               <Heart size={14} className="text-rose-500" /> {t('results.whyConvenient')}
            </h3>
            
@@ -472,7 +472,7 @@ export const ResultsView: React.FC<Props> = ({ result, inputs, isDarkMode, isFoc
                  <h4 className="flex items-center gap-2 text-blue-700 dark:text-blue-400 font-bold mb-4">
                     <ShieldCheck size={18} className="text-blue-500" /> {t('results.chooseSwissIf')}
                  </h4>
-                 <ul className="space-y-3 text-xs text-slate-600 dark:text-slate-400 font-medium">
+                 <ul className="space-y-3 text-xs text-slate-600 dark:text-slate-500 font-medium">
                     <li className="flex gap-3"><ChevronRight size={14} className="text-blue-500 shrink-0" /> <span><b>{t('results.ch.quality.title')}</b> {t('results.ch.quality')}</span></li>
                     <li className="flex gap-3"><ChevronRight size={14} className="text-blue-500 shrink-0" /> <span><b>{t('results.ch.career.title')}</b> {t('results.ch.career')}</span></li>
                     <li className="flex gap-3"><ChevronRight size={14} className="text-blue-500 shrink-0" /> <span><b>{t('results.ch.time.title')}</b> {t('results.ch.time')}</span></li>
@@ -485,7 +485,7 @@ export const ResultsView: React.FC<Props> = ({ result, inputs, isDarkMode, isFoc
                  <h4 className="flex items-center gap-2 text-emerald-700 dark:text-emerald-400 font-bold mb-4">
                     <ShoppingBag size={18} className="text-emerald-500" /> {t('results.chooseItalyIf')}
                  </h4>
-                 <ul className="space-y-3 text-xs text-slate-600 dark:text-slate-400 font-medium">
+                 <ul className="space-y-3 text-xs text-slate-600 dark:text-slate-500 font-medium">
                     <li className="flex gap-3"><ChevronRight size={14} className="text-emerald-500 shrink-0" /> <span><b>{t('results.it.cost.title')}</b> {t('results.it.cost')}</span></li>
                     <li className="flex gap-3"><ChevronRight size={14} className="text-emerald-500 shrink-0" /> <span><b>{t('results.it.property.title')}</b> {t('results.it.property')}</span></li>
                     <li className="flex gap-3"><ChevronRight size={14} className="text-emerald-500 shrink-0" /> <span><b>{t('results.it.social.title')}</b> {t('results.it.social')}</span></li>
@@ -506,7 +506,7 @@ export const ResultsView: React.FC<Props> = ({ result, inputs, isDarkMode, isFoc
         )}
 
         <div className="mb-8">
-           <h3 className="text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-4 flex items-center gap-2">
+           <h3 className="text-xs font-bold text-slate-500 dark:text-slate-500 uppercase tracking-widest mb-4 flex items-center gap-2">
               <Calculator size={14} className="text-indigo-500" /> {t('results.monthlyReservesChart')}
            </h3>
            <ComparisonChart result={result} inputs={inputs} isDarkMode={isDarkMode} isFocusMode={isFocusMode} />

@@ -156,18 +156,18 @@ const GamificationPage: React.FC = () => {
                   ? 'bg-amber-50 dark:bg-amber-900/20'
                   : 'bg-slate-100 dark:bg-slate-700 grayscale'
               }`}>
-                {isUnlocked ? achievement.icon : <Lock size={20} className="text-slate-400" />}
+                {isUnlocked ? achievement.icon : <Lock size={20} className="text-slate-500" />}
               </div>
 
               {/* Content */}
               <div className="flex-1 min-w-0">
                 <div className="flex items-center gap-2">
-                  <h3 className={`text-sm font-bold ${isUnlocked ? 'text-amber-700 dark:text-amber-400' : 'text-slate-500 dark:text-slate-400'}`}>
+                  <h3 className={`text-sm font-bold ${isUnlocked ? 'text-amber-700 dark:text-amber-400' : 'text-slate-500 dark:text-slate-500'}`}>
                     {t(`gamification.achievement.${achievement.id}`)}
                   </h3>
                   {isUnlocked && <CheckCircle2 size={14} className="text-emerald-500 flex-shrink-0" />}
                 </div>
-                <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
+                <p className="text-xs text-slate-500 dark:text-slate-500 mt-0.5">
                   {t(`gamification.achievementDesc.${achievement.id}`)}
                 </p>
 
@@ -177,13 +177,13 @@ const GamificationPage: React.FC = () => {
                     <div className="flex-1 bg-slate-200 dark:bg-slate-600 rounded-full h-1.5">
                       <div className="bg-amber-500 rounded-full h-1.5 transition-all" style={{ width: `${progress * 100}%` }} />
                     </div>
-                    <span className="text-[10px] text-slate-400 font-bold">{count}/{achievement.requiredCount}</span>
+                    <span className="text-[10px] text-slate-500 font-bold">{count}/{achievement.requiredCount}</span>
                   </div>
                 )}
 
                 {/* Unlocked date */}
                 {isUnlocked && unlockedDate && (
-                  <div className="text-[10px] text-slate-400 mt-1.5 flex items-center gap-1">
+                  <div className="text-[10px] text-slate-500 mt-1.5 flex items-center gap-1">
                     <CheckCircle2 size={10} />
                     {t('gamification.unlockedOn') || 'Sbloccato il'} {unlockedDate}
                   </div>
@@ -191,8 +191,8 @@ const GamificationPage: React.FC = () => {
 
                 {/* XP reward */}
                 <div className="flex items-center gap-1 mt-1.5">
-                  <Zap size={10} className={isUnlocked ? 'text-amber-500' : 'text-slate-400'} />
-                  <span className={`text-[10px] font-bold ${isUnlocked ? 'text-amber-600 dark:text-amber-400' : 'text-slate-400'}`}>
+                  <Zap size={10} className={isUnlocked ? 'text-amber-500' : 'text-slate-500'} />
+                  <span className={`text-[10px] font-bold ${isUnlocked ? 'text-amber-600 dark:text-amber-400' : 'text-slate-500'}`}>
                     +50 XP
                   </span>
                 </div>
@@ -224,7 +224,7 @@ const GamificationPage: React.FC = () => {
                       : 'bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 opacity-50'
                 }`}
               >
-                <div className={`text-lg font-black ${isCurrent ? 'text-amber-600' : isReached ? 'text-emerald-600' : 'text-slate-400'}`}>
+                <div className={`text-lg font-black ${isCurrent ? 'text-amber-600' : isReached ? 'text-emerald-600' : 'text-slate-500'}`}>
                   {lvl}
                 </div>
                 <div className="text-[10px] font-bold text-slate-600 dark:text-slate-300 mt-0.5">{title}</div>

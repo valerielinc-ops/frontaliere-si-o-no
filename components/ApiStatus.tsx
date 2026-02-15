@@ -99,7 +99,7 @@ const ApiStatus: React.FC = () => {
       case 'error':
         return <XCircle className="text-red-600 dark:text-red-400" size={24} />;
       default:
-        return <AlertTriangle className="text-slate-400" size={24} />;
+        return <AlertTriangle className="text-slate-500" size={24} />;
     }
   };
 
@@ -156,7 +156,7 @@ const ApiStatus: React.FC = () => {
       {/* Refresh Button */}
       <div className="bg-white dark:bg-slate-800 rounded-xl p-4 border border-slate-200 dark:border-slate-700">
         <div className="flex items-center justify-between">
-          <div className="text-sm text-slate-600 dark:text-slate-400">
+          <div className="text-sm text-slate-600 dark:text-slate-500">
             Ultimo controllo: {lastCheck.toLocaleTimeString('it-IT')}
           </div>
           <button
@@ -202,7 +202,7 @@ const ApiStatus: React.FC = () => {
                   }`}>
                     {check.value}
                   </p>
-                  <p className="text-sm text-slate-600 dark:text-slate-400">
+                  <p className="text-sm text-slate-600 dark:text-slate-500">
                     {check.message}
                   </p>
                 </div>
@@ -214,7 +214,7 @@ const ApiStatus: React.FC = () => {
 
       {/* Info Note */}
       <div className="bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 p-6 rounded-xl">
-        <p className="text-sm text-slate-600 dark:text-slate-400 text-center">
+        <p className="text-sm text-slate-600 dark:text-slate-500 text-center">
           🔒 <strong>Privacy:</strong> I dettagli delle chiavi API sono nascosti per motivi di sicurezza.
         </p>
       </div>

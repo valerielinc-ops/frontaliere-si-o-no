@@ -31,7 +31,7 @@ interface PensionResult {
 
 const InfoTooltip = ({ text }: { text: string }) => (
   <div className="group relative inline-flex items-center ml-1.5 cursor-help">
-    <Info size={14} className="text-slate-400 hover:text-indigo-500 transition-colors" />
+    <Info size={14} className="text-slate-500 hover:text-indigo-500 transition-colors" />
     <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 hidden group-hover:block w-64 p-3 bg-slate-800 dark:bg-slate-700 text-white text-xs leading-relaxed rounded-xl shadow-2xl z-50 border border-slate-600">
       {text}
       <div className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-slate-800 dark:border-t-slate-700"></div>
@@ -126,7 +126,7 @@ const PensionPlanner: React.FC = () => {
         <h1 className="text-4xl font-extrabold bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent">
           {t('pension.title')}
         </h1>
-        <p className="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
+        <p className="text-slate-600 dark:text-slate-500 max-w-2xl mx-auto">
           {t('pension.subtitle')}
         </p>
       </div>
@@ -342,7 +342,7 @@ const PensionPlanner: React.FC = () => {
                         {option === 'return_it' && `🇮🇹 ${t('pension.returnIT')}`}
                         {option === 'undecided' && `🤔 ${t('pension.undecided')}`}
                       </div>
-                      <div className="text-xs text-slate-500 dark:text-slate-400 mt-1">
+                      <div className="text-xs text-slate-500 dark:text-slate-500 mt-1">
                         {option === 'stay_ch' && t('pension.stayCHDesc')}
                         {option === 'return_it' && t('pension.returnITDesc')}
                         {option === 'undecided' && t('pension.undecidedDesc')}
@@ -384,7 +384,7 @@ const PensionPlanner: React.FC = () => {
                   <PiggyBank className="text-blue-600" size={20} />
                 </div>
                 <div>
-                  <div className="text-xs text-slate-500 dark:text-slate-400 font-semibold uppercase tracking-wide">
+                  <div className="text-xs text-slate-500 dark:text-slate-500 font-semibold uppercase tracking-wide">
                     {t('pension.lppCapital')}
                   </div>
                   <div className="text-2xl font-extrabold text-slate-800 dark:text-slate-100">
@@ -393,12 +393,12 @@ const PensionPlanner: React.FC = () => {
                 </div>
               </div>
               <div className="flex items-center justify-between pt-3 border-t border-slate-100 dark:border-slate-700">
-                <span className="text-sm text-slate-600 dark:text-slate-400">{t('pension.monthlyAnnuity')}:</span>
+                <span className="text-sm text-slate-600 dark:text-slate-500">{t('pension.monthlyAnnuity')}:</span>
                 <span className="text-lg font-bold text-blue-600">
                   CHF {Math.round(result.lppMonthlyPension).toLocaleString('it-IT')}
                 </span>
               </div>
-              <div className="mt-2 text-xs text-slate-500 dark:text-slate-400">
+              <div className="mt-2 text-xs text-slate-500 dark:text-slate-500">
                 <InfoTooltip text="Tasso conversione 6.8% - Capitale può essere prelevato in parte o totalmente" />
                 {t('pension.conversionRate')}
               </div>
@@ -411,7 +411,7 @@ const PensionPlanner: React.FC = () => {
                   <Home className="text-red-600" size={20} />
                 </div>
                 <div>
-                  <div className="text-xs text-slate-500 dark:text-slate-400 font-semibold uppercase tracking-wide">
+                  <div className="text-xs text-slate-500 dark:text-slate-500 font-semibold uppercase tracking-wide">
                     {t('pension.avsPension')}
                   </div>
                   <div className="text-2xl font-extrabold text-slate-800 dark:text-slate-100">
@@ -419,7 +419,7 @@ const PensionPlanner: React.FC = () => {
                   </div>
                 </div>
               </div>
-              <div className="flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400">
+              <div className="flex items-center gap-2 text-xs text-slate-500 dark:text-slate-500">
                 <Calculator size={12} />
                 <span>
                   {result.yearsOfContributions.switzerland} {t('pension.contributionsOf44')}
@@ -441,7 +441,7 @@ const PensionPlanner: React.FC = () => {
                     <Globe className="text-green-600" size={20} />
                   </div>
                   <div>
-                    <div className="text-xs text-slate-500 dark:text-slate-400 font-semibold uppercase tracking-wide">
+                    <div className="text-xs text-slate-500 dark:text-slate-500 font-semibold uppercase tracking-wide">
                       {t('pension.inpsPension')}
                     </div>
                     <div className="text-2xl font-extrabold text-slate-800 dark:text-slate-100">
@@ -449,7 +449,7 @@ const PensionPlanner: React.FC = () => {
                     </div>
                   </div>
                 </div>
-                <div className="flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400">
+                <div className="flex items-center gap-2 text-xs text-slate-500 dark:text-slate-500">
                   <Calculator size={12} />
                   <span>
                     {inputs.yearsWorkedIT} {t('pension.italianContributionYears')}
@@ -520,7 +520,7 @@ const PensionPlanner: React.FC = () => {
                   <h4 className="font-bold text-slate-800 dark:text-slate-100 mb-2">
                     {inputs.repatriationPlan === 'stay_ch' ? `🇨🇭 ${t('pension.scenarioStayCH')}` : `🇮🇹 ${t('pension.scenarioReturnIT')}`}
                   </h4>
-                  <ul className="text-sm space-y-1 text-slate-600 dark:text-slate-400">
+                  <ul className="text-sm space-y-1 text-slate-600 dark:text-slate-500">
                     {inputs.repatriationPlan === 'stay_ch' ? (
                       <>
                         <li>✓ {t('pension.stayCH1')}</li>

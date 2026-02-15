@@ -184,9 +184,9 @@ const ParentalLeaveCalculator: React.FC = () => {
           <label className="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-2">{t('leave.exchangeRate')}</label>
           <div className="flex items-center gap-2 px-4 py-2.5 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900">
             <span className="font-bold text-slate-800 dark:text-slate-200">1 CHF = {chfEurRate.toFixed(4)} EUR</span>
-            {rateLoading && <RefreshCw size={14} className="animate-spin text-slate-400" />}
+            {rateLoading && <RefreshCw size={14} className="animate-spin text-slate-500" />}
           </div>
-          <p className="text-[10px] text-slate-400 mt-1">{t('exchange.liveRate') || 'Tasso live da frankfurter.app'}</p>
+          <p className="text-[10px] text-slate-500 mt-1">{t('exchange.liveRate') || 'Tasso live da frankfurter.app'}</p>
         </div>
       </div>
 
@@ -216,14 +216,14 @@ const ParentalLeaveCalculator: React.FC = () => {
               </div>
               <div className="flex justify-between">
                 <span className="text-slate-500">{t('leave.maxDaily')}</span>
-                <span className="text-xs text-slate-400">CHF {IPG_DAILY_MAX_CHF}/giorno</span>
+                <span className="text-xs text-slate-500">CHF {IPG_DAILY_MAX_CHF}/giorno</span>
               </div>
               <hr className="border-slate-200 dark:border-slate-600" />
               <div className="flex justify-between">
                 <span className="font-bold">{t('leave.totalAllowance')}</span>
                 <span className="font-black text-lg text-emerald-600 dark:text-emerald-400">{fmt(chResult.totalAllowance, 'CHF')}</span>
               </div>
-              <div className="flex justify-between text-slate-400">
+              <div className="flex justify-between text-slate-500">
                 <span>{t('leave.inEUR')}</span>
                 <span className="font-bold">{fmt(chResult.totalAllowance * chfEurRate)}</span>
               </div>
@@ -292,12 +292,12 @@ const ParentalLeaveCalculator: React.FC = () => {
           <div className="bg-white/60 dark:bg-slate-800/60 rounded-lg p-3">
             <p className="text-slate-500">{t('leave.chIPG')}</p>
             <p className="font-black text-lg">{fmt(chResult.totalAllowance, 'CHF')}</p>
-            <p className="text-xs text-slate-400">≈ {fmt(totalFrontaliereEUR)}</p>
+            <p className="text-xs text-slate-500">≈ {fmt(totalFrontaliereEUR)}</p>
           </div>
           <div className="bg-white/60 dark:bg-slate-800/60 rounded-lg p-3">
             <p className="text-slate-500">{t('leave.monthlySalaryLoss')}</p>
             <p className="font-black text-lg text-amber-600">-{fmt(grossMonthlyCHF - chResult.maxMonthly / (leaveType === 'maternity' ? 3.5 : 1), 'CHF')}</p>
-            <p className="text-xs text-slate-400">{t('leave.vsFullSalary')}</p>
+            <p className="text-xs text-slate-500">{t('leave.vsFullSalary')}</p>
           </div>
         </div>
       </div>

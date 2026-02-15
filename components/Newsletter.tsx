@@ -169,6 +169,7 @@ const Newsletter: React.FC<NewsletterProps> = ({ compact = false }) => {
             />
             <button type="submit" disabled={status === 'loading'}
               className="px-5 py-2.5 bg-white text-indigo-600 font-bold text-sm rounded-xl hover:bg-indigo-50 transition-colors disabled:opacity-50 flex items-center gap-2"
+              aria-label={t('newsletter.subscribeFree')}
             >
               {status === 'loading' ? <Loader2 size={16} className="animate-spin" /> : <Send size={16} />}
             </button>
@@ -216,7 +217,7 @@ const Newsletter: React.FC<NewsletterProps> = ({ compact = false }) => {
         <div className="bg-emerald-50 dark:bg-emerald-950/30 rounded-2xl border border-emerald-200 dark:border-emerald-800 p-8 text-center">
           <CheckCircle2 size={48} className="text-emerald-500 mx-auto mb-4" />
           <h3 className="text-xl font-bold text-slate-800 dark:text-slate-100 mb-2">{t('newsletter.subscriptionConfirmed')} 🎉</h3>
-          <p className="text-slate-600 dark:text-slate-400">
+          <p className="text-slate-600 dark:text-slate-500">
             {t('newsletter.subscriptionConfirmedDesc')}
           </p>
         </div>
@@ -282,7 +283,7 @@ const Newsletter: React.FC<NewsletterProps> = ({ compact = false }) => {
           )}
 
           <div className="flex items-center justify-between">
-            <div className="flex items-center gap-2 text-xs text-slate-400">
+            <div className="flex items-center gap-2 text-xs text-slate-500">
               <Shield size={14} />
               {t('newsletter.protectedBy')}
             </div>
@@ -303,7 +304,7 @@ const Newsletter: React.FC<NewsletterProps> = ({ compact = false }) => {
             </button>
           </div>
 
-          <p className="text-xs text-slate-400 text-center">
+          <p className="text-xs text-slate-500 text-center">
             {t('newsletter.unsubscribeNotice')}
           </p>
         </form>

@@ -284,11 +284,11 @@ const ShoppingCalculator: React.FC = () => {
                   <div className="text-[10px] text-slate-500 uppercase">🇮🇹 {product.storeIT}</div>
                   <div className="font-black text-emerald-600 text-lg">€ {product.priceIT.toFixed(2)}</div>
                 </div>
-                <ArrowRight size={14} className="text-slate-400" />
+                <ArrowRight size={14} className="text-slate-500" />
                 <div className="text-center">
                   <div className="text-[10px] text-slate-500 uppercase">🇨🇭 {product.storeCH}</div>
                   <div className="font-black text-red-500 text-lg">{product.priceCH.toFixed(2)} CHF</div>
-                  <div className="text-[10px] text-slate-400">≈ € {priceCHinEUR.toFixed(2)}</div>
+                  <div className="text-[10px] text-slate-500">≈ € {priceCHinEUR.toFixed(2)}</div>
                 </div>
               </div>
 
@@ -363,7 +363,7 @@ const ShoppingCalculator: React.FC = () => {
             </a>
           ))}
         </div>
-        <p className="text-[10px] text-slate-400 mt-2">{t('shopping.disclaimer')}</p>
+        <p className="text-[10px] text-slate-500 mt-2">{t('shopping.disclaimer')}</p>
       </div>
     </div>
   );

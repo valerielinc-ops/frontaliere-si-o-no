@@ -401,7 +401,7 @@ export const StatsView: React.FC = () => {
             <h2 className="text-xl font-extrabold text-slate-800 dark:text-slate-100 tracking-tight flex items-center gap-2">
               <Database size={20} className="text-indigo-500"/> {t('stats.title')}
             </h2>
-            <p className="text-slate-500 dark:text-slate-400 text-xs mt-1">
+            <p className="text-slate-500 dark:text-slate-500 text-xs mt-1">
               {t('stats.source')}
             </p>
           </div>
@@ -410,7 +410,7 @@ export const StatsView: React.FC = () => {
             <button 
                 onClick={() => fetchBFSData(true)}
                 disabled={loading}
-                className="p-2 bg-white dark:bg-slate-800 rounded-xl shadow-sm border border-slate-100 dark:border-slate-700 text-slate-400 hover:text-indigo-500 transition-all hover:rotate-180 disabled:opacity-50"
+                className="p-2 bg-white dark:bg-slate-800 rounded-xl shadow-sm border border-slate-100 dark:border-slate-700 text-slate-500 hover:text-indigo-500 transition-all hover:rotate-180 disabled:opacity-50"
                 title={t('stats.refreshData')}
             >
                 <RefreshCw size={18} className={loading ? "animate-spin" : ""} />
@@ -479,7 +479,7 @@ export const StatsView: React.FC = () => {
                </p>
                <div className="flex items-end gap-1 mt-1">
                   <p className="text-2xl font-extrabold text-slate-800 dark:text-slate-100">{malePercent}%</p>
-                  <span className="text-xs text-slate-400 mb-1">M</span>
+                  <span className="text-xs text-slate-500 mb-1">M</span>
                </div>
                {/* Tooltip */}
                <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 hidden group-hover:block z-20 w-56">
@@ -563,7 +563,7 @@ export const StatsView: React.FC = () => {
                         </LineChart>
                     </ResponsiveContainer>
                  ) : (
-                    <div className="w-full h-full flex flex-col items-center justify-center text-slate-400">
+                    <div className="w-full h-full flex flex-col items-center justify-center text-slate-500">
                         {loading ? <Loader2 className="animate-spin" /> : <span className="text-xs italic">{t('stats.dataNotAvailable')}</span>}
                     </div>
                  )}
@@ -581,7 +581,7 @@ export const StatsView: React.FC = () => {
                 <div className="bg-white dark:bg-slate-700 p-2 rounded-xl text-indigo-500 shadow-sm hidden sm:block">
                     <Info size={20} />
                 </div>
-                <div className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed text-center sm:text-left">
+                <div className="text-xs text-slate-500 dark:text-slate-500 leading-relaxed text-center sm:text-left">
                     {t('stats.extractedFrom')}
                     {usingRealData ? (
                         <span className="text-emerald-600 dark:text-emerald-400 font-bold ml-1">

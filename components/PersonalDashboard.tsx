@@ -237,7 +237,7 @@ const PersonalDashboard: React.FC<PersonalDashboardProps> = ({ currentInputs, cu
               <HardDrive className="w-5 h-5 text-amber-500 shrink-0" />
               <div>
                 <p className="text-sm font-bold text-slate-800 dark:text-slate-200">{t('dashboard.localMode') || 'Modalità locale'}</p>
-                <p className="text-[10px] text-slate-400">{t('dashboard.loginBenefits') || 'Accedi con Google per salvare nel cloud e accedere da qualsiasi dispositivo'}</p>
+                <p className="text-[10px] text-slate-500">{t('dashboard.loginBenefits') || 'Accedi con Google per salvare nel cloud e accedere da qualsiasi dispositivo'}</p>
               </div>
             </div>
             <button onClick={signIn} className="flex items-center gap-2 px-4 py-2.5 bg-white dark:bg-slate-700 border border-slate-300 dark:border-slate-600 rounded-xl text-sm font-bold text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-600 transition-colors shadow-sm">
@@ -308,7 +308,7 @@ const PersonalDashboard: React.FC<PersonalDashboardProps> = ({ currentInputs, cu
                 <option key={s.id} value={s.id}>{s.label} ({new Date(s.date).toLocaleDateString('it-IT')})</option>
               ))}
             </select>
-            <span className="text-slate-400 self-center">vs</span>
+            <span className="text-slate-500 self-center">vs</span>
             <select
               value={compareIds?.[1] || ''}
               onChange={(e) => setCompareIds([compareIds?.[0] || simulations[0]?.id || '', e.target.value])}
@@ -332,7 +332,7 @@ const PersonalDashboard: React.FC<PersonalDashboardProps> = ({ currentInputs, cu
                     {comparison.netDiffCH >= 0 ? '+' : ''}CHF {Math.round(comparison.netDiffCH).toLocaleString('it-IT')}
                   </span>
                 </div>
-                <p className="text-xs text-slate-400 mt-1">{comparison.pctCH >= 0 ? '+' : ''}{comparison.pctCH.toFixed(1)}%</p>
+                <p className="text-xs text-slate-500 mt-1">{comparison.pctCH >= 0 ? '+' : ''}{comparison.pctCH.toFixed(1)}%</p>
               </div>
               <div className={`p-4 rounded-lg ${comparison.netDiffIT >= 0 ? 'bg-emerald-50 dark:bg-emerald-950/20' : 'bg-red-50 dark:bg-red-950/20'}`}>
                 <p className="text-xs text-slate-500 mb-1">🇮🇹 {t('dashboard.netIT')}</p>
@@ -342,7 +342,7 @@ const PersonalDashboard: React.FC<PersonalDashboardProps> = ({ currentInputs, cu
                     {comparison.netDiffIT >= 0 ? '+' : ''}€ {Math.round(comparison.netDiffIT).toLocaleString('it-IT')}
                   </span>
                 </div>
-                <p className="text-xs text-slate-400 mt-1">{comparison.pctIT >= 0 ? '+' : ''}{comparison.pctIT.toFixed(1)}%</p>
+                <p className="text-xs text-slate-500 mt-1">{comparison.pctIT >= 0 ? '+' : ''}{comparison.pctIT.toFixed(1)}%</p>
               </div>
             </div>
           )}
@@ -351,7 +351,7 @@ const PersonalDashboard: React.FC<PersonalDashboardProps> = ({ currentInputs, cu
 
       {/* Saved simulations list */}
       {simulations.length === 0 ? (
-        <div className="text-center py-12 text-slate-400">
+        <div className="text-center py-12 text-slate-500">
           <History className="w-12 h-12 mx-auto mb-3 opacity-50" />
           <p className="font-bold">{t('dashboard.empty')}</p>
           <p className="text-sm mt-1">{t('dashboard.emptyDesc')}</p>
@@ -365,8 +365,8 @@ const PersonalDashboard: React.FC<PersonalDashboardProps> = ({ currentInputs, cu
                 <div className="p-4 flex items-center gap-3">
                   <div className="flex-1">
                     <div className="flex items-center gap-2 mb-1">
-                      <Calendar className="w-3.5 h-3.5 text-slate-400" />
-                      <span className="text-xs text-slate-400">{new Date(sim.date).toLocaleDateString('it-IT', { day: 'numeric', month: 'long', year: 'numeric' })}</span>
+                      <Calendar className="w-3.5 h-3.5 text-slate-500" />
+                      <span className="text-xs text-slate-500">{new Date(sim.date).toLocaleDateString('it-IT', { day: 'numeric', month: 'long', year: 'numeric' })}</span>
                       {sim.cloudId && <Cloud className="w-3 h-3 text-sky-400" title="Cloud" />}
                     </div>
                     <p className="font-bold text-sm text-slate-800 dark:text-slate-200">{sim.label}</p>
@@ -385,7 +385,7 @@ const PersonalDashboard: React.FC<PersonalDashboardProps> = ({ currentInputs, cu
                   </button>
                   <button
                     onClick={() => setExpandedId(isExpanded ? null : sim.id)}
-                    className="p-2 text-slate-400"
+                    className="p-2 text-slate-500"
                   >
                     {isExpanded ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
                   </button>
@@ -395,19 +395,19 @@ const PersonalDashboard: React.FC<PersonalDashboardProps> = ({ currentInputs, cu
                   <div className="px-4 pb-4 border-t border-slate-100 dark:border-slate-700 pt-3">
                     <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-center">
                       <div className="p-2 bg-slate-50 dark:bg-slate-900 rounded-lg">
-                        <p className="text-[10px] text-slate-400">{t('dashboard.gross')}</p>
+                        <p className="text-[10px] text-slate-500">{t('dashboard.gross')}</p>
                         <p className="font-black text-sm">CHF {(sim.inputs?.grossSalary ?? 0).toLocaleString('it-IT')}</p>
                       </div>
                       <div className="p-2 bg-slate-50 dark:bg-slate-900 rounded-lg">
-                        <p className="text-[10px] text-slate-400">{t('dashboard.family')}</p>
+                        <p className="text-[10px] text-slate-500">{t('dashboard.family')}</p>
                         <p className="font-black text-sm">{sim.inputs?.familyMembers ?? 0}p, {sim.inputs?.children ?? 0}b</p>
                       </div>
                       <div className="p-2 bg-red-50 dark:bg-red-950/20 rounded-lg">
-                        <p className="text-[10px] text-slate-400">🇨🇭 {t('dashboard.netCH')}</p>
+                        <p className="text-[10px] text-slate-500">🇨🇭 {t('dashboard.netCH')}</p>
                         <p className="font-black text-sm text-red-600">CHF {Math.round(sim.result?.chResident?.netAnnual ?? 0).toLocaleString('it-IT')}</p>
                       </div>
                       <div className="p-2 bg-green-50 dark:bg-green-950/20 rounded-lg">
-                        <p className="text-[10px] text-slate-400">🇮🇹 {t('dashboard.netIT')}</p>
+                        <p className="text-[10px] text-slate-500">🇮🇹 {t('dashboard.netIT')}</p>
                         <p className="font-black text-sm text-green-600">€ {Math.round(sim.result?.itResident?.netAnnual ?? 0).toLocaleString('it-IT')}</p>
                       </div>
                     </div>
