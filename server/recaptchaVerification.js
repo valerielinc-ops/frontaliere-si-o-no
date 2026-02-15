@@ -28,7 +28,7 @@ const {RecaptchaEnterpriseServiceClient} = require('@google-cloud/recaptcha-ente
  */
 async function createAssessment({
   projectID = "frontaliere-ticino",
-  recaptchaKey = "6LcvRmosAAAAANg2upkWsseTFrN6eO5erywetm59",
+  recaptchaKey = process.env.RECAPTCHA_SITE_KEY || '',
   token,
   recaptchaAction,
 }) {
@@ -103,7 +103,7 @@ async function verifyRecaptcha(req, res, next) {
   try {
     const score = await createAssessment({
       projectID: process.env.GOOGLE_CLOUD_PROJECT_ID || 'frontaliere-ticino',
-      recaptchaKey: process.env.RECAPTCHA_SITE_KEY || '6LcvRmosAAAAANg2upkWsseTFrN6eO5erywetm59',
+      recaptchaKey: process.env.RECAPTCHA_SITE_KEY || '',
       token: token,
       recaptchaAction: expectedAction,
     });
@@ -221,7 +221,7 @@ module.exports = {
  * ENVIRONMENT VARIABLES:
  * 
  * GOOGLE_CLOUD_PROJECT_ID=frontaliere-ticino
- * RECAPTCHA_SITE_KEY=6LcvRmosAAAAANg2upkWsseTFrN6eO5erywetm59
- * RECAPTCHA_SECRET_KEY=6LcvRmosAAAAADYMc8QueYvyxDh-X0FN307JGK_G
+ * RECAPTCHA_SITE_KEY=<your-recaptcha-site-key>
+ * RECAPTCHA_SECRET_KEY=<your-recaptcha-secret-key>
  * GOOGLE_APPLICATION_CREDENTIALS=/path/to/service-account-key.json
  */

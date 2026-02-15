@@ -106,6 +106,7 @@ const translations: AllTranslations = {
   it: {
     // App
     'app.title': 'Frontaliere Si o No?',
+    'app.subtitle': 'Calcola e confronta il tuo stipendio netto come lavoratore frontaliero',
     'app.fullscreen': 'Schermo intero',
     'app.exitFullscreen': 'Esci da Schermo intero',
 
@@ -1201,6 +1202,15 @@ const translations: AllTranslations = {
     'footer.apiStatus': 'Stato API',
     'footer.followUs': 'Seguici su',
     'footer.followFacebook': 'Seguici su Facebook',
+
+    // Search
+    'search.placeholder': 'Cerca sezioni, strumenti, funzionalità...',
+    'search.hint': 'Digita per cercare tra tutte le sezioni del sito',
+    'search.examples': 'Es: "cambio valuta", "pensione", "traffico", "lavoro"',
+    'search.noResults': 'Nessun risultato trovato',
+    'search.navigate': 'naviga',
+    'search.select': 'seleziona',
+    'search.close': 'chiudi',
 
     // Frontier Guide
     'guide.title': 'Guida Completa al Frontalierato',
@@ -2349,6 +2359,7 @@ const translations: AllTranslations = {
   en: {
     // App
     'app.title': 'Cross-Border Yes or No?',
+    'app.subtitle': 'Calculate and compare your net salary as a cross-border worker',
     'app.fullscreen': 'Fullscreen',
     'app.exitFullscreen': 'Exit Fullscreen',
 
@@ -3446,6 +3457,15 @@ const translations: AllTranslations = {
     'footer.apiStatus': 'API Status',
     'footer.followUs': 'Follow us on',
     'footer.followFacebook': 'Follow us on Facebook',
+
+    // Search
+    'search.placeholder': 'Search sections, tools, features...',
+    'search.hint': 'Type to search across all site sections',
+    'search.examples': 'E.g.: "currency exchange", "pension", "traffic", "jobs"',
+    'search.noResults': 'No results found',
+    'search.navigate': 'navigate',
+    'search.select': 'select',
+    'search.close': 'close',
 
     // Frontier Guide
     'guide.title': 'Complete Cross-Border Guide',
@@ -4589,6 +4609,7 @@ const translations: AllTranslations = {
   de: {
     // App
     'app.title': 'Grenzgänger Ja oder Nein?',
+    'app.subtitle': 'Berechnen und vergleichen Sie Ihr Nettogehalt als Grenzgänger',
     'app.fullscreen': 'Vollbild',
     'app.exitFullscreen': 'Vollbild beenden',
 
@@ -5686,6 +5707,15 @@ const translations: AllTranslations = {
     'footer.apiStatus': 'API-Status',
     'footer.followUs': 'Folgen Sie uns auf',
     'footer.followFacebook': 'Folgen Sie uns auf Facebook',
+
+    // Search
+    'search.placeholder': 'Bereiche, Tools, Funktionen suchen...',
+    'search.hint': 'Tippen Sie, um alle Bereiche der Website zu durchsuchen',
+    'search.examples': 'Z.B.: "Währungswechsel", "Rente", "Verkehr", "Arbeit"',
+    'search.noResults': 'Keine Ergebnisse gefunden',
+    'search.navigate': 'navigieren',
+    'search.select': 'auswählen',
+    'search.close': 'schließen',
 
     // Frontier Guide
     'guide.title': 'Vollständiger Grenzgänger-Leitfaden',
@@ -6829,6 +6859,7 @@ const translations: AllTranslations = {
   fr: {
     // App
     'app.title': 'Frontalier Oui ou Non ?',
+    'app.subtitle': 'Calculez et comparez votre salaire net en tant que travailleur frontalier',
     'app.fullscreen': 'Plein écran',
     'app.exitFullscreen': 'Quitter le plein écran',
 
@@ -7926,6 +7957,15 @@ const translations: AllTranslations = {
     'footer.apiStatus': 'Statut API',
     'footer.followUs': 'Suivez-nous sur',
     'footer.followFacebook': 'Suivez-nous sur Facebook',
+
+    // Search
+    'search.placeholder': 'Rechercher sections, outils, fonctionnalités...',
+    'search.hint': 'Tapez pour rechercher dans toutes les sections du site',
+    'search.examples': 'Ex: "change devise", "retraite", "trafic", "emploi"',
+    'search.noResults': 'Aucun résultat trouvé',
+    'search.navigate': 'naviguer',
+    'search.select': 'sélectionner',
+    'search.close': 'fermer',
 
     // Frontier Guide
     'guide.title': 'Guide complet du frontalier',

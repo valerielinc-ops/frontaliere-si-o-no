@@ -52,10 +52,10 @@ export const FeedbackSection: React.FC = () => {
         
         console.log('✅ API keys caricate da Firebase Remote Config');
       } catch (error) {
-        console.warn('⚠️ Errore caricamento API keys, uso fallback locali:', error);
-        // Fallback: usa env vars
-        setGithubToken(import.meta.env.VITE_REACT_APP_PAT || '');
-        setGeminiApiKey(import.meta.env.GEMINI_API_KEY || '');
+        console.warn('⚠️ Errore caricamento API keys da Remote Config:', error);
+        // No local fallback — secrets only from Remote Config
+        setGithubToken('');
+        setGeminiApiKey('');
       }
     }
     

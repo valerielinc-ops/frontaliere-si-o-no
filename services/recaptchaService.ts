@@ -27,7 +27,8 @@ class RecaptchaService {
   private isReady: boolean = false;
 
   constructor() {
-    this.siteKey = import.meta.env.VITE_RECAPTCHA_SITE_KEY || null;
+    // Site key loaded dynamically from Firebase Remote Config, not from env
+    this.siteKey = null;
     
     // Attendi che reCAPTCHA sia pronto
     if (this.isEnabled() && typeof window !== 'undefined') {

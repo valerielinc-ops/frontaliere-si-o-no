@@ -148,12 +148,13 @@ async function initRemoteConfig(): Promise<void> {
     remoteConfig = getRemoteConfig(app);
     
     // Valori di default (fallback se Remote Config non disponibile)
+    // NO hardcoded secrets here — they must come from Firebase Remote Config
     remoteConfig.defaultConfig = {
-      GOOGLE_MAPS_API_KEY: import.meta.env.VITE_GOOGLE_MAPS_API_KEY || '',
-      GA_MEASUREMENT_ID: import.meta.env.VITE_GA_MEASUREMENT_ID || '',
-      GITHUB_PAT: import.meta.env.VITE_REACT_APP_PAT || '',
-      GEMINI_API_KEY: import.meta.env.GEMINI_API_KEY || '',
-      RECAPTCHA_SITE_KEY: import.meta.env.VITE_RECAPTCHA_SITE_KEY || ''
+      GOOGLE_MAPS_API_KEY: '',
+      GA_MEASUREMENT_ID: '',
+      GITHUB_PAT: '',
+      GEMINI_API_KEY: '',
+      RECAPTCHA_SITE_KEY: ''
     };
 
     // Impostazioni cache: fetch ogni ora in produzione, ogni 5 minuti in dev
@@ -192,16 +193,9 @@ export async function getConfigValue(key: string): Promise<string> {
     console.warn(`⚠️ Errore recupero config "${key}":`, error);
   }
 
-  // Fallback: usa variabili d'ambiente locali
-  const envValues: Record<string, string> = {
-    GOOGLE_MAPS_API_KEY: import.meta.env.VITE_GOOGLE_MAPS_API_KEY || '',
-    GA_MEASUREMENT_ID: import.meta.env.VITE_GA_MEASUREMENT_ID || '',
-    GITHUB_PAT: import.meta.env.VITE_REACT_APP_PAT || '',
-    GEMINI_API_KEY: import.meta.env.GEMINI_API_KEY || '',
-    RECAPTCHA_SITE_KEY: import.meta.env.VITE_RECAPTCHA_SITE_KEY || ''
-  };
-
-  return envValues[key] || '';
+  // No local fallback — secrets only from Remote Config
+  console.warn(`⚠️ Config key "${key}" not available from Remote Config`);
+  return '';
 }
 
 /**

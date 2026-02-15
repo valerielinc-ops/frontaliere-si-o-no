@@ -69,8 +69,8 @@ class TrafficService {
       }
     } catch (error) {
       console.warn('⚠️ Errore caricamento API key da Firebase:', error);
-      // Fallback: usa env var locale
-      this.apiKey = import.meta.env.VITE_GOOGLE_MAPS_API_KEY || null;
+      // No local fallback — secrets only from Remote Config
+      this.apiKey = null;
       this.apiKeyInitialized = true;
     }
   }

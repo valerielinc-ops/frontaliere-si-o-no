@@ -25,6 +25,7 @@ import { ErrorBoundary } from '@/components/ErrorBoundary';
 import PwaInstallBanner from '@/components/PwaInstallBanner';
 import PwaUpdateBanner from '@/components/PwaUpdateBanner';
 import GamificationWidget, { unlockAchievement } from '@/components/GamificationWidget';
+import SiteSearch from '@/components/SiteSearch';
 import { calculateSimulation } from '@/services/calculationService';
 import { Analytics } from '@/services/analytics';
 import { updateMetaTags, trackSectionView } from '@/services/seoService';
@@ -201,6 +202,26 @@ const App: React.FC = () => {
     }
   }, [activeTab]);
 
+  // Handle search navigation
+  const handleSearchNavigate = (tab: string, subTab?: string) => {
+    setActiveTab(tab as any);
+    if (tab === 'comparatori' && subTab) {
+      setComparatoriSubTab(subTab as any);
+    } else if (tab === 'calculator' && subTab === 'whatif') {
+      setSimulatorSubTab('whatif');
+    } else if (tab === 'pension' && subTab) {
+      setPensionSubTab(subTab as any);
+    }
+    const route: AppRoute = { activeTab: tab as any };
+    if (tab === 'comparatori' && subTab) route.comparatoriSubTab = subTab as any;
+    if (tab === 'calculator') route.simulatorSubTab = (subTab || 'calculator') as any;
+    if (tab === 'pension') route.pensionSubTab = (subTab || 'planner') as any;
+    pushRoute(route);
+    const seoKey = getSeoSection(route);
+    updateMetaTags(seoKey);
+    trackSectionView(seoKey);
+  };
+
   useEffect(() => {
     handleCalculate();
   }, [inputs]);
@@ -322,6 +343,7 @@ const App: React.FC = () => {
 
               {/* Actions */}
               <div className="flex items-center gap-2 pl-4 border-l border-slate-200 dark:border-slate-800">
+                <SiteSearch onNavigate={handleSearchNavigate} />
                 <LanguageSelector />
 
                 {activeTab === 'calculator' && (
