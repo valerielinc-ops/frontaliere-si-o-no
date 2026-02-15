@@ -1,6 +1,7 @@
 import React, { useState, useMemo } from 'react';
 import { useTranslation } from '@/services/i18n';
-import { Euro, ChevronDown, ChevronUp, Info, TrendingUp, TrendingDown, Minus, ArrowLeftRight } from 'lucide-react';
+import { useExchangeRate } from '@/services/exchangeRateService';
+import { Euro, ChevronDown, ChevronUp, Info, TrendingUp, TrendingDown, Minus, ArrowLeftRight, RefreshCw } from 'lucide-react';
 
 // ─── Italian INPS Contribution Rates 2026 ────────────────────────────────
 
@@ -154,24 +155,28 @@ function calculateSwissNet(grossCHF: number, ageGroup: string, maritalStatus: st
 
 const RalComparator: React.FC = () => {
   const { t } = useTranslation();
+  const { rate: chfEurRate, loading: rateLoading } = useExchangeRate();
   const [grossSalary, setGrossSalary] = useState(60000);
-  const [exchangeRate, setExchangeRate] = useState(1.06);
   const [maritalStatus, setMaritalStatus] = useState<'SINGLE' | 'MARRIED'>('SINGLE');
   const [children, setChildren] = useState(0);
   const [ageGroup, setAgeGroup] = useState('35-44');
   const [healthInsurance, setHealthInsurance] = useState(400);
   const [showDetails, setShowDetails] = useState(false);
 
+  // CHF/EUR rate from API (e.g. 0.94 = 1 CHF → 0.94 EUR)
+  // EUR/CHF = 1/chfEurRate (e.g. 1.064 = 1 EUR → 1.064 CHF)
+  const eurChfRate = chfEurRate > 0 ? 1 / chfEurRate : 1.06;
+
   // Same gross in EUR → compare IT job vs CH job
   const itResult = useMemo(() => calculateItalianNet(grossSalary, maritalStatus, children), [grossSalary, maritalStatus, children]);
   
   // Convert EUR gross to CHF for Swiss calculation
-  const grossCHF = grossSalary / exchangeRate;
+  const grossCHF = grossSalary * eurChfRate;
   const chResult = useMemo(() => calculateSwissNet(grossCHF, ageGroup, maritalStatus, healthInsurance), [grossCHF, ageGroup, maritalStatus, healthInsurance]);
 
   // Compare: monthly net in EUR
   const itNetMonthlyEUR = itResult.netMonthly;
-  const chNetMonthlyEUR = chResult.netMonthly * exchangeRate;
+  const chNetMonthlyEUR = chResult.netMonthly * chfEurRate;
   const diff = chNetMonthlyEUR - itNetMonthlyEUR;
   const diffPercent = itNetMonthlyEUR > 0 ? ((diff / itNetMonthlyEUR) * 100) : 0;
 
@@ -225,15 +230,11 @@ const RalComparator: React.FC = () => {
 
         <div className="bg-white dark:bg-slate-800 rounded-xl p-4 border border-slate-200 dark:border-slate-700">
           <label className="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-2">{t('ral.exchangeRate')}</label>
-          <input
-            type="number"
-            value={exchangeRate}
-            onChange={(e) => setExchangeRate(Number(e.target.value) || 1)}
-            className="w-full px-4 py-2.5 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-800 dark:text-slate-200 font-bold"
-            min={0.8}
-            max={1.3}
-            step={0.01}
-          />
+          <div className="flex items-center gap-2 px-4 py-2.5 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900">
+            <span className="font-bold text-slate-800 dark:text-slate-200">1 EUR = {eurChfRate.toFixed(4)} CHF</span>
+            {rateLoading && <RefreshCw size={14} className="animate-spin text-slate-400" />}
+          </div>
+          <p className="text-[10px] text-slate-400 mt-1">{t('exchange.liveRate') || 'Tasso live da frankfurter.app'}</p>
         </div>
 
         <div className="bg-white dark:bg-slate-800 rounded-xl p-4 border border-slate-200 dark:border-slate-700">
@@ -397,7 +398,7 @@ const RalComparator: React.FC = () => {
               </div>
               <div className="flex justify-between">
                 <span className="text-sm text-slate-500">{t('ral.inEUR')}</span>
-                <span className="font-bold text-green-600 dark:text-green-400">{formatCurrency(chResult.netMonthly * exchangeRate)}</span>
+                <span className="font-bold text-green-600 dark:text-green-400">{formatCurrency(chResult.netMonthly * chfEurRate)}</span>
               </div>
               <div className="mt-2 p-2 bg-slate-50 dark:bg-slate-700/50 rounded-lg">
                 <span className="text-xs text-slate-500">{t('ral.effectiveRate')}: <b>{chResult.effectiveRate.toFixed(1)}%</b></span>

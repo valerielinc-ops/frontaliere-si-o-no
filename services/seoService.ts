@@ -653,6 +653,22 @@ export const SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  forum: {
+    title: 'Community Frontalieri | Domande e Risposte tra Frontalieri',
+    description: 'Forum della community dei frontalieri: fai domande su tasse, permessi, assicurazioni, pensione, trasporti. Risposte da altri frontalieri con esperienza diretta.',
+    keywords: 'forum frontalieri, domande frontaliere, community frontalieri, Q&A frontaliere, aiuto frontalieri Svizzera Italia',
+    ogTitle: 'Community Frontalieri - Domande e Risposte',
+    ogDescription: '💬 Fai domande e rispondi ad altri frontalieri su tasse, permessi, assicurazioni e molto altro.',
+    canonicalPath: '/community',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "DiscussionForumPosting",
+      "name": "Community Frontalieri",
+      "url": `${BASE_URL}/community`,
+      "description": "Forum della community dei frontalieri: domande e risposte su tasse, permessi, assicurazioni",
+    }
+  },
+
   dashboard: {
     title: 'Dashboard Personale | Storico Simulazioni Frontaliere',
     description: 'Dashboard personale per frontalieri: salva le tue simulazioni fiscali, confronta risultati nel tempo, esporta report PDF. Tieni traccia del tuo percorso da frontaliere.',

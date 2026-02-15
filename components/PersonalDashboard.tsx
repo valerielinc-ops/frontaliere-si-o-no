@@ -4,7 +4,13 @@ import { calculateSimulation } from '@/services/calculationService';
 import { DEFAULT_INPUTS } from '@/constants';
 import { SimulationInputs, SimulationResult } from '@/types';
 import { unlockAchievement } from '@/components/GamificationWidget';
-import { History, Plus, Trash2, Download, TrendingUp, TrendingDown, Calendar, ChevronDown, ChevronUp, Clock, AlertCircle, BarChart2 } from 'lucide-react';
+import { useAuth, getUserDisplayName, getUserPhotoURL } from '@/services/authService';
+import {
+  saveSimulationToCloud,
+  loadSimulationsFromCloud,
+  deleteSimulationFromCloud,
+} from '@/services/firestoreService';
+import { History, Plus, Trash2, Download, TrendingUp, TrendingDown, Calendar, ChevronDown, ChevronUp, Clock, AlertCircle, BarChart2, LogIn, LogOut, Cloud, HardDrive, User, Loader2 } from 'lucide-react';
 
 // ─── Types ───────────────────────────────────────────────────
 
@@ -14,6 +20,7 @@ interface SavedSimulation {
   label: string;
   inputs: SimulationInputs;
   result: SimulationResult;
+  cloudId?: string; // Firestore doc ID if synced
 }
 
 const STORAGE_KEY = 'frontaliere_saved_simulations';
@@ -29,7 +36,7 @@ function loadSimulations(): SavedSimulation[] {
   }
 }
 
-function saveSimulations(sims: SavedSimulation[]) {
+function saveSimulationsLocal(sims: SavedSimulation[]) {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(sims));
 }
 
@@ -42,17 +49,57 @@ interface PersonalDashboardProps {
 
 const PersonalDashboard: React.FC<PersonalDashboardProps> = ({ currentInputs, currentResult }) => {
   const { t } = useTranslation();
+  const { user, loading: authLoading, signIn, logout } = useAuth();
   const [simulations, setSimulations] = useState<SavedSimulation[]>(loadSimulations);
   const [expandedId, setExpandedId] = useState<string | null>(null);
   const [newLabel, setNewLabel] = useState('');
   const [showSaveForm, setShowSaveForm] = useState(false);
   const [compareIds, setCompareIds] = useState<[string, string] | null>(null);
+  const [syncing, setSyncing] = useState(false);
+  const [syncError, setSyncError] = useState<string | null>(null);
 
   useEffect(() => {
-    saveSimulations(simulations);
+    saveSimulationsLocal(simulations);
   }, [simulations]);
 
-  const handleSave = useCallback(() => {
+  // Load from cloud when user logs in
+  useEffect(() => {
+    if (!user) return;
+    let mounted = true;
+
+    const syncFromCloud = async () => {
+      setSyncing(true);
+      setSyncError(null);
+      try {
+        const cloudSims = await loadSimulationsFromCloud(user.uid);
+        if (!mounted) return;
+        const localSims = loadSimulations();
+        const cloudIds = new Set(cloudSims.map(s => s.id));
+        const merged: SavedSimulation[] = [
+          ...cloudSims.map(cs => ({
+            id: cs.id,
+            date: cs.date,
+            label: cs.label,
+            inputs: cs.inputs,
+            result: cs.result,
+            cloudId: cs.id,
+          })),
+          ...localSims.filter(ls => !ls.cloudId || !cloudIds.has(ls.cloudId)),
+        ];
+        setSimulations(merged);
+      } catch (e) {
+        console.warn('Cloud sync failed:', e);
+        if (mounted) setSyncError(t('dashboard.syncError') || 'Sincronizzazione cloud fallita');
+      } finally {
+        if (mounted) setSyncing(false);
+      }
+    };
+
+    syncFromCloud();
+    return () => { mounted = false; };
+  }, [user, t]);
+
+  const handleSave = useCallback(async () => {
     const inputs = currentInputs || DEFAULT_INPUTS;
     const result = currentResult || calculateSimulation(inputs);
     const sim: SavedSimulation = {
@@ -62,14 +109,30 @@ const PersonalDashboard: React.FC<PersonalDashboardProps> = ({ currentInputs, cu
       inputs,
       result,
     };
+
+    // Save to cloud if logged in
+    if (user) {
+      try {
+        const cloudId = await saveSimulationToCloud(user.uid, sim);
+        sim.cloudId = cloudId;
+        sim.id = cloudId;
+      } catch (e) {
+        console.warn('Cloud save failed, keeping locally:', e);
+      }
+    }
+
     setSimulations(prev => [sim, ...prev]);
     setNewLabel('');
     setShowSaveForm(false);
     unlockAchievement('first_simulation');
     if (simulations.length >= 2) unlockAchievement('simulation_pro');
-  }, [currentInputs, currentResult, newLabel, simulations.length, t]);
+  }, [currentInputs, currentResult, newLabel, simulations.length, t, user]);
 
-  const handleDelete = (id: string) => {
+  const handleDelete = async (id: string) => {
+    const sim = simulations.find(s => s.id === id);
+    if (sim?.cloudId && user) {
+      try { await deleteSimulationFromCloud(sim.cloudId); } catch { /* ignore */ }
+    }
     setSimulations(prev => prev.filter(s => s.id !== id));
     if (compareIds && (compareIds[0] === id || compareIds[1] === id)) {
       setCompareIds(null);
@@ -138,6 +201,53 @@ const PersonalDashboard: React.FC<PersonalDashboardProps> = ({ currentInputs, cu
         <p className="text-sky-700 dark:text-sky-300 text-sm">{t('dashboard.subtitle')}</p>
       </div>
 
+      {/* Auth Section */}
+      <div className="bg-white dark:bg-slate-800 rounded-xl p-4 border border-slate-200 dark:border-slate-700">
+        {authLoading ? (
+          <div className="flex items-center gap-2 text-sm text-slate-500">
+            <Loader2 className="w-4 h-4 animate-spin" />
+            {t('dashboard.loadingAuth') || 'Caricamento...'}
+          </div>
+        ) : user ? (
+          <div className="flex items-center justify-between gap-3">
+            <div className="flex items-center gap-3">
+              {getUserPhotoURL(user) ? (
+                <img src={getUserPhotoURL(user)!} alt="" className="w-9 h-9 rounded-full border-2 border-sky-200" referrerPolicy="no-referrer" />
+              ) : (
+                <div className="w-9 h-9 rounded-full bg-sky-100 dark:bg-sky-900/50 flex items-center justify-center">
+                  <User className="w-5 h-5 text-sky-600" />
+                </div>
+              )}
+              <div>
+                <p className="text-sm font-bold text-slate-800 dark:text-slate-200">{getUserDisplayName(user)}</p>
+                <div className="flex items-center gap-1 text-[10px] text-emerald-600">
+                  <Cloud className="w-3 h-3" />
+                  {syncing ? (t('dashboard.syncing') || 'Sincronizzazione...') : (t('dashboard.cloudSync') || 'Sincronizzato con il cloud')}
+                </div>
+              </div>
+            </div>
+            <button onClick={logout} className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-bold text-slate-500 hover:text-red-500 hover:bg-red-50 dark:hover:bg-red-900/20 rounded-lg transition-colors">
+              <LogOut className="w-3.5 h-3.5" /> Logout
+            </button>
+          </div>
+        ) : (
+          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
+            <div className="flex items-center gap-2 flex-1">
+              <HardDrive className="w-5 h-5 text-amber-500 shrink-0" />
+              <div>
+                <p className="text-sm font-bold text-slate-800 dark:text-slate-200">{t('dashboard.localMode') || 'Modalità locale'}</p>
+                <p className="text-[10px] text-slate-400">{t('dashboard.loginBenefits') || 'Accedi con Google per salvare nel cloud e accedere da qualsiasi dispositivo'}</p>
+              </div>
+            </div>
+            <button onClick={signIn} className="flex items-center gap-2 px-4 py-2.5 bg-white dark:bg-slate-700 border border-slate-300 dark:border-slate-600 rounded-xl text-sm font-bold text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-600 transition-colors shadow-sm">
+              <svg className="w-4 h-4" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+              {t('dashboard.loginGoogle') || 'Accedi con Google'}
+            </button>
+          </div>
+        )}
+        {syncError && <p className="mt-2 text-xs text-amber-600 flex items-center gap-1"><AlertCircle className="w-3 h-3" /> {syncError}</p>}
+      </div>
+
       {/* Actions */}
       <div className="flex flex-wrap gap-3">
         <button
@@ -171,8 +281,9 @@ const PersonalDashboard: React.FC<PersonalDashboardProps> = ({ currentInputs, cu
           />
           <button
             onClick={handleSave}
-            className="px-4 py-2 bg-sky-600 text-white rounded-lg text-sm font-bold hover:bg-sky-700 transition-colors"
+            className="px-4 py-2 bg-sky-600 text-white rounded-lg text-sm font-bold hover:bg-sky-700 transition-colors flex items-center gap-1.5"
           >
+            {user && <Cloud className="w-3.5 h-3.5" />}
             {t('dashboard.save')}
           </button>
         </div>
@@ -255,6 +366,7 @@ const PersonalDashboard: React.FC<PersonalDashboardProps> = ({ currentInputs, cu
                     <div className="flex items-center gap-2 mb-1">
                       <Calendar className="w-3.5 h-3.5 text-slate-400" />
                       <span className="text-xs text-slate-400">{new Date(sim.date).toLocaleDateString('it-IT', { day: 'numeric', month: 'long', year: 'numeric' })}</span>
+                      {sim.cloudId && <Cloud className="w-3 h-3 text-sky-400" title="Cloud" />}
                     </div>
                     <p className="font-bold text-sm text-slate-800 dark:text-slate-200">{sim.label}</p>
                     <div className="flex flex-wrap gap-3 mt-1 text-xs text-slate-500">
@@ -305,12 +417,6 @@ const PersonalDashboard: React.FC<PersonalDashboardProps> = ({ currentInputs, cu
           })}
         </div>
       )}
-
-      {/* Note about future auth */}
-      <div className="bg-sky-50 dark:bg-sky-950/20 rounded-xl p-4 border border-sky-200 dark:border-sky-800 flex items-start gap-3">
-        <AlertCircle className="w-5 h-5 text-sky-500 shrink-0 mt-0.5" />
-        <p className="text-xs text-sky-700 dark:text-sky-300">{t('dashboard.localStorageNote')}</p>
-      </div>
     </div>
   );
 };

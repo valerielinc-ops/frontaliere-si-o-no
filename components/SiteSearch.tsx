@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef, useMemo, useCallback } from 'react';
-import { Search, X, ArrowRight, Calculator, Layers, PiggyBank, BookOpen, BarChart2, HelpCircle, ArrowRightLeft, Phone, Car, Heart, Building2, AlertTriangle, Briefcase, ShoppingCart, Euro, TrendingUp, Sparkles, MapPin, Calendar, PartyPopper, FileText, GraduationCap, Building, Compass, BriefcaseBusiness } from 'lucide-react';
+import { Search, X, ArrowRight, Calculator, Layers, PiggyBank, BookOpen, BarChart2, HelpCircle, ArrowRightLeft, Phone, Car, Heart, Building2, AlertTriangle, Briefcase, ShoppingCart, Euro, TrendingUp, Sparkles, MapPin, Calendar, PartyPopper, FileText, GraduationCap, Building, Compass, BriefcaseBusiness, MessageSquare } from 'lucide-react';
 import { useTranslation } from '@/services/i18n';
 
 interface SearchResult {
@@ -326,6 +326,17 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
       icon: HelpCircle,
       color: 'text-amber-600',
       keywords: ['feedback', 'supporto', 'bug', 'aiuto', 'help', 'support', 'segnala', 'report', 'hilfe', 'aide'],
+    },
+    // ─── Forum ───
+    {
+      id: 'forum',
+      title: t('forum.title') || 'Community Frontalieri',
+      description: 'Forum domande e risposte tra frontalieri',
+      section: t('forum.title') || 'Community',
+      tab: 'forum',
+      icon: MessageSquare,
+      color: 'text-violet-600',
+      keywords: ['forum', 'community', 'domande', 'risposte', 'questions', 'answers', 'fragen', 'antworten', 'communauté', 'aiuto', 'help'],
     },
   ], [t]);
 

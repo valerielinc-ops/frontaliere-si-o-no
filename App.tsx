@@ -31,6 +31,7 @@ import ParentalLeaveCalculator from '@/components/ParentalLeaveCalculator';
 import BorderMunicipalitiesMap from '@/components/BorderMunicipalitiesMap';
 import ResidencySimulator from '@/components/ResidencySimulator';
 import PersonalDashboard from '@/components/PersonalDashboard';
+import CommunityForum from '@/components/CommunityForum';
 import SiteSearch from '@/components/SiteSearch';
 import { calculateSimulation } from '@/services/calculationService';
 import { Analytics } from '@/services/analytics';
@@ -39,7 +40,7 @@ import { useTranslation, initLocale, setLocale, onLocaleChange } from '@/service
 import { parsePath, parseHashToPath, pushRoute, replaceRoute, buildPath, getSeoSection, updatePathForLocale, AppRoute } from '@/services/router';
 import { DEFAULT_INPUTS } from '@/constants';
 import { SimulationInputs, SimulationResult } from '@/types';
-import { Moon, Sun, Maximize2, Minimize2, Calculator, HelpCircle, BarChart2, PiggyBank, BookOpen, Facebook, ArrowRightLeft, Phone, Car, Heart, Building2, AlertTriangle, Layers, Briefcase, Sparkles, TrendingUp, MapPin, ShoppingCart, Euro, ClipboardList, Baby, Map, Home } from 'lucide-react';
+import { Moon, Sun, Maximize2, Minimize2, Calculator, HelpCircle, BarChart2, PiggyBank, BookOpen, Facebook, ArrowRightLeft, Phone, Car, Heart, Building2, AlertTriangle, Layers, Briefcase, Sparkles, TrendingUp, MapPin, ShoppingCart, Euro, ClipboardList, Baby, Map, Home, MessageSquare } from 'lucide-react';
 
 const App: React.FC = () => {
   const { t } = useTranslation();
@@ -53,7 +54,7 @@ const App: React.FC = () => {
     // Defer locale side-effect to useEffect to avoid setState-during-render
     return { route: parsed.route, locale: parsed.locale };
   });
-  const [activeTab, setActiveTab] = useState<'calculator' | 'feedback' | 'stats' | 'pension' | 'guide' | 'comparatori' | 'privacy' | 'data-deletion' | 'api-status' | 'gamification' | 'dashboard'>(initialRoute.route.activeTab);
+  const [activeTab, setActiveTab] = useState<'calculator' | 'feedback' | 'stats' | 'pension' | 'guide' | 'comparatori' | 'privacy' | 'data-deletion' | 'api-status' | 'gamification' | 'dashboard' | 'forum'>(initialRoute.route.activeTab);
   const [comparatoriSubTab, setComparatoriSubTab] = useState<'exchange' | 'mobile' | 'transport' | 'health' | 'banks' | 'traffic' | 'jobs' | 'shopping' | 'cost-of-living' | 'ral' | 'parental-leave' | 'border-map' | 'residency'>(initialRoute.route.comparatoriSubTab || 'exchange');
   const [simulatorSubTab, setSimulatorSubTab] = useState<'calculator' | 'whatif'>(initialRoute.route.simulatorSubTab || 'calculator');
   const [pensionSubTab, setPensionSubTab] = useState<'planner' | 'pillar3'>(initialRoute.route.pensionSubTab || 'planner');
@@ -140,7 +141,7 @@ const App: React.FC = () => {
     }
   };
 
-  const handleTabChange = (tab: 'calculator' | 'feedback' | 'stats' | 'pension' | 'guide' | 'comparatori' | 'dashboard') => {
+  const handleTabChange = (tab: 'calculator' | 'feedback' | 'stats' | 'pension' | 'guide' | 'comparatori' | 'dashboard' | 'forum') => {
     const previousTab = activeTab;
     setActiveTab(tab);
     Analytics.trackTabNavigation(previousTab, tab);
@@ -557,6 +558,10 @@ const App: React.FC = () => {
           ) : activeTab === 'dashboard' ? (
             <div className="max-w-7xl mx-auto animate-fade-in">
               <PersonalDashboard currentResult={result} currentInputs={inputs} />
+            </div>
+          ) : activeTab === 'forum' ? (
+            <div className="max-w-4xl mx-auto animate-fade-in">
+              <CommunityForum />
             </div>
           ) : activeTab === 'api-status' ? (
             <div className="max-w-5xl mx-auto animate-fade-in">

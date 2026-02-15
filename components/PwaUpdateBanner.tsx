@@ -11,6 +11,20 @@ const PwaUpdateBanner: React.FC = () => {
   const { t } = useTranslation();
   const [needRefresh, setNeedRefresh] = useState(false);
   const [updateSW, setUpdateSW] = useState<((reloadPage?: boolean) => Promise<void>) | null>(null);
+  const [isStandalone, setIsStandalone] = useState(false);
+
+  // Check if running as installed PWA (standalone mode)
+  useEffect(() => {
+    const standalone = window.matchMedia('(display-mode: standalone)').matches
+      || (navigator as any).standalone === true;
+    setIsStandalone(standalone);
+
+    // Listen for display-mode changes
+    const mq = window.matchMedia('(display-mode: standalone)');
+    const handler = (e: MediaQueryListEvent) => setIsStandalone(e.matches);
+    mq.addEventListener('change', handler);
+    return () => mq.removeEventListener('change', handler);
+  }, []);
 
   useEffect(() => {
     // Dynamically import to avoid SSR/test issues
@@ -60,10 +74,10 @@ const PwaUpdateBanner: React.FC = () => {
     Analytics.trackUIInteraction('app', 'pwa_update', 'bottone_dopo', 'click');
   }, []);
 
-  if (!needRefresh) return null;
+  if (!needRefresh || !isStandalone) return null;
 
   return (
-    <div className="fixed top-4 left-4 right-4 z-[60] mx-auto max-w-md animate-slide-up">
+    <div className="fixed top-4 left-4 right-4 z-[60] mx-auto max-w-md animate-slide-down">
       <div className="bg-gradient-to-r from-emerald-600 to-teal-600 rounded-2xl shadow-2xl p-4 text-white">
         <button
           onClick={handleDismiss}

@@ -1,6 +1,7 @@
 import React, { useState, useMemo } from 'react';
 import { useTranslation } from '@/services/i18n';
-import { Baby, Info, Calendar, ChevronDown, ChevronUp, FileText, CheckCircle2 } from 'lucide-react';
+import { useExchangeRate } from '@/services/exchangeRateService';
+import { Baby, Info, Calendar, ChevronDown, ChevronUp, FileText, CheckCircle2, RefreshCw } from 'lucide-react';
 
 // ─── Swiss IPG (Maternity/Paternity Insurance) ──────────────────────────
 
@@ -103,19 +104,20 @@ const PATERNITY_DOCS: DocumentItem[] = [
 
 const ParentalLeaveCalculator: React.FC = () => {
   const { t } = useTranslation();
+  const { rate: chfEurRate, loading: rateLoading } = useExchangeRate();
   const [grossMonthlyCHF, setGrossMonthlyCHF] = useState(7000);
-  const [exchangeRate, setExchangeRate] = useState(1.06);
   const [leaveType, setLeaveType] = useState<'maternity' | 'paternity'>('maternity');
   const [showDocs, setShowDocs] = useState(false);
   const [showParental, setShowParental] = useState(false);
 
-  const grossMonthlyEUR = grossMonthlyCHF * exchangeRate;
+  // CHF→EUR rate from API (e.g. 0.94)
+  const grossMonthlyEUR = grossMonthlyCHF * chfEurRate;
 
   const chResult = useMemo(() => calculateSwissLeave(grossMonthlyCHF, leaveType), [grossMonthlyCHF, leaveType]);
   const itResult = useMemo(() => calculateItalianLeave(grossMonthlyEUR, leaveType), [grossMonthlyEUR, leaveType]);
 
   // Frontalieri: get BOTH — CH IPG + IT integration if applicable
-  const totalFrontaliereEUR = (chResult.totalAllowance * exchangeRate);
+  const totalFrontaliereEUR = (chResult.totalAllowance * chfEurRate);
   
   // Parental leave (congedo parentale) — only available in Italy after maternity
   const parentalMonthlyEUR = grossMonthlyEUR * PARENTAL_RATE_IT;
@@ -180,13 +182,11 @@ const ParentalLeaveCalculator: React.FC = () => {
 
         <div className="bg-white dark:bg-slate-800 rounded-xl p-4 border border-slate-200 dark:border-slate-700">
           <label className="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-2">{t('leave.exchangeRate')}</label>
-          <input
-            type="number"
-            value={exchangeRate}
-            onChange={(e) => setExchangeRate(Number(e.target.value) || 1)}
-            className="w-full px-4 py-2.5 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-800 dark:text-slate-200 font-bold"
-            min={0.8} max={1.3} step={0.01}
-          />
+          <div className="flex items-center gap-2 px-4 py-2.5 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900">
+            <span className="font-bold text-slate-800 dark:text-slate-200">1 CHF = {chfEurRate.toFixed(4)} EUR</span>
+            {rateLoading && <RefreshCw size={14} className="animate-spin text-slate-400" />}
+          </div>
+          <p className="text-[10px] text-slate-400 mt-1">{t('exchange.liveRate') || 'Tasso live da frankfurter.app'}</p>
         </div>
       </div>
 
@@ -225,7 +225,7 @@ const ParentalLeaveCalculator: React.FC = () => {
               </div>
               <div className="flex justify-between text-slate-400">
                 <span>{t('leave.inEUR')}</span>
-                <span className="font-bold">{fmt(chResult.totalAllowance * exchangeRate)}</span>
+                <span className="font-bold">{fmt(chResult.totalAllowance * chfEurRate)}</span>
               </div>
             </div>
 

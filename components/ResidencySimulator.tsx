@@ -1,6 +1,7 @@
 import React, { useState, useMemo } from 'react';
 import { useTranslation } from '@/services/i18n';
-import { ArrowLeftRight, MapPin, TrendingUp, AlertCircle, ChevronDown, ChevronUp, Clock, Euro, Home, Briefcase } from 'lucide-react';
+import { useExchangeRate } from '@/services/exchangeRateService';
+import { ArrowLeftRight, MapPin, TrendingUp, AlertCircle, ChevronDown, ChevronUp, Clock, Euro, Home, Briefcase, RefreshCw } from 'lucide-react';
 
 // ─── Simulation Engine ───────────────────────────────────────
 
@@ -51,14 +52,17 @@ const ONE_TIME_CH_TO_IT: OneTimeCost[] = [
 
 const ResidencySimulator: React.FC = () => {
   const { t } = useTranslation();
+  const { rate: chfEurRate, loading: rateLoading } = useExchangeRate();
   const [from, setFrom] = useState('como');
   const [to, setTo] = useState('lugano');
   const [grossMonthlyCHF, setGrossMonthlyCHF] = useState(6500);
-  const [exchangeRate, setExchangeRate] = useState(1.06);
   const [showDetails, setShowDetails] = useState(false);
 
   const fromLoc = LOCATIONS[from];
   const toLoc = LOCATIONS[to];
+
+  // EUR/CHF derived from API CHF→EUR rate
+  const eurChfRate = chfEurRate > 0 ? 1 / chfEurRate : 1.06;
 
   const swapLocations = () => {
     setFrom(to);
@@ -68,9 +72,9 @@ const ResidencySimulator: React.FC = () => {
   // Calculate monthly costs in EUR for comparison
   const result = useMemo(() => {
     const toEUR = (amount: number, currency: 'EUR' | 'CHF') =>
-      currency === 'CHF' ? amount / exchangeRate : amount;
+      currency === 'CHF' ? amount * chfEurRate : amount;
     const toCHF = (amount: number, currency: 'EUR' | 'CHF') =>
-      currency === 'EUR' ? amount * exchangeRate : amount;
+      currency === 'EUR' ? amount * eurChfRate : amount;
 
     const fromMonthly = toEUR(
       fromLoc.avgRent + fromLoc.groceries + fromLoc.healthInsurance + fromLoc.transport + fromLoc.utilities,
@@ -127,7 +131,7 @@ const ResidencySimulator: React.FC = () => {
       direction,
       taxNote,
     };
-  }, [from, to, exchangeRate, fromLoc, toLoc]);
+  }, [from, to, chfEurRate, eurChfRate, fromLoc, toLoc]);
 
   const itLocations = Object.entries(LOCATIONS).filter(([, l]) => l.country === 'IT');
   const chLocations = Object.entries(LOCATIONS).filter(([, l]) => l.country === 'CH');
@@ -211,13 +215,11 @@ const ResidencySimulator: React.FC = () => {
           </div>
           <div>
             <label className="block text-xs font-bold text-slate-500 mb-1">{t('residency.exchangeRate')}</label>
-            <input
-              type="number"
-              step="0.01"
-              value={exchangeRate}
-              onChange={(e) => setExchangeRate(+e.target.value)}
-              className="w-full px-3 py-2.5 rounded-lg bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-sm font-bold"
-            />
+            <div className="flex items-center gap-2 px-3 py-2.5 rounded-lg bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700">
+              <span className="text-sm font-bold text-slate-800 dark:text-slate-200">1 CHF = {chfEurRate.toFixed(4)} EUR</span>
+              {rateLoading && <RefreshCw size={12} className="animate-spin text-slate-400" />}
+            </div>
+            <p className="text-[10px] text-slate-400 mt-0.5">{t('exchange.liveRate') || 'Tasso live'}</p>
           </div>
         </div>
       </div>

@@ -18,7 +18,7 @@ import { getLocale, type Locale } from './i18n';
 
 // ── Route types ──────────────────────────────────────────────
 
-type ActiveTab = 'calculator' | 'feedback' | 'stats' | 'pension' | 'guide' | 'comparatori' | 'privacy' | 'data-deletion' | 'api-status' | 'gamification' | 'dashboard';
+type ActiveTab = 'calculator' | 'feedback' | 'stats' | 'pension' | 'guide' | 'comparatori' | 'privacy' | 'data-deletion' | 'api-status' | 'gamification' | 'dashboard' | 'forum';
 type ComparatoriSubTab = 'exchange' | 'mobile' | 'transport' | 'health' | 'banks' | 'traffic' | 'jobs' | 'shopping' | 'cost-of-living' | 'ral' | 'parental-leave' | 'border-map' | 'residency';
 type SimulatorSubTab = 'calculator' | 'whatif';
 type PensionSubTab = 'planner' | 'pillar3';
@@ -80,6 +80,7 @@ interface SlugTable {
   residency: string;
   firstDay: string;
   dashboard: string;
+  forum: string;
 }
 
 const SLUG_TABLES: Record<Locale, SlugTable> = {
@@ -123,6 +124,7 @@ const SLUG_TABLES: Record<Locale, SlugTable> = {
     residency: 'cambio-residenza',
     firstDay: 'primo-giorno',
     dashboard: 'dashboard',
+    forum: 'community',
   },
   en: {
     comparatori: 'comparators',
@@ -164,6 +166,7 @@ const SLUG_TABLES: Record<Locale, SlugTable> = {
     residency: 'residency-change',
     firstDay: 'first-day',
     dashboard: 'dashboard',
+    forum: 'community',
   },
   de: {
     comparatori: 'vergleiche',
@@ -205,6 +208,7 @@ const SLUG_TABLES: Record<Locale, SlugTable> = {
     residency: 'wohnsitzwechsel',
     firstDay: 'erster-tag',
     dashboard: 'dashboard',
+    forum: 'gemeinschaft',
   },
   fr: {
     comparatori: 'comparateurs',
@@ -246,6 +250,7 @@ const SLUG_TABLES: Record<Locale, SlugTable> = {
     residency: 'changement-residence',
     firstDay: 'premier-jour',
     dashboard: 'tableau-de-bord',
+    forum: 'communaute',
   },
 };
 
@@ -338,6 +343,7 @@ function buildTopLevelReverse(table: SlugTable): TopLevelSlugMap {
     [table.newsletter]: { tab: 'feedback' },
     [table.gamification]: { tab: 'gamification' },
     [table.dashboard]: { tab: 'dashboard' },
+    [table.forum]: { tab: 'forum' },
   };
 }
 
@@ -521,6 +527,8 @@ export function buildPath(route: AppRoute, locale?: Locale): string {
       return `${prefix}/${table.gamification}`;
     case 'dashboard':
       return `${prefix}/${table.dashboard}`;
+    case 'forum':
+      return `${prefix}/${table.forum}`;
     default:
       return prefix || '/';
   }
