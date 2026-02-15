@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="it">
   <head>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HRJEW4REGH"></script>
+    <!-- Google tag (gtag.js) — deferred to not block first paint -->
+    <script defer src="https://www.googletagmanager.com/gtag/js?id=G-HRJEW4REGH"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
@@ -18,7 +18,7 @@
     <script id="recaptcha-loader"></script>
 
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
     <!-- SEO & Metadata -->
     <title>Frontaliere Ticino 2026 | Simulatore Fiscale, Pensione e Guida Completa CH-IT</title>
@@ -429,7 +429,8 @@
         document.documentElement.classList.remove('dark')
       }
     </script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap"></noscript>
     <style>
       body { font-family: 'Inter', sans-serif; }
       
@@ -509,8 +510,11 @@
   }
 }
 </script>
-  <script type="module" crossorigin src="/assets/index--59Qf5Ov.js"></script>
-  <link rel="stylesheet" crossorigin href="/assets/index-Brif9kQW.css">
+  <script type="module" crossorigin src="/assets/index-CU426Fnh.js"></script>
+  <link rel="modulepreload" crossorigin href="/assets/vendor-charts-aQyCzDkf.js">
+  <link rel="modulepreload" crossorigin href="/assets/vendor-pdf-og5EeDf1.js">
+  <link rel="modulepreload" crossorigin href="/assets/vendor-firebase-BEgIyS5z.js">
+  <link rel="stylesheet" crossorigin href="/assets/index-FdsuknCP.css">
 <link rel="manifest" href="/manifest.webmanifest"></head>
   <body class="bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 transition-colors duration-300 overflow-x-hidden">
     <div id="root"></div>
