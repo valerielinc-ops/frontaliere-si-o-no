@@ -8,6 +8,8 @@ import {
   getAuth,
   GoogleAuthProvider,
   signInWithPopup,
+  signInWithRedirect,
+  getRedirectResult,
   signOut as firebaseSignOut,
   onAuthStateChanged,
   User,
@@ -35,11 +37,24 @@ googleProvider.setCustomParameters({ prompt: 'select_account' });
 export async function signInWithGoogle(): Promise<User | null> {
   try {
     const authInstance = getAuthInstance();
-    const result = await signInWithPopup(authInstance, googleProvider);
-    Analytics.trackUIInteraction('auth', 'google', 'login', 'success');
-    return result.user;
+    // Try popup first, fall back to redirect if COOP blocks it
+    try {
+      const result = await signInWithPopup(authInstance, googleProvider);
+      Analytics.trackUIInteraction('auth', 'google', 'login', 'success');
+      return result.user;
+    } catch (popupError: any) {
+      // COOP or popup blocked — fall back to redirect flow
+      if (
+        popupError?.code === 'auth/popup-blocked' ||
+        popupError?.code === 'auth/popup-closed-by-user' ||
+        popupError?.message?.includes('Cross-Origin-Opener-Policy')
+      ) {
+        await signInWithRedirect(authInstance, googleProvider);
+        return null; // redirect navigates away, result handled on return
+      }
+      throw popupError;
+    }
   } catch (error: any) {
-    // User closed popup or other error
     if (error?.code !== 'auth/popup-closed-by-user') {
       console.warn('Google sign-in error:', error);
       Analytics.trackUIInteraction('auth', 'google', 'login', 'error');
@@ -74,6 +89,13 @@ export function useAuth(): AuthState & {
 
   useEffect(() => {
     const authInstance = getAuthInstance();
+    // Handle redirect result (from signInWithRedirect fallback)
+    getRedirectResult(authInstance).then((result) => {
+      if (result?.user) {
+        Analytics.trackUIInteraction('auth', 'google', 'login', 'success-redirect');
+      }
+    }).catch(() => { /* redirect result may not exist — that's fine */ });
+
     const unsubscribe = onAuthStateChanged(authInstance, (u) => {
       setUser(u);
       setLoading(false);
