@@ -2,6 +2,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { Download, X, Smartphone, Share, Plus } from 'lucide-react';
 import { useTranslation } from '@/services/i18n';
 import { Analytics } from '@/services/analytics';
+import { unlockAchievement } from '@/components/GamificationWidget';
 
 interface BeforeInstallPromptEvent extends Event {
   prompt(): Promise<void>;
@@ -108,6 +109,7 @@ const PwaInstallBanner: React.FC = () => {
     Analytics.trackUIInteraction('app', 'pwa_banner', 'prompt_nativo', outcome);
     if (outcome === 'accepted') {
       localStorage.setItem('pwa_installed', 'true');
+      unlockAchievement('pwa_installer');
     }
     setDeferredPrompt(null);
     setShowBanner(false);

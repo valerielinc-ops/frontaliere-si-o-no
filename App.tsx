@@ -23,6 +23,8 @@ import { PrivacyPolicy } from '@/components/PrivacyPolicy';
 import { DataDeletion } from '@/components/DataDeletion';
 import { ErrorBoundary } from '@/components/ErrorBoundary';
 import PwaInstallBanner from '@/components/PwaInstallBanner';
+import PwaUpdateBanner from '@/components/PwaUpdateBanner';
+import GamificationWidget, { unlockAchievement } from '@/components/GamificationWidget';
 import { calculateSimulation } from '@/services/calculationService';
 import { Analytics } from '@/services/analytics';
 import { updateMetaTags, trackSectionView } from '@/services/seoService';
@@ -120,6 +122,7 @@ const App: React.FC = () => {
     const newMode = !isDarkMode;
     setIsDarkMode(newMode);
     Analytics.trackSettingsChange('theme', newMode ? 'dark' : 'light');
+    if (newMode) unlockAchievement('dark_mode_fan');
     
     if (newMode) {
       document.documentElement.classList.add('dark');
@@ -134,6 +137,12 @@ const App: React.FC = () => {
     const previousTab = activeTab;
     setActiveTab(tab);
     Analytics.trackTabNavigation(previousTab, tab);
+
+    // Gamification tracking
+    if (tab === 'guide') unlockAchievement('guide_reader');
+    if (tab === 'feedback') unlockAchievement('feedback_giver');
+    if (tab === 'stats') unlockAchievement('stats_checker');
+    if (tab === 'pension') unlockAchievement('pension_planner');
 
     // Build route and push to history
     const route: AppRoute = { activeTab: tab };
@@ -152,6 +161,8 @@ const App: React.FC = () => {
   const handleCalculate = () => {
     const res = calculateSimulation(inputs);
     setResult(res);
+    unlockAchievement('first_simulation');
+    unlockAchievement('simulation_pro');
     Analytics.trackCalculation(
       inputs.workerType,
       inputs.grossSalary,
@@ -167,6 +178,13 @@ const App: React.FC = () => {
       updateMetaTags(seoKey);
       trackSectionView(seoKey);
       pushRoute(route);
+
+      // Gamification: track comparator exploration
+      unlockAchievement('comparator_curious');
+      unlockAchievement('comparator_master');
+      if (comparatoriSubTab === 'exchange') unlockAchievement('currency_watcher');
+      if (comparatoriSubTab === 'transport') unlockAchievement('transport_planner');
+      if (comparatoriSubTab === 'health') unlockAchievement('health_researcher');
     }
   }, [comparatoriSubTab]);
 
@@ -549,6 +567,8 @@ const App: React.FC = () => {
           </div>
         </footer>
         <PwaInstallBanner />
+        <PwaUpdateBanner />
+        <GamificationWidget />
       </div>
     </ErrorBoundary>
   );

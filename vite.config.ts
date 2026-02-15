@@ -18,7 +18,7 @@ export default defineConfig(({ mode }) => {
       plugins: [
         react(),
         VitePWA({
-          registerType: 'autoUpdate',
+          registerType: 'prompt',
           includeAssets: ['favicon.svg', 'robots.txt'],
           manifest: {
             name: 'Frontaliere Si o No? — Simulatore Fiscale',

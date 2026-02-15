@@ -288,39 +288,39 @@ const TicinoCompanies: React.FC = () => {
   };
 
   return (
-    <div className="space-y-6 animate-fade-in">
+    <div className="space-y-6 animate-fade-in overflow-x-hidden">
       <style>{`
         .company-marker { background: none !important; border: none !important; }
       `}</style>
 
       {/* Header */}
-      <div className="bg-gradient-to-br from-violet-600 via-purple-600 to-fuchsia-600 rounded-3xl p-8 text-white shadow-2xl">
-        <div className="flex items-center gap-4 mb-4">
-          <div className="p-3 bg-white/20 rounded-2xl backdrop-blur-sm">
-            <Building2 size={32} />
+      <div className="bg-gradient-to-br from-violet-600 via-purple-600 to-fuchsia-600 rounded-2xl sm:rounded-3xl p-4 sm:p-8 text-white shadow-2xl">
+        <div className="flex items-center gap-3 sm:gap-4 mb-4">
+          <div className="p-2 sm:p-3 bg-white/20 rounded-xl sm:rounded-2xl backdrop-blur-sm flex-shrink-0">
+            <Building2 size={28} className="sm:w-8 sm:h-8" />
           </div>
-          <div>
-            <h1 className="text-3xl font-extrabold">{t('companies.title') || 'Aziende in Ticino'}</h1>
-            <p className="text-purple-100 mt-1">{t('companies.subtitle') || 'Mappa interattiva delle principali società con filtri per settore e dimensione'}</p>
+          <div className="min-w-0">
+            <h1 className="text-xl sm:text-3xl font-extrabold">{t('companies.title') || 'Aziende in Ticino'}</h1>
+            <p className="text-purple-100 mt-1 text-sm sm:text-base">{t('companies.subtitle') || 'Mappa interattiva delle principali società con filtri per settore e dimensione'}</p>
           </div>
         </div>
-        <div className="flex gap-4 mt-4">
-          <div className="bg-white/20 backdrop-blur-sm rounded-xl px-4 py-2">
-            <div className="text-purple-100 text-xs font-bold uppercase">{t('companies.totalCompanies') || 'Aziende'}</div>
-            <div className="text-2xl font-extrabold">{filtered.length}</div>
+        <div className="flex gap-3 sm:gap-4 mt-4">
+          <div className="bg-white/20 backdrop-blur-sm rounded-xl px-3 sm:px-4 py-2 flex-1 min-w-0">
+            <div className="text-purple-100 text-[10px] sm:text-xs font-bold uppercase">{t('companies.totalCompanies') || 'Aziende'}</div>
+            <div className="text-xl sm:text-2xl font-extrabold">{filtered.length}</div>
           </div>
-          <div className="bg-white/20 backdrop-blur-sm rounded-xl px-4 py-2">
-            <div className="text-purple-100 text-xs font-bold uppercase">{t('companies.totalEmployees') || 'Dipendenti'}</div>
-            <div className="text-2xl font-extrabold">{totalEmployees.toLocaleString('it-IT')}</div>
+          <div className="bg-white/20 backdrop-blur-sm rounded-xl px-3 sm:px-4 py-2 flex-1 min-w-0">
+            <div className="text-purple-100 text-[10px] sm:text-xs font-bold uppercase">{t('companies.totalEmployees') || 'Dipendenti'}</div>
+            <div className="text-xl sm:text-2xl font-extrabold">{totalEmployees.toLocaleString('it-IT')}</div>
           </div>
         </div>
       </div>
 
       {/* Filters */}
-      <div className="bg-white dark:bg-slate-800 rounded-xl p-4 border border-slate-200 dark:border-slate-700 space-y-3">
-        <div className="flex flex-wrap items-center gap-3">
+      <div className="bg-white dark:bg-slate-800 rounded-xl p-3 sm:p-4 border border-slate-200 dark:border-slate-700 space-y-3 overflow-hidden">
+        <div className="flex flex-col sm:flex-row sm:flex-wrap items-stretch sm:items-center gap-2 sm:gap-3">
           {/* Search */}
-          <div className="relative flex-1 min-w-[200px]">
+          <div className="relative flex-1 min-w-0 w-full sm:min-w-[200px]">
             <Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" />
             <input
               type="text"
@@ -355,16 +355,16 @@ const TicinoCompanies: React.FC = () => {
         </div>
 
         {/* Employee filter + sort */}
-        <div className="flex flex-wrap items-center gap-3">
+        <div className="flex flex-col sm:flex-row sm:flex-wrap items-stretch sm:items-center gap-2 sm:gap-3">
           <div className="flex items-center gap-2 text-sm">
-            <Users size={14} className="text-slate-500" />
-            <span className="text-slate-600 dark:text-slate-400 font-medium">{t('companies.minEmployees')}:</span>
+            <Users size={14} className="text-slate-500 flex-shrink-0" />
+            <span className="text-slate-600 dark:text-slate-400 font-medium whitespace-nowrap text-xs sm:text-sm">{t('companies.minEmployees')}:</span>
             <input type="range" min={0} max={1000} step={50} value={minEmployees}
               onChange={(e) => setMinEmployees(Number(e.target.value))}
-              className="w-32 accent-violet-600" />
+              className="w-full sm:w-32 accent-violet-600" />
             <span className="font-bold text-violet-600 w-10">{minEmployees}</span>
           </div>
-          <div className="flex items-center gap-2 ml-auto">
+          <div className="flex items-center gap-2 sm:ml-auto">
             <ArrowUpDown size={14} className="text-slate-500" />
             <select value={sortBy} onChange={(e) => setSortBy(e.target.value as SortKey)}
               className="appearance-none px-3 py-1.5 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg text-xs font-medium focus:outline-none">
@@ -382,7 +382,7 @@ const TicinoCompanies: React.FC = () => {
       {/* MAP VIEW */}
       {viewMode === 'map' && (
         <div className="rounded-2xl overflow-hidden border-2 border-slate-200 dark:border-slate-700 shadow-lg">
-          <MapContainer center={mapCenter} zoom={10} style={{ height: '550px', width: '100%' }} scrollWheelZoom={true}>
+          <MapContainer center={mapCenter} zoom={10} style={{ height: 'min(550px, 70vh)', width: '100%' }} scrollWheelZoom={true}>
             <TileLayer
               attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
               url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -439,9 +439,9 @@ const TicinoCompanies: React.FC = () => {
 
       {/* LIST VIEW */}
       {viewMode === 'list' && (
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
           {filtered.map((company) => (
-            <div key={company.name} className="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 p-5 hover:shadow-md transition-all">
+            <div key={company.name} className="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 p-4 sm:p-5 hover:shadow-md transition-all min-w-0 overflow-hidden">
               <div className="flex items-start gap-3 mb-3">
                 {getCompanyLogo(company) ? (
                   <div className="w-10 h-10 rounded-xl bg-slate-100 dark:bg-slate-700 flex items-center justify-center overflow-hidden flex-shrink-0 border border-slate-200 dark:border-slate-600">
