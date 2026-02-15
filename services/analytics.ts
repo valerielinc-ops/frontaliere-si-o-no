@@ -4,6 +4,10 @@
  * Usa SOLO Firebase Analytics SDK (che invia a GA4 tramite measurementId).
  * NON serve react-ga4 separato: Firebase Analytics già invia a Google Analytics 4.
  * 
+ * PERFORMANCE: Firebase SDK viene caricato LAZILY al primo uso,
+ * non al caricamento del modulo. Questo evita di includere ~700KB
+ * di Firebase nel bundle critico iniziale.
+ * 
  * Best practices implementate:
  * - Eventi GA4 raccomandati (screen_view, select_content, share, generate_lead, search)
  * - User properties per segmentazione (worker_type, theme, locale)
@@ -12,29 +16,95 @@
  * - Parametri personalizzati per report custom
  */
 
-import { analytics as firebaseAnalytics } from './firebase';
-import { logEvent, setUserProperties, setUserId } from 'firebase/analytics';
+// ─── Lazy Firebase Loading ─────────────────────────────────────
+
+let _analytics: any = null;
+let _logEvent: any = null;
+let _setUserProperties: any = null;
+let _firebaseLoading: Promise<void> | null = null;
+
+async function ensureFirebase(): Promise<void> {
+  if (_analytics) return;
+  if (_firebaseLoading) return _firebaseLoading;
+  _firebaseLoading = (async () => {
+    try {
+      const [firebaseModule, analyticsModule] = await Promise.all([
+        import('./firebase'),
+        import('firebase/analytics'),
+      ]);
+      _analytics = firebaseModule.analytics;
+      _logEvent = analyticsModule.logEvent;
+      _setUserProperties = analyticsModule.setUserProperties;
+    } catch (error) {
+      if (import.meta.env.DEV) {
+        console.warn('[Analytics] Failed to load Firebase', error);
+      }
+    }
+  })();
+  return _firebaseLoading;
+}
 
 // ─── Core Helper ───────────────────────────────────────────────
 
-const log = (eventName: string, params?: Record<string, any>) => {
+// Queue events that fire before Firebase is loaded
+const _eventQueue: Array<{ type: 'log' | 'props'; args: any[] }> = [];
+let _firebaseReady = false;
+
+function flushQueue() {
+  if (!_firebaseReady) return;
+  while (_eventQueue.length > 0) {
+    const event = _eventQueue.shift()!;
+    if (event.type === 'log') {
+      _doLog(event.args[0], event.args[1]);
+    } else {
+      _doSetProps(event.args[0]);
+    }
+  }
+}
+
+function _doLog(eventName: string, params?: Record<string, any>) {
   try {
-    if (firebaseAnalytics) {
-      logEvent(firebaseAnalytics, eventName as any, params);
+    if (_analytics && _logEvent) {
+      _logEvent(_analytics, eventName as any, params);
     }
   } catch (error) {
     if (import.meta.env.DEV) {
       console.warn(`[Analytics] ${eventName}`, params, error);
     }
   }
+}
+
+function _doSetProps(properties: Record<string, string>) {
+  try {
+    if (_analytics && _setUserProperties) {
+      _setUserProperties(_analytics, properties);
+    }
+  } catch {}
+}
+
+const log = (eventName: string, params?: Record<string, any>) => {
+  if (_firebaseReady) {
+    _doLog(eventName, params);
+  } else {
+    _eventQueue.push({ type: 'log', args: [eventName, params] });
+    // Trigger lazy load
+    ensureFirebase().then(() => {
+      _firebaseReady = true;
+      flushQueue();
+    });
+  }
 };
 
 const setProps = (properties: Record<string, string>) => {
-  try {
-    if (firebaseAnalytics) {
-      setUserProperties(firebaseAnalytics, properties);
-    }
-  } catch {}
+  if (_firebaseReady) {
+    _doSetProps(properties);
+  } else {
+    _eventQueue.push({ type: 'props', args: [properties] });
+    ensureFirebase().then(() => {
+      _firebaseReady = true;
+      flushQueue();
+    });
+  }
 };
 
 // ─── Engagement Tracking ────────────────────────────────────────
@@ -53,7 +123,7 @@ export const Analytics = {
    * Inizializza Analytics e imposta user properties base
    */
   init: () => {
-    if (Analytics.isInitialized || !firebaseAnalytics) return;
+    if (Analytics.isInitialized) return;
     
     Analytics.isInitialized = true;
     sessionStartTime = Date.now();
