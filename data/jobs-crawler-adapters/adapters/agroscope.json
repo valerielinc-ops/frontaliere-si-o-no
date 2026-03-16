@@ -1,0 +1,12 @@
+{
+  "companyKey": "agroscope",
+  "companyName": "Agroscope",
+  "companyHost": "jobs.admin.ch",
+  "enabled": true,
+  "priority": 18,
+  "crawlerModes": ["api"],
+  "seedUrls": ["https://ohws.prospective.ch/public/v1/medium/1000626/jobs?lang=it&f=verwaltungseinheit:1083812"],
+  "notes": "Dedicated Agroscope crawler. Uses Prospective.ch API (medium 1000626, verwaltungseinheit 1083812). Swiss federal center of competence for agricultural research, part of DEFR. HQ in Bern-Liebefeld, research site in Cadenazzo (TI). Full job data in API response, no detail page fetching needed.",
+  "updatedAt": "2026-03-14T00:00:00.000Z",
+  "seedMetaByUrl": {}
+}

@@ -1,0 +1,449 @@
+import React from 'react';
+
+// ---- Skeleton Primitives ----
+
+const pulse = 'animate-pulse bg-slate-200 dark:bg-slate-700 rounded-lg';
+
+export const SkeletonLine: React.FC<{ width?: string; height?: string; className?: string }> = ({ 
+  width = 'w-full', height = 'h-4', className = '' 
+}) => (
+  <div className={`${pulse} ${width} ${height} ${className}`} />
+);
+
+export const SkeletonCircle: React.FC<{ size?: string; className?: string }> = ({ 
+  size = 'w-10 h-10', className = '' 
+}) => (
+  <div className={`${pulse} rounded-full ${size} ${className}`} />
+);
+
+// ---- Skeleton Cards ----
+
+export const SkeletonCard: React.FC<{ lines?: number }> = ({ lines = 3 }) => (
+  <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-100 dark:border-slate-700 p-4 sm:p-6 space-y-4">
+    <div className="flex items-center gap-3">
+      <SkeletonCircle size="w-8 h-8" />
+      <SkeletonLine width="w-40" height="h-5" />
+    </div>
+    {Array.from({ length: lines }).map((_, i) => (
+      <SkeletonLine key={i} width={i === lines - 1 ? 'w-3/4' : 'w-full'} />
+    ))}
+  </div>
+);
+
+export const SkeletonChart: React.FC = () => (
+  <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-100 dark:border-slate-700 p-4 sm:p-6 space-y-4">
+    <div className="flex items-center gap-3 mb-6">
+      <SkeletonCircle size="w-8 h-8" />
+      <SkeletonLine width="w-48" height="h-5" />
+    </div>
+    <div className="flex items-end gap-3 h-48">
+      {[60, 80, 45, 90, 70, 55, 85].map((h, i) => (
+        <div key={i} className={`${pulse} flex-1 rounded-t-lg`} style={{ height: `${h}%` }} />
+      ))}
+    </div>
+    <div className="flex justify-between mt-2">
+      {Array.from({ length: 7 }).map((_, i) => (
+        <SkeletonLine key={i} width="w-8" height="h-3" />
+      ))}
+    </div>
+  </div>
+);
+
+export const SkeletonTable: React.FC<{ rows?: number; cols?: number }> = ({ rows = 4, cols = 4 }) => (
+  <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-100 dark:border-slate-700 overflow-hidden">
+    {/* Header */}
+    <div className="flex gap-4 p-4 border-b border-slate-100 dark:border-slate-700 bg-slate-50 dark:bg-slate-900">
+      {Array.from({ length: cols }).map((_, i) => (
+        <SkeletonLine key={i} width="flex-1" height="h-4" />
+      ))}
+    </div>
+    {/* Rows */}
+    {Array.from({ length: rows }).map((_, r) => (
+      <div key={r} className="flex gap-4 p-4 border-b border-slate-50 dark:border-slate-800 last:border-0">
+        {Array.from({ length: cols }).map((_, c) => (
+          <SkeletonLine key={c} width="flex-1" height="h-3" />
+        ))}
+      </div>
+    ))}
+  </div>
+);
+
+// ---- Page-level Skeletons ----
+
+export const SkeletonComparator: React.FC = () => (
+  <div className="space-y-6">
+    {/* Real heading for early LCP */}
+    <div className="bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-slate-800 dark:to-slate-900 rounded-2xl p-6">
+      <h2 className="text-2xl font-bold text-slate-900 dark:text-slate-100">Confronta Servizi per Frontalieri</h2>
+      <p className="text-sm text-slate-600 dark:text-slate-400 mt-1">Assicurazioni, banche, cambio valuta e trasporti a confronto</p>
+    </div>
+    {/* Controls */}
+    <div className="flex gap-3">
+      <SkeletonLine width="w-32" height="h-10" className="rounded-xl" />
+      <SkeletonLine width="w-32" height="h-10" className="rounded-xl" />
+      <SkeletonLine width="w-24" height="h-10" className="rounded-xl" />
+    </div>
+    {/* Content cards */}
+    <div className="grid md:grid-cols-2 gap-4">
+      <SkeletonCard lines={4} />
+      <SkeletonCard lines={4} />
+    </div>
+    <SkeletonCard lines={3} />
+  </div>
+);
+
+export const SkeletonGuide: React.FC = () => (
+  <div className="space-y-6">
+    {/* Real heading for early LCP */}
+    <div className="bg-gradient-to-br from-amber-50 to-orange-50 dark:from-slate-800 dark:to-slate-900 rounded-2xl p-6">
+      <h2 className="text-2xl font-bold text-slate-900 dark:text-slate-100">Guida Completa per Frontalieri</h2>
+      <p className="text-sm text-slate-600 dark:text-slate-400 mt-1">Tutto quello che devi sapere per lavorare in Svizzera dall'Italia</p>
+    </div>
+    <div className="space-y-4">
+      {Array.from({ length: 5 }).map((_, i) => (
+        <SkeletonCard key={i} lines={2} />
+      ))}
+    </div>
+  </div>
+);
+
+export const SkeletonDashboard: React.FC = () => (
+  <div className="space-y-6">
+    <div className={`${pulse} h-32 rounded-2xl`} />
+    <div className="grid md:grid-cols-3 gap-4">
+      <SkeletonCard lines={2} />
+      <SkeletonCard lines={2} />
+      <SkeletonCard lines={2} />
+    </div>
+    <SkeletonChart />
+  </div>
+);
+
+export const SkeletonFisco: React.FC = () => (
+  <div className="space-y-6">
+    {/* Real heading for early LCP */}
+    <h2 className="text-2xl font-bold text-slate-900 dark:text-slate-100">Fisco e Previdenza Frontalieri</h2>
+    <p className="text-sm text-slate-600 dark:text-slate-400">Tasse, pensioni e pianificazione finanziaria per lavoratori transfrontalieri</p>
+    {/* Sub-tab pills */}
+    <div className="flex gap-2 overflow-x-auto">
+      {Array.from({ length: 5 }).map((_, i) => (
+        <SkeletonLine key={i} width="w-24" height="h-9" className="rounded-full flex-shrink-0" />
+      ))}
+    </div>
+    {/* Form area */}
+    <SkeletonCard lines={5} />
+    <SkeletonCard lines={3} />
+    <SkeletonTable rows={4} cols={3} />
+  </div>
+);
+
+export const SkeletonStats: React.FC = () => (
+  <div className="space-y-6">
+    {/* Real heading for early LCP */}
+    <h2 className="text-2xl font-bold text-slate-900 dark:text-slate-100">Statistiche Frontalieri</h2>
+    <p className="text-sm text-slate-600 dark:text-slate-400">Dati aggiornati su flussi, stipendi e tendenze del lavoro transfrontaliero</p>
+    <div className={`${pulse} h-24 rounded-2xl`} />
+    <div className="grid md:grid-cols-2 gap-4">
+      <SkeletonChart />
+      <SkeletonCard lines={4} />
+    </div>
+    <SkeletonTable rows={5} cols={4} />
+  </div>
+);
+
+export const SkeletonBlog: React.FC = () => (
+  <div className="min-h-[80vh] space-y-6">
+    {/* Real heading for early LCP */}
+    <h2 className="text-2xl font-bold text-slate-900 dark:text-slate-100">Articoli e Notizie per Frontalieri</h2>
+    <p className="text-sm text-slate-600 dark:text-slate-400">Approfondimenti su tassazione, permessi, vita quotidiana e normative 2026</p>
+    {/* Hero article card — matches BlogArticles hero h-64/h-80 */}
+    <div className={`${pulse} h-64 sm:h-80 rounded-2xl`} />
+    {/* Article grid — 6 cards matching real grid reveal count */}
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+      {Array.from({ length: 6 }).map((_, i) => (
+        <div key={i} className={`${pulse} h-[280px] rounded-xl`} />
+      ))}
+    </div>
+  </div>
+);
+
+export const SkeletonVita: React.FC = () => (
+  <div className="space-y-6">
+    {/* Real heading for early LCP */}
+    <h2 className="text-2xl font-bold text-slate-900 dark:text-slate-100">Vivere in Ticino</h2>
+    <p className="text-sm text-slate-600 dark:text-slate-400">Costo della vita, alloggi, trasporti e qualità della vita nel Canton Ticino</p>
+    <div className={`${pulse} h-28 rounded-2xl`} />
+    <div className="grid md:grid-cols-2 gap-4">
+      <SkeletonCard lines={3} />
+      <SkeletonCard lines={3} />
+    </div>
+    <SkeletonCard lines={4} />
+  </div>
+);
+
+// ---- Inline ticker / bar skeletons (CLS-safe fixed height) ----
+
+/** Matches NewsFeed height (~34px) */
+export const SkeletonNewsTicker: React.FC = () => (
+  <div className={`${pulse} h-[34px] rounded-xl`} />
+);
+
+/** Matches WeeklyFact height (~34px) */
+export const SkeletonWeeklyFact: React.FC = () => (
+  <div className={`${pulse} h-[34px] rounded-xl`} />
+);
+
+/** Matches InputCard approximate height — tall form with 8+ fields */
+export const SkeletonInputCard: React.FC = () => (
+  <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-100 dark:border-slate-700 p-4 sm:p-6 space-y-4">
+    {/* Real H1 text to serve as LCP: large text element renders before lazy InputCard chunk loads */}
+    <h1 className="text-[30px] font-extrabold text-slate-900 dark:text-slate-100 leading-tight">
+      Calcola Stipendio Netto Frontaliere
+      <span className="block text-lg font-bold mt-1">Svizzera–Italia (Ticino)</span>
+    </h1>
+    <p className="text-[13px] text-slate-500 dark:text-slate-400 leading-relaxed">Simulatore reddito netto, costo della vita e guida completa per frontalieri Italia-Svizzera</p>
+    <div className="flex items-center gap-3">
+      <SkeletonCircle size="w-8 h-8" />
+      <SkeletonLine width="w-32" height="h-5" />
+    </div>
+    {/* Section toggle */}
+    <div className="flex gap-2">
+      <SkeletonLine width="w-28" height="h-9" className="rounded-xl" />
+      <SkeletonLine width="w-28" height="h-9" className="rounded-xl" />
+    </div>
+    {/* Form fields — 8 field pairs (label + input) matching real InputCard */}
+    {Array.from({ length: 8 }).map((_, i) => (
+      <div key={i} className="space-y-1.5">
+        <SkeletonLine width="w-24" height="h-3" />
+        <SkeletonLine height="h-10" className="rounded-xl" />
+      </div>
+    ))}
+    {/* Calculate button */}
+    <SkeletonLine height="h-12" className="rounded-xl mt-2" />
+  </div>
+);
+
+/** Mobile calc layout skeleton — matches MobileCalcLayout compact input card */
+export const SkeletonMobileCalc: React.FC = () => (
+  <div className="space-y-4 pb-3">
+    <div className="bg-white dark:bg-slate-900 rounded-2xl shadow-lg border border-slate-200/80 dark:border-slate-800 p-4 space-y-3">
+      {/* Salary label + stepper */}
+      <SkeletonLine width="w-20" height="h-3" />
+      <div className="flex items-stretch gap-2">
+        <div className={`w-12 h-14 ${pulse} rounded-xl`} />
+        <div className={`flex-1 h-14 ${pulse} rounded-xl`} />
+        <div className={`w-12 h-14 ${pulse} rounded-xl`} />
+      </div>
+      {/* Quick salary pills */}
+      <div className="flex gap-1.5">
+        {Array.from({ length: 7 }).map((_, i) => (
+          <div key={i} className={`${pulse} h-7 w-10 shrink-0 rounded-lg`} />
+        ))}
+      </div>
+      {/* Frontier type selector */}
+      <div className={`h-14 ${pulse} rounded-xl mt-2`} />
+    </div>
+  </div>
+);
+
+
+/** Height-reserving placeholder for lazy footer sections (Newsletter ~200px, Weather ~36px, Donation ~48px) */
+export const SkeletonFooterSlot: React.FC<{ height: string }> = ({ height }) => (
+  <div className={`${height} rounded-xl`} aria-hidden="true" />
+);
+
+export const SkeletonJobBoard: React.FC = () => (
+  <div className="space-y-4 min-h-[600px]">
+    {/* Header */}
+    <div className="bg-gradient-to-br from-indigo-50 to-blue-50 dark:from-slate-800 dark:to-slate-900 rounded-2xl p-6">
+      <h2 className="text-2xl font-bold text-slate-900 dark:text-slate-100">Offerte di Lavoro Ticino</h2>
+      <p className="text-sm text-slate-600 dark:text-slate-400 mt-1">Trova lavoro in Svizzera come frontaliere</p>
+    </div>
+    {/* Search + filters bar */}
+    <div className="flex gap-3">
+      <SkeletonLine width="flex-1" height="h-10" className="rounded-xl" />
+      <SkeletonLine width="w-24" height="h-10" className="rounded-xl" />
+    </div>
+    {/* Job cards */}
+    {Array.from({ length: 6 }).map((_, i) => (
+      <div key={i} className={`${pulse} h-[72px] rounded-xl`} />
+    ))}
+  </div>
+);
+
+// ── Route-aware skeleton fallback ───────────────────────────────
+// Detects the current URL path and shows the matching page skeleton
+// to minimise CLS when React hydrates over the static HTML shell.
+
+/** Strip /en/, /de/, /fr/ locale prefix from pathname */
+function stripLocalePrefix(path: string): string {
+  return path.replace(/^\/(en|de|fr)(\/|$)/, '/');
+}
+
+// Italian slug → skeleton mapping (first segment after /)
+const SLUG_SKELETON_MAP: Record<string, React.FC> = {
+  'calcola-stipendio': SkeletonInputCard,
+  'compara-servizi': SkeletonComparator,
+  'tasse-e-pensione': SkeletonFisco,
+  'guida-frontaliere': SkeletonGuide,
+  'vivere-in-ticino': SkeletonVita,
+  'statistiche': SkeletonStats,
+  'articoli-frontaliere': SkeletonBlog,
+  'cerca-lavoro-ticino': SkeletonJobBoard,
+  // EN slugs
+  'calculate-salary': SkeletonInputCard,
+  'compare-services': SkeletonComparator,
+  'taxes-and-pension': SkeletonFisco,
+  'frontier-guide': SkeletonGuide,
+  'living-in-ticino': SkeletonVita,
+  'statistics': SkeletonStats,
+  'frontier-articles': SkeletonBlog,
+  'find-jobs-ticino': SkeletonJobBoard,
+  // DE slugs
+  'gehalt-berechnen': SkeletonInputCard,
+  'dienste-vergleichen': SkeletonComparator,
+  'steuern-und-rente': SkeletonFisco,
+  'grenzgaenger-leitfaden': SkeletonGuide,
+  'leben-im-tessin': SkeletonVita,
+  'statistiken': SkeletonStats,
+  'grenzgaenger-artikel': SkeletonBlog,
+  'jobs-im-tessin': SkeletonJobBoard,
+  // FR slugs
+  'calculer-salaire': SkeletonInputCard,
+  'comparer-services': SkeletonComparator,
+  'impots-et-retraite': SkeletonFisco,
+  'guide-frontalier': SkeletonGuide,
+  'vivre-au-tessin': SkeletonVita,
+  'statistiques': SkeletonStats,
+  'articles-frontalier': SkeletonBlog,
+  'trouver-emploi-tessin': SkeletonJobBoard,
+  // Shared / common
+  'glossario-frontaliere': SkeletonGuide,
+  'domande-frequenti-frontalieri': SkeletonGuide,
+  'community': SkeletonDashboard,
+  'profilo': SkeletonDashboard,
+};
+
+/** Detect first URL segment (after stripping locale prefix). */
+function getFirstSegment(): string {
+  let path = '/';
+  if (typeof window !== 'undefined') {
+    path = stripLocalePrefix(window.location.pathname);
+  }
+  return path.split('/').filter(Boolean)[0] ?? '';
+}
+
+const SkeletonFallback: React.FC = () => {
+  const firstSegment = getFirstSegment();
+  const Skeleton = SLUG_SKELETON_MAP[firstSegment];
+  if (Skeleton) return <Skeleton />;
+
+  // Default: calculator page (homepage) — matches real layout's full-width grid
+  return (
+    <div className="space-y-6">
+      <SkeletonInputCard />
+    </div>
+  );
+};
+
+// ── Slugs for pages that have sub-tab navigation ──────────────
+const SUB_TAB_SLUGS = new Set([
+  '', // homepage = calculator
+  'calcola-stipendio', 'calculate-salary', 'gehalt-berechnen', 'calculer-salaire',
+  'compara-servizi', 'compare-services', 'dienste-vergleichen', 'comparer-services',
+  'tasse-e-pensione', 'taxes-and-pension', 'steuern-und-rente', 'impots-et-retraite',
+  'guida-frontaliere', 'frontier-guide', 'grenzgaenger-leitfaden', 'guide-frontalier',
+  'vivere-in-ticino', 'living-in-ticino', 'leben-im-tessin', 'vivre-au-tessin',
+  'statistiche', 'statistics', 'statistiken', 'statistiques',
+]);
+
+// ── Slugs for calculator pages (show news ticker placeholders) ──
+const CALC_SLUGS = new Set([
+  '', 'calcola-stipendio', 'calculate-salary', 'gehalt-berechnen', 'calculer-salaire',
+]);
+
+/**
+ * Full-page skeleton shell with nav + sub-tab chrome.
+ * Matches the loading shell dimensions (h-20 nav, sub-tab grid, mobile nav)
+ * so that React hydration does NOT cause layout shifts.
+ * Used when `translationsReady` is false (before Italian core translations load).
+ */
+export const SkeletonPageShell: React.FC = () => {
+  const firstSegment = getFirstSegment();
+  const hasSubTabs = SUB_TAB_SLUGS.has(firstSegment);
+  const isCalcPage = CALC_SLUGS.has(firstSegment);
+
+  return (
+    <div className="min-h-screen relative flex flex-col font-sans text-slate-800 dark:text-slate-100 overflow-hidden">
+      {/* Background gradient — matches real layout + loading shell */}
+      <div className="absolute inset-0 bg-gradient-to-br from-indigo-50 via-slate-50 to-purple-50 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 -z-20" style={{ contain: 'strict' }} />
+
+      {/* Skeleton Nav — matches loading shell sticky nav h-20 (80px) */}
+      <nav className="sticky top-0 z-50 bg-white/95 dark:bg-slate-900/95 border-b border-slate-200/50 dark:border-slate-800/50 shadow-sm">
+        <div className="max-w-[1800px] w-[95%] mx-auto px-4 sm:px-6">
+          <div className="flex justify-between h-20 items-center">
+            {/* Logo placeholder */}
+            <div className="flex items-center gap-3">
+              <div className="w-[38px] h-[38px] bg-white dark:bg-slate-900 rounded-xl ring-1 ring-slate-200 dark:ring-slate-800" />
+              <div className="hidden sm:block space-y-1">
+                <div className="w-[140px] h-[18px] bg-slate-100 dark:bg-slate-800 rounded" />
+                <div className="w-[100px] h-[10px] bg-slate-100 dark:bg-slate-800 rounded" />
+              </div>
+            </div>
+            {/* Nav link placeholders — hidden mobile, flex md+ */}
+            <div className="hidden md:flex items-center gap-1 mx-2 lg:mx-4 flex-1 min-w-0 justify-between">
+              {Array.from({ length: 6 }).map((_, i) => (
+                <div key={i} className="flex-1 min-w-0 flex justify-center">
+                  <div className="w-10 h-10 bg-slate-100 dark:bg-slate-800 rounded-lg" />
+                </div>
+              ))}
+            </div>
+            {/* Action button placeholders — hidden mobile, flex md+ */}
+            <div className="hidden md:flex items-center gap-2 pl-4 border-l border-slate-200 dark:border-slate-800 shrink-0">
+              <div className="w-[76px] h-9" aria-hidden="true" />
+              <div className="w-[34px] h-[34px] bg-slate-100 dark:bg-slate-800 rounded-xl" />
+              <div className="w-[34px] h-[34px] bg-slate-100 dark:bg-slate-800 rounded-xl" />
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      {/* Sub-tab bar — matches real sub-nav: py-2.5 gap-1 grid-cols-4/8 */}
+      {hasSubTabs && (
+        <div className="border-t border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2.5">
+            <div className="grid grid-cols-4 md:grid-cols-8 gap-1">
+              {Array.from({ length: 8 }).map((_, i) => (
+                <div key={i} className={`${pulse} h-[52px] rounded-xl`} />
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Main content — route-aware skeleton */}
+      <main className="flex-1 max-w-[1800px] w-[95%] mx-auto px-2 sm:px-4 py-6">
+        {/* News ticker + weekly fact placeholders — desktop only (mobile defers these) */}
+        {isCalcPage && (
+          <div className="hidden md:flex flex-col gap-2 mb-4">
+            <div className={`${pulse} h-[34px] rounded-xl`} />
+            <div className={`${pulse} h-[34px] rounded-xl bg-amber-100 dark:bg-amber-900/30`} />
+          </div>
+        )}
+        <SkeletonFallback />
+      </main>
+
+      {/* Mobile bottom nav — matches loading shell fixed h-14, hidden md+ */}
+      <nav className="fixed bottom-0 left-0 right-0 z-50 bg-white/95 dark:bg-slate-900/95 border-t border-slate-200/50 dark:border-slate-800/50 md:hidden h-14 grid grid-cols-6 items-center" style={{ paddingBottom: 'env(safe-area-inset-bottom)' }}>
+        {Array.from({ length: 6 }).map((_, i) => (
+          <div key={i} className="flex flex-col items-center gap-0.5">
+            <div className="w-5 h-5 bg-slate-100 dark:bg-slate-800 rounded" />
+            <div className="w-8 h-2 bg-slate-100 dark:bg-slate-800 rounded" />
+          </div>
+        ))}
+      </nav>
+    </div>
+  );
+};
+
+export default SkeletonFallback;

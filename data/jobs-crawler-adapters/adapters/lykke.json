@@ -1,0 +1,22 @@
+{
+  "companyKey": "lykke",
+  "companyName": "Lykke",
+  "companyHost": "lykke.com",
+  "enabled": true,
+  "priority": 0,
+  "crawlerModes": [
+    "generic_ats",
+    "html",
+    "jsonld"
+  ],
+  "seedUrls": [
+    "https://www.lykke.com/careers",
+    "https://www.lykke.com/career",
+    "https://www.lykke.com/jobs",
+    "https://www.lykke.com/karriere",
+    "https://www.lykke.com/offene-stellen",
+    "https://www.lykke.com/lavora-con-noi"
+  ],
+  "notes": "",
+  "updatedAt": "2026-02-27T17:06:06.959Z"
+}

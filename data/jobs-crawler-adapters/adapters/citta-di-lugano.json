@@ -1,0 +1,22 @@
+{
+  "companyKey": "citta-di-lugano",
+  "companyName": "Città di Lugano",
+  "companyHost": "lugano.ch",
+  "enabled": true,
+  "priority": 0,
+  "crawlerModes": [
+    "generic_ats",
+    "html",
+    "jsonld"
+  ],
+  "seedUrls": [
+    "https://www.lugano.ch/careers",
+    "https://www.lugano.ch/career",
+    "https://www.lugano.ch/jobs",
+    "https://www.lugano.ch/karriere",
+    "https://www.lugano.ch/offene-stellen",
+    "https://www.lugano.ch/lavora-con-noi"
+  ],
+  "notes": "",
+  "updatedAt": "2026-02-27T17:06:06.934Z"
+}

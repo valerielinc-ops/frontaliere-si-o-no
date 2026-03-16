@@ -1,0 +1,22 @@
+{
+  "companyKey": "helvetia-sede-ticino",
+  "companyName": "Helvetia (sede Ticino)",
+  "companyHost": "helvetia.ch",
+  "enabled": true,
+  "priority": 0,
+  "crawlerModes": [
+    "generic_ats",
+    "html",
+    "jsonld"
+  ],
+  "seedUrls": [
+    "https://www.helvetia.ch/careers",
+    "https://www.helvetia.ch/career",
+    "https://www.helvetia.ch/jobs",
+    "https://www.helvetia.ch/karriere",
+    "https://www.helvetia.ch/offene-stellen",
+    "https://www.helvetia.ch/lavora-con-noi"
+  ],
+  "notes": "",
+  "updatedAt": "2026-02-27T17:06:06.953Z"
+}

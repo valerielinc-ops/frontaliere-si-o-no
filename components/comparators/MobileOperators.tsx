@@ -1,0 +1,737 @@
+import React, { useState } from 'react';
+import { Smartphone, Wifi, Phone, MessageSquare, AlertCircle, CheckCircle2, Info, Euro, Globe } from 'lucide-react';
+import { useTranslation } from '@/services/i18n';
+import { Analytics } from '@/services/analytics';
+import { buildPath } from '@/services/router';
+import PartnerRecommendations from '@/components/shared/PartnerRecommendations';
+import DataFreshness from '@/components/shared/DataFreshness';
+
+interface MobileOperator {
+  name: string;
+  logo: string;
+  country: 'IT' | 'CH';
+  monthlyCost: number;
+  dataGB: number | string; // number or "illimitati"
+  minutes: number | string;
+  sms: number | string;
+  roamingInSwitzerland?: {
+    included: boolean;
+    costPerDay?: number;
+    monthlyFee?: number;
+    costPerMB?: number;
+    costPerMinute?: number;
+    dataLimit?: number | string;
+    notes: string;
+  };
+  roamingInItaly?: {
+    included: boolean;
+    costPerDay?: number;
+    monthlyFee?: number;
+    costPerMB?: number;
+    costPerMinute?: number;
+    dataLimit?: number | string;
+    notes: string;
+  };
+  color: string;
+  features: string[];
+  setupCost: number;
+  contractType: 'prepagato' | 'abbonamento';
+  website?: string;
+}
+
+const operators: MobileOperator[] = [
+  // Italian Operators
+  {
+    name: 'Iliad',
+    logo: '🇮🇹',
+    country: 'IT',
+    monthlyCost: 9.99,
+    dataGB: 200,
+    minutes: 'illimitati',
+    sms: 'illimitati',
+    roamingInSwitzerland: {
+      included: false,
+      monthlyFee: 5,
+      dataLimit: 1,
+      notes: 'Opzione Extra UE: 5€/mese per 1GB dati + 100 min. Senza opzione: 0.49€/min, 0.16€/SMS, 4.88€/MB'
+    },
+    setupCost: 9.99,
+    contractType: 'prepagato',
+    color: 'from-red-500 to-orange-600',
+    features: ['200 GB + 5G incluso', 'Prezzo per sempre', 'Opzione CH 5€/mese'],
+    website: 'https://www.iliad.it/offerte-iliad-mobile.html'
+  },
+  {
+    name: 'ho. Mobile',
+    logo: '🟢',
+    country: 'IT',
+    monthlyCost: 4.95,
+    dataGB: 100,
+    minutes: 'illimitati',
+    sms: 200,
+    roamingInSwitzerland: {
+      included: false,
+      costPerMB: 4.88,
+      costPerMinute: 0.49,
+      notes: 'Nessun roaming CH incluso. Extra UE: 0.49€/min, 0.16€/SMS, 4.88€/MB'
+    },
+    setupCost: 2.99,
+    contractType: 'prepagato',
+    color: 'from-green-500 to-emerald-600',
+    features: ['5G incluso', 'Rete Fastweb', 'Da 4.95€ per sempre', 'Roaming CH costoso'],
+    website: 'https://www.ho-mobile.it/tutte-le-offerte.html'
+  },
+  {
+    name: 'Vodafone',
+    logo: '🔴',
+    country: 'IT',
+    monthlyCost: 9.99,
+    dataGB: 100,
+    minutes: 'illimitati',
+    sms: 200,
+    roamingInSwitzerland: {
+      included: false,
+      costPerDay: 5,
+      notes: 'Pass giornaliero 5€ per 200MB + min/SMS. Senza pass: 6.19€/min, 1.86€/SMS, 6.19€/MB'
+    },
+    setupCost: 6.99,
+    contractType: 'prepagato',
+    color: 'from-red-600 to-rose-700',
+    features: ['Rete capillare', 'Roaming CH molto costoso', '5G disponibile'],
+    website: 'https://www.vodafone.it/offerte/mobile'
+  },
+  {
+    name: 'TIM',
+    logo: '🔵',
+    country: 'IT',
+    monthlyCost: 14.99,
+    dataGB: 100,
+    minutes: 'illimitati',
+    sms: 'illimitati',
+    roamingInSwitzerland: {
+      included: false,
+      monthlyFee: 10,
+      dataLimit: 3,
+      notes: 'Tim in Viaggio Extra UE: 10€/mese per 3GB + 250 min. Senza opzione: tariffe Extra UE elevate'
+    },
+    setupCost: 25,
+    contractType: 'abbonamento',
+    color: 'from-blue-600 to-indigo-700',
+    features: ['Copertura eccellente', 'Opzione CH 10€/mese', 'Costoso complessivamente'],
+    website: 'https://www.tim.it/offerte/mobile'
+  },
+  {
+    name: 'WindTre',
+    logo: '🟠',
+    country: 'IT',
+    monthlyCost: 14.99,
+    dataGB: 'illimitati',
+    minutes: 'illimitati',
+    sms: 200,
+    roamingInSwitzerland: {
+      included: false,
+      costPerDay: 5,
+      notes: 'Pass giornaliero 5€ per 200MB + 60 min. Senza pass: tariffe Extra UE molto elevate'
+    },
+    setupCost: 0,
+    contractType: 'abbonamento',
+    color: 'from-orange-600 to-amber-700',
+    features: ['Giga illimitati in Italia', 'Buona copertura', 'Roaming CH costoso'],
+    website: 'https://www.windtre.it/offerte-mobile'
+  },
+  {
+    name: 'Very Mobile',
+    logo: '🟣',
+    country: 'IT',
+    monthlyCost: 6.99,
+    dataGB: 200,
+    minutes: 'illimitati',
+    sms: 'illimitati',
+    roamingInSwitzerland: {
+      included: false,
+      costPerMB: 4.88,
+      costPerMinute: 0.49,
+      notes: 'Nessun roaming CH incluso. Extra UE: 0.49€/min, 0.16€/SMS, 4.88€/MB'
+    },
+    setupCost: 0,
+    contractType: 'prepagato',
+    color: 'from-purple-600 to-pink-700',
+    features: ['200 GB + 5G Full Speed', 'SIM e spedizione gratis', 'Rete WindTre', 'Roaming CH costoso'],
+    website: 'https://www.verymobile.it/offerte'
+  },
+  {
+    name: 'Fastweb Mobile',
+    logo: '⚡',
+    country: 'IT',
+    monthlyCost: 7.95,
+    dataGB: 150,
+    minutes: 'illimitati',
+    sms: 100,
+    roamingInSwitzerland: {
+      included: true,
+      dataLimit: 11,
+      notes: 'Roaming Svizzera incluso: 11 GB, minuti/SMS illimitati (fair use policy)'
+    },
+    setupCost: 10,
+    contractType: 'prepagato',
+    color: 'from-yellow-600 to-orange-700',
+    features: ['11 GB roaming CH incluso', 'Rete WindTre', 'Ottimo rapporto qualità/prezzo', '🎁 Porta un amico: GRATIS Fastweb Casa per 2 mesi'],
+    website: 'https://www.fastweb.it/mobile/offerte-mobile/'
+  },
+
+  // Swiss Operators
+  {
+    name: 'Swisscom blue M',
+    logo: '🇨🇭',
+    country: 'CH',
+    monthlyCost: 79.90,
+    dataGB: 'illimitati',
+    minutes: 'illimitati',
+    sms: 'illimitati',
+    roamingInItaly: {
+      included: true,
+      dataLimit: 'illimitati',
+      notes: 'Roaming UE/UK illimitato: dati, minuti e SMS inclusi (fair use policy)'
+    },
+    setupCost: 0,
+    contractType: 'abbonamento',
+    color: 'from-blue-700 to-indigo-800',
+    features: ['Rete migliore CH', 'Roaming UE illimitato', 'Premium'],
+    website: 'https://www.swisscom.ch'
+  },
+  {
+    name: 'Salt Travel',
+    logo: '🧂',
+    country: 'CH',
+    monthlyCost: 29.95,
+    dataGB: 'illimitati',
+    minutes: 'illimitati',
+    sms: 'illimitati',
+    roamingInItaly: {
+      included: true,
+      dataLimit: 20,
+      notes: 'Roaming UE/USA/CAN: dati illimitati (20 GB high-speed), 100 min chiamate in roaming. Sconto -65% a vita online'
+    },
+    setupCost: 0,
+    contractType: 'abbonamento',
+    color: 'from-pink-600 to-rose-700',
+    features: ['Dati illimitati CH+UE', '20 GB high-speed roaming', 'Sconto -65% a vita'],
+    website: 'https://www.salt.ch/en/mobile/plans/travel'
+  },
+  {
+    name: 'Salt Swiss Max',
+    logo: '🧂',
+    country: 'CH',
+    monthlyCost: 26.95,
+    dataGB: 'illimitati',
+    minutes: 'illimitati',
+    sms: 'illimitati',
+    roamingInItaly: {
+      included: true,
+      dataLimit: 1,
+      notes: 'Solo 1 GB roaming UE incluso. Sconto -63% a vita online. Per chi usa poco il roaming'
+    },
+    setupCost: 0,
+    contractType: 'abbonamento',
+    color: 'from-pink-500 to-rose-600',
+    features: ['Dati illimitati CH', 'Solo 1 GB roaming UE', 'Sconto -63% a vita'],
+    website: 'https://www.salt.ch/en/mobile/plans/swiss-max'
+  },
+  {
+    name: 'Sunrise',
+    logo: '🌅',
+    country: 'CH',
+    monthlyCost: 39.90,
+    dataGB: 'illimitati',
+    minutes: 'illimitati',
+    sms: 'illimitati',
+    roamingInItaly: {
+      included: true,
+      dataLimit: 15,
+      notes: 'Roaming UE/USA: 15 GB inclusi'
+    },
+    setupCost: 0,
+    contractType: 'abbonamento',
+    color: 'from-orange-600 to-red-700',
+    features: ['Dati illimitati', '15 GB roaming', 'USA incluso'],
+    website: 'https://www.sunrise.ch'
+  },
+  {
+    name: 'Yallo Europe',
+    logo: '💛',
+    country: 'CH',
+    monthlyCost: 27.90,
+    dataGB: 'illimitati',
+    minutes: 'illimitati',
+    sms: 'illimitati',
+    roamingInItaly: {
+      included: true,
+      dataLimit: 'illimitati',
+      notes: 'Roaming UE/USA/CAN/Turchia: dati illimitati, 60 min chiamate in roaming. Rete Sunrise 5G'
+    },
+    setupCost: 59,
+    contractType: 'prepagato',
+    color: 'from-yellow-500 to-amber-600',
+    features: ['Roaming UE illimitato', 'Rete Sunrise 5G', '60 min chiamate roaming'],
+    website: 'https://www.yallo.ch/en/mobile-products/yallo_europe'
+  },
+  {
+    name: 'Wingo',
+    logo: '🪽',
+    country: 'CH',
+    monthlyCost: 25.00,
+    dataGB: 40,
+    minutes: 'illimitati',
+    sms: 'illimitati',
+    roamingInItaly: {
+      included: true,
+      dataLimit: 10,
+      notes: 'Roaming UE incluso: 10 GB al mese'
+    },
+    setupCost: 0,
+    contractType: 'prepagato',
+    color: 'from-cyan-600 to-blue-700',
+    features: ['Rete Swisscom', 'Roaming UE incluso', 'Buon prezzo'],
+    website: 'https://www.wingo.ch/it'
+  },
+  {
+    name: 'Aldi Mobile CH',
+    logo: '🛒',
+    country: 'CH',
+    monthlyCost: 17.95,
+    dataGB: 15,
+    minutes: 'illimitati',
+    sms: 'illimitati',
+    roamingInItaly: {
+      included: false,
+      costPerMB: 0.20,
+      notes: 'Nessun roaming incluso. 0.20 CHF/MB in UE'
+    },
+    setupCost: 0,
+    contractType: 'prepagato',
+    color: 'from-slate-600 to-gray-700',
+    features: ['Molto economico', 'Rete Swisscom', 'Roaming costoso'],
+    website: 'https://www.aldi-mobile.ch'
+  }
+];
+
+const MobileOperators: React.FC = () => {
+  const { t } = useTranslation();
+  const [filterCountry, setFilterCountry] = useState<'all' | 'IT' | 'CH'>('all');
+  const [sortBy, setSortBy] = useState<'price' | 'roaming' | 'priceRoaming'>('roaming');
+  const WORKING_DAYS_PER_MONTH = 20; // Giorni lavorativi medi per frontalieri
+
+  // Calcola il costo mensile reale per un frontaliere
+  const calculateRealMonthlyCost = (operator: MobileOperator): number => {
+    let totalCost = operator.monthlyCost;
+    
+    // Se è un operatore italiano e il roaming in CH non è incluso, aggiungi i costi extra
+    if (operator.country === 'IT' && !operator.roamingInSwitzerland?.included) {
+      // Costi giornalieri (es. pass giornalieri)
+      if (operator.roamingInSwitzerland?.costPerDay) {
+        totalCost += operator.roamingInSwitzerland.costPerDay * WORKING_DAYS_PER_MONTH;
+      }
+      // Costi mensili fissi (es. Iliad 5€/mese)
+      if (operator.roamingInSwitzerland?.monthlyFee) {
+        totalCost += operator.roamingInSwitzerland.monthlyFee;
+      }
+    }
+    
+    // Se è un operatore svizzero e il roaming in IT non è incluso, aggiungi i costi extra
+    if (operator.country === 'CH' && !operator.roamingInItaly?.included) {
+      // Costi giornalieri
+      if (operator.roamingInItaly?.costPerDay) {
+        totalCost += operator.roamingInItaly.costPerDay * WORKING_DAYS_PER_MONTH;
+      }
+      // Costi mensili fissi
+      if (operator.roamingInItaly?.monthlyFee) {
+        totalCost += operator.roamingInItaly.monthlyFee;
+      }
+    }
+    
+    return totalCost;
+  };
+
+  const filteredOperators = operators
+    .filter(op => filterCountry === 'all' || op.country === filterCountry)
+    .sort((a, b) => {
+      if (sortBy === 'price') {
+        return calculateRealMonthlyCost(a) - calculateRealMonthlyCost(b);
+      } else if (sortBy === 'priceRoaming') {
+        // Sort by price, but penalize operators without roaming (+999)
+        const aHasRoaming = a.country === 'IT' ? a.roamingInSwitzerland?.included : a.roamingInItaly?.included;
+        const bHasRoaming = b.country === 'IT' ? b.roamingInSwitzerland?.included : b.roamingInItaly?.included;
+        const aCost = calculateRealMonthlyCost(a) + (aHasRoaming ? 0 : 999);
+        const bCost = calculateRealMonthlyCost(b) + (bHasRoaming ? 0 : 999);
+        return aCost - bCost;
+      } else {
+        // Sort by roaming availability
+        const aHasRoaming = a.country === 'IT' ? a.roamingInSwitzerland?.included : a.roamingInItaly?.included;
+        const bHasRoaming = b.country === 'IT' ? b.roamingInSwitzerland?.included : b.roamingInItaly?.included;
+        if (aHasRoaming && !bHasRoaming) return -1;
+        if (!aHasRoaming && bHasRoaming) return 1;
+        return calculateRealMonthlyCost(a) - calculateRealMonthlyCost(b);
+      }
+    });
+
+  const bestForFrontierWorkers = operators.filter(op => 
+    (op.country === 'IT' && op.roamingInSwitzerland?.included) ||
+    (op.country === 'CH' && op.roamingInItaly?.included)
+  );
+
+  return (
+    <div className="space-y-6 pb-8">
+      {/* Header */}
+      <div className="bg-gradient-to-br from-indigo-600 to-purple-700 rounded-2xl p-5 sm:p-8 text-white">
+        <div className="flex items-center gap-3 mb-4">
+          <Smartphone size={32} />
+          <h2 className="text-2xl sm:text-3xl font-extrabold">{t('mobile.title')}</h2>
+        </div>
+        <p className="text-indigo-100 text-lg">
+          {t('mobile.subtitle')}
+        </p>
+        <div className="mt-3"><DataFreshness lastUpdated="2026-01" source="Operatori ufficiali" variant="badge" /></div>
+      </div>
+
+      {/* Warning Banner */}
+      <div className="bg-amber-50 dark:bg-amber-950/30 border-l-4 border-amber-500 p-4 rounded-lg">
+        <div className="flex items-start gap-3">
+          <AlertCircle className="text-amber-700 flex-shrink-0 mt-0.5" size={20} />
+          <div className="text-sm text-amber-900 dark:text-amber-200">
+            <p className="font-bold mb-1">⚠️ {t('mobile.roamingWarningTitle')}</p>
+            <p>
+              {t('mobile.roamingWarningDesc')}
+            </p>
+          </div>
+        </div>
+      </div>
+
+      {/* Filters */}
+      <div className="bg-white dark:bg-slate-800 rounded-xl p-4 border border-slate-200 dark:border-slate-700">
+        <div className="flex flex-wrap gap-4 items-center">
+          <div className="flex items-center gap-2">
+            <label className="text-sm font-bold text-slate-700 dark:text-slate-300">{t('mobile.country')}:</label>
+            <div className="flex gap-2">
+              <button
+                onClick={() => { setFilterCountry('all'); Analytics.trackMobileOperator('filter', undefined, 'all'); }}
+                className={`px-4 py-2 rounded-lg text-sm font-bold transition-colors ${
+                  filterCountry === 'all' 
+                    ? 'bg-indigo-600 text-white' 
+                    : 'bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-200'
+                }`}
+              >
+                {t('mobile.all')}
+              </button>
+              <button
+                onClick={() => { setFilterCountry('IT'); Analytics.trackMobileOperator('filter', undefined, 'IT'); }}
+                className={`px-4 py-2 rounded-lg text-sm font-bold transition-colors ${
+                  filterCountry === 'IT' 
+                    ? 'bg-green-600 text-white' 
+                    : 'bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-200'
+                }`}
+              >
+                🇮🇹 {t('mobile.italy')}
+              </button>
+              <button
+                onClick={() => { setFilterCountry('CH'); Analytics.trackMobileOperator('filter', undefined, 'CH'); }}
+                className={`px-4 py-2 rounded-lg text-sm font-bold transition-colors ${
+                  filterCountry === 'CH' 
+                    ? 'bg-red-600 text-white' 
+                    : 'bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-200'
+                }`}
+              >
+                🇨🇭 {t('mobile.switzerland')}
+              </button>
+            </div>
+          </div>
+
+          <div className="flex items-center gap-2">
+            <label htmlFor="mo-sort-by" className="text-sm font-bold text-slate-700 dark:text-slate-300">{t('mobile.sortBy')}:</label>
+            <select
+              id="mo-sort-by"
+              value={sortBy}
+              onChange={(e) => { setSortBy(e.target.value as 'price' | 'roaming' | 'priceRoaming'); Analytics.trackMobileOperator('sort'); }}
+              className="px-4 py-2 rounded-lg text-sm font-bold bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300 border border-slate-300 dark:border-slate-600 cursor-pointer"
+            >
+              <option value="roaming">{t('mobile.roamingIncluded')}</option>
+              <option value="price">{t('mobile.price')}</option>
+              <option value="priceRoaming">{t('mobile.priceWithRoaming')}</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      {/* Best Options Summary */}
+      <div className="bg-gradient-to-br from-emerald-50 to-green-50 dark:from-emerald-950/30 dark:to-green-950/30 rounded-2xl border border-emerald-200 dark:border-emerald-800 p-6">
+        <h3 className="text-xl font-bold text-slate-800 dark:text-slate-100 mb-4 flex items-center gap-2">
+          <CheckCircle2 size={20} className="text-emerald-700" />
+          {t('mobile.bestOptions')}
+        </h3>
+        <div className="grid md:grid-cols-2 gap-4">
+          <div className="p-4 bg-white/50 dark:bg-slate-900/50 rounded-xl">
+            <p className="font-bold text-emerald-700 dark:text-emerald-400 mb-2">🇮🇹 {t('mobile.italianWithRoaming')}:</p>
+            <ul className="space-y-1 text-sm text-slate-700 dark:text-slate-300">
+              {bestForFrontierWorkers.filter(op => op.country === 'IT').map(op => (
+                <li key={op.name}>
+                  <strong>{op.name}</strong> - {op.monthlyCost}€/mese - {op.roamingInSwitzerland?.dataLimit === 'illimitati' ? '∞' : op.roamingInSwitzerland?.dataLimit} GB roaming
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="p-4 bg-white/50 dark:bg-slate-900/50 rounded-xl">
+            <p className="font-bold text-emerald-700 dark:text-emerald-400 mb-2">🇨🇭 {t('mobile.swissWithRoaming')}:</p>
+            <ul className="space-y-1 text-sm text-slate-700 dark:text-slate-300">
+              {bestForFrontierWorkers.filter(op => op.country === 'CH').map(op => (
+                <li key={op.name}>
+                  <strong>{op.name}</strong> - {op.monthlyCost} CHF/mese - {op.roamingInItaly?.dataLimit === 'illimitati' ? '∞' : op.roamingInItaly?.dataLimit} GB roaming
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      {/* Operators Grid */}
+      <div className="grid md:grid-cols-2 gap-6">
+        {filteredOperators.map((operator) => {
+          const roaming = operator.country === 'IT' ? operator.roamingInSwitzerland : operator.roamingInItaly;
+          const hasGoodRoaming = roaming?.included === true;
+          const realMonthlyCost = calculateRealMonthlyCost(operator);
+          const hasExtraCost = realMonthlyCost > operator.monthlyCost;
+          
+          const CardWrapper = operator.website ? 'a' : 'div';
+          const cardProps = operator.website ? {
+            href: operator.website,
+            target: '_blank',
+            rel: 'noopener noreferrer',
+            onClick: () => Analytics.trackMobileOperator('link_click', operator.name, operator.country),
+            className: `block bg-white dark:bg-slate-800 rounded-2xl border-2 p-4 sm:p-6 hover:shadow-lg transition-all cursor-pointer ${
+              hasGoodRoaming 
+                ? 'border-emerald-500 ring-2 ring-emerald-500/20 hover:ring-emerald-500/40' 
+                : 'border-slate-200 dark:border-slate-700 hover:border-indigo-400'
+            }`
+          } : {
+            className: `bg-white dark:bg-slate-800 rounded-2xl border-2 p-4 sm:p-6 hover:shadow-lg transition-all ${
+              hasGoodRoaming 
+                ? 'border-emerald-500 ring-2 ring-emerald-500/20' 
+                : 'border-slate-200 dark:border-slate-700'
+            }`
+          };
+
+          return (
+            <CardWrapper key={operator.name} {...cardProps}>
+              {hasGoodRoaming && (
+                <div className="mb-3 inline-flex items-center gap-1.5 px-3 py-1.5 bg-emerald-700 text-white text-xs font-bold rounded-full">
+                  <CheckCircle2 size={14} />
+                  {t('mobile.roamingIncluded')}
+                </div>
+              )}
+
+              <div className="flex items-start justify-between gap-4 mb-4">
+                <div className="flex items-center gap-3">
+                  <div className={`text-4xl p-3 bg-gradient-to-br ${operator.color} rounded-2xl`}>
+                    {operator.logo}
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold text-slate-800 dark:text-slate-100">{operator.name}</h3>
+                    <p className="text-sm text-slate-500 dark:text-slate-500">
+                      {operator.country === 'IT' ? '🇮🇹 Italia' : '🇨🇭 Svizzera'} • {operator.contractType}
+                    </p>
+                  </div>
+                </div>
+
+                <div className="text-right">
+                  {hasExtraCost ? (
+                    <>
+                      <div className="text-sm text-slate-500 dark:text-slate-500 line-through">
+                        {operator.country === 'IT' ? '€' : 'CHF'} {operator.monthlyCost.toFixed(2)}
+                      </div>
+                      <div className="text-2xl font-extrabold text-red-600 dark:text-red-400">
+                        {operator.country === 'IT' ? '€' : 'CHF'} {realMonthlyCost.toFixed(2)}
+                      </div>
+                      <div className="text-xs text-red-600 dark:text-red-400 font-medium">{t('mobile.realCostMonth')}</div>
+                    </>
+                  ) : (
+                    <>
+                      <div className="text-2xl font-extrabold text-slate-800 dark:text-slate-100">
+                        {operator.country === 'IT' ? '€' : 'CHF'} {operator.monthlyCost.toFixed(2)}
+                      </div>
+                      <div className="text-xs text-slate-500 dark:text-slate-500">{t('mobile.perMonth')}</div>
+                    </>
+                  )}
+                </div>
+              </div>
+
+              {/* Cost Breakdown se ci sono costi extra */}
+              {hasExtraCost && (
+                <div className="mb-4 p-3 bg-amber-50 dark:bg-amber-950/30 border border-amber-200 dark:border-amber-800 rounded-lg">
+                  <p className="text-xs font-bold text-amber-800 dark:text-amber-300 mb-2">💰 {t('mobile.costBreakdown')}:</p>
+                  <div className="space-y-1 text-xs text-amber-700 dark:text-amber-400">
+                    <div className="flex justify-between">
+                      <span>{t('mobile.basePlan')}:</span>
+                      <span className="font-medium">{operator.country === 'IT' ? '€' : 'CHF'} {operator.monthlyCost.toFixed(2)}</span>
+                    </div>
+                    {roaming?.costPerDay && (
+                      <div className="flex justify-between">
+                        <span>Pass giornaliero ({roaming.costPerDay}{operator.country === 'IT' ? '€' : 'CHF'} × {WORKING_DAYS_PER_MONTH} gg):</span>
+                        <span className="font-medium">+ {(roaming.costPerDay * WORKING_DAYS_PER_MONTH).toFixed(2)}{operator.country === 'IT' ? '€' : 'CHF'}</span>
+                      </div>
+                    )}
+                    {roaming?.monthlyFee && (
+                      <div className="flex justify-between">
+                        <span>Costo fisso roaming:</span>
+                        <span className="font-medium">+ {roaming.monthlyFee.toFixed(2)}{operator.country === 'IT' ? '€' : 'CHF'}</span>
+                      </div>
+                    )}
+                    <div className="flex justify-between border-t border-amber-300 dark:border-amber-700 pt-1 mt-1">
+                      <span className="font-bold">{t('mobile.monthlyTotal')}:</span>
+                      <span className="font-bold">{operator.country === 'IT' ? '€' : 'CHF'} {realMonthlyCost.toFixed(2)}</span>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {/* Plan Details */}
+              <div className="grid grid-cols-3 gap-3 mb-4">
+                <div className="p-3 bg-slate-50 dark:bg-slate-900 rounded-xl text-center">
+                  <Wifi className="mx-auto mb-1 text-indigo-600" size={18} />
+                  <div className="text-xs text-slate-500 dark:text-slate-500 mb-1">{t('mobile.data')}</div>
+                  <div className="text-sm font-bold text-slate-800 dark:text-slate-100">
+                    {operator.dataGB === 'illimitati' ? '∞' : `${operator.dataGB} GB`}
+                  </div>
+                </div>
+
+                <div className="p-3 bg-slate-50 dark:bg-slate-900 rounded-xl text-center">
+                  <Phone className="mx-auto mb-1 text-emerald-700" size={18} />
+                  <div className="text-xs text-slate-500 dark:text-slate-500 mb-1">{t('mobile.minutes')}</div>
+                  <div className="text-sm font-bold text-slate-800 dark:text-slate-100">
+                    {operator.minutes === 'illimitati' ? '∞' : operator.minutes}
+                  </div>
+                </div>
+
+                <div className="p-3 bg-slate-50 dark:bg-slate-900 rounded-xl text-center">
+                  <MessageSquare className="mx-auto mb-1 text-purple-600" size={18} />
+                  <div className="text-xs text-slate-500 dark:text-slate-500 mb-1">{t('mobile.sms')}</div>
+                  <div className="text-sm font-bold text-slate-800 dark:text-slate-100">
+                    {operator.sms === 'illimitati' ? '∞' : operator.sms}
+                  </div>
+                </div>
+              </div>
+
+              {/* Roaming Details */}
+              <div className={`p-4 rounded-xl mb-4 ${
+                roaming?.included 
+                  ? 'bg-emerald-50 dark:bg-emerald-950/30 border border-emerald-200 dark:border-emerald-800' 
+                  : 'bg-red-50 dark:bg-red-950/30 border border-red-200 dark:border-red-800'
+              }`}>
+                <div className="flex items-start gap-2 mb-2">
+                  <Globe className={`flex-shrink-0 ${roaming?.included ? 'text-emerald-700' : 'text-red-600'}`} size={18} />
+                  <div className="flex-1">
+                    <p className={`font-bold text-sm mb-1 ${roaming?.included ? 'text-emerald-700 dark:text-emerald-400' : 'text-red-700 dark:text-red-400'}`}>
+                      {t('mobile.roamingIn')} {operator.country === 'IT' ? `${t('mobile.switzerland')} 🇨🇭` : `${t('mobile.italy')} 🇮🇹`}
+                    </p>
+                    <p className="text-xs text-slate-700 dark:text-slate-300">
+                      {roaming?.notes}
+                    </p>
+                    {roaming?.costPerDay && (
+                      <p className="text-xs font-bold text-red-600 dark:text-red-400 mt-1">
+                        ⚠️ Pass obbligatorio: +{(roaming.costPerDay * WORKING_DAYS_PER_MONTH).toFixed(2)}{operator.country === 'IT' ? '€' : 'CHF'}/mese ({roaming.costPerDay}{operator.country === 'IT' ? '€' : 'CHF'}/giorno × {WORKING_DAYS_PER_MONTH} giorni lavorativi)
+                      </p>
+                    )}
+                    {roaming?.monthlyFee && (
+                      <p className="text-xs font-bold text-red-600 dark:text-red-400 mt-1">
+                        ⚠️ Costo fisso: +{roaming.monthlyFee.toFixed(2)}{operator.country === 'IT' ? '€' : 'CHF'}/mese
+                      </p>
+                    )}
+                  </div>
+                </div>
+              </div>
+
+              {/* Setup Cost */}
+              {operator.setupCost > 0 && (
+                <div className="mb-4 p-3 bg-amber-50 dark:bg-amber-950/30 rounded-lg border border-amber-200 dark:border-amber-800">
+                  <p className="text-xs text-amber-800 dark:text-amber-300">
+                    <Euro className="inline" size={14} /> <strong>{t('mobile.setupCost')}:</strong> {operator.setupCost.toFixed(2)} {operator.country === 'IT' ? '€' : 'CHF'}
+                  </p>
+                </div>
+              )}
+
+              {/* Features */}
+              <div className="border-t border-slate-200 dark:border-slate-700 pt-3">
+                <div className="flex flex-wrap gap-2">
+                  {operator.features.map((feature, idx) => (
+                    <span
+                      key={idx}
+                      className="px-2.5 py-1 bg-slate-100 dark:bg-slate-900 text-slate-700 dark:text-slate-300 text-xs font-medium rounded-lg"
+                    >
+                      {feature}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </CardWrapper>
+          );
+        })}
+      </div>
+
+      {/* Educational Section */}
+      <div className="bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-950/30 dark:to-indigo-950/30 rounded-2xl border border-blue-200 dark:border-blue-800 p-6">
+        <h3 className="text-xl font-bold text-slate-800 dark:text-slate-100 mb-4 flex items-center gap-2">
+          <Info size={20} className="text-blue-600" />
+          {t('mobile.tipsTitle')}
+        </h3>
+        
+        <div className="space-y-4 text-sm text-slate-700 dark:text-slate-300">
+          <div className="p-4 bg-white/50 dark:bg-slate-900/50 rounded-xl">
+            <p className="font-bold text-blue-600 mb-2">📱 {t('mobile.whichOperator')}</p>
+            <ul className="space-y-2 ml-4 list-disc">
+              <li>{t('mobile.operatorTip1')}</li>
+              <li>{t('mobile.operatorTip2')}</li>
+              <li>{t('mobile.operatorTip3')}</li>
+            </ul>
+          </div>
+
+          <div className="p-4 bg-white/50 dark:bg-slate-900/50 rounded-xl">
+            <p className="font-bold text-blue-600 mb-2">💡 {t('mobile.tricksTitle')}</p>
+            <ul className="space-y-2 ml-4 list-disc">
+              <li>{t('mobile.trick1')}</li>
+              <li>{t('mobile.trick2')}</li>
+              <li>{t('mobile.trick3')}</li>
+              <li>{t('mobile.trick4')}</li>
+            </ul>
+          </div>
+
+          <div className="p-4 bg-amber-50 dark:bg-amber-950/50 rounded-xl border border-amber-200 dark:border-amber-800">
+            <p className="font-bold text-amber-700 dark:text-amber-400 mb-2">⚠️ {t('mobile.hiddenCosts')}</p>
+            <ul className="space-y-1 ml-4 list-disc text-amber-900 dark:text-amber-200">
+              <li>{t('mobile.hiddenCost1')}</li>
+              <li>{t('mobile.hiddenCost2')}</li>
+              <li>{t('mobile.hiddenCost3')}</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      {/* Related Tools */}
+      <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-4 sm:p-6 shadow-sm">
+        <h3 className="text-lg font-bold text-slate-800 dark:text-slate-100 mb-4">{t('cta.tryAlso')}</h3>
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+          {[
+            { href: buildPath({ activeTab: 'confronti', confrontiSubTab: 'banks' }), label: t('comparators.banks'), color: 'text-blue-600' },
+            { href: buildPath({ activeTab: 'confronti', confrontiSubTab: 'cost-of-living' }), label: t('comparators.costOfLiving'), color: 'text-emerald-700' },
+            { href: buildPath({ activeTab: 'confronti', confrontiSubTab: 'health' }), label: t('comparators.health'), color: 'text-red-600' },
+          ].map(({ href, label, color }) => (
+            <a key={href} href={href} onClick={(e) => { e.preventDefault(); window.history.pushState(null, '', href); window.dispatchEvent(new PopStateEvent('popstate')); }} className="flex items-center gap-3 p-3 rounded-xl bg-slate-50 dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors group no-underline">
+              <span className={`text-lg ${color}`}>→</span>
+              <span className="text-sm font-semibold text-slate-700 dark:text-slate-300 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">{label}</span>
+            </a>
+          ))}
+        </div>
+      </div>
+
+      <PartnerRecommendations context="mobile" />
+    </div>
+  );
+};
+
+export default MobileOperators;

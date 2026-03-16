@@ -1,0 +1,28 @@
+{
+  "companyKey": "amministrazione-cantonale-ti",
+  "companyName": "Amministrazione cantonale TI",
+  "companyHost": "concorsi.ti.ch",
+  "enabled": true,
+  "priority": 10,
+  "crawlerModes": [
+    "generic_ats",
+    "html"
+  ],
+  "seedUrls": [
+    "https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4059",
+    "https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4063",
+    "https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=3992",
+    "https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=3994",
+    "https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4083",
+    "https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4091",
+    "https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4093",
+    "https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4094",
+    "https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4099",
+    "https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4102",
+    "https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4107",
+    "https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4108",
+    "https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4112"
+  ],
+  "notes": "Rexx Systems ATS portal — detail URLs scraped from listing page and Atom RSS feed, each page has rich HTML content.",
+  "updatedAt": "2026-03-06T10:26:21.780Z"
+}

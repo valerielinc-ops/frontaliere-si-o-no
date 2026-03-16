@@ -1,0 +1,47 @@
+{
+  "companyKey": "artisa-group",
+  "companyName": "Artisa Group",
+  "companyHost": "artisagroup.com",
+  "enabled": true,
+  "priority": 17,
+  "crawlerModes": [
+    "html"
+  ],
+  "seedUrls": [
+    "https://artisagroup.com/carriera"
+  ],
+  "notes": "Dedicated Artisa Group crawler parses the careers page SSR markup and keeps Ticino vacancies with SmartSheet application links.",
+  "updatedAt": "2026-03-11T01:37:17.718Z",
+  "seedMetaByUrl": {
+    "https://artisagroup.com/carriera#marketing-operations-media-relations-manager": {
+      "location": "Lugano",
+      "canton": "TI",
+      "company": "Artisa Group",
+      "postedDate": "2026-03-11"
+    },
+    "https://artisagroup.com/carriera#real-estate-sales-manager": {
+      "location": "Lugano - Zurigo",
+      "canton": "TI",
+      "company": "Artisa Group",
+      "postedDate": "2026-03-11"
+    },
+    "https://artisagroup.com/carriera#segretaria-assistente-progetto": {
+      "location": "Lugano",
+      "canton": "TI",
+      "company": "Artisa Group",
+      "postedDate": "2026-03-11"
+    },
+    "https://artisagroup.com/carriera#architetto-qualificato-lingua-francese": {
+      "location": "Lugano",
+      "canton": "TI",
+      "company": "Artisa Group",
+      "postedDate": "2026-03-11"
+    },
+    "https://artisagroup.com/carriera#architetto-qualificato": {
+      "location": "Lugano",
+      "canton": "TI",
+      "company": "Artisa Group",
+      "postedDate": "2026-03-11"
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "companyKey": "boggi-milano",
+  "companyName": "Boggi Milano",
+  "companyHost": "boggimilano1.recruitee.com",
+  "enabled": true,
+  "priority": 18,
+  "crawlerModes": ["api"],
+  "seedUrls": ["https://boggimilano1.recruitee.com/api/offers"],
+  "notes": "Dedicated Boggi Milano crawler uses the public Recruitee JSON API. Filters Swiss/Ticino jobs by country_code and location fields. No HTML parsing needed.",
+  "updatedAt": "2026-03-12T00:00:00.000Z",
+  "seedMetaByUrl": {}
+}

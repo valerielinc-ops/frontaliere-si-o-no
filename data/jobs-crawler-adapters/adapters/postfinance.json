@@ -1,0 +1,22 @@
+{
+  "companyKey": "postfinance",
+  "companyName": "PostFinance",
+  "companyHost": "postfinance.ch",
+  "enabled": true,
+  "priority": 0,
+  "crawlerModes": [
+    "generic_ats",
+    "html",
+    "jsonld"
+  ],
+  "seedUrls": [
+    "https://www.postfinance.ch/careers",
+    "https://www.postfinance.ch/career",
+    "https://www.postfinance.ch/jobs",
+    "https://www.postfinance.ch/karriere",
+    "https://www.postfinance.ch/offene-stellen",
+    "https://www.postfinance.ch/lavora-con-noi"
+  ],
+  "notes": "",
+  "updatedAt": "2026-02-27T17:06:06.970Z"
+}

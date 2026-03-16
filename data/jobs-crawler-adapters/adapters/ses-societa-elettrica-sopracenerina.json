@@ -1,0 +1,22 @@
+{
+  "companyKey": "ses-societa-elettrica-sopracenerina",
+  "companyName": "SES (Società Elettrica Sopracenerina)",
+  "companyHost": "ses.ch",
+  "enabled": true,
+  "priority": 0,
+  "crawlerModes": [
+    "generic_ats",
+    "html",
+    "jsonld"
+  ],
+  "seedUrls": [
+    "https://www.ses.ch/careers",
+    "https://www.ses.ch/career",
+    "https://www.ses.ch/jobs",
+    "https://www.ses.ch/karriere",
+    "https://www.ses.ch/offene-stellen",
+    "https://www.ses.ch/lavora-con-noi"
+  ],
+  "notes": "",
+  "updatedAt": "2026-02-27T17:06:06.983Z"
+}

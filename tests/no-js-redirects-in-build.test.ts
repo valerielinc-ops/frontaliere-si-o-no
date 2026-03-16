@@ -1,0 +1,61 @@
+import { describe, expect, it } from 'vitest';
+import fs from 'fs';
+import path from 'path';
+
+/**
+ * Post-build verification: ensures no flat .html files in dist/ still
+ * contain JavaScript redirects after the flatContentPlugin has run.
+ *
+ * If this test fails, it means:
+ * 1. flatContentPlugin is not running, OR
+ * 2. A flat redirect file has no corresponding index.html (orphan)
+ *
+ * Google classifies JS redirect pages as "Pagina con reindirizzamento"
+ * and refuses to index them.
+ */
+
+const DIST_DIR = path.resolve(__dirname, '..', 'dist');
+
+describe('no JS redirects in built flat files', () => {
+  it('dist/ flat .html files must not contain location.replace()', { timeout: 120_000 }, () => {
+    if (!fs.existsSync(DIST_DIR)) {
+      // Build hasn't run — skip gracefully
+      console.log('  ⏭  dist/ not found, skipping post-build redirect check');
+      return;
+    }
+
+    const violations: string[] = [];
+
+    const walk = (dir: string) => {
+      for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+        if (entry.isDirectory()) {
+          walk(path.join(dir, entry.name));
+          continue;
+        }
+
+        if (
+          !entry.name.endsWith('.html') ||
+          entry.name === 'index.html' ||
+          entry.name === '404.html'
+        ) continue;
+
+        const filePath = path.join(dir, entry.name);
+        const content = fs.readFileSync(filePath, 'utf-8');
+
+        if (content.includes('location.replace(')) {
+          const relPath = path.relative(DIST_DIR, filePath);
+          violations.push(relPath);
+        }
+      }
+    };
+
+    walk(DIST_DIR);
+
+    if (violations.length > 0) {
+      const sample = violations.slice(0, 10).join('\n  ');
+      expect.fail(
+        `Found ${violations.length} flat .html files with JS redirects (Google classifies as "Page with redirect"):\n  ${sample}${violations.length > 10 ? `\n  ... and ${violations.length - 10} more` : ''}`,
+      );
+    }
+  });
+});

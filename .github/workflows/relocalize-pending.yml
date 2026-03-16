@@ -1,0 +1,73 @@
+name: Re-localize Pending Jobs
+
+on:
+  schedule:
+    # Primary run at 00:20 UTC on the following UTC day, after quotas reset
+    # and after the previous day's dedicated crawlers have all completed.
+    - cron: '20 0 * * *'
+    # Backup run: GitHub scheduled workflows can be delayed under load.
+    - cron: '20 3 * * *'
+  workflow_dispatch:
+    inputs:
+      max_jobs:
+        description: 'Max jobs to re-localize (default: 120)'
+        required: false
+        default: '120'
+        type: string
+      dry_run:
+        description: 'Dry run — only report, do not re-localize (1=yes, 0=no)'
+        required: false
+        default: '0'
+        type: string
+
+concurrency:
+  group: jobs-relocalize
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  relocalize:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 50
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Prepare Firebase credentials (optional)
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+          else
+            echo "ℹ️ Firebase secrets not set — will use in-memory scores only."
+            exit 0
+          fi
+          echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+
+      - name: Load secrets from Remote Config
+        run: node scripts/load-rc-env.mjs
+
+      - name: Re-localize incomplete jobs
+        env:
+          RELOCALIZE_MAX_JOBS: ${{ github.event.inputs.max_jobs || '120' }}
+          RELOCALIZE_DRY_RUN: ${{ github.event.inputs.dry_run || '0' }}
+          JOBS_CRAWLER_USE_FIRESTORE_CONFIG: '1'
+        run: node scripts/relocalize-pending-jobs.mjs
+
+      - name: Commit and push
+        run: bash scripts/lib/git-commit-data.sh "🌐 Auto-relocalize pending job translations"

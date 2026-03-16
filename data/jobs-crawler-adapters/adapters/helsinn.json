@@ -1,0 +1,22 @@
+{
+  "companyKey": "helsinn",
+  "companyName": "Helsinn",
+  "companyHost": "helsinn.com",
+  "enabled": true,
+  "priority": 0,
+  "crawlerModes": [
+    "generic_ats",
+    "html",
+    "jsonld"
+  ],
+  "seedUrls": [
+    "https://www.helsinn.com/careers",
+    "https://www.helsinn.com/career",
+    "https://www.helsinn.com/jobs",
+    "https://www.helsinn.com/karriere",
+    "https://www.helsinn.com/offene-stellen",
+    "https://www.helsinn.com/lavora-con-noi"
+  ],
+  "notes": "",
+  "updatedAt": "2026-02-27T17:06:06.952Z"
+}

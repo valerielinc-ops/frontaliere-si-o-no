@@ -1,0 +1,94 @@
+{
+  "companyKey": "lwphr",
+  "companyName": "LWP Ledermann Wieting & Partners",
+  "companyHost": "www.lwphr.ch",
+  "enabled": true,
+  "priority": 10,
+  "crawlerModes": [
+    "html",
+    "pdf"
+  ],
+  "seedUrls": [
+    "https://www.lwphr.ch/uploads/1/4/6/5/146598773/consulente_patrimoniale_senior.pdf",
+    "https://www.lwphr.ch/uploads/1/4/6/5/146598773/hr_specialist.pdf",
+    "https://www.lwphr.ch/uploads/1/4/6/5/146598773/direttore_amministrativo_e_finanziario__cfo_.pdf",
+    "https://www.lwphr.ch/uploads/1/4/6/5/146598773/marketing_manager_svizzera.pdf",
+    "https://www.lwphr.ch/uploads/1/4/6/5/146598773/it_security_architect.pdf",
+    "https://www.lwphr.ch/uploads/1/4/6/5/146598773/senior_private_banker_.pdf",
+    "https://www.lwphr.ch/uploads/1/4/6/5/146598773/specialista_contabile_.pdf",
+    "https://www.lwphr.ch/uploads/1/4/6/5/146598773/web_developer.pdf",
+    "https://www.lwphr.ch/uploads/1/4/6/5/146598773/consulente_vendita__lamal.pdf",
+    "https://www.lwphr.ch/uploads/1/4/6/5/146598773/segretaria_legale.pdf",
+    "https://www.lwphr.ch/uploads/1/4/6/5/146598773/full_stack_developer.pdf"
+  ],
+  "notes": "Dedicated LWPHR crawler parses the open positions accordion and extracts descriptions directly from the linked PDF files.",
+  "updatedAt": "2026-03-16T05:44:46.780Z",
+  "seedMetaByUrl": {
+    "https://www.lwphr.ch/uploads/1/4/6/5/146598773/consulente_patrimoniale_senior.pdf": {
+      "location": "Lugano",
+      "canton": "TI",
+      "company": "LWP Ledermann Wieting & Partners",
+      "postedDate": "2026-03-16"
+    },
+    "https://www.lwphr.ch/uploads/1/4/6/5/146598773/hr_specialist.pdf": {
+      "location": "Lugano",
+      "canton": "TI",
+      "company": "LWP Ledermann Wieting & Partners",
+      "postedDate": "2026-03-16"
+    },
+    "https://www.lwphr.ch/uploads/1/4/6/5/146598773/direttore_amministrativo_e_finanziario__cfo_.pdf": {
+      "location": "Ticino",
+      "canton": "TI",
+      "company": "LWP Ledermann Wieting & Partners",
+      "postedDate": "2026-03-16"
+    },
+    "https://www.lwphr.ch/uploads/1/4/6/5/146598773/marketing_manager_svizzera.pdf": {
+      "location": "Ticino",
+      "canton": "TI",
+      "company": "LWP Ledermann Wieting & Partners",
+      "postedDate": "2026-03-16"
+    },
+    "https://www.lwphr.ch/uploads/1/4/6/5/146598773/it_security_architect.pdf": {
+      "location": "Lugano",
+      "canton": "TI",
+      "company": "LWP Ledermann Wieting & Partners",
+      "postedDate": "2026-03-16"
+    },
+    "https://www.lwphr.ch/uploads/1/4/6/5/146598773/senior_private_banker_.pdf": {
+      "location": "Lugano",
+      "canton": "TI",
+      "company": "LWP Ledermann Wieting & Partners",
+      "postedDate": "2026-03-16"
+    },
+    "https://www.lwphr.ch/uploads/1/4/6/5/146598773/specialista_contabile_.pdf": {
+      "location": "Lugano",
+      "canton": "TI",
+      "company": "LWP Ledermann Wieting & Partners",
+      "postedDate": "2026-03-16"
+    },
+    "https://www.lwphr.ch/uploads/1/4/6/5/146598773/web_developer.pdf": {
+      "location": "Lugano",
+      "canton": "TI",
+      "company": "LWP Ledermann Wieting & Partners",
+      "postedDate": "2026-03-16"
+    },
+    "https://www.lwphr.ch/uploads/1/4/6/5/146598773/consulente_vendita__lamal.pdf": {
+      "location": "Mendrisio",
+      "canton": "TI",
+      "company": "LWP Ledermann Wieting & Partners",
+      "postedDate": "2026-03-16"
+    },
+    "https://www.lwphr.ch/uploads/1/4/6/5/146598773/segretaria_legale.pdf": {
+      "location": "Lugano",
+      "canton": "TI",
+      "company": "LWP Ledermann Wieting & Partners",
+      "postedDate": "2026-03-16"
+    },
+    "https://www.lwphr.ch/uploads/1/4/6/5/146598773/full_stack_developer.pdf": {
+      "location": "Lugano",
+      "canton": "TI",
+      "company": "LWP Ledermann Wieting & Partners",
+      "postedDate": "2026-03-16"
+    }
+  }
+}

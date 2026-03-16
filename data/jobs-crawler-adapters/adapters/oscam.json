@@ -1,0 +1,16 @@
+{
+  "companyKey": "oscam",
+  "companyName": "OSCAM – Ospedale e Casa Anziani Malcantonese",
+  "companyHost": "www.oscam.ch",
+  "enabled": true,
+  "priority": 10,
+  "crawlerModes": [
+    "html"
+  ],
+  "seedUrls": [
+    "https://www.oscam.ch/lavoraconnoi/",
+    "https://www.oscam.ch/lavoraconnoi-cam/"
+  ],
+  "notes": "WordPress CMS — \"Concorsi\" listings with h3 titles and PDF download links.",
+  "updatedAt": "2026-03-16T11:26:03.945Z"
+}

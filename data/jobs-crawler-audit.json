@@ -1,0 +1,95 @@
+{
+<<<<<<< Updated upstream
+  "generatedAt": "2026-03-16T12:55:37.470Z",
+  "startedAt": "2026-03-16T12:32:28.079Z",
+=======
+  "generatedAt": "2026-03-16T12:46:27.923Z",
+  "startedAt": "2026-03-16T12:42:36.022Z",
+>>>>>>> Stashed changes
+  "config": {
+    "minQualityScore": 4,
+    "minDescriptionChars": 80,
+    "aiLocalizationEnabled": true,
+    "aiLocalizationMaxJobsPerRun": 500,
+    "contentReuse": {
+      "enabled": true,
+      "similarityThreshold": 0.7,
+      "minSourceChars": 220,
+      "maxLengthDeltaRatio": 0.02
+    },
+    "aiPageValidationEnabled": true,
+    "aiPageValidationMaxPagesPerRun": 40,
+    "webDiscoveryEnabled": false,
+    "browserFallbackEnabled": true,
+    "domainWhitelistCount": 0,
+    "domainBlacklistCount": 0,
+    "source": "file"
+  },
+  "totals": {
+    "companiesParsed": 179,
+    "companiesSelected": 1,
+    "companiesDroppedBySelection": 0,
+    "companiesCrawled": 1,
+    "discoveredCareerPages": 8,
+    "scrapedJobPages": 179,
+    "incomingCandidatesAccepted": 179,
+    "discardedCandidates": 0,
+    "filteredOutNonCandidates": 0,
+    "duplicateInCompany": 0,
+    "webDiscoveryQueries": 0,
+    "webDiscoveryHits": 0,
+    "browserFallbackAttempts": 0,
+    "browserFallbackHits": 0,
+    "duplicateIncoming": 0,
+    "duplicateExisting": 0,
+    "mergeExcludedJobs": 0,
+    "mergeExclusionByReason": {},
+    "reusedLocalizationFromPrevious": 4,
+    "inserted": 96,
+    "refreshed": 83,
+    "mergedTotal": 1007,
+    "aiLocalizationCalls": 144,
+    "aiPageValidationCalls": 0,
+    "deeplCalls": 0,
+    "deeplSuccess": 0,
+    "deeplFallbackToLlm": 0,
+<<<<<<< Updated upstream
+    "aiCacheHits": 154,
+    "aiCacheMisses": 86,
+    "aiCacheEntries": 1434,
+=======
+    "aiCacheHits": 577,
+    "aiCacheMisses": 60,
+    "aiCacheEntries": 1408,
+>>>>>>> Stashed changes
+    "discoveredCompaniesCandidates": 0,
+    "discoveredCompaniesAdded": 0,
+    "discoveredCompaniesPending": 0
+  },
+  "byCompany": [
+    {
+      "company": "Coop Ticino",
+      "domain": "coop.ch",
+      "discoveredCareerPages": 8,
+      "scrapedJobPages": 179,
+      "processedCandidates": 179,
+      "extractedAccepted": 179,
+      "discardedCount": 0,
+      "discardedByReason": {},
+      "filteredOutCount": 0,
+      "filteredOutByReason": {},
+      "duplicateInCompany": 0,
+      "webDiscoveryQueries": 0,
+      "webDiscoveryHits": 0,
+      "webDiscoveryProviders": [],
+      "browserFallbackAttempted": 0,
+      "browserFallbackHits": 0,
+      "browserFallbackReason": "",
+      "inserted": 0,
+      "refreshed": 0,
+      "duplicateIncoming": 0
+    }
+  ],
+  "droppedCompanies": [],
+  "mergeExclusionSamples": []
+}

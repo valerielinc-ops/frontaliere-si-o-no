@@ -1,0 +1,455 @@
+/**
+ * PermitQuiz — Interactive quiz: "Meglio Permesso B o G?"
+ *
+ * Step-by-step quiz that asks 6-8 questions about the user's situation
+ * and recommends the best permit type with a personalized score.
+ * Email-gates the detailed recommendation PDF.
+ *
+ * Target keyword: "meglio permesso b o g svizzera" (~600/mo)
+ */
+
+import React, { useState, useCallback, lazy, Suspense } from 'react';
+import { useTranslation } from '@/services/i18n';
+import { Analytics } from '@/services/analytics';
+import {
+  HelpCircle, ArrowRight, ArrowLeft, CheckCircle2, MapPin, Briefcase, Home,
+  Heart, Clock, TrendingUp, Shield, Wallet, Users, FileText, RotateCcw,
+  ChevronRight, Sparkles
+} from 'lucide-react';
+
+const LeadMagnetCTA = lazy(() => import('@/components/shared/LeadMagnetCTA'));
+const ShareableResultCard = lazy(() => import('@/components/shared/ShareableResultCard'));
+
+// ─── Types ──────────────────────────────────────────────────────────────
+
+interface QuizAnswer {
+  questionId: string;
+  value: string;
+  bScore: number; // Points toward Permit B
+  gScore: number; // Points toward Permit G
+}
+
+interface QuizQuestion {
+  id: string;
+  icon: typeof HelpCircle;
+  options: {
+    value: string;
+    bScore: number;
+    gScore: number;
+  }[];
+}
+
+// ─── Quiz Configuration ─────────────────────────────────────────────────
+
+const QUIZ_QUESTIONS: QuizQuestion[] = [
+  {
+    id: 'residence',
+    icon: Home,
+    options: [
+      { value: 'italy_border', bScore: 0, gScore: 3 },
+      { value: 'italy_far', bScore: 1, gScore: 2 },
+      { value: 'switzerland', bScore: 3, gScore: 0 },
+      { value: 'undecided', bScore: 1, gScore: 1 },
+    ],
+  },
+  {
+    id: 'family',
+    icon: Users,
+    options: [
+      { value: 'single', bScore: 2, gScore: 1 },
+      { value: 'partner_italy', bScore: 0, gScore: 3 },
+      { value: 'partner_ch', bScore: 3, gScore: 0 },
+      { value: 'children_italy', bScore: 0, gScore: 3 },
+      { value: 'children_ch', bScore: 3, gScore: 0 },
+    ],
+  },
+  {
+    id: 'salary',
+    icon: Wallet,
+    options: [
+      { value: 'under_60k', bScore: 1, gScore: 2 },
+      { value: '60k_80k', bScore: 1, gScore: 2 },
+      { value: '80k_100k', bScore: 2, gScore: 1 },
+      { value: 'over_100k', bScore: 3, gScore: 1 },
+    ],
+  },
+  {
+    id: 'duration',
+    icon: Clock,
+    options: [
+      { value: 'short_term', bScore: 0, gScore: 3 },
+      { value: 'medium_term', bScore: 1, gScore: 2 },
+      { value: 'long_term', bScore: 3, gScore: 1 },
+      { value: 'permanent', bScore: 3, gScore: 0 },
+    ],
+  },
+  {
+    id: 'priority',
+    icon: TrendingUp,
+    options: [
+      { value: 'max_net', bScore: 2, gScore: 2 },
+      { value: 'stability', bScore: 3, gScore: 1 },
+      { value: 'flexibility', bScore: 1, gScore: 3 },
+      { value: 'pension', bScore: 3, gScore: 1 },
+    ],
+  },
+  {
+    id: 'healthcare',
+    icon: Heart,
+    options: [
+      { value: 'lamal', bScore: 3, gScore: 1 },
+      { value: 'cme', bScore: 0, gScore: 3 },
+      { value: 'unsure', bScore: 1, gScore: 1 },
+    ],
+  },
+  {
+    id: 'property',
+    icon: MapPin,
+    options: [
+      { value: 'own_italy', bScore: 0, gScore: 3 },
+      { value: 'rent_italy', bScore: 1, gScore: 2 },
+      { value: 'own_ch', bScore: 3, gScore: 0 },
+      { value: 'rent_ch', bScore: 2, gScore: 1 },
+      { value: 'none', bScore: 1, gScore: 1 },
+    ],
+  },
+  {
+    id: 'commute',
+    icon: Briefcase,
+    options: [
+      { value: 'under_30min', bScore: 1, gScore: 3 },
+      { value: '30_60min', bScore: 1, gScore: 2 },
+      { value: 'over_60min', bScore: 2, gScore: 1 },
+      { value: 'remote', bScore: 3, gScore: 1 },
+    ],
+  },
+];
+
+// ─── Component ──────────────────────────────────────────────────────────
+
+const PermitQuiz: React.FC = () => {
+  const { t } = useTranslation();
+  const [currentStep, setCurrentStep] = useState(0);
+  const [answers, setAnswers] = useState<QuizAnswer[]>([]);
+  const [showResults, setShowResults] = useState(false);
+
+  const totalQuestions = QUIZ_QUESTIONS.length;
+  const progress = Math.round((currentStep / totalQuestions) * 100);
+
+  const handleAnswer = useCallback((questionId: string, option: { value: string; bScore: number; gScore: number }) => {
+    const newAnswers = [...answers.filter(a => a.questionId !== questionId), {
+      questionId,
+      value: option.value,
+      bScore: option.bScore,
+      gScore: option.gScore,
+    }];
+    setAnswers(newAnswers);
+
+    // Auto-advance to next question after a short delay
+    setTimeout(() => {
+      if (currentStep < totalQuestions - 1) {
+        setCurrentStep(prev => prev + 1);
+      } else {
+        setShowResults(true);
+        Analytics.trackUIInteraction('permit_quiz', 'quiz', 'complete', `answers_${newAnswers.length}`);
+      }
+    }, 300);
+  }, [answers, currentStep, totalQuestions]);
+
+  const goBack = useCallback(() => {
+    if (currentStep > 0) {
+      setCurrentStep(prev => prev - 1);
+    }
+  }, [currentStep]);
+
+  const restart = useCallback(() => {
+    setCurrentStep(0);
+    setAnswers([]);
+    setShowResults(false);
+  }, []);
+
+  // ─── Results Calculation ────────────────────────────────────────────
+
+  const results = (() => {
+    const totalB = answers.reduce((sum, a) => sum + a.bScore, 0);
+    const totalG = answers.reduce((sum, a) => sum + a.gScore, 0);
+    const max = totalB + totalG || 1;
+    const bPercent = Math.round((totalB / max) * 100);
+    const gPercent = Math.round((totalG / max) * 100);
+
+    let recommendation: 'b' | 'g' | 'similar';
+    if (Math.abs(bPercent - gPercent) < 10) {
+      recommendation = 'similar';
+    } else if (bPercent > gPercent) {
+      recommendation = 'b';
+    } else {
+      recommendation = 'g';
+    }
+
+    return { totalB, totalG, bPercent, gPercent, recommendation };
+  })();
+
+  // ─── Results View ───────────────────────────────────────────────────
+
+  if (showResults) {
+    const { bPercent, gPercent, recommendation } = results;
+
+    const recColor = recommendation === 'b'
+      ? 'blue' : recommendation === 'g'
+      ? 'emerald' : 'amber';
+
+    return (
+      <div className="max-w-2xl mx-auto">
+        {/* Header */}
+        <div className="text-center mb-8">
+          <div className="w-16 h-16 bg-gradient-to-br from-violet-500 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
+            <Sparkles size={28} className="text-white" />
+          </div>
+          <h2 className="text-2xl font-bold text-slate-800 dark:text-slate-100">
+            {t('permitQuiz.results.title')}
+          </h2>
+          <p className="text-slate-600 dark:text-slate-400 mt-2">
+            {t('permitQuiz.results.subtitle')}
+          </p>
+        </div>
+
+        {/* Score Bars */}
+        <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-4 sm:p-6 mb-6">
+          <div className="space-y-4">
+            {/* Permit B */}
+            <div>
+              <div className="flex items-center justify-between mb-2">
+                <span className="font-semibold text-slate-700 dark:text-slate-200">
+                  {t('permitQuiz.results.permitB')}
+                </span>
+                <span className="text-lg font-bold text-blue-600 dark:text-blue-400">{bPercent}%</span>
+              </div>
+              <div className="h-4 bg-slate-100 dark:bg-slate-700 rounded-full overflow-hidden">
+                <div
+                  className="h-full bg-gradient-to-r from-blue-500 to-blue-600 rounded-full transition-all duration-1000"
+                  style={{ width: `${bPercent}%` }}
+                />
+              </div>
+            </div>
+
+            {/* Permit G */}
+            <div>
+              <div className="flex items-center justify-between mb-2">
+                <span className="font-semibold text-slate-700 dark:text-slate-200">
+                  {t('permitQuiz.results.permitG')}
+                </span>
+                <span className="text-lg font-bold text-emerald-600 dark:text-emerald-400">{gPercent}%</span>
+              </div>
+              <div className="h-4 bg-slate-100 dark:bg-slate-700 rounded-full overflow-hidden">
+                <div
+                  className="h-full bg-gradient-to-r from-emerald-500 to-emerald-600 rounded-full transition-all duration-1000"
+                  style={{ width: `${gPercent}%` }}
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Recommendation */}
+        <div className={`bg-${recColor}-50 dark:bg-${recColor}-900/20 border border-${recColor}-200 dark:border-${recColor}-800 rounded-2xl p-4 sm:p-6 mb-6`}>
+          <div className="flex items-start gap-4">
+            <div className={`w-12 h-12 rounded-xl bg-${recColor}-100 dark:bg-${recColor}-800 flex items-center justify-center shrink-0`}>
+              <CheckCircle2 size={24} className={`text-${recColor}-600 dark:text-${recColor}-400`} />
+            </div>
+            <div>
+              <h3 className="font-bold text-lg text-slate-800 dark:text-slate-100">
+                {t(`permitQuiz.results.rec.${recommendation}`)}
+              </h3>
+              <p className="text-slate-600 dark:text-slate-400 mt-1 text-sm">
+                {t(`permitQuiz.results.recDesc.${recommendation}`)}
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Key Factors */}
+        <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-4 sm:p-6 mb-6">
+          <h3 className="font-bold text-slate-800 dark:text-slate-100 mb-4 flex items-center gap-2">
+            <FileText size={18} className="text-violet-500" />
+            {t('permitQuiz.results.factors')}
+          </h3>
+          <div className="space-y-3">
+            {answers.map(a => {
+              const dominant = a.bScore > a.gScore ? 'B' : a.gScore > a.bScore ? 'G' : '=';
+              return (
+                <div key={a.questionId} className="flex items-center justify-between py-2 border-b border-slate-100 dark:border-slate-700 last:border-0">
+                  <span className="text-sm text-slate-600 dark:text-slate-400">
+                    {t(`permitQuiz.q.${a.questionId}.title`)}
+                  </span>
+                  <div className="flex items-center gap-2">
+                    <span className="text-xs text-slate-500 dark:text-slate-500">
+                      {t(`permitQuiz.q.${a.questionId}.opt.${a.value}`)}
+                    </span>
+                    <span className={`text-xs font-bold px-2 py-0.5 rounded-full ${
+                      dominant === 'B' ? 'bg-blue-100 text-blue-700 dark:bg-blue-900 dark:text-blue-300' :
+                      dominant === 'G' ? 'bg-emerald-100 text-emerald-700 dark:bg-emerald-900 dark:text-emerald-300' :
+                      'bg-amber-100 text-amber-700 dark:bg-amber-900 dark:text-amber-300'
+                    }`}>
+                      {dominant === '=' ? '≈' : `→ ${dominant}`}
+                    </span>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Lead Magnet CTA */}
+        <Suspense fallback={null}>
+          <LeadMagnetCTA variant="relocation" delay={3000} />
+        </Suspense>
+
+        {/* Shareable result card */}
+        <Suspense fallback={null}>
+          <ShareableResultCard
+            title={t('permitQuiz.results.title') || 'Quiz Permesso B o G'}
+            subtitle={t(`permitQuiz.results.${recommendation}`) || ''}
+            rows={[
+              { label: 'Permesso B', value: `${bPercent}%`, highlight: recommendation === 'b', color: 'blue' },
+              { label: 'Permesso G', value: `${gPercent}%`, highlight: recommendation === 'g', color: 'emerald' },
+            ]}
+            accent="violet"
+            context="permit-quiz"
+          />
+        </Suspense>
+
+        {/* Restart */}
+        <div className="text-center mt-6">
+          <button
+            onClick={restart}
+            className="inline-flex items-center gap-2 text-sm text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200 transition-colors"
+            aria-label={t('permitQuiz.restart')}
+          >
+            <RotateCcw size={14} />
+            {t('permitQuiz.restart')}
+          </button>
+        </div>
+      </div>
+    );
+  }
+
+  // ─── Quiz Steps ─────────────────────────────────────────────────────
+
+  const question = QUIZ_QUESTIONS[currentStep];
+  const Icon = question.icon;
+  const currentAnswer = answers.find(a => a.questionId === question.id);
+
+  return (
+    <div className="max-w-2xl mx-auto">
+      {/* Header */}
+      <div className="text-center mb-8">
+        <div className="w-14 h-14 bg-gradient-to-br from-violet-500 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
+          <HelpCircle size={24} className="text-white" />
+        </div>
+        <h2 className="text-2xl font-bold text-slate-800 dark:text-slate-100">
+          {t('permitQuiz.title')}
+        </h2>
+        <p className="text-slate-600 dark:text-slate-400 mt-2 text-sm">
+          {t('permitQuiz.subtitle')}
+        </p>
+      </div>
+
+      {/* Progress */}
+      <div className="mb-6">
+        <div className="flex items-center justify-between text-xs text-slate-500 dark:text-slate-400 mb-2">
+          <span>{t('permitQuiz.question')} {currentStep + 1} / {totalQuestions}</span>
+          <span>{progress}%</span>
+        </div>
+        <div className="h-2 bg-slate-100 dark:bg-slate-700 rounded-full overflow-hidden">
+          <div
+            className="h-full bg-gradient-to-r from-violet-500 to-purple-600 rounded-full transition-all duration-500"
+            style={{ width: `${progress}%` }}
+          />
+        </div>
+      </div>
+
+      {/* Question */}
+      <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-6">
+        <div className="flex items-center gap-3 mb-5">
+          <div className="w-10 h-10 rounded-xl bg-violet-100 dark:bg-violet-800 flex items-center justify-center">
+            <Icon size={20} className="text-violet-600 dark:text-violet-300" />
+          </div>
+          <h3 className="font-bold text-lg text-slate-800 dark:text-slate-100">
+            {t(`permitQuiz.q.${question.id}.title`)}
+          </h3>
+        </div>
+
+        <p className="text-sm text-slate-600 dark:text-slate-400 mb-4">
+          {t(`permitQuiz.q.${question.id}.desc`)}
+        </p>
+
+        {/* Options */}
+        <div className="space-y-2">
+          {question.options.map(opt => {
+            const isSelected = currentAnswer?.value === opt.value;
+            return (
+              <button
+                key={opt.value}
+                onClick={() => handleAnswer(question.id, opt)}
+                className={`w-full text-left px-4 py-3 rounded-xl border transition-all ${
+                  isSelected
+                    ? 'border-violet-500 bg-violet-50 dark:bg-violet-900/30 dark:border-violet-600 ring-2 ring-violet-200 dark:ring-violet-800'
+                    : 'border-slate-200 dark:border-slate-600 hover:border-violet-300 dark:hover:border-violet-700 hover:bg-violet-50/50 dark:hover:bg-violet-900/10'
+                }`}
+                aria-label={t(`permitQuiz.q.${question.id}.opt.${opt.value}`)}
+              >
+                <div className="flex items-center gap-3">
+                  <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center ${
+                    isSelected ? 'border-violet-500 bg-violet-500' : 'border-slate-300 dark:border-slate-500'
+                  }`}>
+                    {isSelected && <div className="w-2 h-2 rounded-full bg-white" />}
+                  </div>
+                  <span className={`text-sm ${isSelected ? 'font-semibold text-violet-700 dark:text-violet-300' : 'text-slate-700 dark:text-slate-200'}`}>
+                    {t(`permitQuiz.q.${question.id}.opt.${opt.value}`)}
+                  </span>
+                </div>
+              </button>
+            );
+          })}
+        </div>
+      </div>
+
+      {/* Navigation */}
+      <div className="flex items-center justify-between mt-6">
+        <button
+          onClick={goBack}
+          disabled={currentStep === 0}
+          className="flex items-center gap-2 text-sm text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200 disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
+          aria-label={t('permitQuiz.back')}
+        >
+          <ArrowLeft size={16} />
+          {t('permitQuiz.back')}
+        </button>
+
+        {currentAnswer && currentStep < totalQuestions - 1 && (
+          <button
+            onClick={() => setCurrentStep(prev => prev + 1)}
+            className="flex items-center gap-2 text-sm bg-violet-600 hover:bg-violet-700 text-white px-4 py-2 rounded-xl transition-all"
+            aria-label={t('permitQuiz.next')}
+          >
+            {t('permitQuiz.next')}
+            <ArrowRight size={16} />
+          </button>
+        )}
+
+        {currentAnswer && currentStep === totalQuestions - 1 && (
+          <button
+            onClick={() => { setShowResults(true); Analytics.trackUIInteraction('permit_quiz', 'quiz', 'complete', `answers_${answers.length}`); }}
+            className="flex items-center gap-2 text-sm bg-violet-600 hover:bg-violet-700 text-white px-4 py-2 rounded-xl transition-all"
+            aria-label={t('permitQuiz.showResults')}
+          >
+            {t('permitQuiz.showResults')}
+            <ChevronRight size={16} />
+          </button>
+        )}
+      </div>
+    </div>
+  );
+};
+
+export default PermitQuiz;

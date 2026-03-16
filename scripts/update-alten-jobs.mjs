@@ -1,0 +1,310 @@
+#!/usr/bin/env node
+import fs from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+import { chromium } from 'playwright';
+import {
+  printPublishedJobUrls,
+  writeJobsSummary,
+  snapshotJobSlugs,
+  computeCrawlDiff,
+  printCrawlChangeSummary,
+  writeCrawlChangeSummaryToGH,
+} from './jobs-url-helper.mjs';
+import {
+  translateMissingJobLocales,
+  validateDedicatedLocaleCoverage,
+  detectLang,
+} from './lib/dedicated-crawler-common.mjs';
+import {
+  parseAltenListingHtml,
+  parseAltenDetailHtml,
+  inferAltenCategory,
+} from './lib/alten-job-parser.mjs';
+import { inferSwissTargetCanton } from './lib/target-swiss-locations.mjs';
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const ROOT = path.resolve(__dirname, '..');
+const DATA_JOBS = path.resolve(ROOT, 'data', 'jobs.json');
+const PUBLIC_JOBS = path.resolve(ROOT, 'public', 'data', 'jobs.json');
+const ADAPTER_PATH = path.resolve(ROOT, 'data', 'jobs-crawler-adapters', 'adapters', 'alten-switzerland.json');
+
+const COMPANY_KEY = 'alten-switzerland';
+const COMPANY_NAME = 'ALTEN Switzerland';
+const COMPANY_DOMAIN = 'alten.ch';
+const COMPANY_HOST = 'www.alten.ch';
+const CAREERS_URL = 'https://www.alten.ch/career/jobs/?pagenum=1&per_page=100';
+const LOCALES = ['it', 'en', 'de', 'fr'];
+
+function readJson(filePath, fallback) {
+  try {
+    return JSON.parse(fs.readFileSync(filePath, 'utf8'));
+  } catch {
+    return fallback;
+  }
+}
+
+function writeJson(filePath, value) {
+  fs.writeFileSync(filePath, `${JSON.stringify(value, null, 2)}\n`, 'utf8');
+}
+
+function normalize(value = '') {
+  return String(value || '').trim().toLowerCase();
+}
+
+function normalizeKey(value = '') {
+  return String(value || '')
+    .trim()
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+}
+
+function toIsoDate(raw = '') {
+  const value = String(raw || '').trim();
+  if (/^\d{2}\/\d{2}\/\d{4}$/.test(value)) {
+    const [dd, mm, yyyy] = value.split('/');
+    return `${yyyy}-${mm}-${dd}`;
+  }
+  const parsed = new Date(value);
+  if (Number.isNaN(parsed.getTime())) return new Date().toISOString().slice(0, 10);
+  return parsed.toISOString().slice(0, 10);
+}
+
+function isTargetJob(job = {}) {
+  const key = normalizeKey(job.companyKey || job.company || '');
+  const company = normalize(job.company || '');
+  const url = String(job.url || '').toLowerCase();
+  return key === COMPANY_KEY || company.includes('alten switzerland') || url.includes('www.alten.ch/jobs/');
+}
+
+function isTrustedDomain(rawUrl = '') {
+  try {
+    const host = new URL(rawUrl).hostname.toLowerCase();
+    return host === 'www.alten.ch' || host === 'alten.ch';
+  } catch {
+    return false;
+  }
+}
+
+async function waitForListing(page) {
+  const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 60000;
+  const started = Date.now();
+  while (Date.now() - started < timeoutMs) {
+    const title = await page.title();
+    const content = await page.textContent('body').catch(() => '');
+    if (/Career - ALTEN Switzerland/i.test(title) && /Job offers/i.test(content || '')) return true;
+    await page.waitForTimeout(1000);
+  }
+  return false;
+}
+
+async function waitForDetail(page) {
+  const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 60000;
+  const started = Date.now();
+  while (Date.now() - started < timeoutMs) {
+    const title = await page.title();
+    const content = await page.textContent('body').catch(() => '');
+    if (/ALTEN Switzerland/i.test(title) && (/APPLY/i.test(content || '') || /Job info/i.test(content || '') || /Responsibilities/i.test(content || ''))) return true;
+    await page.waitForTimeout(1000);
+  }
+  return false;
+}
+
+async function withBrowser(fn) {
+  const browser = await chromium.launch({ headless: process.env.JOBS_ALTEN_HEADLESS === '1' });
+  const context = await browser.newContext({
+    userAgent:
+      process.env.JOBS_CRAWLER_USER_AGENT ||
+      'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36',
+    viewport: { width: 1440, height: 1200 },
+    locale: 'en-US',
+  });
+  const page = await context.newPage();
+  try {
+    return await fn(page);
+  } finally {
+    await context.close();
+    await browser.close();
+  }
+}
+
+async function discoverListings() {
+  console.log('🔍 Fetching ALTEN jobs with browser session...');
+  try {
+    return await withBrowser(async (page) => {
+      await page.goto(CAREERS_URL, { waitUntil: 'domcontentloaded', timeout: 60000 });
+      const ok = await waitForListing(page);
+      if (!ok) throw new Error('ALTEN listing did not become available in browser session');
+      const html = await page.content();
+      const listings = parseAltenListingHtml(html);
+      console.log(`📋 Total TI/GR ALTEN jobs discovered: ${listings.length}`);
+      for (const listing of listings) console.log(`  📄 ${listing.title} (${listing.location})`);
+      if (listings.length < 1) throw new Error(`Expected at least 1 ALTEN TI/GR job, found ${listings.length}`);
+      return listings;
+    });
+  } catch (err) {
+    if (/did not become available|net::ERR_|timeout|403/i.test(err.message)) {
+      console.warn(`⚠️  ALTEN site unreachable: ${err.message}`);
+      console.log('ℹ️  Keeping existing data — no updates this run.');
+      return null;
+    }
+    throw err;
+  }
+}
+
+async function buildJobs(listings) {
+  return withBrowser(async (page) => {
+    const jobs = [];
+    for (const listing of listings) {
+      await page.goto(CAREERS_URL, { waitUntil: 'domcontentloaded', timeout: 60000 });
+      const ok = await waitForListing(page);
+      if (!ok) throw new Error('ALTEN listing session could not be initialized');
+      await page.locator(`a.card-title[href="${listing.href}"]`).first().click();
+      const detailOk = await waitForDetail(page);
+      if (!detailOk) throw new Error(`ALTEN detail page challenge did not resolve for ${listing.href}`);
+      const parsed = parseAltenDetailHtml(await page.content(), listing.href);
+      const canton = inferSwissTargetCanton(parsed.location) || 'TI';
+      jobs.push({
+        title: parsed.title,
+        slug: parsed.slug,
+        url: listing.href,
+        applyUrl: parsed.applyUrl,
+        company: COMPANY_NAME,
+        companyKey: COMPANY_KEY,
+        companyDomain: COMPANY_DOMAIN,
+        location: parsed.location,
+        addressLocality: parsed.location,
+        addressRegion: canton,
+        addressCountry: 'CH',
+        canton,
+        country: 'CH',
+        employmentType: 'full-time',
+        contractType: 'full-time',
+        category: inferAltenCategory(parsed.title, parsed.description),
+        sector: 'IT Consulting & Engineering',
+        source: 'alten-dedicated-crawler',
+        sourceLang: detectLang(parsed.description || '', 'en'),
+        postedDate: toIsoDate(parsed.postedDate || listing.postedDate),
+        validThrough: '',
+        description: parsed.description,
+        titleByLocale: parsed.titleByLocale,
+        descriptionByLocale: parsed.descriptionByLocale,
+        slugByLocale: parsed.slugByLocale,
+      });
+    }
+    return jobs;
+  });
+}
+
+function jobMatchKey(job = {}) {
+  return String(job.url || '').trim().toLowerCase() || String(job.slug || '').trim().toLowerCase();
+}
+
+function mergeJobs(discoveredJobs) {
+  const existing = readJson(DATA_JOBS, []);
+  const nonTargetJobs = existing.filter((job) => !isTargetJob(job));
+  const targetExisting = existing.filter(isTargetJob);
+  const beforeSnapshot = snapshotJobSlugs(targetExisting);
+  const existingByKey = new Map(targetExisting.map((job) => [jobMatchKey(job), job]));
+
+  let added = 0;
+  let updated = 0;
+  const mergedTarget = discoveredJobs.map((job) => {
+    const prev = existingByKey.get(jobMatchKey(job));
+    if (!prev) {
+      added += 1;
+      return job;
+    }
+    updated += 1;
+    return {
+      ...prev,
+      ...job,
+      titleByLocale: { ...(prev.titleByLocale || {}), ...(job.titleByLocale || {}) },
+      descriptionByLocale: { ...(prev.descriptionByLocale || {}), ...(job.descriptionByLocale || {}) },
+      slugByLocale: { ...(prev.slugByLocale || {}), ...(job.slugByLocale || {}) },
+    };
+  });
+
+  const allJobs = [...nonTargetJobs, ...mergedTarget];
+  writeJson(DATA_JOBS, allJobs);
+  writeJson(PUBLIC_JOBS, allJobs);
+
+  const afterSnapshot = snapshotJobSlugs(mergedTarget);
+  const diff = computeCrawlDiff(beforeSnapshot, afterSnapshot);
+  printCrawlChangeSummary(diff, 'ALTEN Switzerland');
+  writeCrawlChangeSummaryToGH(diff, 'ALTEN Switzerland');
+  writeJobsSummary(mergedTarget, 'ALTEN Switzerland');
+  printPublishedJobUrls(mergedTarget, 'ALTEN Switzerland');
+  return { total: mergedTarget.length, added, updated };
+}
+
+function updateAdapterConfig(jobs) {
+  const seedMetaByUrl = {};
+  for (const job of jobs) {
+    seedMetaByUrl[job.url] = {
+      location: job.location,
+      canton: job.canton || 'TI',
+      company: COMPANY_NAME,
+      postedDate: job.postedDate,
+    };
+  }
+  writeJson(ADAPTER_PATH, {
+    companyKey: COMPANY_KEY,
+    companyName: COMPANY_NAME,
+    companyHost: COMPANY_HOST,
+    enabled: true,
+    priority: 16,
+    crawlerModes: ['browser', 'html'],
+    seedUrls: [CAREERS_URL],
+    notes: 'Dedicated ALTEN Switzerland crawler uses a real browser session to bypass Cloudflare challenge and extracts TI/GR jobs from the ALTEN Switzerland job board.',
+    updatedAt: new Date().toISOString(),
+    seedMetaByUrl,
+  });
+}
+
+function validateLocales() {
+  validateDedicatedLocaleCoverage({
+    strictEnvVar: 'JOBS_ALTEN_STRICT',
+    label: 'ALTEN Switzerland',
+    dataJobsPath: DATA_JOBS,
+    isTargetJob,
+    locales: LOCALES,
+    isTrustedDomain,
+    untrustedDomainReason: 'url_not_alten_domain',
+    failWhenNoJobs: true,
+    noJobsMessage: 'No ALTEN jobs found after dedicated crawl.',
+    detectSourceLang: (text) => detectLang(text, 'en'),
+  });
+}
+
+async function main() {
+  console.log('═══════════════════════════════════════════════');
+  console.log('  ALTEN Switzerland — Dedicated Crawler');
+  console.log('═══════════════════════════════════════════════');
+  const listings = await discoverListings();
+  if (!listings) {
+    console.log('⏩ Skipping ALTEN update — site unavailable.');
+    printCrawlChangeSummary({ newJobs: [], updatedJobs: [], removedJobs: [], unchangedCount: 0 }, 'ALTEN Switzerland');
+    return;
+  }
+  const jobs = await buildJobs(listings);
+  const result = mergeJobs(jobs);
+  updateAdapterConfig(jobs);
+  await translateMissingJobLocales({
+    dataJobsPath: DATA_JOBS,
+    isTargetJob,
+  });
+  const refreshed = readJson(DATA_JOBS, []).filter(isTargetJob);
+  writeJobsSummary(refreshed, 'ALTEN Switzerland');
+  printPublishedJobUrls(refreshed, 'ALTEN Switzerland');
+  validateLocales();
+  console.log(`🏢 Total ALTEN jobs: ${result.total}`);
+}
+
+main().catch((error) => {
+  console.error(`❌ ALTEN crawler failed: ${error.stack || error.message || String(error)}`);
+  process.exitCode = 1;
+});

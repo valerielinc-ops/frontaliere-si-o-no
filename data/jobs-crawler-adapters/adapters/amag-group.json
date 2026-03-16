@@ -1,0 +1,12 @@
+{
+  "companyKey": "amag-group",
+  "companyName": "AMAG Group",
+  "companyHost": "jobs.amag-group.ch",
+  "enabled": true,
+  "priority": 18,
+  "crawlerModes": ["html", "jsonld"],
+  "seedUrls": ["https://jobs.amag-group.ch/it"],
+  "notes": "Dedicated AMAG Group crawler fetches Italian listing (pre-filtered to Ticino) + German full listing, enriches with JSON-LD JobPosting from detail pages.",
+  "updatedAt": "2025-07-25T00:00:00.000Z",
+  "seedMetaByUrl": {}
+}

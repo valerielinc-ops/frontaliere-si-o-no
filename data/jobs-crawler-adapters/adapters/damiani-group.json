@@ -1,0 +1,35 @@
+{
+  "companyKey": "damiani-group",
+  "companyName": "Damiani Group",
+  "companyHost": "careers.damianigroup.com",
+  "enabled": true,
+  "priority": 16,
+  "crawlerModes": [
+    "html"
+  ],
+  "seedUrls": [
+    "https://careers.damianigroup.com/search/?locale=it_IT"
+  ],
+  "notes": "Dedicated Damiani Group crawler parses SuccessFactors search pages and keeps only Ticino jobs from the Damiani careers portal.",
+  "updatedAt": "2026-03-10T16:45:58.143Z",
+  "seedMetaByUrl": {
+    "https://careers.damianigroup.com/job/Mendrisio-Treasury-Specialist/1327326955/": {
+      "location": "Mendrisio",
+      "canton": "TI",
+      "company": "Damiani Group",
+      "postedDate": "2026-03-09"
+    },
+    "https://careers.damianigroup.com/job/Mendrisio-Customer-Service-Specialist-Arabic-or-Russian-Speaking/1344099155/": {
+      "location": "Mendrisio",
+      "canton": "TI",
+      "company": "Damiani Group",
+      "postedDate": "2026-03-04"
+    },
+    "https://careers.damianigroup.com/job/Mendrisio-IT-Business-Intelligence-Developer-%28Microsoft-Ecosystem%29/1337028555/": {
+      "location": "Mendrisio",
+      "canton": "TI",
+      "company": "Damiani Group",
+      "postedDate": "2026-02-11"
+    }
+  }
+}

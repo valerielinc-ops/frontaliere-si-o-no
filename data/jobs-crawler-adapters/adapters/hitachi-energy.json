@@ -1,0 +1,14 @@
+{
+  "companyKey": "hitachi-energy",
+  "companyName": "Hitachi Energy",
+  "companyHost": "www.hitachienergy.com",
+  "enabled": true,
+  "priority": 18,
+  "crawlerModes": ["api"],
+  "seedUrls": [
+    "https://www.hitachienergy.com/careers/open-jobs?filterable587622750-location=Switzerland"
+  ],
+  "notes": "Dedicated Hitachi Energy crawler uses the AEM JSON listing API filtered to Switzerland, then filters for Ticino/GR locations. ATS: Workday. Apply URLs → hitachi.wd1.myworkdayjobs.com.",
+  "updatedAt": "2026-03-13T00:00:00.000Z",
+  "seedMetaByUrl": {}
+}

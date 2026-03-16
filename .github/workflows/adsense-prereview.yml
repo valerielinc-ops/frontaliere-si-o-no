@@ -1,0 +1,66 @@
+name: AdSense Pre-Review Checklist
+
+on:
+  schedule:
+    # Daily at 06:20 UTC
+    - cron: '20 6 * * *'
+  workflow_dispatch:
+    inputs:
+      sample:
+        description: 'Sample pages to audit (default 140)'
+        required: false
+        default: '140'
+        type: string
+      strict:
+        description: 'Fail workflow on blocking findings'
+        required: false
+        default: 'true'
+        type: choice
+        options:
+          - 'true'
+          - 'false'
+
+permissions:
+  contents: read
+
+jobs:
+  adsense-prereview:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Run AdSense pre-review audit
+        run: |
+          SAMPLE="${{ inputs.sample || '140' }}"
+          STRICT="${{ inputs.strict || 'true' }}"
+          FLAGS="--sample $SAMPLE --save"
+          if [ "$STRICT" = "true" ]; then
+            FLAGS="$FLAGS --strict"
+          fi
+          echo "Running: node scripts/adsense-prereview-audit.mjs $FLAGS"
+          node scripts/adsense-prereview-audit.mjs $FLAGS
+
+      - name: Upload report artifacts
+        if: always()
+        uses: actions/upload-artifact@v5
+        with:
+          name: adsense-prereview-${{ github.run_number }}
+          path: |
+            reports/adsense-prereview-*.json
+            reports/adsense-prereview-*.md
+          retention-days: 90

@@ -1,0 +1,17 @@
+{
+  "companyKey": "ente-ospedaliero-cantonale-eoc",
+  "companyName": "Ente Ospedaliero Cantonale (EOC)",
+  "companyHost": "eoc.ch",
+  "enabled": false,
+  "priority": 0,
+  "crawlerModes": [
+    "generic_ats",
+    "html",
+    "jsonld"
+  ],
+  "seedUrls": [
+    "https://recruitingapp-2761.umantis.com/Jobs/4?CompanyID=67|65|63|61|59|57|55|42|40|38|36|34|32|30|28|26|24|22|1&DesignID=10003&lang=ita&Reset=G&Search=Cerca"
+  ],
+  "notes": "DEPRECATED — use eoc-ente-ospedaliero-cantonale adapter instead. Umantis ATS at recruitingapp-2761.umantis.com — EOC hospital job listings for all institutes.",
+  "updatedAt": "2026-03-01T00:00:00.000Z"
+}

@@ -1,0 +1,5161 @@
+// Auto-generated: Blog article SEO metadata (lazy-loaded chunk)
+// This file is code-split from seoService.ts to reduce initial bundle size.
+// ~270 entries loaded only when navigating to a blog article.
+//
+// BUILD PLUGINS: vite.config.ts staticPagesPlugin and ogPagesPlugin regex-parse
+// this file at build time. Keep the same format as BASE_SEO_METADATA entries.
+
+import type { SEOMetadata } from '../seoService';
+
+const BASE_URL = 'https://www.frontaliereticino.ch';
+
+const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
+  'blog-stipendio-netto-2026': {
+    title: 'Stipendio Netto Frontaliere 2026 | Calcolo Completo | Frontaliere Ticino',
+    description: 'Come calcolare lo stipendio netto da frontaliere nel 2026: deduzioni AVS, LPP, imposta alla fonte, IRPEF italiana, nuovo accordo fiscale. Guida con esempi pratici e simulatore.',
+    keywords: 'stipendio netto frontaliere 2026, calcolo stipendio svizzera, deduzioni avs lpp, imposta alla fonte ticino, nuovo accordo fiscale frontalieri, stipendio lordo netto svizzera',
+    ogTitle: 'Stipendio Netto Frontaliere 2026 | Calcolo Completo',
+    ogDescription: 'Guida completa al calcolo dello stipendio netto per frontalieri: deduzioni svizzere, IRPEF, nuovo accordo fiscale 2024.',
+    canonicalPath: '/articoli-frontaliere/stipendio-netto-frontaliere-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Stipendio netto frontaliere 2026: come calcolarlo",
+      "description": "Guida completa al calcolo dello stipendio netto per chi lavora in Svizzera e risiede in Italia",
+      "image": { "@type": "ImageObject", "url": `${BASE_URL}/images/places/lugano-view.jpg`, "width": 1344, "height": 756, "caption": "Panorama di Lugano con il lago e le montagne sullo sfondo, simbolo del lavoro frontaliero in Ticino." },
+      "datePublished": "2026-01-15T00:00:00+01:00",
+      "dateModified": "2026-02-17T00:00:00+01:00",
+      "inLanguage": "it",
+      "articleSection": "Fiscale",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}` },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL, "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026`
+    }
+  },
+
+  'blog-nuovo-accordo-fiscale': {
+    title: 'Nuovo Accordo Fiscale Italia-Svizzera 2024 | Cosa Cambia per i Frontalieri',
+    description: 'Il nuovo accordo fiscale Italia-Svizzera 2024: imposizione concorrente, franchigia €10.000, ristorni 20%, differenze vecchi e nuovi frontalieri. Guida aggiornata.',
+    keywords: 'nuovo accordo fiscale frontalieri 2024, imposizione concorrente svizzera italia, franchigia 10000 euro, ristorni fiscali, vecchi nuovi frontalieri, doppia imposizione',
+    ogTitle: 'Nuovo Accordo Fiscale 2024 | Frontalieri Svizzera-Italia',
+    ogDescription: 'Il nuovo accordo fiscale 2024: imposizione concorrente, franchigia €10.000, ristorni. Tutto quello che devi sapere.',
+    canonicalPath: '/articoli-frontaliere/nuovo-accordo-fiscale-2024',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Nuovo Accordo Fiscale 2024: cosa cambia per i frontalieri",
+      "description": "Dal 2024 le regole fiscali per i frontalieri sono cambiate con il nuovo accordo Italia-Svizzera",
+      "image": { "@type": "ImageObject", "url": `${BASE_URL}/images/places/bellinzona.jpg`, "width": 1344, "height": 756, "caption": "Veduta dei castelli di Bellinzona con le Alpi, sede delle trattative fiscali Italia-Svizzera." },
+      "datePublished": "2026-01-10T00:00:00+01:00",
+      "dateModified": "2026-02-17T00:00:00+01:00",
+      "inLanguage": "it",
+      "articleSection": "Fiscale",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}` },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL, "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024`
+    }
+  },
+
+  'blog-lamal-vs-cmi': {
+    title: 'LAMal vs CMI Frontaliere | Quale Assicurazione Sanitaria Scegliere',
+    description: 'Confronto dettagliato LAMal svizzera vs CMI/SSN italiano per frontalieri: costi, copertura, diritto di opzione, pro e contro. Guida alla scelta con calcolatore premi.',
+    keywords: 'lamal frontaliere, cmi frontaliere, assicurazione sanitaria frontaliere, diritto opzione lamal, cassa malati svizzera, ssn frontaliere, confronto lamal cmi',
+    ogTitle: 'LAMal vs CMI | Assicurazione Sanitaria Frontaliere',
+    ogDescription: 'Confronto completo LAMal vs CMI per frontalieri: costi, copertura, diritto di opzione. Quale conviene?',
+    canonicalPath: '/articoli-frontaliere/lamal-vs-cmi-frontaliere',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "LAMal vs CMI: quale assicurazione scegliere per il frontaliere",
+      "description": "Confronto tra cassa malati svizzera e mutua italiana per frontalieri",
+      "image": { "@type": "ImageObject", "url": `${BASE_URL}/images/places/mendrisio.jpg`, "width": 1344, "height": 756, "caption": "Centro storico di Mendrisio al tramonto, porta d'ingresso del Ticino per i frontalieri." },
+      "datePublished": "2026-01-05T00:00:00+01:00",
+      "dateModified": "2026-02-17T00:00:00+01:00",
+      "inLanguage": "it",
+      "articleSection": "Pratico",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}` },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL, "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/lamal-vs-cmi-frontaliere`
+    }
+  },
+
+  'blog-primo-giorno-frontaliere': {
+    title: 'Primo Giorno da Frontaliere | Checklist Completa | Frontaliere Ticino',
+    description: 'Checklist completa per il primo giorno di lavoro in Svizzera: documenti, permesso G, dogana, conto bancario, consigli pratici. Preparati al meglio.',
+    keywords: 'primo giorno frontaliere, checklist frontaliere, documenti lavoro svizzera, permesso g primo giorno, dogana primo giorno, consigli frontaliere',
+    ogTitle: 'Primo Giorno da Frontaliere | Checklist Completa',
+    ogDescription: 'Checklist per il primo giorno di lavoro in Svizzera: documenti, dogana, conto bancario e consigli pratici.',
+    canonicalPath: '/articoli-frontaliere/primo-giorno-lavoro-svizzera',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Primo Giorno da Frontaliere | Checklist Completa",
+      "description": "Tutto quello che devi preparare prima del primo giorno di lavoro in Svizzera",
+      "image": { "@type": "ImageObject", "url": `${BASE_URL}/images/places/castelgrande.jpg`, "width": 1344, "height": 756, "caption": "Castelgrande di Bellinzona visto dal basso, prima tappa del viaggio da frontaliere." },
+      "datePublished": "2025-12-20T00:00:00+01:00",
+      "dateModified": "2026-02-17T00:00:00+01:00",
+      "inLanguage": "it",
+      "articleSection": "Pratico",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}` },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL, "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/primo-giorno-lavoro-svizzera`
+    }
+  },
+
+  'blog-tredicesima-frontaliere': {
+    title: 'Tredicesima Frontaliere Netta | Come Calcolarla | Frontaliere Ticino',
+    description: 'Calcolo tredicesima netta per frontalieri in Svizzera: deduzioni AVS, LPP, imposta alla fonte. Differenze con la tredicesima italiana, impatto IRPEF.',
+    keywords: 'tredicesima frontaliere, tredicesima netta svizzera, 13esima mensilità frontaliere, deduzioni tredicesima, calcolo tredicesima netta',
+    ogTitle: 'Tredicesima Frontaliere Netta | Come Calcolarla',
+    ogDescription: 'Come calcolare la tredicesima netta da frontaliere: deduzioni svizzere e impatto fiscale italiano.',
+    canonicalPath: '/articoli-frontaliere/tredicesima-netta-frontaliere',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Tredicesima Frontaliere Netta | Come Calcolarla",
+      "description": "Come calcolare la tredicesima netta di un frontaliere con tutte le deduzioni",
+      "image": { "@type": "ImageObject", "url": `${BASE_URL}/images/places/locarno.jpg`, "width": 1344, "height": 756, "caption": "Piazza Grande di Locarno con i portici, simbolo del reddito e della qualità di vita in Ticino." },
+      "datePublished": "2025-12-15T00:00:00+01:00",
+      "dateModified": "2026-02-17T00:00:00+01:00",
+      "inLanguage": "it",
+      "articleSection": "Fiscale",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}` },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL, "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tredicesima-netta-frontaliere`
+    }
+  },
+
+  'blog-pilastro-3a-frontaliere': {
+    title: 'Terzo Pilastro 3a Frontaliere | Conviene? | Frontaliere Ticino',
+    description: 'Il terzo pilastro 3a per frontalieri: vantaggi fiscali, massimale 2026 CHF 7.258, alternative italiane, fondo pensione vs ETF. Analisi completa con simulatore.',
+    keywords: 'terzo pilastro frontaliere, pilastro 3a frontaliere, previdenza privata svizzera, massimale 3a 2026, fondo pensione frontaliere, investimenti frontaliere',
+    ogTitle: 'Terzo Pilastro 3a Frontaliere | Conviene?',
+    ogDescription: 'Il terzo pilastro 3a conviene al frontaliere? Analisi vantaggi fiscali, massimale 2026 e alternative.',
+    canonicalPath: '/articoli-frontaliere/terzo-pilastro-3a-frontaliere',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Terzo pilastro 3a: conviene al frontaliere?",
+      "description": "Analisi vantaggi e svantaggi del pilastro 3a per chi lavora in Svizzera da frontaliere",
+      "image": { "@type": "ImageObject", "url": `${BASE_URL}/images/places/monte-bre.jpg`, "width": 1344, "height": 756, "caption": "Veduta dal Monte Brè su Lugano e il lago, metafora della pianificazione previdenziale a lungo termine." },
+      "datePublished": "2025-12-10T00:00:00+01:00",
+      "dateModified": "2026-02-17T00:00:00+01:00",
+      "inLanguage": "it",
+      "articleSection": "Pensione",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}` },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL, "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/terzo-pilastro-3a-frontaliere`
+    }
+  },
+
+  'blog-comuni-migliori-frontalieri': {
+    title: 'Migliori Comuni per Frontalieri 2026 | Classifica | Frontaliere Ticino',
+    description: 'Classifica dei migliori comuni italiani per frontalieri: affitti, IRPEF comunale, distanza dal confine, servizi. Top 10 comuni con simulatore di residenza.',
+    keywords: 'migliori comuni frontalieri, dove vivere frontaliere, comuni frontiera italia svizzera, affitti comuni frontiera, irpef comunale frontaliere, comuni como varese',
+    ogTitle: 'Migliori Comuni per Frontalieri 2026 | Classifica',
+    ogDescription: 'Top 10 comuni italiani per frontalieri: affitti, tasse comunali, distanza dal confine. Trova il tuo comune ideale.',
+    canonicalPath: '/articoli-frontaliere/migliori-comuni-frontalieri',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "I 10 migliori comuni per frontalieri nel 2026",
+      "description": "Classifica dei comuni italiani di frontiera più convenienti per lavoratori frontalieri",
+      "image": { "@type": "ImageObject", "url": `${BASE_URL}/images/places/gandria.jpg`, "width": 1344, "height": 756, "caption": "Il borgo di Gandria affacciato sul lago di Lugano, esempio dei comuni di frontiera più ricercati." },
+      "datePublished": "2025-12-05T00:00:00+01:00",
+      "dateModified": "2026-02-17T00:00:00+01:00",
+      "inLanguage": "it",
+      "articleSection": "Pratico",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}` },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL, "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/migliori-comuni-frontalieri`
+    }
+  },
+
+  'blog-costo-vita-ticino-vs-lombardia': {
+    title: 'Costo della Vita Ticino vs Lombardia | Confronto 2026 | Frontaliere Ticino',
+    description: 'Confronto costo della vita Ticino vs Lombardia 2026: affitti, spesa alimentare, trasporti, sanità, bollette. Quanto costa vivere in Svizzera vs Italia per un frontaliere.',
+    keywords: 'costo vita ticino, costo vita lombardia, confronto svizzera italia costi, affitti lugano como, spesa svizzera italia, trasporti frontaliere costi',
+    ogTitle: 'Costo della Vita Ticino vs Lombardia 2026',
+    ogDescription: 'Confronto dettagliato dei costi: affitti, spesa, trasporti e sanità tra Ticino e Lombardia per frontalieri.',
+    canonicalPath: '/articoli-frontaliere/costo-vita-ticino-vs-lombardia',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Costo della vita: Ticino vs Lombardia",
+      "description": "Confronto dettagliato dei costi tra vivere in Svizzera e in Italia per un frontaliere",
+      "image": { "@type": "ImageObject", "url": `${BASE_URL}/images/places/foxtown.jpg`, "width": 1344, "height": 756, "caption": "FoxTown Factory Stores a Mendrisio, simbolo dello shopping transfrontaliero tra Svizzera e Italia." },
+      "datePublished": "2025-11-28T00:00:00+01:00",
+      "dateModified": "2026-02-17T00:00:00+01:00",
+      "inLanguage": "it",
+      "articleSection": "Pratico",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}` },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL, "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/costo-vita-ticino-vs-lombardia`
+    }
+  },
+
+  'blog-tassa-salute-tensioni-ticino': {
+    title: 'Tassa Salute e Ticino: Sale la Tensione | Frontaliere Ticino',
+    description: 'La tassa sulla salute tra Italia e Ticino genera tensioni. Scopri le implicazioni per i frontalieri e le possibili soluzioni.',
+    keywords: 'tassa salute, ristorni, frontalieri, ticino, italia, accordo fiscale, lavoro transfrontaliero, lega dei ticinesi',
+    ogTitle: 'Tassa Salute e Ticino: Tensioni',
+    ogDescription: 'La tassa sulla salute tra Italia e Ticino genera tensioni. Scopri le implicazioni per i frontalieri.',
+    canonicalPath: '/articoli-frontaliere/tassa-salute-aumentano-tensioni-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Tensioni tra Italia e Ticino sulla tassa salute",
+      "description": "La tassa sulla salute tra Italia e Ticino genera tensioni. Scopri le implicazioni per i frontalieri e le possibili soluzioni.",
+      "image": { "@type": "ImageObject", "url": `${BASE_URL}/images/places/bellinzona.jpg`, "width": 1344, "height": 756, "caption": "Panorama di Bellinzona con i castelli medievali sullo sfondo delle Alpi ticinesi." },
+      "datePublished": "2026-02-17T00:00:00+01:00",
+      "dateModified": "2026-02-17T00:00:00+01:00",
+      "inLanguage": "it",
+      "articleSection": "Fiscale",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}` },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL, "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tassa-salute-aumentano-tensioni-ticino`
+    }
+  },
+
+  'blog-casa-oltre-confine-ticino': {
+    title: 'Comprare Casa in Italia dal Ticino: Conviene? | Frontaliere Ticino',
+    description: 'Sempre più ticinesi comprano casa in Italia per i prezzi proibitivi. Scopri vantaggi, sfide e confronta il costo della vita tra Ticino e Lombardia.',
+    keywords: 'comprare casa italia, frontaliere ticino, immobiliare confine, costo vita ticino, prezzi case lombardia, pendolare svizzera italia, trasferirsi italia',
+    ogTitle: 'Comprare Casa in Italia: Quando il Ticino è Troppo Caro',
+    ogDescription: 'Sempre più ticinesi si trasferiscono in Italia per comprare casa. Scopri vantaggi, sfide e costi del pendolarismo.',
+    canonicalPath: '/articoli-frontaliere/comprare-casa-italia-confine-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Comprare Casa in Italia: Quando il Ticino è Troppo Caro",
+      "description": "Sempre più ticinesi comprano casa in Italia per i prezzi proibitivi. Vantaggi, sfide e costo della vita a confronto.",
+      "image": { "@type": "ImageObject", "url": `${BASE_URL}/images/places/gandria.jpg`, "width": 1344, "height": 756, "caption": "Veduta del borgo di Gandria sul lago di Lugano, meta ideale per chi cerca casa oltre confine." },
+      "datePublished": "2026-02-17T00:00:00+01:00",
+      "dateModified": "2026-02-17T00:00:00+01:00",
+      "inLanguage": "it",
+      "articleSection": "Pratico",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}` },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL, "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/comprare-casa-italia-confine-ticino`
+    }
+  },
+
+  'blog-franco-forte-stipendio-frontalieri': {
+    title: 'Franco Forte: Impatto sul Stipendio Frontalieri 2026 | Frontaliere Ticino',
+    description: 'Il franco svizzero si rafforza sull\'euro: scopri come il tasso di cambio CHF-EUR incide sullo stipendio netto dei frontalieri in Ticino.',
+    keywords: 'franco forte, cambio CHF EUR, stipendio frontalieri, tasso cambio 2026, franco svizzero euro, frontalieri ticino stipendio, conversione franchi euro',
+    ogTitle: 'Franco Forte: Come Cambia lo Stipendio dei Frontalieri',
+    ogDescription: 'Il CHF si rafforza: effetti diretti sullo stipendio netto dei frontalieri. Calcola l\'impatto con il simulatore.',
+    canonicalPath: '/articoli-frontaliere/franco-forte-effetti-stipendio-frontalieri',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Franco forte: come il cambio CHF-EUR incide sullo stipendio dei frontalieri",
+      "description": "Il franco svizzero continua a rafforzarsi sull'euro. Per i frontalieri che spendono in Italia, il tasso di cambio può valere centinaia di euro in più o in meno al mese.",
+      "image": { "@type": "ImageObject", "url": `${BASE_URL}/images/places/lac-lugano.jpg`, "width": 1344, "height": 756, "caption": "Veduta del lago di Lugano con le montagne, simbolo del franco forte e del lavoro frontaliero." },
+      "datePublished": "2026-02-18T00:00:00+01:00",
+      "dateModified": "2026-02-18T00:00:00+01:00",
+      "inLanguage": "it",
+      "articleSection": "Fiscale",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}` },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL, "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/franco-forte-effetti-stipendio-frontalieri`
+    }
+  },
+
+  'blog-cu-2026-novita-frontalieri': {
+    title: 'CU 2026 e Frontalieri: Scadenze e Novità | Frontaliere Ticino',
+    description: 'CU 2026: scadenze, telelavoro (25%), 45 giorni senza rientro. Cosa cambia per i frontalieri ticinesi? Scoprilo subito!',
+    keywords: 'frontalieri, ticino, CU 2026, certificazione unica, telelavoro, accordo italia svizzera, franchigia fiscale, scadenze fiscali',
+    ogTitle: 'CU 2026: Cosa cambia per i Frontalieri?',
+    ogDescription: 'Scadenze, telelavoro (25%), 45 giorni senza rientro: tutte le novità per i frontalieri ticinesi!',
+    canonicalPath: '/articoli-frontaliere/cu-2026-scadenze-telelavoro-frontalieri',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "CU 2026: Novità per Frontalieri",
+      "description": "CU 2026: scadenze, telelavoro (25%), 45 giorni senza rientro. Cosa cambia per i frontalieri ticinesi? Scoprilo subito!",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/places/lugano-view.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Vista di Lugano con lago e montagne; in primo piano, un laptop mostra un foglio di calcolo fiscale."
+      },
+      "datePublished": "2026-02-18T00:00:00+01:00",
+      "dateModified": "2026-02-18T00:00:00+01:00",
+      "inLanguage": "it",
+      "articleSection": "Fiscale",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}` },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL, "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/cu-2026-scadenze-telelavoro-frontalieri`
+    }
+  },
+
+  'blog-telelavoro-italia-svizzera-ratifica': {
+    title: 'Telelavoro Italia-Svizzera: accordo ratificato | Frontaliere Ticino',
+    description: 'Accordo telelavoro Italia-Svizzera ratificato: cosa cambia per i frontalieri del Ticino? Fino al 25% da casa senza impatto fiscale.',
+    keywords: 'frontalieri, ticino, telelavoro, italia, svizzera, accordo, fiscale, imposizione',
+    ogTitle: 'Telelavoro: Italia-Svizzera, accordo OK!',
+    ogDescription: 'Telelavoro fino al 25%? Italia ratifica l\'accordo con la Svizzera. Scopri cosa cambia per il tuo stipendio da frontaliere.',
+    canonicalPath: '/articoli-frontaliere/telelavoro-italia-svizzera-ratifica',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Telelavoro: Italia-Svizzera, accordo OK!",
+      "description": "Accordo telelavoro Italia-Svizzera ratificato: cosa cambia per i frontalieri del Ticino? Fino al 25% da casa senza impatto fiscale.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/telelavoro-italia-svizzera-ratifica.png`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Laptop con vista sul Lago di Lugano, che mostra un grafico finanziario. Simboleggia il telelavoro transfrontaliero tra Italia e Svizzera."
+      },
+      "datePublished": "2026-02-18T00:00:00+01:00",
+      "dateModified": "2026-02-18T00:00:00+01:00",
+      "inLanguage": "it",
+      "articleSection": "Fiscale",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}` },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL, "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/telelavoro-italia-svizzera-ratifica`
+    }
+  },
+
+  'blog-telelavoro-accordo-definitivo-italia': {
+    title: 'Accordo Telelavoro Frontalieri Italia-Svizzera: Ratifica Definitiva | Frontaliere Ticino',
+    description: 'Approvazione finale dall\'Italia per l\'accordo sul telelavoro per frontalieri in Ticino. Scopri le regole sul 40%, le implicazioni fiscali e cosa cambia dal 2026.',
+    keywords: 'telelavoro frontalieri, accordo italia svizzera, ratifica telelavoro, frontalieri ticino, smart working, fiscalità frontalieri, lavoro da casa',
+    ogTitle: 'Telelavoro Frontalieri: L\'Italia dice SÌ. Ecco le nuove regole',
+    ogDescription: 'È ufficiale: l\'accordo sul telelavoro fino al 40% è legge. Scopri subito cosa significa per il tuo stipendio e le tue tasse come frontaliere in Ticino.',
+    canonicalPath: '/articoli-frontaliere/telelavoro-frontalieri-accordo-italia-svizzera-ratifica-definitiva',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Telelavoro Frontalieri: L'Italia dice SÌ. Ecco le nuove regole",
+      "description": "Approvazione finale dall'Italia per l'accordo sul telelavoro per frontalieri in Ticino. Scopri le regole sul 40%, le implicazioni fiscali e cosa cambia dal 2026.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/telelavoro-accordo-definitivo-italia.png`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Vista del Lago di Lugano da una postazione di telelavoro, simbolo del nuovo accordo per i frontalieri"
+      },
+      "datePublished": "2026-02-18T00:00:00+01:00",
+      "dateModified": "2026-02-18T00:00:00+01:00",
+      "inLanguage": "it",
+      "articleSection": "Novità",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}` },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL, "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/telelavoro-frontalieri-accordo-italia-svizzera-ratifica-definitiva`
+    }
+  },
+
+  'blog-stop-ristorni-tassa-salute': {
+    title: 'Stop Ristorni per Tassa Salute: Mozione in Ticino | Frontaliere Ticino',
+    description: 'Una mozione interpartitica in Ticino chiede di sospendere i ristorni fiscali all\'Italia a causa della tassa sulla salute, violazione dell\'accordo frontalieri.',
+    keywords: 'tassa salute frontalieri, stop ristorni, accordo fiscale italia svizzera, mozione ticino, frontalieri ticino, imposta alla fonte, doppio imposizione',
+    ogTitle: 'Tassa Salute: il Ticino pronto a bloccare i soldi per l\'Italia',
+    ogDescription: 'Quattro partiti ticinesi uniti: la tassa sulla salute viola gli accordi. Chiesto lo stop immediato al versamento dei ristorni fiscali a Roma.',
+    canonicalPath: '/articoli-frontaliere/tassa-salute-ticino-chiede-stop-ristorni-italia',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Tassa Salute: il Ticino pronto a bloccare i soldi per l'Italia",
+      "description": "Una mozione interpartitica in Ticino chiede di sospendere i ristorni fiscali all'Italia a causa della tassa sulla salute, violazione dell'accordo frontalieri.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/stop-ristorni-tassa-salute.png`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Palazzo del Governo ticinese a Bellinzona, simbolo della tensione politica con l'Italia sulla tassa frontalieri.",  
+      },
+      "datePublished": "2026-02-19T00:00:00+01:00",
+      "dateModified": "2026-02-19T00:00:00+01:00",
+      "inLanguage": "it",
+      "articleSection": "Fiscale",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}` },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL, "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tassa-salute-ticino-chiede-stop-ristorni-italia`
+    }
+  },
+
+  'blog-cu-telelavoro-regole-frontalieri': {
+    title: 'Frontalieri: Regole Telelavoro e 45 Giorni | Frontaliere Ticino',
+    description: 'Guida completa alle nuove regole per i frontalieri: telelavoro al 25%, 45 giorni di non rientro e franchigia a 10.000€. Scadenze CU 2026 e consigli pratici.',
+    keywords: 'frontalieri, ticino, telelavoro svizzera, accordo fiscale italia svizzera, cu 2026, franchigia 10000 euro, 45 giorni non rientro, tassazione frontalieri',
+    ogTitle: 'Telelavoro al 25% e 45 giorni extra: le nuove regole d\'oro per i frontalieri',
+    ogDescription: 'Il nuovo accordo è legge: scopri come funzionano la soglia del 25% per lo smart working e la flessibilità sui rientri per chi lavora in Ticino. Tutte le novità.',
+    canonicalPath: '/articoli-frontaliere/frontalieri-cu-2026-telelavoro-45-giorni-regole-definitive',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Nuove regole definitive per frontalieri su telelavoro e 45 giorni di non rientro",
+      "description": "Guida completa alle nuove regole per i frontalieri: telelavoro al 25%, 45 giorni di non rientro e franchigia a 10.000€. Scadenze CU 2026 e consigli pratici.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/cu-telelavoro-regole-frontalieri.png`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Scrivania di un frontaliere in telelavoro con vista sul Lago di Lugano, simbolo del nuovo accordo fiscale."
+      },
+      "datePublished": "2026-02-19T00:00:00+01:00",
+      "dateModified": "2026-02-19T00:00:00+01:00",
+      "inLanguage": "it",
+      "articleSection": "Fiscale",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}` },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL, "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontalieri-cu-2026-telelavoro-45-giorni-regole-definitive`
+    }
+  },
+
+  'blog-smood-chiusura-impatto-lavoro': {
+    title: 'Smood Chiude in Ticino: Impatto sul Lavoro | Frontaliere Ticino',
+    description: 'Smood SA cessa le attività dal 30 aprile 2026. Scopri le conseguenze per i lavoratori in Ticino, i dettagli del piano sociale e i diritti dei frontalieri.',
+    keywords: 'smood chiude, lavoro ticino, frontalieri, licenziamento collettivo, syndicom, piano sociale, mercato lavoro ticino, delivery',
+    ogTitle: 'Smood chiude in Ticino: cosa succede ora ai lavoratori?',
+    ogDescription: 'La piattaforma di delivery cessa le attività dal 30 aprile 2026. Un\'analisi sull\'impatto occupazionale e sulle tutele previste per i dipendenti.',
+    canonicalPath: '/articoli-frontaliere/smood-chiude-attivita-ticino-impatto-lavoro-frontalieri',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Smood chiude in Ticino: cosa succede ora ai lavoratori?",
+      "description": "Smood SA cessa le attività dal 30 aprile 2026. Scopri le conseguenze per i lavoratori in Ticino, i dettagli del piano sociale e i diritti dei frontalieri.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/smood-chiusura-impatto-lavoro.png`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Corriere Smood in pausa sul lungolago di Lugano al tramonto, simbolo della fine delle attività dell'azienda in Ticino."
+      },
+      "datePublished": "2026-02-19T00:00:00+01:00",
+      "dateModified": "2026-02-19T00:00:00+01:00",
+      "inLanguage": "it",
+      "articleSection": "Novità",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}` },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL, "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/smood-chiude-attivita-ticino-impatto-lavoro-frontalieri`
+    }
+  },
+
+  'blog-disoccupazione-svizzera-ticino-gennaio': {
+    title: 'Disoccupazione Svizzera Gennaio 2026: Dati Ticino | Frontaliere Ticino',
+    description: 'Analisi completa dei dati SECO sulla disoccupazione di gennaio 2026 in Svizzera e Ticino (3.3%). Impatto su frontalieri, settori in crisi e problemi tecnici.',
+    keywords: 'disoccupazione svizzera, lavoro ticino, frontalieri, seco, mercato del lavoro, stipendio ticino, edilizia svizzera, ristorazione ticino',
+    ogTitle: 'Mercato del Lavoro Svizzero: Segnali Contrastanti a Gennaio',
+    ogDescription: 'La disoccupazione grezza sale al 3.2%, ma i dati depurati migliorano. Focus sul Ticino (3.3%) e sui settori chiave per i frontalieri.',
+    canonicalPath: '/articoli-frontaliere/disoccupazione-svizzera-gennaio-2026-dati-ticino-frontalieri',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Mercato del Lavoro Svizzero: Segnali Contrastanti a Gennaio",
+      "description": "Analisi completa dei dati SECO sulla disoccupazione di gennaio 2026 in Svizzera e Ticino (3.3%). Impatto su frontalieri, settori in crisi e problemi tecnici.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/disoccupazione-svizzera-ticino-gennaio.png`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Veduta del centro finanziario di Lugano con persone che camminano, simbolo del mercato del lavoro in Ticino."
+      },
+      "datePublished": "2026-02-19T00:00:00+01:00",
+      "dateModified": "2026-02-19T00:00:00+01:00",
+      "inLanguage": "it",
+      "articleSection": "Novità",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}` },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL, "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/disoccupazione-svizzera-gennaio-2026-dati-ticino-frontalieri`
+    }
+  },
+
+  'blog-riscaldamento-casa-ticino-norme': {
+    title: 'Riscaldamento Casa Ticino: Risparmiare con le Nuove Norme | Frontaliere Ticino',
+    description: 'Le nuove norme energetiche RUEn 2026 in Ticino rendono obsoleti molti impianti. Scopri come una consulenza gratuita può tagliare le bollette per i frontalieri.',
+    keywords: 'riscaldamento ticino, pompa di calore, norme energetiche RUEn, frontalieri proprietari casa, risparmio energetico, Christian Bernasconi, Calor Tech, bollette ticino',
+    ogTitle: 'Bollette del riscaldamento troppo alte? La soluzione in Ticino',
+    ogDescription: 'Molti impianti in Ticino hanno più di 15 anni. Con le nuove regole 2026, è ora di agire. Scopri come una consulenza gratuita può farti risparmiare.',
+    canonicalPath: '/articoli-frontaliere/riscaldamento-casa-ticino-norme-energetiche-risparmio',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Bollette del riscaldamento troppo alte? La soluzione in Ticino",
+      "description": "Le nuove norme energetiche RUEn 2026 in Ticino rendono obsoleti molti impianti. Scopri come una consulenza gratuita può tagliare le bollette per i frontalieri.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/places/lugano-view.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Interno di una casa moderna in Ticino con termostato intelligente e vista sul Lago di Lugano, simbolo di efficienza energetica."
+      },
+      "datePublished": "2026-02-19T00:00:00+01:00",
+      "dateModified": "2026-02-19T00:00:00+01:00",
+      "inLanguage": "it",
+      "articleSection": "Pratico",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}` },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL, "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/riscaldamento-casa-ticino-norme-energetiche-risparmio`
+    }
+  },
+
+  'blog-sostituzione-caldaia-ticino-2026': {
+    title: 'Sostituzione Caldaia Ticino: Norme 2026 e Risparmio | Frontaliere Ticino',
+    description: 'Le normative energetiche (RUEn) in Ticino cambiano nel 2026. Se il tuo impianto ha più di 15 anni, scopri se conviene sostituirlo e come risparmiare in bolletta.',
+    keywords: 'sostituzione caldaia ticino, pompa di calore ticino, norme energetiche RUEn, incentivi riscaldamento, risparmio energetico, frontalieri ticino, calor tech',
+    ogTitle: 'La tua caldaia in Ticino ha più di 15 anni? Attenzione alle nuove norme 2026',
+    ogDescription: 'Con le nuove regole energetiche (RUEn) del 2026, molti impianti in Ticino non saranno più efficienti. Scopri come agire e risparmiare migliaia di franchi.',
+    canonicalPath: '/articoli-frontaliere/sostituzione-caldaia-ticino-norme-2026-risparmio',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "La tua caldaia in Ticino ha più di 15 anni? Attenzione alle nuove norme 2026",
+      "description": "Le normative energetiche (RUEn) in Ticino cambiano nel 2026. Se il tuo impianto ha più di 15 anni, scopri se conviene sostituirlo e come risparmiare in bolletta.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/sostituzione-caldaia-ticino-2026.png`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Moderna pompa di calore installata fuori da una casa ticinese, simbolo di efficienza energetica e risparmio per i proprietari."
+      },
+      "datePublished": "2026-02-19T00:00:00+01:00",
+      "dateModified": "2026-02-19T00:00:00+01:00",
+      "inLanguage": "it",
+      "articleSection": "Pratico",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}` },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL, "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/sostituzione-caldaia-ticino-norme-2026-risparmio`
+    }
+  },
+
+  'blog-hic-sunt-leones-confini-ticino': {
+    title: 'Mostra \'Hic Sunt Leones\': i confini svizzeri visti dai frontalieri | Frontaliere Ticino',
+    description: 'Scopri la mostra fotografica \'Hic Sunt Leones\' di Gabriele Spalluto sui 175 valichi svizzeri. Un\'analisi del confine per i frontalieri che lavorano in Ticino.',
+    keywords: 'frontalieri, ticino, mostra fotografica, confine svizzera, valichi di confine, Gabriele Spalluto, hic sunt leones, lavoro in svizzera',
+    ogTitle: 'I 175 volti del confine: una mostra che parla ai frontalieri',
+    ogDescription: 'Gabriele Spalluto ha fotografato tutti i valichi svizzeri. Un viaggio visivo che esplora il significato del confine per chi lo attraversa ogni giorno.',
+    canonicalPath: '/articoli-frontaliere/mostra-hic-sunt-leones-confini-svizzera-frontalieri',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "I 175 volti del confine: una mostra che parla ai frontalieri",
+      "description": "Scopri la mostra fotografica 'Hic Sunt Leones' di Gabriele Spalluto sui 175 valichi svizzeri. Un'analisi del confine per i frontalieri che lavorano in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/hic-sunt-leones-confini-ticino.png`,
+        "width": 1344,
+        "height": 756,
+        "caption": "La dogana di Chiasso-Brogeda all'alba, simbolo del confine italo-svizzero per i frontalieri."
+      },
+      "datePublished": "2026-02-19T00:00:00+01:00",
+      "dateModified": "2026-02-19T00:00:00+01:00",
+      "inLanguage": "it",
+      "articleSection": "Pratico",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}` },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL, "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/mostra-hic-sunt-leones-confini-svizzera-frontalieri`
+    }
+  },
+
+  'blog-carnevale-bambini-lugano-2026': {
+    title: 'Carnevale 2026 Lugano: laboratori per figli di frontalieri | Frontaliere Ticino',
+    description: 'Scopri i laboratori creativi per bambini (4-11 anni) al Museo in erba di Lugano dal 16 al 20 febbraio 2026. Un\'idea per le famiglie frontaliere durante le vacanze.',
+    keywords: 'frontalieri, ticino, bambini lugano, vacanze carnevale 2026, museo in erba, laboratori creativi, famiglie frontalieri, attività bambini ticino',
+    ogTitle: 'Vacanze di Carnevale 2026: cosa fare con i figli in Ticino?',
+    ogDescription: 'Il Museo in erba di Lugano propone una settimana di laboratori creativi per bambini. Scopri date, costi e come prenotare.',
+    canonicalPath: '/articoli-frontaliere/carnevale-2026-lugano-laboratori-creativi-figli-frontalieri',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Laboratori creativi di Carnevale 2026 per bambini a Lugano",
+      "description": "Scopri i laboratori creativi per bambini (4-11 anni) al Museo in erba di Lugano dal 16 al 20 febbraio 2026. Un'idea per le famiglie frontaliere durante le vacanze.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/carnevale-bambini-lugano-2026.png`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Famiglie con bambini passeggiano sul lungolago di Lugano durante una giornata di sole, vicino al centro culturale LAC."
+      },
+      "datePublished": "2026-02-19T00:00:00+01:00",
+      "dateModified": "2026-02-19T00:00:00+01:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}` },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL, "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "articleSection": "Pratico",
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/carnevale-2026-lugano-laboratori-creativi-figli-frontalieri`
+    }
+  },
+
+  'blog-arte-anima-ticino-frontalieri': {
+    title: 'Mostra Arte Ticino: Sentimento e Osservazione al LAC | Frontaliere Ticino',
+    description: 'Scopri la mostra \'Sentimento e osservazione\' al MASI di Lugano (2025-2026). Un\'analisi dell\'arte e dell\'identità ticinese, perfetta per i frontalieri.',
+    keywords: 'mostra arte ticino, frontalieri, lac lugano, masi lugano, sentimento e osservazione, cultura ticino, cosa fare lugano',
+    ogTitle: 'Oltre il Lavoro: L\'Arte che Svela la Vera Anima del Ticino',
+    ogDescription: 'Una mostra imperdibile al LAC di Lugano per capire a fondo la cultura del cantone dove lavori ogni giorno. Dal 18 aprile 2025.',
+    canonicalPath: '/articoli-frontaliere/mostra-arte-ticino-sentimento-osservazione-lac-lugano',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Oltre il Lavoro: L'Arte che Svela la Vera Anima del Ticino",
+      "description": "Scopri la mostra 'Sentimento e osservazione' al MASI di Lugano (2025-2026). Un'analisi dell'arte e dell'identità ticinese, perfetta per i frontalieri.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/arte-anima-ticino-frontalieri.png`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Interno del museo MASI al LAC di Lugano con visitatori che ammirano un'opera d'arte legata al Ticino."
+      },
+      "datePublished": "2026-02-19T00:00:00+01:00",
+      "dateModified": "2026-02-19T00:00:00+01:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}` },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL, "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/mostra-arte-ticino-sentimento-osservazione-lac-lugano`
+    }
+  },
+
+  'blog-arca-russa-chiasso-cultura-frontaliere': {
+    title: 'Arca Russa a Chiasso: evento culturale per frontalieri | Frontaliere Ticino',
+    description: 'Il 18 febbraio 2026, il Cinema Teatro di Chiasso proietta \'Arca Russa\' di Sokurov. Scopri i dettagli di questo evento culturale imperdibile per i frontalieri.',
+    keywords: 'arca russa chiasso, cinema chiasso, eventi culturali ticino, frontalieri como, frontalieri varese, cultura mendrisiotto, sokurov',
+    ogTitle: 'Un capolavoro del cinema a due passi dal confine: Arca Russa a Chiasso',
+    ogDescription: 'Non solo lavoro: il 18 febbraio 2026 il grande cinema di Sokurov arriva a Chiasso. Un\'occasione unica per i frontalieri.',
+    canonicalPath: '/articoli-frontaliere/arca-russa-chiasso-evento-culturale-frontalieri',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Arca Russa a Chiasso: Cultura per Frontalieri",
+      "description": "Il 18 febbraio 2026, il Cinema Teatro di Chiasso proietta 'Arca Russa' di Sokurov. Scopri i dettagli di questo evento culturale imperdibile per i frontalieri.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/arca-russa-chiasso-cultura-frontaliere.png`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Il Cinema Teatro di Chiasso di sera, illuminato per un evento culturale, con persone che entrano."
+      },
+      "datePublished": "2026-02-18T00:00:00+01:00",
+      "dateModified": "2026-02-18T00:00:00+01:00",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}` },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL, "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/arca-russa-chiasso-evento-culturale-frontalieri`
+    }
+  },
+
+  'blog-rsi-mostra-storia-ticino': {
+    title: 'Mostra RSI: la storia del Ticino in foto per i frontalieri | Frontaliere Ticino',
+    description: 'Scopri la mostra gratuita \'Una Storia\' di RSI ad Airolo dal 16 al 22 febbraio. Un viaggio fotografico nella Svizzera italiana dagli anni \'60 ai 2000. Info e date.',
+    keywords: 'mostra fotografica ticino, rsi eventi, storia svizzera italiana, frontalieri cultura, caseificio gottardo airolo, eventi gratuiti ticino, leventina, airolo',
+    ogTitle: 'Un viaggio nel tempo in Ticino: la mostra gratuita della RSI che ogni frontaliere dovrebbe vedere',
+    ogDescription: 'Dal 16 al 22 febbraio ad Airolo, la RSI espone la storia del Ticino in foto. Un\'occasione per capire il presente del Cantone. Ingresso libero.',
+    canonicalPath: '/articoli-frontaliere/mostra-rsi-storia-ticino-frontalieri',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Mostra RSI 'Una Storia': un viaggio fotografico nell'evoluzione del Ticino",
+      "description": "Scopri la mostra gratuita 'Una Storia' di RSI ad Airolo dal 16 al 22 febbraio. Un viaggio fotografico nella Svizzera italiana dagli anni '60 ai 2000. Info e date.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/rsi-mostra-storia-ticino.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Mostra fotografica 'Una Storia' della RSI con immagini d'archivio in bianco e nero della Svizzera italiana."
+      },
+      "datePublished": "2026-02-18T00:00:00+01:00",
+      "dateModified": "2026-02-18T00:00:00+01:00",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}` },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL, "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/mostra-rsi-storia-ticino-frontalieri`
+    }
+  },
+
+  'blog-carnevale-bambini-lugano-tinguely': {
+    title: 'Vacanze Carnevale 2026 in Ticino: laboratori per bambini | Frontaliere Ticino',
+    description: 'Scopri i laboratori creativi per bambini (4-11 anni) al Museo in erba di Lugano durante le vacanze di Carnevale, dal 16 al 20 febbraio 2026. Info e costi.',
+    keywords: 'carnevale bambini ticino, laboratori creativi lugano, vacanze scolastiche, frontalieri figli, museo in erba, attività famiglie ticino, jean tinguely',
+    ogTitle: 'Figli a casa per Carnevale? A Lugano laboratori d\'arte a 20 CHF',
+    ogDescription: 'Il Museo in erba organizza una settimana di atelier creativi per bambini durante le vacanze di Carnevale 2026. Una soluzione perfetta per i genitori frontalieri.',
+    canonicalPath: '/articoli-frontaliere/vacanze-carnevale-bambini-ticino-laboratori-museo-erba-lugano',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Figli a casa per Carnevale? A Lugano laboratori d'arte a 20 CHF",
+      "description": "Scopri i laboratori creativi per bambini (4-11 anni) al Museo in erba di Lugano durante le vacanze di Carnevale, dal 16 al 20 febbraio 2026. Info e costi.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/carnevale-bambini-lugano-tinguely.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Famiglia di frontalieri con bambini si gode le vacanze di Carnevale sul lungolago di Lugano, vicino al Museo in erba."
+      },
+      "datePublished": "2026-02-18T00:00:00+01:00",
+      "dateModified": "2026-02-18T00:00:00+01:00",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}` },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL, "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vacanze-carnevale-bambini-ticino-laboratori-museo-erba-lugano`
+    }
+  },
+
+  'blog-daniela-rebuzzi-mostra-caslano': {
+    title: 'Mostra Daniela Rebuzzi a Caslano: Arte in Ticino | Frontaliere Ticino',
+    description: 'Scopri la mostra \'TRA-S-PARENZE\' dell\'artista ticinese Daniela Rebuzzi a Caslano, dal 16 gennaio al 26 aprile 2026. Info, orari e significato per i frontalieri.',
+    keywords: 'mostra arte ticino, daniela rebuzzi, caslano eventi, frontalieri tempo libero, cultura ticino, cosa fare lugano, arte contemporanea, malcantone',
+    ogTitle: 'Un\'artista ticinese di fama mondiale espone a Caslano: da non perdere',
+    ogDescription: 'Dal 16 gennaio 2026, la mostra gratuita di Daniela Rebuzzi, reduce dalla Biennale di Venezia. Un\'occasione culturale unica per i frontalieri.',
+    canonicalPath: '/articoli-frontaliere/mostra-daniela-rebuzzi-caslano-arte-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Mostra 'TRA-S-PARENZE' di Daniela Rebuzzi a Caslano",
+      "description": "Scopri la mostra 'TRA-S-PARENZE' dell'artista ticinese Daniela Rebuzzi a Caslano, dal 16 gennaio al 26 aprile 2026. Info, orari e significato per i frontalieri.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/daniela-rebuzzi-mostra-caslano.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Opere d'arte esposte nella mostra 'TRA-S-PARENZE' di Daniela Rebuzzi a Caslano, con vista sul paesaggio ticinese."
+      },
+      "datePublished": "2026-02-18T00:00:00+01:00",
+      "dateModified": "2026-02-18T00:00:00+01:00",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}` },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL, "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/mostra-daniela-rebuzzi-caslano-arte-ticino`
+    }
+  },
+
+  'blog-corpi-in-prestito-arte-agno': {
+    title: 'Corpi in Prestito: Mostra d\'Arte a Agno per Frontalieri | Frontaliere Ticino',
+    description: 'Scopri la mostra "Corpi in prestito" di Gloria Guidi Nobile a Serocca d\'Agno. Un\'opportunità culturale in Ticino, aperta fino a dicembre 2026.',
+    keywords: 'arte ticino, mostra agno, gloria guidi nobile, corpi in prestito, cultura frontalieri, tempo libero ticino, eventi luganese',
+    ogTitle: 'Oltre il lavoro: una mostra a Agno che fa riflettere',
+    ogDescription: '"Corpi in prestito": l\'arte di Gloria Guidi Nobile in una sede unica a Serocca d\'Agno. Un\'occasione per vivere il Ticino in modo diverso.',
+    canonicalPath: '/articoli-frontaliere/mostra-arte-corpi-in-prestito-agno-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Oltre il lavoro: una mostra a Agno che fa riflettere",
+      "description": "Scopri la mostra \"Corpi in prestito\" di Gloria Guidi Nobile a Serocca d'Agno. Un'opportunità culturale in Ticino, aperta fino a dicembre 2026.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/corpi-in-prestito-arte-agno.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Interno di una galleria d'arte moderna a Lugano con una persona che osserva un quadro astratto appeso alla parete."
+      },
+      "datePublished": "2026-02-18T00:00:00+01:00",
+      "dateModified": "2026-02-18T00:00:00+01:00",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}` },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL, "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/mostra-arte-corpi-in-prestito-agno-ticino`
+    }
+  },
+
+  'blog-rsi-storia-svizzera-italiana-mostra': {
+    title: 'Mostra RSI ad Airolo: la storia del Ticino in foto | Frontaliere Ticino',
+    description: 'Scopri la mostra gratuita "Una Storia" della RSI ad Airolo, dal 16 al 22 febbraio 2026. Un viaggio nella storia del Ticino attraverso foto d\'archivio.',
+    keywords: 'mostra RSI Ticino, frontalieri, cultura Ticino, storia Svizzera italiana, evento Airolo, fotografia archivio RSI, Caseificio Gottardo',
+    ogTitle: 'RSI in mostra: un viaggio gratuito nella storia del Ticino ad Airolo',
+    ogDescription: 'Dal 16 al 22 febbraio 2026, l\'ultima tappa della mostra fotografica RSI ad Airolo per scoprire l\'evoluzione del Cantone. Ingresso libero.',
+    canonicalPath: '/articoli-frontaliere/rsi-mostra-storia-svizzera-italiana-foto-archivio-airolo',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "RSI in mostra: un viaggio gratuito nella storia del Ticino ad Airolo",
+      "description": "Scopri la mostra gratuita \"Una Storia\" della RSI ad Airolo, dal 16 al 22 febbraio 2026. Un viaggio nella storia del Ticino attraverso foto d'archivio.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/rsi-storia-svizzera-italiana-mostra.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Una mostra fotografica con immagini d'archivio in bianco e nero che raccontano la storia del Canton Ticino."
+      },
+      "datePublished": "2026-02-18T00:00:00+01:00",
+      "dateModified": "2026-02-18T00:00:00+01:00",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}` },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL, "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/rsi-mostra-storia-svizzera-italiana-foto-archivio-airolo`
+    }
+  },
+
+  'blog-rauschenberg-arte-mendrisiotto': {
+    title: 'Mostra Rauschenberg a Bruzella: arte gratuita nel Mendrisiotto | Frontaliere Ticino',
+    description: 'Scopri la mostra gratuita \'Began with Rauschenberg\' alla Fondazione Rolla di Bruzella (Mendrisiotto), dall\'8 novembre 2025. Un evento culturale per frontalieri.',
+    keywords: 'mostra arte ticino, rauschenberg bruzella, fondazione rolla, mendrisiotto eventi, cosa fare ticino frontalieri, arte gratuita svizzera, valle di muggio',
+    ogTitle: 'Rauschenberg in Ticino: una mostra gratuita a due passi dall\'Italia',
+    ogDescription: 'Un\'occasione unica per ammirare le opere di un maestro dell\'arte moderna. L\'ingresso è libero, a Bruzella, fino a marzo 2026. Perfetto per una gita domenicale.',
+    canonicalPath: '/articoli-frontaliere/mostra-rauschenberg-bruzella-mendrisiotto-arte-gratuita-frontalieri',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Rauschenberg in Ticino: una mostra gratuita a due passi dall'Italia",
+      "description": "Scopri la mostra gratuita 'Began with Rauschenberg' alla Fondazione Rolla di Bruzella (Mendrisiotto), dall'8 novembre 2025. Un evento culturale per frontalieri.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/rauschenberg-arte-mendrisiotto.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Veduta della Valle di Muggio in Ticino, con il borgo di Bruzella, sede della mostra su Rauschenberg."
+      },
+      "datePublished": "2026-02-18T00:00:00+01:00",
+      "dateModified": "2026-02-18T00:00:00+01:00",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}` },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL, "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/mostra-rauschenberg-bruzella-mendrisiotto-arte-gratuita-frontalieri`
+    }
+  },
+
+  'blog-nakba-mostra-giubiasco-ticino': {
+    title: 'Mostra Nakba a Giubiasco: arte e riflessione in Ticino | Frontaliere Ticino',
+    description: 'La Galleria Job di Giubiasco ospita la mostra \'Collettiva Nakba\' dal 25/01 al 19/02/2026. Un\'occasione di riflessione culturale per i frontalieri in Ticino.',
+    keywords: 'mostra ticino, eventi culturali giubiasco, galleria job, nakba, frontalieri, arte bellinzona, tempo libero ticino',
+    ogTitle: 'A Giubiasco una mostra che scuote le coscienze: \'Nakba\'',
+    ogDescription: 'Non solo lavoro: la Galleria Job ospita una potente mostra sulla realtà israelo-palestinese. Un evento da non perdere per chi vive il Ticino.',
+    canonicalPath: '/articoli-frontaliere/mostra-nakba-giubiasco-riflessione-culturale-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "A Giubiasco una mostra che scuote le coscienze: 'Nakba'",
+      "description": "La Galleria Job di Giubiasco ospita la mostra 'Collettiva Nakba' dal 25/01 al 19/02/2026. Un'occasione di riflessione culturale per i frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/nakba-mostra-giubiasco-ticino.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Interno di una galleria d'arte moderna a Giubiasco, Ticino, con luce naturale che illumina un'opera esposta."
+      },
+      "datePublished": "2026-02-18T00:00:00+01:00",
+      "dateModified": "2026-02-18T00:00:00+01:00",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}` },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL, "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/mostra-nakba-giubiasco-riflessione-culturale-ticino`
+    }
+  },
+
+  'blog-de-andre-anime-salve-locarno': {
+    title: 'De André a Locarno: Conferenza su Anime Salve | Frontaliere Ticino',
+    description: 'Il 19 febbraio 2026, conferenza gratuita a Muralto sull\'ultimo album di Fabrizio De André, \'Anime salve\'. Un\'analisi per frontalieri e amanti della cultura.',
+    keywords: 'fabrizio de andré, anime salve, locarno, frontalieri, ticino, cultura ticino, eventi gratuiti, palazzo congressi muralto',
+    ogTitle: 'De André a Locarno: Serata Gratuita sul suo Ultimo Capolavoro',
+    ogDescription: 'Scopri i segreti di \'Anime salve\' in una conferenza unica al Palazzo dei Congressi di Muralto. Un evento imperdibile per chi vive e lavora in Ticino.',
+    canonicalPath: '/articoli-frontaliere/de-andre-a-locarno-conferenza-anime-salve-per-frontalieri',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "De André a Locarno: Serata Gratuita sul suo Ultimo Capolavoro",
+      "description": "Il 19 febbraio 2026, conferenza gratuita a Muralto sull'ultimo album di Fabrizio De André, 'Anime salve'. Un'analisi per frontalieri e amanti della cultura.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/de-andre-anime-salve-locarno.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Il Palazzo dei Congressi di Muralto, sede di eventi culturali nel Locarnese, visto al crepuscolo."
+      },
+      "datePublished": "2026-02-18T00:00:00+01:00",
+      "dateModified": "2026-02-18T00:00:00+01:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}` },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/de-andre-a-locarno-conferenza-anime-salve-per-frontalieri`
+    }
+  },
+
+  'blog-sentimento-osservazione-masi-lugano': {
+    title: 'Mostra MASI Lugano: capire il Ticino per i frontalieri | Frontaliere Ticino',
+    description: 'La mostra \'Sentimento e osservazione\' al MASI di Lugano esplora l\'identità del Ticino. Una guida per frontalieri per capire la cultura del cantone dove lavorano.',
+    keywords: 'mostra arte lugano, masi lugano, frontalieri ticino, cultura ticino, lac lugano, sentimento e osservazione, lavorare in ticino, arte svizzera italiana',
+    ogTitle: 'L\'arte che spiega il Ticino: la nuova mostra al MASI di Lugano',
+    ogDescription: 'Fino al 2026, una mostra al LAC esplora l\'anima del Ticino, un mix di Italia e Svizzera che ogni frontaliere vive quotidianamente. Scopri di più.',
+    canonicalPath: '/articoli-frontaliere/masi-lugano-mostra-sentimento-osservazione-identita-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Mostra 'Sentimento e osservazione' al MASI Lugano",
+      "description": "La mostra 'Sentimento e osservazione' al MASI di Lugano esplora l'identità del Ticino. Una guida per frontalieri per capire la cultura del cantone dove lavorano.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/sentimento-osservazione-masi-lugano.png`,
+        "width": 1344,
+        "height": 756,
+        "caption": "L'ingresso del Museo d'arte della Svizzera italiana (MASI) presso il centro culturale LAC di Lugano."
+      },
+      "datePublished": "2026-02-18T00:00:00+01:00",
+      "dateModified": "2026-02-18T00:00:00+01:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}` },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/masi-lugano-mostra-sentimento-osservazione-identita-ticino`
+    }
+  },
+
+  'blog-rsi-archivio-gottardo-2026': {
+    title: 'RSI Mostra "Una Storia": Foto d\'Archivio ad Airolo | Frontaliere Ticino',
+    description: 'Scopri la mostra fotografica gratuita della RSI ad Airolo, dal 16 al 22 febbraio 2026. Un viaggio nella storia della Svizzera italiana dagli anni \'60 ai 2000.',
+    keywords: 'mostra ticino, rsi una storia, eventi airolo, frontalieri cultura, caseificio gottardo, fotografia archivio, svizzera italiana, storia ticino',
+    ogTitle: 'Il Ticino si racconta in 60 anni di foto: mostra gratuita RSI ad Airolo',
+    ogDescription: 'Dal 16 al 22 febbraio 2026, non perdere l\'ultima tappa della mostra fotografica "Una Storia" con gli scatti d\'archivio della RSI. Ingresso libero.',
+    canonicalPath: '/articoli-frontaliere/rsi-mostra-una-storia-ticino-archivio-fotografico-airolo',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Il Ticino si racconta in 60 anni di foto: mostra gratuita RSI ad Airolo",
+      "description": "Scopri la mostra fotografica gratuita della RSI ad Airolo, dal 16 al 22 febbraio 2026. Un viaggio nella storia della Svizzera italiana dagli anni '60 ai 2000.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/rsi-archivio-gottardo-2026.png`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Immagini storiche in bianco e nero della Svizzera italiana in mostra ad Airolo, Ticino."
+      },
+      "datePublished": "2026-02-18T00:00:00+01:00",
+      "dateModified": "2026-02-18T00:00:00+01:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}` },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/rsi-mostra-una-storia-ticino-archivio-fotografico-airolo`
+    }
+  },
+
+  'blog-carnevale-blenio-chiescia-bosc': {
+    title: 'Carnevale Chièscia Bòsc 2026 in Valle di Blenio | Frontaliere Ticino',
+    description: 'Scopri il programma completo del Carnevale Chièscia Bòsc a Ludiano, dal 19 al 21 febbraio 2026. Gastronomia, musica e ballo in maschera in Valle di Blenio.',
+    keywords: 'carnevale ticino 2026, carnevale chièscia bòsc, ludiano, valle di blenio, eventi frontalieri, tradizioni ticinesi, serravalle, feste ticino',
+    ogTitle: 'Carnevale 2026 in Valle di Blenio: 3 giorni di festa a Ludiano',
+    ogDescription: 'Non solo lavoro: vivi le tradizioni del Ticino al Carnevale Chièscia Bòsc dal 19 al 21 febbraio. Scopri il programma!',
+    canonicalPath: '/articoli-frontaliere/carnevale-chiescia-bosc-2026-ludiano-valle-blenio',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Carnevale 2026 in Valle di Blenio: 3 giorni di festa a Ludiano",
+      "description": "Scopri il programma completo del Carnevale Chièscia Bòsc a Ludiano, dal 19 al 21 febbraio 2026. Gastronomia, musica e ballo in maschera in Valle di Blenio.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/carnevale-blenio-chiescia-bosc.png`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Atmosfera festosa del carnevale in un villaggio della Valle di Blenio, Ticino, con maschere e luci serali."
+      },
+      "datePublished": "2026-02-19T00:00:00+01:00",
+      "dateModified": "2026-02-19T00:00:00+01:00",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}` },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL, "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/carnevale-chiescia-bosc-2026-ludiano-valle-blenio`
+    }
+  },
+
+  'blog-tf-permesso-integrazione-ticino': {
+    title: 'Permesso B in Ticino: Sentenza TF sull\'integrazione | Frontaliere Ticino',
+    description: 'Il Tribunale Federale dà ragione a due stranieri contro il Canton Ticino, definendo la loro integrazione \'riuscita\'. Scopri cosa significa per i frontalieri.',
+    keywords: 'permesso b ticino, integrazione stranieri svizzera, tribunale federale, sezione popolazione ticino, frontalieri, permesso di dimora, ricorso permesso',
+    ogTitle: 'Permesso B negato in Ticino? Il Tribunale Federale ribalta tutto',
+    ogDescription: 'Una sentenza storica a favore di due stranieri chiarisce i criteri di integrazione. Ecco cosa devono sapere i frontalieri per non sbagliare.',
+    canonicalPath: '/articoli-frontaliere/permesso-b-integrazione-tribunale-federale-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Permesso B negato in Ticino? Il Tribunale Federale ribalta tutto",
+      "description": "Il Tribunale Federale dà ragione a due stranieri contro il Canton Ticino, definendo la loro integrazione 'riuscita'. Scopri cosa significa per i frontalieri.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/tf-permesso-integrazione-ticino.png`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Permesso B svizzero su una scrivania con contratto di lavoro, simbolo dell'integrazione in Ticino."
+      },
+      "datePublished": "2026-02-19T00:00:00+01:00",
+      "dateModified": "2026-02-19T00:00:00+01:00",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}` },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL, "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/permesso-b-integrazione-tribunale-federale-ticino`
+    }
+  },
+
+  'blog-tassazione-individuale-lavoro-ticino': {
+    title: 'Tassazione Individuale Svizzera: Impatto Lavoro in Ticino | Frontaliere Ticino',
+    description: 'La riforma sull\'imposizione individuale potrebbe creare 16.000 nuovi posti di lavoro in Svizzera. Scopri cosa cambia per i frontalieri in Ticino e la concorrenza.',
+    keywords: 'tassazione individuale svizzera, frontalieri ticino, lavoro ticino, imposizione individuale, riforma fiscale 2026, mercato del lavoro svizzero, concorrenza frontalieri',
+    ogTitle: 'Riforma Fiscale Svizzera: 16\'000 Nuovi Posti di Lavoro in Arrivo?',
+    ogDescription: 'Con la nuova imposizione individuale si stimano fino a 20\'000 posti in più. Ecco l\'impatto diretto per chi lavora come frontaliere in Ticino.',
+    canonicalPath: '/articoli-frontaliere/tassazione-individuale-svizzera-impatto-lavoro-ticino-frontalieri',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Riforma Fiscale Svizzera: 16'000 Nuovi Posti di Lavoro in Arrivo?",
+      "description": "La riforma sull'imposizione individuale potrebbe creare 16.000 nuovi posti di lavoro in Svizzera. Scopri cosa cambia per i frontalieri in Ticino e la concorrenza.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/tassazione-individuale-lavoro-ticino.png`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Ufficio moderno a Lugano con vista sul lago, simbolo del mercato del lavoro ticinese in evoluzione."
+      },
+      "datePublished": "2026-02-19T00:00:00+01:00",
+      "dateModified": "2026-02-19T00:00:00+01:00",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}` },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL, "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tassazione-individuale-svizzera-impatto-lavoro-ticino-frontalieri`
+    }
+  },
+
+  'blog-ristorni-scontro-gobbi-berna': {
+    title: 'Ristorni Frontalieri a Rischio: Scontro Ticino-Berna | Frontaliere Ticino',
+    description: 'Il Ticino minaccia di bloccare i ristorni per la tassa salute italiana. Berna frena: sarebbe una violazione. Analisi completa sulla disputa fiscale e le conseguenze.',
+    keywords: 'ristorni frontalieri, tassa salute, norman gobbi, accordo fiscale italia svizzera, blocco ristorni, ticino, frontalieri',
+    ogTitle: 'Ristorni a Rischio? Il Ticino Minaccia il Blocco, ma Berna Dice No',
+    ogDescription: 'Scontro totale tra Ticino e Berna sulla tassa salute italiana: Norman Gobbi valuta lo stop ai ristorni. Ecco cosa rischia di cambiare per i frontalieri.',
+    canonicalPath: '/articoli-frontaliere/ristorni-frontalieri-scontro-ticino-berna-tassa-salute',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Ristorni Frontalieri al Centro dello Scontro tra Ticino e Berna",
+      "description": "Il Ticino minaccia di bloccare i ristorni per la tassa salute italiana. Berna frena: sarebbe una violazione. Analisi completa sulla disputa fiscale e le conseguenze.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/ristorni-scontro-gobbi-berna.png`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Palazzo del Governo a Bellinzona con bandiere svizzera e italiana, simbolo delle tensioni fiscali sui ristorni."
+      },
+      "datePublished": "2026-02-19T00:00:00+01:00",
+      "dateModified": "2026-02-19T00:00:00+01:00",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}` },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL, "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ristorni-frontalieri-scontro-ticino-berna-tassa-salute`
+    }
+  },
+
+  'blog-frontalieri-ticino-calo-2025': {
+    title: 'Frontalieri in calo in Ticino: Dati e Analisi Q4 2025 | Frontaliere Ticino',
+    description: 'Dati ufficiali UST: nel Q4 2025 i frontalieri in Ticino scendono a 78.809 (-1,0%). Analizziamo le cause del calo e le implicazioni per chi lavora in Svizzera.',
+    keywords: 'frontalieri ticino, calo frontalieri, permesso g, lavoro ticino, dati ust svizzera, economia ticino, accordo fiscale italia svizzera',
+    ogTitle: 'Ticino in controtendenza: perché il numero di frontalieri diminuisce?',
+    ogDescription: 'Mentre in Svizzera i frontalieri aumentano, il Ticino registra un calo dell\'1,0%. Ecco i dati ufficiali e le possibili cause di questa inversione di rotta.',
+    canonicalPath: '/articoli-frontaliere/frontalieri-ticino-calo-dati-2025',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Ticino in controtendenza: perché il numero di frontalieri diminuisce?",
+      "description": "Dati ufficiali UST: nel Q4 2025 i frontalieri in Ticino scendono a 78.809 (-1,0%). Analizziamo le cause del calo e le implicazioni per chi lavora in Svizzera.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/frontalieri-ticino-calo-2025.png`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Colonna di auto di frontalieri al valico di Chiasso-Brogeda diretta verso il Ticino al mattino"
+      },
+      "datePublished": "2026-02-19T00:00:00+01:00",
+      "dateModified": "2026-02-19T00:00:00+01:00",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}` },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL, "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontalieri-ticino-calo-dati-2025`
+    }
+  },
+
+  'blog-frontalieri-ticino-controtendenza-2026': {
+    title: 'Frontalieri in Calo in Ticino: Dati e Analisi Q4 2025 | Frontaliere Ticino',
+    description: 'Dati ufficiali UST: i frontalieri in Svizzera crescono a 411.000, ma il Ticino segna -1,0% nel Q4 2025. Scopri le cause e le implicazioni per i lavoratori italiani.',
+    keywords: 'frontalieri ticino, permessi G, lavoro in svizzera, dati frontalieri 2025, calo frontalieri ticino, economia ticino, UST',
+    ogTitle: 'Frontalieri, il Ticino va controcorrente: i permessi calano',
+    ogDescription: 'Mentre in Svizzera i frontalieri aumentano, in Ticino si registra un calo dello 1,0%. Ecco i dati ufficiali e cosa significano per te.',
+    canonicalPath: '/articoli-frontaliere/frontalieri-ticino-dati-calo-q4-2025',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Frontalieri, il Ticino va controcorrente: i permessi calano",
+      "description": "Dati ufficiali UST: i frontalieri in Svizzera crescono a 411.000, ma il Ticino segna -1,0% nel Q4 2025. Scopri le cause e le implicazioni per i lavoratori italiani.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/frontalieri-ticino-controtendenza-2026.png`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Veduta aerea della regione di Mendrisio e del traffico di frontalieri al confine con l'Italia all'alba."
+      },
+      "datePublished": "2026-02-19T00:00:00+01:00",
+      "dateModified": "2026-02-19T00:00:00+01:00",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}` },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL, "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontalieri-ticino-dati-calo-q4-2025`
+    }
+  },
+
+  'blog-frontalieri-ticino-calo-q4-2025': {
+    title: 'Frontalieri in Ticino: Dati in Calo nel Q4 2025 | Frontaliere Ticino',
+    description: 'Analisi dei dati UST per il Q4 2025: il numero di frontalieri in Ticino scende a 78\'809 (-1.0%), in controtendenza rispetto alla crescita svizzera (+1.1%).',
+    keywords: 'frontalieri ticino, lavoro ticino, permesso G, dati frontalieri 2025, calo frontalieri, economia ticino, UST, mercato del lavoro',
+    ogTitle: 'Ticino controcorrente: Meno frontalieri a fine 2025. Ecco i dati',
+    ogDescription: 'Mentre in Svizzera i frontalieri aumentano, il Ticino registra un calo dell\'1.0%. Scopri i numeri ufficiali e cosa significa per il mercato del lavoro.',
+    canonicalPath: '/articoli-frontaliere/frontalieri-ticino-calo-dati-q4-2025',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Ticino controcorrente: Meno frontalieri a fine 2025. Ecco i dati",
+      "description": "Analisi dei dati UST per il Q4 2025: il numero di frontalieri in Ticino scende a 78'809 (-1.0%), in controtendenza rispetto alla crescita svizzera (+1.1%).",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/frontalieri-ticino-calo-q4-2025.png`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Colonna di auto di frontalieri al valico di Chiasso-Brogeda al mattino, simbolo del lavoro transfrontaliero in Ticino."
+      },
+      "datePublished": "2026-02-19T00:00:00+01:00",
+      "dateModified": "2026-02-19T00:00:00+01:00",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}` },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL, "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontalieri-ticino-calo-dati-q4-2025`
+    }
+  },
+
+  'blog-pendolarismo-affitto-tempo-ticino': {
+    title: 'Affitto e Pendolarismo: il Costo del Tempo per i Frontalieri | Frontaliere Ticino',
+    description: 'Un sondaggio svela che il 75% degli svizzeri non allunga il tragitto per un affitto basso. Analisi del dilemma tempo vs. denaro per i frontalieri in Ticino.',
+    keywords: 'pendolarismo ticino, affitto frontalieri, costo vita frontaliere, comparis sondaggio, lavoro ticino, stipendio frontaliere, brogeda traffico, tempo vs denaro',
+    ogTitle: 'Vale la pena passare ore in coda? Il vero costo del pendolarismo',
+    ogDescription: 'Tre svizzeri su quattro non lo farebbero per un affitto più basso. Ecco come il dilemma tempo-denaro impatta i frontalieri del Ticino.',
+    canonicalPath: '/articoli-frontaliere/pendolarismo-affitto-tempo-dilemma-frontalieri-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Vale la pena passare ore in coda? Il vero costo del pendolarismo",
+      "description": "Un sondaggio svela che il 75% degli svizzeri non allunga il tragitto per un affitto basso. Analisi del dilemma tempo vs. denaro per i frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/pendolarismo-affitto-tempo-ticino.png`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Traffico di frontalieri al mattino sull'autostrada A2 vicino al confine di Chiasso, con vista sul Ticino."
+      },
+      "datePublished": "2026-02-19T00:00:00+01:00",
+      "dateModified": "2026-02-19T00:00:00+01:00",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}` },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL, "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/pendolarismo-affitto-tempo-dilemma-frontalieri-ticino`
+    }
+  },
+
+  'blog-centrodestra-stop-ristorni-2026': {
+    title: 'Stop Ristorni Frontalieri: il Ticino contro la Tassa Salute | Frontaliere Ticino',
+    description: 'Il centrodestra ticinese chiede la sospensione dei ristorni fiscali all\'Italia. La mossa è una risposta alla "tassa sulla salute", vista come violazione dell\'accordo.',
+    keywords: 'ristorni frontalieri, tassa salute, accordo fiscale svizzera italia, frontalieri ticino, plr, lega, centro, udc, tassazione frontalieri',
+    ogTitle: 'Scontro Ticino-Italia: Sospesi i Ristorni dei Frontalieri?',
+    ogDescription: 'Il centrodestra ticinese unito contro la "tassa sulla salute": chiesta la sospensione immediata dei ristorni fiscali all\'Italia. Ecco cosa sta succedendo.',
+    canonicalPath: '/articoli-frontaliere/centrodestra-ticino-stop-ristorni-frontalieri-tassa-salute',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Scontro Ticino-Italia: Sospesi i Ristorni dei Frontalieri?",
+      "description": "Il centrodestra ticinese chiede la sospensione dei ristorni fiscali all'Italia. La mossa è una risposta alla \"tassa sulla salute\", vista come violazione dell'accordo.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/centrodestra-stop-ristorni-2026.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Il Palazzo delle Orsoline a Bellinzona, sede del governo ticinese, simbolo delle decisioni politiche sui ristorni dei frontalieri."
+      },
+      "datePublished": "2026-02-19T00:00:00+01:00",
+      "dateModified": "2026-02-19T00:00:00+01:00",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}` },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL, "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/centrodestra-ticino-stop-ristorni-frontalieri-tassa-salute`
+    }
+  },
+
+  'blog-frontalieri-ticino-dati-q4-2025': {
+    title: 'Frontalieri in Ticino: Dati in Calo a Fine 2025 | Frontaliere Ticino',
+    description: 'A fine 2025, i frontalieri in Ticino scendono a 78.809 (-1%), in controtendenza con la Svizzera (+1.1%). Analisi delle cause e impatto sul mercato del lavoro.',
+    keywords: 'frontalieri, ticino, lavoro svizzera, permesso g, dati statistici, calo frontalieri, economia ticino, accordo fiscale',
+    ogTitle: 'Frontalieri in Ticino: Perché il numero sta calando?',
+    ogDescription: 'Sorpresa dai dati di fine 2025: i frontalieri in Ticino diminuiscono dell\'1%. Scopri le possibili cause e cosa significa per il tuo lavoro.',
+    canonicalPath: '/articoli-frontaliere/frontalieri-ticino-dati-calo-fine-2025',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Frontalieri in Ticino: Perché il numero sta calando?",
+      "description": "A fine 2025, i frontalieri in Ticino scendono a 78.809 (-1%), in controtendenza con la Svizzera (+1.1%). Analisi delle cause e impatto sul mercato del lavoro.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/frontalieri-ticino-dati-q4-2025.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Colonna di auto di frontalieri al valico di Chiasso-Brogeda, simbolo del mercato del lavoro transfrontaliero in Ticino."
+      },
+      "datePublished": "2026-02-19T00:00:00+01:00",
+      "dateModified": "2026-02-19T00:00:00+01:00",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}` },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL, "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontalieri-ticino-dati-calo-fine-2025`
+    }
+  },
+
+  'blog-calo-entrate-irregolari-chiasso': {
+    title: 'Calo Ingressi Irregolari Chiasso: Dati e Impatti | Frontaliere Ticino',
+    description: 'Gennaio 2026 segna un calo degli ingressi irregolari in Ticino (392 casi). Analisi dei dati UDSC e delle implicazioni per i frontalieri al confine di Chiasso.',
+    keywords: 'ingressi irregolari ticino, frontiera chiasso, migranti svizzera, frontalieri, UDSC, sicurezza confine, mendrisiotto, lavoro ticino',
+    ogTitle: 'Confine di Chiasso: Crollano gli Ingressi Irregolari. Cosa Cambia?',
+    ogDescription: 'I dati ufficiali di gennaio 2026 confermano un netto calo degli ingressi irregolari in Ticino. Meno pressione sui valichi che usi ogni giorno.',
+    canonicalPath: '/articoli-frontaliere/calo-entrate-irregolari-migranti-chiasso-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Confine di Chiasso: Crollano gli Ingressi Irregolari. Cosa Cambia?",
+      "description": "Gennaio 2026 segna un calo degli ingressi irregolari in Ticino (392 casi). Analisi dei dati UDSC e delle implicazioni per i frontalieri al confine di Chiasso.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/calo-entrate-irregolari-chiasso.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Veduta del valico di frontiera di Chiasso-Brogeda in Ticino, che mostra le infrastrutture doganali svizzere."
+      },
+      "datePublished": "2026-02-19T00:00:00+01:00",
+      "dateModified": "2026-02-19T00:00:00+01:00",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}` },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL, "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/calo-entrate-irregolari-migranti-chiasso-ticino`
+    }
+  },
+
+  'blog-frontalieri-salari-polemica-ticino': {
+    title: 'Frontalieri e Salari in Ticino: Analisi della Polemica | Frontaliere Ticino',
+    description: 'La polemica sui frontalieri in Ticino si riaccende. Un\'analisi svela il vero problema: l\'impatto sui salari dei residenti e il ruolo delle aziende. Cosa significa per te.',
+    keywords: 'frontalieri, ticino, stipendio, polemica, la regione, lavoro confine, dumping salariale, economia ticino',
+    ogTitle: 'Frontalieri nel mirino: è solo una questione di numeri o di stipendi?',
+    ogDescription: 'La discussione sui frontalieri si infiamma di nuovo in Ticino. L\'accusa non è al numero, ma all\'effetto sui salari locali. Leggi l\'analisi completa.',
+    canonicalPath: '/articoli-frontaliere/frontalieri-stipendi-ticino-polemica-crescente',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Frontalieri nel mirino: è solo una questione di numeri o di stipendi?",
+      "description": "La polemica sui frontalieri in Ticino si riaccende. Un'analisi svela il vero problema: l'impatto sui salari dei residenti e il ruolo delle aziende. Cosa significa per te.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/frontalieri-salari-polemica-ticino.png`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Coda di auto di frontalieri al valico di Brogeda (Chiasso) durante l'ora di punta mattutina verso il Ticino"
+      },
+      "datePublished": "2026-02-21T00:00:00+01:00",
+      "dateModified": "2026-02-21T00:00:00+01:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}` },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL, "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontalieri-stipendi-ticino-polemica-crescente`
+    }
+  },
+
+  'blog-ristorni-frontalieri-scontro-ticino-lombardia': {
+    title: 'Ristorni Frontalieri a Rischio: Scontro Ticino-Lombardia | Frontaliere Ticino',
+    description: 'La mozione del Canton Ticino per bloccare i ristorni fiscali ai comuni italiani accende lo scontro. Reazioni dalla Lombardia e il nodo della tassa sulla salute.',
+    keywords: 'ristorni frontalieri, tassa salute frontalieri, accordo fiscale italia svizzera, ticino, lombardia, frontalieri, tasse svizzera',
+    ogTitle: 'Ristorni Bloccati? Il Ticino Minaccia Roma e la Lombardia Reagisce',
+    ogDescription: 'Il Canton Ticino propone di sospendere i ristorni fiscali per i frontalieri. Una mossa drastica in risposta alla nuova tassa sulla salute italiana. Ecco cosa succede.',
+    canonicalPath: '/articoli-frontaliere/ristorni-frontalieri-scontro-ticino-lombardia-tassa-salute',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Ristorni Bloccati? Il Ticino Minaccia Roma e la Lombardia Reagisce",
+      "description": "La mozione del Canton Ticino per bloccare i ristorni fiscali ai comuni italiani accende lo scontro. Reazioni dalla Lombardia e il nodo della tassa sulla salute.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/ristorni-frontalieri-scontro-ticino-lombardia.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Veduta del valico di confine di Chiasso-Brogeda al tramonto, simbolo delle tensioni fiscali tra Ticino e Italia."
+      },
+      "datePublished": "2026-02-21T00:00:00+01:00",
+      "dateModified": "2026-02-21T00:00:00+01:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}` },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL, "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ristorni-frontalieri-scontro-ticino-lombardia-tassa-salute`
+    }
+  },
+
+  'blog-tredicesima-avs-iva-contributi': {
+    title: 'Tredicesima AVS: Aumento IVA e Contributi Salariali | Frontaliere Ticino',
+    description: 'La Commissione degli Stati propone un aumento di 0,3 punti sui salari e 0,4 sull\'IVA per la 13esima AVS. Scopri l\'impatto per i frontalieri in Ticino.',
+    keywords: 'tredicesima avs, contributi salariali svizzera, aumento iva svizzera, pensione frontalieri, stipendio netto ticino, finanziamento avs, frontalieri, ticino',
+    ogTitle: '13esima AVS: Aumenti su IVA e stipendi. Cosa cambia per te?',
+    ogDescription: 'La nuova proposta per finanziare la 13esima AVS prevede un aumento dello 0,3% sui contributi e dello 0,4% sull\'IVA. Ecco le conseguenze.',
+    canonicalPath: '/articoli-frontaliere/tredicesima-avs-aumento-iva-contributi-salariali-frontaliere',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "13esima AVS: Aumenti su IVA e stipendi. Cosa cambia per te?",
+      "description": "La Commissione degli Stati propone un aumento di 0,3 punti sui salari e 0,4 sull'IVA per la 13esima AVS. Scopri l'impatto per i frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/tredicesima-avs-iva-contributi.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Busta paga svizzera con monete in franchi, simbolo del dibattito sul finanziamento della 13esima AVS in Ticino."
+      },
+      "datePublished": "2026-02-21T00:00:00+01:00",
+      "dateModified": "2026-02-21T00:00:00+01:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}` },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL, "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tredicesima-avs-aumento-iva-contributi-salariali-frontaliere`
+    }
+  },
+
+  'blog-tredicesima-avs-finanziamento-misto': {
+    title: 'Finanziamento 13esima AVS: Aumento Contributi e IVA | Frontaliere Ticino',
+    description: 'La Commissione degli Stati propone un finanziamento misto per la 13esima AVS: più contributi salariali e IVA. Scopri l\'impatto sul tuo stipendio da frontaliere in Ticino.',
+    keywords: '13esima avs, finanziamento avs, contributi salariali svizzera, aumento iva svizzera, frontalieri ticino, stipendio netto, pensione svizzera',
+    ogTitle: '13esima AVS: prelievi più alti in busta paga. Ecco perché',
+    ogDescription: 'Un costo da 4,2 miliardi di franchi: il finanziamento della 13esima AVS si farà con più contributi e IVA. Cosa cambia per il tuo stipendio.',
+    canonicalPath: '/articoli-frontaliere/tredicesima-avs-finanziamento-misto-contributi-iva',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "13esima AVS: prelievi più alti in busta paga. Ecco perché",
+      "description": "La Commissione degli Stati propone un finanziamento misto per la 13esima AVS: più contributi salariali e IVA. Scopri l'impatto sul tuo stipendio da frontaliere in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/tredicesima-avs-finanziamento-misto.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Busta paga svizzera e calcolatrice su una scrivania con vista sui castelli di Bellinzona, a simboleggiare il finanziamento della 13esima AVS."
+      },
+      "datePublished": "2026-02-21T00:00:00+01:00",
+      "dateModified": "2026-02-21T00:00:00+01:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}` },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL, "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tredicesima-avs-finanziamento-misto-contributi-iva`
+    }
+  },
+
+  'blog-tredicesima-avs-finanziamento-scontro': {
+    title: '13esima AVS: Aumento IVA e Contributi? Novità Finanziamento | Frontaliere Ticino',
+    description: 'La Commissione degli Stati vuole un finanziamento misto per la 13esima AVS da 4,2 mld. Scopri le implicazioni su stipendio e IVA per i frontalieri in Ticino.',
+    keywords: '13esima avs, finanziamento avs, contributi salariali svizzera, aumento iva svizzera, frontalieri, ticino, pensione svizzera, stipendio frontaliere',
+    ogTitle: '13esima AVS: la tua busta paga e la spesa in Svizzera costeranno di più?',
+    ogDescription: 'Il finanziamento della 13esima AVS è in stallo. Si profila un doppio aumento su contributi salariali e IVA. Ecco cosa cambia per te.',
+    canonicalPath: '/articoli-frontaliere/tredicesima-avs-finanziamento-scontro-iva-contributi',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Finanziamento 13esima AVS: Aumento Contributi e IVA",
+      "description": "La Commissione degli Stati vuole un finanziamento misto per la 13esima AVS da 4,2 mld. Scopri le implicazioni su stipendio e IVA per i frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/tredicesima-avs-finanziamento-scontro.png`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Palazzo delle Orsoline a Bellinzona, sede del governo ticinese, con bandiere svizzere e cantonali."
+      },
+      "datePublished": "2026-02-21T00:00:00+01:00",
+      "dateModified": "2026-02-21T00:00:00+01:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}` },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL, "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tredicesima-avs-finanziamento-scontro-iva-contributi`
+    }
+  },
+
+  'blog-ristorni-imprese-allarme-ticino': {
+    title: 'Blocco Ristorni e Calo Frontalieri: Allarme Imprese | Frontaliere Ticino',
+    description: 'Le imprese ticinesi sono preoccupate: il calo di 2.000 frontalieri e lo scontro sui ristorni fiscali minacciano l\'economia. Analisi e impatto per i lavoratori.',
+    keywords: 'ristorni frontalieri, tassa salute ticino, calo frontalieri, economia ticino, accordo fiscale svizzera italia, lavoro frontaliere, imprese ticino, aiti',
+    ogTitle: 'Ristorni bloccati? Imprese ticinesi lanciano l\'allarme',
+    ogDescription: 'Con 2.000 frontalieri in meno e la minaccia di bloccare i ristorni, il padronato teme per il futuro economico del Cantone. Cosa sta succedendo.',
+    canonicalPath: '/articoli-frontaliere/blocco-ristorni-imprese-ticino-allarme-calo-frontalieri',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Ristorni bloccati? Imprese ticinesi lanciano l'allarme",
+      "description": "Le imprese ticinesi sono preoccupate: il calo di 2.000 frontalieri e lo scontro sui ristorni fiscali minacciano l'economia. Analisi e impatto per i lavoratori.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/ristorni-imprese-allarme-ticino.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Panorama del centro finanziario di Lugano al crepuscolo, simbolo dell'economia ticinese sotto pressione."
+      },
+      "datePublished": "2026-02-21T00:00:00+01:00",
+      "dateModified": "2026-02-21T00:00:00+01:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}` },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL, "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/blocco-ristorni-imprese-ticino-allarme-calo-frontalieri`
+    }
+  },
+
+  'blog-denaro-non-dichiarato-dogana-brogeda': {
+    title: 'Trasporto contanti Svizzera-Italia: guida e rischi | Frontaliere Ticino',
+    description: 'Fermata con 154\'300€ non dichiarati a Brogeda. Scopri le regole sul trasporto di contanti tra Italia e Svizzera, la soglia di 10\'000 euro e le sanzioni.',
+    keywords: 'trasporto contanti svizzera italia, dichiarazione valuta dogana, limite contanti confine, frontalieri, ticino, dogana chiasso, sanzioni valuta, 10000 euro',
+    ogTitle: 'Nascosti 150mila euro in auto: le regole che ogni frontaliere deve sapere',
+    ogDescription: 'Un sequestro record al valico di Brogeda ci ricorda le severe norme sul trasporto di contanti. Sei sicuro di conoscerle? Evita multe salatissime.',
+    canonicalPath: '/articoli-frontaliere/denaro-non-dichiarato-dogana-cosa-rischi-frontaliere',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Nascosti 150mila euro in auto: le regole che ogni frontaliere deve sapere",
+      "description": "Fermata con 154'300€ non dichiarati a Brogeda. Scopri le regole sul trasporto di contanti tra Italia e Svizzera, la soglia di 10'000 euro e le sanzioni.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/denaro-non-dichiarato-dogana-brogeda.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Vista dal cruscotto di un'auto al valico di frontiera di Chiasso-Brogeda, con un agente della dogana sullo sfondo."
+      },
+      "datePublished": "2026-02-21T00:00:00+01:00",
+      "dateModified": "2026-02-21T00:00:00+01:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}` },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL, "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/denaro-non-dichiarato-dogana-cosa-rischi-frontaliere`
+    }
+  },
+
+  'blog-frontalieri-salari-dibattito-ticino': {
+    title: 'Frontalieri e Salari in Ticino: Analisi del Dibattito | Frontaliere Ticino',
+    description: 'Il dibattito sui frontalieri in Ticino si riaccende. Analizziamo le cause reali: la pressione sui salari dei residenti e un\'economia in un circolo vizioso.',
+    keywords: 'frontalieri, ticino, stipendio, salari, dibattito, economia ticinese, dumping salariale, lavoro confine',
+    ogTitle: 'Frontalieri nel mirino? La verità sul dibattito salariale in Ticino',
+    ogDescription: 'Non è solo una questione di numeri. Ecco perché il tema dei frontalieri e dei salari infiamma il Ticino e cosa significa per il tuo stipendio.',
+    canonicalPath: '/articoli-frontaliere/frontalieri-salari-dibattito-ticino-il-cane-che-si-morde-la-coda',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Frontalieri nel mirino? La verità sul dibattito salariale in Ticino",
+      "description": "Il dibattito sui frontalieri in Ticino si riaccende. Analizziamo le cause reali: la pressione sui salari dei residenti e un'economia in un circolo vizioso.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/frontalieri-salari-dibattito-ticino.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Auto in coda al valico di Chiasso-Brogeda, simbolo del pendolarismo e del dibattito sui frontalieri in Ticino."
+      },
+      "datePublished": "2026-02-21T00:00:00+01:00",
+      "dateModified": "2026-02-21T00:00:00+01:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}` },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL, "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontalieri-salari-dibattito-ticino-il-cane-che-si-morde-la-coda`
+    }
+  },
+
+  'blog-tredicesima-avs-stipendio-iva': {
+    title: '13esima AVS: Finanziamento Misto tra Stipendio e IVA | Frontaliere Ticino',
+    description: 'Scontro a Berna sul finanziamento della 13esima AVS. La Commissione degli Stati propone un mix di aumento contributi salariali e IVA. Cosa cambia per i frontalieri.',
+    keywords: '13esima AVS, frontalieri, finanziamento, contributi salariali, IVA, stipendio ticino, pensione svizzera, consiglio degli stati',
+    ogTitle: '13esima AVS: Aumento Stipendio o IVA? La Decisione che Tocca il Tuo Portafoglio',
+    ogDescription: 'La politica svizzera è divisa su come finanziare i 4,2 miliardi della 13esima AVS. La nuova proposta potrebbe ridurre il tuo stipendio netto. Scopri come.',
+    canonicalPath: '/articoli-frontaliere/tredicesima-avs-finanziamento-misto-stipendio-iva',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Finanziamento 13esima AVS: Scontro tra Aumento Contributi e IVA",
+      "description": "Scontro a Berna sul finanziamento della 13esima AVS. La Commissione degli Stati propone un mix di aumento contributi salariali e IVA. Cosa cambia per i frontalieri.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/tredicesima-avs-stipendio-iva.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Mani di un frontaliere che calcolano lo stipendio netto in un ufficio a Lugano, con vista sul lago."
+      },
+      "datePublished": "2026-02-22T00:00:00+01:00",
+      "dateModified": "2026-02-22T00:00:00+01:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}` },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL, "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tredicesima-avs-finanziamento-misto-stipendio-iva`
+    }
+  },
+
+  'blog-stop-ristorni-mozione-partiti': {
+    title: 'Stop Ristorni per Tassa Salute: Mozione in Ticino | Frontaliere Ticino',
+    description: 'Una mozione di PLR, Centro, UDC e Lega chiede al Ticino di sospendere i ristorni fiscali all\'Italia a causa della nuova tassa sulla salute per i frontalieri.',
+    keywords: 'ristorni frontalieri, tassa salute frontalieri, ticino italia, accordo fiscale svizzera italia, sospensione ristorni, politica ticinese, mozione',
+    ogTitle: 'Ristorni all\'Italia a Rischio: la Politica Ticinese Fa Fronte Comune',
+    ogDescription: 'Quattro partiti ticinesi chiedono lo stop ai ristorni fiscali a causa della tassa sulla salute. Ecco cosa significa per te e per il tuo stipendio.',
+    canonicalPath: '/articoli-frontaliere/tassa-salute-partiti-ticino-chiedono-stop-ristorni',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Ristorni all'Italia a Rischio: la Politica Ticinese Fa Fronte Comune",
+      "description": "Una mozione di PLR, Centro, UDC e Lega chiede al Ticino di sospendere i ristorni fiscali all'Italia a causa della nuova tassa sulla salute per i frontalieri.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/stop-ristorni-mozione-partiti.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Palazzo del Governo cantonale a Bellinzona, simbolo della politica ticinese al centro del dibattito sui ristorni"
+      },
+      "datePublished": "2026-02-20T00:00:00+01:00",
+      "dateModified": "2026-02-20T00:00:00+01:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}` },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL, "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tassa-salute-partiti-ticino-chiedono-stop-ristorni`
+    }
+  },
+
+  'blog-partiti-ticino-stop-ristorni': {
+    title: 'Stop Ristorni per Tassa Salute Frontalieri: Ticino vs Italia | Frontaliere Ticino',
+    description: 'La politica ticinese chiede la sospensione dei ristorni all\'Italia a causa della nuova tassa sulla salute per i frontalieri. Analisi della mozione e impatto.',
+    keywords: 'ristorni frontalieri, tassa salute frontalieri, ticino, accordo fiscale svizzera italia, sospensione ristorni, frontalieri vecchi, tassazione frontalieri',
+    ogTitle: 'Stop ai Ristorni: il Ticino Alza la Voce Contro la Tassa Salute',
+    ogDescription: 'Quattro partiti ticinesi uniti per bloccare i fondi all\'Italia. Scopri perché la tassa sulla salute dei frontalieri viola gli accordi e cosa significa per te.',
+    canonicalPath: '/articoli-frontaliere/stop-ristorni-tassa-salute-mozione-politica-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Stop ai Ristorni: il Ticino Alza la Voce Contro la Tassa Salute",
+      "description": "La politica ticinese chiede la sospensione dei ristorni all'Italia a causa della nuova tassa sulla salute per i frontalieri. Analisi della mozione e impatto.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/partiti-ticino-stop-ristorni.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Palazzo del Governo ticinese a Bellinzona, simbolo della politica cantonale e delle decisioni sui frontalieri."
+      },
+      "datePublished": "2026-02-20T00:00:00+01:00",
+      "dateModified": "2026-02-20T00:00:00+01:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}` },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL, "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/stop-ristorni-tassa-salute-mozione-politica-ticino`
+    }
+  },
+
+  'blog-conti-federali-aumento-iva-ticino': {
+    title: 'Conti Federali 2025 e Aumento IVA: Impatto su Ticino | Frontaliere Ticino',
+    description: 'I conti della Confederazione chiudono il 2025 in attivo, ma dal 2027 sono previsti tagli e un aumento dell\'IVA. Scopri l\'impatto per i frontalieri in Ticino.',
+    keywords: 'conti federali svizzera, aumento IVA svizzera, finanze confederazione, frontalieri ticino, pacchetto sgravio 27, costo vita svizzera, stipendio frontaliere',
+    ogTitle: 'Conti Svizzeri in attivo, ma l\'IVA aumenterà: cosa cambia?',
+    ogDescription: 'Sorpresa a Berna: avanzo di 259 milioni nel 2025. Ma si prepara un aumento dell\'IVA dello 0,8% che inciderà sui costi per tutti, frontalieri inclusi.',
+    canonicalPath: '/articoli-frontaliere/conti-federali-2025-aumento-iva-impatto-frontalieri-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Conti Svizzeri in attivo, ma l'IVA aumenterà: cosa cambia?",
+      "description": "I conti della Confederazione chiudono il 2025 in attivo, ma dal 2027 sono previsti tagli e un aumento dell'IVA. Scopri l'impatto per i frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/conti-federali-aumento-iva-ticino.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Il Palazzo Federale a Berna, simbolo delle decisioni fiscali che impattano i conti della Svizzera e del Ticino."
+      },
+      "datePublished": "2026-02-20T00:00:00+01:00",
+      "dateModified": "2026-02-20T00:00:00+01:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}` },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL, "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/conti-federali-2025-aumento-iva-impatto-frontalieri-ticino`
+    }
+  },
+
+  'blog-tredicesima-avs-stipendi-iva': {
+    title: '13esima AVS e Stipendio: Meno Netto in Busta Paga? | Frontaliere Ticino',
+    description: 'La 13esima AVS costerà 4,2 miliardi. Si profila un aumento dei contributi salariali e dell\'IVA. Scopri l\'impatto diretto sul tuo stipendio netto da frontaliere in Ticino.',
+    keywords: 'tredicesima avs, finanziamento avs, contributi salariali svizzera, aumento iva svizzera, stipendio netto frontaliere, frontalieri ticino, pensione svizzera',
+    ogTitle: '13esima AVS: Aumento Contributi e IVA in Vista. Cosa Cambia per il Tuo Stipendio?',
+    ogDescription: 'La Commissione degli Stati vuole aumentare contributi e IVA per finanziare la 13esima AVS. Ecco l\'impatto previsto sulla tua busta paga da frontaliere.',
+    canonicalPath: '/articoli-frontaliere/tredicesima-avs-finanziamento-impatto-stipendio-frontalieri-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "13esima AVS: Aumento Contributi e IVA in Vista. Cosa Cambia per il Tuo Stipendio?",
+      "description": "La 13esima AVS costerà 4,2 miliardi. Si profila un aumento dei contributi salariali e dell'IVA. Scopri l'impatto diretto sul tuo stipendio netto da frontaliere in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/tredicesima-avs-stipendi-iva.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Busta paga svizzera su una scrivania con vista su Lugano, a simboleggiare l'impatto della 13esima AVS sullo stipendio dei frontalieri."
+      },
+      "datePublished": "2026-02-20T00:00:00+01:00",
+      "dateModified": "2026-02-20T00:00:00+01:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}` },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL, "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tredicesima-avs-finanziamento-impatto-stipendio-frontalieri-ticino`
+    }
+  },
+
+  'blog-ristorni-lombardia-reazione': {
+    title: 'Ristorni Frontalieri: la Lombardia contro il blocco | Frontaliere Ticino',
+    description: 'La mozione ticinese per bloccare i ristorni in risposta alla tassa sulla salute provoca la reazione della Lombardia. Politici e sindacati chiedono di fermare l\'escalation.',
+    keywords: 'ristorni frontalieri, tassa salute ticino, accordo fiscale italia svizzera, frontalieri ticino, tasse frontalieri, politica confine, lombardia ticino',
+    ogTitle: 'Stop ai Ristorni? La Lombardia frena il Ticino: \'Scelta sbagliata\'',
+    ogDescription: 'La politica ticinese vuole bloccare i ristorni come ritorsione alla tassa sulla salute, ma da oltre confine arriva un avvertimento. Ecco cosa sta succedendo.',
+    canonicalPath: '/articoli-frontaliere/ristorni-frontalieri-reazione-lombardia-tassa-salute',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Tensioni sui ristorni tra Ticino e Lombardia",
+      "description": "La mozione ticinese per bloccare i ristorni in risposta alla tassa sulla salute provoca la reazione della Lombardia. Politici e sindacati chiedono di fermare l'escalation.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/ristorni-lombardia-reazione.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Palazzo del governo cantonale a Bellinzona, simbolo delle tensioni fiscali tra Ticino e Italia sui ristorni."
+      },
+      "datePublished": "2026-02-20T00:00:00+01:00",
+      "dateModified": "2026-02-20T00:00:00+01:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}` },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL, "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ristorni-frontalieri-reazione-lombardia-tassa-salute`
+    }
+  },
+
+  'blog-truffa-falso-bancario-ticino': {
+    title: 'Truffa falso bancario in Ticino: allarme per i frontalieri | Frontaliere Ticino',
+    description: 'La Polizia Cantonale lancia l\'allarme per un\'ondata di truffe con finti funzionari di banca in Ticino. Scopri come funziona lo spoofing e come proteggere il tuo conto.',
+    keywords: 'truffa bancaria ticino, spoofing, frontalieri, sicurezza e-banking, polizia cantonale, truffa telefonica, conto svizzero, protezione dati',
+    ogTitle: 'Falso bancario al telefono? L\'allarme della Polizia in Ticino',
+    ogDescription: 'Malintenzionati si spacciano per la tua banca svizzera. La Polizia Cantonale svela la truffa dello spoofing: non cadere nella trappola.',
+    canonicalPath: '/articoli-frontaliere/truffa-falso-bancario-ticino-allarme-polizia',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Falso bancario al telefono? L'allarme della Polizia in Ticino",
+      "description": "La Polizia Cantonale lancia l'allarme per un'ondata di truffe con finti funzionari di banca in Ticino. Scopri come funziona lo spoofing e come proteggere il tuo conto.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/truffa-falso-bancario-ticino.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Smartphone con app bancaria e vista sul lago di Lugano, simbolo di finanza sicura in Ticino."
+      },
+      "datePublished": "2026-02-20T00:00:00+01:00",
+      "dateModified": "2026-02-20T00:00:00+01:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}` },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL, "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/truffa-falso-bancario-ticino-allarme-polizia`
+    }
+  },
+
+  'blog-dazi-usa-impatto-ticino': {
+    title: 'Dazi USA 10% e Svizzera: impatto sull\'economia del Ticino | Frontaliere Ticino',
+    description: 'L\'annuncio di dazi USA al 10% mette in allerta Berna. Analizziamo le conseguenze per l\'export ticinese, l\'industria farmaceutica e il lavoro dei frontalieri.',
+    keywords: 'dazi usa svizzera, economia ticino, frontalieri, lavoro ticino, export svizzero, trump dazi, industria farmaceutica ticino',
+    ogTitle: 'Dazi USA al 10%: cosa rischia l\'economia del Ticino e il tuo lavoro?',
+    ogDescription: 'Berna è in allerta dopo la proposta di dazi USA al 10%. L\'impatto sull\'export del Ticino potrebbe essere significativo. Scopri le conseguenze.',
+    canonicalPath: '/articoli-frontaliere/dazi-usa-10-percento-conseguenze-economia-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Dazi USA al 10%: cosa rischia l'economia del Ticino e il tuo lavoro?",
+      "description": "L'annuncio di dazi USA al 10% mette in allerta Berna. Analizziamo le conseguenze per l'export ticinese, l'industria farmaceutica e il lavoro dei frontalieri.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/dazi-usa-impatto-ticino.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Moderno stabilimento industriale nel Mendrisiotto, Ticino, che simboleggia l'export verso gli USA"
+      },
+      "datePublished": "2026-02-20T00:00:00+01:00",
+      "dateModified": "2026-02-20T00:00:00+01:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}` },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL, "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/dazi-usa-10-percento-conseguenze-economia-ticino`
+    }
+  },
+
+  'blog-sanita-ticino-tagli-orselina': {
+    title: 'Sanità Ticino: 8 posti a rischio alla Clinica Varini | Frontaliere Ticino',
+    description: 'L\'accordo tra la Clinica Varini di Orselina e la Hildebrand di Brissago causa la perdita di 8 posti di lavoro nel team fisioterapia. Analisi dell\'impatto sul mercato sanitario ticinese per i frontalieri.',
+    keywords: 'frontalieri, ticino, lavoro sanità, clinica varini, clinica hildebrand, licenziamenti ticino, fisioterapia, orselina',
+    ogTitle: 'Sanità Ticino: accordo tra cliniche, 8 posti a rischio',
+    ogDescription: 'La collaborazione tra la Clinica Varini e la Clinica Hildebrand porterà alla chiusura del team di fisioterapia di Orselina. Otto persone perderanno il lavoro.',
+    canonicalPath: '/articoli-frontaliere/sanita-ticino-accordo-varini-hildebrand-8-posti-a-rischio',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Collaborazione Varini-Hildebrand: otto persone senza lavoro",
+      "description": "L'accordo tra la Clinica Varini di Orselina e la Hildebrand di Brissago causa la perdita di 8 posti di lavoro nel team fisioterapia. Analisi dell'impatto sul mercato sanitario ticinese per i frontalieri.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/sanita-ticino-tagli-orselina.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Veduta del lungolago di Locarno, che ospita un importante settore sanitario privato, contesto dell'articolo."
+      },
+      "datePublished": "2026-02-20T00:00:00+01:00",
+      "dateModified": "2026-02-20T00:00:00+01:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}` },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL, "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/sanita-ticino-accordo-varini-hildebrand-8-posti-a-rischio`
+    }
+  },
+
+  'blog-dumping-salari-architetti-ticino': {
+    title: 'Dumping Salariale Ticino: Falsi Part-Time | Frontaliere Ticino',
+    description: 'Un studio di architettura nel Mendrisiotto accusato di dumping salariale: contratti part-time per lavoro full-time. Scopri come tutelarti e quali sono i tuoi diritti.',
+    keywords: 'dumping salariale, frontalieri, ticino, lavoro part-time, studio architettura, diritti lavoratori, commissione paritetica, mendrisiotto',
+    ogTitle: 'Lavoro 100%, Pagato 50%: Scandalo Dumping Salariale in Ticino',
+    ogDescription: 'Uno studio di architettura nel mirino per contratti part-time fittizi. Un caso che espone i rischi per i frontalieri e l\'importanza di conoscere i propri diritti.',
+    canonicalPath: '/articoli-frontaliere/dumping-salariale-ticino-architetti-part-time-fittizi',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Lavoro 100%, Pagato 50%: Scandalo Dumping Salariale in Ticino",
+      "description": "Un studio di architettura nel Mendrisiotto accusato di dumping salariale: contratti part-time per lavoro full-time. Scopri come tutelarti e quali sono i tuoi diritti.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/dumping-salari-architetti-ticino.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Scrivania di uno studio di architettura a Mendrisio con un contratto di lavoro svizzero, simbolo delle dispute salariali."
+      },
+      "datePublished": "2026-02-20T00:00:00+01:00",
+      "dateModified": "2026-02-20T00:00:00+01:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}` },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL, "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/dumping-salariale-ticino-architetti-part-time-fittizi`
+    }
+  },
+
+  'blog-tredicesima-avs-finanziamento-contributi': {
+    title: '13a AVS: Come sarà finanziata e l\'impatto sui frontalieri | Frontaliere Ticino',
+    description: 'Il Consiglio federale ha deciso: la 13esima AVS sarà finanziata con un aumento dei contributi dello 0,5% dal 2026. Scopri l\'impatto sul tuo stipendio netto.',
+    keywords: 'tredicesima avs, finanziamento avs, contributi sociali svizzera, frontalieri ticino, stipendio netto 2026, pensione svizzera, busta paga frontaliere',
+    ogTitle: 'Tredicesima AVS: Aumento contributi in arrivo. Cosa cambia?',
+    ogDescription: 'Dal 2026 i contributi AVS aumenteranno dello 0,5%. Ecco la decisione del Consiglio federale e come influenzerà la tua busta paga in Ticino.',
+    canonicalPath: '/articoli-frontaliere/tredicesima-avs-finanziamento-aumento-contributi-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Finanziamento 13esima AVS: Aumento Contributi dal 2026",
+      "description": "Il Consiglio federale ha deciso: la 13esima AVS sarà finanziata con un aumento dei contributi dello 0,5% dal 2026. Scopri l'impatto sul tuo stipendio netto.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/tredicesima-avs-finanziamento-contributi.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Busta paga svizzera su una scrivania con vista sul Lago di Lugano, a simboleggiare l'impatto dei contributi AVS."
+      },
+      "datePublished": "2026-02-22T00:00:00+01:00",
+      "dateModified": "2026-02-22T00:00:00+01:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}` },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL, "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tredicesima-avs-finanziamento-aumento-contributi-2026`
+    }
+  },
+
+  'blog-tredicesima-avs-stipendio-trattenute': {
+    title: '13a AVS e Stipendio: Aumento Trattenute per Frontalieri? | Frontaliere Ticino',
+    description: 'La Commissione degli Stati propone di finanziare la 13a AVS con aumento IVA e contributi salariali. Scopri l\'impatto diretto sulla busta paga dei frontalieri.',
+    keywords: '13esima avs, frontalieri, ticino, contributi salariali, trattenute stipendio, aumento iva, busta paga svizzera, pensione svizzera',
+    ogTitle: '13a AVS: la tua busta paga in Ticino potrebbe ridursi',
+    ogDescription: 'Berna divisa su come pagare la 13a AVS: più tasse o più trattenute? Ecco cosa rischiano i 90.000 frontalieri che lavorano in Ticino.',
+    canonicalPath: '/articoli-frontaliere/tredicesima-avs-finanziamento-impatto-stipendio-frontalieri',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Finanziamento 13a AVS: Rischio Aumento Contributi Salariali per i Frontalieri",
+      "description": "La Commissione degli Stati propone di finanziare la 13a AVS con aumento IVA e contributi salariali. Scopri l'impatto diretto sulla busta paga dei frontalieri.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/tredicesima-avs-stipendio-trattenute.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Busta paga svizzera su una scrivania con vista su Lugano, a simboleggiare l'impatto della 13a AVS sullo stipendio dei frontalieri."
+      },
+      "datePublished": "2026-02-21T00:00:00+01:00",
+      "dateModified": "2026-02-21T00:00:00+01:00",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}` },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL, "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tredicesima-avs-finanziamento-impatto-stipendio-frontalieri`
+    }
+  },
+
+  'blog-scambio-dati-polizia-ticino': {
+    title: 'Scambio Dati Polizia Svizzera: Novità per il Ticino | Frontaliere Ticino',
+    description: 'Berna avvia la consultazione per la piattaforma POLAP, per unificare i dati delle polizie cantonali. Scopri le implicazioni per la sicurezza in Ticino.',
+    keywords: 'polizia cantonale, scambio dati, POLAP, sicurezza ticino, frontalieri, svizzera, protezione dati, criminalità organizzata',
+    ogTitle: 'Polizia Ticino: Dati condivisi con l\'Italia prima che con Zurigo?',
+    ogDescription: 'Un paradosso svizzero: la polizia ticinese accede più facilmente ai dati UE che a quelli di altri cantoni. Ora Berna vuole cambiare le regole. Ecco cosa succede.',
+    canonicalPath: '/articoli-frontaliere/scambio-dati-polizia-svizzera-impatto-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Polizia Ticino: Dati condivisi con l'Italia prima che con Zurigo?",
+      "description": "Berna avvia la consultazione per la piattaforma POLAP, per unificare i dati delle polizie cantonali. Scopri le implicazioni per la sicurezza in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/scambio-dati-polizia-ticino.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Polizia cantonale ticinese al lavoro con un tablet al valico di Chiasso-Brogeda, simbolo dello scambio dati."
+      },
+      "datePublished": "2026-02-21T00:00:00+01:00",
+      "dateModified": "2026-02-21T00:00:00+01:00",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}` },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL, "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/scambio-dati-polizia-svizzera-impatto-ticino`
+    }
+  },
+
+  'blog-tredicesima-avs-finanziamento-misto-proposta': {
+    title: '13esima AVS: Finanziamento con Aumento Stipendi e IVA | Frontaliere Ticino',
+    description: 'La Commissione degli Stati propone un finanziamento misto per la 13esima AVS: aumento dei contributi salariali e dell\'IVA. Ecco l\'impatto su stipendi e busta paga.',
+    keywords: '13esima AVS, finanziamento, contributi salariali, aumento IVA, frontalieri, ticino, stipendio netto, busta paga svizzera',
+    ogTitle: '13esima AVS: Più Trattenute in Busta Paga? Il Piano sul Tavolo',
+    ogDescription: 'Un nuovo piano per finanziare la 13esima AVS prevede un aumento dei contributi salariali e dell\'IVA. Scopri cosa cambia per il tuo stipendio.',
+    canonicalPath: '/articoli-frontaliere/tredicesima-avs-finanziamento-misto-stipendi-iva',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "13esima AVS: Più Trattenute in Busta Paga? Il Piano sul Tavolo",
+      "description": "La Commissione degli Stati propone un finanziamento misto per la 13esima AVS: aumento dei contributi salariali e dell'IVA. Ecco l'impatto su stipendi e busta paga.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/tredicesima-avs-finanziamento-misto-proposta.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Busta paga svizzera su una scrivania con vista sul lago di Lugano, a simboleggiare l'impatto delle trattenute AVS."
+      },
+      "datePublished": "2026-02-21T00:00:00+01:00",
+      "dateModified": "2026-02-21T00:00:00+01:00",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}` },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL, "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tredicesima-avs-finanziamento-misto-stipendi-iva`
+    }
+  },
+
+  'blog-frontalieri-ticino-dati-ingannevoli': {
+    title: 'Frontalieri in calo in Ticino? I dati che smentiscono la notizia | Frontaliere Ticino',
+    description: 'Analisi dei dati 2025 sui frontalieri in Ticino. Un calo dello 0.2% nasconde un aumento nei settori qualificati come IT e ingegneria. Scopri la vera tendenza.',
+    keywords: 'frontalieri, ticino, dati lavoro, permesso g, mercato del lavoro ticino, sostituzione manodopera, statistiche frontalieri, economia ticinese',
+    ogTitle: 'Calo dei frontalieri in Ticino? Non è come sembra: i dati settore per settore',
+    ogDescription: 'Una flessione dello 0.2% nasconde una crescita boom nei settori IT, ingegneria e finanza. Ecco cosa significano veramente i nuovi dati sul lavoro in Ticino.',
+    canonicalPath: '/articoli-frontaliere/frontalieri-ticino-calo-dati-settori-qualificati',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Calo dei frontalieri in Ticino? Non è come sembra: i dati settore per settore",
+      "description": "Analisi dei dati 2025 sui frontalieri in Ticino. Un calo dello 0.2% nasconde un aumento nei settori qualificati come IT e ingegneria. Scopri la vera tendenza.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/frontalieri-ticino-dati-ingannevoli.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Ufficio moderno a Lugano con vista sul lago, simbolo del settore terziario qualificato in Ticino."
+      },
+      "datePublished": "2026-02-21T00:00:00+01:00",
+      "dateModified": "2026-02-21T00:00:00+01:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}` },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL, "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontalieri-ticino-calo-dati-settori-qualificati`
+    }
+  },
+
+  'blog-tredicesima-avs-finanziamento-busta-paga': {
+    title: '13esima AVS: Aumento Contributi e IVA in Vista | Frontaliere Ticino',
+    description: 'La Commissione degli Stati propone di finanziare la 13esima AVS con un mix di aumento contributi salariali e IVA. Scopri l\'impatto sul tuo stipendio netto.',
+    keywords: 'tredicesima avs, frontalieri, ticino, stipendio netto, contributi salariali, aumento iva, busta paga svizzera, finanziamento avs',
+    ogTitle: '13esima AVS: come cambierà la tua busta paga? Aumento trattenute e IVA',
+    ogDescription: 'Si va verso un aumento dei contributi salariali e dell\'IVA per finanziare la 13esima AVS. Ecco l\'impatto concreto sullo stipendio dei frontalieri in Ticino.',
+    canonicalPath: '/articoli-frontaliere/tredicesima-avs-finanziamento-aumento-contributi-iva-impatto-stipendio',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "13esima AVS: come cambierà la tua busta paga? Aumento trattenute e IVA",
+      "description": "La Commissione degli Stati propone di finanziare la 13esima AVS con un mix di aumento contributi salariali e IVA. Scopri l'impatto sul tuo stipendio netto.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/tredicesima-avs-finanziamento-busta-paga.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Busta paga svizzera su una scrivania con vista sul Lago di Lugano, focus sulle trattenute AVS."
+      },
+      "datePublished": "2026-02-21T00:00:00+01:00",
+      "dateModified": "2026-02-21T00:00:00+01:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}` },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL, "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tredicesima-avs-finanziamento-aumento-contributi-iva-impatto-stipendio`
+    }
+  },
+
+  'blog-permesso-s-salari-bassi-ticino': {
+    title: 'Permesso S e Salari Bassi: Impatto per Frontalieri in Ticino | Frontaliere Ticino',
+    description: 'Analisi sull\'integrazione lavorativa dei titolari di Permesso S in Svizzera. Con stipendi medi di 4\'571 CHF, quale impatto per il mercato del lavoro in Ticino?',
+    keywords: 'permesso s, stipendi ticino, frontalieri, lavoro ticino, dumping salariale, mercato del lavoro svizzera, ucraini svizzera, salario minimo ticino',
+    ogTitle: 'Stipendi Sotto la Media per i Permessi S: Cosa Cambia in Ticino?',
+    ogDescription: 'Con oltre la metà dei lavoratori ucraini con Permesso S che guadagna meno di 3000 CHF, esploriamo le conseguenze per il mercato del lavoro ticinese.',
+    canonicalPath: '/articoli-frontaliere/permesso-s-stipendi-bassi-impatto-lavoro-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Stipendi Sotto la Media per i Permessi S: Cosa Cambia in Ticino?",
+      "description": "Analisi sull'integrazione lavorativa dei titolari di Permesso S in Svizzera. Con stipendi medi di 4'571 CHF, quale impatto per il mercato del lavoro in Ticino?",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/permesso-s-salari-bassi-ticino.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Ufficio a Bellinzona con vista su Castelgrande, simbolo del mercato del lavoro e delle politiche cantonali in Ticino."
+      },
+      "datePublished": "2026-02-21T00:00:00+01:00",
+      "dateModified": "2026-02-21T00:00:00+01:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}` },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL, "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/permesso-s-stipendi-bassi-impatto-lavoro-ticino`
+    }
+  },
+
+  'blog-ristorni-reazione-lombardia': {
+    title: 'Ristorni Frontalieri a Rischio: Reazione Lombardia | Frontaliere Ticino',
+    description: 'La mozione ticinese per bloccare i ristorni fiscali dei frontalieri scatena la reazione della Lombardia. Analisi delle tensioni e delle possibili conseguenze economiche.',
+    keywords: 'frontalieri, ristorni, ticino, lombardia, tassa sulla salute, accordo fiscale, tassazione frontalieri, svizzera',
+    ogTitle: 'Ristorni Bloccati? La Lombardia Avverte il Ticino: \'Scelta Sbagliata\'',
+    ogDescription: 'Una mozione in Ticino propone di sospendere i ristorni fiscali. Ecco la dura reazione dall\'Italia e cosa significa per i comuni di confine.',
+    canonicalPath: '/articoli-frontaliere/ristorni-frontalieri-reazione-lombardia-mozione-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Ristorni Bloccati? La Lombardia Avverte il Ticino: 'Scelta Sbagliata'",
+      "description": "La mozione ticinese per bloccare i ristorni fiscali dei frontalieri scatena la reazione della Lombardia. Analisi delle tensioni e delle possibili conseguenze economiche.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/ristorni-reazione-lombardia.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Vista del Castelgrande a Bellinzona, sede del governo ticinese, in un contesto di tensioni fiscali con la Lombardia."
+      },
+      "datePublished": "2026-02-21T00:00:00+01:00",
+      "dateModified": "2026-02-21T00:00:00+01:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}` },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL, "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ristorni-frontalieri-reazione-lombardia-mozione-ticino`
+    }
+  },
+
+  'blog-tredicesima-avs-busta-paga-frontaliere': {
+    title: '13esima AVS Finanziamento: Aumento Contributi e IVA | Frontaliere Ticino',
+    description: 'La Commissione degli Stati propone di finanziare la 13esima AVS con più contributi salariali e IVA. Scopri l\'impatto sulla busta paga dei frontalieri in Ticino.',
+    keywords: '13esima avs, finanziamento avs, contributi salariali svizzera, aumento iva svizzera, frontalieri ticino, stipendio netto frontaliere, busta paga svizzera',
+    ogTitle: '13esima AVS: come verrà pagata? La tua busta paga potrebbe cambiare',
+    ogDescription: 'Berna divisa sul finanziamento da 4.2 miliardi. L\'ipotesi di aumentare i contributi salariali tocca direttamente lo stipendio dei frontalieri.',
+    canonicalPath: '/articoli-frontaliere/tredicesima-avs-finanziamento-contributi-iva-impatto-frontalieri',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Finanziamento 13esima AVS: Scontro su Aumento Contributi e IVA",
+      "description": "La Commissione degli Stati propone di finanziare la 13esima AVS con più contributi salariali e IVA. Scopri l'impatto sulla busta paga dei frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/tredicesima-avs-busta-paga-frontaliere.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Busta paga svizzera su una scrivania con vista sul Lago di Lugano, a simboleggiare il lavoro dei frontalieri in Ticino"
+      },
+      "datePublished": "2026-02-22T00:00:00+01:00",
+      "dateModified": "2026-02-22T00:00:00+01:00",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}` },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL, "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tredicesima-avs-finanziamento-contributi-iva-impatto-frontalieri`
+    }
+  },
+
+  'blog-acqua-mendrisiotto-prezzi-2026': {
+    title: 'Costo Acqua Mendrisiotto: Aumento del 30% bloccato da Berna | Frontaliere Ticino',
+    description: 'Aumento delle tariffe dell\'acqua nel Basso Mendrisiotto a 1,55 CHF/m³. Scopri come l\'intervento del Sorvegliante dei prezzi ha limitato il rincaro per i residenti.',
+    keywords: 'costo acqua ticino, tariffe sibm, aumento bollette mendrisiotto, sorvegliante prezzi svizzera, frontalieri, costo vita ticino, bollette svizzera',
+    ogTitle: 'Bollette acqua: Rincaro frenato nel Mendrisiotto. Ecco quanto pagherai',
+    ogDescription: 'Il costo dell\'acqua potabile sale a 1,55 CHF/m³ nel Basso Mendrisiotto, ma poteva andare peggio. L\'intervento di Berna ha evitato un salasso.',
+    canonicalPath: '/articoli-frontaliere/costo-acqua-mendrisiotto-aumento-tariffe-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Bollette acqua: Rincaro frenato nel Mendrisiotto. Ecco quanto pagherai",
+      "description": "Aumento delle tariffe dell'acqua nel Basso Mendrisiotto a 1,55 CHF/m³. Scopri come l'intervento del Sorvegliante dei prezzi ha limitato il rincaro per i residenti.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/acqua-mendrisiotto-prezzi-2026.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Contatore dell'acqua in una cantina del Mendrisiotto, simbolo dell'aumento dei costi delle utenze in Ticino."
+      },
+      "datePublished": "2026-02-22T00:00:00+01:00",
+      "dateModified": "2026-02-22T00:00:00+01:00",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}` },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL, "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/costo-acqua-mendrisiotto-aumento-tariffe-2026`
+    }
+  },
+
+  'blog-cooperazione-giudiziaria-svizzera-italia': {
+    title: 'Cooperazione Giudiziaria Svizzera-Italia: Cosa Significa | Frontaliere Ticino',
+    description: 'L\'accordo post Crans-Montana rafforza la collaborazione giudiziaria tra Italia e Svizzera. Scopri le implicazioni per i frontalieri in Ticino e la sicurezza.',
+    keywords: 'cooperazione giudiziaria svizzera italia, frontalieri, ticino, assistenza giudiziaria, rogatoria, confine chiasso, sicurezza transfrontaliera, accordi bilaterali',
+    ogTitle: 'Svizzera e Italia più unite nelle indagini: cosa cambia al confine ticinese',
+    ogDescription: 'Un nuovo patto di collaborazione giudiziaria è stato siglato. Ecco le conseguenze pratiche per i frontalieri che ogni giorno attraversano il confine in Ticino.',
+    canonicalPath: '/articoli-frontaliere/cooperazione-giudiziaria-svizzera-italia-impatto-frontalieri-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Rafforzata la cooperazione giudiziaria tra Svizzera e Italia",
+      "description": "L'accordo post Crans-Montana rafforza la collaborazione giudiziaria tra Italia e Svizzera. Scopri le implicazioni per i frontalieri in Ticino e la sicurezza.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/cooperazione-giudiziaria-svizzera-italia.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Collaborazione tra autorità svizzere e italiane al valico di frontiera di Chiasso, simbolo di cooperazione giudiziaria."
+      },
+      "datePublished": "2026-02-22T00:00:00+01:00",
+      "dateModified": "2026-02-22T00:00:00+01:00",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}` },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL, "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/cooperazione-giudiziaria-svizzera-italia-impatto-frontalieri-ticino`
+    }
+  },
+
+  'blog-sanita-locarnese-licenziamenti': {
+    title: 'Sanità Ticino: 8 Licenziamenti alla Varini-Hildebrand | Frontaliere Ticino',
+    description: 'Nuova collaborazione tra Clinica Varini e Centro Hildebrand nel Locarnese porta al licenziamento di 8 fisioterapisti. Analisi e impatto sul lavoro.',
+    keywords: 'licenziamenti ticino, frontalieri sanità, clinica varini, centro hildebrand, lavoro fisioterapista, crisi lavoro ticino, orselina, brissago',
+    ogTitle: 'Doccia fredda nel Locarnese: 8 posti di lavoro persi',
+    ogDescription: 'Una nuova alleanza tra due note cliniche ticinesi si traduce in licenziamenti. Ecco cosa sta succedendo nel settore sanitario.',
+    canonicalPath: '/articoli-frontaliere/sanita-locarnese-collaborazione-varini-hildebrand-licenziamenti',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Licenziamenti nel settore sanitario del Locarnese",
+      "description": "Nuova collaborazione tra Clinica Varini e Centro Hildebrand nel Locarnese porta al licenziamento di 8 fisioterapisti. Analisi e impatto sul lavoro.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/sanita-locarnese-licenziamenti.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Vista di una moderna clinica nel Locarnese, simbolo del settore sanitario ticinese e delle recenti ristrutturazioni."
+      },
+      "datePublished": "2026-02-22T00:00:00+01:00",
+      "dateModified": "2026-02-22T00:00:00+01:00",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}` },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL, "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/sanita-locarnese-collaborazione-varini-hildebrand-licenziamenti`
+    }
+  },
+
+  'blog-legionellosi-ticino-allarme': {
+    title: 'Allarme Legionellosi in Ticino: Tasso Record in Svizzera | Frontaliere Ticino',
+    description: 'Il Canton Ticino registra il tasso più alto di legionellosi in Svizzera (13,9 casi/100k). Scopri le cause, i rischi per la salute e i consigli per i frontalieri.',
+    keywords: 'legionellosi ticino, legionella svizzera, frontalieri, sanità ticino, ufsp, rischio batteri, acqua contaminata, lavoro ticino',
+    ogTitle: 'Legionellosi: il Ticino ha il tasso più alto di tutta la Svizzera',
+    ogDescription: 'Con un\'incidenza più che doppia rispetto alla media nazionale, il Ticino è l\'epicentro dell\'aumento dei casi di legionellosi. Ecco cosa devi sapere.',
+    canonicalPath: '/articoli-frontaliere/legionellosi-ticino-tasso-piu-alto-svizzera',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Legionellosi: il Ticino ha il tasso più alto di tutta la Svizzera",
+      "description": "Il Canton Ticino registra il tasso più alto di legionellosi in Svizzera (13,9 casi/100k). Scopri le cause, i rischi per la salute e i consigli per i frontalieri.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/legionellosi-ticino-allarme.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Primo piano di un soffione della doccia con gocce d'acqua, a simboleggiare il rischio legionellosi in Ticino."
+      },
+      "datePublished": "2026-02-22T00:00:00+01:00",
+      "dateModified": "2026-02-22T00:00:00+01:00",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}` },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL, "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/legionellosi-ticino-tasso-piu-alto-svizzera`
+    }
+  },
+
+  'blog-prezzi-dinamici-ticino-futuro': {
+    title: 'Prezzi Dinamici in Ticino: Futuro del Commercio o Rischio? | Frontaliere Ticino',
+    description: 'Un\'inchiesta RSI svela i prezzi dinamici in UK. Analizziamo l\'impatto potenziale su spesa, stipendi e potere d\'acquisto per i frontalieri in Ticino.',
+    keywords: 'prezzi dinamici, ticino, frontalieri, costo della vita, spesa svizzera, potere d\'acquisto, stipendio frontaliere, rsi patti chiari',
+    ogTitle: 'Il prezzo della tua birra in Ticino potrebbe cambiare ogni minuto',
+    ogDescription: 'Gli algoritmi decidono già il costo di pane e concerti in UK. Questa tendenza sta per arrivare in Svizzera? L\'impatto per i frontalieri.',
+    canonicalPath: '/articoli-frontaliere/prezzi-dinamici-ticino-rivoluzione-o-trappola-per-frontalieri',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Prezzi Dinamici: Rivoluzione o Trappola per i Frontalieri?",
+      "description": "Un'inchiesta RSI svela i prezzi dinamici in UK. Analizziamo l'impatto potenziale su spesa, stipendi e potere d'acquisto per i frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/prezzi-dinamici-ticino-futuro.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Etichetta di prezzo elettronica in un supermercato del Ticino, simbolo dei prezzi dinamici e del loro impatto sui consumatori."
+      },
+      "datePublished": "2026-02-22T00:00:00+01:00",
+      "dateModified": "2026-02-22T00:00:00+01:00",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}` },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL, "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/prezzi-dinamici-ticino-rivoluzione-o-trappola-per-frontalieri`
+    }
+  },
+
+  'blog-lugano-manifestazioni-regole-polemica': {
+    title: 'Manifestazioni a Lugano: Regole e Trattamento Equo | Frontaliere Ticino',
+    description: 'Polemica a Lugano sulla gestione delle manifestazioni. Un evento di destra negato, uno di sinistra non autorizzato tollerato. L\'analisi sui costi e la fiducia.',
+    keywords: 'manifestazioni lugano, regole ordine pubblico, frontalieri ticino, polemica politica lugano, parità di trattamento, costi polizia, andrea togni plr',
+    ogTitle: 'Doppio Standard a Lugano? Manifestazioni Vietate ad Alcuni, Consentite ad Altri',
+    ogDescription: 'Un evento autorizzato viene negato, uno abusivo occupa il centro di Lugano. Scoppia la polemica sulla gestione dell\'ordine pubblico e sui costi per i contribuenti.',
+    canonicalPath: '/articoli-frontaliere/lugano-manifestazioni-polemica-regole-uguali-per-tutti',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Doppio Standard a Lugano? Manifestazioni Vietate ad Alcuni, Consentite ad Altri",
+      "description": "Polemica a Lugano sulla gestione delle manifestazioni. Un evento di destra negato, uno di sinistra non autorizzato tollerato. L'analisi sui costi e la fiducia.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/lugano-manifestazioni-regole-polemica.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Piazza della Riforma a Lugano in un giorno di sole, con tavolini all'aperto e una discreta presenza di polizia in sottofondo."
+      },
+      "datePublished": "2026-02-22T00:00:00+01:00",
+      "dateModified": "2026-02-22T00:00:00+01:00",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}` },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL, "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/lugano-manifestazioni-polemica-regole-uguali-per-tutti`
+    }
+  },
+
+  'blog-addizionale-irpef-mappa-comuni': {
+    title: 'Addizionale IRPEF Comuni di Confine: Mappa Tasse 2026 | Frontaliere Ticino',
+    description: 'Scopri la mappa completa dell\'addizionale comunale IRPEF 2026 per i frontalieri. Confronta le aliquote di Como, Varese e altri comuni e risparmia sul netto.',
+    keywords: 'frontaliere tasse comunali, addizionale irpef, comuni confine, residenza fiscale frontalieri, nuovo accordo fiscale, stipendio netto frontaliere, ticino',
+    ogTitle: 'Tasse Comunali: La Scelta della Residenza può Farti Risparmiare 500€',
+    ogDescription: 'La tua residenza determina quanto paghi di addizionale IRPEF. Scopri la mappa delle aliquote 2026 nei comuni di frontiera e calcola il tuo netto.',
+    canonicalPath: '/articoli-frontaliere/mappa-addizionale-irpef-comuni-confine-frontalieri-tasse',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Tasse Comunali: La Scelta della Residenza può Farti Risparmiare 500€",
+      "description": "Scopri la mappa completa dell'addizionale comunale IRPEF 2026 per i frontalieri. Confronta le aliquote di Como, Varese e altri comuni e risparmia sul netto.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/addizionale-irpef-mappa-comuni.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Mappa dei comuni di frontiera tra Italia e Svizzera per la scelta della residenza fiscale dei frontalieri"
+      },
+      "datePublished": "2026-02-23T00:00:00+01:00",
+      "dateModified": "2026-02-23T00:00:00+01:00",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}` },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL, "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/mappa-addizionale-irpef-comuni-confine-frontalieri-tasse`
+    }
+  },
+
+  'blog-mappa-fiscale-comuni-frontiera': {
+    title: 'Addizionale Comunale IRPEF Comuni Confine: Guida 2026 | Frontaliere Ticino',
+    description: 'La mappa completa delle aliquote 2026 dell\'addizionale comunale IRPEF per frontalieri. Scopri dove pagare meno tasse tra Como e Varese e come incide sul tuo netto.',
+    keywords: 'addizionale comunale irpef, frontalieri ticino, tasse comunali, comuni confine, residenza fiscale, nuovo accordo fiscale, stipendio netto frontaliere, como, varese',
+    ogTitle: 'Addizionale IRPEF: Dove ti conviene vivere se lavori in Ticino?',
+    ogDescription: 'Trasferirsi può farti risparmiare centinaia di euro all\'anno. Ecco la mappa 2026 delle tasse comunali per i frontalieri.',
+    canonicalPath: '/articoli-frontaliere/addizionale-irpef-comuni-confine-mappa-tasse-frontalieri-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Mappa dell'Addizionale Comunale IRPEF per i Lavoratori Frontalieri",
+      "description": "La mappa completa delle aliquote 2026 dell'addizionale comunale IRPEF per frontalieri. Scopri dove pagare meno tasse tra Como e Varese e come incide sul tuo netto.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/mappa-fiscale-comuni-frontiera.png`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Vista panoramica dal Mendrisiotto verso i comuni italiani di confine al tramonto, simbolo delle scelte fiscali dei frontalieri."
+      },
+      "datePublished": "2026-02-23T00:00:00+01:00",
+      "dateModified": "2026-02-23T00:00:00+01:00",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}` },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL, "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/addizionale-irpef-comuni-confine-mappa-tasse-frontalieri-2026`
+    }
+  },
+
+  'blog-maternita-paternita-frontaliere-guida': {
+    title: 'Maternità e Paternità Frontalieri: Guida 2026 Svizzera-Italia | Frontaliere Ticino',
+    description: 'Guida completa 2026 al congedo maternità e paternità per frontalieri in Ticino. Scopri indennità, durata, come fare domanda AVS e differenze con l\'Italia.',
+    keywords: 'frontaliere maternità, congedo paternità svizzera, indennità maternità ticino, assegni familiari frontalieri, avs maternità, inps frontalieri, congedo parentale italia svizzera',
+    ogTitle: 'Genitore e Frontaliere? La Guida 2026 a Maternità e Paternità',
+    ogDescription: 'Lavori in Ticino e stai per avere un figlio? Scopri come ottenere fino a CHF 230 al giorno di indennità. La guida completa.',
+    canonicalPath: '/articoli-frontaliere/maternita-paternita-frontaliere-svizzera-italia-guida-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Genitore e Frontaliere? La Guida 2026 a Maternità e Paternità",
+      "description": "Guida completa 2026 al congedo maternità e paternità per frontalieri in Ticino. Scopri indennità, durata, come fare domanda AVS e differenze con l'Italia.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/maternita-paternita-frontaliere-guida.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Coppia di neogenitori frontalieri consulta i documenti per il congedo parentale in un appartamento in Ticino."
+      },
+      "datePublished": "2026-02-23T00:00:00+01:00",
+      "dateModified": "2026-02-23T00:00:00+01:00",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}` },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL, "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/maternita-paternita-frontaliere-svizzera-italia-guida-2026`
+    }
+  },
+
+  'blog-guida-contributi-sociali-svizzera': {
+    title: 'Contributi Sociali Svizzera: Guida Busta Paga Frontalieri | Frontaliere Ticino',
+    description: 'Guida completa 2026 alle trattenute sulla busta paga svizzera per frontalieri in Ticino. Scopri le aliquote AVS, LPP, LAINF e calcola il tuo stipendio netto.',
+    keywords: 'frontaliere contributi sociali svizzeri, dettaglio busta paga svizzera, trattenute stipendio svizzera, AVS LPP frontalieri, calcolo stipendio netto ticino, lavoro in svizzera',
+    ogTitle: 'Busta Paga Svizzera: Svelate Tutte le Trattenute 2026',
+    ogDescription: 'Dal lordo al netto: scopri cosa significano AVS, LPP, LAINF e quanto ti resta in tasca con la nostra guida completa per frontalieri.',
+    canonicalPath: '/articoli-frontaliere/guida-contributi-sociali-svizzeri-busta-paga-frontaliere',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Busta Paga Svizzera: Svelate Tutte le Trattenute 2026",
+      "description": "Guida completa 2026 alle trattenute sulla busta paga svizzera per frontalieri in Ticino. Scopri le aliquote AVS, LPP, LAINF e calcola il tuo stipendio netto.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/guida-contributi-sociali-svizzera.png`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Dettaglio di una busta paga svizzera su una scrivania con vista sul Lago di Lugano, simbolo del lavoro frontaliere"
+      },
+      "datePublished": "2026-02-23T00:00:00+01:00",
+      "dateModified": "2026-02-23T00:00:00+01:00",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}` },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL, "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/guida-contributi-sociali-svizzeri-busta-paga-frontaliere`
+    }
+  },
+
+  'blog-costo-vivere-lugano-trasferirsi': {
+    title: 'Quanto costa vivere a Lugano da frontaliere (Analisi 2026) | Frontaliere Ticino',
+    description: 'Un frontaliere valuta di trasferirsi a Lugano? Analisi completa dei costi 2026: affitto (da 1.500 CHF), LAMal, tasse, trasporti e spesa. Calcola il tuo budget.',
+    keywords: 'costo vita lugano, vivere a lugano, frontaliere trasferimento ticino, affitti lugano, lamal costo, tasse residenti ticino, budget mensile svizzera',
+    ogTitle: 'Vivere a Lugano: il budget reale che un frontaliere deve conoscere',
+    ogDescription: 'Sogni di trasferirti a Lugano? Ecco i costi reali nel 2026: dall\'affitto di 1.500 CHF alla LAMal. La guida completa per non avere sorprese.',
+    canonicalPath: '/articoli-frontaliere/quanto-costa-vivere-a-lugano-da-frontaliere-analisi-costi-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Costo della Vita a Lugano per Frontalieri 2026",
+      "description": "Un frontaliere valuta di trasferirsi a Lugano? Analisi completa dei costi 2026: affitto (da 1.500 CHF), LAMal, tasse, trasporti e spesa. Calcola il tuo budget.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/costo-vivere-lugano-trasferirsi.png`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Balcone di un appartamento a Lugano con vista lago, simbolo del costo della vita per chi valuta il trasferimento in Ticino."
+      },
+      "datePublished": "2026-02-23T00:00:00+01:00",
+      "dateModified": "2026-02-23T00:00:00+01:00",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}` },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL, "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/quanto-costa-vivere-a-lugano-da-frontaliere-analisi-costi-2026`
+    }
+  },
+
+  'blog-permesso-g-pro-contro-2026': {
+    title: 'Permesso G Frontalieri: Vantaggi e Svantaggi 2026 | Frontaliere Ticino',
+    description: 'Guida completa ai pro e contro del permesso G per frontalieri in Ticino nel 2026. Analisi fisco, pensione LPP, sanità LAMal e nuovo accordo fiscale.',
+    keywords: 'permesso g vantaggi, permesso g svantaggi, frontaliere ticino 2026, nuovo accordo fiscale, lavorare in svizzera, permesso frontaliere, fiscalità frontalieri, pensione lpp',
+    ogTitle: 'Permesso G: Conviene Ancora Lavorare in Ticino nel 2026?',
+    ogDescription: 'Fisco, pensione, sanità: scopri tutti i pro e i contro del permesso G per frontalieri dopo il nuovo accordo fiscale Italia-Svizzera.',
+    canonicalPath: '/articoli-frontaliere/permesso-g-vantaggi-svantaggi-frontalieri-ticino-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Permesso G: Conviene Ancora Lavorare in Ticino nel 2026?",
+      "description": "Guida completa ai pro e contro del permesso G per frontalieri in Ticino nel 2026. Analisi fisco, pensione LPP, sanità LAMal e nuovo accordo fiscale.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/permesso-g-pro-contro-2026.png`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Permesso G svizzero per frontalieri su una scrivania con vista su Lugano, simbolo del lavoro in Ticino."
+      },
+      "datePublished": "2026-02-23T00:00:00+01:00",
+      "dateModified": "2026-02-23T00:00:00+01:00",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}` },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL, "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/permesso-g-vantaggi-svantaggi-frontalieri-ticino-2026`
+    }
+  },
+
+  'blog-calcolo-pensione-avs-inps': {
+    title: 'Calcolo Pensione Frontaliere AVS e INPS: Guida 2026 | Frontaliere Ticino',
+    description: 'Guida completa al calcolo della pensione per frontalieri in Ticino. Scopri come funziona la totalizzazione dei contributi AVS svizzeri e INPS italiani e i requisiti 2026.',
+    keywords: 'calcolo pensione frontaliere, pensione avs italiana, totalizzazione contributi svizzera italia, pensione frontalieri ticino, rendita avs, inps frontalieri, accordo pensioni',
+    ogTitle: 'Pensione da Frontaliere: AVS + INPS, come si calcola la tua rendita?',
+    ogDescription: 'Hai versato contributi in Svizzera e in Italia? Ecco la guida pratica per calcolare la tua pensione da frontaliere nel 2026.',
+    canonicalPath: '/articoli-frontaliere/calcolo-pensione-frontaliere-avs-inps-guida-completa',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Guida al Calcolo della Pensione per Frontalieri AVS/INPS",
+      "description": "Guida completa al calcolo della pensione per frontalieri in Ticino. Scopri come funziona la totalizzazione dei contributi AVS svizzeri e INPS italiani e i requisiti 2026.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/calcolo-pensione-avs-inps.png`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Coppia di frontalieri maturi pianifica la pensione con un tablet sul lungolago di Lugano, vista su Monte San Salvatore."
+      },
+      "datePublished": "2026-02-23T00:00:00+01:00",
+      "dateModified": "2026-02-23T00:00:00+01:00",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}` },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL, "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/calcolo-pensione-frontaliere-avs-inps-guida-completa`
+    }
+  },
+
+  'blog-simulazione-fiscale-frontaliere-2026': {
+    title: 'Simulazione Nuovo Accordo Fiscale 2026 Frontalieri | Frontaliere Ticino',
+    description: 'Scopri l\'impatto del nuovo accordo fiscale 2026 sul tuo stipendio da frontaliere in Ticino. Simulazione reale con 65\'000 CHF: confronto vecchio-nuovo regime.',
+    keywords: 'frontaliere nuovo accordo fiscale 2026, simulazione tasse frontalieri, tassazione frontalieri ticino, calcolo stipendio netto frontaliere, irpef frontalieri, imposta alla fonte',
+    ogTitle: 'Accordo Fiscale 2026: Quanto ti costerà? La simulazione',
+    ogDescription: 'Un salario di 65\'000 CHF in Ticino: ecco la differenza netta in busta paga tra vecchio e nuovo accordo fiscale per frontalieri. Calcola il tuo.',
+    canonicalPath: '/articoli-frontaliere/frontaliere-nuovo-accordo-fiscale-2026-simulazione',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Nuovo Accordo Fiscale 2026: Simulazione Pratica per Frontalieri",
+      "description": "Scopri l'impatto del nuovo accordo fiscale 2026 sul tuo stipendio da frontaliere in Ticino. Simulazione reale con 65'000 CHF: confronto vecchio-nuovo regime.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/simulazione-fiscale-frontaliere-2026.png`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Simulazione dell'impatto del nuovo accordo fiscale per frontalieri, vista dal cruscotto di un'auto al valico di Chiasso."
+      },
+      "datePublished": "2026-02-23T00:00:00+01:00",
+      "dateModified": "2026-02-23T00:00:00+01:00",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}` },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL, "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontaliere-nuovo-accordo-fiscale-2026-simulazione`
+    }
+  },
+
+  'blog-lamal-cmi-scelta-frontaliere-2026': {
+    title: 'LAMal o CMI 2026: quale conviene al frontaliere? | Frontaliere Ticino',
+    description: 'Guida completa 2026 per frontalieri in Ticino: confronto premi, coperture e franchigie tra LAMal (da 350 CHF) e CMI (da 180€). Scopri la scelta migliore.',
+    keywords: 'LAMal frontaliere 2026, CMI frontaliere, assicurazione malattia svizzera italia, diritto opzione frontaliere, costo LAMal ticino, sanità frontalieri ticino, quale assicurazione scegliere',
+    ogTitle: 'LAMal vs CMI 2026: la scelta che può farti risparmiare 2000€ l\'anno',
+    ogDescription: 'Frontaliere in Ticino? Con premi LAMal a 350 CHF e CMI a 180€, la scelta dell\'assicurazione malattia è cruciale. Analisi e casi pratici per decidere.',
+    canonicalPath: '/articoli-frontaliere/lamal-o-cmi-frontaliere-quale-conviene-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "LAMal vs CMI 2026: la scelta che può farti risparmiare 2000€ l'anno",
+      "description": "Guida completa 2026 per frontalieri in Ticino: confronto premi, coperture e franchigie tra LAMal (da 350 CHF) e CMI (da 180€). Scopri la scelta migliore.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/lamal-cmi-scelta-frontaliere-2026.png`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Scrivania con contratto di lavoro svizzero e passaporto italiano, con vista sul Lago di Lugano, simbolo della scelta assicurativa del frontaliere."
+      },
+      "datePublished": "2026-02-23T00:00:00+01:00",
+      "dateModified": "2026-02-23T00:00:00+01:00",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}` },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL, "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/lamal-o-cmi-frontaliere-quale-conviene-2026`
+    }
+  },
+
+  'blog-credito-imposta-doppia-tassazione': {
+    title: 'Doppia imposizione frontaliere: guida al credito d\'imposta | Frontaliere Ticino',
+    description: 'Sei un \'nuovo frontaliere\' in Ticino? Scopri come funziona il credito d\'imposta per evitare la doppia tassazione sul tuo stipendio svizzero. Guida pratica al Quadro CE del 730 con esempi di calcolo per il 2026.',
+    keywords: 'frontaliere doppia imposizione, credito imposta, come funziona, tasse frontalieri ticino, quadro ce 730, nuovo accordo fiscale, dichiarazione redditi frontalieri',
+    ogTitle: 'Frontalieri, stop alla doppia tassa: la guida al credito d\'imposta',
+    ogDescription: 'Lavori in Ticino e temi la doppia imposizione? Ecco come funziona il credito d\'imposta e come risparmiare migliaia di euro con il Modello 730.',
+    canonicalPath: '/articoli-frontaliere/frontaliere-doppia-imposizione-credito-imposta-come-funziona',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Credito d'imposta per frontalieri: come evitare la doppia tassazione",
+      "description": "Sei un 'nuovo frontaliere' in Ticino? Scopri come funziona il credito d'imposta per evitare la doppia tassazione sul tuo stipendio svizzero. Guida pratica al Quadro CE del 730 con esempi di calcolo per il 2026.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/credito-imposta-doppia-tassazione.png`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Documenti fiscali italiani e svizzeri su una scrivania di un frontaliere con vista su Mendrisio, Ticino."
+      },
+      "datePublished": "2026-02-23T00:00:00+01:00",
+      "dateModified": "2026-02-23T00:00:00+01:00",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}` },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL, "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontaliere-doppia-imposizione-credito-imposta-come-funziona`
+    }
+  },
+
+  'blog-costo-reale-auto-frontaliere': {
+    title: 'Costo Auto Pendolare Frontaliere Ticino 2026: Analisi Completa | Frontaliere Ticino',
+    description: 'Quanto costa davvero usare l\'auto per lavorare in Ticino? Analisi 2026 dei costi reali per un frontaliere: benzina, vignetta, usura, parcheggio e confronto con il treno.',
+    keywords: 'costo auto frontaliere, pendolare ticino, spesa auto svizzera, benzina ticino, parcheggio lugano, vignetta autostradale, frontalieri, ticino',
+    ogTitle: 'L\'auto ti costa 8\'500 CHF l\'anno? La verità sul pendolarismo in Ticino',
+    ogDescription: 'Scopri il costo reale di usare l\'auto come frontaliere nel 2026: dalla benzina ai parcheggi, l\'analisi che ogni pendolare dovrebbe leggere.',
+    canonicalPath: '/articoli-frontaliere/costo-auto-pendolare-frontaliere-ticino-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "L'auto ti costa 8'500 CHF l'anno? La verità sul pendolarismo in Ticino",
+      "description": "Quanto costa davvero usare l'auto per lavorare in Ticino? Analisi 2026 dei costi reali per un frontaliere: benzina, vignetta, usura, parcheggio e confronto con il treno.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/costo-reale-auto-frontaliere.png`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Vista dal cruscotto di un'auto nel traffico mattutino verso il Ticino, simbolo dei costi del pendolarismo per i frontalieri."
+      },
+      "datePublished": "2026-02-23T00:00:00+01:00",
+      "dateModified": "2026-02-23T00:00:00+01:00",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}` },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL, "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/costo-auto-pendolare-frontaliere-ticino-2026`
+    }
+  },
+
+  'blog-congedo-genitori-frontaliere-ticino': {
+    title: 'Congedo Parentale Svizzera-Italia 2026: Guida Frontalieri | Frontaliere Ticino',
+    description: 'Guida completa al congedo di maternità e paternità per frontalieri in Ticino. Scopri indennità 2026, requisiti AVS, come fare domanda e diritti.',
+    keywords: 'congedo parentale frontaliere, maternità svizzera, paternità svizzera, indennità maternità ticino, frontalieri genitori, assegni familiari svizzera, cassa compensazione ticino',
+    ogTitle: 'Maternità e Paternità da Frontaliere: La Guida Completa 2026',
+    ogDescription: 'Lavori in Ticino e stai per diventare genitore? Ecco tutto quello che devi sapere su congedi e indennità svizzere. Cifre e procedure aggiornate.',
+    canonicalPath: '/articoli-frontaliere/congedo-parentale-frontaliere-svizzera-italia-guida-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Guida al Congedo Parentale per Frontalieri 2026",
+      "description": "Guida completa al congedo di maternità e paternità per frontalieri in Ticino. Scopri indennità 2026, requisiti AVS, come fare domanda e diritti.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/congedo-genitori-frontaliere-ticino.png`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Coppia di neogenitori frontalieri pianifica il congedo parentale su un tablet, con vista sul Lago di Lugano, Ticino."
+      },
+      "datePublished": "2026-02-23T00:00:00+01:00",
+      "dateModified": "2026-02-23T00:00:00+01:00",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}` },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL, "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/congedo-parentale-frontaliere-svizzera-italia-guida-2026`
+    }
+  },
+
+  'blog-costo-pendolare-auto-ticino-2026': {
+    title: 'Costo Auto Frontaliere Ticino 2026: L\'Analisi Completa | Frontaliere Ticino',
+    description: 'Quanto costa davvero l\'auto per un frontaliere in Ticino? Analisi 2026 di benzina, parcheggio, usura e vignette. Scopri se conviene rispetto al treno.',
+    keywords: 'costo auto frontaliere, pendolare ticino, spese auto svizzera, vignetta autostradale 2026, parcheggio lugano, conviene treno o auto',
+    ogTitle: 'L\'auto ti costa fino a 8.500 CHF l\'anno? La verità sui costi da frontaliere',
+    ogDescription: 'Abbiamo calcolato tutte le spese nascoste dell\'auto per chi lavora in Ticino. La cifra finale potrebbe sorprenderti. Leggi l\'analisi 2026.',
+    canonicalPath: '/articoli-frontaliere/costo-auto-frontaliere-ticino-guida-completa-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Costo Auto Pendolare Frontaliere Ticino 2026",
+      "description": "Quanto costa davvero l'auto per un frontaliere in Ticino? Analisi 2026 di benzina, parcheggio, usura e vignette. Scopri se conviene rispetto al treno.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/costo-pendolare-auto-ticino-2026.png`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Coda di auto di frontalieri al valico di Chiasso-Brogeda in Ticino al mattino presto."
+      },
+      "datePublished": "2026-02-23T00:00:00+01:00",
+      "dateModified": "2026-02-23T00:00:00+01:00",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}` },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL, "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/costo-auto-frontaliere-ticino-guida-completa-2026`
+    }
+  },
+
+  'blog-guida-dichiarazione-redditi-frontalieri': {
+    title: 'Guida Dichiarazione Redditi Frontaliere 730 (2026) | Frontaliere Ticino',
+    description: 'La guida completa al Modello 730/2026 per frontalieri in Ticino: come compilare il Quadro CE, calcolare il credito d\'imposta e le scadenze da non perdere.',
+    keywords: 'dichiarazione redditi frontaliere, modello 730 frontalieri, quadro ce, credito imposta svizzera, tasse frontalieri ticino, fiscalità frontalieri, guida fiscale',
+    ogTitle: 'Frontaliere e 730: La Guida Definitiva per non Sbagliare',
+    ogDescription: 'Evita errori e sanzioni. Ecco come compilare la dichiarazione dei redditi 2026 se lavori in Ticino e vivi in Italia. La guida passo passo.',
+    canonicalPath: '/articoli-frontaliere/guida-dichiarazione-redditi-730-frontalieri-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Guida alla Dichiarazione dei Redditi 2026 per Frontalieri del Ticino",
+      "description": "La guida completa al Modello 730/2026 per frontalieri in Ticino: come compilare il Quadro CE, calcolare il credito d'imposta e le scadenze da non perdere.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/guida-dichiarazione-redditi-frontalieri.png`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Frontaliere compila il Modello 730 con documenti svizzeri e italiani sulla scrivania con vista su Bellinzona."
+      },
+      "datePublished": "2026-02-23T00:00:00+01:00",
+      "dateModified": "2026-02-23T00:00:00+01:00",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}` },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL, "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/guida-dichiarazione-redditi-730-frontalieri-ticino`
+    }
+  },
+
+  'blog-checklist-documenti-lavoro-svizzera': {
+    title: 'Documenti Lavoro Svizzera 2026: Guida per Frontalieri | Frontaliere Ticino',
+    description: 'La checklist completa dei documenti necessari per iniziare a lavorare in Svizzera come frontaliere in Ticino: Permesso G, contratto, AVS, conto e assicurazione.',
+    keywords: 'frontaliere documenti, lavoro svizzera, permesso g, contratto lavoro svizzero, conto svizzero, avs frontaliere, ticino, iniziare lavoro svizzera',
+    ogTitle: 'Lavoro in Svizzera? La lista dei 6 documenti che devi avere PRONTI',
+    ogDescription: 'Inizi un nuovo lavoro in Ticino? Evita ritardi e problemi. Ecco la checklist definitiva dal Permesso G al conto bancario per partire col piede giusto.',
+    canonicalPath: '/articoli-frontaliere/documenti-necessari-lavoro-svizzera-frontaliere-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Lavoro in Svizzera? La lista dei 6 documenti che devi avere PRONTI",
+      "description": "La checklist completa dei documenti necessari per iniziare a lavorare in Svizzera come frontaliere in Ticino: Permesso G, contratto, AVS, conto e assicurazione.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/checklist-documenti-lavoro-svizzera.png`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Documenti necessari per lavorare in Svizzera, con un contratto e un Permesso G su una scrivania in Ticino."
+      },
+      "datePublished": "2026-02-23T00:00:00+01:00",
+      "dateModified": "2026-02-23T00:00:00+01:00",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}` },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL, "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/documenti-necessari-lavoro-svizzera-frontaliere-ticino`
+    }
+  },
+
+  'blog-asilo-nido-frontaliere-ticino': {
+    title: 'Asilo Nido Svizzera per Frontalieri: Costi e Guida 2026 | Frontaliere Ticino',
+    description: 'Guida completa per frontalieri con figli: costi reali 2026 degli asili nido in Ticino, rette, sussidi e liste d\'attesa. Confronta le opzioni Svizzera vs Italia.',
+    keywords: 'asilo nido svizzera, costo asilo nido ticino, frontaliere con figli, sussidi asilo nido svizzera, asili nido lugano, lavoro svizzera famiglia, rette asilo ticino',
+    ogTitle: 'Asilo Nido in Ticino per Frontalieri: una spesa fino a 2.800 CHF/mese',
+    ogDescription: 'Quanto costa davvero un asilo nido in Ticino per un frontaliere? La nostra guida 2026 analizza costi, sussidi e l\'alternativa italiana. Leggi ora.',
+    canonicalPath: '/articoli-frontaliere/asilo-nido-svizzera-frontaliere-ticino-costi-guida',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Asilo Nido in Ticino per Frontalieri: una spesa fino a 2.800 CHF/mese",
+      "description": "Guida completa per frontalieri con figli: costi reali 2026 degli asili nido in Ticino, rette, sussidi e liste d'attesa. Confronta le opzioni Svizzera vs Italia.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/asilo-nido-frontaliere-ticino.png`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Genitore frontaliere saluta il figlio all'ingresso di un moderno asilo nido in Ticino, simbolo delle scelte familiari."
+      },
+      "datePublished": "2026-02-23T00:00:00+01:00",
+      "dateModified": "2026-02-23T00:00:00+01:00",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}` },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL, "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/asilo-nido-svizzera-frontaliere-ticino-costi-guida`
+    }
+  },
+
+  'blog-locarno-stop-residenze-secondarie': {
+    title: 'Locarno Stop Seconde Case: Superata Soglia 20% | Frontaliere Ticino',
+    description: 'Locarno blocca la costruzione di nuove residenze secondarie. L\'Ufficio federale ha confermato il superamento della quota del 20%. Dettagli e impatti.',
+    keywords: 'residenze secondarie, locarno, lex weber, mercato immobiliare ticino, frontalieri, edilizia ticino, comune di locarno',
+    ogTitle: 'Locarno, scatta lo stop: niente più nuove case di vacanza',
+    ogDescription: 'La città sul Verbano ha superato la quota federale del 20% di residenze secondarie. Ecco cosa cambia per il mercato immobiliare.',
+    canonicalPath: '/articoli-frontaliere/locarno-stop-nuove-residenze-secondarie-quota-20',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Locarno, scatta lo stop: niente più nuove case di vacanza",
+      "description": "Locarno blocca la costruzione di nuove residenze secondarie. L'Ufficio federale ha confermato il superamento della quota del 20%. Dettagli e impatti.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/locarno-stop-residenze-secondarie.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Veduta del lungolago di Locarno con edifici residenziali, simbolo del mercato immobiliare locale."
+      },
+      "datePublished": "2026-02-23T00:00:00+01:00",
+      "dateModified": "2026-02-23T00:00:00+01:00",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}` },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL, "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/locarno-stop-nuove-residenze-secondarie-quota-20`
+    }
+  },
+
+  'blog-costo-vita-svizzera-mappa': {
+    title: 'Costo della Vita in Svizzera: Classifica Comuni 2026 | Frontaliere Ticino',
+    description: 'Scopri dove vivere in Svizzera costa meno. Analisi su affitti, imposte e cassa malati per cantone, con un focus sul Ticino e i suoi premi record.',
+    keywords: 'costo della vita svizzera, vivere in svizzera, classifica comuni svizzeri, affitti ticino, cassa malati ticino, imposte svizzera, frontalieri, permesso b',
+    ogTitle: 'Vivere in Svizzera? Ecco dove ti costa di più (e di meno)',
+    ogDescription: 'Una famiglia può spendere da 3.000 a 7.000 CHF al mese. Scopri la mappa dei costi e la posizione del Ticino nella classifica.',
+    canonicalPath: '/articoli-frontaliere/costo-vita-svizzera-classifica-comuni-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Vivere in Svizzera? Ecco dove ti costa di più (e di meno)",
+      "description": "Scopri dove vivere in Svizzera costa meno. Analisi su affitti, imposte e cassa malati per cantone, con un focus sul Ticino e i suoi premi record.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/costo-vita-svizzera-mappa.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Mappa del costo della vita in Svizzera su un tablet, con vista sul Lago di Lugano sullo sfondo."
+      },
+      "datePublished": "2026-02-23T00:00:00+01:00",
+      "dateModified": "2026-02-23T00:00:00+01:00",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}` },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL, "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/costo-vita-svizzera-classifica-comuni-ticino`
+    }
+  },
+
+  'blog-sicurezza-lavoro-audit-suva': {
+    title: 'Sicurezza Lavoro in Svizzera: Audit Svela Falle e Conflitti | Frontaliere Ticino',
+    description: 'Un audit del Controllo federale delle finanze rivela gravi lacune nei controlli sulla sicurezza sul lavoro in Svizzera e un conflitto d\'interessi della SUVA. Cosa significa per i frontalieri in Ticino.',
+    keywords: 'sicurezza sul lavoro, frontalieri, ticino, SUVA, infortuni professionali, controlli aziende, audit federale, CFST',
+    ogTitle: 'Sicurezza sul lavoro in Ticino a rischio? Un audit federale accusa la SUVA',
+    ogDescription: 'Controlli inefficaci e conflitti d\'interesse: un report ufficiale svela le debolezze del sistema di protezione dei lavoratori in Svizzera. Le conseguenze per i frontalieri.',
+    canonicalPath: '/articoli-frontaliere/sicurezza-lavoro-svizzera-audit-federale-falle-conflitti-suva',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Audit Federale Rivela Lacune nella Sicurezza sul Lavoro e Conflitti d'Interesse SUVA",
+      "description": "Un audit del Controllo federale delle finanze rivela gravi lacune nei controlli sulla sicurezza sul lavoro in Svizzera e un conflitto d'interessi della SUVA. Cosa significa per i frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/sicurezza-lavoro-audit-suva.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Un cantiere edile in Ticino con un ispettore della sicurezza al lavoro, simbolo dei controlli nelle aziende"
+      },
+      "datePublished": "2026-02-23T00:00:00+01:00",
+      "dateModified": "2026-02-23T00:00:00+01:00",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}` },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL, "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/sicurezza-lavoro-svizzera-audit-federale-falle-conflitti-suva`
+    }
+  },
+
+  'blog-costo-vivere-mappa-comuni': {
+    title: 'Costo della vita in Svizzera: la classifica dei comuni | Frontaliere Ticino',
+    description: 'Scopri la mappa dei comuni svizzeri dove vivere costa meno. Analisi su affitti, imposte e cassa malati, con un focus sul costo della vita in Ticino.',
+    keywords: 'costo vita svizzera, vivere in ticino, classifica comuni svizzeri, affitti svizzera, tasse svizzera, cassa malati ticino, frontalieri, permesso b',
+    ogTitle: 'Vivere in Svizzera: ecco dove costa 4\'000 CHF in meno al mese',
+    ogDescription: 'Uno studio svela i comuni più economici e quelli più cari. Sorpresa: non è sempre dove pensi. Scopri la classifica e i dati sul Ticino.',
+    canonicalPath: '/articoli-frontaliere/costo-vita-svizzera-classifica-comuni-cari-economici',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Vivere in Svizzera: ecco dove costa 4'000 CHF in meno al mese",
+      "description": "Scopri la mappa dei comuni svizzeri dove vivere costa meno. Analisi su affitti, imposte e cassa malati, con un focus sul costo della vita in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/costo-vivere-mappa-comuni.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Mappa del Canton Ticino con indicatori di costo della vita, vista da un appartamento con panorama su Lugano."
+      },
+      "datePublished": "2026-02-24T00:00:00+01:00",
+      "dateModified": "2026-02-24T00:00:00+01:00",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}` },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL, "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/costo-vita-svizzera-classifica-comuni-cari-economici`
+    }
+  },
+
+  'blog-architetti-sottopagati-ticino': {
+    title: 'Architetti Sottopagati a Mendrisio: Ore Gratis e Sfruttamento | Frontaliere Ticino',
+    description: 'Due studi di architettura di Mendrisio multati per 160\'000 CHF. La testimonianza di un neolaureato rivela ore di lavoro gratis e false promesse. Dettagli sul caso.',
+    keywords: 'architetti ticino, dumping salariale, mendrisio, lavoro frontalieri, sfruttamento lavoro svizzera, stipendio architetti, commissione paritetica',
+    ogTitle: 'Ore gratis fino a tardi: lo sfogo di un architetto a Mendrisio',
+    ogDescription: 'Multa da 160\'000 CHF a due studi di Mendrisio. Un giovane racconta la sua esperienza di stage sottopagato e promesse non mantenute.',
+    canonicalPath: '/articoli-frontaliere/architetti-sottopagati-ticino-mendrisio-testimonianza',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Ore gratis fino a tardi: lo sfogo di un architetto a Mendrisio",
+      "description": "Due studi di architettura di Mendrisio multati per 160'000 CHF. La testimonianza di un neolaureato rivela ore di lavoro gratis e false promesse. Dettagli sul caso.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/architetti-sottopagati-ticino.png`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Interno di uno studio di architettura a Mendrisio, con un giovane professionista che guarda fuori dalla finestra"
+      },
+      "datePublished": "2026-02-24T00:00:00+01:00",
+      "dateModified": "2026-02-24T00:00:00+01:00",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}` },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL, "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/architetti-sottopagati-ticino-mendrisio-testimonianza`
+    }
+  },
+
+  'blog-calo-frontalieri-non-tassa-salute': {
+    title: 'Calo Frontalieri Ticino: l\'Economia, non la Tassa Salute | Frontaliere Ticino',
+    description: 'Registrato un calo dei lavoratori frontalieri in Ticino. L\'analisi del sindacato CGIL smentisce la tassa sulla salute come causa, indicando la crisi economica cantonale.',
+    keywords: 'frontalieri, ticino, calo frontalieri, economia ticino, tassa salute frontalieri, lavoro svizzera, cgil, permesso g',
+    ogTitle: 'Frontalieri in calo in Ticino? La vera causa non è quella che pensi',
+    ogDescription: 'I numeri dei frontalieri scendono, ma la tassa sulla salute c\'entra poco. Un\'analisi sindacale rivela il vero motivo: la difficile congiuntura economica ticinese.',
+    canonicalPath: '/articoli-frontaliere/calo-frontalieri-ticino-economia-non-tassa-salute',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Frontalieri in calo in Ticino? La vera causa non è quella che pensi",
+      "description": "Registrato un calo dei lavoratori frontalieri in Ticino. L'analisi del sindacato CGIL smentisce la tassa sulla salute come causa, indicando la crisi economica cantonale.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/calo-frontalieri-non-tassa-salute.png`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Coda di automobili di lavoratori frontalieri al valico di Chiasso in una mattina lavorativa diretta verso il Ticino"
+      },
+      "datePublished": "2026-02-24T00:00:00+01:00",
+      "dateModified": "2026-02-24T00:00:00+01:00",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}` },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL, "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/calo-frontalieri-ticino-economia-non-tassa-salute`
+    }
+  },
+
+  'blog-maternita-cassazione-diritti-frontalieri': {
+    title: 'Maternità Frontalieri: Sentenza Cassazione per Indennità | Frontaliere Ticino',
+    description: 'Una sentenza della Cassazione riconosce l\'indennità di maternità INPS alle lavoratrici frontaliere in Ticino, valorizzando i contributi versati in Svizzera.',
+    keywords: 'indennità maternità, frontalieri, ticino, cassazione, diritti lavoratrici, INPS, naspi, totalizzazione contributi',
+    ogTitle: 'Svolta per le mamme frontaliere: la Cassazione riconosce l\'indennità INPS',
+    ogDescription: 'Una storica sentenza tutela le lavoratrici in Ticino: i contributi svizzeri ora contano per la maternità in Italia. Scopri cosa cambia.',
+    canonicalPath: '/articoli-frontaliere/maternita-frontaliere-cassazione-riconosce-indennita-inps',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Svolta per le mamme frontaliere: la Cassazione riconosce l'indennità INPS",
+      "description": "Una sentenza della Cassazione riconosce l'indennità di maternità INPS alle lavoratrici frontaliere in Ticino, valorizzando i contributi versati in Svizzera.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/maternita-cassazione-diritti-frontalieri.png`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Lavoratrice frontaliere con il suo bambino guarda il Lago di Lugano, simbolo dei diritti di maternità transfrontalieri."
+      },
+      "datePublished": "2026-02-24T00:00:00+01:00",
+      "dateModified": "2026-02-24T00:00:00+01:00",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}` },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL, "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/maternita-frontaliere-cassazione-riconosce-indennita-inps`
+    }
+  },
+
+  'blog-galenica-bichsel-ristrutturazione-lavoro': {
+    title: 'Galenica chiude Bichsel: 170 posti a rischio | Frontaliere Ticino',
+    description: 'Galenica annuncia la chiusura della filiale Bichsel, mettendo a rischio 170 posti di lavoro. Analisi dell\'impatto sul settore farmaceutico e per i frontalieri in Ticino.',
+    keywords: 'Galenica, lavoro Svizzera, posti di lavoro, frontalieri, Ticino, farmacie, Amavita, ristrutturazione',
+    ogTitle: 'Terremoto in Galenica: 170 posti a rischio. Cosa significa per il Ticino?',
+    ogDescription: 'Il colosso delle farmacie svizzere ristruttura e chiude la filiale Bichsel. Un segnale per tutto il settore sanitario, frontalieri inclusi.',
+    canonicalPath: '/articoli-frontaliere/galenica-chiude-bichsel-170-posti-a-rischio-impatto-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Terremoto in Galenica: 170 posti a rischio. Cosa significa per il Ticino?",
+      "description": "Galenica annuncia la chiusura della filiale Bichsel, mettendo a rischio 170 posti di lavoro. Analisi dell'impatto sul settore farmaceutico e per i frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/galenica-bichsel-ristrutturazione-lavoro.png`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Facciata di una farmacia moderna in una città del Ticino, simbolo del settore farmaceutico svizzero."
+      },
+      "datePublished": "2026-02-24T00:00:00+01:00",
+      "dateModified": "2026-02-24T00:00:00+01:00",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}` },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL, "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/galenica-chiude-bichsel-170-posti-a-rischio-impatto-ticino`
+    }
+  },
+
+  'blog-dazi-trump-export-ticinese': {
+    title: 'Dazi USA di Trump: Impatto su Export e Lavoro in Ticino | Frontaliere Ticino',
+    description: 'I nuovi dazi USA del 15% sono attivi. Scopri le conseguenze per le aziende esportatrici del Ticino (farmaceutica, meccanica) e i rischi per il lavoro dei frontalieri.',
+    keywords: 'dazi usa svizzera, tariffe trump ticino, export farmaceutico ticino, lavoro frontalieri, economia mendrisiotto, aiti, protezionismo usa, commercio internazionale',
+    ogTitle: 'Dazi USA al 15%: l\'industria del Ticino trema? Ecco cosa rischi',
+    ogDescription: 'Le nuove tariffe di Trump colpiscono l\'export. Analisi delle possibili conseguenze per chi lavora nel farmaceutico e nella meccanica di precisione in Ticino.',
+    canonicalPath: '/articoli-frontaliere/dazi-trump-usa-impatto-export-ticino-lavoro',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Dazi USA al 15%: l'industria del Ticino trema? Ecco cosa rischi",
+      "description": "I nuovi dazi USA del 15% sono attivi. Scopri le conseguenze per le aziende esportatrici del Ticino (farmaceutica, meccanica) e i rischi per il lavoro dei frontalieri.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/dazi-trump-export-ticinese.png`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Polo industriale e logistico nel Mendrisiotto, simbolo dell'export ticinese verso gli Stati Uniti"
+      },
+      "datePublished": "2026-02-24T00:00:00+01:00",
+      "dateModified": "2026-02-24T00:00:00+01:00",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}` },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL, "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/dazi-trump-usa-impatto-export-ticino-lavoro`
+    }
+  },
+
+  'blog-campione-italia-fine-dissesto': {
+    title: 'Campione d\'Italia fuori dal dissesto: nuove assunzioni | Frontaliere Ticino',
+    description: 'Ufficiale: Campione d\'Italia non è più in dissesto finanziario dal 1° gennaio 2026. Il Comune può assumere senza autorizzazione. Le implicazioni per il lavoro.',
+    keywords: 'campione d\'italia, dissesto finanziario, frontalieri, lavoro ticino, comune campione, assunzioni, economia luganese',
+    ogTitle: 'Svolta a Campione d\'Italia: via libera a nuove assunzioni',
+    ogDescription: 'Dopo anni di crisi, il Ministero dell\'Interno conferma la fine del dissesto. Si aprono nuove prospettive di lavoro nell\'exclave italiana.',
+    canonicalPath: '/articoli-frontaliere/campione-italia-fuori-dissesto-finanziario-nuove-assunzioni',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Svolta a Campione d'Italia: via libera a nuove assunzioni",
+      "description": "Ufficiale: Campione d'Italia non è più in dissesto finanziario dal 1° gennaio 2026. Il Comune può assumere senza autorizzazione. Le implicazioni per il lavoro.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/campione-italia-fine-dissesto.png`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Veduta dell'exclave di Campione d'Italia affacciata sul Lago di Lugano, simbolo della ripresa economica."
+      },
+      "datePublished": "2026-02-24T00:00:00+01:00",
+      "dateModified": "2026-02-24T00:00:00+01:00",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}` },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL, "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/campione-italia-fuori-dissesto-finanziario-nuove-assunzioni`
+    }
+  },
+
+  'blog-gavetta-tossica-architetti-ticino': {
+    title: 'Architetti Sottopagati a Mendrisio: Ore Gratis e Dumping | Frontaliere Ticino',
+    description: 'Multa da 160\'000 CHF a studi di Mendrisio per sfruttamento di stagisti. La testimonianza di un giovane architetto svela un sistema di ore extra non pagate.',
+    keywords: 'architetti sottopagati, dumping salariale ticino, lavoro mendrisio, frontalieri, contratto di lavoro svizzera, stipendio ticino, commissione paritetica, sfruttamento lavoro',
+    ogTitle: '"Ore gratis la sera": lo sfogo di un architetto sfruttato in Ticino',
+    ogDescription: 'Assunto come stagista a Mendrisio, lavorava a tempo pieno per pochi spiccioli. Un caso che scuote il mercato del lavoro ticinese.',
+    canonicalPath: '/articoli-frontaliere/gavetta-tossica-architetti-ticino-denuncia',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "\"Ore gratis la sera\": lo sfogo di un architetto sfruttato in Ticino",
+      "description": "Multa da 160'000 CHF a studi di Mendrisio per sfruttamento di stagisti. La testimonianza di un giovane architetto svela un sistema di ore extra non pagate.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/gavetta-tossica-architetti-ticino.png`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Un giovane architetto lavora fino a tardi in un ufficio a Mendrisio, simbolo delle pressioni nel settore."
+      },
+      "datePublished": "2026-02-24T00:00:00+01:00",
+      "dateModified": "2026-02-24T00:00:00+01:00",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}` },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL, "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/gavetta-tossica-architetti-ticino-denuncia`
+    }
+  },
+
+  'blog-eurocity-bloccato-caos-pendolari': {
+    title: 'Eurocity Basilea-Milano bloccato: caos per pendolari | Frontaliere Ticino',
+    description: 'Caos sulla linea FFS: un Eurocity con 500 passeggeri diretto a Milano è rimasto bloccato in galleria. Due ore di ritardo e pesanti disagi per i pendolari.',
+    keywords: 'eurocity bloccato, ffs, treni svizzera, pendolari ticino, disagio treni, ritardo treno milano, frontaliere',
+    ogTitle: 'Odissea in galleria: 2 ore di ritardo sul treno per Milano',
+    ogDescription: '500 passeggeri bloccati sull\'Eurocity Basilea-Milano. Ecco cosa è successo e le conseguenze per chi viaggia tra Svizzera e Italia.',
+    canonicalPath: '/articoli-frontaliere/odissea-eurocity-milano-treno-bloccato-galleria-pendolari',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Odissea in galleria: 2 ore di ritardo sul treno per Milano",
+      "description": "Caos sulla linea FFS: un Eurocity con 500 passeggeri diretto a Milano è rimasto bloccato in galleria. Due ore di ritardo e pesanti disagi per i pendolari.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/eurocity-bloccato-caos-pendolari.png`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Treno Eurocity delle FFS fermo in una stazione ticinese durante una mattinata di pendolarismo intenso."
+      },
+      "datePublished": "2026-02-24T00:00:00+01:00",
+      "dateModified": "2026-02-24T00:00:00+01:00",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}` },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL, "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/odissea-eurocity-milano-treno-bloccato-galleria-pendolari`
+    }
+  },
+
+  'blog-sicurezza-lavoro-controlli-svizzera': {
+    title: 'Sicurezza sul Lavoro in Svizzera: Controlli Insufficienti | Frontaliere Ticino',
+    description: 'Un audit federale rivela gravi lacune nei controlli sulla sicurezza sul lavoro in Svizzera e un conflitto d\'interessi della Suva. Le implicazioni per i frontalieri in Ticino.',
+    keywords: 'sicurezza lavoro svizzera, suva, controlli lavoro ticino, frontalieri, infortuni professionali, cfst, audit cdf, ispettorato lavoro',
+    ogTitle: 'Lavoro Sicuro in Svizzera? Un Audit Ufficiale Svela Controlli "Troppo Larghi"',
+    ogDescription: 'Falle sistemiche e conflitti d\'interesse: la sicurezza dei lavoratori, inclusi i frontalieri in Ticino, è a rischio secondo un nuovo report federale.',
+    canonicalPath: '/articoli-frontaliere/sicurezza-lavoro-svizzera-controlli-insufficienti-suva',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Lavoro Sicuro in Svizzera? Un Audit Ufficiale Svela Controlli \"Troppo Larghi\"",
+      "description": "Un audit federale rivela gravi lacune nei controlli sulla sicurezza sul lavoro in Svizzera e un conflitto d'interessi della Suva. Le implicazioni per i frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/sicurezza-lavoro-controlli-svizzera.png`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Ispettore della sicurezza sul lavoro in un cantiere edile in Ticino che controlla dei documenti"
+      },
+      "datePublished": "2026-02-24T00:00:00+01:00",
+      "dateModified": "2026-02-24T00:00:00+01:00",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}` },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL, "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/sicurezza-lavoro-svizzera-controlli-insufficienti-suva`
+    }
+  },
+
+  'blog-startup-investimenti-boom-ticino': {
+    title: 'Boom Investimenti Startup Svizzera: Opportunità in Ticino | Frontaliere Ticino',
+    description: 'Le startup svizzere raccolgono 3,3 miliardi (+44%) nel 2025, trainate dall\'IA. Scopri cosa significano i 53 milioni investiti in Ticino per i frontalieri.',
+    keywords: 'startup svizzera, investimenti ticino, intelligenza artificiale, lavoro frontalieri, economia ticino, medtech, fintech, opportunità lavoro',
+    ogTitle: 'Boom Startup in Svizzera (+44%): 53 Milioni per il Ticino, nuove opportunità',
+    ogDescription: 'Gli investimenti in startup svizzere esplodono a 3,3 mld, con l\'IA protagonista. Il Ticino attrae 53 milioni: ecco cosa cambia per il lavoro frontaliero.',
+    canonicalPath: '/articoli-frontaliere/startup-svizzera-boom-investimenti-ia-opportunita-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Boom Startup in Svizzera (+44%): 53 Milioni per il Ticino, nuove opportunità",
+      "description": "Le startup svizzere raccolgono 3,3 miliardi (+44%) nel 2025, trainate dall'IA. Scopri cosa significano i 53 milioni investiti in Ticino per i frontalieri.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/startup-investimenti-boom-ticino.png`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Vista di un moderno ufficio startup a Lugano con il team al lavoro e il lago e il Monte San Salvatore sullo sfondo."
+      },
+      "datePublished": "2026-02-24T00:00:00+01:00",
+      "dateModified": "2026-02-24T00:00:00+01:00",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}` },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL, "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/startup-svizzera-boom-investimenti-ia-opportunita-ticino`
+    }
+  },
+
+  'blog-long-covid-malattia-professionale': {
+    title: 'Long Covid è Malattia Professionale: Sentenza TF | Frontaliere Ticino',
+    description: 'Il Tribunale federale svizzero stabilisce che il Long Covid è una malattia professionale per gli operatori sanitari. La Bâloise condannata a pagare la rendita. Cosa cambia per i frontalieri.',
+    keywords: 'long covid, malattia professionale, tribunale federale, frontalieri, ticino, assicurazione infortuni, la bâloise, sanità',
+    ogTitle: 'Long Covid: Sentenza storica del Tribunale Federale Svizzero',
+    ogDescription: 'Una vittoria per un infermiere apre la strada a tutele importanti per chi lavora in sanità. La Bâloise deve pagare. Scopri le implicazioni.',
+    canonicalPath: '/articoli-frontaliere/long-covid-malattia-professionale-sentenza-tribunale-federale',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Long Covid: Sentenza storica del Tribunale Federale Svizzero",
+      "description": "Il Tribunale federale svizzero stabilisce che il Long Covid è una malattia professionale per gli operatori sanitari. La Bâloise condannata a pagare la rendita. Cosa cambia per i frontalieri.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/long-covid-malattia-professionale.png`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Il Tribunale federale svizzero a Losanna, dove è stata presa la decisione sul Long Covid come malattia professionale."
+      },
+      "datePublished": "2026-02-24T00:00:00+01:00",
+      "dateModified": "2026-02-24T00:00:00+01:00",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}` },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL, "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/long-covid-malattia-professionale-sentenza-tribunale-federale`
+    }
+  },
+
+  'blog-accordo-ue-svizzera-mercato-interno': {
+    title: 'Accordo UE-Svizzera: Via Libera al Mercato Interno | Frontaliere Ticino',
+    description: 'Il Consiglio UE approva la firma dei nuovi accordi con la Svizzera. Analisi delle conseguenze per i frontalieri in Ticino su lavoro, salari e Permesso G.',
+    keywords: 'accordi bilaterali svizzera ue, frontalieri ticino, mercato interno europeo, permesso g, libera circolazione persone, salari ticino, politica europea svizzera',
+    ogTitle: 'Bruxelles dà il via libera: cosa cambia per chi lavora in Ticino?',
+    ogDescription: 'L\'UE approva i nuovi accordi con la Svizzera. Ecco le possibili ripercussioni sul tuo lavoro da frontaliere e sul mercato ticinese.',
+    canonicalPath: '/articoli-frontaliere/accordo-ue-svizzera-mercato-interno-impatto-frontalieri',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Bruxelles dà il via libera: cosa cambia per chi lavora in Ticino?",
+      "description": "Il Consiglio UE approva la firma dei nuovi accordi con la Svizzera. Analisi delle conseguenze per i frontalieri in Ticino su lavoro, salari e Permesso G.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/accordo-ue-svizzera-mercato-interno.png`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Bandiere svizzera e dell'Unione Europea che sventolano con il lago di Lugano e il Monte San Salvatore sullo sfondo."
+      },
+      "datePublished": "2026-02-24T00:00:00+01:00",
+      "dateModified": "2026-02-24T00:00:00+01:00",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}` },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL, "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/accordo-ue-svizzera-mercato-interno-impatto-frontalieri`
+    }
+  },
+
+  'blog-fonderie-svizzere-crisi-2025': {
+    title: 'Crisi Fonderie Svizzere 2025: Impatto su Ticino e Frontalieri | Frontaliere Ticino',
+    description: 'La produzione delle fonderie svizzere cala del 7.6% nel 2025. Analisi delle cause, dall\'auto tedesca ai dazi USA, e le conseguenze per il lavoro in Ticino.',
+    keywords: 'fonderie svizzere, crisi industria, lavoro ticino, frontalieri, settore metalmeccanico, economia ticino, dazi trump, franco forte',
+    ogTitle: 'Fonderie Svizzere: Produzione in calo del 7.6%. Cosa significa per il tuo lavoro in Ticino?',
+    ogDescription: 'Il settore metalmeccanico svizzero soffre: la produzione è scesa del 7.6% nel 2025. Scopri le cause e l\'impatto sui posti di lavoro per i frontalieri.',
+    canonicalPath: '/articoli-frontaliere/fonderie-svizzere-crisi-produzione-2025-impatto-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Fonderie Svizzere: Produzione in calo del 7.6%. Cosa significa per il tuo lavoro in Ticino?",
+      "description": "La produzione delle fonderie svizzere cala del 7.6% nel 2025. Analisi delle cause, dall'auto tedesca ai dazi USA, e le conseguenze per il lavoro in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/fonderie-svizzere-crisi-2025.png`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Interno di una moderna fonderia nel Canton Ticino, con un operaio specializzato che ispeziona un pezzo metallico."
+      },
+      "datePublished": "2026-02-24T00:00:00+01:00",
+      "dateModified": "2026-02-24T00:00:00+01:00",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}` },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL, "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/fonderie-svizzere-crisi-produzione-2025-impatto-ticino`
+    }
+  },
+
+  'blog-salario-minimo-ticino-accordo': {
+    title: 'Salario Minimo Ticino: Accordo per Aumento a 22 CHF/ora | Frontaliere Ticino',
+    description: 'Scopri i dettagli della bozza di accordo sul salario minimo in Ticino: aumento graduale da 20.50 a 22 CHF orari entro il 2029. Cosa cambia per i frontalieri.',
+    keywords: 'salario minimo ticino, stipendio frontalieri, aumento salario svizzera, lavoro ticino, 22 franchi ora, contratti collettivi, busta paga svizzera',
+    ogTitle: 'Salario minimo in Ticino verso i 22 CHF orari: cosa significa per la tua busta paga',
+    ogDescription: 'Un accordo politico potrebbe portare il salario minimo ticinese a 4\'000 CHF mensili. Ecco il piano di aumento e le novità per i frontalieri.',
+    canonicalPath: '/articoli-frontaliere/salario-minimo-ticino-accordo-aumento-22-franchi',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Salario minimo in Ticino verso i 22 CHF orari: cosa significa per la tua busta paga",
+      "description": "Scopri i dettagli della bozza di accordo sul salario minimo in Ticino: aumento graduale da 20.50 a 22 CHF orari entro il 2029. Cosa cambia per i frontalieri.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/salario-minimo-ticino-accordo.png`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Palazzo del Governo a Bellinzona, dove si discutono le politiche salariali del Canton Ticino"
+      },
+      "datePublished": "2026-02-24T00:00:00+01:00",
+      "dateModified": "2026-02-24T00:00:00+01:00",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}` },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL, "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/salario-minimo-ticino-accordo-aumento-22-franchi`
+    }
+  },
+
+  'blog-trasporti-pubblici-crescita-svizzera': {
+    title: 'Trasporti Pubblici in Svizzera: Crescita Record e Impatto sui Frontalieri | Frontaliere Ticino',
+    description: 'I trasporti pubblici svizzeri registrano un fatturato record di 7,04 miliardi CHF. Scopri cosa significa questa crescita per i frontalieri in Ticino e i costi del pendolarismo.',
+    keywords: 'trasporti pubblici svizzera, frontalieri ticino, abbonamento arcobaleno, pendolarismo svizzera, costo treno frontaliere, TILO, Alliance SwissPass',
+    ogTitle: 'Trasporti pubblici da record: treni più cari o più affollati per i frontalieri?',
+    ogDescription: 'Con un fatturato di oltre 7 miliardi, i trasporti svizzeri sono in piena salute. Analizziamo l\'impatto sui pendolari del Ticino.',
+    canonicalPath: '/articoli-frontaliere/trasporti-pubblici-svizzera-crescita-fatturato-impatto-frontalieri',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Trasporti pubblici da record: treni più cari o più affollati per i frontalieri?",
+      "description": "I trasporti pubblici svizzeri registrano un fatturato record di 7,04 miliardi CHF. Scopri cosa significa questa crescita per i frontalieri in Ticino e i costi del pendolarismo.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/trasporti-pubblici-crescita-svizzera.png`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Un treno TILO fermo alla stazione di Bellinzona, simbolo del pendolarismo dei frontalieri in Ticino."
+      },
+      "datePublished": "2026-02-24T00:00:00+01:00",
+      "dateModified": "2026-02-24T00:00:00+01:00",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}` },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL, "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/trasporti-pubblici-svizzera-crescita-fatturato-impatto-frontalieri`
+    }
+  },
+
+  'blog-cantieri-notturni-lugano-marzo-2026': {
+    title: 'Lavori Notturni Lugano: Strade Chiuse e Traffico a Marzo 2026 | Frontaliere Ticino',
+    description: 'Guida completa ai cantieri notturni a Lugano per marzo 2026. Elenco delle strade chiuse e delle deviazioni a Viganello, Pregassona, Castagnola. Pianifica il tuo viaggio.',
+    keywords: 'lavori stradali lugano, cantieri notturni ticino, strade chiuse lugano, traffico frontalieri, viabilità viganello, polizia lugano, pendolari ticino',
+    ogTitle: 'Attenzione Frontalieri: Cantieri Notturni a Lugano per Tutto Marzo',
+    ogDescription: 'Da Viganello a Pregassona, ecco la mappa completa delle strade chiuse di notte a Lugano. Controlla qui per evitare sorprese.',
+    canonicalPath: '/articoli-frontaliere/lavori-notturni-lugano-marzo-2026-strade-chiuse',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Attenzione Frontalieri: Cantieri Notturni a Lugano per Tutto Marzo",
+      "description": "Guida completa ai cantieri notturni a Lugano per marzo 2026. Elenco delle strade chiuse e delle deviazioni a Viganello, Pregassona, Castagnola. Pianifica il tuo viaggio.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/cantieri-notturni-lugano-marzo-2026.png`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Lavori stradali notturni in una via di Lugano, con macchinari per la posa dell'asfalto illuminati da fari."
+      },
+      "datePublished": "2026-02-24T00:00:00+01:00",
+      "dateModified": "2026-02-24T00:00:00+01:00",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}` },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL, "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/lavori-notturni-lugano-marzo-2026-strade-chiuse`
+    }
+  },
+
+  'blog-supsi-nuova-direttrice-formazione': {
+    title: 'SUPSI: Daniela Willi-Piezzi nuova direttrice DFA | Frontaliere Ticino',
+    description: 'SUPSI nomina Daniela Willi-Piezzi nuova direttrice del Dipartimento formazione e apprendimento. Dal 1° maggio 2026 guiderà la formazione dei docenti in Ticino.',
+    keywords: 'SUPSI, Daniela Willi-Piezzi, formazione docenti, Ticino, università, scuola ticinese, frontalieri, lavoro Ticino',
+    ogTitle: 'Nuova guida per la formazione docenti in Ticino: chi è Daniela Willi-Piezzi',
+    ogDescription: 'SUPSI ha scelto la sua nuova direttrice per il Dipartimento formazione e apprendimento. Una nomina strategica per il futuro della scuola in Ticino.',
+    canonicalPath: '/articoli-frontaliere/supsi-daniela-willi-piezzi-direttrice-dipartimento-formazione',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Nuova guida per la formazione docenti in Ticino: chi è Daniela Willi-Piezzi",
+      "description": "SUPSI nomina Daniela Willi-Piezzi nuova direttrice del Dipartimento formazione e apprendimento. Dal 1° maggio 2026 guiderà la formazione dei docenti in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/supsi-nuova-direttrice-formazione.png`,
+        "width": 1344,
+        "height": 756,
+        "caption": "La moderna sede della SUPSI a Manno, Canton Ticino, che ospita il Dipartimento formazione e apprendimento."
+      },
+      "datePublished": "2026-02-24T00:00:00+01:00",
+      "dateModified": "2026-02-24T00:00:00+01:00",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}` },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL, "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/supsi-daniela-willi-piezzi-direttrice-dipartimento-formazione`
+    }
+  },
+
+  'blog-bps-suisse-risultati-bper': {
+    title: 'BPS Suisse Risultati 2025: Utile Solido e Futuro BPER | Frontaliere Ticino',
+    description: 'BPS Suisse celebra 30 anni con un utile di 27,6 milioni di CHF nel 2025. Analisi dei risultati, dell\'impatto dell\'acquisizione BPER e cosa significa per i frontalieri.',
+    keywords: 'bps suisse, frontalieri, ticino, bper banca, risultati finanziari, banca popolare sondrio, conti correnti svizzera',
+    ogTitle: 'BPS Suisse: utile quasi record. Ecco cosa cambia con l\'arrivo di BPER.',
+    ogDescription: 'Con 27,6 milioni di utile e una raccolta record, BPS Suisse si rafforza. L\'acquisizione da parte di BPER apre nuovi scenari per i clienti transfrontalieri.',
+    canonicalPath: '/articoli-frontaliere/bps-suisse-risultati-solidi-2025-impatto-bper-frontalieri',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "BPS Suisse: utile quasi record. Ecco cosa cambia con l'arrivo di BPER.",
+      "description": "BPS Suisse celebra 30 anni con un utile di 27,6 milioni di CHF nel 2025. Analisi dei risultati, dell'impatto dell'acquisizione BPER e cosa significa per i frontalieri.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/bps-suisse-risultati-bper.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Sede di una banca moderna a Lugano, simbolo della stabilità finanziaria del Canton Ticino."
+      },
+      "datePublished": "2026-02-24T00:00:00+01:00",
+      "dateModified": "2026-02-24T00:00:00+01:00",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}` },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL, "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/bps-suisse-risultati-solidi-2025-impatto-bper-frontalieri`
+    }
+  },
+
+  'blog-aiuti-energia-proroga-taglio': {
+    title: 'Aiuti Energia Svizzera: Proroga ridotta e fondi tagliati | Frontaliere Ticino',
+    description: 'Berna rivede gli aiuti alle imprese energetiche: il fondo di salvataggio scende a 5 miliardi e la proroga è fino al 2029. Analisi dell\'impatto sui costi in Ticino.',
+    keywords: 'aiuti energia svizzera, CAPTE-N, imprese energetiche, costi elettricità ticino, paracadute finanziario, frontalieri, economia ticino',
+    ogTitle: 'Energia: Berna taglia i fondi di salvataggio. Meno rischi per le bollette?',
+    ogDescription: 'La commissione parlamentare dimezza a 5 miliardi gli aiuti per le aziende energetiche. Una mossa che influenzerà i costi per famiglie e imprese in Ticino.',
+    canonicalPath: '/articoli-frontaliere/aiuti-imprese-energetiche-proroga-taglio-fondi',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Energia: Berna taglia i fondi di salvataggio. Meno rischi per le bollette?",
+      "description": "Berna rivede gli aiuti alle imprese energetiche: il fondo di salvataggio scende a 5 miliardi e la proroga è fino al 2029. Analisi dell'impatto sui costi in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/aiuti-energia-proroga-taglio.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Linee elettriche ad alta tensione che attraversano una valle del Ticino, simbolo del settore energetico svizzero."
+      },
+      "datePublished": "2026-02-24T00:00:00+01:00",
+      "dateModified": "2026-02-24T00:00:00+01:00",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}` },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL, "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/aiuti-imprese-energetiche-proroga-taglio-fondi`
+    }
+  },
+
+  'blog-salario-minimo-sociale-ticino-dibattito': {
+    title: 'Salario Minimo Sociale in Ticino: Cosa Cambia per i Frontalieri | Frontaliere Ticino',
+    description: 'Il Ticino discute un controprogetto per il salario minimo sociale. Scopri i 5 principi in discussione e le possibili conseguenze sul tuo stipendio da frontaliere.',
+    keywords: 'salario minimo ticino, frontalieri, stipendio svizzera, lavoro ticino, controprogetto PS, dumping salariale, CCL, retribuzione ticino',
+    ogTitle: 'Salario Minimo in Ticino: la Politica Cerca un Accordo. E il Tuo Stipendio?',
+    ogDescription: 'Un controprogetto al vaglio del Gran Consiglio potrebbe fissare una nuova soglia salariale minima in Ticino. Ecco cosa significa per i lavoratori frontalieri.',
+    canonicalPath: '/articoli-frontaliere/salario-minimo-sociale-ticino-dibattito-frontalieri',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Salario Minimo in Ticino: la Politica Cerca un Accordo. E il Tuo Stipendio?",
+      "description": "Il Ticino discute un controprogetto per il salario minimo sociale. Scopri i 5 principi in discussione e le possibili conseguenze sul tuo stipendio da frontaliere.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/salario-minimo-sociale-ticino-dibattito.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Sala riunioni del Gran Consiglio a Bellinzona, simbolo del dibattito politico sul salario minimo in Ticino."
+      },
+      "datePublished": "2026-02-24T00:00:00+01:00",
+      "dateModified": "2026-02-24T00:00:00+01:00",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}` },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL, "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/salario-minimo-sociale-ticino-dibattito-frontalieri`
+    }
+  },
+
+  'blog-bps-suisse-utili-consigli-crisi': {
+    title: 'BPS Suisse: Utili e Consigli per Risparmi e Mutui | Frontaliere Ticino',
+    description: 'Banca Popolare di Sondrio (Suisse) chiude il 2025 con 27,6 mln di utile. Scopri i consigli del CEO per gestire investimenti e mutui in Ticino per i frontalieri.',
+    keywords: 'banca popolare sondrio suisse, bps suisse, utili 2025, consigli finanziari, mutui ticino, risparmio frontalieri, investimenti svizzera, mauro de stefani',
+    ogTitle: 'BPS Suisse: Utili Record e Consigli Anti-Crisi per i Frontalieri',
+    ogDescription: 'Con un utile di quasi 28 milioni, BPS (Suisse) naviga l\'incertezza. Ecco i consigli pratici del CEO per chi lavora in Ticino e gestisce risparmi o un mutuo.',
+    canonicalPath: '/articoli-frontaliere/bps-suisse-utili-record-consigli-frontalieri',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "BPS Suisse: Utili Record e Consigli Anti-Crisi per i Frontalieri",
+      "description": "Banca Popolare di Sondrio (Suisse) chiude il 2025 con 27,6 mln di utile. Scopri i consigli del CEO per gestire investimenti e mutui in Ticino per i frontalieri.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/bps-suisse-utili-consigli-crisi.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Sede di una banca a Lugano con vista sul lago, a simboleggiare i risultati finanziari di BPS Suisse in Ticino"
+      },
+      "datePublished": "2026-02-24T00:00:00+01:00",
+      "dateModified": "2026-02-24T00:00:00+01:00",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}` },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL, "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/bps-suisse-utili-record-consigli-frontalieri`
+    }
+  },
+
+  'blog-accordo-ue-voto-obbligatorio-ticino': {
+    title: 'Accordo UE-Svizzera: Ticino chiede referendum obbligatorio | Frontaliere Ticino',
+    description: 'Il Gran Consiglio ticinese approva la mozione UDC per un referendum con doppia maggioranza sul nuovo accordo con l\'UE. Analisi delle implicazioni per i frontalieri.',
+    keywords: 'accordo quadro 2.0, referendum obbligatorio, UDC ticino, frontalieri, svizzera ue, sovranità, doppia maggioranza, canton ticino',
+    ogTitle: 'Accordo UE: da Bellinzona un muro contro la \'sottomissione\'',
+    ogDescription: 'Il Ticino alza la voce: il nuovo accordo con l\'UE dovrà essere approvato da Popolo e Cantoni. Cosa significa per il tuo lavoro da frontaliere?',
+    canonicalPath: '/articoli-frontaliere/accordo-ue-svizzera-ticino-chiede-referendum-obbligatorio',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Accordo UE: da Bellinzona un muro contro la 'sottomissione'",
+      "description": "Il Gran Consiglio ticinese approva la mozione UDC per un referendum con doppia maggioranza sul nuovo accordo con l'UE. Analisi delle implicazioni per i frontalieri.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/accordo-ue-voto-obbligatorio-ticino.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Palazzo del governo cantonale a Bellinzona con bandiere svizzera e ticinese, simbolo della politica ticinese sull'accordo UE."
+      },
+      "datePublished": "2026-02-24T00:00:00+01:00",
+      "dateModified": "2026-02-24T00:00:00+01:00",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}` },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL, "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/accordo-ue-svizzera-ticino-chiede-referendum-obbligatorio`
+    }
+  },
+
+  'blog-accordo-ue-svizzera-impatto-frontalieri': {
+    title: 'Accordo Svizzera-UE: Cosa Cambia per i Frontalieri | Frontaliere Ticino',
+    description: 'Il Consiglio UE dà il via libera al nuovo pacchetto di accordi con la Svizzera. Analisi delle novità per i frontalieri in Ticino: libera circolazione, salari e referendum.',
+    keywords: 'accordo svizzera ue, frontalieri ticino, libera circolazione persone, protezione salari, bilaterali III, referendum svizzera, lavoro in svizzera, permesso g',
+    ogTitle: 'Accordo Svizzera-UE: Cosa Significa per il Tuo Lavoro in Ticino?',
+    ogDescription: 'Bruxelles dice sì al nuovo accordo. Scopri l\'impatto su libera circolazione, stipendi e perché il Ticino è preoccupato. La guida completa per i frontalieri.',
+    canonicalPath: '/articoli-frontaliere/accordo-svizzera-ue-cosa-cambia-frontalieri-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Accordo Svizzera-UE: Cosa Significa per il Tuo Lavoro in Ticino?",
+      "description": "Il Consiglio UE dà il via libera al nuovo pacchetto di accordi con la Svizzera. Analisi delle novità per i frontalieri in Ticino: libera circolazione, salari e referendum.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/accordo-ue-svizzera-impatto-frontalieri.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Le bandiere della Svizzera e dell'Unione Europea sventolano insieme, simbolo del nuovo pacchetto di accordi bilaterali."
+      },
+      "datePublished": "2026-02-24T00:00:00+01:00",
+      "dateModified": "2026-02-24T00:00:00+01:00",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}` },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL, "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/accordo-svizzera-ue-cosa-cambia-frontalieri-ticino`
+    }
+  },
+
+  'blog-locarno-stop-case-vacanza': {
+    title: 'Locarno: stop licenze case secondarie, impatto frontalieri | Frontaliere Ticino',
+    description: 'Locarno ha superato il 20% di case secondarie secondo l\'ARE, bloccando nuove licenze. Scopri l\'impatto sul mercato immobiliare e il costo della vita per i frontalieri.',
+    keywords: 'frontalieri, ticino, locarno, case secondarie, lex weber, mercato immobiliare, affitti, costo vita, alloggi',
+    ogTitle: 'Locarno: Blocco licenze case vacanza, cosa cambia per i frontalieri?',
+    ogDescription: 'La città di Locarno ferma le licenze per le case secondarie. Analisi dell\'impatto sul mercato immobiliare e sui frontalieri che cercano casa in Ticino.',
+    canonicalPath: '/articoli-frontaliere/locarno-stop-licenze-case-secondarie',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Locarno: Blocco licenze case vacanza, cosa cambia per i frontalieri?",
+      "description": "Locarno ha superato il 20% di case secondarie secondo l'ARE, bloccando nuove licenze. Scopri l'impatto sul mercato immobiliare e il costo della vita per i frontalieri.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/locarno-stop-case-vacanza.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Vista del lungolago di Locarno con gli edifici della città e le montagne circostanti, che simboleggiano il mercato immobiliare locale."
+      },
+      "datePublished": "2026-02-24T00:00:00+01:00",
+      "dateModified": "2026-02-24T00:00:00+01:00",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}` },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL, "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/locarno-stop-licenze-case-secondarie`
+    }
+  },
+
+  'blog-bilaterali-ue-svizzera-firma': {
+    title: 'Accordi Svizzera-UE: Firma Vicina, Impatto Frontalieri | Frontaliere Ticino',
+    description: 'Il Consiglio UE approva la firma del nuovo pacchetto di accordi con la Svizzera. Analisi delle novità per i frontalieri in Ticino: libera circolazione, salari e il voto del 2027.',
+    keywords: 'accordi bilaterali svizzera ue, frontalieri ticino, libera circolazione persone, protezione salari, accordo quadro, voto svizzera ue, Guy Parmelin',
+    ogTitle: 'Accordi UE-Svizzera: Firma a un passo. Cosa cambia per te?',
+    ogDescription: 'Bruxelles dà il via libera. Dalla libera circolazione alla protezione dei salari, ecco i punti chiave del nuovo accordo che decideranno il futuro dei frontalieri.',
+    canonicalPath: '/articoli-frontaliere/accordi-ue-svizzera-firma-vicina-cosa-cambia-frontalieri',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Accordi UE-Svizzera: Firma a un passo. Cosa cambia per te?",
+      "description": "Il Consiglio UE approva la firma del nuovo pacchetto di accordi con la Svizzera. Analisi delle novità per i frontalieri in Ticino: libera circolazione, salari e il voto del 2027.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/bilaterali-ue-svizzera-firma.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Veduta del confine italo-svizzero di Chiasso, simbolo degli accordi bilaterali tra Svizzera e Unione Europea."
+      },
+      "datePublished": "2026-02-24T00:00:00+01:00",
+      "dateModified": "2026-02-24T00:00:00+01:00",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}` },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL, "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/accordi-ue-svizzera-firma-vicina-cosa-cambia-frontalieri`
+    }
+  },
+
+  'blog-aumento-iva-esercito-impatto-spesa': {
+    title: 'Aumento IVA Esercito: Impatto su Stipendi e Spesa in Ticino | Frontaliere Ticino',
+    description: 'Il Consiglio federale propone un aumento dell\'IVA per finanziare l\'esercito. Scopri l\'impatto di 80 centesimi in più ogni 100 CHF sulla tua spesa e stipendio.',
+    keywords: 'aumento IVA svizzera, finanziamento esercito, costo vita ticino, stipendio frontaliere, imposta valore aggiunto, spesa frontalieri, sicurezza svizzera',
+    ogTitle: 'Aumento IVA in arrivo? Come cambierà la tua spesa in Ticino',
+    ogDescription: 'Un rincaro di 80 centesimi ogni 100 franchi per finanziare l\'esercito: ecco l\'impatto concreto per i frontalieri e come prepararsi.',
+    canonicalPath: '/articoli-frontaliere/aumento-iva-svizzera-esercito-impatto-stipendio-frontalieri',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Proposta di aumento IVA per finanziare l'esercito svizzero",
+      "description": "Il Consiglio federale propone un aumento dell'IVA per finanziare l'esercito. Scopri l'impatto di 80 centesimi in più ogni 100 CHF sulla tua spesa e stipendio.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/aumento-iva-esercito-impatto-spesa.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Scontrino della spesa in un supermercato ticinese, a simboleggiare l'impatto dell'aumento IVA sul costo della vita"
+      },
+      "datePublished": "2026-02-24T00:00:00+01:00",
+      "dateModified": "2026-02-24T00:00:00+01:00",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}` },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL, "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/aumento-iva-svizzera-esercito-impatto-stipendio-frontalieri`
+    }
+  },
+
+  'blog-maternita-paternita-ticino': {
+    title: 'Congedo parentale per frontalieri in Ticino | Frontaliere Ticino',
+    description: 'Guida pratica ai diritti di maternità e paternità per frontalieri: congedo Svizzera e Italia, indennità, come richiedere le prestazioni.',
+    keywords: 'frontalieri, maternità, paternità, Ticino, congedo parentale, Svizzera, Italia, indennità',
+    ogTitle: 'Scopri i tuoi diritti di maternità e paternità in Ticino',
+    ogDescription: 'Tutto sul congedo parentale per frontalieri: differenze tra Svizzera e Italia, indennità, e come fare domanda.',
+    canonicalPath: '/articoli-frontaliere/maternita-paternita-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Scopri i tuoi diritti di maternità e paternità in Ticino",
+      "description": "Guida pratica ai diritti di maternità e paternità per frontalieri: congedo Svizzera e Italia, indennità, come richiedere le prestazioni.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/maternita-paternita-ticino.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Famiglia passeggia vicino al Lago di Lugano in primavera."
+      },
+      "datePublished": "2026-02-25T00:00:00+01:00",
+      "dateModified": "2026-02-25T00:00:00+01:00",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}` },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL, "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/maternita-paternita-ticino`
+    }
+  },
+
+  'blog-referendum-ue-svizzera-ticino': {
+    title: 'Referendum UE-Svizzera: Impatti sul Ticino | Frontaliere Ticino',
+    description: 'Mozione UDC: referendum su Accordo quadro UE-Svizzera. Implicazioni per frontalieri e aziende in Ticino. Scopri i dettagli.',
+    keywords: 'referendum, UDC, frontalieri, Ticino, Accordo quadro, UE, Svizzera, sovranità',
+    ogTitle: 'Referendum UE-Svizzera: Impatti sul Ticino',
+    ogDescription: 'Accordo quadro 2.0: mozione UDC per referendum obbligatorio. Scopri cosa cambia per frontalieri e Ticino.',
+    canonicalPath: '/articoli-frontaliere/referendum-ue-svizzera-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Referendum UE-Svizzera: Impatti sul Ticino",
+      "description": "Mozione UDC: referendum su Accordo quadro UE-Svizzera. Implicazioni per frontalieri e aziende in Ticino. Scopri i dettagli.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/referendum-ue-svizzera-ticino.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Veduta del Castelgrande di Bellinzona con bandiere svizzera e UE in primo piano."
+      },
+      "datePublished": "2026-02-25T00:00:00+01:00",
+      "dateModified": "2026-02-25T00:00:00+01:00",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}` },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL, "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/referendum-ue-svizzera-ticino`
+    }
+  },
+
+  'blog-valposchiavo-turismo-2025': {
+    title: 'Valposchiavo: Turismo 2025 in crescita | Frontaliere Ticino',
+    description: 'Valposchiavo registra 81.000 pernottamenti nel 2025 e un record di 8.000 visitatori nei musei. Scopri le opportunità per frontalieri.',
+    keywords: 'frontalieri, ticino, valposchiavo, turismo 2025, premio wakker, musei valposchiavo, pernottamenti, lavoro turismo',
+    ogTitle: 'Valposchiavo: Turismo 2025 in crescita',
+    ogDescription: '81.000 pernottamenti e record culturale a Poschiavo nel 2025. Novità per frontalieri e turismo.',
+    canonicalPath: '/articoli-frontaliere/turismo-valposchiavo-2025',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Valposchiavo: Turismo 2025 in crescita",
+      "description": "Valposchiavo registra 81.000 pernottamenti nel 2025 e un record di 8.000 visitatori nei musei. Scopri le opportunità per frontalieri.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/valposchiavo-turismo-2025.png`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Vista autunnale della valle di Poschiavo con edifici storici e un treno della Ferrovia retica."
+      },
+      "datePublished": "2026-02-25T00:00:00+01:00",
+      "dateModified": "2026-02-25T00:00:00+01:00",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}` },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL, "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/turismo-valposchiavo-2025`
+    }
+  },
+
+  'blog-frontalieri-economia-ticino': {
+    title: 'Frontalieri in calo: economia ticinese 2026 | Frontaliere Ticino',
+    description: 'Il numero di frontalieri cala in Ticino. Scopri le cause economiche e come pianificare il tuo futuro da frontaliere.',
+    keywords: 'frontalieri, ticino, economia, permesso G, tassa salute, ristorni, costo della vita, lavoro Svizzera',
+    ogTitle: 'Frontalieri in calo: cosa sta succedendo in Ticino?',
+    ogDescription: 'Scopri perché i frontalieri in Ticino stanno diminuendo e quali sono le implicazioni economiche e fiscali.',
+    canonicalPath: '/articoli-frontaliere/frontalieri-economia-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Frontalieri in calo: cosa sta succedendo in Ticino?",
+      "description": "Il numero di frontalieri cala in Ticino. Scopri le cause economiche e come pianificare il tuo futuro da frontaliere.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/places/mendrisio.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Traffico di frontalieri al valico di Ponte Tresa con montagne sullo sfondo"
+      },
+      "datePublished": "2026-02-25T00:00:00+01:00",
+      "dateModified": "2026-02-25T00:00:00+01:00",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}` },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL, "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontalieri-economia-ticino`
+    }
+  },
+
+  'blog-inflazione-frontalieri-ticino': {
+    title: 'Inflazione stabile 2026: Impatti per frontalieri | Frontaliere Ticino',
+    description: 'L\'inflazione svizzera è quasi ferma allo 0,1%: scopri cosa significa per i frontalieri in Ticino e il cambio franco-euro.',
+    keywords: 'frontalieri, ticino, inflazione svizzera, cambio franco euro, IPC 2026, economia transfrontaliera, potere d\'acquisto',
+    ogTitle: 'Inflazione stabile in Svizzera: cosa cambia per i frontalieri',
+    ogDescription: 'Inflazione minima in Svizzera: scopri gli effetti sul reddito dei frontalieri e sul cambio CHF-EUR.',
+    canonicalPath: '/articoli-frontaliere/inflazione-frontalieri-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Inflazione stabile: cosa cambia per i frontalieri",
+      "description": "L'inflazione svizzera è quasi ferma allo 0,1%: scopri cosa significa per i frontalieri in Ticino e il cambio franco-euro.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/inflazione-frontalieri-ticino.png`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Vista del lago di Lugano con bandiere svizzere all'alba e skyline in lontananza"
+      },
+      "datePublished": "2026-02-25T00:00:00+01:00",
+      "dateModified": "2026-02-25T00:00:00+01:00",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}` },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL, "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/inflazione-frontalieri-ticino`
+    }
+  },
+
+  'blog-aprire-conto-bancario-frontaliere': {
+    title: 'Aprire un conto bancario svizzero da frontaliere | Frontaliere Ticino',
+    description: 'Scopri come aprire un conto bancario svizzero da frontaliere. Scegli la banca migliore in Ticino: costi, carte, online banking, requisiti.',
+    keywords: 'aprire conto bancario svizzero, frontalieri ticino, banche ticino, costi conto svizzero, carte debito credito svizzera',
+    ogTitle: 'Aprire un conto bancario svizzero da frontaliere',
+    ogDescription: 'Quale banca scegliere in Ticino? Costi, carte, online banking e requisiti per frontalieri. Scopri tutto ora!',
+    canonicalPath: '/articoli-frontaliere/aprire-conto-bancario-frontalieri',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Aprire un conto bancario svizzero",
+      "description": "Scopri come aprire un conto bancario svizzero da frontaliere. Scegli la banca migliore in Ticino: costi, carte, online banking, requisiti.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/aprire-conto-bancario-frontaliere.png`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Veduta di Lugano con un edificio bancario e pedoni che attraversano la strada"
+      },
+      "datePublished": "2026-02-25T00:00:00+01:00",
+      "dateModified": "2026-02-25T00:00:00+01:00",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}` },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL, "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/aprire-conto-bancario-frontalieri`
+    }
+  },
+
+  'blog-ristorni-fiscali-ticino': {
+    title: 'Ristorni fiscali frontalieri: come funzionano | Frontaliere Ticino',
+    description: 'Guida completa ai ristorni fiscali per frontalieri in Ticino. Scopri chi paga, come si calcolano e il futuro degli accordi bilaterali.',
+    keywords: 'ristorni fiscali, frontalieri, ticino, accordo fiscale, imposte, lavoro, comuni di frontiera',
+    ogTitle: 'Guida ai ristorni fiscali frontalieri 2026',
+    ogDescription: 'Scopri come funzionano i ristorni fiscali per i frontalieri in Ticino e il loro impatto sui comuni italiani.',
+    canonicalPath: '/articoli-frontaliere/ristorni-fiscali-frontaliere',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Guida ai ristorni fiscali frontalieri 2026",
+      "description": "Guida completa ai ristorni fiscali per frontalieri in Ticino. Scopri chi paga, come si calcolano e il futuro degli accordi bilaterali.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/ristorni-fiscali-ticino.png`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Valico di Mendrisio con auto in transito e bandiera svizzera visibile"
+      },
+      "datePublished": "2026-02-25T00:00:00+01:00",
+      "dateModified": "2026-02-25T00:00:00+01:00",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}` },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL, "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ristorni-fiscali-frontaliere`
+    }
+  },
+
+  'blog-contributi-sociali-busta-paga': {
+    title: 'Contributi sociali svizzeri: guida busta paga | Frontaliere Ticino',
+    description: 'Guida pratica per frontalieri: tutto sui contributi sociali in Svizzera (AVS, AI, LPP, AD). Scopri le trattenute e calcola il tuo netto 2026.',
+    keywords: 'frontalieri, ticino, contributi sociali, busta paga, AVS, AI, LPP, trattenute, stipendio netto',
+    ogTitle: 'Contributi sociali svizzeri: tutto sulla busta paga',
+    ogDescription: 'Scopri come funzionano le trattenute in Svizzera per i frontalieri: AVS, AI, LPP, AD e altro. Calcola il tuo netto con il nostro simulatore.',
+    canonicalPath: '/articoli-frontaliere/contributi-sociali-busta-paga',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Guida contributi sociali frontalieri",
+      "description": "Guida pratica per frontalieri: tutto sui contributi sociali in Svizzera (AVS, AI, LPP, AD). Scopri le trattenute e calcola il tuo netto 2026.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/contributi-sociali-busta-paga.png`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Veduta di Mendrisio con frontalieri in transito vicino a un ufficio locale"
+      },
+      "datePublished": "2026-02-25T00:00:00+01:00",
+      "dateModified": "2026-02-25T00:00:00+01:00",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}` },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL, "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/contributi-sociali-busta-paga`
+    }
+  },
+
+  'blog-strada-incidenti-vezia-cureglia': {
+    title: 'La pericolosa strada Vezia-Cureglia | Frontaliere Ticino',
+    description: 'Incidenti frequenti sulla strada cantonale Vezia-Cureglia. Il Municipio chiede interventi al Cantone per migliorare la sicurezza stradale.',
+    keywords: 'frontalieri, Ticino, sicurezza stradale, Vezia, Cureglia, incidenti, strada cantonale, traffico',
+    ogTitle: 'Vezia-Cureglia: troppi incidenti sul tratto',
+    ogDescription: 'La strada tra Vezia e Cureglia è teatro di frequenti incidenti. Il Municipio chiede interventi urgenti al Cantone.',
+    canonicalPath: '/articoli-frontaliere/strada-incidenti-vezia-cureglia',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Strada Vezia-Cureglia: troppi incidenti",
+      "description": "Incidenti frequenti sulla strada cantonale Vezia-Cureglia. Il Municipio chiede interventi al Cantone per migliorare la sicurezza stradale.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/strada-incidenti-vezia-cureglia.png`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Strada cantonale tra Vezia e Cureglia, con guardrail e curve pericolose in una giornata di sole"
+      },
+      "datePublished": "2026-02-25T00:00:00+01:00",
+      "dateModified": "2026-02-25T00:00:00+01:00",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}` },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL, "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/strada-incidenti-vezia-cureglia`
+    }
+  },
+
+  'blog-assicurazione-malattia-famiglia': {
+    title: 'Assicurazione malattia famiglia frontalieri | Frontaliere Ticino',
+    description: 'Come frontalieri in Ticino, scopri le migliori opzioni di assicurazione malattia per te e la tua famiglia: LAMal, EHIC, integrative. Confronta ora.',
+    keywords: 'assicurazione malattia, frontalieri, ticino, LAMal, EHIC, polizze integrative, sanitario, famiglia',
+    ogTitle: 'Assicurazione malattia per tutta la famiglia',
+    ogDescription: 'Proteggi la tua famiglia con le migliori opzioni di assicurazione malattia per frontalieri in Ticino: LAMal, EHIC e integrative.',
+    canonicalPath: '/articoli-frontaliere/assicurazione-malattia-famiglia',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Assicurazione malattia per tutta la famiglia",
+      "description": "Come frontalieri in Ticino, scopri le migliori opzioni di assicurazione malattia per te e la tua famiglia: LAMal, EHIC, integrative. Confronta ora.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/assicurazione-malattia-famiglia.png`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Famiglia in un ufficio sanitario a Lugano che discute di assicurazione malattia."
+      },
+      "datePublished": "2026-02-25T00:00:00+01:00",
+      "dateModified": "2026-02-25T00:00:00+01:00",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}` },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL, "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/assicurazione-malattia-famiglia`
+    }
+  },
+
+  'blog-calo-frontalieri-ragioni-economiche': {
+    title: 'Frontalieri in calo: ecco le vere ragioni | Frontaliere Ticino',
+    description: 'Il numero di frontalieri in Ticino cala, ma non per la tassa sanitaria. Scopri cosa sta succedendo e come potrebbe influire sulle tue finanze.',
+    keywords: 'frontalieri, ticino, economia, tassa sanitaria, lavoro, mercato ticinese, comuni frontalieri, costo della vita',
+    ogTitle: 'Frontalieri in calo: le vere cause',
+    ogDescription: 'Non è la tassa sanitaria a ridurre i frontalieri, ma i problemi economici del Ticino. Scopri di più e calcola il tuo stipendio netto.',
+    canonicalPath: '/articoli-frontaliere/calo-frontalieri-ticino-economia',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Frontalieri in calo: le vere cause",
+      "description": "Il numero di frontalieri in Ticino cala, ma non per la tassa sanitaria. Scopri cosa sta succedendo e come potrebbe influire sulle tue finanze.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/calo-frontalieri-ragioni-economiche.png`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Valico doganale di Mendrisio all'alba con frontalieri in coda"
+      },
+      "datePublished": "2026-02-25T00:00:00+01:00",
+      "dateModified": "2026-02-25T00:00:00+01:00",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}` },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL, "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/calo-frontalieri-ticino-economia`
+    }
+  },
+
+  'blog-frontalieri-calo-economia-ticinese': {
+    title: 'Frontalieri in calo: le vere cause | Frontaliere Ticino',
+    description: 'Il calo dei frontalieri in Ticino è legato alla crisi economica, non alla tassa sulla salute. Scopri di più e calcola il tuo stipendio.',
+    keywords: 'frontalieri, ticino, economia ticino, tassa salute, lavoro frontalieri, crisi economica, frontalieri 2026',
+    ogTitle: 'Frontalieri in calo: ecco le vere ragioni',
+    ogDescription: 'Non è la tassa sulla salute il problema, ma le difficoltà economiche del Ticino. Approfondisci e scopri come tutelarti.',
+    canonicalPath: '/articoli-frontaliere/frontalieri-calo-economia-ticinese',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Frontalieri in calo: ecco le vere ragioni",
+      "description": "Il calo dei frontalieri in Ticino è legato alla crisi economica, non alla tassa sulla salute. Scopri di più e calcola il tuo stipendio.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/frontalieri-calo-economia-ticinese.png`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Valico di Mendrisio con auto in coda e Alpi sullo sfondo"
+      },
+      "datePublished": "2026-02-25T00:00:00+01:00",
+      "dateModified": "2026-02-25T00:00:00+01:00",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}` },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL, "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontalieri-calo-economia-ticinese`
+    }
+  },
+
+  'blog-usi-startup-centre-ranking': {
+    title: 'USI Startup Centre tra i migliori hub europei | Frontaliere Ticino',
+    description: 'L\'USI Startup Centre si classifica al 69° posto in Europa e al 5° tra gli hub svizzeri secondo il Financial Times. Scopri di più!',
+    keywords: 'frontalieri, ticino, innovation hub, startup, USI, Lugano, incubatori, imprenditorialità',
+    ogTitle: 'USI Startup Centre: un\'eccellenza europea',
+    ogDescription: 'Il centro dell\'USI è tra i migliori incubatori europei. Posizione strategica per frontalieri e startup. Leggi i dettagli!',
+    canonicalPath: '/articoli-frontaliere/usi-centro-startup-classifica',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "USI Startup Centre tra i migliori d'Europa",
+      "description": "L'USI Startup Centre si classifica al 69° posto in Europa e al 5° tra gli hub svizzeri secondo il Financial Times. Scopri di più!",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/usi-startup-centre-ranking.png`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Vista del campus USI a Lugano con studenti e imprenditori in primo piano"
+      },
+      "datePublished": "2026-02-25T00:00:00+01:00",
+      "dateModified": "2026-02-25T00:00:00+01:00",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}` },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL, "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/usi-centro-startup-classifica`
+    }
+  },
+
+  'blog-sciopero-treni-tilo-febbraio-2026': {
+    title: 'Sciopero in Italia: Impatti sui Treni Tilo | Frontaliere Ticino',
+    description: 'Dal 27 al 28 febbraio, i treni Tilo subiscono interruzioni per sciopero in Italia. Ecco cosa sapere.',
+    keywords: 'frontalieri, ticino, pratico, svizzera, italia',
+    ogTitle: 'Sciopero in Italia: Impatti sui Treni Tilo',
+    ogDescription: 'Dal 27 al 28 febbraio, i treni Tilo subiscono interruzioni per sciopero in Italia. Ecco cosa sapere.',
+    canonicalPath: '/articoli-frontaliere/sciopero-treni-tilo-febbraio-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Sciopero in Italia: Impatti sui Treni Tilo",
+      "description": "Dal 27 al 28 febbraio, i treni Tilo subiscono interruzioni per sciopero in Italia. Ecco cosa sapere.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/sciopero-treni-tilo-febbraio-2026.png`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Treno Tilo alla stazione di Lugano con vista sul lago."
+      },
+      "datePublished": "2026-02-25T00:00:00+01:00",
+      "dateModified": "2026-02-25T00:00:00+01:00",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}` },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL, "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/sciopero-treni-tilo-febbraio-2026`
+    }
+  },
+
+  'blog-piscina-chiasso-copertura-2026': {
+    title: 'Piscina Chiasso: nuova copertura in arrivo | Frontaliere Ticino',
+    description: 'Chiasso investe 850\'000 CHF per una nuova copertura pressostatica alla piscina comunale. Scopri le implicazioni per sicurezza e costi.',
+    keywords: 'frontalieri, ticino, chiasso, piscina comunale, copertura pressostatica, sicurezza, costi, infrastruttura',
+    ogTitle: 'Piscina di Chiasso: 850\'000 CHF per la sicurezza',
+    ogDescription: 'Nuova copertura per la piscina di Chiasso: costi, sicurezza e innovazioni. Scopri tutti i dettagli del progetto.',
+    canonicalPath: '/articoli-frontaliere/piscina-chiasso-copertura',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Nuova copertura per la piscina di Chiasso",
+      "description": "Chiasso investe 850'000 CHF per una nuova copertura pressostatica alla piscina comunale. Scopri le implicazioni per sicurezza e costi.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/piscina-chiasso-copertura-2026.png`,
+        "width": 1344,
+        "height": 756,
+        "caption": "La piscina comunale di Chiasso con la nuova copertura pressostatica in autunno."
+      },
+      "datePublished": "2026-02-25T00:00:00+01:00",
+      "dateModified": "2026-02-25T00:00:00+01:00",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}` },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL, "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/piscina-chiasso-copertura`
+    }
+  },
+
+  'blog-centrale-elettrica-grono-attiva': {
+    title: 'Centrale elettrica di Grono operativa | Frontaliere Ticino',
+    description: 'Dopo 18 mesi di riparazioni e 8 milioni CHF investiti, la centrale elettrica di Grono è tornata operativa. Ripercussioni per i frontalieri.',
+    keywords: 'centrale elettrica, Grono, frontalieri, Ticino, Axpo, energia idroelettrica, alluvione 2024, riparazioni',
+    ogTitle: 'Centrale di Grono torna attiva: impatto per il Ticino',
+    ogDescription: 'Dopo 18 mesi di lavori e 8 milioni spesi, la centrale di Grono riparte. Ecco cosa cambia per il Ticino e i frontalieri.',
+    canonicalPath: '/articoli-frontaliere/centrale-elettrica-grono-attiva',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Centrale di Grono torna attiva: impatto per il Ticino",
+      "description": "Dopo 18 mesi di riparazioni e 8 milioni CHF investiti, la centrale elettrica di Grono è tornata operativa. Ripercussioni per i frontalieri.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/centrale-elettrica-grono-attiva.png`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Centrale elettrica di Grono riattivata, contornata da montagne e vegetazione"
+      },
+      "datePublished": "2026-02-25T00:00:00+01:00",
+      "dateModified": "2026-02-25T00:00:00+01:00",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}` },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL, "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/centrale-elettrica-grono-attiva`
+    }
+  },
+
+  'blog-naspi-frontaliere-italia-requisiti': {
+    title: 'NASpI frontalieri Italia: requisiti e calcolo | Frontaliere Ticino',
+    description: 'Scopri i requisiti per la NASpI per frontalieri italiani, come calcolare l\'importo e la durata, con esempi e guida pratica 2026.',
+    keywords: 'NASpI frontalieri, indennità disoccupazione Italia, requisiti NASpI, calcolo NASpI, frontalieri Ticino, disoccupazione svizzera, frontalieri 2026',
+    ogTitle: 'NASpI frontalieri: calcolo e requisiti 2026',
+    ogDescription: 'Guida pratica per frontalieri: scopri come ottenere la NASpI, i requisiti e gli importi aggiornati al 2026!',
+    canonicalPath: '/articoli-frontaliere/naspi-frontaliere-italia-requisiti',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "NASpI frontalieri: calcolo e requisiti 2026",
+      "description": "Scopri i requisiti per la NASpI per frontalieri italiani, come calcolare l'importo e la durata, con esempi e guida pratica 2026.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/naspi-frontaliere-italia-requisiti.png`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Valico di confine tra Italia e Svizzera a Chiasso, con auto e pedoni"
+      },
+      "datePublished": "2026-02-25T00:00:00+01:00",
+      "dateModified": "2026-02-25T00:00:00+01:00",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}` },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL, "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/naspi-frontaliere-italia-requisiti`
+    }
+  },
+
+  'blog-prelievo-secondo-pilastro-frontaliere': {
+    title: 'Prelievo del secondo pilastro LPP per frontalieri | Frontaliere Ticino',
+    description: 'Guida pratica sul prelievo del secondo pilastro LPP per frontalieri: quando, tassazione e strategie ottimali.',
+    keywords: 'frontalieri, ticino, pensione, svizzera, italia',
+    ogTitle: 'Prelievo del secondo pilastro LPP per frontalieri',
+    ogDescription: 'Guida pratica sul prelievo del secondo pilastro LPP per frontalieri: quando, tassazione e strategie ottimali.',
+    canonicalPath: '/articoli-frontaliere/prelievo-secondo-pilastro-frontaliere',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Prelievo del secondo pilastro LPP per frontalieri",
+      "description": "Guida pratica sul prelievo del secondo pilastro LPP per frontalieri: quando, tassazione e strategie ottimali.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/prelievo-secondo-pilastro-frontaliere.png`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Vista di Lugano con lago e montagne sullo sfondo."
+      },
+      "datePublished": "2026-02-25T00:00:00+01:00",
+      "dateModified": "2026-02-25T00:00:00+01:00",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}` },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL, "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/prelievo-secondo-pilastro-frontaliere`
+    }
+  },
+
+  'blog-accordo-ue-frontalieri-ticino': {
+    title: 'Accordo Svizzera-UE, firma in arrivo per i frontalieri | Frontaliere Ticino',
+    description: 'Il pacchetto di accordi con l\'UE sarà firmato il 2 marzo, un passo cruciale per i frontalieri del Ticino.',
+    keywords: 'frontalieri, ticino, novita, svizzera, italia',
+    ogTitle: 'Accordo Svizzera-UE, firma in arrivo per i frontalieri',
+    ogDescription: 'Il pacchetto di accordi con l\'UE sarà firmato il 2 marzo, un passo cruciale per i frontalieri del Ticino.',
+    canonicalPath: '/articoli-frontaliere/accordo-ue-frontalieri-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Accordo Svizzera-UE, firma in arrivo per i frontalieri",
+      "description": "Il pacchetto di accordi con l'UE sarà firmato il 2 marzo, un passo cruciale per i frontalieri del Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/accordo-ue-frontalieri-ticino.png`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Vista di Lugano con il lago e le montagne sullo sfondo, in una giornata soleggiata."
+      },
+      "datePublished": "2026-02-25T00:00:00+01:00",
+      "dateModified": "2026-02-25T00:00:00+01:00",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}` },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL, "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/accordo-ue-frontalieri-ticino`
+    }
+  },
+
+  'blog-ristorni-congelati-ticino-italia': {
+    title: 'Ticino pronto a congelare i ristorni fiscali | Frontaliere Ticino',
+    description: 'Tensioni tra Ticino e Berna: Gobbi minaccia il blocco dei ristorni per tutelare i frontalieri e i rapporti con l\'Italia. Scopri di più.',
+    keywords: 'frontalieri, Ticino, ristorni fiscali, tassa salute, Berna Italia, Norman Gobbi, relazioni transfrontaliere',
+    ogTitle: 'Ticino: possibile blocco dei ristorni fiscali',
+    ogDescription: 'Norman Gobbi annuncia il possibile congelamento dei ristorni fiscali verso l\'Italia. Leggi le conseguenze per frontalieri e comuni di confine.',
+    canonicalPath: '/articoli-frontaliere/ristorni-congelati-ticino-italia',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Ticino: possibile blocco dei ristorni fiscali",
+      "description": "Tensioni tra Ticino e Berna: Gobbi minaccia il blocco dei ristorni per tutelare i frontalieri e i rapporti con l'Italia. Scopri di più.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/places/bellinzona.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Veduta di Castelgrande a Bellinzona con cielo nuvoloso e la città sullo sfondo"
+      },
+      "datePublished": "2026-02-25T00:00:00+01:00",
+      "dateModified": "2026-02-25T00:00:00+01:00",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}` },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL, "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ristorni-congelati-ticino-italia`
+    }
+  },
+
+  'blog-naspi-ex-frontalieri-2026': {
+    title: 'NASpI ex frontalieri 2026: guida completa, requisiti e casi pratici | Frontaliere Ticino',
+    description: 'Guida completa NASpI ex frontalieri 2026: requisiti, documenti, tempi INPS, scenari reali e differenze rispetto alla disoccupazione svizzera.',
+    keywords: 'naspi ex frontalieri 2026, naspi frontalieri svizzera italia, domanda naspi ex frontalieri, documenti naspi frontalieri, requisiti naspi ex frontalieri, tempi inps naspi frontalieri',
+    ogTitle: 'NASpI ex frontalieri 2026: guida completa e casi pratici',
+    ogDescription: 'Requisiti, documenti, tempi INPS, scenari reali e confronto con la disoccupazione svizzera per ex frontalieri.',
+    canonicalPath: '/articoli-frontaliere/naspi-ex-frontalieri-2026',
+    structuredData: [
+      {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": "NASpI ex frontalieri 2026: guida completa, requisiti e casi pratici",
+        "description": "Guida completa NASpI ex frontalieri 2026: requisiti, documenti, tempi INPS, scenari reali e differenze rispetto alla disoccupazione svizzera.",
+        "image": {
+          "@type": "ImageObject",
+          "url": `${BASE_URL}/images/places/lugano-view.jpg`,
+          "width": 1344,
+          "height": 756,
+          "caption": "Vista serena del Lago di Lugano al tramonto con colline e paesaggio urbano."
+        },
+        "datePublished": "2026-02-25T00:00:00+01:00",
+        "dateModified": "2026-03-09T00:00:00+01:00",
+        "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}` },
+        "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL, "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+        "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/naspi-ex-frontalieri-2026`
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Entro quando va presentata la domanda NASpI per un ex frontaliere?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "La domanda va presentata all'INPS entro 68 giorni dalla cessazione del rapporto di lavoro. Prima si presenta la domanda, prima decorre la prestazione."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Quali documenti servono di solito a un ex frontaliere?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Di solito servono documento d'identita, IBAN, lettera di cessazione, buste paga, contratto di lavoro e documenti utili a ricostruire la contribuzione maturata tra Svizzera e Italia."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "La NASpI e uguale alla disoccupazione svizzera?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. La NASpI e una prestazione italiana con regole, importi e durata diversi dall'assicurazione disoccupazione svizzera. Per gli ex frontalieri il passaggio da un sistema all'altro cambia molto l'importo mensile atteso."
+            }
+          }
+        ]
+      }
+    ]
+  },
+
+  'blog-mutuo-casa-frontalieri-italia': {
+    title: 'Mutuo per frontalieri: acquisto casa in Italia | Frontaliere Ticino',
+    description: 'Scopri come ottenere un mutuo per comprare casa in Italia con uno stipendio svizzero: requisiti, banche, documenti e tassi aggiornati al 2026.',
+    keywords: 'frontalieri, mutuo, casa, Italia, Ticino, stipendio svizzero, mutuo frontaliere, acquisto casa',
+    ogTitle: 'Mutuo per frontalieri: acquisto casa in Italia',
+    ogDescription: 'Guida completa per frontalieri: come comprare casa in Italia con stipendio svizzero. Requisiti, banche e tassi aggiornati al 2026.',
+    canonicalPath: '/articoli-frontaliere/mutuo-casa-frontalieri-italia',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Mutuo per frontalieri: acquisto casa in Italia",
+      "description": "Scopri come ottenere un mutuo per comprare casa in Italia con uno stipendio svizzero: requisiti, banche, documenti e tassi aggiornati al 2026.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/mutuo-casa-frontalieri-italia.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Vista di un tipico borgo italiano vicino al confine svizzero, con tetti in terracotta e colline sullo sfondo al tramonto"
+      },
+      "datePublished": "2026-02-25T00:00:00+01:00",
+      "dateModified": "2026-02-25T00:00:00+01:00",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}` },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL, "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/mutuo-casa-frontalieri-italia`
+    }
+  },
+
+  'blog-piscina-chiasso-investimento': {
+    title: 'Piscina di Chiasso: 850mila CHF per la nuova copertura | Frontaliere Ticino',
+    description: 'Chiasso investe 850mila CHF per rinnovare la copertura della piscina comunale. Scopri le implicazioni per frontalieri e residenti.',
+    keywords: 'frontalieri, ticino, piscina Chiasso, copertura piscina, investimenti Chiasso, piscina comunale, frontalieri Chiasso, valichi di confine',
+    ogTitle: 'Piscina di Chiasso: nuovo investimento da 850mila CHF',
+    ogDescription: 'Chiasso rinnova la copertura della piscina comunale con un investimento di 850mila CHF. Una struttura più moderna per la comunità e i frontalieri.',
+    canonicalPath: '/articoli-frontaliere/piscina-chiasso-investimento',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Investimento per la piscina di Chiasso",
+      "description": "Chiasso investe 850mila CHF per rinnovare la copertura della piscina comunale. Scopri le implicazioni per frontalieri e residenti.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/piscina-chiasso-investimento.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Lavori per la sostituzione della copertura della piscina di Chiasso in una giornata di sole."
+      },
+      "datePublished": "2026-02-25T00:00:00+01:00",
+      "dateModified": "2026-02-25T00:00:00+01:00",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}` },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL, "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/piscina-chiasso-investimento`
+    }
+  },
+
+  'blog-ristorni-congelati-gobbi-2026': {
+    title: 'Ristorni congelati: Gobbi contro Berna | Frontaliere Ticino',
+    description: 'Il Canton Ticino minaccia di congelare i ristorni fiscali verso l\'Italia. Impatti per frontalieri e comuni di confine: scopri di più.',
+    keywords: 'frontalieri, Ticino, ristorni fiscali, tassa salute, comuni di frontiera, Norman Gobbi, Svizzera, Italia',
+    ogTitle: 'Ristorni congelati: ecco cosa cambia per i frontalieri',
+    ogDescription: 'Tensioni tra Ticino e Berna: Gobbi minaccia di bloccare i ristorni verso l\'Italia. Conseguenze per i frontalieri e i comuni di confine.',
+    canonicalPath: '/articoli-frontaliere/ristorni-congelati-gobbi-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Ristorni congelati: Gobbi contro Berna",
+      "description": "Il Canton Ticino minaccia di congelare i ristorni fiscali verso l'Italia. Impatti per frontalieri e comuni di confine: scopri di più.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/ristorni-congelati-gobbi-2026.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Piazza principale di Bellinzona con il palazzo del governo sullo sfondo e persone che passeggiano."
+      },
+      "datePublished": "2026-02-25T00:00:00+01:00",
+      "dateModified": "2026-02-25T00:00:00+01:00",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}` },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL, "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ristorni-congelati-gobbi-2026`
+    }
+  },
+
+  'blog-asilo-nido-ticino-guida-2026': {
+    title: 'Frontaliere con figli: asili nido in Ticino 2026 | Frontaliere Ticino',
+    description: 'Scopri tutto sugli asili nido in Ticino per frontalieri: costi, liste d\'attesa, sussidi disponibili e alternative italiane. Guida aggiornata al 2026.',
+    keywords: 'asilo nido Ticino, frontaliere con figli, costi asilo nido, sussidi asilo Ticino, liste attesa nidi, alternative nidi Italia',
+    ogTitle: 'Frontaliere con figli: guida agli asili nido in Ticino',
+    ogDescription: 'Costi, sussidi e liste d\'attesa per gli asili nido in Ticino. Scopri le opzioni per i frontalieri e le alternative italiane.',
+    canonicalPath: '/articoli-frontaliere/asilo-nido-ticino-guida-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Frontaliere con figli: guida agli asili nido in Ticino",
+      "description": "Scopri tutto sugli asili nido in Ticino per frontalieri: costi, liste d'attesa, sussidi disponibili e alternative italiane. Guida aggiornata al 2026.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/asilo-nido-ticino-guida-2026.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Un asilo moderno a Lugano con bambini che giocano all'esterno."
+      },
+      "datePublished": "2026-02-25T00:00:00+01:00",
+      "dateModified": "2026-02-25T00:00:00+01:00",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}` },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL, "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/asilo-nido-ticino-guida-2026`
+    }
+  },
+
+  'blog-ristorni-salute-2026-ticino': {
+    title: 'Congelamento dei ristorni sulla salute | Frontaliere Ticino',
+    description: 'Scopri il congelamento dei ristorni sulla salute per frontalieri e le sue conseguenze fiscali per il 2026.',
+    keywords: 'frontalieri, ticino, ristorni salute, tasse, sanità, lavoro',
+    ogTitle: 'Congelamento ristorni salute: cosa significa?',
+    ogDescription: 'Informati sul congelamento dei ristorni per frontalieri e le sue conseguenze fiscali.',
+    canonicalPath: '/articoli-frontaliere/ristorni-salute-2026-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Congelamento ristorni salute 2026",
+      "description": "Scopri il congelamento dei ristorni sulla salute per frontalieri e le sue conseguenze fiscali per il 2026.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/ristorni-salute-2026-ticino.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Mercato di Bellinzona con venditori e acquirenti, colori vivaci e prodotti freschi."
+      },
+      "datePublished": "2026-02-25T00:00:00+01:00",
+      "dateModified": "2026-02-25T00:00:00+01:00",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}` },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL, "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ristorni-salute-2026-ticino`
+    }
+  },
+
+  'blog-tassa-salute-scontro-ticino-berna': {
+    title: 'Ticino minaccia blocco ristorni per tassa salute | Frontaliere Ticino',
+    description: 'Il Canton Ticino, tramite Norman Gobbi, minaccia di congelare i ristorni fiscali all\'Italia per il mancato indennizzo federale sulla tassa salute dei frontalieri. La tensione cresce a febbraio 2026.',
+    keywords: 'ristorni fiscali, tassa salute, frontalieri, Ticino, Berna, Italia, Norman Gobbi, accordi bilaterali, laRegione',
+    ogTitle: 'Crisi Ristorni: Ticino contro Berna per la Tassa Salute Frontalieri',
+    ogDescription: 'Il Canton Ticino minaccia di bloccare i ristorni fiscali all\'Italia a causa dei costi per la tassa salute dei frontalieri. Una mossa senza precedenti che scuote i rapporti con Berna.',
+    canonicalPath: '/articoli-frontaliere/tassa-salute-scontro-ticino-berna',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Ticino minaccia blocco ristorni fiscali per tassa salute frontalieri",
+      "description": "Il Canton Ticino, tramite Norman Gobbi, minaccia di congelare i ristorni fiscali all'Italia per il mancato indennizzo federale sulla tassa salute dei frontalieri. La tensione cresce a febbraio 2026.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/tassa-salute-scontro-ticino-berna.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Palazzo del Governo a Bellinzona, simbolo delle istituzioni ticinesi, in un contesto di tensioni sui ristorni fiscali e la tassa sulla salute."
+      },
+      "datePublished": "2026-02-25T00:00:00+01:00",
+      "dateModified": "2026-02-25T00:00:00+01:00",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}` },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL, "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tassa-salute-scontro-ticino-berna`
+    }
+  },
+
+  'blog-piscina-chiasso-rinnovo-sicurezza': {
+    title: 'Chiasso: 850\'000 CHF per nuova copertura piscina | Frontaliere Ticino',
+    description: 'Chiasso investe 850\'000 CHF nella sicurezza della piscina comunale, sostituendo la copertura pressostatica dopo 15 anni. Onere netto di soli 60\'000 CHF per il Comune.',
+    keywords: 'chiasso, piscina, copertura pressostatica, sicurezza, investimento, ticino, frontalieri, mendrisiotto',
+    ogTitle: 'Piscina di Chiasso: un investimento da 850\'000 CHF per la sicurezza',
+    ogDescription: 'Chiasso rinnova la copertura della piscina comunale con un investimento da 850\'000 franchi, garantendo maggiore sicurezza e durabilità. Scopri i dettagli.',
+    canonicalPath: '/articoli-frontaliere/piscina-chiasso-rinnovo-copertura-sicurezza',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Chiasso rinnova la copertura della piscina comunale per maggiore sicurezza",
+      "description": "Chiasso investe 850'000 CHF nella sicurezza della piscina comunale, sostituendo la copertura pressostatica dopo 15 anni. Onere netto di soli 60'000 CHF per il Comune.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/piscina-chiasso-rinnovo-sicurezza.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "La piscina comunale di Chiasso con la copertura pressostatica usurata e le montagne sullo sfondo, simbolo di un imminente rinnovamento."
+      },
+      "datePublished": "2026-02-25T00:00:00+01:00",
+      "dateModified": "2026-02-25T00:00:00+01:00",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}` },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL, "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/piscina-chiasso-rinnovo-copertura-sicurezza`
+    }
+  },
+
+  'blog-disagi-tilo-sciopero-italia': {
+    title: 'Sciopero Tilo 27-28 Febbraio: Disagi Frontalieri | Frontaliere Ticino',
+    description: 'Importante sciopero in Italia il 27-28 febbraio 2026 blocca i treni Tilo RE80, S10, S30, S40, S50 oltre confine. Informati sui servizi garantiti e bus sostitutivi per frontalieri.',
+    keywords: 'sciopero treni, tilo, frontalieri, ticino, italia, trasporti, pendolari, disagi, febbraio 2026',
+    ogTitle: 'Allerta Sciopero Tilo: Cosa cambia per il tuo viaggio in Ticino?',
+    ogDescription: 'Non farti trovare impreparato: scopri le linee Tilo interrotte il 27-28 febbraio e le alternative per i frontalieri!',
+    canonicalPath: '/articoli-frontaliere/sciopero-tilo-italia-disagi-frontalieri',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Sciopero Tilo Febbraio 2026",
+      "description": "Importante sciopero in Italia il 27-28 febbraio 2026 blocca i treni Tilo RE80, S10, S30, S40, S50 oltre confine. Informati sui servizi garantiti e bus sostitutivi per frontalieri.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/disagi-tilo-sciopero-italia.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Pendolari in attesa alla stazione di Chiasso o Mendrisio, con un treno Tilo in arrivo sullo sfondo, al mattino presto."
+      },
+      "datePublished": "2026-02-26T00:00:00+01:00",
+      "dateModified": "2026-02-26T00:00:00+01:00",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}` },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL, "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/sciopero-tilo-italia-disagi-frontalieri`
+    }
+  },
+
+  'blog-abbonamenti-sconti-treni-ticino': {
+    title: 'Abbonamenti e sconti frontalieri Ticino | Frontaliere Ticino',
+    description: 'Tutte le informazioni sugli abbonamenti e gli sconti per i frontalieri sui trasporti pubblici tra Ticino e Lombardia nel 2026.',
+    keywords: 'frontalieri, ticino, trasporto pubblico, sconti, abbonamenti, TILO, Arcobaleno, Lombardia',
+    ogTitle: 'Scopri gli sconti sui trasporti Ticino-Lombardia',
+    ogDescription: 'Guida completa agli abbonamenti e agevolazioni per i frontalieri sui mezzi pubblici tra Ticino e Lombardia. Risparmia nel 2026!',
+    canonicalPath: '/articoli-frontaliere/abbonamenti-sconti-treni-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Sconti trasporti frontalieri 2026",
+      "description": "Tutte le informazioni sugli abbonamenti e gli sconti per i frontalieri sui trasporti pubblici tra Ticino e Lombardia nel 2026.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/abbonamenti-sconti-treni-ticino.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Treno TILO in arrivo alla stazione di Mendrisio con pendolari frontalieri."
+      },
+      "datePublished": "2026-02-26T00:00:00+01:00",
+      "dateModified": "2026-02-26T00:00:00+01:00",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}` },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL, "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/abbonamenti-sconti-treni-ticino`
+    }
+  },
+
+  'blog-bonus-famiglia-frontalieri-2026': {
+    title: 'Bonus famiglia 2026 per frontalieri | Frontaliere Ticino',
+    description: 'Tutti i dettagli sui bonus famiglia 2026 per frontalieri: assegni familiari, bonus nido e detrazioni fiscali. Scopri come ottenerli.',
+    keywords: 'frontalieri, ticino, bonus famiglia, assegni familiari, detrazioni fiscali, permesso G, bonus nido, economia svizzera',
+    ogTitle: 'Bonus famiglia frontalieri 2026: tutte le novità',
+    ogDescription: 'Assegni familiari fino a 4.200 CHF, bonus nido e detrazioni fiscali: scopri i vantaggi per frontalieri nel 2026.',
+    canonicalPath: '/articoli-frontaliere/bonus-famiglia-frontalieri-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Bonus famiglia frontalieri 2026",
+      "description": "Tutti i dettagli sui bonus famiglia 2026 per frontalieri: assegni familiari, bonus nido e detrazioni fiscali. Scopri come ottenerli.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/bonus-famiglia-frontalieri-2026.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Famiglie che passeggiano nella piazza di Mendrisio con le Alpi sullo sfondo in una giornata di sole."
+      },
+      "datePublished": "2026-02-26T00:00:00+01:00",
+      "dateModified": "2026-02-26T00:00:00+01:00",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}` },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL, "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/bonus-famiglia-frontalieri-2026`
+    }
+  },
+
+  'blog-smart-working-frontalieri-2026': {
+    title: 'Smart Working Frontalieri: Regole 2026 | Frontaliere Ticino',
+    description: 'Le nuove regole 2026 sullo smart working per i frontalieri: limiti percentuali, fiscalità e procedure pratiche per lavorare da casa.',
+    keywords: 'frontalieri, smart working, Ticino, regole 2026, fiscalità frontalieri, permesso G, lavoro da remoto',
+    ogTitle: 'Smart Working Frontalieri: Nuove Regole 2026',
+    ogDescription: 'Scopri le regole aggiornate sullo smart working per i frontalieri in Ticino: limiti, fiscalità e procedure pratiche per il 2026.',
+    canonicalPath: '/articoli-frontaliere/smart-working-frontalieri-regole',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Smart Working per Frontalieri in Ticino",
+      "description": "Le nuove regole 2026 sullo smart working per i frontalieri: limiti percentuali, fiscalità e procedure pratiche per lavorare da casa.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/smart-working-frontalieri-2026.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Un frontaliere lavora da casa con vista sul Lago di Lugano."
+      },
+      "datePublished": "2026-02-26T00:00:00+01:00",
+      "dateModified": "2026-02-26T00:00:00+01:00",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}` },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL, "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/smart-working-frontalieri-regole`
+    }
+  },
+
+  'blog-confronto-assicurazioni-auto': {
+    title: 'Confronto assicurazioni auto frontalieri | Frontaliere Ticino',
+    description: 'Assicurazioni auto 2026: scopri costi, coperture e consigli per frontalieri tra Italia e Svizzera. Confronta offerte e calcola i costi.',
+    keywords: 'assicurazione auto, frontalieri, Ticino, Svizzera, Italia, costi RC auto, polizze auto frontalieri, sinistri transfrontalieri',
+    ogTitle: 'Assicurazioni auto frontalieri: Italia vs Svizzera',
+    ogDescription: 'Confronto assicurazioni auto per frontalieri: costi, coperture e consigli pratici. Scopri quale polizza conviene nel 2026.',
+    canonicalPath: '/articoli-frontaliere/confronto-assicurazioni-auto',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Confronto assicurazioni auto frontalieri",
+      "description": "Assicurazioni auto 2026: scopri costi, coperture e consigli per frontalieri tra Italia e Svizzera. Confronta offerte e calcola i costi.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/confronto-assicurazioni-auto.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Auto parcheggiata vicino al valico di Ponte Tresa con il paesaggio ticinese sullo sfondo"
+      },
+      "datePublished": "2026-02-26T00:00:00+01:00",
+      "dateModified": "2026-02-26T00:00:00+01:00",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}` },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL, "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/confronto-assicurazioni-auto`
+    }
+  },
+
+  'blog-permesso-b-vs-g-differenze': {
+    title: 'Permesso B e G: tutte le differenze | Frontaliere Ticino',
+    description: 'Scopri le differenze tra permesso B e G per frontalieri: residenza, tasse, diritti e scelta migliore per lavorare in Ticino.',
+    keywords: 'frontalieri, ticino, pratico, svizzera, italia',
+    ogTitle: 'Permesso B e G: tutte le differenze',
+    ogDescription: 'Scopri le differenze tra permesso B e G per frontalieri: residenza, tasse, diritti e scelta migliore per lavorare in Ticino.',
+    canonicalPath: '/articoli-frontaliere/permesso-b-vs-g-differenze',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Permesso B e G: tutte le differenze",
+      "description": "Scopri le differenze tra permesso B e G per frontalieri: residenza, tasse, diritti e scelta migliore per lavorare in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/permesso-b-vs-g-differenze.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Valico di confine Brogeda tra Italia e Svizzera con auto in transito"
+      },
+      "datePublished": "2026-02-26T10:55:41+00:00",
+      "dateModified": "2026-02-26T10:55:41+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino" , "url": "https://www.frontaliereticino.ch" },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/permesso-b-vs-g-differenze`
+    }
+  },
+
+  'blog-spese-sanitarie-frontalieri': {
+    title: 'Spese sanitarie rimborsabili per frontalieri | Frontaliere Ticino',
+    description: 'Scopri quali spese sanitarie sostenute in Svizzera sono rimborsabili in Italia per i frontalieri e come richiedere il rimborso.',
+    keywords: 'frontalieri, ticino, spese sanitarie, rimborso, LAMal, SSN, ASL, Italia-Svizzera',
+    ogTitle: 'Spese sanitarie rimborsabili per frontalieri',
+    ogDescription: 'Guida pratica per frontalieri: scopri quali spese sanitarie in Svizzera puoi farti rimborsare in Italia.',
+    canonicalPath: '/articoli-frontaliere/spese-sanitarie-frontalieri',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Guida rimborso spese sanitarie frontalieri",
+      "description": "Scopri quali spese sanitarie sostenute in Svizzera sono rimborsabili in Italia per i frontalieri e come richiedere il rimborso.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/spese-sanitarie-frontalieri.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Un ospedale a Mendrisio con bandiere svizzere e italiane"
+      },
+      "datePublished": "2026-02-26T11:12:45+00:00",
+      "dateModified": "2026-02-26T11:12:45+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino" , "url": "https://www.frontaliereticino.ch" },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/spese-sanitarie-frontalieri`
+    }
+  },
+
+  'blog-naspi-disoccupazione-frontalieri': {
+    title: 'NASpI: Indennità di disoccupazione frontalieri | Frontaliere Ticino',
+    description: 'Scopri tutto sulla NASpI per ex-frontalieri: requisiti, calcolo importo, durata e differenze con la disoccupazione svizzera.',
+    keywords: 'disoccupazione frontalieri, naspi frontalieri, requisiti naspi, frontalieri ticino, indennità disoccupazione, naspi 2026',
+    ogTitle: 'NASpI: Indennità di disoccupazione frontalieri',
+    ogDescription: 'Tutte le informazioni pratiche sulla NASpI: requisiti, calcolo, durata e come richiederla per i frontalieri italiani.',
+    canonicalPath: '/articoli-frontaliere/naspi-disoccupazione-frontalieri',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "NASpI per frontalieri italiani",
+      "description": "Scopri tutto sulla NASpI per ex-frontalieri: requisiti, calcolo importo, durata e differenze con la disoccupazione svizzera.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/naspi-disoccupazione-frontalieri.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Valico doganale di Chiasso con auto in transito e cartelli di confine tra Svizzera e Italia"
+      },
+      "datePublished": "2026-02-26T11:31:19+00:00",
+      "dateModified": "2026-02-26T11:31:19+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino" , "url": "https://www.frontaliereticino.ch" },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/naspi-disoccupazione-frontalieri`
+    }
+  },
+
+  'blog-dichiarazione-redditi-ticino-2026': {
+    title: 'Dichiarazione dei redditi Ticino 2026 | Frontaliere Ticino',
+    description: 'Scopri come compilare la dichiarazione dei redditi 2026 in Ticino. Guida completa, scadenze fiscali e vantaggi di eTax.',
+    keywords: 'dichiarazione dei redditi, ticino, frontalieri, tasse, eTax 2025, proroga scadenza, imposte svizzera',
+    ogTitle: 'Dichiarazione dei redditi Ticino 2026: tutto quello che devi sapere',
+    ogDescription: 'Moduli dichiarazione d\'imposta 2025 in Ticino: scadenze, istruzioni e vantaggi di eTax. Guida pratica per frontalieri.',
+    canonicalPath: '/articoli-frontaliere/dichiarazione-redditi-ticino-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Dichiarazione redditi Ticino 2026",
+      "description": "Scopri come compilare la dichiarazione dei redditi 2026 in Ticino. Guida completa, scadenze fiscali e vantaggi di eTax.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/dichiarazione-redditi-ticino-2026.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Vista di Bellinzona con il Castelgrande sullo sfondo in primavera"
+      },
+      "datePublished": "2026-02-26T13:36:25+00:00",
+      "dateModified": "2026-02-26T13:36:25+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino" , "url": "https://www.frontaliereticino.ch" },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/dichiarazione-redditi-ticino-2026`
+    }
+  },
+
+  'blog-cantieri-traffico-a9-ticino': {
+    title: 'Cantieri sull\'A9: disagi per i frontalieri | Frontaliere Ticino',
+    description: 'Code e deviazioni sulla A9 fino all\'Ascensione: impatti per frontalieri, tempi di percorrenza e costi di trasporto.',
+    keywords: 'frontalieri, ticino, traffico, A9, Chiasso, code, pedaggio, trasporto pendolari, lavori stradali',
+    ogTitle: 'Cantieri sull\'A9: disagi per i frontalieri',
+    ogDescription: 'Scopri come i lavori sulla A9 stanno influenzando traffico e costi per i frontalieri. Consigli pratici e strumenti utili.',
+    canonicalPath: '/articoli-frontaliere/cantieri-traffico-a9-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Cantieri sull'A9: impatti sul traffico",
+      "description": "Code e deviazioni sulla A9 fino all'Ascensione: impatti per frontalieri, tempi di percorrenza e costi di trasporto.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/cantieri-traffico-a9-ticino.jpg`,
+        "width": 1200,
+        "height": 685,
+        "caption": "Traffico congestionato al valico di Chiasso con lavori sulla A9 visibili."
+      },
+      "datePublished": "2026-02-26T14:42:47+00:00",
+      "dateModified": "2026-02-26T14:42:47+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino" , "url": "https://www.frontaliereticino.ch" },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/cantieri-traffico-a9-ticino`
+    }
+  },
+
+  'blog-migranti-seghezzone-risparmi': {
+    title: 'Migranti al Seghezzone: risparmi fino a 2 milioni | Frontaliere Ticino',
+    description: 'A Giubiasco arriva una nuova struttura per richiedenti asilo: 88 posti letto e risparmi fino a 2 milioni. Scopri i dettagli.',
+    keywords: 'migranti, ticino, frontalieri, giubiasco, seghezzone, risparmi, canton ticino, bellinzona',
+    ogTitle: 'Migranti al Seghezzone: risparmi fino a 2 milioni',
+    ogDescription: 'Nuova struttura prefabbricata per richiedenti asilo a Giubiasco: 88 posti letto e risparmi significativi per il Canton Ticino.',
+    canonicalPath: '/articoli-frontaliere/migranti-seghezzone-risparmi',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Migranti al Seghezzone: risparmi significativi",
+      "description": "A Giubiasco arriva una nuova struttura per richiedenti asilo: 88 posti letto e risparmi fino a 2 milioni. Scopri i dettagli.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/migranti-seghezzone-risparmi.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Vista del Seghezzone a Giubiasco con moduli prefabbricati in costruzione e montagne sullo sfondo"
+      },
+      "datePublished": "2026-02-26T17:55:05+00:00",
+      "dateModified": "2026-02-26T17:55:05+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino" , "url": "https://www.frontaliereticino.ch" },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/migranti-seghezzone-risparmi`
+    }
+  },
+
+  'blog-cantieri-traffico-frontiera': {
+    title: 'Cantieri sull\'A9: disagi per i frontalieri | Frontaliere Ticino',
+    description: 'Nuovi lavori sull\'A9: disagi e code al confine italo-svizzero. Scopri come gestire il traffico e minimizzare l\'impatto economico. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, cantieri, sull, disagi, torna',
+    ogTitle: 'Traffico frontalieri: cantieri sull\'A9',
+    ogDescription: 'Lavori sull\'A9: code e disagi fino all\'Ascensione per chi attraversa il confine. Scopri strumenti utili per calcolare l\'impatto.',
+    canonicalPath: '/articoli-frontaliere/cantieri-traffico-frontiera',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Traffico frontalieri: cantieri sull'A9",
+      "description": "Nuovi lavori sull'A9: disagi e code al confine italo-svizzero. Scopri come gestire il traffico e minimizzare l'impatto economico. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/cantieri-traffico-frontiera.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Auto in coda al valico di Chiasso con segnaletica stradale visibile."
+      },
+      "datePublished": "2026-02-26T20:30:48+00:00",
+      "dateModified": "2026-02-26T20:30:48+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino" , "url": "https://www.frontaliereticino.ch" },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/cantieri-traffico-frontiera`
+    }
+  },
+
+  'blog-salario-minimo-ps-compromesso': {
+    title: 'Salario minimo: il PS approva il compromesso | Frontaliere Ticino',
+    description: 'Il Partito Socialista ticinese approva all\'unanimità il compromesso sul salario minimo, con deroghe e benefit. Scopri come influirà sui frontalieri.',
+    keywords: 'frontalieri, ticino, svizzera, italia, salario, minimo, approva, compromesso',
+    ogTitle: 'Salario minimo: compromesso PS approvato',
+    ogDescription: 'Il Partito Socialista ticinese approva il compromesso sul salario minimo: benefici e deroghe per i frontalieri. Scopri di più.',
+    canonicalPath: '/articoli-frontaliere/salario-minimo-ps-compromesso',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Salario minimo PS: nuovo accordo 2026",
+      "description": "Il Partito Socialista ticinese approva all'unanimità il compromesso sul salario minimo, con deroghe e benefit. Scopri come influirà sui frontalieri.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/salario-minimo-ps-compromesso.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Vista di Lugano con il lago e le montagne sullo sfondo"
+      },
+      "datePublished": "2026-02-27T05:10:08+00:00",
+      "dateModified": "2026-02-27T05:10:08+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino" , "url": "https://www.frontaliereticino.ch" },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/salario-minimo-ps-compromesso`
+    }
+  },
+
+  'blog-cocaina-lusso-perquisizioni-ticino': {
+    title: 'Traffico di cocaina: perquisizioni in Ticino | Frontaliere Ticino',
+    description: 'Operazione contro il traffico di cocaina: perquisizioni in Ticino e arresti in Italia e Francia. Impatto sui frontalieri e normative doganali. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, traffico, cocaina, perquisizioni, operazione',
+    ogTitle: 'Traffico di Cocaina: Perquisizioni in Ticino',
+    ogDescription: 'Operazione internazionale contro il traffico di cocaina: perquisizioni in Ticino e arresti in Italia e Francia. Scopri i dettagli.',
+    canonicalPath: '/articoli-frontaliere/traffico-cocaina-ticino-lusso',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Traffico di Cocaina in Ticino",
+      "description": "Operazione contro il traffico di cocaina: perquisizioni in Ticino e arresti in Italia e Francia. Impatto sui frontalieri e normative doganali. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/cocaina-lusso-perquisizioni-ticino.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Un'auto di lusso fermata dalla polizia al confine in Ticino, con le Alpi sullo sfondo"
+      },
+      "datePublished": "2026-02-27T06:11:51+00:00",
+      "dateModified": "2026-02-27T06:11:51+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino" , "url": "https://www.frontaliereticino.ch" },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/traffico-cocaina-ticino-lusso`
+    }
+  },
+
+  'blog-calcolo-tasse-entro-confine': {
+    title: 'Calcolo tasse frontalieri entro 20 km confine | Frontaliere Ticino',
+    description: 'Scopri come calcolare le tasse per frontalieri entro i 20 km dal confine. Franchigia di 10.000€, credito d\'imposta e nuovi regimi 2026. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, calcolo, tasse, entro, confine',
+    ogTitle: 'Calcolo tasse frontalieri entro 20 km',
+    ogDescription: 'Guida pratica per calcolare le tasse dei frontalieri entro 20 km: franchigia a 10.000€, credito d\'imposta e novità fiscali 2026.',
+    canonicalPath: '/articoli-frontaliere/calcolo-tasse-frontalieri-entro-20-km',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Calcolo tasse frontalieri entro 20 km",
+      "description": "Scopri come calcolare le tasse per frontalieri entro i 20 km dal confine. Franchigia di 10.000€, credito d'imposta e nuovi regimi 2026. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/calcolo-tasse-entro-confine.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Valico di frontiera a Mendrisio con auto in coda e montagne sullo sfondo."
+      },
+      "datePublished": "2026-02-27T06:19:48+00:00",
+      "dateModified": "2026-02-27T06:19:48+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino" , "url": "https://www.frontaliereticino.ch" },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/calcolo-tasse-frontalieri-entro-20-km`
+    }
+  },
+
+  'blog-riforma-giustizia-pace-ticino': {
+    title: 'Riforma della Giustizia di Pace in Ticino | Frontaliere Ticino',
+    description: 'Approvata la Riforma della Giustizia di pace in Ticino: meno Giudicature, più efficienza e formazione. Scopri le implicazioni per i frontalieri. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, riforma, giustizia, pace, approvata',
+    ogTitle: 'Riforma Giustizia di Pace Ticino',
+    ogDescription: 'La nuova Riforma della Giustizia di pace in Ticino punta a maggiore efficienza e professionalizzazione. Scopri i dettagli.',
+    canonicalPath: '/articoli-frontaliere/riforma-giustizia-pace-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Riforma Giustizia di Pace Ticino",
+      "description": "Approvata la Riforma della Giustizia di pace in Ticino: meno Giudicature, più efficienza e formazione. Scopri le implicazioni per i frontalieri. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/riforma-giustizia-pace-ticino.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Veduta del Castelgrande di Bellinzona in Ticino, con un edificio amministrativo in primo piano"
+      },
+      "datePublished": "2026-02-27T10:11:45+00:00",
+      "dateModified": "2026-02-27T10:11:45+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino" , "url": "https://www.frontaliereticino.ch" },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/riforma-giustizia-pace-ticino`
+    }
+  },
+
+  'blog-cantieri-a9-disagi-frontiera': {
+    title: 'Cantieri sulla A9: disagi ai valichi di frontiera | Frontaliere Ticino',
+    description: 'Lavori al viadotto Fati sulla A9: code e deviazioni fino all\'Ascensione. Scopri come gestire gli spostamenti e ridurre i disagi. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, cantieri, sulla, disagi, valichi',
+    ogTitle: 'Cantieri sulla A9: disagi ai valichi di frontiera',
+    ogDescription: 'Lavori sulla A9 al viadotto Fati: scopri come ridurre i disagi e pianificare i tuoi spostamenti tra Italia e Svizzera.',
+    canonicalPath: '/articoli-frontaliere/cantieri-a9-disagi-frontiera',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Cantieri sulla A9: disagi ai valichi",
+      "description": "Lavori al viadotto Fati sulla A9: code e deviazioni fino all'Ascensione. Scopri come gestire gli spostamenti e ridurre i disagi. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/cantieri-a9-disagi-frontiera.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Coda al confine svizzero-italiano vicino a Brogeda con segnaletica stradale e cantieri in corso"
+      },
+      "datePublished": "2026-02-27T14:13:03+00:00",
+      "dateModified": "2026-02-27T14:13:03+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino" , "url": "https://www.frontaliereticino.ch" },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/cantieri-a9-disagi-frontiera`
+    }
+  },
+
+  'blog-revoca-uso-acqua-magliaso': {
+    title: 'Magliaso revoca l\'avviso di uso parsimonioso dell\'acqua | Frontaliere Ticino',
+    description: 'Magliaso revoca l\'avviso di uso parsimonioso dell\'acqua potabile emesso il 24 febbraio. Riparata la condotta, la situazione torna alla normalità.',
+    keywords: 'frontalieri, ticino, svizzera, italia, magliaso, revoca, avviso, parsimonioso',
+    ogTitle: 'Magliaso, revocato l\'uso parsimonioso dell\'acqua',
+    ogDescription: 'Conclusa l\'emergenza idrica a Magliaso: riparata la condotta, l\'acqua potabile torna regolare.',
+    canonicalPath: '/articoli-frontaliere/revoca-uso-acqua-magliaso',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Magliaso: uso parsimonioso dell'acqua revocato",
+      "description": "Magliaso revoca l'avviso di uso parsimonioso dell'acqua potabile emesso il 24 febbraio. Riparata la condotta, la situazione torna alla normalità.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/revoca-uso-acqua-magliaso.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Vista di un serbatoio idrico a Magliaso circondato da verde e Alpi."
+      },
+      "datePublished": "2026-02-27T17:02:40+00:00",
+      "dateModified": "2026-02-27T17:02:40+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino" , "url": "https://www.frontaliereticino.ch" },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/revoca-uso-acqua-magliaso`
+    }
+  },
+
+  'blog-malattie-rare-ticino-2026': {
+    title: 'Ticino: 25mila casi di malattie rare | Frontaliere Ticino',
+    description: 'In Ticino, 25mila persone convivono con malattie rare. Scopri come affrontare le sfide economiche e sanitarie legate al lavoro transfrontaliero. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, 25mila, casi, malattie, rare',
+    ogTitle: 'Malattie rare in Ticino: 25mila casi da supportare',
+    ogDescription: 'Scopri come i frontalieri in Ticino possono affrontare le sfide legate alle malattie rare e alla copertura sanitaria.',
+    canonicalPath: '/articoli-frontaliere/malattie-rare-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Malattie rare in Ticino: 25mila casi",
+      "description": "In Ticino, 25mila persone convivono con malattie rare. Scopri come affrontare le sfide economiche e sanitarie legate al lavoro transfrontaliero. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/malattie-rare-ticino-2026.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Ospedale a Bellinzona con montagne sullo sfondo, giornata soleggiata."
+      },
+      "datePublished": "2026-02-27T18:09:17+00:00",
+      "dateModified": "2026-02-27T18:09:17+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino" , "url": "https://www.frontaliereticino.ch" },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/malattie-rare-ticino`
+    }
+  },
+
+  'blog-frontaliers-sabotage-varese': {
+    title: 'Frontaliers Sabotage arriva a Varese: il film che ha | Frontaliere Ticino',
+    description: 'Il film \'Frontaliers Sabotage\' sbarca a Varese il 3 marzo con due proiezioni speciali. Scopri di più sulla saga e sul mondo dei frontalieri. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, frontaliers, sabotage, arriva, varese',
+    ogTitle: 'Frontaliers Sabotage arriva a Varese',
+    ogDescription: 'Il celebre film sui frontalieri debutta in Italia con due eventi speciali a Varese. Scopri i dettagli!',
+    canonicalPath: '/articoli-frontaliere/frontaliers-sabotage-varese',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Frontaliers Sabotage arriva a Varese",
+      "description": "Il film 'Frontaliers Sabotage' sbarca a Varese il 3 marzo con due proiezioni speciali. Scopri di più sulla saga e sul mondo dei frontalieri. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/frontaliers-sabotage-varese.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Ingresso di un cinema a Varese con il poster del film 'Frontaliers Sabotage' all'entrata"
+      },
+      "datePublished": "2026-02-27T19:35:50+00:00",
+      "dateModified": "2026-02-27T19:35:50+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino" , "url": "https://www.frontaliereticino.ch" },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontaliers-sabotage-varese`
+    }
+  },
+
+  'blog-ristorni-congelati-scontro-ticino': {
+    title: 'Ristorni congelati: scontro tra Ticino e Berna | Frontaliere Ticino',
+    description: 'Gobbi minaccia di congelare i ristorni fiscali verso l\'Italia, aumentando la tensione tra Ticino e Berna sulla tassa salute frontalieri. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, ristorni, congelati, scontro, berna',
+    ogTitle: 'Ristorni congelati: tensioni tra Ticino e Berna',
+    ogDescription: 'Ticino minaccia di congelare i ristorni fiscali verso l\'Italia: ecco cosa significa per frontalieri e comuni di confine.',
+    canonicalPath: '/articoli-frontaliere/ristorni-congelati-scontro-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Ristorni congelati: Ticino e Berna in contrasto",
+      "description": "Gobbi minaccia di congelare i ristorni fiscali verso l'Italia, aumentando la tensione tra Ticino e Berna sulla tassa salute frontalieri. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/ristorni-congelati-scontro-ticino.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Vista del valico doganale di Ponte Chiasso con auto in coda sotto un cielo nuvoloso."
+      },
+      "datePublished": "2026-02-27T20:02:09+00:00",
+      "dateModified": "2026-02-27T20:02:09+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino" , "url": "https://www.frontaliereticino.ch" },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ristorni-congelati-scontro-ticino`
+    }
+  },
+
+  'blog-tassazione-individuale-lavoro-donne': {
+    title: 'Tassazione individuale: più lavoro per le donne in Ticino? | Frontaliere Ticino',
+    description: 'La tassazione individuale potrebbe creare migliaia di nuovi posti di lavoro per le donne in Ticino. Scopri di più e calcola il tuo stipendio netto.',
+    keywords: 'frontalieri, ticino, svizzera, italia, tassazione, individuale, lavoro, donne',
+    ogTitle: 'Tassazione individuale: impatto sui frontalieri',
+    ogDescription: 'Scopri come la riforma sulla tassazione individuale in Svizzera potrebbe creare migliaia di posti di lavoro e aiutare le famiglie.',
+    canonicalPath: '/articoli-frontaliere/tassazione-individuale-donne-lavoro',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Tassazione individuale e mercato del lavoro in Ticino",
+      "description": "La tassazione individuale potrebbe creare migliaia di nuovi posti di lavoro per le donne in Ticino. Scopri di più e calcola il tuo stipendio netto.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/tassazione-individuale-lavoro-donne.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Mendrisio, vista del valico di frontiera con auto e biciclette in transito, montagne sullo sfondo"
+      },
+      "datePublished": "2026-02-27T21:01:10+00:00",
+      "dateModified": "2026-02-27T21:01:10+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino" , "url": "https://www.frontaliereticino.ch" },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tassazione-individuale-donne-lavoro`
+    }
+  },
+
+  'blog-diversita-religiosa-ticino-2026': {
+    title: 'Ticino, 500 comunità religiose: un record svizzero | Frontaliere Ticino',
+    description: 'Il Ticino ospita oltre 500 comunità religiose di 10 tradizioni diverse, con una densità superiore alla media svizzera. Scopri i dettagli. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, comunità, religiose, record, svizzero',
+    ogTitle: 'Ticino: oltre 500 comunità religiose',
+    ogDescription: 'Il Ticino è una terra di pluralismo religioso con oltre 500 comunità. Scopri come questa diversità tocca anche i frontalieri.',
+    canonicalPath: '/articoli-frontaliere/diversita-religiosa-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Pluralismo religioso in Ticino",
+      "description": "Il Ticino ospita oltre 500 comunità religiose di 10 tradizioni diverse, con una densità superiore alla media svizzera. Scopri i dettagli. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/diversita-religiosa-ticino-2026.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Persone di diverse religioni fuori da una chiesa a Bellinzona, con il Castelgrande sullo sfondo"
+      },
+      "datePublished": "2026-02-27T22:03:04+00:00",
+      "dateModified": "2026-02-27T22:03:04+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino" , "url": "https://www.frontaliereticino.ch" },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/diversita-religiosa-ticino`
+    }
+  },
+
+  'blog-voto-corrispondenza-ticino-2026': {
+    title: 'Voto per corrispondenza: la scelta del futuro | Frontaliere Ticino',
+    description: 'Scopri perché il voto per corrispondenza è sempre più scelto in Ticino e come può facilitare la partecipazione dei frontalieri alle elezioni. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, voto, corrispondenza, scelta, futuro',
+    ogTitle: 'Voto per corrispondenza: la scelta del futuro',
+    ogDescription: 'Il voto per corrispondenza in Ticino è ormai preferito dal 90-95% degli elettori. Scopri i vantaggi e le novità per i frontalieri.',
+    canonicalPath: '/articoli-frontaliere/voto-corrispondenza-ticino-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Voto per corrispondenza: novità 2026",
+      "description": "Scopri perché il voto per corrispondenza è sempre più scelto in Ticino e come può facilitare la partecipazione dei frontalieri alle elezioni. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/voto-corrispondenza-ticino-2026.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Bellinzona, cittadini che si recano a votare presso un edificio storico."
+      },
+      "datePublished": "2026-02-27T22:57:44+00:00",
+      "dateModified": "2026-02-27T22:57:44+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino" , "url": "https://www.frontaliereticino.ch" },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/voto-corrispondenza-ticino-2026`
+    }
+  },
+
+  'blog-cantiere-viale-geno-como': {
+    title: 'Viale Geno a Como: lavori e polemiche | Frontaliere Ticino',
+    description: 'Il cantiere di Viale Geno a Como solleva dubbi tra i frontalieri: impatto su traffico, turismo e attività locali. Analisi e consigli utili. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, viale, geno, como, lavori',
+    ogTitle: 'Lavori a Viale Geno: cosa cambia per i frontalieri',
+    ogDescription: 'Disagi per frontalieri e commercianti: il cantiere di Viale Geno a Como divide. Scopri impatti e consigli.',
+    canonicalPath: '/articoli-frontaliere/cantiere-viale-geno-rischi',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Lavori a Viale Geno: impatto frontalieri",
+      "description": "Il cantiere di Viale Geno a Como solleva dubbi tra i frontalieri: impatto su traffico, turismo e attività locali. Analisi e consigli utili. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/cantiere-viale-geno-como.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Cantiere sul lungolago vicino a un caffè con piante verdi"
+      },
+      "datePublished": "2026-02-27T23:45:47+00:00",
+      "dateModified": "2026-02-27T23:45:47+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino" , "url": "https://www.frontaliereticino.ch" },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/cantiere-viale-geno-rischi`
+    }
+  },
+
+  'blog-controlli-velocita-ticino-2026': {
+    title: 'Controlli mobili della velocità in Ticino | Frontaliere Ticino',
+    description: 'La Polizia ticinese intensifica i controlli della velocità dal 2 all\'8 marzo 2026. Scopri dove e come evitare sanzioni. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, controlli, mobili, velocità, marzo',
+    ogTitle: 'Controlli di velocità in Ticino: date e località',
+    ogDescription: 'La Polizia ticinese attiverà controlli mobili della velocità per tutta la settimana dal 2 all\'8 marzo 2026. Leggi i dettagli.',
+    canonicalPath: '/articoli-frontaliere/controlli-velocita-ticino-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Controlli di velocità in Ticino 2026",
+      "description": "La Polizia ticinese intensifica i controlli della velocità dal 2 all'8 marzo 2026. Scopri dove e come evitare sanzioni. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/controlli-velocita-ticino-2026.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Postazione mobile di controllo velocità su una strada panoramica in Ticino, con la polizia e le Alpi sullo sfondo."
+      },
+      "datePublished": "2026-02-28T04:40:12+00:00",
+      "dateModified": "2026-02-28T04:40:12+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino" , "url": "https://www.frontaliereticino.ch" },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/controlli-velocita-ticino-2026`
+    }
+  },
+
+  'blog-sanremo-2026-aiello-gassmann': {
+    title: 'Sanremo 2026: Aiello e Leo Gassmann incantano con la loro | Frontaliere Ticino',
+    description: 'Scopri la performance di Aiello e Leo Gassmann a Sanremo 2026 e il legame culturale tra Italia e Ticino. Approfondisci su Frontaliere Ticino. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, sanremo, aiello, gassmann, incantano',
+    ogTitle: 'Sanremo 2026: Aiello e Leo Gassmann incantano',
+    ogDescription: 'Sanremo 2026: scopri l\'esibizione di Aiello e Leo Gassmann e il legame culturale con il Canton Ticino.',
+    canonicalPath: '/articoli-frontaliere/sanremo-2026-aiello-gassmann',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Sanremo 2026: Aiello e Leo Gassmann",
+      "description": "Scopri la performance di Aiello e Leo Gassmann a Sanremo 2026 e il legame culturale tra Italia e Ticino. Approfondisci su Frontaliere Ticino. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/sanremo-2026-aiello-gassmann.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Vista del lungolago di Lugano al tramonto con persone a un evento culturale"
+      },
+      "datePublished": "2026-02-28T06:02:12+00:00",
+      "dateModified": "2026-02-28T06:02:12+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino" , "url": "https://www.frontaliereticino.ch" },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/sanremo-2026-aiello-gassmann`
+    }
+  },
+
+  'blog-violenza-adolescenti-ticino': {
+    title: 'Violenza giovanile in Ticino: un allarme crescente | Frontaliere Ticino',
+    description: 'Aumentano gli episodi di violenza giovanile in Svizzera. Scopri i dati e le implicazioni per i frontalieri e la sicurezza nei valichi. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, violenza, giovanile, allarme, crescente',
+    ogTitle: 'Violenza giovanile in Ticino: dati e sicurezza',
+    ogDescription: 'Un uomo aggredito da adolescenti in Svizzera. Impatti sulla sicurezza dei frontalieri e misure nei valichi di confine.',
+    canonicalPath: '/articoli-frontaliere/violenza-adolescenti-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Violenza giovanile e sicurezza frontalieri",
+      "description": "Aumentano gli episodi di violenza giovanile in Svizzera. Scopri i dati e le implicazioni per i frontalieri e la sicurezza nei valichi. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/violenza-adolescenti-ticino.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Piazza di una città ticinese con stazione e passanti"
+      },
+      "datePublished": "2026-02-28T07:09:07+00:00",
+      "dateModified": "2026-02-28T07:09:07+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino" , "url": "https://www.frontaliereticino.ch" },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/violenza-adolescenti-ticino`
+    }
+  },
+
+  'blog-comuni-frontalieri-distanza': {
+    title: 'Comuni frontalieri: la distanza che conta | Frontaliere Ticino',
+    description: 'Scopri i nuovi criteri sui Comuni di confine e come 20 km possono cambiare tutto per i frontalieri. Verifica il tuo status fiscale. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, comuni, distanza, conta, nuovi',
+    ogTitle: 'Comuni frontalieri: la distanza che conta',
+    ogDescription: 'Scopri come una manciata di metri può fare la differenza per i frontalieri e il loro status fiscale.',
+    canonicalPath: '/articoli-frontaliere/comuni-frontalieri-distanza',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Comuni frontalieri: la distanza che conta",
+      "description": "Scopri i nuovi criteri sui Comuni di confine e come 20 km possono cambiare tutto per i frontalieri. Verifica il tuo status fiscale. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/comuni-frontalieri-distanza.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Passaggio di frontiera tra Italia e Svizzera al Ponte Chiasso, con montagne sullo sfondo."
+      },
+      "datePublished": "2026-02-28T08:58:42+00:00",
+      "dateModified": "2026-02-28T08:58:42+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino" , "url": "https://www.frontaliereticino.ch" },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/comuni-frontalieri-distanza`
+    }
+  },
+
+  'blog-elezioni-comunali-ticino': {
+    title: 'Elezioni Comunali in Ticino: cosa cambia | Frontaliere Ticino',
+    description: 'Scopri come le elezioni comunali in Ticino influenzeranno frontalieri e residenti: trasporti, fiscalità e nuove opportunità lavorative. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, elezioni, comunali, cosa, cambia',
+    ogTitle: 'Elezioni Comunali in Ticino: Impatti per i Frontalieri',
+    ogDescription: 'Analisi post-elettorale: come le nuove politiche comunali in Ticino influenzeranno frontalieri e residenti.',
+    canonicalPath: '/articoli-frontaliere/elezioni-comunali-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Elezioni Comunali in Ticino",
+      "description": "Scopri come le elezioni comunali in Ticino influenzeranno frontalieri e residenti: trasporti, fiscalità e nuove opportunità lavorative. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/elezioni-comunali-ticino.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Un seggio elettorale a Bellinzona durante le elezioni comunali, con persone che votano e bandiere svizzere in vista."
+      },
+      "datePublished": "2026-02-28T11:21:53+00:00",
+      "dateModified": "2026-02-28T11:21:53+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino" , "url": "https://www.frontaliereticino.ch" },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/elezioni-comunali-ticino`
+    }
+  },
+
+  'blog-eroina-auto-chiasso-brogeda': {
+    title: 'Chiasso-Brogeda: sequestrati 5 kg di eroina in auto | Frontaliere Ticino',
+    description: 'Coppia arrestata al valico di Chiasso-Brogeda con 5 kg di eroina. Implicazioni per frontalieri e sicurezza transfrontaliera. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, chiasso-brogeda, sequestrati, eroina, auto',
+    ogTitle: 'Eroina a Brogeda: scoperti 5 kg in auto',
+    ogDescription: 'Coppia fermata per traffico di stupefacenti al confine di Chiasso-Brogeda. Scopri le implicazioni per i frontalieri.',
+    canonicalPath: '/articoli-frontaliere/eroina-auto-chiasso-brogeda',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Eroina a Chiasso-Brogeda: sequestrati 5 kg",
+      "description": "Coppia arrestata al valico di Chiasso-Brogeda con 5 kg di eroina. Implicazioni per frontalieri e sicurezza transfrontaliera. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/eroina-auto-chiasso-brogeda.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Valico di Chiasso-Brogeda con auto in fila per i controlli doganali"
+      },
+      "datePublished": "2026-02-28T11:43:07+00:00",
+      "dateModified": "2026-02-28T11:43:07+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino" , "url": "https://www.frontaliereticino.ch" },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/eroina-auto-chiasso-brogeda`
+    }
+  },
+
+  'blog-bilaterali-iii-cassis-ticino': {
+    title: 'Cassis: "Il prodotto è buono". L\'accordo Bilaterali III | Frontaliere Ticino',
+    description: 'L\'accordo Bilaterali III prevede la creazione di una zona di libero scambio tra la Svizzera e l\'Unione Europea. L\'accordo permetterebbe di mantenere relazioni',
+    keywords: 'frontalieri, ticino, svizzera, italia, cassis, prodotto, buono, accordo',
+    ogTitle: 'Bilaterali III, Cassis: "Il prodotto è buono". L\'accordo per',
+    ogDescription: 'L\'accordo Bilaterali III prevede la creazione di una zona di libero scambio tra la Svizzera e l\'Unione Europea. L\'accordo permetterebbe di mantenere relazioni',
+    canonicalPath: '/articoli-frontaliere/bilaterali-iii-cassis-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Bilaterali III, Cassis: \"Il prodotto è buono\". L'accordo per il Ticino",
+      "description": "L'accordo Bilaterali III prevede la creazione di una zona di libero scambio tra la Svizzera e l'Unione Europea. L'accordo permetterebbe di mantenere relazioni",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/bilaterali-iii-cassis-ticino.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Un tram 42 che attraversa la città di Lugano, in una giornata soleggiata dell'autunno in Ticino."
+      },
+      "datePublished": "2026-03-16T06:20:08+00:00",
+      "dateModified": "2026-03-16T06:20:08+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/bilaterali-iii-cassis-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-frontalieri-redditi-2026': {
+    title: 'Dichiarazione dei redditi 2026: anche i dati dei | Frontaliere Ticino',
+    description: 'Il nuovo sistema di scambio informativo tra Svizzera e Italia riduce gli errori di calcolo e semplifica la compilazione della dichiarazione dei redditi.',
+    keywords: 'frontalieri, ticino, svizzera, italia, dichiarazione, redditi, anche, dati',
+    ogTitle: 'Dichiarazione dei redditi 2026: anche i dati dei frontalieri',
+    ogDescription: 'Il nuovo sistema di scambio informativo tra Svizzera e Italia riduce gli errori di calcolo e semplifica la compilazione della dichiarazione dei redditi.',
+    canonicalPath: '/articoli-frontaliere/frontalieri-redditi-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Dichiarazione dei redditi 2026: anche i dati dei frontalieri nella",
+      "description": "Il nuovo sistema di scambio informativo tra Svizzera e Italia riduce gli errori di calcolo e semplifica la compilazione della dichiarazione dei redditi.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/frontalieri-redditi-2026.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Lavoratori frontalieri a Lugano, con vista sul lago."
+      },
+      "datePublished": "2026-03-16T08:07:36+00:00",
+      "dateModified": "2026-03-16T08:07:36+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontalieri-redditi-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-fermato-brogeda-cocaina': {
+    title: 'Fermato a Brogeda con oltre 15 chili di cocaina nell\'auto | Frontaliere Ticino',
+    description: 'Un cittadino dominicano residente in Spagna è stato arrestato con l\'accusa di traffico internazionale di stupefacenti. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, fermato, brogeda, oltre, chili',
+    ogTitle: 'Fermato a Brogeda con oltre 15 chili di cocaina nell\'auto',
+    ogDescription: 'Un cittadino dominicano residente in Spagna è stato arrestato con l\'accusa di traffico internazionale di stupefacenti.',
+    canonicalPath: '/articoli-frontaliere/fermato-brogeda-cocaina',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Fermato a Brogeda con oltre 15 chili di cocaina nell'auto",
+      "description": "Un cittadino dominicano residente in Spagna è stato arrestato con l'accusa di traffico internazionale di stupefacenti. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/fermato-brogeda-cocaina.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Un'auto fermata al valico autostradale di Brogeda."
+      },
+      "datePublished": "2026-03-16T10:02:17+00:00",
+      "dateModified": "2026-03-16T10:02:17+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/fermato-brogeda-cocaina`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-dominicano-auto-svizzera-arresto': {
+    title: 'Dominicano con auto svizzera e trafficante: arresto in | Frontaliere Ticino',
+    description: 'Un cittadino dominicano con un veicolo con targhe svizzere è stato arrestato al valico di Chiasso con oltre 15 chilogrammi di cocaina. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, dominicano, auto, trafficante, arresto',
+    ogTitle: 'Dominicano con auto svizzera e trafficante: arresto in',
+    ogDescription: 'Un cittadino dominicano con un veicolo con targhe svizzere è stato arrestato al valico di Chiasso con oltre 15 chilogrammi di cocaina',
+    canonicalPath: '/articoli-frontaliere/dominicano-auto-svizzera-arresto',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Dominicano con auto svizzera e trafficante: arresto in frontiera a",
+      "description": "Un cittadino dominicano con un veicolo con targhe svizzere è stato arrestato al valico di Chiasso con oltre 15 chilogrammi di cocaina. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/dominicano-auto-svizzera-arresto.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Veicolo con targhe svizzere al valico di Chiasso"
+      },
+      "datePublished": "2026-03-16T10:58:26+00:00",
+      "dateModified": "2026-03-16T10:58:26+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/dominicano-auto-svizzera-arresto`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-salari-bassi-rischio-povert': {
+    title: 'Salari bassi e rischio povertà in Ticino: il PLR interroga | Frontaliere Ticino',
+    description: 'Il PLR interroga il Consiglio di Stato sul tema dei salari bassi e del rischio povertà in Ticino. Scopri quali sono le strategie per migliorare la situazione',
+    keywords: 'frontalieri, ticino, svizzera, italia, salari, bassi, rischio, povertà',
+    ogTitle: 'Salari bassi e rischio povertà in Ticino',
+    ogDescription: 'Il PLR presenta un\'interrogazione al Consiglio di Stato sul tema dei salari bassi e del rischio povertà in Ticino.',
+    canonicalPath: '/articoli-frontaliere/salari-bassi-rischio-povert',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Salari bassi e rischio povertà: il PLR interroga il Consiglio di Stato",
+      "description": "Il PLR interroga il Consiglio di Stato sul tema dei salari bassi e del rischio povertà in Ticino. Scopri quali sono le strategie per migliorare la situazione",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/salari-bassi-rischio-povert.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Scena fotorealistica di Lugano con montagne e lago"
+      },
+      "datePublished": "2026-03-16T12:06:51+00:00",
+      "dateModified": "2026-03-16T12:06:51+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/salari-bassi-rischio-povert`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+};
+
+export default BLOG_SEO_METADATA;

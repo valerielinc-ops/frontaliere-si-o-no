@@ -1,0 +1,17 @@
+{
+  "companyKey": "usi-universita-della-svizzera-italiana",
+  "companyName": "USI – Università della Svizzera italiana",
+  "companyHost": "usi.ch",
+  "enabled": true,
+  "priority": 10,
+  "crawlerModes": [
+    "html",
+    "pdf"
+  ],
+  "seedUrls": [
+    "https://www.usi.ch/it/universita/collabora-con-noi/concorsi-e-offerte-di-lavoro",
+    "https://www.usi.ch/en/university/work-with-us/job-opportunities"
+  ],
+  "notes": "Drupal CMS at usi.ch — job listings extracted directly from HTML listing page, with PDF text extraction for calls/bandi.",
+  "updatedAt": "2026-03-10T12:01:48.949Z"
+}

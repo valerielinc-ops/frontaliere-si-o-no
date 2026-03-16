@@ -1,0 +1,1146 @@
+/**
+ * Centralized AI Model Service — v9 (free-only, 40 models, 4 providers)
+ *
+ * Single source of truth for all LLM calls across scripts (jobs crawler,
+ * article generator, company parser, etc.).
+ *
+ * Features:
+ * - Extended fallback chain with 40 FREE models across 4 providers
+ * - **Scored model selection**: models gain/lose score based on success/failure,
+ *   so models that keep working float to the top and broken ones sink down,
+ *   avoiding repeated failures that slow the crawl
+ * - **Firestore-backed persistent scores**: scores and exhausted state are
+ *   shared across all workflows via Firestore (`ai_model_scores` collection).
+ *   Time-decayed on load so stale data self-heals. Debounced writes avoid
+ *   I/O spam. Falls back to in-memory if Firestore is unavailable.
+ * - Per-model daily-limit tracking (e.g. GitHub Models UserByModelByDay)
+ * - Per-model retry with exponential backoff (default 5 retries per model)
+ * - Automatic <think> tag stripping for reasoning models (DeepSeek-R1, o3/o4)
+ * - Global stats tracking for observability (includes live scoreboard)
+ * - Smart 429 backoff: longer waits for rate-limit errors
+ *
+ * Providers (ALL FREE):
+ * - GitHub Models (GH_MODELS_PAT) — OpenAI-compatible endpoint hosting
+ *   GPT-4o/4.1/5-nano, Llama, Phi, Cohere, DeepSeek, Codestral, o4-mini, etc.
+ *   Each model has its own daily limit (UserByModelByDay), so using 20+
+ *   models yields 20× the daily capacity with a single PAT.
+ * - Google Gemini (GEMINI_API_KEY) — Native Gemini API (free tier)
+ * - Groq (GROQ_API_KEY) — Ultra-fast inference, OpenAI-compatible
+ *   Llama 4 Scout, Llama 3.3 70B, Qwen3 32B, Kimi K2, GPT-OSS (1000 req/day each)
+ * - OpenRouter (OPENROUTER_API_KEY) — Free tier with 50 req/day
+ *   Llama 3.3 70B, Gemma 3 27B, Mistral Small 3.1, Qwen3 Coder, Trinity (all ":free" suffix)
+ *
+ * Environment variables:
+ * - GH_MODELS_PAT — GitHub Models token (covers GPT, Llama, Phi, Cohere, etc.)
+ * - GEMINI_API_KEY or VITE_GEMINI_API_KEY — Google Gemini API key
+ * - GROQ_API_KEY — Groq Cloud API key (optional, for extra capacity)
+ * - OPENROUTER_API_KEY — OpenRouter API key (optional, for extra capacity)
+ */
+
+// ── Model catalog ────────────────────────────────────────────
+export const AI_MODELS = Object.freeze({
+  // ── GitHub Models (OpenAI-compatible, shared GH_MODELS_PAT) ──
+  // Each model has its own daily limit (UserByModelByDay)
+  // Verified 2026-03-14 via live API calls
+  GPT4O:            'gpt-4o',
+  GPT4O_MINI:       'gpt-4o-mini',
+  LLAMA_4_MAVERICK: 'Llama-4-Maverick-17B-128E-Instruct-FP8',
+  LLAMA_4_SCOUT:    'Llama-4-Scout-17B-16E-Instruct',
+  LLAMA_3_3_70B:    'Llama-3.3-70B-Instruct',
+  LLAMA_3_1_405B:   'Meta-Llama-3.1-405B-Instruct',
+  LLAMA_3_1_8B:     'Meta-Llama-3.1-8B-Instruct',
+  PHI_4:            'Phi-4',
+  DEEPSEEK_R1:      'DeepSeek-R1',
+  COHERE_CMD_R_PLUS:'Cohere-command-r-plus-08-2024',
+  CODESTRAL:        'Codestral-2501',
+  GPT_4_1:          'gpt-4.1',
+  GPT_4_1_MINI:     'gpt-4.1-mini',
+  GPT_4_1_NANO:     'gpt-4.1-nano',
+  COHERE_CMD_R:     'Cohere-command-r-08-2024',
+  COHERE_CMD_A:     'Cohere-command-a',
+  LLAMA_3_2_90B:    'Llama-3.2-90B-Vision-Instruct',
+  DEEPSEEK_V3:      'DeepSeek-V3-0324',
+  GPT_5_NANO:       'gpt-5-nano',
+  GPT_5_MINI:       'gpt-5-mini',
+  O4_MINI:          'o4-mini',
+  O3_MINI:          'o3-mini',
+  DEEPSEEK_R1_0528: 'DeepSeek-R1-0528',
+  MINISTRAL_3B:     'Ministral-3B',
+
+  // ── Google Gemini (native API) ──
+  GEMINI_FLASH:     'gemini-2.5-flash',
+  GEMINI_PRO:       'gemini-2.5-pro',
+  GEMINI_2_FLASH:   'gemini-2.0-flash',
+  GEMINI_FLASH_LITE:'gemini-2.5-flash-lite',
+
+  // ── Groq (OpenAI-compatible, ultra-fast inference) ──
+  // Each model: 1000 req/day (free tier)
+  GROQ_LLAMA_4_SCT: 'groq/meta-llama/llama-4-scout-17b-16e-instruct',
+  GROQ_LLAMA_3_3:   'groq/llama-3.3-70b-versatile',
+  GROQ_LLAMA_3_1_8B:'groq/llama-3.1-8b-instant',
+  GROQ_QWEN3_32B:   'groq/qwen/qwen3-32b',
+  GROQ_KIMI_K2:     'groq/moonshotai/kimi-k2-instruct',
+  GROQ_GPT_OSS_120B:'groq/openai/gpt-oss-120b',
+  GROQ_GPT_OSS_20B: 'groq/openai/gpt-oss-20b',
+
+  // ── OpenRouter (OpenAI-compatible, free models with :free suffix) ──
+  // Shared quota: 50 req/day (free tier)
+  OR_LLAMA_3_3:     'openrouter/meta-llama/llama-3.3-70b-instruct:free',
+  OR_GEMMA_3_27B:   'openrouter/google/gemma-3-27b-it:free',
+  OR_MISTRAL_SM:    'openrouter/mistralai/mistral-small-3.1-24b-instruct:free',
+  OR_QWEN3_CODER:   'openrouter/qwen/qwen3-coder:free',
+  OR_TRINITY:       'openrouter/arcee-ai/trinity-large-preview:free',
+});
+
+/**
+ * Default fallback chain — initial quality-based ordering.
+ * Dynamically re-sorted by success/failure scores during the run.
+ * Each GitHub Models model has its own daily limit (UserByModelByDay),
+ * so using 20 GH Models gives us 20× the capacity with one API key.
+ * Groq models add ultra-fast inference as fallback (7 models, 1000 req/day each).
+ * OpenRouter adds 50 extra free requests per day.
+ *
+ * Initial order: quality-based (best first), with provider diversity.
+ * During a run, models that succeed frequently rise; models that
+ * fail repeatedly (rate-limited, down) sink to the bottom.
+ */
+export const DEFAULT_CHAIN = [
+  AI_MODELS.GPT4O,              // 1.  OpenAI flagship        (GitHub Models)
+  AI_MODELS.GPT_4_1,            // 2.  GPT 4.1 flagship       (GitHub Models)
+  AI_MODELS.LLAMA_4_MAVERICK,   // 3.  Meta Llama 4 flagship  (GitHub Models)
+  AI_MODELS.GEMINI_FLASH,       // 4.  Google fast            (Gemini API free)
+  AI_MODELS.GROQ_KIMI_K2,       // 5.  Kimi K2 instruct      (Groq - ultra fast)
+  AI_MODELS.GPT4O_MINI,         // 6.  OpenAI fast            (GitHub Models)
+  AI_MODELS.GROQ_GPT_OSS_120B,  // 7.  GPT-OSS 120B          (Groq - ultra fast)
+  AI_MODELS.GPT_4_1_MINI,       // 8.  GPT 4.1 Mini           (GitHub Models)
+  AI_MODELS.LLAMA_3_3_70B,      // 9.  Meta 70B               (GitHub Models)
+  AI_MODELS.LLAMA_4_SCOUT,      // 10. Meta Llama 4 Scout     (GitHub Models)
+  AI_MODELS.GPT_5_NANO,         // 11. GPT-5 nano reason     (GitHub Models)
+  AI_MODELS.COHERE_CMD_A,       // 12. Cohere latest          (GitHub Models)
+  AI_MODELS.GROQ_LLAMA_3_3,     // 13. Llama 3.3 70B          (Groq)
+  AI_MODELS.COHERE_CMD_R_PLUS,  // 14. Cohere multilingual    (GitHub Models)
+  AI_MODELS.LLAMA_3_1_405B,     // 15. Meta 405B flagship     (GitHub Models)
+  AI_MODELS.GROQ_QWEN3_32B,     // 16. Qwen3 32B             (Groq - ultra fast)
+  AI_MODELS.LLAMA_3_2_90B,      // 17. Llama 3.2 90B          (GitHub Models)
+  AI_MODELS.GEMINI_2_FLASH,     // 18. Google 2.0 flash       (Gemini API free)
+  AI_MODELS.GPT_5_MINI,         // 19. GPT-5 mini reason     (GitHub Models)
+  AI_MODELS.DEEPSEEK_V3,        // 20. DeepSeek V3            (GitHub Models)
+  AI_MODELS.OR_LLAMA_3_3,       // 21. Llama 3.3 70B          (OpenRouter free)
+  AI_MODELS.PHI_4,              // 22. Microsoft Phi-4        (GitHub Models)
+  AI_MODELS.GPT_4_1_NANO,       // 23. GPT 4.1 Nano           (GitHub Models)
+  AI_MODELS.GEMINI_PRO,         // 24. Google pro             (Gemini API free)
+  AI_MODELS.GROQ_GPT_OSS_20B,   // 25. GPT-OSS 20B           (Groq - ultra fast)
+  AI_MODELS.OR_GEMMA_3_27B,     // 26. Gemma 3 27B instruct   (OpenRouter free)
+  AI_MODELS.COHERE_CMD_R,       // 27. Cohere Command R       (GitHub Models)
+  AI_MODELS.DEEPSEEK_R1_0528,   // 28. DeepSeek R1 0528       (GitHub Models)
+  AI_MODELS.DEEPSEEK_R1,        // 29. DeepSeek R1 reasoning  (GitHub Models)
+  AI_MODELS.GROQ_LLAMA_4_SCT,   // 30. Llama 4 Scout          (Groq)
+  AI_MODELS.OR_MISTRAL_SM,      // 31. Mistral Small 3.1      (OpenRouter free)
+  AI_MODELS.O4_MINI,            // 32. OpenAI o4-mini reason  (GitHub Models)
+  AI_MODELS.CODESTRAL,          // 33. Mistral Codestral      (GitHub Models)
+  AI_MODELS.GEMINI_FLASH_LITE,  // 34. Google flash lite      (Gemini API free)
+  AI_MODELS.OR_QWEN3_CODER,     // 35. Qwen3 Coder            (OpenRouter free)
+  AI_MODELS.GROQ_LLAMA_3_1_8B,  // 36. Llama 3.1 8B instant   (Groq)
+  AI_MODELS.LLAMA_3_1_8B,       // 37. Meta 8B fast           (GitHub Models)
+  AI_MODELS.MINISTRAL_3B,       // 38. Mistral 3B fast        (GitHub Models)
+  AI_MODELS.O3_MINI,            // 39. OpenAI o3-mini reason  (GitHub Models)
+  AI_MODELS.OR_TRINITY,         // 40. Arcee Trinity Large    (OpenRouter free)
+];
+
+// ── Provider constants ───────────────────────────────────────
+const PROVIDER = Object.freeze({
+  GITHUB:      'github',
+  GEMINI:      'gemini',
+  GROQ:        'groq',
+  OPENROUTER:  'openrouter',
+});
+
+// ── Endpoints ────────────────────────────────────────────────
+const GH_MODELS_BASE = 'https://models.inference.ai.azure.com/chat/completions';
+const GEMINI_API_BASE = 'https://generativelanguage.googleapis.com/v1beta/models';
+const GROQ_API_BASE = 'https://api.groq.com/openai/v1/chat/completions';
+const OPENROUTER_API_BASE = 'https://openrouter.ai/api/v1/chat/completions';
+
+// ── API keys (lazy-loaded from environment) ──────────────────
+function getGhModelsPat()      { return (process.env.GH_MODELS_PAT || '').trim(); }
+function getGeminiApiKey()     { return (process.env.GEMINI_API_KEY || process.env.VITE_GEMINI_API_KEY || '').trim(); }
+function getGroqApiKey()       { return (process.env.GROQ_API_KEY || '').trim(); }
+function getOpenRouterApiKey() { return (process.env.OPENROUTER_API_KEY || '').trim(); }
+
+// ── Provider detection ───────────────────────────────────────
+/**
+ * Determine which provider hosts the given model.
+ * - `groq/*` → Groq Cloud (ultra-fast inference, free tier)
+ * - `openrouter/*` → OpenRouter (free models with :free suffix)
+ * - `gemini-*` → Google Gemini (free tier)
+ * - Everything else → GitHub Models (GPT, Llama, Mistral, Cohere, Phi — all free)
+ */
+function getProvider(model) {
+  if (model.startsWith('groq/'))          return PROVIDER.GROQ;
+  if (model.startsWith('openrouter/'))    return PROVIDER.OPENROUTER;
+  if (model.startsWith('gemini-'))        return PROVIDER.GEMINI;
+  return PROVIDER.GITHUB;
+}
+
+/**
+ * Strip provider prefix from model ID to get the API model name.
+ * e.g. 'groq/llama-3.3-70b-versatile' → 'llama-3.3-70b-versatile'
+ *      'openrouter/meta-llama/llama-3.3-70b-instruct:free' → 'meta-llama/llama-3.3-70b-instruct:free'
+ *      'gpt-4o' → 'gpt-4o' (no prefix)
+ */
+function getApiModelId(model) {
+  if (model.startsWith('groq/'))       return model.slice(5);
+  if (model.startsWith('openrouter/')) return model.slice(11);
+  return model;
+}
+
+/** Get the API key for a given provider */
+function getApiKeyForProvider(provider) {
+  switch (provider) {
+    case PROVIDER.GITHUB:      return getGhModelsPat();
+    case PROVIDER.GEMINI:      return getGeminiApiKey();
+    case PROVIDER.GROQ:        return getGroqApiKey();
+    case PROVIDER.OPENROUTER:  return getOpenRouterApiKey();
+    default: return '';
+  }
+}
+
+// Backward-compatible helpers (kept for external code)
+function isGitHubModel(model) { return getProvider(model) === PROVIDER.GITHUB; }
+function isGeminiModel(model) { return getProvider(model) === PROVIDER.GEMINI; }
+
+// ── Default options ──────────────────────────────────────────
+const DEFAULT_OPTS = {
+  temperature: 0.2,
+  maxTokens: 4096,
+  jsonMode: false,
+  timeout: 30_000,
+  maxRetriesPerModel: 5,
+  backoffMs: 2500,
+  /** Override the default fallback chain */
+  chain: undefined,
+};
+
+// ── Run-level state (reset only between process invocations) ─
+const _exhaustedModels = new Set();
+
+const _stats = {
+  calls: 0,
+  successes: 0,
+  retries: 0,
+  fallbacks: 0,
+  exhausted: 0,
+  errors: [],
+};
+
+// ── Firestore-backed persistent score store ──────────────────
+// Scores are persisted to Firestore collection `ai_model_scores`
+// so all workflows (jobs crawler, article generator, company
+// parser, etc.) share live model intelligence across processes
+// and CI runners.
+//
+// On init:  load all docs, apply time-decay, seed _modelScores
+// On mutation: debounced batch write (every 10 changes or 30s)
+// On exit:  flush final state
+// Fallback: if Firestore unavailable, pure in-memory (no breakage)
+//
+// Scoring rules:
+//   +2  on success
+//   -3  on retryable failure (rate-limit, 5xx, timeout)
+//   -10 on non-retryable failure (context limit, unknown model)
+//   -50 on daily limit exhaustion
+//
+// Time-decay on load:
+//   < 1h old:   100% of stored score
+//   1-6h old:   75% of stored score
+//   6-24h old:  50% of stored score
+//   > 24h old:  10% of stored score
+//
+// The initial order uses DEFAULT_CHAIN index as a tiebreaker,
+// so quality-based ordering is preserved until real data shifts it.
+
+const FIRESTORE_COLLECTION = 'ai_model_scores';
+
+/** @type {Map<string, number>} model → cumulative score */
+const _modelScores = new Map();
+
+/** @type {Map<string, {successes: number, failures: number}>} per-model detailed counters */
+const _modelDetails = new Map();
+
+/** @type {Set<string>} models whose score changed since last persist */
+const _dirtyModels = new Set();
+
+let _firestoreDb = null;     // Firestore instance (null until initScoreStore)
+let _storeInitialized = false;
+let _persistTimer = null;    // Debounce timer
+let _mutationCount = 0;      // Mutations since last persist
+let _exitHooked = false;     // Whether process exit hook is registered
+
+const PERSIST_DEBOUNCE_MS    = 30_000;  // Flush every 30s
+const PERSIST_MUTATION_THRESHOLD = 10;  // Or after 10 mutations
+
+const SCORE_SUCCESS          =   2;
+const SCORE_RETRYABLE_FAIL   =  -3;
+const SCORE_NON_RETRYABLE    = -10;
+const SCORE_EXHAUSTED        = -50;
+
+// ── Time-decay for persisted scores ──────────────────────────
+
+/** Apply time-based decay to a persisted score */
+function _decayScore(score, lastUsedISO) {
+  if (!lastUsedISO || !score) return 0;
+  const ageMs = Date.now() - new Date(lastUsedISO).getTime();
+  const ageH = ageMs / (1000 * 60 * 60);
+  if (ageH < 1)  return Math.round(score * 1.0);   // < 1h: full score
+  if (ageH < 6)  return Math.round(score * 0.75);  // 1-6h: 75%
+  if (ageH < 24) return Math.round(score * 0.50);  // 6-24h: 50%
+  return Math.round(score * 0.10);                  // > 24h: 10%
+}
+
+// ── Firestore init & load ────────────────────────────────────
+
+/**
+ * Initialize the persistent score store from Firestore.
+ * Call this once at the start of a workflow BEFORE any callLLM().
+ *
+ * - Loads all model scores from Firestore with time-decay
+ * - Restores exhausted models whose daily limit hasn't reset yet
+ * - Registers process exit hooks for final flush
+ * - Falls back gracefully to in-memory if Firestore is unavailable
+ *
+ * Safe to call multiple times (idempotent).
+ */
+export async function initScoreStore() {
+  if (_storeInitialized) return;
+  _storeInitialized = true;
+
+  try {
+    // Lazy-import firebase-admin (same pattern as load-rc-env.mjs)
+    const adminMod = await import('firebase-admin');
+    const admin = adminMod.default || adminMod;
+    if (!admin.apps.length) {
+      if (!process.env.GOOGLE_APPLICATION_CREDENTIALS) {
+        console.warn('⚠️  [ScoreStore] No GOOGLE_APPLICATION_CREDENTIALS — using in-memory scores only');
+        return;
+      }
+      admin.initializeApp({ credential: admin.credential.applicationDefault() });
+    }
+    _firestoreDb = admin.firestore();
+
+    // Load all persisted scores
+    const snapshot = await _firestoreDb.collection(FIRESTORE_COLLECTION).get();
+    const now = new Date();
+    let loaded = 0;
+    let decayed = 0;
+    let exhaustedRestored = 0;
+
+    for (const doc of snapshot.docs) {
+      const data = doc.data();
+      const modelId = doc.id;
+
+      // Apply time-decay to score
+      const rawScore = data.score || 0;
+      const decayedScore = _decayScore(rawScore, data.lastUsed);
+      if (decayedScore !== 0) {
+        _modelScores.set(modelId, decayedScore);
+        loaded++;
+        if (decayedScore !== rawScore) decayed++;
+      }
+
+      // Restore detailed counters
+      if (data.successes || data.failures) {
+        _modelDetails.set(modelId, {
+          successes: data.successes || 0,
+          failures: data.failures || 0,
+        });
+      }
+
+      // Restore exhausted models whose daily limit hasn't reset
+      if (data.exhaustedUntil) {
+        const resetTime = data.exhaustedUntil.toDate
+          ? data.exhaustedUntil.toDate()   // Firestore Timestamp
+          : new Date(data.exhaustedUntil); // ISO string fallback
+        if (resetTime > now) {
+          _exhaustedModels.add(modelId);
+          exhaustedRestored++;
+          console.warn(`🚫 [ScoreStore] ${modelId} still exhausted until ${resetTime.toISOString().slice(0, 16)}`);
+        }
+      }
+    }
+
+    console.log(`☁️  [ScoreStore] Loaded ${loaded} model scores from Firestore (${decayed} decayed, ${exhaustedRestored} still exhausted)`);
+
+    // Register exit hooks for final flush
+    _registerExitHooks();
+
+  } catch (err) {
+    console.warn(`⚠️  [ScoreStore] Firestore unavailable — using in-memory scores only: ${err?.message || err}`);
+    _firestoreDb = null;
+  }
+}
+
+// ── Firestore persist (debounced) ────────────────────────────
+
+/** Batch-write all dirty model scores to Firestore */
+async function _persistScoresToFirestore() {
+  if (!_firestoreDb || _dirtyModels.size === 0) return;
+
+  const batch = _firestoreDb.batch();
+  const now = new Date().toISOString();
+  const toPersist = [..._dirtyModels];
+  _dirtyModels.clear();
+  _mutationCount = 0;
+
+  for (const modelId of toPersist) {
+    // Firestore doc IDs can't contain '/' — encode them
+    const docId = modelId.replace(/\//g, '__');
+    const ref = _firestoreDb.collection(FIRESTORE_COLLECTION).doc(docId);
+    const details = _modelDetails.get(modelId) || { successes: 0, failures: 0 };
+    const score = _modelScores.get(modelId) || 0;
+
+    const docData = {
+      modelId,                 // Original model ID (with slashes)
+      score,
+      successes: details.successes,
+      failures: details.failures,
+      lastUsed: now,
+      updatedAt: now,
+    };
+
+    // If model is exhausted, persist the reset time (next midnight UTC)
+    if (_exhaustedModels.has(modelId)) {
+      const tomorrow = new Date();
+      tomorrow.setUTCDate(tomorrow.getUTCDate() + 1);
+      tomorrow.setUTCHours(0, 0, 0, 0);
+      docData.exhaustedUntil = tomorrow.toISOString();
+    } else {
+      docData.exhaustedUntil = null;
+    }
+
+    batch.set(ref, docData, { merge: true });
+  }
+
+  try {
+    await batch.commit();
+  } catch (err) {
+    console.warn(`⚠️  [ScoreStore] Persist failed: ${err?.message || err}`);
+    // Re-add dirty models so next flush retries them
+    for (const m of toPersist) _dirtyModels.add(m);
+  }
+}
+
+/** Schedule a debounced persist (resets timer on each call) */
+function _schedulePersist() {
+  _mutationCount++;
+
+  // Immediate flush if mutation threshold reached
+  if (_mutationCount >= PERSIST_MUTATION_THRESHOLD) {
+    if (_persistTimer) { clearTimeout(_persistTimer); _persistTimer = null; }
+    _persistScoresToFirestore().catch(() => {});
+    return;
+  }
+
+  // Otherwise debounce
+  if (!_persistTimer) {
+    _persistTimer = setTimeout(() => {
+      _persistTimer = null;
+      _persistScoresToFirestore().catch(() => {});
+    }, PERSIST_DEBOUNCE_MS);
+    if (typeof _persistTimer?.unref === 'function') _persistTimer.unref();
+  }
+}
+
+/** Flush all pending scores immediately (use before process exit) */
+export async function flushScores() {
+  if (_persistTimer) { clearTimeout(_persistTimer); _persistTimer = null; }
+  await _persistScoresToFirestore();
+}
+
+/** Register process exit hooks for final flush */
+function _registerExitHooks() {
+  if (_exitHooked) return;
+  _exitHooked = true;
+
+  const flush = () => {
+    // Synchronous-ish: we can't truly await in exit handlers,
+    // but we fire the persist and give it a moment
+    if (_dirtyModels.size > 0 && _firestoreDb) {
+      _persistScoresToFirestore().catch(() => {});
+    }
+  };
+
+  process.on('beforeExit', async () => { await flushScores(); });
+  process.on('SIGINT', () => { flush(); process.exit(130); });
+  process.on('SIGTERM', () => { flush(); process.exit(143); });
+}
+
+// ── Score mutation (with Firestore persistence) ──────────────
+
+/** Record a model success — boosts its rank and persists to Firestore */
+export function recordModelSuccess(modelId) {
+  _modelScores.set(modelId, (_modelScores.get(modelId) || 0) + SCORE_SUCCESS);
+  const d = _modelDetails.get(modelId) || { successes: 0, failures: 0 };
+  d.successes++;
+  _modelDetails.set(modelId, d);
+  _dirtyModels.add(modelId);
+  _schedulePersist();
+}
+
+/** Record a model failure — lowers its rank and persists to Firestore */
+export function recordModelFailure(modelId, { nonRetryable = false, exhausted = false } = {}) {
+  const penalty = exhausted ? SCORE_EXHAUSTED
+                : nonRetryable ? SCORE_NON_RETRYABLE
+                : SCORE_RETRYABLE_FAIL;
+  _modelScores.set(modelId, (_modelScores.get(modelId) || 0) + penalty);
+  const d = _modelDetails.get(modelId) || { successes: 0, failures: 0 };
+  d.failures++;
+  _modelDetails.set(modelId, d);
+  _dirtyModels.add(modelId);
+  _schedulePersist();
+}
+
+/**
+ * Get a snapshot of the current model scoreboard.
+ * Useful for observability / end-of-run diagnostics.
+ * Returns entries sorted by score descending, with detailed stats.
+ */
+export function getScoreBoard() {
+  return [..._modelScores.entries()]
+    .sort((a, b) => b[1] - a[1])
+    .map(([model, score]) => {
+      const d = _modelDetails.get(model);
+      return { model, score, ...(d ? { successes: d.successes, failures: d.failures } : {}) };
+    });
+}
+
+/**
+ * Sort a chain of models by their accumulated score.
+ * Models with higher scores come first.
+ * Within equal scores, the original chain order is preserved (stable sort).
+ */
+function sortChainByScore(chain) {
+  // Build index map for tiebreaker (lower index = better in original order)
+  const indexMap = new Map(chain.map((m, i) => [m, i]));
+  return [...chain].sort((a, b) => {
+    const sa = _modelScores.get(a) || 0;
+    const sb = _modelScores.get(b) || 0;
+    if (sb !== sa) return sb - sa; // higher score first
+    return (indexMap.get(a) || 0) - (indexMap.get(b) || 0); // tiebreak by original order
+  });
+}
+
+// ── Public state helpers ─────────────────────────────────────
+/**
+ * Mark a model as exhausted (daily limit reached).
+ * It will be skipped for the remainder of this process
+ * and persisted to Firestore so other workflows also skip it.
+ */
+export function markModelExhausted(modelId) {
+  _exhaustedModels.add(modelId);
+  _dirtyModels.add(modelId);
+  _schedulePersist();
+  console.warn(`🚫 Model ${modelId} marked as exhausted — will be skipped for rest of run`);
+}
+
+/** Check whether a model is still usable this run */
+export function isModelAvailable(modelId) {
+  if (_exhaustedModels.has(modelId)) return false;
+  // Check that we have the API key for the model's provider
+  return !!getApiKeyForProvider(getProvider(modelId));
+}
+
+/**
+ * Check whether ANY model in the default chain is available.
+ * Use this instead of directly checking GEMINI_API_KEY || GH_MODELS_PAT,
+ * so that all 4 providers (GitHub Models, Gemini, Groq, OpenRouter) are considered.
+ */
+export function isAnyModelAvailable() {
+  return DEFAULT_CHAIN.some(m => isModelAvailable(m));
+}
+
+/** Return usage stats for this run (includes model scoreboard and store status) */
+export function getStats() {
+  return {
+    ..._stats,
+    exhaustedModels: [..._exhaustedModels],
+    scoreBoard: getScoreBoard(),
+    storeBackend: _firestoreDb ? 'firestore' : 'memory',
+    dirtyModels: _dirtyModels.size,
+  };
+}
+
+/** Reset exhausted models and scores (useful for long-running processes or tests) */
+export function resetState() {
+  _exhaustedModels.clear();
+  _modelScores.clear();
+  _modelDetails.clear();
+  _dirtyModels.clear();
+  _mutationCount = 0;
+  if (_persistTimer) { clearTimeout(_persistTimer); _persistTimer = null; }
+  _stats.calls = 0;
+  _stats.successes = 0;
+  _stats.retries = 0;
+  _stats.fallbacks = 0;
+  _stats.exhausted = 0;
+  _stats.errors = [];
+}
+
+// ── Internal helpers ─────────────────────────────────────────
+
+function isRetryableError(status, bodyText = '') {
+  if (status === 429 || status === 503) return true;
+  if (status >= 500 && status < 600) return true;
+  const b = String(bodyText).toLowerCase();
+  return (
+    b.includes('resource exhausted') ||
+    b.includes('rate limit') ||
+    b.includes('too many requests') ||
+    b.includes('temporarily unavailable') ||
+    b.includes('model is overloaded') ||
+    b.includes('busy')
+  );
+}
+
+function isDailyLimitError(status, bodyText = '') {
+  if (status !== 429) return false;
+  const b = String(bodyText).toLowerCase();
+  return (
+    b.includes('userbymodelbyday') ||       // GitHub Models
+    b.includes('daily limit') ||            // Generic
+    b.includes('daily quota') ||            // Generic
+    b.includes('exceeded your current quota') || // Gemini/OpenAI-style quota exhaustion
+    b.includes('check your plan and billing details') || // Gemini/OpenAI-style quota exhaustion
+    b.includes('free-models-per-day') ||    // OpenRouter free-tier hard cap
+    b.includes('free models per day') ||    // OpenRouter variants
+    b.includes('tokens_remaining_day')      // Groq daily
+  );
+}
+
+/**
+ * Detect permanent client errors that should NOT be retried.
+ * - unknown_model: model doesn't exist on the provider (mark exhausted)
+ * - context length / too many tokens: prompt too large for this model
+ * Returns { nonRetryable: boolean, markExhausted: boolean }
+ */
+function classifyNonRetryableError(status, bodyText = '') {
+  const b = String(bodyText).toLowerCase();
+
+  // HTTP 413 — payload too large / token limit reached
+  // GitHub Models returns 413 with tokens_limit_reached when the request
+  // body exceeds the model's input token limit. Retrying the identical
+  // prompt will always fail, so skip this model for this request.
+  if (status === 413 || b.includes('tokens_limit_reached')) {
+    return { nonRetryable: true, markExhausted: false };
+  }
+
+  if (status !== 400) return { nonRetryable: false, markExhausted: false };
+
+  // Model doesn't exist — mark exhausted for entire run
+  if (b.includes('unknown_model') || b.includes('unknown model')) {
+    return { nonRetryable: true, markExhausted: true };
+  }
+  // Provider-side deprecation/removal — retrying the same model is always useless
+  if (
+    b.includes('decommissioned') ||
+    b.includes('no longer supported') ||
+    b.includes('deprecated') ||
+    b.includes('model_not_found')
+  ) {
+    return { nonRetryable: true, markExhausted: true };
+  }
+  // Prompt too large — skip model for this request but don't exhaust globally
+  if (
+    b.includes('maximum context length') ||
+    b.includes('context_length_exceeded') ||
+    b.includes('too many tokens') ||
+    b.includes('max tokens must be less than') ||
+    b.includes('max_tokens` must be less than') ||
+    b.includes('max_tokens must be less than') ||
+    b.includes('must be less than or equal to `8192`')
+  ) {
+    return { nonRetryable: true, markExhausted: false };
+  }
+  // Unsupported parameter (e.g. max_tokens on newer OpenAI models)
+  if (b.includes('unsupported parameter')) {
+    return { nonRetryable: true, markExhausted: false };
+  }
+  return { nonRetryable: false, markExhausted: false };
+}
+
+function sleep(ms) {
+  return new Promise((r) => setTimeout(r, ms));
+}
+
+/**
+ * Strip <think>...</think> reasoning tags from model output.
+ * Reasoning models (DeepSeek-R1, Qwen3) wrap their chain-of-thought
+ * in these tags. We only want the final answer.
+ */
+function stripThinkTags(text) {
+  if (!text) return text;
+  return text.replace(/<think>[\s\S]*?<\/think>\s*/g, '').trim();
+}
+
+/** Set of model IDs known to include <think> tags in their output */
+const REASONING_MODELS = new Set([
+  'DeepSeek-R1',
+  'DeepSeek-R1-0528',
+  'deepseek-reasoner',
+  'o4-mini',
+  'o3-mini',
+  'qwen/qwen3-32b',     // Groq Qwen3 uses <think> tags
+]);
+
+/**
+ * Models that use `max_completion_tokens` instead of `max_tokens`.
+ * Newer OpenAI models (o-series, gpt-5) reject `max_tokens` with HTTP 400:
+ * "Unsupported parameter: 'max_tokens' is not supported with this model."
+ */
+const MAX_COMPLETION_TOKENS_MODELS = new Set([
+  'gpt-5-nano',
+  'gpt-5-mini',
+  'o4-mini',
+  'o3-mini',
+]);
+
+/** Models with lower max output token limits */
+const MODEL_MAX_OUTPUT_TOKENS = {
+  'Cohere-command-a': 8192,
+  'Cohere-command-r-plus-08-2024': 8192,
+  'Cohere-command-r-08-2024': 4096,
+  // Groq Llama 4 family enforces max_tokens <= 8192.
+  'meta-llama/llama-4-scout-17b-16e-instruct': 8192,
+};
+
+// ── Low-level provider calls ─────────────────────────────────
+
+/**
+ * Generic OpenAI-compatible API caller with retry logic.
+ * Used for GitHub Models, Groq, and DeepSeek (all share the same API format).
+ *
+ * @param {string} apiModel — Model ID to send to the API (without provider prefix)
+ * @param {Array} messages — OpenAI-format messages
+ * @param {object} opts — Merged options
+ * @param {object} provider — { endpoint, apiKey, providerName, trackAs, extraHeaders }
+ */
+async function _callOpenAICompatible(apiModel, messages, opts, { endpoint, apiKey, providerName, trackAs, extraHeaders }) {
+  if (!apiKey) throw new Error(`${providerName} API key not set`);
+  const modelForTracking = trackAs || apiModel;
+  const displayModel = providerName === 'GitHub' ? apiModel : `${providerName}/${apiModel}`;
+
+  // Cap maxTokens to model-specific limits (e.g. Cohere max 8192)
+  const modelLimit = MODEL_MAX_OUTPUT_TOKENS[apiModel];
+  const effectiveMaxTokens = modelLimit ? Math.min(opts.maxTokens, modelLimit) : opts.maxTokens;
+
+  // Newer OpenAI models (gpt-5-*, o4-mini, o3-mini) require
+  // `max_completion_tokens` instead of `max_tokens`
+  const useCompletionTokens = MAX_COMPLETION_TOKENS_MODELS.has(apiModel);
+  const tokenParam = useCompletionTokens
+    ? { max_completion_tokens: effectiveMaxTokens }
+    : { max_tokens: effectiveMaxTokens };
+
+  // o-series and gpt-5 reasoning models don't support temperature
+  const supportsTemperature = !useCompletionTokens;
+
+  const body = {
+    model: apiModel,
+    messages,
+    ...(supportsTemperature ? { temperature: opts.temperature } : {}),
+    ...tokenParam,
+    ...(opts.jsonMode ? { response_format: { type: 'json_object' } } : {}),
+  };
+
+  for (let attempt = 1; attempt <= opts.maxRetriesPerModel; attempt++) {
+    _stats.calls++;
+    try {
+      const res = await fetch(endpoint, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${apiKey}`,
+          ...(extraHeaders || {}),
+        },
+        body: JSON.stringify(body),
+        signal: AbortSignal.timeout(opts.timeout),
+      });
+
+      const raw = await res.text().catch(() => '');
+
+      if (!res.ok) {
+        // Daily limit — mark exhausted immediately
+        if (isDailyLimitError(res.status, raw)) {
+          markModelExhausted(modelForTracking);
+          _stats.exhausted++;
+          throw new Error(`[${displayModel}] Daily request limit reached`);
+        }
+        // Non-retryable client errors (unknown model, context too small)
+        const nrc = classifyNonRetryableError(res.status, raw);
+        if (nrc.nonRetryable) {
+          if (nrc.markExhausted) {
+            markModelExhausted(modelForTracking);
+            _stats.exhausted++;
+          }
+          const err = new Error(`[${displayModel}] HTTP ${res.status}: ${raw.slice(0, 300)}`);
+          err.nonRetryable = true;
+          throw err;
+        }
+        // Retryable error — wait and retry (use double backoff for 429 rate limits)
+        if (isRetryableError(res.status, raw) && attempt < opts.maxRetriesPerModel) {
+          _stats.retries++;
+          const is429 = res.status === 429;
+          const waitMs = is429
+            ? attempt * opts.backoffMs * 3   // Triple backoff for rate limits
+            : attempt * opts.backoffMs;
+          console.warn(`⚠️  [${displayModel}] ${res.status} retry ${attempt}/${opts.maxRetriesPerModel} — wait ${waitMs}ms`);
+          await sleep(waitMs);
+          continue;
+        }
+        throw new Error(`[${displayModel}] HTTP ${res.status}: ${raw.slice(0, 300)}`);
+      }
+
+      // Parse response
+      const data = JSON.parse(raw);
+      let text = data?.choices?.[0]?.message?.content || '';
+      // Strip <think> reasoning tags from reasoning models
+      if (text && REASONING_MODELS.has(apiModel)) {
+        text = stripThinkTags(text);
+      }
+      if (!text) {
+        if (attempt < opts.maxRetriesPerModel) {
+          _stats.retries++;
+          console.warn(`⚠️  [${displayModel}] Empty response, retry ${attempt}/${opts.maxRetriesPerModel}`);
+          await sleep(attempt * 1200);
+          continue;
+        }
+        throw new Error(`[${displayModel}] Empty response after ${opts.maxRetriesPerModel} attempts`);
+      }
+
+      _stats.successes++;
+      return text;
+    } catch (e) {
+      // Re-throw daily limit errors (already marked)
+      if (e.message?.includes('Daily request limit')) throw e;
+      // Re-throw non-retryable errors immediately (unknown model, context limit)
+      if (e.nonRetryable) throw e;
+      // Re-throw on last attempt
+      if (attempt >= opts.maxRetriesPerModel) throw e;
+      // Timeout errors: retry only once (model is likely overloaded, not transiently failing)
+      const isTimeout = e.name === 'AbortError' || e.name === 'TimeoutError' || /timeout|aborted/i.test(e.message || '');
+      if (isTimeout && attempt >= 2) throw e;
+      // Otherwise retry
+      _stats.retries++;
+      const waitMs = attempt * opts.backoffMs;
+      console.warn(`⚠️  [${displayModel}] Error retry ${attempt}/${opts.maxRetriesPerModel}: ${e.message?.slice(0, 150)}`);
+      await sleep(waitMs);
+    }
+  }
+  throw new Error(`[${displayModel}] Exhausted after ${opts.maxRetriesPerModel} attempts`);
+}
+
+// ── Provider-specific callers ────────────────────────────────
+
+function _callGitHub(model, messages, opts) {
+  return _callOpenAICompatible(model, messages, opts, {
+    endpoint: GH_MODELS_BASE,
+    apiKey: getGhModelsPat(),
+    providerName: 'GitHub',
+  });
+}
+
+/**
+ * Call a model on Groq Cloud (OpenAI-compatible, ultra-fast inference).
+ * Free tier: 1000 req/day per model.
+ */
+function _callGroq(model, messages, opts) {
+  const apiModel = getApiModelId(model);
+  return _callOpenAICompatible(apiModel, messages, opts, {
+    endpoint: GROQ_API_BASE,
+    apiKey: getGroqApiKey(),
+    providerName: 'Groq',
+    trackAs: model,  // Stats tracked under the prefixed name
+  });
+}
+
+/**
+ * Call a model on OpenRouter (OpenAI-compatible, free :free models).
+ * Free tier: 50 req/day for :free models.
+ */
+function _callOpenRouter(model, messages, opts) {
+  const apiModel = getApiModelId(model);
+  return _callOpenAICompatible(apiModel, messages, opts, {
+    endpoint: OPENROUTER_API_BASE,
+    apiKey: getOpenRouterApiKey(),
+    providerName: 'OpenRouter',
+    trackAs: model,
+    extraHeaders: {
+      'HTTP-Referer': 'https://www.frontaliereticino.ch',
+      'X-Title': 'Frontaliere Ticino',
+    },
+  });
+}
+
+/**
+ * Call a single Gemini model with retry.
+ * Returns the text content on success.
+ */
+async function _callGeminiRaw(model, messages, opts) {
+  const apiKey = getGeminiApiKey();
+  if (!apiKey) throw new Error('GEMINI_API_KEY not set');
+
+  // Convert OpenAI messages → Gemini format
+  const systemParts = messages.filter((m) => m.role === 'system').map((m) => ({ text: m.content }));
+  const contents = messages
+    .filter((m) => m.role !== 'system')
+    .map((m) => ({
+      role: m.role === 'assistant' ? 'model' : 'user',
+      parts: [{ text: m.content }],
+    }));
+
+  const body = {
+    ...(systemParts.length > 0 ? { systemInstruction: { parts: systemParts } } : {}),
+    contents,
+    generationConfig: {
+      temperature: opts.temperature,
+      maxOutputTokens: opts.maxTokens,
+      ...(opts.jsonMode ? { responseMimeType: 'application/json' } : {}),
+    },
+  };
+
+  const endpoint = `${GEMINI_API_BASE}/${model}:generateContent?key=${apiKey}`;
+
+  for (let attempt = 1; attempt <= opts.maxRetriesPerModel; attempt++) {
+    _stats.calls++;
+    try {
+      const res = await fetch(endpoint, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(body),
+        signal: AbortSignal.timeout(opts.timeout),
+      });
+
+      const raw = await res.text().catch(() => '');
+
+      if (!res.ok) {
+        // Quota / rate-limit — mark exhausted if it looks permanent
+        if (isDailyLimitError(res.status, raw)) {
+          markModelExhausted(model);
+          _stats.exhausted++;
+          throw new Error(`[${model}] Daily quota reached`);
+        }
+        // Non-retryable client errors (unknown model, context too small)
+        const nrc = classifyNonRetryableError(res.status, raw);
+        if (nrc.nonRetryable) {
+          if (nrc.markExhausted) {
+            markModelExhausted(model);
+            _stats.exhausted++;
+          }
+          const err = new Error(`[${model}] HTTP ${res.status}: ${raw.slice(0, 300)}`);
+          err.nonRetryable = true;
+          throw err;
+        }
+        if (isRetryableError(res.status, raw) && attempt < opts.maxRetriesPerModel) {
+          _stats.retries++;
+          const waitMs = attempt * opts.backoffMs;
+          console.warn(`⚠️  [${model}] ${res.status} retry ${attempt}/${opts.maxRetriesPerModel} — wait ${waitMs}ms`);
+          await sleep(waitMs);
+          continue;
+        }
+        throw new Error(`[${model}] HTTP ${res.status}: ${raw.slice(0, 300)}`);
+      }
+
+      // Parse response — skip "thought" parts
+      const data = JSON.parse(raw);
+      const text = data?.candidates?.[0]?.content?.parts?.find((p) => p.text && !p.thought)?.text || '';
+      if (!text) {
+        if (attempt < opts.maxRetriesPerModel) {
+          _stats.retries++;
+          console.warn(`⚠️  [${model}] Empty response, retry ${attempt}/${opts.maxRetriesPerModel}`);
+          await sleep(attempt * 1200);
+          continue;
+        }
+        throw new Error(`[${model}] Empty response after ${opts.maxRetriesPerModel} attempts`);
+      }
+
+      _stats.successes++;
+      return text;
+    } catch (e) {
+      if (e.message?.includes('Daily quota')) throw e;
+      if (e.nonRetryable) throw e;
+      if (attempt >= opts.maxRetriesPerModel) throw e;
+      // Timeout errors: retry only once (model is likely overloaded)
+      const isTimeout = e.name === 'AbortError' || e.name === 'TimeoutError' || /timeout|aborted/i.test(e.message || '');
+      if (isTimeout && attempt >= 2) throw e;
+      _stats.retries++;
+      const waitMs = attempt * opts.backoffMs;
+      console.warn(`⚠️  [${model}] Error retry ${attempt}/${opts.maxRetriesPerModel}: ${e.message?.slice(0, 150)}`);
+      await sleep(waitMs);
+    }
+  }
+  throw new Error(`[${model}] Exhausted after ${opts.maxRetriesPerModel} attempts`);
+}
+
+// ── Model routing ────────────────────────────────────────────
+
+/** Route a model call to the correct provider */
+function _callModel(model, messages, opts) {
+  const provider = getProvider(model);
+  switch (provider) {
+    case PROVIDER.GITHUB:      return _callGitHub(model, messages, opts);
+    case PROVIDER.GEMINI:      return _callGeminiRaw(model, messages, opts);
+    case PROVIDER.GROQ:        return _callGroq(model, messages, opts);
+    case PROVIDER.OPENROUTER:  return _callOpenRouter(model, messages, opts);
+    default: throw new Error(`[${model}] Unknown provider: ${provider}`);
+  }
+}
+
+// ── Public API ───────────────────────────────────────────────
+
+/**
+ * Call a specific model directly (no fallback chain).
+ * Useful when you need a specific model for a task.
+ *
+ * @param {Array<{role: string, content: string}>} messages — OpenAI-format messages
+ * @param {object} opts — Options
+ * @param {string} opts.model — Model ID (e.g. AI_MODELS.GPT4O)
+ * @param {number} [opts.temperature=0.2]
+ * @param {number} [opts.maxTokens=4096]
+ * @param {boolean} [opts.jsonMode=false]
+ * @param {number} [opts.timeout=30000]
+ * @param {number} [opts.maxRetriesPerModel=5]
+ * @param {number} [opts.backoffMs=2500]
+ * @returns {Promise<string>} — Text content from the model
+ */
+export async function callSingleModel(messages, opts = {}) {
+  const o = { ...DEFAULT_OPTS, ...opts };
+  const model = o.model || AI_MODELS.GPT4O;
+
+  if (_exhaustedModels.has(model)) {
+    throw new Error(`[${model}] Model is exhausted for this run`);
+  }
+
+  return _callModel(model, messages, o);
+}
+
+/**
+ * Call an LLM with automatic fallback chain + scored model selection.
+ *
+ * The chain is dynamically re-sorted by each model's accumulated score
+ * before every call. Models that succeed gain score and float to the top;
+ * models that fail lose score and sink to the bottom. This avoids
+ * repeatedly trying a model that has been failing (e.g. rate-limited or
+ * down), which would slow down the entire crawl.
+ *
+ * Scores are persisted to Firestore (`ai_model_scores` collection) so
+ * all workflows share live model intelligence. If Firestore is unavailable,
+ * scoring falls back to in-memory only.
+ *
+ * On first call, automatically initializes the Firestore score store
+ * (if not already initialized via `initScoreStore()`).
+ *
+ * For each model:
+ * 1. If model is exhausted (daily limit), skip it
+ * 2. If API key for provider is missing, skip it
+ * 3. Try up to `maxRetriesPerModel` times
+ * 4. On success, record success score (+2) and return
+ * 5. On failure, record failure score (-3/-10/-50) and move to next model
+ *
+ * Default chain: 40 models across 4 providers (GitHub Models, Gemini, Groq, OpenRouter).
+ * Initial order is quality-based (best first), but dynamically adapts as the
+ * run progresses based on actual success/failure patterns.
+ *
+ * @param {Array<{role: string, content: string}>} messages — OpenAI-format messages
+ * @param {object} opts — Options (same as callSingleModel, plus `chain`)
+ * @param {string} [opts.model] — Starting model (overrides chain start)
+ * @param {string[]} [opts.chain] — Custom fallback chain
+ * @returns {Promise<string>} — Text content from whichever model succeeded
+ */
+export async function callLLM(messages, opts = {}) {
+  // Auto-init score store on first call (no-op if already initialized)
+  if (!_storeInitialized) {
+    await initScoreStore();
+  }
+
+  const o = { ...DEFAULT_OPTS, ...opts };
+  let chain = o.chain || [...DEFAULT_CHAIN];
+
+  // If a specific model is requested, start the chain from that model
+  if (o.model) {
+    const idx = chain.indexOf(o.model);
+    if (idx > 0) {
+      chain = chain.slice(idx);
+    } else if (idx < 0) {
+      // Requested model not in chain — prepend it, keep chain as fallback
+      chain = [o.model, ...chain.filter((m) => m !== o.model)];
+    }
+  }
+
+  // Sort by accumulated score — models that are working well come first,
+  // models that have been failing are pushed down.
+  // The initial call uses DEFAULT_CHAIN order (all scores 0, tiebreak by index).
+  chain = sortChainByScore(chain);
+
+  const errors = [];
+
+  for (let i = 0; i < chain.length; i++) {
+    const model = chain[i];
+
+    // Skip exhausted models
+    if (_exhaustedModels.has(model)) {
+      console.warn(`⏭️  [${model}] Skipped — exhausted (daily limit)`);
+      continue;
+    }
+
+    // Skip models without API keys
+    if (!isModelAvailable(model)) {
+      continue;
+    }
+
+    try {
+      if (i > 0) {
+        _stats.fallbacks++;
+        console.warn(`🔄 Falling back to ${model} (score: ${_modelScores.get(model) || 0})...`);
+      }
+
+      const result = await _callModel(model, messages, o);
+
+      // ✅ Success — boost this model's score so it stays near the top
+      recordModelSuccess(model);
+
+      if (i > 0) {
+        console.warn(`✅ Fallback to ${model} succeeded (score → ${_modelScores.get(model) || 0})`);
+      }
+      return result;
+    } catch (e) {
+      const msg = e?.message || String(e);
+      errors.push(`${model}: ${msg.slice(0, 200)}`);
+
+      // ❌ Failure — penalize this model's score so it drops in priority
+      const isExhausted =
+        msg.includes('Daily request limit') ||
+        msg.includes('Daily quota') ||
+        msg.toLowerCase().includes('exceeded your current quota') ||
+        msg.toLowerCase().includes('plan and billing details');
+      // Timeout circuit breaker: if a model timed out after retries, mark it
+      // exhausted so subsequent callLLM invocations skip it entirely.
+      const isTimeoutFailure = e.name === 'AbortError' || e.name === 'TimeoutError' || /timeout|aborted/i.test(msg);
+      if (isTimeoutFailure) {
+        markModelExhausted(model);
+        _stats.exhausted++;
+      }
+      recordModelFailure(model, {
+        nonRetryable: !!e.nonRetryable,
+        exhausted: isExhausted || isTimeoutFailure,
+      });
+
+      console.warn(`❌ [${model}] Failed${isTimeoutFailure ? ' (timeout → exhausted)' : ''} (score → ${_modelScores.get(model) || 0}): ${msg.slice(0, 200)}`);
+      // Continue to next model in chain
+    }
+  }
+
+  // All models failed
+  const summary = errors.join(' | ');
+  _stats.errors.push(summary);
+  // Flush scores before throwing — ensures failure data is persisted
+  await flushScores();
+  throw new Error(`All AI models failed. Chain: [${chain.join(' → ')}]. Errors: ${summary}`);
+}

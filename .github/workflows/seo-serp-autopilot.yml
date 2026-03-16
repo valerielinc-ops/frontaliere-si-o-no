@@ -1,0 +1,103 @@
+name: SEO SERP Autopilot
+
+on:
+  schedule:
+    # Every Tuesday at 06:10 UTC
+    - cron: '10 6 * * 2'
+  workflow_dispatch:
+    inputs:
+      days:
+        description: 'Analytics window in days (default 28)'
+        required: false
+        default: '28'
+        type: string
+      dry_run:
+        description: 'Do not publish Remote Config (true/false)'
+        required: false
+        default: 'false'
+        type: choice
+        options:
+          - 'false'
+          - 'true'
+
+permissions:
+  contents: write
+
+jobs:
+  autopilot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Prepare Firebase credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+          else
+            echo "❌ Missing Firebase credentials. Set FIREBASE_SERVICE_ACCOUNT_JSON secret."
+            exit 1
+          fi
+          echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+
+      - name: Load secrets from Remote Config
+        run: node scripts/load-rc-env.mjs
+
+      - name: Run SEO SERP autopilot
+        env:
+          SEO_SERP_AUTOPILOT_DAYS: ${{ inputs.days || '28' }}
+          SEO_SERP_AUTOPILOT_DRY_RUN: ${{ inputs.dry_run || 'false' }}
+          SEO_SERP_EXPERIMENT_TARGETS: '*'
+          SEO_SERP_EXPERIMENT_YEAR: '2026'
+        run: |
+          node scripts/seo-serp-autopilot.mjs
+
+      - name: Upload autopilot artifacts
+        if: always()
+        uses: actions/upload-artifact@v5
+        with:
+          name: seo-serp-autopilot-${{ github.run_number }}
+          path: |
+            data/seo-serp-autopilot-last-run.json
+            data/seo-serp-experiment-history.json
+          retention-days: 90
+
+      - name: Commit autopilot state
+        if: ${{ always() }}
+        run: |
+          if [ ! -f data/seo-serp-autopilot-last-run.json ]; then
+            echo "No autopilot report file generated; skipping commit."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          git add data/seo-serp-autopilot-last-run.json data/seo-serp-experiment-history.json
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+            exit 0
+          fi
+
+          git commit -m "chore(seo): update SERP autopilot state"
+
+          for attempt in 1 2 3; do
+            git pull --rebase origin "$GITHUB_REF_NAME" && git push origin "$GITHUB_REF_NAME" && break
+            echo "⚠️ Push attempt $attempt failed, retrying..."
+            sleep 5
+          done

@@ -1,0 +1,25 @@
+{
+  "companyKey": "ariston-group",
+  "companyName": "Ariston Group",
+  "companyHost": "careers.aristongroup.com",
+  "enabled": true,
+  "priority": 18,
+  "crawlerModes": [
+    "html",
+    "xml"
+  ],
+  "seedUrls": [
+    "https://careers.aristongroup.com/search/?createNewAlert=false&q=&optionsFacetsDD_country=CH&optionsFacetsDD_department=&optionsFacetsDD_shifttype=&optionsFacetsDD_customfield2=",
+    "https://careers.aristongroup.com/sitemap_index.xml"
+  ],
+  "notes": "Dedicated Ariston Group crawler parses the careers RSS feed and SuccessFactors job detail pages, then keeps only Ticino/Grigioni jobs via shared Swiss target-location matching.",
+  "updatedAt": "2026-03-10T19:16:06.134Z",
+  "seedMetaByUrl": {
+    "https://careers.aristongroup.com/job/Maerstetten-COLLABORATORETRICE-SERVICE-CENTER-80-Beda-6930/1367135733/": {
+      "location": "Bedano, CH, 6930",
+      "canton": "TI",
+      "company": "Ariston Group",
+      "postedDate": "2026-02-24"
+    }
+  }
+}

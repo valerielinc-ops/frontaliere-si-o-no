@@ -1,0 +1,278 @@
+#!/usr/bin/env node
+import fs from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+import {
+  printPublishedJobUrls,
+  writeJobsSummary,
+  snapshotJobSlugs,
+  computeCrawlDiff,
+  printCrawlChangeSummary,
+  writeCrawlChangeSummaryToGH,
+} from './jobs-url-helper.mjs';
+import { validateJobUrls } from './lib/validate-job-url.mjs';
+import {
+  translateMissingJobLocales,
+  validateDedicatedLocaleCoverage,
+  detectLang,
+} from './lib/dedicated-crawler-common.mjs';
+import {
+  isTsmgTargetLocation,
+  inferTsmgRegion,
+  inferTsmgCategory,
+  buildTsmgLocalizedContent,
+} from './lib/tsmg-job-parser.mjs';
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const ROOT = path.resolve(__dirname, '..');
+const DATA_JOBS = path.resolve(ROOT, 'data', 'jobs.json');
+const PUBLIC_JOBS = path.resolve(ROOT, 'public', 'data', 'jobs.json');
+const ADAPTER_PATH = path.resolve(ROOT, 'data', 'jobs-crawler-adapters', 'adapters', 'tsmg.json');
+
+const COMPANY_KEY = 'tsmg';
+const COMPANY_NAME = 'TSMG';
+const COMPANY_HOST = 'jobs.lever.co';
+const COMPANY_DOMAIN = 'tsmg.co';
+const CAREERS_URL = 'https://jobs.lever.co/tsmg';
+const API_URL = 'https://api.lever.co/v0/postings/tsmg?mode=json';
+const LOCALES = ['it', 'en', 'de', 'fr'];
+
+function readJson(filePath, fallback) {
+  try {
+    return JSON.parse(fs.readFileSync(filePath, 'utf8'));
+  } catch {
+    return fallback;
+  }
+}
+
+function writeJson(filePath, value) {
+  fs.writeFileSync(filePath, `${JSON.stringify(value, null, 2)}\n`, 'utf8');
+}
+
+function normalize(value = '') {
+  return String(value || '').trim().toLowerCase();
+}
+
+function normalizeKey(value = '') {
+  return String(value || '')
+    .trim()
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+}
+
+function toIsoDate(value = '') {
+  const parsed = new Date(String(value || '').trim());
+  if (Number.isNaN(parsed.getTime())) return new Date().toISOString().slice(0, 10);
+  return parsed.toISOString().slice(0, 10);
+}
+
+async function fetchJson(url, timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 90000) {
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), timeoutMs);
+  try {
+    const res = await fetch(url, {
+      signal: controller.signal,
+      headers: {
+        Accept: 'application/json',
+        'User-Agent': 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://www.frontaliereticino.ch/)',
+      },
+    });
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    return await res.json();
+  } finally {
+    clearTimeout(timer);
+  }
+}
+
+function isTargetJob(job = {}) {
+  const key = normalizeKey(job.companyKey || job.company || '');
+  const company = normalize(job.company || '');
+  const url = String(job.url || '').toLowerCase();
+  return key === COMPANY_KEY || company === 'tsmg' || url.includes('jobs.lever.co/tsmg/');
+}
+
+function isTrustedDomain(rawUrl = '') {
+  try {
+    const host = new URL(rawUrl).hostname.toLowerCase();
+    return host === 'jobs.lever.co' || host === 'api.lever.co';
+  } catch {
+    return false;
+  }
+}
+
+function buildJob(job) {
+  const localized = buildTsmgLocalizedContent(job);
+  const location = String(job?.categories?.location || '').trim();
+  const region = inferTsmgRegion(location);
+  const shortId = String(job.id || '').trim().slice(0, 8).toLowerCase();
+  const withId = (base) => (shortId ? `${base}-${shortId}` : base);
+  const slug = withId(localized.it.slug);
+  return {
+    title: localized.it.title,
+    slug,
+    url: String(job.hostedUrl || '').trim(),
+    applyUrl: String(job.applyUrl || job.hostedUrl || '').trim(),
+    company: COMPANY_NAME,
+    companyKey: COMPANY_KEY,
+    companyDomain: COMPANY_DOMAIN,
+    location,
+    addressLocality: location,
+    addressRegion: region.canton,
+    addressCountry: region.country,
+    canton: region.canton,
+    country: region.country,
+    category: inferTsmgCategory(job.text || ''),
+    sector: 'Tecnologia & IT',
+    source: 'tsmg-dedicated-crawler',
+    sourceLang: 'en',
+    postedDate: toIsoDate(job.createdAt),
+    employmentType: normalize(job?.categories?.commitment || '').includes('part') ? 'part-time' : 'full-time',
+    contractType: normalize(job?.categories?.commitment || '').includes('part') ? 'part-time' : 'full-time',
+    validThrough: '',
+    description: localized.it.description,
+    titleByLocale: {
+      it: localized.it.title,
+      en: localized.en.title,
+      de: localized.de.title,
+      fr: localized.fr.title,
+    },
+    descriptionByLocale: {
+      it: localized.it.description,
+      en: localized.en.description,
+      de: localized.de.description,
+      fr: localized.fr.description,
+    },
+    slugByLocale: {
+      it: withId(localized.it.slug),
+      en: withId(localized.en.slug),
+      de: withId(localized.de.slug),
+      fr: withId(localized.fr.slug),
+    },
+  };
+}
+
+function jobMatchKey(job = {}) {
+  return String(job.url || '').trim().toLowerCase() || String(job.slug || '').trim().toLowerCase();
+}
+
+function mergeJobs(discoveredJobs) {
+  const existing = readJson(DATA_JOBS, []);
+  const nonTargetJobs = existing.filter((job) => !isTargetJob(job));
+  const existingTargetJobs = existing.filter(isTargetJob);
+  const beforeSnapshot = snapshotJobSlugs(existingTargetJobs);
+
+  const existingByKey = new Map(existingTargetJobs.map((job) => [jobMatchKey(job), job]));
+  let added = 0;
+  let updated = 0;
+  const mergedTarget = discoveredJobs.map((job) => {
+    const prev = existingByKey.get(jobMatchKey(job));
+    if (!prev) {
+      added += 1;
+      return job;
+    }
+    updated += 1;
+    return {
+      ...prev,
+      ...job,
+      titleByLocale: { ...(prev.titleByLocale || {}), ...(job.titleByLocale || {}) },
+      descriptionByLocale: { ...(prev.descriptionByLocale || {}), ...(job.descriptionByLocale || {}) },
+      slugByLocale: { ...(prev.slugByLocale || {}), ...(job.slugByLocale || {}) },
+    };
+  });
+
+  const allJobs = [...nonTargetJobs, ...mergedTarget];
+  writeJson(DATA_JOBS, allJobs);
+  writeJson(PUBLIC_JOBS, allJobs);
+
+  const afterSnapshot = snapshotJobSlugs(mergedTarget);
+  const diff = computeCrawlDiff(beforeSnapshot, afterSnapshot);
+  printCrawlChangeSummary(diff, 'TSMG');
+  writeCrawlChangeSummaryToGH(diff, 'TSMG');
+  writeJobsSummary(mergedTarget, 'TSMG');
+  printPublishedJobUrls(mergedTarget, 'TSMG');
+
+  return { total: mergedTarget.length, added, updated };
+}
+
+function updateAdapterConfig(jobs) {
+  const seedMetaByUrl = {};
+  for (const job of jobs) {
+    seedMetaByUrl[job.url] = {
+      location: job.location,
+      canton: job.canton,
+      company: COMPANY_NAME,
+      postedDate: job.postedDate,
+    };
+  }
+  writeJson(ADAPTER_PATH, {
+    companyKey: COMPANY_KEY,
+    companyName: COMPANY_NAME,
+    companyHost: COMPANY_HOST,
+    enabled: true,
+    priority: 19,
+    crawlerModes: ['html', 'api'],
+    seedUrls: [CAREERS_URL, API_URL],
+    notes: 'Dedicated TSMG crawler uses Lever API and keeps only jobs in Ticino or Grigioni.',
+    updatedAt: new Date().toISOString(),
+    seedMetaByUrl,
+  });
+}
+
+function validateLocales() {
+  validateDedicatedLocaleCoverage({
+    strictEnvVar: 'JOBS_TSMG_STRICT',
+    label: 'TSMG',
+    dataJobsPath: DATA_JOBS,
+    isTargetJob,
+    locales: LOCALES,
+    isTrustedDomain,
+    untrustedDomainReason: 'url_not_tsmg_lever',
+    failWhenNoJobs: true,
+    noJobsMessage: 'No TSMG jobs found after dedicated crawl.',
+    detectSourceLang: (text) => detectLang(text, 'en'),
+  });
+}
+
+async function main() {
+  console.log('═══════════════════════════════════════════════');
+  console.log('  TSMG — Dedicated Crawler');
+  console.log('═══════════════════════════════════════════════');
+  console.log(`  Careers page: ${CAREERS_URL}`);
+  console.log(`  API: ${API_URL}\n`);
+
+  const rawJobs = await fetchJson(API_URL);
+  const swiss = rawJobs.filter((job) => String(job.country || '').trim().toUpperCase() === 'CH');
+  const target = swiss.filter((job) => isTsmgTargetLocation(job?.categories?.location || ''));
+  console.log(`📋 Total Lever jobs: ${rawJobs.length}`);
+  console.log(`📋 Switzerland jobs: ${swiss.length}`);
+  console.log(`📋 Ticino/Grigioni jobs: ${target.length}`);
+  if (target.length < 2) {
+    throw new Error(`Expected at least 2 Ticino/Grigioni jobs, found ${target.length}`);
+  }
+  const discoveredJobs = target.map(buildJob);
+  const { total, added, updated } = mergeJobs(discoveredJobs);
+  updateAdapterConfig(discoveredJobs);
+
+  const newUrls = discoveredJobs.map((job) => job.url).filter(Boolean);
+  if (newUrls.length > 0) {
+    console.log(`🔗 Validating URLs for ${newUrls.length} TSMG jobs…`);
+    await validateJobUrls(newUrls);
+  }
+
+  console.log('\n🌐 Running locale fill for TSMG jobs...');
+  await translateMissingJobLocales({
+    dataJobsPath: DATA_JOBS,
+    isTargetJob,
+  });
+
+  validateLocales();
+  console.log(`\n✅ TSMG crawler complete (${total} jobs, added=${added}, updated=${updated}).`);
+}
+
+main().catch((err) => {
+  console.error(`❌ TSMG crawler failed: ${err?.message || err}`);
+  process.exit(1);
+});

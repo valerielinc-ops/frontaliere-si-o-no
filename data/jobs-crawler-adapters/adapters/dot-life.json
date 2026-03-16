@@ -1,0 +1,11 @@
+{
+  "companyKey": "dot-life",
+  "companyName": "DOT Life SA",
+  "companyHost": "www.dotlifestyle.ch",
+  "enabled": true,
+  "priority": 10,
+  "crawlerModes": ["jsonld", "html", "generic_ats"],
+  "seedUrls": [],
+  "notes": "DOT Life SA — Paradiso-based hospitality & wellness group (Villa Principe Leopoldo, Villa Sassa, Kurhaus Cademario, Park Hotel Principe). No dedicated careers page; jobs posted via LinkedIn/email (job@dotlife.swiss). Seed URLs auto-discovered by crawler.",
+  "updatedAt": "2025-07-25T00:00:00.000Z"
+}

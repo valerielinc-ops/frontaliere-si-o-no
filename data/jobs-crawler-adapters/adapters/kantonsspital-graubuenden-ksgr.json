@@ -1,0 +1,753 @@
+{
+  "companyKey": "kantonsspital-graubuenden-ksgr",
+  "companyName": "Kantonsspital Graubünden",
+  "companyHost": "jobs.ksgr.ch",
+  "enabled": true,
+  "priority": 10,
+  "crawlerModes": [
+    "jsonld",
+    "html",
+    "generic_ats"
+  ],
+  "seedUrls": [
+    "https://jobs.ksgr.ch/offene-stellen/fachspezialist-in-employer-branding-rekrutierung/06f8d7b2-16a7-47d3-b960-317bebad4909",
+    "https://jobs.ksgr.ch/offene-stellen/arztsekretaer-in-onkologie-haematologie/c323c332-5c86-497c-a38c-1819f25b7066",
+    "https://jobs.ksgr.ch/offene-stellen/pflegefachfrau-pflegefachmann-interdisziplinaeres-ambulatorium/1db64e18-3819-46a9-b1ae-80e1e05cfef7",
+    "https://jobs.ksgr.ch/offene-stellen/administrative-r-praktikant-in-chirurgie/be4fc7de-6075-44d6-9bbd-dd7daf312749",
+    "https://jobs.ksgr.ch/offene-stellen/abteilungsleiter-in-medizinische-kodierung/b8fd8274-6ac0-4aff-880c-0629c2b7b860",
+    "https://jobs.ksgr.ch/offene-stellen/oberaerztin-oberarzt-rheumatologie/89d6fb39-c682-476e-9296-1a394a53441e",
+    "https://jobs.ksgr.ch/offene-stellen/medizinische-r-kodierer-in/8b5cfd83-d3c6-46f3-b3c4-a30d9c1a15a9",
+    "https://jobs.ksgr.ch/offene-stellen/forschungskoordinator-in-forschungszentrum/93bf3d10-b482-4059-9254-b0ce9e9cb4a6",
+    "https://jobs.ksgr.ch/offene-stellen/zytologieassistent-in/c770a392-d232-4fcc-a6a1-6f73294d24de",
+    "https://jobs.ksgr.ch/offene-stellen/logopaedin-logopaede/b21110dd-cf2f-420f-92bc-558cf3adcb91",
+    "https://jobs.ksgr.ch/offene-stellen/mitarbeiter-in-logistik-spitalpharmazie/fe97f325-010b-4c26-8053-8a5630ae78b7",
+    "https://jobs.ksgr.ch/offene-stellen/co-projektleiter-in-business-sap/0b89187b-ee81-46d4-ae93-8826e94d168d",
+    "https://jobs.ksgr.ch/offene-stellen/neuropsychologin-neuropsychologe-paediatrie/9f0ec9c0-27a3-4ea2-8d72-f0482c5423bb",
+    "https://jobs.ksgr.ch/offene-stellen/gebaeudetechniker-in-fachrichtung-elektro/21835cf4-4ee0-49db-8c0b-5bf6319762f3",
+    "https://jobs.ksgr.ch/offene-stellen/biomedizinische-r-analytiker-in/72ddc193-7089-4eb3-8863-6200de05d10f",
+    "https://jobs.ksgr.ch/offene-stellen/apotheker-in-klinische-pharmazie/868b2210-6975-4a2d-ae5e-feabcd733ec5",
+    "https://jobs.ksgr.ch/offene-stellen/pflegefachverantwortliche-r-urologie-und-unfallchirurgie/0ff38b27-04b3-43d8-8f4b-b2354964dcc7",
+    "https://jobs.ksgr.ch/offene-stellen/chefarztsekretaer-in-urologie/3fad8878-cb90-4c6d-95a6-c2b38bfb56ed",
+    "https://jobs.ksgr.ch/offene-stellen/fachfrau-fachmann-gesundheit-kardiologie-nephrologie/a552645e-aa86-4795-91ba-c635b3b20878",
+    "https://jobs.ksgr.ch/offene-stellen/pflegefachverantwortliche-r-viszeralchirurgie/2dae79cf-e9dc-424b-ba56-fc816c5a76ac",
+    "https://jobs.ksgr.ch/offene-stellen/biomedizinische-r-analytiker-in/e593a3be-e7a2-4548-98d1-eda56e2ca7ba",
+    "https://jobs.ksgr.ch/offene-stellen/mitarbeiter-in-technischer-dienst/f8ffd1f8-373d-4fc9-a021-65493483e111",
+    "https://jobs.ksgr.ch/offene-stellen/fachfrau-fachmann-gesundheit-wochenklinik-medizin/04e0afd2-8fd1-40af-a959-1709fe28d554",
+    "https://jobs.ksgr.ch/offene-stellen/diaetkoechin-diaetkoch-kartenbuero/53f388f6-4c6e-4b7f-9514-4c27255d131f",
+    "https://jobs.ksgr.ch/offene-stellen/diaetkoechin-diaetkoch/7dcb8bc9-e71a-4f57-8e30-ec5e75f4fc77",
+    "https://jobs.ksgr.ch/offene-stellen/oberaerztin-oberarzt-angiologie/11bf0a98-fc79-4073-a113-8227a9be3e1c",
+    "https://jobs.ksgr.ch/offene-stellen/weiterbildung-diaetkoechin-diaetkoch/f849a855-61c1-465e-8270-0c3f87fed5c8",
+    "https://jobs.ksgr.ch/offene-stellen/berufsbildner-in-pflege-medizin-privatstation/a9086baa-fbb1-414b-ae92-0cb90198da54",
+    "https://jobs.ksgr.ch/offene-stellen/fachfrau-fachmann-op-lagerung/1b05f98d-08b5-4380-ad3b-bf7c52f4abe8",
+    "https://jobs.ksgr.ch/offene-stellen/assistenzaerztin-assistenzarzt-angiologie/d771cb92-1af8-45ad-a23f-041591175437",
+    "https://jobs.ksgr.ch/offene-stellen/berufsbildner-in-pflege-intensivstation/59284b78-b27b-4566-b051-35cd3d2f1ff2",
+    "https://jobs.ksgr.ch/offene-stellen/medizinische-r-praxisassistent-in-interdisziplinaeres-ambulatorium/44ddda55-4261-4ac8-8722-996dc1013497",
+    "https://jobs.ksgr.ch/offene-stellen/oberaerztin-oberarzt-endokrinologie-diabetologie/9f7cacb4-0ec8-4033-ab8f-be5d2a333474",
+    "https://jobs.ksgr.ch/offene-stellen/ausbildungsverantwortliche-r-pflege/0554aad6-3ef3-463d-94ae-96f424877325",
+    "https://jobs.ksgr.ch/offene-stellen/teamleiter-in-intensivstation/e97a61e1-b0f7-47a6-b1c2-230ecbcaf768",
+    "https://jobs.ksgr.ch/offene-stellen/medizinische-r-praxisassistent-in-schmerzzentrum/be373839-3860-4c56-9d74-2a4d13d064a0",
+    "https://jobs.ksgr.ch/offene-stellen/logistiker-in-operationslager/6748e2fc-bb4e-48f9-a290-3a16a160622b",
+    "https://jobs.ksgr.ch/offene-stellen/gebaeudetechniker-in-fachrichtung-sanitaer/c18bd9cf-7967-4d15-ab98-fe3d8b1a6589",
+    "https://jobs.ksgr.ch/offene-stellen/gebaeudetechniker-in-fachrichtung-kaelte/a33e7ee6-fc42-4c5f-9b4c-0fe4dd5ebb92",
+    "https://jobs.ksgr.ch/offene-stellen/applikationsmanager-in-im-bereich-hrm/b642d0fd-af06-4a10-a0aa-3eac84565839",
+    "https://jobs.ksgr.ch/offene-stellen/rettungssanitaeter-in/9aaf96e1-df40-4207-bb23-04c202b1cb6b",
+    "https://jobs.ksgr.ch/offene-stellen/pflegefachfrau-pflegefachmann-orthopaedie-und-unfallchirurgie/00a662f2-e25f-4d92-ac85-fe1ed535da6f",
+    "https://jobs.ksgr.ch/offene-stellen/expertin-experte-intensivpflege/aeba25dc-ad40-4bed-ba77-3ba286221262",
+    "https://jobs.ksgr.ch/offene-stellen/chefarztsekretaer-in-radio-onkologie/107d70a6-ead9-4777-bcb1-f7aa52d126bd",
+    "https://jobs.ksgr.ch/offene-stellen/pflegefachfrau-pflegefachmann-gefaess-thorax-hand-und-plastische-chirurgie/9a5ab8cd-2f45-427d-9842-3ec5d0c8658f",
+    "https://jobs.ksgr.ch/offene-stellen/pflegefachfrau-pflegefachmann-neurologie-stroke-unit/9e050b3b-f6e6-4670-b403-80b97e97929d",
+    "https://jobs.ksgr.ch/offene-stellen/teamleiter-in-op-lagerung/fa2ee1b9-26b9-47f1-93fc-6fe70105fd2b",
+    "https://jobs.ksgr.ch/offene-stellen/klinische-r-assistent-in-radiologie/b49d3d0a-eefb-44fd-9c32-43bf1420cb6e",
+    "https://jobs.ksgr.ch/offene-stellen/pflegefachfrau-pflegefachmann-urologie-und-unfallchirurgie/b69eec05-a63f-47b5-b2f2-28a754536e53",
+    "https://jobs.ksgr.ch/offene-stellen/vollzeitstudium-dipl-radiologiefachfrau-radiologiefachmann-hf/cb442750-9e6f-4eb0-ad42-cc11dc06dd00",
+    "https://jobs.ksgr.ch/offene-stellen/assistenzaerztin-assistenzarzt-chirurgie/6fad5ff9-5caa-4ce4-9202-aae8f0d325dd",
+    "https://jobs.ksgr.ch/offene-stellen/oberaerztin-oberarzt-neurologie-stroke-medicine/526e6c42-6d4d-430e-b7fd-7979f148a93c",
+    "https://jobs.ksgr.ch/offene-stellen/radiologiefachfrau-radiologiefachmann-brustzentrum/59f2aaf3-c760-447a-ae60-d61ffe60335a",
+    "https://jobs.ksgr.ch/offene-stellen/fachfrau-fachmann-gesundheit-akutgeriatrie/2b1a2211-b4d8-4dcc-ac99-2405ffbb8e6d",
+    "https://jobs.ksgr.ch/offene-stellen/pflegefachfrau-pflegefachmann-akutgeriatrie/e14d752b-cd77-4910-a4e2-f3b3e6c3f0b0",
+    "https://jobs.ksgr.ch/offene-stellen/nachdiplomstudium-dipl-expertin-experte-anaesthesiepflege-hf/4858f29b-6c25-4273-9edb-24f5196b35fe",
+    "https://jobs.ksgr.ch/offene-stellen/nachdiplomstudium-dipl-expertin-experte-intensivpflege-hf-fuer-erwachsene/fb7e8285-a126-4473-bcd4-c030049ebc26",
+    "https://jobs.ksgr.ch/offene-stellen/applikationsmanager-in-sap-is-h/99669f92-8e5b-459d-abd9-f36da7732091",
+    "https://jobs.ksgr.ch/offene-stellen/pflegefachfrau-pflegefachmann-akutgeriatrie/e1b9a009-c0b4-4ede-b4f3-28c42c73b09d",
+    "https://jobs.ksgr.ch/offene-stellen/chefaerztin-chefarzt-augenklinik/efb6f1ab-cf6e-47d2-9064-de0cb4ba0c4f",
+    "https://jobs.ksgr.ch/offene-stellen/expertin-experte-intensivpflege-kinderintensivstation/ec837b6c-7f4f-46ee-953e-01ccb9a0af34",
+    "https://jobs.ksgr.ch/offene-stellen/fachfrau-fachmann-gesundheit-akutgeriatrie/322245bd-666e-40e4-991e-e086cb3bd4f2",
+    "https://jobs.ksgr.ch/offene-stellen/fachfrau-fachmann-operationstechnik/ff0cd565-cd79-4552-a0ae-6297aad4f01c",
+    "https://jobs.ksgr.ch/offene-stellen/oberaerztin-oberarzt-mbf-klinische-notfallmedizin/173cbd8e-d051-420c-8402-9f388d4dd235",
+    "https://jobs.ksgr.ch/offene-stellen/berufsbildner-in-pflege-medizin/38c4a684-e485-4e38-9887-09ef81ac8b0e",
+    "https://jobs.ksgr.ch/offene-stellen/assistenzaerztin-assistenzarzt-radiologie/c7bb4104-1960-4f13-802f-7cc2a006a5f3",
+    "https://jobs.ksgr.ch/offene-stellen/mitarbeiter-in-room-service/7aaad41e-ecda-4fc6-b78e-c5c768ce1f20",
+    "https://jobs.ksgr.ch/offene-stellen/fellow-kardiale-thorakale-radiologie/d1972eaf-225d-44b6-8c24-64aa27281ce5",
+    "https://jobs.ksgr.ch/offene-stellen/hr-projektleiter-in/4729a19f-945f-4c91-b895-e2faa329e061",
+    "https://jobs.ksgr.ch/offene-stellen/ict-network-engineer/d20ca885-5d29-4105-bd68-f2590f854149",
+    "https://jobs.ksgr.ch/offene-stellen/fachfrau-fachmann-operationstechnik/c3966110-0635-4c81-9542-c6811c7407d1",
+    "https://jobs.ksgr.ch/offene-stellen/pflegefachfrau-pflegefachmann-viszeralchirurgie/6e5a9ef3-2296-4b8c-b0ce-f86a001ff058",
+    "https://jobs.ksgr.ch/offene-stellen/pflegefachfrau-pflegefachmann-neurochirurgie-hals-nasen-ohrenklinik/7b0b85df-23be-498a-89d5-445140965195",
+    "https://jobs.ksgr.ch/offene-stellen/psychologin-psychologe/ca62b8ee-ad55-4ab1-8833-910ff6f5765e",
+    "https://jobs.ksgr.ch/offene-stellen/fellow-muskuloskelettale-radiologie/dc39a603-861a-46ee-a463-21f2ddc06268",
+    "https://jobs.ksgr.ch/offene-stellen/cancer-care-nurse-onkologie/600ca755-9205-4279-a3a6-f20f4fbb6ff8",
+    "https://jobs.ksgr.ch/offene-stellen/pflegefachfrau-pflegefachmann-oder-fachexpertin-fachexperte-onkologiepflege-ambulant/175e30d0-2398-4d92-995c-a0324da31908",
+    "https://jobs.ksgr.ch/offene-stellen/fachaerztin-facharzt-gynaekologie-mit-schwerpunkt-reproduktionsmedizin/a32161c5-16ac-4cc0-a154-3dcde6be0519",
+    "https://jobs.ksgr.ch/offene-stellen/assistenzaerztin-assistenzarzt-intensivmedizin/8f7e0da8-1f31-41ff-abf2-1991e0cd3853",
+    "https://jobs.ksgr.ch/offene-stellen/berufslehre-koechin-koch/f97b3f0d-d0b8-4bd1-b801-62398e4c776d",
+    "https://jobs.ksgr.ch/offene-stellen/assistenzaerztin-assistenzarzt-pathologie/e6ecd026-8d83-4174-8598-ea5ff0c160e5",
+    "https://jobs.ksgr.ch/offene-stellen/kaderaerztin-kaderarzt-neuropaediatrie/01e3ed06-aa79-4ab0-9a77-2ab0610ae757",
+    "https://jobs.ksgr.ch/offene-stellen/radiologiefachfrau-radiologiefachmann-diagnostik/564c6b79-3331-40c8-98f0-3f88dfc950b3",
+    "https://jobs.ksgr.ch/offene-stellen/pflegepraktikant-in-waehrend-medizinstudium-haefelipraktikum/994653d1-016d-49d3-85c9-f310242ac7f0",
+    "https://jobs.ksgr.ch/offene-stellen/assistenzaerztin-assistenzarzt-radio-onkologie/bcab74db-3093-452e-bb23-66e1db9168a7",
+    "https://jobs.ksgr.ch/offene-stellen/assistenzaerztin-assistenzarzt-hausarztmedizin-programm-capricorn/d911f47d-49ce-4cb9-a2d7-f6f3f797179d",
+    "https://jobs.ksgr.ch/offene-stellen/assistenzaerztin-assistenzarzt-hausarztmedizin-programm-hausarztcurriculum/ce1dfcc9-45d6-4dd8-879d-89682127059e",
+    "https://jobs.ksgr.ch/offene-stellen/assistenzaerztin-assistenzarzt-gynaekologie-und-geburtshilfe/6b6727ba-7124-400a-aa3c-b8440bba98e7",
+    "https://jobs.ksgr.ch/offene-stellen/assistenzaerztin-assistenzarzt-kinder-und-jugendmedizin/48f50e40-fbb5-4b37-a11d-5b1a8881b0e0",
+    "https://jobs.ksgr.ch/offene-stellen/coiffeuse-coiffeur/f7ad46eb-9c02-46bb-ac39-5ec3160b0389",
+    "https://jobs.ksgr.ch/offene-stellen/leitende-r-aerztin-arzt-paediatrische-intensivmedizin-oder-neonatologie/59fd81fe-f3f3-48bd-9461-2b4a63ed90f4",
+    "https://jobs.ksgr.ch/offene-stellen/pflegefachfrau-pflegefachmann-intermediate-care/3523aeaf-b72e-4588-bbf5-234405075833",
+    "https://jobs.ksgr.ch/offene-stellen/vollzeitstudium-pflegefachfrau-pflegefachmann-hf-mit-schwerpunkt-kjff/61d65559-82fc-47f5-9351-e33369de9eaf",
+    "https://jobs.ksgr.ch/offene-stellen/praktikant-in-fachmaturitaet-gesundheit/ed450ebf-7d76-4c36-a0a3-6f9798be9d0a",
+    "https://jobs.ksgr.ch/offene-stellen/vollzeitstudium-pflegefachfrau-pflegefachmann-hf/3aa00c18-fd8a-4d68-a678-063bbd4a77d2",
+    "https://jobs.ksgr.ch/offene-stellen/fachfrau-fachmann-gesundheit-chirurgie/ff8e3b04-c85e-4b3c-ae8c-56e0a1f33a7f",
+    "https://jobs.ksgr.ch/offene-stellen/kaderpraktikant-in-room-service/bf39f04f-c1fa-44d1-9dc3-957c006a816f",
+    "https://jobs.ksgr.ch/offene-stellen/nachdiplomstudium-dipl-expertin-experte-intensivpflege-hf-fuer-paediatrie/8acdf79d-110a-4dd5-92c6-4965d4379bcc",
+    "https://jobs.ksgr.ch/offene-stellen/pharmaziepraktikant-in/8205f745-6d5e-4b76-8c36-8c1be5326b2b",
+    "https://jobs.ksgr.ch/offene-stellen/freiwillige-r-helfer-in/26b2fc79-28d9-43d1-89be-b47b078f3ed7",
+    "https://jobs.ksgr.ch/offene-stellen/unterassistentinnen-und-unterassistenten/5b5ce3cc-38d3-4e45-a867-6f4857663bce",
+    "https://jobs.ksgr.ch/offene-stellen/vollzeitstudium-dipl-fachfrau-fachmann-operationstechnik-hf/3ed5e98e-4107-4568-989e-0a16bc4af0b0",
+    "https://jobs.ksgr.ch/offene-stellen/weiterbildung-dipl-biomedizinische-r-analytiker-in-hf/d60496ed-4273-48c7-98e7-ea22f51e5631",
+    "https://jobs.ksgr.ch/offene-stellen/vollzeitstudium-pflegefachfrau-pflegefachmann-hf/88860892-0311-444f-b3c1-d3a69d1ca52f",
+    "https://jobs.ksgr.ch/offene-stellen/strukturiertes-praxisjahr/a6a19114-b682-4034-b345-5ece2782d194"
+  ],
+  "seedMetaByUrl": {
+    "https://jobs.ksgr.ch/offene-stellen/fachspezialist-in-employer-branding-rekrutierung/06f8d7b2-16a7-47d3-b960-317bebad4909": {
+      "location": "Chur",
+      "canton": "GR",
+      "company": "Kantonsspital Graubünden",
+      "postedDate": "2026-03-06"
+    },
+    "https://jobs.ksgr.ch/offene-stellen/arztsekretaer-in-onkologie-haematologie/c323c332-5c86-497c-a38c-1819f25b7066": {
+      "location": "Chur",
+      "canton": "GR",
+      "company": "Kantonsspital Graubünden",
+      "postedDate": "2026-03-06"
+    },
+    "https://jobs.ksgr.ch/offene-stellen/pflegefachfrau-pflegefachmann-interdisziplinaeres-ambulatorium/1db64e18-3819-46a9-b1ae-80e1e05cfef7": {
+      "location": "Walenstadt",
+      "canton": "GR",
+      "company": "Kantonsspital Graubünden",
+      "postedDate": "2026-03-06"
+    },
+    "https://jobs.ksgr.ch/offene-stellen/administrative-r-praktikant-in-chirurgie/be4fc7de-6075-44d6-9bbd-dd7daf312749": {
+      "location": "Chur",
+      "canton": "GR",
+      "company": "Kantonsspital Graubünden",
+      "postedDate": "2026-03-05"
+    },
+    "https://jobs.ksgr.ch/offene-stellen/abteilungsleiter-in-medizinische-kodierung/b8fd8274-6ac0-4aff-880c-0629c2b7b860": {
+      "location": "Chur",
+      "canton": "GR",
+      "company": "Kantonsspital Graubünden",
+      "postedDate": "2026-03-02"
+    },
+    "https://jobs.ksgr.ch/offene-stellen/oberaerztin-oberarzt-rheumatologie/89d6fb39-c682-476e-9296-1a394a53441e": {
+      "location": "Chur",
+      "canton": "GR",
+      "company": "Kantonsspital Graubünden",
+      "postedDate": "2026-02-27"
+    },
+    "https://jobs.ksgr.ch/offene-stellen/medizinische-r-kodierer-in/8b5cfd83-d3c6-46f3-b3c4-a30d9c1a15a9": {
+      "location": "Chur",
+      "canton": "GR",
+      "company": "Kantonsspital Graubünden",
+      "postedDate": "2026-02-26"
+    },
+    "https://jobs.ksgr.ch/offene-stellen/forschungskoordinator-in-forschungszentrum/93bf3d10-b482-4059-9254-b0ce9e9cb4a6": {
+      "location": "Chur",
+      "canton": "GR",
+      "company": "Kantonsspital Graubünden",
+      "postedDate": "2026-02-24"
+    },
+    "https://jobs.ksgr.ch/offene-stellen/zytologieassistent-in/c770a392-d232-4fcc-a6a1-6f73294d24de": {
+      "location": "Chur",
+      "canton": "GR",
+      "company": "Kantonsspital Graubünden",
+      "postedDate": "2026-02-23"
+    },
+    "https://jobs.ksgr.ch/offene-stellen/logopaedin-logopaede/b21110dd-cf2f-420f-92bc-558cf3adcb91": {
+      "location": "Chur",
+      "canton": "GR",
+      "company": "Kantonsspital Graubünden",
+      "postedDate": "2026-02-23"
+    },
+    "https://jobs.ksgr.ch/offene-stellen/mitarbeiter-in-logistik-spitalpharmazie/fe97f325-010b-4c26-8053-8a5630ae78b7": {
+      "location": "Chur",
+      "canton": "GR",
+      "company": "Kantonsspital Graubünden",
+      "postedDate": "2026-02-20"
+    },
+    "https://jobs.ksgr.ch/offene-stellen/co-projektleiter-in-business-sap/0b89187b-ee81-46d4-ae93-8826e94d168d": {
+      "location": "Chur",
+      "canton": "GR",
+      "company": "Kantonsspital Graubünden",
+      "postedDate": "2026-02-20"
+    },
+    "https://jobs.ksgr.ch/offene-stellen/neuropsychologin-neuropsychologe-paediatrie/9f0ec9c0-27a3-4ea2-8d72-f0482c5423bb": {
+      "location": "Chur",
+      "canton": "GR",
+      "company": "Kantonsspital Graubünden",
+      "postedDate": "2026-02-19"
+    },
+    "https://jobs.ksgr.ch/offene-stellen/gebaeudetechniker-in-fachrichtung-elektro/21835cf4-4ee0-49db-8c0b-5bf6319762f3": {
+      "location": "Chur",
+      "canton": "GR",
+      "company": "Kantonsspital Graubünden",
+      "postedDate": "2026-02-19"
+    },
+    "https://jobs.ksgr.ch/offene-stellen/biomedizinische-r-analytiker-in/72ddc193-7089-4eb3-8863-6200de05d10f": {
+      "location": "Chur",
+      "canton": "GR",
+      "company": "Kantonsspital Graubünden",
+      "postedDate": "2026-02-18"
+    },
+    "https://jobs.ksgr.ch/offene-stellen/apotheker-in-klinische-pharmazie/868b2210-6975-4a2d-ae5e-feabcd733ec5": {
+      "location": "Chur",
+      "canton": "GR",
+      "company": "Kantonsspital Graubünden",
+      "postedDate": "2026-02-18"
+    },
+    "https://jobs.ksgr.ch/offene-stellen/pflegefachverantwortliche-r-urologie-und-unfallchirurgie/0ff38b27-04b3-43d8-8f4b-b2354964dcc7": {
+      "location": "Chur",
+      "canton": "GR",
+      "company": "Kantonsspital Graubünden",
+      "postedDate": "2026-02-17"
+    },
+    "https://jobs.ksgr.ch/offene-stellen/chefarztsekretaer-in-urologie/3fad8878-cb90-4c6d-95a6-c2b38bfb56ed": {
+      "location": "Chur",
+      "canton": "GR",
+      "company": "Kantonsspital Graubünden",
+      "postedDate": "2026-02-17"
+    },
+    "https://jobs.ksgr.ch/offene-stellen/fachfrau-fachmann-gesundheit-kardiologie-nephrologie/a552645e-aa86-4795-91ba-c635b3b20878": {
+      "location": "Chur",
+      "canton": "GR",
+      "company": "Kantonsspital Graubünden",
+      "postedDate": "2026-02-17"
+    },
+    "https://jobs.ksgr.ch/offene-stellen/pflegefachverantwortliche-r-viszeralchirurgie/2dae79cf-e9dc-424b-ba56-fc816c5a76ac": {
+      "location": "Chur",
+      "canton": "GR",
+      "company": "Kantonsspital Graubünden",
+      "postedDate": "2026-02-17"
+    },
+    "https://jobs.ksgr.ch/offene-stellen/biomedizinische-r-analytiker-in/e593a3be-e7a2-4548-98d1-eda56e2ca7ba": {
+      "location": "Samedan",
+      "canton": "GR",
+      "company": "Kantonsspital Graubünden",
+      "postedDate": "2026-02-13"
+    },
+    "https://jobs.ksgr.ch/offene-stellen/mitarbeiter-in-technischer-dienst/f8ffd1f8-373d-4fc9-a021-65493483e111": {
+      "location": "Walenstadt",
+      "canton": "GR",
+      "company": "Kantonsspital Graubünden",
+      "postedDate": "2026-02-11"
+    },
+    "https://jobs.ksgr.ch/offene-stellen/fachfrau-fachmann-gesundheit-wochenklinik-medizin/04e0afd2-8fd1-40af-a959-1709fe28d554": {
+      "location": "Chur",
+      "canton": "GR",
+      "company": "Kantonsspital Graubünden",
+      "postedDate": "2026-02-11"
+    },
+    "https://jobs.ksgr.ch/offene-stellen/diaetkoechin-diaetkoch-kartenbuero/53f388f6-4c6e-4b7f-9514-4c27255d131f": {
+      "location": "Chur",
+      "canton": "GR",
+      "company": "Kantonsspital Graubünden",
+      "postedDate": "2026-02-10"
+    },
+    "https://jobs.ksgr.ch/offene-stellen/diaetkoechin-diaetkoch/7dcb8bc9-e71a-4f57-8e30-ec5e75f4fc77": {
+      "location": "Chur",
+      "canton": "GR",
+      "company": "Kantonsspital Graubünden",
+      "postedDate": "2026-02-10"
+    },
+    "https://jobs.ksgr.ch/offene-stellen/oberaerztin-oberarzt-angiologie/11bf0a98-fc79-4073-a113-8227a9be3e1c": {
+      "location": "Chur",
+      "canton": "GR",
+      "company": "Kantonsspital Graubünden",
+      "postedDate": "2026-02-09"
+    },
+    "https://jobs.ksgr.ch/offene-stellen/weiterbildung-diaetkoechin-diaetkoch/f849a855-61c1-465e-8270-0c3f87fed5c8": {
+      "location": "Chur",
+      "canton": "GR",
+      "company": "Kantonsspital Graubünden",
+      "postedDate": "2026-02-04"
+    },
+    "https://jobs.ksgr.ch/offene-stellen/berufsbildner-in-pflege-medizin-privatstation/a9086baa-fbb1-414b-ae92-0cb90198da54": {
+      "location": "Chur",
+      "canton": "GR",
+      "company": "Kantonsspital Graubünden",
+      "postedDate": "2026-02-04"
+    },
+    "https://jobs.ksgr.ch/offene-stellen/fachfrau-fachmann-op-lagerung/1b05f98d-08b5-4380-ad3b-bf7c52f4abe8": {
+      "location": "Chur",
+      "canton": "GR",
+      "company": "Kantonsspital Graubünden",
+      "postedDate": "2026-02-04"
+    },
+    "https://jobs.ksgr.ch/offene-stellen/assistenzaerztin-assistenzarzt-angiologie/d771cb92-1af8-45ad-a23f-041591175437": {
+      "location": "Chur",
+      "canton": "GR",
+      "company": "Kantonsspital Graubünden",
+      "postedDate": "2026-02-04"
+    },
+    "https://jobs.ksgr.ch/offene-stellen/berufsbildner-in-pflege-intensivstation/59284b78-b27b-4566-b051-35cd3d2f1ff2": {
+      "location": "Chur",
+      "canton": "GR",
+      "company": "Kantonsspital Graubünden",
+      "postedDate": "2026-02-04"
+    },
+    "https://jobs.ksgr.ch/offene-stellen/medizinische-r-praxisassistent-in-interdisziplinaeres-ambulatorium/44ddda55-4261-4ac8-8722-996dc1013497": {
+      "location": "Walenstadt",
+      "canton": "GR",
+      "company": "Kantonsspital Graubünden",
+      "postedDate": "2026-02-04"
+    },
+    "https://jobs.ksgr.ch/offene-stellen/oberaerztin-oberarzt-endokrinologie-diabetologie/9f7cacb4-0ec8-4033-ab8f-be5d2a333474": {
+      "location": "Chur",
+      "canton": "GR",
+      "company": "Kantonsspital Graubünden",
+      "postedDate": "2026-02-04"
+    },
+    "https://jobs.ksgr.ch/offene-stellen/ausbildungsverantwortliche-r-pflege/0554aad6-3ef3-463d-94ae-96f424877325": {
+      "location": "Walenstadt",
+      "canton": "GR",
+      "company": "Kantonsspital Graubünden",
+      "postedDate": "2026-02-02"
+    },
+    "https://jobs.ksgr.ch/offene-stellen/teamleiter-in-intensivstation/e97a61e1-b0f7-47a6-b1c2-230ecbcaf768": {
+      "location": "Chur",
+      "canton": "GR",
+      "company": "Kantonsspital Graubünden",
+      "postedDate": "2026-01-30"
+    },
+    "https://jobs.ksgr.ch/offene-stellen/medizinische-r-praxisassistent-in-schmerzzentrum/be373839-3860-4c56-9d74-2a4d13d064a0": {
+      "location": "Chur",
+      "canton": "GR",
+      "company": "Kantonsspital Graubünden",
+      "postedDate": "2026-01-30"
+    },
+    "https://jobs.ksgr.ch/offene-stellen/logistiker-in-operationslager/6748e2fc-bb4e-48f9-a290-3a16a160622b": {
+      "location": "Chur",
+      "canton": "GR",
+      "company": "Kantonsspital Graubünden",
+      "postedDate": "2026-01-26"
+    },
+    "https://jobs.ksgr.ch/offene-stellen/gebaeudetechniker-in-fachrichtung-sanitaer/c18bd9cf-7967-4d15-ab98-fe3d8b1a6589": {
+      "location": "Chur",
+      "canton": "GR",
+      "company": "Kantonsspital Graubünden",
+      "postedDate": "2026-01-26"
+    },
+    "https://jobs.ksgr.ch/offene-stellen/gebaeudetechniker-in-fachrichtung-kaelte/a33e7ee6-fc42-4c5f-9b4c-0fe4dd5ebb92": {
+      "location": "Chur",
+      "canton": "GR",
+      "company": "Kantonsspital Graubünden",
+      "postedDate": "2026-01-26"
+    },
+    "https://jobs.ksgr.ch/offene-stellen/applikationsmanager-in-im-bereich-hrm/b642d0fd-af06-4a10-a0aa-3eac84565839": {
+      "location": "Chur",
+      "canton": "GR",
+      "company": "Kantonsspital Graubünden",
+      "postedDate": "2026-01-25"
+    },
+    "https://jobs.ksgr.ch/offene-stellen/rettungssanitaeter-in/9aaf96e1-df40-4207-bb23-04c202b1cb6b": {
+      "location": "Chur",
+      "canton": "GR",
+      "company": "Kantonsspital Graubünden",
+      "postedDate": "2026-01-20"
+    },
+    "https://jobs.ksgr.ch/offene-stellen/pflegefachfrau-pflegefachmann-orthopaedie-und-unfallchirurgie/00a662f2-e25f-4d92-ac85-fe1ed535da6f": {
+      "location": "Chur",
+      "canton": "GR",
+      "company": "Kantonsspital Graubünden",
+      "postedDate": "2026-01-16"
+    },
+    "https://jobs.ksgr.ch/offene-stellen/expertin-experte-intensivpflege/aeba25dc-ad40-4bed-ba77-3ba286221262": {
+      "location": "Chur",
+      "canton": "GR",
+      "company": "Kantonsspital Graubünden",
+      "postedDate": "2026-01-16"
+    },
+    "https://jobs.ksgr.ch/offene-stellen/chefarztsekretaer-in-radio-onkologie/107d70a6-ead9-4777-bcb1-f7aa52d126bd": {
+      "location": "Chur",
+      "canton": "GR",
+      "company": "Kantonsspital Graubünden",
+      "postedDate": "2026-01-16"
+    },
+    "https://jobs.ksgr.ch/offene-stellen/pflegefachfrau-pflegefachmann-gefaess-thorax-hand-und-plastische-chirurgie/9a5ab8cd-2f45-427d-9842-3ec5d0c8658f": {
+      "location": "Chur",
+      "canton": "GR",
+      "company": "Kantonsspital Graubünden",
+      "postedDate": "2026-01-15"
+    },
+    "https://jobs.ksgr.ch/offene-stellen/pflegefachfrau-pflegefachmann-neurologie-stroke-unit/9e050b3b-f6e6-4670-b403-80b97e97929d": {
+      "location": "Chur",
+      "canton": "GR",
+      "company": "Kantonsspital Graubünden",
+      "postedDate": "2026-01-15"
+    },
+    "https://jobs.ksgr.ch/offene-stellen/teamleiter-in-op-lagerung/fa2ee1b9-26b9-47f1-93fc-6fe70105fd2b": {
+      "location": "Chur",
+      "canton": "GR",
+      "company": "Kantonsspital Graubünden",
+      "postedDate": "2026-01-12"
+    },
+    "https://jobs.ksgr.ch/offene-stellen/klinische-r-assistent-in-radiologie/b49d3d0a-eefb-44fd-9c32-43bf1420cb6e": {
+      "location": "Chur",
+      "canton": "GR",
+      "company": "Kantonsspital Graubünden",
+      "postedDate": "2026-01-09"
+    },
+    "https://jobs.ksgr.ch/offene-stellen/pflegefachfrau-pflegefachmann-urologie-und-unfallchirurgie/b69eec05-a63f-47b5-b2f2-28a754536e53": {
+      "location": "Chur",
+      "canton": "GR",
+      "company": "Kantonsspital Graubünden",
+      "postedDate": "2026-01-09"
+    },
+    "https://jobs.ksgr.ch/offene-stellen/vollzeitstudium-dipl-radiologiefachfrau-radiologiefachmann-hf/cb442750-9e6f-4eb0-ad42-cc11dc06dd00": {
+      "location": "Chur",
+      "canton": "GR",
+      "company": "Kantonsspital Graubünden",
+      "postedDate": "2026-01-08"
+    },
+    "https://jobs.ksgr.ch/offene-stellen/assistenzaerztin-assistenzarzt-chirurgie/6fad5ff9-5caa-4ce4-9202-aae8f0d325dd": {
+      "location": "Chur",
+      "canton": "GR",
+      "company": "Kantonsspital Graubünden",
+      "postedDate": "2026-01-08"
+    },
+    "https://jobs.ksgr.ch/offene-stellen/oberaerztin-oberarzt-neurologie-stroke-medicine/526e6c42-6d4d-430e-b7fd-7979f148a93c": {
+      "location": "Chur",
+      "canton": "GR",
+      "company": "Kantonsspital Graubünden",
+      "postedDate": "2026-01-08"
+    },
+    "https://jobs.ksgr.ch/offene-stellen/radiologiefachfrau-radiologiefachmann-brustzentrum/59f2aaf3-c760-447a-ae60-d61ffe60335a": {
+      "location": "Chur",
+      "canton": "GR",
+      "company": "Kantonsspital Graubünden",
+      "postedDate": "2026-01-08"
+    },
+    "https://jobs.ksgr.ch/offene-stellen/fachfrau-fachmann-gesundheit-akutgeriatrie/2b1a2211-b4d8-4dcc-ac99-2405ffbb8e6d": {
+      "location": "Chur",
+      "canton": "GR",
+      "company": "Kantonsspital Graubünden",
+      "postedDate": "2026-01-08"
+    },
+    "https://jobs.ksgr.ch/offene-stellen/pflegefachfrau-pflegefachmann-akutgeriatrie/e14d752b-cd77-4910-a4e2-f3b3e6c3f0b0": {
+      "location": "Chur",
+      "canton": "GR",
+      "company": "Kantonsspital Graubünden",
+      "postedDate": "2025-12-29"
+    },
+    "https://jobs.ksgr.ch/offene-stellen/nachdiplomstudium-dipl-expertin-experte-anaesthesiepflege-hf/4858f29b-6c25-4273-9edb-24f5196b35fe": {
+      "location": "Chur",
+      "canton": "GR",
+      "company": "Kantonsspital Graubünden",
+      "postedDate": "2025-12-24"
+    },
+    "https://jobs.ksgr.ch/offene-stellen/nachdiplomstudium-dipl-expertin-experte-intensivpflege-hf-fuer-erwachsene/fb7e8285-a126-4473-bcd4-c030049ebc26": {
+      "location": "Chur",
+      "canton": "GR",
+      "company": "Kantonsspital Graubünden",
+      "postedDate": "2025-12-24"
+    },
+    "https://jobs.ksgr.ch/offene-stellen/applikationsmanager-in-sap-is-h/99669f92-8e5b-459d-abd9-f36da7732091": {
+      "location": "Chur",
+      "canton": "GR",
+      "company": "Kantonsspital Graubünden",
+      "postedDate": "2025-12-23"
+    },
+    "https://jobs.ksgr.ch/offene-stellen/pflegefachfrau-pflegefachmann-akutgeriatrie/e1b9a009-c0b4-4ede-b4f3-28c42c73b09d": {
+      "location": "Walenstadt",
+      "canton": "GR",
+      "company": "Kantonsspital Graubünden",
+      "postedDate": "2025-12-22"
+    },
+    "https://jobs.ksgr.ch/offene-stellen/chefaerztin-chefarzt-augenklinik/efb6f1ab-cf6e-47d2-9064-de0cb4ba0c4f": {
+      "location": "Chur",
+      "canton": "GR",
+      "company": "Kantonsspital Graubünden",
+      "postedDate": "2025-12-21"
+    },
+    "https://jobs.ksgr.ch/offene-stellen/expertin-experte-intensivpflege-kinderintensivstation/ec837b6c-7f4f-46ee-953e-01ccb9a0af34": {
+      "location": "Chur",
+      "canton": "GR",
+      "company": "Kantonsspital Graubünden",
+      "postedDate": "2025-12-19"
+    },
+    "https://jobs.ksgr.ch/offene-stellen/fachfrau-fachmann-gesundheit-akutgeriatrie/322245bd-666e-40e4-991e-e086cb3bd4f2": {
+      "location": "Walenstadt",
+      "canton": "GR",
+      "company": "Kantonsspital Graubünden",
+      "postedDate": "2025-12-15"
+    },
+    "https://jobs.ksgr.ch/offene-stellen/fachfrau-fachmann-operationstechnik/ff0cd565-cd79-4552-a0ae-6297aad4f01c": {
+      "location": "Chur",
+      "canton": "GR",
+      "company": "Kantonsspital Graubünden",
+      "postedDate": "2025-12-10"
+    },
+    "https://jobs.ksgr.ch/offene-stellen/oberaerztin-oberarzt-mbf-klinische-notfallmedizin/173cbd8e-d051-420c-8402-9f388d4dd235": {
+      "location": "Chur",
+      "canton": "GR",
+      "company": "Kantonsspital Graubünden",
+      "postedDate": "2025-12-08"
+    },
+    "https://jobs.ksgr.ch/offene-stellen/berufsbildner-in-pflege-medizin/38c4a684-e485-4e38-9887-09ef81ac8b0e": {
+      "location": "Walenstadt",
+      "canton": "GR",
+      "company": "Kantonsspital Graubünden",
+      "postedDate": "2025-12-01"
+    },
+    "https://jobs.ksgr.ch/offene-stellen/assistenzaerztin-assistenzarzt-radiologie/c7bb4104-1960-4f13-802f-7cc2a006a5f3": {
+      "location": "Chur",
+      "canton": "GR",
+      "company": "Kantonsspital Graubünden",
+      "postedDate": "2025-11-12"
+    },
+    "https://jobs.ksgr.ch/offene-stellen/mitarbeiter-in-room-service/7aaad41e-ecda-4fc6-b78e-c5c768ce1f20": {
+      "location": "Chur",
+      "canton": "GR",
+      "company": "Kantonsspital Graubünden",
+      "postedDate": "2025-11-07"
+    },
+    "https://jobs.ksgr.ch/offene-stellen/fellow-kardiale-thorakale-radiologie/d1972eaf-225d-44b6-8c24-64aa27281ce5": {
+      "location": "Chur",
+      "canton": "GR",
+      "company": "Kantonsspital Graubünden",
+      "postedDate": "2025-11-04"
+    },
+    "https://jobs.ksgr.ch/offene-stellen/hr-projektleiter-in/4729a19f-945f-4c91-b895-e2faa329e061": {
+      "location": "Chur",
+      "canton": "GR",
+      "company": "Kantonsspital Graubünden",
+      "postedDate": "2025-11-04"
+    },
+    "https://jobs.ksgr.ch/offene-stellen/ict-network-engineer/d20ca885-5d29-4105-bd68-f2590f854149": {
+      "location": "Chur",
+      "canton": "GR",
+      "company": "Kantonsspital Graubünden",
+      "postedDate": "2025-10-15"
+    },
+    "https://jobs.ksgr.ch/offene-stellen/fachfrau-fachmann-operationstechnik/c3966110-0635-4c81-9542-c6811c7407d1": {
+      "location": "Chur",
+      "canton": "GR",
+      "company": "Kantonsspital Graubünden",
+      "postedDate": "2025-10-12"
+    },
+    "https://jobs.ksgr.ch/offene-stellen/pflegefachfrau-pflegefachmann-viszeralchirurgie/6e5a9ef3-2296-4b8c-b0ce-f86a001ff058": {
+      "location": "Chur",
+      "canton": "GR",
+      "company": "Kantonsspital Graubünden",
+      "postedDate": "2025-09-10"
+    },
+    "https://jobs.ksgr.ch/offene-stellen/pflegefachfrau-pflegefachmann-neurochirurgie-hals-nasen-ohrenklinik/7b0b85df-23be-498a-89d5-445140965195": {
+      "location": "Chur",
+      "canton": "GR",
+      "company": "Kantonsspital Graubünden",
+      "postedDate": "2025-09-10"
+    },
+    "https://jobs.ksgr.ch/offene-stellen/psychologin-psychologe/ca62b8ee-ad55-4ab1-8833-910ff6f5765e": {
+      "location": "Chur",
+      "canton": "GR",
+      "company": "Kantonsspital Graubünden",
+      "postedDate": "2025-09-10"
+    },
+    "https://jobs.ksgr.ch/offene-stellen/fellow-muskuloskelettale-radiologie/dc39a603-861a-46ee-a463-21f2ddc06268": {
+      "location": "Chur",
+      "canton": "GR",
+      "company": "Kantonsspital Graubünden",
+      "postedDate": "2025-08-13"
+    },
+    "https://jobs.ksgr.ch/offene-stellen/cancer-care-nurse-onkologie/600ca755-9205-4279-a3a6-f20f4fbb6ff8": {
+      "location": "Chur",
+      "canton": "GR",
+      "company": "Kantonsspital Graubünden",
+      "postedDate": "2025-08-11"
+    },
+    "https://jobs.ksgr.ch/offene-stellen/pflegefachfrau-pflegefachmann-oder-fachexpertin-fachexperte-onkologiepflege-ambulant/175e30d0-2398-4d92-995c-a0324da31908": {
+      "location": "Chur",
+      "canton": "GR",
+      "company": "Kantonsspital Graubünden",
+      "postedDate": "2025-08-04"
+    },
+    "https://jobs.ksgr.ch/offene-stellen/fachaerztin-facharzt-gynaekologie-mit-schwerpunkt-reproduktionsmedizin/a32161c5-16ac-4cc0-a154-3dcde6be0519": {
+      "location": "Chur",
+      "canton": "GR",
+      "company": "Kantonsspital Graubünden",
+      "postedDate": "2025-07-10"
+    },
+    "https://jobs.ksgr.ch/offene-stellen/assistenzaerztin-assistenzarzt-intensivmedizin/8f7e0da8-1f31-41ff-abf2-1991e0cd3853": {
+      "location": "Chur",
+      "canton": "GR",
+      "company": "Kantonsspital Graubünden",
+      "postedDate": "2025-06-22"
+    },
+    "https://jobs.ksgr.ch/offene-stellen/berufslehre-koechin-koch/f97b3f0d-d0b8-4bd1-b801-62398e4c776d": {
+      "location": "Chur",
+      "canton": "GR",
+      "company": "Kantonsspital Graubünden",
+      "postedDate": "2025-05-04"
+    },
+    "https://jobs.ksgr.ch/offene-stellen/assistenzaerztin-assistenzarzt-pathologie/e6ecd026-8d83-4174-8598-ea5ff0c160e5": {
+      "location": "Chur",
+      "canton": "GR",
+      "company": "Kantonsspital Graubünden",
+      "postedDate": "2025-04-23"
+    },
+    "https://jobs.ksgr.ch/offene-stellen/kaderaerztin-kaderarzt-neuropaediatrie/01e3ed06-aa79-4ab0-9a77-2ab0610ae757": {
+      "location": "Chur",
+      "canton": "GR",
+      "company": "Kantonsspital Graubünden",
+      "postedDate": "2025-04-11"
+    },
+    "https://jobs.ksgr.ch/offene-stellen/radiologiefachfrau-radiologiefachmann-diagnostik/564c6b79-3331-40c8-98f0-3f88dfc950b3": {
+      "location": "Chur",
+      "canton": "GR",
+      "company": "Kantonsspital Graubünden",
+      "postedDate": "2025-03-17"
+    },
+    "https://jobs.ksgr.ch/offene-stellen/pflegepraktikant-in-waehrend-medizinstudium-haefelipraktikum/994653d1-016d-49d3-85c9-f310242ac7f0": {
+      "location": "Chur",
+      "canton": "GR",
+      "company": "Kantonsspital Graubünden",
+      "postedDate": "2025-02-24"
+    },
+    "https://jobs.ksgr.ch/offene-stellen/assistenzaerztin-assistenzarzt-radio-onkologie/bcab74db-3093-452e-bb23-66e1db9168a7": {
+      "location": "Chur",
+      "canton": "GR",
+      "company": "Kantonsspital Graubünden",
+      "postedDate": "2025-02-20"
+    },
+    "https://jobs.ksgr.ch/offene-stellen/assistenzaerztin-assistenzarzt-hausarztmedizin-programm-capricorn/d911f47d-49ce-4cb9-a2d7-f6f3f797179d": {
+      "location": "Chur",
+      "canton": "GR",
+      "company": "Kantonsspital Graubünden",
+      "postedDate": "2025-02-13"
+    },
+    "https://jobs.ksgr.ch/offene-stellen/assistenzaerztin-assistenzarzt-hausarztmedizin-programm-hausarztcurriculum/ce1dfcc9-45d6-4dd8-879d-89682127059e": {
+      "location": "Chur",
+      "canton": "GR",
+      "company": "Kantonsspital Graubünden",
+      "postedDate": "2025-02-13"
+    },
+    "https://jobs.ksgr.ch/offene-stellen/assistenzaerztin-assistenzarzt-gynaekologie-und-geburtshilfe/6b6727ba-7124-400a-aa3c-b8440bba98e7": {
+      "location": "Chur",
+      "canton": "GR",
+      "company": "Kantonsspital Graubünden",
+      "postedDate": "2025-01-31"
+    },
+    "https://jobs.ksgr.ch/offene-stellen/assistenzaerztin-assistenzarzt-kinder-und-jugendmedizin/48f50e40-fbb5-4b37-a11d-5b1a8881b0e0": {
+      "location": "Chur",
+      "canton": "GR",
+      "company": "Kantonsspital Graubünden",
+      "postedDate": "2024-12-19"
+    },
+    "https://jobs.ksgr.ch/offene-stellen/coiffeuse-coiffeur/f7ad46eb-9c02-46bb-ac39-5ec3160b0389": {
+      "location": "Chur",
+      "canton": "GR",
+      "company": "Kantonsspital Graubünden",
+      "postedDate": "2024-11-18"
+    },
+    "https://jobs.ksgr.ch/offene-stellen/leitende-r-aerztin-arzt-paediatrische-intensivmedizin-oder-neonatologie/59fd81fe-f3f3-48bd-9461-2b4a63ed90f4": {
+      "location": "Chur",
+      "canton": "GR",
+      "company": "Kantonsspital Graubünden",
+      "postedDate": "2024-11-18"
+    },
+    "https://jobs.ksgr.ch/offene-stellen/pflegefachfrau-pflegefachmann-intermediate-care/3523aeaf-b72e-4588-bbf5-234405075833": {
+      "location": "Chur",
+      "canton": "GR",
+      "company": "Kantonsspital Graubünden",
+      "postedDate": "2024-10-03"
+    },
+    "https://jobs.ksgr.ch/offene-stellen/vollzeitstudium-pflegefachfrau-pflegefachmann-hf-mit-schwerpunkt-kjff/61d65559-82fc-47f5-9351-e33369de9eaf": {
+      "location": "Chur",
+      "canton": "GR",
+      "company": "Kantonsspital Graubünden",
+      "postedDate": "2024-08-23"
+    },
+    "https://jobs.ksgr.ch/offene-stellen/praktikant-in-fachmaturitaet-gesundheit/ed450ebf-7d76-4c36-a0a3-6f9798be9d0a": {
+      "location": "Chur",
+      "canton": "GR",
+      "company": "Kantonsspital Graubünden",
+      "postedDate": "2024-08-23"
+    },
+    "https://jobs.ksgr.ch/offene-stellen/vollzeitstudium-pflegefachfrau-pflegefachmann-hf/3aa00c18-fd8a-4d68-a678-063bbd4a77d2": {
+      "location": "Chur",
+      "canton": "GR",
+      "company": "Kantonsspital Graubünden",
+      "postedDate": "2024-08-22"
+    },
+    "https://jobs.ksgr.ch/offene-stellen/fachfrau-fachmann-gesundheit-chirurgie/ff8e3b04-c85e-4b3c-ae8c-56e0a1f33a7f": {
+      "location": "Chur",
+      "canton": "GR",
+      "company": "Kantonsspital Graubünden",
+      "postedDate": "2024-08-01"
+    },
+    "https://jobs.ksgr.ch/offene-stellen/kaderpraktikant-in-room-service/bf39f04f-c1fa-44d1-9dc3-957c006a816f": {
+      "location": "Chur",
+      "canton": "GR",
+      "company": "Kantonsspital Graubünden",
+      "postedDate": "2024-06-07"
+    },
+    "https://jobs.ksgr.ch/offene-stellen/nachdiplomstudium-dipl-expertin-experte-intensivpflege-hf-fuer-paediatrie/8acdf79d-110a-4dd5-92c6-4965d4379bcc": {
+      "location": "Chur",
+      "canton": "GR",
+      "company": "Kantonsspital Graubünden",
+      "postedDate": "2024-05-02"
+    },
+    "https://jobs.ksgr.ch/offene-stellen/pharmaziepraktikant-in/8205f745-6d5e-4b76-8c36-8c1be5326b2b": {
+      "location": "Chur",
+      "canton": "GR",
+      "company": "Kantonsspital Graubünden",
+      "postedDate": "2024-03-11"
+    },
+    "https://jobs.ksgr.ch/offene-stellen/freiwillige-r-helfer-in/26b2fc79-28d9-43d1-89be-b47b078f3ed7": {
+      "location": "Chur",
+      "canton": "GR",
+      "company": "Kantonsspital Graubünden",
+      "postedDate": "2023-03-23"
+    },
+    "https://jobs.ksgr.ch/offene-stellen/unterassistentinnen-und-unterassistenten/5b5ce3cc-38d3-4e45-a867-6f4857663bce": {
+      "location": "Chur",
+      "canton": "GR",
+      "company": "Kantonsspital Graubünden",
+      "postedDate": "2023-03-21"
+    },
+    "https://jobs.ksgr.ch/offene-stellen/vollzeitstudium-dipl-fachfrau-fachmann-operationstechnik-hf/3ed5e98e-4107-4568-989e-0a16bc4af0b0": {
+      "location": "Chur",
+      "canton": "GR",
+      "company": "Kantonsspital Graubünden",
+      "postedDate": "2023-03-09"
+    },
+    "https://jobs.ksgr.ch/offene-stellen/weiterbildung-dipl-biomedizinische-r-analytiker-in-hf/d60496ed-4273-48c7-98e7-ea22f51e5631": {
+      "location": "Chur",
+      "canton": "GR",
+      "company": "Kantonsspital Graubünden",
+      "postedDate": "2023-03-06"
+    },
+    "https://jobs.ksgr.ch/offene-stellen/vollzeitstudium-pflegefachfrau-pflegefachmann-hf/88860892-0311-444f-b3c1-d3a69d1ca52f": {
+      "location": "Walenstadt",
+      "canton": "GR",
+      "company": "Kantonsspital Graubünden",
+      "postedDate": "2023-03-02"
+    },
+    "https://jobs.ksgr.ch/offene-stellen/strukturiertes-praxisjahr/a6a19114-b682-4034-b345-5ece2782d194": {
+      "location": "Chur",
+      "canton": "GR",
+      "company": "Kantonsspital Graubünden",
+      "postedDate": "2023-03-02"
+    }
+  },
+  "notes": "Dedicated KSGR crawler seeds Prospective.ch API detail URLs from jobs.ksgr.ch.",
+  "updatedAt": "2026-03-09T08:11:35.986Z"
+}

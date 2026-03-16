@@ -1,0 +1,118 @@
+import { JSDOM } from 'jsdom';
+import { inferSwissTargetCanton, isTargetSwissLocation } from './target-swiss-locations.mjs';
+
+function normalizeSpace(value = '') {
+  return String(value || '').replace(/\u00a0/g, ' ').replace(/\s+/g, ' ').trim();
+}
+
+function slugify(value = '') {
+  return String(value || '')
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^\p{L}\p{N}]+/gu, '-')
+    .replace(/^-+|-+$/g, '')
+    .replace(/-{2,}/g, '-')
+    .slice(0, 180);
+}
+
+function htmlToMarkdown(html = '') {
+  return String(html || '')
+    .replace(/<br\s*\/?>/gi, '\n')
+    .replace(/<\/(p|div|li|h2|h3|h4)>/gi, '\n')
+    .replace(/<li[^>]*>/gi, '- ')
+    .replace(/<[^>]+>/g, ' ')
+    .replace(/&nbsp;/g, ' ')
+    .replace(/&amp;/g, '&')
+    .replace(/&#39;/g, '\'')
+    .replace(/\n{3,}/g, '\n\n')
+    .replace(/[ \t]+\n/g, '\n')
+    .replace(/\n[ \t]+/g, '\n')
+    .replace(/[ \t]{2,}/g, ' ')
+    .trim();
+}
+
+function textWindow(source = '', startLabel = '', endLabels = []) {
+  const text = String(source || '');
+  const start = text.indexOf(startLabel);
+  if (start === -1) return '';
+  const afterStart = text.slice(start + startLabel.length);
+  let end = afterStart.length;
+  for (const label of endLabels) {
+    const idx = afterStart.indexOf(label);
+    if (idx !== -1 && idx < end) end = idx;
+  }
+  return normalizeSpace(afterStart.slice(0, end));
+}
+
+export function parseAvaloqListingLinks(html = '') {
+  return [...html.matchAll(/href="(\/(?:de\/)?careers\/job-openings\/[^"]+)"/g)]
+    .map((match) => `https://www.avaloq.com${String(match[1] || '').trim()}`)
+    .filter((url) => /\/careers\/job-openings\/\d{6,}/.test(url));
+}
+
+export function parseAvaloqJobDetail(html = '', url = '') {
+  const dom = new JSDOM(html);
+  const document = dom.window.document;
+  const title =
+    normalizeSpace(document.querySelector('h1')?.textContent || '') ||
+    normalizeSpace(document.querySelector('title')?.textContent || '');
+
+  const text = document.body.textContent.replace(/\s+/g, ' ');
+  const locationBlock = textWindow(text, 'Location', ['Work arrangement', 'Apply']);
+  const workArrangement = textWindow(text, 'Work arrangement', ['Apply']);
+  const role = textWindow(text, 'A bit about the role', ['Your key tasks', 'A bit about you', 'Additional information']);
+  const tasks = textWindow(text, 'Your key tasks', ['A bit about you', 'Additional information']);
+  const profile = textWindow(text, 'A bit about you', ['It would be a real bonus if you have', 'Additional information']);
+  const bonus = textWindow(text, 'It would be a real bonus if you have', ['Additional information']);
+  const extra = textWindow(text, 'Additional information', ['Apply', 'See jobs']);
+
+  const locationLines = locationBlock
+    .split(/\s{2,}|(?<=Switzerland)\s+/)
+    .map((line) => normalizeSpace(line))
+    .filter(Boolean);
+  const joinedLocation = normalizeSpace(locationLines.join(', '));
+  const cityMatch = joinedLocation.match(/\b(\d{4})\s+([A-Za-zÀ-ÿ' -]+),?\s*Switzerland\b/i)
+    || joinedLocation.match(/\b([A-Za-zÀ-ÿ' -]+),?\s*Switzerland\b/i);
+  const city = normalizeSpace(cityMatch?.[2] || cityMatch?.[1] || '');
+  const postalCode = normalizeSpace(joinedLocation.match(/\b(\d{4})\b/)?.[1] || '');
+  const applyUrl =
+    document.querySelector('a[href*="jobs.smartrecruiters.com"]')?.href
+    || '';
+
+  const sections = [];
+  if (role) sections.push(`## Il ruolo\n\n${role}`);
+  if (tasks) sections.push(`## Le tue responsabilita\n\n${tasks}`);
+  if (profile) sections.push(`## Il tuo profilo\n\n${profile}`);
+  if (bonus) sections.push(`## Plus graditi\n\n${bonus}`);
+  if (extra) sections.push(`## Informazioni aggiuntive\n\n${extra}`);
+
+  return {
+    title,
+    canonicalUrl: url || document.querySelector('link[rel="canonical"]')?.href || '',
+    applyUrl,
+    location: city,
+    postalCode,
+    workArrangement,
+    description: sections.join('\n\n').trim(),
+  };
+}
+
+export function isAvaloqTargetLocation(raw = '') {
+  return isTargetSwissLocation(raw, { includeGrigioni: true });
+}
+
+export function inferAvaloqCanton(raw = '') {
+  return inferSwissTargetCanton(raw) || 'TI';
+}
+
+export function buildAvaloqLocalizedContent(detail = {}, companyName = 'Avaloq') {
+  const title = String(detail.title || '').trim();
+  const location = String(detail.location || '').trim() || 'Bioggio';
+  const description = String(detail.description || '').trim();
+  return {
+    titleByLocale: { it: title },
+    descriptionByLocale: { it: description },
+    slugByLocale: { it: slugify(`${title} ${companyName} ${location}`) },
+  };
+}

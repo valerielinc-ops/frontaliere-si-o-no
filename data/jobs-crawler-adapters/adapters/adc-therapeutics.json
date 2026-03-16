@@ -1,0 +1,22 @@
+{
+  "companyKey": "adc-therapeutics",
+  "companyName": "ADC Therapeutics",
+  "companyHost": "adctherapeutics.com",
+  "enabled": true,
+  "priority": 0,
+  "crawlerModes": [
+    "generic_ats",
+    "html",
+    "jsonld"
+  ],
+  "seedUrls": [
+    "https://www.adctherapeutics.com/careers",
+    "https://www.adctherapeutics.com/career",
+    "https://www.adctherapeutics.com/jobs",
+    "https://www.adctherapeutics.com/karriere",
+    "https://www.adctherapeutics.com/offene-stellen",
+    "https://www.adctherapeutics.com/lavora-con-noi"
+  ],
+  "notes": "",
+  "updatedAt": "2026-02-27T17:06:06.918Z"
+}

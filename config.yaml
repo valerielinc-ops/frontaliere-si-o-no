@@ -1,0 +1,73 @@
+codex:
+  project:
+    name: frontaliereticino
+    type: react-spa
+    language: it
+    i18n_locales:
+      - it
+      - en
+      - de
+      - fr
+
+  routing:
+    mode: custom-router
+    router_file: /Users/saggesel/Projects/frontaliere-si-o-no/services/router.ts
+    top_level_nav_max: 6
+    subtabs_max: 8
+    note: >
+      No React Router. Route changes must update slug tables and reverse lookups for all locales.
+
+  quality_gates:
+    required_before_push:
+      - npm test
+      - npx vite build --logLevel error
+      - npm run validate:structured-data
+    recommended_local_checks:
+      - npx tsc --noEmit
+      - npm run validate:jobs-rich-results
+
+  hooks:
+    pre_push_hook: /Users/saggesel/Projects/frontaliere-si-o-no/.githooks/pre-push
+    hook_policy:
+      - Respect pre-push gates; do not bypass failing checks.
+      - Keep article generation opt-in only via ARTICLE_GEN=1.
+      - Keep CI health report non-blocking unless explicitly changed by maintainers.
+
+  seo:
+    metadata_source: /Users/saggesel/Projects/frontaliere-si-o-no/services/seoService.ts
+    sitemap_root: /Users/saggesel/Projects/frontaliere-si-o-no/public
+    rules:
+      - Every new routable page must have SEO metadata.
+      - Every new routable page must be present in sitemap with hreflang.
+      - Keep canonical URLs coherent with localized slugs.
+      - Ensure structured data is valid and localized.
+
+  i18n:
+    translations_file: /Users/saggesel/Projects/frontaliere-si-o-no/services/i18n.ts
+    rules:
+      - New translation keys must exist in all 4 locales.
+      - Avoid exposing raw i18n keys in UI.
+
+  analytics:
+    ga_service: /Users/saggesel/Projects/frontaliere-si-o-no/services/analytics.ts
+    rules:
+      - Track page views and critical user funnels.
+      - Prefer event names that are stable and analysis-friendly.
+
+  security:
+    secrets_policy:
+      - Never hardcode secrets in source.
+      - Keep runtime keys in Firebase Remote Config when possible.
+
+  ui_ux:
+    rules:
+      - Prioritize visual consistency with existing design system.
+      - Avoid overlapping modals/popups; only one blocking popup at a time.
+      - Ensure mobile tap targets and contrast meet accessibility standards.
+
+  jobs_crawler:
+    script_pattern: /Users/saggesel/Projects/frontaliere-si-o-no/scripts/update-*-jobs.mjs
+    rules:
+      - Prefer final job posting URL over generic career landing pages.
+      - Reject thin content and duplicates.
+      - Keep JobPosting structured data valid for indexability.

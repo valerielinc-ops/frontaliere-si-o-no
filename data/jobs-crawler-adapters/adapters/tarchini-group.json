@@ -1,0 +1,12 @@
+{
+  "companyKey": "tarchini-group",
+  "companyName": "Tarchini Group",
+  "companyHost": "www.tarchinigroup.com",
+  "enabled": true,
+  "priority": 18,
+  "crawlerModes": ["html"],
+  "seedUrls": ["https://www.tarchinigroup.com/it/lavora-con-noi"],
+  "notes": "Dedicated Tarchini Group crawler. Static HTML site (REDESIGN CMS). Job listings at /it/lavora-con-noi, detail pages at /it/work/{id}/{slug}. Apply via email. Real estate group based in Manno (TI), manages FoxTown Mendrisio. ~120 employees.",
+  "updatedAt": "2026-03-13T00:00:00.000Z",
+  "seedMetaByUrl": {}
+}

@@ -1,0 +1,29 @@
+{
+  "companyKey": "baronie",
+  "companyName": "Baronie",
+  "companyHost": "www.baronie.com",
+  "enabled": true,
+  "priority": 10,
+  "crawlerModes": [
+    "html"
+  ],
+  "seedUrls": [
+    "https://www.baronie.com/en/careers"
+  ],
+  "notes": "Baronie (Chocolat Alprose SA) — chocolate manufacturer in Caslano, TI. Custom parser extracts structured content from detail pages. Only Swiss jobs are included.",
+  "updatedAt": "2026-03-16T09:57:06.117Z",
+  "seedMetaByUrl": {
+    "https://www.baronie.com/en/jobs/international-sales-manager-caslano": {
+      "location": "Caslano",
+      "canton": "TI",
+      "company": "Chocolat Alprose SA / Baronie Switzerland SA",
+      "postedDate": "2026-03-16"
+    },
+    "https://www.baronie.com/en/jobs/sustainability-coordinator-maternaty-leave-cover": {
+      "location": "Caslano",
+      "canton": "TI",
+      "company": "Chocolat Alprose SA / Baronie Switzerland SA",
+      "postedDate": "2026-03-16"
+    }
+  }
+}

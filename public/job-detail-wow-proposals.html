@@ -1,0 +1,409 @@
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Job Detail WOW Proposals</title>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Manrope:wght@400;600;700;800&family=IBM+Plex+Sans:wght@400;500;700&family=Space+Grotesk:wght@500;700&display=swap');
+
+      :root {
+        --ink: #0f172a;
+        --paper: #f8fafc;
+        --line: #d9e2ef;
+      }
+
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        background:
+          radial-gradient(1200px 500px at 0% 0%, #dbeafe 0%, rgba(219, 234, 254, 0) 60%),
+          radial-gradient(900px 500px at 100% 0%, #fde68a 0%, rgba(253, 230, 138, 0) 55%),
+          #eef3f9;
+        color: var(--ink);
+        font-family: 'Manrope', sans-serif;
+      }
+
+      .page {
+        max-width: 1260px;
+        margin: 0 auto;
+        padding: 24px 16px 36px;
+      }
+
+      .head {
+        background: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(6px);
+        border: 1px solid #d7e3f3;
+        border-radius: 18px;
+        padding: 14px 16px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 18px;
+      }
+
+      .head h1 {
+        margin: 0;
+        font-family: 'Bricolage Grotesque', sans-serif;
+        font-size: 20px;
+      }
+
+      .head p {
+        margin: 2px 0 0 0;
+        font-size: 13px;
+        color: #334155;
+      }
+
+      .proposals {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 14px;
+      }
+
+      .proposal {
+        border: 1px solid #d7e3f3;
+        border-radius: 20px;
+        overflow: hidden;
+        background: #fff;
+      }
+
+      .proposal h2 {
+        margin: 0;
+        font-size: 16px;
+        font-family: 'Space Grotesk', sans-serif;
+      }
+
+      .kicker {
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: .08em;
+        font-weight: 700;
+        opacity: .75;
+      }
+
+      .p1 {
+        background: linear-gradient(160deg, #f0f9ff 0%, #ffffff 48%, #ecfeff 100%);
+      }
+      .p1-head {
+        padding: 16px;
+        border-bottom: 1px solid #d8eef4;
+      }
+      .p1-body {
+        display: grid;
+        grid-template-columns: 200px 1fr;
+        gap: 14px;
+        padding: 16px;
+      }
+      .p1-rail {
+        border: 1px solid #cbe5ef;
+        background: #ffffffb8;
+        border-radius: 14px;
+        padding: 12px;
+      }
+      .p1-timeline {
+        border-left: 2px dashed #86bfd2;
+        padding-left: 14px;
+      }
+      .step {
+        position: relative;
+        margin-bottom: 14px;
+      }
+      .step::before {
+        content: '';
+        width: 10px;
+        height: 10px;
+        border-radius: 999px;
+        background: #0ea5a8;
+        position: absolute;
+        left: -20px;
+        top: 5px;
+      }
+
+      .p2 {
+        background: linear-gradient(145deg, #fffef6 0%, #fff 45%, #fff6f0 100%);
+      }
+      .p2-wrap {
+        padding: 16px;
+      }
+      .p2-grid {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        gap: 10px;
+      }
+      .tile {
+        border-radius: 14px;
+        padding: 12px;
+        border: 1px solid transparent;
+      }
+      .tile h3 { margin: 0 0 8px 0; font-size: 13px; font-family: 'Space Grotesk', sans-serif; }
+      .tile p, .tile li { margin: 0; font-size: 13px; line-height: 1.5; }
+      .tile ul { margin: 0; padding-left: 16px; }
+      .t-a { grid-column: span 8; background: #fff; border-color: #e5e7eb; }
+      .t-b { grid-column: span 4; background: #052e2b; color: #d1fae5; border-color: #0b5c54; }
+      .t-c { grid-column: span 4; background: #fef3c7; border-color: #f59e0b; }
+      .t-d { grid-column: span 4; background: #dbeafe; border-color: #3b82f6; }
+      .t-e { grid-column: span 4; background: #fee2e2; border-color: #ef4444; }
+      .t-f { grid-column: span 12; background: #f8fafc; border-color: #cbd5e1; }
+
+      .p3 {
+        background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+      }
+      .p3-head {
+        padding: 16px;
+        border-bottom: 1px solid #e2e8f0;
+        background:
+          repeating-linear-gradient(
+            90deg,
+            rgba(100, 116, 139, 0.04),
+            rgba(100, 116, 139, 0.04) 1px,
+            transparent 1px,
+            transparent 24px
+          );
+      }
+      .p3-body {
+        display: grid;
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: 16px;
+        padding: 16px;
+      }
+      .paper {
+        border: 1px solid #dbe2ea;
+        border-radius: 12px;
+        padding: 14px;
+        background: #fff;
+      }
+      .paper h3 {
+        margin: 0 0 8px 0;
+        font-family: 'IBM Plex Sans', sans-serif;
+        font-size: 13px;
+        text-transform: uppercase;
+        letter-spacing: .06em;
+        color: #334155;
+      }
+      .paper p, .paper li { font-size: 14px; line-height: 1.55; margin: 0; }
+      .paper ul { margin: 0; padding-left: 18px; }
+
+      .p4 {
+        background:
+          radial-gradient(circle at 80% -20%, #22d3ee33 0%, transparent 60%),
+          radial-gradient(circle at -10% 120%, #f9731633 0%, transparent 45%),
+          #ffffff;
+      }
+      .p4-wrap { padding: 16px; }
+      .orbit-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+      }
+      .orbit {
+        border: 1px solid #d7e3f3;
+        border-radius: 16px;
+        padding: 12px;
+        background: #fff;
+        position: relative;
+        overflow: hidden;
+      }
+      .orbit::after {
+        content: '';
+        width: 70px;
+        height: 70px;
+        border-radius: 999px;
+        border: 1px dashed #9ca3af;
+        position: absolute;
+        right: -18px;
+        top: -18px;
+        opacity: .45;
+      }
+      .orbit h3 { margin: 0 0 8px 0; font-size: 13px; font-family: 'Space Grotesk', sans-serif; }
+      .orbit p, .orbit li { font-size: 13px; line-height: 1.5; margin: 0; }
+      .orbit ul { margin: 0; padding-left: 16px; }
+
+      .meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        margin-top: 8px;
+      }
+      .chip {
+        background: #f1f5f9;
+        border: 1px solid #d6e0ec;
+        color: #334155;
+        border-radius: 999px;
+        padding: 3px 8px;
+        font-size: 11px;
+        font-weight: 700;
+      }
+
+      @media (max-width: 980px) {
+        .p1-body { grid-template-columns: 1fr; }
+        .p3-body { grid-template-columns: 1fr; }
+      }
+
+      @media (max-width: 760px) {
+        .orbit-grid { grid-template-columns: 1fr; }
+        .t-a, .t-b, .t-c, .t-d, .t-e, .t-f { grid-column: span 12; }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="page">
+      <section class="head">
+        <div>
+          <h1>4 nuove proposte WOW (diverse da storico)</h1>
+          <p>La Proposta 1 (Hybrid A+B Timeline) è stata applicata al dettaglio job live.</p>
+        </div>
+        <div id="jobMeta" class="meta"></div>
+      </section>
+
+      <section class="proposals" id="proposals"></section>
+    </main>
+
+    <script>
+      function clean(v) {
+        return String(v || '').replace(/\s+/g, ' ').trim();
+      }
+
+      function splitSentences(text, max = 6) {
+        const out = clean(text).split(/(?<=[.!?])\s+/).filter(Boolean);
+        return out.slice(0, max);
+      }
+
+      function listFromRaw(text) {
+        return clean(text)
+          .split(/(?:\n|;|•|·|▪|- )+/)
+          .map((x) => clean(x))
+          .filter((x) => x.length >= 12)
+          .slice(0, 10);
+      }
+
+      function parseJob(job) {
+        const title = clean(job.titleByLocale?.it || job.title);
+        const company = clean(job.company);
+        const location = clean(job.location);
+        const description = clean(job.descriptionByLocale?.it || job.description);
+        const reqs = Array.isArray(job.requirementsByLocale?.it)
+          ? job.requirementsByLocale.it
+          : (Array.isArray(job.requirements) ? job.requirements : []);
+
+        const summary = splitSentences(description, 3);
+        const responsibilities = listFromRaw(description.match(/(?:mansioni|compiti|responsabilita)([\s\S]{0,1400})/i)?.[1] || description).slice(0, 6);
+        const requirements = [...listFromRaw(reqs.join('\n')), ...listFromRaw(description.match(/(?:requisiti|profilo|competenze)([\s\S]{0,1600})/i)?.[1] || '')].slice(0, 7);
+        const benefits = listFromRaw(description.match(/(?:offriamo|benefit|vantaggi)([\s\S]{0,1200})/i)?.[1] || '').slice(0, 5);
+        const process = listFromRaw(description.match(/(?:candid|application|contatt)([\s\S]{0,900})/i)?.[1] || '').slice(0, 4);
+
+        return { title, company, location, summary, responsibilities, requirements, benefits, process };
+      }
+
+      function p(items) {
+        if (!items || items.length === 0) return '<p>Non disponibile</p>';
+        return items.map((x) => `<p>${x}</p>`).join('');
+      }
+
+      function ul(items) {
+        if (!items || items.length === 0) return '<p>Non disponibile</p>';
+        return `<ul>${items.map((x) => `<li>${x}</li>`).join('')}</ul>`;
+      }
+
+      function render(meta) {
+        const jobMeta = document.getElementById('jobMeta');
+        jobMeta.innerHTML = [
+          `<span class="chip">${meta.company}</span>`,
+          `<span class="chip">${meta.location}</span>`,
+          `<span class="chip">${meta.requirements.length} requisiti</span>`,
+          `<span class="chip">${meta.responsibilities.length} mansioni</span>`,
+        ].join('');
+
+        const root = document.getElementById('proposals');
+        root.innerHTML = `
+          <article class="proposal p1">
+            <div class="p1-head">
+              <div class="kicker">Proposta A · Nordic Ribbon</div>
+              <h2>${meta.title}</h2>
+            </div>
+            <div class="p1-body">
+              <aside class="p1-rail">
+                <div class="kicker">Snapshot</div>
+                <p><b>${meta.company}</b></p>
+                <p>${meta.location}</p>
+              </aside>
+              <div class="p1-timeline">
+                <div class="step"><h3>Panoramica</h3>${p(meta.summary)}</div>
+                <div class="step"><h3>Mansioni</h3>${ul(meta.responsibilities)}</div>
+                <div class="step"><h3>Competenze richieste</h3>${ul(meta.requirements)}</div>
+                <div class="step"><h3>Benefit</h3>${ul(meta.benefits)}</div>
+                <div class="step"><h3>Candidatura</h3>${ul(meta.process)}</div>
+              </div>
+            </div>
+          </article>
+
+          <article class="proposal p2">
+            <div class="p2-wrap">
+              <div class="kicker">Proposta B · Metro Bento</div>
+              <h2>${meta.title}</h2>
+              <div class="p2-grid" style="margin-top:10px;">
+                <section class="tile t-a"><h3>Contesto</h3>${p(meta.summary)}</section>
+                <section class="tile t-b"><h3>Azienda</h3><p>${meta.company}<br/>${meta.location}</p></section>
+                <section class="tile t-c"><h3>Mansioni</h3>${ul(meta.responsibilities)}</section>
+                <section class="tile t-d"><h3>Competenze</h3>${ul(meta.requirements)}</section>
+                <section class="tile t-e"><h3>Benefit</h3>${ul(meta.benefits)}</section>
+                <section class="tile t-f"><h3>Come candidarsi</h3>${ul(meta.process)}</section>
+              </div>
+            </div>
+          </article>
+
+          <article class="proposal p3">
+            <div class="p3-head">
+              <div class="kicker">Proposta C · Editorial Ledger</div>
+              <h2>${meta.title}</h2>
+            </div>
+            <div class="p3-body">
+              <section class="paper">
+                <h3>Ruolo e impatto</h3>
+                ${p(meta.summary)}
+                <h3 style="margin-top:12px;">Mansioni principali</h3>
+                ${ul(meta.responsibilities)}
+              </section>
+              <section class="paper">
+                <h3>Competenze richieste</h3>
+                ${ul(meta.requirements)}
+                <h3 style="margin-top:12px;">Offerta e candidatura</h3>
+                ${ul([...meta.benefits, ...meta.process].slice(0, 8))}
+              </section>
+            </div>
+          </article>
+
+          <article class="proposal p4">
+            <div class="p4-wrap">
+              <div class="kicker">Proposta D · Orbit Narrative</div>
+              <h2>${meta.title}</h2>
+              <div class="orbit-grid" style="margin-top:10px;">
+                <section class="orbit"><h3>Visione del ruolo</h3>${p(meta.summary)}</section>
+                <section class="orbit"><h3>Skill map</h3>${ul(meta.requirements)}</section>
+                <section class="orbit"><h3>Execution lane</h3>${ul(meta.responsibilities)}</section>
+                <section class="orbit"><h3>Next actions</h3>${ul(meta.process.length > 0 ? meta.process : meta.benefits)}</section>
+              </div>
+            </div>
+          </article>
+        `;
+      }
+
+      async function init() {
+        const slug = new URLSearchParams(location.search).get('slug');
+        const res = await fetch('/data/jobs.json', { cache: 'no-store' });
+        const all = await res.json();
+        const job = (Array.isArray(all) ? all : []).find((j) => slug && String(j.slug) === slug) || (Array.isArray(all) ? all[0] : null);
+        if (!job) {
+          document.getElementById('proposals').innerHTML = '<article class="proposal"><div style="padding:16px;">Nessun job disponibile.</div></article>';
+          return;
+        }
+        render(parseJob(job));
+      }
+
+      init().catch(() => {
+        document.getElementById('proposals').innerHTML = '<article class="proposal"><div style="padding:16px;">Errore nel caricamento dei job.</div></article>';
+      });
+    </script>
+  </body>
+</html>

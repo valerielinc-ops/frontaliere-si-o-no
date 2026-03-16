@@ -1,0 +1,112 @@
+name: Generate Company Crawler Parser (AI)
+
+on:
+  workflow_dispatch:
+    inputs:
+      company_name:
+        description: 'Company name (required)'
+        required: true
+        type: string
+      company_website:
+        description: 'Company website URL (required)'
+        required: true
+        type: string
+      company_key:
+        description: 'Optional company key slug'
+        required: false
+        type: string
+      apply_config:
+        description: 'Apply generated config to data/jobs-crawler-config.json'
+        required: false
+        type: choice
+        default: 'false'
+        options:
+          - 'false'
+          - 'true'
+
+concurrency:
+  group: generate-company-parser
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  generate-parser:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 50
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Prepare Firebase credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+          else
+            echo "⚠️ Firebase secrets not set — secrets will not be loaded from Remote Config."
+          fi
+          if [ -f /tmp/firebase-sa.json ]; then
+            echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+          fi
+
+      - name: Load secrets from Remote Config
+        run: node scripts/load-rc-env.mjs
+
+      - name: Generate parser proposal
+        env:
+          PARSER_COMPANY_NAME: ${{ inputs.company_name }}
+          PARSER_COMPANY_WEBSITE: ${{ inputs.company_website }}
+          PARSER_COMPANY_KEY: ${{ inputs.company_key }}
+          PARSER_APPLY_CONFIG: ${{ inputs.apply_config == 'true' && '1' || '0' }}
+        run: node scripts/generate-company-parser.mjs
+
+      - name: Check for changes
+        id: changes
+        run: |
+          if git diff --quiet && git diff --cached --quiet; then
+            echo "has_changes=false" >> $GITHUB_OUTPUT
+            echo "ℹ️ No parser changes detected"
+          else
+            echo "has_changes=true" >> $GITHUB_OUTPUT
+            echo "📝 Parser updates detected:"
+            git status --short
+          fi
+
+      - name: Commit and push
+        if: steps.changes.outputs.has_changes == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          git fetch origin main
+          LOCAL=$(git rev-parse HEAD)
+          REMOTE=$(git rev-parse origin/main)
+
+          if [ "$LOCAL" != "$REMOTE" ]; then
+            echo "⚠️ Remote updated — rebasing before commit..."
+            if ! git pull --rebase origin main; then
+              git rebase --abort || true
+              echo "⚠️ Rebase conflict — defer to next run"
+              exit 0
+            fi
+          fi
+
+          git add data/jobs-crawler-parser-proposals.json data/jobs-crawler-config.json
+          git commit -m "🤖 Generate company crawler parser proposal"
+          git push origin main
+

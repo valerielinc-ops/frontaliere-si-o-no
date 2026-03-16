@@ -1,0 +1,22 @@
+{
+  "companyKey": "tether-usdt",
+  "companyName": "Tether (USDT)",
+  "companyHost": "tether.to",
+  "enabled": true,
+  "priority": 0,
+  "crawlerModes": [
+    "generic_ats",
+    "html",
+    "jsonld"
+  ],
+  "seedUrls": [
+    "https://tether.to/careers",
+    "https://tether.to/career",
+    "https://tether.to/jobs",
+    "https://tether.to/karriere",
+    "https://tether.to/offene-stellen",
+    "https://tether.to/lavora-con-noi"
+  ],
+  "notes": "",
+  "updatedAt": "2026-02-27T17:06:06.993Z"
+}

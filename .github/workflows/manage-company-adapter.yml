@@ -1,0 +1,89 @@
+name: Manage Company Adapter
+
+on:
+  workflow_dispatch:
+    inputs:
+      adapter_key:
+        description: 'Adapter key (required)'
+        required: true
+        type: string
+      action:
+        description: 'Adapter action'
+        required: true
+        type: choice
+        default: 'set_enabled'
+        options:
+          - 'set_enabled'
+          - 'regenerate'
+      enabled:
+        description: 'Enabled value for set_enabled action'
+        required: false
+        type: choice
+        default: 'true'
+        options:
+          - 'true'
+          - 'false'
+
+concurrency:
+  group: manage-company-adapter
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  manage:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 50
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+
+      - name: Manage adapter
+        env:
+          ADAPTER_KEY: ${{ inputs.adapter_key }}
+          ADAPTER_ACTION: ${{ inputs.action }}
+          ADAPTER_ENABLED: ${{ inputs.enabled }}
+        run: node scripts/manage-company-adapter.mjs
+
+      - name: Check for changes
+        id: changes
+        run: |
+          if git diff --quiet && git diff --cached --quiet; then
+            echo "has_changes=false" >> $GITHUB_OUTPUT
+            echo "ℹ️ No adapter changes detected"
+          else
+            echo "has_changes=true" >> $GITHUB_OUTPUT
+            echo "📝 Adapter updates detected:"
+            git status --short
+          fi
+
+      - name: Commit and push
+        if: steps.changes.outputs.has_changes == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          git fetch origin main
+          LOCAL=$(git rev-parse HEAD)
+          REMOTE=$(git rev-parse origin/main)
+
+          if [ "$LOCAL" != "$REMOTE" ]; then
+            echo "⚠️ Remote updated — rebasing before commit..."
+            if ! git pull --rebase origin main; then
+              git rebase --abort || true
+              echo "⚠️ Rebase conflict — defer to next run"
+              exit 0
+            fi
+          fi
+
+          git add data/jobs-crawler-adapters/adapters/*.json
+          git commit -m "🛠️ Manage company adapter (${{ inputs.adapter_key }}, ${{ inputs.action }})"
+          git push origin main

@@ -1,0 +1,19 @@
+{
+  "companyKey": "mcdonald-s-switzerland",
+  "companyName": "McDonald's Switzerland",
+  "companyHost": "jobs.mcdonalds.ch",
+  "enabled": true,
+  "priority": 10,
+  "crawlerModes": [
+    "embedded-json",
+    "jsonld"
+  ],
+  "seedUrls": [
+    "https://jobs.mcdonalds.ch/de/details-offre/8137",
+    "https://jobs.mcdonalds.ch/de/details-offre/8123",
+    "https://jobs.mcdonalds.ch/de/details-offre/8077",
+    "https://jobs.mcdonalds.ch/de/details-offre/8078"
+  ],
+  "notes": "Drupal CMS at jobs.mcdonalds.ch — job data embedded in drupalSettings.mcdo_jobs_mapEntries, detail pages have JSON-LD.",
+  "updatedAt": "2026-03-16T05:45:22.717Z"
+}

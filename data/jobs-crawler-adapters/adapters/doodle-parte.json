@@ -1,0 +1,22 @@
+{
+  "companyKey": "doodle-parte",
+  "companyName": "Doodle (parte)",
+  "companyHost": "doodle.com",
+  "enabled": true,
+  "priority": 0,
+  "crawlerModes": [
+    "generic_ats",
+    "html",
+    "jsonld"
+  ],
+  "seedUrls": [
+    "https://doodle.com/careers",
+    "https://doodle.com/career",
+    "https://doodle.com/jobs",
+    "https://doodle.com/karriere",
+    "https://doodle.com/offene-stellen",
+    "https://doodle.com/lavora-con-noi"
+  ],
+  "notes": "",
+  "updatedAt": "2026-02-27T17:06:06.938Z"
+}

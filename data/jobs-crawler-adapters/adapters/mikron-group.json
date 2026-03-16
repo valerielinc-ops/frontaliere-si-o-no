@@ -1,0 +1,22 @@
+{
+  "companyKey": "mikron-group",
+  "companyName": "Mikron Group",
+  "companyHost": "mikron.com",
+  "enabled": true,
+  "priority": 0,
+  "crawlerModes": [
+    "generic_ats",
+    "html",
+    "jsonld"
+  ],
+  "seedUrls": [
+    "https://www.mikron.com/careers",
+    "https://www.mikron.com/career",
+    "https://www.mikron.com/jobs",
+    "https://www.mikron.com/karriere",
+    "https://www.mikron.com/offene-stellen",
+    "https://www.mikron.com/lavora-con-noi"
+  ],
+  "notes": "",
+  "updatedAt": "2026-02-27T17:06:06.961Z"
+}

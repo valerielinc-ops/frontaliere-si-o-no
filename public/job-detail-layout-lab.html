@@ -1,0 +1,1545 @@
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Job Canonical UI Lab v2</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Outfit:wght@500;700;800&display=swap" rel="stylesheet" />
+    <style>
+      :root {
+        --bg: #f5f8fd;
+        --card: #ffffff;
+        --ink: #0f172a;
+        --muted: #475569;
+        --line: #d8e4f4;
+        --blue: #1769ff;
+        --green: #0f9f72;
+      }
+
+      * { box-sizing: border-box; }
+
+      body {
+        margin: 0;
+        padding: 26px;
+        font-family: "Manrope", sans-serif;
+        color: var(--ink);
+        background:
+          radial-gradient(1100px 600px at 0% -10%, rgba(14, 165, 233, 0.15), transparent 60%),
+          radial-gradient(1000px 600px at 100% 0%, rgba(16, 185, 129, 0.12), transparent 60%),
+          var(--bg);
+      }
+
+      h1, h2, h3, h4 {
+        margin: 0;
+        font-family: "Outfit", sans-serif;
+      }
+
+      .page {
+        max-width: 1540px;
+        margin: 0 auto;
+      }
+
+      .panel {
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: 22px;
+        padding: 18px;
+      }
+
+      .panel + .panel {
+        margin-top: 14px;
+      }
+
+      .subtitle {
+        margin: 6px 0 0 0;
+        color: var(--muted);
+        font-size: 14px;
+        line-height: 1.5;
+      }
+
+      .grid-2 {
+        margin-top: 12px;
+        display: grid;
+        gap: 12px;
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .field {
+        display: grid;
+        gap: 6px;
+      }
+
+      .field label {
+        font-size: 11px;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: #64748b;
+      }
+
+      .field input,
+      .field select,
+      .field textarea,
+      .field button {
+        width: 100%;
+        border: 1px solid #c7d6ec;
+        border-radius: 12px;
+        padding: 10px 12px;
+        font: inherit;
+        color: #0f172a;
+        background: #ffffff;
+      }
+
+      .field textarea {
+        resize: vertical;
+        min-height: 138px;
+      }
+
+      .field button {
+        border-color: #0d5cdd;
+        background: linear-gradient(135deg, #1769ff, #0f8bff);
+        color: #fff;
+        font-weight: 800;
+        cursor: pointer;
+      }
+
+      .chip-row {
+        margin-top: 10px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .chip {
+        border: 1px solid #c9d8ef;
+        background: #f7fbff;
+        color: #334155;
+        border-radius: 999px;
+        padding: 6px 10px;
+        font-size: 12px;
+        font-weight: 700;
+      }
+
+      details {
+        margin-top: 10px;
+        border-radius: 12px;
+        border: 1px solid #d9e5f4;
+        background: #fff;
+      }
+
+      details summary {
+        padding: 10px 12px;
+        font-size: 13px;
+        font-weight: 800;
+        cursor: pointer;
+      }
+
+      pre {
+        margin: 0;
+        border-radius: 0 0 12px 12px;
+        background: #0d1424;
+        color: #dde8ff;
+        padding: 12px;
+        font-size: 12px;
+        line-height: 1.48;
+        overflow: auto;
+        max-height: 320px;
+      }
+
+      .proposal-grid {
+        margin-top: 14px;
+        display: grid;
+        gap: 12px;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .proposal {
+        border: 1px solid var(--line);
+        background: #fff;
+        border-radius: 20px;
+        padding: 12px;
+        min-height: 880px;
+        overflow: hidden;
+      }
+
+      .proposal-head {
+        margin-bottom: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .proposal-head h2 {
+        font-size: 18px;
+      }
+
+      .proposal-head span {
+        font-size: 12px;
+        color: #475569;
+      }
+
+      .hero {
+        border: 1px solid #cae0ff;
+        background:
+          linear-gradient(130deg, rgba(229, 243, 255, 0.98), rgba(237, 252, 245, 0.98));
+        border-radius: 16px;
+        padding: 14px;
+        margin-bottom: 10px;
+      }
+
+      .hero-title {
+        font-size: 23px;
+        line-height: 1.18;
+        letter-spacing: -0.01em;
+      }
+
+      .hero-sub {
+        margin-top: 4px;
+        font-size: 14px;
+        color: #475569;
+      }
+
+      .hero-meta {
+        margin-top: 10px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 7px;
+      }
+
+      .hero-meta span {
+        border: 1px solid #cfe0f7;
+        background: rgba(255, 255, 255, 0.75);
+        border-radius: 999px;
+        padding: 5px 8px;
+        font-size: 11px;
+        font-weight: 800;
+        color: #385171;
+      }
+
+      .section {
+        border: 1px solid #dce6f5;
+        border-radius: 14px;
+        padding: 12px;
+        margin-bottom: 9px;
+        background: #fff;
+      }
+
+      .section h4 {
+        font-size: 14px;
+        text-transform: uppercase;
+        letter-spacing: 0.02em;
+        color: #2f435f;
+        margin-bottom: 8px;
+      }
+
+      .section p {
+        margin: 0 0 8px 0;
+        font-size: 14px;
+        line-height: 1.58;
+        color: #1f3149;
+      }
+
+      .section ul {
+        margin: 0;
+        padding-left: 18px;
+      }
+
+      .section li {
+        margin-bottom: 7px;
+        font-size: 14px;
+        line-height: 1.52;
+        color: #1f3149;
+      }
+
+      .section li.subhead {
+        list-style: none;
+        margin-left: -12px;
+        margin-top: 4px;
+        margin-bottom: 6px;
+        font-weight: 800;
+        color: #234b87;
+      }
+
+      .timeline {
+        position: relative;
+        margin-left: 6px;
+        padding-left: 16px;
+        border-left: 2px dashed #acc7ef;
+      }
+
+      .timeline-step {
+        margin-bottom: 10px;
+        position: relative;
+      }
+
+      .timeline-step::before {
+        content: "";
+        position: absolute;
+        left: -22px;
+        top: 8px;
+        width: 9px;
+        height: 9px;
+        border-radius: 999px;
+        background: #1769ff;
+      }
+
+      .split {
+        display: grid;
+        gap: 9px;
+        grid-template-columns: 1.2fr 0.8fr;
+      }
+
+      .note {
+        padding: 10px;
+        border-radius: 12px;
+        border: 1px solid #dbe6f6;
+        background: #f8fbff;
+        font-size: 13px;
+        color: #334155;
+        line-height: 1.5;
+      }
+
+      .accordion details {
+        border-radius: 12px;
+        border: 1px solid #dbe6f6;
+        margin-bottom: 8px;
+        background: #fff;
+      }
+
+      .accordion summary {
+        list-style: none;
+        font-size: 13px;
+        font-weight: 800;
+        padding: 10px 12px;
+      }
+
+      .accordion summary::-webkit-details-marker {
+        display: none;
+      }
+
+      .accordion .inner {
+        padding: 0 12px 10px 12px;
+      }
+
+      .tabs {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 7px;
+        margin-bottom: 8px;
+      }
+
+      .tabs span {
+        border: 1px solid #c7daf8;
+        background: #ebf4ff;
+        border-radius: 999px;
+        padding: 5px 9px;
+        font-size: 12px;
+        font-weight: 800;
+        color: #2f4c76;
+      }
+
+      .cta {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 2px;
+        border-radius: 10px;
+        text-decoration: none;
+        background: linear-gradient(135deg, #1769ff, #0f8bff);
+        color: #fff;
+        font-size: 13px;
+        font-weight: 800;
+        padding: 10px 13px;
+      }
+
+      .metric-strip {
+        margin: 10px 0;
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 8px;
+      }
+
+      .metric {
+        border: 1px solid #c9ddfa;
+        border-radius: 12px;
+        padding: 9px 10px;
+        background: linear-gradient(150deg, #f7fbff, #eef6ff);
+      }
+
+      .metric .k {
+        font-size: 10px;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: #4b668c;
+        font-weight: 800;
+      }
+
+      .metric .v {
+        margin-top: 2px;
+        font-size: 16px;
+        font-family: "Outfit", sans-serif;
+        font-weight: 800;
+        color: #123d7a;
+      }
+
+      .wow-grid {
+        display: grid;
+        grid-template-columns: 1.25fr 0.75fr;
+        gap: 9px;
+      }
+
+      .command-card {
+        border: 1px solid #d7e4f6;
+        border-radius: 14px;
+        padding: 11px;
+        background: #fff;
+        margin-bottom: 9px;
+      }
+
+      .command-card h4 {
+        margin: 0 0 8px 0;
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        color: #26456f;
+      }
+
+      .editorial-shell {
+        border: 1px solid #d5e3f5;
+        border-radius: 16px;
+        background: linear-gradient(160deg, #ffffff 0%, #f9fcff 55%, #f2f9f5 100%);
+        padding: 10px;
+      }
+
+      .editorial-lead {
+        border-left: 4px solid #1769ff;
+        padding: 8px 0 8px 10px;
+        font-size: 15px;
+        line-height: 1.55;
+        color: #16355d;
+        margin-bottom: 8px;
+      }
+
+      .editorial-columns {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+      }
+
+      .editorial-block {
+        border: 1px solid #d9e7f8;
+        border-radius: 12px;
+        background: #fff;
+        padding: 10px;
+      }
+
+      .editorial-block h4 {
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        color: #23446f;
+        margin-bottom: 8px;
+      }
+
+      .journey {
+        position: relative;
+        margin: 4px 0 10px 0;
+        padding-left: 22px;
+      }
+
+      .journey::before {
+        content: "";
+        position: absolute;
+        left: 8px;
+        top: 4px;
+        bottom: 4px;
+        width: 2px;
+        background: linear-gradient(180deg, #1769ff, #11a77a);
+        opacity: 0.5;
+      }
+
+      .journey-step {
+        position: relative;
+        border: 1px solid #d7e4f7;
+        border-radius: 14px;
+        background: #fff;
+        padding: 10px;
+        margin-bottom: 8px;
+      }
+
+      .journey-step::before {
+        content: attr(data-step);
+        position: absolute;
+        left: -22px;
+        top: 12px;
+        width: 16px;
+        height: 16px;
+        border-radius: 999px;
+        background: #1769ff;
+        color: #fff;
+        font-size: 10px;
+        line-height: 16px;
+        text-align: center;
+        font-weight: 800;
+      }
+
+      .journey-step h4 {
+        margin: 0 0 7px 0;
+        font-size: 13px;
+        color: #193f71;
+        letter-spacing: 0.01em;
+      }
+
+      .coverage {
+        font-size: 12px;
+        font-weight: 800;
+        color: #1d4f90;
+        border: 1px solid #b9d4fa;
+        background: #ebf5ff;
+        border-radius: 999px;
+        padding: 5px 9px;
+      }
+
+      a {
+        color: #0a57c4;
+      }
+
+      @media (max-width: 1120px) {
+        body { padding: 14px; }
+        .grid-2 { grid-template-columns: 1fr; }
+        .proposal-grid { grid-template-columns: 1fr; }
+        .proposal { min-height: 0; }
+        .split { grid-template-columns: 1fr; }
+        .metric-strip { grid-template-columns: 1fr 1fr; }
+        .wow-grid { grid-template-columns: 1fr; }
+        .editorial-columns { grid-template-columns: 1fr; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <section class="panel">
+        <h1>UI Lab v2 - 4 proposte nuove (mix A+B)</h1>
+        <p class="subtitle">
+          Hero/banner in alto in stile A+B. Corpo pagina ripensato con base B, parser canonico lossless e pulizia formattazione.
+          Obiettivo: <b>nessun testo perso</b>, sezioni pulite, contatti cliccabili.
+        </p>
+
+        <div class="grid-2">
+          <div class="field">
+            <label for="jobSelect">Seleziona job</label>
+            <select id="jobSelect"></select>
+          </div>
+          <div class="field">
+            <label for="localeSelect">Locale contenuto</label>
+            <select id="localeSelect">
+              <option value="it">it</option>
+              <option value="en">en</option>
+              <option value="de">de</option>
+              <option value="fr">fr</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="rawInput">Descrizione raw</label>
+            <textarea id="rawInput"></textarea>
+          </div>
+          <div class="field">
+            <label for="reqInput">Requisiti raw (uno per riga)</label>
+            <textarea id="reqInput"></textarea>
+            <button id="renderBtn" type="button">Rigenera parser + 4 proposte</button>
+          </div>
+        </div>
+
+        <div id="metaRow" class="chip-row"></div>
+
+        <details>
+          <summary>JSON canonico (lossless parser v2)</summary>
+          <pre id="canonicalPreview"></pre>
+        </details>
+      </section>
+
+      <section class="proposal-grid">
+        <article class="proposal" id="proposal1"></article>
+        <article class="proposal" id="proposal2"></article>
+        <article class="proposal" id="proposal3"></article>
+        <article class="proposal" id="proposal4"></article>
+      </section>
+    </div>
+
+    <script>
+      const HEADING_MAP = [
+        { id: "overview", title: "Panoramica", keys: ["descrizione", "panoramica", "overview", "about the role", "profilo del ruolo", "introduzione"] },
+        { id: "responsibilities", title: "Mansioni principali", keys: ["le tue mansioni", "mansioni", "compiti", "responsabilita", "your tasks", "tasks", "responsibilities", "attivita"] },
+        { id: "requirements", title: "Competenze richieste", keys: ["requisiti", "requisiti necessari", "requisiti auspicati", "competenze richieste", "profilo", "cosa porti con te", "requirements", "your profile", "qualifications"] },
+        { id: "benefits", title: "Cosa offre l'azienda", keys: ["cosa ti offriamo", "offriamo", "vantaggi", "benefit", "benefits", "we offer"] },
+        { id: "application", title: "Come candidarsi", keys: ["come candidarsi", "candidatura", "interessato", "interessata", "application process", "apply", "bewerbung", "postuler"] },
+        { id: "contacts", title: "Contatti", keys: ["contatto", "contatti", "kontakt", "contact", "informazioni aggiuntive", "informazioni"] },
+        { id: "company", title: "Azienda e contesto", keys: ["chi siamo", "azienda", "hospital", "ospedale", "organization", "organizzazione", "about us"] },
+        { id: "details", title: "Dettagli ulteriori", keys: ["dettagli", "details", "altro"] },
+        { id: "notes", title: "Note e contenuto originale", keys: ["note", "contenuto originale", "testo originale", "estratti originali", "appendice seo", "raw"] },
+      ];
+
+      const SECTION_ORDER = ["overview", "responsibilities", "requirements", "benefits", "application", "contacts", "company", "details", "notes"];
+
+      const INLINE_HEADING_KEYS = [
+        "le tue mansioni",
+        "mansioni",
+        "compiti",
+        "responsabilita",
+        "requisiti necessari",
+        "requisiti auspicati",
+        "requisiti",
+        "competenze richieste",
+        "cosa porti con te",
+        "cosa ti offriamo",
+        "benefits",
+        "come candidarsi",
+        "candidatura",
+        "contatti",
+        "contatto",
+        "informazioni aggiuntive",
+        "chi siamo",
+        "about us",
+      ];
+
+      const SECTION_HINTS = {
+        overview: ["descrizione", "panoramica", "overview", "ruolo", "posizione", "introduzione", "profilo del ruolo"],
+        responsibilities: ["mansioni", "compiti", "responsabilita", "attivita", "tasks", "responsibilities", "impari", "svolgi", "contribuisci", "prendi"],
+        requirements: ["requisiti", "requisiti necessari", "requisiti auspicati", "competenze", "profilo", "qualifiche", "diploma", "esperienza", "conoscenza"],
+        benefits: ["cosa ti offriamo", "offriamo", "benefit", "vantaggi", "vacanze", "sconti", "ambiente di lavoro", "opportunita"],
+        application: ["come candidarsi", "candidatura", "interessato", "invia", "application", "apply", "selezione", "colloquio"],
+        contacts: ["contatti", "contatto", "email", "telefono", "tel", "scrivere", "chiama", "091", "0041", "+41"],
+        company: ["chi siamo", "azienda", "ospedale", "hospital", "organizzazione", "organization", "collaboratori", "contesto"],
+        details: ["dettagli", "details", "note", "altro", "ulteriori informazioni"],
+        notes: ["contenuto originale", "testo originale", "estratti originali", "appendice seo", "raw"],
+      };
+
+      const NOISE_BLOCK_PATTERNS = [
+        /##\s*(Vedi dettagli|View details|See details)[\s\S]*$/i,
+        /##\s*(Annunci correlati|Related jobs|Offres d'emploi similaires)[\s\S]*$/i,
+        /##\s*(Mappa|Map|Carte)[\s\S]*$/i,
+      ];
+
+      const NOISE_LINE_PATTERNS = [
+        /^powered by\b/i,
+        /^var\s+careerjet_apply_data\b/i,
+        /^\(function\s*\(d,\s*s,\s*id\)/i,
+        /^postuler\b/i,
+        /^envoyer\b/i,
+        /^connexion\b/i,
+        /^mot de passe\b/i,
+        /^share this job\b/i,
+        /^condividi questo annuncio\b/i,
+        /^tell a friend\b/i,
+        /^dillo a un amico\b/i,
+      ];
+
+      const FRAGMENT_START_RE = /^(di|del|della|dello|dei|degli|delle|con|per|e|oppure|o|che|da|a|al|alla|alle|agli|sul|sulla|sulle|nel|nella|nelle|d')\b/i;
+      const PASS3_ROUTE_RULES = [
+        { id: "application", re: /\b(candidatur|inoltrat|invia|apply|application|entro le ore|scadenz|selezion)\b/i },
+        { id: "contacts", re: /\b(tel\.?|telefono|email|e-mail|contatt|ulteriori informazioni|responsabile)\b/i },
+        { id: "company", re: /\b(repubblica e cantone|ente|organizzazione|collaboratori|ospedale|strutture|chi siamo)\b/i },
+        { id: "requirements", re: /\b(requisit|diploma|titolo|esperienz|conoscenza|attitudine|profilo)\b/i },
+        { id: "benefits", re: /\b(cosa ti offriamo|offriamo|vacanze|sconti|benefit|ambiente di lavoro|opportunita)\b/i },
+        { id: "responsibilities", re: /\b(mansion|compit|responsabilit|attivit|consulenza|gestire|svolgere)\b/i },
+      ];
+
+      const SAMPLE_RAW = `Le tue mansioni Impari a consigliare i clienti con competenza e a vendere con piacere i nostri prodotti.
+Svolgi colloqui di consulenza e di vendita impegnativi.
+Prendi le ordinazioni e gli ordini di riparazione dei nostri clienti.
+Cosa porti con te nell'azienda Piacere di avere a che fare con i clienti. Personalita comunicativa, affidabile e disponibile.
+Cosa ti offriamo Ambiente di lavoro dinamico e imprenditoriale. 6 settimane di vacanze.
+Per informazioni: 091 811 16 07 oppure segretariato.eoform@eoc.ch`;
+
+      function esc(v) {
+        return String(v || "")
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;")
+          .replace(/"/g, "&quot;");
+      }
+
+      function htmlDecode(str) {
+        const el = document.createElement("textarea");
+        el.innerHTML = String(str || "");
+        return el.value;
+      }
+
+      function decodeLooseEntities(str) {
+        return String(str || "").replace(/&(sol|comma|ndash|newline|colo|times);/gi, (_m, ent) => {
+          const map = {
+            sol: "/",
+            comma: ",",
+            ndash: " - ",
+            newline: "\n",
+            colo: ":",
+            times: "x",
+          };
+          return map[String(ent || "").toLowerCase()] || " ";
+        });
+      }
+
+      function cleanSpaces(str) {
+        return String(str || "").replace(/\s+/g, " ").trim();
+      }
+
+      function normalizeIdSource(str) {
+        return htmlDecode(str || "")
+          .toLowerCase()
+          .normalize("NFD")
+          .replace(/[\u0300-\u036f]/g, "")
+          .replace(/[^a-z0-9 ]/g, " ")
+          .replace(/\s+/g, " ")
+          .trim();
+      }
+
+      function uniq(items, max = 999) {
+        const out = [];
+        const seen = new Set();
+        for (const raw of items) {
+          const clean = cleanSpaces(raw);
+          if (!clean) continue;
+          const key = clean.toLowerCase();
+          if (seen.has(key)) continue;
+          seen.add(key);
+          out.push(clean);
+          if (out.length >= max) break;
+        }
+        return out;
+      }
+
+      function headingById(id) {
+        const found = HEADING_MAP.find((h) => h.id === id);
+        return found ? found.title : "Dettagli";
+      }
+
+      function detectHeading(str) {
+        const s = normalizeIdSource(str.replace(/^#+\s*/, "").replace(/:$/, ""));
+        for (const group of HEADING_MAP) {
+          for (const key of group.keys) {
+            const k = normalizeIdSource(key);
+            if (!k) continue;
+            if (s === k || s.startsWith(k + " ") || s.startsWith(k + ":")) return group.id;
+          }
+        }
+        return null;
+      }
+
+      function removeHeadingPrefix(line, sectionId) {
+        const group = HEADING_MAP.find((g) => g.id === sectionId);
+        if (!group) return line;
+        let out = line;
+        for (const k of group.keys.sort((a, b) => b.length - a.length)) {
+          const escK = k.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+          out = out.replace(new RegExp("^\\s*#*\\s*" + escK + "\\s*[:\\-]?\\s*", "i"), "");
+        }
+        out = out.replace(/^#+\s*/, "").trim();
+        return out;
+      }
+
+      function splitByInlineHeadings(text) {
+        let out = String(text || "");
+        const keys = INLINE_HEADING_KEYS.sort((a, b) => b.length - a.length);
+        for (const key of keys) {
+          const escK = key.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+          out = out.replace(new RegExp("(^|[\\n\\.;:!?]\\s+|\\s{2,})(?=" + escK + "\\b)", "gi"), "$1\n");
+        }
+        return out;
+      }
+
+      function isUiNoiseChunk(line) {
+        const raw = cleanSpaces(line);
+        if (!raw) return true;
+        if (NOISE_LINE_PATTERNS.some((rx) => rx.test(raw))) return true;
+        if (/@context|careerjet|indeed-apply|apply_button|bootstrap\.js/i.test(raw)) return true;
+        if (/^https?:\/\/\S+$/.test(raw) && /careerjetApply|indeed/i.test(raw)) return true;
+        if (/^##\s*(offres d'emploi similaires|annunci correlati|related jobs|mappa|map|carte)/i.test(raw)) return true;
+        return false;
+      }
+
+      function normalizeRaw(raw) {
+        let txt = decodeLooseEntities(htmlDecode(raw || ""));
+        txt = txt
+          .replace(/&(?:amp;)?newline;?/gi, "\n")
+          .replace(/\\n/g, "\n")
+          .replace(/<br\s*\/?>/gi, "\n")
+          .replace(/<\/(p|li|h1|h2|h3|h4|div)>/gi, "\n")
+          .replace(/<[^>]+>/g, " ")
+          .replace(/&[a-z]{2,20};?/gi, " ")
+          .replace(/\u00a0/g, " ")
+          .replace(/\r/g, "\n")
+          .replace(/&raquo;|»/gi, " ")
+          .replace(/[ \t]+/g, " ")
+          .replace(/([^#\n])\s*##+\s*/g, "$1\n## ")
+          .replace(/(^|\n)\s*#\s+/g, "$1## ")
+          .replace(/\s+[•·▪◦]\s+/g, "\n- ")
+          .replace(/\s+-\s+(?=[A-ZÀ-ÖÙ-Ü])/g, "\n- ")
+          .replace(/;\s+(?=[A-ZÀ-ÖÙ-Ü])/g, ";\n")
+          .trim();
+
+        for (const rx of NOISE_BLOCK_PATTERNS) {
+          txt = txt.replace(rx, "");
+        }
+
+        txt = splitByInlineHeadings(txt);
+        txt = txt.replace(/\n{3,}/g, "\n\n");
+        return txt;
+      }
+
+      function splitAtomicChunks(normalized) {
+        const chunks = [];
+        const rawLines = String(normalized || "").split(/\n+/);
+        for (const ln of rawLines) {
+          const line = cleanSpaces(ln);
+          if (!line) continue;
+          if (isUiNoiseChunk(line)) continue;
+
+          const sentenceChunks = line.length > 240
+            ? line.split(/(?<=[.!?;])\s+(?=[A-ZÀ-ÖÙ-Ü])/g)
+            : [line];
+
+          for (const piece of sentenceChunks) {
+            const atom = cleanSpaces(piece);
+            if (!atom || isUiNoiseChunk(atom)) continue;
+            const splitByBullets = atom
+              .split(/\s*(?:^|\s)(?:-\s+|•\s+|▪\s+|\*\s+)(?=[A-Z0-9À-ÖÙ-Ü])/g)
+              .map((x) => cleanSpaces(x))
+              .filter(Boolean);
+            for (const item of (splitByBullets.length ? splitByBullets : [atom])) {
+              if (!item || isUiNoiseChunk(item)) continue;
+              chunks.push(item);
+            }
+          }
+        }
+        return chunks;
+      }
+
+      function extractContacts(fullText) {
+        const source = htmlDecode(fullText || "");
+        const emails = uniq(source.match(/[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}/gi) || [], 8);
+        const phones = uniq(
+          source.match(/(?:\+41|0041|0)\s?\d{2}\s?\d{3}\s?\d{2}\s?\d{2}/g) || [],
+          8
+        );
+        return { emails, phones };
+      }
+
+      function toTel(phone) {
+        let d = String(phone || "").replace(/[^\d+]/g, "");
+        if (d.startsWith("0041")) d = "+" + d.slice(2);
+        if (d.startsWith("0")) d = "+41" + d.slice(1);
+        if (!d.startsWith("+")) d = "+" + d;
+        return d;
+      }
+
+      function linkify(text) {
+        let html = esc(text);
+        html = html.replace(/[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}/gi, (m) => '<a href="mailto:' + esc(m) + '">' + esc(m) + "</a>");
+        html = html.replace(/(?:\+41|0041|0)\s?\d{2}\s?\d{3}\s?\d{2}\s?\d{2}/g, (m) => '<a href="tel:' + esc(toTel(m)) + '">' + esc(m) + "</a>");
+        return html;
+      }
+
+      function normalizeRequirementLine(line) {
+        let out = cleanSpaces(line)
+          .replace(/^['"`]+|['"`]+$/g, "")
+          .replace(/^#+\s*/, "")
+          .replace(/^[-–—•*]+\s*/, "")
+          .replace(/^[\],.;:!?)\s]+/, "")
+          .replace(/&(?:amp;)?newline;?/gi, " ")
+          .replace(/&[a-z]{2,20};?/gi, " ");
+        if (/^i\s*\(/i.test(out)) out = out.replace(/^i\s*/i, "");
+        out = out.replace(/\s*\.\.\.\s*$/g, "");
+        out = out.replace(/\s+/g, " ").trim();
+        return out;
+      }
+
+      function isGarbageChunk(line) {
+        const base = cleanSpaces(String(line || "").replace(/^[-–—•*]+/, ""));
+        const n = normalizeIdSource(base);
+        if (!n) return true;
+        if (
+          n === "chiave" ||
+          n === "chiavi" ||
+          n === "key" ||
+          n === "keys" ||
+          n === "none" ||
+          n === "n d" ||
+          n === "n a" ||
+          n === "nd" ||
+          n === "na" ||
+          n === "colo"
+        ) return true;
+        if (/^\?+$/.test(base) || /^(null|undefined|nan)$/i.test(base)) return true;
+        if (/^\d{2}\/\d{2}\/\d{4}\s*-\s*\d{2}\/\d{2}\/\d{4}$/.test(base)) return true;
+        if (isUiNoiseChunk(base)) return true;
+        if (n.length <= 1) return true;
+        return false;
+      }
+
+      function scoreSectionHints(text, sectionId) {
+        const n = normalizeIdSource(text);
+        const hints = SECTION_HINTS[sectionId] || [];
+        let score = 0;
+        for (const hint of hints) {
+          const h = normalizeIdSource(hint);
+          if (!h) continue;
+          if (n.includes(h)) score += h.length >= 10 ? 2 : 1;
+        }
+        return score;
+      }
+
+      function guessSectionByContent(text, fallback = "overview") {
+        const raw = String(text || "");
+        if (!raw.trim()) return { id: fallback, score: 0 };
+        if (/[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}/i.test(raw) || /(?:\+41|0041|0)\s?\d{2}\s?\d{3}\s?\d{2}\s?\d{2}/.test(raw)) {
+          return { id: "contacts", score: 99 };
+        }
+        const direct = detectHeading(raw);
+        if (direct) return { id: direct, score: 90 };
+
+        let best = { id: fallback, score: 0 };
+        for (const id of SECTION_ORDER) {
+          const s = scoreSectionHints(raw, id);
+          if (s > best.score) best = { id, score: s };
+        }
+        return best;
+      }
+
+      function repairSectionItems(items, sectionId, overflow) {
+        const out = [];
+        for (const raw of items || []) {
+          let item = normalizeRequirementLine(raw);
+          if (!item) continue;
+          if (isGarbageChunk(item)) {
+            overflow.push(item);
+            continue;
+          }
+          if (/^di\s+/i.test(item) && out.length > 0) {
+            const prev = out[out.length - 1];
+            if (/(requisiti|criteri|condizioni|ordine|profilo|idoneita|eleggibilita)$/i.test(prev) || prev.length <= 45) {
+              out[out.length - 1] = `${prev} ${item}`.replace(/\s+/g, " ").trim();
+              continue;
+            }
+          }
+          if (item.length <= 14 && out.length > 0 && /^(requirements|application|details)$/.test(sectionId)) {
+            const prev = out[out.length - 1];
+            if (prev.length <= 120 && !/[.!?]$/.test(prev)) {
+              out[out.length - 1] = `${prev} ${item}`.replace(/\s+/g, " ").trim();
+              continue;
+            }
+          }
+          if (FRAGMENT_START_RE.test(item) && out.length > 0 && item.length <= 72) {
+            out[out.length - 1] = `${out[out.length - 1]} ${item}`.replace(/\s+/g, " ").trim();
+            continue;
+          }
+          if (/^[a-zà-öù-ü][^.!?]{1,90}$/i.test(item) && out.length > 0 && item.length <= 42) {
+            out[out.length - 1] = `${out[out.length - 1]} ${item}`.replace(/\s+/g, " ").trim();
+            continue;
+          }
+          out.push(item);
+        }
+        return uniq(out, 150);
+      }
+
+      function semanticRepairPass(sectionMap) {
+        const out = {};
+        for (const id of SECTION_ORDER) out[id] = [...(sectionMap[id] || [])];
+
+        const promoted = [];
+        for (const item of out.details) {
+          const guessed = guessSectionByContent(item, "details");
+          if (guessed.id !== "details" && guessed.score >= 3) {
+            promoted.push({ item, to: guessed.id });
+          }
+        }
+        if (promoted.length > 0) {
+          const promotedSet = new Set(promoted.map((p) => p.item.toLowerCase()));
+          out.details = out.details.filter((x) => !promotedSet.has(String(x || "").toLowerCase()));
+          for (const move of promoted) {
+            out[move.to].push(move.item);
+          }
+        }
+
+        for (const id of SECTION_ORDER) {
+          out[id] = repairSectionItems(out[id], id, out.details);
+        }
+        return out;
+      }
+
+      function normalizeRequirementSubheading(line) {
+        const item = cleanSpaces(String(line || ""));
+        if (!item) return item;
+        if (/^requisiti necessari\b/i.test(item)) return "Requisiti necessari";
+        if (/^requisiti auspicati\b/i.test(item)) return "Requisiti auspicati";
+        if (/^requisiti preferenziali\b/i.test(item)) return "Requisiti preferenziali";
+        if (/^required\b/i.test(item)) return "Required";
+        if (/^preferred\b/i.test(item)) return "Preferred";
+        return item;
+      }
+
+      function explodeDenseItem(item, sectionId) {
+        const clean = cleanSpaces(item);
+        if (!clean || clean.length < 210) return [clean];
+        const canExplode = /^(overview|details|company|requirements|responsibilities)$/.test(sectionId);
+        if (!canExplode) return [clean];
+
+        const bySemi = clean.split(/;\s+(?=[A-ZÀ-ÖÙ-Üa-zà-öù-ü])/g).map((x) => cleanSpaces(x)).filter(Boolean);
+        if (bySemi.length >= 3) return bySemi;
+
+        const bySent = clean.split(/(?<=[.!?])\s+(?=[A-ZÀ-ÖÙ-Ü])/g).map((x) => cleanSpaces(x)).filter(Boolean);
+        if (bySent.length >= 3) return bySent;
+
+        return [clean];
+      }
+
+      function routeByPass3Rules(item, currentId) {
+        const line = String(item || "");
+        const guessed = guessSectionByContent(line, currentId);
+        let best = { id: currentId, score: guessed.id === currentId ? guessed.score : 0 };
+
+        for (const rule of PASS3_ROUTE_RULES) {
+          if (rule.re.test(line)) {
+            const base = 6 + scoreSectionHints(line, rule.id);
+            if (base > best.score) best = { id: rule.id, score: base };
+          }
+        }
+
+        if (guessed.id !== currentId && guessed.score >= 4 && guessed.score > best.score) {
+          best = guessed;
+        }
+
+        return best.id;
+      }
+
+      function thirdPassAiStyle(sectionMap, normalizedRaw) {
+        const out = {};
+        for (const id of SECTION_ORDER) out[id] = [];
+
+        let moved = 0;
+        let split = 0;
+
+        for (const id of SECTION_ORDER) {
+          const sourceItems = sectionMap[id] || [];
+          for (const raw of sourceItems) {
+            const item = normalizeRequirementSubheading(normalizeRequirementLine(raw));
+            if (!item || isGarbageChunk(item)) continue;
+
+            const exploded = explodeDenseItem(item, id);
+            if (exploded.length > 1) split += exploded.length - 1;
+
+            for (const part of exploded) {
+              let clean = normalizeRequirementSubheading(normalizeRequirementLine(part));
+              if (!clean || isGarbageChunk(clean)) continue;
+
+              // Canonical heading markers accidentally left in-line.
+              clean = clean
+                .replace(/^#\s*/g, "")
+                .replace(/^(?:compiti|mansioni principali)\s*:\s*/i, "")
+                .replace(/^(?:come candidarsi|contatti)\s*:\s*/i, "");
+              if (!clean) continue;
+
+              const target = routeByPass3Rules(clean, id);
+              if (target !== id) moved += 1;
+              out[target].push(clean);
+            }
+          }
+        }
+
+        // Lossless reconciliation: if a meaningful chunk from normalized raw is not represented
+        // in canonical sections, keep it in "details" so no content gets silently dropped.
+        const represented = new Set();
+        for (const id of SECTION_ORDER) {
+          for (const item of out[id]) {
+            const key = normalizeIdSource(item);
+            if (key.length >= 14) represented.add(key);
+          }
+        }
+
+        let reconciled = 0;
+        const rawChunks = splitAtomicChunks(normalizedRaw || "");
+        for (const raw of rawChunks) {
+          const clean = normalizeRequirementSubheading(normalizeRequirementLine(raw));
+          if (!clean || isGarbageChunk(clean)) continue;
+          const key = normalizeIdSource(clean);
+          if (key.length < 18) continue;
+          if (!represented.has(key)) {
+            out.details.push(clean);
+            represented.add(key);
+            reconciled += 1;
+          }
+        }
+
+        for (const id of SECTION_ORDER) {
+          out[id] = repairSectionItems(out[id], id, out.details);
+          if (id === "requirements") {
+            out[id] = out[id].map(normalizeRequirementSubheading);
+          }
+          out[id] = uniq(out[id], 260);
+        }
+
+        return { sections: out, moved, split, reconciled };
+      }
+
+      function buildResidualNotes(normalizedRaw, sectionMap) {
+        const represented = new Set();
+        for (const id of SECTION_ORDER) {
+          if (id === "notes") continue;
+          for (const item of sectionMap[id] || []) {
+            const key = normalizeIdSource(item);
+            if (key.length >= 10) represented.add(key);
+          }
+        }
+
+        const leftovers = [];
+        const rawChunks = splitAtomicChunks(normalizedRaw || "");
+        for (const raw of rawChunks) {
+          const clean = normalizeRequirementSubheading(normalizeRequirementLine(raw));
+          if (!clean) continue;
+          if (isUiNoiseChunk(clean)) continue;
+          const key = normalizeIdSource(clean);
+          if (key.length < 10) continue;
+          if (!represented.has(key)) {
+            leftovers.push(clean);
+            represented.add(key);
+          }
+        }
+
+        return uniq(leftovers, 400);
+      }
+
+      function canonicalize(rawDescription, reqRaw) {
+        const normalized = normalizeRaw(rawDescription || "");
+        const chunks = splitAtomicChunks(normalized);
+        const sections = {};
+        for (const id of SECTION_ORDER) sections[id] = [];
+        const overflow = [];
+        let current = "overview";
+        const originalCount = chunks.length;
+        let assignedCount = 0;
+
+        for (const rawChunk of chunks) {
+          let chunk = cleanSpaces(rawChunk);
+          if (!chunk) continue;
+
+          const headingIdFromChunk = detectHeading(chunk);
+          if (headingIdFromChunk) {
+            current = headingIdFromChunk;
+            const body = normalizeRequirementLine(removeHeadingPrefix(chunk, headingIdFromChunk));
+            if (body) {
+              sections[current].push(body);
+              assignedCount += 1;
+            }
+            continue;
+          }
+
+          if (/^[A-ZÀ-ÖÙ-Ü][^.!?]{2,65}:$/.test(chunk)) {
+            const direct = detectHeading(chunk.replace(/:$/, ""));
+            if (direct) {
+              current = direct;
+              continue;
+            }
+          }
+
+          chunk = normalizeRequirementLine(chunk);
+          if (!chunk) continue;
+          if (isGarbageChunk(chunk)) {
+            overflow.push(chunk);
+            continue;
+          }
+          const guessed = guessSectionByContent(chunk, current);
+          if (guessed.score >= 2) current = guessed.id;
+          sections[current].push(chunk);
+          assignedCount += 1;
+        }
+
+        const reqLines = String(reqRaw || "")
+          .split(/\n+/)
+          .map((x) => normalizeRequirementLine(x))
+          .filter(Boolean);
+
+        sections.requirements = uniq([...sections.requirements, ...reqLines], 80);
+
+        // Repair + smart reassignment
+        for (const id of SECTION_ORDER) {
+          sections[id] = repairSectionItems(
+            sections[id].map((x) => normalizeRequirementLine(x)).filter(Boolean),
+            id,
+            overflow
+          );
+        }
+
+        const moved = {};
+        for (const id of SECTION_ORDER) moved[id] = [];
+        for (const id of SECTION_ORDER) {
+          for (const item of sections[id]) {
+            const guessed = guessSectionByContent(item, id);
+            const moveThreshold = guessed.id === "contacts" ? 6 : 3;
+            if (guessed.id !== id && guessed.score >= moveThreshold) {
+              moved[guessed.id].push(item);
+            } else {
+              moved[id].push(item);
+            }
+          }
+        }
+        for (const id of SECTION_ORDER) {
+          sections[id] = uniq(moved[id], 180);
+        }
+
+        // Keep overflow in details if meaningful (lossless intent) while avoiding junk
+        const cleanedOverflow = uniq(
+          overflow
+            .map((x) => normalizeRequirementLine(x))
+            .filter((x) => x && !isGarbageChunk(x)),
+          80
+        );
+        if (cleanedOverflow.length > 0) {
+          sections.details = uniq([...sections.details, ...cleanedOverflow], 200);
+        }
+
+        const repaired = semanticRepairPass(sections);
+        for (const id of SECTION_ORDER) {
+          sections[id] = uniq(repaired[id] || [], 200);
+        }
+
+        // Pass 3 (AI-style): semantic routing + dense-block expansion + lossless reconciliation.
+        const pass3 = thirdPassAiStyle(sections, normalized);
+        for (const id of SECTION_ORDER) {
+          sections[id] = uniq(pass3.sections[id] || [], 260);
+        }
+
+        const contacts = extractContacts(normalized + "\n" + reqRaw);
+
+        if (contacts.phones.length > 0) {
+          for (const p of contacts.phones) {
+            if (!sections.contacts.some((x) => x.includes(p))) sections.contacts.push("Telefono: " + p);
+          }
+        }
+        if (contacts.emails.length > 0) {
+          for (const e of contacts.emails) {
+            if (!sections.contacts.some((x) => x.includes(e))) sections.contacts.push("Email: " + e);
+          }
+        }
+
+        const residualNotes = buildResidualNotes(normalized, sections);
+        if (residualNotes.length > 0) {
+          sections.notes = uniq([...(sections.notes || []), ...residualNotes], 400);
+        }
+
+        const coverage = originalCount > 0 ? Math.min(100, Math.round((assignedCount / originalCount) * 100)) : 100;
+
+        const sectionList = SECTION_ORDER.map((id) => ({
+          id,
+          title: headingById(id),
+          items: sections[id],
+        }));
+
+        return {
+          normalizedRaw: normalized,
+          sectionList,
+          sections,
+          contacts,
+          metrics: {
+            originalChunks: originalCount,
+            assignedChunks: assignedCount,
+            coverage,
+            pass3Moved: pass3.moved,
+            pass3Split: pass3.split,
+            pass3Reconciled: pass3.reconciled,
+            notesCount: (sections.notes || []).length,
+          },
+        };
+      }
+
+      function listHTML(items) {
+        if (!items || items.length === 0) return "<p>Non disponibile</p>";
+        const lis = items.map((it) => {
+          const clean = cleanSpaces(it);
+          const isSub = /^(requisiti necessari|requisiti auspicati|required|preferred)$/i.test(clean);
+          if (isSub) return '<li class="subhead">' + linkify(clean) + "</li>";
+          return "<li>" + linkify(clean) + "</li>";
+        });
+        return "<ul>" + lis.join("") + "</ul>";
+      }
+
+      function paraHTML(items, max = 999) {
+        const list = (items || []).slice(0, max);
+        if (list.length === 0) return "<p>Non disponibile</p>";
+        return list.map((x) => "<p>" + linkify(x) + "</p>").join("");
+      }
+
+      function section(canonical, id, asParagraph = false) {
+        const block = canonical.sectionList.find((s) => s.id === id) || { title: headingById(id), items: [] };
+        const content = asParagraph ? paraHTML(block.items) : listHTML(block.items);
+        return '<section class="section"><h4>' + esc(block.title) + "</h4>" + content + "</section>";
+      }
+
+      function sectionIfAny(canonical, id, asParagraph = false) {
+        const block = canonical.sectionList.find((s) => s.id === id);
+        if (!block || (block.items || []).length === 0) return "";
+        return section(canonical, id, asParagraph);
+      }
+
+      function hero(job, canonical) {
+        const salary = salaryLabel(job);
+        return (
+          '<div class="hero">' +
+            '<div class="hero-title">' + esc(job.title || "Titolo job") + "</div>" +
+            '<div class="hero-sub">' + esc(job.company || "Azienda") + " · " + esc(job.location || "Ticino") + "</div>" +
+            '<div class="hero-meta">' +
+              "<span>" + esc("Categoria: " + (job.category || "other")) + "</span>" +
+              "<span>" + esc("Contratto: " + contractLabel(job.contract)) + "</span>" +
+              "<span>" + esc("Salario: " + salary) + "</span>" +
+              '<span class="coverage">Coverage parser: ' + esc(String(canonical.metrics.coverage)) + "%</span>" +
+            "</div>" +
+          "</div>"
+        );
+      }
+
+      function proposalHybridAB(job, canonical) {
+        const overview = canonical.sections.overview;
+        const timelineSections = ["responsibilities", "requirements", "benefits", "application", "contacts", "details", "notes"];
+        return (
+          '<div class="proposal-head"><h2>Proposta 1 - Hybrid A+B Timeline</h2><span>Hero A+B + corpo B</span></div>' +
+          hero(job, canonical) +
+          '<section class="section"><h4>Panoramica</h4>' + paraHTML(overview, 120) + "</section>" +
+          '<div class="timeline">' +
+            timelineSections.map((id) => {
+              const block = canonical.sectionList.find((s) => s.id === id);
+              if (!block || block.items.length === 0) return "";
+              return '<div class="timeline-step">' + section(canonical, id) + "</div>";
+            }).join("") +
+          "</div>" +
+          '<a class="cta" href="' + esc(job.url || "#") + '" target="_blank" rel="noopener noreferrer">Vai alla candidatura</a>'
+        );
+      }
+
+      function proposalSplitNavigator(job, canonical) {
+        const responsibilitiesCount = canonical.sections.responsibilities.length;
+        const requirementsCount = canonical.sections.requirements.length;
+        const contactCount = canonical.sections.contacts.length + canonical.contacts.emails.length + canonical.contacts.phones.length;
+        return (
+          '<div class="proposal-head"><h2>Proposta 2 - Command Deck</h2><span>Data-first layout per decisione rapida</span></div>' +
+          hero(job, canonical) +
+          '<div class="metric-strip">' +
+            '<div class="metric"><div class="k">Mansioni tracciate</div><div class="v">' + esc(String(responsibilitiesCount || 0)) + "</div></div>" +
+            '<div class="metric"><div class="k">Competenze richieste</div><div class="v">' + esc(String(requirementsCount || 0)) + "</div></div>" +
+            '<div class="metric"><div class="k">Canali di contatto</div><div class="v">' + esc(String(contactCount || 0)) + "</div></div>" +
+          "</div>" +
+          '<div class="wow-grid">' +
+            "<div>" +
+              '<section class="command-card"><h4>Panoramica esecutiva</h4>' + paraHTML(canonical.sections.overview, 120) + "</section>" +
+              '<section class="command-card"><h4>Responsabilità operative</h4>' + listHTML(canonical.sections.responsibilities) + "</section>" +
+              '<section class="command-card"><h4>Competenze e requisiti</h4>' + listHTML(canonical.sections.requirements) + "</section>" +
+            "</div>" +
+            "<div>" +
+              '<section class="command-card"><h4>Valore offerto</h4>' + listHTML(canonical.sections.benefits) + "</section>" +
+              '<section class="command-card"><h4>Processo candidatura</h4>' + listHTML(canonical.sections.application) + "</section>" +
+              '<section class="command-card"><h4>Contatti utili</h4>' + listHTML(canonical.sections.contacts) + "</section>" +
+              '<div class="note">Vista orientata alla conversione: chi legge vede subito fit, valore, e prossima azione.</div>' +
+            "</div>" +
+          "</div>" +
+          section(canonical, "details") +
+          sectionIfAny(canonical, "notes") +
+          '<a class="cta" href="' + esc(job.url || "#") + '" target="_blank" rel="noopener noreferrer">Apri annuncio originale</a>'
+        );
+      }
+
+      function proposalAccordion(job, canonical) {
+        const lead =
+          canonical.sections.overview[0] ||
+          canonical.sections.company[0] ||
+          canonical.sections.details[0] ||
+          "Dettagli non disponibili";
+        return (
+          '<div class="proposal-head"><h2>Proposta 3 - Editorial Premium</h2><span>Narrativa pulita con gerarchia forte</span></div>' +
+          hero(job, canonical) +
+          '<div class="editorial-shell">' +
+            '<div class="editorial-lead">' + linkify(lead) + "</div>" +
+            '<div class="editorial-columns">' +
+              '<section class="editorial-block"><h4>Ruolo e impatto</h4>' + paraHTML(canonical.sections.overview, 140) + "</section>" +
+              '<section class="editorial-block"><h4>Mansioni principali</h4>' + listHTML(canonical.sections.responsibilities) + "</section>" +
+              '<section class="editorial-block"><h4>Profilo richiesto</h4>' + listHTML(canonical.sections.requirements) + "</section>" +
+              '<section class="editorial-block"><h4>Cosa offre l’azienda</h4>' + listHTML(canonical.sections.benefits) + "</section>" +
+              '<section class="editorial-block"><h4>Come candidarsi</h4>' + listHTML(canonical.sections.application) + "</section>" +
+              '<section class="editorial-block"><h4>Contatti</h4>' + listHTML(canonical.sections.contacts) + "</section>" +
+            "</div>" +
+            '<section class="editorial-block" style="margin-top:8px;"><h4>Dettagli ulteriori</h4>' + listHTML(canonical.sections.details) + "</section>" +
+            sectionIfAny(canonical, "notes") +
+          "</div>" +
+          '<a class="cta" href="' + esc(job.url || "#") + '" target="_blank" rel="noopener noreferrer">Candidati</a>'
+        );
+      }
+
+      function proposalStoryboard(job, canonical) {
+        const steps = [
+          { id: "overview", title: "Comprendi il ruolo" },
+          { id: "responsibilities", title: "Valuta le attività" },
+          { id: "requirements", title: "Verifica il fit" },
+          { id: "benefits", title: "Analizza il valore offerto" },
+          { id: "application", title: "Prepara la candidatura" },
+          { id: "contacts", title: "Contatta il referente" },
+        ].filter((s) => (canonical.sections[s.id] || []).length > 0);
+
+        return (
+          '<div class="proposal-head"><h2>Proposta 4 - Candidate Journey</h2><span>Flow guidato da scoperta a candidatura</span></div>' +
+          hero(job, canonical) +
+          '<div class="journey">' +
+            steps.map((s, idx) =>
+              '<section class="journey-step" data-step="' + esc(String(idx + 1)) + '">' +
+                "<h4>" + esc(s.title) + "</h4>" +
+                (s.id === "overview" ? paraHTML(canonical.sections[s.id], 140) : listHTML(canonical.sections[s.id])) +
+              "</section>"
+            ).join("") +
+          "</div>" +
+          '<section class="section"><h4>Appendice completa</h4>' + listHTML(canonical.sections.details) + "</section>" +
+          sectionIfAny(canonical, "notes") +
+          '<a class="cta" href="' + esc(job.url || "#") + '" target="_blank" rel="noopener noreferrer">Vai al sito azienda</a>'
+        );
+      }
+
+      function salaryLabel(job) {
+        const min = Number(job.salaryMin || (job.baseSalary && job.baseSalary.value && job.baseSalary.value.minValue));
+        const max = Number(job.salaryMax || (job.baseSalary && job.baseSalary.value && job.baseSalary.value.maxValue));
+        const currency = String(job.currency || "CHF");
+        if (!Number.isFinite(min)) return "non indicato";
+        const f = new Intl.NumberFormat("it-CH", { maximumFractionDigits: 0 });
+        if (!Number.isFinite(max) || max <= min) return currency + " " + f.format(min);
+        return currency + " " + f.format(min) + " - " + f.format(max);
+      }
+
+      function contractLabel(v) {
+        const map = {
+          "full-time": "Tempo pieno",
+          "part-time": "Part-time",
+          internship: "Stage",
+          temporary: "Temporaneo",
+          contract: "Contratto",
+        };
+        return map[String(v || "").toLowerCase()] || String(v || "Altro");
+      }
+
+      let jobsCache = [];
+
+      function fillMeta(job, canonical) {
+        const row = document.getElementById("metaRow");
+        row.innerHTML = "";
+        const data = [
+          "Company: " + (job.company || "n/d"),
+          "Location: " + (job.location || "n/d"),
+          "Category: " + (job.category || "n/d"),
+          "Contract: " + contractLabel(job.contract),
+          "Coverage parser: " + canonical.metrics.coverage + "%",
+          "Chunks: " + canonical.metrics.assignedChunks + "/" + canonical.metrics.originalChunks,
+          "Pass3 moved: " + (canonical.metrics.pass3Moved || 0),
+          "Pass3 split: " + (canonical.metrics.pass3Split || 0),
+          "Pass3 reconciled: " + (canonical.metrics.pass3Reconciled || 0),
+          "Note residuali: " + (canonical.metrics.notesCount || 0),
+        ];
+        data.forEach((txt) => {
+          const span = document.createElement("span");
+          span.className = "chip";
+          span.textContent = txt;
+          row.appendChild(span);
+        });
+      }
+
+      function setInputsFromJob(job, locale) {
+        const desc = String((job.descriptionByLocale && job.descriptionByLocale[locale]) || job.description || SAMPLE_RAW);
+        const reqs = ((job.requirementsByLocale && job.requirementsByLocale[locale]) || job.requirements || []).join("\n");
+        document.getElementById("rawInput").value = desc;
+        document.getElementById("reqInput").value = reqs;
+      }
+
+      function currentJob() {
+        const id = document.getElementById("jobSelect").value;
+        return jobsCache.find((j) => String(j.id) === String(id)) || jobsCache[0];
+      }
+
+      function renderAll() {
+        const job = currentJob() || {
+          id: "sample",
+          title: "Apprendistato: Impiegato/a in logistica (100%)",
+          company: "EOC - Ente Ospedaliero Cantonale",
+          location: "Bellinzona",
+          contract: "internship",
+          category: "health",
+          url: "#",
+        };
+
+        const raw = document.getElementById("rawInput").value;
+        const req = document.getElementById("reqInput").value;
+        const canonical = canonicalize(raw, req);
+
+        fillMeta(job, canonical);
+        document.getElementById("canonicalPreview").textContent = JSON.stringify(canonical, null, 2);
+
+        document.getElementById("proposal1").innerHTML = proposalHybridAB(job, canonical);
+        document.getElementById("proposal2").innerHTML = proposalSplitNavigator(job, canonical);
+        document.getElementById("proposal3").innerHTML = proposalAccordion(job, canonical);
+        document.getElementById("proposal4").innerHTML = proposalStoryboard(job, canonical);
+      }
+
+      async function init() {
+        const select = document.getElementById("jobSelect");
+        const localeSelect = document.getElementById("localeSelect");
+        const slugParam = new URLSearchParams(window.location.search).get("slug");
+
+        try {
+          const res = await fetch("/data/jobs.json", { cache: "no-store" });
+          const data = await res.json();
+          jobsCache = Array.isArray(data) ? data.slice(0, 900) : [];
+        } catch {
+          jobsCache = [];
+        }
+
+        if (jobsCache.length === 0) {
+          jobsCache = [{
+            id: "sample",
+            slug: "sample",
+            title: "Apprendistato: Impiegato/a in logistica (100%)",
+            company: "EOC - Ente Ospedaliero Cantonale",
+            location: "Bellinzona",
+            category: "health",
+            contract: "internship",
+            url: "#",
+            description: SAMPLE_RAW,
+            requirements: [],
+          }];
+        }
+
+        jobsCache.forEach((job, idx) => {
+          const opt = document.createElement("option");
+          opt.value = String(job.id || idx);
+          opt.textContent = String(job.title || "Senza titolo") + " - " + String(job.company || "Azienda");
+          select.appendChild(opt);
+        });
+
+        if (slugParam) {
+          const found = jobsCache.find((j) => String(j.slug || "") === String(slugParam));
+          if (found) select.value = String(found.id);
+        }
+
+        const locale = localeSelect.value || "it";
+        setInputsFromJob(currentJob(), locale);
+        renderAll();
+
+        select.addEventListener("change", () => {
+          setInputsFromJob(currentJob(), localeSelect.value || "it");
+          renderAll();
+        });
+
+        localeSelect.addEventListener("change", () => {
+          setInputsFromJob(currentJob(), localeSelect.value || "it");
+          renderAll();
+        });
+
+        document.getElementById("renderBtn").addEventListener("click", renderAll);
+      }
+
+      init();
+    </script>
+  </body>
+</html>

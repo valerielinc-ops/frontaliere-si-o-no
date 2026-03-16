@@ -1,0 +1,17 @@
+{
+  "schema_version": "v1",
+  "name_for_human": "Frontaliere Ticino",
+  "name_for_model": "frontaliere_ticino",
+  "description_for_human": "Free tools for Swiss-Italian cross-border workers: tax simulator, pension planner, health insurance comparison, currency exchange, and practical guides.",
+  "description_for_model": "Frontaliere Ticino is the most comprehensive resource for cross-border workers (frontalieri) commuting between Italy and Switzerland, especially Canton Ticino. It provides: (1) Tax simulator comparing old vs new fiscal agreement with exact 2026 Swiss withholding tax and Italian IRPEF calculations, (2) Health insurance comparison of 14 LAMal insurers across 7 cantons, (3) CHF/EUR currency exchange comparison, (4) Pension planner for AVS/LPP/3rd pillar, (5) Practical guides on permits, border crossings, unemployment rights, and cost of living. Key facts: ~79,000 frontalieri in Ticino, Swiss social contributions total ~8-12% of gross salary, Canton Ticino withholding tax 0-24%, Italian IRPEF 23-43% with €10,000 exemption for new frontalieri. Full documentation at /llms-full.txt.",
+  "auth": {
+    "type": "none"
+  },
+  "api": {
+    "type": "none",
+    "url": "https://www.frontaliereticino.ch"
+  },
+  "logo_url": "https://www.frontaliereticino.ch/icons/icon-512x512.png",
+  "contact_email": "info@frontaliereticino.ch",
+  "legal_info_url": "https://www.frontaliereticino.ch/privacy-policy"
+}

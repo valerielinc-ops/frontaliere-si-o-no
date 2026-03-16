@@ -1,0 +1,30 @@
+{
+  "companyKey": "sunrise-sede-ticino",
+  "companyName": "Sunrise Communications AG",
+  "companyHost": "careers.sunrise.ch",
+  "enabled": true,
+  "priority": 14,
+  "crawlerModes": [
+    "html",
+    "jsonld"
+  ],
+  "seedUrls": [
+    "https://careers.sunrise.ch/it/it/search-results"
+  ],
+  "notes": "Dedicated Sunrise crawler parses the Phenom search pages and keeps only Ticino/Grigioni jobs from the Sunrise careers portal.",
+  "updatedAt": "2026-03-10T18:11:17.922Z",
+  "seedMetaByUrl": {
+    "https://careers.sunrise.ch/it/it/job/REQ_30036255/apprendista-gestore-del-commercio-al-dettaglio-afc-lugano": {
+      "location": "Lugano",
+      "canton": "TI",
+      "company": "Sunrise Communications AG",
+      "postedDate": "2026-01-28"
+    },
+    "https://careers.sunrise.ch/it/it/job/REQ_30036296/key-account-manager-italian-speaking-switzerland-80-100": {
+      "location": "Manno, Ticino",
+      "canton": "TI",
+      "company": "Sunrise Communications AG",
+      "postedDate": "2026-03-10"
+    }
+  }
+}

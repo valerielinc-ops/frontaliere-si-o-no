@@ -1,0 +1,22 @@
+{
+  "companyKey": "banca-dello-stato-del-canton-ticino",
+  "companyName": "Banca dello Stato del Canton Ticino",
+  "companyHost": "bancastato.ch",
+  "enabled": true,
+  "priority": 0,
+  "crawlerModes": [
+    "generic_ats",
+    "html",
+    "jsonld"
+  ],
+  "seedUrls": [
+    "https://www.bancastato.ch/careers",
+    "https://www.bancastato.ch/career",
+    "https://www.bancastato.ch/jobs",
+    "https://www.bancastato.ch/karriere",
+    "https://www.bancastato.ch/offene-stellen",
+    "https://www.bancastato.ch/lavora-con-noi"
+  ],
+  "notes": "",
+  "updatedAt": "2026-02-27T17:06:06.926Z"
+}

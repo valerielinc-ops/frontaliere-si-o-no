@@ -1,0 +1,53 @@
+{
+  "companyKey": "guess-europe",
+  "companyName": "Guess Europe Sagl",
+  "companyHost": "apply.workable.com",
+  "enabled": true,
+  "priority": 10,
+  "crawlerModes": [
+    "api",
+    "html",
+    "jsonld"
+  ],
+  "seedUrls": [
+    "https://apply.workable.com/guess-europe-sagl/j/04327CCE51/",
+    "https://apply.workable.com/guess-europe-sagl/j/02D5702DBE/",
+    "https://apply.workable.com/guess-europe-sagl/j/F5CC476480/",
+    "https://apply.workable.com/guess-europe-sagl/j/373082A75E/",
+    "https://apply.workable.com/guess-europe-sagl/j/9260A95C9F/"
+  ],
+  "notes": "Dedicated Guess crawler uses Workable widget API + Workable v2 job detail API for Ticino jobs.",
+  "updatedAt": "2026-03-10T13:59:49.635Z",
+  "seedMetaByUrl": {
+    "https://apply.workable.com/guess-europe-sagl/j/04327CCE51/": {
+      "location": "Bioggio",
+      "canton": "TI",
+      "company": "Guess Europe Sagl",
+      "postedDate": "2026-02-09"
+    },
+    "https://apply.workable.com/guess-europe-sagl/j/02D5702DBE/": {
+      "location": "Bioggio",
+      "canton": "TI",
+      "company": "Guess Europe Sagl",
+      "postedDate": "2026-02-17"
+    },
+    "https://apply.workable.com/guess-europe-sagl/j/F5CC476480/": {
+      "location": "Stabio",
+      "canton": "TI",
+      "company": "Guess Europe Sagl",
+      "postedDate": "2026-02-06"
+    },
+    "https://apply.workable.com/guess-europe-sagl/j/373082A75E/": {
+      "location": "Bioggio",
+      "canton": "TI",
+      "company": "Guess Europe Sagl",
+      "postedDate": "2025-10-01"
+    },
+    "https://apply.workable.com/guess-europe-sagl/j/9260A95C9F/": {
+      "location": "Stabio",
+      "canton": "TI",
+      "company": "Guess Europe Sagl",
+      "postedDate": "2026-02-03"
+    }
+  }
+}

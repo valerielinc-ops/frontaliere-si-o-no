@@ -1,0 +1,16 @@
+{
+  "companyKey": "fart",
+  "companyName": "FART – Ferrovie Autolinee Regionali Ticinesi",
+  "companyHost": "fartiamo.ch",
+  "enabled": true,
+  "priority": 10,
+  "crawlerModes": [
+    "html",
+    "pdf"
+  ],
+  "seedUrls": [
+    "https://fartiamo.ch/lavora-con-noi-concorsi/"
+  ],
+  "notes": "WordPress CMS — \"Concorsi\" listings with h5 titles and PDF download links.",
+  "updatedAt": "2026-03-16T05:35:41.041Z"
+}

@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Newsletter Frontaliere Ticino — Versione Definitiva</title>
+<style>
+  body { margin: 0; padding: 0; background: #f1f5f9; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+  .email-wrapper { max-width: 620px; margin: 0 auto; background: #ffffff; }
+
+  /* ===== TOP BAR (da H, con "Frontaliere Ticino") ===== */
+  .top-bar { background: #0f172a; padding: 10px 28px; display: flex; justify-content: space-between; align-items: center; }
+  .top-bar .brand { font-size: 15px; font-weight: 900; color: #f97316; letter-spacing: -0.3px; }
+  .top-bar .issue { font-size: 11px; color: #64748b; }
+
+  /* ===== HERO: Exchange Rate (da E) ===== */
+  .hero { background: #0f172a; color: #fff; padding: 32px 28px 28px; text-align: center; }
+  .hero-pretitle { font-size: 13px; text-transform: uppercase; letter-spacing: 2px; color: #f97316; font-weight: 700; margin-bottom: 6px; }
+  .hero-title { font-size: 28px; font-weight: 800; margin: 0 0 4px; line-height: 1.2; }
+  .hero-subtitle { font-size: 14px; color: #94a3b8; margin: 0 0 20px; }
+  .rate-box { display: inline-block; background: linear-gradient(135deg, #1e293b, #334155); border-radius: 16px; padding: 20px 36px; margin: 8px 0 16px; }
+  .rate-label { font-size: 12px; color: #94a3b8; text-transform: uppercase; letter-spacing: 1px; }
+  .rate-value { font-size: 52px; font-weight: 900; color: #f97316; letter-spacing: -1px; line-height: 1.1; }
+  .rate-change { font-size: 14px; margin-top: 4px; }
+  .rate-change.down { color: #ef4444; }
+  .savings-callout { background: rgba(249,115,22,0.12); border: 1px solid rgba(249,115,22,0.3); border-radius: 10px; padding: 12px 18px; margin-top: 14px; font-size: 13px; color: #fdba74; }
+  .savings-callout strong { color: #f97316; font-size: 15px; }
+  .hero-cta { display: inline-block; background: #f97316; color: #fff; font-weight: 700; font-size: 14px; text-decoration: none; padding: 12px 28px; border-radius: 8px; margin-top: 16px; }
+
+  /* ===== EDITORIAL (da E, con conteggio offerte) ===== */
+  .editorial { padding: 28px 28px 8px; }
+  .editorial h2 { font-size: 20px; font-weight: 800; color: #0f172a; margin: 0 0 12px; }
+  .editorial p { font-size: 14px; color: #334155; line-height: 1.65; margin: 0 0 14px; }
+  .editorial .signature { font-size: 13px; color: #64748b; font-style: italic; margin-top: 8px; }
+
+  /* ===== INTERMEZZO METRICS (da E) ===== */
+  .intermezzo { padding: 0 28px 8px; }
+  .metrics-row { display: flex; gap: 10px; }
+  .metric-card { flex: 1; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 14px 12px; text-align: center; }
+  .metric-icon { font-size: 22px; margin-bottom: 4px; }
+  .metric-value { font-size: 20px; font-weight: 800; color: #0f172a; }
+  .metric-label { font-size: 11px; color: #64748b; text-transform: uppercase; letter-spacing: 0.5px; margin-top: 2px; }
+  .metric-delta { font-size: 11px; color: #22c55e; font-weight: 600; margin-top: 2px; }
+  .metric-delta.negative { color: #ef4444; }
+
+  /* ===== SECTION HEADERS (da E) ===== */
+  .section-header { padding: 24px 28px 8px; }
+  .section-header h3 { font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: #f97316; font-weight: 700; margin: 0 0 2px; }
+  .section-header h2 { font-size: 18px; font-weight: 800; color: #0f172a; margin: 0; }
+  .section-header p { font-size: 13px; color: #64748b; margin: 4px 0 0; }
+
+  /* ===== JOBS: listing da E, bottone da H ===== */
+  .jobs-section { padding: 8px 28px 20px; }
+  .job-card { background: #0f172a; border-radius: 12px; padding: 16px 18px; margin-bottom: 10px; display: flex; align-items: center; gap: 14px; }
+  .job-avatar { width: 44px; height: 44px; border-radius: 10px; background: linear-gradient(135deg, #1e293b, #334155); display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: 800; color: #f97316; flex-shrink: 0; }
+  .job-info { flex: 1; min-width: 0; }
+  .job-title { font-size: 14px; font-weight: 700; color: #f1f5f9; margin: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .job-company { font-size: 12px; color: #94a3b8; margin: 2px 0 0; }
+  .job-meta { display: flex; gap: 8px; margin-top: 4px; }
+  .job-tag { font-size: 10px; background: rgba(249,115,22,0.15); color: #fdba74; padding: 2px 8px; border-radius: 6px; text-transform: uppercase; letter-spacing: 0.5px; font-weight: 600; }
+  .job-tag.hot { background: rgba(239,68,68,0.2); color: #fca5a5; }
+  .jobs-cta-wrap { text-align: center; margin-top: 14px; }
+  /* Bottone da H: outline arancione */
+  .jobs-cta { display: inline-block; background: transparent; border: 2px solid #f97316; color: #f97316; font-weight: 700; font-size: 13px; text-decoration: none; padding: 11px 28px; border-radius: 8px; }
+
+  /* ===== REFERENDUM WIDGET (da H) ===== */
+  .ref-widget { margin: 12px 28px 16px; background: linear-gradient(135deg, #fef3c7, #fde68a); border-radius: 14px; padding: 18px 20px; }
+  .ref-widget h3 { font-size: 15px; font-weight: 800; color: #78350f; margin: 0 0 10px; }
+  .ref-results { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+  .ref-item { background: rgba(255,255,255,0.5); border-radius: 8px; padding: 8px 10px; }
+  .ref-item .status { font-size: 12px; font-weight: 700; }
+  .ref-item .status.pass { color: #166534; }
+  .ref-item .status.fail { color: #991b1b; }
+  .ref-item .name { font-size: 10px; color: #78350f; margin-top: 1px; }
+
+  /* ===== INTERMEZZO QUOTE (da F) ===== */
+  .intermezzo-quote { margin: 8px 28px 16px; background: linear-gradient(135deg, #f97316, #ea580c); border-radius: 12px; padding: 20px 22px; text-align: center; }
+  .intermezzo-quote p { font-size: 16px; font-weight: 700; color: #fff; margin: 0; line-height: 1.4; }
+  .intermezzo-quote .source { font-size: 11px; color: rgba(255,255,255,0.7); margin-top: 6px; display: block; }
+
+  /* ===== BLOG ARTICLE (da E) ===== */
+  .article-section { padding: 0 28px 8px; }
+  .article-card { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 14px; overflow: hidden; }
+  .article-img { width: 100%; height: 180px; background: linear-gradient(135deg, #1e293b 0%, #0f172a 50%, #f97316 100%); display: flex; align-items: center; justify-content: center; }
+  .article-img-text { color: #fff; font-size: 42px; }
+  .article-body { padding: 18px 20px; }
+  .article-badge { display: inline-block; background: #fef3c7; color: #92400e; font-size: 10px; font-weight: 700; padding: 3px 10px; border-radius: 6px; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; }
+  .article-title { font-size: 17px; font-weight: 800; color: #0f172a; margin: 0 0 8px; line-height: 1.3; }
+  .article-excerpt { font-size: 13px; color: #475569; line-height: 1.55; margin: 0 0 14px; }
+  .article-cta { display: inline-block; background: #0f172a; color: #fff; font-weight: 700; font-size: 13px; text-decoration: none; padding: 10px 22px; border-radius: 8px; }
+
+  /* ===== TOOLS GRID (da E) ===== */
+  .tools-section { padding: 0 28px 24px; }
+  .tools-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .tool-card { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 16px 14px; text-decoration: none; display: block; }
+  .tool-icon { font-size: 24px; margin-bottom: 6px; }
+  .tool-name { font-size: 13px; font-weight: 700; color: #0f172a; margin: 0 0 4px; }
+  .tool-desc { font-size: 11px; color: #64748b; line-height: 1.4; margin: 0; }
+  .tool-card.featured { border-color: #f97316; background: #fff7ed; }
+  .tool-card.featured .tool-name { color: #c2410c; }
+  .tool-popular { font-size: 9px; background: #f97316; color: #fff; padding: 2px 6px; border-radius: 4px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; margin-left: 4px; vertical-align: middle; }
+
+  /* ===== CLOSER + FOOTER (da G) ===== */
+  .closer { padding: 0 28px 20px; }
+  .closer-card { background: #f1f5f9; border-radius: 12px; padding: 18px 20px; text-align: center; }
+  .closer-card p { font-size: 14px; color: #334155; line-height: 1.5; margin: 0 0 8px; }
+  .closer-card .tag { font-size: 12px; color: #f97316; font-weight: 700; }
+
+  .footer { background: #0f172a; padding: 28px; text-align: center; }
+  .footer p { font-size: 12px; color: #64748b; margin: 4px 0; }
+  .footer a { color: #f97316; text-decoration: underline; }
+  .footer .soc { margin: 12px 0; }
+  .footer .soc a { display: inline-block; margin: 0 6px; font-size: 18px; text-decoration: none; }
+
+  .divider { border: none; border-top: 1px solid #e2e8f0; margin: 20px 28px; }
+</style>
+</head>
+<body>
+<div class="email-wrapper">
+
+  <!-- ===== TOP BAR (H-style, "Frontaliere Ticino") ===== -->
+  <div class="top-bar">
+    <div class="brand">Frontaliere Ticino</div>
+    <div class="issue">#47 · 10 mar. 2026</div>
+  </div>
+
+  <!-- ===== HERO: Exchange Rate (E-style) ===== -->
+  <div class="hero">
+    <div class="hero-pretitle">⚡ Aggiornamento in tempo reale</div>
+    <div class="hero-title">Buongiorno, frontaliere.</div>
+    <div class="hero-subtitle">Ecco cosa succede ai tuoi soldi questa settimana.</div>
+    <div class="rate-box">
+      <div class="rate-label">Tasso CHF → EUR</div>
+      <div class="rate-value">0.9420</div>
+      <div class="rate-change down">▼ -0.3% vs settimana scorsa</div>
+    </div>
+    <div class="savings-callout">
+      Su uno stipendio di <strong>5'000 CHF</strong>, questa settimana perdi <strong>€15</strong> in più rispetto a lunedì scorso. Non è tantissimo — ma in un anno fa <strong>€780</strong>. Forse vale la pena controllare, no?
+    </div>
+    <a href="https://www.frontaliereticino.ch/confronti/cambio-valuta" class="hero-cta">Confronta i tassi di cambio →</a>
+  </div>
+
+  <!-- ===== EDITORIAL (E-style, con conteggio offerte) ===== -->
+  <div class="editorial">
+    <h2>Parliamoci chiaro.</h2>
+    <p>Ogni settimana ti dicono che "il mercato è volatile" e che "bisogna stare attenti". Grazie, utilissimo. Come dire a uno che sta annegando che l'acqua è bagnata.</p>
+    <p>Noi preferiamo i numeri. Quelli veri, quelli che trovi in busta paga. Questa settimana: il cambio scende (di nuovo), le offerte di lavoro salgono a <strong>247</strong> (miracolo ticinese), e c'è una votazione che forse ti sei perso tra un cappuccino e la coda a Brogeda.</p>
+    <p class="signature">— Il team di Frontaliere Ticino, quelli che leggono i cedolini per hobby.</p>
+  </div>
+
+  <!-- ===== DASHBOARD METRICS (E-style) ===== -->
+  <div class="intermezzo">
+    <div class="metrics-row">
+      <div class="metric-card">
+        <div class="metric-icon">💼</div>
+        <div class="metric-value">247</div>
+        <div class="metric-label">Offerte lavoro</div>
+        <div class="metric-delta">+18 questa settimana</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-icon">📊</div>
+        <div class="metric-value">2.1%</div>
+        <div class="metric-label">Disoccupazione TI</div>
+        <div class="metric-delta negative">+0.1% vs mese scorso</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-icon">🏥</div>
+        <div class="metric-value">CHF 412</div>
+        <div class="metric-label">Premio LAMal medio</div>
+        <div class="metric-delta negative">+2.8% vs 2025</div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- ===== JOBS: Titolo+listing da E, bottone da H ===== -->
+  <div class="section-header">
+    <h3>💼 Lavoro</h3>
+    <h2>Le offerte che non trovi su LinkedIn</h2>
+    <p>Selezionate a mano, non da un algoritmo che pensa che tu voglia fare il "Growth Hacker" a Zugo.</p>
+  </div>
+  <div class="jobs-section">
+    <div class="job-card">
+      <div class="job-avatar">U</div>
+      <div class="job-info">
+        <p class="job-title">Software Engineer — Backend</p>
+        <p class="job-company">UBS · Lugano</p>
+        <div class="job-meta">
+          <span class="job-tag hot">🔥 Più cliccata</span>
+          <span class="job-tag">CHF 95-120k</span>
+        </div>
+      </div>
+    </div>
+    <div class="job-card">
+      <div class="job-avatar">N</div>
+      <div class="job-info">
+        <p class="job-title">Contabile senior con esperienza SAP</p>
+        <p class="job-company">Nestlé · Manno</p>
+        <div class="job-meta">
+          <span class="job-tag">tempo pieno</span>
+          <span class="job-tag">CHF 80-95k</span>
+        </div>
+      </div>
+    </div>
+    <div class="job-card">
+      <div class="job-avatar">E</div>
+      <div class="job-info">
+        <p class="job-title">Infermiere/a diplomato/a — reparto chirurgia</p>
+        <p class="job-company">EOC · Bellinzona</p>
+        <div class="job-meta">
+          <span class="job-tag">sanità</span>
+          <span class="job-tag">CHF 70-85k</span>
+        </div>
+      </div>
+    </div>
+    <div class="job-card">
+      <div class="job-avatar">S</div>
+      <div class="job-info">
+        <p class="job-title">Progettista meccanico 3D (SolidWorks)</p>
+        <p class="job-company">SUPSI Spin-off · Mendrisio</p>
+        <div class="job-meta">
+          <span class="job-tag">ingegneria</span>
+          <span class="job-tag">CHF 75-90k</span>
+        </div>
+      </div>
+    </div>
+    <div class="jobs-cta-wrap">
+      <a href="https://www.frontaliereticino.ch/lavoro" class="jobs-cta">Tutte le 247 offerte →</a>
+    </div>
+  </div>
+
+  <!-- ===== REFERENDUM WIDGET (H-style) ===== -->
+  <div class="ref-widget">
+    <h3>🗳️ Votazioni federali 8 marzo — I risultati</h3>
+    <div class="ref-results">
+      <div class="ref-item">
+        <div class="status fail">❌ BOCCIATA</div>
+        <div class="name">SSR "200 franchi bastano"</div>
+      </div>
+      <div class="ref-item">
+        <div class="status pass">✅ APPROVATA</div>
+        <div class="name">Imposizione individuale</div>
+      </div>
+      <div class="ref-item">
+        <div class="status fail">❌ BOCCIATO</div>
+        <div class="name">Fondo per il clima</div>
+      </div>
+      <div class="ref-item">
+        <div class="status pass">✅ APPROVATO</div>
+        <div class="name">Controprogetto contante</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== INTERMEZZO QUOTE (F-style) ===== -->
+  <div class="intermezzo-quote">
+    <p>"La cosa più bella di vivere al confine è che puoi scegliere in quale Paese avere il mal di testa fiscale."</p>
+    <span class="source">— Anonimo frontaliere, probabilmente in coda a Brogeda</span>
+  </div>
+
+  <hr class="divider">
+
+  <!-- ===== BLOG ARTICLE (E-style) ===== -->
+  <div class="section-header">
+    <h3>📰 Da leggere</h3>
+    <h2>Ti sei perso le votazioni? Tranquillo, le abbiamo seguite noi.</h2>
+    <p>Perché sappiamo che eri in coda al Brogeda.</p>
+  </div>
+  <div class="article-section">
+    <div class="article-card">
+      <div class="article-img">
+        <div class="article-img-text">🗳️ 🏔️ 🇨🇭</div>
+      </div>
+      <div class="article-body">
+        <span class="article-badge">📊 Votazioni federali</span>
+        <h3 class="article-title">Votazioni 8 marzo 2026: cosa è stato deciso e cosa cambia per te</h3>
+        <p class="article-excerpt">Canone SRG bocciato, imposizione individuale approvata, fondo clima respinto. Tradotto dal burocratese: pagherai sempre 335 franchi di canone, ma le coppie sposate forse pagheranno meno tasse. Forse. Nel 2032. Benvenuti in Svizzera.</p>
+        <a href="https://www.frontaliereticino.ch/articoli-frontaliere/votazioni-imposizione-ticino-2026" class="article-cta">Leggi l'analisi completa →</a>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- ===== TOOLS GRID (E-style) ===== -->
+  <div class="section-header">
+    <h3>🧰 Strumenti</h3>
+    <h2>I tuoi attrezzi da frontaliere</h2>
+    <p>Quelli che il tuo commercialista usa di nascosto (e ti fa pagare 200€ a consulenza).</p>
+  </div>
+  <div class="tools-section">
+    <div class="tools-grid">
+      <a href="https://www.frontaliereticino.ch/calcola-stipendio" class="tool-card featured">
+        <div class="tool-icon">💰</div>
+        <div class="tool-name">Calcola Stipendio <span class="tool-popular">★ #1</span></div>
+        <p class="tool-desc">Dal lordo al netto in 5 secondi. Con AVS, LPP, imposta alla fonte e conversione CHF/EUR. Il preferito di 12'000 utenti al mese.</p>
+      </a>
+      <a href="https://www.frontaliereticino.ch/confronti/assicurazione-malattia" class="tool-card">
+        <div class="tool-icon">🏥</div>
+        <div class="tool-name">Confronto LAMal</div>
+        <p class="tool-desc">14 assicuratori, tutti i modelli, tutte le franchigie. Trova il premio più basso per il tuo profilo.</p>
+      </a>
+      <a href="https://www.frontaliereticino.ch/fisco/dichiarazione-redditi" class="tool-card">
+        <div class="tool-icon">📋</div>
+        <div class="tool-name">Guida 730</div>
+        <p class="tool-desc">Step by step per la dichiarazione dei redditi italiana. Franchigia, quadro RC, deduzioni — tutto spiegato senza legalese.</p>
+      </a>
+      <a href="https://www.frontaliereticino.ch/confronti/cambio-valuta" class="tool-card">
+        <div class="tool-icon">💱</div>
+        <div class="tool-name">Cambio Valuta</div>
+        <p class="tool-desc">Tasso aggiornato ogni ora + confronto tra banche e servizi. Perché 0.2% di differenza su 60k sono 120€.</p>
+      </a>
+    </div>
+  </div>
+
+  <!-- ===== CLOSER (G-style) ===== -->
+  <div class="closer">
+    <div class="closer-card">
+      <p>Ti è piaciuta questa email? Inoltrala a quel collega che ogni lunedì chiede "ma com'è il cambio oggi?".</p>
+      <div class="tag">A lunedì prossimo. ☕</div>
+    </div>
+  </div>
+
+  <!-- ===== FOOTER (G-style) ===== -->
+  <div class="footer">
+    <div class="soc">
+      <a href="https://www.facebook.com/frontaliereticino">📘</a>
+      <a href="https://www.instagram.com/frontaliereticino">📸</a>
+      <a href="https://www.frontaliereticino.ch">🌐</a>
+    </div>
+    <p>Ricevi questa email perché ti sei iscritto su <a href="https://www.frontaliereticino.ch">frontaliereticino.ch</a></p>
+    <p>Non la vuoi più? <a href="{{unsubscribeUrl}}">Cancellati</a> — giuro che non piangeremo. (Forse un po'.)</p>
+    <p style="color: #475569; margin-top: 12px;">© 2026 Frontaliere Ticino · Newsletter artigianale, 0% spam, 100% frontaliere</p>
+  </div>
+
+</div>
+</body>
+</html>

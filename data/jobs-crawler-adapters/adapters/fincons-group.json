@@ -1,0 +1,66 @@
+{
+  "companyKey": "fincons-group",
+  "companyName": "Fincons Group",
+  "companyHost": "fincons.applytojob.com",
+  "enabled": true,
+  "priority": 15,
+  "crawlerModes": [
+    "html"
+  ],
+  "seedUrls": [
+    "https://ita.finconsgroup.com/culture-and-careers/job-offers/sedi/lugano.kl",
+    "https://fincons.applytojob.com/apply/jobs/?city=lugano"
+  ],
+  "notes": "Dedicated Fincons crawler parses the Lugano landing page iframe source hosted on JazzHR and keeps the public Lugano positions in sync.",
+  "updatedAt": "2026-03-10T23:14:53.061Z",
+  "seedMetaByUrl": {
+    "https://fincons.applytojob.com/apply/RJq7pkxbLu/Angular-Java-Senior-FullStack-Developer": {
+      "location": "Lugano",
+      "canton": "TI",
+      "company": "Fincons Group",
+      "postedDate": "2026-02-20"
+    },
+    "https://fincons.applytojob.com/apply/Rn4RXeaqgm/Data-Analyst-Data-Quality-Engineer": {
+      "location": "Lugano",
+      "canton": "TI",
+      "company": "Fincons Group",
+      "postedDate": "2026-03-10"
+    },
+    "https://fincons.applytojob.com/apply/AA1EDVdLZR/Full-Stack-Engineer-AngularNET": {
+      "location": "Lugano",
+      "canton": "TI",
+      "company": "Fincons Group",
+      "postedDate": "2026-02-20"
+    },
+    "https://fincons.applytojob.com/apply/6bP10fyzoV/Mobile-Developer-Kotlin-Multiplatform": {
+      "location": "Lugano",
+      "canton": "TI",
+      "company": "Fincons Group",
+      "postedDate": "2026-01-26"
+    },
+    "https://fincons.applytojob.com/apply/mr9JiUnS9N/QATest-Automation-Engineer": {
+      "location": "Lugano",
+      "canton": "TI",
+      "company": "Fincons Group",
+      "postedDate": "2026-03-05"
+    },
+    "https://fincons.applytojob.com/apply/NSjFNDPe3u/Senior-Appway-Developer": {
+      "location": "Lugano",
+      "canton": "TI",
+      "company": "Fincons Group",
+      "postedDate": "2026-02-23"
+    },
+    "https://fincons.applytojob.com/apply/IlM9qNvu4O/Senior-IT-Business-Analyst": {
+      "location": "Lugano",
+      "canton": "TI",
+      "company": "Fincons Group",
+      "postedDate": "2026-02-03"
+    },
+    "https://fincons.applytojob.com/apply/auuwnEooTU/Senior-Software-Engineer-JAVA": {
+      "location": "Lugano",
+      "canton": "TI",
+      "company": "Fincons Group",
+      "postedDate": "2026-02-26"
+    }
+  }
+}

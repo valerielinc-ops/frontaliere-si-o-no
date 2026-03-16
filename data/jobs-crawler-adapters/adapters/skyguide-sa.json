@@ -1,0 +1,30 @@
+{
+  "companyKey": "skyguide-sa",
+  "companyName": "Skyguide",
+  "companyHost": "jobs.skyguide.ch",
+  "enabled": true,
+  "priority": 15,
+  "crawlerModes": [
+    "html"
+  ],
+  "seedUrls": [
+    "https://jobs.skyguide.ch/search/?createNewAlert=false&q=&locationsearch=&optionsFacetsDD_department=&optionsFacetsDD_location=Locarno%2C+CH",
+    "https://jobs.skyguide.ch/search/?createNewAlert=false&q=&locationsearch=&optionsFacetsDD_department=&optionsFacetsDD_location=Lugano+Agno%2C+CH"
+  ],
+  "notes": "Dedicated Skyguide crawler parses the SuccessFactors filtered listings for Locarno and Lugano Agno and extracts full detail pages.",
+  "updatedAt": "2026-03-16T06:24:49.019Z",
+  "seedMetaByUrl": {
+    "https://jobs.skyguide.ch/job/Locarno-Formazione-controllorea-del-traffico-aereo-Locarno/1140799801/": {
+      "location": "Locarno",
+      "canton": "TI",
+      "company": "Skyguide",
+      "postedDate": "2026-02-24"
+    },
+    "https://jobs.skyguide.ch/job/Lugano-Agno-Formazione-controllorea-del-traffico-aereo-Lugano/1140799301/": {
+      "location": "Lugano Agno",
+      "canton": "TI",
+      "company": "Skyguide",
+      "postedDate": "2026-02-24"
+    }
+  }
+}

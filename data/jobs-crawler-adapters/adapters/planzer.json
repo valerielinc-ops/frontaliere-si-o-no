@@ -1,0 +1,22 @@
+{
+  "companyKey": "planzer",
+  "companyName": "Planzer",
+  "companyHost": "planzer.ch",
+  "enabled": true,
+  "priority": 0,
+  "crawlerModes": [
+    "generic_ats",
+    "html",
+    "jsonld"
+  ],
+  "seedUrls": [
+    "https://www.planzer.ch/careers",
+    "https://www.planzer.ch/career",
+    "https://www.planzer.ch/jobs",
+    "https://www.planzer.ch/karriere",
+    "https://www.planzer.ch/offene-stellen",
+    "https://www.planzer.ch/lavora-con-noi"
+  ],
+  "notes": "",
+  "updatedAt": "2026-02-27T17:06:06.969Z"
+}

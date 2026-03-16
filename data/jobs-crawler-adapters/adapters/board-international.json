@@ -1,0 +1,65 @@
+{
+  "companyKey": "board-international",
+  "companyName": "Board International",
+  "companyHost": "www.board.com",
+  "enabled": true,
+  "priority": 18,
+  "crawlerModes": [
+    "html"
+  ],
+  "seedUrls": [
+    "https://www.board.com/open-positions?locations%5B%5D=56"
+  ],
+  "notes": "Dedicated Board crawler parses the public jobs listing and applytojob detail pages, keeping only Ticino or Grigioni vacancies.",
+  "updatedAt": "2026-03-11T06:40:17.811Z",
+  "seedMetaByUrl": {
+    "https://boardinternationalsa.applytojob.com/apply/VAUNIdK4v9/UX-Designer": {
+      "location": "Chiasso, Ticino, Switzerland",
+      "canton": "TI",
+      "company": "Board International",
+      "postedDate": "2026-03-09"
+    },
+    "https://boardinternationalsa.applytojob.com/apply/P9W2xHIinG/AI-Product-Manager": {
+      "location": "Chiasso, Switzerland",
+      "canton": "TI",
+      "company": "Board International",
+      "postedDate": "2026-03-09"
+    },
+    "https://boardinternationalsa.applytojob.com/apply/os5l1sOnFw/Associate-Product-Manager": {
+      "location": "Chiasso, Switzerland",
+      "canton": "TI",
+      "company": "Board International",
+      "postedDate": "2026-02-27"
+    },
+    "https://boardinternationalsa.applytojob.com/apply/NTzaGusTPU/Technical-Product-Manager-Platform": {
+      "location": "Chiasso, Switzerland",
+      "canton": "TI",
+      "company": "Board International",
+      "postedDate": "2026-02-25"
+    },
+    "https://boardinternationalsa.applytojob.com/apply/GjzwooGtXt/Senior-Consultant-Financial-Consolidation": {
+      "location": "Chiasso, Switzerland",
+      "canton": "TI",
+      "company": "Board International",
+      "postedDate": "2026-02-23"
+    },
+    "https://boardinternationalsa.applytojob.com/apply/9RLIpJ4fYO/Software-Engineer": {
+      "location": "Chiasso, Ticino, Switzerland",
+      "canton": "TI",
+      "company": "Board International",
+      "postedDate": "2025-12-12"
+    },
+    "https://boardinternationalsa.applytojob.com/apply/yfE1WDGOS4/Solution-Developer": {
+      "location": "Chiasso, Switzerland",
+      "canton": "TI",
+      "company": "Board International",
+      "postedDate": "2026-03-11"
+    },
+    "https://boardinternationalsa.applytojob.com/apply/ueKvovaT2t/Senior-Software-Engineer": {
+      "location": "Chiasso, Switzerland",
+      "canton": "TI",
+      "company": "Board International",
+      "postedDate": "2026-02-04"
+    }
+  }
+}

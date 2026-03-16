@@ -1,0 +1,64 @@
+# Cache headers for GitHub Pages
+# Static assets with hashed filenames — cache for 1 year
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Service worker — no cache
+/sw.js
+  Cache-Control: no-cache, no-store, must-revalidate
+
+# Workbox — cache for 1 year
+/workbox-*.js
+  Cache-Control: public, max-age=31536000, immutable
+
+# Icons — cache for 1 month
+/icons/*
+  Cache-Control: public, max-age=2592000
+
+# HTML — short cache with revalidation
+/*.html
+  Cache-Control: public, max-age=0, must-revalidate
+
+# Manifest — short cache
+/manifest.webmanifest
+  Cache-Control: public, max-age=3600
+
+# Sitemap — cache for 1 day
+/sitemap.xml
+  Cache-Control: public, max-age=86400
+  Content-Type: application/xml; charset=utf-8
+
+# Robots.txt — cache for 1 day
+/robots.txt
+  Cache-Control: public, max-age=86400
+
+# AI-readable site descriptions — cache for 1 day
+/llms.txt
+  Cache-Control: public, max-age=86400
+  Content-Type: text/plain; charset=utf-8
+  X-Robots-Tag: noindex
+
+/llms-full.txt
+  Cache-Control: public, max-age=86400
+  Content-Type: text/plain; charset=utf-8
+  X-Robots-Tag: noindex
+
+/.well-known/llms.txt
+  Cache-Control: public, max-age=86400
+  Content-Type: text/plain; charset=utf-8
+
+/.well-known/ai-plugin.json
+  Cache-Control: public, max-age=86400
+  Content-Type: application/json; charset=utf-8
+
+# IndexNow key — long cache
+/*.txt
+  Cache-Control: public, max-age=2592000
+
+# Security headers
+/*
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: SAMEORIGIN
+  Referrer-Policy: strict-origin-when-cross-origin
+  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+  Permissions-Policy: camera=(), microphone=(), geolocation=(self)

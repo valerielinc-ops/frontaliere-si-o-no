@@ -1,0 +1,22 @@
+{
+  "companyKey": "schindler",
+  "companyName": "Schindler",
+  "companyHost": "job.schindler.com",
+  "enabled": true,
+  "priority": 0,
+  "crawlerModes": [
+    "generic_ats",
+    "html",
+    "jsonld"
+  ],
+  "seedUrls": [
+    "https://job.schindler.com/careers",
+    "https://job.schindler.com/career",
+    "https://job.schindler.com/jobs",
+    "https://job.schindler.com/karriere",
+    "https://job.schindler.com/offene-stellen",
+    "https://job.schindler.com/lavora-con-noi"
+  ],
+  "notes": "",
+  "updatedAt": "2026-02-27T17:06:06.979Z"
+}

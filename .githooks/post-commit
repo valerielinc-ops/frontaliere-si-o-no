@@ -1,0 +1,99 @@
+#!/bin/sh
+# Post-commit hook: Track user-facing commits for WhatsNew release notes.
+#
+# Tracks feat/fix commits into data/pending-releases.json.
+# WhatsNew is auto-generated in the pre-push hook every 20 accumulated commits.
+#
+# Detects conventional-commit prefixes (feat:, fix:) and appends metadata
+# to data/pending-releases.json so the WhatsNewModal can be updated
+# periodically (manually or via the pre-push reminder).
+#
+# Non-user-facing commits (chore:, refactor:, ci:, docs:, test:, style:,
+# build:, Auto-generated, Auto-update) are silently skipped.
+
+PENDING_FILE="data/pending-releases.json"
+
+# Get the latest commit info
+COMMIT_MSG=$(git log -1 --pretty=format:'%s')
+COMMIT_HASH=$(git log -1 --pretty=format:'%h')
+COMMIT_DATE=$(git log -1 --date=format:'%Y-%m-%d' --pretty=format:'%ad')
+COMMIT_AUTHOR=$(git log -1 --pretty=format:'%an')
+
+# ── Skip non-user-facing commits ──
+# Auto-generated commits (blog articles, crawler updates, etc.)
+case "$COMMIT_MSG" in
+  "📰 Auto-generated"*|"💼 Auto-update"*|"🤖 Auto-"*|"Merge "*|"merge "*) exit 0 ;;
+esac
+
+# Non-user-facing conventional commit types
+case "$COMMIT_MSG" in
+  chore*|chore\(*|refactor*|refactor\(*|ci*|ci\(*|docs*|docs\(*|test*|test\(*|style*|style\(*|build*|build\(*|perf*|perf\(*)
+    exit 0
+    ;;
+esac
+
+# ── Determine commit type → release item type ──
+RELEASE_TYPE=""
+case "$COMMIT_MSG" in
+  feat*|feat\(*)    RELEASE_TYPE="feature" ;;
+  fix*|fix\(*)      RELEASE_TYPE="fix" ;;
+  improve*|improv*) RELEASE_TYPE="improvement" ;;
+  *)
+    # Not a conventional commit or not clearly user-facing → skip
+    exit 0
+    ;;
+esac
+
+# ── Extract scope and description ──
+# Convention: "feat(scope): description" or "feat: description"
+SCOPE=""
+DESC="$COMMIT_MSG"
+# Try to extract scope: feat(scope): ...
+SCOPE_MATCH=$(echo "$COMMIT_MSG" | sed -n 's/^[a-z]*(\([^)]*\)): \(.*\)/\1/p')
+if [ -n "$SCOPE_MATCH" ]; then
+  SCOPE="$SCOPE_MATCH"
+  DESC=$(echo "$COMMIT_MSG" | sed -n 's/^[a-z]*([^)]*): \(.*\)/\1/p')
+else
+  # Try: feat: description
+  DESC=$(echo "$COMMIT_MSG" | sed -n 's/^[a-z]*: \(.*\)/\1/p')
+fi
+
+# If DESC is empty, use full message
+[ -z "$DESC" ] && DESC="$COMMIT_MSG"
+
+# ── Create or append to pending-releases.json ──
+# Initialize file if it doesn't exist
+if [ ! -f "$PENDING_FILE" ]; then
+  echo '[]' > "$PENDING_FILE"
+fi
+
+# Use node to safely manipulate JSON
+node -e "
+const fs = require('fs');
+const file = '$PENDING_FILE';
+let entries = [];
+try { entries = JSON.parse(fs.readFileSync(file, 'utf8')); } catch { entries = []; }
+if (!Array.isArray(entries)) entries = [];
+
+// Avoid duplicate entries for the same commit
+if (entries.some(e => e.hash === '$COMMIT_HASH')) process.exit(0);
+
+entries.push({
+  hash: '$COMMIT_HASH',
+  date: '$COMMIT_DATE',
+  type: '$RELEASE_TYPE',
+  scope: $(node -e "process.stdout.write(JSON.stringify('$SCOPE'))"),
+  description: $(node -e "process.stdout.write(JSON.stringify('$DESC'))"),
+  author: '$COMMIT_AUTHOR',
+  fullMessage: $(node -e "process.stdout.write(JSON.stringify('$COMMIT_MSG'))")
+});
+
+fs.writeFileSync(file, JSON.stringify(entries, null, 2) + '\n');
+"
+
+# Check if the file was updated
+if [ $? -eq 0 ]; then
+  PENDING_COUNT=$(node -e "try{const e=require('./$PENDING_FILE');console.log(e.length)}catch{console.log(0)}")
+  echo "📋 WhatsNew: tracked user-facing commit ($RELEASE_TYPE) — $PENDING_COUNT pending entries"
+  echo "   Pre-push auto-sync is enabled (update-whats-new -- --apply + auto-commit)."
+fi

@@ -1,0 +1,39 @@
+{
+  "companyKey": "fust",
+  "companyName": "Fust",
+  "companyHost": "fust.ch",
+  "enabled": true,
+  "priority": 10,
+  "crawlerModes": [
+    "generic_ats",
+    "html",
+    "jsonld"
+  ],
+  "seedUrls": [
+    "https://jobs.fust.ch/posti-vacanti/apprendistato-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto/2bef43a6-24ae-4b97-b27d-36d51a64383d",
+    "https://jobs.fust.ch/posti-vacanti/montatore-trice-di-impianti-sanitari-per-cucine-bagni/8174af09-3d6f-41ad-bd1b-eac6eab8968b",
+    "https://jobs.fust.ch/offene-stellen/heimliefermonteur-in-von-elektrohaushaltgeraeten/1446d7d4-d209-431f-ac07-3f6dee0fca6b"
+  ],
+  "seedMetaByUrl": {
+    "https://jobs.fust.ch/posti-vacanti/apprendistato-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto/2bef43a6-24ae-4b97-b27d-36d51a64383d": {
+      "location": "Ticino",
+      "canton": "TI",
+      "company": "Fust",
+      "contract": "A tempo determinato"
+    },
+    "https://jobs.fust.ch/posti-vacanti/montatore-trice-di-impianti-sanitari-per-cucine-bagni/8174af09-3d6f-41ad-bd1b-eac6eab8968b": {
+      "location": "Ticino",
+      "canton": "TI",
+      "company": "Fust",
+      "contract": "A tempo indeterminato"
+    },
+    "https://jobs.fust.ch/offene-stellen/heimliefermonteur-in-von-elektrohaushaltgeraeten/1446d7d4-d209-431f-ac07-3f6dee0fca6b": {
+      "location": "Grigioni",
+      "canton": "GR",
+      "company": "Fust",
+      "contract": "A tempo indeterminato"
+    }
+  },
+  "notes": "Fust (Coop Group) — Prospective.ch JobBooster (Career Center 1000103). Detail pages on jobs.fust.ch with JSON-LD JobPosting.",
+  "updatedAt": "2026-03-16T05:36:34.118Z"
+}

@@ -1,0 +1,22 @@
+{
+  "companyKey": "posta-svizzera-centro-regionale",
+  "companyName": "La Posta Svizzera",
+  "companyHost": "post.ch",
+  "enabled": true,
+  "priority": 10,
+  "crawlerModes": [
+    "html",
+    "jsonld"
+  ],
+  "seedUrls": [
+    "https://www.post.ch/en/jobs/jobs?jobsCategory=apprenticeships",
+    "https://www.post.ch/en/jobs/jobs?canton=1085914&jobsCategory=professionals&workload-maximum=1&workload-minimum=0",
+    "https://job.post.ch/v2/job-vacancies/apprendistato-come-operatore-operatrice-per-la-comunicazione-con-la-clientela-afc/405a6f9c-2019-4743-82c5-ff04a6c6af5d",
+    "https://job.post.ch/v2/job-vacancies/apprendistato-come-impiegato-a-del-commercio-al-dettaglio-afc/96fc212a-cd5c-4466-b9db-a9ad5750b24e",
+    "https://job.post.ch/v2/job-vacancies/apprendistato-come-impiegato-a-del-commercio-al-dettaglio-afc/2380d9ad-75b0-4b50-95f9-9e983891d27c",
+    "https://job.post.ch/v2/job-vacancies/apprendistato-come-informatica-informatico-afc-sviluppo-di-applicazioni/037d214f-652d-419c-9846-058bd76b45c0",
+    "https://job.post.ch/v2/job-vacancies/kundenbetreuer-in-customer-center/733cdcfb-b58d-4c21-ad97-18430bb90730"
+  ],
+  "notes": "Swiss Post careers portal — Ticino job listings extracted from post.ch and job.post.ch.",
+  "updatedAt": "2026-03-09T06:19:48.951Z"
+}

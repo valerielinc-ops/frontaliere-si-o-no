@@ -1,0 +1,22 @@
+{
+  "companyKey": "julius-baer",
+  "companyName": "Julius Baer",
+  "companyHost": "juliusbaer.com",
+  "enabled": true,
+  "priority": 0,
+  "crawlerModes": [
+    "generic_ats",
+    "html",
+    "jsonld"
+  ],
+  "seedUrls": [
+    "https://www.juliusbaer.com/careers",
+    "https://www.juliusbaer.com/career",
+    "https://www.juliusbaer.com/jobs",
+    "https://www.juliusbaer.com/karriere",
+    "https://www.juliusbaer.com/offene-stellen",
+    "https://www.juliusbaer.com/lavora-con-noi"
+  ],
+  "notes": "",
+  "updatedAt": "2026-02-27T17:06:06.956Z"
+}

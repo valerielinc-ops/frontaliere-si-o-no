@@ -1,0 +1,15 @@
+{
+  "companyKey": "csc-costruzioni",
+  "companyName": "CSC Costruzioni SA",
+  "companyHost": "csc-sa.ch",
+  "enabled": true,
+  "priority": 10,
+  "crawlerModes": [
+    "jsonld",
+    "html",
+    "generic_ats"
+  ],
+  "seedUrls": [],
+  "notes": "CSC Costruzioni SA — Lugano-based construction company (Drupal CMS). Seed URLs auto-discovered from /lavoro-carriera-edilizia.",
+  "updatedAt": "2025-07-24T00:00:00.000Z"
+}

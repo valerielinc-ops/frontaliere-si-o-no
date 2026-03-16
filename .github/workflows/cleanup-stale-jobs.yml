@@ -1,0 +1,60 @@
+name: Cleanup Stale Job Listings
+
+on:
+  schedule:
+    # Run daily at 06:00 UTC — after all crawlers have finished
+    - cron: '0 6 * * *'
+  workflow_dispatch:
+    inputs:
+      stale_days:
+        description: 'Remove jobs older than N days (default: 60)'
+        required: false
+        type: string
+      concurrency:
+        description: 'Max concurrent URL checks (1-20, default: 5)'
+        required: false
+        type: string
+      timeout_ms:
+        description: 'URL check timeout in ms (2000-15000, default: 5000)'
+        required: false
+        type: string
+
+concurrency:
+  group: jobs-cleanup
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  cleanup-stale-jobs:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 50
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Remove expired job listings
+        env:
+          JOBS_STALE_DAYS: ${{ github.event.inputs.stale_days || '' }}
+          JOBS_HOUSEKEEPING_CONCURRENCY: ${{ github.event.inputs.concurrency || '' }}
+          JOBS_HOUSEKEEPING_TIMEOUT_MS: ${{ github.event.inputs.timeout_ms || '' }}
+        run: node scripts/cleanup-jobs.mjs
+
+      - name: Commit and push
+        id: changes
+        run: bash scripts/lib/git-commit-data.sh "🧹 Daily cleanup — remove expired job listings"
+
+

@@ -1,0 +1,957 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import { spawn } from 'node:child_process';
+import { detectLanguage } from './detect-language.mjs';
+import { freeTranslateWithRetry } from './free-translate.mjs';
+import { translateTextWithLocalPipeline } from './job-localization-pipeline.mjs';
+import { estimateTicinoSalary } from './salary-estimation.mjs';
+import {
+  DEFAULT_JOB_LOCALES,
+  detectJobTitleLang,
+  detectJobTitleLocaleDetails,
+  detectTextLocale,
+} from './job-locale-utils.mjs';
+
+const DEFAULT_LOCALES = DEFAULT_JOB_LOCALES;
+
+async function translateJobFieldWithFallback({
+  text,
+  sourceLang,
+  targetLang,
+  kind,
+  context = {},
+  minChars = 0,
+}) {
+  const local = await translateTextWithLocalPipeline({
+    text,
+    sourceLang,
+    targetLang,
+    kind,
+    context,
+    minChars,
+  });
+  if (local) return local;
+
+  const translated = await freeTranslateWithRetry({
+    text,
+    sourceLang,
+    targetLang,
+    maxRetries: kind === 'title' ? 0 : 2,
+  });
+  if (translated) return translated;
+
+  if (kind === 'title') {
+    return String(text || '').trim();
+  }
+  return '';
+}
+
+export function normalize(value = '') {
+  return String(value || '').trim().toLowerCase();
+}
+
+export function normalizeKey(value = '') {
+  return String(value || '')
+    .trim()
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+}
+
+/**
+ * Detect if a description contains code/script artifacts instead of real content.
+ * Returns { isCode: boolean, reason: string } if code detected.
+ */
+const CODE_PATTERNS = [
+  { re: /\bvar\s+\w+\s*=\s*(?:new\s|['"\[\{])/i, label: 'JavaScript variable declaration' },
+  { re: /\bfunction\s*\w*\s*\([^)]*\)\s*\{/i, label: 'JavaScript function' },
+  { re: /\bdocument\.(getElementById|querySelector|cookie|write)/i, label: 'DOM API call' },
+  { re: /\bwindow\.(location|addEventListener|onload)/i, label: 'window API call' },
+  { re: /background-image:\s*url\(/i, label: 'CSS background-image' },
+  { re: /\{[\s\S]{0,20}display\s*:\s*(none|block|flex|inline)/i, label: 'CSS display rule' },
+  { re: /\bimport\s+\{[^}]+\}\s+from\s+['"]/i, label: 'JS import statement' },
+  { re: /\bconsole\.(log|warn|error)\s*\(/i, label: 'console.log' },
+  { re: /\$\(\s*['"][#.]/i, label: 'jQuery selector' },
+  { re: /\.addEventListener\s*\(\s*['"]/i, label: 'addEventListener' },
+  { re: /\bnew\s+(Array|Object|Date|Map|Set)\s*\(/i, label: 'JS constructor' },
+  { re: /<\/?(script|style|noscript)[\s>]/i, label: 'HTML script/style tag' },
+];
+
+export function detectCodeInDescription(description = '') {
+  const text = String(description || '');
+  if (text.length < 50) return { isCode: false, reason: '' };
+
+  const matches = [];
+  for (const { re, label } of CODE_PATTERNS) {
+    if (re.test(text)) matches.push(label);
+  }
+
+  // Threshold: 2+ code patterns = definitely code contamination
+  if (matches.length >= 2) {
+    return { isCode: true, reason: `Code detected: ${matches.join(', ')}` };
+  }
+  return { isCode: false, reason: '' };
+}
+
+export function detectLang(text = '', fallback = 'it') {
+  return detectLanguage(text, fallback);
+}
+
+const COMPANY_BOILERPLATE_IT = {
+  'PEMSA': `PEMSA è da oltre 30 anni un punto di riferimento nel mercato svizzero per il reclutamento e la gestione di professionisti qualificati nei settori della costruzione, impiantistica, elettrotecnica e meccanica industriale. Offriamo contratti fissi e temporanei, con la sicurezza di un partner stabile e la flessibilità che cerchi.\n\nVantaggi: consulenza personalizzata, accesso a cantieri di prestigio in tutta la Svizzera, supporto amministrativo completo, retribuzione competitiva e opportunità di formazione continua.`,
+  'ReleWant': `ReleWant è una società di consulenza IT con sede in Ticino, specializzata in soluzioni informatiche innovative per il settore bancario e finanziario. Offriamo servizi di consulenza, sviluppo software e gestione di progetti IT complessi per le principali istituzioni finanziarie in Svizzera.\n\nOffriamo un ambiente di lavoro stimolante, progetti sfidanti nel settore fintech, formazione continua, flessibilità lavorativa e condizioni d'impiego competitive.`,
+  'Lombardi Group': `Lombardi Group è una società di ingegneria svizzera di primo piano con sede a Minusio (Ticino), attiva nella progettazione di grandi opere infrastrutturali: tunnel, dighe, centrali idroelettriche, ponti e edifici complessi. Con oltre 700 collaboratori e progetti in tutto il mondo, offriamo un ambiente multidisciplinare e internazionale.\n\nVantaggi: progetti di grande scala, team multiculturale, formazione specialistica, condizioni d'impiego competitive e possibilità di crescita professionale.`,
+  'MTIC Group': `MTIC Group è un gruppo internazionale attivo nel settore delle certificazioni, ispezioni e prove tecniche. Con sede principale a Lugano Paradiso, operiamo in settori come energia, industria, trasporti e costruzioni, garantendo qualità e sicurezza attraverso standard internazionali.\n\nOffriamo un ambiente professionale stimolante, progetti diversificati, formazione continua e possibilità di carriera in un contesto internazionale.`,
+  'Convit Holding GmbH': `Convit Holding GmbH è una società attiva nella consulenza finanziaria e previdenziale in Svizzera. Operiamo nel settore della previdenza professionale (2° pilastro) e previdenza privata (3° pilastro), offrendo consulenza personalizzata ai clienti.\n\nOffriamo formazione completa per nuovi ingressi, un sistema retributivo attrattivo con possibilità di guadagno elevato, flessibilità lavorativa e concrete possibilità di sviluppo professionale.`,
+  'Allianz Suisse': `Allianz Suisse è una delle principali compagnie assicurative in Svizzera, parte del gruppo Allianz internazionale. Offriamo soluzioni assicurative complete per privati e aziende: assicurazioni vita, non-vita, previdenza e investimenti.\n\nVantaggi: formazione eccellente, ambiente di lavoro dinamico, benefit aziendali competitivi e opportunità di carriera in un gruppo globale leader nel settore assicurativo.`,
+  'Centiel': `Centiel è un'azienda svizzera specializzata nella progettazione e produzione di sistemi di alimentazione ininterrotta (UPS) ad alta efficienza. Con sede in Ticino, sviluppiamo soluzioni tecnologiche all'avanguardia per data center, ospedali, infrastrutture critiche e industria.\n\nOffriamo un ambiente innovativo, progetti tecnologici sfidanti e condizioni d'impiego competitive.`,
+  'Boggi Milano': `Boggi Milano è un brand italiano di moda maschile di alta qualità, presente con oltre 200 negozi in tutto il mondo. Proponiamo collezioni che uniscono design italiano, tessuti pregiati e vestibilità contemporanea per l'uomo moderno.\n\nOffriamo un ambiente dinamico nel settore fashion retail, formazione specialistica, sconti dipendenti e concrete opportunità di crescita professionale in un brand in espansione.`,
+  'Stollwerck GmbH': `Stollwerck GmbH è un'azienda leader nella produzione di cioccolato e dolciumi, parte del gruppo Baronie. Produciamo marchi iconici come Stollwerck, Sarotti e Alpia, distribuiti in tutta Europa.\n\nOffriamo un ambiente internazionale, progetti stimolanti nel settore FMCG e condizioni d'impiego competitive.`,
+  'USI – Università della Svizzera italiana': `L'Università della Svizzera italiana (USI) è un'università pubblica svizzera con campus a Lugano e Mendrisio. Offriamo formazione e ricerca d'eccellenza nelle aree di comunicazione, economia, informatica, scienze biomediche e architettura.\n\nVantaggi: ambiente accademico internazionale, ricerca all'avanguardia, campus moderno e condizioni d'impiego secondo gli standard universitari svizzeri.`,
+  'Denner SA': `Denner SA è uno dei principali discount alimentari della Svizzera, con oltre 800 filiali. Parte del gruppo Migros, offriamo prodotti di qualità a prezzi convenienti.\n\nOffriamo un ambiente di lavoro dinamico nel settore retail, formazione continua, sconti dipendenti e concrete opportunità di carriera.`,
+  'Amministrazione Cantonale Ticino': `L'Amministrazione Cantonale del Cantone Ticino è il principale datore di lavoro pubblico del cantone. Offriamo posizioni in tutti i settori dell'amministrazione pubblica con condizioni d'impiego stabili e competitive.\n\nVantaggi: stabilità lavorativa, orari regolari, formazione continua, previdenza professionale vantaggiosa e possibilità di crescita all'interno dell'amministrazione.`,
+};
+
+/**
+ * Find and return IT boilerplate for a company, or null.
+ */
+export function getCompanyBoilerplateIT(company = '') {
+  for (const [key, text] of Object.entries(COMPANY_BOILERPLATE_IT)) {
+    if (company === key || company.includes(key) || key.includes(company)) return text;
+  }
+  return null;
+}
+
+/**
+ * Enrich thin IT descriptions with company boilerplate. Mutates jobs in-place.
+ * Returns count of enriched jobs.
+ */
+export function enrichThinDescriptions(jobs, threshold = 300) {
+  let count = 0;
+  for (const j of jobs) {
+    const itDesc = String(j.descriptionByLocale?.it || j.description || '');
+    if (itDesc.length >= threshold) continue;
+    const bp = getCompanyBoilerplateIT(j.company);
+    if (!bp) continue;
+    const title = j.titleByLocale?.it || j.title || '';
+    const loc = j.location || '';
+    const canton = j.canton || j.addressRegion || '';
+    const enriched = itDesc.includes('##')
+      ? `${itDesc}\n\n${bp}`
+      : `## ${title}\n\n**${j.company}** — ${loc}${canton ? ` (${canton})` : ''}\n\n${itDesc}\n\n${bp}`;
+    if (!j.descriptionByLocale) j.descriptionByLocale = {};
+    j.descriptionByLocale.it = enriched;
+    count++;
+  }
+  return count;
+}
+
+export function deriveLocalizedSlug(job, locale) {
+  const explicit = String(job?.slugByLocale?.[locale] || '').trim();
+  if (explicit) return explicit;
+  return String(job?.slug || '').trim();
+}
+
+const THIN_SOURCE_UI_NOISE_RE =
+  /(stampa|dillo a un amico|tell a friend|segnalazione|report|you applied to this job|sei iscritto\/a a questo annuncio|verifica la tua compatibilit|verify your compatibility|powered by|invia|envoyer|send)/i;
+
+const THIN_SOURCE_METADATA_LINE_RE =
+  /^(luogo di lavoro|work location|settore|sector|ruolo|role|data di scadenza|expiry date|data ultimo aggiornamento|date of last update)\s*:/i;
+
+function classifyThinSource(job, minSourceDescriptionCharsForHardValidation) {
+  const source = String(job?.description || '').trim();
+  const sourceLen = source.length;
+  const reasons = [];
+  if (sourceLen === 0) reasons.push('empty_source_description');
+  if (sourceLen > 0 && THIN_SOURCE_UI_NOISE_RE.test(source)) reasons.push('ui_noise_in_source_description');
+
+  const lines = source
+    .split('\n')
+    .map((line) => line.trim())
+    .filter(Boolean);
+  if (lines.length > 0 && lines.every((line) => THIN_SOURCE_METADATA_LINE_RE.test(line))) {
+    reasons.push('metadata_only_source_description');
+  }
+
+  const suspicious =
+    reasons.length > 0 ||
+    (sourceLen > 0 && sourceLen < Math.max(40, Math.floor(minSourceDescriptionCharsForHardValidation * 0.2)));
+
+  return { suspicious, reasons, sourceLen };
+}
+
+function toNormalizedKeyList(value) {
+  return String(value || '')
+    .split(',')
+    .map((x) => normalizeKey(x))
+    .filter(Boolean);
+}
+
+function toNormalizedSet(values) {
+  const list = Array.isArray(values) ? values : [values];
+  return [...new Set(list.flatMap((x) => toNormalizedKeyList(String(x || ''))))];
+}
+
+function runSpawnedSharedCrawler({ root, env }) {
+  return new Promise((resolve, reject) => {
+    const child = spawn('node', ['scripts/lib/shared-jobs-crawler.mjs'], {
+      cwd: root,
+      stdio: 'inherit',
+      env,
+    });
+    child.on('error', reject);
+    child.on('exit', (code) => {
+      if (code === 0) resolve();
+      else reject(new Error(`shared-jobs-crawler exited with code ${code}`));
+    });
+  });
+}
+
+function toFiniteNumber(value) {
+  const n = Number(value);
+  return Number.isFinite(n) ? n : null;
+}
+
+function roundToHundreds(value) {
+  return Math.max(1, Math.round(Number(value || 0) / 100) * 100);
+}
+
+function inferSalaryRange(job) {
+  const est = estimateTicinoSalary(job);
+  return { min: est.minValue, max: est.maxValue };
+}
+
+function normalizeCurrency(job) {
+  const raw = String(
+    job?.currency ||
+    job?.baseSalary?.currency ||
+    job?.baseSalary?.value?.currency ||
+    'CHF'
+  ).trim().toUpperCase();
+  return raw === 'EUR' ? 'EUR' : 'CHF';
+}
+
+function ensureStructuredSalary(job) {
+  if (!job || typeof job !== 'object') return { job, changed: false };
+  const existingMin = toFiniteNumber(job.salaryMin) ?? toFiniteNumber(job?.baseSalary?.value?.minValue);
+  const existingMax = toFiniteNumber(job.salaryMax) ?? toFiniteNumber(job?.baseSalary?.value?.maxValue);
+  const currency = normalizeCurrency(job);
+
+  const estimated = inferSalaryRange(job);
+  const minValue = existingMin && existingMin > 0 ? existingMin : estimated.min;
+  let maxValue = existingMax && existingMax >= minValue ? existingMax : null;
+  if (!maxValue) {
+    maxValue = roundToHundreds(Math.max(estimated.max, minValue * 1.2));
+  }
+
+  const next = {
+    ...job,
+    salaryMin: minValue,
+    salaryMax: maxValue,
+    currency,
+    baseSalary: {
+      '@type': 'MonetaryAmount',
+      currency,
+      value: {
+        '@type': 'QuantitativeValue',
+        minValue,
+        maxValue,
+        unitText: 'YEAR',
+      },
+    },
+  };
+
+  const beforeSig = JSON.stringify({
+    salaryMin: job.salaryMin,
+    salaryMax: job.salaryMax,
+    currency: job.currency,
+    baseSalary: job.baseSalary,
+  });
+  const afterSig = JSON.stringify({
+    salaryMin: next.salaryMin,
+    salaryMax: next.salaryMax,
+    currency: next.currency,
+    baseSalary: next.baseSalary,
+  });
+  return { job: next, changed: beforeSig !== afterSig };
+}
+
+function inferPublicJobsPath(dataJobsPath) {
+  const dataDir = path.dirname(dataJobsPath);
+  const root = path.resolve(dataDir, '..');
+  return path.resolve(root, 'public', 'data', 'jobs.json');
+}
+
+function writeJson(filePath, value) {
+  fs.writeFileSync(filePath, `${JSON.stringify(value, null, 2)}\n`, 'utf-8');
+}
+
+function shouldDropLocalizedValue({
+  value,
+  locale,
+  sourceLocale,
+  sourceValue,
+  minCharsForDetection = 0,
+  minConfidence = 0.35,
+}) {
+  const clean = String(value || '').trim();
+  if (!clean || locale === sourceLocale) return false;
+  if (sourceValue && normalize(clean) === normalize(sourceValue)) return true;
+  if (clean.length < minCharsForDetection) return false;
+  const detected = detectTextLocale(clean, sourceLocale);
+  return detected.confidence >= minConfidence && detected.lang !== locale;
+}
+
+function maybeRehomeLocalizedValue({
+  map,
+  locale,
+  detectedLocale,
+  minChars = 12,
+}) {
+  const clean = String(map?.[locale] || '').trim();
+  if (!clean || !detectedLocale || detectedLocale === locale || clean.length < minChars) {
+    return false;
+  }
+
+  if (!String(map?.[detectedLocale] || '').trim()) {
+    map[detectedLocale] = clean;
+  }
+  delete map[locale];
+  return true;
+}
+
+export function hardenJobLocaleFields({ dataJobsPath }) {
+  if (!dataJobsPath || !fs.existsSync(dataJobsPath)) {
+    return { changed: false, repaired: 0, total: 0 };
+  }
+  const raw = JSON.parse(fs.readFileSync(dataJobsPath, 'utf-8'));
+  if (!Array.isArray(raw)) {
+    return { changed: false, repaired: 0, total: 0 };
+  }
+
+  let changed = false;
+  let repaired = 0;
+
+  for (const job of raw) {
+    let jobChanged = false;
+    const baseTitle = String(job.title || '').trim();
+    const baseDesc = String(job.description || '').trim();
+    const baseSlug = String(job.slug || '').trim();
+    const titleSourceLang = detectJobTitleLang(baseTitle, detectLang(baseDesc || baseTitle, 'it'));
+    const sourceLang = detectTextLocale(baseDesc || baseTitle, titleSourceLang).lang;
+
+    if (!job.titleByLocale || typeof job.titleByLocale !== 'object') {
+      job.titleByLocale = {};
+      jobChanged = true;
+    }
+    if (!job.descriptionByLocale || typeof job.descriptionByLocale !== 'object') {
+      job.descriptionByLocale = {};
+      jobChanged = true;
+    }
+    if (!job.slugByLocale || typeof job.slugByLocale !== 'object') {
+      job.slugByLocale = {};
+      jobChanged = true;
+    }
+    if (String(job.sourceLang || '').trim() !== sourceLang) {
+      job.sourceLang = sourceLang;
+      jobChanged = true;
+    }
+
+    if (baseTitle && normalize(String(job.titleByLocale[titleSourceLang] || '')) !== normalize(baseTitle)) {
+      job.titleByLocale[titleSourceLang] = baseTitle;
+      jobChanged = true;
+    }
+    if (
+      baseTitle &&
+      sourceLang !== titleSourceLang &&
+      !String(job.titleByLocale[sourceLang] || '').trim()
+    ) {
+      job.titleByLocale[sourceLang] = String(job.titleByLocale[titleSourceLang] || baseTitle).trim();
+      jobChanged = true;
+    }
+    if (baseDesc && !String(job.descriptionByLocale[sourceLang] || '').trim()) {
+      job.descriptionByLocale[sourceLang] = baseDesc;
+      jobChanged = true;
+    }
+
+    for (const locale of DEFAULT_LOCALES) {
+      const titleValue = String(job.titleByLocale[locale] || '').trim();
+      if (titleValue) {
+        const detectedTitleLocale = detectJobTitleLocaleDetails(titleValue, titleSourceLang);
+        if (locale !== detectedTitleLocale.lang && detectedTitleLocale.confidence >= 0.55) {
+          if (maybeRehomeLocalizedValue({
+            map: job.titleByLocale,
+            locale,
+            detectedLocale: detectedTitleLocale.lang,
+            minChars: 24,
+          })) {
+            jobChanged = true;
+          }
+        }
+      }
+
+      if (
+        locale !== sourceLang &&
+        shouldDropLocalizedValue({
+          value: job.titleByLocale[locale],
+          locale,
+          sourceLocale: titleSourceLang,
+          sourceValue: baseTitle,
+          minCharsForDetection: 32,
+          minConfidence: 0.65,
+        })
+      ) {
+        delete job.titleByLocale[locale];
+        jobChanged = true;
+      }
+      if (shouldDropLocalizedValue({
+        value: job.descriptionByLocale[locale],
+        locale,
+        sourceLocale: sourceLang,
+        sourceValue: baseDesc,
+        minCharsForDetection: 80,
+        minConfidence: 0.25,
+      })) {
+        delete job.descriptionByLocale[locale];
+        jobChanged = true;
+      }
+      const currentSlug = String(job.slugByLocale[locale] || '').trim();
+      if (!currentSlug && baseSlug) {
+        job.slugByLocale[locale] = baseSlug;
+        jobChanged = true;
+      }
+      // Re-derive slug from translated title if current slug is still the untranslated base
+      {
+        const existingSlug = String(job.slugByLocale[locale] || '').trim();
+        const localizedTitle = String(job.titleByLocale[locale] || '').trim();
+        if (
+          existingSlug &&
+          existingSlug === baseSlug &&
+          localizedTitle &&
+          localizedTitle !== baseTitle &&
+          locale !== titleSourceLang
+        ) {
+          const company = String(job.company || '').trim();
+          const location = String(job.addressLocality || job.location || '').trim();
+          const parts = [localizedTitle, company, location].filter(Boolean).join('-');
+          const derived = parts
+            .toLowerCase()
+            .normalize('NFD')
+            .replace(/[\u0300-\u036f]/g, '')
+            .replace(/[^a-z0-9]+/g, '-')
+            .replace(/^-+|-+$/g, '')
+            .slice(0, 120);
+          if (derived && derived !== existingSlug) {
+            job.slugByLocale[locale] = derived;
+            jobChanged = true;
+          }
+        }
+      }
+    }
+
+    const sourceTitleFallback = String(
+      job.titleByLocale[titleSourceLang] ||
+      job.titleByLocale[sourceLang] ||
+      baseTitle
+    ).trim();
+    if (sourceTitleFallback) {
+      for (const locale of DEFAULT_LOCALES) {
+        if (!String(job.titleByLocale[locale] || '').trim()) {
+          job.titleByLocale[locale] = sourceTitleFallback;
+          jobChanged = true;
+        }
+      }
+    }
+
+    if (jobChanged) {
+      changed = true;
+      repaired += 1;
+    }
+  }
+
+  // Enrich thin IT descriptions with company boilerplate
+  const enriched = enrichThinDescriptions(raw);
+  if (enriched > 0) {
+    changed = true;
+    console.log(`📝 Enriched ${enriched} thin IT descriptions with company boilerplate.`);
+  }
+
+  if (!changed) {
+    return { changed: false, repaired: 0, total: raw.length };
+  }
+
+  writeJson(dataJobsPath, raw);
+  const publicJobsPath = inferPublicJobsPath(dataJobsPath);
+  if (fs.existsSync(publicJobsPath)) {
+    writeJson(publicJobsPath, raw);
+  }
+  return { changed: true, repaired, total: raw.length };
+}
+
+/**
+ * Translate missing locale fields (title and description) for all jobs.
+ * Uses the free translation cascade (DeepL → MyMemory → Google Translate).
+ *
+ * Unlike hardenJobLocaleFields (which only copies/heuristic-replaces),
+ * this function actually translates content using external APIs.
+ *
+ * @param {Object} options
+ * @param {string} options.dataJobsPath - Path to data/jobs.json
+ * @param {function} [options.isTargetJob] - Optional filter to only translate specific jobs
+ * @param {number} [options.maxJobs=0] - Max jobs to translate (0 = all)
+ * @returns {Promise<{changed: boolean, translated: number, total: number, details: Array}>}
+ */
+export async function translateMissingJobLocales({ dataJobsPath, isTargetJob, maxJobs = 0, minDescriptionChars = 120 }) {
+  if (!dataJobsPath || !fs.existsSync(dataJobsPath)) {
+    return { changed: false, translated: 0, total: 0, details: [] };
+  }
+  hardenJobLocaleFields({ dataJobsPath });
+  const raw = JSON.parse(fs.readFileSync(dataJobsPath, 'utf-8'));
+  if (!Array.isArray(raw)) {
+    return { changed: false, translated: 0, total: 0, details: [] };
+  }
+
+  let changed = false;
+  let translated = 0;
+  const details = [];
+  const concurrency = Math.max(1, Math.min(6, Number(process.env.JOBS_LOCALE_TRANSLATION_CONCURRENCY || 3)));
+
+  const candidates = isTargetJob ? raw.filter(isTargetJob) : raw;
+  const limit = maxJobs > 0 ? Math.min(maxJobs, candidates.length) : candidates.length;
+  let cursor = 0;
+
+  const worker = async () => {
+    while (cursor < limit) {
+      const i = cursor;
+      cursor += 1;
+      const job = candidates[i];
+      const baseTitle = String(job.title || '').trim();
+      const baseDesc = String(job.description || '').trim();
+      const titleSourceLang = detectJobTitleLang(baseTitle, detectLang(baseDesc || baseTitle, 'it'));
+      const sourceLang = detectTextLocale(baseDesc || baseTitle, titleSourceLang).lang;
+      let jobTranslated = false;
+
+      if (!job.titleByLocale || typeof job.titleByLocale !== 'object') job.titleByLocale = {};
+      if (!job.descriptionByLocale || typeof job.descriptionByLocale !== 'object') job.descriptionByLocale = {};
+
+      if (baseTitle && normalize(String(job.titleByLocale[titleSourceLang] || '')) !== normalize(baseTitle)) {
+        job.titleByLocale[titleSourceLang] = baseTitle;
+      }
+      if (baseDesc && !String(job.descriptionByLocale[sourceLang] || '').trim()) {
+        job.descriptionByLocale[sourceLang] = baseDesc;
+      }
+
+      const sourceTitle = String(job.titleByLocale[titleSourceLang] || baseTitle).trim();
+      const sourceDesc = String(job.descriptionByLocale[sourceLang] || baseDesc).trim();
+
+      for (const locale of DEFAULT_LOCALES) {
+        const currentTitle = String(job.titleByLocale[locale] || '').trim();
+        const currentDesc = String(job.descriptionByLocale[locale] || '').trim();
+        const titleNeedsWork =
+          !currentTitle ||
+          (locale !== titleSourceLang && normalize(currentTitle) === normalize(sourceTitle));
+        const descNeedsWork =
+          !currentDesc ||
+          (locale !== sourceLang && normalize(currentDesc) === normalize(sourceDesc));
+
+        if (locale === titleSourceLang) {
+          if (!String(job.titleByLocale[locale] || '').trim() && sourceTitle) {
+            job.titleByLocale[locale] = sourceTitle;
+            jobTranslated = true;
+          }
+        } else if (titleNeedsWork && sourceTitle) {
+          const translatedTitle = await translateJobFieldWithFallback({
+            text: sourceTitle,
+            sourceLang: titleSourceLang,
+            targetLang: locale,
+            kind: 'title',
+            context: {
+              title: sourceTitle,
+              company: job.company || '',
+              location: job.location || '',
+            },
+            minChars: 2,
+          });
+          const finalTitle = String(translatedTitle || sourceTitle).trim();
+          if (finalTitle) {
+            job.titleByLocale[locale] = finalTitle;
+            jobTranslated = true;
+          }
+        }
+
+        if (locale === sourceLang) {
+          if (!String(job.descriptionByLocale[locale] || '').trim() && sourceDesc) {
+            job.descriptionByLocale[locale] = sourceDesc;
+            jobTranslated = true;
+          }
+        } else if (descNeedsWork && sourceDesc) {
+          const translatedDesc = await translateJobFieldWithFallback({
+            text: sourceDesc,
+            sourceLang,
+            targetLang: locale,
+            kind: 'description',
+            context: {
+              title: sourceTitle,
+              company: job.company || '',
+              location: job.location || '',
+            },
+            minChars: Math.max(minDescriptionChars, 40),
+          });
+          if (translatedDesc) {
+            job.descriptionByLocale[locale] = translatedDesc;
+            jobTranslated = true;
+          }
+        }
+      }
+
+      if (jobTranslated) {
+        changed = true;
+        translated += 1;
+        details.push({ company: job.company, slug: job.slug, sourceLang });
+      }
+    }
+  };
+
+  await Promise.all(
+    Array.from({ length: Math.min(concurrency, limit || 1) }, () => worker())
+  );
+
+  if (!changed) {
+    return { changed: false, translated: 0, total: candidates.length, details: [] };
+  }
+
+  writeJson(dataJobsPath, raw);
+  const publicJobsPath = inferPublicJobsPath(dataJobsPath);
+  if (fs.existsSync(publicJobsPath)) {
+    writeJson(publicJobsPath, raw);
+  }
+  return { changed: true, translated, total: candidates.length, details };
+}
+
+export function hardenJobsRichResultsData({ dataJobsPath }) {
+  if (!dataJobsPath || !fs.existsSync(dataJobsPath)) {
+    return { changed: false, updated: 0, total: 0 };
+  }
+  const raw = JSON.parse(fs.readFileSync(dataJobsPath, 'utf-8'));
+  if (!Array.isArray(raw)) {
+    return { changed: false, updated: 0, total: 0 };
+  }
+
+  let changed = false;
+  let updated = 0;
+  const hardened = raw.map((job) => {
+    const result = ensureStructuredSalary(job);
+    if (result.changed) {
+      changed = true;
+      updated += 1;
+    }
+    return result.job;
+  });
+
+  if (!changed) {
+    return { changed: false, updated: 0, total: hardened.length };
+  }
+
+  writeJson(dataJobsPath, hardened);
+  const publicJobsPath = inferPublicJobsPath(dataJobsPath);
+  if (fs.existsSync(publicJobsPath)) {
+    writeJson(publicJobsPath, hardened);
+  }
+  return { changed: true, updated, total: hardened.length, publicJobsPath };
+}
+
+/**
+ * Run the shared crawler core with scoped company keys.
+ */
+export async function runDedicatedBaseCrawler({
+  root,
+  companyKeys,
+  localizeOnlyCompanyKeys,
+  forceLocalizeKeys,
+  extraEnv = {},
+  disableWorkdayForce = false,
+  forceLocalizationWhenAiEnabledOnly = false,
+  localizeExistingOnly = false,
+}) {
+  const scopedCompanyKeys = toNormalizedSet(companyKeys);
+  if (scopedCompanyKeys.length === 0) {
+    throw new Error('runDedicatedBaseCrawler requires at least one company key');
+  }
+
+  const localizeOnlyKeys = toNormalizedSet(
+    localizeOnlyCompanyKeys === undefined ? scopedCompanyKeys : localizeOnlyCompanyKeys
+  );
+  const forcedKeys = toNormalizedSet(
+    forceLocalizeKeys === undefined ? scopedCompanyKeys : forceLocalizeKeys
+  );
+
+  const existingRequested = toNormalizedKeyList(
+    process.env.JOBS_CRAWLER_COMPANY_KEYS || process.env.JOBS_CRAWLER_COMPANY_KEY || ''
+  );
+  const mergedCompanyKeys = [...new Set([...existingRequested, ...scopedCompanyKeys])].join(',');
+
+  const existingForced = toNormalizedKeyList(process.env.JOBS_CRAWLER_FORCE_LOCALIZE_KEYS || '');
+  const mergedForcedKeys = [...new Set([...existingForced, ...forcedKeys])].join(',');
+
+  const aiEnabled = String(process.env.JOBS_AI_LOCALIZATION_ENABLED || '1') !== '0';
+  const shouldApplyForceLocalization = !forceLocalizationWhenAiEnabledOnly || aiEnabled;
+
+  const env = {
+    ...process.env,
+    JOBS_CRAWLER_COMPANY_KEYS: mergedCompanyKeys,
+    JOBS_AI_LOCALIZATION_ENABLED: process.env.JOBS_AI_LOCALIZATION_ENABLED || '1',
+    JOBS_AI_MAX_JOBS_PER_RUN: process.env.JOBS_AI_MAX_JOBS_PER_RUN || '1200',
+    // Dedicated crawlers write their own summary — skip the generic one from shared-jobs-crawler
+    JOBS_SKIP_CRAWL_CHANGE_SUMMARY: '1',
+    ...extraEnv,
+  };
+
+  if (disableWorkdayForce) {
+    env.JOBS_FORCE_LOCALIZE_WORKDAY = '0';
+  }
+
+  if (shouldApplyForceLocalization) {
+    if (mergedForcedKeys) {
+      env.JOBS_CRAWLER_FORCE_LOCALIZE_KEYS = mergedForcedKeys;
+    }
+    if (localizeOnlyKeys.length > 0) {
+      env.JOBS_CRAWLER_LOCALIZE_ONLY_COMPANY_KEYS = localizeOnlyKeys.join(',');
+    }
+  }
+
+  if (localizeExistingOnly) {
+    env.JOBS_CRAWLER_LOCALIZE_EXISTING_ONLY = '1';
+  }
+
+  await runSpawnedSharedCrawler({ root, env });
+}
+
+export function validateDedicatedLocaleCoverage({
+  strictEnvVar,
+  label,
+  dataJobsPath,
+  isTargetJob,
+  locales = DEFAULT_LOCALES,
+  minTitleChars = 3,
+  minDescriptionChars = 120,
+  checkSlug = true,
+  detectSourceLang = (text) => detectLang(text, 'it'),
+  deriveSlug = deriveLocalizedSlug,
+  isTrustedDomain,
+  untrustedDomainReason,
+  failOnMissingJobsFile = false,
+  failWhenNoJobs = false,
+  noJobsMessage,
+  untranslatedCheck = true,
+  sampleLimit = 30,
+  minSourceDescriptionCharsForHardValidation = minDescriptionChars,
+  maxToleratedMissingDescriptions = 0,
+}) {
+  // Auto-repair missing locale fields before validation
+  const localeHardening = hardenJobLocaleFields({ dataJobsPath });
+  if (localeHardening.changed) {
+    console.log(`🛡️ Locale hardening: repaired ${localeHardening.repaired}/${localeHardening.total} jobs (filled missing titleByLocale/descriptionByLocale/slugByLocale).`);
+  }
+  const hardening = hardenJobsRichResultsData({ dataJobsPath });
+  if (hardening.changed) {
+    console.log(`🛡️ Shared hardening: baseSalary fixed for ${hardening.updated}/${hardening.total} jobs.`);
+  }
+
+  const strict = String(process.env[strictEnvVar] || '1') !== '0';
+  if (!strict) return;
+
+  if (!fs.existsSync(dataJobsPath)) {
+    if (failOnMissingJobsFile) {
+      throw new Error(`Missing ${dataJobsPath}`);
+    }
+    console.log('ℹ️ jobs.json non trovato — skip validazione locale.');
+    return;
+  }
+
+  const raw = JSON.parse(fs.readFileSync(dataJobsPath, 'utf-8'));
+  const jobs = Array.isArray(raw) ? raw.filter(isTargetJob) : [];
+  if (jobs.length === 0) {
+    const message = noJobsMessage || `No ${label} jobs found after crawl.`;
+    if (failWhenNoJobs) {
+      throw new Error(message);
+    }
+    console.log(`ℹ️ ${message}`);
+    return;
+  }
+
+  const blockingIssues = [];
+  const softIssues = [];
+  const thinSourceBySlug = new Map();
+  for (const job of jobs) {
+    const baseDesc = String(job?.description || '');
+    const baseDescTrimmed = baseDesc.trim();
+    const baseDescIsThin = baseDescTrimmed.length < minSourceDescriptionCharsForHardValidation;
+    const baseTitle = String(job?.title || '').trim();
+    const sourceLang = detectSourceLang(`${job?.title || ''} ${baseDesc}`);
+    const titleSourceLang = detectJobTitleLang(
+      String(job?.titleByLocale?.[sourceLang] || baseTitle),
+      sourceLang,
+    );
+    if (typeof isTrustedDomain === 'function' && !isTrustedDomain(String(job?.url || ''))) {
+      blockingIssues.push({
+        slug: job.slug,
+        locale: 'all',
+        reason: untrustedDomainReason || 'untrusted_domain',
+      });
+    }
+
+    for (const locale of locales) {
+      const title = String(job?.titleByLocale?.[locale] || '');
+      const desc = String(job?.descriptionByLocale?.[locale] || '');
+      if (title.trim().length < minTitleChars) {
+        blockingIssues.push({ slug: job.slug, locale, reason: 'missing_title' });
+      }
+      if (desc.trim().length < minDescriptionChars) {
+        const issue = { slug: job.slug, locale, reason: 'missing_description' };
+        if (baseDescIsThin) {
+          softIssues.push(issue);
+          if (!thinSourceBySlug.has(job.slug)) {
+            thinSourceBySlug.set(job.slug, {
+              job,
+              issueReasons: new Set(),
+            });
+          }
+          thinSourceBySlug.get(job.slug).issueReasons.add(issue.reason);
+        } else blockingIssues.push(issue);
+      }
+      if (checkSlug) {
+        const slug = deriveSlug(job, locale);
+        if (!slug) {
+          blockingIssues.push({ slug: job.slug, locale, reason: 'missing_slug' });
+        }
+      }
+      if (
+        untranslatedCheck &&
+        locale !== sourceLang &&
+        desc.trim() &&
+        normalize(desc) === normalize(baseDesc)
+      ) {
+        const issue = { slug: job.slug, locale, reason: 'untranslated_description' };
+        if (baseDescIsThin) {
+          softIssues.push(issue);
+          if (!thinSourceBySlug.has(job.slug)) {
+            thinSourceBySlug.set(job.slug, {
+              job,
+              issueReasons: new Set(),
+            });
+          }
+          thinSourceBySlug.get(job.slug).issueReasons.add(issue.reason);
+        } else blockingIssues.push(issue);
+      }
+      // Check for untranslated titles (title identical to source-language title)
+      if (
+        untranslatedCheck &&
+        locale !== sourceLang &&
+        locale !== titleSourceLang &&
+        title.trim() &&
+        normalize(title) === normalize(String(job?.titleByLocale?.[titleSourceLang] || baseTitle || ''))
+      ) {
+        const locSlug = String(job?.slugByLocale?.[locale] || '');
+        const srcSlug = String(job?.slugByLocale?.[titleSourceLang] || job?.slug || '');
+        const hasLocalizedSlug =
+          checkSlug &&
+          locSlug &&
+          srcSlug &&
+          normalize(locSlug) !== normalize(srcSlug);
+        if (!hasLocalizedSlug) {
+          softIssues.push({ slug: job.slug, locale, reason: 'untranslated_title' });
+        }
+      }
+      // Check for untranslated slugs (slug identical to source-language slug)
+      if (
+        untranslatedCheck &&
+        checkSlug &&
+        locale !== sourceLang &&
+        locale !== titleSourceLang
+      ) {
+        const locSlug = String(job?.slugByLocale?.[locale] || '');
+        const srcSlug = String(job?.slugByLocale?.[titleSourceLang] || job?.slug || '');
+        if (locSlug && srcSlug && normalize(locSlug) === normalize(srcSlug)) {
+          softIssues.push({ slug: job.slug, locale, reason: 'untranslated_slug' });
+        }
+      }
+    }
+  }
+
+  if (blockingIssues.length > 0) {
+    // Tolerate a small number of missing/untranslated description issues (translation providers are flaky)
+    if (maxToleratedMissingDescriptions > 0) {
+      const descIssues = blockingIssues.filter((i) => i.reason === 'missing_description' || i.reason === 'untranslated_description');
+      const otherIssues = blockingIssues.filter((i) => i.reason !== 'missing_description' && i.reason !== 'untranslated_description');
+      if (descIssues.length <= maxToleratedMissingDescriptions && otherIssues.length === 0) {
+        const slugs = descIssues.map((i) => `${i.slug} [${i.locale}]`).join(', ');
+        console.warn(`⚠️  Tolerating ${descIssues.length} missing/untranslated description(s) (max ${maxToleratedMissingDescriptions}): ${slugs}`);
+        softIssues.push(...descIssues);
+        blockingIssues.length = 0;
+      }
+    }
+  }
+
+  if (blockingIssues.length > 0) {
+    const sample = blockingIssues
+      .slice(0, sampleLimit)
+      .map((i) => `- ${i.slug} [${i.locale}] ${i.reason}`)
+      .join('\n');
+    throw new Error(
+      `${label} localization validation failed (${blockingIssues.length} issues).\n${sample}\nSet ${strictEnvVar}=0 to skip strict validation.`
+    );
+  }
+
+  if (softIssues.length > 0) {
+    const thinDiagnostics = [...thinSourceBySlug.values()].map(({ job, issueReasons }) => {
+      const diagnosis = classifyThinSource(job, minSourceDescriptionCharsForHardValidation);
+      return {
+        slug: job?.slug || 'unknown',
+        url: String(job?.url || ''),
+        sourceLen: diagnosis.sourceLen,
+        suspicious: diagnosis.suspicious,
+        diagnosisReasons: diagnosis.reasons,
+        issueReasons: [...issueReasons],
+      };
+    });
+    const suspiciousThin = thinDiagnostics.filter((d) => d.suspicious);
+    if (suspiciousThin.length > 0) {
+      const sample = suspiciousThin
+        .slice(0, sampleLimit)
+        .map((d) => `- ${d.slug} len=${d.sourceLen} issues=${d.issueReasons.join(',')} diagnosis=${d.diagnosisReasons.join(',') || 'ultra_thin'} url=${d.url}`)
+        .join('\n');
+      throw new Error(
+        `${label} thin-source investigation failed (${suspiciousThin.length} suspected crawl issues).\n${sample}\nInvestigate crawler extraction for these URLs before disabling strict validation.`
+      );
+    }
+
+    const localeQualityIssues = softIssues.filter((i) => i.reason === 'untranslated_title' || i.reason === 'untranslated_slug');
+    const thinSourceIssues = softIssues.filter((i) => i.reason !== 'untranslated_title' && i.reason !== 'untranslated_slug');
+    if (thinSourceIssues.length > 0) {
+      const sample = thinSourceIssues
+        .slice(0, sampleLimit)
+        .map((i) => `- ${i.slug} [${i.locale}] ${i.reason}`)
+        .join('\n');
+      const diagSample = thinDiagnostics
+        .slice(0, sampleLimit)
+        .map((d) => `- ${d.slug} len=${d.sourceLen} issues=${d.issueReasons.join(',')} url=${d.url}`)
+        .join('\n');
+      console.log(
+        `⚠️ ${label} localization soft issues (${thinSourceIssues.length}) kept as warning: source descriptions are short (<${minSourceDescriptionCharsForHardValidation} chars) but no crawl-bug signal detected.\n${sample}\n🔎 Thin-source diagnostics:\n${diagSample}`
+      );
+    }
+    if (localeQualityIssues.length > 0) {
+      const sample = localeQualityIssues
+        .slice(0, sampleLimit)
+        .map((i) => `- ${i.slug} [${i.locale}] ${i.reason}`)
+        .join('\n');
+      console.log(
+        `⚠️ ${label} locale quality issues (${localeQualityIssues.length}): untranslated titles or slugs detected — re-run crawler with forced re-localization.\n${sample}`
+      );
+    }
+  }
+
+  console.log(`✅ ${label} localization validation passed for ${jobs.length} jobs (${locales.length} locales).`);
+}

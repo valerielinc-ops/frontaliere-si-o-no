@@ -1,0 +1,22 @@
+{
+  "companyKey": "zambon",
+  "companyName": "Zambon",
+  "companyHost": "zambon.com",
+  "enabled": true,
+  "priority": 0,
+  "crawlerModes": [
+    "generic_ats",
+    "html",
+    "jsonld"
+  ],
+  "seedUrls": [
+    "https://www.zambon.com/careers",
+    "https://www.zambon.com/career",
+    "https://www.zambon.com/jobs",
+    "https://www.zambon.com/karriere",
+    "https://www.zambon.com/offene-stellen",
+    "https://www.zambon.com/lavora-con-noi"
+  ],
+  "notes": "",
+  "updatedAt": "2026-02-27T17:06:07.001Z"
+}

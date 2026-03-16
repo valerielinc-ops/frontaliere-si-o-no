@@ -1,0 +1,59 @@
+{
+  "companyKey": "avaloq",
+  "companyName": "Avaloq",
+  "companyHost": "www.avaloq.com",
+  "enabled": true,
+  "priority": 18,
+  "crawlerModes": [
+    "html"
+  ],
+  "seedUrls": [
+    "https://www.avaloq.com/careers/job-openings"
+  ],
+  "notes": "Dedicated Avaloq crawler parses the public careers listing and job detail pages, filtering vacancies in Ticino and Grigioni.",
+  "updatedAt": "2026-03-11T08:48:09.096Z",
+  "seedMetaByUrl": {
+    "https://www.avaloq.com/careers/job-openings/744000113443570-data-platform-manager": {
+      "location": "Bioggio",
+      "canton": "TI",
+      "company": "Avaloq",
+      "postedDate": "2026-03-11"
+    },
+    "https://www.avaloq.com/careers/job-openings/744000112640738-apprendista-di-commercio-afc-con-maturita": {
+      "location": "Bioggio",
+      "canton": "TI",
+      "company": "Avaloq",
+      "postedDate": "2026-03-11"
+    },
+    "https://www.avaloq.com/careers/job-openings/744000112127980-internship-in-banking-operations-in-trade-processing-ch-6-month-fixed-term-contract": {
+      "location": "Bioggio",
+      "canton": "TI",
+      "company": "Avaloq",
+      "postedDate": "2026-03-11"
+    },
+    "https://www.avaloq.com/careers/job-openings/744000110426076-one-identity-manager-engineer": {
+      "location": "Bioggio",
+      "canton": "TI",
+      "company": "Avaloq",
+      "postedDate": "2026-03-11"
+    },
+    "https://www.avaloq.com/careers/job-openings/744000109743716-german-speaking-banking-specialist-in-corporate-actions-pre-processing": {
+      "location": "Bioggio",
+      "canton": "TI",
+      "company": "Avaloq",
+      "postedDate": "2026-03-11"
+    },
+    "https://www.avaloq.com/careers/job-openings/744000108702035-swiss-regulatory-reporting-expert-fire": {
+      "location": "Bioggio",
+      "canton": "TI",
+      "company": "Avaloq",
+      "postedDate": "2026-03-11"
+    },
+    "https://www.avaloq.com/careers/job-openings/744000106026651-it-operation-center-specialist": {
+      "location": "Bioggio",
+      "canton": "TI",
+      "company": "Avaloq",
+      "postedDate": "2026-03-11"
+    }
+  }
+}

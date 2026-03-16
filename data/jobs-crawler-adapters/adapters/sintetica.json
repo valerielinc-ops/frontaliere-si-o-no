@@ -1,0 +1,22 @@
+{
+  "companyKey": "sintetica",
+  "companyName": "Sintetica",
+  "companyHost": "sintetica.com",
+  "enabled": true,
+  "priority": 0,
+  "crawlerModes": [
+    "generic_ats",
+    "html",
+    "jsonld"
+  ],
+  "seedUrls": [
+    "https://www.sintetica.com/careers",
+    "https://www.sintetica.com/career",
+    "https://www.sintetica.com/jobs",
+    "https://www.sintetica.com/karriere",
+    "https://www.sintetica.com/offene-stellen",
+    "https://www.sintetica.com/lavora-con-noi"
+  ],
+  "notes": "",
+  "updatedAt": "2026-02-27T17:06:06.984Z"
+}

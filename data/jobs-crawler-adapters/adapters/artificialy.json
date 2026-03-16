@@ -1,0 +1,12 @@
+{
+  "companyKey": "artificialy",
+  "companyName": "Artificialy",
+  "companyHost": "artificialy.com",
+  "enabled": true,
+  "priority": 18,
+  "crawlerModes": ["html"],
+  "seedUrls": ["https://www.artificialy.com/it/career", "https://www.artificialy.com/career"],
+  "notes": "Dedicated Artificialy crawler. Swiss AI company with offices in Lugano (TI) and Zurich. Specializes in AI solutions for finance, healthcare, manufacturing. Site behind Cloudflare managed challenge.",
+  "updatedAt": "2026-03-14T00:00:00.000Z",
+  "seedMetaByUrl": {}
+}

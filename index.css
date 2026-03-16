@@ -1,0 +1,135 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:is(.dark *));
+
+/* Prevent scrollbar appearance from causing layout shift (CLS) */
+html { scrollbar-gutter: stable; overflow-x: hidden; }
+
+/* Reset body padding/margin — overrides static page styles after SPA hydration */
+body { margin: 0; padding: 0; }
+
+/* Hide reCAPTCHA badge — required notice is in privacy policy */
+.grecaptcha-badge { visibility: hidden !important; }
+
+/* ===== Non-critical CSS moved from inline <style> to reduce render-blocking ===== */
+
+/* Entrance animations — only needed after React mounts */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.animate-fade-in-up { animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+.animate-fade-in { animation: fadeIn 0.4s ease-out forwards; }
+.delay-100 { animation-delay: 100ms; }
+.delay-200 { animation-delay: 200ms; }
+.delay-300 { animation-delay: 300ms; }
+
+/* Custom Scrollbar — cosmetic, non-critical */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+
+/* Content-visibility for off-screen content — performance, non-critical */
+.content-auto { content-visibility: auto; contain-intrinsic-size: auto 850px; }
+
+/* Hide native spin buttons — cosmetic */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+input[type=number] { -moz-appearance: textfield; }
+
+/* Prevent iOS Safari auto-zoom on focus for inputs with font-size < 16px.
+   On mobile (< 768px) we enforce a floor of 16px on all form controls.
+   Desktop keeps the original (possibly smaller) sizes untouched. */
+@media screen and (max-width: 767px) {
+  input, select, textarea {
+    font-size: max(16px, 1em) !important;
+  }
+}
+
+@theme {
+  --color-slate-850: #1e293b;
+  --color-slate-950: #020617;
+
+  --animate-blob: blob 7s infinite;
+
+  @keyframes blob {
+    0% {
+      transform: translate(0px, 0px) scale(1);
+    }
+    33% {
+      transform: translate(30px, -50px) scale(1.1);
+    }
+    66% {
+      transform: translate(-20px, 20px) scale(0.9);
+    }
+    100% {
+      transform: translate(0px, 0px) scale(1);
+    }
+  }
+
+  --animate-slide-up: slide-up 0.3s ease-out both;
+
+  @keyframes slide-up {
+    0% {
+      opacity: 0;
+      transform: translateY(16px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  --animate-slide-down: slide-down 0.3s ease-out both;
+
+  @keyframes slide-down {
+    0% {
+      opacity: 0;
+      transform: translateY(-16px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  --animate-modal-in: modal-in 0.2s ease-out both;
+
+  @keyframes modal-in {
+    0% {
+      opacity: 0;
+      transform: scale(0.96) translateY(0);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1) translateY(0);
+    }
+  }
+
+  --animate-toast-in: toast-in 0.35s ease-out both;
+
+  @keyframes toast-in {
+    0% {
+      opacity: 0;
+      transform: translateY(16px) scale(0.95);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  @keyframes shrink {
+    0% {
+      width: 100%;
+    }
+    100% {
+      width: 0%;
+    }
+  }
+}

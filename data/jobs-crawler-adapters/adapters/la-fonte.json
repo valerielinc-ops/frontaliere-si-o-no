@@ -1,0 +1,15 @@
+{
+  "companyKey": "la-fonte",
+  "companyName": "Fondazione La Fonte",
+  "companyHost": "www.lafonte.ch",
+  "enabled": true,
+  "priority": 10,
+  "crawlerModes": [
+    "html"
+  ],
+  "seedUrls": [
+    "https://www.lafonte.ch/inizia-con-noi"
+  ],
+  "notes": "HubSpot CMS — single careers page with inline job cards (pwr-simple-list-item blocks).",
+  "updatedAt": "2026-03-16T11:06:36.262Z"
+}

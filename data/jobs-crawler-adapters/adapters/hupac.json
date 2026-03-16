@@ -1,0 +1,22 @@
+{
+  "companyKey": "hupac",
+  "companyName": "Hupac",
+  "companyHost": "hupac.com",
+  "enabled": true,
+  "priority": 0,
+  "crawlerModes": [
+    "generic_ats",
+    "html",
+    "jsonld"
+  ],
+  "seedUrls": [
+    "https://www.hupac.com/careers",
+    "https://www.hupac.com/career",
+    "https://www.hupac.com/jobs",
+    "https://www.hupac.com/karriere",
+    "https://www.hupac.com/offene-stellen",
+    "https://www.hupac.com/lavora-con-noi"
+  ],
+  "notes": "",
+  "updatedAt": "2026-02-27T17:06:06.954Z"
+}

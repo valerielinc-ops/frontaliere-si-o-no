@@ -1,0 +1,631 @@
+#!/usr/bin/env node
+/**
+ * Dedicated Linnea SA crawler runner.
+ *
+ * Linnea SA is a pharmaceutical company (botanical ingredients, APIs)
+ * headquartered in Riazzino, Ticino, Switzerland (near Locarno).
+ *
+ * The Linnea careers page at https://www.linnea.ch/careers/ is a WordPress site
+ * using Foundation's accordion component. Jobs are listed under an
+ * "OPEN POSITIONS" heading with each position as an accordion item.
+ *
+ * There are NO individual job detail page URLs. All job titles and full
+ * descriptions are embedded inline in accordion items on a single page.
+ *
+ * Discovery flow:
+ *   1. Fetch https://www.linnea.ch/careers/ (server-side rendered HTML)
+ *   2. Locate the "OPEN POSITIONS" section
+ *   3. Parse each accordion item: title from <h4>, description from <article>
+ *   4. Build job objects with synthetic descriptions
+ *   5. Merge into data/jobs.json (add new, update existing, prune stale)
+ *   6. Run the base crawler for AI localization of descriptions (4 locales)
+ *   7. Post-process: fix company name, location, canton
+ *   8. Validate locale coverage across IT/EN/DE/FR
+ */
+import fs from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+import { printPublishedJobUrls, writeJobsSummary, snapshotJobSlugs, computeCrawlDiff, printCrawlChangeSummary, writeCrawlChangeSummaryToGH } from './jobs-url-helper.mjs';
+import { validateJobUrls } from './lib/validate-job-url.mjs';
+import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage } from './lib/dedicated-crawler-common.mjs';
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const ROOT = path.resolve(__dirname, '..');
+const DATA_JOBS = path.resolve(ROOT, 'data', 'jobs.json');
+const PUBLIC_JOBS = path.resolve(ROOT, 'public', 'data', 'jobs.json');
+const ADAPTERS_DIR = path.resolve(ROOT, 'data', 'jobs-crawler-adapters', 'adapters');
+
+const LINNEA_KEY = 'linnea';
+const LINNEA_COMPANY_NAME = 'Linnea SA';
+const LINNEA_COMPANY_HOST = 'www.linnea.ch';
+const LINNEA_CAREERS_URL = 'https://www.linnea.ch/careers/';
+const LOCALES = ['it', 'en', 'de', 'fr'];
+
+// ─────────────────────────────────────────────────────────────
+// Helpers
+// ─────────────────────────────────────────────────────────────
+
+function normalize(value = '') {
+  return String(value || '').trim().toLowerCase();
+}
+
+function normalizeSpace(s = '') {
+  return String(s || '').replace(/\s+/g, ' ').trim();
+}
+
+function slugify(text = '', suffix = '') {
+  let s = text
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+  if (suffix) {
+    s = `${s}-${suffix}`.replace(/--+/g, '-');
+  }
+  return s.slice(0, 90);
+}
+
+function stripHtml(html = '') {
+  return html
+    .replace(/<script[^>]*>[\s\S]*?<\/script>/gi, '')
+    .replace(/<style[^>]*>[\s\S]*?<\/style>/gi, '')
+    .replace(/<noscript[^>]*>[\s\S]*?<\/noscript>/gi, '')
+    .replace(/<br\s*\/?>/gi, '\n')
+    .replace(/<\/(?:p|li|h[1-6]|div|ul|ol)>/gi, '\n')
+    .replace(/<[^>]+>/g, '')
+    .replace(/&nbsp;/gi, ' ')
+    .replace(/&amp;/gi, '&')
+    .replace(/&lt;/gi, '<')
+    .replace(/&gt;/gi, '>')
+    .replace(/&#8211;/g, '–')
+    .replace(/&#8217;/g, "'")
+    .replace(/&#8220;/g, '"')
+    .replace(/&#8221;/g, '"')
+    .replace(/\n{3,}/g, '\n\n')
+    .trim();
+}
+
+function isLinneaJob(job) {
+  const key = normalize(job?.companyKey || job?.company || '')
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+  const company = normalize(job?.company || '');
+  const url = String(job?.url || '').toLowerCase();
+
+  return (
+    key === LINNEA_KEY ||
+    key === 'linnea-sa' ||
+    key.startsWith('linnea') ||
+    (company.includes('linnea') && company.includes('sa')) ||
+    url.includes('linnea.ch')
+  );
+}
+
+function isTrustedDomain(rawUrl = '') {
+  try {
+    const host = new URL(rawUrl).hostname.toLowerCase();
+    return host === 'www.linnea.ch' || host === 'linnea.ch';
+  } catch {
+    return false;
+  }
+}
+
+// ─────────────────────────────────────────────────────────────
+// HTML fetching
+// ─────────────────────────────────────────────────────────────
+
+async function fetchPage(url, timeoutMs = 20000) {
+  try {
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), timeoutMs);
+    const res = await fetch(url, {
+      signal: controller.signal,
+      headers: {
+        Accept: 'text/html,application/xhtml+xml',
+        'Accept-Language': 'en,it-CH;q=0.9',
+        'User-Agent': process.env.JOBS_CRAWLER_USER_AGENT ||
+          'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://www.frontaliereticino.ch/)',
+      },
+    });
+    clearTimeout(timer);
+    if (!res.ok) {
+      console.warn(`⚠️ HTTP ${res.status} for ${url}`);
+      return null;
+    }
+    return await res.text();
+  } catch (err) {
+    console.warn(`⚠️ Fetch failed for ${url}: ${err.message}`);
+    return null;
+  }
+}
+
+// ─────────────────────────────────────────────────────────────
+// HTML parsing — extract jobs from the WordPress page
+// ─────────────────────────────────────────────────────────────
+
+/**
+ * Parse all job accordion items from the Linnea careers page.
+ *
+ * HTML structure:
+ *   <h2>OPEN POSITIONS</h2>
+ *   <ul class="accordion" data-accordion>
+ *     <li class="accordion-item" data-accordion-item>
+ *       <a href="#" class="accordion-title">
+ *         <h4>Job Title, Contract Type, Location, Country</h4>
+ *       </a>
+ *       <div class="accordion-content" data-tab-content>
+ *         <article class="eng">
+ *           <h3>Job Title</h3>
+ *           <p>Description...</p>
+ *           <p class="apply"><a class="btn white">Apply</a></p>
+ *         </article>
+ *       </div>
+ *     </li>
+ *   </ul>
+ */
+function parseAccordionJobs(html) {
+  const jobs = [];
+
+  // Find the OPEN POSITIONS section
+  const openPosIdx = html.indexOf('OPEN POSITIONS');
+  if (openPosIdx === -1) {
+    console.warn('  ⚠️ Could not find "OPEN POSITIONS" heading on careers page.');
+    return jobs;
+  }
+
+  // Extract the accordion section after OPEN POSITIONS
+  const afterOpenPos = html.slice(openPosIdx);
+
+  // Find all accordion items
+  // Pattern: <li class="accordion-item" ... > ... <h4>TITLE</h4> ... <article ...>CONTENT</article>
+  const itemRe = /<li\s+class="accordion-item[^"]*"[^>]*data-accordion-item[^>]*>[\s\S]*?<a[^>]*class="accordion-title"[^>]*>\s*<h4>([\s\S]*?)<\/h4>\s*<\/a>\s*<div\s+class="accordion-content"[^>]*>([\s\S]*?)<\/div>\s*<\/li>/gi;
+
+  let match;
+  let idx = 0;
+  while ((match = itemRe.exec(afterOpenPos)) !== null) {
+    idx++;
+    const rawHeading = match[1].replace(/<[^>]+>/g, '').trim();
+    const contentHtml = match[2].trim();
+
+    // Parse the heading: "Title, Contract Type, Location, Country"
+    const headingParts = rawHeading.split(',').map(s => s.trim());
+    const title = headingParts[0] || '';
+    const contractType = headingParts[1] || '';
+    const location = headingParts[2] || 'Riazzino';
+
+    if (!title || title.length < 3) {
+      console.log(`  ⏭️  Item ${idx}: empty title — skipped`);
+      continue;
+    }
+
+    // Extract description from <article> content
+    const articleMatch = contentHtml.match(/<article[^>]*>([\s\S]*?)<\/article>/i);
+    const articleHtml = articleMatch ? articleMatch[1] : contentHtml;
+
+    // Remove the apply button paragraph
+    const cleanHtml = articleHtml.replace(/<p\s+class="apply"[\s\S]*?<\/p>/gi, '');
+    // Remove the inner <h3> (duplicate of title)
+    const descHtml = cleanHtml.replace(/<h3>[\s\S]*?<\/h3>/gi, '');
+    const descriptionText = normalizeSpace(stripHtml(descHtml));
+
+    // Skip if no meaningful description
+    if (descriptionText.length < 20) {
+      console.log(`  ⏭️  Item ${idx}: "${title}" — description too short (${descriptionText.length} chars) — skipped`);
+      continue;
+    }
+
+    jobs.push({
+      idx,
+      title: normalizeSpace(title),
+      contractType: normalizeSpace(contractType),
+      location: normalizeSpace(location),
+      descriptionHtml: descHtml,
+      descriptionText,
+    });
+  }
+
+  return jobs;
+}
+
+/**
+ * Fetch and parse all Linnea jobs from the careers page.
+ */
+async function fetchLinneaJobs() {
+  console.log(`🔍 Fetching Linnea SA jobs from ${LINNEA_CAREERS_URL}`);
+
+  const html = await fetchPage(LINNEA_CAREERS_URL, 25000);
+  if (!html) {
+    console.error('❌ Failed to fetch Linnea careers page.');
+    return [];
+  }
+
+  console.log(`  📄 Page fetched (${html.length} chars)`);
+
+  // Parse accordion jobs
+  const parsedJobs = parseAccordionJobs(html);
+  console.log(`  📋 Accordion items found: ${parsedJobs.length}`);
+
+  if (parsedJobs.length === 0) {
+    console.log('  ℹ️ No active job listings found on Linnea careers page.');
+    return [];
+  }
+
+  // Build job objects
+  const jobs = [];
+  for (const parsed of parsedJobs) {
+    const slug = slugify(parsed.title, 'linnea');
+    // Use query param for stable canonical URL (hash fragments get stripped by shared crawler)
+    const canonicalUrl = `${LINNEA_CAREERS_URL}?position=${parsed.idx}`;
+
+    const descEn = buildDescription(parsed, 'en');
+    const descIt = buildDescription(parsed, 'it');
+
+    const employmentType = /full\s*time/i.test(parsed.contractType) ? 'FULL_TIME'
+      : /part\s*time/i.test(parsed.contractType) ? 'PART_TIME'
+      : 'FULL_TIME';
+
+    const job = {
+      url: canonicalUrl,
+      applyUrl: LINNEA_CAREERS_URL,
+      title: parsed.title,
+      company: LINNEA_COMPANY_NAME,
+      companyKey: LINNEA_KEY,
+      location: parsed.location || 'Riazzino',
+      canton: 'TI',
+      country: 'CH',
+      description: descEn,
+      descriptionByLocale: {
+        en: descEn,
+        it: descIt,
+      },
+      titleByLocale: {
+        en: parsed.title,
+      },
+      slug,
+      slugByLocale: {
+        en: slug,
+        it: slugify(parsed.title, 'linnea'),
+      },
+      category: detectCategory(parsed.title),
+      datePosted: new Date().toISOString().split('T')[0],
+      source: 'linnea-careers-crawler',
+      employmentType,
+      experienceLevel: detectExperienceLevel(parsed.title),
+      sector: 'Farmaceutica / Ingredienti botanici',
+      _targetScope: { canton: 'TI', location: 'Riazzino' },
+    };
+
+    jobs.push(job);
+  }
+
+  console.log(`\n📋 Total unique Linnea jobs discovered: ${jobs.length}`);
+  return jobs;
+}
+
+// ─────────────────────────────────────────────────────────────
+// Description building
+// ─────────────────────────────────────────────────────────────
+
+function detectCategory(title = '') {
+  const t = normalize(title);
+  if (/erp|it\b|system|admin|developer|engineer|software/i.test(t)) return 'technology';
+  if (/qa|quality|gmp|validation/i.test(t)) return 'quality';
+  if (/scientist|research|r&d|laboratory|lab\b/i.test(t)) return 'science';
+  if (/produc|manufactur|operator/i.test(t)) return 'production';
+  if (/legal|counsel|lawyer/i.test(t)) return 'legal';
+  if (/account|financ|controller/i.test(t)) return 'finance';
+  if (/hr|human|recruit/i.test(t)) return 'hr';
+  if (/sales|commercial|marketing/i.test(t)) return 'sales';
+  if (/logistic|supply|warehouse/i.test(t)) return 'logistics';
+  return 'general';
+}
+
+function detectExperienceLevel(title = '') {
+  const t = normalize(title);
+  if (/junior|jr\.?|entry|intern|stage|stagist/i.test(t)) return 'ENTRY';
+  if (/senior|sr\.?|lead|head|director|manager|principal/i.test(t)) return 'SENIOR';
+  return 'MID';
+}
+
+function buildDescription(parsed, locale = 'en') {
+  const rawDesc = parsed.descriptionText || '';
+
+  if (locale === 'en') {
+    return `${rawDesc}\n\nLinnea SA is a leading pharmaceutical company specializing in botanical ingredients and active pharmaceutical ingredients (APIs), headquartered in Riazzino, Ticino, Switzerland. Founded in 1982, the company operates a GMP-certified manufacturing site.`.trim();
+  }
+
+  if (locale === 'it') {
+    return `Posizione aperta presso Linnea SA a Riazzino.\nRuolo: ${parsed.title}.\n\n${rawDesc}\n\nLinnea SA è un'azienda farmaceutica leader specializzata in ingredienti botanici e principi attivi farmaceutici (API), con sede a Riazzino, Ticino, Svizzera. Fondata nel 1982, l'azienda opera in un sito di produzione certificato GMP.`.trim();
+  }
+
+  return rawDesc;
+}
+
+// ─────────────────────────────────────────────────────────────
+// Merge into data/jobs.json
+// ─────────────────────────────────────────────────────────────
+
+function canonicalizeUrl(url = '') {
+  try {
+    return new URL(url).href.replace(/\/$/, '').toLowerCase();
+  } catch {
+    return normalize(url);
+  }
+}
+
+function filterEmpty(obj = {}) {
+  if (!obj || typeof obj !== 'object') return {};
+  const out = {};
+  for (const [k, v] of Object.entries(obj)) {
+    if (v && String(v).trim()) out[k] = v;
+  }
+  return out;
+}
+
+async function mergeLinneaJobs(discoveredJobs) {
+  const existing = fs.existsSync(DATA_JOBS)
+    ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'))
+    : [];
+  const allJobs = Array.isArray(existing) ? [...existing] : [];
+
+  const nonLinneaJobs = allJobs.filter((j) => !isLinneaJob(j));
+  const existingLinneaJobs = allJobs.filter(isLinneaJob);
+
+  const existingByUrl = new Map();
+  for (const job of existingLinneaJobs) {
+    existingByUrl.set(canonicalizeUrl(job.url), job);
+  }
+
+  const discoveredByUrl = new Map();
+  for (const job of discoveredJobs) {
+    discoveredByUrl.set(canonicalizeUrl(job.url), job);
+  }
+
+  let added = 0;
+  let updated = 0;
+  let removed = 0;
+  const merged = [];
+
+  for (const discovered of discoveredJobs) {
+    const key = canonicalizeUrl(discovered.url);
+    const existing = existingByUrl.get(key);
+
+    if (existing) {
+      const updatedJob = {
+        ...existing,
+        title: discovered.title || existing.title,
+        company: LINNEA_COMPANY_NAME,
+        companyKey: LINNEA_KEY,
+        location: discovered.location || existing.location,
+        canton: 'TI',
+        country: 'CH',
+        applyUrl: discovered.applyUrl || existing.applyUrl,
+        category: discovered.category || existing.category,
+        sector: discovered.sector || existing.sector,
+        source: 'linnea-careers-crawler',
+        titleByLocale: { ...existing.titleByLocale, ...filterEmpty(discovered.titleByLocale) },
+        descriptionByLocale: { ...existing.descriptionByLocale, ...filterEmpty(discovered.descriptionByLocale) },
+        slugByLocale: { ...existing.slugByLocale, ...filterEmpty(discovered.slugByLocale) },
+      };
+
+      if (discovered.description && discovered.description.length > (existing.description || '').length) {
+        updatedJob.description = discovered.description;
+      }
+
+      merged.push(updatedJob);
+      updated++;
+    } else {
+      merged.push(discovered);
+      added++;
+    }
+  }
+
+  for (const [url] of existingByUrl) {
+    if (!discoveredByUrl.has(url)) {
+      removed++;
+    }
+  }
+
+  const final = [...nonLinneaJobs, ...merged];
+
+  fs.writeFileSync(DATA_JOBS, JSON.stringify(final, null, 2) + '\n');
+  fs.mkdirSync(path.dirname(PUBLIC_JOBS), { recursive: true });
+  fs.writeFileSync(PUBLIC_JOBS, JSON.stringify(final, null, 2) + '\n');
+
+  console.log(`\n📦 Merge results:`);
+  console.log(`  ➕ Added: ${added}`);
+  console.log(`  🔄 Updated: ${updated}`);
+  console.log(`  🗑️  Removed (stale): ${removed}`);
+  console.log(`  📊 Total jobs in file: ${final.length}`);
+
+  return { added, updated, removed, total: final.length };
+}
+
+// ─────────────────────────────────────────────────────────────
+// Adapter management
+// ─────────────────────────────────────────────────────────────
+
+function updateAdapterConfig() {
+  const adapterPath = path.join(ADAPTERS_DIR, `${LINNEA_KEY}.json`);
+
+  const adapter = fs.existsSync(adapterPath)
+    ? JSON.parse(fs.readFileSync(adapterPath, 'utf-8'))
+    : {};
+
+  adapter.companyKey = LINNEA_KEY;
+  adapter.companyName = LINNEA_COMPANY_NAME;
+  adapter.companyHost = LINNEA_COMPANY_HOST;
+  adapter.enabled = true;
+  adapter.priority = Math.max(adapter.priority || 0, 10);
+  adapter.crawlerModes = ['html'];
+  adapter.seedUrls = [LINNEA_CAREERS_URL];
+  adapter.notes = 'WordPress + Foundation accordion at linnea.ch/careers/ — job listings extracted directly from inline accordion items, no individual detail pages.';
+  adapter.updatedAt = new Date().toISOString();
+
+  fs.mkdirSync(path.dirname(adapterPath), { recursive: true });
+  fs.writeFileSync(adapterPath, JSON.stringify(adapter, null, 2) + '\n');
+  console.log(`📝 Adapter ${LINNEA_KEY} updated.`);
+}
+
+// ─────────────────────────────────────────────────────────────
+// Base crawler (AI localization only)
+// ─────────────────────────────────────────────────────────────
+
+function runBaseCrawler() {
+  return runDedicatedBaseCrawler({
+    root: ROOT,
+    companyKeys: LINNEA_KEY,
+    localizeOnlyCompanyKeys: LINNEA_KEY,
+    forceLocalizeKeys: LINNEA_KEY,
+    disableWorkdayForce: true,
+    localizeExistingOnly: true,
+    extraEnv: {
+      JOBS_CRAWLER_MAX_JOB_LINKS: '50',
+      JOBS_CRAWLER_MAX_GENERIC_DETAIL_PAGES: '50',
+    },
+  });
+}
+
+// ─────────────────────────────────────────────────────────────
+// Post-processing
+// ─────────────────────────────────────────────────────────────
+
+function postProcessLinneaJobs() {
+  if (!fs.existsSync(DATA_JOBS)) return;
+  const raw = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
+  const jobs = Array.isArray(raw) ? raw : [];
+  let fixed = 0;
+
+  for (const job of jobs) {
+    if (!isLinneaJob(job)) continue;
+
+    if (job.company !== LINNEA_COMPANY_NAME) {
+      job.company = LINNEA_COMPANY_NAME;
+      fixed++;
+    }
+    if (job.companyKey !== LINNEA_KEY) {
+      job.companyKey = LINNEA_KEY;
+      fixed++;
+    }
+    job.canton = 'TI';
+    job.country = 'CH';
+    if (!job.location) {
+      job.location = 'Riazzino';
+      fixed++;
+    }
+  }
+
+  if (fixed > 0) {
+    fs.writeFileSync(DATA_JOBS, JSON.stringify(jobs, null, 2) + '\n');
+    fs.writeFileSync(PUBLIC_JOBS, JSON.stringify(jobs, null, 2) + '\n');
+    console.log(`🔧 Post-processed ${fixed} Linnea jobs (fixed company/location/canton).`);
+  }
+}
+
+// ─────────────────────────────────────────────────────────────
+// Stats & validation
+// ─────────────────────────────────────────────────────────────
+
+function logStats(beforeSnapshot = new Map()) {
+  if (!fs.existsSync(DATA_JOBS)) {
+    console.log('ℹ️ jobs.json not found — no stats available.');
+    return { total: 0 };
+  }
+  const raw = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
+  const allJobs = Array.isArray(raw) ? raw : [];
+  const linneaJobs = allJobs.filter(isLinneaJob);
+
+  console.log(`\n📊 === Linnea SA Job Stats ===`);
+  console.log(`  🏢 Total Linnea jobs: ${linneaJobs.length}`);
+
+  if (linneaJobs.length > 0) {
+    console.log(`  📋 Jobs:`);
+    for (const job of linneaJobs) {
+      console.log(`     - ${job.title} (${job.location || 'Riazzino'})`);
+    }
+  }
+
+  const afterSnapshot = snapshotJobSlugs(linneaJobs);
+  const crawlDiff = computeCrawlDiff(beforeSnapshot, afterSnapshot);
+  printCrawlChangeSummary(crawlDiff, 'Linnea SA');
+  writeCrawlChangeSummaryToGH(crawlDiff, 'Linnea SA');
+  return { total: linneaJobs.length };
+}
+
+function validateLocales() {
+  validateDedicatedLocaleCoverage({
+    strictEnvVar: 'JOBS_LINNEA_STRICT',
+    label: 'Linnea SA',
+    dataJobsPath: DATA_JOBS,
+    isTargetJob: isLinneaJob,
+    locales: LOCALES,
+    isTrustedDomain: isTrustedDomain,
+    untrustedDomainReason: 'url_not_linnea_domain',
+    failWhenNoJobs: false,
+    noJobsMessage: 'No Linnea SA jobs found — the company may not have active openings.',
+  });
+}
+
+// ─────────────────────────────────────────────────────────────
+// Main
+// ─────────────────────────────────────────────────────────────
+
+async function main() {
+  console.log('═══════════════════════════════════════════════');
+  console.log('  Linnea SA — Dedicated Crawler');
+  console.log('═══════════════════════════════════════════════');
+  console.log(`  Careers page: ${LINNEA_CAREERS_URL}\n`);
+
+  // Snapshot before
+  let beforeSnapshot = new Map();
+  if (fs.existsSync(DATA_JOBS)) {
+    try {
+      const pre = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
+      beforeSnapshot = snapshotJobSlugs(Array.isArray(pre) ? pre.filter(isLinneaJob) : []);
+    } catch { /* ignore */ }
+  }
+
+  // Phase 1: Fetch and parse jobs
+  const discoveredJobs = await fetchLinneaJobs();
+
+  if (discoveredJobs.length === 0) {
+    console.log('\n⚠️ No Linnea jobs discovered.');
+    console.log('   The careers page may have changed structure or have no current openings.');
+    console.log('   Keeping existing jobs — no changes to data/jobs.json.');
+    logStats(beforeSnapshot);
+    return;
+  }
+
+  // Phase 2: Update adapter config
+  updateAdapterConfig();
+
+  // Phase 3: Merge into data/jobs.json
+  await mergeLinneaJobs(discoveredJobs);
+
+  // Phase 4: Run base crawler for AI localization (DE/FR translations)
+  console.log('\n🌐 Running base crawler for AI localization of Linnea jobs...');
+  await runBaseCrawler();
+
+  // Phase 5: Post-process
+  postProcessLinneaJobs();
+
+  // Phase 6: Log stats
+  const stats = logStats(beforeSnapshot);
+  if (stats.total === 0) {
+    console.log('ℹ️ No Linnea jobs found after crawl. No error — exiting OK.');
+    return;
+  }
+
+  // Phase 7: Validate locale coverage
+  validateLocales();
+
+  console.log('\n✅ Linnea SA crawler complete.');
+}
+
+main().catch((err) => {
+  console.error(`❌ Linnea SA crawler failed: ${err?.message || err}`);
+  process.exit(1);
+});

@@ -1,0 +1,59 @@
+name: Collect Border-Crossing Traffic
+
+on:
+  # ─── Scheduled runs (UTC) ──────────────────────────────────────────
+  # Cron times are in UTC.  Europe/Rome is UTC+1 (CET) or UTC+2 (CEST).
+  # The ranges below cover both winter and summer offsets.
+  schedule:
+    # ── Weekdays (Mon–Fri) ──
+    # Morning commute peak ≈ CET 04:00–10:00 → every 10 min
+    - cron: '*/10 2-8 * * 1-5'
+    # Midday off-peak ≈ CET 10:00–15:00 → every hour
+    - cron: '0 8-13 * * 1-5'
+    # Evening return peak ≈ CET 15:00–20:00 → every 15 min
+    - cron: '*/15 13-18 * * 1-5'
+    # ── Weekends (Sat–Sun) → every hour all day ──
+    - cron: '0 * * * 0,6'
+  workflow_dispatch: {}
+
+concurrency:
+  group: traffic-scheduler
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Prepare Firebase credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -z "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            echo "::error::FIREBASE_SERVICE_ACCOUNT_JSON secret is not set"
+            exit 1
+          fi
+          printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+          echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+
+      - name: Load secrets from Remote Config
+        run: node scripts/load-rc-env.mjs
+
+      - name: Collect traffic data
+        run: node scripts/collect-traffic.mjs

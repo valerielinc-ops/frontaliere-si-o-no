@@ -1,0 +1,174 @@
+# robots.txt for Frontaliere Ticino - www.frontaliereticino.ch
+# Allow all search engines and AI crawlers to crawl
+
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /*.json$
+Disallow: /*?debug=*
+Disallow: /*?status=*
+
+# Crawl-delay for well-behaved bots
+Crawl-delay: 1
+
+# Sitemap locations (index includes pages, blog, glossario, and news sub-sitemaps)
+Sitemap: https://www.frontaliereticino.ch/sitemap.xml
+
+# AI-readable content files (llmstxt.org standard)
+# /llms.txt — structured site summary for AI systems
+# /llms-full.txt — comprehensive domain knowledge for citation
+# /.well-known/llms.txt — alternative discovery path for AI systems
+Allow: /.well-known/llms.txt
+
+# ─── Search Engines ───────────────────────────────────────────────────────
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+User-agent: msnbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: Baiduspider
+Allow: /
+
+User-agent: YandexBot
+Allow: /
+
+User-agent: facebot
+Allow: /
+
+User-agent: ia_archiver
+Allow: /
+
+# ─── AI Crawlers & LLM Agents ────────────────────────────────────────────
+# We explicitly welcome AI crawlers to index and cite our authoritative
+# content on Swiss-Italian cross-border worker taxation, pensions,
+# health insurance, and practical guides. All content is original,
+# factual, and regularly updated with current 2026 regulations.
+
+# OpenAI
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+# Google AI
+User-agent: Google-Extended
+Allow: /
+
+User-agent: GoogleOther
+Allow: /
+
+# Anthropic
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+# Perplexity
+User-agent: PerplexityBot
+Allow: /
+
+# Amazon / Alexa
+User-agent: Amazonbot
+Allow: /
+
+# Apple
+User-agent: Applebot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Applebot-Extended
+Allow: /
+
+# Bytedance
+User-agent: Bytespider
+Allow: /
+
+# Cohere
+User-agent: cohere-ai
+Allow: /
+
+# Meta
+User-agent: meta-externalagent
+Allow: /
+
+User-agent: FacebookBot
+Allow: /
+
+# You.com
+User-agent: YouBot
+Allow: /
+
+# Common Crawl (training data for many LLMs)
+User-agent: CCBot
+Allow: /
+
+# DeepSeek
+User-agent: DeepSeekBot
+Allow: /
+
+# Mistral
+User-agent: MistralBot
+Allow: /
+
+# Microsoft Copilot
+User-agent: CopilotBot
+Allow: /
+
+# Brave Search AI
+User-agent: BraveBot
+Allow: /
+
+# Qwen / Alibaba
+User-agent: Qwenbot
+Allow: /
+
+# xAI / Grok
+User-agent: GrokBot
+Allow: /
+
+# Neeva / Snowflake
+User-agent: NeevaBot
+Allow: /
+
+# Phind (developer AI search)
+User-agent: PhindBot
+Allow: /
+
+# Exa.ai (AI search API)
+User-agent: ExaBot
+Allow: /
+
+# Diffbot (knowledge graph extraction)
+User-agent: Diffbot
+Allow: /
+
+# iask.ai
+User-agent: iaskBot
+Allow: /
+
+# Kagi AI Search
+User-agent: KagiBot
+Allow: /

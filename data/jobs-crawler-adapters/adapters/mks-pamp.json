@@ -1,0 +1,17 @@
+{
+  "companyKey": "mks-pamp",
+  "companyName": "MKS PAMP",
+  "companyHost": "careers.mkspamp.com",
+  "enabled": true,
+  "priority": 18,
+  "crawlerModes": [
+    "rss",
+    "html"
+  ],
+  "seedUrls": [
+    "https://careers.mkspamp.com/jobs"
+  ],
+  "notes": "Dedicated MKS PAMP crawler. RSS feed for job list, detail pages for location filtering (JSON-LD). Filters Castel San Pietro (TI) positions.",
+  "updatedAt": "2026-03-12T19:36:00.000Z",
+  "seedMetaByUrl": {}
+}

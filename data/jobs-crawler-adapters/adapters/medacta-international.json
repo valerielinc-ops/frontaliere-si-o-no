@@ -1,0 +1,30 @@
+{
+  "companyKey": "medacta-international",
+  "companyName": "Medacta International SA",
+  "companyHost": "medacta.com",
+  "enabled": true,
+  "priority": 10,
+  "crawlerModes": [
+    "generic_ats",
+    "html",
+    "jsonld"
+  ],
+  "seedUrls": [
+    "https://www.medacta.com/EN/career?category=production",
+    "https://www.medacta.com/EN/career?category=engineering",
+    "https://www.medacta.com/EN/career?category=mkt-communication",
+    "https://www.medacta.com/EN/career?category=event-travel",
+    "https://www.medacta.com/EN/career?category=finance",
+    "https://www.medacta.com/EN/career?category=it",
+    "https://www.medacta.com/EN/career?category=r-d",
+    "https://www.medacta.com/EN/career?category=operations",
+    "https://www.medacta.com/EN/career?category=quality-assurance",
+    "https://www.medacta.com/EN/career?category=regulatory",
+    "https://www.medacta.com/EN/career?category=medical-affairs",
+    "https://www.medacta.com/EN/career?category=general-services",
+    "https://www.medacta.com/EN/career?category=hr",
+    "https://www.medacta.com/EN/career?category=sales"
+  ],
+  "notes": "Medacta International career portal seeded only from medacta.com category pages to avoid persisting third-party access URLs.",
+  "updatedAt": "2026-03-16T18:45:00.000Z"
+}

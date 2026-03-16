@@ -1,0 +1,36 @@
+{
+  "companyKey": "alten-switzerland",
+  "companyName": "ALTEN Switzerland",
+  "companyHost": "www.alten.ch",
+  "enabled": true,
+  "priority": 16,
+  "crawlerModes": [
+    "browser",
+    "html"
+  ],
+  "seedUrls": [
+    "https://www.alten.ch/career/jobs/?pagenum=1&per_page=100"
+  ],
+  "notes": "Dedicated ALTEN Switzerland crawler uses a real browser session to bypass Cloudflare challenge and extracts only Ticino jobs from the ALTEN Switzerland job board.",
+  "updatedAt": "2026-03-10T17:30:32.057Z",
+  "seedMetaByUrl": {
+    "https://www.alten.ch/jobs/875-it-generic-net-software-developer/": {
+      "location": "Ticino",
+      "canton": "TI",
+      "company": "ALTEN Switzerland",
+      "postedDate": "2026-03-04"
+    },
+    "https://www.alten.ch/jobs/879-google-cloud-platform/": {
+      "location": "Ticino",
+      "canton": "TI",
+      "company": "ALTEN Switzerland",
+      "postedDate": "2026-03-03"
+    },
+    "https://www.alten.ch/jobs/890-java-viseca/": {
+      "location": "Ticino",
+      "canton": "TI",
+      "company": "ALTEN Switzerland",
+      "postedDate": "2026-03-04"
+    }
+  }
+}

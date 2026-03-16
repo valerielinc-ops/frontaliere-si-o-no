@@ -1,0 +1,23 @@
+{
+  "companyKey": "bosch-thermotechnik-ag",
+  "companyName": "Bosch Thermotechnik AG",
+  "companyHost": "jobs.bosch.com",
+  "enabled": true,
+  "priority": 15,
+  "crawlerModes": [
+    "html"
+  ],
+  "seedUrls": [
+    "https://jobs.bosch.com/en/?country=ch"
+  ],
+  "notes": "Dedicated Bosch career crawler for Swiss vacancies, filtered with shared Ticino/Grigioni location matching and parsed from the Bosch job portal HTML.",
+  "updatedAt": "2026-03-10T20:08:59.610Z",
+  "seedMetaByUrl": {
+    "https://jobs.bosch.com/en/job/REF280202G-tecnico-di-servizio-fossile-regione-ticino-m-f-div-ref280202g": {
+      "location": "Rivera",
+      "canton": "TI",
+      "company": "Bosch Thermotechnik AG",
+      "postedDate": "2026-03-10"
+    }
+  }
+}

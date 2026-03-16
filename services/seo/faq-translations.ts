@@ -1,0 +1,1843 @@
+// FAQ translations for structured data (FAQPage schema)
+// Maps Italian question text → { en, de, fr } translations of question + answer
+// Used by seoService.ts and staticPagesPlugin.ts to serve locale-appropriate FAQ structured data
+
+export interface FaqTranslation {
+  q: string;
+  a: string;
+}
+
+export type FaqLocaleMap = Record<string, { en: FaqTranslation; de: FaqTranslation; fr: FaqTranslation }>;
+
+/**
+ * Lookup map: Italian question (trimmed) → translations in EN/DE/FR.
+ * Key = exact Italian "name" field from FAQPage mainEntity entries.
+ */
+export const FAQ_TRANSLATIONS: FaqLocaleMap = {
+  // ── Q1: Guide — General frontaliere ──
+  "Cos'è un frontaliere e chi può diventarlo?": {
+    en: {
+      q: "What is a cross-border worker and who can become one?",
+      a: "A cross-border worker (frontaliere) lives in one country (Italy) and works in another (Switzerland), returning home at least weekly. Requirements: EU citizenship, residence within 20 km of the border, and a Swiss employment contract. You obtain a G permit."
+    },
+    de: {
+      q: "Was ist ein Grenzgänger und wer kann einer werden?",
+      a: "Ein Grenzgänger wohnt in einem Land (Italien) und arbeitet in einem anderen (Schweiz) und kehrt mindestens wöchentlich nach Hause zurück. Voraussetzungen: EU-Staatsbürgerschaft, Wohnsitz innerhalb von 20 km zur Grenze und ein Schweizer Arbeitsvertrag. Man erhält eine G-Bewilligung."
+    },
+    fr: {
+      q: "Qu'est-ce qu'un frontalier et qui peut le devenir ?",
+      a: "Un frontalier est un travailleur qui réside dans un pays (Italie) et travaille dans un autre (Suisse), en rentrant chez lui au moins une fois par semaine. Conditions : citoyenneté UE, résidence dans un rayon de 20 km de la frontière et un contrat de travail suisse. On obtient un permis G."
+    }
+  },
+
+  // ── Q2: Advantages ──
+  "Quali sono i vantaggi di lavorare come frontaliere in Svizzera?": {
+    en: {
+      q: "What are the advantages of working as a cross-border commuter in Switzerland?",
+      a: "Main advantages: salaries 2–3 times higher than in Italy (median CHF 6,500/month in Ticino), robust pension contributions (AVS + LPP + pillar 3a), excellent LAMal healthcare, and the option to live in Italy with lower living costs."
+    },
+    de: {
+      q: "Welche Vorteile hat die Arbeit als Grenzgänger in der Schweiz?",
+      a: "Hauptvorteile: Löhne 2–3-mal höher als in Italien (Median CHF 6.500/Monat im Tessin), solide Vorsorgebeiträge (AHV + BVG + Säule 3a), ausgezeichnete KVG-Krankenversicherung und die Möglichkeit, in Italien mit niedrigeren Lebenshaltungskosten zu wohnen."
+    },
+    fr: {
+      q: "Quels sont les avantages de travailler comme frontalier en Suisse ?",
+      a: "Avantages principaux : salaires 2 à 3 fois plus élevés qu'en Italie (médiane CHF 6 500/mois au Tessin), cotisations de prévoyance solides (AVS + LPP + pilier 3a), excellente assurance maladie LAMal, et possibilité de vivre en Italie avec un coût de la vie inférieur."
+    }
+  },
+
+  // ── Q3: Customs ──
+  "Come funziona la dogana svizzera per i frontalieri?": {
+    en: {
+      q: "How does Swiss customs work for cross-border workers?",
+      a: "Cross-border workers pass through customs with their G permit. Waiting times vary: 5–15 minutes during normal hours, up to 45–60 minutes during rush hours (7:00–8:30 and 17:00–18:30). Main crossings: Chiasso, Ponte Chiasso, Brogeda, Gaggiolo and Stabio."
+    },
+    de: {
+      q: "Wie funktioniert der Schweizer Zoll für Grenzgänger?",
+      a: "Grenzgänger passieren den Zoll mit der G-Bewilligung. Wartezeiten variieren: 5–15 Minuten zu normalen Zeiten, bis 45–60 Minuten zur Hauptverkehrszeit (7:00–8:30 und 17:00–18:30). Wichtigste Übergänge: Chiasso, Ponte Chiasso, Brogeda, Gaggiolo und Stabio."
+    },
+    fr: {
+      q: "Comment fonctionne la douane suisse pour les frontaliers ?",
+      a: "Les frontaliers passent la douane avec leur permis G. Les temps d'attente varient : 5 à 15 minutes en heures normales, jusqu'à 45–60 minutes aux heures de pointe (7h00–8h30 et 17h00–18h30). Principaux postes : Chiasso, Ponte Chiasso, Brogeda, Gaggiolo et Stabio."
+    }
+  },
+
+  // ── Q4: Average salary ──
+  "Quanto guadagna in media un frontaliere in Ticino?": {
+    en: {
+      q: "How much does a cross-border worker earn on average in Ticino?",
+      a: "Median gross salary in Canton Ticino is around CHF 5,600/month for cross-border workers (USS data). Skilled positions (IT, engineering, finance) exceed CHF 7,000–9,000/month. Net after withholding tax and social contributions is about 75–82% of gross."
+    },
+    de: {
+      q: "Wie viel verdient ein Grenzgänger im Tessin durchschnittlich?",
+      a: "Der Bruttomedianlohn im Kanton Tessin beträgt für Grenzgänger rund CHF 5.600/Monat (USS-Daten). Qualifizierte Positionen (IT, Ingenieurwesen, Finanzen) übersteigen CHF 7.000–9.000/Monat. Der Nettolohn nach Quellensteuer und Sozialabgaben beträgt ca. 75–82 % des Bruttolohns."
+    },
+    fr: {
+      q: "Combien gagne en moyenne un frontalier au Tessin ?",
+      a: "Le salaire brut médian au Tessin est d'environ CHF 5 600/mois pour les frontaliers (données USS). Les postes qualifiés (informatique, ingénierie, finance) dépassent CHF 7 000–9 000/mois. Le net après impôt à la source et cotisations sociales est d'environ 75 à 82 % du brut."
+    }
+  },
+
+  // ── Q5: Unemployment ──
+  "Il frontaliere ha diritto alla disoccupazione se perde il lavoro?": {
+    en: {
+      q: "Is a cross-border worker entitled to unemployment benefits if they lose their job?",
+      a: "Yes, the G-permit cross-border worker who loses their job receives Italian unemployment benefits (NASpI), not Swiss ones. EU Regulation 883/2004 provides that cross-border workers in total unemployment are the responsibility of the country of residence."
+    },
+    de: {
+      q: "Hat ein Grenzgänger Anspruch auf Arbeitslosengeld, wenn er seine Stelle verliert?",
+      a: "Ja, der Grenzgänger mit G-Bewilligung, der seine Arbeit verliert, erhält italienisches Arbeitslosengeld (NASpI), nicht schweizerisches. Die EU-Verordnung 883/2004 sieht vor, dass Grenzgänger bei Vollarbeitslosigkeit vom Wohnsitzstaat betreut werden."
+    },
+    fr: {
+      q: "Un frontalier a-t-il droit au chômage s'il perd son emploi ?",
+      a: "Oui, le frontalier titulaire d'un permis G qui perd son emploi perçoit l'allocation chômage italienne (NASpI), et non suisse. Le règlement UE 883/2004 prévoit que les travailleurs frontaliers en chômage complet relèvent du pays de résidence."
+    }
+  },
+
+  // ── Q6: 2026 taxation ──
+  "Come funziona la tassazione dei frontalieri nel 2026?": {
+    en: {
+      q: "How does the taxation of cross-border workers work in 2026?",
+      a: "From 2024, new cross-border workers (hired after 17 July 2023) pay withholding tax in Switzerland up to 80% of the total due. The remaining income must also be declared in Italy, with a €10,000 exemption. Old cross-border workers continue under the previous regime."
+    },
+    de: {
+      q: "Wie funktioniert die Besteuerung der Grenzgänger im Jahr 2026?",
+      a: "Ab 2024 zahlen neue Grenzgänger (eingestellt nach dem 17. Juli 2023) Quellensteuer in der Schweiz bis zu 80 % der Gesamtschuld. Das restliche Einkommen muss auch in Italien deklariert werden, mit einem Freibetrag von 10.000 €. Altgrenzgänger unterliegen weiterhin dem bisherigen Regime."
+    },
+    fr: {
+      q: "Comment fonctionne l'imposition des frontaliers en 2026 ?",
+      a: "À partir de 2024, les nouveaux frontaliers (embauchés après le 17 juillet 2023) paient l'impôt à la source en Suisse jusqu'à 80 % du total dû. Le revenu restant doit aussi être déclaré en Italie, avec une franchise de 10 000 €. Les anciens frontaliers poursuivent sous l'ancien régime."
+    }
+  },
+
+  // ── Q7: Swiss tax rates ──
+  "Quanto paga di tasse un frontaliere in Svizzera?": {
+    en: {
+      q: "How much tax does a cross-border worker pay in Switzerland?",
+      a: "Ticino withholding tax rates range from about 3% to 18% of gross salary, depending on marital status, number of children, and income bracket. The applicable table is A (single), B (married single earner), C (married dual earner), or H (single parent). The rate is applied monthly by the employer."
+    },
+    de: {
+      q: "Wie viel Steuern zahlt ein Grenzgänger in der Schweiz?",
+      a: "Die Quellensteuersätze im Tessin reichen von ca. 3 % bis 18 % des Bruttolohns, abhängig von Familienstand, Kinderzahl und Einkommensstufe. Die Tariftabelle ist A (ledig), B (verheiratet, Alleinverdiener), C (verheiratet, Doppelverdiener) oder H (Alleinerziehend). Der Satz wird monatlich vom Arbeitgeber abgezogen."
+    },
+    fr: {
+      q: "Combien d'impôts paie un frontalier en Suisse ?",
+      a: "Les taux d'imposition à la source au Tessin vont d'environ 3 % à 18 % du salaire brut, selon l'état civil, le nombre d'enfants et la tranche de revenu. Le barème applicable est A (célibataire), B (marié, seul revenu), C (marié, double revenu) ou H (famille monoparentale). Le taux est prélevé mensuellement par l'employeur."
+    }
+  },
+
+  // ── Q8: IRPEF obligation ──
+  "Il frontaliere deve pagare l'IRPEF in Italia?": {
+    en: {
+      q: "Does a cross-border worker have to pay IRPEF in Italy?",
+      a: "IRPEF is calculated on the Swiss income converted to EUR minus the €10,000 exemption, using the progressive brackets (23%, 35%, 43%). A tax credit is applied for the Swiss withholding tax paid to avoid double taxation. The regional and municipal surtaxes are also due."
+    },
+    de: {
+      q: "Muss ein Grenzgänger in Italien IRPEF zahlen?",
+      a: "Die IRPEF wird auf das in EUR umgerechnete Schweizer Einkommen abzüglich des Freibetrags von 10.000 € berechnet, unter Anwendung der Progressionsstufen (23 %, 35 %, 43 %). Für die in der Schweiz gezahlte Quellensteuer wird eine Steuergutschrift gewährt, um Doppelbesteuerung zu vermeiden. Regionale und kommunale Zuschläge fallen ebenfalls an."
+    },
+    fr: {
+      q: "Le frontalier doit-il payer l'IRPEF en Italie ?",
+      a: "L'IRPEF est calculée sur le revenu suisse converti en EUR moins la franchise de 10 000 €, selon les tranches progressives (23 %, 35 %, 43 %). Un crédit d'impôt est accordé pour l'impôt à la source suisse payé afin d'éviter la double imposition. Les surtaxes régionales et communales s'appliquent également."
+    }
+  },
+
+  // ── Q9: Pillar 3a overview ──
+  "Cos'è il terzo pilastro 3a e conviene al frontaliere?": {
+    en: {
+      q: "What is pillar 3a and is it beneficial for a cross-border worker?",
+      a: "Pillar 3a is the Swiss voluntary private pension scheme. Cross-border workers with a G permit and LPP affiliation can contribute up to CHF 7,258 per year (2026) and deduct it from withholding tax via the TDR procedure. Contributions grow tax-free until withdrawal at retirement."
+    },
+    de: {
+      q: "Was ist die Säule 3a und lohnt sie sich für Grenzgänger?",
+      a: "Die Säule 3a ist die freiwillige private Vorsorge in der Schweiz. Grenzgänger mit G-Bewilligung und BVG-Anschluss können bis zu CHF 7.258 pro Jahr (2026) einzahlen und über das TDR-Verfahren von der Quellensteuer abziehen. Die Beiträge wachsen steuerfrei bis zum Bezug bei Pensionierung."
+    },
+    fr: {
+      q: "Qu'est-ce que le pilier 3a et est-il avantageux pour un frontalier ?",
+      a: "Le pilier 3a est le régime de prévoyance privée volontaire suisse. Les frontaliers avec un permis G et une affiliation LPP peuvent cotiser jusqu'à CHF 7 258 par an (2026) et déduire cette somme de l'impôt à la source via la procédure TDR. Les cotisations croissent en franchise d'impôt jusqu'au retrait à la retraite."
+    }
+  },
+
+  // ── Q10: AVS pension calculation ──
+  "Come si calcola la pensione AVS per un frontaliere?": {
+    en: {
+      q: "How is the AVS pension calculated for a cross-border worker?",
+      a: "The AVS pension is based on contribution years and average career income. A full pension (44 years of contributions) ranges from CHF 1,225 to CHF 2,450/month (2026). Missing years reduce the pension by 1/44 per gap year. Swiss and Italian contribution periods can be totalized under the bilateral agreement."
+    },
+    de: {
+      q: "Wie wird die AHV-Rente für einen Grenzgänger berechnet?",
+      a: "Die AHV-Rente basiert auf Beitragsjahren und dem durchschnittlichen Karriereeinkommen. Eine Vollrente (44 Beitragsjahre) liegt zwischen CHF 1.225 und CHF 2.450/Monat (2026). Fehlende Jahre reduzieren die Rente um 1/44 pro Lückenjahr. Schweizerische und italienische Beitragszeiten können gemäss dem bilateralen Abkommen zusammengerechnet werden."
+    },
+    fr: {
+      q: "Comment la rente AVS est-elle calculée pour un frontalier ?",
+      a: "La rente AVS est basée sur les années de cotisation et le revenu moyen de carrière. Une rente complète (44 ans de cotisations) varie de CHF 1 225 à CHF 2 450/mois (2026). Les années manquantes réduisent la rente de 1/44 par année lacunaire. Les périodes de cotisation suisses et italiennes peuvent être totalisées en vertu de l'accord bilatéral."
+    }
+  },
+
+  // ── Q11: LPP withdrawal ──
+  "Posso riscuotere il secondo pilastro LPP quando lascio la Svizzera?": {
+    en: {
+      q: "Can I withdraw my 2nd pillar (LPP) when I leave Switzerland?",
+      a: "If you permanently leave Switzerland for an EU country, you can withdraw the extra-mandatory portion of the 2nd pillar. The mandatory portion is frozen in a vested benefits account (conto di libero passaggio) until the legal retirement age. If you leave for a non-EU country, the entire capital can be withdrawn."
+    },
+    de: {
+      q: "Kann ich die 2. Säule (BVG) abheben, wenn ich die Schweiz verlasse?",
+      a: "Bei dauerhaftem Wegzug in ein EU-Land können Sie den überobligatorischen Teil der 2. Säule beziehen. Der obligatorische Teil wird auf einem Freizügigkeitskonto eingefroren, bis das gesetzliche Rentenalter erreicht ist. Bei Wegzug in ein Nicht-EU-Land kann das gesamte Kapital bezogen werden."
+    },
+    fr: {
+      q: "Puis-je retirer mon 2e pilier (LPP) en quittant la Suisse ?",
+      a: "Si vous quittez définitivement la Suisse pour un pays de l'UE, vous pouvez retirer la part surobligatoire du 2e pilier. La part obligatoire est gelée sur un compte de libre passage jusqu'à l'âge légal de la retraite. En cas de départ vers un pays hors UE, la totalité du capital peut être retirée."
+    }
+  },
+
+  // ── Q12: Contribution totalization ──
+  "Come funziona la totalizzazione dei contributi Svizzera-Italia?": {
+    en: {
+      q: "How does the totalization of contributions between Switzerland and Italy work?",
+      a: "Under the EU bilateral agreement, contribution periods in Switzerland (AVS) and Italy (INPS) are summed to reach the minimum thresholds. Each country pays a partial pension proportional to the years contributed there. The request is made to the country of residence (INPS for Italian residents)."
+    },
+    de: {
+      q: "Wie funktioniert die Zusammenrechnung der Beiträge zwischen der Schweiz und Italien?",
+      a: "Gemäss dem bilateralen EU-Abkommen werden Beitragszeiten in der Schweiz (AHV) und in Italien (INPS) addiert, um die Mindestanforderungen zu erfüllen. Jedes Land zahlt eine Teilrente proportional zu den dort geleisteten Beitragsjahren. Der Antrag wird im Wohnsitzstaat gestellt (INPS für Einwohner Italiens)."
+    },
+    fr: {
+      q: "Comment fonctionne la totalisation des cotisations entre la Suisse et l'Italie ?",
+      a: "En vertu de l'accord bilatéral UE, les périodes de cotisation en Suisse (AVS) et en Italie (INPS) sont additionnées pour atteindre les seuils minimaux. Chaque pays verse une pension partielle proportionnelle aux années cotisées. La demande est faite auprès du pays de résidence (INPS pour les résidents italiens)."
+    }
+  },
+
+  // ── Q13: Retirement age ──
+  "A che età va in pensione un frontaliere svizzero?": {
+    en: {
+      q: "At what age does a Swiss cross-border worker retire?",
+      a: "The Swiss legal retirement age is 65 for men and 64 for women (gradually rising to 65 from 2025). In Italy the retirement age is 67. A cross-border worker can draw pensions at different ages from each country based on the respective contribution periods."
+    },
+    de: {
+      q: "Wann geht ein Schweizer Grenzgänger in Rente?",
+      a: "Das gesetzliche Rentenalter in der Schweiz beträgt 65 für Männer und 64 für Frauen (schrittweise Anhebung auf 65 ab 2025). In Italien liegt das Rentenalter bei 67. Ein Grenzgänger kann zu unterschiedlichen Zeitpunkten Renten aus jedem Land beziehen, basierend auf den jeweiligen Beitragszeiten."
+    },
+    fr: {
+      q: "À quel âge un frontalier suisse part-il à la retraite ?",
+      a: "L'âge légal de la retraite en Suisse est de 65 ans pour les hommes et 64 ans pour les femmes (augmentation progressive à 65 ans dès 2025). En Italie, l'âge de la retraite est de 67 ans. Un frontalier peut percevoir des rentes à des âges différents de chaque pays selon les périodes de cotisation respectives."
+    }
+  },
+
+  // ── Q14: Employer LPP contributions ──
+  "Quanto contribuisce il datore di lavoro svizzero alla pensione LPP?": {
+    en: {
+      q: "How much does the Swiss employer contribute to the LPP pension?",
+      a: "The employer must contribute at least as much as the employee. The contribution rates increase with age: 7% (25–34), 10% (35–44), 15% (45–54), 18% (55–65) of the coordinated salary. Many employers contribute more through extra-mandatory plans."
+    },
+    de: {
+      q: "Wie viel trägt der Schweizer Arbeitgeber zur BVG-Pension bei?",
+      a: "Der Arbeitgeber muss mindestens gleich viel beitragen wie der Arbeitnehmer. Die Beitragssätze steigen mit dem Alter: 7 % (25–34), 10 % (35–44), 15 % (45–54), 18 % (55–65) des koordinierten Lohns. Viele Arbeitgeber leisten über überobligatorische Pläne höhere Beiträge."
+    },
+    fr: {
+      q: "Quelle est la contribution de l'employeur suisse à la pension LPP ?",
+      a: "L'employeur doit cotiser au moins autant que l'employé. Les taux de cotisation augmentent avec l'âge : 7 % (25–34 ans), 10 % (35–44 ans), 15 % (45–54 ans), 18 % (55–65 ans) du salaire coordonné. Beaucoup d'employeurs cotisent davantage via des plans surobligatoires."
+    }
+  },
+
+  // ── Q15: Italian tax return deadline ──
+  "Quando scade la dichiarazione dei redditi per frontalieri in Italia?": {
+    en: {
+      q: "When is the tax return deadline for cross-border workers in Italy?",
+      a: "Model 730 (if applicable) by 30 September 2026. Modello Redditi PF (ex Unico) by 30 November 2026. First IRPEF instalment (40%) by 30 June 2026. Second instalment (60%) by 30 November 2026. Balance from the previous year's return by 30 June 2026."
+    },
+    de: {
+      q: "Wann ist die Abgabefrist der Steuererklärung für Grenzgänger in Italien?",
+      a: "Modell 730 (falls zutreffend) bis 30. September 2026. Modello Redditi PF (ex Unico) bis 30. November 2026. Erste IRPEF-Rate (40 %) bis 30. Juni 2026. Zweite Rate (60 %) bis 30. November 2026. Saldo aus der Vorjahreserklärung bis 30. Juni 2026."
+    },
+    fr: {
+      q: "Quelle est la date limite de la déclaration fiscale pour les frontaliers en Italie ?",
+      a: "Modèle 730 (le cas échéant) avant le 30 septembre 2026. Modello Redditi PF (ex Unico) avant le 30 novembre 2026. Premier acompte IRPEF (40 %) avant le 30 juin 2026. Deuxième acompte (60 %) avant le 30 novembre 2026. Solde de la déclaration précédente avant le 30 juin 2026."
+    }
+  },
+
+  // ── Q16: TDR rectification deadline ──
+  "Entro quando va richiesta la rettifica TDR in Svizzera?": {
+    en: {
+      q: "By when must the TDR rectification be requested in Switzerland?",
+      a: "The TDR rectification is submitted to the Cantonal Tax Office before 31 March of the year following the tax year. You need: salary statement, LAMal receipts, pillar 3a contributions, transport costs, and medical expenses. The form can be downloaded from the tax authority website or submitted electronically."
+    },
+    de: {
+      q: "Bis wann muss die TDR-Berichtigung in der Schweiz beantragt werden?",
+      a: "Die TDR-Berichtigung wird bis zum 31. März des Folgejahres beim kantonalen Steueramt eingereicht. Benötigt werden: Lohnausweis, KVG-Belege, Säule-3a-Beiträge, Transportkosten und Arztkosten. Das Formular kann von der Website der Steuerbehörde heruntergeladen oder elektronisch eingereicht werden."
+    },
+    fr: {
+      q: "Avant quand faut-il demander la rectification TDR en Suisse ?",
+      a: "La rectification TDR est soumise à l'Office cantonal des impôts avant le 31 mars de l'année suivant l'année fiscale. Documents nécessaires : certificat de salaire, quittances LAMal, cotisations pilier 3a, frais de transport et frais médicaux. Le formulaire peut être téléchargé du site de l'autorité fiscale ou soumis électroniquement."
+    }
+  },
+
+  // ── Q17: Salary certificate issuance ──
+  "Quando viene emesso il certificato di salario svizzero?": {
+    en: {
+      q: "When is the Swiss salary certificate issued?",
+      a: "The salary certificate (Lohnausweis) is the official document issued by the Swiss employer that details gross salary, social contributions, withholding tax, and benefits in kind. It serves for the TDR rectification in Switzerland and the Italian tax return (Modello Redditi PF)."
+    },
+    de: {
+      q: "Wann wird der Schweizer Lohnausweis ausgestellt?",
+      a: "Der Lohnausweis ist das offizielle Dokument des Schweizer Arbeitgebers, das Bruttolohn, Sozialabzüge, Quellensteuer und Naturalleistungen aufführt. Er dient für die TDR-Berichtigung in der Schweiz und die italienische Steuererklärung (Modello Redditi PF)."
+    },
+    fr: {
+      q: "Quand le certificat de salaire suisse est-il émis ?",
+      a: "Le certificat de salaire (Lohnausweis) est le document officiel émis par l'employeur suisse détaillant le salaire brut, les cotisations sociales, l'impôt à la source et les avantages en nature. Il sert pour la rectification TDR en Suisse et la déclaration fiscale italienne (Modello Redditi PF)."
+    }
+  },
+
+  // ── Q18: Tax tables ──
+  "Qual e la differenza tra tabella A, B, C e H?": {
+    en: {
+      q: "What is the difference between withholding tax tables A, B, C, and H?",
+      a: "Table A: single without children. Table B: married with single-earner household. Table C: married with dual-earner household. Table H: single parent (widowed, divorced, separated or unmarried with dependants). Each table has different rates reflecting the personal situation."
+    },
+    de: {
+      q: "Was ist der Unterschied zwischen den Quellensteuertarifen A, B, C und H?",
+      a: "Tarif A: ledig ohne Kinder. Tarif B: verheiratet, Alleinverdiener-Haushalt. Tarif C: verheiratet, Doppelverdiener-Haushalt. Tarif H: Alleinerziehende (verwitwet, geschieden, getrennt oder unverheiratet mit Unterhaltsberechtigten). Jeder Tarif hat unterschiedliche Sätze entsprechend der persönlichen Situation."
+    },
+    fr: {
+      q: "Quelle est la différence entre les barèmes d'impôt à la source A, B, C et H ?",
+      a: "Barème A : célibataire sans enfants. Barème B : marié, ménage à revenu unique. Barème C : marié, ménage à double revenu. Barème H : famille monoparentale (veuf, divorcé, séparé ou non marié avec personnes à charge). Chaque barème a des taux différents reflétant la situation personnelle."
+    }
+  },
+
+  // ── Q19: IRPEF instalments ──
+  "Quali sono le scadenze per il versamento dell'acconto IRPEF?": {
+    en: {
+      q: "What are the deadlines for paying IRPEF instalments?",
+      a: "The first IRPEF instalment (40%) is due by 30 June 2026. The second instalment (60%) is due by 30 November 2026. For amounts below €257.52, the instalment is paid in a single payment in November."
+    },
+    de: {
+      q: "Welche Fristen gelten für die IRPEF-Vorauszahlungen?",
+      a: "Die erste IRPEF-Vorauszahlung (40 %) ist bis zum 30. Juni 2026 fällig. Die zweite Rate (60 %) ist bis zum 30. November 2026 fällig. Bei Beträgen unter 257,52 € wird die Vorauszahlung als Einmalzahlung im November geleistet."
+    },
+    fr: {
+      q: "Quelles sont les échéances de versement des acomptes IRPEF ?",
+      a: "Le premier acompte IRPEF (40 %) est dû avant le 30 juin 2026. Le deuxième acompte (60 %) est dû avant le 30 novembre 2026. Pour les montants inférieurs à 257,52 €, l'acompte est versé en un seul paiement en novembre."
+    }
+  },
+
+  // ── Q20: Permit G requirements ──
+  "Quali sono i requisiti per ottenere il permesso G frontaliere?": {
+    en: {
+      q: "What are the requirements to obtain a cross-border G permit?",
+      a: "For a G permit you need: an employment contract with a Swiss employer, residence within 20 km of the border (or in concordat municipalities), EU/EFTA citizenship, and weekly return to your country of residence. The application is submitted by the employer to the Cantonal Migration Office."
+    },
+    de: {
+      q: "Welche Voraussetzungen gelten für die Grenzgängerbewilligung G?",
+      a: "Für eine G-Bewilligung benötigen Sie: einen Arbeitsvertrag mit einem Schweizer Arbeitgeber, Wohnsitz innerhalb von 20 km zur Grenze (oder in Konkordatsgemeinden), EU/EFTA-Staatsbürgerschaft und wöchentliche Rückkehr in den Wohnsitzstaat. Der Antrag wird vom Arbeitgeber beim kantonalen Migrationsamt eingereicht."
+    },
+    fr: {
+      q: "Quelles sont les conditions pour obtenir un permis G frontalier ?",
+      a: "Pour un permis G, il faut : un contrat de travail avec un employeur suisse, résidence dans un rayon de 20 km de la frontière (ou dans les communes concordataires), citoyenneté UE/AELE et retour hebdomadaire au pays de résidence. La demande est déposée par l'employeur auprès de l'Office cantonal de la migration."
+    }
+  },
+
+  // ── Q21: Permit G duration ──
+  "Quanto dura il permesso G e come si rinnova?": {
+    en: {
+      q: "How long does the G permit last and how is it renewed?",
+      a: "The G permit lasts 5 years if the contract is permanent, or the duration of the contract if fixed-term. Renewal is automatic upon the employer's request, provided the employment relationship is still in place."
+    },
+    de: {
+      q: "Wie lange gilt die G-Bewilligung und wie wird sie verlängert?",
+      a: "Die G-Bewilligung gilt 5 Jahre bei unbefristetem Vertrag oder für die Vertragsdauer bei befristeten Verträgen. Die Verlängerung erfolgt automatisch auf Antrag des Arbeitgebers, sofern das Arbeitsverhältnis noch besteht."
+    },
+    fr: {
+      q: "Quelle est la durée du permis G et comment le renouveler ?",
+      a: "Le permis G a une durée de 5 ans pour un contrat à durée indéterminée, ou égale à la durée du contrat s'il est à durée déterminée. Le renouvellement est automatique sur demande de l'employeur, à condition que la relation de travail soit toujours en cours."
+    }
+  },
+
+  // ── Q22: G vs B permit ──
+  "Qual è la differenza tra permesso G e permesso B?": {
+    en: {
+      q: "What is the difference between the G permit and the B permit?",
+      a: "The G permit (cross-border) requires residence in Italy with weekly return; you are taxed at source in Switzerland and declare in Italy. The B permit (residence) requires living in Switzerland; you are taxed through ordinary Swiss declaration and do not pay IRPEF in Italy."
+    },
+    de: {
+      q: "Was ist der Unterschied zwischen G- und B-Bewilligung?",
+      a: "Die G-Bewilligung (Grenzgänger) erfordert Wohnsitz in Italien mit wöchentlicher Rückkehr; man wird in der Schweiz quellenbesteuert und deklariert in Italien. Die B-Bewilligung (Aufenthalt) erfordert Wohnsitz in der Schweiz; man wird ordentlich besteuert und zahlt keine IRPEF in Italien."
+    },
+    fr: {
+      q: "Quelle est la différence entre le permis G et le permis B ?",
+      a: "Le permis G (frontalier) exige la résidence en Italie avec retour hebdomadaire ; on est imposé à la source en Suisse et on déclare en Italie. Le permis B (séjour) exige la résidence en Suisse ; on est imposé par déclaration ordinaire suisse et on ne paie pas l'IRPEF en Italie."
+    }
+  },
+
+  // ── Q23: Job change with G permit ──
+  "Un frontaliere con permesso G può cambiare lavoro liberamente?": {
+    en: {
+      q: "Can a cross-border worker with a G permit change jobs freely?",
+      a: "Yes, with a G permit an EU citizen can change employer freely. However, the new employer must report the hire to the Migration Office, which will update the permit."
+    },
+    de: {
+      q: "Kann ein Grenzgänger mit G-Bewilligung frei den Arbeitgeber wechseln?",
+      a: "Ja, mit einer G-Bewilligung kann ein EU-Bürger den Arbeitgeber frei wechseln. Der neue Arbeitgeber muss jedoch die Anstellung dem Migrationsamt melden, das die Bewilligung aktualisiert."
+    },
+    fr: {
+      q: "Un frontalier avec un permis G peut-il changer d'emploi librement ?",
+      a: "Oui, avec un permis G, un citoyen de l'UE peut changer d'employeur librement. Le nouvel employeur doit cependant signaler l'embauche à l'Office de la migration, qui mettra à jour le permis."
+    }
+  },
+
+  // ── Q24: G permit cost ──
+  "Quanto costa il permesso G frontaliere?": {
+    en: {
+      q: "How much does the cross-border G permit cost?",
+      a: "The G permit costs approximately CHF 65–85 for issuance (varies by canton). Renewal costs about CHF 40–55. Generally the employer advances the costs and deducts them from the payslip."
+    },
+    de: {
+      q: "Wie viel kostet die Grenzgängerbewilligung G?",
+      a: "Die G-Bewilligung kostet für die Ausstellung ca. CHF 65–85 (je nach Kanton). Die Verlängerung kostet ca. CHF 40–55. In der Regel legt der Arbeitgeber die Kosten vor und zieht sie vom Lohn ab."
+    },
+    fr: {
+      q: "Combien coûte le permis G frontalier ?",
+      a: "Le permis G coûte environ CHF 65 à 85 pour la délivrance (varie selon le canton). Le renouvellement coûte environ CHF 40 à 55. Généralement, l'employeur avance les frais et les déduit du bulletin de salaire."
+    }
+  },
+
+  // ── Q25: Pillar 3a 2026 max ──
+  "Qual è il limite massimo di versamento nel pilastro 3a nel 2026?": {
+    en: {
+      q: "What is the maximum pillar 3a contribution in 2026?",
+      a: "For employees affiliated to a LPP pension fund, the limit is CHF 7,258 per year (2026). For those without a 2nd pillar, the limit rises to 20% of net income, up to a maximum of CHF 36,288."
+    },
+    de: {
+      q: "Wie hoch ist der maximale Einzahlungsbetrag in die Säule 3a im Jahr 2026?",
+      a: "Für Arbeitnehmer mit BVG-Anschluss beträgt das Limit CHF 7.258 pro Jahr (2026). Für Personen ohne 2. Säule steigt das Limit auf 20 % des Nettoeinkommens, maximal CHF 36.288."
+    },
+    fr: {
+      q: "Quel est le montant maximal de versement au pilier 3a en 2026 ?",
+      a: "Pour les salariés affiliés à une caisse de pension LPP, la limite est de CHF 7 258 par an (2026). Pour ceux qui n'ont pas de 2e pilier, la limite monte à 20 % du revenu net, jusqu'à un maximum de CHF 36 288."
+    }
+  },
+
+  // ── Q26: G permit 3a eligibility ──
+  "Un frontaliere con permesso G può aprire un pilastro 3a?": {
+    en: {
+      q: "Can a cross-border worker with a G permit open a pillar 3a account?",
+      a: "Yes, cross-border workers with a G permit who work in Switzerland and pay withholding tax can open a 3a account and deduct contributions from their withholding tax through the TDR rectification."
+    },
+    de: {
+      q: "Kann ein Grenzgänger mit G-Bewilligung ein Säule-3a-Konto eröffnen?",
+      a: "Ja, Grenzgänger mit G-Bewilligung, die in der Schweiz arbeiten und quellenbesteuert werden, können ein 3a-Konto eröffnen und die Beiträge über die TDR-Berichtigung von der Quellensteuer abziehen."
+    },
+    fr: {
+      q: "Un frontalier avec un permis G peut-il ouvrir un pilier 3a ?",
+      a: "Oui, les frontaliers titulaires d'un permis G travaillant en Suisse et payant l'impôt à la source peuvent ouvrir un compte 3a et déduire les cotisations de l'impôt à la source via la rectification TDR."
+    }
+  },
+
+  // ── Q27: 3a vs 3b ──
+  "Qual è la differenza tra pilastro 3a e 3b?": {
+    en: {
+      q: "What is the difference between pillar 3a and 3b?",
+      a: "Pillar 3a is tied (withdrawal only 5 years before retirement, home purchase, or leaving Switzerland) but tax-deductible. Pillar 3b is free (no withdrawal restrictions) but offers no direct tax benefits. Pillar 3a is better for immediate tax savings."
+    },
+    de: {
+      q: "Was ist der Unterschied zwischen Säule 3a und 3b?",
+      a: "Die Säule 3a ist gebunden (Bezug nur 5 Jahre vor der Pensionierung, Hauskauf oder Wegzug aus der Schweiz), aber steuerlich absetzbar. Die Säule 3b ist frei (keine Bezugsbeschränkungen), bietet aber keine direkten Steuervorteile. Die Säule 3a eignet sich besser für sofortige Steuerersparnisse."
+    },
+    fr: {
+      q: "Quelle est la différence entre le pilier 3a et le 3b ?",
+      a: "Le pilier 3a est lié (retrait uniquement 5 ans avant la retraite, achat immobilier ou départ de Suisse) mais déductible fiscalement. Le pilier 3b est libre (aucune restriction de retrait) mais sans avantages fiscaux directs. Le pilier 3a est préférable pour l'économie fiscale immédiate."
+    }
+  },
+
+  // ── Q28: 3a tax savings ──
+  "Quanto si risparmia di tasse con il pilastro 3a?": {
+    en: {
+      q: "How much tax can you save with pillar 3a?",
+      a: "In Canton Ticino, a full contribution of CHF 7,258 reduces withholding tax by approximately CHF 1,000–2,200 depending on the marginal rate. For a cross-border worker with a 12–15% rate, the saving is approximately CHF 870–1,090."
+    },
+    de: {
+      q: "Wie viel Steuern spart man mit der Säule 3a?",
+      a: "Im Kanton Tessin reduziert eine volle Einzahlung von CHF 7.258 die Quellensteuer um ca. CHF 1.000–2.200, je nach Grenzsteuersatz. Bei einem Grenzgänger mit einem Steuersatz von 12–15 % beträgt die Ersparnis ca. CHF 870–1.090."
+    },
+    fr: {
+      q: "Combien économise-t-on d'impôts avec le pilier 3a ?",
+      a: "Au Tessin, un versement complet de CHF 7 258 réduit l'impôt à la source d'environ CHF 1 000 à 2 200 selon le taux marginal. Pour un frontalier avec un taux de 12 à 15 %, l'économie est d'environ CHF 870 à 1 090."
+    }
+  },
+
+  // ── Q29: 3a withdrawal taxation ──
+  "Come viene tassato il prelievo del pilastro 3a?": {
+    en: {
+      q: "How is pillar 3a withdrawal taxed?",
+      a: "At withdrawal, a reduced separate tax is levied, generally between 5% and 10% of the capital in Canton Ticino. For cross-border workers who have left Switzerland, a withholding tax on capital applies with the possibility of refund under the double taxation agreement."
+    },
+    de: {
+      q: "Wie wird der Bezug der Säule 3a besteuert?",
+      a: "Beim Bezug fällt eine reduzierte Sondersteuer an, in der Regel zwischen 5 % und 10 % des Kapitals im Kanton Tessin. Für Grenzgänger, die die Schweiz verlassen haben, gilt eine Quellensteuer auf das Kapital mit Rückerstattungsmöglichkeit gemäss dem Doppelbesteuerungsabkommen."
+    },
+    fr: {
+      q: "Comment le retrait du pilier 3a est-il imposé ?",
+      a: "Au retrait, un impôt séparé réduit est prélevé, généralement entre 5 % et 10 % du capital au Tessin. Pour les frontaliers ayant quitté la Suisse, un impôt à la source sur le capital s'applique avec possibilité de remboursement en vertu de la convention contre la double imposition."
+    }
+  },
+
+  // ── Q30: Grocery savings in Italy ──
+  "Quanto si risparmia facendo la spesa in Italia?": {
+    en: {
+      q: "How much can you save by shopping for groceries in Italy?",
+      a: "On average, a typical grocery basket costs 35–42% less in Italy than in Switzerland. The biggest savings are on meat, dairy, and household products. The Chiasso-Como area offers the best value considering proximity to the border."
+    },
+    de: {
+      q: "Wie viel spart man beim Einkaufen in Italien?",
+      a: "Im Durchschnitt kostet ein typischer Warenkorb in Italien 35–42 % weniger als in der Schweiz. Die grössten Einsparungen gibt es bei Fleisch, Milchprodukten und Haushaltswaren. Das Gebiet Chiasso-Como bietet das beste Preis-Leistungs-Verhältnis in Grenznähe."
+    },
+    fr: {
+      q: "Combien économise-t-on en faisant les courses en Italie ?",
+      a: "En moyenne, un panier de courses typique coûte 35 à 42 % de moins en Italie qu'en Suisse. Les économies les plus importantes portent sur la viande, les produits laitiers et les produits ménagers. La zone Chiasso-Côme offre le meilleur rapport qualité-prix compte tenu de la proximité de la frontière."
+    }
+  },
+
+  // ── Q31: Customs limits ──
+  "Quali sono i limiti doganali per la spesa in Italia?": {
+    en: {
+      q: "What are the customs limits for shopping in Italy?",
+      a: "The customs duty-free limit is CHF 300 per person per day. Above this threshold, duties and Swiss VAT (8.1%) apply. Meat and dairy have specific quantity limits: max 1 kg of meat, 1 kg of butter. Alcohol is subject to separate limits."
+    },
+    de: {
+      q: "Was sind die Zollfreigrenzen beim Einkauf in Italien?",
+      a: "Die Zollfreigrenze beträgt CHF 300 pro Person und Tag. Über diesem Betrag fallen Zölle und Schweizer Mehrwertsteuer (8,1 %) an. Fleisch und Milchprodukte haben spezifische Mengenlimits: max. 1 kg Fleisch, 1 kg Butter. Alkohol unterliegt separaten Grenzen."
+    },
+    fr: {
+      q: "Quelles sont les limites douanières pour les achats en Italie ?",
+      a: "La franchise douanière est de CHF 300 par personne et par jour. Au-delà, les droits de douane et la TVA suisse (8,1 %) s'appliquent. La viande et les produits laitiers ont des limites spécifiques : max. 1 kg de viande, 1 kg de beurre. L'alcool est soumis à des limites séparées."
+    }
+  },
+
+  // ── Q32: Cheapest supermarket ──
+  "Qual è il supermercato più economico vicino al confine?": {
+    en: {
+      q: "Which is the cheapest supermarket near the border?",
+      a: "Eurospin and Lidl Italy generally offer the lowest prices for private-label products. For branded goods, Esselunga and Carrefour often have competitive promotions. On the Swiss side, Aldi and Denner are the most affordable options."
+    },
+    de: {
+      q: "Welcher Supermarkt in Grenznähe ist am günstigsten?",
+      a: "Eurospin und Lidl Italien bieten generell die niedrigsten Preise für Eigenmarken. Für Markenprodukte haben Esselunga und Carrefour oft wettbewerbsfähige Angebote. Auf Schweizer Seite sind Aldi und Denner die günstigsten Optionen."
+    },
+    fr: {
+      q: "Quel est le supermarché le moins cher près de la frontière ?",
+      a: "Eurospin et Lidl Italie offrent généralement les prix les plus bas pour les marques de distributeur. Pour les produits de marque, Esselunga et Carrefour ont souvent des promotions compétitives. Côté suisse, Aldi et Denner sont les options les plus abordables."
+    }
+  },
+
+  // ── Q33: Fuel prices ──
+  "Conviene fare benzina in Italia o in Svizzera?": {
+    en: {
+      q: "Is it cheaper to fill up in Italy or Switzerland?",
+      a: "Fuel prices are very similar between Italy and Switzerland (around €1.75/L vs CHF 1.85/L). Considering the exchange rate, the difference is minimal. It's best to fill up wherever you happen to be, without making detours."
+    },
+    de: {
+      q: "Lohnt es sich, in Italien oder der Schweiz zu tanken?",
+      a: "Der Benzinpreis ist in Italien und der Schweiz sehr ähnlich (ca. 1,75 €/L vs. CHF 1,85/L). Unter Berücksichtigung des Wechselkurses ist der Unterschied minimal. Am besten tankt man dort, wo man sich gerade befindet, ohne Umwege zu machen."
+    },
+    fr: {
+      q: "Est-il plus avantageux de faire le plein en Italie ou en Suisse ?",
+      a: "Le prix de l'essence est très similaire entre l'Italie et la Suisse (environ 1,75 €/L contre CHF 1,85/L). En tenant compte du taux de change, la différence est minimale. Il vaut mieux faire le plein là où l'on se trouve, sans faire de détour."
+    }
+  },
+
+  // ── Q34: Swiss shopping advantages ──
+  "Quali prodotti conviene comprare in Svizzera?": {
+    en: {
+      q: "Which products are cheaper to buy in Switzerland?",
+      a: "Electronics, technical clothing, and some pharmaceutical products can be more affordable in Switzerland thanks to lower VAT (8.1% vs 22% in Italy). Nespresso and Swiss chocolate also cost less when purchased directly in Switzerland."
+    },
+    de: {
+      q: "Welche Produkte kauft man besser in der Schweiz?",
+      a: "Elektronik, technische Bekleidung und einige pharmazeutische Produkte können in der Schweiz dank der niedrigeren Mehrwertsteuer (8,1 % vs. 22 % in Italien) günstiger sein. Auch Nespresso und Schweizer Schokolade kosten beim Direktkauf in der Schweiz weniger."
+    },
+    fr: {
+      q: "Quels produits convient-il d'acheter en Suisse ?",
+      a: "L'électronique, les vêtements techniques et certains produits pharmaceutiques peuvent être moins chers en Suisse grâce à une TVA plus basse (8,1 % contre 22 % en Italie). Le Nespresso et le chocolat suisse coûtent aussi moins cher achetés directement en Suisse."
+    }
+  },
+
+  // ── Q35: Unemployment for frontalieri ──
+  "Un frontaliere licenziato in Svizzera prende la disoccupazione in Italia o in Svizzera?": {
+    en: {
+      q: "Does a cross-border worker laid off in Switzerland receive unemployment in Italy or Switzerland?",
+      a: "A G-permit cross-border worker who loses their job in Switzerland receives unemployment benefits in Italy (NASpI), not in Switzerland. EU Regulation 883/2004 provides that cross-border workers in total unemployment are the responsibility of the country of residence."
+    },
+    de: {
+      q: "Erhält ein in der Schweiz entlassener Grenzgänger Arbeitslosengeld in Italien oder der Schweiz?",
+      a: "Ein Grenzgänger mit G-Bewilligung, der in der Schweiz seine Arbeit verliert, erhält Arbeitslosengeld in Italien (NASpI), nicht in der Schweiz. Die EU-Verordnung 883/2004 sieht vor, dass Grenzgänger bei Vollarbeitslosigkeit vom Wohnsitzstaat betreut werden."
+    },
+    fr: {
+      q: "Un frontalier licencié en Suisse perçoit-il le chômage en Italie ou en Suisse ?",
+      a: "Un frontalier titulaire d'un permis G qui perd son emploi en Suisse perçoit les allocations chômage en Italie (NASpI), et non en Suisse. Le règlement UE 883/2004 prévoit que les travailleurs frontaliers en chômage complet relèvent du pays de résidence."
+    }
+  },
+
+  // ── Q36: PD U1 form ──
+  "Cos'è il formulario PD U1 e come si ottiene?": {
+    en: {
+      q: "What is the PD U1 form and how do you obtain it?",
+      a: "The PD U1 is the European form certifying insurance and contribution periods in Switzerland. It is requested from the Swiss unemployment fund (e.g., URC Bellinzona) and is needed to open the NASpI claim in Italy. Without the PD U1, INPS cannot totalize Swiss contributions."
+    },
+    de: {
+      q: "Was ist das Formular PD U1 und wie erhält man es?",
+      a: "Das PD U1 ist das europäische Formular, das die Versicherungs- und Beitragszeiten in der Schweiz bescheinigt. Es wird bei der Schweizer Arbeitslosenkasse (z. B. RAV Bellinzona) beantragt und ist nötig, um in Italien den NASpI-Antrag zu stellen. Ohne PD U1 kann das INPS die Schweizer Beiträge nicht zusammenrechnen."
+    },
+    fr: {
+      q: "Qu'est-ce que le formulaire PD U1 et comment l'obtenir ?",
+      a: "Le PD U1 est le formulaire européen certifiant les périodes d'assurance et de cotisation en Suisse. Il se demande auprès de la caisse de chômage suisse (p. ex. ORP Bellinzone) et est nécessaire pour ouvrir la demande NASpI en Italie. Sans le PD U1, l'INPS ne peut pas totaliser les cotisations suisses."
+    }
+  },
+
+  // ── Q37: NASpI amount ──
+  "Quanto prende di NASpI un frontaliere?": {
+    en: {
+      q: "How much NASpI does a cross-border worker receive?",
+      a: "NASpI equals 75% of the average monthly salary up to €1,425.21, plus 25% of the excess. It reduces by 3% per month from the 6th month (8th for over-55s). The Swiss salary is converted to EUR at the official INPS rate. The 2026 maximum is approximately €1,550/month."
+    },
+    de: {
+      q: "Wie viel NASpI erhält ein Grenzgänger?",
+      a: "Die NASpI beträgt 75 % des durchschnittlichen Monatslohns bis 1.425,21 €, plus 25 % des darüber liegenden Teils. Sie verringert sich ab dem 6. Monat (8. bei über 55-Jährigen) um 3 % pro Monat. Der Schweizer Lohn wird zum offiziellen INPS-Kurs in EUR umgerechnet. Das Maximum 2026 beträgt ca. 1.550 €/Monat."
+    },
+    fr: {
+      q: "Combien de NASpI perçoit un frontalier ?",
+      a: "La NASpI est égale à 75 % du salaire mensuel moyen jusqu'à 1 425,21 €, plus 25 % de la partie excédentaire. Elle diminue de 3 % par mois à partir du 6e mois (8e pour les plus de 55 ans). Le salaire suisse est converti en EUR au taux officiel de l'INPS. Le maximum 2026 est d'environ 1 550 €/mois."
+    }
+  },
+
+  // ── Q38: NASpI duration ──
+  "Per quanti mesi si prende la NASpI dopo lavoro in Svizzera?": {
+    en: {
+      q: "For how many months can you receive NASpI after working in Switzerland?",
+      a: "NASpI duration equals half the contribution weeks in the last 4 years. With 4 full years of work in Switzerland, you can get up to 24 months of NASpI. Swiss contributions are totalized through the PD U1 form."
+    },
+    de: {
+      q: "Für wie viele Monate erhält man NASpI nach Arbeit in der Schweiz?",
+      a: "Die NASpI-Dauer entspricht der Hälfte der Beitragswochen der letzten 4 Jahre. Bei 4 vollen Arbeitsjahren in der Schweiz erhält man bis zu 24 Monate NASpI. Die Schweizer Beiträge werden über das PD-U1-Formular zusammengerechnet."
+    },
+    fr: {
+      q: "Pendant combien de mois peut-on percevoir la NASpI après avoir travaillé en Suisse ?",
+      a: "La durée de la NASpI est égale à la moitié des semaines de cotisation des 4 dernières années. Avec 4 années complètes de travail en Suisse, on peut obtenir jusqu'à 24 mois de NASpI. Les cotisations suisses sont totalisées via le formulaire PD U1."
+    }
+  },
+
+  // ── Q39: NASpI + part-time ──
+  "Il frontaliere in NASpI può lavorare part-time in Italia?": {
+    en: {
+      q: "Can a cross-border worker on NASpI work part-time in Italy?",
+      a: "Yes, it is possible to combine NASpI with part-time work if the annual income does not exceed €8,500. The NASpI amount is reduced by 80% of the employment income. You must notify INPS within 30 days of starting the activity."
+    },
+    de: {
+      q: "Kann ein Grenzgänger mit NASpI in Italien Teilzeit arbeiten?",
+      a: "Ja, NASpI kann mit Teilzeitarbeit kombiniert werden, wenn das Jahreseinkommen 8.500 € nicht übersteigt. Der NASpI-Betrag wird um 80 % des Arbeitseinkommens gekürzt. Der Beginn der Tätigkeit muss dem INPS innerhalb von 30 Tagen gemeldet werden."
+    },
+    fr: {
+      q: "Un frontalier en NASpI peut-il travailler à temps partiel en Italie ?",
+      a: "Oui, il est possible de cumuler la NASpI avec un travail à temps partiel si le revenu annuel ne dépasse pas 8 500 €. Le montant de la NASpI est réduit de 80 % du revenu d'emploi. Il faut informer l'INPS dans les 30 jours suivant le début de l'activité."
+    }
+  },
+
+  // ── Q40: Car customs clearance ──
+  "Quanto costa sdoganare un'auto in Svizzera?": {
+    en: {
+      q: "How much does it cost to clear a car through Swiss customs?",
+      a: "Customs clearance costs include: duty (CHF 12–15 per 100 kg of vehicle weight), Swiss VAT (8.1% on the vehicle value including duty), and the clearance form fee (CHF 20). For a 1,500 kg car worth CHF 20,000, the total cost is approximately CHF 1,800–2,000."
+    },
+    de: {
+      q: "Wie viel kostet die Verzollung eines Autos in der Schweiz?",
+      a: "Die Verzollungskosten umfassen: Zoll (CHF 12–15 pro 100 kg Fahrzeuggewicht), Schweizer Mehrwertsteuer (8,1 % auf den Fahrzeugwert inkl. Zoll) und die Verzollungsgebühr (CHF 20). Für ein 1.500 kg schweres Auto im Wert von CHF 20.000 betragen die Gesamtkosten ca. CHF 1.800–2.000."
+    },
+    fr: {
+      q: "Combien coûte le dédouanement d'une voiture en Suisse ?",
+      a: "Les coûts de dédouanement comprennent : les droits de douane (CHF 12 à 15 pour 100 kg de poids du véhicule), la TVA suisse (8,1 % sur la valeur du véhicule incluant les droits) et les frais du formulaire de dédouanement (CHF 20). Pour une voiture de 1 500 kg valant CHF 20 000, le coût total est d'environ CHF 1 800 à 2 000."
+    }
+  },
+
+  // ── Q41: Driving with Italian license ──
+  "Un frontaliere con permesso G può guidare con la patente italiana in Svizzera?": {
+    en: {
+      q: "Can a cross-border worker with a G permit drive with an Italian license in Switzerland?",
+      a: "Yes, a G-permit cross-border worker can drive with their Italian license in Switzerland without time limits, as long as they maintain residence in Italy. Only those who transfer residence to Switzerland (B permit) must convert their license within 12 months."
+    },
+    de: {
+      q: "Kann ein Grenzgänger mit G-Bewilligung mit dem italienischen Führerschein in der Schweiz fahren?",
+      a: "Ja, ein Grenzgänger mit G-Bewilligung kann ohne zeitliche Begrenzung mit dem italienischen Führerschein in der Schweiz fahren, solange der Wohnsitz in Italien beibehalten wird. Nur wer den Wohnsitz in die Schweiz verlegt (B-Bewilligung), muss den Führerschein innerhalb von 12 Monaten umschreiben."
+    },
+    fr: {
+      q: "Un frontalier avec un permis G peut-il conduire avec le permis de conduire italien en Suisse ?",
+      a: "Oui, un frontalier titulaire d'un permis G peut conduire avec son permis italien en Suisse sans limite de temps, à condition de maintenir sa résidence en Italie. Seuls ceux qui transfèrent leur résidence en Suisse (permis B) doivent convertir leur permis dans les 12 mois."
+    }
+  },
+
+  // ── Q42: Italian-plated car in Switzerland ──
+  "Posso guidare un'auto con targa italiana in Svizzera per andare al lavoro?": {
+    en: {
+      q: "Can I drive a car with Italian plates in Switzerland for commuting?",
+      a: "Yes, a cross-border worker residing in Italy can use an Italian-plated car for the home-to-work commute in Switzerland. There is no need to clear the vehicle through customs. However, the car must have insurance valid in Switzerland (green card)."
+    },
+    de: {
+      q: "Kann ich ein Auto mit italienischem Kennzeichen in der Schweiz zum Pendeln nutzen?",
+      a: "Ja, ein in Italien wohnhafter Grenzgänger darf ein Auto mit italienischem Kennzeichen für den Arbeitsweg in der Schweiz nutzen. Das Fahrzeug muss nicht verzollt werden. Das Auto muss jedoch eine in der Schweiz gültige Versicherung haben (Grüne Karte)."
+    },
+    fr: {
+      q: "Puis-je conduire une voiture immatriculée en Italie en Suisse pour aller au travail ?",
+      a: "Oui, un frontalier résidant en Italie peut utiliser une voiture immatriculée en Italie pour le trajet domicile-travail en Suisse. Il n'est pas nécessaire de dédouaner le véhicule. La voiture doit toutefois avoir une assurance RC valable en Suisse (carte verte)."
+    }
+  },
+
+  // ── Q43: MFK inspection ──
+  "Cos'è il collaudo MFK e quanto costa?": {
+    en: {
+      q: "What is the MFK inspection and how much does it cost?",
+      a: "The MFK (Motorfahrzeugkontrolle) is the mandatory Swiss vehicle inspection, equivalent to the Italian MOT. It costs approximately CHF 50–80. It checks brakes, lights, emissions, tyres, and general safety. For cars imported from Italy, compliance with Swiss standards is also verified."
+    },
+    de: {
+      q: "Was ist die MFK-Prüfung und was kostet sie?",
+      a: "Die MFK (Motorfahrzeugkontrolle) ist die obligatorische Schweizer Fahrzeugprüfung. Sie kostet ca. CHF 50–80. Geprüft werden Bremsen, Beleuchtung, Emissionen, Reifen und allgemeine Sicherheit. Bei aus Italien importierten Fahrzeugen wird auch die Konformität mit den Schweizer Normen überprüft."
+    },
+    fr: {
+      q: "Qu'est-ce que le contrôle technique MFK et combien coûte-t-il ?",
+      a: "Le MFK (Motorfahrzeugkontrolle) est le contrôle technique obligatoire suisse, équivalent du contrôle technique italien. Il coûte environ CHF 50 à 80. Il vérifie les freins, l'éclairage, les émissions, les pneus et la sécurité générale. Pour les voitures importées d'Italie, la conformité aux normes suisses est aussi vérifiée."
+    }
+  },
+
+  // ── Q44: Car insurance comparison ──
+  "Quanto costa l'assicurazione auto in Svizzera rispetto all'Italia?": {
+    en: {
+      q: "How much does car insurance cost in Switzerland compared to Italy?",
+      a: "Swiss liability insurance costs on average CHF 800–1,500/year, similar or slightly more expensive than Italy. The Italian bonus-malus record is not recognized, so you often start from an intermediate class. The cheapest insurers in Ticino are generally Smile.direct and Vaudoise."
+    },
+    de: {
+      q: "Was kostet die Autoversicherung in der Schweiz im Vergleich zu Italien?",
+      a: "Die Schweizer Haftpflichtversicherung kostet durchschnittlich CHF 800–1.500/Jahr, ähnlich oder etwas teurer als in Italien. Das italienische Bonus-Malus-System wird nicht anerkannt, daher startet man oft in einer mittleren Klasse. Die günstigsten Versicherer im Tessin sind in der Regel Smile.direct und Vaudoise."
+    },
+    fr: {
+      q: "Combien coûte l'assurance automobile en Suisse par rapport à l'Italie ?",
+      a: "L'assurance RC suisse coûte en moyenne CHF 800 à 1 500/an, similaire ou légèrement plus chère qu'en Italie. Le bonus-malus italien n'est pas reconnu, on commence donc souvent dans une classe intermédiaire. Les assureurs les moins chers au Tessin sont généralement Smile.direct et Vaudoise."
+    }
+  },
+
+  // ── Q45: G vs B convenience ──
+  "Conviene di più il permesso G o il permesso B in Svizzera?": {
+    en: {
+      q: "Is a G permit or B permit more convenient in Switzerland?",
+      a: "It depends on salary and family situation. With a salary above CHF 80,000, the B permit (resident) is often more convenient because Swiss rates are lower than Italian IRPEF. With a salary below CHF 60,000, the G permit can be advantageous thanks to the lower cost of living in Italy."
+    },
+    de: {
+      q: "Ist die G- oder die B-Bewilligung in der Schweiz vorteilhafter?",
+      a: "Das hängt vom Lohn und der familiären Situation ab. Bei einem Lohn über CHF 80.000 ist die B-Bewilligung (Aufenthalt) oft vorteilhafter, da die Schweizer Steuersätze niedriger sind als die italienische IRPEF. Bei einem Lohn unter CHF 60.000 kann die G-Bewilligung dank der niedrigeren Lebenshaltungskosten in Italien günstiger sein."
+    },
+    fr: {
+      q: "Quel est le plus avantageux : le permis G ou le permis B en Suisse ?",
+      a: "Cela dépend du salaire et de la situation familiale. Avec un salaire supérieur à CHF 80 000, le permis B (séjour) est souvent plus avantageux car les taux suisses sont inférieurs à l'IRPEF italienne. Avec un salaire inférieur à CHF 60 000, le permis G peut être avantageux grâce au coût de la vie plus bas en Italie."
+    }
+  },
+
+  // ── Q46: Double taxation ──
+  "Un frontaliere con permesso G paga le tasse in Italia e in Svizzera?": {
+    en: {
+      q: "Does a G-permit cross-border worker pay taxes in both Italy and Switzerland?",
+      a: "New cross-border workers (hired from 17/07/2023) pay withholding tax in Switzerland (80%) AND IRPEF in Italy (with €10,000 exemption and tax credit for Swiss taxes). Old cross-border workers pay only in Switzerland until the transitional period expires."
+    },
+    de: {
+      q: "Zahlt ein Grenzgänger mit G-Bewilligung Steuern in Italien und der Schweiz?",
+      a: "Neue Grenzgänger (ab 17.07.2023 eingestellt) zahlen Quellensteuer in der Schweiz (80 %) UND IRPEF in Italien (mit 10.000 € Freibetrag und Steuergutschrift für Schweizer Steuern). Altgrenzgänger zahlen nur in der Schweiz bis zum Ablauf der Übergangszeit."
+    },
+    fr: {
+      q: "Un frontalier avec un permis G paie-t-il des impôts en Italie et en Suisse ?",
+      a: "Les nouveaux frontaliers (embauchés à partir du 17/07/2023) paient l'impôt à la source en Suisse (80 %) ET l'IRPEF en Italie (avec une franchise de 10 000 € et un crédit d'impôt pour les impôts suisses). Les anciens frontaliers paient uniquement en Suisse jusqu'à l'expiration de la période transitoire."
+    }
+  },
+
+  // ── Q47: Rent savings ──
+  "Quanto si risparmia sull'affitto vivendo in Italia con permesso G?": {
+    en: {
+      q: "How much can you save on rent by living in Italy with a G permit?",
+      a: "An apartment in Como or Varese costs around €600–900/month, compared to CHF 1,200–1,800/month for an equivalent in Lugano or Bellinzona. The rent saving is about €500–800/month, partially offset by transport costs (fuel, motorway, travel time)."
+    },
+    de: {
+      q: "Wie viel spart man bei der Miete, wenn man mit G-Bewilligung in Italien lebt?",
+      a: "Eine Wohnung in Como oder Varese kostet ca. 600–900 €/Monat, verglichen mit CHF 1.200–1.800/Monat für eine vergleichbare Wohnung in Lugano oder Bellinzona. Die Mietersparnis beträgt ca. 500–800 €/Monat, teilweise kompensiert durch Transportkosten (Benzin, Autobahn, Fahrzeit)."
+    },
+    fr: {
+      q: "Combien économise-t-on sur le loyer en vivant en Italie avec un permis G ?",
+      a: "Un appartement à Côme ou Varèse coûte environ 600 à 900 €/mois, contre CHF 1 200 à 1 800/mois pour un équivalent à Lugano ou Bellinzone. L'économie sur le loyer est d'environ 500 à 800 €/mois, partiellement compensée par les frais de transport (essence, autoroute, temps de trajet)."
+    }
+  },
+
+  // ── Q48: Switching permits ──
+  "Posso passare da permesso G a permesso B e viceversa?": {
+    en: {
+      q: "Can I switch from a G permit to a B permit and vice versa?",
+      a: "Yes. To switch from G to B, simply transfer your residence to Switzerland and apply for a B permit. For the reverse, deregister from the Swiss municipality and re-establish residence in Italy. Caution: the switch has significant tax consequences (the transition year is taxed pro rata)."
+    },
+    de: {
+      q: "Kann ich von einer G- auf eine B-Bewilligung wechseln und umgekehrt?",
+      a: "Ja. Für den Wechsel von G zu B verlegen Sie den Wohnsitz in die Schweiz und beantragen eine B-Bewilligung. Umgekehrt melden Sie sich bei der Schweizer Gemeinde ab und begründen den Wohnsitz in Italien neu. Achtung: Der Wechsel hat erhebliche steuerliche Konsequenzen (das Übergangsjahr wird pro rata besteuert)."
+    },
+    fr: {
+      q: "Puis-je passer du permis G au permis B et vice versa ?",
+      a: "Oui. Pour passer du G au B, transférez votre résidence en Suisse et demandez un permis B. Pour l'inverse, désinscrivez-vous de la commune suisse et rétablissez votre résidence en Italie. Attention : le changement a des conséquences fiscales importantes (l'année de transition est imposée au prorata)."
+    }
+  },
+
+  // ── Q49: B permit pension ──
+  "Il permesso B dà diritto alla pensione svizzera piena?": {
+    en: {
+      q: "Does the B permit entitle to a full Swiss pension?",
+      a: "Both permits (G and B) entitle to AVS and LPP contributions. The difference is that with a B permit you can make additional voluntary AVS contributions and have full access to the Swiss pension system. A full AVS pension requires 44 years of contributions regardless of permit type."
+    },
+    de: {
+      q: "Berechtigt die B-Bewilligung zu einer vollen Schweizer Rente?",
+      a: "Beide Bewilligungen (G und B) berechtigen zu AHV- und BVG-Beiträgen. Der Unterschied: Mit der B-Bewilligung können zusätzliche freiwillige AHV-Beiträge geleistet werden und man hat vollen Zugang zum Schweizer Vorsorgesystem. Eine volle AHV-Rente erfordert 44 Beitragsjahre, unabhängig vom Bewilligungstyp."
+    },
+    fr: {
+      q: "Le permis B donne-t-il droit à une rente suisse complète ?",
+      a: "Les deux permis (G et B) donnent droit aux cotisations AVS et LPP. La différence est qu'avec le permis B, on peut verser des cotisations AVS volontaires supplémentaires et avoir un accès complet au système de prévoyance suisse. Une rente AVS complète nécessite 44 ans de cotisations, quel que soit le type de permis."
+    }
+  },
+
+  // ── Q50: First day documents ──
+  "Quali documenti servono per il primo giorno di lavoro in Svizzera?": {
+    en: {
+      q: "What documents are needed for the first day of work in Switzerland?",
+      a: "For the first day you need: valid ID card or passport, G permit (or receipt of application), signed employment contract, Swiss bank details (IBAN), health insurance certificate (LAMal or SSN), and Italian tax code."
+    },
+    de: {
+      q: "Welche Dokumente braucht man am ersten Arbeitstag in der Schweiz?",
+      a: "Am ersten Tag brauchen Sie: gültigen Personalausweis oder Reisepass, G-Bewilligung (oder Empfangsbestätigung des Antrags), unterschriebenen Arbeitsvertrag, Schweizer Bankverbindung (IBAN), Krankenversicherungsnachweis (KVG oder SSN) und die italienische Steuernummer."
+    },
+    fr: {
+      q: "Quels documents faut-il pour le premier jour de travail en Suisse ?",
+      a: "Pour le premier jour, il faut : une carte d'identité ou un passeport valide, le permis G (ou le récépissé de la demande), le contrat de travail signé, les coordonnées bancaires suisses (IBAN), l'attestation d'assurance maladie (LAMal ou SSN) et le code fiscal italien."
+    }
+  },
+
+  // ── Q51: G permit processing time ──
+  "Quanto tempo ci vuole per ottenere il permesso G?": {
+    en: {
+      q: "How long does it take to obtain a G permit?",
+      a: "For EU citizens, the G permit is issued within 5–10 working days from the employer's application. You can begin working with the application receipt. The physical permit (card format) arrives by post in 2–4 weeks."
+    },
+    de: {
+      q: "Wie lange dauert es, eine G-Bewilligung zu erhalten?",
+      a: "Für EU-Bürger wird die G-Bewilligung innerhalb von 5–10 Arbeitstagen nach dem Antrag des Arbeitgebers ausgestellt. Man kann bereits mit der Empfangsbestätigung zu arbeiten beginnen. Die physische Bewilligung (Kartenformat) kommt per Post in 2–4 Wochen."
+    },
+    fr: {
+      q: "Combien de temps faut-il pour obtenir un permis G ?",
+      a: "Pour les citoyens de l'UE, le permis G est délivré sous 5 à 10 jours ouvrables à partir de la demande de l'employeur. On peut commencer à travailler avec le récépissé de la demande. Le permis physique (format carte) arrive par courrier sous 2 à 4 semaines."
+    }
+  },
+
+  // ── Q52: Swiss bank account ──
+  "Devo aprire un conto bancario svizzero per lo stipendio?": {
+    en: {
+      q: "Do I need to open a Swiss bank account for my salary?",
+      a: "Yes, most Swiss employers require a Swiss account for the CHF salary payment. Banks most used by cross-border workers are PostFinance (economical, ~CHF 5/month), Raiffeisen, and cantonal banks. You need your G permit, employment contract, and ID."
+    },
+    de: {
+      q: "Muss ich ein Schweizer Bankkonto für den Lohn eröffnen?",
+      a: "Ja, die meisten Schweizer Arbeitgeber verlangen ein Schweizer Konto für die Lohnzahlung in CHF. Banken, die von Grenzgängern am häufigsten genutzt werden, sind PostFinance (günstig, ~CHF 5/Monat), Raiffeisen und Kantonalbanken. Man braucht G-Bewilligung, Arbeitsvertrag und Ausweis."
+    },
+    fr: {
+      q: "Dois-je ouvrir un compte bancaire suisse pour mon salaire ?",
+      a: "Oui, la plupart des employeurs suisses exigent un compte suisse pour le versement du salaire en CHF. Les banques les plus utilisées par les frontaliers sont PostFinance (économique, ~CHF 5/mois), Raiffeisen et les banques cantonales. Il faut le permis G, le contrat de travail et une pièce d'identité."
+    }
+  },
+
+  // ── Q53: LAMal vs SSN ──
+  "Meglio scegliere LAMal svizzera o SSN italiano come assicurazione?": {
+    en: {
+      q: "Is it better to choose Swiss LAMal or Italian SSN as health insurance?",
+      a: "It depends on the personal situation. LAMal costs around CHF 400–600/month but covers care in Switzerland without long waits. The Italian SSN is free (or nearly so) but does not cover emergency care in Switzerland. The right of option must be exercised within 3 months of starting work and the choice is irrevocable."
+    },
+    de: {
+      q: "Ist es besser, die Schweizer KVG oder den italienischen SSN als Krankenversicherung zu wählen?",
+      a: "Das hängt von der persönlichen Situation ab. Die KVG kostet ca. CHF 400–600/Monat, deckt aber Behandlungen in der Schweiz ohne lange Wartezeiten. Der italienische SSN ist kostenlos (oder fast), deckt aber keine Notfallbehandlungen in der Schweiz. Das Optionsrecht muss innerhalb von 3 Monaten nach Arbeitsbeginn ausgeübt werden und die Wahl ist unwiderruflich."
+    },
+    fr: {
+      q: "Vaut-il mieux choisir la LAMal suisse ou le SSN italien comme assurance maladie ?",
+      a: "Cela dépend de la situation personnelle. La LAMal coûte environ CHF 400 à 600/mois mais couvre les soins en Suisse sans longues attentes. Le SSN italien est gratuit (ou presque) mais ne couvre pas les soins urgents en Suisse. Le droit d'option doit être exercé dans les 3 mois suivant le début de l'emploi et le choix est irrévocable."
+    }
+  },
+
+  // ── Q54: AIRE registration ──
+  "Il frontaliere deve iscriversi all'AIRE?": {
+    en: {
+      q: "Does a cross-border worker need to register with AIRE?",
+      a: "No, a cross-border worker with a G permit who maintains residence in Italy does not need to register with AIRE. Registration is mandatory only for those who transfer residence to Switzerland (B permit). The cross-border worker remains fiscally resident in Italy."
+    },
+    de: {
+      q: "Muss sich ein Grenzgänger beim AIRE anmelden?",
+      a: "Nein, ein Grenzgänger mit G-Bewilligung, der seinen Wohnsitz in Italien beibehält, muss sich nicht beim AIRE anmelden. Die Anmeldung ist nur bei Wohnsitzverlegung in die Schweiz (B-Bewilligung) obligatorisch. Der Grenzgänger bleibt steuerlich in Italien ansässig."
+    },
+    fr: {
+      q: "Un frontalier doit-il s'inscrire à l'AIRE ?",
+      a: "Non, un frontalier titulaire d'un permis G qui maintient sa résidence en Italie n'a pas besoin de s'inscrire à l'AIRE. L'inscription n'est obligatoire que pour ceux qui transfèrent leur résidence en Suisse (permis B). Le frontalier reste résident fiscal en Italie."
+    }
+  },
+
+  // ── Q55: Tax credit mechanism ──
+  "Come funziona il credito d'imposta per frontalieri?": {
+    en: {
+      q: "How does the tax credit for cross-border workers work?",
+      a: "The tax credit avoids double taxation: taxes paid in Switzerland (withholding tax) are deducted from Italian IRPEF in Section CE of the tax return. The credit is limited to the Italian tax share corresponding to the foreign income."
+    },
+    de: {
+      q: "Wie funktioniert die Steuergutschrift für Grenzgänger?",
+      a: "Die Steuergutschrift vermeidet Doppelbesteuerung: In der Schweiz gezahlte Steuern (Quellensteuer) werden im Abschnitt CE der Steuererklärung von der italienischen IRPEF abgezogen. Die Gutschrift ist auf den italienischen Steueranteil begrenzt, der dem ausländischen Einkommen entspricht."
+    },
+    fr: {
+      q: "Comment fonctionne le crédit d'impôt pour les frontaliers ?",
+      a: "Le crédit d'impôt évite la double imposition : les impôts payés en Suisse (impôt à la source) sont déduits de l'IRPEF italienne dans la section CE de la déclaration fiscale. Le crédit est limité à la part d'impôt italien correspondant au revenu étranger."
+    }
+  },
+
+  // ── Q56: Tax credit old vs new ──
+  "Qual è la differenza tra credito d'imposta per vecchi e nuovi frontalieri?": {
+    en: {
+      q: "What is the difference in tax credit between old and new cross-border workers?",
+      a: "Old cross-border workers (before July 2023) pay only in Switzerland and do not declare in Italy, so they don't use the tax credit. New cross-border workers pay 80% of taxes in Switzerland and declare in Italy with a €10,000 exemption, using the tax credit for Swiss tax paid."
+    },
+    de: {
+      q: "Was ist der Unterschied bei der Steuergutschrift zwischen Alt- und Neugrenzgängern?",
+      a: "Altgrenzgänger (vor Juli 2023) zahlen nur in der Schweiz und deklarieren nicht in Italien, nutzen also keine Steuergutschrift. Neugrenzgänger zahlen 80 % der Steuern in der Schweiz und deklarieren in Italien mit einem Freibetrag von 10.000 €, wobei sie die Steuergutschrift für die Schweizer Steuern nutzen."
+    },
+    fr: {
+      q: "Quelle est la différence de crédit d'impôt entre anciens et nouveaux frontaliers ?",
+      a: "Les anciens frontaliers (avant juillet 2023) ne paient qu'en Suisse et ne déclarent pas en Italie, ils n'utilisent donc pas le crédit d'impôt. Les nouveaux frontaliers paient 80 % des impôts en Suisse et déclarent en Italie avec une franchise de 10 000 €, en utilisant le crédit d'impôt pour l'impôt suisse payé."
+    }
+  },
+
+  // ── Q57: Quadro CE ──
+  "In quale quadro della dichiarazione si indica il credito d'imposta?": {
+    en: {
+      q: "In which section of the tax return is the tax credit declared?",
+      a: "The tax credit for taxes paid abroad is declared in Section CE (Quadro CE) of the Modello Redditi PF (Individual Income Tax Return). You report the income produced abroad and the definitive foreign tax paid."
+    },
+    de: {
+      q: "In welchem Abschnitt der Steuererklärung wird die Steuergutschrift angegeben?",
+      a: "Die Steuergutschrift für im Ausland gezahlte Steuern wird im Abschnitt CE (Quadro CE) des Modello Redditi PF (Einkommensteuererklärung) angegeben. Man gibt das im Ausland erzielte Einkommen und die gezahlte ausländische Definitivsteuer an."
+    },
+    fr: {
+      q: "Dans quelle section de la déclaration fiscale le crédit d'impôt est-il indiqué ?",
+      a: "Le crédit d'impôt pour les impôts payés à l'étranger est déclaré dans la Section CE (Quadro CE) du Modello Redditi PF (déclaration d'impôt sur le revenu). On y indique le revenu produit à l'étranger et l'impôt étranger définitif payé."
+    }
+  },
+
+  // ── Q58: Tax credit cap ──
+  "Il credito d'imposta può superare l'IRPEF dovuta?": {
+    en: {
+      q: "Can the tax credit exceed the IRPEF due?",
+      a: "No, the tax credit cannot exceed the IRPEF share proportional to the foreign income. If the Swiss tax is higher than the IRPEF share, the difference is not refundable but can be carried forward in the next 8 tax returns."
+    },
+    de: {
+      q: "Kann die Steuergutschrift die geschuldete IRPEF übersteigen?",
+      a: "Nein, die Steuergutschrift kann den proportionalen IRPEF-Anteil auf das ausländische Einkommen nicht übersteigen. Ist die Schweizer Steuer höher als der IRPEF-Anteil, wird die Differenz nicht erstattet, kann aber in den nächsten 8 Steuererklärungen vorgetragen werden."
+    },
+    fr: {
+      q: "Le crédit d'impôt peut-il dépasser l'IRPEF due ?",
+      a: "Non, le crédit d'impôt ne peut pas dépasser la part d'IRPEF proportionnelle au revenu étranger. Si l'impôt suisse est supérieur à la part d'IRPEF, la différence n'est pas remboursable mais peut être reportée dans les 8 déclarations suivantes."
+    }
+  },
+
+  // ── Q59: CHF→EUR conversion for tax ──
+  "Devo convertire l'imposta svizzera da CHF a EUR?": {
+    en: {
+      q: "Do I need to convert the Swiss tax from CHF to EUR?",
+      a: "Yes, the withholding tax paid in CHF must be converted to EUR using the annual average exchange rate published by the Agenzia delle Entrate. For 2025 the indicative average rate is approximately 0.94 EUR per CHF."
+    },
+    de: {
+      q: "Muss ich die Schweizer Steuer von CHF in EUR umrechnen?",
+      a: "Ja, die in CHF gezahlte Quellensteuer muss zum Jahresdurchschnittskurs, der von der Agenzia delle Entrate veröffentlicht wird, in EUR umgerechnet werden. Für 2025 liegt der indikative Durchschnittskurs bei ca. 0,94 EUR pro CHF."
+    },
+    fr: {
+      q: "Dois-je convertir l'impôt suisse de CHF en EUR ?",
+      a: "Oui, l'impôt à la source payé en CHF doit être converti en EUR en utilisant le taux de change moyen annuel publié par l'Agenzia delle Entrate. Pour 2025, le taux moyen indicatif est d'environ 0,94 EUR pour 1 CHF."
+    }
+  },
+
+  // ── Q60: G vs B permit (duplicate variant) ──
+  "Che differenza c'è tra permesso G e permesso B per un frontaliere?": {
+    en: {
+      q: "What is the difference between a G permit and a B permit for a cross-border worker?",
+      a: "The G permit is for workers who reside in an EU/EFTA country and work in Switzerland, returning home at least once a week. The B permit is for those who move to live in Switzerland. With the G permit, taxes are paid via withholding at source in Switzerland and declared in Italy; with the B permit, one is fiscally resident in Switzerland."
+    },
+    de: {
+      q: "Was ist der Unterschied zwischen G- und B-Bewilligung für einen Grenzgänger?",
+      a: "Die G-Bewilligung ist für Arbeitnehmer, die in einem EU/EFTA-Land wohnen und in der Schweiz arbeiten und mindestens wöchentlich heimkehren. Die B-Bewilligung ist für Personen, die in die Schweiz ziehen. Mit der G-Bewilligung werden Steuern per Quellensteuer in der Schweiz erhoben und in Italien deklariert; mit der B-Bewilligung ist man steuerlich in der Schweiz ansässig."
+    },
+    fr: {
+      q: "Quelle est la différence entre un permis G et un permis B pour un frontalier ?",
+      a: "Le permis G est destiné aux travailleurs résidant dans un pays UE/AELE et travaillant en Suisse, avec retour au domicile au moins une fois par semaine. Le permis B est pour ceux qui s'installent en Suisse. Avec le permis G, les impôts sont prélevés à la source en Suisse et déclarés en Italie ; avec le permis B, on est résident fiscal en Suisse."
+    }
+  },
+
+  // ── Q61: New agreement 2026 ──
+  "Come funziona il nuovo accordo fiscale frontalieri 2026?": {
+    en: {
+      q: "How does the 2026 cross-border tax agreement work?",
+      a: "From 2024, new cross-border workers (hired after 17 July 2023) pay withholding tax in Switzerland up to 80% of the total, and must also declare income in Italy with a €10,000 exemption. Old cross-border workers (pre-2024) continue under the previous regime until 2033."
+    },
+    de: {
+      q: "Wie funktioniert das neue Grenzgänger-Steuerabkommen 2026?",
+      a: "Ab 2024 zahlen neue Grenzgänger (eingestellt nach dem 17. Juli 2023) Quellensteuer in der Schweiz bis zu 80 % der Gesamtschuld und müssen das Einkommen auch in Italien deklarieren, mit einem Freibetrag von 10.000 €. Altgrenzgänger (vor 2024) unterliegen bis 2033 dem bisherigen Regime."
+    },
+    fr: {
+      q: "Comment fonctionne le nouvel accord fiscal frontaliers 2026 ?",
+      a: "À partir de 2024, les nouveaux frontaliers (embauchés après le 17 juillet 2023) paient l'impôt à la source en Suisse jusqu'à 80 % du total et doivent aussi déclarer leur revenu en Italie avec une franchise de 10 000 €. Les anciens frontaliers (avant 2024) restent sous l'ancien régime jusqu'en 2033."
+    }
+  },
+
+  // ── Q62: Tax obligation in Italy ──
+  "Devo pagare le tasse in Italia se lavoro in Svizzera come frontaliere?": {
+    en: {
+      q: "Do I have to pay taxes in Italy if I work in Switzerland as a cross-border worker?",
+      a: "Yes, if you are a new cross-border worker (from 2024), you must declare your income in Italy too. There is a €10,000 exemption: below this threshold you don't pay additional IRPEF. Above it, Italian tax is calculated with a credit for what was already paid in Switzerland."
+    },
+    de: {
+      q: "Muss ich in Italien Steuern zahlen, wenn ich als Grenzgänger in der Schweiz arbeite?",
+      a: "Ja, als neuer Grenzgänger (ab 2024) müssen Sie das Einkommen auch in Italien deklarieren. Es gibt einen Freibetrag von 10.000 €: darunter zahlen Sie keine zusätzliche IRPEF. Darüber wird die italienische Steuer unter Anrechnung der bereits in der Schweiz gezahlten Steuer berechnet."
+    },
+    fr: {
+      q: "Dois-je payer des impôts en Italie si je travaille en Suisse comme frontalier ?",
+      a: "Oui, si vous êtes un nouveau frontalier (à partir de 2024), vous devez aussi déclarer vos revenus en Italie. Il existe une franchise de 10 000 € : en dessous, vous ne payez pas d'IRPEF supplémentaire. Au-delà, l'impôt italien est calculé avec un crédit pour ce qui a déjà été payé en Suisse."
+    }
+  },
+
+  // ── Q63: LAMal ──
+  "Cos'è la LAMal e come funziona per i frontalieri?": {
+    en: {
+      q: "What is LAMal and how does it work for cross-border workers?",
+      a: "LAMal is the mandatory Swiss health insurance. Cross-border workers can choose between LAMal (Swiss coverage) and the Italian SSN. With LAMal you access the Swiss healthcare system with deductibles and insurance models (basic, HMO, telmed). The choice must be made within 3 months of starting work."
+    },
+    de: {
+      q: "Was ist die KVG und wie funktioniert sie für Grenzgänger?",
+      a: "Die KVG (LAMal) ist die obligatorische Schweizer Krankenversicherung. Grenzgänger können zwischen KVG (Schweizer Deckung) und dem italienischen SSN wählen. Mit der KVG hat man Zugang zum Schweizer Gesundheitssystem mit Franchisen und Versicherungsmodellen (Standard, HMO, Telmed). Die Wahl muss innerhalb von 3 Monaten nach Arbeitsbeginn getroffen werden."
+    },
+    fr: {
+      q: "Qu'est-ce que la LAMal et comment fonctionne-t-elle pour les frontaliers ?",
+      a: "La LAMal est l'assurance maladie obligatoire suisse. Les frontaliers peuvent choisir entre la LAMal (couverture suisse) et le SSN italien. Avec la LAMal, on accède au système de santé suisse avec des franchises et des modèles d'assurance (base, HMO, télémédecine). Le choix doit être fait dans les 3 mois suivant le début de l'emploi."
+    }
+  },
+
+  // ── Q64: Pension composition ──
+  "Come si calcola la pensione di un frontaliere svizzero?": {
+    en: {
+      q: "How is a Swiss cross-border worker's pension calculated?",
+      a: "The pension consists of three pillars: AVS (1st pillar, state pension), LPP (2nd pillar, occupational pension), and Pillar 3a (voluntary savings with tax benefits). AVS and LPP contributions are deducted from the payslip. At retirement you can claim the annuity or the capital of the 2nd pillar."
+    },
+    de: {
+      q: "Wie wird die Rente eines Schweizer Grenzgängers berechnet?",
+      a: "Die Rente besteht aus drei Säulen: AHV (1. Säule, Staatsrente), BVG (2. Säule, berufliche Vorsorge) und Säule 3a (freiwilliges Sparen mit Steuervorteilen). AHV- und BVG-Beiträge werden vom Lohn abgezogen. Bei der Pensionierung kann man die Rente oder das Kapital der 2. Säule beziehen."
+    },
+    fr: {
+      q: "Comment calcule-t-on la pension d'un frontalier suisse ?",
+      a: "La pension se compose de trois piliers : AVS (1er pilier, pension d'État), LPP (2e pilier, prévoyance professionnelle) et pilier 3a (épargne volontaire avec avantages fiscaux). Les cotisations AVS et LPP sont déduites du salaire. À la retraite, on peut demander la rente ou le capital du 2e pilier."
+    }
+  },
+
+  // ── Q65: TFR equivalent ──
+  "Perdo il TFR lavorando in Svizzera?": {
+    en: {
+      q: "Do I lose the TFR (severance pay) by working in Switzerland?",
+      a: "No, in Switzerland the TFR does not exist. Instead, there is the 2nd pillar (LPP/BVG), a mandatory occupational pension mechanism."
+    },
+    de: {
+      q: "Verliere ich die Abfindung (TFR), wenn ich in der Schweiz arbeite?",
+      a: "Nein, in der Schweiz gibt es den TFR nicht. An seiner Stelle steht die 2. Säule (BVG), ein obligatorischer beruflicher Vorsorgemechanismus."
+    },
+    fr: {
+      q: "Est-ce que je perds le TFR (indemnité de fin de contrat) en travaillant en Suisse ?",
+      a: "Non, en Suisse le TFR n'existe pas. À sa place, il y a le 2e pilier (LPP/BVG), un mécanisme de prévoyance professionnelle obligatoire."
+    }
+  },
+
+  // ── Q66: 2nd pillar withdrawal on return ──
+  "Posso recuperare il 2° pilastro se torno in Italia?": {
+    en: {
+      q: "Can I recover the 2nd pillar if I return to Italy?",
+      a: "Yes. Upon permanently leaving Switzerland, you can request the liquidation of the mandatory portion of the 2nd pillar."
+    },
+    de: {
+      q: "Kann ich die 2. Säule zurückerhalten, wenn ich nach Italien zurückkehre?",
+      a: "Ja. Beim endgültigen Verlassen der Schweiz kann man die Auszahlung des obligatorischen Teils der 2. Säule beantragen."
+    },
+    fr: {
+      q: "Puis-je récupérer le 2e pilier si je retourne en Italie ?",
+      a: "Oui. En quittant définitivement la Suisse, on peut demander la liquidation de la part obligatoire du 2e pilier."
+    }
+  },
+
+  // ── Q67: 2nd pillar vs TFR ──
+  "Il 2° pilastro svizzero è più conveniente del TFR italiano?": {
+    en: {
+      q: "Is the Swiss 2nd pillar more convenient than the Italian TFR?",
+      a: "It depends on salary, age, and career duration. For medium-high salaries and long careers in Switzerland, the 2nd pillar accumulates higher amounts than the Italian TFR."
+    },
+    de: {
+      q: "Ist die Schweizer 2. Säule vorteilhafter als der italienische TFR?",
+      a: "Das hängt vom Lohn, Alter und der Karrieredauer ab. Bei mittleren bis hohen Löhnen und langer Karriere in der Schweiz akkumuliert die 2. Säule höhere Beträge als der italienische TFR."
+    },
+    fr: {
+      q: "Le 2e pilier suisse est-il plus avantageux que le TFR italien ?",
+      a: "Cela dépend du salaire, de l'âge et de la durée de carrière. Pour des salaires moyens-élevés et de longues carrières en Suisse, le 2e pilier accumule des montants supérieurs au TFR italien."
+    }
+  },
+
+  // ── Q68: B vs G (short variant) ──
+  "Qual è la differenza tra Permesso B e Permesso G?": {
+    en: {
+      q: "What is the difference between a B permit and a G permit?",
+      a: "The B permit is for those who reside in Switzerland; the G permit is for cross-border workers who live in Italy and work in Switzerland, returning home at least once a week."
+    },
+    de: {
+      q: "Was ist der Unterschied zwischen B- und G-Bewilligung?",
+      a: "Die B-Bewilligung ist für Personen mit Wohnsitz in der Schweiz; die G-Bewilligung ist für Grenzgänger, die in Italien leben und in der Schweiz arbeiten und mindestens einmal pro Woche heimkehren."
+    },
+    fr: {
+      q: "Quelle est la différence entre le permis B et le permis G ?",
+      a: "Le permis B est pour ceux qui résident en Suisse ; le permis G est pour les frontaliers qui vivent en Italie et travaillent en Suisse, en rentrant chez eux au moins une fois par semaine."
+    }
+  },
+
+  // ── Q69: B vs G tax comparison ──
+  "Conviene di più il Permesso B o G per le tasse?": {
+    en: {
+      q: "Which is more tax-efficient: the B permit or the G permit?",
+      a: "It depends on salary, family situation, and municipality of residence. For high salaries, the B permit may offer lower rates thanks to ordinary taxation."
+    },
+    de: {
+      q: "Was ist steuerlich günstiger: die B- oder die G-Bewilligung?",
+      a: "Das hängt vom Lohn, der familiären Situation und der Wohngemeinde ab. Bei hohen Löhnen kann die B-Bewilligung dank ordentlicher Besteuerung niedrigere Steuersätze bieten."
+    },
+    fr: {
+      q: "Quel est le plus avantageux fiscalement : le permis B ou le G ?",
+      a: "Cela dépend du salaire, de la situation familiale et de la commune de résidence. Pour les hauts salaires, le permis B peut offrir des taux plus bas grâce à l'imposition ordinaire."
+    }
+  },
+
+  // ── Q70: Italian declaration obligation ──
+  "Devo dichiarare il reddito svizzero in Italia?": {
+    en: {
+      q: "Do I have to declare Swiss income in Italy?",
+      a: "Yes, all foreign income must be declared in Section RW and in Section RC/RL of the tax return."
+    },
+    de: {
+      q: "Muss ich Schweizer Einkommen in Italien deklarieren?",
+      a: "Ja, alle ausländischen Einkünfte müssen im Abschnitt RW und im Abschnitt RC/RL der Steuererklärung deklariert werden."
+    },
+    fr: {
+      q: "Dois-je déclarer le revenu suisse en Italie ?",
+      a: "Oui, tous les revenus étrangers doivent être déclarés dans la section RW et dans la section RC/RL de la déclaration fiscale."
+    }
+  },
+
+  // ── Q71: 730 vs Redditi PF (short) ──
+  "Posso usare il 730 o devo fare il Modello Redditi PF?": {
+    en: {
+      q: "Can I use the 730 form or do I need the Modello Redditi PF?",
+      a: "Cross-border workers with foreign income must use the Modello Redditi PF (formerly Unico). The 730 form is not sufficient."
+    },
+    de: {
+      q: "Kann ich das Formular 730 verwenden oder brauche ich das Modello Redditi PF?",
+      a: "Grenzgänger mit ausländischem Einkommen müssen das Modello Redditi PF (ehemals Unico) verwenden. Das Formular 730 reicht nicht aus."
+    },
+    fr: {
+      q: "Puis-je utiliser le formulaire 730 ou dois-je remplir le Modello Redditi PF ?",
+      a: "Les frontaliers avec des revenus étrangers doivent utiliser le Modello Redditi PF (anciennement Unico). Le formulaire 730 ne suffit pas."
+    }
+  },
+
+  // ── Q72: Tax credit (short) ──
+  "Come funziona il credito d'imposta per le tasse pagate in Svizzera?": {
+    en: {
+      q: "How does the tax credit for taxes paid in Switzerland work?",
+      a: "The withholding tax paid in Switzerland is deducted from the Italian IRPEF, avoiding double taxation."
+    },
+    de: {
+      q: "Wie funktioniert die Steuergutschrift für in der Schweiz gezahlte Steuern?",
+      a: "Die in der Schweiz gezahlte Quellensteuer wird von der italienischen IRPEF abgezogen und vermeidet so eine Doppelbesteuerung."
+    },
+    fr: {
+      q: "Comment fonctionne le crédit d'impôt pour les impôts payés en Suisse ?",
+      a: "L'impôt à la source payé en Suisse est déduit de l'IRPEF italienne, évitant ainsi la double imposition."
+    }
+  },
+
+  // ── Q73: €10,000 exemption (short) ──
+  "Cos'è la franchigia di €10.000?": {
+    en: {
+      q: "What is the €10,000 exemption?",
+      a: "Under the new 2026 agreement, the first €10,000 of income is exempt from Italian IRPEF for new cross-border workers."
+    },
+    de: {
+      q: "Was ist der Freibetrag von 10.000 €?",
+      a: "Nach dem neuen Abkommen 2026 sind die ersten 10.000 € Einkommen für neue Grenzgänger von der italienischen IRPEF befreit."
+    },
+    fr: {
+      q: "Qu'est-ce que la franchise de 10 000 € ?",
+      a: "Selon le nouvel accord 2026, les premiers 10 000 € de revenu sont exonérés de l'IRPEF italienne pour les nouveaux frontaliers."
+    }
+  },
+
+  // ── Q74: Swiss bank account declaration ──
+  "Devo dichiarare il conto bancario svizzero?": {
+    en: {
+      q: "Do I have to declare the Swiss bank account?",
+      a: "Yes, the Swiss account must be declared in Section RW for tax monitoring purposes. You do not pay IVAFE on bank accounts."
+    },
+    de: {
+      q: "Muss ich das Schweizer Bankkonto deklarieren?",
+      a: "Ja, das Schweizer Konto muss im Abschnitt RW zur steuerlichen Überwachung deklariert werden. Auf Bankkonten zahlt man keine IVAFE."
+    },
+    fr: {
+      q: "Dois-je déclarer le compte bancaire suisse ?",
+      a: "Oui, le compte suisse doit être déclaré dans la section RW pour le suivi fiscal. Vous ne payez pas l'IVAFE sur les comptes bancaires."
+    }
+  },
+
+  // ── Q75: 730 vs Redditi (detailed) ──
+  "Il frontaliere deve fare il 730 o il Modello Redditi PF?": {
+    en: {
+      q: "Should a cross-border worker file the 730 or the Modello Redditi PF?",
+      a: "A cross-border worker with only Swiss employment income must use the Modello Redditi PF (formerly Unico), since the 730 is reserved for workers with an Italian withholding agent. The 730 can only be used if you also have Italian income with a CU."
+    },
+    de: {
+      q: "Muss der Grenzgänger das 730 oder das Modello Redditi PF abgeben?",
+      a: "Ein Grenzgänger mit ausschliesslich Schweizer Einkommen aus unselbständiger Arbeit muss das Modello Redditi PF (ehemals Unico) verwenden, da das 730 für Arbeitnehmer mit italienischem Steuersubstitut reserviert ist. Das 730 kann nur verwendet werden, wenn auch italienisches Einkommen mit CU vorliegt."
+    },
+    fr: {
+      q: "Le frontalier doit-il remplir le 730 ou le Modello Redditi PF ?",
+      a: "Un frontalier avec uniquement un revenu suisse salarié doit utiliser le Modello Redditi PF (anciennement Unico), car le 730 est réservé aux travailleurs ayant un substitut fiscal italien. Le 730 ne peut être utilisé que si l'on a aussi un revenu italien avec CU."
+    }
+  },
+
+  // ── Q76: €10,000 exemption (detailed) ──
+  "Cos'è la franchigia di €10.000 per i nuovi frontalieri?": {
+    en: {
+      q: "What is the €10,000 exemption for new cross-border workers?",
+      a: "Under the new 2026 tax agreement, cross-border workers hired from 17 July 2023 benefit from a €10,000 exemption: the first €10,000 of income converted to euros is not taxed in Italy. IRPEF is paid only on the amount exceeding the exemption."
+    },
+    de: {
+      q: "Was ist der Freibetrag von 10.000 € für neue Grenzgänger?",
+      a: "Nach dem neuen Steuerabkommen 2026 profitieren Grenzgänger, die ab dem 17. Juli 2023 eingestellt wurden, von einem Freibetrag von 10.000 €: Die ersten 10.000 € des in Euro umgerechneten Einkommens werden in Italien nicht besteuert. Die IRPEF wird nur auf den übersteigenden Betrag erhoben."
+    },
+    fr: {
+      q: "Qu'est-ce que la franchise de 10 000 € pour les nouveaux frontaliers ?",
+      a: "Selon le nouvel accord fiscal 2026, les frontaliers embauchés à partir du 17 juillet 2023 bénéficient d'une franchise de 10 000 € : les premiers 10 000 € de revenu converti en euros ne sont pas imposés en Italie. L'IRPEF n'est due que sur la partie excédentaire."
+    }
+  },
+
+  // ── Q77: Quadro RW Swiss account ──
+  "Come si compila il quadro RW per il conto svizzero?": {
+    en: {
+      q: "How do you fill out Section RW for the Swiss bank account?",
+      a: "In Section RW, declare the Swiss bank account indicating: code 1 (deposits), country code 071 (Switzerland), maximum value reached during the year, and balance at 31/12. If the average balance exceeds €5,000, IVAFE of €34.20/year applies."
+    },
+    de: {
+      q: "Wie füllt man Abschnitt RW für das Schweizer Bankkonto aus?",
+      a: "Im Abschnitt RW wird das Schweizer Bankkonto angegeben mit: Code 1 (Einlagen), Ländercode 071 (Schweiz), im Jahr erreichter Höchstwert und Saldo per 31.12. Übersteigt der Durchschnittssaldo 5.000 €, fällt IVAFE von 34,20 €/Jahr an."
+    },
+    fr: {
+      q: "Comment remplir la section RW pour le compte suisse ?",
+      a: "Dans la section RW, on déclare le compte bancaire suisse en indiquant : code 1 (dépôts), code pays 071 (Suisse), valeur maximale atteinte dans l'année et solde au 31/12. Si le solde moyen dépasse 5 000 €, l'IVAFE de 34,20 €/an s'applique."
+    }
+  },
+
+  // ── Q78: Quadro CE tax credit ──
+  "Come funziona il credito d'imposta nel quadro CE?": {
+    en: {
+      q: "How does the tax credit work in Section CE?",
+      a: "In Section CE, you declare the Swiss withholding tax paid, converted to EUR at the annual average exchange rate. The tax credit reduces the IRPEF due, up to the limit: it can never exceed the Italian IRPEF calculated on the foreign income."
+    },
+    de: {
+      q: "Wie funktioniert die Steuergutschrift im Abschnitt CE?",
+      a: "Im Abschnitt CE wird die gezahlte Schweizer Quellensteuer angegeben, zum Jahresdurchschnittskurs in EUR umgerechnet. Die Steuergutschrift reduziert die geschuldete IRPEF bis zur Obergrenze: Sie kann nie die auf das ausländische Einkommen berechnete italienische IRPEF übersteigen."
+    },
+    fr: {
+      q: "Comment fonctionne le crédit d'impôt dans la section CE ?",
+      a: "Dans la section CE, on déclare l'impôt à la source suisse payé, converti en EUR au taux de change moyen annuel. Le crédit d'impôt réduit l'IRPEF due, dans la limite : il ne peut jamais dépasser l'IRPEF italienne calculée sur le revenu étranger."
+    }
+  },
+
+  // ── Q79: Exchange rate for salary conversion ──
+  "Quale tasso di cambio uso per convertire lo stipendio CHF in EUR?": {
+    en: {
+      q: "Which exchange rate should I use to convert CHF salary to EUR?",
+      a: "Use the annual average exchange rate published by the Agenzia delle Entrate (notice issued in January of the following year). For 2025, the rate is published in January 2026. Do not use the exchange rate on the day of payment."
+    },
+    de: {
+      q: "Welchen Wechselkurs verwende ich zur Umrechnung des CHF-Lohns in EUR?",
+      a: "Man verwendet den Jahresdurchschnittskurs, der von der Agenzia delle Entrate veröffentlicht wird (Bekanntmachung im Januar des Folgejahres). Für 2025 wird der Kurs im Januar 2026 veröffentlicht. Nicht den Wechselkurs am Zahltag verwenden."
+    },
+    fr: {
+      q: "Quel taux de change utiliser pour convertir le salaire CHF en EUR ?",
+      a: "Utilisez le taux de change moyen annuel publié par l'Agenzia delle Entrate (avis publié en janvier de l'année suivante). Pour 2025, le taux est publié en janvier 2026. N'utilisez pas le taux de change du jour de paiement."
+    }
+  },
+
+  // ── Q80: TDR explanation ──
+  "Cos'è la TDR per frontalieri svizzeri?": {
+    en: {
+      q: "What is the TDR for Swiss cross-border workers?",
+      a: "The TDR (Tariffa con Deduzione per Rettifica — Rate with Deduction for Rectification) is the procedure that allows cross-border workers taxed at source in Switzerland to request tax rectification and obtain additional deductions such as transport, LPP, pillar 3a, and medical expenses."
+    },
+    de: {
+      q: "Was ist die TDR für Schweizer Grenzgänger?",
+      a: "Die TDR (Tariffa con Deduzione per Rettifica — Tarif mit Berichtigungsabzug) ist das Verfahren, das quellenbesteuerten Grenzgängern in der Schweiz ermöglicht, eine Steuerberichtigung zu beantragen und zusätzliche Abzüge wie Transport, BVG, Säule 3a und Arztkosten geltend zu machen."
+    },
+    fr: {
+      q: "Qu'est-ce que le TDR pour les frontaliers suisses ?",
+      a: "Le TDR (Tariffa con Deduzione per Rettifica — Barème avec déduction pour rectification) est la procédure permettant aux frontaliers imposés à la source en Suisse de demander une rectification fiscale et d'obtenir des déductions supplémentaires comme le transport, la LPP, le pilier 3a et les frais médicaux."
+    }
+  },
+
+  // ── Q81: TDR deadline ──
+  "Entro quando si presenta la TDR?": {
+    en: {
+      q: "By when must the TDR be submitted?",
+      a: "The TDR rectification request must be submitted by 31 March of the year following the tax year. For example, for 2025 income the deadline is 31 March 2026. After this date, rectification is no longer possible."
+    },
+    de: {
+      q: "Bis wann muss die TDR eingereicht werden?",
+      a: "Der TDR-Berichtigungsantrag muss bis zum 31. März des auf das Steuerjahr folgenden Jahres eingereicht werden. Zum Beispiel ist für das Einkommen 2025 die Frist der 31. März 2026. Nach diesem Datum ist eine Berichtigung nicht mehr möglich."
+    },
+    fr: {
+      q: "Avant quand faut-il soumettre le TDR ?",
+      a: "La demande de rectification TDR doit être soumise avant le 31 mars de l'année suivant l'année fiscale. Par exemple, pour les revenus 2025, la date limite est le 31 mars 2026. Passé cette date, la rectification n'est plus possible."
+    }
+  },
+
+  // ── Q82: TDR deductions ──
+  "Quali deduzioni posso richiedere con la TDR?": {
+    en: {
+      q: "Which deductions can I claim through the TDR?",
+      a: "Main deductions include: transport costs (max CHF 3,200), meals away from home, LPP buy-back contributions, pillar 3a contributions (max CHF 7,258 for employees), health insurance premiums, uncovered medical expenses, debt interest, and donations."
+    },
+    de: {
+      q: "Welche Abzüge kann ich mit der TDR geltend machen?",
+      a: "Die wichtigsten Abzüge sind: Transportkosten (max. CHF 3.200), Verpflegung ausser Haus, BVG-Einkaufsbeiträge, Säule-3a-Beiträge (max. CHF 7.258 für Arbeitnehmer), Krankenkassenprämien, nicht gedeckte Arztkosten, Schuldzinsen und Spenden."
+    },
+    fr: {
+      q: "Quelles déductions peut-on demander via le TDR ?",
+      a: "Les principales déductions comprennent : frais de transport (max. CHF 3 200), repas hors domicile, cotisations de rachat LPP, cotisations pilier 3a (max. CHF 7 258 pour les salariés), primes d'assurance maladie, frais médicaux non couverts, intérêts débiteurs et donations."
+    }
+  },
+
+  // ── Q83: TDR refund calculation ──
+  "Come viene calcolato il rimborso della rettifica?": {
+    en: {
+      q: "How is the TDR rectification refund calculated?",
+      a: "The Tax Office recalculates the withholding tax including the declared deductions. The difference between the tax withheld by the employer and the recalculated tax is refunded directly to the bank account, generally within 3–6 months."
+    },
+    de: {
+      q: "Wie wird die TDR-Berichtigungsrückerstattung berechnet?",
+      a: "Das Steueramt berechnet die Quellensteuer inkl. der deklarierten Abzüge neu. Die Differenz zwischen der vom Arbeitgeber einbehaltenen Steuer und der neuberechneten Steuer wird direkt auf das Bankkonto überwiesen, in der Regel innerhalb von 3–6 Monaten."
+    },
+    fr: {
+      q: "Comment le remboursement de la rectification est-il calculé ?",
+      a: "L'Office des impôts recalcule l'impôt à la source en incluant les déductions déclarées. La différence entre l'impôt retenu par l'employeur et l'impôt recalculé est remboursée directement sur le compte bancaire, généralement sous 3 à 6 mois."
+    }
+  },
+
+  // ── Q84: Ordinary declaration for G permit ──
+  "Il frontaliere con permesso G deve fare la dichiarazione ordinaria in Svizzera?": {
+    en: {
+      q: "Does a G-permit cross-border worker need to file an ordinary declaration in Switzerland?",
+      a: "No, a G-permit cross-border worker is taxed at source and does not need to file an ordinary Swiss tax return. They can, however, request the TDR rectification for deductions. The ordinary declaration is mandatory only if gross income exceeds CHF 120,000."
+    },
+    de: {
+      q: "Muss ein Grenzgänger mit G-Bewilligung eine ordentliche Steuererklärung in der Schweiz abgeben?",
+      a: "Nein, ein Grenzgänger mit G-Bewilligung wird quellenbesteuert und muss keine ordentliche Schweizer Steuererklärung abgeben. Er kann jedoch eine TDR-Berichtigung für Abzüge beantragen. Die ordentliche Steuererklärung ist nur bei einem Bruttoeinkommen über CHF 120.000 obligatorisch."
+    },
+    fr: {
+      q: "Un frontalier avec permis G doit-il faire une déclaration ordinaire en Suisse ?",
+      a: "Non, un frontalier avec permis G est imposé à la source et n'a pas besoin de déposer une déclaration fiscale ordinaire suisse. Il peut cependant demander la rectification TDR pour obtenir des déductions. La déclaration ordinaire n'est obligatoire que si le revenu brut dépasse CHF 120 000."
+    }
+  },
+
+  // ── Q85: Average salaries in Ticino ──
+  "Quali sono gli stipendi medi in Ticino nel 2026?": {
+    en: {
+      q: "What are the average salaries in Ticino in 2026?",
+      a: "Median salary in Ticino ranges from CHF 48,000–55,000 for entry-level retail/catering positions to CHF 125,000–200,000+ for senior roles in finance, pharma, and IT."
+    },
+    de: {
+      q: "Wie hoch sind die Durchschnittslöhne im Tessin 2026?",
+      a: "Der Medianlohn im Tessin reicht von CHF 48.000–55.000 für Einstiegspositionen im Handel/Gastronomie bis CHF 125.000–200.000+ für Seniorpositionen in Finanzen, Pharma und IT."
+    },
+    fr: {
+      q: "Quels sont les salaires moyens au Tessin en 2026 ?",
+      a: "Le salaire médian au Tessin va de CHF 48 000 à 55 000 pour les postes d'entrée dans le commerce/restauration à CHF 125 000 à 200 000+ pour les postes seniors en finance, pharma et informatique."
+    }
+  },
+
+  // ── Q86: IT worker salary ──
+  "Quanto guadagna un informatico frontaliere in Svizzera?": {
+    en: {
+      q: "How much does a cross-border IT worker earn in Switzerland?",
+      a: "A cross-border Software Developer in Ticino earns on average CHF 72,000 gross as a junior, CHF 95,000 as mid-level, and CHF 125,000+ as a senior."
+    },
+    de: {
+      q: "Wie viel verdient ein Informatik-Grenzgänger in der Schweiz?",
+      a: "Ein Grenzgänger-Softwareentwickler im Tessin verdient im Durchschnitt brutto CHF 72.000 als Junior, CHF 95.000 als Mid-Level und CHF 125.000+ als Senior."
+    },
+    fr: {
+      q: "Combien gagne un informaticien frontalier en Suisse ?",
+      a: "Un développeur logiciel frontalier au Tessin gagne en moyenne CHF 72 000 brut comme junior, CHF 95 000 comme intermédiaire et CHF 125 000+ comme senior."
+    }
+  },
+
+  // ── Q87: Economic convenience ──
+  "Conviene fare il frontaliere dal punto di vista economico?": {
+    en: {
+      q: "Is being a cross-border worker financially worthwhile?",
+      a: "In most sectors, cross-border workers earn 100% to 200% more than in Italy, even considering transport costs. With PPP adjustment, the advantage reduces to 30–80%."
+    },
+    de: {
+      q: "Lohnt es sich finanziell, Grenzgänger zu sein?",
+      a: "In den meisten Branchen verdienen Grenzgänger 100 % bis 200 % mehr als in Italien, selbst unter Berücksichtigung der Transportkosten. Mit Kaufkraftbereinigung reduziert sich der Vorteil auf 30–80 %."
+    },
+    fr: {
+      q: "Est-ce financièrement avantageux d'être frontalier ?",
+      a: "Dans la plupart des secteurs, les frontaliers gagnent 100 à 200 % de plus qu'en Italie, même en tenant compte des frais de transport. En parité de pouvoir d'achat, l'avantage se réduit à 30–80 %."
+    }
+  },
+
+  // ── Q88: Tax mechanism for G permit ──
+  "Come vengono tassati gli stipendi dei frontalieri?": {
+    en: {
+      q: "How are cross-border workers' salaries taxed?",
+      a: "G-permit cross-border workers pay withholding tax in Ticino (3–18%) plus Swiss social contributions. Under the New Agreement 2026, 80% of taxes remain in Switzerland."
+    },
+    de: {
+      q: "Wie werden die Löhne der Grenzgänger besteuert?",
+      a: "Grenzgänger mit G-Bewilligung zahlen Quellensteuer im Tessin (3–18 %) plus Schweizer Sozialabgaben. Gemäss dem neuen Abkommen 2026 verbleiben 80 % der Steuern in der Schweiz."
+    },
+    fr: {
+      q: "Comment les salaires des frontaliers sont-ils imposés ?",
+      a: "Les frontaliers avec permis G paient l'impôt à la source au Tessin (3 à 18 %) plus les cotisations sociales suisses. Selon le nouvel accord 2026, 80 % des impôts restent en Suisse."
+    }
+  },
+
+  // ── Q89: Highest paying sectors ──
+  "Quali settori pagano di più in Ticino?": {
+    en: {
+      q: "Which sectors pay the most in Ticino?",
+      a: "The highest-paying sectors are: Finance (senior median CHF 145,000), Consulting (CHF 150,000), Pharma (CHF 135,000), and IT (CHF 125,000)."
+    },
+    de: {
+      q: "Welche Branchen zahlen im Tessin am meisten?",
+      a: "Die bestbezahlten Branchen sind: Finanzen (Senior-Median CHF 145.000), Beratung (CHF 150.000), Pharma (CHF 135.000) und IT (CHF 125.000)."
+    },
+    fr: {
+      q: "Quels secteurs paient le plus au Tessin ?",
+      a: "Les secteurs les mieux rémunérés sont : Finance (médiane senior CHF 145 000), Conseil (CHF 150 000), Pharma (CHF 135 000) et Informatique (CHF 125 000)."
+    }
+  },
+
+  // ── Q90: Most in-demand roles ──
+  "Come vengono calcolati i ruoli piu richiesti in Ticino?": {
+    en: {
+      q: "How are the most in-demand roles in Ticino calculated?",
+      a: "The page uses the volume of active and published job listings on the Frontaliere Ticino job board to show the most dynamic roles, companies, and locations."
+    },
+    de: {
+      q: "Wie werden die am meisten nachgefragten Rollen im Tessin berechnet?",
+      a: "Die Seite nutzt das Volumen der aktiven und veröffentlichten Stellenanzeigen auf dem Job Board Frontaliere Ticino, um die dynamischsten Rollen, Unternehmen und Standorte darzustellen."
+    },
+    fr: {
+      q: "Comment les rôles les plus demandés au Tessin sont-ils calculés ?",
+      a: "La page utilise le volume d'offres d'emploi actives et publiées sur le job board Frontaliere Ticino pour montrer les rôles, entreprises et localités les plus dynamiques."
+    }
+  },
+
+  // ── Q91: Gross vs net salaries ──
+  "Gli stipendi mostrati sono netti o lordi?": {
+    en: {
+      q: "Are the salaries shown net or gross?",
+      a: "The observatory uses the annual gross salary ranges from job listings and calculates observed averages and medians for companies, locations, and roles."
+    },
+    de: {
+      q: "Sind die angezeigten Löhne netto oder brutto?",
+      a: "Das Observatorium nutzt die Brutto-Jahresgehaltsangaben aus den Stellenanzeigen und berechnet beobachtete Durchschnitte und Mediane für Unternehmen, Standorte und Rollen."
+    },
+    fr: {
+      q: "Les salaires affichés sont-ils nets ou bruts ?",
+      a: "L'observatoire utilise les fourchettes salariales annuelles brutes des offres d'emploi et calcule les moyennes et médianes observées par entreprise, localité et rôle."
+    }
+  },
+
+  // ── Q92: Observatory update frequency ──
+  "Con quale frequenza viene aggiornato l osservatorio?": {
+    en: {
+      q: "How often is the observatory updated?",
+      a: "The observatory is updated daily when the job board is regenerated with new listings, removals, and updates."
+    },
+    de: {
+      q: "Wie oft wird das Observatorium aktualisiert?",
+      a: "Das Observatorium wird täglich aktualisiert, wenn das Job Board mit neuen Anzeigen, Löschungen und Aktualisierungen regeneriert wird."
+    },
+    fr: {
+      q: "À quelle fréquence l'observatoire est-il mis à jour ?",
+      a: "L'observatoire est mis à jour quotidiennement lorsque le job board est régénéré avec les nouvelles annonces, suppressions et mises à jour."
+    }
+  },
+
+  // ── Q93: Fiscal rebates (ristorni) ──
+  "Cosa sono i ristorni fiscali per frontalieri?": {
+    en: {
+      q: "What are fiscal rebates (ristorni) for cross-border workers?",
+      a: "Fiscal rebates are compensations that Switzerland pays to Italy, equal to 40% of the withholding tax deducted from cross-border workers. These funds are distributed to the Italian municipalities where the workers reside to finance local services."
+    },
+    de: {
+      q: "Was sind die steuerlichen Rückvergütungen (Ristorni) für Grenzgänger?",
+      a: "Steuerliche Rückvergütungen sind Ausgleichszahlungen, die die Schweiz an Italien leistet, in Höhe von 40 % der Quellensteuer, die Grenzgängern abgezogen wird. Diese Mittel werden an die italienischen Wohnsitzgemeinden der Grenzgänger verteilt, um lokale Dienstleistungen zu finanzieren."
+    },
+    fr: {
+      q: "Que sont les rétrocessions fiscales (ristorni) pour les frontaliers ?",
+      a: "Les rétrocessions fiscales sont des compensations que la Suisse verse à l'Italie, égales à 40 % de l'impôt à la source prélevé aux frontaliers. Ces fonds sont distribués aux communes italiennes de résidence des travailleurs pour financer les services locaux."
+    }
+  },
+
+  // ── Q94: Who receives ristorni ──
+  "Chi riceve i ristorni fiscali?": {
+    en: {
+      q: "Who receives the fiscal rebates?",
+      a: "The rebates are paid to Italian municipalities located within 20 km of the Swiss border. The main beneficiary municipalities are in the provinces of Como, Varese, Verbano-Cusio-Ossola, and Sondrio."
+    },
+    de: {
+      q: "Wer erhält die steuerlichen Rückvergütungen?",
+      a: "Die Rückvergütungen werden an italienische Gemeinden innerhalb von 20 km zur Schweizer Grenze ausgezahlt. Die wichtigsten Empfängergemeinden liegen in den Provinzen Como, Varese, Verbano-Cusio-Ossola und Sondrio."
+    },
+    fr: {
+      q: "Qui reçoit les rétrocessions fiscales ?",
+      a: "Les rétrocessions sont versées aux communes italiennes situées dans un rayon de 20 km de la frontière suisse. Les principales communes bénéficiaires se trouvent dans les provinces de Côme, Varèse, Verbano-Cusio-Ossola et Sondrio."
+    }
+  },
+
+  // ── Q95: Ristorni amounts ──
+  "Quanto vale un ristorno fisale per comune?": {
+    en: {
+      q: "How much is a fiscal rebate worth per municipality?",
+      a: "The amount varies greatly: municipalities with many cross-border workers like Lavena Ponte Tresa, Porlezza, or Ponte Chiasso receive hundreds of thousands of euros, while smaller municipalities receive lower amounts. The annual total exceeds €90 million."
+    },
+    de: {
+      q: "Wie viel ist eine steuerliche Rückvergütung pro Gemeinde wert?",
+      a: "Der Betrag variiert stark: Gemeinden mit vielen Grenzgängern wie Lavena Ponte Tresa, Porlezza oder Ponte Chiasso erhalten Hunderttausende Euro, während kleinere Gemeinden geringere Beträge erhalten. Die Jahressumme übersteigt 90 Millionen Euro."
+    },
+    fr: {
+      q: "Combien vaut une rétrocession fiscale par commune ?",
+      a: "Le montant varie considérablement : les communes avec de nombreux frontaliers comme Lavena Ponte Tresa, Porlezza ou Ponte Chiasso reçoivent des centaines de milliers d'euros, tandis que les plus petites communes reçoivent des montants inférieurs. Le total annuel dépasse 90 millions d'euros."
+    }
+  },
+
+  // ── Q96: Ristorni under new agreement ──
+  "I ristorni continueranno con il nuovo accordo 2026?": {
+    en: {
+      q: "Will rebates continue under the new 2026 agreement?",
+      a: "Yes, but with a gradual reduction. Under the new agreement, Switzerland will retain 80% of the tax (instead of the current 61.5%). Italy will compensate municipalities with its own funds during the transitional period until 2033."
+    },
+    de: {
+      q: "Werden die Rückvergütungen mit dem neuen Abkommen 2026 fortgesetzt?",
+      a: "Ja, aber mit einer schrittweisen Reduzierung. Nach dem neuen Abkommen behält die Schweiz 80 % der Steuer (statt bisher 61,5 %). Italien wird die Gemeinden während der Übergangszeit bis 2033 mit eigenen Mitteln entschädigen."
+    },
+    fr: {
+      q: "Les rétrocessions continueront-elles avec le nouvel accord 2026 ?",
+      a: "Oui, mais avec une réduction progressive. Selon le nouvel accord, la Suisse retiendra 80 % de l'impôt (au lieu de 61,5 % actuellement). L'Italie compensera les communes avec ses propres fonds pendant la période transitoire jusqu'en 2033."
+    }
+  },
+
+  // ── Q97: Check ristorni per municipality ──
+  "Come posso sapere quanto riceve il mio comune dai ristorni?": {
+    en: {
+      q: "How can I find out how much my municipality receives from rebates?",
+      a: "Our page shows the historical rebate data for each Italian border municipality. Data is updated annually based on official communications between the two states."
+    },
+    de: {
+      q: "Wie kann ich erfahren, wie viel meine Gemeinde aus den Rückvergütungen erhält?",
+      a: "Unsere Seite zeigt die historischen Rückvergütungsdaten für jede italienische Grenzgemeinde. Die Daten werden jährlich anhand der offiziellen Mitteilungen zwischen den beiden Staaten aktualisiert."
+    },
+    fr: {
+      q: "Comment puis-je savoir combien ma commune reçoit des rétrocessions ?",
+      a: "Notre page affiche les données historiques des rétrocessions pour chaque commune italienne frontalière. Les données sont mises à jour annuellement sur la base des communications officielles entre les deux États."
+    }
+  },
+
+  // ── Q98: NASpI application deadline ──
+  "Entro quando va presentata la domanda NASpI per un ex frontaliere?": {
+    en: {
+      q: "By when must the NASpI application be submitted for a former cross-border worker?",
+      a: "The application must be submitted to INPS within 68 days of the end of the employment relationship. The sooner the application is submitted, the sooner the benefit starts."
+    },
+    de: {
+      q: "Bis wann muss der NASpI-Antrag für einen ehemaligen Grenzgänger eingereicht werden?",
+      a: "Der Antrag muss innerhalb von 68 Tagen nach Beendigung des Arbeitsverhältnisses beim INPS eingereicht werden. Je früher der Antrag gestellt wird, desto früher beginnt die Leistung."
+    },
+    fr: {
+      q: "Avant quand faut-il déposer la demande NASpI pour un ancien frontalier ?",
+      a: "La demande doit être déposée auprès de l'INPS dans les 68 jours suivant la fin du contrat de travail. Plus la demande est soumise tôt, plus la prestation commence rapidement."
+    }
+  },
+
+  // ── Q99: Documents for ex-frontaliere ──
+  "Quali documenti servono di solito a un ex frontaliere?": {
+    en: {
+      q: "What documents does a former cross-border worker usually need?",
+      a: "Typically needed: identity document, IBAN, termination letter, payslips, employment contract, and documents useful for reconstructing the contribution history between Switzerland and Italy."
+    },
+    de: {
+      q: "Welche Dokumente benötigt ein ehemaliger Grenzgänger in der Regel?",
+      a: "In der Regel benötigt werden: Ausweisdokument, IBAN, Kündigungsschreiben, Lohnabrechnungen, Arbeitsvertrag und Dokumente zur Rekonstruktion der Beitragszeit zwischen der Schweiz und Italien."
+    },
+    fr: {
+      q: "Quels documents faut-il habituellement pour un ancien frontalier ?",
+      a: "Généralement nécessaires : pièce d'identité, IBAN, lettre de cessation, bulletins de salaire, contrat de travail et documents utiles pour reconstituer l'historique de cotisation entre la Suisse et l'Italie."
+    }
+  },
+
+  // ── Q100: NASpI vs Swiss unemployment ──
+  "La NASpI e uguale alla disoccupazione svizzera?": {
+    en: {
+      q: "Is NASpI the same as Swiss unemployment?",
+      a: "No. NASpI is an Italian benefit with different rules, amounts, and duration from Swiss unemployment insurance. For former cross-border workers, the transition from one system to the other significantly changes the expected monthly amount."
+    },
+    de: {
+      q: "Ist die NASpI dasselbe wie die Schweizer Arbeitslosenversicherung?",
+      a: "Nein. Die NASpI ist eine italienische Leistung mit anderen Regeln, Beträgen und Dauer als die Schweizer Arbeitslosenversicherung. Für ehemalige Grenzgänger ändert der Wechsel von einem System zum anderen den erwarteten monatlichen Betrag erheblich."
+    },
+    fr: {
+      q: "La NASpI est-elle identique au chômage suisse ?",
+      a: "Non. La NASpI est une prestation italienne avec des règles, des montants et une durée différents de l'assurance chômage suisse. Pour les anciens frontaliers, le passage d'un système à l'autre modifie considérablement le montant mensuel attendu."
+    }
+  },
+
+  // ── Q101: Pension calculation (general) ──
+  "Come si calcola la pensione di un frontaliere?": {
+    en: {
+      q: "How is a cross-border worker's pension calculated?",
+      a: "A cross-border worker's pension has 3 components: Swiss AVS (1st pillar, max CHF 2,520/month with 44 years of contributions), LPP (2nd pillar, depends on accumulated contributions), and Italian INPS (for years worked in Italy). The Swiss and Italian contribution periods can be totalized."
+    },
+    de: {
+      q: "Wie wird die Rente eines Grenzgängers berechnet?",
+      a: "Die Rente eines Grenzgängers hat 3 Komponenten: Schweizer AHV (1. Säule, max. CHF 2.520/Monat bei 44 Beitragsjahren), BVG (2. Säule, abhängig von den angesammelten Beiträgen) und italienische INPS (für in Italien gearbeitete Jahre). Die Schweizer und italienischen Beitragszeiten können zusammengerechnet werden."
+    },
+    fr: {
+      q: "Comment est calculée la retraite d'un frontalier ?",
+      a: "La retraite d'un frontalier comporte 3 composantes : l'AVS suisse (1er pilier, max CHF 2 520/mois avec 44 ans de cotisations), la LPP (2e pilier, selon les cotisations accumulées) et l'INPS italienne (pour les années travaillées en Italie). Les périodes de cotisation suisses et italiennes peuvent être totalisées."
+    }
+  },
+
+  // ── Q102: Failure to declare Swiss income ──
+  "Cosa succede se non dichiaro il reddito svizzero in Italia?": {
+    en: {
+      q: "What happens if I don't declare my Swiss income in Italy?",
+      a: "Failure to declare foreign income carries penalties of 120% to 240% of the tax owed, plus default interest. For RW form violations (Swiss account monitoring), the penalty ranges from 3% to 15% of the undeclared amounts. Voluntary compliance reduces penalties significantly."
+    },
+    de: {
+      q: "Was passiert, wenn ich das Schweizer Einkommen in Italien nicht deklariere?",
+      a: "Die Nichtdeklaration ausländischer Einkünfte wird mit Strafen von 120 % bis 240 % der geschuldeten Steuer belegt, zuzüglich Verzugszinsen. Bei Verstössen gegen das RW-Formular (Überwachung des Schweizer Kontos) beträgt die Strafe 3 % bis 15 % der nicht deklarierten Beträge. Freiwillige Offenlegung reduziert die Strafen erheblich."
+    },
+    fr: {
+      q: "Que se passe-t-il si je ne déclare pas mes revenus suisses en Italie ?",
+      a: "Le défaut de déclaration des revenus étrangers entraîne des pénalités de 120 % à 240 % de l'impôt dû, plus intérêts de retard. Pour les violations du formulaire RW (surveillance du compte suisse), la sanction va de 3 % à 15 % des montants non déclarés. La régularisation spontanée réduit considérablement les pénalités."
+    }
+  },
+
+  // ── Q103: Tax table vs municipality ──
+  "La tabella dipende dal Comune italiano di residenza?": {
+    en: {
+      q: "Does the tax table depend on the Italian municipality of residence?",
+      a: "No. The Swiss withholding tax table depends mainly on marital status and number of children. The Italian municipality matters for Italian taxation, not for the Ticino withholding tax class."
+    },
+    de: {
+      q: "Hängt die Steuertabelle von der italienischen Wohngemeinde ab?",
+      a: "Nein. Die Schweizer Quellensteuertabelle hängt hauptsächlich vom Zivilstand und der Kinderzahl ab. Die italienische Gemeinde ist für die italienische Besteuerung relevant, nicht für die Tessiner Quellensteuerklasse."
+    },
+    fr: {
+      q: "Le barème dépend-il de la commune italienne de résidence ?",
+      a: "Non. Le barème de l'impôt à la source suisse dépend principalement de l'état civil et du nombre d'enfants. La commune italienne compte pour la fiscalité italienne, pas pour la classe d'impôt à la source tessinoise."
+    }
+  },
+
+  // ── Q104: Payslip vs simulator discrepancy ──
+  "Perche la percentuale in busta paga puo differire dal simulatore?": {
+    en: {
+      q: "Why can the tax percentage on the payslip differ from the simulator?",
+      a: "The most common causes are: wrong tax table applied, children not registered, 13th salary effects, bonuses, pay period differences, or discrepancies between the annual gross and the monthly gross used by payroll."
+    },
+    de: {
+      q: "Warum kann der Steuerprozentsatz auf der Lohnabrechnung vom Simulator abweichen?",
+      a: "Die häufigsten Ursachen sind: falsche Steuertabelle angewendet, Kinder nicht registriert, 13. Monatsgehaltseffekte, Boni, Unterschiede in der Lohnperiode oder Abweichungen zwischen dem Jahresbrutto und dem vom Payroll verwendeten Monatsbrutto."
+    },
+    fr: {
+      q: "Pourquoi le pourcentage d'impôt sur la fiche de paie peut-il différer du simulateur ?",
+      a: "Les causes les plus fréquentes sont : mauvais barème appliqué, enfants non enregistrés, effets du 13e salaire, bonus, différences de période de paie ou écarts entre le brut annuel et le brut mensuel utilisé par le service paie."
+    }
+  },
+
+  // ── Landing page FAQ: SALARY_LANDING_FAQ_SCHEMA (seo-landing.ts) ──────
+  "Come si calcola lo stipendio netto di un frontaliere in Ticino?": {
+    en: {
+      q: "How is a cross-border worker's net salary calculated in Ticino?",
+      a: "The net salary depends on Swiss social contributions (AVS/AI/IPG, AC, LPP) and withholding tax in Ticino, plus IRPEF and tax credit in Italy (2026 new agreement)."
+    },
+    de: {
+      q: "Wie wird das Nettogehalt eines Grenzgängers im Tessin berechnet?",
+      a: "Das Nettogehalt hängt von den Schweizer Sozialabgaben (AHV/IV/EO, ALV, BVG) und der Quellensteuer im Tessin ab, sowie von der IRPEF und der Steueranrechnung in Italien (neues Abkommen 2026)."
+    },
+    fr: {
+      q: "Comment calcule-t-on le salaire net d'un frontalier au Tessin ?",
+      a: "Le salaire net dépend des cotisations sociales suisses (AVS/AI/APG, AC, LPP) et de l'impôt à la source au Tessin, ainsi que de l'IRPEF et du crédit d'impôt en Italie (nouvel accord 2026)."
+    }
+  },
+  "Che differenza c'è tra vecchio e nuovo frontaliere (accordo 2026)?": {
+    en: {
+      q: "What is the difference between old and new cross-border workers (2026 agreement)?",
+      a: "New cross-border workers (hired after 17/07/2023) have mixed taxation with an exemption and tax credit; old cross-border workers remain under the historical regime with different rules."
+    },
+    de: {
+      q: "Was ist der Unterschied zwischen alten und neuen Grenzgängern (Abkommen 2026)?",
+      a: "Neue Grenzgänger (ab 17.07.2023 eingestellt) haben eine gemischte Besteuerung mit Freibetrag und Steueranrechnung; alte Grenzgänger bleiben im historischen Regime mit anderen Regeln."
+    },
+    fr: {
+      q: "Quelle est la différence entre ancien et nouveau frontalier (accord 2026) ?",
+      a: "Les nouveaux frontaliers (embauchés après le 17/07/2023) ont une imposition mixte avec franchise et crédit d'impôt ; les anciens frontaliers restent sous le régime historique avec des règles différentes."
+    }
+  },
+  "Il numero di figli influisce sul netto?": {
+    en: {
+      q: "Does the number of children affect the net salary?",
+      a: "Yes: it can affect deductions/rates and the withholding tax bracket, as well as family allowances and tax deductions."
+    },
+    de: {
+      q: "Beeinflusst die Anzahl der Kinder das Nettogehalt?",
+      a: "Ja: Sie kann sich auf Abzüge/Steuersätze und die Quellensteuertabelle auswirken, ebenso auf Familienzulagen und Steuerabzüge."
+    },
+    fr: {
+      q: "Le nombre d'enfants influence-t-il le salaire net ?",
+      a: "Oui : il peut influencer les déductions/taux et le barème d'impôt à la source, ainsi que les allocations familiales et les déductions fiscales."
+    }
+  },
+  "Quali parametri contano di più nella simulazione?": {
+    en: {
+      q: "Which parameters matter most in the simulation?",
+      a: "Annual income, marital status, children, distance/residence (within/over 20 km), cross-border worker type, age (LPP) and CHF/EUR exchange rate."
+    },
+    de: {
+      q: "Welche Parameter sind bei der Simulation am wichtigsten?",
+      a: "Jahreseinkommen, Familienstand, Kinder, Entfernung/Wohnsitz (innerhalb/über 20 km), Grenzgängertyp, Alter (BVG) und CHF/EUR-Wechselkurs."
+    },
+    fr: {
+      q: "Quels paramètres comptent le plus dans la simulation ?",
+      a: "Revenu annuel, état civil, enfants, distance/résidence (dans/au-delà de 20 km), type de frontalier, âge (LPP) et taux de change CHF/EUR."
+    }
+  },
+  "Il simulatore considera il cambio CHF/EUR?": {
+    en: {
+      q: "Does the simulator consider the CHF/EUR exchange rate?",
+      a: "Yes: you can use the automatic rate or set a custom exchange rate to estimate taxes and net salary also in EUR."
+    },
+    de: {
+      q: "Berücksichtigt der Simulator den CHF/EUR-Wechselkurs?",
+      a: "Ja: Sie können den automatischen Kurs verwenden oder einen individuellen Wechselkurs einstellen, um Steuern und Nettogehalt auch in EUR zu berechnen."
+    },
+    fr: {
+      q: "Le simulateur tient-il compte du taux de change CHF/EUR ?",
+      a: "Oui : vous pouvez utiliser le taux automatique ou définir un taux de change personnalisé pour estimer les impôts et le salaire net aussi en EUR."
+    }
+  },
+  "I risultati sono una consulenza fiscale?": {
+    en: {
+      q: "Are the results professional tax advice?",
+      a: "No: it is an informational estimate based on known parameters and tables. For complex cases, it is advisable to verify with a professional."
+    },
+    de: {
+      q: "Sind die Ergebnisse eine Steuerberatung?",
+      a: "Nein: Es handelt sich um eine informative Schätzung auf der Grundlage bekannter Parameter und Tabellen. Bei komplexen Fällen empfiehlt sich die Überprüfung durch einen Fachmann."
+    },
+    fr: {
+      q: "Les résultats constituent-ils un conseil fiscal ?",
+      a: "Non : il s'agit d'une estimation informative basée sur des paramètres et des barèmes connus. Pour les cas complexes, il est conseillé de vérifier avec un professionnel."
+    }
+  },
+
+  // ── Landing page FAQ: nuovi frontalieri oltre 20 km (seo-landing.ts) ──
+  "Chi rientra tra i nuovi frontalieri oltre 20 km?": {
+    en: {
+      q: "Who qualifies as a new cross-border worker beyond 20 km?",
+      a: "This applies to anyone who started a cross-border employment relationship from 17 July 2023 onwards and resides in an Italian municipality more than 20 km from the Swiss border."
+    },
+    de: {
+      q: "Wer zählt zu den neuen Grenzgängern über 20 km?",
+      a: "Dies betrifft alle, die ab dem 17. Juli 2023 ein Grenzgänger-Arbeitsverhältnis begonnen haben und in einer italienischen Gemeinde wohnen, die mehr als 20 km von der Schweizer Grenze entfernt ist."
+    },
+    fr: {
+      q: "Qui fait partie des nouveaux frontaliers au-delà de 20 km ?",
+      a: "Cela concerne toute personne ayant commencé une relation de travail transfrontalière à partir du 17 juillet 2023 et résidant dans une commune italienne à plus de 20 km de la frontière suisse."
+    }
+  },
+  "Cosa cambia rispetto a chi vive entro 20 km?": {
+    en: {
+      q: "What changes compared to those living within 20 km?",
+      a: "For new cross-border workers beyond 20 km, the tax is fully withheld in Switzerland, while within 20 km Switzerland withholds 80% and Italy taxes the income with a credit for taxes already paid."
+    },
+    de: {
+      q: "Was ändert sich im Vergleich zu denjenigen, die innerhalb von 20 km wohnen?",
+      a: "Bei neuen Grenzgängern über 20 km wird die Steuer vollständig in der Schweiz einbehalten, während innerhalb von 20 km die Schweiz 80 % einbehält und Italien das Einkommen mit Anrechnung der bereits gezahlten Steuern besteuert."
+    },
+    fr: {
+      q: "Qu'est-ce qui change par rapport à ceux qui habitent dans les 20 km ?",
+      a: "Pour les nouveaux frontaliers au-delà de 20 km, l'impôt est intégralement retenu en Suisse, tandis qu'en deçà de 20 km la Suisse retient 80 % et l'Italie impose le revenu avec un crédit pour les impôts déjà payés."
+    }
+  },
+  "Questa pagina sostituisce la consulenza fiscale?": {
+    en: {
+      q: "Does this page replace professional tax advice?",
+      a: "No. The page helps understand scenarios and orders of magnitude, but for specific cases it is advisable to verify with a tax professional specializing in cross-border workers."
+    },
+    de: {
+      q: "Ersetzt diese Seite die steuerliche Beratung?",
+      a: "Nein. Die Seite hilft, Szenarien und Größenordnungen zu verstehen, aber bei besonderen Fällen empfiehlt sich eine Überprüfung durch einen auf Grenzgänger spezialisierten Steuerfachmann."
+    },
+    fr: {
+      q: "Cette page remplace-t-elle le conseil fiscal ?",
+      a: "Non. La page aide à comprendre les scénarios et les ordres de grandeur, mais pour les cas particuliers il est conseillé de vérifier avec un professionnel fiscal spécialisé dans les frontaliers."
+    }
+  }
+};
+
+/**
+ * Look up a FAQ translation by Italian question text.
+ * Returns undefined if no translation exists for the given question.
+ */
+export function getFaqTranslation(
+  italianQuestion: string,
+  locale: 'en' | 'de' | 'fr'
+): FaqTranslation | undefined {
+  const entry = FAQ_TRANSLATIONS[italianQuestion];
+  return entry?.[locale];
+}
+
+/**
+ * Translate an entire FAQPage structured data object for a given locale.
+ * Mutates the clone in place. If no translation is found for a Q&A pair, it stays in Italian.
+ */
+export function translateFaqPage(
+  faqPage: Record<string, any>,
+  locale: 'en' | 'de' | 'fr'
+): void {
+  if (!Array.isArray(faqPage.mainEntity)) return;
+  for (const item of faqPage.mainEntity) {
+    if (item['@type'] !== 'Question' || !item.name) continue;
+    const translation = getFaqTranslation(item.name, locale);
+    if (translation) {
+      item.name = translation.q;
+      if (item.acceptedAnswer?.text) {
+        item.acceptedAnswer.text = translation.a;
+      }
+    }
+  }
+}

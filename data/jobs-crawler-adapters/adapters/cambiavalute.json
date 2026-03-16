@@ -1,0 +1,28 @@
+{
+  "companyKey": "cambiavalute",
+  "companyName": "CambiaValute.ch",
+  "companyHost": "cambiavalute.ch",
+  "enabled": true,
+  "priority": 10,
+  "crawlerModes": [
+    "html",
+    "jsonld"
+  ],
+  "seedUrls": [
+    "https://cambiavalute.ch/annuncio-di-lavoro/senior-backend-developer/"
+  ],
+  "seedDetailUrls": [
+    "https://cambiavalute.ch/annuncio-di-lavoro/senior-backend-developer/"
+  ],
+  "seedMetaByUrl": {
+    "https://cambiavalute.ch/annuncio-di-lavoro/senior-backend-developer/": {
+      "location": "Chiasso",
+      "canton": "TI",
+      "country": "CH",
+      "company": "CambiaValute.ch",
+      "companyDomain": "cambiavalute.ch"
+    }
+  },
+  "notes": "Dedicated CambiaValute.ch crawler — discovers job listings from cambiavalute.ch/annunci-di-lavoro/ and extracts detail page URLs under /annuncio-di-lavoro/{slug}/.",
+  "updatedAt": "2026-03-16T05:29:25.088Z"
+}

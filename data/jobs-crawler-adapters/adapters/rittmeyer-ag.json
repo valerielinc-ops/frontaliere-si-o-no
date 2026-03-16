@@ -1,0 +1,23 @@
+{
+  "companyKey": "rittmeyer-ag",
+  "companyName": "Rittmeyer AG",
+  "companyHost": "karriere.rittmeyer.com",
+  "enabled": true,
+  "priority": 14,
+  "crawlerModes": [
+    "html"
+  ],
+  "seedUrls": [
+    "https://karriere.rittmeyer.com/offene-stellen/?suche=&location=23&country=1"
+  ],
+  "notes": "Dedicated Rittmeyer crawler parses the Rittmeyer careers page and keeps the Ticino vacancy exposed on the filtered public listing.",
+  "updatedAt": "2026-03-10T18:43:49.151Z",
+  "seedMetaByUrl": {
+    "https://karriere.rittmeyer.com/offene-stellen/sales-project-engineer-a-ticino/": {
+      "location": "Camorino",
+      "canton": "TI",
+      "company": "Rittmeyer AG",
+      "postedDate": "2026-03-10"
+    }
+  }
+}

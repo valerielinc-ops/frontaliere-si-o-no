@@ -1,0 +1,66 @@
+name: Update Switzerland Unemployment Rate
+
+on:
+  schedule:
+    - cron: '45 5 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+
+      - name: Update unemployment dataset
+        run: node scripts/update-switzerland-unemployment-rate.mjs
+
+      - name: Check for changes
+        id: changes
+        run: |
+          if git diff --quiet -- public/data/switzerland-unemployment-rate.json; then
+            echo "has_changes=false" >> $GITHUB_OUTPUT
+            echo "ℹ️ No changes in unemployment dataset."
+          else
+            echo "has_changes=true" >> $GITHUB_OUTPUT
+            echo "📊 Unemployment data updated"
+          fi
+
+      - name: Commit and push changes
+        if: steps.changes.outputs.has_changes == 'true'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          # Rebase if remote advanced while we ran
+          git fetch origin main
+          LOCAL=$(git rev-parse HEAD)
+          REMOTE=$(git rev-parse origin/main)
+          if [ "$LOCAL" != "$REMOTE" ]; then
+            echo "⚠️ Remote updated — rebasing..."
+            if ! git pull --rebase origin main; then
+              git rebase --abort || true
+              echo "⚠️ Rebase conflict — defer to next run"
+              exit 0
+            fi
+          fi
+
+          git add public/data/switzerland-unemployment-rate.json
+          git commit -m "chore(data): sync Switzerland unemployment rate (SECO)"
+          git push origin main
+
+          # GITHUB_TOKEN pushes don't trigger other workflows — trigger deploy manually
+          bash scripts/lib/trigger-deploy.sh || true
+

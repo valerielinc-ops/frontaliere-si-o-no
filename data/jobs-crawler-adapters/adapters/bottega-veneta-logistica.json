@@ -1,0 +1,22 @@
+{
+  "companyKey": "bottega-veneta-logistica",
+  "companyName": "Bottega Veneta (logistica)",
+  "companyHost": "bottegaveneta.com",
+  "enabled": true,
+  "priority": 0,
+  "crawlerModes": [
+    "generic_ats",
+    "html",
+    "jsonld"
+  ],
+  "seedUrls": [
+    "https://www.bottegaveneta.com/careers",
+    "https://www.bottegaveneta.com/career",
+    "https://www.bottegaveneta.com/jobs",
+    "https://www.bottegaveneta.com/karriere",
+    "https://www.bottegaveneta.com/offene-stellen",
+    "https://www.bottegaveneta.com/lavora-con-noi"
+  ],
+  "notes": "",
+  "updatedAt": "2026-02-27T17:06:06.929Z"
+}

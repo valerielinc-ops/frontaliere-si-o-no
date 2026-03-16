@@ -1,0 +1,48 @@
+name: Preview Firebase Hosting on PR
+on:
+  pull_request:
+permissions:
+  checks: write
+  contents: read
+  pull-requests: write
+concurrency:
+  group: deploy-firebase-hosting-preview-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+jobs:
+  build_and_preview:
+    if: ${{ github.event.pull_request.head.repo.full_name == github.repository }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - run: npm ci
+
+      - name: Prepare Firebase credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_FRONTALIERE_TICINO }}
+        run: |
+          if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+            echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+          fi
+
+      - run: node scripts/load-rc-env.mjs
+
+      - run: npm run validate:crawler-summaries
+      - run: npm run validate:third-party-secrets
+
+      - name: Build
+        env:
+          NODE_OPTIONS: '--max-old-space-size=4096'
+        run: npm run build
+
+      - uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: ${{ secrets.GITHUB_TOKEN }}
+          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_FRONTALIERE_TICINO }}
+          projectId: frontaliere-ticino

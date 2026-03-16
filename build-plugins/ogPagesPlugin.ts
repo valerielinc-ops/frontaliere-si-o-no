@@ -1,0 +1,456 @@
+/**
+ * Generate OG landing pages for blog articles.
+ *
+ * For every blog article in seo-blog.ts, writes a full static HTML page
+ * with OG/Twitter meta, hreflang alternates, JSON-LD (Article / NewsArticle),
+ * article body text, and the SPA entry bundle so the page hydrates into
+ * the React app on load.
+ */
+
+import path from 'path';
+import type { Plugin } from 'vite';
+import { BASE_URL, buildFlatRedirect, type FlatRedirectOgMeta } from './constants';
+import { buildArticleSeoSections, cleanupArticleBodySections } from './articleSeoFallback';
+
+export function ogPagesPlugin(rootDir: string): Plugin {
+  return {
+    name: 'og-pages',
+    apply: 'build',
+    async closeBundle() {
+      const fs = await import('node:fs');
+      const np = await import('node:path');
+
+      const distDir  = np.resolve(rootDir, 'dist');
+      const DEFAULT_IMG = '/og-image.png';
+      const blogImageById: Record<string, string> = {};
+
+      // Source of truth fallback for article images (kept in BlogArticles list)
+      try {
+        const blogSrc = fs.readFileSync(np.resolve(rootDir, 'components/community/BlogArticles.tsx'), 'utf-8');
+        const re = /\{\s*id:\s*'([^']+)'\s*,[\s\S]*?\bimage:\s*'([^']+)'/g;
+        let m: RegExpExecArray | null;
+        while ((m = re.exec(blogSrc)) !== null) {
+          blogImageById[m[1]] = m[2];
+        }
+      } catch { /* non-fatal */ }
+
+      const resolveImagePath = (candidate: string, articleId: string): string => {
+        const norm = (p: string) => (p.startsWith('/') ? p : `/${p}`).replace(/\/+/g, '/');
+        const fileExists = (publicPath: string) => fs.existsSync(np.join(distDir, publicPath.replace(/^\/+/, '')));
+        const fromSameBase = (p: string): string | null => {
+          const ext = np.extname(p);
+          const base = ext ? p.slice(0, -ext.length) : p;
+          for (const e of ['.jpg', '.jpeg', '.png', '.webp', '.avif']) {
+            const alt = `${base}${e}`;
+            if (fileExists(alt)) return alt;
+          }
+          return null;
+        };
+
+        const direct = norm(candidate || '');
+        if (direct && fileExists(direct)) return direct;
+        const altFromCandidate = direct ? fromSameBase(direct) : null;
+        if (altFromCandidate) return altFromCandidate;
+
+        const fromList = norm(blogImageById[articleId] || '');
+        if (fromList && fileExists(fromList)) return fromList;
+        const altFromList = fromList ? fromSameBase(fromList) : null;
+        if (altFromList) return altFromList;
+
+        return DEFAULT_IMG;
+      };
+
+      /* ── 1. Parse blog SEO entries from seo-blog.ts chunks ─────── */
+      let seoSrc: string;
+      try {
+        seoSrc = fs.readFileSync(np.resolve(rootDir, 'services/seo/seo-blog.ts'), 'utf-8');
+        try {
+          seoSrc += '\n' + fs.readFileSync(np.resolve(rootDir, 'services/seo/seo-blog-2.ts'), 'utf-8');
+        } catch { /* seo-blog-2 may not exist yet */ }
+      } catch {
+        try {
+          seoSrc = fs.readFileSync(np.resolve(rootDir, 'services/seoService.ts'), 'utf-8');
+        } catch {
+          console.warn('[og-pages] Could not read seo-blog.ts or seoService.ts — skipping');
+          return;
+        }
+      }
+
+      interface Entry {
+        key: string;
+        articleId: string;
+        title: string;
+        desc: string;
+        keywords: string;
+        ogT: string;
+        ogD: string;
+        path: string;
+        img: string;
+        datePub: string;
+        dateMod: string;
+      }
+      const entries: Entry[] = [];
+
+      const keyRx = /'(blog-[^']+)':\s*\{/g;
+      let km: RegExpExecArray | null;
+      const pos: { key: string; start: number }[] = [];
+      while ((km = keyRx.exec(seoSrc)) !== null) pos.push({ key: km[1], start: km.index });
+
+      for (let i = 0; i < pos.length; i++) {
+        const s = pos[i].start;
+        const key = pos[i].key;
+        const articleId = key.replace(/^blog-/, '');
+        const e = i + 1 < pos.length ? pos[i + 1].start : Math.min(s + 3000, seoSrc.length);
+        const b = seoSrc.substring(s, e);
+
+        const matchStr = (key: string, flags = ''): string => {
+          const rx = new RegExp(`${key}:\\s*'((?:[^'\\\\]|\\\\.)*)'`, flags);
+          return b.match(rx)?.[1]?.replace(/\\(.)/g, (_: string, c: string) => c === 'n' ? ' ' : c === 'r' ? '' : c === 't' ? ' ' : c) ?? '';
+        };
+        const title = matchStr('title', 'm') || '';
+        const desc  = matchStr('description', 'm') || '';
+        const keywords = matchStr('keywords', 'm') || '';
+        const ogT   = matchStr('ogTitle') || title;
+        const ogD   = matchStr('ogDescription') || desc;
+        const cp    = b.match(/canonicalPath:\s*'([^']+)'/)?.[1] ?? '';
+        const imRaw = b.match(/\/images\/[^'"`\s,}]+/)?.[0] ?? DEFAULT_IMG;
+        const im = resolveImagePath(imRaw, articleId);
+        const datePub = b.match(/"datePublished":\s*"([^"]+)"/)?.[1] ?? '';
+        const dateMod = b.match(/"dateModified":\s*"([^"]+)"/)?.[1] ?? '';
+
+        if (cp.startsWith('/articoli-frontaliere/')) {
+          entries.push({ key, articleId, title, desc, keywords, ogT, ogD, path: cp, img: im, datePub, dateMod });
+        }
+      }
+
+      if (!entries.length) { console.warn('[og-pages] No blog entries found'); return; }
+
+      /* ── 2. Parse blog slug map + blog index slugs from router.ts ── */
+      // BLOG_SLUGS: Record<BlogArticleId, { it, en, de, fr }> — flat lookup
+      const blogSlugs: Record<string, Record<string, string>> = {};
+      // Blog index slug per locale (e.g. 'articoli-frontaliere')
+      const blogIndexSlug: Record<string, string> = {};
+      try {
+        const rSrc = fs.readFileSync(np.resolve(rootDir, 'services/routerBlogData.ts'), 'utf-8');
+        // Parse BLOG_SLUGS map
+        const bsBlock = rSrc.match(/const BLOG_SLUGS[\s\S]*?\n\};/m)?.[0] ?? '';
+        const bsRx = /'([^']+)':\s*\{\s*it:\s*'([^']+)',\s*en:\s*'([^']+)',\s*de:\s*'([^']+)',\s*fr:\s*'([^']+)'/g;
+        let bm: RegExpExecArray | null;
+        while ((bm = bsRx.exec(bsBlock)) !== null) {
+          blogSlugs[bm[1]] = { it: bm[2], en: bm[3], de: bm[4], fr: bm[5] };
+        }
+        // Parse blog index slug from SLUG_TABLES (just the 'blog:' entry per locale)
+        const stBlock = rSrc.match(/const SLUG_TABLES[\s\S]*?^};/m)?.[0] ?? '';
+        for (const loc of ['it', 'en', 'de', 'fr']) {
+          const lm = stBlock.match(new RegExp(`  ${loc}: \\{([\\s\\S]*?)\\n  \\}`, 'm'));
+          if (!lm) continue;
+          const bm2 = lm[1].match(/\bblog:\s*'([^']+)'/);
+          if (bm2) blogIndexSlug[loc] = bm2[1];
+        }
+      } catch { /* hreflang will be omitted */ }
+
+      const unescapeTsString = (value: string): string =>
+        value
+          .replace(/\\'/g, '\'')
+          .replace(/\\"/g, '"')
+          .replace(/\\n/g, ' ')
+          .replace(/\\r/g, '')
+          .replace(/\\t/g, ' ')
+          .replace(/\\\\/g, '\\');
+
+      const parseBlogMetaLocale = (locale: 'en' | 'de' | 'fr') => {
+        const out: Record<string, { title?: string; excerpt?: string; imageAlt?: string }> = {};
+        const p = np.resolve(rootDir, `services/locales/blog-meta-${locale}.ts`);
+        let src = '';
+        try { src = fs.readFileSync(p, 'utf-8'); } catch { return out; }
+        const rx = /'blog\.article\.([^']+)\.(title|excerpt|imageAlt)'\s*:\s*'((?:[^'\\]|\\.)*)'/g;
+        let m: RegExpExecArray | null;
+        while ((m = rx.exec(src)) !== null) {
+          const articleId = m[1];
+          const field = m[2] as 'title' | 'excerpt' | 'imageAlt';
+          const value = unescapeTsString(m[3]);
+          if (!out[articleId]) out[articleId] = {};
+          out[articleId][field] = value;
+        }
+        return out;
+      };
+
+      const parseBlogBodyLocale = (locale: 'it' | 'en' | 'de' | 'fr') => {
+        const out: Record<string, { body1?: string; body2?: string; body3?: string }> = {};
+        const dir = np.resolve(rootDir, 'services', 'locales', 'blog-body', locale);
+        let files: string[] = [];
+        try { files = fs.readdirSync(dir); } catch { return out; }
+        const rx = /'blog\.article\.([^']+)\.(body1|body2|body3)'\s*:\s*'((?:[^'\\]|\\.)*)'/g;
+        for (const file of files) {
+          if (!file.endsWith('.ts')) continue;
+          let src = '';
+          try { src = fs.readFileSync(np.join(dir, file), 'utf-8'); } catch { continue; }
+          let m: RegExpExecArray | null;
+          while ((m = rx.exec(src)) !== null) {
+            const articleId = m[1];
+            const field = m[2] as 'body1' | 'body2' | 'body3';
+            const value = unescapeTsString(m[3]);
+            if (!out[articleId]) out[articleId] = {};
+            out[articleId][field] = value;
+          }
+        }
+        return out;
+      };
+
+      const blogMetaByLocale = {
+        en: parseBlogMetaLocale('en'),
+        de: parseBlogMetaLocale('de'),
+        fr: parseBlogMetaLocale('fr'),
+      } as const;
+
+      const blogBodyByLocale = {
+        it: parseBlogBodyLocale('it'),
+        en: parseBlogBodyLocale('en'),
+        de: parseBlogBodyLocale('de'),
+        fr: parseBlogBodyLocale('fr'),
+      } as const;
+
+      const normalizeDateTime = (value: string): string => {
+        if (!value) return value;
+        if (/(Z|[+-]\d{2}:\d{2})$/.test(value)) return value;
+        if (/^\d{4}-\d{2}-\d{2}$/.test(value)) return `${value}T00:00:00+01:00`;
+        if (/^\d{4}-\d{2}-\d{2}T/.test(value)) return `${value}+01:00`;
+        return value;
+      };
+
+      /* ── 3. Write OG landing pages ──────────────────────────────── */
+      const esc = (s: string) =>
+        s.replace(/&/g, '&amp;').replace(/</g, '&lt;')
+         .replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+
+      const LOC_TAG: Record<string, string> = { it: 'it_IT', en: 'en_US', de: 'de_DE', fr: 'fr_FR' };
+      let count = 0;
+
+      const assetsDir = np.join(distDir, 'assets');
+      let entryJs = '', entryCss = '', vendorReactChunk = '';
+      try {
+        const builtHtml = fs.readFileSync(np.join(distDir, 'index.html'), 'utf-8');
+        entryJs = builtHtml.match(/src="\/assets\/(index-[A-Za-z0-9_-]+\.js)"/)?.[1] ?? '';
+        entryCss = builtHtml.match(/href="\/assets\/(index-[A-Za-z0-9_-]+\.css)"/)?.[1] ?? '';
+      } catch { /* index.html missing */ }
+      let blogMetaItChunk = '';
+      try {
+        const assetFiles = fs.readdirSync(assetsDir);
+        vendorReactChunk = assetFiles.find((f: string) => f.startsWith('vendor-react-') && f.endsWith('.js') && !f.endsWith('.js.map')) ?? '';
+        blogMetaItChunk = assetFiles.find((f: string) => /^blog-meta-it-[A-Za-z0-9_-]+\.js$/.test(f) && !f.endsWith('.js.map')) ?? '';
+      } catch { /* assets dir missing */ }
+      const hasSpaBundle = !!(entryJs && entryCss);
+      let itCriticalTags = '';
+      try {
+        const af = fs.readdirSync(assetsDir);
+        for (const f of af) {
+          if (/^it-(core|calculator)-[A-Za-z0-9_-]+\.js$/.test(f) && !f.endsWith('.js.map')) {
+            itCriticalTags += `\n    <link rel="modulepreload" href="/assets/${f}">`;
+          }
+        }
+      } catch { /* */ }
+      const corePreloads = [
+        vendorReactChunk ? `<link rel="modulepreload" crossorigin href="/assets/${vendorReactChunk}">` : '',
+        itCriticalTags,
+      ].filter(Boolean).join('');
+      const preloadTag = corePreloads ? '\n    ' + corePreloads : '';
+
+      const criticalCSS = '@font-face{font-family:Inter;font-style:normal;font-weight:400 700;font-display:swap;src:url(/fonts/inter-latin.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}*,::after,::before{box-sizing:border-box;border:0 solid #e5e7eb}body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,sans-serif;-webkit-font-smoothing:antialiased;line-height:1.5}.bg-slate-50{background-color:#f8fafc}.dark .dark\\:bg-slate-950,.dark.bg-slate-950{background-color:#020617}.text-slate-900{color:#0f172a}.dark .dark\\:text-slate-100{color:#f1f5f9}#root{min-height:100vh}';
+
+      for (const en of entries) {
+        const locSlugs = blogSlugs[en.articleId];
+
+        const lp: Record<string, string | null> = { it: en.path, en: null, de: null, fr: null };
+        if (locSlugs) {
+          for (const l of ['en', 'de', 'fr']) {
+            const as = locSlugs[l], bs = blogIndexSlug[l];
+            if (as && bs) lp[l] = `/${l}/${bs}/${as}`;
+          }
+        }
+
+        const withTrailingSlash = (path: string): string => {
+          if (!path || path === '/') return '/';
+          const clean = path.replace(/\/+$/, '');
+          return clean ? `${clean}/` : '/';
+        };
+
+        const html = (locale: string, urlPath: string) => {
+          const localeForMeta: 'en' | 'de' | 'fr' | null =
+            (locale === 'en' || locale === 'de' || locale === 'fr') ? locale : null;
+          const localizedMeta = localeForMeta ? blogMetaByLocale[localeForMeta][en.articleId] : null;
+          const localizedTitle = localizedMeta?.title || en.ogT;
+          const localizedDesc = localizedMeta?.excerpt || en.ogD;
+          const localizedPageTitle = localizedMeta?.title ? `${localizedMeta.title} | Frontaliere Ticino` : en.title;
+          const articleBodyLocale = (locale === 'it' || locale === 'en' || locale === 'de' || locale === 'fr') ? locale : 'it';
+          const localizedBody = blogBodyByLocale[articleBodyLocale][en.articleId] ?? blogBodyByLocale.it[en.articleId];
+          const bodySections = cleanupArticleBodySections([localizedBody?.body1, localizedBody?.body2, localizedBody?.body3]);
+          const canonicalPath = withTrailingSlash(urlPath);
+          const full = `${BASE_URL}${canonicalPath}`;
+          const imgU = `${BASE_URL}${en.img}`;
+          const pp   = urlPath.slice(1).replace(/&/g, '~and~');
+          const href = Object.entries(lp)
+            .filter((x): x is [string, string] => x[1] !== null)
+            .map(([l, p]) => `    <link rel="alternate" hreflang="${l}" href="${BASE_URL}${withTrailingSlash(p)}">`)
+            .concat([`    <link rel="alternate" hreflang="x-default" href="${BASE_URL}${withTrailingSlash(lp.it)}">`])
+            .join('\n');
+
+          const ldObj: Record<string, unknown> = {
+            '@context': 'https://schema.org',
+            '@type': (en.datePub && (Date.now() - new Date(en.datePub).getTime()) < 90 * 24 * 60 * 60 * 1000) ? 'NewsArticle' : 'Article',
+            headline: localizedTitle,
+            description: localizedDesc,
+            image: imgU,
+            url: full,
+            inLanguage: locale,
+            publisher: {
+              '@type': 'Organization',
+              name: 'Frontaliere Ticino',
+              url: BASE_URL,
+              logo: { '@type': 'ImageObject', url: `${BASE_URL}/icons/icon-512x512.png` },
+            },
+            author: {
+              '@type': 'Organization',
+              name: 'Frontaliere Ticino',
+              url: BASE_URL,
+              sameAs: ['https://www.facebook.com/profile.php?id=61588174947294'],
+              knowsAbout: ['Cross-border worker taxation Italy-Switzerland', 'Swiss withholding tax', 'Italian IRPEF', 'LAMal health insurance', 'Swiss pension system AVS/LPP'],
+            },
+            mainEntityOfPage: full,
+            speakable: {
+              '@type': 'SpeakableSpecification',
+              cssSelector: ['article h1', 'article h2', 'article p'],
+            },
+          };
+          if (en.datePub) ldObj.datePublished = normalizeDateTime(en.datePub);
+          if (en.dateMod) ldObj.dateModified = normalizeDateTime(en.dateMod);
+          const ldJsonStr = JSON.stringify(ldObj).replace(/</g, '\\u003c');
+
+          const headTags = `    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>${esc(localizedPageTitle)}</title>
+    <meta name="description" content="${esc(localizedDesc)}">
+    <link rel="canonical" href="${full}">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="${full}">
+    <meta property="og:title" content="${esc(localizedTitle)}">
+    <meta property="og:description" content="${esc(localizedDesc)}">
+    <meta property="og:image" content="${imgU}">
+    <meta property="og:locale" content="${LOC_TAG[locale] ?? 'it_IT'}">
+    <meta property="og:site_name" content="Frontaliere Ticino">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <meta property="fb:app_id" content="891036063797338">
+    ${en.datePub ? `<meta property="article:published_time" content="${esc(normalizeDateTime(en.datePub))}">` : ''}
+    ${en.dateMod ? `<meta property="article:modified_time" content="${esc(normalizeDateTime(en.dateMod))}">` : ''}
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="${esc(localizedTitle)}">
+    <meta name="twitter:description" content="${esc(localizedDesc)}">
+    <meta name="twitter:image" content="${imgU}">
+${href}
+    <script type="application/ld+json">${ldJsonStr}</script>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">`;
+
+          const blogPreloads = [
+            `<link rel="preload" as="image" href="${en.img}" fetchpriority="high">`,
+            blogMetaItChunk ? `<link rel="modulepreload" href="/assets/${blogMetaItChunk}">` : '',
+          ].filter(Boolean).join('\n    ');
+
+          if (hasSpaBundle) {
+            const fallbackSections = buildArticleSeoSections(
+              articleBodyLocale,
+              localizedTitle,
+              localizedDesc,
+              en.keywords,
+            );
+            const bodyWordCount = bodySections.join(' ').split(/\s+/).filter(Boolean).length;
+            const sectionSource = !bodySections.length
+              ? fallbackSections
+              : (bodyWordCount < 360
+                ? [
+                    ...bodySections.map((body, i) => ({
+                      heading: i === 0 ? 'Contesto' : i === 1 ? 'Dettagli operativi' : 'Punti chiave',
+                      paragraphs: [body],
+                    })),
+                    ...fallbackSections,
+                  ]
+                : bodySections.map((body, i) => ({
+                    heading: i === 0 ? 'Contesto' : i === 1 ? 'Dettagli operativi' : 'Punti chiave',
+                    paragraphs: [body],
+                  })));
+            const articleBodyHtml = sectionSource
+              .map((section) => `<section><h2>${esc(section.heading)}</h2>${section.paragraphs.map((paragraph) => `<p>${esc(paragraph)}</p>`).join('')}</section>`)
+              .join('');
+            return `<!DOCTYPE html>
+<html lang="${locale}">
+  <head>
+${headTags}
+    ${blogPreloads}
+    <script>if(localStorage.theme==='dark')document.documentElement.classList.add('dark')</script>
+    <style>${criticalCSS}</style>
+    <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/assets/${entryCss}" crossorigin media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" crossorigin href="/assets/${entryCss}"></noscript>
+    <script>setTimeout(function(){var l=document.querySelector('link[media="print"][href*="/assets/"]');if(l){l.media='all';try{sessionStorage.setItem('_cssFallbackInfo',JSON.stringify({href:l.href,delayMs:3000,pagePath:location.pathname+location.search,ts:new Date().toISOString()}))}catch(e){}}},3000)</script>${preloadTag}
+  </head>
+  <body class="bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 overflow-x-hidden">
+    <div id="root"><article><h1>${esc(localizedTitle)}</h1><p>${esc(localizedDesc)}</p>${articleBodyHtml}<nav><a href="/">Simulatore Fiscale</a> | <a href="/compara-servizi/">Confronta Servizi</a> | <a href="/tasse-e-pensione/">Tasse e Pensione</a> | <a href="/guida-frontaliere/">Guida Frontaliere</a> | <a href="/domande-frequenti-frontalieri/">FAQ</a> | <a href="/glossario-frontaliere/">Glossario</a> | <a href="/articoli-frontaliere/">Articoli</a></nav></article></div>
+    <script type="module" crossorigin fetchpriority="high" src="/assets/${entryJs}"></script>
+  </body>
+</html>`;
+          }
+
+          return `<!DOCTYPE html>
+<html lang="${locale}">
+  <head>
+${headTags}
+    <noscript><meta http-equiv="refresh" content="0;url=/?p=${pp}"></noscript>
+  </head>
+  <body>
+    <div id="root"><article><h1>${esc(localizedTitle)}</h1><p>${esc(localizedDesc)}</p><nav><a href="/">Simulatore Fiscale</a> | <a href="/compara-servizi">Confronta Servizi</a> | <a href="/tasse-e-pensione">Tasse e Pensione</a> | <a href="/guida-frontaliere">Guida Frontaliere</a> | <a href="/domande-frequenti-frontalieri">FAQ</a> | <a href="/glossario-frontaliere">Glossario</a> | <a href="/articoli-frontaliere">Articoli</a></nav></article></div>
+    <script>location.replace('/${pp.replace(/~and~/g, '&')}'+location.hash)</script>
+  </body>
+</html>`;
+        };
+
+        // Italian (primary)
+        const d0 = np.join(distDir, en.path);
+        fs.mkdirSync(d0, { recursive: true });
+        const itHtml = html('it', en.path);
+        fs.writeFileSync(np.join(d0, 'index.html'), itHtml);
+        // Also write flat .html so /slug serves 200 (avoids GitHub Pages 301 redirect)
+        // Include OG tags so social crawlers (Facebook, etc.) get the correct preview
+        const flatIt = np.join(distDir, en.path + '.html');
+        const canonItUrl = `${BASE_URL}/${en.path.replace(/^\/+/, '')}/`.replace(/\/+$/, '/');
+        fs.mkdirSync(np.dirname(flatIt), { recursive: true });
+        const itOg: FlatRedirectOgMeta = { title: en.ogT, description: en.ogD, image: `${BASE_URL}${en.img}`, lang: 'it' };
+        fs.writeFileSync(flatIt, buildFlatRedirect(canonItUrl, `/${en.path.replace(/^\/+/, '')}/`, itOg));
+        count++;
+
+        // EN / DE / FR
+        for (const [loc, lPath] of Object.entries(lp)) {
+          if (loc === 'it' || !lPath) continue;
+          const ld = np.join(distDir, lPath);
+          fs.mkdirSync(ld, { recursive: true });
+          const locHtml = html(loc, lPath);
+          fs.writeFileSync(np.join(ld, 'index.html'), locHtml);
+          // Also write flat .html for clean URL — include OG tags for social crawlers
+          const flatLoc = np.join(distDir, lPath + '.html');
+          const canonLocUrl = `${BASE_URL}/${lPath.replace(/^\/+/, '')}/`.replace(/\/+$/, '/');
+          fs.mkdirSync(np.dirname(flatLoc), { recursive: true });
+          const locMeta = (loc === 'en' || loc === 'de' || loc === 'fr')
+            ? blogMetaByLocale[loc][en.articleId]
+            : null;
+          const locOg: FlatRedirectOgMeta = {
+            title: locMeta?.title || en.ogT,
+            description: locMeta?.excerpt || en.ogD,
+            image: `${BASE_URL}${en.img}`,
+            lang: loc,
+          };
+          fs.writeFileSync(flatLoc, buildFlatRedirect(canonLocUrl, `/${lPath.replace(/^\/+/, '')}/`, locOg));
+          count++;
+        }
+      }
+
+      console.log(`\x1b[36m[og-pages]\x1b[0m Generated ${count} OG landing pages for ${entries.length} articles`);
+    },
+  };
+}

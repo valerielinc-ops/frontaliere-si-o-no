@@ -1,0 +1,12 @@
+{
+  "companyKey": "afry",
+  "companyName": "AFRY",
+  "companyHost": "afry.com",
+  "enabled": true,
+  "priority": 18,
+  "crawlerModes": ["api"],
+  "seedUrls": ["https://afry.com/en/api/afp-hr-smartrecruiteres-job-list"],
+  "notes": "Dedicated AFRY crawler. Drupal proxy to SmartRecruiters JSON API. Returns all global jobs, filters by country=CH and Ticino/Grigioni cities. Engineering & consulting firm, ~18000 employees globally. Swiss offices in Zurich, Bellinzona, Airolo.",
+  "updatedAt": "2026-03-13T00:00:00.000Z",
+  "seedMetaByUrl": {}
+}

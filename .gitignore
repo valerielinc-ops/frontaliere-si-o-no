@@ -1,0 +1,51 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+.superpowers-installer/
+.firebase/
+
+
+# Environment variables
+.env
+.env.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Analytics reports (generated locally via --save flag)
+reports/
+.tmp/
+lighthouse-report.report.html
+lighthouse-report.report.json
+lighthouse-fresh.json
+
+# Auto-generated responsive thumbnails (created by prebuild script)
+public/images/blog/thumbnails/
+public/images/places/thumbnails/
+.agents/
+data/pending-releases.json
+scratchpad.md
+
+# Generated at build time from data/jobs.json (see localeJobsSplitPlugin in vite.config.ts)
+public/data/jobs-it.json
+public/data/jobs-en.json
+public/data/jobs-de.json
+public/data/jobs-fr.json

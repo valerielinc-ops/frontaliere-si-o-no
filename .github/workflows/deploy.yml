@@ -1,0 +1,198 @@
+name: Deploy to Firebase Hosting
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: deploy-firebase-hosting-live
+  cancel-in-progress: false
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Prepare Firebase credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_FRONTALIERE_TICINO }}
+        run: |
+          if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+          else
+            echo "⚠️ Firebase secrets not set — Remote Config secrets will not be loaded."
+          fi
+          if [ -f /tmp/firebase-sa.json ]; then
+            echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+          fi
+
+      - name: Load secrets from Remote Config
+        run: node scripts/load-rc-env.mjs
+
+      - name: Validate crawler summary store (blocking)
+        run: npm run validate:crawler-summaries
+
+      - name: Validate third-party secrets are not committed (blocking)
+        run: npm run validate:third-party-secrets
+
+      - name: Build
+        env:
+          NODE_OPTIONS: '--max-old-space-size=4096'
+        run: npm run build
+
+      - name: Replace flat redirect files with content copies
+        run: node scripts/flat-content-replace.mjs
+
+      - name: Validate sampled JobPosting rich results (blocking)
+        run: npm run validate:jobs-rich-results
+
+      - name: Validate job data quality (blocking)
+        run: npm run validate:jobs-quality
+
+      - name: Validate sitemap links exist in dist (blocking)
+        run: npm run validate:sitemap-links
+
+      - name: Validate soft-404 indicators in static pages (blocking)
+        run: node scripts/validate-soft404.mjs
+
+      - name: Validate sitemap canonical tags (blocking)
+        run: node scripts/validate-canonical.mjs
+
+      - name: Validate sitemap content quality (blocking)
+        run: node scripts/validate-content-quality.mjs
+
+      - name: Compress assets (gzip + brotli)
+        run: |
+          # Pre-compress static assets for CDN/server that supports pre-compressed files
+          find dist -type f \( -name "*.js" -o -name "*.css" -o -name "*.html" -o -name "*.svg" -o -name "*.json" \) | while read file; do
+            gzip -9 -k "$file"
+          done
+          echo "✅ Gzip compression complete"
+          # Print size summary
+          echo "=== Build size summary ==="
+          du -sh dist/
+          echo "JS files:"
+          find dist -name "*.js" ! -name "*.gz" -exec du -sh {} + | sort -rh | head -10
+          echo "CSS files:"
+          find dist -name "*.css" ! -name "*.gz" -exec du -sh {} + | sort -rh
+
+      - name: Deploy to Firebase Hosting
+        uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: ${{ secrets.GITHUB_TOKEN }}
+          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_FRONTALIERE_TICINO }}
+          channelId: live
+          projectId: frontaliere-ticino
+
+      - name: Request GSC indexing for updated pages
+        if: success()
+        continue-on-error: true
+        run: |
+          # Skip if GSC secrets are not configured
+          if [ -z "$GSC_CLIENT_ID" ] || [ -z "$GSC_CLIENT_SECRET" ] || [ -z "$GSC_REFRESH_TOKEN" ]; then
+            echo "⚠️ GSC secrets not configured — skipping indexing"
+            exit 0
+          fi
+
+          # Get OAuth access token (|| true prevents bash -e from killing script on curl failure)
+          RESPONSE=$(curl -s -X POST "https://oauth2.googleapis.com/token" \
+            -H "Content-Type: application/x-www-form-urlencoded" \
+            -d "client_id=${GSC_CLIENT_ID}&client_secret=${GSC_CLIENT_SECRET}&refresh_token=${GSC_REFRESH_TOKEN}&grant_type=refresh_token" \
+            2>/dev/null || true)
+
+          TOKEN=$(echo "$RESPONSE" | node -e "process.stdin.resume();let d='';process.stdin.on('data',c=>d+=c);process.stdin.on('end',()=>{try{const t=JSON.parse(d).access_token;if(t)console.log(t);else process.exit(1)}catch{process.exit(1)}})" 2>/dev/null || true)
+
+          if [ -z "$TOKEN" ]; then
+            echo "⚠️ Failed to get access token — skipping indexing"
+            echo "Response: $(echo "$RESPONSE" | head -c 200)"
+            exit 0
+          fi
+
+          echo "✅ OAuth token obtained"
+          SITE_URL="https://www.frontaliereticino.ch"
+          SUBMITTED=0
+          FAILED=0
+
+          # Get changed files in this push to identify updated pages
+          CHANGED=$(git diff --name-only HEAD~1 HEAD 2>/dev/null || echo "")
+
+          # Build list of URLs to submit — high-priority pages first
+          URLS="$SITE_URL/"
+
+          # If sitemap/seo/router changed, submit key section pages
+          if echo "$CHANGED" | grep -q "sitemap\|seoService\|router"; then
+            URLS="$URLS
+          $SITE_URL/compara-servizi
+          $SITE_URL/compara-servizi/cambio-franco-euro
+          $SITE_URL/compara-servizi/confronta-banche
+          $SITE_URL/compara-servizi/confronta-casse-malati
+          $SITE_URL/compara-servizi/traffico-valichi-svizzera
+          $SITE_URL/guida-frontaliere
+          $SITE_URL/guida-frontaliere/primo-giorno-lavoro
+          $SITE_URL/tasse-e-pensione
+          $SITE_URL/tasse-e-pensione/calcola-previdenza
+          $SITE_URL/calcola-stipendio
+          $SITE_URL/calcola-stipendio/simula-busta-paga
+          $SITE_URL/calcola-stipendio/stipendio-netto-80000-chf
+          $SITE_URL/calcola-stipendio/stipendio-netto-80000-chf-residenza-entro-20km
+          $SITE_URL/calcola-stipendio/stipendio-netto-80000-chf-residenza-oltre-20km
+          $SITE_URL/vivere-in-ticino
+          $SITE_URL/vivere-in-ticino/comuni-di-frontiera
+          $SITE_URL/statistiche
+          $SITE_URL/statistiche/storico-traffico-dogane
+          $SITE_URL/buongiorno-frontaliere
+          $SITE_URL/articoli-frontaliere"
+          fi
+
+          # If blog articles changed, submit blog index
+          if echo "$CHANGED" | grep -q "BlogArticles\|blog-"; then
+            URLS="$URLS
+          $SITE_URL/articoli-frontaliere"
+          fi
+
+          # Submit each URL for indexing (max 20 per deploy)
+          while IFS= read -r url; do
+            url=$(echo "$url" | xargs)
+            [ -z "$url" ] && continue
+            [ "$SUBMITTED" -ge 20 ] && break
+            HTTP_CODE=$(curl -s -o /dev/null -w "%{http_code}" \
+              -X POST "https://indexing.googleapis.com/v3/urlNotifications:publish" \
+              -H "Authorization: Bearer $TOKEN" \
+              -H "Content-Type: application/json" \
+              -d "{\"url\": \"$url\", \"type\": \"URL_UPDATED\"}" 2>/dev/null || echo "000")
+            if [ "$HTTP_CODE" = "200" ]; then
+              echo "✅ Indexed: $url"
+              SUBMITTED=$((SUBMITTED + 1))
+            else
+              echo "⚠️ Failed ($HTTP_CODE): $url"
+              FAILED=$((FAILED + 1))
+            fi
+          done <<< "$URLS"
+
+          echo "📊 GSC indexing: $SUBMITTED submitted, $FAILED failed"
+
+      - name: Submit to IndexNow (Bing, Yandex)
+        if: success()
+        continue-on-error: true
+        run: node scripts/submit-indexnow.js
+
+      - name: Google Search Console — sitemap ping & inspection
+        if: success()
+        continue-on-error: true
+        run: node scripts/submit-google-indexing.js

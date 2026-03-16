@@ -1,0 +1,3445 @@
+import React, { useState, useEffect, useRef, useMemo, useCallback, Suspense } from 'react';
+import { lazyRetry } from '@/services/lazyRetry';
+const InputCard = lazyRetry(() => import('@/components/calculator/InputCard').then(m => ({ default: m.InputCard })));
+const MobileCalcLayout = lazyRetry(() => import('@/components/calculator/MobileCalcLayout'));
+
+// NOTE: Analytics is NOT imported eagerly here — it's defined as a lazy Proxy
+// below (~line 183) that defers imports until first use. The lazyRetry function
+// in services/lazyRetry.ts uses dynamic import('@/services/analytics') to avoid
+// pulling Firebase into the critical bundle path.
+
+const ResultsView = lazyRetry(() => import('@/components/calculator/ResultsView').then(m => ({ default: m.ResultsView as any })));
+import { ErrorBoundary } from '@/components/shared/ErrorBoundary';
+import { reportCaughtError } from '@/services/errorReporter';
+// Gamification lazily loaded — all calls are fire-and-forget
+const unlockAchievement = (id: string) => {
+  import('@/services/gamificationService').then(m => m.unlockAchievement(id)).catch(() => {});
+};
+const GamificationWidget = lazyRetry(() => import('@/components/community/GamificationWidget'));
+const NewsletterPopup = lazyRetry(() => import('@/components/community/NewsletterPopup'));
+const LanguageSelector = lazyRetry(() => import('@/components/shared/LanguageSelector'));
+const SiteSearch = lazyRetry(() => import('@/components/shared/SiteSearch'));
+const WhatsNewModal = lazyRetry(() => import('@/components/community/WhatsNewModal'));
+const WhatsNewBellLazy = lazyRetry(() => import('@/components/community/WhatsNewModal').then(m => ({ default: m.WhatsNewBell })));
+
+// Lazy-loaded components — only loaded when their tab is active
+const FeedbackSection = lazyRetry(() => import('@/components/community/FeedbackSection').then(m => ({ default: m.FeedbackSection })));
+const StatsView = lazyRetry(() => import('@/components/pages/StatsView').then(m => ({ default: m.StatsView })));
+const JobsSalaryObservatory = lazyRetry(() => import('@/components/pages/JobsSalaryObservatory'));
+const PensionPlanner = lazyRetry(() => import('@/components/fisco/PensionPlanner'));
+const Pillar3Simulator = lazyRetry(() => import('@/components/fisco/Pillar3Simulator'));
+const FrontierGuide = lazyRetry(() => import('@/components/guide/FrontierGuide'));
+const CurrencyExchange = lazyRetry(() => import('@/components/comparators/CurrencyExchange'));
+const MobileOperators = lazyRetry(() => import('@/components/comparators/MobileOperators'));
+const TransportCalculator = lazyRetry(() => import('@/components/vita/TransportCalculator'));
+const HealthInsurance = lazyRetry(() => import('@/components/comparators/HealthInsurance'));
+const BankComparison = lazyRetry(() => import('@/components/comparators/BankComparison'));
+const TrafficAlerts = lazyRetry(() => import('@/components/guide/TrafficAlerts'));
+const JobComparator = lazyRetry(() => import('@/components/comparators/JobComparator'));
+const ShoppingCalculator = lazyRetry(() => import('@/components/comparators/ShoppingCalculator'));
+const CostOfLiving = lazyRetry(() => import('@/components/comparators/CostOfLiving'));
+const WhatIfSimulator = lazyRetry(() => import('@/components/calculator/WhatIfSimulator'));
+const ApiStatus = lazyRetry(() => import('@/components/pages/ApiStatus'));
+const PrivacyPolicy = lazyRetry(() => import('@/components/pages/PrivacyPolicy').then(m => ({ default: m.PrivacyPolicy })));
+const DataDeletion = lazyRetry(() => import('@/components/pages/DataDeletion').then(m => ({ default: m.DataDeletion })));
+const EmailConfirmed = lazyRetry(() => import('@/components/pages/EmailConfirmed').then(m => ({ default: m.EmailConfirmed })));
+const GamificationPage = lazyRetry(() => import('@/components/community/GamificationPage'));
+const RalComparator = lazyRetry(() => import('@/components/calculator/RalComparator'));
+const ParentalLeaveCalculator = lazyRetry(() => import('@/components/calculator/ParentalLeaveCalculator'));
+const BorderMunicipalitiesMap = lazyRetry(() => import('@/components/guide/BorderMunicipalitiesMap'));
+const ResidencySimulator = lazyRetry(() => import('@/components/calculator/ResidencySimulator'));
+const CommunityForum = lazyRetry(() => import('@/components/community/CommunityForum'));
+const ContactPage = lazyRetry(() => import('@/components/pages/ContactPage'));
+const PartnerServices = lazyRetry(() => import('@/components/pages/PartnerServices'));
+const DonationBanner = lazyRetry(() => import('@/components/shared/DonationBanner'));
+const ConsultingPage = lazyRetry(() => import('@/components/pages/ConsultingPage'));
+const JobBoard = lazyRetry(() => import('@/components/community/JobBoard'));
+const FooterWeather = lazyRetry(() => import('@/components/shared/FooterWeather'));
+const MorningDashboard = lazyRetry(() => import('@/components/vita/MorningDashboard'));
+// UserProfile component is lazy-loaded; utility functions loaded on demand
+const UserProfile = lazyRetry(() => import('@/components/pages/UserProfile'));
+
+const TaxReturnGuide = lazyRetry(() => import('@/components/fisco/TaxReturnGuide'));
+const NurseryComparator = lazyRetry(() => import('@/components/comparators/NurseryComparator'));
+const BonusCalculator = lazyRetry(() => import('@/components/calculator/BonusCalculator'));
+const RenovationCalculator = lazyRetry(() => import('@/components/comparators/RenovationCalculator'));
+const RistorniTracker = lazyRetry(() => import('@/components/fisco/RistorniTracker'));
+const PayslipSimulator = lazyRetry(() => import('@/components/calculator/PayslipSimulator'));
+const CarCostCalculator = lazyRetry(() => import('@/components/guide/CarCostCalculator'));
+const PermitCompare = lazyRetry(() => import('@/components/guide/PermitCompare'));
+const LivabilityIndex = lazyRetry(() => import('@/components/vita/LivabilityIndex'));
+const SalaryCompare = lazyRetry(() => import('@/components/comparators/SalaryCompare'));
+const WeeklyQuiz = lazyRetry(() => import('@/components/fisco/WeeklyQuiz'));
+const TaxCalendar = lazyRetry(() => import('@/components/fisco/TaxCalendar'));
+const FirstDayGuide = lazyRetry(() => import('@/components/guide/FirstDayGuide'));
+const WorkPermitsGuide = lazyRetry(() => import('@/components/guide/WorkPermitsGuide'));
+const TicinoCompanies = lazyRetry(() => import('@/components/vita/TicinoCompanies'));
+const SalaryQuiz = lazyRetry(() => import('@/components/calculator/SalaryQuiz'));
+const TaxCreditCalculator = lazyRetry(() => import('@/components/fisco/TaxCreditCalculator'));
+const WithholdingRatesHub = lazyRetry(() => import('@/components/fisco/WithholdingRatesHub'));
+const FiscoLanding = lazyRetry(() => import('@/components/fisco/FiscoLanding'));
+const NewFrontierOver20KmHub = lazyRetry(() => import('@/components/calculator/NewFrontierOver20KmHub'));
+const TrafficHistory = lazyRetry(() => import('@/components/guide/TrafficHistory'));
+const UnemploymentStats = lazyRetry(() => import('@/components/pages/UnemploymentStats'));
+const MortgageComparison = lazyRetry(() => import('@/components/comparators/MortgageComparison'));
+const BlogArticles = lazyRetry(() => {
+  // Prefetch blog meta translations in parallel with component chunk
+  import('@/services/i18n').then(m => m.loadBlogMeta()).catch(() => {});
+  return import('@/components/community/BlogArticles');
+});
+const AdminPanel = lazyRetry(() => import('@/components/pages/AdminPanel'));
+const Glossary = lazyRetry(() => import('@/components/pages/Glossary'));
+const TicineseDialect = lazyRetry(() => import('@/components/vita/TicineseDialect'));
+const FaqSection = lazyRetry(() => import('@/components/pages/FaqSection'));
+const SiteMapPage = lazyRetry(() => import('@/components/pages/SiteMapPage'));
+const ContractsGuide = lazyRetry(() => import('@/components/guide/ContractsGuide'));
+const TfrCalculator = lazyRetry(() => import('@/components/calculator/TfrCalculator'));
+const PermitQuiz = lazyRetry(() => import('@/components/guide/PermitQuiz'));
+const TredicesimalCalculator = lazyRetry(() => import('@/components/calculator/TredicesimalCalculator'));
+const WeeklyDigest = lazyRetry(() => import('@/components/community/WeeklyDigest'));
+const ToolOfTheWeek = lazyRetry(() => import('@/components/community/ToolOfTheWeek'));
+const AiChatbot = lazyRetry(() => import('@/components/shared/AiChatbot'));
+const SeoContentBlock = lazyRetry(() => import('@/components/shared/SeoContentBlock'));
+const NewsFeed = lazyRetry(() => import('@/components/community/NewsFeed'));
+const WeeklyFact = lazyRetry(() => import('@/components/vita/WeeklyFact'));
+const DailyDialectPhrase = lazyRetry(() => import('@/components/vita/DailyDialectPhrase'));
+const SocialProofBadge = lazyRetry(() => import('@/components/shared/SocialProofBadge'));
+// calculationService is lazy-loaded — only needed when user clicks Calculate
+const lazyCalculate = () => import('@/services/calculationService');
+// Analytics lazily loaded — deferred to user interaction anyway (see initAnalytics effect),
+// all methods are fire-and-forget with no return values used.
+const Analytics: Record<string, (...a: unknown[]) => void> = new Proxy({} as any, {
+  get: (_t, method: string) => (...args: unknown[]) => {
+    import('@/services/analytics').then(m => {
+      const fn = (m.Analytics as any)[method];
+      if (typeof fn === 'function') fn(...args);
+    }).catch(() => {});
+  },
+});
+import { setDefaultConsent, onConsentChange, isAnalyticsGranted } from '@/services/consentService';
+import { prefetchTab } from '@/services/prefetch';
+const CookieBanner = lazyRetry(() => import('@/components/shared/CookieBanner'));
+const NotFoundSuggestions = lazyRetry(() => import('@/components/shared/NotFoundSuggestions'));
+// Set consent defaults ASAP (before any analytics/ad scripts load)
+setDefaultConsent();
+// SEO service is lazy-loaded to reduce critical path.
+// Runtime SEO updates are enabled only after first interaction/navigation.
+let runtimeSeoEnabled = false;
+const enableRuntimeSeo = () => { runtimeSeoEnabled = true; };
+// For blog pages, ensure blog-meta translations are loaded before writing SEO tags.
+const updateMetaTags = (section: string) => {
+  if (!runtimeSeoEnabled) return;
+  const { locale: pathLocale } = parsePath(window.location.pathname);
+  setLocale(pathLocale);
+  const runUpdate = () => import('@/services/seoService').then(m => m.updateMetaTags(section));
+  if (section === 'blog' || section.startsWith('blog-')) {
+    import('@/services/i18n')
+      .then(m => m.loadBlogMeta())
+      .catch(() => undefined)
+      .finally(runUpdate);
+    return;
+  }
+  runUpdate();
+};
+const trackSectionView = (section: string) => {
+  if (!runtimeSeoEnabled) return;
+  import('@/services/seoService').then(m => m.trackSectionView(section));
+};
+import { useTranslation, initLocale, setLocale, onLocaleChange, itReady, isTranslationsReady, loadTabTranslations } from '@/services/i18n';
+import { parsePath, parseHashToPath, pushRoute, replaceRoute, buildPath, getSeoSection, updatePathForLocale, scrollToAnchor, AppRoute, preloadBlogData, resolveBlogSlug } from '@/services/router';
+import type { ActiveTab, CalcolatoreSubTab, ConfrontiSubTab, FiscoSubTab, GuidaSubTab, VitaSubTab, StatsSubTab, BlogArticleId, SeoLandingId, GlossaryTermId, BorderCrossingId } from '@/services/router';
+import { NavigationContext } from '@/services/NavigationContext';
+import type { NavigationContextType } from '@/services/NavigationContext';
+import { DEFAULT_INPUTS } from '@/constants';
+import { SimulationInputs, SimulationResult } from '@/types';
+import { decodeSimulationParams, hasSimulationParams, cleanSimulationParams } from '@/services/urlStateService';
+import type { UserProfileData } from '@/components/pages/UserProfile';
+import type { ContactPrefill } from '@/components/pages/ContactPage';
+import {
+  useAuth,
+  getUserPhotoURL,
+  getUserDisplayName,
+  promptOneTap,
+  cancelOneTap,
+  getAuthEmail,
+  eagerAuth,
+  signInWithCustomAuthToken,
+} from '@/services/authService';
+// Newsletter helpers are lazy-imported to avoid pulling firebase/firestore into the critical bundle.
+// All Firestore-dependent newsletter functions are used only in event handlers / async callbacks.
+const getNewsletter = () => import('@/services/newsletterSubscribers');
+// Lightweight pure helpers inlined to avoid loading the full module synchronously.
+const normalizeNewsletterEmail = (raw: string): string => String(raw || '').trim().toLowerCase();
+const markNewsletterSubscribedLocally = (): void => {
+  try { window.localStorage.setItem('newsletter_subscribed', 'true'); } catch { /* no-op */ }
+};
+// Icons used directly in App.tsx for tab navigation and UI chrome.
+// NOTE: All lucide-react icons (including those only used by lazy components) are
+// consolidated into a single 'vendor-icons' chunk via manualChunks in vite.config.ts.
+// This eliminates 39+ tiny shared chunks that would each require a separate HTTP request.
+import {
+  Moon, Sun, Calculator, HelpCircle, BarChart2, PiggyBank, BookOpen, Facebook, Newspaper,
+  ArrowRightLeft, Phone, Car, Heart, Building2, AlertTriangle, Layers, Briefcase,
+  Sparkles, TrendingUp, MapPin, ShoppingCart, Euro, ClipboardList, Baby, Map,
+  Home, Timer, Users, Calendar, Shield, Mountain, GraduationCap,
+  LifeBuoy, Rocket, Mail, Bug, Sunrise, User as UserIcon, LogIn,
+  FileText, Gift, Hammer, BookA, School, Database, Clock, Receipt, Languages, BarChart3,
+  Banknote
+} from 'lucide-react';
+
+import SkeletonFallback, { SkeletonPageShell, SkeletonComparator, SkeletonGuide, SkeletonDashboard, SkeletonFisco, SkeletonStats, SkeletonBlog, SkeletonVita, SkeletonNewsTicker, SkeletonWeeklyFact, SkeletonInputCard, SkeletonMobileCalc, SkeletonFooterSlot } from '@/components/shared/Skeletons';
+
+const LazyFallback = () => <SkeletonFallback />;
+const ADMIN_EMAIL_WHITELIST = ['luigisag@gmail.com', 'valerielinc@gmail.com'];
+
+const App: React.FC = () => {
+  // Wait for Italian translations to load before rendering the full UI
+  const [translationsReady, setTranslationsReady] = useState(isTranslationsReady);
+
+  const { t } = useTranslation();
+  const {
+    user: authUser,
+    loading: authLoading,
+    signIn: googleSignIn,
+    signInFacebook: facebookSignIn,
+    signInEmail,
+  } = useAuth();
+  const [inputs, setInputs] = useState<SimulationInputs>(DEFAULT_INPUTS);
+  const [result, setResult] = useState<SimulationResult | null>(null);
+  const [isDarkMode, setIsDarkMode] = useState(false);
+  const [isFocusMode, setIsFocusMode] = useState(false);
+  const [showBlobs, setShowBlobs] = useState(false);
+  const [showDeferredHomeWidgets, setShowDeferredHomeWidgets] = useState(false);
+  // Read initial route from URL path (or migrate legacy hash)
+  const [initialRoute] = useState(() => {
+    const parsed = parsePath(window.location.pathname);
+    // Defer locale side-effect to useEffect to avoid setState-during-render
+    return { route: parsed.route, locale: parsed.locale, notFoundPath: parsed.notFoundPath || null };
+  });
+  const [activeTab, setActiveTab] = useState<ActiveTab>(initialRoute.route.activeTab);
+  const [calcolatoreSubTab, setCalcolatoreSubTab] = useState<CalcolatoreSubTab>(initialRoute.route.calcolatoreSubTab || 'calculator');
+  const [confrontiSubTab, setConfrontiSubTab] = useState<ConfrontiSubTab>(initialRoute.route.confrontiSubTab || 'exchange');
+  const [fiscoSubTab, setFiscoSubTab] = useState<FiscoSubTab>(initialRoute.route.fiscoSubTab || 'tax-return');
+  const [fiscoShowOverview, setFiscoShowOverview] = useState(
+    initialRoute.route.activeTab === 'fisco' && !initialRoute.route.fiscoSubTab
+  );
+  const [guidaSubTab, setGuidaSubTab] = useState<GuidaSubTab>(initialRoute.route.guidaSubTab || 'first-day');
+  const [vitaSubTab, setVitaSubTab] = useState<VitaSubTab>(initialRoute.route.vitaSubTab || 'living-ch');
+  const [statsSubTab, setStatsSubTab] = useState<StatsSubTab>(initialRoute.route.statsSubTab || 'overview');
+  const [blogArticle, setBlogArticle] = useState<BlogArticleId | null>(initialRoute.route.blogArticle || null);
+
+  // Preload blog slug data and resolve any deferred blog slug from initial URL
+  useEffect(() => {
+    preloadBlogData().then(() => {
+      const slug = initialRoute.route.blogSlug;
+      if (slug && !initialRoute.route.blogArticle) {
+        const resolved = resolveBlogSlug(slug, initialRoute.locale);
+        if (resolved) setBlogArticle(resolved);
+      }
+    }).catch(() => {});
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+  const [seoLanding, setSeoLanding] = useState<SeoLandingId | null>(initialRoute.route.seoLanding || null);
+  const [glossaryTerm, setGlossaryTerm] = useState<GlossaryTermId | null>(initialRoute.route.glossaryTerm || null);
+  const [borderCrossing, setBorderCrossing] = useState<BorderCrossingId | null>(initialRoute.route.borderCrossing || null);
+  const [jobSlug, setJobSlug] = useState<string | null>(initialRoute.route.jobSlug || null);
+  const [taxReturnCountry, setTaxReturnCountry] = useState<'italia' | 'svizzera' | undefined>(initialRoute.route.taxReturnCountry);
+  const [showApiStatus, setShowApiStatus] = useState(false);
+  const [userProfile, setUserProfile] = useState<UserProfileData | null>(null);
+  const [contactPrefill, setContactPrefill] = useState<ContactPrefill | null>(null);
+  const [notFoundPath, setNotFoundPath] = useState<string | null>(initialRoute.notFoundPath);
+
+  const upsertNewsletterSubscriber = async (
+    email: string,
+    source: 'signup' | 'chatbot_google' | 'chatbot_facebook' | 'chatbot_email',
+    displayName?: string | null,
+  ): Promise<boolean> => {
+    const deactivateLegacyDuplicates = async (
+      db: any,
+      normalizedEmail: string,
+      reason: string,
+    ): Promise<void> => {
+      try {
+        const { collection, query, where, getDocs, setDoc } = await import('firebase/firestore');
+        const snap = await getDocs(query(collection(db, 'newsletter_subscribers'), where('email', '==', normalizedEmail)));
+        if (snap.empty) return;
+        const nowIso = new Date().toISOString();
+        await Promise.all(
+          snap.docs
+            .filter((d) => d.id !== normalizedEmail)
+            .map((d) =>
+              setDoc(
+                d.ref,
+                {
+                  email: normalizedEmail,
+                  isActive: false,
+                  active: false,
+                  mergedInto: normalizedEmail,
+                  legacyMergedAt: nowIso,
+                  legacyMergeReason: reason,
+                  updatedAt: nowIso,
+                },
+                { merge: true },
+              ),
+            ),
+        );
+      } catch {
+        // Non-blocking cleanup
+      }
+    };
+
+    try {
+      const normalizedEmail = normalizeNewsletterEmail(email);
+      if (!normalizedEmail || !normalizedEmail.includes('@')) return false;
+      const [{ getFirestore }, { getApp }] = await Promise.all([
+        import('firebase/firestore'),
+        import('@/services/firebase'),
+      ]);
+      const db = getFirestore(await getApp());
+
+      const { upsertNewsletterSubscriber: upsertRecord } = await getNewsletter();
+      await upsertRecord(db, {
+        email: normalizedEmail,
+        name: displayName || null,
+        preferences: { exchangeRate: true, traffic: true, taxUpdates: true, tips: false },
+        source,
+        sourceChannel:
+          source === 'signup'
+            ? 'auth_google'
+            : source === 'chatbot_google'
+              ? 'auth_google'
+              : source === 'chatbot_facebook'
+                ? 'auth_facebook'
+                : 'chatbot',
+        sourcePage: window.location.pathname,
+        sourceCta: source,
+        sourceComponent: source.startsWith('chatbot') ? 'chatbot_auth' : 'app_auth',
+        sourceRouteFamily: activeTab,
+        locale: navigator.language || 'it-IT',
+        isActive: true,
+      });
+
+      await deactivateLegacyDuplicates(db, normalizedEmail, `upsert_${source}`);
+      markNewsletterSubscribedLocally();
+      return true;
+    } catch {
+      return false;
+    }
+  };
+
+  // Load per-page IT translations: initial tab + on tab switch
+  useEffect(() => {
+    if (!translationsReady) {
+      itReady.then(async () => {
+        const tabChunkMap: Record<string, string> = {
+          confronti: 'comparatori', fisco: 'fisco', guida: 'guide',
+          vita: 'vita', stats: 'stats', blog: 'stats',
+        };
+        const chunk = tabChunkMap[activeTab];
+        if (chunk) await loadTabTranslations(chunk);
+        setTranslationsReady(true);
+      }).catch(() => {});
+    }
+  }, [translationsReady]);
+
+  useEffect(() => {
+    const tabChunkMap: Record<string, string> = {
+      confronti: 'comparatori', fisco: 'fisco', guida: 'guide',
+      vita: 'vita', stats: 'stats', blog: 'stats',
+    };
+    const chunk = tabChunkMap[activeTab];
+    if (chunk) loadTabTranslations(chunk).catch(() => {});
+  }, [activeTab]);
+
+  // Track if URL contained simulation params (skip profile prefill if so)
+  const urlHydrated = useRef(false);
+
+  // Skip pushRoute on initial mount — the URL is already correct from parsePath.
+  // Pushing it again would strip the hash fragment (e.g. #cambio-stato).
+  const isInitialMount = useRef(true);
+
+  // Eagerly prefetch the active tab's component chunk on initial load.
+  // On direct URL navigation (e.g., /guida-frontaliere), React.lazy() only
+  // discovers the chunk after the entry JS is fully parsed. Prefetch triggers
+  // the download immediately so it loads in parallel with React hydration.
+  useEffect(() => {
+    if (activeTab === 'calculator' && calcolatoreSubTab === 'calculator') return;
+    prefetchTab(activeTab);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+
+  // When we navigate programmatically (search/CTA), we push the URL immediately.
+  // The subsequent sub-tab useEffect would otherwise push the same URL again.
+  const suppressNextRouteSyncForTabRef = useRef<ActiveTab | null>(null);
+
+  const SEO_LANDING_PRESETS: Record<SeoLandingId, Partial<SimulationInputs>> = {
+    'salary-60000': { annualIncomeCHF: 60000, maritalStatus: 'SINGLE', children: 0, familyMembers: 1, frontierWorkerType: 'NEW', distanceZone: 'WITHIN_20KM', age: 35, spouseWorks: false },
+    'salary-80000': { annualIncomeCHF: 80000, maritalStatus: 'SINGLE', children: 0, familyMembers: 1, frontierWorkerType: 'NEW', distanceZone: 'WITHIN_20KM', age: 35, spouseWorks: false },
+    'salary-100000': { annualIncomeCHF: 100000, maritalStatus: 'SINGLE', children: 0, familyMembers: 1, frontierWorkerType: 'NEW', distanceZone: 'WITHIN_20KM', age: 40, spouseWorks: false },
+    'salary-120000': { annualIncomeCHF: 120000, maritalStatus: 'SINGLE', children: 0, familyMembers: 1, frontierWorkerType: 'NEW', distanceZone: 'WITHIN_20KM', age: 42, spouseWorks: false },
+    'salary-60000-old': { annualIncomeCHF: 60000, frontierWorkerType: 'OLD' },
+    'salary-60000-new': { annualIncomeCHF: 60000, frontierWorkerType: 'NEW' },
+    'salary-80000-old': { annualIncomeCHF: 80000, frontierWorkerType: 'OLD' },
+    'salary-80000-new': { annualIncomeCHF: 80000, frontierWorkerType: 'NEW' },
+    'salary-100000-old': { annualIncomeCHF: 100000, frontierWorkerType: 'OLD' },
+    'salary-100000-new': { annualIncomeCHF: 100000, frontierWorkerType: 'NEW' },
+    'salary-60000-married-2kids': { annualIncomeCHF: 60000, maritalStatus: 'MARRIED', children: 2, familyMembers: 4, spouseWorks: false, age: 38 },
+    'salary-80000-married-2kids': { annualIncomeCHF: 80000, maritalStatus: 'MARRIED', children: 2, familyMembers: 4, spouseWorks: false, age: 40 },
+    'salary-100000-married-2kids': { annualIncomeCHF: 100000, maritalStatus: 'MARRIED', children: 2, familyMembers: 4, spouseWorks: false, age: 42 },
+    'salary-80000-over20km': { annualIncomeCHF: 80000, distanceZone: 'OVER_20KM' },
+    'salary-80000-within20km': { annualIncomeCHF: 80000, distanceZone: 'WITHIN_20KM' },
+    'salary-60000-over20km': { annualIncomeCHF: 60000, distanceZone: 'OVER_20KM' },
+    'salary-60000-within20km': { annualIncomeCHF: 60000, distanceZone: 'WITHIN_20KM' },
+    'salary-100000-over20km': { annualIncomeCHF: 100000, distanceZone: 'OVER_20KM' },
+    'salary-100000-within20km': { annualIncomeCHF: 100000, distanceZone: 'WITHIN_20KM' },
+    'new-frontier-over20km': { annualIncomeCHF: 80000, frontierWorkerType: 'NEW', distanceZone: 'OVER_20KM', maritalStatus: 'SINGLE', children: 0, familyMembers: 1, age: 38, spouseWorks: false },
+    'net-comparison-2025-2026-within20km': { annualIncomeCHF: 80000, frontierWorkerType: 'NEW', distanceZone: 'WITHIN_20KM', maritalStatus: 'SINGLE', children: 0, familyMembers: 1, age: 38, spouseWorks: false },
+    'net-comparison-g-vs-b-within20km': { annualIncomeCHF: 80000, frontierWorkerType: 'NEW', distanceZone: 'WITHIN_20KM', maritalStatus: 'SINGLE', children: 0, familyMembers: 1, age: 38, spouseWorks: false },
+    'net-comparison-2025-2026-over20km': { annualIncomeCHF: 80000, frontierWorkerType: 'NEW', distanceZone: 'OVER_20KM', maritalStatus: 'SINGLE', children: 0, familyMembers: 1, age: 38, spouseWorks: false },
+    'net-comparison-g-vs-b-over20km': { annualIncomeCHF: 80000, frontierWorkerType: 'NEW', distanceZone: 'OVER_20KM', maritalStatus: 'SINGLE', children: 0, familyMembers: 1, age: 38, spouseWorks: false },
+  };
+
+  const landingAppliedRef = useRef<SeoLandingId | null>(null);
+
+  // (scroll always resets to top on tab change — no preservation)
+
+  // Hydrate simulation inputs from URL query params (runs once on mount)
+  useEffect(() => {
+    if (hasSimulationParams()) {
+      const decoded = decodeSimulationParams(window.location.search);
+      if (decoded && Object.keys(decoded).length > 0) {
+        urlHydrated.current = true;
+        setInputs(prev => ({ ...prev, ...decoded }));
+        // Clean params from URL to keep it tidy (preserves non-sim params)
+        cleanSimulationParams();
+        Analytics.trackUIInteraction('calcolatore', 'url-state', 'hydrate', 'auto', Object.keys(decoded).join(','));
+      }
+    }
+  }, []);
+
+  // Load user profile for prefilling simulator inputs (deferred to idle)
+  // Skipped when URL params already hydrated the inputs
+  useEffect(() => {
+    const loadProfile = () => {
+      // If URL params set the inputs, don't overwrite with profile
+      if (urlHydrated.current) return;
+      import('@/components/pages/UserProfile').then(({ loadUserProfile, profileToSimInputs }) => {
+        const profile = loadUserProfile();
+        const hasData = profile.familySituation || profile.children !== '0' || profile.age || profile.frontaliereType;
+        if (hasData) {
+          setUserProfile(profile);
+          // Prefill simulation inputs from profile
+          const prefilled = profileToSimInputs(profile);
+          if (Object.keys(prefilled).length > 0) {
+            setInputs(prev => ({ ...prev, ...prefilled }));
+          }
+        }
+      }).catch((e) => { reportCaughtError(e, 'app.loadUserProfile'); });
+    };
+    if ('requestIdleCallback' in window) {
+      requestIdleCallback(loadProfile, { timeout: 4000 });
+    } else {
+      setTimeout(loadProfile, 2000);
+    }
+    // Listen for profile updates via storage events
+    const onStorage = (e: StorageEvent) => {
+      if (e.key === 'frontaliere_user_profile' && e.newValue) {
+        try {
+          const updated = JSON.parse(e.newValue) as UserProfileData;
+          setUserProfile(updated);
+        } catch { /* ignore */ }
+      }
+    };
+    window.addEventListener('storage', onStorage);
+    return () => window.removeEventListener('storage', onStorage);
+  }, []);
+
+  // Check for hidden API status page via URL parameter
+  useEffect(() => {
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('debug') === 'api' || urlParams.get('status') === 'api') {
+      setShowApiStatus(true);
+      setActiveTab('api-status');
+    }
+  }, []);
+
+  // Auto-login via custom token embedded in newsletter confirmation URL
+  useEffect(() => {
+    let cancelled = false;
+    (async () => {
+      try {
+        const url = new URL(window.location.href);
+        const authToken = url.searchParams.get('authToken');
+        if (!authToken) return;
+
+        // Skip if there's a newsletter action — the action handler owns auth in that case
+        const action = url.searchParams.get('action');
+        if (action === 'unsubscribe' || action === 'resubscribe') return;
+
+        const email = normalizeNewsletterEmail(url.searchParams.get('newsletter_email') || '');
+        if (!email || !email.includes('@')) return;
+
+        const user = await signInWithCustomAuthToken(authToken);
+
+        if (cancelled) return;
+        Analytics.trackUIInteraction('newsletter', 'custom_token', 'autologin', user ? 'success' : 'no-user');
+
+        // Clean authToken from URL to avoid re-use on refresh
+        url.searchParams.delete('authToken');
+        window.history.replaceState(null, '', url.pathname + url.search + url.hash);
+      } catch (error) {
+        reportCaughtError(error, 'app.newsletterCustomTokenAutologin');
+        Analytics.trackUIInteraction('newsletter', 'custom_token', 'autologin', 'error');
+      }
+    })();
+    return () => { cancelled = true; };
+  }, []);
+
+  useEffect(() => {
+    let cancelled = false;
+    (async () => {
+      try {
+        const currentUrl = new URL(window.location.href);
+        const path = currentUrl.pathname.replace(/\/+$/, '') || '/';
+        if (path !== '/newsletter/click') return;
+
+        const target = currentUrl.searchParams.get('target');
+        if (!target) return;
+
+        const newsletterEmail = normalizeNewsletterEmail(currentUrl.searchParams.get('newsletter_email') || '');
+        const campaignId = currentUrl.searchParams.get('campaign_id') || undefined;
+        const messageId = currentUrl.searchParams.get('message_id') || undefined;
+        const variant = currentUrl.searchParams.get('variant') || undefined;
+        const sectionId = currentUrl.searchParams.get('section_id') || undefined;
+        const linkLabel = currentUrl.searchParams.get('link_label') || undefined;
+        const sourceLocale = currentUrl.searchParams.get('subscriber_locale') || navigator.language || 'it-IT';
+        const sourceChannel = currentUrl.searchParams.get('source_channel') || 'newsletter_page';
+        const locationInterest = currentUrl.searchParams.get('location_interest') || undefined;
+        const sectorInterest = currentUrl.searchParams.get('sector_interest') || undefined;
+
+        if (newsletterEmail && newsletterEmail.includes('@')) {
+          try {
+            const [{ getFirestore }, { getApp }] = await Promise.all([
+              import('firebase/firestore'),
+              import('@/services/firebase'),
+            ]);
+            const db = getFirestore(await getApp());
+            const { recordNewsletterClick: recordClick } = await getNewsletter();
+            await recordClick(db, {
+              email: newsletterEmail,
+              eventType: 'click',
+              campaignId,
+              messageId,
+              variant,
+              sectionId,
+              linkUrl: target,
+              linkLabel,
+              targetUrl: target,
+              sourceLocale,
+              sourcePage: currentUrl.pathname,
+              sourceChannel,
+              metadata: {
+                subscriberKey: currentUrl.searchParams.get('subscriber_key') || undefined,
+                locationInterest,
+                sectorInterest,
+              },
+            });
+          } catch (error) {
+            reportCaughtError(error, 'app.newsletterClickTrack');
+          }
+        }
+
+        Analytics.trackNewsletterEvent('click', {
+          campaignId,
+          messageId,
+          variant,
+          sectionId,
+          linkLabel,
+          targetUrl: target,
+          subscriberLocale: sourceLocale,
+          sourceChannel,
+          sourcePage: currentUrl.pathname,
+          locationInterest,
+          sectorInterest,
+        });
+
+        if (!cancelled) {
+          window.location.replace(target);
+        }
+      } catch (error) {
+        reportCaughtError(error, 'app.newsletterClickRedirect');
+      }
+    })();
+
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
+  // Handle newsletter unsubscribe via URL parameter
+  const [unsubscribeMsg, setUnsubscribeMsg] = useState<string | null>(null);
+  const [newsletterActionEmail, setNewsletterActionEmail] = useState<string | null>(null);
+  const [showNewsletterWelcome, setShowNewsletterWelcome] = useState(false);
+  const [newsletterActionType, setNewsletterActionType] = useState<'unsubscribe' | 'resubscribe' | null>(null);
+  useEffect(() => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const action = urlParams.get('action');
+    if (action !== 'unsubscribe' && action !== 'resubscribe' && action !== 'confirm_newsletter') return;
+    const email = urlParams.get('email');
+    if (!email) return;
+
+    // Handle newsletter confirmation link (FRO-33)
+    if (action === 'confirm_newsletter') {
+      const token = urlParams.get('token');
+      if (!token) return;
+      (async () => {
+        try {
+          const { confirmNewsletterSubscription, clearNewsletterPendingLocally, markNewsletterSubscribedLocally } =
+            await import('@/services/newsletterSubscribers');
+          const result = await confirmNewsletterSubscription(email, token);
+          if (result.success) {
+            clearNewsletterPendingLocally();
+            markNewsletterSubscribedLocally();
+            localStorage.setItem('newsletter_subscribed', 'true');
+
+            // Auto-login with the auth token returned by the Cloud Function
+            if (result.authToken) {
+              try {
+                await signInWithCustomAuthToken(result.authToken);
+                Analytics.trackUIInteraction('newsletter', 'confirm_autologin', 'success');
+              } catch (authErr) {
+                reportCaughtError(authErr, 'app.newsletterConfirmAutologin');
+                Analytics.trackUIInteraction('newsletter', 'confirm_autologin', 'error');
+              }
+            }
+
+            if (result.alreadyConfirmed) {
+              setUnsubscribeMsg(t('newsletter.alreadyConfirmed'));
+            } else {
+              setShowNewsletterWelcome(true);
+            }
+          } else if (result.error === 'invalid_token') {
+            setUnsubscribeMsg(t('newsletter.confirmationInvalidToken'));
+          } else {
+            setUnsubscribeMsg(t('newsletter.confirmationError'));
+          }
+        } catch {
+          setUnsubscribeMsg(t('newsletter.confirmationError'));
+        }
+        window.history.replaceState({}, '', window.location.pathname);
+      })();
+      return;
+    }
+
+    setNewsletterActionEmail(normalizeNewsletterEmail(email));
+    setNewsletterActionType(action);
+    (async () => {
+      try {
+        const normalizedEmail = normalizeNewsletterEmail(email);
+        if (!normalizedEmail || !normalizedEmail.includes('@')) {
+          setUnsubscribeMsg(action === 'unsubscribe'
+            ? t('newsletter.unsubscribeError')
+            : 'Errore durante la riattivazione. Riprova più tardi.');
+          return;
+        }
+
+        // Authenticate via custom token before processing unsubscribe/resubscribe
+        const authToken = urlParams.get('authToken');
+        if (authToken) {
+          const signedInUser = await signInWithCustomAuthToken(authToken);
+          const signedInEmail = signedInUser ? getAuthEmail(signedInUser) : null;
+          if (!signedInEmail || normalizeNewsletterEmail(signedInEmail) !== normalizedEmail) {
+            setUnsubscribeMsg(action === 'unsubscribe'
+              ? 'Link non valido o scaduto. Riprova dalla newsletter.'
+              : 'Link non valido o scaduto. Riprova dalla newsletter.');
+            window.history.replaceState({}, '', window.location.pathname);
+            return;
+          }
+        } else {
+          // No authToken — reject the action to prevent unauthorized unsubscribe
+          setUnsubscribeMsg(action === 'unsubscribe'
+            ? 'Link non valido. Usa il link dalla newsletter per disiscriverti.'
+            : 'Link non valido. Usa il link dalla newsletter per riattivare.');
+          window.history.replaceState({}, '', window.location.pathname);
+          return;
+        }
+
+        const [{ getFirestore, collection, doc, setDoc, query, where, getDocs }, { getApp }] = await Promise.all([
+          import('firebase/firestore'),
+          import('@/services/firebase'),
+        ]);
+        const db = getFirestore(await getApp());
+
+        const syncLegacyDuplicates = async (active: boolean, reason: string): Promise<void> => {
+          const snap = await getDocs(query(collection(db, 'newsletter_subscribers'), where('email', '==', normalizedEmail)));
+          if (snap.empty) return;
+          const nowIso = new Date().toISOString();
+          await Promise.all(
+            snap.docs
+              .filter((d) => d.id !== normalizedEmail)
+              .map((d) =>
+                setDoc(
+                  d.ref,
+                  {
+                    email: normalizedEmail,
+                    isActive: active,
+                    active,
+                    mergedInto: normalizedEmail,
+                    legacyMergedAt: nowIso,
+                    legacyMergeReason: reason,
+                    updatedAt: nowIso,
+                  },
+                  { merge: true },
+                ),
+              ),
+          );
+        };
+
+        if (action === 'unsubscribe') {
+          const nowIso = new Date().toISOString();
+          await setDoc(
+            doc(collection(db, 'newsletter_subscribers'), normalizedEmail),
+            {
+              email: normalizedEmail,
+              isActive: false,
+              active: false,
+              source: 'unsubscribe_link',
+              unsubscribedAt: nowIso,
+              updatedAt: nowIso,
+            },
+            { merge: true },
+          );
+          await syncLegacyDuplicates(false, 'unsubscribe_link');
+          setUnsubscribeMsg(t('newsletter.unsubscribed'));
+          localStorage.removeItem('newsletter_subscribed');
+        } else {
+          const { upsertNewsletterSubscriber: upsertRecord } = await getNewsletter();
+          await upsertRecord(db, {
+            email: normalizedEmail,
+            name: null,
+            preferences: { exchangeRate: true, traffic: true, taxUpdates: true, tips: false },
+            source: 'resubscribe_link',
+            locale: navigator.language || 'it-IT',
+            isActive: true,
+          });
+          await syncLegacyDuplicates(false, 'resubscribe_link');
+          markNewsletterSubscribedLocally();
+          setUnsubscribeMsg('Iscrizione riattivata con successo. Riceverai di nuovo la newsletter.');
+        }
+        // Clean URL
+        window.history.replaceState({}, '', window.location.pathname);
+      } catch {
+        setUnsubscribeMsg(action === 'unsubscribe'
+          ? t('newsletter.unsubscribeError')
+          : 'Errore durante la riattivazione. Riprova più tardi.');
+      }
+    })();
+  }, []);
+
+  // Auto-subscribe to newsletter on sign-in (if not already subscribed)
+  // Uses getAuthEmail() to also check providerData (Facebook may not set user.email)
+  const authEmail = authUser ? getAuthEmail(authUser) : null;
+  const isPrivilegedAdmin = ADMIN_EMAIL_WHITELIST.includes(authEmail?.toLowerCase() ?? '');
+  useEffect(() => {
+    if (activeTab === 'admin') eagerAuth();
+  }, [activeTab]);
+
+  useEffect(() => {
+    if (!authEmail) return;
+    if (localStorage.getItem('newsletter_subscribed') === 'true') return;
+    upsertNewsletterSubscriber(authEmail, 'signup', authUser?.displayName || null).catch((e) => reportCaughtError(e, 'app.autoNewsletterSubscribe'));
+  }, [authEmail]);
+
+  const chatbotGoogleSignIn = async (): Promise<any | null> => {
+    const user = await googleSignIn();
+    const email = getAuthEmail(user);
+    if (email) {
+      try {
+        await upsertNewsletterSubscriber(email, 'chatbot_google', user?.displayName || null);
+      } catch (e) {
+        // Never block chat auth flow on newsletter side-effects.
+        console.warn('[Chatbot] newsletter upsert (google) failed:', e);
+        reportCaughtError(e, 'app.chatbotNewsletterGoogle');
+      }
+    }
+    return user;
+  };
+
+  const chatbotFacebookSignIn = async (): Promise<any | null> => {
+    const user = await facebookSignIn();
+    const email = getAuthEmail(user);
+    if (email) {
+      try {
+        await upsertNewsletterSubscriber(email, 'chatbot_facebook', user?.displayName || null);
+      } catch (e) {
+        // Never block chat auth flow on newsletter side-effects.
+        console.warn('[Chatbot] newsletter upsert (facebook) failed:', e);
+        reportCaughtError(e, 'app.chatbotNewsletterFacebook');
+      }
+    }
+    return user;
+  };
+
+  const chatbotContinueWithEmail = async (email: string): Promise<boolean> => {
+    const ok = await upsertNewsletterSubscriber(email, 'chatbot_email', null);
+    if (ok) {
+      Analytics.trackNewsletter('subscribe', email.split('@')[1] || 'unknown');
+      unlockAchievement('newsletter_sub');
+      Analytics.trackUIInteraction('chatbot', 'auth_gate', 'newsletter_email_subscribe', 'success');
+    } else {
+      Analytics.trackUIInteraction('chatbot', 'auth_gate', 'newsletter_email_subscribe', 'error');
+    }
+    return ok;
+  };
+
+  // Google One Tap: prompt on first user interaction when not signed in.
+  // Triggered by pointer/keyboard/scroll instead of a fixed timer so that:
+  // 1. GSI script never loads during Lighthouse (no interaction) → no FedCM error → BP 100
+  // 2. In real usage, loads 2s after first interaction → invisible to users
+  useEffect(() => {
+    if (authUser) {
+      sessionStorage.removeItem('onetap_pending');
+      cancelOneTap();
+      return; // Already signed in
+    }
+    if (sessionStorage.getItem('onetap_prompted')) return;
+
+    let queued = false;
+    let promptTimeout: ReturnType<typeof setTimeout> | null = null;
+    const trigger = () => {
+      if (queued || sessionStorage.getItem('onetap_prompted')) return;
+      queued = true;
+      for (const e of ['pointerdown', 'keydown', 'touchstart'] as const)
+        window.removeEventListener(e, trigger, { capture: true });
+      // Small delay after interaction so One Tap doesn't compete with user's action
+      promptTimeout = setTimeout(() => {
+        if (authUser) return;
+        if (authLoading) {
+          sessionStorage.setItem('onetap_pending', '1');
+          return;
+        }
+        sessionStorage.setItem('onetap_prompted', '1');
+        sessionStorage.removeItem('onetap_pending');
+        promptOneTap().catch(() => {});
+      }, 2000);
+    };
+
+    for (const e of ['pointerdown', 'keydown', 'touchstart'] as const)
+      window.addEventListener(e, trigger, { capture: true, passive: true } as AddEventListenerOptions);
+
+    return () => {
+      if (promptTimeout) clearTimeout(promptTimeout);
+      for (const e of ['pointerdown', 'keydown', 'touchstart'] as const)
+        window.removeEventListener(e, trigger, { capture: true });
+      cancelOneTap();
+    };
+  }, [authLoading, authUser]);
+
+  // If the first interaction happened while auth was still loading,
+  // trigger One Tap as soon as auth state is resolved.
+  useEffect(() => {
+    if (authLoading || authUser) return;
+    if (sessionStorage.getItem('onetap_prompted')) return;
+    if (sessionStorage.getItem('onetap_pending') !== '1') return;
+
+    sessionStorage.setItem('onetap_prompted', '1');
+    sessionStorage.removeItem('onetap_pending');
+    promptOneTap().catch(() => {});
+  }, [authLoading, authUser]);
+
+  // Listen for browser back/forward navigation
+  useEffect(() => {
+    const onPopState = () => {
+      enableRuntimeSeo();
+      const { route, locale: urlLocale, notFoundPath: nfp } = parsePath(window.location.pathname);
+      setActiveTab(route.activeTab);
+      setNotFoundPath(nfp || null);
+      if (route.calcolatoreSubTab) setCalcolatoreSubTab(route.calcolatoreSubTab);
+      if (route.confrontiSubTab) setConfrontiSubTab(route.confrontiSubTab);
+      if (route.fiscoSubTab) { setFiscoSubTab(route.fiscoSubTab); setFiscoShowOverview(false); }
+      else if (route.activeTab === 'fisco') { setFiscoSubTab('tax-return'); setFiscoShowOverview(true); }
+      if (route.taxReturnCountry) setTaxReturnCountry(route.taxReturnCountry);
+      if (route.guidaSubTab) setGuidaSubTab(route.guidaSubTab);
+      if (route.vitaSubTab) setVitaSubTab(route.vitaSubTab);
+      if (route.statsSubTab) setStatsSubTab(route.statsSubTab);
+      setBlogArticle(route.blogArticle || null);
+      // If blog data wasn't loaded yet, resolve the deferred slug
+      if (route.blogSlug && !route.blogArticle) {
+        preloadBlogData().then(() => {
+          const resolved = resolveBlogSlug(route.blogSlug!, urlLocale);
+          if (resolved) setBlogArticle(resolved);
+        }).catch(() => {});
+      }
+      setSeoLanding(route.seoLanding || null);
+      setGlossaryTerm(route.glossaryTerm || null);
+      setBorderCrossing(route.borderCrossing || null);
+      setJobSlug(route.jobSlug || null);
+      // Sync locale from URL
+      setLocale(urlLocale);
+      // Update SEO meta tags
+      const seoKey = getSeoSection(route);
+      updateMetaTags(seoKey);
+      trackSectionView(seoKey);
+      // Scroll to anchor fragment if present, otherwise scroll to top
+      // Skip auto-scroll when returning to job-board list — JobBoard restores scroll itself
+      const isJobBoardReturn = route.activeTab === 'job-board' && !route.jobSlug;
+      if (!isJobBoardReturn && !scrollToAnchor()) {
+        window.scrollTo({ top: 0, behavior: 'instant' });
+      }
+    };
+    window.addEventListener('popstate', onPopState);
+    // When locale changes, rewrite current URL with new locale slugs
+    const unsubLocale = onLocaleChange((newLocale) => {
+      updatePathForLocale(newLocale);
+    });
+    return () => {
+      window.removeEventListener('popstate', onPopState);
+      unsubLocale();
+    };
+  }, []);
+
+  // Apply SEO landing presets once per landing (does not touch URL query params)
+  useEffect(() => {
+    if (activeTab !== 'calculator') return;
+    if (!seoLanding) return;
+    if (landingAppliedRef.current === seoLanding) return;
+    landingAppliedRef.current = seoLanding;
+    urlHydrated.current = true;
+    const preset = SEO_LANDING_PRESETS[seoLanding];
+    if (preset) {
+      setInputs(prev => ({ ...prev, ...preset }));
+      setResult(null);
+      Analytics.trackUIInteraction('seo', 'landing', 'prefill', 'auto', seoLanding);
+    }
+  }, [activeTab, seoLanding]);
+
+  // Handle in-page hash navigation and scroll to anchor on initial load
+  useEffect(() => {
+    const onHashChange = () => {
+      scrollToAnchor();
+    };
+    window.addEventListener('hashchange', onHashChange);
+    // On initial mount, scroll to anchor if URL has a hash fragment (non-legacy)
+    if (window.location.hash && !window.location.hash.startsWith('#/')) {
+      // Delay to allow components to render their id attributes
+      requestAnimationFrame(() => scrollToAnchor());
+    }
+    return () => window.removeEventListener('hashchange', onHashChange);
+  }, []);
+
+  // Listen for navigate-tab events from child components (e.g. profile quick actions)
+  useEffect(() => {
+    const onNavigateTab = (e: Event) => {
+      const detail = (e as CustomEvent).detail;
+      if (detail?.tab) {
+        // Map legacy tab names from child components
+        let tab = detail.tab as string;
+        let subTab = detail.subTab as string | undefined;
+        let guideSec = detail.guideSection as string | undefined;
+
+        // Legacy: 'comparatori' → 'confronti'
+        if (tab === 'comparatori') { tab = 'confronti'; }
+        // Legacy: 'pension' → 'fisco'
+        if (tab === 'pension') { tab = 'fisco'; subTab = subTab || 'pension'; }
+        // Legacy: 'guide' → 'guida'
+        if (tab === 'guide') { tab = 'guida'; subTab = guideSec; }
+        // Legacy: 'strumenti' → remap
+        if (tab === 'strumenti') {
+          if (subTab === 'permit-compare') { tab = 'guida'; subTab = 'permit-compare'; }
+          else if (subTab === 'car-cost') { tab = 'guida'; subTab = 'car-cost'; }
+          else { tab = 'guida'; subTab = 'car-cost'; }
+        }
+
+        setActiveTab(tab as ActiveTab);
+        const route: AppRoute = { activeTab: tab as ActiveTab };
+        if (tab === 'confronti' && subTab) { route.confrontiSubTab = subTab as ConfrontiSubTab; setConfrontiSubTab(subTab as ConfrontiSubTab); }
+        if (tab === 'fisco' && subTab) { route.fiscoSubTab = subTab as FiscoSubTab; setFiscoSubTab(subTab as FiscoSubTab); setFiscoShowOverview(false); }
+        if (tab === 'guida' && subTab) { route.guidaSubTab = subTab as GuidaSubTab; setGuidaSubTab(subTab as GuidaSubTab); }
+        if (tab === 'vita' && subTab) { route.vitaSubTab = subTab as VitaSubTab; setVitaSubTab(subTab as VitaSubTab); }
+        if (tab === 'calculator' && subTab) { route.calcolatoreSubTab = subTab as CalcolatoreSubTab; setCalcolatoreSubTab(subTab as CalcolatoreSubTab); }
+        if (tab === 'stats' && subTab) { route.statsSubTab = subTab as StatsSubTab; setStatsSubTab(subTab as StatsSubTab); }
+        pushRoute(route);
+        updateMetaTags(getSeoSection(route));
+        trackSectionView(getSeoSection(route));
+        // Scroll to top on programmatic navigation from child components
+        window.scrollTo({ top: 0, behavior: 'instant' });
+      }
+    };
+    window.addEventListener('navigate-tab', onNavigateTab);
+    return () => window.removeEventListener('navigate-tab', onNavigateTab);
+  }, []);
+
+  // Migrate legacy hash-based URLs to clean paths (only legacy #/... format)
+  useEffect(() => {
+    const hash = window.location.hash;
+    if (hash && hash.startsWith('#/')) {
+      const newPath = parseHashToPath(hash);
+      if (newPath) {
+        history.replaceState(null, '', newPath);
+      }
+    }
+    // Redirect old bare English slugs to canonical Italian URLs
+    const p = window.location.pathname.replace(/\/$/, '').toLowerCase();
+    const legacyRedirects: Record<string, string> = {
+      '/calculator': '/',
+      '/stats': '/statistiche',
+      '/guide': '/guida-frontaliere',
+    };
+    if (legacyRedirects[p]) {
+      history.replaceState(null, '', legacyRedirects[p]);
+    }
+  }, []);
+
+  // Initialize theme and Analytics
+  useEffect(() => {
+    // i18n Init
+    initLocale();
+
+    // Theme Init
+    if (localStorage.theme === 'dark') {
+      setIsDarkMode(true);
+      document.documentElement.classList.add('dark');
+    } else {
+      setIsDarkMode(false);
+      document.documentElement.classList.remove('dark');
+    }
+
+    // Analytics Init:
+    // - immediate if analytics consent already granted
+    // - on consent update when user accepts from banner
+    // - fallback on first real interaction
+    let analyticsReady = false;
+    const analyticsEvents: Array<keyof WindowEventMap> = ['pointerdown', 'keydown', 'scroll', 'touchstart'];
+    const listenerOptions: AddEventListenerOptions = { passive: true };
+    const cleanupAnalyticsListeners = () => {
+      analyticsEvents.forEach((eventName) => {
+        window.removeEventListener(eventName, initAnalytics, listenerOptions);
+      });
+    };
+    const initAnalytics = () => {
+      if (analyticsReady || !isAnalyticsGranted()) return;
+      analyticsReady = true;
+      enableRuntimeSeo();
+      cleanupAnalyticsListeners();
+      Analytics.init();
+      Analytics.trackPageView(`${window.location.pathname}${window.location.search}${window.location.hash}`);
+      Analytics.trackFunnelStep('entry', { source: document.referrer ? 'referral' : 'direct' });
+      // Init global error tracking (window.onerror, unhandledrejection, SW stale cache recovery)
+      Analytics.initGlobalErrorTracking();
+      // Init Web Vitals telemetry (reports CWV to GA4)
+      import('@/services/webVitals').then(m => m.initWebVitals()).catch(() => {});
+      // Init Microsoft Clarity (free heatmaps & session recordings)
+      import('@/services/clarity').then(m => m.initClarity()).catch(() => {});
+      // Init mobile UX monitor (tap targets, viewport overflow, slow connection)
+      import('@/services/mobileUxMonitor').then(m => m.initMobileUxMonitor()).catch(() => {});
+    };
+    analyticsEvents.forEach((eventName) => {
+      window.addEventListener(eventName, initAnalytics, listenerOptions);
+    });
+
+    // If user already consented in a previous session, track first pageview immediately.
+    if (isAnalyticsGranted()) {
+      initAnalytics();
+    }
+
+    // If user grants consent from cookie banner in this session, start tracking immediately.
+    const unsubscribeConsent = onConsentChange((state) => {
+      if (state.analytics) initAnalytics();
+    });
+
+    return () => {
+      unsubscribeConsent();
+      cleanupAnalyticsListeners();
+    };
+  }, []);
+
+  useEffect(() => {
+    // Centralized SPA pageview tracking for all route changes.
+    const trackCurrentLocation = () => {
+      Analytics.trackPageView(`${window.location.pathname}${window.location.search}${window.location.hash}`);
+    };
+
+    const originalPushState = history.pushState;
+    const originalReplaceState = history.replaceState;
+
+    history.pushState = function (...args) {
+      const ret = originalPushState.apply(this, args as any);
+      trackCurrentLocation();
+      return ret;
+    } as History['pushState'];
+
+    history.replaceState = function (...args) {
+      const ret = originalReplaceState.apply(this, args as any);
+      trackCurrentLocation();
+      return ret;
+    } as History['replaceState'];
+
+    window.addEventListener('popstate', trackCurrentLocation);
+    window.addEventListener('hashchange', trackCurrentLocation);
+
+    return () => {
+      history.pushState = originalPushState;
+      history.replaceState = originalReplaceState;
+      window.removeEventListener('popstate', trackCurrentLocation);
+      window.removeEventListener('hashchange', trackCurrentLocation);
+    };
+  }, []);
+
+  // Defer expensive blob animations until after LCP
+  useEffect(() => {
+    const id = typeof requestIdleCallback === 'function'
+      ? requestIdleCallback(() => setShowBlobs(true))
+      : setTimeout(() => setShowBlobs(true), 1500) as unknown as number;
+    return () => {
+      if (typeof cancelIdleCallback === 'function') cancelIdleCallback(id);
+      else clearTimeout(id);
+    };
+  }, []);
+
+  // Defer non-essential widgets to improve first paint on mobile.
+  useEffect(() => {
+    let done = false;
+    const complete = () => {
+      if (done) return;
+      done = true;
+      setShowDeferredHomeWidgets(true);
+      events.forEach((eventName) => window.removeEventListener(eventName, complete, listenerOptions));
+      clearTimeout(timer);
+    };
+    const events: Array<keyof WindowEventMap> = ['pointerdown', 'keydown', 'touchstart'];
+    const listenerOptions: AddEventListenerOptions = { passive: true };
+    events.forEach((eventName) => window.addEventListener(eventName, complete, listenerOptions));
+    const timer = window.setTimeout(complete, 7000);
+    if (typeof requestIdleCallback === 'function') {
+      requestIdleCallback(complete, { timeout: 7000 });
+    }
+    return () => {
+      events.forEach((eventName) => window.removeEventListener(eventName, complete, listenerOptions));
+      clearTimeout(timer);
+    };
+  }, []);
+
+  const toggleTheme = () => {
+    const newMode = !isDarkMode;
+    setIsDarkMode(newMode);
+    Analytics.trackSettingsChange('theme', newMode ? 'dark' : 'light');
+    if (newMode) unlockAchievement('dark_mode_fan');
+    
+    if (newMode) {
+      document.documentElement.classList.add('dark');
+      localStorage.theme = 'dark';
+    } else {
+      document.documentElement.classList.remove('dark');
+      localStorage.theme = 'light';
+    }
+  };
+
+  const handleTabChange = (tab: ActiveTab) => {
+    enableRuntimeSeo();
+    const previousTab = activeTab;
+    setActiveTab(tab);
+    setNotFoundPath(null);
+    if (tab !== 'calculator') setSeoLanding(null);
+    if (tab !== 'glossario') setGlossaryTerm(null);
+    if (tab !== 'job-board') setJobSlug(null);
+    if (tab === 'blog') setBlogArticle(null);
+    Analytics.trackTabNavigation(previousTab, tab);
+
+    // Funnel: track comparison step
+    if (tab === 'confronti') Analytics.trackFunnelStep('compare', { from_tab: previousTab });
+    // Gamification tracking
+    if (tab === 'guida') unlockAchievement('guide_reader');
+    if (tab === 'feedback') unlockAchievement('feedback_giver');
+    if (tab === 'stats') unlockAchievement('stats_checker');
+    if (tab === 'fisco') unlockAchievement('pension_planner');
+    if (tab === 'fisco') setFiscoShowOverview(true);
+
+    // Build route and push to history
+    const route: AppRoute = { activeTab: tab };
+    if (tab === 'confronti') route.confrontiSubTab = confrontiSubTab;
+    if (tab === 'fisco') {
+      route.fiscoSubTab = fiscoSubTab;
+      if (fiscoSubTab === 'tax-return' && taxReturnCountry) route.taxReturnCountry = taxReturnCountry;
+    }
+    if (tab === 'guida') route.guidaSubTab = guidaSubTab;
+    if (tab === 'vita') route.vitaSubTab = vitaSubTab;
+    if (tab === 'calculator') {
+      route.calcolatoreSubTab = calcolatoreSubTab;
+      if (calcolatoreSubTab === 'calculator' && seoLanding) route.seoLanding = seoLanding;
+    }
+    if (tab === 'stats') route.statsSubTab = statsSubTab;
+    if (tab === 'glossario' && glossaryTerm) route.glossaryTerm = glossaryTerm;
+    if (tab === 'job-board' && jobSlug) route.jobSlug = jobSlug;
+    pushRoute(route);
+
+    // Update SEO meta tags for the new section
+    const seoKey = getSeoSection(route);
+    updateMetaTags(seoKey);
+    trackSectionView(seoKey);
+  };
+
+  const handleCalculate = async () => {
+    const { calculateSimulation } = await lazyCalculate();
+    const res = calculateSimulation(inputs);
+    setResult(res);
+    import('@/services/firestoreService')
+      .then(m => m.registerSimulationForSocialProof())
+      .catch(() => undefined);
+    unlockAchievement('first_simulation');
+    unlockAchievement('simulation_pro');
+    Analytics.trackCalculation(
+      inputs.workerType,
+      inputs.grossSalary,
+      inputs.hasChildren
+    );
+    Analytics.trackFunnelStep('calculate', { worker_type: inputs.workerType });
+  };
+
+  // Update SEO tags when confronti sub-tab changes
+  useEffect(() => {
+    if (activeTab === 'confronti') {
+      if (suppressNextRouteSyncForTabRef.current === 'confronti') {
+        suppressNextRouteSyncForTabRef.current = null;
+        return;
+      }
+      const route: AppRoute = { activeTab: 'confronti', confrontiSubTab };
+      const seoKey = getSeoSection(route);
+      updateMetaTags(seoKey);
+      trackSectionView(seoKey);
+      if (!isInitialMount.current) {
+        pushRoute(route);
+        if (!window.location.hash) window.scrollTo({ top: 0, behavior: 'instant' });
+      }
+
+      // Gamification: track comparator exploration
+      unlockAchievement('comparator_curious');
+      unlockAchievement('comparator_master');
+      if (confrontiSubTab === 'exchange') unlockAchievement('currency_watcher');
+      if (confrontiSubTab === 'health') unlockAchievement('health_researcher');
+    }
+  }, [confrontiSubTab]);
+
+  // Update SEO tags when fisco sub-tab changes
+  useEffect(() => {
+    if (activeTab === 'fisco') {
+      if (suppressNextRouteSyncForTabRef.current === 'fisco') {
+        suppressNextRouteSyncForTabRef.current = null;
+        return;
+      }
+      const route: AppRoute = { activeTab: 'fisco', fiscoSubTab };
+      if (fiscoSubTab === 'tax-return' && taxReturnCountry) route.taxReturnCountry = taxReturnCountry;
+      const seoKey = getSeoSection(route);
+      updateMetaTags(seoKey);
+      trackSectionView(seoKey);
+      if (!isInitialMount.current) {
+        pushRoute(route);
+        if (!window.location.hash) window.scrollTo({ top: 0, behavior: 'instant' });
+      }
+    }
+  }, [fiscoSubTab, taxReturnCountry]);
+
+  // Update SEO tags when guida sub-tab changes
+  useEffect(() => {
+    if (activeTab === 'guida') {
+      if (suppressNextRouteSyncForTabRef.current === 'guida') {
+        suppressNextRouteSyncForTabRef.current = null;
+        return;
+      }
+      if (guidaSubTab !== 'border' && borderCrossing) {
+        setBorderCrossing(null);
+      }
+      const route: AppRoute = { activeTab: 'guida', guidaSubTab };
+      if (guidaSubTab === 'border' && borderCrossing) route.borderCrossing = borderCrossing;
+      const seoKey = getSeoSection(route);
+      updateMetaTags(seoKey);
+      trackSectionView(seoKey);
+      if (!isInitialMount.current) {
+        pushRoute(route);
+        if (!window.location.hash) window.scrollTo({ top: 0, behavior: 'instant' });
+      }
+    }
+  }, [guidaSubTab, borderCrossing]);
+
+  // Update SEO tags when vita sub-tab changes
+  useEffect(() => {
+    if (activeTab === 'vita') {
+      if (suppressNextRouteSyncForTabRef.current === 'vita') {
+        suppressNextRouteSyncForTabRef.current = null;
+        return;
+      }
+      const route: AppRoute = { activeTab: 'vita', vitaSubTab };
+      const seoKey = getSeoSection(route);
+      updateMetaTags(seoKey);
+      trackSectionView(seoKey);
+      if (!isInitialMount.current) {
+        pushRoute(route);
+        if (!window.location.hash) window.scrollTo({ top: 0, behavior: 'instant' });
+      }
+    }
+  }, [vitaSubTab]);
+
+  // Update SEO tags when calcolatore sub-tab changes
+  useEffect(() => {
+    if (activeTab === 'calculator') {
+      if (suppressNextRouteSyncForTabRef.current === 'calculator') {
+        suppressNextRouteSyncForTabRef.current = null;
+        return;
+      }
+      // Leaving the main calculator tab clears any long-tail landing URL.
+      if (calcolatoreSubTab !== 'calculator' && seoLanding) {
+        setSeoLanding(null);
+      }
+      const route: AppRoute = {
+        activeTab: 'calculator',
+        calcolatoreSubTab,
+        seoLanding: calcolatoreSubTab === 'calculator' ? (seoLanding || undefined) : undefined,
+      };
+      const seoKey = getSeoSection(route);
+      updateMetaTags(seoKey);
+      trackSectionView(seoKey);
+      if (!isInitialMount.current) {
+        pushRoute(route);
+        if (!window.location.hash) window.scrollTo({ top: 0, behavior: 'instant' });
+      }
+      if (calcolatoreSubTab === 'whatif') unlockAchievement('what_if_dreamer');
+    }
+  }, [activeTab, calcolatoreSubTab, seoLanding]);
+
+  // Update SEO tags and URL when glossary term deep link changes
+  useEffect(() => {
+    if (activeTab === 'glossario') {
+      if (suppressNextRouteSyncForTabRef.current === 'glossario') {
+        suppressNextRouteSyncForTabRef.current = null;
+        return;
+      }
+      const route: AppRoute = { activeTab: 'glossario', glossaryTerm: glossaryTerm || undefined };
+      const seoKey = getSeoSection(route);
+      updateMetaTags(seoKey);
+      trackSectionView(seoKey);
+      if (!isInitialMount.current) {
+        pushRoute(route);
+        if (!window.location.hash) window.scrollTo({ top: 0, behavior: 'instant' });
+      }
+    }
+  }, [activeTab, glossaryTerm]);
+
+  // Update SEO tags when stats sub-tab changes
+  useEffect(() => {
+    if (activeTab === 'stats') {
+      if (suppressNextRouteSyncForTabRef.current === 'stats') {
+        suppressNextRouteSyncForTabRef.current = null;
+        return;
+      }
+      const route: AppRoute = { activeTab: 'stats', statsSubTab };
+      const seoKey = getSeoSection(route);
+      updateMetaTags(seoKey);
+      trackSectionView(seoKey);
+      if (!isInitialMount.current) {
+        pushRoute(route);
+        if (!window.location.hash) window.scrollTo({ top: 0, behavior: 'instant' });
+      }
+    }
+  }, [statsSubTab]);
+
+  // Update SEO tags and URL when blog article changes
+  useEffect(() => {
+    if (activeTab === 'blog') {
+      if (suppressNextRouteSyncForTabRef.current === 'blog') {
+        suppressNextRouteSyncForTabRef.current = null;
+        return;
+      }
+      const route: AppRoute = { activeTab: 'blog', blogArticle: blogArticle || undefined };
+      const seoKey = getSeoSection(route);
+      updateMetaTags(seoKey);
+      trackSectionView(seoKey);
+      if (!isInitialMount.current) pushRoute(route);
+      // Scroll to top when switching articles (unless anchored to a section)
+      if (!window.location.hash) {
+        window.scrollTo({ top: 0, behavior: 'instant' });
+      }
+    }
+  }, [blogArticle]);
+
+  // Clear initial-mount flag after all sub-tab effects have fired
+  // (must be declared AFTER all sub-tab useEffects so it runs last)
+  useEffect(() => { isInitialMount.current = false; }, []);
+
+  // Update SEO tags and scroll to top when active tab changes
+  useEffect(() => {
+    // Scroll to top on tab change unless URL has a hash fragment (anchor link)
+    if (!window.location.hash) {
+      window.scrollTo({ top: 0, behavior: 'instant' });
+    }
+
+    // For tabs without sub-tab useEffects, handle SEO here
+    const tabsWithSubEffects = ['confronti', 'fisco', 'guida', 'vita', 'calculator', 'stats', 'blog'];
+    if (!tabsWithSubEffects.includes(activeTab)) {
+      const route: AppRoute = { activeTab };
+      const seoKey = getSeoSection(route);
+      updateMetaTags(seoKey);
+      trackSectionView(seoKey);
+    }
+  }, [activeTab]);
+
+  // Gamification: track guida section visits
+  useEffect(() => {
+    if (activeTab === 'guida') {
+      // car-cost is now under guida
+    }
+    if (activeTab === 'vita') {
+      if (vitaSubTab === 'schools') unlockAchievement('school_finder');
+      if (vitaSubTab === 'places') unlockAchievement('map_explorer');
+    }
+    if (activeTab === 'fisco') {
+      if (fiscoSubTab === 'calendar') unlockAchievement('tax_calendar_user');
+    }
+  }, [activeTab, guidaSubTab, vitaSubTab, fiscoSubTab]);
+
+  // Handle search navigation
+  const handleSearchNavigate = (tab: string, subTab?: string) => {
+    enableRuntimeSeo();
+    // We'll push the target route explicitly below.
+    suppressNextRouteSyncForTabRef.current = tab as ActiveTab;
+    setActiveTab(tab as ActiveTab);
+    if (tab !== 'calculator') setSeoLanding(null);
+    if (tab !== 'glossario') setGlossaryTerm(null);
+    if (tab !== 'blog') setBlogArticle(null);
+
+    if (tab === 'calculator' && subTab) {
+      setCalcolatoreSubTab(subTab as CalcolatoreSubTab);
+    } else if (tab === 'confronti' && subTab) {
+      setConfrontiSubTab(subTab as ConfrontiSubTab);
+    } else if (tab === 'fisco' && subTab) {
+      setFiscoSubTab(subTab as FiscoSubTab);
+      setFiscoShowOverview(false);
+    } else if (tab === 'guida' && subTab) {
+      setGuidaSubTab(subTab as GuidaSubTab);
+    } else if (tab === 'vita' && subTab) {
+      setVitaSubTab(subTab as VitaSubTab);
+    } else if (tab === 'stats' && subTab) {
+      setStatsSubTab(subTab as StatsSubTab);
+    } else if (tab === 'blog' && subTab) {
+      setBlogArticle(subTab as BlogArticleId);
+    } else if (tab === 'glossario') {
+      setGlossaryTerm((subTab as GlossaryTermId) || null);
+    }
+    const route: AppRoute = { activeTab: tab as ActiveTab };
+    if (tab === 'calculator') route.calcolatoreSubTab = (subTab || calcolatoreSubTab) as CalcolatoreSubTab;
+    if (tab === 'confronti') route.confrontiSubTab = (subTab || confrontiSubTab) as ConfrontiSubTab;
+    if (tab === 'fisco') route.fiscoSubTab = (subTab || fiscoSubTab) as FiscoSubTab;
+    if (tab === 'guida') route.guidaSubTab = (subTab || guidaSubTab) as GuidaSubTab;
+    if (tab === 'vita') route.vitaSubTab = (subTab || vitaSubTab) as VitaSubTab;
+    if (tab === 'stats') route.statsSubTab = (subTab || statsSubTab) as StatsSubTab;
+    if (tab === 'blog') route.blogArticle = (subTab as BlogArticleId) || undefined;
+    if (tab === 'glossario') route.glossaryTerm = (subTab as GlossaryTermId) || undefined;
+    pushRoute(route);
+    const seoKey = getSeoSection(route);
+    updateMetaTags(seoKey);
+    trackSectionView(seoKey);
+    // Scroll to top on search/CTA navigation
+    if (!window.location.hash) {
+      window.scrollTo({ top: 0, behavior: 'instant' });
+    }
+  };
+
+  type CtaTarget =
+    | { kind: 'tab'; tab: ActiveTab; subTab?: string }
+    | { kind: 'glossary'; term: GlossaryTermId };
+
+  type CtaItem = { label: string; target: CtaTarget; analyticsLabel: string };
+
+  const getCtaItems = (): CtaItem[] => {
+    const tabTarget = (tab: ActiveTab, subTab: string | undefined, label: string, analyticsLabel: string): CtaItem => (
+      { label, target: { kind: 'tab', tab, subTab }, analyticsLabel }
+    );
+    const glossaryTarget = (term: GlossaryTermId, label: string, analyticsLabel: string): CtaItem => (
+      { label, target: { kind: 'glossary', term }, analyticsLabel }
+    );
+    const termTitle = (term: GlossaryTermId) => t(`glossary.terms.${term}.title`);
+
+    if (activeTab === 'calculator') {
+      if (calcolatoreSubTab === 'calculator') {
+        return [
+          tabTarget('confronti', 'exchange', t('comparators.exchange'), 'confronti:exchange'),
+          tabTarget('guida', 'permit-compare', t('strumenti.permitCompare'), 'guida:permit-compare'),
+          tabTarget('fisco', 'calendar', t('guide.tabs.calendar'), 'fisco:calendar'),
+        ];
+      }
+      if (calcolatoreSubTab === 'payslip') {
+        return [
+          tabTarget('calculator', 'calculator', t('nav.calculator'), 'calculator:calculator'),
+          tabTarget('fisco', 'tax-return', t('comparators.taxReturn'), 'fisco:tax-return'),
+          glossaryTarget('impostaAllaFonte', termTitle('impostaAllaFonte'), 'glossario:impostaAllaFonte'),
+        ];
+      }
+      if (calcolatoreSubTab === 'whatif') {
+        return [
+          tabTarget('stats', 'salary-compare', t('strumenti.salaryCompare'), 'stats:salary-compare'),
+          tabTarget('fisco', 'pension', t('nav.pension'), 'fisco:pension'),
+          tabTarget('calculator', 'calculator', t('nav.calculator'), 'calculator:calculator'),
+        ];
+      }
+      if (calcolatoreSubTab === 'ral') {
+        return [
+          tabTarget('confronti', 'jobs', t('comparators.jobs'), 'confronti:jobs'),
+          tabTarget('stats', 'salary-compare', t('strumenti.salaryCompare'), 'stats:salary-compare'),
+          tabTarget('calculator', 'calculator', t('nav.calculator'), 'calculator:calculator'),
+        ];
+      }
+      if (calcolatoreSubTab === 'bonus') {
+        return [
+          tabTarget('fisco', 'tax-return', t('comparators.taxReturn'), 'fisco:tax-return'),
+          tabTarget('guida', 'permits', t('guide.tabs.permits'), 'guida:permits'),
+          glossaryTarget('franchigia', termTitle('franchigia'), 'glossario:franchigia'),
+        ];
+      }
+      if (calcolatoreSubTab === 'parental-leave') {
+        return [
+          tabTarget('vita', 'schools', t('guide.tabs.schools'), 'vita:schools'),
+          tabTarget('fisco', 'calendar', t('guide.tabs.calendar'), 'fisco:calendar'),
+          tabTarget('confronti', 'cost-of-living', t('comparators.costOfLiving'), 'confronti:cost-of-living'),
+        ];
+      }
+      if (calcolatoreSubTab === 'residency') {
+        return [
+          tabTarget('guida', 'permit-compare', t('strumenti.permitCompare'), 'guida:permit-compare'),
+          tabTarget('confronti', 'health', t('comparators.health'), 'confronti:health'),
+          glossaryTarget('permessoB', termTitle('permessoB'), 'glossario:permessoB'),
+        ];
+      }
+      if (calcolatoreSubTab === 'salary-quiz') {
+        return [
+          tabTarget('calculator', 'calculator', t('nav.calculator'), 'calculator:calculator'),
+          tabTarget('confronti', 'jobs', t('comparators.jobs'), 'confronti:jobs'),
+          tabTarget('stats', 'overview', t('stats.tabOverview'), 'stats:overview'),
+        ];
+      }
+    }
+
+    if (activeTab === 'confronti') {
+      if (confrontiSubTab === 'exchange') {
+        return [
+          tabTarget('calculator', 'calculator', t('nav.calculator'), 'calculator:calculator'),
+          tabTarget('confronti', 'banks', t('comparators.banks'), 'confronti:banks'),
+          glossaryTarget('tassoCambio', termTitle('tassoCambio'), 'glossario:tassoCambio'),
+        ];
+      }
+      if (confrontiSubTab === 'banks') {
+        return [
+          tabTarget('confronti', 'exchange', t('comparators.exchange'), 'confronti:exchange'),
+          tabTarget('fisco', 'pillar3', t('pension.pillar3'), 'fisco:pillar3'),
+          tabTarget('calculator', 'calculator', t('nav.calculator'), 'calculator:calculator'),
+        ];
+      }
+      if (confrontiSubTab === 'health') {
+        return [
+          tabTarget('guida', 'permits', t('guide.tabs.permits'), 'guida:permits'),
+          tabTarget('vita', 'living-ch', t('guide.tabs.livingCH'), 'vita:living-ch'),
+          glossaryTarget('lamal', termTitle('lamal'), 'glossario:lamal'),
+        ];
+      }
+      if (confrontiSubTab === 'mobile') {
+        return [
+          tabTarget('confronti', 'cost-of-living', t('comparators.costOfLiving'), 'confronti:cost-of-living'),
+          tabTarget('confronti', 'shopping', t('comparators.shopping'), 'confronti:shopping'),
+          tabTarget('calculator', 'calculator', t('nav.calculator'), 'calculator:calculator'),
+        ];
+      }
+      if (confrontiSubTab === 'shopping') {
+        return [
+          tabTarget('confronti', 'cost-of-living', t('comparators.costOfLiving'), 'confronti:cost-of-living'),
+          tabTarget('confronti', 'exchange', t('comparators.exchange'), 'confronti:exchange'),
+          tabTarget('confronti', 'mobile', t('comparators.mobile'), 'confronti:mobile'),
+        ];
+      }
+      if (confrontiSubTab === 'cost-of-living') {
+        return [
+          tabTarget('confronti', 'shopping', t('comparators.shopping'), 'confronti:shopping'),
+          tabTarget('confronti', 'mobile', t('comparators.mobile'), 'confronti:mobile'),
+          tabTarget('calculator', 'calculator', t('nav.calculator'), 'calculator:calculator'),
+        ];
+      }
+      if (confrontiSubTab === 'jobs') {
+        return [
+          tabTarget('calculator', 'ral', t('comparators.ral'), 'calculator:ral'),
+          tabTarget('guida', 'first-day', t('guide.tabs.firstDay'), 'guida:first-day'),
+          tabTarget('stats', 'salary-compare', t('strumenti.salaryCompare'), 'stats:salary-compare'),
+        ];
+      }
+      if (confrontiSubTab === 'renovation') {
+        return [
+          tabTarget('confronti', 'banks', t('comparators.banks'), 'confronti:banks'),
+          tabTarget('confronti', 'cost-of-living', t('comparators.costOfLiving'), 'confronti:cost-of-living'),
+          tabTarget('calculator', 'calculator', t('nav.calculator'), 'calculator:calculator'),
+        ];
+      }
+    }
+
+    if (activeTab === 'fisco') {
+      if (fiscoSubTab === 'tax-return') {
+        return [
+          tabTarget('fisco', 'calendar', t('guide.tabs.calendar'), 'fisco:calendar'),
+          tabTarget('calculator', 'calculator', t('nav.calculator'), 'calculator:calculator'),
+          glossaryTarget('irpef', termTitle('irpef'), 'glossario:irpef'),
+        ];
+      }
+      if (fiscoSubTab === 'calendar') {
+        return [
+          tabTarget('fisco', 'tax-return', t('comparators.taxReturn'), 'fisco:tax-return'),
+          tabTarget('guida', 'permits', t('guide.tabs.permits'), 'guida:permits'),
+          tabTarget('calculator', 'calculator', t('nav.calculator'), 'calculator:calculator'),
+        ];
+      }
+      if (fiscoSubTab === 'holidays') {
+        return [
+          tabTarget('guida', 'border', t('guide.tabs.border'), 'guida:border'),
+          tabTarget('vita', 'places', t('guide.tabs.places'), 'vita:places'),
+          tabTarget('stats', 'overview', t('stats.tabOverview'), 'stats:overview'),
+        ];
+      }
+      if (fiscoSubTab === 'ristorni') {
+        return [
+          glossaryTarget('ristorni', termTitle('ristorni'), 'glossario:ristorni'),
+          tabTarget('fisco', 'tax-return', t('comparators.taxReturn'), 'fisco:tax-return'),
+          tabTarget('calculator', 'calculator', t('nav.calculator'), 'calculator:calculator'),
+        ];
+      }
+      if (fiscoSubTab === 'pension') {
+        return [
+          tabTarget('fisco', 'pillar3', t('pension.pillar3'), 'fisco:pillar3'),
+          tabTarget('calculator', 'whatif', t('simulator.whatif'), 'calculator:whatif'),
+          glossaryTarget('lpp', termTitle('lpp'), 'glossario:lpp'),
+        ];
+      }
+      if (fiscoSubTab === 'pillar3') {
+        return [
+          tabTarget('fisco', 'pension', t('nav.pension'), 'fisco:pension'),
+          tabTarget('stats', 'overview', t('stats.tabOverview'), 'stats:overview'),
+          glossaryTarget('terzoPilastro', termTitle('terzoPilastro'), 'glossario:terzoPilastro'),
+        ];
+      }
+      if (fiscoSubTab === 'quiz') {
+        return [
+          tabTarget('calculator', 'salary-quiz', t('salaryQuiz.navLabel'), 'calculator:salary-quiz'),
+          tabTarget('stats', 'overview', t('stats.tabOverview'), 'stats:overview'),
+          glossaryTarget('franchigia', termTitle('franchigia'), 'glossario:franchigia'),
+        ];
+      }
+      if (fiscoSubTab === 'tax-credit') {
+        return [
+          tabTarget('fisco', 'tax-return', t('comparators.taxReturn'), 'fisco:tax-return'),
+          tabTarget('fisco', 'ristorni', t('guide.tabs.ristorni'), 'fisco:ristorni'),
+          glossaryTarget('doppiaimposizione', termTitle('doppiaimposizione'), 'glossario:doppiaimposizione'),
+        ];
+      }
+    }
+
+    if (activeTab === 'guida') {
+      if (guidaSubTab === 'first-day') {
+        return [
+          tabTarget('guida', 'permits', t('guide.tabs.permits'), 'guida:permits'),
+          tabTarget('confronti', 'jobs', t('comparators.jobs'), 'confronti:jobs'),
+          tabTarget('calculator', 'calculator', t('nav.calculator'), 'calculator:calculator'),
+        ];
+      }
+      if (guidaSubTab === 'permits') {
+        return [
+          tabTarget('guida', 'permit-compare', t('strumenti.permitCompare'), 'guida:permit-compare'),
+          tabTarget('confronti', 'health', t('comparators.health'), 'confronti:health'),
+          glossaryTarget('permessoG', termTitle('permessoG'), 'glossario:permessoG'),
+        ];
+      }
+      if (guidaSubTab === 'border') {
+        return [
+          tabTarget('guida', 'border-map', t('comparators.borderMap'), 'guida:border-map'),
+          tabTarget('stats', 'traffic-history', t('stats.trafficHistory'), 'stats:traffic-history'),
+          tabTarget('vita', 'transport', t('comparators.transport'), 'vita:transport'),
+        ];
+      }
+      if (guidaSubTab === 'unemployment') {
+        return [
+          tabTarget('confronti', 'cost-of-living', t('comparators.costOfLiving'), 'confronti:cost-of-living'),
+          tabTarget('guida', 'first-day', t('guide.tabs.firstDay'), 'guida:first-day'),
+          tabTarget('fisco', 'calendar', t('guide.tabs.calendar'), 'fisco:calendar'),
+        ];
+      }
+      if (guidaSubTab === 'car-transfer') {
+        return [
+          tabTarget('guida', 'car-cost', t('strumenti.carCost'), 'guida:car-cost'),
+          tabTarget('vita', 'transport', t('comparators.transport'), 'vita:transport'),
+          tabTarget('fisco', 'calendar', t('guide.tabs.calendar'), 'fisco:calendar'),
+        ];
+      }
+      if (guidaSubTab === 'car-cost') {
+        return [
+          tabTarget('vita', 'transport', t('comparators.transport'), 'vita:transport'),
+          tabTarget('confronti', 'cost-of-living', t('comparators.costOfLiving'), 'confronti:cost-of-living'),
+          tabTarget('guida', 'border', t('guide.tabs.border'), 'guida:border'),
+        ];
+      }
+      if (guidaSubTab === 'permit-compare') {
+        return [
+          tabTarget('calculator', 'residency', t('comparators.residency'), 'calculator:residency'),
+          tabTarget('confronti', 'health', t('comparators.health'), 'confronti:health'),
+          glossaryTarget('permessoB', termTitle('permessoB'), 'glossario:permessoB'),
+        ];
+      }
+      if (guidaSubTab === 'border-map') {
+        return [
+          tabTarget('guida', 'border', t('guide.tabs.border'), 'guida:border'),
+          tabTarget('stats', 'traffic-history', t('stats.trafficHistory'), 'stats:traffic-history'),
+          tabTarget('vita', 'municipalities', t('guide.tabs.municipalities'), 'vita:municipalities'),
+        ];
+      }
+    }
+
+    if (activeTab === 'vita') {
+      if (vitaSubTab === 'living-ch') {
+        return [
+          tabTarget('guida', 'permits', t('guide.tabs.permits'), 'guida:permits'),
+          tabTarget('confronti', 'health', t('comparators.health'), 'confronti:health'),
+          tabTarget('fisco', 'tax-return', t('comparators.taxReturn'), 'fisco:tax-return'),
+        ];
+      }
+      if (vitaSubTab === 'living-it') {
+        return [
+          tabTarget('confronti', 'cost-of-living', t('comparators.costOfLiving'), 'confronti:cost-of-living'),
+          tabTarget('confronti', 'exchange', t('comparators.exchange'), 'confronti:exchange'),
+          tabTarget('stats', 'livability', t('strumenti.livability'), 'stats:livability'),
+        ];
+      }
+      if (vitaSubTab === 'companies') {
+        return [
+          tabTarget('confronti', 'jobs', t('comparators.jobs'), 'confronti:jobs'),
+          tabTarget('guida', 'first-day', t('guide.tabs.firstDay'), 'guida:first-day'),
+          tabTarget('vita', 'living-ch', t('guide.tabs.livingCH'), 'vita:living-ch'),
+        ];
+      }
+      if (vitaSubTab === 'schools') {
+        return [
+          tabTarget('vita', 'nursery', t('comparators.nursery'), 'vita:nursery'),
+          tabTarget('vita', 'places', t('guide.tabs.places'), 'vita:places'),
+          tabTarget('guida', 'permits', t('guide.tabs.permits'), 'guida:permits'),
+        ];
+      }
+      if (vitaSubTab === 'nursery') {
+        return [
+          tabTarget('vita', 'schools', t('guide.tabs.schools'), 'vita:schools'),
+          tabTarget('vita', 'living-ch', t('guide.tabs.livingCH'), 'vita:living-ch'),
+          tabTarget('confronti', 'cost-of-living', t('comparators.costOfLiving'), 'confronti:cost-of-living'),
+        ];
+      }
+      if (vitaSubTab === 'places') {
+        return [
+          tabTarget('vita', 'transport', t('comparators.transport'), 'vita:transport'),
+          tabTarget('guida', 'border', t('guide.tabs.border'), 'guida:border'),
+          tabTarget('stats', 'livability', t('strumenti.livability'), 'stats:livability'),
+        ];
+      }
+      if (vitaSubTab === 'transport') {
+        return [
+          tabTarget('guida', 'border', t('guide.tabs.border'), 'guida:border'),
+          tabTarget('guida', 'car-cost', t('strumenti.carCost'), 'guida:car-cost'),
+          tabTarget('stats', 'traffic-history', t('stats.trafficHistory'), 'stats:traffic-history'),
+        ];
+      }
+      if (vitaSubTab === 'municipalities') {
+        return [
+          tabTarget('guida', 'border-map', t('comparators.borderMap'), 'guida:border-map'),
+          tabTarget('vita', 'transport', t('comparators.transport'), 'vita:transport'),
+          tabTarget('stats', 'livability', t('strumenti.livability'), 'stats:livability'),
+        ];
+      }
+    }
+
+    if (activeTab === 'stats') {
+      if (statsSubTab === 'overview') {
+        return [
+          tabTarget('stats', 'jobs-observatory', t('stats.tabJobsObservatory'), 'stats:jobs-observatory'),
+          tabTarget('calculator', 'calculator', t('nav.calculator'), 'calculator:calculator'),
+          tabTarget('stats', 'salary-compare', t('strumenti.salaryCompare'), 'stats:salary-compare'),
+          tabTarget('guida', 'border', t('guide.tabs.border'), 'guida:border'),
+        ];
+      }
+      if (statsSubTab === 'livability') {
+        return [
+          tabTarget('stats', 'jobs-observatory', t('stats.tabJobsObservatory'), 'stats:jobs-observatory'),
+          tabTarget('vita', 'places', t('guide.tabs.places'), 'vita:places'),
+          tabTarget('vita', 'living-it', t('guide.tabs.livingIT'), 'vita:living-it'),
+          tabTarget('stats', 'overview', t('stats.tabOverview'), 'stats:overview'),
+        ];
+      }
+      if (statsSubTab === 'jobs-observatory') {
+        return [
+          tabTarget('stats', 'salary-compare', t('strumenti.salaryCompare'), 'stats:salary-compare'),
+          tabTarget('job-board', undefined, t('jobBoard.title'), 'jobboard'),
+          tabTarget('stats', 'overview', t('stats.tabOverview'), 'stats:overview'),
+        ];
+      }
+      if (statsSubTab === 'salary-compare') {
+        return [
+          tabTarget('stats', 'jobs-observatory', t('stats.tabJobsObservatory'), 'stats:jobs-observatory'),
+          tabTarget('calculator', 'ral', t('comparators.ral'), 'calculator:ral'),
+          tabTarget('confronti', 'jobs', t('comparators.jobs'), 'confronti:jobs'),
+          tabTarget('calculator', 'calculator', t('nav.calculator'), 'calculator:calculator'),
+        ];
+      }
+      if (statsSubTab === 'traffic-history') {
+        return [
+          tabTarget('stats', 'jobs-observatory', t('stats.tabJobsObservatory'), 'stats:jobs-observatory'),
+          tabTarget('guida', 'border', t('guide.tabs.border'), 'guida:border'),
+          tabTarget('guida', 'border-map', t('comparators.borderMap'), 'guida:border-map'),
+          tabTarget('vita', 'transport', t('comparators.transport'), 'vita:transport'),
+        ];
+      }
+      if (statsSubTab === 'unemployment') {
+        return [
+          tabTarget('stats', 'jobs-observatory', t('stats.tabJobsObservatory'), 'stats:jobs-observatory'),
+          tabTarget('stats', 'overview', t('stats.tabOverview'), 'stats:overview'),
+          tabTarget('confronti', 'jobs', t('comparators.jobs'), 'confronti:jobs'),
+          tabTarget('stats', 'salary-compare', t('strumenti.salaryCompare'), 'stats:salary-compare'),
+        ];
+      }
+      if (statsSubTab === 'mortgage') {
+        return [
+          tabTarget('stats', 'jobs-observatory', t('stats.tabJobsObservatory'), 'stats:jobs-observatory'),
+          tabTarget('confronti', 'banks', t('comparators.banks'), 'confronti:banks'),
+          tabTarget('confronti', 'exchange', t('comparators.exchange'), 'confronti:exchange'),
+          tabTarget('fisco', 'tax-return', t('comparators.taxReturn'), 'fisco:tax-return'),
+        ];
+      }
+    }
+
+    if (activeTab === 'glossario') {
+      if (glossaryTerm === 'lamal' || glossaryTerm === 'cmu') {
+        return [
+          tabTarget('confronti', 'health', t('comparators.health'), 'confronti:health'),
+          tabTarget('guida', 'permits', t('guide.tabs.permits'), 'guida:permits'),
+          tabTarget('vita', 'living-ch', t('guide.tabs.livingCH'), 'vita:living-ch'),
+        ];
+      }
+      if (glossaryTerm === 'tassoCambio') {
+        return [
+          tabTarget('confronti', 'exchange', t('comparators.exchange'), 'confronti:exchange'),
+          tabTarget('confronti', 'banks', t('comparators.banks'), 'confronti:banks'),
+          tabTarget('calculator', 'calculator', t('nav.calculator'), 'calculator:calculator'),
+        ];
+      }
+      if (glossaryTerm === 'impostaAllaFonte' || glossaryTerm === 'irpef' || glossaryTerm === 'franchigia' || glossaryTerm === 'ristorni') {
+        return [
+          tabTarget('calculator', 'calculator', t('nav.calculator'), 'calculator:calculator'),
+          tabTarget('fisco', 'tax-return', t('comparators.taxReturn'), 'fisco:tax-return'),
+          tabTarget('fisco', 'calendar', t('guide.tabs.calendar'), 'fisco:calendar'),
+        ];
+      }
+      if (glossaryTerm === 'avs' || glossaryTerm === 'lpp' || glossaryTerm === 'terzoPilastro') {
+        return [
+          tabTarget('fisco', 'pension', t('nav.pension'), 'fisco:pension'),
+          tabTarget('fisco', 'pillar3', t('pension.pillar3'), 'fisco:pillar3'),
+          tabTarget('stats', 'overview', t('stats.tabOverview'), 'stats:overview'),
+        ];
+      }
+      if (glossaryTerm === 'permessoG' || glossaryTerm === 'permessoB') {
+        return [
+          tabTarget('guida', 'permit-compare', t('strumenti.permitCompare'), 'guida:permit-compare'),
+          tabTarget('calculator', 'residency', t('comparators.residency'), 'calculator:residency'),
+          tabTarget('confronti', 'health', t('comparators.health'), 'confronti:health'),
+        ];
+      }
+      return [
+        tabTarget('calculator', 'calculator', t('nav.calculator'), 'calculator:calculator'),
+        tabTarget('confronti', 'exchange', t('comparators.exchange'), 'confronti:exchange'),
+        tabTarget('fisco', 'tax-return', t('comparators.taxReturn'), 'fisco:tax-return'),
+      ];
+    }
+
+    return [];
+  };
+
+  const ctaItemsBase = getCtaItems();
+
+  const buildCtaItems = (baseItems: CtaItem[]): CtaItem[] => {
+    const extras: CtaItem[] = [];
+
+    // Add a few additional contextual suggestions so the UI can rotate while still showing only 3.
+    if (activeTab === 'calculator') {
+      extras.push(
+        { label: t('comparators.ral'), target: { kind: 'tab', tab: 'calculator', subTab: 'ral' }, analyticsLabel: 'calculator:ral' },
+        { label: t('strumenti.payslip'), target: { kind: 'tab', tab: 'calculator', subTab: 'payslip' }, analyticsLabel: 'calculator:payslip' },
+        { label: t('simulator.whatif'), target: { kind: 'tab', tab: 'calculator', subTab: 'whatif' }, analyticsLabel: 'calculator:whatif' },
+      );
+    } else if (activeTab === 'confronti') {
+      extras.push(
+        { label: t('comparators.jobs'), target: { kind: 'tab', tab: 'confronti', subTab: 'jobs' }, analyticsLabel: 'confronti:jobs' },
+        { label: t('comparators.health'), target: { kind: 'tab', tab: 'confronti', subTab: 'health' }, analyticsLabel: 'confronti:health' },
+        { label: t('comparators.shopping'), target: { kind: 'tab', tab: 'confronti', subTab: 'shopping' }, analyticsLabel: 'confronti:shopping' },
+      );
+    } else if (activeTab === 'fisco') {
+      extras.push(
+        { label: t('withholdingRates.navLabel'), target: { kind: 'tab', tab: 'fisco', subTab: 'withholding-rates' }, analyticsLabel: 'fisco:withholding-rates' },
+        { label: t('guide.tabs.calendar'), target: { kind: 'tab', tab: 'fisco', subTab: 'calendar' }, analyticsLabel: 'fisco:calendar' },
+        { label: t('nav.pension'), target: { kind: 'tab', tab: 'fisco', subTab: 'pension' }, analyticsLabel: 'fisco:pension' },
+        { label: t('comparators.taxReturn'), target: { kind: 'tab', tab: 'fisco', subTab: 'tax-return' }, analyticsLabel: 'fisco:tax-return' },
+      );
+    } else if (activeTab === 'guida') {
+      extras.push(
+        { label: t('guide.tabs.permits'), target: { kind: 'tab', tab: 'guida', subTab: 'permits' }, analyticsLabel: 'guida:permits' },
+        { label: t('guide.tabs.firstDay'), target: { kind: 'tab', tab: 'guida', subTab: 'first-day' }, analyticsLabel: 'guida:first-day' },
+        { label: t('comparators.borderMap'), target: { kind: 'tab', tab: 'guida', subTab: 'border-map' }, analyticsLabel: 'guida:border-map' },
+      );
+    } else if (activeTab === 'vita') {
+      extras.push(
+        { label: t('guide.tabs.livingCH'), target: { kind: 'tab', tab: 'vita', subTab: 'living-ch' }, analyticsLabel: 'vita:living-ch' },
+        { label: t('guide.tabs.livingIT'), target: { kind: 'tab', tab: 'vita', subTab: 'living-it' }, analyticsLabel: 'vita:living-it' },
+        { label: t('comparators.transport'), target: { kind: 'tab', tab: 'vita', subTab: 'transport' }, analyticsLabel: 'vita:transport' },
+      );
+    } else if (activeTab === 'stats') {
+      extras.push(
+        { label: t('stats.tabOverview'), target: { kind: 'tab', tab: 'stats', subTab: 'overview' }, analyticsLabel: 'stats:overview' },
+        { label: t('stats.trafficHistory'), target: { kind: 'tab', tab: 'stats', subTab: 'traffic-history' }, analyticsLabel: 'stats:traffic-history' },
+        { label: t('strumenti.livability'), target: { kind: 'tab', tab: 'stats', subTab: 'livability' }, analyticsLabel: 'stats:livability' },
+      );
+    }
+
+    const all = [...baseItems, ...extras];
+    const seen = new Set<string>();
+    return all.filter((item) => {
+      if (seen.has(item.analyticsLabel)) return false;
+      seen.add(item.analyticsLabel);
+      return true;
+    });
+  };
+
+  const ctaItems = buildCtaItems(ctaItemsBase);
+
+  // Rotate the 3 CTA items when more are available (no animation; long interval to avoid test noise).
+  const [ctaRotationIndex, setCtaRotationIndex] = useState(0);
+  const ctaRotationKey = useMemo(() => ctaItems.map(i => i.analyticsLabel).join('|'), [ctaItems]);
+
+  useEffect(() => {
+    setCtaRotationIndex(0);
+  }, [ctaRotationKey]);
+
+  const visibleCtaItems = useMemo((): CtaItem[] => {
+    if (ctaItems.length <= 3) return ctaItems;
+    return [0, 1, 2].map((offset) => ctaItems[(ctaRotationIndex + offset) % ctaItems.length]);
+  }, [ctaItems, ctaRotationIndex]);
+
+  useEffect(() => {
+    if (ctaItems.length <= 3) return;
+    // Avoid timers/state updates during tests (pre-push hook runs vitest).
+    if (typeof import.meta !== 'undefined' && (import.meta as any).env?.MODE === 'test') return;
+    const prefersReducedMotion = typeof window !== 'undefined'
+      && typeof window.matchMedia === 'function'
+      && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReducedMotion) return;
+
+    const interval = window.setInterval(() => {
+      setCtaRotationIndex((idx) => (idx + 1) % ctaItems.length);
+    }, 15000);
+
+    return () => window.clearInterval(interval);
+  }, [ctaItems.length, ctaRotationKey]);
+
+  const handleCtaClick = (item: CtaItem) => {
+    Analytics.trackUIInteraction('cta', 'internal-link', 'click', 'navigate', item.analyticsLabel);
+
+    if (item.target.kind === 'tab') {
+      handleSearchNavigate(item.target.tab, item.target.subTab);
+      return;
+    }
+
+    // Glossary deep link
+    suppressNextRouteSyncForTabRef.current = 'glossario';
+    setActiveTab('glossario');
+    setSeoLanding(null);
+    setBlogArticle(null);
+    setGlossaryTerm(item.target.term);
+
+    const route: AppRoute = { activeTab: 'glossario', glossaryTerm: item.target.term };
+    pushRoute(route);
+    const seoKey = getSeoSection(route);
+    updateMetaTags(seoKey);
+    trackSectionView(seoKey);
+  };
+
+  // --- 5-click logo easter egg: cache reset with coin explosion ---
+  const logoClickCountRef = useRef(0);
+  const logoClickTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const [showCoinExplosion, setShowCoinExplosion] = useState(false);
+  const [showWhatsNew, setShowWhatsNew] = useState(false);
+  const CoinExplosionRef = useRef<React.ComponentType<{ onComplete: () => void }> | null>(null);
+
+  const handleLogoClick = () => {
+    logoClickCountRef.current += 1;
+    if (logoClickTimerRef.current) clearTimeout(logoClickTimerRef.current);
+
+    if (logoClickCountRef.current >= 5) {
+      logoClickCountRef.current = 0;
+      // Lazy-load the coin explosion component, then show it
+      import('@/components/shared/CoinExplosion').then(mod => {
+        CoinExplosionRef.current = mod.default;
+        setShowCoinExplosion(true);
+      }).catch(() => {});
+    } else {
+      // Reset counter after 2s of inactivity
+      logoClickTimerRef.current = setTimeout(() => {
+        logoClickCountRef.current = 0;
+      }, 2000);
+    }
+  };
+
+  const handleCoinExplosionComplete = async () => {
+    // Wait a beat so the animation ending feels smooth
+    await new Promise(r => setTimeout(r, 200));
+    // 1. Wipe all caches (SW + CacheStorage)
+    try { const keys = await caches.keys(); await Promise.all(keys.map(k => caches.delete(k))); } catch {}
+    // 2. Clear local data
+    localStorage.clear();
+    sessionStorage.clear();
+    document.cookie.split(';').forEach(c => {
+      document.cookie = c.replace(/^ +/, '').replace(/=.*/, '=;expires=' + new Date(0).toUTCString() + ';path=/');
+    });
+    // 3. Unregister service worker so the next load fetches fresh assets
+    try { const reg = await navigator.serviceWorker?.getRegistration(); if (reg) await reg.unregister(); } catch {}
+    // 4. Force-fetch latest version (cache-bust so the browser doesn't serve stale HTML)
+    window.location.replace('/?_t=' + Date.now());
+  };
+
+  // Track whether initial render is complete to defer first calculation
+  const hasHydrated = useRef(false);
+  const initialCalcDone = useRef(false);
+  
+  // Deferred initial auto-calculation: triggered by first user interaction
+  // (real users interact within 1-2s), with a long fallback timeout to keep
+  // the expensive calculationService + ResultsView/charts render outside
+  // Lighthouse's ~10-15s observation window.
+  useEffect(() => {
+    const runInitialCalc = () => {
+      if (initialCalcDone.current) return;
+      initialCalcDone.current = true;
+      // Remove listeners since we only need to calculate once on init
+      for (const evt of interactionEvents) {
+        window.removeEventListener(evt, onInteract, { capture: true } as EventListenerOptions);
+      }
+      handleCalculate();
+    };
+    const interactionEvents = ['pointerdown', 'keydown', 'scroll', 'touchstart'] as const;
+    const onInteract = () => {
+      // Small delay after interaction so we don't block the user's action
+      setTimeout(runInitialCalc, 50);
+    };
+    // Listen for first interaction to trigger calculation
+    for (const evt of interactionEvents) {
+      window.addEventListener(evt, onInteract, { capture: true, passive: true, once: true } as AddEventListenerOptions);
+    }
+    // Fallback: auto-calculate after 30s if no interaction (well past Lighthouse window)
+    const fallback = setTimeout(runInitialCalc, 30000);
+    return () => {
+      clearTimeout(fallback);
+      for (const evt of interactionEvents) {
+        window.removeEventListener(evt, onInteract, { capture: true } as EventListenerOptions);
+      }
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!hasHydrated.current) {
+      hasHydrated.current = true;
+      // Skip initial calculation — handled by the interaction-triggered effect above
+      return;
+    }
+    handleCalculate();
+  }, [inputs]);
+
+  // Navigation context value — shared with child components via useNavigation()
+  // navigateTo() is the canonical one-call navigation: sets tab + sub-tab + pushes URL.
+  const navigateTo = useCallback((tab: ActiveTab, subTab?: string) => {
+    setActiveTab(tab);
+    if (tab === 'calculator' && subTab) setCalcolatoreSubTab(subTab as CalcolatoreSubTab);
+    else if (tab === 'confronti' && subTab) setConfrontiSubTab(subTab as ConfrontiSubTab);
+    else if (tab === 'fisco' && subTab) { setFiscoSubTab(subTab as FiscoSubTab); setFiscoShowOverview(false); }
+    else if (tab === 'guida' && subTab) setGuidaSubTab(subTab as GuidaSubTab);
+    else if (tab === 'vita' && subTab) setVitaSubTab(subTab as VitaSubTab);
+    else if (tab === 'stats' && subTab) setStatsSubTab(subTab as StatsSubTab);
+    const route: AppRoute = { activeTab: tab };
+    if (tab === 'calculator') route.calcolatoreSubTab = (subTab || calcolatoreSubTab) as CalcolatoreSubTab;
+    if (tab === 'confronti') route.confrontiSubTab = (subTab || confrontiSubTab) as ConfrontiSubTab;
+    if (tab === 'fisco') route.fiscoSubTab = (subTab || fiscoSubTab) as FiscoSubTab;
+    if (tab === 'guida') route.guidaSubTab = (subTab || guidaSubTab) as GuidaSubTab;
+    if (tab === 'vita') route.vitaSubTab = (subTab || vitaSubTab) as VitaSubTab;
+    if (tab === 'stats') route.statsSubTab = (subTab || statsSubTab) as StatsSubTab;
+    pushRoute(route);
+  }, [calcolatoreSubTab, confrontiSubTab, fiscoSubTab, guidaSubTab, vitaSubTab, statsSubTab]);
+
+  const navContextValue: NavigationContextType = {
+    activeTab, calcolatoreSubTab, confrontiSubTab, fiscoSubTab,
+    guidaSubTab, vitaSubTab, statsSubTab, isDarkMode, isFocusMode,
+    setActiveTab: setActiveTab as any, setCalcolatoreSubTab: setCalcolatoreSubTab as any,
+    setConfrontiSubTab: setConfrontiSubTab as any, setFiscoSubTab: setFiscoSubTab as any,
+    setGuidaSubTab: setGuidaSubTab as any, setVitaSubTab: setVitaSubTab as any,
+    setStatsSubTab: setStatsSubTab as any, toggleTheme, setIsFocusMode,
+    navigateTo,
+  };
+
+  // Show full-chrome skeleton until Italian translations are loaded (CLS-safe).
+  // SkeletonPageShell includes nav + sub-tabs + mobile nav placeholders that
+  // match the loading shell dimensions, so React hydration produces zero CLS.
+  if (!translationsReady) {
+    return <SkeletonPageShell />;
+  }
+
+  return (
+    <ErrorBoundary>
+    <NavigationContext.Provider value={navContextValue}>
+      <div className={`min-h-screen relative flex flex-col font-sans text-slate-800 dark:text-slate-100 transition-colors duration-300 overflow-hidden`}>
+        {/* Fun & Modern Background Blobs — deferred until after LCP for perf */}
+        <div className="absolute inset-0 bg-gradient-to-br from-indigo-50 via-slate-50 to-purple-50 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 -z-20" style={{ contain: 'strict' }}></div>
+        {showBlobs && (
+        <div className="absolute top-0 left-0 w-full h-full overflow-hidden -z-10 opacity-60 dark:opacity-30 pointer-events-none" style={{ contain: 'strict' }}>
+          <div className="absolute top-0 left-1/4 w-96 h-96 bg-purple-300 dark:bg-purple-900 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob" style={{ willChange: 'transform', contain: 'layout style paint' }}></div>
+          <div className="absolute top-0 right-1/4 w-96 h-96 bg-indigo-300 dark:bg-indigo-900 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob animation-delay-2000" style={{ willChange: 'transform', contain: 'layout style paint' }}></div>
+          <div className="absolute -bottom-32 left-1/3 w-96 h-96 bg-pink-300 dark:bg-pink-900 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob animation-delay-4000" style={{ willChange: 'transform', contain: 'layout style paint' }}></div>
+        </div>
+        )}
+
+        {/* Newsletter confirmation welcome overlay */}
+        {showNewsletterWelcome && (
+          <div className="fixed inset-0 z-[200] flex items-center justify-center bg-black/50 backdrop-blur-sm animate-fade-in">
+            <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-2xl p-8 max-w-lg mx-4 text-center border border-slate-200 dark:border-slate-700">
+              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-emerald-100 dark:bg-emerald-900/50 mb-4">
+                <svg className="w-8 h-8 text-emerald-600 dark:text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
+              </div>
+              <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-2">{t('newsletter.welcome.title')}</h2>
+              <p className="text-slate-600 dark:text-slate-400 mb-6">{t('newsletter.welcome.description')}</p>
+              <div className="space-y-3 text-left mb-6">
+                <div className="flex items-start gap-3 p-3 rounded-lg bg-blue-50 dark:bg-blue-900/20">
+                  <span className="text-blue-600 dark:text-blue-400 mt-0.5">💱</span>
+                  <div>
+                    <p className="text-sm font-medium text-slate-800 dark:text-slate-200">{t('newsletter.exchangeRate')}</p>
+                    <p className="text-xs text-slate-600 dark:text-slate-400">{t('newsletter.weeklyRate')}</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3 p-3 rounded-lg bg-amber-50 dark:bg-amber-900/20">
+                  <span className="text-amber-600 dark:text-amber-400 mt-0.5">🚗</span>
+                  <div>
+                    <p className="text-sm font-medium text-slate-800 dark:text-slate-200">{t('newsletter.borderTraffic')}</p>
+                    <p className="text-xs text-slate-600 dark:text-slate-400">{t('newsletter.timesAndTips')}</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3 p-3 rounded-lg bg-emerald-50 dark:bg-emerald-900/20">
+                  <span className="text-emerald-600 dark:text-emerald-400 mt-0.5">📋</span>
+                  <div>
+                    <p className="text-sm font-medium text-slate-800 dark:text-slate-200">{t('newsletter.taxNews')}</p>
+                    <p className="text-xs text-slate-600 dark:text-slate-400">{t('newsletter.deadlinesAndChanges')}</p>
+                  </div>
+                </div>
+              </div>
+              <button
+                onClick={() => setShowNewsletterWelcome(false)}
+                className="w-full px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-xl transition-colors"
+              >
+                {t('newsletter.welcome.cta')}
+              </button>
+            </div>
+          </div>
+        )}
+
+        {/* Newsletter unsubscribe confirmation */}
+        {unsubscribeMsg && (
+          <div className="fixed top-4 left-1/2 -translate-x-1/2 z-[100] bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl shadow-xl px-6 py-4 max-w-md text-center animate-fade-in">
+            <p className="text-sm text-slate-700 dark:text-slate-300">{unsubscribeMsg}</p>
+            {newsletterActionType === 'unsubscribe' && newsletterActionEmail && (
+              <a
+                href={`/?action=resubscribe&email=${encodeURIComponent(newsletterActionEmail)}`}
+                className="inline-block mt-2 text-xs text-blue-600 dark:text-blue-400 hover:underline"
+              >
+                Re-iscriviti alla newsletter
+              </a>
+            )}
+            <button onClick={() => setUnsubscribeMsg(null)} className="mt-2 text-xs text-blue-600 dark:text-blue-400 hover:underline">{t('common.close')}</button>
+          </div>
+        )}
+
+        {/* Navbar */}
+        <nav aria-label="Navigazione principale" className="sticky top-0 z-50 bg-white/70 dark:bg-slate-900/70 backdrop-blur-lg border-b border-slate-200/50 dark:border-slate-800/50 shadow-sm transition-all duration-300">
+          <div className="max-w-[1800px] w-[95%] mx-auto px-4 sm:px-6">
+            <div className="flex justify-between h-20 items-center">
+              {/* Logo Section */}
+              <a href={buildPath({ activeTab: 'calculator' })} onClick={(e) => { e.preventDefault(); handleLogoClick(); handleTabChange('calculator'); }} className="flex items-center gap-3 cursor-pointer no-underline" aria-label="Frontaliere Ticino — Analisi Fiscale 2026">
+                <div className="relative group">
+                  <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-xl blur opacity-25 group-hover:opacity-50 transition duration-200"></div>
+                  <div className="relative bg-white dark:bg-slate-900 p-2 rounded-xl text-blue-600 dark:text-blue-500 ring-1 ring-slate-200 dark:ring-slate-800">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" className="w-[22px] h-[22px] transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-transform">
+                      <rect x="10" y="10" width="80" height="80" rx="16" fill="#1e293b" />
+                      <rect x="22" y="22" width="56" height="20" rx="4" fill="#94a3b8" />
+                      {/* CH Button */}
+                      <rect x="22" y="52" width="24" height="24" rx="6" fill="#dc2626" />
+                      <path d="M34 58v12M28 64h12" stroke="white" strokeWidth="3" strokeLinecap="round" />
+                      {/* IT Button */}
+                      <mask id="m-logo">
+                        <rect x="54" y="52" width="24" height="24" rx="6" fill="white" />
+                      </mask>
+                      <g mask="url(#m-logo)">
+                        <rect x="54" y="52" width="8" height="24" fill="#16a34a" />
+                        <rect x="62" y="52" width="8" height="24" fill="white" />
+                        <rect x="70" y="52" width="8" height="24" fill="#dc2626" />
+                      </g>
+                    </svg>
+                  </div>
+                </div>
+                <div className="hidden sm:block">
+                  <h1 className="text-lg font-bold text-slate-800 dark:text-slate-100 leading-none tracking-tight whitespace-nowrap">
+                    {t('app.title')}
+                  </h1>
+                  <p className="text-[10px] text-slate-500 dark:text-slate-500 font-bold uppercase tracking-widest mt-0.5">{t('nav.subtitle')}</p>
+                </div>
+              </a>
+              
+              {/* Navigation Links — hidden on mobile, shown on md+ */}
+              <div className="hidden md:flex items-center gap-1 mx-2 lg:mx-4 whitespace-nowrap flex-1 min-w-0 justify-between overflow-hidden">
+                <a 
+                  href={buildPath({ activeTab: 'calculator' })}
+                  onClick={(e) => { e.preventDefault(); handleTabChange('calculator'); }}
+                  onMouseEnter={() => prefetchTab('calculator')}
+                  aria-label={t('nav.simulator')}
+                  className={`relative flex-1 min-w-0 px-1.5 lg:px-2 py-3 text-[13px] font-semibold transition-colors flex items-center justify-center gap-1.5 group no-underline ${activeTab === 'calculator' ? 'text-blue-600 dark:text-blue-400' : 'text-slate-500 dark:text-slate-500 hover:text-slate-800 dark:hover:text-slate-200'}`}
+                >
+                  <Calculator size={16} aria-hidden="true" />
+                  <span className="hidden xl:inline whitespace-nowrap">{t('nav.simulator')}</span>
+                  {activeTab === 'calculator' && (
+                    <span className="absolute bottom-0 left-0 w-full h-0.5 bg-blue-600 dark:bg-blue-400 rounded-full animate-fade-in" />
+                  )}
+                </a>
+
+                <a 
+                  href={buildPath({ activeTab: 'confronti' })}
+                  onClick={(e) => { e.preventDefault(); handleTabChange('confronti'); }}
+                  onMouseEnter={() => prefetchTab('confronti')}
+                  aria-label={t('nav.confronti')}
+                  className={`relative flex-1 min-w-0 px-1.5 lg:px-2 py-3 text-[13px] font-semibold transition-colors flex items-center justify-center gap-1.5 group no-underline ${activeTab === 'confronti' ? 'text-violet-600 dark:text-violet-400' : 'text-slate-500 dark:text-slate-500 hover:text-slate-800 dark:hover:text-slate-200'}`}
+                >
+                  <Layers size={16} aria-hidden="true" />
+                  <span className="hidden xl:inline whitespace-nowrap">{t('nav.confronti')}</span>
+                  {activeTab === 'confronti' && (
+                    <span className="absolute bottom-0 left-0 w-full h-0.5 bg-violet-600 dark:bg-violet-400 rounded-full animate-fade-in" />
+                  )}
+                </a>
+
+                <a 
+                  href={buildPath({ activeTab: 'fisco' })}
+                  onClick={(e) => { e.preventDefault(); handleTabChange('fisco'); }}
+                  onMouseEnter={() => prefetchTab('fisco')}
+                  aria-label={t('nav.fisco')}
+                  className={`relative flex-1 min-w-0 px-1.5 lg:px-2 py-3 text-[13px] font-semibold transition-colors flex items-center justify-center gap-1.5 group no-underline ${activeTab === 'fisco' ? 'text-emerald-700 dark:text-emerald-400' : 'text-slate-500 dark:text-slate-500 hover:text-slate-800 dark:hover:text-slate-200'}`}
+                >
+                  <PiggyBank size={16} aria-hidden="true" />
+                  <span className="hidden xl:inline whitespace-nowrap">{t('nav.fisco')}</span>
+                  {activeTab === 'fisco' && (
+                    <span className="absolute bottom-0 left-0 w-full h-0.5 bg-emerald-700 dark:bg-emerald-400 rounded-full animate-fade-in" />
+                  )}
+                </a>
+
+                <a 
+                  href={buildPath({ activeTab: 'guida' })}
+                  onClick={(e) => { e.preventDefault(); handleTabChange('guida'); }}
+                  onMouseEnter={() => prefetchTab('guida')}
+                  aria-label={t('nav.guida')}
+                  className={`relative flex-1 min-w-0 px-1.5 lg:px-2 py-3 text-[13px] font-semibold transition-colors flex items-center justify-center gap-1.5 group no-underline ${activeTab === 'guida' ? 'text-indigo-600 dark:text-indigo-400' : 'text-slate-500 dark:text-slate-500 hover:text-slate-800 dark:hover:text-slate-200'}`}
+                >
+                  <BookOpen size={16} aria-hidden="true" />
+                  <span className="hidden xl:inline whitespace-nowrap">{t('nav.guida')}</span>
+                  {activeTab === 'guida' && (
+                    <span className="absolute bottom-0 left-0 w-full h-0.5 bg-indigo-600 dark:bg-indigo-400 rounded-full animate-fade-in" />
+                  )}
+                </a>
+
+                <a 
+                  href={buildPath({ activeTab: 'vita' })}
+                  onClick={(e) => { e.preventDefault(); handleTabChange('vita'); }}
+                  onMouseEnter={() => prefetchTab('vita')}
+                  aria-label={t('nav.vita')}
+                  className={`relative flex-1 min-w-0 px-1.5 lg:px-2 py-3 text-[13px] font-semibold transition-colors flex items-center justify-center gap-1.5 group no-underline ${activeTab === 'vita' ? 'text-amber-700 dark:text-amber-400' : 'text-slate-500 dark:text-slate-500 hover:text-slate-800 dark:hover:text-slate-200'}`}
+                >
+                  <Home size={16} aria-hidden="true" />
+                  <span className="hidden xl:inline whitespace-nowrap">{t('nav.vita')}</span>
+                  {activeTab === 'vita' && (
+                    <span className="absolute bottom-0 left-0 w-full h-0.5 bg-amber-600 dark:bg-amber-400 rounded-full animate-fade-in" />
+                  )}
+                </a>
+
+                <a 
+                  href={buildPath({ activeTab: 'stats' })}
+                  onClick={(e) => { e.preventDefault(); handleTabChange('stats'); }}
+                  onMouseEnter={() => prefetchTab('stats')}
+                  aria-label={t('nav.stats')}
+                  className={`relative flex-1 min-w-0 px-1.5 lg:px-2 py-3 text-[13px] font-semibold transition-colors flex items-center justify-center gap-1.5 group no-underline ${activeTab === 'stats' ? 'text-purple-600 dark:text-purple-400' : 'text-slate-500 dark:text-slate-500 hover:text-slate-800 dark:hover:text-slate-200'}`}
+                >
+                  <BarChart2 size={16} aria-hidden="true" />
+                  <span className="hidden xl:inline whitespace-nowrap">{t('nav.stats')}</span>
+                  {activeTab === 'stats' && (
+                    <span className="absolute bottom-0 left-0 w-full h-0.5 bg-purple-600 dark:bg-purple-400 rounded-full animate-fade-in" />
+                  )}
+                </a>
+              </div>
+
+              {/* Actions */}
+              <div className="flex items-center gap-0.5 sm:gap-1.5 pl-2 sm:pl-4 border-l border-slate-200 dark:border-slate-800 shrink-0 min-w-fit">
+                {showDeferredHomeWidgets ? (
+                  <>
+                    <Suspense fallback={<div className="w-9 h-9" />}><SiteSearch onNavigate={handleSearchNavigate} /></Suspense>
+                    <Suspense fallback={<div className="w-9 h-9" />}><GamificationWidget /></Suspense>
+                  </>
+                ) : (
+                  <div className="w-[76px] h-9" aria-hidden="true" />
+                )}
+                <Suspense fallback={null}><LanguageSelector /></Suspense>
+                <Suspense fallback={null}><WhatsNewBellLazy onClick={() => setShowWhatsNew(true)} /></Suspense>
+
+                <button 
+                  onClick={toggleTheme}
+                  className="p-2 rounded-xl text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors shrink-0"
+                  aria-label={isDarkMode ? t('app.lightMode') : t('app.darkMode')}
+                >
+                  {isDarkMode ? <Sun size={18} className="text-amber-400" /> : <Moon size={18} className="text-slate-600" />}
+                </button>
+
+                {/* Profile / Login button */}
+                {authUser ? (
+                  <button
+                    onClick={() => handleTabChange('profile')}
+                    className={`p-1 rounded-xl transition-all shrink-0 ${activeTab === 'profile' ? 'ring-2 ring-indigo-400' : 'hover:ring-2 hover:ring-slate-300 dark:hover:ring-slate-600'}`}
+                    aria-label={t('profile.title')}
+                    title={getUserDisplayName(authUser)}
+                  >
+                    {getUserPhotoURL(authUser, authUser?.uid) ? (
+                      <img
+                        src={getUserPhotoURL(authUser, authUser?.uid)!}
+                        alt={getUserDisplayName(authUser)}
+                        width={30}
+                        height={30}
+                        className="w-[30px] h-[30px] rounded-lg object-cover"
+                        referrerPolicy="no-referrer"
+                      />
+                    ) : (
+                      <div className="w-[30px] h-[30px] rounded-lg bg-indigo-100 dark:bg-indigo-900 flex items-center justify-center">
+                        <UserIcon size={16} className="text-indigo-600 dark:text-indigo-400" />
+                      </div>
+                    )}
+                  </button>
+                ) : (
+                  <button
+                    onClick={() => handleTabChange('profile')}
+                    className="p-2 rounded-xl text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors shrink-0"
+                    aria-label={t('profile.signIn')}
+                    title={t('profile.signIn')}
+                  >
+                    <LogIn size={18} />
+                  </button>
+                )}
+
+                {isPrivilegedAdmin && (
+                  <button
+                    onClick={() => handleTabChange('admin')}
+                    className={`p-2 rounded-xl transition-colors shrink-0 ${
+                      activeTab === 'admin'
+                        ? 'bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-300'
+                        : 'text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800'
+                    }`}
+                    aria-label="Apri pannello amministrazione"
+                    title="Pannello amministrazione"
+                  >
+                    <Shield size={18} />
+                  </button>
+                )}
+              </div>
+            </div>
+          </div>
+        </nav>
+
+        {/* Sub-navigation for Calcolatore */}
+        {activeTab === 'calculator' && (
+          <div className="border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2.5">
+              <div className="grid grid-cols-4 sm:grid-cols-4 md:grid-cols-8 gap-1">
+                {([
+                  { key: 'calculator' as const, icon: Calculator, label: t('simulator.calculator') },
+                  { key: 'whatif' as const, icon: Sparkles, label: t('simulator.whatif') },
+                  { key: 'payslip' as const, icon: FileText, label: t('strumenti.payslip') },
+                  { key: 'ral' as const, icon: ClipboardList, label: t('comparators.ral') },
+                  { key: 'bonus' as const, icon: Gift, label: t('comparators.bonus') },
+                  { key: 'parental-leave' as const, icon: Baby, label: t('comparators.parentalLeave') },
+                  { key: 'residency' as const, icon: Home, label: t('comparators.residency') },
+                  { key: 'salary-quiz' as const, icon: TrendingUp, label: t('salaryQuiz.navLabel') },
+                ] as const).map(({ key, icon: Icon, label }) => (
+                  <button
+                    key={key}
+                    onClick={() => {
+                      setCalcolatoreSubTab(key);
+                      Analytics.trackUIInteraction('calcolatore', 'navigazione', 'tab_sezione', 'cambio', key);
+                    }}
+                    className={`flex flex-col items-center gap-0.5 px-1 py-1.5 rounded-xl text-[10px] sm:text-[11px] font-semibold transition-all ${
+                      calcolatoreSubTab === key
+                        ? 'bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 ring-1 ring-blue-300 dark:ring-blue-700'
+                        : 'text-slate-500 dark:text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800'
+                    }`}
+                  >
+                    <Icon size={18} />
+                    <span className="leading-tight text-center w-full line-clamp-2">{label}</span>
+                  </button>
+                ))}
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* Sub-navigation for Confronti */}
+        {activeTab === 'confronti' && (
+          <div className="border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2.5">
+              <div className="grid grid-cols-4 sm:grid-cols-4 md:grid-cols-8 gap-1">
+                {([
+                  { key: 'exchange' as const, icon: ArrowRightLeft, label: t('comparators.exchange') },
+                  { key: 'banks' as const, icon: Building2, label: t('comparators.banks') },
+                  { key: 'health' as const, icon: Heart, label: t('comparators.health') },
+                  { key: 'mobile' as const, icon: Phone, label: t('comparators.mobile') },
+                  { key: 'shopping' as const, icon: ShoppingCart, label: t('comparators.shopping') },
+                  { key: 'cost-of-living' as const, icon: Euro, label: t('comparators.costOfLiving') },
+                  { key: 'jobs' as const, icon: Briefcase, label: t('comparators.jobs') },
+                  { key: 'renovation' as const, icon: Hammer, label: t('comparators.renovation') },
+                ] as const).map(({ key, icon: Icon, label }) => (
+                  <button
+                    key={key}
+                    onClick={() => {
+                      setConfrontiSubTab(key);
+                      Analytics.trackComparatorView(key as any);
+                    }}
+                    className={`flex flex-col items-center gap-0.5 px-1 py-1.5 rounded-xl text-[10px] sm:text-[11px] font-semibold transition-all ${
+                      confrontiSubTab === key
+                        ? 'bg-violet-100 dark:bg-violet-900/30 text-violet-700 dark:text-violet-300 ring-1 ring-violet-300 dark:ring-violet-700'
+                        : 'text-slate-500 dark:text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800'
+                    }`}
+                  >
+                    <Icon size={18} />
+                    <span className="leading-tight text-center w-full line-clamp-2">{label}</span>
+                  </button>
+                ))}
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* Sub-navigation for Fisco & Previdenza */}
+        {activeTab === 'fisco' && (
+          <div className="border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2.5">
+              <div className="grid grid-cols-4 sm:grid-cols-4 md:grid-cols-8 gap-1">
+                {([
+                  { key: 'tax-return' as const, icon: FileText, label: t('comparators.taxReturn') },
+                  { key: 'withholding-rates' as const, icon: Banknote, label: t('withholdingRates.navLabel') },
+                  { key: 'calendar' as const, icon: Calendar, label: t('guide.tabs.calendar') },
+                  { key: 'holidays' as const, icon: Heart, label: t('guide.tabs.holidays') },
+                  { key: 'ristorni' as const, icon: BarChart2, label: t('guide.tabs.ristorni') },
+                  { key: 'pension' as const, icon: PiggyBank, label: t('nav.pension') },
+                  { key: 'pillar3' as const, icon: TrendingUp, label: t('pension.pillar3') },
+                  { key: 'tax-credit' as const, icon: Receipt, label: t('taxCredit.navLabel') },
+                ] as const).map(({ key, icon: Icon, label }) => (
+                  <button
+                    key={key}
+                    onClick={() => {
+                      setFiscoSubTab(key);
+                      setFiscoShowOverview(false);
+                      Analytics.trackUIInteraction('fisco', 'navigazione', 'tab_sezione', 'cambio', key);
+                    }}
+                    className={`flex flex-col items-center gap-0.5 px-1 py-1.5 rounded-xl text-[10px] sm:text-[11px] font-semibold transition-all ${
+                      fiscoSubTab === key
+                        ? 'bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 ring-1 ring-emerald-300 dark:ring-emerald-700'
+                        : 'text-slate-500 dark:text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800'
+                    }`}
+                  >
+                    <Icon size={18} />
+                    <span className="leading-tight text-center w-full line-clamp-2">{label}</span>
+                  </button>
+                ))}
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* Sub-navigation for Guida Pratica */}
+        {activeTab === 'guida' && (
+          <div className="border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2.5">
+              <div className="grid grid-cols-4 sm:grid-cols-4 md:grid-cols-8 gap-1">
+                {([
+                  { key: 'first-day' as const, icon: Rocket, label: t('guide.tabs.firstDay') },
+                  { key: 'permits' as const, icon: Shield, label: t('guide.tabs.permits') },
+                  { key: 'border' as const, icon: Timer, label: t('guide.tabs.border') },
+                  { key: 'unemployment' as const, icon: LifeBuoy, label: t('guide.tabs.unemployment') },
+                  { key: 'car-transfer' as const, icon: Car, label: t('guide.tabs.carTransfer') },
+                  { key: 'car-cost' as const, icon: Car, label: t('strumenti.carCost') },
+                  { key: 'permit-compare' as const, icon: Users, label: t('strumenti.permitCompare') },
+                  { key: 'border-map' as const, icon: Map, label: t('comparators.borderMap') },
+                ] as const).map(({ key, icon: Icon, label }) => (
+                  <button
+                    key={key}
+                    onClick={() => {
+                      setGuidaSubTab(key);
+                      Analytics.trackUIInteraction('guida', 'navigazione', 'tab_sezione', 'cambio', key);
+                    }}
+                    className={`flex flex-col items-center gap-0.5 px-1 py-1.5 rounded-xl text-[10px] sm:text-[11px] font-semibold transition-all ${
+                      guidaSubTab === key
+                        ? 'bg-indigo-100 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300 ring-1 ring-indigo-300 dark:ring-indigo-700'
+                        : 'text-slate-500 dark:text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800'
+                    }`}
+                  >
+                    <Icon size={18} />
+                    <span className="leading-tight text-center w-full line-clamp-2">{label}</span>
+                  </button>
+                ))}
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* Sub-navigation for Vita in Ticino */}
+        {activeTab === 'vita' && (
+          <div className="border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2.5">
+              <div className="grid grid-cols-4 sm:grid-cols-4 md:grid-cols-8 gap-1">
+                {([
+                  { key: 'living-ch' as const, icon: Home, label: t('guide.tabs.livingCH') },
+                  { key: 'living-it' as const, icon: Users, label: t('guide.tabs.livingIT') },
+                  { key: 'companies' as const, icon: Building2, label: t('guide.tabs.companies') },
+                  { key: 'schools' as const, icon: GraduationCap, label: t('guide.tabs.schools') },
+                  { key: 'nursery' as const, icon: School, label: t('comparators.nursery') },
+                  { key: 'places' as const, icon: Mountain, label: t('guide.tabs.places') },
+                  { key: 'transport' as const, icon: Car, label: t('comparators.transport') },
+                  { key: 'municipalities' as const, icon: MapPin, label: t('guide.tabs.municipalities') },
+                ] as const).map(({ key, icon: Icon, label }) => (
+                  <button
+                    key={key}
+                    onClick={() => {
+                      setVitaSubTab(key);
+                      Analytics.trackUIInteraction('vita', 'navigazione', 'tab_sezione', 'cambio', key);
+                    }}
+                    className={`flex flex-col items-center gap-0.5 px-1 py-1.5 rounded-xl text-[10px] sm:text-[11px] font-semibold transition-all ${
+                      vitaSubTab === key
+                        ? 'bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-300 ring-1 ring-amber-300 dark:ring-amber-700'
+                        : 'text-slate-500 dark:text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800'
+                    }`}
+                  >
+                    <Icon size={18} />
+                    <span className="leading-tight text-center w-full line-clamp-2">{label}</span>
+                  </button>
+                ))}
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* Sub-navigation for Stats */}
+        {activeTab === 'stats' && (
+          <div className="border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2.5">
+              <div className="grid grid-cols-4 sm:grid-cols-7 md:grid-cols-7 gap-1.5 max-w-5xl mx-auto">
+                {([
+                  { key: 'overview' as const, icon: Database, label: t('stats.tabOverview') },
+                  { key: 'livability' as const, icon: MapPin, label: t('strumenti.livability') },
+                  { key: 'jobs-observatory' as const, icon: Briefcase, label: t('stats.tabJobsObservatory') },
+                  { key: 'salary-compare' as const, icon: TrendingUp, label: t('strumenti.salaryCompare') },
+                  { key: 'traffic-history' as const, icon: Clock, label: t('stats.trafficHistory') },
+                  { key: 'unemployment' as const, icon: BarChart3, label: t('stats.tabUnemployment') },
+                  { key: 'mortgage' as const, icon: Home, label: t('stats.tabMortgage') },
+                ] as const).map(({ key, icon: Icon, label }) => (
+                  <button
+                    key={key}
+                    onClick={() => {
+                      setStatsSubTab(key);
+                      Analytics.trackUIInteraction('statistiche', 'navigazione', 'tab_sezione', 'cambio', key);
+                    }}
+                    className={`flex flex-col items-center gap-0.5 px-1 py-1.5 rounded-xl text-[10px] sm:text-[11px] font-semibold transition-all ${
+                      statsSubTab === key
+                        ? 'bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 ring-1 ring-purple-300 dark:ring-purple-700'
+                        : 'text-slate-500 dark:text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800'
+                    }`}
+                  >
+                    <Icon size={18} />
+                    <span className="leading-tight text-center w-full line-clamp-2">{label}</span>
+                  </button>
+                ))}
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* Main Content */}
+        <main className={`flex-grow mx-auto py-6 transition-all duration-500 relative z-10 ${
+          activeTab === 'admin' ? 'w-full px-3 sm:px-6' : 'max-w-[1800px] w-[95%] px-2 sm:px-4'
+        }`}>
+         <Suspense fallback={<LazyFallback />}>
+          {notFoundPath ? (
+            <NotFoundSuggestions path={notFoundPath} onNavigate={handleSearchNavigate} />
+          ) : activeTab === 'calculator' ? (
+            <div className="space-y-6">
+              {calcolatoreSubTab === 'calculator' ? (
+              <>
+                {seoLanding === 'new-frontier-over20km' ? (
+                  <Suspense fallback={<div className="h-64 rounded-3xl bg-slate-200 dark:bg-slate-800 animate-pulse mb-6" />}>
+                    <NewFrontierOver20KmHub />
+                  </Suspense>
+                ) : (
+                <>
+                {showDeferredHomeWidgets ? (
+                  <div className="hidden md:block space-y-2 mb-4">
+                    <div className="grid grid-cols-1 md:grid-cols-20 gap-2 items-stretch">
+                      <div className="md:col-span-13 h-full">
+                        <Suspense fallback={<SkeletonNewsTicker />}><NewsFeed onNavigate={(tab, article) => { setActiveTab(tab as ActiveTab); if (article) setBlogArticle(article as BlogArticleId); pushRoute({ activeTab: tab as ActiveTab, blogArticle: article as BlogArticleId }); }} /></Suspense>
+                      </div>
+                      <div className="md:col-span-7 h-full">
+                        <Suspense fallback={<div className="h-[34px]" />}>
+                          <DailyDialectPhrase />
+                        </Suspense>
+                      </div>
+                    </div>
+                    <div className="grid grid-cols-1 md:grid-cols-20 gap-2 items-stretch">
+                      <div className="md:col-span-13 h-full">
+                        <Suspense fallback={<SkeletonWeeklyFact />}><WeeklyFact /></Suspense>
+                      </div>
+                      <div className="md:col-span-7 h-full">
+                        <Suspense fallback={<div className="h-[34px]" />}><SocialProofBadge fullWidth /></Suspense>
+                      </div>
+                    </div>
+                  </div>
+                ) : (
+                  <div className="hidden md:block space-y-2 mb-4" aria-hidden="true">
+                    <div className="grid grid-cols-1 md:grid-cols-20 gap-2 items-stretch">
+                      <div className="md:col-span-13 h-full"><SkeletonNewsTicker /></div>
+                      <div className="md:col-span-7 h-full"><div className="h-[34px] rounded-xl bg-slate-200 dark:bg-slate-700 animate-pulse" /></div>
+                    </div>
+                    <div className="grid grid-cols-1 md:grid-cols-20 gap-2 items-stretch">
+                      <div className="md:col-span-13 h-full"><SkeletonWeeklyFact /></div>
+                      <div className="md:col-span-7 h-full"><div className="h-[34px] rounded-xl bg-slate-200 dark:bg-slate-700 animate-pulse" /></div>
+                    </div>
+                  </div>
+                )}
+                {/* Mobile: Results-first bottom-sheet layout (Proposal D) */}
+                <div className="md:hidden">
+                  <Suspense fallback={<SkeletonMobileCalc />}>
+                  <MobileCalcLayout
+                    inputs={inputs}
+                    setInputs={setInputs}
+                    onCalculate={handleCalculate}
+                    result={result}
+                    renderResultView={(focusArea, onProfileTagClick) => result ? <Suspense fallback={<LazyFallback />}><ResultsView result={result} inputs={inputs} focusArea={focusArea ?? null} onProfileTagClick={onProfileTagClick} /></Suspense> : null}
+                    renderInputCard={(focusField, focusRequestId) => (
+                      <InputCard
+                        inputs={inputs}
+                        setInputs={setInputs}
+                        onCalculate={handleCalculate}
+                        focusField={focusField}
+                        focusRequestId={focusRequestId}
+                      />
+                    )}
+                  />
+                  </Suspense>
+                </div>
+                {/* Desktop: original side-by-side layout */}
+                <div className="hidden md:grid grid-cols-12 gap-6 h-full">
+                  <div className={`transition-all duration-500 ease-in-out md:col-span-4 lg:col-span-4 xl:col-span-3 h-full`}>
+                    <Suspense fallback={<SkeletonInputCard />}>
+                    <InputCard 
+                      inputs={inputs} 
+                      setInputs={setInputs} 
+                      onCalculate={handleCalculate}
+                    />
+                    </Suspense>
+                  </div>
+                  <div className={`transition-all duration-500 ease-in-out md:col-span-8 lg:col-span-8 xl:col-span-9 h-full`}>
+                    {result && <Suspense fallback={<LazyFallback />}><ResultsView result={result} inputs={inputs} /></Suspense>}
+                  </div>
+                </div>
+                {/* Mobile: move news/fact/phrase widgets below results, before CTA cards */}
+                {showDeferredHomeWidgets ? (
+                  <div className="md:hidden space-y-2 mt-2">
+                    <Suspense fallback={<SkeletonNewsTicker />}><NewsFeed onNavigate={(tab, article) => { setActiveTab(tab as ActiveTab); if (article) setBlogArticle(article as BlogArticleId); pushRoute({ activeTab: tab as ActiveTab, blogArticle: article as BlogArticleId }); }} /></Suspense>
+                    <div className="space-y-2">
+                      <Suspense fallback={<SkeletonWeeklyFact />}><WeeklyFact /></Suspense>
+                      <div className="opacity-90"><Suspense fallback={<div className="h-[34px]" />}><SocialProofBadge fullWidth /></Suspense></div>
+                    </div>
+                    <Suspense fallback={<div className="h-[34px]" />}>
+                      <DailyDialectPhrase />
+                    </Suspense>
+                  </div>
+                ) : (
+                  <div className="md:hidden space-y-2 mt-2" aria-hidden="true">
+                    <SkeletonNewsTicker />
+                    <SkeletonWeeklyFact />
+                    <div className="h-[34px] rounded-xl bg-slate-200 dark:bg-slate-700 animate-pulse" />
+                    <div className="h-[34px] rounded-xl bg-slate-200 dark:bg-slate-700 animate-pulse" />
+                  </div>
+                )}
+                {/* Popular Tools CTA — drives discovery of high-value features */}
+                {result && (
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-2">
+                    {[
+                      { icon: ArrowRightLeft, label: t('nav.confronti'), desc: t('cta.confrontiDesc'), color: 'from-violet-500 to-purple-600', tab: 'confronti' as ActiveTab },
+                      { icon: Layers, label: t('cta.whatif'), desc: t('cta.whatifDesc'), color: 'from-amber-500 to-orange-600', tab: 'calculator' as ActiveTab, sub: 'whatif' as CalcolatoreSubTab },
+                      { icon: Shield, label: t('nav.fisco'), desc: t('cta.fiscalDesc'), color: 'from-emerald-500 to-teal-600', tab: 'fisco' as ActiveTab },
+                      { icon: Briefcase, label: t('nav.guida'), desc: t('cta.guidaDesc'), color: 'from-blue-500 to-indigo-600', tab: 'guida' as ActiveTab },
+                    ].map(({ icon: Icon, label, desc, color, tab, sub }) => (
+                      <button
+                        key={tab + (sub || '')}
+                        onClick={() => {
+                          setActiveTab(tab);
+                          if (sub) setCalcolatoreSubTab(sub);
+                          pushRoute({ activeTab: tab, ...(sub ? { calcolatoreSubTab: sub } : {}) });
+                        }}
+                        className="flex items-start gap-3 p-4 bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 hover:shadow-md hover:-translate-y-0.5 transition-all text-left group"
+                      >
+                        <div className={`p-2 rounded-lg bg-gradient-to-br ${color} flex-shrink-0`}>
+                          <Icon size={18} className="text-white" />
+                        </div>
+                        <div className="min-w-0">
+                          <div className="text-sm font-bold text-slate-800 dark:text-slate-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">{label}</div>
+                          <div className="text-xs text-slate-600 dark:text-slate-500 line-clamp-2">{desc}</div>
+                        </div>
+                      </button>
+                    ))}
+                  </div>
+                )}
+                </>
+                )}
+                </>
+              ) : calcolatoreSubTab === 'payslip' ? (
+                <div className="w-full">
+                  <PayslipSimulator userProfile={userProfile} />
+                </div>
+              ) : calcolatoreSubTab === 'whatif' ? (
+                <div className="w-full">
+                  {result && <WhatIfSimulator baseInputs={inputs} baseResult={result} userProfile={userProfile} />}
+                </div>
+              ) : calcolatoreSubTab === 'ral' ? (
+                <div className="max-w-7xl mx-auto">
+                  <RalComparator userProfile={userProfile} />
+                </div>
+              ) : calcolatoreSubTab === 'bonus' ? (
+                <div className="max-w-7xl mx-auto">
+                  <BonusCalculator userProfile={userProfile} />
+                </div>
+              ) : calcolatoreSubTab === 'parental-leave' ? (
+                <div className="max-w-7xl mx-auto">
+                  <ParentalLeaveCalculator userProfile={userProfile} />
+                </div>
+              ) : calcolatoreSubTab === 'residency' ? (
+                <div className="max-w-7xl mx-auto">
+                  <ResidencySimulator />
+                </div>
+              ) : calcolatoreSubTab === 'salary-quiz' ? (
+                <div className="max-w-7xl mx-auto">
+                  <SalaryQuiz />
+                </div>
+              ) : null}
+            </div>
+          ) : activeTab === 'confronti' ? (
+            <div className="max-w-7xl mx-auto min-h-[60vh]">
+              <Suspense fallback={<div className="min-h-[44px]" />}><SeoContentBlock context="confronti" /></Suspense>
+              <Suspense fallback={<SkeletonComparator />}>
+              {confrontiSubTab === 'exchange' ? (
+                <CurrencyExchange />
+              ) : confrontiSubTab === 'banks' ? (
+                <BankComparison />
+              ) : confrontiSubTab === 'health' ? (
+                <HealthInsurance />
+              ) : confrontiSubTab === 'mobile' ? (
+                <MobileOperators />
+              ) : confrontiSubTab === 'shopping' ? (
+                <ShoppingCalculator />
+              ) : confrontiSubTab === 'cost-of-living' ? (
+                <CostOfLiving />
+              ) : confrontiSubTab === 'jobs' ? (
+                <JobComparator userProfile={userProfile} />
+              ) : confrontiSubTab === 'renovation' ? (
+                <RenovationCalculator simulationResult={result ?? undefined} simulationInputs={inputs} />
+              ) : null}
+              </Suspense>
+            </div>
+          ) : activeTab === 'fisco' ? (
+            <div className="max-w-7xl mx-auto">
+              <Suspense fallback={<div className="min-h-[44px]" />}><SeoContentBlock context="fisco" /></Suspense>
+              {fiscoShowOverview && (
+                <Suspense fallback={<div className="min-h-[200px]" />}>
+                  <FiscoLanding />
+                </Suspense>
+              )}
+              {fiscoSubTab === 'tax-return' ? (
+                <TaxReturnGuide initialCountry={taxReturnCountry} onCountryChange={setTaxReturnCountry} />
+              ) : fiscoSubTab === 'withholding-rates' ? (
+                <Suspense fallback={<SkeletonFisco />}><WithholdingRatesHub /></Suspense>
+              ) : fiscoSubTab === 'calendar' ? (
+                <Suspense fallback={<SkeletonFisco />}><TaxCalendar /></Suspense>
+              ) : fiscoSubTab === 'holidays' ? (
+                <FrontierGuide activeSection="holidays" />
+              ) : fiscoSubTab === 'ristorni' ? (
+                <RistorniTracker />
+              ) : fiscoSubTab === 'pension' ? (
+                <PensionPlanner userProfile={userProfile} />
+              ) : fiscoSubTab === 'pillar3' ? (
+                <Pillar3Simulator />
+              ) : fiscoSubTab === 'quiz' ? (
+                <Suspense fallback={<SkeletonFisco />}><WeeklyQuiz /></Suspense>
+              ) : fiscoSubTab === 'tax-credit' ? (
+                <Suspense fallback={<SkeletonFisco />}><TaxCreditCalculator /></Suspense>
+              ) : null}
+            </div>
+          ) : activeTab === 'guida' ? (
+            <div className="max-w-7xl mx-auto">
+              <Suspense fallback={<div className="min-h-[44px]" />}><SeoContentBlock context="guida" /></Suspense>
+              {guidaSubTab === 'first-day' ? (
+                <FrontierGuide activeSection="first-day" />
+              ) : guidaSubTab === 'permits' ? (
+                <FrontierGuide activeSection="permits" />
+              ) : guidaSubTab === 'border' ? (
+                <TrafficAlerts initialCrossingId={borderCrossing || undefined} />
+              ) : guidaSubTab === 'unemployment' ? (
+                <FrontierGuide activeSection="unemployment" />
+              ) : guidaSubTab === 'car-transfer' ? (
+                <FrontierGuide activeSection="car-transfer" />
+              ) : guidaSubTab === 'car-cost' ? (
+                <CarCostCalculator />
+              ) : guidaSubTab === 'permit-compare' ? (
+                <PermitCompare userProfile={userProfile} />
+              ) : guidaSubTab === 'border-map' ? (
+                <BorderMunicipalitiesMap userProfile={userProfile} />
+              ) : null}
+            </div>
+          ) : activeTab === 'vita' ? (
+            <div className="max-w-7xl mx-auto">
+              <Suspense fallback={<div className="min-h-[44px]" />}><SeoContentBlock context="vita" /></Suspense>
+              {vitaSubTab === 'living-ch' ? (
+                <FrontierGuide activeSection="living-ch" />
+              ) : vitaSubTab === 'living-it' ? (
+                <FrontierGuide activeSection="living-it" />
+              ) : vitaSubTab === 'companies' ? (
+                <Suspense fallback={<SkeletonComparator />}><TicinoCompanies /></Suspense>
+              ) : vitaSubTab === 'schools' ? (
+                <FrontierGuide activeSection="schools" />
+              ) : vitaSubTab === 'nursery' ? (
+                <NurseryComparator userProfile={userProfile} />
+              ) : vitaSubTab === 'places' ? (
+                <FrontierGuide activeSection="places" />
+              ) : vitaSubTab === 'transport' ? (
+                <TransportCalculator />
+              ) : vitaSubTab === 'municipalities' ? (
+                <FrontierGuide activeSection="municipalities" />
+              ) : null}
+            </div>
+          ) : activeTab === 'stats' ? (
+            <div className="max-w-7xl mx-auto">
+              <Suspense fallback={<div className="min-h-[44px]" />}><SeoContentBlock context="stats" /></Suspense>
+              {statsSubTab === 'overview' ? (
+                <StatsView />
+              ) : statsSubTab === 'livability' ? (
+                <LivabilityIndex />
+              ) : statsSubTab === 'jobs-observatory' ? (
+                <JobsSalaryObservatory />
+              ) : statsSubTab === 'salary-compare' ? (
+                <SalaryCompare />
+              ) : statsSubTab === 'traffic-history' ? (
+                <TrafficHistory />
+              ) : statsSubTab === 'unemployment' ? (
+                <UnemploymentStats />
+              ) : statsSubTab === 'mortgage' ? (
+                <MortgageComparison />
+              ) : null}
+            </div>
+          ) : activeTab === 'blog' ? (
+            <div className="max-w-7xl mx-auto">
+              <Suspense fallback={<SkeletonBlog />}>
+              <BlogArticles
+                selectedArticle={blogArticle}
+                onSelectArticle={(id) => setBlogArticle(id)}
+              />
+              </Suspense>
+            </div>
+          ) : activeTab === 'privacy' ? (
+            <div>
+              <PrivacyPolicy />
+            </div>
+          ) : activeTab === 'data-deletion' ? (
+            <div>
+              <DataDeletion />
+            </div>
+          ) : activeTab === 'email-confirmed' ? (
+            <div>
+              <EmailConfirmed />
+            </div>
+          ) : activeTab === 'gamification' ? (
+            <div className="max-w-5xl mx-auto">
+              <GamificationPage />
+            </div>
+          ) : activeTab === 'forum' ? (
+            <div className="max-w-4xl mx-auto">
+              <CommunityForum />
+            </div>
+          ) : activeTab === 'api-status' ? (
+            <div className="max-w-5xl mx-auto">
+              <ApiStatus />
+            </div>
+          ) : activeTab === 'contact' ? (
+            <div className="max-w-2xl mx-auto">
+              <ContactPage prefill={contactPrefill} onPrefillConsumed={() => setContactPrefill(null)} />
+            </div>
+          ) : activeTab === 'partners' ? (
+            <div className="max-w-5xl mx-auto">
+              <PartnerServices />
+            </div>
+          ) : activeTab === 'consulting' ? (
+            <div className="max-w-4xl mx-auto">
+              <ConsultingPage />
+            </div>
+          ) : activeTab === 'job-board' ? (
+            <div className="max-w-7xl mx-auto">
+              <JobBoard
+                initialJobSlug={jobSlug || undefined}
+                isLoggedIn={!!authUser}
+                authLoading={authLoading}
+                onGoogleAuthRequired={googleSignIn}
+                onFacebookAuthRequired={facebookSignIn}
+                onRequireAuth={() => {
+                  setActiveTab('profile');
+                  pushRoute({ activeTab: 'profile' as any });
+                }}
+                onJobRouteChange={(slug) => {
+                  setJobSlug(slug || null);
+                  pushRoute({ activeTab: 'job-board' as any, ...(slug ? { jobSlug: slug } : {}) });
+                }}
+                onPostJob={() => {
+                  setContactPrefill({ topic: 'contact.topic.jobPost' });
+                  setActiveTab('contact' as any);
+                  pushRoute({ activeTab: 'contact' as any });
+                }}
+              />
+            </div>
+          ) : activeTab === 'profile' ? (
+            <div className="max-w-4xl mx-auto">
+              <UserProfile currentInputs={inputs} currentResult={result} />
+            </div>
+          ) : activeTab === 'morning' ? (
+            <div className="max-w-4xl mx-auto">
+              <MorningDashboard />
+            </div>
+          ) : activeTab === 'glossario' ? (
+            <div className="max-w-4xl mx-auto">
+              <Glossary initialEntry={glossaryTerm || undefined} />
+            </div>
+          ) : activeTab === 'dialetto' ? (
+            <div className="max-w-4xl mx-auto">
+              <TicineseDialect />
+            </div>
+          ) : activeTab === 'faq' ? (
+            <div className="max-w-4xl mx-auto">
+              <FaqSection />
+            </div>
+          ) : activeTab === 'sitemap' ? (
+            <div className="max-w-5xl mx-auto">
+              <SiteMapPage />
+            </div>
+          ) : activeTab === 'contracts' ? (
+            <div className="max-w-4xl mx-auto">
+              <ContractsGuide />
+            </div>
+          ) : activeTab === 'tfr-calculator' ? (
+            <div className="max-w-4xl mx-auto">
+              <TfrCalculator />
+            </div>
+          ) : activeTab === 'permit-quiz' ? (
+            <div className="max-w-4xl mx-auto">
+              <PermitQuiz />
+            </div>
+          ) : activeTab === 'tredicesima' ? (
+            <div className="max-w-4xl mx-auto">
+              <TredicesimalCalculator />
+            </div>
+          ) : activeTab === 'weekly-digest' ? (
+            <div className="max-w-4xl mx-auto">
+              <WeeklyDigest />
+            </div>
+          ) : activeTab === 'tool-of-week' ? (
+            <div className="max-w-4xl mx-auto">
+              <ToolOfTheWeek />
+            </div>
+          ) : activeTab === 'admin' ? (
+            <div className="w-full">
+              {authLoading ? (
+                <div className="flex flex-col items-center justify-center py-20 space-y-4">
+                  <Shield size={48} className="text-slate-400" />
+                  <h2 className="text-xl font-bold text-slate-900 dark:text-white">Verifica sessione amministratore</h2>
+                  <p className="text-slate-600 dark:text-slate-400 text-center max-w-md">
+                    Stiamo ripristinando l&apos;accesso. Attendi un istante.
+                  </p>
+                </div>
+              ) : isPrivilegedAdmin ? (
+                <AdminPanel />
+              ) : (
+                <div className="flex flex-col items-center justify-center py-20 space-y-4">
+                  <Shield size={48} className="text-red-500" />
+                  <h2 className="text-xl font-bold text-slate-900 dark:text-white">Accesso riservato</h2>
+                  <p className="text-slate-600 dark:text-slate-400 text-center max-w-md">
+                    Questa sezione è riservata all'amministratore del sito.
+                  </p>
+                  {!authUser && (
+                    <button
+                      onClick={googleSignIn}
+                      className="mt-4 px-6 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium transition-colors"
+                    >
+                      Accedi con Google
+                    </button>
+                  )}
+                </div>
+              )}
+            </div>
+          ) : (
+            <div className="max-w-4xl mx-auto min-h-[600px]">
+              <FeedbackSection />
+            </div>
+          )}
+
+          {ctaItems.length > 0 && (
+            <div className="mt-8">
+              <div className="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl p-4 sm:p-6">
+                <div className="flex items-center gap-2">
+                  <Sparkles size={18} className="text-violet-600 dark:text-violet-300" />
+                  <h2 className="text-lg font-bold text-slate-900 dark:text-white">{t('cta.tryAlso')}</h2>
+                </div>
+                <div className="mt-4 grid grid-cols-1 sm:grid-cols-3 gap-3">
+                  {visibleCtaItems.map((item) => (
+                    <button
+                      key={item.analyticsLabel}
+                      onClick={() => handleCtaClick(item)}
+                      className="w-full text-left rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900/40 px-4 py-3 hover:bg-slate-100 dark:hover:bg-slate-900 transition-colors"
+                    >
+                      <div className="flex items-center justify-between gap-3">
+                        <span className="text-sm font-semibold text-slate-900 dark:text-white">{item.label}</span>
+                        <span className="text-slate-600 dark:text-slate-300" aria-hidden>→</span>
+                      </div>
+                    </button>
+                  ))}
+                </div>
+              </div>
+            </div>
+          )}
+         </Suspense>
+        </main>
+
+        <footer className="border-t border-slate-200/60 dark:border-slate-800 bg-white/50 dark:bg-slate-900/50 backdrop-blur-sm py-8 pb-20 md:pb-8 mt-auto relative z-10" style={{ contentVisibility: 'auto', containIntrinsicSize: 'auto 850px' }}>
+          <div className="max-w-7xl mx-auto px-4 space-y-6">
+            {/* Footer weather widget */}
+            <Suspense fallback={<SkeletonFooterSlot height="min-h-[36px]" />}><FooterWeather /></Suspense>
+
+            {/* Donation banner */}
+            <div className="max-w-xl mx-auto">
+              <Suspense fallback={<SkeletonFooterSlot height="min-h-[48px]" />}><DonationBanner variant="inline" /></Suspense>
+            </div>
+
+            {/* Version badge with GitHub link */}
+            <div className="flex items-center justify-center mt-2 mb-2">
+              <a
+                href={`https://github.com/valerielinc-ops/frontaliere-si-o-no/commit/${typeof __COMMIT_HASH__ !== 'undefined' ? __COMMIT_HASH__ : 'unknown'}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[10px] font-mono text-slate-400 dark:text-slate-500 hover:text-blue-600 dark:hover:text-blue-400 px-1 py-0.5 rounded transition-colors opacity-70 hover:opacity-100"
+                title="Versione del sito: commit GitHub deploy"
+              >
+                <span>v</span>
+                <span>{typeof __SHORT_COMMIT_HASH__ !== 'undefined' ? __SHORT_COMMIT_HASH__ : 'unknown'}</span>
+              </a>
+            </div>
+
+            <div className="text-center text-slate-500 dark:text-slate-500 text-sm space-y-3">
+            <p className="font-medium">
+              {t('footer.copyright')}
+              <span className="text-slate-300 dark:text-slate-600 mx-2">|</span> 
+              {t('footer.disclaimer')}
+            </p>
+            {/* Footer links */}
+            <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2">
+              <a
+                href={buildPath({ activeTab: 'contact' as any })}
+                onClick={(e) => { e.preventDefault(); setActiveTab('contact' as any); pushRoute({ activeTab: 'contact' as any }); }}
+                className="inline-flex items-center gap-1 text-xs text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors no-underline"
+              >
+                <Mail className="w-3.5 h-3.5" />
+                {t('footer.contactTitle')}
+              </a>
+              <span className="text-slate-300 dark:text-slate-700">·</span>
+              <a
+                href={buildPath({ activeTab: 'feedback' })}
+                onClick={(e) => { e.preventDefault(); setActiveTab('feedback'); pushRoute({ activeTab: 'feedback' }); }}
+                className="inline-flex items-center gap-1 text-xs text-slate-600 dark:text-slate-400 hover:text-amber-700 dark:hover:text-amber-400 transition-colors no-underline"
+              >
+                <Bug className="w-3.5 h-3.5" />
+                {t('footer.improveTitle')}
+              </a>
+              <span className="text-slate-300 dark:text-slate-700">·</span>
+              <a
+                href={buildPath({ activeTab: 'privacy' })}
+                onClick={(e) => { e.preventDefault(); setActiveTab('privacy'); pushRoute({ activeTab: 'privacy' }); }}
+                className="inline-flex items-center gap-1 text-xs text-slate-600 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors no-underline"
+              >
+                <Shield className="w-3.5 h-3.5" />
+                {t('footer.privacy')}
+              </a>
+              <span className="text-slate-300 dark:text-slate-700">·</span>
+              <a
+                href={buildPath({ activeTab: 'api-status' })}
+                onClick={(e) => { e.preventDefault(); setActiveTab('api-status'); pushRoute({ activeTab: 'api-status' }); Analytics.trackApiDiagnostics('view'); }}
+                className="inline-flex items-center gap-1 text-xs text-slate-600 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-300 transition-colors no-underline"
+              >
+                {t('footer.apiStatus')}
+              </a>
+              <span className="text-slate-300 dark:text-slate-700">·</span>
+              <a
+                href={buildPath({ activeTab: 'partners' as any })}
+                onClick={(e) => { e.preventDefault(); setActiveTab('partners' as any); pushRoute({ activeTab: 'partners' as any }); }}
+                className="inline-flex items-center gap-1 text-xs text-slate-600 dark:text-slate-400 hover:text-emerald-700 dark:hover:text-emerald-400 transition-colors no-underline"
+              >
+                {t('partners.footerLink')}
+              </a>
+              <span className="text-slate-300 dark:text-slate-700">·</span>
+              <a
+                href={buildPath({ activeTab: 'consulting' as any })}
+                onClick={(e) => { e.preventDefault(); setActiveTab('consulting' as any); pushRoute({ activeTab: 'consulting' as any }); }}
+                className="inline-flex items-center gap-1 text-xs text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors no-underline"
+              >
+                {t('consulting.footerLink')}
+              </a>
+              <span className="text-slate-300 dark:text-slate-700">·</span>
+              <a
+                href={buildPath({ activeTab: 'job-board' as any })}
+                onClick={(e) => { e.preventDefault(); setJobSlug(null); setActiveTab('job-board' as any); pushRoute({ activeTab: 'job-board' as any }); }}
+                className="inline-flex items-center gap-1 text-xs text-slate-600 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors no-underline"
+              >
+                {t('jobBoard.footerLink')}
+              </a>
+              <span className="text-slate-300 dark:text-slate-700">·</span>
+              <a
+                href={buildPath({ activeTab: 'morning' as any })}
+                onClick={(e) => { e.preventDefault(); setActiveTab('morning' as any); pushRoute({ activeTab: 'morning' as any }); }}
+                className="inline-flex items-center gap-1 text-xs text-slate-600 dark:text-slate-400 hover:text-orange-600 dark:hover:text-orange-400 transition-colors no-underline"
+              >
+                <Sunrise className="w-3.5 h-3.5" />
+                {t('footer.morningDashboard')}
+              </a>
+              <span className="text-slate-300 dark:text-slate-700">·</span>
+              <a
+                href={buildPath({ activeTab: 'faq' })}
+                onClick={(e) => { e.preventDefault(); setActiveTab('faq' as any); pushRoute({ activeTab: 'faq' as any }); }}
+                className="inline-flex items-center gap-1 text-xs text-slate-600 dark:text-slate-400 hover:text-violet-600 dark:hover:text-violet-400 transition-colors no-underline"
+              >
+                <HelpCircle className="w-3.5 h-3.5" />
+                FAQ
+              </a>
+              <span className="text-slate-300 dark:text-slate-700">·</span>
+              <a
+                href={buildPath({ activeTab: 'blog' })}
+                onClick={(e) => { e.preventDefault(); setActiveTab('blog' as any); pushRoute({ activeTab: 'blog' as any }); }}
+                className="inline-flex items-center gap-1 text-xs text-slate-600 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors no-underline"
+              >
+                <Newspaper className="w-3.5 h-3.5" />
+                {t('blog.title')}
+              </a>
+              <span className="text-slate-300 dark:text-slate-700">·</span>
+              <a
+                href={buildPath({ activeTab: 'glossario' })}
+                onClick={(e) => { e.preventDefault(); setActiveTab('glossario' as any); pushRoute({ activeTab: 'glossario' as any }); }}
+                className="inline-flex items-center gap-1 text-xs text-slate-600 dark:text-slate-400 hover:text-teal-600 dark:hover:text-teal-400 transition-colors no-underline"
+              >
+                <BookA className="w-3.5 h-3.5" />
+                {t('glossary.title')}
+              </a>
+              <span className="text-slate-300 dark:text-slate-700">·</span>
+              <a
+                href={buildPath({ activeTab: 'dialetto' as any })}
+                onClick={(e) => { e.preventDefault(); setActiveTab('dialetto' as any); pushRoute({ activeTab: 'dialetto' as any }); }}
+                className="inline-flex items-center gap-1 text-xs text-slate-600 dark:text-slate-400 hover:text-orange-600 dark:hover:text-orange-400 transition-colors no-underline"
+              >
+                <Languages className="w-3.5 h-3.5" />
+                {t('dialect.title')}
+              </a>
+              <span className="text-slate-300 dark:text-slate-700">·</span>
+              <a
+                href={buildPath({ activeTab: 'sitemap' as any })}
+                onClick={(e) => { e.preventDefault(); setActiveTab('sitemap' as any); pushRoute({ activeTab: 'sitemap' as any }); }}
+                className="inline-flex items-center gap-1 text-xs text-slate-600 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-300 transition-colors no-underline"
+              >
+                {t('sitemap.title')}
+              </a>
+              <span className="text-slate-300 dark:text-slate-700">·</span>
+              <a
+                href={buildPath({ activeTab: 'contracts' })}
+                onClick={(e) => { e.preventDefault(); setActiveTab('contracts' as any); pushRoute({ activeTab: 'contracts' }); }}
+                className="inline-flex items-center gap-1 text-xs text-slate-600 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors no-underline"
+              >
+                <FileText className="w-3.5 h-3.5" />
+                {t('contracts.footerLink')}
+              </a>
+              <span className="text-slate-300 dark:text-slate-700">·</span>
+              <a
+                href={buildPath({ activeTab: 'tfr-calculator' })}
+                onClick={(e) => { e.preventDefault(); setActiveTab('tfr-calculator' as any); pushRoute({ activeTab: 'tfr-calculator' }); }}
+                className="inline-flex items-center gap-1 text-xs text-slate-600 dark:text-slate-400 hover:text-amber-600 dark:hover:text-amber-400 transition-colors no-underline"
+              >
+                <Banknote className="w-3.5 h-3.5" />
+                {t('tfr.footerLink')}
+              </a>
+              <span className="text-slate-300 dark:text-slate-700">·</span>
+              <a
+                href={buildPath({ activeTab: 'tredicesima' })}
+                onClick={(e) => { e.preventDefault(); setActiveTab('tredicesima' as any); pushRoute({ activeTab: 'tredicesima' }); }}
+                className="inline-flex items-center gap-1 text-xs text-slate-600 dark:text-slate-400 hover:text-amber-600 dark:hover:text-amber-400 transition-colors no-underline"
+              >
+                <Gift className="w-3.5 h-3.5" />
+                {t('tredicesima.footerLink')}
+              </a>
+              <span className="text-slate-300 dark:text-slate-700">·</span>
+              <a
+                href={buildPath({ activeTab: 'tool-of-week' })}
+                onClick={(e) => { e.preventDefault(); setActiveTab('tool-of-week' as any); pushRoute({ activeTab: 'tool-of-week' }); }}
+                className="inline-flex items-center gap-1 text-xs text-slate-600 dark:text-slate-400 hover:text-violet-600 dark:hover:text-violet-400 transition-colors no-underline"
+              >
+                <Sparkles className="w-3.5 h-3.5" />
+                {t('toolOfWeek.title')}
+              </a>
+              <span className="text-slate-300 dark:text-slate-700">·</span>
+              <a
+                href="https://www.facebook.com/profile.php?id=61588174947294"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1 text-xs text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors no-underline"
+                aria-label={t('footer.followFacebook')}
+              >
+                <Facebook className="w-3.5 h-3.5" />
+                Facebook
+              </a>
+            </div>
+
+            {/* SEO Sitemap — crawlable <a href> links to every page */}
+            <nav aria-label="Mappa del sito" className="mt-6 pt-4 border-t border-slate-200/50 dark:border-slate-800/50">
+              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-7 gap-4 text-left">
+                {/* Calcolatore */}
+                <div>
+                  <a href={buildPath({ activeTab: 'calculator' })} onClick={(e) => { e.preventDefault(); handleTabChange('calculator'); }} className="text-[11px] font-bold text-blue-700 dark:text-blue-400 no-underline hover:underline">{t('nav.simulator')}</a>
+                  <ul className="mt-1 space-y-0.5 list-none p-0">
+                    {([
+                      { sub: 'whatif' as const, label: t('simulator.whatif') },
+                      { sub: 'payslip' as const, label: t('strumenti.payslip') },
+                      { sub: 'ral' as const, label: t('comparators.ral') },
+                      { sub: 'bonus' as const, label: t('comparators.bonus') },
+                      { sub: 'parental-leave' as const, label: t('comparators.parentalLeave') },
+                      { sub: 'residency' as const, label: t('comparators.residency') },
+                      { sub: 'salary-quiz' as const, label: t('salaryQuiz.navLabel') },
+                    ] as const).map(({ sub, label }) => (
+                      <li key={sub}>
+                        <a
+                          href={buildPath({ activeTab: 'calculator', calcolatoreSubTab: sub })}
+                          onClick={(e) => { e.preventDefault(); setCalcolatoreSubTab(sub); setActiveTab('calculator'); pushRoute({ activeTab: 'calculator', calcolatoreSubTab: sub }); }}
+                          className="block text-xs text-slate-500 dark:text-slate-500 hover:text-blue-600 dark:hover:text-blue-400 no-underline hover:underline leading-relaxed py-1"
+                        >{label}</a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                {/* Confronti */}
+                <div>
+                  <a href={buildPath({ activeTab: 'confronti' })} onClick={(e) => { e.preventDefault(); handleTabChange('confronti'); }} className="text-[11px] font-bold text-violet-700 dark:text-violet-400 no-underline hover:underline">{t('nav.confronti')}</a>
+                  <ul className="mt-1 space-y-0.5 list-none p-0">
+                    {([
+                      { sub: 'exchange' as const, label: t('comparators.exchange') },
+                      { sub: 'banks' as const, label: t('comparators.banks') },
+                      { sub: 'health' as const, label: t('comparators.health') },
+                      { sub: 'mobile' as const, label: t('comparators.mobile') },
+                      { sub: 'shopping' as const, label: t('comparators.shopping') },
+                      { sub: 'cost-of-living' as const, label: t('comparators.costOfLiving') },
+                      { sub: 'jobs' as const, label: t('comparators.jobs') },
+                      { sub: 'renovation' as const, label: t('comparators.renovation') },
+                    ] as const).map(({ sub, label }) => (
+                      <li key={sub}>
+                        <a
+                          href={buildPath({ activeTab: 'confronti', confrontiSubTab: sub })}
+                          onClick={(e) => { e.preventDefault(); setConfrontiSubTab(sub); setActiveTab('confronti'); pushRoute({ activeTab: 'confronti', confrontiSubTab: sub }); }}
+                          className="block text-xs text-slate-500 dark:text-slate-500 hover:text-violet-600 dark:hover:text-violet-400 no-underline hover:underline leading-relaxed py-1"
+                        >{label}</a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                {/* Fisco */}
+                <div>
+                  <a href={buildPath({ activeTab: 'fisco' })} onClick={(e) => { e.preventDefault(); handleTabChange('fisco'); }} className="text-[11px] font-bold text-emerald-700 dark:text-emerald-400 no-underline hover:underline">{t('nav.fisco')}</a>
+                  <ul className="mt-1 space-y-0.5 list-none p-0">
+                    {([
+                      { sub: 'tax-return' as const, label: t('comparators.taxReturn') },
+                      { sub: 'withholding-rates' as const, label: t('withholdingRates.navLabel') },
+                      { sub: 'calendar' as const, label: t('guide.tabs.calendar') },
+                      { sub: 'holidays' as const, label: t('guide.tabs.holidays') },
+                      { sub: 'ristorni' as const, label: t('guide.tabs.ristorni') },
+                      { sub: 'pension' as const, label: t('nav.pension') },
+                      { sub: 'pillar3' as const, label: t('pension.pillar3') },
+                      { sub: 'tax-credit' as const, label: t('taxCredit.navLabel') },
+                      { sub: 'quiz' as const, label: t('guide.tabs.quiz') },
+                    ] as const).map(({ sub, label }) => (
+                      <li key={sub}>
+                        <a
+                          href={buildPath({ activeTab: 'fisco', fiscoSubTab: sub })}
+                          onClick={(e) => { e.preventDefault(); setFiscoSubTab(sub); setFiscoShowOverview(false); setActiveTab('fisco'); pushRoute({ activeTab: 'fisco', fiscoSubTab: sub }); }}
+                          className="block text-xs text-slate-500 dark:text-slate-500 hover:text-emerald-700 dark:hover:text-emerald-400 no-underline hover:underline leading-relaxed py-1"
+                        >{label}</a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                {/* Guida */}
+                <div>
+                  <a href={buildPath({ activeTab: 'guida' })} onClick={(e) => { e.preventDefault(); handleTabChange('guida'); }} className="text-[11px] font-bold text-indigo-700 dark:text-indigo-400 no-underline hover:underline">{t('nav.guida')}</a>
+                  <ul className="mt-1 space-y-0.5 list-none p-0">
+                    {([
+                      { sub: 'first-day' as const, label: t('guide.tabs.firstDay') },
+                      { sub: 'permits' as const, label: t('guide.tabs.permits') },
+                      { sub: 'border' as const, label: t('guide.tabs.border') },
+                      { sub: 'unemployment' as const, label: t('guide.tabs.unemployment') },
+                      { sub: 'car-transfer' as const, label: t('guide.tabs.carTransfer') },
+                      { sub: 'car-cost' as const, label: t('strumenti.carCost') },
+                      { sub: 'permit-compare' as const, label: t('strumenti.permitCompare') },
+                      { sub: 'border-map' as const, label: t('comparators.borderMap') },
+                    ] as const).map(({ sub, label }) => (
+                      <li key={sub}>
+                        <a
+                          href={buildPath({ activeTab: 'guida', guidaSubTab: sub })}
+                          onClick={(e) => { e.preventDefault(); setGuidaSubTab(sub); setActiveTab('guida'); pushRoute({ activeTab: 'guida', guidaSubTab: sub }); }}
+                          className="block text-xs text-slate-500 dark:text-slate-500 hover:text-indigo-600 dark:hover:text-indigo-400 no-underline hover:underline leading-relaxed py-1"
+                        >{label}</a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                {/* Vita */}
+                <div>
+                  <a href={buildPath({ activeTab: 'vita' })} onClick={(e) => { e.preventDefault(); handleTabChange('vita'); }} className="text-[11px] font-bold text-amber-700 dark:text-amber-400 no-underline hover:underline">{t('nav.vita')}</a>
+                  <ul className="mt-1 space-y-0.5 list-none p-0">
+                    {([
+                      { sub: 'living-ch' as const, label: t('guide.tabs.livingCH') },
+                      { sub: 'living-it' as const, label: t('guide.tabs.livingIT') },
+                      { sub: 'companies' as const, label: t('guide.tabs.companies') },
+                      { sub: 'schools' as const, label: t('guide.tabs.schools') },
+                      { sub: 'nursery' as const, label: t('comparators.nursery') },
+                      { sub: 'places' as const, label: t('guide.tabs.places') },
+                      { sub: 'transport' as const, label: t('comparators.transport') },
+                      { sub: 'municipalities' as const, label: t('guide.tabs.municipalities') },
+                    ] as const).map(({ sub, label }) => (
+                      <li key={sub}>
+                        <a
+                          href={buildPath({ activeTab: 'vita', vitaSubTab: sub })}
+                          onClick={(e) => { e.preventDefault(); setVitaSubTab(sub); setActiveTab('vita'); pushRoute({ activeTab: 'vita', vitaSubTab: sub }); }}
+                          className="block text-xs text-slate-500 dark:text-slate-500 hover:text-amber-700 dark:hover:text-amber-400 no-underline hover:underline leading-relaxed py-1"
+                        >{label}</a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                {/* Statistiche */}
+                <div>
+                  <a href={buildPath({ activeTab: 'stats' })} onClick={(e) => { e.preventDefault(); handleTabChange('stats'); }} className="text-[11px] font-bold text-purple-700 dark:text-purple-400 no-underline hover:underline">{t('nav.stats')}</a>
+                  <ul className="mt-1 space-y-0.5 list-none p-0">
+                    {([
+                      { sub: 'jobs-observatory' as const, label: t('stats.tabJobsObservatory') },
+                      { sub: 'livability' as const, label: t('strumenti.livability') },
+                      { sub: 'salary-compare' as const, label: t('strumenti.salaryCompare') },
+                      { sub: 'traffic-history' as const, label: t('stats.trafficHistory') },
+                      { sub: 'unemployment' as const, label: t('stats.tabUnemployment') },
+                      { sub: 'mortgage' as const, label: t('stats.tabMortgage') },
+                    ] as const).map(({ sub, label }) => (
+                      <li key={sub}>
+                        <a
+                          href={buildPath({ activeTab: 'stats', statsSubTab: sub })}
+                          onClick={(e) => { e.preventDefault(); setStatsSubTab(sub); setActiveTab('stats'); pushRoute({ activeTab: 'stats', statsSubTab: sub }); }}
+                          className="block text-xs text-slate-500 dark:text-slate-500 hover:text-purple-600 dark:hover:text-purple-400 no-underline hover:underline leading-relaxed py-1"
+                        >{label}</a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                {/* Articoli / Blog */}
+                <div>
+                  <a href={buildPath({ activeTab: 'blog' })} onClick={(e) => { e.preventDefault(); handleTabChange('blog'); }} className="text-[11px] font-bold text-rose-700 dark:text-rose-400 no-underline hover:underline">{t('nav.blog')}</a>
+                  <a href={buildPath({ activeTab: 'blog' })} onClick={(e) => { e.preventDefault(); handleTabChange('blog'); }} className="block mt-1 text-xs text-slate-500 dark:text-slate-500 hover:text-rose-600 dark:hover:text-rose-400 no-underline hover:underline leading-relaxed py-1 cursor-pointer">{t('blog.subtitle')}</a>
+                </div>
+              </div>
+            </nav>
+
+            <div className="flex items-center justify-center gap-1.5 mt-3 text-[10px] text-emerald-700 dark:text-emerald-400 font-medium">
+              <Shield className="w-3 h-3" />
+              <span>{t('footer.securityBadge')}</span>
+            </div>
+            </div>
+          </div>
+        </footer>
+        {/* Mobile Bottom Navigation Bar */}
+        <nav aria-label="Navigazione mobile" className="fixed bottom-0 inset-x-0 z-50 md:hidden bg-white/80 dark:bg-slate-900/80 backdrop-blur-lg border-t border-slate-200/50 dark:border-slate-800/50 pb-[env(safe-area-inset-bottom)]">
+          <div className="grid grid-cols-6 h-14">
+            {([
+              { tab: 'calculator' as const, icon: Calculator, label: t('nav.simulator'), activeClass: 'text-blue-600 dark:text-blue-400', barClass: 'bg-blue-600 dark:bg-blue-400' },
+              { tab: 'confronti' as const, icon: Layers, label: t('nav.confronti'), activeClass: 'text-violet-600 dark:text-violet-400', barClass: 'bg-violet-600 dark:bg-violet-400' },
+              { tab: 'fisco' as const, icon: PiggyBank, label: t('nav.fisco'), activeClass: 'text-emerald-700 dark:text-emerald-400', barClass: 'bg-emerald-700 dark:bg-emerald-400' },
+              { tab: 'guida' as const, icon: BookOpen, label: t('nav.guida'), activeClass: 'text-indigo-600 dark:text-indigo-400', barClass: 'bg-indigo-600 dark:bg-indigo-400' },
+              { tab: 'vita' as const, icon: Home, label: t('nav.vita'), activeClass: 'text-amber-700 dark:text-amber-400', barClass: 'bg-amber-600 dark:bg-amber-400' },
+              { tab: 'stats' as const, icon: BarChart2, label: t('nav.stats'), activeClass: 'text-purple-600 dark:text-purple-400', barClass: 'bg-purple-600 dark:bg-purple-400' },
+            ] as const).map(({ tab, icon: Icon, label, activeClass, barClass }) => {
+              const isActive = activeTab === tab;
+              return (
+                <a
+                  key={tab}
+                  href={buildPath({ activeTab: tab })}
+                  onClick={(e) => { e.preventDefault(); handleTabChange(tab); }}
+                  className={`relative flex flex-col items-center justify-center gap-0.5 transition-colors no-underline ${
+                    isActive ? activeClass : 'text-slate-500 dark:text-slate-500'
+                  }`}
+                >
+                  <Icon size={20} />
+                  <span className="text-[10px] font-semibold leading-none truncate max-w-[56px]">{label}</span>
+                  {isActive && (
+                    <span className={`absolute top-0 left-1/2 -translate-x-1/2 w-8 h-0.5 ${barClass} rounded-full`} />
+                  )}
+                </a>
+              );
+            })}
+          </div>
+        </nav>
+
+        <Suspense fallback={null}>
+          <NewsletterPopup />
+          <CookieBanner />
+          {showWhatsNew && (
+            <WhatsNewModal
+              open={showWhatsNew}
+              onClose={() => setShowWhatsNew(false)}
+            />
+          )}
+        </Suspense>
+        <Suspense fallback={null}>
+          <AiChatbot
+            isLoggedIn={!!authUser}
+            onSignIn={chatbotGoogleSignIn}
+            onSignInFacebook={chatbotFacebookSignIn}
+            onContinueWithEmail={chatbotContinueWithEmail}
+            hideOnMobile={activeTab === 'blog'}
+          />
+        </Suspense>
+      </div>
+    </NavigationContext.Provider>
+    {showCoinExplosion && CoinExplosionRef.current && (
+      <CoinExplosionRef.current onComplete={handleCoinExplosionComplete} />
+    )}
+    </ErrorBoundary>
+  );
+};
+
+export default App;

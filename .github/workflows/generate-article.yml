@@ -1,0 +1,477 @@
+name: Generate Blog Article
+
+on:
+  schedule:
+    # Runs every hour, 24/7 — generates up to 24 articles per day
+    - cron: '0 * * * *'
+  workflow_dispatch:
+    inputs:
+      url:
+        description: 'Optional: specific article URL to generate from (leave empty for auto-scan)'
+        required: false
+        type: string
+
+concurrency:
+  # Use a unique group per run so GitHub never cancels queued runs.
+  # The check-in-progress gate job already prevents parallel execution —
+  # it skips if another run is in progress, so we don't need concurrency
+  # grouping for mutual exclusion. This avoids the "Canceling since a
+  # higher priority waiting request" problem.
+  group: article-generation-${{ github.run_id }}
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+  actions: read
+
+jobs:
+  # Gate job: skip entirely if an article-generation run is already in_progress
+  check-in-progress:
+    runs-on: ubuntu-latest
+    outputs:
+      should_run: ${{ steps.check.outputs.should_run }}
+    steps:
+      - name: Check for in-progress article-generation runs
+        id: check
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          # Count in_progress runs of this workflow (exclude the current run)
+          IN_PROGRESS=$(gh api \
+            "repos/${{ github.repository }}/actions/workflows/generate-article.yml/runs?status=in_progress" \
+            --jq "[.workflow_runs[] | select(.id != ${{ github.run_id }})] | length")
+          echo "In-progress runs (excluding self): $IN_PROGRESS"
+          if [ "$IN_PROGRESS" -gt 0 ]; then
+            echo "⏭️ Skipping — another article generation is already running"
+            echo "should_run=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "should_run=true" >> "$GITHUB_OUTPUT"
+          fi
+
+  generate:
+    needs: check-in-progress
+    if: |
+      needs.check-in-progress.outputs.should_run == 'true' &&
+      (github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success')
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 50
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Prepare Firebase credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+          else
+            echo "⚠️ Firebase secrets not set — secrets will not be loaded from Remote Config."
+          fi
+          if [ -f /tmp/firebase-sa.json ]; then
+            echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+          fi
+
+      - name: Load secrets from Remote Config
+        run: node scripts/load-rc-env.mjs
+
+      - name: Cleanup stale news sitemap entries
+        run: node scripts/cleanup-news-sitemap.mjs
+
+      - name: Generate article
+        id: generate
+        env:
+          CREATE_ARTICLE_REPORT_FILE: .tmp/create-article-run-report.json
+        run: |
+          echo "📰 Generating blog article..."
+          if [ -n "${{ inputs.url }}" ]; then
+            node scripts/create-article.mjs "${{ inputs.url }}"
+          else
+            node scripts/create-article.mjs
+          fi
+
+      - name: Create-article final report
+        if: always()
+        run: |
+          node -e '
+            const fs = require("fs");
+            const p = ".tmp/create-article-run-report.json";
+            if (!fs.existsSync(p)) {
+              fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, "## Create-article report\n\nNo report file produced.\n");
+              process.exit(0);
+            }
+            const r = JSON.parse(fs.readFileSync(p, "utf8"));
+            const dup = r.duplicateReasonBreakdown || {};
+            const dupLines = Object.keys(dup).length
+              ? Object.entries(dup).map(([k,v]) => `- ${k}: ${v}`).join("\n")
+              : "- none";
+            const lines = [
+              "## Create-article report",
+              "",
+              `- status: ${r.status || "unknown"}`,
+              `- selected article type: ${r.selectedArticleType || "n/a"}`,
+              `- sources scanned: ${r.sources?.scanned ?? 0}/${r.sources?.configured ?? 0} (ok=${r.sources?.succeeded ?? 0}, failed=${r.sources?.failed ?? 0})`,
+              `- recent vs undated used: recent=${r.selectionUsage?.attemptsRecent ?? 0}, undated=${r.selectionUsage?.attemptsUndated ?? 0}`,
+              "",
+              "### Duplicate reason breakdown",
+              dupLines,
+              "",
+              "### Headline pool stats",
+              `- total=${r.headlines?.total ?? 0}, recent=${r.headlines?.recent ?? 0}, undated=${r.headlines?.undated ?? 0}`,
+              `- usedRecent=${r.headlines?.usedRecent ?? 0}, usedUndated=${r.headlines?.usedUndated ?? 0}`,
+              "",
+              "### Report file",
+              `- \`${p}\``
+            ];
+            fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, lines.join("\n") + "\n");
+          '
+
+      - name: Check for changes
+        id: changes
+        run: |
+          if git diff --quiet && git diff --cached --quiet; then
+            echo "has_changes=false" >> $GITHUB_OUTPUT
+            echo "ℹ️  No new article generated (no relevant news or duplicate detected)"
+          else
+            echo "has_changes=true" >> $GITHUB_OUTPUT
+            echo "📝 New article files detected:"
+            git status --short
+          fi
+
+      - name: Run article-critical tests
+        if: steps.changes.outputs.has_changes == 'true'
+        run: npm run test:articles
+
+      - name: Build for production
+        if: steps.changes.outputs.has_changes == 'true'
+        env:
+          NODE_OPTIONS: '--max-old-space-size=4096'
+        run: npm run build
+
+      - name: Commit and push
+        id: commit
+        if: steps.changes.outputs.has_changes == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          
+          # ── Helper: auto-resolve merge conflicts in append-only files ──
+          # Article generation only APPENDS entries to structured files
+          # (BlogArticles.tsx, router.ts, seoService.ts, sitemaps, blog-meta-*.ts,
+          # article-source-urls.json). When both sides add entries at the same
+          # insertion point, git marks it as a conflict but both additions are
+          # valid and should be kept. This function removes conflict markers,
+          # keeping content from BOTH sides.
+          resolve_append_conflicts() {
+            local CONFLICTED
+            CONFLICTED=$(git diff --name-only --diff-filter=U 2>/dev/null || true)
+            if [ -z "$CONFLICTED" ]; then
+              return 0  # No conflicts
+            fi
+            
+            echo "🔧 Auto-resolving conflicts in append-only files..."
+            local ALL_RESOLVED=true
+            
+            while IFS= read -r file; do
+              [ -z "$file" ] && continue
+              
+              if ! grep -q '<<<<<<<' "$file" 2>/dev/null; then
+                echo "  ⚠️  $file: no conflict markers found, skipping"
+                ALL_RESOLVED=false
+                continue
+              fi
+              
+              # Remove conflict markers, keeping BOTH sides
+              # This works for append-only files where both sides added new entries
+              sed -i 's/^<<<<<<< .*$//' "$file"
+              sed -i '/^=======$/d' "$file"
+              sed -i 's/^>>>>>>> .*$//' "$file"
+              
+              # Remove blank lines left by marker removal (max 2 consecutive)
+              sed -i '/^$/N;/^\n$/d' "$file"
+              
+              # Verify no conflict markers remain
+              if grep -q '<<<<<<<\|>>>>>>>' "$file" 2>/dev/null; then
+                echo "  ❌ $file: conflict markers still present after resolution"
+                ALL_RESOLVED=false
+                continue
+              fi
+              
+              # Basic syntax check for JSON files
+              if [[ "$file" == *.json ]]; then
+                if ! node -e "JSON.parse(require('fs').readFileSync('$file','utf8'))" 2>/dev/null; then
+                  echo "  ⚠️  $file: JSON syntax error after resolution — attempting fix..."
+                  # After removing conflict markers, common issues include:
+                  # - Missing comma between entries ("value"\n  "key")
+                  # - Duplicate commas (,\n,)
+                  # - Trailing comma before closing bracket
+                  # - Missing comma between nested objects (}\n  {)
+                  # - Duplicate keys (both sides added at same insertion point)
+                  node -e "
+                    const fs = require('fs');
+                    let s = fs.readFileSync('$file','utf8');
+                    // Fix double commas
+                    s = s.replace(/,(\s*),/g, ',\$1');
+                    // Fix trailing comma before closing bracket/brace
+                    s = s.replace(/,(\s*[}\]])/g, '\$1');
+                    // Fix missing comma between entries: \"value\"\\n  \"key\"
+                    // Matches any JSON value (string, number, bool, null, }, ]) followed
+                    // by whitespace then a new JSON key or value start
+                    s = s.replace(/(\"[^\"]*\"|true|false|null|\d+(?:\.\d+)?|\}|\])(\s*\n\s*)(\")/g, '\$1,\$2\$3');
+                    // Fix missing comma between } or ] and next { or [
+                    s = s.replace(/(\}|\])(\s*\n\s*)(\{|\[)/g, '\$1,\$2\$3');
+                    try {
+                      const obj = JSON.parse(s);
+                      // Deduplicate keys: JSON.parse keeps last value for duplicate keys,
+                      // which is fine — both sides added different keys at same position
+                      fs.writeFileSync('$file', JSON.stringify(obj, null, 2) + '\n');
+                      console.log('  ✅ $file: JSON fixed and formatted');
+                    } catch(e) {
+                      console.log('  ❌ $file: JSON still invalid — ' + e.message);
+                      process.exit(1);
+                    }
+                  " 2>/dev/null
+                  if [ $? -ne 0 ]; then
+                    ALL_RESOLVED=false
+                    continue
+                  fi
+                fi
+              fi
+              
+              # Syntax check for BlogArticles.tsx — detect merged entries
+              if [[ "$file" == *"BlogArticles.tsx" ]]; then
+                if ! node -e "
+                  const fs = require('fs');
+                  const src = fs.readFileSync('$file', 'utf8');
+                  const ids = [...src.matchAll(/^\s+id:\s*'([^']+)'/gm)].map(m => m[1]);
+                  const dupes = ids.filter((id, i) => ids.indexOf(id) !== i);
+                  if (dupes.length) {
+                    console.error('  ❌ $file: duplicate article IDs after conflict resolution: ' + dupes.join(', '));
+                    process.exit(1);
+                  }
+                  // Verify each id is inside its own object literal (not merged)
+                  const entryStarts = (src.match(/\{\s*\n\s+id:\s*'/g) || []).length;
+                  if (entryStarts !== ids.length) {
+                    console.error('  ❌ $file: ' + ids.length + ' ids but ' + entryStarts + ' entry blocks — merged entries detected');
+                    process.exit(1);
+                  }
+                  console.log('  ✅ $file: ' + ids.length + ' article entries validated (no duplicates)');
+                " 2>&1; then
+                  echo "  ❌ $file: BlogArticles.tsx validation failed after conflict resolution"
+                  ALL_RESOLVED=false
+                  continue
+                fi
+              fi
+
+              git add "$file"
+              echo "  ✅ $file: resolved (both sides kept)"
+            done <<< "$CONFLICTED"
+            
+            if [ "$ALL_RESOLVED" = true ]; then
+              echo "✅ All conflicts auto-resolved"
+              return 0
+            else
+              echo "❌ Some conflicts could not be auto-resolved"
+              return 1
+            fi
+          }
+          
+          # ── Sync with remote BEFORE committing ──
+          git fetch origin main
+          LOCAL=$(git rev-parse HEAD)
+          REMOTE=$(git rev-parse origin/main)
+          
+          if [ "$LOCAL" != "$REMOTE" ]; then
+            echo "⚠️  Remote has new commits since checkout — rebasing before commit..."
+            git stash --include-untracked
+            if ! git rebase origin/main; then
+              git rebase --abort
+              git stash pop 2>/dev/null || git stash drop
+              echo "⚠️  Rebase conflict — deferring article to next scheduled run"
+              echo "committed=false" >> "$GITHUB_OUTPUT"
+              exit 0
+            fi
+            if ! git stash pop; then
+              echo "⚠️  Stash pop had conflicts — attempting auto-resolution..."
+              if ! resolve_append_conflicts; then
+                echo "❌ Auto-resolution failed — deferring article to next run"
+                git checkout -- . 2>/dev/null || true
+                git clean -fd 2>/dev/null || true
+                git stash drop 2>/dev/null || true
+                echo "committed=false" >> "$GITHUB_OUTPUT"
+                exit 0
+              fi
+              # Drop the stash reference since we've resolved the conflicts
+              git stash drop 2>/dev/null || true
+            fi
+          fi
+          
+          git add -A
+          git commit -m "📰 Auto-generated blog article"
+          
+          # Push with retry (handles edge case of push between fetch and push)
+          for attempt in 1 2 3; do
+            if git push origin main; then
+              echo "✅ Article committed and pushed to main"
+              echo "committed=true" >> "$GITHUB_OUTPUT"
+              exit 0
+            fi
+            echo "⚠️  Push attempt $attempt failed — rebasing..."
+            if ! git pull --rebase origin main; then
+              echo "⚠️  Pull --rebase had conflicts — attempting auto-resolution..."
+              if resolve_append_conflicts; then
+                git add -A
+                if ! git rebase --continue; then
+                  git rebase --abort
+                  echo "⚠️  Rebase continue failed — deferring to next run"
+                  echo "committed=false" >> "$GITHUB_OUTPUT"
+                  exit 0
+                fi
+              else
+                git rebase --abort
+                echo "⚠️  Auto-resolution during push retry failed — deferring to next run"
+                echo "committed=false" >> "$GITHUB_OUTPUT"
+                exit 0
+              fi
+            fi
+            sleep 3
+          done
+          echo "❌ Push failed after 3 attempts"
+          echo "committed=false" >> "$GITHUB_OUTPUT"
+          exit 1
+
+      # Trigger deploy.yml (GITHUB_TOKEN pushes don't trigger other workflows)
+      - name: Trigger deploy workflow
+        if: steps.commit.outputs.committed == 'true'
+        run: bash scripts/lib/trigger-deploy.sh
+
+      - name: Verify article exists in committed source and dist
+        if: steps.commit.outputs.committed == 'true' && steps.generate.outputs.article_id != ''
+        id: verify_article
+        run: |
+          ARTICLE_ID="${{ steps.generate.outputs.article_id }}"
+          echo "🔍 Verifying article: $ARTICLE_ID"
+
+          # Check 1: Article ID exists in BlogArticles.tsx
+          if ! grep -q "$ARTICLE_ID" components/community/BlogArticles.tsx; then
+            echo "❌ Article '$ARTICLE_ID' NOT found in BlogArticles.tsx"
+            echo "exists=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          echo "  ✅ Found in BlogArticles.tsx"
+
+          # Check 2: Static HTML was generated in dist/
+          ARTICLE_URL="${{ steps.generate.outputs.article_url }}"
+          # Extract path from URL (e.g., /articoli-frontaliere/my-slug)
+          ARTICLE_PATH=$(echo "$ARTICLE_URL" | sed 's|https://www.frontaliereticino.ch||')
+          DIST_FILE="dist${ARTICLE_PATH}/index.html"
+          if [ ! -f "$DIST_FILE" ]; then
+            echo "❌ Static page NOT found at $DIST_FILE"
+            echo "exists=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          echo "  ✅ Static page exists: $DIST_FILE"
+
+          # Check 3: Static HTML has correct <title> (not empty shell)
+          if ! grep -q "<title>" "$DIST_FILE"; then
+            echo "❌ Static page $DIST_FILE has no <title> tag"
+            echo "exists=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          echo "  ✅ Static page has <title>"
+
+          echo "✅ All checks passed for '$ARTICLE_ID'"
+          echo "exists=true" >> "$GITHUB_OUTPUT"
+
+      - name: Post to Facebook Page
+        if: steps.verify_article.outputs.exists == 'true'
+        run: |
+          node scripts/post-to-facebook.mjs \
+            "${{ steps.generate.outputs.article_id }}" \
+            "${{ steps.generate.outputs.article_url }}" \
+            "${{ steps.generate.outputs.og_title }}" \
+            "${{ steps.generate.outputs.og_description }}" \
+            "${{ steps.generate.outputs.category }}"
+        continue-on-error: true
+
+      # ── Final disposition report ──────────────────────────────────────
+      # This step runs ALWAYS to give a clear summary of what happened
+      # to the generated article (committed? verified? submitted?).
+      - name: Article final disposition
+        if: always() && steps.generate.outputs.article_id != ''
+        run: |
+          ARTICLE_ID="${{ steps.generate.outputs.article_id }}"
+          ARTICLE_URL="${{ steps.generate.outputs.article_url }}"
+          SOURCE_URL="${{ steps.generate.outputs.source_url }}"
+          HAS_CHANGES="${{ steps.changes.outputs.has_changes }}"
+          COMMITTED="${{ steps.commit.outputs.committed }}"
+          VERIFIED="${{ steps.verify_article.outputs.exists }}"
+
+          # Determine final status
+          if [ "$VERIFIED" == "true" ]; then
+            STATUS="✅ Published & submitted"
+            ICON="🟢"
+          elif [ "$COMMITTED" == "true" ] && [ "$VERIFIED" != "true" ]; then
+            STATUS="⚠️ Committed but verification FAILED — article may be broken"
+            ICON="🟠"
+          elif [ "$COMMITTED" == "false" ]; then
+            STATUS="❌ DEFERRED — commit/push failed (rebase conflict or push race). Article is LOST."
+            ICON="🔴"
+          elif [ "$HAS_CHANGES" == "true" ]; then
+            STATUS="❌ BLOCKED — tests or build failed before commit. Article is LOST."
+            ICON="🔴"
+          elif [ "$HAS_CHANGES" == "false" ]; then
+            STATUS="ℹ️ No changes detected (article generation produced no file changes)"
+            ICON="⚪"
+          else
+            STATUS="❓ Unknown — generate step may have failed"
+            ICON="⚪"
+          fi
+
+          echo ""
+          echo "$ICON FINAL DISPOSITION: $STATUS"
+          echo "   Article: $ARTICLE_ID"
+          echo "   URL: $ARTICLE_URL"
+          echo "   Source: $SOURCE_URL"
+          echo "   committed=$COMMITTED  verified=$VERIFIED  has_changes=$HAS_CHANGES"
+          echo ""
+
+          # Append to step summary for clear visibility
+          {
+            echo "## $ICON Article Final Disposition"
+            echo ""
+            echo "| Field | Value |"
+            echo "|-------|-------|"
+            echo "| Article | \`$ARTICLE_ID\` |"
+            echo "| URL | $ARTICLE_URL |"
+            echo "| Source | $SOURCE_URL |"
+            echo "| Status | **$STATUS** |"
+            echo "| Changes detected | $HAS_CHANGES |"
+            echo "| Committed to main | $COMMITTED |"
+            echo "| Verified in dist | $VERIFIED |"
+          } >> "$GITHUB_STEP_SUMMARY"
+
+          # Emit warning annotation for lost articles (visible in PR / Actions UI)
+          if [ "$ICON" == "🔴" ]; then
+            echo ""
+            echo "::warning::Article '$ARTICLE_ID' was generated but LOST — $STATUS"
+            if [ -n "$SOURCE_URL" ]; then
+              echo ""
+              echo "🔁 To retry this article, trigger a manual workflow_dispatch with URL:"
+              echo "   $SOURCE_URL"
+              echo "" >> "$GITHUB_STEP_SUMMARY"
+              echo "> **🔁 Retry**: trigger \`workflow_dispatch\` with URL: \`$SOURCE_URL\`" >> "$GITHUB_STEP_SUMMARY"
+            fi
+          fi

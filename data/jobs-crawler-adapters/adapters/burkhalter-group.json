@@ -1,0 +1,11 @@
+{
+  "companyKey": "burkhalter-group",
+  "companyName": "Burkhalter Group",
+  "companyHost": "burkhalter.ch",
+  "enabled": true,
+  "priority": 10,
+  "crawlerModes": ["html", "generic_ats"],
+  "seedUrls": [],
+  "notes": "Burkhalter Group — Switzerland's largest building technology group (80+ companies, 150+ locations). Jobs embedded as inline JSON in vacancies page. Focus on Grisons, Ticino, Valais positions.",
+  "updatedAt": "2026-03-15T22:44:00.000Z"
+}

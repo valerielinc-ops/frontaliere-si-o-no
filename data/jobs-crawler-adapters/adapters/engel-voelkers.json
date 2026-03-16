@@ -1,0 +1,16 @@
+{
+  "companyKey": "engel-voelkers",
+  "companyName": "Engel & Völkers",
+  "companyHost": "www.engelvoelkers.com",
+  "enabled": true,
+  "priority": 12,
+  "crawlerModes": [
+    "html"
+  ],
+  "seedUrls": [
+    "https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro"
+  ],
+  "notes": "Dedicated Engel & Völkers Switzerland crawler. Parses the Next.js SSR careers page HTML. Keeps only Ticino-relevant jobs (Lugano, Ascona, etc.) from Ticino Premium Properties SA.",
+  "updatedAt": "2026-03-14T10:20:00.000Z",
+  "seedMetaByUrl": {}
+}

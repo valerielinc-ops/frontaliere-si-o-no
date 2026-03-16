@@ -1,0 +1,22 @@
+{
+  "companyKey": "zurich-insurance-sede-ticino",
+  "companyName": "Zurich Insurance (sede Ticino)",
+  "companyHost": "careers.zurich.com",
+  "enabled": true,
+  "priority": 10,
+  "crawlerModes": [
+    "generic_ats",
+    "html",
+    "jsonld"
+  ],
+  "seedUrls": [
+    "https://www.careers.zurich.com/search/?createNewAlert=false&q=&locationsearch=Ticino&optionsFacetsDD_shifttype=&optionsFacetsDD_department=&optionsFacetsDD_customfield3=",
+    "https://www.careers.zurich.com/search/?createNewAlert=false&q=&locationsearch=Tessin&optionsFacetsDD_shifttype=&optionsFacetsDD_department=&optionsFacetsDD_customfield3=",
+    "https://www.careers.zurich.com/search/?createNewAlert=false&q=&locationsearch=Lugano&optionsFacetsDD_shifttype=&optionsFacetsDD_department=&optionsFacetsDD_customfield3=",
+    "https://www.careers.zurich.com/search/?createNewAlert=false&q=&locationsearch=Graub%C3%BCnden&optionsFacetsDD_shifttype=&optionsFacetsDD_department=&optionsFacetsDD_customfield3=",
+    "https://www.careers.zurich.com/search/?createNewAlert=false&q=&locationsearch=Grisons&optionsFacetsDD_shifttype=&optionsFacetsDD_department=&optionsFacetsDD_customfield3=",
+    "https://www.careers.zurich.com/search/?createNewAlert=false&q=&locationsearch=Chur&optionsFacetsDD_shifttype=&optionsFacetsDD_department=&optionsFacetsDD_customfield3="
+  ],
+  "notes": "SuccessFactors ATS at careers.zurich.com — region-level search across TI + GR.",
+  "updatedAt": "2026-03-16T05:57:02.115Z"
+}

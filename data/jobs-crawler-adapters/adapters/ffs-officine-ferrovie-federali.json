@@ -1,0 +1,36 @@
+{
+  "companyKey": "ffs-officine-ferrovie-federali",
+  "companyName": "FFS Officine (Ferrovie Federali)",
+  "companyHost": "sbb.ch",
+  "enabled": true,
+  "priority": 10,
+  "crawlerModes": [
+    "generic_ats",
+    "html",
+    "jsonld"
+  ],
+  "seedUrls": [
+    "https://jobs.sbb.ch/v2/offene-stellen/tecnico-della-qualita-m-f-d/7f51f7fd-a983-441f-8858-ffd9aed621f8",
+    "https://jobs.sbb.ch/v2/offene-stellen/dirigente-team-controllo-qualita-m-f-d/f40a8456-69e6-4d3f-ad9a-8b7803d10227",
+    "https://jobs.sbb.ch/v2/offene-stellen/capoprogetto-impianti-di-sicurezza-e-sistemi-controllo-treno-m-f-d/983e2be2-7dfd-4de7-9535-318c19400aa6",
+    "https://jobs.sbb.ch/v2/offene-stellen/responsabile-impianti-di-sicurezza-segnali-ferroviario-m-f-d/ba7920e7-8e88-4030-8cda-45f3a4afbb3f",
+    "https://jobs.sbb.ch/v2/offene-stellen/ingegnere-civile-come-responsabile-di-impianti-m-f-d/c04334b7-47d3-4dd6-886c-88da9de0f1dd",
+    "https://www.login.org/it/2321-agente-dei-trasporti-pubblici-afc-mobilita",
+    "https://www.login.org/it/2215-impiegatoa-del-commercio-al-dettaglio-trasporti-pubblici-afc-consulenza-alla-clientela",
+    "https://www.login.org/it/2216-impiegatoa-del-commercio-al-dettaglio-trasporti-pubblici-afc-assistenza-ai-clienti",
+    "https://www.login.org/it/2370-operatoretrice-tecnica-di-pulizia-afc",
+    "https://www.login.org/it/2247-verniciatoretrice-industriale-afc",
+    "https://www.login.org/it/2240-praticante-amministrazione-officine-ffs-bellinzona",
+    "https://www.login.org/it/2242-praticante-ffs-infrastruttura-bellinzona",
+    "https://www.login.org/it/2180-meccanicoa-di-produzione-afc",
+    "https://www.login.org/it/2181-meccanicoa-di-produzione-afc",
+    "https://www.login.org/it/2211-costruttoretrice-di-binari-afc",
+    "https://www.login.org/it/2248-elettricista-reti-di-distribuzione-afc-linea-di-contatto",
+    "https://www.login.org/it/2217-impiegatoa-del-commercio-al-dettaglio-trasporti-pubblici-afc-assistenza-ai-clienti",
+    "https://www.login.org/it/2346-operatoretrice-di-edifici-e-infrastrutture-afc",
+    "https://www.login.org/it/2218-agente-dei-trasporti-pubblici-afc-mobilita",
+    "https://www.login.org/it/2225-agente-dei-trasporti-pubblici-afc-circolazione-treni"
+  ],
+  "notes": "SBB dedicated seeds from company.sbb.ch AEM JSON API + login.org apprenticeship listing (partner SBB CFF FFS, canton Ticino).",
+  "updatedAt": "2026-03-09T17:17:06.896Z"
+}

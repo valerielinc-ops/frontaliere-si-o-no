@@ -1,0 +1,22 @@
+{
+  "companyKey": "interroll",
+  "companyName": "Interroll",
+  "companyHost": "interroll.com",
+  "enabled": true,
+  "priority": 0,
+  "crawlerModes": [
+    "generic_ats",
+    "html",
+    "jsonld"
+  ],
+  "seedUrls": [
+    "https://www.interroll.com/careers",
+    "https://www.interroll.com/career",
+    "https://www.interroll.com/jobs",
+    "https://www.interroll.com/karriere",
+    "https://www.interroll.com/offene-stellen",
+    "https://www.interroll.com/lavora-con-noi"
+  ],
+  "notes": "",
+  "updatedAt": "2026-02-27T17:06:06.954Z"
+}

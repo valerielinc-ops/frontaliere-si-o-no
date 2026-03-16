@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagina non trovata — Frontaliere Ticino</title>
+    <meta name="robots" content="noindex">
+    <meta name="description" content="Frontaliere Ticino — Calcolatore stipendio netto, simulatore fiscale, confronti assicurazioni e guida completa per lavoratori frontalieri in Svizzera.">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Frontaliere Ticino">
+    <meta property="og:title" content="Frontaliere Ticino — Guida per lavoratori frontalieri">
+    <meta property="og:description" content="Calcolatore stipendio netto, simulatore fiscale, confronti assicurazioni e guida completa per lavoratori frontalieri in Svizzera.">
+    <meta property="og:image" content="https://www.frontaliereticino.ch/og-image.png">
+    <meta property="og:url" content="https://www.frontaliereticino.ch/">
+    <meta property="fb:app_id" content="891036063797338">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Frontaliere Ticino — Guida per lavoratori frontalieri">
+    <meta name="twitter:description" content="Calcolatore stipendio netto, simulatore fiscale, confronti assicurazioni e guida completa per lavoratori frontalieri in Svizzera.">
+    <meta name="twitter:image" content="https://www.frontaliereticino.ch/og-image.png">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "Pagina non trovata",
+        "url": "https://www.frontaliereticino.ch/404.html",
+        "description": "Pagina di errore 404 del sito Frontaliere Ticino.",
+        "inLanguage": "it",
+        "isPartOf": {
+          "@type": "WebSite",
+          "name": "Frontaliere Ticino",
+          "url": "https://www.frontaliereticino.ch"
+        }
+      }
+    </script>
+    <meta http-equiv="X-DNS-Prefetch-Control" content="off">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <!-- SPA redirect: save URL and redirect to / so the React app can handle routing -->
+    <script>
+      (function() {
+        // Paths that are real static files — do NOT redirect (let 404 show)
+        var staticExts = /\.(js|css|png|jpg|jpeg|gif|svg|ico|woff2?|ttf|json|xml|txt|map|webmanifest)$/i;
+        if (staticExts.test(location.pathname)) return;
+        // Save full URL (path + search + hash) so index.html can restore it
+        sessionStorage.redirect = location.href;
+        location.replace('/');
+      })();
+    </script>
+    <!-- Firebase/GA4 error tracking for 404 page (only fires if redirect didn't happen) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LGJ9LE360F"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){ dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'G-LGJ9LE360F', { send_page_view: false });
+      // Track 404 as app_error event with full context
+      gtag('event', 'app_error', {
+        error_type: 'page_404',
+        error_message: 'Page not found: ' + location.pathname,
+        page_path: location.pathname + location.search,
+        page_title: '404 — Pagina non trovata',
+        is_fatal: false,
+        resource_url: location.href,
+        referrer: document.referrer || 'direct',
+        user_agent: navigator.userAgent.substring(0, 150),
+        screen_width: window.innerWidth || 0,
+        screen_height: window.innerHeight || 0,
+        timestamp: new Date().toISOString()
+      });
+      // Also send as GA4 recommended exception event
+      gtag('event', 'exception', {
+        description: '[page_404] ' + location.pathname,
+        fatal: false
+      });
+    </script>
+    <style>
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      body { font-family: 'Inter', system-ui, -apple-system, sans-serif; background: #f8fafc; color: #0f172a; min-height: 100vh; display: flex; flex-direction: column; }
+      .header { background: linear-gradient(135deg, #4f46e5, #7c3aed); padding: 16px 24px; }
+      .header a { color: white; text-decoration: none; font-weight: 700; font-size: 18px; display: flex; align-items: center; gap: 8px; }
+      .container { flex: 1; display: flex; align-items: center; justify-content: center; padding: 24px; }
+      .card { background: white; border-radius: 16px; padding: 48px; max-width: 560px; width: 100%; text-align: center; box-shadow: 0 4px 6px -1px rgba(0,0,0,.1), 0 2px 4px -2px rgba(0,0,0,.1); }
+      .code { font-size: 72px; font-weight: 800; color: #4f46e5; line-height: 1; margin-bottom: 8px; }
+      h1 { font-size: 24px; font-weight: 700; margin-bottom: 12px; }
+      p { color: #64748b; line-height: 1.6; margin-bottom: 24px; }
+      .links { display: flex; flex-direction: column; gap: 10px; text-align: left; }
+      .links a { display: flex; align-items: center; gap: 10px; padding: 12px 16px; background: #f1f5f9; border-radius: 10px; color: #1e293b; text-decoration: none; font-weight: 500; transition: background .2s; }
+      .links a:hover { background: #e2e8f0; }
+      .links span { font-size: 20px; }
+      .home-btn { display: inline-block; margin-top: 24px; padding: 12px 32px; background: #4f46e5; color: white; border-radius: 10px; text-decoration: none; font-weight: 600; transition: background .2s; }
+      .home-btn:hover { background: #4338ca; }
+      .footer { text-align: center; padding: 16px; color: #94a3b8; font-size: 13px; }
+      .footer a { color: #6366f1; text-decoration: none; }
+      .footer a:hover { text-decoration: underline; }
+      @media (prefers-color-scheme: dark) {
+        body { background: #020617; color: #f1f5f9; }
+        .card { background: #1e293b; box-shadow: 0 4px 6px rgba(0,0,0,.3); }
+        p { color: #94a3b8; }
+        .links a { background: #334155; color: #f1f5f9; }
+        .links a:hover { background: #475569; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <a href="/">🇨🇭 Frontaliere Ticino</a>
+    </div>
+    <div class="container">
+      <div class="card">
+        <div class="code">404</div>
+        <h1>Pagina non trovata</h1>
+        <p>La pagina che stai cercando non esiste o è stata spostata. Prova una di queste sezioni:</p>
+        <div class="links">
+          <a href="/calcola-stipendio/"><span>🧮</span> Calcola stipendio netto frontaliere</a>
+          <a href="/compara-servizi/"><span>📊</span> Confronta servizi e costi</a>
+          <a href="/tasse-e-pensione/"><span>💰</span> Tasse e pensione</a>
+          <a href="/guida-frontaliere/"><span>📖</span> Guida completa frontalieri</a>
+          <a href="/vivere-in-ticino/"><span>🏡</span> Vita quotidiana in Ticino</a>
+          <a href="/compara-servizi/cambio-franco-euro/"><span>💱</span> Cambio CHF-EUR in tempo reale</a>
+        </div>
+        <a href="/" class="home-btn">← Torna alla Home</a>
+      </div>
+    </div>
+    <div class="footer">
+      <p>Se pensi che questa pagina dovrebbe esistere, <a href="mailto:info@frontaliereticino.ch">segnalacelo</a>.</p>
+      <p style="margin-top:6px">© 2024–2026 Frontaliere Ticino — <a href="/privacy/">Privacy</a> — <a href="/mappa-del-sito/">Mappa del Sito</a></p>
+    </div>
+  </body>
+</html>

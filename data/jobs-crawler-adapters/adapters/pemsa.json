@@ -1,0 +1,203 @@
+{
+  "companyKey": "pemsa",
+  "companyName": "PEMSA",
+  "companyHost": "www.pemsa.ch",
+  "enabled": true,
+  "priority": 18,
+  "crawlerModes": [
+    "html"
+  ],
+  "seedUrls": [
+    "https://www.pemsa.ch/it/le-nostre-offerte-di-lavoro/?_canton=125"
+  ],
+  "notes": "Dedicated PEMSA crawler. Listing page pre-filtered for Ticino (canton=125). Detail pages have JSON-LD JobPosting with full location data. Construction/trades staffing agency.",
+  "updatedAt": "2026-03-16T09:22:53.918Z",
+  "seedMetaByUrl": {
+    "https://www.pemsa.ch/it/job/lattoniere-2665294/": {
+      "location": "Lugano",
+      "canton": "TI",
+      "company": "PEMSA",
+      "postedDate": "2026-03-13"
+    },
+    "https://www.pemsa.ch/it/job/installatore-idraulico-afc-2665222/": {
+      "location": "Lugano",
+      "canton": "TI",
+      "company": "PEMSA",
+      "postedDate": "2026-03-13"
+    },
+    "https://www.pemsa.ch/it/job/idraulico-2665219/": {
+      "location": "Lugano",
+      "canton": "TI",
+      "company": "PEMSA",
+      "postedDate": "2026-03-13"
+    },
+    "https://www.pemsa.ch/it/job/idraulico-impianti-riscaldamento-2665216/": {
+      "location": "Lugano",
+      "canton": "TI",
+      "company": "PEMSA",
+      "postedDate": "2026-03-13"
+    },
+    "https://www.pemsa.ch/it/job/montatore-di-ponteggi-2664892/": {
+      "location": "Bellinzona",
+      "canton": "TI",
+      "company": "PEMSA",
+      "postedDate": "2026-03-11"
+    },
+    "https://www.pemsa.ch/it/job/metalcostruttore-saldatore-2664887/": {
+      "location": "Bellinzona",
+      "canton": "TI",
+      "company": "PEMSA",
+      "postedDate": "2026-03-11"
+    },
+    "https://www.pemsa.ch/it/job/fresatore-taglio-beton-2664877/": {
+      "location": "Bellinzona",
+      "canton": "TI",
+      "company": "PEMSA",
+      "postedDate": "2026-03-11"
+    },
+    "https://www.pemsa.ch/it/job/idraulico-impianti-sanitari-2664723/": {
+      "location": "Lugano",
+      "canton": "TI",
+      "company": "PEMSA",
+      "postedDate": "2026-03-10"
+    },
+    "https://www.pemsa.ch/it/job/disegnatore-progettista-impianti-riscaldamento-e-sanitari-2664706/": {
+      "location": "Riazzino",
+      "canton": "TI",
+      "company": "PEMSA",
+      "postedDate": "2026-03-10"
+    },
+    "https://www.pemsa.ch/it/job/idraulico-installatore-3-2664701/": {
+      "location": "Lugano",
+      "canton": "TI",
+      "company": "PEMSA",
+      "postedDate": "2026-03-10"
+    },
+    "https://www.pemsa.ch/it/job/muratore-2664137/": {
+      "location": "Locarno",
+      "canton": "TI",
+      "company": "PEMSA",
+      "postedDate": "2026-03-06"
+    },
+    "https://www.pemsa.ch/it/job/manovale-edile-2664133/": {
+      "location": "Locarno",
+      "canton": "TI",
+      "company": "PEMSA",
+      "postedDate": "2026-03-06"
+    },
+    "https://www.pemsa.ch/it/job/meccanico-di-macchine-da-cantiere-2664130/": {
+      "location": "Locarno",
+      "canton": "TI",
+      "company": "PEMSA",
+      "postedDate": "2026-03-06"
+    },
+    "https://www.pemsa.ch/it/job/idraulico-impianti-sanitari-e-riscaldamento-2664125/": {
+      "location": "Lugano",
+      "canton": "TI",
+      "company": "PEMSA",
+      "postedDate": "2026-03-06"
+    },
+    "https://www.pemsa.ch/it/job/idraulico-2664124/": {
+      "location": "Locarno",
+      "canton": "TI",
+      "company": "PEMSA",
+      "postedDate": "2026-03-06"
+    },
+    "https://www.pemsa.ch/it/job/piastrellista-2664119/": {
+      "location": "Locarno",
+      "canton": "TI",
+      "company": "PEMSA",
+      "postedDate": "2026-03-06"
+    },
+    "https://www.pemsa.ch/it/job/impermeabilizzatori-2664115/": {
+      "location": "Locarno",
+      "canton": "TI",
+      "company": "PEMSA",
+      "postedDate": "2026-03-06"
+    },
+    "https://www.pemsa.ch/it/job/carpentiere-lattoniere-con-attestato-lavori-in-quota-ed-uso-dpi-di-3-cat-2664024/": {
+      "location": "Bellinzona",
+      "canton": "TI",
+      "company": "PEMSA",
+      "postedDate": "2026-03-05"
+    },
+    "https://www.pemsa.ch/it/job/pavimentatore-stradale-2663961/": {
+      "location": "Bellinzona",
+      "canton": "TI",
+      "company": "PEMSA",
+      "postedDate": "2026-03-05"
+    },
+    "https://www.pemsa.ch/it/job/pittore-2663958/": {
+      "location": "Bellinzona",
+      "canton": "TI",
+      "company": "PEMSA",
+      "postedDate": "2026-03-05"
+    },
+    "https://www.pemsa.ch/it/job/rullista-macchinista-di-finitrice-2663954/": {
+      "location": "Bellinzona",
+      "canton": "TI",
+      "company": "PEMSA",
+      "postedDate": "2026-03-05"
+    },
+    "https://www.pemsa.ch/it/job/giardiniere-2663947/": {
+      "location": "Bellinzona",
+      "canton": "TI",
+      "company": "PEMSA",
+      "postedDate": "2026-03-05"
+    },
+    "https://www.pemsa.ch/it/job/meccanico-autoriparatore-2663482/": {
+      "location": "Agno",
+      "canton": "TI",
+      "company": "PEMSA",
+      "postedDate": "2026-03-03"
+    },
+    "https://www.pemsa.ch/it/job/ferraiolo-2663206/": {
+      "location": "Bellinzona",
+      "canton": "TI",
+      "company": "PEMSA",
+      "postedDate": "2026-03-02"
+    },
+    "https://www.pemsa.ch/it/job/copritetto-afc-2663191/": {
+      "location": "Bellinzona",
+      "canton": "TI",
+      "company": "PEMSA",
+      "postedDate": "2026-03-02"
+    },
+    "https://www.pemsa.ch/it/job/autista-di-camion-ribaltabile-2663188/": {
+      "location": "Lugano",
+      "canton": "TI",
+      "company": "PEMSA",
+      "postedDate": "2026-03-02"
+    },
+    "https://www.pemsa.ch/it/job/carpentiere-edile-2663183/": {
+      "location": "Bellinzona",
+      "canton": "TI",
+      "company": "PEMSA",
+      "postedDate": "2026-03-02"
+    },
+    "https://www.pemsa.ch/it/job/cartongessista-gessatore-2662508/": {
+      "location": "Bellinzona",
+      "canton": "TI",
+      "company": "PEMSA",
+      "postedDate": "2026-02-25"
+    },
+    "https://www.pemsa.ch/it/job/muratore-carpentiere-2662376/": {
+      "location": "Bellinzona",
+      "canton": "TI",
+      "company": "PEMSA",
+      "postedDate": "2026-02-24"
+    },
+    "https://www.pemsa.ch/it/job/elettricista-2655207/": {
+      "location": "Lugano",
+      "canton": "TI",
+      "company": "PEMSA",
+      "postedDate": "2026-01-13"
+    },
+    "https://www.pemsa.ch/it/job/muratore-carpentiere-2652783/": {
+      "location": "Bellinzona",
+      "canton": "TI",
+      "company": "PEMSA",
+      "postedDate": "2025-12-22"
+    }
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "companyKey": "giorgio-armani",
+  "companyName": "Giorgio Armani S.p.A.",
+  "companyHost": "career5.successfactors.eu",
+  "enabled": true,
+  "priority": 16,
+  "crawlerModes": [
+    "html"
+  ],
+  "seedUrls": [
+    "https://career5.successfactors.eu/career?company=3397177P&career_ns=job_listing_summary&navBarLevel=JOB_SEARCH"
+  ],
+  "notes": "Dedicated Giorgio Armani crawler scans SuccessFactors (company=3397177P) detail pages for Switzerland-based positions.",
+  "updatedAt": "2026-03-13T12:04:39.271Z",
+  "seedMetaByUrl": {
+    "https://career5.successfactors.eu/career?career_ns=job_listing&company=3397177P&navBarLevel=JOB_SEARCH&rcm_site_locale=en_US&selected_lang=it_IT&career_job_req_id=5026": {
+      "location": "Landquart",
+      "canton": "GR",
+      "company": "Giorgio Armani S.p.A.",
+      "postedDate": "2026-03-13"
+    },
+    "https://career5.successfactors.eu/career?career_ns=job_listing&company=3397177P&navBarLevel=JOB_SEARCH&rcm_site_locale=en_US&selected_lang=it_IT&career_job_req_id=5013": {
+      "location": "Zurigo",
+      "canton": "ZH",
+      "company": "Giorgio Armani S.p.A.",
+      "postedDate": "2026-03-13"
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "companyKey": "allianz-suisse",
+  "companyName": "Allianz Suisse",
+  "companyHost": "recruitingapp-2872.umantis.com",
+  "enabled": true,
+  "priority": 18,
+  "crawlerModes": ["html"],
+  "seedUrls": ["https://recruitingapp-2872.umantis.com/Jobs/All"],
+  "notes": "Dedicated Allianz Suisse crawler POSTs the Umantis listing with Region Tessin filter, fetches Italian detail pages. Keeps Ticino vacancies only (Agenzia generale Bellinzona + Lugano).",
+  "updatedAt": "2025-07-25T00:00:00.000Z",
+  "seedMetaByUrl": {}
+}

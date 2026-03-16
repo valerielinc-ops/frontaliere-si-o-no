@@ -1,0 +1,18 @@
+{
+  "companyKey": "corner-banca",
+  "companyName": "Cornèr Banca",
+  "companyHost": "corner.ch",
+  "enabled": true,
+  "priority": 0,
+  "crawlerModes": [
+    "generic_ats",
+    "html",
+    "jsonld"
+  ],
+  "seedUrls": [
+    "https://jobs.corner.ch/l/it/",
+    "https://cornerbancasa.recruitee.com/api/offers/"
+  ],
+  "notes": "",
+  "updatedAt": "2026-02-27T17:06:06.936Z"
+}

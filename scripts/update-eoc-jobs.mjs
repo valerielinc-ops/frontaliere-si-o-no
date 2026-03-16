@@ -1,0 +1,626 @@
+#!/usr/bin/env node
+/**
+ * Dedicated EOC (Ente Ospedaliero Cantonale) crawler runner.
+ * Runs only EOC hospital jobs (Umantis ATS at recruitingapp-2761.umantis.com)
+ * and enforces full locale coverage for SEO-critical fields.
+ *
+ * The EOC careers portal uses the Umantis (Abacus) recruiting platform.
+ * All job listings are served from recruitingapp-2761.umantis.com with
+ * CompanyID filters for each hospital institute (Bellinzona, Lugano,
+ * Locarno, Mendrisio, etc.).
+ */
+import fs from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+import { printPublishedJobUrls, writeJobsSummary, snapshotJobSlugs, computeCrawlDiff, printCrawlChangeSummary, writeCrawlChangeSummaryToGH } from './jobs-url-helper.mjs';
+import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage } from './lib/dedicated-crawler-common.mjs';
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const ROOT = path.resolve(__dirname, '..');
+const DATA_JOBS = path.resolve(ROOT, 'data', 'jobs.json');
+const ADAPTERS_DIR = path.resolve(ROOT, 'data', 'jobs-crawler-adapters', 'adapters');
+const EOC_KEY = 'eoc-ente-ospedaliero-cantonale';
+
+/**
+ * Umantis listing URL for ALL EOC institutes.
+ * CompanyID parameter covers every hospital/clinic:
+ *   67|65|63|61|59|57|55|42|40|38|36|34|32|30|28|26|24|22|1
+ * lang=ita returns Italian listing (source language).
+ */
+const UMANTIS_LISTING_URL =
+  'https://recruitingapp-2761.umantis.com/Jobs/4?CompanyID=67|65|63|61|59|57|55|42|40|38|36|34|32|30|28|26|24|22|1&DesignID=10003&lang=ita&Reset=G&Search=Cerca';
+
+/**
+ * Umantis ATS uses a connector-table pagination system.
+ * The listing table ID is 66856, so pagination params are tc66856=pN.
+ * Each page shows 10 job entries.
+ * A search_token is issued per session and must be passed to subsequent pages
+ * to maintain the CompanyID filter context.
+ */
+const UMANTIS_BASE = 'https://recruitingapp-2761.umantis.com';
+const UMANTIS_TABLE_ID = '66856';
+const UMANTIS_ITEMS_PER_PAGE = 10;
+const MAX_PAGES = 50; // safety cap to prevent infinite loops
+const VACANCY_HREF_RE = /\/Vacancies\/(\d+)\/Description\/\d+/g;
+
+// ──────────────────────────────────────────────────────────────
+// Helpers
+// ──────────────────────────────────────────────────────────────
+
+function normalize(value = '') {
+  return String(value || '').trim().toLowerCase();
+}
+
+function normalizeKey(value = '') {
+  return String(value || '')
+    .trim()
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+}
+
+function detectLang(text = '') {
+  const t = ` ${normalize(text)} `;
+  if (/( das | und | bei uns | stellenbeschreibung | arbeitsort )/.test(t)) return 'de';
+  if (/( the | with | requirements | apply now )/.test(t)) return 'en';
+  if (/( il | la | con | requisiti | candidati )/.test(t)) return 'it';
+  if (/( le | la | avec | exigences | poste )/.test(t)) return 'fr';
+  return 'it';
+}
+
+/**
+ * Match a job object as belonging to the EOC crawl.
+ */
+function isEocJob(job) {
+  const key = normalizeKey(job?.companyKey || job?.company || '');
+  const company = normalize(job?.company || '');
+  const url = String(job?.url || '').toLowerCase();
+  const host = (() => {
+    try {
+      return new URL(url).hostname.toLowerCase();
+    } catch {
+      return '';
+    }
+  })();
+  return (
+    key === EOC_KEY ||
+    key.includes('ente-ospedaliero-cantonale') ||
+    key.includes('eoc-ente') ||
+    host.includes('umantis.com') ||
+    host.includes('eoc.ch') ||
+    (company.includes('eoc') && company.includes('ospedaliero')) ||
+    company.includes('ente ospedaliero cantonale')
+  );
+}
+
+/**
+ * Check whether a URL belongs to one of EOC's trusted domains.
+ */
+function isTrustedEocDomain(rawUrl = '') {
+  try {
+    const host = new URL(rawUrl).hostname.toLowerCase();
+    return host.endsWith('eoc.ch') || host.includes('umantis.com');
+  } catch {
+    return false;
+  }
+}
+
+function deriveLocalizedSlug(job, locale) {
+  const explicit = String(job?.slugByLocale?.[locale] || '').trim();
+  if (explicit) return explicit;
+  return String(job?.slug || '').trim();
+}
+
+// ──────────────────────────────────────────────────────────────
+// Umantis listing page fetching (with pagination)
+// ──────────────────────────────────────────────────────────────
+
+/**
+ * Fetch a single URL with timeout and User-Agent header.
+ * Returns the response body as text, or null on failure.
+ */
+async function fetchPage(url, timeoutMs = 15000) {
+  try {
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), timeoutMs);
+    const res = await fetch(url, {
+      signal: controller.signal,
+      headers: {
+        Accept: 'text/html,application/xhtml+xml',
+        'User-Agent': process.env.JOBS_CRAWLER_USER_AGENT ||
+          'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://www.frontaliereticino.ch/)',
+      },
+    });
+    clearTimeout(timer);
+    if (!res.ok) {
+      console.warn(`⚠️ HTTP ${res.status} for ${url}`);
+      return null;
+    }
+    return await res.text();
+  } catch (err) {
+    console.warn(`⚠️ Fetch failed for ${url}: ${err.message}`);
+    return null;
+  }
+}
+
+/**
+ * Extract unique vacancy detail paths from a page's HTML.
+ * Returns a Set of vacancy IDs found (e.g. "2655").
+ */
+function extractVacancyIds(html) {
+  const ids = new Set();
+  for (const m of html.matchAll(VACANCY_HREF_RE)) {
+    ids.add(m[1]);
+  }
+  return ids;
+}
+
+/**
+ * Extract the search_token for the connector table from the page HTML.
+ * This token is needed to maintain the CompanyID filter across pages.
+ */
+function extractSearchToken(html) {
+  const re = new RegExp(`_search_token${UMANTIS_TABLE_ID}=(\\d+)`);
+  const m = html.match(re);
+  return m ? m[1] : null;
+}
+
+/**
+ * Fetch ALL EOC job detail URLs by paginating through the Umantis listing.
+ *
+ * 1. Fetch page 1 with the full CompanyID filter URL to start a search session.
+ * 2. Extract the _search_token from the response (needed for subsequent pages).
+ * 3. Loop through pages 2..N using tc{TABLE_ID}=pN&_search_token=TOKEN.
+ * 4. Stop when a page returns 0 new vacancy IDs (all seen before or empty page).
+ * 5. Return full detail page URLs as seed URLs for the base crawler.
+ */
+async function fetchEocJobDetailUrls() {
+  console.log('🔍 Fetching EOC jobs from Umantis listing (paginated)...');
+  const allVacancyIds = new Set();
+
+  // Page 1: use the full CompanyID listing URL to initialize the search session
+  const page1Html = await fetchPage(UMANTIS_LISTING_URL);
+  if (!page1Html) {
+    console.error('❌ Failed to fetch Umantis listing page 1.');
+    return [];
+  }
+
+  const page1Ids = extractVacancyIds(page1Html);
+  for (const id of page1Ids) allVacancyIds.add(id);
+  console.log(`  📄 Page 1: ${page1Ids.size} vacancies found`);
+
+  const searchToken = extractSearchToken(page1Html);
+  if (!searchToken) {
+    console.warn('⚠️ Could not extract search token — returning page 1 results only.');
+    return buildDetailUrls(allVacancyIds);
+  }
+  console.log(`  🔑 Search token: ${searchToken}`);
+
+  // Pages 2..N: paginate using the connector table params
+  // IMPORTANT: Include lang=ita and ContentOnly= to maintain the CompanyID filter
+  // context from page 1. Without these params, the search_token expands to ALL
+  // Umantis vacancies, not just the EOC-filtered subset.
+  for (let pageNum = 2; pageNum <= MAX_PAGES; pageNum++) {
+    const pageUrl = `${UMANTIS_BASE}/Jobs/4?lang=ita&tc${UMANTIS_TABLE_ID}=p${pageNum}&_search_token${UMANTIS_TABLE_ID}=${searchToken}&ContentOnly=`;
+    const html = await fetchPage(pageUrl);
+    if (!html) {
+      console.log(`  📄 Page ${pageNum}: fetch failed — stopping pagination.`);
+      break;
+    }
+
+    const pageIds = extractVacancyIds(html);
+    if (pageIds.size === 0) {
+      console.log(`  📄 Page ${pageNum}: 0 vacancies — end of listing.`);
+      break;
+    }
+
+    // Check for wrap-around: if ALL IDs on this page were already seen, stop
+    let newCount = 0;
+    for (const id of pageIds) {
+      if (!allVacancyIds.has(id)) {
+        allVacancyIds.add(id);
+        newCount++;
+      }
+    }
+
+    console.log(`  📄 Page ${pageNum}: ${pageIds.size} vacancies (${newCount} new)`);
+
+    if (newCount === 0) {
+      console.log(`  🔄 All IDs on page ${pageNum} already seen — pagination wrapped around. Stopping.`);
+      break;
+    }
+
+    // If page had fewer than expected items, likely the last page
+    if (pageIds.size < UMANTIS_ITEMS_PER_PAGE) {
+      console.log(`  📄 Page ${pageNum}: partial page (${pageIds.size} < ${UMANTIS_ITEMS_PER_PAGE}) — last page.`);
+      break;
+    }
+
+    // Small delay to be polite to Umantis servers
+    await new Promise((r) => setTimeout(r, 500));
+  }
+
+  console.log(`✅ Total unique EOC vacancy IDs discovered: ${allVacancyIds.size}`);
+  return buildDetailUrls(allVacancyIds);
+}
+
+/**
+ * Convert vacancy IDs to full detail page URLs.
+ */
+function buildDetailUrls(vacancyIds) {
+  return [...vacancyIds].map(
+    (id) => `${UMANTIS_BASE}/Vacancies/${id}/Description/4`
+  );
+}
+
+/**
+ * Ensure the EOC adapter JSON has the correct seed URLs
+ * (detail page URLs discovered from paginated listing).
+ */
+function ensureAdapterSeedUrls(seedUrls) {
+  const adapterPath = path.join(ADAPTERS_DIR, `${EOC_KEY}.json`);
+
+  if (!fs.existsSync(adapterPath)) {
+    console.log(`⚠️ Adapter ${EOC_KEY}.json not found — creating it.`);
+    const adapter = {
+      companyKey: EOC_KEY,
+      companyName: 'EOC – Ente Ospedaliero Cantonale',
+      companyHost: 'eoc.ch',
+      enabled: true,
+      priority: 10,
+      crawlerModes: ['generic_ats', 'html', 'jsonld'],
+      seedUrls,
+      notes: 'Umantis ATS at recruitingapp-2761.umantis.com — EOC hospital job listings for all institutes.',
+      updatedAt: new Date().toISOString(),
+    };
+    fs.mkdirSync(path.dirname(adapterPath), { recursive: true });
+    fs.writeFileSync(adapterPath, JSON.stringify(adapter, null, 2) + '\n');
+    return;
+  }
+
+  try {
+    const adapter = JSON.parse(fs.readFileSync(adapterPath, 'utf-8'));
+    adapter.seedUrls = seedUrls;
+    adapter.companyHost = adapter.companyHost || 'eoc.ch';
+    if (!adapter.crawlerModes?.includes('generic_ats')) {
+      adapter.crawlerModes = adapter.crawlerModes || [];
+      adapter.crawlerModes.unshift('generic_ats');
+    }
+    adapter.priority = Math.max(adapter.priority || 0, 10);
+    adapter.notes = 'Umantis ATS at recruitingapp-2761.umantis.com — EOC hospital job listings for all institutes.';
+    adapter.updatedAt = new Date().toISOString();
+    fs.writeFileSync(adapterPath, JSON.stringify(adapter, null, 2) + '\n');
+    console.log(`📝 Adapter ${EOC_KEY} updated with ${seedUrls.length} seed URLs.`);
+  } catch (err) {
+    console.warn(`⚠️ Could not update adapter: ${err.message}`);
+  }
+}
+
+// ──────────────────────────────────────────────────────────────
+// Base crawler invocation
+// ──────────────────────────────────────────────────────────────
+
+function runBaseCrawler() {
+  return runDedicatedBaseCrawler({
+    root: ROOT,
+    companyKeys: EOC_KEY,
+    localizeOnlyCompanyKeys: EOC_KEY,
+    // NOTE: forceLocalizeKeys intentionally omitted — normal aiLocalizationEnabled=true
+    // handles all jobs. Force-localize bypasses budget limits and model exhaustion checks,
+    // causing 2+ hour runs retrying through rate-limited fallback models for 100+ jobs.
+    // Without force, the crawler respects budget limits and stops gracefully.
+    disableWorkdayForce: true,
+    extraEnv: {
+      // Override per-company limits: EOC via Umantis has 200+ active vacancies.
+      JOBS_CRAWLER_MAX_JOB_LINKS: '400',
+      JOBS_CRAWLER_MAX_GENERIC_DETAIL_PAGES: '400',
+      // Use higher concurrency for dedicated single-company run.
+      JOBS_AI_LOCALIZATION_CONCURRENCY: '2',
+      // Generic summary is printed before EOC post-processing and can show
+      // temporary noisy company/location fields.
+      JOBS_SKIP_CRAWL_CHANGE_SUMMARY: '1',
+    },
+  });
+}
+
+// ──────────────────────────────────────────────────────────────
+// Post-processing: fix company name & location for Umantis jobs
+// ──────────────────────────────────────────────────────────────
+
+/**
+ * EOC hospital institute names found in Umantis job descriptions.
+ * Map of keyword → human-readable institute + city.
+ */
+const EOC_INSTITUTES = [
+  { re: /Ospedale Regionale di Bellinzona/i, city: 'Bellinzona', institute: 'Ospedale Regionale di Bellinzona e Valli' },
+  { re: /Ospedale Regionale di Lugano/i, city: 'Lugano', institute: 'Ospedale Regionale di Lugano' },
+  { re: /Ospedale Regionale di Locarno/i, city: 'Locarno', institute: 'Ospedale Regionale di Locarno' },
+  { re: /Ospedale Regionale di Mendrisio/i, city: 'Mendrisio', institute: 'Ospedale Regionale di Mendrisio' },
+  { re: /Ospedale San Giovanni/i, city: 'Bellinzona', institute: 'Ospedale San Giovanni' },
+  { re: /Istituto Oncologico/i, city: 'Bellinzona', institute: 'Istituto Oncologico della Svizzera Italiana (IOSI)' },
+  { re: /Neurocentro/i, city: 'Lugano', institute: 'Neurocentro della Svizzera Italiana' },
+  { re: /Cardiocentro/i, city: 'Lugano', institute: 'Cardiocentro Ticino' },
+  { re: /Clinica di Riabilitazione/i, city: 'Novaggio', institute: 'Clinica di Riabilitazione di Novaggio' },
+  { re: /Laboratorio/i, city: 'Bellinzona', institute: 'EOC Laboratorio' },
+  { re: /Servizio di anestesia/i, city: 'Bellinzona', institute: 'EOC Servizio di Anestesia' },
+  { re: /Direzione generale/i, city: 'Bellinzona', institute: 'EOC Direzione Generale' },
+];
+
+const EOC_COMPANY_NAME = 'EOC – Ente Ospedaliero Cantonale';
+const EOC_CITIES = ['Bellinzona', 'Lugano', 'Locarno', 'Mendrisio', 'Faido', 'Acquarossa', 'Novaggio', 'Stabio'];
+
+/**
+ * Extract the city/location from an EOC job description by looking
+ * for known hospital institute names.
+ */
+function extractEocLocation(description = '', title = '') {
+  const text = `${title} ${description}`;
+  for (const inst of EOC_INSTITUTES) {
+    if (inst.re.test(text)) return inst.city;
+  }
+  // Fallback: look for Ticino city names in the text
+  const lowered = text.toLowerCase();
+  for (const city of EOC_CITIES) {
+    if (lowered.includes(city.toLowerCase())) return city;
+  }
+  return 'Bellinzona'; // EOC HQ fallback
+}
+
+function isLikelyCorruptedLocation(value = '') {
+  const loc = String(value || '').trim();
+  if (!loc) return true;
+  if (loc.length > 60) return true;
+  if (/^\d{4}\b/.test(loc)) return true;
+  if (/(si rende noto|vedi|permette di combinare|offerta ospedaliera|sede di riferimen)/i.test(loc)) return true;
+  return false;
+}
+
+/**
+ * Clean up EOC job description: remove boilerplate intro paragraph
+ * and CTA/footer noise.
+ */
+function cleanEocDescription(desc = '') {
+  let cleaned = desc;
+  // Remove EOC standard intro boilerplate
+  cleaned = cleaned.replace(
+    /L['']EOC,?\s*l['']ospedale multisito del Ticino[\s\S]*?(?=Per (?:completare|il nostro|la nostra|l[''])|Cerchiamo|Stiamo cercando|Il\/La candidato)/i,
+    ''
+  );
+  // Remove CTA footer
+  cleaned = cleaned.replace(/EOC\s*[-–]\s*il nostro ospedale\.?\s*Interessato\?[\s\S]*/i, '');
+  cleaned = cleaned.replace(/Le candidature vanno inoltrate[\s\S]*/i, '');
+  cleaned = cleaned.replace(/Se si riconosce nel profilo[\s\S]*/i, '');
+  // Trim whitespace
+  return cleaned.replace(/^\s+/, '').replace(/\s+$/, '').replace(/\n{3,}/g, '\n\n');
+}
+
+/**
+ * Post-process all EOC jobs in data/jobs.json to fix company name,
+ * location, and description after base crawler extraction.
+ */
+function postProcessEocJobs() {
+  if (!fs.existsSync(DATA_JOBS)) return;
+  const raw = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
+  const jobs = Array.isArray(raw) ? raw : [];
+  let fixedJobs = 0;
+  let fixedCompany = 0;
+  let fixedLocation = 0;
+  let fixedDescription = 0;
+  let fixedSlug = 0;
+
+  for (const job of jobs) {
+    if (!isEocJob(job)) continue;
+    let changed = false;
+
+    // Fix company name (base crawler may extract boilerplate text)
+    if (job.company !== EOC_COMPANY_NAME) {
+      job.company = EOC_COMPANY_NAME;
+      fixedCompany++;
+      changed = true;
+    }
+
+    // Fix companyKey
+    if (job.companyKey !== EOC_KEY) {
+      job.companyKey = EOC_KEY;
+      changed = true;
+    }
+
+    // Fix location (replace noisy extraction artifacts)
+    const loc = extractEocLocation(job.description || '', job.title || '');
+    const currentLocation = String(job.location || '').trim();
+    if (loc && (job.location !== loc || isLikelyCorruptedLocation(currentLocation))) {
+      job.location = loc;
+      fixedLocation++;
+      changed = true;
+    }
+
+    // Fix canton (all EOC hospitals are in Ticino)
+    if (job.canton !== 'TI') {
+      job.canton = 'TI';
+      changed = true;
+    }
+
+    // Clean description
+    const cleanedDesc = cleanEocDescription(job.description || '');
+    if (cleanedDesc && cleanedDesc.length > 100 && cleanedDesc !== (job.description || '')) {
+      job.description = cleanedDesc;
+      // Keep source-locale descriptionByLocale in sync with cleaned description.
+      // Without this, validation may fail because descriptionByLocale[sourceLang]
+      // still has the uncleaned version while the AI localized from dirty content.
+      if (job.descriptionByLocale && typeof job.descriptionByLocale === 'object') {
+        const sourceLang = job.descriptionByLocale.it ? 'it' : 'en';
+        job.descriptionByLocale[sourceLang] = cleanedDesc;
+      }
+      fixedDescription++;
+      changed = true;
+    }
+
+    // Regenerate slug if it contains boilerplate
+    if (job.slug && (job.slug.includes('permette-di-combinare') || job.slug.length > 120)) {
+      const slugBase = `${job.title}-eoc-${loc}`
+        .toLowerCase()
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '')
+        .replace(/[^a-z0-9]+/g, '-')
+        .replace(/^-+|-+$/g, '')
+        .slice(0, 90);
+      if (slugBase && slugBase !== job.slug) {
+        job.slug = slugBase;
+        fixedSlug++;
+        changed = true;
+      }
+    }
+
+    if (changed) {
+      fixedJobs++;
+    }
+  }
+
+  // Deduplicate EOC jobs by slug (multiple Umantis vacancies can map to same slug)
+  const slugSeen = new Map();
+  let dupeCount = 0;
+  const deduped = [];
+  for (const job of jobs) {
+    if (!isEocJob(job)) {
+      deduped.push(job);
+      continue;
+    }
+    const slug = String(job.slug || '').trim();
+    if (!slug) {
+      deduped.push(job);
+      continue;
+    }
+    const prev = slugSeen.get(slug);
+    if (prev) {
+      // Keep the one with more recent crawledAt; discard the other
+      const prevTs = prev.crawledAt ? new Date(prev.crawledAt).getTime() : 0;
+      const currTs = job.crawledAt ? new Date(job.crawledAt).getTime() : 0;
+      if (currTs > prevTs) {
+        const idx = deduped.indexOf(prev);
+        if (idx !== -1) deduped[idx] = job;
+        slugSeen.set(slug, job);
+      }
+      dupeCount++;
+      continue;
+    }
+    slugSeen.set(slug, job);
+    deduped.push(job);
+  }
+  if (dupeCount > 0) {
+    console.log(`🧹 EOC slug dedup: removed ${dupeCount} duplicate(s).`);
+  }
+
+  if (fixedJobs > 0 || dupeCount > 0) {
+    const finalJobs = dupeCount > 0 ? deduped : jobs;
+    fs.writeFileSync(DATA_JOBS, JSON.stringify(finalJobs, null, 2) + '\n');
+    // Also update public copy
+    const publicPath = path.resolve(ROOT, 'public', 'data', 'jobs.json');
+    fs.mkdirSync(path.dirname(publicPath), { recursive: true });
+    fs.writeFileSync(publicPath, JSON.stringify(finalJobs, null, 2) + '\n');
+    console.log(
+      `🔧 Post-processed ${fixedJobs} EOC jobs ` +
+      `(company=${fixedCompany}, location=${fixedLocation}, description=${fixedDescription}, slug=${fixedSlug}).`
+    );
+  }
+}
+
+// ──────────────────────────────────────────────────────────────
+// Stats & validation
+// ──────────────────────────────────────────────────────────────
+
+function logEocJobStats(beforeSnapshot = new Map()) {
+  if (!fs.existsSync(DATA_JOBS)) {
+    console.log('ℹ️ jobs.json non trovato — nessuna statistica disponibile.');
+    return { total: 0, ticino: 0 };
+  }
+  const raw = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
+  const allJobs = Array.isArray(raw) ? raw : [];
+  const eocJobs = allJobs.filter(isEocJob);
+  const ticinoJobs = eocJobs.filter((job) => normalize(job?.canton) === 'ti');
+  const nonTicino = eocJobs.length - ticinoJobs.length;
+
+  console.log(`\n📊 === EOC – Ente Ospedaliero Cantonale Job Stats ===`);
+  console.log(`  🏥 Job totali trovati (EOC): ${eocJobs.length}`);
+  console.log(`  ✅ Job in Ticino (canton=TI): ${ticinoJobs.length}`);
+  if (nonTicino > 0) {
+    console.log(`  ❌ Job scartati (location non Ticino): ${nonTicino}`);
+    const examples = eocJobs
+      .filter((job) => normalize(job?.canton) !== 'ti')
+      .map((job) => `${job?.title || '?'} → ${job?.location || job?.canton || '?'}`)
+      .slice(0, 10);
+    for (const loc of examples) console.log(`     - ${loc}`);
+  }
+  console.log('');
+
+  // Crawl change summary (new/updated/removed)
+  const afterSnapshot = snapshotJobSlugs(eocJobs);
+  const crawlDiff = computeCrawlDiff(beforeSnapshot, afterSnapshot);
+  printCrawlChangeSummary(crawlDiff, 'EOC');
+  writeCrawlChangeSummaryToGH(crawlDiff, 'EOC');
+
+  return { total: eocJobs.length, ticino: ticinoJobs.length };
+}
+
+function validateEocLocaleCoverage() {
+  validateDedicatedLocaleCoverage({
+    strictEnvVar: 'JOBS_EOC_STRICT',
+    label: 'EOC',
+    dataJobsPath: DATA_JOBS,
+    isTargetJob: isEocJob,
+    detectSourceLang: (text) => detectLang(text),
+    deriveSlug: deriveLocalizedSlug,
+    isTrustedDomain: isTrustedEocDomain,
+    untrustedDomainReason: 'untrusted_domain_for_eoc_job',
+    noJobsMessage: 'Nessun job EOC trovato dopo il crawl — niente da validare.',
+  });
+}
+
+// ──────────────────────────────────────────────────────────────
+// Main
+// ──────────────────────────────────────────────────────────────
+
+async function main() {
+  console.log('🏥 Running dedicated EOC – Ente Ospedaliero Cantonale jobs crawler...');
+
+  // 1. Fetch all job detail URLs from paginated Umantis listing
+  const detailUrls = await fetchEocJobDetailUrls();
+
+  if (detailUrls.length === 0) {
+    console.log('⚠️ No EOC job URLs discovered from the listing. The Umantis portal may be down.');
+    console.log('   Falling back to existing adapter seed URLs...');
+    // Don't overwrite the adapter — keep whatever seeds exist
+  } else {
+    // 2. Update the adapter with discovered detail URLs
+    ensureAdapterSeedUrls(detailUrls);
+  }
+
+  // Snapshot company jobs before crawl for diff summary
+  let _beforeSnapshot = new Map();
+  if (fs.existsSync(DATA_JOBS)) {
+    try {
+      const pre = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
+      _beforeSnapshot = snapshotJobSlugs(Array.isArray(pre) ? pre.filter(isEocJob) : []);
+    } catch {}
+  }
+
+  await runBaseCrawler();
+
+  // 3. Post-process EOC jobs: fix company name, location, description
+  postProcessEocJobs();
+
+  // Log stats
+  const stats = logEocJobStats(_beforeSnapshot);
+  if (stats.total === 0) {
+    console.log('ℹ️ Nessun job EOC trovato in questa esecuzione. Nessun errore — uscita OK.');
+    return;
+  }
+
+  validateEocLocaleCoverage();
+}
+
+main().catch((err) => {
+  console.error(`❌ EOC crawler failed: ${err?.message || err}`);
+  process.exit(1);
+});

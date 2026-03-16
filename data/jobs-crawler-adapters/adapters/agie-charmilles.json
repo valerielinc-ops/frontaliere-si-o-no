@@ -1,0 +1,12 @@
+{
+  "companyKey": "agie-charmilles",
+  "companyName": "AGIE Charmilles SA",
+  "companyHost": "www.find-your-future.ch",
+  "enabled": true,
+  "priority": 18,
+  "crawlerModes": ["html"],
+  "seedUrls": ["https://www.find-your-future.ch/it/lavoro-nel-settore-mem/settore-azienda/ritratti-aziendali/agie-charmilles-sa/"],
+  "notes": "Dedicated AGIE Charmilles crawler. Parses find-your-future.ch company profile page (Swissmem portal). AGIE Charmilles SA = GF Machining Solutions (Georg Fischer). HQ in Losone (TI), Via dei Pioppi 2, 6616. EDM, milling, laser, AM machine tools. ~100 employees at Losone site.",
+  "updatedAt": "2026-03-13T00:00:00.000Z",
+  "seedMetaByUrl": {}
+}

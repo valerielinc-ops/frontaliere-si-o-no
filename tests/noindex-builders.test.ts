@@ -1,0 +1,91 @@
+import { readFileSync } from 'node:fs';
+import path from 'node:path';
+
+import { describe, expect, it } from 'vitest';
+
+import { buildCanonicalBridgePage, buildFlatRedirect } from '@/build-plugins/constants';
+
+describe('SEO builder noindex guards', () => {
+  it('flat alias pages use a canonical bridge without JS redirect or meta refresh', () => {
+    const html = buildFlatRedirect('https://www.frontaliereticino.ch/articoli-frontaliere/test/', '/articoli-frontaliere/test/');
+    expect(html).not.toContain('location.replace(');
+    expect(html).toContain('rel="canonical"');
+    expect(html).not.toContain('http-equiv="refresh"');
+    expect(html).toContain('Versione canonica disponibile');
+  });
+
+  describe('buildCanonicalBridgePage noindex parameter', () => {
+    it('defaults to index,follow when noindex is not set', () => {
+      const html = buildCanonicalBridgePage({
+        canonicalUrl: 'https://www.frontaliereticino.ch/test/',
+        pathLabel: '/test/',
+      });
+      expect(html).toContain('content="index,follow"');
+      expect(html).not.toContain('noindex');
+    });
+
+    it('outputs noindex,follow when noindex is true', () => {
+      const html = buildCanonicalBridgePage({
+        canonicalUrl: 'https://www.frontaliereticino.ch/test/',
+        pathLabel: '/test/',
+        noindex: true,
+      });
+      expect(html).toContain('content="noindex,follow"');
+      expect(html).not.toContain('content="index,follow"');
+    });
+
+    it('outputs index,follow when noindex is explicitly false', () => {
+      const html = buildCanonicalBridgePage({
+        canonicalUrl: 'https://www.frontaliereticino.ch/test/',
+        pathLabel: '/test/',
+        noindex: false,
+      });
+      expect(html).toContain('content="index,follow"');
+    });
+  });
+
+  describe('bridge page call sites pass noindex: true', () => {
+    const source = readFileSync(
+      path.resolve(__dirname, '..', 'build-plugins', 'jobsSeoPagesPlugin.ts'),
+      'utf-8',
+    );
+
+    it('expired job archive pages use canonical (no noindex, no meta-refresh)', () => {
+      const start = source.indexOf('// Find expired slugs and generate archive bridge pages');
+      const end = source.indexOf('if (expiredCount > 0)', start);
+      const block = source.slice(start, end);
+      // Archive pages use canonical to listing page instead of noindex
+      // (avoids "excluded by noindex" GSC issue while still consolidating link equity)
+      expect(block).toContain('rel="canonical"');
+      expect(block).not.toContain('http-equiv="refresh"');
+    });
+
+    it('legacy slug bridge pages use noindex', () => {
+      const start = source.indexOf('// Legacy redirect: if non-IT locale and Italian slug differs');
+      const end = source.indexOf('const legacyFlat', start);
+      const block = source.slice(start, end);
+      expect(block).toContain('buildCanonicalBridgePage');
+      expect(block).toContain('noindex: true');
+    });
+
+    it('company slug alias pages use noindex', () => {
+      const start = source.indexOf('// Redirect pages for raw slugs that differ from canonical');
+      const end = source.indexOf('const rawFlat', start);
+      const block = source.slice(start, end);
+      expect(block).toContain('buildCanonicalBridgePage');
+      expect(block).toContain('noindex: true');
+    });
+
+    it('legacy redirect pages use noindex', () => {
+      const legacySource = readFileSync(
+        path.resolve(__dirname, '..', 'build-plugins', 'legacyRedirectsPlugin.ts'),
+        'utf-8',
+      );
+      const start = legacySource.indexOf('buildCompatHtml');
+      const end = legacySource.indexOf('for (const [fromRaw', start);
+      const block = legacySource.slice(start, end);
+      expect(block).toContain('buildCanonicalBridgePage');
+      expect(block).toContain('noindex: true');
+    });
+  });
+});

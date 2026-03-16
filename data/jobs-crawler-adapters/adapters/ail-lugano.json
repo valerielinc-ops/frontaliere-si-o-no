@@ -1,0 +1,17 @@
+{
+  "companyKey": "ail-lugano",
+  "companyName": "Aziende Industriali di Lugano (AIL) SA",
+  "companyHost": "ail.ch",
+  "enabled": true,
+  "priority": 10,
+  "crawlerModes": [
+    "html",
+    "pdf"
+  ],
+  "seedUrls": [
+    "https://www.ail.ch/AIL/risorse-umane/offerte-di-lavoro.html",
+    "https://www.ail.ch/AIL/risorse-umane/offerte-di-lavoro/content/0.html?ajax=true"
+  ],
+  "notes": "AIL SA — AJAX endpoint for job listings, PDF download for full descriptions. Job details are only in PDFs (no dedicated HTML detail pages).",
+  "updatedAt": "2026-03-16T11:55:09.658Z"
+}

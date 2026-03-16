@@ -1,0 +1,37 @@
+{
+  "companyKey": "centiel",
+  "companyName": "Centiel",
+  "companyHost": "www.centiel.com",
+  "enabled": true,
+  "priority": 10,
+  "crawlerModes": [
+    "html"
+  ],
+  "seedUrls": [
+    "https://www.centiel.com/careers/"
+  ],
+  "notes": "Centiel — UPS/power protection in Cadro, Lugano TI. Careers are inline accordion items on a single page with PDF job descriptions.",
+  "updatedAt": "2026-03-16T05:30:11.555Z",
+  "seedMetaByUrl": {
+    "https://www.centiel.com/wp-content/uploads/2026/02/2026.02-JD-EG-ApplicationEngineer.pdf": {
+      "location": "Cadro (Lugano)",
+      "canton": "TI",
+      "company": "Centiel"
+    },
+    "https://www.centiel.com/wp-content/uploads/2025/11/2025.11-JD-EG-RD-Engineer-Rev1.pdf": {
+      "location": "Cadro (Lugano)",
+      "canton": "TI",
+      "company": "Centiel"
+    },
+    "https://www.centiel.com/wp-content/uploads/2025/10/2025.10-JD-EG-Sales-Manager-Channel-Partners.pdf": {
+      "location": "Cadro (Lugano)",
+      "canton": "TI",
+      "company": "Centiel"
+    },
+    "https://www.centiel.com/wp-content/uploads/2025/05/Job_profile_After_Sales_Technician.pdf": {
+      "location": "Cadro (Lugano)",
+      "canton": "TI",
+      "company": "Centiel"
+    }
+  }
+}

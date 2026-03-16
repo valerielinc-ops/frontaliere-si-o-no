@@ -1,0 +1,15 @@
+{
+  "companyKey": "caseificio-gottardo",
+  "companyName": "Caseificio dimostrativo del Gottardo SA",
+  "companyHost": "www.caseificiodelgottardo.ch",
+  "enabled": true,
+  "priority": 10,
+  "crawlerModes": [
+    "html"
+  ],
+  "seedUrls": [
+    "https://www.caseificiodelgottardo.ch/Offerte-di-impiego-e-tirocinio"
+  ],
+  "notes": "Custom CMS — job cards with category labels, titles, and \"Più informazioni\" detail links.",
+  "updatedAt": "2026-03-16T05:29:51.702Z"
+}

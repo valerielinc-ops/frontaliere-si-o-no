@@ -1,0 +1,15 @@
+{
+  "companyKey": "delvitech-sa",
+  "companyName": "Delvitech SA",
+  "companyHost": "legacy.delvi.tech",
+  "enabled": true,
+  "priority": 20,
+  "crawlerModes": [
+    "html"
+  ],
+  "seedUrls": [
+    "https://legacy.delvi.tech/career/"
+  ],
+  "notes": "Dedicated Delvitech crawler parses the legacy WordPress career page and detail pages, excluding the Germany vacancy and publishing only Ticino roles.",
+  "updatedAt": "2026-03-10T00:00:00.000Z"
+}

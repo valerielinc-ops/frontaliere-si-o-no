@@ -1,0 +1,62 @@
+{
+  "companyKey": "colin-cie",
+  "companyName": "Colin&Cie Wealth Management",
+  "companyHost": "www.colin-cie.com",
+  "enabled": true,
+  "priority": 10,
+  "crawlerModes": [
+    "html"
+  ],
+  "seedUrls": [
+    "https://www.colin-cie.com/de/karriere"
+  ],
+  "notes": "Colin&Cie — independent wealth management firm. Swiss HQ, Lugano office on Via Nassa. Careers listing at /de/karriere with individual detail pages.",
+  "updatedAt": "2026-03-16T05:31:01.985Z",
+  "seedMetaByUrl": {
+    "https://www.colin-cie.com/de/karriere/wm-berater-regionale-kunden-lugano-09-2024": {
+      "location": "Lugano",
+      "canton": "TI",
+      "company": "Colin&Cie Wealth Management"
+    },
+    "https://www.colin-cie.com/de/karriere/wm-berater-norditalien-lugano-09-2024": {
+      "location": "Lugano",
+      "canton": "TI",
+      "company": "Colin&Cie Wealth Management"
+    },
+    "https://www.colin-cie.com/de/karriere/wm-berater-de-zuerich-07-2024": {
+      "location": "Zürich",
+      "canton": "ZH",
+      "company": "Colin&Cie Wealth Management"
+    },
+    "https://www.colin-cie.com/de/karriere/wm-berater-ch-zuerich-07-2024": {
+      "location": "Zürich",
+      "canton": "ZH",
+      "company": "Colin&Cie Wealth Management"
+    },
+    "https://www.colin-cie.com/de/karriere/wm-berater-re-schaffhausen-07-2024": {
+      "location": "Schaffhausen",
+      "canton": "SH",
+      "company": "Colin&Cie Wealth Management"
+    },
+    "https://www.colin-cie.com/de/karriere/wm-berater-de-luxemburg-07-2024": {
+      "location": "Munsbach",
+      "canton": "",
+      "company": "Colin&Cie Wealth Management"
+    },
+    "https://www.colin-cie.com/de/karriere/wm-berater-bnl-luxemburg-07-2024": {
+      "location": "Munsbach",
+      "canton": "",
+      "company": "Colin&Cie Wealth Management"
+    },
+    "https://www.colin-cie.com/de/karriere/wm-berater-regional-luxemburg-07-2024": {
+      "location": "Munsbach",
+      "canton": "",
+      "company": "Colin&Cie Wealth Management"
+    },
+    "https://www.colin-cie.com/de/karriere/wm-berater-nl-zuerich-07-2024": {
+      "location": "Zürich",
+      "canton": "ZH",
+      "company": "Colin&Cie Wealth Management"
+    }
+  }
+}
