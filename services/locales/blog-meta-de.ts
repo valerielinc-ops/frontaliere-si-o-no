@@ -1253,6 +1253,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.crisi-spermatozoi-svizzera-ticino.title': 'Die Krise der Spermien in der Schweiz: ein Problem auch für Tessin',
     'blog.article.crisi-spermatozoi-svizzera-ticino.excerpt': 'Laut einer Studie hat nur jeder dritte Mann in der Schweiz eine optimale Spermienqualität. Dieses Problem betrifft auch Tessin und kann schwerwiegende Konsequenzen für Paare haben, die versuchen, Kinder zu bekommen.',
     'blog.article.crisi-spermatozoi-svizzera-ticino.imageAlt': 'Stadtlandschaft von Locarno mit See',
+    'blog.article.mercado-immobiliare-ticino.title': 'Die Wohnungskrise in Tessin: Eine angespannte Situation',
+    'blog.article.mercado-immobiliare-ticino.excerpt': 'Die Wohnungskrise in Tessin ist eine immer besorgniserregendere Realität. Das Bundesamt für Wohnungen (BWO) bestätigt eine angespannte Situation auf dem Schweizer Immobilienmarkt, mit knappem Angebot und hohen Preisen.',
+    'blog.article.mercado-immobiliare-ticino.imageAlt': 'Panoramablick auf Lugano',
 };
 
 export default blogMetaDe;

@@ -1551,6 +1551,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-ticino-svolta-per-apprendisti': { name: 'Novità', path: '/articoli-frontaliere/ticino-svolta-per-apprendisti', parent: 'blog' },
     'blog-bellinzona-crescita-qualita-vita': { name: 'Economia', path: '/articoli-frontaliere/bellinzona-crescita-qualita-vita', parent: 'blog' },
     'blog-crisi-spermatozoi-svizzera-ticino': { name: 'Salute', path: '/articoli-frontaliere/crisi-spermatozoi-svizzera-ticino', parent: 'blog' },
+    'blog-mercado-immobiliare-ticino': { name: 'La crisi degli alloggi in Ticino', path: '/articoli-frontaliere/mercado-immobiliare-ticino', parent: 'blog' },
   };
 
   const info = sectionNames[section];

@@ -3498,6 +3498,13 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/crisi-spermatozoi-svizzera-ticino.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'mercado-immobiliare-ticino',
+    category: 'pratico',
+    date: '2026-03-16T22:48:55.327Z',
+    image: '/images/blog/mercado-immobiliare-ticino.jpg',
+    hasCalculator: true,
+  },
 ];
 
 const CATEGORIES = ['all', 'fiscale', 'pratico', 'novita', 'pensione'] as const;

@@ -5243,6 +5243,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-mercado-immobiliare-ticino': {
+    title: 'La crisi degli alloggi in Ticino: una situazione tesa | Frontaliere Ticino',
+    description: 'La crisi degli alloggi in Ticino è una realtà sempre più preoccupante. L\'Ufficio federale delle abitazioni (UFAB) certifica una situazione tesa sul mercato immo',
+    keywords: 'frontalieri, ticino, svizzera, italia, crisi, alloggi, situazione, tesa',
+    ogTitle: 'La crisi degli alloggi in Ticino: una situazione tesa',
+    ogDescription: 'La crisi degli alloggi in Ticino è una realtà sempre più preoccupante. L\'Ufficio federale delle abitazioni (UFAB) certifica una situazione tesa sul mercato immo',
+    canonicalPath: '/articoli-frontaliere/mercado-immobiliare-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "La crisi degli alloggi in Ticino: una situazione tesa",
+      "description": "La crisi degli alloggi in Ticino è una realtà sempre più preoccupante. L'Ufficio federale delle abitazioni (UFAB) certifica una situazione tesa sul mercato immo",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/mercado-immobiliare-ticino.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Vista panoramica di Lugano"
+      },
+      "datePublished": "2026-03-16T22:48:55+00:00",
+      "dateModified": "2026-03-16T22:48:55+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/mercado-immobiliare-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

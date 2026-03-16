@@ -1253,6 +1253,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.crisi-spermatozoi-svizzera-ticino.title': 'La crisi degli spermatozoi in Svizzera: un problema anche per il Ticino',
     'blog.article.crisi-spermatozoi-svizzera-ticino.excerpt': 'Secondo uno studio, solo un uomo su tre in Svizzera presenta una qualità di sperma ottimale. Il problema riguarda anche il Ticino e può avere gravi conseguenze per le coppie che cercano di avere figli.',
     'blog.article.crisi-spermatozoi-svizzera-ticino.imageAlt': 'Paesaggio urbano di Locarno con lago',
+    'blog.article.mercado-immobiliare-ticino.title': 'La crisi degli alloggi in Ticino: una situazione tesa',
+    'blog.article.mercado-immobiliare-ticino.excerpt': 'La crisi degli alloggi in Ticino è una realtà sempre più preoccupante. L\'Ufficio federale delle abitazioni (UFAB) certifica una situazione tesa sul mercato immobiliare svizzero, con scarsa offerta e prezzi elevati.',
+    'blog.article.mercado-immobiliare-ticino.imageAlt': 'Vista panoramica di Lugano',
 };
 
 export default blogMetaIt;

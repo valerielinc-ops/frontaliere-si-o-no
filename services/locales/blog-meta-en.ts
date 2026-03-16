@@ -1253,6 +1253,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.crisi-spermatozoi-svizzera-ticino.title': 'The sperm crisis in Switzerland: a problem also for Ticino',
     'blog.article.crisi-spermatozoi-svizzera-ticino.excerpt': 'According to a study, only one in three men in Switzerland has optimal sperm quality. The problem also affects Ticino and can have serious consequences for couples trying to have children.',
     'blog.article.crisi-spermatozoi-svizzera-ticino.imageAlt': 'Locarno cityscape with lake',
+    'blog.article.mercado-immobiliare-ticino.title': 'The housing crisis in Ticino: a tense situation',
+    'blog.article.mercado-immobiliare-ticino.excerpt': 'The housing crisis in Ticino is a increasingly worrying reality. The Federal Office for Housing (UFAB) certifies a tense situation on the Swiss real estate market, with low supply and high prices.',
+    'blog.article.mercado-immobiliare-ticino.imageAlt': 'Panoramic view of Lugano',
 };
 
 export default blogMetaEn;
