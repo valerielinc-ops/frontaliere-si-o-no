@@ -3030,7 +3030,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
         "@context": "https://schema.org",
         "@type": "ItemList",
         "name": "Articoli Frontaliere",
-        "numberOfItems": 409,
+        "numberOfItems": 410,
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
           { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -3440,7 +3440,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 406, "name": "Ticino, svolta storica per gli apprendisti fron...", "url": `${BASE_URL}/articoli-frontaliere/ticino-svolta-per-apprendisti` },
           { "@type": "ListItem", "position": 407, "name": "Bellinzona cresce grazie a un'alalta qualità di...", "url": `${BASE_URL}/articoli-frontaliere/bellinzona-crescita-qualita-vita` },
           { "@type": "ListItem", "position": 408, "name": "La crisi degli spermatozoi in Svizzera: un prob...", "url": `${BASE_URL}/articoli-frontaliere/crisi-spermatozoi-svizzera-ticino` },
-          { "@type": "ListItem", "position": 409, "name": "La crisi degli alloggi in Ticino: una situazion...", "url": `${BASE_URL}/articoli-frontaliere/mercado-immobiliare-ticino` }
+          { "@type": "ListItem", "position": 409, "name": "La crisi degli alloggi in Ticino: una situazion...", "url": `${BASE_URL}/articoli-frontaliere/mercado-immobiliare-ticino` },
+          { "@type": "ListItem", "position": 410, "name": "Operazione antidroga al confine: 15 kg di cocai...", "url": `${BASE_URL}/articoli-frontaliere/droga-brogeda-sequestro-cocaina` }
         ]
       }
     ]

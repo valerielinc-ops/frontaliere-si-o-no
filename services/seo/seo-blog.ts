@@ -5272,6 +5272,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-droga-brogeda-sequestro-cocaina': {
+    title: 'Brogeda: 15 chili di cocaina sequestrati al confine | Frontaliere Ticino',
+    description: 'Importante operazione antidroga al valico di Brogeda: sequestrati 15 kg di cocaina in un\'auto. Le Fiamme Gialle colpiscono il traffico illecito tra Italia e',
+    keywords: 'frontalieri, ticino, svizzera, italia, brogeda, chili, cocaina, sequestrati',
+    ogTitle: 'Sequestrati 15 kg di cocaina a Brogeda: operazione al',
+    ogDescription: 'Operazione antidroga al valico di Brogeda: sequestrati 15 kg di cocaina in un\'auto. Le Fiamme Gialle hanno intercettato il carico destinato al mercato svizzero',
+    canonicalPath: '/articoli-frontaliere/droga-brogeda-sequestro-cocaina',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Operazione antidroga al confine: 15 kg di cocaina sequestrati a Brogeda",
+      "description": "Importante operazione antidroga al valico di Brogeda: sequestrati 15 kg di cocaina in un'auto. Le Fiamme Gialle colpiscono il traffico illecito tra Italia e",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/droga-brogeda-sequestro-cocaina.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Sequestro di droga al valico di Brogeda, Ticino"
+      },
+      "datePublished": "2026-03-16T23:52:14+00:00",
+      "dateModified": "2026-03-16T23:52:14+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/droga-brogeda-sequestro-cocaina`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

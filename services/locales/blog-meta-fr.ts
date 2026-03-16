@@ -1256,6 +1256,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.mercado-immobiliare-ticino.title': 'La crise du logement au Tessin : une situation tendue',
     'blog.article.mercado-immobiliare-ticino.excerpt': 'La crise du logement au Tessin est une réalité de plus en plus préoccupante. L\'Office fédéral du logement (OFL) certifie une situation tendue sur le marché immobilier suisse, avec une offre faible et des prix élevés.',
     'blog.article.mercado-immobiliare-ticino.imageAlt': 'Vue panoramique de Lugano',
+    'blog.article.droga-brogeda-sequestro-cocaina.title': 'Brogeda : 15 kilos de cocaïne saisis à la frontière',
+    'blog.article.droga-brogeda-sequestro-cocaina.excerpt': 'Opération importante de la Guardia di Finanza au poste-frontière de Brogeda : 15 kg de cocaïne pure, divisée en 14 plaquettes, ont été saisis, cachés dans un double fond de voiture. Un coup dur porté au trafic illicite.',
+    'blog.article.droga-brogeda-sequestro-cocaina.imageAlt': 'Saisie de drogue au passage frontalier de Brogeda, Tessin',
 };
 
 export default blogMetaFr;

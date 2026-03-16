@@ -1256,6 +1256,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.mercado-immobiliare-ticino.title': 'Die Wohnungskrise in Tessin: Eine angespannte Situation',
     'blog.article.mercado-immobiliare-ticino.excerpt': 'Die Wohnungskrise in Tessin ist eine immer besorgniserregendere Realität. Das Bundesamt für Wohnungen (BWO) bestätigt eine angespannte Situation auf dem Schweizer Immobilienmarkt, mit knappem Angebot und hohen Preisen.',
     'blog.article.mercado-immobiliare-ticino.imageAlt': 'Panoramablick auf Lugano',
+    'blog.article.droga-brogeda-sequestro-cocaina.title': 'Brogeda: 15 Kilo Kokain am Grenzübergang beschlagnahmt',
+    'blog.article.droga-brogeda-sequestro-cocaina.excerpt': 'Wichtiger Einsatz der Finanzpolizei am Grenzübergang Brogeda: 15 kg reinstes Kokain, aufgeteilt in 14 Blöcke, versteckt in einem doppelten Boden eines Autos, beschlagnahmt. Ein harter Schlag gegen den illegalen Handel.',
+    'blog.article.droga-brogeda-sequestro-cocaina.imageAlt': 'Drogenfund am Grenzübergang Brogeda, Tessin',
 };
 
 export default blogMetaDe;

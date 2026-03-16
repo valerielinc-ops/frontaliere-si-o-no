@@ -1256,6 +1256,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.mercado-immobiliare-ticino.title': 'The housing crisis in Ticino: a tense situation',
     'blog.article.mercado-immobiliare-ticino.excerpt': 'The housing crisis in Ticino is a increasingly worrying reality. The Federal Office for Housing (UFAB) certifies a tense situation on the Swiss real estate market, with low supply and high prices.',
     'blog.article.mercado-immobiliare-ticino.imageAlt': 'Panoramic view of Lugano',
+    'blog.article.droga-brogeda-sequestro-cocaina.title': 'Brogeda: 15 kg of cocaine seized at the border',
+    'blog.article.droga-brogeda-sequestro-cocaina.excerpt': 'A major operation by the Guardia di Finanza at the Brogeda crossing point: 15 kg of pure cocaine, divided into 14 bricks and hidden in a car’s double bottom, have been seized. A hard blow to illicit trafficking.',
+    'blog.article.droga-brogeda-sequestro-cocaina.imageAlt': 'Drug seizure at the Brogeda border crossing, Ticino',
 };
 
 export default blogMetaEn;

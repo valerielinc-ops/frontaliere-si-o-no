@@ -1256,6 +1256,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.mercado-immobiliare-ticino.title': 'La crisi degli alloggi in Ticino: una situazione tesa',
     'blog.article.mercado-immobiliare-ticino.excerpt': 'La crisi degli alloggi in Ticino è una realtà sempre più preoccupante. L\'Ufficio federale delle abitazioni (UFAB) certifica una situazione tesa sul mercato immobiliare svizzero, con scarsa offerta e prezzi elevati.',
     'blog.article.mercado-immobiliare-ticino.imageAlt': 'Vista panoramica di Lugano',
+    'blog.article.droga-brogeda-sequestro-cocaina.title': 'Brogeda: 15 chili di cocaina sequestrati al confine',
+    'blog.article.droga-brogeda-sequestro-cocaina.excerpt': 'Importante operazione della Guardia di Finanza al valico di Brogeda: sequestrati 15 kg di cocaina purissima, suddivisa in 14 panetti, nascosti nel doppio fondo di un\'auto. Un duro colpo al traffico illecito.',
+    'blog.article.droga-brogeda-sequestro-cocaina.imageAlt': 'Sequestro di droga al valico di Brogeda, Ticino',
 };
 
 export default blogMetaIt;

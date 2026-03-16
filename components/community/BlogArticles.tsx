@@ -3505,6 +3505,13 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/mercado-immobiliare-ticino.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'droga-brogeda-sequestro-cocaina',
+    category: 'novita',
+    date: '2026-03-16T23:52:14.059Z',
+    image: '/images/blog/droga-brogeda-sequestro-cocaina.jpg',
+    hasCalculator: true,
+  },
 ];
 
 const CATEGORIES = ['all', 'fiscale', 'pratico', 'novita', 'pensione'] as const;
