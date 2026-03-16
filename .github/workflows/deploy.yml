@@ -100,6 +100,11 @@ jobs:
           channelId: live
           projectId: frontaliere-ticino
 
+      - name: Google Indexing API — JobPosting only
+        if: success()
+        continue-on-error: true
+        run: node scripts/submit-google-indexing-jobs.js
+
       - name: Submit to IndexNow (Bing, Yandex)
         if: success()
         continue-on-error: true
