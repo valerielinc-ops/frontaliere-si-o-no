@@ -5185,6 +5185,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-bellinzona-crescita-qualita-vita': {
+    title: 'Bellinzona: alta qualità di vita e impieghi di qualità | Frontaliere Ticino',
+    description: 'Il Municipio di Bellinzona punta su alta qualità di vita e posti di lavoro specialistici per attrarre profili qualificati. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, bellinzona, alta, qualità, vita',
+    ogTitle: 'Bellinzona: alta qualità di vita e impieghi di qualità',
+    ogDescription: 'Il Municipio di Bellinzona punta su alta qualità di vita e posti di lavoro specialistici per attrarre profili qualificati.',
+    canonicalPath: '/articoli-frontaliere/bellinzona-crescita-qualita-vita',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Bellinzona cresce grazie a un'alalta qualità di vita e di impieghi",
+      "description": "Il Municipio di Bellinzona punta su alta qualità di vita e posti di lavoro specialistici per attrarre profili qualificati. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/bellinzona-crescita-qualita-vita.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Una famiglia felice a passeggio nel centro storico di Bellinzona, Svizzera."
+      },
+      "datePublished": "2026-03-16T20:55:08+00:00",
+      "dateModified": "2026-03-16T20:55:08+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/bellinzona-crescita-qualita-vita`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

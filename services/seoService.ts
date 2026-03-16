@@ -1549,6 +1549,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-dominicano-auto-svizzera-arresto': { name: 'Arresto a Chiasso', path: '/articoli-frontaliere/dominicano-auto-svizzera-arresto', parent: 'blog' },
     'blog-salari-bassi-rischio-povert': { name: 'Economia', path: '/articoli-frontaliere/salari-bassi-rischio-povert', parent: 'blog' },
     'blog-ticino-svolta-per-apprendisti': { name: 'Novità', path: '/articoli-frontaliere/ticino-svolta-per-apprendisti', parent: 'blog' },
+    'blog-bellinzona-crescita-qualita-vita': { name: 'Economia', path: '/articoli-frontaliere/bellinzona-crescita-qualita-vita', parent: 'blog' },
   };
 
   const info = sectionNames[section];

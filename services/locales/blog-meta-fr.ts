@@ -1247,6 +1247,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.ticino-svolta-per-apprendisti.title': 'Ticino, tournant historique pour les apprentis frontaliers',
     'blog.article.ticino-svolta-per-apprendisti.excerpt': 'Le Conseil national approuve la réforme qui étend la validité du permis de travail G pour les apprentis frontaliers au Tessin.',
     'blog.article.ticino-svolta-per-apprendisti.imageAlt': 'Apprenants dans une salle de classe professionnelle à Mendrisio',
+    'blog.article.bellinzona-crescita-qualita-vita.title': 'Bellinzona : une qualité de vie élevée et des emplois de qualité',
+    'blog.article.bellinzona-crescita-qualita-vita.excerpt': 'Le Municipio de Bellinzona mise sur une qualité de vie élevée et des postes de travail spécialisés pour attirer des profils qualifiés.',
+    'blog.article.bellinzona-crescita-qualita-vita.imageAlt': 'Une famille heureuse se promenant dans le centre historique de Bellinzona, Suisse.',
 };
 
 export default blogMetaFr;

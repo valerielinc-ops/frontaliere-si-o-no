@@ -1247,6 +1247,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.ticino-svolta-per-apprendisti.title': 'Ticino, historischer Schritt für Grenzarbeiter-Lehrlinge',
     'blog.article.ticino-svolta-per-apprendisti.excerpt': 'Der Nationalrat genehmigt die Reform, die die Gültigkeit der Arbeitsbewilligung für Grenzarbeiter-Lehrlinge in Ticino verlängert.',
     'blog.article.ticino-svolta-per-apprendisti.imageAlt': 'Lehrlinge in einem Berufsklassenzimmer in Mendrisio',
+    'blog.article.bellinzona-crescita-qualita-vita.title': 'Bellinzona: hohe Lebensqualität und qualifizierte Arbeitsplätze',
+    'blog.article.bellinzona-crescita-qualita-vita.excerpt': 'Die Stadt Bellinzona setzt auf hohe Lebensqualität und qualifizierte Arbeitsplätze, um qualifizierte Profile anzuziehen.',
+    'blog.article.bellinzona-crescita-qualita-vita.imageAlt': 'Eine glückliche Familie, die durch das historische Zentrum von Bellinzona, Schweiz, spaziert.',
 };
 
 export default blogMetaDe;

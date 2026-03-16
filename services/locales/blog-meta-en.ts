@@ -1247,6 +1247,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.ticino-svolta-per-apprendisti.title': 'Ticino, a historic turning point for cross-border apprentices',
     'blog.article.ticino-svolta-per-apprendisti.excerpt': 'The National Council approves the reform that extends the validity of the G work permit for cross-border apprentices in Ticino.',
     'blog.article.ticino-svolta-per-apprendisti.imageAlt': 'Apprentices in a vocational classroom in Mendrisio',
+    'blog.article.bellinzona-crescita-qualita-vita.title': 'Bellinzona: High Quality of Life and Quality Jobs',
+    'blog.article.bellinzona-crescita-qualita-vita.excerpt': 'The Bellinzona Municipal Council focuses on high quality of life and specialist jobs to attract qualified profiles.',
+    'blog.article.bellinzona-crescita-qualita-vita.imageAlt': 'A happy family strolling through the historic center of Bellinzona, Switzerland.',
 };
 
 export default blogMetaEn;

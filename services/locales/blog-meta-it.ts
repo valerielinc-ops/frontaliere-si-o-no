@@ -1247,6 +1247,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.ticino-svolta-per-apprendisti.title': 'Ticino, svolta storica per gli apprendisti frontalieri',
     'blog.article.ticino-svolta-per-apprendisti.excerpt': 'Il Consiglio nazionale approva la riforma che estende la validità del permesso di lavoro G per gli apprendisti frontalieri in Ticino.',
     'blog.article.ticino-svolta-per-apprendisti.imageAlt': 'Apprendisti in aula professionale a Mendrisio',
+    'blog.article.bellinzona-crescita-qualita-vita.title': 'Bellinzona: alta qualità di vita e impieghi di qualità',
+    'blog.article.bellinzona-crescita-qualita-vita.excerpt': 'Il Municipio di Bellinzona punta su alta qualità di vita e posti di lavoro specialistici per attrarre profili qualificati.',
+    'blog.article.bellinzona-crescita-qualita-vita.imageAlt': 'Una famiglia felice a passeggio nel centro storico di Bellinzona, Svizzera.',
 };
 
 export default blogMetaIt;

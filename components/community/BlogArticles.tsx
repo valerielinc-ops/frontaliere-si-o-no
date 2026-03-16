@@ -3484,6 +3484,13 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/ticino-svolta-per-apprendisti.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'bellinzona-crescita-qualita-vita',
+    category: 'novita',
+    date: '2026-03-16T20:55:08.714Z',
+    image: '/images/blog/bellinzona-crescita-qualita-vita.jpg',
+    hasCalculator: true,
+  },
 ];
 
 const CATEGORIES = ['all', 'fiscale', 'pratico', 'novita', 'pensione'] as const;
