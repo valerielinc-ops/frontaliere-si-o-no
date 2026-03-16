@@ -1550,6 +1550,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-salari-bassi-rischio-povert': { name: 'Economia', path: '/articoli-frontaliere/salari-bassi-rischio-povert', parent: 'blog' },
     'blog-ticino-svolta-per-apprendisti': { name: 'Novità', path: '/articoli-frontaliere/ticino-svolta-per-apprendisti', parent: 'blog' },
     'blog-bellinzona-crescita-qualita-vita': { name: 'Economia', path: '/articoli-frontaliere/bellinzona-crescita-qualita-vita', parent: 'blog' },
+    'blog-crisi-spermatozoi-svizzera-ticino': { name: 'Salute', path: '/articoli-frontaliere/crisi-spermatozoi-svizzera-ticino', parent: 'blog' },
   };
 
   const info = sectionNames[section];

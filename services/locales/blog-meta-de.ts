@@ -1250,6 +1250,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.bellinzona-crescita-qualita-vita.title': 'Bellinzona: hohe Lebensqualität und qualifizierte Arbeitsplätze',
     'blog.article.bellinzona-crescita-qualita-vita.excerpt': 'Die Stadt Bellinzona setzt auf hohe Lebensqualität und qualifizierte Arbeitsplätze, um qualifizierte Profile anzuziehen.',
     'blog.article.bellinzona-crescita-qualita-vita.imageAlt': 'Eine glückliche Familie, die durch das historische Zentrum von Bellinzona, Schweiz, spaziert.',
+    'blog.article.crisi-spermatozoi-svizzera-ticino.title': 'Die Krise der Spermien in der Schweiz: ein Problem auch für Tessin',
+    'blog.article.crisi-spermatozoi-svizzera-ticino.excerpt': 'Laut einer Studie hat nur jeder dritte Mann in der Schweiz eine optimale Spermienqualität. Dieses Problem betrifft auch Tessin und kann schwerwiegende Konsequenzen für Paare haben, die versuchen, Kinder zu bekommen.',
+    'blog.article.crisi-spermatozoi-svizzera-ticino.imageAlt': 'Stadtlandschaft von Locarno mit See',
 };
 
 export default blogMetaDe;

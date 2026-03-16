@@ -5214,6 +5214,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-crisi-spermatozoi-svizzera-ticino': {
+    title: 'La crisi degli spermatozoi in Svizzera: un problema anche | Frontaliere Ticino',
+    description: 'Scopri come la crisi degli spermatozoi sta influenzando la fertilità maschile in Svizzera e nel Ticino. Leggi il nostro articolo e scopri cosa puoi fare per',
+    keywords: 'frontalieri, ticino, svizzera, italia, crisi, spermatozoi, problema, anche',
+    ogTitle: 'La crisi degli spermatozoi in Svizzera',
+    ogDescription: 'Un problema che può avere gravi conseguenze per le coppie che cercano di avere figli',
+    canonicalPath: '/articoli-frontaliere/crisi-spermatozoi-svizzera-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "La crisi degli spermatozoi in Svizzera: un problema anche per il Ticino",
+      "description": "Scopri come la crisi degli spermatozoi sta influenzando la fertilità maschile in Svizzera e nel Ticino. Leggi il nostro articolo e scopri cosa puoi fare per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/crisi-spermatozoi-svizzera-ticino.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Paesaggio urbano di Locarno con lago"
+      },
+      "datePublished": "2026-03-16T21:56:27+00:00",
+      "dateModified": "2026-03-16T21:56:27+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/crisi-spermatozoi-svizzera-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

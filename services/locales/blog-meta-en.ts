@@ -1250,6 +1250,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.bellinzona-crescita-qualita-vita.title': 'Bellinzona: High Quality of Life and Quality Jobs',
     'blog.article.bellinzona-crescita-qualita-vita.excerpt': 'The Bellinzona Municipal Council focuses on high quality of life and specialist jobs to attract qualified profiles.',
     'blog.article.bellinzona-crescita-qualita-vita.imageAlt': 'A happy family strolling through the historic center of Bellinzona, Switzerland.',
+    'blog.article.crisi-spermatozoi-svizzera-ticino.title': 'The sperm crisis in Switzerland: a problem also for Ticino',
+    'blog.article.crisi-spermatozoi-svizzera-ticino.excerpt': 'According to a study, only one in three men in Switzerland has optimal sperm quality. The problem also affects Ticino and can have serious consequences for couples trying to have children.',
+    'blog.article.crisi-spermatozoi-svizzera-ticino.imageAlt': 'Locarno cityscape with lake',
 };
 
 export default blogMetaEn;

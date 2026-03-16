@@ -1250,6 +1250,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.bellinzona-crescita-qualita-vita.title': 'Bellinzona: alta qualità di vita e impieghi di qualità',
     'blog.article.bellinzona-crescita-qualita-vita.excerpt': 'Il Municipio di Bellinzona punta su alta qualità di vita e posti di lavoro specialistici per attrarre profili qualificati.',
     'blog.article.bellinzona-crescita-qualita-vita.imageAlt': 'Una famiglia felice a passeggio nel centro storico di Bellinzona, Svizzera.',
+    'blog.article.crisi-spermatozoi-svizzera-ticino.title': 'La crisi degli spermatozoi in Svizzera: un problema anche per il Ticino',
+    'blog.article.crisi-spermatozoi-svizzera-ticino.excerpt': 'Secondo uno studio, solo un uomo su tre in Svizzera presenta una qualità di sperma ottimale. Il problema riguarda anche il Ticino e può avere gravi conseguenze per le coppie che cercano di avere figli.',
+    'blog.article.crisi-spermatozoi-svizzera-ticino.imageAlt': 'Paesaggio urbano di Locarno con lago',
 };
 
 export default blogMetaIt;

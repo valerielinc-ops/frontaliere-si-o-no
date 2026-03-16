@@ -3491,6 +3491,13 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/bellinzona-crescita-qualita-vita.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'crisi-spermatozoi-svizzera-ticino',
+    category: 'pratico',
+    date: '2026-03-16T21:56:27.390Z',
+    image: '/images/blog/crisi-spermatozoi-svizzera-ticino.jpg',
+    hasCalculator: true,
+  },
 ];
 
 const CATEGORIES = ['all', 'fiscale', 'pratico', 'novita', 'pensione'] as const;
