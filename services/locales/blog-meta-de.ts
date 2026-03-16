@@ -1244,6 +1244,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.salari-bassi-rischio-povert.title': 'Niedrige Löhne und Armutsrisiko im Tessin: Die PLR befragt den Staatsrat',
     'blog.article.salari-bassi-rischio-povert.excerpt': 'Die PLR stellt dem Staatsrat eine Anfrage zu niedrigen Löhnen und Armutsrisiko im Tessin. Welche Strategien gibt es, um die wirtschaftliche Situation zu verbessern?',
     'blog.article.salari-bassi-rischio-povert.imageAlt': 'Fotorealistische Szene von Lugano mit Bergen und See',
+    'blog.article.ticino-svolta-per-apprendisti.title': 'Ticino, historischer Schritt für Grenzarbeiter-Lehrlinge',
+    'blog.article.ticino-svolta-per-apprendisti.excerpt': 'Der Nationalrat genehmigt die Reform, die die Gültigkeit der Arbeitsbewilligung für Grenzarbeiter-Lehrlinge in Ticino verlängert.',
+    'blog.article.ticino-svolta-per-apprendisti.imageAlt': 'Lehrlinge in einem Berufsklassenzimmer in Mendrisio',
 };
 
 export default blogMetaDe;

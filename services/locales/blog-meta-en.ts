@@ -1244,6 +1244,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.salari-bassi-rischio-povert.title': 'Low wages and poverty risk in Ticino: PLR questions the State Council',
     'blog.article.salari-bassi-rischio-povert.excerpt': 'The PLR presents an inquiry to the State Council on the topic of low wages and poverty risk in Ticino. What are the strategies to improve the economic situation?',
     'blog.article.salari-bassi-rischio-povert.imageAlt': 'Photorealistic scene of Lugano with mountains and lake',
+    'blog.article.ticino-svolta-per-apprendisti.title': 'Ticino, a historic turning point for cross-border apprentices',
+    'blog.article.ticino-svolta-per-apprendisti.excerpt': 'The National Council approves the reform that extends the validity of the G work permit for cross-border apprentices in Ticino.',
+    'blog.article.ticino-svolta-per-apprendisti.imageAlt': 'Apprentices in a vocational classroom in Mendrisio',
 };
 
 export default blogMetaEn;

@@ -1244,6 +1244,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.salari-bassi-rischio-povert.title': 'Bas salaires et risque de pauvreté au Tessin : le PLR interroge le Conseil d\'État',
     'blog.article.salari-bassi-rischio-povert.excerpt': 'Le PLR présente une interrogation au Conseil d\'État sur le thème des bas salaires et du risque de pauvreté au Tessin. Quelles sont les stratégies pour améliorer la situation économique ?',
     'blog.article.salari-bassi-rischio-povert.imageAlt': 'Scène photoréaliste de Lugano avec montagnes et lac',
+    'blog.article.ticino-svolta-per-apprendisti.title': 'Ticino, tournant historique pour les apprentis frontaliers',
+    'blog.article.ticino-svolta-per-apprendisti.excerpt': 'Le Conseil national approuve la réforme qui étend la validité du permis de travail G pour les apprentis frontaliers au Tessin.',
+    'blog.article.ticino-svolta-per-apprendisti.imageAlt': 'Apprenants dans une salle de classe professionnelle à Mendrisio',
 };
 
 export default blogMetaFr;

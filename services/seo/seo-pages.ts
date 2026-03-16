@@ -3030,7 +3030,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
         "@context": "https://schema.org",
         "@type": "ItemList",
         "name": "Articoli Frontaliere",
-        "numberOfItems": 405,
+        "numberOfItems": 406,
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
           { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -3436,7 +3436,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 402, "name": "Dichiarazione dei redditi 2026: anche i dati de...", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-redditi-2026` },
           { "@type": "ListItem", "position": 403, "name": "Fermato a Brogeda con oltre 15 chili di cocaina...", "url": `${BASE_URL}/articoli-frontaliere/fermato-brogeda-cocaina` },
           { "@type": "ListItem", "position": 404, "name": "Dominicano con auto svizzera e trafficante: arr...", "url": `${BASE_URL}/articoli-frontaliere/dominicano-auto-svizzera-arresto` },
-          { "@type": "ListItem", "position": 405, "name": "Salari bassi e rischio povertà: il PLR interrog...", "url": `${BASE_URL}/articoli-frontaliere/salari-bassi-rischio-povert` }
+          { "@type": "ListItem", "position": 405, "name": "Salari bassi e rischio povertà: il PLR interrog...", "url": `${BASE_URL}/articoli-frontaliere/salari-bassi-rischio-povert` },
+          { "@type": "ListItem", "position": 406, "name": "Ticino, svolta storica per gli apprendisti fron...", "url": `${BASE_URL}/articoli-frontaliere/ticino-svolta-per-apprendisti` }
         ]
       }
     ]

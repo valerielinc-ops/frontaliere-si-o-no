@@ -1244,6 +1244,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.salari-bassi-rischio-povert.title': 'Salari bassi e rischio povertà in Ticino: il PLR interroga il Consiglio di Stato',
     'blog.article.salari-bassi-rischio-povert.excerpt': 'Il PLR presenta un\'interrogazione al Consiglio di Stato sul tema dei salari bassi e del rischio povertà in Ticino. Quali sono le strategie per migliorare la situazione economica?',
     'blog.article.salari-bassi-rischio-povert.imageAlt': 'Scena fotorealistica di Lugano con montagne e lago',
+    'blog.article.ticino-svolta-per-apprendisti.title': 'Ticino, svolta storica per gli apprendisti frontalieri',
+    'blog.article.ticino-svolta-per-apprendisti.excerpt': 'Il Consiglio nazionale approva la riforma che estende la validità del permesso di lavoro G per gli apprendisti frontalieri in Ticino.',
+    'blog.article.ticino-svolta-per-apprendisti.imageAlt': 'Apprendisti in aula professionale a Mendrisio',
 };
 
 export default blogMetaIt;

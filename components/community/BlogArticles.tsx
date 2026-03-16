@@ -3477,6 +3477,13 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/salari-bassi-rischio-povert.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'ticino-svolta-per-apprendisti',
+    category: 'novita',
+    date: '2026-03-16T20:06:55.092Z',
+    image: '/images/blog/ticino-svolta-per-apprendisti.jpg',
+    hasCalculator: true,
+  },
 ];
 
 const CATEGORIES = ['all', 'fiscale', 'pratico', 'novita', 'pensione'] as const;
