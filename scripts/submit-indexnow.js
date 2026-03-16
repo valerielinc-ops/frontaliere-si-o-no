@@ -28,7 +28,7 @@ const HOST = 'www.frontaliereticino.ch';
 const KEY_LOCATION = `https://${HOST}/${INDEXNOW_KEY}.txt`;
 const MAX_RETRIES = 2;
 const BATCH_SIZE = 500; // conservative batch size
-// Both channels are always active — they only run during deploy (GitHub Actions).
+// Runs after deploy (GitHub Actions). All channels are enabled by default.
 
 const ARTICLE_URL = (process.env.ARTICLE_URL || '').trim();
 const BING_RECENT_NEWS_FALLBACK = Math.max(1, Math.min(5, Number(process.env.BING_RECENT_NEWS_FALLBACK || 5)));
@@ -36,6 +36,31 @@ const BING_RECENT_NEWS_FALLBACK = Math.max(1, Math.min(5, Number(process.env.BIN
 // ── Helpers ─────────────────────────────────────────────────
 function sleep(ms) {
   return new Promise((r) => setTimeout(r, ms));
+}
+
+function looksLikeQuotaExceeded(message = '') {
+  return /quota|exceeded your daily url submission quota/i.test(String(message || ''));
+}
+
+function toBase64Utf8(s) {
+  return Buffer.from(String(s || ''), 'utf8').toString('base64');
+}
+
+async function getBingUrlSubmissionQuota(apiKey, siteUrl) {
+  try {
+    const endpoint = `https://ssl.bing.com/webmaster/api.svc/json/GetUrlSubmissionQuota?siteUrl=${encodeURIComponent(siteUrl)}&apikey=${encodeURIComponent(apiKey)}`;
+    const res = await fetch(endpoint, { headers: { 'Accept': 'application/json' } });
+    if (!res.ok) return null;
+    const data = await res.json().catch(() => null);
+    const d = data?.d;
+    if (!d) return null;
+    return {
+      dailyQuota: Number(d.DailyQuota ?? NaN),
+      monthlyQuota: Number(d.MonthlyQuota ?? NaN),
+    };
+  } catch {
+    return null;
+  }
 }
 
 // ── Parse sitemaps to extract all unique URLs ──────────────
@@ -254,6 +279,13 @@ async function submitToBingApi(urlList) {
     return;
   }
 
+  const siteUrl = `https://${HOST}`;
+  const quota = await getBingUrlSubmissionQuota(apiKey, siteUrl);
+  if (quota && Number.isFinite(quota.dailyQuota) && quota.dailyQuota <= 0) {
+    console.warn(`⚠️  Bing Webmaster API: quota giornaliera esaurita (DailyQuota=${quota.dailyQuota}) — skip`);
+    return;
+  }
+
   const endpoint = `https://ssl.bing.com/webmaster/api.svc/json/SubmitUrlbatch?apikey=${apiKey}`;
   const BING_BATCH = 500; // Bing API limit: 500 URLs per request
 
@@ -272,7 +304,7 @@ async function submitToBingApi(urlList) {
         method: 'POST',
         headers: { 'Content-Type': 'application/json; charset=utf-8' },
         body: JSON.stringify({
-          siteUrl: `https://${HOST}`,
+          siteUrl,
           urlList: batch,
         }),
       });
@@ -280,7 +312,11 @@ async function submitToBingApi(urlList) {
         totalSubmitted += batch.length;
       } else {
         const text = await res.text().catch(() => '');
-        console.warn(`⚠️  Bing API: ${res.status} — ${text.slice(0, 200)}`);
+        if (res.status === 400 && looksLikeQuotaExceeded(text)) {
+          console.warn(`⚠️  Bing Webmaster API: quota giornaliera raggiunta — stop invii per questo deploy`);
+        } else {
+          console.warn(`⚠️  Bing API: ${res.status} — ${text.slice(0, 200)}`);
+        }
         break;
       }
     } catch (err) {
@@ -316,16 +352,22 @@ async function submitToBingContentApi() {
   const siteUrl = `https://${HOST}`;
   const endpoint = `https://ssl.bing.com/webmaster/api.svc/json/SubmitContent?apikey=${encodeURIComponent(apiKey)}`;
 
-  // Submit structured content as a document
+  // Bing SubmitContent expects a base64-encoded "HTTP message" (status line + headers + blank line + body).
+  // See SubmitContent docs (httpMessage is required).
+  const urlFull = `${siteUrl}/llms-full.txt`;
+  const bodyFull = llmsContent.slice(0, 100_000); // keep under common limits; Bing mentions up to 10MB uncompressed.
+  const httpMessageFull =
+    `HTTP/1.1 200 OK\r\n` +
+    `Content-Type: text/plain; charset=utf-8\r\n` +
+    `Content-Length: ${Buffer.byteLength(bodyFull, 'utf8')}\r\n` +
+    `\r\n` +
+    bodyFull;
   const payload = {
     siteUrl,
-    content: llmsContent.slice(0, 100_000), // API limit: 100 KB per submission
-    contentType: 'text/plain',
-    url: `${siteUrl}/llms-full.txt`,
-    title: 'Frontaliere Ticino — Complete AI Reference Documentation',
-    description: 'Comprehensive reference for Swiss-Italian cross-border workers: tax simulation, pension planning, health insurance comparison, currency exchange, and practical guides.',
-    language: 'it',
-    lastModified: new Date().toISOString(),
+    url: urlFull,
+    httpMessage: toBase64Utf8(httpMessageFull),
+    structuredData: '',
+    dynamicServing: 0,
   };
 
   console.log(`📨 Bing Content Submission API: invio llms-full.txt (${(llmsContent.length / 1024).toFixed(1)} KB)`);
@@ -349,15 +391,20 @@ async function submitToBingContentApi() {
   // Also submit the short llms.txt as a secondary document
   try {
     const llmsShort = readFileSync(resolve(__dir, '..', 'public', 'llms.txt'), 'utf-8');
+    const urlShort = `${siteUrl}/llms.txt`;
+    const bodyShort = llmsShort.slice(0, 100_000);
+    const httpMessageShort =
+      `HTTP/1.1 200 OK\r\n` +
+      `Content-Type: text/plain; charset=utf-8\r\n` +
+      `Content-Length: ${Buffer.byteLength(bodyShort, 'utf8')}\r\n` +
+      `\r\n` +
+      bodyShort;
     const shortPayload = {
       siteUrl,
-      content: llmsShort,
-      contentType: 'text/plain',
-      url: `${siteUrl}/llms.txt`,
-      title: 'Frontaliere Ticino — LLM Site Summary',
-      description: 'LLM-readable site summary with key facts, tools, and FAQ for cross-border workers.',
-      language: 'it',
-      lastModified: new Date().toISOString(),
+      url: urlShort,
+      httpMessage: toBase64Utf8(httpMessageShort),
+      structuredData: '',
+      dynamicServing: 0,
     };
 
     const res2 = await fetch(endpoint, {
