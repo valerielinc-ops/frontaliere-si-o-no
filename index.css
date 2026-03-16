@@ -3,10 +3,7 @@
 @custom-variant dark (&:is(.dark *));
 
 /* Prevent scrollbar appearance from causing layout shift (CLS) */
-html { scrollbar-gutter: stable; overflow-x: hidden; }
-
-/* Reset body padding/margin — overrides static page styles after SPA hydration */
-body { margin: 0; padding: 0; }
+html { scrollbar-gutter: stable; }
 
 /* Hide reCAPTCHA badge — required notice is in privacy policy */
 .grecaptcha-badge { visibility: hidden !important; }

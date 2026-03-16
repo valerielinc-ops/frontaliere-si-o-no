@@ -1,11 +1,6 @@
 {
-<<<<<<< Updated upstream
   "lastUpdated": "2026-03-16T12:56:30.640Z",
-  "totalJobs": 937,
-=======
-  "lastUpdated": "2026-03-16T12:46:27.922Z",
-  "totalJobs": 1007,
->>>>>>> Stashed changes
+  "totalJobs": 995,
   "sources": {
     "arbeitSwiss": 0,
     "ubs": 0,
@@ -14,30 +9,17 @@
     "remotive": 0,
     "findwork": 0,
     "adzuna": 0,
-<<<<<<< Updated upstream
-    "curatedTicino": 937,
+    "curatedTicino": 995,
     "companyCareerCrawler": 179
   },
   "crawler": {
     "lastRun": "2026-03-16T12:55:37.470Z",
     "startedAt": "2026-03-16T12:32:28.079Z",
-=======
-    "curatedTicino": 912,
-    "companyCareerCrawler": 179
-  },
-  "crawler": {
-    "lastRun": "2026-03-16T12:46:27.922Z",
-    "startedAt": "2026-03-16T12:42:36.022Z",
->>>>>>> Stashed changes
     "companiesCrawled": 1,
     "extracted": 179,
     "inserted": 96,
     "refreshed": 83,
-<<<<<<< Updated upstream
     "timeoutMs": 4000,
-=======
-    "timeoutMs": 9000,
->>>>>>> Stashed changes
     "maxCompanies": 60,
     "maxConcurrency": 4
   }

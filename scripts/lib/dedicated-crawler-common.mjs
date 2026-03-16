@@ -154,6 +154,27 @@ export function deriveLocalizedSlug(job, locale) {
   return String(job?.slug || '').trim();
 }
 
+const COOP_GROUP_APPRENTICESHIP_SLUG_RE =
+  /^detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-(coop|jumbo|interdiscount)-grigioni(?:-\d+)?$/i;
+const COOP_GROUP_APPRENTICESHIP_IT_TITLE =
+  'Specialista del commercio al dettaglio AFC "Creazione di esperienze di acquisto"';
+
+function getCoopGroupItalianApprenticeshipSlug(job = {}) {
+  const candidates = [
+    String(job?.slugByLocale?.it || '').trim(),
+    String(job?.slug || '').trim(),
+    String(job?.slugByLocale?.de || '').trim(),
+    String(job?.slugByLocale?.en || '').trim(),
+  ];
+  for (const candidate of candidates) {
+    const match = candidate.match(COOP_GROUP_APPRENTICESHIP_SLUG_RE);
+    if (match) {
+      return `specialista-del-commercio-al-dettaglio-afc-creazione-di-esperienze-di-acquisto-${match[1].toLowerCase()}-grigioni`;
+    }
+  }
+  return '';
+}
+
 const THIN_SOURCE_UI_NOISE_RE =
   /(stampa|dillo a un amico|tell a friend|segnalazione|report|you applied to this job|sei iscritto\/a a questo annuncio|verifica la tua compatibilit|verify your compatibility|powered by|invia|envoyer|send)/i;
 
@@ -374,6 +395,18 @@ export function hardenJobLocaleFields({ dataJobsPath }) {
     if (baseDesc && !String(job.descriptionByLocale[sourceLang] || '').trim()) {
       job.descriptionByLocale[sourceLang] = baseDesc;
       jobChanged = true;
+    }
+
+    const repairedCoopGroupItSlug = getCoopGroupItalianApprenticeshipSlug(job);
+    if (repairedCoopGroupItSlug) {
+      if (String(job.titleByLocale.it || '').trim() !== COOP_GROUP_APPRENTICESHIP_IT_TITLE) {
+        job.titleByLocale.it = COOP_GROUP_APPRENTICESHIP_IT_TITLE;
+        jobChanged = true;
+      }
+      if (String(job.slugByLocale.it || '').trim() !== repairedCoopGroupItSlug) {
+        job.slugByLocale.it = repairedCoopGroupItSlug;
+        jobChanged = true;
+      }
     }
 
     for (const locale of DEFAULT_LOCALES) {

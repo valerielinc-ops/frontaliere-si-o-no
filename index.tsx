@@ -48,13 +48,14 @@ const mountApp = async () => {
   if (mounted) return;
   mounted = true;
   const homeCritical = isHomeCriticalPath(window.location.pathname);
-  const [{ default: App }] = await Promise.all([
+  const [{ default: App }, i18n] = await Promise.all([
     import('./App'),
-    // Kick off i18n loading in parallel but do NOT await it —
-    // App.tsx renders SkeletonPageShell until translations are ready,
-    // so React can paint immediately instead of blocking on ~200KB of i18n.
     homeCritical ? import('./services/i18n') : Promise.resolve(null),
   ]);
+
+  if (homeCritical && i18n) {
+    await i18n.itReady;
+  }
 
   root.render(
     <React.StrictMode>

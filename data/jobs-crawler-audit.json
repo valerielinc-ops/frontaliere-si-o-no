@@ -1,11 +1,6 @@
 {
-<<<<<<< Updated upstream
   "generatedAt": "2026-03-16T12:55:37.470Z",
   "startedAt": "2026-03-16T12:32:28.079Z",
-=======
-  "generatedAt": "2026-03-16T12:46:27.923Z",
-  "startedAt": "2026-03-16T12:42:36.022Z",
->>>>>>> Stashed changes
   "config": {
     "minQualityScore": 4,
     "minDescriptionChars": 80,
@@ -53,15 +48,9 @@
     "deeplCalls": 0,
     "deeplSuccess": 0,
     "deeplFallbackToLlm": 0,
-<<<<<<< Updated upstream
     "aiCacheHits": 154,
     "aiCacheMisses": 86,
     "aiCacheEntries": 1434,
-=======
-    "aiCacheHits": 577,
-    "aiCacheMisses": 60,
-    "aiCacheEntries": 1408,
->>>>>>> Stashed changes
     "discoveredCompaniesCandidates": 0,
     "discoveredCompaniesAdded": 0,
     "discoveredCompaniesPending": 0

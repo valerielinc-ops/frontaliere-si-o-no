@@ -231,8 +231,8 @@
 
         <!-- Sub-tab bar — matches calculator sub-nav: 4 cols mobile, 8 cols md+ -->
         <div class="sh-subtab-bar" style="border-top:1px solid #e2e8f0;background:white">
-          <div class="sh-subtab-wrap" style="max-width:80rem;margin:0 auto;padding-top:10px;padding-bottom:10px">
-            <div class="sh-subtabs" style="display:grid;gap:4px">
+          <div class="sh-subtab-wrap" style="max-width:80rem;margin:0 auto;padding-top:12px;padding-bottom:12px">
+            <div class="sh-subtabs" style="display:grid;gap:6px">
               <div class="sh-skel sh-pulse" style="height:52px;background:#f1f5f9;border-radius:12px"></div>
               <div class="sh-skel sh-pulse" style="height:52px;background:#f1f5f9;border-radius:12px"></div>
               <div class="sh-skel sh-pulse" style="height:52px;background:#f1f5f9;border-radius:12px"></div>
@@ -451,34 +451,6 @@
 
       </div>
     <div id="root"></div>
-    <!-- Google Consent Mode v2 — must run BEFORE any analytics script loads.
-         Sets denied defaults so GA4 respects GDPR. The React app's consentService
-         calls gtag('consent','update',...) when the user makes a choice. -->
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('consent', 'default', {
-        analytics_storage: 'denied',
-        ad_storage: 'denied',
-        ad_personalization: 'denied',
-        ad_user_data: 'denied',
-        functionality_storage: 'granted',
-        security_storage: 'granted',
-        wait_for_update: 500
-      });
-      // Restore previously stored consent immediately (before Firebase loads)
-      try {
-        var stored = JSON.parse(localStorage.getItem('frontaliere_consent') || 'null');
-        if (stored && stored.timestamp) {
-          gtag('consent', 'update', {
-            analytics_storage: stored.analytics ? 'granted' : 'denied',
-            ad_storage: stored.advertising ? 'granted' : 'denied',
-            ad_personalization: stored.advertising ? 'granted' : 'denied',
-            ad_user_data: stored.advertising ? 'granted' : 'denied'
-          });
-        }
-      } catch(e) {}
-    </script>
     <!-- Chunk-load error recovery: detect stale SW cache serving old HTML
          that references JS chunks no longer on the server (404). Force-reload
          from network, clearing SW caches. Guard with sessionStorage flag to

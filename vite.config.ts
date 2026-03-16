@@ -92,7 +92,6 @@ export default defineConfig(({ mode }) => {
               !dep.includes('seoService') &&
               !dep.includes('seo-pages') &&
               !dep.includes('seo-blog') &&
-              !dep.includes('seo-blog-2') &&
               !dep.includes('seo-landing') &&
               !dep.includes('blog-') &&
               // Filter locale data chunks (it, en, de, fr) — loaded on demand by i18n

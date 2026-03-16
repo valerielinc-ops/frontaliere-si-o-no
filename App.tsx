@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef, useMemo, useCallback, Suspense } from 'react';
 import { lazyRetry } from '@/services/lazyRetry';
-const InputCard = lazyRetry(() => import('@/components/calculator/InputCard').then(m => ({ default: m.InputCard })));
-const MobileCalcLayout = lazyRetry(() => import('@/components/calculator/MobileCalcLayout'));
+import { InputCard } from '@/components/calculator/InputCard';
+import MobileCalcLayout from '@/components/calculator/MobileCalcLayout';
 
 // NOTE: Analytics is NOT imported eagerly here — it's defined as a lazy Proxy
 // below (~line 183) that defers imports until first use. The lazyRetry function
@@ -77,7 +77,6 @@ const TicinoCompanies = lazyRetry(() => import('@/components/vita/TicinoCompanie
 const SalaryQuiz = lazyRetry(() => import('@/components/calculator/SalaryQuiz'));
 const TaxCreditCalculator = lazyRetry(() => import('@/components/fisco/TaxCreditCalculator'));
 const WithholdingRatesHub = lazyRetry(() => import('@/components/fisco/WithholdingRatesHub'));
-const FiscoLanding = lazyRetry(() => import('@/components/fisco/FiscoLanding'));
 const NewFrontierOver20KmHub = lazyRetry(() => import('@/components/calculator/NewFrontierOver20KmHub'));
 const TrafficHistory = lazyRetry(() => import('@/components/guide/TrafficHistory'));
 const UnemploymentStats = lazyRetry(() => import('@/components/pages/UnemploymentStats'));
@@ -110,16 +109,12 @@ const lazyCalculate = () => import('@/services/calculationService');
 // all methods are fire-and-forget with no return values used.
 const Analytics: Record<string, (...a: unknown[]) => void> = new Proxy({} as any, {
   get: (_t, method: string) => (...args: unknown[]) => {
-    import('@/services/analytics').then(m => {
-      const fn = (m.Analytics as any)[method];
-      if (typeof fn === 'function') fn(...args);
-    }).catch(() => {});
+    import('@/services/analytics').then(m => (m.Analytics as any)[method](...args));
   },
 });
 import { setDefaultConsent, onConsentChange, isAnalyticsGranted } from '@/services/consentService';
 import { prefetchTab } from '@/services/prefetch';
 const CookieBanner = lazyRetry(() => import('@/components/shared/CookieBanner'));
-const NotFoundSuggestions = lazyRetry(() => import('@/components/shared/NotFoundSuggestions'));
 // Set consent defaults ASAP (before any analytics/ad scripts load)
 setDefaultConsent();
 // SEO service is lazy-loaded to reduce critical path.
@@ -165,14 +160,13 @@ import {
   eagerAuth,
   signInWithCustomAuthToken,
 } from '@/services/authService';
-// Newsletter helpers are lazy-imported to avoid pulling firebase/firestore into the critical bundle.
-// All Firestore-dependent newsletter functions are used only in event handlers / async callbacks.
-const getNewsletter = () => import('@/services/newsletterSubscribers');
-// Lightweight pure helpers inlined to avoid loading the full module synchronously.
-const normalizeNewsletterEmail = (raw: string): string => String(raw || '').trim().toLowerCase();
-const markNewsletterSubscribedLocally = (): void => {
-  try { window.localStorage.setItem('newsletter_subscribed', 'true'); } catch { /* no-op */ }
-};
+import {
+  upsertNewsletterSubscriber as upsertNewsletterSubscriberRecord,
+  normalizeNewsletterEmail,
+  markNewsletterSubscribedLocally,
+  recordNewsletterClick,
+  recordNewsletterEvent,
+} from '@/services/newsletterSubscribers';
 // Icons used directly in App.tsx for tab navigation and UI chrome.
 // NOTE: All lucide-react icons (including those only used by lazy components) are
 // consolidated into a single 'vendor-icons' chunk via manualChunks in vite.config.ts.
@@ -187,7 +181,7 @@ import {
   Banknote
 } from 'lucide-react';
 
-import SkeletonFallback, { SkeletonPageShell, SkeletonComparator, SkeletonGuide, SkeletonDashboard, SkeletonFisco, SkeletonStats, SkeletonBlog, SkeletonVita, SkeletonNewsTicker, SkeletonWeeklyFact, SkeletonInputCard, SkeletonMobileCalc, SkeletonFooterSlot } from '@/components/shared/Skeletons';
+import SkeletonFallback, { SkeletonPageShell, SkeletonComparator, SkeletonGuide, SkeletonDashboard, SkeletonFisco, SkeletonStats, SkeletonBlog, SkeletonVita, SkeletonNewsTicker, SkeletonWeeklyFact, SkeletonInputCard, SkeletonFooterSlot } from '@/components/shared/Skeletons';
 
 const LazyFallback = () => <SkeletonFallback />;
 const ADMIN_EMAIL_WHITELIST = ['luigisag@gmail.com', 'valerielinc@gmail.com'];
@@ -214,15 +208,12 @@ const App: React.FC = () => {
   const [initialRoute] = useState(() => {
     const parsed = parsePath(window.location.pathname);
     // Defer locale side-effect to useEffect to avoid setState-during-render
-    return { route: parsed.route, locale: parsed.locale, notFoundPath: parsed.notFoundPath || null };
+    return { route: parsed.route, locale: parsed.locale };
   });
   const [activeTab, setActiveTab] = useState<ActiveTab>(initialRoute.route.activeTab);
   const [calcolatoreSubTab, setCalcolatoreSubTab] = useState<CalcolatoreSubTab>(initialRoute.route.calcolatoreSubTab || 'calculator');
   const [confrontiSubTab, setConfrontiSubTab] = useState<ConfrontiSubTab>(initialRoute.route.confrontiSubTab || 'exchange');
   const [fiscoSubTab, setFiscoSubTab] = useState<FiscoSubTab>(initialRoute.route.fiscoSubTab || 'tax-return');
-  const [fiscoShowOverview, setFiscoShowOverview] = useState(
-    initialRoute.route.activeTab === 'fisco' && !initialRoute.route.fiscoSubTab
-  );
   const [guidaSubTab, setGuidaSubTab] = useState<GuidaSubTab>(initialRoute.route.guidaSubTab || 'first-day');
   const [vitaSubTab, setVitaSubTab] = useState<VitaSubTab>(initialRoute.route.vitaSubTab || 'living-ch');
   const [statsSubTab, setStatsSubTab] = useState<StatsSubTab>(initialRoute.route.statsSubTab || 'overview');
@@ -246,7 +237,6 @@ const App: React.FC = () => {
   const [showApiStatus, setShowApiStatus] = useState(false);
   const [userProfile, setUserProfile] = useState<UserProfileData | null>(null);
   const [contactPrefill, setContactPrefill] = useState<ContactPrefill | null>(null);
-  const [notFoundPath, setNotFoundPath] = useState<string | null>(initialRoute.notFoundPath);
 
   const upsertNewsletterSubscriber = async (
     email: string,
@@ -296,8 +286,7 @@ const App: React.FC = () => {
       ]);
       const db = getFirestore(await getApp());
 
-      const { upsertNewsletterSubscriber: upsertRecord } = await getNewsletter();
-      await upsertRecord(db, {
+      await upsertNewsletterSubscriberRecord(db, {
         email: normalizedEmail,
         name: displayName || null,
         preferences: { exchangeRate: true, traffic: true, taxUpdates: true, tips: false },
@@ -522,8 +511,7 @@ const App: React.FC = () => {
               import('@/services/firebase'),
             ]);
             const db = getFirestore(await getApp());
-            const { recordNewsletterClick: recordClick } = await getNewsletter();
-            await recordClick(db, {
+            await recordNewsletterClick(db, {
               email: newsletterEmail,
               eventType: 'click',
               campaignId,
@@ -711,8 +699,7 @@ const App: React.FC = () => {
           setUnsubscribeMsg(t('newsletter.unsubscribed'));
           localStorage.removeItem('newsletter_subscribed');
         } else {
-          const { upsertNewsletterSubscriber: upsertRecord } = await getNewsletter();
-          await upsertRecord(db, {
+          await upsertNewsletterSubscriberRecord(db, {
             email: normalizedEmail,
             name: null,
             preferences: { exchangeRate: true, traffic: true, taxUpdates: true, tips: false },
@@ -849,13 +836,11 @@ const App: React.FC = () => {
   useEffect(() => {
     const onPopState = () => {
       enableRuntimeSeo();
-      const { route, locale: urlLocale, notFoundPath: nfp } = parsePath(window.location.pathname);
+      const { route, locale: urlLocale } = parsePath(window.location.pathname);
       setActiveTab(route.activeTab);
-      setNotFoundPath(nfp || null);
       if (route.calcolatoreSubTab) setCalcolatoreSubTab(route.calcolatoreSubTab);
       if (route.confrontiSubTab) setConfrontiSubTab(route.confrontiSubTab);
-      if (route.fiscoSubTab) { setFiscoSubTab(route.fiscoSubTab); setFiscoShowOverview(false); }
-      else if (route.activeTab === 'fisco') { setFiscoSubTab('tax-return'); setFiscoShowOverview(true); }
+      if (route.fiscoSubTab) setFiscoSubTab(route.fiscoSubTab);
       if (route.taxReturnCountry) setTaxReturnCountry(route.taxReturnCountry);
       if (route.guidaSubTab) setGuidaSubTab(route.guidaSubTab);
       if (route.vitaSubTab) setVitaSubTab(route.vitaSubTab);
@@ -951,7 +936,7 @@ const App: React.FC = () => {
         setActiveTab(tab as ActiveTab);
         const route: AppRoute = { activeTab: tab as ActiveTab };
         if (tab === 'confronti' && subTab) { route.confrontiSubTab = subTab as ConfrontiSubTab; setConfrontiSubTab(subTab as ConfrontiSubTab); }
-        if (tab === 'fisco' && subTab) { route.fiscoSubTab = subTab as FiscoSubTab; setFiscoSubTab(subTab as FiscoSubTab); setFiscoShowOverview(false); }
+        if (tab === 'fisco' && subTab) { route.fiscoSubTab = subTab as FiscoSubTab; setFiscoSubTab(subTab as FiscoSubTab); }
         if (tab === 'guida' && subTab) { route.guidaSubTab = subTab as GuidaSubTab; setGuidaSubTab(subTab as GuidaSubTab); }
         if (tab === 'vita' && subTab) { route.vitaSubTab = subTab as VitaSubTab; setVitaSubTab(subTab as VitaSubTab); }
         if (tab === 'calculator' && subTab) { route.calcolatoreSubTab = subTab as CalcolatoreSubTab; setCalcolatoreSubTab(subTab as CalcolatoreSubTab); }
@@ -1028,8 +1013,6 @@ const App: React.FC = () => {
       import('@/services/webVitals').then(m => m.initWebVitals()).catch(() => {});
       // Init Microsoft Clarity (free heatmaps & session recordings)
       import('@/services/clarity').then(m => m.initClarity()).catch(() => {});
-      // Init mobile UX monitor (tap targets, viewport overflow, slow connection)
-      import('@/services/mobileUxMonitor').then(m => m.initMobileUxMonitor()).catch(() => {});
     };
     analyticsEvents.forEach((eventName) => {
       window.addEventListener(eventName, initAnalytics, listenerOptions);
@@ -1136,7 +1119,6 @@ const App: React.FC = () => {
     enableRuntimeSeo();
     const previousTab = activeTab;
     setActiveTab(tab);
-    setNotFoundPath(null);
     if (tab !== 'calculator') setSeoLanding(null);
     if (tab !== 'glossario') setGlossaryTerm(null);
     if (tab !== 'job-board') setJobSlug(null);
@@ -1150,7 +1132,6 @@ const App: React.FC = () => {
     if (tab === 'feedback') unlockAchievement('feedback_giver');
     if (tab === 'stats') unlockAchievement('stats_checker');
     if (tab === 'fisco') unlockAchievement('pension_planner');
-    if (tab === 'fisco') setFiscoShowOverview(true);
 
     // Build route and push to history
     const route: AppRoute = { activeTab: tab };
@@ -1409,7 +1390,6 @@ const App: React.FC = () => {
       setConfrontiSubTab(subTab as ConfrontiSubTab);
     } else if (tab === 'fisco' && subTab) {
       setFiscoSubTab(subTab as FiscoSubTab);
-      setFiscoShowOverview(false);
     } else if (tab === 'guida' && subTab) {
       setGuidaSubTab(subTab as GuidaSubTab);
     } else if (tab === 'vita' && subTab) {
@@ -2056,7 +2036,7 @@ const App: React.FC = () => {
     setActiveTab(tab);
     if (tab === 'calculator' && subTab) setCalcolatoreSubTab(subTab as CalcolatoreSubTab);
     else if (tab === 'confronti' && subTab) setConfrontiSubTab(subTab as ConfrontiSubTab);
-    else if (tab === 'fisco' && subTab) { setFiscoSubTab(subTab as FiscoSubTab); setFiscoShowOverview(false); }
+    else if (tab === 'fisco' && subTab) setFiscoSubTab(subTab as FiscoSubTab);
     else if (tab === 'guida' && subTab) setGuidaSubTab(subTab as GuidaSubTab);
     else if (tab === 'vita' && subTab) setVitaSubTab(subTab as VitaSubTab);
     else if (tab === 'stats' && subTab) setStatsSubTab(subTab as StatsSubTab);
@@ -2446,7 +2426,6 @@ const App: React.FC = () => {
                     key={key}
                     onClick={() => {
                       setFiscoSubTab(key);
-                      setFiscoShowOverview(false);
                       Analytics.trackUIInteraction('fisco', 'navigazione', 'tab_sezione', 'cambio', key);
                     }}
                     className={`flex flex-col items-center gap-0.5 px-1 py-1.5 rounded-xl text-[10px] sm:text-[11px] font-semibold transition-all ${
@@ -2576,9 +2555,7 @@ const App: React.FC = () => {
           activeTab === 'admin' ? 'w-full px-3 sm:px-6' : 'max-w-[1800px] w-[95%] px-2 sm:px-4'
         }`}>
          <Suspense fallback={<LazyFallback />}>
-          {notFoundPath ? (
-            <NotFoundSuggestions path={notFoundPath} onNavigate={handleSearchNavigate} />
-          ) : activeTab === 'calculator' ? (
+          {activeTab === 'calculator' ? (
             <div className="space-y-6">
               {calcolatoreSubTab === 'calculator' ? (
               <>
@@ -2623,7 +2600,6 @@ const App: React.FC = () => {
                 )}
                 {/* Mobile: Results-first bottom-sheet layout (Proposal D) */}
                 <div className="md:hidden">
-                  <Suspense fallback={<SkeletonMobileCalc />}>
                   <MobileCalcLayout
                     inputs={inputs}
                     setInputs={setInputs}
@@ -2640,18 +2616,15 @@ const App: React.FC = () => {
                       />
                     )}
                   />
-                  </Suspense>
                 </div>
                 {/* Desktop: original side-by-side layout */}
                 <div className="hidden md:grid grid-cols-12 gap-6 h-full">
                   <div className={`transition-all duration-500 ease-in-out md:col-span-4 lg:col-span-4 xl:col-span-3 h-full`}>
-                    <Suspense fallback={<SkeletonInputCard />}>
                     <InputCard 
                       inputs={inputs} 
                       setInputs={setInputs} 
                       onCalculate={handleCalculate}
                     />
-                    </Suspense>
                   </div>
                   <div className={`transition-all duration-500 ease-in-out md:col-span-8 lg:col-span-8 xl:col-span-9 h-full`}>
                     {result && <Suspense fallback={<LazyFallback />}><ResultsView result={result} inputs={inputs} /></Suspense>}
@@ -2742,7 +2715,6 @@ const App: React.FC = () => {
           ) : activeTab === 'confronti' ? (
             <div className="max-w-7xl mx-auto min-h-[60vh]">
               <Suspense fallback={<div className="min-h-[44px]" />}><SeoContentBlock context="confronti" /></Suspense>
-              <Suspense fallback={<SkeletonComparator />}>
               {confrontiSubTab === 'exchange' ? (
                 <CurrencyExchange />
               ) : confrontiSubTab === 'banks' ? (
@@ -2760,16 +2732,10 @@ const App: React.FC = () => {
               ) : confrontiSubTab === 'renovation' ? (
                 <RenovationCalculator simulationResult={result ?? undefined} simulationInputs={inputs} />
               ) : null}
-              </Suspense>
             </div>
           ) : activeTab === 'fisco' ? (
             <div className="max-w-7xl mx-auto">
               <Suspense fallback={<div className="min-h-[44px]" />}><SeoContentBlock context="fisco" /></Suspense>
-              {fiscoShowOverview && (
-                <Suspense fallback={<div className="min-h-[200px]" />}>
-                  <FiscoLanding />
-                </Suspense>
-              )}
               {fiscoSubTab === 'tax-return' ? (
                 <TaxReturnGuide initialCountry={taxReturnCountry} onCountryChange={setTaxReturnCountry} />
               ) : fiscoSubTab === 'withholding-rates' ? (
@@ -2853,12 +2819,10 @@ const App: React.FC = () => {
             </div>
           ) : activeTab === 'blog' ? (
             <div className="max-w-7xl mx-auto">
-              <Suspense fallback={<SkeletonBlog />}>
               <BlogArticles
                 selectedArticle={blogArticle}
                 onSelectArticle={(id) => setBlogArticle(id)}
               />
-              </Suspense>
             </div>
           ) : activeTab === 'privacy' ? (
             <div>
@@ -2998,7 +2962,7 @@ const App: React.FC = () => {
               )}
             </div>
           ) : (
-            <div className="max-w-4xl mx-auto min-h-[600px]">
+            <div className="max-w-4xl mx-auto">
               <FeedbackSection />
             </div>
           )}
@@ -3290,7 +3254,7 @@ const App: React.FC = () => {
                       <li key={sub}>
                         <a
                           href={buildPath({ activeTab: 'fisco', fiscoSubTab: sub })}
-                          onClick={(e) => { e.preventDefault(); setFiscoSubTab(sub); setFiscoShowOverview(false); setActiveTab('fisco'); pushRoute({ activeTab: 'fisco', fiscoSubTab: sub }); }}
+                          onClick={(e) => { e.preventDefault(); setFiscoSubTab(sub); setActiveTab('fisco'); pushRoute({ activeTab: 'fisco', fiscoSubTab: sub }); }}
                           className="block text-xs text-slate-500 dark:text-slate-500 hover:text-emerald-700 dark:hover:text-emerald-400 no-underline hover:underline leading-relaxed py-1"
                         >{label}</a>
                       </li>

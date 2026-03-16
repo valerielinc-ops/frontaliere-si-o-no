@@ -219,7 +219,7 @@ const MobileCalcLayout: React.FC<Props> = ({
                 className={`shrink-0 px-2.5 py-1 rounded-lg text-[10px] font-bold transition-all ${
                   inputs.annualIncomeCHF === s
                     ? 'bg-blue-600 text-white shadow-sm'
-                    : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-200'
+                    : 'bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-500 hover:bg-slate-200'
                 }`}
               >
                 {(s / 1000)}k
@@ -249,7 +249,7 @@ const MobileCalcLayout: React.FC<Props> = ({
               <span className={`font-bold text-xs ${inputs.frontierWorkerType === 'NEW' ? 'text-blue-700 dark:text-blue-300' : 'text-slate-600 dark:text-slate-500'}`}>
                 {t('input.newFrontier')}
               </span>
-              <span className="text-[9px] text-slate-600 font-medium">{t('input.postDate')}</span>
+              <span className="text-[9px] text-slate-500 font-medium">{t('input.postDate')}</span>
             </button>
             <button
               onClick={() => handleChange('frontierWorkerType', 'OLD')}
@@ -265,7 +265,7 @@ const MobileCalcLayout: React.FC<Props> = ({
               <span className={`font-bold text-xs ${inputs.frontierWorkerType === 'OLD' ? 'text-emerald-700 dark:text-emerald-300' : 'text-slate-600 dark:text-slate-500'}`}>
                 {t('input.oldFrontier')}
               </span>
-              <span className="text-[9px] text-slate-600 font-medium">{t('input.preDate')}</span>
+              <span className="text-[9px] text-slate-500 font-medium">{t('input.preDate')}</span>
             </button>
           </div>
           {/* Distance zone for NEW */}
@@ -316,7 +316,7 @@ const MobileCalcLayout: React.FC<Props> = ({
               <div className="text-white font-extrabold text-sm tracking-tight">
                 {isBetterIT ? t('mobileCalc.betterIT') : t('mobileCalc.betterCH')}
               </div>
-              <div className="text-white/90 text-[11px] font-bold">
+              <div className="text-white/80 text-[11px] font-bold">
                 {t('mobileCalc.savings')}: +€{formatEUR(savingsMonthly)}{t('mobileCalc.perMonth')}
               </div>
             </div>
@@ -442,7 +442,7 @@ const MobileCalcLayout: React.FC<Props> = ({
             <div className="bg-gradient-to-r from-blue-600 to-violet-600 px-5 py-4 text-center">
               <Mail size={28} className="text-white mx-auto mb-2" />
               <h3 className="text-white font-bold text-lg">{t('newsletterGate.title')}</h3>
-              <p className="text-white/90 text-xs mt-1">{t('newsletterGate.subtitle')}</p>
+              <p className="text-white/80 text-xs mt-1">{t('newsletterGate.subtitle')}</p>
             </div>
             <div className="p-5 space-y-3">
               <div className="space-y-2 text-sm text-slate-600 dark:text-slate-400">
