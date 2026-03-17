@@ -1,22 +1,22 @@
 {
-  "generatedAt": "2026-03-17T05:52:01.995Z",
+  "generatedAt": "2026-03-17T05:54:10.767Z",
   "links": {
     "allJobs": "https://www.frontaliereticino.ch/cerca-lavoro-ticino"
   },
   "totals": {
     "activeJobs": 785,
-    "activeCompanies": 94,
-    "activeLocations": 120,
-    "todayAdded": 1069,
+    "activeCompanies": 114,
+    "activeLocations": 138,
+    "todayAdded": 959,
     "todayUpdated": 0,
     "todayRemoved": 0,
     "last7d": {
-      "added": 1972,
+      "added": 3022,
       "updated": 0,
       "removed": 0
     },
     "last30d": {
-      "added": 2455,
+      "added": 3505,
       "updated": 0,
       "removed": 0
     }
@@ -84,16 +84,17 @@
       "added": 1069,
       "updated": 0,
       "removed": 0
+    },
+    {
+      "date": "2026-03-17",
+      "totalJobs": 933,
+      "added": 959,
+      "updated": 0,
+      "removed": 0
     }
   ],
   "leaders": {
     "topCompaniesActive": [
-      {
-        "key": "eoc-ente-ospedaliero-cantonale",
-        "name": "EOC – Ente Ospedaliero Cantonale",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-eoc-ente-ospedaliero-cantonale",
-        "count": 185
-      },
       {
         "key": "coop",
         "name": "Coop",
@@ -153,6 +154,18 @@
         "name": "Interdiscount",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-interdiscount",
         "count": 22
+      },
+      {
+        "key": "eoc-ente-ospedaliero-cantonale",
+        "name": "EOC – Ente Ospedaliero Cantonale",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-eoc-ente-ospedaliero-cantonale",
+        "count": 187
+      },
+      {
+        "key": "convit-holding-gmbh",
+        "name": "Convit Holding GmbH",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-convit-holding-gmbh",
+        "count": 23
       }
     ],
     "topLocationsActive": [
@@ -257,18 +270,27 @@
         "name": "EMEA · CHE · Stabio · VF Campus VF1",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-emea-che-stabio-vf-campus-vf1",
         "count": 23
+      },
+      {
+        "key": "bellinzona",
+        "name": "Bellinzona",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-bellinzona",
+        "count": 128
+      },
+      {
+        "key": "lugano",
+        "name": "Lugano",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-lugano",
+        "count": 103
+      },
+      {
+        "key": "chur",
+        "name": "Chur",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-chur",
+        "count": 39
       }
     ],
     "topCompaniesAddedToday": [
-      {
-        "key": "eoc-ente-ospedaliero-cantonale",
-        "name": "EOC – Ente Ospedaliero Cantonale",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-eoc-ente-ospedaliero-cantonale",
-        "count": 0,
-        "added": 185,
-        "updated": 0,
-        "removed": 0
-      },
       {
         "key": "coop",
         "name": "Coop",
@@ -331,18 +353,18 @@
         "added": 24,
         "updated": 0,
         "removed": 0
-      }
-    ],
-    "topCompaniesAdded30d": [
+      },
       {
         "key": "eoc-ente-ospedaliero-cantonale",
         "name": "EOC – Ente Ospedaliero Cantonale",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-eoc-ente-ospedaliero-cantonale",
         "count": 0,
-        "added": 212,
+        "added": 205,
         "updated": 0,
         "removed": 0
-      },
+      }
+    ],
+    "topCompaniesAdded30d": [
       {
         "key": "coop",
         "name": "Coop",
@@ -403,6 +425,15 @@
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-hamilton-bonaduz-ag",
         "count": 0,
         "added": 24,
+        "updated": 0,
+        "removed": 0
+      },
+      {
+        "key": "eoc-ente-ospedaliero-cantonale",
+        "name": "EOC – Ente Ospedaliero Cantonale",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-eoc-ente-ospedaliero-cantonale",
+        "count": 0,
+        "added": 215,
         "updated": 0,
         "removed": 0
       }
@@ -524,6 +555,15 @@
         "added": 56,
         "updated": 0,
         "removed": 0
+      },
+      {
+        "key": "bellinzona",
+        "name": "Bellinzona",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-bellinzona",
+        "count": 0,
+        "added": 154,
+        "updated": 0,
+        "removed": 0
       }
     ],
     "topTitlesAdded30d": [
@@ -632,9 +672,9 @@
     "coverage": {
       "jobsWithSalary": 785,
       "coveragePct": 100,
-      "avgMin": 67352,
-      "avgMax": 90897,
-      "avgMid": 79125,
+      "avgMin": 67319,
+      "avgMax": 90839,
+      "avgMid": 79079,
       "medianMid": 73076
     },
     "leaders": {
@@ -820,6 +860,16 @@
           "avgMax": 125000,
           "avgMid": 108500,
           "weightedSalary": 95300
+        },
+        {
+          "key": "losone",
+          "name": "Losone",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-losone",
+          "count": 8,
+          "avgMin": 73563,
+          "avgMax": 99313,
+          "avgMid": 86438,
+          "weightedSalary": 86438
         }
       ],
       "topSalaryTitles": [
