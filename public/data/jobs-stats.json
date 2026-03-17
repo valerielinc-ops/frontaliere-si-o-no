@@ -1,22 +1,22 @@
 {
-  "generatedAt": "2026-03-17T04:45:43.904Z",
+  "generatedAt": "2026-03-17T04:46:33.982Z",
   "links": {
     "allJobs": "https://www.frontaliereticino.ch/cerca-lavoro-ticino"
   },
   "totals": {
-    "activeJobs": 820,
-    "activeCompanies": 86,
+    "activeJobs": 826,
+    "activeCompanies": 87,
     "activeLocations": 120,
-    "todayAdded": 820,
+    "todayAdded": 826,
     "todayUpdated": 0,
     "todayRemoved": 0,
     "last7d": {
-      "added": 3768,
+      "added": 3774,
       "updated": 0,
       "removed": 0
     },
     "last30d": {
-      "added": 4251,
+      "added": 4257,
       "updated": 0,
       "removed": 0
     }
@@ -52,8 +52,8 @@
     },
     {
       "date": "2026-03-17",
-      "totalJobs": 820,
-      "added": 820,
+      "totalJobs": 826,
+      "added": 826,
       "updated": 0,
       "removed": 0
     }
@@ -458,12 +458,12 @@
   },
   "salary": {
     "coverage": {
-      "jobsWithSalary": 820,
+      "jobsWithSalary": 826,
       "coveragePct": 100,
-      "avgMin": 67827,
-      "avgMax": 91547,
-      "avgMid": 79687,
-      "medianMid": 77500
+      "avgMin": 67881,
+      "avgMax": 91621,
+      "avgMid": 79751,
+      "medianMid": 84500
     },
     "leaders": {
       "topSalaryCompanies": [
@@ -620,14 +620,14 @@
           "weightedSalary": 87161
         },
         {
-          "key": "novaggio",
-          "name": "Novaggio",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-novaggio",
-          "count": 19,
-          "avgMin": 73053,
-          "avgMax": 98842,
-          "avgMid": 85947,
-          "weightedSalary": 85947
+          "key": "losone",
+          "name": "Losone",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-losone",
+          "count": 8,
+          "avgMin": 73563,
+          "avgMax": 99313,
+          "avgMid": 86438,
+          "weightedSalary": 86438
         }
       ],
       "topSalaryTitles": [

@@ -1,6 +1,75 @@
 {
-  "updatedAt": "2026-03-17T04:45:41.957Z",
+  "updatedAt": "2026-03-17T04:46:18.459Z",
   "summaries": [
+    {
+      "key": "agie-charmilles",
+      "label": "AGIE Charmilles",
+      "generatedAt": "2026-03-17T04:46:18.459Z",
+      "total": 6,
+      "newCount": 6,
+      "updatedCount": 0,
+      "removedCount": 0,
+      "unchangedCount": 0,
+      "durationMs": 1269,
+      "avgDurationMs": 1605,
+      "durationHistory": [
+        1269,
+        1369,
+        1514,
+        1555,
+        1592,
+        1454,
+        2516,
+        1570
+      ],
+      "newJobs": [
+        {
+          "title": "Mechanical Simulation Engineer",
+          "company": "AGIE Charmilles SA",
+          "location": "Losone",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/mechanical-simulation-engineer-agie-charmilles-losone/",
+          "slug": "mechanical-simulation-engineer-agie-charmilles-losone"
+        },
+        {
+          "title": "Electrical Engineer",
+          "company": "AGIE Charmilles SA",
+          "location": "Losone",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/electrical-engineer-agie-charmilles-losone/",
+          "slug": "electrical-engineer-agie-charmilles-losone"
+        },
+        {
+          "title": "Project Leader",
+          "company": "AGIE Charmilles SA",
+          "location": "Losone",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/project-leader-agie-charmilles-losone/",
+          "slug": "project-leader-agie-charmilles-losone"
+        },
+        {
+          "title": "Senior .NET Developer - Test Systems Lead",
+          "company": "AGIE Charmilles SA",
+          "location": "Losone",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/senior-net-developer-test-systems-lead-agie-charmilles-losone/",
+          "slug": "senior-net-developer-test-systems-lead-agie-charmilles-losone"
+        },
+        {
+          "title": "CNC-PLC Software Developer",
+          "company": "AGIE Charmilles SA",
+          "location": "Losone",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/cnc-plc-software-developer-agie-charmilles-losone/",
+          "slug": "cnc-plc-software-developer-agie-charmilles-losone"
+        },
+        {
+          "title": "Control Engineer",
+          "company": "AGIE Charmilles SA",
+          "location": "Losone",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/control-engineer-agie-charmilles-losone/",
+          "slug": "control-engineer-agie-charmilles-losone"
+        }
+      ],
+      "updatedJobs": [],
+      "removedJobs": [],
+      "unchangedJobs": []
+    },
     {
       "key": "a-group",
       "label": "A++ Group",
@@ -1035,74 +1104,6 @@
           "location": "Chiasso",
           "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/specialista-microsoft-business-central-chiasso/",
           "slug": "microsoft-business-central-specialist-chiasso"
-        }
-      ]
-    },
-    {
-      "key": "agie-charmilles",
-      "label": "AGIE Charmilles",
-      "generatedAt": "2026-03-16T05:22:40.722Z",
-      "total": 6,
-      "newCount": 0,
-      "updatedCount": 0,
-      "removedCount": 0,
-      "unchangedCount": 6,
-      "durationMs": 1369,
-      "avgDurationMs": 1653,
-      "durationHistory": [
-        1369,
-        1514,
-        1555,
-        1592,
-        1454,
-        2516,
-        1570
-      ],
-      "newJobs": [],
-      "updatedJobs": [],
-      "removedJobs": [],
-      "unchangedJobs": [
-        {
-          "title": "Mechanical Simulation Engineer",
-          "company": "AGIE Charmilles SA",
-          "location": "Losone",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/mechanical-simulation-engineer-agie-charmilles-losone/",
-          "slug": "mechanical-simulation-engineer-agie-charmilles-losone"
-        },
-        {
-          "title": "Electrical Engineer",
-          "company": "AGIE Charmilles SA",
-          "location": "Losone",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/electrical-engineer-agie-charmilles-losone/",
-          "slug": "electrical-engineer-agie-charmilles-losone"
-        },
-        {
-          "title": "Project Leader",
-          "company": "AGIE Charmilles SA",
-          "location": "Losone",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/project-leader-agie-charmilles-losone/",
-          "slug": "project-leader-agie-charmilles-losone"
-        },
-        {
-          "title": "Senior .NET Developer - Test Systems Lead",
-          "company": "AGIE Charmilles SA",
-          "location": "Losone",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/senior-net-developer-test-systems-lead-agie-charmilles-losone/",
-          "slug": "senior-net-developer-test-systems-lead-agie-charmilles-losone"
-        },
-        {
-          "title": "CNC-PLC Software Developer",
-          "company": "AGIE Charmilles SA",
-          "location": "Losone",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/cnc-plc-software-developer-agie-charmilles-losone/",
-          "slug": "cnc-plc-software-developer-agie-charmilles-losone"
-        },
-        {
-          "title": "Control Engineer",
-          "company": "AGIE Charmilles SA",
-          "location": "Losone",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/control-engineer-agie-charmilles-losone/",
-          "slug": "control-engineer-agie-charmilles-losone"
         }
       ]
     },
