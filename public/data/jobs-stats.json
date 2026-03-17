@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-03-17T16:26:14.088Z",
+  "generatedAt": "2026-03-17T16:26:37.141Z",
   "links": {
     "allJobs": "https://www.frontaliereticino.ch/cerca-lavoro-ticino"
   },
   "totals": {
-    "activeJobs": 1006,
-    "activeCompanies": 129,
+    "activeJobs": 928,
+    "activeCompanies": 130,
     "activeLocations": 158,
     "todayAdded": 1176,
     "todayUpdated": 0,
@@ -96,16 +96,16 @@
         "count": 22
       },
       {
-        "key": "usi-universita-della-svizzera-italiana",
-        "name": "USI – Università della Svizzera italiana",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-usi-universita-della-svizzera-italiana",
-        "count": 24
+        "key": "convit-holding-gmbh",
+        "name": "Convit Holding GmbH",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-convit-holding-gmbh",
+        "count": 23
       },
       {
-        "key": "relewant",
-        "name": "ReleWant",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-relewant",
-        "count": 19
+        "key": "confederazione-svizzera",
+        "name": "Confederazione Svizzera",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-confederazione-svizzera",
+        "count": 22
       }
     ],
     "topLocationsActive": [
@@ -174,6 +174,12 @@
         "name": "Davos Platz",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-davos-platz",
         "count": 26
+      },
+      {
+        "key": "ticino",
+        "name": "Ticino",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-ticino",
+        "count": 24
       }
     ],
     "topCompaniesAddedToday": [
@@ -475,11 +481,11 @@
   },
   "salary": {
     "coverage": {
-      "jobsWithSalary": 1006,
+      "jobsWithSalary": 928,
       "coveragePct": 100,
-      "avgMin": 66531,
-      "avgMax": 89736,
-      "avgMid": 78134,
+      "avgMin": 67104,
+      "avgMax": 90525,
+      "avgMid": 78814,
       "medianMid": 72000
     },
     "leaders": {
