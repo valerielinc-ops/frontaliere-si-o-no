@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-03-17T16:28:58.871Z",
+  "generatedAt": "2026-03-17T16:29:38.232Z",
   "links": {
     "allJobs": "https://www.frontaliereticino.ch/cerca-lavoro-ticino"
   },
   "totals": {
-    "activeJobs": 918,
-    "activeCompanies": 129,
+    "activeJobs": 920,
+    "activeCompanies": 130,
     "activeLocations": 160,
     "todayAdded": 1181,
     "todayUpdated": 0,
@@ -38,14 +38,14 @@
     },
     {
       "date": "2026-03-17",
-      "totalJobs": 1011,
-      "added": 1177,
+      "totalJobs": 1014,
+      "added": 1181,
       "updated": 0,
       "removed": 0
     },
     {
       "date": "2026-03-17",
-      "totalJobs": 1014,
+      "totalJobs": 1011,
       "added": 1181,
       "updated": 0,
       "removed": 0
@@ -82,18 +82,6 @@
         "name": "Convit Holding GmbH",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-convit-holding-gmbh",
         "count": 23
-      },
-      {
-        "key": "usi-universita-della-svizzera-italiana",
-        "name": "USI – Università della Svizzera italiana",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-usi-universita-della-svizzera-italiana",
-        "count": 24
-      },
-      {
-        "key": "relewant",
-        "name": "ReleWant",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-relewant",
-        "count": 19
       },
       {
         "key": "eoc-ente-ospedaliero-cantonale",
@@ -152,22 +140,16 @@
         "count": 47
       },
       {
-        "key": "locarno",
-        "name": "Locarno",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-locarno",
-        "count": 42
-      },
-      {
         "key": "st-moritz",
         "name": "St. Moritz",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-st-moritz",
         "count": 36
       },
       {
-        "key": "chiasso",
-        "name": "Chiasso",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-chiasso",
-        "count": 23
+        "key": "ticino",
+        "name": "Ticino",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-ticino",
+        "count": 24
       }
     ],
     "topCompaniesAddedToday": [
@@ -469,11 +451,11 @@
   },
   "salary": {
     "coverage": {
-      "jobsWithSalary": 917,
+      "jobsWithSalary": 920,
       "coveragePct": 99.9,
-      "avgMin": 67133,
-      "avgMax": 90567,
-      "avgMid": 78850,
+      "avgMin": 67202,
+      "avgMax": 90660,
+      "avgMid": 78931,
       "medianMid": 70250
     },
     "leaders": {
