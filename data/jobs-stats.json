@@ -1,22 +1,22 @@
 {
-  "generatedAt": "2026-03-17T04:56:45.306Z",
+  "generatedAt": "2026-03-17T04:56:46.210Z",
   "links": {
     "allJobs": "https://www.frontaliereticino.ch/cerca-lavoro-ticino"
   },
   "totals": {
-    "activeJobs": 933,
+    "activeJobs": 934,
     "activeCompanies": 115,
-    "activeLocations": 139,
-    "todayAdded": 929,
+    "activeLocations": 148,
+    "todayAdded": 940,
     "todayUpdated": 0,
     "todayRemoved": 0,
     "last7d": {
-      "added": 2992,
+      "added": 3003,
       "updated": 0,
       "removed": 0
     },
     "last30d": {
-      "added": 3475,
+      "added": 3486,
       "updated": 0,
       "removed": 0
     }
@@ -49,6 +49,13 @@
       "added": 929,
       "updated": 0,
       "removed": 0
+    },
+    {
+      "date": "2026-03-17",
+      "totalJobs": 934,
+      "added": 940,
+      "updated": 0,
+      "removed": 0
     }
   ],
   "leaders": {
@@ -64,6 +71,12 @@
         "name": "Coop",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-coop",
         "count": 101
+      },
+      {
+        "key": "convit-holding-gmbh",
+        "name": "Convit Holding GmbH",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-convit-holding-gmbh",
+        "count": 35
       },
       {
         "key": "pemsa",
@@ -90,12 +103,6 @@
         "count": 24
       },
       {
-        "key": "convit-holding-gmbh",
-        "name": "Convit Holding GmbH",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-convit-holding-gmbh",
-        "count": 23
-      },
-      {
         "key": "hamilton-bonaduz-ag",
         "name": "Hamilton Bonaduz AG",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-hamilton-bonaduz-ag",
@@ -114,12 +121,6 @@
         "name": "Grigioni",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-grigioni",
         "count": 115
-      },
-      {
-        "key": "lugano",
-        "name": "Lugano",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-lugano",
-        "count": 104
       },
       {
         "key": "mendrisio",
@@ -162,6 +163,12 @@
         "name": "Lugano",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-lugano",
         "count": 110
+      },
+      {
+        "key": "lugano",
+        "name": "Lugano",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-lugano",
+        "count": 107
       }
     ],
     "topCompaniesAddedToday": [
@@ -180,6 +187,15 @@
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-coop",
         "count": 0,
         "added": 101,
+        "updated": 0,
+        "removed": 0
+      },
+      {
+        "key": "convit-holding-gmbh",
+        "name": "Convit Holding GmbH",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-convit-holding-gmbh",
+        "count": 0,
+        "added": 35,
         "updated": 0,
         "removed": 0
       },
@@ -216,15 +232,6 @@
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-usi-universita-della-svizzera-italiana",
         "count": 0,
         "added": 24,
-        "updated": 0,
-        "removed": 0
-      },
-      {
-        "key": "convit-holding-gmbh",
-        "name": "Convit Holding GmbH",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-convit-holding-gmbh",
-        "count": 0,
-        "added": 23,
         "updated": 0,
         "removed": 0
       },
@@ -463,11 +470,11 @@
   },
   "salary": {
     "coverage": {
-      "jobsWithSalary": 933,
+      "jobsWithSalary": 934,
       "coveragePct": 100,
-      "avgMin": 67353,
-      "avgMax": 90883,
-      "avgMid": 79118,
+      "avgMin": 67235,
+      "avgMax": 90725,
+      "avgMid": 78980,
       "medianMid": 72000
     },
     "leaders": {
@@ -625,16 +632,6 @@
           "weightedSalary": 87161
         },
         {
-          "key": "losone",
-          "name": "Losone",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-losone",
-          "count": 8,
-          "avgMin": 73563,
-          "avgMax": 99313,
-          "avgMid": 86438,
-          "weightedSalary": 86438
-        },
-        {
           "key": "bioggio",
           "name": "Bioggio",
           "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-bioggio",
@@ -653,6 +650,16 @@
           "avgMax": 101933,
           "avgMid": 88733,
           "weightedSalary": 88733
+        },
+        {
+          "key": "bioggio",
+          "name": "Bioggio",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-bioggio",
+          "count": 13,
+          "avgMin": 74346,
+          "avgMax": 100346,
+          "avgMid": 87346,
+          "weightedSalary": 87346
         }
       ],
       "topSalaryTitles": [
