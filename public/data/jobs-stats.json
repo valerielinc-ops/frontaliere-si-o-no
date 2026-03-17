@@ -1,22 +1,22 @@
 {
-  "generatedAt": "2026-03-17T04:58:25.199Z",
+  "generatedAt": "2026-03-17T05:00:07.554Z",
   "links": {
     "allJobs": "https://www.frontaliereticino.ch/cerca-lavoro-ticino"
   },
   "totals": {
-    "activeJobs": 933,
+    "activeJobs": 917,
     "activeCompanies": 116,
-    "activeLocations": 139,
-    "todayAdded": 936,
+    "activeLocations": 136,
+    "todayAdded": 950,
     "todayUpdated": 0,
     "todayRemoved": 0,
     "last7d": {
-      "added": 2999,
+      "added": 1853,
       "updated": 0,
       "removed": 0
     },
     "last30d": {
-      "added": 3482,
+      "added": 2336,
       "updated": 0,
       "removed": 0
     }
@@ -37,20 +37,6 @@
       "removed": 0
     },
     {
-      "date": "2026-03-16",
-      "totalJobs": 937,
-      "added": 1160,
-      "updated": 0,
-      "removed": 0
-    },
-    {
-      "date": "2026-03-17",
-      "totalJobs": 934,
-      "added": 941,
-      "updated": 0,
-      "removed": 0
-    },
-    {
       "date": "2026-03-17",
       "totalJobs": 940,
       "added": 943,
@@ -61,6 +47,13 @@
       "date": "2026-03-17",
       "totalJobs": 933,
       "added": 936,
+      "updated": 0,
+      "removed": 0
+    },
+    {
+      "date": "2026-03-17",
+      "totalJobs": 934,
+      "added": 950,
       "updated": 0,
       "removed": 0
     }
@@ -157,12 +150,6 @@
         "key": "lugano",
         "name": "Lugano",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-lugano",
-        "count": 104
-      },
-      {
-        "key": "lugano",
-        "name": "Lugano",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-lugano",
         "count": 108
       },
       {
@@ -176,6 +163,18 @@
         "name": "Mendrisio",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-mendrisio",
         "count": 51
+      },
+      {
+        "key": "lugano",
+        "name": "Lugano",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-lugano",
+        "count": 110
+      },
+      {
+        "key": "mendrisio",
+        "name": "Mendrisio",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-mendrisio",
+        "count": 46
       }
     ],
     "topCompaniesAddedToday": [
@@ -272,15 +271,6 @@
         "removed": 0
       },
       {
-        "key": "volg",
-        "name": "VOLG",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-volg",
-        "count": 0,
-        "added": 44,
-        "updated": 0,
-        "removed": 0
-      },
-      {
         "key": "kantonsspital-graubunden",
         "name": "Kantonsspital Graubünden",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-kantonsspital-graubunden",
@@ -324,6 +314,15 @@
         "added": 25,
         "updated": 0,
         "removed": 0
+      },
+      {
+        "key": "ffs-officine-ferrovie-federali",
+        "name": "FFS Officine (Ferrovie Federali)",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-ffs-officine-ferrovie-federali",
+        "count": 0,
+        "added": 23,
+        "updated": 0,
+        "removed": 0
       }
     ],
     "topLocationsAdded30d": [
@@ -332,7 +331,7 @@
         "name": "Bellinzona",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-bellinzona",
         "count": 0,
-        "added": 151,
+        "added": 150,
         "updated": 0,
         "removed": 0
       },
@@ -341,7 +340,7 @@
         "name": "Lugano",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-lugano",
         "count": 0,
-        "added": 145,
+        "added": 146,
         "updated": 0,
         "removed": 0
       },
@@ -355,11 +354,20 @@
         "removed": 0
       },
       {
+        "key": "mendrisio",
+        "name": "Mendrisio",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-mendrisio",
+        "count": 0,
+        "added": 64,
+        "updated": 0,
+        "removed": 0
+      },
+      {
         "key": "ticino",
         "name": "Ticino",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-ticino",
         "count": 0,
-        "added": 69,
+        "added": 63,
         "updated": 0,
         "removed": 0
       },
@@ -368,25 +376,7 @@
         "name": "Chur",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-chur",
         "count": 0,
-        "added": 68,
-        "updated": 0,
-        "removed": 0
-      },
-      {
-        "key": "mendrisio",
-        "name": "Mendrisio",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-mendrisio",
-        "count": 0,
-        "added": 67,
-        "updated": 0,
-        "removed": 0
-      },
-      {
-        "key": "st-moritz",
-        "name": "St. Moritz",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-st-moritz",
-        "count": 0,
-        "added": 61,
+        "added": 56,
         "updated": 0,
         "removed": 0
       },
@@ -396,6 +386,15 @@
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-locarno",
         "count": 0,
         "added": 49,
+        "updated": 0,
+        "removed": 0
+      },
+      {
+        "key": "novaggio",
+        "name": "Novaggio",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-novaggio",
+        "count": 0,
+        "added": 36,
         "updated": 0,
         "removed": 0
       }
@@ -415,7 +414,7 @@
         "name": "Retail Specialist EFZ 'Creating Shopping Experiences'",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-retail-specialist-efz-creating-shopping-experiences",
         "count": 0,
-        "added": 28,
+        "added": 27,
         "updated": 0,
         "removed": 0
       },
@@ -465,11 +464,11 @@
         "removed": 0
       },
       {
-        "key": "tirocinio-come-specialista-del-commercio-al-dettaglio-o-assistente-al-dettaglio",
-        "name": "Tirocinio come specialista del commercio al dettaglio o assistente al dettaglio",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-tirocinio-come-specialista-del-commercio-al-dettaglio-o-assistente-al-dettaglio",
+        "key": "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026",
+        "name": "Apprendistato nel commercio al dettaglio CFP o AFC - Inizio 2026",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026",
         "count": 0,
-        "added": 9,
+        "added": 8,
         "updated": 0,
         "removed": 0
       }
@@ -477,11 +476,11 @@
   },
   "salary": {
     "coverage": {
-      "jobsWithSalary": 933,
+      "jobsWithSalary": 917,
       "coveragePct": 100,
-      "avgMin": 67249,
-      "avgMax": 90743,
-      "avgMid": 78996,
+      "avgMin": 67431,
+      "avgMax": 90990,
+      "avgMid": 79210,
       "medianMid": 68500
     },
     "leaders": {
@@ -517,6 +516,16 @@
           "weightedSalary": 100292
         },
         {
+          "key": "fincons-group",
+          "name": "Fincons Group",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-fincons-group",
+          "count": 9,
+          "avgMin": 84444,
+          "avgMax": 113889,
+          "avgMid": 99167,
+          "weightedSalary": 99167
+        },
+        {
           "key": "lastminute-com",
           "name": "lastminute.com",
           "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-lastminute-com",
@@ -550,16 +559,6 @@
           "key": "bracco-suisse-s-a",
           "name": "Bracco Suisse S.A.",
           "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-bracco-suisse-s-a",
-          "count": 3,
-          "avgMin": 87167,
-          "avgMax": 117833,
-          "avgMid": 102500,
-          "weightedSalary": 96367
-        },
-        {
-          "key": "fart-ferrovie-autolinee-regionali-ticinesi",
-          "name": "FART – Ferrovie Autolinee Regionali Ticinesi",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-fart-ferrovie-autolinee-regionali-ticinesi",
           "count": 3,
           "avgMin": 87167,
           "avgMax": 117833,
