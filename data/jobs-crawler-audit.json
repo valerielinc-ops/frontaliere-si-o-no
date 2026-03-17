@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-03-17T05:21:26.773Z",
-  "startedAt": "2026-03-17T05:05:13.696Z",
+  "generatedAt": "2026-03-17T05:24:17.877Z",
+  "startedAt": "2026-03-17T05:20:03.102Z",
   "config": {
     "minQualityScore": 4,
     "minDescriptionChars": 80,
@@ -22,10 +22,10 @@
   },
   "totals": {
     "companiesParsed": 178,
-    "companiesSelected": 10,
+    "companiesSelected": 1,
     "companiesDroppedBySelection": 0,
-    "companiesCrawled": 0,
-    "discoveredCareerPages": 0,
+    "companiesCrawled": 1,
+    "discoveredCareerPages": 8,
     "scrapedJobPages": 0,
     "incomingCandidatesAccepted": 0,
     "discardedCandidates": 0,
@@ -48,7 +48,7 @@
     "reusedLocalizationFromPrevious": 0,
     "inserted": 0,
     "refreshed": 0,
-    "mergedTotal": 844,
+    "mergedTotal": 804,
     "aiLocalizationCalls": 76,
     "aiPageValidationCalls": 0,
     "deeplCalls": 21,
@@ -61,7 +61,30 @@
     "discoveredCompaniesAdded": 0,
     "discoveredCompaniesPending": 0
   },
-  "byCompany": [],
+  "byCompany": [
+    {
+      "company": "Zurich Insurance (sede Ticino)",
+      "domain": "zurich.ch",
+      "discoveredCareerPages": 8,
+      "scrapedJobPages": 0,
+      "processedCandidates": 0,
+      "extractedAccepted": 0,
+      "discardedCount": 0,
+      "discardedByReason": {},
+      "filteredOutCount": 0,
+      "filteredOutByReason": {},
+      "duplicateInCompany": 0,
+      "webDiscoveryQueries": 0,
+      "webDiscoveryHits": 0,
+      "webDiscoveryProviders": [],
+      "browserFallbackAttempted": 0,
+      "browserFallbackHits": 0,
+      "browserFallbackReason": "",
+      "inserted": 0,
+      "refreshed": 0,
+      "duplicateIncoming": 0
+    }
+  ],
   "droppedCompanies": [],
   "mergeExclusionSamples": [
     {
