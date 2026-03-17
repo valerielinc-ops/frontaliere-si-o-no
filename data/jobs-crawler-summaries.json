@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-03-17T05:01:27.472Z",
+  "updatedAt": "2026-03-17T05:01:27.331Z",
   "summaries": [
     {
       "key": "agie-charmilles",
@@ -746,38 +746,6 @@
           "location": "Chur",
           "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/polizeiaspirantinnen-und-polizeiaspiranten-stadt-chur-1446/",
           "slug": "polizeiaspirantinnen-und-polizeiaspiranten-stadt-chur-1446"
-        }
-      ]
-    },
-    {
-      "key": "goline-sa",
-      "label": "GOLINE SA",
-      "generatedAt": "2026-03-15T17:29:55.198Z",
-      "total": 1,
-      "newCount": 0,
-      "updatedCount": 0,
-      "removedCount": 0,
-      "unchangedCount": 1,
-      "durationMs": 2144,
-      "avgDurationMs": 2344,
-      "durationHistory": [
-        2144,
-        2210,
-        2474,
-        2197,
-        2042,
-        2996
-      ],
-      "newJobs": [],
-      "updatedJobs": [],
-      "removedJobs": [],
-      "unchangedJobs": [
-        {
-          "title": "Sviluppatore Web Full Stack (Backend e Frontend)",
-          "company": "GOLINE SA",
-          "location": "Stabio",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/sviluppatore-web-full-stack-backend-e-frontend-goline-sa-stabio-ticino-svizzera/",
-          "slug": "sviluppatore-web-full-stack-backend-e-frontend-goline-sa-stabio-ticino-svizzera"
         }
       ]
     },
@@ -8366,6 +8334,39 @@
           "slug": "solution-consultant-crm-fnz"
         }
       ]
+    },
+    {
+      "key": "goline-sa",
+      "label": "GOLINE SA",
+      "generatedAt": "2026-03-17T05:01:27.331Z",
+      "total": 1,
+      "newCount": 1,
+      "updatedCount": 0,
+      "removedCount": 0,
+      "unchangedCount": 0,
+      "durationMs": 2457,
+      "avgDurationMs": 2360,
+      "durationHistory": [
+        2457,
+        2144,
+        2210,
+        2474,
+        2197,
+        2042,
+        2996
+      ],
+      "newJobs": [
+        {
+          "title": "Sviluppatore Web Full Stack (Backend e Frontend)",
+          "company": "GOLINE SA",
+          "location": "Stabio",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/sviluppatore-web-full-stack-backend-e-frontend-goline-sa-stabio-ticino-svizzera/",
+          "slug": "sviluppatore-web-full-stack-backend-e-frontend-goline-sa-stabio-ticino-svizzera"
+        }
+      ],
+      "updatedJobs": [],
+      "removedJobs": [],
+      "unchangedJobs": []
     }
   ]
 }
