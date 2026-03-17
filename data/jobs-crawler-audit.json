@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-03-17T04:58:20.954Z",
-  "startedAt": "2026-03-17T04:58:08.522Z",
+  "generatedAt": "2026-03-17T05:01:27.013Z",
+  "startedAt": "2026-03-17T04:59:42.237Z",
   "config": {
     "minQualityScore": 4,
     "minDescriptionChars": 80,
@@ -36,26 +36,23 @@
     "browserFallbackAttempts": 0,
     "browserFallbackHits": 0,
     "duplicateIncoming": 0,
-    "duplicateExisting": 22,
-    "mergeExcludedJobs": 9,
+    "duplicateExisting": 2,
+    "mergeExcludedJobs": 1,
     "mergeExclusionByReason": {
-      "not_ticino_relevant": 8,
-      "explicitly_outside_target": 4,
-      "location_explicitly_foreign": 3,
-      "outside_swiss_ticino": 5
+      "location_explicitly_foreign": 1
     },
     "reusedLocalizationFromPrevious": 0,
     "inserted": 0,
     "refreshed": 0,
-    "mergedTotal": 916,
+    "mergedTotal": 908,
     "aiLocalizationCalls": 1,
     "aiPageValidationCalls": 0,
-    "deeplCalls": 2,
+    "deeplCalls": 0,
     "deeplSuccess": 0,
     "deeplFallbackToLlm": 0,
     "aiCacheHits": 0,
-    "aiCacheMisses": 2,
-    "aiCacheEntries": 1410,
+    "aiCacheMisses": 1,
+    "aiCacheEntries": 1409,
     "discoveredCompaniesCandidates": 0,
     "discoveredCompaniesAdded": 0,
     "discoveredCompaniesPending": 0
@@ -65,66 +62,10 @@
   "mergeExclusionSamples": [
     {
       "reason": "location_explicitly_foreign",
-      "title": "Wealth Planning Group Business Developer",
-      "company": "EFG International AG",
-      "location": "Zurich",
-      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6140"
-    },
-    {
-      "reason": "not_ticino_relevant",
-      "title": "Group Financial Controller",
-      "company": "EFG International AG",
-      "location": "Geneve",
-      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/4543"
-    },
-    {
-      "reason": "not_ticino_relevant",
-      "title": "Risk & Compliance Technical Application Owner",
-      "company": "EFG International AG",
-      "location": "Geneve",
-      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/5819"
-    },
-    {
-      "reason": "not_ticino_relevant",
-      "title": "Back-Office Cash reconciliation specialist",
-      "company": "EFG International AG",
-      "location": "Geneve",
-      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/5877"
-    },
-    {
-      "reason": "outside_swiss_ticino",
-      "title": "AML Monitoring Compliance Officer",
-      "company": "EFG International AG",
-      "location": "Geneve",
-      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/5927"
-    },
-    {
-      "reason": "not_ticino_relevant",
-      "title": "AI Engineer",
-      "company": "EFG International AG",
-      "location": "Geneve",
-      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6061"
-    },
-    {
-      "reason": "not_ticino_relevant",
-      "title": "Client Services Officer - Geneva Talent Pool",
-      "company": "EFG International AG",
-      "location": "Geneve",
-      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6066"
-    },
-    {
-      "reason": "location_explicitly_foreign",
-      "title": "Group Insurance Expert",
-      "company": "EFG International AG",
-      "location": "Zurich",
-      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6068"
-    },
-    {
-      "reason": "location_explicitly_foreign",
-      "title": "Senior FX Specialist (Advisor)",
-      "company": "EFG International AG",
-      "location": "Zurich",
-      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6095"
+      "title": "Pre Sales",
+      "company": "FNZ (Switzerland) AG",
+      "location": "Geneva",
+      "url": "https://fnz.wd3.myworkdayjobs.com/en/fnz_careers/job/Geneva---Switzerland/Pre-Sales_REQ-16394"
     }
   ]
 }

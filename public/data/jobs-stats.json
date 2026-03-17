@@ -1,22 +1,22 @@
 {
-  "generatedAt": "2026-03-17T05:00:53.680Z",
+  "generatedAt": "2026-03-17T05:01:32.519Z",
   "links": {
     "allJobs": "https://www.frontaliereticino.ch/cerca-lavoro-ticino"
   },
   "totals": {
-    "activeJobs": 917,
-    "activeCompanies": 120,
+    "activeJobs": 908,
+    "activeCompanies": 115,
     "activeLocations": 136,
     "todayAdded": 950,
     "todayUpdated": 0,
     "todayRemoved": 0,
     "last7d": {
-      "added": 1853,
+      "added": 1846,
       "updated": 0,
       "removed": 0
     },
     "last30d": {
-      "added": 2336,
+      "added": 2329,
       "updated": 0,
       "removed": 0
     }
@@ -181,6 +181,12 @@
         "name": "Mendrisio",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-mendrisio",
         "count": 53
+      },
+      {
+        "key": "lugano",
+        "name": "Lugano",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-lugano",
+        "count": 102
       }
     ],
     "topCompaniesAddedToday": [
@@ -493,6 +499,51 @@
         "added": 36,
         "updated": 0,
         "removed": 0
+      },
+      {
+        "key": "bellinzona",
+        "name": "Bellinzona",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-bellinzona",
+        "count": 0,
+        "added": 150,
+        "updated": 0,
+        "removed": 0
+      },
+      {
+        "key": "mendrisio",
+        "name": "Mendrisio",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-mendrisio",
+        "count": 0,
+        "added": 64,
+        "updated": 0,
+        "removed": 0
+      },
+      {
+        "key": "ticino",
+        "name": "Ticino",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-ticino",
+        "count": 0,
+        "added": 63,
+        "updated": 0,
+        "removed": 0
+      },
+      {
+        "key": "chur",
+        "name": "Chur",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-chur",
+        "count": 0,
+        "added": 56,
+        "updated": 0,
+        "removed": 0
+      },
+      {
+        "key": "novaggio",
+        "name": "Novaggio",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-novaggio",
+        "count": 0,
+        "added": 36,
+        "updated": 0,
+        "removed": 0
       }
     ],
     "topTitlesAdded30d": [
@@ -572,11 +623,11 @@
   },
   "salary": {
     "coverage": {
-      "jobsWithSalary": 917,
+      "jobsWithSalary": 908,
       "coveragePct": 100,
-      "avgMin": 67153,
-      "avgMax": 90616,
-      "avgMid": 78884,
+      "avgMin": 67220,
+      "avgMax": 90706,
+      "avgMid": 78963,
       "medianMid": 68500
     },
     "leaders": {
