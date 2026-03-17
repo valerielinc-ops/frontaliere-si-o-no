@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-03-17T05:10:30.315Z",
+  "updatedAt": "2026-03-17T05:11:00.767Z",
   "summaries": [
     {
       "key": "migros",
@@ -2297,49 +2297,6 @@
           "location": "Chur",
           "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/mcdonald-s-chur-sud-mcdonald-s-switzerland-chur/",
           "slug": "mcdonald-s-chur-sud-mcdonalds"
-        }
-      ]
-    },
-    {
-      "key": "oscam",
-      "label": "OSCAM",
-      "generatedAt": "2026-03-16T05:47:38.056Z",
-      "total": 3,
-      "newCount": 0,
-      "updatedCount": 0,
-      "removedCount": 0,
-      "unchangedCount": 3,
-      "durationMs": 6261,
-      "avgDurationMs": 6087,
-      "durationHistory": [
-        6261,
-        6134,
-        5866
-      ],
-      "newJobs": [],
-      "updatedJobs": [],
-      "removedJobs": [],
-      "unchangedJobs": [
-        {
-          "title": "Concorso vice-responsabile finanze al 100 %",
-          "company": "OSCAM – Ospedale e Casa Anziani Malcantonese",
-          "location": "Castelrotto",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/concorso-vice-responsabile-finanze-al-100-oscam/",
-          "slug": "concorso-vice-responsabile-finanze-al-100-oscam-ospedale-e-casa-anziani-malcantonese-castelrotto"
-        },
-        {
-          "title": "Concorso generale 2026",
-          "company": "OSCAM – Ospedale e Casa Anziani Malcantonese",
-          "location": "Castelrotto",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/concorso-generale-2026-oscam/",
-          "slug": "concorso-generale-2026-oscam-ospedale-e-casa-anziani-malcantonese-castelrotto"
-        },
-        {
-          "title": "Concorso generale per medici assistenti 2025-2026",
-          "company": "OSCAM – Ospedale e Casa Anziani Malcantonese",
-          "location": "Castelrotto",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/concorso-generale-per-medici-assistenti-2025-2026-oscam/",
-          "slug": "concorso-generale-per-medici-assistenti-2025-2026-oscam-ospedale-e-casa-anziani-malcantonese-castelrotto"
         }
       ]
     },
@@ -8179,6 +8136,57 @@
       "updatedJobs": [],
       "removedJobs": [],
       "unchangedJobs": []
+    },
+    {
+      "key": "oscam",
+      "label": "OSCAM",
+      "generatedAt": "2026-03-17T05:11:00.767Z",
+      "total": 4,
+      "newCount": 0,
+      "updatedCount": 0,
+      "removedCount": 0,
+      "unchangedCount": 4,
+      "durationMs": 8700,
+      "avgDurationMs": 6740,
+      "durationHistory": [
+        8700,
+        6261,
+        6134,
+        5866
+      ],
+      "newJobs": [],
+      "updatedJobs": [],
+      "removedJobs": [],
+      "unchangedJobs": [
+        {
+          "title": "Concorso generale Assistente di farmacia",
+          "company": "OSCAM – Ospedale e Casa Anziani Malcantonese",
+          "location": "Castelrotto",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/concorso-generale-assistente-di-farmacia-oscam/",
+          "slug": "concorso-generale-assistente-di-farmacia-oscam"
+        },
+        {
+          "title": "Concorso vice-responsabile finanze al 100 %",
+          "company": "OSCAM – Ospedale e Casa Anziani Malcantonese",
+          "location": "Castelrotto",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/concorso-vice-responsabile-finanze-al-100-oscam/",
+          "slug": "concorso-vice-responsabile-finanze-al-100-oscam-ospedale-e-casa-anziani-malcantonese-castelrotto"
+        },
+        {
+          "title": "Concorso generale 2026",
+          "company": "OSCAM – Ospedale e Casa Anziani Malcantonese",
+          "location": "Castelrotto",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/concorso-generale-2026-oscam/",
+          "slug": "concorso-generale-2026-oscam-ospedale-e-casa-anziani-malcantonese-castelrotto"
+        },
+        {
+          "title": "Concorso generale per medici assistenti 2025-2026",
+          "company": "OSCAM – Ospedale e Casa Anziani Malcantonese",
+          "location": "Castelrotto",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/concorso-generale-per-medici-assistenti-2025-2026-oscam/",
+          "slug": "concorso-generale-per-medici-assistenti-2025-2026-oscam-ospedale-e-casa-anziani-malcantonese-castelrotto"
+        }
+      ]
     }
   ]
 }
