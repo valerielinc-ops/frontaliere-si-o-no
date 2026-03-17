@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-03-17T05:11:06.075Z",
+  "generatedAt": "2026-03-17T05:11:27.452Z",
   "links": {
     "allJobs": "https://www.frontaliereticino.ch/cerca-lavoro-ticino"
   },
   "totals": {
-    "activeJobs": 906,
+    "activeJobs": 1064,
     "activeCompanies": 123,
     "activeLocations": 143,
     "todayAdded": 1060,
@@ -74,6 +74,20 @@
     {
       "date": "2026-03-17",
       "totalJobs": 906,
+      "added": 1060,
+      "updated": 0,
+      "removed": 0
+    },
+    {
+      "date": "2026-03-16",
+      "totalJobs": 937,
+      "added": 1160,
+      "updated": 0,
+      "removed": 0
+    },
+    {
+      "date": "2026-03-17",
+      "totalJobs": 1064,
       "added": 1060,
       "updated": 0,
       "removed": 0
@@ -208,6 +222,24 @@
         "name": "EMEA · CHE · Stabio · VF Campus VF1",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-emea-che-stabio-vf-campus-vf1",
         "count": 23
+      },
+      {
+        "key": "st-moritz",
+        "name": "St. Moritz",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-st-moritz",
+        "count": 98
+      },
+      {
+        "key": "chur",
+        "name": "Chur",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-chur",
+        "count": 46
+      },
+      {
+        "key": "davos-platz",
+        "name": "Davos Platz",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-davos-platz",
+        "count": 26
       }
     ],
     "topCompaniesAddedToday": [
@@ -509,12 +541,12 @@
   },
   "salary": {
     "coverage": {
-      "jobsWithSalary": 906,
+      "jobsWithSalary": 1064,
       "coveragePct": 100,
-      "avgMin": 66341,
-      "avgMax": 89496,
-      "avgMid": 77918,
-      "medianMid": 68250
+      "avgMin": 65722,
+      "avgMax": 88633,
+      "avgMid": 77178,
+      "medianMid": 68000
     },
     "leaders": {
       "topSalaryCompanies": [
