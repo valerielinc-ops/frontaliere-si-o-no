@@ -1,22 +1,22 @@
 {
-  "generatedAt": "2026-03-17T16:27:22.207Z",
+  "generatedAt": "2026-03-17T16:28:23.952Z",
   "links": {
     "allJobs": "https://www.frontaliereticino.ch/cerca-lavoro-ticino"
   },
   "totals": {
-    "activeJobs": 1010,
-    "activeCompanies": 130,
+    "activeJobs": 916,
+    "activeCompanies": 129,
     "activeLocations": 160,
-    "todayAdded": 1180,
+    "todayAdded": 1177,
     "todayUpdated": 0,
     "todayRemoved": 0,
     "last7d": {
-      "added": 2083,
+      "added": 2080,
       "updated": 0,
       "removed": 0
     },
     "last30d": {
-      "added": 2566,
+      "added": 2563,
       "updated": 0,
       "removed": 0
     }
@@ -38,15 +38,15 @@
     },
     {
       "date": "2026-03-17",
-      "totalJobs": 1011,
-      "added": 1176,
+      "totalJobs": 1014,
+      "added": 1180,
       "updated": 0,
       "removed": 0
     },
     {
       "date": "2026-03-17",
-      "totalJobs": 1014,
-      "added": 1180,
+      "totalJobs": 1011,
+      "added": 1177,
       "updated": 0,
       "removed": 0
     }
@@ -106,6 +106,12 @@
         "name": "ReleWant",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-relewant",
         "count": 19
+      },
+      {
+        "key": "eoc-ente-ospedaliero-cantonale",
+        "name": "EOC – Ente Ospedaliero Cantonale",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-eoc-ente-ospedaliero-cantonale",
+        "count": 178
       }
     ],
     "topLocationsActive": [
@@ -126,36 +132,6 @@
         "name": "Bellinzona",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-bellinzona",
         "count": 131
-      },
-      {
-        "key": "lugano",
-        "name": "Lugano",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-lugano",
-        "count": 114
-      },
-      {
-        "key": "chur",
-        "name": "Chur",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-chur",
-        "count": 53
-      },
-      {
-        "key": "locarno",
-        "name": "Locarno",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-locarno",
-        "count": 42
-      },
-      {
-        "key": "st-moritz",
-        "name": "St. Moritz",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-st-moritz",
-        "count": 38
-      },
-      {
-        "key": "davos-platz",
-        "name": "Davos Platz",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-davos-platz",
-        "count": 26
       },
       {
         "key": "lugano",
@@ -204,6 +180,18 @@
         "name": "Davos Platz",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-davos-platz",
         "count": 26
+      },
+      {
+        "key": "chur",
+        "name": "Chur",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-chur",
+        "count": 47
+      },
+      {
+        "key": "st-moritz",
+        "name": "St. Moritz",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-st-moritz",
+        "count": 35
       }
     ],
     "topCompaniesAddedToday": [
@@ -505,11 +493,11 @@
   },
   "salary": {
     "coverage": {
-      "jobsWithSalary": 1010,
+      "jobsWithSalary": 916,
       "coveragePct": 100,
-      "avgMin": 66664,
-      "avgMax": 89915,
-      "avgMid": 78290,
+      "avgMin": 67242,
+      "avgMax": 90715,
+      "avgMid": 78979,
       "medianMid": 68500
     },
     "leaders": {
