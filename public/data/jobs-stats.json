@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-03-17T16:24:13.069Z",
+  "generatedAt": "2026-03-17T16:24:29.322Z",
   "links": {
     "allJobs": "https://www.frontaliereticino.ch/cerca-lavoro-ticino"
   },
   "totals": {
-    "activeJobs": 928,
+    "activeJobs": 917,
     "activeCompanies": 130,
     "activeLocations": 164,
     "todayAdded": 1175,
@@ -100,6 +100,12 @@
         "name": "Confederazione Svizzera",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-confederazione-svizzera",
         "count": 22
+      },
+      {
+        "key": "convit-holding-gmbh",
+        "name": "Convit Holding GmbH",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-convit-holding-gmbh",
+        "count": 23
       }
     ],
     "topLocationsActive": [
@@ -451,11 +457,11 @@
   },
   "salary": {
     "coverage": {
-      "jobsWithSalary": 928,
+      "jobsWithSalary": 917,
       "coveragePct": 100,
-      "avgMin": 67104,
-      "avgMax": 90525,
-      "avgMid": 78814,
+      "avgMin": 67133,
+      "avgMax": 90567,
+      "avgMid": 78850,
       "medianMid": 68500
     },
     "leaders": {
