@@ -1,6 +1,30 @@
 {
-  "updatedAt": "2026-03-16T12:55:37.624Z",
+  "updatedAt": "2026-03-17T04:45:41.957Z",
   "summaries": [
+    {
+      "key": "a-group",
+      "label": "A++ Group",
+      "generatedAt": "2026-03-17T04:45:41.957Z",
+      "total": 0,
+      "newCount": 0,
+      "updatedCount": 0,
+      "removedCount": 0,
+      "unchangedCount": 0,
+      "durationMs": 23576,
+      "avgDurationMs": 31221,
+      "durationHistory": [
+        23576,
+        28530,
+        30542,
+        44022,
+        28477,
+        32179
+      ],
+      "newJobs": [],
+      "updatedJobs": [],
+      "removedJobs": [],
+      "unchangedJobs": []
+    },
     {
       "key": "relewant",
       "label": "ReleWant",
@@ -720,29 +744,6 @@
           "slug": "galenica-coop-vitality-assistente-di-farmacia-afc-s-antonino"
         }
       ],
-      "updatedJobs": [],
-      "removedJobs": [],
-      "unchangedJobs": []
-    },
-    {
-      "key": "a-group",
-      "label": "A++ Group",
-      "generatedAt": "2026-03-16T05:22:09.208Z",
-      "total": 0,
-      "newCount": 0,
-      "updatedCount": 0,
-      "removedCount": 0,
-      "unchangedCount": 0,
-      "durationMs": 28530,
-      "avgDurationMs": 32750,
-      "durationHistory": [
-        28530,
-        30542,
-        44022,
-        28477,
-        32179
-      ],
-      "newJobs": [],
       "updatedJobs": [],
       "removedJobs": [],
       "unchangedJobs": []
