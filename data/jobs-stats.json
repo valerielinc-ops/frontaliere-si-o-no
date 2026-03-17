@@ -1,22 +1,22 @@
 {
-  "generatedAt": "2026-03-17T05:05:54.346Z",
+  "generatedAt": "2026-03-17T05:06:57.581Z",
   "links": {
     "allJobs": "https://www.frontaliereticino.ch/cerca-lavoro-ticino"
   },
   "totals": {
-    "activeJobs": 950,
-    "activeCompanies": 124,
-    "activeLocations": 144,
-    "todayAdded": 985,
+    "activeJobs": 1007,
+    "activeCompanies": 129,
+    "activeLocations": 145,
+    "todayAdded": 1042,
     "todayUpdated": 0,
     "todayRemoved": 0,
     "last7d": {
-      "added": 1888,
+      "added": 1945,
       "updated": 0,
       "removed": 0
     },
     "last30d": {
-      "added": 2371,
+      "added": 2428,
       "updated": 0,
       "removed": 0
     }
@@ -38,29 +38,15 @@
     },
     {
       "date": "2026-03-17",
-      "totalJobs": 969,
-      "added": 1004,
-      "updated": 0,
-      "removed": 0
-    },
-    {
-      "date": "2026-03-17",
-      "totalJobs": 955,
-      "added": 990,
-      "updated": 0,
-      "removed": 0
-    },
-    {
-      "date": "2026-03-17",
-      "totalJobs": 983,
-      "added": 1018,
-      "updated": 0,
-      "removed": 0
-    },
-    {
-      "date": "2026-03-17",
       "totalJobs": 950,
       "added": 985,
+      "updated": 0,
+      "removed": 0
+    },
+    {
+      "date": "2026-03-17",
+      "totalJobs": 1007,
+      "added": 1042,
       "updated": 0,
       "removed": 0
     }
@@ -151,25 +137,19 @@
         "key": "mendrisio",
         "name": "Mendrisio",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-mendrisio",
-        "count": 53
-      },
-      {
-        "key": "st-moritz",
-        "name": "St. Moritz",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-st-moritz",
-        "count": 36
-      },
-      {
-        "key": "mendrisio",
-        "name": "Mendrisio",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-mendrisio",
         "count": 58
       },
       {
+        "key": "lugano",
+        "name": "Lugano",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-lugano",
+        "count": 114
+      },
+      {
         "key": "st-moritz",
         "name": "St. Moritz",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-st-moritz",
-        "count": 41
+        "count": 57
       }
     ],
     "topCompaniesAddedToday": [
@@ -367,6 +347,15 @@
         "removed": 0
       },
       {
+        "key": "st-moritz",
+        "name": "St. Moritz",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-st-moritz",
+        "count": 0,
+        "added": 57,
+        "updated": 0,
+        "removed": 0
+      },
+      {
         "key": "chur",
         "name": "Chur",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-chur",
@@ -381,15 +370,6 @@
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-locarno",
         "count": 0,
         "added": 49,
-        "updated": 0,
-        "removed": 0
-      },
-      {
-        "key": "st-moritz",
-        "name": "St. Moritz",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-st-moritz",
-        "count": 0,
-        "added": 41,
         "updated": 0,
         "removed": 0
       }
@@ -471,11 +451,11 @@
   },
   "salary": {
     "coverage": {
-      "jobsWithSalary": 950,
+      "jobsWithSalary": 1007,
       "coveragePct": 100,
-      "avgMin": 67442,
-      "avgMax": 91005,
-      "avgMid": 79224,
+      "avgMin": 67222,
+      "avgMax": 90698,
+      "avgMid": 78960,
       "medianMid": 68500
     },
     "leaders": {
