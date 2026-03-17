@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-03-17T05:25:00.921Z",
+  "generatedAt": "2026-03-17T05:28:17.618Z",
   "links": {
     "allJobs": "https://www.frontaliereticino.ch/cerca-lavoro-ticino"
   },
   "totals": {
-    "activeJobs": 804,
-    "activeCompanies": 95,
-    "activeLocations": 118,
+    "activeJobs": 808,
+    "activeCompanies": 96,
+    "activeLocations": 124,
     "todayAdded": 1087,
     "todayUpdated": 0,
     "todayRemoved": 0,
@@ -54,6 +54,13 @@
       "date": "2026-03-17",
       "totalJobs": 944,
       "added": 985,
+      "updated": 0,
+      "removed": 0
+    },
+    {
+      "date": "2026-03-17",
+      "totalJobs": 1070,
+      "added": 1087,
       "updated": 0,
       "removed": 0
     },
@@ -200,6 +207,12 @@
         "name": "Lugano",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-lugano",
         "count": 114
+      },
+      {
+        "key": "chur",
+        "name": "Chur",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-chur",
+        "count": 34
       }
     ],
     "topCompaniesAddedToday": [
@@ -501,11 +514,11 @@
   },
   "salary": {
     "coverage": {
-      "jobsWithSalary": 804,
+      "jobsWithSalary": 808,
       "coveragePct": 100,
-      "avgMin": 67364,
-      "avgMax": 90906,
-      "avgMid": 79135,
+      "avgMin": 67306,
+      "avgMax": 90827,
+      "avgMid": 79067,
       "medianMid": 84500
     },
     "leaders": {
