@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-03-17T16:19:47.318Z",
+  "generatedAt": "2026-03-17T16:20:19.894Z",
   "links": {
     "allJobs": "https://www.frontaliereticino.ch/cerca-lavoro-ticino"
   },
   "totals": {
-    "activeJobs": 809,
+    "activeJobs": 892,
     "activeCompanies": 100,
-    "activeLocations": 136,
+    "activeLocations": 145,
     "todayAdded": 1175,
     "todayUpdated": 0,
     "todayRemoved": 0,
@@ -89,12 +89,6 @@
         "count": 25
       },
       {
-        "key": "usi-universita-della-svizzera-italiana",
-        "name": "USI – Università della Svizzera italiana",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-usi-universita-della-svizzera-italiana",
-        "count": 24
-      },
-      {
         "key": "eoc-ente-ospedaliero-cantonale",
         "name": "EOC – Ente Ospedaliero Cantonale",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-eoc-ente-ospedaliero-cantonale",
@@ -105,6 +99,30 @@
         "name": "ReleWant",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-relewant",
         "count": 19
+      },
+      {
+        "key": "eoc-ente-ospedaliero-cantonale",
+        "name": "EOC – Ente Ospedaliero Cantonale",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-eoc-ente-ospedaliero-cantonale",
+        "count": 178
+      },
+      {
+        "key": "afry",
+        "name": "AFRY",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-afry",
+        "count": 36
+      },
+      {
+        "key": "convit-holding-gmbh",
+        "name": "Convit Holding GmbH",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-convit-holding-gmbh",
+        "count": 35
+      },
+      {
+        "key": "axa-svizzera",
+        "name": "AXA Svizzera",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-axa-svizzera",
+        "count": 33
       }
     ],
     "topLocationsActive": [
@@ -155,6 +173,30 @@
         "name": "Lugano",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-lugano",
         "count": 112
+      },
+      {
+        "key": "st-moritz",
+        "name": "St. Moritz",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-st-moritz",
+        "count": 32
+      },
+      {
+        "key": "bellinzona",
+        "name": "Bellinzona",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-bellinzona",
+        "count": 135
+      },
+      {
+        "key": "lugano",
+        "name": "Lugano",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-lugano",
+        "count": 112
+      },
+      {
+        "key": "chur",
+        "name": "Chur",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-chur",
+        "count": 55
       },
       {
         "key": "st-moritz",
@@ -462,11 +504,11 @@
   },
   "salary": {
     "coverage": {
-      "jobsWithSalary": 809,
+      "jobsWithSalary": 892,
       "coveragePct": 100,
-      "avgMin": 67913,
-      "avgMax": 91647,
-      "avgMid": 79780,
+      "avgMin": 68069,
+      "avgMax": 91861,
+      "avgMid": 79965,
       "medianMid": 84500
     },
     "leaders": {
@@ -550,6 +592,16 @@
           "avgMax": 117833,
           "avgMid": 102500,
           "weightedSalary": 96367
+        },
+        {
+          "key": "board-international",
+          "name": "Board International",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-board-international",
+          "count": 11,
+          "avgMin": 82273,
+          "avgMax": 110909,
+          "avgMid": 96591,
+          "weightedSalary": 96591
         }
       ],
       "topSalaryLocations": [
@@ -632,6 +684,26 @@
           "avgMax": 102688,
           "avgMid": 89375,
           "weightedSalary": 89375
+        },
+        {
+          "key": "zurich",
+          "name": "Zürich",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-zurich",
+          "count": 9,
+          "avgMin": 87167,
+          "avgMax": 118167,
+          "avgMid": 102667,
+          "weightedSalary": 102667
+        },
+        {
+          "key": "chiasso-switzerland",
+          "name": "Chiasso, Switzerland",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-chiasso-switzerland",
+          "count": 8,
+          "avgMin": 85938,
+          "avgMax": 115938,
+          "avgMid": 100938,
+          "weightedSalary": 100938
         }
       ],
       "topSalaryTitles": [
