@@ -1,22 +1,22 @@
 {
-  "generatedAt": "2026-03-17T16:12:24.777Z",
+  "generatedAt": "2026-03-17T16:12:22.643Z",
   "links": {
     "allJobs": "https://www.frontaliereticino.ch/cerca-lavoro-ticino"
   },
   "totals": {
-    "activeJobs": 840,
+    "activeJobs": 824,
     "activeCompanies": 102,
     "activeLocations": 155,
-    "todayAdded": 1155,
+    "todayAdded": 1145,
     "todayUpdated": 0,
     "todayRemoved": 0,
     "last7d": {
-      "added": 3218,
+      "added": 3208,
       "updated": 0,
       "removed": 0
     },
     "last30d": {
-      "added": 3701,
+      "added": 3691,
       "updated": 0,
       "removed": 0
     }
@@ -47,6 +47,13 @@
       "date": "2026-03-17",
       "totalJobs": 840,
       "added": 1155,
+      "updated": 0,
+      "removed": 0
+    },
+    {
+      "date": "2026-03-17",
+      "totalJobs": 824,
+      "added": 1145,
       "updated": 0,
       "removed": 0
     }
@@ -451,11 +458,11 @@
   },
   "salary": {
     "coverage": {
-      "jobsWithSalary": 840,
+      "jobsWithSalary": 824,
       "coveragePct": 100,
-      "avgMin": 67164,
-      "avgMax": 90630,
-      "avgMid": 78897,
+      "avgMin": 67065,
+      "avgMax": 90491,
+      "avgMid": 78778,
       "medianMid": 72000
     },
     "leaders": {
@@ -481,6 +488,16 @@
           "weightedSalary": 103214
         },
         {
+          "key": "abb-svizzera-sede-ticino",
+          "name": "ABB Svizzera (sede Ticino)",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-abb-svizzera-sede-ticino",
+          "count": 14,
+          "avgMin": 86143,
+          "avgMax": 116214,
+          "avgMid": 101179,
+          "weightedSalary": 101179
+        },
+        {
           "key": "fincons-group",
           "name": "Fincons Group",
           "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-fincons-group",
@@ -489,16 +506,6 @@
           "avgMax": 127000,
           "avgMid": 110500,
           "weightedSalary": 100600
-        },
-        {
-          "key": "abb-svizzera-sede-ticino",
-          "name": "ABB Svizzera (sede Ticino)",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-abb-svizzera-sede-ticino",
-          "count": 12,
-          "avgMin": 85375,
-          "avgMax": 115208,
-          "avgMid": 100292,
-          "weightedSalary": 100292
         },
         {
           "key": "lastminute-com",
@@ -563,16 +570,6 @@
           "weightedSalary": 106250
         },
         {
-          "key": "quartino-ticino",
-          "name": "Quartino, Ticino",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-quartino-ticino",
-          "count": 11,
-          "avgMin": 86591,
-          "avgMax": 116864,
-          "avgMid": 101727,
-          "weightedSalary": 101727
-        },
-        {
           "key": "zurich",
           "name": "Zürich",
           "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-zurich",
@@ -621,6 +618,16 @@
           "avgMax": 102688,
           "avgMid": 89375,
           "weightedSalary": 89375
+        },
+        {
+          "key": "quartino-ticino",
+          "name": "Quartino, Ticino",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-quartino-ticino",
+          "count": 13,
+          "avgMin": 87231,
+          "avgMax": 117692,
+          "avgMid": 102462,
+          "weightedSalary": 102462
         }
       ],
       "topSalaryTitles": [
@@ -665,6 +672,16 @@
           "weightedSalary": 112800
         },
         {
+          "key": "responsabile-contratti",
+          "name": "Responsabile Contratti",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-responsabile-contratti",
+          "count": 1,
+          "avgMin": 109000,
+          "avgMax": 147000,
+          "avgMid": 128000,
+          "weightedSalary": 112800
+        },
+        {
           "key": "responsabile-del-corso-di-laurea-bachelor-in-ingegneria-gestionale",
           "name": "Responsabile del Corso di laurea Bachelor in Ingegneria gestionale",
           "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-responsabile-del-corso-di-laurea-bachelor-in-ingegneria-gestionale",
@@ -688,16 +705,6 @@
           "key": "responsabile-di-reparto-nonfood",
           "name": "Responsabile di reparto Nonfood",
           "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-responsabile-di-reparto-nonfood",
-          "count": 1,
-          "avgMin": 109000,
-          "avgMax": 147000,
-          "avgMid": 128000,
-          "weightedSalary": 112800
-        },
-        {
-          "key": "responsabile-di-zona-centrale-f-m",
-          "name": "Responsabile di Zona Centrale (f/m)",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-responsabile-di-zona-centrale-f-m",
           "count": 1,
           "avgMin": 109000,
           "avgMax": 147000,
