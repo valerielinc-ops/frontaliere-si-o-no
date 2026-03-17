@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-03-17T05:15:34.545Z",
+  "updatedAt": "2026-03-17T05:16:21.428Z",
   "summaries": [
     {
       "key": "migros",
@@ -2452,31 +2452,6 @@
           "slug": "apprendistato-come-impiegato-a-del-commercio-al-dettaglio-afc-post-2"
         }
       ]
-    },
-    {
-      "key": "swatch-group",
-      "label": "Swatch Group",
-      "generatedAt": "2026-03-16T05:53:10.217Z",
-      "total": 0,
-      "newCount": 0,
-      "updatedCount": 0,
-      "removedCount": 0,
-      "unchangedCount": 0,
-      "durationMs": 28312,
-      "avgDurationMs": 28681,
-      "durationHistory": [
-        28312,
-        27220,
-        27210,
-        28959,
-        28264,
-        32564,
-        28236
-      ],
-      "newJobs": [],
-      "updatedJobs": [],
-      "removedJobs": [],
-      "unchangedJobs": []
     },
     {
       "key": "swisscom-ticino",
@@ -8135,6 +8110,32 @@
           "slug": "apprendista-gestore-del-commercio-al-dettaglio-afc-lugano-sunrise-lugano"
         }
       ]
+    },
+    {
+      "key": "swatch-group",
+      "label": "Swatch Group",
+      "generatedAt": "2026-03-17T05:16:21.428Z",
+      "total": 0,
+      "newCount": 0,
+      "updatedCount": 0,
+      "removedCount": 0,
+      "unchangedCount": 0,
+      "durationMs": 28953,
+      "avgDurationMs": 28715,
+      "durationHistory": [
+        28953,
+        28312,
+        27220,
+        27210,
+        28959,
+        28264,
+        32564,
+        28236
+      ],
+      "newJobs": [],
+      "updatedJobs": [],
+      "removedJobs": [],
+      "unchangedJobs": []
     }
   ]
 }

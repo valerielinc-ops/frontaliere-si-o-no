@@ -1,22 +1,22 @@
 {
-  "generatedAt": "2026-03-17T05:15:55.669Z",
+  "generatedAt": "2026-03-17T05:16:23.377Z",
   "links": {
     "allJobs": "https://www.frontaliereticino.ch/cerca-lavoro-ticino"
   },
   "totals": {
-    "activeJobs": 808,
+    "activeJobs": 799,
     "activeCompanies": 94,
     "activeLocations": 121,
-    "todayAdded": 1069,
+    "todayAdded": 1082,
     "todayUpdated": 0,
     "todayRemoved": 0,
     "last7d": {
-      "added": 3132,
+      "added": 1985,
       "updated": 0,
       "removed": 0
     },
     "last30d": {
-      "added": 3615,
+      "added": 2468,
       "updated": 0,
       "removed": 0
     }
@@ -38,15 +38,15 @@
     },
     {
       "date": "2026-03-17",
-      "totalJobs": 1070,
-      "added": 1081,
+      "totalJobs": 1007,
+      "added": 1069,
       "updated": 0,
       "removed": 0
     },
     {
       "date": "2026-03-17",
-      "totalJobs": 1007,
-      "added": 1069,
+      "totalJobs": 1070,
+      "added": 1082,
       "updated": 0,
       "removed": 0
     }
@@ -90,10 +90,22 @@
         "count": 33
       },
       {
-        "key": "lwp-ledermann-wieting-partners",
-        "name": "LWP Ledermann Wieting & Partners",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-lwp-ledermann-wieting-partners",
-        "count": 33
+        "key": "usi-universita-della-svizzera-italiana",
+        "name": "USI – Università della Svizzera italiana",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-usi-universita-della-svizzera-italiana",
+        "count": 24
+      },
+      {
+        "key": "convit-holding-gmbh",
+        "name": "Convit Holding GmbH",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-convit-holding-gmbh",
+        "count": 23
+      },
+      {
+        "key": "interdiscount",
+        "name": "Interdiscount",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-interdiscount",
+        "count": 22
       }
     ],
     "topLocationsActive": [
@@ -104,34 +116,10 @@
         "count": 55
       },
       {
-        "key": "chur",
-        "name": "Chur",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-chur",
-        "count": 34
-      },
-      {
         "key": "lugano",
         "name": "Lugano",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-lugano",
         "count": 109
-      },
-      {
-        "key": "mendrisio",
-        "name": "Mendrisio",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-mendrisio",
-        "count": 45
-      },
-      {
-        "key": "chur",
-        "name": "Chur",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-chur",
-        "count": 34
-      },
-      {
-        "key": "ticino",
-        "name": "Ticino",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-ticino",
-        "count": 23
       },
       {
         "key": "bellinzona",
@@ -140,28 +128,10 @@
         "count": 133
       },
       {
-        "key": "lugano",
-        "name": "Lugano",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-lugano",
-        "count": 126
-      },
-      {
-        "key": "mendrisio",
-        "name": "Mendrisio",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-mendrisio",
-        "count": 47
-      },
-      {
         "key": "chur",
         "name": "Chur",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-chur",
         "count": 34
-      },
-      {
-        "key": "ticino",
-        "name": "Ticino",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-ticino",
-        "count": 27
       },
       {
         "key": "chiasso",
@@ -198,6 +168,24 @@
         "name": "Ticino",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-ticino",
         "count": 27
+      },
+      {
+        "key": "mendrisio",
+        "name": "Mendrisio",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-mendrisio",
+        "count": 50
+      },
+      {
+        "key": "locarno",
+        "name": "Locarno",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-locarno",
+        "count": 42
+      },
+      {
+        "key": "st-moritz",
+        "name": "St. Moritz",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-st-moritz",
+        "count": 33
       }
     ],
     "topCompaniesAddedToday": [
@@ -294,15 +282,6 @@
         "removed": 0
       },
       {
-        "key": "volg",
-        "name": "VOLG",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-volg",
-        "count": 0,
-        "added": 44,
-        "updated": 0,
-        "removed": 0
-      },
-      {
         "key": "kantonsspital-graubunden",
         "name": "Kantonsspital Graubünden",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-kantonsspital-graubunden",
@@ -346,6 +325,15 @@
         "added": 25,
         "updated": 0,
         "removed": 0
+      },
+      {
+        "key": "hamilton-bonaduz-ag",
+        "name": "Hamilton Bonaduz AG",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-hamilton-bonaduz-ag",
+        "count": 0,
+        "added": 24,
+        "updated": 0,
+        "removed": 0
       }
     ],
     "topLocationsAdded30d": [
@@ -354,7 +342,7 @@
         "name": "Bellinzona",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-bellinzona",
         "count": 0,
-        "added": 151,
+        "added": 150,
         "updated": 0,
         "removed": 0
       },
@@ -377,29 +365,20 @@
         "removed": 0
       },
       {
-        "key": "ticino",
-        "name": "Ticino",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-ticino",
-        "count": 0,
-        "added": 69,
-        "updated": 0,
-        "removed": 0
-      },
-      {
-        "key": "chur",
-        "name": "Chur",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-chur",
-        "count": 0,
-        "added": 68,
-        "updated": 0,
-        "removed": 0
-      },
-      {
         "key": "mendrisio",
         "name": "Mendrisio",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-mendrisio",
         "count": 0,
-        "added": 67,
+        "added": 64,
+        "updated": 0,
+        "removed": 0
+      },
+      {
+        "key": "ticino",
+        "name": "Ticino",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-ticino",
+        "count": 0,
+        "added": 63,
         "updated": 0,
         "removed": 0
       },
@@ -408,7 +387,16 @@
         "name": "St. Moritz",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-st-moritz",
         "count": 0,
-        "added": 61,
+        "added": 57,
+        "updated": 0,
+        "removed": 0
+      },
+      {
+        "key": "chur",
+        "name": "Chur",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-chur",
+        "count": 0,
+        "added": 56,
         "updated": 0,
         "removed": 0
       },
@@ -437,7 +425,7 @@
         "name": "Retail Specialist EFZ 'Creating Shopping Experiences'",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-retail-specialist-efz-creating-shopping-experiences",
         "count": 0,
-        "added": 28,
+        "added": 27,
         "updated": 0,
         "removed": 0
       },
@@ -487,11 +475,11 @@
         "removed": 0
       },
       {
-        "key": "tirocinio-come-specialista-del-commercio-al-dettaglio-o-assistente-al-dettaglio",
-        "name": "Tirocinio come specialista del commercio al dettaglio o assistente al dettaglio",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-tirocinio-come-specialista-del-commercio-al-dettaglio-o-assistente-al-dettaglio",
+        "key": "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026",
+        "name": "Apprendistato nel commercio al dettaglio CFP o AFC - Inizio 2026",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026",
         "count": 0,
-        "added": 9,
+        "added": 8,
         "updated": 0,
         "removed": 0
       }
@@ -499,12 +487,12 @@
   },
   "salary": {
     "coverage": {
-      "jobsWithSalary": 808,
+      "jobsWithSalary": 799,
       "coveragePct": 100,
-      "avgMin": 67659,
-      "avgMax": 91306,
-      "avgMid": 79482,
-      "medianMid": 77500
+      "avgMin": 67397,
+      "avgMax": 90951,
+      "avgMid": 79174,
+      "medianMid": 72000
     },
     "leaders": {
       "topSalaryCompanies": [
@@ -661,24 +649,14 @@
           "weightedSalary": 88300
         },
         {
-          "key": "losone",
-          "name": "Losone",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-losone",
-          "count": 8,
-          "avgMin": 73563,
-          "avgMax": 99313,
-          "avgMid": 86438,
-          "weightedSalary": 86438
-        },
-        {
-          "key": "losone",
-          "name": "Losone",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-losone",
-          "count": 8,
-          "avgMin": 73563,
-          "avgMax": 99313,
-          "avgMid": 86438,
-          "weightedSalary": 86438
+          "key": "beijing-china",
+          "name": "Beijing, China",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-beijing-china",
+          "count": 1,
+          "avgMin": 92000,
+          "avgMax": 125000,
+          "avgMid": 108500,
+          "weightedSalary": 95300
         }
       ],
       "topSalaryTitles": [
