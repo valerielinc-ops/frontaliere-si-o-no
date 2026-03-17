@@ -1,22 +1,22 @@
 {
-  "generatedAt": "2026-03-17T16:14:12.078Z",
+  "generatedAt": "2026-03-17T16:14:57.155Z",
   "links": {
     "allJobs": "https://www.frontaliereticino.ch/cerca-lavoro-ticino"
   },
   "totals": {
-    "activeJobs": 852,
-    "activeCompanies": 103,
-    "activeLocations": 165,
-    "todayAdded": 1166,
+    "activeJobs": 900,
+    "activeCompanies": 102,
+    "activeLocations": 155,
+    "todayAdded": 1157,
     "todayUpdated": 0,
     "todayRemoved": 0,
     "last7d": {
-      "added": 3229,
+      "added": 2060,
       "updated": 0,
       "removed": 0
     },
     "last30d": {
-      "added": 3712,
+      "added": 2543,
       "updated": 0,
       "removed": 0
     }
@@ -37,20 +37,6 @@
       "removed": 0
     },
     {
-      "date": "2026-03-16",
-      "totalJobs": 937,
-      "added": 1160,
-      "updated": 0,
-      "removed": 0
-    },
-    {
-      "date": "2026-03-17",
-      "totalJobs": 824,
-      "added": 1145,
-      "updated": 0,
-      "removed": 0
-    },
-    {
       "date": "2026-03-17",
       "totalJobs": 844,
       "added": 1156,
@@ -63,6 +49,13 @@
       "added": 1166,
       "updated": 0,
       "removed": 0
+    },
+    {
+      "date": "2026-03-17",
+      "totalJobs": 900,
+      "added": 1157,
+      "updated": 0,
+      "removed": 0
     }
   ],
   "leaders": {
@@ -71,13 +64,13 @@
         "key": "eoc-ente-ospedaliero-cantonale",
         "name": "EOC – Ente Ospedaliero Cantonale",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-eoc-ente-ospedaliero-cantonale",
-        "count": 187
+        "count": 196
       },
       {
         "key": "volg",
         "name": "VOLG",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-volg",
-        "count": 44
+        "count": 73
       },
       {
         "key": "coop",
@@ -118,18 +111,6 @@
     ],
     "topLocationsActive": [
       {
-        "key": "bellinzona",
-        "name": "Bellinzona",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-bellinzona",
-        "count": 132
-      },
-      {
-        "key": "lugano",
-        "name": "Lugano",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-lugano",
-        "count": 113
-      },
-      {
         "key": "mendrisio",
         "name": "Mendrisio",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-mendrisio",
@@ -142,28 +123,10 @@
         "count": 46
       },
       {
-        "key": "locarno",
-        "name": "Locarno",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-locarno",
-        "count": 42
-      },
-      {
         "key": "chur",
         "name": "Chur",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-chur",
         "count": 41
-      },
-      {
-        "key": "chiasso",
-        "name": "Chiasso",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-chiasso",
-        "count": 23
-      },
-      {
-        "key": "st-moritz",
-        "name": "St. Moritz",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-st-moritz",
-        "count": 34
       },
       {
         "key": "bellinzona",
@@ -188,6 +151,36 @@
         "name": "St. Moritz",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-st-moritz",
         "count": 37
+      },
+      {
+        "key": "bellinzona",
+        "name": "Bellinzona",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-bellinzona",
+        "count": 133
+      },
+      {
+        "key": "lugano",
+        "name": "Lugano",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-lugano",
+        "count": 117
+      },
+      {
+        "key": "locarno",
+        "name": "Locarno",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-locarno",
+        "count": 43
+      },
+      {
+        "key": "st-moritz",
+        "name": "St. Moritz",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-st-moritz",
+        "count": 38
+      },
+      {
+        "key": "novaggio",
+        "name": "Novaggio",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-novaggio",
+        "count": 26
       }
     ],
     "topCompaniesAddedToday": [
@@ -344,7 +337,7 @@
         "name": "Bellinzona",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-bellinzona",
         "count": 0,
-        "added": 154,
+        "added": 153,
         "updated": 0,
         "removed": 0
       },
@@ -367,29 +360,20 @@
         "removed": 0
       },
       {
-        "key": "ticino",
-        "name": "Ticino",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-ticino",
-        "count": 0,
-        "added": 69,
-        "updated": 0,
-        "removed": 0
-      },
-      {
-        "key": "chur",
-        "name": "Chur",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-chur",
-        "count": 0,
-        "added": 68,
-        "updated": 0,
-        "removed": 0
-      },
-      {
         "key": "mendrisio",
         "name": "Mendrisio",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-mendrisio",
         "count": 0,
-        "added": 67,
+        "added": 64,
+        "updated": 0,
+        "removed": 0
+      },
+      {
+        "key": "ticino",
+        "name": "Ticino",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-ticino",
+        "count": 0,
+        "added": 63,
         "updated": 0,
         "removed": 0
       },
@@ -398,7 +382,16 @@
         "name": "St. Moritz",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-st-moritz",
         "count": 0,
-        "added": 61,
+        "added": 57,
+        "updated": 0,
+        "removed": 0
+      },
+      {
+        "key": "chur",
+        "name": "Chur",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-chur",
+        "count": 0,
+        "added": 56,
         "updated": 0,
         "removed": 0
       },
@@ -489,12 +482,12 @@
   },
   "salary": {
     "coverage": {
-      "jobsWithSalary": 852,
+      "jobsWithSalary": 900,
       "coveragePct": 100,
-      "avgMin": 67088,
-      "avgMax": 90523,
-      "avgMid": 78805,
-      "medianMid": 72000
+      "avgMin": 66663,
+      "avgMax": 89943,
+      "avgMid": 78303,
+      "medianMid": 68500
     },
     "leaders": {
       "topSalaryCompanies": [
@@ -601,6 +594,16 @@
           "weightedSalary": 106250
         },
         {
+          "key": "quartino-ticino",
+          "name": "Quartino, Ticino",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-quartino-ticino",
+          "count": 13,
+          "avgMin": 87231,
+          "avgMax": 117692,
+          "avgMid": 102462,
+          "weightedSalary": 102462
+        },
+        {
           "key": "zurich",
           "name": "Zürich",
           "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-zurich",
@@ -649,16 +652,6 @@
           "avgMax": 102688,
           "avgMid": 89375,
           "weightedSalary": 89375
-        },
-        {
-          "key": "quartino-ticino",
-          "name": "Quartino, Ticino",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-quartino-ticino",
-          "count": 13,
-          "avgMin": 87231,
-          "avgMax": 117692,
-          "avgMid": 102462,
-          "weightedSalary": 102462
         }
       ],
       "topSalaryTitles": [
@@ -671,6 +664,16 @@
           "avgMax": 228534,
           "avgMid": 184370,
           "weightedSalary": 149038
+        },
+        {
+          "key": "responsabile-del-corso-di-laurea-bachelor-in-ingegneria-gestionale",
+          "name": "Responsabile del Corso di laurea Bachelor in Ingegneria gestionale",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-responsabile-del-corso-di-laurea-bachelor-in-ingegneria-gestionale",
+          "count": 2,
+          "avgMin": 109000,
+          "avgMax": 147000,
+          "avgMid": 128000,
+          "weightedSalary": 116600
         },
         {
           "key": "area-vendite-account-manager-fur-elektrowerkzeuge-m-w-d",
@@ -706,16 +709,6 @@
           "key": "responsabile-contratti",
           "name": "Responsabile Contratti",
           "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-responsabile-contratti",
-          "count": 1,
-          "avgMin": 109000,
-          "avgMax": 147000,
-          "avgMid": 128000,
-          "weightedSalary": 112800
-        },
-        {
-          "key": "responsabile-del-corso-di-laurea-bachelor-in-ingegneria-gestionale",
-          "name": "Responsabile del Corso di laurea Bachelor in Ingegneria gestionale",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-responsabile-del-corso-di-laurea-bachelor-in-ingegneria-gestionale",
           "count": 1,
           "avgMin": 109000,
           "avgMax": 147000,

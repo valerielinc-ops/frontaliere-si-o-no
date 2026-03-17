@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-03-17T16:13:29.595Z",
+  "updatedAt": "2026-03-17T16:14:36.004Z",
   "summaries": [
     {
       "key": "a-group",
@@ -2286,47 +2286,6 @@
           "location": "Domat/Ems",
           "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/gestore-dell-impianto-gestore-dell-impianto-di-riscaldamento-centrale-elettrica-a-legna-f-m-d-axpo-group-domat-ems/",
           "slug": "anlagenfuhrer-in-heizwerkfuhrer-in-holzheizkraftwerk-w-m-d-2101497b-3a42-43b6-8370-7835eb32af54"
-        }
-      ]
-    },
-    {
-      "key": "baronie",
-      "label": "Baronie",
-      "generatedAt": "2026-03-17T04:51:12.527Z",
-      "total": 2,
-      "newCount": 0,
-      "updatedCount": 0,
-      "removedCount": 0,
-      "unchangedCount": 2,
-      "durationMs": 15616,
-      "avgDurationMs": 35776,
-      "durationHistory": [
-        15616,
-        22009,
-        20833,
-        21448,
-        23104,
-        56274,
-        41275,
-        85645
-      ],
-      "newJobs": [],
-      "updatedJobs": [],
-      "removedJobs": [],
-      "unchangedJobs": [
-        {
-          "title": "International Sales Manager",
-          "company": "Chocolat Alprose SA / Baronie Switzerland SA",
-          "location": "Caslano",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/international-sales-manager-baronie-caslano/",
-          "slug": "international-sales-manager-baronie-caslano"
-        },
-        {
-          "title": "Sustainability Coordinator - Maternaty Leave Cover",
-          "company": "Chocolat Alprose SA / Baronie Switzerland SA",
-          "location": "Caslano",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/sustainability-coordinator-maternaty-leave-cover-baronie-caslano/",
-          "slug": "sustainability-coordinator-maternaty-leave-cover-baronie-caslano"
         }
       ]
     },
@@ -8449,6 +8408,49 @@
       "updatedJobs": [],
       "removedJobs": [],
       "unchangedJobs": []
+    },
+    {
+      "key": "baronie",
+      "label": "Baronie",
+      "generatedAt": "2026-03-17T16:14:36.004Z",
+      "total": 2,
+      "newCount": 1,
+      "updatedCount": 0,
+      "removedCount": 0,
+      "unchangedCount": 1,
+      "durationMs": 15746,
+      "avgDurationMs": 33550,
+      "durationHistory": [
+        15746,
+        15616,
+        22009,
+        20833,
+        21448,
+        23104,
+        56274,
+        41275,
+        85645
+      ],
+      "newJobs": [
+        {
+          "title": "Sustainability Coordinator - Maternaty Leave Cover",
+          "company": "Chocolat Alprose SA / Baronie Switzerland SA",
+          "location": "Caslano",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/sustainability-coordinator-maternaty-leave-cover-baronie-caslano/",
+          "slug": "sustainability-coordinator-maternaty-leave-cover-baronie-caslano"
+        }
+      ],
+      "updatedJobs": [],
+      "removedJobs": [],
+      "unchangedJobs": [
+        {
+          "title": "International Sales Manager",
+          "company": "Chocolat Alprose SA / Baronie Switzerland SA",
+          "location": "Caslano",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/international-sales-manager-baronie-caslano/",
+          "slug": "international-sales-manager-baronie-caslano"
+        }
+      ]
     }
   ]
 }
