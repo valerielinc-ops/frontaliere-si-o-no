@@ -1283,6 +1283,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.infiltrazioni-criminali-ticino-grigioni.title': 'Kultur, Geld, kriminelle Infiltrationen: Tessin und Graubünden im Vergleich',
     'blog.article.infiltrazioni-criminali-ticino-grigioni.excerpt': 'Der Vergleich zwischen dem Tessin und dem Graubünden hinsichtlich krimineller Infiltrationen und Wirtschaftskultur.',
     'blog.article.infiltrazioni-criminali-ticino-grigioni.imageAlt': 'Bellinzona, mit dem Castelgrande im Vordergrund',
+    'blog.article.turismo-luganese-formazione.title': 'Der Luganer Raum setzt auf Ausbildung zur Verbesserung der touristischen Gastfreundschaft',
+    'blog.article.turismo-luganese-formazione.excerpt': 'Mit dem Projekt \'Lugano Region Ti Conosco\' stärkt das ETL die Kompetenzen der Branchenmitarbeiter und fördert ein immer qualifizierteres touristisches Erlebnis.',
+    'blog.article.turismo-luganese-formazione.imageAlt': 'Lugano vom See aus gesehen.',
 };
 
 export default blogMetaDe;

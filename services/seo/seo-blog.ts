@@ -5533,6 +5533,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-turismo-luganese-formazione': {
+    title: 'Il Luganese punta sulla formazione per migliorare | Frontaliere Ticino',
+    description: 'L\'Ente Turistico del Luganese (ETL) ha lanciato il progetto \'Lugano Region Ti Conosco\', che ha coinvolto 68 operatori di 24 strutture ricettive dei comprensori',
+    keywords: 'frontalieri, ticino, svizzera, italia, luganese, punta, sulla, formazione',
+    ogTitle: 'Il Luganese punta sulla formazione per migliorare',
+    ogDescription: 'L\'Ente Turistico del Luganese (ETL) ha lanciato il progetto \'Lugano Region Ti Conosco\', che ha coinvolto 68 operatori di 24 strutture ricettive dei comprensori',
+    canonicalPath: '/articoli-frontaliere/turismo-luganese-formazione',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Il Luganese punta sulla formazione per migliorare l'accoglienza",
+      "description": "L'Ente Turistico del Luganese (ETL) ha lanciato il progetto 'Lugano Region Ti Conosco', che ha coinvolto 68 operatori di 24 strutture ricettive dei comprensori",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/turismo-luganese-formazione.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Vista di Lugano dal lago."
+      },
+      "datePublished": "2026-03-17T23:01:33+00:00",
+      "dateModified": "2026-03-17T23:01:33+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/turismo-luganese-formazione`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

@@ -1283,6 +1283,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.infiltrazioni-criminali-ticino-grigioni.title': 'Culture, money, criminal infiltration: Ticino and Graubünden compared',
     'blog.article.infiltrazioni-criminali-ticino-grigioni.excerpt': 'A comparison between Ticino and Graubünden on criminal infiltration and economic culture.',
     'blog.article.infiltrazioni-criminali-ticino-grigioni.imageAlt': 'Bellinzona, with the Castelgrande in the foreground',
+    'blog.article.turismo-luganese-formazione.title': 'Lugano Region bets on training to lift tourist hospitality',
+    'blog.article.turismo-luganese-formazione.excerpt': 'With the \'Lugano Region Ti Conosco\' project, the ETL upskills industry staff and promotes an ever more qualified visitor experience.',
+    'blog.article.turismo-luganese-formazione.imageAlt': 'View of Lugano from the lake.',
 };
 
 export default blogMetaEn;

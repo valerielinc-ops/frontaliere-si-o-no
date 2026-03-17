@@ -1561,6 +1561,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-lavoro-economia-2026': { name: 'La fuga di talenti a Zurigo', path: '/articoli-frontaliere/lavoro-economia-2026', parent: 'blog' },
     'blog-sequestro-cocaina-brogeda-2026': { name: 'Sequestro cocaina', path: '/articoli-frontaliere/sequestro-cocaina-brogeda-2026', parent: 'blog' },
     'blog-infiltrazioni-criminali-ticino-grigioni': { name: 'Cultura, soldi, infiltrazioni criminali', path: '/articoli-frontaliere/infiltrazioni-criminali-ticino-grigioni', parent: 'blog' },
+    'blog-turismo-luganese-formazione': { name: 'Turismo e formazione', path: '/articoli-frontaliere/turismo-luganese-formazione', parent: 'blog' },
   };
 
   const info = sectionNames[section];

@@ -1283,6 +1283,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.infiltrazioni-criminali-ticino-grigioni.title': 'Culture, argent, infiltrations criminelles : Tessin et Grisons en comparaison',
     'blog.article.infiltrazioni-criminali-ticino-grigioni.excerpt': 'Le comparaison entre le Tessin et le Grisons en matière d\'infiltrations criminelles et de culture économique.',
     'blog.article.infiltrazioni-criminali-ticino-grigioni.imageAlt': 'Bellinzona, avec le Castelgrande en arrière-plan',
+    'blog.article.turismo-luganese-formazione.title': 'Le canton du Tessin mise sur la formation pour améliorer l\'accueil touristique',
+    'blog.article.turismo-luganese-formazione.excerpt': 'Avec le projet \'Lugano Region Ti Conosco\', l\'ETL renforce les compétences des opérateurs du secteur et promeut une expérience touristique de plus en plus qualifiée.',
+    'blog.article.turismo-luganese-formazione.imageAlt': 'Vue de Lugano du lac.',
 };
 
 export default blogMetaFr;

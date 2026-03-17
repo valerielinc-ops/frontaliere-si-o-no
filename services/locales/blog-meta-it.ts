@@ -1283,6 +1283,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.infiltrazioni-criminali-ticino-grigioni.title': 'Cultura, soldi, infiltrazioni criminali: Ticino e Grigioni a confronto',
     'blog.article.infiltrazioni-criminali-ticino-grigioni.excerpt': 'Il confronto tra il Ticino e il Grigioni in materia di infiltrazioni criminali e cultura economica.',
     'blog.article.infiltrazioni-criminali-ticino-grigioni.imageAlt': 'Bellinzona, con il Castelgrande in primo piano',
+    'blog.article.turismo-luganese-formazione.title': 'Il Luganese punta sulla formazione per migliorare l\'accoglienza turistica',
+    'blog.article.turismo-luganese-formazione.excerpt': 'Con il progetto \'Lugano Region Ti Conosco\', l\'ETL rafforza le competenze degli operatori del settore e promuove un\'esperienza turistica sempre più qualificata.',
+    'blog.article.turismo-luganese-formazione.imageAlt': 'Vista di Lugano dal lago.',
 };
 
 export default blogMetaIt;

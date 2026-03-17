@@ -3568,6 +3568,13 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/infiltrazioni-criminali-ticino-grigioni.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'turismo-luganese-formazione',
+    category: 'novita',
+    date: '2026-03-17T23:01:33.852Z',
+    image: '/images/blog/turismo-luganese-formazione.jpg',
+    hasCalculator: true,
+  },
 ];
 
 const CATEGORIES = ['all', 'fiscale', 'pratico', 'novita', 'pensione'] as const;
