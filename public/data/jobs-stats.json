@@ -1,22 +1,22 @@
 {
-  "generatedAt": "2026-03-17T16:21:26.221Z",
+  "generatedAt": "2026-03-17T16:21:25.400Z",
   "links": {
     "allJobs": "https://www.frontaliereticino.ch/cerca-lavoro-ticino"
   },
   "totals": {
-    "activeJobs": 820,
-    "activeCompanies": 101,
-    "activeLocations": 142,
-    "todayAdded": 1175,
+    "activeJobs": 1011,
+    "activeCompanies": 131,
+    "activeLocations": 185,
+    "todayAdded": 1171,
     "todayUpdated": 0,
     "todayRemoved": 0,
     "last7d": {
-      "added": 2078,
+      "added": 2074,
       "updated": 0,
       "removed": 0
     },
     "last30d": {
-      "added": 2561,
+      "added": 2557,
       "updated": 0,
       "removed": 0
     }
@@ -40,6 +40,13 @@
       "date": "2026-03-17",
       "totalJobs": 820,
       "added": 1175,
+      "updated": 0,
+      "removed": 0
+    },
+    {
+      "date": "2026-03-17",
+      "totalJobs": 1011,
+      "added": 1171,
       "updated": 0,
       "removed": 0
     }
@@ -121,12 +128,6 @@
         "count": 42
       },
       {
-        "key": "chur",
-        "name": "Chur",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-chur",
-        "count": 41
-      },
-      {
         "key": "chiasso",
         "name": "Chiasso",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-chiasso",
@@ -149,6 +150,18 @@
         "name": "Chiasso",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-chiasso",
         "count": 23
+      },
+      {
+        "key": "chur",
+        "name": "Chur",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-chur",
+        "count": 47
+      },
+      {
+        "key": "st-moritz",
+        "name": "St. Moritz",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-st-moritz",
+        "count": 41
       }
     ],
     "topCompaniesAddedToday": [
@@ -450,11 +463,11 @@
   },
   "salary": {
     "coverage": {
-      "jobsWithSalary": 820,
+      "jobsWithSalary": 1011,
       "coveragePct": 100,
-      "avgMin": 67869,
-      "avgMax": 91585,
-      "avgMid": 79727,
+      "avgMin": 66137,
+      "avgMax": 89209,
+      "avgMid": 77673,
       "medianMid": 84500
     },
     "leaders": {
