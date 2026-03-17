@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-03-17T16:35:02.337Z",
-  "startedAt": "2026-03-17T16:34:59.229Z",
+  "generatedAt": "2026-03-17T16:36:28.508Z",
+  "startedAt": "2026-03-17T16:36:14.962Z",
   "config": {
     "minQualityScore": 4,
     "minDescriptionChars": 80,
@@ -26,8 +26,8 @@
     "companiesDroppedBySelection": 0,
     "companiesCrawled": 0,
     "discoveredCareerPages": 0,
-    "scrapedJobPages": 0,
-    "incomingCandidatesAccepted": 0,
+    "scrapedJobPages": 1,
+    "incomingCandidatesAccepted": 1,
     "discardedCandidates": 0,
     "filteredOutNonCandidates": 0,
     "duplicateInCompany": 0,
@@ -36,12 +36,12 @@
     "browserFallbackAttempts": 0,
     "browserFallbackHits": 0,
     "duplicateIncoming": 0,
-    "duplicateExisting": 0,
+    "duplicateExisting": 2,
     "mergeExcludedJobs": 0,
     "mergeExclusionByReason": {},
     "reusedLocalizationFromPrevious": 0,
     "inserted": 0,
-    "refreshed": 0,
+    "refreshed": 1,
     "mergedTotal": 962,
     "aiLocalizationCalls": 4,
     "aiPageValidationCalls": 0,
@@ -55,7 +55,30 @@
     "discoveredCompaniesAdded": 0,
     "discoveredCompaniesPending": 0
   },
-  "byCompany": [],
+  "byCompany": [
+    {
+      "company": "Banca Raiffeisen Vedeggio Cassarate",
+      "domain": "raiffeisen.ch",
+      "discoveredCareerPages": 8,
+      "scrapedJobPages": 1,
+      "processedCandidates": 1,
+      "extractedAccepted": 1,
+      "discardedCount": 0,
+      "discardedByReason": {},
+      "filteredOutCount": 0,
+      "filteredOutByReason": {},
+      "duplicateInCompany": 0,
+      "webDiscoveryQueries": 0,
+      "webDiscoveryHits": 0,
+      "webDiscoveryProviders": [],
+      "browserFallbackAttempted": 0,
+      "browserFallbackHits": 0,
+      "browserFallbackReason": "",
+      "inserted": 0,
+      "refreshed": 1,
+      "duplicateIncoming": 0
+    }
+  ],
   "droppedCompanies": [],
   "mergeExclusionSamples": []
 }
