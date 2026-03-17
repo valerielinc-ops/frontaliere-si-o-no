@@ -1,22 +1,22 @@
 {
-  "generatedAt": "2026-03-17T17:17:18.281Z",
+  "generatedAt": "2026-03-17T18:46:22.478Z",
   "links": {
     "allJobs": "https://www.frontaliereticino.ch/cerca-lavoro-ticino"
   },
   "totals": {
-    "activeJobs": 972,
+    "activeJobs": 830,
     "activeCompanies": 133,
-    "activeLocations": 162,
-    "todayAdded": 1192,
+    "activeLocations": 141,
+    "todayAdded": 1176,
     "todayUpdated": 0,
     "todayRemoved": 0,
     "last7d": {
-      "added": 2095,
+      "added": 2079,
       "updated": 0,
       "removed": 0
     },
     "last30d": {
-      "added": 2578,
+      "added": 2562,
       "updated": 0,
       "removed": 0
     }
@@ -70,6 +70,13 @@
       "added": 1191,
       "updated": 0,
       "removed": 0
+    },
+    {
+      "date": "2026-03-17",
+      "totalJobs": 830,
+      "added": 1176,
+      "updated": 0,
+      "removed": 0
     }
   ],
   "leaders": {
@@ -111,10 +118,10 @@
         "count": 24
       },
       {
-        "key": "convit-holding-gmbh",
-        "name": "Convit Holding GmbH",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-convit-holding-gmbh",
-        "count": 23
+        "key": "eoc-ente-ospedaliero-cantonale",
+        "name": "EOC – Ente Ospedaliero Cantonale",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-eoc-ente-ospedaliero-cantonale",
+        "count": 188
       }
     ],
     "topLocationsActive": [
@@ -183,18 +190,33 @@
         "name": "Ticino",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-ticino",
         "count": 25
+      },
+      {
+        "key": "bellinzona",
+        "name": "Bellinzona",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-bellinzona",
+        "count": 134
+      },
+      {
+        "key": "lugano",
+        "name": "Lugano",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-lugano",
+        "count": 114
+      },
+      {
+        "key": "chur",
+        "name": "Chur",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-chur",
+        "count": 40
+      },
+      {
+        "key": "st-moritz",
+        "name": "St. Moritz",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-st-moritz",
+        "count": 32
       }
     ],
     "topCompaniesAddedToday": [
-      {
-        "key": "eoc-ente-ospedaliero-cantonale",
-        "name": "EOC – Ente Ospedaliero Cantonale",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-eoc-ente-ospedaliero-cantonale",
-        "count": 0,
-        "added": 205,
-        "updated": 0,
-        "removed": 0
-      },
       {
         "key": "coop",
         "name": "Coop",
@@ -255,6 +277,15 @@
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-hamilton-bonaduz-ag",
         "count": 0,
         "added": 24,
+        "updated": 0,
+        "removed": 0
+      },
+      {
+        "key": "eoc-ente-ospedaliero-cantonale",
+        "name": "EOC – Ente Ospedaliero Cantonale",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-eoc-ente-ospedaliero-cantonale",
+        "count": 0,
+        "added": 206,
         "updated": 0,
         "removed": 0
       }
@@ -484,11 +515,11 @@
   },
   "salary": {
     "coverage": {
-      "jobsWithSalary": 972,
+      "jobsWithSalary": 830,
       "coveragePct": 100,
-      "avgMin": 66753,
-      "avgMax": 90045,
-      "avgMid": 78399,
+      "avgMin": 67929,
+      "avgMax": 91665,
+      "avgMid": 79797,
       "medianMid": 68500
     },
     "leaders": {
@@ -512,16 +543,6 @@
           "avgMax": 116214,
           "avgMid": 101179,
           "weightedSalary": 101179
-        },
-        {
-          "key": "board-international",
-          "name": "Board International",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-board-international",
-          "count": 9,
-          "avgMin": 84444,
-          "avgMax": 113889,
-          "avgMid": 99167,
-          "weightedSalary": 99167
         },
         {
           "key": "fincons-group",
