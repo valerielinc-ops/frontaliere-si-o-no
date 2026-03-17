@@ -1277,6 +1277,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.lavoro-economia-2026.title': 'Die Flucht der Talente nach Zürich: Unternehmen klagen über die Wohnungsnot',
     'blog.article.lavoro-economia-2026.excerpt': 'Die Wohnungsnot in Zürich ist ein ernstes Problem, das potenziellen Bewerbern von Unternehmen in Zürich abschreckt. Die Wohnungsnot ist eine der Hauptbeschwerden der Unternehmen.',
     'blog.article.lavoro-economia-2026.imageAlt': 'Eine junge Frau sucht nach einem Apartment in einem Wohngebiet von Lugano, März 2026',
+    'blog.article.sequestro-cocaina-brogeda-2026.title': '15 kg Kokain in Brogeda beschlagnahmt: Was sich für Grenzgänger ändert',
+    'blog.article.sequestro-cocaina-brogeda-2026.excerpt': 'Maxi-Beschlagnahme am Grenzübergang Brogeda: 15,3 kg reinstes Kokain in Doppelboden versteckt. Ermittlungen laufen, mögliche verschärfte Kontrollen.',
+    'blog.article.sequestro-cocaina-brogeda-2026.imageAlt': 'Zollkontrolle Brogeda-Chiasso mit Kokain-Fund in Rekordmenge',
 };
 
 export default blogMetaDe;

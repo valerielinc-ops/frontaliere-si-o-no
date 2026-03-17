@@ -1277,6 +1277,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.lavoro-economia-2026.title': 'La fuite de talents à Zurich : les entreprises se plaignent de la pénurie de logements',
     'blog.article.lavoro-economia-2026.excerpt': 'La pénurie de logements à Zurich est un problème grave qui décourage les candidats des entreprises zurichoises. La pénurie de logements est l\'une des principales préoccupations des entreprises.',
     'blog.article.lavoro-economia-2026.imageAlt': 'Une jeune femme cherche un appartement dans un quartier résidentiel de Lugano, mars 2026',
+    'blog.article.sequestro-cocaina-brogeda-2026.title': '15 kg de cocaïne saisis à Brogeda : qu\'est-ce qui change pour les frontaliers',
+    'blog.article.sequestro-cocaina-brogeda-2026.excerpt': 'Maxi-saisie au poste frontière de Brogeda : 15,3 kg de cocaïne très pure dissimulés dans un double fond. Enquêtes en cours, contrôles renforcés possibles.',
+    'blog.article.sequestro-cocaina-brogeda-2026.imageAlt': 'Contrôle douanier Brogeda-Chiasso avec saisie record de cocaïne',
 };
 
 export default blogMetaFr;

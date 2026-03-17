@@ -3554,6 +3554,13 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/lavoro-economia-2026.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'sequestro-cocaina-brogeda-2026',
+    category: 'novita',
+    date: '2026-03-17T21:08:34.195Z',
+    image: '/images/blog/sequestro-cocaina-brogeda-2026.jpg',
+    hasCalculator: true,
+  },
 ];
 
 const CATEGORIES = ['all', 'fiscale', 'pratico', 'novita', 'pensione'] as const;

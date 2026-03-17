@@ -1277,6 +1277,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.lavoro-economia-2026.title': 'La fuga di talenti a Zurigo: anche le aziende si lamentano della penuria di alloggi',
     'blog.article.lavoro-economia-2026.excerpt': 'La carenza di alloggi a Zurigo è un problema serio che sta scoraggiando i candidati dalle aziende zurighesi. La penuria di abitazioni è una delle principali preoccupazioni delle imprese.',
     'blog.article.lavoro-economia-2026.imageAlt': 'Una giovane donna cerca di trovare un appartamento in una zona residenziale di Lugano, marzo 2026',
+    'blog.article.sequestro-cocaina-brogeda-2026.title': '15 kg di cocaina sequestrati a Brogeda: cosa cambia per i frontalieri',
+    'blog.article.sequestro-cocaina-brogeda-2026.excerpt': 'Maxi-sequestro al valico di Brogeda: 15,3 kg di cocaina purissima nascosti in un doppiofondo. Indagini in corso, possibili controlli rafforzati.',
+    'blog.article.sequestro-cocaina-brogeda-2026.imageAlt': 'Controllo doganale Brogeda-Chiasso con sequestro record di cocaina',
 };
 
 export default blogMetaIt;

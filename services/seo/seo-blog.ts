@@ -5475,6 +5475,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-sequestro-cocaina-brogeda-2026': {
+    title: '15 kg di cocaina sequestrati a Brogeda: cosa cambia per i | Frontaliere Ticino',
+    description: '15 kg di cocaina sequestrati a Brogeda: tempi di attesa, controlli rafforzati e rischi per i 68.000 frontalieri. Guida pratica per non perdere permesso e',
+    keywords: 'frontalieri, ticino, svizzera, italia, cocaina, sequestrati, brogeda, cosa',
+    ogTitle: 'Cocaina a Brogeda: guida sopravvivenza frontaliere',
+    ogDescription: 'Maxi-sequestro al valico: 15 kg di cocaina nascosti sotto il sedile. Cosa cambia per chi attraversa il confine ogni giorno per lavorare.',
+    canonicalPath: '/articoli-frontaliere/sequestro-cocaina-brogeda-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Brogeda, 15 kg di cocaina sequestrati: aumentano i controlli sui",
+      "description": "15 kg di cocaina sequestrati a Brogeda: tempi di attesa, controlli rafforzati e rischi per i 68.000 frontalieri. Guida pratica per non perdere permesso e",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/sequestro-cocaina-brogeda-2026.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Controllo doganale Brogeda-Chiasso con sequestro record di cocaina"
+      },
+      "datePublished": "2026-03-17T21:08:34+00:00",
+      "dateModified": "2026-03-17T21:08:34+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/sequestro-cocaina-brogeda-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

@@ -1277,6 +1277,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.lavoro-economia-2026.title': 'The talent drain to Zurich: companies also complain about the housing shortage',
     'blog.article.lavoro-economia-2026.excerpt': 'Zurich\'s housing shortage is a serious problem that is deterring candidates from Zurich-based companies. The lack of housing is one of the main concerns for businesses.',
     'blog.article.lavoro-economia-2026.imageAlt': 'A young woman searching for an apartment in a residential area of Lugano, March 2026',
+    'blog.article.sequestro-cocaina-brogeda-2026.title': '15 kg of Cocaine Seized at Brogeda: What Changes for Frontaliers',
+    'blog.article.sequestro-cocaina-brogeda-2026.excerpt': 'Massive Cocaine Seizure at Brogeda: 15.3 kg of Pure Cocaine Hidden in a Custom-Made Compartment. Investigations Ongoing, Possible Enhanced Controls.',
+    'blog.article.sequestro-cocaina-brogeda-2026.imageAlt': 'Brogeda-Chiasso customs checkpoint with record cocaine seizure',
 };
 
 export default blogMetaEn;
