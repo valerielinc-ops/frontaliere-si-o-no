@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-03-17T16:29:32.132Z",
+  "updatedAt": "2026-03-17T16:30:32.969Z",
   "summaries": [
     {
       "key": "csc-costruzioni",
@@ -2630,40 +2630,6 @@
       "updatedJobs": [],
       "removedJobs": [],
       "unchangedJobs": []
-    },
-    {
-      "key": "linnea-sa",
-      "label": "Linnea SA",
-      "generatedAt": "2026-03-17T05:06:51.448Z",
-      "total": 1,
-      "newCount": 0,
-      "updatedCount": 0,
-      "removedCount": 0,
-      "unchangedCount": 1,
-      "durationMs": 5834,
-      "avgDurationMs": 5284,
-      "durationHistory": [
-        5834,
-        5333,
-        4963,
-        5492,
-        4984,
-        5427,
-        5116,
-        5119
-      ],
-      "newJobs": [],
-      "updatedJobs": [],
-      "removedJobs": [],
-      "unchangedJobs": [
-        {
-          "title": "ERP System Administrator and IT Project Lead",
-          "company": "Linnea SA",
-          "location": "Riazzino",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/erp-system-administrator-and-it-project-lead-linnea/",
-          "slug": "erp-system-administrator-and-it-project-lead-linnea"
-        }
-      ]
     },
     {
       "key": "lis",
@@ -8548,6 +8514,41 @@
       "updatedJobs": [],
       "removedJobs": [],
       "unchangedJobs": []
+    },
+    {
+      "key": "linnea-sa",
+      "label": "Linnea SA",
+      "generatedAt": "2026-03-17T16:30:32.969Z",
+      "total": 1,
+      "newCount": 0,
+      "updatedCount": 0,
+      "removedCount": 0,
+      "unchangedCount": 1,
+      "durationMs": 5063,
+      "avgDurationMs": 5259,
+      "durationHistory": [
+        5063,
+        5834,
+        5333,
+        4963,
+        5492,
+        4984,
+        5427,
+        5116,
+        5119
+      ],
+      "newJobs": [],
+      "updatedJobs": [],
+      "removedJobs": [],
+      "unchangedJobs": [
+        {
+          "title": "ERP System Administrator and IT Project Lead",
+          "company": "Linnea SA",
+          "location": "Riazzino",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/erp-system-administrator-and-it-project-lead-linnea/",
+          "slug": "erp-system-administrator-and-it-project-lead-linnea"
+        }
+      ]
     }
   ]
 }
