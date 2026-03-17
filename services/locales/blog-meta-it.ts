@@ -1259,6 +1259,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.droga-brogeda-sequestro-cocaina.title': 'Brogeda: 15 chili di cocaina sequestrati al confine',
     'blog.article.droga-brogeda-sequestro-cocaina.excerpt': 'Importante operazione della Guardia di Finanza al valico di Brogeda: sequestrati 15 kg di cocaina purissima, suddivisa in 14 panetti, nascosti nel doppio fondo di un\'auto. Un duro colpo al traffico illecito.',
     'blog.article.droga-brogeda-sequestro-cocaina.imageAlt': 'Sequestro di droga al valico di Brogeda, Ticino',
+    'blog.article.bellinzona-auscultazione-2026.title': 'A Bellinzona mancano 75 posti auto pubblici e la soluzione è in arrivo',
+    'blog.article.bellinzona-auscultazione-2026.excerpt': 'Il comune di Bellinzona ha annunciato la costruzione di un nuovo autosilo interrato con parco pubblico e nuovo edificio amministrativo.',
+    'blog.article.bellinzona-auscultazione-2026.imageAlt': 'Autosilo interrato a Bellinzona.',
 };
 
 export default blogMetaIt;

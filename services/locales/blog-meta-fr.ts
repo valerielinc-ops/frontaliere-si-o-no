@@ -1259,6 +1259,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.droga-brogeda-sequestro-cocaina.title': 'Brogeda : 15 kilos de cocaïne saisis à la frontière',
     'blog.article.droga-brogeda-sequestro-cocaina.excerpt': 'Opération importante de la Guardia di Finanza au poste-frontière de Brogeda : 15 kg de cocaïne pure, divisée en 14 plaquettes, ont été saisis, cachés dans un double fond de voiture. Un coup dur porté au trafic illicite.',
     'blog.article.droga-brogeda-sequestro-cocaina.imageAlt': 'Saisie de drogue au passage frontalier de Brogeda, Tessin',
+    'blog.article.bellinzona-auscultazione-2026.title': 'À Bellinzone, il mancanza di 75 posti auto pubblici è presto superata',
+    'blog.article.bellinzona-auscultazione-2026.excerpt': 'Il comune di Bellinzone ha annunciato la costruzione di un nuovo autosilo interrato con parco pubblico e nuovo edificio amministrativo.',
+    'blog.article.bellinzona-auscultazione-2026.imageAlt': 'Parc automobile souterrain à Bellinzona.',
 };
 
 export default blogMetaFr;

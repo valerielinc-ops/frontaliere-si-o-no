@@ -1259,6 +1259,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.droga-brogeda-sequestro-cocaina.title': 'Brogeda: 15 kg of cocaine seized at the border',
     'blog.article.droga-brogeda-sequestro-cocaina.excerpt': 'A major operation by the Guardia di Finanza at the Brogeda crossing point: 15 kg of pure cocaine, divided into 14 bricks and hidden in a car’s double bottom, have been seized. A hard blow to illicit trafficking.',
     'blog.article.droga-brogeda-sequestro-cocaina.imageAlt': 'Drug seizure at the Brogeda border crossing, Ticino',
+    'blog.article.bellinzona-auscultazione-2026.title': 'Bellinzona\'s Parking Crisis: A New Underground Garage Is on the Way',
+    'blog.article.bellinzona-auscultazione-2026.excerpt': 'The municipality of Bellinzona has announced the construction of a new underground parking garage with a public park and a new administrative building. The project aims to address the city\'s parking shortage, which has been affecting residents and visitors alike.',
+    'blog.article.bellinzona-auscultazione-2026.imageAlt': 'Bellinzona underground car park.',
 };
 
 export default blogMetaEn;

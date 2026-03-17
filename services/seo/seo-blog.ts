@@ -5301,6 +5301,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-bellinzona-auscultazione-2026': {
+    title: 'A Bellinzona mancano 75 posti auto pubblici e la soluzione | Frontaliere Ticino',
+    description: 'Il comune di Bellinzona ha annunciato la costruzione di un nuovo autosilo interrato con parco pubblico e nuovo edificio amministrativo. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, bellinzona, mancano, posti, auto',
+    ogTitle: 'A Bellinzona mancano 75 posti auto pubblici e la soluzione è',
+    ogDescription: 'Il comune di Bellinzona ha annunciato la costruzione di un nuovo autosilo interrato con parco pubblico e nuovo edificio amministrativo.',
+    canonicalPath: '/articoli-frontaliere/bellinzona-auscultazione-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "A Bellinzona mancano 75 posti auto pubblici e la soluzione è in arrivo",
+      "description": "Il comune di Bellinzona ha annunciato la costruzione di un nuovo autosilo interrato con parco pubblico e nuovo edificio amministrativo. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/bellinzona-auscultazione-2026.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Autosilo interrato a Bellinzona."
+      },
+      "datePublished": "2026-03-17T08:12:10+00:00",
+      "dateModified": "2026-03-17T08:12:10+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/bellinzona-auscultazione-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

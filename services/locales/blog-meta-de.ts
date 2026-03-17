@@ -1259,6 +1259,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.droga-brogeda-sequestro-cocaina.title': 'Brogeda: 15 Kilo Kokain am Grenzübergang beschlagnahmt',
     'blog.article.droga-brogeda-sequestro-cocaina.excerpt': 'Wichtiger Einsatz der Finanzpolizei am Grenzübergang Brogeda: 15 kg reinstes Kokain, aufgeteilt in 14 Blöcke, versteckt in einem doppelten Boden eines Autos, beschlagnahmt. Ein harter Schlag gegen den illegalen Handel.',
     'blog.article.droga-brogeda-sequestro-cocaina.imageAlt': 'Drogenfund am Grenzübergang Brogeda, Tessin',
+    'blog.article.bellinzona-auscultazione-2026.title': 'Bellinzona fehlt 75 öffentliche Parkplätze - Die Lösung ist im Gange',
+    'blog.article.bellinzona-auscultazione-2026.excerpt': 'Der Gemeinderat von Bellinzona hat die Errichtung eines neuen unterirdischen Parkhauses mit öffentlichen Parkplätzen und einem neuen Verwaltungsgebäude angekündigt.',
+    'blog.article.bellinzona-auscultazione-2026.imageAlt': 'Unterirdischer Parkplatz in Bellinzona.',
 };
 
 export default blogMetaDe;
