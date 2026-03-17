@@ -1,6 +1,54 @@
 {
-  "updatedAt": "2026-03-17T05:18:05.341Z",
+  "updatedAt": "2026-03-17T05:19:51.432Z",
   "summaries": [
+    {
+      "key": "zegna",
+      "label": "Zegna",
+      "generatedAt": "2026-03-17T05:19:51.432Z",
+      "total": 3,
+      "newCount": 0,
+      "updatedCount": 0,
+      "removedCount": 0,
+      "unchangedCount": 3,
+      "durationMs": 33269,
+      "avgDurationMs": 22922,
+      "durationHistory": [
+        33269,
+        34166,
+        22233,
+        20087,
+        35809,
+        11746,
+        11645,
+        14420
+      ],
+      "newJobs": [],
+      "updatedJobs": [],
+      "removedJobs": [],
+      "unchangedJobs": [
+        {
+          "title": "Senior Credit Specialist",
+          "company": "Ermenegildo Zegna Group",
+          "location": "Stabio",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/specialista-senior-del-credito-ermenegildo-zegna-group-stabio/",
+          "slug": "senior-credit-specialist-zegna"
+        },
+        {
+          "title": "Customer Service Specialist",
+          "company": "Ermenegildo Zegna Group",
+          "location": "Stabio",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/specialista-del-servizio-clienti-ermenegildo-zegna-group-stabio/",
+          "slug": "customer-service-specialist-zegna"
+        },
+        {
+          "title": "IT In Store Sales Specialist",
+          "company": "Ermenegildo Zegna Group",
+          "location": "Stabio",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/specialista-vendite-it-in-negozio-ermenegildo-zegna-group-stabio/",
+          "slug": "it-in-store-sales-specialist-zegna"
+        }
+      ]
+    },
     {
       "key": "migros",
       "label": "Migros",
@@ -2677,53 +2725,6 @@
           "location": "Locarno",
           "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/posizione-a-tempo-pieno-di-uno-scienziato-ingegnere-di-strumentazione-usi-locarno/",
           "slug": "posizione-a-tempo-pieno-di-uno-scienziato-ingegnere-di-strumentazione-usi-locarno"
-        }
-      ]
-    },
-    {
-      "key": "zegna",
-      "label": "Zegna",
-      "generatedAt": "2026-03-16T05:56:54.647Z",
-      "total": 3,
-      "newCount": 0,
-      "updatedCount": 0,
-      "removedCount": 0,
-      "unchangedCount": 3,
-      "durationMs": 34166,
-      "avgDurationMs": 21444,
-      "durationHistory": [
-        34166,
-        22233,
-        20087,
-        35809,
-        11746,
-        11645,
-        14420
-      ],
-      "newJobs": [],
-      "updatedJobs": [],
-      "removedJobs": [],
-      "unchangedJobs": [
-        {
-          "title": "Senior Credit Specialist",
-          "company": "Ermenegildo Zegna Group",
-          "location": "Stabio",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/specialista-senior-del-credito-ermenegildo-zegna-group-stabio/",
-          "slug": "senior-credit-specialist-zegna"
-        },
-        {
-          "title": "Customer Service Specialist",
-          "company": "Ermenegildo Zegna Group",
-          "location": "Stabio",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/specialista-del-servizio-clienti-ermenegildo-zegna-group-stabio/",
-          "slug": "customer-service-specialist-zegna"
-        },
-        {
-          "title": "IT In Store Sales Specialist",
-          "company": "Ermenegildo Zegna Group",
-          "location": "Stabio",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/specialista-vendite-it-in-negozio-ermenegildo-zegna-group-stabio/",
-          "slug": "it-in-store-sales-specialist-zegna"
         }
       ]
     },
