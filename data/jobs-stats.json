@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-03-17T16:34:01.335Z",
+  "generatedAt": "2026-03-17T16:34:33.472Z",
   "links": {
     "allJobs": "https://www.frontaliereticino.ch/cerca-lavoro-ticino"
   },
   "totals": {
-    "activeJobs": 962,
+    "activeJobs": 969,
     "activeCompanies": 133,
     "activeLocations": 161,
     "todayAdded": 1182,
@@ -54,12 +54,6 @@
   "leaders": {
     "topCompaniesActive": [
       {
-        "key": "eoc-ente-ospedaliero-cantonale",
-        "name": "EOC – Ente Ospedaliero Cantonale",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-eoc-ente-ospedaliero-cantonale",
-        "count": 178
-      },
-      {
         "key": "coop",
         "name": "Coop",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-coop",
@@ -96,9 +90,15 @@
         "count": 23
       },
       {
-        "key": "kulm-hotel-st-moritz",
-        "name": "Kulm Hotel St. Moritz",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-kulm-hotel-st-moritz",
+        "key": "usi-universita-della-svizzera-italiana",
+        "name": "USI – Università della Svizzera italiana",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-usi-universita-della-svizzera-italiana",
+        "count": 24
+      },
+      {
+        "key": "grand-hotel-des-bains-kempinski-st-moritz",
+        "name": "Grand Hotel des Bains Kempinski St. Moritz",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-grand-hotel-des-bains-kempinski-st-moritz",
         "count": 21
       }
     ],
@@ -108,12 +108,6 @@
         "name": "Bellinzona",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-bellinzona",
         "count": 131
-      },
-      {
-        "key": "lugano",
-        "name": "Lugano",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-lugano",
-        "count": 120
       },
       {
         "key": "st-moritz",
@@ -146,10 +140,16 @@
         "count": 42
       },
       {
-        "key": "ticino",
-        "name": "Ticino",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-ticino",
-        "count": 24
+        "key": "lugano",
+        "name": "Lugano",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-lugano",
+        "count": 121
+      },
+      {
+        "key": "st-moritz",
+        "name": "St. Moritz",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-st-moritz",
+        "count": 63
       }
     ],
     "topCompaniesAddedToday": [
@@ -451,11 +451,11 @@
   },
   "salary": {
     "coverage": {
-      "jobsWithSalary": 962,
+      "jobsWithSalary": 969,
       "coveragePct": 100,
-      "avgMin": 66858,
-      "avgMax": 90188,
-      "avgMid": 78523,
+      "avgMin": 66797,
+      "avgMax": 90103,
+      "avgMid": 78450,
       "medianMid": 68500
     },
     "leaders": {
