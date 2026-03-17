@@ -1,22 +1,22 @@
 {
-  "generatedAt": "2026-03-17T04:53:41.518Z",
+  "generatedAt": "2026-03-17T04:53:58.718Z",
   "links": {
     "allJobs": "https://www.frontaliereticino.ch/cerca-lavoro-ticino"
   },
   "totals": {
-    "activeJobs": 820,
-    "activeCompanies": 86,
-    "activeLocations": 116,
-    "todayAdded": 833,
+    "activeJobs": 915,
+    "activeCompanies": 114,
+    "activeLocations": 139,
+    "todayAdded": 928,
     "todayUpdated": 0,
     "todayRemoved": 0,
     "last7d": {
-      "added": 3781,
+      "added": 3876,
       "updated": 0,
       "removed": 0
     },
     "last30d": {
-      "added": 4264,
+      "added": 4359,
       "updated": 0,
       "removed": 0
     }
@@ -52,8 +52,8 @@
     },
     {
       "date": "2026-03-17",
-      "totalJobs": 820,
-      "added": 833,
+      "totalJobs": 915,
+      "added": 928,
       "updated": 0,
       "removed": 0
     }
@@ -144,7 +144,7 @@
         "key": "chur",
         "name": "Chur",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-chur",
-        "count": 34
+        "count": 40
       },
       {
         "key": "emea-che-stabio-vf-campus-vf1",
@@ -458,12 +458,12 @@
   },
   "salary": {
     "coverage": {
-      "jobsWithSalary": 820,
+      "jobsWithSalary": 915,
       "coveragePct": 100,
-      "avgMin": 67971,
-      "avgMax": 91746,
-      "avgMid": 79859,
-      "medianMid": 84500
+      "avgMin": 67260,
+      "avgMax": 90758,
+      "avgMid": 79009,
+      "medianMid": 68500
     },
     "leaders": {
       "topSalaryCompanies": [
