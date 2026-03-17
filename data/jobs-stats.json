@@ -1,22 +1,22 @@
 {
-  "generatedAt": "2026-03-17T05:15:01.350Z",
+  "generatedAt": "2026-03-17T05:15:55.669Z",
   "links": {
     "allJobs": "https://www.frontaliereticino.ch/cerca-lavoro-ticino"
   },
   "totals": {
-    "activeJobs": 791,
-    "activeCompanies": 90,
-    "activeLocations": 117,
-    "todayAdded": 1081,
+    "activeJobs": 808,
+    "activeCompanies": 94,
+    "activeLocations": 121,
+    "todayAdded": 1069,
     "todayUpdated": 0,
     "todayRemoved": 0,
     "last7d": {
-      "added": 3144,
+      "added": 3132,
       "updated": 0,
       "removed": 0
     },
     "last30d": {
-      "added": 3627,
+      "added": 3615,
       "updated": 0,
       "removed": 0
     }
@@ -38,15 +38,15 @@
     },
     {
       "date": "2026-03-17",
-      "totalJobs": 975,
-      "added": 1010,
+      "totalJobs": 1070,
+      "added": 1081,
       "updated": 0,
       "removed": 0
     },
     {
       "date": "2026-03-17",
-      "totalJobs": 1070,
-      "added": 1081,
+      "totalJobs": 1007,
+      "added": 1069,
       "updated": 0,
       "removed": 0
     }
@@ -88,6 +88,12 @@
         "name": "LWP Ledermann Wieting & Partners",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-lwp-ledermann-wieting-partners",
         "count": 33
+      },
+      {
+        "key": "lwp-ledermann-wieting-partners",
+        "name": "LWP Ledermann Wieting & Partners",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-lwp-ledermann-wieting-partners",
+        "count": 33
       }
     ],
     "topLocationsActive": [
@@ -98,46 +104,10 @@
         "count": 55
       },
       {
-        "key": "locarno",
-        "name": "Locarno",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-locarno",
-        "count": 41
-      },
-      {
-        "key": "lugano",
-        "name": "Lugano",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-lugano",
-        "count": 118
-      },
-      {
-        "key": "mendrisio",
-        "name": "Mendrisio",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-mendrisio",
-        "count": 46
-      },
-      {
         "key": "chur",
         "name": "Chur",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-chur",
         "count": 34
-      },
-      {
-        "key": "ticino",
-        "name": "Ticino",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-ticino",
-        "count": 25
-      },
-      {
-        "key": "lugano",
-        "name": "Lugano",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-lugano",
-        "count": 114
-      },
-      {
-        "key": "locarno",
-        "name": "Locarno",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-locarno",
-        "count": 43
       },
       {
         "key": "lugano",
@@ -198,6 +168,36 @@
         "name": "Chiasso",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-chiasso",
         "count": 23
+      },
+      {
+        "key": "lugano",
+        "name": "Lugano",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-lugano",
+        "count": 125
+      },
+      {
+        "key": "mendrisio",
+        "name": "Mendrisio",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-mendrisio",
+        "count": 52
+      },
+      {
+        "key": "locarno",
+        "name": "Locarno",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-locarno",
+        "count": 42
+      },
+      {
+        "key": "st-moritz",
+        "name": "St. Moritz",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-st-moritz",
+        "count": 33
+      },
+      {
+        "key": "ticino",
+        "name": "Ticino",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-ticino",
+        "count": 27
       }
     ],
     "topCompaniesAddedToday": [
@@ -499,12 +499,12 @@
   },
   "salary": {
     "coverage": {
-      "jobsWithSalary": 791,
+      "jobsWithSalary": 808,
       "coveragePct": 100,
-      "avgMin": 67742,
-      "avgMax": 91416,
-      "avgMid": 79579,
-      "medianMid": 84500
+      "avgMin": 67659,
+      "avgMax": 91306,
+      "avgMid": 79482,
+      "medianMid": 77500
     },
     "leaders": {
       "topSalaryCompanies": [
@@ -517,6 +517,16 @@
           "avgMax": 138125,
           "avgMid": 120250,
           "weightedSalary": 116675
+        },
+        {
+          "key": "knowledge-lab",
+          "name": "Knowledge Lab",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-knowledge-lab",
+          "count": 5,
+          "avgMin": 92300,
+          "avgMax": 124900,
+          "avgMid": 108600,
+          "weightedSalary": 108600
         },
         {
           "key": "board-international",
@@ -572,16 +582,6 @@
           "key": "bracco-suisse-s-a",
           "name": "Bracco Suisse S.A.",
           "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-bracco-suisse-s-a",
-          "count": 3,
-          "avgMin": 87167,
-          "avgMax": 117833,
-          "avgMid": 102500,
-          "weightedSalary": 96367
-        },
-        {
-          "key": "fart-ferrovie-autolinee-regionali-ticinesi",
-          "name": "FART – Ferrovie Autolinee Regionali Ticinesi",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-fart-ferrovie-autolinee-regionali-ticinesi",
           "count": 3,
           "avgMin": 87167,
           "avgMax": 117833,
@@ -659,16 +659,6 @@
           "avgMax": 111500,
           "avgMid": 97000,
           "weightedSalary": 88300
-        },
-        {
-          "key": "losone",
-          "name": "Losone",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-losone",
-          "count": 8,
-          "avgMin": 73563,
-          "avgMax": 99313,
-          "avgMid": 86438,
-          "weightedSalary": 86438
         },
         {
           "key": "losone",
