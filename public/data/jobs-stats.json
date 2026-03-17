@@ -1,22 +1,22 @@
 {
-  "generatedAt": "2026-03-17T05:02:08.808Z",
+  "generatedAt": "2026-03-17T05:02:40.317Z",
   "links": {
     "allJobs": "https://www.frontaliereticino.ch/cerca-lavoro-ticino"
   },
   "totals": {
-    "activeJobs": 943,
-    "activeCompanies": 122,
-    "activeLocations": 138,
-    "todayAdded": 976,
+    "activeJobs": 939,
+    "activeCompanies": 121,
+    "activeLocations": 140,
+    "todayAdded": 972,
     "todayUpdated": 0,
     "todayRemoved": 0,
     "last7d": {
-      "added": 1879,
+      "added": 1875,
       "updated": 0,
       "removed": 0
     },
     "last30d": {
-      "added": 2362,
+      "added": 2358,
       "updated": 0,
       "removed": 0
     }
@@ -47,6 +47,13 @@
       "date": "2026-03-17",
       "totalJobs": 943,
       "added": 976,
+      "updated": 0,
+      "removed": 0
+    },
+    {
+      "date": "2026-03-17",
+      "totalJobs": 940,
+      "added": 972,
       "updated": 0,
       "removed": 0
     }
@@ -84,6 +91,12 @@
         "count": 25
       },
       {
+        "key": "hamilton-bonaduz-ag",
+        "name": "Hamilton Bonaduz AG",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-hamilton-bonaduz-ag",
+        "count": 24
+      },
+      {
         "key": "usi-universita-della-svizzera-italiana",
         "name": "USI – Università della Svizzera italiana",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-usi-universita-della-svizzera-italiana",
@@ -94,12 +107,6 @@
         "name": "Convit Holding GmbH",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-convit-holding-gmbh",
         "count": 23
-      },
-      {
-        "key": "hamilton-bonaduz-ag",
-        "name": "Hamilton Bonaduz AG",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-hamilton-bonaduz-ag",
-        "count": 22
       }
     ],
     "topLocationsActive": [
@@ -149,19 +156,13 @@
         "key": "lugano",
         "name": "Lugano",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-lugano",
-        "count": 102
-      },
-      {
-        "key": "mendrisio",
-        "name": "Mendrisio",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-mendrisio",
-        "count": 53
+        "count": 111
       },
       {
         "key": "lugano",
         "name": "Lugano",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-lugano",
-        "count": 111
+        "count": 114
       },
       {
         "key": "lugano",
@@ -226,20 +227,20 @@
         "removed": 0
       },
       {
-        "key": "usi-universita-della-svizzera-italiana",
-        "name": "USI – Università della Svizzera italiana",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-usi-universita-della-svizzera-italiana",
+        "key": "hamilton-bonaduz-ag",
+        "name": "Hamilton Bonaduz AG",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-hamilton-bonaduz-ag",
         "count": 0,
         "added": 24,
         "updated": 0,
         "removed": 0
       },
       {
-        "key": "hamilton-bonaduz-ag",
-        "name": "Hamilton Bonaduz AG",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-hamilton-bonaduz-ag",
+        "key": "usi-universita-della-svizzera-italiana",
+        "name": "USI – Università della Svizzera italiana",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-usi-universita-della-svizzera-italiana",
         "count": 0,
-        "added": 22,
+        "added": 24,
         "updated": 0,
         "removed": 0
       }
@@ -309,11 +310,11 @@
         "removed": 0
       },
       {
-        "key": "ffs-officine-ferrovie-federali",
-        "name": "FFS Officine (Ferrovie Federali)",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-ffs-officine-ferrovie-federali",
+        "key": "hamilton-bonaduz-ag",
+        "name": "Hamilton Bonaduz AG",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-hamilton-bonaduz-ag",
         "count": 0,
-        "added": 23,
+        "added": 24,
         "updated": 0,
         "removed": 0
       }
@@ -343,96 +344,6 @@
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-locarno",
         "count": 0,
         "added": 49,
-        "updated": 0,
-        "removed": 0
-      },
-      {
-        "key": "bellinzona",
-        "name": "Bellinzona",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-bellinzona",
-        "count": 0,
-        "added": 150,
-        "updated": 0,
-        "removed": 0
-      },
-      {
-        "key": "mendrisio",
-        "name": "Mendrisio",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-mendrisio",
-        "count": 0,
-        "added": 64,
-        "updated": 0,
-        "removed": 0
-      },
-      {
-        "key": "ticino",
-        "name": "Ticino",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-ticino",
-        "count": 0,
-        "added": 63,
-        "updated": 0,
-        "removed": 0
-      },
-      {
-        "key": "chur",
-        "name": "Chur",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-chur",
-        "count": 0,
-        "added": 56,
-        "updated": 0,
-        "removed": 0
-      },
-      {
-        "key": "novaggio",
-        "name": "Novaggio",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-novaggio",
-        "count": 0,
-        "added": 36,
-        "updated": 0,
-        "removed": 0
-      },
-      {
-        "key": "bellinzona",
-        "name": "Bellinzona",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-bellinzona",
-        "count": 0,
-        "added": 150,
-        "updated": 0,
-        "removed": 0
-      },
-      {
-        "key": "mendrisio",
-        "name": "Mendrisio",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-mendrisio",
-        "count": 0,
-        "added": 64,
-        "updated": 0,
-        "removed": 0
-      },
-      {
-        "key": "ticino",
-        "name": "Ticino",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-ticino",
-        "count": 0,
-        "added": 63,
-        "updated": 0,
-        "removed": 0
-      },
-      {
-        "key": "chur",
-        "name": "Chur",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-chur",
-        "count": 0,
-        "added": 56,
-        "updated": 0,
-        "removed": 0
-      },
-      {
-        "key": "novaggio",
-        "name": "Novaggio",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-novaggio",
-        "count": 0,
-        "added": 36,
         "updated": 0,
         "removed": 0
       }
@@ -514,11 +425,11 @@
   },
   "salary": {
     "coverage": {
-      "jobsWithSalary": 943,
+      "jobsWithSalary": 939,
       "coveragePct": 100,
-      "avgMin": 67459,
-      "avgMax": 91028,
-      "avgMid": 79243,
+      "avgMin": 67442,
+      "avgMax": 91004,
+      "avgMid": 79223,
       "medianMid": 72000
     },
     "leaders": {
