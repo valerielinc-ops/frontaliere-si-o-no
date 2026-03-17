@@ -1265,6 +1265,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.lombardia-affitto-famiglie-varesine.title': '228.463 € von der Lombardei für die Miete: 218 Familien aus der Provinz Varese vor der Räumung gerettet',
     'blog.article.lombardia-affitto-famiglie-varesine.excerpt': 'Die regionale Anti-Mietrückstands-Fonds übernimmt bis zu 1.048 € pro Haushalt. Die Gesuche sind bis zum 30. November 2026 bei der Wohngemeinde einzureichen.',
     'blog.article.lombardia-affitto-famiglie-varesine.imageAlt': 'Morgenansicht des Vareseer Sees mit Schweizer Alpen im Hintergrund',
+    'blog.article.malcantone-fai-di-primavera-2026.title': 'Malcantone entdecken mit den Fai-Sommerfesten 2026',
+    'blog.article.malcantone-fai-di-primavera-2026.excerpt': 'Zwei Tage, um die Dörfer, die Monumente, die Kirchen und die historischen Häuser des Malcantone zu erkunden.',
+    'blog.article.malcantone-fai-di-primavera-2026.imageAlt': 'Panoramablick auf Lugano mit See und umliegenden Bergen',
 };
 
 export default blogMetaDe;

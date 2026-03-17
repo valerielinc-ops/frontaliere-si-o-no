@@ -1265,6 +1265,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.lombardia-affitto-famiglie-varesine.title': '€228,463 from Lombardy for rent: 218 Varese families saved from eviction',
     'blog.article.lombardia-affitto-famiglie-varesine.excerpt': 'The regional anti-arrears fund covers up to €1,048 per household. Applications must be submitted to the municipality of residence by 30 November 2026.',
     'blog.article.lombardia-affitto-famiglie-varesine.imageAlt': 'Morning view of Lake Varese with Swiss Alps in background',
+    'blog.article.malcantone-fai-di-primavera-2026.title': 'Discover Malcantone with the 2026 Spring FAI Days',
+    'blog.article.malcantone-fai-di-primavera-2026.excerpt': 'Two days to explore the villages, monuments, churches and historic homes of Malcantone.',
+    'blog.article.malcantone-fai-di-primavera-2026.imageAlt': 'Panoramic view of Lugano with lake and surrounding mountains',
 };
 
 export default blogMetaEn;

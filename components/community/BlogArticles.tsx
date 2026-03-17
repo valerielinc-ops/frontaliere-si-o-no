@@ -3526,6 +3526,13 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/lombardia-affitto-famiglie-varesine.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'malcantone-fai-di-primavera-2026',
+    category: 'novita',
+    date: '2026-03-17T12:08:54.968Z',
+    image: '/images/blog/malcantone-fai-di-primavera-2026.jpg',
+    hasCalculator: true,
+  },
 ];
 
 const CATEGORIES = ['all', 'fiscale', 'pratico', 'novita', 'pensione'] as const;

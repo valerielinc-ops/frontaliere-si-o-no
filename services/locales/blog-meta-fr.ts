@@ -1265,6 +1265,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.lombardia-affitto-famiglie-varesine.title': '228 463 € de la Lombardie pour le loyer : 218 familles varesines sauvées de l’expulsion',
     'blog.article.lombardia-affitto-famiglie-varesine.excerpt': 'Le fonds régional anti-morosité couvre jusqu’à 1 048 € par ménage. Les demandes doivent être déposées auprès de la commune de résidence avant le 30 novembre 2026.',
     'blog.article.lombardia-affitto-famiglie-varesine.imageAlt': 'Vue matinale du lac de Varèse avec Alpes suisses en arrière-plan',
+    'blog.article.malcantone-fai-di-primavera-2026.title': 'Découvrez le Malcantone avec les Journées FAI de printemps 2026',
+    'blog.article.malcantone-fai-di-primavera-2026.excerpt': 'Deux journées pour explorer les villages, les monuments, les églises et les demeures historiques du Malcantone.',
+    'blog.article.malcantone-fai-di-primavera-2026.imageAlt': 'Vue panoramique de Lugano avec le lac et les montagnes environnantes',
 };
 
 export default blogMetaFr;

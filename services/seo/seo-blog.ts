@@ -5359,6 +5359,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-malcantone-fai-di-primavera-2026': {
+    title: 'Trovare il Malcantone con le Giornate Fai di Primavera | Frontaliere Ticino',
+    description: 'Le Giornate Fai di Primavera tornano in Ticino con un focus sul Malcantone. Scopri i borghi, i monumenti, le chiese e le dimore storiche della regione.',
+    keywords: 'frontalieri, ticino, svizzera, italia, trovare, malcantone, giornate, primavera',
+    ogTitle: 'Malcantone Fai di Primavera 2026 | Frontaliere Ticino',
+    ogDescription: 'Le Giornate Fai di Primavera tornano in Ticino con un focus sul Malcantone. Scopri i borghi, i monumenti, le chiese e le dimore storiche della regione.',
+    canonicalPath: '/articoli-frontaliere/malcantone-fai-di-primavera-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Malcantone Fai di Primavera 2026 | Frontaliere Ticino",
+      "description": "Le Giornate Fai di Primavera tornano in Ticino con un focus sul Malcantone. Scopri i borghi, i monumenti, le chiese e le dimore storiche della regione.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/malcantone-fai-di-primavera-2026.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Vista panoramica di Lugano con il lago e le montagne circostanti"
+      },
+      "datePublished": "2026-03-17T12:08:54+00:00",
+      "dateModified": "2026-03-17T12:08:54+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/malcantone-fai-di-primavera-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

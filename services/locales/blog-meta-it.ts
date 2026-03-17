@@ -1265,6 +1265,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.lombardia-affitto-famiglie-varesine.title': '228.463€ dalla Lombardia per l\'affitto: 218 famiglie varesine salvate dallo sfratto',
     'blog.article.lombardia-affitto-famiglie-varesine.excerpt': 'Il fondo regionale anti-morosità copre fino a 1.048€ per nucleo. Le domande si presentano al Comune di residenza entro il 30 novembre 2026.',
     'blog.article.lombardia-affitto-famiglie-varesine.imageAlt': 'Vista mattutina sul lago di Varese con le Alpi svizzere sullo sfondo',
+    'blog.article.malcantone-fai-di-primavera-2026.title': 'Trovare il Malcantone con le Giornate Fai di Primavera 2026',
+    'blog.article.malcantone-fai-di-primavera-2026.excerpt': 'Due giornate per esplorare i borghi, i monumenti, le chiese e le dimore storiche del Malcantone.',
+    'blog.article.malcantone-fai-di-primavera-2026.imageAlt': 'Vista panoramica di Lugano con il lago e le montagne circostanti',
 };
 
 export default blogMetaIt;

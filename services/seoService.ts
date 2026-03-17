@@ -1555,6 +1555,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-droga-brogeda-sequestro-cocaina': { name: 'Brogeda: Droga Sequestrata', path: '/articoli-frontaliere/droga-brogeda-sequestro-cocaina', parent: 'blog' },
     'blog-bellinzona-auscultazione-2026': { name: 'Bellinzona', path: '/articoli-frontaliere/bellinzona-auscultazione-2026', parent: 'blog' },
     'blog-lombardia-affitto-famiglie-varesine': { name: 'Fondo affitti Lombardia', path: '/articoli-frontaliere/lombardia-affitto-famiglie-varesine', parent: 'blog' },
+    'blog-malcantone-fai-di-primavera-2026': { name: 'Malcantone Fai di Primavera 2026', path: '/articoli-frontaliere/malcantone-fai-di-primavera-2026', parent: 'blog' },
   };
 
   const info = sectionNames[section];
