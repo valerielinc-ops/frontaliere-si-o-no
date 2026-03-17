@@ -1,22 +1,22 @@
 {
-  "generatedAt": "2026-03-17T04:54:39.221Z",
+  "generatedAt": "2026-03-17T04:55:12.880Z",
   "links": {
     "allJobs": "https://www.frontaliereticino.ch/cerca-lavoro-ticino"
   },
   "totals": {
-    "activeJobs": 827,
-    "activeCompanies": 114,
+    "activeJobs": 821,
+    "activeCompanies": 87,
     "activeLocations": 139,
-    "todayAdded": 928,
+    "todayAdded": 834,
     "todayUpdated": 0,
     "todayRemoved": 0,
     "last7d": {
-      "added": 3876,
+      "added": 3782,
       "updated": 0,
       "removed": 0
     },
     "last30d": {
-      "added": 4359,
+      "added": 4265,
       "updated": 0,
       "removed": 0
     }
@@ -61,6 +61,13 @@
       "date": "2026-03-17",
       "totalJobs": 827,
       "added": 833,
+      "updated": 0,
+      "removed": 0
+    },
+    {
+      "date": "2026-03-17",
+      "totalJobs": 821,
+      "added": 834,
       "updated": 0,
       "removed": 0
     }
@@ -465,11 +472,11 @@
   },
   "salary": {
     "coverage": {
-      "jobsWithSalary": 827,
+      "jobsWithSalary": 821,
       "coveragePct": 100,
-      "avgMin": 68001,
-      "avgMax": 91785,
-      "avgMid": 79893,
+      "avgMin": 68003,
+      "avgMax": 91789,
+      "avgMid": 79896,
       "medianMid": 68500
     },
     "leaders": {
@@ -525,6 +532,16 @@
           "weightedSalary": 97375
         },
         {
+          "key": "cambiavalute-ch",
+          "name": "CambiaValute.ch",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-cambiavalute-ch",
+          "count": 1,
+          "avgMin": 94000,
+          "avgMax": 127000,
+          "avgMid": 110500,
+          "weightedSalary": 97300
+        },
+        {
           "key": "bracco-suisse-s-a",
           "name": "Bracco Suisse S.A.",
           "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-bracco-suisse-s-a",
@@ -543,16 +560,6 @@
           "avgMax": 117833,
           "avgMid": 102500,
           "weightedSalary": 96367
-        },
-        {
-          "key": "medacta-international-sa",
-          "name": "Medacta International SA",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-medacta-international-sa",
-          "count": 5,
-          "avgMin": 80000,
-          "avgMax": 108000,
-          "avgMid": 94000,
-          "weightedSalary": 94000
         }
       ],
       "topSalaryLocations": [
