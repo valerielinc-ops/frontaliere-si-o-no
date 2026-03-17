@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-03-17T17:11:52.086Z",
+  "generatedAt": "2026-03-17T17:17:18.281Z",
   "links": {
     "allJobs": "https://www.frontaliereticino.ch/cerca-lavoro-ticino"
   },
   "totals": {
-    "activeJobs": 971,
+    "activeJobs": 972,
     "activeCompanies": 133,
-    "activeLocations": 163,
+    "activeLocations": 162,
     "todayAdded": 1192,
     "todayUpdated": 0,
     "todayRemoved": 0,
@@ -115,12 +115,6 @@
         "name": "Convit Holding GmbH",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-convit-holding-gmbh",
         "count": 23
-      },
-      {
-        "key": "kulm-hotel-st-moritz",
-        "name": "Kulm Hotel St. Moritz",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-kulm-hotel-st-moritz",
-        "count": 21
       }
     ],
     "topLocationsActive": [
@@ -155,12 +149,6 @@
         "count": 120
       },
       {
-        "key": "locarno",
-        "name": "Locarno",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-locarno",
-        "count": 42
-      },
-      {
         "key": "emea-che-stabio-vf-campus-vf1",
         "name": "EMEA · CHE · Stabio · VF Campus VF1",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-emea-che-stabio-vf-campus-vf1",
@@ -171,12 +159,6 @@
         "name": "St. Moritz",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-st-moritz",
         "count": 57
-      },
-      {
-        "key": "lugano",
-        "name": "Lugano",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-lugano",
-        "count": 121
       },
       {
         "key": "st-moritz",
@@ -191,10 +173,16 @@
         "count": 56
       },
       {
+        "key": "chur",
+        "name": "Chur",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-chur",
+        "count": 47
+      },
+      {
         "key": "ticino",
         "name": "Ticino",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-ticino",
-        "count": 24
+        "count": 25
       }
     ],
     "topCompaniesAddedToday": [
@@ -496,11 +484,11 @@
   },
   "salary": {
     "coverage": {
-      "jobsWithSalary": 971,
+      "jobsWithSalary": 972,
       "coveragePct": 100,
-      "avgMin": 66776,
-      "avgMax": 90075,
-      "avgMid": 78425,
+      "avgMin": 66753,
+      "avgMax": 90045,
+      "avgMid": 78399,
       "medianMid": 68500
     },
     "leaders": {
