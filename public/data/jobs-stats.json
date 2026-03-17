@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-03-17T16:16:07.263Z",
+  "generatedAt": "2026-03-17T16:16:37.640Z",
   "links": {
     "allJobs": "https://www.frontaliereticino.ch/cerca-lavoro-ticino"
   },
   "totals": {
-    "activeJobs": 913,
-    "activeCompanies": 102,
-    "activeLocations": 167,
+    "activeJobs": 854,
+    "activeCompanies": 103,
+    "activeLocations": 165,
     "todayAdded": 1169,
     "todayUpdated": 0,
     "todayRemoved": 0,
@@ -38,13 +38,6 @@
     },
     {
       "date": "2026-03-17",
-      "totalJobs": 900,
-      "added": 1157,
-      "updated": 0,
-      "removed": 0
-    },
-    {
-      "date": "2026-03-17",
       "totalJobs": 904,
       "added": 1160,
       "updated": 0,
@@ -70,6 +63,13 @@
       "added": 1169,
       "updated": 0,
       "removed": 0
+    },
+    {
+      "date": "2026-03-17",
+      "totalJobs": 900,
+      "added": 1169,
+      "updated": 0,
+      "removed": 0
     }
   ],
   "leaders": {
@@ -78,13 +78,13 @@
         "key": "eoc-ente-ospedaliero-cantonale",
         "name": "EOC – Ente Ospedaliero Cantonale",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-eoc-ente-ospedaliero-cantonale",
-        "count": 196
+        "count": 187
       },
       {
         "key": "volg",
         "name": "VOLG",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-volg",
-        "count": 73
+        "count": 44
       },
       {
         "key": "coop",
@@ -257,34 +257,28 @@
         "count": 26
       },
       {
-        "key": "bellinzona",
-        "name": "Bellinzona",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-bellinzona",
-        "count": 133
-      },
-      {
         "key": "lugano",
         "name": "Lugano",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-lugano",
-        "count": 117
+        "count": 113
       },
       {
         "key": "locarno",
         "name": "Locarno",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-locarno",
-        "count": 43
+        "count": 42
       },
       {
         "key": "st-moritz",
         "name": "St. Moritz",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-st-moritz",
-        "count": 38
+        "count": 33
       },
       {
-        "key": "novaggio",
-        "name": "Novaggio",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-novaggio",
-        "count": 26
+        "key": "chiasso",
+        "name": "Chiasso",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-chiasso",
+        "count": 23
       }
     ],
     "topCompaniesAddedToday": [
@@ -586,12 +580,12 @@
   },
   "salary": {
     "coverage": {
-      "jobsWithSalary": 913,
+      "jobsWithSalary": 854,
       "coveragePct": 100,
-      "avgMin": 66654,
-      "avgMax": 89929,
-      "avgMid": 78291,
-      "medianMid": 68500
+      "avgMin": 67253,
+      "avgMax": 90747,
+      "avgMid": 79000,
+      "medianMid": 72000
     },
     "leaders": {
       "topSalaryCompanies": [
@@ -770,16 +764,6 @@
           "weightedSalary": 149038
         },
         {
-          "key": "responsabile-del-corso-di-laurea-bachelor-in-ingegneria-gestionale",
-          "name": "Responsabile del Corso di laurea Bachelor in Ingegneria gestionale",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-responsabile-del-corso-di-laurea-bachelor-in-ingegneria-gestionale",
-          "count": 2,
-          "avgMin": 109000,
-          "avgMax": 147000,
-          "avgMid": 128000,
-          "weightedSalary": 116600
-        },
-        {
           "key": "area-vendite-account-manager-fur-elektrowerkzeuge-m-w-d",
           "name": "Area Vendite / Account Manager für Elektrowerkzeuge (m/w/d)",
           "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-area-vendite-account-manager-fur-elektrowerkzeuge-m-w-d",
@@ -813,6 +797,16 @@
           "key": "responsabile-contratti",
           "name": "Responsabile Contratti",
           "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-responsabile-contratti",
+          "count": 1,
+          "avgMin": 109000,
+          "avgMax": 147000,
+          "avgMid": 128000,
+          "weightedSalary": 112800
+        },
+        {
+          "key": "responsabile-del-corso-di-laurea-bachelor-in-ingegneria-gestionale",
+          "name": "Responsabile del Corso di laurea Bachelor in Ingegneria gestionale",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-responsabile-del-corso-di-laurea-bachelor-in-ingegneria-gestionale",
           "count": 1,
           "avgMin": 109000,
           "avgMax": 147000,

@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2026-03-17T16:12:18.055Z",
-  "totalJobs": 919,
+  "lastUpdated": "2026-03-17T16:16:31.639Z",
+  "totalJobs": 859,
   "sources": {
     "arbeitSwiss": 0,
     "ubs": 0,
@@ -9,16 +9,16 @@
     "remotive": 0,
     "findwork": 0,
     "adzuna": 0,
-    "curatedTicino": 919,
-    "companyCareerCrawler": 14
+    "curatedTicino": 859,
+    "companyCareerCrawler": 0
   },
   "crawler": {
-    "lastRun": "2026-03-17T16:12:18.055Z",
-    "startedAt": "2026-03-17T16:10:02.877Z",
-    "companiesCrawled": 1,
-    "extracted": 14,
-    "inserted": 2,
-    "refreshed": 12,
+    "lastRun": "2026-03-17T16:16:31.639Z",
+    "startedAt": "2026-03-17T16:16:07.740Z",
+    "companiesCrawled": 0,
+    "extracted": 0,
+    "inserted": 0,
+    "refreshed": 0,
     "timeoutMs": 4000,
     "maxCompanies": 60,
     "maxConcurrency": 6
