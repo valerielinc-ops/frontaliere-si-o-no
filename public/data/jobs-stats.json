@@ -1,22 +1,22 @@
 {
-  "generatedAt": "2026-03-17T05:03:12.296Z",
+  "generatedAt": "2026-03-17T05:03:38.459Z",
   "links": {
     "allJobs": "https://www.frontaliereticino.ch/cerca-lavoro-ticino"
   },
   "totals": {
-    "activeJobs": 938,
-    "activeCompanies": 121,
-    "activeLocations": 138,
-    "todayAdded": 971,
+    "activeJobs": 941,
+    "activeCompanies": 123,
+    "activeLocations": 141,
+    "todayAdded": 976,
     "todayUpdated": 0,
     "todayRemoved": 0,
     "last7d": {
-      "added": 1874,
+      "added": 1879,
       "updated": 0,
       "removed": 0
     },
     "last30d": {
-      "added": 2357,
+      "added": 2362,
       "updated": 0,
       "removed": 0
     }
@@ -38,13 +38,6 @@
     },
     {
       "date": "2026-03-17",
-      "totalJobs": 934,
-      "added": 960,
-      "updated": 0,
-      "removed": 0
-    },
-    {
-      "date": "2026-03-17",
       "totalJobs": 943,
       "added": 976,
       "updated": 0,
@@ -61,6 +54,13 @@
       "date": "2026-03-17",
       "totalJobs": 940,
       "added": 971,
+      "updated": 0,
+      "removed": 0
+    },
+    {
+      "date": "2026-03-17",
+      "totalJobs": 941,
+      "added": 976,
       "updated": 0,
       "removed": 0
     }
@@ -148,12 +148,6 @@
         "count": 22
       },
       {
-        "key": "mendrisio",
-        "name": "Mendrisio",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-mendrisio",
-        "count": 55
-      },
-      {
         "key": "locarno",
         "name": "Locarno",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-locarno",
@@ -163,7 +157,7 @@
         "key": "lugano",
         "name": "Lugano",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-lugano",
-        "count": 111
+        "count": 114
       },
       {
         "key": "lugano",
@@ -438,11 +432,11 @@
   },
   "salary": {
     "coverage": {
-      "jobsWithSalary": 937,
+      "jobsWithSalary": 941,
       "coveragePct": 99.9,
-      "avgMin": 67447,
-      "avgMax": 91011,
-      "avgMid": 79229,
+      "avgMin": 67458,
+      "avgMax": 91026,
+      "avgMid": 79242,
       "medianMid": 72000
     },
     "leaders": {
@@ -580,6 +574,16 @@
           "weightedSalary": 97150
         },
         {
+          "key": "beijing-china",
+          "name": "Beijing, China",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-beijing-china",
+          "count": 1,
+          "avgMin": 92000,
+          "avgMax": 125000,
+          "avgMid": 108500,
+          "weightedSalary": 95300
+        },
+        {
           "key": "manno",
           "name": "Manno",
           "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-manno",
@@ -598,16 +602,6 @@
           "avgMax": 100143,
           "avgMid": 87161,
           "weightedSalary": 87161
-        },
-        {
-          "key": "losone",
-          "name": "Losone",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-losone",
-          "count": 8,
-          "avgMin": 73563,
-          "avgMax": 99313,
-          "avgMid": 86438,
-          "weightedSalary": 86438
         }
       ],
       "topSalaryTitles": [
