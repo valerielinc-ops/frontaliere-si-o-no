@@ -1,22 +1,22 @@
 {
-  "generatedAt": "2026-03-17T04:58:47.578Z",
+  "generatedAt": "2026-03-17T04:58:25.199Z",
   "links": {
     "allJobs": "https://www.frontaliereticino.ch/cerca-lavoro-ticino"
   },
   "totals": {
-    "activeJobs": 940,
+    "activeJobs": 933,
     "activeCompanies": 116,
     "activeLocations": 139,
-    "todayAdded": 943,
+    "todayAdded": 936,
     "todayUpdated": 0,
     "todayRemoved": 0,
     "last7d": {
-      "added": 3006,
+      "added": 2999,
       "updated": 0,
       "removed": 0
     },
     "last30d": {
-      "added": 3489,
+      "added": 3482,
       "updated": 0,
       "removed": 0
     }
@@ -54,6 +54,13 @@
       "date": "2026-03-17",
       "totalJobs": 940,
       "added": 943,
+      "updated": 0,
+      "removed": 0
+    },
+    {
+      "date": "2026-03-17",
+      "totalJobs": 933,
+      "added": 936,
       "updated": 0,
       "removed": 0
     }
@@ -123,12 +130,6 @@
         "count": 115
       },
       {
-        "key": "mendrisio",
-        "name": "Mendrisio",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-mendrisio",
-        "count": 44
-      },
-      {
         "key": "locarno",
         "name": "Locarno",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-locarno",
@@ -163,6 +164,18 @@
         "name": "Lugano",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-lugano",
         "count": 108
+      },
+      {
+        "key": "lugano",
+        "name": "Lugano",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-lugano",
+        "count": 107
+      },
+      {
+        "key": "mendrisio",
+        "name": "Mendrisio",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-mendrisio",
+        "count": 51
       }
     ],
     "topCompaniesAddedToday": [
@@ -464,11 +477,11 @@
   },
   "salary": {
     "coverage": {
-      "jobsWithSalary": 940,
+      "jobsWithSalary": 933,
       "coveragePct": 100,
-      "avgMin": 67229,
-      "avgMax": 90719,
-      "avgMid": 78974,
+      "avgMin": 67249,
+      "avgMax": 90743,
+      "avgMid": 78996,
       "medianMid": 68500
     },
     "leaders": {
@@ -634,6 +647,16 @@
           "avgMax": 99313,
           "avgMid": 86438,
           "weightedSalary": 86438
+        },
+        {
+          "key": "bioggio",
+          "name": "Bioggio",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-bioggio",
+          "count": 13,
+          "avgMin": 74346,
+          "avgMax": 100346,
+          "avgMid": 87346,
+          "weightedSalary": 87346
         }
       ],
       "topSalaryTitles": [
