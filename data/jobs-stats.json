@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-03-17T16:17:00.238Z",
+  "generatedAt": "2026-03-17T16:17:16.080Z",
   "links": {
     "allJobs": "https://www.frontaliereticino.ch/cerca-lavoro-ticino"
   },
@@ -38,13 +38,6 @@
     },
     {
       "date": "2026-03-17",
-      "totalJobs": 899,
-      "added": 1157,
-      "updated": 0,
-      "removed": 0
-    },
-    {
-      "date": "2026-03-17",
       "totalJobs": 913,
       "added": 1169,
       "updated": 0,
@@ -54,6 +47,13 @@
       "date": "2026-03-17",
       "totalJobs": 900,
       "added": 1169,
+      "updated": 0,
+      "removed": 0
+    },
+    {
+      "date": "2026-03-17",
+      "totalJobs": 916,
+      "added": 1171,
       "updated": 0,
       "removed": 0
     },
@@ -130,34 +130,34 @@
         "count": 46
       },
       {
-        "key": "bellinzona",
-        "name": "Bellinzona",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-bellinzona",
-        "count": 133
-      },
-      {
         "key": "lugano",
         "name": "Lugano",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-lugano",
-        "count": 117
+        "count": 113
       },
       {
         "key": "locarno",
         "name": "Locarno",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-locarno",
-        "count": 43
+        "count": 42
       },
       {
         "key": "st-moritz",
         "name": "St. Moritz",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-st-moritz",
-        "count": 38
+        "count": 33
       },
       {
-        "key": "novaggio",
-        "name": "Novaggio",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-novaggio",
-        "count": 26
+        "key": "chiasso",
+        "name": "Chiasso",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-chiasso",
+        "count": 23
+      },
+      {
+        "key": "bellinzona",
+        "name": "Bellinzona",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-bellinzona",
+        "count": 132
       },
       {
         "key": "lugano",
@@ -170,6 +170,12 @@
         "name": "Locarno",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-locarno",
         "count": 42
+      },
+      {
+        "key": "chur",
+        "name": "Chur",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-chur",
+        "count": 41
       },
       {
         "key": "st-moritz",
