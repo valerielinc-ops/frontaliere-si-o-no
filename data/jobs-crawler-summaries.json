@@ -1,6 +1,31 @@
 {
-  "updatedAt": "2026-03-17T05:59:26.641Z",
+  "updatedAt": "2026-03-17T16:09:37.758Z",
   "summaries": [
+    {
+      "key": "a-group",
+      "label": "A++ Group",
+      "generatedAt": "2026-03-17T16:09:37.758Z",
+      "total": 0,
+      "newCount": 0,
+      "updatedCount": 0,
+      "removedCount": 0,
+      "unchangedCount": 0,
+      "durationMs": 26701,
+      "avgDurationMs": 30575,
+      "durationHistory": [
+        26701,
+        23576,
+        28530,
+        30542,
+        44022,
+        28477,
+        32179
+      ],
+      "newJobs": [],
+      "updatedJobs": [],
+      "removedJobs": [],
+      "unchangedJobs": []
+    },
     {
       "key": "zegna",
       "label": "Zegna",
@@ -286,30 +311,6 @@
           "slug": "control-engineer-agie-charmilles-losone"
         }
       ],
-      "updatedJobs": [],
-      "removedJobs": [],
-      "unchangedJobs": []
-    },
-    {
-      "key": "a-group",
-      "label": "A++ Group",
-      "generatedAt": "2026-03-17T04:45:41.957Z",
-      "total": 0,
-      "newCount": 0,
-      "updatedCount": 0,
-      "removedCount": 0,
-      "unchangedCount": 0,
-      "durationMs": 23576,
-      "avgDurationMs": 31221,
-      "durationHistory": [
-        23576,
-        28530,
-        30542,
-        44022,
-        28477,
-        32179
-      ],
-      "newJobs": [],
       "updatedJobs": [],
       "removedJobs": [],
       "unchangedJobs": []

@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-03-17T05:59:16.353Z",
-  "startedAt": "2026-03-17T05:10:04.243Z",
+  "generatedAt": "2026-03-17T16:09:35.413Z",
+  "startedAt": "2026-03-17T16:09:18.668Z",
   "config": {
     "minQualityScore": 4,
     "minDescriptionChars": 80,
     "aiLocalizationEnabled": true,
-    "aiLocalizationMaxJobsPerRun": 120,
+    "aiLocalizationMaxJobsPerRun": 500,
     "contentReuse": {
       "enabled": true,
       "similarityThreshold": 0.7,
@@ -24,47 +24,41 @@
     "companiesParsed": 178,
     "companiesSelected": 1,
     "companiesDroppedBySelection": 0,
-    "companiesCrawled": 0,
-    "discoveredCareerPages": 0,
-    "scrapedJobPages": 205,
-    "incomingCandidatesAccepted": 205,
+    "companiesCrawled": 1,
+    "discoveredCareerPages": 8,
+    "scrapedJobPages": 0,
+    "incomingCandidatesAccepted": 0,
     "discardedCandidates": 0,
-    "filteredOutNonCandidates": 2,
+    "filteredOutNonCandidates": 0,
     "duplicateInCompany": 0,
     "webDiscoveryQueries": 0,
     "webDiscoveryHits": 0,
     "browserFallbackAttempts": 0,
     "browserFallbackHits": 0,
     "duplicateIncoming": 0,
-    "duplicateExisting": 63,
-    "mergeExcludedJobs": 106,
-    "mergeExclusionByReason": {
-      "location_explicitly_foreign": 1,
-      "not_ticino_relevant": 39,
-      "explicitly_outside_target": 19,
-      "non_detail_url": 104,
-      "outside_swiss_ticino": 17
-    },
-    "reusedLocalizationFromPrevious": 20,
-    "inserted": 28,
-    "refreshed": 177,
-    "mergedTotal": 967,
-    "aiLocalizationCalls": 8,
+    "duplicateExisting": 0,
+    "mergeExcludedJobs": 0,
+    "mergeExclusionByReason": {},
+    "reusedLocalizationFromPrevious": 0,
+    "inserted": 0,
+    "refreshed": 0,
+    "mergedTotal": 822,
+    "aiLocalizationCalls": 0,
     "aiPageValidationCalls": 0,
-    "deeplCalls": 6,
+    "deeplCalls": 0,
     "deeplSuccess": 0,
-    "deeplFallbackToLlm": 5,
+    "deeplFallbackToLlm": 0,
     "aiCacheHits": 0,
-    "aiCacheMisses": 16,
-    "aiCacheEntries": 1424,
+    "aiCacheMisses": 0,
+    "aiCacheEntries": 1408,
     "discoveredCompaniesCandidates": 0,
     "discoveredCompaniesAdded": 0,
     "discoveredCompaniesPending": 0
   },
   "byCompany": [
     {
-      "company": "Zurich Insurance (sede Ticino)",
-      "domain": "zurich.ch",
+      "company": "A++ Group",
+      "domain": "a2plus.green",
       "discoveredCareerPages": 8,
       "scrapedJobPages": 0,
       "processedCandidates": 0,
@@ -83,335 +77,8 @@
       "inserted": 0,
       "refreshed": 0,
       "duplicateIncoming": 0
-    },
-    {
-      "company": "lastminute.com",
-      "domain": "corporate.lastminute.com",
-      "discoveredCareerPages": 8,
-      "scrapedJobPages": 5,
-      "processedCandidates": 5,
-      "extractedAccepted": 5,
-      "discardedCount": 0,
-      "discardedByReason": {},
-      "filteredOutCount": 0,
-      "filteredOutByReason": {},
-      "duplicateInCompany": 0,
-      "webDiscoveryQueries": 0,
-      "webDiscoveryHits": 0,
-      "webDiscoveryProviders": [],
-      "browserFallbackAttempted": 0,
-      "browserFallbackHits": 0,
-      "browserFallbackReason": "",
-      "inserted": 0,
-      "refreshed": 0,
-      "duplicateIncoming": 0
-    },
-    {
-      "company": "Swiss Armed Forces (VTG)",
-      "domain": "vtg.admin.ch",
-      "discoveredCareerPages": 8,
-      "scrapedJobPages": 4,
-      "processedCandidates": 4,
-      "extractedAccepted": 4,
-      "discardedCount": 0,
-      "discardedByReason": {},
-      "filteredOutCount": 33,
-      "filteredOutByReason": {
-        "jsonld_rejected_all_nodes": 33
-      },
-      "duplicateInCompany": 0,
-      "webDiscoveryQueries": 0,
-      "webDiscoveryHits": 0,
-      "webDiscoveryProviders": [],
-      "browserFallbackAttempted": 0,
-      "browserFallbackHits": 0,
-      "browserFallbackReason": "",
-      "inserted": 0,
-      "refreshed": 0,
-      "duplicateIncoming": 0
-    },
-    {
-      "company": "Amministrazione cantonale TI",
-      "domain": "ti.ch",
-      "discoveredCareerPages": 8,
-      "scrapedJobPages": 12,
-      "processedCandidates": 12,
-      "extractedAccepted": 12,
-      "discardedCount": 0,
-      "discardedByReason": {},
-      "filteredOutCount": 3,
-      "filteredOutByReason": {
-        "html_explicitly_outside_target": 3
-      },
-      "duplicateInCompany": 0,
-      "webDiscoveryQueries": 0,
-      "webDiscoveryHits": 0,
-      "webDiscoveryProviders": [],
-      "browserFallbackAttempted": 0,
-      "browserFallbackHits": 0,
-      "browserFallbackReason": "",
-      "inserted": 0,
-      "refreshed": 3,
-      "duplicateIncoming": 0
-    },
-    {
-      "company": "SUPSI / DTI",
-      "domain": "supsi.ch",
-      "discoveredCareerPages": 8,
-      "scrapedJobPages": 13,
-      "processedCandidates": 13,
-      "extractedAccepted": 13,
-      "discardedCount": 0,
-      "discardedByReason": {},
-      "filteredOutCount": 0,
-      "filteredOutByReason": {},
-      "duplicateInCompany": 0,
-      "webDiscoveryQueries": 0,
-      "webDiscoveryHits": 0,
-      "webDiscoveryProviders": [],
-      "browserFallbackAttempted": 0,
-      "browserFallbackHits": 0,
-      "browserFallbackReason": "",
-      "inserted": 0,
-      "refreshed": 0,
-      "duplicateIncoming": 0
-    },
-    {
-      "company": "EOC – Ente Ospedaliero Cantonale",
-      "domain": "eoc.ch",
-      "discoveredCareerPages": 8,
-      "scrapedJobPages": 205,
-      "processedCandidates": 205,
-      "extractedAccepted": 205,
-      "discardedCount": 0,
-      "discardedByReason": {},
-      "filteredOutCount": 2,
-      "filteredOutByReason": {
-        "html_not_target_relevant": 2
-      },
-      "duplicateInCompany": 0,
-      "webDiscoveryQueries": 0,
-      "webDiscoveryHits": 0,
-      "webDiscoveryProviders": [],
-      "browserFallbackAttempted": 0,
-      "browserFallbackHits": 0,
-      "browserFallbackReason": "",
-      "inserted": 0,
-      "refreshed": 3,
-      "duplicateIncoming": 0
     }
   ],
   "droppedCompanies": [],
-  "mergeExclusionSamples": [
-    {
-      "reason": "location_explicitly_foreign",
-      "title": "Business Development Manager Industrial Applications 80 - 100 % (f/m/d)",
-      "company": "Hamilton Bonaduz AG",
-      "location": "Home Office Germany",
-      "url": "https://hamilton.wd3.myworkdayjobs.com/en-US/hamilton_jobs/job/Home-Office-Germany/Business-Development-Manager-Industrial-Applications--80---100----f-m-d-_JR-5612"
-    },
-    {
-      "reason": "not_ticino_relevant",
-      "title": "Field Service Engineer 80 - 100 % (w/m/d)",
-      "company": "Hamilton Bonaduz AG",
-      "location": "Home Office Switzerland",
-      "url": "https://hamilton.wd3.myworkdayjobs.com/en-US/hamilton_jobs/job/Home-Office-Switzerland/Field-Service-Engineer-80---100----w-m-d-_JR-5343"
-    },
-    {
-      "reason": "non_detail_url",
-      "title": "Elektroinstallateur/in EFZ (80 - 100%)",
-      "company": "Schönholzer AG",
-      "location": "Chur",
-      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/elektroinstallateur-efz-76"
-    },
-    {
-      "reason": "non_detail_url",
-      "title": "Bauleitende/r Elektroinstallateur/in (80 - 100%)",
-      "company": "Schönholzer AG",
-      "location": "Chur",
-      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/bauleitenden-elektroinstallateur-75"
-    },
-    {
-      "reason": "non_detail_url",
-      "title": "Elektroinstallateur/in EFZ mit Flair für Telematik (100%)",
-      "company": "TZ Stromag",
-      "location": "Brig-Glis",
-      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/elektroinstallateur-efz-mit-flair-fuer-telematik-12"
-    },
-    {
-      "reason": "non_detail_url",
-      "title": "Bauleitende/r Elektroinstallateur/in (100%)",
-      "company": "Elektro Saas, ZNL der TZ Stromag",
-      "location": "Saas-Fee",
-      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/bauleitender-elektroinstallateur-215"
-    },
-    {
-      "reason": "non_detail_url",
-      "title": "Schaltanlagenmonteur/in - Elektroinstallateur/in mit guten Kenntnissen im Schaltanlagenbau (100%)",
-      "company": "TZ Stromag",
-      "location": "Brig-Glis",
-      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/schaltanlagenmonteur-elektroinstallateur-mit-guten-kenntnissen-im-schaltanlagenbau-214"
-    },
-    {
-      "reason": "non_detail_url",
-      "title": "Bauleitende/r Elektroinstallateur/in (100%)",
-      "company": "Elektro Rüegg AG",
-      "location": "Lenzerheide",
-      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/bauleitender-elektroinstallateur-135"
-    },
-    {
-      "reason": "non_detail_url",
-      "title": "Elektroinstallateur/in EFZ (100%)",
-      "company": "TZ Stromag",
-      "location": "Brig-Glis",
-      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/elektroinstallateur-efz-265"
-    },
-    {
-      "reason": "non_detail_url",
-      "title": "Elektroinstallateur/in EFZ (100%)",
-      "company": "Elektro Saas, ZNL der TZ Stromag",
-      "location": "Saas-Fee",
-      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/elektroinstallateur-efz-265-1"
-    },
-    {
-      "reason": "non_detail_url",
-      "title": "Bauleitende/r Elektroinstallateur/in (100%)",
-      "company": "TZ Stromag",
-      "location": "Brig-Glis",
-      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/bauleitender-elektroinstallateur-215-1"
-    },
-    {
-      "reason": "non_detail_url",
-      "title": "Elektro-Sicherheitsberater/in mit eidg. FA (100%)",
-      "company": "Elektro Saas, ZNL der TZ Stromag",
-      "location": "Saas-Fee",
-      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/elektro-sicherheitsberater-mit-eidg-fa-349-1"
-    },
-    {
-      "reason": "non_detail_url",
-      "title": "Elektro-Servicetechniker/in (100%)",
-      "company": "TZ Stromag",
-      "location": "Brig-Glis",
-      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/elektro-servicetechniker-11"
-    },
-    {
-      "reason": "non_detail_url",
-      "title": "Elektro-Servicetechniker/in (100%)",
-      "company": "Elektro Saas, ZNL der TZ Stromag",
-      "location": "Saas-Fee",
-      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/elektro-servicetechniker-11-1"
-    },
-    {
-      "reason": "non_detail_url",
-      "title": "Elektro-Servicemonteur/in (80 - 100%)",
-      "company": "Derungs AG",
-      "location": "Ilanz",
-      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/elektro-servicemonteur-366"
-    },
-    {
-      "reason": "non_detail_url",
-      "title": "Elektroplaner oder Elektroinstallateur in Zusatzlehre als Elektroplaner / Elektroinstallateur EFZ mit planerischer Erfahrung (100%)",
-      "company": "TZ Stromag",
-      "location": "Brig-Glis",
-      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/elektroplaner-oder-elektroinstallateur-in-zusatzlehre-als-elektroplaner-elektroinstallateur-efz-mit-planerischer-erfahrung-350"
-    },
-    {
-      "reason": "non_detail_url",
-      "title": "Elektro-Sicherheitsberater/in mit eidg. FA (100%)",
-      "company": "TZ Stromag",
-      "location": "Brig-Glis",
-      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/elektro-sicherheitsberater-mit-eidg-fa-349"
-    },
-    {
-      "reason": "non_detail_url",
-      "title": "Bauleitende/r Elektroinstallateur/in - Servicetechniker/in (100%)",
-      "company": "Elektro Rüegg AG",
-      "location": "Lenzerheide",
-      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/bauleitender-elektroinstallateur-servicetechniker-407"
-    },
-    {
-      "reason": "non_detail_url",
-      "title": "Elektroinstallateur/in EFZ (80 - 100%)",
-      "company": "Rast Elektro AG",
-      "location": "Küblis",
-      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/elektroinstallateur-efz-406"
-    },
-    {
-      "reason": "non_detail_url",
-      "title": "Chef/fe de chantier (100%)",
-      "company": "Grichting & Valterio Electro SA",
-      "location": "Sion",
-      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/chef-de-chantier-9"
-    },
-    {
-      "reason": "non_detail_url",
-      "title": "Installateurs-electriciens / Installatrices-électriciennes CFC (100%)",
-      "company": "Grichting & Valterio Electro SA",
-      "location": "Sion",
-      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/installateurs-electriciens-cfc-3"
-    },
-    {
-      "reason": "non_detail_url",
-      "title": "Installateurs-électriciens / Installatrices-électriciennes CFC (100%)",
-      "company": "Grichting & Valterio Electro SA",
-      "location": "Collombey",
-      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/installateurs-electriciens-cfc-425-1"
-    },
-    {
-      "reason": "non_detail_url",
-      "title": "Bauleitende/r Elektroinstallateur/in (100%)",
-      "company": "Elektrohüs, ZNL der TZ Stromag",
-      "location": "Susten",
-      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/bauleitender-elektroinstallateur-455"
-    },
-    {
-      "reason": "non_detail_url",
-      "title": "Elektroinstallateur/in EFZ (100%)",
-      "company": "Elektrohüs, ZNL der TZ Stromag",
-      "location": "Susten",
-      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/elektroinstallateur-efz-454"
-    },
-    {
-      "reason": "non_detail_url",
-      "title": "Installateurs-électriciens / installatrices-électriciennes (orienté industrie) (100%)",
-      "company": "Grichting & Valterio Electro SA",
-      "location": "Collombey",
-      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/installateurs-electriciens-oriente-industrie-267"
-    },
-    {
-      "reason": "non_detail_url",
-      "title": "Bauleitende/r Sanitärinstallateur/in (100%)",
-      "company": "Ulrich Huber AG",
-      "location": "Malans",
-      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/bauleitende-r-sanitaerinstallateur-in-752"
-    },
-    {
-      "reason": "non_detail_url",
-      "title": "Bauleitende/r Heizungsinstallateur/in (100%)",
-      "company": "Ulrich Huber AG",
-      "location": "Malans",
-      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/bauleitende-r-heizungsinstallateur-in-753"
-    },
-    {
-      "reason": "non_detail_url",
-      "title": "Servicemonteur/in (100%)",
-      "company": "Schönholzer AG",
-      "location": "Chur",
-      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/servicemonteur-590-schoenholzer-ag"
-    },
-    {
-      "reason": "non_detail_url",
-      "title": "Heizungsinstallateur/in (100%)",
-      "company": "Ulrich Huber AG",
-      "location": "Malans",
-      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/heizungsinstallateur-in-1016-1"
-    },
-    {
-      "reason": "non_detail_url",
-      "title": "Bauleitende/r Elektroinstallateur/in EFZ (80 - 100%)",
-      "company": "Derungs AG",
-      "location": "Flims Waldhaus",
-      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/elektroinstallateur-efz-derungs-ag"
-    }
-  ]
+  "mergeExclusionSamples": []
 }
