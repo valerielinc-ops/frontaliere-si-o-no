@@ -85,6 +85,102 @@ for path_item in "${ALL_FILES[@]}"; do
   expand_path_to_files "$path_item"
 done
 
+create_rebase_snapshot() {
+  local base_sha="$1"
+  local snapshot_dir
+  local f
+
+  snapshot_dir="$(mktemp -d)"
+
+  for f in "${RESOLVED_FILES[@]}"; do
+    if [ -f "$f" ]; then
+      mkdir -p "$snapshot_dir/local/$(dirname "$f")"
+      cp "$f" "$snapshot_dir/local/$f"
+    fi
+    if git cat-file -e "$base_sha:$f" 2>/dev/null; then
+      mkdir -p "$snapshot_dir/base/$(dirname "$f")"
+      git show "$base_sha:$f" > "$snapshot_dir/base/$f"
+    fi
+  done
+
+  printf '%s\n' "$snapshot_dir"
+}
+
+cleanup_rebase_snapshot() {
+  local snapshot_dir="${1:-}"
+  [ -n "$snapshot_dir" ] || return 0
+  rm -rf "$snapshot_dir"
+}
+
+restore_stashed_changes_with_safe_merge() {
+  local snapshot_dir="$1"
+  local conflict_message="$2"
+  local conflict_files=""
+  local unmerged=""
+  local f
+  local key_hint=""
+
+  if git stash pop 2>/dev/null; then
+    return 0
+  fi
+
+  echo "$conflict_message"
+  conflict_files="$(git diff --name-only --diff-filter=U || true)"
+
+  # Reset index conflict markers so we can write clean files back to the tree.
+  git reset HEAD -- . 2>/dev/null || true
+
+  for f in "${RESOLVED_FILES[@]}"; do
+    [ -f "$snapshot_dir/local/$f" ] || continue
+    if [ -n "$conflict_files" ] && ! printf '%s\n' "$conflict_files" | grep -Fxq "$f"; then
+      continue
+    fi
+
+    if [[ "$f" == *.json ]]; then
+      mkdir -p "$snapshot_dir/remote/$(dirname "$f")"
+      if git cat-file -e "HEAD:$f" 2>/dev/null; then
+        git show "HEAD:$f" > "$snapshot_dir/remote/$f"
+      fi
+
+      key_hint=""
+      case "$f" in
+        data/jobs.json|public/data/jobs.json)
+          key_hint="url"
+          ;;
+        data/jobs-crawler-summaries.json)
+          key_hint="key"
+          ;;
+        data/ticino-companies-extra.json)
+          key_hint="website"
+          ;;
+      esac
+
+      merge_json_3way \
+        "$snapshot_dir/base/$f" \
+        "$snapshot_dir/remote/$f" \
+        "$snapshot_dir/local/$f" \
+        "$f" \
+        "$key_hint" \
+        "$f" || {
+        echo "❌ Failed safe merge for $f"
+        exit 1
+      }
+    else
+      cp "$snapshot_dir/local/$f" "$f"
+    fi
+  done
+
+  unmerged="$(git diff --name-only --diff-filter=U || true)"
+  if [ -n "$unmerged" ]; then
+    echo "❌ Unmerged files remain after conflict resolution:"
+    echo "$unmerged"
+    exit 1
+  fi
+
+  # Drop the failed stash entry after we have restored the local content.
+  git stash drop 2>/dev/null || true
+}
+
 merge_json_3way() {
   local base_file="$1"
   local remote_file="$2"
@@ -400,17 +496,7 @@ if [ "$LOCAL" != "$REMOTE" ]; then
   BASE_SHA="$LOCAL"
 
   # Save local copies so we can merge after rebase if stash-pop conflicts
-  TMPDIR=$(mktemp -d)
-  for f in "${RESOLVED_FILES[@]}"; do
-    if [ -f "$f" ]; then
-      mkdir -p "$TMPDIR/local/$(dirname "$f")"
-      cp "$f" "$TMPDIR/local/$f"
-    fi
-    if git cat-file -e "$BASE_SHA:$f" 2>/dev/null; then
-      mkdir -p "$TMPDIR/base/$(dirname "$f")"
-      git show "$BASE_SHA:$f" > "$TMPDIR/base/$f"
-    fi
-  done
+  SNAPSHOT_DIR="$(create_rebase_snapshot "$BASE_SHA")"
 
   # Stash local changes so rebase can proceed cleanly
   git stash --include-untracked
@@ -422,67 +508,9 @@ if [ "$LOCAL" != "$REMOTE" ]; then
   fi
 
   # Restore local changes
-  if ! git stash pop 2>/dev/null; then
-    echo "⚠️ Stash-pop conflict — merging data files..."
-    CONFLICT_FILES="$(git diff --name-only --diff-filter=U || true)"
+  restore_stashed_changes_with_safe_merge "$SNAPSHOT_DIR" "⚠️ Stash-pop conflict — merging data files..."
 
-    # Reset index conflict markers so we can write clean files
-    git reset HEAD -- . 2>/dev/null || true
-
-    # Resolve conflicted tracked JSON files with safe 3-way merge (base/local/remote).
-    # Non-JSON files keep local version (run output is authoritative).
-    for f in "${RESOLVED_FILES[@]}"; do
-      [ -f "$TMPDIR/local/$f" ] || continue
-      if [ -n "$CONFLICT_FILES" ] && ! printf '%s\n' "$CONFLICT_FILES" | grep -Fxq "$f"; then
-        continue
-      fi
-
-      if [[ "$f" == *.json ]]; then
-        mkdir -p "$TMPDIR/remote/$(dirname "$f")"
-        if git cat-file -e "HEAD:$f" 2>/dev/null; then
-          git show "HEAD:$f" > "$TMPDIR/remote/$f"
-        fi
-
-        key_hint=""
-        case "$f" in
-          data/jobs.json|public/data/jobs.json)
-            key_hint="url"
-            ;;
-          data/jobs-crawler-summaries.json)
-            key_hint="key"
-            ;;
-          data/ticino-companies-extra.json)
-            key_hint="website"
-            ;;
-        esac
-
-        merge_json_3way \
-          "$TMPDIR/base/$f" \
-          "$TMPDIR/remote/$f" \
-          "$TMPDIR/local/$f" \
-          "$f" \
-          "$key_hint" \
-          "$f" || {
-          echo "❌ Failed safe merge for $f"
-          exit 1
-        }
-      else
-        cp "$TMPDIR/local/$f" "$f"
-      fi
-    done
-
-    UNMERGED="$(git diff --name-only --diff-filter=U || true)"
-    if [ -n "$UNMERGED" ]; then
-      echo "❌ Unmerged files remain after conflict resolution:"
-      echo "$UNMERGED"
-      exit 1
-    fi
-
-    # Drop the failed stash entry
-    git stash drop 2>/dev/null || true
-  fi
-
-  rm -rf "$TMPDIR"
+  cleanup_rebase_snapshot "$SNAPSHOT_DIR"
 fi
 
 # ── 4. Stage, commit, push ────────────────────────────────────────────────
@@ -562,39 +590,17 @@ if ! git rebase origin/main 2>/dev/null; then
   echo "⚠️ Last-moment rebase conflict — resolving with 3-way JSON merge..."
   git rebase --abort 2>/dev/null || true
   git reset --mixed HEAD~1
+  LAST_MOMENT_BASE_SHA="$(git rev-parse HEAD)"
+  LAST_MOMENT_SNAPSHOT_DIR="$(create_rebase_snapshot "$LAST_MOMENT_BASE_SHA")"
 
   # Re-pull with merge strategy to get remote changes
   git stash --include-untracked 2>/dev/null || true
   git pull --no-rebase origin main || true
 
-  if ! git stash pop 2>/dev/null; then
-    echo "  🔀 Resolving stash-pop conflict after last-moment rebase..."
-    CONFLICT_FILES="$(git diff --name-only --diff-filter=U || true)"
-    git reset HEAD -- . 2>/dev/null || true
-
-    for f in "${RESOLVED_FILES[@]}"; do
-      [ -f "$TMPDIR/local/$f" ] || continue
-      if [ -n "$CONFLICT_FILES" ] && ! printf '%s\n' "$CONFLICT_FILES" | grep -Fxq "$f"; then
-        continue
-      fi
-      if [[ "$f" == *.json ]]; then
-        mkdir -p "$TMPDIR/remote/$(dirname "$f")"
-        if git cat-file -e "HEAD:$f" 2>/dev/null; then
-          git show "HEAD:$f" > "$TMPDIR/remote/$f"
-        fi
-        key_hint=""
-        case "$f" in
-          data/jobs.json|public/data/jobs.json) key_hint="url" ;;
-          data/jobs-crawler-summaries.json) key_hint="key" ;;
-          data/ticino-companies-extra.json) key_hint="website" ;;
-        esac
-        merge_json_3way "$TMPDIR/base/$f" "$TMPDIR/remote/$f" "$TMPDIR/local/$f" "$f" "$key_hint"
-      else
-        cp "$TMPDIR/local/$f" "$f"
-      fi
-    done
-    git checkout -- . 2>/dev/null || true
-  fi
+  restore_stashed_changes_with_safe_merge \
+    "$LAST_MOMENT_SNAPSHOT_DIR" \
+    "  🔀 Resolving stash-pop conflict after last-moment rebase..."
+  cleanup_rebase_snapshot "$LAST_MOMENT_SNAPSHOT_DIR"
 
   git add "${ALL_FILES[@]}"
   if git diff --cached --quiet; then
