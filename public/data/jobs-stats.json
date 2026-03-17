@@ -1,22 +1,22 @@
 {
-  "generatedAt": "2026-03-17T05:13:36.360Z",
+  "generatedAt": "2026-03-17T05:13:53.086Z",
   "links": {
     "allJobs": "https://www.frontaliereticino.ch/cerca-lavoro-ticino"
   },
   "totals": {
-    "activeJobs": 766,
-    "activeCompanies": 90,
-    "activeLocations": 116,
-    "todayAdded": 1067,
+    "activeJobs": 975,
+    "activeCompanies": 127,
+    "activeLocations": 144,
+    "todayAdded": 1010,
     "todayUpdated": 0,
     "todayRemoved": 0,
     "last7d": {
-      "added": 3130,
+      "added": 1913,
       "updated": 0,
       "removed": 0
     },
     "last30d": {
-      "added": 3613,
+      "added": 2396,
       "updated": 0,
       "removed": 0
     }
@@ -54,6 +54,13 @@
       "date": "2026-03-17",
       "totalJobs": 967,
       "added": 1053,
+      "updated": 0,
+      "removed": 0
+    },
+    {
+      "date": "2026-03-17",
+      "totalJobs": 975,
+      "added": 1010,
       "updated": 0,
       "removed": 0
     }
@@ -211,6 +218,18 @@
         "name": "Ticino",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-ticino",
         "count": 25
+      },
+      {
+        "key": "lugano",
+        "name": "Lugano",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-lugano",
+        "count": 114
+      },
+      {
+        "key": "locarno",
+        "name": "Locarno",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-locarno",
+        "count": 43
       }
     ],
     "topCompaniesAddedToday": [
@@ -512,11 +531,11 @@
   },
   "salary": {
     "coverage": {
-      "jobsWithSalary": 766,
+      "jobsWithSalary": 975,
       "coveragePct": 100,
-      "avgMin": 67475,
-      "avgMax": 91063,
-      "avgMid": 79269,
+      "avgMin": 67441,
+      "avgMax": 91001,
+      "avgMid": 79221,
       "medianMid": 72000
     },
     "leaders": {
