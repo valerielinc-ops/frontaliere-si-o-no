@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-03-17T16:12:22.643Z",
+  "generatedAt": "2026-03-17T16:13:01.626Z",
   "links": {
     "allJobs": "https://www.frontaliereticino.ch/cerca-lavoro-ticino"
   },
   "totals": {
-    "activeJobs": 824,
-    "activeCompanies": 102,
-    "activeLocations": 155,
+    "activeJobs": 826,
+    "activeCompanies": 101,
+    "activeLocations": 154,
     "todayAdded": 1145,
     "todayUpdated": 0,
     "todayRemoved": 0,
@@ -157,6 +157,12 @@
         "name": "Chiasso",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-chiasso",
         "count": 23
+      },
+      {
+        "key": "st-moritz",
+        "name": "St. Moritz",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-st-moritz",
+        "count": 34
       }
     ],
     "topCompaniesAddedToday": [
@@ -458,11 +464,11 @@
   },
   "salary": {
     "coverage": {
-      "jobsWithSalary": 824,
+      "jobsWithSalary": 826,
       "coveragePct": 100,
-      "avgMin": 67065,
-      "avgMax": 90491,
-      "avgMid": 78778,
+      "avgMin": 67087,
+      "avgMax": 90521,
+      "avgMid": 78804,
       "medianMid": 72000
     },
     "leaders": {
