@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-03-17T16:41:22.980Z",
+  "generatedAt": "2026-03-17T16:41:36.160Z",
   "links": {
     "allJobs": "https://www.frontaliereticino.ch/cerca-lavoro-ticino"
   },
   "totals": {
-    "activeJobs": 971,
+    "activeJobs": 978,
     "activeCompanies": 133,
     "activeLocations": 161,
     "todayAdded": 1191,
@@ -39,6 +39,13 @@
     {
       "date": "2026-03-17",
       "totalJobs": 1014,
+      "added": 1191,
+      "updated": 0,
+      "removed": 0
+    },
+    {
+      "date": "2026-03-17",
+      "totalJobs": 978,
       "added": 1191,
       "updated": 0,
       "removed": 0
@@ -83,16 +90,16 @@
         "count": 40
       },
       {
+        "key": "convit-holding-gmbh",
+        "name": "Convit Holding GmbH",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-convit-holding-gmbh",
+        "count": 23
+      },
+      {
         "key": "kulm-hotel-st-moritz",
         "name": "Kulm Hotel St. Moritz",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-kulm-hotel-st-moritz",
-        "count": 42
-      },
-      {
-        "key": "grand-hotel-kronenhof",
-        "name": "Grand Hotel Kronenhof",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-grand-hotel-kronenhof",
-        "count": 26
+        "count": 21
       },
       {
         "key": "convit-holding-gmbh",
@@ -127,42 +134,6 @@
         "count": 46
       },
       {
-        "key": "chur",
-        "name": "Chur",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-chur",
-        "count": 47
-      },
-      {
-        "key": "lugano",
-        "name": "Lugano",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-lugano",
-        "count": 124
-      },
-      {
-        "key": "st-moritz",
-        "name": "St. Moritz",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-st-moritz",
-        "count": 78
-      },
-      {
-        "key": "mendrisio",
-        "name": "Mendrisio",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-mendrisio",
-        "count": 70
-      },
-      {
-        "key": "chur",
-        "name": "Chur",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-chur",
-        "count": 47
-      },
-      {
-        "key": "pontresina",
-        "name": "Pontresina",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-pontresina",
-        "count": 26
-      },
-      {
         "key": "lugano",
         "name": "Lugano",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-lugano",
@@ -179,6 +150,30 @@
         "name": "Mendrisio",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-mendrisio",
         "count": 56
+      },
+      {
+        "key": "ticino",
+        "name": "Ticino",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-ticino",
+        "count": 24
+      },
+      {
+        "key": "lugano",
+        "name": "Lugano",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-lugano",
+        "count": 121
+      },
+      {
+        "key": "mendrisio",
+        "name": "Mendrisio",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-mendrisio",
+        "count": 63
+      },
+      {
+        "key": "st-moritz",
+        "name": "St. Moritz",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-st-moritz",
+        "count": 57
       },
       {
         "key": "ticino",
@@ -486,11 +481,11 @@
   },
   "salary": {
     "coverage": {
-      "jobsWithSalary": 971,
+      "jobsWithSalary": 978,
       "coveragePct": 100,
-      "avgMin": 66776,
-      "avgMax": 90075,
-      "avgMid": 78425,
+      "avgMin": 66710,
+      "avgMax": 89986,
+      "avgMid": 78348,
       "medianMid": 68500
     },
     "leaders": {
