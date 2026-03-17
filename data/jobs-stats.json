@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-03-17T05:19:54.996Z",
+  "generatedAt": "2026-03-17T05:19:59.475Z",
   "links": {
     "allJobs": "https://www.frontaliereticino.ch/cerca-lavoro-ticino"
   },
   "totals": {
-    "activeJobs": 804,
+    "activeJobs": 823,
     "activeCompanies": 95,
     "activeLocations": 122,
     "todayAdded": 1087,
@@ -77,31 +77,13 @@
         "count": 25
       },
       {
-        "key": "usi-universita-della-svizzera-italiana",
-        "name": "USI – Università della Svizzera italiana",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-usi-universita-della-svizzera-italiana",
-        "count": 24
-      },
-      {
-        "key": "convit-holding-gmbh",
-        "name": "Convit Holding GmbH",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-convit-holding-gmbh",
-        "count": 23
-      },
-      {
-        "key": "interdiscount",
-        "name": "Interdiscount",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-interdiscount",
-        "count": 22
+        "key": "ffs-officine-ferrovie-federali",
+        "name": "FFS Officine (Ferrovie Federali)",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-ffs-officine-ferrovie-federali",
+        "count": 40
       }
     ],
     "topLocationsActive": [
-      {
-        "key": "bellinzona",
-        "name": "Bellinzona",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-bellinzona",
-        "count": 133
-      },
       {
         "key": "lugano",
         "name": "Lugano",
@@ -139,10 +121,28 @@
         "count": 33
       },
       {
+        "key": "bellinzona",
+        "name": "Bellinzona",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-bellinzona",
+        "count": 142
+      },
+      {
+        "key": "mendrisio",
+        "name": "Mendrisio",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-mendrisio",
+        "count": 52
+      },
+      {
+        "key": "chur",
+        "name": "Chur",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-chur",
+        "count": 36
+      },
+      {
         "key": "chiasso",
         "name": "Chiasso",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-chiasso",
-        "count": 23
+        "count": 24
       }
     ],
     "topCompaniesAddedToday": [
@@ -444,12 +444,12 @@
   },
   "salary": {
     "coverage": {
-      "jobsWithSalary": 804,
+      "jobsWithSalary": 823,
       "coveragePct": 100,
-      "avgMin": 67364,
-      "avgMax": 90906,
-      "avgMid": 79135,
-      "medianMid": 73076
+      "avgMin": 67535,
+      "avgMax": 91130,
+      "avgMid": 79332,
+      "medianMid": 84500
     },
     "leaders": {
       "topSalaryCompanies": [
