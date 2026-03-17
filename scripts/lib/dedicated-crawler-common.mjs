@@ -36,11 +36,15 @@ async function translateJobFieldWithFallback({
     text,
     sourceLang,
     targetLang,
-    maxRetries: kind === 'title' ? 0 : 2,
+    maxRetries: kind === 'title' ? 1 : 2,
   });
   if (translated) return translated;
 
   if (kind === 'title') {
+    const heuristicTitle = heuristicTranslateJobTitle(String(text || ''), targetLang);
+    if (heuristicTitle && normalize(heuristicTitle) !== normalize(text)) {
+      return heuristicTitle;
+    }
     return String(text || '').trim();
   }
   return '';
@@ -58,6 +62,143 @@ export function normalizeKey(value = '') {
     .replace(/[\u0300-\u036f]/g, '')
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '');
+}
+
+const GERMAN_SLUG_WORDS =
+  /(?:^|-)(?:als|und|fur|oder|frau|mann|fach|stelle|lehrstelle|mitarbeiter|leiter|stellvertretend|verkauf|lernend|chauffeu|gartencenter|befristet|ablosen|disponentin|disponent|ladenleit|logistiker|projektleiter|elektroinstallateur|elektroplaner|unterhaltsfachmann|servicetechniker|immobilienberater)(?:-|$)/i;
+const FRENCH_SLUG_WORDS =
+  /(?:^|-)(?:apprentissage|gestionnaire|adjoint|auxiliaire|temporaire|vendeur|vendeuse|postes|vacants|gerante|gerant)(?:-|$)/i;
+
+const GERMAN_TITLE_WORDS =
+  /\b(?:als|und|fur|oder|lehre|lehrstelle|mitarbeiter|leiter|logistiker|projektleiter|elektroinstallateur|elektroplaner|unterhaltsfachmann|servicetechniker|immobilienberater|nachwuchskader)\b/i;
+const FRENCH_TITLE_WORDS =
+  /\b(?:apprentissage|gestionnaire|adjoint|auxiliaire|temporaire|vendeur|vendeuse|gerante|gerant)\b/i;
+
+function slugifyLocalizedLabel(value = '') {
+  return String(value || '')
+    .trim()
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '')
+    .replace(/-{2,}/g, '-')
+    .slice(0, 180);
+}
+
+function needsItalianSlugRepair(slug = '') {
+  const clean = String(slug || '').trim();
+  if (!clean) return false;
+  return GERMAN_SLUG_WORDS.test(clean) || FRENCH_SLUG_WORDS.test(clean);
+}
+
+function normalizeRepairText(value = '') {
+  return String(value || '')
+    .trim()
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-z0-9]+/g, ' ')
+    .replace(/\s{2,}/g, ' ')
+    .trim();
+}
+
+function needsItalianTitleRepair(title = '') {
+  const clean = normalizeRepairText(title);
+  if (!clean) return false;
+  return GERMAN_TITLE_WORDS.test(clean) || FRENCH_TITLE_WORDS.test(clean);
+}
+
+export function heuristicTranslateJobTitle(title = '', locale = 'it') {
+  let out = String(title || '').trim();
+  if (!out) return out;
+
+  const dictionaries = {
+    it: [
+      [/\bNachwuchskader Verkauf\b/gi, 'Responsabile junior vendita'],
+      [/\bElektroplaner oder Elektroinstallateur(?:\/in|:in|\s+in)? in Zusatzlehre als Elektroplaner \/ Elektroinstallateur EFZ mit planerischer Erfahrung\b/gi, 'Progettista elettrico/a o installatore/trice elettrico/a in formazione complementare come progettista elettrico/a / installatore/trice elettrico/a EFZ con esperienza di pianificazione'],
+      [/\bProjektleiter\/in Installationen oder Junior Projektleiter\/in\b/gi, 'Responsabile di progetto installazioni o Junior responsabile di progetto'],
+      [/\bUnterhaltsfachmann\/frau,\s*Servicetechniker\/in\b/gi, 'Addetto/a manutenzione, Tecnico/a di servizio'],
+      [/\bLehre als\b/gi, 'Apprendistato come'],
+      [/\bLogistiker:in\b/gi, 'impiegata/impiegato in logistica'],
+      [/\bDistribution gemischte Zustellung\b/gi, 'Distribuzione recapito misto'],
+      [/\bBriefe und Pakete\b/gi, 'lettere e pacchi'],
+      [/\bImmobilienberater\/in\b/gi, 'Consulente immobiliare'],
+      [/\bg[ée]rante[- ]adjointe\s*\/\s*g[ée]rant[- ]adjoint\b/gi, 'Vicegerente / Gerente aggiunto/a'],
+      [/\bvendeuse\s*\/\s*vendeur\b/gi, 'Venditrice / Venditore'],
+      [/\bSenior Projektleiter:in Bauherrenunterstützung\b/gi, 'Responsabile di progetto senior supporto alla committenza'],
+      [/\bProjektleiter:in Nationalstrassenbau\b/gi, 'Responsabile di progetto costruzione strade nazionali'],
+      [/\bProjektleiter:in Bahnbau\b/gi, 'Responsabile di progetto costruzione ferroviaria'],
+      [/\bProjektleiter:in Kunstbauten\b/gi, "Responsabile di progetto opere d'arte"],
+      [/\bProjektingenieur:in Kunstbauten\b/gi, "Ingegnere/a di progetto opere d'arte"],
+      [/\bZeichner:in Tiefbau \/ Kunstbau\b/gi, 'Disegnatore/trice ingegneria civile / opere d’arte'],
+      [/\bMitarbeiter:in\b/gi, 'Collaboratore/trice'],
+      [/\bProjektleiter:in\b/gi, 'Responsabile di progetto'],
+      [/\bProjektleiter\/in\b/gi, 'Responsabile di progetto'],
+      [/\bJunior Projektleiter\/in\b/gi, 'Junior responsabile di progetto'],
+      [/\bBauherrenunterstützung\b/gi, 'supporto alla committenza'],
+      [/\bElektroinstallateur\b/gi, 'Installatore/trice elettrico/a'],
+      [/\bElektroinstallateur\/in\b/gi, 'Installatore/trice elettrico/a'],
+      [/\bElektroplaner\b/gi, 'Progettista elettrico/a'],
+      [/\bZusatzlehre\b/gi, 'formazione complementare'],
+      [/\bmit planerischer Erfahrung\b/gi, 'con esperienza di pianificazione'],
+      [/\bmit Flair für\b/gi, 'con predisposizione per'],
+      [/\bTelematik\b/gi, 'telematica'],
+      [/\bUnterhaltsfachmann\/frau\b/gi, 'Addetto/a manutenzione'],
+      [/\bServicetechniker\/in\b/gi, 'Tecnico/a di servizio'],
+      [/\bInstallationen\b/gi, 'installazioni'],
+      [/\bVendeuse\/vendeur\b/gi, 'Venditore/Venditrice'],
+      [/\bAuxiliaire temporaire de caisse\b/gi, 'Addetto/a cassa temporaneo/a'],
+      [/\bCDD d'avril à août\b/gi, 'contratto a termine da aprile ad agosto'],
+      [/\bCDD d'avril à mai\b/gi, 'contratto a termine da aprile a maggio'],
+      [/\bf\/h\/d\b/gi, 'f/m/d'],
+      [/\bh\/f\/d\b/gi, 'f/m/d'],
+      [/\bals\b/gi, 'come'],
+      [/\boder\b/gi, 'o'],
+      [/\bmit\b/gi, 'con'],
+      [/\bfür\b/gi, 'per'],
+    ],
+    en: [
+      [/\bMitarbeiter:in\b/gi, 'Associate'],
+      [/\bProjektleiter:in\b/gi, 'Project Manager'],
+      [/\bProjektleiter\/in\b/gi, 'Project Manager'],
+      [/\bBauherrenunterstützung\b/gi, 'Client Support'],
+      [/\bElektroinstallateur\/in\b/gi, 'Electrical Installer'],
+      [/\bElektroplaner\b/gi, 'Electrical Planner'],
+      [/\bZusatzlehre\b/gi, 'Additional Apprenticeship'],
+      [/\bTelematik\b/gi, 'Telematics'],
+      [/\bUnterhaltsfachmann\/frau\b/gi, 'Maintenance Specialist'],
+      [/\bServicetechniker\/in\b/gi, 'Service Technician'],
+      [/\bVendeuse\/vendeur\b/gi, 'Salesperson'],
+      [/\bAuxiliaire temporaire de caisse\b/gi, 'Temporary Cashier Assistant'],
+      [/\bCDD d'avril à août\b/gi, 'fixed-term contract from April to August'],
+      [/\bCDD d'avril à mai\b/gi, 'fixed-term contract from April to May'],
+    ],
+    fr: [
+      [/\bMitarbeiter:in\b/gi, 'Collaborateur/trice'],
+      [/\bProjektleiter:in\b/gi, 'Chef de projet'],
+      [/\bProjektleiter\/in\b/gi, 'Chef de projet'],
+      [/\bBauherrenunterstützung\b/gi, "assistance à la maîtrise d'ouvrage"],
+      [/\bElektroinstallateur\/in\b/gi, 'Installateur/trice électricien/ne'],
+      [/\bElektroplaner\b/gi, 'Planificateur/trice électrique'],
+      [/\bZusatzlehre\b/gi, 'formation complémentaire'],
+      [/\bTelematik\b/gi, 'télématique'],
+      [/\bUnterhaltsfachmann\/frau\b/gi, 'Spécialiste maintenance'],
+      [/\bServicetechniker\/in\b/gi, 'Technicien/ne de service'],
+      [/\bVendeuse\/vendeur\b/gi, 'Vendeur/Vendeuse'],
+      [/\bAuxiliaire temporaire de caisse\b/gi, 'Auxiliaire temporaire de caisse'],
+    ],
+  };
+
+  for (const [pattern, replacement] of (dictionaries[locale] || [])) {
+    out = out.replace(pattern, replacement);
+  }
+
+  return out
+    .replace(/\s{2,}/g, ' ')
+    .replace(/\s+([-/])/g, ' $1')
+    .replace(/([-/])\s+/g, '$1 ')
+    .trim();
 }
 
 /**
@@ -112,6 +253,14 @@ const COMPANY_BOILERPLATE_IT = {
   'USI – Università della Svizzera italiana': `L'Università della Svizzera italiana (USI) è un'università pubblica svizzera con campus a Lugano e Mendrisio. Offriamo formazione e ricerca d'eccellenza nelle aree di comunicazione, economia, informatica, scienze biomediche e architettura.\n\nVantaggi: ambiente accademico internazionale, ricerca all'avanguardia, campus moderno e condizioni d'impiego secondo gli standard universitari svizzeri.`,
   'Denner SA': `Denner SA è uno dei principali discount alimentari della Svizzera, con oltre 800 filiali. Parte del gruppo Migros, offriamo prodotti di qualità a prezzi convenienti.\n\nOffriamo un ambiente di lavoro dinamico nel settore retail, formazione continua, sconti dipendenti e concrete opportunità di carriera.`,
   'Amministrazione Cantonale Ticino': `L'Amministrazione Cantonale del Cantone Ticino è il principale datore di lavoro pubblico del cantone. Offriamo posizioni in tutti i settori dell'amministrazione pubblica con condizioni d'impiego stabili e competitive.\n\nVantaggi: stabilità lavorativa, orari regolari, formazione continua, previdenza professionale vantaggiosa e possibilità di crescita all'interno dell'amministrazione.`,
+  'AGIE Charmilles SA': `AGIE Charmilles SA, parte di GF Machining Solutions e del gruppo Georg Fischer, sviluppa macchine utensili di alta precisione per elettroerosione, fresatura, laser e additive manufacturing. La sede di Losone rappresenta un polo tecnologico di riferimento per il Ticino industriale.\n\nOffriamo un ambiente internazionale, progetti ad alto contenuto tecnico, collaborazione con team di engineering specializzati e concrete opportunità di crescita professionale.`,
+  'AFRY': `AFRY è una multinazionale europea dell’ingegneria, progettazione e consulenza, attiva in infrastrutture, energia, industria, telecomunicazioni e sostenibilità. In Svizzera opera su progetti complessi per mobilità, opere civili, impianti tecnici e transizione energetica.\n\nOffriamo un contesto tecnico multidisciplinare, clienti di primo piano, formazione continua e percorsi di crescita in un’organizzazione internazionale con forte presenza locale.`,
+  'Manor AG': `Manor AG è una delle principali catene di grandi magazzini in Svizzera, con attività nei settori moda, beauty, casa, food e ristorazione Manora. Le sedi ticinesi offrono ruoli operativi e commerciali in contesti retail dinamici e orientati al servizio.\n\nOffriamo formazione sul posto, benefit aziendali, opportunità di sviluppo interno e un ambiente di lavoro strutturato a diretto contatto con la clientela.`,
+  'VOLG': `VOLG è il marchio di prossimità della cooperativa fenaco, specializzato nei negozi di paese e nei piccoli punti vendita della Svizzera. Il lavoro combina servizio al cliente, gestione della merce, supporto operativo e forte autonomia sul punto vendita.\n\nOffriamo un ambiente familiare, formazione pratica, benefit dipendenti, sostegno ai percorsi di apprendistato e concrete possibilità di crescita nel commercio al dettaglio.`,
+  'MKS PAMP': `MKS PAMP è un gruppo internazionale attivo nella raffinazione e trasformazione di metalli preziosi, con una presenza strategica a Castel San Pietro. Le posizioni aperte coprono operation, manutenzione, sicurezza, controllo e ruoli tecnici ad alto contenuto industriale.\n\nOffriamo un contesto produttivo avanzato, standard elevati di qualità e sicurezza, processi strutturati e opportunità di sviluppo in una realtà industriale globale.`,
+  'Grand Hotel Kronenhof': `Il Grand Hotel Kronenhof di Pontresina è uno degli hotel di lusso più prestigiosi dell’Engadina, con ruoli in hotellerie, ristorazione, spa e servizi al cliente. La struttura opera in un contesto premium, internazionale e fortemente orientato alla qualità del servizio.\n\nOffriamo un ambiente professionale di alto livello, benefit per il personale, possibilità di crescita stagionale e pluriennale e un’esperienza formativa solida nell’ospitalità svizzera.`,
+  'Kulm Hotel St. Moritz': `Il Kulm Hotel St. Moritz è una struttura iconica dell’Engadina, con opportunità in ristorazione, front office, housekeeping, eventi e guest experience. Il lavoro si svolge in un contesto internazionale, premium e ad alta intensità di servizio.\n\nOffriamo formazione continua, benefit per il personale, contatto con una clientela internazionale e concrete opportunità di crescita nel settore alberghiero svizzero di fascia alta.`,
+  'Ticino Premium Properties SA': `Ticino Premium Properties SA è la realtà Engel & Völkers attiva nel mercato immobiliare di pregio in Ticino, con consulenza su compravendita, locazione e valorizzazione di proprietà residenziali e d’investimento. Il team opera in un contesto premium, orientato alla relazione con il cliente e alla qualità dell’esperienza consulenziale.\n\nOffriamo un ambiente internazionale, formazione sul brand, strumenti commerciali strutturati e concrete opportunità di crescita nel real estate di fascia alta.`,
 };
 
 /**
@@ -360,8 +509,12 @@ export function hardenJobLocaleFields({ dataJobsPath }) {
     const baseTitle = String(job.title || '').trim();
     const baseDesc = String(job.description || '').trim();
     const baseSlug = String(job.slug || '').trim();
-    const titleSourceLang = detectJobTitleLang(baseTitle, detectLang(baseDesc || baseTitle, 'it'));
+    const detectedSourceLang = detectLang(baseDesc || baseTitle, 'it');
+    let titleSourceLang = detectJobTitleLang(baseTitle, detectedSourceLang);
     const sourceLang = detectTextLocale(baseDesc || baseTitle, titleSourceLang).lang;
+    if (baseTitle && titleSourceLang === 'it' && sourceLang !== 'it' && needsItalianTitleRepair(baseTitle)) {
+      titleSourceLang = sourceLang;
+    }
 
     if (!job.titleByLocale || typeof job.titleByLocale !== 'object') {
       job.titleByLocale = {};
@@ -493,6 +646,55 @@ export function hardenJobLocaleFields({ dataJobsPath }) {
       for (const locale of DEFAULT_LOCALES) {
         if (!String(job.titleByLocale[locale] || '').trim()) {
           job.titleByLocale[locale] = sourceTitleFallback;
+          jobChanged = true;
+        }
+      }
+    }
+
+    for (const locale of DEFAULT_LOCALES) {
+      if (locale === titleSourceLang) continue;
+      const currentTitle = String(job.titleByLocale[locale] || '').trim();
+      const shouldRepairTitle =
+        !currentTitle ||
+        normalize(currentTitle) === normalize(sourceTitleFallback) ||
+        detectJobTitleLocaleDetails(currentTitle, titleSourceLang).lang !== locale ||
+        (locale === 'it' && needsItalianTitleRepair(currentTitle));
+      if (!shouldRepairTitle) continue;
+
+      const heuristicallyLocalized = heuristicTranslateJobTitle(sourceTitleFallback, locale);
+      if (heuristicallyLocalized && normalize(heuristicallyLocalized) !== normalize(sourceTitleFallback)) {
+        if (String(job.titleByLocale[locale] || '').trim() !== heuristicallyLocalized) {
+          job.titleByLocale[locale] = heuristicallyLocalized;
+          jobChanged = true;
+        }
+      }
+    }
+
+    for (const locale of DEFAULT_LOCALES) {
+      const localizedTitle = String(job.titleByLocale[locale] || '').trim();
+      const localizedSlug = String(job.slugByLocale[locale] || '').trim();
+      if (!localizedTitle) continue;
+
+      const company = String(job.company || '').trim();
+      const location = String(job.addressLocality || job.location || '').trim();
+      const nextSlug = slugifyLocalizedLabel([localizedTitle, company, location].filter(Boolean).join(' '));
+      const shouldRefreshSlug =
+        !localizedSlug ||
+        localizedSlug === baseSlug ||
+        (locale === 'it' && needsItalianSlugRepair(localizedSlug));
+
+      if (shouldRefreshSlug && nextSlug && nextSlug !== localizedSlug) {
+        job.slugByLocale[locale] = nextSlug;
+        jobChanged = true;
+      }
+    }
+
+    const canonicalItSlug = String(job.slugByLocale.it || '').trim();
+    if (canonicalItSlug) {
+      const currentCanonicalSlug = String(job.slug || '').trim();
+      if (!currentCanonicalSlug || currentCanonicalSlug === baseSlug || needsItalianSlugRepair(currentCanonicalSlug)) {
+        if (currentCanonicalSlug !== canonicalItSlug) {
+          job.slug = canonicalItSlug;
           jobChanged = true;
         }
       }

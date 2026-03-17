@@ -10,7 +10,20 @@
   "seedUrls": [
     "https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro"
   ],
-  "notes": "Dedicated Engel & Völkers Switzerland crawler. Parses the Next.js SSR careers page HTML. Keeps only Ticino-relevant jobs (Lugano, Ascona, etc.) from Ticino Premium Properties SA.",
-  "updatedAt": "2026-03-14T10:20:00.000Z",
-  "seedMetaByUrl": {}
+  "notes": "Dedicated Engel & Völkers Switzerland crawler. Parses the Next.js SSR careers page HTML. Keeps TI + GR jobs from Ticino Premium Properties SA and other regional offices.",
+  "updatedAt": "2026-03-17T18:22:15.333Z",
+  "seedMetaByUrl": {
+    "https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/c3bc26ca-013d-4028-ab5c-9fc4b1b71239": {
+      "location": "Lugano",
+      "canton": "TI",
+      "company": "Ticino Premium Properties SA",
+      "postedDate": "2026-03-17"
+    },
+    "https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/abf1e661-be5d-49ce-8b28-780c4c3ec23c": {
+      "location": "Ascona",
+      "canton": "TI",
+      "company": "Ticino Premium Properties SA",
+      "postedDate": "2026-03-17"
+    }
+  }
 }

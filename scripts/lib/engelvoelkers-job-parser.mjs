@@ -23,16 +23,8 @@ function normalizeSpace(value = '') {
   return String(value || '').replace(/\s+/g, ' ').trim();
 }
 
-function stripHtml(html = '') {
-  return html
-    .replace(/<script[^>]*>[\s\S]*?<\/script>/gi, '')
-    .replace(/<style[^>]*>[\s\S]*?<\/style>/gi, '')
-    .replace(/<noscript[^>]*>[\s\S]*?<\/noscript>/gi, '')
-    .replace(/<br\s*\/?>/gi, '\n')
-    .replace(/<\/p>/gi, '\n')
-    .replace(/<\/div>/gi, '\n')
-    .replace(/<\/li>/gi, '\n')
-    .replace(/<[^>]+>/g, '')
+function decodeEntities(value = '') {
+  return String(value || '')
     .replace(/&amp;/g, '&')
     .replace(/&lt;/g, '<')
     .replace(/&gt;/g, '>')
@@ -40,12 +32,40 @@ function stripHtml(html = '') {
     .replace(/&#39;/g, "'")
     .replace(/&#x27;/g, "'")
     .replace(/&nbsp;/g, ' ')
+    .replace(/&#(\d+);/g, (_, n) => String.fromCharCode(Number(n)));
+}
+
+function stripHtml(html = '') {
+  return decodeEntities(html)
+    .replace(/<script[^>]*>[\s\S]*?<\/script>/gi, '')
+    .replace(/<style[^>]*>[\s\S]*?<\/style>/gi, '')
+    .replace(/<noscript[^>]*>[\s\S]*?<\/noscript>/gi, '')
+    .replace(/<br\s*\/?>/gi, '\n')
+    .replace(/<\/p>/gi, '\n')
+    .replace(/<\/div>/gi, '\n')
+    .replace(/<\/li>/gi, '\n')
+    .replace(/<\/h[1-6]>/gi, '\n')
+    .replace(/<[^>]+>/g, '')
     .replace(/\u00b7/g, '·')
     .replace(/\u2013/g, '–')
     .replace(/\u2019/g, "'")
     .replace(/[ \t]+/g, ' ')
     .replace(/\n{3,}/g, '\n\n')
     .trim();
+}
+
+function extractNextDataPayload(html = '') {
+  const match = html.match(/<script id="__NEXT_DATA__" type="application\/json">([\s\S]*?)<\/script>/i);
+  if (!match) return null;
+  try {
+    return JSON.parse(match[1]);
+  } catch {
+    return null;
+  }
+}
+
+function extractPostingFromNextData(html = '') {
+  return extractNextDataPayload(html)?.props?.pageProps?.data?.details?.posting || null;
 }
 
 function slugify(value = '') {
@@ -148,64 +168,63 @@ export function parseEngelvoelkersListingPage(html = '') {
  * Uses a combination of meta tags and HTML content parsing.
  */
 export function parseEngelvoelkersDetailPage(html = '', fallbackTitle = '') {
+  const posting = extractPostingFromNextData(html);
   const document = new JSDOM(html).window.document;
 
-  // Title from meta or first large heading
-  const ogTitle = document.querySelector('meta[property="og:title"]')?.getAttribute('content') || '';
-  const metaTitle = document.querySelector('title')?.textContent || '';
+  const ogTitle = decodeEntities(document.querySelector('meta[property="og:title"]')?.getAttribute('content') || '');
+  const metaTitle = decodeEntities(document.querySelector('title')?.textContent || '');
   const h1 = document.querySelector('h1');
+
   const title = normalizeSpace(
+    posting?.text ||
     ogTitle.replace(/\s*\|\s*Engel\s*&\s*Völkers.*$/i, '') ||
     metaTitle.replace(/\s*\|\s*Engel\s*&\s*Völkers.*$/i, '') ||
     h1?.textContent ||
     fallbackTitle,
   );
 
-  // Description from meta (short) + rich HTML content
-  const metaDesc = document.querySelector('meta[name="description"]')?.getAttribute('content') || '';
+  const nextDescription = normalizeSpace(
+    stripHtml(
+      posting?.content?.descriptionHtml ||
+      posting?.content?.description ||
+      '',
+    ),
+  );
 
-  // Extract rich description from the main content area
-  // The description lives in elements with class containing "sc-f08da3d5" or "sc-ab7054bf"
-  // More robust: find all <ul>, <p>, <div> that contain actual job text after the title section
-  let richDesc = '';
+  const metaDesc = decodeEntities(document.querySelector('meta[name="description"]')?.getAttribute('content') || '');
+  let richDesc = nextDescription;
 
-  // Strategy: find the main content area by looking for section headers like "Cosa ti aspetta"
-  // or list items with job requirements
-  const allElements = document.querySelectorAll('p, ul, div > span');
-  const descParts = [];
-  let inContent = false;
+  if (!richDesc) {
+    const allElements = document.querySelectorAll('p, ul, div > span');
+    const descParts = [];
+    let inContent = false;
 
-  for (const el of allElements) {
-    const text = normalizeSpace(el.textContent || '');
-    if (!text || text.length < 10) continue;
+    for (const el of allElements) {
+      const text = normalizeSpace(el.textContent || '');
+      if (!text || text.length < 10) continue;
 
-    // Start capturing after we see the company/dept meta section or a known header
-    if (/cosa ti aspetta|your responsibilities|ihre aufgaben|vos responsabilités|il tuo profilo|your profile|ihr profil|cosa offriamo|we offer|wir bieten/i.test(text)) {
-      inContent = true;
-    }
+      if (/cosa ti aspetta|your responsibilities|ihre aufgaben|vos responsabilités|il tuo profilo|your profile|ihr profil|cosa offriamo|we offer|wir bieten/i.test(text)) {
+        inContent = true;
+      }
 
-    // Also start if we find a description-like paragraph
-    if (!inContent && text.length > 80 && !/engel.*völkers|menu principale|contattaci|cookie|privacy/i.test(text)) {
-      inContent = true;
-    }
+      if (!inContent && text.length > 80 && !/engel.*völkers|menu principale|contattaci|cookie|privacy/i.test(text)) {
+        inContent = true;
+      }
 
-    if (inContent) {
-      // Stop if we hit footer/legal content
-      if (/informazioni legali|privacy dei dati|legal notice|datenschutz/i.test(text)) break;
-      if (/cookie.*policy|terms.*conditions/i.test(text)) break;
+      if (inContent) {
+        if (/informazioni legali|privacy dei dati|legal notice|datenschutz/i.test(text)) break;
+        if (/cookie.*policy|terms.*conditions/i.test(text)) break;
 
-      if (!descParts.includes(text) && text.length > 5) {
-        descParts.push(text);
+        if (!descParts.includes(text) && text.length > 5) {
+          descParts.push(text);
+        }
       }
     }
+
+    richDesc = descParts.join('\n').trim();
   }
 
-  richDesc = descParts.join('\n').trim();
-
-  // Fallback to meta description if no rich content found
   const description = richDesc || metaDesc || '';
-
-  // Date — no explicit date in the HTML, use today
   const datePosted = new Date().toISOString().slice(0, 10);
 
   return { title, description, datePosted };

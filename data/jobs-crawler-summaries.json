@@ -1,6 +1,64 @@
 {
-  "updatedAt": "2026-03-17T17:17:16.026Z",
+  "updatedAt": "2026-03-17T18:22:15.328Z",
   "summaries": [
+    {
+      "key": "engel-v-lkers",
+      "label": "Engel & Völkers",
+      "generatedAt": "2026-03-17T18:22:15.328Z",
+      "total": 4,
+      "newCount": 2,
+      "updatedCount": 0,
+      "removedCount": 2,
+      "unchangedCount": 0,
+      "durationMs": 18552,
+      "avgDurationMs": 20145,
+      "durationHistory": [
+        18552,
+        22808,
+        20258,
+        20831,
+        19044,
+        20250,
+        19715,
+        19964,
+        20370,
+        19661
+      ],
+      "newJobs": [
+        {
+          "title": "Stage Assistente Team (3-6 mesi) | Lugano",
+          "company": "Ticino Premium Properties SA",
+          "location": "Lugano",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/stage-assistente-team-3-6-mesi-lugano-engel-voelkers-lugano/",
+          "slug": "stage-assistente-team-3-6-mesi-lugano-engel-voelkers-lugano"
+        },
+        {
+          "title": "Immobilienberater/in 100 % | Ascona",
+          "company": "Ticino Premium Properties SA",
+          "location": "Ascona",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/immobilienberater-in-100-ascona-engel-voelkers-ascona/",
+          "slug": "immobilienberater-in-100-ascona-engel-voelkers-ascona"
+        }
+      ],
+      "updatedJobs": [],
+      "removedJobs": [
+        {
+          "title": "Engel & Völkers | Stage Assistente Team (3-6 mesi) | Lugano",
+          "company": "Ticino Premium Properties SA",
+          "location": "Lugano",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/engel-volkers-stage-assistente-team-3-6-mesi-lugano-ticino-premium-properties-sa-lugano/",
+          "slug": "engel-volkers-stage-assistente-team-3-6-mesi-lugano-ticino-premium-properties-sa-lugano"
+        },
+        {
+          "title": "Engel & Völkers | Immobilienberater/in 100 % | Ascona",
+          "company": "Ticino Premium Properties SA",
+          "location": "Ascona",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/engel-volkers-consulente-immobiliare-100-ascona-ticino-premium-properties-sa-ascona/",
+          "slug": "engel-volkers-consulente-immobiliare-100-ascona-ticino-premium-properties-sa-ascona"
+        }
+      ],
+      "unchangedJobs": []
+    },
     {
       "key": "trumpf-schweiz-ag",
       "label": "TRUMPF Schweiz AG",
@@ -4818,49 +4876,6 @@
           "slug": "esg-administrative-assistant-efg-lugano"
         }
       ]
-    },
-    {
-      "key": "engel-v-lkers",
-      "label": "Engel & Völkers",
-      "generatedAt": "2026-03-17T16:22:19.346Z",
-      "total": 2,
-      "newCount": 2,
-      "updatedCount": 0,
-      "removedCount": 0,
-      "unchangedCount": 0,
-      "durationMs": 22808,
-      "avgDurationMs": 20358,
-      "durationHistory": [
-        22808,
-        20258,
-        20831,
-        19044,
-        20250,
-        19715,
-        19964,
-        20370,
-        19661,
-        20674
-      ],
-      "newJobs": [
-        {
-          "title": "Engel & Völkers | Stage Assistente Team (3-6 mesi) | Lugano",
-          "company": "Ticino Premium Properties SA",
-          "location": "Lugano",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/engel-volkers-stage-assistente-team-3-6-mesi-lugano-engel-voelkers-lugano/",
-          "slug": "engel-volkers-stage-assistente-team-3-6-mesi-lugano-engel-voelkers-lugano"
-        },
-        {
-          "title": "Engel & Völkers | Immobilienberater/in 100 % | Ascona",
-          "company": "Ticino Premium Properties SA",
-          "location": "Ascona",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/engel-volkers-immobilienberater-in-100-ascona-engel-voelkers-ascona/",
-          "slug": "engel-volkers-immobilienberater-in-100-ascona-engel-voelkers-ascona"
-        }
-      ],
-      "updatedJobs": [],
-      "removedJobs": [],
-      "unchangedJobs": []
     },
     {
       "key": "fart",

@@ -333,7 +333,6 @@ function validateLocales() {
     untrustedDomainReason: 'url_not_engelvoelkers_domain',
     failWhenNoJobs: false,
     noJobsMessage: 'No Engel & Völkers TI/GR jobs found after dedicated crawl.',
-    detectSourceLang: () => 'it',
   });
 }
 
