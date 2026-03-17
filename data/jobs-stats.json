@@ -1,22 +1,22 @@
 {
-  "generatedAt": "2026-03-17T05:05:51.881Z",
+  "generatedAt": "2026-03-17T05:05:54.346Z",
   "links": {
     "allJobs": "https://www.frontaliereticino.ch/cerca-lavoro-ticino"
   },
   "totals": {
-    "activeJobs": 983,
-    "activeCompanies": 126,
+    "activeJobs": 950,
+    "activeCompanies": 124,
     "activeLocations": 144,
-    "todayAdded": 1018,
+    "todayAdded": 985,
     "todayUpdated": 0,
     "todayRemoved": 0,
     "last7d": {
-      "added": 1921,
+      "added": 1888,
       "updated": 0,
       "removed": 0
     },
     "last30d": {
-      "added": 2404,
+      "added": 2371,
       "updated": 0,
       "removed": 0
     }
@@ -38,20 +38,6 @@
     },
     {
       "date": "2026-03-17",
-      "totalJobs": 940,
-      "added": 970,
-      "updated": 0,
-      "removed": 0
-    },
-    {
-      "date": "2026-03-17",
-      "totalJobs": 945,
-      "added": 980,
-      "updated": 0,
-      "removed": 0
-    },
-    {
-      "date": "2026-03-17",
       "totalJobs": 969,
       "added": 1004,
       "updated": 0,
@@ -68,6 +54,13 @@
       "date": "2026-03-17",
       "totalJobs": 983,
       "added": 1018,
+      "updated": 0,
+      "removed": 0
+    },
+    {
+      "date": "2026-03-17",
+      "totalJobs": 950,
+      "added": 985,
       "updated": 0,
       "removed": 0
     }
@@ -153,12 +146,6 @@
         "name": "Locarno",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-locarno",
         "count": 42
-      },
-      {
-        "key": "mendrisio",
-        "name": "Mendrisio",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-mendrisio",
-        "count": 53
       },
       {
         "key": "mendrisio",
@@ -484,11 +471,11 @@
   },
   "salary": {
     "coverage": {
-      "jobsWithSalary": 983,
+      "jobsWithSalary": 950,
       "coveragePct": 100,
-      "avgMin": 67196,
-      "avgMax": 90665,
-      "avgMid": 78931,
+      "avgMin": 67442,
+      "avgMax": 91005,
+      "avgMid": 79224,
       "medianMid": 68500
     },
     "leaders": {
