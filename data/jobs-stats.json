@@ -1,22 +1,22 @@
 {
-  "generatedAt": "2026-03-17T04:52:53.677Z",
+  "generatedAt": "2026-03-17T04:53:41.518Z",
   "links": {
     "allJobs": "https://www.frontaliereticino.ch/cerca-lavoro-ticino"
   },
   "totals": {
-    "activeJobs": 819,
+    "activeJobs": 820,
     "activeCompanies": 86,
     "activeLocations": 116,
-    "todayAdded": 832,
+    "todayAdded": 833,
     "todayUpdated": 0,
     "todayRemoved": 0,
     "last7d": {
-      "added": 3780,
+      "added": 3781,
       "updated": 0,
       "removed": 0
     },
     "last30d": {
-      "added": 4263,
+      "added": 4264,
       "updated": 0,
       "removed": 0
     }
@@ -52,22 +52,8 @@
     },
     {
       "date": "2026-03-17",
-      "totalJobs": 819,
-      "added": 832,
-      "updated": 0,
-      "removed": 0
-    },
-    {
-      "date": "2026-03-17",
       "totalJobs": 820,
       "added": 833,
-      "updated": 0,
-      "removed": 0
-    },
-    {
-      "date": "2026-03-17",
-      "totalJobs": 819,
-      "added": 832,
       "updated": 0,
       "removed": 0
     }
@@ -472,11 +458,11 @@
   },
   "salary": {
     "coverage": {
-      "jobsWithSalary": 819,
+      "jobsWithSalary": 820,
       "coveragePct": 100,
-      "avgMin": 67988,
-      "avgMax": 91769,
-      "avgMid": 79879,
+      "avgMin": 67971,
+      "avgMax": 91746,
+      "avgMid": 79859,
       "medianMid": 84500
     },
     "leaders": {

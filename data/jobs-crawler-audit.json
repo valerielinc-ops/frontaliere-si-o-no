@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-03-17T04:52:48.649Z",
-  "startedAt": "2026-03-17T04:52:26.421Z",
+  "generatedAt": "2026-03-17T04:53:36.575Z",
+  "startedAt": "2026-03-17T04:53:26.195Z",
   "config": {
     "minQualityScore": 4,
     "minDescriptionChars": 80,
@@ -22,7 +22,7 @@
   },
   "totals": {
     "companiesParsed": 178,
-    "companiesSelected": 1,
+    "companiesSelected": 0,
     "companiesDroppedBySelection": 0,
     "companiesCrawled": 0,
     "discoveredCareerPages": 0,
@@ -42,15 +42,15 @@
     "reusedLocalizationFromPrevious": 0,
     "inserted": 0,
     "refreshed": 0,
-    "mergedTotal": 819,
-    "aiLocalizationCalls": 3,
+    "mergedTotal": 820,
+    "aiLocalizationCalls": 2,
     "aiPageValidationCalls": 0,
     "deeplCalls": 6,
     "deeplSuccess": 0,
     "deeplFallbackToLlm": 0,
-    "aiCacheHits": 5,
-    "aiCacheMisses": 1,
-    "aiCacheEntries": 1409,
+    "aiCacheHits": 0,
+    "aiCacheMisses": 2,
+    "aiCacheEntries": 1410,
     "discoveredCompaniesCandidates": 0,
     "discoveredCompaniesAdded": 0,
     "discoveredCompaniesPending": 0
