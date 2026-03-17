@@ -1280,6 +1280,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.sequestro-cocaina-brogeda-2026.title': '15 kg di cocaina sequestrati a Brogeda: cosa cambia per i frontalieri',
     'blog.article.sequestro-cocaina-brogeda-2026.excerpt': 'Maxi-sequestro al valico di Brogeda: 15,3 kg di cocaina purissima nascosti in un doppiofondo. Indagini in corso, possibili controlli rafforzati.',
     'blog.article.sequestro-cocaina-brogeda-2026.imageAlt': 'Controllo doganale Brogeda-Chiasso con sequestro record di cocaina',
+    'blog.article.infiltrazioni-criminali-ticino-grigioni.title': 'Cultura, soldi, infiltrazioni criminali: Ticino e Grigioni a confronto',
+    'blog.article.infiltrazioni-criminali-ticino-grigioni.excerpt': 'Il confronto tra il Ticino e il Grigioni in materia di infiltrazioni criminali e cultura economica.',
+    'blog.article.infiltrazioni-criminali-ticino-grigioni.imageAlt': 'Bellinzona, con il Castelgrande in primo piano',
 };
 
 export default blogMetaIt;

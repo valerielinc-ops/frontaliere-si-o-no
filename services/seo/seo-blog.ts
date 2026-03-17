@@ -5504,6 +5504,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-infiltrazioni-criminali-ticino-grigioni': {
+    title: 'Cultura, soldi, infiltrazioni criminali: Ticino e Grigioni | Frontaliere Ticino',
+    description: 'Il confronto tra il Ticino e il Grigioni in materia di infiltrazioni criminali e cultura economica. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, cultura, soldi, infiltrazioni, criminali',
+    ogTitle: 'Cultura, soldi, infiltrazioni criminali: Ticino e Grigion',
+    ogDescription: 'Il confronto tra il Ticino e il Grigioni in materia di infiltrazioni criminali e cultura economica.',
+    canonicalPath: '/articoli-frontaliere/infiltrazioni-criminali-ticino-grigioni',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Cultura, soldi, infiltrazioni criminali: Ticino e Grigion",
+      "description": "Il confronto tra il Ticino e il Grigioni in materia di infiltrazioni criminali e cultura economica. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/infiltrazioni-criminali-ticino-grigioni.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Bellinzona, con il Castelgrande in primo piano"
+      },
+      "datePublished": "2026-03-17T22:02:23+00:00",
+      "dateModified": "2026-03-17T22:02:23+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/infiltrazioni-criminali-ticino-grigioni`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

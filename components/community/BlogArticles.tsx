@@ -3561,6 +3561,13 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/sequestro-cocaina-brogeda-2026.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'infiltrazioni-criminali-ticino-grigioni',
+    category: 'fiscale',
+    date: '2026-03-17T22:02:23.349Z',
+    image: '/images/blog/infiltrazioni-criminali-ticino-grigioni.jpg',
+    hasCalculator: true,
+  },
 ];
 
 const CATEGORIES = ['all', 'fiscale', 'pratico', 'novita', 'pensione'] as const;

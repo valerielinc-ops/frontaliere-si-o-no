@@ -1280,6 +1280,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.sequestro-cocaina-brogeda-2026.title': '15 kg de cocaïne saisis à Brogeda : qu\'est-ce qui change pour les frontaliers',
     'blog.article.sequestro-cocaina-brogeda-2026.excerpt': 'Maxi-saisie au poste frontière de Brogeda : 15,3 kg de cocaïne très pure dissimulés dans un double fond. Enquêtes en cours, contrôles renforcés possibles.',
     'blog.article.sequestro-cocaina-brogeda-2026.imageAlt': 'Contrôle douanier Brogeda-Chiasso avec saisie record de cocaïne',
+    'blog.article.infiltrazioni-criminali-ticino-grigioni.title': 'Culture, argent, infiltrations criminelles : Tessin et Grisons en comparaison',
+    'blog.article.infiltrazioni-criminali-ticino-grigioni.excerpt': 'Le comparaison entre le Tessin et le Grisons en matière d\'infiltrations criminelles et de culture économique.',
+    'blog.article.infiltrazioni-criminali-ticino-grigioni.imageAlt': 'Bellinzona, avec le Castelgrande en arrière-plan',
 };
 
 export default blogMetaFr;

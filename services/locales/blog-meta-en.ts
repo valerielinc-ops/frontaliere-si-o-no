@@ -1280,6 +1280,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.sequestro-cocaina-brogeda-2026.title': '15 kg of Cocaine Seized at Brogeda: What Changes for Frontaliers',
     'blog.article.sequestro-cocaina-brogeda-2026.excerpt': 'Massive Cocaine Seizure at Brogeda: 15.3 kg of Pure Cocaine Hidden in a Custom-Made Compartment. Investigations Ongoing, Possible Enhanced Controls.',
     'blog.article.sequestro-cocaina-brogeda-2026.imageAlt': 'Brogeda-Chiasso customs checkpoint with record cocaine seizure',
+    'blog.article.infiltrazioni-criminali-ticino-grigioni.title': 'Culture, money, criminal infiltration: Ticino and Graubünden compared',
+    'blog.article.infiltrazioni-criminali-ticino-grigioni.excerpt': 'A comparison between Ticino and Graubünden on criminal infiltration and economic culture.',
+    'blog.article.infiltrazioni-criminali-ticino-grigioni.imageAlt': 'Bellinzona, with the Castelgrande in the foreground',
 };
 
 export default blogMetaEn;

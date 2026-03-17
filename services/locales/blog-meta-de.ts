@@ -1280,6 +1280,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.sequestro-cocaina-brogeda-2026.title': '15 kg Kokain in Brogeda beschlagnahmt: Was sich für Grenzgänger ändert',
     'blog.article.sequestro-cocaina-brogeda-2026.excerpt': 'Maxi-Beschlagnahme am Grenzübergang Brogeda: 15,3 kg reinstes Kokain in Doppelboden versteckt. Ermittlungen laufen, mögliche verschärfte Kontrollen.',
     'blog.article.sequestro-cocaina-brogeda-2026.imageAlt': 'Zollkontrolle Brogeda-Chiasso mit Kokain-Fund in Rekordmenge',
+    'blog.article.infiltrazioni-criminali-ticino-grigioni.title': 'Kultur, Geld, kriminelle Infiltrationen: Tessin und Graubünden im Vergleich',
+    'blog.article.infiltrazioni-criminali-ticino-grigioni.excerpt': 'Der Vergleich zwischen dem Tessin und dem Graubünden hinsichtlich krimineller Infiltrationen und Wirtschaftskultur.',
+    'blog.article.infiltrazioni-criminali-ticino-grigioni.imageAlt': 'Bellinzona, mit dem Castelgrande im Vordergrund',
 };
 
 export default blogMetaDe;
