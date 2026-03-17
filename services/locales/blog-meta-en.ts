@@ -1262,6 +1262,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.bellinzona-auscultazione-2026.title': 'Bellinzona\'s Parking Crisis: A New Underground Garage Is on the Way',
     'blog.article.bellinzona-auscultazione-2026.excerpt': 'The municipality of Bellinzona has announced the construction of a new underground parking garage with a public park and a new administrative building. The project aims to address the city\'s parking shortage, which has been affecting residents and visitors alike.',
     'blog.article.bellinzona-auscultazione-2026.imageAlt': 'Bellinzona underground car park.',
+    'blog.article.lombardia-affitto-famiglie-varesine.title': '€228,463 from Lombardy for rent: 218 Varese families saved from eviction',
+    'blog.article.lombardia-affitto-famiglie-varesine.excerpt': 'The regional anti-arrears fund covers up to €1,048 per household. Applications must be submitted to the municipality of residence by 30 November 2026.',
+    'blog.article.lombardia-affitto-famiglie-varesine.imageAlt': 'Morning view of Lake Varese with Swiss Alps in background',
 };
 
 export default blogMetaEn;

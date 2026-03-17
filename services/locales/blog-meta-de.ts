@@ -1262,6 +1262,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.bellinzona-auscultazione-2026.title': 'Bellinzona fehlt 75 öffentliche Parkplätze - Die Lösung ist im Gange',
     'blog.article.bellinzona-auscultazione-2026.excerpt': 'Der Gemeinderat von Bellinzona hat die Errichtung eines neuen unterirdischen Parkhauses mit öffentlichen Parkplätzen und einem neuen Verwaltungsgebäude angekündigt.',
     'blog.article.bellinzona-auscultazione-2026.imageAlt': 'Unterirdischer Parkplatz in Bellinzona.',
+    'blog.article.lombardia-affitto-famiglie-varesine.title': '228.463 € von der Lombardei für die Miete: 218 Familien aus der Provinz Varese vor der Räumung gerettet',
+    'blog.article.lombardia-affitto-famiglie-varesine.excerpt': 'Die regionale Anti-Mietrückstands-Fonds übernimmt bis zu 1.048 € pro Haushalt. Die Gesuche sind bis zum 30. November 2026 bei der Wohngemeinde einzureichen.',
+    'blog.article.lombardia-affitto-famiglie-varesine.imageAlt': 'Morgenansicht des Vareseer Sees mit Schweizer Alpen im Hintergrund',
 };
 
 export default blogMetaDe;

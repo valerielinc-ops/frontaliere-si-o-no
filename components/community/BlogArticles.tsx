@@ -3519,6 +3519,13 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/bellinzona-auscultazione-2026.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'lombardia-affitto-famiglie-varesine',
+    category: 'pratico',
+    date: '2026-03-17T11:07:59.097Z',
+    image: '/images/blog/lombardia-affitto-famiglie-varesine.jpg',
+    hasCalculator: true,
+  },
 ];
 
 const CATEGORIES = ['all', 'fiscale', 'pratico', 'novita', 'pensione'] as const;

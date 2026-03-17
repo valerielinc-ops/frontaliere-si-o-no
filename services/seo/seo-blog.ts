@@ -5330,6 +5330,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-lombardia-affitto-famiglie-varesine': {
+    title: '228.463€ dalla Lombardia per l\'affitto: 218 famiglie | Frontaliere Ticino',
+    description: '228.463€ per 218 famiglie varesine: requisiti, importi e scadenze del bando regionale per contrastare la morosità incolpevole. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, dalla, lombardia, affitto, famiglie',
+    ogTitle: '228.463€ dalla Lombardia per l\'affitto: 218 famiglie salvate',
+    ogDescription: 'Guida completa al bando regionale per contrastare la morosità incolpevole: requisiti, importi e scadenze per i frontalieri che vivono a Varese.',
+    canonicalPath: '/articoli-frontaliere/lombardia-affitto-famiglie-varesine',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Fondo affitti Regione Lombardia 2026: tutto ciò che devi sapere",
+      "description": "228.463€ per 218 famiglie varesine: requisiti, importi e scadenze del bando regionale per contrastare la morosità incolpevole. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/lombardia-affitto-famiglie-varesine.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Vista mattutina sul lago di Varese con le Alpi svizzere sullo sfondo"
+      },
+      "datePublished": "2026-03-17T11:07:59+00:00",
+      "dateModified": "2026-03-17T11:07:59+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/lombardia-affitto-famiglie-varesine`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

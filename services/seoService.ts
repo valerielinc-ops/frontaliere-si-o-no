@@ -1554,6 +1554,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-mercado-immobiliare-ticino': { name: 'La crisi degli alloggi in Ticino', path: '/articoli-frontaliere/mercado-immobiliare-ticino', parent: 'blog' },
     'blog-droga-brogeda-sequestro-cocaina': { name: 'Brogeda: Droga Sequestrata', path: '/articoli-frontaliere/droga-brogeda-sequestro-cocaina', parent: 'blog' },
     'blog-bellinzona-auscultazione-2026': { name: 'Bellinzona', path: '/articoli-frontaliere/bellinzona-auscultazione-2026', parent: 'blog' },
+    'blog-lombardia-affitto-famiglie-varesine': { name: 'Fondo affitti Lombardia', path: '/articoli-frontaliere/lombardia-affitto-famiglie-varesine', parent: 'blog' },
   };
 
   const info = sectionNames[section];

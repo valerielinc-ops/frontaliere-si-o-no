@@ -1262,6 +1262,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.bellinzona-auscultazione-2026.title': 'A Bellinzona mancano 75 posti auto pubblici e la soluzione è in arrivo',
     'blog.article.bellinzona-auscultazione-2026.excerpt': 'Il comune di Bellinzona ha annunciato la costruzione di un nuovo autosilo interrato con parco pubblico e nuovo edificio amministrativo.',
     'blog.article.bellinzona-auscultazione-2026.imageAlt': 'Autosilo interrato a Bellinzona.',
+    'blog.article.lombardia-affitto-famiglie-varesine.title': '228.463€ dalla Lombardia per l\'affitto: 218 famiglie varesine salvate dallo sfratto',
+    'blog.article.lombardia-affitto-famiglie-varesine.excerpt': 'Il fondo regionale anti-morosità copre fino a 1.048€ per nucleo. Le domande si presentano al Comune di residenza entro il 30 novembre 2026.',
+    'blog.article.lombardia-affitto-famiglie-varesine.imageAlt': 'Vista mattutina sul lago di Varese con le Alpi svizzere sullo sfondo',
 };
 
 export default blogMetaIt;

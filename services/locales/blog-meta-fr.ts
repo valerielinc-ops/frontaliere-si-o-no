@@ -1262,6 +1262,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.bellinzona-auscultazione-2026.title': 'À Bellinzone, il mancanza di 75 posti auto pubblici è presto superata',
     'blog.article.bellinzona-auscultazione-2026.excerpt': 'Il comune di Bellinzone ha annunciato la costruzione di un nuovo autosilo interrato con parco pubblico e nuovo edificio amministrativo.',
     'blog.article.bellinzona-auscultazione-2026.imageAlt': 'Parc automobile souterrain à Bellinzona.',
+    'blog.article.lombardia-affitto-famiglie-varesine.title': '228 463 € de la Lombardie pour le loyer : 218 familles varesines sauvées de l’expulsion',
+    'blog.article.lombardia-affitto-famiglie-varesine.excerpt': 'Le fonds régional anti-morosité couvre jusqu’à 1 048 € par ménage. Les demandes doivent être déposées auprès de la commune de résidence avant le 30 novembre 2026.',
+    'blog.article.lombardia-affitto-famiglie-varesine.imageAlt': 'Vue matinale du lac de Varèse avec Alpes suisses en arrière-plan',
 };
 
 export default blogMetaFr;
