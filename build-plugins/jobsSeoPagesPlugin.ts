@@ -22,6 +22,20 @@ import {
   buildJobTodayLandingModel,
 } from './jobEditorialLanding';
 
+export const JOB_SEO_LOCALES = ['it', 'en', 'de', 'fr'] as const;
+
+export function pickSearchLandingFallbackJobs<T>(
+  matchingJobsByLocale: Record<(typeof JOB_SEO_LOCALES)[number], T[]>,
+): T[] {
+  for (const locale of JOB_SEO_LOCALES) {
+    const localeJobs = matchingJobsByLocale[locale];
+    if (Array.isArray(localeJobs) && localeJobs.length > 0) {
+      return localeJobs;
+    }
+  }
+  return [];
+}
+
 export function jobsSeoPagesPlugin(rootDir: string): Plugin {
   return {
     name: 'jobs-seo-pages',
@@ -191,7 +205,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
         .replace(/[^a-z0-9]+/g, '-')
         .replace(/^-+|-+$/g, '')
         .slice(0, 90);
-      const localeList = (['it', 'en', 'de', 'fr'] as const);
+      const localeList = JOB_SEO_LOCALES;
       const localizedSlug = (job: any, locale: 'it' | 'en' | 'de' | 'fr') => {
         // 1. Explicit per-locale slug (from AI-translated crawlers)
         const explicit = String(job?.slugByLocale?.[locale] || '').trim();
@@ -2324,11 +2338,13 @@ ${alternates}
             fr: validJobs.filter((job: any) => matchesSearchLanding(job, name, 'fr')).slice(0, 20),
           };
           if (localeList.every((locale) => matchingJobsByLocale[locale].length === 0)) continue;
+          const fallbackMatchingJobs = pickSearchLandingFallbackJobs(matchingJobsByLocale);
+          if (fallbackMatchingJobs.length === 0) continue;
 
           for (const locale of localeList) {
             const matchingJobs = matchingJobsByLocale[locale].length > 0
               ? matchingJobsByLocale[locale]
-              : matchingJobsByLocale.it;
+              : fallbackMatchingJobs;
             if (matchingJobs.length === 0) continue;
 
             const fullSlug = `${searchRoutePrefix[locale]}-${key}`;
