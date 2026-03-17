@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-03-17T04:57:14.861Z",
+  "updatedAt": "2026-03-17T04:57:42.829Z",
   "summaries": [
     {
       "key": "agie-charmilles",
@@ -1694,39 +1694,6 @@
       "updatedJobs": [],
       "removedJobs": [],
       "unchangedJobs": []
-    },
-    {
-      "key": "dxt-commodities",
-      "label": "DXT Commodities",
-      "generatedAt": "2026-03-16T05:34:31.931Z",
-      "total": 1,
-      "newCount": 0,
-      "updatedCount": 0,
-      "removedCount": 0,
-      "unchangedCount": 1,
-      "durationMs": 28074,
-      "avgDurationMs": 195630,
-      "durationHistory": [
-        28074,
-        12866,
-        23119,
-        635525,
-        378715,
-        264705,
-        26403
-      ],
-      "newJobs": [],
-      "updatedJobs": [],
-      "removedJobs": [],
-      "unchangedJobs": [
-        {
-          "title": "Junior Legal",
-          "company": "DXT Commodities S.A.",
-          "location": "Lugano",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/junior-legal-dxt/",
-          "slug": "junior-legal-dxt"
-        }
-      ]
     },
     {
       "key": "efg",
@@ -8373,6 +8340,40 @@
       "updatedJobs": [],
       "removedJobs": [],
       "unchangedJobs": []
+    },
+    {
+      "key": "dxt-commodities",
+      "label": "DXT Commodities",
+      "generatedAt": "2026-03-17T04:57:42.829Z",
+      "total": 1,
+      "newCount": 0,
+      "updatedCount": 0,
+      "removedCount": 0,
+      "unchangedCount": 1,
+      "durationMs": 13788,
+      "avgDurationMs": 172899,
+      "durationHistory": [
+        13788,
+        28074,
+        12866,
+        23119,
+        635525,
+        378715,
+        264705,
+        26403
+      ],
+      "newJobs": [],
+      "updatedJobs": [],
+      "removedJobs": [],
+      "unchangedJobs": [
+        {
+          "title": "Junior Legal",
+          "company": "DXT Commodities S.A.",
+          "location": "Lugano",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/junior-legal-dxt/",
+          "slug": "junior-legal-dxt"
+        }
+      ]
     }
   ]
 }
