@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-03-17T16:56:27.721Z",
+  "generatedAt": "2026-03-17T16:59:11.888Z",
   "links": {
     "allJobs": "https://www.frontaliereticino.ch/cerca-lavoro-ticino"
   },
   "totals": {
     "activeJobs": 975,
-    "activeCompanies": 134,
+    "activeCompanies": 130,
     "activeLocations": 163,
     "todayAdded": 1183,
     "todayUpdated": 0,
@@ -60,12 +60,6 @@
   ],
   "leaders": {
     "topCompaniesActive": [
-      {
-        "key": "eoc-ente-ospedaliero-cantonale",
-        "name": "EOC – Ente Ospedaliero Cantonale",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-eoc-ente-ospedaliero-cantonale",
-        "count": 178
-      },
       {
         "key": "volg",
         "name": "VOLG",
@@ -135,12 +129,6 @@
         "count": 47
       },
       {
-        "key": "chur",
-        "name": "Chur",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-chur",
-        "count": 47
-      },
-      {
         "key": "bellinzona",
         "name": "Bellinzona",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-bellinzona",
@@ -157,6 +145,12 @@
         "name": "Chur",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-chur",
         "count": 47
+      },
+      {
+        "key": "locarno",
+        "name": "Locarno",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-locarno",
+        "count": 42
       }
     ],
     "topCompaniesAddedToday": [
