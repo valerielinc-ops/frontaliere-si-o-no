@@ -1,22 +1,22 @@
 {
-  "generatedAt": "2026-03-17T16:30:38.488Z",
+  "generatedAt": "2026-03-17T16:31:28.230Z",
   "links": {
     "allJobs": "https://www.frontaliereticino.ch/cerca-lavoro-ticino"
   },
   "totals": {
-    "activeJobs": 921,
-    "activeCompanies": 102,
-    "activeLocations": 160,
-    "todayAdded": 1181,
+    "activeJobs": 954,
+    "activeCompanies": 132,
+    "activeLocations": 161,
+    "todayAdded": 1182,
     "todayUpdated": 0,
     "todayRemoved": 0,
     "last7d": {
-      "added": 2084,
+      "added": 2085,
       "updated": 0,
       "removed": 0
     },
     "last30d": {
-      "added": 2567,
+      "added": 2568,
       "updated": 0,
       "removed": 0
     }
@@ -47,6 +47,13 @@
       "date": "2026-03-17",
       "totalJobs": 903,
       "added": 1175,
+      "updated": 0,
+      "removed": 0
+    },
+    {
+      "date": "2026-03-17",
+      "totalJobs": 1014,
+      "added": 1182,
       "updated": 0,
       "removed": 0
     }
@@ -84,22 +91,22 @@
         "count": 25
       },
       {
-        "key": "usi-universita-della-svizzera-italiana",
-        "name": "USI – Università della Svizzera italiana",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-usi-universita-della-svizzera-italiana",
-        "count": 24
-      },
-      {
         "key": "convit-holding-gmbh",
         "name": "Convit Holding GmbH",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-convit-holding-gmbh",
         "count": 23
       },
       {
-        "key": "relewant",
-        "name": "ReleWant",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-relewant",
-        "count": 19
+        "key": "eoc-ente-ospedaliero-cantonale",
+        "name": "EOC – Ente Ospedaliero Cantonale",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-eoc-ente-ospedaliero-cantonale",
+        "count": 178
+      },
+      {
+        "key": "kulm-hotel-st-moritz",
+        "name": "Kulm Hotel St. Moritz",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-kulm-hotel-st-moritz",
+        "count": 21
       }
     ],
     "topLocationsActive": [
@@ -146,10 +153,22 @@
         "count": 56
       },
       {
-        "key": "locarno",
-        "name": "Locarno",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-locarno",
-        "count": 42
+        "key": "st-moritz",
+        "name": "St. Moritz",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-st-moritz",
+        "count": 56
+      },
+      {
+        "key": "chur",
+        "name": "Chur",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-chur",
+        "count": 47
+      },
+      {
+        "key": "ticino",
+        "name": "Ticino",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-ticino",
+        "count": 24
       }
     ],
     "topCompaniesAddedToday": [
@@ -451,11 +470,11 @@
   },
   "salary": {
     "coverage": {
-      "jobsWithSalary": 921,
+      "jobsWithSalary": 954,
       "coveragePct": 100,
-      "avgMin": 67180,
-      "avgMax": 90629,
-      "avgMid": 78904,
+      "avgMin": 66948,
+      "avgMax": 90308,
+      "avgMid": 78628,
       "medianMid": 68500
     },
     "leaders": {
