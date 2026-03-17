@@ -1,22 +1,22 @@
 {
-  "generatedAt": "2026-03-17T05:05:34.324Z",
+  "generatedAt": "2026-03-17T05:05:51.881Z",
   "links": {
     "allJobs": "https://www.frontaliereticino.ch/cerca-lavoro-ticino"
   },
   "totals": {
-    "activeJobs": 955,
-    "activeCompanies": 125,
-    "activeLocations": 143,
-    "todayAdded": 990,
+    "activeJobs": 983,
+    "activeCompanies": 126,
+    "activeLocations": 144,
+    "todayAdded": 1018,
     "todayUpdated": 0,
     "todayRemoved": 0,
     "last7d": {
-      "added": 1893,
+      "added": 1921,
       "updated": 0,
       "removed": 0
     },
     "last30d": {
-      "added": 2376,
+      "added": 2404,
       "updated": 0,
       "removed": 0
     }
@@ -61,6 +61,13 @@
       "date": "2026-03-17",
       "totalJobs": 955,
       "added": 990,
+      "updated": 0,
+      "removed": 0
+    },
+    {
+      "date": "2026-03-17",
+      "totalJobs": 983,
+      "added": 1018,
       "updated": 0,
       "removed": 0
     }
@@ -170,6 +177,12 @@
         "name": "Mendrisio",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-mendrisio",
         "count": 58
+      },
+      {
+        "key": "st-moritz",
+        "name": "St. Moritz",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-st-moritz",
+        "count": 41
       }
     ],
     "topCompaniesAddedToday": [
@@ -385,11 +398,11 @@
         "removed": 0
       },
       {
-        "key": "novaggio",
-        "name": "Novaggio",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-novaggio",
+        "key": "st-moritz",
+        "name": "St. Moritz",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-st-moritz",
         "count": 0,
-        "added": 36,
+        "added": 41,
         "updated": 0,
         "removed": 0
       }
@@ -471,11 +484,11 @@
   },
   "salary": {
     "coverage": {
-      "jobsWithSalary": 955,
+      "jobsWithSalary": 983,
       "coveragePct": 100,
-      "avgMin": 67572,
-      "avgMax": 91183,
-      "avgMid": 79377,
+      "avgMin": 67196,
+      "avgMax": 90665,
+      "avgMid": 78931,
       "medianMid": 68500
     },
     "leaders": {
