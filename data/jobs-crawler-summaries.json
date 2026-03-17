@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-03-17T05:11:07.925Z",
+  "updatedAt": "2026-03-17T05:11:47.410Z",
   "summaries": [
     {
       "key": "migros",
@@ -2299,40 +2299,6 @@
           "slug": "mcdonald-s-chur-sud-mcdonalds"
         }
       ]
-    },
-    {
-      "key": "impresa-pizzarotti-c-s-p-a",
-      "label": "Impresa Pizzarotti & C. S.p.A.",
-      "generatedAt": "2026-03-16T05:48:17.425Z",
-      "total": 1,
-      "newCount": 1,
-      "updatedCount": 0,
-      "removedCount": 0,
-      "unchangedCount": 0,
-      "durationMs": 3293,
-      "avgDurationMs": 3085,
-      "durationHistory": [
-        3293,
-        3194,
-        3359,
-        3234,
-        2979,
-        2854,
-        3442,
-        2326
-      ],
-      "newJobs": [
-        {
-          "title": "CHEF DE CONTROLE DE PROJET - LE LOCLE",
-          "company": "Impresa Pizzarotti & C. S.p.A.",
-          "location": "Neuchâtel, Svizzera",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/chef-de-controle-de-projet-le-locle-impresa-pizzarotti-c-s-p-a-neuchatel-svizzera/",
-          "slug": "chef-de-controle-de-projet-le-locle-impresa-pizzarotti-c-s-p-a-neuchatel-svizzera"
-        }
-      ],
-      "updatedJobs": [],
-      "removedJobs": [],
-      "unchangedJobs": []
     },
     {
       "key": "citt-di-mendrisio",
@@ -8183,6 +8149,41 @@
           "location": "Lugano Paradiso",
           "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/construction-products-cpr-department-manager-mtic-group-lugano-paradiso/",
           "slug": "construction-products-cpr-department-manager-mtic-group-lugano-paradiso"
+        }
+      ],
+      "updatedJobs": [],
+      "removedJobs": [],
+      "unchangedJobs": []
+    },
+    {
+      "key": "impresa-pizzarotti-c-s-p-a",
+      "label": "Impresa Pizzarotti & C. S.p.A.",
+      "generatedAt": "2026-03-17T05:11:47.410Z",
+      "total": 1,
+      "newCount": 1,
+      "updatedCount": 0,
+      "removedCount": 0,
+      "unchangedCount": 0,
+      "durationMs": 3354,
+      "avgDurationMs": 3115,
+      "durationHistory": [
+        3354,
+        3293,
+        3194,
+        3359,
+        3234,
+        2979,
+        2854,
+        3442,
+        2326
+      ],
+      "newJobs": [
+        {
+          "title": "CHEF DE CONTROLE DE PROJET - LE LOCLE",
+          "company": "Impresa Pizzarotti & C. S.p.A.",
+          "location": "Neuchâtel, Svizzera",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/chef-de-controle-de-projet-le-locle-impresa-pizzarotti-c-s-p-a-neuchatel-svizzera/",
+          "slug": "chef-de-controle-de-projet-le-locle-impresa-pizzarotti-c-s-p-a-neuchatel-svizzera"
         }
       ],
       "updatedJobs": [],
