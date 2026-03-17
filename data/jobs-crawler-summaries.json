@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-03-17T05:24:18.234Z",
+  "updatedAt": "2026-03-17T05:24:58.616Z",
   "summaries": [
     {
       "key": "zegna",
@@ -823,66 +823,6 @@
           "location": "alle Standorte des SEM",
           "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/asyl-dolmetscher-in-confederazione-alle-standorte-des-sem/",
           "slug": "asyl-dolmetscher-in-confederazione-alle-standorte-des-sem"
-        }
-      ]
-    },
-    {
-      "key": "lastminute-com",
-      "label": "lastminute.com",
-      "generatedAt": "2026-03-15T15:47:34.872Z",
-      "total": 5,
-      "newCount": 0,
-      "updatedCount": 0,
-      "removedCount": 0,
-      "unchangedCount": 5,
-      "durationMs": 20989,
-      "avgDurationMs": 109619,
-      "durationHistory": [
-        20989,
-        21547,
-        20313,
-        20744,
-        186756,
-        387363
-      ],
-      "newJobs": [],
-      "updatedJobs": [],
-      "removedJobs": [],
-      "unchangedJobs": [
-        {
-          "title": "Principal Product Researcher",
-          "company": "lastminute.com",
-          "location": "Chiasso",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricercatore-principale-sul-prodotto-chiasso/",
-          "slug": "principal-product-researcher-chiasso"
-        },
-        {
-          "title": "Global Payroll & HR Systems Manager",
-          "company": "lastminute.com",
-          "location": "Chiasso",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/responsabile-globale-dei-sistemi-retributivi-e-delle-risorse-umane-chiasso/",
-          "slug": "global-payroll-hr-systems-manager-chiasso"
-        },
-        {
-          "title": "Head of Data Platform Engineering",
-          "company": "lastminute.com",
-          "location": "Chiasso",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/responsabile-della-piattaforma-dati-chiasso/",
-          "slug": "head-of-data-platform-engineering-chiasso"
-        },
-        {
-          "title": "Software Engineer – ETLs & Microservices",
-          "company": "lastminute.com",
-          "location": "Chiasso",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ingegnere-del-software-etl-e-microservizi-chiasso/",
-          "slug": "software-engineer-etls-microservices-chiasso"
-        },
-        {
-          "title": "Microsoft Business Central Specialist",
-          "company": "lastminute.com",
-          "location": "Chiasso",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/specialista-microsoft-business-central-chiasso/",
-          "slug": "microsoft-business-central-specialist-chiasso"
         }
       ]
     },
@@ -8318,6 +8258,67 @@
           "slug": "apprendistato-di-commercio-afc-lugano-zurich-insurance-sede-ticino-lugano"
         }
       ]
+    },
+    {
+      "key": "lastminute-com",
+      "label": "lastminute.com",
+      "generatedAt": "2026-03-17T05:24:58.616Z",
+      "total": 5,
+      "newCount": 0,
+      "updatedCount": 5,
+      "removedCount": 0,
+      "unchangedCount": 0,
+      "durationMs": 1138265,
+      "avgDurationMs": 256568,
+      "durationHistory": [
+        1138265,
+        20989,
+        21547,
+        20313,
+        20744,
+        186756,
+        387363
+      ],
+      "newJobs": [],
+      "updatedJobs": [
+        {
+          "title": "Principal Product Researcher",
+          "company": "lastminute.com",
+          "location": "Chiasso",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/capo-ricerca-prodotti-principali-chiasso/",
+          "slug": "principal-product-researcher-chiasso"
+        },
+        {
+          "title": "Global Payroll & HR Systems Manager",
+          "company": "lastminute.com",
+          "location": "Chiasso",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/responsabile-sistemi-globali-di-payroll-e-hr-chiasso/",
+          "slug": "global-payroll-hr-systems-manager-chiasso"
+        },
+        {
+          "title": "Head of Data Platform Engineering",
+          "company": "lastminute.com",
+          "location": "Chiasso",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/capo-della-piattaforma-di-ingegneria-dei-dati-chiasso/",
+          "slug": "head-of-data-platform-engineering-chiasso"
+        },
+        {
+          "title": "Software Engineer – ETLs & Microservices",
+          "company": "lastminute.com",
+          "location": "Chiasso",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ingegnere-del-software-etls-microservizi-chiasso/",
+          "slug": "software-engineer-etls-microservices-chiasso"
+        },
+        {
+          "title": "Microsoft Business Central Specialist",
+          "company": "lastminute.com",
+          "location": "Chiasso",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/esperto-di-microsoft-business-central-chiasso/",
+          "slug": "microsoft-business-central-specialist-chiasso"
+        }
+      ],
+      "removedJobs": [],
+      "unchangedJobs": []
     }
   ]
 }
