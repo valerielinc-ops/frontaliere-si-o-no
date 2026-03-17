@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-03-17T16:15:39.530Z",
+  "updatedAt": "2026-03-17T16:16:01.961Z",
   "summaries": [
     {
       "key": "a-group",
@@ -2156,41 +2156,6 @@
       "updatedJobs": [],
       "removedJobs": [],
       "unchangedJobs": []
-    },
-    {
-      "key": "bosch-thermotechnik-ag",
-      "label": "Bosch Thermotechnik AG",
-      "generatedAt": "2026-03-17T04:52:34.308Z",
-      "total": 1,
-      "newCount": 0,
-      "updatedCount": 0,
-      "removedCount": 0,
-      "unchangedCount": 1,
-      "durationMs": 10132,
-      "avgDurationMs": 9035,
-      "durationHistory": [
-        10132,
-        9267,
-        9530,
-        8978,
-        9703,
-        7930,
-        8421,
-        7918,
-        9435
-      ],
-      "newJobs": [],
-      "updatedJobs": [],
-      "removedJobs": [],
-      "unchangedJobs": [
-        {
-          "title": "Tecnico di servizio Fossile Regione Ticino (m/f/div.) REF280202G",
-          "company": "Bosch Thermotechnik AG",
-          "location": "Rivera",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/tecnico-di-servizio-fossile-regione-ticino-m-f-div-ref280202g-bosch-rivera/",
-          "slug": "tecnico-di-servizio-fossile-regione-ticino-m-f-div-ref280202g-bosch-rivera"
-        }
-      ]
     },
     {
       "key": "bracco-suisse",
@@ -8453,6 +8418,42 @@
           "location": "Domat/Ems",
           "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/gestore-dell-impianto-gestore-dell-impianto-di-riscaldamento-centrale-elettrica-a-legna-f-m-d-axpo-group-domat-ems/",
           "slug": "anlagenfuhrer-in-heizwerkfuhrer-in-holzheizkraftwerk-w-m-d-2101497b-3a42-43b6-8370-7835eb32af54"
+        }
+      ]
+    },
+    {
+      "key": "bosch-thermotechnik-ag",
+      "label": "Bosch Thermotechnik AG",
+      "generatedAt": "2026-03-17T16:16:01.961Z",
+      "total": 1,
+      "newCount": 0,
+      "updatedCount": 0,
+      "removedCount": 0,
+      "unchangedCount": 1,
+      "durationMs": 9957,
+      "avgDurationMs": 9127,
+      "durationHistory": [
+        9957,
+        10132,
+        9267,
+        9530,
+        8978,
+        9703,
+        7930,
+        8421,
+        7918,
+        9435
+      ],
+      "newJobs": [],
+      "updatedJobs": [],
+      "removedJobs": [],
+      "unchangedJobs": [
+        {
+          "title": "Tecnico di servizio Fossile Regione Ticino (m/f/div.) REF280202G",
+          "company": "Bosch Thermotechnik AG",
+          "location": "Rivera",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/tecnico-di-servizio-fossile-regione-ticino-m-f-div-ref280202g-bosch-rivera/",
+          "slug": "tecnico-di-servizio-fossile-regione-ticino-m-f-div-ref280202g-bosch-rivera"
         }
       ]
     }

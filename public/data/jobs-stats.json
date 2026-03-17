@@ -1,22 +1,22 @@
 {
-  "generatedAt": "2026-03-17T16:15:42.767Z",
+  "generatedAt": "2026-03-17T16:16:07.263Z",
   "links": {
     "allJobs": "https://www.frontaliereticino.ch/cerca-lavoro-ticino"
   },
   "totals": {
-    "activeJobs": 899,
+    "activeJobs": 913,
     "activeCompanies": 102,
     "activeLocations": 167,
-    "todayAdded": 1157,
+    "todayAdded": 1169,
     "todayUpdated": 0,
     "todayRemoved": 0,
     "last7d": {
-      "added": 3220,
+      "added": 2072,
       "updated": 0,
       "removed": 0
     },
     "last30d": {
-      "added": 3703,
+      "added": 2555,
       "updated": 0,
       "removed": 0
     }
@@ -61,6 +61,13 @@
       "date": "2026-03-17",
       "totalJobs": 899,
       "added": 1157,
+      "updated": 0,
+      "removed": 0
+    },
+    {
+      "date": "2026-03-17",
+      "totalJobs": 913,
+      "added": 1169,
       "updated": 0,
       "removed": 0
     }
@@ -128,6 +135,36 @@
         "name": "Grigioni",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-grigioni",
         "count": 46
+      },
+      {
+        "key": "bellinzona",
+        "name": "Bellinzona",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-bellinzona",
+        "count": 133
+      },
+      {
+        "key": "lugano",
+        "name": "Lugano",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-lugano",
+        "count": 117
+      },
+      {
+        "key": "locarno",
+        "name": "Locarno",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-locarno",
+        "count": 43
+      },
+      {
+        "key": "st-moritz",
+        "name": "St. Moritz",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-st-moritz",
+        "count": 38
+      },
+      {
+        "key": "novaggio",
+        "name": "Novaggio",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-novaggio",
+        "count": 26
       },
       {
         "key": "bellinzona",
@@ -549,11 +586,11 @@
   },
   "salary": {
     "coverage": {
-      "jobsWithSalary": 899,
+      "jobsWithSalary": 913,
       "coveragePct": 100,
-      "avgMin": 66673,
-      "avgMax": 89957,
-      "avgMid": 78315,
+      "avgMin": 66654,
+      "avgMax": 89929,
+      "avgMid": 78291,
       "medianMid": 68500
     },
     "leaders": {
