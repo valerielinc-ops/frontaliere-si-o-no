@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-03-17T05:11:58.206Z",
+  "generatedAt": "2026-03-17T05:12:40.677Z",
   "links": {
     "allJobs": "https://www.frontaliereticino.ch/cerca-lavoro-ticino"
   },
   "totals": {
-    "activeJobs": 913,
+    "activeJobs": 967,
     "activeCompanies": 124,
     "activeLocations": 144,
     "todayAdded": 1067,
@@ -77,6 +77,13 @@
       "added": 1067,
       "updated": 0,
       "removed": 0
+    },
+    {
+      "date": "2026-03-17",
+      "totalJobs": 967,
+      "added": 1053,
+      "updated": 0,
+      "removed": 0
     }
   ],
   "leaders": {
@@ -110,6 +117,24 @@
         "name": "VF International (The North Face, Timberland)",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-vf-international-the-north-face-timberland",
         "count": 25
+      },
+      {
+        "key": "usi-universita-della-svizzera-italiana",
+        "name": "USI – Università della Svizzera italiana",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-usi-universita-della-svizzera-italiana",
+        "count": 24
+      },
+      {
+        "key": "convit-holding-gmbh",
+        "name": "Convit Holding GmbH",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-convit-holding-gmbh",
+        "count": 23
+      },
+      {
+        "key": "interdiscount",
+        "name": "Interdiscount",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-interdiscount",
+        "count": 22
       },
       {
         "key": "usi-universita-della-svizzera-italiana",
@@ -214,6 +239,24 @@
         "name": "Chur",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-chur",
         "count": 40
+      },
+      {
+        "key": "st-moritz",
+        "name": "St. Moritz",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-st-moritz",
+        "count": 57
+      },
+      {
+        "key": "mendrisio",
+        "name": "Mendrisio",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-mendrisio",
+        "count": 50
+      },
+      {
+        "key": "emea-che-stabio-vf-campus-vf1",
+        "name": "EMEA · CHE · Stabio · VF Campus VF1",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-emea-che-stabio-vf-campus-vf1",
+        "count": 23
       }
     ],
     "topCompaniesAddedToday": [
@@ -515,11 +558,11 @@
   },
   "salary": {
     "coverage": {
-      "jobsWithSalary": 913,
+      "jobsWithSalary": 967,
       "coveragePct": 100,
-      "avgMin": 66403,
-      "avgMax": 89580,
-      "avgMid": 77991,
+      "avgMin": 67258,
+      "avgMax": 90748,
+      "avgMid": 79003,
       "medianMid": 68500
     },
     "leaders": {
@@ -705,6 +748,26 @@
           "avgMax": 111500,
           "avgMid": 97000,
           "weightedSalary": 88300
+        },
+        {
+          "key": "beijing-china",
+          "name": "Beijing, China",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-beijing-china",
+          "count": 1,
+          "avgMin": 92000,
+          "avgMax": 125000,
+          "avgMid": 108500,
+          "weightedSalary": 95300
+        },
+        {
+          "key": "grigioni",
+          "name": "Grigioni",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-grigioni",
+          "count": 115,
+          "avgMin": 74178,
+          "avgMax": 100143,
+          "avgMid": 87161,
+          "weightedSalary": 87161
         }
       ],
       "topSalaryTitles": [
