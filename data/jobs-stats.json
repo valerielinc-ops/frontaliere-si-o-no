@@ -1,22 +1,22 @@
 {
-  "generatedAt": "2026-03-17T05:08:37.623Z",
+  "generatedAt": "2026-03-17T05:08:21.916Z",
   "links": {
     "allJobs": "https://www.frontaliereticino.ch/cerca-lavoro-ticino"
   },
   "totals": {
-    "activeJobs": 1030,
+    "activeJobs": 854,
     "activeCompanies": 122,
     "activeLocations": 141,
-    "todayAdded": 1053,
+    "todayAdded": 935,
     "todayUpdated": 0,
     "todayRemoved": 0,
     "last7d": {
-      "added": 1956,
+      "added": 2998,
       "updated": 0,
       "removed": 0
     },
     "last30d": {
-      "added": 2439,
+      "added": 3481,
       "updated": 0,
       "removed": 0
     }
@@ -42,6 +42,13 @@
       "added": 1053,
       "updated": 0,
       "removed": 0
+    },
+    {
+      "date": "2026-03-17",
+      "totalJobs": 854,
+      "added": 935,
+      "updated": 0,
+      "removed": 0
     }
   ],
   "leaders": {
@@ -51,12 +58,6 @@
         "name": "EOC – Ente Ospedaliero Cantonale",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-eoc-ente-ospedaliero-cantonale",
         "count": 185
-      },
-      {
-        "key": "coop",
-        "name": "Coop",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-coop",
-        "count": 101
       },
       {
         "key": "kulm-hotel-st-moritz",
@@ -93,6 +94,12 @@
         "name": "Grand Hotel Kronenhof",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-grand-hotel-kronenhof",
         "count": 24
+      },
+      {
+        "key": "coop",
+        "name": "Coop",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-coop",
+        "count": 38
       }
     ],
     "topLocationsActive": [
@@ -101,12 +108,6 @@
         "name": "Bellinzona",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-bellinzona",
         "count": 125
-      },
-      {
-        "key": "grigioni",
-        "name": "Grigioni",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-grigioni",
-        "count": 115
       },
       {
         "key": "lugano",
@@ -143,6 +144,18 @@
         "name": "Pontresina",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-pontresina",
         "count": 24
+      },
+      {
+        "key": "lugano",
+        "name": "Lugano",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-lugano",
+        "count": 104
+      },
+      {
+        "key": "grigioni",
+        "name": "Grigioni",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-grigioni",
+        "count": 55
       }
     ],
     "topCompaniesAddedToday": [
@@ -152,15 +165,6 @@
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-eoc-ente-ospedaliero-cantonale",
         "count": 0,
         "added": 185,
-        "updated": 0,
-        "removed": 0
-      },
-      {
-        "key": "coop",
-        "name": "Coop",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-coop",
-        "count": 0,
-        "added": 101,
         "updated": 0,
         "removed": 0
       },
@@ -217,6 +221,15 @@
         "added": 24,
         "updated": 0,
         "removed": 0
+      },
+      {
+        "key": "coop",
+        "name": "Coop",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-coop",
+        "count": 0,
+        "added": 106,
+        "updated": 0,
+        "removed": 0
       }
     ],
     "topCompaniesAdded30d": [
@@ -226,15 +239,6 @@
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-eoc-ente-ospedaliero-cantonale",
         "count": 0,
         "added": 212,
-        "updated": 0,
-        "removed": 0
-      },
-      {
-        "key": "coop",
-        "name": "Coop",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-coop",
-        "count": 0,
-        "added": 112,
         "updated": 0,
         "removed": 0
       },
@@ -291,6 +295,15 @@
         "added": 24,
         "updated": 0,
         "removed": 0
+      },
+      {
+        "key": "coop",
+        "name": "Coop",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-coop",
+        "count": 0,
+        "added": 113,
+        "updated": 0,
+        "removed": 0
       }
     ],
     "topLocationsAdded30d": [
@@ -300,15 +313,6 @@
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-bellinzona",
         "count": 0,
         "added": 150,
-        "updated": 0,
-        "removed": 0
-      },
-      {
-        "key": "lugano",
-        "name": "Lugano",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-lugano",
-        "count": 0,
-        "added": 146,
         "updated": 0,
         "removed": 0
       },
@@ -363,6 +367,24 @@
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-locarno",
         "count": 0,
         "added": 49,
+        "updated": 0,
+        "removed": 0
+      },
+      {
+        "key": "bellinzona",
+        "name": "Bellinzona",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-bellinzona",
+        "count": 0,
+        "added": 151,
+        "updated": 0,
+        "removed": 0
+      },
+      {
+        "key": "lugano",
+        "name": "Lugano",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-lugano",
+        "count": 0,
+        "added": 145,
         "updated": 0,
         "removed": 0
       }
@@ -439,16 +461,43 @@
         "added": 8,
         "updated": 0,
         "removed": 0
+      },
+      {
+        "key": "specialista-del-commercio-al-dettaglio-uomo-assistente-in",
+        "name": "Specialista del commercio al dettaglio: uomo/assistente: in",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-specialista-del-commercio-al-dettaglio-uomo-assistente-in",
+        "count": 0,
+        "added": 17,
+        "updated": 0,
+        "removed": 0
+      },
+      {
+        "key": "assistente-di-farmacia-afc",
+        "name": "Assistente di farmacia AFC",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-assistente-di-farmacia-afc",
+        "count": 0,
+        "added": 10,
+        "updated": 0,
+        "removed": 0
+      },
+      {
+        "key": "tirocinio-come-specialista-del-commercio-al-dettaglio-o-assistente-al-dettaglio",
+        "name": "Tirocinio come specialista del commercio al dettaglio o assistente al dettaglio",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-tirocinio-come-specialista-del-commercio-al-dettaglio-o-assistente-al-dettaglio",
+        "count": 0,
+        "added": 9,
+        "updated": 0,
+        "removed": 0
       }
     ]
   },
   "salary": {
     "coverage": {
-      "jobsWithSalary": 1030,
+      "jobsWithSalary": 854,
       "coveragePct": 100,
-      "avgMin": 67044,
-      "avgMax": 90450,
-      "avgMid": 78747,
+      "avgMin": 66287,
+      "avgMax": 89431,
+      "avgMid": 77859,
       "medianMid": 68500
     },
     "leaders": {
@@ -614,6 +663,26 @@
           "avgMax": 111500,
           "avgMid": 97000,
           "weightedSalary": 88300
+        },
+        {
+          "key": "losone",
+          "name": "Losone",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-losone",
+          "count": 8,
+          "avgMin": 73563,
+          "avgMax": 99313,
+          "avgMid": 86438,
+          "weightedSalary": 86438
+        },
+        {
+          "key": "novaggio",
+          "name": "Novaggio",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-novaggio",
+          "count": 19,
+          "avgMin": 73053,
+          "avgMax": 98842,
+          "avgMid": 85947,
+          "weightedSalary": 85947
         }
       ],
       "topSalaryTitles": [
