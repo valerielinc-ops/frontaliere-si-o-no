@@ -1,22 +1,22 @@
 {
-  "generatedAt": "2026-03-17T05:02:40.317Z",
+  "generatedAt": "2026-03-17T05:03:12.296Z",
   "links": {
     "allJobs": "https://www.frontaliereticino.ch/cerca-lavoro-ticino"
   },
   "totals": {
-    "activeJobs": 939,
+    "activeJobs": 938,
     "activeCompanies": 121,
-    "activeLocations": 140,
-    "todayAdded": 972,
+    "activeLocations": 138,
+    "todayAdded": 971,
     "todayUpdated": 0,
     "todayRemoved": 0,
     "last7d": {
-      "added": 1875,
+      "added": 1874,
       "updated": 0,
       "removed": 0
     },
     "last30d": {
-      "added": 2358,
+      "added": 2357,
       "updated": 0,
       "removed": 0
     }
@@ -54,6 +54,13 @@
       "date": "2026-03-17",
       "totalJobs": 940,
       "added": 972,
+      "updated": 0,
+      "removed": 0
+    },
+    {
+      "date": "2026-03-17",
+      "totalJobs": 940,
+      "added": 971,
       "updated": 0,
       "removed": 0
     }
@@ -157,6 +164,12 @@
         "name": "Lugano",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-lugano",
         "count": 111
+      },
+      {
+        "key": "lugano",
+        "name": "Lugano",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-lugano",
+        "count": 114
       },
       {
         "key": "lugano",
@@ -425,11 +438,11 @@
   },
   "salary": {
     "coverage": {
-      "jobsWithSalary": 939,
-      "coveragePct": 100,
-      "avgMin": 67442,
-      "avgMax": 91004,
-      "avgMid": 79223,
+      "jobsWithSalary": 937,
+      "coveragePct": 99.9,
+      "avgMin": 67447,
+      "avgMax": 91011,
+      "avgMid": 79229,
       "medianMid": 72000
     },
     "leaders": {
