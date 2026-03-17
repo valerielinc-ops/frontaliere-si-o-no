@@ -16,6 +16,10 @@ import {
   resolveCrawlerSummaryStorePath,
   writeCrawlerSummaryStore,
 } from './lib/crawler-summary-store.mjs';
+import {
+  buildStableJobIdentity,
+  jobsDiffer,
+} from './lib/job-identity.mjs';
 
 const BASE_URL = 'https://www.frontaliereticino.ch';
 const JOB_PATH = 'cerca-lavoro-ticino';
@@ -139,16 +143,16 @@ export function writeJobsSummary(jobs, label = '') {
 // ─── Crawl diff helpers ─────────────────────────────────────────────────
 
 /**
- * Take a snapshot of job slugs from an array of jobs.
- * Returns a Map<slug, job> for efficient lookup.
+ * Take a snapshot of jobs keyed by stable identity.
+ * Returns a Map<identity, job> for efficient lookup.
  * @param {Array<{slug?: string; id?: string}>} jobs
  * @returns {Map<string, object>}
  */
 export function snapshotJobSlugs(jobs) {
   const map = new Map();
   for (const job of (jobs || [])) {
-    const slug = job?.slug || job?.id;
-    if (slug) map.set(slug, job);
+    const identity = buildStableJobIdentity(job);
+    if (identity) map.set(identity, job);
   }
   return map;
 }
@@ -166,16 +170,12 @@ export function computeCrawlDiff(beforeMap, afterMap) {
   const unchangedJobs = [];
 
   // Find new and updated jobs
-  for (const [slug, afterJob] of afterMap) {
-    const beforeJob = beforeMap.get(slug);
+  for (const [identity, afterJob] of afterMap) {
+    const beforeJob = beforeMap.get(identity);
     if (!beforeJob) {
       newJobs.push(afterJob);
     } else {
-      // Consider updated if title or description changed
-      const titleChanged = (beforeJob.title || '') !== (afterJob.title || '');
-      const descChanged = (beforeJob.description || '').slice(0, 200) !== (afterJob.description || '').slice(0, 200);
-      const locChanged = (beforeJob.location || '') !== (afterJob.location || '');
-      if (titleChanged || descChanged || locChanged) {
+      if (jobsDiffer(beforeJob, afterJob)) {
         updatedJobs.push(afterJob);
       } else {
         unchangedJobs.push(afterJob);
@@ -184,8 +184,8 @@ export function computeCrawlDiff(beforeMap, afterMap) {
   }
 
   // Find removed jobs
-  for (const [slug, beforeJob] of beforeMap) {
-    if (!afterMap.has(slug)) {
+  for (const [identity, beforeJob] of beforeMap) {
+    if (!afterMap.has(identity)) {
       removedJobs.push(beforeJob);
     }
   }

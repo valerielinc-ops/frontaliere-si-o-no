@@ -223,6 +223,46 @@ describe('job-board-stats', () => {
     expect(summary.totals.todayUpdated).toBe(1);
   });
 
+  it('treats slug renames on the same source URL as updates instead of add/remove churn', () => {
+    const previousJobs = [
+      job({
+        id: 'job-bi',
+        slug: 'bi-specialist-relewant-bellinzona',
+        url: 'https://relewant.com/jobs/bi-specialist',
+        title: 'BI Specialist',
+        titleByLocale: { it: 'BI Specialist' },
+        slugByLocale: { it: 'bi-specialist-relewant-bellinzona' },
+      }),
+    ];
+
+    const currentJobs = [
+      job({
+        id: 'job-bi',
+        slug: 'specialista-della-bi-relewant-bellinzona',
+        url: 'https://relewant.com/jobs/bi-specialist',
+        title: 'Specialista della BI',
+        titleByLocale: { it: 'Specialista della BI' },
+        slugByLocale: { it: 'specialista-della-bi-relewant-bellinzona' },
+      }),
+    ];
+
+    const { diff, history } = buildJobsStatsArtifacts({
+      previousJobs,
+      currentJobs,
+      existingHistory: { version: 1, generatedAt: '2026-03-16T08:00:00.000Z', entries: [] },
+      now: '2026-03-17T09:30:00.000+01:00',
+    });
+
+    expect(diff.addedJobs).toHaveLength(0);
+    expect(diff.removedJobs).toHaveLength(0);
+    expect(diff.updatedJobs).toHaveLength(1);
+    expect(history.entries[0]).toMatchObject({
+      added: 0,
+      updated: 1,
+      removed: 0,
+    });
+  });
+
   it('computes salary observatory leaders from jobs with salary data', () => {
     const currentJobs = [
       job({

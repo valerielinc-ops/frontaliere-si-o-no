@@ -1,3 +1,8 @@
+import {
+  buildStableJobIdentity,
+  jobsDiffer,
+} from './job-identity.mjs';
+
 const BASE_URL = 'https://www.frontaliereticino.ch';
 const JOB_BOARD_ROOT_PATH = '/cerca-lavoro-ticino';
 const JOB_BOARD_ROOT_URL = `${BASE_URL}${JOB_BOARD_ROOT_PATH}`;
@@ -39,16 +44,6 @@ function safeArray(value) {
   return Array.isArray(value) ? value : [];
 }
 
-function stableStringify(value) {
-  if (value === null || value === undefined) return JSON.stringify(value);
-  if (typeof value !== 'object') return JSON.stringify(value);
-  if (Array.isArray(value)) {
-    return `[${value.map((item) => stableStringify(item)).join(',')}]`;
-  }
-  const keys = Object.keys(value).sort();
-  return `{${keys.map((key) => `${JSON.stringify(key)}:${stableStringify(value[key])}`).join(',')}}`;
-}
-
 function zurichDate(now = new Date()) {
   const parts = new Intl.DateTimeFormat('en-CA', {
     timeZone: ZURICH_TIMEZONE,
@@ -58,53 +53,6 @@ function zurichDate(now = new Date()) {
   }).formatToParts(new Date(now));
   const map = Object.fromEntries(parts.map((part) => [part.type, part.value]));
   return `${map.year}-${map.month}-${map.day}`;
-}
-
-function buildJobKey(job = {}) {
-  const rawUrl = normalizeSpace(job.url || '');
-  if (rawUrl) return `url:${rawUrl.toLowerCase()}`;
-  const rawSlug = normalizeSpace(job.slug || job.id || '');
-  if (rawSlug) return `slug:${rawSlug.toLowerCase()}`;
-  return `fallback:${stableStringify({
-    title: normalizeSpace(job.title || ''),
-    company: normalizeSpace(job.company || ''),
-    location: normalizeSpace(job.location || ''),
-  })}`;
-}
-
-function normalizeLocaleMap(value) {
-  if (!value || typeof value !== 'object' || Array.isArray(value)) return {};
-  const out = {};
-  for (const [key, inner] of Object.entries(value)) {
-    if (Array.isArray(inner)) {
-      out[key] = inner.map((item) => normalizeSpace(item)).filter(Boolean);
-    } else {
-      out[key] = normalizeSpace(inner);
-    }
-  }
-  return out;
-}
-
-function comparableJobShape(job = {}) {
-  return {
-    title: normalizeSpace(job.title || ''),
-    company: normalizeSpace(job.company || ''),
-    companyKey: normalizeSpace(job.companyKey || ''),
-    location: normalizeSpace(job.location || ''),
-    canton: normalizeSpace(job.canton || ''),
-    url: normalizeSpace(job.url || ''),
-    applyUrl: normalizeSpace(job.applyUrl || ''),
-    description: normalizeSpace(job.description || ''),
-    requirements: safeArray(job.requirements).map((item) => normalizeSpace(item)).filter(Boolean),
-    postedDate: normalizeSpace(job.postedDate || ''),
-    contract: normalizeSpace(job.contract || ''),
-    category: normalizeSpace(job.category || ''),
-    salaryMin: job.salaryMin ?? null,
-    salaryMax: job.salaryMax ?? null,
-    titleByLocale: normalizeLocaleMap(job.titleByLocale),
-    descriptionByLocale: normalizeLocaleMap(job.descriptionByLocale),
-    requirementsByLocale: normalizeLocaleMap(job.requirementsByLocale),
-  };
 }
 
 function getCompanySummary(job = {}) {
@@ -295,10 +243,10 @@ function deduplicateEntriesByDate(entries) {
 
 export function computeJobDiff(previousJobs = [], currentJobs = []) {
   const beforeMap = new Map();
-  for (const job of safeArray(previousJobs)) beforeMap.set(buildJobKey(job), job);
+  for (const job of safeArray(previousJobs)) beforeMap.set(buildStableJobIdentity(job), job);
 
   const afterMap = new Map();
-  for (const job of safeArray(currentJobs)) afterMap.set(buildJobKey(job), job);
+  for (const job of safeArray(currentJobs)) afterMap.set(buildStableJobIdentity(job), job);
 
   const addedJobs = [];
   const updatedJobs = [];
@@ -310,7 +258,7 @@ export function computeJobDiff(previousJobs = [], currentJobs = []) {
       addedJobs.push(currentJob);
       continue;
     }
-    if (stableStringify(comparableJobShape(previousJob)) !== stableStringify(comparableJobShape(currentJob))) {
+    if (jobsDiffer(previousJob, currentJob)) {
       updatedJobs.push(currentJob);
     }
   }
@@ -348,7 +296,7 @@ export function updateJobsStatsHistory(existingHistory = {}, diff = {}, currentJ
 
   for (const [actionKey, jobs] of actionMap) {
     for (const job of jobs) {
-      const jobKey = buildJobKey(job);
+      const jobKey = buildStableJobIdentity(job);
       const field = `${actionKey}Keys`;
       if (!entry[field].includes(jobKey)) entry[field].push(jobKey);
       upsertActionStat(entry.companyStats, getCompanySummary(job), actionKey, jobKey);
