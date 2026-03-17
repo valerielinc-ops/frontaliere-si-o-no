@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-03-17T05:12:40.677Z",
+  "generatedAt": "2026-03-17T05:13:01.571Z",
   "links": {
     "allJobs": "https://www.frontaliereticino.ch/cerca-lavoro-ticino"
   },
   "totals": {
-    "activeJobs": 967,
-    "activeCompanies": 124,
-    "activeLocations": 144,
+    "activeJobs": 955,
+    "activeCompanies": 121,
+    "activeLocations": 141,
     "todayAdded": 1067,
     "todayUpdated": 0,
     "todayRemoved": 0,
@@ -153,6 +153,12 @@
         "name": "Interdiscount",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-interdiscount",
         "count": 22
+      },
+      {
+        "key": "interdiscount",
+        "name": "Interdiscount",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-interdiscount",
+        "count": 22
       }
     ],
     "topLocationsActive": [
@@ -167,12 +173,6 @@
         "name": "Lugano",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-lugano",
         "count": 110
-      },
-      {
-        "key": "st-moritz",
-        "name": "St. Moritz",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-st-moritz",
-        "count": 57
       },
       {
         "key": "grigioni",
@@ -257,6 +257,24 @@
         "name": "EMEA · CHE · Stabio · VF Campus VF1",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-emea-che-stabio-vf-campus-vf1",
         "count": 23
+      },
+      {
+        "key": "lugano",
+        "name": "Lugano",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-lugano",
+        "count": 101
+      },
+      {
+        "key": "mendrisio",
+        "name": "Mendrisio",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-mendrisio",
+        "count": 49
+      },
+      {
+        "key": "locarno",
+        "name": "Locarno",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-locarno",
+        "count": 41
       }
     ],
     "topCompaniesAddedToday": [
@@ -558,11 +576,11 @@
   },
   "salary": {
     "coverage": {
-      "jobsWithSalary": 967,
+      "jobsWithSalary": 955,
       "coveragePct": 100,
-      "avgMin": 67258,
-      "avgMax": 90748,
-      "avgMid": 79003,
+      "avgMin": 67129,
+      "avgMax": 90576,
+      "avgMid": 78853,
       "medianMid": 68500
     },
     "leaders": {
