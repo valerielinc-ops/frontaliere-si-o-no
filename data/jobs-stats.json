@@ -1,22 +1,22 @@
 {
-  "generatedAt": "2026-03-17T05:19:59.475Z",
+  "generatedAt": "2026-03-17T05:21:06.585Z",
   "links": {
     "allJobs": "https://www.frontaliereticino.ch/cerca-lavoro-ticino"
   },
   "totals": {
-    "activeJobs": 823,
-    "activeCompanies": 95,
-    "activeLocations": 122,
-    "todayAdded": 1087,
+    "activeJobs": 840,
+    "activeCompanies": 97,
+    "activeLocations": 151,
+    "todayAdded": 1123,
     "todayUpdated": 0,
     "todayRemoved": 0,
     "last7d": {
-      "added": 1990,
+      "added": 2026,
       "updated": 0,
       "removed": 0
     },
     "last30d": {
-      "added": 2473,
+      "added": 2509,
       "updated": 0,
       "removed": 0
     }
@@ -40,6 +40,13 @@
       "date": "2026-03-17",
       "totalJobs": 1070,
       "added": 1087,
+      "updated": 0,
+      "removed": 0
+    },
+    {
+      "date": "2026-03-17",
+      "totalJobs": 1070,
+      "added": 1123,
       "updated": 0,
       "removed": 0
     }
@@ -81,6 +88,12 @@
         "name": "FFS Officine (Ferrovie Federali)",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-ffs-officine-ferrovie-federali",
         "count": 40
+      },
+      {
+        "key": "volg",
+        "name": "VOLG",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-volg",
+        "count": 44
       }
     ],
     "topLocationsActive": [
@@ -103,22 +116,10 @@
         "count": 52
       },
       {
-        "key": "locarno",
-        "name": "Locarno",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-locarno",
-        "count": 42
-      },
-      {
         "key": "chur",
         "name": "Chur",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-chur",
         "count": 34
-      },
-      {
-        "key": "st-moritz",
-        "name": "St. Moritz",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-st-moritz",
-        "count": 33
       },
       {
         "key": "bellinzona",
@@ -143,6 +144,12 @@
         "name": "Chiasso",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-chiasso",
         "count": 24
+      },
+      {
+        "key": "chur",
+        "name": "Chur",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-chur",
+        "count": 34
       }
     ],
     "topCompaniesAddedToday": [
@@ -161,6 +168,15 @@
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-coop",
         "count": 0,
         "added": 106,
+        "updated": 0,
+        "removed": 0
+      },
+      {
+        "key": "volg",
+        "name": "VOLG",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-volg",
+        "count": 0,
+        "added": 44,
         "updated": 0,
         "removed": 0
       },
@@ -208,15 +224,6 @@
         "added": 24,
         "updated": 0,
         "removed": 0
-      },
-      {
-        "key": "usi-universita-della-svizzera-italiana",
-        "name": "USI – Università della Svizzera italiana",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-usi-universita-della-svizzera-italiana",
-        "count": 0,
-        "added": 24,
-        "updated": 0,
-        "removed": 0
       }
     ],
     "topCompaniesAdded30d": [
@@ -235,6 +242,15 @@
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-coop",
         "count": 0,
         "added": 113,
+        "updated": 0,
+        "removed": 0
+      },
+      {
+        "key": "volg",
+        "name": "VOLG",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-volg",
+        "count": 0,
+        "added": 44,
         "updated": 0,
         "removed": 0
       },
@@ -280,15 +296,6 @@
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-usi-universita-della-svizzera-italiana",
         "count": 0,
         "added": 25,
-        "updated": 0,
-        "removed": 0
-      },
-      {
-        "key": "hamilton-bonaduz-ag",
-        "name": "Hamilton Bonaduz AG",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-hamilton-bonaduz-ag",
-        "count": 0,
-        "added": 24,
         "updated": 0,
         "removed": 0
       }
@@ -444,12 +451,12 @@
   },
   "salary": {
     "coverage": {
-      "jobsWithSalary": 823,
+      "jobsWithSalary": 840,
       "coveragePct": 100,
-      "avgMin": 67535,
-      "avgMax": 91130,
-      "avgMid": 79332,
-      "medianMid": 84500
+      "avgMin": 66695,
+      "avgMax": 89992,
+      "avgMid": 78343,
+      "medianMid": 68500
     },
     "leaders": {
       "topSalaryCompanies": [
