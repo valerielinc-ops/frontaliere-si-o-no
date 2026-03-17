@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-03-17T05:01:27.013Z",
-  "startedAt": "2026-03-17T04:59:42.237Z",
+  "generatedAt": "2026-03-17T05:04:04.756Z",
+  "startedAt": "2026-03-17T05:03:55.000Z",
   "config": {
     "minQualityScore": 4,
     "minDescriptionChars": 80,
@@ -36,36 +36,26 @@
     "browserFallbackAttempts": 0,
     "browserFallbackHits": 0,
     "duplicateIncoming": 0,
-    "duplicateExisting": 2,
-    "mergeExcludedJobs": 1,
-    "mergeExclusionByReason": {
-      "location_explicitly_foreign": 1
-    },
+    "duplicateExisting": 0,
+    "mergeExcludedJobs": 0,
+    "mergeExclusionByReason": {},
     "reusedLocalizationFromPrevious": 0,
     "inserted": 0,
     "refreshed": 0,
-    "mergedTotal": 908,
-    "aiLocalizationCalls": 1,
+    "mergedTotal": 944,
+    "aiLocalizationCalls": 2,
     "aiPageValidationCalls": 0,
-    "deeplCalls": 0,
+    "deeplCalls": 3,
     "deeplSuccess": 0,
-    "deeplFallbackToLlm": 0,
-    "aiCacheHits": 0,
-    "aiCacheMisses": 1,
-    "aiCacheEntries": 1409,
+    "deeplFallbackToLlm": 2,
+    "aiCacheHits": 1,
+    "aiCacheMisses": 4,
+    "aiCacheEntries": 1412,
     "discoveredCompaniesCandidates": 0,
     "discoveredCompaniesAdded": 0,
     "discoveredCompaniesPending": 0
   },
   "byCompany": [],
   "droppedCompanies": [],
-  "mergeExclusionSamples": [
-    {
-      "reason": "location_explicitly_foreign",
-      "title": "Pre Sales",
-      "company": "FNZ (Switzerland) AG",
-      "location": "Geneva",
-      "url": "https://fnz.wd3.myworkdayjobs.com/en/fnz_careers/job/Geneva---Switzerland/Pre-Sales_REQ-16394"
-    }
-  ]
+  "mergeExclusionSamples": []
 }
