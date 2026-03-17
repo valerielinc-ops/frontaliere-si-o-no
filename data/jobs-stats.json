@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-03-17T16:35:08.517Z",
+  "generatedAt": "2026-03-17T16:36:02.531Z",
   "links": {
     "allJobs": "https://www.frontaliereticino.ch/cerca-lavoro-ticino"
   },
   "totals": {
-    "activeJobs": 969,
+    "activeJobs": 963,
     "activeCompanies": 133,
     "activeLocations": 161,
     "todayAdded": 1182,
@@ -71,12 +71,6 @@
         "count": 25
       },
       {
-        "key": "usi-universita-della-svizzera-italiana",
-        "name": "USI – Università della Svizzera italiana",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-usi-universita-della-svizzera-italiana",
-        "count": 24
-      },
-      {
         "key": "convit-holding-gmbh",
         "name": "Convit Holding GmbH",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-convit-holding-gmbh",
@@ -89,12 +83,6 @@
         "count": 24
       },
       {
-        "key": "grand-hotel-des-bains-kempinski-st-moritz",
-        "name": "Grand Hotel des Bains Kempinski St. Moritz",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-grand-hotel-des-bains-kempinski-st-moritz",
-        "count": 21
-      },
-      {
         "key": "usi-universita-della-svizzera-italiana",
         "name": "USI – Università della Svizzera italiana",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-usi-universita-della-svizzera-italiana",
@@ -105,6 +93,18 @@
         "name": "Grand Hotel des Bains Kempinski St. Moritz",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-grand-hotel-des-bains-kempinski-st-moritz",
         "count": 21
+      },
+      {
+        "key": "eoc-ente-ospedaliero-cantonale",
+        "name": "EOC – Ente Ospedaliero Cantonale",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-eoc-ente-ospedaliero-cantonale",
+        "count": 178
+      },
+      {
+        "key": "kulm-hotel-st-moritz",
+        "name": "Kulm Hotel St. Moritz",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-kulm-hotel-st-moritz",
+        "count": 21
       }
     ],
     "topLocationsActive": [
@@ -113,12 +113,6 @@
         "name": "Bellinzona",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-bellinzona",
         "count": 131
-      },
-      {
-        "key": "st-moritz",
-        "name": "St. Moritz",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-st-moritz",
-        "count": 57
       },
       {
         "key": "mendrisio",
@@ -160,13 +154,19 @@
         "key": "lugano",
         "name": "Lugano",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-lugano",
-        "count": 121
+        "count": 120
       },
       {
         "key": "st-moritz",
         "name": "St. Moritz",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-st-moritz",
-        "count": 63
+        "count": 58
+      },
+      {
+        "key": "ticino",
+        "name": "Ticino",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-ticino",
+        "count": 24
       }
     ],
     "topCompaniesAddedToday": [
@@ -468,11 +468,11 @@
   },
   "salary": {
     "coverage": {
-      "jobsWithSalary": 969,
+      "jobsWithSalary": 963,
       "coveragePct": 100,
-      "avgMin": 66797,
-      "avgMax": 90103,
-      "avgMid": 78450,
+      "avgMin": 66837,
+      "avgMax": 90159,
+      "avgMid": 78498,
       "medianMid": 68500
     },
     "leaders": {
