@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-03-16T12:55:37.470Z",
-  "startedAt": "2026-03-16T12:32:28.079Z",
+  "generatedAt": "2026-03-17T03:30:25.536Z",
+  "startedAt": "2026-03-17T03:14:41.152Z",
   "config": {
     "minQualityScore": 4,
     "minDescriptionChars": 80,
     "aiLocalizationEnabled": true,
-    "aiLocalizationMaxJobsPerRun": 500,
+    "aiLocalizationMaxJobsPerRun": 120,
     "contentReuse": {
       "enabled": true,
       "similarityThreshold": 0.7,
@@ -21,13 +21,13 @@
     "source": "file"
   },
   "totals": {
-    "companiesParsed": 179,
-    "companiesSelected": 1,
+    "companiesParsed": 178,
+    "companiesSelected": 27,
     "companiesDroppedBySelection": 0,
-    "companiesCrawled": 1,
-    "discoveredCareerPages": 8,
-    "scrapedJobPages": 179,
-    "incomingCandidatesAccepted": 179,
+    "companiesCrawled": 0,
+    "discoveredCareerPages": 0,
+    "scrapedJobPages": 0,
+    "incomingCandidatesAccepted": 0,
     "discardedCandidates": 0,
     "filteredOutNonCandidates": 0,
     "duplicateInCompany": 0,
@@ -37,48 +37,243 @@
     "browserFallbackHits": 0,
     "duplicateIncoming": 0,
     "duplicateExisting": 0,
-    "mergeExcludedJobs": 0,
-    "mergeExclusionByReason": {},
-    "reusedLocalizationFromPrevious": 4,
-    "inserted": 96,
-    "refreshed": 83,
-    "mergedTotal": 1007,
-    "aiLocalizationCalls": 144,
+    "mergeExcludedJobs": 175,
+    "mergeExclusionByReason": {
+      "non_detail_url": 147,
+      "not_ticino_relevant": 79,
+      "explicitly_outside_target": 37,
+      "outside_swiss_ticino": 45,
+      "generic_title": 1,
+      "location_explicitly_foreign": 5
+    },
+    "reusedLocalizationFromPrevious": 0,
+    "inserted": 0,
+    "refreshed": 0,
+    "mergedTotal": 820,
+    "aiLocalizationCalls": 110,
     "aiPageValidationCalls": 0,
-    "deeplCalls": 0,
+    "deeplCalls": 70,
     "deeplSuccess": 0,
-    "deeplFallbackToLlm": 0,
-    "aiCacheHits": 154,
-    "aiCacheMisses": 86,
-    "aiCacheEntries": 1434,
+    "deeplFallbackToLlm": 28,
+    "aiCacheHits": 45,
+    "aiCacheMisses": 127,
+    "aiCacheEntries": 1529,
     "discoveredCompaniesCandidates": 0,
     "discoveredCompaniesAdded": 0,
     "discoveredCompaniesPending": 0
   },
-  "byCompany": [
-    {
-      "company": "Coop Ticino",
-      "domain": "coop.ch",
-      "discoveredCareerPages": 8,
-      "scrapedJobPages": 179,
-      "processedCandidates": 179,
-      "extractedAccepted": 179,
-      "discardedCount": 0,
-      "discardedByReason": {},
-      "filteredOutCount": 0,
-      "filteredOutByReason": {},
-      "duplicateInCompany": 0,
-      "webDiscoveryQueries": 0,
-      "webDiscoveryHits": 0,
-      "webDiscoveryProviders": [],
-      "browserFallbackAttempted": 0,
-      "browserFallbackHits": 0,
-      "browserFallbackReason": "",
-      "inserted": 0,
-      "refreshed": 0,
-      "duplicateIncoming": 0
-    }
-  ],
+  "byCompany": [],
   "droppedCompanies": [],
-  "mergeExclusionSamples": []
+  "mergeExclusionSamples": [
+    {
+      "reason": "non_detail_url",
+      "title": "#monapprentissagechezvolg",
+      "company": "VOLG",
+      "location": "Collombey-Muraz",
+      "url": "https://jobs.fenaco.com/postes-vacants/place-d-apprentissage-de-gestionnaire-ou-assistant-e-du-commerce-de-detail/11221d7f-1ebf-4800-96d0-5951e7e4c4b7"
+    },
+    {
+      "reason": "non_detail_url",
+      "title": "vendeuse / vendeur (h/f/d)",
+      "company": "VOLG",
+      "location": "Vissoie",
+      "url": "https://jobs.fenaco.com/postes-vacants/vendeuse-vendeur-h-f-d/0bacc522-e73a-475c-a228-37c0a6fa5117"
+    },
+    {
+      "reason": "not_ticino_relevant",
+      "title": "Ladenleitung Stellvertretung m/w/d",
+      "company": "VOLG",
+      "location": "Reckingen",
+      "url": "https://jobs.fenaco.com/offene-stellen/ladenleitung-stellvertretung-m-w-d/54f190fd-7e7c-4006-aa67-a3a9f73af7db"
+    },
+    {
+      "reason": "not_ticino_relevant",
+      "title": "Ladenleiterin / Ladenleiter w/m/d",
+      "company": "VOLG",
+      "location": "Baltschieder",
+      "url": "https://jobs.fenaco.com/offene-stellen/ladenleiterin-ladenleiter-w-m-d/27c67983-2041-48b4-bb7f-5e9c5827a9da"
+    },
+    {
+      "reason": "not_ticino_relevant",
+      "title": "Ladenleitung (w/m/d)",
+      "company": "VOLG",
+      "location": "Raron",
+      "url": "https://jobs.fenaco.com/offene-stellen/ladenleitung-w-m-d/91d8f120-a9a1-486e-8d13-0c3de2c34e76"
+    },
+    {
+      "reason": "non_detail_url",
+      "title": "Gérante-adjointe / Gérant-adjoint (h/f/d)",
+      "company": "VOLG",
+      "location": "Anniviers",
+      "url": "https://jobs.fenaco.com/postes-vacants/gerante-adjointe-gerant-adjoint-h-f-d/e49058b3-b2c6-4ed5-abc4-d274d2033caa"
+    },
+    {
+      "reason": "not_ticino_relevant",
+      "title": "Verkäuferin, Verkäufer",
+      "company": "VOLG",
+      "location": "Binn",
+      "url": "https://jobs.fenaco.com/offene-stellen/verkaeuferin-verkaeufer/e390d1b7-f24f-4904-9187-08cf01d7d44a"
+    },
+    {
+      "reason": "non_detail_url",
+      "title": "#monapprentissagechezvolg",
+      "company": "VOLG",
+      "location": "Founex",
+      "url": "https://jobs.fenaco.com/postes-vacants/place-d-apprentissage-de-gestionnaire-ou-assistant-e-du-commerce-de-detail/2758c583-e268-4071-9c65-19c15a966f57"
+    },
+    {
+      "reason": "non_detail_url",
+      "title": "#monapprentissagechezvolg",
+      "company": "VOLG",
+      "location": "Orsières",
+      "url": "https://jobs.fenaco.com/postes-vacants/place-d-apprentissage-de-gestionnaire-ou-assistant-e-du-commerce-de-detail/c20e4072-848a-4e0d-a589-6e002e740938"
+    },
+    {
+      "reason": "non_detail_url",
+      "title": "#monapprentissagechezvolg",
+      "company": "VOLG",
+      "location": "Vex",
+      "url": "https://jobs.fenaco.com/postes-vacants/place-d-apprentissage-de-gestionnaire-ou-assistant-e-du-commerce-de-detail/976fa92d-9f5b-4a95-980f-405da4ff2175"
+    },
+    {
+      "reason": "non_detail_url",
+      "title": "#monapprentissagechezvolg",
+      "company": "VOLG",
+      "location": "Veysonnaz",
+      "url": "https://jobs.fenaco.com/postes-vacants/place-d-apprentissage-de-gestionnaire-ou-assistant-e-du-commerce-de-detail/4b716bca-2629-437d-ac99-d72ccf420a50"
+    },
+    {
+      "reason": "non_detail_url",
+      "title": "#monapprentissagechezvolg",
+      "company": "VOLG",
+      "location": "Anniviers",
+      "url": "https://jobs.fenaco.com/postes-vacants/place-d-apprentissage-de-gestionnaire-ou-assistant-e-du-commerce-de-detail/f8cfa926-f906-4078-ae5e-125c94d48b91"
+    },
+    {
+      "reason": "not_ticino_relevant",
+      "title": "#meinelehrebeivolg",
+      "company": "VOLG",
+      "location": "Baltschieder",
+      "url": "https://jobs.fenaco.com/offene-stellen/lehrstelle-als-detailhandelsfachmann-frau-oder-detailhandelsassistent-in/554f5cd5-0cf3-44f4-a834-1bbbca7f36ac"
+    },
+    {
+      "reason": "not_ticino_relevant",
+      "title": "#meinelehrebeivolg",
+      "company": "VOLG",
+      "location": "Bettmeralp",
+      "url": "https://jobs.fenaco.com/offene-stellen/lehrstelle-als-detailhandelsfachmann-frau-oder-detailhandelsassistent-in/9a1085c3-55d2-4894-ad86-da96f8fc4a01"
+    },
+    {
+      "reason": "not_ticino_relevant",
+      "title": "#meinelehrebeivolg",
+      "company": "VOLG",
+      "location": "Bürchen",
+      "url": "https://jobs.fenaco.com/offene-stellen/lehrstelle-als-detailhandelsfachmann-frau-oder-detailhandelsassistent-in/b663b940-eeae-499e-9655-01aa362fc110"
+    },
+    {
+      "reason": "not_ticino_relevant",
+      "title": "#meinelehrebeivolg",
+      "company": "VOLG",
+      "location": "Ernen",
+      "url": "https://jobs.fenaco.com/offene-stellen/lehrstelle-als-detailhandelsfachmann-frau-oder-detailhandelsassistent-in/ec696a64-24a3-4639-ad05-5bd100b81c94"
+    },
+    {
+      "reason": "not_ticino_relevant",
+      "title": "#meinelehrebeivolg",
+      "company": "VOLG",
+      "location": "Grächen",
+      "url": "https://jobs.fenaco.com/offene-stellen/lehrstelle-als-detailhandelsfachmann-frau-oder-detailhandelsassistent-in/2a7fb5b4-8c4c-4197-b0ba-2b8e861a4dfb"
+    },
+    {
+      "reason": "not_ticino_relevant",
+      "title": "#meinelehrebeivolg",
+      "company": "VOLG",
+      "location": "Obergoms VS",
+      "url": "https://jobs.fenaco.com/offene-stellen/lehrstelle-als-detailhandelsfachmann-frau-oder-detailhandelsassistent-in/5133203f-c3a0-4e63-a81f-ba710cf31991"
+    },
+    {
+      "reason": "not_ticino_relevant",
+      "title": "#meinelehrebeivolg",
+      "company": "VOLG",
+      "location": "Unterbäch",
+      "url": "https://jobs.fenaco.com/offene-stellen/lehrstelle-als-detailhandelsfachmann-frau-oder-detailhandelsassistent-in/1a018d29-a915-45cf-9699-683f6a57c053"
+    },
+    {
+      "reason": "not_ticino_relevant",
+      "title": "#meinelehrebeivolg",
+      "company": "VOLG",
+      "location": "Visperterminen",
+      "url": "https://jobs.fenaco.com/offene-stellen/lehrstelle-als-detailhandelsfachmann-frau-oder-detailhandelsassistent-in/f7c55cbc-b85b-4ed4-ac16-f39157ee653d"
+    },
+    {
+      "reason": "not_ticino_relevant",
+      "title": "#meinelehrebeivolg",
+      "company": "VOLG",
+      "location": "Wiler (Lötschen)",
+      "url": "https://jobs.fenaco.com/offene-stellen/lehrstelle-als-detailhandelsfachmann-frau-oder-detailhandelsassistent-in/c85d4564-3574-4bd9-95af-8367c237c8f8"
+    },
+    {
+      "reason": "not_ticino_relevant",
+      "title": "Lehrstelle als Detailhandelsfachmann/-frau EFZ Lebensmittel",
+      "company": "VOLG",
+      "location": "Sils Maria",
+      "url": "https://jobs.fenaco.com/offene-stellen/lehrstelle-als-detailhandelsfachmann-frau-efz-lebensmittel/a3e63902-1bd6-4d6f-93e3-134a60edecf2"
+    },
+    {
+      "reason": "not_ticino_relevant",
+      "title": "Lehrstelle als Detailhandelsassistent/in EBA Lebensmittel",
+      "company": "VOLG",
+      "location": "Eggersriet SG",
+      "url": "https://jobs.fenaco.com/offene-stellen/lehrstelle-als-detailhandelsassistent-in-eba-lebensmittel/92c0ed49-ed35-418b-bafa-f36dab9f52ba"
+    },
+    {
+      "reason": "not_ticino_relevant",
+      "title": "Lehrstelle als Detailhandelsassistent/in EBA Lebensmittel",
+      "company": "VOLG",
+      "location": "Lenzerheide",
+      "url": "https://jobs.fenaco.com/offene-stellen/lehrstelle-als-detailhandelsassistent-in-eba-lebensmittel/cd65ed66-3c1b-4b3d-b02c-09cfafef5401"
+    },
+    {
+      "reason": "not_ticino_relevant",
+      "title": "Lehrstelle als Detailhandelsfachmann/-frau EFZ Lebensmittel",
+      "company": "VOLG",
+      "location": "Lenzerheide",
+      "url": "https://jobs.fenaco.com/offene-stellen/lehrstelle-als-detailhandelsfachmann-frau-efz-lebensmittel/caf2ceba-61f0-4c11-8892-e93fc6d7fe9e"
+    },
+    {
+      "reason": "not_ticino_relevant",
+      "title": "Chauffeuse / Chauffeur Kat. CE als Quereinsteiger (w/m/d)",
+      "company": "TRAVECO Transporte AG",
+      "location": "Nebikon",
+      "url": "https://jobs.fenaco.com/offene-stellen/chauffeuse-chauffeur-kat-ce-als-quereinsteiger-w-m-d/46d9a559-9964-497e-95a4-2628aa89c510"
+    },
+    {
+      "reason": "not_ticino_relevant",
+      "title": "Verkäuferin / Verkäufer TopShop w/m/d",
+      "company": "LANDI Oberwallis AG",
+      "location": "Eyholz",
+      "url": "https://jobs.fenaco.com/offene-stellen/verkaeuferin-verkaeufer-topshop-w-m-d/6db4c2be-c4a4-43f9-911d-cbfde35a4758"
+    },
+    {
+      "reason": "non_detail_url",
+      "title": "Vendeuse/vendeur LANDI - CDD d'avril à août 2026 (f/h/d)",
+      "company": "LANDI Rhône-Lavaux SA",
+      "location": "Saxon",
+      "url": "https://jobs.fenaco.com/postes-vacants/vendeuse-vendeur-landi-cdd-d-avril-a-aout-2026-f-h-d/33f5d306-3887-4c75-b7cf-265b5787ff9d"
+    },
+    {
+      "reason": "non_detail_url",
+      "title": "Auxiliaire de vente - étudiant/e f/h/d",
+      "company": "LANDI Rhône-Lavaux SA",
+      "location": "Saxon",
+      "url": "https://jobs.fenaco.com/postes-vacants/auxiliaire-de-vente-etudiant-e-f-h-d/9f155bdf-3ee3-4e43-9873-f97689d62409"
+    },
+    {
+      "reason": "non_detail_url",
+      "title": "Auxiliaire temporaire de caisse - CDD d'avril à mai 2026 f/h/d",
+      "company": "LANDI Rhône-Lavaux SA",
+      "location": "Saxon",
+      "url": "https://jobs.fenaco.com/postes-vacants/auxiliaire-temporaire-de-caisse-cdd-d-avril-a-mai-2026-f-h-d/a7bf192f-fd9b-46d7-a214-60aae0be3700"
+    }
+  ]
 }

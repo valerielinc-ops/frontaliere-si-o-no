@@ -1,22 +1,22 @@
 {
-  "generatedAt": "2026-03-16T12:56:30.716Z",
+  "generatedAt": "2026-03-17T03:30:25.977Z",
   "links": {
     "allJobs": "https://www.frontaliereticino.ch/cerca-lavoro-ticino"
   },
   "totals": {
-    "activeJobs": 937,
-    "activeCompanies": 122,
-    "activeLocations": 189,
-    "todayAdded": 1164,
+    "activeJobs": 820,
+    "activeCompanies": 86,
+    "activeLocations": 120,
+    "todayAdded": 820,
     "todayUpdated": 0,
     "todayRemoved": 0,
     "last7d": {
-      "added": 2960,
+      "added": 3768,
       "updated": 0,
       "removed": 0
     },
     "last30d": {
-      "added": 3443,
+      "added": 4251,
       "updated": 0,
       "removed": 0
     }
@@ -32,28 +32,28 @@
     {
       "date": "2026-03-13",
       "totalJobs": 858,
-      "added": 907,
+      "added": 903,
       "updated": 0,
       "removed": 0
     },
     {
       "date": "2026-03-15",
       "totalJobs": 782,
-      "added": 889,
-      "updated": 0,
-      "removed": 0
-    },
-    {
-      "date": "2026-03-16",
-      "totalJobs": 911,
-      "added": 1158,
+      "added": 885,
       "updated": 0,
       "removed": 0
     },
     {
       "date": "2026-03-16",
       "totalJobs": 937,
-      "added": 1164,
+      "added": 1160,
+      "updated": 0,
+      "removed": 0
+    },
+    {
+      "date": "2026-03-17",
+      "totalJobs": 820,
+      "added": 820,
       "updated": 0,
       "removed": 0
     }
@@ -67,10 +67,10 @@
         "count": 185
       },
       {
-        "key": "volg",
-        "name": "VOLG",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-volg",
-        "count": 44
+        "key": "coop",
+        "name": "Coop",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-coop",
+        "count": 101
       },
       {
         "key": "pemsa",
@@ -91,28 +91,22 @@
         "count": 25
       },
       {
-        "key": "hamilton-bonaduz-ag",
-        "name": "Hamilton Bonaduz AG",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-hamilton-bonaduz-ag",
-        "count": 24
-      },
-      {
         "key": "usi-universita-della-svizzera-italiana",
         "name": "USI – Università della Svizzera italiana",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-usi-universita-della-svizzera-italiana",
         "count": 24
       },
       {
-        "key": "coop",
-        "name": "Coop",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-coop",
-        "count": 37
+        "key": "convit-holding-gmbh",
+        "name": "Convit Holding GmbH",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-convit-holding-gmbh",
+        "count": 23
       },
       {
-        "key": "pemsa",
-        "name": "PEMSA",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-pemsa",
-        "count": 31
+        "key": "hamilton-bonaduz-ag",
+        "name": "Hamilton Bonaduz AG",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-hamilton-bonaduz-ag",
+        "count": 22
       }
     ],
     "topLocationsActive": [
@@ -120,19 +114,25 @@
         "key": "bellinzona",
         "name": "Bellinzona",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-bellinzona",
-        "count": 131
+        "count": 126
+      },
+      {
+        "key": "grigioni",
+        "name": "Grigioni",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-grigioni",
+        "count": 115
       },
       {
         "key": "lugano",
         "name": "Lugano",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-lugano",
-        "count": 111
+        "count": 101
       },
       {
         "key": "mendrisio",
         "name": "Mendrisio",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-mendrisio",
-        "count": 47
+        "count": 44
       },
       {
         "key": "locarno",
@@ -144,37 +144,19 @@
         "key": "chur",
         "name": "Chur",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-chur",
-        "count": 40
+        "count": 34
+      },
+      {
+        "key": "emea-che-stabio-vf-campus-vf1",
+        "name": "EMEA · CHE · Stabio · VF Campus VF1",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-emea-che-stabio-vf-campus-vf1",
+        "count": 23
       },
       {
         "key": "chiasso",
         "name": "Chiasso",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-chiasso",
-        "count": 23
-      },
-      {
-        "key": "emea-che-stabio-vf-campus-vf1",
-        "name": "EMEA · CHE · Stabio · VF Campus VF1",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-emea-che-stabio-vf-campus-vf1",
-        "count": 23
-      },
-      {
-        "key": "lugano",
-        "name": "Lugano",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-lugano",
-        "count": 111
-      },
-      {
-        "key": "grigioni",
-        "name": "Grigioni",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-grigioni",
-        "count": 55
-      },
-      {
-        "key": "emea-che-stabio-vf-campus-vf1",
-        "name": "EMEA · CHE · Stabio · VF Campus VF1",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-emea-che-stabio-vf-campus-vf1",
-        "count": 23
+        "count": 22
       }
     ],
     "topCompaniesAddedToday": [
@@ -183,7 +165,7 @@
         "name": "EOC – Ente Ospedaliero Cantonale",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-eoc-ente-ospedaliero-cantonale",
         "count": 0,
-        "added": 203,
+        "added": 185,
         "updated": 0,
         "removed": 0
       },
@@ -192,25 +174,7 @@
         "name": "Coop",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-coop",
         "count": 0,
-        "added": 46,
-        "updated": 0,
-        "removed": 0
-      },
-      {
-        "key": "volg",
-        "name": "VOLG",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-volg",
-        "count": 0,
-        "added": 44,
-        "updated": 0,
-        "removed": 0
-      },
-      {
-        "key": "convit-holding-gmbh",
-        "name": "Convit Holding GmbH",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-convit-holding-gmbh",
-        "count": 0,
-        "added": 35,
+        "added": 101,
         "updated": 0,
         "removed": 0
       },
@@ -237,7 +201,7 @@
         "name": "VF International (The North Face, Timberland)",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-vf-international-the-north-face-timberland",
         "count": 0,
-        "added": 26,
+        "added": 25,
         "updated": 0,
         "removed": 0
       },
@@ -246,7 +210,25 @@
         "name": "USI – Università della Svizzera italiana",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-usi-universita-della-svizzera-italiana",
         "count": 0,
-        "added": 25,
+        "added": 24,
+        "updated": 0,
+        "removed": 0
+      },
+      {
+        "key": "convit-holding-gmbh",
+        "name": "Convit Holding GmbH",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-convit-holding-gmbh",
+        "count": 0,
+        "added": 23,
+        "updated": 0,
+        "removed": 0
+      },
+      {
+        "key": "hamilton-bonaduz-ag",
+        "name": "Hamilton Bonaduz AG",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-hamilton-bonaduz-ag",
+        "count": 0,
+        "added": 22,
         "updated": 0,
         "removed": 0
       }
@@ -266,7 +248,7 @@
         "name": "Coop",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-coop",
         "count": 0,
-        "added": 57,
+        "added": 112,
         "updated": 0,
         "removed": 0
       },
@@ -340,7 +322,7 @@
         "name": "Lugano",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-lugano",
         "count": 0,
-        "added": 147,
+        "added": 146,
         "updated": 0,
         "removed": 0
       },
@@ -349,7 +331,7 @@
         "name": "Grigioni",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-grigioni",
         "count": 0,
-        "added": 80,
+        "added": 131,
         "updated": 0,
         "removed": 0
       },
@@ -401,6 +383,33 @@
     ],
     "topTitlesAdded30d": [
       {
+        "key": "retail-specialist-efz-creating-shopping-experiences",
+        "name": "Retail Specialist EFZ 'Creating Shopping Experiences'",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-retail-specialist-efz-creating-shopping-experiences",
+        "count": 0,
+        "added": 28,
+        "updated": 0,
+        "removed": 0
+      },
+      {
+        "key": "assistente-al-dettaglio-in-eba",
+        "name": "Assistente al dettaglio: in EBA",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-assistente-al-dettaglio-in-eba",
+        "count": 0,
+        "added": 24,
+        "updated": 0,
+        "removed": 0
+      },
+      {
+        "key": "specialista-del-commercio-al-dettaglio-uomo-assistente-in",
+        "name": "Specialista del commercio al dettaglio: uomo/assistente: in",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-specialista-del-commercio-al-dettaglio-uomo-assistente-in",
+        "count": 0,
+        "added": 18,
+        "updated": 0,
+        "removed": 0
+      },
+      {
         "key": "specialista-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto",
         "name": "Specialista del commercio al dettaglio AFC \"Creazione di esperienze d'acquisto\"",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-specialista-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto",
@@ -423,7 +432,7 @@
         "name": "Impiegata / Impiegato del commercio al dettaglio AFC \"Creazione di esperienze d'acquisto\"",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto",
         "count": 0,
-        "added": 9,
+        "added": 11,
         "updated": 0,
         "removed": 0
       },
@@ -444,44 +453,17 @@
         "added": 9,
         "updated": 0,
         "removed": 0
-      },
-      {
-        "key": "tirocinio-come-specialista-del-commercio-al-dettaglio-o-assistente-al-dettaglio",
-        "name": "Tirocinio come specialista del commercio al dettaglio o assistente al dettaglio",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-tirocinio-come-specialista-del-commercio-al-dettaglio-o-assistente-al-dettaglio",
-        "count": 0,
-        "added": 9,
-        "updated": 0,
-        "removed": 0
-      },
-      {
-        "key": "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026",
-        "name": "Apprendistato nel commercio al dettaglio CFP o AFC - Inizio 2026",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026",
-        "count": 0,
-        "added": 8,
-        "updated": 0,
-        "removed": 0
-      },
-      {
-        "key": "elettricista-afc-100",
-        "name": "Elettricista AFC (100%)",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-elettricista-afc-100",
-        "count": 0,
-        "added": 8,
-        "updated": 0,
-        "removed": 0
       }
     ]
   },
   "salary": {
     "coverage": {
-      "jobsWithSalary": 937,
+      "jobsWithSalary": 820,
       "coveragePct": 100,
-      "avgMin": 65812,
-      "avgMax": 88769,
-      "avgMid": 77291,
-      "medianMid": 68000
+      "avgMin": 67827,
+      "avgMax": 91547,
+      "avgMid": 79687,
+      "medianMid": 77500
     },
     "leaders": {
       "topSalaryCompanies": [
@@ -556,14 +538,14 @@
           "weightedSalary": 96367
         },
         {
-          "key": "lwp-ledermann-wieting-partners",
-          "name": "LWP Ledermann Wieting & Partners",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-lwp-ledermann-wieting-partners",
-          "count": 11,
-          "avgMin": 80318,
-          "avgMax": 108227,
-          "avgMid": 94273,
-          "weightedSalary": 94273
+          "key": "medacta-international-sa",
+          "name": "Medacta International SA",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-medacta-international-sa",
+          "count": 5,
+          "avgMin": 80000,
+          "avgMax": 108000,
+          "avgMid": 94000,
+          "weightedSalary": 94000
         }
       ],
       "topSalaryLocations": [
@@ -621,11 +603,21 @@
           "key": "manno",
           "name": "Manno",
           "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-manno",
-          "count": 3,
-          "avgMin": 79000,
-          "avgMax": 106667,
-          "avgMid": 92833,
-          "weightedSalary": 87300
+          "count": 2,
+          "avgMin": 82500,
+          "avgMax": 111500,
+          "avgMid": 97000,
+          "weightedSalary": 88300
+        },
+        {
+          "key": "grigioni",
+          "name": "Grigioni",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-grigioni",
+          "count": 115,
+          "avgMin": 74178,
+          "avgMax": 100143,
+          "avgMid": 87161,
+          "weightedSalary": 87161
         },
         {
           "key": "novaggio",
@@ -636,16 +628,6 @@
           "avgMax": 98842,
           "avgMid": 85947,
           "weightedSalary": 85947
-        },
-        {
-          "key": "munsbach",
-          "name": "Munsbach",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-munsbach",
-          "count": 3,
-          "avgMin": 77500,
-          "avgMax": 104500,
-          "avgMid": 91000,
-          "weightedSalary": 85600
         }
       ],
       "topSalaryTitles": [
