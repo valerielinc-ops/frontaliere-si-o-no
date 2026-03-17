@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-03-17T05:13:53.086Z",
+  "generatedAt": "2026-03-17T05:14:29.534Z",
   "links": {
     "allJobs": "https://www.frontaliereticino.ch/cerca-lavoro-ticino"
   },
   "totals": {
-    "activeJobs": 975,
-    "activeCompanies": 127,
-    "activeLocations": 144,
+    "activeJobs": 754,
+    "activeCompanies": 90,
+    "activeLocations": 116,
     "todayAdded": 1010,
     "todayUpdated": 0,
     "todayRemoved": 0,
@@ -37,23 +37,9 @@
       "removed": 0
     },
     {
-      "date": "2026-03-16",
-      "totalJobs": 937,
-      "added": 1160,
-      "updated": 0,
-      "removed": 0
-    },
-    {
       "date": "2026-03-17",
       "totalJobs": 1070,
       "added": 1067,
-      "updated": 0,
-      "removed": 0
-    },
-    {
-      "date": "2026-03-17",
-      "totalJobs": 967,
-      "added": 1053,
       "updated": 0,
       "removed": 0
     },
@@ -114,30 +100,6 @@
         "name": "Interdiscount",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-interdiscount",
         "count": 22
-      },
-      {
-        "key": "usi-universita-della-svizzera-italiana",
-        "name": "USI – Università della Svizzera italiana",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-usi-universita-della-svizzera-italiana",
-        "count": 24
-      },
-      {
-        "key": "convit-holding-gmbh",
-        "name": "Convit Holding GmbH",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-convit-holding-gmbh",
-        "count": 23
-      },
-      {
-        "key": "interdiscount",
-        "name": "Interdiscount",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-interdiscount",
-        "count": 22
-      },
-      {
-        "key": "interdiscount",
-        "name": "Interdiscount",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-interdiscount",
-        "count": 22
       }
     ],
     "topLocationsActive": [
@@ -152,42 +114,6 @@
         "name": "Grigioni",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-grigioni",
         "count": 55
-      },
-      {
-        "key": "locarno",
-        "name": "Locarno",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-locarno",
-        "count": 41
-      },
-      {
-        "key": "emea-che-stabio-vf-campus-vf1",
-        "name": "EMEA · CHE · Stabio · VF Campus VF1",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-emea-che-stabio-vf-campus-vf1",
-        "count": 23
-      },
-      {
-        "key": "mendrisio",
-        "name": "Mendrisio",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-mendrisio",
-        "count": 50
-      },
-      {
-        "key": "emea-che-stabio-vf-campus-vf1",
-        "name": "EMEA · CHE · Stabio · VF Campus VF1",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-emea-che-stabio-vf-campus-vf1",
-        "count": 23
-      },
-      {
-        "key": "lugano",
-        "name": "Lugano",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-lugano",
-        "count": 101
-      },
-      {
-        "key": "mendrisio",
-        "name": "Mendrisio",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-mendrisio",
-        "count": 49
       },
       {
         "key": "locarno",
@@ -230,6 +156,30 @@
         "name": "Locarno",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-locarno",
         "count": 43
+      },
+      {
+        "key": "lugano",
+        "name": "Lugano",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-lugano",
+        "count": 109
+      },
+      {
+        "key": "mendrisio",
+        "name": "Mendrisio",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-mendrisio",
+        "count": 45
+      },
+      {
+        "key": "chur",
+        "name": "Chur",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-chur",
+        "count": 34
+      },
+      {
+        "key": "ticino",
+        "name": "Ticino",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-ticino",
+        "count": 23
       }
     ],
     "topCompaniesAddedToday": [
@@ -531,11 +481,11 @@
   },
   "salary": {
     "coverage": {
-      "jobsWithSalary": 975,
+      "jobsWithSalary": 754,
       "coveragePct": 100,
-      "avgMin": 67441,
-      "avgMax": 91001,
-      "avgMid": 79221,
+      "avgMin": 67315,
+      "avgMax": 90851,
+      "avgMid": 79083,
       "medianMid": 72000
     },
     "leaders": {
@@ -693,24 +643,14 @@
           "weightedSalary": 88300
         },
         {
-          "key": "beijing-china",
-          "name": "Beijing, China",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-beijing-china",
-          "count": 1,
-          "avgMin": 92000,
-          "avgMax": 125000,
-          "avgMid": 108500,
-          "weightedSalary": 95300
-        },
-        {
-          "key": "grigioni",
-          "name": "Grigioni",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-grigioni",
-          "count": 115,
-          "avgMin": 74178,
-          "avgMax": 100143,
-          "avgMid": 87161,
-          "weightedSalary": 87161
+          "key": "losone",
+          "name": "Losone",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-losone",
+          "count": 8,
+          "avgMin": 73563,
+          "avgMax": 99313,
+          "avgMid": 86438,
+          "weightedSalary": 86438
         },
         {
           "key": "losone",
