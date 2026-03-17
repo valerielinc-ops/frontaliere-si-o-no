@@ -1268,6 +1268,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.malcantone-fai-di-primavera-2026.title': 'Découvrez le Malcantone avec les Journées FAI de printemps 2026',
     'blog.article.malcantone-fai-di-primavera-2026.excerpt': 'Deux journées pour explorer les villages, les monuments, les églises et les demeures historiques du Malcantone.',
     'blog.article.malcantone-fai-di-primavera-2026.imageAlt': 'Vue panoramique de Lugano avec le lac et les montagnes environnantes',
+    'blog.article.sicurezza-privata-chiasso-nebiopoli.title': 'Sécurité privée sous le feu des critiques après Nebiopoli',
+    'blog.article.sicurezza-privata-chiasso-nebiopoli.excerpt': 'Le député UDC Tuto Rossi demande des éclaircissements au gouvernement sur la sélection et la formation des agents après des épisodes de violence à Chiasso',
+    'blog.article.sicurezza-privata-chiasso-nebiopoli.imageAlt': 'Foule au carnaval de Chiasso avec agents de sécurité privée',
 };
 
 export default blogMetaFr;

@@ -5388,6 +5388,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-sicurezza-privata-chiasso-nebiopoli': {
+    title: 'Sicurezza privata sotto accusa dopo Nebiopoli | Frontaliere Ticino',
+    description: 'Deputato UDC Tuto Rossi chiede controlli su agenti sicurezza privata dopo episodi violenza Carnevale Chiasso. Normativa, diritti, segnalazioni. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, sicurezza, privata, sotto, accusa',
+    ogTitle: 'Sicurezza privata sotto accusa dopo Nebiopoli',
+    ogDescription: 'Deputato UDC Tuto Rossi chiede chiarimenti al governo su selezione e formazione agenti dopo episodi di violenza a Chiasso',
+    canonicalPath: '/articoli-frontaliere/sicurezza-privata-chiasso-nebiopoli',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Sicurezza privata sotto accusa dopo Nebiopoli, Rossi: «Una coppia di",
+      "description": "Deputato UDC Tuto Rossi chiede controlli su agenti sicurezza privata dopo episodi violenza Carnevale Chiasso. Normativa, diritti, segnalazioni. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/sicurezza-privata-chiasso-nebiopoli.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Folla al Carnevale di Chiasso con agenti di sicurezza privata in primo piano"
+      },
+      "datePublished": "2026-03-17T15:30:59+00:00",
+      "dateModified": "2026-03-17T15:30:59+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/sicurezza-privata-chiasso-nebiopoli`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

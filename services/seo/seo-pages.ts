@@ -3030,7 +3030,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
         "@context": "https://schema.org",
         "@type": "ItemList",
         "name": "Articoli Frontaliere",
-        "numberOfItems": 413,
+        "numberOfItems": 414,
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
           { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -3444,7 +3444,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 410, "name": "Operazione antidroga al confine: 15 kg di cocai...", "url": `${BASE_URL}/articoli-frontaliere/droga-brogeda-sequestro-cocaina` },
           { "@type": "ListItem", "position": 411, "name": "A Bellinzona mancano 75 posti auto pubblici e l...", "url": `${BASE_URL}/articoli-frontaliere/bellinzona-auscultazione-2026` },
           { "@type": "ListItem", "position": 412, "name": "Fondo affitti Regione Lombardia 2026: tutto ciò...", "url": `${BASE_URL}/articoli-frontaliere/lombardia-affitto-famiglie-varesine` },
-          { "@type": "ListItem", "position": 413, "name": "Malcantone Fai di Primavera 2026 | Frontaliere ...", "url": `${BASE_URL}/articoli-frontaliere/malcantone-fai-di-primavera-2026` }
+          { "@type": "ListItem", "position": 413, "name": "Malcantone Fai di Primavera 2026 | Frontaliere ...", "url": `${BASE_URL}/articoli-frontaliere/malcantone-fai-di-primavera-2026` },
+          { "@type": "ListItem", "position": 414, "name": "Sicurezza privata sotto accusa dopo Nebiopoli, ...", "url": `${BASE_URL}/articoli-frontaliere/sicurezza-privata-chiasso-nebiopoli` }
         ]
       }
     ]

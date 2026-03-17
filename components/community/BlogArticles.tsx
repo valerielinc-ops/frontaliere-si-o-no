@@ -3533,6 +3533,13 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/malcantone-fai-di-primavera-2026.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'sicurezza-privata-chiasso-nebiopoli',
+    category: 'novita',
+    date: '2026-03-17T15:30:59.954Z',
+    image: '/images/blog/sicurezza-privata-chiasso-nebiopoli.jpg',
+    hasCalculator: true,
+  },
 ];
 
 const CATEGORIES = ['all', 'fiscale', 'pratico', 'novita', 'pensione'] as const;
