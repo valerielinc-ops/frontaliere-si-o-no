@@ -1,22 +1,22 @@
 {
-  "generatedAt": "2026-03-17T05:05:15.983Z",
+  "generatedAt": "2026-03-17T05:05:34.324Z",
   "links": {
     "allJobs": "https://www.frontaliereticino.ch/cerca-lavoro-ticino"
   },
   "totals": {
-    "activeJobs": 969,
-    "activeCompanies": 126,
-    "activeLocations": 144,
-    "todayAdded": 1004,
+    "activeJobs": 955,
+    "activeCompanies": 125,
+    "activeLocations": 143,
+    "todayAdded": 990,
     "todayUpdated": 0,
     "todayRemoved": 0,
     "last7d": {
-      "added": 1907,
+      "added": 1893,
       "updated": 0,
       "removed": 0
     },
     "last30d": {
-      "added": 2390,
+      "added": 2376,
       "updated": 0,
       "removed": 0
     }
@@ -38,13 +38,6 @@
     },
     {
       "date": "2026-03-17",
-      "totalJobs": 944,
-      "added": 979,
-      "updated": 0,
-      "removed": 0
-    },
-    {
-      "date": "2026-03-17",
       "totalJobs": 940,
       "added": 970,
       "updated": 0,
@@ -61,6 +54,13 @@
       "date": "2026-03-17",
       "totalJobs": 969,
       "added": 1004,
+      "updated": 0,
+      "removed": 0
+    },
+    {
+      "date": "2026-03-17",
+      "totalJobs": 955,
+      "added": 990,
       "updated": 0,
       "removed": 0
     }
@@ -160,16 +160,16 @@
         "count": 53
       },
       {
-        "key": "mendrisio",
-        "name": "Mendrisio",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-mendrisio",
-        "count": 53
-      },
-      {
         "key": "st-moritz",
         "name": "St. Moritz",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-st-moritz",
         "count": 36
+      },
+      {
+        "key": "mendrisio",
+        "name": "Mendrisio",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-mendrisio",
+        "count": 58
       }
     ],
     "topCompaniesAddedToday": [
@@ -471,11 +471,11 @@
   },
   "salary": {
     "coverage": {
-      "jobsWithSalary": 969,
+      "jobsWithSalary": 955,
       "coveragePct": 100,
-      "avgMin": 67334,
-      "avgMax": 90855,
-      "avgMid": 79095,
+      "avgMin": 67572,
+      "avgMax": 91183,
+      "avgMid": 79377,
       "medianMid": 68500
     },
     "leaders": {
@@ -489,6 +489,16 @@
           "avgMax": 138125,
           "avgMid": 120250,
           "weightedSalary": 116675
+        },
+        {
+          "key": "knowledge-lab",
+          "name": "Knowledge Lab",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-knowledge-lab",
+          "count": 5,
+          "avgMin": 92300,
+          "avgMax": 124900,
+          "avgMid": 108600,
+          "weightedSalary": 108600
         },
         {
           "key": "board-international",
@@ -549,16 +559,6 @@
           "avgMax": 127000,
           "avgMid": 110500,
           "weightedSalary": 97300
-        },
-        {
-          "key": "bracco-suisse-s-a",
-          "name": "Bracco Suisse S.A.",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-bracco-suisse-s-a",
-          "count": 3,
-          "avgMin": 87167,
-          "avgMax": 117833,
-          "avgMid": 102500,
-          "weightedSalary": 96367
         }
       ],
       "topSalaryLocations": [
