@@ -1271,6 +1271,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.sicurezza-privata-chiasso-nebiopoli.title': 'Sécurité privée sous le feu des critiques après Nebiopoli',
     'blog.article.sicurezza-privata-chiasso-nebiopoli.excerpt': 'Le député UDC Tuto Rossi demande des éclaircissements au gouvernement sur la sélection et la formation des agents après des épisodes de violence à Chiasso',
     'blog.article.sicurezza-privata-chiasso-nebiopoli.imageAlt': 'Foule au carnaval de Chiasso avec agents de sécurité privée',
+    'blog.article.sfruttamento-corsieri-ticino-2026.title': 'Sfruttamento des coursiers : la vérité cachée derrière les livraisons à domicile',
+    'blog.article.sfruttamento-corsieri-ticino-2026.excerpt': 'Salaires de misère, horaires épuisants et contrôles numériques : l\'enquête de Milan révèle le côté obscur du travail des livreurs au Tessin et en Lombardie',
+    'blog.article.sfruttamento-corsieri-ticino-2026.imageAlt': 'Livreur de repas à vélo à Lugano, canton du Tessin, Suisse',
 };
 
 export default blogMetaFr;

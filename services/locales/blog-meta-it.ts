@@ -1271,6 +1271,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.sicurezza-privata-chiasso-nebiopoli.title': 'Sicurezza privata sotto accusa dopo Nebiopoli',
     'blog.article.sicurezza-privata-chiasso-nebiopoli.excerpt': 'Deputato UDC Tuto Rossi chiede chiarimenti al governo su selezione e formazione agenti dopo episodi di violenza a Chiasso',
     'blog.article.sicurezza-privata-chiasso-nebiopoli.imageAlt': 'Folla al Carnevale di Chiasso con agenti di sicurezza privata in primo piano',
+    'blog.article.sfruttamento-corsieri-ticino-2026.title': 'Sfruttamento corrieri: la verità nascosta dietro le consegne a domicilio',
+    'blog.article.sfruttamento-corsieri-ticino-2026.excerpt': 'Paghe da fame, turni massacranti e controlli digitali: l\'inchiesta di Milano svela il lato oscuro del lavoro dei fattorini in Ticino e Lombardia',
+    'blog.article.sfruttamento-corsieri-ticino-2026.imageAlt': 'Corriere a domicilio in bicicletta a Lugano, Canton Ticino, con borse termiche per consegne',
 };
 
 export default blogMetaIt;

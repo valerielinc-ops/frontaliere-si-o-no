@@ -1271,6 +1271,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.sicurezza-privata-chiasso-nebiopoli.title': 'Sicherheit privat unter Beschuldigung nach Nebiopoli',
     'blog.article.sicurezza-privata-chiasso-nebiopoli.excerpt': 'SDA-Tutto Rossi verlangt von der Regierung nach Vorfällen von Gewalt in Chiasso Klarstellungen über Auswahl und Ausbildung von Sicherheitskräften',
     'blog.article.sicurezza-privata-chiasso-nebiopoli.imageAlt': 'Menschenmenge beim Chiasso Karneval mit privaten Sicherheitskräften',
+    'blog.article.sfruttamento-corsieri-ticino-2026.title': 'Ausbeutung von Kurieren: Die verborgene Wahrheit hinter den Hauslieferungen',
+    'blog.article.sfruttamento-corsieri-ticino-2026.excerpt': 'Hungerlöhne, mörderische Schichten und digitale Kontrollen: Die Mailänder Ermittlung enthüllt die dunkle Seite der Arbeit der Zusteller in Tessin und Lombardei',
+    'blog.article.sfruttamento-corsieri-ticino-2026.imageAlt': 'Essenszusteller auf Fahrrad in Lugano, Tessin, Schweiz',
 };
 
 export default blogMetaDe;

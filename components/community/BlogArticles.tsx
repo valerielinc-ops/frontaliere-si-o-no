@@ -3540,6 +3540,13 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/sicurezza-privata-chiasso-nebiopoli.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'sfruttamento-corsieri-ticino-2026',
+    category: 'pratico',
+    date: '2026-03-17T17:29:41.230Z',
+    image: '/images/blog/sfruttamento-corsieri-ticino-2026.jpg',
+    hasCalculator: true,
+  },
 ];
 
 const CATEGORIES = ['all', 'fiscale', 'pratico', 'novita', 'pensione'] as const;

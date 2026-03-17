@@ -1271,6 +1271,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.sicurezza-privata-chiasso-nebiopoli.title': 'Private security under fire after Nebiopoli',
     'blog.article.sicurezza-privata-chiasso-nebiopoli.excerpt': 'UDC MP Tuto Rossi asks government for clarification on agent selection and training after violence incidents in Chiasso',
     'blog.article.sicurezza-privata-chiasso-nebiopoli.imageAlt': 'Chiasso carnival crowd with private security agents in foreground',
+    'blog.article.sfruttamento-corsieri-ticino-2026.title': 'Exploitation of couriers: the hidden truth behind home deliveries',
+    'blog.article.sfruttamento-corsieri-ticino-2026.excerpt': 'Starvation wages, grueling shifts and digital controls: Milan\'s investigation reveals the dark side of delivery workers\' conditions in Ticino and Lombardy',
+    'blog.article.sfruttamento-corsieri-ticino-2026.imageAlt': 'Food delivery courier on bicycle in Lugano, Ticino Canton, Switzerland',
 };
 
 export default blogMetaEn;
