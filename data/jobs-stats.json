@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-03-17T16:22:45.571Z",
+  "generatedAt": "2026-03-17T16:23:57.197Z",
   "links": {
     "allJobs": "https://www.frontaliereticino.ch/cerca-lavoro-ticino"
   },
   "totals": {
-    "activeJobs": 915,
-    "activeCompanies": 129,
+    "activeJobs": 917,
+    "activeCompanies": 130,
     "activeLocations": 164,
     "todayAdded": 1175,
     "todayUpdated": 0,
@@ -38,7 +38,7 @@
     },
     {
       "date": "2026-03-17",
-      "totalJobs": 834,
+      "totalJobs": 1011,
       "added": 1175,
       "updated": 0,
       "removed": 0
@@ -90,16 +90,10 @@
         "count": 24
       },
       {
-        "key": "usi-universita-della-svizzera-italiana",
-        "name": "USI – Università della Svizzera italiana",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-usi-universita-della-svizzera-italiana",
-        "count": 24
-      },
-      {
-        "key": "usi-universita-della-svizzera-italiana",
-        "name": "USI – Università della Svizzera italiana",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-usi-universita-della-svizzera-italiana",
-        "count": 24
+        "key": "eoc-ente-ospedaliero-cantonale",
+        "name": "EOC – Ente Ospedaliero Cantonale",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-eoc-ente-ospedaliero-cantonale",
+        "count": 178
       },
       {
         "key": "eoc-ente-ospedaliero-cantonale",
@@ -128,18 +122,6 @@
         "count": 131
       },
       {
-        "key": "locarno",
-        "name": "Locarno",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-locarno",
-        "count": 42
-      },
-      {
-        "key": "chiasso",
-        "name": "Chiasso",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-chiasso",
-        "count": 23
-      },
-      {
         "key": "chur",
         "name": "Chur",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-chur",
@@ -156,6 +138,12 @@
         "name": "Lugano",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-lugano",
         "count": 112
+      },
+      {
+        "key": "st-moritz",
+        "name": "St. Moritz",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-st-moritz",
+        "count": 35
       },
       {
         "key": "st-moritz",
@@ -463,11 +451,11 @@
   },
   "salary": {
     "coverage": {
-      "jobsWithSalary": 915,
+      "jobsWithSalary": 917,
       "coveragePct": 100,
-      "avgMin": 67168,
-      "avgMax": 90614,
-      "avgMid": 78891,
+      "avgMin": 67133,
+      "avgMax": 90567,
+      "avgMid": 78850,
       "medianMid": 68500
     },
     "leaders": {
