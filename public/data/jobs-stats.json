@@ -1,22 +1,22 @@
 {
-  "generatedAt": "2026-03-17T16:13:51.604Z",
+  "generatedAt": "2026-03-17T16:14:12.078Z",
   "links": {
     "allJobs": "https://www.frontaliereticino.ch/cerca-lavoro-ticino"
   },
   "totals": {
-    "activeJobs": 844,
-    "activeCompanies": 102,
-    "activeLocations": 155,
-    "todayAdded": 1156,
+    "activeJobs": 852,
+    "activeCompanies": 103,
+    "activeLocations": 165,
+    "todayAdded": 1166,
     "todayUpdated": 0,
     "todayRemoved": 0,
     "last7d": {
-      "added": 3219,
+      "added": 3229,
       "updated": 0,
       "removed": 0
     },
     "last30d": {
-      "added": 3702,
+      "added": 3712,
       "updated": 0,
       "removed": 0
     }
@@ -45,13 +45,6 @@
     },
     {
       "date": "2026-03-17",
-      "totalJobs": 840,
-      "added": 1155,
-      "updated": 0,
-      "removed": 0
-    },
-    {
-      "date": "2026-03-17",
       "totalJobs": 824,
       "added": 1145,
       "updated": 0,
@@ -61,6 +54,13 @@
       "date": "2026-03-17",
       "totalJobs": 844,
       "added": 1156,
+      "updated": 0,
+      "removed": 0
+    },
+    {
+      "date": "2026-03-17",
+      "totalJobs": 852,
+      "added": 1166,
       "updated": 0,
       "removed": 0
     }
@@ -154,12 +154,6 @@
         "count": 41
       },
       {
-        "key": "st-moritz",
-        "name": "St. Moritz",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-st-moritz",
-        "count": 36
-      },
-      {
         "key": "chiasso",
         "name": "Chiasso",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-chiasso",
@@ -182,6 +176,12 @@
         "name": "Chur",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-chur",
         "count": 41
+      },
+      {
+        "key": "st-moritz",
+        "name": "St. Moritz",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-st-moritz",
+        "count": 37
       },
       {
         "key": "st-moritz",
@@ -489,11 +489,11 @@
   },
   "salary": {
     "coverage": {
-      "jobsWithSalary": 844,
+      "jobsWithSalary": 852,
       "coveragePct": 100,
-      "avgMin": 67164,
-      "avgMax": 90630,
-      "avgMid": 78897,
+      "avgMin": 67088,
+      "avgMax": 90523,
+      "avgMid": 78805,
       "medianMid": 72000
     },
     "leaders": {
