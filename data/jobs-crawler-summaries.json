@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-03-17T16:16:32.959Z",
+  "updatedAt": "2026-03-17T16:16:55.914Z",
   "summaries": [
     {
       "key": "a-group",
@@ -2511,40 +2511,6 @@
           "slug": "berater-m-w-d-im-wealth-management-am-standort-zurich-mit-fokus-niederlandische-kunden-colin-cie-zurich"
         }
       ]
-    },
-    {
-      "key": "cambiavalute-ch",
-      "label": "CambiaValute.ch",
-      "generatedAt": "2026-03-17T04:55:08.527Z",
-      "total": 1,
-      "newCount": 1,
-      "updatedCount": 0,
-      "removedCount": 0,
-      "unchangedCount": 0,
-      "durationMs": 130982,
-      "avgDurationMs": 166412,
-      "durationHistory": [
-        130982,
-        32071,
-        35185,
-        24543,
-        369203,
-        410239,
-        305598,
-        23472
-      ],
-      "newJobs": [
-        {
-          "title": "Senior Backend developer",
-          "company": "CambiaValute.ch",
-          "location": "2025 CambiaValute",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/senior-backend-sviluppatore-cambiavalute-ch-2025-cambiavalute/",
-          "slug": "senior-backend-developer-cambiavalute-ch-2025-cambiavalute"
-        }
-      ],
-      "updatedJobs": [],
-      "removedJobs": [],
-      "unchangedJobs": []
     },
     {
       "key": "corner",
@@ -8455,6 +8421,41 @@
           "location": "Plan-les-Ouates",
           "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/continuous-improvement-manager-bracco-suisse/",
           "slug": "continuous-improvement-manager-bracco-suisse"
+        }
+      ]
+    },
+    {
+      "key": "cambiavalute-ch",
+      "label": "CambiaValute.ch",
+      "generatedAt": "2026-03-17T16:16:55.914Z",
+      "total": 1,
+      "newCount": 0,
+      "updatedCount": 0,
+      "removedCount": 0,
+      "unchangedCount": 1,
+      "durationMs": 28367,
+      "avgDurationMs": 151073,
+      "durationHistory": [
+        28367,
+        130982,
+        32071,
+        35185,
+        24543,
+        369203,
+        410239,
+        305598,
+        23472
+      ],
+      "newJobs": [],
+      "updatedJobs": [],
+      "removedJobs": [],
+      "unchangedJobs": [
+        {
+          "title": "Senior Backend developer",
+          "company": "CambiaValute.ch",
+          "location": "2025 CambiaValute",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/senior-backend-sviluppatore-cambiavalute-ch-2025-cambiavalute/",
+          "slug": "senior-backend-developer-cambiavalute-ch-2025-cambiavalute"
         }
       ]
     }

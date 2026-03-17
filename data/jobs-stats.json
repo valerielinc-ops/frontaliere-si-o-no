@@ -1,22 +1,22 @@
 {
-  "generatedAt": "2026-03-17T16:16:37.640Z",
+  "generatedAt": "2026-03-17T16:17:00.238Z",
   "links": {
     "allJobs": "https://www.frontaliereticino.ch/cerca-lavoro-ticino"
   },
   "totals": {
-    "activeJobs": 854,
+    "activeJobs": 859,
     "activeCompanies": 103,
     "activeLocations": 165,
-    "todayAdded": 1169,
+    "todayAdded": 1171,
     "todayUpdated": 0,
     "todayRemoved": 0,
     "last7d": {
-      "added": 2072,
+      "added": 2074,
       "updated": 0,
       "removed": 0
     },
     "last30d": {
-      "added": 2555,
+      "added": 2557,
       "updated": 0,
       "removed": 0
     }
@@ -38,20 +38,6 @@
     },
     {
       "date": "2026-03-17",
-      "totalJobs": 904,
-      "added": 1160,
-      "updated": 0,
-      "removed": 0
-    },
-    {
-      "date": "2026-03-17",
-      "totalJobs": 916,
-      "added": 1169,
-      "updated": 0,
-      "removed": 0
-    },
-    {
-      "date": "2026-03-17",
       "totalJobs": 899,
       "added": 1157,
       "updated": 0,
@@ -68,6 +54,13 @@
       "date": "2026-03-17",
       "totalJobs": 900,
       "added": 1169,
+      "updated": 0,
+      "removed": 0
+    },
+    {
+      "date": "2026-03-17",
+      "totalJobs": 916,
+      "added": 1171,
       "updated": 0,
       "removed": 0
     }
@@ -167,94 +160,34 @@
         "count": 26
       },
       {
-        "key": "bellinzona",
-        "name": "Bellinzona",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-bellinzona",
-        "count": 133
-      },
-      {
         "key": "lugano",
         "name": "Lugano",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-lugano",
-        "count": 117
+        "count": 113
       },
       {
         "key": "locarno",
         "name": "Locarno",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-locarno",
-        "count": 43
+        "count": 42
       },
       {
         "key": "st-moritz",
         "name": "St. Moritz",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-st-moritz",
-        "count": 38
+        "count": 33
       },
       {
-        "key": "novaggio",
-        "name": "Novaggio",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-novaggio",
-        "count": 26
+        "key": "chiasso",
+        "name": "Chiasso",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-chiasso",
+        "count": 23
       },
       {
         "key": "bellinzona",
         "name": "Bellinzona",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-bellinzona",
-        "count": 133
-      },
-      {
-        "key": "lugano",
-        "name": "Lugano",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-lugano",
-        "count": 117
-      },
-      {
-        "key": "locarno",
-        "name": "Locarno",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-locarno",
-        "count": 43
-      },
-      {
-        "key": "st-moritz",
-        "name": "St. Moritz",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-st-moritz",
-        "count": 38
-      },
-      {
-        "key": "novaggio",
-        "name": "Novaggio",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-novaggio",
-        "count": 26
-      },
-      {
-        "key": "bellinzona",
-        "name": "Bellinzona",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-bellinzona",
-        "count": 133
-      },
-      {
-        "key": "lugano",
-        "name": "Lugano",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-lugano",
-        "count": 117
-      },
-      {
-        "key": "locarno",
-        "name": "Locarno",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-locarno",
-        "count": 43
-      },
-      {
-        "key": "st-moritz",
-        "name": "St. Moritz",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-st-moritz",
-        "count": 38
-      },
-      {
-        "key": "novaggio",
-        "name": "Novaggio",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-novaggio",
-        "count": 26
+        "count": 132
       },
       {
         "key": "lugano",
@@ -267,6 +200,12 @@
         "name": "Locarno",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-locarno",
         "count": 42
+      },
+      {
+        "key": "chur",
+        "name": "Chur",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-chur",
+        "count": 41
       },
       {
         "key": "st-moritz",
@@ -580,11 +519,11 @@
   },
   "salary": {
     "coverage": {
-      "jobsWithSalary": 854,
+      "jobsWithSalary": 859,
       "coveragePct": 100,
-      "avgMin": 67253,
-      "avgMax": 90747,
-      "avgMid": 79000,
+      "avgMin": 67266,
+      "avgMax": 90764,
+      "avgMid": 79015,
       "medianMid": 72000
     },
     "leaders": {
@@ -682,6 +621,16 @@
           "weightedSalary": 112800
         },
         {
+          "key": "chiasso-switzerland",
+          "name": "Chiasso, Switzerland",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-chiasso-switzerland",
+          "count": 7,
+          "avgMin": 87857,
+          "avgMax": 118571,
+          "avgMid": 103214,
+          "weightedSalary": 103214
+        },
+        {
           "key": "quartino-ticino",
           "name": "Quartino, Ticino",
           "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-quartino-ticino",
@@ -740,16 +689,6 @@
           "avgMax": 102688,
           "avgMid": 89375,
           "weightedSalary": 89375
-        },
-        {
-          "key": "chiasso-switzerland",
-          "name": "Chiasso, Switzerland",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-chiasso-switzerland",
-          "count": 7,
-          "avgMin": 87857,
-          "avgMax": 118571,
-          "avgMid": 103214,
-          "weightedSalary": 103214
         }
       ],
       "topSalaryTitles": [
