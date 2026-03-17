@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-03-17T04:55:45.081Z",
+  "updatedAt": "2026-03-17T04:56:32.784Z",
   "summaries": [
     {
       "key": "agie-charmilles",
@@ -1597,25 +1597,6 @@
           "slug": "lernende-kauffrau-efz-lernender-kaufmann-efz-confederazione-bellinzona"
         }
       ]
-    },
-    {
-      "key": "csc-costruzioni",
-      "label": "CSC Costruzioni",
-      "generatedAt": "2026-03-16T05:32:36.779Z",
-      "total": 0,
-      "newCount": 0,
-      "updatedCount": 0,
-      "removedCount": 0,
-      "unchangedCount": 0,
-      "durationMs": 835,
-      "avgDurationMs": 835,
-      "durationHistory": [
-        835
-      ],
-      "newJobs": [],
-      "updatedJobs": [],
-      "removedJobs": [],
-      "unchangedJobs": []
     },
     {
       "key": "convit-holding",
@@ -8370,6 +8351,26 @@
           "slug": "candidatura-spontanea-apprendistato-corner-banca-switzerland"
         }
       ]
+    },
+    {
+      "key": "csc-costruzioni",
+      "label": "CSC Costruzioni",
+      "generatedAt": "2026-03-17T04:56:32.784Z",
+      "total": 0,
+      "newCount": 0,
+      "updatedCount": 0,
+      "removedCount": 0,
+      "unchangedCount": 0,
+      "durationMs": 1019,
+      "avgDurationMs": 927,
+      "durationHistory": [
+        1019,
+        835
+      ],
+      "newJobs": [],
+      "updatedJobs": [],
+      "removedJobs": [],
+      "unchangedJobs": []
     }
   ]
 }

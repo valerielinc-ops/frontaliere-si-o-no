@@ -1,22 +1,22 @@
 {
-  "generatedAt": "2026-03-17T04:56:00.587Z",
+  "generatedAt": "2026-03-17T04:56:34.914Z",
   "links": {
     "allJobs": "https://www.frontaliereticino.ch/cerca-lavoro-ticino"
   },
   "totals": {
-    "activeJobs": 915,
-    "activeCompanies": 87,
+    "activeJobs": 933,
+    "activeCompanies": 115,
     "activeLocations": 139,
-    "todayAdded": 834,
+    "todayAdded": 929,
     "todayUpdated": 0,
     "todayRemoved": 0,
     "last7d": {
-      "added": 2991,
+      "added": 2992,
       "updated": 0,
       "removed": 0
     },
     "last30d": {
-      "added": 3474,
+      "added": 3475,
       "updated": 0,
       "removed": 0
     }
@@ -45,15 +45,8 @@
     },
     {
       "date": "2026-03-17",
-      "totalJobs": 915,
-      "added": 928,
-      "updated": 0,
-      "removed": 0
-    },
-    {
-      "date": "2026-03-17",
-      "totalJobs": 821,
-      "added": 834,
+      "totalJobs": 933,
+      "added": 929,
       "updated": 0,
       "removed": 0
     }
@@ -157,6 +150,12 @@
         "name": "Chiasso",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-chiasso",
         "count": 22
+      },
+      {
+        "key": "lugano",
+        "name": "Lugano",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-lugano",
+        "count": 110
       }
     ],
     "topCompaniesAddedToday": [
@@ -458,12 +457,12 @@
   },
   "salary": {
     "coverage": {
-      "jobsWithSalary": 915,
+      "jobsWithSalary": 933,
       "coveragePct": 100,
-      "avgMin": 67260,
-      "avgMax": 90758,
-      "avgMid": 79009,
-      "medianMid": 68500
+      "avgMin": 67353,
+      "avgMax": 90883,
+      "avgMid": 79118,
+      "medianMid": 72000
     },
     "leaders": {
       "topSalaryCompanies": [
@@ -628,6 +627,16 @@
           "avgMax": 99313,
           "avgMid": 86438,
           "weightedSalary": 86438
+        },
+        {
+          "key": "bioggio",
+          "name": "Bioggio",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-bioggio",
+          "count": 15,
+          "avgMin": 75533,
+          "avgMax": 101933,
+          "avgMid": 88733,
+          "weightedSalary": 88733
         }
       ],
       "topSalaryTitles": [
