@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-03-17T16:33:39.508Z",
+  "generatedAt": "2026-03-17T16:34:01.335Z",
   "links": {
     "allJobs": "https://www.frontaliereticino.ch/cerca-lavoro-ticino"
   },
   "totals": {
-    "activeJobs": 928,
-    "activeCompanies": 131,
+    "activeJobs": 962,
+    "activeCompanies": 133,
     "activeLocations": 161,
     "todayAdded": 1182,
     "todayUpdated": 0,
@@ -84,16 +84,16 @@
         "count": 25
       },
       {
+        "key": "usi-universita-della-svizzera-italiana",
+        "name": "USI – Università della Svizzera italiana",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-usi-universita-della-svizzera-italiana",
+        "count": 24
+      },
+      {
         "key": "convit-holding-gmbh",
         "name": "Convit Holding GmbH",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-convit-holding-gmbh",
         "count": 23
-      },
-      {
-        "key": "eoc-ente-ospedaliero-cantonale",
-        "name": "EOC – Ente Ospedaliero Cantonale",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-eoc-ente-ospedaliero-cantonale",
-        "count": 178
       },
       {
         "key": "kulm-hotel-st-moritz",
@@ -103,12 +103,6 @@
       }
     ],
     "topLocationsActive": [
-      {
-        "key": "grigioni",
-        "name": "Grigioni",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-grigioni",
-        "count": 46
-      },
       {
         "key": "bellinzona",
         "name": "Bellinzona",
@@ -125,24 +119,12 @@
         "key": "st-moritz",
         "name": "St. Moritz",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-st-moritz",
-        "count": 36
-      },
-      {
-        "key": "ticino",
-        "name": "Ticino",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-ticino",
-        "count": 24
+        "count": 57
       },
       {
         "key": "mendrisio",
         "name": "Mendrisio",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-mendrisio",
-        "count": 56
-      },
-      {
-        "key": "st-moritz",
-        "name": "St. Moritz",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-st-moritz",
         "count": 56
       },
       {
@@ -152,16 +134,22 @@
         "count": 47
       },
       {
-        "key": "ticino",
-        "name": "Ticino",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-ticino",
-        "count": 24
+        "key": "grigioni",
+        "name": "Grigioni",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-grigioni",
+        "count": 46
       },
       {
         "key": "locarno",
         "name": "Locarno",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-locarno",
         "count": 42
+      },
+      {
+        "key": "ticino",
+        "name": "Ticino",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-ticino",
+        "count": 24
       }
     ],
     "topCompaniesAddedToday": [
@@ -463,11 +451,11 @@
   },
   "salary": {
     "coverage": {
-      "jobsWithSalary": 928,
+      "jobsWithSalary": 962,
       "coveragePct": 100,
-      "avgMin": 67107,
-      "avgMax": 90532,
-      "avgMid": 78820,
+      "avgMin": 66858,
+      "avgMax": 90188,
+      "avgMid": 78523,
       "medianMid": 68500
     },
     "leaders": {
