@@ -1,22 +1,22 @@
 {
-  "generatedAt": "2026-03-17T05:17:51.359Z",
+  "generatedAt": "2026-03-17T05:18:06.320Z",
   "links": {
     "allJobs": "https://www.frontaliereticino.ch/cerca-lavoro-ticino"
   },
   "totals": {
-    "activeJobs": 800,
-    "activeCompanies": 95,
-    "activeLocations": 122,
-    "todayAdded": 1083,
+    "activeJobs": 799,
+    "activeCompanies": 94,
+    "activeLocations": 121,
+    "todayAdded": 1082,
     "todayUpdated": 0,
     "todayRemoved": 0,
     "last7d": {
-      "added": 1986,
+      "added": 1985,
       "updated": 0,
       "removed": 0
     },
     "last30d": {
-      "added": 2469,
+      "added": 2468,
       "updated": 0,
       "removed": 0
     }
@@ -47,6 +47,13 @@
       "date": "2026-03-17",
       "totalJobs": 1070,
       "added": 1083,
+      "updated": 0,
+      "removed": 0
+    },
+    {
+      "date": "2026-03-17",
+      "totalJobs": 1070,
+      "added": 1082,
       "updated": 0,
       "removed": 0
     }
@@ -82,6 +89,24 @@
         "name": "VF International (The North Face, Timberland)",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-vf-international-the-north-face-timberland",
         "count": 25
+      },
+      {
+        "key": "usi-universita-della-svizzera-italiana",
+        "name": "USI – Università della Svizzera italiana",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-usi-universita-della-svizzera-italiana",
+        "count": 24
+      },
+      {
+        "key": "convit-holding-gmbh",
+        "name": "Convit Holding GmbH",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-convit-holding-gmbh",
+        "count": 23
+      },
+      {
+        "key": "interdiscount",
+        "name": "Interdiscount",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-interdiscount",
+        "count": 22
       },
       {
         "key": "usi-universita-della-svizzera-italiana",
@@ -180,6 +205,24 @@
         "name": "Mendrisio",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-mendrisio",
         "count": 50
+      },
+      {
+        "key": "mendrisio",
+        "name": "Mendrisio",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-mendrisio",
+        "count": 50
+      },
+      {
+        "key": "locarno",
+        "name": "Locarno",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-locarno",
+        "count": 42
+      },
+      {
+        "key": "st-moritz",
+        "name": "St. Moritz",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-st-moritz",
+        "count": 33
       }
     ],
     "topCompaniesAddedToday": [
@@ -481,12 +524,12 @@
   },
   "salary": {
     "coverage": {
-      "jobsWithSalary": 800,
+      "jobsWithSalary": 799,
       "coveragePct": 100,
-      "avgMin": 67395,
-      "avgMax": 90949,
-      "avgMid": 79172,
-      "medianMid": 73076
+      "avgMin": 67397,
+      "avgMax": 90951,
+      "avgMid": 79174,
+      "medianMid": 72000
     },
     "leaders": {
       "topSalaryCompanies": [
@@ -661,6 +704,16 @@
           "avgMax": 106667,
           "avgMid": 92833,
           "weightedSalary": 87300
+        },
+        {
+          "key": "beijing-china",
+          "name": "Beijing, China",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-beijing-china",
+          "count": 1,
+          "avgMin": 92000,
+          "avgMax": 125000,
+          "avgMid": 108500,
+          "weightedSalary": 95300
         }
       ],
       "topSalaryTitles": [
