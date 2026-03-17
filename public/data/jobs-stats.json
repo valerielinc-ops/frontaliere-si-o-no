@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-03-17T04:56:34.914Z",
+  "generatedAt": "2026-03-17T04:56:45.306Z",
   "links": {
     "allJobs": "https://www.frontaliereticino.ch/cerca-lavoro-ticino"
   },
@@ -150,6 +150,12 @@
         "name": "Chiasso",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-chiasso",
         "count": 22
+      },
+      {
+        "key": "lugano",
+        "name": "Lugano",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-lugano",
+        "count": 110
       },
       {
         "key": "lugano",
@@ -627,6 +633,16 @@
           "avgMax": 99313,
           "avgMid": 86438,
           "weightedSalary": 86438
+        },
+        {
+          "key": "bioggio",
+          "name": "Bioggio",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-bioggio",
+          "count": 15,
+          "avgMin": 75533,
+          "avgMax": 101933,
+          "avgMid": 88733,
+          "weightedSalary": 88733
         },
         {
           "key": "bioggio",
