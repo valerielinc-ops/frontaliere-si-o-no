@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-03-17T17:01:58.331Z",
+  "generatedAt": "2026-03-17T17:07:12.977Z",
   "links": {
     "allJobs": "https://www.frontaliereticino.ch/cerca-lavoro-ticino"
   },
   "totals": {
-    "activeJobs": 972,
-    "activeCompanies": 130,
+    "activeJobs": 962,
+    "activeCompanies": 133,
     "activeLocations": 163,
     "todayAdded": 1192,
     "todayUpdated": 0,
@@ -92,16 +92,16 @@
         "count": 30
       },
       {
-        "key": "eoc-ente-ospedaliero-cantonale",
-        "name": "EOC – Ente Ospedaliero Cantonale",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-eoc-ente-ospedaliero-cantonale",
-        "count": 178
-      },
-      {
         "key": "vf-international-the-north-face-timberland",
         "name": "VF International (The North Face, Timberland)",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-vf-international-the-north-face-timberland",
         "count": 26
+      },
+      {
+        "key": "usi-universita-della-svizzera-italiana",
+        "name": "USI – Università della Svizzera italiana",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-usi-universita-della-svizzera-italiana",
+        "count": 24
       }
     ],
     "topLocationsActive": [
@@ -158,6 +158,12 @@
         "name": "EMEA · CHE · Stabio · VF Campus VF1",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-emea-che-stabio-vf-campus-vf1",
         "count": 24
+      },
+      {
+        "key": "st-moritz",
+        "name": "St. Moritz",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-st-moritz",
+        "count": 57
       }
     ],
     "topCompaniesAddedToday": [
@@ -459,11 +465,11 @@
   },
   "salary": {
     "coverage": {
-      "jobsWithSalary": 972,
+      "jobsWithSalary": 962,
       "coveragePct": 100,
-      "avgMin": 66770,
-      "avgMax": 90067,
-      "avgMid": 78419,
+      "avgMin": 66858,
+      "avgMax": 90188,
+      "avgMid": 78523,
       "medianMid": 68500
     },
     "leaders": {
