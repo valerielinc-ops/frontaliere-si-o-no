@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-03-17T16:39:06.971Z",
+  "updatedAt": "2026-03-17T16:39:14.035Z",
   "summaries": [
     {
       "key": "csc-costruzioni",
@@ -2515,43 +2515,6 @@
           "location": "Chur",
           "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/quereinstieg-kundenbegleiter-in-teilzeit-ffs-officine-ferrovie-federali-chur/",
           "slug": "quereinstieg-kundenbegleiter-in-teilzeit-ffs-officine-ferrovie-federali-chur"
-        }
-      ]
-    },
-    {
-      "key": "sunrise-communications-ag",
-      "label": "Sunrise Communications AG",
-      "generatedAt": "2026-03-17T05:15:34.545Z",
-      "total": 2,
-      "newCount": 1,
-      "updatedCount": 0,
-      "removedCount": 0,
-      "unchangedCount": 1,
-      "durationMs": 4856,
-      "avgDurationMs": 4292,
-      "durationHistory": [
-        4856,
-        3953,
-        4066
-      ],
-      "newJobs": [
-        {
-          "title": "Key Account Manager Italian-speaking Switzerland 80-100%",
-          "company": "Sunrise Communications AG",
-          "location": "Manno, Ticino",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/key-account-manager-italian-speaking-switzerland-80-100-sunrise-manno-ticino/",
-          "slug": "key-account-manager-italian-speaking-switzerland-80-100-sunrise-manno-ticino"
-        }
-      ],
-      "updatedJobs": [],
-      "removedJobs": [],
-      "unchangedJobs": [
-        {
-          "title": "Apprendista Gestore del commercio al dettaglio AFC - Lugano",
-          "company": "Sunrise Communications AG",
-          "location": "Lugano",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/apprendista-gestore-del-commercio-al-dettaglio-afc-lugano-sunrise-lugano/",
-          "slug": "apprendista-gestore-del-commercio-al-dettaglio-afc-lugano-sunrise-lugano"
         }
       ]
     },
@@ -8608,6 +8571,44 @@
           "location": "Lugano Agno",
           "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/formazione-controllore-a-del-traffico-aereo-lugano-skyguide-lugano-agno-ch/",
           "slug": "formazione-controllore-a-del-traffico-aereo-lugano-skyguide-lugano-agno-ch"
+        }
+      ]
+    },
+    {
+      "key": "sunrise-communications-ag",
+      "label": "Sunrise Communications AG",
+      "generatedAt": "2026-03-17T16:39:14.035Z",
+      "total": 2,
+      "newCount": 0,
+      "updatedCount": 1,
+      "removedCount": 0,
+      "unchangedCount": 1,
+      "durationMs": 4642,
+      "avgDurationMs": 4379,
+      "durationHistory": [
+        4642,
+        4856,
+        3953,
+        4066
+      ],
+      "newJobs": [],
+      "updatedJobs": [
+        {
+          "title": "Key Account Manager Italian-speaking Switzerland 80-100%",
+          "company": "Sunrise Communications AG",
+          "location": "Manno, Ticino",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/key-account-manager-italian-speaking-switzerland-80-100-sunrise-manno-ticino/",
+          "slug": "key-account-manager-italian-speaking-switzerland-80-100-sunrise-manno-ticino"
+        }
+      ],
+      "removedJobs": [],
+      "unchangedJobs": [
+        {
+          "title": "Apprendista Gestore del commercio al dettaglio AFC - Lugano",
+          "company": "Sunrise Communications AG",
+          "location": "Lugano",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/apprendista-gestore-del-commercio-al-dettaglio-afc-lugano-sunrise-lugano/",
+          "slug": "apprendista-gestore-del-commercio-al-dettaglio-afc-lugano-sunrise-lugano"
         }
       ]
     }
