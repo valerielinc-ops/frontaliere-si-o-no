@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-03-17T05:19:51.192Z",
-  "startedAt": "2026-03-17T05:19:26.053Z",
+  "generatedAt": "2026-03-17T05:21:26.773Z",
+  "startedAt": "2026-03-17T05:05:13.696Z",
   "config": {
     "minQualityScore": 4,
     "minDescriptionChars": 80,
     "aiLocalizationEnabled": true,
-    "aiLocalizationMaxJobsPerRun": 500,
+    "aiLocalizationMaxJobsPerRun": 120,
     "contentReuse": {
       "enabled": true,
       "similarityThreshold": 0.7,
@@ -22,7 +22,7 @@
   },
   "totals": {
     "companiesParsed": 178,
-    "companiesSelected": 1,
+    "companiesSelected": 10,
     "companiesDroppedBySelection": 0,
     "companiesCrawled": 0,
     "discoveredCareerPages": 0,
@@ -37,25 +37,242 @@
     "browserFallbackHits": 0,
     "duplicateIncoming": 0,
     "duplicateExisting": 19,
-    "mergeExcludedJobs": 0,
-    "mergeExclusionByReason": {},
+    "mergeExcludedJobs": 106,
+    "mergeExclusionByReason": {
+      "location_explicitly_foreign": 1,
+      "not_ticino_relevant": 39,
+      "explicitly_outside_target": 19,
+      "non_detail_url": 104,
+      "outside_swiss_ticino": 17
+    },
     "reusedLocalizationFromPrevious": 0,
     "inserted": 0,
     "refreshed": 0,
-    "mergedTotal": 804,
-    "aiLocalizationCalls": 2,
+    "mergedTotal": 844,
+    "aiLocalizationCalls": 76,
     "aiPageValidationCalls": 0,
-    "deeplCalls": 12,
+    "deeplCalls": 21,
     "deeplSuccess": 0,
-    "deeplFallbackToLlm": 0,
-    "aiCacheHits": 2,
-    "aiCacheMisses": 0,
-    "aiCacheEntries": 1408,
+    "deeplFallbackToLlm": 21,
+    "aiCacheHits": 76,
+    "aiCacheMisses": 45,
+    "aiCacheEntries": 1453,
     "discoveredCompaniesCandidates": 0,
     "discoveredCompaniesAdded": 0,
     "discoveredCompaniesPending": 0
   },
   "byCompany": [],
   "droppedCompanies": [],
-  "mergeExclusionSamples": []
+  "mergeExclusionSamples": [
+    {
+      "reason": "location_explicitly_foreign",
+      "title": "Business Development Manager Industrial Applications 80 - 100 % (f/m/d)",
+      "company": "Hamilton Bonaduz AG",
+      "location": "Home Office Germany",
+      "url": "https://hamilton.wd3.myworkdayjobs.com/en-US/hamilton_jobs/job/Home-Office-Germany/Business-Development-Manager-Industrial-Applications--80---100----f-m-d-_JR-5612"
+    },
+    {
+      "reason": "not_ticino_relevant",
+      "title": "Field Service Engineer 80 - 100 % (w/m/d)",
+      "company": "Hamilton Bonaduz AG",
+      "location": "Home Office Switzerland",
+      "url": "https://hamilton.wd3.myworkdayjobs.com/en-US/hamilton_jobs/job/Home-Office-Switzerland/Field-Service-Engineer-80---100----w-m-d-_JR-5343"
+    },
+    {
+      "reason": "non_detail_url",
+      "title": "Elektroinstallateur/in EFZ (80 - 100%)",
+      "company": "Schönholzer AG",
+      "location": "Chur",
+      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/elektroinstallateur-efz-76"
+    },
+    {
+      "reason": "non_detail_url",
+      "title": "Bauleitende/r Elektroinstallateur/in (80 - 100%)",
+      "company": "Schönholzer AG",
+      "location": "Chur",
+      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/bauleitenden-elektroinstallateur-75"
+    },
+    {
+      "reason": "non_detail_url",
+      "title": "Elektroinstallateur/in EFZ mit Flair für Telematik (100%)",
+      "company": "TZ Stromag",
+      "location": "Brig-Glis",
+      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/elektroinstallateur-efz-mit-flair-fuer-telematik-12"
+    },
+    {
+      "reason": "non_detail_url",
+      "title": "Bauleitende/r Elektroinstallateur/in (100%)",
+      "company": "Elektro Saas, ZNL der TZ Stromag",
+      "location": "Saas-Fee",
+      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/bauleitender-elektroinstallateur-215"
+    },
+    {
+      "reason": "non_detail_url",
+      "title": "Schaltanlagenmonteur/in - Elektroinstallateur/in mit guten Kenntnissen im Schaltanlagenbau (100%)",
+      "company": "TZ Stromag",
+      "location": "Brig-Glis",
+      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/schaltanlagenmonteur-elektroinstallateur-mit-guten-kenntnissen-im-schaltanlagenbau-214"
+    },
+    {
+      "reason": "non_detail_url",
+      "title": "Bauleitende/r Elektroinstallateur/in (100%)",
+      "company": "Elektro Rüegg AG",
+      "location": "Lenzerheide",
+      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/bauleitender-elektroinstallateur-135"
+    },
+    {
+      "reason": "non_detail_url",
+      "title": "Elektroinstallateur/in EFZ (100%)",
+      "company": "TZ Stromag",
+      "location": "Brig-Glis",
+      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/elektroinstallateur-efz-265"
+    },
+    {
+      "reason": "non_detail_url",
+      "title": "Elektroinstallateur/in EFZ (100%)",
+      "company": "Elektro Saas, ZNL der TZ Stromag",
+      "location": "Saas-Fee",
+      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/elektroinstallateur-efz-265-1"
+    },
+    {
+      "reason": "non_detail_url",
+      "title": "Bauleitende/r Elektroinstallateur/in (100%)",
+      "company": "TZ Stromag",
+      "location": "Brig-Glis",
+      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/bauleitender-elektroinstallateur-215-1"
+    },
+    {
+      "reason": "non_detail_url",
+      "title": "Elektro-Sicherheitsberater/in mit eidg. FA (100%)",
+      "company": "Elektro Saas, ZNL der TZ Stromag",
+      "location": "Saas-Fee",
+      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/elektro-sicherheitsberater-mit-eidg-fa-349-1"
+    },
+    {
+      "reason": "non_detail_url",
+      "title": "Elektro-Servicetechniker/in (100%)",
+      "company": "TZ Stromag",
+      "location": "Brig-Glis",
+      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/elektro-servicetechniker-11"
+    },
+    {
+      "reason": "non_detail_url",
+      "title": "Elektro-Servicetechniker/in (100%)",
+      "company": "Elektro Saas, ZNL der TZ Stromag",
+      "location": "Saas-Fee",
+      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/elektro-servicetechniker-11-1"
+    },
+    {
+      "reason": "non_detail_url",
+      "title": "Elektro-Servicemonteur/in (80 - 100%)",
+      "company": "Derungs AG",
+      "location": "Ilanz",
+      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/elektro-servicemonteur-366"
+    },
+    {
+      "reason": "non_detail_url",
+      "title": "Elektroplaner oder Elektroinstallateur in Zusatzlehre als Elektroplaner / Elektroinstallateur EFZ mit planerischer Erfahrung (100%)",
+      "company": "TZ Stromag",
+      "location": "Brig-Glis",
+      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/elektroplaner-oder-elektroinstallateur-in-zusatzlehre-als-elektroplaner-elektroinstallateur-efz-mit-planerischer-erfahrung-350"
+    },
+    {
+      "reason": "non_detail_url",
+      "title": "Elektro-Sicherheitsberater/in mit eidg. FA (100%)",
+      "company": "TZ Stromag",
+      "location": "Brig-Glis",
+      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/elektro-sicherheitsberater-mit-eidg-fa-349"
+    },
+    {
+      "reason": "non_detail_url",
+      "title": "Bauleitende/r Elektroinstallateur/in - Servicetechniker/in (100%)",
+      "company": "Elektro Rüegg AG",
+      "location": "Lenzerheide",
+      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/bauleitender-elektroinstallateur-servicetechniker-407"
+    },
+    {
+      "reason": "non_detail_url",
+      "title": "Elektroinstallateur/in EFZ (80 - 100%)",
+      "company": "Rast Elektro AG",
+      "location": "Küblis",
+      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/elektroinstallateur-efz-406"
+    },
+    {
+      "reason": "non_detail_url",
+      "title": "Chef/fe de chantier (100%)",
+      "company": "Grichting & Valterio Electro SA",
+      "location": "Sion",
+      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/chef-de-chantier-9"
+    },
+    {
+      "reason": "non_detail_url",
+      "title": "Installateurs-electriciens / Installatrices-électriciennes CFC (100%)",
+      "company": "Grichting & Valterio Electro SA",
+      "location": "Sion",
+      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/installateurs-electriciens-cfc-3"
+    },
+    {
+      "reason": "non_detail_url",
+      "title": "Installateurs-électriciens / Installatrices-électriciennes CFC (100%)",
+      "company": "Grichting & Valterio Electro SA",
+      "location": "Collombey",
+      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/installateurs-electriciens-cfc-425-1"
+    },
+    {
+      "reason": "non_detail_url",
+      "title": "Bauleitende/r Elektroinstallateur/in (100%)",
+      "company": "Elektrohüs, ZNL der TZ Stromag",
+      "location": "Susten",
+      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/bauleitender-elektroinstallateur-455"
+    },
+    {
+      "reason": "non_detail_url",
+      "title": "Elektroinstallateur/in EFZ (100%)",
+      "company": "Elektrohüs, ZNL der TZ Stromag",
+      "location": "Susten",
+      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/elektroinstallateur-efz-454"
+    },
+    {
+      "reason": "non_detail_url",
+      "title": "Installateurs-électriciens / installatrices-électriciennes (orienté industrie) (100%)",
+      "company": "Grichting & Valterio Electro SA",
+      "location": "Collombey",
+      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/installateurs-electriciens-oriente-industrie-267"
+    },
+    {
+      "reason": "non_detail_url",
+      "title": "Bauleitende/r Sanitärinstallateur/in (100%)",
+      "company": "Ulrich Huber AG",
+      "location": "Malans",
+      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/bauleitende-r-sanitaerinstallateur-in-752"
+    },
+    {
+      "reason": "non_detail_url",
+      "title": "Bauleitende/r Heizungsinstallateur/in (100%)",
+      "company": "Ulrich Huber AG",
+      "location": "Malans",
+      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/bauleitende-r-heizungsinstallateur-in-753"
+    },
+    {
+      "reason": "non_detail_url",
+      "title": "Servicemonteur/in (100%)",
+      "company": "Schönholzer AG",
+      "location": "Chur",
+      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/servicemonteur-590-schoenholzer-ag"
+    },
+    {
+      "reason": "non_detail_url",
+      "title": "Heizungsinstallateur/in (100%)",
+      "company": "Ulrich Huber AG",
+      "location": "Malans",
+      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/heizungsinstallateur-in-1016-1"
+    },
+    {
+      "reason": "non_detail_url",
+      "title": "Bauleitende/r Elektroinstallateur/in EFZ (80 - 100%)",
+      "company": "Derungs AG",
+      "location": "Flims Waldhaus",
+      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/elektroinstallateur-efz-derungs-ag"
+    }
+  ]
 }

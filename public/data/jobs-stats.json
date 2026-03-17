@@ -1,22 +1,22 @@
 {
-  "generatedAt": "2026-03-17T05:21:06.585Z",
+  "generatedAt": "2026-03-17T05:21:27.186Z",
   "links": {
     "allJobs": "https://www.frontaliereticino.ch/cerca-lavoro-ticino"
   },
   "totals": {
-    "activeJobs": 840,
-    "activeCompanies": 97,
-    "activeLocations": 151,
-    "todayAdded": 1123,
+    "activeJobs": 844,
+    "activeCompanies": 93,
+    "activeLocations": 118,
+    "todayAdded": 985,
     "todayUpdated": 0,
     "todayRemoved": 0,
     "last7d": {
-      "added": 2026,
+      "added": 1888,
       "updated": 0,
       "removed": 0
     },
     "last30d": {
-      "added": 2509,
+      "added": 2371,
       "updated": 0,
       "removed": 0
     }
@@ -47,6 +47,13 @@
       "date": "2026-03-17",
       "totalJobs": 1070,
       "added": 1123,
+      "updated": 0,
+      "removed": 0
+    },
+    {
+      "date": "2026-03-17",
+      "totalJobs": 944,
+      "added": 985,
       "updated": 0,
       "removed": 0
     }
@@ -94,6 +101,12 @@
         "name": "VOLG",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-volg",
         "count": 44
+      },
+      {
+        "key": "hamilton-bonaduz-ag",
+        "name": "Hamilton Bonaduz AG",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-hamilton-bonaduz-ag",
+        "count": 22
       }
     ],
     "topLocationsActive": [
@@ -144,6 +157,18 @@
         "name": "Chiasso",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-chiasso",
         "count": 24
+      },
+      {
+        "key": "chur",
+        "name": "Chur",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-chur",
+        "count": 34
+      },
+      {
+        "key": "lugano",
+        "name": "Lugano",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-lugano",
+        "count": 113
       },
       {
         "key": "chur",
@@ -389,7 +414,7 @@
         "name": "Retail Specialist EFZ 'Creating Shopping Experiences'",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-retail-specialist-efz-creating-shopping-experiences",
         "count": 0,
-        "added": 27,
+        "added": 28,
         "updated": 0,
         "removed": 0
       },
@@ -399,6 +424,15 @@
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-assistente-al-dettaglio-in-eba",
         "count": 0,
         "added": 24,
+        "updated": 0,
+        "removed": 0
+      },
+      {
+        "key": "assistente-i-di-vendita-eba",
+        "name": "Assistente/i di vendita EBA",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-assistente-i-di-vendita-eba",
+        "count": 0,
+        "added": 23,
         "updated": 0,
         "removed": 0
       },
@@ -437,26 +471,17 @@
         "added": 10,
         "updated": 0,
         "removed": 0
-      },
-      {
-        "key": "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026",
-        "name": "Apprendistato nel commercio al dettaglio CFP o AFC - Inizio 2026",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026",
-        "count": 0,
-        "added": 8,
-        "updated": 0,
-        "removed": 0
       }
     ]
   },
   "salary": {
     "coverage": {
-      "jobsWithSalary": 840,
+      "jobsWithSalary": 843,
       "coveragePct": 100,
-      "avgMin": 66695,
-      "avgMax": 89992,
-      "avgMid": 78343,
-      "medianMid": 68500
+      "avgMin": 68162,
+      "avgMax": 92004,
+      "avgMid": 80083,
+      "medianMid": 84500
     },
     "leaders": {
       "topSalaryCompanies": [
