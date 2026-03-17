@@ -8,17 +8,25 @@
     "sitemap"
   ],
   "seedUrls": [
+    "https://positions.manor.ch/job/Locarno-Collaboratoretrice-servizio-%28Manora%29-50/1345112255/",
     "https://positions.manor.ch/job/Lugano-Collaboratoretrice-logistica-60/1344050855/",
+    "https://positions.manor.ch/job/Locarno-Collaborateurtrice-service-%28Manora%29-50/1345092855/",
     "https://positions.manor.ch/job/Locarno-Impiegatoa-del-commercio-al-dettaglio-AFC-%28Confezione-Uomo%29-100-dal-1_08_2026-al-31_07_2029/1170135255/",
     "https://positions.manor.ch/job/Lugano-Apprendista-Polydesigner-3D-AFC-100/1327124155/",
-    "https://positions.manor.ch/job/Lugano-Polydesigner-3D-AFC-100/1327126855/",
-    "https://positions.manor.ch/job/Locarno-Collaborateurtrice-service-%28Manora%29-50/1345092855/",
-    "https://positions.manor.ch/job/Locarno-Collaboratoretrice-servizio-%28Manora%29-50/1345112255/"
+    "https://positions.manor.ch/job/Lugano-Polydesigner-3D-AFC-100/1327126855/"
   ],
   "notes": "Sitemap-based crawler — positions.manor.ch (SAP SuccessFactors / jobs2web). Manor AG department store chain with locations in Lugano, Locarno, and Biasca.",
-  "updatedAt": "2026-03-17T05:08:40.568Z",
+  "updatedAt": "2026-03-17T16:32:23.349Z",
   "seedMetaByUrl": {
+    "https://positions.manor.ch/job/Locarno-Collaboratoretrice-servizio-%28Manora%29-50/1345112255/": {
+      "company": "Manor AG",
+      "companyDomain": "manor.ch"
+    },
     "https://positions.manor.ch/job/Lugano-Collaboratoretrice-logistica-60/1344050855/": {
+      "company": "Manor AG",
+      "companyDomain": "manor.ch"
+    },
+    "https://positions.manor.ch/job/Locarno-Collaborateurtrice-service-%28Manora%29-50/1345092855/": {
       "company": "Manor AG",
       "companyDomain": "manor.ch"
     },
@@ -31,14 +39,6 @@
       "companyDomain": "manor.ch"
     },
     "https://positions.manor.ch/job/Lugano-Polydesigner-3D-AFC-100/1327126855/": {
-      "company": "Manor AG",
-      "companyDomain": "manor.ch"
-    },
-    "https://positions.manor.ch/job/Locarno-Collaborateurtrice-service-%28Manora%29-50/1345092855/": {
-      "company": "Manor AG",
-      "companyDomain": "manor.ch"
-    },
-    "https://positions.manor.ch/job/Locarno-Collaboratoretrice-servizio-%28Manora%29-50/1345112255/": {
       "company": "Manor AG",
       "companyDomain": "manor.ch"
     }
