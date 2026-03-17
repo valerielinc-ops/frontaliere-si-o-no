@@ -1,22 +1,22 @@
 {
-  "generatedAt": "2026-03-17T05:08:21.916Z",
+  "generatedAt": "2026-03-17T05:10:17.669Z",
   "links": {
     "allJobs": "https://www.frontaliereticino.ch/cerca-lavoro-ticino"
   },
   "totals": {
-    "activeJobs": 854,
+    "activeJobs": 906,
     "activeCompanies": 122,
-    "activeLocations": 141,
-    "todayAdded": 935,
+    "activeLocations": 143,
+    "todayAdded": 1060,
     "todayUpdated": 0,
     "todayRemoved": 0,
     "last7d": {
-      "added": 2998,
+      "added": 3123,
       "updated": 0,
       "removed": 0
     },
     "last30d": {
-      "added": 3481,
+      "added": 3606,
       "updated": 0,
       "removed": 0
     }
@@ -37,16 +37,16 @@
       "removed": 0
     },
     {
-      "date": "2026-03-17",
-      "totalJobs": 1030,
-      "added": 1053,
+      "date": "2026-03-16",
+      "totalJobs": 937,
+      "added": 1160,
       "updated": 0,
       "removed": 0
     },
     {
       "date": "2026-03-17",
-      "totalJobs": 854,
-      "added": 935,
+      "totalJobs": 906,
+      "added": 1060,
       "updated": 0,
       "removed": 0
     }
@@ -60,16 +60,10 @@
         "count": 185
       },
       {
-        "key": "kulm-hotel-st-moritz",
-        "name": "Kulm Hotel St. Moritz",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-kulm-hotel-st-moritz",
-        "count": 42
-      },
-      {
-        "key": "grand-hotel-des-bains-kempinski-st-moritz",
-        "name": "Grand Hotel des Bains Kempinski St. Moritz",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-grand-hotel-des-bains-kempinski-st-moritz",
-        "count": 32
+        "key": "coop",
+        "name": "Coop",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-coop",
+        "count": 38
       },
       {
         "key": "pemsa",
@@ -90,16 +84,22 @@
         "count": 25
       },
       {
-        "key": "grand-hotel-kronenhof",
-        "name": "Grand Hotel Kronenhof",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-grand-hotel-kronenhof",
+        "key": "usi-universita-della-svizzera-italiana",
+        "name": "USI – Università della Svizzera italiana",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-usi-universita-della-svizzera-italiana",
         "count": 24
       },
       {
-        "key": "coop",
-        "name": "Coop",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-coop",
-        "count": 38
+        "key": "convit-holding-gmbh",
+        "name": "Convit Holding GmbH",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-convit-holding-gmbh",
+        "count": 23
+      },
+      {
+        "key": "interdiscount",
+        "name": "Interdiscount",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-interdiscount",
+        "count": 22
       }
     ],
     "topLocationsActive": [
@@ -119,13 +119,19 @@
         "key": "st-moritz",
         "name": "St. Moritz",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-st-moritz",
-        "count": 95
+        "count": 57
+      },
+      {
+        "key": "grigioni",
+        "name": "Grigioni",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-grigioni",
+        "count": 55
       },
       {
         "key": "mendrisio",
         "name": "Mendrisio",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-mendrisio",
-        "count": 55
+        "count": 50
       },
       {
         "key": "locarno",
@@ -140,22 +146,10 @@
         "count": 40
       },
       {
-        "key": "pontresina",
-        "name": "Pontresina",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-pontresina",
-        "count": 24
-      },
-      {
-        "key": "lugano",
-        "name": "Lugano",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-lugano",
-        "count": 104
-      },
-      {
-        "key": "grigioni",
-        "name": "Grigioni",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-grigioni",
-        "count": 55
+        "key": "emea-che-stabio-vf-campus-vf1",
+        "name": "EMEA · CHE · Stabio · VF Campus VF1",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-emea-che-stabio-vf-campus-vf1",
+        "count": 23
       }
     ],
     "topCompaniesAddedToday": [
@@ -165,6 +159,15 @@
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-eoc-ente-ospedaliero-cantonale",
         "count": 0,
         "added": 185,
+        "updated": 0,
+        "removed": 0
+      },
+      {
+        "key": "coop",
+        "name": "Coop",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-coop",
+        "count": 0,
+        "added": 106,
         "updated": 0,
         "removed": 0
       },
@@ -221,15 +224,6 @@
         "added": 24,
         "updated": 0,
         "removed": 0
-      },
-      {
-        "key": "coop",
-        "name": "Coop",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-coop",
-        "count": 0,
-        "added": 106,
-        "updated": 0,
-        "removed": 0
       }
     ],
     "topCompaniesAdded30d": [
@@ -239,6 +233,24 @@
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-eoc-ente-ospedaliero-cantonale",
         "count": 0,
         "added": 212,
+        "updated": 0,
+        "removed": 0
+      },
+      {
+        "key": "coop",
+        "name": "Coop",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-coop",
+        "count": 0,
+        "added": 113,
+        "updated": 0,
+        "removed": 0
+      },
+      {
+        "key": "volg",
+        "name": "VOLG",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-volg",
+        "count": 0,
+        "added": 44,
         "updated": 0,
         "removed": 0
       },
@@ -286,90 +298,9 @@
         "added": 25,
         "updated": 0,
         "removed": 0
-      },
-      {
-        "key": "hamilton-bonaduz-ag",
-        "name": "Hamilton Bonaduz AG",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-hamilton-bonaduz-ag",
-        "count": 0,
-        "added": 24,
-        "updated": 0,
-        "removed": 0
-      },
-      {
-        "key": "coop",
-        "name": "Coop",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-coop",
-        "count": 0,
-        "added": 113,
-        "updated": 0,
-        "removed": 0
       }
     ],
     "topLocationsAdded30d": [
-      {
-        "key": "bellinzona",
-        "name": "Bellinzona",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-bellinzona",
-        "count": 0,
-        "added": 150,
-        "updated": 0,
-        "removed": 0
-      },
-      {
-        "key": "grigioni",
-        "name": "Grigioni",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-grigioni",
-        "count": 0,
-        "added": 131,
-        "updated": 0,
-        "removed": 0
-      },
-      {
-        "key": "mendrisio",
-        "name": "Mendrisio",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-mendrisio",
-        "count": 0,
-        "added": 64,
-        "updated": 0,
-        "removed": 0
-      },
-      {
-        "key": "ticino",
-        "name": "Ticino",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-ticino",
-        "count": 0,
-        "added": 63,
-        "updated": 0,
-        "removed": 0
-      },
-      {
-        "key": "st-moritz",
-        "name": "St. Moritz",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-st-moritz",
-        "count": 0,
-        "added": 57,
-        "updated": 0,
-        "removed": 0
-      },
-      {
-        "key": "chur",
-        "name": "Chur",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-chur",
-        "count": 0,
-        "added": 56,
-        "updated": 0,
-        "removed": 0
-      },
-      {
-        "key": "locarno",
-        "name": "Locarno",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-locarno",
-        "count": 0,
-        "added": 49,
-        "updated": 0,
-        "removed": 0
-      },
       {
         "key": "bellinzona",
         "name": "Bellinzona",
@@ -384,7 +315,61 @@
         "name": "Lugano",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-lugano",
         "count": 0,
-        "added": 145,
+        "added": 146,
+        "updated": 0,
+        "removed": 0
+      },
+      {
+        "key": "grigioni",
+        "name": "Grigioni",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-grigioni",
+        "count": 0,
+        "added": 131,
+        "updated": 0,
+        "removed": 0
+      },
+      {
+        "key": "ticino",
+        "name": "Ticino",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-ticino",
+        "count": 0,
+        "added": 69,
+        "updated": 0,
+        "removed": 0
+      },
+      {
+        "key": "chur",
+        "name": "Chur",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-chur",
+        "count": 0,
+        "added": 68,
+        "updated": 0,
+        "removed": 0
+      },
+      {
+        "key": "mendrisio",
+        "name": "Mendrisio",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-mendrisio",
+        "count": 0,
+        "added": 67,
+        "updated": 0,
+        "removed": 0
+      },
+      {
+        "key": "st-moritz",
+        "name": "St. Moritz",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-st-moritz",
+        "count": 0,
+        "added": 61,
+        "updated": 0,
+        "removed": 0
+      },
+      {
+        "key": "locarno",
+        "name": "Locarno",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-locarno",
+        "count": 0,
+        "added": 49,
         "updated": 0,
         "removed": 0
       }
@@ -404,7 +389,7 @@
         "name": "Retail Specialist EFZ 'Creating Shopping Experiences'",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-retail-specialist-efz-creating-shopping-experiences",
         "count": 0,
-        "added": 27,
+        "added": 28,
         "updated": 0,
         "removed": 0
       },
@@ -454,33 +439,6 @@
         "removed": 0
       },
       {
-        "key": "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026",
-        "name": "Apprendistato nel commercio al dettaglio CFP o AFC - Inizio 2026",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026",
-        "count": 0,
-        "added": 8,
-        "updated": 0,
-        "removed": 0
-      },
-      {
-        "key": "specialista-del-commercio-al-dettaglio-uomo-assistente-in",
-        "name": "Specialista del commercio al dettaglio: uomo/assistente: in",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-specialista-del-commercio-al-dettaglio-uomo-assistente-in",
-        "count": 0,
-        "added": 17,
-        "updated": 0,
-        "removed": 0
-      },
-      {
-        "key": "assistente-di-farmacia-afc",
-        "name": "Assistente di farmacia AFC",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-assistente-di-farmacia-afc",
-        "count": 0,
-        "added": 10,
-        "updated": 0,
-        "removed": 0
-      },
-      {
         "key": "tirocinio-come-specialista-del-commercio-al-dettaglio-o-assistente-al-dettaglio",
         "name": "Tirocinio come specialista del commercio al dettaglio o assistente al dettaglio",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-tirocinio-come-specialista-del-commercio-al-dettaglio-o-assistente-al-dettaglio",
@@ -493,12 +451,12 @@
   },
   "salary": {
     "coverage": {
-      "jobsWithSalary": 854,
+      "jobsWithSalary": 906,
       "coveragePct": 100,
-      "avgMin": 66287,
-      "avgMax": 89431,
-      "avgMid": 77859,
-      "medianMid": 68500
+      "avgMin": 66341,
+      "avgMax": 89496,
+      "avgMid": 77918,
+      "medianMid": 68250
     },
     "leaders": {
       "topSalaryCompanies": [
@@ -516,7 +474,7 @@
           "key": "knowledge-lab",
           "name": "Knowledge Lab",
           "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-knowledge-lab",
-          "count": 10,
+          "count": 5,
           "avgMin": 92300,
           "avgMax": 124900,
           "avgMid": 108600,
@@ -615,16 +573,6 @@
           "weightedSalary": 101727
         },
         {
-          "key": "beijing-china",
-          "name": "Beijing, China",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-beijing-china",
-          "count": 2,
-          "avgMin": 92000,
-          "avgMax": 125000,
-          "avgMid": 108500,
-          "weightedSalary": 98600
-        },
-        {
           "key": "castelrotto",
           "name": "Castelrotto",
           "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-castelrotto",
@@ -645,14 +593,14 @@
           "weightedSalary": 97150
         },
         {
-          "key": "mendrisio",
-          "name": "Mendrisio",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-mendrisio",
-          "count": 55,
-          "avgMin": 75569,
-          "avgMax": 102312,
-          "avgMid": 88941,
-          "weightedSalary": 88941
+          "key": "beijing-china",
+          "name": "Beijing, China",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-beijing-china",
+          "count": 1,
+          "avgMin": 92000,
+          "avgMax": 125000,
+          "avgMid": 108500,
+          "weightedSalary": 95300
         },
         {
           "key": "manno",
@@ -665,24 +613,14 @@
           "weightedSalary": 88300
         },
         {
-          "key": "losone",
-          "name": "Losone",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-losone",
-          "count": 8,
-          "avgMin": 73563,
-          "avgMax": 99313,
-          "avgMid": 86438,
-          "weightedSalary": 86438
-        },
-        {
-          "key": "novaggio",
-          "name": "Novaggio",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-novaggio",
-          "count": 19,
-          "avgMin": 73053,
-          "avgMax": 98842,
-          "avgMid": 85947,
-          "weightedSalary": 85947
+          "key": "mendrisio",
+          "name": "Mendrisio",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-mendrisio",
+          "count": 50,
+          "avgMin": 73896,
+          "avgMax": 100054,
+          "avgMid": 86975,
+          "weightedSalary": 86975
         }
       ],
       "topSalaryTitles": [
