@@ -1,22 +1,22 @@
 {
-  "generatedAt": "2026-03-17T05:18:06.320Z",
+  "generatedAt": "2026-03-17T05:18:36.175Z",
   "links": {
     "allJobs": "https://www.frontaliereticino.ch/cerca-lavoro-ticino"
   },
   "totals": {
-    "activeJobs": 799,
+    "activeJobs": 800,
     "activeCompanies": 94,
-    "activeLocations": 121,
-    "todayAdded": 1082,
+    "activeLocations": 122,
+    "todayAdded": 1083,
     "todayUpdated": 0,
     "todayRemoved": 0,
     "last7d": {
-      "added": 1985,
+      "added": 1986,
       "updated": 0,
       "removed": 0
     },
     "last30d": {
-      "added": 2468,
+      "added": 2469,
       "updated": 0,
       "removed": 0
     }
@@ -53,7 +53,7 @@
     {
       "date": "2026-03-17",
       "totalJobs": 1070,
-      "added": 1082,
+      "added": 1083,
       "updated": 0,
       "removed": 0
     }
@@ -143,6 +143,24 @@
         "name": "Interdiscount",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-interdiscount",
         "count": 22
+      },
+      {
+        "key": "usi-universita-della-svizzera-italiana",
+        "name": "USI – Università della Svizzera italiana",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-usi-universita-della-svizzera-italiana",
+        "count": 24
+      },
+      {
+        "key": "convit-holding-gmbh",
+        "name": "Convit Holding GmbH",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-convit-holding-gmbh",
+        "count": 23
+      },
+      {
+        "key": "interdiscount",
+        "name": "Interdiscount",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-interdiscount",
+        "count": 22
       }
     ],
     "topLocationsActive": [
@@ -165,18 +183,6 @@
         "count": 23
       },
       {
-        "key": "locarno",
-        "name": "Locarno",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-locarno",
-        "count": 42
-      },
-      {
-        "key": "st-moritz",
-        "name": "St. Moritz",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-st-moritz",
-        "count": 33
-      },
-      {
         "key": "lugano",
         "name": "Lugano",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-lugano",
@@ -186,24 +192,6 @@
         "key": "mendrisio",
         "name": "Mendrisio",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-mendrisio",
-        "count": 52
-      },
-      {
-        "key": "locarno",
-        "name": "Locarno",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-locarno",
-        "count": 42
-      },
-      {
-        "key": "st-moritz",
-        "name": "St. Moritz",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-st-moritz",
-        "count": 33
-      },
-      {
-        "key": "mendrisio",
-        "name": "Mendrisio",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-mendrisio",
         "count": 50
       },
       {
@@ -223,6 +211,12 @@
         "name": "St. Moritz",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-st-moritz",
         "count": 33
+      },
+      {
+        "key": "mendrisio",
+        "name": "Mendrisio",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-mendrisio",
+        "count": 50
       }
     ],
     "topCompaniesAddedToday": [
@@ -524,12 +518,12 @@
   },
   "salary": {
     "coverage": {
-      "jobsWithSalary": 799,
+      "jobsWithSalary": 800,
       "coveragePct": 100,
-      "avgMin": 67397,
-      "avgMax": 90951,
-      "avgMid": 79174,
-      "medianMid": 72000
+      "avgMin": 67395,
+      "avgMax": 90949,
+      "avgMid": 79172,
+      "medianMid": 73076
     },
     "leaders": {
       "topSalaryCompanies": [
