@@ -1,22 +1,22 @@
 {
-  "generatedAt": "2026-03-17T05:01:39.726Z",
+  "generatedAt": "2026-03-17T05:02:08.808Z",
   "links": {
     "allJobs": "https://www.frontaliereticino.ch/cerca-lavoro-ticino"
   },
   "totals": {
-    "activeJobs": 927,
-    "activeCompanies": 118,
-    "activeLocations": 136,
-    "todayAdded": 960,
+    "activeJobs": 943,
+    "activeCompanies": 122,
+    "activeLocations": 138,
+    "todayAdded": 976,
     "todayUpdated": 0,
     "todayRemoved": 0,
     "last7d": {
-      "added": 1863,
+      "added": 1879,
       "updated": 0,
       "removed": 0
     },
     "last30d": {
-      "added": 2346,
+      "added": 2362,
       "updated": 0,
       "removed": 0
     }
@@ -38,22 +38,15 @@
     },
     {
       "date": "2026-03-17",
-      "totalJobs": 940,
-      "added": 961,
-      "updated": 0,
-      "removed": 0
-    },
-    {
-      "date": "2026-03-17",
-      "totalJobs": 940,
-      "added": 950,
-      "updated": 0,
-      "removed": 0
-    },
-    {
-      "date": "2026-03-17",
       "totalJobs": 934,
       "added": 960,
+      "updated": 0,
+      "removed": 0
+    },
+    {
+      "date": "2026-03-17",
+      "totalJobs": 943,
+      "added": 976,
       "updated": 0,
       "removed": 0
     }
@@ -141,12 +134,6 @@
         "count": 22
       },
       {
-        "key": "lugano",
-        "name": "Lugano",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-lugano",
-        "count": 105
-      },
-      {
         "key": "mendrisio",
         "name": "Mendrisio",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-mendrisio",
@@ -174,19 +161,13 @@
         "key": "lugano",
         "name": "Lugano",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-lugano",
-        "count": 102
-      },
-      {
-        "key": "mendrisio",
-        "name": "Mendrisio",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-mendrisio",
-        "count": 53
+        "count": 111
       },
       {
         "key": "lugano",
         "name": "Lugano",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-lugano",
-        "count": 111
+        "count": 114
       }
     ],
     "topCompaniesAddedToday": [
@@ -339,15 +320,6 @@
     ],
     "topLocationsAdded30d": [
       {
-        "key": "bellinzona",
-        "name": "Bellinzona",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-bellinzona",
-        "count": 0,
-        "added": 150,
-        "updated": 0,
-        "removed": 0
-      },
-      {
         "key": "lugano",
         "name": "Lugano",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-lugano",
@@ -366,92 +338,11 @@
         "removed": 0
       },
       {
-        "key": "mendrisio",
-        "name": "Mendrisio",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-mendrisio",
-        "count": 0,
-        "added": 64,
-        "updated": 0,
-        "removed": 0
-      },
-      {
-        "key": "ticino",
-        "name": "Ticino",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-ticino",
-        "count": 0,
-        "added": 63,
-        "updated": 0,
-        "removed": 0
-      },
-      {
-        "key": "chur",
-        "name": "Chur",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-chur",
-        "count": 0,
-        "added": 56,
-        "updated": 0,
-        "removed": 0
-      },
-      {
         "key": "locarno",
         "name": "Locarno",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-locarno",
         "count": 0,
         "added": 49,
-        "updated": 0,
-        "removed": 0
-      },
-      {
-        "key": "novaggio",
-        "name": "Novaggio",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-novaggio",
-        "count": 0,
-        "added": 36,
-        "updated": 0,
-        "removed": 0
-      },
-      {
-        "key": "bellinzona",
-        "name": "Bellinzona",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-bellinzona",
-        "count": 0,
-        "added": 150,
-        "updated": 0,
-        "removed": 0
-      },
-      {
-        "key": "mendrisio",
-        "name": "Mendrisio",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-mendrisio",
-        "count": 0,
-        "added": 64,
-        "updated": 0,
-        "removed": 0
-      },
-      {
-        "key": "ticino",
-        "name": "Ticino",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-ticino",
-        "count": 0,
-        "added": 63,
-        "updated": 0,
-        "removed": 0
-      },
-      {
-        "key": "chur",
-        "name": "Chur",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-chur",
-        "count": 0,
-        "added": 56,
-        "updated": 0,
-        "removed": 0
-      },
-      {
-        "key": "novaggio",
-        "name": "Novaggio",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-novaggio",
-        "count": 0,
-        "added": 36,
         "updated": 0,
         "removed": 0
       },
@@ -623,12 +514,12 @@
   },
   "salary": {
     "coverage": {
-      "jobsWithSalary": 927,
+      "jobsWithSalary": 943,
       "coveragePct": 100,
-      "avgMin": 67327,
-      "avgMax": 90849,
-      "avgMid": 79088,
-      "medianMid": 68500
+      "avgMin": 67459,
+      "avgMax": 91028,
+      "avgMid": 79243,
+      "medianMid": 72000
     },
     "leaders": {
       "topSalaryCompanies": [
