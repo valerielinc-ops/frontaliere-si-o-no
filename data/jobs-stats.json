@@ -1,22 +1,22 @@
 {
-  "generatedAt": "2026-03-17T04:55:12.880Z",
+  "generatedAt": "2026-03-17T04:56:00.587Z",
   "links": {
     "allJobs": "https://www.frontaliereticino.ch/cerca-lavoro-ticino"
   },
   "totals": {
-    "activeJobs": 821,
+    "activeJobs": 915,
     "activeCompanies": 87,
     "activeLocations": 139,
     "todayAdded": 834,
     "todayUpdated": 0,
     "todayRemoved": 0,
     "last7d": {
-      "added": 3782,
+      "added": 2991,
       "updated": 0,
       "removed": 0
     },
     "last30d": {
-      "added": 4265,
+      "added": 3474,
       "updated": 0,
       "removed": 0
     }
@@ -37,13 +37,6 @@
       "removed": 0
     },
     {
-      "date": "2026-03-15",
-      "totalJobs": 782,
-      "added": 885,
-      "updated": 0,
-      "removed": 0
-    },
-    {
       "date": "2026-03-16",
       "totalJobs": 937,
       "added": 1160,
@@ -54,13 +47,6 @@
       "date": "2026-03-17",
       "totalJobs": 915,
       "added": 928,
-      "updated": 0,
-      "removed": 0
-    },
-    {
-      "date": "2026-03-17",
-      "totalJobs": 827,
-      "added": 833,
       "updated": 0,
       "removed": 0
     },
@@ -137,6 +123,12 @@
         "count": 115
       },
       {
+        "key": "lugano",
+        "name": "Lugano",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-lugano",
+        "count": 104
+      },
+      {
         "key": "mendrisio",
         "name": "Mendrisio",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-mendrisio",
@@ -165,12 +157,6 @@
         "name": "Chiasso",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-chiasso",
         "count": 22
-      },
-      {
-        "key": "lugano",
-        "name": "Lugano",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-lugano",
-        "count": 107
       }
     ],
     "topCompaniesAddedToday": [
@@ -327,7 +313,7 @@
         "name": "Bellinzona",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-bellinzona",
         "count": 0,
-        "added": 152,
+        "added": 151,
         "updated": 0,
         "removed": 0
       },
@@ -336,7 +322,7 @@
         "name": "Lugano",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-lugano",
         "count": 0,
-        "added": 146,
+        "added": 145,
         "updated": 0,
         "removed": 0
       },
@@ -428,7 +414,7 @@
         "name": "Specialista del commercio al dettaglio: uomo/assistente: in",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-specialista-del-commercio-al-dettaglio-uomo-assistente-in",
         "count": 0,
-        "added": 18,
+        "added": 17,
         "updated": 0,
         "removed": 0
       },
@@ -442,15 +428,6 @@
         "removed": 0
       },
       {
-        "key": "assistente-di-farmacia-afc",
-        "name": "Assistente di farmacia AFC",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-assistente-di-farmacia-afc",
-        "count": 0,
-        "added": 11,
-        "updated": 0,
-        "removed": 0
-      },
-      {
         "key": "impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto",
         "name": "Impiegata / Impiegato del commercio al dettaglio AFC \"Creazione di esperienze d'acquisto\"",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto",
@@ -460,9 +437,18 @@
         "removed": 0
       },
       {
-        "key": "specialista-del-commercio-al-dettaglio-uomo-afc-progettazione-di-esperienze-di-acquisto",
-        "name": "Specialista del commercio al dettaglio:uomo AFC \"Progettazione di esperienze di acquisto\"",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-specialista-del-commercio-al-dettaglio-uomo-afc-progettazione-di-esperienze-di-acquisto",
+        "key": "assistente-di-farmacia-afc",
+        "name": "Assistente di farmacia AFC",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-assistente-di-farmacia-afc",
+        "count": 0,
+        "added": 10,
+        "updated": 0,
+        "removed": 0
+      },
+      {
+        "key": "tirocinio-come-specialista-del-commercio-al-dettaglio-o-assistente-al-dettaglio",
+        "name": "Tirocinio come specialista del commercio al dettaglio o assistente al dettaglio",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-tirocinio-come-specialista-del-commercio-al-dettaglio-o-assistente-al-dettaglio",
         "count": 0,
         "added": 9,
         "updated": 0,
@@ -472,11 +458,11 @@
   },
   "salary": {
     "coverage": {
-      "jobsWithSalary": 821,
+      "jobsWithSalary": 915,
       "coveragePct": 100,
-      "avgMin": 68003,
-      "avgMax": 91789,
-      "avgMid": 79896,
+      "avgMin": 67260,
+      "avgMax": 90758,
+      "avgMid": 79009,
       "medianMid": 68500
     },
     "leaders": {
@@ -624,16 +610,6 @@
           "weightedSalary": 88300
         },
         {
-          "key": "bioggio",
-          "name": "Bioggio",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-bioggio",
-          "count": 13,
-          "avgMin": 74346,
-          "avgMax": 100346,
-          "avgMid": 87346,
-          "weightedSalary": 87346
-        },
-        {
           "key": "grigioni",
           "name": "Grigioni",
           "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-grigioni",
@@ -642,6 +618,16 @@
           "avgMax": 100143,
           "avgMid": 87161,
           "weightedSalary": 87161
+        },
+        {
+          "key": "losone",
+          "name": "Losone",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-losone",
+          "count": 8,
+          "avgMin": 73563,
+          "avgMax": 99313,
+          "avgMid": 86438,
+          "weightedSalary": 86438
         }
       ],
       "topSalaryTitles": [

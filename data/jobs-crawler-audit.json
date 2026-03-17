@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-03-17T04:55:07.987Z",
-  "startedAt": "2026-03-17T04:52:58.824Z",
+  "generatedAt": "2026-03-17T04:55:56.306Z",
+  "startedAt": "2026-03-17T04:55:45.668Z",
   "config": {
     "minQualityScore": 4,
     "minDescriptionChars": 80,
@@ -22,7 +22,7 @@
   },
   "totals": {
     "companiesParsed": 178,
-    "companiesSelected": 0,
+    "companiesSelected": 1,
     "companiesDroppedBySelection": 0,
     "companiesCrawled": 1,
     "discoveredCareerPages": 8,
@@ -36,19 +36,22 @@
     "browserFallbackAttempts": 0,
     "browserFallbackHits": 0,
     "duplicateIncoming": 0,
-    "duplicateExisting": 0,
-    "mergeExcludedJobs": 0,
-    "mergeExclusionByReason": {},
+    "duplicateExisting": 7,
+    "mergeExcludedJobs": 1,
+    "mergeExclusionByReason": {
+      "not_ticino_relevant": 1,
+      "explicitly_outside_target": 1
+    },
     "reusedLocalizationFromPrevious": 0,
     "inserted": 1,
     "refreshed": 0,
-    "mergedTotal": 821,
-    "aiLocalizationCalls": 2,
+    "mergedTotal": 915,
+    "aiLocalizationCalls": 5,
     "aiPageValidationCalls": 0,
-    "deeplCalls": 2,
+    "deeplCalls": 0,
     "deeplSuccess": 0,
     "deeplFallbackToLlm": 1,
-    "aiCacheHits": 0,
+    "aiCacheHits": 8,
     "aiCacheMisses": 3,
     "aiCacheEntries": 1411,
     "discoveredCompaniesCandidates": 0,
@@ -80,5 +83,13 @@
     }
   ],
   "droppedCompanies": [],
-  "mergeExclusionSamples": []
+  "mergeExclusionSamples": [
+    {
+      "reason": "not_ticino_relevant",
+      "title": "Customer Advisor 40%",
+      "company": "Cornèr Banca",
+      "location": "Wallisellen",
+      "url": "https://jobs.corner.ch/o/customer-advisor-evening-and-weekend-40"
+    }
+  ]
 }
