@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-03-17T16:10:19.161Z",
+  "generatedAt": "2026-03-17T16:11:11.724Z",
   "links": {
     "allJobs": "https://www.frontaliereticino.ch/cerca-lavoro-ticino"
   },
   "totals": {
     "activeJobs": 834,
     "activeCompanies": 99,
-    "activeLocations": 153,
+    "activeLocations": 156,
     "todayAdded": 1155,
     "todayUpdated": 0,
     "todayRemoved": 0,
@@ -171,6 +171,18 @@
         "name": "Chiasso",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-chiasso",
         "count": 23
+      },
+      {
+        "key": "bellinzona",
+        "name": "Bellinzona",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-bellinzona",
+        "count": 130
+      },
+      {
+        "key": "chur",
+        "name": "Chur",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-chur",
+        "count": 34
       }
     ],
     "topCompaniesAddedToday": [
@@ -472,11 +484,11 @@
   },
   "salary": {
     "coverage": {
-      "jobsWithSalary": 834,
+      "jobsWithSalary": 822,
       "coveragePct": 100,
-      "avgMin": 67136,
-      "avgMax": 90592,
-      "avgMid": 78864,
+      "avgMin": 67007,
+      "avgMax": 90414,
+      "avgMid": 78710,
       "medianMid": 72000
     },
     "leaders": {
