@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-03-17T16:29:38.232Z",
+  "generatedAt": "2026-03-17T16:30:10.168Z",
   "links": {
     "allJobs": "https://www.frontaliereticino.ch/cerca-lavoro-ticino"
   },
   "totals": {
-    "activeJobs": 920,
-    "activeCompanies": 130,
+    "activeJobs": 903,
+    "activeCompanies": 102,
     "activeLocations": 160,
     "todayAdded": 1181,
     "todayUpdated": 0,
@@ -47,6 +47,13 @@
       "date": "2026-03-17",
       "totalJobs": 1011,
       "added": 1181,
+      "updated": 0,
+      "removed": 0
+    },
+    {
+      "date": "2026-03-17",
+      "totalJobs": 903,
+      "added": 1175,
       "updated": 0,
       "removed": 0
     }
@@ -104,12 +111,6 @@
     ],
     "topLocationsActive": [
       {
-        "key": "mendrisio",
-        "name": "Mendrisio",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-mendrisio",
-        "count": 49
-      },
-      {
         "key": "grigioni",
         "name": "Grigioni",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-grigioni",
@@ -150,6 +151,12 @@
         "name": "Ticino",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-ticino",
         "count": 24
+      },
+      {
+        "key": "mendrisio",
+        "name": "Mendrisio",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-mendrisio",
+        "count": 56
       }
     ],
     "topCompaniesAddedToday": [
@@ -451,11 +458,11 @@
   },
   "salary": {
     "coverage": {
-      "jobsWithSalary": 920,
+      "jobsWithSalary": 903,
       "coveragePct": 99.9,
-      "avgMin": 67202,
-      "avgMax": 90660,
-      "avgMid": 78931,
+      "avgMin": 68024,
+      "avgMax": 91796,
+      "avgMid": 79910,
       "medianMid": 70250
     },
     "leaders": {
