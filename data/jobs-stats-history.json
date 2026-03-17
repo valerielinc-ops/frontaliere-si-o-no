@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-03-17T04:49:00.859Z",
+  "generatedAt": "2026-03-17T04:49:22.773Z",
   "entries": [
     {
       "date": "2026-03-09",
@@ -52486,11 +52486,15 @@
     },
     {
       "date": "2026-03-17",
-      "totalJobs": 814,
-      "added": 826,
+      "totalJobs": 818,
+      "added": 830,
       "updated": 0,
       "removed": 0,
       "addedKeys": [
+        "url:https://artisagroup.com/carriera#architetto-qualificato",
+        "url:https://artisagroup.com/carriera#architetto-qualificato-lingua-francese",
+        "url:https://artisagroup.com/carriera#marketing-operations-media-relations-manager",
+        "url:https://artisagroup.com/carriera#real-estate-sales-manager",
         "url:https://boardinternationalsa.applytojob.com/apply/9rlipj4fyo/software-engineer",
         "url:https://boardinternationalsa.applytojob.com/apply/gjzwoogtxt/senior-consultant-financial-consolidation",
         "url:https://boardinternationalsa.applytojob.com/apply/ntzagustpu/technical-product-manager-platform",
@@ -54412,6 +54416,19 @@
           "removedKeys": []
         },
         {
+          "key": "artisa-group",
+          "name": "Artisa Group",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-artisa-group",
+          "addedKeys": [
+            "url:https://artisagroup.com/carriera#architetto-qualificato",
+            "url:https://artisagroup.com/carriera#architetto-qualificato-lingua-francese",
+            "url:https://artisagroup.com/carriera#marketing-operations-media-relations-manager",
+            "url:https://artisagroup.com/carriera#real-estate-sales-manager"
+          ],
+          "updatedKeys": [],
+          "removedKeys": []
+        },
+        {
           "key": "banca-cler",
           "name": "Banca Cler",
           "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-banca-cler",
@@ -55196,6 +55213,9 @@
           "name": "Lugano",
           "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-lugano",
           "addedKeys": [
+            "url:https://artisagroup.com/carriera#architetto-qualificato",
+            "url:https://artisagroup.com/carriera#architetto-qualificato-lingua-francese",
+            "url:https://artisagroup.com/carriera#marketing-operations-media-relations-manager",
             "url:https://careers.sunrise.ch/it/it/job/req_30036255/apprendista-gestore-del-commercio-al-dettaglio-afc-lugano",
             "url:https://content.usi.ch/sites/default/files/storage/attachments/biomed/biomed-phd-biofabrication.pdf",
             "url:https://content.usi.ch/sites/default/files/storage/attachments/biomed/biomed-postdoc-biofabrication.pdf",
@@ -56484,6 +56504,16 @@
           "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-luganese-malcantone",
           "addedKeys": [
             "url:https://www.lafonte.ch/inizia-con-noi?role=stagiaire-la-fonte"
+          ],
+          "updatedKeys": [],
+          "removedKeys": []
+        },
+        {
+          "key": "lugano-zurigo",
+          "name": "Lugano - Zurigo",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-lugano-zurigo",
+          "addedKeys": [
+            "url:https://artisagroup.com/carriera#real-estate-sales-manager"
           ],
           "updatedKeys": [],
           "removedKeys": []
@@ -58198,6 +58228,26 @@
           "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-apprentice",
           "addedKeys": [
             "url:https://jobs.coopjobs.ch/offene-stellen/aspirant-in/4bfa99a8-d78b-4fe9-b6f2-b076ed69d598"
+          ],
+          "updatedKeys": [],
+          "removedKeys": []
+        },
+        {
+          "key": "architetto-qualificato",
+          "name": "Architetto qualificato",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-architetto-qualificato",
+          "addedKeys": [
+            "url:https://artisagroup.com/carriera#architetto-qualificato"
+          ],
+          "updatedKeys": [],
+          "removedKeys": []
+        },
+        {
+          "key": "architetto-qualificato-lingua-francese",
+          "name": "Architetto qualificato lingua francese",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-architetto-qualificato-lingua-francese",
+          "addedKeys": [
+            "url:https://artisagroup.com/carriera#architetto-qualificato-lingua-francese"
           ],
           "updatedKeys": [],
           "removedKeys": []
@@ -61903,6 +61953,16 @@
           "removedKeys": []
         },
         {
+          "key": "responsabile-commerciale-immobiliare",
+          "name": "Responsabile Commerciale Immobiliare",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-responsabile-commerciale-immobiliare",
+          "addedKeys": [
+            "url:https://artisagroup.com/carriera#real-estate-sales-manager"
+          ],
+          "updatedKeys": [],
+          "removedKeys": []
+        },
+        {
           "key": "responsabile-contabile-sostituzione-maternita",
           "name": "Responsabile contabile (sostituzione maternità)",
           "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-responsabile-contabile-sostituzione-maternita",
@@ -62008,6 +62068,16 @@
           "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-responsabile-dellaformazione-infermieristica",
           "addedKeys": [
             "url:https://jobs.ksgr.ch/offene-stellen/ausbildungsverantwortliche-r-pflege/0554aad6-3ef3-463d-94ae-96f424877325"
+          ],
+          "updatedKeys": [],
+          "removedKeys": []
+        },
+        {
+          "key": "responsabile-delle-operazioni-di-marketing-e-delle-relazioni-con-i-media",
+          "name": "Responsabile delle operazioni di marketing e delle relazioni con i media",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-responsabile-delle-operazioni-di-marketing-e-delle-relazioni-con-i-media",
+          "addedKeys": [
+            "url:https://artisagroup.com/carriera#marketing-operations-media-relations-manager"
           ],
           "updatedKeys": [],
           "removedKeys": []
