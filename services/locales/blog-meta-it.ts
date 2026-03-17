@@ -1274,6 +1274,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.sfruttamento-corsieri-ticino-2026.title': 'Sfruttamento corrieri: la verità nascosta dietro le consegne a domicilio',
     'blog.article.sfruttamento-corsieri-ticino-2026.excerpt': 'Paghe da fame, turni massacranti e controlli digitali: l\'inchiesta di Milano svela il lato oscuro del lavoro dei fattorini in Ticino e Lombardia',
     'blog.article.sfruttamento-corsieri-ticino-2026.imageAlt': 'Corriere a domicilio in bicicletta a Lugano, Canton Ticino, con borse termiche per consegne',
+    'blog.article.lavoro-economia-2026.title': 'La fuga di talenti a Zurigo: anche le aziende si lamentano della penuria di alloggi',
+    'blog.article.lavoro-economia-2026.excerpt': 'La carenza di alloggi a Zurigo è un problema serio che sta scoraggiando i candidati dalle aziende zurighesi. La penuria di abitazioni è una delle principali preoccupazioni delle imprese.',
+    'blog.article.lavoro-economia-2026.imageAlt': 'Una giovane donna cerca di trovare un appartamento in una zona residenziale di Lugano, marzo 2026',
 };
 
 export default blogMetaIt;

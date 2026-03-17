@@ -1274,6 +1274,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.sfruttamento-corsieri-ticino-2026.title': 'Exploitation of couriers: the hidden truth behind home deliveries',
     'blog.article.sfruttamento-corsieri-ticino-2026.excerpt': 'Starvation wages, grueling shifts and digital controls: Milan\'s investigation reveals the dark side of delivery workers\' conditions in Ticino and Lombardy',
     'blog.article.sfruttamento-corsieri-ticino-2026.imageAlt': 'Food delivery courier on bicycle in Lugano, Ticino Canton, Switzerland',
+    'blog.article.lavoro-economia-2026.title': 'The talent drain to Zurich: companies also complain about the housing shortage',
+    'blog.article.lavoro-economia-2026.excerpt': 'Zurich\'s housing shortage is a serious problem that is deterring candidates from Zurich-based companies. The lack of housing is one of the main concerns for businesses.',
+    'blog.article.lavoro-economia-2026.imageAlt': 'A young woman searching for an apartment in a residential area of Lugano, March 2026',
 };
 
 export default blogMetaEn;

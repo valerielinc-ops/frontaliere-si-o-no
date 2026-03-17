@@ -1558,6 +1558,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-malcantone-fai-di-primavera-2026': { name: 'Malcantone Fai di Primavera 2026', path: '/articoli-frontaliere/malcantone-fai-di-primavera-2026', parent: 'blog' },
     'blog-sicurezza-privata-chiasso-nebiopoli': { name: 'Sicurezza privata', path: '/articoli-frontaliere/sicurezza-privata-chiasso-nebiopoli', parent: 'blog' },
     'blog-sfruttamento-corsieri-ticino-2026': { name: 'Sfruttamento corrieri', path: '/articoli-frontaliere/sfruttamento-corsieri-ticino-2026', parent: 'blog' },
+    'blog-lavoro-economia-2026': { name: 'La fuga di talenti a Zurigo', path: '/articoli-frontaliere/lavoro-economia-2026', parent: 'blog' },
   };
 
   const info = sectionNames[section];

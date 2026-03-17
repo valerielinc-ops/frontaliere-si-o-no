@@ -5446,6 +5446,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-lavoro-economia-2026': {
+    title: 'La fuga di talenti a Zurigo: anche le aziende si lamentano | Frontaliere Ticino',
+    description: 'La carenza di alloggi a Zurigo è un problema serio che sta scoraggiando i candidati dalle aziende zurighesi. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, fuga, talenti, zurigo, anche',
+    ogTitle: 'La fuga di talenti a Zurigo: anche le aziende si lamentano',
+    ogDescription: 'La carenza di alloggi a Zurigo è un problema serio che sta scoraggiando i candidati dalle aziende zurighesi',
+    canonicalPath: '/articoli-frontaliere/lavoro-economia-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "La fuga di talenti a Zurigo: anche le aziende si lamentano della penuria",
+      "description": "La carenza di alloggi a Zurigo è un problema serio che sta scoraggiando i candidati dalle aziende zurighesi. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/lavoro-economia-2026.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Una giovane donna cerca di trovare un appartamento in una zona residenziale di Lugano, marzo 2026"
+      },
+      "datePublished": "2026-03-17T19:27:49+00:00",
+      "dateModified": "2026-03-17T19:27:49+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/lavoro-economia-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

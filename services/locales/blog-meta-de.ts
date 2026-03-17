@@ -1274,6 +1274,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.sfruttamento-corsieri-ticino-2026.title': 'Ausbeutung von Kurieren: Die verborgene Wahrheit hinter den Hauslieferungen',
     'blog.article.sfruttamento-corsieri-ticino-2026.excerpt': 'Hungerlöhne, mörderische Schichten und digitale Kontrollen: Die Mailänder Ermittlung enthüllt die dunkle Seite der Arbeit der Zusteller in Tessin und Lombardei',
     'blog.article.sfruttamento-corsieri-ticino-2026.imageAlt': 'Essenszusteller auf Fahrrad in Lugano, Tessin, Schweiz',
+    'blog.article.lavoro-economia-2026.title': 'Die Flucht der Talente nach Zürich: Unternehmen klagen über die Wohnungsnot',
+    'blog.article.lavoro-economia-2026.excerpt': 'Die Wohnungsnot in Zürich ist ein ernstes Problem, das potenziellen Bewerbern von Unternehmen in Zürich abschreckt. Die Wohnungsnot ist eine der Hauptbeschwerden der Unternehmen.',
+    'blog.article.lavoro-economia-2026.imageAlt': 'Eine junge Frau sucht nach einem Apartment in einem Wohngebiet von Lugano, März 2026',
 };
 
 export default blogMetaDe;

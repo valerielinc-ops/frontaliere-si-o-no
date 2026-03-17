@@ -1274,6 +1274,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.sfruttamento-corsieri-ticino-2026.title': 'Sfruttamento des coursiers : la vérité cachée derrière les livraisons à domicile',
     'blog.article.sfruttamento-corsieri-ticino-2026.excerpt': 'Salaires de misère, horaires épuisants et contrôles numériques : l\'enquête de Milan révèle le côté obscur du travail des livreurs au Tessin et en Lombardie',
     'blog.article.sfruttamento-corsieri-ticino-2026.imageAlt': 'Livreur de repas à vélo à Lugano, canton du Tessin, Suisse',
+    'blog.article.lavoro-economia-2026.title': 'La fuite de talents à Zurich : les entreprises se plaignent de la pénurie de logements',
+    'blog.article.lavoro-economia-2026.excerpt': 'La pénurie de logements à Zurich est un problème grave qui décourage les candidats des entreprises zurichoises. La pénurie de logements est l\'une des principales préoccupations des entreprises.',
+    'blog.article.lavoro-economia-2026.imageAlt': 'Une jeune femme cherche un appartement dans un quartier résidentiel de Lugano, mars 2026',
 };
 
 export default blogMetaFr;

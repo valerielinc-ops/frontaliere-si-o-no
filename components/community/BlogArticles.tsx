@@ -3547,6 +3547,13 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/sfruttamento-corsieri-ticino-2026.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'lavoro-economia-2026',
+    category: 'novita',
+    date: '2026-03-17T19:27:49.808Z',
+    image: '/images/blog/lavoro-economia-2026.jpg',
+    hasCalculator: true,
+  },
 ];
 
 const CATEGORIES = ['all', 'fiscale', 'pratico', 'novita', 'pensione'] as const;
