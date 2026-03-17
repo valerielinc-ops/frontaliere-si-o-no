@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-03-17T16:51:26.698Z",
+  "updatedAt": "2026-03-17T16:54:11.814Z",
   "summaries": [
     {
       "key": "trumpf-schweiz-ag",
@@ -2688,72 +2688,6 @@
       "updatedJobs": [],
       "removedJobs": [],
       "unchangedJobs": []
-    },
-    {
-      "key": "post-ch",
-      "label": "Post.ch",
-      "generatedAt": "2026-03-17T05:29:39.544Z",
-      "total": 6,
-      "newCount": 0,
-      "updatedCount": 5,
-      "removedCount": 0,
-      "unchangedCount": 1,
-      "durationMs": 1060325,
-      "avgDurationMs": 502938,
-      "durationHistory": [
-        1060325,
-        130483,
-        639717,
-        181225
-      ],
-      "newJobs": [],
-      "updatedJobs": [
-        {
-          "title": "Apprendistato come operatore/operatrice per la comunicazione con la clientela, AFC",
-          "company": "Post CH AG",
-          "location": "Bellinzona",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/apprendistato-come-operatore-operatrice-per-la-comunicazione-con-la-clientela-afc-post/",
-          "slug": "apprendistato-come-operatore-operatrice-per-la-comunicazione-con-la-clientela-afc-post"
-        },
-        {
-          "title": "Apprendistato come impiegato/a del commercio al dettaglio: AFC",
-          "company": "Post CH AG",
-          "location": "Sottoceneri",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/apprendistato-come-impiegato-a-del-commercio-al-dettaglio-afc-post/",
-          "slug": "apprendistato-come-impiegato-a-del-commercio-al-dettaglio-afc-post"
-        },
-        {
-          "title": "Apprendistato come impiegato/a del commercio al dettaglio: AFC",
-          "company": "Post CH AG",
-          "location": "Sopraceneri",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/apprendistato-come-impiegato-a-del-commercio-al-dettaglio-afc-post-2/",
-          "slug": "apprendistato-come-impiegato-a-del-commercio-al-dettaglio-afc-post-2"
-        },
-        {
-          "title": "Apprendistato come informatica/informatico AFC Sviluppo di applicazioni",
-          "company": "Post CH AG",
-          "location": "Bellinzona",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/apprendistato-come-informatica-informatico-afc-sviluppo-di-applicazioni-post/",
-          "slug": "apprendistato-come-informatica-informatico-afc-sviluppo-di-applicazioni-post"
-        },
-        {
-          "title": "Zusteller:in Briefe und Pakete - 60-80%, Arosa",
-          "company": "Post CH AG",
-          "location": "Arosa",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/zusteller-in-briefe-und-pakete-60-80-arosa-post/",
-          "slug": "zusteller-in-briefe-und-pakete-60-80-arosa-post"
-        }
-      ],
-      "removedJobs": [],
-      "unchangedJobs": [
-        {
-          "title": "Lehre als Logistiker:in EFZ Distribution gemischte Zustellung (Briefe und Pakete)",
-          "company": "Post CH AG",
-          "location": "Davos",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post/",
-          "slug": "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post"
-        }
-      ]
     },
     {
       "key": "tich",
@@ -8619,6 +8553,65 @@
           "slug": "apprendistato-di-commercio-afc-lugano-zurich-insurance-sede-ticino-lugano"
         }
       ]
+    },
+    {
+      "key": "post-ch",
+      "label": "Post.ch",
+      "generatedAt": "2026-03-17T16:54:11.814Z",
+      "total": 5,
+      "newCount": 0,
+      "updatedCount": 5,
+      "removedCount": 0,
+      "unchangedCount": 0,
+      "durationMs": 1096036,
+      "avgDurationMs": 621557,
+      "durationHistory": [
+        1096036,
+        1060325,
+        130483,
+        639717,
+        181225
+      ],
+      "newJobs": [],
+      "updatedJobs": [
+        {
+          "title": "Lehre als Logistiker:in EFZ Distribution gemischte Zustellung (Briefe und Pakete)",
+          "company": "Post CH AG",
+          "location": "Davos",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post/",
+          "slug": "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post"
+        },
+        {
+          "title": "Apprendistato come operatore/operatrice per la comunicazione con la clientela, AFC",
+          "company": "Post CH AG",
+          "location": "Bellinzona",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/apprendistato-come-operatore-operatrice-per-la-comunicazione-con-la-clientela-afc-post/",
+          "slug": "apprendistato-come-operatore-operatrice-per-la-comunicazione-con-la-clientela-afc-post"
+        },
+        {
+          "title": "Apprendistato come impiegato/a del commercio al dettaglio: AFC",
+          "company": "Post CH AG",
+          "location": "Sottoceneri",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/apprendistato-come-impiegato-a-del-commercio-al-dettaglio-afc-post/",
+          "slug": "apprendistato-come-impiegato-a-del-commercio-al-dettaglio-afc-post"
+        },
+        {
+          "title": "Apprendistato come impiegato/a del commercio al dettaglio: AFC",
+          "company": "Post CH AG",
+          "location": "Sopraceneri",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/apprendistato-come-impiegato-a-del-commercio-al-dettaglio-afc-post-2/",
+          "slug": "apprendistato-come-impiegato-a-del-commercio-al-dettaglio-afc-post-2"
+        },
+        {
+          "title": "Apprendistato come impiegata/impiegato in logistica AFC Distribuzione Recapito pacchi",
+          "company": "Post CH AG",
+          "location": "Cadenazzo",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/apprendistato-come-impiegata-impiegato-in-logistica-afc-distribuzione-recapito-pacchi-post/",
+          "slug": "apprendistato-come-impiegata-impiegato-in-logistica-afc-distribuzione-recapito-pacchi-post"
+        }
+      ],
+      "removedJobs": [],
+      "unchangedJobs": []
     }
   ]
 }
