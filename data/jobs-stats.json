@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-03-18T05:25:39.145Z",
+  "generatedAt": "2026-03-18T05:18:57.503Z",
   "links": {
     "allJobs": "https://www.frontaliereticino.ch/cerca-lavoro-ticino"
   },
   "totals": {
-    "activeJobs": 977,
+    "activeJobs": 1052,
     "activeCompanies": 130,
     "activeLocations": 186,
     "todayAdded": 1029,
@@ -144,6 +144,18 @@
         "name": "USI – Università della Svizzera italiana",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-usi-universita-della-svizzera-italiana",
         "count": 24
+      },
+      {
+        "key": "hamilton-bonaduz-ag",
+        "name": "Hamilton Bonaduz AG",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-hamilton-bonaduz-ag",
+        "count": 75
+      },
+      {
+        "key": "grand-hotel-des-bains-kempinski-st-moritz",
+        "name": "Grand Hotel des Bains Kempinski St. Moritz",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-grand-hotel-des-bains-kempinski-st-moritz",
+        "count": 28
       }
     ],
     "topLocationsActive": [
@@ -236,6 +248,30 @@
         "name": "St. Moritz",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-st-moritz",
         "count": 57
+      },
+      {
+        "key": "lugano",
+        "name": "Lugano",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-lugano",
+        "count": 105
+      },
+      {
+        "key": "mendrisio",
+        "name": "Mendrisio",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-mendrisio",
+        "count": 64
+      },
+      {
+        "key": "st-moritz",
+        "name": "St. Moritz",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-st-moritz",
+        "count": 66
+      },
+      {
+        "key": "bonaduz",
+        "name": "Bonaduz",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-bonaduz",
+        "count": 44
       }
     ],
     "topCompaniesAddedToday": [
@@ -537,11 +573,11 @@
   },
   "salary": {
     "coverage": {
-      "jobsWithSalary": 977,
+      "jobsWithSalary": 1052,
       "coveragePct": 100,
-      "avgMin": 66129,
-      "avgMax": 89203,
-      "avgMid": 77666,
+      "avgMin": 65885,
+      "avgMax": 88870,
+      "avgMid": 77377,
       "medianMid": 68500
     },
     "leaders": {
@@ -645,6 +681,26 @@
           "avgMax": 124900,
           "avgMid": 108600,
           "weightedSalary": 108600
+        },
+        {
+          "key": "bracco-suisse-s-a",
+          "name": "Bracco Suisse S.A.",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-bracco-suisse-s-a",
+          "count": 3,
+          "avgMin": 87167,
+          "avgMax": 117833,
+          "avgMid": 102500,
+          "weightedSalary": 96367
+        },
+        {
+          "key": "knowledge-lab",
+          "name": "Knowledge Lab",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-knowledge-lab",
+          "count": 20,
+          "avgMin": 92300,
+          "avgMax": 124900,
+          "avgMid": 108600,
+          "weightedSalary": 108600
         }
       ],
       "topSalaryLocations": [
@@ -737,6 +793,36 @@
           "avgMax": 118167,
           "avgMid": 102667,
           "weightedSalary": 96467
+        },
+        {
+          "key": "zurich",
+          "name": "Zürich",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-zurich",
+          "count": 3,
+          "avgMin": 87167,
+          "avgMax": 118167,
+          "avgMid": 102667,
+          "weightedSalary": 96467
+        },
+        {
+          "key": "beijing-china",
+          "name": "Beijing, China",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-beijing-china",
+          "count": 4,
+          "avgMin": 92000,
+          "avgMax": 125000,
+          "avgMid": 108500,
+          "weightedSalary": 105200
+        },
+        {
+          "key": "mendrisio",
+          "name": "Mendrisio",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-mendrisio",
+          "count": 64,
+          "avgMin": 78536,
+          "avgMax": 106331,
+          "avgMid": 92433,
+          "weightedSalary": 92433
         }
       ],
       "topSalaryTitles": [
