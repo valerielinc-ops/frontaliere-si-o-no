@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-03-18T05:17:18.320Z",
+  "updatedAt": "2026-03-18T05:18:52.071Z",
   "summaries": [
     {
       "key": "agie-charmilles",
@@ -1794,57 +1794,6 @@
       "updatedJobs": [],
       "removedJobs": [],
       "unchangedJobs": []
-    },
-    {
-      "key": "schindler",
-      "label": "Schindler",
-      "generatedAt": "2026-03-17T16:38:12.476Z",
-      "total": 4,
-      "newCount": 0,
-      "updatedCount": 0,
-      "removedCount": 0,
-      "unchangedCount": 4,
-      "durationMs": 5401,
-      "avgDurationMs": 4389,
-      "durationHistory": [
-        5401,
-        4247,
-        3930,
-        3976
-      ],
-      "newJobs": [],
-      "updatedJobs": [],
-      "removedJobs": [],
-      "unchangedJobs": [
-        {
-          "title": "Supervisore dell'installazione (m/f/d) 80-100%",
-          "company": "Schindler",
-          "location": "Castione-Arbedo",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/supervisore-dell-installazione-m-f-d-80-100-schindler-castione-arbedo/",
-          "slug": "supervisore-dell-installazione-m-f-d-80-100-schindler-castione-arbedo"
-        },
-        {
-          "title": "Montatore ascensori (m/f/d) 80-100%",
-          "company": "Schindler",
-          "location": "Castione-Arbedo",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/montatore-ascensori-m-f-d-80-100-schindler-castione-arbedo/",
-          "slug": "montatore-ascensori-m-f-d-80-100-schindler-castione-arbedo"
-        },
-        {
-          "title": "Montatore/trice di ascensori SENIOR (m/f/d) 80-100%",
-          "company": "Schindler",
-          "location": "Bioggio",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/montatore-trice-di-ascensori-senior-m-f-d-80-100-schindler-bioggio/",
-          "slug": "montatore-trice-di-ascensori-senior-m-f-d-80-100-schindler-bioggio"
-        },
-        {
-          "title": "Apprendistato Operatore*trice in automazione  AFC per il 2026",
-          "company": "Schindler",
-          "location": "Locarno",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/apprendistato-operatore-trice-in-automazione-afc-per-il-2026-schindler-locarno/",
-          "slug": "apprendistato-operatore-trice-in-automazione-afc-per-il-2026-schindler-locarno"
-        }
-      ]
     },
     {
       "key": "skyguide",
@@ -8369,6 +8318,67 @@
           "slug": "meccanico-di-macchine-da-cantiere-pemsa-locarno"
         }
       ]
+    },
+    {
+      "key": "schindler",
+      "label": "Schindler",
+      "generatedAt": "2026-03-18T05:18:52.071Z",
+      "total": 5,
+      "newCount": 1,
+      "updatedCount": 3,
+      "removedCount": 1,
+      "unchangedCount": 0,
+      "durationMs": 5607,
+      "avgDurationMs": 4632,
+      "durationHistory": [
+        5607,
+        5401,
+        4247,
+        3930,
+        3976
+      ],
+      "newJobs": [
+        {
+          "title": "Supervisore dell'installazione (m/f/d) 80-100%",
+          "company": "Schindler",
+          "location": "Castione-Arbedo",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/supervisore-dell-installazione-m-f-d-80-100-schindler-castione-arbedo/",
+          "slug": "supervisore-dell-installazione-m-f-d-80-100-schindler-castione-arbedo"
+        }
+      ],
+      "updatedJobs": [
+        {
+          "title": "Apprendistato Operatore*trice in automazione  AFC per il 2026",
+          "company": "Schindler",
+          "location": "Locarno",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/apprendistato-operatore-trice-in-automazione-afc-per-il-2026-schindler-locarno/",
+          "slug": "apprendistato-operatore-trice-in-automazione-afc-per-il-2026-schindler-locarno"
+        },
+        {
+          "title": "Montatore ascensori (m/f/d) 80-100%",
+          "company": "Schindler",
+          "location": "Castione-Arbedo",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/montatore-ascensori-m-f-d-80-100-schindler-castione-arbedo/",
+          "slug": "montatore-ascensori-m-f-d-80-100-schindler-castione-arbedo"
+        },
+        {
+          "title": "Montatore/trice di ascensori SENIOR (m/f/d) 80-100%",
+          "company": "Schindler",
+          "location": "Bioggio",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/montatore-trice-di-ascensori-senior-m-f-d-80-100-schindler-bioggio/",
+          "slug": "montatore-trice-di-ascensori-senior-m-f-d-80-100-schindler-bioggio"
+        }
+      ],
+      "removedJobs": [
+        {
+          "title": "Supervisore dell'installazione (m/f/d) 80-100%",
+          "company": "Schindler",
+          "location": "Castione-Arbedo",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/supervisore-dell-installazione-m-f-d-80-100-schindler-castione-arbedo/",
+          "slug": "supervisore-dell-installazione-m-f-d-80-100-schindler-castione-arbedo"
+        }
+      ],
+      "unchangedJobs": []
     }
   ]
 }
