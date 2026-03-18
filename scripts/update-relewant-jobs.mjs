@@ -19,6 +19,8 @@ import {
   computeCrawlDiff,
   printCrawlChangeSummary,
   writeCrawlChangeSummaryToGH,
+  setCrawlerStartTime,
+  getCrawlerElapsedMs,
 } from './jobs-url-helper.mjs';
 import {
   writeJobsCrawlerSlice,
@@ -189,7 +191,7 @@ async function mergeJobs(discoveredJobs) {
   const diff = computeCrawlDiff(beforeSnapshot, afterSnapshot);
 
   // Build summary entry for per-crawler summary slice
-  const durationMs = Math.round(process.uptime() * 1000);
+  const durationMs = getCrawlerElapsedMs();
   const total = mergedTarget.length;
   const summaryEntry = {
     key: COMPANY_KEY,
@@ -260,6 +262,7 @@ function validateLocales() {
 }
 
 async function main() {
+  setCrawlerStartTime(); // reset wall-clock baseline at actual crawler start
   console.log('═══════════════════════════════════════════════');
   console.log('  ReleWant — Dedicated Crawler');
   console.log('═══════════════════════════════════════════════');

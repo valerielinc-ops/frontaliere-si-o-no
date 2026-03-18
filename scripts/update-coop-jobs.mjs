@@ -26,7 +26,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { printPublishedJobUrls, writeJobsSummary, snapshotJobSlugs, computeCrawlDiff, printCrawlChangeSummary, writeCrawlChangeSummaryToGH } from './jobs-url-helper.mjs';
+import { printPublishedJobUrls, writeJobsSummary, snapshotJobSlugs, computeCrawlDiff, printCrawlChangeSummary, writeCrawlChangeSummaryToGH, setCrawlerStartTime, getCrawlerElapsedMs } from './jobs-url-helper.mjs';
 import {
   writeJobsCrawlerSlice,
   writeSummaryCrawlerSlice,
@@ -532,6 +532,7 @@ function validateCoopLocaleCoverage() {
 // ──────────────────────────────────────────────────────────────
 
 async function main() {
+  setCrawlerStartTime(); // reset wall-clock baseline at actual crawler start
   console.log('🛒 Running dedicated Coop Ticino jobs crawler...');
   console.log('   Platform: Prospective.ch JobBooster (Career Center 1000103)');
   console.log('   Cantons: TI (Ticino) + GR (Grigioni)');
@@ -578,7 +579,7 @@ async function main() {
   if (stats.coopJobs && stats.coopJobs.length > 0) {
     writeJobsCrawlerSlice(COOP_KEY, stats.coopJobs);
 
-    const durationMs = Math.round(process.uptime() * 1000);
+    const durationMs = getCrawlerElapsedMs();
     const diff = stats.crawlDiff || { newJobs: [], updatedJobs: [], removedJobs: [], unchangedJobs: [], unchangedCount: 0 };
     const summaryEntry = {
       key: COOP_KEY,

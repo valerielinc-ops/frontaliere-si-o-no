@@ -25,6 +25,38 @@ const BASE_URL = 'https://www.frontaliereticino.ch';
 const JOB_PATH = 'cerca-lavoro-ticino';
 const DATA_SUMMARIES_PATH = resolveCrawlerSummaryStorePath();
 
+/**
+ * Module-level wall-clock start time.
+ *
+ * Each crawler that imports this module gets an accurate start timestamp at
+ * import time. `persistCrawlChangeSummary` computes `durationMs` as
+ * `Date.now() - _crawlerStartTime` so the persisted value reflects actual
+ * crawler wall-clock runtime rather than Node.js process uptime.
+ *
+ * Crawlers that prefer an explicit start (e.g. after a long setup phase) can
+ * call `setCrawlerStartTime()` to reset the reference point.
+ */
+let _crawlerStartTime = Date.now();
+
+/**
+ * Reset the crawler start timestamp to now (or to an explicit epoch ms value).
+ * Call this at the very beginning of a crawler's `main()` for the most accurate
+ * wall-clock duration.
+ *
+ * @param {number} [startMs] - Optional explicit start epoch (ms). Defaults to Date.now().
+ */
+export function setCrawlerStartTime(startMs) {
+  _crawlerStartTime = typeof startMs === 'number' && Number.isFinite(startMs) ? startMs : Date.now();
+}
+
+/**
+ * Return the wall-clock elapsed ms since the crawler start time was last set.
+ * @returns {number}
+ */
+export function getCrawlerElapsedMs() {
+  return Date.now() - _crawlerStartTime;
+}
+
 /** Build the published URL for a job */
 function jobUrl(job) {
   const localizedSlug = job?.slugByLocale?.it;
@@ -64,7 +96,10 @@ function persistCrawlChangeSummary(diff, label = '') {
   const key = normalizeSummaryKey(label);
   const cleanLabel = label || 'Generic Crawler';
   const total = diff.newJobs.length + diff.updatedJobs.length + diff.removedJobs.length + diff.unchangedCount;
-  const durationMs = Math.round(process.uptime() * 1000);
+  // Use real wall-clock elapsed time since setCrawlerStartTime() (or module load).
+  // This replaces the previous process.uptime() which measured Node process age,
+  // not the actual crawler runtime.
+  const durationMs = getCrawlerElapsedMs();
   const current = readSummaryStore(DATA_SUMMARIES_PATH) || createEmptyCrawlerSummaryStore();
   const prev = current.summaries.find((s) => s?.key === key);
   // Keep rolling history of last 10 durations for average calculation
@@ -202,7 +237,7 @@ export function printCrawlChangeSummary(diff, label = '') {
   const tag = label ? ` — ${label}` : '';
   const total = diff.newJobs.length + diff.updatedJobs.length + diff.removedJobs.length + diff.unchangedCount;
   const active = total - diff.removedJobs.length;
-  const durationSec = (process.uptime()).toFixed(1);
+  const durationSec = (getCrawlerElapsedMs() / 1000).toFixed(1);
   persistCrawlChangeSummary(diff, label);
   console.log(`\n📋 Riepilogo crawler${tag}:`);
   console.log(`  📊 Offerte attive: ${active}${diff.removedJobs.length > 0 ? ` (${diff.removedJobs.length} rimosse)` : ''}`);
