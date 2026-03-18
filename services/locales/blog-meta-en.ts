@@ -1292,6 +1292,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.walter-bonatti-in-capo-al-mondo.title': 'Walter Bonatti \'In capo al mondo\': il Teatro Sociale di Montegrino rivive il mito dell\'ultimo esploratore',
     'blog.article.walter-bonatti-in-capo-al-mondo.excerpt': 'On March 21 at 9:00 PM, at the Teatro Sociale in Montegrino Valtravaglia, \'In capo al mondo. In viaggio con Walter Bonatti\' will be performed.',
     'blog.article.walter-bonatti-in-capo-al-mondo.imageAlt': 'Theater Sociale in Montegrino Valtravaglia',
+    'blog.article.sargans-teenage-robbery-catch.title': 'Sargans: Serbian Teenagers Detained After Attempted Theft',
+    'blog.article.sargans-teenage-robbery-catch.excerpt': 'Two young individuals, aged 18 and 16, attempted to break into two car garages in Sargans but were arrested following a chase. Here’s what happened.',
+    'blog.article.sargans-teenage-robbery-catch.imageAlt': 'Swiss police arrest two teenagers in Sargans, scene of urban capture.',
 };
 
 export default blogMetaEn;

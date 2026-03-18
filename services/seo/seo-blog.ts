@@ -5620,6 +5620,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-sargans-teenage-robbery-catch': {
+    title: 'Sargans: Teenager serbi fermati dopo tentato furto | Frontaliere Ticino',
+    description: 'Due giovani serbi di 18 e 16 anni sono stati arrestati a Sargans dopo un tentato furto in autogarages. Scopri di più sulle procedure e la sicurezza di',
+    keywords: 'frontalieri, ticino, svizzera, italia, sargans, teenager, serbi, fermati',
+    ogTitle: 'Teenager arrestati a Sargans: caso di furto e sicurezza',
+    ogDescription: 'Arresto di due teenager serbi a Sargans dopo tentato furto in autogarages, esempio di efficacia delle forze di polizia svizzere nel controllo di frontiera.',
+    canonicalPath: '/articoli-frontaliere/sargans-teenage-robbery-catch',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Titolo JSON-LD",
+      "description": "Due giovani serbi di 18 e 16 anni sono stati arrestati a Sargans dopo un tentato furto in autogarages. Scopri di più sulle procedure e la sicurezza di",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/sargans-teenage-robbery-catch.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Polizia svizzera blocca due teenager nel Canton Sankt Gallen, scena urbana di Sargans."
+      },
+      "datePublished": "2026-03-18T07:12:46+00:00",
+      "dateModified": "2026-03-18T07:12:46+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/sargans-teenage-robbery-catch`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

@@ -3589,6 +3589,13 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/walter-bonatti-in-capo-al-mondo.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'sargans-teenage-robbery-catch',
+    category: 'pratico',
+    date: '2026-03-18T07:12:46.300Z',
+    image: '/images/blog/sargans-teenage-robbery-catch.jpg',
+    hasCalculator: true,
+  },
 ];
 
 const CATEGORIES = ['all', 'fiscale', 'pratico', 'novita', 'pensione'] as const;
