@@ -44,6 +44,7 @@ import { printPublishedJobUrls, writeJobsSummary, snapshotJobSlugs, computeCrawl
 import { translateMissingJobLocales, validateDedicatedLocaleCoverage } from './lib/dedicated-crawler-common.mjs';
 import { freeTranslateWithRetry } from './lib/free-translate.mjs';
 import { GRIGIONI_CITIES, TICINO_CITIES, inferSwissTargetCanton, isTargetSwissLocation } from './lib/target-swiss-locations.mjs';
+import { parseSbbDetailPage, MIN_SBB_DESC_LENGTH } from './lib/sbb-job-parser.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -763,12 +764,6 @@ async function parseSbbJobFromDetailUrl(detailUrl, apiMetaByUrl) {
   const html = await fetchPage(detailUrl, timeoutMs, 'text/html,application/xhtml+xml');
   if (!html) return null;
 
-  const jobPosting = getJobPostingFromHtml(html);
-  if (!jobPosting) {
-    console.warn(`  ⚠️ No JobPosting JSON-LD: ${detailUrl}`);
-    return null;
-  }
-
   const apiMeta = apiMetaByUrl.get(normalizeDetailUrl(detailUrl)) || null;
   const companyDomain = (() => {
     try {
@@ -788,27 +783,53 @@ async function parseSbbJobFromDetailUrl(detailUrl, apiMetaByUrl) {
     ? (localizedLoginData[sourceLocale] || extractLoginLocalizedPageData(html))
     : { title: '', description: '', location: '', requirements: [] };
 
-  const title = String(apiMeta?.title || sourceLoginData.title || jobPosting?.title || '').trim();
-  if (!title) {
-    console.warn(`  ⚠️ Missing title in JSON-LD: ${detailUrl}`);
+  // For non-login.org pages (jobs.sbb.ch), use parseSbbDetailPage() which
+  // extracts the full vacancy body from HTML sections, not just the JSON-LD teaser.
+  const sbbParsed = !isLoginOrgDetail ? parseSbbDetailPage(html) : null;
+  if (sbbParsed) {
+    for (const w of sbbParsed.warnings) {
+      console.warn(`  ⚠️ ${w}`);
+    }
+  }
+
+  // Fall back to inline JSON-LD for login.org pages (apprenticeship portal)
+  const jobPosting = isLoginOrgDetail ? getJobPostingFromHtml(html) : (sbbParsed ? null : getJobPostingFromHtml(html));
+  if (!sbbParsed && !jobPosting) {
+    console.warn(`  ⚠️ No parseable content: ${detailUrl}`);
     return null;
   }
 
-  const descriptionBlocks = uniqueLongTextBlocks([
+  const title = String(apiMeta?.title || sourceLoginData.title || sbbParsed?.title || jobPosting?.title || '').trim();
+  if (!title) {
+    console.warn(`  ⚠️ Missing title: ${detailUrl}`);
+    return null;
+  }
+
+  const descriptionBlocks = !isLoginOrgDetail ? [] : uniqueLongTextBlocks([
     jobPosting?.description,
     jobPosting?.responsibilities,
     jobPosting?.qualifications,
   ]);
-  const description = String(sourceLoginData.description || descriptionBlocks.join('\n\n')).trim();
-  if (description.length < 180) {
+  const description = String(
+    sourceLoginData.description ||
+    sbbParsed?.description ||
+    descriptionBlocks.join('\n\n')
+  ).trim();
+  if (description.length < MIN_SBB_DESC_LENGTH) {
     console.warn(`  ⚠️ Thin description (${description.length} chars): ${detailUrl}`);
-    return null;
+    if (description.length < 50) return null;
   }
 
   const requirements = sourceLoginData.requirements?.length
     ? sourceLoginData.requirements
-    : parseBullets(jobPosting?.qualifications, 14);
-  const location = String(sourceLoginData.location || extractLocationFromJobPosting(jobPosting, html, apiMeta)).trim();
+    : (sbbParsed?.requirements?.length
+      ? sbbParsed.requirements
+      : parseBullets(jobPosting?.qualifications, 14));
+  const location = String(
+    sourceLoginData.location ||
+    sbbParsed?.location ||
+    extractLocationFromJobPosting(jobPosting, html, apiMeta)
+  ).trim();
   const canton = inferSwissTargetCanton(`${location} ${apiMeta?.region || ''}`) || 'TI';
   const slugBase = slugify(`${title}-${SBB_KEY}-${location}`) || createHash('sha1').update(normalizeDetailUrl(detailUrl)).digest('hex').slice(0, 16);
   const id = `sbb-${createHash('sha1').update(normalizeDetailUrl(detailUrl)).digest('hex').slice(0, 12)}`;
