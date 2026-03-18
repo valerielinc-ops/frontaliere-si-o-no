@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-03-18T05:03:58.594Z",
+  "updatedAt": "2026-03-18T05:04:51.552Z",
   "summaries": [
     {
       "key": "agie-charmilles",
@@ -2235,38 +2235,6 @@
           "location": "Ticino",
           "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/specialista-inside-sales-service-80-100-abb-svizzera-sede-ticino-ticino/",
           "slug": "inside-sales-service-specialist-80-100-abb-svizzera-sede-ticino-ticino"
-        }
-      ]
-    },
-    {
-      "key": "fnz",
-      "label": "FNZ",
-      "generatedAt": "2026-03-17T16:23:52.423Z",
-      "total": 1,
-      "newCount": 0,
-      "updatedCount": 0,
-      "removedCount": 0,
-      "unchangedCount": 1,
-      "durationMs": 32949,
-      "avgDurationMs": 99301,
-      "durationHistory": [
-        32949,
-        108137,
-        95716,
-        181388,
-        92083,
-        85531
-      ],
-      "newJobs": [],
-      "updatedJobs": [],
-      "removedJobs": [],
-      "unchangedJobs": [
-        {
-          "title": "Solution Consultant CRM",
-          "company": "FNZ (Switzerland) AG",
-          "location": "Chiasso",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/solution-consultant-crm-fnz/",
-          "slug": "solution-consultant-crm-fnz"
         }
       ]
     },
@@ -8621,6 +8589,39 @@
           "slug": "1-addetto-al-reparto-verifica-e-pulizia-del-garage-autolinee-100-m-f-fart-ferrovie-autolinee-regionali-ticinesi-locarno"
         }
       ],
+      "unchangedJobs": []
+    },
+    {
+      "key": "fnz",
+      "label": "FNZ",
+      "generatedAt": "2026-03-18T05:04:51.552Z",
+      "total": 1,
+      "newCount": 0,
+      "updatedCount": 1,
+      "removedCount": 0,
+      "unchangedCount": 0,
+      "durationMs": 35438,
+      "avgDurationMs": 90177,
+      "durationHistory": [
+        35438,
+        32949,
+        108137,
+        95716,
+        181388,
+        92083,
+        85531
+      ],
+      "newJobs": [],
+      "updatedJobs": [
+        {
+          "title": "Solution Consultant CRM",
+          "company": "FNZ (Switzerland) AG",
+          "location": "Chiasso",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/solution-consultant-crm-fnz/",
+          "slug": "consulente-soluzioni-crm-fnz-switzerland-ag-chiasso"
+        }
+      ],
+      "removedJobs": [],
       "unchangedJobs": []
     }
   ]
