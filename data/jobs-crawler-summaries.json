@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-03-18T05:25:59.284Z",
+  "updatedAt": "2026-03-18T05:25:34.728Z",
   "summaries": [
     {
       "key": "agie-charmilles",
@@ -153,54 +153,6 @@
           "location": "Grüsch",
           "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/apprendistato-2026-designer-efz-trumpf-schweiz-ag-grusch/",
           "slug": "lehrstelle-2026-konstrukteur-in-efz-trumpf-r00033050"
-        }
-      ]
-    },
-    {
-      "key": "zegna",
-      "label": "Zegna",
-      "generatedAt": "2026-03-17T05:19:51.432Z",
-      "total": 3,
-      "newCount": 0,
-      "updatedCount": 0,
-      "removedCount": 0,
-      "unchangedCount": 3,
-      "durationMs": 33269,
-      "avgDurationMs": 22922,
-      "durationHistory": [
-        33269,
-        34166,
-        22233,
-        20087,
-        35809,
-        11746,
-        11645,
-        14420
-      ],
-      "newJobs": [],
-      "updatedJobs": [],
-      "removedJobs": [],
-      "unchangedJobs": [
-        {
-          "title": "Senior Credit Specialist",
-          "company": "Ermenegildo Zegna Group",
-          "location": "Stabio",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/specialista-senior-del-credito-ermenegildo-zegna-group-stabio/",
-          "slug": "senior-credit-specialist-zegna"
-        },
-        {
-          "title": "Customer Service Specialist",
-          "company": "Ermenegildo Zegna Group",
-          "location": "Stabio",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/specialista-del-servizio-clienti-ermenegildo-zegna-group-stabio/",
-          "slug": "customer-service-specialist-zegna"
-        },
-        {
-          "title": "IT In Store Sales Specialist",
-          "company": "Ermenegildo Zegna Group",
-          "location": "Stabio",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/specialista-vendite-it-in-negozio-ermenegildo-zegna-group-stabio/",
-          "slug": "it-in-store-sales-specialist-zegna"
         }
       ]
     },
@@ -8406,6 +8358,56 @@
           "location": "Lugano",
           "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/specialista-sinistri-cose-e-rc-m-f-d-80-100-zurich-insurance-sede-ticino-lugano/",
           "slug": "specialista-sinistri-cose-e-rc-m-f-d-80-100-zurich-insurance-sede-ticino-lugano"
+        }
+      ]
+    },
+    {
+      "key": "zegna",
+      "label": "Zegna",
+      "generatedAt": "2026-03-18T05:25:34.728Z",
+      "total": 3,
+      "newCount": 0,
+      "updatedCount": 2,
+      "removedCount": 0,
+      "unchangedCount": 1,
+      "durationMs": 20133,
+      "avgDurationMs": 22612,
+      "durationHistory": [
+        20133,
+        33269,
+        34166,
+        22233,
+        20087,
+        35809,
+        11746,
+        11645,
+        14420
+      ],
+      "newJobs": [],
+      "updatedJobs": [
+        {
+          "title": "Senior Credit Specialist",
+          "company": "Ermenegildo Zegna Group",
+          "location": "Stabio",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/specialista-senior-del-credito-ermenegildo-zegna-group-stabio/",
+          "slug": "specialista-senior-del-credito-ermenegildo-zegna-group-stabio"
+        },
+        {
+          "title": "Customer Service Specialist",
+          "company": "Ermenegildo Zegna Group",
+          "location": "Stabio",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/specialista-del-servizio-clienti-ermenegildo-zegna-group-stabio/",
+          "slug": "specialista-del-servizio-clienti-ermenegildo-zegna-group-stabio"
+        }
+      ],
+      "removedJobs": [],
+      "unchangedJobs": [
+        {
+          "title": "IT In Store Sales Specialist",
+          "company": "Ermenegildo Zegna Group",
+          "location": "Stabio",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/specialista-vendite-it-in-negozio-ermenegildo-zegna-group-stabio/",
+          "slug": "specialista-vendite-it-in-negozio-ermenegildo-zegna-group-stabio"
         }
       ]
     }
