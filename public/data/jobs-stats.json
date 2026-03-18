@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-03-18T16:27:02.570Z",
+  "generatedAt": "2026-03-18T16:27:13.149Z",
   "links": {
     "allJobs": "https://www.frontaliereticino.ch/cerca-lavoro-ticino"
   },
   "totals": {
-    "activeJobs": 1810,
+    "activeJobs": 1483,
     "activeCompanies": 133,
     "activeLocations": 163,
     "todayAdded": 1053,
@@ -38,13 +38,6 @@
     },
     {
       "date": "2026-03-18",
-      "totalJobs": 1449,
-      "added": 1052,
-      "updated": 0,
-      "removed": 0
-    },
-    {
-      "date": "2026-03-18",
       "totalJobs": 1810,
       "added": 1053,
       "updated": 0,
@@ -67,94 +60,10 @@
         "count": 186
       },
       {
-        "key": "colin-cie-wealth-management",
-        "name": "Colin&Cie Wealth Management",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-colin-cie-wealth-management",
-        "count": 233
-      },
-      {
-        "key": "vf-international-the-north-face-timberland",
-        "name": "VF International (The North Face, Timberland)",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-vf-international-the-north-face-timberland",
-        "count": 109
-      },
-      {
-        "key": "grace-la-margna-st-moritz",
-        "name": "Grace La Margna St. Moritz",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-grace-la-margna-st-moritz",
-        "count": 43
-      },
-      {
-        "key": "amministrazione-cantonale-ticino",
-        "name": "Amministrazione Cantonale Ticino",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-amministrazione-cantonale-ticino",
-        "count": 40
-      },
-      {
         "key": "tz-stromag",
         "name": "TZ Stromag",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-tz-stromag",
         "count": 40
-      },
-      {
-        "key": "c2b-electrotechnique-succursale-de-grichting-valterio-electro-sa",
-        "name": "C2B Electrotechnique, succursale de Grichting & Valterio Electro SA",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-c2b-electrotechnique-succursale-de-grichting-valterio-electro-sa",
-        "count": 36
-      },
-      {
-        "key": "colin-cie-wealth-management",
-        "name": "Colin&Cie Wealth Management",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-colin-cie-wealth-management",
-        "count": 385
-      },
-      {
-        "key": "vf-international-the-north-face-timberland",
-        "name": "VF International (The North Face, Timberland)",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-vf-international-the-north-face-timberland",
-        "count": 190
-      },
-      {
-        "key": "grace-la-margna-st-moritz",
-        "name": "Grace La Margna St. Moritz",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-grace-la-margna-st-moritz",
-        "count": 70
-      },
-      {
-        "key": "amministrazione-cantonale-ticino",
-        "name": "Amministrazione Cantonale Ticino",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-amministrazione-cantonale-ticino",
-        "count": 67
-      },
-      {
-        "key": "hitachi-energy",
-        "name": "Hitachi Energy",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-hitachi-energy",
-        "count": 60
-      },
-      {
-        "key": "tz-stromag",
-        "name": "TZ Stromag",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-tz-stromag",
-        "count": 57
-      },
-      {
-        "key": "c2b-electrotechnique-succursale-de-grichting-valterio-electro-sa",
-        "name": "C2B Electrotechnique, succursale de Grichting & Valterio Electro SA",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-c2b-electrotechnique-succursale-de-grichting-valterio-electro-sa",
-        "count": 53
-      },
-      {
-        "key": "vf-international-the-north-face-timberland",
-        "name": "VF International (The North Face, Timberland)",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-vf-international-the-north-face-timberland",
-        "count": 25
-      },
-      {
-        "key": "kulm-hotel-st-moritz",
-        "name": "Kulm Hotel St. Moritz",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-kulm-hotel-st-moritz",
-        "count": 21
       },
       {
         "key": "vf-international-the-north-face-timberland",
@@ -209,99 +118,45 @@
         "name": "C2B Electrotechnique, succursale de Grichting & Valterio Electro SA",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-c2b-electrotechnique-succursale-de-grichting-valterio-electro-sa",
         "count": 53
+      },
+      {
+        "key": "colin-cie-wealth-management",
+        "name": "Colin&Cie Wealth Management",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-colin-cie-wealth-management",
+        "count": 241
+      },
+      {
+        "key": "vf-international-the-north-face-timberland",
+        "name": "VF International (The North Face, Timberland)",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-vf-international-the-north-face-timberland",
+        "count": 127
+      },
+      {
+        "key": "grace-la-margna-st-moritz",
+        "name": "Grace La Margna St. Moritz",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-grace-la-margna-st-moritz",
+        "count": 49
+      },
+      {
+        "key": "amministrazione-cantonale-ticino",
+        "name": "Amministrazione Cantonale Ticino",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-amministrazione-cantonale-ticino",
+        "count": 46
+      },
+      {
+        "key": "hitachi-energy",
+        "name": "Hitachi Energy",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-hitachi-energy",
+        "count": 39
+      },
+      {
+        "key": "pemsa",
+        "name": "PEMSA",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-pemsa",
+        "count": 37
       }
     ],
     "topLocationsActive": [
-      {
-        "key": "lugano",
-        "name": "Lugano",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-lugano",
-        "count": 171
-      },
-      {
-        "key": "emea-che-stabio-vf-campus-vf1",
-        "name": "EMEA · CHE · Stabio · VF Campus VF1",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-emea-che-stabio-vf-campus-vf1",
-        "count": 107
-      },
-      {
-        "key": "munsbach",
-        "name": "Munsbach",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-munsbach",
-        "count": 87
-      },
-      {
-        "key": "st-moritz",
-        "name": "St. Moritz",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-st-moritz",
-        "count": 82
-      },
-      {
-        "key": "zurich",
-        "name": "Zürich",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-zurich",
-        "count": 60
-      },
-      {
-        "key": "lugano",
-        "name": "Lugano",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-lugano",
-        "count": 209
-      },
-      {
-        "key": "emea-che-stabio-vf-campus-vf1",
-        "name": "EMEA · CHE · Stabio · VF Campus VF1",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-emea-che-stabio-vf-campus-vf1",
-        "count": 188
-      },
-      {
-        "key": "munsbach",
-        "name": "Munsbach",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-munsbach",
-        "count": 144
-      },
-      {
-        "key": "mendrisio",
-        "name": "Mendrisio",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-mendrisio",
-        "count": 109
-      },
-      {
-        "key": "st-moritz",
-        "name": "St. Moritz",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-st-moritz",
-        "count": 109
-      },
-      {
-        "key": "zurich",
-        "name": "Zürich",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-zurich",
-        "count": 98
-      },
-      {
-        "key": "molinazzo-di-monteggio-switzerland",
-        "name": "Molinazzo di Monteggio, Switzerland",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-molinazzo-di-monteggio-switzerland",
-        "count": 58
-      },
-      {
-        "key": "lugano",
-        "name": "Lugano",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-lugano",
-        "count": 115
-      },
-      {
-        "key": "mendrisio",
-        "name": "Mendrisio",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-mendrisio",
-        "count": 48
-      },
-      {
-        "key": "ticino",
-        "name": "Ticino",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-ticino",
-        "count": 25
-      },
       {
         "key": "lugano",
         "name": "Lugano",
@@ -361,6 +216,54 @@
         "name": "Molinazzo di Monteggio, Switzerland",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-molinazzo-di-monteggio-switzerland",
         "count": 58
+      },
+      {
+        "key": "lugano",
+        "name": "Lugano",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-lugano",
+        "count": 173
+      },
+      {
+        "key": "bellinzona",
+        "name": "Bellinzona",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-bellinzona",
+        "count": 134
+      },
+      {
+        "key": "emea-che-stabio-vf-campus-vf1",
+        "name": "EMEA · CHE · Stabio · VF Campus VF1",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-emea-che-stabio-vf-campus-vf1",
+        "count": 125
+      },
+      {
+        "key": "munsbach",
+        "name": "Munsbach",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-munsbach",
+        "count": 90
+      },
+      {
+        "key": "mendrisio",
+        "name": "Mendrisio",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-mendrisio",
+        "count": 88
+      },
+      {
+        "key": "st-moritz",
+        "name": "St. Moritz",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-st-moritz",
+        "count": 88
+      },
+      {
+        "key": "zurich",
+        "name": "Zürich",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-zurich",
+        "count": 62
+      },
+      {
+        "key": "ticino",
+        "name": "Ticino",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-ticino",
+        "count": 47
       }
     ],
     "topCompaniesAddedToday": [
@@ -662,12 +565,12 @@
   },
   "salary": {
     "coverage": {
-      "jobsWithSalary": 1810,
+      "jobsWithSalary": 1483,
       "coveragePct": 100,
-      "avgMin": 68839,
-      "avgMax": 93229,
-      "avgMid": 81034,
-      "medianMid": 68500
+      "avgMin": 68375,
+      "avgMax": 92505,
+      "avgMid": 80440,
+      "medianMid": 84500
     },
     "leaders": {
       "topSalaryCompanies": [
@@ -740,6 +643,16 @@
           "avgMax": 122750,
           "avgMid": 106750,
           "weightedSalary": 97150
+        },
+        {
+          "key": "board-international",
+          "name": "Board International",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-board-international",
+          "count": 9,
+          "avgMin": 84444,
+          "avgMax": 113889,
+          "avgMid": 99167,
+          "weightedSalary": 99167
         }
       ],
       "topSalaryLocations": [
@@ -807,36 +720,6 @@
           "key": "zurich",
           "name": "Zürich",
           "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-zurich",
-          "count": 60,
-          "avgMin": 77742,
-          "avgMax": 104842,
-          "avgMid": 91292,
-          "weightedSalary": 91292
-        },
-        {
-          "key": "zurich",
-          "name": "Zürich",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-zurich",
-          "count": 98,
-          "avgMin": 77648,
-          "avgMax": 104709,
-          "avgMid": 91179,
-          "weightedSalary": 91179
-        },
-        {
-          "key": "zurich",
-          "name": "Zürich",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-zurich",
-          "count": 4,
-          "avgMin": 81125,
-          "avgMax": 109625,
-          "avgMid": 95375,
-          "weightedSalary": 92525
-        },
-        {
-          "key": "zurich",
-          "name": "Zürich",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-zurich",
           "count": 4,
           "avgMin": 81125,
           "avgMax": 109625,
@@ -852,6 +735,26 @@
           "avgMax": 104709,
           "avgMid": 91179,
           "weightedSalary": 91179
+        },
+        {
+          "key": "chiasso-switzerland",
+          "name": "Chiasso, Switzerland",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-chiasso-switzerland",
+          "count": 7,
+          "avgMin": 87857,
+          "avgMax": 118571,
+          "avgMid": 103214,
+          "weightedSalary": 103214
+        },
+        {
+          "key": "zurich",
+          "name": "Zürich",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-zurich",
+          "count": 62,
+          "avgMin": 77734,
+          "avgMax": 104831,
+          "avgMid": 91282,
+          "weightedSalary": 91282
         }
       ],
       "topSalaryTitles": [
