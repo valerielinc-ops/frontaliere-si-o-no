@@ -5852,6 +5852,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-truffe-chiamate-shock-ticino': {
+    title: 'Truffe \'chiamate shock\' a Chiasso e Biasca, due arresti | Frontaliere Ticino',
+    description: 'Due cittadini polacchi arrestati per truffe ai danni di anziani in Ticino. La polizia recupera la refurtiva e conferma la misura restrittiva della libertà.',
+    keywords: 'frontalieri, ticino, svizzera, italia, truffe, chiamate, shock, chiasso',
+    ogTitle: 'Truffe \'chiamate shock\' a Chiasso e Biasca, due arresti',
+    ogDescription: 'Due cittadini polacchi arrestati per truffe ai danni di anziani in Ticino. La polizia recupera la refurtiva e conferma la misura restrittiva della libertà.',
+    canonicalPath: '/articoli-frontaliere/truffe-chiamate-shock-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Truffe 'chiamate shock' a Chiasso e Biasca, due arresti",
+      "description": "Due cittadini polacchi arrestati per truffe ai danni di anziani in Ticino. La polizia recupera la refurtiva e conferma la misura restrittiva della libertà.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/truffe-chiamate-shock-ticino.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Arrestato un sospettato di truffa a Bellinzona"
+      },
+      "datePublished": "2026-03-18T22:48:22+00:00",
+      "dateModified": "2026-03-18T22:48:22+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/truffe-chiamate-shock-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

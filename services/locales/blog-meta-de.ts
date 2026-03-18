@@ -1316,6 +1316,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.centovallina-riapertura-treni.title': 'Die Centovallina fährt wieder zwischen Camedo und Domodossola',
     'blog.article.centovallina-riapertura-treni.excerpt': 'Ab dem 19. März 2026 wird die Bahnstrecke zwischen Camedo und Domodossola wieder geöffnet und der internationale Dienst wird normal wieder aufgenommen.',
     'blog.article.centovallina-riapertura-treni.imageAlt': 'Bahnhof Locarno',
+    'blog.article.truffe-chiamate-shock-ticino.title': 'Betrugsfälle \'Schockanrufe\' in Chiasso und Biasca, zwei Festnahmen',
+    'blog.article.truffe-chiamate-shock-ticino.excerpt': 'Zwei polnische Staatsbürger wurden wegen Betrugs zum Nachteil von Senioren im Tessin festgenommen. Die Polizei konnte die Beute zurückgewinnen und bestätigte die restriktive Massnahme der Freiheit.',
+    'blog.article.truffe-chiamate-shock-ticino.imageAlt': 'Verdächtiger bei Betrug in Bellinzona festgenommen',
 };
 
 export default blogMetaDe;

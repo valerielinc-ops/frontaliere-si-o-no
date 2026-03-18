@@ -1316,6 +1316,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.centovallina-riapertura-treni.title': 'La Centovallina torna a circolare tra Camedo e Domodossola',
     'blog.article.centovallina-riapertura-treni.excerpt': 'Dal 19 marzo 2026, la tratta ferroviaria tra Camedo e Domodossola sarà riaperta e il servizio internazionale riprenderà normalmente.',
     'blog.article.centovallina-riapertura-treni.imageAlt': 'Stazione ferroviaria di Locarno',
+    'blog.article.truffe-chiamate-shock-ticino.title': 'Truffe \'chiamate shock\' a Chiasso e Biasca, due arresti',
+    'blog.article.truffe-chiamate-shock-ticino.excerpt': 'Due cittadini polacchi sono stati arrestati per truffe ai danni di anziani in Ticino. La polizia ha recuperato la refurtiva e ha confermato la misura restrittiva della libertà.',
+    'blog.article.truffe-chiamate-shock-ticino.imageAlt': 'Arrestato un sospettato di truffa a Bellinzona',
 };
 
 export default blogMetaIt;
