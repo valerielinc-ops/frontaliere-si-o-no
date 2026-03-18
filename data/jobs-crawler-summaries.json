@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-03-18T05:17:33.285Z",
+  "updatedAt": "2026-03-18T05:17:46.962Z",
   "summaries": [
     {
       "key": "agie-charmilles",
@@ -703,39 +703,6 @@
           "location": "Giubiasco",
           "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ingegnere-capo-progetto-nella-sezione-sicurezza-ed-esercizio-m-f-x-lombardi-giubiasco/",
           "slug": "ingegnere-capo-progetto-nella-sezione-sicurezza-ed-esercizio-m-f-x-lombardi-giubiasco"
-        }
-      ]
-    },
-    {
-      "key": "rittmeyer-ag",
-      "label": "Rittmeyer AG",
-      "generatedAt": "2026-03-16T05:49:42.695Z",
-      "total": 1,
-      "newCount": 0,
-      "updatedCount": 0,
-      "removedCount": 0,
-      "unchangedCount": 1,
-      "durationMs": 3671,
-      "avgDurationMs": 3456,
-      "durationHistory": [
-        3671,
-        3220,
-        3471,
-        3294,
-        3071,
-        3771,
-        3692
-      ],
-      "newJobs": [],
-      "updatedJobs": [],
-      "removedJobs": [],
-      "unchangedJobs": [
-        {
-          "title": "Sales Project Engineer (a) Ticino",
-          "company": "Rittmeyer AG",
-          "location": "Camorino",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/sales-project-engineer-a-ticino-rittmeyer-ag-tessin/",
-          "slug": "sales-project-engineer-a-ticino-rittmeyer-ag-tessin"
         }
       ]
     },
@@ -8402,6 +8369,40 @@
           "slug": "consulente-clientela-aziendale-banca-raiffeisen-vedeggio-cassarate-gravesano"
         }
       ]
+    },
+    {
+      "key": "rittmeyer-ag",
+      "label": "Rittmeyer AG",
+      "generatedAt": "2026-03-18T05:17:46.962Z",
+      "total": 1,
+      "newCount": 0,
+      "updatedCount": 1,
+      "removedCount": 0,
+      "unchangedCount": 0,
+      "durationMs": 3297,
+      "avgDurationMs": 3436,
+      "durationHistory": [
+        3297,
+        3671,
+        3220,
+        3471,
+        3294,
+        3071,
+        3771,
+        3692
+      ],
+      "newJobs": [],
+      "updatedJobs": [
+        {
+          "title": "Sales Project Engineer (a) Ticino",
+          "company": "Rittmeyer AG",
+          "location": "Camorino",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/sales-project-engineer-a-ticino-rittmeyer-ag-tessin/",
+          "slug": "sales-project-engineer-a-ticino-rittmeyer-ag-tessin"
+        }
+      ],
+      "removedJobs": [],
+      "unchangedJobs": []
     }
   ]
 }
