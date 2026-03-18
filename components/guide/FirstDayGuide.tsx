@@ -1,9 +1,12 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { useTranslation } from '@/services/i18n';
 import { unlockAchievement, addXp } from '@/services/gamificationService';
-import { CheckCircle2, Circle, ChevronDown, ChevronUp, Flag, Sparkles, ExternalLink, Clock, AlertCircle, Trophy, User } from 'lucide-react';
+import { CheckCircle2, Circle, ChevronDown, ChevronUp, Flag, Sparkles, ExternalLink, Clock, AlertCircle, Trophy, User, Briefcase } from 'lucide-react';
 import { loadUserProfile } from '@/components/pages/UserProfile';
 import type { UserProfileData } from '@/components/pages/UserProfile';
+import { useNavigation } from '@/services/NavigationContext';
+import { buildPath } from '@/services/router';
+import Analytics from '@/services/analytics';
 
 // ─── Checklist Steps ─────────────────────────────────────────────────────
 
@@ -14,6 +17,8 @@ interface ChecklistStep {
   estimatedDays: string;
   links?: { label: string; url: string }[];
   substeps?: string[];
+  /** Show a primary internal job-board CTA before external links */
+  jobBoardCta?: true;
 }
 
 const CHECKLIST_STEPS: ChecklistStep[] = [
@@ -23,6 +28,7 @@ const CHECKLIST_STEPS: ChecklistStep[] = [
     category: 'documents',
     icon: '💼',
     estimatedDays: '1-3 mesi',
+    jobBoardCta: true,
     links: [
       { label: 'jobs.ch', url: 'https://www.jobs.ch' },
       { label: 'Indeed Svizzera', url: 'https://www.indeed.ch' },
@@ -131,6 +137,7 @@ const STORAGE_KEY = 'frontaliere_firstday_checklist';
 
 const FirstDayGuide: React.FC = () => {
   const { t } = useTranslation();
+  const nav = useNavigation();
   const [completedSteps, setCompletedSteps] = useState<Set<string>>(() => {
     try {
       const raw = localStorage.getItem(STORAGE_KEY);
@@ -321,7 +328,26 @@ const FirstDayGuide: React.FC = () => {
                     </div>
                   )}
 
-                  {/* Links */}
+                  {/* Internal job-board CTA — shown before external links */}
+                  {step.jobBoardCta && (
+                    <div className="mt-2">
+                      <a
+                        href={buildPath({ activeTab: 'job-board' })}
+                        onClick={(e) => {
+                          if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return;
+                          e.preventDefault();
+                          nav.navigateTo('job-board');
+                          Analytics.trackUIInteraction('first_day_guide', 'job_board_cta', 'click', 'find_job_step');
+                        }}
+                        className="inline-flex items-center gap-2 px-4 py-2 bg-indigo-600 hover:bg-indigo-700 dark:bg-indigo-600 dark:hover:bg-indigo-500 text-white rounded-lg text-xs font-bold transition-colors"
+                      >
+                        <Briefcase className="w-3.5 h-3.5" />
+                        {t('firstday.jobBoard.cta')}
+                      </a>
+                    </div>
+                  )}
+
+                  {/* Links — external portals as secondary resources */}
                   {step.links && (
                     <div className="flex flex-wrap gap-2 mt-2">
                       {step.links.map((link, i) => (
