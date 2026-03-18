@@ -1,22 +1,22 @@
 {
-  "generatedAt": "2026-03-18T04:50:14.749Z",
+  "generatedAt": "2026-03-18T04:51:20.135Z",
   "links": {
     "allJobs": "https://www.frontaliereticino.ch/cerca-lavoro-ticino"
   },
   "totals": {
-    "activeJobs": 944,
-    "activeCompanies": 126,
+    "activeJobs": 950,
+    "activeCompanies": 127,
     "activeLocations": 177,
-    "todayAdded": 901,
+    "todayAdded": 907,
     "todayUpdated": 0,
     "todayRemoved": 0,
     "last7d": {
-      "added": 2998,
+      "added": 3004,
       "updated": 0,
       "removed": 0
     },
     "last30d": {
-      "added": 3481,
+      "added": 3487,
       "updated": 0,
       "removed": 0
     }
@@ -45,8 +45,8 @@
     },
     {
       "date": "2026-03-18",
-      "totalJobs": 944,
-      "added": 901,
+      "totalJobs": 950,
+      "added": 907,
       "updated": 0,
       "removed": 0
     }
@@ -451,11 +451,11 @@
   },
   "salary": {
     "coverage": {
-      "jobsWithSalary": 944,
+      "jobsWithSalary": 950,
       "coveragePct": 100,
-      "avgMin": 65609,
-      "avgMax": 88498,
-      "avgMid": 77053,
+      "avgMin": 65670,
+      "avgMax": 88581,
+      "avgMid": 77126,
       "medianMid": 68000
     },
     "leaders": {
@@ -613,14 +613,14 @@
           "weightedSalary": 88300
         },
         {
-          "key": "munsbach",
-          "name": "Munsbach",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-munsbach",
-          "count": 3,
-          "avgMin": 77500,
-          "avgMax": 104500,
-          "avgMid": 91000,
-          "weightedSalary": 85600
+          "key": "losone",
+          "name": "Losone",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-losone",
+          "count": 8,
+          "avgMin": 73563,
+          "avgMax": 99313,
+          "avgMid": 86438,
+          "weightedSalary": 86438
         }
       ],
       "topSalaryTitles": [
