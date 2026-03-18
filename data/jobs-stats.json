@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-03-18T05:21:44.773Z",
+  "generatedAt": "2026-03-18T05:18:14.859Z",
   "links": {
     "allJobs": "https://www.frontaliereticino.ch/cerca-lavoro-ticino"
   },
   "totals": {
-    "activeJobs": 1869,
+    "activeJobs": 969,
     "activeCompanies": 134,
     "activeLocations": 184,
     "todayAdded": 1019,
@@ -241,6 +241,12 @@
         "name": "Hitachi Energy",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-hitachi-energy",
         "count": 152
+      },
+      {
+        "key": "convit-holding-gmbh",
+        "name": "Convit Holding GmbH",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-convit-holding-gmbh",
+        "count": 23
       }
     ],
     "topLocationsActive": [
@@ -459,6 +465,24 @@
         "name": "Lugano",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-lugano",
         "count": 147
+      },
+      {
+        "key": "lugano",
+        "name": "Lugano",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-lugano",
+        "count": 104
+      },
+      {
+        "key": "st-moritz",
+        "name": "St. Moritz",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-st-moritz",
+        "count": 54
+      },
+      {
+        "key": "mendrisio",
+        "name": "Mendrisio",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-mendrisio",
+        "count": 49
       }
     ],
     "topCompaniesAddedToday": [
@@ -760,11 +784,11 @@
   },
   "salary": {
     "coverage": {
-      "jobsWithSalary": 1869,
+      "jobsWithSalary": 969,
       "coveragePct": 99.6,
-      "avgMin": 65126,
-      "avgMax": 87774,
-      "avgMid": 76450,
+      "avgMin": 65849,
+      "avgMax": 88828,
+      "avgMid": 77338,
       "medianMid": 68500
     },
     "leaders": {
