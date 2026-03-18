@@ -1319,6 +1319,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.truffe-chiamate-shock-ticino.title': 'Truffe \'chiamate shock\' a Chiasso e Biasca, due arresti',
     'blog.article.truffe-chiamate-shock-ticino.excerpt': 'Due cittadini polacchi sono stati arrestati per truffe ai danni di anziani in Ticino. La polizia ha recuperato la refurtiva e ha confermato la misura restrittiva della libertà.',
     'blog.article.truffe-chiamate-shock-ticino.imageAlt': 'Arrestato un sospettato di truffa a Bellinzona',
+    'blog.article.spazi-verdi-in-citta-rilassamento.title': 'Spazi verdi in città: un\'ancora di salvezza per il nostro relax',
+    'blog.article.spazi-verdi-in-citta-rilassamento.excerpt': 'La presenza di spazi verdi nelle aree urbane può aiutare a ridurre lo stress e migliorare la qualità della vita. Scopri come.',
+    'blog.article.spazi-verdi-in-citta-rilassamento.imageAlt': 'Parco pubblico a Lugano',
 };
 
 export default blogMetaIt;

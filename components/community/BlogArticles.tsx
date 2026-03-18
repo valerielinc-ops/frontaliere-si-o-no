@@ -3653,6 +3653,13 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/truffe-chiamate-shock-ticino.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'spazi-verdi-in-citta-rilassamento',
+    category: 'pratico',
+    date: '2026-03-18T23:45:16.640Z',
+    image: '/images/blog/spazi-verdi-in-citta-rilassamento.jpg',
+    hasCalculator: true,
+  },
 ];
 
 const CATEGORIES = ['all', 'fiscale', 'pratico', 'novita', 'pensione'] as const;

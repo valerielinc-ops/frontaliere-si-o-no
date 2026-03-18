@@ -5881,6 +5881,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-spazi-verdi-in-citta-rilassamento': {
+    title: 'Spazi verdi in città: un\'ancora di salvezza per il nostro | Frontaliere Ticino',
+    description: 'La presenza di spazi verdi nelle aree urbane può aiutare a ridurre lo stress e migliorare la qualità della vita. Scopri come. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, spazi, verdi, città, ancora',
+    ogTitle: 'Spazi verdi in città: un\'ancora di salvezza per il nostro',
+    ogDescription: 'La presenza di spazi verdi nelle aree urbane può aiutare a ridurre lo stress e migliorare la qualità della vita. Scopri come.',
+    canonicalPath: '/articoli-frontaliere/spazi-verdi-in-citta-rilassamento',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Spazi verdi in città: un'ancora di salvezza per il nostro relax",
+      "description": "La presenza di spazi verdi nelle aree urbane può aiutare a ridurre lo stress e migliorare la qualità della vita. Scopri come. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/spazi-verdi-in-citta-rilassamento.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Parco pubblico a Lugano"
+      },
+      "datePublished": "2026-03-18T23:45:16+00:00",
+      "dateModified": "2026-03-18T23:45:16+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/spazi-verdi-in-citta-rilassamento`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

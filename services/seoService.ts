@@ -1573,6 +1573,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-gadda-incalza-governo-frontalieri': { name: 'Frontalieri', path: '/articoli-frontaliere/gadda-incalza-governo-frontalieri', parent: 'blog' },
     'blog-centovallina-riapertura-treni': { name: 'Trasporti', path: '/articoli-frontaliere/centovallina-riapertura-treni', parent: 'blog' },
     'blog-truffe-chiamate-shock-ticino': { name: 'Truffe', path: '/articoli-frontaliere/truffe-chiamate-shock-ticino', parent: 'blog' },
+    'blog-spazi-verdi-in-citta-rilassamento': { name: 'Ambiente', path: '/articoli-frontaliere/spazi-verdi-in-citta-rilassamento', parent: 'blog' },
   };
 
   const info = sectionNames[section];

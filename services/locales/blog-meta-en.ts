@@ -1319,6 +1319,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.truffe-chiamate-shock-ticino.title': 'Shock call scams in Chiasso and Biasca, two arrests',
     'blog.article.truffe-chiamate-shock-ticino.excerpt': 'Two Polish citizens have been arrested for scams targeting elderly people in Ticino. The police have recovered the stolen goods and confirmed the restrictive measure of liberty.',
     'blog.article.truffe-chiamate-shock-ticino.imageAlt': 'Suspect arrested for scam in Bellinzona',
+    'blog.article.spazi-verdi-in-citta-rilassamento.title': 'Green spaces in cities: a lifeline for our relaxation',
+    'blog.article.spazi-verdi-in-citta-rilassamento.excerpt': 'The presence of green spaces in urban areas can help reduce stress and improve quality of life. Discover how.',
+    'blog.article.spazi-verdi-in-citta-rilassamento.imageAlt': 'Public park in Lugano',
 };
 
 export default blogMetaEn;
