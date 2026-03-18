@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-03-18T03:33:02.487Z",
+  "lastUpdated": "2026-03-18T04:50:09.196Z",
   "totalJobs": 944,
   "sources": {
     "arbeitSwiss": 0,
@@ -13,14 +13,14 @@
     "companyCareerCrawler": 0
   },
   "crawler": {
-    "lastRun": "2026-03-18T03:33:02.487Z",
-    "startedAt": "2026-03-18T03:22:07.842Z",
-    "companiesCrawled": 0,
+    "lastRun": "2026-03-18T04:50:09.196Z",
+    "startedAt": "2026-03-18T04:49:54.725Z",
+    "companiesCrawled": 1,
     "extracted": 0,
     "inserted": 0,
     "refreshed": 0,
-    "timeoutMs": 9000,
+    "timeoutMs": 4000,
     "maxCompanies": 60,
-    "maxConcurrency": 6
+    "maxConcurrency": 4
   }
 }

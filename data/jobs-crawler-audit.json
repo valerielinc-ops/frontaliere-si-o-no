@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-03-18T03:33:02.487Z",
-  "startedAt": "2026-03-18T03:22:07.842Z",
+  "generatedAt": "2026-03-18T04:50:09.196Z",
+  "startedAt": "2026-03-18T04:49:54.725Z",
   "config": {
     "minQualityScore": 4,
     "minDescriptionChars": 80,
     "aiLocalizationEnabled": true,
-    "aiLocalizationMaxJobsPerRun": 120,
+    "aiLocalizationMaxJobsPerRun": 500,
     "contentReuse": {
       "enabled": true,
       "similarityThreshold": 0.7,
@@ -22,10 +22,10 @@
   },
   "totals": {
     "companiesParsed": 178,
-    "companiesSelected": 27,
+    "companiesSelected": 1,
     "companiesDroppedBySelection": 0,
-    "companiesCrawled": 0,
-    "discoveredCareerPages": 0,
+    "companiesCrawled": 1,
+    "discoveredCareerPages": 8,
     "scrapedJobPages": 0,
     "incomingCandidatesAccepted": 0,
     "discardedCandidates": 0,
@@ -36,243 +36,49 @@
     "browserFallbackAttempts": 0,
     "browserFallbackHits": 0,
     "duplicateIncoming": 0,
-    "duplicateExisting": 153,
-    "mergeExcludedJobs": 77,
-    "mergeExclusionByReason": {
-      "non_detail_url": 76,
-      "outside_swiss_ticino": 7,
-      "location_explicitly_foreign": 6,
-      "explicitly_outside_target": 1,
-      "not_ticino_relevant": 4
-    },
+    "duplicateExisting": 0,
+    "mergeExcludedJobs": 0,
+    "mergeExclusionByReason": {},
     "reusedLocalizationFromPrevious": 0,
     "inserted": 0,
     "refreshed": 0,
     "mergedTotal": 944,
-    "aiLocalizationCalls": 21,
+    "aiLocalizationCalls": 0,
     "aiPageValidationCalls": 0,
-    "deeplCalls": 145,
+    "deeplCalls": 0,
     "deeplSuccess": 0,
-    "deeplFallbackToLlm": 99,
-    "aiCacheHits": 33,
-    "aiCacheMisses": 121,
-    "aiCacheEntries": 1522,
+    "deeplFallbackToLlm": 0,
+    "aiCacheHits": 0,
+    "aiCacheMisses": 0,
+    "aiCacheEntries": 1408,
     "discoveredCompaniesCandidates": 0,
     "discoveredCompaniesAdded": 0,
     "discoveredCompaniesPending": 0
   },
-  "byCompany": [],
-  "droppedCompanies": [],
-  "mergeExclusionSamples": [
+  "byCompany": [
     {
-      "reason": "non_detail_url",
-      "title": "Agente dei trasporti pubblici AFC, Pollegio",
-      "company": "FFS Officine (Ferrovie Federali)",
-      "location": "Pollegio",
-      "url": "https://www.login.org/it/2225-agente-dei-trasporti-pubblici-afc-circolazione-treni"
-    },
-    {
-      "reason": "non_detail_url",
-      "title": "Operatore/trice di edifici e infrastrutture AFC, Giubiasco",
-      "company": "FFS Officine (Ferrovie Federali)",
-      "location": "Giubiasco",
-      "url": "https://www.login.org/it/2346-operatoretrice-di-edifici-e-infrastrutture-afc"
-    },
-    {
-      "reason": "non_detail_url",
-      "title": "Impiegato/a del commercio al dettaglio AFC trasporti pubblici , Chiasso",
-      "company": "FFS Officine (Ferrovie Federali)",
-      "location": "Chiasso",
-      "url": "https://www.login.org/it/2217-impiegatoa-del-commercio-al-dettaglio-trasporti-pubblici-afc-assistenza-ai-clienti"
-    },
-    {
-      "reason": "non_detail_url",
-      "title": "Elettricista per reti di distribuzione AFC, Biasca",
-      "company": "FFS Officine (Ferrovie Federali)",
-      "location": "Biasca",
-      "url": "https://www.login.org/it/2248-elettricista-reti-di-distribuzione-afc-linea-di-contatto"
-    },
-    {
-      "reason": "non_detail_url",
-      "title": "Meccanico/a di produzione AFC, Bellinzona",
-      "company": "FFS Officine (Ferrovie Federali)",
-      "location": "Bellinzona",
-      "url": "https://www.login.org/it/2181-meccanicoa-di-produzione-afc"
-    },
-    {
-      "reason": "non_detail_url",
-      "title": "Verniciatore/trice industriale AFC, Bellinzona",
-      "company": "FFS Officine (Ferrovie Federali)",
-      "location": "Bellinzona",
-      "url": "https://www.login.org/it/2247-verniciatoretrice-industriale-afc"
-    },
-    {
-      "reason": "non_detail_url",
-      "title": "Praticantato commerciale, Bellinzona",
-      "company": "FFS Officine (Ferrovie Federali)",
-      "location": "Bellinzona",
-      "url": "https://www.login.org/it/2242-praticante-ffs-infrastruttura-bellinzona"
-    },
-    {
-      "reason": "non_detail_url",
-      "title": "Operatore/trice tecnica di pulizia AFC, Bellinzona",
-      "company": "FFS Officine (Ferrovie Federali)",
-      "location": "Bellinzona",
-      "url": "https://www.login.org/it/2370-operatoretrice-tecnica-di-pulizia-afc"
-    },
-    {
-      "reason": "non_detail_url",
-      "title": "Impiegato/a del commercio al dettaglio AFC trasporti pubblici , Bellinzona",
-      "company": "FFS Officine (Ferrovie Federali)",
-      "location": "Bellinzona",
-      "url": "https://www.login.org/it/2216-impiegatoa-del-commercio-al-dettaglio-trasporti-pubblici-afc-assistenza-ai-clienti"
-    },
-    {
-      "reason": "non_detail_url",
-      "title": "Agente dei trasporti pubblici AFC, Balerna",
-      "company": "FFS Officine (Ferrovie Federali)",
-      "location": "Balerna",
-      "url": "https://www.login.org/it/2321-agente-dei-trasporti-pubblici-afc-mobilita"
-    },
-    {
-      "reason": "outside_swiss_ticino",
-      "title": "CHEF DE CONTROLE DE PROJET - LE LOCLE",
-      "company": "Impresa Pizzarotti & C. S.p.A.",
-      "location": "Neuchâtel, Svizzera",
-      "url": "https://inrecruiting.intervieweb.it/impresapizzarotti/jobs/chef-de-controle-de-projet-le-locle-678790/it/"
-    },
-    {
-      "reason": "non_detail_url",
-      "title": "Collaboratore Immobiliare",
-      "company": "Tarchini Group",
-      "location": "Mendrisio",
-      "url": "https://www.tarchinigroup.com/it/work/1528/collaboratore-immobiliare"
-    },
-    {
-      "reason": "non_detail_url",
-      "title": "Responsabile investimenti e partecipazioni",
-      "company": "Tarchini Group",
-      "location": "Manno",
-      "url": "https://www.tarchinigroup.com/it/work/1537/responsabile-investimenti-e-partecipazioni"
-    },
-    {
-      "reason": "non_detail_url",
-      "title": "CONSULENTE PATRIMONIALE SENIOR CH",
-      "company": "LWP Ledermann Wieting & Partners",
-      "location": "Lugano",
-      "url": "https://www.lwphr.ch/uploads/1/4/6/5/146598773/consulente_patrimoniale_senior.pdf"
-    },
-    {
-      "reason": "non_detail_url",
-      "title": "HR SPECIALIST",
-      "company": "LWP Ledermann Wieting & Partners",
-      "location": "Lugano",
-      "url": "https://www.lwphr.ch/uploads/1/4/6/5/146598773/hr_specialist.pdf"
-    },
-    {
-      "reason": "non_detail_url",
-      "title": "DIRETTORE AMMINSITRATIVO E FINANZIARIO (CFO",
-      "company": "LWP Ledermann Wieting & Partners",
-      "location": "Ticino",
-      "url": "https://www.lwphr.ch/uploads/1/4/6/5/146598773/direttore_amministrativo_e_finanziario__cfo_.pdf"
-    },
-    {
-      "reason": "non_detail_url",
-      "title": "MARKETING MANAGER SVIZZERA",
-      "company": "LWP Ledermann Wieting & Partners",
-      "location": "Ticino",
-      "url": "https://www.lwphr.ch/uploads/1/4/6/5/146598773/marketing_manager_svizzera.pdf"
-    },
-    {
-      "reason": "non_detail_url",
-      "title": "SENIOR PRIVATE BANKER",
-      "company": "LWP Ledermann Wieting & Partners",
-      "location": "Lugano",
-      "url": "https://www.lwphr.ch/uploads/1/4/6/5/146598773/senior_private_banker_.pdf"
-    },
-    {
-      "reason": "non_detail_url",
-      "title": "SPECIALISTA CONTABILE",
-      "company": "LWP Ledermann Wieting & Partners",
-      "location": "Lugano",
-      "url": "https://www.lwphr.ch/uploads/1/4/6/5/146598773/specialista_contabile_.pdf"
-    },
-    {
-      "reason": "non_detail_url",
-      "title": "CONSULENTE VENDITA",
-      "company": "LWP Ledermann Wieting & Partners",
-      "location": "Mendrisio",
-      "url": "https://www.lwphr.ch/uploads/1/4/6/5/146598773/consulente_vendita__lamal.pdf"
-    },
-    {
-      "reason": "non_detail_url",
-      "title": "SEGRETARIA LEGALE",
-      "company": "LWP Ledermann Wieting & Partners",
-      "location": "Lugano",
-      "url": "https://www.lwphr.ch/uploads/1/4/6/5/146598773/segretaria_legale.pdf"
-    },
-    {
-      "reason": "non_detail_url",
-      "title": "Software Engineer",
-      "company": "Board International",
-      "location": "Chiasso, Ticino, Switzerland",
-      "url": "https://boardinternationalsa.applytojob.com/apply/9RLIpJ4fYO/Software-Engineer"
-    },
-    {
-      "reason": "non_detail_url",
-      "title": "Solution Developer",
-      "company": "Board International",
-      "location": "Chiasso, Switzerland",
-      "url": "https://boardinternationalsa.applytojob.com/apply/yfE1WDGOS4/Solution-Developer"
-    },
-    {
-      "reason": "non_detail_url",
-      "title": "Mechanical Simulation Engineer",
-      "company": "AGIE Charmilles SA",
-      "location": "Losone",
-      "url": "https://www.find-your-future.ch/it/arbeiten-mem-branche/branche-unternehmen/jobdetails/agie-charmilles-sa-mechanical-simulation-engineer/"
-    },
-    {
-      "reason": "non_detail_url",
-      "title": "Electrical Engineer",
-      "company": "AGIE Charmilles SA",
-      "location": "Losone",
-      "url": "https://www.find-your-future.ch/it/arbeiten-mem-branche/branche-unternehmen/jobdetails/agie-charmilles-sa-electrical-engineer/"
-    },
-    {
-      "reason": "non_detail_url",
-      "title": "Project Leader",
-      "company": "AGIE Charmilles SA",
-      "location": "Losone",
-      "url": "https://www.find-your-future.ch/it/arbeiten-mem-branche/branche-unternehmen/jobdetails/agie-charmilles-sa-project-leader/"
-    },
-    {
-      "reason": "non_detail_url",
-      "title": "Senior .NET Developer - Test Systems Lead",
-      "company": "AGIE Charmilles SA",
-      "location": "Losone",
-      "url": "https://www.find-your-future.ch/it/arbeiten-mem-branche/branche-unternehmen/jobdetails/agie-charmilles-sa-senior-net-developer-test-systems-lead/"
-    },
-    {
-      "reason": "non_detail_url",
-      "title": "CNC-PLC Software Developer",
-      "company": "AGIE Charmilles SA",
-      "location": "Losone",
-      "url": "https://www.find-your-future.ch/it/arbeiten-mem-branche/branche-unternehmen/jobdetails/agie-charmilles-sa-cnc-plc-software-developer/"
-    },
-    {
-      "reason": "non_detail_url",
-      "title": "Control Engineer",
-      "company": "AGIE Charmilles SA",
-      "location": "Losone",
-      "url": "https://www.find-your-future.ch/it/arbeiten-mem-branche/branche-unternehmen/jobdetails/agie-charmilles-sa-control-engineer/"
-    },
-    {
-      "reason": "non_detail_url",
-      "title": "Geologo Junior (f/m/d) 80-100% - Cantiere “N2 - Secondo tubo del San Gottardo” ad Airolo",
-      "company": "AFRY",
-      "location": "Airolo",
-      "url": "https://afry.com/en/join-us/available-jobs/REF13824E-geologo-junior-f-m-d-80-100-cantiere-n2-secondo-tubo-del-san-gottardo-ad-airolo"
+      "company": "A++ Group",
+      "domain": "a2plus.green",
+      "discoveredCareerPages": 8,
+      "scrapedJobPages": 0,
+      "processedCandidates": 0,
+      "extractedAccepted": 0,
+      "discardedCount": 0,
+      "discardedByReason": {},
+      "filteredOutCount": 0,
+      "filteredOutByReason": {},
+      "duplicateInCompany": 0,
+      "webDiscoveryQueries": 0,
+      "webDiscoveryHits": 0,
+      "webDiscoveryProviders": [],
+      "browserFallbackAttempted": 0,
+      "browserFallbackHits": 0,
+      "browserFallbackReason": "",
+      "inserted": 0,
+      "refreshed": 0,
+      "duplicateIncoming": 0
     }
-  ]
+  ],
+  "droppedCompanies": [],
+  "mergeExclusionSamples": []
 }
