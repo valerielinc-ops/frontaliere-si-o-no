@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-03-18T16:39:36.949Z",
+  "generatedAt": "2026-03-18T16:40:07.339Z",
   "links": {
     "allJobs": "https://www.frontaliereticino.ch/cerca-lavoro-ticino"
   },
   "totals": {
-    "activeJobs": 2974,
-    "activeCompanies": 126,
+    "activeJobs": 937,
+    "activeCompanies": 128,
     "activeLocations": 148,
     "todayAdded": 1066,
     "todayUpdated": 0,
@@ -39,6 +39,13 @@
     {
       "date": "2026-03-18",
       "totalJobs": 4851,
+      "added": 1066,
+      "updated": 0,
+      "removed": 0
+    },
+    {
+      "date": "2026-03-18",
+      "totalJobs": 2901,
       "added": 1066,
       "updated": 0,
       "removed": 0
@@ -159,6 +166,12 @@
         "name": "Grace La Margna St. Moritz",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-grace-la-margna-st-moritz",
         "count": 113
+      },
+      {
+        "key": "pemsa",
+        "name": "PEMSA",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-pemsa",
+        "count": 37
       }
     ],
     "topLocationsActive": [
@@ -329,6 +342,30 @@
         "name": "St. Moritz",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-st-moritz",
         "count": 156
+      },
+      {
+        "key": "bellinzona",
+        "name": "Bellinzona",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-bellinzona",
+        "count": 134
+      },
+      {
+        "key": "lugano",
+        "name": "Lugano",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-lugano",
+        "count": 122
+      },
+      {
+        "key": "mendrisio",
+        "name": "Mendrisio",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-mendrisio",
+        "count": 47
+      },
+      {
+        "key": "ticino",
+        "name": "Ticino",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-ticino",
+        "count": 27
       }
     ],
     "topCompaniesAddedToday": [
@@ -630,11 +667,11 @@
   },
   "salary": {
     "coverage": {
-      "jobsWithSalary": 2974,
+      "jobsWithSalary": 937,
       "coveragePct": 100,
-      "avgMin": 69151,
-      "avgMax": 93859,
-      "avgMid": 81505,
+      "avgMin": 66779,
+      "avgMax": 90057,
+      "avgMid": 78418,
       "medianMid": 91000
     },
     "leaders": {
@@ -698,16 +735,6 @@
           "avgMax": 122750,
           "avgMid": 106750,
           "weightedSalary": 97150
-        },
-        {
-          "key": "fincons-group",
-          "name": "Fincons Group",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-fincons-group",
-          "count": 8,
-          "avgMin": 83250,
-          "avgMax": 112250,
-          "avgMid": 97750,
-          "weightedSalary": 97750
         },
         {
           "key": "knowledge-lab",
