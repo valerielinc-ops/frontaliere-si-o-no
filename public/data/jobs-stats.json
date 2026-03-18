@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-03-18T16:53:43.948Z",
+  "generatedAt": "2026-03-18T16:55:20.866Z",
   "links": {
     "allJobs": "https://www.frontaliereticino.ch/cerca-lavoro-ticino"
   },
   "totals": {
-    "activeJobs": 896,
+    "activeJobs": 915,
     "activeCompanies": 128,
     "activeLocations": 146,
     "todayAdded": 1067,
@@ -68,6 +68,13 @@
       "date": "2026-03-18",
       "totalJobs": 5009,
       "added": 1067,
+      "updated": 0,
+      "removed": 0
+    },
+    {
+      "date": "2026-03-18",
+      "totalJobs": 5009,
+      "added": 1077,
       "updated": 0,
       "removed": 0
     }
@@ -241,6 +248,18 @@
         "name": "ReleWant",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-relewant",
         "count": 19
+      },
+      {
+        "key": "pemsa",
+        "name": "PEMSA",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-pemsa",
+        "count": 47
+      },
+      {
+        "key": "vf-international-the-north-face-timberland",
+        "name": "VF International (The North Face, Timberland)",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-vf-international-the-north-face-timberland",
+        "count": 26
       }
     ],
     "topLocationsActive": [
@@ -513,6 +532,30 @@
         "name": "Grigioni",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-grigioni",
         "count": 43
+      },
+      {
+        "key": "chur",
+        "name": "Chur",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-chur",
+        "count": 42
+      },
+      {
+        "key": "bellinzona",
+        "name": "Bellinzona",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-bellinzona",
+        "count": 129
+      },
+      {
+        "key": "lugano",
+        "name": "Lugano",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-lugano",
+        "count": 124
+      },
+      {
+        "key": "locarno",
+        "name": "Locarno",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-locarno",
+        "count": 49
       },
       {
         "key": "chur",
@@ -829,11 +872,11 @@
   },
   "salary": {
     "coverage": {
-      "jobsWithSalary": 896,
+      "jobsWithSalary": 915,
       "coveragePct": 100,
-      "avgMin": 66874,
-      "avgMax": 90192,
-      "avgMid": 78533,
+      "avgMin": 66714,
+      "avgMax": 89973,
+      "avgMid": 78344,
       "medianMid": 85000
     },
     "leaders": {
