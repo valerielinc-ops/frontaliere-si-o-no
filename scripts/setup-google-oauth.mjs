@@ -17,7 +17,14 @@
  *   - Go to https://console.cloud.google.com/apis/credentials
  *   - Create an OAuth 2.0 Client ID (type: Web application)
  *   - Add http://localhost:3456/callback as an authorized redirect URI
- *   - Enable "Google Search Console API" and "Google Analytics Data API" in your GCP project
+ *   - Enable these APIs in your GCP project:
+ *     • "Google Search Console API"
+ *     • "Web Search Indexing API" (for JobPosting indexing)
+ *     • "Google Analytics Data API"
+ *
+ * Note: In CI, the Firebase Service Account is used as primary auth.
+ *       OAuth2 tokens are the fallback. For the Indexing API, the SA email
+ *       must be added as Owner in Search Console for the site.
  */
 
 import http from 'node:http';

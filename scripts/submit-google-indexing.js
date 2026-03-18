@@ -16,7 +16,8 @@
  * Always exits 0 — failures are logged but never block deployment.
  */
 
-import { readFileSync } from 'node:fs';
+import { readFileSync, existsSync } from 'node:fs';
+import { createSign } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import { dirname, resolve } from 'node:path';
 
@@ -78,9 +79,57 @@ async function detectSiteProperty(accessToken) {
   }
 }
 
-// ── Auth: exchange refresh token for access token ───────────
-async function getAccessToken(clientId, clientSecret, refreshToken) {
-  const res = await fetch('https://oauth2.googleapis.com/token', {
+// ── Service Account JWT auth ────────────────────────────────
+const TOKEN_URI = 'https://oauth2.googleapis.com/token';
+// GSC needs webmasters scope; Indexing API needs indexing scope
+const GSC_SCOPES = [
+  'https://www.googleapis.com/auth/webmasters',
+  'https://www.googleapis.com/auth/indexing',
+].join(' ');
+
+function loadServiceAccount() {
+  const saPath = process.env.GOOGLE_APPLICATION_CREDENTIALS;
+  if (!saPath || !existsSync(saPath)) return null;
+  try {
+    const sa = JSON.parse(readFileSync(saPath, 'utf-8'));
+    if (!sa.client_email || !sa.private_key) return null;
+    return sa;
+  } catch {
+    return null;
+  }
+}
+
+function createJwt(sa, scope) {
+  const now = Math.floor(Date.now() / 1000);
+  const header = { alg: 'RS256', typ: 'JWT' };
+  const payload = { iss: sa.client_email, scope, aud: TOKEN_URI, iat: now, exp: now + 3600 };
+  const b64 = (obj) => Buffer.from(JSON.stringify(obj)).toString('base64url');
+  const unsigned = `${b64(header)}.${b64(payload)}`;
+  const sign = createSign('RSA-SHA256');
+  sign.update(unsigned);
+  return `${unsigned}.${sign.sign(sa.private_key, 'base64url')}`;
+}
+
+async function getAccessTokenFromSA(sa) {
+  const jwt = createJwt(sa, GSC_SCOPES);
+  const res = await fetch(TOKEN_URI, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body: new URLSearchParams({
+      grant_type: 'urn:ietf:params:oauth:grant-type:jwt-bearer',
+      assertion: jwt,
+    }),
+  });
+  if (!res.ok) {
+    const text = await res.text().catch(() => '');
+    throw new Error(`SA token exchange failed (${res.status}): ${text.slice(0, 200)}`);
+  }
+  return (await res.json()).access_token;
+}
+
+// ── OAuth2 user credentials auth (fallback) ─────────────────
+async function getAccessTokenFromOAuth(clientId, clientSecret, refreshToken) {
+  const res = await fetch(TOKEN_URI, {
     method: 'POST',
     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
     body: new URLSearchParams({
@@ -90,14 +139,35 @@ async function getAccessToken(clientId, clientSecret, refreshToken) {
       grant_type: 'refresh_token',
     }),
   });
-
   if (!res.ok) {
     const text = await res.text();
     throw new Error(`Token refresh failed (${res.status}): ${text}`);
   }
+  return (await res.json()).access_token;
+}
 
-  const data = await res.json();
-  return data.access_token;
+// ── Resolve access token (SA first, then OAuth2) ────────────
+async function resolveAccessToken() {
+  const sa = loadServiceAccount();
+  if (sa) {
+    try {
+      const token = await getAccessTokenFromSA(sa);
+      log('🔑', `Authenticated via Service Account (${sa.client_email})`);
+      return token;
+    } catch (err) {
+      log('⚠️', `SA auth failed: ${err.message}`);
+      log('ℹ️', 'Falling back to OAuth2 user credentials...');
+    }
+  }
+
+  const clientId = process.env.GSC_CLIENT_ID;
+  const clientSecret = process.env.GSC_CLIENT_SECRET;
+  const refreshToken = process.env.GSC_REFRESH_TOKEN;
+  if (!clientId || !clientSecret || !refreshToken) return null;
+
+  const token = await getAccessTokenFromOAuth(clientId, clientSecret, refreshToken);
+  log('🔑', 'Authenticated via OAuth2 user credentials');
+  return token;
 }
 
 // ── Fetch with retry ────────────────────────────────────────
@@ -380,23 +450,20 @@ async function main() {
   log('🔎', 'Google Search Console — Post-deploy Integration');
   console.log('═'.repeat(52));
 
-  // Check env vars
-  const clientId = process.env.GSC_CLIENT_ID;
-  const clientSecret = process.env.GSC_CLIENT_SECRET;
-  const refreshToken = process.env.GSC_REFRESH_TOKEN;
-
-  if (!clientId || !clientSecret || !refreshToken) {
-    log('ℹ️', 'GSC_CLIENT_ID / GSC_CLIENT_SECRET / GSC_REFRESH_TOKEN non configurati — skip');
-    log('ℹ️', 'Per configurare: node scripts/setup-google-oauth.mjs <CLIENT_ID> <CLIENT_SECRET>');
-    console.log('');
-    process.exit(0); // Non-blocking — just skip
-  }
-
   try {
-    // Authenticate
-    log('🔑', 'Autenticazione OAuth2...');
-    const accessToken = await getAccessToken(clientId, clientSecret, refreshToken);
-    log('✅', 'Token di accesso ottenuto');
+    // Authenticate (SA first, then OAuth2)
+    let accessToken;
+    try {
+      accessToken = await resolveAccessToken();
+    } catch (err) {
+      log('⚠️', `Authentication failed: ${err.message}`);
+      process.exit(0);
+    }
+
+    if (!accessToken) {
+      log('ℹ️', 'No credentials available (GOOGLE_APPLICATION_CREDENTIALS or GSC_* env vars) — skip');
+      process.exit(0);
+    }
     console.log('');
 
     // Detect which site property is registered in GSC
