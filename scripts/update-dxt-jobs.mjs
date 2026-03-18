@@ -29,6 +29,13 @@ import { fileURLToPath } from 'node:url';
 import { printPublishedJobUrls, writeJobsSummary, snapshotJobSlugs, computeCrawlDiff, printCrawlChangeSummary, writeCrawlChangeSummaryToGH } from './jobs-url-helper.mjs';
 import { validateJobUrls } from './lib/validate-job-url.mjs';
 import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage } from './lib/dedicated-crawler-common.mjs';
+import {
+  normalizeSpace,
+  htmlToText,
+  findLuganoAccordionIds,
+  parseWpsmAccordionPanels,
+  MIN_DESC_LENGTH,
+} from './lib/dxt-job-parser.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -57,10 +64,6 @@ function normalize(value = '') {
   return String(value || '').trim().toLowerCase();
 }
 
-function normalizeSpace(s = '') {
-  return String(s || '').replace(/\s+/g, ' ').trim();
-}
-
 function slugify(text = '', suffix = '') {
   let s = text
     .toLowerCase()
@@ -72,26 +75,6 @@ function slugify(text = '', suffix = '') {
     s = `${s}-${suffix}`.replace(/--+/g, '-');
   }
   return s.slice(0, 90);
-}
-
-function stripHtml(html = '') {
-  return html
-    .replace(/<script[^>]*>[\s\S]*?<\/script>/gi, '')
-    .replace(/<style[^>]*>[\s\S]*?<\/style>/gi, '')
-    .replace(/<noscript[^>]*>[\s\S]*?<\/noscript>/gi, '')
-    .replace(/<br\s*\/?>/gi, '\n')
-    .replace(/<\/(?:p|li|h[1-6]|div|ul|ol)>/gi, '\n')
-    .replace(/<[^>]+>/g, '')
-    .replace(/&nbsp;/gi, ' ')
-    .replace(/&amp;/gi, '&')
-    .replace(/&lt;/gi, '<')
-    .replace(/&gt;/gi, '>')
-    .replace(/&#8211;/g, '–')
-    .replace(/&#8217;/g, "'")
-    .replace(/&#8220;/g, '"')
-    .replace(/&#8221;/g, '"')
-    .replace(/\n{3,}/g, '\n\n')
-    .trim();
 }
 
 function isDxtJob(job) {
@@ -162,106 +145,8 @@ async function fetchPage(url, timeoutMs = 20000) {
 // ─────────────────────────────────────────────────────────────
 // HTML parsing — extract jobs from the WordPress accordion page
 // ─────────────────────────────────────────────────────────────
-
-/**
- * Identify which accordion groups belong to Lugano/Switzerland.
- *
- * The DXT page layout (Divi + WPSM accordion):
- *   <h3 id="lugano">LUGANO-SWITZERLAND</h3>
- *   ... (some wrapper divs) ...
- *   <div id="accordion_pro_XXXXX">
- *     <div class="wpsm_panel" id="offset_XXXXX_N">
- *       <h4 class="wpsm_panel-title"><a ...>Job Title</a></h4>
- *       <div id="collapse_XXXXX_N" class="wpsm_panel-collapse">
- *         <div class="wpsm_panel-body">... description ...</div>
- *       </div>
- *     </div>
- *   </div>
- *
- * We find the region heading, then locate the next accordion_pro_XXXXX after it.
- */
-function findLuganoAccordionIds(html) {
-  const ids = new Set();
-
-  // Strategy 1: Find <h3> with Lugano/Switzerland text, then find the next accordion_pro_XXXXX
-  const headingRe = /<h[23][^>]*>([^<]*(?:lugano|switzerland|svizzera|suisse)[^<]*)<\/h[23]>/gi;
-  let m;
-  while ((m = headingRe.exec(html)) !== null) {
-    // Look for the next accordion_pro_XXXXX after this heading
-    const afterHeading = html.slice(m.index + m[0].length, m.index + m[0].length + 3000);
-    const accMatch = afterHeading.match(/id="accordion_pro_(\d+)"/);
-    if (accMatch) {
-      ids.add(accMatch[1]);
-    }
-  }
-
-  // Strategy 2: If we found nothing, try to match section divs with Lugano-related IDs
-  if (ids.size === 0) {
-    const sectionRe = /id="(?:lugano|switzerland)"/gi;
-    while ((m = sectionRe.exec(html)) !== null) {
-      const afterSection = html.slice(m.index, m.index + 5000);
-      const accMatch = afterSection.match(/id="accordion_pro_(\d+)"/);
-      if (accMatch) {
-        ids.add(accMatch[1]);
-      }
-    }
-  }
-
-  return [...ids];
-}
-
-/**
- * Parse all job panels from a specific accordion group.
- *
- * Returns an array of { panelId, title, descriptionHtml, descriptionText }.
- * Skips panels with "no open positions" messages.
- */
-function parseAccordionPanels(html, accordionGroupId) {
-  const jobs = [];
-
-  // Find all panels within this accordion group
-  // Pattern: id="offset_GROUPID_N" ... <h4 class="wpsm_panel-title"><a ...>TITLE</a></h4>
-  //          ... id="collapse_GROUPID_N" ... <div class="wpsm_panel-body">DESCRIPTION</div>
-  const panelRe = new RegExp(
-    `id="offset_${accordionGroupId}_(\\d+)"[\\s\\S]*?` +
-    `class="[^"]*wpsm_panel-title[^"]*"[^>]*>\\s*<a[^>]*>([\\s\\S]*?)</a>\\s*</h4>[\\s\\S]*?` +
-    `id="collapse_${accordionGroupId}_\\1"[\\s\\S]*?` +
-    `class="[^"]*wpsm_panel-body[^"]*"[\\s\\S]*?` +
-    `class="[^"]*wpsm_panel-body_inner[^"]*"[^>]*>([\\s\\S]*?)</div>\\s*</div>\\s*</div>\\s*</div>`,
-    'g'
-  );
-
-  let match;
-  while ((match = panelRe.exec(html)) !== null) {
-    const panelNum = match[1];
-    const rawTitle = match[2].replace(/<[^>]+>/g, '').trim();
-    const bodyHtml = match[3].trim();
-
-    // Skip panels with no open positions
-    if (/no\s+open\s+positions|nessuna\s+posizione/i.test(bodyHtml)) {
-      console.log(`  ⏭️  Panel ${accordionGroupId}_${panelNum}: no open positions — skipped`);
-      continue;
-    }
-
-    // Skip panels with empty titles (also indicates no open positions)
-    if (!rawTitle || rawTitle.length < 3) {
-      console.log(`  ⏭️  Panel ${accordionGroupId}_${panelNum}: empty title — skipped`);
-      continue;
-    }
-
-    const title = normalizeSpace(rawTitle);
-    const descriptionText = normalizeSpace(stripHtml(bodyHtml));
-
-    jobs.push({
-      panelId: `${accordionGroupId}_${panelNum}`,
-      title,
-      descriptionHtml: bodyHtml,
-      descriptionText,
-    });
-  }
-
-  return jobs;
-}
+// findLuganoAccordionIds and parseWpsmAccordionPanels are provided
+// by scripts/lib/dxt-job-parser.mjs (imported above).
 
 /**
  * Fetch and parse all Lugano-based DXT jobs from the careers page.
@@ -290,7 +175,7 @@ async function fetchDxtJobs() {
   // Parse jobs from each Lugano accordion group
   const parsedJobs = [];
   for (const groupId of luganoGroupIds) {
-    const panelJobs = parseAccordionPanels(html, groupId);
+    const panelJobs = parseWpsmAccordionPanels(html, groupId);
     console.log(`  📋 Group ${groupId}: ${panelJobs.length} job panels found`);
     parsedJobs.push(...panelJobs);
   }
