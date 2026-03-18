@@ -1,22 +1,22 @@
 {
-  "generatedAt": "2026-03-18T05:09:19.970Z",
+  "generatedAt": "2026-03-18T05:08:15.398Z",
   "links": {
     "allJobs": "https://www.frontaliereticino.ch/cerca-lavoro-ticino"
   },
   "totals": {
-    "activeJobs": 991,
+    "activeJobs": 1961,
     "activeCompanies": 134,
-    "activeLocations": 190,
-    "todayAdded": 987,
+    "activeLocations": 192,
+    "todayAdded": 1001,
     "todayUpdated": 0,
     "todayRemoved": 0,
     "last7d": {
-      "added": 2181,
+      "added": 2195,
       "updated": 0,
       "removed": 0
     },
     "last30d": {
-      "added": 2664,
+      "added": 2678,
       "updated": 0,
       "removed": 0
     }
@@ -61,6 +61,13 @@
       "date": "2026-03-18",
       "totalJobs": 2924,
       "added": 987,
+      "updated": 0,
+      "removed": 0
+    },
+    {
+      "date": "2026-03-18",
+      "totalJobs": 2924,
+      "added": 1001,
       "updated": 0,
       "removed": 0
     }
@@ -222,6 +229,36 @@
         "name": "Convit Holding GmbH",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-convit-holding-gmbh",
         "count": 23
+      },
+      {
+        "key": "colin-cie-wealth-management",
+        "name": "Colin&Cie Wealth Management",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-colin-cie-wealth-management",
+        "count": 457
+      },
+      {
+        "key": "vf-international-the-north-face-timberland",
+        "name": "VF International (The North Face, Timberland)",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-vf-international-the-north-face-timberland",
+        "count": 272
+      },
+      {
+        "key": "grace-la-margna-st-moritz",
+        "name": "Grace La Margna St. Moritz",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-grace-la-margna-st-moritz",
+        "count": 95
+      },
+      {
+        "key": "hitachi-energy",
+        "name": "Hitachi Energy",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-hitachi-energy",
+        "count": 87
+      },
+      {
+        "key": "tz-stromag",
+        "name": "TZ Stromag",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-tz-stromag",
+        "count": 49
       }
     ],
     "topLocationsActive": [
@@ -350,6 +387,48 @@
         "name": "EMEA · CHE · Stabio · VF Campus VF1",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-emea-che-stabio-vf-campus-vf1",
         "count": 24
+      },
+      {
+        "key": "emea-che-stabio-vf-campus-vf1",
+        "name": "EMEA · CHE · Stabio · VF Campus VF1",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-emea-che-stabio-vf-campus-vf1",
+        "count": 270
+      },
+      {
+        "key": "lugano",
+        "name": "Lugano",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-lugano",
+        "count": 227
+      },
+      {
+        "key": "munsbach",
+        "name": "Munsbach",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-munsbach",
+        "count": 171
+      },
+      {
+        "key": "st-moritz",
+        "name": "St. Moritz",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-st-moritz",
+        "count": 137
+      },
+      {
+        "key": "zurich",
+        "name": "Zürich",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-zurich",
+        "count": 117
+      },
+      {
+        "key": "molinazzo-di-monteggio-switzerland",
+        "name": "Molinazzo di Monteggio, Switzerland",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-molinazzo-di-monteggio-switzerland",
+        "count": 85
+      },
+      {
+        "key": "mendrisio",
+        "name": "Mendrisio",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-mendrisio",
+        "count": 58
       }
     ],
     "topCompaniesAddedToday": [
@@ -417,9 +496,9 @@
         "removed": 0
       },
       {
-        "key": "usi-universita-della-svizzera-italiana",
-        "name": "USI – Università della Svizzera italiana",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-usi-universita-della-svizzera-italiana",
+        "key": "hamilton-bonaduz-ag",
+        "name": "Hamilton Bonaduz AG",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-hamilton-bonaduz-ag",
         "count": 0,
         "added": 24,
         "updated": 0,
@@ -651,11 +730,11 @@
   },
   "salary": {
     "coverage": {
-      "jobsWithSalary": 991,
+      "jobsWithSalary": 1961,
       "coveragePct": 100,
-      "avgMin": 65980,
-      "avgMax": 89003,
-      "avgMid": 77492,
+      "avgMin": 67234,
+      "avgMax": 90633,
+      "avgMid": 78933,
       "medianMid": 68000
     },
     "leaders": {
@@ -881,6 +960,36 @@
           "avgMax": 102688,
           "avgMid": 89375,
           "weightedSalary": 89375
+        },
+        {
+          "key": "zurich",
+          "name": "Zürich",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-zurich",
+          "count": 117,
+          "avgMin": 77748,
+          "avgMax": 104850,
+          "avgMid": 91299,
+          "weightedSalary": 91299
+        },
+        {
+          "key": "munsbach",
+          "name": "Munsbach",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-munsbach",
+          "count": 171,
+          "avgMin": 77500,
+          "avgMax": 104500,
+          "avgMid": 91000,
+          "weightedSalary": 91000
+        },
+        {
+          "key": "schaffhausen",
+          "name": "Schaffhausen",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-schaffhausen",
+          "count": 57,
+          "avgMin": 77500,
+          "avgMax": 104500,
+          "avgMid": 91000,
+          "weightedSalary": 91000
         }
       ],
       "topSalaryTitles": [
