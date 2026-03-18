@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-03-18T16:36:09.205Z",
+  "updatedAt": "2026-03-18T16:38:36.387Z",
   "summaries": [
     {
       "key": "agie-charmilles",
@@ -1521,40 +1521,6 @@
           "slug": "consulente-clientela-aziendale-banca-raiffeisen-vedeggio-cassarate-gravesano"
         }
       ]
-    },
-    {
-      "key": "rittmeyer-ag",
-      "label": "Rittmeyer AG",
-      "generatedAt": "2026-03-18T05:17:46.962Z",
-      "total": 1,
-      "newCount": 0,
-      "updatedCount": 1,
-      "removedCount": 0,
-      "unchangedCount": 0,
-      "durationMs": 3297,
-      "avgDurationMs": 3436,
-      "durationHistory": [
-        3297,
-        3671,
-        3220,
-        3471,
-        3294,
-        3071,
-        3771,
-        3692
-      ],
-      "newJobs": [],
-      "updatedJobs": [
-        {
-          "title": "Sales Project Engineer (a) Ticino",
-          "company": "Rittmeyer AG",
-          "location": "Camorino",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/sales-project-engineer-a-ticino-rittmeyer-ag-tessin/",
-          "slug": "sales-project-engineer-a-ticino-rittmeyer-ag-tessin"
-        }
-      ],
-      "removedJobs": [],
-      "unchangedJobs": []
     },
     {
       "key": "pemsa",
@@ -8758,6 +8724,41 @@
           "location": "Castel San Pietro",
           "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/specialista-tecnico-chimico-responsabile-conduzione-impianto-mks-pamp-castel-san-pietro/",
           "slug": "specialista-tecnico-chimico-responsabile-conduzione-impianto-mks-pamp-castel-san-pietro"
+        }
+      ],
+      "removedJobs": [],
+      "unchangedJobs": []
+    },
+    {
+      "key": "rittmeyer-ag",
+      "label": "Rittmeyer AG",
+      "generatedAt": "2026-03-18T16:38:36.387Z",
+      "total": 1,
+      "newCount": 0,
+      "updatedCount": 1,
+      "removedCount": 0,
+      "unchangedCount": 0,
+      "durationMs": 3370,
+      "avgDurationMs": 3429,
+      "durationHistory": [
+        3370,
+        3297,
+        3671,
+        3220,
+        3471,
+        3294,
+        3071,
+        3771,
+        3692
+      ],
+      "newJobs": [],
+      "updatedJobs": [
+        {
+          "title": "Sales Project Engineer (a) Ticino",
+          "company": "Rittmeyer AG",
+          "location": "Camorino",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/sales-project-engineer-a-ticino-rittmeyer-ag-tessin/",
+          "slug": "sales-project-engineer-a-ticino-rittmeyer-ag-tessin"
         }
       ],
       "removedJobs": [],
