@@ -27,6 +27,12 @@ import {
   detectLang,
   deriveLocalizedSlug,
 } from './lib/dedicated-crawler-common.mjs';
+import {
+  parseCornerOfferFull,
+  stripHtml,
+  parseBullets,
+  MIN_CORNER_DESC_LENGTH,
+} from './lib/corner-job-parser.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -82,36 +88,7 @@ function slugify(value = '') {
     .slice(0, 180);
 }
 
-function stripHtml(html = '') {
-  return String(html || '')
-    .replace(/<script[^>]*>[\s\S]*?<\/script>/gi, '')
-    .replace(/<style[^>]*>[\s\S]*?<\/style>/gi, '')
-    .replace(/<noscript[^>]*>[\s\S]*?<\/noscript>/gi, '')
-    .replace(/<br\s*\/?>/gi, '\n')
-    .replace(/<\/p>/gi, '\n\n')
-    .replace(/<\/li>/gi, '\n')
-    .replace(/<[^>]+>/g, '')
-    .replace(/&nbsp;/g, ' ')
-    .replace(/&amp;/g, '&')
-    .replace(/&lt;/g, '<')
-    .replace(/&gt;/g, '>')
-    .replace(/&quot;/g, '"')
-    .replace(/&#39;/g, "'")
-    .replace(/\u00a0/g, ' ')
-    .replace(/\n{3,}/g, '\n\n')
-    .trim();
-}
-
-function parseBullets(html = '') {
-  const items = [];
-  const re = /<li[^>]*>([\s\S]*?)<\/li>/gi;
-  let m;
-  while ((m = re.exec(html)) !== null) {
-    const text = stripHtml(m[1]).trim();
-    if (text.length >= 10) items.push(text);
-  }
-  return items;
-}
+// stripHtml and parseBullets imported from ./lib/corner-job-parser.mjs
 
 function toIsoDate(raw = '') {
   const value = String(raw || '').trim();
@@ -215,27 +192,11 @@ async function fetchRecruiteeOffers() {
 // ──────────────────────────────────────────────────────────────
 
 function parseCornerOffer(offer) {
-  const translations = offer?.translations || {};
-  const itTrans = translations.it || {};
-  const enTrans = translations.en || {};
-  const deTrans = translations.de || {};
-  const frTrans = translations.fr || {};
+  // Parse content fields (description, offer_sections, requirements, locale titles)
+  const parsed = parseCornerOfferFull(offer);
+  if (!parsed) return null;
 
-  // Use Italian title if available, else English, else top-level
-  const title = itTrans.title || enTrans.title || offer.title || '';
-  if (!title) return null;
-
-  // Description: prefer Italian, fallback English, then top-level
-  const descHtml = itTrans.description || enTrans.description || offer.description || '';
-  const description = stripHtml(descHtml);
-  if (description.length < 100) {
-    console.warn(`  ⚠️ Thin description (${description.length} chars): ${title}`);
-    return null;
-  }
-
-  // Requirements
-  const reqHtml = itTrans.requirements || enTrans.requirements || offer.requirements || '';
-  const requirements = parseBullets(reqHtml);
+  const { title, titleByLocale, description, descriptionByLocale, requirements } = parsed;
 
   // Location
   const loc = (offer.locations || [])[0] || {};
@@ -248,33 +209,13 @@ function parseCornerOffer(offer) {
   // ID and slug
   const urlHash = createHash('sha1').update(careersUrl).digest('hex').slice(0, 12);
   const id = `corner-banca-${urlHash}`;
-  const slugBase = slugify(`${title}-corner-banca-${city}`);
-
-  // Posted date
-  const postedDate = toIsoDate(offer.published_at || offer.created_at);
-
-  // Build locale titles
-  const titleByLocale = {
-    it: itTrans.title || title,
-    en: enTrans.title || title,
-    de: deTrans.title || enTrans.title || title,
-    fr: frTrans.title || enTrans.title || title,
-  };
-
-  // Build locale descriptions with source-language fallback so dedicated runs
-  // remain valid even when shared AI localization is quota-constrained.
-  const descIt = itTrans.description ? stripHtml(itTrans.description) : '';
-  const descEn = enTrans.description ? stripHtml(enTrans.description) : '';
-  const descDe = deTrans.description ? stripHtml(deTrans.description) : '';
-  const descFr = frTrans.description ? stripHtml(frTrans.description) : '';
-  const descriptionByLocale = {
-    it: descIt || description,
-    en: descEn || description,
-    de: descDe || descEn || descIt || description,
-    fr: descFr || descEn || descIt || description,
-  };
 
   // Build locale requirements — only use actual Recruitee translations
+  const translations = offer?.translations || {};
+  const itTrans = translations.it || {};
+  const enTrans = translations.en || {};
+  const deTrans = translations.de || {};
+  const frTrans = translations.fr || {};
   const reqIt = itTrans.requirements ? parseBullets(itTrans.requirements) : requirements;
   const reqEn = enTrans.requirements ? parseBullets(enTrans.requirements) : requirements;
   const reqDe = deTrans.requirements ? parseBullets(deTrans.requirements) : [];
@@ -291,7 +232,7 @@ function parseCornerOffer(offer) {
 
   return {
     id,
-    slug: slugBase,
+    slug: slugify(`${title}-corner-banca-${city}`),
     slugByLocale,
     company: 'Cornèr Banca',
     companyKey: CORNER_KEY,
@@ -310,7 +251,7 @@ function parseCornerOffer(offer) {
     contract: inferContract(offer),
     currency: 'CHF',
     featured: false,
-    postedDate,
+    postedDate: toIsoDate(offer.published_at || offer.created_at),
     url: careersUrl,
     source: 'Corner Dedicated Parser (Recruitee API)',
     crawledAt: new Date().toISOString(),
