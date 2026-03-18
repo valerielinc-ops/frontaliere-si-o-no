@@ -23,7 +23,6 @@ EXTRA_PATHS=("$@")
 # ── Standard data files committed by every crawler ──────────────────────────
 STANDARD_FILES=(
   data/jobs.json
-  public/data/jobs.json
   data/jobs-meta.json
   data/jobs-stats-history.json
   data/jobs-stats.json
@@ -460,6 +459,34 @@ if (warnings.length > 0) {
 NODE
 }
 
+# ── 0a. Size guard: trim stale jobs if data/jobs.json approaches GitHub's 100 MB limit ──
+if [ -f "data/jobs.json" ]; then
+  FILE_SIZE_MB=$(du -m "data/jobs.json" | cut -f1)
+  if [ "$FILE_SIZE_MB" -gt 90 ]; then
+    echo "⚠️  data/jobs.json is ${FILE_SIZE_MB} MB — running emergency age-based trim (crawledAt > ${JOBS_SIZE_TRIM_DAYS:-45} days)..."
+    node - <<'NODE'
+const fs = require('fs');
+const TRIM_DAYS = parseInt(process.env.JOBS_SIZE_TRIM_DAYS || '45', 10);
+const TRIM_MS   = TRIM_DAYS * 24 * 60 * 60 * 1000;
+const filePath  = 'data/jobs.json';
+const jobs      = JSON.parse(fs.readFileSync(filePath, 'utf8'));
+const cutoff    = Date.now() - TRIM_MS;
+const before    = jobs.length;
+const fresh     = jobs.filter(job => {
+  const ts = job.crawledAt ? new Date(job.crawledAt).getTime() : NaN;
+  return isNaN(ts) || ts >= cutoff;
+});
+fs.writeFileSync(filePath, JSON.stringify(fresh, null, 2) + '\n', 'utf8');
+const afterMb = Buffer.byteLength(JSON.stringify(fresh)) / (1024 * 1024);
+console.log(`  Trimmed ${before - fresh.length} stale jobs (${before} → ${fresh.length}, ~${afterMb.toFixed(1)} MB)`);
+if (afterMb > 90) {
+  console.error(`❌ data/jobs.json is still ${afterMb.toFixed(1)} MB after trim — manual intervention required`);
+  process.exit(1);
+}
+NODE
+  fi
+fi
+
 # ── 0. Refresh derived job-board statistics before change detection ────────
 if [ -f "data/jobs.json" ]; then
   node scripts/generate-job-board-stats.mjs
@@ -539,7 +566,8 @@ if (fs.existsSync(dataJobsPath)) {
   }
 }
 
-if (jobs && fs.existsSync(publicJobsPath)) {
+if (jobs) {
+  fs.mkdirSync(require('path').dirname(publicJobsPath), { recursive: true });
   writeJson(publicJobsPath, jobs);
 }
 

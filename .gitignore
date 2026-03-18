@@ -44,8 +44,12 @@ public/images/places/thumbnails/
 data/pending-releases.json
 scratchpad.md
 
+# Generated at build/dev time from data/jobs.json — never commit this copy
+public/data/jobs.json
+
 # Generated at build time from data/jobs.json (see localeJobsSplitPlugin in vite.config.ts)
 public/data/jobs-it.json
 public/data/jobs-en.json
 public/data/jobs-de.json
 public/data/jobs-fr.json
+.claude
