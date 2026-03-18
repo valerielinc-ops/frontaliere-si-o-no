@@ -1569,6 +1569,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-com-aziende-lavoro-como': { name: 'Provincia di Como', path: '/articoli-frontaliere/com-aziende-lavoro-como', parent: 'blog' },
     'blog-cabov-precipita-forte-vento': { name: 'Cabinovia precipita a Engelberg', path: '/articoli-frontaliere/cabov-precipita-forte-vento', parent: 'blog' },
     'blog-agenzia-trasporto-nuovo': { name: 'Trasporti e confini', path: '/articoli-frontaliere/agenzia-trasporto-nuovo', parent: 'blog' },
+    'blog-governo-tavolo-frontalieri-2026': { name: 'Frontaliere', path: '/articoli-frontaliere/governo-tavolo-frontalieri-2026', parent: 'blog' },
   };
 
   const info = sectionNames[section];

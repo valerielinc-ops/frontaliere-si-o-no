@@ -3030,7 +3030,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
         "@context": "https://schema.org",
         "@type": "ItemList",
         "name": "Articoli Frontaliere",
-        "numberOfItems": 426,
+        "numberOfItems": 427,
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
           { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -3457,7 +3457,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 423, "name": "Headline JSON-LD", "url": `${BASE_URL}/articoli-frontaliere/separazione-carriere-giudici` },
           { "@type": "ListItem", "position": 424, "name": "Opportunità di lavoro Como", "url": `${BASE_URL}/articoli-frontaliere/com-aziende-lavoro-como` },
           { "@type": "ListItem", "position": 425, "name": "Cabinovia precipita a Engelberg: almeno un feri...", "url": `${BASE_URL}/articoli-frontaliere/cabov-precipita-forte-vento` },
-          { "@type": "ListItem", "position": 426, "name": "Agenzia TPL Como: 1,2 miliardi di euro per un s...", "url": `${BASE_URL}/articoli-frontaliere/agenzia-trasporto-nuovo` }
+          { "@type": "ListItem", "position": 426, "name": "Agenzia TPL Como: 1,2 miliardi di euro per un s...", "url": `${BASE_URL}/articoli-frontaliere/agenzia-trasporto-nuovo` },
+          { "@type": "ListItem", "position": 427, "name": "{\"@context\":\"https://schema.org\",\"@type\":\"NewsA...", "url": `${BASE_URL}/articoli-frontaliere/governo-tavolo-frontalieri-2026` }
         ]
       }
     ]

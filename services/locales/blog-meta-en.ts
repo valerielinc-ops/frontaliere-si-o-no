@@ -1307,6 +1307,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.agenzia-trasporto-nuovo.title': 'New TPL service from Como: 1.2 billion for 10 years',
     'blog.article.agenzia-trasporto-nuovo.excerpt': 'Como\'s Local Public Transport Agency has launched a €1.2 billion tender for the next decade. Details on the financial model, new priorities and impact on Ticino cross‑border commuters.',
     'blog.article.agenzia-trasporto-nuovo.imageAlt': 'Modern train at sunrise over Lake Como, Ticino',
+    'blog.article.governo-tavolo-frontalieri-2026.title': 'Government calls cross-border workers\' table: impacts for Ticino residents',
+    'blog.article.governo-tavolo-frontalieri-2026.excerpt': 'MP Maria Chiara Gadda (Italia Viva) has asked the federal government to reactivate the inter-ministerial table on cross-border workers, inactive for more than a year, to resolve the issues faced by Italian workers in Switzerland.',
+    'blog.article.governo-tavolo-frontalieri-2026.imageAlt': 'Panoramic view of Lugano lakefront at sunset, Monte Brè in the background and the border bridge highlighted.',
 };
 
 export default blogMetaEn;

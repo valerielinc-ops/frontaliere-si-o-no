@@ -5765,6 +5765,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-governo-tavolo-frontalieri-2026': {
+    title: 'Governo convoca tavolo frontalieri: impatti per i ticinesi | Frontaliere Ticino',
+    description: 'Maria Chiara Gadda chiede al governo di riattivare il tavolo interministeriale sui frontalieri. Scopri le implicazioni per i lavoratori italiani in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, governo, convoca, tavolo, impatti',
+    ogTitle: 'Governo convoca tavolo frontalieri per i ticinesi',
+    ogDescription: 'Il tavolo interministeriale sui frontalieri, inattivo da un anno, potrebbe riattivarsi grazie alla pressione di Maria Chiara Gadda. Leggi tutti i dettagli.',
+    canonicalPath: '/articoli-frontaliere/governo-tavolo-frontalieri-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "{\"@context\":\"https://schema.org\",\"@type\":\"NewsArticle\",\"head",
+      "description": "Maria Chiara Gadda chiede al governo di riattivare il tavolo interministeriale sui frontalieri. Scopri le implicazioni per i lavoratori italiani in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/governo-tavolo-frontalieri-2026.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Vista panoramica del lungolago di Lugano al tramonto, con Monte Brè sullo sfondo e ponte di confine in evidenza."
+      },
+      "datePublished": "2026-03-18T19:15:17+00:00",
+      "dateModified": "2026-03-18T19:15:17+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/governo-tavolo-frontalieri-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

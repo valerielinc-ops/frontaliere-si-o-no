@@ -1307,6 +1307,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.agenzia-trasporto-nuovo.title': 'Neuer TPL-Service in Como: 1,2 Milliarden für 10 Jahre',
     'blog.article.agenzia-trasporto-nuovo.excerpt': 'Die Öffentliche Verkehrsagentur Como hat ein Budget von 1,2 Milliarden Euro für die nächsten 10 Jahre ausgeschrieben. Details zum Finanzmodell, neuen Prioritäten und Auswirkungen auf grenznaher Ticiner.',
     'blog.article.agenzia-trasporto-nuovo.imageAlt': 'Moderner Zug bei Sonnenaufgang am Lago di Como',
+    'blog.article.governo-tavolo-frontalieri-2026.title': 'Bundesregierung lädt Grenzgänger-Tisch ein: Auswirkungen auf die Tessiner',
+    'blog.article.governo-tavolo-frontalieri-2026.excerpt': 'Die Abgeordnete Maria Chiara Gadda (Italia Viva) hat die Bundesregierung aufgefordert, den seit über einem Jahr inaktiven interministeriellen Grenzgänger-Tisch wiederzubeleben, um die Probleme italienischer Arbeitnehmer in der Schweiz zu lösen.',
+    'blog.article.governo-tavolo-frontalieri-2026.imageAlt': 'Panoramablick auf den Lugano-See bei Sonnenuntergang, Monte Brè im Hintergrund und die Grenzbrücke im Fokus.',
 };
 
 export default blogMetaDe;

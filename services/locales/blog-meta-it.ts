@@ -1307,6 +1307,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.agenzia-trasporto-nuovo.title': 'Nuovo servizio TPL di Como: 1,2 miliardi per 10 anni',
     'blog.article.agenzia-trasporto-nuovo.excerpt': 'L’Agenzia del Trasporto Pubblico Locale di Como ha lanciato un bando da 1,2 miliardi di euro per i prossimi 10 anni. Dettagli su modello finanziario, nuove priorità e impatto sui frontalieri ticinesi.',
     'blog.article.agenzia-trasporto-nuovo.imageAlt': 'Treno moderno in Ticino con vista su Lago di Como',
+    'blog.article.governo-tavolo-frontalieri-2026.title': 'Governo convoca tavolo frontalieri: impatti per i ticinesi',
+    'blog.article.governo-tavolo-frontalieri-2026.excerpt': 'L’onorevole Maria Chiara Gadda (Italia Viva) ha chiesto al governo federale di riattivare il tavolo interministeriale sui frontalieri, inattivo da più di un anno, per risolvere le criticità dei lavoratori italiani in Svizzera.',
+    'blog.article.governo-tavolo-frontalieri-2026.imageAlt': 'Vista panoramica del lungolago di Lugano al tramonto, con Monte Brè sullo sfondo e ponte di confine in evidenza.',
 };
 
 export default blogMetaIt;
