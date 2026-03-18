@@ -1,22 +1,22 @@
 {
-  "generatedAt": "2026-03-18T05:18:35.387Z",
+  "generatedAt": "2026-03-18T05:21:44.773Z",
   "links": {
     "allJobs": "https://www.frontaliereticino.ch/cerca-lavoro-ticino"
   },
   "totals": {
-    "activeJobs": 2207,
+    "activeJobs": 1869,
     "activeCompanies": 134,
-    "activeLocations": 188,
-    "todayAdded": 1010,
+    "activeLocations": 184,
+    "todayAdded": 1019,
     "todayUpdated": 0,
     "todayRemoved": 0,
     "last7d": {
-      "added": 2204,
+      "added": 2213,
       "updated": 0,
       "removed": 0
     },
     "last30d": {
-      "added": 2687,
+      "added": 2696,
       "updated": 0,
       "removed": 0
     }
@@ -33,13 +33,6 @@
       "date": "2026-03-17",
       "totalJobs": 1014,
       "added": 1194,
-      "updated": 0,
-      "removed": 0
-    },
-    {
-      "date": "2026-03-18",
-      "totalJobs": 4728,
-      "added": 1015,
       "updated": 0,
       "removed": 0
     },
@@ -70,6 +63,13 @@
       "added": 1015,
       "updated": 0,
       "removed": 0
+    },
+    {
+      "date": "2026-03-18",
+      "totalJobs": 4728,
+      "added": 1019,
+      "updated": 0,
+      "removed": 0
     }
   ],
   "leaders": {
@@ -85,24 +85,6 @@
         "name": "VOLG",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-volg",
         "count": 44
-      },
-      {
-        "key": "convit-holding-gmbh",
-        "name": "Convit Holding GmbH",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-convit-holding-gmbh",
-        "count": 23
-      },
-      {
-        "key": "pemsa",
-        "name": "PEMSA",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-pemsa",
-        "count": 40
-      },
-      {
-        "key": "hamilton-bonaduz-ag",
-        "name": "Hamilton Bonaduz AG",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-hamilton-bonaduz-ag",
-        "count": 24
       },
       {
         "key": "vf-international-the-north-face-timberland",
@@ -229,21 +211,39 @@
         "name": "USI – Università della Svizzera italiana",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-usi-universita-della-svizzera-italiana",
         "count": 24
+      },
+      {
+        "key": "coop",
+        "name": "Coop",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-coop",
+        "count": 38
+      },
+      {
+        "key": "pemsa",
+        "name": "PEMSA",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-pemsa",
+        "count": 37
+      },
+      {
+        "key": "vf-international-the-north-face-timberland",
+        "name": "VF International (The North Face, Timberland)",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-vf-international-the-north-face-timberland",
+        "count": 467
+      },
+      {
+        "key": "grace-la-margna-st-moritz",
+        "name": "Grace La Margna St. Moritz",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-grace-la-margna-st-moritz",
+        "count": 162
+      },
+      {
+        "key": "hitachi-energy",
+        "name": "Hitachi Energy",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-hitachi-energy",
+        "count": 152
       }
     ],
     "topLocationsActive": [
-      {
-        "key": "lugano",
-        "name": "Lugano",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-lugano",
-        "count": 104
-      },
-      {
-        "key": "chur",
-        "name": "Chur",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-chur",
-        "count": 46
-      },
       {
         "key": "bellinzona",
         "name": "Bellinzona",
@@ -255,18 +255,6 @@
         "name": "Chur",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-chur",
         "count": 46
-      },
-      {
-        "key": "locarno",
-        "name": "Locarno",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-locarno",
-        "count": 46
-      },
-      {
-        "key": "ticino",
-        "name": "Ticino",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-ticino",
-        "count": 25
       },
       {
         "key": "emea-che-stabio-vf-campus-vf1",
@@ -447,6 +435,30 @@
         "name": "Zürich",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-zurich",
         "count": 109
+      },
+      {
+        "key": "emea-che-stabio-vf-campus-vf1",
+        "name": "EMEA · CHE · Stabio · VF Campus VF1",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-emea-che-stabio-vf-campus-vf1",
+        "count": 465
+      },
+      {
+        "key": "st-moritz",
+        "name": "St. Moritz",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-st-moritz",
+        "count": 200
+      },
+      {
+        "key": "molinazzo-di-monteggio-switzerland",
+        "name": "Molinazzo di Monteggio, Switzerland",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-molinazzo-di-monteggio-switzerland",
+        "count": 150
+      },
+      {
+        "key": "lugano",
+        "name": "Lugano",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-lugano",
+        "count": 147
       }
     ],
     "topCompaniesAddedToday": [
@@ -748,12 +760,12 @@
   },
   "salary": {
     "coverage": {
-      "jobsWithSalary": 2207,
+      "jobsWithSalary": 1869,
       "coveragePct": 99.6,
-      "avgMin": 66118,
-      "avgMax": 89113,
-      "avgMid": 77616,
-      "medianMid": 72000
+      "avgMin": 65126,
+      "avgMax": 87774,
+      "avgMid": 76450,
+      "medianMid": 68500
     },
     "leaders": {
       "topSalaryCompanies": [
@@ -836,6 +848,16 @@
           "avgMax": 117833,
           "avgMid": 102500,
           "weightedSalary": 96367
+        },
+        {
+          "key": "medacta-international-sa",
+          "name": "Medacta International SA",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-medacta-international-sa",
+          "count": 5,
+          "avgMin": 80000,
+          "avgMax": 108000,
+          "avgMid": 94000,
+          "weightedSalary": 94000
         }
       ],
       "topSalaryLocations": [
@@ -878,16 +900,6 @@
           "avgMax": 122750,
           "avgMid": 106750,
           "weightedSalary": 97150
-        },
-        {
-          "key": "manno",
-          "name": "Manno",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-manno",
-          "count": 2,
-          "avgMin": 82500,
-          "avgMax": 111500,
-          "avgMid": 97000,
-          "weightedSalary": 88300
         },
         {
           "key": "zurich",
@@ -948,26 +960,6 @@
           "avgMax": 102688,
           "avgMid": 89375,
           "weightedSalary": 89375
-        },
-        {
-          "key": "beijing-china",
-          "name": "Beijing, China",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-beijing-china",
-          "count": 4,
-          "avgMin": 92000,
-          "avgMax": 125000,
-          "avgMid": 108500,
-          "weightedSalary": 105200
-        },
-        {
-          "key": "mendrisio",
-          "name": "Mendrisio",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-mendrisio",
-          "count": 64,
-          "avgMin": 78536,
-          "avgMax": 106331,
-          "avgMid": 92433,
-          "weightedSalary": 92433
         },
         {
           "key": "zurich",
@@ -1048,6 +1040,16 @@
           "avgMax": 102688,
           "avgMid": 89375,
           "weightedSalary": 89375
+        },
+        {
+          "key": "beijing-china",
+          "name": "Beijing, China",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-beijing-china",
+          "count": 2,
+          "avgMin": 92000,
+          "avgMax": 125000,
+          "avgMid": 108500,
+          "weightedSalary": 98600
         }
       ],
       "topSalaryTitles": [

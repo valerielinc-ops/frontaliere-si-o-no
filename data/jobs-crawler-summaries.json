@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-03-18T05:18:17.222Z",
+  "updatedAt": "2026-03-18T05:21:20.797Z",
   "summaries": [
     {
       "key": "agie-charmilles",
@@ -1648,62 +1648,6 @@
           "location": "Lugano",
           "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/apprendista-gestore-del-commercio-al-dettaglio-afc-lugano-sunrise-lugano/",
           "slug": "apprendista-gestore-del-commercio-al-dettaglio-afc-lugano-sunrise-lugano"
-        }
-      ]
-    },
-    {
-      "key": "tarchini-group",
-      "label": "Tarchini Group",
-      "generatedAt": "2026-03-17T16:41:19.900Z",
-      "total": 4,
-      "newCount": 0,
-      "updatedCount": 0,
-      "removedCount": 0,
-      "unchangedCount": 4,
-      "durationMs": 5582,
-      "avgDurationMs": 5399,
-      "durationHistory": [
-        5582,
-        5504,
-        5545,
-        5135,
-        5326,
-        5445,
-        5017,
-        5406,
-        5628
-      ],
-      "newJobs": [],
-      "updatedJobs": [],
-      "removedJobs": [],
-      "unchangedJobs": [
-        {
-          "title": "Collaboratore Immobiliare",
-          "company": "Tarchini Group",
-          "location": "Mendrisio",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/collaboratore-immobiliare-tarchini-group-mendrisio/",
-          "slug": "collaboratore-immobiliare-tarchini-group-mendrisio"
-        },
-        {
-          "title": "Junior Facility Manager",
-          "company": "Tarchini Group",
-          "location": "Mendrisio",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/junior-facility-manager-tarchini-group-mendrisio/",
-          "slug": "junior-facility-manager-tarchini-group-mendrisio"
-        },
-        {
-          "title": "Responsabile investimenti e partecipazioni",
-          "company": "Tarchini Group",
-          "location": "Manno",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/responsabile-investimenti-e-partecipazioni-tarchini-group-manno/",
-          "slug": "responsabile-investimenti-e-partecipazioni-tarchini-group-manno"
-        },
-        {
-          "title": "Sales Manager",
-          "company": "Tarchini Group",
-          "location": "Lugano",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/sales-manager-tarchini-group-lugano/",
-          "slug": "sales-manager-tarchini-group-lugano"
         }
       ]
     },
@@ -8411,6 +8355,63 @@
           "slug": "apprendista-polimeccanico-a-afc-2026-100-f-m-d-ruag-ag-lodrino"
         }
       ]
+    },
+    {
+      "key": "tarchini-group",
+      "label": "Tarchini Group",
+      "generatedAt": "2026-03-18T05:21:20.797Z",
+      "total": 4,
+      "newCount": 4,
+      "updatedCount": 0,
+      "removedCount": 0,
+      "unchangedCount": 0,
+      "durationMs": 5595,
+      "avgDurationMs": 5418,
+      "durationHistory": [
+        5595,
+        5582,
+        5504,
+        5545,
+        5135,
+        5326,
+        5445,
+        5017,
+        5406,
+        5628
+      ],
+      "newJobs": [
+        {
+          "title": "Collaboratore Immobiliare",
+          "company": "Tarchini Group",
+          "location": "Mendrisio",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/collaboratore-immobiliare-tarchini-group-mendrisio/",
+          "slug": "collaboratore-immobiliare-tarchini-group-mendrisio"
+        },
+        {
+          "title": "Junior Facility Manager",
+          "company": "Tarchini Group",
+          "location": "Mendrisio",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/junior-facility-manager-tarchini-group-mendrisio/",
+          "slug": "junior-facility-manager-tarchini-group-mendrisio"
+        },
+        {
+          "title": "Responsabile investimenti e partecipazioni",
+          "company": "Tarchini Group",
+          "location": "Manno",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/responsabile-investimenti-e-partecipazioni-tarchini-group-manno/",
+          "slug": "responsabile-investimenti-e-partecipazioni-tarchini-group-manno"
+        },
+        {
+          "title": "Sales Manager",
+          "company": "Tarchini Group",
+          "location": "Lugano",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/sales-manager-tarchini-group-lugano/",
+          "slug": "sales-manager-tarchini-group-lugano"
+        }
+      ],
+      "updatedJobs": [],
+      "removedJobs": [],
+      "unchangedJobs": []
     }
   ]
 }
