@@ -28,6 +28,13 @@ import { fileURLToPath } from 'node:url';
 import { printPublishedJobUrls, writeJobsSummary, snapshotJobSlugs, computeCrawlDiff, printCrawlChangeSummary, writeCrawlChangeSummaryToGH } from './jobs-url-helper.mjs';
 import { validateJobUrls } from './lib/validate-job-url.mjs';
 import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage } from './lib/dedicated-crawler-common.mjs';
+import {
+  parseAccordionJobs,
+  normalizeSpace,
+  slugify,
+  detectCategory,
+  detectExperienceLevel,
+} from './lib/linnea-job-parser.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -47,43 +54,6 @@ const LOCALES = ['it', 'en', 'de', 'fr'];
 
 function normalize(value = '') {
   return String(value || '').trim().toLowerCase();
-}
-
-function normalizeSpace(s = '') {
-  return String(s || '').replace(/\s+/g, ' ').trim();
-}
-
-function slugify(text = '', suffix = '') {
-  let s = text
-    .toLowerCase()
-    .normalize('NFD')
-    .replace(/[\u0300-\u036f]/g, '')
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/^-+|-+$/g, '');
-  if (suffix) {
-    s = `${s}-${suffix}`.replace(/--+/g, '-');
-  }
-  return s.slice(0, 90);
-}
-
-function stripHtml(html = '') {
-  return html
-    .replace(/<script[^>]*>[\s\S]*?<\/script>/gi, '')
-    .replace(/<style[^>]*>[\s\S]*?<\/style>/gi, '')
-    .replace(/<noscript[^>]*>[\s\S]*?<\/noscript>/gi, '')
-    .replace(/<br\s*\/?>/gi, '\n')
-    .replace(/<\/(?:p|li|h[1-6]|div|ul|ol)>/gi, '\n')
-    .replace(/<[^>]+>/g, '')
-    .replace(/&nbsp;/gi, ' ')
-    .replace(/&amp;/gi, '&')
-    .replace(/&lt;/gi, '<')
-    .replace(/&gt;/gi, '>')
-    .replace(/&#8211;/g, '–')
-    .replace(/&#8217;/g, "'")
-    .replace(/&#8220;/g, '"')
-    .replace(/&#8221;/g, '"')
-    .replace(/\n{3,}/g, '\n\n')
-    .trim();
 }
 
 function isLinneaJob(job) {
@@ -140,94 +110,6 @@ async function fetchPage(url, timeoutMs = 20000) {
     console.warn(`⚠️ Fetch failed for ${url}: ${err.message}`);
     return null;
   }
-}
-
-// ─────────────────────────────────────────────────────────────
-// HTML parsing — extract jobs from the WordPress page
-// ─────────────────────────────────────────────────────────────
-
-/**
- * Parse all job accordion items from the Linnea careers page.
- *
- * HTML structure:
- *   <h2>OPEN POSITIONS</h2>
- *   <ul class="accordion" data-accordion>
- *     <li class="accordion-item" data-accordion-item>
- *       <a href="#" class="accordion-title">
- *         <h4>Job Title, Contract Type, Location, Country</h4>
- *       </a>
- *       <div class="accordion-content" data-tab-content>
- *         <article class="eng">
- *           <h3>Job Title</h3>
- *           <p>Description...</p>
- *           <p class="apply"><a class="btn white">Apply</a></p>
- *         </article>
- *       </div>
- *     </li>
- *   </ul>
- */
-function parseAccordionJobs(html) {
-  const jobs = [];
-
-  // Find the OPEN POSITIONS section
-  const openPosIdx = html.indexOf('OPEN POSITIONS');
-  if (openPosIdx === -1) {
-    console.warn('  ⚠️ Could not find "OPEN POSITIONS" heading on careers page.');
-    return jobs;
-  }
-
-  // Extract the accordion section after OPEN POSITIONS
-  const afterOpenPos = html.slice(openPosIdx);
-
-  // Find all accordion items
-  // Pattern: <li class="accordion-item" ... > ... <h4>TITLE</h4> ... <article ...>CONTENT</article>
-  const itemRe = /<li\s+class="accordion-item[^"]*"[^>]*data-accordion-item[^>]*>[\s\S]*?<a[^>]*class="accordion-title"[^>]*>\s*<h4>([\s\S]*?)<\/h4>\s*<\/a>\s*<div\s+class="accordion-content"[^>]*>([\s\S]*?)<\/div>\s*<\/li>/gi;
-
-  let match;
-  let idx = 0;
-  while ((match = itemRe.exec(afterOpenPos)) !== null) {
-    idx++;
-    const rawHeading = match[1].replace(/<[^>]+>/g, '').trim();
-    const contentHtml = match[2].trim();
-
-    // Parse the heading: "Title, Contract Type, Location, Country"
-    const headingParts = rawHeading.split(',').map(s => s.trim());
-    const title = headingParts[0] || '';
-    const contractType = headingParts[1] || '';
-    const location = headingParts[2] || 'Riazzino';
-
-    if (!title || title.length < 3) {
-      console.log(`  ⏭️  Item ${idx}: empty title — skipped`);
-      continue;
-    }
-
-    // Extract description from <article> content
-    const articleMatch = contentHtml.match(/<article[^>]*>([\s\S]*?)<\/article>/i);
-    const articleHtml = articleMatch ? articleMatch[1] : contentHtml;
-
-    // Remove the apply button paragraph
-    const cleanHtml = articleHtml.replace(/<p\s+class="apply"[\s\S]*?<\/p>/gi, '');
-    // Remove the inner <h3> (duplicate of title)
-    const descHtml = cleanHtml.replace(/<h3>[\s\S]*?<\/h3>/gi, '');
-    const descriptionText = normalizeSpace(stripHtml(descHtml));
-
-    // Skip if no meaningful description
-    if (descriptionText.length < 20) {
-      console.log(`  ⏭️  Item ${idx}: "${title}" — description too short (${descriptionText.length} chars) — skipped`);
-      continue;
-    }
-
-    jobs.push({
-      idx,
-      title: normalizeSpace(title),
-      contractType: normalizeSpace(contractType),
-      location: normalizeSpace(location),
-      descriptionHtml: descHtml,
-      descriptionText,
-    });
-  }
-
-  return jobs;
 }
 
 /**
@@ -308,27 +190,6 @@ async function fetchLinneaJobs() {
 // ─────────────────────────────────────────────────────────────
 // Description building
 // ─────────────────────────────────────────────────────────────
-
-function detectCategory(title = '') {
-  const t = normalize(title);
-  if (/erp|it\b|system|admin|developer|engineer|software/i.test(t)) return 'technology';
-  if (/qa|quality|gmp|validation/i.test(t)) return 'quality';
-  if (/scientist|research|r&d|laboratory|lab\b/i.test(t)) return 'science';
-  if (/produc|manufactur|operator/i.test(t)) return 'production';
-  if (/legal|counsel|lawyer/i.test(t)) return 'legal';
-  if (/account|financ|controller/i.test(t)) return 'finance';
-  if (/hr|human|recruit/i.test(t)) return 'hr';
-  if (/sales|commercial|marketing/i.test(t)) return 'sales';
-  if (/logistic|supply|warehouse/i.test(t)) return 'logistics';
-  return 'general';
-}
-
-function detectExperienceLevel(title = '') {
-  const t = normalize(title);
-  if (/junior|jr\.?|entry|intern|stage|stagist/i.test(t)) return 'ENTRY';
-  if (/senior|sr\.?|lead|head|director|manager|principal/i.test(t)) return 'SENIOR';
-  return 'MID';
-}
 
 function buildDescription(parsed, locale = 'en') {
   const rawDesc = parsed.descriptionText || '';
