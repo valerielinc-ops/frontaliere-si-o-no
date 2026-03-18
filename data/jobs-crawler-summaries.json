@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-03-18T04:57:14.012Z",
+  "updatedAt": "2026-03-18T04:57:58.814Z",
   "summaries": [
     {
       "key": "agie-charmilles",
@@ -2506,41 +2506,6 @@
           "location": "Ticino",
           "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/specialista-inside-sales-service-80-100-abb-svizzera-sede-ticino-ticino/",
           "slug": "inside-sales-service-specialist-80-100-abb-svizzera-sede-ticino-ticino"
-        }
-      ]
-    },
-    {
-      "key": "cambiavalute-ch",
-      "label": "CambiaValute.ch",
-      "generatedAt": "2026-03-17T16:16:55.914Z",
-      "total": 1,
-      "newCount": 0,
-      "updatedCount": 0,
-      "removedCount": 0,
-      "unchangedCount": 1,
-      "durationMs": 28367,
-      "avgDurationMs": 151073,
-      "durationHistory": [
-        28367,
-        130982,
-        32071,
-        35185,
-        24543,
-        369203,
-        410239,
-        305598,
-        23472
-      ],
-      "newJobs": [],
-      "updatedJobs": [],
-      "removedJobs": [],
-      "unchangedJobs": [
-        {
-          "title": "Senior Backend developer",
-          "company": "CambiaValute.ch",
-          "location": "2025 CambiaValute",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/senior-backend-sviluppatore-cambiavalute-ch-2025-cambiavalute/",
-          "slug": "senior-backend-developer-cambiavalute-ch-2025-cambiavalute"
         }
       ]
     },
@@ -8631,6 +8596,42 @@
           "slug": "elektro-servicemonteur-in-80-100-derungs-ag-ilanz"
         }
       ]
+    },
+    {
+      "key": "cambiavalute-ch",
+      "label": "CambiaValute.ch",
+      "generatedAt": "2026-03-18T04:57:58.814Z",
+      "total": 1,
+      "newCount": 0,
+      "updatedCount": 1,
+      "removedCount": 0,
+      "unchangedCount": 0,
+      "durationMs": 30406,
+      "avgDurationMs": 139007,
+      "durationHistory": [
+        30406,
+        28367,
+        130982,
+        32071,
+        35185,
+        24543,
+        369203,
+        410239,
+        305598,
+        23472
+      ],
+      "newJobs": [],
+      "updatedJobs": [
+        {
+          "title": "Senior Backend developer",
+          "company": "CambiaValute.ch",
+          "location": "2025 CambiaValute",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/senior-backend-developer-cambiavalute-ch-2025-cambiavalute/",
+          "slug": "senior-backend-developer-cambiavalute-ch-2025-cambiavalute"
+        }
+      ],
+      "removedJobs": [],
+      "unchangedJobs": []
     }
   ]
 }
