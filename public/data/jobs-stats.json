@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-03-18T16:26:02.381Z",
+  "generatedAt": "2026-03-18T16:25:27.967Z",
   "links": {
     "allJobs": "https://www.frontaliereticino.ch/cerca-lavoro-ticino"
   },
   "totals": {
-    "activeJobs": 1810,
+    "activeJobs": 953,
     "activeCompanies": 133,
-    "activeLocations": 173,
+    "activeLocations": 163,
     "todayAdded": 1053,
     "todayUpdated": 0,
     "todayRemoved": 0,
@@ -136,6 +136,18 @@
         "name": "C2B Electrotechnique, succursale de Grichting & Valterio Electro SA",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-c2b-electrotechnique-succursale-de-grichting-valterio-electro-sa",
         "count": 53
+      },
+      {
+        "key": "vf-international-the-north-face-timberland",
+        "name": "VF International (The North Face, Timberland)",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-vf-international-the-north-face-timberland",
+        "count": 25
+      },
+      {
+        "key": "kulm-hotel-st-moritz",
+        "name": "Kulm Hotel St. Moritz",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-kulm-hotel-st-moritz",
+        "count": 21
       }
     ],
     "topLocationsActive": [
@@ -210,6 +222,24 @@
         "name": "Molinazzo di Monteggio, Switzerland",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-molinazzo-di-monteggio-switzerland",
         "count": 58
+      },
+      {
+        "key": "lugano",
+        "name": "Lugano",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-lugano",
+        "count": 115
+      },
+      {
+        "key": "mendrisio",
+        "name": "Mendrisio",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-mendrisio",
+        "count": 48
+      },
+      {
+        "key": "ticino",
+        "name": "Ticino",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-ticino",
+        "count": 25
       }
     ],
     "topCompaniesAddedToday": [
@@ -511,12 +541,12 @@
   },
   "salary": {
     "coverage": {
-      "jobsWithSalary": 1810,
+      "jobsWithSalary": 953,
       "coveragePct": 100,
-      "avgMin": 68839,
-      "avgMax": 93229,
-      "avgMid": 81034,
-      "medianMid": 84500
+      "avgMin": 67047,
+      "avgMax": 90420,
+      "avgMid": 78734,
+      "medianMid": 68500
     },
     "leaders": {
       "topSalaryCompanies": [
@@ -671,6 +701,16 @@
           "avgMax": 104709,
           "avgMid": 91179,
           "weightedSalary": 91179
+        },
+        {
+          "key": "zurich",
+          "name": "Zürich",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-zurich",
+          "count": 4,
+          "avgMin": 81125,
+          "avgMax": 109625,
+          "avgMid": 95375,
+          "weightedSalary": 92525
         }
       ],
       "topSalaryTitles": [
