@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-03-18T16:18:36.405Z",
+  "updatedAt": "2026-03-18T16:19:06.178Z",
   "summaries": [
     {
       "key": "agie-charmilles",
@@ -2126,56 +2126,6 @@
           "location": "Mendrisio, Ticino",
           "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/apac-import-support-stage-boggi-milano-mendrisio-ticino/",
           "slug": "apac-import-support-stage-boggi-milano-mendrisio-ticino"
-        }
-      ],
-      "removedJobs": [],
-      "unchangedJobs": []
-    },
-    {
-      "key": "bracco-suisse",
-      "label": "Bracco Suisse",
-      "generatedAt": "2026-03-18T04:57:12.501Z",
-      "total": 3,
-      "newCount": 0,
-      "updatedCount": 3,
-      "removedCount": 0,
-      "unchangedCount": 0,
-      "durationMs": 25367,
-      "avgDurationMs": 101039,
-      "durationHistory": [
-        25367,
-        27914,
-        25302,
-        66676,
-        79683,
-        22530,
-        266223,
-        404886,
-        66622,
-        25190
-      ],
-      "newJobs": [],
-      "updatedJobs": [
-        {
-          "title": "MANUFACTURING TECHNICIEN PRODUCTION STERILE (H/F)",
-          "company": "Bracco Suisse S.A.",
-          "location": "Plan-les-Ouates",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/manufacturing-technicien-production-sterile-h-f-bracco-suisse/",
-          "slug": "tecnico-di-produzione-sterile-h-f-bracco-suisse-s-a-plan-les-ouates"
-        },
-        {
-          "title": "Field Service Technician - Swiss German Region",
-          "company": "Bracco Suisse S.A.",
-          "location": "Cadempino",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/field-service-technician-swiss-german-region-bracco-suisse/",
-          "slug": "tecnico-di-assistenza-sul-campo-regione-svizzera-tedesca-bracco-suisse-s-a-cadempino"
-        },
-        {
-          "title": "CONTINUOUS IMPROVEMENT MANAGER",
-          "company": "Bracco Suisse S.A.",
-          "location": "Plan-les-Ouates",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/continuous-improvement-manager-bracco-suisse/",
-          "slug": "responsabile-del-miglioramento-continuo-bracco-suisse-s-a-plan-les-ouates"
         }
       ],
       "removedJobs": [],
@@ -8690,6 +8640,57 @@
         }
       ],
       "removedJobs": [],
+      "unchangedJobs": []
+    },
+    {
+      "key": "bracco-suisse",
+      "label": "Bracco Suisse",
+      "generatedAt": "2026-03-18T16:19:06.178Z",
+      "total": 3,
+      "newCount": 0,
+      "updatedCount": 2,
+      "removedCount": 1,
+      "unchangedCount": 0,
+      "durationMs": 23310,
+      "avgDurationMs": 100851,
+      "durationHistory": [
+        23310,
+        25367,
+        27914,
+        25302,
+        66676,
+        79683,
+        22530,
+        266223,
+        404886,
+        66622
+      ],
+      "newJobs": [],
+      "updatedJobs": [
+        {
+          "title": "MANUFACTURING TECHNICIEN PRODUCTION STERILE (H/F)",
+          "company": "Bracco Suisse S.A.",
+          "location": "Plan-les-Ouates",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/manufacturing-technicien-production-sterile-h-f-bracco-suisse/",
+          "slug": "tecnico-di-produzione-sterile-h-f-bracco-suisse-s-a-plan-les-ouates"
+        },
+        {
+          "title": "CONTINUOUS IMPROVEMENT MANAGER",
+          "company": "Bracco Suisse S.A.",
+          "location": "Plan-les-Ouates",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/continuous-improvement-manager-bracco-suisse/",
+          "slug": "managere-improvamento-continuo-bracco-suisse-s-a-plan-les-ouates"
+        }
+      ],
+      "removedJobs": [
+        {
+          "title": "Field Service Technician - Swiss German Region",
+          "company": "Bracco Suisse S.A.",
+          "location": "Cadempino",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/tecnico-di-assistenza-sul-campo-regione-svizzera-tedesca-bracco-suisse-s-a-cadempino/",
+          "slug": "tecnico-di-assistenza-sul-campo-regione-svizzera-tedesca-bracco-suisse-s-a-cadempino"
+        }
+      ],
       "unchangedJobs": []
     }
   ]

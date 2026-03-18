@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-03-18T16:18:55.480Z",
+  "generatedAt": "2026-03-18T16:19:11.436Z",
   "links": {
     "allJobs": "https://www.frontaliereticino.ch/cerca-lavoro-ticino"
   },
@@ -82,6 +82,24 @@
         "name": "VF International (The North Face, Timberland)",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-vf-international-the-north-face-timberland",
         "count": 43
+      },
+      {
+        "key": "kantonsspital-graubunden",
+        "name": "Kantonsspital Graubünden",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-kantonsspital-graubunden",
+        "count": 27
+      },
+      {
+        "key": "usi-universita-della-svizzera-italiana",
+        "name": "USI – Università della Svizzera italiana",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-usi-universita-della-svizzera-italiana",
+        "count": 24
+      },
+      {
+        "key": "convit-holding-gmbh",
+        "name": "Convit Holding GmbH",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-convit-holding-gmbh",
+        "count": 23
       },
       {
         "key": "kantonsspital-graubunden",
@@ -240,6 +258,24 @@
         "name": "Mendrisio",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-mendrisio",
         "count": 55
+      },
+      {
+        "key": "bellinzona",
+        "name": "Bellinzona",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-bellinzona",
+        "count": 134
+      },
+      {
+        "key": "locarno",
+        "name": "Locarno",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-locarno",
+        "count": 45
+      },
+      {
+        "key": "chur",
+        "name": "Chur",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-chur",
+        "count": 44
       }
     ],
     "topCompaniesAddedToday": [
@@ -543,9 +579,9 @@
     "coverage": {
       "jobsWithSalary": 1043,
       "coveragePct": 100,
-      "avgMin": 67596,
-      "avgMax": 91252,
-      "avgMid": 79424,
+      "avgMin": 66933,
+      "avgMax": 90271,
+      "avgMid": 78602,
       "medianMid": 70250
     },
     "leaders": {
@@ -639,6 +675,26 @@
           "avgMax": 113889,
           "avgMid": 99167,
           "weightedSalary": 99167
+        },
+        {
+          "key": "fincons-group",
+          "name": "Fincons Group",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-fincons-group",
+          "count": 9,
+          "avgMin": 84444,
+          "avgMax": 113889,
+          "avgMid": 99167,
+          "weightedSalary": 99167
+        },
+        {
+          "key": "bracco-suisse-s-a",
+          "name": "Bracco Suisse S.A.",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-bracco-suisse-s-a",
+          "count": 2,
+          "avgMin": 90750,
+          "avgMax": 122750,
+          "avgMid": 106750,
+          "weightedSalary": 97150
         }
       ],
       "topSalaryLocations": [
