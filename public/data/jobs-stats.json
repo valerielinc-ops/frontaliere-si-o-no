@@ -1,22 +1,22 @@
 {
-  "generatedAt": "2026-03-18T04:56:30.332Z",
+  "generatedAt": "2026-03-18T04:56:40.312Z",
   "links": {
     "allJobs": "https://www.frontaliereticino.ch/cerca-lavoro-ticino"
   },
   "totals": {
-    "activeJobs": 1540,
+    "activeJobs": 1373,
     "activeCompanies": 130,
-    "activeLocations": 187,
-    "todayAdded": 932,
+    "activeLocations": 179,
+    "todayAdded": 930,
     "todayUpdated": 0,
     "todayRemoved": 0,
     "last7d": {
-      "added": 2126,
+      "added": 3027,
       "updated": 0,
       "removed": 0
     },
     "last30d": {
-      "added": 2609,
+      "added": 3510,
       "updated": 0,
       "removed": 0
     }
@@ -47,6 +47,13 @@
       "date": "2026-03-18",
       "totalJobs": 1540,
       "added": 932,
+      "updated": 0,
+      "removed": 0
+    },
+    {
+      "date": "2026-03-18",
+      "totalJobs": 1373,
+      "added": 930,
       "updated": 0,
       "removed": 0
     }
@@ -154,6 +161,18 @@
         "name": "Kulm Hotel St. Moritz",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-kulm-hotel-st-moritz",
         "count": 35
+      },
+      {
+        "key": "colin-cie-wealth-management",
+        "name": "Colin&Cie Wealth Management",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-colin-cie-wealth-management",
+        "count": 73
+      },
+      {
+        "key": "vf-international-the-north-face-timberland",
+        "name": "VF International (The North Face, Timberland)",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-vf-international-the-north-face-timberland",
+        "count": 56
       }
     ],
     "topLocationsActive": [
@@ -264,6 +283,24 @@
         "name": "Chur",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-chur",
         "count": 51
+      },
+      {
+        "key": "st-moritz",
+        "name": "St. Moritz",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-st-moritz",
+        "count": 95
+      },
+      {
+        "key": "emea-che-stabio-vf-campus-vf1",
+        "name": "EMEA · CHE · Stabio · VF Campus VF1",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-emea-che-stabio-vf-campus-vf1",
+        "count": 54
+      },
+      {
+        "key": "lugano",
+        "name": "Lugano",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-lugano",
+        "count": 159
       }
     ],
     "topCompaniesAddedToday": [
@@ -565,11 +602,11 @@
   },
   "salary": {
     "coverage": {
-      "jobsWithSalary": 1540,
+      "jobsWithSalary": 1373,
       "coveragePct": 100,
-      "avgMin": 66637,
-      "avgMax": 89873,
-      "avgMid": 78255,
+      "avgMin": 66438,
+      "avgMax": 89618,
+      "avgMid": 78028,
       "medianMid": 68500
     },
     "leaders": {
@@ -653,6 +690,16 @@
           "avgMax": 108000,
           "avgMid": 94000,
           "weightedSalary": 94000
+        },
+        {
+          "key": "board-international",
+          "name": "Board International",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-board-international",
+          "count": 9,
+          "avgMin": 84444,
+          "avgMax": 113889,
+          "avgMid": 99167,
+          "weightedSalary": 99167
         }
       ],
       "topSalaryLocations": [
@@ -815,6 +862,26 @@
           "avgMax": 104500,
           "avgMid": 91000,
           "weightedSalary": 91000
+        },
+        {
+          "key": "zurich",
+          "name": "Zürich",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-zurich",
+          "count": 21,
+          "avgMin": 78881,
+          "avgMax": 106452,
+          "avgMid": 92667,
+          "weightedSalary": 92667
+        },
+        {
+          "key": "chiasso-switzerland",
+          "name": "Chiasso, Switzerland",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-chiasso-switzerland",
+          "count": 7,
+          "avgMin": 87857,
+          "avgMax": 118571,
+          "avgMid": 103214,
+          "weightedSalary": 103214
         }
       ],
       "topSalaryTitles": [
