@@ -1,22 +1,22 @@
 {
-  "generatedAt": "2026-03-18T16:55:20.866Z",
+  "generatedAt": "2026-03-18T17:10:38.903Z",
   "links": {
     "allJobs": "https://www.frontaliereticino.ch/cerca-lavoro-ticino"
   },
   "totals": {
-    "activeJobs": 915,
+    "activeJobs": 955,
     "activeCompanies": 128,
-    "activeLocations": 146,
-    "todayAdded": 1067,
+    "activeLocations": 162,
+    "todayAdded": 1052,
     "todayUpdated": 0,
     "todayRemoved": 0,
     "last7d": {
-      "added": 2261,
+      "added": 2246,
       "updated": 0,
       "removed": 0
     },
     "last30d": {
-      "added": 2744,
+      "added": 2729,
       "updated": 0,
       "removed": 0
     }
@@ -77,16 +77,17 @@
       "added": 1077,
       "updated": 0,
       "removed": 0
+    },
+    {
+      "date": "2026-03-18",
+      "totalJobs": 1398,
+      "added": 1052,
+      "updated": 0,
+      "removed": 0
     }
   ],
   "leaders": {
     "topCompaniesActive": [
-      {
-        "key": "eoc-ente-ospedaliero-cantonale",
-        "name": "EOC – Ente Ospedaliero Cantonale",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-eoc-ente-ospedaliero-cantonale",
-        "count": 186
-      },
       {
         "key": "relewant",
         "name": "ReleWant",
@@ -260,6 +261,36 @@
         "name": "VF International (The North Face, Timberland)",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-vf-international-the-north-face-timberland",
         "count": 26
+      },
+      {
+        "key": "eoc-ente-ospedaliero-cantonale",
+        "name": "EOC – Ente Ospedaliero Cantonale",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-eoc-ente-ospedaliero-cantonale",
+        "count": 188
+      },
+      {
+        "key": "coop",
+        "name": "Coop",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-coop",
+        "count": 34
+      },
+      {
+        "key": "kantonsspital-graubunden",
+        "name": "Kantonsspital Graubünden",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-kantonsspital-graubunden",
+        "count": 27
+      },
+      {
+        "key": "usi-universita-della-svizzera-italiana",
+        "name": "USI – Università della Svizzera italiana",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-usi-universita-della-svizzera-italiana",
+        "count": 24
+      },
+      {
+        "key": "convit-holding-gmbh",
+        "name": "Convit Holding GmbH",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-convit-holding-gmbh",
+        "count": 23
       }
     ],
     "topLocationsActive": [
@@ -562,6 +593,48 @@
         "name": "Chur",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-chur",
         "count": 42
+      },
+      {
+        "key": "bellinzona",
+        "name": "Bellinzona",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-bellinzona",
+        "count": 135
+      },
+      {
+        "key": "lugano",
+        "name": "Lugano",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-lugano",
+        "count": 117
+      },
+      {
+        "key": "st-moritz",
+        "name": "St. Moritz",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-st-moritz",
+        "count": 54
+      },
+      {
+        "key": "mendrisio",
+        "name": "Mendrisio",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-mendrisio",
+        "count": 49
+      },
+      {
+        "key": "locarno",
+        "name": "Locarno",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-locarno",
+        "count": 45
+      },
+      {
+        "key": "chur",
+        "name": "Chur",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-chur",
+        "count": 44
+      },
+      {
+        "key": "grigioni",
+        "name": "Grigioni",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-grigioni",
+        "count": 43
       }
     ],
     "topCompaniesAddedToday": [
@@ -872,12 +945,12 @@
   },
   "salary": {
     "coverage": {
-      "jobsWithSalary": 915,
+      "jobsWithSalary": 955,
       "coveragePct": 100,
-      "avgMin": 66714,
-      "avgMax": 89973,
-      "avgMid": 78344,
-      "medianMid": 85000
+      "avgMin": 67113,
+      "avgMax": 90511,
+      "avgMid": 78812,
+      "medianMid": 68500
     },
     "leaders": {
       "topSalaryCompanies": [
@@ -960,6 +1033,26 @@
           "avgMax": 122750,
           "avgMid": 106750,
           "weightedSalary": 97150
+        },
+        {
+          "key": "board-international",
+          "name": "Board International",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-board-international",
+          "count": 9,
+          "avgMin": 84444,
+          "avgMax": 113889,
+          "avgMid": 99167,
+          "weightedSalary": 99167
+        },
+        {
+          "key": "fincons-group",
+          "name": "Fincons Group",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-fincons-group",
+          "count": 9,
+          "avgMin": 84444,
+          "avgMax": 113889,
+          "avgMid": 99167,
+          "weightedSalary": 99167
         }
       ],
       "topSalaryLocations": [
@@ -1122,6 +1215,16 @@
           "avgMax": 104500,
           "avgMid": 91000,
           "weightedSalary": 91000
+        },
+        {
+          "key": "chiasso-switzerland",
+          "name": "Chiasso, Switzerland",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-chiasso-switzerland",
+          "count": 7,
+          "avgMin": 87857,
+          "avgMax": 118571,
+          "avgMid": 103214,
+          "weightedSalary": 103214
         }
       ],
       "topSalaryTitles": [
