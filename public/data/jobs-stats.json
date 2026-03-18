@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-03-18T05:08:45.851Z",
+  "generatedAt": "2026-03-18T05:09:19.970Z",
   "links": {
     "allJobs": "https://www.frontaliereticino.ch/cerca-lavoro-ticino"
   },
@@ -47,6 +47,13 @@
       "date": "2026-03-18",
       "totalJobs": 2924,
       "added": 986,
+      "updated": 0,
+      "removed": 0
+    },
+    {
+      "date": "2026-03-18",
+      "totalJobs": 2924,
+      "added": 987,
       "updated": 0,
       "removed": 0
     },
@@ -143,6 +150,42 @@
         "name": "C2B Electrotechnique, succursale de Grichting & Valterio Electro SA",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-c2b-electrotechnique-succursale-de-grichting-valterio-electro-sa",
         "count": 43
+      },
+      {
+        "key": "pemsa",
+        "name": "PEMSA",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-pemsa",
+        "count": 40
+      },
+      {
+        "key": "coop",
+        "name": "Coop",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-coop",
+        "count": 38
+      },
+      {
+        "key": "kantonsspital-graubunden",
+        "name": "Kantonsspital Graubünden",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-kantonsspital-graubunden",
+        "count": 30
+      },
+      {
+        "key": "vf-international-the-north-face-timberland",
+        "name": "VF International (The North Face, Timberland)",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-vf-international-the-north-face-timberland",
+        "count": 26
+      },
+      {
+        "key": "usi-universita-della-svizzera-italiana",
+        "name": "USI – Università della Svizzera italiana",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-usi-universita-della-svizzera-italiana",
+        "count": 24
+      },
+      {
+        "key": "convit-holding-gmbh",
+        "name": "Convit Holding GmbH",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-convit-holding-gmbh",
+        "count": 23
       },
       {
         "key": "pemsa",
@@ -277,6 +320,36 @@
         "name": "Locarno",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-locarno",
         "count": 45
+      },
+      {
+        "key": "lugano",
+        "name": "Lugano",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-lugano",
+        "count": 115
+      },
+      {
+        "key": "mendrisio",
+        "name": "Mendrisio",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-mendrisio",
+        "count": 56
+      },
+      {
+        "key": "grigioni",
+        "name": "Grigioni",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-grigioni",
+        "count": 46
+      },
+      {
+        "key": "locarno",
+        "name": "Locarno",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-locarno",
+        "count": 45
+      },
+      {
+        "key": "emea-che-stabio-vf-campus-vf1",
+        "name": "EMEA · CHE · Stabio · VF Campus VF1",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-emea-che-stabio-vf-campus-vf1",
+        "count": 24
       }
     ],
     "topCompaniesAddedToday": [
@@ -768,6 +841,26 @@
           "avgMax": 104500,
           "avgMid": 91000,
           "weightedSalary": 91000
+        },
+        {
+          "key": "zurich",
+          "name": "Zürich",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-zurich",
+          "count": 5,
+          "avgMin": 83300,
+          "avgMax": 112700,
+          "avgMid": 98000,
+          "weightedSalary": 98000
+        },
+        {
+          "key": "castel-san-pietro",
+          "name": "Castel San Pietro",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-castel-san-pietro",
+          "count": 8,
+          "avgMin": 76063,
+          "avgMax": 102688,
+          "avgMid": 89375,
+          "weightedSalary": 89375
         },
         {
           "key": "zurich",
