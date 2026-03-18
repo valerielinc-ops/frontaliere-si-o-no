@@ -1,22 +1,22 @@
 {
-  "generatedAt": "2026-03-18T05:08:43.233Z",
+  "generatedAt": "2026-03-18T05:11:49.271Z",
   "links": {
     "allJobs": "https://www.frontaliereticino.ch/cerca-lavoro-ticino"
   },
   "totals": {
-    "activeJobs": 1849,
+    "activeJobs": 997,
     "activeCompanies": 135,
-    "activeLocations": 186,
-    "todayAdded": 992,
+    "activeLocations": 187,
+    "todayAdded": 1005,
     "todayUpdated": 0,
     "todayRemoved": 0,
     "last7d": {
-      "added": 2186,
+      "added": 2199,
       "updated": 0,
       "removed": 0
     },
     "last30d": {
-      "added": 2669,
+      "added": 2682,
       "updated": 0,
       "removed": 0
     }
@@ -39,27 +39,6 @@
     {
       "date": "2026-03-18",
       "totalJobs": 2924,
-      "added": 1001,
-      "updated": 0,
-      "removed": 0
-    },
-    {
-      "date": "2026-03-18",
-      "totalJobs": 2924,
-      "added": 988,
-      "updated": 0,
-      "removed": 0
-    },
-    {
-      "date": "2026-03-18",
-      "totalJobs": 2924,
-      "added": 988,
-      "updated": 0,
-      "removed": 0
-    },
-    {
-      "date": "2026-03-18",
-      "totalJobs": 2924,
       "added": 992,
       "updated": 0,
       "removed": 0
@@ -75,6 +54,13 @@
       "date": "2026-03-18",
       "totalJobs": 2924,
       "added": 986,
+      "updated": 0,
+      "removed": 0
+    },
+    {
+      "date": "2026-03-18",
+      "totalJobs": 2924,
+      "added": 1005,
       "updated": 0,
       "removed": 0
     }
@@ -194,6 +180,12 @@
         "name": "C2B Electrotechnique, succursale de Grichting & Valterio Electro SA",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-c2b-electrotechnique-succursale-de-grichting-valterio-electro-sa",
         "count": 43
+      },
+      {
+        "key": "hamilton-bonaduz-ag",
+        "name": "Hamilton Bonaduz AG",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-hamilton-bonaduz-ag",
+        "count": 24
       }
     ],
     "topLocationsActive": [
@@ -208,18 +200,6 @@
         "name": "Locarno",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-locarno",
         "count": 45
-      },
-      {
-        "key": "locarno",
-        "name": "Locarno",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-locarno",
-        "count": 45
-      },
-      {
-        "key": "ticino",
-        "name": "Ticino",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-ticino",
-        "count": 26
       },
       {
         "key": "lugano",
@@ -370,6 +350,12 @@
         "name": "Schaffhausen",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-schaffhausen",
         "count": 58
+      },
+      {
+        "key": "ticino",
+        "name": "Ticino",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-ticino",
+        "count": 25
       }
     ],
     "topCompaniesAddedToday": [
@@ -531,6 +517,15 @@
         "removed": 0
       },
       {
+        "key": "lugano",
+        "name": "Lugano",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-lugano",
+        "count": 0,
+        "added": 169,
+        "updated": 0,
+        "removed": 0
+      },
+      {
         "key": "grigioni",
         "name": "Grigioni",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-grigioni",
@@ -581,15 +576,6 @@
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-chur",
         "count": 0,
         "added": 56,
-        "updated": 0,
-        "removed": 0
-      },
-      {
-        "key": "lugano",
-        "name": "Lugano",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-lugano",
-        "count": 0,
-        "added": 169,
         "updated": 0,
         "removed": 0
       }
@@ -671,12 +657,12 @@
   },
   "salary": {
     "coverage": {
-      "jobsWithSalary": 1849,
+      "jobsWithSalary": 997,
       "coveragePct": 100,
-      "avgMin": 67192,
-      "avgMax": 90582,
-      "avgMid": 78887,
-      "medianMid": 84500
+      "avgMin": 65892,
+      "avgMax": 88882,
+      "avgMid": 77387,
+      "medianMid": 68000
     },
     "leaders": {
       "topSalaryCompanies": [
