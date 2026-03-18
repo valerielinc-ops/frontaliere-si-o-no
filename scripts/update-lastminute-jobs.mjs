@@ -35,6 +35,7 @@ import {
   fetchSmartRecruitersDetail,
   parseSmartRecruitersDetail,
   validateLastminuteDescription,
+  buildLastminuteLocaleFallback,
 } from './lib/lastminute-job-parser.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -648,9 +649,10 @@ async function enrichFromSmartRecruitersApi(seedUrls) {
         console.log(`  ✅ Enriched "${detail.title}" (${detail.description.length} chars, ${detail.sectionCount} sections)`);
       }
     } else {
-      // New job from SR API — build and add
+      // New job from SR API — build and add with locale boilerplate
       const location = detail.location || 'Chiasso';
       const slug = slugifyLastminute(`${detail.title} ${location}`);
+      const fallbackOpts = { title: detail.title, location, enDescription: detail.description };
       allJobs.push({
         title: detail.title,
         slug,
@@ -664,10 +666,15 @@ async function enrichFromSmartRecruitersApi(seedUrls) {
         canton: detail.canton || 'TI',
         country: detail.country || 'CH',
         source: 'Company Careers Crawler',
-        description: detail.description,
-        descriptionByLocale: { en: detail.description },
-        titleByLocale: { en: detail.title },
-        slugByLocale: { en: slug },
+        description: buildLastminuteLocaleFallback(fallbackOpts, 'it') || detail.description,
+        descriptionByLocale: {
+          en: detail.description,
+          it: buildLastminuteLocaleFallback(fallbackOpts, 'it'),
+          de: buildLastminuteLocaleFallback(fallbackOpts, 'de'),
+          fr: buildLastminuteLocaleFallback(fallbackOpts, 'fr'),
+        },
+        titleByLocale: { it: detail.title, en: detail.title, de: detail.title, fr: detail.title },
+        slugByLocale: { it: slug, en: slug, de: slug, fr: slug },
         category: 'tech',
         sector: 'Tecnologia & IT',
         postedDate: detail.postedDate,
@@ -687,6 +694,53 @@ async function enrichFromSmartRecruitersApi(seedUrls) {
   }
 }
 
+/**
+ * Fill any lastminute.com jobs that still have missing locale descriptions
+ * after AI translation. Uses locale-specific boilerplate wrapping the EN
+ * content as a deterministic fallback.
+ */
+function fillMissingLastminuteDescriptions() {
+  if (!fs.existsSync(DATA_JOBS)) return 0;
+  const allJobs = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
+  if (!Array.isArray(allJobs)) return 0;
+
+  const MIN_DESC_CHARS = 120;
+  const FALLBACK_LOCALES = ['it', 'de', 'fr'];
+  let filled = 0;
+
+  for (const job of allJobs) {
+    if (!isLastminuteJob(job)) continue;
+    if (!job.descriptionByLocale) job.descriptionByLocale = {};
+
+    const enDesc = String(job.descriptionByLocale.en || job.description || '').trim();
+    const title = String(job.title || '').trim();
+    const location = String(job.location || 'Chiasso').trim();
+
+    for (const locale of FALLBACK_LOCALES) {
+      const current = String(job.descriptionByLocale[locale] || '').trim();
+      if (current.length >= MIN_DESC_CHARS) continue;
+
+      const fallback = buildLastminuteLocaleFallback(
+        { title, location, enDescription: enDesc },
+        locale,
+      );
+      if (fallback && fallback.length >= MIN_DESC_CHARS) {
+        job.descriptionByLocale[locale] = fallback;
+        if (locale === 'it' && (!job.description || job.description.length < MIN_DESC_CHARS)) {
+          job.description = fallback;
+        }
+        filled++;
+      }
+    }
+  }
+
+  if (filled > 0) {
+    writeJobsFiles(allJobs);
+    console.log(`🛡️ Locale fallback: filled ${filled} missing description(s) with boilerplate.`);
+  }
+  return filled;
+}
+
 async function main() {
   console.log('🚀 lastminute.com dedicated crawler start');
   const beforeSnapshot = snapshotJobSlugs(loadLastminuteJobs());
@@ -703,6 +757,9 @@ async function main() {
   console.log(
     `🧹 Post-process lastminute: ${post.lastminute} active, ${post.deduped} duplicate(s) removed.`
   );
+
+  // Phase 3: Fill any remaining gaps with locale-specific boilerplate
+  fillMissingLastminuteDescriptions();
 
   validateDedicatedLocaleCoverage({
     strictEnvVar: 'JOBS_LASTMINUTE_STRICT',

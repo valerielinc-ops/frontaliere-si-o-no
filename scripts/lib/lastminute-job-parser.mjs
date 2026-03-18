@@ -193,6 +193,32 @@ export function extractSrIdFromUrl(rawUrl = '') {
 }
 
 /**
+ * Generate a locale-specific boilerplate description wrapping the English
+ * job content. Used as a deterministic fallback when AI translation fails.
+ *
+ * @param {{ title: string, location: string, enDescription: string }} opts
+ * @param {string} locale - Target locale (it, de, fr)
+ * @returns {string} Boilerplate description with English content appended
+ */
+export function buildLastminuteLocaleFallback({ title, location, enDescription }, locale) {
+  const loc = location || 'Chiasso';
+  const intros = {
+    it: `lastminute.com cerca per la sede di ${loc} un/a ${title}. Scopri i dettagli della posizione e candidati online tramite il portale aziendale.`,
+    de: `lastminute.com sucht am Standort ${loc} eine/n ${title}. Entdecken Sie die Details der Stelle und bewerben Sie sich online über das Unternehmensportal.`,
+    fr: `lastminute.com recherche pour son site de ${loc} un/e ${title}. Découvrez les détails du poste et postulez en ligne via le portail de l'entreprise.`,
+  };
+
+  const intro = intros[locale];
+  if (!intro) return '';
+
+  // Append English content below the locale intro for context
+  if (enDescription && enDescription.length > 100) {
+    return `${intro}\n\n---\n\n${enDescription}`;
+  }
+  return intro;
+}
+
+/**
  * Fetch full job detail from SmartRecruiters API.
  *
  * @param {string} postingId - SR posting ID (e.g., "744000111059566")
