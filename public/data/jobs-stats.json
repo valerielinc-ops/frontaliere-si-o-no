@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-03-18T16:15:23.809Z",
+  "generatedAt": "2026-03-18T16:15:22.866Z",
   "links": {
     "allJobs": "https://www.frontaliereticino.ch/cerca-lavoro-ticino"
   },
   "totals": {
-    "activeJobs": 984,
+    "activeJobs": 983,
     "activeCompanies": 131,
-    "activeLocations": 153,
+    "activeLocations": 152,
     "todayAdded": 1049,
     "todayUpdated": 0,
     "todayRemoved": 0,
@@ -60,6 +60,13 @@
     {
       "date": "2026-03-18",
       "totalJobs": 984,
+      "added": 1045,
+      "updated": 0,
+      "removed": 0
+    },
+    {
+      "date": "2026-03-18",
+      "totalJobs": 983,
       "added": 1045,
       "updated": 0,
       "removed": 0
@@ -138,6 +145,18 @@
         "name": "ReleWant",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-relewant",
         "count": 29
+      },
+      {
+        "key": "colin-cie-wealth-management",
+        "name": "Colin&Cie Wealth Management",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-colin-cie-wealth-management",
+        "count": 41
+      },
+      {
+        "key": "vf-international-the-north-face-timberland",
+        "name": "VF International (The North Face, Timberland)",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-vf-international-the-north-face-timberland",
+        "count": 37
       },
       {
         "key": "colin-cie-wealth-management",
@@ -242,6 +261,30 @@
         "name": "Locarno",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-locarno",
         "count": 47
+      },
+      {
+        "key": "emea-che-stabio-vf-campus-vf1",
+        "name": "EMEA · CHE · Stabio · VF Campus VF1",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-emea-che-stabio-vf-campus-vf1",
+        "count": 35
+      },
+      {
+        "key": "lugano",
+        "name": "Lugano",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-lugano",
+        "count": 121
+      },
+      {
+        "key": "st-moritz",
+        "name": "St. Moritz",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-st-moritz",
+        "count": 57
+      },
+      {
+        "key": "mendrisio",
+        "name": "Mendrisio",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-mendrisio",
+        "count": 52
       },
       {
         "key": "emea-che-stabio-vf-campus-vf1",
@@ -573,12 +616,12 @@
   },
   "salary": {
     "coverage": {
-      "jobsWithSalary": 984,
+      "jobsWithSalary": 983,
       "coveragePct": 100,
-      "avgMin": 67227,
-      "avgMax": 90720,
-      "avgMid": 78974,
-      "medianMid": 75826
+      "avgMin": 67237,
+      "avgMax": 90733,
+      "avgMid": 78985,
+      "medianMid": 77500
     },
     "leaders": {
       "topSalaryCompanies": [
@@ -783,6 +826,26 @@
           "avgMax": 105286,
           "avgMid": 91643,
           "weightedSalary": 91643
+        },
+        {
+          "key": "zurich",
+          "name": "Zürich",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-zurich",
+          "count": 12,
+          "avgMin": 78708,
+          "avgMax": 106208,
+          "avgMid": 92458,
+          "weightedSalary": 92458
+        },
+        {
+          "key": "munsbach",
+          "name": "Munsbach",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-munsbach",
+          "count": 15,
+          "avgMin": 77500,
+          "avgMax": 104500,
+          "avgMid": 91000,
+          "weightedSalary": 91000
         },
         {
           "key": "zurich",
