@@ -4,6 +4,81 @@ function normalize(value = '') {
   return String(value || '').replace(/\u00a0/g, ' ').replace(/\s+/g, ' ').trim();
 }
 
+/** Minimum Jaccard overlap required to treat a PDF heading as the same title as the page link text. */
+export const MIN_TITLE_OVERLAP = 0.7;
+
+/** Maximum character length for a line to be considered a job title (not a body paragraph). */
+const MAX_PDF_TITLE_LEN = 80;
+
+/**
+ * Word-level Jaccard similarity between two title strings.
+ * Returns 1 if both are empty, 0 if one is empty.
+ */
+export function titleOverlap(a = '', b = '') {
+  const words = (s) =>
+    new Set(
+      String(s || '')
+        .toLowerCase()
+        .replace(/[-_]/g, ' ')
+        .replace(/[^a-z0-9\s]/g, '')
+        .split(/\s+/)
+        .filter(Boolean)
+    );
+  const setA = words(a);
+  const setB = words(b);
+  if (setA.size === 0 && setB.size === 0) return 1;
+  if (setA.size === 0 || setB.size === 0) return 0;
+  const intersection = [...setA].filter((w) => setB.has(w)).length;
+  return intersection / new Set([...setA, ...setB]).size;
+}
+
+/**
+ * Extract the first meaningful title-like line from normalized PDF text.
+ *
+ * A valid title candidate must:
+ *   - be short (<= MAX_PDF_TITLE_LEN chars)
+ *   - contain at least 2 words
+ *   - not start with a bullet marker (-, •, *, –)
+ *   - not be a URL
+ *   - not be fully uppercase (company header)
+ *
+ * @param {string} pdfText - Normalized plain-text content from the PDF
+ * @returns {string} The first title candidate, or empty string if none found
+ */
+export function extractTitleFromPdfText(pdfText = '') {
+  if (!pdfText) return '';
+  const paragraphs = String(pdfText).split('\n\n').map((p) => p.trim()).filter(Boolean);
+  for (const para of paragraphs) {
+    const firstLine = para.split('\n')[0].trim();
+    if (firstLine.length > MAX_PDF_TITLE_LEN) continue;
+    const wordList = firstLine.split(/\s+/).filter(Boolean);
+    if (wordList.length < 2) continue;
+    if (/^[-•*–]/.test(firstLine)) continue;
+    if (/^https?:\/\//i.test(firstLine)) continue;
+    // Skip all-uppercase company headers (e.g. "LWP LEDERMANN WIETING & PARTNERS")
+    if (firstLine === firstLine.toUpperCase() && /[A-Z]/.test(firstLine)) continue;
+    return firstLine;
+  }
+  return '';
+}
+
+/**
+ * Reconcile the page-extracted title with the PDF-extracted heading.
+ *
+ * - If pdfTitle is empty, fall back to pageTitle.
+ * - If overlap >= MIN_TITLE_OVERLAP (0.7), the two refer to the same role → keep pageTitle.
+ * - Otherwise the PDF heading is more specific/accurate → prefer pdfTitle.
+ *
+ * @param {string} pageTitle - Title from the HTML careers page link text
+ * @param {string} pdfTitle  - Title candidate extracted from the PDF body
+ * @returns {string}
+ */
+export function reconcilePdfTitle(pageTitle = '', pdfTitle = '') {
+  if (!pdfTitle) return pageTitle;
+  if (titleOverlap(pageTitle, pdfTitle) >= MIN_TITLE_OVERLAP) return pageTitle;
+  return pdfTitle;
+}
+
 function decodeHtml(value = '') {
   return String(value || '')
     .replace(/&nbsp;/gi, ' ')

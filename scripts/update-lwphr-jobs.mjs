@@ -13,7 +13,7 @@ import {
 import { validateJobUrls } from './lib/validate-job-url.mjs';
 import { translateMissingJobLocales, validateDedicatedLocaleCoverage, detectLang } from './lib/dedicated-crawler-common.mjs';
 import { buildPdfBackedDescription, extractPdfJobContentFromUrl } from './lib/pdf-job-content.mjs';
-import { parseLwphrOpenJobs, inferLwphrLocation, inferLwphrCategory, buildLwphrLocalizedPayload } from './lib/lwphr-job-parser.mjs';
+import { parseLwphrOpenJobs, inferLwphrLocation, inferLwphrCategory, buildLwphrLocalizedPayload, extractTitleFromPdfText, reconcilePdfTitle } from './lib/lwphr-job-parser.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -93,6 +93,9 @@ function jobMatchKey(job = {}) {
 }
 
 function buildJob({ title, pdfUrl, pdfText }) {
+  const pdfTitle = extractTitleFromPdfText(pdfText);
+  const resolvedTitle = reconcilePdfTitle(title, pdfTitle);
+  title = resolvedTitle;
   const location = inferLwphrLocation(title, pdfText);
   const localized = buildLwphrLocalizedPayload({ title, pdfText, location, pdfUrl });
   return {
