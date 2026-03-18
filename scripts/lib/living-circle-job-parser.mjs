@@ -75,7 +75,7 @@ function translateHeading(locale, heading) {
     },
     fr: {
       OVERVIEW: 'Aperçu',
-      'WAS DICH ERWARTET': 'Ce qui t’attend',
+      'WAS DICH ERWARTET': "Ce qui t'attend",
       'ÜBER DICH': 'Ton profil',
       'UNSERE WERTE': 'Nos valeurs',
       BENEFITS: 'Avantages',
@@ -130,34 +130,33 @@ function sectionMarkdown(locale, sections) {
 
 export function buildLivingCircleLocalizedContent(role) {
   const sections = splitSections(role.descriptionText || '');
-  const titleDe = role.title || 'Assistant Gouvernante 100%';
-  const titleIt = 'Assistente Governante 100%';
-  const titleEn = 'Assistant Housekeeping Manager 100%';
-  const titleFr = 'Assistante Gouvernante 100%';
-  const introDe = `The Living Circle sucht für den Standort ${role.location} in Ascona eine erfahrene Persönlichkeit im Housekeeping mit Fokus auf Qualität, Gästebetreuung und operative Unterstützung des Gouvernanten-Teams.`;
-  const introIt = `The Living Circle cerca per la sede di ${role.location}, ad Ascona, una figura esperta in housekeeping che supporti il team governanti e garantisca standard elevati di qualità e servizio agli ospiti.`;
-  const introEn = `The Living Circle is hiring in ${role.location}, Ascona for a housekeeping leadership support role focused on room quality, guest care and day-to-day operational support to the executive housekeeping team.`;
-  const introFr = `The Living Circle recrute à ${role.location}, Ascona, un profil expérimenté en housekeeping pour soutenir l’équipe gouvernantes et garantir des standards élevés de qualité et de service.`;
+  const title = role.title || '';
+  const loc = role.location || 'Ascona';
+
+  const introIt = `The Living Circle cerca per la sede di ${loc} una nuova risorsa. Scopri i dettagli della posizione e candidati online.`;
+  const introEn = `The Living Circle is hiring in ${loc}. Discover the details of this position and apply online.`;
+  const introDe = `The Living Circle sucht am Standort ${loc} eine neue Fachkraft. Entdecken Sie die Details der Stelle und bewerben Sie sich online.`;
+  const introFr = `The Living Circle recrute à ${loc}. Découvrez les détails du poste et postulez en ligne.`;
 
   return {
     it: {
-      title: titleIt,
-      slug: slugify(`assistente-governante-100-the-living-circle-${role.location}-ticino-svizzera`),
+      title,
+      slug: slugify(`${title} the-living-circle ${loc}`),
       description: `${introIt}\n\n${sectionMarkdown('it', sections)}`.trim(),
     },
     en: {
-      title: titleEn,
-      slug: slugify(`assistant-housekeeping-manager-100-the-living-circle-${role.location}-ticino-switzerland`),
+      title,
+      slug: slugify(`${title} the-living-circle ${loc}`),
       description: `${introEn}\n\n${sectionMarkdown('en', sections)}`.trim(),
     },
     de: {
-      title: titleDe,
-      slug: slugify(`assistant-gouvernante-100-the-living-circle-${role.location}-tessin-schweiz`),
+      title,
+      slug: slugify(`${title} the-living-circle ${loc}`),
       description: `${introDe}\n\n${sectionMarkdown('de', sections)}`.trim(),
     },
     fr: {
-      title: titleFr,
-      slug: slugify(`assistante-gouvernante-100-the-living-circle-${role.location}-tessin-suisse`),
+      title,
+      slug: slugify(`${title} the-living-circle ${loc}`),
       description: `${introFr}\n\n${sectionMarkdown('fr', sections)}`.trim(),
     },
   };

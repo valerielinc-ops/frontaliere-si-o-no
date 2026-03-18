@@ -210,8 +210,16 @@ async function main() {
   console.log(`  Feed: ${FEED_URL}\n`);
   const feed = await fetchJson(FEED_URL);
   const allRoles = parseLivingCircleFeed(feed);
-  const targetRoles = allRoles.filter((role) => normalize(role.location) === 'ascona');
-  if (!targetRoles.length) throw new Error('Expected at least 1 The Living Circle job in Ascona, found 0');
+  const TICINO_LOCATIONS = ['ascona', 'losone', 'locarno', 'brissago', 'muralto', 'minusio', 'tenero', 'gordola'];
+  const targetRoles = allRoles.filter((role) => {
+    const loc = normalize(role.location);
+    return TICINO_LOCATIONS.some((t) => loc.includes(t));
+  });
+  console.log(`  Found ${allRoles.length} total jobs, ${targetRoles.length} in Ticino.`);
+  if (!targetRoles.length) {
+    console.log('ℹ️  No Ticino jobs in current feed — preserving existing data.');
+    return;
+  }
   const jobs = targetRoles.map(buildJob);
   const total = mergeJobs(jobs);
   updateAdapterConfig(jobs);
