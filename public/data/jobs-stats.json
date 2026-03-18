@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-03-18T05:18:57.503Z",
+  "generatedAt": "2026-03-18T05:25:06.982Z",
   "links": {
     "allJobs": "https://www.frontaliereticino.ch/cerca-lavoro-ticino"
   },
   "totals": {
-    "activeJobs": 1052,
-    "activeCompanies": 130,
+    "activeJobs": 953,
+    "activeCompanies": 129,
     "activeLocations": 186,
     "todayAdded": 1029,
     "todayUpdated": 0,
@@ -156,6 +156,36 @@
         "name": "Grand Hotel des Bains Kempinski St. Moritz",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-grand-hotel-des-bains-kempinski-st-moritz",
         "count": 28
+      },
+      {
+        "key": "pemsa",
+        "name": "PEMSA",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-pemsa",
+        "count": 37
+      },
+      {
+        "key": "coop",
+        "name": "Coop",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-coop",
+        "count": 38
+      },
+      {
+        "key": "kantonsspital-graubunden",
+        "name": "Kantonsspital Graubünden",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-kantonsspital-graubunden",
+        "count": 30
+      },
+      {
+        "key": "vf-international-the-north-face-timberland",
+        "name": "VF International (The North Face, Timberland)",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-vf-international-the-north-face-timberland",
+        "count": 26
+      },
+      {
+        "key": "usi-universita-della-svizzera-italiana",
+        "name": "USI – Università della Svizzera italiana",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-usi-universita-della-svizzera-italiana",
+        "count": 24
       }
     ],
     "topLocationsActive": [
@@ -271,6 +301,24 @@
         "key": "bonaduz",
         "name": "Bonaduz",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-bonaduz",
+        "count": 44
+      },
+      {
+        "key": "grigioni",
+        "name": "Grigioni",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-grigioni",
+        "count": 46
+      },
+      {
+        "key": "st-moritz",
+        "name": "St. Moritz",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-st-moritz",
+        "count": 53
+      },
+      {
+        "key": "mendrisio",
+        "name": "Mendrisio",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-mendrisio",
         "count": 44
       }
     ],
@@ -573,11 +621,11 @@
   },
   "salary": {
     "coverage": {
-      "jobsWithSalary": 1052,
+      "jobsWithSalary": 953,
       "coveragePct": 100,
-      "avgMin": 65885,
-      "avgMax": 88870,
-      "avgMid": 77377,
+      "avgMin": 65944,
+      "avgMax": 88958,
+      "avgMid": 77451,
       "medianMid": 68500
     },
     "leaders": {
@@ -701,6 +749,16 @@
           "avgMax": 124900,
           "avgMid": 108600,
           "weightedSalary": 108600
+        },
+        {
+          "key": "medacta-international-sa",
+          "name": "Medacta International SA",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-medacta-international-sa",
+          "count": 5,
+          "avgMin": 80000,
+          "avgMax": 108000,
+          "avgMid": 94000,
+          "weightedSalary": 94000
         }
       ],
       "topSalaryLocations": [
@@ -823,6 +881,36 @@
           "avgMax": 106331,
           "avgMid": 92433,
           "weightedSalary": 92433
+        },
+        {
+          "key": "beijing-china",
+          "name": "Beijing, China",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-beijing-china",
+          "count": 1,
+          "avgMin": 92000,
+          "avgMax": 125000,
+          "avgMid": 108500,
+          "weightedSalary": 95300
+        },
+        {
+          "key": "castel-san-pietro",
+          "name": "Castel San Pietro",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-castel-san-pietro",
+          "count": 8,
+          "avgMin": 76063,
+          "avgMax": 102688,
+          "avgMid": 89375,
+          "weightedSalary": 89375
+        },
+        {
+          "key": "zurich",
+          "name": "Zürich",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-zurich",
+          "count": 5,
+          "avgMin": 83300,
+          "avgMax": 112700,
+          "avgMid": 98000,
+          "weightedSalary": 98000
         }
       ],
       "topSalaryTitles": [
