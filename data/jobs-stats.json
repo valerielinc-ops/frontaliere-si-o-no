@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-03-18T16:17:42.637Z",
+  "generatedAt": "2026-03-18T16:18:16.182Z",
   "links": {
     "allJobs": "https://www.frontaliereticino.ch/cerca-lavoro-ticino"
   },
   "totals": {
-    "activeJobs": 1158,
+    "activeJobs": 1109,
     "activeCompanies": 132,
-    "activeLocations": 153,
+    "activeLocations": 152,
     "todayAdded": 1049,
     "todayUpdated": 0,
     "todayRemoved": 0,
@@ -53,6 +53,13 @@
     {
       "date": "2026-03-18",
       "totalJobs": 1158,
+      "added": 1049,
+      "updated": 0,
+      "removed": 0
+    },
+    {
+      "date": "2026-03-18",
+      "totalJobs": 1109,
       "added": 1049,
       "updated": 0,
       "removed": 0
@@ -131,6 +138,36 @@
         "name": "VF International (The North Face, Timberland)",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-vf-international-the-north-face-timberland",
         "count": 52
+      },
+      {
+        "key": "colin-cie-wealth-management",
+        "name": "Colin&Cie Wealth Management",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-colin-cie-wealth-management",
+        "count": 57
+      },
+      {
+        "key": "vf-international-the-north-face-timberland",
+        "name": "VF International (The North Face, Timberland)",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-vf-international-the-north-face-timberland",
+        "count": 43
+      },
+      {
+        "key": "supsi-dti",
+        "name": "SUPSI / DTI",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-supsi-dti",
+        "count": 35
+      },
+      {
+        "key": "ffs-officine-ferrovie-federali",
+        "name": "FFS Officine (Ferrovie Federali)",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-ffs-officine-ferrovie-federali",
+        "count": 31
+      },
+      {
+        "key": "relewant",
+        "name": "ReleWant",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-relewant",
+        "count": 29
       }
     ],
     "topLocationsActive": [
@@ -229,6 +266,48 @@
         "name": "EMEA · CHE · Stabio · VF Campus VF1",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-emea-che-stabio-vf-campus-vf1",
         "count": 50
+      },
+      {
+        "key": "lugano",
+        "name": "Lugano",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-lugano",
+        "count": 149
+      },
+      {
+        "key": "bellinzona",
+        "name": "Bellinzona",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-bellinzona",
+        "count": 142
+      },
+      {
+        "key": "st-moritz",
+        "name": "St. Moritz",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-st-moritz",
+        "count": 63
+      },
+      {
+        "key": "mendrisio",
+        "name": "Mendrisio",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-mendrisio",
+        "count": 62
+      },
+      {
+        "key": "chur",
+        "name": "Chur",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-chur",
+        "count": 48
+      },
+      {
+        "key": "locarno",
+        "name": "Locarno",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-locarno",
+        "count": 47
+      },
+      {
+        "key": "emea-che-stabio-vf-campus-vf1",
+        "name": "EMEA · CHE · Stabio · VF Campus VF1",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-emea-che-stabio-vf-campus-vf1",
+        "count": 41
       }
     ],
     "topCompaniesAddedToday": [
@@ -530,11 +609,11 @@
   },
   "salary": {
     "coverage": {
-      "jobsWithSalary": 1158,
+      "jobsWithSalary": 1109,
       "coveragePct": 100,
-      "avgMin": 67761,
-      "avgMax": 91498,
-      "avgMid": 79630,
+      "avgMin": 67614,
+      "avgMax": 91270,
+      "avgMid": 79442,
       "medianMid": 84500
     },
     "leaders": {
@@ -618,6 +697,16 @@
           "avgMax": 122750,
           "avgMid": 106750,
           "weightedSalary": 97150
+        },
+        {
+          "key": "fincons-group",
+          "name": "Fincons Group",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-fincons-group",
+          "count": 23,
+          "avgMin": 82783,
+          "avgMax": 111609,
+          "avgMid": 97196,
+          "weightedSalary": 97196
         }
       ],
       "topSalaryLocations": [
@@ -730,6 +819,26 @@
           "avgMax": 105432,
           "avgMid": 91795,
           "weightedSalary": 91795
+        },
+        {
+          "key": "zurich",
+          "name": "Zürich",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-zurich",
+          "count": 16,
+          "avgMin": 78406,
+          "avgMax": 105781,
+          "avgMid": 92094,
+          "weightedSalary": 92094
+        },
+        {
+          "key": "manno",
+          "name": "Manno",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-manno",
+          "count": 7,
+          "avgMin": 78000,
+          "avgMax": 105286,
+          "avgMid": 91643,
+          "weightedSalary": 91643
         }
       ],
       "topSalaryTitles": [
