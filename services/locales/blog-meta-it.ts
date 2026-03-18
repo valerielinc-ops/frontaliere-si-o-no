@@ -1304,6 +1304,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.cabov-precipita-forte-vento.title': 'Cabinovia precipita a Engelberg: almeno un ferito per il vento',
     'blog.article.cabov-precipita-forte-vento.excerpt': 'Una cabinovia vicino a Engelberg, nel Canton Obwalden, è precipitata a causa di forti raffiche di vento, con almeno un ferito grave soccorso sul posto.',
     'blog.article.cabov-precipita-forte-vento.imageAlt': 'Cabinovia in Ticino con vento forte e nuvole in cielo',
+    'blog.article.agenzia-trasporto-nuovo.title': 'Nuovo servizio TPL di Como: 1,2 miliardi per 10 anni',
+    'blog.article.agenzia-trasporto-nuovo.excerpt': 'L’Agenzia del Trasporto Pubblico Locale di Como ha lanciato un bando da 1,2 miliardi di euro per i prossimi 10 anni. Dettagli su modello finanziario, nuove priorità e impatto sui frontalieri ticinesi.',
+    'blog.article.agenzia-trasporto-nuovo.imageAlt': 'Treno moderno in Ticino con vista su Lago di Como',
 };
 
 export default blogMetaIt;

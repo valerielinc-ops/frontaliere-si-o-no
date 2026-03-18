@@ -1304,6 +1304,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.cabov-precipita-forte-vento.title': 'Seilbahn stürzt in Engelberg ab: Mindestens ein Verletzter durch den Wind',
     'blog.article.cabov-precipita-forte-vento.excerpt': 'Eine Seilbahn in der Nähe von Engelberg im Kanton Obwalden ist infolge starker Windböen abgestürzt, wobei mindestens eine Person schwer verletzt wurde und vor Ort versorgt wird.',
     'blog.article.cabov-precipita-forte-vento.imageAlt': 'Seilbahn im Tessin bei starkem Wind und bewölktem Himmel',
+    'blog.article.agenzia-trasporto-nuovo.title': 'Neuer TPL-Service in Como: 1,2 Milliarden für 10 Jahre',
+    'blog.article.agenzia-trasporto-nuovo.excerpt': 'Die Öffentliche Verkehrsagentur Como hat ein Budget von 1,2 Milliarden Euro für die nächsten 10 Jahre ausgeschrieben. Details zum Finanzmodell, neuen Prioritäten und Auswirkungen auf grenznaher Ticiner.',
+    'blog.article.agenzia-trasporto-nuovo.imageAlt': 'Moderner Zug bei Sonnenaufgang am Lago di Como',
 };
 
 export default blogMetaDe;

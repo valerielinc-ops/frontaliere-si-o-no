@@ -1304,6 +1304,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.cabov-precipita-forte-vento.title': 'Télécabine chute à Engelberg : au moins un blessé à cause du vent',
     'blog.article.cabov-precipita-forte-vento.excerpt': 'Une télécabine près d\'Engelberg, dans le canton d\'Obwald, a dégringolé suite à de fortes rafales de vent, avec au moins une personne gravement blessée secourue sur place.',
     'blog.article.cabov-precipita-forte-vento.imageAlt': 'Télécabine dans le Tessin avec vent fort et ciel nuageux',
+    'blog.article.agenzia-trasporto-nuovo.title': 'Nouveau service TPL de Como : 1,2 milliards sur 10 ans',
+    'blog.article.agenzia-trasporto-nuovo.excerpt': 'L’Agence du Transport Public Local de Como a lancé un appel d’offres de 1,2 milliard d’euros pour les 10 prochaines années. Détails sur le modèle financier, les nouvelles priorités et l’impact sur les frontaliers tessinois.',
+    'blog.article.agenzia-trasporto-nuovo.imageAlt': 'Train moderne sur le lac de Como à l\'aube',
 };
 
 export default blogMetaFr;

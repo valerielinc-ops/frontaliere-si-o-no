@@ -1304,6 +1304,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.cabov-precipita-forte-vento.title': 'Cable Car Falls in Engelberg: At Least One Injured Due to Wind',
     'blog.article.cabov-precipita-forte-vento.excerpt': 'A cable car near Engelberg, in the Canton of Obwalden, has fallen due to strong gusts of wind, with at least one seriously injured person rescued on site.',
     'blog.article.cabov-precipita-forte-vento.imageAlt': 'Cabin lift in Ticino with strong wind and cloudy sky',
+    'blog.article.agenzia-trasporto-nuovo.title': 'New TPL service from Como: 1.2 billion for 10 years',
+    'blog.article.agenzia-trasporto-nuovo.excerpt': 'Como\'s Local Public Transport Agency has launched a €1.2 billion tender for the next decade. Details on the financial model, new priorities and impact on Ticino cross‑border commuters.',
+    'blog.article.agenzia-trasporto-nuovo.imageAlt': 'Modern train at sunrise over Lake Como, Ticino',
 };
 
 export default blogMetaEn;

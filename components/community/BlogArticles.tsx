@@ -3618,6 +3618,13 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/cabov-precipita-forte-vento.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'agenzia-trasporto-nuovo',
+    category: 'novita',
+    date: '2026-03-18T17:22:46.308Z',
+    image: '/images/blog/agenzia-trasporto-nuovo.jpg',
+    hasCalculator: true,
+  },
 ];
 
 const CATEGORIES = ['all', 'fiscale', 'pratico', 'novita', 'pensione'] as const;

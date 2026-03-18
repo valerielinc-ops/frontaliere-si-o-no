@@ -5736,6 +5736,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-agenzia-trasporto-nuovo': {
+    title: 'Nuovo servizio TPL di Como: 1,2 miliardi per 10 anni | Frontaliere Ticino',
+    description: 'Scopri il rinnovo dell’Agenzia TPL di Como con 1,2 miliardi di euro destinati al servizio per 10 anni. Impatto sui frontalieri ticinesi e dettagli s',
+    keywords: 'frontalieri, ticino, svizzera, italia, nuovo, servizio, como, miliardi',
+    ogTitle: 'Nuovo servizio TPL Como: 1,2 miliardi per 10 anni',
+    ogDescription: 'L’Agenzia del Trasporto Pubblico Locale di Como ha lanciato una gara da 1,2 miliardi di euro per il periodo 2026-2036, con impatto diretto sui frontalieri',
+    canonicalPath: '/articoli-frontaliere/agenzia-trasporto-nuovo',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Agenzia TPL Como: 1,2 miliardi di euro per un servizio potenziato nel",
+      "description": "Scopri il rinnovo dell’Agenzia TPL di Como con 1,2 miliardi di euro destinati al servizio per 10 anni. Impatto sui frontalieri ticinesi e dettagli s",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/agenzia-trasporto-nuovo.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Treno moderno in Ticino con vista su Lago di Como"
+      },
+      "datePublished": "2026-03-18T17:22:46+00:00",
+      "dateModified": "2026-03-18T17:22:46+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/agenzia-trasporto-nuovo`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
