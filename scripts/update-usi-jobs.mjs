@@ -35,6 +35,7 @@ import { printPublishedJobUrls, writeJobsSummary, snapshotJobSlugs, computeCrawl
 import { validateJobUrls } from './lib/validate-job-url.mjs';
 import { translateMissingJobLocales, validateDedicatedLocaleCoverage } from './lib/dedicated-crawler-common.mjs';
 import { buildPdfBackedDescription, extractPdfJobContentFromUrl } from './lib/pdf-job-content.mjs';
+import { extractDrupalNodeId, extractIrsolDetailPage, MIN_IRSOL_BODY_LENGTH } from './lib/irsol-html-parser.mjs';
 import { translateTextWithLocalPipeline } from './lib/job-localization-pipeline.mjs';
 import { freeTranslateWithRetry } from './lib/free-translate.mjs';
 
@@ -513,6 +514,22 @@ function matchEnglishJobs(itJobs, enJobs) {
         break;
       }
     }
+
+    // Strategy 4: match external HTML pages (e.g. IRSOL Drupal) by trailing
+    // numeric node ID. IT ".../del-41206" and EN ".../scientist-41206" share
+    // the same node ID, making it a stable bilingual match key.
+    if (!matches.has(itPdfId)) {
+      const itNodeId = extractDrupalNodeId(itJob.externalUrl || '');
+      if (itNodeId) {
+        for (const [, enJob] of enByPdfBase) {
+          const enNodeId = extractDrupalNodeId(enJob.externalUrl || '');
+          if (enNodeId && enNodeId === itNodeId) {
+            matches.set(itPdfId, enJob);
+            break;
+          }
+        }
+      }
+    }
   }
 
   return matches;
@@ -570,14 +587,38 @@ async function fetchUsiJobs() {
       ? await extractPdfJobContentFromUrl(itJob.pdfUrl)
       : { text: '', error: '' };
 
-    const slug = slugify(itJob.title, 'usi');
-    const descIt = buildDescription(itJob, 'it', pdfContent.text || '');
-    const descEn = buildDescription(enJob || itJob, 'en', pdfContent.text || '');
+    // For external HTML pages (e.g. IRSOL Drupal detail pages): fetch the
+    // detail page to obtain (a) the canonical title from <h1> — more stable
+    // than the listing-page title which can drift between runs — and (b) the
+    // full job body instead of a synthetic 4-line summary.
+    let externalContent = { title: '', body: '' };
+    if (itJob.externalUrl && !itJob.pdfUrl) {
+      const detailHtml = await fetchPage(itJob.externalUrl, 15000);
+      if (detailHtml) {
+        externalContent = extractIrsolDetailPage(detailHtml);
+        if (externalContent.title) {
+          console.log(`  🏷️ IRSOL detail title: "${externalContent.title}"`);
+        }
+        if (externalContent.body.length < MIN_IRSOL_BODY_LENGTH) {
+          console.warn(`  ⚠️ IRSOL body too short (${externalContent.body.length} chars) for ${itJob.externalUrl} — using synthetic description.`);
+          externalContent.body = '';
+        }
+      }
+    }
+
+    // Prefer detail-page title (stable h1) over listing-page title.
+    const canonicalItTitle = externalContent.title || itJob.title;
+    // Body text: PDF content takes priority, then HTML detail page body.
+    const bodyText = pdfContent.text || externalContent.body || '';
+
+    const slug = slugify(canonicalItTitle, 'usi');
+    const descIt = buildDescription({ ...itJob, title: canonicalItTitle }, 'it', bodyText);
+    const descEn = buildDescription(enJob ? { ...enJob } : { ...itJob, title: canonicalItTitle }, 'en', bodyText);
 
     const job = {
       url: jobUrl,
       applyUrl: itJob.pdfUrl || itJob.externalUrl || LISTING_URL_IT,
-      title: itJob.title,
+      title: canonicalItTitle,
       company: USI_COMPANY_NAME,
       companyKey: USI_KEY,
       location: city,
@@ -589,7 +630,7 @@ async function fetchUsiJobs() {
         en: descEn,
       },
       titleByLocale: {
-        it: itJob.title,
+        it: canonicalItTitle,
         en: enJob ? enJob.title : '',
       },
       slug,
