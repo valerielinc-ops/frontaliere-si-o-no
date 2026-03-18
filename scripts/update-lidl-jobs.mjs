@@ -31,6 +31,7 @@ import {
   deriveLocalizedSlug,
   normalize,
 } from './lib/dedicated-crawler-common.mjs';
+import { parseLidlDetailPage, hasListContent, MIN_LIDL_FULL_DESC } from './lib/lidl-job-parser.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -388,6 +389,94 @@ function lidlDedupKey(job) {
   return path ? `path:${path}` : `fallback:${normalizeKey(job?.title || '')}`;
 }
 
+async function fetchLidlPage(url, timeoutMs = 15000) {
+  try {
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), timeoutMs);
+    const res = await fetch(url, {
+      signal: controller.signal,
+      headers: {
+        Accept: 'text/html,application/xhtml+xml',
+        'Accept-Language': 'de-CH,de;q=0.9,it;q=0.8',
+        'User-Agent': process.env.JOBS_CRAWLER_USER_AGENT ||
+          'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://www.frontaliereticino.ch/)',
+      },
+    });
+    clearTimeout(timer);
+    if (!res.ok) {
+      console.warn(`  ⚠️ HTTP ${res.status} for ${url}`);
+      return null;
+    }
+    return await res.text();
+  } catch (err) {
+    console.warn(`  ⚠️ Fetch failed for ${url}: ${err?.message || err}`);
+    return null;
+  }
+}
+
+/**
+ * For each Lidl job whose description is missing list content or is too short,
+ * fetch the detail page and extract the full structured body using
+ * parseLidlDetailPage. Updates data/jobs.json with the enriched descriptions.
+ *
+ * Guards (both must pass for an update):
+ *   1. extracted body length >= MIN_LIDL_FULL_DESC (400 chars)
+ *   2. extracted body contains at least one "- " bullet line (hasLists)
+ */
+async function enrichLidlJobDescriptions() {
+  if (!fs.existsSync(DATA_JOBS)) return 0;
+  const raw = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
+  const jobs = Array.isArray(raw) ? raw : [];
+  let enriched = 0;
+
+  for (const job of jobs) {
+    if (!isLidlJob(job)) continue;
+    const currentDesc = String(job.description || '').trim();
+    // Skip jobs that already have a full structured description
+    if (currentDesc.length >= MIN_LIDL_FULL_DESC && hasListContent(currentDesc)) continue;
+
+    const detailUrl = String(job.url || '').trim();
+    if (!detailUrl || !isTrustedLidlDomain(detailUrl)) continue;
+
+    const html = await fetchLidlPage(detailUrl);
+    if (!html) continue;
+
+    const extracted = parseLidlDetailPage(html);
+
+    // Both guards must pass
+    if (!extracted.meetsMinLength || !extracted.hasLists) {
+      console.warn(`  ⚠️ Lidl detail page body too short or lacks lists for "${job.slug || detailUrl}" — skipping.`);
+      continue;
+    }
+
+    // Only update if the new body is richer than what we have
+    if (extracted.body.length <= currentDesc.length && hasListContent(currentDesc)) continue;
+
+    console.log(`  ✨ Enriched "${job.slug || detailUrl}" (${currentDesc.length} → ${extracted.body.length} chars)`);
+    job.description = extracted.body;
+    if (!job.descriptionByLocale) job.descriptionByLocale = {};
+    // Determine locale from URL path (e.g. /de/, /it/)
+    const urlLocale = (() => {
+      try { const m = new URL(detailUrl).pathname.match(/^\/(it|de|fr|en)\//i); return m ? m[1].toLowerCase() : 'de'; }
+      catch { return 'de'; }
+    })();
+    // Store extracted body under the source locale; other locales get re-derived on next localization run
+    if (!job.descriptionByLocale[urlLocale] || extracted.body.length > String(job.descriptionByLocale[urlLocale] || '').length) {
+      job.descriptionByLocale[urlLocale] = extracted.body;
+    }
+    enriched++;
+  }
+
+  if (enriched > 0) {
+    fs.writeFileSync(DATA_JOBS, JSON.stringify(jobs, null, 2) + '\n');
+    if (fs.existsSync(PUBLIC_DATA_JOBS)) {
+      fs.writeFileSync(PUBLIC_DATA_JOBS, JSON.stringify(jobs, null, 2) + '\n');
+    }
+    console.log(`✨ Enriched ${enriched} Lidl jobs with full detail-page body.`);
+  }
+  return enriched;
+}
+
 function postProcessLidlJobs() {
   if (!fs.existsSync(DATA_JOBS)) return;
   const raw = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
@@ -535,6 +624,10 @@ async function main() {
 
   await runBaseCrawler();
   postProcessLidlJobs();
+
+  // Enrich jobs whose descriptions lack structured list content (full detail body).
+  console.log('\n🔍 Checking Lidl jobs for missing full-body descriptions...');
+  await enrichLidlJobDescriptions();
 
   const stats = logLidlJobStats(beforeSnapshot);
   if (stats.total === 0) {
