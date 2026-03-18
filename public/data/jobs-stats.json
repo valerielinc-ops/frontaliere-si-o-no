@@ -1,22 +1,22 @@
 {
-  "generatedAt": "2026-03-18T05:01:25.490Z",
+  "generatedAt": "2026-03-18T05:01:29.260Z",
   "links": {
     "allJobs": "https://www.frontaliereticino.ch/cerca-lavoro-ticino"
   },
   "totals": {
-    "activeJobs": 1583,
+    "activeJobs": 1049,
     "activeCompanies": 132,
-    "activeLocations": 190,
-    "todayAdded": 945,
+    "activeLocations": 198,
+    "todayAdded": 953,
     "todayUpdated": 0,
     "todayRemoved": 0,
     "last7d": {
-      "added": 2139,
+      "added": 2147,
       "updated": 0,
       "removed": 0
     },
     "last30d": {
-      "added": 2622,
+      "added": 2630,
       "updated": 0,
       "removed": 0
     }
@@ -61,6 +61,13 @@
       "date": "2026-03-18",
       "totalJobs": 1583,
       "added": 945,
+      "updated": 0,
+      "removed": 0
+    },
+    {
+      "date": "2026-03-18",
+      "totalJobs": 1540,
+      "added": 953,
       "updated": 0,
       "removed": 0
     }
@@ -150,6 +157,24 @@
         "name": "C2B Electrotechnique, succursale de Grichting & Valterio Electro SA",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-c2b-electrotechnique-succursale-de-grichting-valterio-electro-sa",
         "count": 44
+      },
+      {
+        "key": "convit-holding-gmbh",
+        "name": "Convit Holding GmbH",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-convit-holding-gmbh",
+        "count": 35
+      },
+      {
+        "key": "axa-svizzera",
+        "name": "AXA Svizzera",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-axa-svizzera",
+        "count": 33
+      },
+      {
+        "key": "vf-international-the-north-face-timberland",
+        "name": "VF International (The North Face, Timberland)",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-vf-international-the-north-face-timberland",
+        "count": 32
       }
     ],
     "topLocationsActive": [
@@ -236,6 +261,36 @@
         "name": "Brig-Glis",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-brig-glis",
         "count": 48
+      },
+      {
+        "key": "lugano",
+        "name": "Lugano",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-lugano",
+        "count": 110
+      },
+      {
+        "key": "st-moritz",
+        "name": "St. Moritz",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-st-moritz",
+        "count": 58
+      },
+      {
+        "key": "locarno",
+        "name": "Locarno",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-locarno",
+        "count": 46
+      },
+      {
+        "key": "mendrisio",
+        "name": "Mendrisio",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-mendrisio",
+        "count": 46
+      },
+      {
+        "key": "emea-che-stabio-vf-campus-vf1",
+        "name": "EMEA · CHE · Stabio · VF Campus VF1",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-emea-che-stabio-vf-campus-vf1",
+        "count": 30
       }
     ],
     "topCompaniesAddedToday": [
@@ -276,6 +331,15 @@
         "removed": 0
       },
       {
+        "key": "convit-holding-gmbh",
+        "name": "Convit Holding GmbH",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-convit-holding-gmbh",
+        "count": 0,
+        "added": 35,
+        "updated": 0,
+        "removed": 0
+      },
+      {
         "key": "kantonsspital-graubunden",
         "name": "Kantonsspital Graubünden",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-kantonsspital-graubunden",
@@ -299,15 +363,6 @@
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-usi-universita-della-svizzera-italiana",
         "count": 0,
         "added": 24,
-        "updated": 0,
-        "removed": 0
-      },
-      {
-        "key": "convit-holding-gmbh",
-        "name": "Convit Holding GmbH",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-convit-holding-gmbh",
-        "count": 0,
-        "added": 23,
         "updated": 0,
         "removed": 0
       }
@@ -537,11 +592,11 @@
   },
   "salary": {
     "coverage": {
-      "jobsWithSalary": 1583,
+      "jobsWithSalary": 1049,
       "coveragePct": 100,
-      "avgMin": 65921,
-      "avgMax": 88865,
-      "avgMid": 77393,
+      "avgMin": 66083,
+      "avgMax": 89137,
+      "avgMid": 77610,
       "medianMid": 68500
     },
     "leaders": {
@@ -703,6 +758,26 @@
           "name": "Munsbach",
           "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-munsbach",
           "count": 63,
+          "avgMin": 77500,
+          "avgMax": 104500,
+          "avgMid": 91000,
+          "weightedSalary": 91000
+        },
+        {
+          "key": "zurich",
+          "name": "Zürich",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-zurich",
+          "count": 9,
+          "avgMin": 80722,
+          "avgMax": 109056,
+          "avgMid": 94889,
+          "weightedSalary": 94889
+        },
+        {
+          "key": "munsbach",
+          "name": "Munsbach",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-munsbach",
+          "count": 9,
           "avgMin": 77500,
           "avgMax": 104500,
           "avgMid": 91000,
