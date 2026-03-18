@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-03-18T05:14:47.239Z",
+  "updatedAt": "2026-03-18T05:15:42.855Z",
   "summaries": [
     {
       "key": "agie-charmilles",
@@ -1349,68 +1349,6 @@
       "updatedJobs": [],
       "removedJobs": [],
       "unchangedJobs": []
-    },
-    {
-      "key": "medacta",
-      "label": "Medacta",
-      "generatedAt": "2026-03-17T05:12:38.355Z",
-      "total": 5,
-      "newCount": 0,
-      "updatedCount": 0,
-      "removedCount": 0,
-      "unchangedCount": 5,
-      "durationMs": 207139,
-      "avgDurationMs": 42140,
-      "durationHistory": [
-        207139,
-        18074,
-        19559,
-        18663,
-        16970,
-        17394,
-        19925,
-        19399
-      ],
-      "newJobs": [],
-      "updatedJobs": [],
-      "removedJobs": [],
-      "unchangedJobs": [
-        {
-          "title": "Thesis R&D Orthopedics",
-          "company": "Medacta International SA",
-          "location": "Rancate",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/tesi-di-ricerca-e-sviluppo-in-ortopedia-medacta-international-sa-rancate/",
-          "slug": "thesis-r-d-orthopedics-medacta-rancate"
-        },
-        {
-          "title": "Operatore Pre-Post Coating",
-          "company": "Medacta International SA",
-          "location": "Castel San Pietro",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/operatore-pre-post-coating-medacta-international-sa-castel-san-pietro/",
-          "slug": "operatore-pre-post-coating-medacta-castel-san-pietro"
-        },
-        {
-          "title": "Tornitore",
-          "company": "Medacta International SA",
-          "location": "Castel San Pietro; Rancate",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/tornitore-medacta-international-sa-castel-san-pietro-rancate/",
-          "slug": "tornitore-medacta-castel-san-pietro-rancate"
-        },
-        {
-          "title": "Fresatore",
-          "company": "Medacta International SA",
-          "location": "Castel San Pietro; Rancate",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/fresatore-medacta-international-sa-castel-san-pietro-rancate/",
-          "slug": "fresatore-medacta-castel-san-pietro-rancate"
-        },
-        {
-          "title": "Operatore smerigliatura e lucidatura -3 Turni",
-          "company": "Medacta International SA",
-          "location": "Castel San Pietro",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/operatore-smerigliatura-e-lucidatura-3-turni-medacta-international-sa-castel-san-pietro/",
-          "slug": "operatore-smerigliatura-e-lucidatura-3-turni-medacta-castel-san-pietro"
-        }
-      ]
     },
     {
       "key": "ruag-ag",
@@ -8378,6 +8316,69 @@
           "slug": "responsabile-area-di-mercato-clienti-privati-tutti-generi-banca-migros-s-antonino"
         }
       ]
+    },
+    {
+      "key": "medacta",
+      "label": "Medacta",
+      "generatedAt": "2026-03-18T05:15:42.855Z",
+      "total": 5,
+      "newCount": 0,
+      "updatedCount": 5,
+      "removedCount": 0,
+      "unchangedCount": 0,
+      "durationMs": 112776,
+      "avgDurationMs": 49989,
+      "durationHistory": [
+        112776,
+        207139,
+        18074,
+        19559,
+        18663,
+        16970,
+        17394,
+        19925,
+        19399
+      ],
+      "newJobs": [],
+      "updatedJobs": [
+        {
+          "title": "Thesis R&D Orthopedics",
+          "company": "Medacta International SA",
+          "location": "Rancate",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/thesis-r-d-orthopedics-medacta-international-sa-castel-san-pietro/",
+          "slug": "thesis-r-d-orthopedics-medacta-international-sa-castel-san-pietro"
+        },
+        {
+          "title": "Operatore Pre-Post Coating",
+          "company": "Medacta International SA",
+          "location": "Castel San Pietro",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/operatore-pre-post-coating-medacta-international-sa-castel-san-pietro/",
+          "slug": "operatore-pre-post-coating-medacta-international-sa-castel-san-pietro"
+        },
+        {
+          "title": "Tornitore",
+          "company": "Medacta International SA",
+          "location": "Castel San Pietro; Rancate",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/tornitore-medacta-international-sa-castel-san-pietro/",
+          "slug": "tornitore-medacta-international-sa-castel-san-pietro"
+        },
+        {
+          "title": "Fresatore",
+          "company": "Medacta International SA",
+          "location": "Castel San Pietro; Rancate",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/fresatore-medacta-international-sa-castel-san-pietro/",
+          "slug": "fresatore-medacta-international-sa-castel-san-pietro"
+        },
+        {
+          "title": "Operatore smerigliatura e lucidatura -3 Turni",
+          "company": "Medacta International SA",
+          "location": "Castel San Pietro",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/operatore-smerigliatura-e-lucidatura-3-turni-medacta-international-sa-castel-san-pietro/",
+          "slug": "operatore-smerigliatura-e-lucidatura-3-turni-medacta-international-sa-castel-san-pietro"
+        }
+      ],
+      "removedJobs": [],
+      "unchangedJobs": []
     }
   ]
 }
