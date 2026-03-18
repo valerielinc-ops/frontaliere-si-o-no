@@ -1,22 +1,22 @@
 {
-  "generatedAt": "2026-03-18T04:51:20.135Z",
+  "generatedAt": "2026-03-18T04:51:25.216Z",
   "links": {
     "allJobs": "https://www.frontaliereticino.ch/cerca-lavoro-ticino"
   },
   "totals": {
-    "activeJobs": 950,
+    "activeJobs": 956,
     "activeCompanies": 127,
     "activeLocations": 177,
-    "todayAdded": 907,
+    "todayAdded": 913,
     "todayUpdated": 0,
     "todayRemoved": 0,
     "last7d": {
-      "added": 3004,
+      "added": 3010,
       "updated": 0,
       "removed": 0
     },
     "last30d": {
-      "added": 3487,
+      "added": 3493,
       "updated": 0,
       "removed": 0
     }
@@ -47,6 +47,13 @@
       "date": "2026-03-18",
       "totalJobs": 950,
       "added": 907,
+      "updated": 0,
+      "removed": 0
+    },
+    {
+      "date": "2026-03-18",
+      "totalJobs": 956,
+      "added": 913,
       "updated": 0,
       "removed": 0
     }
@@ -107,7 +114,7 @@
         "key": "bellinzona",
         "name": "Bellinzona",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-bellinzona",
-        "count": 133
+        "count": 135
       },
       {
         "key": "lugano",
@@ -120,6 +127,12 @@
         "name": "St. Moritz",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-st-moritz",
         "count": 56
+      },
+      {
+        "key": "chur",
+        "name": "Chur",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-chur",
+        "count": 47
       },
       {
         "key": "grigioni",
@@ -138,12 +151,6 @@
         "name": "Mendrisio",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-mendrisio",
         "count": 46
-      },
-      {
-        "key": "chur",
-        "name": "Chur",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-chur",
-        "count": 40
       },
       {
         "key": "emea-che-stabio-vf-campus-vf1",
@@ -451,11 +458,11 @@
   },
   "salary": {
     "coverage": {
-      "jobsWithSalary": 950,
+      "jobsWithSalary": 956,
       "coveragePct": 100,
-      "avgMin": 65670,
-      "avgMax": 88581,
-      "avgMid": 77126,
+      "avgMin": 65739,
+      "avgMax": 88678,
+      "avgMid": 77208,
       "medianMid": 68000
     },
     "leaders": {
@@ -621,6 +628,16 @@
           "avgMax": 99313,
           "avgMid": 86438,
           "weightedSalary": 86438
+        },
+        {
+          "key": "zurich",
+          "name": "Zürich",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-zurich",
+          "count": 5,
+          "avgMin": 83300,
+          "avgMax": 112700,
+          "avgMid": 98000,
+          "weightedSalary": 98000
         }
       ],
       "topSalaryTitles": [
