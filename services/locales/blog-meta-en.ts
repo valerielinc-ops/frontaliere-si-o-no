@@ -1301,6 +1301,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.com-aziende-lavoro-como.title': 'Province of Como: 4 Companies and 2 Agencies Seek Workers',
     'blog.article.com-aziende-lavoro-como.excerpt': 'Job opportunities in the Como area: four companies and two agencies are looking for candidates. Don\'t miss these chances, with deadlines approaching. Here are all the details.',
     'blog.article.com-aziende-lavoro-como.imageAlt': 'Modern office in Ticino with lake and mountain view',
+    'blog.article.cabov-precipita-forte-vento.title': 'Cable Car Falls in Engelberg: At Least One Injured Due to Wind',
+    'blog.article.cabov-precipita-forte-vento.excerpt': 'A cable car near Engelberg, in the Canton of Obwalden, has fallen due to strong gusts of wind, with at least one seriously injured person rescued on site.',
+    'blog.article.cabov-precipita-forte-vento.imageAlt': 'Cabin lift in Ticino with strong wind and cloudy sky',
 };
 
 export default blogMetaEn;

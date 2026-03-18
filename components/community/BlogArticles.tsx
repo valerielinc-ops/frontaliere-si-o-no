@@ -3611,6 +3611,13 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/com-aziende-lavoro-como.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'cabov-precipita-forte-vento',
+    category: 'novita',
+    date: '2026-03-18T15:12:29.976Z',
+    image: '/images/blog/cabov-precipita-forte-vento.jpg',
+    hasCalculator: true,
+  },
 ];
 
 const CATEGORIES = ['all', 'fiscale', 'pratico', 'novita', 'pensione'] as const;

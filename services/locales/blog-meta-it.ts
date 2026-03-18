@@ -1301,6 +1301,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.com-aziende-lavoro-como.title': 'Provincia di Como: 4 aziende e 2 agenzie cercano lavoratori',
     'blog.article.com-aziende-lavoro-como.excerpt': 'Lavoro in provincia di Como: 4 aziende e 2 agenzie cercano candidati. Opportunità da non perdere, con scadenze ravvicinate. Ecco tutti i dettagli.',
     'blog.article.com-aziende-lavoro-como.imageAlt': 'Ufficio moderno in Ticino con vista sul lago e montagna',
+    'blog.article.cabov-precipita-forte-vento.title': 'Cabinovia precipita a Engelberg: almeno un ferito per il vento',
+    'blog.article.cabov-precipita-forte-vento.excerpt': 'Una cabinovia vicino a Engelberg, nel Canton Obwalden, è precipitata a causa di forti raffiche di vento, con almeno un ferito grave soccorso sul posto.',
+    'blog.article.cabov-precipita-forte-vento.imageAlt': 'Cabinovia in Ticino con vento forte e nuvole in cielo',
 };
 
 export default blogMetaIt;

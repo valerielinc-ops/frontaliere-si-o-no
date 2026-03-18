@@ -1301,6 +1301,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.com-aziende-lavoro-como.title': 'Provinz Como: 4 Unternehmen und 2 Agenturen suchen Arbeitskräfte',
     'blog.article.com-aziende-lavoro-como.excerpt': 'Arbeit in der Provinz Como: 4 Unternehmen und 2 Agenturen suchen Kandidaten. Chancen, die man nicht verpassen sollte, mit kurzfristigen Fristen. Hier sind alle Details.',
     'blog.article.com-aziende-lavoro-como.imageAlt': 'Modernes Büro im Tessin mit See- und Bergblick',
+    'blog.article.cabov-precipita-forte-vento.title': 'Seilbahn stürzt in Engelberg ab: Mindestens ein Verletzter durch den Wind',
+    'blog.article.cabov-precipita-forte-vento.excerpt': 'Eine Seilbahn in der Nähe von Engelberg im Kanton Obwalden ist infolge starker Windböen abgestürzt, wobei mindestens eine Person schwer verletzt wurde und vor Ort versorgt wird.',
+    'blog.article.cabov-precipita-forte-vento.imageAlt': 'Seilbahn im Tessin bei starkem Wind und bewölktem Himmel',
 };
 
 export default blogMetaDe;

@@ -1567,6 +1567,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-sargans-teenage-robbery-catch': { name: 'Notizie sicurezza frontiera', path: '/articoli-frontaliere/sargans-teenage-robbery-catch', parent: 'blog' },
     'blog-separazione-carriere-giudici': { name: 'Carriere giudiziarie', path: '/articoli-frontaliere/separazione-carriere-giudici', parent: 'blog' },
     'blog-com-aziende-lavoro-como': { name: 'Provincia di Como', path: '/articoli-frontaliere/com-aziende-lavoro-como', parent: 'blog' },
+    'blog-cabov-precipita-forte-vento': { name: 'Cabinovia precipita a Engelberg', path: '/articoli-frontaliere/cabov-precipita-forte-vento', parent: 'blog' },
   };
 
   const info = sectionNames[section];

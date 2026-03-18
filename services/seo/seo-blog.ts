@@ -5707,6 +5707,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-cabov-precipita-forte-vento': {
+    title: 'Cabinovia precipita a Engelberg: almeno un ferito per il | Frontaliere Ticino',
+    description: 'Una cabinovia vicino a Engelberg, nel Canton Obwalden, è precipitata a causa di forti raffiche di vento, con almeno un ferito grave soccorso sul posto.',
+    keywords: 'frontalieri, ticino, svizzera, italia, cabinovia, precipita, engelberg, almeno',
+    ogTitle: 'Cabinovia precipita a Engelberg: almeno un ferito per il',
+    ogDescription: 'Una cabinovia vicino a Engelberg, nel Canton Obwalden, è precipitata a causa di forti raffiche di vento, con almeno un ferito grave soccorso sul posto.',
+    canonicalPath: '/articoli-frontaliere/cabov-precipita-forte-vento',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Cabinovia precipita a Engelberg: almeno un ferito per il",
+      "description": "Una cabinovia vicino a Engelberg, nel Canton Obwalden, è precipitata a causa di forti raffiche di vento, con almeno un ferito grave soccorso sul posto.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/cabov-precipita-forte-vento.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Cabinovia in Ticino con vento forte e nuvole in cielo"
+      },
+      "datePublished": "2026-03-18T15:12:29+00:00",
+      "dateModified": "2026-03-18T15:12:29+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/cabov-precipita-forte-vento`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
