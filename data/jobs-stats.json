@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-03-18T16:27:13.149Z",
+  "generatedAt": "2026-03-18T16:27:14.264Z",
   "links": {
     "allJobs": "https://www.frontaliereticino.ch/cerca-lavoro-ticino"
   },
   "totals": {
-    "activeJobs": 1483,
+    "activeJobs": 959,
     "activeCompanies": 133,
     "activeLocations": 163,
     "todayAdded": 1053,
@@ -154,6 +154,18 @@
         "name": "PEMSA",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-pemsa",
         "count": 37
+      },
+      {
+        "key": "vf-international-the-north-face-timberland",
+        "name": "VF International (The North Face, Timberland)",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-vf-international-the-north-face-timberland",
+        "count": 25
+      },
+      {
+        "key": "kulm-hotel-st-moritz",
+        "name": "Kulm Hotel St. Moritz",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-kulm-hotel-st-moritz",
+        "count": 21
       }
     ],
     "topLocationsActive": [
@@ -264,6 +276,24 @@
         "name": "Ticino",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-ticino",
         "count": 47
+      },
+      {
+        "key": "lugano",
+        "name": "Lugano",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-lugano",
+        "count": 115
+      },
+      {
+        "key": "ticino",
+        "name": "Ticino",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-ticino",
+        "count": 25
+      },
+      {
+        "key": "mendrisio",
+        "name": "Mendrisio",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-mendrisio",
+        "count": 54
       }
     ],
     "topCompaniesAddedToday": [
@@ -565,11 +595,11 @@
   },
   "salary": {
     "coverage": {
-      "jobsWithSalary": 1483,
+      "jobsWithSalary": 959,
       "coveragePct": 100,
-      "avgMin": 68375,
-      "avgMax": 92505,
-      "avgMid": 80440,
+      "avgMin": 66979,
+      "avgMax": 90329,
+      "avgMid": 78654,
       "medianMid": 84500
     },
     "leaders": {
@@ -755,6 +785,16 @@
           "avgMax": 104831,
           "avgMid": 91282,
           "weightedSalary": 91282
+        },
+        {
+          "key": "zurich",
+          "name": "Zürich",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-zurich",
+          "count": 4,
+          "avgMin": 81125,
+          "avgMax": 109625,
+          "avgMid": 95375,
+          "weightedSalary": 92525
         }
       ],
       "topSalaryTitles": [
