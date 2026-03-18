@@ -1,22 +1,22 @@
 {
-  "generatedAt": "2026-03-18T04:58:04.001Z",
+  "generatedAt": "2026-03-18T04:58:16.248Z",
   "links": {
     "allJobs": "https://www.frontaliereticino.ch/cerca-lavoro-ticino"
   },
   "totals": {
-    "activeJobs": 974,
-    "activeCompanies": 130,
-    "activeLocations": 187,
-    "todayAdded": 932,
+    "activeJobs": 983,
+    "activeCompanies": 131,
+    "activeLocations": 189,
+    "todayAdded": 941,
     "todayUpdated": 0,
     "todayRemoved": 0,
     "last7d": {
-      "added": 2126,
+      "added": 2135,
       "updated": 0,
       "removed": 0
     },
     "last30d": {
-      "added": 2609,
+      "added": 2618,
       "updated": 0,
       "removed": 0
     }
@@ -38,20 +38,6 @@
     },
     {
       "date": "2026-03-18",
-      "totalJobs": 1540,
-      "added": 932,
-      "updated": 0,
-      "removed": 0
-    },
-    {
-      "date": "2026-03-18",
-      "totalJobs": 1373,
-      "added": 930,
-      "updated": 0,
-      "removed": 0
-    },
-    {
-      "date": "2026-03-18",
       "totalJobs": 1365,
       "added": 932,
       "updated": 0,
@@ -68,6 +54,13 @@
       "date": "2026-03-18",
       "totalJobs": 1369,
       "added": 932,
+      "updated": 0,
+      "removed": 0
+    },
+    {
+      "date": "2026-03-18",
+      "totalJobs": 1540,
+      "added": 941,
       "updated": 0,
       "removed": 0
     }
@@ -514,11 +507,11 @@
   },
   "salary": {
     "coverage": {
-      "jobsWithSalary": 974,
+      "jobsWithSalary": 983,
       "coveragePct": 100,
-      "avgMin": 65826,
-      "avgMax": 88794,
-      "avgMid": 77310,
+      "avgMin": 65997,
+      "avgMax": 89024,
+      "avgMid": 77510,
       "medianMid": 68000
     },
     "leaders": {
@@ -542,6 +535,16 @@
           "avgMax": 116214,
           "avgMid": 101179,
           "weightedSalary": 101179
+        },
+        {
+          "key": "board-international",
+          "name": "Board International",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-board-international",
+          "count": 9,
+          "avgMin": 84444,
+          "avgMax": 113889,
+          "avgMid": 99167,
+          "weightedSalary": 99167
         },
         {
           "key": "lastminute-com",
@@ -592,26 +595,6 @@
           "avgMax": 117833,
           "avgMid": 102500,
           "weightedSalary": 96367
-        },
-        {
-          "key": "medacta-international-sa",
-          "name": "Medacta International SA",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-medacta-international-sa",
-          "count": 5,
-          "avgMin": 80000,
-          "avgMax": 108000,
-          "avgMid": 94000,
-          "weightedSalary": 94000
-        },
-        {
-          "key": "board-international",
-          "name": "Board International",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-board-international",
-          "count": 9,
-          "avgMin": 84444,
-          "avgMax": 113889,
-          "avgMid": 99167,
-          "weightedSalary": 99167
         }
       ],
       "topSalaryLocations": [
