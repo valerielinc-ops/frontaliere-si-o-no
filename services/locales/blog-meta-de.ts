@@ -1286,6 +1286,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.turismo-luganese-formazione.title': 'Der Luganer Raum setzt auf Ausbildung zur Verbesserung der touristischen Gastfreundschaft',
     'blog.article.turismo-luganese-formazione.excerpt': 'Mit dem Projekt \'Lugano Region Ti Conosco\' stärkt das ETL die Kompetenzen der Branchenmitarbeiter und fördert ein immer qualifizierteres touristisches Erlebnis.',
     'blog.article.turismo-luganese-formazione.imageAlt': 'Lugano vom See aus gesehen.',
+    'blog.article.nevicata-record-bosco-gurin.title': 'Der Rekordschnee in Bosco Gurin: Pisten bis Ostern geöffnet',
+    'blog.article.nevicata-record-bosco-gurin.excerpt': '116 Zentimeter Neuschnee ermöglichten die Verlängerung der Wintersaison bis Ende März.',
+    'blog.article.nevicata-record-bosco-gurin.imageAlt': 'Bosco Gurin, Schnee und Skipisten',
 };
 
 export default blogMetaDe;

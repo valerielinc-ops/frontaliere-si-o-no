@@ -1286,6 +1286,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.turismo-luganese-formazione.title': 'Lugano Region bets on training to lift tourist hospitality',
     'blog.article.turismo-luganese-formazione.excerpt': 'With the \'Lugano Region Ti Conosco\' project, the ETL upskills industry staff and promotes an ever more qualified visitor experience.',
     'blog.article.turismo-luganese-formazione.imageAlt': 'View of Lugano from the lake.',
+    'blog.article.nevicata-record-bosco-gurin.title': 'La nevicata record a Bosco Gurin: piste aperte fino a Pasqua',
+    'blog.article.nevicata-record-bosco-gurin.excerpt': '116 centimetri di neve fresca hanno permesso la prosecuzione della stagione invernale fino a fine marzo.',
+    'blog.article.nevicata-record-bosco-gurin.imageAlt': 'Bosco Gurin, snow and ski slopes',
 };
 
 export default blogMetaEn;

@@ -1286,6 +1286,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.turismo-luganese-formazione.title': 'Le canton du Tessin mise sur la formation pour améliorer l\'accueil touristique',
     'blog.article.turismo-luganese-formazione.excerpt': 'Avec le projet \'Lugano Region Ti Conosco\', l\'ETL renforce les compétences des opérateurs du secteur et promeut une expérience touristique de plus en plus qualifiée.',
     'blog.article.turismo-luganese-formazione.imageAlt': 'Vue de Lugano du lac.',
+    'blog.article.nevicata-record-bosco-gurin.title': 'La chute de neige record à Bosco Gurin : pistes ouvertes jusqu\'à Pâques',
+    'blog.article.nevicata-record-bosco-gurin.excerpt': '116 centimètres de neige fraîche ont permis la poursuite de la saison hivernale jusqu\'à fin mars.',
+    'blog.article.nevicata-record-bosco-gurin.imageAlt': 'Bosco Gurin, neige et pistes de ski',
 };
 
 export default blogMetaFr;

@@ -3030,7 +3030,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
         "@context": "https://schema.org",
         "@type": "ItemList",
         "name": "Articoli Frontaliere",
-        "numberOfItems": 419,
+        "numberOfItems": 420,
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
           { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -3450,7 +3450,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 416, "name": "La fuga di talenti a Zurigo: anche le aziende s...", "url": `${BASE_URL}/articoli-frontaliere/lavoro-economia-2026` },
           { "@type": "ListItem", "position": 417, "name": "Brogeda, 15 kg di cocaina sequestrati: aumentan...", "url": `${BASE_URL}/articoli-frontaliere/sequestro-cocaina-brogeda-2026` },
           { "@type": "ListItem", "position": 418, "name": "Cultura, soldi, infiltrazioni criminali: Ticino...", "url": `${BASE_URL}/articoli-frontaliere/infiltrazioni-criminali-ticino-grigioni` },
-          { "@type": "ListItem", "position": 419, "name": "Il Luganese punta sulla formazione per migliora...", "url": `${BASE_URL}/articoli-frontaliere/turismo-luganese-formazione` }
+          { "@type": "ListItem", "position": 419, "name": "Il Luganese punta sulla formazione per migliora...", "url": `${BASE_URL}/articoli-frontaliere/turismo-luganese-formazione` },
+          { "@type": "ListItem", "position": 420, "name": "La nevicata record a Bosco Gurin: piste aperte ...", "url": `${BASE_URL}/articoli-frontaliere/nevicata-record-bosco-gurin` }
         ]
       }
     ]

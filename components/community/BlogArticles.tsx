@@ -3575,6 +3575,13 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/turismo-luganese-formazione.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'nevicata-record-bosco-gurin',
+    category: 'pratico',
+    date: '2026-03-18T00:01:25.681Z',
+    image: '/images/blog/nevicata-record-bosco-gurin.jpg',
+    hasCalculator: true,
+  },
 ];
 
 const CATEGORIES = ['all', 'fiscale', 'pratico', 'novita', 'pensione'] as const;
