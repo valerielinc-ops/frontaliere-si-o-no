@@ -1310,6 +1310,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.governo-tavolo-frontalieri-2026.title': 'Governo convoca tavolo frontalieri: impatti per i ticinesi',
     'blog.article.governo-tavolo-frontalieri-2026.excerpt': 'L’onorevole Maria Chiara Gadda (Italia Viva) ha chiesto al governo federale di riattivare il tavolo interministeriale sui frontalieri, inattivo da più di un anno, per risolvere le criticità dei lavoratori italiani in Svizzera.',
     'blog.article.governo-tavolo-frontalieri-2026.imageAlt': 'Vista panoramica del lungolago di Lugano al tramonto, con Monte Brè sullo sfondo e ponte di confine in evidenza.',
+    'blog.article.gadda-incalza-governo-frontalieri.title': 'Frontalieri, Gadda: subito il tavolo Italia-Svizzera',
+    'blog.article.gadda-incalza-governo-frontalieri.excerpt': 'L\'onorevole Maria Chiara Gadda chiede la convocazione immediata del tavolo interministeriale sui frontalieri per affrontare criticità su fisco, tassa sanitaria e ristorni.',
+    'blog.article.gadda-incalza-governo-frontalieri.imageAlt': 'Lago di Lugano, confine italo-svizzero',
 };
 
 export default blogMetaIt;

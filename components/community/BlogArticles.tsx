@@ -3632,6 +3632,13 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/governo-tavolo-frontalieri-2026.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'gadda-incalza-governo-frontalieri',
+    category: 'fiscale',
+    date: '2026-03-18T20:58:59.476Z',
+    image: '/images/blog/gadda-incalza-governo-frontalieri.jpg',
+    hasCalculator: true,
+  },
 ];
 
 const CATEGORIES = ['all', 'fiscale', 'pratico', 'novita', 'pensione'] as const;

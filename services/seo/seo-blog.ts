@@ -5794,6 +5794,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-gadda-incalza-governo-frontalieri': {
+    title: 'Frontalieri, Gadda: subito il tavolo Italia-Svizzera | Frontaliere Ticino',
+    description: 'L\'onorevole Maria Chiara Gadda chiede la convocazione immediata del tavolo interministeriale sui frontalieri per affrontare criticità su fisco, tassa sanitaria',
+    keywords: 'frontalieri, ticino, svizzera, italia, gadda, subito, tavolo, italia-svizzera',
+    ogTitle: 'Frontalieri, Gadda: subito il tavolo Italia-Svizzera',
+    ogDescription: 'L\'onorevole Maria Chiara Gadda chiede la convocazione immediata del tavolo interministeriale sui frontalieri per affrontare criticità su fisco, tassa sanitaria',
+    canonicalPath: '/articoli-frontaliere/gadda-incalza-governo-frontalieri',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Frontalieri, Gadda incalza il governo: subito il tavolo Italia-Svizzera",
+      "description": "L'onorevole Maria Chiara Gadda chiede la convocazione immediata del tavolo interministeriale sui frontalieri per affrontare criticità su fisco, tassa sanitaria",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/gadda-incalza-governo-frontalieri.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Lago di Lugano, confine italo-svizzero"
+      },
+      "datePublished": "2026-03-18T20:58:59+00:00",
+      "dateModified": "2026-03-18T20:58:59+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/gadda-incalza-governo-frontalieri`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

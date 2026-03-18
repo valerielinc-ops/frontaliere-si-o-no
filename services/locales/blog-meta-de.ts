@@ -1310,6 +1310,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.governo-tavolo-frontalieri-2026.title': 'Bundesregierung lädt Grenzgänger-Tisch ein: Auswirkungen auf die Tessiner',
     'blog.article.governo-tavolo-frontalieri-2026.excerpt': 'Die Abgeordnete Maria Chiara Gadda (Italia Viva) hat die Bundesregierung aufgefordert, den seit über einem Jahr inaktiven interministeriellen Grenzgänger-Tisch wiederzubeleben, um die Probleme italienischer Arbeitnehmer in der Schweiz zu lösen.',
     'blog.article.governo-tavolo-frontalieri-2026.imageAlt': 'Panoramablick auf den Lugano-See bei Sonnenuntergang, Monte Brè im Hintergrund und die Grenzbrücke im Fokus.',
+    'blog.article.gadda-incalza-governo-frontalieri.title': 'Grenzgänger, Gadda: sofortige Einberufung des Italien-Schweiz-Tisches',
+    'blog.article.gadda-incalza-governo-frontalieri.excerpt': 'Die Abgeordnete Maria Chiara Gadda fordert die sofortige Einberufung des interministeriellen Tisches für Grenzgänger, um die Probleme bei Steuern, Gesundheitsabgaben und Rückerstattungen anzugehen.',
+    'blog.article.gadda-incalza-governo-frontalieri.imageAlt': 'Luganer See, italienisch-schweizerische Grenze',
 };
 
 export default blogMetaDe;

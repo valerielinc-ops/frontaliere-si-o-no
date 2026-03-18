@@ -1310,6 +1310,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.governo-tavolo-frontalieri-2026.title': 'Government calls cross-border workers\' table: impacts for Ticino residents',
     'blog.article.governo-tavolo-frontalieri-2026.excerpt': 'MP Maria Chiara Gadda (Italia Viva) has asked the federal government to reactivate the inter-ministerial table on cross-border workers, inactive for more than a year, to resolve the issues faced by Italian workers in Switzerland.',
     'blog.article.governo-tavolo-frontalieri-2026.imageAlt': 'Panoramic view of Lugano lakefront at sunset, Monte Brè in the background and the border bridge highlighted.',
+    'blog.article.gadda-incalza-governo-frontalieri.title': 'Frontier workers, Gadda: immediate Italy-Switzerland meeting',
+    'blog.article.gadda-incalza-governo-frontalieri.excerpt': 'Honorable Maria Chiara Gadda requests an immediate inter-ministerial meeting on frontier workers to address tax, healthcare tax, and reimbursement issues.',
+    'blog.article.gadda-incalza-governo-frontalieri.imageAlt': 'Lugano lake, Italian-Swiss border',
 };
 
 export default blogMetaEn;

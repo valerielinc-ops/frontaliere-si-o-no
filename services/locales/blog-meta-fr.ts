@@ -1310,6 +1310,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.governo-tavolo-frontalieri-2026.title': 'Le gouvernement convoque la table des frontaliers : impacts pour les Tessinois',
     'blog.article.governo-tavolo-frontalieri-2026.excerpt': 'La députée Maria Chiara Gadda (Italia Viva) a demandé au gouvernement fédéral de réactiver la table interministérielle sur les frontaliers, inactive depuis plus d’un an, afin de résoudre les difficultés des travailleurs italiens en Suisse.',
     'blog.article.governo-tavolo-frontalieri-2026.imageAlt': 'Vue panoramique du bord du lac de Lugano au coucher du soleil, Monte Brè en arrière-plan et le pont frontalier mis en avant.',
+    'blog.article.gadda-incalza-governo-frontalieri.title': 'Frontaliers, Gadda : tout de suite la table Italie-Suisse',
+    'blog.article.gadda-incalza-governo-frontalieri.excerpt': 'La députée Maria Chiara Gadda demande la convocation immédiate de la table interministérielle sur les frontaliers pour aborder les difficultés liées à la fiscalité, à la taxe sanitaire et aux remboursements.',
+    'blog.article.gadda-incalza-governo-frontalieri.imageAlt': 'Lac de Lugano, frontière italo-suisse',
 };
 
 export default blogMetaFr;
