@@ -265,14 +265,18 @@ export function buildLombardiLocalizedContent(job = {}) {
   const city = normalizeSpace(job.city) || 'Giubiasco';
   const occupancy = job.occupancy || '';
 
-  // Use full structured markdown from detail page, fall back to boilerplate
-  const itDesc = job.detailMarkdown && job.detailMarkdown.length > 100
+  // Detail page is fetched from /eng/ so content is in English
+  const detailDesc = job.detailMarkdown && job.detailMarkdown.length > 100
     ? job.detailMarkdown
-    : lombardiBoilerplate(title, city, occupancy);
+    : '';
+  const itBoilerplate = lombardiBoilerplate(title, city, occupancy);
 
   return {
     titleByLocale: { it: title, en: title, de: title, fr: title },
-    descriptionByLocale: { it: itDesc },
+    descriptionByLocale: {
+      it: itBoilerplate,
+      ...(detailDesc ? { en: detailDesc } : {}),
+    },
     slugByLocale: {
       it: slugify(`${title} lombardi ${city}`),
       en: slugify(`${title} lombardi ${city}`),

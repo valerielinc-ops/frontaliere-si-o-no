@@ -155,7 +155,7 @@ function buildLombardiJob(raw, detail) {
     category: inferCategory(title),
     sector: 'Ingegneria civile',
     source: 'lombardi-dedicated-crawler',
-    sourceLang: detectLang(title, 'it'),
+    sourceLang: localized.descriptionByLocale.en ? 'en' : detectLang(title, 'it'),
     postedDate: new Date().toISOString().slice(0, 10),
     employmentType: occupancy.includes('100%') ? 'full-time' : 'part-time',
     contractType: 'permanent',
