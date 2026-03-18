@@ -1295,6 +1295,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.sargans-teenage-robbery-catch.title': 'Sargans : Adolescents serbes arrêtés après tentative de vol',
     'blog.article.sargans-teenage-robbery-catch.excerpt': 'Deux jeunes, de 18 et 16 ans, ont tenté de dévaliser deux garages automobiles à Sargans, mais ont été arrêtés après une poursuite. Voici ce qui s’est passé.',
     'blog.article.sargans-teenage-robbery-catch.imageAlt': 'Police suisse arrête deux adolescents à Sargans, scène urbaine.',
+    'blog.article.separazione-carriere-giudici.title': 'Référendum au Tessin : le rôle de la séparation des carrières judiciaires',
+    'blog.article.separazione-carriere-giudici.excerpt': 'Avec le référendum à l\'horizon, la discussion porte sur la séparation entre juges et procureurs publics au Tessin, garantissant impartialité et transparence.',
+    'blog.article.separazione-carriere-giudici.imageAlt': 'Juges et procureurs dans une salle d\'audience au Tessin',
 };
 
 export default blogMetaFr;

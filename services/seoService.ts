@@ -1565,6 +1565,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-nevicata-record-bosco-gurin': { name: 'La nevicata record a Bosco Gurin', path: '/articoli-frontaliere/nevicata-record-bosco-gurin', parent: 'blog' },
     'blog-walter-bonatti-in-capo-al-mondo': { name: 'Walter Bonatti, Montegrino Valtravaglia', path: '/articoli-frontaliere/walter-bonatti-in-capo-al-mondo', parent: 'blog' },
     'blog-sargans-teenage-robbery-catch': { name: 'Notizie sicurezza frontiera', path: '/articoli-frontaliere/sargans-teenage-robbery-catch', parent: 'blog' },
+    'blog-separazione-carriere-giudici': { name: 'Carriere giudiziarie', path: '/articoli-frontaliere/separazione-carriere-giudici', parent: 'blog' },
   };
 
   const info = sectionNames[section];

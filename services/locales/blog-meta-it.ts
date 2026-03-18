@@ -1295,6 +1295,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.sargans-teenage-robbery-catch.title': 'Sargans: Teenager serbi fermati dopo tentato furto',
     'blog.article.sargans-teenage-robbery-catch.excerpt': 'Due giovani, di 18 e 16 anni, hanno tentato di svaligiare due autogarages a Sargans, ma sono stati arrestati dopo un inseguimento. Ecco cosa è successo.',
     'blog.article.sargans-teenage-robbery-catch.imageAlt': 'Polizia svizzera blocca due teenager nel Canton Sankt Gallen, scena urbana di Sargans.',
+    'blog.article.separazione-carriere-giudici.title': 'Referendum in Ticino: il ruolo della separazione delle carriere giudiziarie',
+    'blog.article.separazione-carriere-giudici.excerpt': 'Con il referendum in arrivo, si discute sulla separazione tra giudici e pubblici ministeri in Ticino, garantendo imparzialità e trasparenza.',
+    'blog.article.separazione-carriere-giudici.imageAlt': 'Giudici e pubblici ministeri in tribunale a Bellinzona, Ticino',
 };
 
 export default blogMetaIt;

@@ -1295,6 +1295,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.sargans-teenage-robbery-catch.title': 'Sargans: Serbian Teenagers Detained After Attempted Theft',
     'blog.article.sargans-teenage-robbery-catch.excerpt': 'Two young individuals, aged 18 and 16, attempted to break into two car garages in Sargans but were arrested following a chase. Here’s what happened.',
     'blog.article.sargans-teenage-robbery-catch.imageAlt': 'Swiss police arrest two teenagers in Sargans, scene of urban capture.',
+    'blog.article.separazione-carriere-giudici.title': 'Referendum in Ticino: The Role of Judicial Career Separation',
+    'blog.article.separazione-carriere-giudici.excerpt': 'With the upcoming referendum, discussions focus on the separation between judges and public prosecutors in Ticino, ensuring impartiality and transparency.',
+    'blog.article.separazione-carriere-giudici.imageAlt': 'Judges and public prosecutors in a Ticino courtroom',
 };
 
 export default blogMetaEn;

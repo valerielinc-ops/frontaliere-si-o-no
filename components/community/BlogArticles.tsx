@@ -3597,6 +3597,13 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/sargans-teenage-robbery-catch.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'separazione-carriere-giudici',
+    category: 'pratico',
+    date: '2026-03-18T09:02:13.937Z',
+    image: '/images/blog/separazione-carriere-giudici.jpg',
+    hasCalculator: true,
+  },
 ];
 
 const CATEGORIES = ['all', 'fiscale', 'pratico', 'novita', 'pensione'] as const;
