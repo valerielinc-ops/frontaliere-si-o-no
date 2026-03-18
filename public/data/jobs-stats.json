@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-03-18T06:50:28.719Z",
+  "generatedAt": "2026-03-18T16:11:35.849Z",
   "links": {
     "allJobs": "https://www.frontaliereticino.ch/cerca-lavoro-ticino"
   },
   "totals": {
-    "activeJobs": 920,
+    "activeJobs": 925,
     "activeCompanies": 132,
     "activeLocations": 156,
     "todayAdded": 1045,
@@ -38,7 +38,7 @@
     },
     {
       "date": "2026-03-18",
-      "totalJobs": 4728,
+      "totalJobs": 925,
       "added": 1045,
       "updated": 0,
       "removed": 0
@@ -68,7 +68,7 @@
         "key": "kantonsspital-graubunden",
         "name": "Kantonsspital Graubünden",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-kantonsspital-graubunden",
-        "count": 30
+        "count": 27
       },
       {
         "key": "vf-international-the-north-face-timberland",
@@ -106,7 +106,7 @@
         "key": "lugano",
         "name": "Lugano",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-lugano",
-        "count": 105
+        "count": 113
       },
       {
         "key": "st-moritz",
@@ -121,16 +121,16 @@
         "count": 48
       },
       {
-        "key": "chur",
-        "name": "Chur",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-chur",
-        "count": 45
-      },
-      {
         "key": "locarno",
         "name": "Locarno",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-locarno",
         "count": 45
+      },
+      {
+        "key": "chur",
+        "name": "Chur",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-chur",
+        "count": 43
       },
       {
         "key": "grigioni",
@@ -444,11 +444,11 @@
   },
   "salary": {
     "coverage": {
-      "jobsWithSalary": 920,
+      "jobsWithSalary": 925,
       "coveragePct": 100,
-      "avgMin": 66733,
-      "avgMax": 90000,
-      "avgMid": 78366,
+      "avgMin": 66889,
+      "avgMax": 90211,
+      "avgMid": 78550,
       "medianMid": 68500
     },
     "leaders": {
@@ -464,16 +464,6 @@
           "weightedSalary": 120400
         },
         {
-          "key": "fincons-group",
-          "name": "Fincons Group",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-fincons-group",
-          "count": 2,
-          "avgMin": 94000,
-          "avgMax": 127000,
-          "avgMid": 110500,
-          "weightedSalary": 100600
-        },
-        {
           "key": "abb-svizzera-sede-ticino",
           "name": "ABB Svizzera (sede Ticino)",
           "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-abb-svizzera-sede-ticino",
@@ -482,6 +472,16 @@
           "avgMax": 115385,
           "avgMid": 100462,
           "weightedSalary": 100462
+        },
+        {
+          "key": "fincons-group",
+          "name": "Fincons Group",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-fincons-group",
+          "count": 9,
+          "avgMin": 84444,
+          "avgMax": 113889,
+          "avgMid": 99167,
+          "weightedSalary": 99167
         },
         {
           "key": "lastminute-com",
