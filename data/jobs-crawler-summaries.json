@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-03-18T05:06:08.944Z",
+  "updatedAt": "2026-03-18T05:07:46.712Z",
   "summaries": [
     {
       "key": "agie-charmilles",
@@ -2202,62 +2202,6 @@
           "location": "Ticino",
           "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/specialista-inside-sales-service-80-100-abb-svizzera-sede-ticino-ticino/",
           "slug": "inside-sales-service-specialist-80-100-abb-svizzera-sede-ticino-ticino"
-        }
-      ]
-    },
-    {
-      "key": "has-healthcare",
-      "label": "HAS Healthcare",
-      "generatedAt": "2026-03-17T16:26:36.952Z",
-      "total": 4,
-      "newCount": 0,
-      "updatedCount": 0,
-      "removedCount": 0,
-      "unchangedCount": 4,
-      "durationMs": 30808,
-      "avgDurationMs": 192118,
-      "durationHistory": [
-        30808,
-        95825,
-        43684,
-        33538,
-        31860,
-        699659,
-        275505,
-        266777,
-        251407
-      ],
-      "newJobs": [],
-      "updatedJobs": [],
-      "removedJobs": [],
-      "unchangedJobs": [
-        {
-          "title": "Tecnica/o diplomata/o SSS costruzioni meccaniche",
-          "company": "HAS Healthcare Advanced Synthesis",
-          "location": "Biasca",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/tecnica-o-diplomata-o-sss-costruzioni-meccaniche-has-healthcare/",
-          "slug": "tecnica-o-diplomata-o-sss-costruzioni-meccaniche-has-healthcare-advanced-synthesis-biasca"
-        },
-        {
-          "title": "HSE Specialist",
-          "company": "HAS Healthcare Advanced Synthesis",
-          "location": "Biasca",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/hse-specialist-has-healthcare/",
-          "slug": "hse-specialist-has-healthcare-advanced-synthesis-biasca"
-        },
-        {
-          "title": "Assistente di Produzione",
-          "company": "HAS Healthcare Advanced Synthesis",
-          "location": "Biasca",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/assistente-di-produzione-has-healthcare/",
-          "slug": "assistente-di-produzione-has-healthcare-advanced-synthesis-biasca"
-        },
-        {
-          "title": "Production Manager",
-          "company": "HAS Healthcare Advanced Synthesis",
-          "location": "Biasca",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/production-manager-has-healthcare/",
-          "slug": "production-manager-has-healthcare-advanced-synthesis-biasca"
         }
       ]
     },
@@ -8547,6 +8491,63 @@
         }
       ],
       "updatedJobs": [],
+      "removedJobs": [],
+      "unchangedJobs": []
+    },
+    {
+      "key": "has-healthcare",
+      "label": "HAS Healthcare",
+      "generatedAt": "2026-03-18T05:07:46.712Z",
+      "total": 4,
+      "newCount": 0,
+      "updatedCount": 4,
+      "removedCount": 0,
+      "unchangedCount": 0,
+      "durationMs": 42176,
+      "avgDurationMs": 177124,
+      "durationHistory": [
+        42176,
+        30808,
+        95825,
+        43684,
+        33538,
+        31860,
+        699659,
+        275505,
+        266777,
+        251407
+      ],
+      "newJobs": [],
+      "updatedJobs": [
+        {
+          "title": "Tecnica/o diplomata/o SSS costruzioni meccaniche",
+          "company": "HAS Healthcare Advanced Synthesis",
+          "location": "Biasca",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/tecnica-o-diplomata-o-sss-costruzioni-meccaniche-has-healthcare/",
+          "slug": "tecnica-o-diplomata-o-sss-costruzioni-meccaniche-has-healthcare-advanced-synthesis-biasca"
+        },
+        {
+          "title": "HSE Specialist",
+          "company": "HAS Healthcare Advanced Synthesis",
+          "location": "Biasca",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/hse-specialist-has-healthcare/",
+          "slug": "specialista-hse-has-healthcare-advanced-synthesis-biasca"
+        },
+        {
+          "title": "Assistente di Produzione",
+          "company": "HAS Healthcare Advanced Synthesis",
+          "location": "Biasca",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/assistente-di-produzione-has-healthcare/",
+          "slug": "assistente-di-produzione-has-healthcare-advanced-synthesis-biasca"
+        },
+        {
+          "title": "Production Manager",
+          "company": "HAS Healthcare Advanced Synthesis",
+          "location": "Biasca",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/production-manager-has-healthcare/",
+          "slug": "responsabile-di-produzione-has-healthcare-advanced-synthesis-biasca"
+        }
+      ],
       "removedJobs": [],
       "unchangedJobs": []
     }
