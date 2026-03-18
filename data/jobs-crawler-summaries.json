@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-03-18T04:57:05.470Z",
+  "updatedAt": "2026-03-18T04:57:12.501Z",
   "summaries": [
     {
       "key": "agie-charmilles",
@@ -2506,56 +2506,6 @@
           "location": "Ticino",
           "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/specialista-inside-sales-service-80-100-abb-svizzera-sede-ticino-ticino/",
           "slug": "inside-sales-service-specialist-80-100-abb-svizzera-sede-ticino-ticino"
-        }
-      ]
-    },
-    {
-      "key": "bracco-suisse",
-      "label": "Bracco Suisse",
-      "generatedAt": "2026-03-17T16:16:32.959Z",
-      "total": 3,
-      "newCount": 0,
-      "updatedCount": 0,
-      "removedCount": 0,
-      "unchangedCount": 3,
-      "durationMs": 27914,
-      "avgDurationMs": 119059,
-      "durationHistory": [
-        27914,
-        25302,
-        66676,
-        79683,
-        22530,
-        266223,
-        404886,
-        66622,
-        25190,
-        205561
-      ],
-      "newJobs": [],
-      "updatedJobs": [],
-      "removedJobs": [],
-      "unchangedJobs": [
-        {
-          "title": "MANUFACTURING TECHNICIEN PRODUCTION STERILE (H/F)",
-          "company": "Bracco Suisse S.A.",
-          "location": "Plan-les-Ouates",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/manufacturing-technicien-production-sterile-h-f-bracco-suisse/",
-          "slug": "manufacturing-technicien-production-sterile-h-f-bracco-suisse"
-        },
-        {
-          "title": "Field Service Technician - Swiss German Region",
-          "company": "Bracco Suisse S.A.",
-          "location": "Cadempino",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/field-service-technician-swiss-german-region-bracco-suisse/",
-          "slug": "field-service-technician-swiss-german-region-bracco-suisse"
-        },
-        {
-          "title": "CONTINUOUS IMPROVEMENT MANAGER",
-          "company": "Bracco Suisse S.A.",
-          "location": "Plan-les-Ouates",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/continuous-improvement-manager-bracco-suisse/",
-          "slug": "continuous-improvement-manager-bracco-suisse"
         }
       ]
     },
@@ -8527,6 +8477,56 @@
           "location": "Rivera",
           "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/tecnico-di-servizio-fossile-regione-ticino-m-f-div-ref280202g-bosch-rivera/",
           "slug": "tecnico-di-servizio-fossile-regione-ticino-m-f-div-ref280202g-bosch-rivera"
+        }
+      ],
+      "removedJobs": [],
+      "unchangedJobs": []
+    },
+    {
+      "key": "bracco-suisse",
+      "label": "Bracco Suisse",
+      "generatedAt": "2026-03-18T04:57:12.501Z",
+      "total": 3,
+      "newCount": 0,
+      "updatedCount": 3,
+      "removedCount": 0,
+      "unchangedCount": 0,
+      "durationMs": 25367,
+      "avgDurationMs": 101039,
+      "durationHistory": [
+        25367,
+        27914,
+        25302,
+        66676,
+        79683,
+        22530,
+        266223,
+        404886,
+        66622,
+        25190
+      ],
+      "newJobs": [],
+      "updatedJobs": [
+        {
+          "title": "MANUFACTURING TECHNICIEN PRODUCTION STERILE (H/F)",
+          "company": "Bracco Suisse S.A.",
+          "location": "Plan-les-Ouates",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/manufacturing-technicien-production-sterile-h-f-bracco-suisse/",
+          "slug": "tecnico-di-produzione-sterile-h-f-bracco-suisse-s-a-plan-les-ouates"
+        },
+        {
+          "title": "Field Service Technician - Swiss German Region",
+          "company": "Bracco Suisse S.A.",
+          "location": "Cadempino",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/field-service-technician-swiss-german-region-bracco-suisse/",
+          "slug": "tecnico-di-assistenza-sul-campo-regione-svizzera-tedesca-bracco-suisse-s-a-cadempino"
+        },
+        {
+          "title": "CONTINUOUS IMPROVEMENT MANAGER",
+          "company": "Bracco Suisse S.A.",
+          "location": "Plan-les-Ouates",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/continuous-improvement-manager-bracco-suisse/",
+          "slug": "responsabile-del-miglioramento-continuo-bracco-suisse-s-a-plan-les-ouates"
         }
       ],
       "removedJobs": [],
