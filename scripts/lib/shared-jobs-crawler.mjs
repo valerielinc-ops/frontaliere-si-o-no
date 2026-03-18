@@ -34,6 +34,11 @@ import {
 import { translateWithMyMemory, getMyMemoryStats } from './mymemory-translate.mjs';
 import { parseSupsiJobDetail } from './supsi-job-parser.mjs';
 import {
+  extractMigrosStructuredData,
+  extractMigrosSectionItems,
+  extractMigrosBenefitItems,
+} from './migros-job-parser.mjs';
+import {
   BORDER_PROXIMITY_KEYWORDS,
   TICINO_CITIES,
   inferSwissTargetCanton,
@@ -2083,306 +2088,8 @@ function extractWorkdayApplyUrl(html, baseUrl) {
   return tryUrl(m[1], baseUrl) || '';
 }
 
-/**
- * Extract structured data from Migros Nuxt SSR job pages.
- *
- * The page has <section id="overview|tasks|skills|benefits|recruitment">,
- * each containing rich HTML. This function parses each section individually
- * and returns structured fields: overview (intro text), tasks (responsibilities),
- * skills (requirements), benefits, employment type, work percentage, and
- * a full composed description with proper markdown headings.
- *
- * Returns null if the page doesn't have Migros sections.
- */
-/**
- * Extract text items from Migros Nuxt 3 grid sections.
- *
- * Migros tasks/skills use `<p class="text-pretty ...">` inside grid containers
- * with tooltip overlays (e.g. "Mansione principale", "Obbligatorio").
- * There are no `<li>` tags. This helper strips tooltip/decorative noise
- * and returns the cleaned paragraph items as an array.
- *
- * For skills it also handles the `<h4> + <p>` paired structure
- * (e.g. "5 anni" + "Esperienza nella gestione...").
- */
-function extractMigrosSectionItems(sectionHtml) {
-  if (!sectionHtml) return [];
-  let html = String(sectionHtml);
-  // Strip SVG noise
-  html = html.replace(/<svg[\s\S]*?<\/svg>/gi, '');
-  // Strip tooltip overlays (contain "Mansione principale", "Obbligatorio", etc.)
-  html = html.replace(/<div[^>]*class="[^"]*tooltip[^"]*"[^>]*>[\s\S]*?<\/div>/gi, '');
-  // Strip share/apply buttons
-  html = html.replace(/<div[^>]*class="[^"]*ad-share-list[^"]*"[^>]*>[\s\S]*?<\/div>/gi, '');
-  // Strip image carousels
-  html = html.replace(/<div[^>]*class="[^"]*flicking[^"]*"[^>]*>[\s\S]*?(?:<\/div>\s*){1,5}/gi, '');
-  // Strip round decorative containers (skill-level circles)
-  html = html.replace(/<div[^>]*class="[^"]*rounded-full[^"]*"[^>]*>[\s\S]*?<\/div>/gi, '');
-  // Strip Vue/Nuxt comment markers
-  html = html.replace(/<!--\[?]?-->/g, '');
-
-  /** Strip HTML tags and decode common entities in captured text. */
-  const cleanInner = (raw) => stripHtml(raw);
-
-  const items = [];
-
-  // Strategy 1: Extract <h4> + <p> pairs (common in skills/benefits)
-  // e.g. <h4 class="font-bold">5 anni</h4><p>Esperienza nella gestione...</p>
-  const h4pRe = /<h4[^>]*>([\s\S]*?)<\/h4>\s*(?:<!--[^>]*-->)?\s*<p[^>]*>([\s\S]*?)<\/p>/gi;
-  let h4m;
-  while ((h4m = h4pRe.exec(html)) !== null) {
-    const heading = cleanInner(h4m[1]);
-    const body = cleanInner(h4m[2]);
-    if (heading && body && body.length >= 5) {
-      items.push(`${heading}: ${body}`);
-    } else if (body && body.length >= 5) {
-      items.push(body);
-    }
-  }
-
-  // Strategy 2: Extract standalone <p class="text-pretty ..."> items (tasks)
-  const pRe = /<p[^>]*class="[^"]*text-pretty[^"]*"[^>]*>([\s\S]*?)<\/p>/gi;
-  let pm;
-  while ((pm = pRe.exec(html)) !== null) {
-    const text = cleanInner(pm[1]);
-    if (text.length >= 10 && !items.includes(text)) {
-      items.push(text);
-    }
-  }
-
-  // Strategy 3: Extract any remaining <p> items not yet captured
-  const pAllRe = /<p[^>]*>([\s\S]*?)<\/p>/gi;
-  let pa;
-  while ((pa = pAllRe.exec(html)) !== null) {
-    const text = cleanInner(pa[1]);
-    if (text.length >= 10 && !items.some(i => i.includes(text) || text.includes(i))) {
-      items.push(text);
-    }
-  }
-
-  // Strategy 4: Extract standalone <h4> headings not part of h4+p pairs
-  // (e.g. language skills: "Italiano (Livello ottimo)")
-  const h4Only = /<h4[^>]*>([\s\S]*?)<\/h4>/gi;
-  let h4o;
-  while ((h4o = h4Only.exec(html)) !== null) {
-    const text = cleanInner(h4o[1]);
-    if (text.length >= 5 && !items.some(i => i.includes(text))) {
-      items.push(text);
-    }
-  }
-
-  // Filter out generic headings that are section titles, not content
-  const headingFilter = /^(mansioni|competenze|mansione principale|compiti principali|compiti|requisiti|cosa offriamo|vantaggi|candidatura e contatto|aufgaben|anforderungen|vorteile|haupt-?aufgabe|main task|tasks|skills|benefits|tâches|exigences)$/i;
-  return items.filter(item => !headingFilter.test(item.trim()));
-}
-
-/**
- * Extract benefit items as "heading: description" from Migros benefits section.
- * Benefits use `<h4>Title</h4><p>Description</p>` pairs wrapped in grid cards.
- */
-function extractMigrosBenefitItems(sectionHtml) {
-  if (!sectionHtml) return [];
-  let html = String(sectionHtml);
-  html = html.replace(/<svg[\s\S]*?<\/svg>/gi, '');
-  html = html.replace(/<!--\[?]?-->/g, '');
-
-  const items = [];
-  // Benefits are structured as: <h4>Benefit Name</h4> ... <p>Benefit detail</p>
-  const h4pRe = /<h4[^>]*>([\s\S]*?)<\/h4>\s*(?:<!--[^>]*-->)?\s*<p[^>]*>([\s\S]*?)<\/p>/gi;
-  let m;
-  while ((m = h4pRe.exec(html)) !== null) {
-    const heading = stripHtml(m[1]);
-    const body = stripHtml(m[2]);
-    if (heading && body && body.length >= 5) {
-      items.push(`${heading}: ${body}`);
-    } else if (heading && heading.length >= 5) {
-      items.push(heading);
-    }
-  }
-  const headingFilter = /^(cosa offriamo|vantaggi|vorteile|benefits|avantages)$/i;
-  return items.filter(item => !headingFilter.test(item.trim()));
-}
-
-function extractMigrosStructuredData(html) {
-  const str = String(html || '');
-  const migrosIds = ['overview', 'tasks', 'skills', 'benefits', 'recruitment'];
-  const migrosRe = new RegExp(
-    '<section\\s+id=["\'](' + migrosIds.join('|') + ')["\'][^>]*>([\\s\\S]*?)</section>',
-    'gi'
-  );
-
-  const sections = {};
-  let m;
-  while ((m = migrosRe.exec(str)) !== null) {
-    const sid = m[1].toLowerCase();
-    let shtml = m[2];
-    // Strip SVG decorative noise
-    shtml = shtml.replace(/<svg[\s\S]*?<\/svg>/gi, '');
-    // Strip share/apply buttons
-    shtml = shtml.replace(/<div[^>]*class="[^"]*ad-share-list[^"]*"[^>]*>[\s\S]*?<\/div>/gi, '');
-    // Strip image carousels
-    shtml = shtml.replace(/<div[^>]*class="[^"]*flicking[^"]*"[^>]*>[\s\S]*?(?:<\/div>\s*){1,5}/gi, '');
-    sections[sid] = shtml;
-  }
-
-  // Need at least tasks OR skills to consider this a Migros page
-  if (!sections.tasks && !sections.skills) return null;
-
-  // Overview: extract the intro paragraph (typo-body1)
-  let overviewText = '';
-  if (sections.overview) {
-    const introMatch = sections.overview.match(/<div[^>]*class="[^"]*typo-body1[^"]*"[^>]*>([\s\S]*?)<\/div>/i);
-    overviewText = htmlToStructuredText(introMatch ? introMatch[1] : sections.overview);
-  }
-
-  // Tasks → responsibilities
-  // Try <li>-based extraction first, then Migros grid-based <p> extraction
-  const tasksText = sections.tasks ? htmlToStructuredText(sections.tasks) : '';
-  const responsibilities = [];
-  if (tasksText) {
-    for (const line of tasksText.split('\n')) {
-      const trimmed = line.trim();
-      if (trimmed.startsWith('- ')) {
-        const item = trimmed.slice(2).trim();
-        if (item.length >= 10 && !/^(mansione principale|compiti principali|haupt-?aufgabe|main task)$/i.test(item)) {
-          responsibilities.push(item);
-        }
-      }
-    }
-  }
-  // Fallback: extract from Migros Nuxt 3 grid structure (no <li> tags)
-  if (responsibilities.length === 0 && sections.tasks) {
-    const gridItems = extractMigrosSectionItems(sections.tasks);
-    for (const item of gridItems) {
-      if (item.length >= 10) responsibilities.push(item);
-    }
-  }
-  // Last resort: try paragraphs from structured text
-  if (responsibilities.length === 0 && tasksText.length >= 40) {
-    for (const p of tasksText.split(/\n{2,}/)) {
-      const clean = p.replace(/^##\s*/, '').trim();
-      if (clean.length >= 20 && !/^(mansioni|compiti|aufgaben|tasks|tâches)$/i.test(clean)) {
-        responsibilities.push(clean);
-      }
-    }
-  }
-
-  // Skills → requirements
-  // Try <li>-based extraction first, then Migros grid-based extraction
-  const skillsText = sections.skills ? htmlToStructuredText(sections.skills) : '';
-  const requirements = [];
-  if (skillsText) {
-    for (const line of skillsText.split('\n')) {
-      const trimmed = line.trim();
-      if (trimmed.startsWith('- ')) {
-        const item = trimmed.slice(2).trim();
-        if (item.length >= 5) requirements.push(item);
-      }
-    }
-  }
-  // Fallback: extract from Migros Nuxt 3 grid structure
-  if (requirements.length === 0 && sections.skills) {
-    const gridItems = extractMigrosSectionItems(sections.skills);
-    for (const item of gridItems) {
-      if (item.length >= 5) requirements.push(item);
-    }
-  }
-  // Last resort: try paragraphs
-  if (requirements.length === 0 && skillsText.length >= 40) {
-    for (const p of skillsText.split(/\n{2,}/)) {
-      const clean = p.replace(/^##\s*/, '').trim();
-      if (clean.length >= 10 && !/^(competenze|requisiti|anforder|requirements|exigences)$/i.test(clean)) {
-        requirements.push(clean);
-      }
-    }
-  }
-
-  // Benefits → benefit items
-  // Try <li>-based extraction first, then Migros h4+p pair extraction
-  const benefitsText = sections.benefits ? htmlToStructuredText(sections.benefits) : '';
-  const benefits = [];
-  if (benefitsText) {
-    for (const line of benefitsText.split('\n')) {
-      const trimmed = line.trim();
-      if (trimmed.startsWith('- ')) {
-        const item = trimmed.slice(2).trim();
-        if (item.length >= 5) benefits.push(item);
-      }
-    }
-  }
-  // Fallback: extract from Migros h4+p benefit cards
-  if (benefits.length === 0 && sections.benefits) {
-    const benefitItems = extractMigrosBenefitItems(sections.benefits);
-    for (const item of benefitItems) {
-      if (item.length >= 5) benefits.push(item);
-    }
-  }
-  // Last resort: try paragraphs
-  if (benefits.length === 0 && benefitsText.length >= 40) {
-    for (const p of benefitsText.split(/\n{2,}/)) {
-      const clean = p.replace(/^##\s*/, '').trim();
-      if (clean.length >= 10 && !/^(cosa offriamo|vantaggi|vorteile|benefits)$/i.test(clean)) {
-        benefits.push(clean);
-      }
-    }
-  }
-
-  // Recruitment / contact info
-  const recruitmentText = sections.recruitment ? htmlToStructuredText(sections.recruitment) : '';
-
-  // Employment type from overview section (look for "Impiego fisso", "Temporaneo", etc.)
-  const overviewHtml = sections.overview || '';
-  let employmentType = '';
-  let workPercentage = '';
-  // Try to find the employment type badge/chip in overview
-  const empMatch = overviewHtml.match(/(?:impiego\s+fisso|unbefristet|permanent|emploi fixe|indeterminato)/i);
-  const tempMatch = overviewHtml.match(/(?:temporaneo|befristet|temporary|temporaire|determinato)/i);
-  if (empMatch) employmentType = 'permanent';
-  else if (tempMatch) employmentType = 'temporary';
-  // Work percentage
-  const pctMatch = overviewHtml.match(/(\d{2,3})\s*[-–]\s*(\d{2,3})\s*%/);
-  const pctSingle = overviewHtml.match(/(\d{2,3})\s*%/);
-  if (pctMatch) workPercentage = `${pctMatch[1]}-${pctMatch[2]}%`;
-  else if (pctSingle) workPercentage = `${pctSingle[1]}%`;
-
-  // Compose full description with structured markdown
-  const parts = [];
-  if (overviewText) parts.push(overviewText);
-  if (responsibilities.length > 0) {
-    parts.push(`## Mansioni\n${responsibilities.map(r => `- ${r}`).join('\n')}`);
-  } else if (tasksText) {
-    parts.push(`## Mansioni\n${tasksText.replace(/^##\s*Mansioni?\s*/i, '').trim()}`);
-  }
-  if (requirements.length > 0) {
-    parts.push(`## Requisiti\n${requirements.map(r => `- ${r}`).join('\n')}`);
-  } else if (skillsText) {
-    parts.push(`## Requisiti\n${skillsText.replace(/^##\s*(?:Competenze|Requisiti)\s*/i, '').trim()}`);
-  }
-  if (benefits.length > 0) {
-    parts.push(`## Cosa offriamo\n${benefits.map(b => `- ${b}`).join('\n')}`);
-  } else if (benefitsText) {
-    parts.push(`## Cosa offriamo\n${benefitsText.replace(/^##\s*Cosa offriamo\s*/i, '').trim()}`);
-  }
-  if (recruitmentText && recruitmentText.length >= 20) {
-    parts.push(`## Contatto\n${recruitmentText.replace(/^##\s*(?:Candidatura|Contatto|Kontakt|Contact)\s*/i, '').trim()}`);
-  }
-  if (workPercentage) {
-    parts.push(`**Grado di occupazione:** ${workPercentage}`);
-  }
-
-  const fullDescription = cleanDescription(parts.join('\n\n'));
-
-  return {
-    description: fullDescription,
-    overviewText,
-    responsibilities,
-    requirements,
-    benefits,
-    recruitmentText,
-    employmentType,
-    workPercentage,
-  };
-}
+// extractMigrosStructuredData, extractMigrosSectionItems, extractMigrosBenefitItems
+// are imported from ./migros-job-parser.mjs at the top of this file.
 
 function extractRichJobDescription(html) {
   const supsiParsed = parseSupsiJobDetail(html);
@@ -6236,6 +5943,24 @@ async function processCompany(company, hintsRegex, crawlerConfig, knownJobUrls =
           for (const node of detailNodes) {
             const parsed = toJobFromJsonLd(node, company.name, detailUrl, { seedMeta });
             if (!parsed.reason && parsed.job) {
+              // Migros pages embed JSON-LD with only the brief overview description.
+              // The full sections (tasks, skills, benefits) live in the SSR HTML.
+              // Enrich the job description with the structured HTML content when
+              // the page is from jobs.migros.ch and richer data is available.
+              if (/jobs\.migros\.ch/i.test(detailUrl)) {
+                const migrosData = extractMigrosStructuredData(html);
+                if (migrosData) {
+                  if ((migrosData.description?.length || 0) > (parsed.job.description?.length || 0)) {
+                    parsed.job.description = migrosData.description;
+                  }
+                  if (migrosData.requirements.length > (parsed.job.requirements?.length || 0)) {
+                    parsed.job.requirements = migrosData.requirements;
+                  }
+                  parsed.job._migrosResponsibilities = migrosData.responsibilities;
+                  parsed.job._migrosBenefits = migrosData.benefits;
+                  parsed.job._migrosWorkPercentage = migrosData.workPercentage;
+                }
+              }
               maybeAcceptCandidate(parsed.job, 'jsonld');
               result.scrapedJobPages += 1;
               jsonLdAccepted = true;
