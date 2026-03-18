@@ -83,6 +83,42 @@ export function parseConvitListingPage(html = '') {
   return results;
 }
 
+const MIN_DESCRIPTION_LENGTH = 350;
+
+/**
+ * Extract the job description from the HTML DOM.
+ *
+ * careers-page.com renders a Bootstrap row grid:
+ *   <div class="col-md-3"><h4>Stellenbeschreibung:</h4></div>
+ *   <div class="col-md-9">... description HTML ...</div>
+ *
+ * Primary strategy: find the col-md-3 label cell containing "Stellenbeschreibung"
+ * and grab the inner HTML of the adjacent col-md-9 content cell.
+ * Fallback: return the largest col-md-9 div on the page.
+ */
+function extractDescriptionFromDom(document) {
+  // Strategy 1: locate via the "Stellenbeschreibung" row label
+  for (const labelCell of document.querySelectorAll('div[class*="col-md-3"], div[class*="col-lg-3"]')) {
+    if (!/stellenbeschreibung/i.test(labelCell.textContent || '')) continue;
+    const contentCell = labelCell.nextElementSibling;
+    if (contentCell && /col-md-9|col-lg-9/.test(contentCell.className || '')) {
+      const text = stripHtml(contentCell.innerHTML || '');
+      if (text.length >= MIN_DESCRIPTION_LENGTH) return text;
+    }
+  }
+
+  // Strategy 2: pick the largest col-md-9 div (description is always the longest)
+  let best = null;
+  let bestLen = 0;
+  for (const div of document.querySelectorAll('div[class*="col-md-9"]')) {
+    const len = (div.textContent || '').trim().length;
+    if (len > bestLen) { best = div; bestLen = len; }
+  }
+  if (best && bestLen >= MIN_DESCRIPTION_LENGTH) return stripHtml(best.innerHTML || '');
+
+  return '';
+}
+
 /**
  * Parse a job detail page and extract rich metadata from HTML + JSON-LD.
  */
@@ -119,9 +155,11 @@ export function parseConvitDetailPage(html = '', fallbackTitle = '') {
     );
   }
 
-  // Description
-  const descHtml = jsonLd?.description || '';
-  const description = stripHtml(descHtml);
+  // Description: prefer JSON-LD when full-length; fall back to DOM extraction
+  const jsonLdDesc = stripHtml(jsonLd?.description || '');
+  const description = jsonLdDesc.length >= MIN_DESCRIPTION_LENGTH
+    ? jsonLdDesc
+    : (extractDescriptionFromDom(document) || jsonLdDesc);
 
   // Date posted
   const datePosted = jsonLd?.datePosted
