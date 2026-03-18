@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-03-18T05:00:43.944Z",
+  "generatedAt": "2026-03-18T05:00:45.350Z",
   "links": {
     "allJobs": "https://www.frontaliereticino.ch/cerca-lavoro-ticino"
   },
   "totals": {
-    "activeJobs": 1583,
+    "activeJobs": 987,
     "activeCompanies": 132,
     "activeLocations": 190,
     "todayAdded": 945,
@@ -46,6 +46,13 @@
     {
       "date": "2026-03-18",
       "totalJobs": 1583,
+      "added": 945,
+      "updated": 0,
+      "removed": 0
+    },
+    {
+      "date": "2026-03-18",
+      "totalJobs": 1540,
       "added": 945,
       "updated": 0,
       "removed": 0
@@ -100,6 +107,24 @@
         "name": "VOLG",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-volg",
         "count": 44
+      },
+      {
+        "key": "vf-international-the-north-face-timberland",
+        "name": "VF International (The North Face, Timberland)",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-vf-international-the-north-face-timberland",
+        "count": 26
+      },
+      {
+        "key": "usi-universita-della-svizzera-italiana",
+        "name": "USI – Università della Svizzera italiana",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-usi-universita-della-svizzera-italiana",
+        "count": 24
+      },
+      {
+        "key": "convit-holding-gmbh",
+        "name": "Convit Holding GmbH",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-convit-holding-gmbh",
+        "count": 23
       }
     ],
     "topLocationsActive": [
@@ -150,6 +175,18 @@
         "name": "Chur",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-chur",
         "count": 47
+      },
+      {
+        "key": "st-moritz",
+        "name": "St. Moritz",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-st-moritz",
+        "count": 56
+      },
+      {
+        "key": "emea-che-stabio-vf-campus-vf1",
+        "name": "EMEA · CHE · Stabio · VF Campus VF1",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-emea-che-stabio-vf-campus-vf1",
+        "count": 24
       }
     ],
     "topCompaniesAddedToday": [
@@ -451,11 +488,11 @@
   },
   "salary": {
     "coverage": {
-      "jobsWithSalary": 1583,
+      "jobsWithSalary": 987,
       "coveragePct": 100,
-      "avgMin": 65921,
-      "avgMax": 88865,
-      "avgMid": 77393,
+      "avgMin": 65997,
+      "avgMax": 89024,
+      "avgMid": 77510,
       "medianMid": 68500
     },
     "leaders": {
