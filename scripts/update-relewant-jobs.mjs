@@ -162,63 +162,39 @@ async function mergeJobs(discoveredJobs) {
       return job;
     }
     updated += 1;
+    // Clear translations only when the source description changed significantly.
+    // Otherwise preserve existing translated locales (en/de/fr) and only update
+    // the source locale (it) from the fresh job data.
+    const prevLen = (prev.description || '').length;
+    const newLen = (job.description || '').length;
+    const sourceChanged = Math.abs(newLen - prevLen) > 100;
+    const mergedDescByLocale = sourceChanged
+      ? { ...(job.descriptionByLocale || {}) }
+      : { ...(prev.descriptionByLocale || {}), it: (job.descriptionByLocale || {}).it ?? (prev.descriptionByLocale || {}).it };
     const updatedJob = {
       ...prev,
       ...job,
       titleByLocale: { ...(prev.titleByLocale || {}), ...(job.titleByLocale || {}) },
-      descriptionByLocale: { ...(prev.descriptionByLocale || {}), ...(job.descriptionByLocale || {}) },
+      descriptionByLocale: mergedDescByLocale,
       slugByLocale: { ...(prev.slugByLocale || {}), ...(job.slugByLocale || {}) },
     };
-    // Clear stale locale translations when description changes significantly
-    const prevLen = (prev.description || '').length;
-    const newLen = (job.description || '').length;
-    if (Math.abs(newLen - prevLen) > 100) {
-      updatedJob.descriptionByLocale = { ...(job.descriptionByLocale || {}) };
-    }
     return updatedJob;
   });
 
-  // Write per-crawler slice (new architecture) — source of truth for this crawler
-  writeJobsCrawlerSlice(COMPANY_KEY, mergedTarget);
-
-  // Run assembler in hybrid mode: replaces ReleWant jobs in global files,
-  // keeps all other crawlers' jobs from the existing monolithic jobs.json
-  // Note: assembleJobsDataset is async; we return the promise from mergeJobs
-  // and await it in main().
-  const _assemblePromise = assembleJobsDataset();
-
   const afterSnapshot = snapshotJobSlugs(mergedTarget);
   const diff = computeCrawlDiff(beforeSnapshot, afterSnapshot);
-
-  // Build summary entry for per-crawler summary slice
   const durationMs = getCrawlerElapsedMs();
-  const total = mergedTarget.length;
-  const summaryEntry = {
-    key: COMPANY_KEY,
-    label: 'ReleWant',
-    generatedAt: new Date().toISOString(),
-    total,
-    newCount: diff.newJobs.length,
-    updatedCount: diff.updatedJobs.length,
-    removedCount: diff.removedJobs.length,
-    unchangedCount: diff.unchangedCount,
-    durationMs,
-    avgDurationMs: durationMs,
-    durationHistory: [durationMs],
-    newJobs: diff.newJobs.slice(0, 30),
-    updatedJobs: diff.updatedJobs.slice(0, 30),
-    removedJobs: diff.removedJobs.slice(0, 30),
-    unchangedJobs: (diff.unchangedJobs || []).slice(0, 30),
-  };
-  writeSummaryCrawlerSlice(summaryEntry);
 
   printCrawlChangeSummary(diff, 'ReleWant');
   writeCrawlChangeSummaryToGH(diff, 'ReleWant');
   writeJobsSummary(mergedTarget, 'ReleWant');
   printPublishedJobUrls(mergedTarget, 'ReleWant');
 
-  await _assemblePromise;
-  return { total: mergedTarget.length, added, updated };
+  // Write jobs.json with the merged (pre-translation) jobs so that
+  // translateMissingJobLocales can update it in-place.
+  writeJson(DATA_JOBS, [...nonTargetJobs, ...mergedTarget]);
+
+  return { total: mergedTarget.length, added, updated, mergedTarget, diff, durationMs };
 }
 
 function updateAdapterConfig(jobs) {
@@ -313,7 +289,7 @@ async function main() {
   }
 
   const jobs = enriched.map(buildRelewantJob);
-  const { total, added, updated } = await mergeJobs(jobs);
+  const { total, added, updated, mergedTarget, diff, durationMs } = await mergeJobs(jobs);
   updateAdapterConfig(jobs);
 
   console.log('\n🌐 Running locale fill for ReleWant jobs...');
@@ -323,6 +299,30 @@ async function main() {
   });
 
   validateLocales();
+
+  // Write the per-crawler slice AFTER translation so the slice contains fully
+  // localized content. Then re-assemble the global dataset from slices.
+  const translatedJobs = readJson(DATA_JOBS, []).filter(isTargetJob);
+  writeJobsCrawlerSlice(COMPANY_KEY, translatedJobs);
+  const summaryEntry = {
+    key: COMPANY_KEY,
+    label: 'ReleWant',
+    generatedAt: new Date().toISOString(),
+    total: translatedJobs.length,
+    newCount: diff.newJobs.length,
+    updatedCount: diff.updatedJobs.length,
+    removedCount: diff.removedJobs.length,
+    unchangedCount: diff.unchangedCount,
+    durationMs,
+    avgDurationMs: durationMs,
+    durationHistory: [durationMs],
+    newJobs: diff.newJobs.slice(0, 30),
+    updatedJobs: diff.updatedJobs.slice(0, 30),
+    removedJobs: diff.removedJobs.slice(0, 30),
+    unchangedJobs: (diff.unchangedJobs || []).slice(0, 30),
+  };
+  writeSummaryCrawlerSlice(summaryEntry);
+  await assembleJobsDataset();
 
   console.log('\n📊 === ReleWant Job Stats ===');
   console.log(`  🏢 Total ReleWant jobs: ${total}`);
