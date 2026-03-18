@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-03-18T16:35:58.960Z",
+  "generatedAt": "2026-03-18T16:37:08.024Z",
   "links": {
     "allJobs": "https://www.frontaliereticino.ch/cerca-lavoro-ticino"
   },
   "totals": {
-    "activeJobs": 919,
+    "activeJobs": 3005,
     "activeCompanies": 128,
     "activeLocations": 148,
     "todayAdded": 1066,
@@ -124,6 +124,30 @@
         "name": "Convit Holding GmbH",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-convit-holding-gmbh",
         "count": 23
+      },
+      {
+        "key": "colin-cie-wealth-management",
+        "name": "Colin&Cie Wealth Management",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-colin-cie-wealth-management",
+        "count": 817
+      },
+      {
+        "key": "tz-stromag",
+        "name": "TZ Stromag",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-tz-stromag",
+        "count": 169
+      },
+      {
+        "key": "c2b-electrotechnique-succursale-de-grichting-valterio-electro-sa",
+        "name": "C2B Electrotechnique, succursale de Grichting & Valterio Electro SA",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-c2b-electrotechnique-succursale-de-grichting-valterio-electro-sa",
+        "count": 164
+      },
+      {
+        "key": "hitachi-energy",
+        "name": "Hitachi Energy",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-hitachi-energy",
+        "count": 149
       }
     ],
     "topLocationsActive": [
@@ -228,6 +252,48 @@
         "name": "Locarno",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-locarno",
         "count": 44
+      },
+      {
+        "key": "lugano",
+        "name": "Lugano",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-lugano",
+        "count": 324
+      },
+      {
+        "key": "munsbach",
+        "name": "Munsbach",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-munsbach",
+        "count": 306
+      },
+      {
+        "key": "zurich",
+        "name": "Zürich",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-zurich",
+        "count": 206
+      },
+      {
+        "key": "mendrisio",
+        "name": "Mendrisio",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-mendrisio",
+        "count": 190
+      },
+      {
+        "key": "brig-glis",
+        "name": "Brig-Glis",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-brig-glis",
+        "count": 169
+      },
+      {
+        "key": "martigny",
+        "name": "Martigny",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-martigny",
+        "count": 166
+      },
+      {
+        "key": "st-moritz",
+        "name": "St. Moritz",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-st-moritz",
+        "count": 162
       }
     ],
     "topCompaniesAddedToday": [
@@ -529,11 +595,11 @@
   },
   "salary": {
     "coverage": {
-      "jobsWithSalary": 919,
+      "jobsWithSalary": 3005,
       "coveragePct": 100,
-      "avgMin": 66743,
-      "avgMax": 90012,
-      "avgMid": 78377,
+      "avgMin": 68945,
+      "avgMax": 93573,
+      "avgMid": 81259,
       "medianMid": 84500
     },
     "leaders": {
@@ -547,16 +613,6 @@
           "avgMax": 147000,
           "avgMid": 128000,
           "weightedSalary": 120400
-        },
-        {
-          "key": "knowledge-lab",
-          "name": "Knowledge Lab",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-knowledge-lab",
-          "count": 3,
-          "avgMin": 91167,
-          "avgMax": 123500,
-          "avgMid": 107333,
-          "weightedSalary": 100867
         },
         {
           "key": "abb-svizzera-sede-ticino",
@@ -617,6 +673,16 @@
           "avgMax": 122750,
           "avgMid": 106750,
           "weightedSalary": 97150
+        },
+        {
+          "key": "knowledge-lab",
+          "name": "Knowledge Lab",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-knowledge-lab",
+          "count": 6,
+          "avgMin": 91167,
+          "avgMax": 123500,
+          "avgMid": 107333,
+          "weightedSalary": 107333
         }
       ],
       "topSalaryLocations": [
@@ -671,16 +737,6 @@
           "weightedSalary": 95600
         },
         {
-          "key": "zurich",
-          "name": "Zürich",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-zurich",
-          "count": 4,
-          "avgMin": 81125,
-          "avgMax": 109625,
-          "avgMid": 95375,
-          "weightedSalary": 92525
-        },
-        {
           "key": "beijing-china",
           "name": "Beijing, China",
           "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-beijing-china",
@@ -705,6 +761,36 @@
           "name": "Munsbach",
           "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-munsbach",
           "count": 651,
+          "avgMin": 77500,
+          "avgMax": 104500,
+          "avgMid": 91000,
+          "weightedSalary": 91000
+        },
+        {
+          "key": "beijing-china",
+          "name": "Beijing, China",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-beijing-china",
+          "count": 3,
+          "avgMin": 92000,
+          "avgMax": 125000,
+          "avgMid": 108500,
+          "weightedSalary": 101900
+        },
+        {
+          "key": "zurich",
+          "name": "Zürich",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-zurich",
+          "count": 206,
+          "avgMin": 77570,
+          "avgMax": 104600,
+          "avgMid": 91085,
+          "weightedSalary": 91085
+        },
+        {
+          "key": "munsbach",
+          "name": "Munsbach",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-munsbach",
+          "count": 306,
           "avgMin": 77500,
           "avgMax": 104500,
           "avgMid": 91000,
