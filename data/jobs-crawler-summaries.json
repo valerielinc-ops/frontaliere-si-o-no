@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-03-18T05:08:07.763Z",
+  "updatedAt": "2026-03-18T05:08:41.269Z",
   "summaries": [
     {
       "key": "agie-charmilles",
@@ -1311,45 +1311,6 @@
           "location": "Bonaduz",
           "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/tirocinio-di-prova-come-sviluppatore-nel-settore-digitale-hamilton-bonaduz-ag-bonaduz/",
           "slug": "schnupperlehre-entwickler-in-digitales-business-jr-4071"
-        }
-      ]
-    },
-    {
-      "key": "ist",
-      "label": "IST",
-      "generatedAt": "2026-03-17T05:04:05.166Z",
-      "total": 2,
-      "newCount": 0,
-      "updatedCount": 0,
-      "removedCount": 0,
-      "unchangedCount": 2,
-      "durationMs": 14404,
-      "avgDurationMs": 39496,
-      "durationHistory": [
-        14404,
-        14693,
-        13199,
-        83608,
-        15145,
-        95926
-      ],
-      "newJobs": [],
-      "updatedJobs": [],
-      "removedJobs": [],
-      "unchangedJobs": [
-        {
-          "title": "Expression of Interest - International School of Ticino",
-          "company": "International School of Ticino",
-          "location": "Lugano",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/expression-of-interest-international-school-of-ticino-ist/",
-          "slug": "expression-of-interest-international-school-of-ticino-ist"
-        },
-        {
-          "title": "History Teacher",
-          "company": "International School of Ticino",
-          "location": "Lugano",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/history-teacher-ist/",
-          "slug": "history-teacher-ist"
         }
       ]
     },
@@ -8547,6 +8508,46 @@
           "location": "Ticino",
           "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/tecnico-di-servizio-per-impianti-di-riscaldamento-olio-gas-m-f-d-hoval-ticino/",
           "slug": "tecnico-di-servizio-per-impianti-di-riscaldamento-olio-gas-m-f-d-hoval-ticino"
+        }
+      ],
+      "removedJobs": [],
+      "unchangedJobs": []
+    },
+    {
+      "key": "ist",
+      "label": "IST",
+      "generatedAt": "2026-03-18T05:08:41.269Z",
+      "total": 2,
+      "newCount": 0,
+      "updatedCount": 2,
+      "removedCount": 0,
+      "unchangedCount": 0,
+      "durationMs": 14655,
+      "avgDurationMs": 35947,
+      "durationHistory": [
+        14655,
+        14404,
+        14693,
+        13199,
+        83608,
+        15145,
+        95926
+      ],
+      "newJobs": [],
+      "updatedJobs": [
+        {
+          "title": "Expression of Interest - International School of Ticino",
+          "company": "International School of Ticino",
+          "location": "Lugano",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/expression-of-interest-international-school-of-ticino-ist/",
+          "slug": "espressione-di-interesse-international-school-of-ticino-international-school-of-ticino-lugano"
+        },
+        {
+          "title": "History Teacher",
+          "company": "International School of Ticino",
+          "location": "Lugano",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/history-teacher-ist/",
+          "slug": "history-teacher-international-school-of-ticino-lugano"
         }
       ],
       "removedJobs": [],
