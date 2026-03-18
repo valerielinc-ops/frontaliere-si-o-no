@@ -1,22 +1,22 @@
 {
-  "generatedAt": "2026-03-18T04:54:42.955Z",
+  "generatedAt": "2026-03-18T04:54:51.944Z",
   "links": {
     "allJobs": "https://www.frontaliereticino.ch/cerca-lavoro-ticino"
   },
   "totals": {
-    "activeJobs": 1285,
+    "activeJobs": 1365,
     "activeCompanies": 129,
     "activeLocations": 177,
-    "todayAdded": 921,
+    "todayAdded": 920,
     "todayUpdated": 0,
     "todayRemoved": 0,
     "last7d": {
-      "added": 3018,
+      "added": 3017,
       "updated": 0,
       "removed": 0
     },
     "last30d": {
-      "added": 3501,
+      "added": 3500,
       "updated": 0,
       "removed": 0
     }
@@ -45,20 +45,6 @@
     },
     {
       "date": "2026-03-18",
-      "totalJobs": 1290,
-      "added": 919,
-      "updated": 0,
-      "removed": 0
-    },
-    {
-      "date": "2026-03-18",
-      "totalJobs": 1264,
-      "added": 919,
-      "updated": 0,
-      "removed": 0
-    },
-    {
-      "date": "2026-03-18",
       "totalJobs": 1294,
       "added": 921,
       "updated": 0,
@@ -70,40 +56,17 @@
       "added": 920,
       "updated": 0,
       "removed": 0
+    },
+    {
+      "date": "2026-03-18",
+      "totalJobs": 1365,
+      "added": 920,
+      "updated": 0,
+      "removed": 0
     }
   ],
   "leaders": {
     "topCompaniesActive": [
-      {
-        "key": "eoc-ente-ospedaliero-cantonale",
-        "name": "EOC – Ente Ospedaliero Cantonale",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-eoc-ente-ospedaliero-cantonale",
-        "count": 275
-      },
-      {
-        "key": "pemsa",
-        "name": "PEMSA",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-pemsa",
-        "count": 57
-      },
-      {
-        "key": "volg",
-        "name": "VOLG",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-volg",
-        "count": 45
-      },
-      {
-        "key": "coop",
-        "name": "Coop",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-coop",
-        "count": 42
-      },
-      {
-        "key": "kulm-hotel-st-moritz",
-        "name": "Kulm Hotel St. Moritz",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-kulm-hotel-st-moritz",
-        "count": 35
-      },
       {
         "key": "kantonsspital-graubunden",
         "name": "Kantonsspital Graubünden",
@@ -135,48 +98,6 @@
         "count": 42
       },
       {
-        "key": "vf-international-the-north-face-timberland",
-        "name": "VF International (The North Face, Timberland)",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-vf-international-the-north-face-timberland",
-        "count": 41
-      },
-      {
-        "key": "kulm-hotel-st-moritz",
-        "name": "Kulm Hotel St. Moritz",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-kulm-hotel-st-moritz",
-        "count": 35
-      },
-      {
-        "key": "colin-cie-wealth-management",
-        "name": "Colin&Cie Wealth Management",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-colin-cie-wealth-management",
-        "count": 33
-      },
-      {
-        "key": "eoc-ente-ospedaliero-cantonale",
-        "name": "EOC – Ente Ospedaliero Cantonale",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-eoc-ente-ospedaliero-cantonale",
-        "count": 275
-      },
-      {
-        "key": "pemsa",
-        "name": "PEMSA",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-pemsa",
-        "count": 57
-      },
-      {
-        "key": "volg",
-        "name": "VOLG",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-volg",
-        "count": 45
-      },
-      {
-        "key": "coop",
-        "name": "Coop",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-coop",
-        "count": 42
-      },
-      {
         "key": "kulm-hotel-st-moritz",
         "name": "Kulm Hotel St. Moritz",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-kulm-hotel-st-moritz",
@@ -186,12 +107,6 @@
         "key": "vf-international-the-north-face-timberland",
         "name": "VF International (The North Face, Timberland)",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-vf-international-the-north-face-timberland",
-        "count": 35
-      },
-      {
-        "key": "vf-international-the-north-face-timberland",
-        "name": "VF International (The North Face, Timberland)",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-vf-international-the-north-face-timberland",
         "count": 41
       },
       {
@@ -211,6 +126,18 @@
         "name": "Colin&Cie Wealth Management",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-colin-cie-wealth-management",
         "count": 33
+      },
+      {
+        "key": "colin-cie-wealth-management",
+        "name": "Colin&Cie Wealth Management",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-colin-cie-wealth-management",
+        "count": 73
+      },
+      {
+        "key": "vf-international-the-north-face-timberland",
+        "name": "VF International (The North Face, Timberland)",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-vf-international-the-north-face-timberland",
+        "count": 56
       }
     ],
     "topLocationsActive": [
@@ -219,96 +146,6 @@
         "name": "Bellinzona",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-bellinzona",
         "count": 182
-      },
-      {
-        "key": "locarno",
-        "name": "Locarno",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-locarno",
-        "count": 65
-      },
-      {
-        "key": "mendrisio",
-        "name": "Mendrisio",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-mendrisio",
-        "count": 61
-      },
-      {
-        "key": "chur",
-        "name": "Chur",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-chur",
-        "count": 51
-      },
-      {
-        "key": "grigioni",
-        "name": "Grigioni",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-grigioni",
-        "count": 49
-      },
-      {
-        "key": "bellinzona",
-        "name": "Bellinzona",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-bellinzona",
-        "count": 181
-      },
-      {
-        "key": "lugano",
-        "name": "Lugano",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-lugano",
-        "count": 146
-      },
-      {
-        "key": "st-moritz",
-        "name": "St. Moritz",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-st-moritz",
-        "count": 90
-      },
-      {
-        "key": "locarno",
-        "name": "Locarno",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-locarno",
-        "count": 65
-      },
-      {
-        "key": "mendrisio",
-        "name": "Mendrisio",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-mendrisio",
-        "count": 61
-      },
-      {
-        "key": "chur",
-        "name": "Chur",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-chur",
-        "count": 51
-      },
-      {
-        "key": "grigioni",
-        "name": "Grigioni",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-grigioni",
-        "count": 49
-      },
-      {
-        "key": "emea-che-stabio-vf-campus-vf1",
-        "name": "EMEA · CHE · Stabio · VF Campus VF1",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-emea-che-stabio-vf-campus-vf1",
-        "count": 39
-      },
-      {
-        "key": "bellinzona",
-        "name": "Bellinzona",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-bellinzona",
-        "count": 181
-      },
-      {
-        "key": "lugano",
-        "name": "Lugano",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-lugano",
-        "count": 142
-      },
-      {
-        "key": "st-moritz",
-        "name": "St. Moritz",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-st-moritz",
-        "count": 88
       },
       {
         "key": "locarno",
@@ -369,6 +206,24 @@
         "name": "EMEA · CHE · Stabio · VF Campus VF1",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-emea-che-stabio-vf-campus-vf1",
         "count": 39
+      },
+      {
+        "key": "lugano",
+        "name": "Lugano",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-lugano",
+        "count": 156
+      },
+      {
+        "key": "st-moritz",
+        "name": "St. Moritz",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-st-moritz",
+        "count": 95
+      },
+      {
+        "key": "emea-che-stabio-vf-campus-vf1",
+        "name": "EMEA · CHE · Stabio · VF Campus VF1",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-emea-che-stabio-vf-campus-vf1",
+        "count": 54
       }
     ],
     "topCompaniesAddedToday": [
@@ -670,12 +525,12 @@
   },
   "salary": {
     "coverage": {
-      "jobsWithSalary": 1285,
+      "jobsWithSalary": 1365,
       "coveragePct": 100,
-      "avgMin": 66125,
-      "avgMax": 89204,
-      "avgMid": 77664,
-      "medianMid": 68000
+      "avgMin": 66337,
+      "avgMax": 89483,
+      "avgMid": 77910,
+      "medianMid": 68500
     },
     "leaders": {
       "topSalaryCompanies": [
@@ -772,36 +627,6 @@
           "weightedSalary": 112800
         },
         {
-          "key": "quartino-ticino",
-          "name": "Quartino, Ticino",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-quartino-ticino",
-          "count": 16,
-          "avgMin": 89031,
-          "avgMax": 120094,
-          "avgMid": 104563,
-          "weightedSalary": 104563
-        },
-        {
-          "key": "beijing-china",
-          "name": "Beijing, China",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-beijing-china",
-          "count": 2,
-          "avgMin": 92000,
-          "avgMax": 125000,
-          "avgMid": 108500,
-          "weightedSalary": 98600
-        },
-        {
-          "key": "castelrotto",
-          "name": "Castelrotto",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-castelrotto",
-          "count": 6,
-          "avgMin": 83583,
-          "avgMax": 112917,
-          "avgMid": 98250,
-          "weightedSalary": 98250
-        },
-        {
           "key": "plan-les-ouates",
           "name": "Plan-les-Ouates",
           "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-plan-les-ouates",
@@ -812,16 +637,6 @@
           "weightedSalary": 97150
         },
         {
-          "key": "manno",
-          "name": "Manno",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-manno",
-          "count": 4,
-          "avgMin": 82500,
-          "avgMax": 111500,
-          "avgMid": 97000,
-          "weightedSalary": 94100
-        },
-        {
           "key": "quartino-ticino",
           "name": "Quartino, Ticino",
           "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-quartino-ticino",
@@ -852,16 +667,6 @@
           "weightedSalary": 98250
         },
         {
-          "key": "zurich",
-          "name": "Zürich",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-zurich",
-          "count": 11,
-          "avgMin": 80136,
-          "avgMax": 108227,
-          "avgMid": 94182,
-          "weightedSalary": 94182
-        },
-        {
           "key": "manno",
           "name": "Manno",
           "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-manno",
@@ -872,76 +677,6 @@
           "weightedSalary": 94100
         },
         {
-          "key": "munsbach",
-          "name": "Munsbach",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-munsbach",
-          "count": 12,
-          "avgMin": 77500,
-          "avgMax": 104500,
-          "avgMid": 91000,
-          "weightedSalary": 91000
-        },
-        {
-          "key": "quartino-ticino",
-          "name": "Quartino, Ticino",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-quartino-ticino",
-          "count": 16,
-          "avgMin": 89031,
-          "avgMax": 120094,
-          "avgMid": 104563,
-          "weightedSalary": 104563
-        },
-        {
-          "key": "beijing-china",
-          "name": "Beijing, China",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-beijing-china",
-          "count": 2,
-          "avgMin": 92000,
-          "avgMax": 125000,
-          "avgMid": 108500,
-          "weightedSalary": 98600
-        },
-        {
-          "key": "castelrotto",
-          "name": "Castelrotto",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-castelrotto",
-          "count": 6,
-          "avgMin": 83583,
-          "avgMax": 112917,
-          "avgMid": 98250,
-          "weightedSalary": 98250
-        },
-        {
-          "key": "zurich",
-          "name": "Zürich",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-zurich",
-          "count": 7,
-          "avgMin": 81643,
-          "avgMax": 110357,
-          "avgMid": 96000,
-          "weightedSalary": 96000
-        },
-        {
-          "key": "manno",
-          "name": "Manno",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-manno",
-          "count": 4,
-          "avgMin": 82500,
-          "avgMax": 111500,
-          "avgMid": 97000,
-          "weightedSalary": 94100
-        },
-        {
-          "key": "munsbach",
-          "name": "Munsbach",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-munsbach",
-          "count": 6,
-          "avgMin": 77500,
-          "avgMax": 104500,
-          "avgMid": 91000,
-          "weightedSalary": 91000
-        },
-        {
           "key": "zurich",
           "name": "Zürich",
           "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-zurich",
@@ -976,6 +711,26 @@
           "name": "Munsbach",
           "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-munsbach",
           "count": 12,
+          "avgMin": 77500,
+          "avgMax": 104500,
+          "avgMid": 91000,
+          "weightedSalary": 91000
+        },
+        {
+          "key": "zurich",
+          "name": "Zürich",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-zurich",
+          "count": 21,
+          "avgMin": 78881,
+          "avgMax": 106452,
+          "avgMid": 92667,
+          "weightedSalary": 92667
+        },
+        {
+          "key": "munsbach",
+          "name": "Munsbach",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-munsbach",
+          "count": 27,
           "avgMin": 77500,
           "avgMax": 104500,
           "avgMid": 91000,
