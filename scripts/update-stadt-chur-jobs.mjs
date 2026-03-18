@@ -398,20 +398,31 @@ async function main() {
   }
   console.log(`📊 Built ${jobs.length} job objects`);
 
-  // Phase 3 — Translate
+  // Phase 3 — Merge
   console.log('\n═══════════════════════════════════════');
-  console.log('Phase 3: Translate');
-  console.log('═══════════════════════════════════════');
-  await translateMissingJobLocales(jobs, LOCALES);
-  validateDedicatedLocaleCoverage(jobs, LOCALES, process.env.JOBS_CHUR_STRICT === '1');
-
-  // Phase 4 — Merge
-  console.log('\n═══════════════════════════════════════');
-  console.log('Phase 4: Merge');
+  console.log('Phase 3: Merge');
   console.log('═══════════════════════════════════════');
   const stats = mergeJobs(jobs);
   console.log(`\n📈 Result: ${stats.targetCount} Stadt Chur jobs (${stats.added} new, ${stats.updated} updated)`);
   console.log(`   Total jobs in file: ${stats.total}`);
+
+  // Phase 4 — Translate + validate
+  console.log('\n═══════════════════════════════════════');
+  console.log('Phase 4: Translate');
+  console.log('═══════════════════════════════════════');
+  await translateMissingJobLocales({
+    dataJobsPath: DATA_JOBS,
+    isTargetJob,
+  });
+  validateDedicatedLocaleCoverage({
+    strictEnvVar: 'JOBS_CHUR_STRICT',
+    label: COMPANY_NAME,
+    dataJobsPath: DATA_JOBS,
+    isTargetJob,
+    locales: LOCALES,
+    failWhenNoJobs: true,
+    noJobsMessage: 'No Stadt Chur jobs found after dedicated crawl.',
+  });
 
   // Phase 5 — Summary
   printPublishedJobUrls(jobs);

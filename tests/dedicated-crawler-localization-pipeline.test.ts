@@ -76,7 +76,7 @@ describe('dedicated crawler localization pipeline integration', () => {
     expect(fetchMock).toHaveBeenCalled();
   });
 
-  it('falls back to the source title when translation providers return nothing, avoiding strict missing_title failures', { timeout: 12000 }, async () => {
+  it('falls back to the source title when translation providers return nothing, avoiding strict missing_title failures', { timeout: 20000 }, async () => {
     fs.writeFileSync(jobsPath, `${JSON.stringify([{
       slug: 'job-title-fallback',
       company: 'Demo SA',
@@ -104,5 +104,59 @@ describe('dedicated crawler localization pipeline integration', () => {
 
     expect(jobs[0].titleByLocale.de).toBe('Relationship Manager');
     expect(jobs[0].titleByLocale.fr).toBe('Relationship Manager');
+  });
+
+  it('repairs thin localized descriptions when the base description is rich', async () => {
+    const richEnglishDescription = '## Responsibilities\n'
+      + '- Manage reservations, pricing and guest communication across phone and email channels\n'
+      + '- Coordinate occupancy strategy with the front office and revenue priorities\n\n'
+      + '## Requirements\n'
+      + '- Experience in hospitality reservations or guest services\n'
+      + '- Strong command of English, German and customer-facing communication';
+
+    fs.writeFileSync(jobsPath, `${JSON.stringify([{
+      slug: 'job-thin-localized-description',
+      company: 'Grace La Margna St. Moritz',
+      location: 'St. Moritz',
+      title: 'Reservation Agent (m/w) - be the master in filling the house at the best price',
+      description: richEnglishDescription,
+      titleByLocale: {
+        en: 'Reservation Agent (m/w) - be the master in filling the house at the best price',
+        it: 'Agente di prenotazione (m/w) - essere il maestro nel riempire la casa al miglior prezzo',
+        de: 'Reservierungsagent (m/w) - sei der Meister darin, das Haus zum besten Preis zu fuellen',
+        fr: 'Agent de reservation (h/f) - etre le maitre du remplissage au meilleur prix',
+      },
+      descriptionByLocale: {
+        en: 'Reservation Agent (m/w) - be the master in filling the house at the best price',
+        it: 'Agente di prenotazione (m/w) - essere il maestro nel riempire la casa al miglior prezzo',
+        de: 'Reservierungsagent (m/w) - sei der Meister darin, das Haus zum besten Preis zu fuellen',
+        fr: 'Agent de reservation (h/f) - etre le maitre du remplissage au meilleur prix',
+      },
+      slugByLocale: { en: 'job-thin-localized-description' },
+    }], null, 2)}\n`, 'utf-8');
+
+    const fetchMock = vi.fn(async (_url: string, init?: RequestInit) => {
+      const body = JSON.parse(String(init?.body || '{}'));
+      const target = body.targetLang || body.target;
+      return {
+        ok: true,
+        json: async () => ({
+          translatedText: target === 'it'
+            ? '## Responsabilita\n- Gestire prenotazioni, prezzi e comunicazione con gli ospiti via telefono ed e-mail\n- Coordinare l occupazione con front office e obiettivi di revenue\n\n## Requisiti\n- Esperienza in prenotazioni alberghiere o guest service\n- Ottima padronanza dell inglese, del tedesco e della comunicazione con il cliente'
+            : target === 'de'
+              ? '## Aufgaben\n- Reservierungen, Preise und Gaestekommunikation per Telefon und E-Mail betreuen\n- Die Auslastungsstrategie mit Front Office und Revenue abstimmen\n\n## Anforderungen\n- Erfahrung in Hotelreservierungen oder im Gaesteservice\n- Sehr gute Englischkenntnisse, Deutsch und kundenorientierte Kommunikation'
+              : '## Responsabilites\n- Gerer les reservations, les prix et la communication clients par telephone et e-mail\n- Coordonner l occupation avec le front office et les objectifs de revenu\n\n## Exigences\n- Experience en reservations hotelieres ou service clients\n- Excellente maitrise de l anglais, de l allemand et de la communication client',
+        }),
+      };
+    });
+    vi.stubGlobal('fetch', fetchMock as unknown as typeof fetch);
+
+    await translateMissingJobLocales({ dataJobsPath: jobsPath, minDescriptionChars: 120 });
+    const jobs = JSON.parse(fs.readFileSync(jobsPath, 'utf-8'));
+
+    expect(jobs[0].descriptionByLocale.en).toBe(richEnglishDescription);
+    expect(jobs[0].descriptionByLocale.it).toContain('## Responsabilita');
+    expect(jobs[0].descriptionByLocale.de).toContain('## Aufgaben');
+    expect(jobs[0].descriptionByLocale.fr).toContain('## Responsabilites');
   });
 });

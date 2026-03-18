@@ -830,8 +830,17 @@ export async function translateMissingJobLocales({ dataJobsPath, isTargetJob, ma
       if (baseTitle && normalize(String(job.titleByLocale[titleSourceLang] || '')) !== normalize(baseTitle)) {
         job.titleByLocale[titleSourceLang] = baseTitle;
       }
-      if (baseDesc && !String(job.descriptionByLocale[sourceLang] || '').trim()) {
+      const currentSourceDesc = String(job.descriptionByLocale[sourceLang] || '').trim();
+      const shouldRestoreSourceDesc =
+        !!baseDesc &&
+        baseDesc.length >= minDescriptionChars &&
+        currentSourceDesc.length < minDescriptionChars;
+      if (shouldRestoreSourceDesc) {
         job.descriptionByLocale[sourceLang] = baseDesc;
+        jobTranslated = true;
+      } else if (baseDesc && !currentSourceDesc) {
+        job.descriptionByLocale[sourceLang] = baseDesc;
+        jobTranslated = true;
       }
 
       const sourceTitle = String(job.titleByLocale[titleSourceLang] || baseTitle).trim();
@@ -843,8 +852,10 @@ export async function translateMissingJobLocales({ dataJobsPath, isTargetJob, ma
         const titleNeedsWork =
           !currentTitle ||
           (locale !== titleSourceLang && normalize(currentTitle) === normalize(sourceTitle));
+        const sourceDescriptionIsRich = sourceDesc.length >= minDescriptionChars;
         const descNeedsWork =
           !currentDesc ||
+          (sourceDescriptionIsRich && currentDesc.length < minDescriptionChars) ||
           (locale !== sourceLang && normalize(currentDesc) === normalize(sourceDesc));
 
         if (locale === titleSourceLang) {
@@ -873,7 +884,7 @@ export async function translateMissingJobLocales({ dataJobsPath, isTargetJob, ma
         }
 
         if (locale === sourceLang) {
-          if (!String(job.descriptionByLocale[locale] || '').trim() && sourceDesc) {
+          if (descNeedsWork && sourceDesc) {
             job.descriptionByLocale[locale] = sourceDesc;
             jobTranslated = true;
           }
