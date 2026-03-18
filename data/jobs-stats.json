@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-03-18T16:29:03.981Z",
+  "generatedAt": "2026-03-18T16:29:30.493Z",
   "links": {
     "allJobs": "https://www.frontaliereticino.ch/cerca-lavoro-ticino"
   },
   "totals": {
-    "activeJobs": 2087,
+    "activeJobs": 947,
     "activeCompanies": 132,
-    "activeLocations": 160,
+    "activeLocations": 159,
     "todayAdded": 1054,
     "todayUpdated": 0,
     "todayRemoved": 0,
@@ -160,6 +160,30 @@
         "name": "Hitachi Energy",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-hitachi-energy",
         "count": 61
+      },
+      {
+        "key": "coop",
+        "name": "Coop",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-coop",
+        "count": 34
+      },
+      {
+        "key": "kantonsspital-graubunden",
+        "name": "Kantonsspital Graubünden",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-kantonsspital-graubunden",
+        "count": 27
+      },
+      {
+        "key": "usi-universita-della-svizzera-italiana",
+        "name": "USI – Università della Svizzera italiana",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-usi-universita-della-svizzera-italiana",
+        "count": 24
+      },
+      {
+        "key": "convit-holding-gmbh",
+        "name": "Convit Holding GmbH",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-convit-holding-gmbh",
+        "count": 23
       }
     ],
     "topLocationsActive": [
@@ -276,6 +300,30 @@
         "name": "Schaffhausen",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-schaffhausen",
         "count": 77
+      },
+      {
+        "key": "st-moritz",
+        "name": "St. Moritz",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-st-moritz",
+        "count": 54
+      },
+      {
+        "key": "chur",
+        "name": "Chur",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-chur",
+        "count": 45
+      },
+      {
+        "key": "locarno",
+        "name": "Locarno",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-locarno",
+        "count": 45
+      },
+      {
+        "key": "grigioni",
+        "name": "Grigioni",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-grigioni",
+        "count": 43
       }
     ],
     "topCompaniesAddedToday": [
@@ -577,12 +625,12 @@
   },
   "salary": {
     "coverage": {
-      "jobsWithSalary": 2087,
+      "jobsWithSalary": 947,
       "coveragePct": 100,
-      "avgMin": 69511,
-      "avgMax": 94081,
-      "avgMid": 81796,
-      "medianMid": 84500
+      "avgMin": 66780,
+      "avgMax": 90061,
+      "avgMid": 78421,
+      "medianMid": 68500
     },
     "leaders": {
       "topSalaryCompanies": [
@@ -777,6 +825,16 @@
           "avgMax": 104500,
           "avgMid": 91000,
           "weightedSalary": 91000
+        },
+        {
+          "key": "manno",
+          "name": "Manno",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-manno",
+          "count": 3,
+          "avgMin": 79000,
+          "avgMax": 106667,
+          "avgMid": 92833,
+          "weightedSalary": 87300
         }
       ],
       "topSalaryTitles": [
