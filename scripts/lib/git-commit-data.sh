@@ -31,6 +31,11 @@ STANDARD_FILES=(
   data/jobs-crawler-summaries.json
   data/jobs-crawler-config.json
   data/ticino-companies-extra.json
+  # Per-crawler slice directories (written by migrated crawlers, assembled into
+  # the global artifacts above). Directories are expanded to tracked+local files
+  # by expand_path_to_files() so new slices are picked up automatically.
+  data/jobs/by-crawler/
+  data/jobs-crawler-summaries/by-crawler/
 )
 ALL_FILES=("${STANDARD_FILES[@]}")
 if [ "${#EXTRA_PATHS[@]}" -gt 0 ]; then
