@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-03-18T05:20:47.625Z",
-  "startedAt": "2026-03-18T05:14:17.073Z",
+  "generatedAt": "2026-03-18T05:21:17.491Z",
+  "startedAt": "2026-03-18T05:21:01.992Z",
   "config": {
     "minQualityScore": 4,
     "minDescriptionChars": 80,
@@ -43,14 +43,14 @@
     "inserted": 0,
     "refreshed": 0,
     "mergedTotal": 1002,
-    "aiLocalizationCalls": 8,
+    "aiLocalizationCalls": 1,
     "aiPageValidationCalls": 0,
     "deeplCalls": 3,
     "deeplSuccess": 0,
     "deeplFallbackToLlm": 3,
     "aiCacheHits": 8,
-    "aiCacheMisses": 19,
-    "aiCacheEntries": 1427,
+    "aiCacheMisses": 1,
+    "aiCacheEntries": 1409,
     "discoveredCompaniesCandidates": 0,
     "discoveredCompaniesAdded": 0,
     "discoveredCompaniesPending": 0

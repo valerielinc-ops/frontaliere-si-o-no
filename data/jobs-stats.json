@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-03-18T05:21:01.959Z",
+  "generatedAt": "2026-03-18T05:21:22.741Z",
   "links": {
     "allJobs": "https://www.frontaliereticino.ch/cerca-lavoro-ticino"
   },
@@ -380,6 +380,24 @@
         "name": "Mendrisio",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-mendrisio",
         "count": 59
+      },
+      {
+        "key": "locarno",
+        "name": "Locarno",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-locarno",
+        "count": 46
+      },
+      {
+        "key": "ticino",
+        "name": "Ticino",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-ticino",
+        "count": 25
+      },
+      {
+        "key": "grigioni",
+        "name": "Grigioni",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-grigioni",
+        "count": 46
       }
     ],
     "topCompaniesAddedToday": [
@@ -681,11 +699,11 @@
   },
   "salary": {
     "coverage": {
-      "jobsWithSalary": 1002,
+      "jobsWithSalary": 963,
       "coveragePct": 99.6,
-      "avgMin": 66024,
-      "avgMax": 89061,
-      "avgMid": 77542,
+      "avgMin": 66036,
+      "avgMax": 89082,
+      "avgMid": 77559,
       "medianMid": 72000
     },
     "leaders": {
@@ -823,26 +841,6 @@
           "weightedSalary": 88300
         },
         {
-          "key": "beijing-china",
-          "name": "Beijing, China",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-beijing-china",
-          "count": 4,
-          "avgMin": 92000,
-          "avgMax": 125000,
-          "avgMid": 108500,
-          "weightedSalary": 105200
-        },
-        {
-          "key": "mendrisio",
-          "name": "Mendrisio",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-mendrisio",
-          "count": 64,
-          "avgMin": 78536,
-          "avgMax": 106331,
-          "avgMid": 92433,
-          "weightedSalary": 92433
-        },
-        {
           "key": "zurich",
           "name": "Zürich",
           "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-zurich",
@@ -951,6 +949,46 @@
           "avgMax": 112700,
           "avgMid": 98000,
           "weightedSalary": 98000
+        },
+        {
+          "key": "castel-san-pietro",
+          "name": "Castel San Pietro",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-castel-san-pietro",
+          "count": 8,
+          "avgMin": 76063,
+          "avgMax": 102688,
+          "avgMid": 89375,
+          "weightedSalary": 89375
+        },
+        {
+          "key": "manno",
+          "name": "Manno",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-manno",
+          "count": 2,
+          "avgMin": 82500,
+          "avgMax": 111500,
+          "avgMid": 97000,
+          "weightedSalary": 88300
+        },
+        {
+          "key": "zurich",
+          "name": "Zürich",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-zurich",
+          "count": 5,
+          "avgMin": 83300,
+          "avgMax": 112700,
+          "avgMid": 98000,
+          "weightedSalary": 98000
+        },
+        {
+          "key": "beijing-china",
+          "name": "Beijing, China",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-beijing-china",
+          "count": 1,
+          "avgMin": 92000,
+          "avgMax": 125000,
+          "avgMid": 108500,
+          "weightedSalary": 95300
         },
         {
           "key": "castel-san-pietro",
