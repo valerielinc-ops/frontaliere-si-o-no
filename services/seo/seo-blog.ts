@@ -5678,6 +5678,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-com-aziende-lavoro-como': {
+    title: 'Provincia di Como: 4 aziende e 2 agenzie cercano | Frontaliere Ticino',
+    description: 'Quattro aziende e due agenzie di Como cercano nuovi lavoratori. Scopri come candidarti e le scadenze, con dettagli su normative e procedure. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, provincia, como, aziende, agenzie',
+    ogTitle: 'Opportunità di lavoro in Como: aziende e agenzie cercano',
+    ogDescription: 'Scopri le opportunità di lavoro a Como: aziende e agenzie cercano candidati. Partecipazione al Job Day Asso e supporto alle candidature.',
+    canonicalPath: '/articoli-frontaliere/com-aziende-lavoro-como',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Opportunità di lavoro Como",
+      "description": "Quattro aziende e due agenzie di Como cercano nuovi lavoratori. Scopri come candidarti e le scadenze, con dettagli su normative e procedure. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/com-aziende-lavoro-como.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Ufficio moderno in Ticino con vista sul lago e montagna"
+      },
+      "datePublished": "2026-03-18T10:06:52+00:00",
+      "dateModified": "2026-03-18T10:06:52+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/com-aziende-lavoro-como`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

@@ -3604,6 +3604,13 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/separazione-carriere-giudici.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'com-aziende-lavoro-como',
+    category: 'novita',
+    date: '2026-03-18T10:06:52.910Z',
+    image: '/images/blog/com-aziende-lavoro-como.jpg',
+    hasCalculator: true,
+  },
 ];
 
 const CATEGORIES = ['all', 'fiscale', 'pratico', 'novita', 'pensione'] as const;

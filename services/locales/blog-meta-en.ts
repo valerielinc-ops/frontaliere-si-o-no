@@ -1298,6 +1298,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.separazione-carriere-giudici.title': 'Referendum in Ticino: The Role of Judicial Career Separation',
     'blog.article.separazione-carriere-giudici.excerpt': 'With the upcoming referendum, discussions focus on the separation between judges and public prosecutors in Ticino, ensuring impartiality and transparency.',
     'blog.article.separazione-carriere-giudici.imageAlt': 'Judges and public prosecutors in a Ticino courtroom',
+    'blog.article.com-aziende-lavoro-como.title': 'Province of Como: 4 Companies and 2 Agencies Seek Workers',
+    'blog.article.com-aziende-lavoro-como.excerpt': 'Job opportunities in the Como area: four companies and two agencies are looking for candidates. Don\'t miss these chances, with deadlines approaching. Here are all the details.',
+    'blog.article.com-aziende-lavoro-como.imageAlt': 'Modern office in Ticino with lake and mountain view',
 };
 
 export default blogMetaEn;

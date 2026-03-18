@@ -1298,6 +1298,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.separazione-carriere-giudici.title': 'Référendum au Tessin : le rôle de la séparation des carrières judiciaires',
     'blog.article.separazione-carriere-giudici.excerpt': 'Avec le référendum à l\'horizon, la discussion porte sur la séparation entre juges et procureurs publics au Tessin, garantissant impartialité et transparence.',
     'blog.article.separazione-carriere-giudici.imageAlt': 'Juges et procureurs dans une salle d\'audience au Tessin',
+    'blog.article.com-aziende-lavoro-como.title': 'Province de Como : 4 entreprises et 2 agences recrutent des travailleurs',
+    'blog.article.com-aziende-lavoro-como.excerpt': 'Emploi dans la province de Como : 4 entreprises et 2 agences recherchent des candidats. Opportunités à ne pas manquer, avec des délais rapprochés. Voici tous les détails.',
+    'blog.article.com-aziende-lavoro-como.imageAlt': 'Bureau moderne au Tessin avec vue sur le lac et la montagne',
 };
 
 export default blogMetaFr;

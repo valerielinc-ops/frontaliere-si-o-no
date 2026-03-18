@@ -1298,6 +1298,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.separazione-carriere-giudici.title': 'Referendum im Tessin: die Rolle der Trennung der richterlichen Laufbahnen',
     'blog.article.separazione-carriere-giudici.excerpt': 'Mit dem bevorstehenden Referendum wird im Tessin über die Trennung zwischen Richtern und Staatsanwälten diskutiert, um Unparteilichkeit und Transparenz zu gewährleisten.',
     'blog.article.separazione-carriere-giudici.imageAlt': 'Richter und Staatsanwälte in einem Gerichtssaal im Tessin',
+    'blog.article.com-aziende-lavoro-como.title': 'Provinz Como: 4 Unternehmen und 2 Agenturen suchen Arbeitskräfte',
+    'blog.article.com-aziende-lavoro-como.excerpt': 'Arbeit in der Provinz Como: 4 Unternehmen und 2 Agenturen suchen Kandidaten. Chancen, die man nicht verpassen sollte, mit kurzfristigen Fristen. Hier sind alle Details.',
+    'blog.article.com-aziende-lavoro-como.imageAlt': 'Modernes Büro im Tessin mit See- und Bergblick',
 };
 
 export default blogMetaDe;

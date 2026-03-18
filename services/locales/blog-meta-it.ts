@@ -1298,6 +1298,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.separazione-carriere-giudici.title': 'Referendum in Ticino: il ruolo della separazione delle carriere giudiziarie',
     'blog.article.separazione-carriere-giudici.excerpt': 'Con il referendum in arrivo, si discute sulla separazione tra giudici e pubblici ministeri in Ticino, garantendo imparzialità e trasparenza.',
     'blog.article.separazione-carriere-giudici.imageAlt': 'Giudici e pubblici ministeri in tribunale a Bellinzona, Ticino',
+    'blog.article.com-aziende-lavoro-como.title': 'Provincia di Como: 4 aziende e 2 agenzie cercano lavoratori',
+    'blog.article.com-aziende-lavoro-como.excerpt': 'Lavoro in provincia di Como: 4 aziende e 2 agenzie cercano candidati. Opportunità da non perdere, con scadenze ravvicinate. Ecco tutti i dettagli.',
+    'blog.article.com-aziende-lavoro-como.imageAlt': 'Ufficio moderno in Ticino con vista sul lago e montagna',
 };
 
 export default blogMetaIt;

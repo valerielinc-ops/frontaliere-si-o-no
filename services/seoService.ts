@@ -1566,6 +1566,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-walter-bonatti-in-capo-al-mondo': { name: 'Walter Bonatti, Montegrino Valtravaglia', path: '/articoli-frontaliere/walter-bonatti-in-capo-al-mondo', parent: 'blog' },
     'blog-sargans-teenage-robbery-catch': { name: 'Notizie sicurezza frontiera', path: '/articoli-frontaliere/sargans-teenage-robbery-catch', parent: 'blog' },
     'blog-separazione-carriere-giudici': { name: 'Carriere giudiziarie', path: '/articoli-frontaliere/separazione-carriere-giudici', parent: 'blog' },
+    'blog-com-aziende-lavoro-como': { name: 'Provincia di Como', path: '/articoli-frontaliere/com-aziende-lavoro-como', parent: 'blog' },
   };
 
   const info = sectionNames[section];
