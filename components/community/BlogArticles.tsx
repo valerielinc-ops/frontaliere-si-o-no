@@ -11,6 +11,7 @@ import type { LucideIcon } from 'lucide-react';
 import { PARTNERS, buildAffiliateUrl, type AffiliatePartner, type ComparatorContext } from '@/services/affiliateService';
 const AdSenseBanner = lazy(() => import('@/components/shared/AdSenseBanner'));
 import { AD_SLOTS } from '@/services/adsenseSlots';
+import { useMediaQuery } from '@/hooks/useMediaQuery';
 const CreatorProducts = lazy(() => import('@/components/pages/CreatorProducts'));
 const LeadMagnetCTA = lazy(() => import('@/components/shared/LeadMagnetCTA'));
 
@@ -3724,6 +3725,10 @@ export default function BlogArticles({
   });
   const [imageFallbackMap, setImageFallbackMap] = useState<Record<string, true>>({});
 
+  // Device breakpoints for conditional ad rendering (prevents CSS-hidden width=0 bug)
+  const isMobile = useMediaQuery('(max-width: 639px)');      // sm breakpoint
+  const isDesktopXl = useMediaQuery('(min-width: 1280px)');   // xl breakpoint
+
   // Lazy-load blog META translations (titles, excerpts) on mount
   useEffect(() => {
     loadBlogMeta().then(() => setBlogReady(true)).catch(() => {});
@@ -4336,8 +4341,8 @@ export default function BlogArticles({
               {inlinePartner && <InlineRecommendation partner={inlinePartner} />}
               {renderFormattedContent(articleBody2, navigators)}
 
-              {/* In-article ad — mobile only */}
-              <div className="sm:hidden">
+              {/* In-article ad — mobile only (conditional mount) */}
+              {isMobile && (
                 <AdSenseBanner
                   adSlot={AD_SLOTS.ARTICLE_INLINE_MOBILE.slot}
                   adFormat={AD_SLOTS.ARTICLE_INLINE_MOBILE.format}
@@ -4345,7 +4350,7 @@ export default function BlogArticles({
                   fullWidthResponsive={false}
                   className="my-4"
                 />
-              </div>
+              )}
 
               {/* Inline job teaser — shows 1-2 relevant jobs mid-article */}
               {relatedJobs.length > 0 && (
@@ -4631,16 +4636,18 @@ export default function BlogArticles({
               </p>
               {sidePartners.slice(2, 4).map((p, i) => <SideRailCard key={p.id} partner={p} idx={i + 2} />)}
 
-              {/* AdSense — right rail (desktop only) */}
-              <Suspense fallback={null}>
-              <AdSenseBanner
-                adSlot={AD_SLOTS.ARTICLE_RAIL_RIGHT.slot}
-                adFormat={AD_SLOTS.ARTICLE_RAIL_RIGHT.format}
-                label={t('adsense.label')}
-                enabled={adEligible}
-                className="mt-3"
-              />
-              </Suspense>
+              {/* AdSense — right rail (desktop xl only, conditional mount) */}
+              {isDesktopXl && (
+                <Suspense fallback={null}>
+                <AdSenseBanner
+                  adSlot={AD_SLOTS.ARTICLE_RAIL_RIGHT.slot}
+                  adFormat={AD_SLOTS.ARTICLE_RAIL_RIGHT.format}
+                  label={t('adsense.label')}
+                  enabled={adEligible}
+                  className="mt-3"
+                />
+                </Suspense>
+              )}
               <Suspense fallback={null}>
                 <CreatorProducts contextText={creatorContextText} className="mt-2" maxCards={2} />
               </Suspense>

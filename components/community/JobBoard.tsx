@@ -45,6 +45,7 @@ import { buildPath, registerJobSlugMap } from '@/services/router';
 import { useNavigation } from '@/services/NavigationContext';
 import AdSenseBanner from '@/components/shared/AdSenseBanner';
 import { AD_SLOTS } from '@/services/adsenseSlots';
+import { useMediaQuery } from '@/hooks/useMediaQuery';
 import { eagerAuth, promptOneTap } from '@/services/authService';
 import {
   normalizeJobCategory,
@@ -2142,6 +2143,10 @@ const JobBoard: React.FC<JobBoardProps> = ({
   const [showNewOnly, setShowNewOnly] = useState(false);
   const [filtersExpanded, setFiltersExpanded] = useState(false);
   const searchInputRef = useRef<HTMLInputElement>(null);
+
+  // Device breakpoints for conditional ad rendering (prevents CSS-hidden width=0 bug)
+  const isMobile = useMediaQuery('(max-width: 767px)');      // md breakpoint
+  const isDesktopLg = useMediaQuery('(min-width: 1024px)');   // lg breakpoint
 
   // --- List state preservation across detail navigation ---
   const savedListState = useRef<{ page: number; scrollY: number } | null>(null);
@@ -5016,15 +5021,15 @@ const JobBoard: React.FC<JobBoardProps> = ({
 
             {salaryEstimateWidget}
 
-            {/* AdSense — job detail sidebar (desktop) */}
-            <div className="hidden lg:block">
+            {/* AdSense — job detail sidebar (desktop lg only, conditional mount) */}
+            {isDesktopLg && (
               <AdSenseBanner
                 adSlot={AD_SLOTS.JOBDETAIL_SIDEBAR.slot}
                 adFormat={AD_SLOTS.JOBDETAIL_SIDEBAR.format}
                 fullWidthResponsive
                 className="mt-2"
               />
-            </div>
+            )}
 
             <div className="rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-4 border-l-4 border-l-violet-500">
               <div className="flex items-center gap-2 text-sm font-bold text-slate-900 dark:text-white">
@@ -5430,32 +5435,28 @@ const JobBoard: React.FC<JobBoardProps> = ({
       <div className="space-y-3 min-h-[600px]">
         {pagedJobs.slice(0, 3).map((job) => renderJobCard(job))}
 
-        {/* In-feed ad — mobile (after 3rd job) */}
-        {pagedJobs.length > 3 && (
-          <div className="md:hidden">
-            <AdSenseBanner
-              adSlot={AD_SLOTS.JOBLIST_INFEED_MOBILE.slot}
-              adFormat={AD_SLOTS.JOBLIST_INFEED_MOBILE.format}
-              adLayoutKey={AD_SLOTS.JOBLIST_INFEED_MOBILE.layoutKey}
-              fullWidthResponsive={false}
-              className="my-3"
-            />
-          </div>
+        {/* In-feed ad — mobile (after 3rd job, conditional mount) */}
+        {pagedJobs.length > 3 && isMobile && (
+          <AdSenseBanner
+            adSlot={AD_SLOTS.JOBLIST_INFEED_MOBILE.slot}
+            adFormat={AD_SLOTS.JOBLIST_INFEED_MOBILE.format}
+            adLayoutKey={AD_SLOTS.JOBLIST_INFEED_MOBILE.layoutKey}
+            fullWidthResponsive={false}
+            className="my-3"
+          />
         )}
 
         {pagedJobs.length > 3 && renderJobCard(pagedJobs[3])}
 
-        {/* In-feed ad — desktop (after 4th job) */}
-        {pagedJobs.length > 4 && (
-          <div className="hidden md:block">
-            <AdSenseBanner
-              adSlot={AD_SLOTS.JOBLIST_INFEED_DESKTOP.slot}
-              adFormat={AD_SLOTS.JOBLIST_INFEED_DESKTOP.format}
-              adLayoutKey={AD_SLOTS.JOBLIST_INFEED_DESKTOP.layoutKey}
-              fullWidthResponsive={false}
-              className="my-3"
-            />
-          </div>
+        {/* In-feed ad — desktop (after 4th job, conditional mount) */}
+        {pagedJobs.length > 4 && !isMobile && (
+          <AdSenseBanner
+            adSlot={AD_SLOTS.JOBLIST_INFEED_DESKTOP.slot}
+            adFormat={AD_SLOTS.JOBLIST_INFEED_DESKTOP.format}
+            adLayoutKey={AD_SLOTS.JOBLIST_INFEED_DESKTOP.layoutKey}
+            fullWidthResponsive={false}
+            className="my-3"
+          />
         )}
 
         {pagedJobs.slice(4).map((job) => renderJobCard(job))}
