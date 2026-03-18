@@ -31,6 +31,8 @@ import {
   buildBoggiJobFromApi,
   buildBoggiLocalizedContent,
   inferBoggiCategory,
+  parseBoggiDetailPage,
+  MIN_BOGGI_DESC_LENGTH,
 } from './lib/boggi-job-parser.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -241,6 +243,82 @@ function validateLocales() {
   });
 }
 
+async function fetchBoggiHtml(url, timeoutMs = TIMEOUT_MS) {
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), timeoutMs);
+  try {
+    const res = await fetch(url, {
+      signal: controller.signal,
+      headers: {
+        Accept: 'text/html,application/xhtml+xml',
+        'Accept-Language': 'it-CH,it;q=0.9,en;q=0.8',
+        'User-Agent': 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://www.frontaliereticino.ch/)',
+      },
+    });
+    if (!res.ok) { console.warn(`  ⚠️ HTTP ${res.status} for ${url}`); return null; }
+    return await res.text();
+  } catch (err) {
+    console.warn(`  ⚠️ Fetch failed for ${url}: ${err?.message || err}`);
+    return null;
+  } finally {
+    clearTimeout(timer);
+  }
+}
+
+/**
+ * For each Boggi job whose description is shorter than MIN_BOGGI_DESC_LENGTH or
+ * shorter than 25% of the HTML detail-page body, fetch the detail page and
+ * replace the description with the full parsed body.
+ *
+ * The 25% guard: `currentDescLength < 0.25 * sourceBodyLength`
+ */
+async function enrichBoggiDescriptions() {
+  if (!fs.existsSync(DATA_JOBS)) return 0;
+  const raw = readJson(DATA_JOBS, []);
+  const jobs = Array.isArray(raw) ? raw : [];
+  let enriched = 0;
+
+  for (const job of jobs) {
+    if (!isTargetJob(job)) continue;
+    const currentDesc = String(job.description || '').trim();
+    const detailUrl = String(job.url || '').trim();
+    if (!detailUrl || !isTrustedDomain(detailUrl)) continue;
+
+    const html = await fetchBoggiHtml(detailUrl);
+    if (!html) continue;
+
+    const { body, sourceBodyLength } = parseBoggiDetailPage(html);
+    if (!body || sourceBodyLength === 0) continue;
+
+    // Guard: reject if extracted body doesn't meet the minimum
+    if (sourceBodyLength < MIN_BOGGI_DESC_LENGTH) {
+      console.warn(`  ⚠️ Boggi detail body too short (${sourceBodyLength} chars) for "${job.slug}" — skipping.`);
+      continue;
+    }
+
+    // Only update if current description is below minimum OR less than 25% of the source body
+    const isTooShort = currentDesc.length < MIN_BOGGI_DESC_LENGTH;
+    const isLessThanQuarter = currentDesc.length < 0.25 * sourceBodyLength;
+    if (!isTooShort && !isLessThanQuarter) continue;
+
+    console.log(`  ✨ Enriched "${job.slug}" (${currentDesc.length} → ${sourceBodyLength} chars)`);
+    job.description = body;
+    if (!job.descriptionByLocale) job.descriptionByLocale = {};
+    // Store as Italian (the canonical locale for the Boggi /l/it/ detail page)
+    if (!job.descriptionByLocale.it || body.length > String(job.descriptionByLocale.it || '').length) {
+      job.descriptionByLocale.it = body;
+    }
+    enriched++;
+  }
+
+  if (enriched > 0) {
+    writeJson(DATA_JOBS, jobs);
+    writeJson(PUBLIC_JOBS, jobs);
+    console.log(`✨ Enriched ${enriched} Boggi Milano jobs with full detail-page body.`);
+  }
+  return enriched;
+}
+
 async function main() {
   console.log('═══════════════════════════════════════════════');
   console.log('  Boggi Milano — Dedicated Crawler');
@@ -272,6 +350,10 @@ async function main() {
 
   const { total, added, updated } = mergeJobs(jobs);
   updateAdapterConfig(jobs);
+
+  // Enrich jobs with short/truncated descriptions by fetching the HTML detail page.
+  console.log('\n🔍 Checking Boggi jobs for truncated descriptions...');
+  await enrichBoggiDescriptions();
 
   console.log('\n🌐 Running locale fill for Boggi Milano jobs...');
   await translateMissingJobLocales({

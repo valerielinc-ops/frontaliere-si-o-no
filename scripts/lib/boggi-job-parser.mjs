@@ -14,6 +14,7 @@
  *   - published_at, on_site, remote, hybrid
  */
 
+import { JSDOM } from 'jsdom';
 import { isTargetSwissLocation, isTicinoRelevant, isGrigioniRelevant } from './target-swiss-locations.mjs';
 
 const DETAIL_URL_BASE = 'https://boggimilano1.recruitee.com/l/it/o';
@@ -52,6 +53,91 @@ function slugify(value = '') {
     .replace(/^-+|-+$/g, '')
     .replace(/-{2,}/g, '-')
     .slice(0, 180);
+}
+
+/** Minimum character count for a Boggi/Recruitee description to be "full". */
+export const MIN_BOGGI_DESC_LENGTH = 400;
+
+/**
+ * Combine all HTML description sections from a Recruitee API offer into one
+ * unified HTML string. Fields: description, requirements, education, experience.
+ * Handles both top-level and translations.{lang} variants.
+ */
+export function combineRecruiteeDescriptionSections(offer = {}, lang = 'it') {
+  const trans = offer.translations?.[lang] || {};
+  const parts = [];
+
+  // All Recruitee section fields (vary by configuration)
+  const SECTION_FIELDS = ['description', 'requirements', 'education', 'experience'];
+  for (const field of SECTION_FIELDS) {
+    const html = String(trans[field] || offer[field] || '').trim();
+    if (html) parts.push(html);
+  }
+
+  return parts.join('\n');
+}
+
+/**
+ * Parse the full job description body from a Recruitee hosted detail page HTML.
+ *
+ * Recruitee uses styled-components (random class names). Strategy:
+ *   1. Try known semantic selectors (#description, .offer__description, …)
+ *   2. Fall back to the element with the most combined text among <section>/<article>/<main> descendants
+ *
+ * Returns { title, body, sourceBodyLength } where:
+ *   - title          — text from the first <h1>
+ *   - body           — plain text extracted from the best content element
+ *   - sourceBodyLength — length of the extracted plain text (for the 25% guard)
+ */
+export function parseBoggiDetailPage(html = '') {
+  if (!html) return { title: '', body: '', sourceBodyLength: 0 };
+
+  const { document } = new JSDOM(html).window;
+
+  // ── Title ────────────────────────────────────────────────────
+  const titleEl = document.querySelector('h1');
+  const title = normalizeSpace(titleEl?.textContent || '');
+
+  // ── Body ─────────────────────────────────────────────────────
+  const BODY_SELECTORS = [
+    '#description',
+    '#offer-description',
+    '[data-test-id="offer-description"]',
+    '[data-testid="offer-description"]',
+    '.offer__description',
+    '.offer-description',
+    '[class*="offerDescription"]',
+    '[class*="jobDescription"]',
+    '[class*="description"]',
+    'main article',
+    'main [role="main"]',
+    'main',
+  ];
+
+  let body = '';
+
+  for (const sel of BODY_SELECTORS) {
+    const el = document.querySelector(sel);
+    if (!el) continue;
+    const text = stripHtml(el.innerHTML || '');
+    if (text.length > body.length) body = text;
+    if (text.length >= MIN_BOGGI_DESC_LENGTH) break;
+  }
+
+  // Fallback: element with most text content in a structural container
+  if (body.length < MIN_BOGGI_DESC_LENGTH) {
+    let best = null;
+    let bestLen = 0;
+    for (const el of document.querySelectorAll('div, section, article')) {
+      const len = (el.textContent || '').trim().length;
+      if (len > bestLen) { best = el; bestLen = len; }
+    }
+    if (best && bestLen > body.length) {
+      body = stripHtml(best.innerHTML || '');
+    }
+  }
+
+  return { title, body, sourceBodyLength: body.length };
 }
 
 /**
@@ -102,7 +188,10 @@ export function buildBoggiJobFromApi(offer = {}) {
   // Extract Italian translation (preferred)
   const itTrans = offer.translations?.it || {};
   const title = normalizeSpace(itTrans.title || offer.title || '');
-  const descHtml = itTrans.description || offer.description || '';
+  // Combine all Recruitee description sections (description + requirements +
+  // education + experience) so we don't lose content from secondary sections.
+  const combinedHtml = combineRecruiteeDescriptionSections(offer, 'it');
+  const descHtml = combinedHtml || itTrans.description || offer.description || '';
   const description = stripHtml(descHtml);
 
   // Build location from first Swiss location
