@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-03-18T04:59:03.856Z",
+  "updatedAt": "2026-03-18T04:58:36.540Z",
   "summaries": [
     {
       "key": "agie-charmilles",
@@ -2369,69 +2369,6 @@
           "slug": "inside-sales-service-specialist-80-100-abb-svizzera-sede-ticino-ticino"
         }
       ]
-    },
-    {
-      "key": "banca-cler",
-      "label": "Banca Cler",
-      "generatedAt": "2026-03-17T16:17:42.206Z",
-      "total": 6,
-      "newCount": 3,
-      "updatedCount": 0,
-      "removedCount": 3,
-      "unchangedCount": 0,
-      "durationMs": 3731,
-      "avgDurationMs": 3731,
-      "durationHistory": [
-        3731
-      ],
-      "newJobs": [
-        {
-          "title": "Geschäftsstellenleiterin Schaffhausen (w/m)",
-          "company": "Banca Cler",
-          "location": "Bellinzona",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/responsabile-dell-ufficio-schaffhausen-u-d-banca-cler-bellinzona/",
-          "slug": "geschaftsstellenleiterin-schaffhausen-w-m-banca-cler"
-        },
-        {
-          "title": "Marktgebietsleiterin Zentral (w/m)",
-          "company": "Banca Cler",
-          "location": "Bellinzona",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/responsabile-di-area-centrale-m-f-banca-cler-bellinzona/",
-          "slug": "marktgebietsleiterin-zentral-w-m-banca-cler"
-        },
-        {
-          "title": "Leiterin Vermögende Privatkunden Biel, Bern und Thun (w/m)",
-          "company": "Banca Cler",
-          "location": "Bellinzona",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/responsabile-clientela-privata-facoltosa-biel-berna-e-thun-m-f-banca-cler-bellinzona/",
-          "slug": "leiterin-vermogende-privatkunden-biel-bern-und-thun-w-m-banca-cler"
-        }
-      ],
-      "updatedJobs": [],
-      "removedJobs": [
-        {
-          "title": "Leiterin Vermögende Privatkunden Biel, Bern und Thun (w/m)",
-          "company": "Banca Cler",
-          "location": "Bellinzona",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/responsabile-clientela-privata-facoltosa-biel-berna-e-thun-m-f-banca-cler-bellinzona/",
-          "slug": "leiterin-vermogende-privatkunden-biel-bern-und-thun-w-m-banca-cler-bellinzona"
-        },
-        {
-          "title": "Marktgebietsleiterin Zentral (w/m)",
-          "company": "Banca Cler",
-          "location": "Bellinzona",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/responsabile-di-area-centrale-m-f-banca-cler-bellinzona/",
-          "slug": "marktgebietsleiterin-zentral-w-m-banca-cler-bellinzona"
-        },
-        {
-          "title": "Geschäftsstellenleiterin Schaffhausen (w/m)",
-          "company": "Banca Cler",
-          "location": "Bellinzona",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/responsabile-dell-ufficio-schaffhausen-u-d-banca-cler-bellinzona/",
-          "slug": "geschaftsstellenleiterin-schaffhausen-w-m-banca-cler-bellinzona"
-        }
-      ],
-      "unchangedJobs": []
     },
     {
       "key": "confederazione-ti-gr",
@@ -8630,6 +8567,48 @@
           "location": "Zürich",
           "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/berater-m-w-d-im-wealth-management-am-standort-zurich-mit-fokus-niederlandische-kunden-colin-cie-zurich/",
           "slug": "berater-m-w-d-im-wealth-management-am-standort-zurich-mit-fokus-niederlandische-kunden-colin-cie-zurich"
+        }
+      ],
+      "removedJobs": [],
+      "unchangedJobs": []
+    },
+    {
+      "key": "banca-cler",
+      "label": "Banca Cler",
+      "generatedAt": "2026-03-18T04:58:36.540Z",
+      "total": 3,
+      "newCount": 0,
+      "updatedCount": 3,
+      "removedCount": 0,
+      "unchangedCount": 0,
+      "durationMs": 4087,
+      "avgDurationMs": 3909,
+      "durationHistory": [
+        4087,
+        3731
+      ],
+      "newJobs": [],
+      "updatedJobs": [
+        {
+          "title": "Geschäftsstellenleiterin Schaffhausen (w/m)",
+          "company": "Banca Cler",
+          "location": "Bellinzona",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/responsabile-di-filiale-schaffhausen-banca-cler-bellinzona/",
+          "slug": "geschaftsstellenleiterin-schaffhausen-w-m-banca-cler"
+        },
+        {
+          "title": "Marktgebietsleiterin Zentral (w/m)",
+          "company": "Banca Cler",
+          "location": "Bellinzona",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/responsabile-di-zona-centrale-f-m-banca-cler-bellinzona/",
+          "slug": "marktgebietsleiterin-zentral-w-m-banca-cler"
+        },
+        {
+          "title": "Leiterin Vermögende Privatkunden Biel, Bern und Thun (w/m)",
+          "company": "Banca Cler",
+          "location": "Bellinzona",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/responsabile-clientela-privata-benestante-biel-berna-e-thun-w-m-banca-cler-bellinzona/",
+          "slug": "leiterin-vermogende-privatkunden-biel-bern-und-thun-w-m-banca-cler"
         }
       ],
       "removedJobs": [],
