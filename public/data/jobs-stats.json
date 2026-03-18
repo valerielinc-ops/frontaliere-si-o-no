@@ -1,22 +1,22 @@
 {
-  "generatedAt": "2026-03-18T05:16:02.240Z",
+  "generatedAt": "2026-03-18T05:17:38.667Z",
   "links": {
     "allJobs": "https://www.frontaliereticino.ch/cerca-lavoro-ticino"
   },
   "totals": {
-    "activeJobs": 4728,
-    "activeCompanies": 132,
-    "activeLocations": 190,
-    "todayAdded": 981,
+    "activeJobs": 967,
+    "activeCompanies": 129,
+    "activeLocations": 185,
+    "todayAdded": 1011,
     "todayUpdated": 0,
     "todayRemoved": 0,
     "last7d": {
-      "added": 2175,
+      "added": 2205,
       "updated": 0,
       "removed": 0
     },
     "last30d": {
-      "added": 2658,
+      "added": 2688,
       "updated": 0,
       "removed": 0
     }
@@ -33,13 +33,6 @@
       "date": "2026-03-17",
       "totalJobs": 1014,
       "added": 1194,
-      "updated": 0,
-      "removed": 0
-    },
-    {
-      "date": "2026-03-18",
-      "totalJobs": 2924,
-      "added": 1010,
       "updated": 0,
       "removed": 0
     },
@@ -70,6 +63,13 @@
       "added": 1011,
       "updated": 0,
       "removed": 0
+    },
+    {
+      "date": "2026-03-18",
+      "totalJobs": 2924,
+      "added": 1011,
+      "updated": 0,
+      "removed": 0
     }
   ],
   "leaders": {
@@ -97,60 +97,6 @@
         "name": "Kantonsspital Graubünden",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-kantonsspital-graubunden",
         "count": 30
-      },
-      {
-        "key": "vf-international-the-north-face-timberland",
-        "name": "VF International (The North Face, Timberland)",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-vf-international-the-north-face-timberland",
-        "count": 26
-      },
-      {
-        "key": "usi-universita-della-svizzera-italiana",
-        "name": "USI – Università della Svizzera italiana",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-usi-universita-della-svizzera-italiana",
-        "count": 24
-      },
-      {
-        "key": "coop",
-        "name": "Coop",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-coop",
-        "count": 38
-      },
-      {
-        "key": "kantonsspital-graubunden",
-        "name": "Kantonsspital Graubünden",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-kantonsspital-graubunden",
-        "count": 30
-      },
-      {
-        "key": "vf-international-the-north-face-timberland",
-        "name": "VF International (The North Face, Timberland)",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-vf-international-the-north-face-timberland",
-        "count": 26
-      },
-      {
-        "key": "usi-universita-della-svizzera-italiana",
-        "name": "USI – Università della Svizzera italiana",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-usi-universita-della-svizzera-italiana",
-        "count": 24
-      },
-      {
-        "key": "coop",
-        "name": "Coop",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-coop",
-        "count": 38
-      },
-      {
-        "key": "kantonsspital-graubunden",
-        "name": "Kantonsspital Graubünden",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-kantonsspital-graubunden",
-        "count": 30
-      },
-      {
-        "key": "vf-international-the-north-face-timberland",
-        "name": "VF International (The North Face, Timberland)",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-vf-international-the-north-face-timberland",
-        "count": 26
       },
       {
         "key": "usi-universita-della-svizzera-italiana",
@@ -253,6 +199,12 @@
         "name": "C2B Electrotechnique, succursale de Grichting & Valterio Electro SA",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-c2b-electrotechnique-succursale-de-grichting-valterio-electro-sa",
         "count": 87
+      },
+      {
+        "key": "convit-holding-gmbh",
+        "name": "Convit Holding GmbH",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-convit-holding-gmbh",
+        "count": 23
       }
     ],
     "topLocationsActive": [
@@ -261,18 +213,6 @@
         "name": "Bellinzona",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-bellinzona",
         "count": 136
-      },
-      {
-        "key": "grigioni",
-        "name": "Grigioni",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-grigioni",
-        "count": 46
-      },
-      {
-        "key": "mendrisio",
-        "name": "Mendrisio",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-mendrisio",
-        "count": 59
       },
       {
         "key": "grigioni",
@@ -411,6 +351,24 @@
         "name": "Schaffhausen",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-schaffhausen",
         "count": 204
+      },
+      {
+        "key": "mendrisio",
+        "name": "Mendrisio",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-mendrisio",
+        "count": 49
+      },
+      {
+        "key": "lugano",
+        "name": "Lugano",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-lugano",
+        "count": 104
+      },
+      {
+        "key": "st-moritz",
+        "name": "St. Moritz",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-st-moritz",
+        "count": 54
       }
     ],
     "topCompaniesAddedToday": [
@@ -633,6 +591,15 @@
         "added": 61,
         "updated": 0,
         "removed": 0
+      },
+      {
+        "key": "mendrisio",
+        "name": "Mendrisio",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-mendrisio",
+        "count": 0,
+        "added": 77,
+        "updated": 0,
+        "removed": 0
       }
     ],
     "topTitlesAdded30d": [
@@ -712,11 +679,11 @@
   },
   "salary": {
     "coverage": {
-      "jobsWithSalary": 4728,
+      "jobsWithSalary": 967,
       "coveragePct": 99.8,
-      "avgMin": 67626,
-      "avgMax": 91121,
-      "avgMid": 79373,
+      "avgMin": 65866,
+      "avgMax": 88850,
+      "avgMid": 77358,
       "medianMid": 84500
     },
     "leaders": {
@@ -854,16 +821,6 @@
           "weightedSalary": 95300
         },
         {
-          "key": "zurich",
-          "name": "Zürich",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-zurich",
-          "count": 5,
-          "avgMin": 83300,
-          "avgMax": 112700,
-          "avgMid": 98000,
-          "weightedSalary": 98000
-        },
-        {
           "key": "castel-san-pietro",
           "name": "Castel San Pietro",
           "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-castel-san-pietro",
@@ -962,6 +919,16 @@
           "avgMax": 104500,
           "avgMid": 91000,
           "weightedSalary": 91000
+        },
+        {
+          "key": "zurich",
+          "name": "Zürich",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-zurich",
+          "count": 3,
+          "avgMin": 87167,
+          "avgMax": 118167,
+          "avgMid": 102667,
+          "weightedSalary": 96467
         }
       ],
       "topSalaryTitles": [
