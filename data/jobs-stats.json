@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-03-18T05:21:22.741Z",
+  "generatedAt": "2026-03-18T05:18:35.387Z",
   "links": {
     "allJobs": "https://www.frontaliereticino.ch/cerca-lavoro-ticino"
   },
   "totals": {
-    "activeJobs": 1002,
+    "activeJobs": 2207,
     "activeCompanies": 134,
     "activeLocations": 188,
     "todayAdded": 1010,
@@ -61,6 +61,13 @@
       "date": "2026-03-18",
       "totalJobs": 2924,
       "added": 1010,
+      "updated": 0,
+      "removed": 0
+    },
+    {
+      "date": "2026-03-18",
+      "totalJobs": 2924,
+      "added": 1015,
       "updated": 0,
       "removed": 0
     }
@@ -398,6 +405,48 @@
         "name": "Grigioni",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-grigioni",
         "count": 46
+      },
+      {
+        "key": "mendrisio",
+        "name": "Mendrisio",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-mendrisio",
+        "count": 64
+      },
+      {
+        "key": "emea-che-stabio-vf-campus-vf1",
+        "name": "EMEA · CHE · Stabio · VF Campus VF1",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-emea-che-stabio-vf-campus-vf1",
+        "count": 468
+      },
+      {
+        "key": "lugano",
+        "name": "Lugano",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-lugano",
+        "count": 210
+      },
+      {
+        "key": "munsbach",
+        "name": "Munsbach",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-munsbach",
+        "count": 159
+      },
+      {
+        "key": "molinazzo-di-monteggio-switzerland",
+        "name": "Molinazzo di Monteggio, Switzerland",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-molinazzo-di-monteggio-switzerland",
+        "count": 151
+      },
+      {
+        "key": "st-moritz",
+        "name": "St. Moritz",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-st-moritz",
+        "count": 146
+      },
+      {
+        "key": "zurich",
+        "name": "Zürich",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-zurich",
+        "count": 109
       }
     ],
     "topCompaniesAddedToday": [
@@ -699,11 +748,11 @@
   },
   "salary": {
     "coverage": {
-      "jobsWithSalary": 963,
+      "jobsWithSalary": 2207,
       "coveragePct": 99.6,
-      "avgMin": 66036,
-      "avgMax": 89082,
-      "avgMid": 77559,
+      "avgMin": 66118,
+      "avgMax": 89113,
+      "avgMid": 77616,
       "medianMid": 72000
     },
     "leaders": {
