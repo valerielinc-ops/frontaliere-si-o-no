@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-03-18T05:04:57.522Z",
+  "updatedAt": "2026-03-18T05:05:10.801Z",
   "summaries": [
     {
       "key": "agie-charmilles",
@@ -2235,52 +2235,6 @@
           "location": "Ticino",
           "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/specialista-inside-sales-service-80-100-abb-svizzera-sede-ticino-ticino/",
           "slug": "inside-sales-service-specialist-80-100-abb-svizzera-sede-ticino-ticino"
-        }
-      ]
-    },
-    {
-      "key": "fust",
-      "label": "Fust",
-      "generatedAt": "2026-03-17T16:24:24.083Z",
-      "total": 3,
-      "newCount": 0,
-      "updatedCount": 0,
-      "removedCount": 0,
-      "unchangedCount": 3,
-      "durationMs": 39934,
-      "avgDurationMs": 77599,
-      "durationHistory": [
-        39934,
-        39174,
-        258605,
-        36661,
-        34956,
-        56264
-      ],
-      "newJobs": [],
-      "updatedJobs": [],
-      "removedJobs": [],
-      "unchangedJobs": [
-        {
-          "title": "Apprendistato commercio al dettaglio AFC \"Creazione di esperienze d'acquisto\"",
-          "company": "Fust",
-          "location": "Tenero-Contra, Ticino",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/apprendistato-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-fust-tenero-contra-ticino/",
-          "slug": "apprendistato-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-fust-tenero-contra-ticino"
-        },
-        {
-          "title": "Heimliefermonteur:in von Elektrohaushaltgeräten",
-          "company": "Fust",
-          "location": "Grigioni",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/montatore-di-installazioni-domestiche-elettriche-fust-grigioni/",
-          "slug": "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-grigioni"
-        },
-        {
-          "title": "Montatore/trice di impianti sanitari per cucine & bagni",
-          "company": "Fust | Swiss Household Services AG",
-          "location": "Bellinzona, Ticino",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/montatore-trice-di-impianti-sanitari-per-cucine-bagni-fust-swiss-household-services-ag-bel/",
-          "slug": "montatore-trice-di-impianti-sanitari-per-cucine-bagni-fust-swiss-household-services-ag-bel"
         }
       ]
     },
@@ -8553,6 +8507,54 @@
       ],
       "removedJobs": [],
       "unchangedJobs": []
+    },
+    {
+      "key": "fust",
+      "label": "Fust",
+      "generatedAt": "2026-03-18T05:05:10.801Z",
+      "total": 3,
+      "newCount": 0,
+      "updatedCount": 1,
+      "removedCount": 0,
+      "unchangedCount": 2,
+      "durationMs": 33091,
+      "avgDurationMs": 71241,
+      "durationHistory": [
+        33091,
+        39934,
+        39174,
+        258605,
+        36661,
+        34956,
+        56264
+      ],
+      "newJobs": [],
+      "updatedJobs": [
+        {
+          "title": "Montatore/trice di impianti sanitari per cucine & bagni",
+          "company": "Fust | Swiss Household Services AG",
+          "location": "Bellinzona, Ticino",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/montatore-trice-di-impianti-sanitari-per-cucine-bagni-fust-swiss-household-services-ag-mezzovico/",
+          "slug": "montatore-trice-di-impianti-sanitari-per-cucine-bagni-fust-swiss-household-services-ag-mezzovico"
+        }
+      ],
+      "removedJobs": [],
+      "unchangedJobs": [
+        {
+          "title": "Apprendistato commercio al dettaglio AFC \"Creazione di esperienze d'acquisto\"",
+          "company": "Fust",
+          "location": "Tenero-Contra, Ticino",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/apprendistato-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-fust-tenero-contra-ticino/",
+          "slug": "apprendistato-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-fust-tenero-contra-ticino"
+        },
+        {
+          "title": "Heimliefermonteur:in von Elektrohaushaltgeräten",
+          "company": "Fust",
+          "location": "Grigioni",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/montatore-a-domicilio-di-elettrodomestici-fust-mezzovico/",
+          "slug": "montatore-a-domicilio-di-elettrodomestici-fust-mezzovico"
+        }
+      ]
     }
   ]
 }
