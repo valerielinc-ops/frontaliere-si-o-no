@@ -2177,6 +2177,17 @@ Regeln:
     'seoContent.stats.check4': 'Daten zur Tessiner Grenzgänger-Gemeinschaft',
 
     // ─── What's New / Feature Announcements ─────────────────────────────
+    'whatsNew.v3300.title': 'Verbesserungen für eine präzisere und vollständigere Suche',
+    'whatsNew.v3300.la-fonte.title': 'Verbesserte Anzeige von Informationskarten',
+    'whatsNew.v3300.la-fonte.desc': 'Wir haben die Darstellung von Informationen in Karten übersichtlicher und strukturierter gestaltet. Es ist nun einfacher, Details zu lesen und zu verstehen.',
+    'whatsNew.v3300.oscam.title': 'Vollständiger Inhalt für PDF-Stellenangebote',
+    'whatsNew.v3300.oscam.desc': 'Sie können nun den gesamten Inhalt von PDF-Dokumenten für Stellenangebote einsehen. Wichtige Informationen gehen nicht mehr verloren.',
+    'whatsNew.v3300.cler.title': 'Vollständige Details zu Stellenbeschreibungen',
+    'whatsNew.v3300.cler.desc': 'Wir haben die Extraktion von Stellenbeschreibungen von Detailseiten verbessert. Sie haben nun Zugriff auf alle notwendigen Informationen.',
+    'whatsNew.v3300.crawler.title': 'Titelvalidierung für AIL Lugano',
+    'whatsNew.v3300.crawler.desc': 'Wir haben die Titelvalidierung für Informationen von AIL Lugano korrigiert. Dies stellt sicher, dass die Daten korrekt und konsistent sind.',
+    'whatsNew.v3300.data.title': 'Bessere Organisation von zusammenfassenden Daten',
+    'whatsNew.v3300.data.desc': 'Wir haben die Speicherung von zusammenfassenden Daten optimiert. Dies macht die Verwaltung von Informationen effizienter.',
     'whatsNew.v3291.title': 'Verbesserungen für eine bessere Jobsuche',
     'whatsNew.v3291.resolve-96-job.title': 'Klarere und vollständigere Stellenanzeigen',
     'whatsNew.v3291.resolve-96-job.desc': 'Wir haben die Informationen in Stellenanzeigen leichter verständlich gemacht und die Qualitätskriterien verbessert, um Ihnen bessere Ergebnisse zu liefern.',

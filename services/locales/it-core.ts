@@ -2269,6 +2269,17 @@ Regole:
     'seoContent.stats.check4': 'Dati sulla comunità frontaliera Ticino',
 
     // ─── What's New / Feature Announcements ─────────────────────────────
+    'whatsNew.v3300.title': 'Miglioramenti per una ricerca più precisa e completa',
+    'whatsNew.v3300.la-fonte.title': 'Migliorata la visualizzazione delle carte informative',
+    'whatsNew.v3300.la-fonte.desc': 'Abbiamo reso più chiaro e ordinato il modo in cui vengono presentate le informazioni nelle carte. Ora è più facile leggere e capire i dettagli.',
+    'whatsNew.v3300.oscam.title': 'Contenuto completo delle offerte di lavoro PDF',
+    'whatsNew.v3300.oscam.desc': 'Ora puoi visualizzare l\'intero contenuto dei documenti PDF relativi alle offerte di lavoro. Non perderai più nessuna informazione importante.',
+    'whatsNew.v3300.cler.title': 'Descrizioni complete delle offerte di lavoro',
+    'whatsNew.v3300.cler.desc': 'Abbiamo migliorato l\'estrazione delle descrizioni delle offerte di lavoro dalle pagine di dettaglio. Ora avrai accesso a tutte le informazioni necessarie.',
+    'whatsNew.v3300.crawler.title': 'Validazione titoli per AIL Lugano',
+    'whatsNew.v3300.crawler.desc': 'Abbiamo corretto la validazione dei titoli per le informazioni provenienti da AIL Lugano. Questo assicura che i dati siano corretti e coerenti.',
+    'whatsNew.v3300.data.title': 'Organizzazione migliorata dei dati riassuntivi',
+    'whatsNew.v3300.data.desc': 'Abbiamo ottimizzato il modo in cui vengono memorizzati i dati riassuntivi. Questo rende la gestione delle informazioni più efficiente.',
     'whatsNew.v3291.title': 'Miglioramenti per una migliore esperienza di ricerca lavoro',
     'whatsNew.v3291.resolve-96-job.title': 'Annunci di lavoro più chiari e completi',
     'whatsNew.v3291.resolve-96-job.desc': 'Abbiamo reso le informazioni sugli annunci di lavoro più facili da capire e abbiamo migliorato i criteri di qualità per offrirti risultati migliori.',

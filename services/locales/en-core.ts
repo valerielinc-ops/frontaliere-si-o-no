@@ -2177,6 +2177,17 @@ Rules:
     'seoContent.stats.check4': 'Ticino cross-border community data',
 
     // ─── What's New / Feature Announcements ─────────────────────────────
+    'whatsNew.v3300.title': 'Improvements for more accurate and complete search',
+    'whatsNew.v3300.la-fonte.title': 'Improved display of information cards',
+    'whatsNew.v3300.la-fonte.desc': 'We\'ve made the way information is presented in cards clearer and more organized. It\'s now easier to read and understand the details.',
+    'whatsNew.v3300.oscam.title': 'Full content for PDF job offers',
+    'whatsNew.v3300.oscam.desc': 'You can now view the entire content of PDF documents for job offers. You won\'t miss any important information anymore.',
+    'whatsNew.v3300.cler.title': 'Complete job description details',
+    'whatsNew.v3300.cler.desc': 'We\'ve improved how job descriptions are extracted from detail pages. You\'ll now have access to all the necessary information.',
+    'whatsNew.v3300.crawler.title': 'Title validation for AIL Lugano',
+    'whatsNew.v3300.crawler.desc': 'We\'ve corrected title validation for information from AIL Lugano. This ensures data is accurate and consistent.',
+    'whatsNew.v3300.data.title': 'Better organization of summary data',
+    'whatsNew.v3300.data.desc': 'We\'ve optimized how summary data is stored. This makes managing information more efficient.',
     'whatsNew.v3291.title': 'Improvements for a Better Job Search Experience',
     'whatsNew.v3291.resolve-96-job.title': 'Clearer and More Complete Job Postings',
     'whatsNew.v3291.resolve-96-job.desc': 'We\'ve made job posting information easier to understand and improved quality checks to provide you with better results.',

@@ -2177,6 +2177,17 @@ Règles :
     'seoContent.stats.check4': 'Données sur la communauté frontalière tessinoise',
 
     // ─── What's New / Feature Announcements ─────────────────────────────────
+    'whatsNew.v3300.title': 'Améliorations pour une recherche plus précise et complète',
+    'whatsNew.v3300.la-fonte.title': 'Amélioration de l\'affichage des cartes d\'information',
+    'whatsNew.v3300.la-fonte.desc': 'Nous avons rendu plus claires et organisées les informations présentées dans les cartes. Il est désormais plus facile de lire et de comprendre les détails.',
+    'whatsNew.v3300.oscam.title': 'Contenu intégral des offres d\'emploi PDF',
+    'whatsNew.v3300.oscam.desc': 'Vous pouvez désormais consulter l\'intégralité du contenu des documents PDF relatifs aux offres d\'emploi. Vous ne manquerez plus aucune information importante.',
+    'whatsNew.v3300.cler.title': 'Détails complets des descriptions de poste',
+    'whatsNew.v3300.cler.desc': 'Nous avons amélioré l\'extraction des descriptions de poste à partir des pages de détail. Vous aurez désormais accès à toutes les informations nécessaires.',
+    'whatsNew.v3300.crawler.title': 'Validation des titres pour AIL Lugano',
+    'whatsNew.v3300.crawler.desc': 'Nous avons corrigé la validation des titres pour les informations provenant d\'AIL Lugano. Cela garantit que les données sont exactes et cohérentes.',
+    'whatsNew.v3300.data.title': 'Meilleure organisation des données récapitulatives',
+    'whatsNew.v3300.data.desc': 'Nous avons optimisé la manière dont les données récapitulatives sont stockées. Cela rend la gestion des informations plus efficace.',
     'whatsNew.v3291.title': 'Améliorations pour une meilleure expérience de recherche d\'emploi',
     'whatsNew.v3291.resolve-96-job.title': 'Offres d\'emploi plus claires et complètes',
     'whatsNew.v3291.resolve-96-job.desc': 'Nous avons rendu les informations des offres d\'emploi plus faciles à comprendre et amélioré les critères de qualité pour vous offrir de meilleurs résultats.',
