@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-03-18T16:14:45.716Z",
+  "generatedAt": "2026-03-18T16:15:22.924Z",
   "links": {
     "allJobs": "https://www.frontaliereticino.ch/cerca-lavoro-ticino"
   },
   "totals": {
-    "activeJobs": 964,
+    "activeJobs": 1075,
     "activeCompanies": 131,
-    "activeLocations": 151,
+    "activeLocations": 152,
     "todayAdded": 1049,
     "todayUpdated": 0,
     "todayRemoved": 0,
@@ -45,27 +45,6 @@
     },
     {
       "date": "2026-03-18",
-      "totalJobs": 926,
-      "added": 1049,
-      "updated": 0,
-      "removed": 0
-    },
-    {
-      "date": "2026-03-18",
-      "totalJobs": 922,
-      "added": 1045,
-      "updated": 0,
-      "removed": 0
-    },
-    {
-      "date": "2026-03-18",
-      "totalJobs": 942,
-      "added": 1045,
-      "updated": 0,
-      "removed": 0
-    },
-    {
-      "date": "2026-03-18",
       "totalJobs": 983,
       "added": 1045,
       "updated": 0,
@@ -75,6 +54,13 @@
       "date": "2026-03-18",
       "totalJobs": 964,
       "added": 1045,
+      "updated": 0,
+      "removed": 0
+    },
+    {
+      "date": "2026-03-18",
+      "totalJobs": 1075,
+      "added": 1049,
       "updated": 0,
       "removed": 0
     }
@@ -100,36 +86,6 @@
         "count": 34
       },
       {
-        "key": "vf-international-the-north-face-timberland",
-        "name": "VF International (The North Face, Timberland)",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-vf-international-the-north-face-timberland",
-        "count": 28
-      },
-      {
-        "key": "kantonsspital-graubunden",
-        "name": "Kantonsspital Graubünden",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-kantonsspital-graubunden",
-        "count": 27
-      },
-      {
-        "key": "usi-universita-della-svizzera-italiana",
-        "name": "USI – Università della Svizzera italiana",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-usi-universita-della-svizzera-italiana",
-        "count": 24
-      },
-      {
-        "key": "convit-holding-gmbh",
-        "name": "Convit Holding GmbH",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-convit-holding-gmbh",
-        "count": 23
-      },
-      {
-        "key": "kantonsspital-graubunden",
-        "name": "Kantonsspital Graubünden",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-kantonsspital-graubunden",
-        "count": 27
-      },
-      {
         "key": "colin-cie-wealth-management",
         "name": "Colin&Cie Wealth Management",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-colin-cie-wealth-management",
@@ -152,56 +108,44 @@
         "name": "Colin&Cie Wealth Management",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-colin-cie-wealth-management",
         "count": 33
+      },
+      {
+        "key": "colin-cie-wealth-management",
+        "name": "Colin&Cie Wealth Management",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-colin-cie-wealth-management",
+        "count": 41
+      },
+      {
+        "key": "vf-international-the-north-face-timberland",
+        "name": "VF International (The North Face, Timberland)",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-vf-international-the-north-face-timberland",
+        "count": 37
+      },
+      {
+        "key": "supsi-dti",
+        "name": "SUPSI / DTI",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-supsi-dti",
+        "count": 35
+      },
+      {
+        "key": "ffs-officine-ferrovie-federali",
+        "name": "FFS Officine (Ferrovie Federali)",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-ffs-officine-ferrovie-federali",
+        "count": 31
+      },
+      {
+        "key": "relewant",
+        "name": "ReleWant",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-relewant",
+        "count": 29
       }
     ],
     "topLocationsActive": [
-      {
-        "key": "locarno",
-        "name": "Locarno",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-locarno",
-        "count": 45
-      },
       {
         "key": "grigioni",
         "name": "Grigioni",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-grigioni",
         "count": 43
-      },
-      {
-        "key": "bellinzona",
-        "name": "Bellinzona",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-bellinzona",
-        "count": 134
-      },
-      {
-        "key": "chur",
-        "name": "Chur",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-chur",
-        "count": 44
-      },
-      {
-        "key": "lugano",
-        "name": "Lugano",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-lugano",
-        "count": 115
-      },
-      {
-        "key": "st-moritz",
-        "name": "St. Moritz",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-st-moritz",
-        "count": 54
-      },
-      {
-        "key": "mendrisio",
-        "name": "Mendrisio",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-mendrisio",
-        "count": 49
-      },
-      {
-        "key": "emea-che-stabio-vf-campus-vf1",
-        "name": "EMEA · CHE · Stabio · VF Campus VF1",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-emea-che-stabio-vf-campus-vf1",
-        "count": 26
       },
       {
         "key": "lugano",
@@ -274,6 +218,48 @@
         "name": "EMEA · CHE · Stabio · VF Campus VF1",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-emea-che-stabio-vf-campus-vf1",
         "count": 32
+      },
+      {
+        "key": "lugano",
+        "name": "Lugano",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-lugano",
+        "count": 145
+      },
+      {
+        "key": "bellinzona",
+        "name": "Bellinzona",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-bellinzona",
+        "count": 142
+      },
+      {
+        "key": "st-moritz",
+        "name": "St. Moritz",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-st-moritz",
+        "count": 61
+      },
+      {
+        "key": "mendrisio",
+        "name": "Mendrisio",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-mendrisio",
+        "count": 60
+      },
+      {
+        "key": "chur",
+        "name": "Chur",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-chur",
+        "count": 48
+      },
+      {
+        "key": "locarno",
+        "name": "Locarno",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-locarno",
+        "count": 47
+      },
+      {
+        "key": "emea-che-stabio-vf-campus-vf1",
+        "name": "EMEA · CHE · Stabio · VF Campus VF1",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-emea-che-stabio-vf-campus-vf1",
+        "count": 35
       }
     ],
     "topCompaniesAddedToday": [
@@ -575,12 +561,12 @@
   },
   "salary": {
     "coverage": {
-      "jobsWithSalary": 964,
+      "jobsWithSalary": 1075,
       "coveragePct": 100,
-      "avgMin": 67180,
-      "avgMax": 90644,
-      "avgMid": 78912,
-      "medianMid": 72000
+      "avgMin": 67494,
+      "avgMax": 91088,
+      "avgMid": 79291,
+      "medianMid": 81238
     },
     "leaders": {
       "topSalaryCompanies": [
@@ -595,14 +581,14 @@
           "weightedSalary": 120400
         },
         {
-          "key": "fincons-group",
-          "name": "Fincons Group",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-fincons-group",
-          "count": 9,
-          "avgMin": 84444,
-          "avgMax": 113889,
-          "avgMid": 99167,
-          "weightedSalary": 99167
+          "key": "abb-svizzera-sede-ticino",
+          "name": "ABB Svizzera (sede Ticino)",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-abb-svizzera-sede-ticino",
+          "count": 17,
+          "avgMin": 83647,
+          "avgMax": 112824,
+          "avgMid": 98235,
+          "weightedSalary": 98235
         },
         {
           "key": "lastminute-com",
@@ -635,6 +621,16 @@
           "weightedSalary": 97300
         },
         {
+          "key": "fincons-group",
+          "name": "Fincons Group",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-fincons-group",
+          "count": 23,
+          "avgMin": 82783,
+          "avgMax": 111609,
+          "avgMid": 97196,
+          "weightedSalary": 97196
+        },
+        {
           "key": "fart-ferrovie-autolinee-regionali-ticinesi",
           "name": "FART – Ferrovie Autolinee Regionali Ticinesi",
           "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-fart-ferrovie-autolinee-regionali-ticinesi",
@@ -653,36 +649,6 @@
           "avgMax": 117833,
           "avgMid": 102500,
           "weightedSalary": 96367
-        },
-        {
-          "key": "fincons-group",
-          "name": "Fincons Group",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-fincons-group",
-          "count": 9,
-          "avgMin": 84444,
-          "avgMax": 113889,
-          "avgMid": 99167,
-          "weightedSalary": 99167
-        },
-        {
-          "key": "abb-svizzera-sede-ticino",
-          "name": "ABB Svizzera (sede Ticino)",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-abb-svizzera-sede-ticino",
-          "count": 17,
-          "avgMin": 83647,
-          "avgMax": 112824,
-          "avgMid": 98235,
-          "weightedSalary": 98235
-        },
-        {
-          "key": "fincons-group",
-          "name": "Fincons Group",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-fincons-group",
-          "count": 9,
-          "avgMin": 84444,
-          "avgMax": 113889,
-          "avgMid": 99167,
-          "weightedSalary": 99167
         }
       ],
       "topSalaryLocations": [
@@ -735,26 +701,6 @@
           "avgMax": 125000,
           "avgMid": 108500,
           "weightedSalary": 95300
-        },
-        {
-          "key": "zurich",
-          "name": "Zürich",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-zurich",
-          "count": 6,
-          "avgMin": 79917,
-          "avgMax": 107917,
-          "avgMid": 93917,
-          "weightedSalary": 93917
-        },
-        {
-          "key": "munsbach",
-          "name": "Munsbach",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-munsbach",
-          "count": 6,
-          "avgMin": 77500,
-          "avgMax": 104500,
-          "avgMid": 91000,
-          "weightedSalary": 91000
         },
         {
           "key": "quartino-ticino",
@@ -825,6 +771,26 @@
           "avgMax": 104500,
           "avgMid": 91000,
           "weightedSalary": 91000
+        },
+        {
+          "key": "zurich",
+          "name": "Zürich",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-zurich",
+          "count": 12,
+          "avgMin": 78708,
+          "avgMax": 106208,
+          "avgMid": 92458,
+          "weightedSalary": 92458
+        },
+        {
+          "key": "manno",
+          "name": "Manno",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-manno",
+          "count": 7,
+          "avgMin": 78000,
+          "avgMax": 105286,
+          "avgMid": 91643,
+          "weightedSalary": 91643
         }
       ],
       "topSalaryTitles": [
@@ -837,6 +803,16 @@
           "avgMax": 228534,
           "avgMid": 184370,
           "weightedSalary": 149038
+        },
+        {
+          "key": "responsabile-del-corso-di-laurea-bachelor-in-ingegneria-gestionale",
+          "name": "Responsabile del Corso di laurea Bachelor in Ingegneria gestionale",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-responsabile-del-corso-di-laurea-bachelor-in-ingegneria-gestionale",
+          "count": 3,
+          "avgMin": 109000,
+          "avgMax": 147000,
+          "avgMid": 128000,
+          "weightedSalary": 120400
         },
         {
           "key": "area-sales-account-manager-per-elektrowerkzeuge-m-w-d",
@@ -872,16 +848,6 @@
           "key": "responsabile-contratti",
           "name": "Responsabile Contratti",
           "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-responsabile-contratti",
-          "count": 1,
-          "avgMin": 109000,
-          "avgMax": 147000,
-          "avgMid": 128000,
-          "weightedSalary": 112800
-        },
-        {
-          "key": "responsabile-del-corso-di-laurea-bachelor-in-ingegneria-gestionale",
-          "name": "Responsabile del Corso di laurea Bachelor in Ingegneria gestionale",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-responsabile-del-corso-di-laurea-bachelor-in-ingegneria-gestionale",
           "count": 1,
           "avgMin": 109000,
           "avgMax": 147000,
