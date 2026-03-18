@@ -40,12 +40,11 @@
  */
 
 import { JSDOM } from 'jsdom';
+import { titleOverlap, MIN_TITLE_OVERLAP } from './title-utils.mjs';
+export { titleOverlap, MIN_TITLE_OVERLAP };
 
 /** Minimum plain-text description length to accept (characters). */
 export const MIN_DESC_LENGTH = 350;
-
-/** Minimum word-level Jaccard overlap for tab title vs. content title. */
-export const MIN_TITLE_OVERLAP = 0.7;
 
 export function normalizeSpace(s = '') {
   return String(s || '').replace(/\s+/g, ' ').trim();
@@ -90,27 +89,6 @@ export function htmlToText(html = '') {
     .trim();
 }
 
-/**
- * Word-level Jaccard similarity between two strings.
- * Returns 0..1 where 1.0 = identical word sets.
- */
-export function titleOverlap(a = '', b = '') {
-  const words = s =>
-    new Set(
-      String(s || '')
-        .toLowerCase()
-        .replace(/[^a-z0-9\s]/g, '')
-        .split(/\s+/)
-        .filter(Boolean)
-    );
-  const setA = words(a);
-  const setB = words(b);
-  if (setA.size === 0 && setB.size === 0) return 1;
-  if (setA.size === 0 || setB.size === 0) return 0;
-  const intersection = [...setA].filter(w => setB.has(w)).length;
-  const union = new Set([...setA, ...setB]).size;
-  return intersection / union;
-}
 
 /**
  * Identify which accordion group IDs belong to the Lugano/Switzerland section.

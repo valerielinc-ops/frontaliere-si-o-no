@@ -1,36 +1,13 @@
 import { JSDOM } from 'jsdom';
+import { titleOverlap, MIN_TITLE_OVERLAP } from './title-utils.mjs';
+export { titleOverlap, MIN_TITLE_OVERLAP };
 
 function normalize(value = '') {
   return String(value || '').replace(/\u00a0/g, ' ').replace(/\s+/g, ' ').trim();
 }
 
-/** Minimum Jaccard overlap required to treat a PDF heading as the same title as the page link text. */
-export const MIN_TITLE_OVERLAP = 0.7;
-
 /** Maximum character length for a line to be considered a job title (not a body paragraph). */
 const MAX_PDF_TITLE_LEN = 80;
-
-/**
- * Word-level Jaccard similarity between two title strings.
- * Returns 1 if both are empty, 0 if one is empty.
- */
-export function titleOverlap(a = '', b = '') {
-  const words = (s) =>
-    new Set(
-      String(s || '')
-        .toLowerCase()
-        .replace(/[-_]/g, ' ')
-        .replace(/[^a-z0-9\s]/g, '')
-        .split(/\s+/)
-        .filter(Boolean)
-    );
-  const setA = words(a);
-  const setB = words(b);
-  if (setA.size === 0 && setB.size === 0) return 1;
-  if (setA.size === 0 || setB.size === 0) return 0;
-  const intersection = [...setA].filter((w) => setB.has(w)).length;
-  return intersection / new Set([...setA, ...setB]).size;
-}
 
 /**
  * Extract the first meaningful title-like line from normalized PDF text.

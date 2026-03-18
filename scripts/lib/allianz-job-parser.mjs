@@ -17,6 +17,7 @@
 
 import { JSDOM } from 'jsdom';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import { titleOverlap, MIN_TITLE_OVERLAP } from './title-utils.mjs';
 
 const BASE_URL = 'https://recruitingapp-2872.umantis.com';
 
@@ -122,21 +123,70 @@ export function parseAllianzListingPage(html = '') {
 }
 
 /**
+ * Return true if a title string is generic or consists solely of the site name.
+ * @param {string} title
+ * @param {string} siteName
+ */
+function isGenericTitle(title, siteName) {
+  if (!title || title.length < 4) return true;
+  if (siteName && normalizeSpace(title.toLowerCase()) === normalizeSpace(siteName.toLowerCase())) return true;
+  return false;
+}
+
+/**
  * Parse a detail page (Italian) and extract rich metadata.
+ *
+ * Title extraction priority:
+ *   1. First `h1` in the page body (most reliable on Umantis detail pages)
+ *   2. `og:title` meta tag — validated against h1 with overlap guard
+ *   3. `<title>` tag — strip " -- {anything}" suffix (Umantis format)
+ *   4. fallbackTitle from listing page
+ *
+ * Overlap guard: if og:title diverges significantly from the h1 (overlap < 0.7),
+ * the h1 is preferred as the authoritative source.
  */
 export function parseAllianzDetailPage(html = '', fallbackTitle = '', fallbackLocation = '') {
   const document = new JSDOM(html).window.document;
 
-  // og:title
-  const ogTitle = document.querySelector('meta[property="og:title"]')?.getAttribute('content') || '';
   // og:site_name = agency name
-  const ogSiteName = document.querySelector('meta[property="og:site_name"]')?.getAttribute('content') || '';
+  const ogSiteName = normalizeSpace(
+    document.querySelector('meta[property="og:site_name"]')?.getAttribute('content') || ''
+  );
 
-  // <title> = "Job Title -- DE"
-  const rawTitle = document.querySelector('title')?.textContent || '';
-  const cleanTitle = rawTitle.replace(/\s*--\s*DE\s*$/i, '').trim();
+  // 1. h1 from page body — most reliable on Umantis detail pages
+  const h1El = document.querySelector('h1');
+  const h1Title = h1El ? normalizeSpace(h1El.textContent || '') : '';
 
-  const title = normalizeSpace(ogTitle || cleanTitle || fallbackTitle);
+  // 2. og:title meta tag
+  const ogTitle = normalizeSpace(
+    document.querySelector('meta[property="og:title"]')?.getAttribute('content') || ''
+  );
+
+  // 3. <title> tag — Umantis format: "Job Title -- {SiteName}" or "Job Title -- DE"
+  //    Strip everything from " --" onwards to get the bare vacancy title.
+  const rawPageTitle = document.querySelector('title')?.textContent || '';
+  const cleanPageTitle = normalizeSpace(rawPageTitle.replace(/\s*--\s*.+$/, '').trim());
+
+  // Resolve: prefer h1 when non-generic; validate og:title against h1 with overlap guard
+  let title = '';
+  if (!isGenericTitle(h1Title, ogSiteName)) {
+    // h1 is available and specific — use it as the ground truth
+    if (!isGenericTitle(ogTitle, ogSiteName) && titleOverlap(ogTitle, h1Title) >= MIN_TITLE_OVERLAP) {
+      // og:title agrees with h1 → og:title is usually cleaner (no extra noise from DOM)
+      title = ogTitle;
+    } else {
+      // og:title absent or diverges from h1 → h1 wins
+      title = h1Title;
+    }
+  } else if (!isGenericTitle(ogTitle, ogSiteName)) {
+    title = ogTitle;
+  } else if (!isGenericTitle(cleanPageTitle, ogSiteName)) {
+    title = cleanPageTitle;
+  } else {
+    title = fallbackTitle;
+  }
+
+  title = normalizeSpace(title || fallbackTitle);
 
   // Commented-out keywords meta: extract location + contract type
   let keywordsLocation = '';
