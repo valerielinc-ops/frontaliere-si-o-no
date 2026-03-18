@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-03-18T05:01:42.958Z",
+  "updatedAt": "2026-03-18T05:02:31.264Z",
   "summaries": [
     {
       "key": "agie-charmilles",
@@ -2293,41 +2293,6 @@
           "location": "Ticino",
           "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/specialista-inside-sales-service-80-100-abb-svizzera-sede-ticino-ticino/",
           "slug": "inside-sales-service-specialist-80-100-abb-svizzera-sede-ticino-ticino"
-        }
-      ]
-    },
-    {
-      "key": "dxt-commodities",
-      "label": "DXT Commodities",
-      "generatedAt": "2026-03-17T16:21:22.498Z",
-      "total": 1,
-      "newCount": 0,
-      "updatedCount": 0,
-      "removedCount": 0,
-      "unchangedCount": 1,
-      "durationMs": 14776,
-      "avgDurationMs": 155330,
-      "durationHistory": [
-        14776,
-        13788,
-        28074,
-        12866,
-        23119,
-        635525,
-        378715,
-        264705,
-        26403
-      ],
-      "newJobs": [],
-      "updatedJobs": [],
-      "removedJobs": [],
-      "unchangedJobs": [
-        {
-          "title": "Junior Legal",
-          "company": "DXT Commodities S.A.",
-          "location": "Lugano",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/junior-legal-dxt/",
-          "slug": "junior-legal-dxt"
         }
       ]
     },
@@ -8609,6 +8574,42 @@
       ],
       "newJobs": [],
       "updatedJobs": [],
+      "removedJobs": [],
+      "unchangedJobs": []
+    },
+    {
+      "key": "dxt-commodities",
+      "label": "DXT Commodities",
+      "generatedAt": "2026-03-18T05:02:31.264Z",
+      "total": 1,
+      "newCount": 0,
+      "updatedCount": 1,
+      "removedCount": 0,
+      "unchangedCount": 0,
+      "durationMs": 23028,
+      "avgDurationMs": 142100,
+      "durationHistory": [
+        23028,
+        14776,
+        13788,
+        28074,
+        12866,
+        23119,
+        635525,
+        378715,
+        264705,
+        26403
+      ],
+      "newJobs": [],
+      "updatedJobs": [
+        {
+          "title": "Junior Legal",
+          "company": "DXT Commodities S.A.",
+          "location": "Lugano",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/junior-legal-dxt/",
+          "slug": "junior-legal-dxt-commodities-s-a-lugano"
+        }
+      ],
       "removedJobs": [],
       "unchangedJobs": []
     }

@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-03-18T05:00:40.432Z",
-  "startedAt": "2026-03-18T05:00:23.049Z",
+  "generatedAt": "2026-03-18T05:02:30.171Z",
+  "startedAt": "2026-03-18T05:02:10.806Z",
   "config": {
     "minQualityScore": 4,
     "minDescriptionChars": 80,
@@ -36,60 +36,26 @@
     "browserFallbackAttempts": 0,
     "browserFallbackHits": 0,
     "duplicateIncoming": 0,
-    "duplicateExisting": 570,
-    "mergeExcludedJobs": 1,
-    "mergeExclusionByReason": {
-      "not_ticino_relevant": 1,
-      "explicitly_outside_target": 1
-    },
+    "duplicateExisting": 616,
+    "mergeExcludedJobs": 0,
+    "mergeExclusionByReason": {},
     "reusedLocalizationFromPrevious": 0,
     "inserted": 0,
     "refreshed": 0,
-    "mergedTotal": 987,
-    "aiLocalizationCalls": 5,
+    "mergedTotal": 997,
+    "aiLocalizationCalls": 1,
     "aiPageValidationCalls": 0,
-    "deeplCalls": 5,
+    "deeplCalls": 2,
     "deeplSuccess": 0,
-    "deeplFallbackToLlm": 5,
-    "aiCacheHits": 8,
-    "aiCacheMisses": 7,
-    "aiCacheEntries": 1415,
+    "deeplFallbackToLlm": 2,
+    "aiCacheHits": 0,
+    "aiCacheMisses": 3,
+    "aiCacheEntries": 1411,
     "discoveredCompaniesCandidates": 0,
     "discoveredCompaniesAdded": 0,
     "discoveredCompaniesPending": 0
   },
-  "byCompany": [
-    {
-      "company": "Banca Cler",
-      "domain": "cler.ch",
-      "discoveredCareerPages": 8,
-      "scrapedJobPages": 0,
-      "processedCandidates": 3,
-      "extractedAccepted": 3,
-      "discardedCount": 0,
-      "discardedByReason": {},
-      "filteredOutCount": 0,
-      "filteredOutByReason": {},
-      "duplicateInCompany": 0,
-      "webDiscoveryQueries": 0,
-      "webDiscoveryHits": 0,
-      "webDiscoveryProviders": [],
-      "browserFallbackAttempted": 0,
-      "browserFallbackHits": 0,
-      "browserFallbackReason": "",
-      "inserted": 0,
-      "refreshed": 3,
-      "duplicateIncoming": 0
-    }
-  ],
+  "byCompany": [],
   "droppedCompanies": [],
-  "mergeExclusionSamples": [
-    {
-      "reason": "not_ticino_relevant",
-      "title": "Customer Advisor 40%",
-      "company": "Cornèr Banca",
-      "location": "Wallisellen",
-      "url": "https://jobs.corner.ch/o/customer-advisor-evening-and-weekend-40"
-    }
-  ]
+  "mergeExclusionSamples": []
 }
