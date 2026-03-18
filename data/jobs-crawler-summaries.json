@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-03-18T04:52:06.948Z",
+  "updatedAt": "2026-03-18T04:52:39.204Z",
   "summaries": [
     {
       "key": "agie-charmilles",
@@ -1249,41 +1249,6 @@
           "location": "Ascona",
           "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/assistente-governante-100-the-living-circle-ascona-ticino-svizzera/",
           "slug": "assistente-governante-100-the-living-circle-ascona-ticino-svizzera"
-        }
-      ]
-    },
-    {
-      "key": "amag-group",
-      "label": "AMAG Group",
-      "generatedAt": "2026-03-17T04:48:16.213Z",
-      "total": 1,
-      "newCount": 0,
-      "updatedCount": 0,
-      "removedCount": 0,
-      "unchangedCount": 1,
-      "durationMs": 5253,
-      "avgDurationMs": 5007,
-      "durationHistory": [
-        5253,
-        4815,
-        4763,
-        4674,
-        4368,
-        5735,
-        5261,
-        4831,
-        5367
-      ],
-      "newJobs": [],
-      "updatedJobs": [],
-      "removedJobs": [],
-      "unchangedJobs": [
-        {
-          "title": "Apprendista Impiegato/a in logistica AFC - estate 2026",
-          "company": "AMAG Group",
-          "location": "Bioggio",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/apprendista-impiegato-a-in-logistica-afc-estate-2026/",
-          "slug": "apprendista-impiegato-a-in-logistica-afc-estate-2026"
         }
       ]
     },
@@ -8530,6 +8495,50 @@
         }
       ],
       "removedJobs": [],
+      "unchangedJobs": []
+    },
+    {
+      "key": "amag-group",
+      "label": "AMAG Group",
+      "generatedAt": "2026-03-18T04:52:39.204Z",
+      "total": 2,
+      "newCount": 1,
+      "updatedCount": 0,
+      "removedCount": 1,
+      "unchangedCount": 0,
+      "durationMs": 4130,
+      "avgDurationMs": 4920,
+      "durationHistory": [
+        4130,
+        5253,
+        4815,
+        4763,
+        4674,
+        4368,
+        5735,
+        5261,
+        4831,
+        5367
+      ],
+      "newJobs": [
+        {
+          "title": "Autista su chiamata",
+          "company": "AMAG Group",
+          "location": "Bellinzona",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/autista-su-chiamata/",
+          "slug": "autista-su-chiamata"
+        }
+      ],
+      "updatedJobs": [],
+      "removedJobs": [
+        {
+          "title": "Apprendista Impiegato/a in logistica AFC - estate 2026",
+          "company": "AMAG Group",
+          "location": "Bioggio",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/apprendista-impiegato-a-in-logistica-afc-estate-2026-amag-group-bioggio/",
+          "slug": "apprendista-impiegato-a-in-logistica-afc-estate-2026-amag-group-bioggio"
+        }
+      ],
       "unchangedJobs": []
     }
   ]
