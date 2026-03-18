@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-03-18T05:27:08.496Z",
+  "generatedAt": "2026-03-18T05:23:35.927Z",
   "links": {
     "allJobs": "https://www.frontaliereticino.ch/cerca-lavoro-ticino"
   },
   "totals": {
-    "activeJobs": 946,
+    "activeJobs": 4532,
     "activeCompanies": 129,
     "activeLocations": 184,
     "todayAdded": 1029,
@@ -186,6 +186,42 @@
         "name": "USI – Università della Svizzera italiana",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-usi-universita-della-svizzera-italiana",
         "count": 24
+      },
+      {
+        "key": "vf-international-the-north-face-timberland",
+        "name": "VF International (The North Face, Timberland)",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-vf-international-the-north-face-timberland",
+        "count": 1682
+      },
+      {
+        "key": "colin-cie-wealth-management",
+        "name": "Colin&Cie Wealth Management",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-colin-cie-wealth-management",
+        "count": 617
+      },
+      {
+        "key": "hitachi-energy",
+        "name": "Hitachi Energy",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-hitachi-energy",
+        "count": 589
+      },
+      {
+        "key": "grace-la-margna-st-moritz",
+        "name": "Grace La Margna St. Moritz",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-grace-la-margna-st-moritz",
+        "count": 497
+      },
+      {
+        "key": "tz-stromag",
+        "name": "TZ Stromag",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-tz-stromag",
+        "count": 130
+      },
+      {
+        "key": "c2b-electrotechnique-succursale-de-grichting-valterio-electro-sa",
+        "name": "C2B Electrotechnique, succursale de Grichting & Valterio Electro SA",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-c2b-electrotechnique-succursale-de-grichting-valterio-electro-sa",
+        "count": 125
       }
     ],
     "topLocationsActive": [
@@ -332,6 +368,48 @@
         "name": "Mendrisio",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-mendrisio",
         "count": 44
+      },
+      {
+        "key": "emea-che-stabio-vf-campus-vf1",
+        "name": "EMEA · CHE · Stabio · VF Campus VF1",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-emea-che-stabio-vf-campus-vf1",
+        "count": 1680
+      },
+      {
+        "key": "molinazzo-di-monteggio-switzerland",
+        "name": "Molinazzo di Monteggio, Switzerland",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-molinazzo-di-monteggio-switzerland",
+        "count": 587
+      },
+      {
+        "key": "st-moritz",
+        "name": "St. Moritz",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-st-moritz",
+        "count": 535
+      },
+      {
+        "key": "lugano",
+        "name": "Lugano",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-lugano",
+        "count": 256
+      },
+      {
+        "key": "munsbach",
+        "name": "Munsbach",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-munsbach",
+        "count": 231
+      },
+      {
+        "key": "zurich",
+        "name": "Zürich",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-zurich",
+        "count": 157
+      },
+      {
+        "key": "brig-glis",
+        "name": "Brig-Glis",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-brig-glis",
+        "count": 130
       }
     ],
     "topCompaniesAddedToday": [
@@ -633,11 +711,11 @@
   },
   "salary": {
     "coverage": {
-      "jobsWithSalary": 946,
+      "jobsWithSalary": 4532,
       "coveragePct": 100,
-      "avgMin": 66003,
-      "avgMax": 89039,
-      "avgMid": 77521,
+      "avgMin": 64171,
+      "avgMax": 86431,
+      "avgMid": 75301,
       "medianMid": 68500
     },
     "leaders": {
@@ -903,6 +981,46 @@
           "avgMax": 112700,
           "avgMid": 98000,
           "weightedSalary": 98000
+        },
+        {
+          "key": "beijing-china",
+          "name": "Beijing, China",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-beijing-china",
+          "count": 2,
+          "avgMin": 92000,
+          "avgMax": 125000,
+          "avgMid": 108500,
+          "weightedSalary": 98600
+        },
+        {
+          "key": "zurich",
+          "name": "Zürich",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-zurich",
+          "count": 157,
+          "avgMin": 77685,
+          "avgMax": 104761,
+          "avgMid": 91223,
+          "weightedSalary": 91223
+        },
+        {
+          "key": "munsbach",
+          "name": "Munsbach",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-munsbach",
+          "count": 231,
+          "avgMin": 77500,
+          "avgMax": 104500,
+          "avgMid": 91000,
+          "weightedSalary": 91000
+        },
+        {
+          "key": "schaffhausen",
+          "name": "Schaffhausen",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-schaffhausen",
+          "count": 77,
+          "avgMin": 77500,
+          "avgMax": 104500,
+          "avgMid": 91000,
+          "weightedSalary": 91000
         }
       ],
       "topSalaryTitles": [
