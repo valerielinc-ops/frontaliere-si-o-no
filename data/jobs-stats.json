@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-03-18T16:11:35.849Z",
+  "generatedAt": "2026-03-18T16:11:46.973Z",
   "links": {
     "allJobs": "https://www.frontaliereticino.ch/cerca-lavoro-ticino"
   },
   "totals": {
-    "activeJobs": 925,
+    "activeJobs": 924,
     "activeCompanies": 132,
     "activeLocations": 156,
     "todayAdded": 1045,
@@ -39,6 +39,13 @@
     {
       "date": "2026-03-18",
       "totalJobs": 925,
+      "added": 1045,
+      "updated": 0,
+      "removed": 0
+    },
+    {
+      "date": "2026-03-18",
+      "totalJobs": 924,
       "added": 1045,
       "updated": 0,
       "removed": 0
@@ -444,11 +451,11 @@
   },
   "salary": {
     "coverage": {
-      "jobsWithSalary": 925,
+      "jobsWithSalary": 924,
       "coveragePct": 100,
-      "avgMin": 66889,
-      "avgMax": 90211,
-      "avgMid": 78550,
+      "avgMin": 66861,
+      "avgMax": 90173,
+      "avgMid": 78517,
       "medianMid": 68500
     },
     "leaders": {
@@ -556,16 +563,6 @@
           "weightedSalary": 101792
         },
         {
-          "key": "zurich",
-          "name": "Zürich",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-zurich",
-          "count": 5,
-          "avgMin": 83300,
-          "avgMax": 112700,
-          "avgMid": 98000,
-          "weightedSalary": 98000
-        },
-        {
           "key": "castelrotto",
           "name": "Castelrotto",
           "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-castelrotto",
@@ -604,6 +601,16 @@
           "avgMax": 125000,
           "avgMid": 108500,
           "weightedSalary": 95300
+        },
+        {
+          "key": "zurich",
+          "name": "Zürich",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-zurich",
+          "count": 4,
+          "avgMin": 81125,
+          "avgMax": 109625,
+          "avgMid": 95375,
+          "weightedSalary": 92525
         },
         {
           "key": "manno",
