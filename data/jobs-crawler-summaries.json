@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-03-18T16:12:46.911Z",
+  "updatedAt": "2026-03-18T16:13:17.695Z",
   "summaries": [
     {
       "key": "agie-charmilles",
@@ -2212,50 +2212,6 @@
         }
       ],
       "removedJobs": [],
-      "unchangedJobs": []
-    },
-    {
-      "key": "amag-group",
-      "label": "AMAG Group",
-      "generatedAt": "2026-03-18T04:52:39.204Z",
-      "total": 2,
-      "newCount": 1,
-      "updatedCount": 0,
-      "removedCount": 1,
-      "unchangedCount": 0,
-      "durationMs": 4130,
-      "avgDurationMs": 4920,
-      "durationHistory": [
-        4130,
-        5253,
-        4815,
-        4763,
-        4674,
-        4368,
-        5735,
-        5261,
-        4831,
-        5367
-      ],
-      "newJobs": [
-        {
-          "title": "Autista su chiamata",
-          "company": "AMAG Group",
-          "location": "Bellinzona",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/autista-su-chiamata/",
-          "slug": "autista-su-chiamata"
-        }
-      ],
-      "updatedJobs": [],
-      "removedJobs": [
-        {
-          "title": "Apprendista Impiegato/a in logistica AFC - estate 2026",
-          "company": "AMAG Group",
-          "location": "Bioggio",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/apprendista-impiegato-a-in-logistica-afc-estate-2026-amag-group-bioggio/",
-          "slug": "apprendista-impiegato-a-in-logistica-afc-estate-2026-amag-group-bioggio"
-        }
-      ],
       "unchangedJobs": []
     },
     {
@@ -8662,6 +8618,42 @@
           "location": "Lugano",
           "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/responsabile-della-revisione-interna-audit-aziende-industriali-di-lugano-ail-sa-lugano/",
           "slug": "responsabile-della-revisione-interna-audit-aziende-industriali-di-lugano-ail-sa-lugano"
+        }
+      ],
+      "removedJobs": [],
+      "unchangedJobs": []
+    },
+    {
+      "key": "amag-group",
+      "label": "AMAG Group",
+      "generatedAt": "2026-03-18T16:13:17.695Z",
+      "total": 1,
+      "newCount": 0,
+      "updatedCount": 1,
+      "removedCount": 0,
+      "unchangedCount": 0,
+      "durationMs": 4025,
+      "avgDurationMs": 4786,
+      "durationHistory": [
+        4025,
+        4130,
+        5253,
+        4815,
+        4763,
+        4674,
+        4368,
+        5735,
+        5261,
+        4831
+      ],
+      "newJobs": [],
+      "updatedJobs": [
+        {
+          "title": "Autista su chiamata",
+          "company": "AMAG Group",
+          "location": "Bellinzona",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/autista-su-chiamata/",
+          "slug": "autista-su-chiamata-amag-group-bellinzona"
         }
       ],
       "removedJobs": [],
