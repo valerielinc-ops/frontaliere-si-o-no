@@ -1,6 +1,42 @@
 {
-  "updatedAt": "2026-03-18T09:04:06.992Z",
+  "updatedAt": "2026-03-18T10:08:46.261Z",
   "summaries": [
+    {
+      "key": "galenica",
+      "label": "Galenica",
+      "generatedAt": "2026-03-18T10:08:46.261Z",
+      "total": 1,
+      "newCount": 0,
+      "updatedCount": 1,
+      "removedCount": 0,
+      "unchangedCount": 0,
+      "durationMs": 1372,
+      "avgDurationMs": 1696,
+      "durationHistory": [
+        1372,
+        2580,
+        1399,
+        1525,
+        1591,
+        1455,
+        1614,
+        1570,
+        1923,
+        1935
+      ],
+      "newJobs": [],
+      "updatedJobs": [
+        {
+          "title": "Assistente di farmacia AFC",
+          "company": "Sun Store Apotheke (Galenica)",
+          "location": "Lugano",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/galenica-sun-store-apotheke-assistente-di-farmacia-afc-lugano/",
+          "slug": "galenica-sun-store-apotheke-assistente-di-farmacia-afc-lugano"
+        }
+      ],
+      "removedJobs": [],
+      "unchangedJobs": []
+    },
     {
       "key": "grace-la-margna-st-moritz",
       "label": "Grace La Margna St. Moritz",
@@ -4643,42 +4679,6 @@
       ],
       "newJobs": [],
       "updatedJobs": [],
-      "removedJobs": [],
-      "unchangedJobs": []
-    },
-    {
-      "key": "galenica",
-      "label": "Galenica",
-      "generatedAt": "2026-03-18T05:04:57.522Z",
-      "total": 1,
-      "newCount": 0,
-      "updatedCount": 1,
-      "removedCount": 0,
-      "unchangedCount": 0,
-      "durationMs": 2580,
-      "avgDurationMs": 1753,
-      "durationHistory": [
-        2580,
-        1399,
-        1525,
-        1591,
-        1455,
-        1614,
-        1570,
-        1923,
-        1935,
-        1938
-      ],
-      "newJobs": [],
-      "updatedJobs": [
-        {
-          "title": "Assistente di farmacia AFC",
-          "company": "Sun Store Apotheke (Galenica)",
-          "location": "Lugano",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/galenica-sun-store-apotheke-assistente-di-farmacia-afc-lugano/",
-          "slug": "galenica-sun-store-apotheke-assistente-di-farmacia-afc-lugano"
-        }
-      ],
       "removedJobs": [],
       "unchangedJobs": []
     },
