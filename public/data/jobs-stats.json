@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-03-18T16:24:09.161Z",
+  "generatedAt": "2026-03-18T16:23:44.215Z",
   "links": {
     "allJobs": "https://www.frontaliereticino.ch/cerca-lavoro-ticino"
   },
   "totals": {
-    "activeJobs": 1418,
+    "activeJobs": 1404,
     "activeCompanies": 133,
     "activeLocations": 173,
     "todayAdded": 1052,
@@ -54,6 +54,13 @@
       "date": "2026-03-18",
       "totalJobs": 1418,
       "added": 1052,
+      "updated": 0,
+      "removed": 0
+    },
+    {
+      "date": "2026-03-18",
+      "totalJobs": 1404,
+      "added": 1050,
       "updated": 0,
       "removed": 0
     }
@@ -155,6 +162,18 @@
         "name": "TZ Stromag",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-tz-stromag",
         "count": 38
+      },
+      {
+        "key": "colin-cie-wealth-management",
+        "name": "Colin&Cie Wealth Management",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-colin-cie-wealth-management",
+        "count": 177
+      },
+      {
+        "key": "tz-stromag",
+        "name": "TZ Stromag",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-tz-stromag",
+        "count": 35
       }
     ],
     "topLocationsActive": [
@@ -253,6 +272,36 @@
         "name": "Mendrisio",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-mendrisio",
         "count": 82
+      },
+      {
+        "key": "lugano",
+        "name": "Lugano",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-lugano",
+        "count": 155
+      },
+      {
+        "key": "st-moritz",
+        "name": "St. Moritz",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-st-moritz",
+        "count": 85
+      },
+      {
+        "key": "munsbach",
+        "name": "Munsbach",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-munsbach",
+        "count": 66
+      },
+      {
+        "key": "zurich",
+        "name": "Zürich",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-zurich",
+        "count": 46
+      },
+      {
+        "key": "mendrisio",
+        "name": "Mendrisio",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-mendrisio",
+        "count": 85
       }
     ],
     "topCompaniesAddedToday": [
@@ -554,11 +603,11 @@
   },
   "salary": {
     "coverage": {
-      "jobsWithSalary": 1418,
+      "jobsWithSalary": 1404,
       "coveragePct": 100,
-      "avgMin": 68004,
-      "avgMax": 92022,
-      "avgMid": 80013,
+      "avgMin": 68106,
+      "avgMax": 92132,
+      "avgMid": 80119,
       "medianMid": 84500
     },
     "leaders": {
@@ -784,6 +833,16 @@
           "avgMax": 118571,
           "avgMid": 103214,
           "weightedSalary": 103214
+        },
+        {
+          "key": "zurich",
+          "name": "Zürich",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-zurich",
+          "count": 46,
+          "avgMin": 77815,
+          "avgMax": 104946,
+          "avgMid": 91380,
+          "weightedSalary": 91380
         }
       ],
       "topSalaryTitles": [
