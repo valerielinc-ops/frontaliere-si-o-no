@@ -37,6 +37,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { printPublishedJobUrls, writeJobsSummary, snapshotJobSlugs, computeCrawlDiff, printCrawlChangeSummary, writeCrawlChangeSummaryToGH } from './jobs-url-helper.mjs';
 import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage } from './lib/dedicated-crawler-common.mjs';
+import { parseTichDetailPage, titleOverlap, MIN_TICH_DESC_LENGTH } from './lib/tich-job-parser.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -579,6 +580,103 @@ function validateTichLocaleCoverage() {
 }
 
 // ──────────────────────────────────────────────────────────────
+// Detail-page enrichment (FRO-70)
+// ──────────────────────────────────────────────────────────────
+
+async function fetchTichHtml(url, timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 12_000) {
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), timeoutMs);
+  try {
+    const res = await fetch(url, {
+      signal: controller.signal,
+      headers: {
+        Accept: 'text/html,application/xhtml+xml',
+        'Accept-Language': 'it-CH,it;q=0.9,en;q=0.8',
+        'User-Agent':
+          process.env.JOBS_CRAWLER_USER_AGENT ||
+          'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://www.frontaliereticino.ch/)',
+      },
+    });
+    if (!res.ok) { console.warn(`  ⚠️ HTTP ${res.status} for ${url}`); return null; }
+    return await res.text();
+  } catch (err) {
+    console.warn(`  ⚠️ Fetch failed for ${url}: ${err?.message || err}`);
+    return null;
+  } finally {
+    clearTimeout(timer);
+  }
+}
+
+/**
+ * For each Ti.CH job whose title looks like an institutional portal heading
+ * or whose description is too short, fetch the detail page and replace
+ * title/description with the values extracted by parseTichDetailPage.
+ *
+ * Title guard  : titleOverlap(job.title, extractedTitle) < 0.4 → replace title
+ * Body guards  : currentDesc.length < MIN_TICH_DESC_LENGTH
+ *                OR currentDesc.length < 0.25 * sourceBodyLength → replace body
+ */
+async function enrichTichJobs() {
+  if (!fs.existsSync(DATA_JOBS)) return 0;
+  const raw = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
+  const jobs = Array.isArray(raw) ? raw : [];
+  let enriched = 0;
+
+  for (const job of jobs) {
+    if (!isTichJob(job)) continue;
+    const detailUrl = String(job.url || '').trim();
+    if (!detailUrl || !isTrustedTichDomain(detailUrl)) continue;
+
+    const html = await fetchTichHtml(detailUrl);
+    if (!html) continue;
+
+    const { title: extractedTitle, body, sourceBodyLength } = parseTichDetailPage(html);
+
+    let changed = false;
+
+    // Title guard: replace if current title looks like institutional portal text
+    if (extractedTitle && job.title) {
+      const overlap = titleOverlap(job.title, extractedTitle);
+      if (overlap < 0.4 && extractedTitle.length >= 10) {
+        console.log(`  ✨ Ti.CH title fix: "${job.title}" → "${extractedTitle}"`);
+        job.title = extractedTitle;
+        changed = true;
+      }
+    } else if (extractedTitle && !job.title) {
+      job.title = extractedTitle;
+      changed = true;
+    }
+
+    // Body guard: enrich if description too short or less than 25% of source
+    if (body && sourceBodyLength >= MIN_TICH_DESC_LENGTH) {
+      const currentDesc = String(job.description || '').trim();
+      const isTooShort = currentDesc.length < MIN_TICH_DESC_LENGTH;
+      const isLessThanQuarter = currentDesc.length < 0.25 * sourceBodyLength;
+      if (isTooShort || isLessThanQuarter) {
+        console.log(`  ✨ Ti.CH body enrich "${job.slug}" (${currentDesc.length} → ${sourceBodyLength} chars)`);
+        job.description = body;
+        if (!job.descriptionByLocale) job.descriptionByLocale = {};
+        if (!job.descriptionByLocale.it || body.length > String(job.descriptionByLocale.it || '').length) {
+          job.descriptionByLocale.it = body;
+        }
+        changed = true;
+      }
+    }
+
+    if (changed) enriched++;
+  }
+
+  if (enriched > 0) {
+    fs.writeFileSync(DATA_JOBS, JSON.stringify(jobs, null, 2) + '\n');
+    if (fs.existsSync(PUBLIC_DATA_JOBS)) {
+      fs.writeFileSync(PUBLIC_DATA_JOBS, JSON.stringify(jobs, null, 2) + '\n');
+    }
+    console.log(`✨ Enriched ${enriched} Ti.CH jobs with parsed detail-page content.`);
+  }
+  return enriched;
+}
+
+// ──────────────────────────────────────────────────────────────
 // Main
 // ──────────────────────────────────────────────────────────────
 
@@ -615,6 +713,10 @@ async function main() {
 
   // Step 3b: normalize Ti.CH company + clean legacy noisy descriptions
   postProcessTichJobs();
+
+  // Step 3c: enrich titles and descriptions by parsing the HTML detail pages (FRO-70)
+  console.log('\n🔍 Checking Ti.CH jobs for title mismatches and truncated descriptions...');
+  await enrichTichJobs();
 
   // Step 4: Log stats and validate
   const stats = logTichJobStats(_beforeSnapshot);
