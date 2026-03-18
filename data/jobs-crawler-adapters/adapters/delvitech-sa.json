@@ -1,15 +1,13 @@
 {
   "companyKey": "delvitech-sa",
   "companyName": "Delvitech SA",
-  "companyHost": "legacy.delvi.tech",
-  "enabled": true,
+  "companyHost": "delvi.tech",
+  "enabled": false,
   "priority": 20,
   "crawlerModes": [
     "html"
   ],
-  "seedUrls": [
-    "https://legacy.delvi.tech/career/"
-  ],
-  "notes": "Dedicated Delvitech crawler parses the legacy WordPress career page and detail pages, excluding the Germany vacancy and publishing only Ticino roles.",
-  "updatedAt": "2026-03-10T00:00:00.000Z"
+  "seedUrls": [],
+  "notes": "DISABLED 2026-03-18: legacy.delvi.tech host is completely unreachable (ECONNREFUSED). The main site delvi.tech has no careers page in its navigation or sitemap. Re-enable and update seedUrls when/if Delvitech SA (Rancate, TI) publishes a new public careers section.",
+  "updatedAt": "2026-03-18T22:35:00.000Z"
 }

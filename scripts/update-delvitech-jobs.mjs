@@ -349,6 +349,13 @@ async function main() {
   console.log('═══════════════════════════════════════════════');
   console.log(`  Careers page: ${CAREERS_URL}\n`);
 
+  // Bail out gracefully if the adapter is disabled (e.g. careers page is unreachable).
+  const adapterConfig = readJson(ADAPTER_PATH, { enabled: true });
+  if (adapterConfig.enabled === false) {
+    console.log('ℹ️  Delvitech SA crawler is disabled in adapter config — skipping.');
+    return;
+  }
+
   const listings = await fetchListings();
   const jobs = [];
   let skipped = 0;

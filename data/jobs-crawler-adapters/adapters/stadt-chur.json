@@ -1,11 +1,13 @@
 {
   "companyKey": "stadt-chur",
   "companyName": "Stadt Chur",
-  "companyHost": "chur.ch",
+  "companyHost": "jobs.chur.ch",
   "enabled": true,
   "priority": 10,
-  "crawlerModes": ["rss_feed"],
-  "seedUrls": [],
-  "notes": "Stadt Chur — municipal administration of Chur, capital of Graubünden. Jobs via Rexx Systems ATS at jobs.chur.ch with Atom feed. ~1600 employees across public services, education, culture, and infrastructure.",
-  "updatedAt": "2026-03-16T00:00:00.000Z"
+  "crawlerModes": ["html", "generic_ats"],
+  "seedUrls": [
+    "https://jobs.chur.ch/stellenangebote.html"
+  ],
+  "notes": "Stadt Chur — municipal administration of Chur, capital of Graubünden. Jobs via Rexx Systems ATS at jobs.chur.ch. Seed URL updated 2026-03-18: the HTML listing page at /stellenangebote.html is the canonical entry point — no Atom/RSS feed is available on jobs.chur.ch. ~1600 employees across public services, education, culture, and infrastructure.",
+  "updatedAt": "2026-03-18T22:35:00.000Z"
 }

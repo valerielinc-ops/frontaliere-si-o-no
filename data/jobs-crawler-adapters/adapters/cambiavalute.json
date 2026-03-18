@@ -9,20 +9,8 @@
     "jsonld"
   ],
   "seedUrls": [
-    "https://cambiavalute.ch/annuncio-di-lavoro/senior-backend-developer/"
+    "https://cambiavalute.ch/annunci-di-lavoro/"
   ],
-  "seedDetailUrls": [
-    "https://cambiavalute.ch/annuncio-di-lavoro/senior-backend-developer/"
-  ],
-  "seedMetaByUrl": {
-    "https://cambiavalute.ch/annuncio-di-lavoro/senior-backend-developer/": {
-      "location": "Chiasso",
-      "canton": "TI",
-      "country": "CH",
-      "company": "CambiaValute.ch",
-      "companyDomain": "cambiavalute.ch"
-    }
-  },
-  "notes": "Dedicated CambiaValute.ch crawler — discovers job listings from cambiavalute.ch/annunci-di-lavoro/ and extracts detail page URLs under /annuncio-di-lavoro/{slug}/.",
-  "updatedAt": "2026-03-18T16:17:58.696Z"
+  "notes": "CambiaValute.ch — currency exchange service in Chiasso (TI), operated by ELP SA. Seed URL updated 2026-03-18 to the job listing index page (was previously a single stale detail URL). The listing page at /annunci-di-lavoro/ discovers all current vacancies under /annuncio-di-lavoro/{slug}/.",
+  "updatedAt": "2026-03-18T22:35:00.000Z"
 }
