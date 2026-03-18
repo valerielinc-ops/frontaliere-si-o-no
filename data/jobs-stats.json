@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-03-18T16:14:28.650Z",
+  "generatedAt": "2026-03-18T16:14:45.716Z",
   "links": {
     "allJobs": "https://www.frontaliereticino.ch/cerca-lavoro-ticino"
   },
   "totals": {
-    "activeJobs": 983,
+    "activeJobs": 964,
     "activeCompanies": 131,
-    "activeLocations": 152,
+    "activeLocations": 151,
     "todayAdded": 1049,
     "todayUpdated": 0,
     "todayRemoved": 0,
@@ -67,6 +67,13 @@
     {
       "date": "2026-03-18",
       "totalJobs": 983,
+      "added": 1045,
+      "updated": 0,
+      "removed": 0
+    },
+    {
+      "date": "2026-03-18",
+      "totalJobs": 964,
       "added": 1045,
       "updated": 0,
       "removed": 0
@@ -133,6 +140,18 @@
         "name": "VF International (The North Face, Timberland)",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-vf-international-the-north-face-timberland",
         "count": 37
+      },
+      {
+        "key": "vf-international-the-north-face-timberland",
+        "name": "VF International (The North Face, Timberland)",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-vf-international-the-north-face-timberland",
+        "count": 34
+      },
+      {
+        "key": "colin-cie-wealth-management",
+        "name": "Colin&Cie Wealth Management",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-colin-cie-wealth-management",
+        "count": 33
       }
     ],
     "topLocationsActive": [
@@ -185,18 +204,6 @@
         "count": 26
       },
       {
-        "key": "chur",
-        "name": "Chur",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-chur",
-        "count": 43
-      },
-      {
-        "key": "chur",
-        "name": "Chur",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-chur",
-        "count": 43
-      },
-      {
         "key": "lugano",
         "name": "Lugano",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-lugano",
@@ -243,6 +250,30 @@
         "name": "EMEA · CHE · Stabio · VF Campus VF1",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-emea-che-stabio-vf-campus-vf1",
         "count": 35
+      },
+      {
+        "key": "lugano",
+        "name": "Lugano",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-lugano",
+        "count": 119
+      },
+      {
+        "key": "st-moritz",
+        "name": "St. Moritz",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-st-moritz",
+        "count": 56
+      },
+      {
+        "key": "mendrisio",
+        "name": "Mendrisio",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-mendrisio",
+        "count": 51
+      },
+      {
+        "key": "emea-che-stabio-vf-campus-vf1",
+        "name": "EMEA · CHE · Stabio · VF Campus VF1",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-emea-che-stabio-vf-campus-vf1",
+        "count": 32
       }
     ],
     "topCompaniesAddedToday": [
@@ -544,12 +575,12 @@
   },
   "salary": {
     "coverage": {
-      "jobsWithSalary": 983,
+      "jobsWithSalary": 964,
       "coveragePct": 100,
-      "avgMin": 67237,
-      "avgMax": 90733,
-      "avgMid": 78985,
-      "medianMid": 77500
+      "avgMin": 67180,
+      "avgMax": 90644,
+      "avgMid": 78912,
+      "medianMid": 72000
     },
     "leaders": {
       "topSalaryCompanies": [
@@ -770,6 +801,26 @@
           "name": "Munsbach",
           "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-munsbach",
           "count": 15,
+          "avgMin": 77500,
+          "avgMax": 104500,
+          "avgMid": 91000,
+          "weightedSalary": 91000
+        },
+        {
+          "key": "zurich",
+          "name": "Zürich",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-zurich",
+          "count": 10,
+          "avgMin": 78950,
+          "avgMax": 106550,
+          "avgMid": 92750,
+          "weightedSalary": 92750
+        },
+        {
+          "key": "munsbach",
+          "name": "Munsbach",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-munsbach",
+          "count": 12,
           "avgMin": 77500,
           "avgMax": 104500,
           "avgMid": 91000,
