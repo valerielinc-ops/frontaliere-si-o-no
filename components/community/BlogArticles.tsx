@@ -4376,7 +4376,7 @@ export default function BlogArticles({
                     </p>
                     <a
                       href={buildPath({ activeTab: 'job-board' })}
-                      onClick={(e) => { e.preventDefault(); nav.navigateTo('job-board'); Analytics.trackUIInteraction('blog_inline_jobs', 'link', 'click', 'view_all'); }}
+                      onClick={(e) => { if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return; e.preventDefault(); nav.navigateTo('job-board'); Analytics.trackUIInteraction('blog_inline_jobs', 'link', 'click', 'view_all'); }}
                       className="text-xs text-indigo-600 dark:text-indigo-400 hover:underline font-medium"
                     >
                       {t('blog.relatedJobs.viewAll')} →
@@ -4387,7 +4387,7 @@ export default function BlogArticles({
                       <a
                         key={job.id}
                         href={buildPath({ activeTab: 'job-board', jobSlug: job.slugByLocale?.[locale] ?? job.slug ?? job.id })}
-                        onClick={(e) => { e.preventDefault(); nav.navigateTo('job-board', job.slugByLocale?.[locale] ?? job.slug ?? job.id); Analytics.trackUIInteraction('blog_inline_jobs', 'card', 'click', job.id); }}
+                        onClick={(e) => { if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return; e.preventDefault(); nav.navigateTo('job-board', job.slugByLocale?.[locale] ?? job.slug ?? job.id); Analytics.trackUIInteraction('blog_inline_jobs', 'card', 'click', job.id); }}
                         className="flex items-center gap-3 p-2.5 bg-white/70 dark:bg-slate-800/50 rounded-lg hover:bg-white dark:hover:bg-slate-700/50 transition-all group"
                       >
                         <div className="w-8 h-8 rounded-lg bg-indigo-100 dark:bg-indigo-900/50 flex items-center justify-center shrink-0">
@@ -4591,7 +4591,7 @@ export default function BlogArticles({
                   </h3>
                   <a
                     href={buildPath({ activeTab: 'job-board' })}
-                    onClick={(e) => { e.preventDefault(); nav.navigateTo('job-board'); }}
+                    onClick={(e) => { if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return; e.preventDefault(); nav.navigateTo('job-board'); }}
                     className="text-xs font-semibold text-indigo-600 dark:text-indigo-400 hover:underline flex items-center gap-1"
                   >
                     {t('blog.relatedJobs.viewAll')} <ArrowRight size={12} />
@@ -4604,7 +4604,7 @@ export default function BlogArticles({
                       <a
                         key={job.id}
                         href={buildPath({ activeTab: 'job-board', jobSlug })}
-                        onClick={(e) => { e.preventDefault(); nav.navigateTo('job-board', jobSlug); }}
+                        onClick={(e) => { if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return; e.preventDefault(); nav.navigateTo('job-board', jobSlug); }}
                         className="flex items-start gap-3 p-3 bg-indigo-50/60 dark:bg-indigo-950/20 rounded-xl hover:bg-indigo-100 dark:hover:bg-indigo-900/30 transition-all text-left border border-indigo-100 dark:border-indigo-900/40"
                       >
                         <div className="w-10 h-10 rounded-lg bg-white dark:bg-slate-700 flex items-center justify-center border border-slate-200 dark:border-slate-600 shrink-0">
@@ -4625,7 +4625,7 @@ export default function BlogArticles({
               <div className="border-t border-slate-200 dark:border-slate-700 pt-6 mt-6">
                 <a
                   href={buildPath({ activeTab: 'job-board' })}
-                  onClick={(e) => { e.preventDefault(); nav.navigateTo('job-board'); }}
+                  onClick={(e) => { if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return; e.preventDefault(); nav.navigateTo('job-board'); }}
                   className="flex items-center gap-3 p-4 bg-indigo-50/60 dark:bg-indigo-950/20 rounded-xl hover:bg-indigo-100 dark:hover:bg-indigo-900/30 transition-all border border-indigo-100 dark:border-indigo-900/40"
                 >
                   <div className="w-10 h-10 rounded-lg bg-white dark:bg-slate-700 flex items-center justify-center border border-slate-200 dark:border-slate-600 shrink-0">

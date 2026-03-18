@@ -2040,6 +2040,7 @@ const App: React.FC = () => {
     else if (tab === 'guida' && subTab) setGuidaSubTab(subTab as GuidaSubTab);
     else if (tab === 'vita' && subTab) setVitaSubTab(subTab as VitaSubTab);
     else if (tab === 'stats' && subTab) setStatsSubTab(subTab as StatsSubTab);
+    else if (tab === 'job-board' && subTab) setJobSlug(subTab);
     const route: AppRoute = { activeTab: tab };
     if (tab === 'calculator') route.calcolatoreSubTab = (subTab || calcolatoreSubTab) as CalcolatoreSubTab;
     if (tab === 'confronti') route.confrontiSubTab = (subTab || confrontiSubTab) as ConfrontiSubTab;
@@ -2047,6 +2048,7 @@ const App: React.FC = () => {
     if (tab === 'guida') route.guidaSubTab = (subTab || guidaSubTab) as GuidaSubTab;
     if (tab === 'vita') route.vitaSubTab = (subTab || vitaSubTab) as VitaSubTab;
     if (tab === 'stats') route.statsSubTab = (subTab || statsSubTab) as StatsSubTab;
+    if (tab === 'job-board' && subTab) route.jobSlug = subTab;
     pushRoute(route);
   }, [calcolatoreSubTab, confrontiSubTab, fiscoSubTab, guidaSubTab, vitaSubTab, statsSubTab]);
 
