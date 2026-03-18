@@ -1,22 +1,22 @@
 {
-  "generatedAt": "2026-03-18T05:21:06.397Z",
+  "generatedAt": "2026-03-18T05:21:01.959Z",
   "links": {
     "allJobs": "https://www.frontaliereticino.ch/cerca-lavoro-ticino"
   },
   "totals": {
-    "activeJobs": 2221,
-    "activeCompanies": 130,
+    "activeJobs": 1002,
+    "activeCompanies": 134,
     "activeLocations": 188,
-    "todayAdded": 1029,
+    "todayAdded": 1010,
     "todayUpdated": 0,
     "todayRemoved": 0,
     "last7d": {
-      "added": 2223,
+      "added": 2204,
       "updated": 0,
       "removed": 0
     },
     "last30d": {
-      "added": 2706,
+      "added": 2687,
       "updated": 0,
       "removed": 0
     }
@@ -54,6 +54,13 @@
       "date": "2026-03-18",
       "totalJobs": 2924,
       "added": 1029,
+      "updated": 0,
+      "removed": 0
+    },
+    {
+      "date": "2026-03-18",
+      "totalJobs": 2924,
+      "added": 1010,
       "updated": 0,
       "removed": 0
     }
@@ -191,6 +198,30 @@
         "name": "C2B Electrotechnique, succursale de Grichting & Valterio Electro SA",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-c2b-electrotechnique-succursale-de-grichting-valterio-electro-sa",
         "count": 43
+      },
+      {
+        "key": "coop",
+        "name": "Coop",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-coop",
+        "count": 38
+      },
+      {
+        "key": "kantonsspital-graubunden",
+        "name": "Kantonsspital Graubünden",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-kantonsspital-graubunden",
+        "count": 30
+      },
+      {
+        "key": "vf-international-the-north-face-timberland",
+        "name": "VF International (The North Face, Timberland)",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-vf-international-the-north-face-timberland",
+        "count": 26
+      },
+      {
+        "key": "usi-universita-della-svizzera-italiana",
+        "name": "USI – Università della Svizzera italiana",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-usi-universita-della-svizzera-italiana",
+        "count": 24
       }
     ],
     "topLocationsActive": [
@@ -337,6 +368,18 @@
         "name": "Zürich",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-zurich",
         "count": 109
+      },
+      {
+        "key": "grigioni",
+        "name": "Grigioni",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-grigioni",
+        "count": 46
+      },
+      {
+        "key": "mendrisio",
+        "name": "Mendrisio",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-mendrisio",
+        "count": 59
       }
     ],
     "topCompaniesAddedToday": [
@@ -638,11 +681,11 @@
   },
   "salary": {
     "coverage": {
-      "jobsWithSalary": 2221,
+      "jobsWithSalary": 1002,
       "coveragePct": 99.6,
-      "avgMin": 66159,
-      "avgMax": 89166,
-      "avgMid": 77662,
+      "avgMin": 66024,
+      "avgMax": 89061,
+      "avgMid": 77542,
       "medianMid": 72000
     },
     "leaders": {
@@ -898,6 +941,26 @@
           "avgMax": 104500,
           "avgMid": 91000,
           "weightedSalary": 91000
+        },
+        {
+          "key": "zurich",
+          "name": "Zürich",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-zurich",
+          "count": 5,
+          "avgMin": 83300,
+          "avgMax": 112700,
+          "avgMid": 98000,
+          "weightedSalary": 98000
+        },
+        {
+          "key": "castel-san-pietro",
+          "name": "Castel San Pietro",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-castel-san-pietro",
+          "count": 8,
+          "avgMin": 76063,
+          "avgMax": 102688,
+          "avgMid": 89375,
+          "weightedSalary": 89375
         }
       ],
       "topSalaryTitles": [
