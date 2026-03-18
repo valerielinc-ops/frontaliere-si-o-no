@@ -1,22 +1,22 @@
 {
-  "generatedAt": "2026-03-18T16:13:28.164Z",
+  "generatedAt": "2026-03-18T16:13:25.542Z",
   "links": {
     "allJobs": "https://www.frontaliereticino.ch/cerca-lavoro-ticino"
   },
   "totals": {
-    "activeJobs": 942,
+    "activeJobs": 926,
     "activeCompanies": 130,
     "activeLocations": 157,
-    "todayAdded": 1045,
+    "todayAdded": 1049,
     "todayUpdated": 0,
     "todayRemoved": 0,
     "last7d": {
-      "added": 2239,
+      "added": 2243,
       "updated": 0,
       "removed": 0
     },
     "last30d": {
-      "added": 2722,
+      "added": 2726,
       "updated": 0,
       "removed": 0
     }
@@ -61,6 +61,13 @@
       "date": "2026-03-18",
       "totalJobs": 942,
       "added": 1045,
+      "updated": 0,
+      "removed": 0
+    },
+    {
+      "date": "2026-03-18",
+      "totalJobs": 926,
+      "added": 1049,
       "updated": 0,
       "removed": 0
     }
@@ -206,6 +213,18 @@
         "name": "EMEA · CHE · Stabio · VF Campus VF1",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-emea-che-stabio-vf-campus-vf1",
         "count": 26
+      },
+      {
+        "key": "lugano",
+        "name": "Lugano",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-lugano",
+        "count": 113
+      },
+      {
+        "key": "chur",
+        "name": "Chur",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-chur",
+        "count": 43
       }
     ],
     "topCompaniesAddedToday": [
@@ -507,11 +526,11 @@
   },
   "salary": {
     "coverage": {
-      "jobsWithSalary": 942,
+      "jobsWithSalary": 926,
       "coveragePct": 100,
       "avgMin": 66949,
-      "avgMax": 90304,
-      "avgMid": 78627,
+      "avgMax": 90293,
+      "avgMid": 78621,
       "medianMid": 68500
     },
     "leaders": {
@@ -525,16 +544,6 @@
           "avgMax": 147000,
           "avgMid": 128000,
           "weightedSalary": 120400
-        },
-        {
-          "key": "abb-svizzera-sede-ticino",
-          "name": "ABB Svizzera (sede Ticino)",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-abb-svizzera-sede-ticino",
-          "count": 13,
-          "avgMin": 85538,
-          "avgMax": 115385,
-          "avgMid": 100462,
-          "weightedSalary": 100462
         },
         {
           "key": "fincons-group",
@@ -595,6 +604,26 @@
           "avgMax": 117833,
           "avgMid": 102500,
           "weightedSalary": 96367
+        },
+        {
+          "key": "fincons-group",
+          "name": "Fincons Group",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-fincons-group",
+          "count": 9,
+          "avgMin": 84444,
+          "avgMax": 113889,
+          "avgMid": 99167,
+          "weightedSalary": 99167
+        },
+        {
+          "key": "abb-svizzera-sede-ticino",
+          "name": "ABB Svizzera (sede Ticino)",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-abb-svizzera-sede-ticino",
+          "count": 17,
+          "avgMin": 83647,
+          "avgMax": 112824,
+          "avgMid": 98235,
+          "weightedSalary": 98235
         }
       ],
       "topSalaryLocations": [
@@ -607,16 +636,6 @@
           "avgMax": 147000,
           "avgMid": 128000,
           "weightedSalary": 112800
-        },
-        {
-          "key": "quartino-ticino",
-          "name": "Quartino, Ticino",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-quartino-ticino",
-          "count": 12,
-          "avgMin": 86667,
-          "avgMax": 116917,
-          "avgMid": 101792,
-          "weightedSalary": 101792
         },
         {
           "key": "castelrotto",
@@ -677,6 +696,16 @@
           "avgMax": 104500,
           "avgMid": 91000,
           "weightedSalary": 91000
+        },
+        {
+          "key": "quartino-ticino",
+          "name": "Quartino, Ticino",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-quartino-ticino",
+          "count": 16,
+          "avgMin": 84375,
+          "avgMax": 113813,
+          "avgMid": 99094,
+          "weightedSalary": 99094
         }
       ],
       "topSalaryTitles": [
