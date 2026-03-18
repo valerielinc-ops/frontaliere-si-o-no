@@ -1313,6 +1313,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.gadda-incalza-governo-frontalieri.title': 'Grenzgänger, Gadda: sofortige Einberufung des Italien-Schweiz-Tisches',
     'blog.article.gadda-incalza-governo-frontalieri.excerpt': 'Die Abgeordnete Maria Chiara Gadda fordert die sofortige Einberufung des interministeriellen Tisches für Grenzgänger, um die Probleme bei Steuern, Gesundheitsabgaben und Rückerstattungen anzugehen.',
     'blog.article.gadda-incalza-governo-frontalieri.imageAlt': 'Luganer See, italienisch-schweizerische Grenze',
+    'blog.article.centovallina-riapertura-treni.title': 'Die Centovallina fährt wieder zwischen Camedo und Domodossola',
+    'blog.article.centovallina-riapertura-treni.excerpt': 'Ab dem 19. März 2026 wird die Bahnstrecke zwischen Camedo und Domodossola wieder geöffnet und der internationale Dienst wird normal wieder aufgenommen.',
+    'blog.article.centovallina-riapertura-treni.imageAlt': 'Bahnhof Locarno',
 };
 
 export default blogMetaDe;

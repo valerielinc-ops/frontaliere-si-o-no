@@ -3639,6 +3639,13 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/gadda-incalza-governo-frontalieri.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'centovallina-riapertura-treni',
+    category: 'novita',
+    date: '2026-03-18T21:50:39.228Z',
+    image: '/images/blog/centovallina-riapertura-treni.jpg',
+    hasCalculator: true,
+  },
 ];
 
 const CATEGORIES = ['all', 'fiscale', 'pratico', 'novita', 'pensione'] as const;

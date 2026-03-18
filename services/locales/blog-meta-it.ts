@@ -1313,6 +1313,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.gadda-incalza-governo-frontalieri.title': 'Frontalieri, Gadda: subito il tavolo Italia-Svizzera',
     'blog.article.gadda-incalza-governo-frontalieri.excerpt': 'L\'onorevole Maria Chiara Gadda chiede la convocazione immediata del tavolo interministeriale sui frontalieri per affrontare criticità su fisco, tassa sanitaria e ristorni.',
     'blog.article.gadda-incalza-governo-frontalieri.imageAlt': 'Lago di Lugano, confine italo-svizzero',
+    'blog.article.centovallina-riapertura-treni.title': 'La Centovallina torna a circolare tra Camedo e Domodossola',
+    'blog.article.centovallina-riapertura-treni.excerpt': 'Dal 19 marzo 2026, la tratta ferroviaria tra Camedo e Domodossola sarà riaperta e il servizio internazionale riprenderà normalmente.',
+    'blog.article.centovallina-riapertura-treni.imageAlt': 'Stazione ferroviaria di Locarno',
 };
 
 export default blogMetaIt;

@@ -1313,6 +1313,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.gadda-incalza-governo-frontalieri.title': 'Frontier workers, Gadda: immediate Italy-Switzerland meeting',
     'blog.article.gadda-incalza-governo-frontalieri.excerpt': 'Honorable Maria Chiara Gadda requests an immediate inter-ministerial meeting on frontier workers to address tax, healthcare tax, and reimbursement issues.',
     'blog.article.gadda-incalza-governo-frontalieri.imageAlt': 'Lugano lake, Italian-Swiss border',
+    'blog.article.centovallina-riapertura-treni.title': 'The Centovallina is back in circulation between Camedo and Domodossola',
+    'blog.article.centovallina-riapertura-treni.excerpt': 'From March 19, 2026, the railway line between Camedo and Domodossola will be reopened and international services will resume normally.',
+    'blog.article.centovallina-riapertura-treni.imageAlt': 'Locarno railway station',
 };
 
 export default blogMetaEn;

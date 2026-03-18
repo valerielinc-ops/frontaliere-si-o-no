@@ -1571,6 +1571,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-agenzia-trasporto-nuovo': { name: 'Trasporti e confini', path: '/articoli-frontaliere/agenzia-trasporto-nuovo', parent: 'blog' },
     'blog-governo-tavolo-frontalieri-2026': { name: 'Frontaliere', path: '/articoli-frontaliere/governo-tavolo-frontalieri-2026', parent: 'blog' },
     'blog-gadda-incalza-governo-frontalieri': { name: 'Frontalieri', path: '/articoli-frontaliere/gadda-incalza-governo-frontalieri', parent: 'blog' },
+    'blog-centovallina-riapertura-treni': { name: 'Trasporti', path: '/articoli-frontaliere/centovallina-riapertura-treni', parent: 'blog' },
   };
 
   const info = sectionNames[section];

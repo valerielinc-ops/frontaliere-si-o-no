@@ -5823,6 +5823,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-centovallina-riapertura-treni': {
+    title: 'La Centovallina torna a circolare tra Camedo e Domodossola | Frontaliere Ticino',
+    description: 'Dal 19 marzo 2026, la tratta ferroviaria tra Camedo e Domodossola sarà riaperta e il servizio internazionale riprenderà normalmente. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, centovallina, torna, circolare, camedo',
+    ogTitle: 'La Centovallina torna a circolare',
+    ogDescription: 'Riapertura della Centovallina tra Camedo e Domodossola dal 19 marzo 2026',
+    canonicalPath: '/articoli-frontaliere/centovallina-riapertura-treni',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "La Centovallina torna a circolare tra Camedo e Domodossola",
+      "description": "Dal 19 marzo 2026, la tratta ferroviaria tra Camedo e Domodossola sarà riaperta e il servizio internazionale riprenderà normalmente. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/centovallina-riapertura-treni.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Stazione ferroviaria di Locarno"
+      },
+      "datePublished": "2026-03-18T21:50:39+00:00",
+      "dateModified": "2026-03-18T21:50:39+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/centovallina-riapertura-treni`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

@@ -1313,6 +1313,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.gadda-incalza-governo-frontalieri.title': 'Frontaliers, Gadda : tout de suite la table Italie-Suisse',
     'blog.article.gadda-incalza-governo-frontalieri.excerpt': 'La députée Maria Chiara Gadda demande la convocation immédiate de la table interministérielle sur les frontaliers pour aborder les difficultés liées à la fiscalité, à la taxe sanitaire et aux remboursements.',
     'blog.article.gadda-incalza-governo-frontalieri.imageAlt': 'Lac de Lugano, frontière italo-suisse',
+    'blog.article.centovallina-riapertura-treni.title': 'La Centovallina reprend du service entre Camedo et Domodossola',
+    'blog.article.centovallina-riapertura-treni.excerpt': 'À partir du 19 mars 2026, la ligne ferroviaire entre Camedo et Domodossola sera rouverte et le service international reprendra normalement.',
+    'blog.article.centovallina-riapertura-treni.imageAlt': 'Gare de Locarno',
 };
 
 export default blogMetaFr;
