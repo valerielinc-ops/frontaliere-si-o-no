@@ -33,11 +33,16 @@ import {
   normalize,
   normalizeKey,
 } from './lib/dedicated-crawler-common.mjs';
+import {
+  parseRaiffeisenDetailPage,
+  MIN_DESC_LENGTH,
+} from './lib/raiffeisen-vc-job-parser.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
 const DATA_JOBS = path.resolve(ROOT, 'data', 'jobs.json');
+const PUBLIC_JOBS = path.resolve(ROOT, 'public', 'data', 'jobs.json');
 const ADAPTERS_DIR = path.resolve(ROOT, 'data', 'jobs-crawler-adapters', 'adapters');
 
 const RAIFF_KEY = 'banca-raiffeisen-vedeggio-cassarate';
@@ -120,6 +125,73 @@ async function fetchJobUrls() {
 
   console.log(`✅ Discovered ${urls.size} Raiffeisen VC job detail URLs`);
   return [...urls];
+}
+
+/* ── Detail page fetching ──────────────────────────────────── */
+/**
+ * Fetch a single Raiffeisen detail page and return its parsed body.
+ * Returns null on fetch failure or parse failure.
+ *
+ * @param {string} url
+ * @returns {Promise<import('./lib/raiffeisen-vc-job-parser.mjs').ReturnType<typeof parseRaiffeisenDetailPage> | null>}
+ */
+async function fetchDetailBody(url) {
+  const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 12000;
+  try {
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), timeoutMs);
+    const res = await fetch(url, {
+      signal: controller.signal,
+      headers: { Accept: 'text/html', 'User-Agent': UA },
+      redirect: 'follow',
+    });
+    clearTimeout(timer);
+    if (!res.ok) {
+      console.warn(`   ⚠️ HTTP ${res.status} for ${url}`);
+      return null;
+    }
+    const html = await res.text();
+    const parsed = parseRaiffeisenDetailPage(html);
+    for (const w of parsed.warnings) {
+      console.warn(`   ⚠️  ${url}: ${w}`);
+    }
+    return parsed;
+  } catch (err) {
+    console.warn(`   ⚠️ Fetch failed for ${url}: ${err.message}`);
+    return null;
+  }
+}
+
+/**
+ * Fetch each detail page and update the matching job's description if the
+ * freshly-parsed body is more complete than what's already stored.
+ *
+ * A "more complete" description is one that is longer than the stored version
+ * by more than 10% — this avoids spurious rewrites while still catching the
+ * case where the base crawler stored only a short summary.
+ *
+ * @param {string[]} urls - detail page URLs
+ * @returns {Promise<Map<string, {descriptionText: string, title: string, workload: string}>>}
+ *   Map from canonical URL to extracted body data.
+ */
+async function enrichJobsWithDetailBody(urls) {
+  const results = new Map();
+  console.log(`\n📖 Fetching ${urls.length} detail page(s) for full body extraction…`);
+
+  for (const url of urls) {
+    const parsed = await fetchDetailBody(url);
+    if (!parsed || !parsed.valid) {
+      console.warn(`   ⚠️  ${url}: detail body extraction failed or too short — skipped`);
+      continue;
+    }
+    results.set(url, parsed);
+    console.log(
+      `   ✅ ${url.replace(/.*\//, '')} — ` +
+      `"${parsed.title}" ${parsed.workload} · ${parsed.descriptionText.length} chars`
+    );
+  }
+
+  return results;
 }
 
 /* ── Adapter ───────────────────────────────────────────────── */
@@ -219,6 +291,56 @@ function validateLocaleCoverage() {
   });
 }
 
+/* ── Description patching ──────────────────────────────────── */
+/**
+ * For each detail URL in `detailBodies`, find the matching job in jobs.json
+ * by URL and update its description if the freshly-parsed body is longer than
+ * the currently stored description by more than 10%.
+ *
+ * Uses URL substring matching (UUID) to handle canonical URL variations.
+ *
+ * @param {Map<string, {descriptionText: string, title: string, workload: string}>} detailBodies
+ */
+function patchDescriptionsFromDetailBodies(detailBodies) {
+  if (!fs.existsSync(DATA_JOBS)) return;
+  const raw = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
+  const jobs = Array.isArray(raw) ? raw : [];
+
+  let patched = 0;
+  for (const [url, body] of detailBodies) {
+    // Match by UUID in the URL (last path segment before query)
+    const uuid = url.split('/').pop()?.split('?')[0] || '';
+    const job = jobs.find(j => j.url && j.url.includes(uuid));
+    if (!job) continue;
+
+    const currentLen = (job.description || '').length;
+    const newLen = body.descriptionText.length;
+
+    // Only update if the new body is meaningfully longer (> 10% gain)
+    if (newLen > currentLen * 1.1 || currentLen < MIN_DESC_LENGTH) {
+      job.description = body.descriptionText;
+      // Update English locale description too
+      if (job.descriptionByLocale?.en) {
+        job.descriptionByLocale.en = body.descriptionText;
+      }
+      console.log(
+        `  🔄 Patched "${job.title}" (${job.url}): ` +
+        `${currentLen} → ${newLen} chars`
+      );
+      patched++;
+    }
+  }
+
+  if (patched > 0) {
+    fs.writeFileSync(DATA_JOBS, JSON.stringify(jobs, null, 2) + '\n');
+    fs.mkdirSync(path.dirname(PUBLIC_JOBS), { recursive: true });
+    fs.writeFileSync(PUBLIC_JOBS, JSON.stringify(jobs, null, 2) + '\n');
+    console.log(`\n✅ Patched ${patched} job description(s) with full vacancy body.`);
+  } else {
+    console.log('\nℹ️  All stored descriptions are already up-to-date (no patch needed).');
+  }
+}
+
 /* ── Main ──────────────────────────────────────────────────── */
 async function main() {
   console.log('🏦 Running dedicated Raiffeisen Vedeggio Cassarate jobs crawler...');
@@ -240,6 +362,9 @@ async function main() {
   // Step 2: Update the adapter with discovered seed URLs
   ensureAdapterSeedUrls(detailUrls);
 
+  // Step 2b: Fetch detail pages and extract full vacancy bodies
+  const detailBodies = await enrichJobsWithDetailBody(detailUrls);
+
   // Snapshot before crawl for diff summary
   let _beforeSnapshot = new Map();
   if (fs.existsSync(DATA_JOBS)) {
@@ -251,6 +376,11 @@ async function main() {
 
   // Step 3: Run the base crawler
   await runBaseCrawler();
+
+  // Step 3b: Patch stored descriptions with fully-extracted bodies where longer
+  if (detailBodies.size > 0 && fs.existsSync(DATA_JOBS)) {
+    patchDescriptionsFromDetailBodies(detailBodies);
+  }
 
   // Step 4: Translate missing locales
   await translateMissingJobLocales({
