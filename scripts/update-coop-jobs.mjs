@@ -27,6 +27,11 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { printPublishedJobUrls, writeJobsSummary, snapshotJobSlugs, computeCrawlDiff, printCrawlChangeSummary, writeCrawlChangeSummaryToGH } from './jobs-url-helper.mjs';
+import {
+  writeJobsCrawlerSlice,
+  writeSummaryCrawlerSlice,
+  assembleJobsDataset,
+} from './assemble-jobs-dataset.mjs';
 import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage } from './lib/dedicated-crawler-common.mjs';
 import {
   fetchCoopJsonLd,
@@ -504,7 +509,7 @@ function logCoopJobStats(beforeSnapshot = new Map()) {
   printCrawlChangeSummary(crawlDiff, 'Coop');
   writeCrawlChangeSummaryToGH(crawlDiff, 'Coop');
 
-  return { total: coopJobs.length, ticino: ticinoJobs.length };
+  return { total: coopJobs.length, ticino: ticinoJobs.length, coopJobs, crawlDiff };
 }
 
 function validateCoopLocaleCoverage() {
@@ -568,6 +573,33 @@ async function main() {
   }
 
   validateCoopLocaleCoverage();
+
+  // Step 5: Write per-crawler slice and assemble global dataset
+  if (stats.coopJobs && stats.coopJobs.length > 0) {
+    writeJobsCrawlerSlice(COOP_KEY, stats.coopJobs);
+
+    const durationMs = Math.round(process.uptime() * 1000);
+    const diff = stats.crawlDiff || { newJobs: [], updatedJobs: [], removedJobs: [], unchangedJobs: [], unchangedCount: 0 };
+    const summaryEntry = {
+      key: COOP_KEY,
+      label: 'Coop',
+      generatedAt: new Date().toISOString(),
+      total: stats.coopJobs.length,
+      newCount: diff.newJobs.length,
+      updatedCount: diff.updatedJobs.length,
+      removedCount: diff.removedJobs.length,
+      unchangedCount: diff.unchangedCount,
+      durationMs,
+      avgDurationMs: durationMs,
+      durationHistory: [durationMs],
+      newJobs: diff.newJobs.slice(0, 30),
+      updatedJobs: diff.updatedJobs.slice(0, 30),
+      removedJobs: diff.removedJobs.slice(0, 30),
+      unchangedJobs: (diff.unchangedJobs || []).slice(0, 30),
+    };
+    writeSummaryCrawlerSlice(summaryEntry);
+    await assembleJobsDataset();
+  }
 }
 
 main().catch((err) => {

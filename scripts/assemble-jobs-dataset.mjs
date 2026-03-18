@@ -148,8 +148,23 @@ export function writeSummaryCrawlerSlice(summaryEntry) {
 /* ── Assembly logic ───────────────────────────────────────────────────── */
 
 /**
- * Assemble all per-crawler job slices into data/jobs.json.
- * Returns the assembled jobs array.
+ * Assemble per-crawler job slices into data/jobs.json.
+ *
+ * **Hybrid mode (transition period):**
+ * While only some crawlers are migrated to per-crawler slices, the assembler
+ * operates in hybrid mode:
+ *   1. Start with the existing monolithic data/jobs.json as the baseline.
+ *   2. Remove all jobs that belong to migrated crawlers (those with slices).
+ *   3. Add all jobs from the per-crawler slices.
+ *
+ * This preserves all non-migrated crawler jobs in the global file while
+ * replacing migrated crawlers' sections with slice-derived content.
+ *
+ * **Full mode (after all crawlers are migrated):**
+ * When every crawler writes a slice, the baseline is effectively empty
+ * and the global file is fully assembled from slices only.
+ *
+ * Returns the assembled jobs array, or null if no slices exist.
  */
 function assembleJobs() {
   const sliceFiles = listSliceFiles(JOBS_SLICES_DIR);
@@ -159,21 +174,45 @@ function assembleJobs() {
     return null;
   }
 
-  // Load all slices and tag each job with its slice's assembledAt timestamp
-  const allTagged = [];
+  // Load all slices
+  const slices = [];
   for (const slicePath of sliceFiles) {
     const slice = readJson(slicePath, null);
     if (!slice || !Array.isArray(slice.jobs)) {
       console.warn(`⚠️  Skipping malformed slice: ${path.basename(slicePath)}`);
       continue;
     }
-    for (const job of slice.jobs) {
-      allTagged.push({ job, assembledAt: slice.assembledAt || '' });
-    }
+    slices.push(slice);
     console.log(`  📄 ${path.basename(slicePath)}: ${slice.jobs.length} jobs (assembledAt: ${slice.assembledAt || '?'})`);
   }
 
-  // Deduplicate: last-write wins (newest assembledAt per identity)
+  if (slices.length === 0) return null;
+
+  // Collect the set of crawlerKeys that have been migrated
+  const migratedKeys = new Set(slices.map((s) => s.crawlerKey).filter(Boolean));
+
+  // Baseline: existing monolithic jobs.json, minus jobs from migrated crawlers
+  const existing = readJson(DATA_JOBS, []);
+  const baseline = Array.isArray(existing)
+    ? existing.filter((job) => {
+        const key = String(job.companyKey || '').toLowerCase();
+        return !migratedKeys.has(key);
+      })
+    : [];
+
+  if (migratedKeys.size < (existing.length > 0 ? 1 : 0)) {
+    console.log(`  🔄 Hybrid mode: keeping ${baseline.length} jobs from non-migrated crawlers`);
+  }
+
+  // Collect all slice jobs, tag with assembledAt for dedup
+  const allTagged = [];
+  for (const slice of slices) {
+    for (const job of slice.jobs) {
+      allTagged.push({ job, assembledAt: slice.assembledAt || '' });
+    }
+  }
+
+  // Deduplicate slice jobs: last-write wins (newest assembledAt per identity)
   const byIdentity = new Map();
   for (const tagged of allTagged) {
     const identity = assemblerIdentity(tagged.job);
@@ -184,10 +223,16 @@ function assembleJobs() {
     }
   }
 
-  const deduped = [...byIdentity.values()].map((t) => t.job);
+  const sliceJobs = [...byIdentity.values()].map((t) => t.job);
+
+  // Merge baseline + slice jobs
+  // Deduplicate across them: slice jobs take precedence over baseline
+  const sliceIdentities = new Set(sliceJobs.map(assemblerIdentity));
+  const baselineFiltered = baseline.filter((job) => !sliceIdentities.has(assemblerIdentity(job)));
+  const merged = [...baselineFiltered, ...sliceJobs];
 
   // Stable sort: newest postedDate first, then stable by identity string
-  const sorted = deduped.sort((a, b) => {
+  const sorted = merged.sort((a, b) => {
     const dateA = String(a.postedDate || '').slice(0, 10);
     const dateB = String(b.postedDate || '').slice(0, 10);
     if (dateB > dateA) return 1;
