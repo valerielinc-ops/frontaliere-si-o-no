@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-03-18T16:38:36.387Z",
+  "updatedAt": "2026-03-18T16:39:20.080Z",
   "summaries": [
     {
       "key": "agie-charmilles",
@@ -1483,42 +1483,6 @@
           "location": "Grüsch",
           "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/tirocinio-come-assistente-al-dettaglio-eba-alimentare-volg-grusch/",
           "slug": "lehrstelle-als-detailhandelsassistent-in-eba-lebensmittel-volg-grusch"
-        }
-      ]
-    },
-    {
-      "key": "raiffeisen-vc",
-      "label": "Raiffeisen VC",
-      "generatedAt": "2026-03-18T05:17:33.285Z",
-      "total": 1,
-      "newCount": 0,
-      "updatedCount": 0,
-      "removedCount": 0,
-      "unchangedCount": 1,
-      "durationMs": 32453,
-      "avgDurationMs": 24059,
-      "durationHistory": [
-        32453,
-        28559,
-        32756,
-        30922,
-        32452,
-        16661,
-        20046,
-        15082,
-        12665,
-        18989
-      ],
-      "newJobs": [],
-      "updatedJobs": [],
-      "removedJobs": [],
-      "unchangedJobs": [
-        {
-          "title": "Consulente Clientela Aziendale",
-          "company": "Banca Raiffeisen Vedeggio Cassarate",
-          "location": "Gravesano",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/consulente-clientela-aziendale-banca-raiffeisen-vedeggio-cassarate-gravesano/",
-          "slug": "consulente-clientela-aziendale-banca-raiffeisen-vedeggio-cassarate-gravesano"
         }
       ]
     },
@@ -8763,6 +8727,42 @@
       ],
       "removedJobs": [],
       "unchangedJobs": []
+    },
+    {
+      "key": "raiffeisen-vc",
+      "label": "Raiffeisen VC",
+      "generatedAt": "2026-03-18T16:39:20.080Z",
+      "total": 1,
+      "newCount": 0,
+      "updatedCount": 0,
+      "removedCount": 0,
+      "unchangedCount": 1,
+      "durationMs": 40904,
+      "avgDurationMs": 26250,
+      "durationHistory": [
+        40904,
+        32453,
+        28559,
+        32756,
+        30922,
+        32452,
+        16661,
+        20046,
+        15082,
+        12665
+      ],
+      "newJobs": [],
+      "updatedJobs": [],
+      "removedJobs": [],
+      "unchangedJobs": [
+        {
+          "title": "Consulente Clientela Aziendale",
+          "company": "Banca Raiffeisen Vedeggio Cassarate",
+          "location": "Gravesano",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/consulente-clientela-aziendale-banca-raiffeisen-vedeggio-cassarate-gravesano/",
+          "slug": "consulente-clientela-aziendale-banca-raiffeisen-vedeggio-cassarate-gravesano"
+        }
+      ]
     }
   ]
 }

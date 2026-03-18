@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-03-18T16:38:54.436Z",
+  "generatedAt": "2026-03-18T16:39:25.333Z",
   "links": {
     "allJobs": "https://www.frontaliereticino.ch/cerca-lavoro-ticino"
   },
   "totals": {
-    "activeJobs": 1596,
-    "activeCompanies": 127,
+    "activeJobs": 906,
+    "activeCompanies": 126,
     "activeLocations": 148,
     "todayAdded": 1066,
     "todayUpdated": 0,
@@ -141,6 +141,24 @@
         "name": "Kulm Hotel St. Moritz",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-kulm-hotel-st-moritz",
         "count": 26
+      },
+      {
+        "key": "pemsa",
+        "name": "PEMSA",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-pemsa",
+        "count": 37
+      },
+      {
+        "key": "vf-international-the-north-face-timberland",
+        "name": "VF International (The North Face, Timberland)",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-vf-international-the-north-face-timberland",
+        "count": 22
+      },
+      {
+        "key": "kulm-hotel-st-moritz",
+        "name": "Kulm Hotel St. Moritz",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-kulm-hotel-st-moritz",
+        "count": 20
       }
     ],
     "topLocationsActive": [
@@ -275,6 +293,36 @@
         "name": "Locarno",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-locarno",
         "count": 45
+      },
+      {
+        "key": "bellinzona",
+        "name": "Bellinzona",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-bellinzona",
+        "count": 134
+      },
+      {
+        "key": "lugano",
+        "name": "Lugano",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-lugano",
+        "count": 121
+      },
+      {
+        "key": "st-moritz",
+        "name": "St. Moritz",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-st-moritz",
+        "count": 51
+      },
+      {
+        "key": "chur",
+        "name": "Chur",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-chur",
+        "count": 44
+      },
+      {
+        "key": "mendrisio",
+        "name": "Mendrisio",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-mendrisio",
+        "count": 43
       }
     ],
     "topCompaniesAddedToday": [
@@ -576,11 +624,11 @@
   },
   "salary": {
     "coverage": {
-      "jobsWithSalary": 1596,
+      "jobsWithSalary": 906,
       "coveragePct": 100,
-      "avgMin": 70944,
-      "avgMax": 95656,
-      "avgMid": 83300,
+      "avgMin": 66910,
+      "avgMax": 90222,
+      "avgMid": 78566,
       "medianMid": 91000
     },
     "leaders": {
@@ -604,16 +652,6 @@
           "avgMax": 112824,
           "avgMid": 98235,
           "weightedSalary": 98235
-        },
-        {
-          "key": "fincons-group",
-          "name": "Fincons Group",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-fincons-group",
-          "count": 8,
-          "avgMin": 83250,
-          "avgMax": 112250,
-          "avgMid": 97750,
-          "weightedSalary": 97750
         },
         {
           "key": "lastminute-com",
@@ -684,6 +722,16 @@
           "avgMax": 123500,
           "avgMid": 107333,
           "weightedSalary": 107333
+        },
+        {
+          "key": "fart-ferrovie-autolinee-regionali-ticinesi",
+          "name": "FART – Ferrovie Autolinee Regionali Ticinesi",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-fart-ferrovie-autolinee-regionali-ticinesi",
+          "count": 2,
+          "avgMin": 90750,
+          "avgMax": 122750,
+          "avgMid": 106750,
+          "weightedSalary": 97150
         },
         {
           "key": "fart-ferrovie-autolinee-regionali-ticinesi",
