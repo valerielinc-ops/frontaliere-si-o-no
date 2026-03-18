@@ -62,3 +62,9 @@
   Referrer-Policy: strict-origin-when-cross-origin
   Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
   Permissions-Policy: camera=(), microphone=(), geolocation=(self)
+  # same-origin-allow-popups: allows Firebase Auth popup windows to call
+  # window.close() and postMessage back to the opener.  Without this,
+  # COOP: same-origin would silently block the handshake and leave the
+  # user stuck on a blank popup.  Note: the auth.frontaliereticino.ch
+  # handler page must also NOT set COOP:same-origin (Firebase controls that).
+  Cross-Origin-Opener-Policy: same-origin-allow-popups

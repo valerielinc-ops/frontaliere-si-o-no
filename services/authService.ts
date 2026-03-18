@@ -131,11 +131,18 @@ export async function signInWithGoogle(): Promise<any | null> {
         popupError?.code === 'auth/popup-blocked' ||
         popupError?.code === 'auth/popup-closed-by-user' ||
         popupError?.code === 'auth/cancelled-popup-request' ||
+        // auth/invalid-credential: Google OAuth returned invalid_client, which
+        // typically means the custom authDomain redirect URI is not registered in
+        // Google Cloud Console. The GIS credential flow bypasses redirect_uri entirely.
+        popupError?.code === 'auth/invalid-credential' ||
+        // auth/unauthorized-domain: the current domain is not whitelisted in
+        // Firebase Auth console — GIS works independently of this check.
+        popupError?.code === 'auth/unauthorized-domain' ||
         popupError?.message?.includes('Cross-Origin-Opener-Policy')
       ) {
         // Popup failed — use Google Identity Services (GIS) as fallback.
-        // signInWithRedirect doesn't work on GitHub Pages because the authDomain
-        // (firebaseapp.com) is cross-origin, so getRedirectResult() loses the session.
+        // GIS uses a direct credential callback (no redirect_uri), so it works
+        // even when the custom authDomain handler URL is misconfigured in GCP.
         const gisUser = await signInViaGIS();
         if (gisUser) return gisUser;
         // GIS also failed (e.g., script blocked) — nothing more we can do
