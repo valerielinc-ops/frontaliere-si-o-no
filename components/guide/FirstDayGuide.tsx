@@ -6,7 +6,7 @@ import { loadUserProfile } from '@/components/pages/UserProfile';
 import type { UserProfileData } from '@/components/pages/UserProfile';
 import { useNavigation } from '@/services/NavigationContext';
 import { buildPath } from '@/services/router';
-import Analytics from '@/services/analytics';
+import { Analytics } from '@/services/analytics';
 
 // ─── Checklist Steps ─────────────────────────────────────────────────────
 
