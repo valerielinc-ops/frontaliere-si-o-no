@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-03-18T16:19:11.436Z",
+  "generatedAt": "2026-03-18T16:19:30.489Z",
   "links": {
     "allJobs": "https://www.frontaliereticino.ch/cerca-lavoro-ticino"
   },
   "totals": {
-    "activeJobs": 1043,
+    "activeJobs": 926,
     "activeCompanies": 132,
     "activeLocations": 155,
     "todayAdded": 1049,
@@ -577,11 +577,11 @@
   },
   "salary": {
     "coverage": {
-      "jobsWithSalary": 1043,
+      "jobsWithSalary": 926,
       "coveragePct": 100,
-      "avgMin": 66933,
-      "avgMax": 90271,
-      "avgMid": 78602,
+      "avgMin": 67117,
+      "avgMax": 90520,
+      "avgMid": 78819,
       "medianMid": 70250
     },
     "leaders": {
@@ -695,6 +695,16 @@
           "avgMax": 122750,
           "avgMid": 106750,
           "weightedSalary": 97150
+        },
+        {
+          "key": "fincons-group",
+          "name": "Fincons Group",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-fincons-group",
+          "count": 9,
+          "avgMin": 84444,
+          "avgMax": 113889,
+          "avgMid": 99167,
+          "weightedSalary": 99167
         }
       ],
       "topSalaryLocations": [
