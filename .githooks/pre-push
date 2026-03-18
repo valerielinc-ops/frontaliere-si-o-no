@@ -30,42 +30,6 @@
 # ── Load environment variables (GEMINI_API_KEY etc.) ──
 [ -f "$HOME/.bashrc" ] && . "$HOME/.bashrc"
 
-# ── Blog article generation (DISABLED by default — runs via GitHub Actions) ──
-# Articles are now generated automatically every hour by the CI workflow:
-#   .github/workflows/generate-article.yml
-#
-# To generate an article locally (opt-in), run:
-#   ARTICLE_GEN=1 git push
-# Or use the npm script directly:
-#   npm run new-article
-
-if [ "$ARTICLE_GEN" = "1" ]; then
-  echo "📰 Generazione articolo locale (ARTICLE_GEN=1)..."
-  echo "   Scansione fonti ticinesi e generazione con Gemini AI..."
-  node scripts/create-article.mjs
-  ARTICLE_EXIT=$?
-  if [ $ARTICLE_EXIT -ne 0 ]; then
-    echo "⚠️  Creazione articolo fallita (exit code: $ARTICLE_EXIT)."
-    echo "   Rollback modifiche parziali..."
-    git checkout -- . 2>/dev/null
-    echo "   Il push prosegue comunque."
-    echo ""
-  else
-    git add -A
-    git commit -m "📰 Auto-generated blog article"
-    echo ""
-    echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-    echo "✅ Nuovo articolo generato e committato."
-    echo "⚠️  Esegui di nuovo 'git push' per includere l'articolo."
-    echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-    exit 1
-  fi
-else
-  echo "ℹ️  Articoli generati automaticamente via GitHub Actions (ogni ora, 24/7)"
-  echo "   Per generare localmente: ARTICLE_GEN=1 git push"
-  echo ""
-fi
-
 echo "🏗️  Verifying build..."
 npx vite build --logLevel error 2>&1
 if [ $? -ne 0 ]; then
