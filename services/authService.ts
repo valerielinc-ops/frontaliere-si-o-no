@@ -59,11 +59,16 @@ function getAuthInstance(): any {
 
 // ─── Auth Functions ──────────────────────────────────────────
 
+function setAuthRedirectState(provider: 'google' | 'facebook'): void {
+  if (typeof window === 'undefined') return;
+  sessionStorage.setItem('auth_redirect_path', window.location.pathname + window.location.search);
+  sessionStorage.setItem('auth_redirect_provider', provider);
+}
+
 /**
- * Fallback: use Google Identity Services (GIS) to sign in without popup/redirect.
- * Opens Google's own account chooser overlay, returns a JWT credential,
- * and we authenticate with Firebase via signInWithCredential.
- * Works reliably on mobile where popup/redirect break on GitHub Pages (cross-origin authDomain).
+ * Fallback: reuse the already initialized One Tap callback and wait for auth state.
+ * This avoids re-calling google.accounts.id.initialize(), which would override the
+ * global GIS callback and create hard-to-debug races across prompt/button/login flows.
  */
 async function signInViaGIS(): Promise<any | null> {
   await ensureFirebaseAuth();
@@ -75,38 +80,35 @@ async function signInViaGIS(): Promise<any | null> {
   if (!ready || !window.google?.accounts?.id) return null;
 
   return new Promise((resolve) => {
-    // Temporarily override the One Tap callback for this explicit sign-in
-    window.google!.accounts!.id.initialize({
-      client_id: clientId!,
-      callback: async (response: OneTapResponse) => {
-        try {
-          const credential = _authModule.GoogleAuthProvider.credential(response.credential);
-          const result = await _authModule.signInWithCredential(authInstance, credential);
-          const { Analytics } = await import('@/services/analytics');
-          Analytics.trackUIInteraction('auth', 'google', 'login', 'gis-fallback');
-          resolve(result.user);
-        } catch (err) {
-          console.warn('[Auth] GIS credential error:', err);
-          reportCaughtError(err, 'auth.gisCredential');
-          resolve(null);
-        }
-      },
-      auto_select: false,
-      cancel_on_tap_outside: true,
-      context: 'signin',
-      use_fedcm_for_prompt: true,
-      itp_support: true,
+    let settled = false;
+    let timeoutId: ReturnType<typeof setTimeout> | null = null;
+    const settle = (value: any | null) => {
+      if (settled) return;
+      settled = true;
+      if (timeoutId) clearTimeout(timeoutId);
+      unsubscribe();
+      resolve(value);
+    };
+
+    const unsubscribe = _authModule.onAuthStateChanged(authInstance, async (user: any) => {
+      if (!user) return;
+      const { Analytics } = await import('@/services/analytics');
+      Analytics.trackUIInteraction('auth', 'google', 'login', 'gis-fallback');
+      settle(user);
     });
 
-    // Show the Google account chooser prompt
-    window.google!.accounts!.id.prompt((notification) => {
-      if (notification.isNotDisplayed() || notification.isSkippedMoment()) {
-        // GIS prompt blocked/skipped — resolve null so caller can handle
-        console.warn('[Auth] GIS prompt not shown:', 
-          notification.getNotDisplayedReason?.() || notification.getSkippedReason?.());
-        resolve(null);
+    timeoutId = setTimeout(() => settle(null), 20000);
+
+    window.google.accounts.id.prompt((notification) => {
+      if (notification.isNotDisplayed() || notification.isSkippedMoment() || notification.isDismissedMoment()) {
+        console.warn(
+          '[Auth] GIS prompt not shown:',
+          notification.getNotDisplayedReason?.()
+            || notification.getSkippedReason?.()
+            || notification.getDismissedReason?.(),
+        );
+        settle(null);
       }
-      // If displayed, user will interact → callback above fires
     });
   });
 }
@@ -116,12 +118,22 @@ export async function signInWithGoogle(): Promise<any | null> {
     await ensureFirebaseAuth();
     const authInstance = getAuthInstance();
     if (!authInstance || !_authModule) return null;
-    
+
+    cancelOneTap();
+
     const { Analytics } = await import('@/services/analytics');
     const googleProvider = new _authModule.GoogleAuthProvider();
     googleProvider.setCustomParameters({ prompt: 'select_account' });
 
-    // Try popup first (works on desktop and some mobile browsers).
+    if (isMobileBrowserContext()) {
+      setAuthRedirectState('google');
+      await _authModule.signInWithRedirect(authInstance, googleProvider);
+      return null;
+    }
+
+    // Desktop: prefer popup. If the browser blocks/closes it, fall back to redirect.
+    // Keep GIS only for authDomain / OAuth misconfiguration cases where redirect_uri
+    // itself is the problem and GIS can still exchange the Google credential directly.
     try {
       const result = await _authModule.signInWithPopup(authInstance, googleProvider);
       Analytics.trackUIInteraction('auth', 'google', 'login', 'success');
@@ -131,21 +143,24 @@ export async function signInWithGoogle(): Promise<any | null> {
         popupError?.code === 'auth/popup-blocked' ||
         popupError?.code === 'auth/popup-closed-by-user' ||
         popupError?.code === 'auth/cancelled-popup-request' ||
+        popupError?.message?.includes('Cross-Origin-Opener-Policy')
+      ) {
+        setAuthRedirectState('google');
+        await _authModule.signInWithRedirect(authInstance, googleProvider);
+        return null;
+      }
+
+      if (
         // auth/invalid-credential: Google OAuth returned invalid_client, which
         // typically means the custom authDomain redirect URI is not registered in
         // Google Cloud Console. The GIS credential flow bypasses redirect_uri entirely.
         popupError?.code === 'auth/invalid-credential' ||
         // auth/unauthorized-domain: the current domain is not whitelisted in
         // Firebase Auth console — GIS works independently of this check.
-        popupError?.code === 'auth/unauthorized-domain' ||
-        popupError?.message?.includes('Cross-Origin-Opener-Policy')
+        popupError?.code === 'auth/unauthorized-domain'
       ) {
-        // Popup failed — use Google Identity Services (GIS) as fallback.
-        // GIS uses a direct credential callback (no redirect_uri), so it works
-        // even when the custom authDomain handler URL is misconfigured in GCP.
         const gisUser = await signInViaGIS();
         if (gisUser) return gisUser;
-        // GIS also failed (e.g., script blocked) — nothing more we can do
         Analytics.trackUIInteraction('auth', 'google', 'login', 'all-methods-failed');
         return null;
       }
@@ -952,6 +967,7 @@ interface OneTapButtonOptions {
 }
 
 let oneTapInitialized = false;
+let oneTapInitPromise: Promise<boolean> | null = null;
 let clientId: string | null = null;
 
 function isMobileBrowserContext(): boolean {
@@ -991,48 +1007,55 @@ async function loadGISScript(): Promise<void> {
  */
 export async function initOneTap(): Promise<boolean> {
   if (oneTapInitialized) return true;
-  
-  try {
-    // Get client ID from Remote Config
-    if (!clientId) {
-      const { getConfigValue } = await import('@/services/firebase');
-      clientId = await getConfigValue('GOOGLE_OAUTH_CLIENT_ID');
+  if (oneTapInitPromise) return oneTapInitPromise;
+
+  oneTapInitPromise = (async () => {
+    try {
+      // Get client ID from Remote Config
       if (!clientId) {
-        console.warn('⚠️ GOOGLE_OAUTH_CLIENT_ID not found in Remote Config');
+        const { getConfigValue } = await import('@/services/firebase');
+        clientId = await getConfigValue('GOOGLE_OAUTH_CLIENT_ID');
+        if (!clientId) {
+          console.warn('⚠️ GOOGLE_OAUTH_CLIENT_ID not found in Remote Config');
+          return false;
+        }
+      }
+
+      // Load GIS script
+      await loadGISScript();
+
+      if (!window.google?.accounts?.id) {
+        console.warn('⚠️ Google Identity Services not available');
         return false;
       }
-    }
-    
-    // Load GIS script
-    await loadGISScript();
-    
-    if (!window.google?.accounts?.id) {
-      console.warn('⚠️ Google Identity Services not available');
+
+      window.google.accounts.id.initialize({
+        client_id: clientId,
+        callback: handleOneTapResponse,
+        auto_select: false,
+        cancel_on_tap_outside: true,
+        context: 'signin',
+        use_fedcm_for_prompt: false,
+        itp_support: true,
+        intermediate_iframe_close_callback: () => {
+          // Safari ITP: intermediate iframe closed after user authenticated.
+          // One Tap will call the main callback with the credential.
+        },
+      });
+
+      oneTapInitialized = true;
+      console.log('✅ Google One Tap initialized');
+      return true;
+    } catch (error) {
+      console.warn('⚠️ Failed to initialize One Tap:', error);
+      reportCaughtError(error, 'auth.initOneTap');
       return false;
+    } finally {
+      if (!oneTapInitialized) oneTapInitPromise = null;
     }
-    
-    window.google.accounts.id.initialize({
-      client_id: clientId,
-      callback: handleOneTapResponse,
-      auto_select: false,
-      cancel_on_tap_outside: true,
-      context: 'signin',
-      use_fedcm_for_prompt: false,
-      itp_support: true,
-      intermediate_iframe_close_callback: () => {
-        // Safari ITP: intermediate iframe closed after user authenticated.
-        // One Tap will call the main callback with the credential.
-      },
-    });
-    
-    oneTapInitialized = true;
-    console.log('✅ Google One Tap initialized');
-    return true;
-  } catch (error) {
-    console.warn('⚠️ Failed to initialize One Tap:', error);
-    reportCaughtError(error, 'auth.initOneTap');
-    return false;
-  }
+  })();
+
+  return oneTapInitPromise;
 }
 
 /**
