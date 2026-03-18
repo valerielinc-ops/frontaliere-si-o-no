@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-03-18T16:22:24.879Z",
+  "generatedAt": "2026-03-18T16:22:07.825Z",
   "links": {
     "allJobs": "https://www.frontaliereticino.ch/cerca-lavoro-ticino"
   },
   "totals": {
-    "activeJobs": 1398,
+    "activeJobs": 1059,
     "activeCompanies": 133,
-    "activeLocations": 163,
+    "activeLocations": 165,
     "todayAdded": 1051,
     "todayUpdated": 0,
     "todayRemoved": 0,
@@ -112,6 +112,24 @@
         "name": "TZ Stromag",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-tz-stromag",
         "count": 35
+      },
+      {
+        "key": "colin-cie-wealth-management",
+        "name": "Colin&Cie Wealth Management",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-colin-cie-wealth-management",
+        "count": 65
+      },
+      {
+        "key": "vf-international-the-north-face-timberland",
+        "name": "VF International (The North Face, Timberland)",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-vf-international-the-north-face-timberland",
+        "count": 46
+      },
+      {
+        "key": "convit-holding-gmbh",
+        "name": "Convit Holding GmbH",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-convit-holding-gmbh",
+        "count": 35
       }
     ],
     "topLocationsActive": [
@@ -180,6 +198,12 @@
         "name": "Zürich",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-zurich",
         "count": 46
+      },
+      {
+        "key": "emea-che-stabio-vf-campus-vf1",
+        "name": "EMEA · CHE · Stabio · VF Campus VF1",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-emea-che-stabio-vf-campus-vf1",
+        "count": 44
       }
     ],
     "topCompaniesAddedToday": [
@@ -481,12 +505,12 @@
   },
   "salary": {
     "coverage": {
-      "jobsWithSalary": 1398,
+      "jobsWithSalary": 1059,
       "coveragePct": 100,
-      "avgMin": 68157,
-      "avgMax": 92202,
-      "avgMid": 80179,
-      "medianMid": 84500
+      "avgMin": 67553,
+      "avgMax": 91193,
+      "avgMid": 79373,
+      "medianMid": 81238
     },
     "leaders": {
       "topSalaryCompanies": [
@@ -651,6 +675,16 @@
           "avgMax": 104946,
           "avgMid": 91380,
           "weightedSalary": 91380
+        },
+        {
+          "key": "zurich",
+          "name": "Zürich",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-zurich",
+          "count": 18,
+          "avgMin": 78306,
+          "avgMax": 105639,
+          "avgMid": 91972,
+          "weightedSalary": 91972
         }
       ],
       "topSalaryTitles": [
