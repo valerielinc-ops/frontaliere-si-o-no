@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-03-18T04:55:07.499Z",
+  "generatedAt": "2026-03-18T04:55:19.122Z",
   "links": {
     "allJobs": "https://www.frontaliereticino.ch/cerca-lavoro-ticino"
   },
   "totals": {
-    "activeJobs": 1346,
+    "activeJobs": 963,
     "activeCompanies": 129,
     "activeLocations": 186,
     "todayAdded": 931,
@@ -81,18 +81,6 @@
         "count": 30
       },
       {
-        "key": "vf-international-the-north-face-timberland",
-        "name": "VF International (The North Face, Timberland)",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-vf-international-the-north-face-timberland",
-        "count": 41
-      },
-      {
-        "key": "colin-cie-wealth-management",
-        "name": "Colin&Cie Wealth Management",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-colin-cie-wealth-management",
-        "count": 33
-      },
-      {
         "key": "colin-cie-wealth-management",
         "name": "Colin&Cie Wealth Management",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-colin-cie-wealth-management",
@@ -115,33 +103,51 @@
         "name": "VF International (The North Face, Timberland)",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-vf-international-the-north-face-timberland",
         "count": 50
+      },
+      {
+        "key": "eoc-ente-ospedaliero-cantonale",
+        "name": "EOC – Ente Ospedaliero Cantonale",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-eoc-ente-ospedaliero-cantonale",
+        "count": 196
+      },
+      {
+        "key": "volg",
+        "name": "VOLG",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-volg",
+        "count": 44
+      },
+      {
+        "key": "pemsa",
+        "name": "PEMSA",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-pemsa",
+        "count": 40
+      },
+      {
+        "key": "coop",
+        "name": "Coop",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-coop",
+        "count": 38
+      },
+      {
+        "key": "vf-international-the-north-face-timberland",
+        "name": "VF International (The North Face, Timberland)",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-vf-international-the-north-face-timberland",
+        "count": 26
+      },
+      {
+        "key": "usi-universita-della-svizzera-italiana",
+        "name": "USI – Università della Svizzera italiana",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-usi-universita-della-svizzera-italiana",
+        "count": 24
+      },
+      {
+        "key": "convit-holding-gmbh",
+        "name": "Convit Holding GmbH",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-convit-holding-gmbh",
+        "count": 23
       }
     ],
     "topLocationsActive": [
-      {
-        "key": "bellinzona",
-        "name": "Bellinzona",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-bellinzona",
-        "count": 182
-      },
-      {
-        "key": "lugano",
-        "name": "Lugano",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-lugano",
-        "count": 149
-      },
-      {
-        "key": "st-moritz",
-        "name": "St. Moritz",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-st-moritz",
-        "count": 90
-      },
-      {
-        "key": "emea-che-stabio-vf-campus-vf1",
-        "name": "EMEA · CHE · Stabio · VF Campus VF1",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-emea-che-stabio-vf-campus-vf1",
-        "count": 39
-      },
       {
         "key": "lugano",
         "name": "Lugano",
@@ -177,6 +183,54 @@
         "name": "EMEA · CHE · Stabio · VF Campus VF1",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-emea-che-stabio-vf-campus-vf1",
         "count": 48
+      },
+      {
+        "key": "bellinzona",
+        "name": "Bellinzona",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-bellinzona",
+        "count": 136
+      },
+      {
+        "key": "lugano",
+        "name": "Lugano",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-lugano",
+        "count": 106
+      },
+      {
+        "key": "st-moritz",
+        "name": "St. Moritz",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-st-moritz",
+        "count": 56
+      },
+      {
+        "key": "chur",
+        "name": "Chur",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-chur",
+        "count": 47
+      },
+      {
+        "key": "grigioni",
+        "name": "Grigioni",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-grigioni",
+        "count": 46
+      },
+      {
+        "key": "locarno",
+        "name": "Locarno",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-locarno",
+        "count": 46
+      },
+      {
+        "key": "mendrisio",
+        "name": "Mendrisio",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-mendrisio",
+        "count": 46
+      },
+      {
+        "key": "emea-che-stabio-vf-campus-vf1",
+        "name": "EMEA · CHE · Stabio · VF Campus VF1",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-emea-che-stabio-vf-campus-vf1",
+        "count": 24
       }
     ],
     "topCompaniesAddedToday": [
@@ -478,11 +532,11 @@
   },
   "salary": {
     "coverage": {
-      "jobsWithSalary": 1346,
+      "jobsWithSalary": 963,
       "coveragePct": 100,
-      "avgMin": 66240,
-      "avgMax": 89353,
-      "avgMid": 77797,
+      "avgMin": 65857,
+      "avgMax": 88838,
+      "avgMid": 77348,
       "medianMid": 68500
     },
     "leaders": {
@@ -501,31 +555,11 @@
           "key": "abb-svizzera-sede-ticino",
           "name": "ABB Svizzera (sede Ticino)",
           "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-abb-svizzera-sede-ticino",
-          "count": 17,
-          "avgMin": 88029,
-          "avgMax": 118735,
-          "avgMid": 103382,
-          "weightedSalary": 103382
-        },
-        {
-          "key": "cambiavalute-ch",
-          "name": "CambiaValute.ch",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-cambiavalute-ch",
-          "count": 2,
-          "avgMin": 94000,
-          "avgMax": 127000,
-          "avgMid": 110500,
-          "weightedSalary": 100600
-        },
-        {
-          "key": "oscam-ospedale-e-casa-anziani-malcantonese",
-          "name": "OSCAM – Ospedale e Casa Anziani Malcantonese",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-oscam-ospedale-e-casa-anziani-malcantonese",
-          "count": 6,
-          "avgMin": 83583,
-          "avgMax": 112917,
-          "avgMid": 98250,
-          "weightedSalary": 98250
+          "count": 14,
+          "avgMin": 86143,
+          "avgMax": 116214,
+          "avgMid": 101179,
+          "weightedSalary": 101179
         },
         {
           "key": "lastminute-com",
@@ -536,6 +570,26 @@
           "avgMax": 112000,
           "avgMid": 97500,
           "weightedSalary": 97500
+        },
+        {
+          "key": "oscam-ospedale-e-casa-anziani-malcantonese",
+          "name": "OSCAM – Ospedale e Casa Anziani Malcantonese",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-oscam-ospedale-e-casa-anziani-malcantonese",
+          "count": 4,
+          "avgMin": 85375,
+          "avgMax": 115375,
+          "avgMid": 100375,
+          "weightedSalary": 97375
+        },
+        {
+          "key": "cambiavalute-ch",
+          "name": "CambiaValute.ch",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-cambiavalute-ch",
+          "count": 1,
+          "avgMin": 94000,
+          "avgMax": 127000,
+          "avgMid": 110500,
+          "weightedSalary": 97300
         },
         {
           "key": "bracco-suisse-s-a",
@@ -558,14 +612,14 @@
           "weightedSalary": 96367
         },
         {
-          "key": "ffs-officine-ferrovie-federali",
-          "name": "FFS Officine (Ferrovie Federali)",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-ffs-officine-ferrovie-federali",
-          "count": 8,
-          "avgMin": 80563,
-          "avgMax": 108563,
-          "avgMid": 94563,
-          "weightedSalary": 94563
+          "key": "medacta-international-sa",
+          "name": "Medacta International SA",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-medacta-international-sa",
+          "count": 5,
+          "avgMin": 80000,
+          "avgMax": 108000,
+          "avgMid": 94000,
+          "weightedSalary": 94000
         }
       ],
       "topSalaryLocations": [
@@ -588,26 +642,6 @@
           "avgMax": 122750,
           "avgMid": 106750,
           "weightedSalary": 97150
-        },
-        {
-          "key": "zurich",
-          "name": "Zürich",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-zurich",
-          "count": 11,
-          "avgMin": 80136,
-          "avgMax": 108227,
-          "avgMid": 94182,
-          "weightedSalary": 94182
-        },
-        {
-          "key": "munsbach",
-          "name": "Munsbach",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-munsbach",
-          "count": 12,
-          "avgMin": 77500,
-          "avgMax": 104500,
-          "avgMid": 91000,
-          "weightedSalary": 91000
         },
         {
           "key": "zurich",
@@ -648,6 +682,66 @@
           "avgMax": 104500,
           "avgMid": 91000,
           "weightedSalary": 91000
+        },
+        {
+          "key": "quartino-ticino",
+          "name": "Quartino, Ticino",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-quartino-ticino",
+          "count": 13,
+          "avgMin": 87231,
+          "avgMax": 117692,
+          "avgMid": 102462,
+          "weightedSalary": 102462
+        },
+        {
+          "key": "zurich",
+          "name": "Zürich",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-zurich",
+          "count": 5,
+          "avgMin": 83300,
+          "avgMax": 112700,
+          "avgMid": 98000,
+          "weightedSalary": 98000
+        },
+        {
+          "key": "castelrotto",
+          "name": "Castelrotto",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-castelrotto",
+          "count": 4,
+          "avgMin": 85375,
+          "avgMax": 115375,
+          "avgMid": 100375,
+          "weightedSalary": 97375
+        },
+        {
+          "key": "beijing-china",
+          "name": "Beijing, China",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-beijing-china",
+          "count": 1,
+          "avgMin": 92000,
+          "avgMax": 125000,
+          "avgMid": 108500,
+          "weightedSalary": 95300
+        },
+        {
+          "key": "castel-san-pietro",
+          "name": "Castel San Pietro",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-castel-san-pietro",
+          "count": 8,
+          "avgMin": 76063,
+          "avgMax": 102688,
+          "avgMid": 89375,
+          "weightedSalary": 89375
+        },
+        {
+          "key": "manno",
+          "name": "Manno",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-manno",
+          "count": 2,
+          "avgMin": 82500,
+          "avgMax": 111500,
+          "avgMid": 97000,
+          "weightedSalary": 88300
         }
       ],
       "topSalaryTitles": [
@@ -665,41 +759,21 @@
           "key": "area-sales-account-manager-per-elektrowerkzeuge-m-w-d",
           "name": "Area Sales / Account Manager per Elektrowerkzeuge (m/w/d)",
           "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-area-sales-account-manager-per-elektrowerkzeuge-m-w-d",
-          "count": 2,
+          "count": 1,
           "avgMin": 109000,
           "avgMax": 147000,
           "avgMid": 128000,
-          "weightedSalary": 116600
+          "weightedSalary": 112800
         },
         {
           "key": "contract-manager",
           "name": "Contract Manager",
           "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-contract-manager",
-          "count": 2,
+          "count": 1,
           "avgMin": 109000,
           "avgMax": 147000,
           "avgMid": 128000,
-          "weightedSalary": 116600
-        },
-        {
-          "key": "responsabile-del-corso-di-laurea-bachelor-in-ingegneria-gestionale",
-          "name": "Responsabile del Corso di laurea Bachelor in Ingegneria gestionale",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-responsabile-del-corso-di-laurea-bachelor-in-ingegneria-gestionale",
-          "count": 2,
-          "avgMin": 109000,
-          "avgMax": 147000,
-          "avgMid": 128000,
-          "weightedSalary": 116600
-        },
-        {
-          "key": "senior-quality-specialist-80-100",
-          "name": "Senior Quality Specialist (80% - 100%)",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-senior-quality-specialist-80-100",
-          "count": 2,
-          "avgMin": 109000,
-          "avgMax": 147000,
-          "avgMid": 128000,
-          "weightedSalary": 116600
+          "weightedSalary": 112800
         },
         {
           "key": "responsabile-clientela-privata-benestante-biel-berna-e-thun-w-m",
@@ -722,9 +796,29 @@
           "weightedSalary": 112800
         },
         {
+          "key": "responsabile-del-corso-di-laurea-bachelor-in-ingegneria-gestionale",
+          "name": "Responsabile del Corso di laurea Bachelor in Ingegneria gestionale",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-responsabile-del-corso-di-laurea-bachelor-in-ingegneria-gestionale",
+          "count": 1,
+          "avgMin": 109000,
+          "avgMax": 147000,
+          "avgMid": 128000,
+          "weightedSalary": 112800
+        },
+        {
           "key": "responsabile-di-filiale-schaffhausen",
           "name": "Responsabile di Filiale Schaffhausen",
           "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-responsabile-di-filiale-schaffhausen",
+          "count": 1,
+          "avgMin": 109000,
+          "avgMax": 147000,
+          "avgMid": 128000,
+          "weightedSalary": 112800
+        },
+        {
+          "key": "responsabile-di-reparto-nonfood",
+          "name": "Responsabile di reparto Nonfood",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-responsabile-di-reparto-nonfood",
           "count": 1,
           "avgMin": 109000,
           "avgMax": 147000,
