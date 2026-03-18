@@ -5591,6 +5591,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-walter-bonatti-in-capo-al-mondo': {
+    title: 'Walter Bonatti \'In capo al mondo\': il Teatro Sociale di | Frontaliere Ticino',
+    description: 'Scopri \'In capo al mondo. In viaggio con Walter Bonatti\' al Teatro Sociale di Montegrino Valtravaglia il 21 marzo. Un evento che rivive le avventure dell\'ultimo',
+    keywords: 'frontalieri, ticino, svizzera, italia, walter, bonatti, capo, mondo',
+    ogTitle: 'Walter Bonatti \'In capo al mondo\': il Teatro Sociale di',
+    ogDescription: 'Il 21 marzo alle ore 21.00, al Teatro Sociale di Montegrino Valtravaglia, si terrà \'In capo al mondo. In viaggio con Walter Bonatti\'. Un evento che rivive le',
+    canonicalPath: '/articoli-frontaliere/walter-bonatti-in-capo-al-mondo',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Walter Bonatti 'In capo al mondo': il Teatro Sociale di Montegrino",
+      "description": "Scopri 'In capo al mondo. In viaggio con Walter Bonatti' al Teatro Sociale di Montegrino Valtravaglia il 21 marzo. Un evento che rivive le avventure dell'ultimo",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/walter-bonatti-in-capo-al-mondo.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Teatro Sociale di Montegrino Valtravaglia"
+      },
+      "datePublished": "2026-03-18T02:45:15+00:00",
+      "dateModified": "2026-03-18T02:45:15+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/walter-bonatti-in-capo-al-mondo`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

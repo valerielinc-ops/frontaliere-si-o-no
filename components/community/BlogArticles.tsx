@@ -3582,6 +3582,13 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/nevicata-record-bosco-gurin.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'walter-bonatti-in-capo-al-mondo',
+    category: 'novita',
+    date: '2026-03-18T02:45:15.133Z',
+    image: '/images/blog/walter-bonatti-in-capo-al-mondo.jpg',
+    hasCalculator: true,
+  },
 ];
 
 const CATEGORIES = ['all', 'fiscale', 'pratico', 'novita', 'pensione'] as const;

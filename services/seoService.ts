@@ -1563,6 +1563,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-infiltrazioni-criminali-ticino-grigioni': { name: 'Cultura, soldi, infiltrazioni criminali', path: '/articoli-frontaliere/infiltrazioni-criminali-ticino-grigioni', parent: 'blog' },
     'blog-turismo-luganese-formazione': { name: 'Turismo e formazione', path: '/articoli-frontaliere/turismo-luganese-formazione', parent: 'blog' },
     'blog-nevicata-record-bosco-gurin': { name: 'La nevicata record a Bosco Gurin', path: '/articoli-frontaliere/nevicata-record-bosco-gurin', parent: 'blog' },
+    'blog-walter-bonatti-in-capo-al-mondo': { name: 'Walter Bonatti, Montegrino Valtravaglia', path: '/articoli-frontaliere/walter-bonatti-in-capo-al-mondo', parent: 'blog' },
   };
 
   const info = sectionNames[section];

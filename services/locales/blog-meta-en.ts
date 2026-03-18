@@ -1289,6 +1289,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.nevicata-record-bosco-gurin.title': 'La nevicata record a Bosco Gurin: piste aperte fino a Pasqua',
     'blog.article.nevicata-record-bosco-gurin.excerpt': '116 centimetri di neve fresca hanno permesso la prosecuzione della stagione invernale fino a fine marzo.',
     'blog.article.nevicata-record-bosco-gurin.imageAlt': 'Bosco Gurin, snow and ski slopes',
+    'blog.article.walter-bonatti-in-capo-al-mondo.title': 'Walter Bonatti \'In capo al mondo\': il Teatro Sociale di Montegrino rivive il mito dell\'ultimo esploratore',
+    'blog.article.walter-bonatti-in-capo-al-mondo.excerpt': 'On March 21 at 9:00 PM, at the Teatro Sociale in Montegrino Valtravaglia, \'In capo al mondo. In viaggio con Walter Bonatti\' will be performed.',
+    'blog.article.walter-bonatti-in-capo-al-mondo.imageAlt': 'Theater Sociale in Montegrino Valtravaglia',
 };
 
 export default blogMetaEn;
