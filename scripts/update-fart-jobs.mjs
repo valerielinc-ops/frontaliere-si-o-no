@@ -34,10 +34,11 @@ import {
   runDedicatedBaseCrawler,
   validateDedicatedLocaleCoverage,
 } from './lib/dedicated-crawler-common.mjs';
+import { extractPdfJobContentFromUrl } from './lib/pdf-job-content.mjs';
 import {
-  buildPdfBackedDescription,
-  extractPdfJobContentFromUrl,
-} from './lib/pdf-job-content.mjs';
+  parseFartListingPage,
+  buildFartDescription,
+} from './lib/fart-job-parser.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -163,74 +164,7 @@ async function fetchPage(url, timeoutMs = 20_000) {
   }
 }
 
-// ─────────────────────────────────────────────────────────────
-// Job listing parsing
-// ─────────────────────────────────────────────────────────────
-
-/**
- * Parse the WordPress-powered careers page.
- *
- * HTML structure for each job:
- *   <h5>Job Title (percentage – f/m)</h5>
- *   ... <a href="http://fartiamo.ch/wp-content/uploads/.../concorso.pdf">CONCORSO</a> ...
- *
- * Each <h5> is followed by a "CONCORSO" link pointing to the PDF with full details.
- */
-function parseListingPage(html) {
-  const jobs = [];
-
-  // Find all <h5> blocks followed by content until next <h5>, <h1>, or <form>
-  const pattern = /<h5[^>]*>([\s\S]*?)<\/h5>([\s\S]*?)(?=<h5|<h1|<form|$)/gi;
-  let match;
-
-  while ((match = pattern.exec(html)) !== null) {
-    const rawTitle = normalizeSpace(stripHtml(match[1]));
-    if (!rawTitle) continue;
-
-    const afterH5 = match[2];
-
-    // Find the concorso PDF link in the block after h5
-    const pdfMatch = afterH5.match(/<a[^>]*href="([^"]+\.pdf)"[^>]*>/i);
-    if (!pdfMatch) continue;
-
-    let pdfUrl = pdfMatch[1];
-    // Skip non-concorso PDFs (e.g., privacy/informativa documents)
-    if (/informativa|privacy|protezione/i.test(pdfUrl)) continue;
-
-    // Normalize URL to https
-    if (pdfUrl.startsWith('http://')) {
-      pdfUrl = pdfUrl.replace('http://', 'https://');
-    }
-    if (!pdfUrl.startsWith('http')) {
-      pdfUrl = `https://fartiamo.ch${pdfUrl}`;
-    }
-
-    jobs.push({ title: rawTitle, pdfUrl });
-  }
-
-  return jobs;
-}
-
-// ─────────────────────────────────────────────────────────────
-// Description building
-// ─────────────────────────────────────────────────────────────
-
-function buildDescription(title, pdfText = '') {
-  return buildPdfBackedDescription({
-    introLines: [
-      `${COMPANY_NAME} pubblica il seguente concorso.`,
-      `Posizione: ${title}.`,
-    ],
-    pdfText,
-    fallbackText: `Concorso ${title} presso ${COMPANY_NAME}. Consultare il bando PDF ufficiale per dettagli completi su requisiti, mansioni e candidatura.`,
-    footerLines: [
-      'Bando ufficiale disponibile in PDF.',
-      'Settore: Trasporti pubblici / Ferrovia',
-      'Sede: Via Domenico Galli 9, 6600 Locarno (TI), Svizzera',
-      'Contatto: fart@centovalli.ch | Tel. +41 (0)91 756 04 00',
-    ],
-  });
-}
+// parseFartListingPage and buildFartDescription are imported from ./lib/fart-job-parser.mjs
 
 // ─────────────────────────────────────────────────────────────
 // Category & experience detection
@@ -280,7 +214,7 @@ async function fetchFartJobs() {
     return [];
   }
 
-  const listings = parseListingPage(html);
+  const listings = parseFartListingPage(html);
   console.log(`📋 Found ${listings.length} concorso(i) on page.`);
 
   const seenPdfUrls = new Set();
@@ -298,13 +232,21 @@ async function fetchFartJobs() {
 
     const pdfContent = listing.pdfUrl
       ? await extractPdfJobContentFromUrl(listing.pdfUrl)
-      : { text: '', error: '' };
+      : { rawText: '', text: '', error: '' };
 
     if (listing.pdfUrl && pdfContent.error) {
       console.warn(`  ⚠️ PDF extraction failed for "${listing.title}": ${pdfContent.error}`);
     }
 
-    const description = buildDescription(listing.title, pdfContent.text || '');
+    // Pass rawText so buildFartDescription applies normalizePdfJobText exactly once.
+    // Fall back to already-normalized text if rawText is unavailable.
+    const { description, warnings } = buildFartDescription(
+      listing.title,
+      pdfContent.rawText || pdfContent.text || ''
+    );
+    for (const w of warnings) {
+      console.warn(`  ⚠️ ${w}`);
+    }
     const slug = slugify(listing.title, COMPANY_KEY);
 
     const job = {
