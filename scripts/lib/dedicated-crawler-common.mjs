@@ -65,12 +65,12 @@ export function normalizeKey(value = '') {
 }
 
 const GERMAN_SLUG_WORDS =
-  /(?:^|-)(?:als|und|fur|oder|frau|mann|fach|stelle|lehrstelle|mitarbeiter|leiter|stellvertretend|verkauf|lernend|chauffeu|gartencenter|befristet|ablosen|disponentin|disponent|ladenleit|logistiker|projektleiter|elektroinstallateur|elektroplaner|unterhaltsfachmann|servicetechniker|immobilienberater)(?:-|$)/i;
+  /(?:^|-)(?:als|und|fur|oder|frau|mann|fach|stelle|lehrstelle|lehre|mitarbeiter|leiter|stellvertretend|verkauf|lernend|chauffeu|gartencenter|befristet|ablosen|disponentin|disponent|ladenleit|logistiker|projektleiter|elektroinstallateur|elektroplaner|unterhaltsfachmann|servicetechniker|immobilienberater|bauleiter|zeichner|fachrichtung|ingenieurbau|tunnelbau|tiefbau|innendienst|generalagentur|vorsorge|vermogen|wissenschaftlich|detailhandels|bekampfung|japankafer|lager)(?:-|$)/i;
 const FRENCH_SLUG_WORDS =
   /(?:^|-)(?:apprentissage|gestionnaire|adjoint|auxiliaire|temporaire|vendeur|vendeuse|postes|vacants|gerante|gerant)(?:-|$)/i;
 
 const GERMAN_TITLE_WORDS =
-  /\b(?:als|und|fur|oder|lehre|lehrstelle|mitarbeiter|leiter|logistiker|projektleiter|elektroinstallateur|elektroplaner|unterhaltsfachmann|servicetechniker|immobilienberater|nachwuchskader)\b/i;
+  /\b(?:als|und|fur|oder|lehre|lehrstelle|mitarbeiter|leiter|logistiker|projektleiter|elektroinstallateur|elektroplaner|unterhaltsfachmann|servicetechniker|immobilienberater|nachwuchskader|bauleiter|zeichner|fachrichtung|ingenieurbau|tunnelbau|tiefbau|innendienst|generalagentur|vorsorge|verm[öo]gen|wissenschaftlich|detailhandels|bek[äa]mpfung|japank[äa]fer|lager)\b/i;
 const FRENCH_TITLE_WORDS =
   /\b(?:apprentissage|gestionnaire|adjoint|auxiliaire|temporaire|vendeur|vendeuse|gerante|gerant)\b/i;
 
@@ -115,10 +115,20 @@ export function heuristicTranslateJobTitle(title = '', locale = 'it') {
 
   const dictionaries = {
     it: [
+      [/\bWissenschaftlich-technische\/r Mitarbeiter\/in\b/gi, 'Collaboratore/trice scientifico-tecnico/a'],
+      [/\bDetailhandelsfachfrau\/-mann\b/gi, 'Impiegato/a del commercio al dettaglio'],
+      [/\bLogistiker\/-in\b/gi, 'Impiegato/a in logistica'],
+      [/\bLehre:\s*/gi, 'Apprendistato: '],
+      [/\bein Projekt\b/gi, 'un progetto'],
+      [/\bzur Bek[äa]mpfung\b/gi, 'per la lotta contro'],
+      [/\bdes Japank[äa]fers\b/gi, 'il coleottero giapponese'],
+      [/\bLager\b/gi, 'magazzino'],
       [/\bNachwuchskader Verkauf\b/gi, 'Responsabile junior vendita'],
       [/\bElektroplaner oder Elektroinstallateur(?:\/in|:in|\s+in)? in Zusatzlehre als Elektroplaner \/ Elektroinstallateur EFZ mit planerischer Erfahrung\b/gi, 'Progettista elettrico/a o installatore/trice elettrico/a in formazione complementare come progettista elettrico/a / installatore/trice elettrico/a EFZ con esperienza di pianificazione'],
       [/\bProjektleiter\/in Installationen oder Junior Projektleiter\/in\b/gi, 'Responsabile di progetto installazioni o Junior responsabile di progetto'],
       [/\bUnterhaltsfachmann\/frau,\s*Servicetechniker\/in\b/gi, 'Addetto/a manutenzione, Tecnico/a di servizio'],
+      [/\bLehrstelle als\b/gi, 'Apprendistato come'],
+      [/\bLehrstelle\b/gi, 'Apprendistato'],
       [/\bLehre als\b/gi, 'Apprendistato come'],
       [/\bLogistiker:in\b/gi, 'impiegata/impiegato in logistica'],
       [/\bDistribution gemischte Zustellung\b/gi, 'Distribuzione recapito misto'],
@@ -131,7 +141,12 @@ export function heuristicTranslateJobTitle(title = '', locale = 'it') {
       [/\bProjektleiter:in Bahnbau\b/gi, 'Responsabile di progetto costruzione ferroviaria'],
       [/\bProjektleiter:in Kunstbauten\b/gi, "Responsabile di progetto opere d'arte"],
       [/\bProjektingenieur:in Kunstbauten\b/gi, "Ingegnere/a di progetto opere d'arte"],
-      [/\bZeichner:in Tiefbau \/ Kunstbau\b/gi, 'Disegnatore/trice ingegneria civile / opere d’arte'],
+      [/\bZeichner:in Tiefbau \/ Kunstbau\b/gi, "Disegnatore/trice ingegneria civile / opere d'arte"],
+      [/\bBauleiter:in\b/gi, 'Direttore/trice lavori'],
+      [/\bZeichner:in\b/gi, 'Disegnatore/trice'],
+      [/\bZeichner\/in\b/gi, 'Disegnatore/trice'],
+      [/\bLeiter:in\b/gi, 'Responsabile'],
+      [/\bLeiter\/in\b/gi, 'Responsabile'],
       [/\bMitarbeiter:in\b/gi, 'Collaboratore/trice'],
       [/\bProjektleiter:in\b/gi, 'Responsabile di progetto'],
       [/\bProjektleiter\/in\b/gi, 'Responsabile di progetto'],
@@ -141,6 +156,14 @@ export function heuristicTranslateJobTitle(title = '', locale = 'it') {
       [/\bElektroinstallateur\/in\b/gi, 'Installatore/trice elettrico/a'],
       [/\bElektroplaner\b/gi, 'Progettista elettrico/a'],
       [/\bZusatzlehre\b/gi, 'formazione complementare'],
+      [/\bFachrichtung\b/gi, 'specializzazione'],
+      [/\bIngenieurbau\b/gi, 'ingegneria civile'],
+      [/\bTunnelbau\b/gi, 'costruzione gallerie'],
+      [/\bTiefbau\b/gi, 'genio civile'],
+      [/\bInnendienst\b/gi, 'servizio interno'],
+      [/\bGeneralagentur\b/gi, 'agenzia generale'],
+      [/\bVorsorge\b/gi, 'previdenza'],
+      [/\bVerm[öo]gen\b/gi, 'patrimonio'],
       [/\bmit planerischer Erfahrung\b/gi, 'con esperienza di pianificazione'],
       [/\bmit Flair für\b/gi, 'con predisposizione per'],
       [/\bTelematik\b/gi, 'telematica'],
@@ -157,6 +180,8 @@ export function heuristicTranslateJobTitle(title = '', locale = 'it') {
       [/\boder\b/gi, 'o'],
       [/\bmit\b/gi, 'con'],
       [/\bfür\b/gi, 'per'],
+      [/\bdie\b/gi, 'la'],
+      [/\bund\b/gi, 'e'],
     ],
     en: [
       [/\bMitarbeiter:in\b/gi, 'Associate'],
@@ -254,13 +279,13 @@ const COMPANY_BOILERPLATE_IT = {
   'Denner SA': `Denner SA è uno dei principali discount alimentari della Svizzera, con oltre 800 filiali. Parte del gruppo Migros, offriamo prodotti di qualità a prezzi convenienti.\n\nOffriamo un ambiente di lavoro dinamico nel settore retail, formazione continua, sconti dipendenti e concrete opportunità di carriera.`,
   'Amministrazione Cantonale Ticino': `L'Amministrazione Cantonale del Cantone Ticino è il principale datore di lavoro pubblico del cantone. Offriamo posizioni in tutti i settori dell'amministrazione pubblica con condizioni d'impiego stabili e competitive.\n\nVantaggi: stabilità lavorativa, orari regolari, formazione continua, previdenza professionale vantaggiosa e possibilità di crescita all'interno dell'amministrazione.`,
   'AGIE Charmilles SA': `AGIE Charmilles SA, parte di GF Machining Solutions e del gruppo Georg Fischer, sviluppa macchine utensili di alta precisione per elettroerosione, fresatura, laser e additive manufacturing. La sede di Losone rappresenta un polo tecnologico di riferimento per il Ticino industriale.\n\nOffriamo un ambiente internazionale, progetti ad alto contenuto tecnico, collaborazione con team di engineering specializzati e concrete opportunità di crescita professionale.`,
-  'AFRY': `AFRY è una multinazionale europea dell’ingegneria, progettazione e consulenza, attiva in infrastrutture, energia, industria, telecomunicazioni e sostenibilità. In Svizzera opera su progetti complessi per mobilità, opere civili, impianti tecnici e transizione energetica.\n\nOffriamo un contesto tecnico multidisciplinare, clienti di primo piano, formazione continua e percorsi di crescita in un’organizzazione internazionale con forte presenza locale.`,
+  'AFRY': `AFRY è una multinazionale europea dell'ingegneria, progettazione e consulenza, attiva in infrastrutture, energia, industria, telecomunicazioni e sostenibilità. In Svizzera opera su progetti complessi per mobilità, opere civili, impianti tecnici e transizione energetica.\n\nOffriamo un contesto tecnico multidisciplinare, clienti di primo piano, formazione continua e percorsi di crescita in un'organizzazione internazionale con forte presenza locale.`,
   'Manor AG': `Manor AG è una delle principali catene di grandi magazzini in Svizzera, con attività nei settori moda, beauty, casa, food e ristorazione Manora. Le sedi ticinesi offrono ruoli operativi e commerciali in contesti retail dinamici e orientati al servizio.\n\nOffriamo formazione sul posto, benefit aziendali, opportunità di sviluppo interno e un ambiente di lavoro strutturato a diretto contatto con la clientela.`,
   'VOLG': `VOLG è il marchio di prossimità della cooperativa fenaco, specializzato nei negozi di paese e nei piccoli punti vendita della Svizzera. Il lavoro combina servizio al cliente, gestione della merce, supporto operativo e forte autonomia sul punto vendita.\n\nOffriamo un ambiente familiare, formazione pratica, benefit dipendenti, sostegno ai percorsi di apprendistato e concrete possibilità di crescita nel commercio al dettaglio.`,
   'MKS PAMP': `MKS PAMP è un gruppo internazionale attivo nella raffinazione e trasformazione di metalli preziosi, con una presenza strategica a Castel San Pietro. Le posizioni aperte coprono operation, manutenzione, sicurezza, controllo e ruoli tecnici ad alto contenuto industriale.\n\nOffriamo un contesto produttivo avanzato, standard elevati di qualità e sicurezza, processi strutturati e opportunità di sviluppo in una realtà industriale globale.`,
-  'Grand Hotel Kronenhof': `Il Grand Hotel Kronenhof di Pontresina è uno degli hotel di lusso più prestigiosi dell’Engadina, con ruoli in hotellerie, ristorazione, spa e servizi al cliente. La struttura opera in un contesto premium, internazionale e fortemente orientato alla qualità del servizio.\n\nOffriamo un ambiente professionale di alto livello, benefit per il personale, possibilità di crescita stagionale e pluriennale e un’esperienza formativa solida nell’ospitalità svizzera.`,
-  'Kulm Hotel St. Moritz': `Il Kulm Hotel St. Moritz è una struttura iconica dell’Engadina, con opportunità in ristorazione, front office, housekeeping, eventi e guest experience. Il lavoro si svolge in un contesto internazionale, premium e ad alta intensità di servizio.\n\nOffriamo formazione continua, benefit per il personale, contatto con una clientela internazionale e concrete opportunità di crescita nel settore alberghiero svizzero di fascia alta.`,
-  'Ticino Premium Properties SA': `Ticino Premium Properties SA è la realtà Engel & Völkers attiva nel mercato immobiliare di pregio in Ticino, con consulenza su compravendita, locazione e valorizzazione di proprietà residenziali e d’investimento. Il team opera in un contesto premium, orientato alla relazione con il cliente e alla qualità dell’esperienza consulenziale.\n\nOffriamo un ambiente internazionale, formazione sul brand, strumenti commerciali strutturati e concrete opportunità di crescita nel real estate di fascia alta.`,
+  'Grand Hotel Kronenhof': `Il Grand Hotel Kronenhof di Pontresina è uno degli hotel di lusso più prestigiosi dell'Engadina, con ruoli in hotellerie, ristorazione, spa e servizi al cliente. La struttura opera in un contesto premium, internazionale e fortemente orientato alla qualità del servizio.\n\nOffriamo un ambiente professionale di alto livello, benefit per il personale, possibilità di crescita stagionale e pluriennale e un'esperienza formativa solida nell'ospitalità svizzera.`,
+  'Kulm Hotel St. Moritz': `Il Kulm Hotel St. Moritz è una struttura iconica dell'Engadina, con opportunità in ristorazione, front office, housekeeping, eventi e guest experience. Il lavoro si svolge in un contesto internazionale, premium e ad alta intensità di servizio.\n\nOffriamo formazione continua, benefit per il personale, contatto con una clientela internazionale e concrete opportunità di crescita nel settore alberghiero svizzero di fascia alta.`,
+  'Ticino Premium Properties SA': `Ticino Premium Properties SA è la realtà Engel & Völkers attiva nel mercato immobiliare di pregio in Ticino, con consulenza su compravendita, locazione e valorizzazione di proprietà residenziali e d'investimento. Il team opera in un contesto premium, orientato alla relazione con il cliente e alla qualità dell'esperienza consulenziale.\n\nOffriamo un ambiente internazionale, formazione sul brand, strumenti commerciali strutturati e concrete opportunità di crescita nel real estate di fascia alta.`,
 };
 
 /**
