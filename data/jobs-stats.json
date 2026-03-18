@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-03-18T05:25:06.982Z",
+  "generatedAt": "2026-03-18T05:27:08.496Z",
   "links": {
     "allJobs": "https://www.frontaliereticino.ch/cerca-lavoro-ticino"
   },
   "totals": {
-    "activeJobs": 953,
+    "activeJobs": 946,
     "activeCompanies": 129,
-    "activeLocations": 186,
+    "activeLocations": 184,
     "todayAdded": 1029,
     "todayUpdated": 0,
     "todayRemoved": 0,
@@ -320,6 +320,18 @@
         "name": "Mendrisio",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-mendrisio",
         "count": 44
+      },
+      {
+        "key": "st-moritz",
+        "name": "St. Moritz",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-st-moritz",
+        "count": 50
+      },
+      {
+        "key": "mendrisio",
+        "name": "Mendrisio",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-mendrisio",
+        "count": 44
       }
     ],
     "topCompaniesAddedToday": [
@@ -621,11 +633,11 @@
   },
   "salary": {
     "coverage": {
-      "jobsWithSalary": 953,
+      "jobsWithSalary": 946,
       "coveragePct": 100,
-      "avgMin": 65944,
-      "avgMax": 88958,
-      "avgMid": 77451,
+      "avgMin": 66003,
+      "avgMax": 89039,
+      "avgMid": 77521,
       "medianMid": 68500
     },
     "leaders": {
@@ -639,16 +651,6 @@
           "avgMax": 147000,
           "avgMid": 128000,
           "weightedSalary": 120400
-        },
-        {
-          "key": "knowledge-lab",
-          "name": "Knowledge Lab",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-knowledge-lab",
-          "count": 5,
-          "avgMin": 92300,
-          "avgMax": 124900,
-          "avgMid": 108600,
-          "weightedSalary": 108600
         },
         {
           "key": "abb-svizzera-sede-ticino",
@@ -749,6 +751,16 @@
           "avgMax": 124900,
           "avgMid": 108600,
           "weightedSalary": 108600
+        },
+        {
+          "key": "medacta-international-sa",
+          "name": "Medacta International SA",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-medacta-international-sa",
+          "count": 5,
+          "avgMin": 80000,
+          "avgMax": 108000,
+          "avgMid": 94000,
+          "weightedSalary": 94000
         },
         {
           "key": "medacta-international-sa",
@@ -861,26 +873,6 @@
           "avgMax": 118167,
           "avgMid": 102667,
           "weightedSalary": 96467
-        },
-        {
-          "key": "beijing-china",
-          "name": "Beijing, China",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-beijing-china",
-          "count": 4,
-          "avgMin": 92000,
-          "avgMax": 125000,
-          "avgMid": 108500,
-          "weightedSalary": 105200
-        },
-        {
-          "key": "mendrisio",
-          "name": "Mendrisio",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-mendrisio",
-          "count": 64,
-          "avgMin": 78536,
-          "avgMax": 106331,
-          "avgMid": 92433,
-          "weightedSalary": 92433
         },
         {
           "key": "beijing-china",
