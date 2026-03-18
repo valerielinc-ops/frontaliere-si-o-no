@@ -1011,7 +1011,7 @@ function buildLocaleReverses<T extends string>(mapping: Record<T, keyof SlugTabl
 let _jobSlugMap: Map<string, Record<string, string>> | null = null;
 
 /** Register the job slug map so the router can translate job slugs across locales. */
-export function registerJobSlugMap(jobs: Array<{ slug?: string; slugByLocale?: Partial<Record<string, string>> }>): void {
+export function registerJobSlugMap(jobs: Array<{ slug?: string; slugByLocale?: Partial<Record<string, string>>; previousSlugs?: string[] }>): void {
   const map = new Map<string, Record<string, string>>();
   for (const job of jobs) {
     const byLocale = job.slugByLocale;
@@ -1025,6 +1025,12 @@ export function registerJobSlugMap(jobs: Array<{ slug?: string; slugByLocale?: P
     // Index by every locale slug + default slug
     for (const s of Object.values(record)) {
       if (s) map.set(s, record);
+    }
+    // Index legacy slug aliases so old URLs resolve to current job
+    if (Array.isArray(job.previousSlugs)) {
+      for (const alias of job.previousSlugs) {
+        if (alias && !map.has(alias)) map.set(alias, record);
+      }
     }
   }
   _jobSlugMap = map;
@@ -1061,7 +1067,7 @@ function translateJobSlug(slug: string, targetLocale: string): string | undefine
 if (typeof window !== 'undefined') {
   fetch('/data/jobs.json')
     .then(r => r.ok ? r.json() : Promise.reject(r.status))
-    .then((data: Array<{ slug?: string; slugByLocale?: Partial<Record<string, string>> }>) => {
+    .then((data: Array<{ slug?: string; slugByLocale?: Partial<Record<string, string>>; previousSlugs?: string[] }>) => {
       if (!_jobSlugMap) registerJobSlugMap(data);
     })
     .catch(() => { /* non-critical — JobBoard will register later */ });

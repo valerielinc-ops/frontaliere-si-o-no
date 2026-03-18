@@ -112,6 +112,7 @@ interface JobListing {
   url?: string;
   source?: string;
   companyDomain?: string;
+  previousSlugs?: string[];
   canonicalContent?: {
     version?: number;
     generatedAt?: string;
@@ -1912,6 +1913,8 @@ function matchesRouteSlug(job: JobListing, routeSlug: string): boolean {
   for (const locale of (['it', 'en', 'de', 'fr'] as const)) {
     if (deriveLocalizedJobSlug(job, locale) === target) return true;
   }
+  // Check legacy slug aliases (renamed active jobs)
+  if (job.previousSlugs?.includes(target)) return true;
   return false;
 }
 

@@ -531,6 +531,16 @@ export function hardenJobLocaleFields({ dataJobsPath }) {
 
   for (const job of raw) {
     let jobChanged = false;
+
+    // Snapshot all current slugs before hardening so we can detect renames
+    const slugsBefore = new Set();
+    if (job.slug) slugsBefore.add(String(job.slug).trim());
+    if (job.slugByLocale && typeof job.slugByLocale === 'object') {
+      for (const s of Object.values(job.slugByLocale)) {
+        if (s) slugsBefore.add(String(s).trim());
+      }
+    }
+
     const baseTitle = String(job.title || '').trim();
     const baseDesc = String(job.description || '').trim();
     const baseSlug = String(job.slug || '').trim();
@@ -725,7 +735,28 @@ export function hardenJobLocaleFields({ dataJobsPath }) {
       }
     }
 
+    // Preserve old slugs as aliases when slugs change (prevents 404s for renamed jobs)
     if (jobChanged) {
+      const slugsAfter = new Set();
+      if (job.slug) slugsAfter.add(String(job.slug).trim());
+      if (job.slugByLocale && typeof job.slugByLocale === 'object') {
+        for (const s of Object.values(job.slugByLocale)) {
+          if (s) slugsAfter.add(String(s).trim());
+        }
+      }
+      // Any slug that existed before but is no longer current → preserve as alias
+      const lost = [...slugsBefore].filter((s) => s && !slugsAfter.has(s));
+      if (lost.length > 0) {
+        if (!Array.isArray(job.previousSlugs)) job.previousSlugs = [];
+        const existing = new Set(job.previousSlugs);
+        // Also exclude current slugs from previousSlugs
+        for (const s of slugsAfter) existing.delete(s);
+        for (const s of lost) {
+          if (!slugsAfter.has(s)) existing.add(s);
+        }
+        job.previousSlugs = [...existing].slice(0, 20); // cap at 20 aliases
+      }
+
       changed = true;
       repaired += 1;
     }

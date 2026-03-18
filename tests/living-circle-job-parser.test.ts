@@ -35,8 +35,9 @@ describe('living-circle-job-parser', () => {
   it('builds localized content with locale-specific slugs', () => {
     const role = parseLivingCircleFeed(FEED)[0];
     const localized = buildLivingCircleLocalizedContent(role);
-    expect(localized.it.title).toContain('Assistente');
-    expect(localized.en.slug).toContain('assistant-housekeeping-manager');
+    // Title is passed through as-is; translation happens in the locale pipeline
+    expect(localized.it.title).toContain('Assistant Gouvernante');
+    expect(localized.en.slug).toContain('the-living-circle');
     expect(localized.fr.description).toContain('The Living Circle recrute');
   });
 });

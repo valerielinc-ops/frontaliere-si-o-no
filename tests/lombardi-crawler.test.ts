@@ -294,7 +294,7 @@ describe('parseLombardiDetailHtml', () => {
 // ═══════════════════════════════════════════════════════════════
 
 describe('buildLombardiLocalizedContent', () => {
-  it('uses full markdown when available', () => {
+  it('stores detail markdown as EN description and IT as boilerplate', () => {
     const longMarkdown = 'Lombardi Group cerca un profilo qualificato per il team.\n\n## Mansioni\n- Task 1 progettazione completa\n- Task 2 coordinamento multidisciplinare\n- Task 3 gestione dei costi e qualità\n\n## Requisiti\n- Req 1 laurea ingegneria\n- Req 2 almeno 5 anni esperienza';
     const result = buildLombardiLocalizedContent({
       title: 'Progettista RVCS',
@@ -302,9 +302,11 @@ describe('buildLombardiLocalizedContent', () => {
       occupancy: '80%–100%',
       detailMarkdown: longMarkdown,
     });
-    expect(result.descriptionByLocale.it).toContain('## Mansioni');
-    expect(result.descriptionByLocale.it).toContain('- Task 1');
-    expect(result.descriptionByLocale.it).not.toContain('tunnel');
+    // IT gets boilerplate, EN gets the detail markdown
+    expect(result.descriptionByLocale.it).toContain('Lombardi Group');
+    expect(result.descriptionByLocale.it).toContain('Giubiasco');
+    expect(result.descriptionByLocale.en).toContain('## Mansioni');
+    expect(result.descriptionByLocale.en).toContain('- Task 1');
   });
 
   it('falls back to boilerplate when markdown is short', () => {
@@ -318,13 +320,14 @@ describe('buildLombardiLocalizedContent', () => {
     expect(result.descriptionByLocale.it).toContain('Giubiasco');
   });
 
-  it('only generates IT description (others via translation pipeline)', () => {
+  it('generates IT boilerplate and no EN when detail markdown is empty', () => {
     const result = buildLombardiLocalizedContent({
       title: 'Test',
       city: 'Giubiasco',
       detailMarkdown: '',
     });
     expect(result.descriptionByLocale.it).toBeTruthy();
+    expect(result.descriptionByLocale.it).toContain('Lombardi Group');
     expect(result.descriptionByLocale.en).toBeUndefined();
   });
 });
