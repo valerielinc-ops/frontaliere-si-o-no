@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-03-18T16:14:06.542Z",
+  "generatedAt": "2026-03-18T16:14:20.293Z",
   "links": {
     "allJobs": "https://www.frontaliereticino.ch/cerca-lavoro-ticino"
   },
   "totals": {
-    "activeJobs": 922,
+    "activeJobs": 942,
     "activeCompanies": 130,
     "activeLocations": 157,
     "todayAdded": 1049,
@@ -45,13 +45,6 @@
     },
     {
       "date": "2026-03-18",
-      "totalJobs": 925,
-      "added": 1045,
-      "updated": 0,
-      "removed": 0
-    },
-    {
-      "date": "2026-03-18",
       "totalJobs": 922,
       "added": 1045,
       "updated": 0,
@@ -74,6 +67,13 @@
     {
       "date": "2026-03-18",
       "totalJobs": 922,
+      "added": 1045,
+      "updated": 0,
+      "removed": 0
+    },
+    {
+      "date": "2026-03-18",
+      "totalJobs": 942,
       "added": 1045,
       "updated": 0,
       "removed": 0
@@ -154,12 +154,6 @@
         "name": "Grigioni",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-grigioni",
         "count": 43
-      },
-      {
-        "key": "lugano",
-        "name": "Lugano",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-lugano",
-        "count": 113
       },
       {
         "key": "chur",
@@ -250,6 +244,30 @@
         "name": "Chur",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-chur",
         "count": 43
+      },
+      {
+        "key": "lugano",
+        "name": "Lugano",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-lugano",
+        "count": 115
+      },
+      {
+        "key": "st-moritz",
+        "name": "St. Moritz",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-st-moritz",
+        "count": 54
+      },
+      {
+        "key": "mendrisio",
+        "name": "Mendrisio",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-mendrisio",
+        "count": 49
+      },
+      {
+        "key": "emea-che-stabio-vf-campus-vf1",
+        "name": "EMEA · CHE · Stabio · VF Campus VF1",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-emea-che-stabio-vf-campus-vf1",
+        "count": 26
       }
     ],
     "topCompaniesAddedToday": [
@@ -551,11 +569,11 @@
   },
   "salary": {
     "coverage": {
-      "jobsWithSalary": 922,
+      "jobsWithSalary": 942,
       "coveragePct": 100,
       "avgMin": 66903,
-      "avgMax": 90231,
-      "avgMid": 78567,
+      "avgMax": 90304,
+      "avgMid": 78627,
       "medianMid": 68500
     },
     "leaders": {
@@ -741,6 +759,26 @@
           "avgMax": 113813,
           "avgMid": 99094,
           "weightedSalary": 99094
+        },
+        {
+          "key": "zurich",
+          "name": "Zürich",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-zurich",
+          "count": 6,
+          "avgMin": 79917,
+          "avgMax": 107917,
+          "avgMid": 93917,
+          "weightedSalary": 93917
+        },
+        {
+          "key": "munsbach",
+          "name": "Munsbach",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-munsbach",
+          "count": 6,
+          "avgMin": 77500,
+          "avgMax": 104500,
+          "avgMid": 91000,
+          "weightedSalary": 91000
         }
       ],
       "topSalaryTitles": [
