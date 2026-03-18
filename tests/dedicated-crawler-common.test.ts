@@ -264,9 +264,9 @@ describe('dedicated-crawler-common locale hardening', () => {
     hardenJobLocaleFields({ dataJobsPath: jobsPath });
     const after = JSON.parse(fs.readFileSync(jobsPath, 'utf-8'));
 
-    expect(after[0].titleByLocale.it).toBe('Apprendistato come impiegata/impiegato in logistica EFZ Distribuzione recapito misto (lettere e pacchi)');
-    expect(after[0].slugByLocale.it).toBe('apprendistato-come-impiegata-impiegato-in-logistica-efz-distribuzione-recapito-misto-lettere-e-pacchi-post-ch-ag-davos');
-    expect(after[0].slug).toBe('apprendistato-come-impiegata-impiegato-in-logistica-efz-distribuzione-recapito-misto-lettere-e-pacchi-post-ch-ag-davos');
+    expect(after[0].titleByLocale.it).toBe('Apprendistato come impiegata/impiegato in logistica CFC Distribuzione recapito misto (lettere e pacchi)');
+    expect(after[0].slugByLocale.it).toBe('apprendistato-come-impiegata-impiegato-in-logistica-cfc-distribuzione-recapito-misto-lettere-e-pacchi-post-ch-ag-davos');
+    expect(after[0].slug).toBe('apprendistato-come-impiegata-impiegato-in-logistica-cfc-distribuzione-recapito-misto-lettere-e-pacchi-post-ch-ag-davos');
 
     expect(after[1].titleByLocale.it).toBe('Vicegerente / Gerente aggiunto/a (f/m/d)');
     expect(after[1].slugByLocale.it).toBe('vicegerente-gerente-aggiunto-a-f-m-d-volg-anniviers');

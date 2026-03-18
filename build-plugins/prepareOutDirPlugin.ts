@@ -11,7 +11,10 @@ function removeDir(dir: string): void {
   // macOS extended attributes and Spotlight-locked files that cause
   // fs.rmSync to fail with ENOTEMPTY on large directory trees.
   if (process.platform !== 'win32') {
-    execSync(`rm -rf ${JSON.stringify(dir)}`);
+    // Use `find -delete` instead of `rm -rf`: it traverses the tree bottom-up
+    // and deletes each entry individually, avoiding the ENOTEMPTY errors that
+    // macOS `rm -rf` produces when Spotlight/Finder hold .DS_Store xattr locks.
+    execSync(`find ${JSON.stringify(dir)} -delete`);
   } else {
     fs.rmSync(dir, { recursive: true, force: true });
   }
