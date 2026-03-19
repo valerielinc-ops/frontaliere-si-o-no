@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-03-19T16:25:28.334Z",
-  "startedAt": "2026-03-19T16:21:34.905Z",
+  "generatedAt": "2026-03-19T16:26:51.444Z",
+  "startedAt": "2026-03-19T16:22:41.646Z",
   "config": {
     "minQualityScore": 4,
     "minDescriptionChars": 80,
@@ -26,31 +26,33 @@
     "companiesDroppedBySelection": 0,
     "companiesCrawled": 1,
     "discoveredCareerPages": 8,
-    "scrapedJobPages": 1,
-    "incomingCandidatesAccepted": 1,
+    "scrapedJobPages": 4,
+    "incomingCandidatesAccepted": 4,
     "discardedCandidates": 0,
-    "filteredOutNonCandidates": 40,
+    "filteredOutNonCandidates": 2,
     "duplicateInCompany": 0,
     "webDiscoveryQueries": 0,
     "webDiscoveryHits": 0,
     "browserFallbackAttempts": 0,
     "browserFallbackHits": 0,
     "duplicateIncoming": 0,
-    "duplicateExisting": 337,
-    "mergeExcludedJobs": 0,
-    "mergeExclusionByReason": {},
-    "reusedLocalizationFromPrevious": 0,
-    "inserted": 0,
-    "refreshed": 1,
-    "mergedTotal": 955,
-    "aiLocalizationCalls": 2,
+    "duplicateExisting": 1635,
+    "mergeExcludedJobs": 1,
+    "mergeExclusionByReason": {
+      "explicitly_outside_target": 1
+    },
+    "reusedLocalizationFromPrevious": 3,
+    "inserted": 1,
+    "refreshed": 3,
+    "mergedTotal": 1011,
+    "aiLocalizationCalls": 1,
     "aiPageValidationCalls": 0,
     "deeplCalls": 1,
     "deeplSuccess": 0,
     "deeplFallbackToLlm": 1,
     "aiCacheHits": 0,
-    "aiCacheMisses": 3,
-    "aiCacheEntries": 1493,
+    "aiCacheMisses": 1,
+    "aiCacheEntries": 1491,
     "discoveredCompaniesCandidates": 0,
     "discoveredCompaniesAdded": 0,
     "discoveredCompaniesPending": 0
@@ -101,8 +103,40 @@
       "inserted": 0,
       "refreshed": 1,
       "duplicateIncoming": 0
+    },
+    {
+      "company": "Migros Ticino",
+      "domain": "migros.ch",
+      "discoveredCareerPages": 8,
+      "scrapedJobPages": 4,
+      "processedCandidates": 4,
+      "extractedAccepted": 4,
+      "discardedCount": 0,
+      "discardedByReason": {},
+      "filteredOutCount": 2,
+      "filteredOutByReason": {
+        "jsonld_rejected_all_nodes": 2
+      },
+      "duplicateInCompany": 0,
+      "webDiscoveryQueries": 0,
+      "webDiscoveryHits": 0,
+      "webDiscoveryProviders": [],
+      "browserFallbackAttempted": 0,
+      "browserFallbackHits": 0,
+      "browserFallbackReason": "",
+      "inserted": 0,
+      "refreshed": 0,
+      "duplicateIncoming": 0
     }
   ],
   "droppedCompanies": [],
-  "mergeExclusionSamples": []
+  "mergeExclusionSamples": [
+    {
+      "reason": "explicitly_outside_target",
+      "title": "Project Manager immobiliare (Real Estate) (f/m/d)",
+      "company": "Società cooperativa Migros Ticino",
+      "location": "S.Antonino",
+      "url": "https://jobs.migros.ch/it/le-nostre-imprese/job/societa-cooperativa-migros-ticino/project-manager-immobiliare-real-estate-fmd/4615b8db-46db-4c41-bf5d-a0362358d907"
+    }
+  ]
 }
