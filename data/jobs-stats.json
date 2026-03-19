@@ -1,22 +1,22 @@
 {
-  "generatedAt": "2026-03-19T05:14:37.268Z",
+  "generatedAt": "2026-03-19T05:14:39.262Z",
   "links": {
     "allJobs": "https://www.frontaliereticino.ch/cerca-lavoro-ticino"
   },
   "totals": {
-    "activeJobs": 3155,
+    "activeJobs": 891,
     "activeCompanies": 130,
     "activeLocations": 144,
-    "todayAdded": 983,
+    "todayAdded": 946,
     "todayUpdated": 0,
     "todayRemoved": 0,
     "last7d": {
-      "added": 3257,
+      "added": 3220,
       "updated": 0,
       "removed": 0
     },
     "last30d": {
-      "added": 3740,
+      "added": 3703,
       "updated": 0,
       "removed": 0
     }
@@ -54,6 +54,27 @@
       "date": "2026-03-19",
       "totalJobs": 3155,
       "added": 983,
+      "updated": 0,
+      "removed": 0
+    },
+    {
+      "date": "2026-03-17",
+      "totalJobs": 1014,
+      "added": 1194,
+      "updated": 0,
+      "removed": 0
+    },
+    {
+      "date": "2026-03-18",
+      "totalJobs": 5009,
+      "added": 1080,
+      "updated": 0,
+      "removed": 0
+    },
+    {
+      "date": "2026-03-19",
+      "totalJobs": 1342,
+      "added": 946,
       "updated": 0,
       "removed": 0
     }
@@ -173,6 +194,18 @@
         "name": "Blancpain Ltd",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-blancpain-ltd",
         "count": 96
+      },
+      {
+        "key": "kantonsspital-graubunden",
+        "name": "Kantonsspital Graubünden",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-kantonsspital-graubunden",
+        "count": 27
+      },
+      {
+        "key": "usi-universita-della-svizzera-italiana",
+        "name": "USI – Università della Svizzera italiana",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-usi-universita-della-svizzera-italiana",
+        "count": 24
       }
     ],
     "topLocationsActive": [
@@ -295,6 +328,18 @@
         "name": "St. Moritz",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-st-moritz",
         "count": 142
+      },
+      {
+        "key": "grigioni",
+        "name": "Grigioni",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-grigioni",
+        "count": 43
+      },
+      {
+        "key": "chur",
+        "name": "Chur",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-chur",
+        "count": 42
       }
     ],
     "topCompaniesAddedToday": [
@@ -596,11 +641,11 @@
   },
   "salary": {
     "coverage": {
-      "jobsWithSalary": 3155,
+      "jobsWithSalary": 891,
       "coveragePct": 100,
-      "avgMin": 68344,
-      "avgMax": 91894,
-      "avgMid": 80119,
+      "avgMin": 66939,
+      "avgMax": 90290,
+      "avgMid": 78615,
       "medianMid": 84500
     },
     "leaders": {
