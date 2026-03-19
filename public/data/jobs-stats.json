@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-03-19T16:32:32.441Z",
+  "generatedAt": "2026-03-19T16:36:48.183Z",
   "links": {
     "allJobs": "https://www.frontaliereticino.ch/cerca-lavoro-ticino"
   },
   "totals": {
-    "activeJobs": 2503,
+    "activeJobs": 1035,
     "activeCompanies": 138,
     "activeLocations": 175,
     "todayAdded": 1009,
@@ -112,6 +112,18 @@
         "name": "Blancpain Ltd",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-blancpain-ltd",
         "count": 247
+      },
+      {
+        "key": "convit-holding-gmbh",
+        "name": "Convit Holding GmbH",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-convit-holding-gmbh",
+        "count": 35
+      },
+      {
+        "key": "vf-international-the-north-face-timberland",
+        "name": "VF International (The North Face, Timberland)",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-vf-international-the-north-face-timberland",
+        "count": 26
       }
     ],
     "topLocationsActive": [
@@ -162,12 +174,6 @@
         "name": "Bellinzona",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-bellinzona",
         "count": 134
-      },
-      {
-        "key": "chur",
-        "name": "Chur",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-chur",
-        "count": 42
       },
       {
         "key": "lugano",
@@ -222,6 +228,24 @@
         "name": "Route de la Communance 2800 Delémont (Jura) Suisse Adresse de l'entreprise Blanc",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-route-de-la-communance-2800-delemont-jura-suisse-adresse-de-l-entreprise-blanc",
         "count": 247
+      },
+      {
+        "key": "st-moritz",
+        "name": "St. Moritz",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-st-moritz",
+        "count": 57
+      },
+      {
+        "key": "bellinzona",
+        "name": "Bellinzona",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-bellinzona",
+        "count": 134
+      },
+      {
+        "key": "mendrisio",
+        "name": "Mendrisio",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-mendrisio",
+        "count": 52
       }
     ],
     "topCompaniesAddedToday": [
@@ -579,6 +603,69 @@
         "added": 56,
         "updated": 0,
         "removed": 0
+      },
+      {
+        "key": "lugano",
+        "name": "Lugano",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-lugano",
+        "count": 0,
+        "added": 156,
+        "updated": 0,
+        "removed": 0
+      },
+      {
+        "key": "bellinzona",
+        "name": "Bellinzona",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-bellinzona",
+        "count": 0,
+        "added": 154,
+        "updated": 0,
+        "removed": 0
+      },
+      {
+        "key": "grigioni",
+        "name": "Grigioni",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-grigioni",
+        "count": 0,
+        "added": 61,
+        "updated": 0,
+        "removed": 0
+      },
+      {
+        "key": "ticino",
+        "name": "Ticino",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-ticino",
+        "count": 0,
+        "added": 55,
+        "updated": 0,
+        "removed": 0
+      },
+      {
+        "key": "chur",
+        "name": "Chur",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-chur",
+        "count": 0,
+        "added": 54,
+        "updated": 0,
+        "removed": 0
+      },
+      {
+        "key": "mendrisio",
+        "name": "Mendrisio",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-mendrisio",
+        "count": 0,
+        "added": 52,
+        "updated": 0,
+        "removed": 0
+      },
+      {
+        "key": "st-moritz",
+        "name": "St. Moritz",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-st-moritz",
+        "count": 0,
+        "added": 39,
+        "updated": 0,
+        "removed": 0
       }
     ],
     "topTitlesAdded30d": [
@@ -658,11 +745,11 @@
   },
   "salary": {
     "coverage": {
-      "jobsWithSalary": 2503,
+      "jobsWithSalary": 1035,
       "coveragePct": 100,
-      "avgMin": 60114,
-      "avgMax": 80269,
-      "avgMid": 70191,
+      "avgMin": 66634,
+      "avgMax": 89861,
+      "avgMid": 78248,
       "medianMid": 68500
     },
     "leaders": {
@@ -746,6 +833,26 @@
           "avgMax": 114500,
           "avgMid": 99667,
           "weightedSalary": 99667
+        },
+        {
+          "key": "knowledge-lab",
+          "name": "Knowledge Lab",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-knowledge-lab",
+          "count": 3,
+          "avgMin": 91167,
+          "avgMax": 123500,
+          "avgMid": 107333,
+          "weightedSalary": 100867
+        },
+        {
+          "key": "board-international",
+          "name": "Board International",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-board-international",
+          "count": 9,
+          "avgMin": 84444,
+          "avgMax": 113889,
+          "avgMid": 99167,
+          "weightedSalary": 99167
         },
         {
           "key": "knowledge-lab",
@@ -878,6 +985,36 @@
           "avgMax": 125000,
           "avgMid": 108500,
           "weightedSalary": 95300
+        },
+        {
+          "key": "chiasso-switzerland",
+          "name": "Chiasso, Switzerland",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-chiasso-switzerland",
+          "count": 7,
+          "avgMin": 87857,
+          "avgMax": 118571,
+          "avgMid": 103214,
+          "weightedSalary": 103214
+        },
+        {
+          "key": "beijing-china",
+          "name": "Beijing, China",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-beijing-china",
+          "count": 1,
+          "avgMin": 92000,
+          "avgMax": 125000,
+          "avgMid": 108500,
+          "weightedSalary": 95300
+        },
+        {
+          "key": "zurich",
+          "name": "Zürich",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-zurich",
+          "count": 4,
+          "avgMin": 81125,
+          "avgMax": 109625,
+          "avgMid": 95375,
+          "weightedSalary": 92525
         }
       ],
       "topSalaryTitles": [
