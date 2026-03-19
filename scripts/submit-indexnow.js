@@ -452,51 +452,6 @@ async function submitToBingContentApi() {
   }
 }
 
-// ── You.com IndexNow Submission ──────────────────────────────
-// You.com supports IndexNow protocol. We submit our key pages
-// to their dedicated IndexNow endpoint for AI search inclusion.
-// Docs: https://you.com/webmaster
-async function submitToYouCom(urlList) {
-  const youComEndpoint = 'https://yep.com/indexnow';
-
-  // Submit a curated subset of high-value AI-relevant pages
-  const priorityPaths = [
-    '/', '/en/', '/de/', '/fr/',
-    '/llms.txt', '/llms-full.txt',
-    '/calcola-stipendio', '/comparatori/cambio-valuta',
-    '/articoli-frontaliere', '/guida-frontaliere',
-    '/sitemap.xml',
-  ];
-  const priorityUrls = priorityPaths.map(p => `https://${HOST}${p}`);
-
-  // Also submit the full sitemap URLs (You.com crawls and indexes from these)
-  const allUrls = [...new Set([...priorityUrls, ...urlList])];
-
-  const batches = [];
-  for (let i = 0; i < allUrls.length; i += BATCH_SIZE) {
-    batches.push(allUrls.slice(i, i + BATCH_SIZE));
-  }
-
-  let totalSubmitted = 0;
-  console.log(`📨 You.com (IndexNow via yep.com): invio ${allUrls.length} URLs`);
-
-  for (let b = 0; b < batches.length; b++) {
-    const batch = batches[b];
-    const result = await submitBatch(youComEndpoint, batch);
-    if (result.ok) {
-      totalSubmitted += batch.length;
-    } else {
-      console.warn(`⚠️  You.com: ${result.status} — ${(result.body || '').slice(0, 200)}`);
-      break;
-    }
-    if (b < batches.length - 1) await sleep(500);
-  }
-
-  if (totalSubmitted > 0) {
-    console.log(`✅ You.com (yep.com): ${totalSubmitted} URLs submitted`);
-  }
-}
-
 // ── Main ────────────────────────────────────────────────────
 async function submitToIndexNow() {
   const urlList = getUrlsFromSitemaps();
@@ -596,8 +551,9 @@ async function submitToIndexNow() {
   // Bing Content Submission API (structured content for Copilot)
   await submitToBingContentApi();
 
-  // You.com AI Search (IndexNow via yep.com) — uses new URLs if available
-  await submitToYouCom(urlsToSubmit.length > 0 ? urlsToSubmit : urlList);
+  // Note: You.com/yep.com IndexNow endpoint was removed — it returns 403
+  // (Cloudflare challenge). The api.indexnow.org submission above already
+  // fans out to all IndexNow partners including You.com.
 }
 
 submitToIndexNow().catch(console.error);
