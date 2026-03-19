@@ -2598,7 +2598,19 @@ const App: React.FC = () => {
                         <Suspense fallback={<SkeletonWeeklyFact />}><WeeklyFact /></Suspense>
                       </div>
                       <div className="md:col-span-7 h-full">
-                        <Suspense fallback={<div className="h-[34px]" />}><SocialProofBadge fullWidth /></Suspense>
+                        <button
+                          onClick={() => { Analytics.trackSelectContent('job_board_cta', 'desktop'); navigateTo('job-board' as any); }}
+                          className="w-full h-full flex items-center gap-3 px-4 py-2.5 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 rounded-xl text-white transition-all hover:shadow-md hover:-translate-y-0.5 text-left"
+                        >
+                          <div className="p-1.5 bg-white/20 rounded-lg flex-shrink-0">
+                            <Briefcase size={16} className="text-white" />
+                          </div>
+                          <div className="min-w-0">
+                            <div className="text-sm font-bold leading-tight truncate">{t('jobBoard.cta.title')}</div>
+                            <div className="text-xs text-blue-100 line-clamp-1">{t('jobBoard.cta.desc')}</div>
+                          </div>
+                          <div className="ml-auto flex-shrink-0 text-xs font-semibold text-blue-100 whitespace-nowrap hidden lg:block">{t('jobBoard.cta.button')}</div>
+                        </button>
                       </div>
                     </div>
                   </div>
@@ -2652,7 +2664,16 @@ const App: React.FC = () => {
                     <Suspense fallback={<SkeletonNewsTicker />}><NewsFeed onNavigate={(tab, article) => { setActiveTab(tab as ActiveTab); if (article) setBlogArticle(article as BlogArticleId); pushRoute({ activeTab: tab as ActiveTab, blogArticle: article as BlogArticleId }); window.scrollTo({ top: 0, behavior: 'instant' }); }} /></Suspense>
                     <div className="space-y-2">
                       <Suspense fallback={<SkeletonWeeklyFact />}><WeeklyFact /></Suspense>
-                      <div className="opacity-90"><Suspense fallback={<div className="h-[34px]" />}><SocialProofBadge fullWidth /></Suspense></div>
+                      <button
+                        onClick={() => { Analytics.trackSelectContent('job_board_cta', 'mobile'); navigateTo('job-board' as any); }}
+                        className="w-full flex items-center justify-between gap-3 px-4 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 rounded-xl text-white transition-all active:scale-[0.98]"
+                      >
+                        <div className="flex items-center gap-2.5 min-w-0">
+                          <Briefcase size={18} className="text-white flex-shrink-0" />
+                          <span className="text-sm font-bold truncate">{t('jobBoard.cta.mobile.title')}</span>
+                        </div>
+                        <span className="text-xs font-semibold text-blue-100 flex-shrink-0">{t('jobBoard.cta.mobile.button')} →</span>
+                      </button>
                     </div>
                     <Suspense fallback={<div className="h-[34px]" />}>
                       <DailyDialectPhrase />
@@ -2691,6 +2712,11 @@ const App: React.FC = () => {
                         </div>
                       </button>
                     ))}
+                  </div>
+                )}
+                {result && (
+                  <div className="mt-3">
+                    <Suspense fallback={<div className="h-[34px]" />}><SocialProofBadge fullWidth /></Suspense>
                   </div>
                 )}
                 </>
