@@ -1801,9 +1801,26 @@ Rispondi con un JSON object (no markdown, no code fences):
       { temperature: 0.5, maxTokens: 7500, jsonMode: true },
     );
     let parsed;
-    const cleanJson = (s) => s.replace(/^```(?:json)?\s*/, '').replace(/\s*```$/, '').trim();
+    // repairJson: strips fences, extracts the JSON object, and escapes literal
+    // newlines/carriage-returns inside string values (common LLM output issue).
+    const repairJson = (s) => {
+      let c = s.replace(/^```(?:json)?\s*/m, '').replace(/\s*```\s*$/m, '').trim();
+      const start = c.indexOf('{'); const end = c.lastIndexOf('}');
+      if (start !== -1 && end !== -1 && end > start) c = c.slice(start, end + 1);
+      let out = ''; let inStr = false; let esc = false;
+      for (let i = 0; i < c.length; i++) {
+        const ch = c[i];
+        if (esc) { out += ch; esc = false; continue; }
+        if (ch === '\\') { out += ch; esc = true; continue; }
+        if (ch === '"') { inStr = !inStr; out += ch; continue; }
+        if (inStr && ch === '\n') { out += '\\n'; continue; }
+        if (inStr && ch === '\r') { continue; }
+        out += ch;
+      }
+      return out;
+    };
     try {
-      parsed = JSON.parse(cleanJson(raw));
+      parsed = JSON.parse(repairJson(raw));
     } catch (parseErr) {
       console.error(`  ⚠️  JSON parse error (${targetLang}): ${parseErr.message}`);
       console.error(`     Raw (last 200 chars): ...${raw.slice(-200)}`);
@@ -1814,7 +1831,7 @@ Rispondi con un JSON object (no markdown, no code fences):
           [{ role: 'user', content: transPrompt }],
           { temperature: 0.5, maxTokens: 8000, jsonMode: true },
         );
-        parsed = JSON.parse(cleanJson(raw2));
+        parsed = JSON.parse(repairJson(raw2));
         console.error(`  ✅ Retry riuscito per ${targetLang.toUpperCase()}`);
       } catch (retryErr) {
         console.error(`  ❌ Retry fallito (${targetLang}): ${retryErr.message}`);
