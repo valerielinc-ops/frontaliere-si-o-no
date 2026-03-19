@@ -3765,6 +3765,13 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/tassa-attraversamento-svizzera.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'incidente-stradale-laghi',
+    category: 'pratico',
+    date: '2026-03-19T21:11:01.676Z',
+    image: '/images/blog/incidente-stradale-laghi.jpg',
+    hasCalculator: true,
+  },
 ];
 
 const CATEGORIES = ['all', 'fiscale', 'pratico', 'novita', 'pensione'] as const;

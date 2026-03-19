@@ -1367,6 +1367,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.tassa-attraversamento-svizzera.title': 'Tasse per les voitures qui traversent la Suisse sans s\'arrêter',
     'blog.article.tassa-attraversamento-svizzera.excerpt': 'Le Parlement du Tessin a approuvé la tasse pour les voitures qui traversent la Suisse sans s\'arrêter, avec un horaire et un jour de transit variable',
     'blog.article.tassa-attraversamento-svizzera.imageAlt': 'Un embouteillage dans le canton du Tessin',
+    'blog.article.incidente-stradale-laghi.title': 'Longues files sur la route du lac entre Schiranna et Calcinate del Pesce après un choc entre voiture et moto',
+    'blog.article.incidente-stradale-laghi.excerpt': 'Un accident de la route se produit sur la route du lac entre Schiranna et Calcinate del Pesce, en Varese, impliquant une voiture et une moto.',
+    'blog.article.incidente-stradale-laghi.imageAlt': 'Un accident sur la route du lac à Varese',
 };
 
 export default blogMetaFr;

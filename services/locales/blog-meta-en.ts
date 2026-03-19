@@ -1367,6 +1367,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.tassa-attraversamento-svizzera.title': 'Toll for Cars Crossing Switzerland Without Stopping',
     'blog.article.tassa-attraversamento-svizzera.excerpt': 'The Ticino Parliament Approves Toll for Cars Crossing Switzerland Without Stopping, with Variable Hours and Days of Transit',
     'blog.article.tassa-attraversamento-svizzera.imageAlt': 'A traffic jam in Ticino, Switzerland',
+    'blog.article.incidente-stradale-laghi.title': 'Long queues on the lake road between Schiranna and Calcinate del Pesce for a collision between a car and a motorcycle',
+    'blog.article.incidente-stradale-laghi.excerpt': 'A road accident occurred on the lake road between Schiranna and Calcinate del Pesce, in Varese, involving a car and a motorcycle.',
+    'blog.article.incidente-stradale-laghi.imageAlt': 'An accident on the lake road in Varese',
 };
 
 export default blogMetaEn;

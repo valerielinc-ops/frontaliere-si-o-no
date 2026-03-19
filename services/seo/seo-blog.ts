@@ -6345,6 +6345,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-incidente-stradale-laghi': {
+    title: 'Lunghe code sulla strada del lago tra la Schiranna e | Frontaliere Ticino',
+    description: 'Un incidente stradale si verifica lungo la strada del lago tra la Schiranna e Calcinate del Pesce, in Varese, coinvolgendo un\'auto e una moto. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, lunghe, code, sulla, strada',
+    ogTitle: 'Lunghe code sulla strada del lago tra la Schiranna e',
+    ogDescription: 'Un incidente stradale si verifica lungo la strada del lago tra la Schiranna e Calcinate del Pesce, in Varese, coinvolgendo un\'auto e una moto.',
+    canonicalPath: '/articoli-frontaliere/incidente-stradale-laghi',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Lunghe code sulla strada del lago tra la Schiranna e Calcinate del Pesce",
+      "description": "Un incidente stradale si verifica lungo la strada del lago tra la Schiranna e Calcinate del Pesce, in Varese, coinvolgendo un'auto e una moto. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/incidente-stradale-laghi.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Un incidente stradale sulla strada del lago in Varese"
+      },
+      "datePublished": "2026-03-19T21:11:01+00:00",
+      "dateModified": "2026-03-19T21:11:01+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/incidente-stradale-laghi`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

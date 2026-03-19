@@ -1367,6 +1367,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.tassa-attraversamento-svizzera.title': 'Steuer für Autos, die durch die Schweiz fahren, ohne zu halten',
     'blog.article.tassa-attraversamento-svizzera.excerpt': 'Das Tessiner Parlament billigt die Steuer für Autos, die durch die Schweiz fahren, ohne zu halten, mit einem variablen Zeit und Tag der Durchfahrt',
     'blog.article.tassa-attraversamento-svizzera.imageAlt': 'Ein Verkehrsstau im Kanton Tessin',
+    'blog.article.incidente-stradale-laghi.title': 'Lange Wartezeiten auf der Straße am See zwischen Schiranna und Calcinate del Pesce wegen eines Unfalls zwischen Auto und Motorrad',
+    'blog.article.incidente-stradale-laghi.excerpt': 'Ein Verkehrsunfall ist am 19. März auf der Straße am See zwischen Schiranna und Calcinate del Pesce in Varese aufgetreten, bei dem ein Auto und ein Motorrad beteiligt waren.',
+    'blog.article.incidente-stradale-laghi.imageAlt': 'Ein Unfall auf der Seenstraße in Varese',
 };
 
 export default blogMetaDe;
