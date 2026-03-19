@@ -2157,7 +2157,7 @@ const App: React.FC = () => {
 
         {/* Navbar */}
         <nav aria-label="Navigazione principale" className="sticky top-0 z-50 bg-white/70 dark:bg-slate-900/70 backdrop-blur-lg border-b border-slate-200/50 dark:border-slate-800/50 shadow-sm transition-all duration-300">
-          <div className="max-w-[1800px] w-[95%] mx-auto px-4 sm:px-6">
+          <div className="max-w-[2400px] w-[95%] mx-auto px-4 sm:px-6">
             <div className="flex justify-between h-20 items-center">
               {/* Logo Section */}
               <a href={buildPath({ activeTab: 'calculator' })} onClick={(e) => { e.preventDefault(); handleLogoClick(); handleTabChange('calculator'); }} className="flex items-center gap-3 cursor-pointer no-underline" aria-label="Frontaliere Ticino — Analisi Fiscale 2026">
@@ -2568,7 +2568,7 @@ const App: React.FC = () => {
 
         {/* Main Content */}
         <main className={`flex-grow mx-auto py-6 transition-all duration-500 relative z-10 ${
-          activeTab === 'admin' ? 'w-full px-3 sm:px-6' : 'max-w-[1800px] w-[95%] px-2 sm:px-4'
+          activeTab === 'admin' ? 'w-full px-3 sm:px-6' : 'max-w-[2400px] w-[95%] px-2 sm:px-4'
         }`}>
          <Suspense fallback={<LazyFallback />}>
           {activeTab === 'calculator' ? (

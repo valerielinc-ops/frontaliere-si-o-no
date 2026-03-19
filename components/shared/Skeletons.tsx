@@ -421,7 +421,7 @@ export const SkeletonPageShell: React.FC = () => {
 
       {/* Skeleton Nav — matches loading shell sticky nav h-20 (80px) */}
       <nav className="sticky top-0 z-50 bg-white/95 dark:bg-slate-900/95 border-b border-slate-200/50 dark:border-slate-800/50 shadow-sm">
-        <div className="max-w-[1800px] w-[95%] mx-auto px-4 sm:px-6">
+        <div className="max-w-[2400px] w-[95%] mx-auto px-4 sm:px-6">
           <div className="flex justify-between h-20 items-center">
             {/* Logo placeholder */}
             <div className="flex items-center gap-3">
@@ -463,7 +463,7 @@ export const SkeletonPageShell: React.FC = () => {
       )}
 
       {/* Main content — route-aware skeleton */}
-      <main className="flex-1 max-w-[1800px] w-[95%] mx-auto px-2 sm:px-4 py-6">
+      <main className="flex-1 max-w-[2400px] w-[95%] mx-auto px-2 sm:px-4 py-6">
         {/* News ticker + weekly fact placeholders — desktop only (mobile defers these) */}
         {isCalcPage && (
           <div className="hidden md:flex flex-col gap-2 mb-4">
