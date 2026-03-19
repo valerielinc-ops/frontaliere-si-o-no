@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-03-19T16:07:05.251Z",
+  "generatedAt": "2026-03-19T16:07:14.986Z",
   "links": {
     "allJobs": "https://www.frontaliereticino.ch/cerca-lavoro-ticino"
   },
   "totals": {
-    "activeJobs": 822,
+    "activeJobs": 880,
     "activeCompanies": 102,
     "activeLocations": 135,
     "todayAdded": 1006,
@@ -123,12 +123,6 @@
         "count": 34
       },
       {
-        "key": "colin-cie-wealth-management",
-        "name": "Colin&Cie Wealth Management",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-colin-cie-wealth-management",
-        "count": 57
-      },
-      {
         "key": "vf-international-the-north-face-timberland",
         "name": "VF International (The North Face, Timberland)",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-vf-international-the-north-face-timberland",
@@ -156,6 +150,24 @@
         "key": "relewant",
         "name": "ReleWant",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-relewant",
+        "count": 19
+      },
+      {
+        "key": "eoc-ente-ospedaliero-cantonale",
+        "name": "EOC – Ente Ospedaliero Cantonale",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-eoc-ente-ospedaliero-cantonale",
+        "count": 203
+      },
+      {
+        "key": "coop",
+        "name": "Coop",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-coop",
+        "count": 34
+      },
+      {
+        "key": "amministrazione-cantonale-ticino",
+        "name": "Amministrazione Cantonale Ticino",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-amministrazione-cantonale-ticino",
         "count": 19
       }
     ],
@@ -291,6 +303,24 @@
         "name": "Novaggio",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-novaggio",
         "count": 28
+      },
+      {
+        "key": "bellinzona",
+        "name": "Bellinzona",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-bellinzona",
+        "count": 133
+      },
+      {
+        "key": "lugano",
+        "name": "Lugano",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-lugano",
+        "count": 133
+      },
+      {
+        "key": "grigioni",
+        "name": "Grigioni",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-grigioni",
+        "count": 43
       }
     ],
     "topCompaniesAddedToday": [
@@ -592,11 +622,11 @@
   },
   "salary": {
     "coverage": {
-      "jobsWithSalary": 822,
+      "jobsWithSalary": 880,
       "coveragePct": 100,
-      "avgMin": 68173,
-      "avgMax": 91978,
-      "avgMid": 80075,
+      "avgMin": 67656,
+      "avgMax": 91219,
+      "avgMid": 79438,
       "medianMid": 77500
     },
     "leaders": {
@@ -737,31 +767,21 @@
           "key": "zurich",
           "name": "Zürich",
           "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-zurich",
-          "count": 16,
-          "avgMin": 78406,
-          "avgMax": 105781,
-          "avgMid": 92094,
-          "weightedSalary": 92094
+          "count": 4,
+          "avgMin": 81125,
+          "avgMax": 109625,
+          "avgMid": 95375,
+          "weightedSalary": 92525
         },
         {
-          "key": "munsbach",
-          "name": "Munsbach",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-munsbach",
-          "count": 21,
-          "avgMin": 77500,
-          "avgMax": 104500,
-          "avgMid": 91000,
-          "weightedSalary": 91000
-        },
-        {
-          "key": "schaffhausen",
-          "name": "Schaffhausen",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-schaffhausen",
-          "count": 7,
-          "avgMin": 77500,
-          "avgMax": 104500,
-          "avgMid": 91000,
-          "weightedSalary": 91000
+          "key": "manno",
+          "name": "Manno",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-manno",
+          "count": 2,
+          "avgMin": 82500,
+          "avgMax": 111500,
+          "avgMid": 97000,
+          "weightedSalary": 88300
         },
         {
           "key": "zurich",
