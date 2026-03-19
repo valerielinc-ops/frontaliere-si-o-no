@@ -1343,6 +1343,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.tredicesima-avs-soluzione-mista-stati.title': '13. Monatsrente AHV: Der Ständerat schlägt eine gemischte Lösung vor',
     'blog.article.tredicesima-avs-soluzione-mista-stati.excerpt': 'Der Ständerat schlägt eine gemischte Finanzierung für die 13. Monatsrente AHV vor, mit einer Erhöhung der Lohnbeiträge und der Mehrwertsteuer. Die Kammerschaft der Kantone ist der Meinung, dass dies die einzige ausgewogene und solidarische Lösung ist.',
     'blog.article.tredicesima-avs-soluzione-mista-stati.imageAlt': 'Blick auf den Lago Maggiore und die Burg der Visconti in Locarno.',
+    'blog.article.lo-statuto-s-non-deve-trasformarsi-in-permesso-b.title': 'Der Status S und die Aufenthaltsbewilligung B im Kanton Tessin: Was ändert sich für Grenzgänger?',
+    'blog.article.lo-statuto-s-non-deve-trasformarsi-in-permesso-b.excerpt': 'Eine Motion von Lorenzo Quadri wirft Fragen zur automatischen Umwandlung des Status S in eine Aufenthaltsbewilligung B für ukrainische Flüchtlinge auf. Welche Auswirkungen hat dies für Grenzgänger und Einwohner?',
+    'blog.article.lo-statuto-s-non-deve-trasformarsi-in-permesso-b.imageAlt': 'Panoramablick auf Mendrisio, eine Grenzstadt im Schweizer Kanton Tessin, mit Bergen im Hintergrund.',
 };
 
 export default blogMetaDe;

@@ -6113,6 +6113,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-lo-statuto-s-non-deve-trasformarsi-in-permesso-b': {
+    title: 'Lo statuto S e il permesso B nel Canton Ticino: cosa | Frontaliere Ticino',
+    description: 'La mozione di Lorenzo Quadri solleva dubbi sulla trasformazione automatica dello statuto S in permesso B per i profughi ucraini. Quali sono le implicazioni per',
+    keywords: 'frontalieri, ticino, svizzera, italia, statuto, permesso, canton, cosa',
+    ogTitle: 'Lo statuto S e il permesso B nel Canton Ticino',
+    ogDescription: 'La mozione di Lorenzo Quadri solleva dubbi sulla trasformazione automatica dello statuto S in permesso B per i profughi ucraini. Quali sono le implicazioni per',
+    canonicalPath: '/articoli-frontaliere/lo-statuto-s-non-deve-trasformarsi-in-permesso-b',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Lo statuto S e il permesso B nel Canton Ticino: cosa cambia per i",
+      "description": "La mozione di Lorenzo Quadri solleva dubbi sulla trasformazione automatica dello statuto S in permesso B per i profughi ucraini. Quali sono le implicazioni per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/lo-statuto-s-non-deve-trasformarsi-in-permesso-b.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Vista panoramica di Mendrisio, una città di confine nel Canton Ticino, con le montagne sullo sfondo."
+      },
+      "datePublished": "2026-03-19T13:18:43+00:00",
+      "dateModified": "2026-03-19T13:18:43+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/lo-statuto-s-non-deve-trasformarsi-in-permesso-b`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

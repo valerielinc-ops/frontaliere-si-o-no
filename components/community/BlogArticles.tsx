@@ -3709,6 +3709,13 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/tredicesima-avs-soluzione-mista-stati.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'lo-statuto-s-non-deve-trasformarsi-in-permesso-b',
+    category: 'pratico',
+    date: '2026-03-19T13:18:43.623Z',
+    image: '/images/blog/lo-statuto-s-non-deve-trasformarsi-in-permesso-b.jpg',
+    hasCalculator: true,
+  },
 ];
 
 const CATEGORIES = ['all', 'fiscale', 'pratico', 'novita', 'pensione'] as const;

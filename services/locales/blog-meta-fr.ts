@@ -1343,6 +1343,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.tredicesima-avs-soluzione-mista-stati.title': '13e AVS : les États proposent une solution mixte',
     'blog.article.tredicesima-avs-soluzione-mista-stati.excerpt': 'Le Conseil des États propose un financement mixte pour la 13e mensualité AVS, avec une augmentation de la TVA et des contributions salariales. La Chambre des cantons estime que c\'est la seule solution équilibrée et solidaire.',
     'blog.article.tredicesima-avs-soluzione-mista-stati.imageAlt': 'Vue du Lac Majeur et du Château des Visconti à Locarno.',
+    'blog.article.lo-statuto-s-non-deve-trasformarsi-in-permesso-b.title': 'Le statut S et le permis B dans le canton du Tessin : quels changements pour les frontaliers ?',
+    'blog.article.lo-statuto-s-non-deve-trasformarsi-in-permesso-b.excerpt': 'Une motion de Lorenzo Quadri soulève des doutes sur la transformation automatique du statut S en permis B pour les réfugiés ukrainiens. Quelles sont les implications pour les frontaliers et les résidents ?',
+    'blog.article.lo-statuto-s-non-deve-trasformarsi-in-permesso-b.imageAlt': 'Vue panoramique de Mendrisio, une ville frontalière du canton du Tessin en Suisse, avec les montagnes en arrière-plan.',
 };
 
 export default blogMetaFr;
