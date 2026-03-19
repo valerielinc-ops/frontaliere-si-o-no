@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-03-19T05:15:38.612Z",
+  "updatedAt": "2026-03-19T05:16:07.991Z",
   "summaries": [
     {
       "key": "galenica",
@@ -2564,42 +2564,6 @@
       ],
       "removedJobs": [],
       "unchangedJobs": []
-    },
-    {
-      "key": "raiffeisen-vc",
-      "label": "Raiffeisen VC",
-      "generatedAt": "2026-03-18T16:39:20.080Z",
-      "total": 1,
-      "newCount": 0,
-      "updatedCount": 0,
-      "removedCount": 0,
-      "unchangedCount": 1,
-      "durationMs": 40904,
-      "avgDurationMs": 26250,
-      "durationHistory": [
-        40904,
-        32453,
-        28559,
-        32756,
-        30922,
-        32452,
-        16661,
-        20046,
-        15082,
-        12665
-      ],
-      "newJobs": [],
-      "updatedJobs": [],
-      "removedJobs": [],
-      "unchangedJobs": [
-        {
-          "title": "Consulente Clientela Aziendale",
-          "company": "Banca Raiffeisen Vedeggio Cassarate",
-          "location": "Gravesano",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/consulente-clientela-aziendale-banca-raiffeisen-vedeggio-cassarate-gravesano/",
-          "slug": "consulente-clientela-aziendale-banca-raiffeisen-vedeggio-cassarate-gravesano"
-        }
-      ]
     },
     {
       "key": "ruag-ag",
@@ -9873,6 +9837,42 @@
           "location": "Lugano",
           "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/responsabile-area-di-mercato-clienti-privati-tutti-generi-banca-migros-s-antonino/",
           "slug": "responsabile-area-di-mercato-clienti-privati-tutti-generi-banca-migros-s-antonino"
+        }
+      ]
+    },
+    {
+      "key": "raiffeisen-vc",
+      "label": "Raiffeisen VC",
+      "generatedAt": "2026-03-19T05:16:07.991Z",
+      "total": 1,
+      "newCount": 0,
+      "updatedCount": 0,
+      "removedCount": 0,
+      "unchangedCount": 1,
+      "durationMs": 17752,
+      "avgDurationMs": 26759,
+      "durationHistory": [
+        17752,
+        40904,
+        32453,
+        28559,
+        32756,
+        30922,
+        32452,
+        16661,
+        20046,
+        15082
+      ],
+      "newJobs": [],
+      "updatedJobs": [],
+      "removedJobs": [],
+      "unchangedJobs": [
+        {
+          "title": "Consulente Clientela Aziendale",
+          "company": "Banca Raiffeisen Vedeggio Cassarate",
+          "location": "Gravesano",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/consulente-clientela-aziendale-banca-raiffeisen-vedeggio-cassarate-gravesano/",
+          "slug": "consulente-clientela-aziendale-banca-raiffeisen-vedeggio-cassarate-gravesano"
         }
       ]
     }
