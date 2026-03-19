@@ -243,7 +243,30 @@ function assembleJobs() {
     return idA.localeCompare(idB);
   });
 
-  return sorted;
+  // ── Final slug dedup pass ────────────────────────────────────────────
+  // The URL-based identity dedup above handles most duplicates, but
+  // different URLs (or baseline entries from pre-migration data) can map
+  // to the same slug. Since slugs are used as the unique page identifier
+  // by the build system, we must guarantee no duplicate slugs.
+  // Keep the first occurrence (newest postedDate thanks to sort above).
+  const seenSlugs = new Set();
+  let slugDupeCount = 0;
+  const deduped = sorted.filter((job) => {
+    const slug = String(job.slug || '').trim();
+    if (!slug) return true; // keep slugless jobs (shouldn't happen, but safe)
+    if (seenSlugs.has(slug)) {
+      slugDupeCount++;
+      return false;
+    }
+    seenSlugs.add(slug);
+    return true;
+  });
+
+  if (slugDupeCount > 0) {
+    console.log(`  🧹 Slug dedup: removed ${slugDupeCount} entries with duplicate slugs (${deduped.length} remaining)`);
+  }
+
+  return deduped;
 }
 
 /**
