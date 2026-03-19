@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-03-19T04:51:21.462Z",
+  "updatedAt": "2026-03-19T04:51:43.765Z",
   "summaries": [
     {
       "key": "agie-charmilles",
@@ -2342,42 +2342,6 @@
         }
       ],
       "updatedJobs": [],
-      "removedJobs": [],
-      "unchangedJobs": []
-    },
-    {
-      "key": "amag-group",
-      "label": "AMAG Group",
-      "generatedAt": "2026-03-18T16:13:17.695Z",
-      "total": 1,
-      "newCount": 0,
-      "updatedCount": 1,
-      "removedCount": 0,
-      "unchangedCount": 0,
-      "durationMs": 4025,
-      "avgDurationMs": 4786,
-      "durationHistory": [
-        4025,
-        4130,
-        5253,
-        4815,
-        4763,
-        4674,
-        4368,
-        5735,
-        5261,
-        4831
-      ],
-      "newJobs": [],
-      "updatedJobs": [
-        {
-          "title": "Autista su chiamata",
-          "company": "AMAG Group",
-          "location": "Bellinzona",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/autista-su-chiamata/",
-          "slug": "autista-su-chiamata-amag-group-bellinzona"
-        }
-      ],
       "removedJobs": [],
       "unchangedJobs": []
     },
@@ -9913,6 +9877,42 @@
           "slug": "process-qualita-specialista-80-100-abb-svizzera-sede-ticino-quartino"
         }
       ]
+    },
+    {
+      "key": "amag-group",
+      "label": "AMAG Group",
+      "generatedAt": "2026-03-19T04:51:43.765Z",
+      "total": 1,
+      "newCount": 0,
+      "updatedCount": 1,
+      "removedCount": 0,
+      "unchangedCount": 0,
+      "durationMs": 4334,
+      "avgDurationMs": 4736,
+      "durationHistory": [
+        4334,
+        4025,
+        4130,
+        5253,
+        4815,
+        4763,
+        4674,
+        4368,
+        5735,
+        5261
+      ],
+      "newJobs": [],
+      "updatedJobs": [
+        {
+          "title": "Autista su chiamata",
+          "company": "AMAG Group",
+          "location": "Bellinzona",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/autista-su-chiamata/",
+          "slug": "autista-su-chiamata-amag-group-bellinzona"
+        }
+      ],
+      "removedJobs": [],
+      "unchangedJobs": []
     }
   ]
 }
