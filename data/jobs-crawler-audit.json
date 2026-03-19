@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-03-19T16:11:43.635Z",
-  "startedAt": "2026-03-19T16:10:39.037Z",
+  "generatedAt": "2026-03-19T16:12:59.730Z",
+  "startedAt": "2026-03-19T16:12:17.395Z",
   "config": {
     "minQualityScore": 4,
     "minDescriptionChars": 80,
@@ -36,10 +36,10 @@
     "browserFallbackAttempts": 0,
     "browserFallbackHits": 0,
     "duplicateIncoming": 0,
-    "duplicateExisting": 253,
-    "mergeExcludedJobs": 8,
+    "duplicateExisting": 137,
+    "mergeExcludedJobs": 1,
     "mergeExclusionByReason": {
-      "location_explicitly_foreign": 3,
+      "location_explicitly_foreign": 1,
       "not_ticino_relevant": 8,
       "explicitly_outside_target": 4,
       "outside_swiss_ticino": 4
@@ -50,12 +50,12 @@
     "mergedTotal": 918,
     "aiLocalizationCalls": 1,
     "aiPageValidationCalls": 0,
-    "deeplCalls": 0,
+    "deeplCalls": 4,
     "deeplSuccess": 0,
-    "deeplFallbackToLlm": 0,
+    "deeplFallbackToLlm": 3,
     "aiCacheHits": 1,
-    "aiCacheMisses": 1,
-    "aiCacheEntries": 1491,
+    "aiCacheMisses": 4,
+    "aiCacheEntries": 1494,
     "discoveredCompaniesCandidates": 0,
     "discoveredCompaniesAdded": 0,
     "discoveredCompaniesPending": 0
@@ -118,6 +118,13 @@
       "company": "EFG International AG",
       "location": "Zurich",
       "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6095"
+    },
+    {
+      "reason": "location_explicitly_foreign",
+      "title": "Pre Sales",
+      "company": "FNZ (Switzerland) AG",
+      "location": "Geneva",
+      "url": "https://fnz.wd3.myworkdayjobs.com/en/fnz_careers/job/Geneva---Switzerland/Pre-Sales_REQ-16394"
     }
   ]
 }
