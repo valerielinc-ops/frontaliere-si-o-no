@@ -3723,6 +3723,13 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/consiglio-stati-soluzione-mista-13esima-avs.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'frode-cassa-compensazione-avs-ticino',
+    category: 'pratico',
+    date: '2026-03-19T15:23:24.887Z',
+    image: '/images/blog/frode-cassa-compensazione-avs-ticino.jpg',
+    hasCalculator: true,
+  },
 ];
 
 const CATEGORIES = ['all', 'fiscale', 'pratico', 'novita', 'pensione'] as const;

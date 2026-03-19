@@ -1349,6 +1349,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.consiglio-stati-soluzione-mista-13esima-avs.title': 'The Council of States Approves Mixed Solution for 13th AVS Payment',
     'blog.article.consiglio-stati-soluzione-mista-13esima-avs.excerpt': 'The Upper Chamber reiterates the need for an increase in both VAT and payroll contributions to fund the 13th monthly AVS payment, estimating costs at 4.2 billion francs in 2026.',
     'blog.article.consiglio-stati-soluzione-mista-13esima-avs.imageAlt': 'Panoramic view of Locarno with Lake Maggiore and Monte Verità.',
+    'blog.article.frode-cassa-compensazione-avs-ticino.title': '2.7 million fraud at the AVS compensation fund: how to protect yourself',
+    'blog.article.frode-cassa-compensazione-avs-ticino.excerpt': 'Over 80 fake beneficiaries have fraudulently received Covid loss of earnings benefits. The case was revealed by the newspaper "24 heures" and the Public Prosecutor\'s Office is conducting an investigation.',
+    'blog.article.frode-cassa-compensazione-avs-ticino.imageAlt': 'Panoramic view of Lake Lugano with the village of Gandria.',
 };
 
 export default blogMetaEn;

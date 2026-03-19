@@ -1349,6 +1349,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.consiglio-stati-soluzione-mista-13esima-avs.title': 'Le Conseil des États approuve la solution mixte pour la 13e AVS',
     'blog.article.consiglio-stati-soluzione-mista-13esima-avs.excerpt': 'La Chambre haute réaffirme la nécessité d\'une augmentation de la TVA et des contributions salariales pour financer la 13e mensualité de l\'AVS, estimant les coûts à 4,2 milliards en 2026.',
     'blog.article.consiglio-stati-soluzione-mista-13esima-avs.imageAlt': 'Vue panoramique de Locarno avec le Lac Majeur et le Monte Verità.',
+    'blog.article.frode-cassa-compensazione-avs-ticino.title': 'Une fraude de 2,7 millions à la caisse de compensation AVS : comment se protéger',
+    'blog.article.frode-cassa-compensazione-avs-ticino.excerpt': 'Plus de 80 faux bénéficiaires ont perçu indûment les indemnités pour perte de gain Covid. Le cas a été révélé par le quotidien « 24 heures » et le Ministère public mène une enquête.',
+    'blog.article.frode-cassa-compensazione-avs-ticino.imageAlt': 'Vue panoramique du lac de Lugano avec le village de Gandria.',
 };
 
 export default blogMetaFr;

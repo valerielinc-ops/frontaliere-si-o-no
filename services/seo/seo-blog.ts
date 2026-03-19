@@ -6171,6 +6171,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-frode-cassa-compensazione-avs-ticino': {
+    title: 'Frode da 2,7 milioni alla cassa di compensazione AVS: come | Frontaliere Ticino',
+    description: 'Scopri come la frode da 2,7 milioni di franchi alla cassa di compensazione AVS ha colpito il Canton Ticino e come tutelarti da frodi e abusi. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, frode, milioni, alla, cassa',
+    ogTitle: 'Frode da 2,7 milioni alla cassa di compensazione AVS: come',
+    ogDescription: 'La frode da 2,7 milioni di franchi alla cassa di compensazione AVS ha colpito il Canton Ticino. Scopri come tutelarti da frodi e abusi.',
+    canonicalPath: '/articoli-frontaliere/frode-cassa-compensazione-avs-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Frode da 2,7 milioni alla cassa di compensazione AVS: come tutelarsi",
+      "description": "Scopri come la frode da 2,7 milioni di franchi alla cassa di compensazione AVS ha colpito il Canton Ticino e come tutelarti da frodi e abusi. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/frode-cassa-compensazione-avs-ticino.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Vista panoramica del Lago di Lugano con il borgo di Gandria."
+      },
+      "datePublished": "2026-03-19T15:23:24+00:00",
+      "dateModified": "2026-03-19T15:23:24+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frode-cassa-compensazione-avs-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

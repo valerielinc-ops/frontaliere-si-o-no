@@ -1349,6 +1349,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.consiglio-stati-soluzione-mista-13esima-avs.title': 'Der Ständerat billigt die gemischte Lösung für die 13. AHV-Rente',
     'blog.article.consiglio-stati-soluzione-mista-13esima-avs.excerpt': 'Der Ständerat bekräftigt die Notwendigkeit einer Erhöhung der Mehrwertsteuer und der Lohnbeiträge zur Finanzierung der 13. AHV-Rente, wobei die Kosten auf 4,2 Milliarden Franken im Jahr 2026 geschätzt werden.',
     'blog.article.consiglio-stati-soluzione-mista-13esima-avs.imageAlt': 'Panoramablick auf Locarno mit dem Lago Maggiore und dem Monte Verità.',
+    'blog.article.frode-cassa-compensazione-avs-ticino.title': 'Betrug von 2,7 Millionen bei der Ausgleichskasse AVS: Wie kann man sich schützen?',
+    'blog.article.frode-cassa-compensazione-avs-ticino.excerpt': 'Über 80 falsche Empfänger haben unrechtmäßig die Entschädigungen für den Verdienstausfall Covid erhalten. Der Fall wurde von der Zeitung "24 heures" aufgedeckt und die Staatsanwaltschaft führt eine Untersuchung durch.',
+    'blog.article.frode-cassa-compensazione-avs-ticino.imageAlt': 'Panoramablick auf den Luganersee mit dem Dorf Gandria.',
 };
 
 export default blogMetaDe;
