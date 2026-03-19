@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-03-19T05:03:44.563Z",
+  "updatedAt": "2026-03-19T05:03:33.892Z",
   "summaries": [
     {
       "key": "galenica",
@@ -2491,40 +2491,6 @@
       ],
       "newJobs": [],
       "updatedJobs": [],
-      "removedJobs": [],
-      "unchangedJobs": []
-    },
-    {
-      "key": "fnz",
-      "label": "FNZ",
-      "generatedAt": "2026-03-18T16:25:22.571Z",
-      "total": 1,
-      "newCount": 0,
-      "updatedCount": 1,
-      "removedCount": 0,
-      "unchangedCount": 0,
-      "durationMs": 28785,
-      "avgDurationMs": 82503,
-      "durationHistory": [
-        28785,
-        35438,
-        32949,
-        108137,
-        95716,
-        181388,
-        92083,
-        85531
-      ],
-      "newJobs": [],
-      "updatedJobs": [
-        {
-          "title": "Solution Consultant CRM",
-          "company": "FNZ (Switzerland) AG",
-          "location": "Chiasso",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/solution-consultant-crm-fnz/",
-          "slug": "solution-consulente-crm-fnz-switzerland-ag-chiasso"
-        }
-      ],
       "removedJobs": [],
       "unchangedJobs": []
     },
@@ -9847,6 +9813,41 @@
           "location": "Lugano",
           "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/gestore-automazione-fincons-group-lugano/",
           "slug": "test-automation-manager-fincons-group-lugano-ticino-switzerland"
+        }
+      ],
+      "removedJobs": [],
+      "unchangedJobs": []
+    },
+    {
+      "key": "fnz",
+      "label": "FNZ",
+      "generatedAt": "2026-03-19T05:03:33.892Z",
+      "total": 1,
+      "newCount": 0,
+      "updatedCount": 1,
+      "removedCount": 0,
+      "unchangedCount": 0,
+      "durationMs": 27612,
+      "avgDurationMs": 76404,
+      "durationHistory": [
+        27612,
+        28785,
+        35438,
+        32949,
+        108137,
+        95716,
+        181388,
+        92083,
+        85531
+      ],
+      "newJobs": [],
+      "updatedJobs": [
+        {
+          "title": "Solution Consultant CRM",
+          "company": "FNZ (Switzerland) AG",
+          "location": "Chiasso",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/solution-consultant-crm-fnz/",
+          "slug": "consulente-soluzioni-crm-fnz-switzerland-ag-chiasso"
         }
       ],
       "removedJobs": [],
