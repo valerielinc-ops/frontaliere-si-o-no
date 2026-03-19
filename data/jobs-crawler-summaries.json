@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-03-19T16:00:47.379Z",
+  "updatedAt": "2026-03-19T16:01:53.259Z",
   "summaries": [
     {
       "key": "a-group",
@@ -4437,33 +4437,6 @@
         12445,
         12270,
         12465
-      ],
-      "newJobs": [],
-      "updatedJobs": [],
-      "removedJobs": [],
-      "unchangedJobs": []
-    },
-    {
-      "key": "alten-switzerland",
-      "label": "ALTEN Switzerland",
-      "generatedAt": "2026-03-19T04:52:52.635Z",
-      "total": 0,
-      "newCount": 0,
-      "updatedCount": 0,
-      "removedCount": 0,
-      "unchangedCount": 0,
-      "durationMs": 66092,
-      "avgDurationMs": 54428,
-      "durationHistory": [
-        66092,
-        7582,
-        14018,
-        65259,
-        66018,
-        72003,
-        66649,
-        66806,
-        65429
       ],
       "newJobs": [],
       "updatedJobs": [],
@@ -11946,6 +11919,34 @@
           ]
         }
       ]
+    },
+    {
+      "key": "alten-switzerland",
+      "label": "ALTEN Switzerland",
+      "generatedAt": "2026-03-19T16:01:53.259Z",
+      "total": 0,
+      "newCount": 0,
+      "updatedCount": 0,
+      "removedCount": 0,
+      "unchangedCount": 0,
+      "durationMs": 63983,
+      "avgDurationMs": 55384,
+      "durationHistory": [
+        63983,
+        66092,
+        7582,
+        14018,
+        65259,
+        66018,
+        72003,
+        66649,
+        66806,
+        65429
+      ],
+      "newJobs": [],
+      "updatedJobs": [],
+      "removedJobs": [],
+      "unchangedJobs": []
     }
   ]
 }
