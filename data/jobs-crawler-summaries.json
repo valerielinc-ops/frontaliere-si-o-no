@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-03-19T16:05:09.869Z",
+  "updatedAt": "2026-03-19T16:06:04.985Z",
   "summaries": [
     {
       "key": "a-group",
@@ -4604,42 +4604,6 @@
           "slug": "elektro-servicemonteur-in-80-100-derungs-ag-ilanz"
         }
       ]
-    },
-    {
-      "key": "cambiavalute-ch",
-      "label": "CambiaValute.ch",
-      "generatedAt": "2026-03-19T04:57:00.828Z",
-      "total": 1,
-      "newCount": 0,
-      "updatedCount": 1,
-      "removedCount": 0,
-      "unchangedCount": 0,
-      "durationMs": 32724,
-      "avgDurationMs": 111919,
-      "durationHistory": [
-        32724,
-        25466,
-        30406,
-        28367,
-        130982,
-        32071,
-        35185,
-        24543,
-        369203,
-        410239
-      ],
-      "newJobs": [],
-      "updatedJobs": [
-        {
-          "title": "Senior Backend developer",
-          "company": "CambiaValute.ch",
-          "location": "2025 CambiaValute",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/senior-backend-developer-cambiavalute-ch-2025-cambiavalute/",
-          "slug": "senior-backend-developer-cambiavalute-ch-2025-cambiavalute"
-        }
-      ],
-      "removedJobs": [],
-      "unchangedJobs": []
     },
     {
       "key": "caseificio-del-gottardo",
@@ -19922,6 +19886,151 @@
           "location": "Plan-les-Ouates",
           "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/continuous-improvement-manager-bracco-suisse/",
           "slug": "responsabile-miglioramento-continuo-bracco-suisse-s-a-plan-les-ouates"
+        }
+      ],
+      "removedJobs": [],
+      "unchangedJobs": []
+    },
+    {
+      "key": "cambiavalute",
+      "label": "Cambiavalute",
+      "generatedAt": "2026-03-19T16:06:04.645Z",
+      "total": 1,
+      "newCount": 0,
+      "updatedCount": 0,
+      "removedCount": 0,
+      "unchangedCount": 1,
+      "durationMs": 31585,
+      "avgDurationMs": 31585,
+      "durationHistory": [
+        31585
+      ],
+      "newJobs": [],
+      "updatedJobs": [],
+      "removedJobs": [],
+      "unchangedJobs": [
+        {
+          "id": "company-kbhp6",
+          "slug": "senior-backend-developer-cambiavalute-ch-2025-cambiavalute",
+          "company": "CambiaValute.ch",
+          "title": "Senior Backend developer",
+          "location": "2025 CambiaValute",
+          "canton": "TI",
+          "category": "tech",
+          "contract": "part-time",
+          "currency": "CHF",
+          "description": "## Descrizione\nSenior Backend Developer Descrizione completa della posizioneELP SA è una società di servizi finanziari con sede a Chiasso, parte integrante del gruppo ELP. Il candidato sarà inserito all’interno del progetto cambiavalute.ch e riporterà direttamente al product manager.\n\n## Mansioni\n- Progettare, sviluppare e mantenere API RESTfull in C#;\n- Gestire e ottimizzare database SQL (MS SQL);\n- Collaborare con il team per garantire un’integrazione fluida tra i sistemi;\n- Implementare strategie di scalabilità, sicurezza e performance per le applicazioni backend;\n- Scrivere codice pulito, documentato e testato.\n\n## Requisiti\n- 5+ anni di esperienza nello sviluppo backend;\n- Ottima conoscenza di C# e MS SQL;\n- Esperienza con framework backend;\n- Familiarità con ambienti cloud (preferibilmente Azure);\n- Capacità di lavorare in team e comunicare efficacemente, anche in lingua inglese;\n- Conoscenza del settore finanziario.\n- Una pregressa esperienza nel settore del trading online, bancario o criptovalute costituirà un titolo preferenziale.\n\n## Plus\n- Esperienza con microservizi e architetture serverless;\n- Conoscenza di strumenti di monitoraggio e logging;\n- Conoscenza di strumenti di testing.\n- Esperienza con CI/CD e automazione dei processi di sviluppo;\n- Familiarità con servizi FaaS e PaaS;\n\n## Tipologia di lavoro\n- Tempo pieno, contratto a tempo indeterminato.\n\n## Come candidarsi\n- Inviare il proprio CV in formato PDF all’indirizzo hr@elp-group.com.\n- 📌 Verranno prese in considerazione solo le candidature che soddisfano tutti i requisiti elencati sopra.\n\n## Perché sceglierci\n- CambiaValute.ch è lo specialista svizzero dei cambi online.\n- Cambia comodamente da casa risparmiando fino all’80% rispetto alle tariffe di banche ed uffici cambio contanti.\n- Verifica ora quanto puoi risparmiare come frontaliere, privato o azienda.\n- Registrati ora gratis.",
+          "requirements": [],
+          "featured": false,
+          "postedDate": "2026-03-17",
+          "url": "https://cambiavalute.ch/annuncio-di-lavoro/senior-backend-developer/",
+          "source": "Company Careers Crawler",
+          "_targetScope": {
+            "type": "adapter_seed_meta",
+            "location": "Chiasso",
+            "canton": "TI"
+          },
+          "companyKey": "cambiavalute",
+          "companyDomain": "cambiavalute.ch",
+          "crawledAt": "2026-03-17T04:53:12.364Z",
+          "titleByLocale": {
+            "en": "Senior Backend developer",
+            "fr": "Développeur Backend Senior",
+            "it": "Senior Backend developer",
+            "de": "Senior Backend developer"
+          },
+          "descriptionByLocale": {
+            "it": "## Descrizione Senior Backend Developer Descrizione completa della posizioneELP SA è una società di servizi finanziari con sede a Chiasso, parte integrante del gruppo ELP. Il candidato sarà inserito all’interno del progetto cambiavalute.ch e riporterà direttamente al product manager. ## Mansioni - Progettare, sviluppare e mantenere API RESTfull in C#; - Gestire e ottimizzare database SQL (MS SQL); - Collaborare con il team per garantire un’integrazione fluida tra i sistemi; - Implementare strategie di scalabilità, sicurezza e performance per le applicazioni backend; - Scrivere codice pulito, documentato e testato. ## Requisiti - 5+ anni di esperienza nello sviluppo backend; - Ottima conoscenza di C# e MS SQL; - Esperienza con framework backend; - Familiarità con ambienti cloud (preferibilmente Azure); - Capacità di lavorare in team e comunicare efficacemente, anche in lingua inglese; - Conoscenza del settore finanziario. - Una pregressa esperienza nel settore del trading online, bancario o criptovalute costituirà un titolo preferenziale. ## Plus - Esperienza con microservizi e architetture serverless; - Conoscenza di strumenti di monitoraggio e logging; - Conoscenza di strumenti di testing. - Esperienza con CI/CD e automazione dei processi di sviluppo; - Familiarità con servizi FaaS e PaaS; ## Tipologia di lavoro - Tempo pieno, contratto a tempo indeterminato. ## Come candidarsi - Inviare il proprio CV in formato PDF all’indirizzo hr@elp-group.com. - 📌 Verranno prese in considerazione solo le candidature che soddisfano tutti i requisiti elencati sopra. ## Perché sceglierci - CambiaValute.ch è lo specialista svizzero dei cambi online. - Cambia comodamente da casa risparmiando fino all’80% rispetto alle tariffe di banche ed uffici cambio contanti. - Verifica ora quanto puoi risparmiare come frontaliere, privato o azienda. - Registrati ora gratis.",
+            "en": "## Description Senior Backend Developer – Full job description ELP SA is a financial-services company based in Chiasso and an integral part of the ELP Group. The successful candidate will join the cambiavalute.ch project and report directly to the product manager. ## Responsibilities - Design, develop and maintain RESTful APIs in C#; - Manage and optimise SQL databases (MS SQL); - Collaborate with the team to ensure smooth system integration; - Implement scalability, security and performance strategies for backend applications; - Write clean, documented and tested code. ## Requirements - 5+ years of backend development experience; - Strong knowledge of C# and MS SQL; - Experience with backend frameworks; - Familiarity with cloud environments (preferably Azure); - Ability to work in a team and communicate effectively, including in English; - Knowledge of the financial sector. - Previous experience in online trading, banking or cryptocurrency is a plus. ## Nice to have - Experience with microservices and serverless architectures; - Knowledge of monitoring and logging tools; - Knowledge of testing tools; - Experience with CI/CD and development-process automation; - Familiarity with FaaS and PaaS services. ## Employment type - Full-time, permanent contract. ## How to apply - Send your CV in PDF format to hr@elp-group.com. - 📌 Only applications that meet all the above requirements will be considered. ## Why choose us - CambiaValute.ch is the Swiss specialist for online currency exchange. - Exchange conveniently from home and save up to 80 % compared with bank and cash-exchange-office rates. - Find out now how much you can save as a cross-border commuter, private individual or company. - Register now for free.",
+            "de": "## Beschreibung Senior Backend Developer – Vollständige Stellenbeschreibung Die ELP SA ist ein Finanzdienstleistungsunternehmen mit Sitz in Chiasso und integraler Bestandteil der ELP-Gruppe. Der Kandidat wird im Projekt cambiavalute.ch eingesetzt und berichtet direkt an den Product Manager. ## Aufgaben - Entwurf, Entwicklung und Wartung von RESTful-APIs in C#; - Verwaltung und Optimierung von SQL-Datenbanken (MS SQL); - Zusammenarbeit mit dem Team zur reibungslosen Systemintegration; - Implementierung von Skalierbarkeits-, Sicherheits- und Performance-Strategien für Backend-Anwendungen; - Schreiben von sauberem, dokumentiertem und getestetem Code. ## Anforderungen - 5+ Jahre Erfahrung in der Backend-Entwicklung; - Sehr gute Kenntnisse von C# und MS SQL; - Erfahrung mit Backend-Frameworks; - Vertrautheit mit Cloud-Umgebungen (vorzugsweise Azure); - Fähigkeit zur Teamarbeit und effektiver Kommunikation, auch auf Englisch; - Kenntnisse des Finanzsektors. - Frühere Erfahrung im Online-Trading, Banking oder mit Kryptowährungen ist von Vorteil. ## Pluspunkte - Erfahrung mit Microservices und serverlosen Architekturen; - Kenntnisse von Monitoring- und Logging-Tools; - Kenntnisse von Testing-Tools; - Erfahrung mit CI/CD und Automatisierung von Entwicklungsprozessen; - Vertrautheit mit FaaS- und PaaS-Diensten. ## Anstellungsart - Vollzeit, unbefristeter Vertrag. ## Bewerbung - Senden Sie Ihren Lebenslauf im PDF-Format an hr@elp-group.com. - 📌 Es werden nur Bewerbungen berücksichtigt, die alle oben genannten Anforderungen erfüllen. ## Warum wir? - CambiaValute.ch ist der Schweizer Spezialist für Online-Währungsumtausch. - Tausche bequem von zu Hause und spare bis zu 80 % gegenüber Banken und Wechselstuben. - Finde jetzt heraus, wie viel du als Grenzgänger, Privatperson oder Firma sparen kannst. - Jetzt kostenlos registrieren.",
+            "fr": "## Description Développeur Backend Senior – Description complète du poste ELP SA est une société de services financiers basée à Chiasso, partie intégrante du Groupe ELP. Le candidat sera intégré au projet cambiavalute.ch et rapportera directement au product manager. ## Tâches - Concevoir, développer et maintenir des API RESTful en C#; - Gérer et optimiser des bases de données SQL (MS SQL); - Collaborer avec l’équipe pour garantir une intégration fluide des systèmes; - Mettre en œuvre des stratégies de scalabilité, sécurité et performance pour les applications backend; - Écrire du code propre, documenté et testé. ## Exigences - 5+ ans d’expérience en développement backend; - Excellente connaissance de C# et MS SQL; - Expérience avec des frameworks backend; - Familiarité avec les environnements cloud (de préférence Azure); - Capacité à travailler en équipe et à communiquer efficacement, y compris en anglais; - Connaissance du secteur financier. - Une expérience antérieure dans le trading en ligne, la banque ou les cryptomonnaies est un atout. ## Atouts - Expérience avec les microservices et architectures serverless; - Connaissance des outils de monitoring et de logging; - Connaissance des outils de testing; - Expérience avec CI/CD et automatisation des processus de développement; - Familiarité avec les services FaaS et PaaS. ## Type d’emploi - Temps plein, contrat à durée indéterminée. ## Comment postuler - Envoyez votre CV au format PDF à l’adresse hr@elp-group.com. - 📌 Seules les candidatures répondant à toutes les exigences ci-dessus seront prises en compte. ## Pourquoi nous choisir - CambiaValute.ch est le spécialiste suisse du change en ligne. - Change confortablement depuis chez toi et économise jusqu’à 80 % par rapport aux tarifs des banques et bureaux de change. - Découvre dès maintenant combien tu peux économiser en tant que frontalier, particulier ou entreprise. - Inscris-toi gratuitement dès maintenant."
+          },
+          "requirementsByLocale": {
+            "en": [
+              "5+ years of backend development experience",
+              "Excellent knowledge of C# and MS SQL",
+              "Experience with backend frameworks",
+              "Familiarity with cloud environments (preferably Azure)",
+              "Ability to work in a team and communicate effectively, also in English",
+              "Knowledge of the financial sector",
+              "Previous experience in online trading, banking or cryptocurrency is preferred",
+              "5+ years of experience in backend development"
+            ],
+            "de": [
+              "5+ Jahre Erfahrung in der Backend-Entwicklung",
+              "Ausgezeichnete Kenntnisse in C# und MS SQL",
+              "Erfahrung mit Backend-Frameworks",
+              "Vertrautheit mit Cloud-Umgebungen (vorzugsweise Azure)",
+              "Fähigkeit, im Team zu arbeiten und effektiv zu kommunizieren, auch in Englisch",
+              "Kenntnisse des Finanzsektors",
+              "Frühere Erfahrung im Online-Handel, Banking oder Kryptowährungen ist von Vorteil",
+              "Ausgezeichnete Kenntnisse von C# und MS SQL"
+            ],
+            "fr": [
+              "5+ ans d'expérience en développement backend",
+              "Excellente connaissance de C# et MS SQL",
+              "Expérience avec des frameworks backend",
+              "Familiarité avec les environnements cloud (préférablement Azure)",
+              "Capacité à travailler en équipe et à communiquer efficacement, même en anglais",
+              "Connaissance du secteur financier",
+              "Expérience préalable dans le trading en ligne, le secteur bancaire ou les cryptomonnaies est préférée",
+              "5+ ans d'expérience dans le développement backend"
+            ]
+          },
+          "slugByLocale": {
+            "it": "senior-backend-developer-cambiavalute-ch-2025-cambiavalute",
+            "en": "senior-backend-developer-cambiavalute-ch-2025-cambiavalute",
+            "de": "senior-backend-entwickler-cambiavalute-ch-2025-cambiavalute",
+            "fr": "developpeur-backend-senior-cambiavalute-ch-2025-cambiavalute"
+          },
+          "country": "CH",
+          "sourceLang": "it",
+          "salaryMin": 94000,
+          "salaryMax": 127000,
+          "baseSalary": {
+            "@type": "MonetaryAmount",
+            "currency": "CHF",
+            "value": {
+              "@type": "QuantitativeValue",
+              "minValue": 94000,
+              "maxValue": 127000,
+              "unitText": "YEAR"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "cambiavalute-ch",
+      "label": "CambiaValute.ch",
+      "generatedAt": "2026-03-19T16:06:02.627Z",
+      "total": 1,
+      "newCount": 0,
+      "updatedCount": 1,
+      "removedCount": 0,
+      "unchangedCount": 0,
+      "durationMs": 29646,
+      "avgDurationMs": 73859,
+      "durationHistory": [
+        29646,
+        32724,
+        25466,
+        30406,
+        28367,
+        130982,
+        32071,
+        35185,
+        24543,
+        369203
+      ],
+      "newJobs": [],
+      "updatedJobs": [
+        {
+          "title": "Senior Backend developer",
+          "company": "CambiaValute.ch",
+          "location": "2025 CambiaValute",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/senior-backend-developer-cambiavalute-ch-2025-cambiavalute/",
+          "slug": "senior-backend-developer-cambiavalute-ch-2025-cambiavalute"
         }
       ],
       "removedJobs": [],
