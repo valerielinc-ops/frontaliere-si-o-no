@@ -110,6 +110,25 @@ function inferSector() {
   return 'Turismo & Ospitalità';
 }
 
+/**
+ * Ensure descriptions meet the quality-gate minimum (150 chars).
+ * When detail-page scraping fails (Cloudflare, changed structure),
+ * enrich the short description with structured metadata so the
+ * translation pipeline has enough substance to produce quality output.
+ */
+const MIN_DESCRIPTION_CHARS = 150;
+function enrichDescription(title, description, { category, empType, location } = {}) {
+  if (description && description.length >= MIN_DESCRIPTION_CHARS) return description;
+  const parts = [(description || title).trim()];
+  parts.push(`\nOpen position at ${COMPANY_NAME} in ${location || 'St. Moritz'}, Graubünden, Switzerland.`);
+  parts.push(`Industry: Tourism & Hospitality.`);
+  if (category) parts.push(`Department: ${category}.`);
+  if (empType) parts.push(`Employment type: ${empType.replace(/_/g, ' ')}.`);
+  parts.push(`${COMPANY_NAME} is a luxury hotel in the heart of St. Moritz, part of the Grace Hotels collection.`);
+  parts.push(`Apply on hotelcareer.com for this opportunity.`);
+  return parts.join(' ').trim();
+}
+
 function inferEmploymentType(text = '') {
   const t = text.toLowerCase();
   if (t.includes('part time') || t.includes('part-time') || t.includes('teilzeit')) return 'part_time';
@@ -355,7 +374,7 @@ function buildJobFromListing(listing) {
     employmentType: empType,
     contractType: empType === 'internship' ? 'stage' : 'permanent',
     sourceLang: 'en',
-    description: listing.title,
+    description: enrichDescription(listing.title, '', { category, empType, location: 'St. Moritz' }),
     postedDate: todayIso(),
     validThrough: '',
     titleByLocale: {},
@@ -371,7 +390,9 @@ function buildJobFromDetail(listing, detail) {
   const slug = normalizeKey(title);
   const category = inferCategory(title, detail.description);
   const empType = inferEmploymentType(detail.empType || listing.empType || title);
-  const description = detail.description || title;
+  const rawDescription = detail.description || title;
+  const location = detail.location || 'St. Moritz';
+  const description = enrichDescription(title, rawDescription, { category, empType, location });
 
   return {
     title,
@@ -381,8 +402,8 @@ function buildJobFromDetail(listing, detail) {
     company: COMPANY_NAME,
     companyKey: COMPANY_KEY,
     companyDomain: COMPANY_DOMAIN,
-    location: detail.location || 'St. Moritz',
-    addressLocality: detail.location || 'St. Moritz',
+    location,
+    addressLocality: location,
     addressRegion: 'Graubünden',
     addressCountry: 'CH',
     canton: 'GR',

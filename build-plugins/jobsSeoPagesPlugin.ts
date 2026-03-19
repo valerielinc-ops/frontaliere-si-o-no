@@ -2953,7 +2953,7 @@ ${hreflangLinks}
 
             const flatFile = np.join(distDir, oldPath.replace(/^\//, '') + '.html');
             fs.mkdirSync(np.dirname(flatFile), { recursive: true });
-            fs.writeFileSync(flatFile, bridgeHtml, 'utf-8');
+            fs.writeFileSync(flatFile, bridgeHtml.replace(SPA_ACTION_REDIRECT_SCRIPT, ''), 'utf-8');
             bridgeCount++;
           }
         }

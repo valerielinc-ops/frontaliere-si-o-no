@@ -931,6 +931,34 @@ export async function translateMissingJobLocales({ dataJobsPath, isTargetJob, ma
     Array.from({ length: Math.min(concurrency, limit || 1) }, () => worker())
   );
 
+  // Post-translation: re-derive Italian slugs that still contain foreign words.
+  // This catches cases where hardenJobLocaleFields ran before translations were available.
+  const GERMAN_SLUG_RE = /(?:^|-)(?:als|und|fur|oder|frau|mann|fach|stelle|lehrstelle|lehre|mitarbeiter|leiter|stellvertretend|verkauf|lernend|chauffeu|gartencenter|befristet|ablosen|disponentin|disponent|ladenleit|logistiker|projektleiter|elektroinstallateur|elektroplaner|unterhaltsfachmann|servicetechniker|immobilienberater|bauleiter|zeichner|fachrichtung|ingenieurbau|tunnelbau|tiefbau|innendienst|generalagentur|vorsorge|vermogen|wissenschaftlich|detailhandels|bekampfung|japankafer|lager)(?:-|$)/i;
+  const FRENCH_SLUG_RE = /(?:^|-)(?:apprentissage|gestionnaire|adjoint|auxiliaire|temporaire|vendeur|vendeuse|postes|vacants|gerante|gerant)(?:-|$)/i;
+  for (const job of candidates) {
+    const itSlug = String(job.slugByLocale?.it || '').trim();
+    if (itSlug.length <= 20) continue;
+    // Extract title portion of slug (strip company suffix)
+    const companySuffix = (job.company || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+    let titlePart = itSlug;
+    if (companySuffix.length >= 5) {
+      const idx = itSlug.indexOf(companySuffix.substring(0, Math.min(10, companySuffix.length)));
+      if (idx > 3) titlePart = itSlug.substring(0, idx).replace(/-+$/, '');
+    }
+    if (!GERMAN_SLUG_RE.test(titlePart) && !FRENCH_SLUG_RE.test(titlePart)) continue;
+
+    const itTitle = String(job.titleByLocale?.it || '').trim();
+    if (!itTitle) continue;
+    const company = String(job.company || '').trim();
+    const location = String(job.addressLocality || job.location || '').trim();
+    const parts = [itTitle, company, location].filter(Boolean).join('-');
+    const derived = parts.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '').slice(0, 120);
+    if (derived && derived !== itSlug) {
+      job.slugByLocale.it = derived;
+      changed = true;
+    }
+  }
+
   if (!changed) {
     return { changed: false, translated: 0, total: candidates.length, details: [] };
   }
