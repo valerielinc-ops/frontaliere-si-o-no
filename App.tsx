@@ -2593,25 +2593,20 @@ const App: React.FC = () => {
                         </Suspense>
                       </div>
                     </div>
-                    <div className="grid grid-cols-1 md:grid-cols-20 gap-2 items-stretch">
-                      <div className="md:col-span-13 h-full">
-                        <Suspense fallback={<SkeletonWeeklyFact />}><WeeklyFact /></Suspense>
-                      </div>
-                      <div className="md:col-span-7 h-full">
-                        <button
-                          onClick={() => { Analytics.trackSelectContent('job_board_cta', 'desktop'); navigateTo('job-board' as any); }}
-                          className="w-full h-full flex items-center gap-3 px-4 py-2.5 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 rounded-xl text-white transition-all hover:shadow-md hover:-translate-y-0.5 text-left"
-                        >
-                          <div className="p-1.5 bg-white/20 rounded-lg flex-shrink-0">
-                            <Briefcase size={16} className="text-white" />
-                          </div>
-                          <div className="min-w-0">
-                            <div className="text-sm font-bold leading-tight truncate">{t('jobBoard.homeCta.title')}</div>
-                            <div className="text-xs text-blue-100 line-clamp-1">{t('jobBoard.homeCta.desc')}</div>
-                          </div>
-                          <div className="ml-auto flex-shrink-0 text-xs font-semibold text-blue-100 whitespace-nowrap hidden lg:block">{t('jobBoard.homeCta.button')}</div>
-                        </button>
-                      </div>
+                    <div className="mt-2">
+                      <button
+                        onClick={() => { Analytics.trackSelectContent('job_board_cta', 'desktop'); navigateTo('job-board' as any); }}
+                        className="w-full flex items-center gap-3 px-4 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 rounded-xl text-white transition-all hover:shadow-md text-left"
+                      >
+                        <div className="p-1.5 bg-white/20 rounded-lg flex-shrink-0">
+                          <Briefcase size={16} className="text-white" />
+                        </div>
+                        <div className="min-w-0">
+                          <div className="text-sm font-bold leading-tight truncate">{t('jobBoard.homeCta.title')}</div>
+                          <div className="text-xs text-blue-100 line-clamp-1">{t('jobBoard.homeCta.desc')}</div>
+                        </div>
+                        <div className="ml-auto flex-shrink-0 text-xs font-semibold text-blue-100 whitespace-nowrap hidden lg:block">{t('jobBoard.homeCta.button')}</div>
+                      </button>
                     </div>
                   </div>
                 ) : (
@@ -2620,10 +2615,7 @@ const App: React.FC = () => {
                       <div className="md:col-span-13 h-full"><SkeletonNewsTicker /></div>
                       <div className="md:col-span-7 h-full"><div className="h-[34px] rounded-xl bg-slate-200 dark:bg-slate-700 animate-pulse" /></div>
                     </div>
-                    <div className="grid grid-cols-1 md:grid-cols-20 gap-2 items-stretch">
-                      <div className="md:col-span-13 h-full"><SkeletonWeeklyFact /></div>
-                      <div className="md:col-span-7 h-full"><div className="h-[34px] rounded-xl bg-slate-200 dark:bg-slate-700 animate-pulse" /></div>
-                    </div>
+                    <div className="mt-2"><div className="h-12 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 animate-pulse" /></div>
                   </div>
                 )}
                 {/* Mobile: Results-first bottom-sheet layout (Proposal D) */}
@@ -2717,6 +2709,11 @@ const App: React.FC = () => {
                 {result && (
                   <div className="mt-3">
                     <Suspense fallback={<div className="h-[34px]" />}><SocialProofBadge fullWidth /></Suspense>
+                  </div>
+                )}
+                {result && (
+                  <div className="mt-2 w-full">
+                    <Suspense fallback={<SkeletonWeeklyFact />}><WeeklyFact /></Suspense>
                   </div>
                 )}
                 </>

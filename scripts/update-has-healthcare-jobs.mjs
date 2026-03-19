@@ -28,7 +28,14 @@ import {
   computeCrawlDiff,
   printCrawlChangeSummary,
   writeCrawlChangeSummaryToGH,
+  setCrawlerStartTime,
+  getCrawlerElapsedMs,
 } from './jobs-url-helper.mjs';
+import {
+  writeJobsCrawlerSlice,
+  writeSummaryCrawlerSlice,
+  assembleJobsDataset,
+} from './assemble-jobs-dataset.mjs';
 import { validateJobUrls } from './lib/validate-job-url.mjs';
 import {
   runDedicatedBaseCrawler,
@@ -617,6 +624,7 @@ function validateLocales() {
 // ─────────────────────────────────────────────────────────────
 
 async function main() {
+  setCrawlerStartTime();
   console.log('═══════════════════════════════════════════════');
   console.log('  HAS Healthcare Advanced Synthesis — Dedicated Crawler');
   console.log('═══════════════════════════════════════════════');
@@ -676,6 +684,32 @@ async function main() {
   validateLocales();
 
   console.log('\n✅ HAS Healthcare crawler complete.');
+
+  // Write per-crawler slice and reassemble global dataset
+  const _durationMs = getCrawlerElapsedMs();
+  const _sliceRaw = fs.existsSync(DATA_JOBS)
+    ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'))
+    : [];
+  const _sliceJobs = Array.isArray(_sliceRaw) ? _sliceRaw.filter(isTargetJob) : [];
+  writeJobsCrawlerSlice(COMPANY_KEY, _sliceJobs);
+  writeSummaryCrawlerSlice({
+    key: COMPANY_KEY,
+    label: 'HAS Healthcare',
+    generatedAt: new Date().toISOString(),
+    total: _sliceJobs.length,
+    newCount: 0,
+    updatedCount: 0,
+    removedCount: 0,
+    unchangedCount: _sliceJobs.length,
+    durationMs: _durationMs,
+    avgDurationMs: _durationMs,
+    durationHistory: [_durationMs],
+    newJobs: [],
+    updatedJobs: [],
+    removedJobs: [],
+    unchangedJobs: _sliceJobs.slice(0, 30),
+  });
+  await assembleJobsDataset();
 }
 
 main().catch((err) => {

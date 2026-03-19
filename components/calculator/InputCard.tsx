@@ -448,7 +448,7 @@ export const InputCard: React.FC<Props> = ({ inputs, setInputs, onCalculate, foc
               </div>
 
               {/* Demographics Grid */}
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-2 gap-4 items-end">
                  <StepperInput inputId="input-age" label={t('input.age')} value={inputs.age} onChange={(v: number) => handleChange('age', v)} min={18} max={99} icon={User} iconColor="text-blue-500" tooltip={t('input.ageTooltip')} />
                  {/* Marital Status */}
                  <div className="space-y-1.5">
@@ -461,7 +461,7 @@ export const InputCard: React.FC<Props> = ({ inputs, setInputs, onCalculate, foc
                        id="maritalStatus"
                        value={inputs.maritalStatus} 
                        onChange={(e) => handleChange('maritalStatus', e.target.value)}
-                       className="w-full h-11 pl-3 pr-8 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl text-xs font-bold uppercase appearance-none outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/10 transition-all cursor-pointer text-slate-700 dark:text-slate-200"
+                       className="w-full h-12 pl-3 pr-8 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl text-xs font-bold uppercase appearance-none outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/10 transition-all cursor-pointer text-slate-700 dark:text-slate-200"
                      >
                        <option value="SINGLE">{t('input.single')}</option>
                        <option value="MARRIED">{t('input.married')}</option>

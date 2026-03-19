@@ -23,7 +23,14 @@ import {
   computeCrawlDiff,
   printCrawlChangeSummary,
   writeCrawlChangeSummaryToGH,
+  setCrawlerStartTime,
+  getCrawlerElapsedMs,
 } from './jobs-url-helper.mjs';
+import {
+  writeJobsCrawlerSlice,
+  writeSummaryCrawlerSlice,
+  assembleJobsDataset,
+} from './assemble-jobs-dataset.mjs';
 import {
   runDedicatedBaseCrawler,
   validateDedicatedLocaleCoverage,
@@ -599,6 +606,7 @@ function validateLidlLocaleCoverage() {
 }
 
 async function main() {
+  setCrawlerStartTime();
   console.log('🛒 Running dedicated Lidl Svizzera jobs crawler...');
   console.log('   Source: team.lidl.ch search_api/jobsearch');
   console.log('   Scope: Ticino + Grigioni italiano');
@@ -635,6 +643,32 @@ async function main() {
     return;
   }
   validateLidlLocaleCoverage();
+
+  // Write per-crawler slice and reassemble global dataset
+  const _durationMs = getCrawlerElapsedMs();
+  const _sliceRaw = fs.existsSync(DATA_JOBS)
+    ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'))
+    : [];
+  const _sliceJobs = Array.isArray(_sliceRaw) ? _sliceRaw.filter(isLidlJob) : [];
+  writeJobsCrawlerSlice(LIDL_KEY, _sliceJobs);
+  writeSummaryCrawlerSlice({
+    key: LIDL_KEY,
+    label: 'Lidl',
+    generatedAt: new Date().toISOString(),
+    total: _sliceJobs.length,
+    newCount: 0,
+    updatedCount: 0,
+    removedCount: 0,
+    unchangedCount: _sliceJobs.length,
+    durationMs: _durationMs,
+    avgDurationMs: _durationMs,
+    durationHistory: [_durationMs],
+    newJobs: [],
+    updatedJobs: [],
+    removedJobs: [],
+    unchangedJobs: _sliceJobs.slice(0, 30),
+  });
+  await assembleJobsDataset();
 }
 
 main().catch((err) => {

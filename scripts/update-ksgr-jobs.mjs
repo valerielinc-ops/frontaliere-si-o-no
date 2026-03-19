@@ -15,7 +15,14 @@ import {
   computeCrawlDiff,
   printCrawlChangeSummary,
   writeCrawlChangeSummaryToGH,
+  setCrawlerStartTime,
+  getCrawlerElapsedMs,
 } from './jobs-url-helper.mjs';
+import {
+  writeJobsCrawlerSlice,
+  writeSummaryCrawlerSlice,
+  assembleJobsDataset,
+} from './assemble-jobs-dataset.mjs';
 import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage } from './lib/dedicated-crawler-common.mjs';
 import { parseKsgrJobsPage } from './lib/ksgr-job-parser.mjs';
 
@@ -195,6 +202,7 @@ function postProcessKsgrJobs(discoveredJobs) {
 }
 
 async function main() {
+  setCrawlerStartTime();
   console.log('🏥 Running dedicated KSGR jobs crawler (Prospective API)...');
   const beforeJobs = readJson(DATA_JOBS, []);
   const beforeTargetJobs = Array.isArray(beforeJobs) ? beforeJobs.filter((job) => isKsgrJob(job)) : [];
@@ -241,6 +249,32 @@ async function main() {
   writeCrawlChangeSummaryToGH(diff, 'KSGR jobs');
 
   console.log(`✅ KSGR crawler complete. Remote job pages crawled: ${discoveredJobs.length}`);
+
+  // Write per-crawler slice and reassemble global dataset
+  const _durationMs = getCrawlerElapsedMs();
+  const _sliceRaw = fs.existsSync(DATA_JOBS)
+    ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'))
+    : [];
+  const _sliceJobs = Array.isArray(_sliceRaw) ? _sliceRaw.filter(isKsgrJob) : [];
+  writeJobsCrawlerSlice(KSGR_KEY, _sliceJobs);
+  writeSummaryCrawlerSlice({
+    key: KSGR_KEY,
+    label: 'KSGR',
+    generatedAt: new Date().toISOString(),
+    total: _sliceJobs.length,
+    newCount: 0,
+    updatedCount: 0,
+    removedCount: 0,
+    unchangedCount: _sliceJobs.length,
+    durationMs: _durationMs,
+    avgDurationMs: _durationMs,
+    durationHistory: [_durationMs],
+    newJobs: [],
+    updatedJobs: [],
+    removedJobs: [],
+    unchangedJobs: _sliceJobs.slice(0, 30),
+  });
+  await assembleJobsDataset();
 }
 
 main().catch((error) => {

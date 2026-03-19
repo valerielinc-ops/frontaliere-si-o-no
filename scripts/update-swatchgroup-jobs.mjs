@@ -6,7 +6,12 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { printPublishedJobUrls, writeJobsSummary, snapshotJobSlugs, computeCrawlDiff, printCrawlChangeSummary, writeCrawlChangeSummaryToGH } from './jobs-url-helper.mjs';
+import { printPublishedJobUrls, writeJobsSummary, snapshotJobSlugs, computeCrawlDiff, printCrawlChangeSummary, writeCrawlChangeSummaryToGH, setCrawlerStartTime, getCrawlerElapsedMs } from './jobs-url-helper.mjs';
+import {
+  writeJobsCrawlerSlice,
+  writeSummaryCrawlerSlice,
+  assembleJobsDataset,
+} from './assemble-jobs-dataset.mjs';
 import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage } from './lib/dedicated-crawler-common.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -142,6 +147,7 @@ function validateSwatchLocaleCoverage(companyKeys) {
 }
 
 async function main() {
+  setCrawlerStartTime();
   const companyKeys = loadSwatchCompanyKeys();
   if (companyKeys.length === 0) {
     console.log('ℹ️ Nessun adapter swatchgroup.com trovato. Niente da fare.');
@@ -169,6 +175,37 @@ async function main() {
   }
 
   validateSwatchLocaleCoverage(companyKeys);
+
+  // Write per-crawler slices for each Swatch sub-company and reassemble global dataset
+  const _durationMs = getCrawlerElapsedMs();
+  const _allJobsRaw = fs.existsSync(DATA_JOBS)
+    ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'))
+    : [];
+  const _allJobs = Array.isArray(_allJobsRaw) ? _allJobsRaw : [];
+  for (const ck of companyKeys) {
+    const _ckNorm = normalizeKey(ck);
+    const _ckJobs = _allJobs.filter((j) => normalizeKey(j?.companyKey || '') === _ckNorm);
+    if (_ckJobs.length === 0) continue;
+    writeJobsCrawlerSlice(ck, _ckJobs);
+    writeSummaryCrawlerSlice({
+      key: ck,
+      label: ck,
+      generatedAt: new Date().toISOString(),
+      total: _ckJobs.length,
+      newCount: 0,
+      updatedCount: 0,
+      removedCount: 0,
+      unchangedCount: _ckJobs.length,
+      durationMs: _durationMs,
+      avgDurationMs: _durationMs,
+      durationHistory: [_durationMs],
+      newJobs: [],
+      updatedJobs: [],
+      removedJobs: [],
+      unchangedJobs: _ckJobs.slice(0, 30),
+    });
+  }
+  await assembleJobsDataset();
 }
 
 main().catch((err) => {

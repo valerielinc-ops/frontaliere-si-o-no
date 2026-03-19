@@ -23,7 +23,14 @@ import {
   computeCrawlDiff,
   printCrawlChangeSummary,
   writeCrawlChangeSummaryToGH,
+  setCrawlerStartTime,
+  getCrawlerElapsedMs,
 } from './jobs-url-helper.mjs';
+import {
+  writeJobsCrawlerSlice,
+  writeSummaryCrawlerSlice,
+  assembleJobsDataset,
+} from './assemble-jobs-dataset.mjs';
 import {
   runDedicatedBaseCrawler,
   validateDedicatedLocaleCoverage,
@@ -542,6 +549,7 @@ function validateAbbLocaleCoverage() {
 }
 
 async function main() {
+  setCrawlerStartTime();
   console.log('⚡ Running dedicated ABB Svizzera jobs crawler...');
   console.log(`   Source: careers.abb search-results`);
   console.log(`   Keywords: ${ABB_SEARCH_KEYWORDS.join(', ')}`);
@@ -575,6 +583,32 @@ async function main() {
     return;
   }
   validateAbbLocaleCoverage();
+
+  // Write per-crawler slice and reassemble global dataset
+  const _durationMs = getCrawlerElapsedMs();
+  const _sliceRaw = fs.existsSync(DATA_JOBS)
+    ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'))
+    : [];
+  const _sliceJobs = Array.isArray(_sliceRaw) ? _sliceRaw.filter(isAbbJob) : [];
+  writeJobsCrawlerSlice(ABB_KEY, _sliceJobs);
+  writeSummaryCrawlerSlice({
+    key: ABB_KEY,
+    label: 'ABB',
+    generatedAt: new Date().toISOString(),
+    total: _sliceJobs.length,
+    newCount: 0,
+    updatedCount: 0,
+    removedCount: 0,
+    unchangedCount: _sliceJobs.length,
+    durationMs: _durationMs,
+    avgDurationMs: _durationMs,
+    durationHistory: [_durationMs],
+    newJobs: [],
+    updatedJobs: [],
+    removedJobs: [],
+    unchangedJobs: _sliceJobs.slice(0, 30),
+  });
+  await assembleJobsDataset();
 }
 
 main().catch((err) => {

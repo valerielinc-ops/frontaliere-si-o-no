@@ -29,7 +29,14 @@ import {
   computeCrawlDiff,
   printCrawlChangeSummary,
   writeCrawlChangeSummaryToGH,
+  setCrawlerStartTime,
+  getCrawlerElapsedMs,
 } from './jobs-url-helper.mjs';
+import {
+  writeJobsCrawlerSlice,
+  writeSummaryCrawlerSlice,
+  assembleJobsDataset,
+} from './assemble-jobs-dataset.mjs';
 import {
   runDedicatedBaseCrawler,
   validateDedicatedLocaleCoverage,
@@ -805,6 +812,7 @@ function validateLocales() {
 
 /* ── Main ──────────────────────────────────────────────────── */
 async function main() {
+  setCrawlerStartTime();
   console.log('═══════════════════════════════════════════════');
   console.log('  Città di Mendrisio — Dedicated Crawler');
   console.log('═══════════════════════════════════════════════');
@@ -860,6 +868,32 @@ async function main() {
   validateLocales();
 
   console.log('\n✅ Città di Mendrisio crawler complete.');
+
+  // Write per-crawler slice and reassemble global dataset
+  const _durationMs = getCrawlerElapsedMs();
+  const _sliceRaw = fs.existsSync(DATA_JOBS)
+    ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'))
+    : [];
+  const _sliceJobs = Array.isArray(_sliceRaw) ? _sliceRaw.filter(isMendrisioJob) : [];
+  writeJobsCrawlerSlice(MENDRISIO_KEY, _sliceJobs);
+  writeSummaryCrawlerSlice({
+    key: MENDRISIO_KEY,
+    label: 'Città di Mendrisio',
+    generatedAt: new Date().toISOString(),
+    total: _sliceJobs.length,
+    newCount: 0,
+    updatedCount: 0,
+    removedCount: 0,
+    unchangedCount: _sliceJobs.length,
+    durationMs: _durationMs,
+    avgDurationMs: _durationMs,
+    durationHistory: [_durationMs],
+    newJobs: [],
+    updatedJobs: [],
+    removedJobs: [],
+    unchangedJobs: _sliceJobs.slice(0, 30),
+  });
+  await assembleJobsDataset();
 }
 
 main().catch((err) => {
