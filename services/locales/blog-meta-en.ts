@@ -1358,6 +1358,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.deputazione-ticinese-italofoni-2024.title': 'The Ticino delegation: \'We discussed the representation of Italian speakers in the Federal Administration\'',
     'blog.article.deputazione-ticinese-italofoni-2024.excerpt': 'The Ticino delegation held a meeting with the human resources managers of a federal department to discuss the representation of Italian speakers.',
     'blog.article.deputazione-ticinese-italofoni-2024.imageAlt': 'A Ticinese delegation meets in Bern to discuss the representation of Italians in the Federal Administration.',
+    'blog.article.kebab-case-turismo-ticino.title': 'Tourism in Ticino: 2025 Was an Exceptional Year for Italy',
+    'blog.article.kebab-case-turismo-ticino.excerpt': 'The region recorded an increase in tourists compared to European competitors, with a positive outcome for the local economy.',
+    'blog.article.kebab-case-turismo-ticino.imageAlt': 'Person looking at Lake Lugano from a scenic viewpoint',
 };
 
 export default blogMetaEn;

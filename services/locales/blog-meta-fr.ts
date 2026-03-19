@@ -1358,6 +1358,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.deputazione-ticinese-italofoni-2024.title': 'La délégation tessinoise: «Nous avons discuté de la représentation des italophones dans l\'administration fédérale»',
     'blog.article.deputazione-ticinese-italofoni-2024.excerpt': 'La délégation tessinoise a tenu une réunion avec les responsables des ressources humaines d\'un département fédéral pour discuter de la représentation des italophones.',
     'blog.article.deputazione-ticinese-italofoni-2024.imageAlt': 'Une délégation du Tessin se rencontre à Berne pour discuter de la représentation des Italiens dans l\'administration fédérale.',
+    'blog.article.kebab-case-turismo-ticino.title': 'Tourisme en Tessin: L\'année 2025 a été exceptionnelle pour l\'Italie',
+    'blog.article.kebab-case-turismo-ticino.excerpt': 'La région a enregistré une augmentation du nombre de touristes par rapport à ses concurrents européens, avec un résultat positif pour l\'économie locale.',
+    'blog.article.kebab-case-turismo-ticino.imageAlt': 'Personne regardant le lac de Lugano d\'un point de vue panoramique',
 };
 
 export default blogMetaFr;

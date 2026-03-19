@@ -3744,6 +3744,13 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/deputazione-ticinese-italofoni-2024.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'kebab-case-turismo-ticino',
+    category: 'novita',
+    date: '2026-03-19T19:06:05.860Z',
+    image: '/images/blog/kebab-case-turismo-ticino.jpg',
+    hasCalculator: true,
+  },
 ];
 
 const CATEGORIES = ['all', 'fiscale', 'pratico', 'novita', 'pensione'] as const;

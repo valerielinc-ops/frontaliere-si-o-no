@@ -1358,6 +1358,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.deputazione-ticinese-italofoni-2024.title': 'Die Tessiner Delegation: «Wir haben über die italienischsprachigen Angehörigen der Bundesverwaltung diskutiert»',
     'blog.article.deputazione-ticinese-italofoni-2024.excerpt': 'Die tessiner Delegation hat ein Treffen mit den Personalverantwortlichen eines Eidgenössischen Departements abgehalten, um über die Vertretung der italienischsprachigen Angehörigen zu diskutieren.',
     'blog.article.deputazione-ticinese-italofoni-2024.imageAlt': 'Eine Ticinese-Delegation trifft sich in Bern, um die Vertretung der Italiener in der Bundesverwaltung zu diskutieren.',
+    'blog.article.kebab-case-turismo-ticino.title': 'Tourismus in Tessin: 2025 war ein außergewöhnliches Jahr für Italien',
+    'blog.article.kebab-case-turismo-ticino.excerpt': 'Die Region hat einen Anstieg der Touristen gegenüber den europäischen Konkurrenten verzeichnet, mit einem positiven Ergebnis für die lokale Wirtschaft.',
+    'blog.article.kebab-case-turismo-ticino.imageAlt': 'Person, die auf dem Luganer See vom Standpunkt eines Panoramablickes',
 };
 
 export default blogMetaDe;

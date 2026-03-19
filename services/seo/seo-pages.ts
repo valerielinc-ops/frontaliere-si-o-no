@@ -3030,7 +3030,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
         "@context": "https://schema.org",
         "@type": "ItemList",
         "name": "Articoli Frontaliere",
-        "numberOfItems": 443,
+        "numberOfItems": 444,
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
           { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -3474,7 +3474,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 440, "name": "Il Consiglio degli Stati approva la soluzione m...", "url": `${BASE_URL}/articoli-frontaliere/consiglio-stati-soluzione-mista-13esima-avs` },
           { "@type": "ListItem", "position": 441, "name": "Frode da 2,7 milioni alla cassa di compensazion...", "url": `${BASE_URL}/articoli-frontaliere/frode-cassa-compensazione-avs-ticino` },
           { "@type": "ListItem", "position": 442, "name": "Sette cantieri e 66 lavoratori controllati dall...", "url": `${BASE_URL}/articoli-frontaliere/sette-cantieri-mendrisio-kebab-case` },
-          { "@type": "ListItem", "position": 443, "name": "La deputazione ticinese: «Abbiamo discusso degl...", "url": `${BASE_URL}/articoli-frontaliere/deputazione-ticinese-italofoni-2024` }
+          { "@type": "ListItem", "position": 443, "name": "La deputazione ticinese: «Abbiamo discusso degl...", "url": `${BASE_URL}/articoli-frontaliere/deputazione-ticinese-italofoni-2024` },
+          { "@type": "ListItem", "position": 444, "name": "Turismo in Ticino: Il 2025 è stato un anno ecce...", "url": `${BASE_URL}/articoli-frontaliere/kebab-case-turismo-ticino` }
         ]
       }
     ]

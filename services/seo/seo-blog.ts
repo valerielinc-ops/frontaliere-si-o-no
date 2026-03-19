@@ -6258,6 +6258,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-kebab-case-turismo-ticino': {
+    title: 'Turismo in Ticino: Il 2025 è stato un anno eccezionale per | Frontaliere Ticino',
+    description: 'La regione ha registrato un aumento dei turisti rispetto ai competitor europei, con un esito positivo per l\'economia locale. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, turismo, 2025, stato, anno',
+    ogTitle: 'Turismo in Ticino: Il 2025 è stato un anno eccezionale per',
+    ogDescription: 'La regione ha registrato un aumento dei turisti rispetto ai competitor europei, con un esito positivo per l\'economia locale.',
+    canonicalPath: '/articoli-frontaliere/kebab-case-turismo-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Turismo in Ticino: Il 2025 è stato un anno eccezionale per l'Italia",
+      "description": "La regione ha registrato un aumento dei turisti rispetto ai competitor europei, con un esito positivo per l'economia locale. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/kebab-case-turismo-ticino.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Persona che guarda il lago Lugano da un punto di vista panoramico"
+      },
+      "datePublished": "2026-03-19T19:06:05+00:00",
+      "dateModified": "2026-03-19T19:06:05+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/kebab-case-turismo-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

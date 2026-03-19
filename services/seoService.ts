@@ -1586,6 +1586,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-frode-cassa-compensazione-avs-ticino': { name: 'Frode AVS', path: '/articoli-frontaliere/frode-cassa-compensazione-avs-ticino', parent: 'blog' },
     'blog-sette-cantieri-mendrisio-kebab-case': { name: 'Mendrisio, Polizia Cantonale, controllo', path: '/articoli-frontaliere/sette-cantieri-mendrisio-kebab-case', parent: 'blog' },
     'blog-deputazione-ticinese-italofoni-2024': { name: 'La deputazione ticinese', path: '/articoli-frontaliere/deputazione-ticinese-italofoni-2024', parent: 'blog' },
+    'blog-kebab-case-turismo-ticino': { name: 'Turismo in Ticino', path: '/articoli-frontaliere/kebab-case-turismo-ticino', parent: 'blog' },
   };
 
   const info = sectionNames[section];

@@ -1358,6 +1358,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.deputazione-ticinese-italofoni-2024.title': 'La deputazione ticinese: «Abbiamo discusso degli italofoni nell\'Amministrazione federale»',
     'blog.article.deputazione-ticinese-italofoni-2024.excerpt': 'La deputazione ticinese ha tenuto un incontro con i responsabili delle risorse umane di un Dipartimento federale per discutere la rappresentanza degli italofoni.',
     'blog.article.deputazione-ticinese-italofoni-2024.imageAlt': 'Una delegazione ticinese si incontra a Berna per discutere la rappresentanza degli italofoni nell\'Amministrazione federale.',
+    'blog.article.kebab-case-turismo-ticino.title': 'Turismo in Ticino: Il 2025 è stato un anno eccezionale per l\'Italia',
+    'blog.article.kebab-case-turismo-ticino.excerpt': 'La regione ha registrato un aumento dei turisti rispetto ai competitor europei, con un esito positivo per l\'economia locale.',
+    'blog.article.kebab-case-turismo-ticino.imageAlt': 'Persona che guarda il lago Lugano da un punto di vista panoramico',
 };
 
 export default blogMetaIt;
