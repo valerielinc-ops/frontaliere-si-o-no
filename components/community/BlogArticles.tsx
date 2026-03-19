@@ -3660,6 +3660,13 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/spazi-verdi-in-citta-rilassamento.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'camedo-buffet-eventi-ticino',
+    category: 'novita',
+    date: '2026-03-19T06:08:27.867Z',
+    image: '/images/blog/camedo-buffet-eventi-ticino.jpg',
+    hasCalculator: true,
+  },
 ];
 
 const CATEGORIES = ['all', 'fiscale', 'pratico', 'novita', 'pensione'] as const;

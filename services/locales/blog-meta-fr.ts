@@ -1322,6 +1322,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.spazi-verdi-in-citta-rilassamento.title': 'Espaces verts en ville : une bouée de sauvetage pour notre relaxation',
     'blog.article.spazi-verdi-in-citta-rilassamento.excerpt': 'La présence d\'espaces verts dans les zones urbaines peut aider à réduire le stress et à améliorer la qualité de vie. Découvrez comment.',
     'blog.article.spazi-verdi-in-citta-rilassamento.imageAlt': 'Parc public à Lugano',
+    'blog.article.camedo-buffet-eventi-ticino.title': 'Camedo, le buffet prêt à devenir l\'endroit idéal pour des événements',
+    'blog.article.camedo-buffet-eventi-ticino.excerpt': 'L\'ancien bâtiment des FART à Camedo sera transformé en un lieu dédié à la promotion du territoire. La transformation sera achevée à la fin du printemps.',
+    'blog.article.camedo-buffet-eventi-ticino.imageAlt': 'Buffet de Camedo, Tessin, prêt à accueillir des événements',
 };
 
 export default blogMetaFr;

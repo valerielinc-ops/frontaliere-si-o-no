@@ -5910,6 +5910,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-camedo-buffet-eventi-ticino': {
+    title: 'Camedo, il buffet pronto a diventare la location perfetta | Frontaliere Ticino',
+    description: 'Il vecchio edificio delle Fart a Camedo sarà trasformato in una sede di promozione del territorio. La trasformazione sarà ultimata a fine primavera.',
+    keywords: 'frontalieri, ticino, svizzera, italia, camedo, buffet, pronto, diventare',
+    ogTitle: 'Camedo, il buffet pronto a diventare la location perfetta',
+    ogDescription: 'Il vecchio edificio delle Fart a Camedo sarà trasformato in una sede di promozione del territorio. La trasformazione sarà ultimata a fine primavera.',
+    canonicalPath: '/articoli-frontaliere/camedo-buffet-eventi-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Camedo, quel buffet pronto a diventare la location perfetta per eventi",
+      "description": "Il vecchio edificio delle Fart a Camedo sarà trasformato in una sede di promozione del territorio. La trasformazione sarà ultimata a fine primavera.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/camedo-buffet-eventi-ticino.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Buffet di Camedo, Ticino, pronto ad ospitare eventi"
+      },
+      "datePublished": "2026-03-19T06:08:27+00:00",
+      "dateModified": "2026-03-19T06:08:27+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/camedo-buffet-eventi-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

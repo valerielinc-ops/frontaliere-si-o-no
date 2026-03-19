@@ -1322,6 +1322,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.spazi-verdi-in-citta-rilassamento.title': 'Green spaces in cities: a lifeline for our relaxation',
     'blog.article.spazi-verdi-in-citta-rilassamento.excerpt': 'The presence of green spaces in urban areas can help reduce stress and improve quality of life. Discover how.',
     'blog.article.spazi-verdi-in-citta-rilassamento.imageAlt': 'Public park in Lugano',
+    'blog.article.camedo-buffet-eventi-ticino.title': 'Camedo, the buffet ready to become the perfect event location',
+    'blog.article.camedo-buffet-eventi-ticino.excerpt': 'The old FART building in Camedo will be transformed into a hub for regional promotion. The renovation will be completed by late spring.',
+    'blog.article.camedo-buffet-eventi-ticino.imageAlt': 'Camedo buffet, Ticino, ready to host events',
 };
 
 export default blogMetaEn;

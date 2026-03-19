@@ -1322,6 +1322,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.spazi-verdi-in-citta-rilassamento.title': 'Grüne Räume in der Stadt: ein Rettungsanker für unsere Entspannung',
     'blog.article.spazi-verdi-in-citta-rilassamento.excerpt': 'Die Anwesenheit von grünen Räumen in städtischen Gebieten kann dazu beitragen, Stress zu reduzieren und die Lebensqualität zu verbessern. Erfahren Sie, wie.',
     'blog.article.spazi-verdi-in-citta-rilassamento.imageAlt': 'Öffentlicher Park in Lugano',
+    'blog.article.camedo-buffet-eventi-ticino.title': 'Camedo: Das Buffet wird zur perfekten Location für Events',
+    'blog.article.camedo-buffet-eventi-ticino.excerpt': 'Das alte FART-Gebäude in Camedo wird in eine Einrichtung zur Förderung der Region umgewandelt. Die Umgestaltung soll bis Ende Frühling abgeschlossen sein.',
+    'blog.article.camedo-buffet-eventi-ticino.imageAlt': 'Camedo Buffet, Tessin, bereit für Veranstaltungen',
 };
 
 export default blogMetaDe;
