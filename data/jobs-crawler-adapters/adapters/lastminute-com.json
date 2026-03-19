@@ -10,6 +10,7 @@
     "jsonld"
   ],
   "seedUrls": [
+    "https://corporate.lastminute.com/careers/jobs/job?id=744000115616338&jobName=Senior+Frontend+Software+Engineer",
     "https://corporate.lastminute.com/careers/jobs/job?id=744000113718427&jobName=Principal+Product+Researcher",
     "https://corporate.lastminute.com/careers/jobs/job?id=744000113487537&jobName=Global+Payroll",
     "https://corporate.lastminute.com/careers/jobs/job?id=744000111059566&jobName=Head+of+Data+Platform+Engineering",
@@ -17,8 +18,15 @@
     "https://corporate.lastminute.com/careers/jobs/job?id=744000108434226&jobName=Microsoft+Business+Central+Specialist"
   ],
   "notes": "Dedicated lastminute.com crawler seeds from Chiasso listing pages and canonicalizes detail URLs under corporate.lastminute.com/careers/jobs/job?id=...",
-  "updatedAt": "2026-03-19T05:09:26.066Z",
+  "updatedAt": "2026-03-19T16:18:43.278Z",
   "seedMetaByUrl": {
+    "https://corporate.lastminute.com/careers/jobs/job?id=744000115616338&jobName=Senior+Frontend+Software+Engineer": {
+      "location": "Chiasso",
+      "canton": "TI",
+      "country": "CH",
+      "company": "lastminute.com",
+      "companyDomain": "lastminute.com"
+    },
     "https://corporate.lastminute.com/careers/jobs/job?id=744000113718427&jobName=Principal+Product+Researcher": {
       "location": "Chiasso",
       "canton": "TI",
