@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-03-19T05:08:38.191Z",
+  "generatedAt": "2026-03-19T05:09:02.628Z",
   "links": {
     "allJobs": "https://www.frontaliereticino.ch/cerca-lavoro-ticino"
   },
   "totals": {
-    "activeJobs": 1613,
-    "activeCompanies": 130,
+    "activeJobs": 874,
+    "activeCompanies": 129,
     "activeLocations": 145,
     "todayAdded": 947,
     "todayUpdated": 0,
@@ -54,6 +54,13 @@
       "date": "2026-03-19",
       "totalJobs": 1613,
       "added": 947,
+      "updated": 0,
+      "removed": 0
+    },
+    {
+      "date": "2026-03-19",
+      "totalJobs": 874,
+      "added": 927,
       "updated": 0,
       "removed": 0
     }
@@ -161,6 +168,24 @@
         "name": "Grace La Margna St. Moritz",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-grace-la-margna-st-moritz",
         "count": 46
+      },
+      {
+        "key": "vf-international-the-north-face-timberland",
+        "name": "VF International (The North Face, Timberland)",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-vf-international-the-north-face-timberland",
+        "count": 26
+      },
+      {
+        "key": "convit-holding-gmbh",
+        "name": "Convit Holding GmbH",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-convit-holding-gmbh",
+        "count": 23
+      },
+      {
+        "key": "relewant",
+        "name": "ReleWant",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-relewant",
+        "count": 19
       }
     ],
     "topLocationsActive": [
@@ -253,6 +278,24 @@
         "name": "Martigny",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-martigny",
         "count": 52
+      },
+      {
+        "key": "lugano",
+        "name": "Lugano",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-lugano",
+        "count": 120
+      },
+      {
+        "key": "ticino",
+        "name": "Ticino",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-ticino",
+        "count": 28
+      },
+      {
+        "key": "emea-che-stabio-vf-campus-vf1",
+        "name": "EMEA · CHE · Stabio · VF Campus VF1",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-emea-che-stabio-vf-campus-vf1",
+        "count": 24
       }
     ],
     "topCompaniesAddedToday": [
@@ -554,11 +597,11 @@
   },
   "salary": {
     "coverage": {
-      "jobsWithSalary": 1613,
+      "jobsWithSalary": 874,
       "coveragePct": 100,
-      "avgMin": 68022,
-      "avgMax": 91568,
-      "avgMid": 79795,
+      "avgMin": 67049,
+      "avgMax": 90442,
+      "avgMid": 78745,
       "medianMid": 68500
     },
     "leaders": {
@@ -794,6 +837,36 @@
           "avgMax": 104500,
           "avgMid": 91000,
           "weightedSalary": 91000
+        },
+        {
+          "key": "zurich",
+          "name": "Zürich",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-zurich",
+          "count": 4,
+          "avgMin": 81125,
+          "avgMax": 109625,
+          "avgMid": 95375,
+          "weightedSalary": 92525
+        },
+        {
+          "key": "castel-san-pietro",
+          "name": "Castel San Pietro",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-castel-san-pietro",
+          "count": 7,
+          "avgMin": 76643,
+          "avgMax": 103500,
+          "avgMid": 90071,
+          "weightedSalary": 90071
+        },
+        {
+          "key": "manno",
+          "name": "Manno",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-manno",
+          "count": 3,
+          "avgMin": 79000,
+          "avgMax": 106667,
+          "avgMid": 92833,
+          "weightedSalary": 87300
         }
       ],
       "topSalaryTitles": [

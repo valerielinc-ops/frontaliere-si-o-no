@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-03-19T05:08:19.037Z",
+  "updatedAt": "2026-03-19T05:08:58.455Z",
   "summaries": [
     {
       "key": "galenica",
@@ -2464,47 +2464,6 @@
           "slug": "responsabile-dell-assistenza-clienti-delvitech-sa-mendrisio"
         }
       ],
-      "unchangedJobs": []
-    },
-    {
-      "key": "ist",
-      "label": "IST",
-      "generatedAt": "2026-03-18T16:29:26.025Z",
-      "total": 2,
-      "newCount": 0,
-      "updatedCount": 2,
-      "removedCount": 0,
-      "unchangedCount": 0,
-      "durationMs": 17005,
-      "avgDurationMs": 33579,
-      "durationHistory": [
-        17005,
-        14655,
-        14404,
-        14693,
-        13199,
-        83608,
-        15145,
-        95926
-      ],
-      "newJobs": [],
-      "updatedJobs": [
-        {
-          "title": "Expression of Interest - International School of Ticino",
-          "company": "International School of Ticino",
-          "location": "Lugano",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/expression-of-interest-international-school-of-ticino-ist/",
-          "slug": "manifestazione-di-interesse-scuola-internazionale-del-ticino-international-school-of-ticino-lugano"
-        },
-        {
-          "title": "History Teacher",
-          "company": "International School of Ticino",
-          "location": "Lugano",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/history-teacher-ist/",
-          "slug": "history-teacher-international-school-of-ticino-lugano"
-        }
-      ],
-      "removedJobs": [],
       "unchangedJobs": []
     },
     {
@@ -9857,6 +9816,48 @@
         }
       ],
       "updatedJobs": [],
+      "removedJobs": [],
+      "unchangedJobs": []
+    },
+    {
+      "key": "ist",
+      "label": "IST",
+      "generatedAt": "2026-03-19T05:08:58.455Z",
+      "total": 2,
+      "newCount": 0,
+      "updatedCount": 2,
+      "removedCount": 0,
+      "unchangedCount": 0,
+      "durationMs": 98067,
+      "avgDurationMs": 40745,
+      "durationHistory": [
+        98067,
+        17005,
+        14655,
+        14404,
+        14693,
+        13199,
+        83608,
+        15145,
+        95926
+      ],
+      "newJobs": [],
+      "updatedJobs": [
+        {
+          "title": "Expression of Interest - International School of Ticino",
+          "company": "International School of Ticino",
+          "location": "Lugano",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/expression-of-interest-international-school-of-ticino-ist/",
+          "slug": "manifestazione-di-interesse-scuola-internazionale-del-ticino-international-school-of-ticino-lugano"
+        },
+        {
+          "title": "History Teacher",
+          "company": "International School of Ticino",
+          "location": "Lugano",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/history-teacher-ist/",
+          "slug": "history-teacher-international-school-of-ticino-lugano"
+        }
+      ],
       "removedJobs": [],
       "unchangedJobs": []
     }
