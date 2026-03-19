@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-03-19T16:14:57.415Z",
+  "generatedAt": "2026-03-19T16:15:27.452Z",
   "links": {
     "allJobs": "https://www.frontaliereticino.ch/cerca-lavoro-ticino"
   },
   "totals": {
-    "activeJobs": 1304,
-    "activeCompanies": 130,
-    "activeLocations": 172,
+    "activeJobs": 908,
+    "activeCompanies": 129,
+    "activeLocations": 158,
     "todayAdded": 1006,
     "todayUpdated": 0,
     "todayRemoved": 0,
@@ -147,6 +147,18 @@
         "name": "Blancpain Ltd",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-blancpain-ltd",
         "count": 42
+      },
+      {
+        "key": "eoc-ente-ospedaliero-cantonale",
+        "name": "EOC – Ente Ospedaliero Cantonale",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-eoc-ente-ospedaliero-cantonale",
+        "count": 201
+      },
+      {
+        "key": "coop",
+        "name": "Coop",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-coop",
+        "count": 31
       }
     ],
     "topLocationsActive": [
@@ -227,6 +239,24 @@
         "name": "Lugano",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-lugano",
         "count": 131
+      },
+      {
+        "key": "lugano",
+        "name": "Lugano",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-lugano",
+        "count": 131
+      },
+      {
+        "key": "grigioni",
+        "name": "Grigioni",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-grigioni",
+        "count": 40
+      },
+      {
+        "key": "novaggio",
+        "name": "Novaggio",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-novaggio",
+        "count": 26
       }
     ],
     "topCompaniesAddedToday": [
@@ -654,11 +684,11 @@
   },
   "salary": {
     "coverage": {
-      "jobsWithSalary": 1304,
+      "jobsWithSalary": 908,
       "coveragePct": 100,
-      "avgMin": 65027,
-      "avgMax": 87436,
-      "avgMid": 76231,
+      "avgMin": 67279,
+      "avgMax": 90746,
+      "avgMid": 79013,
       "medianMid": 68500
     },
     "leaders": {
@@ -858,16 +888,6 @@
           "weightedSalary": 112800
         },
         {
-          "key": "responsabile-compliance-senior",
-          "name": "Responsabile Compliance Senior",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-responsabile-compliance-senior",
-          "count": 1,
-          "avgMin": 109000,
-          "avgMax": 147000,
-          "avgMid": 128000,
-          "weightedSalary": 112800
-        },
-        {
           "key": "responsabile-contabile-sostituzione-maternita",
           "name": "Responsabile contabile (sostituzione maternità)",
           "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-responsabile-contabile-sostituzione-maternita",
@@ -901,6 +921,16 @@
           "key": "responsabile-di-filiale-schaffhausen",
           "name": "Responsabile di Filiale Schaffhausen",
           "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-responsabile-di-filiale-schaffhausen",
+          "count": 1,
+          "avgMin": 109000,
+          "avgMax": 147000,
+          "avgMid": 128000,
+          "weightedSalary": 112800
+        },
+        {
+          "key": "responsabile-di-reparto-nonfood",
+          "name": "Responsabile di reparto Nonfood",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-responsabile-di-reparto-nonfood",
           "count": 1,
           "avgMin": 109000,
           "avgMax": 147000,

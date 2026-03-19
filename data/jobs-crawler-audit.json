@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-03-19T16:13:41.510Z",
-  "startedAt": "2026-03-19T16:12:46.397Z",
+  "generatedAt": "2026-03-19T16:15:21.979Z",
+  "startedAt": "2026-03-19T16:08:15.168Z",
   "config": {
     "minQualityScore": 4,
     "minDescriptionChars": 80,
@@ -24,10 +24,10 @@
     "companiesParsed": 179,
     "companiesSelected": 1,
     "companiesDroppedBySelection": 0,
-    "companiesCrawled": 1,
-    "discoveredCareerPages": 8,
-    "scrapedJobPages": 3,
-    "incomingCandidatesAccepted": 3,
+    "companiesCrawled": 0,
+    "discoveredCareerPages": 0,
+    "scrapedJobPages": 0,
+    "incomingCandidatesAccepted": 0,
     "discardedCandidates": 0,
     "filteredOutNonCandidates": 1,
     "duplicateInCompany": 0,
@@ -36,26 +36,26 @@
     "browserFallbackAttempts": 0,
     "browserFallbackHits": 0,
     "duplicateIncoming": 0,
-    "duplicateExisting": 192,
+    "duplicateExisting": 174,
     "mergeExcludedJobs": 1,
     "mergeExclusionByReason": {
       "location_explicitly_foreign": 1,
-      "not_ticino_relevant": 8,
-      "explicitly_outside_target": 4,
+      "not_ticino_relevant": 1,
+      "explicitly_outside_target": 1,
       "outside_swiss_ticino": 4
     },
     "reusedLocalizationFromPrevious": 0,
     "inserted": 0,
-    "refreshed": 3,
-    "mergedTotal": 910,
-    "aiLocalizationCalls": 3,
+    "refreshed": 0,
+    "mergedTotal": 908,
+    "aiLocalizationCalls": 7,
     "aiPageValidationCalls": 1,
-    "deeplCalls": 4,
+    "deeplCalls": 3,
     "deeplSuccess": 0,
     "deeplFallbackToLlm": 3,
-    "aiCacheHits": 2,
-    "aiCacheMisses": 4,
-    "aiCacheEntries": 1494,
+    "aiCacheHits": 0,
+    "aiCacheMisses": 17,
+    "aiCacheEntries": 1507,
     "discoveredCompaniesCandidates": 0,
     "discoveredCompaniesAdded": 0,
     "discoveredCompaniesPending": 0
@@ -150,6 +150,13 @@
       "company": "FNZ (Switzerland) AG",
       "location": "Geneva",
       "url": "https://fnz.wd3.myworkdayjobs.com/en/fnz_careers/job/Geneva---Switzerland/Pre-Sales_REQ-16394"
+    },
+    {
+      "reason": "not_ticino_relevant",
+      "title": "Customer Advisor 40%",
+      "company": "Cornèr Banca",
+      "location": "Wallisellen",
+      "url": "https://jobs.corner.ch/o/customer-advisor-evening-and-weekend-40"
     }
   ]
 }
