@@ -1,22 +1,22 @@
 {
-  "generatedAt": "2026-03-19T05:00:14.844Z",
+  "generatedAt": "2026-03-19T05:00:18.792Z",
   "links": {
     "allJobs": "https://www.frontaliereticino.ch/cerca-lavoro-ticino"
   },
   "totals": {
-    "activeJobs": 1275,
+    "activeJobs": 1087,
     "activeCompanies": 127,
-    "activeLocations": 163,
-    "todayAdded": 912,
+    "activeLocations": 167,
+    "todayAdded": 919,
     "todayUpdated": 0,
     "todayRemoved": 0,
     "last7d": {
-      "added": 3186,
+      "added": 3193,
       "updated": 0,
       "removed": 0
     },
     "last30d": {
-      "added": 3669,
+      "added": 3676,
       "updated": 0,
       "removed": 0
     }
@@ -47,6 +47,13 @@
       "date": "2026-03-19",
       "totalJobs": 1275,
       "added": 912,
+      "updated": 0,
+      "removed": 0
+    },
+    {
+      "date": "2026-03-19",
+      "totalJobs": 1223,
+      "added": 919,
       "updated": 0,
       "removed": 0
     }
@@ -100,6 +107,18 @@
         "name": "Board International",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-board-international",
         "count": 27
+      },
+      {
+        "key": "axa-svizzera",
+        "name": "AXA Svizzera",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-axa-svizzera",
+        "count": 36
+      },
+      {
+        "key": "convit-holding-gmbh",
+        "name": "Convit Holding GmbH",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-convit-holding-gmbh",
+        "count": 35
       }
     ],
     "topLocationsActive": [
@@ -150,6 +169,12 @@
         "name": "St. Moritz",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-st-moritz",
         "count": 42
+      },
+      {
+        "key": "ticino",
+        "name": "Ticino",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-ticino",
+        "count": 32
       }
     ],
     "topCompaniesAddedToday": [
@@ -168,6 +193,15 @@
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-pemsa",
         "count": 0,
         "added": 47,
+        "updated": 0,
+        "removed": 0
+      },
+      {
+        "key": "convit-holding-gmbh",
+        "name": "Convit Holding GmbH",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-convit-holding-gmbh",
+        "count": 0,
+        "added": 35,
         "updated": 0,
         "removed": 0
       },
@@ -204,15 +238,6 @@
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-usi-universita-della-svizzera-italiana",
         "count": 0,
         "added": 24,
-        "updated": 0,
-        "removed": 0
-      },
-      {
-        "key": "convit-holding-gmbh",
-        "name": "Convit Holding GmbH",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-convit-holding-gmbh",
-        "count": 0,
-        "added": 23,
         "updated": 0,
         "removed": 0
       },
@@ -451,12 +476,12 @@
   },
   "salary": {
     "coverage": {
-      "jobsWithSalary": 1275,
+      "jobsWithSalary": 1087,
       "coveragePct": 100,
-      "avgMin": 67217,
-      "avgMax": 90512,
-      "avgMid": 78865,
-      "medianMid": 84500
+      "avgMin": 67409,
+      "avgMax": 90856,
+      "avgMid": 79133,
+      "medianMid": 77500
     },
     "leaders": {
       "topSalaryCompanies": [
@@ -539,6 +564,16 @@
           "avgMax": 122750,
           "avgMid": 106750,
           "weightedSalary": 97150
+        },
+        {
+          "key": "board-international",
+          "name": "Board International",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-board-international",
+          "count": 18,
+          "avgMin": 84444,
+          "avgMax": 113889,
+          "avgMid": 99167,
+          "weightedSalary": 99167
         }
       ],
       "topSalaryLocations": [
@@ -621,6 +656,16 @@
           "avgMax": 104500,
           "avgMid": 91000,
           "weightedSalary": 91000
+        },
+        {
+          "key": "chiasso-switzerland",
+          "name": "Chiasso, Switzerland",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-chiasso-switzerland",
+          "count": 14,
+          "avgMin": 87857,
+          "avgMax": 118571,
+          "avgMid": 103214,
+          "weightedSalary": 103214
         }
       ],
       "topSalaryTitles": [
