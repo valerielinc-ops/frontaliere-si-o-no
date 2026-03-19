@@ -24,6 +24,8 @@ function collectTypeScriptFiles(dir: string): string[] {
 }
 
 describe('blog body locale files', () => {
+  // 1700+ files transpiled via ts.transpileModule; under full-suite parallel load
+  // this regularly exceeds the default 5 s — raised to 30 s to prevent flakiness.
   it('parse as valid TypeScript modules', async () => {
     const files = collectTypeScriptFiles(BLOG_BODY_ROOT);
     const failures: string[] = [];
@@ -54,5 +56,5 @@ describe('blog body locale files', () => {
       failures,
       `Invalid blog body TypeScript files:\n\n${failures.slice(0, 10).join('\n\n')}`,
     ).toHaveLength(0);
-  });
+  }, 30_000);
 });
