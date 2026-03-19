@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-03-19T16:24:02.594Z",
+  "generatedAt": "2026-03-19T16:23:43.915Z",
   "links": {
     "allJobs": "https://www.frontaliereticino.ch/cerca-lavoro-ticino"
   },
   "totals": {
-    "activeJobs": 1023,
+    "activeJobs": 957,
     "activeCompanies": 135,
     "activeLocations": 177,
     "todayAdded": 1008,
@@ -93,6 +93,18 @@
         "name": "Hamilton Bonaduz AG",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-hamilton-bonaduz-ag",
         "count": 24
+      },
+      {
+        "key": "kantonsspital-graubunden",
+        "name": "Kantonsspital Graubünden",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-kantonsspital-graubunden",
+        "count": 27
+      },
+      {
+        "key": "hamilton-bonaduz-ag",
+        "name": "Hamilton Bonaduz AG",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-hamilton-bonaduz-ag",
+        "count": 24
       }
     ],
     "topLocationsActive": [
@@ -143,6 +155,18 @@
         "name": "Ticino",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-ticino",
         "count": 31
+      },
+      {
+        "key": "mendrisio",
+        "name": "Mendrisio",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-mendrisio",
+        "count": 50
+      },
+      {
+        "key": "grigioni",
+        "name": "Grigioni",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-grigioni",
+        "count": 40
       }
     ],
     "topCompaniesAddedToday": [
@@ -444,11 +468,11 @@
   },
   "salary": {
     "coverage": {
-      "jobsWithSalary": 1023,
+      "jobsWithSalary": 957,
       "coveragePct": 100,
-      "avgMin": 66687,
-      "avgMax": 89934,
-      "avgMid": 78310,
+      "avgMin": 67159,
+      "avgMax": 90584,
+      "avgMid": 78872,
       "medianMid": 68500
     },
     "leaders": {
