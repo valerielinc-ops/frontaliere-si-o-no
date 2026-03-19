@@ -1,22 +1,22 @@
 {
-  "generatedAt": "2026-03-19T16:24:30.575Z",
+  "generatedAt": "2026-03-19T16:25:22.379Z",
   "links": {
     "allJobs": "https://www.frontaliereticino.ch/cerca-lavoro-ticino"
   },
   "totals": {
-    "activeJobs": 2499,
-    "activeCompanies": 135,
-    "activeLocations": 168,
+    "activeJobs": 940,
+    "activeCompanies": 130,
+    "activeLocations": 164,
     "todayAdded": 1008,
     "todayUpdated": 0,
     "todayRemoved": 0,
     "last7d": {
-      "added": 2088,
+      "added": 2087,
       "updated": 0,
       "removed": 0
     },
     "last30d": {
-      "added": 2571,
+      "added": 2570,
       "updated": 0,
       "removed": 0
     }
@@ -56,6 +56,13 @@
       "added": 1008,
       "updated": 0,
       "removed": 0
+    },
+    {
+      "date": "2026-03-18",
+      "totalJobs": 5009,
+      "added": 1080,
+      "updated": 0,
+      "removed": 0
     }
   ],
   "leaders": {
@@ -65,12 +72,6 @@
         "name": "PEMSA",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-pemsa",
         "count": 47
-      },
-      {
-        "key": "convit-holding-gmbh",
-        "name": "Convit Holding GmbH",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-convit-holding-gmbh",
-        "count": 35
       },
       {
         "key": "usi-universita-della-svizzera-italiana",
@@ -137,6 +138,30 @@
         "name": "Blancpain Ltd",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-blancpain-ltd",
         "count": 247
+      },
+      {
+        "key": "usi-universita-della-svizzera-italiana",
+        "name": "USI – Università della Svizzera italiana",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-usi-universita-della-svizzera-italiana",
+        "count": 26
+      },
+      {
+        "key": "vf-international-the-north-face-timberland",
+        "name": "VF International (The North Face, Timberland)",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-vf-international-the-north-face-timberland",
+        "count": 26
+      },
+      {
+        "key": "hamilton-bonaduz-ag",
+        "name": "Hamilton Bonaduz AG",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-hamilton-bonaduz-ag",
+        "count": 24
+      },
+      {
+        "key": "convit-holding-gmbh",
+        "name": "Convit Holding GmbH",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-convit-holding-gmbh",
+        "count": 23
       }
     ],
     "topLocationsActive": [
@@ -223,6 +248,18 @@
         "name": "Route de la Communance 2800 Delémont (Jura) Suisse Adresse de l'entreprise Blanc",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-route-de-la-communance-2800-delemont-jura-suisse-adresse-de-l-entreprise-blanc",
         "count": 247
+      },
+      {
+        "key": "mendrisio",
+        "name": "Mendrisio",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-mendrisio",
+        "count": 47
+      },
+      {
+        "key": "ticino",
+        "name": "Ticino",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-ticino",
+        "count": 31
       }
     ],
     "topCompaniesAddedToday": [
@@ -445,6 +482,69 @@
         "added": 41,
         "updated": 0,
         "removed": 0
+      },
+      {
+        "key": "bellinzona",
+        "name": "Bellinzona",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-bellinzona",
+        "count": 0,
+        "added": 160,
+        "updated": 0,
+        "removed": 0
+      },
+      {
+        "key": "lugano",
+        "name": "Lugano",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-lugano",
+        "count": 0,
+        "added": 158,
+        "updated": 0,
+        "removed": 0
+      },
+      {
+        "key": "mendrisio",
+        "name": "Mendrisio",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-mendrisio",
+        "count": 0,
+        "added": 65,
+        "updated": 0,
+        "removed": 0
+      },
+      {
+        "key": "grigioni",
+        "name": "Grigioni",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-grigioni",
+        "count": 0,
+        "added": 62,
+        "updated": 0,
+        "removed": 0
+      },
+      {
+        "key": "chur",
+        "name": "Chur",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-chur",
+        "count": 0,
+        "added": 56,
+        "updated": 0,
+        "removed": 0
+      },
+      {
+        "key": "ticino",
+        "name": "Ticino",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-ticino",
+        "count": 0,
+        "added": 56,
+        "updated": 0,
+        "removed": 0
+      },
+      {
+        "key": "st-moritz",
+        "name": "St. Moritz",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-st-moritz",
+        "count": 0,
+        "added": 40,
+        "updated": 0,
+        "removed": 0
       }
     ],
     "topTitlesAdded30d": [
@@ -524,11 +624,11 @@
   },
   "salary": {
     "coverage": {
-      "jobsWithSalary": 2499,
+      "jobsWithSalary": 940,
       "coveragePct": 100,
-      "avgMin": 60099,
-      "avgMax": 80247,
-      "avgMid": 70173,
+      "avgMin": 67126,
+      "avgMax": 90534,
+      "avgMid": 78830,
       "medianMid": 68500
     },
     "leaders": {
