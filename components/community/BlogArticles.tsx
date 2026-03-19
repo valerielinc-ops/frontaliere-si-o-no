@@ -11,6 +11,7 @@ import type { LucideIcon } from 'lucide-react';
 import { PARTNERS, buildAffiliateUrl, type AffiliatePartner, type ComparatorContext } from '@/services/affiliateService';
 const AdSenseBanner = lazy(() => import('@/components/shared/AdSenseBanner'));
 import { AD_SLOTS } from '@/services/adsenseSlots';
+import { resolveCompanyLogoUrl, resolveCompanyWebsiteHost } from '@/services/jobDataNormalization';
 import { useMediaQuery } from '@/hooks/useMediaQuery';
 const CreatorProducts = lazy(() => import('@/components/pages/CreatorProducts'));
 const LeadMagnetCTA = lazy(() => import('@/components/shared/LeadMagnetCTA'));
@@ -262,6 +263,7 @@ function renderFormattedContent(text: string, navigators?: NavigatorMap): ReactE
   };
 
   const renderedBlocks: ReactElement[] = [];
+  let blockquoteCount = 0;
   for (let idx = 0; idx < blocks.length; idx += 1) {
     const trimmed = blocks[idx].trim();
 
@@ -364,14 +366,23 @@ function renderFormattedContent(text: string, navigators?: NavigatorMap): ReactE
       continue;
     }
 
-    // Blockquote: > prefix
+    // Blockquote: > prefix (capped at 2 per article to avoid visual noise)
     if (trimmed.startsWith('> ')) {
       const quote = trimmed.slice(2).trim();
-      renderedBlocks.push(
-        <blockquote key={`quote-${idx}`} className="bg-indigo-50 dark:bg-indigo-900/20 border-l-4 border-indigo-500 p-4 rounded-r-lg italic text-indigo-800 dark:text-indigo-200 text-sm">
-          {renderInlineFormatting(quote, navigators)}
-        </blockquote>
-      );
+      if (blockquoteCount < 2) {
+        blockquoteCount += 1;
+        renderedBlocks.push(
+          <blockquote key={`quote-${idx}`} className="bg-indigo-50 dark:bg-indigo-900/20 border-l-4 border-indigo-500 p-4 rounded-r-lg italic text-indigo-800 dark:text-indigo-200 text-sm">
+            {renderInlineFormatting(quote, navigators)}
+          </blockquote>
+        );
+      } else {
+        renderedBlocks.push(
+          <p key={`p-${idx}`} className="text-slate-700 dark:text-slate-300 leading-relaxed text-sm">
+            {renderInlineFormatting(quote, navigators)}
+          </p>
+        );
+      }
       continue;
     }
 
@@ -537,6 +548,14 @@ interface JobPreview {
   canonicalContent?: {
     byLocale?: Partial<Record<Locale, { keywords?: string[] }>>;
   };
+}
+
+function jobLogoUrl(job: JobPreview): string | null {
+  const explicit = resolveCompanyLogoUrl(job);
+  if (explicit) return explicit;
+  const host = resolveCompanyWebsiteHost(job);
+  if (!host) return null;
+  return `https://www.google.com/s2/favicons?domain=${encodeURIComponent(host)}&sz=128`;
 }
 
 const JOB_STOP_WORDS = new Set([...STOP_WORDS, 'the', 'and', 'for', 'with', 'von', 'und', 'les', 'des', 'pour', 'dans']);
@@ -4565,15 +4584,17 @@ export default function BlogArticles({
                     </a>
                   </div>
                   <div className="space-y-2">
-                    {relatedJobs.slice(0, 2).map(job => (
+                    {relatedJobs.slice(0, 2).map(job => {
+                      const logo = jobLogoUrl(job);
+                      return (
                       <a
                         key={job.id}
                         href={buildPath({ activeTab: 'job-board', jobSlug: job.slugByLocale?.[locale] ?? job.slug ?? job.id })}
                         onClick={(e) => { if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return; e.preventDefault(); nav.navigateTo('job-board', job.slugByLocale?.[locale] ?? job.slug ?? job.id); Analytics.trackUIInteraction('blog_inline_jobs', 'card', 'click', job.id); }}
                         className="flex items-center gap-3 p-2.5 bg-white/70 dark:bg-slate-800/50 rounded-lg hover:bg-white dark:hover:bg-slate-700/50 transition-all group"
                       >
-                        <div className="w-8 h-8 rounded-lg bg-indigo-100 dark:bg-indigo-900/50 flex items-center justify-center shrink-0">
-                          <Building2 size={14} className="text-indigo-600 dark:text-indigo-400" />
+                        <div className="w-8 h-8 rounded-lg bg-indigo-100 dark:bg-indigo-900/50 flex items-center justify-center shrink-0 overflow-hidden">
+                          {logo ? <img src={logo} alt={job.company} className="w-6 h-6 object-contain" loading="lazy" /> : <Building2 size={14} className="text-indigo-600 dark:text-indigo-400" />}
                         </div>
                         <div className="min-w-0 flex-1">
                           <p className="text-sm font-semibold text-slate-700 dark:text-slate-200 truncate group-hover:text-indigo-700 dark:group-hover:text-indigo-300 transition-colors">
@@ -4585,7 +4606,8 @@ export default function BlogArticles({
                         </div>
                         <ChevronRight size={14} className="text-slate-400 shrink-0" />
                       </a>
-                    ))}
+                      );
+                    })}
                   </div>
                 </div>
               )}
@@ -4782,6 +4804,7 @@ export default function BlogArticles({
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                   {relatedJobs.map(job => {
                     const jobSlug = job.slugByLocale?.[locale] || job.slug || '';
+                    const logo = jobLogoUrl(job);
                     return (
                       <a
                         key={job.id}
@@ -4789,8 +4812,8 @@ export default function BlogArticles({
                         onClick={(e) => { if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return; e.preventDefault(); nav.navigateTo('job-board', jobSlug); }}
                         className="flex items-start gap-3 p-3 bg-indigo-50/60 dark:bg-indigo-950/20 rounded-xl hover:bg-indigo-100 dark:hover:bg-indigo-900/30 transition-all text-left border border-indigo-100 dark:border-indigo-900/40"
                       >
-                        <div className="w-10 h-10 rounded-lg bg-white dark:bg-slate-700 flex items-center justify-center border border-slate-200 dark:border-slate-600 shrink-0">
-                          <Briefcase size={16} className="text-indigo-500" />
+                        <div className="w-10 h-10 rounded-lg bg-white dark:bg-slate-700 flex items-center justify-center border border-slate-200 dark:border-slate-600 shrink-0 overflow-hidden">
+                          {logo ? <img src={logo} alt={job.company} className="w-7 h-7 object-contain" loading="lazy" /> : <Briefcase size={16} className="text-indigo-500" />}
                         </div>
                         <div className="min-w-0">
                           <p className="text-sm font-semibold text-slate-700 dark:text-slate-200 line-clamp-2">

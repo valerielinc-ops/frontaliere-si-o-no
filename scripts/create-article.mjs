@@ -1585,7 +1585,7 @@ Azioni: calculator, exchange, health, cost-of-living, pension, pillar3, payslip,
 MAI usare <a href> o URL diretti.
 
 GRASSETTO: max 2-3 parole in grassetto per INTERO campo body. MAI grassetto su importi (350 CHF), etichette (Caso 1:), frasi >5 parole, nomi strumenti. Preferire ZERO grassetto.
-FORMATTAZIONE: ## sottotitoli, - elenchi, > citazioni, 📊 dati, 💡 consigli, ⚠️ avvertenze. Blocchi separati con \\n\\n.
+FORMATTAZIONE: ## sottotitoli, - elenchi, > citazioni (MAX 1 per articolo — solo se c'è una vera citazione dalla fonte), 📊 dati, 💡 consigli, ⚠️ avvertenze. Blocchi separati con \\n\\n. NON usare > per paragrafi normali — solo per citazioni dirette brevi (1-2 frasi).
 
 Genera JSON (no markdown, no code fences):
 {
@@ -1729,7 +1729,7 @@ ISTRUZIONI:
 - Mantieni lo stesso tono, stile e struttura
 - Aggiungi: esempi concreti con numeri reali, riferimenti a comuni ticinesi specifici, normative con date e importi, checklist operative, confronti tra scenari pratici
 - NON aggiungere frasi generiche o filler — solo informazioni utili e verificabili
-- Mantieni la formattazione esistente (##, -, >, 📊, 💡, ⚠️)
+- Mantieni la formattazione esistente (##, -, >, 📊, 💡, ⚠️). Citazioni (>) MAX 1 per articolo, solo per citazioni dirette brevi
 - GRASSETTO: massimo 2-3 parole in grassetto nell'intero testo, preferisci ZERO
 - NON cambiare il significato o la prospettiva dell'articolo
 - Rispondi con il SOLO testo espanso, senza JSON, senza code fences`;
