@@ -1337,6 +1337,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.controlli-cantieri-mendrisio.title': 'Baustellenkontrollen: Tessin makellos, Como im Chaos',
     'blog.article.controlli-cantieri-mendrisio.excerpt': '66 Arbeiter im Mendrisiotto inspiziert: null Unregelmässigkeiten. Jenseits der Grenze 42.500 € Strafen und 3 Anzeigen.',
     'blog.article.controlli-cantieri-mendrisio.imageAlt': 'Baustelle im Kanton Tessin, regelmässige Kontrollen und Sicherheit',
+    'blog.article.catastrofi-ticino-prontezza-2026.title': 'Notfälle, Katastrophen, Blackout: Im Tessin 160 Sammelstellen für die Bevölkerung (wo das Radio immer funktioniert)',
+    'blog.article.catastrofi-ticino-prontezza-2026.excerpt': 'Ab 1. Januar 2026 verfügt der Kanton Tessin über 160 Notfallsammelstellen (PRU), um die Bevölkerung bei ausserordentlichen Lagen zu schützen und zu unterstützen.',
+    'blog.article.catastrofi-ticino-prontezza-2026.imageAlt': 'Panoramablick auf den Luganersee auf einem sonnigen Tag, mit den Bergen im Hintergrund.',
 };
 
 export default blogMetaDe;

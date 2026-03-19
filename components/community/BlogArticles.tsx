@@ -3695,6 +3695,13 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/controlli-cantieri-mendrisio.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'catastrofi-ticino-prontezza-2026',
+    category: 'novita',
+    date: '2026-03-19T11:28:32.300Z',
+    image: '/images/blog/catastrofi-ticino-prontezza-2026.jpg',
+    hasCalculator: true,
+  },
 ];
 
 const CATEGORIES = ['all', 'fiscale', 'pratico', 'novita', 'pensione'] as const;

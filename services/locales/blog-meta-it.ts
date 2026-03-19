@@ -1337,6 +1337,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.controlli-cantieri-mendrisio.title': 'Controlli cantieri: Ticino perfetto, Como nel caos',
     'blog.article.controlli-cantieri-mendrisio.excerpt': '66 lavoratori ispezionati nel Mendrisiotto: zero irregolarità. Dall’altra parte del confine, 42.500 € di multe e 3 denunce.',
     'blog.article.controlli-cantieri-mendrisio.imageAlt': 'Cantiere edile in Canton Ticino, controlli regolari e sicurezza garantita',
+    'blog.article.catastrofi-ticino-prontezza-2026.title': 'Emergenze, catastrofi, blackout: in Ticino 160 punti di raccolta per i cittadini (dove la radio funziona sempre)',
+    'blog.article.catastrofi-ticino-prontezza-2026.excerpt': 'Dal 1° gennaio 2026, il Canton Ticino dispone di 160 punti di raccolta d\'urgenza (PRU) per garantire la sicurezza e l\'assistenza ai cittadini in caso di situazioni straordinarie.',
+    'blog.article.catastrofi-ticino-prontezza-2026.imageAlt': 'Vista panoramica del Lago di Lugano su un giorno soleggiato, con le montagne sullo sfondo.',
 };
 
 export default blogMetaIt;

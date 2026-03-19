@@ -3030,7 +3030,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
         "@context": "https://schema.org",
         "@type": "ItemList",
         "name": "Articoli Frontaliere",
-        "numberOfItems": 436,
+        "numberOfItems": 437,
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
           { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -3467,7 +3467,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 433, "name": "Berna discute di approvvigionamento economico e...", "url": `${BASE_URL}/articoli-frontaliere/berna-discute-approvvigionamento-economico-e-13esima-avs` },
           { "@type": "ListItem", "position": 434, "name": "Visita ticinese a Coira, sul tavolo pure la cri...", "url": `${BASE_URL}/articoli-frontaliere/visita-ticinese-coira-criminalita-organizzata` },
           { "@type": "ListItem", "position": 435, "name": "Dumping salariale in Ticino: il caso arriva in ...", "url": `${BASE_URL}/articoli-frontaliere/annunci-lavoro-dumping-ticino-governo` },
-          { "@type": "ListItem", "position": 436, "name": "Controlli cantieri: Ticino zero irregolarità, C...", "url": `${BASE_URL}/articoli-frontaliere/controlli-cantieri-mendrisio` }
+          { "@type": "ListItem", "position": 436, "name": "Controlli cantieri: Ticino zero irregolarità, C...", "url": `${BASE_URL}/articoli-frontaliere/controlli-cantieri-mendrisio` },
+          { "@type": "ListItem", "position": 437, "name": "Emergenze, catastrofi, blackout: in Ticino 160 ...", "url": `${BASE_URL}/articoli-frontaliere/catastrofi-ticino-prontezza-2026` }
         ]
       }
     ]

@@ -1337,6 +1337,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.controlli-cantieri-mendrisio.title': 'Contrôles chantiers : Tessin parfait, Côme dans le chaos',
     'blog.article.controlli-cantieri-mendrisio.excerpt': '66 travailleurs inspectés dans le Mendrisiotto : zéro irrégularité. De l’autre côté de la frontière, 42 500 € d’amendes et 3 signalements.',
     'blog.article.controlli-cantieri-mendrisio.imageAlt': 'Chantier de construction dans le canton du Tessin, contrôles réguliers et sécurité assurée',
+    'blog.article.catastrofi-ticino-prontezza-2026.title': 'Urgences, catastrophes, black-out: au Tessin 160 points de rassemblement pour les citoyens (où la radio fonctionne toujours)',
+    'blog.article.catastrofi-ticino-prontezza-2026.excerpt': 'Dès le 1er janvier 2026, le canton du Tessin dispose de 160 points de rassemblement d\'urgence (PRU) afin d\'assurer la sécurité et l\'assistance aux citoyens en cas de situations extraordinaires.',
+    'blog.article.catastrofi-ticino-prontezza-2026.imageAlt': 'Vue panoramique du lac de Lugano dans un jour ensoleillé, avec les montagnes en arrière-plan.',
 };
 
 export default blogMetaFr;

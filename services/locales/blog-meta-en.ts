@@ -1337,6 +1337,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.controlli-cantieri-mendrisio.title': 'Site inspections: Ticino flawless, Como in chaos',
     'blog.article.controlli-cantieri-mendrisio.excerpt': '66 workers checked in the Mendrisio area: zero irregularities. Across the border, €42,500 in fines and 3 reports.',
     'blog.article.controlli-cantieri-mendrisio.imageAlt': 'Construction site in Canton Ticino, regular checks and ensured safety',
+    'blog.article.catastrofi-ticino-prontezza-2026.title': 'Emergencies, Disasters, Blackouts: 160 Emergency Collection Points for Citizens in Ticino (Where the Radio Always Works)',
+    'blog.article.catastrofi-ticino-prontezza-2026.excerpt': 'From January 1, 2026, the Canton of Ticino will have 160 emergency collection points (PRU) to ensure the safety and assistance of citizens in extraordinary situations.',
+    'blog.article.catastrofi-ticino-prontezza-2026.imageAlt': 'Scenic view of Lake Lugano on a sunny day, with the mountains in the background.',
 };
 
 export default blogMetaEn;

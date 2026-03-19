@@ -6055,6 +6055,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-catastrofi-ticino-prontezza-2026': {
+    title: 'Emergenze, catastrofi, blackout: in Ticino 160 punti di | Frontaliere Ticino',
+    description: 'Dal 1° gennaio 2026, il Canton Ticino dispone di 160 punti di raccolta d\'urgenza (PRU) per garantire la sicurezza e l\'assistenza ai cittadini in caso di',
+    keywords: 'frontalieri, ticino, svizzera, italia, emergenze, catastrofi, blackout, punti',
+    ogTitle: 'Emergenze, catastrofi, blackout: in Ticino 160 punti di',
+    ogDescription: 'Dal 1° gennaio 2026, il Canton Ticino dispone di 160 punti di raccolta d\'urgenza (PRU) per garantire la sicurezza e l\'assistenza ai cittadini in caso di',
+    canonicalPath: '/articoli-frontaliere/catastrofi-ticino-prontezza-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Emergenze, catastrofi, blackout: in Ticino 160 punti di raccolta per i",
+      "description": "Dal 1° gennaio 2026, il Canton Ticino dispone di 160 punti di raccolta d'urgenza (PRU) per garantire la sicurezza e l'assistenza ai cittadini in caso di",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/catastrofi-ticino-prontezza-2026.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Vista panoramica del Lago di Lugano su un giorno soleggiato, con le montagne sullo sfondo."
+      },
+      "datePublished": "2026-03-19T11:28:32+00:00",
+      "dateModified": "2026-03-19T11:28:32+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/catastrofi-ticino-prontezza-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
