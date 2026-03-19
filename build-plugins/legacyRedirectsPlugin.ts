@@ -74,6 +74,8 @@ export function legacyRedirectsPlugin(rootDir: string): Plugin {
 
         const outDir = path.join(distDir, from.slice(1));
         fs.mkdirSync(outDir, { recursive: true });
+        // Skip if a higher-priority plugin already generated this page (e.g. active job or soft-landing)
+        if (fs.existsSync(path.join(outDir, 'index.html'))) continue;
         const targetNoLeadingSlash = to.slice(1).replace(/&/g, '~and~');
         const fromUrl = `https://www.frontaliereticino.ch${from}`;
         const toUrl = `https://www.frontaliereticino.ch${to}`;
@@ -132,14 +134,18 @@ export function legacyRedirectsPlugin(rootDir: string): Plugin {
           if (from === '/' || from === resolution.canonicalPath) continue;
           const outDir = path.join(distDir, from.slice(1));
           fs.mkdirSync(outDir, { recursive: true });
+          // Skip if a higher-priority plugin (e.g. soft-landing pages) already generated this page
+          if (fs.existsSync(path.join(outDir, 'index.html'))) continue;
           const html = buildCompatHtml(from, resolution.canonicalPath, resolution.kind);
           fs.writeFileSync(path.join(outDir, 'index.html'), html, 'utf-8');
           const flatPath = from.replace(/\/+$/, '');
           if (flatPath) {
             const flatFile = path.join(distDir, flatPath.slice(1) + '.html');
             fs.mkdirSync(path.dirname(flatFile), { recursive: true });
-            const flatHtml = html.replace(SPA_ACTION_REDIRECT_SCRIPT, '');
-            fs.writeFileSync(flatFile, flatHtml, 'utf-8');
+            if (!fs.existsSync(flatFile)) {
+              const flatHtml = html.replace(SPA_ACTION_REDIRECT_SCRIPT, '');
+              fs.writeFileSync(flatFile, flatHtml, 'utf-8');
+            }
           }
           compatCount++;
         }
