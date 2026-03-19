@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-03-19T16:04:06.848Z",
+  "generatedAt": "2026-03-19T16:04:36.634Z",
   "links": {
     "allJobs": "https://www.frontaliereticino.ch/cerca-lavoro-ticino"
   },
   "totals": {
-    "activeJobs": 842,
-    "activeCompanies": 100,
-    "activeLocations": 121,
+    "activeJobs": 821,
+    "activeCompanies": 101,
+    "activeLocations": 133,
     "todayAdded": 1006,
     "todayUpdated": 0,
     "todayRemoved": 0,
@@ -40,13 +40,6 @@
       "date": "2026-03-18",
       "totalJobs": 5009,
       "added": 1080,
-      "updated": 0,
-      "removed": 0
-    },
-    {
-      "date": "2026-03-19",
-      "totalJobs": 796,
-      "added": 1005,
       "updated": 0,
       "removed": 0
     },
@@ -121,6 +114,18 @@
         "name": "Coop",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-coop",
         "count": 37
+      },
+      {
+        "key": "eoc-ente-ospedaliero-cantonale",
+        "name": "EOC – Ente Ospedaliero Cantonale",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-eoc-ente-ospedaliero-cantonale",
+        "count": 205
+      },
+      {
+        "key": "coop",
+        "name": "Coop",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-coop",
+        "count": 37
       }
     ],
     "topLocationsActive": [
@@ -137,34 +142,10 @@
         "count": 36
       },
       {
-        "key": "lugano",
-        "name": "Lugano",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-lugano",
-        "count": 133
-      },
-      {
         "key": "mendrisio",
         "name": "Mendrisio",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-mendrisio",
         "count": 47
-      },
-      {
-        "key": "ticino",
-        "name": "Ticino",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-ticino",
-        "count": 30
-      },
-      {
-        "key": "novaggio",
-        "name": "Novaggio",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-novaggio",
-        "count": 28
-      },
-      {
-        "key": "bellinzona",
-        "name": "Bellinzona",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-bellinzona",
-        "count": 133
       },
       {
         "key": "lugano",
@@ -183,6 +164,24 @@
         "name": "Ticino",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-ticino",
         "count": 32
+      },
+      {
+        "key": "lugano",
+        "name": "Lugano",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-lugano",
+        "count": 135
+      },
+      {
+        "key": "grigioni",
+        "name": "Grigioni",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-grigioni",
+        "count": 46
+      },
+      {
+        "key": "novaggio",
+        "name": "Novaggio",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-novaggio",
+        "count": 30
       }
     ],
     "topCompaniesAddedToday": [
@@ -484,11 +483,11 @@
   },
   "salary": {
     "coverage": {
-      "jobsWithSalary": 842,
+      "jobsWithSalary": 821,
       "coveragePct": 100,
-      "avgMin": 68049,
-      "avgMax": 91790,
-      "avgMid": 79920,
+      "avgMin": 67986,
+      "avgMax": 91725,
+      "avgMid": 79856,
       "medianMid": 84500
     },
     "leaders": {
@@ -596,6 +595,16 @@
           "weightedSalary": 97375
         },
         {
+          "key": "quartino-ticino",
+          "name": "Quartino, Ticino",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-quartino-ticino",
+          "count": 15,
+          "avgMin": 82733,
+          "avgMax": 111600,
+          "avgMid": 97167,
+          "weightedSalary": 97167
+        },
+        {
           "key": "plan-les-ouates",
           "name": "Plan-les-Ouates",
           "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-plan-les-ouates",
@@ -604,6 +613,16 @@
           "avgMax": 122750,
           "avgMid": 106750,
           "weightedSalary": 97150
+        },
+        {
+          "key": "zurich",
+          "name": "Zürich",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-zurich",
+          "count": 4,
+          "avgMin": 81125,
+          "avgMax": 109625,
+          "avgMid": 95375,
+          "weightedSalary": 92525
         },
         {
           "key": "bern",
@@ -624,26 +643,6 @@
           "avgMax": 111500,
           "avgMid": 97000,
           "weightedSalary": 88300
-        },
-        {
-          "key": "quartino-ticino",
-          "name": "Quartino, Ticino",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-quartino-ticino",
-          "count": 15,
-          "avgMin": 82733,
-          "avgMax": 111600,
-          "avgMid": 97167,
-          "weightedSalary": 97167
-        },
-        {
-          "key": "zurich",
-          "name": "Zürich",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-zurich",
-          "count": 4,
-          "avgMin": 81125,
-          "avgMax": 109625,
-          "avgMid": 95375,
-          "weightedSalary": 92525
         },
         {
           "key": "castel-san-pietro",
