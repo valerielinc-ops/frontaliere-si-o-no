@@ -1,6 +1,56 @@
 {
-  "updatedAt": "2026-03-19T03:01:47.064Z",
+  "updatedAt": "2026-03-19T04:48:50.003Z",
   "summaries": [
+    {
+      "key": "a-group",
+      "label": "A++ Group",
+      "generatedAt": "2026-03-19T04:48:50.003Z",
+      "total": 3,
+      "newCount": 0,
+      "updatedCount": 3,
+      "removedCount": 0,
+      "unchangedCount": 0,
+      "durationMs": 3373,
+      "avgDurationMs": 24105,
+      "durationHistory": [
+        3373,
+        3332,
+        27635,
+        24859,
+        26701,
+        23576,
+        28530,
+        30542,
+        44022,
+        28477
+      ],
+      "newJobs": [],
+      "updatedJobs": [
+        {
+          "title": "Ingegnere edile Jr.",
+          "company": "A++ Group",
+          "location": "Massagno",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ingegnere-edile-jr-a-plus-plus-group-massagno/",
+          "slug": "ingegnere-edile-jr-a-plus-plus-group-massagno"
+        },
+        {
+          "title": "Real Estate Project Manager",
+          "company": "A++ Group",
+          "location": "Massagno",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/real-estate-project-manager-a-plus-plus-group-massagno/",
+          "slug": "real-estate-project-manager-a-plus-plus-group-massagno"
+        },
+        {
+          "title": "Tecnico di cantiere (Ingegere edile o Geometra)",
+          "company": "A++ Group",
+          "location": "Massagno",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/tecnico-di-cantiere-ingegere-edile-o-geometra-a-plus-plus-group-massagno/",
+          "slug": "tecnico-di-cantiere-ingegere-edile-o-geometra-a-plus-plus-group-massagno"
+        }
+      ],
+      "removedJobs": [],
+      "unchangedJobs": []
+    },
     {
       "key": "dot-life-sa",
       "label": "DOT Life SA",
@@ -37,56 +87,6 @@
           "location": "Paradiso, Canton Ticino, Svizzera",
           "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/front-office-manager-dot-life-sa-paradiso-canton-ticino-svizzera/",
           "slug": "front-office-manager-dot-life-sa-paradiso-canton-ticino-svizzera"
-        }
-      ],
-      "updatedJobs": [],
-      "removedJobs": [],
-      "unchangedJobs": []
-    },
-    {
-      "key": "a-group",
-      "label": "A++ Group",
-      "generatedAt": "2026-03-19T02:53:40.391Z",
-      "total": 3,
-      "newCount": 3,
-      "updatedCount": 0,
-      "removedCount": 0,
-      "unchangedCount": 0,
-      "durationMs": 3332,
-      "avgDurationMs": 26985,
-      "durationHistory": [
-        3332,
-        27635,
-        24859,
-        26701,
-        23576,
-        28530,
-        30542,
-        44022,
-        28477,
-        32179
-      ],
-      "newJobs": [
-        {
-          "title": "Ingegnere edile Jr.",
-          "company": "A++ Group",
-          "location": "Massagno",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ingegnere-edile-jr-a-plus-plus-group-massagno/",
-          "slug": "ingegnere-edile-jr-a-plus-plus-group-massagno"
-        },
-        {
-          "title": "Real Estate Project Manager",
-          "company": "A++ Group",
-          "location": "Massagno",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/real-estate-project-manager-a-plus-plus-group-massagno/",
-          "slug": "real-estate-project-manager-a-plus-plus-group-massagno"
-        },
-        {
-          "title": "Tecnico di cantiere (Ingegere edile o Geometra)",
-          "company": "A++ Group",
-          "location": "Massagno",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/tecnico-di-cantiere-ingegere-edile-o-geometra-a-plus-plus-group-massagno/",
-          "slug": "tecnico-di-cantiere-ingegere-edile-o-geometra-a-plus-plus-group-massagno"
         }
       ],
       "updatedJobs": [],

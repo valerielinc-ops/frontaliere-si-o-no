@@ -1,22 +1,22 @@
 {
-  "generatedAt": "2026-03-19T03:34:33.064Z",
+  "generatedAt": "2026-03-19T04:48:58.115Z",
   "links": {
     "allJobs": "https://www.frontaliereticino.ch/cerca-lavoro-ticino"
   },
   "totals": {
-    "activeJobs": 863,
-    "activeCompanies": 121,
-    "activeLocations": 148,
-    "todayAdded": 863,
+    "activeJobs": 872,
+    "activeCompanies": 124,
+    "activeLocations": 149,
+    "todayAdded": 872,
     "todayUpdated": 0,
     "todayRemoved": 0,
     "last7d": {
-      "added": 3137,
+      "added": 3146,
       "updated": 0,
       "removed": 0
     },
     "last30d": {
-      "added": 3620,
+      "added": 3629,
       "updated": 0,
       "removed": 0
     }
@@ -45,8 +45,8 @@
     },
     {
       "date": "2026-03-19",
-      "totalJobs": 863,
-      "added": 863,
+      "totalJobs": 872,
+      "added": 872,
       "updated": 0,
       "removed": 0
     }
@@ -143,7 +143,7 @@
         "key": "ticino",
         "name": "Ticino",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-ticino",
-        "count": 25
+        "count": 28
       },
       {
         "key": "emea-che-stabio-vf-campus-vf1",
@@ -360,7 +360,7 @@
         "name": "Ticino",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-ticino",
         "count": 0,
-        "added": 58,
+        "added": 61,
         "updated": 0,
         "removed": 0
       },
@@ -451,11 +451,11 @@
   },
   "salary": {
     "coverage": {
-      "jobsWithSalary": 863,
+      "jobsWithSalary": 872,
       "coveragePct": 100,
-      "avgMin": 66610,
-      "avgMax": 89838,
-      "avgMid": 78224,
+      "avgMin": 66622,
+      "avgMax": 89856,
+      "avgMid": 78239,
       "medianMid": 68500
     },
     "leaders": {
@@ -635,9 +635,9 @@
           "weightedSalary": 149038
         },
         {
-          "key": "area-vendite-account-manager-fur-elektrowerkzeuge-m-w-d",
-          "name": "Area Vendite / Account Manager für Elektrowerkzeuge (m/w/d)",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-area-vendite-account-manager-fur-elektrowerkzeuge-m-w-d",
+          "key": "area-sales-account-manager-per-elektrowerkzeuge-m-w-d",
+          "name": "Area Sales / Account Manager per Elektrowerkzeuge (m/w/d)",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-area-sales-account-manager-per-elektrowerkzeuge-m-w-d",
           "count": 1,
           "avgMin": 109000,
           "avgMax": 147000,
