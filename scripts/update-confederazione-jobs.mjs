@@ -265,7 +265,16 @@ function inferEmploymentType(job = {}) {
   return 'part-time';
 }
 
-function buildLocalizedContent(job = {}) {
+// German words that must NOT appear in an Italian slug
+const GERMAN_SLUG_WORDS = /(?:^|-)(?:als|und|fur|oder|frau|mann|fach|stelle|lehrstelle|lehre|mitarbeiter|leiter|stellvertretend|verkauf|lernend|chauffeu|gartencenter|befristet|ablosen|disponentin|disponent|ladenleit|logistiker|projektleiter|elektroinstallateur|elektroplaner|unterhaltsfachmann|servicetechniker|immobilienberater|bauleiter|zeichner|fachrichtung|ingenieurbau|tunnelbau|tiefbau|innendienst|generalagentur|vorsorge|vermogen|wissenschaftlich|detailhandels|bekampfung|japankafer|lager)(?:-|$)/i;
+
+/**
+ * Build localised title/description/slug maps for a job.
+ * Only the detected source-language slot is populated here.
+ * The locale-fill step (translateMissingJobLocales) will translate the
+ * remaining locales so we never store a German string in the IT slot.
+ */
+function buildLocalizedContent(job = {}, sourceLang = 'it') {
   const title = String(job.title || '').trim();
   const canton = job.canton || 'TI';
   const regionLabel = canton === 'GR' ? 'Grigioni' : 'Ticino';
@@ -274,22 +283,17 @@ function buildLocalizedContent(job = {}) {
   const description = String(job.description || '').trim();
   const deptShort = dept.replace(/\s*\([^)]*\)\s*/g, '').trim();
 
-  const fallbackDesc = `La ${deptShort} cerca ${title} con sede a ${city}. Posizione nell'Amministrazione federale svizzera. Candidati online su jobs.admin.ch.`;
+  // Italian fallback only when the source is already Italian
+  const sourceDesc =
+    description ||
+    (sourceLang === 'it'
+      ? `La ${deptShort} cerca ${title} con sede a ${city}. Posizione nell'Amministrazione federale svizzera. Candidati online su jobs.admin.ch.`
+      : '');
 
   return {
-    titleByLocale: { it: title, en: title, de: title, fr: title },
-    descriptionByLocale: {
-      it: description || fallbackDesc,
-      en: description || fallbackDesc,
-      de: description || fallbackDesc,
-      fr: description || fallbackDesc,
-    },
-    slugByLocale: {
-      it: slugify(`${title} confederazione ${city}`),
-      en: slugify(`${title} confederazione ${city}`),
-      de: slugify(`${title} confederazione ${city}`),
-      fr: slugify(`${title} confederazione ${city}`),
-    },
+    titleByLocale: { [sourceLang]: title },
+    descriptionByLocale: { [sourceLang]: sourceDesc || title },
+    slugByLocale: { [sourceLang]: slugify(`${title} confederazione ${city}`) },
   };
 }
 
@@ -358,15 +362,21 @@ async function fetchAllListings() {
 /* ── Job Building ─────────────────────────────────────────── */
 
 function buildJob(row) {
-  const localized = buildLocalizedContent(row);
+  const sourceLang = detectLang(`${row.title} ${row.description}`, row.language || 'it');
+  const localized = buildLocalizedContent(row, sourceLang);
   const canton = row.canton || 'TI';
   const regionLabel = canton === 'GR' ? 'Graubünden' : 'Ticino';
   const detailUrl = row.directLink || `https://jobs.admin.ch/?lang=it&f=region:${canton === 'GR' ? REGION_OSTSCHWEIZ : REGION_TICINO}`;
   const empType = inferEmploymentType(row);
 
+  // Canonical slug: use Italian if available, otherwise fall back to source-lang slug.
+  // When sourceLang !== 'it', slugByLocale.it is intentionally absent — locale hardening
+  // will translate the title and populate it after the merge.
+  const canonicalSlug = localized.slugByLocale.it || localized.slugByLocale[sourceLang] || '';
+
   return {
-    title: localized.titleByLocale.it,
-    slug: localized.slugByLocale.it,
+    title: localized.titleByLocale.it || localized.titleByLocale[sourceLang] || row.title,
+    slug: canonicalSlug,
     url: detailUrl,
     applyUrl: row.applyUrl || detailUrl,
     company: COMPANY_NAME,
@@ -381,12 +391,12 @@ function buildJob(row) {
     category: inferCategory(row),
     sector: 'Pubblica amministrazione',
     source: 'confederazione-dedicated-crawler',
-    sourceLang: detectLang(`${row.title} ${row.description}`, row.language || 'it'),
+    sourceLang,
     postedDate: row.startDate ? row.startDate.slice(0, 10) : new Date().toISOString().slice(0, 10),
     validThrough: row.endDate ? row.endDate.slice(0, 10) : '',
     employmentType: empType,
     contractType: empType,
-    description: localized.descriptionByLocale.it,
+    description: localized.descriptionByLocale.it || localized.descriptionByLocale[sourceLang] || '',
     titleByLocale: localized.titleByLocale,
     descriptionByLocale: localized.descriptionByLocale,
     slugByLocale: localized.slugByLocale,
@@ -434,12 +444,32 @@ function mergeJobs(discoveredJobs) {
       return job;
     }
     updated += 1;
+    // When merging slugByLocale, discard any pre-existing IT slug that contains German words
+    // (artefacts from a previous broken crawl) so locale hardening can regenerate a proper one.
+    const prevSlugs = { ...(prev.slugByLocale || {}) };
+    const prevItSlug = String(prevSlugs.it || '');
+    if (prevItSlug && GERMAN_SLUG_WORDS.test(prevItSlug)) {
+      delete prevSlugs.it;
+    }
+    // Similarly, only carry forward IT titleByLocale/descriptionByLocale if they look Italian
+    // (i.e., locale hardening already ran); otherwise let locale hardening fill them again.
+    const prevTitles = { ...(prev.titleByLocale || {}) };
+    const prevDescs = { ...(prev.descriptionByLocale || {}) };
+    if (job.sourceLang && job.sourceLang !== 'it' && !job.titleByLocale?.it) {
+      // The new crawl has no Italian translation yet — discard stale German values
+      // from prev so locale hardening can fill them properly.
+      const prevItTitle = String(prevTitles.it || '');
+      if (prevItTitle && GERMAN_SLUG_WORDS.test(prevItTitle.toLowerCase().replace(/[^a-z0-9]+/g, '-'))) {
+        delete prevTitles.it;
+        delete prevDescs.it;
+      }
+    }
     return {
       ...prev,
       ...job,
-      titleByLocale: { ...(prev.titleByLocale || {}), ...(job.titleByLocale || {}) },
-      descriptionByLocale: { ...(prev.descriptionByLocale || {}), ...(job.descriptionByLocale || {}) },
-      slugByLocale: { ...(prev.slugByLocale || {}), ...(job.slugByLocale || {}) },
+      titleByLocale: { ...prevTitles, ...(job.titleByLocale || {}) },
+      descriptionByLocale: { ...prevDescs, ...(job.descriptionByLocale || {}) },
+      slugByLocale: { ...prevSlugs, ...(job.slugByLocale || {}) },
     };
   });
 
