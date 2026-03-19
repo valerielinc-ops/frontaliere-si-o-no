@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-03-19T16:25:22.379Z",
+  "generatedAt": "2026-03-19T16:25:43.294Z",
   "links": {
     "allJobs": "https://www.frontaliereticino.ch/cerca-lavoro-ticino"
   },
   "totals": {
-    "activeJobs": 940,
-    "activeCompanies": 130,
-    "activeLocations": 164,
+    "activeJobs": 1017,
+    "activeCompanies": 134,
+    "activeLocations": 176,
     "todayAdded": 1008,
     "todayUpdated": 0,
     "todayRemoved": 0,
@@ -26,13 +26,6 @@
       "date": "2026-03-09",
       "totalJobs": 470,
       "added": 483,
-      "updated": 0,
-      "removed": 0
-    },
-    {
-      "date": "2026-03-19",
-      "totalJobs": 2003,
-      "added": 1008,
       "updated": 0,
       "removed": 0
     },
@@ -63,6 +56,13 @@
       "added": 1080,
       "updated": 0,
       "removed": 0
+    },
+    {
+      "date": "2026-03-19",
+      "totalJobs": 1973,
+      "added": 1008,
+      "updated": 0,
+      "removed": 0
     }
   ],
   "leaders": {
@@ -77,12 +77,6 @@
         "key": "usi-universita-della-svizzera-italiana",
         "name": "USI – Università della Svizzera italiana",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-usi-universita-della-svizzera-italiana",
-        "count": 26
-      },
-      {
-        "key": "vf-international-the-north-face-timberland",
-        "name": "VF International (The North Face, Timberland)",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-vf-international-the-north-face-timberland",
         "count": 26
       },
       {
@@ -162,6 +156,12 @@
         "name": "Convit Holding GmbH",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-convit-holding-gmbh",
         "count": 23
+      },
+      {
+        "key": "vf-international-the-north-face-timberland",
+        "name": "VF International (The North Face, Timberland)",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-vf-international-the-north-face-timberland",
+        "count": 22
       }
     ],
     "topLocationsActive": [
@@ -260,6 +260,12 @@
         "name": "Ticino",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-ticino",
         "count": 31
+      },
+      {
+        "key": "mendrisio",
+        "name": "Mendrisio",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-mendrisio",
+        "count": 49
       }
     ],
     "topCompaniesAddedToday": [
@@ -624,11 +630,11 @@
   },
   "salary": {
     "coverage": {
-      "jobsWithSalary": 940,
+      "jobsWithSalary": 1017,
       "coveragePct": 100,
-      "avgMin": 67126,
-      "avgMax": 90534,
-      "avgMid": 78830,
+      "avgMin": 66753,
+      "avgMax": 90030,
+      "avgMid": 78392,
       "medianMid": 68500
     },
     "leaders": {
