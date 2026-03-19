@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-03-18T17:10:33.291Z",
-  "startedAt": "2026-03-18T16:24:07.789Z",
+  "generatedAt": "2026-03-19T03:34:32.612Z",
+  "startedAt": "2026-03-19T03:23:04.519Z",
   "config": {
     "minQualityScore": 4,
     "minDescriptionChars": 80,
     "aiLocalizationEnabled": true,
-    "aiLocalizationMaxJobsPerRun": 500,
+    "aiLocalizationMaxJobsPerRun": 120,
     "contentReuse": {
       "enabled": true,
       "similarityThreshold": 0.7,
@@ -22,180 +22,257 @@
   },
   "totals": {
     "companiesParsed": 178,
-    "companiesSelected": 1,
+    "companiesSelected": 14,
     "companiesDroppedBySelection": 0,
-    "companiesCrawled": 1,
-    "discoveredCareerPages": 8,
-    "scrapedJobPages": 205,
-    "incomingCandidatesAccepted": 205,
+    "companiesCrawled": 0,
+    "discoveredCareerPages": 0,
+    "scrapedJobPages": 0,
+    "incomingCandidatesAccepted": 0,
     "discardedCandidates": 0,
-    "filteredOutNonCandidates": 3,
+    "filteredOutNonCandidates": 0,
     "duplicateInCompany": 0,
     "webDiscoveryQueries": 0,
     "webDiscoveryHits": 0,
     "browserFallbackAttempts": 0,
     "browserFallbackHits": 0,
     "duplicateIncoming": 0,
-    "duplicateExisting": 465,
-    "mergeExcludedJobs": 0,
-    "mergeExclusionByReason": {},
-    "reusedLocalizationFromPrevious": 19,
-    "inserted": 29,
-    "refreshed": 176,
-    "mergedTotal": 982,
-    "aiLocalizationCalls": 118,
+    "duplicateExisting": 2111,
+    "mergeExcludedJobs": 101,
+    "mergeExclusionByReason": {
+      "non_detail_url": 77,
+      "not_ticino_relevant": 42,
+      "outside_swiss_ticino": 30,
+      "location_explicitly_foreign": 5,
+      "explicitly_outside_target": 19
+    },
+    "reusedLocalizationFromPrevious": 0,
+    "inserted": 0,
+    "refreshed": 0,
+    "mergedTotal": 863,
+    "aiLocalizationCalls": 43,
     "aiPageValidationCalls": 0,
-    "deeplCalls": 8,
+    "deeplCalls": 119,
     "deeplSuccess": 0,
-    "deeplFallbackToLlm": 5,
-    "aiCacheHits": 6,
-    "aiCacheMisses": 228,
-    "aiCacheEntries": 1636,
+    "deeplFallbackToLlm": 87,
+    "aiCacheHits": 16,
+    "aiCacheMisses": 137,
+    "aiCacheEntries": 1543,
     "discoveredCompaniesCandidates": 0,
     "discoveredCompaniesAdded": 0,
     "discoveredCompaniesPending": 0
   },
-  "byCompany": [
-    {
-      "company": "Zurich Insurance (sede Ticino)",
-      "domain": "zurich.ch",
-      "discoveredCareerPages": 8,
-      "scrapedJobPages": 0,
-      "processedCandidates": 0,
-      "extractedAccepted": 0,
-      "discardedCount": 0,
-      "discardedByReason": {},
-      "filteredOutCount": 0,
-      "filteredOutByReason": {},
-      "duplicateInCompany": 0,
-      "webDiscoveryQueries": 0,
-      "webDiscoveryHits": 0,
-      "webDiscoveryProviders": [],
-      "browserFallbackAttempted": 0,
-      "browserFallbackHits": 0,
-      "browserFallbackReason": "",
-      "inserted": 0,
-      "refreshed": 0,
-      "duplicateIncoming": 0
-    },
-    {
-      "company": "SUPSI / DTI",
-      "domain": "supsi.ch",
-      "discoveredCareerPages": 8,
-      "scrapedJobPages": 13,
-      "processedCandidates": 13,
-      "extractedAccepted": 13,
-      "discardedCount": 0,
-      "discardedByReason": {},
-      "filteredOutCount": 0,
-      "filteredOutByReason": {},
-      "duplicateInCompany": 0,
-      "webDiscoveryQueries": 0,
-      "webDiscoveryHits": 0,
-      "webDiscoveryProviders": [],
-      "browserFallbackAttempted": 0,
-      "browserFallbackHits": 0,
-      "browserFallbackReason": "",
-      "inserted": 0,
-      "refreshed": 0,
-      "duplicateIncoming": 0
-    },
-    {
-      "company": "Swiss Armed Forces (VTG)",
-      "domain": "vtg.admin.ch",
-      "discoveredCareerPages": 8,
-      "scrapedJobPages": 4,
-      "processedCandidates": 4,
-      "extractedAccepted": 4,
-      "discardedCount": 0,
-      "discardedByReason": {},
-      "filteredOutCount": 32,
-      "filteredOutByReason": {
-        "jsonld_rejected_all_nodes": 32
-      },
-      "duplicateInCompany": 0,
-      "webDiscoveryQueries": 0,
-      "webDiscoveryHits": 0,
-      "webDiscoveryProviders": [],
-      "browserFallbackAttempted": 0,
-      "browserFallbackHits": 0,
-      "browserFallbackReason": "",
-      "inserted": 0,
-      "refreshed": 0,
-      "duplicateIncoming": 0
-    },
-    {
-      "company": "Amministrazione cantonale TI",
-      "domain": "ti.ch",
-      "discoveredCareerPages": 8,
-      "scrapedJobPages": 12,
-      "processedCandidates": 12,
-      "extractedAccepted": 12,
-      "discardedCount": 0,
-      "discardedByReason": {},
-      "filteredOutCount": 3,
-      "filteredOutByReason": {
-        "html_explicitly_outside_target": 3
-      },
-      "duplicateInCompany": 0,
-      "webDiscoveryQueries": 0,
-      "webDiscoveryHits": 0,
-      "webDiscoveryProviders": [],
-      "browserFallbackAttempted": 0,
-      "browserFallbackHits": 0,
-      "browserFallbackReason": "",
-      "inserted": 0,
-      "refreshed": 3,
-      "duplicateIncoming": 0
-    },
-    {
-      "company": "VF International (The North Face, Timberland)",
-      "domain": "vfc.com",
-      "discoveredCareerPages": 1,
-      "scrapedJobPages": 0,
-      "processedCandidates": 25,
-      "extractedAccepted": 25,
-      "discardedCount": 0,
-      "discardedByReason": {},
-      "filteredOutCount": 0,
-      "filteredOutByReason": {},
-      "duplicateInCompany": 0,
-      "webDiscoveryQueries": 0,
-      "webDiscoveryHits": 0,
-      "webDiscoveryProviders": [],
-      "browserFallbackAttempted": 0,
-      "browserFallbackHits": 0,
-      "browserFallbackReason": "",
-      "inserted": 1,
-      "refreshed": 24,
-      "duplicateIncoming": 0
-    },
-    {
-      "company": "EOC – Ente Ospedaliero Cantonale",
-      "domain": "eoc.ch",
-      "discoveredCareerPages": 8,
-      "scrapedJobPages": 205,
-      "processedCandidates": 205,
-      "extractedAccepted": 205,
-      "discardedCount": 0,
-      "discardedByReason": {},
-      "filteredOutCount": 3,
-      "filteredOutByReason": {
-        "html_generic_title": 1,
-        "html_not_target_relevant": 2
-      },
-      "duplicateInCompany": 0,
-      "webDiscoveryQueries": 0,
-      "webDiscoveryHits": 0,
-      "webDiscoveryProviders": [],
-      "browserFallbackAttempted": 0,
-      "browserFallbackHits": 0,
-      "browserFallbackReason": "",
-      "inserted": 0,
-      "refreshed": 3,
-      "duplicateIncoming": 0
-    }
-  ],
+  "byCompany": [],
   "droppedCompanies": [],
-  "mergeExclusionSamples": []
+  "mergeExclusionSamples": [
+    {
+      "reason": "non_detail_url",
+      "title": "Nachtportier/ Night Auditor (m/w/d)",
+      "company": "Grand Hotel Kronenhof",
+      "location": "Pontresina",
+      "url": "https://careers.kronenhof.com/en/vacancies#job-642"
+    },
+    {
+      "reason": "non_detail_url",
+      "title": "Service Allrounder Festival da Jazz (m/w/d)",
+      "company": "Kulm Hotel St. Moritz",
+      "location": "St. Moritz",
+      "url": "https://careers.kronenhof.com/en/vacancies#job-619"
+    },
+    {
+      "reason": "non_detail_url",
+      "title": "Driver (m/w/d)",
+      "company": "Grand Hotel Kronenhof",
+      "location": "Pontresina",
+      "url": "https://careers.kronenhof.com/en/vacancies#job-638"
+    },
+    {
+      "reason": "non_detail_url",
+      "title": "Linen Employee (part-time 50%) (m/w/d)",
+      "company": "Grand Hotel Kronenhof",
+      "location": "Pontresina",
+      "url": "https://careers.kronenhof.com/en/vacancies#job-648"
+    },
+    {
+      "reason": "non_detail_url",
+      "title": "Breakfast Cook/ Commis de Cuisine Breakfast (m/w/d)",
+      "company": "Grand Hotel Kronenhof",
+      "location": "Pontresina",
+      "url": "https://careers.kronenhof.com/en/vacancies#job-658"
+    },
+    {
+      "reason": "non_detail_url",
+      "title": "Service Employee Staff Restaurant (m/w/d)",
+      "company": "Kulm Hotel St. Moritz",
+      "location": "St. Moritz",
+      "url": "https://careers.kronenhof.com/en/vacancies#job-596"
+    },
+    {
+      "reason": "non_detail_url",
+      "title": "Front Office Agent (m/w/d)",
+      "company": "Kulm Hotel St. Moritz",
+      "location": "St. Moritz",
+      "url": "https://careers.kronenhof.com/en/vacancies#job-610"
+    },
+    {
+      "reason": "non_detail_url",
+      "title": "Florist (m/w/d)",
+      "company": "Kulm Hotel St. Moritz",
+      "location": "St. Moritz",
+      "url": "https://careers.kronenhof.com/en/vacancies#job-614"
+    },
+    {
+      "reason": "non_detail_url",
+      "title": "Florist (m/w/d)",
+      "company": "Grand Hotel Kronenhof",
+      "location": "Pontresina",
+      "url": "https://careers.kronenhof.com/en/vacancies#job-615"
+    },
+    {
+      "reason": "non_detail_url",
+      "title": "Chef de Partie - Kulm Country Club (m/w/d)",
+      "company": "Kulm Hotel St. Moritz",
+      "location": "St. Moritz",
+      "url": "https://careers.kronenhof.com/en/vacancies#job-618"
+    },
+    {
+      "reason": "non_detail_url",
+      "title": "Chef de Partie Mitarbeiterrestaurant/ Personalkoch (m/w/d)",
+      "company": "Kulm Hotel St. Moritz",
+      "location": "St. Moritz",
+      "url": "https://careers.kronenhof.com/en/vacancies#job-623"
+    },
+    {
+      "reason": "non_detail_url",
+      "title": "Commis de Bar (m/w/d)",
+      "company": "Kulm Hotel St. Moritz",
+      "location": "St. Moritz",
+      "url": "https://careers.kronenhof.com/en/vacancies#job-624"
+    },
+    {
+      "reason": "non_detail_url",
+      "title": "Commis de Rang (m/w/d)",
+      "company": "Kulm Hotel St. Moritz",
+      "location": "St. Moritz",
+      "url": "https://careers.kronenhof.com/en/vacancies#job-625"
+    },
+    {
+      "reason": "non_detail_url",
+      "title": "Training & Development Manager (m/w/d)",
+      "company": "Kulm Hotel St. Moritz",
+      "location": "St. Moritz",
+      "url": "https://careers.kronenhof.com/en/vacancies#job-627"
+    },
+    {
+      "reason": "non_detail_url",
+      "title": "Demi Chef de Partie - Breakfast (m/w/d)",
+      "company": "Kulm Hotel St. Moritz",
+      "location": "St. Moritz",
+      "url": "https://careers.kronenhof.com/en/vacancies#job-633"
+    },
+    {
+      "reason": "non_detail_url",
+      "title": "Team Assistant Concierge and Guest Services (m/w/d)",
+      "company": "Kulm Hotel St. Moritz",
+      "location": "St. Moritz",
+      "url": "https://careers.kronenhof.com/en/vacancies#job-635"
+    },
+    {
+      "reason": "non_detail_url",
+      "title": "Commis de Rang/ Assistant Waiter (m/w/d)",
+      "company": "Grand Hotel Kronenhof",
+      "location": "Pontresina",
+      "url": "https://careers.kronenhof.com/en/vacancies#job-651"
+    },
+    {
+      "reason": "non_detail_url",
+      "title": "Supervisor Stewarding (m/w/d)",
+      "company": "Kulm Hotel St. Moritz",
+      "location": "St. Moritz",
+      "url": "https://careers.kronenhof.com/en/vacancies#job-653"
+    },
+    {
+      "reason": "non_detail_url",
+      "title": "Employee Economat & Bike Lounge (m/w/d)",
+      "company": "Kulm Hotel St. Moritz",
+      "location": "St. Moritz",
+      "url": "https://careers.kronenhof.com/en/vacancies#job-654"
+    },
+    {
+      "reason": "non_detail_url",
+      "title": "Reservations Agent (m/w/d)",
+      "company": "Kulm Hotel St. Moritz",
+      "location": "St. Moritz",
+      "url": "https://careers.kronenhof.com/en/vacancies#job-602"
+    },
+    {
+      "reason": "non_detail_url",
+      "title": "Food and Beverage Assistant (m/w/d)",
+      "company": "Kulm Hotel St. Moritz",
+      "location": "St. Moritz",
+      "url": "https://careers.kronenhof.com/en/vacancies#job-608"
+    },
+    {
+      "reason": "non_detail_url",
+      "title": "Restaurant Supervisor (m/w) Deutschsprachig",
+      "company": "Kempinski Palace Engelberg",
+      "location": "Engelberg",
+      "url": "https://kempinski.pinpointhq.com/en/postings/3351dac0-8b9f-4d92-b634-ace170a18f52"
+    },
+    {
+      "reason": "non_detail_url",
+      "title": "Cluster Sales Manager (m/w)",
+      "company": "Kempinski Palace Engelberg",
+      "location": "Engelberg",
+      "url": "https://kempinski.pinpointhq.com/en/postings/8310c6bc-bcc6-487c-967f-15f946e53765"
+    },
+    {
+      "reason": "non_detail_url",
+      "title": "Cluster Reservation Agent (m/w) - Deutschsprachig / ab 01.05.2026 oder nach Vereinbarung",
+      "company": "Kempinski Palace Engelberg",
+      "location": "Engelberg",
+      "url": "https://kempinski.pinpointhq.com/en/postings/e5488ef4-d816-44a4-816a-7183647d8211"
+    },
+    {
+      "reason": "non_detail_url",
+      "title": "Senior Projektleiter:in Bauherrenunterstützung 80-100% - Zürich oder Chur",
+      "company": "AFRY",
+      "location": "Zürich",
+      "url": "https://afry.com/en/join-us/available-jobs/REF10433H-senior-projektleiterin-bauherrenunterstutzung-80-100-zurich-oder-chur"
+    },
+    {
+      "reason": "non_detail_url",
+      "title": "Ingegnere Elettronico / Telecomunicazione (f/m/d) 80-100% - Bellinzona",
+      "company": "AFRY",
+      "location": "Bellinzona",
+      "url": "https://afry.com/en/join-us/available-jobs/REF11389O-ingegnere-elettronico-telecomunicazione-f-m-d-80-100-bellinzona"
+    },
+    {
+      "reason": "non_detail_url",
+      "title": "Zeichner:in Tiefbau / Kunstbau 80-100% - Chur",
+      "company": "AFRY",
+      "location": "Chur",
+      "url": "https://afry.com/en/join-us/available-jobs/REF11391E-zeichnerin-tiefbau-kunstbau-80-100-chur"
+    },
+    {
+      "reason": "non_detail_url",
+      "title": "Ingegnere / Tecnico SSS elettrotecnico 80-100% (f/m/d) - Nuova sede di Bellinzona",
+      "company": "AFRY",
+      "location": "Bellinzona",
+      "url": "https://afry.com/en/join-us/available-jobs/REF12020C-ingegnere-tecnico-sss-elettrotecnico-80-100-f-m-d-nuova-sede-di-bellinzona"
+    },
+    {
+      "reason": "non_detail_url",
+      "title": "Bauleiter:in Tunnelbau / Tiefbau ETH/FH 80-100% - Chur",
+      "company": "AFRY",
+      "location": "Chur",
+      "url": "https://afry.com/en/join-us/available-jobs/REF1247R-bauleiterin-tunnelbau-tiefbau-eth-fh-80-100-chur"
+    },
+    {
+      "reason": "non_detail_url",
+      "title": "Lehrstelle als Zeichner:in mit Fachrichtung Ingenieurbau EFZ - Chur",
+      "company": "AFRY",
+      "location": "Chur",
+      "url": "https://afry.com/en/join-us/available-jobs/REF12509X-lehrstelle-als-zeichnerin-mit-fachrichtung-ingenieurbau-efz-chur"
+    }
+  ]
 }
