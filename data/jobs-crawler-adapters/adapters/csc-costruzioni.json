@@ -9,7 +9,9 @@
     "html",
     "generic_ats"
   ],
-  "seedUrls": [],
-  "notes": "CSC Costruzioni SA — Lugano-based construction company (Drupal CMS). Seed URLs auto-discovered from /lavoro-carriera-edilizia.",
-  "updatedAt": "2025-07-24T00:00:00.000Z"
+  "seedUrls": [
+    "https://csc-sa.ch/lavoro-carriera-edilizia"
+  ],
+  "notes": "CSC Costruzioni SA — Lugano-based construction company (Drupal CMS). Jobs page at /lavoro-carriera-edilizia (confirmed live 2026-03-19 via search; may have zero openings at times, spontaneous applications accepted). Seed URL verified from original notes and web search.",
+  "updatedAt": "2026-03-19T00:00:00.000Z"
 }

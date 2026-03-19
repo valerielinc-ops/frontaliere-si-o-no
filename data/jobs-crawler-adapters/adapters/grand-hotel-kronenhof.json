@@ -5,7 +5,9 @@
   "enabled": true,
   "priority": 10,
   "crawlerModes": ["json_api"],
-  "seedUrls": [],
-  "notes": "Grand Hotel Kronenhof (Pontresina) & Kulm Hotel (St. Moritz) — luxury 5-star hotels in the Engadin (GR). Clean paginated JSON API at careers.kronenhof.com/en/vacancies/json.",
-  "updatedAt": "2026-03-15T23:07:00.000Z"
+  "seedUrls": [
+    "https://careers.kronenhof.com/en/vacancies/json"
+  ],
+  "notes": "Grand Hotel Kronenhof (Pontresina) & Kulm Hotel (St. Moritz) — luxury 5-star hotels in the Engadin (GR). Careers portal confirmed at careers.kronenhof.com/en/vacancies (live 2026-03-19). JSON API endpoint at /en/vacancies/json (standard ATS JSON suffix pattern; per original notes 'clean paginated JSON API'). HTML listing fallback: https://careers.kronenhof.com/en/vacancies",
+  "updatedAt": "2026-03-19T00:00:00.000Z"
 }

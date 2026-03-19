@@ -5,7 +5,9 @@
   "enabled": true,
   "priority": 10,
   "crawlerModes": ["json_api"],
-  "seedUrls": [],
-  "notes": "Grand Hotel des Bains Kempinski — luxury 5-star hotel in St. Moritz (GR). Also covers Kempinski Palace Engelberg (OW). Jobs via Pinpoint ATS API at kempinski.pinpointhq.com.",
-  "updatedAt": "2026-03-16T00:00:00.000Z"
+  "seedUrls": [
+    "https://kempinski.pinpointhq.com/postings.json"
+  ],
+  "notes": "Grand Hotel des Bains Kempinski — luxury 5-star hotel in St. Moritz (GR). Also covers Kempinski Palace Engelberg (OW). Pinpoint ATS confirmed active at kempinski.pinpointhq.com (live postings verified 2026-03-19). JSON API endpoint per Pinpoint developer docs: /postings.json (standard for all Pinpoint subdomains). Individual posting URL pattern: kempinski.pinpointhq.com/postings/<uuid>. HTML listing: https://kempinski.pinpointhq.com/en/vacancies",
+  "updatedAt": "2026-03-19T00:00:00.000Z"
 }
