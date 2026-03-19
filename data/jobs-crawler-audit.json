@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-03-19T03:34:32.612Z",
-  "startedAt": "2026-03-19T03:23:04.519Z",
+  "generatedAt": "2026-03-19T04:50:41.253Z",
+  "startedAt": "2026-03-19T04:50:38.506Z",
   "config": {
     "minQualityScore": 4,
     "minDescriptionChars": 80,
     "aiLocalizationEnabled": true,
-    "aiLocalizationMaxJobsPerRun": 120,
+    "aiLocalizationMaxJobsPerRun": 500,
     "contentReuse": {
       "enabled": true,
       "similarityThreshold": 0.7,
@@ -22,7 +22,7 @@
   },
   "totals": {
     "companiesParsed": 178,
-    "companiesSelected": 14,
+    "companiesSelected": 1,
     "companiesDroppedBySelection": 0,
     "companiesCrawled": 0,
     "discoveredCareerPages": 0,
@@ -36,243 +36,26 @@
     "browserFallbackAttempts": 0,
     "browserFallbackHits": 0,
     "duplicateIncoming": 0,
-    "duplicateExisting": 2111,
-    "mergeExcludedJobs": 101,
-    "mergeExclusionByReason": {
-      "non_detail_url": 77,
-      "not_ticino_relevant": 42,
-      "outside_swiss_ticino": 30,
-      "location_explicitly_foreign": 5,
-      "explicitly_outside_target": 19
-    },
+    "duplicateExisting": 3,
+    "mergeExcludedJobs": 0,
+    "mergeExclusionByReason": {},
     "reusedLocalizationFromPrevious": 0,
     "inserted": 0,
     "refreshed": 0,
-    "mergedTotal": 863,
-    "aiLocalizationCalls": 43,
+    "mergedTotal": 872,
+    "aiLocalizationCalls": 1,
     "aiPageValidationCalls": 0,
-    "deeplCalls": 119,
+    "deeplCalls": 0,
     "deeplSuccess": 0,
-    "deeplFallbackToLlm": 87,
-    "aiCacheHits": 16,
-    "aiCacheMisses": 137,
-    "aiCacheEntries": 1543,
+    "deeplFallbackToLlm": 0,
+    "aiCacheHits": 1,
+    "aiCacheMisses": 0,
+    "aiCacheEntries": 1408,
     "discoveredCompaniesCandidates": 0,
     "discoveredCompaniesAdded": 0,
     "discoveredCompaniesPending": 0
   },
   "byCompany": [],
   "droppedCompanies": [],
-  "mergeExclusionSamples": [
-    {
-      "reason": "non_detail_url",
-      "title": "Nachtportier/ Night Auditor (m/w/d)",
-      "company": "Grand Hotel Kronenhof",
-      "location": "Pontresina",
-      "url": "https://careers.kronenhof.com/en/vacancies#job-642"
-    },
-    {
-      "reason": "non_detail_url",
-      "title": "Service Allrounder Festival da Jazz (m/w/d)",
-      "company": "Kulm Hotel St. Moritz",
-      "location": "St. Moritz",
-      "url": "https://careers.kronenhof.com/en/vacancies#job-619"
-    },
-    {
-      "reason": "non_detail_url",
-      "title": "Driver (m/w/d)",
-      "company": "Grand Hotel Kronenhof",
-      "location": "Pontresina",
-      "url": "https://careers.kronenhof.com/en/vacancies#job-638"
-    },
-    {
-      "reason": "non_detail_url",
-      "title": "Linen Employee (part-time 50%) (m/w/d)",
-      "company": "Grand Hotel Kronenhof",
-      "location": "Pontresina",
-      "url": "https://careers.kronenhof.com/en/vacancies#job-648"
-    },
-    {
-      "reason": "non_detail_url",
-      "title": "Breakfast Cook/ Commis de Cuisine Breakfast (m/w/d)",
-      "company": "Grand Hotel Kronenhof",
-      "location": "Pontresina",
-      "url": "https://careers.kronenhof.com/en/vacancies#job-658"
-    },
-    {
-      "reason": "non_detail_url",
-      "title": "Service Employee Staff Restaurant (m/w/d)",
-      "company": "Kulm Hotel St. Moritz",
-      "location": "St. Moritz",
-      "url": "https://careers.kronenhof.com/en/vacancies#job-596"
-    },
-    {
-      "reason": "non_detail_url",
-      "title": "Front Office Agent (m/w/d)",
-      "company": "Kulm Hotel St. Moritz",
-      "location": "St. Moritz",
-      "url": "https://careers.kronenhof.com/en/vacancies#job-610"
-    },
-    {
-      "reason": "non_detail_url",
-      "title": "Florist (m/w/d)",
-      "company": "Kulm Hotel St. Moritz",
-      "location": "St. Moritz",
-      "url": "https://careers.kronenhof.com/en/vacancies#job-614"
-    },
-    {
-      "reason": "non_detail_url",
-      "title": "Florist (m/w/d)",
-      "company": "Grand Hotel Kronenhof",
-      "location": "Pontresina",
-      "url": "https://careers.kronenhof.com/en/vacancies#job-615"
-    },
-    {
-      "reason": "non_detail_url",
-      "title": "Chef de Partie - Kulm Country Club (m/w/d)",
-      "company": "Kulm Hotel St. Moritz",
-      "location": "St. Moritz",
-      "url": "https://careers.kronenhof.com/en/vacancies#job-618"
-    },
-    {
-      "reason": "non_detail_url",
-      "title": "Chef de Partie Mitarbeiterrestaurant/ Personalkoch (m/w/d)",
-      "company": "Kulm Hotel St. Moritz",
-      "location": "St. Moritz",
-      "url": "https://careers.kronenhof.com/en/vacancies#job-623"
-    },
-    {
-      "reason": "non_detail_url",
-      "title": "Commis de Bar (m/w/d)",
-      "company": "Kulm Hotel St. Moritz",
-      "location": "St. Moritz",
-      "url": "https://careers.kronenhof.com/en/vacancies#job-624"
-    },
-    {
-      "reason": "non_detail_url",
-      "title": "Commis de Rang (m/w/d)",
-      "company": "Kulm Hotel St. Moritz",
-      "location": "St. Moritz",
-      "url": "https://careers.kronenhof.com/en/vacancies#job-625"
-    },
-    {
-      "reason": "non_detail_url",
-      "title": "Training & Development Manager (m/w/d)",
-      "company": "Kulm Hotel St. Moritz",
-      "location": "St. Moritz",
-      "url": "https://careers.kronenhof.com/en/vacancies#job-627"
-    },
-    {
-      "reason": "non_detail_url",
-      "title": "Demi Chef de Partie - Breakfast (m/w/d)",
-      "company": "Kulm Hotel St. Moritz",
-      "location": "St. Moritz",
-      "url": "https://careers.kronenhof.com/en/vacancies#job-633"
-    },
-    {
-      "reason": "non_detail_url",
-      "title": "Team Assistant Concierge and Guest Services (m/w/d)",
-      "company": "Kulm Hotel St. Moritz",
-      "location": "St. Moritz",
-      "url": "https://careers.kronenhof.com/en/vacancies#job-635"
-    },
-    {
-      "reason": "non_detail_url",
-      "title": "Commis de Rang/ Assistant Waiter (m/w/d)",
-      "company": "Grand Hotel Kronenhof",
-      "location": "Pontresina",
-      "url": "https://careers.kronenhof.com/en/vacancies#job-651"
-    },
-    {
-      "reason": "non_detail_url",
-      "title": "Supervisor Stewarding (m/w/d)",
-      "company": "Kulm Hotel St. Moritz",
-      "location": "St. Moritz",
-      "url": "https://careers.kronenhof.com/en/vacancies#job-653"
-    },
-    {
-      "reason": "non_detail_url",
-      "title": "Employee Economat & Bike Lounge (m/w/d)",
-      "company": "Kulm Hotel St. Moritz",
-      "location": "St. Moritz",
-      "url": "https://careers.kronenhof.com/en/vacancies#job-654"
-    },
-    {
-      "reason": "non_detail_url",
-      "title": "Reservations Agent (m/w/d)",
-      "company": "Kulm Hotel St. Moritz",
-      "location": "St. Moritz",
-      "url": "https://careers.kronenhof.com/en/vacancies#job-602"
-    },
-    {
-      "reason": "non_detail_url",
-      "title": "Food and Beverage Assistant (m/w/d)",
-      "company": "Kulm Hotel St. Moritz",
-      "location": "St. Moritz",
-      "url": "https://careers.kronenhof.com/en/vacancies#job-608"
-    },
-    {
-      "reason": "non_detail_url",
-      "title": "Restaurant Supervisor (m/w) Deutschsprachig",
-      "company": "Kempinski Palace Engelberg",
-      "location": "Engelberg",
-      "url": "https://kempinski.pinpointhq.com/en/postings/3351dac0-8b9f-4d92-b634-ace170a18f52"
-    },
-    {
-      "reason": "non_detail_url",
-      "title": "Cluster Sales Manager (m/w)",
-      "company": "Kempinski Palace Engelberg",
-      "location": "Engelberg",
-      "url": "https://kempinski.pinpointhq.com/en/postings/8310c6bc-bcc6-487c-967f-15f946e53765"
-    },
-    {
-      "reason": "non_detail_url",
-      "title": "Cluster Reservation Agent (m/w) - Deutschsprachig / ab 01.05.2026 oder nach Vereinbarung",
-      "company": "Kempinski Palace Engelberg",
-      "location": "Engelberg",
-      "url": "https://kempinski.pinpointhq.com/en/postings/e5488ef4-d816-44a4-816a-7183647d8211"
-    },
-    {
-      "reason": "non_detail_url",
-      "title": "Senior Projektleiter:in Bauherrenunterstützung 80-100% - Zürich oder Chur",
-      "company": "AFRY",
-      "location": "Zürich",
-      "url": "https://afry.com/en/join-us/available-jobs/REF10433H-senior-projektleiterin-bauherrenunterstutzung-80-100-zurich-oder-chur"
-    },
-    {
-      "reason": "non_detail_url",
-      "title": "Ingegnere Elettronico / Telecomunicazione (f/m/d) 80-100% - Bellinzona",
-      "company": "AFRY",
-      "location": "Bellinzona",
-      "url": "https://afry.com/en/join-us/available-jobs/REF11389O-ingegnere-elettronico-telecomunicazione-f-m-d-80-100-bellinzona"
-    },
-    {
-      "reason": "non_detail_url",
-      "title": "Zeichner:in Tiefbau / Kunstbau 80-100% - Chur",
-      "company": "AFRY",
-      "location": "Chur",
-      "url": "https://afry.com/en/join-us/available-jobs/REF11391E-zeichnerin-tiefbau-kunstbau-80-100-chur"
-    },
-    {
-      "reason": "non_detail_url",
-      "title": "Ingegnere / Tecnico SSS elettrotecnico 80-100% (f/m/d) - Nuova sede di Bellinzona",
-      "company": "AFRY",
-      "location": "Bellinzona",
-      "url": "https://afry.com/en/join-us/available-jobs/REF12020C-ingegnere-tecnico-sss-elettrotecnico-80-100-f-m-d-nuova-sede-di-bellinzona"
-    },
-    {
-      "reason": "non_detail_url",
-      "title": "Bauleiter:in Tunnelbau / Tiefbau ETH/FH 80-100% - Chur",
-      "company": "AFRY",
-      "location": "Chur",
-      "url": "https://afry.com/en/join-us/available-jobs/REF1247R-bauleiterin-tunnelbau-tiefbau-eth-fh-80-100-chur"
-    },
-    {
-      "reason": "non_detail_url",
-      "title": "Lehrstelle als Zeichner:in mit Fachrichtung Ingenieurbau EFZ - Chur",
-      "company": "AFRY",
-      "location": "Chur",
-      "url": "https://afry.com/en/join-us/available-jobs/REF12509X-lehrstelle-als-zeichnerin-mit-fachrichtung-ingenieurbau-efz-chur"
-    }
-  ]
+  "mergeExclusionSamples": []
 }
