@@ -1,22 +1,22 @@
 {
-  "generatedAt": "2026-03-19T05:06:40.563Z",
+  "generatedAt": "2026-03-19T05:07:03.940Z",
   "links": {
     "allJobs": "https://www.frontaliereticino.ch/cerca-lavoro-ticino"
   },
   "totals": {
-    "activeJobs": 874,
-    "activeCompanies": 129,
-    "activeLocations": 145,
-    "todayAdded": 927,
+    "activeJobs": 1125,
+    "activeCompanies": 128,
+    "activeLocations": 146,
+    "todayAdded": 943,
     "todayUpdated": 0,
     "todayRemoved": 0,
     "last7d": {
-      "added": 3201,
+      "added": 3217,
       "updated": 0,
       "removed": 0
     },
     "last30d": {
-      "added": 3684,
+      "added": 3700,
       "updated": 0,
       "removed": 0
     }
@@ -47,6 +47,13 @@
       "date": "2026-03-19",
       "totalJobs": 1275,
       "added": 927,
+      "updated": 0,
+      "removed": 0
+    },
+    {
+      "date": "2026-03-19",
+      "totalJobs": 1275,
+      "added": 943,
       "updated": 0,
       "removed": 0
     }
@@ -124,6 +131,36 @@
         "name": "ReleWant",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-relewant",
         "count": 19
+      },
+      {
+        "key": "colin-cie-wealth-management",
+        "name": "Colin&Cie Wealth Management",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-colin-cie-wealth-management",
+        "count": 113
+      },
+      {
+        "key": "vf-international-the-north-face-timberland",
+        "name": "VF International (The North Face, Timberland)",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-vf-international-the-north-face-timberland",
+        "count": 76
+      },
+      {
+        "key": "kantonsspital-graubunden",
+        "name": "Kantonsspital Graubünden",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-kantonsspital-graubunden",
+        "count": 27
+      },
+      {
+        "key": "grace-la-margna-st-moritz",
+        "name": "Grace La Margna St. Moritz",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-grace-la-margna-st-moritz",
+        "count": 25
+      },
+      {
+        "key": "hamilton-bonaduz-ag",
+        "name": "Hamilton Bonaduz AG",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-hamilton-bonaduz-ag",
+        "count": 24
       }
     ],
     "topLocationsActive": [
@@ -210,6 +247,42 @@
         "name": "EMEA · CHE · Stabio · VF Campus VF1",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-emea-che-stabio-vf-campus-vf1",
         "count": 24
+      },
+      {
+        "key": "lugano",
+        "name": "Lugano",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-lugano",
+        "count": 146
+      },
+      {
+        "key": "bellinzona",
+        "name": "Bellinzona",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-bellinzona",
+        "count": 129
+      },
+      {
+        "key": "emea-che-stabio-vf-campus-vf1",
+        "name": "EMEA · CHE · Stabio · VF Campus VF1",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-emea-che-stabio-vf-campus-vf1",
+        "count": 74
+      },
+      {
+        "key": "mendrisio",
+        "name": "Mendrisio",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-mendrisio",
+        "count": 46
+      },
+      {
+        "key": "ticino",
+        "name": "Ticino",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-ticino",
+        "count": 46
+      },
+      {
+        "key": "chur",
+        "name": "Chur",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-chur",
+        "count": 42
       }
     ],
     "topCompaniesAddedToday": [
@@ -268,20 +341,20 @@
         "removed": 0
       },
       {
-        "key": "usi-universita-della-svizzera-italiana",
-        "name": "USI – Università della Svizzera italiana",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-usi-universita-della-svizzera-italiana",
+        "key": "hamilton-bonaduz-ag",
+        "name": "Hamilton Bonaduz AG",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-hamilton-bonaduz-ag",
         "count": 0,
         "added": 24,
         "updated": 0,
         "removed": 0
       },
       {
-        "key": "relewant",
-        "name": "ReleWant",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-relewant",
+        "key": "usi-universita-della-svizzera-italiana",
+        "name": "USI – Università della Svizzera italiana",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-usi-universita-della-svizzera-italiana",
         "count": 0,
-        "added": 19,
+        "added": 24,
         "updated": 0,
         "removed": 0
       }
@@ -511,11 +584,11 @@
   },
   "salary": {
     "coverage": {
-      "jobsWithSalary": 874,
+      "jobsWithSalary": 1125,
       "coveragePct": 100,
-      "avgMin": 67049,
-      "avgMax": 90442,
-      "avgMid": 78745,
+      "avgMin": 67375,
+      "avgMax": 90792,
+      "avgMid": 79083,
       "medianMid": 84500
     },
     "leaders": {
@@ -701,6 +774,36 @@
           "avgMax": 103500,
           "avgMid": 90071,
           "weightedSalary": 90071
+        },
+        {
+          "key": "zurich",
+          "name": "Zürich",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-zurich",
+          "count": 30,
+          "avgMin": 77983,
+          "avgMax": 105183,
+          "avgMid": 91583,
+          "weightedSalary": 91583
+        },
+        {
+          "key": "munsbach",
+          "name": "Munsbach",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-munsbach",
+          "count": 42,
+          "avgMin": 77500,
+          "avgMax": 104500,
+          "avgMid": 91000,
+          "weightedSalary": 91000
+        },
+        {
+          "key": "schaffhausen",
+          "name": "Schaffhausen",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-schaffhausen",
+          "count": 14,
+          "avgMin": 77500,
+          "avgMax": 104500,
+          "avgMid": 91000,
+          "weightedSalary": 91000
         }
       ],
       "topSalaryTitles": [
