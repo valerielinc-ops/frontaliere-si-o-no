@@ -11,8 +11,8 @@
   "seedUrls": [
     "https://www.alten.ch/career/jobs/?pagenum=1&per_page=100"
   ],
-  "notes": "Dedicated ALTEN Switzerland crawler uses a real browser session to bypass Cloudflare challenge and extracts only Ticino jobs from the ALTEN Switzerland job board.",
-  "updatedAt": "2026-03-10T17:30:32.057Z",
+  "notes": "Dedicated ALTEN Switzerland crawler uses a real browser session to bypass Cloudflare challenge and extracts TI/GR jobs from the ALTEN Switzerland job board.",
+  "updatedAt": "2026-03-19T02:45:34.744Z",
   "seedMetaByUrl": {
     "https://www.alten.ch/jobs/875-it-generic-net-software-developer/": {
       "location": "Ticino",

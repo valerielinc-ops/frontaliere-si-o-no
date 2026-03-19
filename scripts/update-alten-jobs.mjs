@@ -107,7 +107,12 @@ async function waitForDetail(page) {
   while (Date.now() - started < timeoutMs) {
     const title = await page.title();
     const content = await page.textContent('body').catch(() => '');
-    if (/ALTEN Switzerland/i.test(title) && (/APPLY/i.test(content || '') || /Job info/i.test(content || '') || /Responsibilities/i.test(content || ''))) return true;
+    const isAltenPage = /ALTEN/i.test(title) || /ALTEN Switzerland/i.test(content || '');
+    const hasJobContent = /APPLY/i.test(content || '')
+      || /Job info/i.test(content || '')
+      || /Responsibilities/i.test(content || '')
+      || /wp-block-jobboard-offer/i.test(await page.content().catch(() => ''));
+    if (isAltenPage && hasJobContent) return true;
     await page.waitForTimeout(1000);
   }
   return false;
@@ -146,8 +151,12 @@ async function discoverListings() {
       return listings;
     });
   } catch (err) {
-    if (/did not become available|net::ERR_|timeout|403/i.test(err.message)) {
-      console.warn(`⚠️  ALTEN site unreachable: ${err.message}`);
+    // Treat any connectivity / challenge / zero-listing error as a transient
+    // unavailability. Return null so main() preserves the existing jobs.json
+    // content rather than wiping ALTEN entries on a bad run.
+    const isTransient = /did not become available|net::ERR_|timeout|403|Expected at least 1/i.test(err.message);
+    if (isTransient) {
+      console.warn(`⚠️  ALTEN site or listing unavailable: ${err.message}`);
       console.log('ℹ️  Keeping existing data — no updates this run.');
       return null;
     }
@@ -157,43 +166,65 @@ async function discoverListings() {
 
 async function buildJobs(listings) {
   return withBrowser(async (page) => {
+    // Warm the browser session on the listing page first so that Cloudflare
+    // challenge cookies are established before navigating to detail pages.
+    await page.goto(CAREERS_URL, { waitUntil: 'domcontentloaded', timeout: 60000 });
+    const sessionOk = await waitForListing(page);
+    if (!sessionOk) throw new Error('ALTEN listing session could not be initialized for detail fetching');
+
     const jobs = [];
+    let skipped = 0;
     for (const listing of listings) {
-      await page.goto(CAREERS_URL, { waitUntil: 'domcontentloaded', timeout: 60000 });
-      const ok = await waitForListing(page);
-      if (!ok) throw new Error('ALTEN listing session could not be initialized');
-      await page.locator(`a.card-title[href="${listing.href}"]`).first().click();
-      const detailOk = await waitForDetail(page);
-      if (!detailOk) throw new Error(`ALTEN detail page challenge did not resolve for ${listing.href}`);
-      const parsed = parseAltenDetailHtml(await page.content(), listing.href);
-      const canton = inferSwissTargetCanton(parsed.location) || 'TI';
-      jobs.push({
-        title: parsed.title,
-        slug: parsed.slug,
-        url: listing.href,
-        applyUrl: parsed.applyUrl,
-        company: COMPANY_NAME,
-        companyKey: COMPANY_KEY,
-        companyDomain: COMPANY_DOMAIN,
-        location: parsed.location,
-        addressLocality: parsed.location,
-        addressRegion: canton,
-        addressCountry: 'CH',
-        canton,
-        country: 'CH',
-        employmentType: 'full-time',
-        contractType: 'full-time',
-        category: inferAltenCategory(parsed.title, parsed.description),
-        sector: 'IT Consulting & Engineering',
-        source: 'alten-dedicated-crawler',
-        sourceLang: detectLang(parsed.description || '', 'en'),
-        postedDate: toIsoDate(parsed.postedDate || listing.postedDate),
-        validThrough: '',
-        description: parsed.description,
-        titleByLocale: parsed.titleByLocale,
-        descriptionByLocale: parsed.descriptionByLocale,
-        slugByLocale: parsed.slugByLocale,
-      });
+      // Navigate directly to the detail URL — avoids re-loading the listing page
+      // for every job and eliminates fragile anchor-click logic.
+      try {
+        await page.goto(listing.href, { waitUntil: 'domcontentloaded', timeout: 60000 });
+        const detailOk = await waitForDetail(page);
+        if (!detailOk) {
+          console.warn(`  ⚠️  Detail page not ready for ${listing.href} — skipping`);
+          skipped += 1;
+          continue;
+        }
+        const parsed = parseAltenDetailHtml(await page.content(), listing.href);
+        const canton = inferSwissTargetCanton(parsed.location) || 'TI';
+        jobs.push({
+          title: parsed.title,
+          slug: parsed.slug,
+          url: listing.href,
+          applyUrl: parsed.applyUrl,
+          company: COMPANY_NAME,
+          companyKey: COMPANY_KEY,
+          companyDomain: COMPANY_DOMAIN,
+          location: parsed.location,
+          addressLocality: parsed.location,
+          addressRegion: canton,
+          addressCountry: 'CH',
+          canton,
+          country: 'CH',
+          employmentType: 'full-time',
+          contractType: 'full-time',
+          category: inferAltenCategory(parsed.title, parsed.description),
+          sector: 'IT Consulting & Engineering',
+          source: 'alten-dedicated-crawler',
+          sourceLang: detectLang(parsed.description || '', 'en'),
+          postedDate: toIsoDate(parsed.postedDate || listing.postedDate),
+          validThrough: '',
+          description: parsed.description,
+          titleByLocale: parsed.titleByLocale,
+          descriptionByLocale: parsed.descriptionByLocale,
+          slugByLocale: parsed.slugByLocale,
+        });
+      } catch (err) {
+        console.warn(`  ⚠️  Failed to fetch detail for ${listing.href}: ${err.message} — skipping`);
+        skipped += 1;
+      }
+    }
+
+    if (jobs.length === 0) {
+      throw new Error(`Failed to fetch any ALTEN job details (${skipped}/${listings.length} skipped)`);
+    }
+    if (skipped > 0) {
+      console.warn(`  ⚠️  Skipped ${skipped}/${listings.length} detail pages due to errors`);
     }
     return jobs;
   });
