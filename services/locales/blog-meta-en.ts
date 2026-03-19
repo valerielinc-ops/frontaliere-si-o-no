@@ -1352,6 +1352,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frode-cassa-compensazione-avs-ticino.title': '2.7 million fraud at the AVS compensation fund: how to protect yourself',
     'blog.article.frode-cassa-compensazione-avs-ticino.excerpt': 'Over 80 fake beneficiaries have fraudulently received Covid loss of earnings benefits. The case was revealed by the newspaper "24 heures" and the Public Prosecutor\'s Office is conducting an investigation.',
     'blog.article.frode-cassa-compensazione-avs-ticino.imageAlt': 'Panoramic view of Lake Lugano with the village of Gandria.',
+    'blog.article.sette-cantieri-mendrisio-kebab-case.title': 'Seven Construction Sites and 66 Workers Monitored by the Cantonal Police in the Mendrisiotto: \'No Violations Found\'',
+    'blog.article.sette-cantieri-mendrisio-kebab-case.excerpt': 'Seven construction sites and 66 workers monitored by the Cantonal Police in the Mendrisiotto: \'No violations found\'',
+    'blog.article.sette-cantieri-mendrisio-kebab-case.imageAlt': 'Photo of a construction site in Mendrisio',
 };
 
 export default blogMetaEn;

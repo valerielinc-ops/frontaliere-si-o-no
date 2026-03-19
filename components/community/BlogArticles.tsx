@@ -3730,6 +3730,13 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/frode-cassa-compensazione-avs-ticino.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'sette-cantieri-mendrisio-kebab-case',
+    category: 'pratico',
+    date: '2026-03-19T16:37:51.960Z',
+    image: '/images/blog/sette-cantieri-mendrisio-kebab-case.jpg',
+    hasCalculator: true,
+  },
 ];
 
 const CATEGORIES = ['all', 'fiscale', 'pratico', 'novita', 'pensione'] as const;

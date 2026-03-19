@@ -1352,6 +1352,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frode-cassa-compensazione-avs-ticino.title': 'Betrug von 2,7 Millionen bei der Ausgleichskasse AVS: Wie kann man sich schützen?',
     'blog.article.frode-cassa-compensazione-avs-ticino.excerpt': 'Über 80 falsche Empfänger haben unrechtmäßig die Entschädigungen für den Verdienstausfall Covid erhalten. Der Fall wurde von der Zeitung "24 heures" aufgedeckt und die Staatsanwaltschaft führt eine Untersuchung durch.',
     'blog.article.frode-cassa-compensazione-avs-ticino.imageAlt': 'Panoramablick auf den Luganersee mit dem Dorf Gandria.',
+    'blog.article.sette-cantieri-mendrisio-kebab-case.title': 'Sieben Baustellen und 66 Arbeitnehmer überwacht von der Kantonspolizei im Mendrisiotto: "Keine Verstöße"',
+    'blog.article.sette-cantieri-mendrisio-kebab-case.excerpt': 'Sieben Baustellen und 66 Arbeitnehmer überwacht von der Kantonspolizei im Mendrisiotto: "Keine Verstöße"',
+    'blog.article.sette-cantieri-mendrisio-kebab-case.imageAlt': 'Bild eines Baustellen in Mendrisio',
 };
 
 export default blogMetaDe;

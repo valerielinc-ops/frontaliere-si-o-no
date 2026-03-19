@@ -6200,6 +6200,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-sette-cantieri-mendrisio-kebab-case': {
+    title: 'Sette cantieri e 66 lavoratori controllati dalla Polizia | Frontaliere Ticino',
+    description: 'La Polizia Cantonale ha effettuato un monitoraggio capillare sui sette cantieri presenti nel Mendrisiotto per verificare la regolarità dei contratti e dei',
+    keywords: 'frontalieri, ticino, svizzera, italia, sette, cantieri, lavoratori, controllati',
+    ogTitle: 'Sette cantieri e 66 lavoratori controllati dalla Polizia',
+    ogDescription: 'La Polizia Cantonale ha effettuato un monitoraggio capillare sui sette cantieri presenti nel Mendrisiotto per verificare la regolarità dei contratti e dei',
+    canonicalPath: '/articoli-frontaliere/sette-cantieri-mendrisio-kebab-case',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Sette cantieri e 66 lavoratori controllati dalla Polizia Cantonale nel",
+      "description": "La Polizia Cantonale ha effettuato un monitoraggio capillare sui sette cantieri presenti nel Mendrisiotto per verificare la regolarità dei contratti e dei",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/sette-cantieri-mendrisio-kebab-case.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Foto di un cantiere di costruzione in Mendrisio"
+      },
+      "datePublished": "2026-03-19T16:37:51+00:00",
+      "dateModified": "2026-03-19T16:37:51+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/sette-cantieri-mendrisio-kebab-case`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

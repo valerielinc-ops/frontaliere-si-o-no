@@ -1352,6 +1352,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.frode-cassa-compensazione-avs-ticino.title': 'Frode da 2,7 milioni alla cassa di compensazione AVS: come tutelarsi',
     'blog.article.frode-cassa-compensazione-avs-ticino.excerpt': 'Oltre 80 falsi beneficiari hanno percepito indebitamente le indennità per perdita di guadagno Covid. Il caso è stato rivelato dal quotidiano "24 heures" e il Ministero Pubblico sta conducendo un\'inchiesta.',
     'blog.article.frode-cassa-compensazione-avs-ticino.imageAlt': 'Vista panoramica del Lago di Lugano con il borgo di Gandria.',
+    'blog.article.sette-cantieri-mendrisio-kebab-case.title': 'Sette cantieri e 66 lavoratori controllati dalla Polizia Cantonale nel Mendrisiotto: "Non sono emerse violazioni"',
+    'blog.article.sette-cantieri-mendrisio-kebab-case.excerpt': 'Sette cantieri e 66 lavoratori controllati dalla Polizia Cantonale nel Mendrisiotto: "Non sono emerse violazioni"',
+    'blog.article.sette-cantieri-mendrisio-kebab-case.imageAlt': 'Foto di un cantiere di costruzione in Mendrisio',
 };
 
 export default blogMetaIt;
