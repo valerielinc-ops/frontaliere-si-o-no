@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-03-19T05:07:09.633Z",
+  "updatedAt": "2026-03-19T05:07:37.925Z",
   "summaries": [
     {
       "key": "galenica",
@@ -2506,105 +2506,6 @@
       ],
       "removedJobs": [],
       "unchangedJobs": []
-    },
-    {
-      "key": "ibsa",
-      "label": "IBSA",
-      "generatedAt": "2026-03-18T16:29:48.394Z",
-      "total": 10,
-      "newCount": 0,
-      "updatedCount": 4,
-      "removedCount": 0,
-      "unchangedCount": 6,
-      "durationMs": 60811,
-      "avgDurationMs": 230046,
-      "durationHistory": [
-        60811,
-        102745,
-        63409,
-        144130,
-        42291,
-        749474,
-        292416,
-        310178,
-        304960
-      ],
-      "newJobs": [],
-      "updatedJobs": [
-        {
-          "title": "Customer & Business Support Specialist",
-          "company": "IBSA Institut Biochimique",
-          "location": "6916 Working Area",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/specialista-supporto-clienti-e-business-ibsa-institut-biochimique-6916-working-area/",
-          "slug": "specialista-supporto-clienti-e-business-ibsa-institut-biochimique-6916-working-area"
-        },
-        {
-          "title": "Procurement Category Specialist",
-          "company": "IBSA Institut Biochimique",
-          "location": "6916 Working Area",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/specialista-categoria-acquisti-ibsa-institut-biochimique-6916-working-area/",
-          "slug": "specialista-categoria-acquisti-ibsa-institut-biochimique-6916-working-area"
-        },
-        {
-          "title": "Meccatronico",
-          "company": "IBSA Institut Biochimique",
-          "location": "6912 Working Area",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/meccatronico-ibsa-institut-biochimique-montagnola/",
-          "slug": "meccatronico-ibsa-institut-biochimique-montagnola"
-        },
-        {
-          "title": "Contractors & Audits Specialist",
-          "company": "IBSA Institut Biochimique",
-          "location": "13484 ecc) Ottima conoscenza della lingua inglese scritta e parlata Ottima conos",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/specialista-per-contratti-e-audit-ibsa-institut-biochimique-montagnola/",
-          "slug": "specialista-per-contratti-e-audit-ibsa-institut-biochimique-montagnola"
-        }
-      ],
-      "removedJobs": [],
-      "unchangedJobs": [
-        {
-          "title": "General Services & Plant Security Coordinator",
-          "company": "IBSA Institut Biochimique",
-          "location": "6926 Working Area",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/general-services-plant-security-coordinatore-ibsa-institut-biochimique-6926-working-area/",
-          "slug": "general-services-plant-security-coordinatore-ibsa-institut-biochimique-6926-working-area"
-        },
-        {
-          "title": "SAP Master Data Specialist",
-          "company": "IBSA Institut Biochimique",
-          "location": "6916 Working Area",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/specialista-dati-anagrafici-sap-ibsa-institut-biochimique-6916-working-area/",
-          "slug": "specialista-dati-anagrafici-sap-ibsa-institut-biochimique-6916-working-area"
-        },
-        {
-          "title": "Accounting Officer (sost. maternità)",
-          "company": "IBSA Institut Biochimique",
-          "location": "6926 Working Area",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/responsabile-contabile-sostituzione-maternita-ibsa-institut-biochimique-montagnola/",
-          "slug": "responsabile-contabile-sostituzione-maternita-ibsa-institut-biochimique-montagnola"
-        },
-        {
-          "title": "Biochemical Laboratory Technician",
-          "company": "IBSA Institut Biochimique",
-          "location": "6814 Working Area",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/tecnico-di-laboratorio-biochimico-ibsa-institut-biochimique-montagnola/",
-          "slug": "tecnico-di-laboratorio-biochimico-ibsa-institut-biochimique-montagnola"
-        },
-        {
-          "title": "Application Specialist",
-          "company": "IBSA Institut Biochimique",
-          "location": "6926 Working Area",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/specialista-dell-applicazione-ibsa-institut-biochimique-montagnola/",
-          "slug": "specialista-dell-applicazione-ibsa-institut-biochimique-montagnola"
-        },
-        {
-          "title": "Jr IT QA Specialist",
-          "company": "IBSA Institut Biochimique",
-          "location": "6926 Working Area",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/jr-it-qa-specialista-ibsa-institut-biochimique-montagnola/",
-          "slug": "jr-it-qa-specialista-ibsa-institut-biochimique-montagnola"
-        }
-      ]
     },
     {
       "key": "jysk",
@@ -9857,6 +9758,106 @@
       ],
       "removedJobs": [],
       "unchangedJobs": []
+    },
+    {
+      "key": "ibsa",
+      "label": "IBSA",
+      "generatedAt": "2026-03-19T05:07:37.925Z",
+      "total": 10,
+      "newCount": 0,
+      "updatedCount": 4,
+      "removedCount": 0,
+      "unchangedCount": 6,
+      "durationMs": 42749,
+      "avgDurationMs": 211316,
+      "durationHistory": [
+        42749,
+        60811,
+        102745,
+        63409,
+        144130,
+        42291,
+        749474,
+        292416,
+        310178,
+        304960
+      ],
+      "newJobs": [],
+      "updatedJobs": [
+        {
+          "title": "Customer & Business Support Specialist",
+          "company": "IBSA Institut Biochimique",
+          "location": "6916 Working Area",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/specialista-supporto-clienti-e-business-ibsa-institut-biochimique-6916-working-area/",
+          "slug": "specialista-supporto-clienti-e-business-ibsa-institut-biochimique-6916-working-area"
+        },
+        {
+          "title": "Procurement Category Specialist",
+          "company": "IBSA Institut Biochimique",
+          "location": "6916 Working Area",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/specialista-categoria-acquisti-ibsa-institut-biochimique-6916-working-area/",
+          "slug": "specialista-categoria-acquisti-ibsa-institut-biochimique-6916-working-area"
+        },
+        {
+          "title": "Contractors & Audits Specialist",
+          "company": "IBSA Institut Biochimique",
+          "location": "13484 ecc) Ottima conoscenza della lingua inglese scritta e parlata Ottima conos",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/specialista-appaltatori-e-audit-ibsa-institut-biochimique-montagnola/",
+          "slug": "specialista-appaltatori-e-audit-ibsa-institut-biochimique-montagnola"
+        },
+        {
+          "title": "Meccatronico",
+          "company": "IBSA Institut Biochimique",
+          "location": "6912 Working Area",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/meccatronico-ibsa-institut-biochimique-montagnola/",
+          "slug": "meccatronico-ibsa-institut-biochimique-montagnola"
+        }
+      ],
+      "removedJobs": [],
+      "unchangedJobs": [
+        {
+          "title": "General Services & Plant Security Coordinator",
+          "company": "IBSA Institut Biochimique",
+          "location": "6926 Working Area",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/general-services-plant-security-coordinatore-ibsa-institut-biochimique-6926-working-area/",
+          "slug": "general-services-plant-security-coordinatore-ibsa-institut-biochimique-6926-working-area"
+        },
+        {
+          "title": "SAP Master Data Specialist",
+          "company": "IBSA Institut Biochimique",
+          "location": "6916 Working Area",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/specialista-dati-anagrafici-sap-ibsa-institut-biochimique-6916-working-area/",
+          "slug": "specialista-dati-anagrafici-sap-ibsa-institut-biochimique-6916-working-area"
+        },
+        {
+          "title": "Accounting Officer (sost. maternità)",
+          "company": "IBSA Institut Biochimique",
+          "location": "6926 Working Area",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/responsabile-contabile-sostituzione-maternita-ibsa-institut-biochimique-montagnola/",
+          "slug": "responsabile-contabile-sostituzione-maternita-ibsa-institut-biochimique-montagnola"
+        },
+        {
+          "title": "Biochemical Laboratory Technician",
+          "company": "IBSA Institut Biochimique",
+          "location": "6814 Working Area",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/tecnico-di-laboratorio-biochimico-ibsa-institut-biochimique-montagnola/",
+          "slug": "tecnico-di-laboratorio-biochimico-ibsa-institut-biochimique-montagnola"
+        },
+        {
+          "title": "Application Specialist",
+          "company": "IBSA Institut Biochimique",
+          "location": "6926 Working Area",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/specialista-dell-applicazione-ibsa-institut-biochimique-montagnola/",
+          "slug": "specialista-dell-applicazione-ibsa-institut-biochimique-montagnola"
+        },
+        {
+          "title": "Jr IT QA Specialist",
+          "company": "IBSA Institut Biochimique",
+          "location": "6926 Working Area",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/jr-it-qa-specialista-ibsa-institut-biochimique-montagnola/",
+          "slug": "jr-it-qa-specialista-ibsa-institut-biochimique-montagnola"
+        }
+      ]
     }
   ]
 }
