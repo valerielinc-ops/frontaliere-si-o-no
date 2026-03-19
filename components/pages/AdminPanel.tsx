@@ -1215,6 +1215,14 @@ export default function AdminPanel() {
                 return acc;
               }, { newCount: 0, updated: 0, removed: 0, unchanged: 0, total: 0, active: 0 });
 
+              // Latest generatedAt across all rows — used to timestamp the summary bar.
+              // This is the last crawler run timestamp, distinct from the daily board delta.
+              const latestSummaryAt = rows
+                .map(r => r.summary?.generatedAt)
+                .filter((t): t is string => Boolean(t))
+                .sort()
+                .at(-1) ?? null;
+
               const toggleExpand = (key: string, type: 'new' | 'updated' | 'removed' | 'unchanged') => {
                 setExpandedCrawlerDetail(prev => ({
                   ...prev,
@@ -1294,12 +1302,28 @@ export default function AdminPanel() {
                   <div className="flex flex-col gap-2">
                     <div className="flex flex-wrap items-center gap-3 px-3 py-2 rounded-lg bg-slate-50 dark:bg-slate-900/40 border border-slate-200 dark:border-slate-700 text-xs">
                       <span className="font-semibold text-slate-700 dark:text-slate-300">{filtered.length}/{rows.length} crawler</span>
+                      {/* Source badge: makes clear these numbers are per-crawler last-run diffs,
+                          NOT the daily job-board delta from jobs-stats.json (todayAdded/todayUpdated/todayRemoved). */}
+                      <span
+                        className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-300 font-semibold text-[10px] uppercase tracking-wide"
+                        title="Aggiunti / Aggiornati / Rimossi / Invariati mostrano il diff dell'ultima singola esecuzione di ogni crawler. Sono metriche distinte dal delta giornaliero del job board (jobs-stats.json) che confronta l'intero board con il commit HEAD della giornata."
+                      >
+                        Δ ultima run
+                      </span>
+                      {latestSummaryAt && (
+                        <span
+                          className="text-slate-400 dark:text-slate-500 text-[10px] font-mono whitespace-nowrap"
+                          title={`Dati aggiornati: ${latestSummaryAt}`}
+                        >
+                          {relativeTime(latestSummaryAt)}
+                        </span>
+                      )}
                       <span className="text-slate-400 dark:text-slate-600">|</span>
                       <span className="font-semibold text-slate-600 dark:text-slate-400">{totals.active} annunci attivi</span>
-                      {totals.newCount > 0 && <span className="text-emerald-700 dark:text-emerald-400 font-bold">+{totals.newCount} nuove</span>}
-                      {totals.updated > 0 && <span className="text-blue-700 dark:text-blue-400 font-bold">~{totals.updated} agg.</span>}
-                      {totals.removed > 0 && <span className="text-red-700 dark:text-red-400 font-bold">-{totals.removed} rim.</span>}
-                      {totals.unchanged > 0 && <span className="text-slate-500 dark:text-slate-400">={totals.unchanged} inv.</span>}
+                      {totals.newCount > 0 && <span className="text-emerald-700 dark:text-emerald-400 font-bold" title="Totale aggiunti nelle ultime run (Δ run, ≠ delta giornaliero)">+{totals.newCount} nuove</span>}
+                      {totals.updated > 0 && <span className="text-blue-700 dark:text-blue-400 font-bold" title="Totale aggiornati nelle ultime run (Δ run, ≠ delta giornaliero)">~{totals.updated} agg.</span>}
+                      {totals.removed > 0 && <span className="text-red-700 dark:text-red-400 font-bold" title="Totale rimossi nelle ultime run (Δ run, ≠ delta giornaliero)">-{totals.removed} rim.</span>}
+                      {totals.unchanged > 0 && <span className="text-slate-500 dark:text-slate-400" title="Totale invariati nelle ultime run (Δ run, ≠ delta giornaliero)">={totals.unchanged} inv.</span>}
                       {failedCrawlers.length > 0 && (
                         <>
                           <span className="text-slate-400 dark:text-slate-600">|</span>
@@ -1390,10 +1414,10 @@ export default function AdminPanel() {
                           <th className="text-left py-2 px-3 font-semibold">{renderCrawlerSortHeader('title', 'Crawler')}</th>
                           <th className="text-center py-2 px-2 font-semibold whitespace-nowrap">{renderCrawlerSortHeader('schedule', '⏰ Pianif.', { align: 'center' })}</th>
                           <th className="text-center py-2 px-2 font-semibold">{renderCrawlerSortHeader('lastRun', 'Ultimo', { align: 'center' })}</th>
-                          <th className="text-center py-2 px-1.5 font-semibold text-emerald-700 dark:text-emerald-400 whitespace-nowrap">{renderCrawlerSortHeader('newCount', 'Aggiunti', { align: 'center', className: 'text-emerald-700 dark:text-emerald-400' })}</th>
-                          <th className="text-center py-2 px-1.5 font-semibold text-blue-700 dark:text-blue-400 whitespace-nowrap">{renderCrawlerSortHeader('updatedCount', 'Aggiornati', { align: 'center', className: 'text-blue-700 dark:text-blue-400' })}</th>
-                          <th className="text-center py-2 px-1.5 font-semibold text-red-700 dark:text-red-400 whitespace-nowrap">{renderCrawlerSortHeader('removedCount', 'Rimossi', { align: 'center', className: 'text-red-700 dark:text-red-400' })}</th>
-                          <th className="text-center py-2 px-1.5 font-semibold text-slate-500 dark:text-slate-400 whitespace-nowrap">{renderCrawlerSortHeader('unchangedCount', 'Invariati', { align: 'center', className: 'text-slate-500 dark:text-slate-400' })}</th>
+                          <th className="text-center py-2 px-1.5 font-semibold text-emerald-700 dark:text-emerald-400 whitespace-nowrap" title="Nuove offerte aggiunte nell'ultima esecuzione del crawler (Δ run — distinto dal delta giornaliero del job board)">{renderCrawlerSortHeader('newCount', 'Aggiunti', { align: 'center', className: 'text-emerald-700 dark:text-emerald-400' })}</th>
+                          <th className="text-center py-2 px-1.5 font-semibold text-blue-700 dark:text-blue-400 whitespace-nowrap" title="Offerte aggiornate nell'ultima esecuzione del crawler (Δ run — distinto dal delta giornaliero del job board)">{renderCrawlerSortHeader('updatedCount', 'Aggiornati', { align: 'center', className: 'text-blue-700 dark:text-blue-400' })}</th>
+                          <th className="text-center py-2 px-1.5 font-semibold text-red-700 dark:text-red-400 whitespace-nowrap" title="Offerte rimosse nell'ultima esecuzione del crawler (Δ run — distinto dal delta giornaliero del job board)">{renderCrawlerSortHeader('removedCount', 'Rimossi', { align: 'center', className: 'text-red-700 dark:text-red-400' })}</th>
+                          <th className="text-center py-2 px-1.5 font-semibold text-slate-500 dark:text-slate-400 whitespace-nowrap" title="Offerte non cambiate nell'ultima esecuzione del crawler (Δ run — distinto dal delta giornaliero del job board)">{renderCrawlerSortHeader('unchangedCount', 'Invariati', { align: 'center', className: 'text-slate-500 dark:text-slate-400' })}</th>
                           <th className="text-center py-2 px-1.5 font-semibold text-violet-700 dark:text-violet-400 whitespace-nowrap">{renderCrawlerSortHeader('total', 'Attivi', { align: 'center', className: 'text-violet-700 dark:text-violet-400' })}</th>
                           <th className="text-center py-2 px-1.5 font-semibold text-slate-500 dark:text-slate-400 whitespace-nowrap">{renderCrawlerSortHeader('duration', '⏱️ Durata', { align: 'center', className: 'text-slate-500 dark:text-slate-400' })}</th>
                           <th className="text-center py-2 px-2 font-semibold">{renderCrawlerSortHeader('status', 'Stato', { align: 'center' })}</th>
