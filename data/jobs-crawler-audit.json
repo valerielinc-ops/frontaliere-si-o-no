@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-03-19T16:26:35.555Z",
-  "startedAt": "2026-03-19T16:21:26.169Z",
+  "generatedAt": "2026-03-19T16:27:26.631Z",
+  "startedAt": "2026-03-19T16:27:11.915Z",
   "config": {
     "minQualityScore": 4,
     "minDescriptionChars": 80,
@@ -29,14 +29,14 @@
     "scrapedJobPages": 0,
     "incomingCandidatesAccepted": 0,
     "discardedCandidates": 0,
-    "filteredOutNonCandidates": 2,
+    "filteredOutNonCandidates": 0,
     "duplicateInCompany": 0,
     "webDiscoveryQueries": 0,
     "webDiscoveryHits": 0,
     "browserFallbackAttempts": 0,
     "browserFallbackHits": 0,
     "duplicateIncoming": 0,
-    "duplicateExisting": 328,
+    "duplicateExisting": 1678,
     "mergeExcludedJobs": 1,
     "mergeExclusionByReason": {
       "explicitly_outside_target": 1
@@ -44,13 +44,13 @@
     "reusedLocalizationFromPrevious": 3,
     "inserted": 1,
     "refreshed": 0,
-    "mergedTotal": 989,
-    "aiLocalizationCalls": 6,
+    "mergedTotal": 1001,
+    "aiLocalizationCalls": 4,
     "aiPageValidationCalls": 0,
-    "deeplCalls": 3,
+    "deeplCalls": 24,
     "deeplSuccess": 0,
     "deeplFallbackToLlm": 3,
-    "aiCacheHits": 9,
+    "aiCacheHits": 8,
     "aiCacheMisses": 8,
     "aiCacheEntries": 1498,
     "discoveredCompaniesCandidates": 0,
@@ -58,30 +58,6 @@
     "discoveredCompaniesPending": 0
   },
   "byCompany": [
-    {
-      "company": "JYSK",
-      "domain": "jysk.ch",
-      "discoveredCareerPages": 8,
-      "scrapedJobPages": 0,
-      "processedCandidates": 0,
-      "extractedAccepted": 0,
-      "discardedCount": 0,
-      "discardedByReason": {},
-      "filteredOutCount": 40,
-      "filteredOutByReason": {
-        "jsonld_rejected_all_nodes": 40
-      },
-      "duplicateInCompany": 0,
-      "webDiscoveryQueries": 0,
-      "webDiscoveryHits": 0,
-      "webDiscoveryProviders": [],
-      "browserFallbackAttempted": 0,
-      "browserFallbackHits": 0,
-      "browserFallbackReason": "",
-      "inserted": 0,
-      "refreshed": 0,
-      "duplicateIncoming": 0
-    },
     {
       "company": "Banca Raiffeisen Vedeggio Cassarate",
       "domain": "raiffeisen.ch",
