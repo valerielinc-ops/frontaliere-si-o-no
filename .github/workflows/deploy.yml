@@ -98,6 +98,10 @@ jobs:
           echo "CSS files:"
           find dist -name "*.css" ! -name "*.gz" -exec du -sh {} + | sort -rh
 
+      - name: Capture pre-deploy sitemap URLs (for IndexNow diff)
+        continue-on-error: true
+        run: node scripts/capture-deployed-sitemaps.mjs
+
       - name: Deploy to Firebase Hosting
         uses: FirebaseExtended/action-hosting-deploy@v0
         with:

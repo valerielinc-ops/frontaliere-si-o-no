@@ -196,22 +196,28 @@ async function fetchWithRetry(url, options, attempt = 1) {
 }
 
 // ── Parse sitemaps to extract URLs ──────────────────────────
+// Reads from dist/ (post-build output) when available, falls back to public/.
 function getUrlsFromSitemap() {
   const __dirname = dirname(fileURLToPath(import.meta.url));
+  const rootDir = resolve(__dirname, '..');
   const urls = new Set();
+
+  const sitemapDir = existsSync(resolve(rootDir, 'dist', 'sitemap-pages.xml'))
+    ? resolve(rootDir, 'dist')
+    : resolve(rootDir, 'public');
 
   // sitemap.xml is now a sitemap index — read all sub-sitemaps
   const subSitemaps = ['sitemap-pages.xml', 'sitemap-blog.xml', 'sitemap-glossario.xml', 'sitemap-jobs.xml'];
   for (const file of subSitemaps) {
     try {
-      const xml = readFileSync(resolve(__dirname, '..', 'public', file), 'utf-8');
+      const xml = readFileSync(resolve(sitemapDir, file), 'utf-8');
       for (const m of xml.matchAll(/<loc>([^<]+)<\/loc>/g)) urls.add(m[1].trim());
     } catch { /* sub-sitemap may not exist */ }
   }
 
   // News sitemap
   try {
-    const newsXml = readFileSync(resolve(__dirname, '..', 'public', 'sitemap-news.xml'), 'utf-8');
+    const newsXml = readFileSync(resolve(sitemapDir, 'sitemap-news.xml'), 'utf-8');
     for (const m of newsXml.matchAll(/<loc>([^<]+)<\/loc>/g)) urls.add(m[1].trim());
   } catch { /* sitemap-news.xml may not exist */ }
 

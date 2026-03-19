@@ -19,7 +19,7 @@
  * No hardcoded URL list — the sitemap is the single source of truth.
  */
 
-import { readFileSync } from 'node:fs';
+import { readFileSync, existsSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, resolve } from 'node:path';
 
@@ -64,15 +64,23 @@ async function getBingUrlSubmissionQuota(apiKey, siteUrl) {
 }
 
 // ── Parse sitemaps to extract all unique URLs ──────────────
+// Reads from dist/ (post-build output = what was actually deployed).
+// Falls back to public/ for local development / manual runs.
 function getUrlsFromSitemaps() {
   const __dirname = dirname(fileURLToPath(import.meta.url));
+  const rootDir = resolve(__dirname, '..');
   const urls = new Set();
+
+  // Prefer dist/ (post-build) over public/ (pre-build source)
+  const sitemapDir = existsSync(resolve(rootDir, 'dist', 'sitemap-pages.xml'))
+    ? resolve(rootDir, 'dist')
+    : resolve(rootDir, 'public');
 
   // sitemap.xml is now a sitemap index — read all sub-sitemaps
   const subSitemaps = ['sitemap-pages.xml', 'sitemap-blog.xml', 'sitemap-glossario.xml', 'sitemap-jobs.xml'];
   for (const file of subSitemaps) {
     try {
-      const xml = readFileSync(resolve(__dirname, '..', 'public', file), 'utf-8');
+      const xml = readFileSync(resolve(sitemapDir, file), 'utf-8');
       for (const m of xml.matchAll(/<loc>([^<]+)<\/loc>/g)) urls.add(m[1].trim());
       for (const m of xml.matchAll(/hreflang="[^"]*"\s+href="([^"]+)"/g)) urls.add(m[1].trim());
     } catch { /* sub-sitemap may not exist */ }
@@ -80,7 +88,7 @@ function getUrlsFromSitemaps() {
 
   // News sitemap: <loc> URLs for articles
   try {
-    const newsXml = readFileSync(resolve(__dirname, '..', 'public', 'sitemap-news.xml'), 'utf-8');
+    const newsXml = readFileSync(resolve(sitemapDir, 'sitemap-news.xml'), 'utf-8');
     for (const m of newsXml.matchAll(/<loc>([^<]+)<\/loc>/g)) urls.add(m[1].trim());
   } catch { /* sitemap-news.xml may not exist */ }
 
@@ -89,8 +97,11 @@ function getUrlsFromSitemaps() {
 
 function readXml(relativePath) {
   const __dirname = dirname(fileURLToPath(import.meta.url));
-  const absolute = resolve(__dirname, '..', ...relativePath);
-  return readFileSync(absolute, 'utf-8');
+  const rootDir = resolve(__dirname, '..');
+  // Prefer dist/ (post-build) over public/ (pre-build)
+  const distPath = resolve(rootDir, 'dist', ...relativePath.slice(1));
+  if (existsSync(distPath)) return readFileSync(distPath, 'utf-8');
+  return readFileSync(resolve(rootDir, ...relativePath), 'utf-8');
 }
 
 function extractUrlBlockByAnyMatch(sitemapXml, targets) {
@@ -156,8 +167,26 @@ function getBingUrlsSubset() {
   return { urls: [...subset], reason: 'recent-news-fallback' };
 }
 
-// ── Sitemap diff: fetch deployed sitemaps and find NEW URLs ──
+// ── Sitemap diff: load pre-deploy baseline URLs ──────────────
+// Prefer the snapshot captured by capture-deployed-sitemaps.mjs (run before
+// the deploy step). Falls back to fetching the live site, which may return
+// the already-updated sitemaps if the CDN has propagated.
+const PRE_DEPLOY_SNAPSHOT = '/tmp/pre-deploy-sitemap-urls.json';
+
 async function getDeployedUrls() {
+  // 1. Try the pre-deploy snapshot (reliable baseline)
+  if (existsSync(PRE_DEPLOY_SNAPSHOT)) {
+    try {
+      const data = JSON.parse(readFileSync(PRE_DEPLOY_SNAPSHOT, 'utf-8'));
+      if (Array.isArray(data) && data.length > 0) {
+        console.log(`📸 Using pre-deploy snapshot: ${data.length} URLs from ${PRE_DEPLOY_SNAPSHOT}`);
+        return new Set(data);
+      }
+    } catch { /* malformed file — fall through */ }
+  }
+
+  // 2. Fallback: fetch from live site (unreliable after deploy)
+  console.log('⚠️  No pre-deploy snapshot found — fetching live sitemaps (may be already updated)');
   const sitemapFiles = ['sitemap-pages.xml', 'sitemap-blog.xml', 'sitemap-glossario.xml', 'sitemap-jobs.xml', 'sitemap-news.xml'];
   const urls = new Set();
 
