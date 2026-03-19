@@ -1328,6 +1328,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.berna-discute-approvvigionamento-economico-e-13esima-avs.title': 'Bern discusses economic supply and 13th AVS payment',
     'blog.article.berna-discute-approvvigionamento-economico-e-13esima-avs.excerpt': 'The Federal Parliament meets to discuss the economic supply project and the 13th AVS pension payment.',
     'blog.article.berna-discute-approvvigionamento-economico-e-13esima-avs.imageAlt': 'Working meeting in Bern with a focus on documents and economic strategies.',
+    'blog.article.visita-ticinese-coira-criminalita-organizzata.title': 'Ticino visit to Chur: organised crime on the agenda',
+    'blog.article.visita-ticinese-coira-criminalita-organizzata.excerpt': 'The Ticino and Grisons governments met in Chur to discuss cooperation and the fight against organised crime.',
+    'blog.article.visita-ticinese-coira-criminalita-organizzata.imageAlt': 'Ticino delegation in Coira to discuss organized crime',
 };
 
 export default blogMetaEn;

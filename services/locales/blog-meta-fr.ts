@@ -1328,6 +1328,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.berna-discute-approvvigionamento-economico-e-13esima-avs.title': 'Berne discute de l\'approvisionnement économique et de la 13e rente AVS',
     'blog.article.berna-discute-approvvigionamento-economico-e-13esima-avs.excerpt': 'Le Parlement fédéral se réunit pour discuter du projet d\'approvisionnement économique et de la treizième rente AVS.',
     'blog.article.berna-discute-approvvigionamento-economico-e-13esima-avs.imageAlt': 'Réunion de travail à Berne avec focus sur les documents et les stratégies économiques.',
+    'blog.article.visita-ticinese-coira-criminalita-organizzata.title': 'Visite tessinoise à Coire, la criminalité organisée également au menu',
+    'blog.article.visita-ticinese-coira-criminalita-organizzata.excerpt': 'Le gouvernement tessinois et celui des Grisons se sont réunis à Coire pour discuter de collaboration et de lutte contre la criminalité organisée.',
+    'blog.article.visita-ticinese-coira-criminalita-organizzata.imageAlt': 'Délégation tessinoise à Coire pour discuter de criminalité organisée',
 };
 
 export default blogMetaFr;

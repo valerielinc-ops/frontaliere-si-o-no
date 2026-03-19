@@ -3030,7 +3030,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
         "@context": "https://schema.org",
         "@type": "ItemList",
         "name": "Articoli Frontaliere",
-        "numberOfItems": 433,
+        "numberOfItems": 434,
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
           { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -3464,7 +3464,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 430, "name": "Truffe 'chiamate shock' a Chiasso e Biasca, due...", "url": `${BASE_URL}/articoli-frontaliere/truffe-chiamate-shock-ticino` },
           { "@type": "ListItem", "position": 431, "name": "Spazi verdi in città: un'ancora di salvezza per...", "url": `${BASE_URL}/articoli-frontaliere/spazi-verdi-in-citta-rilassamento` },
           { "@type": "ListItem", "position": 432, "name": "Camedo, quel buffet pronto a diventare la locat...", "url": `${BASE_URL}/articoli-frontaliere/camedo-buffet-eventi-ticino` },
-          { "@type": "ListItem", "position": 433, "name": "Berna discute di approvvigionamento economico e...", "url": `${BASE_URL}/articoli-frontaliere/berna-discute-approvvigionamento-economico-e-13esima-avs` }
+          { "@type": "ListItem", "position": 433, "name": "Berna discute di approvvigionamento economico e...", "url": `${BASE_URL}/articoli-frontaliere/berna-discute-approvvigionamento-economico-e-13esima-avs` },
+          { "@type": "ListItem", "position": 434, "name": "Visita ticinese a Coira, sul tavolo pure la cri...", "url": `${BASE_URL}/articoli-frontaliere/visita-ticinese-coira-criminalita-organizzata` }
         ]
       }
     ]

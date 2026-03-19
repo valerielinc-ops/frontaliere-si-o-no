@@ -1328,6 +1328,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.berna-discute-approvvigionamento-economico-e-13esima-avs.title': 'Bern diskutiert über wirtschaftliche Versorgung und 13. AHV-Rente',
     'blog.article.berna-discute-approvvigionamento-economico-e-13esima-avs.excerpt': 'Das Bundesparlament trifft sich, um das Projekt zur wirtschaftlichen Versorgung und die 13. AHV-Monatsrente zu diskutieren.',
     'blog.article.berna-discute-approvvigionamento-economico-e-13esima-avs.imageAlt': 'Arbeitsbesprechung in Bern mit Fokus auf Dokumente und Wirtschaftsstrategien.',
+    'blog.article.visita-ticinese-coira-criminalita-organizzata.title': 'Tessiner Besuch in Chur: Auch organisierte Kriminalität auf dem Tisch',
+    'blog.article.visita-ticinese-coira-criminalita-organizzata.excerpt': 'Die Tessiner Regierung und die Regierung der Graubünden trafen sich in Chur, um über Zusammenarbeit und Kampf gegen die organisierte Kriminalität zu diskutieren.',
+    'blog.article.visita-ticinese-coira-criminalita-organizzata.imageAlt': 'Tessiner Delegation in Chur für Gespräche über organisierte Kriminalität',
 };
 
 export default blogMetaDe;

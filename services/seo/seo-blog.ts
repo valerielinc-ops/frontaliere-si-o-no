@@ -5968,6 +5968,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-visita-ticinese-coira-criminalita-organizzata': {
+    title: 'Visita ticinese a Coira, sul tavolo pure la criminalità | Frontaliere Ticino',
+    description: 'Il governo ticinese e quello grigionese si sono incontrati a Coira per discutere di collaborazione e lotta alla criminalità organizzata. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, visita, ticinese, coira, tavolo',
+    ogTitle: 'Visita ticinese a Coira, sul tavolo pure la criminalità',
+    ogDescription: 'Il governo ticinese e quello grigionese si sono incontrati a Coira per discutere di collaborazione e lotta alla criminalità organizzata.',
+    canonicalPath: '/articoli-frontaliere/visita-ticinese-coira-criminalita-organizzata',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Visita ticinese a Coira, sul tavolo pure la criminalità organizzata",
+      "description": "Il governo ticinese e quello grigionese si sono incontrati a Coira per discutere di collaborazione e lotta alla criminalità organizzata. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/visita-ticinese-coira-criminalita-organizzata.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Delegazione ticinese a Coira per discutere di criminalità organizzata"
+      },
+      "datePublished": "2026-03-19T08:11:13+00:00",
+      "dateModified": "2026-03-19T08:11:13+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/visita-ticinese-coira-criminalita-organizzata`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

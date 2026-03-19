@@ -1328,6 +1328,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.berna-discute-approvvigionamento-economico-e-13esima-avs.title': 'Berna discute di approvvigionamento economico e 13esima AVS',
     'blog.article.berna-discute-approvvigionamento-economico-e-13esima-avs.excerpt': 'Il Parlamento federale si riunisce per discutere il progetto di approvvigionamento economico e la tredicesima mensilità AVS.',
     'blog.article.berna-discute-approvvigionamento-economico-e-13esima-avs.imageAlt': 'Riunione di lavoro a Berna con focus su documenti e strategie economiche.',
+    'blog.article.visita-ticinese-coira-criminalita-organizzata.title': 'Visita ticinese a Coira, sul tavolo pure la criminalità organizzata',
+    'blog.article.visita-ticinese-coira-criminalita-organizzata.excerpt': 'Il governo ticinese e quello grigionese si sono incontrati a Coira per discutere di collaborazione e lotta alla criminalità organizzata.',
+    'blog.article.visita-ticinese-coira-criminalita-organizzata.imageAlt': 'Delegazione ticinese a Coira per discutere di criminalità organizzata',
 };
 
 export default blogMetaIt;

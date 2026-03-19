@@ -3674,6 +3674,13 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/berna-discute-approvvigionamento-economico-e-13esima-avs.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'visita-ticinese-coira-criminalita-organizzata',
+    category: 'novita',
+    date: '2026-03-19T08:11:13.394Z',
+    image: '/images/blog/visita-ticinese-coira-criminalita-organizzata.jpg',
+    hasCalculator: true,
+  },
 ];
 
 const CATEGORIES = ['all', 'fiscale', 'pratico', 'novita', 'pensione'] as const;
