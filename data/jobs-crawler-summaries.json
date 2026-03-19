@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-03-19T05:23:36.240Z",
+  "updatedAt": "2026-03-19T05:24:31.892Z",
   "summaries": [
     {
       "key": "galenica",
@@ -1671,48 +1671,6 @@
       ],
       "removedJobs": [],
       "unchangedJobs": []
-    },
-    {
-      "key": "zurich",
-      "label": "Zurich",
-      "generatedAt": "2026-03-18T16:46:46.726Z",
-      "total": 2,
-      "newCount": 0,
-      "updatedCount": 1,
-      "removedCount": 0,
-      "unchangedCount": 1,
-      "durationMs": 34839,
-      "avgDurationMs": 109459,
-      "durationHistory": [
-        34839,
-        17343,
-        446715,
-        255822,
-        37703,
-        22453,
-        37009,
-        23787
-      ],
-      "newJobs": [],
-      "updatedJobs": [
-        {
-          "title": "Apprendistato di commercio AFC Lugano",
-          "company": "Zurich Insurance (sede Ticino)",
-          "location": "Lugano",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/apprendistato-di-commercio-afc-lugano-zurich-insurance-sede-ticino-lugano/",
-          "slug": "apprendistato-di-commercio-afc-lugano-zurich-insurance-sede-ticino-lugano"
-        }
-      ],
-      "removedJobs": [],
-      "unchangedJobs": [
-        {
-          "title": "Specialista sinistri cose e RC (m/f/d) 80 - 100%",
-          "company": "Zurich Insurance (sede Ticino)",
-          "location": "Lugano",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/specialista-sinistri-cose-e-rc-m-f-d-80-100-zurich-insurance-sede-ticino-lugano/",
-          "slug": "specialista-sinistri-cose-e-rc-m-f-d-80-100-zurich-insurance-sede-ticino-lugano"
-        }
-      ]
     },
     {
       "key": "volg-fenaco",
@@ -9965,6 +9923,49 @@
           "location": "Stabio",
           "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/specialista-vendite-it-in-negozio-ermenegildo-zegna-group-stabio/",
           "slug": "specialista-vendite-it-in-negozio-ermenegildo-zegna-group-stabio"
+        }
+      ]
+    },
+    {
+      "key": "zurich",
+      "label": "Zurich",
+      "generatedAt": "2026-03-19T05:24:31.892Z",
+      "total": 2,
+      "newCount": 0,
+      "updatedCount": 1,
+      "removedCount": 0,
+      "unchangedCount": 1,
+      "durationMs": 34755,
+      "avgDurationMs": 101158,
+      "durationHistory": [
+        34755,
+        34839,
+        17343,
+        446715,
+        255822,
+        37703,
+        22453,
+        37009,
+        23787
+      ],
+      "newJobs": [],
+      "updatedJobs": [
+        {
+          "title": "Apprendistato di commercio AFC Lugano",
+          "company": "Zurich Insurance (sede Ticino)",
+          "location": "Lugano",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/apprendistato-di-commercio-afc-lugano-zurich-insurance-sede-ticino-lugano/",
+          "slug": "apprendistato-di-commercio-afc-lugano-zurich-insurance-sede-ticino-lugano"
+        }
+      ],
+      "removedJobs": [],
+      "unchangedJobs": [
+        {
+          "title": "Specialista sinistri cose e RC (m/f/d) 80 - 100%",
+          "company": "Zurich Insurance (sede Ticino)",
+          "location": "Lugano",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/specialista-sinistri-cose-e-rc-m-f-d-80-100-zurich-insurance-sede-ticino-lugano/",
+          "slug": "specialista-sinistri-cose-e-rc-m-f-d-80-100-zurich-insurance-sede-ticino-lugano"
         }
       ]
     }
