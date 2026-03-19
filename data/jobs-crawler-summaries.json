@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-03-19T05:01:49.050Z",
+  "updatedAt": "2026-03-19T05:02:00.471Z",
   "summaries": [
     {
       "key": "csc-costruzioni",
@@ -2341,49 +2341,6 @@
       ],
       "newJobs": [],
       "updatedJobs": [],
-      "removedJobs": [],
-      "unchangedJobs": []
-    },
-    {
-      "key": "engel-v-lkers",
-      "label": "Engel & Völkers",
-      "generatedAt": "2026-03-18T16:23:39.855Z",
-      "total": 2,
-      "newCount": 0,
-      "updatedCount": 2,
-      "removedCount": 0,
-      "unchangedCount": 0,
-      "durationMs": 19677,
-      "avgDurationMs": 20162,
-      "durationHistory": [
-        19677,
-        20525,
-        18552,
-        22808,
-        20258,
-        20831,
-        19044,
-        20250,
-        19715,
-        19964
-      ],
-      "newJobs": [],
-      "updatedJobs": [
-        {
-          "title": "Stage Assistente Team (3-6 mesi) | Lugano",
-          "company": "Ticino Premium Properties SA",
-          "location": "Lugano",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/stage-assistente-team-3-6-mesi-lugano-engel-voelkers-lugano/",
-          "slug": "stage-assistente-team-3-6-mesi-lugano-engel-voelkers-lugano"
-        },
-        {
-          "title": "Immobilienberater/in 100 % | Ascona",
-          "company": "Ticino Premium Properties SA",
-          "location": "Ascona",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/immobilienberater-in-100-ascona-engel-voelkers-ascona/",
-          "slug": "immobilienberater-in-100-ascona-engel-voelkers-ascona"
-        }
-      ],
       "removedJobs": [],
       "unchangedJobs": []
     },
@@ -9859,6 +9816,49 @@
           "slug": "temp-contract-business-analista-sviluppatore-efg-international-ag-lugano"
         }
       ]
+    },
+    {
+      "key": "engel-v-lkers",
+      "label": "Engel & Völkers",
+      "generatedAt": "2026-03-19T05:02:00.471Z",
+      "total": 2,
+      "newCount": 0,
+      "updatedCount": 2,
+      "removedCount": 0,
+      "unchangedCount": 0,
+      "durationMs": 21001,
+      "avgDurationMs": 20266,
+      "durationHistory": [
+        21001,
+        19677,
+        20525,
+        18552,
+        22808,
+        20258,
+        20831,
+        19044,
+        20250,
+        19715
+      ],
+      "newJobs": [],
+      "updatedJobs": [
+        {
+          "title": "Stage Assistente Team (3-6 mesi) | Lugano",
+          "company": "Ticino Premium Properties SA",
+          "location": "Lugano",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/stage-assistente-team-3-6-mesi-lugano-engel-voelkers-lugano/",
+          "slug": "stage-assistente-team-3-6-mesi-lugano-engel-voelkers-lugano"
+        },
+        {
+          "title": "Immobilienberater/in 100 % | Ascona",
+          "company": "Ticino Premium Properties SA",
+          "location": "Ascona",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/immobilienberater-in-100-ascona-engel-voelkers-ascona/",
+          "slug": "immobilienberater-in-100-ascona-engel-voelkers-ascona"
+        }
+      ],
+      "removedJobs": [],
+      "unchangedJobs": []
     }
   ]
 }
