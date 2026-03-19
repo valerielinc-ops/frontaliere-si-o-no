@@ -1355,6 +1355,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.sette-cantieri-mendrisio-kebab-case.title': 'Seven Construction Sites and 66 Workers Monitored by the Cantonal Police in the Mendrisiotto: \'No Violations Found\'',
     'blog.article.sette-cantieri-mendrisio-kebab-case.excerpt': 'Seven construction sites and 66 workers monitored by the Cantonal Police in the Mendrisiotto: \'No violations found\'',
     'blog.article.sette-cantieri-mendrisio-kebab-case.imageAlt': 'Photo of a construction site in Mendrisio',
+    'blog.article.deputazione-ticinese-italofoni-2024.title': 'The Ticino delegation: \'We discussed the representation of Italian speakers in the Federal Administration\'',
+    'blog.article.deputazione-ticinese-italofoni-2024.excerpt': 'The Ticino delegation held a meeting with the human resources managers of a federal department to discuss the representation of Italian speakers.',
+    'blog.article.deputazione-ticinese-italofoni-2024.imageAlt': 'A Ticinese delegation meets in Bern to discuss the representation of Italians in the Federal Administration.',
 };
 
 export default blogMetaEn;

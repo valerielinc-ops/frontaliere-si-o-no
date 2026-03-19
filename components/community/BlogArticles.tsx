@@ -3737,6 +3737,13 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/sette-cantieri-mendrisio-kebab-case.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'deputazione-ticinese-italofoni-2024',
+    category: 'fiscale',
+    date: '2026-03-19T17:52:19.898Z',
+    image: '/images/blog/deputazione-ticinese-italofoni-2024.jpg',
+    hasCalculator: true,
+  },
 ];
 
 const CATEGORIES = ['all', 'fiscale', 'pratico', 'novita', 'pensione'] as const;

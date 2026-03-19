@@ -1355,6 +1355,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.sette-cantieri-mendrisio-kebab-case.title': 'Sette cantieri e 66 lavoratori controllati dalla Polizia Cantonale nel Mendrisiotto: "Non sono emerse violazioni"',
     'blog.article.sette-cantieri-mendrisio-kebab-case.excerpt': 'Sette cantieri e 66 lavoratori controllati dalla Polizia Cantonale nel Mendrisiotto: "Non sono emerse violazioni"',
     'blog.article.sette-cantieri-mendrisio-kebab-case.imageAlt': 'Foto di un cantiere di costruzione in Mendrisio',
+    'blog.article.deputazione-ticinese-italofoni-2024.title': 'La deputazione ticinese: «Abbiamo discusso degli italofoni nell\'Amministrazione federale»',
+    'blog.article.deputazione-ticinese-italofoni-2024.excerpt': 'La deputazione ticinese ha tenuto un incontro con i responsabili delle risorse umane di un Dipartimento federale per discutere la rappresentanza degli italofoni.',
+    'blog.article.deputazione-ticinese-italofoni-2024.imageAlt': 'Una delegazione ticinese si incontra a Berna per discutere la rappresentanza degli italofoni nell\'Amministrazione federale.',
 };
 
 export default blogMetaIt;

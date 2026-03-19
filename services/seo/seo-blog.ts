@@ -6229,6 +6229,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-deputazione-ticinese-italofoni-2024': {
+    title: 'La deputazione ticinese: «Abbiamo discusso degli italofoni | Frontaliere Ticino',
+    description: 'La deputazione ticinese ha tenuto un incontro con i responsabili delle risorse umane di un Dipartimento federale per discutere la rappresentanza degli italofoni',
+    keywords: 'frontalieri, ticino, svizzera, italia, deputazione, ticinese, abbiamo, discusso',
+    ogTitle: 'La deputazione ticinese: «Abbiamo discusso degli italofoni',
+    ogDescription: 'La deputazione ticinese ha tenuto un incontro con i responsabili delle risorse umane di un Dipartimento federale per discutere la rappresentanza degli italofoni',
+    canonicalPath: '/articoli-frontaliere/deputazione-ticinese-italofoni-2024',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "La deputazione ticinese: «Abbiamo discusso degli italofoni n",
+      "description": "La deputazione ticinese ha tenuto un incontro con i responsabili delle risorse umane di un Dipartimento federale per discutere la rappresentanza degli italofoni",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/deputazione-ticinese-italofoni-2024.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Una delegazione ticinese si incontra a Berna per discutere la rappresentanza degli italofoni nell'Amministrazione federale."
+      },
+      "datePublished": "2026-03-19T17:52:19+00:00",
+      "dateModified": "2026-03-19T17:52:19+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/deputazione-ticinese-italofoni-2024`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

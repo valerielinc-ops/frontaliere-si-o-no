@@ -1355,6 +1355,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.sette-cantieri-mendrisio-kebab-case.title': 'Sept chantiers et 66 travailleurs contrôlés par la Police cantonale dans le Mendrisiotto : "Aucune infraction n\'a été constatée"',
     'blog.article.sette-cantieri-mendrisio-kebab-case.excerpt': 'Sept chantiers et 66 travailleurs contrôlés par la Police cantonale dans le Mendrisiotto : "Aucune infraction n\'a été constatée"',
     'blog.article.sette-cantieri-mendrisio-kebab-case.imageAlt': 'Photo d\'une chantier de construction à Mendrisio',
+    'blog.article.deputazione-ticinese-italofoni-2024.title': 'La délégation tessinoise: «Nous avons discuté de la représentation des italophones dans l\'administration fédérale»',
+    'blog.article.deputazione-ticinese-italofoni-2024.excerpt': 'La délégation tessinoise a tenu une réunion avec les responsables des ressources humaines d\'un département fédéral pour discuter de la représentation des italophones.',
+    'blog.article.deputazione-ticinese-italofoni-2024.imageAlt': 'Une délégation du Tessin se rencontre à Berne pour discuter de la représentation des Italiens dans l\'administration fédérale.',
 };
 
 export default blogMetaFr;
