@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-03-19T16:24:26.394Z",
+  "generatedAt": "2026-03-19T16:24:30.575Z",
   "links": {
     "allJobs": "https://www.frontaliereticino.ch/cerca-lavoro-ticino"
   },
   "totals": {
-    "activeJobs": 2960,
+    "activeJobs": 2499,
     "activeCompanies": 135,
     "activeLocations": 168,
     "todayAdded": 1008,
@@ -30,13 +30,6 @@
       "removed": 0
     },
     {
-      "date": "2026-03-18",
-      "totalJobs": 5009,
-      "added": 1080,
-      "updated": 0,
-      "removed": 0
-    },
-    {
       "date": "2026-03-19",
       "totalJobs": 2003,
       "added": 1008,
@@ -53,6 +46,13 @@
     {
       "date": "2026-03-19",
       "totalJobs": 2960,
+      "added": 1008,
+      "updated": 0,
+      "removed": 0
+    },
+    {
+      "date": "2026-03-19",
+      "totalJobs": 2499,
       "added": 1008,
       "updated": 0,
       "removed": 0
@@ -85,18 +85,6 @@
         "count": 26
       },
       {
-        "key": "kantonsspital-graubunden",
-        "name": "Kantonsspital Graubünden",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-kantonsspital-graubunden",
-        "count": 27
-      },
-      {
-        "key": "hamilton-bonaduz-ag",
-        "name": "Hamilton Bonaduz AG",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-hamilton-bonaduz-ag",
-        "count": 24
-      },
-      {
         "key": "vf-international-the-north-face-timberland",
         "name": "VF International (The North Face, Timberland)",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-vf-international-the-north-face-timberland",
@@ -125,6 +113,30 @@
         "name": "Hitachi Energy",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-hitachi-energy",
         "count": 50
+      },
+      {
+        "key": "convit-holding-gmbh",
+        "name": "Convit Holding GmbH",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-convit-holding-gmbh",
+        "count": 35
+      },
+      {
+        "key": "vf-international-the-north-face-timberland",
+        "name": "VF International (The North Face, Timberland)",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-vf-international-the-north-face-timberland",
+        "count": 1010
+      },
+      {
+        "key": "amministrazione-cantonale-ticino",
+        "name": "Amministrazione Cantonale Ticino",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-amministrazione-cantonale-ticino",
+        "count": 259
+      },
+      {
+        "key": "blancpain-ltd",
+        "name": "Blancpain Ltd",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-blancpain-ltd",
+        "count": 247
       }
     ],
     "topLocationsActive": [
@@ -151,18 +163,6 @@
         "name": "Ticino",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-ticino",
         "count": 31
-      },
-      {
-        "key": "mendrisio",
-        "name": "Mendrisio",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-mendrisio",
-        "count": 50
-      },
-      {
-        "key": "grigioni",
-        "name": "Grigioni",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-grigioni",
-        "count": 40
       },
       {
         "key": "emea-che-stabio-vf-campus-vf1",
@@ -199,6 +199,30 @@
         "name": "Molinazzo di Monteggio, Switzerland",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-molinazzo-di-monteggio-switzerland",
         "count": 48
+      },
+      {
+        "key": "st-moritz",
+        "name": "St. Moritz",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-st-moritz",
+        "count": 57
+      },
+      {
+        "key": "emea-che-stabio-vf-campus-vf1",
+        "name": "EMEA · CHE · Stabio · VF Campus VF1",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-emea-che-stabio-vf-campus-vf1",
+        "count": 1008
+      },
+      {
+        "key": "mendrisio",
+        "name": "Mendrisio",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-mendrisio",
+        "count": 296
+      },
+      {
+        "key": "route-de-la-communance-2800-delemont-jura-suisse-adresse-de-l-entreprise-blanc",
+        "name": "Route de la Communance 2800 Delémont (Jura) Suisse Adresse de l'entreprise Blanc",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-route-de-la-communance-2800-delemont-jura-suisse-adresse-de-l-entreprise-blanc",
+        "count": 247
       }
     ],
     "topCompaniesAddedToday": [
@@ -500,11 +524,11 @@
   },
   "salary": {
     "coverage": {
-      "jobsWithSalary": 2960,
+      "jobsWithSalary": 2499,
       "coveragePct": 100,
-      "avgMin": 61056,
-      "avgMax": 81637,
-      "avgMid": 71347,
+      "avgMin": 60099,
+      "avgMax": 80247,
+      "avgMid": 70173,
       "medianMid": 68500
     },
     "leaders": {
