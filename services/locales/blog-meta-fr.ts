@@ -1331,6 +1331,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.visita-ticinese-coira-criminalita-organizzata.title': 'Visite tessinoise à Coire, la criminalité organisée également au menu',
     'blog.article.visita-ticinese-coira-criminalita-organizzata.excerpt': 'Le gouvernement tessinois et celui des Grisons se sont réunis à Coire pour discuter de collaboration et de lutte contre la criminalité organisée.',
     'blog.article.visita-ticinese-coira-criminalita-organizzata.imageAlt': 'Délégation tessinoise à Coire pour discuter de criminalité organisée',
+    'blog.article.annunci-lavoro-dumping-ticino-governo.title': 'Salaires de dumping : l\'affaire arrive au Gouvernement',
+    'blog.article.annunci-lavoro-dumping-ticino-governo.excerpt': 'Deux offres d\'emploi dans le Mendrisiotto avec des rémunérations suspectées de dumping salarial ont provoqué une vive polémique, portant l\'affaire à l\'attention du Conseil d\'État tessinois. Unia confirme la persistance du phénomène.',
+    'blog.article.annunci-lavoro-dumping-ticino-governo.imageAlt': 'Offres d\'emploi avec dumping salarial signalées dans le Mendrisiotto, le cas parvient au gouvernement cantonal.',
 };
 
 export default blogMetaFr;

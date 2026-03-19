@@ -1331,6 +1331,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.visita-ticinese-coira-criminalita-organizzata.title': 'Visita ticinese a Coira, sul tavolo pure la criminalità organizzata',
     'blog.article.visita-ticinese-coira-criminalita-organizzata.excerpt': 'Il governo ticinese e quello grigionese si sono incontrati a Coira per discutere di collaborazione e lotta alla criminalità organizzata.',
     'blog.article.visita-ticinese-coira-criminalita-organizzata.imageAlt': 'Delegazione ticinese a Coira per discutere di criminalità organizzata',
+    'blog.article.annunci-lavoro-dumping-ticino-governo.title': 'Salari da dumping: il caso arriva in Governo',
+    'blog.article.annunci-lavoro-dumping-ticino-governo.excerpt': 'Due annunci di lavoro nel Mendrisiotto con retribuzioni sospettate di dumping salariale hanno sollevato un polverone, portando il caso all\'attenzione del Consiglio di Stato ticinese. Unia conferma la persistenza del fenomeno.',
+    'blog.article.annunci-lavoro-dumping-ticino-governo.imageAlt': 'Annunci di lavoro con salari da dumping segnalati nel Mendrisiotto, caso finisce in governo cantonale.',
 };
 
 export default blogMetaIt;

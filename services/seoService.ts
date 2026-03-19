@@ -1577,6 +1577,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-camedo-buffet-eventi-ticino': { name: 'Eventi Ticino', path: '/articoli-frontaliere/camedo-buffet-eventi-ticino', parent: 'blog' },
     'blog-berna-discute-approvvigionamento-economico-e-13esima-avs': { name: 'Economia', path: '/articoli-frontaliere/berna-discute-approvvigionamento-economico-e-13esima-avs', parent: 'blog' },
     'blog-visita-ticinese-coira-criminalita-organizzata': { name: 'Economia', path: '/articoli-frontaliere/visita-ticinese-coira-criminalita-organizzata', parent: 'blog' },
+    'blog-annunci-lavoro-dumping-ticino-governo': { name: 'Novità Lavoro', path: '/articoli-frontaliere/annunci-lavoro-dumping-ticino-governo', parent: 'blog' },
   };
 
   const info = sectionNames[section];

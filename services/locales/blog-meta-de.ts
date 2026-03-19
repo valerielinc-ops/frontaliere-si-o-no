@@ -1331,6 +1331,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.visita-ticinese-coira-criminalita-organizzata.title': 'Tessiner Besuch in Chur: Auch organisierte Kriminalität auf dem Tisch',
     'blog.article.visita-ticinese-coira-criminalita-organizzata.excerpt': 'Die Tessiner Regierung und die Regierung der Graubünden trafen sich in Chur, um über Zusammenarbeit und Kampf gegen die organisierte Kriminalität zu diskutieren.',
     'blog.article.visita-ticinese-coira-criminalita-organizzata.imageAlt': 'Tessiner Delegation in Chur für Gespräche über organisierte Kriminalität',
+    'blog.article.annunci-lavoro-dumping-ticino-governo.title': 'Löhne im Dumping: Der Fall kommt vor die Regierung',
+    'blog.article.annunci-lavoro-dumping-ticino-governo.excerpt': 'Zwei Stellenanzeigen in der Region Mendrisiotto mit mutmaßlich zu niedrigen Löhnen haben für Aufsehen gesorgt und den Fall vor das Tessiner Regierungsrat gebracht. Unia bestätigt die Fortdauer des Phänomens.',
+    'blog.article.annunci-lavoro-dumping-ticino-governo.imageAlt': 'Stellenanze mit Lohndumping im Mendrisiotto gemeldet, Fall erreicht Kantonsregierung.',
 };
 
 export default blogMetaDe;

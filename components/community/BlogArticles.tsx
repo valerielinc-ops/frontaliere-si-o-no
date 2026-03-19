@@ -3681,6 +3681,13 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/visita-ticinese-coira-criminalita-organizzata.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'annunci-lavoro-dumping-ticino-governo',
+    category: 'novita',
+    date: '2026-03-19T09:31:19.588Z',
+    image: '/images/blog/annunci-lavoro-dumping-ticino-governo.jpg',
+    hasCalculator: true,
+  },
 ];
 
 const CATEGORIES = ['all', 'fiscale', 'pratico', 'novita', 'pensione'] as const;

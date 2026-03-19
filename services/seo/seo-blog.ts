@@ -5997,6 +5997,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-annunci-lavoro-dumping-ticino-governo': {
+    title: 'Salari da dumping: il caso arriva in Governo | Frontaliere Ticino',
+    description: 'Due annunci di lavoro con salari sospetti di dumping nel Mendrisiotto finiscono sul tavolo del Governo ticinese. Il sindacato Unia conferma la persistenza del',
+    keywords: 'frontalieri, ticino, svizzera, italia, salari, dumping, caso, arriva',
+    ogTitle: 'Dumping salariale in Ticino: il caso arriva in Governo',
+    ogDescription: 'Due annunci di lavoro con salari sospetti di dumping nel Mendrisiotto finiscono sul tavolo del Governo ticinese. Il sindacato Unia conferma la persistenza del',
+    canonicalPath: '/articoli-frontaliere/annunci-lavoro-dumping-ticino-governo',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Dumping salariale in Ticino: il caso arriva in Governo",
+      "description": "Due annunci di lavoro con salari sospetti di dumping nel Mendrisiotto finiscono sul tavolo del Governo ticinese. Il sindacato Unia conferma la persistenza del",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/annunci-lavoro-dumping-ticino-governo.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Annunci di lavoro con salari da dumping segnalati nel Mendrisiotto, caso finisce in governo cantonale."
+      },
+      "datePublished": "2026-03-19T09:31:19+00:00",
+      "dateModified": "2026-03-19T09:31:19+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/annunci-lavoro-dumping-ticino-governo`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
