@@ -66,53 +66,22 @@ function setAuthRedirectState(provider: 'google' | 'facebook'): void {
 }
 
 /**
- * Fallback: reuse the already initialized One Tap callback and wait for auth state.
- * This avoids re-calling google.accounts.id.initialize(), which would override the
- * global GIS callback and create hard-to-debug races across prompt/button/login flows.
+ * Google Sign-In via redirect.
+ *
+ * Popup-based sign-in (signInWithPopup) is permanently broken on this stack:
+ *   - Firebase's auth handler at auth.frontaliereticino.ch sets COOP: same-origin,
+ *     making window.opener inaccessible from the popup and preventing postMessage
+ *     from reaching the app; the resulting credential is invalid (signInWithIdp 400).
+ *   - GitHub Pages does not process _headers files, so a COOP override on our side
+ *     is impossible without a CDN layer.
+ *   - The GIS / One Tap fallback relies on FedCM, which Chrome allows users to
+ *     disable per-site; not reliable enough to be a primary auth path.
+ *
+ * signInWithRedirect is immune to all of the above: it navigates to Google, which
+ * redirects to the Firebase handler, which redirects back to the app. No popup
+ * communication required. getRedirectResult() in useAuth picks up the result and
+ * restores the pre-auth URL via sessionStorage.
  */
-async function signInViaGIS(): Promise<any | null> {
-  await ensureFirebaseAuth();
-  const authInstance = getAuthInstance();
-  if (!authInstance || !_authModule) return null;
-
-  // Ensure GIS is initialized (loads script + client ID from Remote Config)
-  const ready = await initOneTap();
-  if (!ready || !window.google?.accounts?.id) return null;
-
-  return new Promise((resolve) => {
-    let settled = false;
-    let timeoutId: ReturnType<typeof setTimeout> | null = null;
-    const settle = (value: any | null) => {
-      if (settled) return;
-      settled = true;
-      if (timeoutId) clearTimeout(timeoutId);
-      unsubscribe();
-      resolve(value);
-    };
-
-    const unsubscribe = _authModule.onAuthStateChanged(authInstance, async (user: any) => {
-      if (!user) return;
-      const { Analytics } = await import('@/services/analytics');
-      Analytics.trackUIInteraction('auth', 'google', 'login', 'gis-fallback');
-      settle(user);
-    });
-
-    timeoutId = setTimeout(() => settle(null), 20000);
-
-    window.google.accounts.id.prompt((notification) => {
-      if (notification.isNotDisplayed() || notification.isSkippedMoment() || notification.isDismissedMoment()) {
-        console.warn(
-          '[Auth] GIS prompt not shown:',
-          notification.getNotDisplayedReason?.()
-            || notification.getSkippedReason?.()
-            || notification.getDismissedReason?.(),
-        );
-        settle(null);
-      }
-    });
-  });
-}
-
 export async function signInWithGoogle(): Promise<any | null> {
   try {
     await ensureFirebaseAuth();
@@ -120,59 +89,20 @@ export async function signInWithGoogle(): Promise<any | null> {
     if (!authInstance || !_authModule) return null;
 
     cancelOneTap();
+    setAuthRedirectState('google');
 
     const { Analytics } = await import('@/services/analytics');
+    Analytics.trackUIInteraction('auth', 'google', 'login', 'redirect-start');
+
     const googleProvider = new _authModule.GoogleAuthProvider();
     googleProvider.setCustomParameters({ prompt: 'select_account' });
-
-    if (isMobileBrowserContext()) {
-      setAuthRedirectState('google');
-      await _authModule.signInWithRedirect(authInstance, googleProvider);
-      return null;
-    }
-
-    // Desktop: prefer popup. If the browser blocks/closes it, fall back to redirect.
-    // Keep GIS only for authDomain / OAuth misconfiguration cases where redirect_uri
-    // itself is the problem and GIS can still exchange the Google credential directly.
-    try {
-      const result = await _authModule.signInWithPopup(authInstance, googleProvider);
-      Analytics.trackUIInteraction('auth', 'google', 'login', 'success');
-      return result.user;
-    } catch (popupError: any) {
-      if (
-        popupError?.code === 'auth/popup-blocked' ||
-        popupError?.code === 'auth/popup-closed-by-user' ||
-        popupError?.code === 'auth/cancelled-popup-request' ||
-        popupError?.message?.includes('Cross-Origin-Opener-Policy')
-      ) {
-        setAuthRedirectState('google');
-        await _authModule.signInWithRedirect(authInstance, googleProvider);
-        return null;
-      }
-
-      if (
-        // auth/invalid-credential: Google OAuth returned invalid_client, which
-        // typically means the custom authDomain redirect URI is not registered in
-        // Google Cloud Console. The GIS credential flow bypasses redirect_uri entirely.
-        popupError?.code === 'auth/invalid-credential' ||
-        // auth/unauthorized-domain: the current domain is not whitelisted in
-        // Firebase Auth console — GIS works independently of this check.
-        popupError?.code === 'auth/unauthorized-domain'
-      ) {
-        const gisUser = await signInViaGIS();
-        if (gisUser) return gisUser;
-        Analytics.trackUIInteraction('auth', 'google', 'login', 'all-methods-failed');
-        return null;
-      }
-      throw popupError;
-    }
+    await _authModule.signInWithRedirect(authInstance, googleProvider);
+    return null; // page navigates away; result is handled by getRedirectResult in useAuth
   } catch (error: any) {
-    if (error?.code !== 'auth/popup-closed-by-user') {
-      console.warn('Google sign-in error:', error);
-      reportCaughtError(error, 'auth.googleSignIn');
-      const { Analytics } = await import('@/services/analytics');
-      Analytics.trackUIInteraction('auth', 'google', 'login', 'error');
-    }
+    console.warn('Google sign-in error:', error);
+    reportCaughtError(error, 'auth.googleSignIn');
+    const { Analytics } = await import('@/services/analytics');
+    Analytics.trackUIInteraction('auth', 'google', 'login', 'error');
     return null;
   }
 }
@@ -842,9 +772,9 @@ export function useAuth(): AuthState & {
   }, []);
 
   const signIn = useCallback(async () => {
+    // signInWithGoogle always uses redirect — the page navigates away, so this
+    // returns null. The user is set by getRedirectResult + onAuthStateChanged on return.
     const googleUser = await signInWithGoogle();
-    // Ensure UI updates immediately even if onAuthStateChanged is delayed
-    // (e.g. lazy auth init race while a popup login completes).
     if (googleUser) setUser(Object.create(googleUser));
     return googleUser;
   }, []);
