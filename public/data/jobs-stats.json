@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-03-19T16:11:25.500Z",
+  "generatedAt": "2026-03-19T16:11:49.306Z",
   "links": {
     "allJobs": "https://www.frontaliereticino.ch/cerca-lavoro-ticino"
   },
   "totals": {
-    "activeJobs": 1110,
+    "activeJobs": 930,
     "activeCompanies": 129,
     "activeLocations": 172,
     "todayAdded": 1006,
@@ -124,6 +124,24 @@
         "name": "Amministrazione Cantonale Ticino",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-amministrazione-cantonale-ticino",
         "count": 33
+      },
+      {
+        "key": "usi-universita-della-svizzera-italiana",
+        "name": "USI – Università della Svizzera italiana",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-usi-universita-della-svizzera-italiana",
+        "count": 26
+      },
+      {
+        "key": "vf-international-the-north-face-timberland",
+        "name": "VF International (The North Face, Timberland)",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-vf-international-the-north-face-timberland",
+        "count": 26
+      },
+      {
+        "key": "relewant",
+        "name": "ReleWant",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-relewant",
+        "count": 19
       }
     ],
     "topLocationsActive": [
@@ -210,6 +228,24 @@
         "name": "St. Moritz",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-st-moritz",
         "count": 48
+      },
+      {
+        "key": "mendrisio",
+        "name": "Mendrisio",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-mendrisio",
+        "count": 47
+      },
+      {
+        "key": "ticino",
+        "name": "Ticino",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-ticino",
+        "count": 31
+      },
+      {
+        "key": "novaggio",
+        "name": "Novaggio",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-novaggio",
+        "count": 26
       }
     ],
     "topCompaniesAddedToday": [
@@ -511,12 +547,12 @@
   },
   "salary": {
     "coverage": {
-      "jobsWithSalary": 1110,
+      "jobsWithSalary": 930,
       "coveragePct": 100,
-      "avgMin": 65964,
-      "avgMax": 88816,
-      "avgMid": 77390,
-      "medianMid": 77500
+      "avgMin": 67221,
+      "avgMax": 90669,
+      "avgMid": 78945,
+      "medianMid": 70250
     },
     "leaders": {
       "topSalaryCompanies": [
