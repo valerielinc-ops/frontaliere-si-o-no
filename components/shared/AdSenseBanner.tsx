@@ -110,35 +110,42 @@ export default function AdSenseBanner({
         return true;
       }
 
-      // Poll for ad fill status
+      // Watch for ad fill status via MutationObserver (reacts immediately when
+      // AdSense sets data-ad-status, no polling delay). Falls back to a 30s
+      // safety timeout so we never hang indefinitely.
       const el = adRef.current;
       if (!el) { setState('collapsed'); return true; }
 
-      let checks = 0;
-      const maxChecks = 5;
-      const timer = setInterval(() => {
-        checks++;
+      // Check immediately in case AdSense already set the attribute synchronously
+      const currentStatus = el.getAttribute('data-ad-status');
+      if (currentStatus === 'filled') { setState('filled'); return true; }
+      if (currentStatus === 'unfilled') {
+        console.info(`[AdSense] unfilled slot=${adSlot}, collapsing banner`);
+        setState('collapsed');
+        return true;
+      }
+
+      let fillTimeout: ReturnType<typeof setTimeout>;
+      const observer = new MutationObserver(() => {
         const status = el.getAttribute('data-ad-status');
-
         if (status === 'filled') {
-          clearInterval(timer);
+          observer.disconnect();
+          clearTimeout(fillTimeout);
           setState('filled');
-          return;
-        }
-
-        if (status === 'unfilled') {
+        } else if (status === 'unfilled') {
           console.info(`[AdSense] unfilled slot=${adSlot}, collapsing banner`);
-          clearInterval(timer);
+          observer.disconnect();
+          clearTimeout(fillTimeout);
           setState('collapsed');
-          return;
         }
+      });
+      observer.observe(el, { attributes: true, attributeFilter: ['data-ad-status'] });
 
-        if (checks >= maxChecks) {
-          console.info(`[AdSense] fill timeout for slot=${adSlot}, collapsing banner`);
-          clearInterval(timer);
-          setState('collapsed');
-        }
-      }, 2000);
+      fillTimeout = setTimeout(() => {
+        observer.disconnect();
+        console.info(`[AdSense] fill timeout for slot=${adSlot}, collapsing banner`);
+        setState('collapsed');
+      }, 30_000);
 
       return true;
     };
