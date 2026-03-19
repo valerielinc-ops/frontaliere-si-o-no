@@ -302,11 +302,8 @@ describe('buildLombardiLocalizedContent', () => {
       occupancy: '80%–100%',
       detailMarkdown: longMarkdown,
     });
-    // IT gets boilerplate, EN gets the detail markdown
-    expect(result.descriptionByLocale.it).toContain('Lombardi Group');
-    expect(result.descriptionByLocale.it).toContain('Giubiasco');
-    expect(result.descriptionByLocale.en).toContain('## Mansioni');
-    expect(result.descriptionByLocale.en).toContain('- Task 1');
+    expect(result.descriptionByLocale.it).toContain('## Mansioni');
+    expect(result.descriptionByLocale.it).toContain('- Task 1');
   });
 
   it('falls back to boilerplate when markdown is short', () => {
@@ -329,6 +326,16 @@ describe('buildLombardiLocalizedContent', () => {
     expect(result.descriptionByLocale.it).toBeTruthy();
     expect(result.descriptionByLocale.it).toContain('Lombardi Group');
     expect(result.descriptionByLocale.en).toBeUndefined();
+  });
+
+  it('stores English detail markdown under EN locale', () => {
+    const result = buildLombardiLocalizedContent({
+      title: 'Civil Engineer',
+      city: 'Giubiasco',
+      detailMarkdown: 'As an apprentice, you will learn the basics of technical drawing, support project teams, collaborate with colleagues, and develop your engineering skills in a structured environment.\n\n## Responsibilities\n- Coordinate projects',
+    });
+    expect(result.descriptionByLocale.en).toContain('As an apprentice');
+    expect(result.descriptionByLocale.it).toContain('Lombardi Group');
   });
 });
 

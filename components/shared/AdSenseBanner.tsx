@@ -32,6 +32,14 @@ const CLIENT_ID = 'ca-pub-8628054934855353';
 const IS_PROD = typeof window !== 'undefined' && window.location.hostname === 'www.frontaliereticino.ch';
 
 type AdState = 'idle' | 'waiting_width' | 'loading' | 'filled' | 'collapsed';
+const initializedAdElements = new WeakSet<Element>();
+
+function getPlaceholderMinHeight(adFormat: string, adLayout?: string) {
+  if (adFormat === 'autorelaxed') return 280;
+  if (adLayout === 'in-article') return 180;
+  if (adFormat === 'fluid') return 180;
+  return 250;
+}
 
 export default function AdSenseBanner({
   adSlot,
@@ -46,9 +54,28 @@ export default function AdSenseBanner({
   const adRef = useRef<HTMLModElement>(null);
   const wrapperRef = useRef<HTMLDivElement>(null);
   const pushed = useRef(false);
+  const fillTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const statusObserverRef = useRef<MutationObserver | null>(null);
+  const resizeObserverRef = useRef<ResizeObserver | null>(null);
   const [state, setState] = useState<AdState>('idle');
   const [scriptReady, setScriptReady] = useState(false);
   const [scriptFailed, setScriptFailed] = useState(false);
+  const placeholderMinHeight = getPlaceholderMinHeight(adFormat, adLayout);
+
+  const cleanupAsyncWatchers = useCallback(() => {
+    if (fillTimeoutRef.current) {
+      clearTimeout(fillTimeoutRef.current);
+      fillTimeoutRef.current = null;
+    }
+    if (statusObserverRef.current) {
+      statusObserverRef.current.disconnect();
+      statusObserverRef.current = null;
+    }
+    if (resizeObserverRef.current) {
+      resizeObserverRef.current.disconnect();
+      resizeObserverRef.current = null;
+    }
+  }, []);
 
   // ── Load the AdSense script (singleton) ──────────────────
   const loadAdSenseScript = useCallback(() => {
@@ -94,6 +121,8 @@ export default function AdSenseBanner({
     const wrapper = wrapperRef.current;
     if (!wrapper) return;
 
+    cleanupAsyncWatchers();
+
     const tryPush = () => {
       const width = wrapper.getBoundingClientRect().width;
       if (width <= 0) return false;
@@ -101,8 +130,33 @@ export default function AdSenseBanner({
       console.info(`[AdSense] width ready for slot=${adSlot} (${Math.round(width)}px), initializing`);
       setState('loading');
 
+      const el = adRef.current;
+      if (!el) { setState('collapsed'); return true; }
+
+      const currentStatus = el.getAttribute('data-ad-status');
+      if (currentStatus === 'filled') {
+        pushed.current = true;
+        initializedAdElements.add(el);
+        setState('filled');
+        return true;
+      }
+      if (currentStatus === 'unfilled') {
+        console.info(`[AdSense] unfilled slot=${adSlot}, collapsing banner`);
+        pushed.current = true;
+        initializedAdElements.add(el);
+        setState('collapsed');
+        return true;
+      }
+
+      const alreadyInitialized =
+        initializedAdElements.has(el) ||
+        el.getAttribute('data-adsbygoogle-status') !== null;
+
       try {
-        (window.adsbygoogle = window.adsbygoogle || []).push({});
+        if (!alreadyInitialized) {
+          (window.adsbygoogle = window.adsbygoogle || []).push({});
+          initializedAdElements.add(el);
+        }
         pushed.current = true;
       } catch (err) {
         console.warn(`[AdSense] push() failed for slot=${adSlot}`, err);
@@ -110,42 +164,23 @@ export default function AdSenseBanner({
         return true;
       }
 
-      // Watch for ad fill status via MutationObserver (reacts immediately when
-      // AdSense sets data-ad-status, no polling delay). Falls back to a 30s
-      // safety timeout so we never hang indefinitely.
-      const el = adRef.current;
-      if (!el) { setState('collapsed'); return true; }
-
-      // Check immediately in case AdSense already set the attribute synchronously
-      const currentStatus = el.getAttribute('data-ad-status');
-      if (currentStatus === 'filled') { setState('filled'); return true; }
-      if (currentStatus === 'unfilled') {
-        console.info(`[AdSense] unfilled slot=${adSlot}, collapsing banner`);
-        setState('collapsed');
-        return true;
-      }
-
-      let fillTimeout: ReturnType<typeof setTimeout>;
       const observer = new MutationObserver(() => {
         const status = el.getAttribute('data-ad-status');
         if (status === 'filled') {
-          observer.disconnect();
-          clearTimeout(fillTimeout);
+          cleanupAsyncWatchers();
           setState('filled');
         } else if (status === 'unfilled') {
           console.info(`[AdSense] unfilled slot=${adSlot}, collapsing banner`);
-          observer.disconnect();
-          clearTimeout(fillTimeout);
+          cleanupAsyncWatchers();
           setState('collapsed');
         }
       });
       observer.observe(el, { attributes: true, attributeFilter: ['data-ad-status'] });
+      statusObserverRef.current = observer;
 
-      fillTimeout = setTimeout(() => {
-        observer.disconnect();
-        console.info(`[AdSense] fill timeout for slot=${adSlot}, collapsing banner`);
-        setState('collapsed');
-      }, 30_000);
+      fillTimeoutRef.current = setTimeout(() => {
+        console.info(`[AdSense] fill timeout for slot=${adSlot}, keeping slot mounted for late fill`);
+      }, 90_000);
 
       return true;
     };
@@ -159,12 +194,14 @@ export default function AdSenseBanner({
       for (const entry of entries) {
         if (entry.contentRect.width > 0) {
           observer.disconnect();
+          resizeObserverRef.current = null;
           tryPush();
           break;
         }
       }
     });
     observer.observe(wrapper);
+    resizeObserverRef.current = observer;
 
     // Safety timeout — collapse if width never materializes
     const timeout = setTimeout(() => {
@@ -176,10 +213,10 @@ export default function AdSenseBanner({
     }, 8000);
 
     return () => {
-      observer.disconnect();
+      cleanupAsyncWatchers();
       clearTimeout(timeout);
     };
-  }, [state, scriptReady, adSlot]);
+  }, [state, scriptReady, adSlot, cleanupAsyncWatchers]);
 
   // ── Collapse on script failure ───────────────────────────
   useEffect(() => {
@@ -187,6 +224,10 @@ export default function AdSenseBanner({
       setState('collapsed');
     }
   }, [scriptFailed, state]);
+
+  useEffect(() => () => {
+    cleanupAsyncWatchers();
+  }, [cleanupAsyncWatchers]);
 
   // ── Render nothing in dev, disabled, or collapsed ────────
   if (!IS_PROD || !enabled || !adSlot || state === 'collapsed') {
@@ -202,7 +243,7 @@ export default function AdSenseBanner({
     <div
       ref={wrapperRef}
       className={className}
-      style={isVisible ? undefined : { visibility: 'hidden', opacity: 0, pointerEvents: 'none', overflow: 'hidden', maxHeight: 0 }}
+      style={isVisible ? undefined : { opacity: 0, pointerEvents: 'none', overflow: 'hidden', minHeight: placeholderMinHeight }}
       aria-hidden={!isVisible}
     >
       {label && (

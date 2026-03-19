@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef, useCallback, Suspense } from 'react';
-import { Coins, TrainFront, Check, ChevronUp, Settings2, Home, Briefcase, TrendingUp, TrendingDown, ArrowDown, Ruler, Mail, X, Loader2, CheckCircle2 } from 'lucide-react';
+import { Coins, TrainFront, Check, ChevronUp, Settings2, Home, Briefcase, TrendingUp, TrendingDown, ArrowDown, Ruler, Mail, X, Loader2, CheckCircle2, ArrowUp } from 'lucide-react';
 import { SimulationInputs, SimulationResult } from '../../types';
 import { useTranslation } from '../../services/i18n';
 import { lazyRetry } from '@/services/lazyRetry';
@@ -34,6 +34,45 @@ const SALARY_MAX = 1_000_000;
 const formatCHF = (v: number) => Math.round(v).toLocaleString('it-IT');
 const formatEUR = (v: number) => Math.round(Math.abs(v)).toLocaleString('it-IT');
 const formatCurrency = (v: number) => Math.round(v).toLocaleString('it-IT');
+
+function useNetDelta(value: number | null): { delta: number; key: number } {
+  const prevRef = useRef<number | null>(null);
+  const [state, setState] = useState({ delta: 0, key: 0 });
+
+  useEffect(() => {
+    if (value === null || Number.isNaN(value)) return;
+    if (prevRef.current === null) {
+      prevRef.current = value;
+      return;
+    }
+    const diff = Math.round(value - prevRef.current);
+    prevRef.current = value;
+    if (Math.abs(diff) < 1) return;
+    setState((prev) => ({ delta: diff, key: prev.key + 1 }));
+  }, [value]);
+
+  return state;
+}
+
+const MobileNetDeltaBadge: React.FC<{ delta: number }> = ({ delta }) => {
+  if (Math.abs(delta) < 1) return null;
+  const isPositive = delta > 0;
+
+  return (
+    <span
+      className={`inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-[10px] font-bold font-mono ${
+        isPositive
+          ? 'animate-net-tick-up bg-emerald-100 text-emerald-700 dark:bg-emerald-900/50 dark:text-emerald-300'
+          : 'animate-net-tick-down bg-red-100 text-red-700 dark:bg-red-900/50 dark:text-red-300'
+      }`}
+      aria-live="polite"
+      aria-atomic="true"
+    >
+      {isPositive ? <ArrowUp size={10} strokeWidth={3} /> : <ArrowDown size={10} strokeWidth={3} />}
+      {isPositive ? '+' : '-'}CHF {formatCHF(Math.abs(delta))}
+    </span>
+  );
+};
 
 /**
  * Mobile-only results-first calculator layout (Proposal D).
@@ -171,6 +210,10 @@ const MobileCalcLayout: React.FC<Props> = ({
 
   const isBetterIT = result ? result.savingsCHF > 0 : null; // savingsCHF > 0 means frontaliere is better
   const savingsMonthly = result ? Math.abs(result.savingsEUR / (result.monthsBasis || 12)) : 0;
+  const chNetMonthly = result ? (result.chResident.swissNetIncomeMonthlyCHF ?? result.chResident.netIncomeMonthly) : null;
+  const itNetMonthly = result ? result.itResident.netIncomeMonthly : null;
+  const chDelta = useNetDelta(chNetMonthly);
+  const itDelta = useNetDelta(itNetMonthly);
 
   return (
     <div className="space-y-4 pb-3">
@@ -340,8 +383,13 @@ const MobileCalcLayout: React.FC<Props> = ({
                   <Home size={13} className="text-blue-600 dark:text-blue-400" />
                   <span className="text-[10px] font-bold text-slate-600 dark:text-slate-500 uppercase">{t('mobileCalc.liveInCH')}</span>
                 </div>
-                <div className="text-lg font-black text-slate-800 dark:text-slate-100 tracking-tight">
-                  CHF {formatCHF(result.chResident.swissNetIncomeMonthlyCHF ?? result.chResident.netIncomeMonthly)}
+                <div className="flex flex-wrap items-center gap-1.5">
+                  <div className="text-lg font-black text-slate-800 dark:text-slate-100 tracking-tight">
+                    CHF {formatCHF(chNetMonthly ?? 0)}
+                  </div>
+                  {chDelta.key > 0 && (
+                    <MobileNetDeltaBadge key={`ch-${chDelta.key}`} delta={chDelta.delta} />
+                  )}
                 </div>
                 <div className="text-[10px] text-slate-500 font-semibold">{t('mobileCalc.perMonth')}</div>
               </button>
@@ -361,8 +409,13 @@ const MobileCalcLayout: React.FC<Props> = ({
                   <Briefcase size={13} className="text-emerald-600 dark:text-emerald-400" />
                   <span className="text-[10px] font-bold text-slate-600 dark:text-slate-500 uppercase">{t('mobileCalc.crossBorderIT')}</span>
                 </div>
-                <div className="text-lg font-black text-slate-800 dark:text-slate-100 tracking-tight">
-                  CHF {formatCHF(result.itResident.netIncomeMonthly)}
+                <div className="flex flex-wrap items-center gap-1.5">
+                  <div className="text-lg font-black text-slate-800 dark:text-slate-100 tracking-tight">
+                    CHF {formatCHF(itNetMonthly ?? 0)}
+                  </div>
+                  {itDelta.key > 0 && (
+                    <MobileNetDeltaBadge key={`it-${itDelta.key}`} delta={itDelta.delta} />
+                  )}
                 </div>
                 <div className="text-[10px] text-slate-500 font-semibold">{t('mobileCalc.perMonth')}</div>
               </button>

@@ -12,7 +12,7 @@
 
 import fs from 'node:fs';
 import path from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { fileURLToPath, pathToFileURL } from 'node:url';
 import {
   printPublishedJobUrls,
   writeJobsSummary,
@@ -246,7 +246,15 @@ function validateLocales() {
     untrustedDomainReason: 'url_not_boggi_domain',
     failWhenNoJobs: false,
     noJobsMessage: 'No Boggi Milano jobs found after dedicated crawl.',
-    detectSourceLang: () => 'it',
+    detectSourceLang: (text, job) => {
+      if (job?.sourceLang) return job.sourceLang;
+      const tokens = String(text || '').trim().split(/\s+/).filter(Boolean);
+      const sample = tokens.slice(-400).join(' ');
+      if (/\b(the|and|with|will|requirements|responsibilities|degree|experience|manage|support|candidate|knowledge|ability)\b/i.test(sample)) {
+        return 'en';
+      }
+      return detectLang(sample, 'it');
+    },
   });
 }
 
@@ -272,6 +280,43 @@ async function fetchBoggiHtml(url, timeoutMs = TIMEOUT_MS) {
   }
 }
 
+export function syncBoggiDetailDescription(job = {}, body = '') {
+  const nextBody = String(body || '').trim();
+  if (!nextBody) {
+    return { changed: false, sourceLang: 'it' };
+  }
+
+  const sourceLang = detectLang(nextBody, 'it');
+  const currentDesc = String(job.description || '').trim();
+  const currentItalian = String(job.descriptionByLocale?.it || '').trim();
+  const italianLooksThin = !currentItalian || currentItalian.length < Math.max(MIN_BOGGI_DESC_LENGTH, nextBody.length * 0.5);
+
+  if (!job.descriptionByLocale || typeof job.descriptionByLocale !== 'object') {
+    job.descriptionByLocale = {};
+  }
+
+  let changed = false;
+
+  if (nextBody !== currentDesc) {
+    job.description = nextBody;
+    changed = true;
+  }
+
+  if (String(job.descriptionByLocale[sourceLang] || '').trim() !== nextBody) {
+    job.descriptionByLocale[sourceLang] = nextBody;
+    changed = true;
+  }
+
+  if (sourceLang === 'it' || italianLooksThin) {
+    if (String(job.descriptionByLocale.it || '').trim() !== nextBody) {
+      job.descriptionByLocale.it = nextBody;
+      changed = true;
+    }
+  }
+
+  return { changed, sourceLang };
+}
+
 /**
  * For each Boggi job whose description is shorter than MIN_BOGGI_DESC_LENGTH or
  * shorter than 25% of the HTML detail-page body, fetch the detail page and
@@ -288,6 +333,7 @@ async function enrichBoggiDescriptions() {
   for (const job of jobs) {
     if (!isTargetJob(job)) continue;
     const currentDesc = String(job.description || '').trim();
+    const currentItalian = String(job.descriptionByLocale?.it || '').trim();
     const detailUrl = String(job.url || '').trim();
     if (!detailUrl || !isTrustedDomain(detailUrl)) continue;
 
@@ -306,16 +352,14 @@ async function enrichBoggiDescriptions() {
     // Only update if current description is below minimum OR less than 25% of the source body
     const isTooShort = currentDesc.length < MIN_BOGGI_DESC_LENGTH;
     const isLessThanQuarter = currentDesc.length < 0.25 * sourceBodyLength;
-    if (!isTooShort && !isLessThanQuarter) continue;
+    const isItalianThin = currentItalian.length < Math.max(MIN_BOGGI_DESC_LENGTH, sourceBodyLength * 0.5);
+    if (!isTooShort && !isLessThanQuarter && !isItalianThin) continue;
 
-    console.log(`  ✨ Enriched "${job.slug}" (${currentDesc.length} → ${sourceBodyLength} chars)`);
-    job.description = body;
-    if (!job.descriptionByLocale) job.descriptionByLocale = {};
-    // Store as Italian (the canonical locale for the Boggi /l/it/ detail page)
-    if (!job.descriptionByLocale.it || body.length > String(job.descriptionByLocale.it || '').length) {
-      job.descriptionByLocale.it = body;
+    const { changed } = syncBoggiDetailDescription(job, body);
+    if (changed) {
+      console.log(`  ✨ Enriched "${job.slug}" (${currentDesc.length} → ${sourceBodyLength} chars)`);
+      enriched++;
     }
-    enriched++;
   }
 
   if (enriched > 0) {
@@ -403,7 +447,9 @@ async function main() {
   await assembleJobsDataset();
 }
 
-main().catch((error) => {
-  console.error(`❌ Boggi Milano crawler failed: ${error?.stack || error}`);
-  process.exitCode = 1;
-});
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
+  main().catch((error) => {
+    console.error(`❌ Boggi Milano crawler failed: ${error?.stack || error}`);
+    process.exitCode = 1;
+  });
+}

@@ -15,6 +15,7 @@
  */
 
 import { JSDOM } from 'jsdom';
+import { detectLanguage } from './detect-language.mjs';
 import { isTargetSwissLocation, isTicinoRelevant, isGrigioniRelevant } from './target-swiss-locations.mjs';
 
 const DETAIL_URL_BASE = 'https://boggimilano1.recruitee.com/l/it/o';
@@ -246,16 +247,30 @@ export function buildBoggiLocalizedContent(job = {}) {
   const title = String(job.title || '').trim();
   const location = String(job.location || '').trim() || 'Mendrisio';
   const description = String(job.description || '').trim();
+  const sourceLang = description ? detectLanguage(`${title}\n${description}`, 'it') : 'it';
 
-  const itDesc = description
-    || `Boggi Milano cerca ${title} con sede a ${location}. Moda maschile italiana, design e qualità. Candidati sulla pagina ufficiale Boggi Milano.`;
+  const fallbackIt = `Boggi Milano cerca ${title} con sede a ${location}. Moda maschile italiana, design e qualità. Candidati sulla pagina ufficiale Boggi Milano.`;
   const enDesc = `Boggi Milano is hiring for the ${title} position in ${location}. Italian men's fashion, design and quality. Apply through the official Boggi Milano careers page.`;
   const deDesc = `Boggi Milano sucht aktuell für die Position ${title} am Standort ${location}. Italienische Herrenmode, Design und Qualität. Bewirb dich über die offizielle Karriereseite von Boggi Milano.`;
   const frDesc = `Boggi Milano recrute pour le poste ${title} à ${location}. Mode masculine italienne, design et qualité. Postulez via la page carrière officielle de Boggi Milano.`;
 
+  const descriptionByLocale = {
+    it: description || fallbackIt,
+    en: enDesc,
+    de: deDesc,
+    fr: frDesc,
+  };
+
+  if (description) {
+    descriptionByLocale[sourceLang] = description;
+    if (sourceLang !== 'it') {
+      descriptionByLocale.it = description;
+    }
+  }
+
   return {
     titleByLocale: { it: title, en: title, de: title, fr: title },
-    descriptionByLocale: { it: itDesc, en: enDesc, de: deDesc, fr: frDesc },
+    descriptionByLocale,
     slugByLocale: {
       it: slugify(`${title} boggi-milano ${location}`),
       en: slugify(`${title} boggi-milano ${location}`),

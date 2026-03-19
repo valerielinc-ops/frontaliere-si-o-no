@@ -16,9 +16,26 @@ function normalizeSpace(value = '') {
     .trim();
 }
 
+function stripLastminuteBoilerplate(value = '') {
+  return String(value || '')
+    .replace(/(?:^|\n)\s*#?\s*Careers\b[\s\S]*?(?=\bThe Company\b|\bJob Description\b|\bDescription du poste\b|\bStellenbeschreibung\b|$)/i, ' ')
+    .replace(/\bShare this job:?\b[\s\S]*?(?=\bThe Company\b|\bJob Description\b|\bDescription du poste\b|\bStellenbeschreibung\b|$)/i, ' ')
+    .replace(/\b(?:corporate\.lastminute\.com|https?:\/\/corporate\.lastminute\.com\/\S+|https?:\/\/jobs\.smartrecruiters\.com\/\S+)\b/gi, ' ')
+    .replace(/\b(?:Apply now|Candidati ora|Jetzt bewerben|Postulez maintenant)\b/gi, ' ')
+    .replace(/\b(?:Back to Job Search|Torna alla ricerca di lavoro|Zuruck zur Jobsuche|Retour a la recherche d'emploi)\b/gi, ' ')
+    .replace(/\b(?:Main Language|Lingua principale|Hauptsprache|Langue principale)\s*:\s*[A-Za-zÀ-ÿ ]+/gi, ' ')
+    .replace(/\b(?:Job title|Titolo del lavoro|Stellenbezeichnung|Intitule du poste)\s*:\s*/gi, ' ')
+    .replace(/\b(?:Brand|Marca|Marke)\s*:\s*lastminute\.com\b/gi, ' ')
+    .replace(/\b(?:Department|Dipartimento|Abteilung|Departement)\s*:\s*[^.\n]+/gi, ' ')
+    .replace(/\b(?:Location|Sede|Standort|Lieu)\s*:\s*[^.\n]+/gi, ' ')
+    .replace(/\b(?:Contract|Contratto|Vertrag|Contrat)\s*:\s*[^.\n]+/gi, ' ')
+    .replace(/\*{2,}/g, ' ')
+    .replace(/[ \t]+/g, ' ');
+}
+
 function stripTags(html = '') {
   return normalizeSpace(
-    String(html || '')
+    stripLastminuteBoilerplate(String(html || ''))
       .replace(/<script[^>]*>[\s\S]*?<\/script>/gi, '')
       .replace(/<style[^>]*>[\s\S]*?<\/style>/gi, '')
       .replace(/<[^>]+>/g, ' ')
@@ -32,7 +49,7 @@ function stripTags(html = '') {
 function htmlToMarkdown(html = '') {
   if (!html) return '';
 
-  let md = html
+  let md = stripLastminuteBoilerplate(html)
     // Section headings
     .replace(/<(?:h[1-6])[^>]*>([\s\S]*?)<\/(?:h[1-6])>/gi, (_, inner) => {
       const text = stripTags(inner);
@@ -71,7 +88,30 @@ function htmlToMarkdown(html = '') {
     .replace(/\n{3,}/g, '\n\n')
     .trim();
 
+  md = stripLastminuteBoilerplate(md)
+    .replace(/\n{3,}/g, '\n\n')
+    .trim();
+
   return md;
+}
+
+function extractLastminuteRequirements(description = '') {
+  const text = normalizeSpace(description);
+  if (!text) return [];
+  const lines = text
+    .split(/[\n\r•·]+|(?<=[.!?;:])\s+/)
+    .map((x) => normalizeSpace(String(x || '').replace(/^[)\]}\-–—:.,\s]+/, '')))
+    .filter(Boolean);
+
+  const out = [];
+  for (const line of lines) {
+    if (line.length < 18 || line.length > 160) continue;
+    if (/\b(apply now|candidati ora|back to job search|share this job|main language|corporate\.lastminute\.com)\b/i.test(line)) continue;
+    if (!/(experience|esperienza|react|python|sql|cloud|kafka|spark|airflow|language|lingua|english|inglese|leadership|api|microservices|data|engineering|degree|laurea|qualifications|requisiti)/i.test(line)) continue;
+    out.push(line);
+    if (out.length >= 8) break;
+  }
+  return out;
 }
 
 /**
@@ -126,7 +166,9 @@ export function parseSmartRecruitersDetail(data = {}) {
     }
   }
 
-  const description = parts.join('\n\n').replace(/\n{3,}/g, '\n\n').trim();
+  const description = stripLastminuteBoilerplate(parts.join('\n\n'))
+    .replace(/\n{3,}/g, '\n\n')
+    .trim();
 
   // Location
   const city = normalizeSpace(location.city || '');
@@ -144,6 +186,7 @@ export function parseSmartRecruitersDetail(data = {}) {
     postedDate: data.releasedDate ? data.releasedDate.split('T')[0] : '',
     sourceTextLength: totalSourceLen,
     sectionCount,
+    requirements: extractLastminuteRequirements(description),
   };
 }
 

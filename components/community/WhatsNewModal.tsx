@@ -2,7 +2,7 @@ import { useState, useEffect, useCallback } from 'react';
 import { Bell, X, Sparkles, Zap, Bug, ChevronRight, PartyPopper } from 'lucide-react';
 import { useTranslation, useLocale } from '@/services/i18n';
 import { useNavigationOptional } from '@/services/NavigationContext';
-import { buildPath } from '@/services/router';
+import { buildPath, type AppRoute } from '@/services/router';
 
 // ─── Types ───────────────────────────────────────────────────────────────
 
@@ -35,7 +35,7 @@ export const RELEASES: Release[] = [
         type: 'feature',
         titleKey: 'whatsNew.v3320.admin.title',
         descKey: 'whatsNew.v3320.admin.desc',
-        link: { tab: 'job-board' },
+        link: { tab: 'stats' },
       },
       {
         type: 'fix',
@@ -96,7 +96,7 @@ export const RELEASES: Release[] = [
         type: 'feature',
         titleKey: 'whatsNew.v3310.admin.title',
         descKey: 'whatsNew.v3310.admin.desc',
-        link: { tab: 'job-board' },
+        link: { tab: 'stats' },
       },
     ],
   },
@@ -233,7 +233,7 @@ export const RELEASES: Release[] = [
         type: 'fix',
         titleKey: 'whatsNew.v3270.admin-panel-stats.title',
         descKey: 'whatsNew.v3270.admin-panel-stats.desc',
-
+        link: { tab: 'stats' },
       },
       {
         type: 'fix',
@@ -1221,6 +1221,41 @@ export function getReleases(): Release[] {
   return RELEASES;
 }
 
+export function releaseLinkToRoute(link: NonNullable<ReleaseItem['link']>): AppRoute {
+  switch (link.tab) {
+    case 'calculator':
+      return { activeTab: 'calculator', calcolatoreSubTab: (link.subTab as AppRoute['calcolatoreSubTab']) || 'calculator' };
+    case 'confronti':
+      return { activeTab: 'confronti', confrontiSubTab: (link.subTab as AppRoute['confrontiSubTab']) || 'exchange' };
+    case 'fisco':
+      return { activeTab: 'fisco', fiscoSubTab: (link.subTab as AppRoute['fiscoSubTab']) || 'tax-return' };
+    case 'guida':
+      return { activeTab: 'guida', guidaSubTab: (link.subTab as AppRoute['guidaSubTab']) || 'first-day' };
+    case 'vita':
+      return { activeTab: 'vita', vitaSubTab: (link.subTab as AppRoute['vitaSubTab']) || 'living-ch' };
+    case 'stats':
+      return { activeTab: 'stats', statsSubTab: (link.subTab as AppRoute['statsSubTab']) || 'overview' };
+    case 'job-board':
+      return { activeTab: 'job-board' };
+    case 'blog':
+      return { activeTab: 'blog' };
+    case 'admin':
+      return { activeTab: 'admin' };
+    case 'email-confirmed':
+      return { activeTab: 'email-confirmed' };
+    case 'permit-quiz':
+      return { activeTab: 'permit-quiz' };
+    case 'tredicesima':
+      return { activeTab: 'tredicesima' };
+    case 'weekly-digest':
+      return { activeTab: 'weekly-digest' };
+    case 'tool-of-week':
+      return { activeTab: 'tool-of-week' };
+    default:
+      return { activeTab: link.tab as AppRoute['activeTab'] };
+  }
+}
+
 // ─── Bell Button (Header Trigger) ────────────────────────────────────────
 
 interface BellButtonProps {
@@ -1371,7 +1406,9 @@ export default function WhatsNewModal({ open, onClose }: WhatsNewModalProps) {
                   {release.items.map((item, idx) => {
                     const cfg = TYPE_CONFIG[item.type];
                     const Icon = cfg.icon;
-                    const isClickable = !!(item.link && nav);
+                    const route = item.link ? releaseLinkToRoute(item.link) : null;
+                    const href = route ? buildPath(route, locale as any) : '';
+                    const isClickable = !!item.link;
                     const cardContent = (
                       <>
                         <span className={`mt-0.5 p-1 rounded-md shrink-0 ${cfg.bg}`}>
@@ -1393,7 +1430,7 @@ export default function WhatsNewModal({ open, onClose }: WhatsNewModalProps) {
                     return isClickable ? (
                       <li key={idx}>
                         <a
-                          href={buildPath({ activeTab: item.link!.tab as any }, locale as any)}
+                          href={href}
                           onClick={(e) => handleLinkClick(e, item.link!)}
                           className="w-full flex items-start gap-3 group p-2 -mx-2 rounded-lg cursor-pointer hover:bg-slate-50 dark:hover:bg-slate-700/50 active:bg-slate-100 dark:active:bg-slate-700 transition-colors text-left no-underline"
                           aria-label={`${t(item.titleKey)} — ${t('whatsNew.goTo')}`}

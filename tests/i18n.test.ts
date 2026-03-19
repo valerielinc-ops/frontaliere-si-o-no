@@ -1,5 +1,5 @@
-import { describe, it, expect, afterAll, beforeAll } from 'vitest';
-import { getLocale, setLocale, t, ensureLocaleLoaded, itReady, loadTabTranslations, loadAllLocaleChunks } from '@/services/i18n';
+import { describe, it, expect, afterAll, beforeAll, beforeEach } from 'vitest';
+import { getLocale, setLocale, t, ensureLocaleLoaded, itReady, loadTabTranslations, loadAllLocaleChunks, initLocale } from '@/services/i18n';
 
 describe('i18n Service', () => {
   // Pre-load all locale data so t() works synchronously in tests
@@ -19,6 +19,13 @@ describe('i18n Service', () => {
       loadAllLocaleChunks('fr'),
     ]);
   }, 30_000);
+
+  beforeEach(() => {
+    localStorage.clear();
+    window.history.replaceState({}, '', '/');
+    setLocale('it');
+  });
+
   it('defaults to Italian locale', () => {
     expect(getLocale()).toBe('it');
   });
@@ -66,6 +73,24 @@ describe('i18n Service', () => {
     expect(t('comparators.exchange')).toBe('Currency Exchange');
     expect(t('comparators.jobs')).toBe('Job Offers');
     expect(t('comparators.companies')).toBe('Ticino Companies');
+  });
+
+  it('keeps canonical Italian locale on non-prefixed deep links even if another locale is stored', () => {
+    localStorage.setItem('frontaliere_locale', 'en');
+    window.history.replaceState({}, '', '/cerca-lavoro-ticino/manifestazione-di-interesse-international-school-of-ticino-international-school-of-ticino-lugano/');
+
+    initLocale();
+
+    expect(getLocale()).toBe('it');
+  });
+
+  it('uses the stored locale on the locale root', () => {
+    localStorage.setItem('frontaliere_locale', 'en');
+    window.history.replaceState({}, '', '/');
+
+    initLocale();
+
+    expect(getLocale()).toBe('en');
   });
 
   afterAll(() => setLocale('it'));

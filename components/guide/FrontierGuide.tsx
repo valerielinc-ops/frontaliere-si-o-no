@@ -186,6 +186,12 @@ interface FrontierGuideProps {
 
 type GuideSection = 'municipalities' | 'living-ch' | 'living-it' | 'border' | 'calendar' | 'holidays' | 'permits' | 'companies' | 'places' | 'schools' | 'unemployment' | 'first-day' | 'car-transfer' | 'quiz';
 
+interface MunicipalityDetailPanelProps {
+  municipality: Municipality;
+  t: (key: string) => string;
+  onClose: () => void;
+}
+
 // ══════════ SCHOOL DIRECTORY DATA ══════════
 interface SchoolEntry {
   name: string;
@@ -372,6 +378,114 @@ const SchoolDirectory: React.FC<{ t: (key: string) => string }> = ({ t }) => {
   );
 };
 
+const MunicipalityDetailPanel: React.FC<MunicipalityDetailPanelProps> = ({ municipality, t, onClose }) => (
+  <div className="bg-white dark:bg-slate-800 rounded-2xl border-2 border-indigo-500 dark:border-indigo-400 p-5 sm:p-6 shadow-lg animate-fade-in">
+    <div className="flex items-start justify-between gap-4 mb-5">
+      <div>
+        <h3 className="text-xl font-extrabold text-slate-800 dark:text-slate-100">{municipality.name}</h3>
+        <p className="text-sm text-slate-500 dark:text-slate-400 mt-0.5">
+          {municipality.province} · {
+            municipality.type === 'both'
+              ? `${t('guide.new')} + ${t('guide.old')}`
+              : municipality.type === 'new' ? t('guide.new') : t('guide.old')
+          }
+        </p>
+      </div>
+      <button
+        onClick={(e) => { e.stopPropagation(); onClose(); }}
+        className="p-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors text-slate-500 dark:text-slate-400 flex-shrink-0"
+        aria-label={t('guide.municipalities.detail.close')}
+      >
+        <X size={20} />
+      </button>
+    </div>
+
+    <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 mb-5">
+      <div className="bg-slate-50 dark:bg-slate-900/50 rounded-xl p-3">
+        <p className="text-xs text-slate-500 dark:text-slate-400 mb-1">{t('guide.municipalities.detail.fascia')}</p>
+        <p className="font-bold text-slate-800 dark:text-slate-100">Fascia {municipality.fascia}</p>
+      </div>
+      <div className="bg-slate-50 dark:bg-slate-900/50 rounded-xl p-3">
+        <p className="text-xs text-slate-500 dark:text-slate-400 mb-1">{t('guide.municipalities.detail.irpef')}</p>
+        <p className="font-bold text-slate-800 dark:text-slate-100">{municipality.irpefAddizionale}%</p>
+      </div>
+      <div className="bg-slate-50 dark:bg-slate-900/50 rounded-xl p-3">
+        <p className="text-xs text-slate-500 dark:text-slate-400 mb-1">{t('guide.municipalities.detail.avgRent')}</p>
+        <p className="font-bold text-slate-800 dark:text-slate-100">€{municipality.avgRentMonthly}/{t('guide.municipalities.detail.perMonth')}</p>
+      </div>
+      <div className="bg-slate-50 dark:bg-slate-900/50 rounded-xl p-3">
+        <p className="text-xs text-slate-500 dark:text-slate-400 mb-1">{t('guide.municipalities.detail.distance')}</p>
+        <p className="font-bold text-slate-800 dark:text-slate-100">{municipality.distance} km</p>
+      </div>
+      <div className="bg-slate-50 dark:bg-slate-900/50 rounded-xl p-3">
+        <p className="text-xs text-slate-500 dark:text-slate-400 mb-1">{t('guide.municipalities.detail.borderCrossing')}</p>
+        <p className="font-bold text-slate-800 dark:text-slate-100 text-sm">{municipality.borderCrossing}</p>
+      </div>
+      <div className="bg-slate-50 dark:bg-slate-900/50 rounded-xl p-3">
+        <p className="text-xs text-slate-500 dark:text-slate-400 mb-1">{t('guide.municipalities.detail.population')}</p>
+        <p className="font-bold text-slate-800 dark:text-slate-100">{municipality.population.toLocaleString('it-IT')}</p>
+      </div>
+    </div>
+
+    <div className="flex flex-col sm:flex-row gap-3 mb-5">
+      <button
+        onClick={() => {
+          Analytics.trackUIInteraction('guida', 'municipalities', 'cta_calculator', 'click', municipality.name);
+          window.dispatchEvent(new CustomEvent('navigate-tab', { detail: { tab: 'calculator' } }));
+        }}
+        className="flex-1 flex items-center justify-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-4 rounded-xl transition-colors"
+      >
+        <Euro size={16} />
+        {t('guide.municipalities.detail.ctaCalculator')}
+      </button>
+      <button
+        onClick={() => {
+          Analytics.trackUIInteraction('guida', 'municipalities', 'cta_compare', 'click', municipality.name);
+          window.dispatchEvent(new CustomEvent('navigate-tab', { detail: { tab: 'guida', subTab: 'border' } }));
+        }}
+        className="flex-1 flex items-center justify-center gap-2 bg-teal-600 hover:bg-teal-700 text-white font-bold py-3 px-4 rounded-xl transition-colors"
+      >
+        <BarChart3 size={16} />
+        {t('guide.municipalities.detail.ctaCompare')}
+      </button>
+      <button
+        onClick={() => {
+          Analytics.trackUIInteraction('guida', 'municipalities', 'cta_jobs', 'click', municipality.name);
+          window.dispatchEvent(new CustomEvent('navigate-tab', { detail: { tab: 'job-board' } }));
+        }}
+        className="flex-1 flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 px-4 rounded-xl transition-colors"
+      >
+        <Briefcase size={16} />
+        {t('guide.municipalities.detail.ctaJobs')}
+      </button>
+    </div>
+
+    <div className="border-t border-slate-200 dark:border-slate-700 pt-4">
+      <p className="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-3">{t('guide.municipalities.detail.links')}</p>
+      <div className="flex flex-wrap gap-x-4 gap-y-2">
+        <button
+          onClick={() => { Analytics.trackUIInteraction('guida', 'municipalities', 'editorial_link', 'click', 'fisco'); window.dispatchEvent(new CustomEvent('navigate-tab', { detail: { tab: 'fisco' } })); }}
+          className="text-sm text-indigo-600 dark:text-indigo-400 hover:underline flex items-center gap-1"
+        >
+          <ArrowRight size={12} />{t('guide.municipalities.detail.linkFiscal')}
+        </button>
+        <button
+          onClick={() => { Analytics.trackUIInteraction('guida', 'municipalities', 'editorial_link', 'click', 'border'); window.dispatchEvent(new CustomEvent('navigate-tab', { detail: { tab: 'guida', subTab: 'border' } })); }}
+          className="text-sm text-indigo-600 dark:text-indigo-400 hover:underline flex items-center gap-1"
+        >
+          <ArrowRight size={12} />{t('guide.municipalities.detail.linkBorder')}
+        </button>
+        <button
+          onClick={() => { Analytics.trackUIInteraction('guida', 'municipalities', 'editorial_link', 'click', 'living-ch'); window.dispatchEvent(new CustomEvent('navigate-tab', { detail: { tab: 'vita', subTab: 'living-ch' } })); }}
+          className="text-sm text-indigo-600 dark:text-indigo-400 hover:underline flex items-center gap-1"
+        >
+          <ArrowRight size={12} />{t('guide.municipalities.detail.linkLiving')}
+        </button>
+      </div>
+    </div>
+  </div>
+);
+
 const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSection }) => {
   const { t } = useTranslation();
   const [internalSection, setInternalSection] = useState<GuideSection>((externalSection as GuideSection) || 'municipalities');
@@ -475,6 +589,15 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
       if (sortBy === 'distance') return a.distance - b.distance;
       return b.population - a.population;
     });
+  const selectedMunicipalityIndex = selectedMunicipality
+    ? filteredMunicipalities.findIndex((m) => m.name === selectedMunicipality.name)
+    : -1;
+  const desktopDetailInsertIndex = selectedMunicipalityIndex >= 0
+    ? Math.min(
+        selectedMunicipalityIndex % 2 === 0 ? selectedMunicipalityIndex + 1 : selectedMunicipalityIndex,
+        filteredMunicipalities.length - 1,
+      )
+    : -1;
 
   // Dogane Canton Ticino - Italia (fonte centralizzata: data/borderCrossings.ts)
   const borderCrossings = centralizedBorderCrossings.map(c => ({
@@ -586,174 +709,73 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
             {filteredMunicipalities.map((m, idx) => {
               const isSelected = selectedMunicipality?.name === m.name;
               return (
-                <div
-                  key={idx}
-                  onClick={() => handleMunicipalityClick(m)}
-                  onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); handleMunicipalityClick(m); } }}
-                  role="button"
-                  tabIndex={0}
-                  aria-expanded={isSelected}
-                  className={`bg-gradient-to-br ${m.type === 'new' ? 'from-blue-50 to-indigo-50 dark:from-blue-950/30 dark:to-indigo-950/30 border-blue-200 dark:border-blue-800' : 'from-orange-50 to-red-50 dark:from-orange-950/30 dark:to-red-950/30 border-orange-200 dark:border-orange-800'} rounded-2xl border-2 p-5 hover:shadow-lg transition-all cursor-pointer select-none ${isSelected ? 'ring-2 ring-indigo-500 ring-offset-2 shadow-lg' : ''}`}
-                >
-                  <div className="flex items-start justify-between gap-4">
-                    <div className="flex-1">
-                      <div className="flex items-center gap-3 mb-2 flex-wrap">
-                        <h3 className="text-xl font-bold text-slate-800 dark:text-slate-100">{m.name}</h3>
-                        {m.type === 'both' ? (
-                          <>
-                            <span className="px-2.5 py-1 rounded-lg text-xs font-bold bg-blue-600 text-white">
-                              {t('guide.new')}
+                <React.Fragment key={idx}>
+                  <div
+                    onClick={() => handleMunicipalityClick(m)}
+                    onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); handleMunicipalityClick(m); } }}
+                    role="button"
+                    tabIndex={0}
+                    aria-expanded={isSelected}
+                    className={`bg-gradient-to-br ${m.type === 'new' ? 'from-blue-50 to-indigo-50 dark:from-blue-950/30 dark:to-indigo-950/30 border-blue-200 dark:border-blue-800' : 'from-orange-50 to-red-50 dark:from-orange-950/30 dark:to-red-950/30 border-orange-200 dark:border-orange-800'} rounded-2xl border-2 p-5 hover:shadow-lg transition-all cursor-pointer select-none ${isSelected ? 'ring-2 ring-indigo-500 ring-offset-2 shadow-lg' : ''}`}
+                  >
+                    <div className="flex items-start justify-between gap-4">
+                      <div className="flex-1">
+                        <div className="flex items-center gap-3 mb-2 flex-wrap">
+                          <h3 className="text-xl font-bold text-slate-800 dark:text-slate-100">{m.name}</h3>
+                          {m.type === 'both' ? (
+                            <>
+                              <span className="px-2.5 py-1 rounded-lg text-xs font-bold bg-blue-600 text-white">
+                                {t('guide.new')}
+                              </span>
+                              <span className="px-2.5 py-1 rounded-lg text-xs font-bold bg-orange-600 text-white">
+                                {t('guide.old')}
+                              </span>
+                            </>
+                          ) : (
+                            <span className={`px-2.5 py-1 rounded-lg text-xs font-bold ${m.type === 'new' ? 'bg-blue-600 text-white' : 'bg-orange-600 text-white'}`}>
+                              {m.type === 'new' ? t('guide.new') : t('guide.old')}
                             </span>
-                            <span className="px-2.5 py-1 rounded-lg text-xs font-bold bg-orange-600 text-white">
-                              {t('guide.old')}
-                            </span>
-                          </>
-                        ) : (
-                          <span className={`px-2.5 py-1 rounded-lg text-xs font-bold ${m.type === 'new' ? 'bg-blue-600 text-white' : 'bg-orange-600 text-white'}`}>
-                            {m.type === 'new' ? t('guide.new') : t('guide.old')}
+                          )}
+                          <span className="ml-auto text-xs text-indigo-600 dark:text-indigo-400 font-medium">
+                            {isSelected ? '▲' : '▼'} {t('guide.municipalities.detail.clickHint')}
                           </span>
-                        )}
-                        <span className="ml-auto text-xs text-indigo-600 dark:text-indigo-400 font-medium">
-                          {isSelected ? '▲' : '▼'} {t('guide.municipalities.detail.clickHint')}
-                        </span>
-                      </div>
-                      <div className="grid sm:grid-cols-2 gap-3 text-sm">
-                        <div className="flex items-center gap-2 text-slate-700 dark:text-slate-300">
-                          <MapPin size={16} className="text-indigo-600" />
-                          <span><strong>{t('guide.province')}:</strong> {m.province}</span>
                         </div>
-                        <div className="flex items-center gap-2 text-slate-700 dark:text-slate-300">
-                          <Navigation size={16} className="text-emerald-700" />
-                          <span><strong>{t('guide.distance')}:</strong> {m.distance} {t('guide.kmFromBorder')}</span>
-                        </div>
-                        <div className="flex items-center gap-2 text-slate-700 dark:text-slate-300">
-                          <Car size={16} className="text-orange-600" />
-                          <span><strong>{t('guide.borderCrossing')}:</strong> {m.borderCrossing}</span>
-                        </div>
-                        <div className="flex items-center gap-2 text-slate-700 dark:text-slate-300">
-                          <Users size={16} className="text-purple-600" />
-                          <span><strong>{t('guide.population')}:</strong> {m.population.toLocaleString('it-IT')}</span>
+                        <div className="grid sm:grid-cols-2 gap-3 text-sm">
+                          <div className="flex items-center gap-2 text-slate-700 dark:text-slate-300">
+                            <MapPin size={16} className="text-indigo-600" />
+                            <span><strong>{t('guide.province')}:</strong> {m.province}</span>
+                          </div>
+                          <div className="flex items-center gap-2 text-slate-700 dark:text-slate-300">
+                            <Navigation size={16} className="text-emerald-700" />
+                            <span><strong>{t('guide.distance')}:</strong> {m.distance} {t('guide.kmFromBorder')}</span>
+                          </div>
+                          <div className="flex items-center gap-2 text-slate-700 dark:text-slate-300">
+                            <Car size={16} className="text-orange-600" />
+                            <span><strong>{t('guide.borderCrossing')}:</strong> {m.borderCrossing}</span>
+                          </div>
+                          <div className="flex items-center gap-2 text-slate-700 dark:text-slate-300">
+                            <Users size={16} className="text-purple-600" />
+                            <span><strong>{t('guide.population')}:</strong> {m.population.toLocaleString('it-IT')}</span>
+                          </div>
                         </div>
                       </div>
+                      <CheckCircle2 size={24} className={`flex-shrink-0 ${isSelected ? 'text-indigo-600' : m.type === 'new' ? 'text-blue-600' : 'text-orange-600'}`} />
                     </div>
-                    <CheckCircle2 size={24} className={`flex-shrink-0 ${isSelected ? 'text-indigo-600' : m.type === 'new' ? 'text-blue-600' : 'text-orange-600'}`} />
                   </div>
-                </div>
+                  {isSelected && (
+                    <div className="md:hidden">
+                      <MunicipalityDetailPanel municipality={m} t={t} onClose={() => setSelectedMunicipality(null)} />
+                    </div>
+                  )}
+                  {selectedMunicipality && idx === desktopDetailInsertIndex && (
+                    <div className="hidden md:block md:col-span-2">
+                      <MunicipalityDetailPanel municipality={selectedMunicipality} t={t} onClose={() => setSelectedMunicipality(null)} />
+                    </div>
+                  )}
+                </React.Fragment>
               );
             })}
           </div>
-
-          {/* Municipality Detail Panel */}
-          {selectedMunicipality && (
-            <div className="bg-white dark:bg-slate-800 rounded-2xl border-2 border-indigo-500 dark:border-indigo-400 p-5 sm:p-6 shadow-lg animate-fade-in">
-              <div className="flex items-start justify-between gap-4 mb-5">
-                <div>
-                  <h3 className="text-xl font-extrabold text-slate-800 dark:text-slate-100">{selectedMunicipality.name}</h3>
-                  <p className="text-sm text-slate-500 dark:text-slate-400 mt-0.5">
-                    {selectedMunicipality.province} · {
-                      selectedMunicipality.type === 'both'
-                        ? `${t('guide.new')} + ${t('guide.old')}`
-                        : selectedMunicipality.type === 'new' ? t('guide.new') : t('guide.old')
-                    }
-                  </p>
-                </div>
-                <button
-                  onClick={(e) => { e.stopPropagation(); setSelectedMunicipality(null); }}
-                  className="p-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors text-slate-500 dark:text-slate-400 flex-shrink-0"
-                  aria-label={t('guide.municipalities.detail.close')}
-                >
-                  <X size={20} />
-                </button>
-              </div>
-
-              {/* Stats grid */}
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 mb-5">
-                <div className="bg-slate-50 dark:bg-slate-900/50 rounded-xl p-3">
-                  <p className="text-xs text-slate-500 dark:text-slate-400 mb-1">{t('guide.municipalities.detail.fascia')}</p>
-                  <p className="font-bold text-slate-800 dark:text-slate-100">Fascia {selectedMunicipality.fascia}</p>
-                </div>
-                <div className="bg-slate-50 dark:bg-slate-900/50 rounded-xl p-3">
-                  <p className="text-xs text-slate-500 dark:text-slate-400 mb-1">{t('guide.municipalities.detail.irpef')}</p>
-                  <p className="font-bold text-slate-800 dark:text-slate-100">{selectedMunicipality.irpefAddizionale}%</p>
-                </div>
-                <div className="bg-slate-50 dark:bg-slate-900/50 rounded-xl p-3">
-                  <p className="text-xs text-slate-500 dark:text-slate-400 mb-1">{t('guide.municipalities.detail.avgRent')}</p>
-                  <p className="font-bold text-slate-800 dark:text-slate-100">€{selectedMunicipality.avgRentMonthly}/{t('guide.municipalities.detail.perMonth')}</p>
-                </div>
-                <div className="bg-slate-50 dark:bg-slate-900/50 rounded-xl p-3">
-                  <p className="text-xs text-slate-500 dark:text-slate-400 mb-1">{t('guide.municipalities.detail.distance')}</p>
-                  <p className="font-bold text-slate-800 dark:text-slate-100">{selectedMunicipality.distance} km</p>
-                </div>
-                <div className="bg-slate-50 dark:bg-slate-900/50 rounded-xl p-3">
-                  <p className="text-xs text-slate-500 dark:text-slate-400 mb-1">{t('guide.municipalities.detail.borderCrossing')}</p>
-                  <p className="font-bold text-slate-800 dark:text-slate-100 text-sm">{selectedMunicipality.borderCrossing}</p>
-                </div>
-                <div className="bg-slate-50 dark:bg-slate-900/50 rounded-xl p-3">
-                  <p className="text-xs text-slate-500 dark:text-slate-400 mb-1">{t('guide.municipalities.detail.population')}</p>
-                  <p className="font-bold text-slate-800 dark:text-slate-100">{selectedMunicipality.population.toLocaleString('it-IT')}</p>
-                </div>
-              </div>
-
-              {/* CTAs */}
-              <div className="flex flex-col sm:flex-row gap-3 mb-5">
-                <button
-                  onClick={() => {
-                    Analytics.trackUIInteraction('guida', 'municipalities', 'cta_calculator', 'click', selectedMunicipality.name);
-                    window.dispatchEvent(new CustomEvent('navigate-tab', { detail: { tab: 'calculator' } }));
-                  }}
-                  className="flex-1 flex items-center justify-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-4 rounded-xl transition-colors"
-                >
-                  <Euro size={16} />
-                  {t('guide.municipalities.detail.ctaCalculator')}
-                </button>
-                <button
-                  onClick={() => {
-                    Analytics.trackUIInteraction('guida', 'municipalities', 'cta_compare', 'click', selectedMunicipality.name);
-                    window.dispatchEvent(new CustomEvent('navigate-tab', { detail: { tab: 'guida', subTab: 'border' } }));
-                  }}
-                  className="flex-1 flex items-center justify-center gap-2 bg-teal-600 hover:bg-teal-700 text-white font-bold py-3 px-4 rounded-xl transition-colors"
-                >
-                  <BarChart3 size={16} />
-                  {t('guide.municipalities.detail.ctaCompare')}
-                </button>
-                <button
-                  onClick={() => {
-                    Analytics.trackUIInteraction('guida', 'municipalities', 'cta_jobs', 'click', selectedMunicipality.name);
-                    window.dispatchEvent(new CustomEvent('navigate-tab', { detail: { tab: 'job-board' } }));
-                  }}
-                  className="flex-1 flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 px-4 rounded-xl transition-colors"
-                >
-                  <Briefcase size={16} />
-                  {t('guide.municipalities.detail.ctaJobs')}
-                </button>
-              </div>
-
-              {/* Editorial cross-links */}
-              <div className="border-t border-slate-200 dark:border-slate-700 pt-4">
-                <p className="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-3">{t('guide.municipalities.detail.links')}</p>
-                <div className="flex flex-wrap gap-x-4 gap-y-2">
-                  <button
-                    onClick={() => { Analytics.trackUIInteraction('guida', 'municipalities', 'editorial_link', 'click', 'fisco'); window.dispatchEvent(new CustomEvent('navigate-tab', { detail: { tab: 'fisco' } })); }}
-                    className="text-sm text-indigo-600 dark:text-indigo-400 hover:underline flex items-center gap-1"
-                  >
-                    <ArrowRight size={12} />{t('guide.municipalities.detail.linkFiscal')}
-                  </button>
-                  <button
-                    onClick={() => { Analytics.trackUIInteraction('guida', 'municipalities', 'editorial_link', 'click', 'border'); window.dispatchEvent(new CustomEvent('navigate-tab', { detail: { tab: 'guida', subTab: 'border' } })); }}
-                    className="text-sm text-indigo-600 dark:text-indigo-400 hover:underline flex items-center gap-1"
-                  >
-                    <ArrowRight size={12} />{t('guide.municipalities.detail.linkBorder')}
-                  </button>
-                  <button
-                    onClick={() => { Analytics.trackUIInteraction('guida', 'municipalities', 'editorial_link', 'click', 'living-ch'); window.dispatchEvent(new CustomEvent('navigate-tab', { detail: { tab: 'vita', subTab: 'living-ch' } })); }}
-                    className="text-sm text-indigo-600 dark:text-indigo-400 hover:underline flex items-center gap-1"
-                  >
-                    <ArrowRight size={12} />{t('guide.municipalities.detail.linkLiving')}
-                  </button>
-                </div>
-              </div>
-            </div>
-          )}
 
           {/* Mappa Interattiva */}
           <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-4 sm:p-6 overflow-hidden">

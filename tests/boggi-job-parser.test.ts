@@ -16,8 +16,10 @@ import {
   parseBoggiDetailPage,
   combineRecruiteeDescriptionSections,
   buildBoggiJobFromApi,
+  buildBoggiLocalizedContent,
   MIN_BOGGI_DESC_LENGTH,
 } from '../scripts/lib/boggi-job-parser.mjs';
+import { syncBoggiDetailDescription } from '../scripts/update-boggi-jobs.mjs';
 
 // ─── Fixture helpers ──────────────────────────────────────────────────────────
 
@@ -298,5 +300,65 @@ describe('buildBoggiJobFromApi / combined description sections', () => {
     };
     const result = buildBoggiJobFromApi(offer);
     expect(result.description).toContain('Solo descrizione');
+  });
+});
+
+describe('buildBoggiLocalizedContent', () => {
+  it('stores a rich English source description under en and mirrors it into it for later translation', () => {
+    const richEnglishDescription = `The Retail HR Specialist will be part of the HR Team and will contribute to managing the HR processes.
+Key Responsibilities
+- Manage the full recruitment cycle for retail stores
+- Support employer branding initiatives
+
+Requirements
+- 5 years of recruiting experience in premium retail
+- Fluent English and Italian`;
+
+    const localized = buildBoggiLocalizedContent({
+      title: 'Retail HR Specialist',
+      location: 'Mendrisio, Ticino',
+      description: richEnglishDescription,
+    });
+
+    expect(localized.descriptionByLocale.en).toBe(richEnglishDescription);
+    expect(localized.descriptionByLocale.it).toBe(richEnglishDescription);
+    expect(localized.descriptionByLocale.de).toContain('Boggi Milano sucht aktuell');
+  });
+});
+
+describe('syncBoggiDetailDescription', () => {
+  it('replaces a thin Italian fallback with the richer detail body so locale translation can rebuild it', () => {
+    const job = {
+      description: `The Retail HR Specialist will contribute to managing the HR processes across retail stores.
+Working closely with the HR leadership team, the role supports hiring, onboarding, employer branding, Workday operations and recruitment KPI analysis.
+
+Requirements
+- 5 years of recruiting experience in premium retail
+- Fluent English and Italian`,
+      descriptionByLocale: {
+        it: '## Specialista delle risorse umane al dettaglio\n\nBoggi Milano sta assumendo per la posizione di Retail HR Specialist a Mendrisio, in Ticino. Moda, design e qualità maschile italiana. Candidati attraverso la pagina ufficiale delle carriere di Boggi Milano.',
+        en: 'Boggi Milano is hiring for the Retail HR Specialist position in Mendrisio, Ticino.',
+      },
+    };
+    const richBody = `The Retail HR Specialist will be part of the HR Team and will contribute to managing the HR processes, with special focus on recruitment, ensuring the attraction and hiring of top talent in line with Boggi Milano's values and standards.
+Working closely with the International HR Manager and the Head of HR Retail, the role will ensure full coverage of the retail network's staffing needs and support the qualitative development of our teams.
+
+Key Responsibilities
+Manage the full recruitment cycle for retail stores in the assigned area.
+Support staffing plans, structured interviews, employer branding initiatives and onboarding programs.
+Draft and monitor job postings on Workday and manage recruitment KPIs.
+
+Requirements
+Degree in Humanities, Psychology, Economics, or related fields.
+At least 5 years of experience in recruiting within the premium retail or fashion/luxury sector.
+Fluent English and Italian, plus one language between French and German.`;
+
+    const result = syncBoggiDetailDescription(job, richBody);
+
+    expect(result.changed).toBe(true);
+    expect(result.sourceLang).toBe('en');
+    expect(job.description).toBe(richBody);
+    expect(job.descriptionByLocale.en).toBe(richBody);
+    expect(job.descriptionByLocale.it).toBe(richBody);
   });
 });

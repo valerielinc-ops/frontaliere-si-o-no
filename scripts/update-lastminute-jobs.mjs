@@ -640,6 +640,7 @@ async function enrichFromSmartRecruitersApi(seedUrls) {
       // Only replace if SR API content is richer
       if (detail.description.length > (existing.description || '').length * 0.8) {
         existing.description = detail.description;
+        existing.requirements = Array.isArray(detail.requirements) ? detail.requirements : [];
         existing.descriptionByLocale = {
           ...(existing.descriptionByLocale || {}),
           en: detail.description, // SR API content is in English

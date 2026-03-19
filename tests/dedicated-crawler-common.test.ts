@@ -71,6 +71,45 @@ describe('dedicated-crawler-common locale hardening', () => {
     expect(after[0].titleByLocale.it).toBe('Quality Technician (80-100%)');
   });
 
+  it('rebuilds federal localized slugs when they still contain the raw German department placeholder', () => {
+    const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), 'ft-locale-hardening-'));
+    const jobsPath = path.join(tempDir, 'jobs.json');
+    const jobs = [{
+      slug: 'responsabile-sistemi-di-comando-e-informazione-swiss-armed-forces-vtg-rivera',
+      title: 'Leiter/-in Führungs- und Informationssysteme',
+      company: 'Swiss Armed Forces (VTG)',
+      location: 'Rivera',
+      description: 'Deutschsprachige Stellenbeschreibung mit ausreichend Inhalt, damit die Quellsprache fuer diesen VTG-Job stabil deutsch bleibt und nur die lokalisierten Slugs repariert werden muessen.',
+      titleByLocale: {
+        it: 'Responsabile Sistemi di Comando e Informazione',
+        en: 'Head of Command and Information Systems',
+        de: 'Leiter/-in Führungs- und Informationssysteme',
+        fr: "Responsable Systèmes de Commandement et d'Information",
+      },
+      descriptionByLocale: {
+        de: 'Deutschsprachige Stellenbeschreibung mit ausreichend Inhalt, damit die Quellsprache fuer diesen VTG-Job stabil deutsch bleibt und nur die lokalisierten Slugs repariert werden muessen.',
+      },
+      slugByLocale: {
+        it: 'responsabile-sistemi-di-comando-e-informazione-swiss-armed-forces-vtg-rivera',
+        en: 'head-of-command-and-information-systems-eidgenossisches-departement-fur-verteidigung-bevolkerungsschutz-und-sport-vbs-rivera',
+        de: 'leiter-in-fuhrungs-und-informationssysteme-eidgenossisches-departement-fur-verteidigung-bevolkerungsschutz-und-sport-vbs-rivera',
+        fr: 'chef-des-systemes-de-commandement-et-d-information-eidgenossisches-departement-fur-verteidigung-bevolkerungsschutz-und-sport-vbs-rivera',
+      },
+    }];
+    fs.writeFileSync(jobsPath, `${JSON.stringify(jobs, null, 2)}\n`, 'utf-8');
+
+    const result = hardenJobLocaleFields({ dataJobsPath: jobsPath });
+    const after = JSON.parse(fs.readFileSync(jobsPath, 'utf-8'));
+
+    expect(result.changed).toBe(true);
+    expect(after[0].slugByLocale.en).toBe('head-of-command-and-information-systems-swiss-armed-forces-vtg-rivera');
+    expect(after[0].slugByLocale.de).toBe('leiter-in-fuhrungs-und-informationssysteme-swiss-armed-forces-vtg-rivera');
+    expect(after[0].slugByLocale.fr).toBe('responsable-systemes-de-commandement-et-d-information-swiss-armed-forces-vtg-rivera');
+    expect(after[0].previousSlugs).toContain('head-of-command-and-information-systems-eidgenossisches-departement-fur-verteidigung-bevolkerungsschutz-und-sport-vbs-rivera');
+    expect(after[0].previousSlugs).toContain('leiter-in-fuhrungs-und-informationssysteme-eidgenossisches-departement-fur-verteidigung-bevolkerungsschutz-und-sport-vbs-rivera');
+    expect(after[0].previousSlugs).toContain('chef-des-systemes-de-commandement-et-d-information-eidgenossisches-departement-fur-verteidigung-bevolkerungsschutz-und-sport-vbs-rivera');
+  });
+
   it('heuristically repairs italian titles and slugs when german or french source titles leak into locale fields', () => {
     const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), 'ft-locale-hardening-'));
     const jobsPath = path.join(tempDir, 'jobs.json');

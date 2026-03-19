@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
-import { buildPath, parsePath, pushRoute, replaceRoute, updatePathForLocale } from '@/services/router';
+import { buildPath, parsePath, pushRoute, replaceRoute, updatePathForLocale, registerJobSlugMap } from '@/services/router';
 
 const SEO_LANDINGS = [
   'salary-60000',
@@ -333,6 +333,33 @@ describe('Router — parsePath roundtrip', () => {
         });
       }
     }
+  });
+});
+
+describe('Router — locale-aware job detail updates', () => {
+  it('rewrites job detail slugs and history state when switching locale', () => {
+    const italianSlug = 'manifestazione-di-interesse-international-school-of-ticino-international-school-of-ticino-lugano';
+    const englishSlug = 'expression-of-interest-international-school-of-ticino-international-school-of-ticino-lugano';
+    registerJobSlugMap([
+      {
+        slug: italianSlug,
+        slugByLocale: {
+          it: italianSlug,
+          en: englishSlug,
+        },
+      },
+    ]);
+
+    window.history.replaceState(
+      { route: { activeTab: 'job-board', jobSlug: italianSlug } },
+      '',
+      buildPath({ activeTab: 'job-board', jobSlug: italianSlug }, 'it'),
+    );
+
+    updatePathForLocale('en');
+
+    expect(window.location.pathname).toBe(buildPath({ activeTab: 'job-board', jobSlug: englishSlug }, 'en'));
+    expect(window.history.state?.route).toEqual({ activeTab: 'job-board', jobSlug: englishSlug });
   });
 });
 

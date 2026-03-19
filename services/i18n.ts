@@ -277,14 +277,21 @@ export function initLocale(): void {
     return;
   }
 
-  // 3. Check localStorage (user's previous choice)
+  // 3. Non-prefixed deep links are canonical Italian URLs.
+  // Respect the visited route instead of overriding it with a stored locale.
+  if (pathParts.length > 0) {
+    setLocale('it');
+    return;
+  }
+
+  // 4. Check localStorage (user's previous choice) on the locale root only
   const stored = localStorage.getItem('frontaliere_locale') as Locale | null;
   if (stored && validLocales.includes(stored)) {
     setLocale(stored);
     return;
   }
 
-  // 4. Default to Italian
+  // 5. Default to Italian
   setLocale('it');
 }
 

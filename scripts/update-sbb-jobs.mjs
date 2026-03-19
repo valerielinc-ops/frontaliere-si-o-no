@@ -536,6 +536,7 @@ async function fetchSbbJobDetailUrls() {
   // Extract detail URLs + metadata
   const detailUrls = [];
   const apiMetaByUrl = new Map();
+  const apiMetaByTitle = new Map();
   for (const job of targetJobs) {
     const directLink = job?.links?.directlink;
     if (directLink && directLink.startsWith('http')) {
@@ -543,7 +544,7 @@ async function fetchSbbJobDetailUrls() {
       const city = (job?.attributes?.['100'] || []).join(', ') || '?';
       const pct = (job?.attributes?.['160'] || []).join(', ') || '?';
       const normalizedUrl = normalizeDetailUrl(directLink);
-      apiMetaByUrl.set(normalizedUrl, {
+      const meta = {
         title: String(job?.title || '').trim(),
         city: String((job?.attributes?.['100'] || [])[0] || '').trim(),
         region: String((job?.attributes?.['110'] || [])[0] || '').trim(),
@@ -552,7 +553,10 @@ async function fetchSbbJobDetailUrls() {
         employmentRaw: Array.isArray(job?.attributes?.['50']) ? job.attributes['50'].map((x) => String(x || '').trim()).filter(Boolean) : [],
         datePosted: String(job?.start_date || '').trim(),
         validThrough: String(job?.end_date || '').trim(),
-      });
+      };
+      apiMetaByUrl.set(normalizedUrl, meta);
+      const normalizedTitle = normalize(String(job?.title || ''));
+      if (normalizedTitle) apiMetaByTitle.set(normalizedTitle, meta);
       console.log(`    ✅ ${job.title} — ${city} (${pct})`);
     } else {
       console.warn(`    ⚠️ Job ${job.id} "${job.title}" has no directlink.`);
@@ -563,6 +567,7 @@ async function fetchSbbJobDetailUrls() {
   return {
     urls: detailUrls,
     apiMetaByUrl,
+    apiMetaByTitle,
   };
 }
 
@@ -764,12 +769,12 @@ function inferContract(apiMeta, employmentType = '', title = '') {
   return 'full-time';
 }
 
-async function parseSbbJobFromDetailUrl(detailUrl, apiMetaByUrl) {
+async function parseSbbJobFromDetailUrl(detailUrl, apiMetaByUrl, apiMetaByTitle = new Map()) {
   const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
   const html = await fetchPage(detailUrl, timeoutMs, 'text/html,application/xhtml+xml');
   if (!html) return null;
 
-  const apiMeta = apiMetaByUrl.get(normalizeDetailUrl(detailUrl)) || null;
+  let apiMeta = apiMetaByUrl.get(normalizeDetailUrl(detailUrl)) || null;
   const companyDomain = (() => {
     try {
       return new URL(detailUrl).hostname.replace(/^www\./, '').toLowerCase();
@@ -809,6 +814,9 @@ async function parseSbbJobFromDetailUrl(detailUrl, apiMetaByUrl) {
     console.warn(`  ⚠️ Missing title: ${detailUrl}`);
     return null;
   }
+  if (!apiMeta) {
+    apiMeta = apiMetaByTitle.get(normalize(title)) || null;
+  }
 
   const descriptionBlocks = !isLoginOrgDetail ? [] : uniqueLongTextBlocks([
     jobPosting?.description,
@@ -830,10 +838,11 @@ async function parseSbbJobFromDetailUrl(detailUrl, apiMetaByUrl) {
     : (sbbParsed?.requirements?.length
       ? sbbParsed.requirements
       : parseBullets(jobPosting?.qualifications, 14));
+  const resolvedDetailLocation = extractLocationFromJobPosting(jobPosting, html, apiMeta);
   const location = String(
     sourceLoginData.location ||
-    sbbParsed?.location ||
-    extractLocationFromJobPosting(jobPosting, html, apiMeta)
+    resolvedDetailLocation ||
+    sbbParsed?.location
   ).trim();
   const canton = inferSwissTargetCanton(`${location} ${apiMeta?.region || ''}`) || 'TI';
   const slugBase = slugify(`${title}-${SBB_KEY}-${location}`) || createHash('sha1').update(normalizeDetailUrl(detailUrl)).digest('hex').slice(0, 16);
@@ -906,7 +915,7 @@ async function parseSbbJobFromDetailUrl(detailUrl, apiMetaByUrl) {
   };
 }
 
-async function parseAllSbbDetailJobs(detailUrls, apiMetaByUrl) {
+async function parseAllSbbDetailJobs(detailUrls, apiMetaByUrl, apiMetaByTitle = new Map()) {
   const uniqueUrls = [...new Set((detailUrls || []).map((u) => normalizeDetailUrl(u)).filter(Boolean))];
   const concurrency = Math.max(1, Number(process.env.JOBS_SBB_DETAIL_CONCURRENCY || 6));
   let cursor = 0;
@@ -917,7 +926,7 @@ async function parseAllSbbDetailJobs(detailUrls, apiMetaByUrl) {
       const idx = cursor;
       cursor += 1;
       const url = uniqueUrls[idx];
-      const job = await parseSbbJobFromDetailUrl(url, apiMetaByUrl);
+      const job = await parseSbbJobFromDetailUrl(url, apiMetaByUrl, apiMetaByTitle);
       if (job) {
         parsed.push(job);
         console.log(`    ✅ Parsed: ${job.title} — ${job.location}`);
@@ -1079,6 +1088,7 @@ async function main() {
   const apiSeed = await fetchSbbJobDetailUrls();
   const apiUrls = apiSeed.urls || [];
   const apiMetaByUrl = apiSeed.apiMetaByUrl || new Map();
+  const apiMetaByTitle = apiSeed.apiMetaByTitle || new Map();
 
   // Step 2: Fetch login.org SBB apprenticeship URLs
   const loginDetailUrls = await fetchLoginSbbDetailUrls();
@@ -1105,7 +1115,7 @@ async function main() {
 
   // Step 3: Parse detail pages directly (dedicated parser, no generic filter)
   console.log(`🧩 Parsing SBB detail pages directly (${mergedDetailUrls.length})...`);
-  const parsedSbbJobs = await parseAllSbbDetailJobs(mergedDetailUrls, apiMetaByUrl);
+  const parsedSbbJobs = await parseAllSbbDetailJobs(mergedDetailUrls, apiMetaByUrl, apiMetaByTitle);
   console.log(`✅ Parsed SBB jobs (clean): ${parsedSbbJobs.length}`);
   if (parsedSbbJobs.length > 0) {
     const publishedJobs = mergeParsedSbbJobs(parsedSbbJobs);

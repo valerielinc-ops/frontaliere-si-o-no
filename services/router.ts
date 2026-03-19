@@ -2067,6 +2067,7 @@ export function replaceRoute(route: AppRoute): void {
 export function updatePathForLocale(newLocale: Locale): void {
   const currentPath = window.location.pathname;
   const { route } = parsePath(currentPath);
+  let nextRoute = route;
   // When switching locale from a root path on the homepage, navigate to the new locale's root
   if (isLocaleRoot(currentPath) && isDefaultHome(route)) {
     const newRoot = newLocale === 'it' ? '/' : `/${newLocale}/`;
@@ -2075,9 +2076,17 @@ export function updatePathForLocale(newLocale: Locale): void {
     }
     return;
   }
-  const newPath = buildPath(route, newLocale);
-  if (currentPath !== newPath) {
-    history.replaceState({ route }, '', newPath);
+  if (route.activeTab === 'job-board' && route.jobSlug) {
+    const translatedSlug = translateJobSlug(route.jobSlug, newLocale);
+    if (translatedSlug && translatedSlug !== route.jobSlug) {
+      nextRoute = { ...route, jobSlug: translatedSlug };
+    }
+  }
+  const newPath = buildPath(nextRoute, newLocale);
+  const currentStateRoute = history.state?.route;
+  const stateNeedsSync = JSON.stringify(currentStateRoute || null) !== JSON.stringify(nextRoute);
+  if (currentPath !== newPath || stateNeedsSync) {
+    history.replaceState({ route: nextRoute }, '', newPath);
   }
 }
 

@@ -4,9 +4,50 @@
   "companyHost": "boggimilano1.recruitee.com",
   "enabled": true,
   "priority": 18,
-  "crawlerModes": ["api"],
-  "seedUrls": ["https://boggimilano1.recruitee.com/api/offers"],
+  "crawlerModes": [
+    "api"
+  ],
+  "seedUrls": [
+    "https://boggimilano1.recruitee.com/api/offers"
+  ],
   "notes": "Dedicated Boggi Milano crawler uses the public Recruitee JSON API. Filters Swiss/Ticino jobs by country_code and location fields. No HTML parsing needed.",
-  "updatedAt": "2026-03-12T00:00:00.000Z",
-  "seedMetaByUrl": {}
+  "updatedAt": "2026-03-19T18:58:44.990Z",
+  "seedMetaByUrl": {
+    "https://boggimilano1.recruitee.com/l/it/o/sales-advisor-pt-aubonne-1": {
+      "location": "Aubonne, Vaud",
+      "canton": "TI",
+      "company": "Boggi Milano",
+      "postedDate": "2026-03-16"
+    },
+    "https://boggimilano1.recruitee.com/l/it/o/treasury-coordinator-3": {
+      "location": "Mendrisio, Ticino",
+      "canton": "TI",
+      "company": "Boggi Milano",
+      "postedDate": "2026-03-02"
+    },
+    "https://boggimilano1.recruitee.com/l/it/o/retail-hr-specialist-2": {
+      "location": "Mendrisio, Ticino",
+      "canton": "TI",
+      "company": "Boggi Milano",
+      "postedDate": "2026-03-03"
+    },
+    "https://boggimilano1.recruitee.com/l/it/o/sales-advisor-categorie-protette-l6899-serravalle": {
+      "location": "Serravalle Designer Outlet, Piemonte",
+      "canton": "TI",
+      "company": "Boggi Milano",
+      "postedDate": "2026-01-16"
+    },
+    "https://boggimilano1.recruitee.com/l/it/o/senior-sales-advisor-ft-como-stagionale-dal-1-maggio-al-30-settembre-32h": {
+      "location": "Como, Lombardia",
+      "canton": "TI",
+      "company": "Boggi Milano",
+      "postedDate": "2026-02-13"
+    },
+    "https://boggimilano1.recruitee.com/l/it/o/apac-import-support-stage": {
+      "location": "Mendrisio, Ticino",
+      "canton": "TI",
+      "company": "Boggi Milano",
+      "postedDate": "2025-11-26"
+    }
+  }
 }

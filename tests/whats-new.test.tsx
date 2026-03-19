@@ -1,6 +1,13 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { render, screen, fireEvent } from '@testing-library/react';
-import WhatsNewModal, { WhatsNewBell, RELEASES, STORAGE_KEY } from '@/components/community/WhatsNewModal';
+import WhatsNewModal, { WhatsNewBell, RELEASES, STORAGE_KEY, releaseLinkToRoute } from '@/components/community/WhatsNewModal';
+import { buildPath } from '@/services/router';
+import itCore from '@/services/locales/it-core';
+
+const findReleaseItem = (version: string, titleKey: string) => {
+  const release = RELEASES.find((item) => item.version === version);
+  return release?.items.find((item) => item.titleKey === titleKey);
+};
 
 // ─── WhatsNewBell ─────────────────────────────────────────────────────────
 
@@ -39,6 +46,14 @@ describe('WhatsNewModal', () => {
   beforeEach(() => {
     localStorage.clear();
   });
+
+  const getReleaseLink = (version: string, titleKey: string) => {
+    const item = findReleaseItem(version, titleKey);
+    expect(item?.link).toBeTruthy();
+
+    const label = `${itCore[titleKey]} — ${itCore['whatsNew.goTo']}`;
+    return screen.getByRole('link', { name: label });
+  };
 
   it('renders nothing when open=false', () => {
     const { container } = render(<WhatsNewModal open={false} onClose={vi.fn()} />);
@@ -85,6 +100,20 @@ describe('WhatsNewModal', () => {
     for (const release of RELEASES) {
       expect(screen.getByText(new RegExp(release.version))).toBeTruthy();
     }
+  });
+
+  it('renders statistics updates with a stats href instead of the job board', () => {
+    render(<WhatsNewModal open={true} onClose={vi.fn()} />);
+    const link = getReleaseLink('3.32.0', 'whatsNew.v3320.admin.title');
+
+    expect(link.getAttribute('href')).toBe(buildPath({ activeTab: 'stats', statsSubTab: 'overview' }, 'it'));
+  });
+
+  it('builds hrefs with sub-tabs for deep links', () => {
+    render(<WhatsNewModal open={true} onClose={vi.fn()} />);
+    const link = getReleaseLink('3.13.0', 'whatsNew.v3130.salaryBreakdown.title');
+
+    expect(link.getAttribute('href')).toBe(buildPath({ activeTab: 'calculator', calcolatoreSubTab: 'calculator' }, 'it'));
   });
 });
 
@@ -137,6 +166,24 @@ describe('RELEASES data integrity', () => {
   it('links the 3.11 stats item to the statistics overview', () => {
     const release = RELEASES.find((item) => item.version === '3.11.0');
     const statsItem = release?.items.find((item) => item.titleKey === 'whatsNew.v3110.use-service-account.title');
+
+    expect(statsItem?.link).toEqual({ tab: 'stats' });
+  });
+
+  it('maps release links to router routes with the correct sub-tab key', () => {
+    expect(releaseLinkToRoute({ tab: 'stats' })).toEqual({ activeTab: 'stats', statsSubTab: 'overview' });
+    expect(releaseLinkToRoute({ tab: 'calculator', subTab: 'calculator' })).toEqual({ activeTab: 'calculator', calcolatoreSubTab: 'calculator' });
+    expect(releaseLinkToRoute({ tab: 'guida', subTab: 'border' })).toEqual({ activeTab: 'guida', guidaSubTab: 'border' });
+  });
+
+  it('links the 3.31 statistics item to the statistics overview', () => {
+    const statsItem = findReleaseItem('3.31.0', 'whatsNew.v3310.admin.title');
+
+    expect(statsItem?.link).toEqual({ tab: 'stats' });
+  });
+
+  it('links the 3.32 statistics item to the statistics overview', () => {
+    const statsItem = findReleaseItem('3.32.0', 'whatsNew.v3320.admin.title');
 
     expect(statsItem?.link).toEqual({ tab: 'stats' });
   });

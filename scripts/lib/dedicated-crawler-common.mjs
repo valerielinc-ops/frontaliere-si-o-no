@@ -68,6 +68,8 @@ const GERMAN_SLUG_WORDS =
   /(?:^|-)(?:als|und|fur|oder|frau|mann|fach|stelle|lehrstelle|lehre|mitarbeiter|leiter|stellvertretend|verkauf|lernend|chauffeu|gartencenter|befristet|ablosen|disponentin|disponent|ladenleit|logistiker|projektleiter|elektroinstallateur|elektroplaner|unterhaltsfachmann|servicetechniker|immobilienberater|bauleiter|zeichner|fachrichtung|ingenieurbau|tunnelbau|tiefbau|innendienst|generalagentur|vorsorge|vermogen|wissenschaftlich|detailhandels|bekampfung|japankafer|lager)(?:-|$)/i;
 const FRENCH_SLUG_WORDS =
   /(?:^|-)(?:apprentissage|gestionnaire|adjoint|auxiliaire|temporaire|vendeur|vendeuse|postes|vacants|gerante|gerant)(?:-|$)/i;
+const FEDERAL_PLACEHOLDER_SLUG_RE =
+  /(?:^|-)(?:eidgenossisches-departement|departement-federal|dipartimento-federale)(?:-|$)/i;
 
 const GERMAN_TITLE_WORDS =
   /\b(?:als|und|fur|oder|lehre|lehrstelle|mitarbeiter|leiter|logistiker|projektleiter|elektroinstallateur|elektroplaner|unterhaltsfachmann|servicetechniker|immobilienberater|nachwuchskader|bauleiter|zeichner|fachrichtung|ingenieurbau|tunnelbau|tiefbau|innendienst|generalagentur|vorsorge|verm[öo]gen|wissenschaftlich|detailhandels|bek[äa]mpfung|japank[äa]fer|lager)\b/i;
@@ -90,6 +92,14 @@ function needsItalianSlugRepair(slug = '') {
   const clean = String(slug || '').trim();
   if (!clean) return false;
   return GERMAN_SLUG_WORDS.test(clean) || FRENCH_SLUG_WORDS.test(clean);
+}
+
+function needsCanonicalCompanySlugRepair(slug = '', company = '') {
+  const cleanSlug = String(slug || '').trim();
+  if (!cleanSlug || !FEDERAL_PLACEHOLDER_SLUG_RE.test(cleanSlug)) return false;
+  const companySlug = slugifyLocalizedLabel(company);
+  if (!companySlug) return false;
+  return !cleanSlug.includes(companySlug);
 }
 
 function normalizeRepairText(value = '') {
@@ -727,7 +737,8 @@ export function hardenJobLocaleFields({ dataJobsPath }) {
       const shouldRefreshSlug =
         !localizedSlug ||
         localizedSlug === baseSlug ||
-        (locale === 'it' && needsItalianSlugRepair(localizedSlug));
+        (locale === 'it' && needsItalianSlugRepair(localizedSlug)) ||
+        needsCanonicalCompanySlugRepair(localizedSlug, company);
 
       if (shouldRefreshSlug && nextSlug && nextSlug !== localizedSlug) {
         job.slugByLocale[locale] = nextSlug;
@@ -1130,7 +1141,7 @@ export function validateDedicatedLocaleCoverage({
     const baseDescTrimmed = baseDesc.trim();
     const baseDescIsThin = baseDescTrimmed.length < minSourceDescriptionCharsForHardValidation;
     const baseTitle = String(job?.title || '').trim();
-    const sourceLang = detectSourceLang(`${job?.title || ''} ${baseDesc}`);
+    const sourceLang = detectSourceLang(`${job?.title || ''} ${baseDesc}`, job);
     const titleSourceLang = detectJobTitleLang(
       String(job?.titleByLocale?.[sourceLang] || baseTitle),
       sourceLang,

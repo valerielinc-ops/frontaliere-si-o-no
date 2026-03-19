@@ -70,4 +70,46 @@ describe('jobDataNormalization', () => {
 
     expect(logo).toBe('/images/logos/efg-international.svg');
   });
+
+  it('returns Boggi official logo override instead of the ATS favicon', () => {
+    const logo = resolveCompanyLogoUrl({
+      company: 'Boggi Milano',
+      companyKey: 'boggi-milano',
+      companyDomain: 'recruitee.com',
+      url: 'https://boggimilano1.recruitee.com/l/it/o/retail-hr-specialist-2',
+    });
+
+    expect(logo).toBe('https://www.boggi.com/on/demandware.static/Sites-Boggi-Site/-/default/dw7dc8b6c7/images/logo.svg');
+  });
+
+  it('returns Boggi official logo even when the crawler record has no companyKey', () => {
+    const logo = resolveCompanyLogoUrl({
+      company: 'Boggi Milano',
+      companyDomain: 'recruitee.com',
+      url: 'https://boggimilano1.recruitee.com/l/it/o/retail-hr-specialist-2',
+    });
+
+    expect(logo).toBe('https://www.boggi.com/on/demandware.static/Sites-Boggi-Site/-/default/dw7dc8b6c7/images/logo.svg');
+  });
+
+  it('returns Convit official logo for Convit jobs instead of careers-page favicon', () => {
+    const logo = resolveCompanyLogoUrl({
+      company: 'Convit Holding GmbH',
+      companyKey: 'convit-holding',
+      companyDomain: 'careers-page.com',
+      url: 'https://www.careers-page.com/convit-holding-gmbh/job/RY658X6X',
+    });
+
+    expect(logo).toBe('https://convit.ch/images/convit-logo.png');
+  });
+
+  it('returns Convit official logo even when the crawler record has no companyKey', () => {
+    const logo = resolveCompanyLogoUrl({
+      company: 'Convit Holding GmbH',
+      companyDomain: 'careers-page.com',
+      url: 'https://www.careers-page.com/convit-holding-gmbh/job/RY658X6X',
+    });
+
+    expect(logo).toBe('https://convit.ch/images/convit-logo.png');
+  });
 });

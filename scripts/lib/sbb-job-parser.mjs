@@ -200,6 +200,30 @@ export function extractSbbIntroText(html = '') {
   return stripHtml(beforeFirstHeading).trim();
 }
 
+/**
+ * Extract a concrete workplace city from the rendered vacancy body.
+ *
+ * Some SBB detail pages expose a generic/legal `jobLocation` in JSON-LD
+ * (for example Bern HQ), while the actual operational base is only present
+ * in the visible intro line such as "Chur, 01.12.2026, 100%".
+ */
+export function extractSbbBodyLocation(html = '') {
+  const intro = extractSbbIntroText(html);
+  const lines = intro
+    .split('\n')
+    .map((line) => line.trim())
+    .filter(Boolean);
+
+  for (const line of lines) {
+    const datedPrefix = line.match(/^([^,]{2,80}),\s*\d{1,2}\.\d{1,2}\.\d{4}\s*,\s*\d{1,3}%/);
+    if (datedPrefix?.[1]) return datedPrefix[1].trim();
+    const percentPrefix = line.match(/^([^,]{2,80}),\s*\d{1,3}(?:-\d{1,3})?%/);
+    if (percentPrefix?.[1]) return percentPrefix[1].trim();
+  }
+
+  return '';
+}
+
 // ─── Main parser ───────────────────────────────────────────────────────────────
 
 /**
@@ -252,6 +276,9 @@ export function parseSbbDetailPage(html = '') {
 
   // Location from JSON-LD
   const location = (() => {
+    const bodyLocation = extractSbbBodyLocation(html);
+    if (bodyLocation) return bodyLocation;
+
     const locations = Array.isArray(jobPosting?.jobLocation)
       ? jobPosting.jobLocation
       : [jobPosting?.jobLocation];

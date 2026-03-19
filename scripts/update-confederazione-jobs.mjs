@@ -57,6 +57,7 @@ import {
   isTargetSwissLocation,
   inferSwissTargetCanton,
 } from './lib/target-swiss-locations.mjs';
+import { normalizeFederalJobLocation } from './lib/federal-job-normalization.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -192,18 +193,20 @@ function parseApiJob(j = {}) {
 
   const locationRaw = (attrs.arbeitsort || [])[0] || '';
   const regionRaw = (attrs.region || [])[0] || '';
+  const normalizedLocation = normalizeFederalJobLocation(locationRaw);
   const pensum = (attrs['75'] || [])[0] || '';
   const pensumMin = szas['sza_pensum.min'] || szas.sza_pensum_min || '';
 
-  // Extract city: "6593 Cadenazzo" → "Cadenazzo", "Bellinzona, Schweiz" → "Bellinzona"
-  const cityMatch = locationRaw.match(/^\d{4}\s+(.+)$/);
-  const city = cityMatch ? cityMatch[1].trim() : locationRaw.replace(/,\s*Schweiz$/i, '').trim();
+  const city =
+    normalizedLocation.addressLocality ||
+    locationRaw.match(/^\d{4}\s+(.+)$/)?.[1]?.trim() ||
+    locationRaw.replace(/,\s*Schweiz$/i, '').trim();
 
   // Extract canton from region label: "Ticino (TI)" → "TI", "Ostschweiz (AI, AR, GL, GR, SG, SH, TG)" → use inferSwissTargetCanton
   const cantonMatch = regionRaw.match(/\(([A-Z]{2})\)$/);
   const cantonFromRegion = cantonMatch ? cantonMatch[1] : '';
   // For composite regions (Ostschweiz), infer canton from location text
-  const canton = cantonFromRegion || inferSwissTargetCanton(`${locationRaw} ${regionRaw}`) || 'TI';
+  const canton = normalizedLocation.canton || cantonFromRegion || inferSwissTargetCanton(`${locationRaw} ${regionRaw}`) || 'TI';
 
   // Department info
   const department = (attrs.verwaltungseinheit || [])[0] || '';
@@ -224,7 +227,7 @@ function parseApiJob(j = {}) {
     viewkey: j.viewkey || '',
     title: normalizeSpace(j.title),
     city,
-    location: locationRaw,
+    location: normalizedLocation.location || locationRaw,
     region: regionRaw,
     canton,
     department,

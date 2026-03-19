@@ -42,6 +42,7 @@ import {
   normalize,
   normalizeKey,
 } from './lib/dedicated-crawler-common.mjs';
+import { parseYoustyApprenticeshipHtml } from './lib/yousty-job-parser.mjs';
 
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -145,6 +146,56 @@ async function fetchJson(url, timeoutMs = 15000) {
   }
 }
 
+async function fetchText(url, timeoutMs = 15000) {
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), timeoutMs);
+  try {
+    const res = await fetch(url, {
+      signal: controller.signal,
+      headers: {
+        Accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+        'User-Agent':
+          process.env.JOBS_CRAWLER_USER_AGENT ||
+          'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://www.frontaliereticino.ch/)',
+      },
+    });
+    if (!res.ok) throw new Error(`HTTP ${res.status} from ${url}`);
+    return await res.text();
+  } finally {
+    clearTimeout(timer);
+  }
+}
+
+async function enrichFromYoustyProfile(variants, timeoutMs) {
+  const profileUrl =
+    variants.find((v) => /yousty\.ch/i.test(String(v?.textblocks?.profilelink || '')))?.textblocks?.profilelink ||
+    '';
+  if (!profileUrl) return null;
+
+  try {
+    const html = await fetchText(profileUrl, timeoutMs);
+    const parsed = parseYoustyApprenticeshipHtml(html, profileUrl);
+    if (!parsed.description) return { applyUrl: parsed.applyUrl || profileUrl };
+    const detectedLocale = detectLang(parsed.description, 'it');
+    const descriptionByLocale = {
+      [detectedLocale]: parsed.description,
+    };
+    return {
+      ...(detectedLocale === 'it'
+        ? {
+            description: parsed.description,
+            descriptionIt: parsed.description,
+          }
+        : {}),
+      descriptionByLocale,
+      applyUrl: parsed.applyUrl || profileUrl,
+    };
+  } catch (err) {
+    console.warn(`⚠️  Failed to enrich Yousty apprenticeship profile ${profileUrl}: ${err?.message || err}`);
+    return { applyUrl: profileUrl };
+  }
+}
+
 async function fetchGalenicaJobs() {
   const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 15000;
 
@@ -237,6 +288,7 @@ async function fetchGalenicaJobs() {
     const slugEn = normalizeKey(`galenica ${firm} ${titleEn} ${city}`) || baseSlug;
     const slugDe = normalizeKey(`galenica ${firm} ${titleDe} ${city}`) || baseSlug;
     const slugFr = normalizeKey(`galenica ${firm} ${titleFr} ${city}`) || baseSlug;
+    const youstyEnrichment = await enrichFromYoustyProfile(variants, timeoutMs);
 
     const job = {
       title,
@@ -255,6 +307,7 @@ async function fetchGalenicaJobs() {
         de: descDe,
         fr: descFr,
       },
+      applyUrl: youstyEnrichment?.applyUrl || '',
       postedDate: preferred.publication?.start
         ? new Date(preferred.publication.start).toISOString().slice(0, 10)
         : '',
@@ -273,6 +326,15 @@ async function fetchGalenicaJobs() {
         fr: titleFr,
       },
     };
+
+    if (youstyEnrichment?.description) {
+      job.description = youstyEnrichment.description;
+      job.descriptionIt = youstyEnrichment.descriptionIt || youstyEnrichment.description;
+      job.descriptionByLocale = {
+        ...job.descriptionByLocale,
+        ...youstyEnrichment.descriptionByLocale,
+      };
+    }
 
     console.log(`  ✅ ${title} — ${firm} @ ${city} (id: ${id})`);
     jobs.push(job);
@@ -320,6 +382,7 @@ function mergeGalenicaJobs(discoveredJobs) {
       existing.description = job.description;
       existing.descriptionIt = job.descriptionIt;
       existing.descriptionByLocale = job.descriptionByLocale;
+      existing.applyUrl = job.applyUrl || existing.applyUrl;
       existing.postedDate = job.postedDate || existing.postedDate;
       existing.source = job.source;
       existing.slugByLocale = job.slugByLocale;
@@ -419,6 +482,32 @@ function postProcessGalenicaJobs() {
       job.companyKey = GALENICA_KEY;
       changed = true;
     }
+
+    const descriptionByLocale = {
+      ...(job.descriptionByLocale && typeof job.descriptionByLocale === 'object' ? job.descriptionByLocale : {}),
+    };
+    const fallbackIt = String(job.descriptionIt || descriptionByLocale.it || job.description || '').trim();
+    const fallbackEn = String(descriptionByLocale.en || job.description || fallbackIt).trim();
+    const fallbackDe = String(descriptionByLocale.de || fallbackEn || fallbackIt).trim();
+    const fallbackFr = String(descriptionByLocale.fr || fallbackEn || fallbackIt).trim();
+
+    if (fallbackIt && descriptionByLocale.it !== fallbackIt) {
+      descriptionByLocale.it = fallbackIt;
+      changed = true;
+    }
+    if (fallbackEn && descriptionByLocale.en !== fallbackEn) {
+      descriptionByLocale.en = fallbackEn;
+      changed = true;
+    }
+    if (fallbackDe && descriptionByLocale.de !== fallbackDe) {
+      descriptionByLocale.de = fallbackDe;
+      changed = true;
+    }
+    if (fallbackFr && descriptionByLocale.fr !== fallbackFr) {
+      descriptionByLocale.fr = fallbackFr;
+      changed = true;
+    }
+    job.descriptionByLocale = descriptionByLocale;
 
     // Deduplicate by URL
     const url = String(job.url || '').toLowerCase().replace(/\/+$/, '');

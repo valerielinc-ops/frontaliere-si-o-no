@@ -17,6 +17,7 @@
  */
 
 import { isTicinoRelevant, isGrigioniRelevant, isTargetSwissLocation } from './target-swiss-locations.mjs';
+import { detectLang } from './dedicated-crawler-common.mjs';
 
 const LISTING_URL = 'https://lombardi.group/eng/careers/open-positions';
 const DETAIL_URL = 'https://lombardi.group/eng/careers/job?id=';
@@ -264,19 +265,20 @@ export function buildLombardiLocalizedContent(job = {}) {
   const title = normalizeSpace(job.title);
   const city = normalizeSpace(job.city) || 'Giubiasco';
   const occupancy = job.occupancy || '';
-
-  // Detail page is fetched from /eng/ so content is in English
   const detailDesc = job.detailMarkdown && job.detailMarkdown.length > 100
     ? job.detailMarkdown
     : '';
   const itBoilerplate = lombardiBoilerplate(title, city, occupancy);
+  const sourceLang = detailDesc ? detectLang(detailDesc, 'it') : 'it';
+  const descriptionByLocale = { it: itBoilerplate };
+
+  if (detailDesc) {
+    descriptionByLocale[sourceLang] = detailDesc;
+  }
 
   return {
     titleByLocale: { it: title, en: title, de: title, fr: title },
-    descriptionByLocale: {
-      it: itBoilerplate,
-      ...(detailDesc ? { en: detailDesc } : {}),
-    },
+    descriptionByLocale,
     slugByLocale: {
       it: slugify(`${title} lombardi ${city}`),
       en: slugify(`${title} lombardi ${city}`),

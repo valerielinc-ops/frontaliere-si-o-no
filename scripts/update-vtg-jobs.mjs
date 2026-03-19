@@ -39,6 +39,10 @@ import {
   normalize,
   normalizeKey,
 } from './lib/dedicated-crawler-common.mjs';
+import {
+  normalizeFederalDepartmentCompany,
+  normalizeFederalJobLocation,
+} from './lib/federal-job-normalization.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -121,12 +125,13 @@ function dateOnly(raw = '') {
 function buildSeedMetaFromApiJob(job, regionKey) {
   const arbeitsort = String(job?.attributes?.['arbeitsort']?.[0] || '').trim();
   const region = String(job?.attributes?.['region']?.[0] || '').trim();
-  const canton = normalizeCantonCode('', cantonFromRegion(region));
+  const normalizedLocation = normalizeFederalJobLocation(arbeitsort, cantonFromRegion(region));
+  const canton = normalizeCantonCode(normalizedLocation.canton, cantonFromRegion(region));
   const dept = String(job?.attributes?.['verwaltungseinheit']?.[0] || '').trim();
   return {
-    location: arbeitsort || region || 'Schweiz',
+    location: normalizedLocation.location || region || 'Schweiz',
     ...(canton ? { canton } : {}),
-    company: dept || VTG_COMPANY_NAME,
+    company: normalizeFederalDepartmentCompany(dept, VTG_COMPANY_NAME) || VTG_COMPANY_NAME,
     ...(job?.start_date ? { postedDate: dateOnly(job.start_date) } : {}),
   };
 }

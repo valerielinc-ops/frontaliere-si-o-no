@@ -142,6 +142,17 @@ describe('lastminute parser — parseSmartRecruitersDetail', () => {
     it('tracks source text length', () => {
       expect(detail.sourceTextLength).toBeGreaterThan(500);
     });
+
+    it('strips CTA, footer labels, and corporate URLs from the final description', () => {
+      expect(detail.description).not.toContain('Apply now');
+      expect(detail.description).not.toContain('corporate.lastminute.com');
+      expect(detail.description).not.toContain('Main Language');
+      expect(detail.description).not.toContain('Back to Job Search');
+    });
+
+    it('extracts clean requirements without CTA noise', () => {
+      expect(detail.requirements.some((line) => /Apply now|Main Language|corporate\.lastminute\.com/i.test(line))).toBe(false);
+    });
   });
 
   describe('Software Engineer – ETLs & Microservices', () => {
@@ -256,5 +267,26 @@ describe('lastminute parser — htmlToMarkdown via parseSmartRecruitersDetail', 
     });
     expect(detail.description).toContain('ETLs & Microservices');
     expect(detail.description).toContain('\u2013'); // ndash
+  });
+
+  it('cleans SmartRecruiters share header and CTA boilerplate from noisy content', () => {
+    const detail = parseSmartRecruitersDetail({
+      name: 'Data Platform Lead',
+      location: { city: 'Chiasso', region: 'TI', country: 'ch' },
+      jobAd: {
+        sections: {
+          jobDescription: {
+            text: '<p>Careers Share this job: Data Platform Lead corporate.lastminute.com https://corporate.lastminute.com/careers/job/?id=123</p><p><strong>The Company</strong></p><p>At lastminute.com, we live for the holidays.</p><p><strong>Job Description</strong></p><p>Main Language: English Apply now</p><p><strong>What your impact will be:</strong></p><ul><li>Build the platform</li><li>Lead engineers</li></ul><p>Back to Job Search</p>',
+          },
+        },
+      },
+    });
+
+    expect(detail.description).toContain('At lastminute.com, we live for the holidays.');
+    expect(detail.description).toContain('- Build the platform');
+    expect(detail.description).not.toContain('Share this job');
+    expect(detail.description).not.toContain('corporate.lastminute.com');
+    expect(detail.description).not.toContain('Apply now');
+    expect(detail.description).not.toContain('Back to Job Search');
   });
 });

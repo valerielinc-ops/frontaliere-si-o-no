@@ -113,6 +113,7 @@ interface JobListing {
   postedDate: string;
   crawledAt?: string;
   url?: string;
+  applyUrl?: string;
   source?: string;
   companyDomain?: string;
   previousSlugs?: string[];
@@ -139,11 +140,36 @@ interface JobListing {
 }
 
 const JOB_EMAIL_ACCESS_KEY = 'frontaliere_job_email_access';
+const JOB_AUTH_REDIRECT_SLUG_KEY = 'frontaliere_job_auth_redirect_slug';
 
 const ARTICLE_STOP_WORDS = new Set(['2025', '2026', '2027', 'del', 'dei', 'per', 'con', 'sul', 'fra', 'tra', 'una', 'non', 'che', 'come', 'cosa', 'dal', 'the', 'and', 'for', 'with', 'von', 'und', 'les', 'des', 'pour', 'dans']);
 
 function slugTopicWordsJob(id: string): Set<string> {
   return new Set(id.split('-').filter(w => w.length > 2 && !ARTICLE_STOP_WORDS.has(w)));
+}
+
+function saveJobAuthRedirectSlug(slug: string): void {
+  try {
+    sessionStorage.setItem(JOB_AUTH_REDIRECT_SLUG_KEY, slug);
+  } catch {
+    // Ignore storage failures (private mode / quota); auth can still complete.
+  }
+}
+
+function readJobAuthRedirectSlug(): string | null {
+  try {
+    return sessionStorage.getItem(JOB_AUTH_REDIRECT_SLUG_KEY);
+  } catch {
+    return null;
+  }
+}
+
+function clearJobAuthRedirectSlug(): void {
+  try {
+    sessionStorage.removeItem(JOB_AUTH_REDIRECT_SLUG_KEY);
+  } catch {
+    // Ignore storage failures.
+  }
 }
 
 /** Find articles related to a job based on job-title/keyword ↔ article-slug overlap */
@@ -1944,10 +1970,20 @@ function getJobBoardSectionSlug(locale: Locale): string {
   return 'cerca-lavoro-ticino';
 }
 
-function buildSearchSlug(term: string, locale: Locale): string {
+export function buildSearchSlug(term: string, locale: Locale): string {
   const prefix = getSearchSlugPrefix(locale);
   const core = slugifyJobPart(term);
   return `${prefix}-${core || 'lavoro'}`;
+}
+
+export function shouldRestoreJobBoardListState(previousSlug?: string, nextSlug?: string): boolean {
+  const wasOnDetail = Boolean(
+    previousSlug
+    && !parseCompanySlugFilter(previousSlug)
+    && !parseSearchSlugFilter(previousSlug)
+  );
+  const isBackToPlainList = !nextSlug;
+  return wasOnDetail && isBackToPlainList;
 }
 
 function parseSearchSlugFilter(initialJobSlug?: string): string | null {
@@ -2157,10 +2193,9 @@ const JobBoard: React.FC<JobBoardProps> = ({
 
   // Restore page + scroll when returning from job detail to list
   useEffect(() => {
-    const wasOnDetail = prevSlugRef.current && !parseCompanySlugFilter(prevSlugRef.current) && !parseSearchSlugFilter(prevSlugRef.current);
-    const isBackToList = !initialJobSlug || !!parseCompanySlugFilter(initialJobSlug) || !!parseSearchSlugFilter(initialJobSlug);
+    const shouldRestore = shouldRestoreJobBoardListState(prevSlugRef.current, initialJobSlug);
     prevSlugRef.current = initialJobSlug;
-    if (wasOnDetail && isBackToList && savedListState.current) {
+    if (shouldRestore && savedListState.current) {
       const { page: savedPage, scrollY } = savedListState.current;
       skipPageReset.current = true;
       setPage(savedPage);
@@ -2961,6 +2996,21 @@ const JobBoard: React.FC<JobBoardProps> = ({
     Analytics.trackJobAuthFunnel('gate_view', buildJobTrackingContext(selectedJob));
   }, [authResolved, selectedJob, hasAccess]);
 
+  useEffect(() => {
+    if (!authResolved || !hasAccess) return;
+    const redirectSlug = readJobAuthRedirectSlug();
+    if (!redirectSlug) return;
+
+    clearJobAuthRedirectSlug();
+    setAuthGateOpen(false);
+    setPendingJob(null);
+    setAuthError(null);
+    releaseSlot('job-auth-gate');
+
+    if (initialJobSlug === redirectSlug) return;
+    onJobRouteChange?.(redirectSlug);
+  }, [authResolved, hasAccess, initialJobSlug, onJobRouteChange]);
+
   const openDetail = (job: JobListing) => {
     if (!authResolved) return;
     if (!hasAccess) {
@@ -3054,6 +3104,20 @@ const JobBoard: React.FC<JobBoardProps> = ({
     try {
       const result = await authFn();
       if (!result) {
+        const redirectProvider = (() => {
+          try {
+            return sessionStorage.getItem('auth_redirect_provider');
+          } catch {
+            return null;
+          }
+        })();
+        if (redirectProvider === provider) {
+          const redirectJob = pendingJob || selectedJob;
+          if (redirectJob) {
+            saveJobAuthRedirectSlug(deriveLocalizedJobSlug(redirectJob, locale));
+          }
+          return;
+        }
         setAuthError(t('jobBoard.authCancelled'));
         Analytics.trackJobAuthFunnel('auth_fail', { method: provider, ...jobContext });
         return;
@@ -3344,7 +3408,6 @@ const JobBoard: React.FC<JobBoardProps> = ({
     const searchSlug = buildSearchSlug(keyword, locale);
     setSearchQuery(keyword);
     onJobRouteChange?.(searchSlug);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
   }, [locale, onJobRouteChange]);
 
   // ── Salary estimate widgets (frontaliere vs CH resident) ───────────────
@@ -4561,7 +4624,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
       ...canonicalResidualSections,
     ];
     const hybridLayoutEnabled = false;
-    const applyUrl = buildReferralUrl(selectedJob.url || '', selectedJob);
+    const applyUrl = buildReferralUrl(selectedJob.applyUrl || selectedJob.url || '', selectedJob);
     const detailPageUrl = `${PUBLIC_SITE_URL}${buildJobPath(selectedJob)}`;
     const companySearchSlug = buildCompanySearchSlug(selectedJob.company, selectedJob.companyKey, locale);
     const companySearchHref = buildPath({ activeTab: 'job-board' as any, jobSlug: companySearchSlug }, locale);
@@ -5008,15 +5071,17 @@ const JobBoard: React.FC<JobBoardProps> = ({
                   {relatedSearches.map((keyword, i) => {
                     const searchHref = buildPath({ activeTab: 'job-board' as any, jobSlug: buildSearchSlug(keyword, locale) }, locale);
                     return (
-                    <button
+                    <a
                       key={i}
-                      type="button"
-                      onClick={() => navigateToRelatedSearch(keyword)}
-                      data-route={searchHref}
+                      href={searchHref}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        navigateToRelatedSearch(keyword);
+                      }}
                       className="text-[11px] px-2 py-1 rounded-full bg-fuchsia-50 dark:bg-fuchsia-900/20 text-fuchsia-700 dark:text-fuchsia-300 border border-fuchsia-100 dark:border-fuchsia-800"
                     >
                       {keyword}
-                    </button>
+                    </a>
                     );
                   })}
                 </div>
@@ -5413,15 +5478,17 @@ const JobBoard: React.FC<JobBoardProps> = ({
               {relatedSearchSuggestions.map((term, i) => {
                 const href = buildPath({ activeTab: 'job-board' as any, jobSlug: buildSearchSlug(term, locale) }, locale);
                 return (
-                  <button
+                  <a
                     key={`${term}-${i}`}
-                    type="button"
-                    onClick={() => navigateToRelatedSearch(term)}
-                    data-route={href}
+                    href={href}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      navigateToRelatedSearch(term);
+                    }}
                     className="text-[11px] px-2.5 py-1 rounded-full bg-white dark:bg-slate-900/40 text-fuchsia-700 dark:text-fuchsia-300 border border-fuchsia-200 dark:border-fuchsia-700 hover:bg-fuchsia-100 dark:hover:bg-fuchsia-900/30 transition-colors"
                   >
                     {term}
-                  </button>
+                  </a>
                 );
               })}
             </div>

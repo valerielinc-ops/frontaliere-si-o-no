@@ -23,6 +23,7 @@ import {
   validateDedicatedLocaleCoverage,
   detectLang,
 } from './lib/dedicated-crawler-common.mjs';
+import { selectGraceDescription } from './lib/grace-job-parser.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -142,15 +143,67 @@ function inferEmploymentType(text = '') {
 // ──────────────────────────────────────────────────────────────
 
 async function waitForContent(page, maxWaitMs = 25000) {
-  const start = Date.now();
-  while (Date.now() - start < maxWaitMs) {
+  // Prefer waiting for visible, job-specific selectors first to handle content
+  // that is populated via JS (hotelcareer uses #jobDesignerContainer / .job_container)
+  try {
+    await page.waitForSelector('h1, .job_container, #jobDesignerContainer, .ContentWrapperYcg', { timeout: maxWaitMs });
     const title = await page.title();
-    if (!title.toLowerCase().includes('challenge') && !title.toLowerCase().includes('just a moment')) {
-      return true;
+    if (title && (title.toLowerCase().includes('challenge') || title.toLowerCase().includes('just a moment'))) {
+      return false;
     }
-    await page.waitForTimeout(2000);
+    return true;
+  } catch (err) {
+    // Fallback: some blocking pages cause selector wait to fail. Try a tolerant loop
+    const start = Date.now();
+    while (Date.now() - start < maxWaitMs) {
+      try {
+        const title = await page.title();
+        if (!title.toLowerCase().includes('challenge') && !title.toLowerCase().includes('just a moment')) {
+          return true;
+        }
+      } catch (e) {
+        // Execution context might be transiently destroyed; swallow and retry
+      }
+      await page.waitForTimeout(1000);
+    }
+    return false;
   }
-  return false;
+}
+
+async function isChallengePage(page) {
+  try {
+    const title = await page.title();
+    if (/challenge validation|just a moment|attention required/i.test(title)) return true;
+    const body = await page.locator('body').textContent().catch(() => '');
+    return /processing your request|akamai|verify you are human|checking your browser/i.test(body || '');
+  } catch {
+    return false;
+  }
+}
+
+async function gotoGracePage(page, url, { attempts = 3, timeoutMs = 45000 } = {}) {
+  let lastError = null;
+  for (let attempt = 1; attempt <= attempts; attempt += 1) {
+    try {
+      await page.goto(url, { waitUntil: 'domcontentloaded', timeout: timeoutMs });
+      await page.waitForTimeout(attempt === 1 ? 2500 : 4500);
+      if (await isChallengePage(page)) {
+        lastError = new Error(`challenge attempt ${attempt}/${attempts}`);
+        if (attempt < attempts) {
+          await page.waitForTimeout(2500 * attempt);
+          continue;
+        }
+      }
+      return;
+    } catch (err) {
+      lastError = err;
+      if (attempt < attempts) {
+        await page.waitForTimeout(2000 * attempt);
+        continue;
+      }
+    }
+  }
+  throw lastError || new Error(`Failed to load ${url}`);
 }
 
 async function dismissConsent(page) {
@@ -200,7 +253,7 @@ async function discoverListings() {
   return withBrowser(async (context) => {
     const page = await context.newPage();
     console.log(`🔍 Navigating to ${CAREERS_URL} ...`);
-    await page.goto(CAREERS_URL, { waitUntil: 'domcontentloaded', timeout: 45000 });
+    await gotoGracePage(page, CAREERS_URL);
 
     console.log('⏳ Waiting for Cloudflare challenge to resolve...');
     const ok = await waitForContent(page, 30000);
@@ -212,29 +265,31 @@ async function discoverListings() {
 
     // Extract job listings from the main_link anchors
     const listings = await page.evaluate((baseUrl) => {
-      const anchors = document.querySelectorAll('a.main_link');
       const seen = new Set();
       const results = [];
-      for (const a of anchors) {
+      const detailHrefRe = /\/jobs\/grace-la-margna-st-moritz-120155\/[^/?#]+-\d+(?:[?#].*)?$/i;
+
+      const candidateAnchors = Array.from(document.querySelectorAll('a[href*="/jobs/grace-la-margna-st-moritz-120155/"]'));
+      for (const a of candidateAnchors) {
         const href = a.getAttribute('href') || '';
-        if (!href || seen.has(href)) continue;
-        seen.add(href);
-        const title = a.textContent?.trim() || '';
+        if (!href) continue;
+        // Normalize relative hrefs
+        const full = href.startsWith('http') ? href : `${baseUrl}${href}`;
+        if (seen.has(full)) continue;
+        if (!detailHrefRe.test(full)) continue;
+        // Heuristic: link text should be non-empty and not a pagination/control link
+        const title = (a.textContent || '').trim();
         if (!title) continue;
-        // Extract the location from the sibling element
-        const parent = a.closest('.job-item, .listing-item, tr, li, [class*="offer"]') || a.parentElement;
-        const locEl = parent?.querySelector('.location, [class*="location"], [class*="city"]');
+        // Skip links that look like company/profile links
+        if (/company|profile|jobs:\s*\d+|job search|our clients/i.test(title)) continue;
+        // Find nearby meta info
+        const parent = a.closest('.listing-item, .resultlist li, .job-item, tr, li, .ContentWrapperYcgInner') || a.parentElement;
+        const locEl = parent?.querySelector('.location, [class*=\"location\"], .meta_info_container .location');
         const location = locEl?.textContent?.trim() || '';
-        // Extract employment type
-        const typeEl = parent?.querySelector('[class*="time"], [class*="type"]');
+        const typeEl = parent?.querySelector('.employment, [class*=\"time\"], [class*=\"type\"]');
         const empType = typeEl?.textContent?.trim() || '';
-        results.push({
-          title,
-          href: href.startsWith('http') ? href : `${baseUrl}${href}`,
-          relHref: href,
-          location,
-          empType,
-        });
+        seen.add(full);
+        results.push({ title, href: full, relHref: href, location, empType });
       }
       return results;
     }, BASE_URL);
@@ -255,93 +310,118 @@ async function discoverListings() {
 
 async function fetchJobDetails(listings) {
   return withBrowser(async (context) => {
-    const page = await context.newPage();
     const jobs = [];
 
     for (let i = 0; i < listings.length; i++) {
       const listing = listings[i];
       console.log(`\n📝 [${i + 1}/${listings.length}] Fetching: ${listing.title}`);
 
+      const page = await context.newPage();
       try {
-        await page.goto(listing.href, { waitUntil: 'domcontentloaded', timeout: 45000 });
-        const ok = await waitForContent(page, 25000);
+        await gotoGracePage(page, listing.href);
+        const ok = await waitForContent(page, 30000);
         if (!ok) {
           console.warn(`  ⚠️ Challenge blocked detail page, using listing data only`);
           jobs.push(buildJobFromListing(listing));
+          await page.close();
           continue;
         }
 
         await dismissConsent(page);
-        await page.waitForTimeout(1500);
+
+        // Wait for the main container that hotelcareer renders
+        await page.waitForSelector('#jobDesignerContainer, .job_container, h1', { timeout: 15000 }).catch(() => {});
 
         const detail = await page.evaluate(() => {
           const compact = (t) => (t || '').replace(/\u00a0/g, ' ').replace(/\s+/g, ' ').trim();
 
-          // Title
           const title = compact(document.querySelector('h1, h2.job-title, .offer-title')?.textContent || '');
 
-          // Location and type from the info line
-          const body = document.body.textContent || '';
-          const locationMatch = body.match(/St\.\s*Moritz/i);
-          const location = locationMatch ? 'St. Moritz' : '';
+          const selectTextFrom = (el) => {
+            if (!el) return '';
+            const nodes = Array.from(el.querySelectorAll('p, li'));
+            if (nodes.length) return nodes.map(n => n.textContent || '').filter(Boolean).join('\n').trim();
+            return (el.textContent || '').trim();
+          };
 
-          // Employment type
-          let empType = '';
-          const ftMatch = body.match(/(Full Time|Part Time|Temporary|Seasonal)/i);
-          if (ftMatch) empType = ftMatch[1];
+          // Preferred extraction from structured sections used on hotelcareer
+          const sectionIds = ['introduction', 'tasks', 'profile', 'benefits', 'contact_container'];
+          const sectionTexts = [];
 
-          // Posted date
-          let postedDate = '';
-          const dateMatch = body.match(/(\d{2}\/\d{2}\/\d{4})/);
-          if (dateMatch) {
-            const parts = dateMatch[1].split('/');
-            if (parts.length === 3) {
-              postedDate = `${parts[2]}-${parts[0]}-${parts[1]}`;
-            }
+          // meta description first
+          const metaDesc = document.querySelector('meta[name="description"]')?.getAttribute('content') || document.querySelector('meta[property="og:description"]')?.getAttribute('content');
+
+          for (const id of sectionIds) {
+            const el = document.getElementById(id) || document.querySelector(`#${id}`);
+            if (!el) continue;
+            const h = el.querySelector('h2')?.textContent?.trim();
+            const localPieces = [];
+            if (h) localPieces.push(h);
+            const text = selectTextFrom(el);
+            if (text) localPieces.push(text);
+            if (localPieces.length) sectionTexts.push(localPieces.join('\n'));
           }
 
-          // Description sections
-          const sections = [];
-          const headings = ['WHO WE NEED', 'WHAT WILL YOU DO', 'YOUR \\+sides', "WHAT'S IN FOR YOU", 'ONE MORE THING',
-            'YOUR PROFILE', 'RESPONSIBILITIES', 'REQUIREMENTS', 'BENEFITS', 'WE OFFER'];
-          let descBody = document.body.innerHTML || '';
+          const containerText = selectTextFrom(document.querySelector('#jobDesignerContainer, .job_container'));
+          const main = document.querySelector('main') || document.body;
+          const mainText = selectTextFrom(main);
 
-          // Get clean description text between company header and contact
+          // Final fallback: use body slicing heuristics
+          let bodyText = document.body.textContent || '';
           const startMarkers = ['WHO WE NEED', 'WHAT WILL YOU DO', 'YOUR PROFILE', 'RESPONSIBILITIES', 'About the position'];
           const endMarkers = ['Start application', 'company profile', 'Jobs:'];
-          let descText = document.body.textContent || '';
-
           for (const sm of startMarkers) {
-            const idx = descText.indexOf(sm);
-            if (idx >= 0) { descText = descText.substring(idx); break; }
+            const idx = bodyText.indexOf(sm);
+            if (idx >= 0) { bodyText = bodyText.substring(idx); break; }
           }
           for (const em of endMarkers) {
-            const idx = descText.indexOf(em);
-            if (idx >= 0) { descText = descText.substring(0, idx); break; }
+            const idx = bodyText.indexOf(em);
+            if (idx >= 0) { bodyText = bodyText.substring(0, idx); break; }
+          }
+
+          // location and employment type extracted from visible meta info
+          const loc = (document.querySelector('.location')?.textContent || '').trim();
+          const emp = (document.querySelector('.employment')?.textContent || '').trim();
+          // posted date
+          const postedRaw = (document.querySelector('.date')?.textContent || '').trim();
+
+          let postedDate = '';
+          const m = postedRaw.match(/(\d{2}\/\d{2}\/\d{4})/);
+          if (m) {
+            const parts = m[1].split('/');
+            if (parts.length === 3) postedDate = `${parts[2]}-${parts[0]}-${parts[1]}`;
           }
 
           return {
-            title,
-            location: location || 'St. Moritz',
-            empType,
+            title: compact(title || ''),
+            location: loc || 'St. Moritz',
+            empType: emp || '',
             postedDate,
-            description: compact(descText).substring(0, 5000),
+            descriptionParts: {
+              metaDesc: metaDesc?.trim() || '',
+              sectionTexts,
+              containerText,
+              mainText,
+              bodyText: bodyText.trim(),
+            },
           };
         });
 
-        const job = buildJobFromDetail(listing, detail);
+        const parsedDescription = selectGraceDescription(detail.descriptionParts || {});
+
+        const job = buildJobFromDetail(listing, { ...detail, description: parsedDescription });
         jobs.push(job);
         console.log(`  ✅ ${job.title} | ${job.location} | ${job.category}`);
 
-        // Rate limit between requests
-        await page.waitForTimeout(2000);
+        await page.waitForTimeout(800);
       } catch (err) {
         console.warn(`  ⚠️ Error fetching detail for ${listing.title}: ${err.message}`);
         jobs.push(buildJobFromListing(listing));
+      } finally {
+        await page.close();
       }
     }
 
-    await page.close();
     return jobs;
   });
 }
@@ -354,6 +434,7 @@ function buildJobFromListing(listing) {
   const slug = normalizeKey(listing.title);
   const category = inferCategory(listing.title, '');
   const empType = inferEmploymentType(listing.empType || listing.title);
+  const srcLang = 'en';
   return {
     title: listing.title,
     slug,
@@ -373,13 +454,13 @@ function buildJobFromListing(listing) {
     department: category,
     employmentType: empType,
     contractType: empType === 'internship' ? 'stage' : 'permanent',
-    sourceLang: 'en',
+    sourceLang: srcLang,
     description: enrichDescription(listing.title, '', { category, empType, location: 'St. Moritz' }),
     postedDate: todayIso(),
     validThrough: '',
-    titleByLocale: {},
-    descriptionByLocale: {},
-    slugByLocale: {},
+    titleByLocale: { [srcLang]: listing.title },
+    descriptionByLocale: { [srcLang]: enrichDescription(listing.title, '', { category, empType, location: 'St. Moritz' }) },
+    slugByLocale: { [srcLang]: slug },
     source: 'dedicated-crawler',
     crawledAt: new Date().toISOString(),
   };
@@ -393,6 +474,7 @@ function buildJobFromDetail(listing, detail) {
   const rawDescription = detail.description || title;
   const location = detail.location || 'St. Moritz';
   const description = enrichDescription(title, rawDescription, { category, empType, location });
+  const srcLang = detectLang(description) || 'en';
 
   return {
     title,
@@ -413,13 +495,13 @@ function buildJobFromDetail(listing, detail) {
     department: category,
     employmentType: empType,
     contractType: empType === 'internship' ? 'stage' : 'permanent',
-    sourceLang: detectLang(description) || 'en',
+    sourceLang: srcLang,
     description: description.substring(0, 5000),
     postedDate: detail.postedDate || todayIso(),
     validThrough: '',
-    titleByLocale: {},
-    descriptionByLocale: {},
-    slugByLocale: {},
+    titleByLocale: { [srcLang]: title },
+    descriptionByLocale: { [srcLang]: description.substring(0, 5000) },
+    slugByLocale: { [srcLang]: slug },
     source: 'dedicated-crawler',
     crawledAt: new Date().toISOString(),
   };
@@ -511,6 +593,41 @@ async function main() {
   console.log('\n═══════════════════════════════════════');
   console.log('Phase 4: Translate');
   console.log('═══════════════════════════════════════');
+  // Backfill missing locale descriptions for target jobs to avoid strict validation failures
+  try {
+    const all = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
+    let patched = 0;
+    for (const job of all) {
+      if (!isTargetJob(job)) continue;
+      job.titleByLocale = job.titleByLocale || {};
+      job.descriptionByLocale = job.descriptionByLocale || {};
+      job.slugByLocale = job.slugByLocale || {};
+      const baseDesc = String(job.description || '').trim();
+      const baseTitle = String(job.title || '').trim();
+      for (const loc of LOCALES) {
+        if (!String(job.descriptionByLocale[loc] || '').trim()) {
+          job.descriptionByLocale[loc] = enrichDescription(baseTitle, baseDesc, { category: job.category, empType: job.employmentType, location: job.location });
+          patched += 1;
+        }
+        if (!String(job.titleByLocale[loc] || '').trim()) {
+          job.titleByLocale[loc] = baseTitle;
+        }
+        if (!String(job.slugByLocale[loc] || '').trim()) {
+          job.slugByLocale[loc] = job.slug || normalizeKey(baseTitle);
+        }
+      }
+    }
+    if (patched > 0) {
+      fs.writeFileSync(DATA_JOBS, `${JSON.stringify(all, null, 2)}\n`, 'utf8');
+      if (fs.existsSync(path.dirname(PUBLIC_JOBS))) {
+        fs.writeFileSync(PUBLIC_JOBS, `${JSON.stringify(all, null, 2)}\n`, 'utf8');
+      }
+      console.log(`🛠️ Backfilled ${patched} missing locale descriptions for ${COMPANY_NAME} jobs`);
+    }
+  } catch (e) {
+    console.warn('⚠️ Failed to backfill missing locales:', e.message);
+  }
+
   await translateMissingJobLocales({
     dataJobsPath: DATA_JOBS,
     isTargetJob,

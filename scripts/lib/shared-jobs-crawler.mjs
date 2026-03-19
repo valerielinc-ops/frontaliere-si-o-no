@@ -47,6 +47,11 @@ import {
   isGrigioniRelevant,
   normalizeCantonCode,
 } from './target-swiss-locations.mjs';
+import {
+  isFederalJobsPortalUrl,
+  normalizeFederalDepartmentCompany,
+  normalizeFederalJobLocation,
+} from './federal-job-normalization.mjs';
 
 const execFileAsync = promisify(execFile);
 
@@ -5069,10 +5074,17 @@ function toJobFromHtmlFallback(html, pageUrl, companyName, companyCity, options 
     (isTargetSwissLocation(description) ? companyCity : '') ||
     (seedMetaRelevant ? seedLocation : '');
   const location = sanitizeLocation(locationMatch || seedLocation || companyCity || 'Ticino');
-  const companyDetected =
+  const isFederalPortal = isFederalJobsPortalUrl(pageUrl);
+  const normalizedFederalLocation = isFederalPortal
+    ? normalizeFederalJobLocation(location, normalizeCantonCode(seedMeta?.canton || ''))
+    : null;
+  const companyCandidate =
     extractCompanyFromText(html, companyName) ||
     normalizeSpace(seedMeta?.company || companyName) ||
     companyName;
+  const companyDetected = isFederalPortal
+    ? normalizeFederalDepartmentCompany(companyCandidate, seedMeta?.company || companyName)
+    : companyCandidate;
 
   // Relevance must come from explicit page signals, not only company-city fallback.
   const geoSignalExplicit = `${title} ${locationMatch || ''} ${description} ${pageUrl}`;
@@ -5099,8 +5111,12 @@ function toJobFromHtmlFallback(html, pageUrl, companyName, companyCity, options 
     title: title.replace(/\s*[-|]\s*careers?.*$/i, '').trim(),
     location: seedMetaRelevant && !isTargetSwissLocation(geoSignalExplicit)
       ? seedLocation
-      : location,
-    canton: normalizeCantonCode(seedMeta?.canton || '') || inferredHtmlCanton || 'TI',
+      : normalizedFederalLocation?.location || location,
+    canton:
+      normalizeCantonCode(seedMeta?.canton || '') ||
+      normalizeCantonCode(normalizedFederalLocation?.canton || '') ||
+      inferredHtmlCanton ||
+      'TI',
     category: guessCategory(title, description),
     contract: contractFromMigros || normalizeContract(seedMeta?.contract || '', title, description),
     currency: rexxSalary?.currency || 'CHF',

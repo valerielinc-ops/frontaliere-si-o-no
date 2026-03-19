@@ -16,6 +16,7 @@ import { describe, it, expect } from 'vitest';
 import {
   parseSbbDetailPage,
   buildJsonLdDescription,
+  extractSbbBodyLocation,
   extractSbbHtmlSections,
   extractSbbJsonLd,
   stripHtml,
@@ -181,6 +182,42 @@ const FIXTURE_NAV_HEADINGS_HTML = `<!DOCTYPE html>
 </body>
 </html>`;
 
+/** Page where JSON-LD location points to Bern HQ but body intro shows the true base city. */
+const FIXTURE_BODY_LOCATION_WINS_HTML = `<!DOCTYPE html>
+<html lang="de">
+<head>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org/",
+    "@type": "JobPosting",
+    "title": "Quereinstieg Lokführer:in Personenverkehr 12/2026",
+    "description": "<p>Beweg die Schweiz mit uns.</p>",
+    "jobLocation": {
+      "@type": "Place",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Bern",
+        "addressRegion": "Bern",
+        "postalCode": "3000",
+        "addressCountry": "Schweiz"
+      }
+    }
+  }
+  </script>
+</head>
+<body>
+  <main>
+    <h1>Quereinstieg Lokführer:in Personenverkehr 12/2026</h1>
+    <p>Beweg die Schweiz mit uns.</p>
+    <p>Quereinstieg Lokführer:in Personenverkehr 12/2026</p>
+    <p>Chur, 01.12.2026, 100%</p>
+    <p>Jetzt bewerben</p>
+    <h2>Darauf kannst du dich freuen</h2>
+    <p>Nach Abschluss der bezahlten 15-monatigen Zweitausbildung führt dich der Job entlang der schönsten Bahnstrecken der Schweiz.</p>
+  </main>
+</body>
+</html>`;
+
 // ─── parseSbbDetailPage — regression ──────────────────────────────────────────
 
 describe(`parseSbbDetailPage — MIN_SBB_DESC_LENGTH is ${MIN_SBB_DESC_LENGTH}`, () => {
@@ -281,6 +318,44 @@ describe('parseSbbDetailPage — navigation heading guard', () => {
     const result = parseSbbDetailPage(FIXTURE_NAV_HEADINGS_HTML);
     expect(result.description).toContain('Il tuo compito');
     expect(result.description).toContain('Requisiti');
+  });
+});
+
+describe('parseSbbDetailPage — body location override', () => {
+  it('extracts the rendered workplace city from intro lines', () => {
+    expect(extractSbbBodyLocation(FIXTURE_BODY_LOCATION_WINS_HTML)).toBe('Chur');
+  });
+
+  it('prefers the body location over generic JSON-LD headquarters', () => {
+    const result = parseSbbDetailPage(FIXTURE_BODY_LOCATION_WINS_HTML);
+    expect(result.location).toBe('Chur');
+  });
+
+  it('shows why runner-side API city fallback is still needed for some SBB pages', () => {
+    const fixture = `<!DOCTYPE html>
+    <html lang="de">
+    <head>
+      <script type="application/ld+json">
+      {
+        "@context": "https://schema.org/",
+        "@type": "JobPosting",
+        "title": "Dirigente Team Controllo Qualità (M/F/D)",
+        "jobLocation": {
+          "@type": "Place",
+          "address": { "@type": "PostalAddress", "addressLocality": "Bern" }
+        }
+      }
+      </script>
+    </head>
+    <body>
+      <h1>Dirigente Team Controllo Qualità (M/F/D)</h1>
+      <p>Siamo alla ricerca di una figura per le Officine FFS di Bellinzona.</p>
+      <h2>Il tuo compito</h2>
+      <p>Coordinare il controllo qualità dei rotabili.</p>
+    </body>
+    </html>`;
+
+    expect(parseSbbDetailPage(fixture).location).toBe('Bern');
   });
 });
 

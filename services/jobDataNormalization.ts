@@ -53,6 +53,7 @@ export const CRAWLED_COMPANY_LOGOS: Record<string, string> = {
   'avaloq': gFavicon('avaloq.com'),
   'banca-cler': gFavicon('cler.ch'),
   'banca-sempione': gFavicon('bancasempione.ch'),
+  'boggi-milano': 'https://www.boggi.com/on/demandware.static/Sites-Boggi-Site/-/default/dw7dc8b6c7/images/logo.svg',
   'bosch-thermotechnik-ag': gFavicon('bosch.ch'),
   'board-international': gFavicon('board.com'),
   'bracco': gFavicon('bracco.com'),
@@ -60,6 +61,7 @@ export const CRAWLED_COMPANY_LOGOS: Record<string, string> = {
   'caseificio-gottardo': gFavicon('caseificiodelgottardo.ch'),
   'citta-di-mendrisio': gFavicon('mendrisio.ch'),
   'coop-ticino': gFavicon('coop.ch'),
+  'convit-holding': 'https://convit.ch/images/convit-logo.png',
   'corner-banca': gFavicon('corner.ch'),
   'damiani-group': gFavicon('damianigroup.com'),
   'delvitech-sa': 'https://legacy.delvi.tech/wp-content/uploads/2022/03/cropped-Delvi.tech_favicon.jpg',
@@ -241,6 +243,11 @@ function isFincons(job: JobLike): boolean {
   return identity.includes('fincons');
 }
 
+function isConvit(job: JobLike): boolean {
+  const identity = normalizeCompanyIdentity(`${job.company || ''} ${job.companyKey || ''}`);
+  return identity.includes('convit');
+}
+
 function isGoline(job: JobLike): boolean {
   const identity = normalizeCompanyIdentity(`${job.company || ''} ${job.companyKey || ''}`);
   return identity.includes('goline');
@@ -254,6 +261,11 @@ function isLivingCircle(job: JobLike): boolean {
 function isBracco(job: JobLike): boolean {
   const identity = normalizeCompanyIdentity(`${job.company || ''} ${job.companyKey || ''}`);
   return identity.includes('bracco');
+}
+
+function isBoggi(job: JobLike): boolean {
+  const identity = normalizeCompanyIdentity(`${job.company || ''} ${job.companyKey || ''}`);
+  return identity.includes('boggi');
 }
 
 function isSwisscom(job: JobLike): boolean {
@@ -334,9 +346,11 @@ export function resolveCompanyWebsiteHost(job: JobLike): string {
   if (isEfg(job)) return 'efginternational.com';
   if (isDelvitech(job)) return 'delvi.tech';
   if (isFincons(job)) return 'finconsgroup.com';
+  if (isConvit(job)) return 'convit.ch';
   if (isGoline(job)) return 'goline.ch';
   if (isLivingCircle(job)) return 'thelivingcircle.ch';
   if (isBracco(job)) return 'bracco.com';
+  if (isBoggi(job)) return 'boggi.com';
   if (isSwisscom(job)) return 'swisscom.ch';
   if (isSunrise(job)) return 'sunrise.ch';
   if (isAriston(job)) return 'aristongroup.com';
@@ -372,9 +386,11 @@ export function resolveCompanyLogoUrl(job: JobLike): string | null {
   if (isEfg(job)) return CRAWLED_COMPANY_LOGOS['efg-international'];
   if (isDelvitech(job)) return CRAWLED_COMPANY_LOGOS['delvitech-sa'];
   if (isFincons(job)) return CRAWLED_COMPANY_LOGOS['fincons-group'];
+  if (isConvit(job)) return CRAWLED_COMPANY_LOGOS['convit-holding'];
   if (isGoline(job)) return CRAWLED_COMPANY_LOGOS['goline'];
   if (isLivingCircle(job)) return CRAWLED_COMPANY_LOGOS['the-living-circle'];
   if (isBracco(job)) return CRAWLED_COMPANY_LOGOS['bracco'];
+  if (isBoggi(job)) return CRAWLED_COMPANY_LOGOS['boggi-milano'];
   if (isSwisscom(job)) return CRAWLED_COMPANY_LOGOS['swisscom-sede-ticino'];
   if (isAriston(job)) return gFavicon('aristongroup.com');
   if (isBosch(job)) return CRAWLED_COMPANY_LOGOS['bosch-thermotechnik-ag'];
