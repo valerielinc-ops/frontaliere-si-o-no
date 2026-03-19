@@ -2184,6 +2184,17 @@ Rules:
     'seoContent.stats.check4': 'Ticino cross-border community data',
 
     // ─── What's New / Feature Announcements ─────────────────────────────
+    'whatsNew.v3320.title': 'Easier and More Accurate Management Improvements',
+    'whatsNew.v3320.admin.title': 'Clearer Distinction for Job Statistics',
+    'whatsNew.v3320.admin.desc': 'You can now easily distinguish between daily data and new job postings on your dashboard.',
+    'whatsNew.v3320.alten.title': 'Job Process Restoration and Reliability',
+    'whatsNew.v3320.alten.desc': 'We\'ve fixed issues preventing some job processes from working correctly and improved overall stability.',
+    'whatsNew.v3320.a-plus-plus.title': 'New System for Importing Job Postings',
+    'whatsNew.v3320.a-plus-plus.desc': 'We\'ve introduced a dedicated system for importing job postings from the InRecruiting portal, making the process more efficient.',
+    'whatsNew.v3320.dot-life.title': 'DOT Life Job Postings Integrated from LinkedIn',
+    'whatsNew.v3320.dot-life.desc': 'You can now view DOT Life job postings directly from the LinkedIn platform.',
+    'whatsNew.v3320.newsletter.title': 'Quality Check Before Sending Newsletters',
+    'whatsNew.v3320.newsletter.desc': 'We\'ve added a check before sending newsletters to ensure everything is correct.',
     'whatsNew.v3310.title': 'Improvements for better job listing management',
     'whatsNew.v3310.boggi.title': 'Full job descriptions now available',
     'whatsNew.v3310.boggi.desc': 'You can now see the entire job description, including all details, to make more informed decisions.',

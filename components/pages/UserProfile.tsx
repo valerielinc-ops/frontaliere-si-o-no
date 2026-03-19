@@ -18,7 +18,7 @@ import {
   User, LogIn, LogOut, Camera, Briefcase, Users, Calendar,
   Shield, Save, CheckCircle2, MapPin, Heart, Baby, Loader2, Edit3, Sparkles,
   Plus, Trash2, Calculator, BookOpen, ArrowRightLeft, Award,
-  ChevronDown, ChevronUp, AlertCircle, Building2, Navigation, Globe, Banknote,
+  AlertCircle, Building2, Navigation, Globe, Banknote,
   Clock, FileCheck,
 } from 'lucide-react';
 import { useTranslation, type Locale, setLocale as setGlobalLocale, getLocale, LOCALE_LABELS } from '@/services/i18n';
@@ -599,6 +599,24 @@ const UserProfile: React.FC = () => {
 
   const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
   const [deleting, setDeleting] = useState(false);
+  const [privacyOpen, setPrivacyOpen] = useState(false);
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+
+  useEffect(() => {
+    try {
+      const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
+      setPrefersReducedMotion(mq.matches);
+      const handler = (e: MediaQueryListEvent) => setPrefersReducedMotion(e.matches);
+      if (mq.addEventListener) mq.addEventListener('change', handler);
+      else mq.addListener(handler as any);
+      return () => {
+        if (mq.removeEventListener) mq.removeEventListener('change', handler);
+        else mq.removeListener(handler as any);
+      };
+    } catch {
+      setPrefersReducedMotion(false);
+    }
+  }, []);
 
   const handleDeleteAccount = async () => {
     if (!user?.uid) return;
@@ -1278,7 +1296,9 @@ const UserProfile: React.FC = () => {
                   </span>
                 )}
               </h3>
-              {showFamily ? <ChevronUp size={16} className="text-slate-500" /> : <ChevronDown size={16} className="text-slate-500" />}
+              <span className="text-slate-500 text-lg font-medium" aria-hidden>
+                {showFamily ? '−' : '+'}
+              </span>
             </button>
 
             {showFamily && (
@@ -1476,71 +1496,90 @@ const UserProfile: React.FC = () => {
       {/* ─── Privacy & Data Management Section ─── */}
       <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 overflow-hidden shadow-sm">
         <div className="p-6 space-y-4">
-          <h2 className="text-lg font-bold text-slate-800 dark:text-slate-100 flex items-center gap-2">
+          <div
+            role="button"
+            tabIndex={0}
+            onClick={() => setPrivacyOpen(o => !o)}
+            onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setPrivacyOpen(o => !o); } }}
+            aria-expanded={privacyOpen}
+            aria-controls="profile-privacy-content"
+            className="flex items-center gap-2 text-lg font-bold text-slate-800 dark:text-slate-100 focus:outline-none cursor-pointer rounded-md focus:ring-2 focus:ring-indigo-500"
+          >
             <Shield size={18} className="text-slate-500" />
-            {t('profile.privacySection')}
-          </h2>
-
-          {/* Privacy note */}
-          <div className="flex items-center gap-3 px-4 py-3 bg-slate-50 dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-700 text-xs text-slate-500">
-            <Shield size={14} className="flex-shrink-0" />
-            <p>{t('profile.dataPrivacy')}</p>
+            <span>{t('profile.privacySection')}</span>
           </div>
 
-          {/* GDPR Data Export */}
-          <div className="flex items-center justify-between px-4 py-3 bg-blue-50 dark:bg-blue-950/30 rounded-xl border border-blue-100 dark:border-blue-900/50">
-            <div className="flex items-center gap-2 text-xs text-blue-700 dark:text-blue-300 font-medium">
+          <div
+            id="profile-privacy-content"
+            style={{
+              maxHeight: privacyOpen ? 1200 : 0,
+              opacity: privacyOpen ? 1 : 0,
+              overflow: 'hidden',
+              transition: prefersReducedMotion ? 'none' : 'max-height 380ms cubic-bezier(.2,.8,.2,1), opacity 220ms ease',
+            }}
+            className="space-y-3 mt-3"
+          >
+            {/* Privacy note */}
+            <div className="flex items-center gap-3 px-4 py-3 bg-slate-50 dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-700 text-xs text-slate-500">
               <Shield size={14} className="flex-shrink-0" />
-              <span>{t('profile.gdprExportDesc')}</span>
+              <p>{t('profile.dataPrivacy')}</p>
             </div>
-            <button
-              onClick={handleExportData}
-              className="px-3 py-1.5 bg-blue-600 hover:bg-blue-700 text-white text-[10px] font-bold uppercase rounded-lg transition-colors flex-shrink-0"
-            >
-              {t('profile.gdprExport')}
-            </button>
-          </div>
 
-          {/* Account Deletion */}
-          {user && (
-            <div className="px-4 py-3 bg-red-50 dark:bg-red-950/20 rounded-xl border border-red-200 dark:border-red-900/50">
-              {!showDeleteConfirm ? (
-                <button
-                  onClick={() => setShowDeleteConfirm(true)}
-                  className="flex items-center gap-2 text-xs text-red-600 dark:text-red-400 font-medium hover:text-red-700 dark:hover:text-red-300 transition-colors"
-                  aria-label={t('profile.deleteAccount')}
-                >
-                  <Trash2 size={14} className="flex-shrink-0" />
-                  {t('profile.deleteAccount')}
-                </button>
-              ) : (
-                <div className="space-y-3">
-                  <div className="flex items-start gap-2">
-                    <AlertCircle size={16} className="text-red-600 dark:text-red-400 flex-shrink-0 mt-0.5" />
-                    <p className="text-xs text-red-700 dark:text-red-300 font-medium">
-                      {t('profile.deleteAccountConfirm')}
-                    </p>
-                  </div>
-                  <div className="flex gap-2">
-                    <button
-                      onClick={handleDeleteAccount}
-                      disabled={deleting}
-                      className="flex items-center gap-1.5 px-3 py-1.5 bg-red-600 hover:bg-red-700 disabled:bg-red-400 text-white text-[10px] font-bold uppercase rounded-lg transition-colors"
-                    >
-                      {deleting ? <Loader2 size={12} className="animate-spin" /> : <Trash2 size={12} />}
-                      {t('profile.deleteAccountConfirmBtn')}
-                    </button>
-                    <button
-                      onClick={() => setShowDeleteConfirm(false)}
-                      className="px-3 py-1.5 bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-300 text-[10px] font-bold uppercase rounded-lg transition-colors hover:bg-slate-300 dark:hover:bg-slate-600"
-                    >
-                      {t('profile.deleteAccountCancel')}
-                    </button>
-                  </div>
-                </div>
-              )}
+            {/* GDPR Data Export */}
+            <div className="flex items-center justify-between px-4 py-3 bg-blue-50 dark:bg-blue-950/30 rounded-xl border border-blue-100 dark:border-blue-900/50">
+              <div className="flex items-center gap-2 text-xs text-blue-700 dark:text-blue-300 font-medium">
+                <Shield size={14} className="flex-shrink-0" />
+                <span>{t('profile.gdprExportDesc')}</span>
+              </div>
+              <button
+                onClick={handleExportData}
+                className="px-3 py-1.5 bg-blue-600 hover:bg-blue-700 text-white text-[10px] font-bold uppercase rounded-lg transition-colors flex-shrink-0"
+              >
+                {t('profile.gdprExport')}
+              </button>
             </div>
-          )}
+
+            {/* Account Deletion */}
+            {user && (
+              <div className="px-4 py-3 bg-red-50 dark:bg-red-950/20 rounded-xl border border-red-200 dark:border-red-900/50">
+                {!showDeleteConfirm ? (
+                  <button
+                    onClick={() => setShowDeleteConfirm(true)}
+                    className="flex items-center gap-2 text-xs text-red-600 dark:text-red-400 font-medium hover:text-red-700 dark:hover:text-red-300 transition-colors"
+                    aria-label={t('profile.deleteAccount')}
+                  >
+                    <Trash2 size={14} className="flex-shrink-0" />
+                    {t('profile.deleteAccount')}
+                  </button>
+                ) : (
+                  <div className="space-y-3">
+                    <div className="flex items-start gap-2">
+                      <AlertCircle size={16} className="text-red-600 dark:text-red-400 flex-shrink-0 mt-0.5" />
+                      <p className="text-xs text-red-700 dark:text-red-300 font-medium">
+                        {t('profile.deleteAccountConfirm')}
+                      </p>
+                    </div>
+                    <div className="flex gap-2">
+                      <button
+                        onClick={handleDeleteAccount}
+                        disabled={deleting}
+                        className="flex items-center gap-1.5 px-3 py-1.5 bg-red-600 hover:bg-red-700 disabled:bg-red-400 text-white text-[10px] font-bold uppercase rounded-lg transition-colors"
+                      >
+                        {deleting ? <Loader2 size={12} className="animate-spin" /> : <Trash2 size={12} />}
+                        {t('profile.deleteAccountConfirmBtn')}
+                      </button>
+                      <button
+                        onClick={() => setShowDeleteConfirm(false)}
+                        className="px-3 py-1.5 bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-300 text-[10px] font-bold uppercase rounded-lg transition-colors hover:bg-slate-300 dark:hover:bg-slate-600"
+                      >
+                        {t('profile.deleteAccountCancel')}
+                      </button>
+                    </div>
+                  </div>
+                )}
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </div>

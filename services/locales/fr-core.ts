@@ -2184,6 +2184,17 @@ Règles :
     'seoContent.stats.check4': 'Données sur la communauté frontalière tessinoise',
 
     // ─── What's New / Feature Announcements ─────────────────────────────────
+    'whatsNew.v3320.title': 'Améliorations pour une gestion plus simple et précise',
+    'whatsNew.v3320.admin.title': 'Distinction plus claire pour les statistiques d\'emploi',
+    'whatsNew.v3320.admin.desc': 'Vous pouvez désormais distinguer facilement les données quotidiennes des nouvelles offres d\'emploi sur votre tableau de bord.',
+    'whatsNew.v3320.alten.title': 'Restauration et fiabilité des processus d\'emploi',
+    'whatsNew.v3320.alten.desc': 'Nous avons corrigé des problèmes qui empêchaient certains processus d\'emploi de fonctionner correctement et avons amélioré la stabilité générale.',
+    'whatsNew.v3320.a-plus-plus.title': 'Nouveau système d\'importation des offres d\'emploi',
+    'whatsNew.v3320.a-plus-plus.desc': 'Nous avons introduit un système dédié pour importer les offres d\'emploi du portail InRecruiting, rendant le processus plus efficace.',
+    'whatsNew.v3320.dot-life.title': 'Offres d\'emploi DOT Life intégrées depuis LinkedIn',
+    'whatsNew.v3320.dot-life.desc': 'Vous pouvez désormais consulter les offres d\'emploi DOT Life directement depuis la plateforme LinkedIn.',
+    'whatsNew.v3320.newsletter.title': 'Contrôle qualité avant l\'envoi des newsletters',
+    'whatsNew.v3320.newsletter.desc': 'Nous avons ajouté une étape de vérification avant l\'envoi des newsletters pour nous assurer que tout est correct.',
     'whatsNew.v3310.title': 'Améliorations pour une meilleure gestion des offres d\'emploi',
     'whatsNew.v3310.boggi.title': 'Descriptions complètes des offres d\'emploi désormais disponibles',
     'whatsNew.v3310.boggi.desc': 'Vous pouvez désormais voir la description complète d\'une offre d\'emploi, y compris tous les détails, pour prendre des décisions plus éclairées.',

@@ -2184,6 +2184,17 @@ Regeln:
     'seoContent.stats.check4': 'Daten zur Tessiner Grenzgänger-Gemeinschaft',
 
     // ─── What's New / Feature Announcements ─────────────────────────────
+    'whatsNew.v3320.title': 'Verbesserungen für einfacheres und genaueres Management',
+    'whatsNew.v3320.admin.title': 'Deutlichere Unterscheidung für Job-Statistiken',
+    'whatsNew.v3320.admin.desc': 'Sie können nun leicht zwischen täglichen Daten und neuen Stellenanzeigen auf Ihrem Dashboard unterscheiden.',
+    'whatsNew.v3320.alten.title': 'Wiederherstellung und Zuverlässigkeit von Job-Prozessen',
+    'whatsNew.v3320.alten.desc': 'Wir haben Probleme behoben, die die korrekte Funktion einiger Job-Prozesse verhinderten, und die allgemeine Stabilität verbessert.',
+    'whatsNew.v3320.a-plus-plus.title': 'Neues System für den Import von Stellenanzeigen',
+    'whatsNew.v3320.a-plus-plus.desc': 'Wir haben ein spezielles System für den Import von Stellenanzeigen aus dem InRecruiting-Portal eingeführt, was den Prozess effizienter macht.',
+    'whatsNew.v3320.dot-life.title': 'DOT Life Stellenanzeigen von LinkedIn integriert',
+    'whatsNew.v3320.dot-life.desc': 'Sie können nun DOT Life Stellenanzeigen direkt von der LinkedIn-Plattform einsehen.',
+    'whatsNew.v3320.newsletter.title': 'Qualitätsprüfung vor dem Versand von Newslettern',
+    'whatsNew.v3320.newsletter.desc': 'Wir haben vor dem Versand von Newslettern eine Prüfung hinzugefügt, um sicherzustellen, dass alles korrekt ist.',
     'whatsNew.v3310.title': 'Verbesserungen für ein besseres Jobangebote-Management',
     'whatsNew.v3310.boggi.title': 'Vollständige Stellenbeschreibungen jetzt verfügbar',
     'whatsNew.v3310.boggi.desc': 'Sie können jetzt die vollständige Stellenbeschreibung mit allen Details einsehen, um fundiertere Entscheidungen zu treffen.',

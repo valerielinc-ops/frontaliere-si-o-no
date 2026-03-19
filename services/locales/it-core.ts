@@ -2276,6 +2276,17 @@ Regole:
     'seoContent.stats.check4': 'Dati sulla comunità frontaliera Ticino',
 
     // ─── What's New / Feature Announcements ─────────────────────────────
+    'whatsNew.v3320.title': 'Miglioramenti per una gestione più semplice e accurata',
+    'whatsNew.v3320.admin.title': 'Differenziazione chiara delle statistiche di lavoro',
+    'whatsNew.v3320.admin.desc': 'Ora puoi distinguere facilmente tra i dati giornalieri e quelli dei nuovi annunci di lavoro nella tua dashboard.',
+    'whatsNew.v3320.alten.title': 'Ripristino e maggiore affidabilità dei processi di lavoro',
+    'whatsNew.v3320.alten.desc': 'Abbiamo corretto alcuni problemi che impedivano il corretto funzionamento di alcuni processi di lavoro e migliorato la stabilità generale.',
+    'whatsNew.v3320.a-plus-plus.title': 'Nuovo sistema per l\'importazione di annunci di lavoro',
+    'whatsNew.v3320.a-plus-plus.desc': 'Abbiamo introdotto un sistema dedicato per importare annunci di lavoro dal portale InRecruiting, rendendo il processo più efficiente.',
+    'whatsNew.v3320.dot-life.title': 'Integrazione annunci di lavoro DOT Life da LinkedIn',
+    'whatsNew.v3320.dot-life.desc': 'Ora puoi visualizzare gli annunci di lavoro di DOT Life direttamente dalla piattaforma LinkedIn.',
+    'whatsNew.v3320.newsletter.title': 'Controllo qualità prima dell\'invio delle newsletter',
+    'whatsNew.v3320.newsletter.desc': 'Abbiamo aggiunto un passaggio di controllo prima dell\'invio delle newsletter per garantire che tutto sia corretto.',
     'whatsNew.v3310.title': 'Miglioramenti per una migliore gestione delle offerte di lavoro',
     'whatsNew.v3310.boggi.title': 'Descrizioni complete delle offerte di lavoro ora disponibili',
     'whatsNew.v3310.boggi.desc': 'Ora puoi vedere l\'intera descrizione di un\'offerta di lavoro, inclusi tutti i dettagli, per prendere decisioni più informate.',
