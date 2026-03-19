@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-03-19T16:26:57.322Z",
+  "generatedAt": "2026-03-19T16:27:10.222Z",
   "links": {
     "allJobs": "https://www.frontaliereticino.ch/cerca-lavoro-ticino"
   },
   "totals": {
-    "activeJobs": 1023,
+    "activeJobs": 1010,
     "activeCompanies": 135,
     "activeLocations": 177,
     "todayAdded": 1008,
@@ -91,12 +91,6 @@
         "count": 247
       },
       {
-        "key": "usi-universita-della-svizzera-italiana",
-        "name": "USI – Università della Svizzera italiana",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-usi-universita-della-svizzera-italiana",
-        "count": 26
-      },
-      {
         "key": "vf-international-the-north-face-timberland",
         "name": "VF International (The North Face, Timberland)",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-vf-international-the-north-face-timberland",
@@ -131,6 +125,12 @@
         "name": "VF International (The North Face, Timberland)",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-vf-international-the-north-face-timberland",
         "count": 26
+      },
+      {
+        "key": "convit-holding-gmbh",
+        "name": "Convit Holding GmbH",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-convit-holding-gmbh",
+        "count": 35
       }
     ],
     "topLocationsActive": [
@@ -180,18 +180,6 @@
         "key": "mendrisio",
         "name": "Mendrisio",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-mendrisio",
-        "count": 47
-      },
-      {
-        "key": "ticino",
-        "name": "Ticino",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-ticino",
-        "count": 31
-      },
-      {
-        "key": "mendrisio",
-        "name": "Mendrisio",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-mendrisio",
         "count": 49
       },
       {
@@ -223,6 +211,12 @@
         "name": "Ticino",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-ticino",
         "count": 31
+      },
+      {
+        "key": "st-moritz",
+        "name": "St. Moritz",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-st-moritz",
+        "count": 44
       }
     ],
     "topCompaniesAddedToday": [
@@ -451,69 +445,6 @@
         "name": "St. Moritz",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-st-moritz",
         "count": 0,
-        "added": 40,
-        "updated": 0,
-        "removed": 0
-      },
-      {
-        "key": "bellinzona",
-        "name": "Bellinzona",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-bellinzona",
-        "count": 0,
-        "added": 160,
-        "updated": 0,
-        "removed": 0
-      },
-      {
-        "key": "lugano",
-        "name": "Lugano",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-lugano",
-        "count": 0,
-        "added": 158,
-        "updated": 0,
-        "removed": 0
-      },
-      {
-        "key": "mendrisio",
-        "name": "Mendrisio",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-mendrisio",
-        "count": 0,
-        "added": 65,
-        "updated": 0,
-        "removed": 0
-      },
-      {
-        "key": "grigioni",
-        "name": "Grigioni",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-grigioni",
-        "count": 0,
-        "added": 62,
-        "updated": 0,
-        "removed": 0
-      },
-      {
-        "key": "chur",
-        "name": "Chur",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-chur",
-        "count": 0,
-        "added": 56,
-        "updated": 0,
-        "removed": 0
-      },
-      {
-        "key": "ticino",
-        "name": "Ticino",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-ticino",
-        "count": 0,
-        "added": 56,
-        "updated": 0,
-        "removed": 0
-      },
-      {
-        "key": "st-moritz",
-        "name": "St. Moritz",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-st-moritz",
-        "count": 0,
         "added": 41,
         "updated": 0,
         "removed": 0
@@ -596,11 +527,11 @@
   },
   "salary": {
     "coverage": {
-      "jobsWithSalary": 1023,
+      "jobsWithSalary": 1010,
       "coveragePct": 100,
-      "avgMin": 66687,
-      "avgMax": 89934,
-      "avgMid": 78310,
+      "avgMin": 66808,
+      "avgMax": 90100,
+      "avgMid": 78454,
       "medianMid": 68500
     },
     "leaders": {
@@ -766,6 +697,16 @@
           "avgMax": 102417,
           "avgMid": 89250,
           "weightedSalary": 89250
+        },
+        {
+          "key": "zurich",
+          "name": "Zürich",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-zurich",
+          "count": 4,
+          "avgMin": 81125,
+          "avgMax": 109625,
+          "avgMid": 95375,
+          "weightedSalary": 92525
         },
         {
           "key": "zurich",
