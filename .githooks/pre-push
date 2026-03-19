@@ -58,13 +58,13 @@ if [ $? -ne 0 ]; then
   exit 1
 fi
 
-# WhatsNew pending releases enforcement (auto-apply every 20 commits)
+# WhatsNew pending releases enforcement (auto-apply every 30 commits)
 PENDING_RELEASES="data/pending-releases.json"
 if [ -f "$PENDING_RELEASES" ]; then
   PENDING_COUNT=$(node -e "try{const e=JSON.parse(require('fs').readFileSync('$PENDING_RELEASES','utf8'));console.log(Array.isArray(e)?e.length:0)}catch{console.log(0)}" 2>/dev/null)
-  if [ "$PENDING_COUNT" -ge 20 ] 2>/dev/null; then
+  if [ "$PENDING_COUNT" -ge 30 ] 2>/dev/null; then
     echo ""
-    echo "📋 WhatsNew: $PENDING_COUNT user-facing commit(s) pending release notes (threshold: 20)."
+    echo "📋 WhatsNew: $PENDING_COUNT user-facing commit(s) pending release notes (threshold: 30)."
     echo "   🧭 Regole generazione: testo umano/non tecnico, massimo 5 punti, localizzazione completa, link pagina quando pertinente."
     echo "   Auto-applying release notes before push..."
     npm run update-whats-new -- --apply
@@ -102,7 +102,7 @@ if [ -f "$PENDING_RELEASES" ]; then
     fi
     echo ""
   elif [ "$PENDING_COUNT" -gt 0 ] 2>/dev/null; then
-    echo "📋 WhatsNew: $PENDING_COUNT pending commit(s) — will auto-generate at 20."
+    echo "📋 WhatsNew: $PENDING_COUNT pending commit(s) — will auto-generate at 30."
   fi
 fi
 

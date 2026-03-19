@@ -1,7 +1,8 @@
 import { useState, useEffect, useCallback } from 'react';
 import { Bell, X, Sparkles, Zap, Bug, ChevronRight, PartyPopper } from 'lucide-react';
-import { useTranslation } from '@/services/i18n';
+import { useTranslation, useLocale } from '@/services/i18n';
 import { useNavigationOptional } from '@/services/NavigationContext';
+import { buildPath } from '@/services/router';
 
 // ─── Types ───────────────────────────────────────────────────────────────
 
@@ -1246,9 +1247,16 @@ export default function WhatsNewModal({ open, onClose }: WhatsNewModalProps) {
     }
   }, [open]);
 
-  const handleLinkClick = useCallback((link: { tab: string; subTab?: string }) => {
-    nav?.navigateTo(link.tab as any, link.subTab);
+  const handleLinkClick = useCallback((e: React.MouseEvent<HTMLAnchorElement>, link: { tab: string; subTab?: string }) => {
+    e.preventDefault();
     onClose();
+    // Use SPA navigation when available; the href on the <a> element is a
+    // deterministic fallback so the link works even if NavigationContext is absent.
+    if (nav) {
+      nav.navigateTo(link.tab as any, link.subTab);
+    } else {
+      window.location.href = e.currentTarget.getAttribute('href') || '/';
+    }
   }, [nav, onClose]);
 
   if (!open) return null;
@@ -1347,13 +1355,14 @@ export default function WhatsNewModal({ open, onClose }: WhatsNewModalProps) {
                     );
                     return isClickable ? (
                       <li key={idx}>
-                        <button
-                          onClick={() => handleLinkClick(item.link!)}
-                          className="w-full flex items-start gap-3 group p-2 -mx-2 rounded-lg cursor-pointer hover:bg-slate-50 dark:hover:bg-slate-700/50 active:bg-slate-100 dark:active:bg-slate-700 transition-colors text-left"
+                        <a
+                          href={buildPath({ activeTab: item.link!.tab as any }, locale as any)}
+                          onClick={(e) => handleLinkClick(e, item.link!)}
+                          className="w-full flex items-start gap-3 group p-2 -mx-2 rounded-lg cursor-pointer hover:bg-slate-50 dark:hover:bg-slate-700/50 active:bg-slate-100 dark:active:bg-slate-700 transition-colors text-left no-underline"
                           aria-label={`${t(item.titleKey)} — ${t('whatsNew.goTo')}`}
                         >
                           {cardContent}
-                        </button>
+                        </a>
                       </li>
                     ) : (
                       <li
