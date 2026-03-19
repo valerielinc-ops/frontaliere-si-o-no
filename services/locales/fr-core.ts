@@ -1287,6 +1287,7 @@ const frCore: Record<string, string> = {
     'chatbot.disclaimer': 'IA expérimentale — ne remplace pas un conseil professionnel',
     'chatbot.error': 'Erreur lors de la réponse. Veuillez réessayer.',
     'chatbot.error429': 'Le service IA est temporairement surchargé. Réessayez dans quelques secondes.',
+    'chatbot.localFallbackNotice': '⚠️ Réponse basée sur des données locales — le service IA est temporairement indisponible.',
     'chatbot.unavailable': 'Assistant temporairement indisponible.',
     'chatbot.rateLimit': 'Limite quotidienne atteinte (20 messages). Réessayez demain!',
     'chatbot.loginRequired': 'L\'assistant IA est disponible uniquement pour les utilisateurs connectés. Connectez-vous avec votre compte Google pour commencer!',

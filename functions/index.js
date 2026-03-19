@@ -6,6 +6,7 @@ import {
 import { handleSubscriptionManagement } from './src/newsletterSubscriptionManagement.js';
 import { sendNewsletterConfirmationEmail } from './src/newsletterConfirmationEmail.js';
 import { getNewsletterSecrets, getRemoteConfigValue } from './src/remoteConfigSecrets.js';
+import { handleChatbotInference } from './src/chatbotInference.js';
 
 ensureAdminApp();
 
@@ -123,6 +124,69 @@ export const newsletterSendConfirmation = onRequest(
     } catch (error) {
       console.error('[newsletterSendConfirmation] Error:', error);
       res.status(500).json({ success: false, error: 'internal_error' });
+    }
+  },
+);
+
+/**
+ * chatbotInference — Server-side AI inference endpoint for the site chatbot.
+ *
+ * Keeps the Gemini API key off the browser, provides multi-model fallback
+ * (gemini-2.0-flash-lite → gemini-1.5-flash-8b), and caches common FAQ answers.
+ *
+ * POST { messages: [{role, content},...], systemPrompt: string }
+ * → { ok: true, text: string, model: string, source: 'cache'|'gemini' }
+ * → { ok: false, error: string, code: string }
+ */
+export const chatbotInference = onRequest(
+  {
+    region: 'europe-west6',
+    memory: '256MiB',
+    timeoutSeconds: 30,
+    cors: [
+      'https://www.frontaliereticino.ch',
+      'https://frontaliere-ticino.web.app',
+      'https://frontaliere-ticino.firebaseapp.com',
+      // Allow localhost/dev environments
+      /^http:\/\/localhost(:\d+)?$/,
+    ],
+  },
+  async (req, res) => {
+    if (req.method !== 'POST') {
+      res.status(405).json({ ok: false, error: 'method_not_allowed', code: 'METHOD' });
+      return;
+    }
+
+    const messages = req.body?.messages;
+    const systemPrompt = String(req.body?.systemPrompt ?? '');
+
+    if (!Array.isArray(messages) || messages.length === 0 || messages.length > 40) {
+      res.status(400).json({ ok: false, error: 'invalid_messages', code: 'INVALID' });
+      return;
+    }
+
+    // Validate message shape
+    for (const m of messages) {
+      if (!m || typeof m !== 'object' || !m.role || typeof m.content !== 'string') {
+        res.status(400).json({ ok: false, error: 'invalid_message_shape', code: 'INVALID' });
+        return;
+      }
+    }
+
+    try {
+      const result = await handleChatbotInference({ messages, systemPrompt });
+      res.json({ ok: true, ...result });
+    } catch (err) {
+      const code = String(err?.code ?? 'ERROR');
+      const message = String(err?.message ?? 'inference_error');
+      console.warn(`[chatbotInference] error code=${code}: ${message}`);
+      if (code === '429') {
+        res.status(429).json({ ok: false, error: 'rate_limited', code });
+      } else if (code === 'CONFIG') {
+        res.status(503).json({ ok: false, error: 'service_unavailable', code });
+      } else {
+        res.status(500).json({ ok: false, error: message, code });
+      }
     }
   },
 );

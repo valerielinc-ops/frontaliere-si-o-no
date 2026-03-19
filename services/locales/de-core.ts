@@ -1287,6 +1287,7 @@ const deCore: Record<string, string> = {
     'chatbot.disclaimer': 'Experimentelle KI — ersetzt keine professionelle Beratung',
     'chatbot.error': 'Fehler bei der Antwort. Bitte versuchen Sie es erneut.',
     'chatbot.error429': 'Der KI-Dienst ist vorübergehend überlastet. Bitte in ein paar Sekunden erneut versuchen.',
+    'chatbot.localFallbackNotice': '⚠️ Antwort basiert auf lokalen Daten — KI-Dienst vorübergehend nicht verfügbar.',
     'chatbot.unavailable': 'Assistent vorübergehend nicht verfügbar.',
     'chatbot.rateLimit': 'Tageslimit erreicht (20 Nachrichten). Versuchen Sie es morgen!',
     'chatbot.loginRequired': 'Der KI-Assistent ist nur für registrierte Benutzer verfügbar. Melden Sie sich mit Ihrem Google-Konto an, um zu chatten!',

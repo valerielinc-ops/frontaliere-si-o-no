@@ -1407,7 +1407,8 @@ export const Analytics = {
       | 'question_sent'
       | 'auth_gate_open'
       | 'api_error'
-      | 'rate_limited',
+      | 'rate_limited'
+      | 'inference_local_fallback',
     details?: Record<string, string | number | boolean>
   ) => {
     log('chatbot_usage', {

@@ -1379,6 +1379,7 @@ const translations: Record<string, string> = {
     'chatbot.disclaimer': 'AI sperimentale — non sostituisce la consulenza professionale',
     'chatbot.error': 'Errore nella risposta. Riprova tra poco.',
     'chatbot.error429': 'Servizio AI momentaneamente sovraccarico. Riprova tra qualche secondo.',
+    'chatbot.localFallbackNotice': '⚠️ Risposta basata su dati locali — il servizio AI è temporaneamente non disponibile.',
     'chatbot.unavailable': 'Assistente temporaneamente non disponibile.',
     'chatbot.rateLimit': 'Hai raggiunto il limite giornaliero di messaggi (20). Riprova domani!',
     'chatbot.loginRequired': 'L\'assistente AI è disponibile solo per gli utenti registrati. Accedi con il tuo account Google per iniziare a chattare!',

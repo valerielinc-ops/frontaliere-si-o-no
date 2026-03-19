@@ -1,8 +1,13 @@
 /**
  * AiChatbot — Floating AI assistant for frontalieri questions
- * 
- * Uses Gemini 2.0 Flash via Firebase Remote Config API key.
- * Provides context-aware answers about Swiss-Italian cross-border work.
+ *
+ * Inference architecture (free-first, multi-provider fallback):
+ *   1. Firebase Function `chatbotInference` (server-side, keeps key off browser)
+ *      — tries gemini-2.0-flash-lite → gemini-1.5-flash-8b internally
+ *   2. Browser-side direct Gemini call (fallback when Function is unreachable)
+ *      — uses gemini-2.0-flash-lite (replaces deprecated gemini-2.0-flash)
+ *   3. Local deterministic fallback (always available, no network required)
+ *      — keyword-matched FAQ answers with internal navigation links
  */
 
 import React, { useState, useRef, useEffect, useCallback, useMemo } from 'react';
@@ -25,21 +30,102 @@ interface Message {
   content: string;
 }
 
-// ─── Gemini API call ─────────────────────────────────────────
+// ─── Inference config ─────────────────────────────────────────
 
-const GEMINI_MODEL = 'gemini-2.0-flash';
-const GEMINI_URL = `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent`;
 const GAMIFICATION_TOAST_VISIBILITY_EVENT = 'gamification-toast-visibility';
+
+// Server-side inference endpoint (Firebase Function)
+const CHATBOT_FUNCTION_URL = 'https://europe-west6-frontaliere-ticino.cloudfunctions.net/chatbotInference';
+
+// Browser-side fallback: uses non-deprecated gemini-2.0-flash-lite
+const GEMINI_FALLBACK_MODEL = 'gemini-2.0-flash-lite';
+const GEMINI_FALLBACK_URL = `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_FALLBACK_MODEL}:generateContent`;
+
+// ─── Local deterministic fallback ────────────────────────────
+// Keyword-matched FAQ answers with internal navigation links.
+// Shown when ALL remote providers are unavailable, so users never hit a dead end.
+
+interface LocalIntent {
+  keywords: string[];
+  it: string;
+  en: string;
+  de: string;
+  fr: string;
+  navAction?: NavAction;
+}
+
+const LOCAL_INTENTS: LocalIntent[] = [
+  {
+    keywords: ['permesso g', 'permit g', 'g-permit', 'grenzgänger', 'frontaliere'],
+    it: '**Permesso G (frontaliere):** Permette di lavorare in Svizzera rientrando in Italia almeno una volta la settimana. Valido per la zona di frontiera. Per approfondire consulta la [Guida Permessi](nav:permits).',
+    en: '**G Permit (frontier worker):** Allows working in Switzerland while returning to Italy at least once a week. Valid in the border zone. See the [Permits Guide](nav:permits) for details.',
+    de: '**Grenzgängerbewilligung G:** Erlaubt die Arbeit in der Schweiz mit wöchentlicher Rückkehr nach Italien. Gilt in der Grenzzone. Mehr im [Bewilligungsguide](nav:permits).',
+    fr: '**Permis G (frontalier):** Permet de travailler en Suisse en rentrant en Italie au moins une fois par semaine. Valable dans la zone frontalière. Voir le [Guide des permis](nav:permits).',
+    navAction: 'permits',
+  },
+  {
+    keywords: ['stipendio netto', 'salario netto', 'calcolo stipendio', 'calcolatrice', 'netto', 'salary', 'gehalt', 'salaire', 'simulat'],
+    it: '**Calcola il tuo stipendio netto:** Usa il nostro simulatore gratuito per calcolare il netto svizzero con imposte alla fonte, LAMal e contributi. [Apri il calcolatore](nav:calculator)',
+    en: '**Calculate your net salary:** Use our free simulator to compute your Swiss net salary including withholding tax, LAMal, and contributions. [Open calculator](nav:calculator)',
+    de: '**Nettolohn berechnen:** Nutze unseren kostenlosen Simulator für Brutto-Netto mit Quellensteuer, LAMal und Beiträgen. [Rechner öffnen](nav:calculator)',
+    fr: '**Calculer votre salaire net:** Utilisez notre simulateur gratuit pour calculer le net suisse avec impôt à la source, LAMal et cotisations. [Ouvrir le calculateur](nav:calculator)',
+    navAction: 'calculator',
+  },
+  {
+    keywords: ['tasse', 'imposte', 'imposta alla fonte', 'quellensteuer', 'tax', 'steuer', 'irpef', 'reddito estero', 'dichiarazione'],
+    it: '**Imposte per frontalieri:** L\'imposta alla fonte è trattenuta in Svizzera. Dal 2024 i "nuovi frontalieri" pagano anche in Italia (accordo bilaterale). Per i dettagli consulta la [guida dichiarazione](nav:tax-return).',
+    en: '**Taxes for frontier workers:** Withholding tax is deducted in Switzerland. Since 2024, "new frontier workers" also pay in Italy under the bilateral agreement. See the [tax return guide](nav:tax-return).',
+    de: '**Steuern für Grenzgänger:** Die Quellensteuer wird in der Schweiz abgezogen. Seit 2024 zahlen „neue Grenzgänger" auch in Italien. Mehr im [Steuererklärungsguide](nav:tax-return).',
+    fr: '**Impôts pour frontaliers:** L\'impôt à la source est retenu en Suisse. Depuis 2024, les \"nouveaux frontaliers\" paient aussi en Italie. Voir le [guide de déclaration](nav:tax-return).',
+    navAction: 'tax-return',
+  },
+  {
+    keywords: ['lamal', 'assicurazione malattia', 'assicurazione sanitaria', 'krankenversicherung', 'health insurance', 'assurance maladie', 'cassa malati'],
+    it: '**LAMal:** Come frontaliere puoi scegliere di iscriverti al LAMal svizzero o restare nel sistema italiano. La scelta dipende da età, famiglia e reddito. Confronta le opzioni in [Confronto Salute](nav:health).',
+    en: '**LAMal:** As a frontier worker you can choose Swiss LAMal or stay in the Italian system. The right choice depends on age, family situation, and income. Compare in [Health Comparison](nav:health).',
+    de: '**LAMal:** Als Grenzgänger kannst du die schweizer LAMal oder das italienische System wählen. Vergleiche im [Gesundheitsvergleich](nav:health).',
+    fr: '**LAMal:** En tant que frontalier, tu peux choisir la LAMal suisse ou rester dans le système italien. Compare dans [Comparaison santé](nav:health).',
+    navAction: 'health',
+  },
+  {
+    keywords: ['lavoro', 'offerte', 'annunci', 'cerco lavoro', 'jobs', 'arbeit', 'emploi', 'ticino'],
+    it: '**Offerte di lavoro in Ticino:** Trova le ultime offerte per frontalieri nella nostra [bacheca lavoro](nav:jobs).',
+    en: '**Jobs in Ticino:** Find the latest jobs for frontier workers in our [job board](nav:jobs).',
+    de: '**Jobs im Tessin:** Aktuelle Stellen für Grenzgänger auf unserer [Jobbörse](nav:jobs).',
+    fr: '**Emplois au Tessin:** Trouvez les dernières offres pour frontaliers sur notre [tableau des offres](nav:jobs).',
+    navAction: 'jobs',
+  },
+  {
+    keywords: ['cambio', 'euro', 'franco', 'chf', 'tasso di cambio', 'wechselkurs', 'exchange rate', 'cours'],
+    it: '**Tasso di cambio EUR/CHF:** Consulta il [calcolatore](nav:calculator) per il tasso aggiornato e per simulare il tuo stipendio netto in euro.',
+    en: '**EUR/CHF exchange rate:** Check the [calculator](nav:calculator) for the latest rate and net salary simulation in euros.',
+    de: '**EUR/CHF Wechselkurs:** Nutze den [Rechner](nav:calculator) für den aktuellen Kurs und Nettolohn-Simulation in Euro.',
+    fr: '**Taux EUR/CHF:** Consultez le [calculateur](nav:calculator) pour le taux actuel et simuler votre salaire net en euros.',
+    navAction: 'calculator',
+  },
+];
+
+/**
+ * Find a local fallback answer for the last user message.
+ * Returns the locale-specific text or null if no intent matches.
+ */
+function findLocalFallback(messages: Message[], locale: string): string | null {
+  const lastUser = [...messages].reverse().find(m => m.role === 'user');
+  if (!lastUser) return null;
+  const q = lastUser.content.toLowerCase();
+  for (const intent of LOCAL_INTENTS) {
+    if (intent.keywords.some(kw => q.includes(kw))) {
+      const key = (locale === 'de' || locale === 'fr') ? locale : locale === 'en' ? 'en' : 'it';
+      return intent[key as 'it' | 'en' | 'de' | 'fr'];
+    }
+  }
+  return null;
+}
+
+// ─── Inference helpers ────────────────────────────────────────
 
 function sleep(ms: number): Promise<void> {
   return new Promise(resolve => setTimeout(resolve, ms));
-}
-
-function getRetryDelayMs(response: Response, attempt: number): number {
-  const header = response.headers.get('retry-after');
-  const parsed = header ? Number(header) : NaN;
-  if (!Number.isNaN(parsed) && parsed > 0) return parsed * 1000;
-  return 800 * Math.max(1, attempt + 1);
 }
 
 function isSameOriginInternalUrl(href: string): boolean {
@@ -66,25 +152,48 @@ function navigateInternalUrl(href: string): boolean {
   }
 }
 
-async function callGemini(messages: Message[], apiKey: string, systemPrompt: string): Promise<string> {
-  // Build conversation history for Gemini (must alternate user/model turns)
+/**
+ * Tier 1: Call the Firebase Function (server-side, API key never in browser).
+ * Throws on any error so the caller can try Tier 2.
+ */
+async function callChatbotFunction(messages: Message[], systemPrompt: string): Promise<string> {
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), 20000); // 20s timeout
+  try {
+    const res = await fetch(CHATBOT_FUNCTION_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ messages, systemPrompt }),
+      signal: controller.signal,
+    });
+    const data = await res.json().catch(() => ({}));
+    if (res.status === 429) throw Object.assign(new Error('rate_limited'), { code: '429' });
+    if (!res.ok || !data.ok) throw new Error(data.error || `function_error_${res.status}`);
+    if (!data.text) throw new Error('empty_function_response');
+    return data.text;
+  } finally {
+    clearTimeout(timer);
+  }
+}
+
+/**
+ * Tier 2: Browser-side Gemini call (fallback when Function is unreachable).
+ * Uses gemini-2.0-flash-lite (non-deprecated). Requires apiKey from Remote Config.
+ */
+async function callGeminiBrowserFallback(messages: Message[], apiKey: string, systemPrompt: string): Promise<string> {
   const contents = messages.map(m => ({
     role: m.role === 'assistant' ? 'model' : 'user',
     parts: [{ text: m.content }],
   }));
 
   for (let attempt = 0; attempt < 3; attempt++) {
-    const response = await fetch(`${GEMINI_URL}?key=${encodeURIComponent(apiKey)}`, {
+    const response = await fetch(`${GEMINI_FALLBACK_URL}?key=${encodeURIComponent(apiKey)}`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         system_instruction: { parts: [{ text: systemPrompt }] },
         contents,
-        generationConfig: {
-          temperature: 0.7,
-          maxOutputTokens: 1024,
-          topP: 0.95,
-        },
+        generationConfig: { temperature: 0.7, maxOutputTokens: 1024, topP: 0.95 },
         safetySettings: [
           { category: 'HARM_CATEGORY_HARASSMENT', threshold: 'BLOCK_MEDIUM_AND_ABOVE' },
           { category: 'HARM_CATEGORY_HATE_SPEECH', threshold: 'BLOCK_MEDIUM_AND_ABOVE' },
@@ -102,15 +211,18 @@ async function callGemini(messages: Message[], apiKey: string, systemPrompt: str
     }
 
     if (response.status === 429 && attempt < 2) {
-      await sleep(getRetryDelayMs(response, attempt));
+      const retryAfter = response.headers.get('retry-after');
+      const delayMs = retryAfter ? Number(retryAfter) * 1000 : 900 * (attempt + 1);
+      await sleep(delayMs);
       continue;
     }
 
     const errorText = await response.text().catch(() => '');
+    if (response.status === 429) throw Object.assign(new Error('Gemini API error: 429'), { code: '429' });
     throw new Error(`Gemini API error: ${response.status} ${errorText.slice(0, 200)}`);
   }
 
-  throw new Error('Gemini API error: 429 Resource exhausted');
+  throw Object.assign(new Error('Gemini API error: 429 Resource exhausted'), { code: '429' });
 }
 
 // ─── Rate limiting ───────────────────────────────────────────
@@ -425,11 +537,6 @@ const AiChatbot: React.FC<AiChatbotProps> = ({ isLoggedIn, onSignIn, onSignInFac
 
   const sendAuthedMessage = useCallback(async (text: string) => {
     if (!text.trim() || loading) return;
-    if (!apiKey) {
-      setError(t('chatbot.unavailable'));
-      Analytics.trackChatbotUsage('api_error', { reason: 'missing_api_key' });
-      return;
-    }
     if (!checkRateLimit()) {
       setError(t('chatbot.rateLimit'));
       Analytics.trackChatbotUsage('rate_limited', {
@@ -452,30 +559,63 @@ const AiChatbot: React.FC<AiChatbotProps> = ({ isLoggedIn, onSignIn, onSignInFac
 
     try {
       incrementRateLimit();
-      const reply = await callGemini(newMessages, apiKey, systemPrompt);
-      setMessages(prev => [...prev, { role: 'assistant', content: reply }]);
-      Analytics.trackChatbotFunnel('response_generated');
-      
-      // Gamification: first chat interaction
-      if (messages.length === 0) {
-        unlockAchievement('chatbot_user');
-        Analytics.trackUIInteraction('chatbot', 'conversation', 'first_message', 'sent');
+
+      let reply: string | null = null;
+      let remoteErr: (Error & { code?: string }) | null = null;
+
+      // Tier 1: Firebase Function — API key stays server-side
+      try {
+        reply = await callChatbotFunction(newMessages, systemPrompt);
+      } catch (err1) {
+        const e1 = err1 as Error & { code?: string };
+        remoteErr = e1;
+        console.warn('[Chatbot] Tier 1 failed:', e1.message);
+
+        // Only try Tier 2 if not rate-limited (limit is per API key, shared across tiers)
+        if (e1.code !== '429' && apiKey) {
+          try {
+            reply = await callGeminiBrowserFallback(newMessages, apiKey, systemPrompt);
+          } catch (err2) {
+            const e2 = err2 as Error & { code?: string };
+            remoteErr = e2;
+            console.warn('[Chatbot] Tier 2 failed:', e2.message);
+          }
+        }
+      }
+
+      if (reply !== null) {
+        setMessages(prev => [...prev, { role: 'assistant', content: reply! }]);
+        Analytics.trackChatbotFunnel('response_generated');
+        // Gamification: first chat interaction
+        if (messages.length === 0) {
+          unlockAchievement('chatbot_user');
+          Analytics.trackUIInteraction('chatbot', 'conversation', 'first_message', 'sent');
+        }
+      } else {
+        // Tier 3: Local deterministic FAQ fallback — always available, no network required
+        const localReply = findLocalFallback(newMessages, locale);
+        if (localReply) {
+          const notice = t('chatbot.localFallbackNotice');
+          setMessages(prev => [...prev, { role: 'assistant', content: `${localReply}\n\n*${notice}*` }]);
+          Analytics.trackChatbotFunnel('response_generated');
+          Analytics.trackChatbotUsage('inference_local_fallback', { reason: remoteErr?.code ?? 'unknown' });
+        } else {
+          // All tiers exhausted — show specific error
+          reportCaughtError(remoteErr, 'aiChatbot.sendMessage');
+          const is429 = remoteErr?.code === '429';
+          setError(is429 ? t('chatbot.error429') : t('chatbot.error'));
+          Analytics.trackChatbotUsage('api_error', { reason: is429 ? '429' : 'all_failed' });
+        }
       }
     } catch (err) {
-      console.warn('[Chatbot] Error:', err);
+      console.warn('[Chatbot] Unexpected error:', err);
       reportCaughtError(err, 'aiChatbot.sendMessage');
-      const errorMessage = err instanceof Error ? err.message : String(err);
-      if (/Gemini API error:\s*429/.test(errorMessage)) {
-        setError(t('chatbot.error429'));
-        Analytics.trackChatbotUsage('api_error', { reason: '429' });
-      } else {
-        setError(t('chatbot.error'));
-        Analytics.trackChatbotUsage('api_error', { reason: 'generic' });
-      }
+      setError(t('chatbot.error'));
+      Analytics.trackChatbotUsage('api_error', { reason: 'generic' });
     } finally {
       setLoading(false);
     }
-  }, [loading, apiKey, messages, t, systemPrompt, canChat]);
+  }, [loading, apiKey, messages, t, systemPrompt, canChat, locale]);
 
   const handleSend = useCallback(async () => {
     const text = input.trim();

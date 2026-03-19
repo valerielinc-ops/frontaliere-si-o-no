@@ -1287,6 +1287,7 @@ const enCore: Record<string, string> = {
     'chatbot.disclaimer': 'Experimental AI — does not replace professional advice',
     'chatbot.error': 'Error generating response. Please try again.',
     'chatbot.error429': 'AI service is temporarily overloaded. Please try again in a few seconds.',
+    'chatbot.localFallbackNotice': '⚠️ Answer based on local data — AI service is temporarily unavailable.',
     'chatbot.unavailable': 'Assistant temporarily unavailable.',
     'chatbot.rateLimit': 'You\'ve reached the daily message limit (20). Try again tomorrow!',
     'chatbot.loginRequired': 'The AI assistant is available only for registered users. Sign in with your Google account to start chatting!',
