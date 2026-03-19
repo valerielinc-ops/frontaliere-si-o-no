@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-03-19T05:14:37.615Z",
+  "updatedAt": "2026-03-19T05:14:02.600Z",
   "summaries": [
     {
       "key": "galenica",
@@ -2654,71 +2654,6 @@
         }
       ],
       "updatedJobs": [],
-      "removedJobs": [],
-      "unchangedJobs": []
-    },
-    {
-      "key": "mks-pamp",
-      "label": "MKS PAMP",
-      "generatedAt": "2026-03-18T16:36:09.205Z",
-      "total": 5,
-      "newCount": 2,
-      "updatedCount": 3,
-      "removedCount": 0,
-      "unchangedCount": 0,
-      "durationMs": 27953,
-      "avgDurationMs": 21028,
-      "durationHistory": [
-        27953,
-        19071,
-        18842,
-        17948,
-        18702,
-        20168,
-        20938,
-        19401,
-        20165,
-        27096
-      ],
-      "newJobs": [
-        {
-          "title": "Idraulico Manutentore Macchinari Industriali",
-          "company": "MKS PAMP",
-          "location": "Castel San Pietro",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/idraulico-manutentore-macchinari-industriali-mks-pamp-castel-san-pietro/",
-          "slug": "idraulico-manutentore-macchinari-industriali-mks-pamp-castel-san-pietro"
-        },
-        {
-          "title": "Addetto/a Health &amp; Safety (H&amp;S)",
-          "company": "MKS PAMP",
-          "location": "Castel San Pietro",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/addetto-a-health-amp-safety-h-amp-s-mks-pamp-castel-san-pietro/",
-          "slug": "addetto-a-health-amp-safety-h-amp-s-mks-pamp-castel-san-pietro"
-        }
-      ],
-      "updatedJobs": [
-        {
-          "title": "Metal &amp; Inventory Controller",
-          "company": "MKS PAMP",
-          "location": "Castel San Pietro",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/metal-amp-inventory-controller-mks-pamp-castel-san-pietro/",
-          "slug": "metal-amp-inventory-controller-mks-pamp-castel-san-pietro"
-        },
-        {
-          "title": "Operatore reparto Raffineria",
-          "company": "MKS PAMP",
-          "location": "Castel San Pietro",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/operatore-reparto-raffineria-mks-pamp-castel-san-pietro/",
-          "slug": "operatore-reparto-raffineria-mks-pamp-castel-san-pietro"
-        },
-        {
-          "title": "Specialista tecnico chimico responsabile conduzione impianto",
-          "company": "MKS PAMP",
-          "location": "Castel San Pietro",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/specialista-tecnico-chimico-responsabile-conduzione-impianto-mks-pamp-castel-san-pietro/",
-          "slug": "specialista-tecnico-chimico-responsabile-conduzione-impianto-mks-pamp-castel-san-pietro"
-        }
-      ],
       "removedJobs": [],
       "unchangedJobs": []
     },
@@ -9861,6 +9796,78 @@
           "location": "Castelrotto",
           "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/concorso-generale-per-medici-assistenti-2025-2026-oscam/",
           "slug": "concorso-generale-per-medici-assistenti-2025-2026-oscam-ospedale-e-casa-anziani-malcantonese-castelrotto"
+        }
+      ],
+      "removedJobs": [],
+      "unchangedJobs": []
+    },
+    {
+      "key": "mks-pamp",
+      "label": "MKS PAMP",
+      "generatedAt": "2026-03-19T05:14:02.600Z",
+      "total": 6,
+      "newCount": 1,
+      "updatedCount": 5,
+      "removedCount": 0,
+      "unchangedCount": 0,
+      "durationMs": 20681,
+      "avgDurationMs": 20387,
+      "durationHistory": [
+        20681,
+        27953,
+        19071,
+        18842,
+        17948,
+        18702,
+        20168,
+        20938,
+        19401,
+        20165
+      ],
+      "newJobs": [
+        {
+          "title": "HR Business Partner",
+          "company": "MKS PAMP",
+          "location": "Castel San Pietro",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/hr-business-partner-mks-pamp-castel-san-pietro/",
+          "slug": "hr-business-partner-mks-pamp-castel-san-pietro"
+        }
+      ],
+      "updatedJobs": [
+        {
+          "title": "Idraulico Manutentore Macchinari Industriali",
+          "company": "MKS PAMP",
+          "location": "Castel San Pietro",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/idraulico-manutentore-macchinari-industriali-mks-pamp-castel-san-pietro/",
+          "slug": "idraulico-manutentore-macchinari-industriali-mks-pamp-castel-san-pietro"
+        },
+        {
+          "title": "Addetto/a Health &amp; Safety (H&amp;S)",
+          "company": "MKS PAMP",
+          "location": "Castel San Pietro",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/addetto-a-health-amp-safety-h-amp-s-mks-pamp-castel-san-pietro/",
+          "slug": "addetto-a-health-amp-safety-h-amp-s-mks-pamp-castel-san-pietro"
+        },
+        {
+          "title": "Metal &amp; Inventory Controller",
+          "company": "MKS PAMP",
+          "location": "Castel San Pietro",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/metal-amp-inventory-controller-mks-pamp-castel-san-pietro/",
+          "slug": "metal-amp-inventory-controller-mks-pamp-castel-san-pietro"
+        },
+        {
+          "title": "Operatore reparto Raffineria",
+          "company": "MKS PAMP",
+          "location": "Castel San Pietro",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/operatore-reparto-raffineria-mks-pamp-castel-san-pietro/",
+          "slug": "operatore-reparto-raffineria-mks-pamp-castel-san-pietro"
+        },
+        {
+          "title": "Specialista tecnico chimico responsabile conduzione impianto",
+          "company": "MKS PAMP",
+          "location": "Castel San Pietro",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/specialista-tecnico-chimico-responsabile-conduzione-impianto-mks-pamp-castel-san-pietro/",
+          "slug": "specialista-tecnico-chimico-responsabile-conduzione-impianto-mks-pamp-castel-san-pietro"
         }
       ],
       "removedJobs": [],
