@@ -1,22 +1,22 @@
 {
-  "generatedAt": "2026-03-19T05:23:38.737Z",
+  "generatedAt": "2026-03-19T05:23:28.160Z",
   "links": {
     "allJobs": "https://www.frontaliereticino.ch/cerca-lavoro-ticino"
   },
   "totals": {
-    "activeJobs": 877,
+    "activeJobs": 3171,
     "activeCompanies": 123,
-    "activeLocations": 138,
-    "todayAdded": 983,
+    "activeLocations": 145,
+    "todayAdded": 985,
     "todayUpdated": 0,
     "todayRemoved": 0,
     "last7d": {
-      "added": 3257,
+      "added": 3259,
       "updated": 0,
       "removed": 0
     },
     "last30d": {
-      "added": 3740,
+      "added": 3742,
       "updated": 0,
       "removed": 0
     }
@@ -47,6 +47,27 @@
       "date": "2026-03-19",
       "totalJobs": 3169,
       "added": 983,
+      "updated": 0,
+      "removed": 0
+    },
+    {
+      "date": "2026-03-17",
+      "totalJobs": 1014,
+      "added": 1194,
+      "updated": 0,
+      "removed": 0
+    },
+    {
+      "date": "2026-03-18",
+      "totalJobs": 5009,
+      "added": 1080,
+      "updated": 0,
+      "removed": 0
+    },
+    {
+      "date": "2026-03-19",
+      "totalJobs": 3171,
+      "added": 985,
       "updated": 0,
       "removed": 0
     }
@@ -204,6 +225,12 @@
         "name": "Ticino",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-ticino",
         "count": 29
+      },
+      {
+        "key": "lugano",
+        "name": "Lugano",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-lugano",
+        "count": 385
       }
     ],
     "topCompaniesAddedToday": [
@@ -253,6 +280,15 @@
         "removed": 0
       },
       {
+        "key": "usi-universita-della-svizzera-italiana",
+        "name": "USI – Università della Svizzera italiana",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-usi-universita-della-svizzera-italiana",
+        "count": 0,
+        "added": 26,
+        "updated": 0,
+        "removed": 0
+      },
+      {
         "key": "vf-international-the-north-face-timberland",
         "name": "VF International (The North Face, Timberland)",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-vf-international-the-north-face-timberland",
@@ -265,15 +301,6 @@
         "key": "hamilton-bonaduz-ag",
         "name": "Hamilton Bonaduz AG",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-hamilton-bonaduz-ag",
-        "count": 0,
-        "added": 24,
-        "updated": 0,
-        "removed": 0
-      },
-      {
-        "key": "usi-universita-della-svizzera-italiana",
-        "name": "USI – Università della Svizzera italiana",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-usi-universita-della-svizzera-italiana",
         "count": 0,
         "added": 24,
         "updated": 0,
@@ -345,11 +372,11 @@
         "removed": 0
       },
       {
-        "key": "hamilton-bonaduz-ag",
-        "name": "Hamilton Bonaduz AG",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-hamilton-bonaduz-ag",
+        "key": "usi-universita-della-svizzera-italiana",
+        "name": "USI – Università della Svizzera italiana",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-usi-universita-della-svizzera-italiana",
         "count": 0,
-        "added": 25,
+        "added": 26,
         "updated": 0,
         "removed": 0
       }
@@ -369,7 +396,7 @@
         "name": "Lugano",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-lugano",
         "count": 0,
-        "added": 175,
+        "added": 176,
         "updated": 0,
         "removed": 0
       },
@@ -505,11 +532,11 @@
   },
   "salary": {
     "coverage": {
-      "jobsWithSalary": 877,
+      "jobsWithSalary": 3171,
       "coveragePct": 100,
-      "avgMin": 66979,
-      "avgMax": 90352,
-      "avgMid": 78665,
+      "avgMin": 68380,
+      "avgMax": 91938,
+      "avgMid": 80159,
       "medianMid": 68500
     },
     "leaders": {
@@ -603,6 +630,16 @@
           "avgMax": 122750,
           "avgMid": 106750,
           "weightedSalary": 97150
+        },
+        {
+          "key": "fincons-group",
+          "name": "Fincons Group",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-fincons-group",
+          "count": 8,
+          "avgMin": 83250,
+          "avgMax": 112250,
+          "avgMid": 97750,
+          "weightedSalary": 97750
         }
       ],
       "topSalaryLocations": [
@@ -715,6 +752,16 @@
           "avgMax": 99313,
           "avgMid": 86438,
           "weightedSalary": 86438
+        },
+        {
+          "key": "schaffhausen",
+          "name": "Schaffhausen",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-schaffhausen",
+          "count": 125,
+          "avgMin": 77500,
+          "avgMax": 104500,
+          "avgMid": 91000,
+          "weightedSalary": 91000
         }
       ],
       "topSalaryTitles": [
