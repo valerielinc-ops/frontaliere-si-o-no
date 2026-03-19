@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-03-19T05:20:34.716Z",
+  "generatedAt": "2026-03-19T05:17:19.691Z",
   "links": {
     "allJobs": "https://www.frontaliereticino.ch/cerca-lavoro-ticino"
   },
   "totals": {
-    "activeJobs": 940,
+    "activeJobs": 3104,
     "activeCompanies": 129,
     "activeLocations": 144,
     "todayAdded": 982,
@@ -803,11 +803,11 @@
   },
   "salary": {
     "coverage": {
-      "jobsWithSalary": 940,
+      "jobsWithSalary": 3104,
       "coveragePct": 100,
-      "avgMin": 66586,
-      "avgMax": 89801,
-      "avgMid": 78193,
+      "avgMin": 68401,
+      "avgMax": 91966,
+      "avgMid": 80183,
       "medianMid": 68500
     },
     "leaders": {
@@ -1083,6 +1083,16 @@
           "avgMax": 100313,
           "avgMid": 87313,
           "weightedSalary": 87313
+        },
+        {
+          "key": "beijing-china",
+          "name": "Beijing, China",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-beijing-china",
+          "count": 2,
+          "avgMin": 92000,
+          "avgMax": 125000,
+          "avgMid": 108500,
+          "weightedSalary": 98600
         }
       ],
       "topSalaryTitles": [

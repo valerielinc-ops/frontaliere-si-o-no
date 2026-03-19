@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-03-19T05:20:30.153Z",
+  "updatedAt": "2026-03-19T05:16:41.635Z",
   "summaries": [
     {
       "key": "galenica",
@@ -1363,41 +1363,6 @@
         }
       ],
       "updatedJobs": [],
-      "removedJobs": [],
-      "unchangedJobs": []
-    },
-    {
-      "key": "rittmeyer-ag",
-      "label": "Rittmeyer AG",
-      "generatedAt": "2026-03-18T16:38:36.387Z",
-      "total": 1,
-      "newCount": 0,
-      "updatedCount": 1,
-      "removedCount": 0,
-      "unchangedCount": 0,
-      "durationMs": 3370,
-      "avgDurationMs": 3429,
-      "durationHistory": [
-        3370,
-        3297,
-        3671,
-        3220,
-        3471,
-        3294,
-        3071,
-        3771,
-        3692
-      ],
-      "newJobs": [],
-      "updatedJobs": [
-        {
-          "title": "Sales Project Engineer (a) Ticino",
-          "company": "Rittmeyer AG",
-          "location": "Camorino",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/sales-project-engineer-a-ticino-rittmeyer-ag-tessin/",
-          "slug": "sales-project-engineer-a-ticino-rittmeyer-ag-tessin"
-        }
-      ],
       "removedJobs": [],
       "unchangedJobs": []
     },
@@ -9985,6 +9950,42 @@
           "location": "Route de la Communance 2800 Delémont (Jura) Suisse Adresse de l'entreprise Blanc",
           "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/responsabile-acquisti-subappalto-m-f-sede-di-delemont-blancpain-ltd-route-de-la-communance-2800-delemont-jura-suisse-adresse-de-l-entreprise-blanc/",
           "slug": "responsabile-acquisti-subappalto-m-f-sede-di-delemont-blancpain-ltd-route-de-la-communance-2800-delemont-jura-suisse-adresse-de-l-entreprise-blanc"
+        }
+      ],
+      "removedJobs": [],
+      "unchangedJobs": []
+    },
+    {
+      "key": "rittmeyer-ag",
+      "label": "Rittmeyer AG",
+      "generatedAt": "2026-03-19T05:16:41.635Z",
+      "total": 1,
+      "newCount": 0,
+      "updatedCount": 1,
+      "removedCount": 0,
+      "unchangedCount": 0,
+      "durationMs": 4241,
+      "avgDurationMs": 3510,
+      "durationHistory": [
+        4241,
+        3370,
+        3297,
+        3671,
+        3220,
+        3471,
+        3294,
+        3071,
+        3771,
+        3692
+      ],
+      "newJobs": [],
+      "updatedJobs": [
+        {
+          "title": "Sales Project Engineer (a) Ticino",
+          "company": "Rittmeyer AG",
+          "location": "Camorino",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/sales-project-engineer-a-ticino-rittmeyer-ag-tessin/",
+          "slug": "sales-project-engineer-a-ticino-rittmeyer-ag-tessin"
         }
       ],
       "removedJobs": [],
