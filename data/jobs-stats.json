@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-03-19T15:59:44.555Z",
+  "generatedAt": "2026-03-19T16:00:27.813Z",
   "links": {
     "allJobs": "https://www.frontaliereticino.ch/cerca-lavoro-ticino"
   },
   "totals": {
     "activeJobs": 784,
     "activeCompanies": 97,
-    "activeLocations": 118,
+    "activeLocations": 125,
     "todayAdded": 1005,
     "todayUpdated": 0,
     "todayRemoved": 0,
@@ -141,12 +141,6 @@
         "count": 43
       },
       {
-        "key": "chur",
-        "name": "Chur",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-chur",
-        "count": 35
-      },
-      {
         "key": "ticino",
         "name": "Ticino",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-ticino",
@@ -157,6 +151,18 @@
         "name": "Novaggio",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-novaggio",
         "count": 28
+      },
+      {
+        "key": "bellinzona",
+        "name": "Bellinzona",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-bellinzona",
+        "count": 134
+      },
+      {
+        "key": "chur",
+        "name": "Chur",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-chur",
+        "count": 36
       }
     ],
     "topCompaniesAddedToday": [
