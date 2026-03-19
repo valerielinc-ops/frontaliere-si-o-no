@@ -7,10 +7,10 @@
  *   2. Inspect a sample of URLs for indexing status (max 20)
  *   3. Query search analytics for last 7 days summary
  *
- * Environment variables (from GitHub Secrets):
+ * Environment variables (loaded from Firebase Remote Config via load-rc-env.mjs):
  *   GSC_CLIENT_ID      — OAuth2 client ID
  *   GSC_CLIENT_SECRET   — OAuth2 client secret
- *   GSC_REFRESH_TOKEN   — OAuth2 refresh token (one-time setup via setup-google-oauth.mjs)
+ *   GSC_REFRESH_TOKEN   — OAuth2 refresh token
  *
  * Mirrors the submit-indexnow.js pattern: sitemap parsing, retry logic, emoji logging.
  * Always exits 0 — failures are logged but never block deployment.

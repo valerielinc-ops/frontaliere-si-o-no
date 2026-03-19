@@ -45,8 +45,6 @@ jobs:
         run: node scripts/load-rc-env.mjs
 
       - name: Run Tarchini Group dedicated crawler
-        env:
-          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: node scripts/update-tarchini-group-jobs.mjs
 
       - name: Housekeeping — remove expired job listings (scoped)

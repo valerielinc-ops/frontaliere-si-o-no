@@ -19,7 +19,7 @@
  *   node scripts/analytics-report.mjs --days 30        # Override period (default: 30)
  *   node scripts/analytics-report.mjs --save           # Save report to reports/ folder
  *
- * Environment variables:
+ * Environment variables (loaded from Firebase Remote Config via load-rc-env.mjs):
  *   GSC_CLIENT_ID       — OAuth2 client ID (for Search Console + GA4)
  *   GSC_CLIENT_SECRET   — OAuth2 client secret
  *   GSC_REFRESH_TOKEN   — OAuth2 refresh token

@@ -12,7 +12,7 @@
  *
  * Required env (for full mode):
  * - GOOGLE_APPLICATION_CREDENTIALS (Firebase service account JSON path)
- * - GSC_CLIENT_ID / GSC_CLIENT_SECRET / GSC_REFRESH_TOKEN
+ * - GSC_CLIENT_ID / GSC_CLIENT_SECRET / GSC_REFRESH_TOKEN (from Remote Config)
  * - GA4_PROPERTY_ID
  *
  * Optional env:

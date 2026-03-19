@@ -68,15 +68,8 @@ function setAuthRedirectState(provider: 'google' | 'facebook'): void {
 /**
  * Google Sign-In.
  *
- * Root cause of previous failures: authDomain was set to auth.frontaliereticino.ch,
- * which is NOT registered as an authorized redirect URI in the Firebase project's
- * Google Cloud Console OAuth client → signInWithIdp 400 on EVERY auth attempt
- * (popup and redirect alike). auth.frontaliereticino.ch also set COOP: same-origin,
- * blocking window.opener postMessage.
- *
- * Definitive fix: authDomain is now frontaliere-ticino.firebaseapp.com (firebase.ts).
- * That domain is pre-authorized by Firebase, does not set COOP: same-origin, and
- * supports both popup and redirect flows out of the box.
+ * authDomain: auth.frontaliereticino.ch (custom domain, registered as authorized
+ * redirect URI in Google Cloud Console OAuth client, no COOP:same-origin header).
  *
  * Strategy:
  *   - Desktop: signInWithPopup (fast, no page reload, no navigation state loss)

@@ -27,12 +27,9 @@ const firebaseConfig = {
   apiKey: import.meta.env.VITE_FIREBASE_API_KEY || _d(_K, _S),
   // Use the default Firebase auth domain (frontaliere-ticino.firebaseapp.com), NOT the
   // custom auth.frontaliereticino.ch domain. The custom domain requires
-  // https://auth.frontaliereticino.ch/__/auth/handler to be registered as an authorized
-  // redirect URI in the Google Cloud Console OAuth client, which it is not — causing a
-  // signInWithIdp 400 on every Google sign-in attempt (both popup and redirect flows).
-  // The default .firebaseapp.com domain is pre-authorized and does not set COOP:same-origin,
-  // so popup-based sign-in works correctly.
-  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN || 'frontaliere-ticino.firebaseapp.com',
+  // Custom auth domain — auth.frontaliereticino.ch is registered as an authorized
+  // redirect URI in the Google Cloud Console OAuth client and does not set COOP:same-origin.
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN || 'auth.frontaliereticino.ch',
   projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID || 'frontaliere-ticino',
   storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET || 'frontaliere-ticino.firebasestorage.app',
   messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID || '957502085858',

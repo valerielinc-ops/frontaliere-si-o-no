@@ -38,45 +38,25 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Setup Firebase service account
+      - name: Prepare Firebase credentials (optional)
         env:
-          GOOGLE_APPLICATION_CREDENTIALS_JSON: ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS_JSON }}
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
         run: |
-          if [ -n "$GOOGLE_APPLICATION_CREDENTIALS_JSON" ]; then
-            echo "$GOOGLE_APPLICATION_CREDENTIALS_JSON" > /tmp/firebase-sa.json
-            echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+          if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+          else
+            echo "ℹ️ Firebase secrets not set — crawler will use file config only."
+            exit 0
           fi
+          echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+
+      - name: Load secrets from Remote Config
+        run: node scripts/load-rc-env.mjs
 
       - name: Run Avaloq crawler
         env:
-          GOOGLE_APPLICATION_CREDENTIALS: /tmp/firebase-sa.json
-          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-          VITE_GEMINI_API_KEY: ${{ secrets.VITE_GEMINI_API_KEY }}
-          BING_API_KEY: ${{ secrets.BING_API_KEY }}
-          PAGESPEED_API_KEY: ${{ secrets.PAGESPEED_API_KEY }}
-          FB_PAGE_ID: ${{ secrets.FB_PAGE_ID }}
-          GITHUB_PAT: ${{ secrets.GITHUB_PAT }}
-          GH_MODELS_PAT: ${{ secrets.GH_MODELS_PAT }}
-          GOOGLE_MAPS_API_KEY: ${{ secrets.GOOGLE_MAPS_API_KEY }}
-          GA_MEASUREMENT_ID: ${{ secrets.GA_MEASUREMENT_ID }}
-          RECAPTCHA_SITE_KEY: ${{ secrets.RECAPTCHA_SITE_KEY }}
-          TWELVEDATA_API_KEY: ${{ secrets.TWELVEDATA_API_KEY }}
-          GOOGLE_OAUTH_CLIENT_ID: ${{ secrets.GOOGLE_OAUTH_CLIENT_ID }}
-          GSC_CLIENT_ID: ${{ secrets.GSC_CLIENT_ID }}
-          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
-          FB_PAGE_ACCESS_TOKEN: ${{ secrets.FB_PAGE_ACCESS_TOKEN }}
-          GA4_PROPERTY_ID: ${{ secrets.GA4_PROPERTY_ID }}
-          GSC_CLIENT_SECRET: ${{ secrets.GSC_CLIENT_SECRET }}
-          GSC_REFRESH_TOKEN: ${{ secrets.GSC_REFRESH_TOKEN }}
-          DEEPL_API_KEY: ${{ secrets.DEEPL_API_KEY }}
-          PIXABAY_API_KEY: ${{ secrets.PIXABAY_API_KEY }}
-          CLARITY_API_KEY: ${{ secrets.CLARITY_API_KEY }}
-          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
-          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
-          HF_TOKEN: ${{ secrets.HF_TOKEN }}
-          HUGGINGFACE_TOKEN: ${{ secrets.HUGGINGFACE_TOKEN }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ github.event.inputs.timeout_ms }}
-          JOBS_CRAWLER_USE_FIRESTORE_CONFIG: 1
+          JOBS_CRAWLER_USE_FIRESTORE_CONFIG: '1'
           JOBS_AVALOQ_STRICT: ${{ github.event.inputs.strict_localization == 'false' && '0' || '1' }}
         run: npm run jobs:update:avaloq
 
