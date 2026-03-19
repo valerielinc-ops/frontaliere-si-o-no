@@ -1,22 +1,22 @@
 {
-  "generatedAt": "2026-03-19T04:54:17.338Z",
+  "generatedAt": "2026-03-19T04:54:58.247Z",
   "links": {
     "allJobs": "https://www.frontaliereticino.ch/cerca-lavoro-ticino"
   },
   "totals": {
-    "activeJobs": 1184,
+    "activeJobs": 1196,
     "activeCompanies": 125,
     "activeLocations": 155,
-    "todayAdded": 895,
+    "todayAdded": 885,
     "todayUpdated": 0,
     "todayRemoved": 0,
     "last7d": {
-      "added": 3169,
+      "added": 3159,
       "updated": 0,
       "removed": 0
     },
     "last30d": {
-      "added": 3652,
+      "added": 3642,
       "updated": 0,
       "removed": 0
     }
@@ -45,13 +45,6 @@
     },
     {
       "date": "2026-03-19",
-      "totalJobs": 1176,
-      "added": 884,
-      "updated": 0,
-      "removed": 0
-    },
-    {
-      "date": "2026-03-19",
       "totalJobs": 1172,
       "added": 883,
       "updated": 0,
@@ -70,16 +63,17 @@
       "added": 895,
       "updated": 0,
       "removed": 0
+    },
+    {
+      "date": "2026-03-19",
+      "totalJobs": 1196,
+      "added": 885,
+      "updated": 0,
+      "removed": 0
     }
   ],
   "leaders": {
     "topCompaniesActive": [
-      {
-        "key": "kantonsspital-graubunden",
-        "name": "Kantonsspital Graubünden",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-kantonsspital-graubunden",
-        "count": 27
-      },
       {
         "key": "eoc-ente-ospedaliero-cantonale",
         "name": "EOC – Ente Ospedaliero Cantonale",
@@ -91,12 +85,6 @@
         "name": "PEMSA",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-pemsa",
         "count": 58
-      },
-      {
-        "key": "vf-international-the-north-face-timberland",
-        "name": "VF International (The North Face, Timberland)",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-vf-international-the-north-face-timberland",
-        "count": 48
       },
       {
         "key": "coop",
@@ -247,6 +235,18 @@
         "name": "SUPSI / DTI",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-supsi-dti",
         "count": 28
+      },
+      {
+        "key": "vf-international-the-north-face-timberland",
+        "name": "VF International (The North Face, Timberland)",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-vf-international-the-north-face-timberland",
+        "count": 54
+      },
+      {
+        "key": "colin-cie-wealth-management",
+        "name": "Colin&Cie Wealth Management",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-colin-cie-wealth-management",
+        "count": 33
       }
     ],
     "topLocationsActive": [
@@ -285,12 +285,6 @@
         "name": "Chur",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-chur",
         "count": 47
-      },
-      {
-        "key": "emea-che-stabio-vf-campus-vf1",
-        "name": "EMEA · CHE · Stabio · VF Campus VF1",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-emea-che-stabio-vf-campus-vf1",
-        "count": 46
       },
       {
         "key": "ticino",
@@ -441,6 +435,18 @@
         "name": "Lugano",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-lugano",
         "count": 162
+      },
+      {
+        "key": "lugano",
+        "name": "Lugano",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-lugano",
+        "count": 167
+      },
+      {
+        "key": "emea-che-stabio-vf-campus-vf1",
+        "name": "EMEA · CHE · Stabio · VF Campus VF1",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-emea-che-stabio-vf-campus-vf1",
+        "count": 52
       }
     ],
     "topCompaniesAddedToday": [
@@ -742,11 +748,11 @@
   },
   "salary": {
     "coverage": {
-      "jobsWithSalary": 1184,
+      "jobsWithSalary": 1196,
       "coveragePct": 100,
-      "avgMin": 67499,
-      "avgMax": 91054,
-      "avgMid": 79277,
+      "avgMin": 67553,
+      "avgMax": 91122,
+      "avgMid": 79337,
       "medianMid": 75826
     },
     "leaders": {
@@ -984,16 +990,6 @@
           "weightedSalary": 91611
         },
         {
-          "key": "zurich",
-          "name": "Zürich",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-zurich",
-          "count": 8,
-          "avgMin": 79313,
-          "avgMax": 107063,
-          "avgMid": 93188,
-          "weightedSalary": 93188
-        },
-        {
           "key": "quartino-ticino",
           "name": "Quartino, Ticino",
           "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-quartino-ticino",
@@ -1152,6 +1148,16 @@
           "avgMax": 105278,
           "avgMid": 91611,
           "weightedSalary": 91611
+        },
+        {
+          "key": "zurich",
+          "name": "Zürich",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-zurich",
+          "count": 10,
+          "avgMin": 78950,
+          "avgMax": 106550,
+          "avgMid": 92750,
+          "weightedSalary": 92750
         }
       ],
       "topSalaryTitles": [
