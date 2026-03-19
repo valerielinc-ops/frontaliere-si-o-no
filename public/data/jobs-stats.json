@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-03-19T05:20:09.753Z",
+  "generatedAt": "2026-03-19T05:19:50.652Z",
   "links": {
     "allJobs": "https://www.frontaliereticino.ch/cerca-lavoro-ticino"
   },
   "totals": {
-    "activeJobs": 3170,
-    "activeCompanies": 128,
+    "activeJobs": 933,
+    "activeCompanies": 129,
     "activeLocations": 146,
     "todayAdded": 983,
     "todayUpdated": 0,
@@ -135,6 +135,18 @@
         "name": "Blancpain Ltd",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-blancpain-ltd",
         "count": 98
+      },
+      {
+        "key": "vf-international-the-north-face-timberland",
+        "name": "VF International (The North Face, Timberland)",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-vf-international-the-north-face-timberland",
+        "count": 26
+      },
+      {
+        "key": "convit-holding-gmbh",
+        "name": "Convit Holding GmbH",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-convit-holding-gmbh",
+        "count": 23
       }
     ],
     "topLocationsActive": [
@@ -257,6 +269,36 @@
         "name": "Martigny",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-martigny",
         "count": 154
+      },
+      {
+        "key": "lugano",
+        "name": "Lugano",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-lugano",
+        "count": 116
+      },
+      {
+        "key": "st-moritz",
+        "name": "St. Moritz",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-st-moritz",
+        "count": 56
+      },
+      {
+        "key": "locarno",
+        "name": "Locarno",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-locarno",
+        "count": 49
+      },
+      {
+        "key": "mendrisio",
+        "name": "Mendrisio",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-mendrisio",
+        "count": 47
+      },
+      {
+        "key": "ticino",
+        "name": "Ticino",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-ticino",
+        "count": 28
       }
     ],
     "topCompaniesAddedToday": [
@@ -558,12 +600,12 @@
   },
   "salary": {
     "coverage": {
-      "jobsWithSalary": 3170,
+      "jobsWithSalary": 933,
       "coveragePct": 100,
-      "avgMin": 68398,
-      "avgMax": 91962,
-      "avgMid": 80180,
-      "medianMid": 84500
+      "avgMin": 66493,
+      "avgMax": 89679,
+      "avgMid": 78086,
+      "medianMid": 68500
     },
     "leaders": {
       "topSalaryCompanies": [
@@ -656,6 +698,16 @@
           "avgMax": 122750,
           "avgMid": 106750,
           "weightedSalary": 97150
+        },
+        {
+          "key": "fincons-group",
+          "name": "Fincons Group",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-fincons-group",
+          "count": 8,
+          "avgMin": 83250,
+          "avgMax": 112250,
+          "avgMid": 97750,
+          "weightedSalary": 97750
         }
       ],
       "topSalaryLocations": [
@@ -758,6 +810,26 @@
           "avgMax": 104500,
           "avgMid": 91000,
           "weightedSalary": 91000
+        },
+        {
+          "key": "zurich",
+          "name": "Zürich",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-zurich",
+          "count": 4,
+          "avgMin": 81125,
+          "avgMax": 109625,
+          "avgMid": 95375,
+          "weightedSalary": 92525
+        },
+        {
+          "key": "castel-san-pietro",
+          "name": "Castel San Pietro",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-castel-san-pietro",
+          "count": 7,
+          "avgMin": 76643,
+          "avgMax": 103500,
+          "avgMid": 90071,
+          "weightedSalary": 90071
         }
       ],
       "topSalaryTitles": [
