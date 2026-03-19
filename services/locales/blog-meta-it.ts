@@ -1376,6 +1376,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.governo-getta-spugna-kebab-case.title': 'Governo getta la spugna sulle nomine SIMS: niente ricorso a Losanna',
     'blog.article.governo-getta-spugna-kebab-case.excerpt': 'Il Consiglio di Stato decide di non ricorrere al Tribunale federale contro la sentenza del TRAM sull\'invalidità delle nomine dei capisezione della SIMS',
     'blog.article.governo-getta-spugna-kebab-case.imageAlt': 'Fotografia di un edificio governativo in Canton Ticino',
+    'blog.article.kebab-case-borse-freddo-2024.title': 'Scenari "caldi" nel Medio Oriente, sulle Borse cala un freddo pungente',
+    'blog.article.kebab-case-borse-freddo-2024.excerpt': 'La borsa di Zurigo chiude il venerdì scorso con una perdita di quasi 200 punti.',
+    'blog.article.kebab-case-borse-freddo-2024.imageAlt': 'Un mercato finanziario caotico a Lugano, con titoli azionari in caduta libera.',
 };
 
 export default blogMetaIt;

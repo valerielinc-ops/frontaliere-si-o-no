@@ -1376,6 +1376,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.governo-getta-spugna-kebab-case.title': 'Government Drops Case on SIMS Appointments: No Appeal to Federal Court',
     'blog.article.governo-getta-spugna-kebab-case.excerpt': 'The State Council of the Canton Ticino has decided not to appeal to the Federal Court against the judgment of the Administrative Court (TRAM) that declared the appointments of the SIMS section heads invalid.',
     'blog.article.governo-getta-spugna-kebab-case.imageAlt': 'Fotografia di un edificio governativo in Canton Ticino',
+    'blog.article.kebab-case-borse-freddo-2024.title': 'Scenarios \'Hot\' in the Middle East, Stocks Fall with a Pungent Chill',
+    'blog.article.kebab-case-borse-freddo-2024.excerpt': 'The Zurich Stock Exchange closed on Friday with a loss of almost 200 points.',
+    'blog.article.kebab-case-borse-freddo-2024.imageAlt': 'A chaotic financial market in Lugano, with plummeting stock prices.',
 };
 
 export default blogMetaEn;

@@ -1376,6 +1376,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.governo-getta-spugna-kebab-case.title': 'Regierung wirft die Handtuch auf die Nominierungen SIMS: kein Rekurs an die Bundesgerichtsbarkeit',
     'blog.article.governo-getta-spugna-kebab-case.excerpt': 'Der Staatsrat hat beschlossen, keinen Rekurs an das Bundesgericht zu erheben gegen die Entscheidung des Verwaltungsgerichts über die Ungültigkeit der Nominierungen der SIMS-Chefsekretäre.',
     'blog.article.governo-getta-spugna-kebab-case.imageAlt': 'Fotografie eines Regierungsbauwerks im Kanton Tessin',
+    'blog.article.kebab-case-borse-freddo-2024.title': 'Wärme-Szenarien im Nahen Osten, Börsen fallen einem kalten Schlag',
+    'blog.article.kebab-case-borse-freddo-2024.excerpt': 'Die Börse in Zürich schloss am vergangenen Freitag mit einem Verlust von fast 200 Punkten.',
+    'blog.article.kebab-case-borse-freddo-2024.imageAlt': 'Ein chaotischer Finanzmarkt in Lugano, mit fallen Stockpreisen.',
 };
 
 export default blogMetaDe;

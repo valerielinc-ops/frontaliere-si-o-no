@@ -1376,6 +1376,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.governo-getta-spugna-kebab-case.title': 'Le gouvernement abandonne les nominations SIMS : pas de recours à Losanna',
     'blog.article.governo-getta-spugna-kebab-case.excerpt': 'Le Conseil d\'État décide de ne pas faire appel au Tribunal fédéral contre la décision du Tribunal cantonal administratif (TRAM) qui a déclaré nulle la nomination des chefs de section de la Section de l\'enseignement moyen supérieur (SIMS)',
     'blog.article.governo-getta-spugna-kebab-case.imageAlt': 'Fotografie d\'un bâtiment gouvernemental dans le canton du Tessin',
+    'blog.article.kebab-case-borse-freddo-2024.title': 'Scénarios \'chauds\' au Moyen-Orient, les Bourses pâtissent d\'un froid pénétrant',
+    'blog.article.kebab-case-borse-freddo-2024.excerpt': 'La Bourse de Zurich a fermé vendredi dernier avec une perte de presque 200 points, ce qui représente un recul notable par rapport aux attentes.',
+    'blog.article.kebab-case-borse-freddo-2024.imageAlt': 'Un marché financier chaotique à Lugano, avec des cours en chute libre.',
 };
 
 export default blogMetaFr;

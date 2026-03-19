@@ -3786,6 +3786,13 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/governo-getta-spugna-kebab-case.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'kebab-case-borse-freddo-2024',
+    category: 'fiscale',
+    date: '2026-03-19T22:40:42.059Z',
+    image: '/images/blog/kebab-case-borse-freddo-2024.jpg',
+    hasCalculator: true,
+  },
 ];
 
 const CATEGORIES = ['all', 'fiscale', 'pratico', 'novita', 'pensione'] as const;

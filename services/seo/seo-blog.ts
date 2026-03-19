@@ -6432,6 +6432,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-kebab-case-borse-freddo-2024': {
+    title: 'Scenari "caldi" nel Medio Oriente, sulle Borse cala un | Frontaliere Ticino',
+    description: 'La borsa di Zurigo ha chiuso il venerdì scorso con una perdita di quasi 200 punti, il che rappresenta un calo notevole rispetto alle aspettative.',
+    keywords: 'frontalieri, ticino, svizzera, italia, scenari, caldi, medio, oriente',
+    ogTitle: 'Scenari "caldi" nel Medio Oriente, sulle Borse cala un',
+    ogDescription: 'La borsa di Zurigo ha chiuso il venerdì scorso con una perdita di quasi 200 punti, il che rappresenta un calo notevole rispetto alle aspettative.',
+    canonicalPath: '/articoli-frontaliere/kebab-case-borse-freddo-2024',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Scenari \"caldi\" nel Medio Oriente, sulle Borse cala un freddo pungente",
+      "description": "La borsa di Zurigo ha chiuso il venerdì scorso con una perdita di quasi 200 punti, il che rappresenta un calo notevole rispetto alle aspettative.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/kebab-case-borse-freddo-2024.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Un mercato finanziario caotico a Lugano, con titoli azionari in caduta libera."
+      },
+      "datePublished": "2026-03-19T22:40:42+00:00",
+      "dateModified": "2026-03-19T22:40:42+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/kebab-case-borse-freddo-2024`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
