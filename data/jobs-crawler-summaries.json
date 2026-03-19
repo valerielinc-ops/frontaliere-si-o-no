@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-03-19T05:10:40.395Z",
+  "updatedAt": "2026-03-19T05:10:34.824Z",
   "summaries": [
     {
       "key": "galenica",
@@ -2464,42 +2464,6 @@
           "slug": "responsabile-dell-assistenza-clienti-delvitech-sa-mendrisio"
         }
       ],
-      "unchangedJobs": []
-    },
-    {
-      "key": "linnea-sa",
-      "label": "Linnea SA",
-      "generatedAt": "2026-03-18T16:32:43.604Z",
-      "total": 1,
-      "newCount": 0,
-      "updatedCount": 1,
-      "removedCount": 0,
-      "unchangedCount": 0,
-      "durationMs": 33511,
-      "avgDurationMs": 8250,
-      "durationHistory": [
-        33511,
-        6780,
-        5063,
-        5834,
-        5333,
-        4963,
-        5492,
-        4984,
-        5427,
-        5116
-      ],
-      "newJobs": [],
-      "updatedJobs": [
-        {
-          "title": "ERP System Administrator and IT Project Lead",
-          "company": "Linnea SA",
-          "location": "Riazzino",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/erp-system-administrator-and-it-project-lead-linnea/",
-          "slug": "amministratore-di-sistema-erp-e-responsabile-progetti-it-linnea-sa-riazzino"
-        }
-      ],
-      "removedJobs": [],
       "unchangedJobs": []
     },
     {
@@ -9860,6 +9824,42 @@
       ],
       "newJobs": [],
       "updatedJobs": [],
+      "removedJobs": [],
+      "unchangedJobs": []
+    },
+    {
+      "key": "linnea-sa",
+      "label": "Linnea SA",
+      "generatedAt": "2026-03-19T05:10:34.824Z",
+      "total": 1,
+      "newCount": 0,
+      "updatedCount": 1,
+      "removedCount": 0,
+      "unchangedCount": 0,
+      "durationMs": 30840,
+      "avgDurationMs": 10823,
+      "durationHistory": [
+        30840,
+        33511,
+        6780,
+        5063,
+        5834,
+        5333,
+        4963,
+        5492,
+        4984,
+        5427
+      ],
+      "newJobs": [],
+      "updatedJobs": [
+        {
+          "title": "ERP System Administrator and IT Project Lead",
+          "company": "Linnea SA",
+          "location": "Riazzino",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/erp-system-administrator-and-it-project-lead-linnea/",
+          "slug": "amministratore-di-sistema-erp-e-responsabile-di-progetto-it-linnea-sa-riazzino"
+        }
+      ],
       "removedJobs": [],
       "unchangedJobs": []
     }
