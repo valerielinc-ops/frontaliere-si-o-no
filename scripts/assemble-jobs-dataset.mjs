@@ -324,6 +324,11 @@ function assembleSummaries() {
  * @param {boolean} [options.withStats=false] - Whether to regenerate job board stats after assembly
  */
 export async function assembleJobsDataset({ withStats = false } = {}) {
+  // In slice-only mode crawlers skip assembly — it runs during deploy instead.
+  if (String(process.env.CRAWLER_SLICE_ONLY || '0') === '1') {
+    console.log('📦 Slice-only mode: skipping assembly (will run at deploy time)');
+    return;
+  }
   console.log('🔧 Assembling jobs dataset from per-crawler slices...');
 
   // --- Jobs ---

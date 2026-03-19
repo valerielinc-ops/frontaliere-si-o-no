@@ -4,6 +4,14 @@
 #
 # Usage:
 #   bash scripts/lib/git-commit-data.sh "commit message" [extra-paths ...]
+#   bash scripts/lib/git-commit-data.sh --slice-only "commit message" [extra-paths ...]
+#
+# --slice-only mode:
+#   Only commits per-crawler slice files (data/jobs/by-crawler/,
+#   data/jobs-crawler-summaries/by-crawler/) and extra paths.
+#   Skips shared monolithic files (data/jobs.json, stats, meta, etc.),
+#   eliminating merge conflicts when multiple crawlers run concurrently.
+#   Assembly of shared files happens in the deploy pipeline instead.
 #
 # Extra paths are appended to the standard file list (e.g. data/jobs-crawler-adapters/).
 #
@@ -16,27 +24,45 @@
 # ─────────────────────────────────────────────────────────────────────────────
 set -euo pipefail
 
-COMMIT_MSG="${1:?Usage: git-commit-data.sh 'commit message' [extra-paths...]}"
+# ── Parse --slice-only flag ──────────────────────────────────────────────────
+SLICE_ONLY=false
+if [ "${1:-}" = "--slice-only" ]; then
+  SLICE_ONLY=true
+  shift
+fi
+
+COMMIT_MSG="${1:?Usage: git-commit-data.sh [--slice-only] 'commit message' [extra-paths...]}"
 shift
 EXTRA_PATHS=("$@")
 
 # ── Standard data files committed by every crawler ──────────────────────────
-STANDARD_FILES=(
-  data/jobs.json
-  data/jobs-meta.json
-  data/jobs-stats-history.json
-  data/jobs-stats.json
-  public/data/jobs-stats.json
-  data/jobs-crawler-audit.json
-  data/jobs-crawler-summaries.json
-  data/jobs-crawler-config.json
-  data/ticino-companies-extra.json
-  # Per-crawler slice directories (written by migrated crawlers, assembled into
-  # the global artifacts above). Directories are expanded to tracked+local files
-  # by expand_path_to_files() so new slices are picked up automatically.
-  data/jobs/by-crawler/
-  data/jobs-crawler-summaries/by-crawler/
-)
+if [ "$SLICE_ONLY" = true ]; then
+  # Slice-only mode: only commit per-crawler slice files + ai-cache.
+  # Shared monolithic files are assembled during deploy, not per-crawler.
+  STANDARD_FILES=(
+    data/jobs/by-crawler/
+    data/jobs-crawler-summaries/by-crawler/
+    data/jobs-ai-cache.json
+  )
+else
+  # Legacy mode: commit all shared files (used by non-migrated crawlers).
+  STANDARD_FILES=(
+    data/jobs.json
+    data/jobs-meta.json
+    data/jobs-stats-history.json
+    data/jobs-stats.json
+    public/data/jobs-stats.json
+    data/jobs-crawler-audit.json
+    data/jobs-crawler-summaries.json
+    data/jobs-crawler-config.json
+    data/ticino-companies-extra.json
+    # Per-crawler slice directories (written by migrated crawlers, assembled into
+    # the global artifacts above). Directories are expanded to tracked+local files
+    # by expand_path_to_files() so new slices are picked up automatically.
+    data/jobs/by-crawler/
+    data/jobs-crawler-summaries/by-crawler/
+  )
+fi
 ALL_FILES=("${STANDARD_FILES[@]}")
 if [ "${#EXTRA_PATHS[@]}" -gt 0 ]; then
   ALL_FILES+=("${EXTRA_PATHS[@]}")
@@ -465,7 +491,11 @@ NODE
 }
 
 # ── 0a. Size guard: trim stale jobs if data/jobs.json approaches GitHub's 100 MB limit ──
-if [ -f "data/jobs.json" ]; then
+# (Skipped in --slice-only mode: shared files are not committed by crawlers)
+if [ "$SLICE_ONLY" = true ]; then
+  echo "📦 Slice-only mode: skipping shared file operations (assembly happens at deploy)"
+fi
+if [ "$SLICE_ONLY" = false ] && [ -f "data/jobs.json" ]; then
   FILE_SIZE_MB=$(du -m "data/jobs.json" | cut -f1)
   if [ "$FILE_SIZE_MB" -gt 90 ]; then
     echo "⚠️  data/jobs.json is ${FILE_SIZE_MB} MB — running emergency age-based trim (crawledAt > ${JOBS_SIZE_TRIM_DAYS:-45} days)..."
@@ -493,7 +523,8 @@ NODE
 fi
 
 # ── 0. Refresh derived job-board statistics before change detection ────────
-if [ -f "data/jobs.json" ]; then
+# (Skipped in --slice-only mode: stats are generated during deploy assembly)
+if [ "$SLICE_ONLY" = false ] && [ -f "data/jobs.json" ]; then
   node scripts/generate-job-board-stats.mjs
 fi
 
@@ -547,6 +578,8 @@ fi
 
 # ── 4. Stage, commit, push ────────────────────────────────────────────────
 # Keep canonical files aligned after any merge path.
+# (Skipped in --slice-only mode: shared files are not committed)
+if [ "$SLICE_ONLY" = false ]; then
 node - <<'NODE'
 const fs = require('fs');
 
@@ -587,8 +620,11 @@ if (jobs && fs.existsSync(metaPath)) {
   }
 }
 NODE
+fi  # end SLICE_ONLY=false canonical alignment block
 
 # Validate critical JSON files before staging/commit to avoid destructive pushes.
+# (Skipped in --slice-only mode: shared files are not committed)
+if [ "$SLICE_ONLY" = false ]; then
 node - <<'NODE'
 const fs = require('fs');
 const critical = [
@@ -606,6 +642,7 @@ for (const file of critical) {
 NODE
 
 node scripts/validate-crawler-summaries.mjs
+fi  # end SLICE_ONLY=false validation block
 
 git add "${ALL_FILES[@]}"
 

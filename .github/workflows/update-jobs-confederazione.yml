@@ -60,14 +60,16 @@ jobs:
           JOBS_CRAWLER_TIMEOUT_MS: ${{ github.event.inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: '1'
           JOBS_CONFEDERAZIONE_STRICT: ${{ github.event.inputs.strict_localization || '1' }}
+          CRAWLER_SLICE_ONLY: '1'
         run: npm run jobs:update:confederazione
 
       - name: Housekeeping — remove expired job listings (scoped)
         env:
           JOBS_HOUSEKEEPING_SCOPE: 'confederazione-ticino'
+          JOBS_SLICE_FILE: 'data/jobs/by-crawler/confederazione-ticino.json'
         run: node scripts/cleanup-jobs.mjs
         continue-on-error: true
 
       - name: Commit and push
         id: changes
-        run: bash scripts/lib/git-commit-data.sh "🏛️ Auto-update Confederazione Ticino jobs (dedicated crawler)" data/jobs-crawler-adapters/
+        run: bash scripts/lib/git-commit-data.sh --slice-only "🏛️ Auto-update Confederazione Ticino jobs (dedicated crawler)" data/jobs-crawler-adapters/

@@ -32,6 +32,12 @@ const MAX_CONCURRENCY = Math.max(1, Math.min(20, Number(process.env.JOBS_HOUSEKE
 const TIMEOUT_MS = Math.max(2000, Math.min(15000, Number(process.env.JOBS_HOUSEKEEPING_TIMEOUT_MS || DEFAULT_TIMEOUT_MS)));
 const HOUSEKEEPING_SCOPE = String(process.env.JOBS_HOUSEKEEPING_SCOPE || '').trim();
 
+/** Slice-only mode: operate on a single per-crawler slice file instead of the
+ *  monolithic data/jobs.json. Set JOBS_SLICE_FILE to the slice path, e.g.
+ *  data/jobs/by-crawler/coop-ticino.json. Assembly into data/jobs.json happens
+ *  in the deploy pipeline instead of per-crawler. */
+const SLICE_FILE = String(process.env.JOBS_SLICE_FILE || '').trim();
+
 /** Maximum age in days before a job is considered stale regardless of URL status.
  *  Override via JOBS_STALE_DAYS env var. Default: 60 days. */
 const STALE_DAYS = Math.max(7, Math.min(180, Number(process.env.JOBS_STALE_DAYS || 60)));
@@ -120,6 +126,94 @@ function updateMeta(totalJobs) {
 }
 
 async function main() {
+  // ── Slice-only mode: operate on a single per-crawler slice file ──────────
+  if (SLICE_FILE) {
+    const slicePath = path.resolve(SLICE_FILE);
+    if (!fs.existsSync(slicePath)) {
+      console.log(`ℹ️  Slice file not found: ${SLICE_FILE} — skip housekeeping`);
+      return;
+    }
+    console.log(`📦 Slice-only housekeeping: ${SLICE_FILE}`);
+    const sliceData = readJson(slicePath);
+    const sliceJobs = Array.isArray(sliceData?.jobs) ? sliceData.jobs : (Array.isArray(sliceData) ? sliceData : []);
+    if (sliceJobs.length === 0) {
+      console.log('ℹ️  Slice is empty — skip housekeeping');
+      return;
+    }
+
+    // Run locale hardening on the slice
+    const tempPath = slicePath + '.cleanup-tmp.json';
+    writeJson(tempPath, sliceJobs);
+    try {
+      const lh = hardenJobLocaleFields({ dataJobsPath: tempPath });
+      if (lh.changed) console.log(`🛡️ Locale hardening: repaired ${lh.repaired}/${lh.total} jobs in slice.`);
+      const hardenedJobs = readJson(tempPath);
+
+      // Age-based pruning
+      const now = Date.now();
+      let kept = hardenedJobs.filter((job) => {
+        const ts = job.crawledAt ? new Date(job.crawledAt).getTime() : 0;
+        return !(ts > 0 && now - ts > STALE_MS);
+      });
+      const agePruned = hardenedJobs.length - kept.length;
+      if (agePruned > 0) console.log(`🗓️  Removed ${agePruned} stale jobs (> ${STALE_DAYS} days) from slice.`);
+
+      // URL validation
+      console.log(`🧹 Slice housekeeping: checking ${kept.length} jobs (concurrency=${MAX_CONCURRENCY}, timeout=${TIMEOUT_MS}ms)`);
+      const checks = await validateJobUrls(kept.map((j) => ({ id: j.id, url: j.url })), { concurrency: MAX_CONCURRENCY, timeoutMs: TIMEOUT_MS });
+      const checkById = new Map(checks.map((c) => [c.id, c]));
+      const urlRemoved = [];
+      kept = kept.filter((job) => {
+        const c = checkById.get(job.id);
+        if (c && c.valid === false) {
+          if (isFreshProtected(job) && !c.definitive) return true;
+          urlRemoved.push({ id: job.id, reason: c.reason });
+          return false;
+        }
+        return true;
+      });
+      if (urlRemoved.length > 0) console.log(`🧹 Removed ${urlRemoved.length} invalid-URL jobs from slice.`);
+
+      // Within-slice dedup (slug)
+      const seenSlug = new Map();
+      const deduped = [];
+      for (const job of kept) {
+        const slug = String(job.slug || '').trim();
+        if (!slug) { deduped.push(job); continue; }
+        const prev = seenSlug.get(slug);
+        if (prev) {
+          const prevTs = prev.crawledAt ? new Date(prev.crawledAt).getTime() : 0;
+          const currTs = job.crawledAt ? new Date(job.crawledAt).getTime() : 0;
+          if (currTs > prevTs) {
+            const idx = deduped.indexOf(prev);
+            if (idx !== -1) deduped[idx] = job;
+            seenSlug.set(slug, job);
+          }
+          continue;
+        }
+        seenSlug.set(slug, job);
+        deduped.push(job);
+      }
+      kept = deduped;
+
+      // Write back to slice file (preserve envelope)
+      const totalRemoved = hardenedJobs.length - kept.length;
+      if (totalRemoved > 0) {
+        const envelope = (sliceData && typeof sliceData === 'object' && !Array.isArray(sliceData))
+          ? { ...sliceData, jobs: kept, assembledAt: new Date().toISOString() }
+          : kept;
+        writeJson(slicePath, envelope);
+        console.log(`✅ Slice cleaned: ${hardenedJobs.length} → ${kept.length} jobs (-${totalRemoved})`);
+      } else {
+        console.log('✅ Slice clean — no jobs removed.');
+      }
+    } finally {
+      try { fs.unlinkSync(tempPath); } catch { /* ignore */ }
+    }
+    return;
+  }
+
+  // ── Standard mode: operate on monolithic data/jobs.json ──────────────────
   if (!fs.existsSync(DATA_JOBS_PATH) || !fs.existsSync(PUBLIC_JOBS_PATH)) {
     console.log('ℹ️  jobs.json non trovato in data/ o public/data — skip housekeeping');
     return;

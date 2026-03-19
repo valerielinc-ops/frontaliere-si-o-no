@@ -58,12 +58,14 @@ jobs:
           JOBS_CRAWLER_TIMEOUT_MS: ${{ github.event.inputs.timeout_ms }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: '1'
           JOBS_AVALOQ_STRICT: ${{ github.event.inputs.strict_localization == 'false' && '0' || '1' }}
+          CRAWLER_SLICE_ONLY: '1'
         run: npm run jobs:update:avaloq
 
       - name: Scoped housekeeping
         env:
           JOBS_HOUSEKEEPING_SCOPE: avaloq
+          JOBS_SLICE_FILE: 'data/jobs/by-crawler/avaloq.json'
         run: node scripts/cleanup-jobs.mjs
 
       - name: Commit updated data
-        run: bash scripts/lib/git-commit-data.sh "🛠️ Auto-update Avaloq jobs (dedicated crawler)"
+        run: bash scripts/lib/git-commit-data.sh --slice-only "🛠️ Auto-update Avaloq jobs (dedicated crawler)"

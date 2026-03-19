@@ -45,6 +45,12 @@ jobs:
       - name: Load secrets from Remote Config
         run: node scripts/load-rc-env.mjs
 
+      - name: Assemble jobs dataset from per-crawler slices
+        run: node scripts/assemble-jobs-dataset.mjs --stats
+
+      - name: Housekeeping (cross-crawler dedup + locale hardening)
+        run: node scripts/cleanup-jobs.mjs
+
       - name: Validate crawler summary store (blocking)
         run: npm run validate:crawler-summaries
 
