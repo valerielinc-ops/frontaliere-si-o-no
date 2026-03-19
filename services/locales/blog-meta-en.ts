@@ -1340,6 +1340,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.catastrofi-ticino-prontezza-2026.title': 'Emergencies, Disasters, Blackouts: 160 Emergency Collection Points for Citizens in Ticino (Where the Radio Always Works)',
     'blog.article.catastrofi-ticino-prontezza-2026.excerpt': 'From January 1, 2026, the Canton of Ticino will have 160 emergency collection points (PRU) to ensure the safety and assistance of citizens in extraordinary situations.',
     'blog.article.catastrofi-ticino-prontezza-2026.imageAlt': 'Scenic view of Lake Lugano on a sunny day, with the mountains in the background.',
+    'blog.article.tredicesima-avs-soluzione-mista-stati.title': 'Thirteenth AVS Payment: The States Propose a Mixed Solution',
+    'blog.article.tredicesima-avs-soluzione-mista-stati.excerpt': 'The Council of States proposes a mixed funding approach for the thirteenth AVS monthly payment, combining an increase in payroll contributions and VAT. The Council of States believes this is the only balanced and equitable solution.',
+    'blog.article.tredicesima-avs-soluzione-mista-stati.imageAlt': 'View of Lake Maggiore and the Visconti Castle in Locarno.',
 };
 
 export default blogMetaEn;

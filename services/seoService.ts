@@ -1580,6 +1580,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-annunci-lavoro-dumping-ticino-governo': { name: 'Novità Lavoro', path: '/articoli-frontaliere/annunci-lavoro-dumping-ticino-governo', parent: 'blog' },
     'blog-controlli-cantieri-mendrisio': { name: 'Controlli cantieri', path: '/articoli-frontaliere/controlli-cantieri-mendrisio', parent: 'blog' },
     'blog-catastrofi-ticino-prontezza-2026': { name: 'Punti di raccolta d\'urgenza in Ticino', path: '/articoli-frontaliere/catastrofi-ticino-prontezza-2026', parent: 'blog' },
+    'blog-tredicesima-avs-soluzione-mista-stati': { name: 'Tredicesima AVS', path: '/articoli-frontaliere/tredicesima-avs-soluzione-mista-stati', parent: 'blog' },
   };
 
   const info = sectionNames[section];

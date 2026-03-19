@@ -1340,6 +1340,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.catastrofi-ticino-prontezza-2026.title': 'Emergenze, catastrofi, blackout: in Ticino 160 punti di raccolta per i cittadini (dove la radio funziona sempre)',
     'blog.article.catastrofi-ticino-prontezza-2026.excerpt': 'Dal 1° gennaio 2026, il Canton Ticino dispone di 160 punti di raccolta d\'urgenza (PRU) per garantire la sicurezza e l\'assistenza ai cittadini in caso di situazioni straordinarie.',
     'blog.article.catastrofi-ticino-prontezza-2026.imageAlt': 'Vista panoramica del Lago di Lugano su un giorno soleggiato, con le montagne sullo sfondo.',
+    'blog.article.tredicesima-avs-soluzione-mista-stati.title': 'Tredicesima AVS: gli Stati propongono una soluzione mista',
+    'blog.article.tredicesima-avs-soluzione-mista-stati.excerpt': 'Il Consiglio degli Stati propone un finanziamento misto per la tredicesima mensilità AVS, con un aumento dell\'IVA e dei contributi salariali. La Camera dei Cantoni ritiene che questa sia l\'unica soluzione equilibrata e solidale.',
+    'blog.article.tredicesima-avs-soluzione-mista-stati.imageAlt': 'Vista del Lago Maggiore e del Castello Visconteo a Locarno.',
 };
 
 export default blogMetaIt;

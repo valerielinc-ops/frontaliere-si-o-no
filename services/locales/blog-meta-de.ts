@@ -1340,6 +1340,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.catastrofi-ticino-prontezza-2026.title': 'Notfälle, Katastrophen, Blackout: Im Tessin 160 Sammelstellen für die Bevölkerung (wo das Radio immer funktioniert)',
     'blog.article.catastrofi-ticino-prontezza-2026.excerpt': 'Ab 1. Januar 2026 verfügt der Kanton Tessin über 160 Notfallsammelstellen (PRU), um die Bevölkerung bei ausserordentlichen Lagen zu schützen und zu unterstützen.',
     'blog.article.catastrofi-ticino-prontezza-2026.imageAlt': 'Panoramablick auf den Luganersee auf einem sonnigen Tag, mit den Bergen im Hintergrund.',
+    'blog.article.tredicesima-avs-soluzione-mista-stati.title': '13. Monatsrente AHV: Der Ständerat schlägt eine gemischte Lösung vor',
+    'blog.article.tredicesima-avs-soluzione-mista-stati.excerpt': 'Der Ständerat schlägt eine gemischte Finanzierung für die 13. Monatsrente AHV vor, mit einer Erhöhung der Lohnbeiträge und der Mehrwertsteuer. Die Kammerschaft der Kantone ist der Meinung, dass dies die einzige ausgewogene und solidarische Lösung ist.',
+    'blog.article.tredicesima-avs-soluzione-mista-stati.imageAlt': 'Blick auf den Lago Maggiore und die Burg der Visconti in Locarno.',
 };
 
 export default blogMetaDe;

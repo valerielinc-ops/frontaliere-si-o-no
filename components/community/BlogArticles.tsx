@@ -3702,6 +3702,13 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/catastrofi-ticino-prontezza-2026.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'tredicesima-avs-soluzione-mista-stati',
+    category: 'pensione',
+    date: '2026-03-19T12:13:35.350Z',
+    image: '/images/blog/tredicesima-avs-soluzione-mista-stati.jpg',
+    hasCalculator: true,
+  },
 ];
 
 const CATEGORIES = ['all', 'fiscale', 'pratico', 'novita', 'pensione'] as const;

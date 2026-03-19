@@ -1340,6 +1340,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.catastrofi-ticino-prontezza-2026.title': 'Urgences, catastrophes, black-out: au Tessin 160 points de rassemblement pour les citoyens (où la radio fonctionne toujours)',
     'blog.article.catastrofi-ticino-prontezza-2026.excerpt': 'Dès le 1er janvier 2026, le canton du Tessin dispose de 160 points de rassemblement d\'urgence (PRU) afin d\'assurer la sécurité et l\'assistance aux citoyens en cas de situations extraordinaires.',
     'blog.article.catastrofi-ticino-prontezza-2026.imageAlt': 'Vue panoramique du lac de Lugano dans un jour ensoleillé, avec les montagnes en arrière-plan.',
+    'blog.article.tredicesima-avs-soluzione-mista-stati.title': '13e AVS : les États proposent une solution mixte',
+    'blog.article.tredicesima-avs-soluzione-mista-stati.excerpt': 'Le Conseil des États propose un financement mixte pour la 13e mensualité AVS, avec une augmentation de la TVA et des contributions salariales. La Chambre des cantons estime que c\'est la seule solution équilibrée et solidaire.',
+    'blog.article.tredicesima-avs-soluzione-mista-stati.imageAlt': 'Vue du Lac Majeur et du Château des Visconti à Locarno.',
 };
 
 export default blogMetaFr;

@@ -6084,6 +6084,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-tredicesima-avs-soluzione-mista-stati': {
+    title: 'Tredicesima AVS: gli Stati propongono una soluzione mista | Frontaliere Ticino',
+    description: 'Il Consiglio degli Stati propone un finanziamento misto per la tredicesima mensilità AVS, con un aumento dell\'IVA e dei contributi salariali. Scopri di più su',
+    keywords: 'frontalieri, ticino, svizzera, italia, tredicesima, stati, propongono, soluzione',
+    ogTitle: 'Tredicesima AVS: gli Stati propongono una soluzione mista',
+    ogDescription: 'Il Consiglio degli Stati propone un finanziamento misto per la tredicesima mensilità AVS. Scopri di più su questa proposta e le sue implicazioni per i',
+    canonicalPath: '/articoli-frontaliere/tredicesima-avs-soluzione-mista-stati',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Tredicesima AVS: gli Stati propongono una soluzione mista",
+      "description": "Il Consiglio degli Stati propone un finanziamento misto per la tredicesima mensilità AVS, con un aumento dell'IVA e dei contributi salariali. Scopri di più su",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/tredicesima-avs-soluzione-mista-stati.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Vista del Lago Maggiore e del Castello Visconteo a Locarno."
+      },
+      "datePublished": "2026-03-19T12:13:35+00:00",
+      "dateModified": "2026-03-19T12:13:35+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tredicesima-avs-soluzione-mista-stati`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
