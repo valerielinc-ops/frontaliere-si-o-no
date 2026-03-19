@@ -1364,6 +1364,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.droga-al-confine-ticino-2025.title': 'Im Jahr 2025 mehr Drogen und Zigaretten an der Grenze: Bilanz des Bundesamtes für Zoll und Grenzsicherheit',
     'blog.article.droga-al-confine-ticino-2025.excerpt': 'Zunahme der Zoll- und Grenzsicherheitsmaßnahmen, obwohl die Mengen leicht geringer sind als im Vorjahr',
     'blog.article.droga-al-confine-ticino-2025.imageAlt': 'Fahrzeug in der Schweiz',
+    'blog.article.tassa-attraversamento-svizzera.title': 'Steuer für Autos, die durch die Schweiz fahren, ohne zu halten',
+    'blog.article.tassa-attraversamento-svizzera.excerpt': 'Das Tessiner Parlament billigt die Steuer für Autos, die durch die Schweiz fahren, ohne zu halten, mit einem variablen Zeit und Tag der Durchfahrt',
+    'blog.article.tassa-attraversamento-svizzera.imageAlt': 'Ein Verkehrsstau im Kanton Tessin',
 };
 
 export default blogMetaDe;

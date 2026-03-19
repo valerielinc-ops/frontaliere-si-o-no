@@ -1364,6 +1364,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.droga-al-confine-ticino-2025.title': 'More Drugs and Cigarettes at the Border in 2025: The Federal Customs Administration and Border Security Office\'s Balance Sheet',
     'blog.article.droga-al-confine-ticino-2025.excerpt': 'Increase in seizures of contraband drugs and cigarettes, although the amounts are slightly lower than those of the previous year',
     'blog.article.droga-al-confine-ticino-2025.imageAlt': 'Vehicle crossing the Italian-Swiss border',
+    'blog.article.tassa-attraversamento-svizzera.title': 'Toll for Cars Crossing Switzerland Without Stopping',
+    'blog.article.tassa-attraversamento-svizzera.excerpt': 'The Ticino Parliament Approves Toll for Cars Crossing Switzerland Without Stopping, with Variable Hours and Days of Transit',
+    'blog.article.tassa-attraversamento-svizzera.imageAlt': 'A traffic jam in Ticino, Switzerland',
 };
 
 export default blogMetaEn;

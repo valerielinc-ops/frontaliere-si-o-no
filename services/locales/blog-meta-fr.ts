@@ -1364,6 +1364,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.droga-al-confine-ticino-2025.title': 'En 2025, plus de drogue et de cigarettes aux frontières : le bilan de l\'Office fédéral des douanes et de la sécurité des frontières',
     'blog.article.droga-al-confine-ticino-2025.excerpt': 'Augmentation des saisies de drogue et de cigarettes de contrebande, bien que les montants soient légèrement inférieurs à ceux de l\'année précédente',
     'blog.article.droga-al-confine-ticino-2025.imageAlt': 'Véhicule franchissant la frontière italienne',
+    'blog.article.tassa-attraversamento-svizzera.title': 'Tasse per les voitures qui traversent la Suisse sans s\'arrêter',
+    'blog.article.tassa-attraversamento-svizzera.excerpt': 'Le Parlement du Tessin a approuvé la tasse pour les voitures qui traversent la Suisse sans s\'arrêter, avec un horaire et un jour de transit variable',
+    'blog.article.tassa-attraversamento-svizzera.imageAlt': 'Un embouteillage dans le canton du Tessin',
 };
 
 export default blogMetaFr;

@@ -3758,6 +3758,13 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/droga-al-confine-ticino-2025.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'tassa-attraversamento-svizzera',
+    category: 'fiscale',
+    date: '2026-03-19T20:40:02.444Z',
+    image: '/images/blog/tassa-attraversamento-svizzera.jpg',
+    hasCalculator: true,
+  },
 ];
 
 const CATEGORIES = ['all', 'fiscale', 'pratico', 'novita', 'pensione'] as const;

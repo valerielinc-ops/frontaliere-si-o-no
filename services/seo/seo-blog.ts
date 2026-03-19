@@ -6316,6 +6316,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-tassa-attraversamento-svizzera': {
+    title: 'Tassa per le auto che attraversano la Svizzera senza | Frontaliere Ticino',
+    description: 'Il Parlamento ticinese approva la tassa per le auto che attraversano la Svizzera senza fermarsi, con un orario e un giorno di transito variabile. Dati',
+    keywords: 'frontalieri, ticino, svizzera, italia, tassa, auto, attraversano, senza',
+    ogTitle: 'Tassa per le auto che attraversano la Svizzera senza',
+    ogDescription: 'Il Parlamento ticinese approva la tassa per le auto che attraversano la Svizzera senza fermarsi, con un orario e un giorno di transito variabile',
+    canonicalPath: '/articoli-frontaliere/tassa-attraversamento-svizzera',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Tassa per le auto che attraversano la Svizzera senza fermarsi",
+      "description": "Il Parlamento ticinese approva la tassa per le auto che attraversano la Svizzera senza fermarsi, con un orario e un giorno di transito variabile. Dati",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/tassa-attraversamento-svizzera.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Una strada trafficata nel Canton Ticino"
+      },
+      "datePublished": "2026-03-19T20:40:02+00:00",
+      "dateModified": "2026-03-19T20:40:02+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tassa-attraversamento-svizzera`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

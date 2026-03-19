@@ -1364,6 +1364,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.droga-al-confine-ticino-2025.title': 'Nel 2025 più droga e sigarette al confine: il bilancio dell\'Ufficio federale della dogana e della sicurezza dei confini',
     'blog.article.droga-al-confine-ticino-2025.excerpt': 'Aumento dei sequestri di stupefacenti e sigarette di contrabbando, benché gli importi siano leggermente inferiori a quelli dell\'anno precedente',
     'blog.article.droga-al-confine-ticino-2025.imageAlt': 'Veicolo in transito al confine italo-svizzero',
+    'blog.article.tassa-attraversamento-svizzera.title': 'Tassa per le auto che attraversano la Svizzera senza fermarsi',
+    'blog.article.tassa-attraversamento-svizzera.excerpt': 'Il Parlamento ticinese approva la tassa per le auto che attraversano la Svizzera senza fermarsi, con un orario e un giorno di transito variabile',
+    'blog.article.tassa-attraversamento-svizzera.imageAlt': 'Una strada trafficata nel Canton Ticino',
 };
 
 export default blogMetaIt;
