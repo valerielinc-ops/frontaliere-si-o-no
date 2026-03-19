@@ -3030,7 +3030,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
         "@context": "https://schema.org",
         "@type": "ItemList",
         "name": "Articoli Frontaliere",
-        "numberOfItems": 447,
+        "numberOfItems": 448,
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
           { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -3478,7 +3478,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 444, "name": "Turismo in Ticino: Il 2025 è stato un anno ecce...", "url": `${BASE_URL}/articoli-frontaliere/kebab-case-turismo-ticino` },
           { "@type": "ListItem", "position": 445, "name": "Nel 2025 più droga e sigarette al confine: il b...", "url": `${BASE_URL}/articoli-frontaliere/droga-al-confine-ticino-2025` },
           { "@type": "ListItem", "position": 446, "name": "Tassa per le auto che attraversano la Svizzera ...", "url": `${BASE_URL}/articoli-frontaliere/tassa-attraversamento-svizzera` },
-          { "@type": "ListItem", "position": 447, "name": "Lunghe code sulla strada del lago tra la Schira...", "url": `${BASE_URL}/articoli-frontaliere/incidente-stradale-laghi` }
+          { "@type": "ListItem", "position": 447, "name": "Lunghe code sulla strada del lago tra la Schira...", "url": `${BASE_URL}/articoli-frontaliere/incidente-stradale-laghi` },
+          { "@type": "ListItem", "position": 448, "name": "Vivere più a lungo in Ticino - Consigli e servi...", "url": `${BASE_URL}/articoli-frontaliere/vivere-piu-lungo-ticino` }
         ]
       }
     ]

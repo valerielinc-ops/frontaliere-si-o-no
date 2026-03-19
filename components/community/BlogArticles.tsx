@@ -3772,6 +3772,13 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/incidente-stradale-laghi.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'vivere-piu-lungo-ticino',
+    category: 'pratico',
+    date: '2026-03-19T21:46:55.330Z',
+    image: '/images/blog/vivere-piu-lungo-ticino.jpg',
+    hasCalculator: true,
+  },
 ];
 
 const CATEGORIES = ['all', 'fiscale', 'pratico', 'novita', 'pensione'] as const;

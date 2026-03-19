@@ -1370,6 +1370,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.incidente-stradale-laghi.title': 'Longues files sur la route du lac entre Schiranna et Calcinate del Pesce après un choc entre voiture et moto',
     'blog.article.incidente-stradale-laghi.excerpt': 'Un accident de la route se produit sur la route du lac entre Schiranna et Calcinate del Pesce, en Varese, impliquant une voiture et une moto.',
     'blog.article.incidente-stradale-laghi.imageAlt': 'Un accident sur la route du lac à Varese',
+    'blog.article.vivere-piu-lungo-ticino.title': 'Voici où les gens vivent le plus longtemps. Le Tessin est deuxième en Europe.',
+    'blog.article.vivere-piu-lungo-ticino.excerpt': 'L\'espérance de vie moyenne des Tessinois est de 85,2 ans, selon les statistiques de l\'Eurostat.',
+    'blog.article.vivere-piu-lungo-ticino.imageAlt': 'Une vue panoramique de Lugano avec le lac de Lugano en premier plan, prise le jour d\'une journée ensoleillée à midi.',
 };
 
 export default blogMetaFr;

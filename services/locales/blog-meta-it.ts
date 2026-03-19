@@ -1370,6 +1370,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.incidente-stradale-laghi.title': 'Lunghe code sulla strada del lago tra la Schiranna e Calcinate del Pesce per uno scontro tra auto e moto',
     'blog.article.incidente-stradale-laghi.excerpt': 'Un incidente stradale si verifica lungo la strada del lago tra la Schiranna e Calcinate del Pesce, in Varese, coinvolgendo un\'auto e una moto.',
     'blog.article.incidente-stradale-laghi.imageAlt': 'Un incidente stradale sulla strada del lago in Varese',
+    'blog.article.vivere-piu-lungo-ticino.title': 'Ecco dove si vive più a lungo. E il Ticino è secondo in Europa.',
+    'blog.article.vivere-piu-lungo-ticino.excerpt': 'L\'aspettativa di vita media dei ticinesi è di 85,2 anni, secondo le statistiche dell\'Eurostat.',
+    'blog.article.vivere-piu-lungo-ticino.imageAlt': 'Una panoramica fotografica di Lugano con il Lago di Lugano in primo piano, scattata in una giornata soleggiata a mezzogiorno.',
 };
 
 export default blogMetaIt;

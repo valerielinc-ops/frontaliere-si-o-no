@@ -1370,6 +1370,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.incidente-stradale-laghi.title': 'Long queues on the lake road between Schiranna and Calcinate del Pesce for a collision between a car and a motorcycle',
     'blog.article.incidente-stradale-laghi.excerpt': 'A road accident occurred on the lake road between Schiranna and Calcinate del Pesce, in Varese, involving a car and a motorcycle.',
     'blog.article.incidente-stradale-laghi.imageAlt': 'An accident on the lake road in Varese',
+    'blog.article.vivere-piu-lungo-ticino.title': 'Here\'s where people live the longest. And Ticino is second in Europe.',
+    'blog.article.vivere-piu-lungo-ticino.excerpt': 'The average life expectancy of Ticinese people is 85.2 years, according to Eurostat statistics.',
+    'blog.article.vivere-piu-lungo-ticino.imageAlt': 'A panoramic view of Lugano with Lake Lugano in the foreground, taken on a sunny day at noon.',
 };
 
 export default blogMetaEn;
