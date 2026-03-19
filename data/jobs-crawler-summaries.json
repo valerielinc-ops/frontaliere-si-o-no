@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-03-19T04:57:00.828Z",
+  "updatedAt": "2026-03-19T04:57:02.384Z",
   "summaries": [
     {
       "key": "agie-charmilles",
@@ -2294,45 +2294,6 @@
         }
       ],
       "updatedJobs": [],
-      "removedJobs": [],
-      "unchangedJobs": []
-    },
-    {
-      "key": "caseificio-del-gottardo",
-      "label": "Caseificio del Gottardo",
-      "generatedAt": "2026-03-18T16:18:32.307Z",
-      "total": 2,
-      "newCount": 0,
-      "updatedCount": 2,
-      "removedCount": 0,
-      "unchangedCount": 0,
-      "durationMs": 15125,
-      "avgDurationMs": 19444,
-      "durationHistory": [
-        15125,
-        16666,
-        17853,
-        13672,
-        25647,
-        27698
-      ],
-      "newJobs": [],
-      "updatedJobs": [
-        {
-          "title": "Apprendisti per la formazione di Tecnologo/a del latte (AFC)",
-          "company": "Caseificio dimostrativo del Gottardo SA",
-          "location": "Airolo",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/apprendisti-per-la-formazione-di-tecnologo-a-del-latte-afc-caseificio-gottardo/",
-          "slug": "apprendisti-per-la-formazione-di-tecnologo-a-del-latte-afc-caseificio-dimostrativo-del-gottardo-sa-airolo"
-        },
-        {
-          "title": "Offerta di impiego quale Aiuto tecnologo del latte / Aiuto Casaro",
-          "company": "Caseificio dimostrativo del Gottardo SA",
-          "location": "Airolo",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/offerta-di-impiego-quale-aiuto-tecnologo-del-latte-aiuto-casaro-caseificio-gottardo/",
-          "slug": "offerta-di-impiego-quale-aiuto-tecnologo-del-latte-aiuto-casaro-caseificio-dimostrativo-del-gottardo-sa-airolo"
-        }
-      ],
       "removedJobs": [],
       "unchangedJobs": []
     },
@@ -9841,6 +9802,46 @@
           "location": "2025 CambiaValute",
           "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/senior-backend-developer-cambiavalute-ch-2025-cambiavalute/",
           "slug": "senior-backend-developer-cambiavalute-ch-2025-cambiavalute"
+        }
+      ],
+      "removedJobs": [],
+      "unchangedJobs": []
+    },
+    {
+      "key": "caseificio-del-gottardo",
+      "label": "Caseificio del Gottardo",
+      "generatedAt": "2026-03-19T04:57:02.384Z",
+      "total": 2,
+      "newCount": 0,
+      "updatedCount": 2,
+      "removedCount": 0,
+      "unchangedCount": 0,
+      "durationMs": 15723,
+      "avgDurationMs": 18912,
+      "durationHistory": [
+        15723,
+        15125,
+        16666,
+        17853,
+        13672,
+        25647,
+        27698
+      ],
+      "newJobs": [],
+      "updatedJobs": [
+        {
+          "title": "Apprendisti per la formazione di Tecnologo/a del latte (AFC)",
+          "company": "Caseificio dimostrativo del Gottardo SA",
+          "location": "Airolo",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/apprendisti-per-la-formazione-di-tecnologo-a-del-latte-afc-caseificio-gottardo/",
+          "slug": "apprendisti-per-la-formazione-di-tecnologo-a-del-latte-afc-caseificio-dimostrativo-del-gottardo-sa-airolo"
+        },
+        {
+          "title": "Offerta di impiego quale Aiuto tecnologo del latte / Aiuto Casaro",
+          "company": "Caseificio dimostrativo del Gottardo SA",
+          "location": "Airolo",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/offerta-di-impiego-quale-aiuto-tecnologo-del-latte-aiuto-casaro-caseificio-gottardo/",
+          "slug": "offerta-di-impiego-quale-aiuto-tecnologo-del-latte-aiuto-casaro-caseificio-dimostrativo-del-gottardo-sa-airolo"
         }
       ],
       "removedJobs": [],
