@@ -27,9 +27,14 @@
 
 import { createHmac } from 'node:crypto';
 import fs from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { buildNewsletter, FEATURED_TOOLS, nlNormLocale, directUrl } from '../services/newsletter-template.mjs';
 import { matchJobsForSubscriber, validateJobUrls, buildBriefingPrompt, buildSubjectPrompt, FALLBACK_SUBJECT, getFallbackBriefing } from '../services/newsletter-content.mjs';
 
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const ROOT = path.resolve(__dirname, '..');
+const QA_DIR = path.resolve(ROOT, 'docs', 'newsletter-qa');
 const BASE_URL = 'https://www.frontaliereticino.ch';
 const ADMIN_EMAIL = 'luigisag@gmail.com';
 const RESEND_ENDPOINT = 'https://api.resend.com/emails/batch';
@@ -531,6 +536,49 @@ async function logSend(count, subject, status) {
   }
 }
 
+// ─── QA Gate ────────────────────────────────────────────────
+
+/**
+ * Verify that a passing QA report was produced today (UTC) before
+ * allowing a production send. Exits with code 1 if the gate fails.
+ *
+ * Skipped when NEWSLETTER_SKIP_QA_GATE=true (CI emergency override only).
+ */
+function enforceQaGate() {
+  if (process.env.NEWSLETTER_SKIP_QA_GATE === 'true') {
+    console.warn('\u26a0\ufe0f  QA gate skipped (NEWSLETTER_SKIP_QA_GATE=true) — proceed with caution.');
+    return;
+  }
+
+  const today = new Date().toISOString().slice(0, 10); // YYYY-MM-DD UTC
+  const reportPath = path.join(QA_DIR, `${today}-report.json`);
+
+  if (!fs.existsSync(reportPath)) {
+    console.error('\u274c  QA gate: no QA report found for today (' + today + ').');
+    console.error('   Run first: node scripts/newsletter-qa.mjs');
+    console.error('   Then retry: node scripts/send-newsletter.mjs --send');
+    process.exit(1);
+  }
+
+  let report;
+  try {
+    report = JSON.parse(fs.readFileSync(reportPath, 'utf8'));
+  } catch {
+    console.error('\u274c  QA gate: could not read QA report at ' + reportPath);
+    process.exit(1);
+  }
+
+  if (!report.passed) {
+    console.error('\u274c  QA gate: today\'s QA report has FAILED checks.');
+    console.error('   Fix the issues and re-run: node scripts/newsletter-qa.mjs');
+    process.exit(1);
+  }
+
+  const age = Date.now() - new Date(report.generatedAt).getTime();
+  const ageHours = (age / (1000 * 60 * 60)).toFixed(1);
+  console.log(`\u2705 QA gate passed — report from ${ageHours}h ago (${report.checksPassed}/${report.checksTotal} checks OK).`);
+}
+
 // ─── Main ───────────────────────────────────────────────────
 
 async function main() {
@@ -548,6 +596,11 @@ async function main() {
   if (wouldSend && (EXPERIMENTAL_MODE || !SEND_ENABLED)) {
     console.error('\ud83d\uded1 Invio bloccato: NEWSLETTER_EXPERIMENTAL_MODE o NEWSLETTER_ENABLE_SEND non configurati.');
     process.exit(1);
+  }
+
+  // QA gate: production send requires a passing QA report from today
+  if (mode === 'send') {
+    enforceQaGate();
   }
 
   // Init Firebase (required for test/send)
