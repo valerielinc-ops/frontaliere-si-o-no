@@ -1382,6 +1382,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.giustizia-in-bilico-2026.title': 'Se salta l\'accordo con Lugano, Giustizia in città in bilico',
     'blog.article.giustizia-in-bilico-2026.excerpt': 'La Giustizia in Ticino rischia di saltare: un accordo tra il Cantone e il Municipio di Lugano è in bilico.',
     'blog.article.giustizia-in-bilico-2026.imageAlt': 'La Giustizia in Ticino: bilico e futuro incerto',
+    'blog.article.ampliamento-parco-eolico-san-gottardo-digital-2026.title': 'Ampliamento del Parco eolico del San Gottardo: al via la consultazione',
+    'blog.article.ampliamento-parco-eolico-san-gottardo-digital-2026.excerpt': 'Dopo cinque anni dalla sua entrata in funzione, il Parco eolico del San Gottardo può essere ampliato grazie alla consultazione digitale in corso',
+    'blog.article.ampliamento-parco-eolico-san-gottardo-digital-2026.imageAlt': 'Immagine un parco eolico in Ticino con turbine che ruotano lentamente nel vento al tramonto',
 };
 
 export default blogMetaIt;

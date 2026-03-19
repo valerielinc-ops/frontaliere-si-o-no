@@ -1382,6 +1382,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.giustizia-in-bilico-2026.title': 'Si rischia di saltare l\'accordo con Lugano, la Giustizia in città in bilico',
     'blog.article.giustizia-in-bilico-2026.excerpt': 'La Giustizia in Ticino rischia di saltare: un accordo tra il Cantone e il Municipio di Lugano è in bilico.',
     'blog.article.giustizia-in-bilico-2026.imageAlt': 'La Justice au Tessin: équilibre et avenir incertain',
+    'blog.article.ampliamento-parco-eolico-san-gottardo-digital-2026.title': 'Ampliamento du Parc éolien du Saint-Gothard : la consultation est lancée',
+    'blog.article.ampliamento-parco-eolico-san-gottardo-digital-2026.excerpt': 'Après cinq ans de fonctionnement, le Parc éolien du Saint-Gothard peut être agrandi grâce à la consultation digitale en cours',
+    'blog.article.ampliamento-parco-eolico-san-gottardo-digital-2026.imageAlt': 'Imaginez un parc éolien au Tessin avec des turbines qui tournent lentement dans le vent à la tombée de la nuit',
 };
 
 export default blogMetaFr;

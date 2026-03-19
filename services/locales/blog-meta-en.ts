@@ -1382,6 +1382,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.giustizia-in-bilico-2026.title': 'Justice in Ticino at Risk: Agreement with Lugano City Council in Jeopardy',
     'blog.article.giustizia-in-bilico-2026.excerpt': 'Justice in Ticino is at risk due to an agreement between the Canton and the Lugano City Council that is in jeopardy.',
     'blog.article.giustizia-in-bilico-2026.imageAlt': 'Ticino Justice: balance and uncertain future',
+    'blog.article.ampliamento-parco-eolico-san-gottardo-digital-2026.title': 'Expansion of the San Gottardo Wind Park: Public Consultation Launched',
+    'blog.article.ampliamento-parco-eolico-san-gottardo-digital-2026.excerpt': 'After five years of operation, the San Gottardo Wind Park can be expanded thanks to the ongoing digital public consultation.',
+    'blog.article.ampliamento-parco-eolico-san-gottardo-digital-2026.imageAlt': 'Imagine a wind farm in Ticino with turbines rotating slowly in the wind at sunset',
 };
 
 export default blogMetaEn;

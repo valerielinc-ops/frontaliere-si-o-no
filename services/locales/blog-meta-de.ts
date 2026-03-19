@@ -1382,6 +1382,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.giustizia-in-bilico-2026.title': 'Wenn das Abkommen mit Lugano platzt, ist die Justiz in der Stadt gefährdet',
     'blog.article.giustizia-in-bilico-2026.excerpt': 'Die Justiz in der Schweiz ist in Gefahr, wenn ein Abkommen zwischen dem Kanton und der Stadt Lugano platzt.',
     'blog.article.giustizia-in-bilico-2026.imageAlt': 'Ticino Rechtsprechung: Bilanz und Zukunft ungewiss',
+    'blog.article.ampliamento-parco-eolico-san-gottardo-digital-2026.title': 'Erweiterung des Windparks am San Gottardo: Die Konsultation ist gestartet',
+    'blog.article.ampliamento-parco-eolico-san-gottardo-digital-2026.excerpt': 'Nach fünf Jahren in Betrieb kann der Windpark am San Gottardo erweitert werden, dank der laufenden digitalen Konsultation',
+    'blog.article.ampliamento-parco-eolico-san-gottardo-digital-2026.imageAlt': 'Bilden Sie sich ein Bild eines Windparks in Ticino mit Turbinen, die langsam im Wind drehen, während die Sonne untergeht',
 };
 
 export default blogMetaDe;

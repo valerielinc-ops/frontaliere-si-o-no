@@ -3819,6 +3819,13 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/giustizia-in-bilico-2026.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'ampliamento-parco-eolico-san-gottardo-digital-2026',
+    category: 'novita',
+    date: '2026-03-19T23:41:40.330Z',
+    image: '/images/blog/ampliamento-parco-eolico-san-gottardo-digital-2026.jpg',
+    hasCalculator: true,
+  },
 ];
 
 const CATEGORIES = ['all', 'fiscale', 'pratico', 'novita', 'pensione'] as const;

@@ -6490,6 +6490,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-ampliamento-parco-eolico-san-gottardo-digital-2026': {
+    title: 'Ampliamento del Parco eolico del San Gottardo: al via la | Frontaliere Ticino',
+    description: 'Dopo cinque anni dalla sua entrata in funzione, il Parco eolico del San Gottardo può essere ampliato grazie alla consultazione digitale in corso. Dati',
+    keywords: 'frontalieri, ticino, svizzera, italia, ampliamento, parco, eolico, gottardo',
+    ogTitle: 'Ampliamento del Parco eolico del San Gottardo: al via la',
+    ogDescription: 'Dopo cinque anni dalla sua entrata in funzione, il Parco eolico del San Gottardo può essere ampliato grazie alla consultazione digitale in corso',
+    canonicalPath: '/articoli-frontaliere/ampliamento-parco-eolico-san-gottardo-digital-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ampliamento del Parco eolico del San Gottardo: al via la consultazione",
+      "description": "Dopo cinque anni dalla sua entrata in funzione, il Parco eolico del San Gottardo può essere ampliato grazie alla consultazione digitale in corso. Dati",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/ampliamento-parco-eolico-san-gottardo-digital-2026.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Immagine un parco eolico in Ticino con turbine che ruotano lentamente nel vento al tramonto"
+      },
+      "datePublished": "2026-03-19T23:41:40+00:00",
+      "dateModified": "2026-03-19T23:41:40+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ampliamento-parco-eolico-san-gottardo-digital-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
