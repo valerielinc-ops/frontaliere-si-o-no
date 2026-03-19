@@ -2710,14 +2710,14 @@ ${alternates}${hasSpaBundle ? `\n    <link rel="stylesheet" href="/assets/${entr
 
       console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Generated ${validJobs.length * 4} localized job pages and sitemap-jobs.xml`);
 
-      /* ── Expired-job redirect pages ────────────────────────────── */
+      /* ── Expired-job soft-landing pages ────────────────────────── */
+      // 1. Read tracking file + merge current jobs
       const trackingPath = np.resolve(rootDir, 'data/all-known-job-slugs.json');
       let tracking: Record<string, Record<string, string>> = {};
       try {
         tracking = JSON.parse(fs.readFileSync(trackingPath, 'utf-8'));
       } catch { /* file missing or malformed — start fresh */ }
 
-      // Merge current valid jobs into tracking
       const currentSlugs = new Set<string>();
       for (const job of validJobs) {
         currentSlugs.add(job.slug);
@@ -2729,38 +2729,29 @@ ${alternates}${hasSpaBundle ? `\n    <link rel="stylesheet" href="/assets/${entr
           }
         }
       }
-
-      // Save updated tracking file (accumulates over time)
       fs.writeFileSync(trackingPath, JSON.stringify(tracking, null, 2) + '\n', 'utf-8');
 
-      // Find expired slugs and generate archive bridge pages
+      // 2. Load expired job data for rich content (previousSlugs, title, company, etc.)
+      const expiredJobsPath = np.resolve(rootDir, 'data/expired-jobs.json');
+      let expiredJobsData: any[] = [];
+      try {
+        expiredJobsData = JSON.parse(fs.readFileSync(expiredJobsPath, 'utf-8'));
+        if (!Array.isArray(expiredJobsData)) expiredJobsData = [];
+      } catch { /* no expired data */ }
+      const expiredBySlug = new Map<string, any>();
+      for (const ej of expiredJobsData) {
+        if (ej.slug) expiredBySlug.set(ej.slug, ej);
+      }
+
+      // 3. Generate soft-landing pages for expired slugs
       const expiredSlugs = Object.keys(tracking).filter((s) => !currentSlugs.has(s));
-      const redirectCopy: Record<string, { title: string; body: string }> = {
-        it: { title: 'Offerta non più disponibile', body: 'Questa offerta di lavoro non è più attiva.' },
-        en: { title: 'Job no longer available', body: 'This job listing has been removed.' },
-        de: { title: 'Stelle nicht mehr verfügbar', body: 'Diese Stellenanzeige ist nicht mehr aktiv.' },
-        fr: { title: 'Offre non disponible', body: 'Cette offre d\'emploi n\'est plus active.' },
+
+      const expiredBannerCopy: Record<string, { title: string; banner: string }> = {
+        it: { title: 'Offerta non più disponibile', banner: 'Questa posizione non è più attiva. Di seguito trovi i dettagli originali e posizioni simili.' },
+        en: { title: 'Job no longer available', banner: 'This position is no longer active. Below you\'ll find the original details and similar positions.' },
+        de: { title: 'Stelle nicht mehr verfügbar', banner: 'Diese Position ist nicht mehr aktiv. Nachfolgend finden Sie die Originaldetails und ähnliche Stellen.' },
+        fr: { title: 'Offre non disponible', banner: 'Ce poste n\'est plus actif. Vous trouverez ci-dessous les détails originaux et des postes similaires.' },
       };
-      let expiredCount = 0;
-      let legacyCount = 0;
-      const writeRedirectPage = (outRelPath: string, html: string) => {
-        const outDir = np.join(distDir, outRelPath);
-        fs.mkdirSync(outDir, { recursive: true });
-        if (!fs.existsSync(np.join(outDir, 'index.html'))) {
-          fs.writeFileSync(np.join(outDir, 'index.html'), html, 'utf-8');
-        }
-        // Flat .html must NOT contain location.replace (Google classifies as redirect)
-        const flatFile = np.join(distDir, outRelPath + '.html');
-        fs.mkdirSync(np.dirname(flatFile), { recursive: true });
-        if (!fs.existsSync(flatFile)) {
-          fs.writeFileSync(flatFile, html.replace(SPA_ACTION_REDIRECT_SCRIPT, ''), 'utf-8');
-        }
-      };
-      // Enriched archive pages: use noindex to tell Google to drop these from
-      // the index. Expired listings trigger soft-404 detection even with canonical
-      // because the visible text says "job no longer available". noindex + canonical
-      // to listing page is the cleanest signal: Google deindexes the page and
-      // passes any residual link equity to the canonical target.
       const archiveRelatedLabel: Record<string, string> = {
         it: 'Posizioni aperte simili in Ticino',
         en: 'Similar open positions in Ticino',
@@ -2778,16 +2769,54 @@ ${alternates}${hasSpaBundle ? `\n    <link rel="stylesheet" href="/assets/${entr
         for (let i = 0; i < s.length; i++) h = (h * 31 + s.charCodeAt(i)) & 0x7fffffff;
         return h;
       };
+
+      let expiredCount = 0;
+      let legacyCount = 0;
+      const expiredSitemapEntries: string[] = [];
+
+      const writeSoftLandingPage = (outRelPath: string, html: string) => {
+        const outDir = np.join(distDir, outRelPath);
+        fs.mkdirSync(outDir, { recursive: true });
+        if (!fs.existsSync(np.join(outDir, 'index.html'))) {
+          fs.writeFileSync(np.join(outDir, 'index.html'), html, 'utf-8');
+        }
+        const flatFile = np.join(distDir, outRelPath + '.html');
+        fs.mkdirSync(np.dirname(flatFile), { recursive: true });
+        if (!fs.existsSync(flatFile)) {
+          fs.writeFileSync(flatFile, html, 'utf-8');
+        }
+      };
+
       for (const slug of expiredSlugs) {
         const paths = tracking[slug];
+        const ejData = expiredBySlug.get(slug);
+
+        // Build hreflang alternates for this expired slug
+        const hreflangLinks = localeList.map((l) => {
+          const p = paths[l];
+          if (!p) return '';
+          return `    <link rel="alternate" hreflang="${l}" href="${BASE_URL}${withSlash(p)}">`;
+        }).filter(Boolean).join('\n');
+
         for (const locale of localeList) {
           const relPath = paths[locale];
           if (!relPath) continue;
+          const selfUrl = `${BASE_URL}${withSlash(relPath)}`;
           const listingPath = `${localePrefix[locale]}/${sectionByLocale[locale]}/`.replace(/\/+/g, '/');
-          const copy = redirectCopy[locale] ?? redirectCopy.it;
-          const redirectUrl = `${BASE_URL}${listingPath}`;
+          const copy = expiredBannerCopy[locale] ?? expiredBannerCopy.it;
 
-          // Pick 8 related active jobs, varied per slug
+          // Rich content from expired-jobs.json
+          const jobTitle = String(ejData?.titleByLocale?.[locale] || ejData?.title || copy.title);
+          const jobCompany = String(ejData?.company || '');
+          const jobLocation = String(ejData?.location || ejData?.addressLocality || '');
+          const jobDescription = String(ejData?.descriptionByLocale?.[locale] || '');
+
+          // Title for <title> tag: use job title if available
+          const pageTitle = ejData?.title
+            ? `${esc(jobTitle)}${jobCompany ? ` — ${esc(jobCompany)}` : ''} | Frontaliere Ticino`
+            : `${esc(copy.title)} | Frontaliere Ticino`;
+
+          // Pick 8 related active jobs, varied per slug (prefer same company/sector if possible)
           const offset = hashCode(slug) % Math.max(1, validJobs.length);
           const relatedItems: string[] = [];
           for (let i = 0; i < 8 && i < validJobs.length; i++) {
@@ -2798,53 +2827,95 @@ ${alternates}${hasSpaBundle ? `\n    <link rel="stylesheet" href="/assets/${entr
             relatedItems.push(`<li style="margin:0 0 8px"><a href="${rjPath}" style="color:#1d4ed8;text-decoration:none">${esc(rjTitle)} &mdash; ${esc(rj.company || '')}</a></li>`);
           }
 
-          const archiveHtml = `<!DOCTYPE html>
+          // Description section (only if we have content)
+          const descriptionHtml = jobDescription
+            ? `<div style="margin:0 0 24px;padding:16px;background:#f8fafc;border-radius:8px;border:1px solid #e2e8f0">${jobDescription}</div>`
+            : '';
+
+          // Meta info line
+          const metaLine = [jobCompany, jobLocation].filter(Boolean).map(s => esc(s)).join(' — ');
+
+          const softLandingHtml = `<!DOCTYPE html>
 <html lang="${locale}">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>${esc(copy.title)} | Frontaliere Ticino</title>
-    <meta name="description" content="${esc(copy.body)} ${esc(archiveRelatedLabel[locale] || archiveRelatedLabel.it)}.">
-    <meta name="robots" content="noindex,follow">
-    <link rel="canonical" href="${redirectUrl}">
-    ${SPA_ACTION_REDIRECT_SCRIPT}
+    <title>${pageTitle}</title>
+    <meta name="description" content="${esc(jobTitle)}${jobCompany ? ` — ${esc(jobCompany)}` : ''}. ${esc(archiveRelatedLabel[locale] || archiveRelatedLabel.it)}.">
+    <link rel="canonical" href="${selfUrl}">
+${hreflangLinks}
     <script type="application/ld+json">${JSON.stringify({
       '@context': 'https://schema.org',
       '@type': 'BreadcrumbList',
       itemListElement: [
         { '@type': 'ListItem', position: 1, name: 'Frontaliere Ticino', item: BASE_URL + '/' },
-        { '@type': 'ListItem', position: 2, name: localeCopy[locale].sectionName, item: redirectUrl },
+        { '@type': 'ListItem', position: 2, name: localeCopy[locale].sectionName, item: `${BASE_URL}${listingPath}` },
+        { '@type': 'ListItem', position: 3, name: jobTitle },
       ],
     })}</script>
   </head>
   <body>
     <main style="font-family:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;max-width:720px;margin:40px auto;padding:0 16px;line-height:1.6;color:#0f172a">
-      <h1 style="font-size:28px;line-height:1.2;margin:0 0 12px">${esc(copy.title)}</h1>
-      <p style="margin:0 0 20px">${esc(copy.body)}</p>
-      <h2 style="font-size:20px;margin:0 0 12px">${esc(archiveRelatedLabel[locale] || archiveRelatedLabel.it)}</h2>
+      <div style="background:#fef3c7;border:1px solid #f59e0b;border-radius:8px;padding:12px 16px;margin:0 0 20px;color:#92400e;font-size:14px">${esc(copy.banner)}</div>
+      <h1 style="font-size:28px;line-height:1.2;margin:0 0 8px">${esc(jobTitle)}</h1>
+      ${metaLine ? `<p style="margin:0 0 16px;color:#475569;font-size:15px">${metaLine}</p>` : ''}
+      ${descriptionHtml}
+      <h2 style="font-size:20px;margin:24px 0 12px">${esc(archiveRelatedLabel[locale] || archiveRelatedLabel.it)}</h2>
       <ul style="list-style:none;padding:0;margin:0 0 20px">${relatedItems.join('\n')}</ul>
       <p style="margin:0 0 14px"><a href="${listingPath}" style="color:#1d4ed8;font-weight:700;text-decoration:none">&rarr; ${esc(archiveCtaLabel[locale] || archiveCtaLabel.it)}</a></p>
     </main>
   </body>
 </html>`;
-          // Write at the tracked locale-specific path
-          writeRedirectPage(relPath.slice(1), archiveHtml);
+
+          writeSoftLandingPage(relPath.slice(1), softLandingHtml);
           expiredCount++;
 
-          // Also generate redirect at Italian-slug-in-non-IT-locale path (legacy URLs
-          // crawled before slug localization was implemented)
+          // Legacy slug bridge (Italian slug in non-IT locale path)
           if (locale !== 'it') {
             const legacyRel = `${localePrefix[locale]}/${sectionByLocale[locale]}/${slug}`.replace(/\/+/g, '/').replace(/^\//, '');
             const trackedRel = relPath.replace(/^\//, '');
             if (legacyRel !== trackedRel) {
-              writeRedirectPage(legacyRel, archiveHtml);
+              writeSoftLandingPage(legacyRel, softLandingHtml);
               legacyCount++;
             }
           }
         }
+
+        // Add expired slug to sitemap (one entry per slug, with hreflang alternates)
+        const itPath = paths.it ? withSlash(paths.it) : '';
+        if (itPath) {
+          const altLinks = localeList.map((l) => {
+            const p = paths[l];
+            if (!p) return '';
+            return `    <xhtml:link rel="alternate" hreflang="${l}" href="${BASE_URL}${withSlash(p)}" />`;
+          }).filter(Boolean).join('\n');
+          const xDefault = `    <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}${itPath}" />`;
+          const lastmod = ejData?.expiredAt ? new Date(ejData.expiredAt).toISOString().slice(0, 10) : dateStamp;
+          expiredSitemapEntries.push(`  <url>\n    <loc>${BASE_URL}${itPath}</loc>\n${altLinks}\n${xDefault}\n    <lastmod>${lastmod}</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>0.3</priority>\n  </url>`);
+        }
       }
+
+      // Write expired jobs sitemap
+      if (expiredSitemapEntries.length > 0) {
+        const sitemapExpired = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"\n        xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${expiredSitemapEntries.join('\n')}\n</urlset>\n`;
+        fs.writeFileSync(np.join(distDir, 'sitemap-jobs-expired.xml'), sitemapExpired, 'utf-8');
+
+        // Register in sitemap index
+        const sitemapIndexPath = np.join(distDir, 'sitemap.xml');
+        if (fs.existsSync(sitemapIndexPath)) {
+          let idx = fs.readFileSync(sitemapIndexPath, 'utf-8');
+          if (!idx.includes('sitemap-jobs-expired.xml')) {
+            idx = idx.replace(
+              '</sitemapindex>',
+              `  <sitemap>\n    <loc>${BASE_URL}/sitemap-jobs-expired.xml</loc>\n    <lastmod>${dateStamp}</lastmod>\n  </sitemap>\n</sitemapindex>`
+            );
+            fs.writeFileSync(sitemapIndexPath, idx, 'utf-8');
+          }
+        }
+      }
+
       if (expiredCount > 0) {
-        console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Generated ${expiredCount} archive pages for ${expiredSlugs.length} expired jobs${legacyCount > 0 ? ` (+ ${legacyCount} legacy slug bridges)` : ''}`);
+        console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Generated ${expiredCount} soft-landing pages for ${expiredSlugs.length} expired jobs${legacyCount > 0 ? ` (+ ${legacyCount} legacy slug bridges)` : ''}`);
       }
     },
   };
