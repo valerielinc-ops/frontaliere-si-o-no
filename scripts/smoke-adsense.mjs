@@ -258,20 +258,23 @@ function checkMediaQueryHook() {
 
   const content = readFile(filePath);
 
-  // Should return null as initial state (not false/true) for SSR safety
-  if (/useState[^(]*\(\s*null\s*\)/.test(content)) {
-    pass('useMediaQuery returns null initial state (SSR safe)');
+  // Should be SSR-safe: either null literal initial state OR a lazy initializer
+  // that guards with typeof window === 'undefined' (returns null on SSR).
+  const hasNullLiteral = /useState[^(]*\(\s*null\s*\)/.test(content);
+  const hasLazyInitWithNullGuard = /useState[^(]*\(\s*\(\s*\)\s*=>/.test(content) && content.includes('typeof window');
+  if (hasNullLiteral || hasLazyInitWithNullGuard) {
+    pass('useMediaQuery is SSR-safe (returns null on server, correct value on client)');
   } else if (/useState[^(]*\(\s*false\s*\)/.test(content)) {
     fail('useMediaQuery uses false as initial state — ads may mount on wrong breakpoint during hydration');
   } else {
     warn('useMediaQuery initial state pattern not detected — verify SSR safety manually');
   }
 
-  // Should use useEffect (not direct window access at render time)
+  // Should use useEffect for responding to media query changes
   if (content.includes('useEffect')) {
-    pass('useMediaQuery uses useEffect for window.matchMedia (no SSR crash)');
+    pass('useMediaQuery uses useEffect for matchMedia change listener');
   } else {
-    fail('useMediaQuery does not use useEffect — may crash on SSR');
+    fail('useMediaQuery does not use useEffect — change events will not be handled');
   }
 }
 

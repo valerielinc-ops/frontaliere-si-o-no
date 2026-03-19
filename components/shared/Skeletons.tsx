@@ -252,6 +252,47 @@ export const SkeletonFooterSlot: React.FC<{ height: string }> = ({ height }) => 
   <div className={`${height} rounded-xl`} aria-hidden="true" />
 );
 
+/**
+ * CLS-safe skeleton for the job detail page.
+ * Mirrors the header card + description area structure so that when auth
+ * resolves and the full detail layout mounts, there is no large layout shift.
+ */
+export const SkeletonJobDetail: React.FC = () => (
+  <div className="space-y-4">
+    {/* Back button */}
+    <div className={`${pulse} w-32 h-5 rounded`} />
+
+    {/* Job header card — logo + title + meta badges */}
+    <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-5 space-y-3">
+      <div className="flex items-start gap-4">
+        <div className={`${pulse} w-12 h-12 rounded-lg flex-shrink-0`} />
+        <div className="flex-1 min-w-0 space-y-2">
+          <SkeletonLine height="h-6" width="w-4/5" />
+          <div className="flex flex-wrap gap-3">
+            <SkeletonLine height="h-4" width="w-28" />
+            <SkeletonLine height="h-4" width="w-20" />
+            <SkeletonLine height="h-4" width="w-16" />
+          </div>
+        </div>
+      </div>
+      {/* Description preview area (~5 lines, matching blurred teaser min-height) */}
+      <div className="mt-3 space-y-2">
+        <SkeletonLine height="h-4" />
+        <SkeletonLine height="h-4" />
+        <SkeletonLine height="h-4" width="w-11/12" />
+        <SkeletonLine height="h-4" />
+        <SkeletonLine height="h-4" width="w-3/4" />
+      </div>
+    </div>
+
+    {/* Apply / action button row */}
+    <SkeletonLine height="h-12" className="rounded-xl" />
+
+    {/* Secondary content block */}
+    <SkeletonCard lines={3} />
+  </div>
+);
+
 export const SkeletonJobBoard: React.FC = () => (
   <div className="space-y-4 min-h-[600px]">
     {/* Header */}

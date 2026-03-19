@@ -44,6 +44,7 @@ import { Analytics } from '@/services/analytics';
 import { buildPath, registerJobSlugMap } from '@/services/router';
 import { useNavigation } from '@/services/NavigationContext';
 import AdSenseBanner from '@/components/shared/AdSenseBanner';
+import { SkeletonJobDetail } from '@/components/shared/Skeletons';
 import { AD_SLOTS } from '@/services/adsenseSlots';
 import { useMediaQuery } from '@/hooks/useMediaQuery';
 import { eagerAuth, promptOneTap } from '@/services/authService';
@@ -4310,11 +4311,10 @@ const JobBoard: React.FC<JobBoardProps> = ({
 
   if (selectedJob) {
     if (!authResolved) {
-      return (
-        <div className="flex items-center justify-center py-20">
-          <Loader2 className="w-9 h-9 text-indigo-500 animate-spin" />
-        </div>
-      );
+      // Use a layout-matching skeleton instead of a tiny spinner to prevent CLS:
+      // the spinner occupies ~80px but the full detail layout is 800-1200px,
+      // causing a large measurable layout shift when auth resolves.
+      return <SkeletonJobDetail />;
     }
     if (!hasAccess) {
       const localizedTitle = sanitizeJobTitle(selectedJob.titleByLocale?.[locale] ?? selectedJob.title);
