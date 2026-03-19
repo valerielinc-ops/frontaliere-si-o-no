@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-03-19T05:03:39.164Z",
+  "generatedAt": "2026-03-19T05:04:16.552Z",
   "links": {
     "allJobs": "https://www.frontaliereticino.ch/cerca-lavoro-ticino"
   },
   "totals": {
-    "activeJobs": 886,
+    "activeJobs": 1144,
     "activeCompanies": 125,
     "activeLocations": 150,
     "todayAdded": 926,
@@ -88,6 +88,24 @@
         "name": "Grace La Margna St. Moritz",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-grace-la-margna-st-moritz",
         "count": 24
+      },
+      {
+        "key": "colin-cie-wealth-management",
+        "name": "Colin&Cie Wealth Management",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-colin-cie-wealth-management",
+        "count": 105
+      },
+      {
+        "key": "confederazione-svizzera",
+        "name": "Confederazione Svizzera",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-confederazione-svizzera",
+        "count": 40
+      },
+      {
+        "key": "grace-la-margna-st-moritz",
+        "name": "Grace La Margna St. Moritz",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-grace-la-margna-st-moritz",
+        "count": 24
       }
     ],
     "topLocationsActive": [
@@ -126,6 +144,12 @@
         "name": "Grigioni",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-grigioni",
         "count": 43
+      },
+      {
+        "key": "lugano",
+        "name": "Lugano",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-lugano",
+        "count": 140
       }
     ],
     "topCompaniesAddedToday": [
@@ -427,11 +451,11 @@
   },
   "salary": {
     "coverage": {
-      "jobsWithSalary": 886,
+      "jobsWithSalary": 1144,
       "coveragePct": 100,
-      "avgMin": 66753,
-      "avgMax": 90037,
-      "avgMid": 78395,
+      "avgMin": 67030,
+      "avgMax": 90328,
+      "avgMid": 78679,
       "medianMid": 68500
     },
     "leaders": {
@@ -490,16 +514,6 @@
           "key": "bracco-suisse-s-a",
           "name": "Bracco Suisse S.A.",
           "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-bracco-suisse-s-a",
-          "count": 2,
-          "avgMin": 90750,
-          "avgMax": 122750,
-          "avgMid": 106750,
-          "weightedSalary": 97150
-        },
-        {
-          "key": "fart-ferrovie-autolinee-regionali-ticinesi",
-          "name": "FART – Ferrovie Autolinee Regionali Ticinesi",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-fart-ferrovie-autolinee-regionali-ticinesi",
           "count": 2,
           "avgMin": 90750,
           "avgMax": 122750,
@@ -609,14 +623,34 @@
           "weightedSalary": 91000
         },
         {
-          "key": "manno",
-          "name": "Manno",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-manno",
-          "count": 3,
-          "avgMin": 79000,
-          "avgMax": 106667,
-          "avgMid": 92833,
-          "weightedSalary": 87300
+          "key": "zurich",
+          "name": "Zürich",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-zurich",
+          "count": 28,
+          "avgMin": 78018,
+          "avgMax": 105232,
+          "avgMid": 91625,
+          "weightedSalary": 91625
+        },
+        {
+          "key": "munsbach",
+          "name": "Munsbach",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-munsbach",
+          "count": 39,
+          "avgMin": 77500,
+          "avgMax": 104500,
+          "avgMid": 91000,
+          "weightedSalary": 91000
+        },
+        {
+          "key": "schaffhausen",
+          "name": "Schaffhausen",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-schaffhausen",
+          "count": 13,
+          "avgMin": 77500,
+          "avgMax": 104500,
+          "avgMid": 91000,
+          "weightedSalary": 91000
         }
       ],
       "topSalaryTitles": [
