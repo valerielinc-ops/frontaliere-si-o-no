@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-03-19T04:52:32.839Z",
+  "updatedAt": "2026-03-19T04:52:52.635Z",
   "summaries": [
     {
       "key": "agie-charmilles",
@@ -161,54 +161,6 @@
         }
       ],
       "updatedJobs": [],
-      "removedJobs": [],
-      "unchangedJobs": []
-    },
-    {
-      "key": "alten-switzerland",
-      "label": "ALTEN Switzerland",
-      "generatedAt": "2026-03-19T02:45:34.738Z",
-      "total": 3,
-      "newCount": 0,
-      "updatedCount": 3,
-      "removedCount": 0,
-      "unchangedCount": 0,
-      "durationMs": 7582,
-      "avgDurationMs": 52971,
-      "durationHistory": [
-        7582,
-        14018,
-        65259,
-        66018,
-        72003,
-        66649,
-        66806,
-        65429
-      ],
-      "newJobs": [],
-      "updatedJobs": [
-        {
-          "title": "Full Stack .Net Developer",
-          "company": "ALTEN Switzerland",
-          "location": "Ticino",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/sviluppatore-full-stack-net-alten-switzerland-ticino/",
-          "slug": "sviluppatore-full-stack-net-alten-switzerland-ticino"
-        },
-        {
-          "title": "Cloud Engineer – Google Cloud Platform",
-          "company": "ALTEN Switzerland",
-          "location": "Ticino",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ingegnere-cloud-google-cloud-platform-alten-switzerland-ticino/",
-          "slug": "ingegnere-cloud-google-cloud-platform-alten-switzerland-ticino"
-        },
-        {
-          "title": "Senior Java Developer (Full-Stack)",
-          "company": "ALTEN Switzerland",
-          "location": "Ticino",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/sviluppatore-java-senior-full-stack-alten-switzerland-ticino/",
-          "slug": "sviluppatore-java-senior-full-stack-alten-switzerland-ticino"
-        }
-      ],
       "removedJobs": [],
       "unchangedJobs": []
     },
@@ -9909,6 +9861,33 @@
         12445,
         12270,
         12465
+      ],
+      "newJobs": [],
+      "updatedJobs": [],
+      "removedJobs": [],
+      "unchangedJobs": []
+    },
+    {
+      "key": "alten-switzerland",
+      "label": "ALTEN Switzerland",
+      "generatedAt": "2026-03-19T04:52:52.635Z",
+      "total": 0,
+      "newCount": 0,
+      "updatedCount": 0,
+      "removedCount": 0,
+      "unchangedCount": 0,
+      "durationMs": 66092,
+      "avgDurationMs": 54428,
+      "durationHistory": [
+        66092,
+        7582,
+        14018,
+        65259,
+        66018,
+        72003,
+        66649,
+        66806,
+        65429
       ],
       "newJobs": [],
       "updatedJobs": [],

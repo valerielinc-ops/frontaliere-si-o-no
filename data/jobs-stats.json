@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-03-19T04:52:32.969Z",
+  "generatedAt": "2026-03-19T04:52:52.761Z",
   "links": {
     "allJobs": "https://www.frontaliereticino.ch/cerca-lavoro-ticino"
   },
   "totals": {
-    "activeJobs": 1027,
+    "activeJobs": 1002,
     "activeCompanies": 124,
     "activeLocations": 145,
     "todayAdded": 872,
@@ -45,13 +45,6 @@
     },
     {
       "date": "2026-03-19",
-      "totalJobs": 872,
-      "added": 872,
-      "updated": 0,
-      "removed": 0
-    },
-    {
-      "date": "2026-03-19",
       "totalJobs": 991,
       "added": 883,
       "updated": 0,
@@ -60,6 +53,13 @@
     {
       "date": "2026-03-19",
       "totalJobs": 1027,
+      "added": 883,
+      "updated": 0,
+      "removed": 0
+    },
+    {
+      "date": "2026-03-19",
+      "totalJobs": 1002,
       "added": 883,
       "updated": 0,
       "removed": 0
@@ -144,6 +144,42 @@
         "name": "Colin&Cie Wealth Management",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-colin-cie-wealth-management",
         "count": 25
+      },
+      {
+        "key": "relewant",
+        "name": "ReleWant",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-relewant",
+        "count": 24
+      },
+      {
+        "key": "eoc-ente-ospedaliero-cantonale",
+        "name": "EOC – Ente Ospedaliero Cantonale",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-eoc-ente-ospedaliero-cantonale",
+        "count": 227
+      },
+      {
+        "key": "pemsa",
+        "name": "PEMSA",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-pemsa",
+        "count": 50
+      },
+      {
+        "key": "coop",
+        "name": "Coop",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-coop",
+        "count": 35
+      },
+      {
+        "key": "vf-international-the-north-face-timberland",
+        "name": "VF International (The North Face, Timberland)",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-vf-international-the-north-face-timberland",
+        "count": 33
+      },
+      {
+        "key": "usi-universita-della-svizzera-italiana",
+        "name": "USI – Università della Svizzera italiana",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-usi-universita-della-svizzera-italiana",
+        "count": 26
       },
       {
         "key": "relewant",
@@ -248,6 +284,54 @@
         "name": "Ticino",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-ticino",
         "count": 31
+      },
+      {
+        "key": "bellinzona",
+        "name": "Bellinzona",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-bellinzona",
+        "count": 148
+      },
+      {
+        "key": "lugano",
+        "name": "Lugano",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-lugano",
+        "count": 133
+      },
+      {
+        "key": "mendrisio",
+        "name": "Mendrisio",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-mendrisio",
+        "count": 57
+      },
+      {
+        "key": "locarno",
+        "name": "Locarno",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-locarno",
+        "count": 56
+      },
+      {
+        "key": "chur",
+        "name": "Chur",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-chur",
+        "count": 44
+      },
+      {
+        "key": "grigioni",
+        "name": "Grigioni",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-grigioni",
+        "count": 44
+      },
+      {
+        "key": "emea-che-stabio-vf-campus-vf1",
+        "name": "EMEA · CHE · Stabio · VF Campus VF1",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-emea-che-stabio-vf-campus-vf1",
+        "count": 31
+      },
+      {
+        "key": "ticino",
+        "name": "Ticino",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-ticino",
+        "count": 30
       }
     ],
     "topCompaniesAddedToday": [
@@ -549,11 +633,11 @@
   },
   "salary": {
     "coverage": {
-      "jobsWithSalary": 1027,
+      "jobsWithSalary": 1002,
       "coveragePct": 100,
-      "avgMin": 67229,
-      "avgMax": 90679,
-      "avgMid": 78954,
+      "avgMin": 67122,
+      "avgMax": 90550,
+      "avgMid": 78836,
       "medianMid": 72000
     },
     "leaders": {
@@ -769,6 +853,56 @@
           "avgMax": 104500,
           "avgMid": 91000,
           "weightedSalary": 91000
+        },
+        {
+          "key": "quartino-ticino",
+          "name": "Quartino, Ticino",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-quartino-ticino",
+          "count": 19,
+          "avgMin": 84395,
+          "avgMax": 113816,
+          "avgMid": 99105,
+          "weightedSalary": 99105
+        },
+        {
+          "key": "castelrotto",
+          "name": "Castelrotto",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-castelrotto",
+          "count": 6,
+          "avgMin": 83583,
+          "avgMax": 112917,
+          "avgMid": 98250,
+          "weightedSalary": 98250
+        },
+        {
+          "key": "bern",
+          "name": "Bern",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-bern",
+          "count": 8,
+          "avgMin": 80563,
+          "avgMax": 108563,
+          "avgMid": 94563,
+          "weightedSalary": 94563
+        },
+        {
+          "key": "manno",
+          "name": "Manno",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-manno",
+          "count": 5,
+          "avgMin": 80400,
+          "avgMax": 108600,
+          "avgMid": 94500,
+          "weightedSalary": 94500
+        },
+        {
+          "key": "castel-san-pietro",
+          "name": "Castel San Pietro",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-castel-san-pietro",
+          "count": 8,
+          "avgMin": 77375,
+          "avgMax": 104500,
+          "avgMid": 90938,
+          "weightedSalary": 90938
         }
       ],
       "topSalaryTitles": [
