@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-03-19T05:04:47.237Z",
+  "updatedAt": "2026-03-19T05:05:20.270Z",
   "summaries": [
     {
       "key": "galenica",
@@ -2465,71 +2465,6 @@
         }
       ],
       "unchangedJobs": []
-    },
-    {
-      "key": "guess",
-      "label": "Guess",
-      "generatedAt": "2026-03-18T16:27:05.844Z",
-      "total": 5,
-      "newCount": 0,
-      "updatedCount": 2,
-      "removedCount": 0,
-      "unchangedCount": 3,
-      "durationMs": 10413,
-      "avgDurationMs": 15613,
-      "durationHistory": [
-        10413,
-        12105,
-        18026,
-        15320,
-        23704,
-        6778,
-        11139,
-        22007,
-        23271,
-        13364
-      ],
-      "newJobs": [],
-      "updatedJobs": [
-        {
-          "title": "E-Commerce Senior Merchandiser",
-          "company": "Guess Europe Sagl",
-          "location": "Bioggio",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/merchandiser-senior-dell-e-commerce-guess-europe-sagl-bioggio/",
-          "slug": "merchandiser-senior-dell-e-commerce-guess-europe-sagl-bioggio"
-        },
-        {
-          "title": "Key Account & Marketplace Manager (Amazon & North America)",
-          "company": "Guess Europe Sagl",
-          "location": "Bioggio",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/key-account-marketplace-manager-amazon-north-america-guess-europe-sagl-bioggio/",
-          "slug": "key-account-marketplace-manager-amazon-north-america-guess-europe-sagl-bioggio"
-        }
-      ],
-      "removedJobs": [],
-      "unchangedJobs": [
-        {
-          "title": "E-Commerce Content & Campaign Specialist",
-          "company": "Guess Europe Sagl",
-          "location": "Bioggio",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/specialista-di-contenuti-e-campagne-e-commerce-guess-europe-sagl-bioggio/",
-          "slug": "specialista-di-contenuti-e-campagne-e-commerce-guess-europe-sagl-bioggio"
-        },
-        {
-          "title": "Product Developer Apparel",
-          "company": "Guess Europe Sagl",
-          "location": "Stabio",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/abbigliamento-per-sviluppatori-di-prodotti-guess-europe-sagl-stabio/",
-          "slug": "abbigliamento-per-sviluppatori-di-prodotti-guess-europe-sagl-stabio"
-        },
-        {
-          "title": "Product Developer Jewellery",
-          "company": "Guess Europe Sagl",
-          "location": "Bioggio",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/sviluppatore-di-prodotti-gioielli-guess-europe-sagl-bioggio/",
-          "slug": "sviluppatore-di-prodotti-gioielli-guess-europe-sagl-bioggio"
-        }
-      ]
     },
     {
       "key": "has-healthcare",
@@ -9854,6 +9789,71 @@
       "updatedJobs": [],
       "removedJobs": [],
       "unchangedJobs": []
+    },
+    {
+      "key": "guess",
+      "label": "Guess",
+      "generatedAt": "2026-03-19T05:05:20.270Z",
+      "total": 5,
+      "newCount": 0,
+      "updatedCount": 1,
+      "removedCount": 0,
+      "unchangedCount": 4,
+      "durationMs": 7877,
+      "avgDurationMs": 15064,
+      "durationHistory": [
+        7877,
+        10413,
+        12105,
+        18026,
+        15320,
+        23704,
+        6778,
+        11139,
+        22007,
+        23271
+      ],
+      "newJobs": [],
+      "updatedJobs": [
+        {
+          "title": "Key Account & Marketplace Manager (Amazon & North America)",
+          "company": "Guess Europe Sagl",
+          "location": "Bioggio",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/responsabile-key-account-e-marketplace-amazon-e-nord-america-guess-europe-sagl-bioggio/",
+          "slug": "responsabile-key-account-e-marketplace-amazon-e-nord-america-guess-europe-sagl-bioggio"
+        }
+      ],
+      "removedJobs": [],
+      "unchangedJobs": [
+        {
+          "title": "E-Commerce Content & Campaign Specialist",
+          "company": "Guess Europe Sagl",
+          "location": "Bioggio",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/specialista-di-contenuti-e-campagne-e-commerce-guess-europe-sagl-bioggio/",
+          "slug": "specialista-di-contenuti-e-campagne-e-commerce-guess-europe-sagl-bioggio"
+        },
+        {
+          "title": "E-Commerce Senior Merchandiser",
+          "company": "Guess Europe Sagl",
+          "location": "Bioggio",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/merchandiser-senior-dell-e-commerce-guess-europe-sagl-bioggio/",
+          "slug": "merchandiser-senior-dell-e-commerce-guess-europe-sagl-bioggio"
+        },
+        {
+          "title": "Product Developer Apparel",
+          "company": "Guess Europe Sagl",
+          "location": "Stabio",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/abbigliamento-per-sviluppatori-di-prodotti-guess-europe-sagl-stabio/",
+          "slug": "abbigliamento-per-sviluppatori-di-prodotti-guess-europe-sagl-stabio"
+        },
+        {
+          "title": "Product Developer Jewellery",
+          "company": "Guess Europe Sagl",
+          "location": "Bioggio",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/sviluppatore-di-prodotti-gioielli-guess-europe-sagl-bioggio/",
+          "slug": "sviluppatore-di-prodotti-gioielli-guess-europe-sagl-bioggio"
+        }
+      ]
     }
   ]
 }
