@@ -1379,6 +1379,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.kebab-case-borse-freddo-2024.title': 'Scenarios \'Hot\' in the Middle East, Stocks Fall with a Pungent Chill',
     'blog.article.kebab-case-borse-freddo-2024.excerpt': 'The Zurich Stock Exchange closed on Friday with a loss of almost 200 points.',
     'blog.article.kebab-case-borse-freddo-2024.imageAlt': 'A chaotic financial market in Lugano, with plummeting stock prices.',
+    'blog.article.giustizia-in-bilico-2026.title': 'Justice in Ticino at Risk: Agreement with Lugano City Council in Jeopardy',
+    'blog.article.giustizia-in-bilico-2026.excerpt': 'Justice in Ticino is at risk due to an agreement between the Canton and the Lugano City Council that is in jeopardy.',
+    'blog.article.giustizia-in-bilico-2026.imageAlt': 'Ticino Justice: balance and uncertain future',
 };
 
 export default blogMetaEn;

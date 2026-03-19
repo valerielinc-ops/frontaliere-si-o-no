@@ -3030,7 +3030,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
         "@context": "https://schema.org",
         "@type": "ItemList",
         "name": "Articoli Frontaliere",
-        "numberOfItems": 450,
+        "numberOfItems": 451,
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
           { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -3481,7 +3481,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 447, "name": "Lunghe code sulla strada del lago tra la Schira...", "url": `${BASE_URL}/articoli-frontaliere/incidente-stradale-laghi` },
           { "@type": "ListItem", "position": 448, "name": "Vivere più a lungo in Ticino - Consigli e servi...", "url": `${BASE_URL}/articoli-frontaliere/vivere-piu-lungo-ticino` },
           { "@type": "ListItem", "position": 449, "name": "Governo getta la spugna sulle nomine SIMS: nien...", "url": `${BASE_URL}/articoli-frontaliere/governo-getta-spugna-kebab-case` },
-          { "@type": "ListItem", "position": 450, "name": "Scenari \"caldi\" nel Medio Oriente, sulle Borse ...", "url": `${BASE_URL}/articoli-frontaliere/kebab-case-borse-freddo-2024` }
+          { "@type": "ListItem", "position": 450, "name": "Scenari \"caldi\" nel Medio Oriente, sulle Borse ...", "url": `${BASE_URL}/articoli-frontaliere/kebab-case-borse-freddo-2024` },
+          { "@type": "ListItem", "position": 451, "name": "La Giustizia in Ticino è in bilico: un accordo ...", "url": `${BASE_URL}/articoli-frontaliere/giustizia-in-bilico-2026` }
         ]
       }
     ]

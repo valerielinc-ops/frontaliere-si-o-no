@@ -6461,6 +6461,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-giustizia-in-bilico-2026': {
+    title: 'Se salta l\'accordo con Lugano, Giustizia in città in | Frontaliere Ticino',
+    description: 'La Giustizia in Ticino rischia di saltare: un accordo tra il Cantone e il Municipio di Lugano è in bilico. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, salta, accordo, lugano, giustizia',
+    ogTitle: 'Giustizia in bilico: futuro incerto per la Giustizia in',
+    ogDescription: 'La Giustizia in Ticino rischia di saltare: un accordo tra il Cantone e il Municipio di Lugano è in bilico.',
+    canonicalPath: '/articoli-frontaliere/giustizia-in-bilico-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "La Giustizia in Ticino è in bilico: un accordo è in discussione",
+      "description": "La Giustizia in Ticino rischia di saltare: un accordo tra il Cantone e il Municipio di Lugano è in bilico. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/giustizia-in-bilico-2026.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "La Giustizia in Ticino: bilico e futuro incerto"
+      },
+      "datePublished": "2026-03-19T23:03:50+00:00",
+      "dateModified": "2026-03-19T23:03:50+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/giustizia-in-bilico-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

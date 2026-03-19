@@ -1379,6 +1379,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.kebab-case-borse-freddo-2024.title': 'Wärme-Szenarien im Nahen Osten, Börsen fallen einem kalten Schlag',
     'blog.article.kebab-case-borse-freddo-2024.excerpt': 'Die Börse in Zürich schloss am vergangenen Freitag mit einem Verlust von fast 200 Punkten.',
     'blog.article.kebab-case-borse-freddo-2024.imageAlt': 'Ein chaotischer Finanzmarkt in Lugano, mit fallen Stockpreisen.',
+    'blog.article.giustizia-in-bilico-2026.title': 'Wenn das Abkommen mit Lugano platzt, ist die Justiz in der Stadt gefährdet',
+    'blog.article.giustizia-in-bilico-2026.excerpt': 'Die Justiz in der Schweiz ist in Gefahr, wenn ein Abkommen zwischen dem Kanton und der Stadt Lugano platzt.',
+    'blog.article.giustizia-in-bilico-2026.imageAlt': 'Ticino Rechtsprechung: Bilanz und Zukunft ungewiss',
 };
 
 export default blogMetaDe;

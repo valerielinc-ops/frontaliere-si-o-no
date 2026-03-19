@@ -1379,6 +1379,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.kebab-case-borse-freddo-2024.title': 'Scenari "caldi" nel Medio Oriente, sulle Borse cala un freddo pungente',
     'blog.article.kebab-case-borse-freddo-2024.excerpt': 'La borsa di Zurigo chiude il venerdì scorso con una perdita di quasi 200 punti.',
     'blog.article.kebab-case-borse-freddo-2024.imageAlt': 'Un mercato finanziario caotico a Lugano, con titoli azionari in caduta libera.',
+    'blog.article.giustizia-in-bilico-2026.title': 'Se salta l\'accordo con Lugano, Giustizia in città in bilico',
+    'blog.article.giustizia-in-bilico-2026.excerpt': 'La Giustizia in Ticino rischia di saltare: un accordo tra il Cantone e il Municipio di Lugano è in bilico.',
+    'blog.article.giustizia-in-bilico-2026.imageAlt': 'La Giustizia in Ticino: bilico e futuro incerto',
 };
 
 export default blogMetaIt;

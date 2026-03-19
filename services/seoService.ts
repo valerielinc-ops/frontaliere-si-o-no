@@ -1593,6 +1593,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-vivere-piu-lungo-ticino': { name: 'Vivere più a lungo in Ticino', path: '/articoli-frontaliere/vivere-piu-lungo-ticino', parent: 'blog' },
     'blog-governo-getta-spugna-kebab-case': { name: 'Novità Ticino', path: '/articoli-frontaliere/governo-getta-spugna-kebab-case', parent: 'blog' },
     'blog-kebab-case-borse-freddo-2024': { name: 'Borse', path: '/articoli-frontaliere/kebab-case-borse-freddo-2024', parent: 'blog' },
+    'blog-giustizia-in-bilico-2026': { name: 'Giustizia in Ticino', path: '/articoli-frontaliere/giustizia-in-bilico-2026', parent: 'blog' },
   };
 
   const info = sectionNames[section];

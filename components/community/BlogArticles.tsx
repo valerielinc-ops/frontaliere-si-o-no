@@ -3812,6 +3812,13 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/kebab-case-borse-freddo-2024.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'giustizia-in-bilico-2026',
+    category: 'novita',
+    date: '2026-03-19T23:03:50.305Z',
+    image: '/images/blog/giustizia-in-bilico-2026.jpg',
+    hasCalculator: true,
+  },
 ];
 
 const CATEGORIES = ['all', 'fiscale', 'pratico', 'novita', 'pensione'] as const;
