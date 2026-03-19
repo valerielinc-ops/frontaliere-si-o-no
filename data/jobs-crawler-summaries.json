@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-03-19T05:04:11.236Z",
+  "updatedAt": "2026-03-19T05:04:47.237Z",
   "summaries": [
     {
       "key": "galenica",
@@ -2464,41 +2464,6 @@
           "slug": "responsabile-dell-assistenza-clienti-delvitech-sa-mendrisio"
         }
       ],
-      "unchangedJobs": []
-    },
-    {
-      "key": "goline-sa",
-      "label": "GOLINE SA",
-      "generatedAt": "2026-03-18T16:26:43.780Z",
-      "total": 1,
-      "newCount": 0,
-      "updatedCount": 1,
-      "removedCount": 0,
-      "unchangedCount": 0,
-      "durationMs": 2162,
-      "avgDurationMs": 2351,
-      "durationHistory": [
-        2162,
-        2473,
-        2457,
-        2144,
-        2210,
-        2474,
-        2197,
-        2042,
-        2996
-      ],
-      "newJobs": [],
-      "updatedJobs": [
-        {
-          "title": "Sviluppatore Web Full Stack (Backend e Frontend)",
-          "company": "GOLINE SA",
-          "location": "Stabio",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/sviluppatore-web-full-stack-backend-e-frontend-goline-sa-stabio-ticino-svizzera/",
-          "slug": "sviluppatore-web-full-stack-backend-e-frontend-goline-sa-stabio-ticino-svizzera"
-        }
-      ],
-      "removedJobs": [],
       "unchangedJobs": []
     },
     {
@@ -9853,6 +9818,42 @@
           "slug": "montatore-a-domicilio-di-elettrodomestici-fust-mezzovico"
         }
       ]
+    },
+    {
+      "key": "goline-sa",
+      "label": "GOLINE SA",
+      "generatedAt": "2026-03-19T05:04:47.237Z",
+      "total": 1,
+      "newCount": 1,
+      "updatedCount": 0,
+      "removedCount": 0,
+      "unchangedCount": 0,
+      "durationMs": 2119,
+      "avgDurationMs": 2327,
+      "durationHistory": [
+        2119,
+        2162,
+        2473,
+        2457,
+        2144,
+        2210,
+        2474,
+        2197,
+        2042,
+        2996
+      ],
+      "newJobs": [
+        {
+          "title": "Sviluppatore Web Full Stack (Backend e Frontend)",
+          "company": "GOLINE SA",
+          "location": "Stabio",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/sviluppatore-web-full-stack-backend-e-frontend-goline-sa-stabio-ticino-svizzera/",
+          "slug": "sviluppatore-web-full-stack-backend-e-frontend-goline-sa-stabio-ticino-svizzera"
+        }
+      ],
+      "updatedJobs": [],
+      "removedJobs": [],
+      "unchangedJobs": []
     }
   ]
 }
