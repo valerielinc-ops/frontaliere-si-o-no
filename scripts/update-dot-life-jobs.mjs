@@ -1,283 +1,474 @@
 #!/usr/bin/env node
 /**
- * Dedicated DOT Life crawler runner.
+ * Dedicated DOT Life crawler.
  *
- * DOT Life SA is a hospitality & wellness group based in Paradiso (TI).
- * They own Villa Principe Leopoldo, Villa Sassa, Kurhaus Cademario, and
+ * DOT Life SA is a hospitality & wellness group based in Paradiso (TI) that
+ * owns Villa Principe Leopoldo, Villa Sassa, Kurhaus Cademario, and
  * Park Hotel Principe.
  *
- * Their website (dotlifestyle.ch) has no dedicated careers page — the
- * contact page lists job@dotlife.swiss and the "Careers" nav links to
- * LinkedIn. This crawler:
- *   1. Scrapes the contact page and sitemap for any job-related links.
- *   2. If job detail URLs are found, writes them as seed URLs in the adapter.
- *   3. Runs the shared base crawler for any discovered URLs.
- *   4. Exits OK if no jobs are currently posted.
+ * Their website has no dedicated careers page — jobs are published on LinkedIn
+ * under company ID 9425984. This crawler uses LinkedIn's public guest
+ * endpoints which are accessible without a logged-in session:
+ *
+ *   Listing: https://www.linkedin.com/jobs-guest/jobs/api/seeMoreJobPostings/search
+ *            ?f_C=9425984&geoId=92000000&start=0
+ *   Detail:  https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/{jobId}
+ *   Fallback listing: https://www.linkedin.com/jobs/search/?f_C=9425984&geoId=92000000
  */
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { chromium } from 'playwright';
 import {
+  printPublishedJobUrls,
+  writeJobsSummary,
   snapshotJobSlugs,
   computeCrawlDiff,
   printCrawlChangeSummary,
   writeCrawlChangeSummaryToGH,
 } from './jobs-url-helper.mjs';
 import {
-  runDedicatedBaseCrawler,
   translateMissingJobLocales,
   validateDedicatedLocaleCoverage,
-  normalize,
-  normalizeKey,
+  detectLang,
 } from './lib/dedicated-crawler-common.mjs';
+import {
+  parseDotLifeLinkedInCards,
+  parseDotLifeLinkedInDetail,
+  extractLinkedInJobId,
+  linkedInJobUrl,
+  buildDotLifeLocalizedContent,
+} from './lib/dot-life-job-parser.mjs';
 
-/* ── Constants ─────────────────────────────────────────────── */
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
 const DATA_JOBS = path.resolve(ROOT, 'data', 'jobs.json');
-const ADAPTERS_DIR = path.resolve(ROOT, 'data', 'jobs-crawler-adapters', 'adapters');
+const PUBLIC_JOBS = path.resolve(ROOT, 'public', 'data', 'jobs.json');
+const ADAPTER_PATH = path.resolve(ROOT, 'data', 'jobs-crawler-adapters', 'adapters', 'dot-life.json');
 
-const DOT_KEY = 'dot-life';
-const DOT_COMPANY_NAME = 'DOT Life SA';
-const DOT_HOST = 'www.dotlifestyle.ch';
-const DOT_CONTACT_URL = 'https://www.dotlifestyle.ch/contact.htm';
-const DOT_SITEMAP_URL = 'https://www.dotlifestyle.ch/sitemap.xml';
+const COMPANY_KEY = 'dot-life';
+const COMPANY_NAME = 'DOT Life SA';
+const COMPANY_DOMAIN = 'dotlifestyle.ch';
+const COMPANY_HOST = 'inrecruiting.intervieweb.it'; // not used as host anymore; kept for adapter compatibility
+const LINKEDIN_COMPANY_ID = '9425984';
 
-const UA =
+// Public guest listing endpoint — no login required
+const GUEST_LISTING_URL = `https://www.linkedin.com/jobs-guest/jobs/api/seeMoreJobPostings/search?f_C=${LINKEDIN_COMPANY_ID}&geoId=92000000&start=0`;
+// Fallback: public search page HTML
+const SEARCH_PAGE_URL = `https://www.linkedin.com/jobs/search/?f_C=${LINKEDIN_COMPANY_ID}&geoId=92000000`;
+// Guest job detail fragment endpoint — no login required
+const GUEST_DETAIL_BASE = 'https://www.linkedin.com/jobs-guest/jobs/api/jobPosting';
+
+const LOCALES = ['it', 'en', 'de', 'fr'];
+
+// Minimum description length to consider a parsed job valid
+const MIN_DESCRIPTION_LENGTH = 80;
+
+const BROWSER_UA =
   process.env.JOBS_CRAWLER_USER_AGENT ||
-  'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://www.frontaliereticino.ch/)';
+  'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36';
+
+/* ── Utilities ─────────────────────────────────────────────── */
+
+function readJson(filePath, fallback) {
+  try {
+    return JSON.parse(fs.readFileSync(filePath, 'utf8'));
+  } catch {
+    return fallback;
+  }
+}
+
+function writeJson(filePath, value) {
+  fs.writeFileSync(filePath, `${JSON.stringify(value, null, 2)}\n`, 'utf8');
+}
+
+function normalize(value = '') {
+  return String(value || '').trim().toLowerCase();
+}
+
+function normalizeKey(value = '') {
+  return String(value || '')
+    .trim()
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+}
+
+function sleep(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+async function fetchText(url, timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 25000) {
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), timeoutMs);
+  try {
+    const res = await fetch(url, {
+      signal: controller.signal,
+      headers: {
+        Accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+        'Accept-Language': 'it-IT,it;q=0.9,en;q=0.8',
+        'User-Agent': BROWSER_UA,
+      },
+    });
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const text = await res.text();
+    // LinkedIn redirects to login when the session wall is hit
+    if (
+      /Sign in to LinkedIn/i.test(text) ||
+      /uas\/login/i.test(text) ||
+      /authwall/i.test(text)
+    ) {
+      throw new Error('LinkedIn session wall encountered — guest access blocked');
+    }
+    return text;
+  } finally {
+    clearTimeout(timer);
+  }
+}
 
 /* ── Matchers ──────────────────────────────────────────────── */
-function isDotLifeJob(job) {
-  const key = normalizeKey(job?.companyKey || job?.company || '');
-  const company = normalize(job?.company || '');
-  const url = String(job?.url || '').toLowerCase();
-  const host = (() => {
-    try { return new URL(url).hostname.toLowerCase(); } catch { return ''; }
-  })();
+
+function isTargetJob(job = {}) {
+  const key = normalizeKey(job.companyKey || job.company || '');
+  const company = normalize(job.company || '');
+  const url = String(job.url || '').toLowerCase();
   return (
-    key === DOT_KEY ||
+    key === COMPANY_KEY ||
     key === 'dot-life-sa' ||
     key.startsWith('dot-life') ||
     company.includes('dot life') ||
     company.includes('dotlife') ||
-    host === DOT_HOST ||
-    host.endsWith('.dotlifestyle.ch') ||
-    host.endsWith('.dotlife.swiss')
+    url.includes('dotlifestyle.ch') ||
+    url.includes('dotlife.swiss')
   );
 }
 
-/* ── Discovery ─────────────────────────────────────────────── */
 /**
- * Scrape the DOT Life contact page and sitemap for any job detail URLs.
- * The site currently has no dedicated careers page — jobs are posted via
- * LinkedIn or email. This function monitors for any new job links that
- * might appear on the site.
+ * LinkedIn IS the trusted source for DOT Life jobs — they have no
+ * first-party careers page.
  */
-async function fetchDotLifeJobUrls() {
-  const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 12000;
-  const urls = new Set();
-  const skipHosts = ['linkedin.com', 'www.linkedin.com', 'it.linkedin.com'];
-
-  // Step 1: Scrape the contact page for job links
-  console.log(`🔍 Fetching DOT Life contact page: ${DOT_CONTACT_URL}`);
+function isTrustedDomain(rawUrl = '') {
   try {
-    const controller = new AbortController();
-    const timer = setTimeout(() => controller.abort(), timeoutMs);
-    const res = await fetch(DOT_CONTACT_URL, {
-      signal: controller.signal,
-      headers: { Accept: 'text/html', 'User-Agent': UA },
-    });
-    clearTimeout(timer);
-
-    if (res.ok) {
-      const html = await res.text();
-      // Look for any links that might be job detail pages
-      const hrefPattern = /href="([^"]+)"/g;
-      let match;
-      while ((match = hrefPattern.exec(html)) !== null) {
-        const href = match[1];
-        const lower = href.toLowerCase();
-        // Skip non-job links
-        if (!lower.includes('job') && !lower.includes('career') &&
-            !lower.includes('lavoro') && !lower.includes('impiego') &&
-            !lower.includes('stelle') && !lower.includes('posizion')) continue;
-        // Skip LinkedIn (can't crawl)
-        try {
-          const parsed = new URL(href, `https://${DOT_HOST}`);
-          if (skipHosts.some(h => parsed.hostname.includes(h))) continue;
-          urls.add(parsed.href);
-        } catch { /* ignore malformed URLs */ }
-      }
-    }
-  } catch (err) {
-    console.warn(`⚠️ Failed to fetch contact page: ${err.message}`);
+    const host = new URL(rawUrl).hostname.toLowerCase();
+    return (
+      host === 'www.linkedin.com' ||
+      host === 'linkedin.com' ||
+      host === 'www.dotlifestyle.ch' ||
+      host.endsWith('.dotlifestyle.ch') ||
+      host.endsWith('.dotlife.swiss')
+    );
+  } catch {
+    return false;
   }
-
-  // Step 2: Check sitemap for any job/career pages
-  console.log(`🔍 Checking DOT Life sitemap: ${DOT_SITEMAP_URL}`);
-  try {
-    const controller = new AbortController();
-    const timer = setTimeout(() => controller.abort(), timeoutMs);
-    const res = await fetch(DOT_SITEMAP_URL, {
-      signal: controller.signal,
-      headers: { Accept: 'application/xml,text/xml', 'User-Agent': UA },
-    });
-    clearTimeout(timer);
-
-    if (res.ok) {
-      const xml = await res.text();
-      const locPattern = /<loc>([^<]+)<\/loc>/g;
-      let match;
-      while ((match = locPattern.exec(xml)) !== null) {
-        const loc = match[1];
-        const lower = loc.toLowerCase();
-        if (lower.includes('job') || lower.includes('career') ||
-            lower.includes('lavoro') || lower.includes('impiego') ||
-            lower.includes('stelle') || lower.includes('posizion')) {
-          urls.add(loc);
-        }
-      }
-    }
-  } catch (err) {
-    console.warn(`⚠️ Failed to fetch sitemap: ${err.message}`);
-  }
-
-  console.log(`✅ Discovered ${urls.size} DOT Life job detail URLs`);
-  return [...urls];
 }
 
-/* ── Adapter ───────────────────────────────────────────────── */
-function ensureAdapterSeedUrls(seedUrls) {
-  const adapterPath = path.join(ADAPTERS_DIR, `${DOT_KEY}.json`);
+function inferCategory(detail = {}) {
+  const haystack = normalize(`${detail.title || ''} ${detail.description || ''} ${detail.jobFunction || ''}`);
+  if (haystack.includes('chef') || haystack.includes('cuoco') || haystack.includes('cucina') || haystack.includes('food')) return 'hospitality';
+  if (haystack.includes('front office') || haystack.includes('reception') || haystack.includes('concierge')) return 'hospitality';
+  if (haystack.includes('spa') || haystack.includes('wellness') || haystack.includes('beauty')) return 'hospitality';
+  if (haystack.includes('selezione') || haystack.includes('recruiting') || haystack.includes('hr') || haystack.includes('personale')) return 'hr';
+  if (haystack.includes('marketing') || haystack.includes('comunicazion')) return 'marketing';
+  if (haystack.includes('contabil') || haystack.includes('accounting') || haystack.includes('finance')) return 'finance';
+  return 'hospitality';
+}
 
-  if (!fs.existsSync(adapterPath)) {
-    console.log(`⚠️ Adapter ${DOT_KEY}.json not found — creating it.`);
-    const adapter = {
-      companyKey: DOT_KEY,
-      companyName: DOT_COMPANY_NAME,
-      companyHost: DOT_HOST,
-      enabled: true,
-      priority: 10,
-      crawlerModes: ['jsonld', 'html', 'generic_ats'],
-      seedUrls,
-      notes: 'DOT Life SA — Paradiso-based hospitality group. No dedicated careers page; jobs posted via LinkedIn/email. Seed URLs auto-discovered.',
-      updatedAt: new Date().toISOString(),
+/* ── Discovery ─────────────────────────────────────────────── */
+
+async function fetchListingsFromGuestApi() {
+  console.log('🔍 Fetching DOT Life jobs from LinkedIn guest API...');
+  const html = await fetchText(GUEST_LISTING_URL);
+  const cards = parseDotLifeLinkedInCards(html);
+  if (cards.length > 0) return cards;
+
+  // If the guest API returned empty, fall back to the search page HTML
+  console.log('⚠️  Guest API returned no cards — trying search page fallback...');
+  const searchHtml = await fetchText(SEARCH_PAGE_URL);
+  return parseDotLifeLinkedInCards(searchHtml);
+}
+
+async function fetchListings() {
+  let cards;
+  try {
+    cards = await fetchListingsFromGuestApi();
+  } catch (err) {
+    // Treat LinkedIn session wall / connectivity errors as transient
+    const isTransient = /session wall|blocked|net::ERR_|timeout|HTTP 4[0-9]{2}|HTTP 5[0-9]{2}/i.test(err.message);
+    if (isTransient) {
+      console.warn(`⚠️  LinkedIn guest listing unavailable: ${err.message}`);
+      console.log('ℹ️  Keeping existing data — no updates this run.');
+      return null;
+    }
+    throw err;
+  }
+
+  console.log(`📋 Total LinkedIn cards discovered: ${cards.length}`);
+  for (const card of cards) {
+    console.log(`  📄 ${card.title}${card.location ? ` (${card.location})` : ''}`);
+  }
+  return cards;
+}
+
+/* ── Detail fetch with Playwright fallback ─────────────────── */
+
+/**
+ * Fetch the LinkedIn guest job detail fragment.
+ * Tries plain HTTP first; falls back to the public jobs/view page via
+ * Playwright when LinkedIn's bot detection serves a login wall.
+ */
+async function fetchDetailHtml(jobId, playwrightPage) {
+  const guestUrl = `${GUEST_DETAIL_BASE}/${jobId}`;
+  const publicUrl = linkedInJobUrl(jobId);
+
+  // Fast path: plain HTTP to the guest fragment endpoint
+  try {
+    return await fetchText(guestUrl);
+  } catch (err) {
+    if (!/session wall|blocked/i.test(err.message)) throw err;
+  }
+
+  // Slow path: Playwright headless browser on the public job page
+  console.log(`  ↩️  HTTP blocked — using browser for /jobs/view/${jobId}/`);
+  await playwrightPage.goto(publicUrl, { waitUntil: 'domcontentloaded', timeout: 45000 });
+  // Wait for job title to be rendered
+  const started = Date.now();
+  while (Date.now() - started < 20000) {
+    const title = await playwrightPage.textContent('h1').catch(() => '');
+    if (title && title.trim().length > 3) break;
+    await playwrightPage.waitForTimeout(800);
+  }
+  return playwrightPage.content();
+}
+
+/* ── Build individual job ──────────────────────────────────── */
+
+async function buildDotLifeJob(card, playwrightPage) {
+  const html = await fetchDetailHtml(card.jobId, playwrightPage);
+  const detail = parseDotLifeLinkedInDetail(html, linkedInJobUrl(card.jobId));
+
+
+  // Quality guards
+  const title = detail.title || card.title;
+  if (!title || title.length < 3) throw new Error('Missing or too-short title');
+  if (detail.description.length < MIN_DESCRIPTION_LENGTH) {
+    throw new Error(`Description too short (${detail.description.length} chars)`);
+  }
+
+  const rawLocation = detail.location || card.location || 'Paradiso';
+  const localized = buildDotLifeLocalizedContent({ ...detail, title });
+  const canonicalSlug =
+    localized.slugByLocale.en ||
+    localized.slugByLocale.it ||
+    `${normalizeKey(title)}-dot-life-sa-${normalizeKey(rawLocation)}`;
+
+  const postedDate = detail.postedDate || card.postedDate || new Date().toISOString().slice(0, 10);
+
+  return {
+    title,
+    slug: canonicalSlug,
+    url: linkedInJobUrl(card.jobId),
+    applyUrl: linkedInJobUrl(card.jobId),
+    company: COMPANY_NAME,
+    companyKey: COMPANY_KEY,
+    companyDomain: COMPANY_DOMAIN,
+    location: rawLocation,
+    addressLocality: rawLocation,
+    addressRegion: 'TI',
+    addressCountry: 'CH',
+    canton: 'TI',
+    country: 'CH',
+    category: inferCategory(detail),
+    sector: 'Hospitality & Wellness',
+    source: 'dot-life-linkedin-crawler',
+    sourceLang: detectLang(detail.description || card.title, 'it'),
+    postedDate,
+    employmentType: detail.employmentType || 'full-time',
+    contractType: detail.employmentType || 'full-time',
+    validThrough: '',
+    description: detail.description,
+    linkedInJobId: card.jobId,
+    titleByLocale: localized.titleByLocale,
+    descriptionByLocale: localized.descriptionByLocale,
+    slugByLocale: localized.slugByLocale,
+  };
+}
+
+/* ── Merge & write ─────────────────────────────────────────── */
+
+function jobMatchKey(job = {}) {
+  // Deduplicate by LinkedIn job ID when present, else by URL
+  if (job.linkedInJobId) return `linkedin:${job.linkedInJobId}`;
+  return String(job.url || '').trim().toLowerCase() || String(job.slug || '').trim().toLowerCase();
+}
+
+function mergeJobs(discoveredJobs) {
+  const existing = readJson(DATA_JOBS, []);
+  const nonTargetJobs = existing.filter((job) => !isTargetJob(job));
+  const targetExisting = existing.filter(isTargetJob);
+  const beforeSnapshot = snapshotJobSlugs(targetExisting);
+  const existingByKey = new Map(targetExisting.map((job) => [jobMatchKey(job), job]));
+
+  let added = 0;
+  let updated = 0;
+  const mergedTarget = discoveredJobs.map((job) => {
+    const prev = existingByKey.get(jobMatchKey(job));
+    if (!prev) {
+      added += 1;
+      return job;
+    }
+    updated += 1;
+    return {
+      ...prev,
+      ...job,
+      titleByLocale: { ...(prev.titleByLocale || {}), ...(job.titleByLocale || {}) },
+      descriptionByLocale: { ...(prev.descriptionByLocale || {}), ...(job.descriptionByLocale || {}) },
+      slugByLocale: { ...(prev.slugByLocale || {}), ...(job.slugByLocale || {}) },
     };
-    fs.mkdirSync(path.dirname(adapterPath), { recursive: true });
-    fs.writeFileSync(adapterPath, JSON.stringify(adapter, null, 2) + '\n');
-    return;
-  }
+  });
 
-  try {
-    const adapter = JSON.parse(fs.readFileSync(adapterPath, 'utf-8'));
-    adapter.seedUrls = seedUrls;
-    adapter.updatedAt = new Date().toISOString();
-    fs.writeFileSync(adapterPath, JSON.stringify(adapter, null, 2) + '\n');
-    console.log(`📝 Adapter ${DOT_KEY} updated with ${seedUrls.length} seed URLs.`);
-  } catch (err) {
-    console.warn(`⚠️ Could not update adapter: ${err.message}`);
-  }
+  const allJobs = [...nonTargetJobs, ...mergedTarget];
+  writeJson(DATA_JOBS, allJobs);
+  writeJson(PUBLIC_JOBS, allJobs);
+
+  const afterSnapshot = snapshotJobSlugs(mergedTarget);
+  const diff = computeCrawlDiff(beforeSnapshot, afterSnapshot);
+  printCrawlChangeSummary(diff, COMPANY_NAME);
+  writeCrawlChangeSummaryToGH(diff, COMPANY_NAME);
+  writeJobsSummary(mergedTarget, COMPANY_NAME);
+  printPublishedJobUrls(mergedTarget, COMPANY_NAME);
+  return { total: mergedTarget.length, added, updated };
 }
 
-/* ── Base Crawler ──────────────────────────────────────────── */
-function runBaseCrawler() {
-  return runDedicatedBaseCrawler({
-    root: ROOT,
-    companyKeys: DOT_KEY,
-    localizeOnlyCompanyKeys: DOT_KEY,
-    forceLocalizeKeys: DOT_KEY,
-    disableWorkdayForce: true,
-    extraEnv: {
-      JOBS_CRAWLER_MAX_JOB_LINKS: process.env.JOBS_CRAWLER_MAX_JOB_LINKS || '30',
-      JOBS_CRAWLER_MAX_GENERIC_DETAIL_PAGES: process.env.JOBS_CRAWLER_MAX_GENERIC_DETAIL_PAGES || '30',
-      JOBS_CRAWLER_FETCH_RETRIES: process.env.JOBS_CRAWLER_FETCH_RETRIES || '2',
-      JOBS_CRAWLER_CONCURRENCY: process.env.JOBS_CRAWLER_CONCURRENCY || '4',
-    },
+/* ── Adapter config ────────────────────────────────────────── */
+
+function updateAdapterConfig(jobs) {
+  const seedMetaByUrl = {};
+  for (const job of jobs) {
+    seedMetaByUrl[job.url] = {
+      location: job.location,
+      canton: job.canton || 'TI',
+      company: COMPANY_NAME,
+      postedDate: job.postedDate,
+      linkedInJobId: job.linkedInJobId,
+    };
+  }
+  writeJson(ADAPTER_PATH, {
+    companyKey: COMPANY_KEY,
+    companyName: COMPANY_NAME,
+    companyHost: 'www.linkedin.com',
+    enabled: true,
+    priority: 12,
+    crawlerModes: ['html'],
+    seedUrls: [GUEST_LISTING_URL, SEARCH_PAGE_URL],
+    notes: `Dedicated DOT Life crawler uses LinkedIn public guest endpoints for company ${LINKEDIN_COMPANY_ID} (DOT Life SA). No login required. Guest listing: ${GUEST_LISTING_URL}. Guest detail: ${GUEST_DETAIL_BASE}/{jobId}. Canonicalizes to /jobs/view/{jobId}/ URLs.`,
+    updatedAt: new Date().toISOString(),
+    seedMetaByUrl,
   });
 }
 
-/* ── Stats & Validation ────────────────────────────────────── */
-function logStats(beforeSnapshot = new Map()) {
-  if (!fs.existsSync(DATA_JOBS)) {
-    console.log('ℹ️ jobs.json not found — no stats available.');
-    return { total: 0 };
-  }
-  const raw = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
-  const allJobs = Array.isArray(raw) ? raw : [];
-  const jobs = allJobs.filter(isDotLifeJob);
-  const tiJobs = jobs.filter((j) => normalize(j?.canton) === 'ti');
-  const grJobs = jobs.filter((j) => normalize(j?.canton) === 'gr');
+/* ── Locale validation ─────────────────────────────────────── */
 
-  console.log(`\n📊 === DOT Life Job Stats ===`);
-  console.log(`  🏨 Total DOT Life jobs: ${jobs.length}`);
-  console.log(`  ✅ Ticino: ${tiJobs.length}`);
-  console.log(`  ✅ Grigioni: ${grJobs.length}`);
-  console.log('');
-
-  const afterSnapshot = snapshotJobSlugs(jobs);
-  const crawlDiff = computeCrawlDiff(beforeSnapshot, afterSnapshot);
-  printCrawlChangeSummary(crawlDiff, 'DOT Life');
-  writeCrawlChangeSummaryToGH(crawlDiff, 'DOT Life');
-
-  return { total: jobs.length };
-}
-
-function validateLocaleCoverage() {
+function validateLocales() {
   validateDedicatedLocaleCoverage({
     strictEnvVar: 'JOBS_DOT_LIFE_STRICT',
-    label: 'DOT Life',
+    label: COMPANY_NAME,
     dataJobsPath: DATA_JOBS,
-    isTargetJob: isDotLifeJob,
-    noJobsMessage: 'No DOT Life jobs found after crawl.',
-    maxToleratedMissingDescriptions: 5,
+    isTargetJob,
+    locales: LOCALES,
+    isTrustedDomain,
+    untrustedDomainReason: 'url_not_linkedin_or_dotlife',
+    // Company may have no active openings at times
+    failWhenNoJobs: false,
+    noJobsMessage: 'No DOT Life jobs found — company may have no active LinkedIn openings.',
+    detectSourceLang: (text) => detectLang(text, 'it'),
   });
 }
 
 /* ── Main ──────────────────────────────────────────────────── */
-async function main() {
-  console.log('🏨 Running dedicated DOT Life jobs crawler...');
-  console.log(`   Portal: ${DOT_HOST} (static site + LinkedIn)`);
-  console.log('');
 
-  // Step 1: Discover job detail URLs
-  const detailUrls = await fetchDotLifeJobUrls();
-  if (detailUrls.length === 0) {
-    console.log('ℹ️ No DOT Life job URLs discovered. Exiting OK.');
-    printCrawlChangeSummary({ newJobs: [], updatedJobs: [], removedJobs: [], unchangedCount: 0 }, 'DOT Life');
+async function main() {
+  console.log('═══════════════════════════════════════════════');
+  console.log('  DOT Life SA — LinkedIn Guest Crawler');
+  console.log('═══════════════════════════════════════════════');
+  console.log(`  Listing: ${GUEST_LISTING_URL}\n`);
+
+  const cards = await fetchListings();
+  if (!cards) {
+    // Transient failure — preserve existing data
+    printCrawlChangeSummary(
+      { newJobs: [], updatedJobs: [], removedJobs: [], unchangedCount: 0 },
+      COMPANY_NAME,
+    );
     return;
   }
 
-  // Step 2: Update the adapter with discovered seed URLs
-  ensureAdapterSeedUrls(detailUrls);
-
-  // Snapshot before crawl for diff summary
-  let _beforeSnapshot = new Map();
-  if (fs.existsSync(DATA_JOBS)) {
-    try {
-      const pre = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
-      _beforeSnapshot = snapshotJobSlugs(Array.isArray(pre) ? pre.filter(isDotLifeJob) : []);
-    } catch {}
+  if (cards.length === 0) {
+    console.log('\nℹ️  No DOT Life LinkedIn jobs found. Skipping merge & translation.');
+    updateAdapterConfig([]);
+    printCrawlChangeSummary(
+      { newJobs: [], updatedJobs: [], removedJobs: [], unchangedCount: 0 },
+      COMPANY_NAME,
+    );
+    console.log('✅ DOT Life crawler complete (0 jobs).');
+    return;
   }
 
-  // Step 3: Run the base crawler
-  await runBaseCrawler();
+  const jobs = [];
+  let skipped = 0;
 
-  // Step 4: Translate missing locales
+  // Open a shared browser session for Playwright fallback on detail pages
+  const browser = await chromium.launch({ headless: true });
+  const bContext = await browser.newContext({
+    userAgent: BROWSER_UA,
+    viewport: { width: 1440, height: 900 },
+    locale: 'it-IT',
+  });
+  const bPage = await bContext.newPage();
+
+  try {
+    for (const card of cards) {
+      console.log(`  📄 Processing: ${card.title} (ID: ${card.jobId})`);
+      try {
+        const job = await buildDotLifeJob(card, bPage);
+        jobs.push(job);
+      } catch (err) {
+        skipped += 1;
+        console.warn(`  ⚠️  Skipping "${card.title}" (${card.jobId}): ${err.message}`);
+      }
+      // Rate-limit: ~1 req/s to respect LinkedIn
+      await sleep(800);
+    }
+  } finally {
+    await bContext.close();
+    await browser.close();
+  }
+
+  if (skipped > 0) {
+    console.warn(`  ⚠️  Skipped ${skipped}/${cards.length} jobs due to errors`);
+  }
+
+  if (jobs.length === 0) {
+    console.warn('⚠️  All detail fetches failed — preserving existing data.');
+    printCrawlChangeSummary(
+      { newJobs: [], updatedJobs: [], removedJobs: [], unchangedCount: 0 },
+      COMPANY_NAME,
+    );
+    return;
+  }
+
+  const result = mergeJobs(jobs);
+  updateAdapterConfig(jobs);
+
+  console.log('\n🌐 Running locale fill for DOT Life jobs...');
   await translateMissingJobLocales({
     dataJobsPath: DATA_JOBS,
-    isTargetJob: isDotLifeJob,
+    isTargetJob,
   });
 
-  // Step 5: Stats + validation
-  const stats = logStats(_beforeSnapshot);
-  if (stats.total === 0) {
-    console.log('ℹ️ No DOT Life jobs found after crawl. Exiting OK.');
-    printCrawlChangeSummary({ newJobs: [], updatedJobs: [], removedJobs: [], unchangedCount: 0 }, 'DOT Life');
-    return;
-  }
-
-  validateLocaleCoverage();
+  validateLocales();
+  console.log(`\n🏨 Total DOT Life jobs: ${result.total}`);
 }
 
 main().catch((err) => {
