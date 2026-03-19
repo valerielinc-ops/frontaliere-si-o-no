@@ -138,7 +138,8 @@
     "jobs:update:jysk": "node scripts/update-jysk-jobs.mjs",
     "jobs:update:raiffeisen-vc": "node scripts/update-raiffeisen-vc-jobs.mjs",
     "jobs:update:vtg": "node scripts/update-vtg-jobs.mjs",
-    "jobs:update:confederazione": "node scripts/update-confederazione-jobs.mjs"
+    "jobs:update:confederazione": "node scripts/update-confederazione-jobs.mjs",
+    "jobs:update:tinext": "node scripts/update-tinext-jobs.mjs"
   },
   "dependencies": {
     "@google/genai": "^1.44.0",

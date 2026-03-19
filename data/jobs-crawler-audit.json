@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-03-19T05:29:57.505Z",
-  "startedAt": "2026-03-19T05:02:31.937Z",
+  "generatedAt": "2026-03-19T05:43:19.955Z",
+  "startedAt": "2026-03-19T05:39:04.262Z",
   "config": {
     "minQualityScore": 4,
     "minDescriptionChars": 80,
@@ -22,12 +22,12 @@
   },
   "totals": {
     "companiesParsed": 178,
-    "companiesSelected": 28,
+    "companiesSelected": 29,
     "companiesDroppedBySelection": 0,
-    "companiesCrawled": 1,
-    "discoveredCareerPages": 8,
-    "scrapedJobPages": 205,
-    "incomingCandidatesAccepted": 205,
+    "companiesCrawled": 0,
+    "discoveredCareerPages": 0,
+    "scrapedJobPages": 0,
+    "incomingCandidatesAccepted": 0,
     "discardedCandidates": 0,
     "filteredOutNonCandidates": 0,
     "duplicateInCompany": 0,
@@ -36,361 +36,245 @@
     "browserFallbackAttempts": 0,
     "browserFallbackHits": 0,
     "duplicateIncoming": 0,
-    "duplicateExisting": 232,
-    "mergeExcludedJobs": 0,
+    "duplicateExisting": 1745,
+    "mergeExcludedJobs": 120,
     "mergeExclusionByReason": {
-      "location_explicitly_foreign": 7,
-      "outside_swiss_ticino": 7,
+      "linkedin_url": 3,
+      "non_detail_url": 104,
+      "outside_swiss_ticino": 19,
+      "not_ticino_relevant": 32,
+      "explicitly_outside_target": 14,
       "thin_description_lt_80": 13,
-      "generic_title": 1,
-      "non_detail_url": 15
+      "generic_title": 1
     },
-    "reusedLocalizationFromPrevious": 20,
-    "inserted": 27,
-    "refreshed": 178,
-    "mergedTotal": 938,
-    "aiLocalizationCalls": 113,
+    "reusedLocalizationFromPrevious": 0,
+    "inserted": 0,
+    "refreshed": 0,
+    "mergedTotal": 782,
+    "aiLocalizationCalls": 92,
     "aiPageValidationCalls": 0,
-    "deeplCalls": 5,
+    "deeplCalls": 0,
     "deeplSuccess": 0,
-    "deeplFallbackToLlm": 4,
-    "aiCacheHits": 5,
-    "aiCacheMisses": 218,
-    "aiCacheEntries": 1626,
+    "deeplFallbackToLlm": 2,
+    "aiCacheHits": 25,
+    "aiCacheMisses": 82,
+    "aiCacheEntries": 1490,
     "discoveredCompaniesCandidates": 0,
     "discoveredCompaniesAdded": 0,
     "discoveredCompaniesPending": 0
   },
-  "byCompany": [
-    {
-      "company": "Zurich Insurance (sede Ticino)",
-      "domain": "zurich.ch",
-      "discoveredCareerPages": 8,
-      "scrapedJobPages": 0,
-      "processedCandidates": 0,
-      "extractedAccepted": 0,
-      "discardedCount": 0,
-      "discardedByReason": {},
-      "filteredOutCount": 0,
-      "filteredOutByReason": {},
-      "duplicateInCompany": 0,
-      "webDiscoveryQueries": 0,
-      "webDiscoveryHits": 0,
-      "webDiscoveryProviders": [],
-      "browserFallbackAttempted": 0,
-      "browserFallbackHits": 0,
-      "browserFallbackReason": "",
-      "inserted": 0,
-      "refreshed": 0,
-      "duplicateIncoming": 0
-    },
-    {
-      "company": "Swiss Armed Forces (VTG)",
-      "domain": "vtg.admin.ch",
-      "discoveredCareerPages": 8,
-      "scrapedJobPages": 4,
-      "processedCandidates": 4,
-      "extractedAccepted": 4,
-      "discardedCount": 0,
-      "discardedByReason": {},
-      "filteredOutCount": 32,
-      "filteredOutByReason": {
-        "jsonld_rejected_all_nodes": 32
-      },
-      "duplicateInCompany": 0,
-      "webDiscoveryQueries": 0,
-      "webDiscoveryHits": 0,
-      "webDiscoveryProviders": [],
-      "browserFallbackAttempted": 0,
-      "browserFallbackHits": 0,
-      "browserFallbackReason": "",
-      "inserted": 0,
-      "refreshed": 0,
-      "duplicateIncoming": 0
-    },
-    {
-      "company": "Amministrazione cantonale TI",
-      "domain": "ti.ch",
-      "discoveredCareerPages": 8,
-      "scrapedJobPages": 12,
-      "processedCandidates": 12,
-      "extractedAccepted": 12,
-      "discardedCount": 0,
-      "discardedByReason": {},
-      "filteredOutCount": 3,
-      "filteredOutByReason": {
-        "html_explicitly_outside_target": 3
-      },
-      "duplicateInCompany": 0,
-      "webDiscoveryQueries": 0,
-      "webDiscoveryHits": 0,
-      "webDiscoveryProviders": [],
-      "browserFallbackAttempted": 0,
-      "browserFallbackHits": 0,
-      "browserFallbackReason": "",
-      "inserted": 0,
-      "refreshed": 3,
-      "duplicateIncoming": 0
-    },
-    {
-      "company": "VF International (The North Face, Timberland)",
-      "domain": "vfc.com",
-      "discoveredCareerPages": 1,
-      "scrapedJobPages": 0,
-      "processedCandidates": 25,
-      "extractedAccepted": 25,
-      "discardedCount": 0,
-      "discardedByReason": {},
-      "filteredOutCount": 0,
-      "filteredOutByReason": {},
-      "duplicateInCompany": 0,
-      "webDiscoveryQueries": 0,
-      "webDiscoveryHits": 0,
-      "webDiscoveryProviders": [],
-      "browserFallbackAttempted": 0,
-      "browserFallbackHits": 0,
-      "browserFallbackReason": "",
-      "inserted": 0,
-      "refreshed": 25,
-      "duplicateIncoming": 0
-    },
-    {
-      "company": "EOC – Ente Ospedaliero Cantonale",
-      "domain": "eoc.ch",
-      "discoveredCareerPages": 8,
-      "scrapedJobPages": 205,
-      "processedCandidates": 205,
-      "extractedAccepted": 205,
-      "discardedCount": 0,
-      "discardedByReason": {},
-      "filteredOutCount": 3,
-      "filteredOutByReason": {
-        "html_generic_title": 1,
-        "html_not_target_relevant": 2
-      },
-      "duplicateInCompany": 0,
-      "webDiscoveryQueries": 0,
-      "webDiscoveryHits": 0,
-      "webDiscoveryProviders": [],
-      "browserFallbackAttempted": 0,
-      "browserFallbackHits": 0,
-      "browserFallbackReason": "",
-      "inserted": 0,
-      "refreshed": 3,
-      "duplicateIncoming": 0
-    }
-  ],
+  "byCompany": [],
   "droppedCompanies": [],
   "mergeExclusionSamples": [
     {
-      "reason": "location_explicitly_foreign",
-      "title": "Quereinstieg Kundenbegleiter:in Teilzeit",
-      "company": "FFS Officine (Ferrovie Federali)",
-      "location": "Bern",
-      "url": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-kundenbegleiter-in-teilzeit/4870d92b-eccd-4e47-9fc6-faa69f6f5ae3"
+      "reason": "linkedin_url",
+      "title": "Front office manager",
+      "company": "DOT Life SA",
+      "location": "Paradiso, Canton Ticino, Svizzera",
+      "url": "https://www.linkedin.com/jobs/view/4366745329/"
     },
     {
-      "reason": "location_explicitly_foreign",
-      "title": "Rangierspezialist:in",
-      "company": "FFS Officine (Ferrovie Federali)",
-      "location": "Bern",
-      "url": "https://jobs.sbb.ch/v2/offene-stellen/rangierspezialist-in/d30a361d-1d2c-4850-9396-a9275f04e39c"
-    },
-    {
-      "reason": "location_explicitly_foreign",
-      "title": "Quereinstieg Lokführer:in Personenverkehr 12/2026",
-      "company": "FFS Officine (Ferrovie Federali)",
-      "location": "Bern",
-      "url": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-lokfuehrer-in-personenverkehr-12-2026/487416de-186e-4114-81be-57d23b61e08b"
-    },
-    {
-      "reason": "location_explicitly_foreign",
-      "title": "Tecnico della qualità (m/f/d)",
-      "company": "FFS Officine (Ferrovie Federali)",
-      "location": "Bern",
-      "url": "https://jobs.sbb.ch/v2/offene-stellen/tecnico-della-qualita-m-f-d/7f51f7fd-a983-441f-8858-ffd9aed621f8"
-    },
-    {
-      "reason": "location_explicitly_foreign",
-      "title": "Capoprogetto impianti di sicurezza e sistemi controllo treno (m/f/d)",
-      "company": "FFS Officine (Ferrovie Federali)",
-      "location": "Bern",
-      "url": "https://jobs.sbb.ch/v2/offene-stellen/capoprogetto-impianti-di-sicurezza-e-sistemi-controllo-treno-m-f-d/983e2be2-7dfd-4de7-9535-318c19400aa6"
-    },
-    {
-      "reason": "location_explicitly_foreign",
-      "title": "Dirigente team controllo qualità (m/f/d)",
-      "company": "FFS Officine (Ferrovie Federali)",
-      "location": "Bern",
-      "url": "https://jobs.sbb.ch/v2/offene-stellen/dirigente-team-controllo-qualita-m-f-d/f40a8456-69e6-4d3f-ad9a-8b7803d10227"
-    },
-    {
-      "reason": "thin_description_lt_80",
-      "title": "Reservation Agent (m/w) - be the master in filling the house at the best price",
-      "company": "Grace La Margna St. Moritz",
-      "location": "St. Moritz",
-      "url": "https://www.hotelcareer.com/jobs/grace-la-margna-st-moritz-120155/reservation-agent-be-the-master-in-filling-the-house-at-the-best-price-3566336"
-    },
-    {
-      "reason": "thin_description_lt_80",
-      "title": "Pizzaiolo (m/w/d) - let your pizza fly in the air",
-      "company": "Grace La Margna St. Moritz",
-      "location": "St. Moritz",
-      "url": "https://www.hotelcareer.com/jobs/grace-la-margna-st-moritz-120155/pizzaiolo-m-w-d-let-your-pizza-fly-in-the-air-3258830"
-    },
-    {
-      "reason": "thin_description_lt_80",
-      "title": "Page / Bellman (m/w) - be the first and the last smile",
-      "company": "Grace La Margna St. Moritz",
-      "location": "St. Moritz",
-      "url": "https://www.hotelcareer.com/jobs/grace-la-margna-st-moritz-120155/page-bellman-be-the-first-and-the-last-smile-3639808"
-    },
-    {
-      "reason": "thin_description_lt_80",
-      "title": "Head Waiter / Waitress (m/w) - be the hero in the restaurant",
-      "company": "Grace La Margna St. Moritz",
-      "location": "St. Moritz",
-      "url": "https://www.hotelcareer.com/jobs/grace-la-margna-st-moritz-120155/head-waiter-waitress-be-the-hero-in-the-restaurant-3428195"
-    },
-    {
-      "reason": "thin_description_lt_80",
-      "title": "Front Office Supervisor (m/w) - be the mentor of your team",
-      "company": "Grace La Margna St. Moritz",
-      "location": "St. Moritz",
-      "url": "https://www.hotelcareer.com/jobs/grace-la-margna-st-moritz-120155/front-office-supervisor-be-the-mentor-of-your-team-3113545"
-    },
-    {
-      "reason": "generic_title",
-      "title": "F&B Trainee (m/w) - kickstart your career with us",
-      "company": "Grace La Margna St. Moritz",
-      "location": "St. Moritz",
-      "url": "https://www.hotelcareer.com/jobs/grace-la-margna-st-moritz-120155/f-b-trainee-kickstart-your-career-with-us-3113553"
-    },
-    {
-      "reason": "thin_description_lt_80",
-      "title": "Concierge (m/w) - creator of unique experiences",
-      "company": "Grace La Margna St. Moritz",
-      "location": "St. Moritz",
-      "url": "https://www.hotelcareer.com/jobs/grace-la-margna-st-moritz-120155/concierge-creator-of-unique-experiences-3113363"
-    },
-    {
-      "reason": "thin_description_lt_80",
-      "title": "Commis de Cuisine (m/w) - when you call kitchen home",
-      "company": "Grace La Margna St. Moritz",
-      "location": "St. Moritz",
-      "url": "https://www.hotelcareer.com/jobs/grace-la-margna-st-moritz-120155/commis-de-cuisine-when-you-call-kitchen-home-3418874"
-    },
-    {
-      "reason": "thin_description_lt_80",
-      "title": "Chef Pastry (m/w) - be the sugar wizard",
-      "company": "Grace La Margna St. Moritz",
-      "location": "St. Moritz",
-      "url": "https://www.hotelcareer.com/jobs/grace-la-margna-st-moritz-120155/chef-pastry-be-the-sugar-wizard-3961960"
-    },
-    {
-      "reason": "thin_description_lt_80",
-      "title": "Barkeeper/Mixologist (m/w) - be the hero in the Bar",
-      "company": "Grace La Margna St. Moritz",
-      "location": "St. Moritz",
-      "url": "https://www.hotelcareer.com/jobs/grace-la-margna-st-moritz-120155/barkeeper-mixologist-be-the-hero-in-the-bar-3169737"
-    },
-    {
-      "reason": "thin_description_lt_80",
-      "title": "Assistant Waiter / Waitress (m/w) - be the hero in the restaurant",
-      "company": "Grace La Margna St. Moritz",
-      "location": "St. Moritz",
-      "url": "https://www.hotelcareer.com/jobs/grace-la-margna-st-moritz-120155/assistant-waiter-waitress-be-the-hero-in-the-restaurant-3639754"
-    },
-    {
-      "reason": "thin_description_lt_80",
-      "title": "Assistant Outlet Manager (m/w) - restaurants are your stage",
-      "company": "Grace La Margna St. Moritz",
-      "location": "St. Moritz",
-      "url": "https://www.hotelcareer.com/jobs/grace-la-margna-st-moritz-120155/assistant-outlet-manager-restaurants-are-your-stage-3957038"
+      "reason": "linkedin_url",
+      "title": "Addetto alla selezione di personale acquisizione di talenti",
+      "company": "DOT Life SA",
+      "location": "Paradiso, Canton Ticino, Svizzera",
+      "url": "https://www.linkedin.com/jobs/view/4366703746/"
     },
     {
       "reason": "non_detail_url",
-      "title": "Sales Manager",
-      "company": "Tarchini Group",
+      "title": "Real Estate Sales Manager",
+      "company": "Artisa Group",
+      "location": "Lugano - Zurigo",
+      "url": "https://artisagroup.com/carriera#real-estate-sales-manager"
+    },
+    {
+      "reason": "non_detail_url",
+      "title": "Architetto qualificato lingua francese",
+      "company": "Artisa Group",
       "location": "Lugano",
-      "url": "https://www.tarchinigroup.com/it/work/1497/sales-manager"
+      "url": "https://artisagroup.com/carriera#architetto-qualificato-lingua-francese"
     },
     {
       "reason": "non_detail_url",
-      "title": "Responsabile investimenti e partecipazioni",
-      "company": "Tarchini Group",
-      "location": "Manno",
-      "url": "https://www.tarchinigroup.com/it/work/1537/responsabile-investimenti-e-partecipazioni"
+      "title": "Architetto qualificato",
+      "company": "Artisa Group",
+      "location": "Lugano",
+      "url": "https://artisagroup.com/carriera#architetto-qualificato"
     },
     {
       "reason": "non_detail_url",
-      "title": "E-Commerce Senior Merchandiser",
-      "company": "Guess Europe Sagl",
-      "location": "Bioggio",
-      "url": "https://apply.workable.com/guess-europe-sagl/j/E23D0DD4D5/"
+      "title": "Sanitär- und/oder Heizungsinstallateur/in (100%)",
+      "company": "Caotec SA",
+      "location": "Brusio",
+      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/sanitaer-und-oder-heizungsinstallateur-in-1559"
     },
     {
       "reason": "non_detail_url",
-      "title": "E-Commerce Content & Campaign Specialist",
-      "company": "Guess Europe Sagl",
-      "location": "Bioggio",
-      "url": "https://apply.workable.com/guess-europe-sagl/j/02D5702DBE/"
+      "title": "Installatore di impianti idraulici e/o di riscaldamento (100%)",
+      "company": "Caotec SA",
+      "location": "Brusio",
+      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/installatore-di-impianti-idraulici-e-o-di-riscaldamento-1594"
     },
     {
       "reason": "non_detail_url",
-      "title": "Product Developer Apparel",
-      "company": "Guess Europe Sagl",
-      "location": "Stabio",
-      "url": "https://apply.workable.com/guess-europe-sagl/j/F5CC476480/"
+      "title": "Bauleitende/r Heizungsinstallateur/in (100%)",
+      "company": "M. Kunz AG Davos",
+      "location": "Davos Platz",
+      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/bauleitende-r-heizungsinstallateur-in-866-1"
     },
     {
       "reason": "non_detail_url",
-      "title": "Product Developer Jewellery",
-      "company": "Guess Europe Sagl",
-      "location": "Bioggio",
-      "url": "https://apply.workable.com/guess-europe-sagl/j/373082A75E/"
+      "title": "Sanitärinstallateur/in (100%)",
+      "company": "M. Kunz AG Davos",
+      "location": "Davos Platz",
+      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/sanitaerinstallateur-in-871"
     },
     {
       "reason": "non_detail_url",
-      "title": "Mechanical Simulation Engineer",
-      "company": "AGIE Charmilles SA",
-      "location": "Losone",
-      "url": "https://www.find-your-future.ch/it/arbeiten-mem-branche/branche-unternehmen/jobdetails/agie-charmilles-sa-mechanical-simulation-engineer/"
+      "title": "Heizungsinstallateur/in (100%)",
+      "company": "M. Kunz AG Davos",
+      "location": "Davos Platz",
+      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/heizungsinstallateur-in-870"
     },
     {
       "reason": "non_detail_url",
-      "title": "Electrical Engineer",
-      "company": "AGIE Charmilles SA",
-      "location": "Losone",
-      "url": "https://www.find-your-future.ch/it/arbeiten-mem-branche/branche-unternehmen/jobdetails/agie-charmilles-sa-electrical-engineer/"
+      "title": "Bauleitende/r Sanitärinstallateur/in (100%)",
+      "company": "M. Kunz AG Davos",
+      "location": "Davos Platz",
+      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/bauleitende-r-sanitaerinstallateur-in-863-1"
     },
     {
       "reason": "non_detail_url",
-      "title": "Project Leader",
-      "company": "AGIE Charmilles SA",
-      "location": "Losone",
-      "url": "https://www.find-your-future.ch/it/arbeiten-mem-branche/branche-unternehmen/jobdetails/agie-charmilles-sa-project-leader/"
+      "title": "Bauleitende/r Heizungsinstallateur/in (100%)",
+      "company": "M. Kunz AG Klosters",
+      "location": "Klosters Dorf",
+      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/bauleitende-r-heizungsinstallateur-in-866"
     },
     {
       "reason": "non_detail_url",
-      "title": "Senior .NET Developer - Test Systems Lead",
-      "company": "AGIE Charmilles SA",
-      "location": "Losone",
-      "url": "https://www.find-your-future.ch/it/arbeiten-mem-branche/branche-unternehmen/jobdetails/agie-charmilles-sa-senior-net-developer-test-systems-lead/"
+      "title": "Sanitärinstallateur/in (100%)",
+      "company": "M. Kunz AG Klosters",
+      "location": "Klosters Dorf",
+      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/sanitaerinstallateur-in-865"
     },
     {
       "reason": "non_detail_url",
-      "title": "CNC-PLC Software Developer",
-      "company": "AGIE Charmilles SA",
-      "location": "Losone",
-      "url": "https://www.find-your-future.ch/it/arbeiten-mem-branche/branche-unternehmen/jobdetails/agie-charmilles-sa-cnc-plc-software-developer/"
+      "title": "Heizungsinstallateur/in (100%)",
+      "company": "M. Kunz AG Klosters",
+      "location": "Klosters Dorf",
+      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/heizungsinstallateur-in-864"
     },
     {
       "reason": "non_detail_url",
-      "title": "Control Engineer",
-      "company": "AGIE Charmilles SA",
-      "location": "Losone",
-      "url": "https://www.find-your-future.ch/it/arbeiten-mem-branche/branche-unternehmen/jobdetails/agie-charmilles-sa-control-engineer/"
+      "title": "Bauleitende/r Sanitärinstallateur/in (100%)",
+      "company": "M. Kunz AG Klosters",
+      "location": "Klosters Dorf",
+      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/bauleitende-r-sanitaerinstallateur-in-863"
+    },
+    {
+      "reason": "non_detail_url",
+      "title": "Servicemonteur/in Heizung und Sanitär (100%)",
+      "company": "M. Kunz AG Klosters",
+      "location": "Klosters Dorf",
+      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/servicemonteur-in-heizung-und-sanitaer-1235"
+    },
+    {
+      "reason": "non_detail_url",
+      "title": "Montage-Elektriker/in EFZ (80 - 100%)",
+      "company": "Rast Elektro AG",
+      "location": "Küblis",
+      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/montage-elektriker-efz-273"
+    },
+    {
+      "reason": "non_detail_url",
+      "title": "Bauleitende/r Elektroinstallateur/in (100%)",
+      "company": "Triulzi AG",
+      "location": "St. Moritz",
+      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/bauleitende-r-elektroinstallateur-in-1584"
+    },
+    {
+      "reason": "non_detail_url",
+      "title": "Standortleiter/in (80 - 100%)",
+      "company": "Derungs AG",
+      "location": "Lumbrein",
+      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/elektroinstallateur-efz-derungs-ag-1"
+    },
+    {
+      "reason": "non_detail_url",
+      "title": "Elektroinstallateur/in Lüftung und Gebäudeautomation (80 - 100%)",
+      "company": "Imwinkelried Lüftung und Klima AG",
+      "location": "Visp",
+      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/elektromonteur-in-lueftung-und-gebaeudeautomation-1544"
+    },
+    {
+      "reason": "non_detail_url",
+      "title": "Projektleiter/in Heizungssanierungen (80 - 100%)",
+      "company": "Willi Gebäudetechnik AG",
+      "location": "Chur",
+      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/projektleiter-in-heizungssanierungen-1521"
+    },
+    {
+      "reason": "non_detail_url",
+      "title": "Sanitärinstallateur/in (80 - 100%)",
+      "company": "Sprecher AG",
+      "location": "Davos Glaris",
+      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/sanitaerinstallateur-in-823"
+    },
+    {
+      "reason": "non_detail_url",
+      "title": "Heizungsinstallateur/in (100%)",
+      "company": "Spescha Gebäudetechnik AG",
+      "location": "Lenzerheide",
+      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/heizungsinstallateur-in-1001"
+    },
+    {
+      "reason": "non_detail_url",
+      "title": "Installateurs-electriciens / Installatrices-électriciennes CFC (100%)",
+      "company": "Grichting & Valterio Electro SA",
+      "location": "Martigny",
+      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/installateurs-electriciens-cfc-3-1"
+    },
+    {
+      "reason": "non_detail_url",
+      "title": "Chef/fe de chantier (100%)",
+      "company": "Grichting & Valterio Electro SA",
+      "location": "Martigny",
+      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/chef-de-chantier-9-2"
+    },
+    {
+      "reason": "non_detail_url",
+      "title": "Chef/fe de chantier (100%)",
+      "company": "Grichting & Valterio Electro SA",
+      "location": "Collombey",
+      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/chef-de-chantier-9-1"
+    },
+    {
+      "reason": "non_detail_url",
+      "title": "Lüftungsanlagenbauer/in (80 - 100%)",
+      "company": "Willi Gebäudetechnik AG",
+      "location": "Chur",
+      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/projektleiter-in-heizungssanierungen-1433"
+    },
+    {
+      "reason": "non_detail_url",
+      "title": "Sanitärinstallateur/in (80 - 100%)",
+      "company": "Ulrich Huber AG",
+      "location": "Malans",
+      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/sanitaerinstallateur-in-1417"
+    },
+    {
+      "reason": "non_detail_url",
+      "title": "Projektleiter/in Gebäudetechnik HLKS (60 - 100%)",
+      "company": "Mathieu Ingenieure AG",
+      "location": "Visp",
+      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/projektleiter-in-gebaeudetechnik-hlks-1402"
+    },
+    {
+      "reason": "non_detail_url",
+      "title": "Gebäudetechnikplaner/in HLS (60 - 100%)",
+      "company": "Mathieu Ingenieure AG",
+      "location": "Visp",
+      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/gebaeudetechnikplaner-in-hls-1359"
     }
   ]
 }

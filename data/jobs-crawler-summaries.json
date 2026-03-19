@@ -1,6 +1,42 @@
 {
-  "updatedAt": "2026-03-19T05:29:58.611Z",
+  "updatedAt": "2026-03-19T05:56:52.913Z",
   "summaries": [
+    {
+      "key": "tinext-sa",
+      "label": "Tinext SA",
+      "generatedAt": "2026-03-19T05:56:52.913Z",
+      "total": 2,
+      "newCount": 2,
+      "updatedCount": 0,
+      "removedCount": 0,
+      "unchangedCount": 0,
+      "durationMs": 725,
+      "avgDurationMs": 895,
+      "durationHistory": [
+        725,
+        746,
+        1213
+      ],
+      "newJobs": [
+        {
+          "title": "Freelance Java Developer | Full-remote",
+          "company": "Tinext SA",
+          "location": "Lugano",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/freelance-java-developer-full-remote-tinext-lugano-javadev/",
+          "slug": "freelance-java-developer-full-remote-tinext-lugano-javadev"
+        },
+        {
+          "title": "Executive Assistant",
+          "company": "Tinext SA",
+          "location": "Lugano",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/executive-assistant-tinext-lugano-exass/",
+          "slug": "executive-assistant-tinext-lugano-exass"
+        }
+      ],
+      "updatedJobs": [],
+      "removedJobs": [],
+      "unchangedJobs": []
+    },
     {
       "key": "galenica",
       "label": "Galenica",
