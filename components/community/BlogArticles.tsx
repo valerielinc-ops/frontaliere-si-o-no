@@ -3688,6 +3688,13 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/annunci-lavoro-dumping-ticino-governo.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'controlli-cantieri-mendrisio',
+    category: 'pratico',
+    date: '2026-03-19T10:12:32.565Z',
+    image: '/images/blog/controlli-cantieri-mendrisio.jpg',
+    hasCalculator: true,
+  },
 ];
 
 const CATEGORIES = ['all', 'fiscale', 'pratico', 'novita', 'pensione'] as const;

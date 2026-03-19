@@ -1334,6 +1334,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.annunci-lavoro-dumping-ticino-governo.title': 'Löhne im Dumping: Der Fall kommt vor die Regierung',
     'blog.article.annunci-lavoro-dumping-ticino-governo.excerpt': 'Zwei Stellenanzeigen in der Region Mendrisiotto mit mutmaßlich zu niedrigen Löhnen haben für Aufsehen gesorgt und den Fall vor das Tessiner Regierungsrat gebracht. Unia bestätigt die Fortdauer des Phänomens.',
     'blog.article.annunci-lavoro-dumping-ticino-governo.imageAlt': 'Stellenanze mit Lohndumping im Mendrisiotto gemeldet, Fall erreicht Kantonsregierung.',
+    'blog.article.controlli-cantieri-mendrisio.title': 'Baustellenkontrollen: Tessin makellos, Como im Chaos',
+    'blog.article.controlli-cantieri-mendrisio.excerpt': '66 Arbeiter im Mendrisiotto inspiziert: null Unregelmässigkeiten. Jenseits der Grenze 42.500 € Strafen und 3 Anzeigen.',
+    'blog.article.controlli-cantieri-mendrisio.imageAlt': 'Baustelle im Kanton Tessin, regelmässige Kontrollen und Sicherheit',
 };
 
 export default blogMetaDe;

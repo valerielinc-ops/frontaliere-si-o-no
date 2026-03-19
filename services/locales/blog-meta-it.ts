@@ -1334,6 +1334,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.annunci-lavoro-dumping-ticino-governo.title': 'Salari da dumping: il caso arriva in Governo',
     'blog.article.annunci-lavoro-dumping-ticino-governo.excerpt': 'Due annunci di lavoro nel Mendrisiotto con retribuzioni sospettate di dumping salariale hanno sollevato un polverone, portando il caso all\'attenzione del Consiglio di Stato ticinese. Unia conferma la persistenza del fenomeno.',
     'blog.article.annunci-lavoro-dumping-ticino-governo.imageAlt': 'Annunci di lavoro con salari da dumping segnalati nel Mendrisiotto, caso finisce in governo cantonale.',
+    'blog.article.controlli-cantieri-mendrisio.title': 'Controlli cantieri: Ticino perfetto, Como nel caos',
+    'blog.article.controlli-cantieri-mendrisio.excerpt': '66 lavoratori ispezionati nel Mendrisiotto: zero irregolarità. Dall’altra parte del confine, 42.500 € di multe e 3 denunce.',
+    'blog.article.controlli-cantieri-mendrisio.imageAlt': 'Cantiere edile in Canton Ticino, controlli regolari e sicurezza garantita',
 };
 
 export default blogMetaIt;

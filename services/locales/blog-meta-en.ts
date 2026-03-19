@@ -1334,6 +1334,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.annunci-lavoro-dumping-ticino-governo.title': 'Wage dumping: the case reaches the Government',
     'blog.article.annunci-lavoro-dumping-ticino-governo.excerpt': 'Two job advertisements in the Mendrisiotto region with suspected wage dumping have sparked a controversy, bringing the issue to the attention of the Ticino State Council. Unia confirms the persistence of the phenomenon.',
     'blog.article.annunci-lavoro-dumping-ticino-governo.imageAlt': 'Job postings with wage dumping reported in Mendrisiotto, case reaches cantonal government.',
+    'blog.article.controlli-cantieri-mendrisio.title': 'Site inspections: Ticino flawless, Como in chaos',
+    'blog.article.controlli-cantieri-mendrisio.excerpt': '66 workers checked in the Mendrisio area: zero irregularities. Across the border, €42,500 in fines and 3 reports.',
+    'blog.article.controlli-cantieri-mendrisio.imageAlt': 'Construction site in Canton Ticino, regular checks and ensured safety',
 };
 
 export default blogMetaEn;

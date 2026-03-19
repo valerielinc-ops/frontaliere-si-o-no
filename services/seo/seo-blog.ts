@@ -6026,6 +6026,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-controlli-cantieri-mendrisio': {
+    title: 'Controlli cantieri: Ticino perfetto, Como nel caos | Frontaliere Ticino',
+    description: '66 lavoratori controllati nel Mendrisiotto: nessuna sanzione. In Como 42.500 € di multe. Le regole per i frontalieri edili. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, controlli, cantieri, perfetto, como',
+    ogTitle: 'Controlli cantieri: Ticino perfetto, Como nel caos',
+    ogDescription: '66 lavoratori ispezionati nel Mendrisiotto: zero irregolarità. Dall’altra parte del confine, 42.500 € di multe e 3 denunce.',
+    canonicalPath: '/articoli-frontaliere/controlli-cantieri-mendrisio',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Controlli cantieri: Ticino zero irregolarità, Como multe e denunce",
+      "description": "66 lavoratori controllati nel Mendrisiotto: nessuna sanzione. In Como 42.500 € di multe. Le regole per i frontalieri edili. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/controlli-cantieri-mendrisio.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Cantiere edile in Canton Ticino, controlli regolari e sicurezza garantita"
+      },
+      "datePublished": "2026-03-19T10:12:32+00:00",
+      "dateModified": "2026-03-19T10:12:32+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/controlli-cantieri-mendrisio`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

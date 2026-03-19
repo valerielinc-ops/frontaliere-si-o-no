@@ -1334,6 +1334,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.annunci-lavoro-dumping-ticino-governo.title': 'Salaires de dumping : l\'affaire arrive au Gouvernement',
     'blog.article.annunci-lavoro-dumping-ticino-governo.excerpt': 'Deux offres d\'emploi dans le Mendrisiotto avec des rémunérations suspectées de dumping salarial ont provoqué une vive polémique, portant l\'affaire à l\'attention du Conseil d\'État tessinois. Unia confirme la persistance du phénomène.',
     'blog.article.annunci-lavoro-dumping-ticino-governo.imageAlt': 'Offres d\'emploi avec dumping salarial signalées dans le Mendrisiotto, le cas parvient au gouvernement cantonal.',
+    'blog.article.controlli-cantieri-mendrisio.title': 'Contrôles chantiers : Tessin parfait, Côme dans le chaos',
+    'blog.article.controlli-cantieri-mendrisio.excerpt': '66 travailleurs inspectés dans le Mendrisiotto : zéro irrégularité. De l’autre côté de la frontière, 42 500 € d’amendes et 3 signalements.',
+    'blog.article.controlli-cantieri-mendrisio.imageAlt': 'Chantier de construction dans le canton du Tessin, contrôles réguliers et sécurité assurée',
 };
 
 export default blogMetaFr;
