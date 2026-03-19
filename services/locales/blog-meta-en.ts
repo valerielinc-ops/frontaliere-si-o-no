@@ -1361,6 +1361,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.kebab-case-turismo-ticino.title': 'Tourism in Ticino: 2025 Was an Exceptional Year for Italy',
     'blog.article.kebab-case-turismo-ticino.excerpt': 'The region recorded an increase in tourists compared to European competitors, with a positive outcome for the local economy.',
     'blog.article.kebab-case-turismo-ticino.imageAlt': 'Person looking at Lake Lugano from a scenic viewpoint',
+    'blog.article.droga-al-confine-ticino-2025.title': 'More Drugs and Cigarettes at the Border in 2025: The Federal Customs Administration and Border Security Office\'s Balance Sheet',
+    'blog.article.droga-al-confine-ticino-2025.excerpt': 'Increase in seizures of contraband drugs and cigarettes, although the amounts are slightly lower than those of the previous year',
+    'blog.article.droga-al-confine-ticino-2025.imageAlt': 'Vehicle crossing the Italian-Swiss border',
 };
 
 export default blogMetaEn;

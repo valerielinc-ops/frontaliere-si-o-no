@@ -6287,6 +6287,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-droga-al-confine-ticino-2025': {
+    title: 'Nel 2025 più droga e sigarette al confine: il bilancio | Frontaliere Ticino',
+    description: 'Aumento dei sequestri di stupefacenti e sigarette di contrabbando al confine italo-svizzero nel 2025, secondo il bilancio dell\'Ufficio federale della dogana e',
+    keywords: 'frontalieri, ticino, svizzera, italia, 2025, droga, sigarette, confine',
+    ogTitle: 'Nel 2025 più droga e sigarette al confine: il bilancio',
+    ogDescription: 'Aumento dei sequestri di stupefacenti e sigarette di contrabbando al confine italo-svizzero nel 2025, secondo il bilancio dell\'Ufficio federale della dogana e',
+    canonicalPath: '/articoli-frontaliere/droga-al-confine-ticino-2025',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Nel 2025 più droga e sigarette al confine: il bilancio dell'Ufficio",
+      "description": "Aumento dei sequestri di stupefacenti e sigarette di contrabbando al confine italo-svizzero nel 2025, secondo il bilancio dell'Ufficio federale della dogana e",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/droga-al-confine-ticino-2025.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Veicolo in transito al confine italo-svizzero"
+      },
+      "datePublished": "2026-03-19T19:51:12+00:00",
+      "dateModified": "2026-03-19T19:51:12+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/droga-al-confine-ticino-2025`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

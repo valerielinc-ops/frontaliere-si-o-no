@@ -1361,6 +1361,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.kebab-case-turismo-ticino.title': 'Turismo in Ticino: Il 2025 è stato un anno eccezionale per l\'Italia',
     'blog.article.kebab-case-turismo-ticino.excerpt': 'La regione ha registrato un aumento dei turisti rispetto ai competitor europei, con un esito positivo per l\'economia locale.',
     'blog.article.kebab-case-turismo-ticino.imageAlt': 'Persona che guarda il lago Lugano da un punto di vista panoramico',
+    'blog.article.droga-al-confine-ticino-2025.title': 'Nel 2025 più droga e sigarette al confine: il bilancio dell\'Ufficio federale della dogana e della sicurezza dei confini',
+    'blog.article.droga-al-confine-ticino-2025.excerpt': 'Aumento dei sequestri di stupefacenti e sigarette di contrabbando, benché gli importi siano leggermente inferiori a quelli dell\'anno precedente',
+    'blog.article.droga-al-confine-ticino-2025.imageAlt': 'Veicolo in transito al confine italo-svizzero',
 };
 
 export default blogMetaIt;

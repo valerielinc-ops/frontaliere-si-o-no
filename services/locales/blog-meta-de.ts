@@ -1361,6 +1361,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.kebab-case-turismo-ticino.title': 'Tourismus in Tessin: 2025 war ein außergewöhnliches Jahr für Italien',
     'blog.article.kebab-case-turismo-ticino.excerpt': 'Die Region hat einen Anstieg der Touristen gegenüber den europäischen Konkurrenten verzeichnet, mit einem positiven Ergebnis für die lokale Wirtschaft.',
     'blog.article.kebab-case-turismo-ticino.imageAlt': 'Person, die auf dem Luganer See vom Standpunkt eines Panoramablickes',
+    'blog.article.droga-al-confine-ticino-2025.title': 'Im Jahr 2025 mehr Drogen und Zigaretten an der Grenze: Bilanz des Bundesamtes für Zoll und Grenzsicherheit',
+    'blog.article.droga-al-confine-ticino-2025.excerpt': 'Zunahme der Zoll- und Grenzsicherheitsmaßnahmen, obwohl die Mengen leicht geringer sind als im Vorjahr',
+    'blog.article.droga-al-confine-ticino-2025.imageAlt': 'Fahrzeug in der Schweiz',
 };
 
 export default blogMetaDe;

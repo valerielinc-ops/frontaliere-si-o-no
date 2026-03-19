@@ -3751,6 +3751,13 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/kebab-case-turismo-ticino.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'droga-al-confine-ticino-2025',
+    category: 'novita',
+    date: '2026-03-19T19:51:12.225Z',
+    image: '/images/blog/droga-al-confine-ticino-2025.jpg',
+    hasCalculator: true,
+  },
 ];
 
 const CATEGORIES = ['all', 'fiscale', 'pratico', 'novita', 'pensione'] as const;
