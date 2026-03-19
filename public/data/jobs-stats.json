@@ -1,22 +1,22 @@
 {
-  "generatedAt": "2026-03-19T16:03:12.237Z",
+  "generatedAt": "2026-03-19T16:03:17.825Z",
   "links": {
     "allJobs": "https://www.frontaliereticino.ch/cerca-lavoro-ticino"
   },
   "totals": {
-    "activeJobs": 796,
+    "activeJobs": 839,
     "activeCompanies": 100,
-    "activeLocations": 121,
-    "todayAdded": 1005,
+    "activeLocations": 130,
+    "todayAdded": 1006,
     "todayUpdated": 0,
     "todayRemoved": 0,
     "last7d": {
-      "added": 3279,
+      "added": 3280,
       "updated": 0,
       "removed": 0
     },
     "last30d": {
-      "added": 3762,
+      "added": 3763,
       "updated": 0,
       "removed": 0
     }
@@ -47,6 +47,13 @@
       "date": "2026-03-19",
       "totalJobs": 796,
       "added": 1005,
+      "updated": 0,
+      "removed": 0
+    },
+    {
+      "date": "2026-03-19",
+      "totalJobs": 839,
+      "added": 1006,
       "updated": 0,
       "removed": 0
     }
@@ -156,6 +163,12 @@
         "name": "Novaggio",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-novaggio",
         "count": 28
+      },
+      {
+        "key": "bellinzona",
+        "name": "Bellinzona",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-bellinzona",
+        "count": 133
       }
     ],
     "topCompaniesAddedToday": [
@@ -457,11 +470,11 @@
   },
   "salary": {
     "coverage": {
-      "jobsWithSalary": 796,
+      "jobsWithSalary": 839,
       "coveragePct": 100,
-      "avgMin": 68020,
-      "avgMax": 91774,
-      "avgMid": 79897,
+      "avgMin": 67974,
+      "avgMax": 91687,
+      "avgMid": 79831,
       "medianMid": 84500
     },
     "leaders": {
