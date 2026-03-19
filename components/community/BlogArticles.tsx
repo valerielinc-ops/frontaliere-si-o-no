@@ -3667,6 +3667,13 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/camedo-buffet-eventi-ticino.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'berna-discute-approvvigionamento-economico-e-13esima-avs',
+    category: 'novita',
+    date: '2026-03-19T07:11:48.069Z',
+    image: '/images/blog/berna-discute-approvvigionamento-economico-e-13esima-avs.jpg',
+    hasCalculator: true,
+  },
 ];
 
 const CATEGORIES = ['all', 'fiscale', 'pratico', 'novita', 'pensione'] as const;

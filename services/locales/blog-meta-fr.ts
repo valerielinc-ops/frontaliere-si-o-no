@@ -1325,6 +1325,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.camedo-buffet-eventi-ticino.title': 'Camedo, le buffet prêt à devenir l\'endroit idéal pour des événements',
     'blog.article.camedo-buffet-eventi-ticino.excerpt': 'L\'ancien bâtiment des FART à Camedo sera transformé en un lieu dédié à la promotion du territoire. La transformation sera achevée à la fin du printemps.',
     'blog.article.camedo-buffet-eventi-ticino.imageAlt': 'Buffet de Camedo, Tessin, prêt à accueillir des événements',
+    'blog.article.berna-discute-approvvigionamento-economico-e-13esima-avs.title': 'Berne discute de l\'approvisionnement économique et de la 13e rente AVS',
+    'blog.article.berna-discute-approvvigionamento-economico-e-13esima-avs.excerpt': 'Le Parlement fédéral se réunit pour discuter du projet d\'approvisionnement économique et de la treizième rente AVS.',
+    'blog.article.berna-discute-approvvigionamento-economico-e-13esima-avs.imageAlt': 'Réunion de travail à Berne avec focus sur les documents et les stratégies économiques.',
 };
 
 export default blogMetaFr;

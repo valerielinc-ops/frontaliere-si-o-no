@@ -5939,6 +5939,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-berna-discute-approvvigionamento-economico-e-13esima-avs': {
+    title: 'Berna discute di approvvigionamento economico e 13esima | Frontaliere Ticino',
+    description: 'Il Parlamento svizzero discute il progetto di approvvigionamento economico e la tredicesima mensilità AVS. Scopri cosa significa per i frontalieri.',
+    keywords: 'frontalieri, ticino, svizzera, italia, berna, discute, approvvigionamento, economico',
+    ogTitle: 'Berna discute di approvvigionamento economico e 13esima AVS',
+    ogDescription: 'Il Parlamento svizzero si riunisce per discutere il progetto di approvvigionamento economico e la tredicesima mensilità AVS.',
+    canonicalPath: '/articoli-frontaliere/berna-discute-approvvigionamento-economico-e-13esima-avs',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Berna discute di approvvigionamento economico e 13esima AVS",
+      "description": "Il Parlamento svizzero discute il progetto di approvvigionamento economico e la tredicesima mensilità AVS. Scopri cosa significa per i frontalieri.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/berna-discute-approvvigionamento-economico-e-13esima-avs.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Riunione di lavoro a Berna con focus su documenti e strategie economiche."
+      },
+      "datePublished": "2026-03-19T07:11:48+00:00",
+      "dateModified": "2026-03-19T07:11:48+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/berna-discute-approvvigionamento-economico-e-13esima-avs`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
