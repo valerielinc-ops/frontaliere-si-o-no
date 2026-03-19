@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-03-19T05:07:37.925Z",
+  "updatedAt": "2026-03-19T05:08:21.451Z",
   "summaries": [
     {
       "key": "galenica",
@@ -2504,32 +2504,6 @@
           "slug": "history-teacher-international-school-of-ticino-lugano"
         }
       ],
-      "removedJobs": [],
-      "unchangedJobs": []
-    },
-    {
-      "key": "jysk",
-      "label": "JYSK",
-      "generatedAt": "2026-03-18T16:30:09.726Z",
-      "total": 0,
-      "newCount": 0,
-      "updatedCount": 0,
-      "removedCount": 0,
-      "unchangedCount": 0,
-      "durationMs": 45289,
-      "avgDurationMs": 155200,
-      "durationHistory": [
-        45289,
-        26247,
-        27029,
-        36051,
-        55019,
-        504707,
-        505448,
-        41808
-      ],
-      "newJobs": [],
-      "updatedJobs": [],
       "removedJobs": [],
       "unchangedJobs": []
     },
@@ -9858,6 +9832,33 @@
           "slug": "jr-it-qa-specialista-ibsa-institut-biochimique-montagnola"
         }
       ]
+    },
+    {
+      "key": "jysk",
+      "label": "JYSK",
+      "generatedAt": "2026-03-19T05:08:21.451Z",
+      "total": 0,
+      "newCount": 0,
+      "updatedCount": 0,
+      "removedCount": 0,
+      "unchangedCount": 0,
+      "durationMs": 44935,
+      "avgDurationMs": 142948,
+      "durationHistory": [
+        44935,
+        45289,
+        26247,
+        27029,
+        36051,
+        55019,
+        504707,
+        505448,
+        41808
+      ],
+      "newJobs": [],
+      "updatedJobs": [],
+      "removedJobs": [],
+      "unchangedJobs": []
     }
   ]
 }
