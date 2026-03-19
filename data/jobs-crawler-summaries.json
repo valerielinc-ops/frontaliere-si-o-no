@@ -1,6 +1,56 @@
 {
-  "updatedAt": "2026-03-19T02:45:34.738Z",
+  "updatedAt": "2026-03-19T02:53:40.391Z",
   "summaries": [
+    {
+      "key": "a-group",
+      "label": "A++ Group",
+      "generatedAt": "2026-03-19T02:53:40.391Z",
+      "total": 3,
+      "newCount": 3,
+      "updatedCount": 0,
+      "removedCount": 0,
+      "unchangedCount": 0,
+      "durationMs": 3332,
+      "avgDurationMs": 26985,
+      "durationHistory": [
+        3332,
+        27635,
+        24859,
+        26701,
+        23576,
+        28530,
+        30542,
+        44022,
+        28477,
+        32179
+      ],
+      "newJobs": [
+        {
+          "title": "Ingegnere edile Jr.",
+          "company": "A++ Group",
+          "location": "Massagno",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ingegnere-edile-jr-a-plus-plus-group-massagno/",
+          "slug": "ingegnere-edile-jr-a-plus-plus-group-massagno"
+        },
+        {
+          "title": "Real Estate Project Manager",
+          "company": "A++ Group",
+          "location": "Massagno",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/real-estate-project-manager-a-plus-plus-group-massagno/",
+          "slug": "real-estate-project-manager-a-plus-plus-group-massagno"
+        },
+        {
+          "title": "Tecnico di cantiere (Ingegere edile o Geometra)",
+          "company": "A++ Group",
+          "location": "Massagno",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/tecnico-di-cantiere-ingegere-edile-o-geometra-a-plus-plus-group-massagno/",
+          "slug": "tecnico-di-cantiere-ingegere-edile-o-geometra-a-plus-plus-group-massagno"
+        }
+      ],
+      "updatedJobs": [],
+      "removedJobs": [],
+      "unchangedJobs": []
+    },
     {
       "key": "alten-switzerland",
       "label": "ALTEN Switzerland",
@@ -2794,33 +2844,6 @@
           "slug": "process-qualita-specialista-80-100-abb-svizzera-sede-ticino-quartino"
         }
       ]
-    },
-    {
-      "key": "a-group",
-      "label": "A++ Group",
-      "generatedAt": "2026-03-18T16:14:04.213Z",
-      "total": 0,
-      "newCount": 0,
-      "updatedCount": 0,
-      "removedCount": 0,
-      "unchangedCount": 0,
-      "durationMs": 27635,
-      "avgDurationMs": 29613,
-      "durationHistory": [
-        27635,
-        24859,
-        26701,
-        23576,
-        28530,
-        30542,
-        44022,
-        28477,
-        32179
-      ],
-      "newJobs": [],
-      "updatedJobs": [],
-      "removedJobs": [],
-      "unchangedJobs": []
     },
     {
       "key": "artisa-group",
