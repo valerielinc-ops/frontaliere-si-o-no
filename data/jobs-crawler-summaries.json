@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-03-19T05:17:06.446Z",
+  "updatedAt": "2026-03-19T05:17:16.719Z",
   "summaries": [
     {
       "key": "galenica",
@@ -1438,42 +1438,6 @@
       ],
       "removedJobs": [],
       "unchangedJobs": []
-    },
-    {
-      "key": "ruag-ag",
-      "label": "RUAG AG",
-      "generatedAt": "2026-03-18T16:39:13.737Z",
-      "total": 1,
-      "newCount": 0,
-      "updatedCount": 0,
-      "removedCount": 0,
-      "unchangedCount": 1,
-      "durationMs": 15496,
-      "avgDurationMs": 10912,
-      "durationHistory": [
-        15496,
-        11455,
-        9034,
-        11003,
-        10137,
-        9471,
-        9827,
-        12055,
-        11427,
-        9215
-      ],
-      "newJobs": [],
-      "updatedJobs": [],
-      "removedJobs": [],
-      "unchangedJobs": [
-        {
-          "title": "Apprendista Polimeccanico/a AFC 2026 100% (f/m/d)",
-          "company": "RUAG AG",
-          "location": "Lodrino",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/apprendista-polimeccanico-a-afc-2026-100-f-m-d-ruag-ag-lodrino/",
-          "slug": "apprendista-polimeccanico-a-afc-2026-100-f-m-d-ruag-ag-lodrino"
-        }
-      ]
     },
     {
       "key": "post-ch",
@@ -10055,6 +10019,42 @@
       ],
       "removedJobs": [],
       "unchangedJobs": []
+    },
+    {
+      "key": "ruag-ag",
+      "label": "RUAG AG",
+      "generatedAt": "2026-03-19T05:17:16.719Z",
+      "total": 1,
+      "newCount": 0,
+      "updatedCount": 0,
+      "removedCount": 0,
+      "unchangedCount": 1,
+      "durationMs": 11399,
+      "avgDurationMs": 11130,
+      "durationHistory": [
+        11399,
+        15496,
+        11455,
+        9034,
+        11003,
+        10137,
+        9471,
+        9827,
+        12055,
+        11427
+      ],
+      "newJobs": [],
+      "updatedJobs": [],
+      "removedJobs": [],
+      "unchangedJobs": [
+        {
+          "title": "Apprendista Polimeccanico/a AFC 2026 100% (f/m/d)",
+          "company": "RUAG AG",
+          "location": "Lodrino",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/apprendista-polimeccanico-a-afc-2026-100-f-m-d-ruag-ag-lodrino/",
+          "slug": "apprendista-polimeccanico-a-afc-2026-100-f-m-d-ruag-ag-lodrino"
+        }
+      ]
     }
   ]
 }
