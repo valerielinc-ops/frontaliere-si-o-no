@@ -1156,6 +1156,8 @@ const App: React.FC = () => {
     if (tab === 'glossario' && glossaryTerm) route.glossaryTerm = glossaryTerm;
     if (tab === 'job-board' && jobSlug) route.jobSlug = jobSlug;
     pushRoute(route);
+    // Always scroll to top on explicit top-nav tab changes
+    window.scrollTo({ top: 0, behavior: 'instant' });
 
     // Update SEO meta tags for the new section
     const seoKey = getSeoSection(route);
@@ -1945,6 +1947,7 @@ const App: React.FC = () => {
     const seoKey = getSeoSection(route);
     updateMetaTags(seoKey);
     trackSectionView(seoKey);
+    window.scrollTo({ top: 0, behavior: 'instant' });
   };
 
   // --- 5-click logo easter egg: cache reset with coin explosion ---
@@ -2056,6 +2059,11 @@ const App: React.FC = () => {
     if (tab === 'stats') route.statsSubTab = (subTab || statsSubTab) as StatsSubTab;
     if (tab === 'job-board' && subTab) route.jobSlug = subTab;
     pushRoute(route);
+    // Scroll to top on programmatic navigation, except when returning to the job-board
+    // list (JobBoard manages its own scroll restoration in that case).
+    if (!(tab === 'job-board' && !subTab)) {
+      window.scrollTo({ top: 0, behavior: 'instant' });
+    }
   }, [calcolatoreSubTab, confrontiSubTab, fiscoSubTab, guidaSubTab, vitaSubTab, statsSubTab]);
 
   const navContextValue: NavigationContextType = {
@@ -2577,7 +2585,7 @@ const App: React.FC = () => {
                   <div className="hidden md:block space-y-2 mb-4">
                     <div className="grid grid-cols-1 md:grid-cols-20 gap-2 items-stretch">
                       <div className="md:col-span-13 h-full">
-                        <Suspense fallback={<SkeletonNewsTicker />}><NewsFeed onNavigate={(tab, article) => { setActiveTab(tab as ActiveTab); if (article) setBlogArticle(article as BlogArticleId); pushRoute({ activeTab: tab as ActiveTab, blogArticle: article as BlogArticleId }); }} /></Suspense>
+                        <Suspense fallback={<SkeletonNewsTicker />}><NewsFeed onNavigate={(tab, article) => { setActiveTab(tab as ActiveTab); if (article) setBlogArticle(article as BlogArticleId); pushRoute({ activeTab: tab as ActiveTab, blogArticle: article as BlogArticleId }); window.scrollTo({ top: 0, behavior: 'instant' }); }} /></Suspense>
                       </div>
                       <div className="md:col-span-7 h-full">
                         <Suspense fallback={<div className="h-[34px]" />}>
@@ -2641,7 +2649,7 @@ const App: React.FC = () => {
                 {/* Mobile: move news/fact/phrase widgets below results, before CTA cards */}
                 {showDeferredHomeWidgets ? (
                   <div className="md:hidden space-y-2 mt-2">
-                    <Suspense fallback={<SkeletonNewsTicker />}><NewsFeed onNavigate={(tab, article) => { setActiveTab(tab as ActiveTab); if (article) setBlogArticle(article as BlogArticleId); pushRoute({ activeTab: tab as ActiveTab, blogArticle: article as BlogArticleId }); }} /></Suspense>
+                    <Suspense fallback={<SkeletonNewsTicker />}><NewsFeed onNavigate={(tab, article) => { setActiveTab(tab as ActiveTab); if (article) setBlogArticle(article as BlogArticleId); pushRoute({ activeTab: tab as ActiveTab, blogArticle: article as BlogArticleId }); window.scrollTo({ top: 0, behavior: 'instant' }); }} /></Suspense>
                     <div className="space-y-2">
                       <Suspense fallback={<SkeletonWeeklyFact />}><WeeklyFact /></Suspense>
                       <div className="opacity-90"><Suspense fallback={<div className="h-[34px]" />}><SocialProofBadge fullWidth /></Suspense></div>
@@ -2670,9 +2678,7 @@ const App: React.FC = () => {
                       <button
                         key={tab + (sub || '')}
                         onClick={() => {
-                          setActiveTab(tab);
-                          if (sub) setCalcolatoreSubTab(sub);
-                          pushRoute({ activeTab: tab, ...(sub ? { calcolatoreSubTab: sub } : {}) });
+                          navigateTo(tab, sub);
                         }}
                         className="flex items-start gap-3 p-4 bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 hover:shadow-md hover:-translate-y-0.5 transition-all text-left group"
                       >
@@ -2877,17 +2883,17 @@ const App: React.FC = () => {
                 onGoogleAuthRequired={googleSignIn}
                 onFacebookAuthRequired={facebookSignIn}
                 onRequireAuth={() => {
-                  setActiveTab('profile');
-                  pushRoute({ activeTab: 'profile' as any });
+                  navigateTo('profile' as any);
                 }}
                 onJobRouteChange={(slug) => {
                   setJobSlug(slug || null);
                   pushRoute({ activeTab: 'job-board' as any, ...(slug ? { jobSlug: slug } : {}) });
+                  // Scroll to top when entering a job detail; JobBoard handles list restoration.
+                  if (slug) window.scrollTo({ top: 0, behavior: 'instant' });
                 }}
                 onPostJob={() => {
                   setContactPrefill({ topic: 'contact.topic.jobPost' });
-                  setActiveTab('contact' as any);
-                  pushRoute({ activeTab: 'contact' as any });
+                  navigateTo('contact' as any);
                 }}
               />
             </div>
@@ -3036,7 +3042,7 @@ const App: React.FC = () => {
             <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2">
               <a
                 href={buildPath({ activeTab: 'contact' as any })}
-                onClick={(e) => { e.preventDefault(); setActiveTab('contact' as any); pushRoute({ activeTab: 'contact' as any }); }}
+                onClick={(e) => { e.preventDefault(); navigateTo('contact' as any); }}
                 className="inline-flex items-center gap-1 text-xs text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors no-underline"
               >
                 <Mail className="w-3.5 h-3.5" />
@@ -3045,7 +3051,7 @@ const App: React.FC = () => {
               <span className="text-slate-300 dark:text-slate-700">·</span>
               <a
                 href={buildPath({ activeTab: 'feedback' })}
-                onClick={(e) => { e.preventDefault(); setActiveTab('feedback'); pushRoute({ activeTab: 'feedback' }); }}
+                onClick={(e) => { e.preventDefault(); navigateTo('feedback'); }}
                 className="inline-flex items-center gap-1 text-xs text-slate-600 dark:text-slate-400 hover:text-amber-700 dark:hover:text-amber-400 transition-colors no-underline"
               >
                 <Bug className="w-3.5 h-3.5" />
@@ -3054,7 +3060,7 @@ const App: React.FC = () => {
               <span className="text-slate-300 dark:text-slate-700">·</span>
               <a
                 href={buildPath({ activeTab: 'privacy' })}
-                onClick={(e) => { e.preventDefault(); setActiveTab('privacy'); pushRoute({ activeTab: 'privacy' }); }}
+                onClick={(e) => { e.preventDefault(); navigateTo('privacy' as any); }}
                 className="inline-flex items-center gap-1 text-xs text-slate-600 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors no-underline"
               >
                 <Shield className="w-3.5 h-3.5" />
@@ -3063,7 +3069,7 @@ const App: React.FC = () => {
               <span className="text-slate-300 dark:text-slate-700">·</span>
               <a
                 href={buildPath({ activeTab: 'api-status' })}
-                onClick={(e) => { e.preventDefault(); setActiveTab('api-status'); pushRoute({ activeTab: 'api-status' }); Analytics.trackApiDiagnostics('view'); }}
+                onClick={(e) => { e.preventDefault(); navigateTo('api-status' as any); Analytics.trackApiDiagnostics('view'); }}
                 className="inline-flex items-center gap-1 text-xs text-slate-600 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-300 transition-colors no-underline"
               >
                 {t('footer.apiStatus')}
@@ -3071,7 +3077,7 @@ const App: React.FC = () => {
               <span className="text-slate-300 dark:text-slate-700">·</span>
               <a
                 href={buildPath({ activeTab: 'partners' as any })}
-                onClick={(e) => { e.preventDefault(); setActiveTab('partners' as any); pushRoute({ activeTab: 'partners' as any }); }}
+                onClick={(e) => { e.preventDefault(); navigateTo('partners' as any); }}
                 className="inline-flex items-center gap-1 text-xs text-slate-600 dark:text-slate-400 hover:text-emerald-700 dark:hover:text-emerald-400 transition-colors no-underline"
               >
                 {t('partners.footerLink')}
@@ -3079,7 +3085,7 @@ const App: React.FC = () => {
               <span className="text-slate-300 dark:text-slate-700">·</span>
               <a
                 href={buildPath({ activeTab: 'consulting' as any })}
-                onClick={(e) => { e.preventDefault(); setActiveTab('consulting' as any); pushRoute({ activeTab: 'consulting' as any }); }}
+                onClick={(e) => { e.preventDefault(); navigateTo('consulting' as any); }}
                 className="inline-flex items-center gap-1 text-xs text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors no-underline"
               >
                 {t('consulting.footerLink')}
@@ -3087,7 +3093,7 @@ const App: React.FC = () => {
               <span className="text-slate-300 dark:text-slate-700">·</span>
               <a
                 href={buildPath({ activeTab: 'job-board' as any })}
-                onClick={(e) => { e.preventDefault(); setJobSlug(null); setActiveTab('job-board' as any); pushRoute({ activeTab: 'job-board' as any }); }}
+                onClick={(e) => { e.preventDefault(); setJobSlug(null); navigateTo('job-board' as any); }}
                 className="inline-flex items-center gap-1 text-xs text-slate-600 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors no-underline"
               >
                 {t('jobBoard.footerLink')}
@@ -3095,7 +3101,7 @@ const App: React.FC = () => {
               <span className="text-slate-300 dark:text-slate-700">·</span>
               <a
                 href={buildPath({ activeTab: 'morning' as any })}
-                onClick={(e) => { e.preventDefault(); setActiveTab('morning' as any); pushRoute({ activeTab: 'morning' as any }); }}
+                onClick={(e) => { e.preventDefault(); navigateTo('morning' as any); }}
                 className="inline-flex items-center gap-1 text-xs text-slate-600 dark:text-slate-400 hover:text-orange-600 dark:hover:text-orange-400 transition-colors no-underline"
               >
                 <Sunrise className="w-3.5 h-3.5" />
@@ -3104,7 +3110,7 @@ const App: React.FC = () => {
               <span className="text-slate-300 dark:text-slate-700">·</span>
               <a
                 href={buildPath({ activeTab: 'faq' })}
-                onClick={(e) => { e.preventDefault(); setActiveTab('faq' as any); pushRoute({ activeTab: 'faq' as any }); }}
+                onClick={(e) => { e.preventDefault(); navigateTo('faq' as any); }}
                 className="inline-flex items-center gap-1 text-xs text-slate-600 dark:text-slate-400 hover:text-violet-600 dark:hover:text-violet-400 transition-colors no-underline"
               >
                 <HelpCircle className="w-3.5 h-3.5" />
@@ -3113,7 +3119,7 @@ const App: React.FC = () => {
               <span className="text-slate-300 dark:text-slate-700">·</span>
               <a
                 href={buildPath({ activeTab: 'blog' })}
-                onClick={(e) => { e.preventDefault(); setActiveTab('blog' as any); pushRoute({ activeTab: 'blog' as any }); }}
+                onClick={(e) => { e.preventDefault(); navigateTo('blog' as any); }}
                 className="inline-flex items-center gap-1 text-xs text-slate-600 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors no-underline"
               >
                 <Newspaper className="w-3.5 h-3.5" />
@@ -3122,7 +3128,7 @@ const App: React.FC = () => {
               <span className="text-slate-300 dark:text-slate-700">·</span>
               <a
                 href={buildPath({ activeTab: 'glossario' })}
-                onClick={(e) => { e.preventDefault(); setActiveTab('glossario' as any); pushRoute({ activeTab: 'glossario' as any }); }}
+                onClick={(e) => { e.preventDefault(); navigateTo('glossario' as any); }}
                 className="inline-flex items-center gap-1 text-xs text-slate-600 dark:text-slate-400 hover:text-teal-600 dark:hover:text-teal-400 transition-colors no-underline"
               >
                 <BookA className="w-3.5 h-3.5" />
@@ -3131,7 +3137,7 @@ const App: React.FC = () => {
               <span className="text-slate-300 dark:text-slate-700">·</span>
               <a
                 href={buildPath({ activeTab: 'dialetto' as any })}
-                onClick={(e) => { e.preventDefault(); setActiveTab('dialetto' as any); pushRoute({ activeTab: 'dialetto' as any }); }}
+                onClick={(e) => { e.preventDefault(); navigateTo('dialetto' as any); }}
                 className="inline-flex items-center gap-1 text-xs text-slate-600 dark:text-slate-400 hover:text-orange-600 dark:hover:text-orange-400 transition-colors no-underline"
               >
                 <Languages className="w-3.5 h-3.5" />
@@ -3140,7 +3146,7 @@ const App: React.FC = () => {
               <span className="text-slate-300 dark:text-slate-700">·</span>
               <a
                 href={buildPath({ activeTab: 'sitemap' as any })}
-                onClick={(e) => { e.preventDefault(); setActiveTab('sitemap' as any); pushRoute({ activeTab: 'sitemap' as any }); }}
+                onClick={(e) => { e.preventDefault(); navigateTo('sitemap' as any); }}
                 className="inline-flex items-center gap-1 text-xs text-slate-600 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-300 transition-colors no-underline"
               >
                 {t('sitemap.title')}
@@ -3148,7 +3154,7 @@ const App: React.FC = () => {
               <span className="text-slate-300 dark:text-slate-700">·</span>
               <a
                 href={buildPath({ activeTab: 'contracts' })}
-                onClick={(e) => { e.preventDefault(); setActiveTab('contracts' as any); pushRoute({ activeTab: 'contracts' }); }}
+                onClick={(e) => { e.preventDefault(); navigateTo('contracts' as any); }}
                 className="inline-flex items-center gap-1 text-xs text-slate-600 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors no-underline"
               >
                 <FileText className="w-3.5 h-3.5" />
@@ -3157,7 +3163,7 @@ const App: React.FC = () => {
               <span className="text-slate-300 dark:text-slate-700">·</span>
               <a
                 href={buildPath({ activeTab: 'tfr-calculator' })}
-                onClick={(e) => { e.preventDefault(); setActiveTab('tfr-calculator' as any); pushRoute({ activeTab: 'tfr-calculator' }); }}
+                onClick={(e) => { e.preventDefault(); navigateTo('tfr-calculator' as any); }}
                 className="inline-flex items-center gap-1 text-xs text-slate-600 dark:text-slate-400 hover:text-amber-600 dark:hover:text-amber-400 transition-colors no-underline"
               >
                 <Banknote className="w-3.5 h-3.5" />
@@ -3166,7 +3172,7 @@ const App: React.FC = () => {
               <span className="text-slate-300 dark:text-slate-700">·</span>
               <a
                 href={buildPath({ activeTab: 'tredicesima' })}
-                onClick={(e) => { e.preventDefault(); setActiveTab('tredicesima' as any); pushRoute({ activeTab: 'tredicesima' }); }}
+                onClick={(e) => { e.preventDefault(); navigateTo('tredicesima' as any); }}
                 className="inline-flex items-center gap-1 text-xs text-slate-600 dark:text-slate-400 hover:text-amber-600 dark:hover:text-amber-400 transition-colors no-underline"
               >
                 <Gift className="w-3.5 h-3.5" />
@@ -3175,7 +3181,7 @@ const App: React.FC = () => {
               <span className="text-slate-300 dark:text-slate-700">·</span>
               <a
                 href={buildPath({ activeTab: 'tool-of-week' })}
-                onClick={(e) => { e.preventDefault(); setActiveTab('tool-of-week' as any); pushRoute({ activeTab: 'tool-of-week' }); }}
+                onClick={(e) => { e.preventDefault(); navigateTo('tool-of-week' as any); }}
                 className="inline-flex items-center gap-1 text-xs text-slate-600 dark:text-slate-400 hover:text-violet-600 dark:hover:text-violet-400 transition-colors no-underline"
               >
                 <Sparkles className="w-3.5 h-3.5" />
