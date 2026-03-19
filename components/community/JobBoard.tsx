@@ -3309,11 +3309,10 @@ const JobBoard: React.FC<JobBoardProps> = ({
 
   const backToList = () => {
     Analytics.trackSelectContent('job_board_back_to_list', 'job-board');
-    if (window.history.length > 1) {
-      window.history.back();
-    } else {
-      onJobRouteChange?.(undefined);
-    }
+    // Always use deterministic SPA navigation instead of history.back().
+    // history.back() is unsafe for direct-entry pages (e.g. from Google) where
+    // the previous history entry may be about:blank or an external page.
+    onJobRouteChange?.(undefined);
   };
 
   const handleApply = (job: JobListing) => {

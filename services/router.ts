@@ -1037,7 +1037,8 @@ export function registerJobSlugMap(jobs: Array<{ slug?: string; slugByLocale?: P
 
   // Fix stale URL: if updatePathForLocale ran before the map was ready,
   // the job slug in the browser URL may not have been translated.
-  // Re-translate it now that the map is available.
+  // Re-translate it now that the map is available, and update history.state.route
+  // so back/forward navigation restores the correct translated slug.
   if (typeof window !== 'undefined' && typeof history !== 'undefined') {
     const currentPath = window.location.pathname;
     const { route } = parsePath(currentPath);
@@ -1045,9 +1046,10 @@ export function registerJobSlugMap(jobs: Array<{ slug?: string; slugByLocale?: P
       const locale = getLocale();
       const translated = translateJobSlug(route.jobSlug, locale);
       if (translated && translated !== route.jobSlug) {
-        const newPath = buildPath(route, locale);
+        const correctedRoute = { ...route, jobSlug: translated };
+        const newPath = buildPath(correctedRoute, locale);
         if (currentPath !== newPath) {
-          history.replaceState({ route }, '', newPath);
+          history.replaceState({ route: correctedRoute }, '', newPath);
         }
       }
     }
@@ -1060,6 +1062,15 @@ function translateJobSlug(slug: string, targetLocale: string): string | undefine
   const record = _jobSlugMap.get(slug);
   if (!record) return undefined;
   return record[targetLocale] || record['_default'];
+}
+
+/**
+ * Public export: translate any-locale job slug to the target locale.
+ * Returns undefined if the slug map is not yet loaded or the slug is not found.
+ * Used by App.tsx to sync jobSlug state when locale switches.
+ */
+export function getLocalizedJobSlug(slug: string, targetLocale: string): string | undefined {
+  return translateJobSlug(slug, targetLocale);
 }
 
 // Eagerly preload the job slug map so language switches work immediately.

@@ -141,7 +141,7 @@ const trackSectionView = (section: string) => {
   import('@/services/seoService').then(m => m.trackSectionView(section));
 };
 import { useTranslation, initLocale, setLocale, onLocaleChange, itReady, isTranslationsReady, loadTabTranslations } from '@/services/i18n';
-import { parsePath, parseHashToPath, pushRoute, replaceRoute, buildPath, getSeoSection, updatePathForLocale, scrollToAnchor, AppRoute, preloadBlogData, resolveBlogSlug } from '@/services/router';
+import { parsePath, parseHashToPath, pushRoute, replaceRoute, buildPath, getSeoSection, updatePathForLocale, scrollToAnchor, AppRoute, preloadBlogData, resolveBlogSlug, getLocalizedJobSlug } from '@/services/router';
 import type { ActiveTab, CalcolatoreSubTab, ConfrontiSubTab, FiscoSubTab, GuidaSubTab, VitaSubTab, StatsSubTab, BlogArticleId, SeoLandingId, GlossaryTermId, BorderCrossingId } from '@/services/router';
 import { NavigationContext } from '@/services/NavigationContext';
 import type { NavigationContextType } from '@/services/NavigationContext';
@@ -871,9 +871,15 @@ const App: React.FC = () => {
       }
     };
     window.addEventListener('popstate', onPopState);
-    // When locale changes, rewrite current URL with new locale slugs
+    // When locale changes, rewrite current URL with new locale slugs.
+    // Also sync jobSlug state: if the map is already loaded, update to the
+    // target-locale slug immediately so canonical URLs and state stay consistent.
     const unsubLocale = onLocaleChange((newLocale) => {
       updatePathForLocale(newLocale);
+      setJobSlug(prev => {
+        if (!prev) return prev;
+        return getLocalizedJobSlug(prev, newLocale) || prev;
+      });
     });
     return () => {
       window.removeEventListener('popstate', onPopState);
