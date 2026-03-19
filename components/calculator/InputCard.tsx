@@ -389,22 +389,40 @@ export const InputCard: React.FC<Props> = ({ inputs, setInputs, onCalculate, foc
                    <Coins size={14} className="text-amber-500"/> {t('input.grossAnnualIncome')} 
                    <InfoTooltip text={t('input.incomeTooltip')} />
                  </label>
-                 <div className="relative group transition-transform duration-200 focus-within:scale-[1.01]">
-                    <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                      <span className="text-slate-500 font-bold text-lg">CHF</span>
+                 <div className="flex items-stretch transition-transform duration-200 focus-within:scale-[1.01]">
+                    <button
+                      type="button"
+                      onClick={() => handleChange('annualIncomeCHF', Math.max(SALARY_MIN, inputs.annualIncomeCHF - 1000))}
+                      className={`shrink-0 w-12 bg-slate-50 dark:bg-slate-900 border-2 border-r-0 rounded-l-2xl transition-all hover:bg-slate-100 dark:hover:bg-slate-800 active:scale-95 ${salaryError ? 'border-red-400' : 'border-slate-100 dark:border-slate-700'} text-slate-500 hover:text-indigo-600 dark:hover:text-indigo-400 flex items-center justify-center`}
+                      aria-label="Diminuisci reddito di CHF 1000"
+                    >
+                      <Minus size={18} strokeWidth={2.5} />
+                    </button>
+                    <div className="relative flex-1 group">
+                      <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                        <span className="text-slate-500 font-bold text-lg">CHF</span>
+                      </div>
+                      <input
+                        type="text"
+                        inputMode="numeric"
+                        value={formatNumber(inputs.annualIncomeCHF)}
+                        onChange={(e) => {
+                          const val = parseNumber(e.target.value);
+                          const clamped = Math.max(SALARY_MIN, Math.min(SALARY_MAX, val));
+                          handleChange('annualIncomeCHF', clamped);
+                        }}
+                        className={`w-full pl-14 pr-4 py-4 bg-slate-50 dark:bg-slate-900 border-2 border-x-0 focus:ring-4 focus:ring-inset outline-none transition-all font-bold text-slate-800 dark:text-slate-100 text-2xl tracking-tight ${salaryError ? 'border-red-400 focus:border-red-500 focus:ring-red-500/10' : 'border-slate-100 dark:border-slate-700 focus:border-indigo-500 focus:ring-indigo-500/10'}`}
+                        placeholder="0"
+                      />
                     </div>
-                    <input 
-                      type="text" 
-                      inputMode="numeric" 
-                      value={formatNumber(inputs.annualIncomeCHF)} 
-                      onChange={(e) => {
-                        const val = parseNumber(e.target.value);
-                        const clamped = Math.max(SALARY_MIN, Math.min(SALARY_MAX, val));
-                        handleChange('annualIncomeCHF', clamped);
-                      }} 
-                      className={`w-full pl-14 pr-4 py-4 bg-slate-50 dark:bg-slate-900 border-2 rounded-2xl focus:ring-4 outline-none transition-all font-bold text-slate-800 dark:text-slate-100 text-2xl tracking-tight ${salaryError ? 'border-red-400 focus:border-red-500 focus:ring-red-500/10' : 'border-slate-100 dark:border-slate-700 focus:border-indigo-500 focus:ring-indigo-500/10'}`} 
-                      placeholder="0"
-                    />
+                    <button
+                      type="button"
+                      onClick={() => handleChange('annualIncomeCHF', Math.min(SALARY_MAX, inputs.annualIncomeCHF + 1000))}
+                      className={`shrink-0 w-12 bg-slate-50 dark:bg-slate-900 border-2 border-l-0 rounded-r-2xl transition-all hover:bg-slate-100 dark:hover:bg-slate-800 active:scale-95 ${salaryError ? 'border-red-400' : 'border-slate-100 dark:border-slate-700'} text-slate-500 hover:text-indigo-600 dark:hover:text-indigo-400 flex items-center justify-center`}
+                      aria-label="Aumenta reddito di CHF 1000"
+                    >
+                      <Plus size={18} strokeWidth={2.5} />
+                    </button>
                  </div>
                  {salaryError && (
                    <p className="text-[11px] text-red-600 dark:text-red-400 font-semibold mt-1 flex items-center gap-1">
