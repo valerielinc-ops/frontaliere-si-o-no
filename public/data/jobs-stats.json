@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-03-19T16:02:13.277Z",
+  "generatedAt": "2026-03-19T16:02:13.996Z",
   "links": {
     "allJobs": "https://www.frontaliereticino.ch/cerca-lavoro-ticino"
   },
@@ -180,6 +180,12 @@
         "name": "Bellinzona",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-bellinzona",
         "count": 133
+      },
+      {
+        "key": "ticino",
+        "name": "Ticino",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-ticino",
+        "count": 31
       }
     ],
     "topCompaniesAddedToday": [
@@ -377,18 +383,18 @@
         "removed": 0
       },
       {
-        "key": "st-moritz",
-        "name": "St. Moritz",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-st-moritz",
+        "key": "ticino",
+        "name": "Ticino",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-ticino",
         "count": 0,
-        "added": 61,
+        "added": 62,
         "updated": 0,
         "removed": 0
       },
       {
-        "key": "ticino",
-        "name": "Ticino",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-ticino",
+        "key": "st-moritz",
+        "name": "St. Moritz",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-st-moritz",
         "count": 0,
         "added": 61,
         "updated": 0,
@@ -583,16 +589,6 @@
           "weightedSalary": 112800
         },
         {
-          "key": "quartino-ticino",
-          "name": "Quartino, Ticino",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-quartino-ticino",
-          "count": 16,
-          "avgMin": 84375,
-          "avgMax": 113813,
-          "avgMid": 99094,
-          "weightedSalary": 99094
-        },
-        {
           "key": "castelrotto",
           "name": "Castelrotto",
           "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-castelrotto",
@@ -651,6 +647,16 @@
           "avgMax": 111500,
           "avgMid": 97000,
           "weightedSalary": 88300
+        },
+        {
+          "key": "quartino-ticino",
+          "name": "Quartino, Ticino",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-quartino-ticino",
+          "count": 15,
+          "avgMin": 82733,
+          "avgMax": 111600,
+          "avgMid": 97167,
+          "weightedSalary": 97167
         }
       ],
       "topSalaryTitles": [
