@@ -2,8 +2,9 @@ name: Generate Blog Article
 
 on:
   schedule:
-    # Runs every hour, 24/7 — generates up to 24 articles per day
-    - cron: '0 * * * *'
+    # Runs every 30 minutes, 24/7 — generates up to 48 articles per day
+    # If a previous run is still in progress the check-in-progress gate skips cleanly
+    - cron: '0,30 * * * *'
   workflow_dispatch:
     inputs:
       url:
