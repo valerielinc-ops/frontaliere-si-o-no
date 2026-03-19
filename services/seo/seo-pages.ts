@@ -3030,7 +3030,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
         "@context": "https://schema.org",
         "@type": "ItemList",
         "name": "Articoli Frontaliere",
-        "numberOfItems": 439,
+        "numberOfItems": 440,
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
           { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -3470,7 +3470,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 436, "name": "Controlli cantieri: Ticino zero irregolarità, C...", "url": `${BASE_URL}/articoli-frontaliere/controlli-cantieri-mendrisio` },
           { "@type": "ListItem", "position": 437, "name": "Emergenze, catastrofi, blackout: in Ticino 160 ...", "url": `${BASE_URL}/articoli-frontaliere/catastrofi-ticino-prontezza-2026` },
           { "@type": "ListItem", "position": 438, "name": "Tredicesima AVS: gli Stati propongono una soluz...", "url": `${BASE_URL}/articoli-frontaliere/tredicesima-avs-soluzione-mista-stati` },
-          { "@type": "ListItem", "position": 439, "name": "Lo statuto S e il permesso B nel Canton Ticino:...", "url": `${BASE_URL}/articoli-frontaliere/lo-statuto-s-non-deve-trasformarsi-in-permesso-b` }
+          { "@type": "ListItem", "position": 439, "name": "Lo statuto S e il permesso B nel Canton Ticino:...", "url": `${BASE_URL}/articoli-frontaliere/lo-statuto-s-non-deve-trasformarsi-in-permesso-b` },
+          { "@type": "ListItem", "position": 440, "name": "Il Consiglio degli Stati approva la soluzione m...", "url": `${BASE_URL}/articoli-frontaliere/consiglio-stati-soluzione-mista-13esima-avs` }
         ]
       }
     ]

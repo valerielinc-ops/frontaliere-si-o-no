@@ -1346,6 +1346,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.lo-statuto-s-non-deve-trasformarsi-in-permesso-b.title': 'Lo statuto S e il permesso B nel Canton Ticino: cosa cambia per i frontalieri?',
     'blog.article.lo-statuto-s-non-deve-trasformarsi-in-permesso-b.excerpt': 'Una mozione di Lorenzo Quadri solleva dubbi sulla trasformazione automatica dello statuto S in permesso B per i profughi ucraini. Quali sono le implicazioni per i frontalieri e i residenti?',
     'blog.article.lo-statuto-s-non-deve-trasformarsi-in-permesso-b.imageAlt': 'Vista panoramica di Mendrisio, una città di confine nel Canton Ticino, con le montagne sullo sfondo.',
+    'blog.article.consiglio-stati-soluzione-mista-13esima-avs.title': 'Il Consiglio degli Stati approva la soluzione mista per la 13esima AVS',
+    'blog.article.consiglio-stati-soluzione-mista-13esima-avs.excerpt': 'La Camera alta ribadisce la necessità di un aumento sia dell\'IVA che dei contributi salariali per finanziare la tredicesima mensilità dell\'AVS, stimando i costi a 4,2 miliardi nel 2026.',
+    'blog.article.consiglio-stati-soluzione-mista-13esima-avs.imageAlt': 'Vista panoramica di Locarno con il Lago Maggiore e il Monte Verità.',
 };
 
 export default blogMetaIt;

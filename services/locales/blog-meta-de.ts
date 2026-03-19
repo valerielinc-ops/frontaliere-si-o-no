@@ -1346,6 +1346,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.lo-statuto-s-non-deve-trasformarsi-in-permesso-b.title': 'Der Status S und die Aufenthaltsbewilligung B im Kanton Tessin: Was ändert sich für Grenzgänger?',
     'blog.article.lo-statuto-s-non-deve-trasformarsi-in-permesso-b.excerpt': 'Eine Motion von Lorenzo Quadri wirft Fragen zur automatischen Umwandlung des Status S in eine Aufenthaltsbewilligung B für ukrainische Flüchtlinge auf. Welche Auswirkungen hat dies für Grenzgänger und Einwohner?',
     'blog.article.lo-statuto-s-non-deve-trasformarsi-in-permesso-b.imageAlt': 'Panoramablick auf Mendrisio, eine Grenzstadt im Schweizer Kanton Tessin, mit Bergen im Hintergrund.',
+    'blog.article.consiglio-stati-soluzione-mista-13esima-avs.title': 'Der Ständerat billigt die gemischte Lösung für die 13. AHV-Rente',
+    'blog.article.consiglio-stati-soluzione-mista-13esima-avs.excerpt': 'Der Ständerat bekräftigt die Notwendigkeit einer Erhöhung der Mehrwertsteuer und der Lohnbeiträge zur Finanzierung der 13. AHV-Rente, wobei die Kosten auf 4,2 Milliarden Franken im Jahr 2026 geschätzt werden.',
+    'blog.article.consiglio-stati-soluzione-mista-13esima-avs.imageAlt': 'Panoramablick auf Locarno mit dem Lago Maggiore und dem Monte Verità.',
 };
 
 export default blogMetaDe;

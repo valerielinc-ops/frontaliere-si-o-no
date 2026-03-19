@@ -1346,6 +1346,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.lo-statuto-s-non-deve-trasformarsi-in-permesso-b.title': 'The S status and the B permit in the Canton of Ticino: what changes for cross-border workers?',
     'blog.article.lo-statuto-s-non-deve-trasformarsi-in-permesso-b.excerpt': 'A motion by Lorenzo Quadri raises doubts about the automatic transformation of the S status into a B permit for Ukrainian refugees. What are the implications for cross-border workers and residents?',
     'blog.article.lo-statuto-s-non-deve-trasformarsi-in-permesso-b.imageAlt': 'Panoramic view of Mendrisio, a border town in the Swiss canton of Ticino, with mountains in the background.',
+    'blog.article.consiglio-stati-soluzione-mista-13esima-avs.title': 'The Council of States Approves Mixed Solution for 13th AVS Payment',
+    'blog.article.consiglio-stati-soluzione-mista-13esima-avs.excerpt': 'The Upper Chamber reiterates the need for an increase in both VAT and payroll contributions to fund the 13th monthly AVS payment, estimating costs at 4.2 billion francs in 2026.',
+    'blog.article.consiglio-stati-soluzione-mista-13esima-avs.imageAlt': 'Panoramic view of Locarno with Lake Maggiore and Monte Verità.',
 };
 
 export default blogMetaEn;

@@ -3716,6 +3716,13 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/lo-statuto-s-non-deve-trasformarsi-in-permesso-b.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'consiglio-stati-soluzione-mista-13esima-avs',
+    category: 'pensione',
+    date: '2026-03-19T14:35:12.413Z',
+    image: '/images/blog/consiglio-stati-soluzione-mista-13esima-avs.jpg',
+    hasCalculator: true,
+  },
 ];
 
 const CATEGORIES = ['all', 'fiscale', 'pratico', 'novita', 'pensione'] as const;

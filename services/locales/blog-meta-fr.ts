@@ -1346,6 +1346,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.lo-statuto-s-non-deve-trasformarsi-in-permesso-b.title': 'Le statut S et le permis B dans le canton du Tessin : quels changements pour les frontaliers ?',
     'blog.article.lo-statuto-s-non-deve-trasformarsi-in-permesso-b.excerpt': 'Une motion de Lorenzo Quadri soulève des doutes sur la transformation automatique du statut S en permis B pour les réfugiés ukrainiens. Quelles sont les implications pour les frontaliers et les résidents ?',
     'blog.article.lo-statuto-s-non-deve-trasformarsi-in-permesso-b.imageAlt': 'Vue panoramique de Mendrisio, une ville frontalière du canton du Tessin en Suisse, avec les montagnes en arrière-plan.',
+    'blog.article.consiglio-stati-soluzione-mista-13esima-avs.title': 'Le Conseil des États approuve la solution mixte pour la 13e AVS',
+    'blog.article.consiglio-stati-soluzione-mista-13esima-avs.excerpt': 'La Chambre haute réaffirme la nécessité d\'une augmentation de la TVA et des contributions salariales pour financer la 13e mensualité de l\'AVS, estimant les coûts à 4,2 milliards en 2026.',
+    'blog.article.consiglio-stati-soluzione-mista-13esima-avs.imageAlt': 'Vue panoramique de Locarno avec le Lac Majeur et le Monte Verità.',
 };
 
 export default blogMetaFr;

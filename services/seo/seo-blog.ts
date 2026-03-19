@@ -6142,6 +6142,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-consiglio-stati-soluzione-mista-13esima-avs': {
+    title: 'Il Consiglio degli Stati approva la soluzione mista per la | Frontaliere Ticino',
+    description: 'Il Consiglio degli Stati ribadisce la necessità di una soluzione mista per finanziare la tredicesima mensilità dell\'AVS, stimando i costi a 4,2 miliardi nel',
+    keywords: 'frontalieri, ticino, svizzera, italia, consiglio, stati, approva, soluzione',
+    ogTitle: 'Il Consiglio degli Stati approva la soluzione mista per la',
+    ogDescription: 'La Camera alta ribadisce la necessità di un aumento sia dell\'IVA che dei contributi salariali per finanziare la tredicesima mensilità dell\'AVS, stimando i costi',
+    canonicalPath: '/articoli-frontaliere/consiglio-stati-soluzione-mista-13esima-avs',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Il Consiglio degli Stati approva la soluzione mista per la 13esima AVS",
+      "description": "Il Consiglio degli Stati ribadisce la necessità di una soluzione mista per finanziare la tredicesima mensilità dell'AVS, stimando i costi a 4,2 miliardi nel",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/consiglio-stati-soluzione-mista-13esima-avs.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Vista panoramica di Locarno con il Lago Maggiore e il Monte Verità."
+      },
+      "datePublished": "2026-03-19T14:35:12+00:00",
+      "dateModified": "2026-03-19T14:35:12+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/consiglio-stati-soluzione-mista-13esima-avs`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

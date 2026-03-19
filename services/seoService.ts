@@ -1582,6 +1582,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-catastrofi-ticino-prontezza-2026': { name: 'Punti di raccolta d\'urgenza in Ticino', path: '/articoli-frontaliere/catastrofi-ticino-prontezza-2026', parent: 'blog' },
     'blog-tredicesima-avs-soluzione-mista-stati': { name: 'Tredicesima AVS', path: '/articoli-frontaliere/tredicesima-avs-soluzione-mista-stati', parent: 'blog' },
     'blog-lo-statuto-s-non-deve-trasformarsi-in-permesso-b': { name: 'Statuto S e permesso B', path: '/articoli-frontaliere/lo-statuto-s-non-deve-trasformarsi-in-permesso-b', parent: 'blog' },
+    'blog-consiglio-stati-soluzione-mista-13esima-avs': { name: '13esima AVS', path: '/articoli-frontaliere/consiglio-stati-soluzione-mista-13esima-avs', parent: 'blog' },
   };
 
   const info = sectionNames[section];
