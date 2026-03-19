@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-03-19T04:50:19.583Z",
+  "generatedAt": "2026-03-19T04:50:28.807Z",
   "links": {
     "allJobs": "https://www.frontaliereticino.ch/cerca-lavoro-ticino"
   },
   "totals": {
-    "activeJobs": 883,
-    "activeCompanies": 125,
-    "activeLocations": 149,
+    "activeJobs": 861,
+    "activeCompanies": 122,
+    "activeLocations": 143,
     "todayAdded": 883,
     "todayUpdated": 0,
     "todayRemoved": 0,
@@ -45,15 +45,15 @@
     },
     {
       "date": "2026-03-19",
-      "totalJobs": 872,
-      "added": 872,
+      "totalJobs": 883,
+      "added": 883,
       "updated": 0,
       "removed": 0
     },
     {
       "date": "2026-03-19",
-      "totalJobs": 883,
-      "added": 883,
+      "totalJobs": 861,
+      "added": 872,
       "updated": 0,
       "removed": 0
     }
@@ -135,12 +135,6 @@
         "count": 43
       },
       {
-        "key": "ticino",
-        "name": "Ticino",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-ticino",
-        "count": 28
-      },
-      {
         "key": "emea-che-stabio-vf-campus-vf1",
         "name": "EMEA · CHE · Stabio · VF Campus VF1",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-emea-che-stabio-vf-campus-vf1",
@@ -163,6 +157,12 @@
         "name": "Ticino",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-ticino",
         "count": 28
+      },
+      {
+        "key": "ticino",
+        "name": "Ticino",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-ticino",
+        "count": 27
       }
     ],
     "topCompaniesAddedToday": [
@@ -464,11 +464,11 @@
   },
   "salary": {
     "coverage": {
-      "jobsWithSalary": 883,
+      "jobsWithSalary": 861,
       "coveragePct": 100,
-      "avgMin": 66720,
-      "avgMax": 89992,
-      "avgMid": 78356,
+      "avgMin": 66672,
+      "avgMax": 89927,
+      "avgMid": 78300,
       "medianMid": 68500
     },
     "leaders": {
