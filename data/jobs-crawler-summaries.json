@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-03-19T16:01:52.626Z",
+  "updatedAt": "2026-03-19T16:02:13.138Z",
   "summaries": [
     {
       "key": "a-group",
@@ -4418,30 +4418,6 @@
           "slug": "process-qualita-specialista-80-100-abb-svizzera-sede-ticino-quartino"
         }
       ]
-    },
-    {
-      "key": "artificialy",
-      "label": "Artificialy",
-      "generatedAt": "2026-03-19T04:52:32.839Z",
-      "total": 0,
-      "newCount": 0,
-      "updatedCount": 0,
-      "removedCount": 0,
-      "unchangedCount": 0,
-      "durationMs": 12305,
-      "avgDurationMs": 12433,
-      "durationHistory": [
-        12305,
-        12590,
-        12522,
-        12445,
-        12270,
-        12465
-      ],
-      "newJobs": [],
-      "updatedJobs": [],
-      "removedJobs": [],
-      "unchangedJobs": []
     },
     {
       "key": "axpo-group",
@@ -12153,6 +12129,31 @@
           }
         }
       ]
+    },
+    {
+      "key": "artificialy",
+      "label": "Artificialy",
+      "generatedAt": "2026-03-19T16:02:13.138Z",
+      "total": 0,
+      "newCount": 0,
+      "updatedCount": 0,
+      "removedCount": 0,
+      "unchangedCount": 0,
+      "durationMs": 12232,
+      "avgDurationMs": 12404,
+      "durationHistory": [
+        12232,
+        12305,
+        12590,
+        12522,
+        12445,
+        12270,
+        12465
+      ],
+      "newJobs": [],
+      "updatedJobs": [],
+      "removedJobs": [],
+      "unchangedJobs": []
     }
   ]
 }
