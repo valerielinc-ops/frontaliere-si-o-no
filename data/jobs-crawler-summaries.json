@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-03-19T04:52:52.635Z",
+  "updatedAt": "2026-03-19T04:52:36.415Z",
   "summaries": [
     {
       "key": "agie-charmilles",
@@ -2294,39 +2294,6 @@
         }
       ],
       "updatedJobs": [],
-      "removedJobs": [],
-      "unchangedJobs": []
-    },
-    {
-      "key": "artisa-group",
-      "label": "Artisa Group",
-      "generatedAt": "2026-03-18T16:14:12.734Z",
-      "total": 1,
-      "newCount": 0,
-      "updatedCount": 1,
-      "removedCount": 0,
-      "unchangedCount": 0,
-      "durationMs": 1856,
-      "avgDurationMs": 1636,
-      "durationHistory": [
-        1856,
-        1809,
-        1498,
-        1816,
-        1564,
-        1464,
-        1443
-      ],
-      "newJobs": [],
-      "updatedJobs": [
-        {
-          "title": "Architetto qualificato",
-          "company": "Artisa Group",
-          "location": "Lugano",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/architetto-qualificato-artisa-group-lugano/",
-          "slug": "architetto-qualificato-artisa-group-lugano"
-        }
-      ],
       "removedJobs": [],
       "unchangedJobs": []
     },
@@ -9890,6 +9857,40 @@
         65429
       ],
       "newJobs": [],
+      "updatedJobs": [],
+      "removedJobs": [],
+      "unchangedJobs": []
+    },
+    {
+      "key": "artisa-group",
+      "label": "Artisa Group",
+      "generatedAt": "2026-03-19T04:52:36.415Z",
+      "total": 1,
+      "newCount": 1,
+      "updatedCount": 0,
+      "removedCount": 0,
+      "unchangedCount": 0,
+      "durationMs": 1765,
+      "avgDurationMs": 1652,
+      "durationHistory": [
+        1765,
+        1856,
+        1809,
+        1498,
+        1816,
+        1564,
+        1464,
+        1443
+      ],
+      "newJobs": [
+        {
+          "title": "Architetto qualificato",
+          "company": "Artisa Group",
+          "location": "Lugano",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/architetto-qualificato-artisa-group-lugano/",
+          "slug": "architetto-qualificato-artisa-group-lugano"
+        }
+      ],
       "updatedJobs": [],
       "removedJobs": [],
       "unchangedJobs": []
