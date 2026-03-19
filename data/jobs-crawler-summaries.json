@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-03-19T05:19:46.054Z",
+  "updatedAt": "2026-03-19T05:18:44.378Z",
   "summaries": [
     {
       "key": "galenica",
@@ -1093,44 +1093,6 @@
       "updatedJobs": [],
       "removedJobs": [],
       "unchangedJobs": []
-    },
-    {
-      "key": "sunrise-communications-ag",
-      "label": "Sunrise Communications AG",
-      "generatedAt": "2026-03-17T16:39:14.035Z",
-      "total": 2,
-      "newCount": 0,
-      "updatedCount": 1,
-      "removedCount": 0,
-      "unchangedCount": 1,
-      "durationMs": 4642,
-      "avgDurationMs": 4379,
-      "durationHistory": [
-        4642,
-        4856,
-        3953,
-        4066
-      ],
-      "newJobs": [],
-      "updatedJobs": [
-        {
-          "title": "Key Account Manager Italian-speaking Switzerland 80-100%",
-          "company": "Sunrise Communications AG",
-          "location": "Manno, Ticino",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/key-account-manager-italian-speaking-switzerland-80-100-sunrise-manno-ticino/",
-          "slug": "key-account-manager-italian-speaking-switzerland-80-100-sunrise-manno-ticino"
-        }
-      ],
-      "removedJobs": [],
-      "unchangedJobs": [
-        {
-          "title": "Apprendista Gestore del commercio al dettaglio AFC - Lugano",
-          "company": "Sunrise Communications AG",
-          "location": "Lugano",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/apprendista-gestore-del-commercio-al-dettaglio-afc-lugano-sunrise-lugano/",
-          "slug": "apprendista-gestore-del-commercio-al-dettaglio-afc-lugano-sunrise-lugano"
-        }
-      ]
     },
     {
       "key": "skyguide",
@@ -9985,6 +9947,45 @@
         }
       ],
       "removedJobs": [],
+      "unchangedJobs": []
+    },
+    {
+      "key": "sunrise-communications-ag",
+      "label": "Sunrise Communications AG",
+      "generatedAt": "2026-03-19T05:18:44.378Z",
+      "total": 2,
+      "newCount": 0,
+      "updatedCount": 1,
+      "removedCount": 1,
+      "unchangedCount": 0,
+      "durationMs": 4164,
+      "avgDurationMs": 4336,
+      "durationHistory": [
+        4164,
+        4642,
+        4856,
+        3953,
+        4066
+      ],
+      "newJobs": [],
+      "updatedJobs": [
+        {
+          "title": "Key Account Manager Italian-speaking Switzerland 80-100%",
+          "company": "Sunrise Communications AG",
+          "location": "Manno, Ticino",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/key-account-manager-italian-speaking-switzerland-80-100-sunrise-manno-ticino/",
+          "slug": "key-account-manager-italian-speaking-switzerland-80-100-sunrise-manno-ticino"
+        }
+      ],
+      "removedJobs": [
+        {
+          "title": "Apprendista Gestore del commercio al dettaglio AFC - Lugano",
+          "company": "Sunrise Communications AG",
+          "location": "Lugano",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/apprendista-gestore-del-commercio-al-dettaglio-afc-lugano-sunrise-communications-ag-lugano/",
+          "slug": "apprendista-gestore-del-commercio-al-dettaglio-afc-lugano-sunrise-communications-ag-lugano"
+        }
+      ],
       "unchangedJobs": []
     }
   ]
