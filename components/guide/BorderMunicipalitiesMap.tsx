@@ -687,7 +687,7 @@ const BorderMunicipalitiesMap: React.FC<Props> = ({ userProfile }) => {
         {sortedMunicipalities.map(m => {
           const delta = compareTaxResult ? m.taxResult.finalItalianTaxEUR - compareTaxResult.finalItalianTaxEUR : null;
           const isCheapest = cheapest && m.name === cheapest.name;
-          const isCampione = m.irpefAddizionale === 0;
+          const isCampione = m.name === "Campione d'Italia";
 
           return (
             <div
