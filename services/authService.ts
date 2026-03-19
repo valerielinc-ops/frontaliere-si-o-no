@@ -66,21 +66,22 @@ function setAuthRedirectState(provider: 'google' | 'facebook'): void {
 }
 
 /**
- * Google Sign-In via redirect.
+ * Google Sign-In.
  *
- * Popup-based sign-in (signInWithPopup) is permanently broken on this stack:
- *   - Firebase's auth handler at auth.frontaliereticino.ch sets COOP: same-origin,
- *     making window.opener inaccessible from the popup and preventing postMessage
- *     from reaching the app; the resulting credential is invalid (signInWithIdp 400).
- *   - GitHub Pages does not process _headers files, so a COOP override on our side
- *     is impossible without a CDN layer.
- *   - The GIS / One Tap fallback relies on FedCM, which Chrome allows users to
- *     disable per-site; not reliable enough to be a primary auth path.
+ * Root cause of previous failures: authDomain was set to auth.frontaliereticino.ch,
+ * which is NOT registered as an authorized redirect URI in the Firebase project's
+ * Google Cloud Console OAuth client → signInWithIdp 400 on EVERY auth attempt
+ * (popup and redirect alike). auth.frontaliereticino.ch also set COOP: same-origin,
+ * blocking window.opener postMessage.
  *
- * signInWithRedirect is immune to all of the above: it navigates to Google, which
- * redirects to the Firebase handler, which redirects back to the app. No popup
- * communication required. getRedirectResult() in useAuth picks up the result and
- * restores the pre-auth URL via sessionStorage.
+ * Definitive fix: authDomain is now frontaliere-ticino.firebaseapp.com (firebase.ts).
+ * That domain is pre-authorized by Firebase, does not set COOP: same-origin, and
+ * supports both popup and redirect flows out of the box.
+ *
+ * Strategy:
+ *   - Desktop: signInWithPopup (fast, no page reload, no navigation state loss)
+ *   - Mobile:  signInWithRedirect (popups are often blocked on mobile browsers)
+ *   - Popup fallback: if popup is blocked or closed, silently fall back to redirect
  */
 export async function signInWithGoogle(): Promise<any | null> {
   try {
@@ -89,20 +90,53 @@ export async function signInWithGoogle(): Promise<any | null> {
     if (!authInstance || !_authModule) return null;
 
     cancelOneTap();
-    setAuthRedirectState('google');
 
     const { Analytics } = await import('@/services/analytics');
-    Analytics.trackUIInteraction('auth', 'google', 'login', 'redirect-start');
-
     const googleProvider = new _authModule.GoogleAuthProvider();
     googleProvider.setCustomParameters({ prompt: 'select_account' });
-    await _authModule.signInWithRedirect(authInstance, googleProvider);
-    return null; // page navigates away; result is handled by getRedirectResult in useAuth
+
+    // Mobile: redirect is more reliable (popups often blocked by browser)
+    const isMobile = /Android|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop/i.test(
+      navigator.userAgent
+    );
+    if (isMobile) {
+      setAuthRedirectState('google');
+      Analytics.trackUIInteraction('auth', 'google', 'login', 'redirect-start');
+      await _authModule.signInWithRedirect(authInstance, googleProvider);
+      return null; // page navigates away; result handled by getRedirectResult in useAuth
+    }
+
+    // Desktop: popup (instant, no page reload)
+    try {
+      Analytics.trackUIInteraction('auth', 'google', 'login', 'popup-start');
+      const result = await _authModule.signInWithPopup(authInstance, googleProvider);
+      Analytics.trackUIInteraction('auth', 'google', 'login', 'success');
+      return result.user;
+    } catch (popupError: any) {
+      // User closed the popup intentionally — treat as cancellation, no error
+      if (popupError?.code === 'auth/popup-closed-by-user') return null;
+
+      // Popup blocked by browser or COOP prevented communication → redirect fallback
+      if (
+        popupError?.code === 'auth/popup-blocked' ||
+        popupError?.code === 'auth/cancelled-popup-request' ||
+        popupError?.message?.includes('Cross-Origin-Opener-Policy')
+      ) {
+        setAuthRedirectState('google');
+        Analytics.trackUIInteraction('auth', 'google', 'login', 'redirect-fallback');
+        await _authModule.signInWithRedirect(authInstance, googleProvider);
+        return null;
+      }
+
+      throw popupError;
+    }
   } catch (error: any) {
-    console.warn('Google sign-in error:', error);
-    reportCaughtError(error, 'auth.googleSignIn');
-    const { Analytics } = await import('@/services/analytics');
-    Analytics.trackUIInteraction('auth', 'google', 'login', 'error');
+    if (error?.code !== 'auth/popup-closed-by-user') {
+      console.warn('Google sign-in error:', error);
+      reportCaughtError(error, 'auth.googleSignIn');
+      const { Analytics } = await import('@/services/analytics');
+      Analytics.trackUIInteraction('auth', 'google', 'login', 'error');
+    }
     return null;
   }
 }
@@ -772,8 +806,9 @@ export function useAuth(): AuthState & {
   }, []);
 
   const signIn = useCallback(async () => {
-    // signInWithGoogle always uses redirect — the page navigates away, so this
-    // returns null. The user is set by getRedirectResult + onAuthStateChanged on return.
+    // Desktop: signInWithGoogle uses popup — returns user immediately.
+    // Mobile/fallback: uses redirect — returns null (page navigates away),
+    // user is set by getRedirectResult + onAuthStateChanged on return.
     const googleUser = await signInWithGoogle();
     if (googleUser) setUser(Object.create(googleUser));
     return googleUser;
