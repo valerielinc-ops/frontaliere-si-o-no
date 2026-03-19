@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-03-19T05:00:35.349Z",
+  "generatedAt": "2026-03-19T05:00:31.283Z",
   "links": {
     "allJobs": "https://www.frontaliereticino.ch/cerca-lavoro-ticino"
   },
   "totals": {
-    "activeJobs": 1087,
+    "activeJobs": 901,
     "activeCompanies": 127,
     "activeLocations": 167,
     "todayAdded": 919,
@@ -119,6 +119,12 @@
         "name": "Convit Holding GmbH",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-convit-holding-gmbh",
         "count": 35
+      },
+      {
+        "key": "convit-holding-gmbh",
+        "name": "Convit Holding GmbH",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-convit-holding-gmbh",
+        "count": 23
       }
     ],
     "topLocationsActive": [
@@ -476,11 +482,11 @@
   },
   "salary": {
     "coverage": {
-      "jobsWithSalary": 1087,
+      "jobsWithSalary": 901,
       "coveragePct": 100,
-      "avgMin": 67409,
-      "avgMax": 90856,
-      "avgMid": 79133,
+      "avgMin": 66922,
+      "avgMax": 90264,
+      "avgMid": 78593,
       "medianMid": 77500
     },
     "leaders": {
@@ -690,9 +696,9 @@
           "weightedSalary": 112800
         },
         {
-          "key": "manager-di-rischi-gestione-attivi-passivi-alm-e-rischio-di-liquidita",
-          "name": "Manager di Rischi - Gestione Attivi-Passivi (ALM) e Rischio di Liquidità",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-manager-di-rischi-gestione-attivi-passivi-alm-e-rischio-di-liquidita",
+          "key": "responsabile-clientela-privata-benestante-biel-berna-e-thun-w-m",
+          "name": "Responsabile Clientela Privata Benestante Biel, Berna e Thun (w/m)",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-responsabile-clientela-privata-benestante-biel-berna-e-thun-w-m",
           "count": 1,
           "avgMin": 109000,
           "avgMax": 147000,
@@ -700,9 +706,9 @@
           "weightedSalary": 112800
         },
         {
-          "key": "responsabile-clientela-privata-benestante-biel-berna-e-thun-w-m",
-          "name": "Responsabile Clientela Privata Benestante Biel, Berna e Thun (w/m)",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-responsabile-clientela-privata-benestante-biel-berna-e-thun-w-m",
+          "key": "responsabile-compliance-senior",
+          "name": "Responsabile Compliance Senior",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-responsabile-compliance-senior",
           "count": 1,
           "avgMin": 109000,
           "avgMax": 147000,
