@@ -2917,6 +2917,50 @@ ${hreflangLinks}
       if (expiredCount > 0) {
         console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Generated ${expiredCount} soft-landing pages for ${expiredSlugs.length} expired jobs${legacyCount > 0 ? ` (+ ${legacyCount} legacy slug bridges)` : ''}`);
       }
+
+      /* ── Bridge pages for previousSlugs of active jobs ──────────── */
+      let bridgeCount = 0;
+      for (const job of validJobs) {
+        const prevSlugs = Array.isArray(job.previousSlugs) ? job.previousSlugs : [];
+        if (prevSlugs.length === 0) continue;
+
+        for (const locale of localeList) {
+          const currentSlug = localizedSlug(job, locale);
+          const currentPath = `${localePrefix[locale]}/${sectionByLocale[locale]}/${currentSlug}`.replace(/\/+/g, '/');
+          const canonicalUrl = `${BASE_URL}${withSlash(currentPath)}`;
+
+          for (const oldSlug of prevSlugs) {
+            if (oldSlug === currentSlug) continue;
+            const oldPath = `${localePrefix[locale]}/${sectionByLocale[locale]}/${oldSlug}`.replace(/\/+/g, '/');
+            // Don't overwrite active job pages
+            const outDir = np.join(distDir, oldPath.replace(/^\//, ''));
+            if (fs.existsSync(np.join(outDir, 'index.html'))) continue;
+
+            const localizedTitle = String(job.titleByLocale?.[locale] || job.title || '');
+            const bridgeHtml = buildCanonicalBridgePage({
+              canonicalUrl,
+              pathLabel: currentPath,
+              title: `${esc(localizedTitle)} — ${esc(job.company || '')} | Frontaliere Ticino`,
+              description: `${esc(localizedTitle)} ${esc(job.company || '')}`,
+              body: localeCopy[locale]?.sectionName || 'Job Board',
+              ctaLabel: archiveCtaLabel[locale] || archiveCtaLabel.it,
+              lang: locale,
+              noindex: false,
+            });
+
+            fs.mkdirSync(outDir, { recursive: true });
+            fs.writeFileSync(np.join(outDir, 'index.html'), bridgeHtml, 'utf-8');
+
+            const flatFile = np.join(distDir, oldPath.replace(/^\//, '') + '.html');
+            fs.mkdirSync(np.dirname(flatFile), { recursive: true });
+            fs.writeFileSync(flatFile, bridgeHtml, 'utf-8');
+            bridgeCount++;
+          }
+        }
+      }
+      if (bridgeCount > 0) {
+        console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Generated ${bridgeCount} previousSlugs bridge pages`);
+      }
     },
   };
 }
