@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import {
+  isMultiLocation,
   normalizeJobCategory,
   normalizeJobContract,
   resolveCompanyLogoUrl,
@@ -39,6 +40,24 @@ describe('jobDataNormalization', () => {
     });
 
     expect(logo).toBe('https://www.medacta.com/images/header/Logo_Medacta.svg');
+  });
+
+  it('detects non-geographic multi-location strings', () => {
+    expect(isMultiLocation('Schweiz und Ausland (abhängig von Funktion und Einsatzort)')).toBe(true);
+    expect(isMultiLocation('Schweiz und Ausland')).toBe(true);
+    expect(isMultiLocation('im In- und Ausland')).toBe(true);
+    expect(isMultiLocation('Suisse et l\'étranger')).toBe(true);
+    expect(isMultiLocation('verschiedene Standorte')).toBe(true);
+  });
+
+  it('does not flag concrete city/canton locations as multi-location', () => {
+    expect(isMultiLocation('Lugano')).toBe(false);
+    expect(isMultiLocation('Bellinzona')).toBe(false);
+    expect(isMultiLocation('Chiasso, TI')).toBe(false);
+    expect(isMultiLocation('Mendrisio (TI)')).toBe(false);
+    expect(isMultiLocation('')).toBe(false);
+    expect(isMultiLocation(null)).toBe(false);
+    expect(isMultiLocation(undefined)).toBe(false);
   });
 
   it('returns Wikimedia-based EFG logo override instead of low-quality favicon', () => {

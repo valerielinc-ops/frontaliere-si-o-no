@@ -541,6 +541,7 @@ const translations: Record<string, string> = {
     // Consulting
     'jobBoard.badge': 'Offerte di Lavoro',
     'jobBoard.badge.new': 'Nuovo',
+    'jobBoard.location.multiLocation': 'Svizzera (varie sedi)',
     'jobBoard.filter.newOnly': 'Solo nuove offerte',
     'jobBoard.filter.filters': 'Filtri',
     'jobBoard.filter.resetAll': 'Reset',

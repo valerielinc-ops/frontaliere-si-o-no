@@ -49,6 +49,7 @@ import { AD_SLOTS } from '@/services/adsenseSlots';
 import { useMediaQuery } from '@/hooks/useMediaQuery';
 import { eagerAuth, promptOneTap } from '@/services/authService';
 import {
+  isMultiLocation,
   normalizeJobCategory,
   normalizeJobContract,
   resolveCompanyLogoUrl,
@@ -2787,11 +2788,12 @@ const JobBoard: React.FC<JobBoardProps> = ({
         ? Number(job.salaryMax)
         : Number(job.baseSalary?.value?.maxValue);
       const salaryCurrency = String(job.currency || job.baseSalary?.currency || job.baseSalary?.value?.currency || 'CHF');
-      // Sanitize address fields — reject crawler artifacts
+      // Sanitize address fields — reject crawler artifacts and non-geographic strings
       const isValidAddr = (s: string) => s && s.length <= 100 && (s.match(/\s/g) || []).length <= 8 && !/stampa|segnalazione|descrizione|annuncio|verifica|attività|dillo/i.test(s);
       const rawLocality = String(job.addressLocality || '').trim();
-      const addressLocality = isValidAddr(rawLocality) ? rawLocality : String(job.location || 'Ticino');
-      const addressRegion = String(job.canton || 'TI');
+      const multiLoc = isMultiLocation(job.location) || isMultiLocation(rawLocality);
+      const addressLocality = multiLoc ? 'Switzerland' : (isValidAddr(rawLocality) ? rawLocality : String(job.location || 'Ticino'));
+      const addressRegion = multiLoc ? 'CH' : String(job.canton || 'TI');
       const addressCountry = String(job.addressCountry || 'CH');
       const postalCode = deriveJobPostalCode(job);
       const rawStreet = String(job.streetAddress || '').trim();
@@ -3010,7 +3012,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
                 )}
               </h2>
               <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 mt-0.5 truncate">
-                {job.company} · {job.location} ({job.canton})
+                {job.company} · {isMultiLocation(job.location) ? t('jobBoard.location.multiLocation') : `${job.location} (${job.canton})`}
               </p>
               {salary && (
                 <span className="mt-1 inline-flex items-center gap-1 text-xs sm:text-sm font-semibold text-green-700 dark:text-green-400">
@@ -3024,7 +3026,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
           <div className="mt-2 sm:mt-3 flex flex-wrap items-center gap-1.5 sm:gap-2 text-xs text-slate-500 dark:text-slate-400">
             <span className="inline-flex items-center gap-1">
               <MapPin className="w-3 h-3" />
-              {job.location}
+              {isMultiLocation(job.location) ? t('jobBoard.location.multiLocation') : job.location}
             </span>
             <span className="px-1.5 py-0.5 rounded bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300">
               {t(contractTranslationKey(job))}
@@ -5080,7 +5082,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
                           {sanitizeJobTitle(job.titleByLocale?.[locale] ?? job.title)}
                         </div>
                         <div className="text-xs text-slate-600 dark:text-slate-300 mt-0.5">
-                          {job.company} · {job.location}
+                          {job.company} · {isMultiLocation(job.location) ? t('jobBoard.location.multiLocation') : job.location}
                         </div>
                       </div>
                     </div>

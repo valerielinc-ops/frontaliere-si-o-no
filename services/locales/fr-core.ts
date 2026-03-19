@@ -500,6 +500,7 @@ const frCore: Record<string, string> = {
     'donation.dismiss': 'Fermer',
     'jobBoard.badge': 'Offres d\'emploi',
     'jobBoard.badge.new': 'Nouveau',
+    'jobBoard.location.multiLocation': 'Suisse (plusieurs sites)',
     'jobBoard.filter.newOnly': 'Nouvelles uniquement',
     'jobBoard.filter.filters': 'Filtres',
     'jobBoard.filter.resetAll': 'Réinitialiser',

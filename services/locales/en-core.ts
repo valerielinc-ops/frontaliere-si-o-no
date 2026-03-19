@@ -500,6 +500,7 @@ const enCore: Record<string, string> = {
     'donation.dismiss': 'Close',
     'jobBoard.badge': 'Job Offers',
     'jobBoard.badge.new': 'New',
+    'jobBoard.location.multiLocation': 'Switzerland (multiple locations)',
     'jobBoard.filter.newOnly': 'New only',
     'jobBoard.filter.filters': 'Filters',
     'jobBoard.filter.resetAll': 'Reset',

@@ -303,6 +303,27 @@ function isAmministrazioneCantonaleTi(job: JobLike): boolean {
   );
 }
 
+/**
+ * Patterns that indicate a job location is non-geographic (multi-location / abroad /
+ * "depending on function"). These strings should be normalised in the UI rather than
+ * displayed verbatim as if they were a city or canton.
+ *
+ * The regex is intentionally broad enough to cover German, French, and Italian
+ * variants that appear in Swiss federal job portals.
+ */
+const MULTI_LOCATION_PATTERNS = /\b(in\s*?-?\s*?und\s+ausland|schweiz\s+und\s+ausland|suisse\s+et\s+(?:l.)?étranger|svizzera\s+e\s+(?:l.)?estero|abhängig\s+von\s+funktion|einsatzort|verschiedene\s+standorte|multiple\s+locations?|several\s+locations?|ganz\s+schweiz|toute\s+la\s+suisse)\b/i;
+
+/**
+ * Returns whether a raw `location` value represents a non-geographic description
+ * (e.g. "Schweiz und Ausland (abhängig von Funktion und Einsatzort)") rather than
+ * a concrete city or region. When true, callers should display a locale-appropriate
+ * neutral label instead of the raw string.
+ */
+export function isMultiLocation(location: unknown): boolean {
+  if (!location) return false;
+  return MULTI_LOCATION_PATTERNS.test(String(location));
+}
+
 export function resolveCompanyWebsiteHost(job: JobLike): string {
   const explicitHost = toBaseDomain(job.companyDomain || '');
   const urlHost = hostFromExternalUrl(job.url);

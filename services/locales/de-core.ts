@@ -500,6 +500,7 @@ const deCore: Record<string, string> = {
     'donation.dismiss': 'Schließen',
     'jobBoard.badge': 'Stellenangebote',
     'jobBoard.badge.new': 'Neu',
+    'jobBoard.location.multiLocation': 'Schweiz (verschiedene Standorte)',
     'jobBoard.filter.newOnly': 'Nur neue',
     'jobBoard.filter.filters': 'Filter',
     'jobBoard.filter.resetAll': 'Zurücksetzen',
