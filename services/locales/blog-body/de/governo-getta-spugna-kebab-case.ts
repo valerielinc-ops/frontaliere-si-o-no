@@ -1,0 +1,7 @@
+const bodyGovernoGettaSpugnaKebabCase: Record<string, string> = {
+    'blog.article.governo-getta-spugna-kebab-case.body1': 'Der Staatsrat des Kantons Tessin hat beschlossen, keinen Rekurs an das Bundesgericht zu erheben gegen die Entscheidung des Verwaltungsgerichts, die Ungültigkeit der Nominierungen der SIMS-Chefsekretäre erklärt hat. Diese Entscheidung wurde vom Exekutivrat nach der Veröffentlichung der Entscheidung des Verwaltungsgerichts bekannt gegeben.',
+    'blog.article.governo-getta-spugna-kebab-case.body2': 'Der Staatsrat hat jedoch die Entscheidung begründet, indem er angegeben hat, dass die Bewertung der Nominierungsbehörde nicht ausreichend genau war und dass es notwendig ist, sicherzustellen, dass die Nominierungen mit den erforderlichen Garantien und Überprüfungen durchgeführt werden.\n\n## Empfohlene Tools\nFür eine aktuelle Schätzung nutzen Sie den [Nettolohnrechner](nav:calculator) und den [CHF-EUR-Wechselvergleich](nav:exchange).',
+    'blog.article.governo-getta-spugna-kebab-case.body3': 'Die SIMS wird auch für die Leitung der Grundsteuern und der Steuern auf die Geschäftsaktivitäten verantwortlich sein.\n\nFür eine genaue Berechnung Ihres Nettogehalts als Grenzgänger nutzen Sie unseren Vergleichsrechner: das umfassendste Tool zum Vergleich Ihres Nettogehalts zwischen G- und B-Bewilligung, mit allen Steuer- und Sozialabzügen auf dem Stand 2026.',
+};
+
+export default bodyGovernoGettaSpugnaKebabCase;

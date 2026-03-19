@@ -1373,6 +1373,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-piu-lungo-ticino.title': 'Ecco dove si vive più a lungo. E il Ticino è secondo in Europa.',
     'blog.article.vivere-piu-lungo-ticino.excerpt': 'L\'aspettativa di vita media dei ticinesi è di 85,2 anni, secondo le statistiche dell\'Eurostat.',
     'blog.article.vivere-piu-lungo-ticino.imageAlt': 'Una panoramica fotografica di Lugano con il Lago di Lugano in primo piano, scattata in una giornata soleggiata a mezzogiorno.',
+    'blog.article.governo-getta-spugna-kebab-case.title': 'Governo getta la spugna sulle nomine SIMS: niente ricorso a Losanna',
+    'blog.article.governo-getta-spugna-kebab-case.excerpt': 'Il Consiglio di Stato decide di non ricorrere al Tribunale federale contro la sentenza del TRAM sull\'invalidità delle nomine dei capisezione della SIMS',
+    'blog.article.governo-getta-spugna-kebab-case.imageAlt': 'Fotografia di un edificio governativo in Canton Ticino',
 };
 
 export default blogMetaIt;

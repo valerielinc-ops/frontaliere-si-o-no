@@ -1373,6 +1373,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-piu-lungo-ticino.title': 'Here\'s where people live the longest. And Ticino is second in Europe.',
     'blog.article.vivere-piu-lungo-ticino.excerpt': 'The average life expectancy of Ticinese people is 85.2 years, according to Eurostat statistics.',
     'blog.article.vivere-piu-lungo-ticino.imageAlt': 'A panoramic view of Lugano with Lake Lugano in the foreground, taken on a sunny day at noon.',
+    'blog.article.governo-getta-spugna-kebab-case.title': 'Government Drops Case on SIMS Appointments: No Appeal to Federal Court',
+    'blog.article.governo-getta-spugna-kebab-case.excerpt': 'The State Council of the Canton Ticino has decided not to appeal to the Federal Court against the judgment of the Administrative Court (TRAM) that declared the appointments of the SIMS section heads invalid.',
+    'blog.article.governo-getta-spugna-kebab-case.imageAlt': 'Fotografia di un edificio governativo in Canton Ticino',
 };
 
 export default blogMetaEn;

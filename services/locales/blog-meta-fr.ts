@@ -1373,6 +1373,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-piu-lungo-ticino.title': 'Voici où les gens vivent le plus longtemps. Le Tessin est deuxième en Europe.',
     'blog.article.vivere-piu-lungo-ticino.excerpt': 'L\'espérance de vie moyenne des Tessinois est de 85,2 ans, selon les statistiques de l\'Eurostat.',
     'blog.article.vivere-piu-lungo-ticino.imageAlt': 'Une vue panoramique de Lugano avec le lac de Lugano en premier plan, prise le jour d\'une journée ensoleillée à midi.',
+    'blog.article.governo-getta-spugna-kebab-case.title': 'Le gouvernement abandonne les nominations SIMS : pas de recours à Losanna',
+    'blog.article.governo-getta-spugna-kebab-case.excerpt': 'Le Conseil d\'État décide de ne pas faire appel au Tribunal fédéral contre la décision du Tribunal cantonal administratif (TRAM) qui a déclaré nulle la nomination des chefs de section de la Section de l\'enseignement moyen supérieur (SIMS)',
+    'blog.article.governo-getta-spugna-kebab-case.imageAlt': 'Fotografie d\'un bâtiment gouvernemental dans le canton du Tessin',
 };
 
 export default blogMetaFr;

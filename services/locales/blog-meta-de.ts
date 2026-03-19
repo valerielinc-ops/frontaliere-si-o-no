@@ -1373,6 +1373,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-piu-lungo-ticino.title': 'Hier wohnen die Menschen am längsten. Das Tessin ist in Europa die zweitälteste Region.',
     'blog.article.vivere-piu-lungo-ticino.excerpt': 'Die durchschnittliche Lebenserwartung der Tessiner beträgt 85,2 Jahre, laut Eurostat.',
     'blog.article.vivere-piu-lungo-ticino.imageAlt': 'Eine Fotografie von Lugano mit dem Luganersee im Vordergrund, geschossen an einem sonnigen Tag um Mittag.',
+    'blog.article.governo-getta-spugna-kebab-case.title': 'Regierung wirft die Handtuch auf die Nominierungen SIMS: kein Rekurs an die Bundesgerichtsbarkeit',
+    'blog.article.governo-getta-spugna-kebab-case.excerpt': 'Der Staatsrat hat beschlossen, keinen Rekurs an das Bundesgericht zu erheben gegen die Entscheidung des Verwaltungsgerichts über die Ungültigkeit der Nominierungen der SIMS-Chefsekretäre.',
+    'blog.article.governo-getta-spugna-kebab-case.imageAlt': 'Fotografie eines Regierungsbauwerks im Kanton Tessin',
 };
 
 export default blogMetaDe;

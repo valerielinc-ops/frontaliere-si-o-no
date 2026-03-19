@@ -6403,6 +6403,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-governo-getta-spugna-kebab-case': {
+    title: 'Governo getta la spugna sulle nomine SIMS: niente ricorso | Frontaliere Ticino',
+    description: 'Il Consiglio di Stato del Canton Ticino ha deciso di non ricorrere al Tribunale federale contro la sentenza del Tribunale cantonale amministrativo (TRAM)',
+    keywords: 'frontalieri, ticino, svizzera, italia, governo, getta, spugna, sulle',
+    ogTitle: 'Governo getta la spugna sulle nomine SIMS: niente ricorso a',
+    ogDescription: 'Il Consiglio di Stato del Canton Ticino ha deciso di non ricorrere al Tribunale federale contro la sentenza del Tribunale cantonale amministrativo (TRAM)',
+    canonicalPath: '/articoli-frontaliere/governo-getta-spugna-kebab-case',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Governo getta la spugna sulle nomine SIMS: niente ricorso a Losanna",
+      "description": "Il Consiglio di Stato del Canton Ticino ha deciso di non ricorrere al Tribunale federale contro la sentenza del Tribunale cantonale amministrativo (TRAM)",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/governo-getta-spugna-kebab-case.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Fotografia di un edificio governativo in Canton Ticino"
+      },
+      "datePublished": "2026-03-19T22:03:05+00:00",
+      "dateModified": "2026-03-19T22:03:05+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/governo-getta-spugna-kebab-case`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

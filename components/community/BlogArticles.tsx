@@ -3779,6 +3779,13 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/vivere-piu-lungo-ticino.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'governo-getta-spugna-kebab-case',
+    category: 'novita',
+    date: '2026-03-19T22:03:04.990Z',
+    image: '/images/blog/governo-getta-spugna-kebab-case.jpg',
+    hasCalculator: true,
+  },
 ];
 
 const CATEGORIES = ['all', 'fiscale', 'pratico', 'novita', 'pensione'] as const;

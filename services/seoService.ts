@@ -1591,6 +1591,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-tassa-attraversamento-svizzera': { name: 'Tassa per le auto che attraversano la', path: '/articoli-frontaliere/tassa-attraversamento-svizzera', parent: 'blog' },
     'blog-incidente-stradale-laghi': { name: 'Varese', path: '/articoli-frontaliere/incidente-stradale-laghi', parent: 'blog' },
     'blog-vivere-piu-lungo-ticino': { name: 'Vivere più a lungo in Ticino', path: '/articoli-frontaliere/vivere-piu-lungo-ticino', parent: 'blog' },
+    'blog-governo-getta-spugna-kebab-case': { name: 'Novità Ticino', path: '/articoli-frontaliere/governo-getta-spugna-kebab-case', parent: 'blog' },
   };
 
   const info = sectionNames[section];
