@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-03-19T16:14:14.802Z",
+  "generatedAt": "2026-03-19T16:14:57.415Z",
   "links": {
     "allJobs": "https://www.frontaliereticino.ch/cerca-lavoro-ticino"
   },
   "totals": {
-    "activeJobs": 1299,
-    "activeCompanies": 129,
-    "activeLocations": 170,
+    "activeJobs": 1304,
+    "activeCompanies": 130,
+    "activeLocations": 172,
     "todayAdded": 1006,
     "todayUpdated": 0,
     "todayRemoved": 0,
@@ -31,21 +31,14 @@
     },
     {
       "date": "2026-03-19",
-      "totalJobs": 1298,
-      "added": 1006,
-      "updated": 0,
-      "removed": 0
-    },
-    {
-      "date": "2026-03-19",
-      "totalJobs": 1291,
-      "added": 1006,
-      "updated": 0,
-      "removed": 0
-    },
-    {
-      "date": "2026-03-19",
       "totalJobs": 1299,
+      "added": 1006,
+      "updated": 0,
+      "removed": 0
+    },
+    {
+      "date": "2026-03-19",
+      "totalJobs": 1304,
       "added": 1006,
       "updated": 0,
       "removed": 0
@@ -158,46 +151,16 @@
     ],
     "topLocationsActive": [
       {
-        "key": "emea-che-stabio-vf-campus-vf1",
-        "name": "EMEA · CHE · Stabio · VF Campus VF1",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-emea-che-stabio-vf-campus-vf1",
-        "count": 188
-      },
-      {
         "key": "bellinzona",
         "name": "Bellinzona",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-bellinzona",
         "count": 134
       },
       {
-        "key": "lugano",
-        "name": "Lugano",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-lugano",
-        "count": 130
-      },
-      {
-        "key": "st-moritz",
-        "name": "St. Moritz",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-st-moritz",
-        "count": 90
-      },
-      {
-        "key": "mendrisio",
-        "name": "Mendrisio",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-mendrisio",
-        "count": 88
-      },
-      {
         "key": "locarno",
         "name": "Locarno",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-locarno",
         "count": 50
-      },
-      {
-        "key": "molinazzo-di-monteggio-switzerland",
-        "name": "Molinazzo di Monteggio, Switzerland",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-molinazzo-di-monteggio-switzerland",
-        "count": 44
       },
       {
         "key": "chur",
@@ -210,12 +173,6 @@
         "name": "EMEA · CHE · Stabio · VF Campus VF1",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-emea-che-stabio-vf-campus-vf1",
         "count": 188
-      },
-      {
-        "key": "lugano",
-        "name": "Lugano",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-lugano",
-        "count": 129
       },
       {
         "key": "st-moritz",
@@ -264,6 +221,12 @@
         "name": "Molinazzo di Monteggio, Switzerland",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-molinazzo-di-monteggio-switzerland",
         "count": 44
+      },
+      {
+        "key": "lugano",
+        "name": "Lugano",
+        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-lugano",
+        "count": 131
       }
     ],
     "topCompaniesAddedToday": [
@@ -416,74 +379,11 @@
     ],
     "topLocationsAdded30d": [
       {
-        "key": "lugano",
-        "name": "Lugano",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-lugano",
-        "count": 0,
-        "added": 156,
-        "updated": 0,
-        "removed": 0
-      },
-      {
-        "key": "bellinzona",
-        "name": "Bellinzona",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-bellinzona",
-        "count": 0,
-        "added": 154,
-        "updated": 0,
-        "removed": 0
-      },
-      {
-        "key": "grigioni",
-        "name": "Grigioni",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-grigioni",
-        "count": 0,
-        "added": 61,
-        "updated": 0,
-        "removed": 0
-      },
-      {
         "key": "locarno",
         "name": "Locarno",
         "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-locarno",
         "count": 0,
         "added": 58,
-        "updated": 0,
-        "removed": 0
-      },
-      {
-        "key": "ticino",
-        "name": "Ticino",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-ticino",
-        "count": 0,
-        "added": 55,
-        "updated": 0,
-        "removed": 0
-      },
-      {
-        "key": "chur",
-        "name": "Chur",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-chur",
-        "count": 0,
-        "added": 54,
-        "updated": 0,
-        "removed": 0
-      },
-      {
-        "key": "mendrisio",
-        "name": "Mendrisio",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-mendrisio",
-        "count": 0,
-        "added": 52,
-        "updated": 0,
-        "removed": 0
-      },
-      {
-        "key": "st-moritz",
-        "name": "St. Moritz",
-        "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-st-moritz",
-        "count": 0,
-        "added": 38,
         "updated": 0,
         "removed": 0
       },
@@ -754,11 +654,11 @@
   },
   "salary": {
     "coverage": {
-      "jobsWithSalary": 1299,
+      "jobsWithSalary": 1304,
       "coveragePct": 100,
-      "avgMin": 65019,
-      "avgMax": 87424,
-      "avgMid": 76221,
+      "avgMin": 65027,
+      "avgMax": 87436,
+      "avgMid": 76231,
       "medianMid": 68500
     },
     "leaders": {
@@ -896,6 +796,16 @@
           "weightedSalary": 97150
         },
         {
+          "key": "zurich",
+          "name": "Zürich",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-zurich",
+          "count": 4,
+          "avgMin": 81125,
+          "avgMax": 109625,
+          "avgMid": 95375,
+          "weightedSalary": 92525
+        },
+        {
           "key": "bern",
           "name": "Bern",
           "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-bern",
@@ -906,14 +816,14 @@
           "weightedSalary": 89250
         },
         {
-          "key": "zurich",
-          "name": "Zürich",
-          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-zurich",
+          "key": "manno",
+          "name": "Manno",
+          "url": "https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-manno",
           "count": 2,
-          "avgMin": 84750,
-          "avgMax": 114750,
-          "avgMid": 99750,
-          "weightedSalary": 90750
+          "avgMin": 82500,
+          "avgMax": 111500,
+          "avgMid": 97000,
+          "weightedSalary": 88300
         }
       ],
       "topSalaryTitles": [
