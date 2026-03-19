@@ -26,6 +26,43 @@ interface Release {
 
 export const RELEASES: Release[] = [
   {
+    version: '3.31.0',
+    date: '2026-03-19',
+    titleKey: 'whatsNew.v3310.title',
+    items: [
+      {
+        type: 'feature',
+        titleKey: 'whatsNew.v3310.boggi.title',
+        descKey: 'whatsNew.v3310.boggi.desc',
+        link: { tab: 'job-board' },
+      },
+      {
+        type: 'fix',
+        titleKey: 'whatsNew.v3310.tich.title',
+        descKey: 'whatsNew.v3310.tich.desc',
+
+      },
+      {
+        type: 'feature',
+        titleKey: 'whatsNew.v3310.pipeline.title',
+        descKey: 'whatsNew.v3310.pipeline.desc',
+        link: { tab: 'job-board' },
+      },
+      {
+        type: 'fix',
+        titleKey: 'whatsNew.v3310.adapters.title',
+        descKey: 'whatsNew.v3310.adapters.desc',
+        link: { tab: 'job-board' },
+      },
+      {
+        type: 'feature',
+        titleKey: 'whatsNew.v3310.admin.title',
+        descKey: 'whatsNew.v3310.admin.desc',
+        link: { tab: 'job-board' },
+      },
+    ],
+  },
+  {
     version: '3.30.0',
     date: '2026-03-18',
     titleKey: 'whatsNew.v3300.title',

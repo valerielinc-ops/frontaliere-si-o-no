@@ -2270,6 +2270,17 @@ Regole:
     'seoContent.stats.check4': 'Dati sulla comunità frontaliera Ticino',
 
     // ─── What's New / Feature Announcements ─────────────────────────────
+    'whatsNew.v3310.title': 'Miglioramenti per una migliore gestione delle offerte di lavoro',
+    'whatsNew.v3310.boggi.title': 'Descrizioni complete delle offerte di lavoro ora disponibili',
+    'whatsNew.v3310.boggi.desc': 'Ora puoi vedere l\'intera descrizione di un\'offerta di lavoro, inclusi tutti i dettagli, per prendere decisioni più informate.',
+    'whatsNew.v3310.tich.title': 'Migliorata l\'estrazione di titoli per concorsi.ti.ch',
+    'whatsNew.v3310.tich.desc': 'Abbiamo reso più precisa l\'identificazione dei titoli delle offerte di lavoro sulla pagina concorsi.ti.ch, garantendo una migliore organizzazione.',
+    'whatsNew.v3310.pipeline.title': 'Nuovo modo per gestire le ricerche di lavoro individuali',
+    'whatsNew.v3310.pipeline.desc': 'Stiamo introducendo una nuova funzionalità per tracciare le ricerche di lavoro in modo più dettagliato, migliorando l\'efficienza del processo.',
+    'whatsNew.v3310.adapters.title': 'Corretti problemi con alcuni elenchi di offerte di lavoro',
+    'whatsNew.v3310.adapters.desc': 'Abbiamo risolto un problema che impediva il corretto caricamento di alcune offerte di lavoro, assicurando che tu non perda nessuna opportunità.',
+    'whatsNew.v3310.admin.title': 'Maggiore chiarezza nelle statistiche di ricerca lavoro',
+    'whatsNew.v3310.admin.desc': 'Ora puoi distinguere facilmente le modifiche apportate durante le ricerche di lavoro rispetto alle statistiche giornaliere, per una migliore comprensione dei dati.',
     'whatsNew.v3300.title': 'Miglioramenti per una ricerca più precisa e completa',
     'whatsNew.v3300.la-fonte.title': 'Migliorata la visualizzazione delle carte informative',
     'whatsNew.v3300.la-fonte.desc': 'Abbiamo reso più chiaro e ordinato il modo in cui vengono presentate le informazioni nelle carte. Ora è più facile leggere e capire i dettagli.',

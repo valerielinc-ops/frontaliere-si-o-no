@@ -2178,6 +2178,17 @@ Rules:
     'seoContent.stats.check4': 'Ticino cross-border community data',
 
     // ─── What's New / Feature Announcements ─────────────────────────────
+    'whatsNew.v3310.title': 'Improvements for better job listing management',
+    'whatsNew.v3310.boggi.title': 'Full job descriptions now available',
+    'whatsNew.v3310.boggi.desc': 'You can now see the entire job description, including all details, to make more informed decisions.',
+    'whatsNew.v3310.tich.title': 'Improved title extraction for concorsi.ti.ch',
+    'whatsNew.v3310.tich.desc': 'We\'ve made title identification more accurate on the concorsi.ti.ch page, ensuring better organization.',
+    'whatsNew.v3310.pipeline.title': 'New way to manage individual job searches',
+    'whatsNew.v3310.pipeline.desc': 'We\'re introducing a new way to track job searches in more detail, improving process efficiency.',
+    'whatsNew.v3310.adapters.title': 'Fixed issues with some job listing sources',
+    'whatsNew.v3310.adapters.desc': 'We\'ve fixed an issue that prevented some job listings from loading correctly, ensuring you don\'t miss any opportunities.',
+    'whatsNew.v3310.admin.title': 'Clearer job search statistics',
+    'whatsNew.v3310.admin.desc': 'You can now easily distinguish changes from job searches from daily board stats for better data understanding.',
     'whatsNew.v3300.title': 'Improvements for more accurate and complete search',
     'whatsNew.v3300.la-fonte.title': 'Improved display of information cards',
     'whatsNew.v3300.la-fonte.desc': 'We\'ve made the way information is presented in cards clearer and more organized. It\'s now easier to read and understand the details.',

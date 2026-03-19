@@ -2178,6 +2178,17 @@ Regeln:
     'seoContent.stats.check4': 'Daten zur Tessiner Grenzgänger-Gemeinschaft',
 
     // ─── What's New / Feature Announcements ─────────────────────────────
+    'whatsNew.v3310.title': 'Verbesserungen für ein besseres Jobangebote-Management',
+    'whatsNew.v3310.boggi.title': 'Vollständige Stellenbeschreibungen jetzt verfügbar',
+    'whatsNew.v3310.boggi.desc': 'Sie können jetzt die vollständige Stellenbeschreibung mit allen Details einsehen, um fundiertere Entscheidungen zu treffen.',
+    'whatsNew.v3310.tich.title': 'Verbesserte Titelerkennung für concorsi.ti.ch',
+    'whatsNew.v3310.tich.desc': 'Wir haben die Titelerkennung auf der Seite concorsi.ti.ch präziser gestaltet, um eine bessere Organisation zu gewährleisten.',
+    'whatsNew.v3310.pipeline.title': 'Neue Methode zur Verwaltung einzelner Job-Suchen',
+    'whatsNew.v3310.pipeline.desc': 'Wir führen eine neue Methode ein, um Job-Suchen detaillierter zu verfolgen und die Prozesseffizienz zu verbessern.',
+    'whatsNew.v3310.adapters.title': 'Probleme mit einigen Jobangebotsquellen behoben',
+    'whatsNew.v3310.adapters.desc': 'Wir haben ein Problem behoben, das verhinderte, dass einige Jobangebote korrekt geladen wurden, und stellen sicher, dass Sie keine Gelegenheit verpassen.',
+    'whatsNew.v3310.admin.title': 'Klarere Job-Suchstatistiken',
+    'whatsNew.v3310.admin.desc': 'Sie können nun Änderungen bei Job-Suchen leicht von täglichen Board-Statistiken unterscheiden, um die Daten besser zu verstehen.',
     'whatsNew.v3300.title': 'Verbesserungen für eine präzisere und vollständigere Suche',
     'whatsNew.v3300.la-fonte.title': 'Verbesserte Anzeige von Informationskarten',
     'whatsNew.v3300.la-fonte.desc': 'Wir haben die Darstellung von Informationen in Karten übersichtlicher und strukturierter gestaltet. Es ist nun einfacher, Details zu lesen und zu verstehen.',

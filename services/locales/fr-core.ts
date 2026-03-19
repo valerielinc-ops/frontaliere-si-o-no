@@ -2178,6 +2178,17 @@ Règles :
     'seoContent.stats.check4': 'Données sur la communauté frontalière tessinoise',
 
     // ─── What's New / Feature Announcements ─────────────────────────────────
+    'whatsNew.v3310.title': 'Améliorations pour une meilleure gestion des offres d\'emploi',
+    'whatsNew.v3310.boggi.title': 'Descriptions complètes des offres d\'emploi désormais disponibles',
+    'whatsNew.v3310.boggi.desc': 'Vous pouvez désormais voir la description complète d\'une offre d\'emploi, y compris tous les détails, pour prendre des décisions plus éclairées.',
+    'whatsNew.v3310.tich.title': 'Extraction de titres améliorée pour concorsi.ti.ch',
+    'whatsNew.v3310.tich.desc': 'Nous avons rendu l\'identification des titres plus précise sur la page concorsi.ti.ch, garantissant une meilleure organisation.',
+    'whatsNew.v3310.pipeline.title': 'Nouvelle façon de gérer les recherches d\'emploi individuelles',
+    'whatsNew.v3310.pipeline.desc': 'Nous introduisons une nouvelle méthode pour suivre les recherches d\'emploi plus en détail, améliorant ainsi l\'efficacité du processus.',
+    'whatsNew.v3310.adapters.title': 'Correction de problèmes avec certaines sources d\'offres d\'emploi',
+    'whatsNew.v3310.adapters.desc': 'Nous avons résolu un problème qui empêchait le chargement correct de certaines offres d\'emploi, vous assurant de ne manquer aucune opportunité.',
+    'whatsNew.v3310.admin.title': 'Statistiques de recherche d\'emploi plus claires',
+    'whatsNew.v3310.admin.desc': 'Vous pouvez désormais distinguer facilement les changements liés aux recherches d\'emploi des statistiques quotidiennes du tableau pour une meilleure compréhension des données.',
     'whatsNew.v3300.title': 'Améliorations pour une recherche plus précise et complète',
     'whatsNew.v3300.la-fonte.title': 'Amélioration de l\'affichage des cartes d\'information',
     'whatsNew.v3300.la-fonte.desc': 'Nous avons rendu plus claires et organisées les informations présentées dans les cartes. Il est désormais plus facile de lire et de comprendre les détails.',
