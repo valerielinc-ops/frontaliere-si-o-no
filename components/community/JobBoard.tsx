@@ -2426,8 +2426,11 @@ const JobBoard: React.FC<JobBoardProps> = ({
   }, [selectedJob, authLoading]);
 
   const sortedJobs = useMemo(() => {
+    // Canton priority: TI first, GR second, everything else after.
+    // Within each group, newest jobs appear first.
+    const cantonRank = (canton: string) => canton === 'TI' ? 0 : canton === 'GR' ? 1 : 2;
     const withTs = jobs.map(j => ({ job: j, ts: new Date(j.crawledAt || j.postedDate).getTime() }));
-    withTs.sort((a, b) => b.ts - a.ts);
+    withTs.sort((a, b) => (cantonRank(a.job.canton) - cantonRank(b.job.canton)) || (b.ts - a.ts));
     return withTs.map(({ job }) => job);
   }, [jobs]);
 
