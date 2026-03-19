@@ -1,5 +1,5 @@
 import React, { useState, useCallback, Suspense, useEffect, useRef } from 'react';
-import { ScrollText, Trophy, Armchair, Info, PartyPopper, Calculator, ChevronRight, Home, Briefcase, Heart, AlertCircle, ShoppingBag, ShieldCheck, User, Coins, Baby, TrainFront, Maximize2, Minimize2, Share2, Check } from 'lucide-react';
+import { ScrollText, Trophy, Armchair, Info, PartyPopper, Calculator, ChevronRight, Home, Briefcase, Heart, AlertCircle, ShoppingBag, ShieldCheck, User, Coins, Baby, TrainFront, Maximize2, Minimize2, Share2, Check, ArrowUp, ArrowDown } from 'lucide-react';
 // jsPDF and autoTable are lazy-imported inside exportPDF() — only needed on user click (~134KB gzip saved from critical path)
 import { SimulationResult, TaxResult, TaxBreakdownItem, SimulationInputs } from '../../types';
 import { lazyRetry } from '@/services/lazyRetry';
@@ -32,6 +32,46 @@ const CurrencyValue: React.FC<{ value: number; currency: string; className?: str
     {smallCurrency && <span className="text-[0.7em] ml-1 font-sans font-normal text-slate-500 dark:text-slate-500">{currency}</span>}
   </span>
 );
+
+/* ── Stock-ticker net-delta feedback (FRO-107) ─────────────────────────────
+ * Tracks the previous CHF net value and exposes an incrementing `key` so
+ * the badge is remounted (re-animated) on every meaningful change.
+ * ───────────────────────────────────────────────────────────────────────── */
+function useNetDelta(value: number): { delta: number; key: number } {
+  const prevRef = useRef<number | null>(null);
+  const [state, setState] = useState<{ delta: number; key: number }>({ delta: 0, key: 0 });
+  useEffect(() => {
+    if (prevRef.current === null) {
+      prevRef.current = value;
+      return;
+    }
+    const diff = Math.round(value - prevRef.current);
+    prevRef.current = value;
+    if (Math.abs(diff) < 1) return; // ignore floating-point noise
+    setState((s) => ({ delta: diff, key: s.key + 1 }));
+  }, [value]);
+  return state;
+}
+
+/** Inline stock-ticker badge shown near the monthly net value after a change. */
+const NetDeltaBadge: React.FC<{ delta: number; currency?: string }> = ({ delta, currency = 'CHF' }) => {
+  if (Math.abs(delta) < 1) return null;
+  const isPositive = delta > 0;
+  return (
+    <span
+      className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-bold font-mono pointer-events-none select-none ${
+        isPositive
+          ? 'animate-net-tick-up bg-emerald-100 dark:bg-emerald-900/50 text-emerald-700 dark:text-emerald-300'
+          : 'animate-net-tick-down bg-red-100 dark:bg-red-900/50 text-red-700 dark:text-red-300'
+      }`}
+      aria-live="polite"
+      aria-atomic="true"
+    >
+      {isPositive ? <ArrowUp size={10} strokeWidth={3} /> : <ArrowDown size={10} strokeWidth={3} />}
+      {isPositive ? '+' : ''}{currency}&nbsp;{Math.abs(delta).toLocaleString('it-IT')}
+    </span>
+  );
+};
 
 const getBreakdownColor = (label: string): string => {
   const l = label.toLowerCase();
@@ -192,6 +232,10 @@ export const ResultsView: React.FC<Props> = ({ result, inputs, focusArea = null,
   }, [inputs, t]);
   const { chResident, itResident, savingsCHF, savingsEUR, exchangeRate, monthsBasis } = result;
   const isBetterFrontaliere = savingsCHF > 0;
+
+  // Stock-ticker delta tracking (FRO-107) — only tracks CHF net, currency toggle doesn't trigger
+  const chDelta = useNetDelta(chResident.netIncomeMonthly);
+  const itDelta = useNetDelta(itResident.netIncomeMonthly);
 
   // --- Profile Tag Generator ---
   const getProfileTags = () => {
@@ -536,18 +580,21 @@ export const ResultsView: React.FC<Props> = ({ result, inputs, focusArea = null,
             <div className="space-y-4">
               <div className="bg-blue-50/50 dark:bg-blue-900/20 p-4 rounded-2xl border border-blue-100 dark:border-blue-800/50">
                 <div className="text-[10px] text-blue-700 dark:text-blue-400 font-bold uppercase mb-1">{t('results.netMonthlyResidual')}</div>
-                {showEUR ? (
-                  <>
+                <div className="flex items-center gap-2 flex-wrap">
+                  {showEUR ? (
                     <div className="text-2xl font-bold text-blue-700 dark:text-blue-300">
                       <CurrencyValue value={Math.round(chResident.netIncomeMonthly * exchangeRate)} currency="EUR" />
                     </div>
-                    <div className="text-sm font-mono text-blue-600/70 dark:text-blue-400/70 mt-0.5">
-                      ≈ CHF {formatCurrency(chResident.netIncomeMonthly)}
+                  ) : (
+                    <div className="text-2xl font-bold text-blue-700 dark:text-blue-300">
+                      <CurrencyValue value={chResident.netIncomeMonthly} currency="CHF" />
                     </div>
-                  </>
-                ) : (
-                  <div className="text-2xl font-bold text-blue-700 dark:text-blue-300">
-                    <CurrencyValue value={chResident.netIncomeMonthly} currency="CHF" />
+                  )}
+                  {chDelta.key > 0 && <NetDeltaBadge key={chDelta.key} delta={chDelta.delta} />}
+                </div>
+                {showEUR && (
+                  <div className="text-sm font-mono text-blue-600/70 dark:text-blue-400/70 mt-0.5">
+                    ≈ CHF {formatCurrency(chResident.netIncomeMonthly)}
                   </div>
                 )}
               </div>
@@ -589,18 +636,21 @@ export const ResultsView: React.FC<Props> = ({ result, inputs, focusArea = null,
             <div className="space-y-4">
               <div className="bg-red-50/50 dark:bg-red-900/20 p-4 rounded-2xl border border-red-100 dark:border-red-800/50">
                 <div className="text-[10px] text-red-700 dark:text-red-400 font-bold uppercase mb-1">{t('results.netMonthlyResidual')}</div>
-                {showEUR ? (
-                  <>
+                <div className="flex items-center gap-2 flex-wrap">
+                  {showEUR ? (
                     <div className="text-2xl font-bold text-red-700 dark:text-red-300">
                       <CurrencyValue value={Math.round(itResident.netIncomeMonthly * exchangeRate)} currency="EUR" />
                     </div>
-                    <div className="text-sm font-mono text-red-600/70 dark:text-red-400/70 mt-0.5">
-                      ≈ CHF {formatCurrency(itResident.netIncomeMonthly)}
+                  ) : (
+                    <div className="text-2xl font-bold text-red-700 dark:text-red-300">
+                      <CurrencyValue value={itResident.netIncomeMonthly} currency="CHF" />
                     </div>
-                  </>
-                ) : (
-                  <div className="text-2xl font-bold text-red-700 dark:text-red-300">
-                    <CurrencyValue value={itResident.netIncomeMonthly} currency="CHF" />
+                  )}
+                  {itDelta.key > 0 && <NetDeltaBadge key={itDelta.key} delta={itDelta.delta} />}
+                </div>
+                {showEUR && (
+                  <div className="text-sm font-mono text-red-600/70 dark:text-red-400/70 mt-0.5">
+                    ≈ CHF {formatCurrency(itResident.netIncomeMonthly)}
                   </div>
                 )}
               </div>

@@ -129,4 +129,23 @@ input[type=number] { -moz-appearance: textfield; }
       width: 0%;
     }
   }
+
+  /* Stock-ticker net-delta animations — used by ResultsView NetDeltaBadge (FRO-107) */
+  --animate-net-tick-up: net-tick-up 1.6s ease-out forwards;
+
+  @keyframes net-tick-up {
+    0%   { opacity: 0; transform: translateY(5px); }
+    12%  { opacity: 1; transform: translateY(-3px); }
+    70%  { opacity: 1; transform: translateY(-2px); }
+    100% { opacity: 0; transform: translateY(-8px); }
+  }
+
+  --animate-net-tick-down: net-tick-down 1.6s ease-out forwards;
+
+  @keyframes net-tick-down {
+    0%   { opacity: 0; transform: translateY(-5px); }
+    12%  { opacity: 1; transform: translateY(3px); }
+    70%  { opacity: 1; transform: translateY(2px); }
+    100% { opacity: 0; transform: translateY(8px); }
+  }
 }
