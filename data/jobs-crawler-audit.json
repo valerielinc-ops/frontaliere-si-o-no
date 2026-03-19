@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-03-19T05:43:19.955Z",
-  "startedAt": "2026-03-19T05:39:04.262Z",
+  "generatedAt": "2026-03-19T15:59:38.242Z",
+  "startedAt": "2026-03-19T15:59:35.784Z",
   "config": {
     "minQualityScore": 4,
     "minDescriptionChars": 80,
     "aiLocalizationEnabled": true,
-    "aiLocalizationMaxJobsPerRun": 120,
+    "aiLocalizationMaxJobsPerRun": 500,
     "contentReuse": {
       "enabled": true,
       "similarityThreshold": 0.7,
@@ -21,8 +21,8 @@
     "source": "file"
   },
   "totals": {
-    "companiesParsed": 178,
-    "companiesSelected": 29,
+    "companiesParsed": 179,
+    "companiesSelected": 1,
     "companiesDroppedBySelection": 0,
     "companiesCrawled": 0,
     "discoveredCareerPages": 0,
@@ -36,28 +36,20 @@
     "browserFallbackAttempts": 0,
     "browserFallbackHits": 0,
     "duplicateIncoming": 0,
-    "duplicateExisting": 1745,
-    "mergeExcludedJobs": 120,
-    "mergeExclusionByReason": {
-      "linkedin_url": 3,
-      "non_detail_url": 104,
-      "outside_swiss_ticino": 19,
-      "not_ticino_relevant": 32,
-      "explicitly_outside_target": 14,
-      "thin_description_lt_80": 13,
-      "generic_title": 1
-    },
+    "duplicateExisting": 3,
+    "mergeExcludedJobs": 0,
+    "mergeExclusionByReason": {},
     "reusedLocalizationFromPrevious": 0,
     "inserted": 0,
     "refreshed": 0,
-    "mergedTotal": 782,
-    "aiLocalizationCalls": 92,
+    "mergedTotal": 796,
+    "aiLocalizationCalls": 1,
     "aiPageValidationCalls": 0,
     "deeplCalls": 0,
     "deeplSuccess": 0,
-    "deeplFallbackToLlm": 2,
-    "aiCacheHits": 25,
-    "aiCacheMisses": 82,
+    "deeplFallbackToLlm": 0,
+    "aiCacheHits": 1,
+    "aiCacheMisses": 0,
     "aiCacheEntries": 1490,
     "discoveredCompaniesCandidates": 0,
     "discoveredCompaniesAdded": 0,
@@ -65,216 +57,5 @@
   },
   "byCompany": [],
   "droppedCompanies": [],
-  "mergeExclusionSamples": [
-    {
-      "reason": "linkedin_url",
-      "title": "Front office manager",
-      "company": "DOT Life SA",
-      "location": "Paradiso, Canton Ticino, Svizzera",
-      "url": "https://www.linkedin.com/jobs/view/4366745329/"
-    },
-    {
-      "reason": "linkedin_url",
-      "title": "Addetto alla selezione di personale acquisizione di talenti",
-      "company": "DOT Life SA",
-      "location": "Paradiso, Canton Ticino, Svizzera",
-      "url": "https://www.linkedin.com/jobs/view/4366703746/"
-    },
-    {
-      "reason": "non_detail_url",
-      "title": "Real Estate Sales Manager",
-      "company": "Artisa Group",
-      "location": "Lugano - Zurigo",
-      "url": "https://artisagroup.com/carriera#real-estate-sales-manager"
-    },
-    {
-      "reason": "non_detail_url",
-      "title": "Architetto qualificato lingua francese",
-      "company": "Artisa Group",
-      "location": "Lugano",
-      "url": "https://artisagroup.com/carriera#architetto-qualificato-lingua-francese"
-    },
-    {
-      "reason": "non_detail_url",
-      "title": "Architetto qualificato",
-      "company": "Artisa Group",
-      "location": "Lugano",
-      "url": "https://artisagroup.com/carriera#architetto-qualificato"
-    },
-    {
-      "reason": "non_detail_url",
-      "title": "Sanitär- und/oder Heizungsinstallateur/in (100%)",
-      "company": "Caotec SA",
-      "location": "Brusio",
-      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/sanitaer-und-oder-heizungsinstallateur-in-1559"
-    },
-    {
-      "reason": "non_detail_url",
-      "title": "Installatore di impianti idraulici e/o di riscaldamento (100%)",
-      "company": "Caotec SA",
-      "location": "Brusio",
-      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/installatore-di-impianti-idraulici-e-o-di-riscaldamento-1594"
-    },
-    {
-      "reason": "non_detail_url",
-      "title": "Bauleitende/r Heizungsinstallateur/in (100%)",
-      "company": "M. Kunz AG Davos",
-      "location": "Davos Platz",
-      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/bauleitende-r-heizungsinstallateur-in-866-1"
-    },
-    {
-      "reason": "non_detail_url",
-      "title": "Sanitärinstallateur/in (100%)",
-      "company": "M. Kunz AG Davos",
-      "location": "Davos Platz",
-      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/sanitaerinstallateur-in-871"
-    },
-    {
-      "reason": "non_detail_url",
-      "title": "Heizungsinstallateur/in (100%)",
-      "company": "M. Kunz AG Davos",
-      "location": "Davos Platz",
-      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/heizungsinstallateur-in-870"
-    },
-    {
-      "reason": "non_detail_url",
-      "title": "Bauleitende/r Sanitärinstallateur/in (100%)",
-      "company": "M. Kunz AG Davos",
-      "location": "Davos Platz",
-      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/bauleitende-r-sanitaerinstallateur-in-863-1"
-    },
-    {
-      "reason": "non_detail_url",
-      "title": "Bauleitende/r Heizungsinstallateur/in (100%)",
-      "company": "M. Kunz AG Klosters",
-      "location": "Klosters Dorf",
-      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/bauleitende-r-heizungsinstallateur-in-866"
-    },
-    {
-      "reason": "non_detail_url",
-      "title": "Sanitärinstallateur/in (100%)",
-      "company": "M. Kunz AG Klosters",
-      "location": "Klosters Dorf",
-      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/sanitaerinstallateur-in-865"
-    },
-    {
-      "reason": "non_detail_url",
-      "title": "Heizungsinstallateur/in (100%)",
-      "company": "M. Kunz AG Klosters",
-      "location": "Klosters Dorf",
-      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/heizungsinstallateur-in-864"
-    },
-    {
-      "reason": "non_detail_url",
-      "title": "Bauleitende/r Sanitärinstallateur/in (100%)",
-      "company": "M. Kunz AG Klosters",
-      "location": "Klosters Dorf",
-      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/bauleitende-r-sanitaerinstallateur-in-863"
-    },
-    {
-      "reason": "non_detail_url",
-      "title": "Servicemonteur/in Heizung und Sanitär (100%)",
-      "company": "M. Kunz AG Klosters",
-      "location": "Klosters Dorf",
-      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/servicemonteur-in-heizung-und-sanitaer-1235"
-    },
-    {
-      "reason": "non_detail_url",
-      "title": "Montage-Elektriker/in EFZ (80 - 100%)",
-      "company": "Rast Elektro AG",
-      "location": "Küblis",
-      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/montage-elektriker-efz-273"
-    },
-    {
-      "reason": "non_detail_url",
-      "title": "Bauleitende/r Elektroinstallateur/in (100%)",
-      "company": "Triulzi AG",
-      "location": "St. Moritz",
-      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/bauleitende-r-elektroinstallateur-in-1584"
-    },
-    {
-      "reason": "non_detail_url",
-      "title": "Standortleiter/in (80 - 100%)",
-      "company": "Derungs AG",
-      "location": "Lumbrein",
-      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/elektroinstallateur-efz-derungs-ag-1"
-    },
-    {
-      "reason": "non_detail_url",
-      "title": "Elektroinstallateur/in Lüftung und Gebäudeautomation (80 - 100%)",
-      "company": "Imwinkelried Lüftung und Klima AG",
-      "location": "Visp",
-      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/elektromonteur-in-lueftung-und-gebaeudeautomation-1544"
-    },
-    {
-      "reason": "non_detail_url",
-      "title": "Projektleiter/in Heizungssanierungen (80 - 100%)",
-      "company": "Willi Gebäudetechnik AG",
-      "location": "Chur",
-      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/projektleiter-in-heizungssanierungen-1521"
-    },
-    {
-      "reason": "non_detail_url",
-      "title": "Sanitärinstallateur/in (80 - 100%)",
-      "company": "Sprecher AG",
-      "location": "Davos Glaris",
-      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/sanitaerinstallateur-in-823"
-    },
-    {
-      "reason": "non_detail_url",
-      "title": "Heizungsinstallateur/in (100%)",
-      "company": "Spescha Gebäudetechnik AG",
-      "location": "Lenzerheide",
-      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/heizungsinstallateur-in-1001"
-    },
-    {
-      "reason": "non_detail_url",
-      "title": "Installateurs-electriciens / Installatrices-électriciennes CFC (100%)",
-      "company": "Grichting & Valterio Electro SA",
-      "location": "Martigny",
-      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/installateurs-electriciens-cfc-3-1"
-    },
-    {
-      "reason": "non_detail_url",
-      "title": "Chef/fe de chantier (100%)",
-      "company": "Grichting & Valterio Electro SA",
-      "location": "Martigny",
-      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/chef-de-chantier-9-2"
-    },
-    {
-      "reason": "non_detail_url",
-      "title": "Chef/fe de chantier (100%)",
-      "company": "Grichting & Valterio Electro SA",
-      "location": "Collombey",
-      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/chef-de-chantier-9-1"
-    },
-    {
-      "reason": "non_detail_url",
-      "title": "Lüftungsanlagenbauer/in (80 - 100%)",
-      "company": "Willi Gebäudetechnik AG",
-      "location": "Chur",
-      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/projektleiter-in-heizungssanierungen-1433"
-    },
-    {
-      "reason": "non_detail_url",
-      "title": "Sanitärinstallateur/in (80 - 100%)",
-      "company": "Ulrich Huber AG",
-      "location": "Malans",
-      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/sanitaerinstallateur-in-1417"
-    },
-    {
-      "reason": "non_detail_url",
-      "title": "Projektleiter/in Gebäudetechnik HLKS (60 - 100%)",
-      "company": "Mathieu Ingenieure AG",
-      "location": "Visp",
-      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/projektleiter-in-gebaeudetechnik-hlks-1402"
-    },
-    {
-      "reason": "non_detail_url",
-      "title": "Gebäudetechnikplaner/in HLS (60 - 100%)",
-      "company": "Mathieu Ingenieure AG",
-      "location": "Visp",
-      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/gebaeudetechnikplaner-in-hls-1359"
-    }
-  ]
+  "mergeExclusionSamples": []
 }
