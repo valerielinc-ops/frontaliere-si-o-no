@@ -7331,6 +7331,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-frontalieri-prezzi-carburanti-italia-svizzera': {
+    title: '‘Prezzi dei carburanti alle stelle, l\'Italia interviene mentre la | Frontaliere Ticino',
+    description: 'L\'Italia ha tagliato le accise sui carburanti, mentre la Svizzera non ha preso alcuna misura. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, prezzi, carburanti, alle, stelle',
+    ogTitle: '‘Prezzi dei carburanti alle stelle, l\'Italia interviene mentre la Svizzera non fa nulla’',
+    ogDescription: 'L\'Italia ha tagliato le accise sui carburanti, mentre la Svizzera non ha preso alcuna misura.',
+    canonicalPath: '/articoli-frontaliere/frontalieri-prezzi-carburanti-italia-svizzera',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "‘Prezzi dei carburanti alle stelle, l'Italia interviene mentre la Svizzera non fa nulla’",
+      "description": "L'Italia ha tagliato le accise sui carburanti, mentre la Svizzera non ha preso alcuna misura. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/frontalieri-prezzi-carburanti-italia-svizzera.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Benziaino ai valichi del Gottardo"
+      },
+      "datePublished": "2026-03-20T20:04:48+00:00",
+      "dateModified": "2026-03-20T20:04:48+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontalieri-prezzi-carburanti-italia-svizzera`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

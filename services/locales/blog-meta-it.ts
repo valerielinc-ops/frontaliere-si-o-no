@@ -1469,6 +1469,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.ampliamento-parco-eolico-san-gottardo.title': 'San Gottardo, verso l\'ampliamento del parco eolico: ecco le novità',
     'blog.article.ampliamento-parco-eolico-san-gottardo.excerpt': 'Il parco eolico di San Gottardo potrebbe ampliarsi: ecco cosa significa per la regione.',
     'blog.article.ampliamento-parco-eolico-san-gottardo.imageAlt': 'Parco eolico a San Gottardo',
+    'blog.article.frontalieri-prezzi-carburanti-italia-svizzera.title': '‘Prezzi dei carburanti alle stelle, l\'Italia interviene mentre la Svizzera non fa nulla’',
+    'blog.article.frontalieri-prezzi-carburanti-italia-svizzera.excerpt': 'L\'Italia ha tagliato le accise sui carburanti, mentre la Svizzera non ha preso alcuna misura.',
+    'blog.article.frontalieri-prezzi-carburanti-italia-svizzera.imageAlt': 'Benziaino ai valichi del Gottardo',
 };
 
 export default blogMetaIt;

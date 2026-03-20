@@ -1469,6 +1469,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.ampliamento-parco-eolico-san-gottardo.title': 'San Gottardo, towards the wind-farm expansion: here are the latest developments',
     'blog.article.ampliamento-parco-eolico-san-gottardo.excerpt': 'The San Gottardo wind farm could grow: here\'s what it means for the region.',
     'blog.article.ampliamento-parco-eolico-san-gottardo.imageAlt': 'Wind farm at San Gottardo',
+    'blog.article.frontalieri-prezzi-carburanti-italia-svizzera.title': 'Fuel prices sky-high: Italy steps in while Switzerland does nothing',
+    'blog.article.frontalieri-prezzi-carburanti-italia-svizzera.excerpt': 'Italy has cut fuel excise duties, whereas Switzerland has taken no action.',
+    'blog.article.frontalieri-prezzi-carburanti-italia-svizzera.imageAlt': 'Gas station at the Gotthard border',
 };
 
 export default blogMetaEn;

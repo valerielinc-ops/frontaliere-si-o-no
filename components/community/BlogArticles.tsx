@@ -4022,6 +4022,13 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/ampliamento-parco-eolico-san-gottardo.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'frontalieri-prezzi-carburanti-italia-svizzera',
+    category: 'fiscale',
+    date: '2026-03-20T20:04:48.694Z',
+    image: '/images/blog/frontalieri-prezzi-carburanti-italia-svizzera.jpg',
+    hasCalculator: true,
+  },
 ];
 
 const CATEGORIES = ['all', 'fiscale', 'pratico', 'novita', 'pensione'] as const;

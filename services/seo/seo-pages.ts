@@ -3049,7 +3049,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
         "@context": "https://schema.org",
         "@type": "ItemList",
         "name": "Articoli Frontaliere",
-        "numberOfItems": 480,
+        "numberOfItems": 481,
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
           { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -3530,7 +3530,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 477, "name": "Danni riparati, riapre la Centovallina-Vigezzina", "url": `${BASE_URL}/articoli-frontaliere/danni-riparati-centovallina` },
           { "@type": "ListItem", "position": 478, "name": "Porrentruy potrà vietare l'accesso alla piscina...", "url": `${BASE_URL}/articoli-frontaliere/porrentruy-piscina-comunale-divieto` },
           { "@type": "ListItem", "position": 479, "name": "Sanità, Fontana e Fedriga: 'L'ospedale-centrism...", "url": `${BASE_URL}/articoli-frontaliere/sanita-fontana-fedriga` },
-          { "@type": "ListItem", "position": 480, "name": "San Gottardo, verso l'ampliamento del parco eol...", "url": `${BASE_URL}/articoli-frontaliere/ampliamento-parco-eolico-san-gottardo` }
+          { "@type": "ListItem", "position": 480, "name": "San Gottardo, verso l'ampliamento del parco eol...", "url": `${BASE_URL}/articoli-frontaliere/ampliamento-parco-eolico-san-gottardo` },
+          { "@type": "ListItem", "position": 481, "name": "‘Prezzi dei carburanti alle stelle, l'Italia in...", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-prezzi-carburanti-italia-svizzera` }
         ]
       }
     ]
