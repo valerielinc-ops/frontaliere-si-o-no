@@ -1424,6 +1424,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.tassa-automobilisti-svizzera.title': 'Un altro voto pesante: sì alla tassa per gli automobilisti che passano in Svizzera senza fermarsi',
     'blog.article.tassa-automobilisti-svizzera.excerpt': 'Il Consiglio nazionale approva una mozione che introduce una tassa di transito per chi attraversa la Svizzera senza sostare, con l\'obiettivo di decongestionare le arterie principali come il San Gottardo.',
     'blog.article.tassa-automobilisti-svizzera.imageAlt': 'Auto al valico di Gaggiolo con telecamere di sicurezza in Ticino',
+    'blog.article.lavoro-richiedenti-asilo-ucraini-ticino.title': 'Richiedenti asilo e ucraini: ora possono lavorare in Svizzera',
+    'blog.article.lavoro-richiedenti-asilo-ucraini-ticino.excerpt': 'Nuove ordinanze federali permettono a richiedenti asilo e titolari di protezione S, compresi gli ucraini, di esercitare attività lucrativa in Svizzera, anche in Ticino.',
+    'blog.article.lavoro-richiedenti-asilo-ucraini-ticino.imageAlt': 'Frontiera Ticino-Italia con frontaliere al valico di Brogeda, scenario naturale e urbano.',
 };
 
 export default blogMetaIt;

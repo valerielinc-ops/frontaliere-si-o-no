@@ -1424,6 +1424,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.tassa-automobilisti-svizzera.title': 'Un autre vote lourd : oui à la taxe pour les automobilistes qui traversent la Suisse sans s’arrêter',
     'blog.article.tassa-automobilisti-svizzera.excerpt': 'Le Conseil national approuve une motion qui introduit une taxe de transit pour ceux qui traversent la Suisse sans s’arrêter, dans le but de désengorger les principales artères comme le Saint-Gothard.',
     'blog.article.tassa-automobilisti-svizzera.imageAlt': 'Voitures au passage frontalier suisse dans le Tessin avec caméras de sécurité',
+    'blog.article.lavoro-richiedenti-asilo-ucraini-ticino.title': 'Demandeurs d\'asile et Ukrainiens : peuvent désormais travailler en Suisse',
+    'blog.article.lavoro-richiedenti-asilo-ucraini-ticino.excerpt': 'De nouvelles ordonnances fédérales permettent aux demandeurs d\'asile et aux titulaires du statut S, y compris les Ukrainiens, d\'exercer une activité lucrative en Suisse, y compris au Tessin.',
+    'blog.article.lavoro-richiedenti-asilo-ucraini-ticino.imageAlt': 'Frontière Ticino-Italie avec frontaliers à Brogeda, paysage naturel et urbain.',
 };
 
 export default blogMetaFr;

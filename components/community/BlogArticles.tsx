@@ -3917,6 +3917,13 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/tassa-automobilisti-svizzera.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'lavoro-richiedenti-asilo-ucraini-ticino',
+    category: 'novita',
+    date: '2026-03-20T10:11:17.021Z',
+    image: '/images/blog/lavoro-richiedenti-asilo-ucraini-ticino.jpg',
+    hasCalculator: true,
+  },
 ];
 
 const CATEGORIES = ['all', 'fiscale', 'pratico', 'novita', 'pensione'] as const;

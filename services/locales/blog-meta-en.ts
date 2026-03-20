@@ -1424,6 +1424,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.tassa-automobilisti-svizzera.title': 'Another Heavy Vote: Yes to a Transit Tax for Drivers Passing Through Switzerland Without Stopping',
     'blog.article.tassa-automobilisti-svizzera.excerpt': 'The National Council approves a motion that introduces a transit fee for those crossing Switzerland without stopping, aiming to ease congestion on main routes like the Gotthard.',
     'blog.article.tassa-automobilisti-svizzera.imageAlt': 'Cars passing Swiss border in Ticino with security cameras',
+    'blog.article.lavoro-richiedenti-asilo-ucraini-ticino.title': 'Asylum Seekers and Ukrainians: Now Allowed to Work in Switzerland',
+    'blog.article.lavoro-richiedenti-asilo-ucraini-ticino.excerpt': 'New federal ordinances now permit asylum seekers and holders of S protection status, including Ukrainians, to engage in gainful employment in Switzerland, even in Ticino.',
+    'blog.article.lavoro-richiedenti-asilo-ucraini-ticino.imageAlt': 'Ticino-Italy border crossing with cross-border workers at Brogeda, natural and urban landscape.',
 };
 
 export default blogMetaEn;

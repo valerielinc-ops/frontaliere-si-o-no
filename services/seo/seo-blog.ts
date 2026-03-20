@@ -6896,6 +6896,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-lavoro-richiedenti-asilo-ucraini-ticino': {
+    title: 'Richiedenti asilo e ucraini: ora possono lavorare in | Frontaliere Ticino',
+    description: 'Nuove ordinanze federali permettono a richiedenti asilo e titolari di protezione S, compresi gli ucraini, di esercitare attività lucrativa in Svizzera, anche in',
+    keywords: 'frontalieri, ticino, svizzera, italia, richiedenti, asilo, ucraini, possono',
+    ogTitle: 'Richiedenti asilo e ucraini: ora possono lavorare in Sviz',
+    ogDescription: 'Nuove ordinanze federali permettono a richiedenti asilo e titolari di protezione S, compresi gli ucraini, di esercitare attività lucrativa in Svizzera, anche in',
+    canonicalPath: '/articoli-frontaliere/lavoro-richiedenti-asilo-ucraini-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Richiedenti asilo e ucraini: ora possono lavorare in Sviz",
+      "description": "Nuove ordinanze federali permettono a richiedenti asilo e titolari di protezione S, compresi gli ucraini, di esercitare attività lucrativa in Svizzera, anche in",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/lavoro-richiedenti-asilo-ucraini-ticino.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Frontiera Ticino-Italia con frontaliere al valico di Brogeda, scenario naturale e urbano."
+      },
+      "datePublished": "2026-03-20T10:11:17+00:00",
+      "dateModified": "2026-03-20T10:11:17+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/lavoro-richiedenti-asilo-ucraini-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

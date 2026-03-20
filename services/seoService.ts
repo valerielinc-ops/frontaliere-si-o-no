@@ -1608,6 +1608,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-tutela-sovranita-dati-sanitari': { name: 'Sanità in Ticino', path: '/articoli-frontaliere/tutela-sovranita-dati-sanitari', parent: 'blog' },
     'blog-nomine-annullate-sims-tram': { name: 'Nomine alla SIMS annullate', path: '/articoli-frontaliere/nomine-annullate-sims-tram', parent: 'blog' },
     'blog-tassa-automobilisti-svizzera': { name: 'Mobilità transfrontaliera', path: '/articoli-frontaliere/tassa-automobilisti-svizzera', parent: 'blog' },
+    'blog-lavoro-richiedenti-asilo-ucraini-ticino': { name: 'Richiedenti asilo e ucraini', path: '/articoli-frontaliere/lavoro-richiedenti-asilo-ucraini-ticino', parent: 'blog' },
   };
 
   const info = sectionNames[section];
