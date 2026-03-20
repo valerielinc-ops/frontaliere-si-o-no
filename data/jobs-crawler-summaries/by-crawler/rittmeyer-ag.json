@@ -1,16 +1,16 @@
 {
   "key": "rittmeyer-ag",
   "label": "Rittmeyer AG",
-  "generatedAt": "2026-03-19T16:26:19.930Z",
+  "generatedAt": "2026-03-20T04:58:02.282Z",
   "total": 1,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 25448,
-  "avgDurationMs": 25448,
+  "durationMs": 11802,
+  "avgDurationMs": 11802,
   "durationHistory": [
-    25448
+    11802
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -34,7 +34,7 @@
       "sector": "Energia",
       "source": "rittmeyer-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-03-19",
+      "postedDate": "2026-03-20",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -71,7 +71,38 @@
         }
       },
       "crawledAt": "",
-      "requirementsByLocale": {},
+      "requirementsByLocale": {
+        "en": [
+          "Bachelor's degree in a relevant field (e.g., engineering, business administration)",
+          "2-5 years of experience in a similar role",
+          "Excellent communication and interpersonal skills",
+          "Ability to work independently and as part of a team",
+          "Strong problem-solving and analytical skills",
+          "Proficiency in MS Office and other relevant software",
+          "Knowledge of project management methodologies (e.g., Agile, Scrum)",
+          "Fluency in English and German (written and spoken)"
+        ],
+        "de": [
+          "Bachelor-Abschluss in einem relevanten Fach (z.B. Ingenieurwesen, Betriebswirtschaft)",
+          "2-5 Jahre Erfahrung in einer ähnlichen Rolle",
+          "Exzellente Kommunikations- und Interpersonenfähigkeiten",
+          "Fähigkeit, unabhängig und als Teil eines Teams zu arbeiten",
+          "Starke Problemlösung- und Analysefähigkeiten",
+          "Kenntnisse von MS Office und anderen relevanten Software",
+          "Kenntnisse von Projektmanagementmethoden (z.B. Agile, Scrum)",
+          "Fluente Deutsch- und Englischkenntnisse (schriftlich und mündlich)"
+        ],
+        "fr": [
+          "Diplôme de licence dans un domaine pertinent (par exemple, ingénierie, gestion des entreprises)",
+          "2-5 ans d'expérience dans un rôle similaire",
+          "Excellentes compétences en matière de communication et d'interpersonnelles",
+          "Capacité à travailler de manière indépendante et en tant que membre d'une équipe",
+          "Compétences en matière de résolution de problèmes et d'analyse",
+          "Connaissance de MS Office et d'autres logiciels pertinents",
+          "Connaissance de méthodologies de gestion de projet (par exemple, Agile, Scrum)",
+          "Fluence en français et en anglais (écrit et oral)"
+        ]
+      },
       "previousSlugs": [
         "sales-project-engineer-a-ticino-rittmeyer-ag-tessin"
       ]
