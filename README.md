@@ -41,10 +41,10 @@ Il progetto è costruito con tecnologie web moderne per garantire performance e 
     ```bash
     npm install
     ```
-3.  (Opzionale) Configura Google Maps API per dati traffico reali:
+3.  (Opzionale) Configura TomTom Routing API per dati traffico reali:
     ```bash
     cp .env.example .env
-    # Aggiungi la tua API key nel file .env
+    # Esporta TOMTOM_API_KEY nell'ambiente quando lanci il collector traffico
     ```
 4.  Avvia il server di sviluppo:
     ```bash
@@ -53,17 +53,16 @@ Il progetto è costruito con tecnologie web moderne per garantire performance e 
 
 ## 🗺️ API Esterne (Opzionali)
 
-### Google Maps Distance Matrix API
+### TomTom Routing API
 Per ottenere dati di traffico reali ai valichi di confine CH-IT:
 
-1. Crea un progetto su [Google Cloud Console](https://console.cloud.google.com)
-2. Abilita "Distance Matrix API"
-3. Crea una API key
-4. Aggiungi la chiave al file `.env`: `VITE_GOOGLE_MAPS_API_KEY=your_key`
+1. Crea un account su [TomTom Developer Portal](https://developer.tomtom.com/)
+2. Genera una API key
+3. Esporta la chiave per il collector schedulato o locale: `TOMTOM_API_KEY=your_key`
 
-**Costi**: Gratuito fino a 40.000 richieste/mese. L'app usa circa 8 richieste ogni 2 minuti quando la sezione traffico è aperta.
+**Costi**: il collector usa richieste route singole con traffico live. In locale e in CI è supportato ancora `GOOGLE_MAPS_API_KEY` come fallback legacy durante la migrazione.
 
-Senza API key configurata, l'app usa dati di traffico simulati basati su orari di punta tipici.
+Senza snapshot live disponibili, l'app usa dati di traffico simulati basati su orari di punta tipici.
 
 ## 📝 Note Fiscali
 

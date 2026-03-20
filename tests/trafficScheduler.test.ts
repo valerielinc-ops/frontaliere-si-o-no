@@ -113,7 +113,7 @@ describe('trafficService.getTrafficData – Firestore path', () => {
           lastUpdate: fakeTimestamp,
           approachMinutes: 3,
           totalCrossingMinutes: 15,
-          source: 'google-maps',
+          source: 'tomtom',
         }),
       },
     ];
@@ -143,9 +143,8 @@ describe('trafficService.getTrafficData – Firestore path', () => {
     const data = await trafficService.getTrafficData();
     // Should return mock data for all non-closed crossings (>0 entries)
     expect(data.length).toBeGreaterThan(0);
-    // All entries have a known source
     for (const d of data) {
-      expect(['mock', 'google-maps']).toContain(d.source);
+      expect(d.source).toBe('mock');
     }
   });
 
@@ -169,7 +168,7 @@ describe('trafficService.getTrafficData – Firestore path', () => {
           lastUpdate: { toDate: () => threeHoursAgo },
           approachMinutes: 0,
           totalCrossingMinutes: 5,
-          source: 'google-maps',
+          source: 'tomtom',
         }),
       },
     ];
@@ -183,7 +182,7 @@ describe('trafficService.getTrafficData – Firestore path', () => {
     // Should have fallen back to mock (stale Firestore data discarded)
     expect(data.length).toBeGreaterThan(0);
     for (const d of data) {
-      expect(['mock', 'google-maps']).toContain(d.source);
+      expect(d.source).toBe('mock');
     }
   });
 });

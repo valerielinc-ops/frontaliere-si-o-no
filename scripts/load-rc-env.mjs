@@ -37,6 +37,7 @@ const RC_TO_ENV = {
   FB_PAGE_ID:                     ['FB_PAGE_ID'],
   GITHUB_PAT:                     ['GITHUB_PAT', 'GH_MODELS_PAT'],
   GOOGLE_MAPS_API_KEY:            ['GOOGLE_MAPS_API_KEY'],
+  TOMTOM_API_KEY:             ['TOMTOM_API_KEY'],
   GA_MEASUREMENT_ID:              ['GA_MEASUREMENT_ID'],
   RECAPTCHA_SITE_KEY:             ['RECAPTCHA_SITE_KEY'],
   TWELVEDATA_API_KEY:             ['TWELVEDATA_API_KEY'],

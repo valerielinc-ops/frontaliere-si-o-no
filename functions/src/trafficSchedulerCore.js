@@ -4,7 +4,7 @@
  * Called by the scheduled GitHub Actions workflow (traffic-scheduler.yml).
  *
  * For each active border crossing the job:
- *  1. Queries Google Maps Distance Matrix REST API for:
+ *  1. Queries a live routing provider for:
  *     - Approach traffic: ~500 m before the crossing on the Italian side
  *     - Crossing delay:   crossing point → Swiss checkpoint (~1 km north)
  *  2. Persists the snapshot to Firestore:
@@ -18,9 +18,14 @@ import { slugifyCrossingName, BORDER_CROSSINGS } from './borderCrossingsData.js'
 // Re-export so callers that previously imported from this module keep working.
 export { slugifyCrossingName, BORDER_CROSSINGS };
 
-// ─── Google Maps Distance Matrix REST API ─────────────────────
+const GOOGLE_DISTANCE_MATRIX_URL = 'https://maps.googleapis.com/maps/api/distancematrix/json';
+const TOMTOM_CALCULATE_ROUTE_URL = 'https://api.tomtom.com/routing/1/calculateRoute';
 
-const DISTANCE_MATRIX_URL = 'https://maps.googleapis.com/maps/api/distancematrix/json';
+function resolveTrafficProvider({ tomtomApiKey, googleApiKey }) {
+  if (tomtomApiKey) return 'tomtom';
+  if (googleApiKey) return 'google-maps';
+  return null;
+}
 
 /**
  * Calls the Google Maps Distance Matrix REST API for one origin→destination pair.
@@ -33,8 +38,8 @@ const DISTANCE_MATRIX_URL = 'https://maps.googleapis.com/maps/api/distancematrix
  * @param {string} apiKey
  * @returns {Promise<{durationNormalSec: number, durationTrafficSec: number}>}
  */
-export async function getDistanceMatrix(originLat, originLng, destLat, destLng, apiKey) {
-  const url = `${DISTANCE_MATRIX_URL}` +
+export async function getGoogleDistanceMatrix(originLat, originLng, destLat, destLng, apiKey) {
+  const url = `${GOOGLE_DISTANCE_MATRIX_URL}` +
     `?origins=${originLat},${originLng}` +
     `&destinations=${destLat},${destLng}` +
     `&mode=driving` +
@@ -48,7 +53,6 @@ export async function getDistanceMatrix(originLat, originLng, destLat, destLng, 
   }
 
   const data = await response.json();
-
   if (data.status !== 'OK') {
     throw new Error(`Distance Matrix API: ${data.status} – ${data.error_message ?? ''}`);
   }
@@ -59,23 +63,83 @@ export async function getDistanceMatrix(originLat, originLng, destLat, destLng, 
   }
 
   return {
-    durationNormalSec:  element.duration.value,
+    durationNormalSec: element.duration.value,
     durationTrafficSec: element.duration_in_traffic?.value ?? element.duration.value,
   };
 }
 
-// ─── Per-crossing traffic measurement ─────────────────────────
+/**
+ * Calls the TomTom Routing API for one origin→destination pair.
+ * Returns the no-traffic and live-traffic travel times in seconds.
+ *
+ * @param {number} originLat
+ * @param {number} originLng
+ * @param {number} destLat
+ * @param {number} destLng
+ * @param {string} apiKey
+ * @returns {Promise<{durationNormalSec: number, durationTrafficSec: number}>}
+ */
+export async function getTomTomRouteTravelTimes(originLat, originLng, destLat, destLng, apiKey) {
+  const routePlanningLocations = `${originLat},${originLng}:${destLat},${destLng}`;
+  const params = new URLSearchParams({
+    key: apiKey,
+    traffic: 'true',
+    travelMode: 'car',
+    routeType: 'fastest',
+    routeRepresentation: 'none',
+    computeTravelTimeFor: 'all',
+    departAt: new Date().toISOString(),
+  });
+
+  const response = await fetch(`${TOMTOM_CALCULATE_ROUTE_URL}/${routePlanningLocations}/json?${params.toString()}`);
+  if (!response.ok) {
+    throw new Error(`TomTom Routing HTTP ${response.status}`);
+  }
+
+  const data = await response.json();
+  const summary = data?.routes?.[0]?.summary;
+  if (!summary) {
+    throw new Error('TomTom Routing API: NO_ROUTE_SUMMARY');
+  }
+
+  const durationTrafficSec = summary.travelTimeInSeconds;
+  const durationNormalSec =
+    summary.noTrafficTravelTimeInSeconds ??
+    Math.max(durationTrafficSec - (summary.trafficDelayInSeconds ?? 0), 0);
+
+  if (!Number.isFinite(durationTrafficSec) || !Number.isFinite(durationNormalSec)) {
+    throw new Error('TomTom Routing API: INVALID_TRAVEL_TIMES');
+  }
+
+  return { durationNormalSec, durationTrafficSec };
+}
+
+async function getSegmentTravelTimes(originLat, originLng, destLat, destLng, options) {
+  const provider = resolveTrafficProvider(options);
+  if (provider === 'tomtom') {
+    return getTomTomRouteTravelTimes(originLat, originLng, destLat, destLng, options.tomtomApiKey);
+  }
+  if (provider === 'google-maps') {
+    return getGoogleDistanceMatrix(originLat, originLng, destLat, destLng, options.googleApiKey);
+  }
+  throw new Error('No live traffic provider configured');
+}
 
 /**
- * Fetches traffic data for a single border crossing via two Distance Matrix calls:
+ * Fetches traffic data for a single border crossing via two live-routing calls:
  *  1. Approach segment: Italian approach point (≈500 m south) → crossing
  *  2. Crossing segment: crossing → Swiss checkpoint (≈1 km north)
  *
  * @param {{ name: string, lat: number, lng: number }} crossing
- * @param {string} apiKey
+ * @param {{ tomtomApiKey?: string, googleApiKey?: string }} options
  */
-export async function fetchCrossingTraffic(crossing, apiKey) {
+export async function fetchCrossingTraffic(crossing, options = {}) {
   const { lat, lng } = crossing;
+  const provider = resolveTrafficProvider(options);
+
+  if (!provider) {
+    throw new Error('No live traffic provider configured');
+  }
 
   // Swiss checkpoint: ≈1 km north of the crossing (same offset used in trafficService.ts)
   const checkpointLat = lat + 0.01;
@@ -83,8 +147,8 @@ export async function fetchCrossingTraffic(crossing, apiKey) {
   const approachLat = lat - 0.0045;
 
   const [crossingResult, approachResult] = await Promise.allSettled([
-    getDistanceMatrix(lat, lng, checkpointLat, lng, apiKey),
-    getDistanceMatrix(approachLat, lng, lat, lng, apiKey),
+    getSegmentTravelTimes(lat, lng, checkpointLat, lng, options),
+    getSegmentTravelTimes(approachLat, lng, lat, lng, options),
   ]);
 
   let waitTimeMinutes = 0;
@@ -127,7 +191,7 @@ export async function fetchCrossingTraffic(crossing, apiKey) {
     totalCrossingMinutes,
     status,
     direction,
-    source: 'google-maps',
+    source: provider,
   };
 }
 
@@ -196,26 +260,28 @@ export async function saveTrafficToFirestore(crossingResults) {
  * Collects traffic data for all active border crossings and persists it to Firestore.
  * This is the single entry point called by all three onSchedule functions.
  *
- * @param {string} apiKey  Google Maps API key (from Secret Manager)
+ * @param {{ tomtomApiKey?: string, googleApiKey?: string }} options
  * @returns {Promise<{collected: number, errors: number}>}
  */
-export async function runTrafficCollection(apiKey) {
-  if (!apiKey) {
-    console.warn('⚠️  GOOGLE_MAPS_API_KEY is not set – skipping traffic collection');
+export async function runTrafficCollection(options = {}) {
+  const provider = resolveTrafficProvider(options);
+  if (!provider) {
+    console.warn('⚠️  Neither TOMTOM_API_KEY nor GOOGLE_MAPS_API_KEY is set – skipping traffic collection');
     return { collected: 0, errors: 0 };
   }
 
-  console.log(`🚦 Starting traffic collection for ${BORDER_CROSSINGS.length} crossings…`);
+  console.log(`🚦 Starting traffic collection for ${BORDER_CROSSINGS.length} crossings via ${provider}…`);
 
   const results = [];
   let errors = 0;
 
-  // Process in small parallel batches to respect Google Maps rate limits
-  const BATCH_SIZE = 5;
+  // Process in provider-aware batches to stay below default QPS limits.
+  const BATCH_SIZE = provider === 'tomtom' ? 2 : 5;
+  const BATCH_DELAY_MS = provider === 'tomtom' ? 1000 : 200;
   for (let i = 0; i < BORDER_CROSSINGS.length; i += BATCH_SIZE) {
     const chunk = BORDER_CROSSINGS.slice(i, i + BATCH_SIZE);
     const settled = await Promise.allSettled(
-      chunk.map(c => fetchCrossingTraffic(c, apiKey)),
+      chunk.map(c => fetchCrossingTraffic(c, options)),
     );
 
     for (let j = 0; j < settled.length; j++) {
@@ -228,9 +294,9 @@ export async function runTrafficCollection(apiKey) {
       }
     }
 
-    // Brief pause between chunks to avoid bursting API quota
+    // Brief pause between chunks to avoid bursting API quota.
     if (i + BATCH_SIZE < BORDER_CROSSINGS.length) {
-      await new Promise(r => setTimeout(r, 200));
+      await new Promise(r => setTimeout(r, BATCH_DELAY_MS));
     }
   }
 

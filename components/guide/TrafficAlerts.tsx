@@ -3,7 +3,7 @@ import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import { AlertTriangle, Clock, Car, TrendingUp, RefreshCw, Navigation, CheckCircle2, Map, List } from 'lucide-react';
-import { trafficService, type TrafficData } from '../../services/trafficService';
+import { trafficService, hasLiveTrafficData, type TrafficData } from '../../services/trafficService';
 import { Analytics } from '../../services/analytics';
 import { borderCrossings as centralizedCrossings } from '../../data/borderCrossings';
 import { useTranslation } from '@/services/i18n';
@@ -77,7 +77,7 @@ const TrafficAlerts: React.FC<TrafficAlertsProps> = ({ initialCrossingId }) => {
   const [trafficData, setTrafficData] = useState<TrafficData[]>([]);
   const [loading, setLoading] = useState(false);
   const [lastRefresh, setLastRefresh] = useState<Date>(new Date());
-  const [apiKeyConfigured, setApiKeyConfigured] = useState(false);
+  const [liveTrafficAvailable, setLiveTrafficAvailable] = useState(false);
   const [viewMode, setViewMode] = useState<'map' | 'list'>('map');
   const [selectedCrossing, setSelectedCrossing] = useState<string | null>(null);
 
@@ -87,7 +87,7 @@ const TrafficAlerts: React.FC<TrafficAlertsProps> = ({ initialCrossingId }) => {
       const data = await trafficService.getTrafficData();
       setTrafficData(data);
       setLastRefresh(new Date());
-      setApiKeyConfigured(trafficService.hasApiKey());
+      setLiveTrafficAvailable(hasLiveTrafficData(data));
       Analytics.trackTrafficAlerts('refresh');
     } catch (error) {
       console.error('Error loading traffic data:', error);
@@ -226,18 +226,18 @@ const TrafficAlerts: React.FC<TrafficAlertsProps> = ({ initialCrossingId }) => {
 
       {/* Status */}
       <div className={`border-l-4 p-3 rounded-lg ${
-        apiKeyConfigured
+        liveTrafficAvailable
           ? 'bg-emerald-50 dark:bg-emerald-950/30 border-emerald-500'
           : 'bg-blue-50 dark:bg-blue-950/30 border-blue-500'
       }`}>
         <div className="flex items-center gap-2 text-sm">
-          {apiKeyConfigured ? (
+          {liveTrafficAvailable ? (
             <CheckCircle2 className="text-emerald-700 flex-shrink-0" size={16} />
           ) : (
             <AlertTriangle className="text-blue-600 flex-shrink-0" size={16} />
           )}
-          <span className={apiKeyConfigured ? 'text-emerald-800 dark:text-emerald-200' : 'text-blue-800 dark:text-blue-200'}>
-            {apiKeyConfigured
+          <span className={liveTrafficAvailable ? 'text-emerald-800 dark:text-emerald-200' : 'text-blue-800 dark:text-blue-200'}>
+            {liveTrafficAvailable
               ? t('traffic.dataReal')
               : t('traffic.dataSimulated')}
           </span>

@@ -23,18 +23,18 @@ const ApiStatus: React.FC = () => {
     setLoading(true);
     const checks: ApiCheck[] = [];
 
-    // 1. Google Maps API
-    const hasMapsKey = trafficService.hasApiKey();
+    // 1. Live traffic snapshot (scheduler + Firestore)
+    const hasLiveTraffic = await trafficService.hasFreshTrafficSnapshot();
     checks.push({
-      name: 'Google Maps Distance Matrix API',
+      name: 'Traffico valichi live',
       key: '****',
-      configured: hasMapsKey,
-      value: hasMapsKey ? '✓ Configurata' : '✗ Non configurata',
-      status: hasMapsKey ? 'success' : 'warning',
-      message: hasMapsKey 
-        ? 'Configurata correttamente - Traffico valichi usa dati reali'
-        : 'Non configurata - Traffico valichi usa dati simulati',
-      testUrl: 'https://console.cloud.google.com/apis/api/distance_matrix_backend.googleapis.com'
+      configured: hasLiveTraffic,
+      value: hasLiveTraffic ? '✓ Snapshot live disponibile' : '✗ Snapshot live assente',
+      status: hasLiveTraffic ? 'success' : 'warning',
+      message: hasLiveTraffic
+        ? 'Firestore sta ricevendo snapshot aggiornati dal collector traffico'
+        : 'Nessuno snapshot recente trovato - il sito userà il modello simulato',
+      testUrl: 'https://developer.tomtom.com/routing-api/documentation/tomtom-maps/calculate-route'
     });
 
     // 2. Google Gemini API - Carica da Firebase Remote Config
