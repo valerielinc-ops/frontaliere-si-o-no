@@ -13,16 +13,16 @@
     "https://www.supsi.ch/lavora-con-noi"
   ],
   "notes": "Dedicated SUPSI crawler seeds from lavora-con-noi (including pagination via POST) and canonicalizes job URLs under supsi.ch.",
-  "updatedAt": "2026-03-20T05:00:24.344Z",
+  "updatedAt": "2026-03-20T16:15:55.833Z",
   "seedDetailUrls": [
     "https://www.supsi.ch/bando26_3001",
-    "https://www.supsi.ch/bando26_1005",
     "https://www.supsi.ch/bando26_2002",
     "https://www.supsi.ch/bando26_2003",
     "https://www.supsi.ch/bando26_1004",
     "https://www.supsi.ch/assistente-con-bachelor-o-master-per-il-corso-di-laurea-in-architettura-supsi-26_1006-",
     "https://www.supsi.ch/bando26_5007",
     "https://www.supsi.ch/bando26_1001",
+    "https://www.supsi.ch/bando25_9005",
     "https://www.supsi.ch/26_5001",
     "https://www.supsi.ch/bando25_9004",
     "https://www.supsi.ch/bando26_9001",
@@ -37,15 +37,6 @@
       "companyDomain": "supsi.ch",
       "contract": "Part-time",
       "expiresAt": "2026-03-02"
-    },
-    "https://www.supsi.ch/bando26_1005": {
-      "location": "Mendrisio",
-      "canton": "TI",
-      "country": "CH",
-      "company": "SUPSI / DTI",
-      "companyDomain": "supsi.ch",
-      "contract": "Part-time",
-      "expiresAt": "2026-03-19"
     },
     "https://www.supsi.ch/bando26_2002": {
       "location": "Manno",
@@ -99,6 +90,14 @@
       "companyDomain": "supsi.ch",
       "contract": "Part-time",
       "expiresAt": "2026-03-31"
+    },
+    "https://www.supsi.ch/bando25_9005": {
+      "location": "USI SUPSInido del Campus Est di Viganello",
+      "canton": "TI",
+      "country": "CH",
+      "company": "SUPSI / DTI",
+      "companyDomain": "supsi.ch",
+      "expiresAt": "2026-04-30"
     },
     "https://www.supsi.ch/26_5001": {
       "location": "Lugano",
