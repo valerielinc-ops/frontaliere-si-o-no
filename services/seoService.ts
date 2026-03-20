@@ -1618,6 +1618,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-franco-svizzero-impatti-ticino': { name: 'Economia Ticino', path: '/articoli-frontaliere/franco-svizzero-impatti-ticino', parent: 'blog' },
     'blog-tassa-transito-automobilisti-ticino': { name: 'Tassa di transito in Ticino', path: '/articoli-frontaliere/tassa-transito-automobilisti-ticino', parent: 'blog' },
     'blog-nubifragio-coira-mesolcina-ristoro': { name: 'Nubifragio Giugno 2024', path: '/articoli-frontaliere/nubifragio-coira-mesolcina-ristoro', parent: 'blog' },
+    'blog-lotta-violenza-di-genere-ticino': { name: 'Ticino e Svizzera sotto l\'attenzione del', path: '/articoli-frontaliere/lotta-violenza-di-genere-ticino', parent: 'blog' },
   };
 
   const info = sectionNames[section];

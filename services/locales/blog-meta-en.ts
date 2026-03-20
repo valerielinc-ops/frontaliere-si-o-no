@@ -1445,6 +1445,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.nubifragio-coira-mesolcina-ristoro.title': 'June 2024 Flood: Financial Recovery in Ticino',
     'blog.article.nubifragio-coira-mesolcina-ristoro.excerpt': 'The June 2024 torrential rain caused extensive damage in Coira and Mesolcina. The state\'s response includes financial support measures for the affected areas.',
     'blog.article.nubifragio-coira-mesolcina-ristoro.imageAlt': 'Alpine valley in Ticino with cloudy sky and forest, realistic DSLR shot.',
+    'blog.article.lotta-violenza-di-genere-ticino.title': 'Ticino and Switzerland Under the European Court of Human Rights Spotlight in the Fight Against Gender-Based Violence',
+    'blog.article.lotta-violenza-di-genere-ticino.excerpt': 'On March 11, a GREVIO delegation visited Ticino, highlighting progress in prevention efforts and new recommendations for the Canton and the country as a whole.',
+    'blog.article.lotta-violenza-di-genere-ticino.imageAlt': 'Bellinzona skyline with Three Towers and clear sky',
 };
 
 export default blogMetaEn;

@@ -3966,6 +3966,13 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/nubifragio-coira-mesolcina-ristoro.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'lotta-violenza-di-genere-ticino',
+    category: 'novita',
+    date: '2026-03-20T15:29:12.946Z',
+    image: '/images/blog/lotta-violenza-di-genere-ticino.jpg',
+    hasCalculator: true,
+  },
 ];
 
 const CATEGORIES = ['all', 'fiscale', 'pratico', 'novita', 'pensione'] as const;

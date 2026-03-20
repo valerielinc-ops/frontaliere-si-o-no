@@ -1445,6 +1445,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.nubifragio-coira-mesolcina-ristoro.title': 'Starkregen Juni 2024: Finanzielle Unterstützung im Tessin',
     'blog.article.nubifragio-coira-mesolcina-ristoro.excerpt': 'Der Starkregen im Juni 2024 hat in Chur und Mesolcina erhebliche Schäden verursacht. Der Staat reagiert mit finanziellen Hilfsmaßnahmen für die betroffenen Gebiete.',
     'blog.article.nubifragio-coira-mesolcina-ristoro.imageAlt': 'Alpine Tal in Ticino mit bewölktem Himmel und Wald, realistische DSLR-Aufnahme.',
+    'blog.article.lotta-violenza-di-genere-ticino.title': 'Tessin und Schweiz im Fokus des Europarats im Kampf gegen geschlechtsspezifische Gewalt',
+    'blog.article.lotta-violenza-di-genere-ticino.excerpt': 'Am 11. März besuchte eine GREVIO-Delegation den Kanton Tessin und hob die Fortschritte in der Prävention sowie die neuen Empfehlungen für den Kanton und das Land hervor.',
+    'blog.article.lotta-violenza-di-genere-ticino.imageAlt': 'Panorama von Bellinzona mit den Drei Türmen und klarem Himmel',
 };
 
 export default blogMetaDe;

@@ -1445,6 +1445,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.nubifragio-coira-mesolcina-ristoro.title': 'Nubifragio Giugno 2024: Ristoro Finanziario in Ticino',
     'blog.article.nubifragio-coira-mesolcina-ristoro.excerpt': 'Il nubifragio di giugno 2024 ha causato danni ingenti in Coira e Mesolcina. La risposta dello Stato include interventi di sostegno economico per le aree colpite.',
     'blog.article.nubifragio-coira-mesolcina-ristoro.imageAlt': 'Valle alpina in Ticino con cielo nuvoloso e foresta, scena realistica DSLR.',
+    'blog.article.lotta-violenza-di-genere-ticino.title': 'Ticino e Svizzera sotto l\'attenzione del Consiglio d\'Europa per la lotta alla violenza di genere',
+    'blog.article.lotta-violenza-di-genere-ticino.excerpt': 'Il 11 marzo una delegazione GREVIO ha visitato il Ticino, evidenziando i progressi nella prevenzione e le nuove raccomandazioni per il Canton e il Paese.',
+    'blog.article.lotta-violenza-di-genere-ticino.imageAlt': 'Panorama di Bellinzona con le Tre Torri e il cielo azzurro',
 };
 
 export default blogMetaIt;

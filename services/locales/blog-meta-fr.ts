@@ -1445,6 +1445,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.nubifragio-coira-mesolcina-ristoro.title': 'Nubifragio Juin 2024 : Soutien Financier en Tessin',
     'blog.article.nubifragio-coira-mesolcina-ristoro.excerpt': 'L’orage de juin 2024 a causé d’importants dégâts à Coire et en Mesolcina. La réponse de l’État inclut des mesures de soutien économique pour les zones touchées.',
     'blog.article.nubifragio-coira-mesolcina-ristoro.imageAlt': 'Vallée alpine dans le Tessin avec ciel nuageux et forêt, photo DSLR réaliste.',
+    'blog.article.lotta-violenza-di-genere-ticino.title': 'Tessin et Suisse sous l\'attention du Conseil de l\'Europe pour la lutte contre la violence de genre',
+    'blog.article.lotta-violenza-di-genere-ticino.excerpt': 'Le 11 mars, une délégation du GREVIO a visité le Tessin, soulignant les progrès en matière de prévention et formulant de nouvelles recommandations pour le Canton et le pays.',
+    'blog.article.lotta-violenza-di-genere-ticino.imageAlt': 'Paysage de Bellinzona avec les Trois Tours et ciel bleu',
 };
 
 export default blogMetaFr;

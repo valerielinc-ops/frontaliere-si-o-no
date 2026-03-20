@@ -7099,6 +7099,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-lotta-violenza-di-genere-ticino': {
+    title: 'Ticino e Svizzera sotto l\'attenzione del Consiglio d\'Europa per la lotta | Frontaliere Ticino',
+    description: 'Il 11 marzo una delegazione GREVIO ha visitato il Ticino, evidenziando i progressi nella prevenzione e le nuove raccomandazioni per il Canton e il Paese.',
+    keywords: 'frontalieri, ticino, svizzera, italia, sotto, attenzione, consiglio, europa',
+    ogTitle: 'Ticino e Svizzera sotto l\'attenzione del Consiglio d\'Euro',
+    ogDescription: 'Il 11 marzo una delegazione GREVIO ha visitato il Ticino, evidenziando i progressi nella prevenzione e le nuove raccomandazioni per il Canton e il Paese.',
+    canonicalPath: '/articoli-frontaliere/lotta-violenza-di-genere-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ticino e Svizzera sotto l'attenzione del Consiglio d'Euro",
+      "description": "Il 11 marzo una delegazione GREVIO ha visitato il Ticino, evidenziando i progressi nella prevenzione e le nuove raccomandazioni per il Canton e il Paese.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/lotta-violenza-di-genere-ticino.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Panorama di Bellinzona con le Tre Torri e il cielo azzurro"
+      },
+      "datePublished": "2026-03-20T15:29:12+00:00",
+      "dateModified": "2026-03-20T15:29:12+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/lotta-violenza-di-genere-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
