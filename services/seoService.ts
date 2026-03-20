@@ -1617,6 +1617,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-inclusione-migranti-ticino': { name: 'Alis e Cir', path: '/articoli-frontaliere/inclusione-migranti-ticino', parent: 'blog' },
     'blog-franco-svizzero-impatti-ticino': { name: 'Economia Ticino', path: '/articoli-frontaliere/franco-svizzero-impatti-ticino', parent: 'blog' },
     'blog-tassa-transito-automobilisti-ticino': { name: 'Tassa di transito in Ticino', path: '/articoli-frontaliere/tassa-transito-automobilisti-ticino', parent: 'blog' },
+    'blog-nubifragio-coira-mesolcina-ristoro': { name: 'Nubifragio Giugno 2024', path: '/articoli-frontaliere/nubifragio-coira-mesolcina-ristoro', parent: 'blog' },
   };
 
   const info = sectionNames[section];

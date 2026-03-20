@@ -1442,6 +1442,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.tassa-transito-automobilisti-ticino.title': 'Tassa di transito in Ticino: cosa cambia per gli automobilisti stranieri',
     'blog.article.tassa-transito-automobilisti-ticino.excerpt': 'Dal 2026, gli stranieri che attraversano il Ticino in auto senza soste significative dovranno pagare una tassa di transito dinamica. Analisi e dettagli pratici.',
     'blog.article.tassa-transito-automobilisti-ticino.imageAlt': 'Auto in transito al valico di Gaggiolo con montagne sullo sfondo in Ticino',
+    'blog.article.nubifragio-coira-mesolcina-ristoro.title': 'Nubifragio Giugno 2024: Ristoro Finanziario in Ticino',
+    'blog.article.nubifragio-coira-mesolcina-ristoro.excerpt': 'Il nubifragio di giugno 2024 ha causato danni ingenti in Coira e Mesolcina. La risposta dello Stato include interventi di sostegno economico per le aree colpite.',
+    'blog.article.nubifragio-coira-mesolcina-ristoro.imageAlt': 'Valle alpina in Ticino con cielo nuvoloso e foresta, scena realistica DSLR.',
 };
 
 export default blogMetaIt;

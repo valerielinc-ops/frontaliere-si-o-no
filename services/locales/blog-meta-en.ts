@@ -1442,6 +1442,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.tassa-transito-automobilisti-ticino.title': 'Transit Tax in Ticino: What Changes for Foreign Drivers',
     'blog.article.tassa-transito-automobilisti-ticino.excerpt': 'Starting from 2026, foreigners crossing Ticino in their cars without significant stops will be required to pay a dynamic transit fee. Analysis and practical details.',
     'blog.article.tassa-transito-automobilisti-ticino.imageAlt': 'Cars crossing the Gaggiolo border in Ticino with mountains in the background',
+    'blog.article.nubifragio-coira-mesolcina-ristoro.title': 'June 2024 Flood: Financial Recovery in Ticino',
+    'blog.article.nubifragio-coira-mesolcina-ristoro.excerpt': 'The June 2024 torrential rain caused extensive damage in Coira and Mesolcina. The state\'s response includes financial support measures for the affected areas.',
+    'blog.article.nubifragio-coira-mesolcina-ristoro.imageAlt': 'Alpine valley in Ticino with cloudy sky and forest, realistic DSLR shot.',
 };
 
 export default blogMetaEn;

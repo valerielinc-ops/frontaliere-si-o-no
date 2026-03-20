@@ -3959,6 +3959,13 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/tassa-transito-automobilisti-ticino.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'nubifragio-coira-mesolcina-ristoro',
+    category: 'novita',
+    date: '2026-03-20T14:55:43.713Z',
+    image: '/images/blog/nubifragio-coira-mesolcina-ristoro.jpg',
+    hasCalculator: true,
+  },
 ];
 
 const CATEGORIES = ['all', 'fiscale', 'pratico', 'novita', 'pensione'] as const;

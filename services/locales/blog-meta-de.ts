@@ -1442,6 +1442,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.tassa-transito-automobilisti-ticino.title': 'Durchfahrtssteuer im Tessin: Was ändert sich für ausländische Autofahrer',
     'blog.article.tassa-transito-automobilisti-ticino.excerpt': 'Ab 2026 müssen Ausländer, die das Tessin ohne bedeutende Stopps durchqueren, eine dynamische Durchfahrtssteuer bezahlen. Analyse und praktische Details.',
     'blog.article.tassa-transito-automobilisti-ticino.imageAlt': 'Autos am Grenzübergang Gaggiolo in Tessin mit Bergen im Hintergrund',
+    'blog.article.nubifragio-coira-mesolcina-ristoro.title': 'Starkregen Juni 2024: Finanzielle Unterstützung im Tessin',
+    'blog.article.nubifragio-coira-mesolcina-ristoro.excerpt': 'Der Starkregen im Juni 2024 hat in Chur und Mesolcina erhebliche Schäden verursacht. Der Staat reagiert mit finanziellen Hilfsmaßnahmen für die betroffenen Gebiete.',
+    'blog.article.nubifragio-coira-mesolcina-ristoro.imageAlt': 'Alpine Tal in Ticino mit bewölktem Himmel und Wald, realistische DSLR-Aufnahme.',
 };
 
 export default blogMetaDe;

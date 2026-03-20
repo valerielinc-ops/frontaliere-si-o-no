@@ -1442,6 +1442,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.tassa-transito-automobilisti-ticino.title': 'Taxe de transit au Tessin : quelles sont les nouveautés pour les automobilistes étrangers',
     'blog.article.tassa-transito-automobilisti-ticino.excerpt': 'À partir de 2026, les étrangers traversant le Tessin en voiture sans s’arrêter significativement devront payer une taxe de transit dynamique. Analyse et détails pratiques.',
     'blog.article.tassa-transito-automobilisti-ticino.imageAlt': 'Voitures traversant la frontière de Gaggiolo dans le Tessin avec montagnes en arrière-plan',
+    'blog.article.nubifragio-coira-mesolcina-ristoro.title': 'Nubifragio Juin 2024 : Soutien Financier en Tessin',
+    'blog.article.nubifragio-coira-mesolcina-ristoro.excerpt': 'L’orage de juin 2024 a causé d’importants dégâts à Coire et en Mesolcina. La réponse de l’État inclut des mesures de soutien économique pour les zones touchées.',
+    'blog.article.nubifragio-coira-mesolcina-ristoro.imageAlt': 'Vallée alpine dans le Tessin avec ciel nuageux et forêt, photo DSLR réaliste.',
 };
 
 export default blogMetaFr;

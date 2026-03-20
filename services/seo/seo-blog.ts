@@ -7070,6 +7070,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-nubifragio-coira-mesolcina-ristoro': {
+    title: 'Nubifragio Giugno 2024: Ristoro Finanziario in Ticino | Frontaliere Ticino',
+    description: 'Il nubifragio di giugno 2024 ha causato danni ingenti in Coira e Mesolcina. La risposta dello Stato include interventi di sostegno economico per le aree colpite',
+    keywords: 'frontalieri, ticino, svizzera, italia, nubifragio, giugno, 2024, ristoro',
+    ogTitle: 'Nubifragio Giugno 2024: Ristoro Finanziario in Ticino',
+    ogDescription: 'Il nubifragio di giugno 2024 ha causato danni ingenti in Coira e Mesolcina. La risposta dello Stato include interventi di sostegno economico per le aree colpite',
+    canonicalPath: '/articoli-frontaliere/nubifragio-coira-mesolcina-ristoro',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Nubifragio Giugno 2024: Ristoro Finanziario in Ticino",
+      "description": "Il nubifragio di giugno 2024 ha causato danni ingenti in Coira e Mesolcina. La risposta dello Stato include interventi di sostegno economico per le aree colpite",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/nubifragio-coira-mesolcina-ristoro.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Valle alpina in Ticino con cielo nuvoloso e foresta, scena realistica DSLR."
+      },
+      "datePublished": "2026-03-20T14:55:43+00:00",
+      "dateModified": "2026-03-20T14:55:43+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/nubifragio-coira-mesolcina-ristoro`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
