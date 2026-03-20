@@ -1418,6 +1418,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.tutela-sovranita-dati-sanitari.title': 'Healthcare in Ticino: Protecting the Sovereignty of Health Data',
     'blog.article.tutela-sovranita-dati-sanitari.excerpt': 'The Canton of Ticino is preparing to face the challenges of digital security and health data protection, following recent statements by Senator Zaffini.',
     'blog.article.tutela-sovranita-dati-sanitari.imageAlt': 'Ticino health office with advanced technology at Italy-Switzerland border',
+    'blog.article.nomine-annullate-sims-tram.title': 'Appointments at SIMS Canceled: The Council of State Yields to the TRAM',
+    'blog.article.nomine-annullate-sims-tram.excerpt': 'The Administrative Court has declared the appointments of the SIMS directors illegitimate. The Council of State has decided not to appeal to the Federal Court, effectively canceling both the appointments and the public competition announced in March 2024.',
+    'blog.article.nomine-annullate-sims-tram.imageAlt': 'View of Bellinzona with government buildings and distant alpine landscape.',
 };
 
 export default blogMetaEn;

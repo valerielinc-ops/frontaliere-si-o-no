@@ -6838,6 +6838,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-nomine-annullate-sims-tram': {
+    title: 'Nomine alla SIMS annullate: il Consiglio di Stato si | Frontaliere Ticino',
+    description: 'Il Tribunale amministrativo ha dichiarato illegittime le nomine dei direttori della SIMS. Il Consiglio di Stato ha deciso di non ricorrere al Tribunale federale',
+    keywords: 'frontalieri, ticino, svizzera, italia, nomine, alla, sims, annullate',
+    ogTitle: 'Nomine alla SIMS annullate: il Consiglio di Stato si arre',
+    ogDescription: 'Il Tribunale amministrativo ha dichiarato illegittime le nomine dei direttori della SIMS. Il Consiglio di Stato ha deciso di non ricorrere al Tribunale federale',
+    canonicalPath: '/articoli-frontaliere/nomine-annullate-sims-tram',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Nomine alla SIMS annullate: il Consiglio di Stato si arre",
+      "description": "Il Tribunale amministrativo ha dichiarato illegittime le nomine dei direttori della SIMS. Il Consiglio di Stato ha deciso di non ricorrere al Tribunale federale",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/nomine-annullate-sims-tram.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Vista di Bellinzona con edifici governativi e paesaggio alpino in lontananza."
+      },
+      "datePublished": "2026-03-20T09:13:04+00:00",
+      "dateModified": "2026-03-20T09:13:04+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/nomine-annullate-sims-tram`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

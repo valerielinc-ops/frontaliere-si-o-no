@@ -1606,6 +1606,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-strutture-dedicate-migranti-ticino': { name: 'Migranti in Ticino', path: '/articoli-frontaliere/strutture-dedicate-migranti-ticino', parent: 'blog' },
     'blog-contratti-collettivi-salari-ticino': { name: 'Contratti collettivi di lavoro in Ticino', path: '/articoli-frontaliere/contratti-collettivi-salari-ticino', parent: 'blog' },
     'blog-tutela-sovranita-dati-sanitari': { name: 'Sanità in Ticino', path: '/articoli-frontaliere/tutela-sovranita-dati-sanitari', parent: 'blog' },
+    'blog-nomine-annullate-sims-tram': { name: 'Nomine alla SIMS annullate', path: '/articoli-frontaliere/nomine-annullate-sims-tram', parent: 'blog' },
   };
 
   const info = sectionNames[section];

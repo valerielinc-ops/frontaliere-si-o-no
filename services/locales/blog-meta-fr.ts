@@ -1418,6 +1418,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.tutela-sovranita-dati-sanitari.title': 'Santé au Tessin : la protection de la souveraineté des données de santé',
     'blog.article.tutela-sovranita-dati-sanitari.excerpt': 'Le Canton du Tessin se prépare à relever les défis liés à la sécurité numérique et à la protection des données de santé, conformément aux déclarations récentes du sénateur Zaffini.',
     'blog.article.tutela-sovranita-dati-sanitari.imageAlt': 'Bureau de santé du Tessin avec technologie avancée à la frontière Italie-Suisse',
+    'blog.article.nomine-annullate-sims-tram.title': 'Nominations à la SIMS annulées : le Conseil d\'État capitule face au TRAM',
+    'blog.article.nomine-annullate-sims-tram.excerpt': 'Le Tribunal administratif a déclaré illégitimes les nominations des directeurs de la SIMS. Le Conseil d\'État a décidé de ne pas faire appel au Tribunal fédéral, annulant ainsi de facto les nominations et l\'appel d\'offres publié en mars 2024.',
+    'blog.article.nomine-annullate-sims-tram.imageAlt': 'Vue de Bellinzona avec bâtiments gouvernementaux et paysage alpin au loin.',
 };
 
 export default blogMetaFr;

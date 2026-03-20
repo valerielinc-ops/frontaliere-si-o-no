@@ -3903,6 +3903,13 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/tutela-sovranita-dati-sanitari.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'nomine-annullate-sims-tram',
+    category: 'novita',
+    date: '2026-03-20T09:13:04.394Z',
+    image: '/images/blog/nomine-annullate-sims-tram.jpg',
+    hasCalculator: true,
+  },
 ];
 
 const CATEGORIES = ['all', 'fiscale', 'pratico', 'novita', 'pensione'] as const;

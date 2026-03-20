@@ -1418,6 +1418,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.tutela-sovranita-dati-sanitari.title': 'Sanità in Ticino: la tutela della sovranità dei dati sanitari',
     'blog.article.tutela-sovranita-dati-sanitari.excerpt': 'Il Canton Ticino si prepara a fronteggiare le sfide della sicurezza digitale e della protezione dei dati sanitari, seguendo le recenti dichiarazioni del senatore Zaffini.',
     'blog.article.tutela-sovranita-dati-sanitari.imageAlt': 'Ufficio sanitario ticinese con tecnologia avanzata al confine Italia-Svizzera',
+    'blog.article.nomine-annullate-sims-tram.title': 'Nomine alla SIMS annullate: il Consiglio di Stato si arrende al TRAM',
+    'blog.article.nomine-annullate-sims-tram.excerpt': 'Il Tribunale amministrativo ha dichiarato illegittime le nomine dei direttori della SIMS. Il Consiglio di Stato ha deciso di non ricorrere al Tribunale federale, annullando di fatto le nomine e il bando di concorso pubblicato a marzo 2024.',
+    'blog.article.nomine-annullate-sims-tram.imageAlt': 'Vista di Bellinzona con edifici governativi e paesaggio alpino in lontananza.',
 };
 
 export default blogMetaIt;
