@@ -4008,6 +4008,13 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/porrentruy-piscina-comunale-divieto.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'sanita-fontana-fedriga',
+    category: 'novita',
+    date: '2026-03-20T18:15:00.043Z',
+    image: '/images/blog/sanita-fontana-fedriga.jpg',
+    hasCalculator: true,
+  },
 ];
 
 const CATEGORIES = ['all', 'fiscale', 'pratico', 'novita', 'pensione'] as const;

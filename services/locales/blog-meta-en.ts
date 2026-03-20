@@ -1463,6 +1463,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.porrentruy-piscina-comunale-divieto.title': 'Porrentruy to restrict access to municipal pool for non-residents',
     'blog.article.porrentruy-piscina-comunale-divieto.excerpt': 'The Porrentruy Municipal Council has approved a legal amendment allowing the Municipal Council to impose restrictions on access to the outdoor municipal pool.',
     'blog.article.porrentruy-piscina-comunale-divieto.imageAlt': 'Municipal pool in Porrentruy, Switzerland',
+    'blog.article.sanita-fontana-fedriga.title': 'Healthcare, Fontana and Fedriga: \'Hospital-centrism is outdated\'',
+    'blog.article.sanita-fontana-fedriga.excerpt': 'The presidents of Lombardy and Friuli Venezia Giulia discuss the sustainability of the healthcare system in Varese.',
+    'blog.article.sanita-fontana-fedriga.imageAlt': 'Ville Ponti conference center in Varese',
 };
 
 export default blogMetaEn;

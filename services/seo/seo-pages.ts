@@ -3049,7 +3049,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
         "@context": "https://schema.org",
         "@type": "ItemList",
         "name": "Articoli Frontaliere",
-        "numberOfItems": 478,
+        "numberOfItems": 479,
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
           { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -3528,7 +3528,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 475, "name": "Operazione di controllo nei cantieri del Mendri...", "url": `${BASE_URL}/articoli-frontaliere/controlli-cantieri-mendrisiotto` },
           { "@type": "ListItem", "position": 476, "name": "Acinque lancia il piano 'Genitorialità': un mes...", "url": `${BASE_URL}/articoli-frontaliere/acinque-lancia-piano-genitorialita` },
           { "@type": "ListItem", "position": 477, "name": "Danni riparati, riapre la Centovallina-Vigezzina", "url": `${BASE_URL}/articoli-frontaliere/danni-riparati-centovallina` },
-          { "@type": "ListItem", "position": 478, "name": "Porrentruy potrà vietare l'accesso alla piscina...", "url": `${BASE_URL}/articoli-frontaliere/porrentruy-piscina-comunale-divieto` }
+          { "@type": "ListItem", "position": 478, "name": "Porrentruy potrà vietare l'accesso alla piscina...", "url": `${BASE_URL}/articoli-frontaliere/porrentruy-piscina-comunale-divieto` },
+          { "@type": "ListItem", "position": 479, "name": "Sanità, Fontana e Fedriga: 'L'ospedale-centrism...", "url": `${BASE_URL}/articoli-frontaliere/sanita-fontana-fedriga` }
         ]
       }
     ]

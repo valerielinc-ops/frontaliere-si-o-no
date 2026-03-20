@@ -1463,6 +1463,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.porrentruy-piscina-comunale-divieto.title': 'Porrentruy kann den Zugang zum Gemeindepool für Nichtansässige verbieten',
     'blog.article.porrentruy-piscina-comunale-divieto.excerpt': 'Der Gemeinderat von Porrentruy hat eine Gesetzesänderung genehmigt, die es dem Municipio ermöglicht, den Zugang zum öffentlichen Pool einzuschränken.',
     'blog.article.porrentruy-piscina-comunale-divieto.imageAlt': 'Gemeinsames Schwimmbad in Porrentruy, Schweiz',
+    'blog.article.sanita-fontana-fedriga.title': 'Gesundheit, Fontana und Fedriga: \'Das Krankenhaus-Zentrismus ist überwunden\'',
+    'blog.article.sanita-fontana-fedriga.excerpt': 'Die Präsidenten von Lombardei und Friaul-Julien, Attilio Fontana und Massimiliano Fedriga, diskutieren die Nachhaltigkeit des Gesundheitssystems in Varese.',
+    'blog.article.sanita-fontana-fedriga.imageAlt': 'Konferenzcenter Ville Ponti in Varese',
 };
 
 export default blogMetaDe;

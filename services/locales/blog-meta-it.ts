@@ -1463,6 +1463,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.porrentruy-piscina-comunale-divieto.title': 'Porrentruy potrà vietare l\'accesso alla piscina comunale ai non residenti',
     'blog.article.porrentruy-piscina-comunale-divieto.excerpt': 'Il Consiglio comunale di Porrentruy ha approvato una modifica legale per autorizzare il Municipio a imporre restrizioni all\'accesso della piscina all\'aperto.',
     'blog.article.porrentruy-piscina-comunale-divieto.imageAlt': 'Piscina comunale a Porrentruy, Svizzera',
+    'blog.article.sanita-fontana-fedriga.title': 'Sanità, Fontana e Fedriga: \'L\'ospedale-centrismo è superato\'',
+    'blog.article.sanita-fontana-fedriga.excerpt': 'I presidenti di Lombardia e Friuli Venezia Giulia discutono la sostenibilità del sistema sanitario a Varese.',
+    'blog.article.sanita-fontana-fedriga.imageAlt': 'Centro congressi Ville Ponti a Varese',
 };
 
 export default blogMetaIt;
