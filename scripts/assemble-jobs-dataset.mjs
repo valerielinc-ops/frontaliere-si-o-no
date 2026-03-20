@@ -40,6 +40,7 @@ import {
   writeCrawlerSummaryStore,
 } from './lib/crawler-summary-store.mjs';
 import { buildStableJobIdentity } from './lib/job-identity.mjs';
+import { hardenJobsWithStructuredSalary } from './lib/structured-salary.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -121,15 +122,17 @@ export function writeJobsCrawlerSlice(crawlerKey, jobs) {
     throw new TypeError('writeJobsCrawlerSlice: jobs must be an array');
   }
 
+  const hardened = hardenJobsWithStructuredSalary(jobs);
   fs.mkdirSync(JOBS_SLICES_DIR, { recursive: true });
   const slicePath = path.join(JOBS_SLICES_DIR, `${crawlerKey}.json`);
   const payload = {
     crawlerKey,
     assembledAt: new Date().toISOString(),
-    jobs,
+    jobs: hardened.jobs,
   };
   writeJson(slicePath, payload);
-  console.log(`📂 Wrote jobs slice: data/jobs/by-crawler/${crawlerKey}.json (${jobs.length} jobs)`);
+  const hardeningSuffix = hardened.updated > 0 ? `, salary hardened ${hardened.updated}` : '';
+  console.log(`📂 Wrote jobs slice: data/jobs/by-crawler/${crawlerKey}.json (${hardened.total} jobs${hardeningSuffix})`);
 }
 
 /**
@@ -272,7 +275,7 @@ function assembleJobs() {
     console.log(`  🧹 Slug dedup: removed ${slugDupeCount} entries with duplicate slugs (${deduped.length} remaining)`);
   }
 
-  return deduped;
+  return hardenJobsWithStructuredSalary(deduped).jobs;
 }
 
 /**

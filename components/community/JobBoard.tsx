@@ -47,7 +47,7 @@ import AdSenseBanner from '@/components/shared/AdSenseBanner';
 import { SkeletonJobDetail } from '@/components/shared/Skeletons';
 import { AD_SLOTS } from '@/services/adsenseSlots';
 import { useMediaQuery } from '@/hooks/useMediaQuery';
-import { eagerAuth, getAuthEmail, promptOneTap, renderGoogleButton } from '@/services/authService';
+import { eagerAuth, getAuthEmail, promptOneTap, renderGoogleButtonWithReadiness } from '@/services/authService';
 import {
   isMultiLocation,
   normalizeJobCategory,
@@ -3020,7 +3020,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
 
       buttonContainer.innerHTML = '';
       try {
-        await renderGoogleButton(buttonContainer, {
+        const ready = await renderGoogleButtonWithReadiness(buttonContainer, {
           theme: 'outline',
           size: 'large',
           text: 'signin_with',
@@ -3028,7 +3028,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
           locale,
         });
         if (cancelled) return;
-        setReady(buttonContainer.children.length > 0);
+        setReady(ready);
       } catch (error) {
         if (cancelled) return;
         setReady(false);

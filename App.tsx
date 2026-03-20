@@ -159,6 +159,7 @@ import {
   cancelOneTap,
   getAuthEmail,
   eagerAuth,
+  renderGoogleButtonWithReadiness,
   signInWithCustomAuthToken,
 } from '@/services/authService';
 import {
@@ -191,7 +192,7 @@ const App: React.FC = () => {
   // Wait for Italian translations to load before rendering the full UI
   const [translationsReady, setTranslationsReady] = useState(isTranslationsReady);
 
-  const { t } = useTranslation();
+  const { t, locale } = useTranslation();
   const {
     user: authUser,
     loading: authLoading,
@@ -238,6 +239,8 @@ const App: React.FC = () => {
   const [showApiStatus, setShowApiStatus] = useState(false);
   const [userProfile, setUserProfile] = useState<UserProfileData | null>(null);
   const [contactPrefill, setContactPrefill] = useState<ContactPrefill | null>(null);
+  const [adminGoogleButtonReady, setAdminGoogleButtonReady] = useState(false);
+  const adminGoogleButtonRef = useRef<HTMLDivElement | null>(null);
 
   const upsertNewsletterSubscriber = async (
     email: string,
@@ -735,6 +738,39 @@ const App: React.FC = () => {
     if (localStorage.getItem('newsletter_subscribed') === 'true') return;
     upsertNewsletterSubscriber(authEmail, 'signup', authUser?.displayName || null).catch((e) => reportCaughtError(e, 'app.autoNewsletterSubscribe'));
   }, [authEmail]);
+
+  useEffect(() => {
+    let cancelled = false;
+
+    const mountAdminButton = async () => {
+      if (authLoading || authUser || isPrivilegedAdmin || activeTab !== 'admin') {
+        if (adminGoogleButtonRef.current) adminGoogleButtonRef.current.innerHTML = '';
+        setAdminGoogleButtonReady(false);
+        return;
+      }
+
+      try {
+        const ready = await renderGoogleButtonWithReadiness(adminGoogleButtonRef.current, {
+          theme: 'outline',
+          size: 'large',
+          text: 'signin_with',
+          width: 280,
+          locale,
+        });
+        if (!cancelled) setAdminGoogleButtonReady(ready);
+      } catch (error) {
+        if (!cancelled) {
+          setAdminGoogleButtonReady(false);
+          reportCaughtError(error, 'app.renderAdminGoogleButton');
+        }
+      }
+    };
+
+    void mountAdminButton();
+    return () => {
+      cancelled = true;
+    };
+  }, [activeTab, authLoading, authUser, isPrivilegedAdmin, locale]);
 
   const chatbotGoogleSignIn = async (): Promise<any | null> => {
     const user = await googleSignIn();
@@ -2993,12 +3029,17 @@ const App: React.FC = () => {
                     Questa sezione è riservata all'amministratore del sito.
                   </p>
                   {!authUser && (
-                    <button
-                      onClick={googleSignIn}
-                      className="mt-4 px-6 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium transition-colors"
-                    >
-                      Accedi con Google
-                    </button>
+                    <div className="mt-4 w-full max-w-[280px] space-y-2">
+                      <div ref={adminGoogleButtonRef} className="flex min-h-[44px] w-full items-center justify-center overflow-hidden rounded-xl" />
+                      {!adminGoogleButtonReady && (
+                        <button
+                          onClick={googleSignIn}
+                          className="w-full px-6 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium transition-colors"
+                        >
+                          Accedi con Google
+                        </button>
+                      )}
+                    </div>
                   )}
                 </div>
               )}

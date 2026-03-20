@@ -1162,6 +1162,19 @@ export async function renderGoogleButton(
   });
 }
 
+export async function renderGoogleButtonWithReadiness(
+  container: HTMLElement | null,
+  options?: Partial<OneTapButtonOptions>,
+  readinessDelayMs = 450,
+): Promise<boolean> {
+  if (!container) return false;
+  container.innerHTML = '';
+  await renderGoogleButton(container, options);
+  if (container.children.length > 0) return true;
+  await new Promise((resolve) => window.setTimeout(resolve, readinessDelayMs));
+  return container.children.length > 0;
+}
+
 /**
  * Cancel One Tap prompt
  */

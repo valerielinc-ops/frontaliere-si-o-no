@@ -250,7 +250,7 @@ function validateLocales() {
   validateDedicatedLocaleCoverage({
     strictEnvVar: 'JOBS_BOSCH_STRICT',
     label: 'Bosch Thermotechnik AG',
-    jobsPath: DATA_JOBS,
+    dataJobsPath: DATA_JOBS,
     isTargetJob,
     locales: ['it', 'en', 'de', 'fr'],
   });

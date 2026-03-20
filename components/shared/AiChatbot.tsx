@@ -18,7 +18,7 @@ import { Analytics } from '@/services/analytics';
 import { reportCaughtError } from '@/services/errorReporter';
 import { unlockAchievement } from '@/services/gamificationService';
 import { pushRoute, buildPath } from '@/services/router';
-import { cancelOneTap, eagerAuth, promptOneTap, renderGoogleButton } from '@/services/authService';
+import { cancelOneTap, eagerAuth, promptOneTap, renderGoogleButtonWithReadiness } from '@/services/authService';
 import { NAV_ACTION_ROUTES, buildSystemPrompt, type NavAction } from '@/services/internalLinks';
 import { requestSlot, releaseSlot, isActive, subscribe, hasActiveSlot, POPUP_PRIORITY } from '@/services/popupQueue';
 import EmailInput, { validateEmailStrict } from '@/components/shared/EmailInput';
@@ -401,6 +401,7 @@ const AiChatbot: React.FC<AiChatbotProps> = ({ isLoggedIn, onSignIn, onSignInFac
   const [authBusy, setAuthBusy] = useState(false);
   const [authError, setAuthError] = useState<string | null>(null);
   const [authEmail, setAuthEmail] = useState('');
+  const [googleButtonReady, setGoogleButtonReady] = useState(false);
   const [emailAccessGranted, setEmailAccessGranted] = useState<boolean>(() => {
     try {
       return localStorage.getItem('chatbot_email_access') === 'true';
@@ -476,7 +477,11 @@ const AiChatbot: React.FC<AiChatbotProps> = ({ isLoggedIn, onSignIn, onSignInFac
   useEffect(() => () => releaseSlot('ai-chatbot'), []);
 
   useEffect(() => {
-    if (!isOpen || canChat || !authGateOpen) return;
+    if (!isOpen || canChat || !authGateOpen) {
+      setGoogleButtonReady(false);
+      if (googleButtonRef.current) googleButtonRef.current.innerHTML = '';
+      return;
+    }
     eagerAuth();
     // On mobile, One Tap / GIS iframe can overlap and steal touches from CTA buttons.
     // Keep the explicit CTA buttons only for reliable tapping.
@@ -484,24 +489,26 @@ const AiChatbot: React.FC<AiChatbotProps> = ({ isLoggedIn, onSignIn, onSignInFac
     if (!isMobileDevice) {
       promptOneTap();
       timer = setTimeout(() => {
-        if (googleButtonRef.current) {
-          googleButtonRef.current.innerHTML = '';
-          renderGoogleButton(googleButtonRef.current, {
-            width: 280,
-            text: 'continue_with',
-            theme: 'outline',
-            size: 'large',
-          });
-        }
+        void renderGoogleButtonWithReadiness(googleButtonRef.current, {
+          width: 280,
+          text: 'continue_with',
+          theme: 'outline',
+          size: 'large',
+          locale,
+        }).then((ready) => setGoogleButtonReady(ready)).catch((error) => {
+          setGoogleButtonReady(false);
+          reportCaughtError(error, 'chatbot.renderGoogleButton');
+        });
       }, 120);
     } else if (googleButtonRef.current) {
       googleButtonRef.current.innerHTML = '';
+      setGoogleButtonReady(false);
     }
     return () => {
       if (timer) clearTimeout(timer);
       cancelOneTap();
     };
-  }, [isOpen, canChat, authGateOpen, isMobileDevice]);
+  }, [isOpen, canChat, authGateOpen, isMobileDevice, locale]);
 
   // If auth succeeds outside this component (e.g. popup completes async),
   // close the gate and clear stale auth errors.
@@ -873,33 +880,35 @@ const AiChatbot: React.FC<AiChatbotProps> = ({ isLoggedIn, onSignIn, onSignInFac
 
                 <div ref={googleButtonRef} className="mb-2 flex justify-center min-h-[1px]" />
 
-                <button
-                  type="button"
-                  onClick={async () => {
-                    setAuthError(null);
-                    setAuthBusy(true);
-                    Analytics.trackChatbotFunnel('method_selected', 'google');
-                    try {
-                      const user = await onSignIn();
-                      if (user) {
-                        Analytics.trackChatbotFunnel('auth_success', 'google');
-                      } else {
+                {!googleButtonReady && (
+                  <button
+                    type="button"
+                    onClick={async () => {
+                      setAuthError(null);
+                      setAuthBusy(true);
+                      Analytics.trackChatbotFunnel('method_selected', 'google');
+                      try {
+                        const user = await onSignIn();
+                        if (user) {
+                          Analytics.trackChatbotFunnel('auth_success', 'google');
+                        } else {
+                          setAuthError(t('chatbot.authFailed'));
+                          Analytics.trackChatbotFunnel('auth_success', 'google', 'error');
+                        }
+                      } catch {
                         setAuthError(t('chatbot.authFailed'));
                         Analytics.trackChatbotFunnel('auth_success', 'google', 'error');
+                      } finally {
+                        setAuthBusy(false);
                       }
-                    } catch {
-                      setAuthError(t('chatbot.authFailed'));
-                      Analytics.trackChatbotFunnel('auth_success', 'google', 'error');
-                    } finally {
-                      setAuthBusy(false);
-                    }
-                  }}
-                  disabled={authBusy}
-                  className="relative z-30 touch-manipulation w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 mb-2 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-medium text-sm transition-colors shadow-md disabled:opacity-50"
-                >
-                  <LogIn size={15} />
-                  {t('chatbot.loginCta')}
-                </button>
+                    }}
+                    disabled={authBusy}
+                    className="relative z-30 touch-manipulation w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 mb-2 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-medium text-sm transition-colors shadow-md disabled:opacity-50"
+                  >
+                    <LogIn size={15} />
+                    {t('chatbot.loginCta')}
+                  </button>
+                )}
 
                 <p className="flex items-center justify-center gap-1.5 text-[11px] text-slate-500 dark:text-slate-400 mb-1">
                   <Shield size={11} className="text-emerald-600 dark:text-emerald-400 flex-shrink-0" />

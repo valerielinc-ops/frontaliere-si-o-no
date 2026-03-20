@@ -1,6 +1,6 @@
 {
   "crawlerKey": "bosch-thermotechnik-ag",
-  "assembledAt": "2026-03-20T15:52:41.591Z",
+  "assembledAt": "2026-03-20T16:45:01.057Z",
   "jobs": [
     {
       "title": "Tecnico di servizio Fossile Regione Ticino (m/f/div.) REF280202G",
@@ -45,7 +45,20 @@
       },
       "previousSlugs": [
         "tecnico-di-servizio-fossile-regione-ticino-m-f-div-ref280202g-bosch-rivera"
-      ]
+      ],
+      "salaryMin": 54000,
+      "salaryMax": 73000,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 54000,
+          "maxValue": 73000,
+          "unitText": "YEAR"
+        }
+      }
     }
   ]
 }

@@ -9,11 +9,11 @@ describe('JobBoard Google gate uses GIS as primary path', () => {
     const jobBoardSource = readFileSync(resolve(root, 'components/community/JobBoard.tsx'), 'utf8');
     const appSource = readFileSync(resolve(root, 'App.tsx'), 'utf8');
 
-    expect(jobBoardSource).toContain("renderGoogleButton");
+    expect(jobBoardSource).toContain("renderGoogleButtonWithReadiness");
     expect(jobBoardSource).toContain("getAuthEmail");
     expect(jobBoardSource).toContain("const modalGoogleButtonRef = useRef<HTMLDivElement | null>(null);");
     expect(jobBoardSource).toContain("const inlineGoogleButtonRef = useRef<HTMLDivElement | null>(null);");
-    expect(jobBoardSource).toContain("await renderGoogleButton(buttonContainer, {");
+    expect(jobBoardSource).toContain("const ready = await renderGoogleButtonWithReadiness(buttonContainer, {");
     expect(jobBoardSource).toContain("const userEmail = getAuthEmail(authUser);");
     expect(jobBoardSource).toContain("if (!authResolved || !isLoggedIn) return;");
     expect(appSource).toContain("authUser={authUser}");

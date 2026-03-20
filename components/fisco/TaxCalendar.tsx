@@ -1,9 +1,9 @@
-import React, { useState, useMemo, useEffect } from 'react';
+import React, { useState, useMemo, useEffect, useRef } from 'react';
 import { Calendar, AlertTriangle, CheckCircle2, Bell, ChevronDown, ChevronLeft, ChevronRight, FileText, Info, Euro, Landmark, Shield, Star, Gift, List, LayoutGrid } from 'lucide-react';
 import { Analytics } from '@/services/analytics';
 import { reportCaughtError } from '@/services/errorReporter';
 import { useTranslation } from '@/services/i18n';
-import { useAuth, getAuthEmail } from '@/services/authService';
+import { useAuth, getAuthEmail, renderGoogleButtonWithReadiness } from '@/services/authService';
 import EmailInput, { validateEmailStrict } from '@/components/shared/EmailInput';
 import {
   upsertNewsletterSubscriber,
@@ -318,7 +318,7 @@ const CHECKLIST_PREFS_KEY = 'ft_tax_checklist_prefs_v1';
 const SUBSCRIBED_KEY = 'newsletter_subscribed';
 
 const TaxCalendar: React.FC<TaxCalendarProps> = ({ initialTab }) => {
-  const { t } = useTranslation();
+  const { t, locale } = useTranslation();
   const { user, signIn: googleSignIn, signInFacebook: facebookSignIn } = useAuth();
   const CATEGORY_CONFIG = useMemo(() => getCategoryConfig(t), [t]);
   const DEADLINES_2026 = useMemo(() => getDeadlines2026(t), [t]);
@@ -337,6 +337,9 @@ const TaxCalendar: React.FC<TaxCalendarProps> = ({ initialTab }) => {
   const [reminderSignupLoading, setReminderSignupLoading] = useState<boolean>(false);
   const [reminderSignupEmail, setReminderSignupEmail] = useState<string>('');
   const [reminderSignupError, setReminderSignupError] = useState<string>('');
+  const [reminderGoogleButtonReady, setReminderGoogleButtonReady] = useState<boolean>(false);
+  const googleReminderButtonRef = useRef<HTMLDivElement>(null);
+  const reminderGoogleBridgeInFlightRef = useRef(false);
   const [completedIds, setCompletedIds] = useState<string[]>([]);
   const [checklistNotice, setChecklistNotice] = useState<string | null>(null);
 
@@ -404,6 +407,39 @@ const TaxCalendar: React.FC<TaxCalendarProps> = ({ initialTab }) => {
     const authEmail = getAuthEmail(user);
     if (authEmail && !reminderSignupEmail) setReminderSignupEmail(authEmail);
   }, [user, reminderSignupEmail]);
+
+  useEffect(() => {
+    let cancelled = false;
+
+    const mountButton = async () => {
+      if (!reminderSignupOpen || reminderEnabled || user) {
+        if (googleReminderButtonRef.current) googleReminderButtonRef.current.innerHTML = '';
+        setReminderGoogleButtonReady(false);
+        return;
+      }
+
+      try {
+        const ready = await renderGoogleButtonWithReadiness(googleReminderButtonRef.current, {
+          theme: 'outline',
+          size: 'large',
+          text: 'continue_with',
+          width: 280,
+          locale,
+        });
+        if (!cancelled) setReminderGoogleButtonReady(ready);
+      } catch (error) {
+        if (!cancelled) {
+          setReminderGoogleButtonReady(false);
+          reportCaughtError(error, 'taxCalendar.renderGoogleButton');
+        }
+      }
+    };
+
+    void mountButton();
+    return () => {
+      cancelled = true;
+    };
+  }, [reminderSignupOpen, reminderEnabled, user, locale]);
 
   const activeCategoryConfig = useMemo(() => {
     return Object.fromEntries(
@@ -579,6 +615,43 @@ const TaxCalendar: React.FC<TaxCalendarProps> = ({ initialTab }) => {
       setReminderSignupLoading(false);
     }
   };
+
+  useEffect(() => {
+    if (!reminderSignupOpen || reminderEnabled || !user) return;
+    if (reminderGoogleBridgeInFlightRef.current) return;
+
+    const email = getAuthEmail(user);
+    if (!email) return;
+
+    let cancelled = false;
+    reminderGoogleBridgeInFlightRef.current = true;
+    setReminderSignupError('');
+    setReminderSignupLoading(true);
+
+    Analytics.trackUIInteraction('tax_calendar', 'checklist_reminder_funnel', 'method', 'google_gis_resume');
+
+    (async () => {
+      const subscribed = await subscribeToNewsletter(email, 'tax_calendar_google');
+      if (!subscribed) {
+        throw new Error('Impossibile confermare il reminder con Google.');
+      }
+      if (cancelled) return;
+      enableReminderWithTracking('google');
+    })().catch((error) => {
+      reportCaughtError(error, 'taxCalendar.googleGisResume');
+      if (!cancelled) {
+        setReminderSignupError('Accesso Google non completato.');
+        Analytics.trackUIInteraction('tax_calendar', 'checklist_reminder_funnel', 'method', 'google_error');
+      }
+    }).finally(() => {
+      reminderGoogleBridgeInFlightRef.current = false;
+      if (!cancelled) setReminderSignupLoading(false);
+    });
+
+    return () => {
+      cancelled = true;
+    };
+  }, [reminderEnabled, reminderSignupOpen, user]);
 
   // Build a map: dateStr -> deadlines for quick lookup
   const deadlinesByDate = useMemo(() => {
@@ -825,21 +898,26 @@ const TaxCalendar: React.FC<TaxCalendarProps> = ({ initialTab }) => {
               Attiva i reminder iscrivendoti: salviamo la preferenza e misuriamo questo funnel.
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-              <button
-                type="button"
-                onClick={handleGoogleReminderSignup}
-                disabled={reminderSignupLoading}
-                className="w-full grid grid-cols-[20px_1fr_20px] items-center py-2 px-3 border border-slate-300 dark:border-slate-500 rounded-lg text-xs font-semibold text-slate-800 dark:text-slate-100 bg-white dark:bg-slate-700 hover:bg-slate-100 dark:hover:bg-slate-600 transition-colors disabled:opacity-50"
-              >
-                <svg viewBox="0 0 24 24" className="w-4 h-4" aria-hidden="true">
-                  <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4" />
-                  <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853" />
-                  <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05" />
-                  <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335" />
-                </svg>
-                <span className="text-center">Continua con Google</span>
-                <span aria-hidden="true" />
-              </button>
+              <div className="space-y-2">
+                <div ref={googleReminderButtonRef} className="flex min-h-[44px] w-full items-center justify-center overflow-hidden rounded-lg" />
+                {!reminderGoogleButtonReady && (
+                  <button
+                    type="button"
+                    onClick={handleGoogleReminderSignup}
+                    disabled={reminderSignupLoading}
+                    className="w-full grid grid-cols-[20px_1fr_20px] items-center py-2 px-3 border border-slate-300 dark:border-slate-500 rounded-lg text-xs font-semibold text-slate-800 dark:text-slate-100 bg-white dark:bg-slate-700 hover:bg-slate-100 dark:hover:bg-slate-600 transition-colors disabled:opacity-50"
+                  >
+                    <svg viewBox="0 0 24 24" className="w-4 h-4" aria-hidden="true">
+                      <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4" />
+                      <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853" />
+                      <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05" />
+                      <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335" />
+                    </svg>
+                    <span className="text-center">Continua con Google</span>
+                    <span aria-hidden="true" />
+                  </button>
+                )}
+              </div>
               {/* Facebook button hidden — Facebook app not yet approved */}
               {/* TODO: Re-enable once Facebook app review is complete */}
             </div>

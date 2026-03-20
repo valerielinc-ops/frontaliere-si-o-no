@@ -4,7 +4,7 @@ import { spawn } from 'node:child_process';
 import { detectLanguage } from './detect-language.mjs';
 import { freeTranslateWithRetry } from './free-translate.mjs';
 import { translateTextWithLocalPipeline } from './job-localization-pipeline.mjs';
-import { estimateTicinoSalary } from './salary-estimation.mjs';
+import { hardenJobsWithStructuredSalary } from './structured-salary.mjs';
 import {
   DEFAULT_JOB_LOCALES,
   detectJobTitleLang,
@@ -427,75 +427,6 @@ function runSpawnedSharedCrawler({ root, env }) {
       else reject(new Error(`shared-jobs-crawler exited with code ${code}`));
     });
   });
-}
-
-function toFiniteNumber(value) {
-  const n = Number(value);
-  return Number.isFinite(n) ? n : null;
-}
-
-function roundToHundreds(value) {
-  return Math.max(1, Math.round(Number(value || 0) / 100) * 100);
-}
-
-function inferSalaryRange(job) {
-  const est = estimateTicinoSalary(job);
-  return { min: est.minValue, max: est.maxValue };
-}
-
-function normalizeCurrency(job) {
-  const raw = String(
-    job?.currency ||
-    job?.baseSalary?.currency ||
-    job?.baseSalary?.value?.currency ||
-    'CHF'
-  ).trim().toUpperCase();
-  return raw === 'EUR' ? 'EUR' : 'CHF';
-}
-
-function ensureStructuredSalary(job) {
-  if (!job || typeof job !== 'object') return { job, changed: false };
-  const existingMin = toFiniteNumber(job.salaryMin) ?? toFiniteNumber(job?.baseSalary?.value?.minValue);
-  const existingMax = toFiniteNumber(job.salaryMax) ?? toFiniteNumber(job?.baseSalary?.value?.maxValue);
-  const currency = normalizeCurrency(job);
-
-  const estimated = inferSalaryRange(job);
-  const minValue = existingMin && existingMin > 0 ? existingMin : estimated.min;
-  let maxValue = existingMax && existingMax >= minValue ? existingMax : null;
-  if (!maxValue) {
-    maxValue = roundToHundreds(Math.max(estimated.max, minValue * 1.2));
-  }
-
-  const next = {
-    ...job,
-    salaryMin: minValue,
-    salaryMax: maxValue,
-    currency,
-    baseSalary: {
-      '@type': 'MonetaryAmount',
-      currency,
-      value: {
-        '@type': 'QuantitativeValue',
-        minValue,
-        maxValue,
-        unitText: 'YEAR',
-      },
-    },
-  };
-
-  const beforeSig = JSON.stringify({
-    salaryMin: job.salaryMin,
-    salaryMax: job.salaryMax,
-    currency: job.currency,
-    baseSalary: job.baseSalary,
-  });
-  const afterSig = JSON.stringify({
-    salaryMin: next.salaryMin,
-    salaryMax: next.salaryMax,
-    currency: next.currency,
-    baseSalary: next.baseSalary,
-  });
-  return { job: next, changed: beforeSig !== afterSig };
 }
 
 function inferPublicJobsPath(dataJobsPath) {
@@ -995,19 +926,10 @@ export function hardenJobsRichResultsData({ dataJobsPath }) {
     return { changed: false, updated: 0, total: 0 };
   }
 
-  let changed = false;
-  let updated = 0;
-  const hardened = raw.map((job) => {
-    const result = ensureStructuredSalary(job);
-    if (result.changed) {
-      changed = true;
-      updated += 1;
-    }
-    return result.job;
-  });
+  const { jobs: hardened, changed, updated, total } = hardenJobsWithStructuredSalary(raw);
 
   if (!changed) {
-    return { changed: false, updated: 0, total: hardened.length };
+    return { changed: false, updated: 0, total };
   }
 
   writeJson(dataJobsPath, hardened);
@@ -1015,7 +937,7 @@ export function hardenJobsRichResultsData({ dataJobsPath }) {
   if (fs.existsSync(publicJobsPath)) {
     writeJson(publicJobsPath, hardened);
   }
-  return { changed: true, updated, total: hardened.length, publicJobsPath };
+  return { changed: true, updated, total, publicJobsPath };
 }
 
 /**
@@ -1088,6 +1010,7 @@ export function validateDedicatedLocaleCoverage({
   strictEnvVar,
   label,
   dataJobsPath,
+  jobsPath,
   isTargetJob,
   locales = DEFAULT_LOCALES,
   minTitleChars = 3,
@@ -1105,12 +1028,14 @@ export function validateDedicatedLocaleCoverage({
   minSourceDescriptionCharsForHardValidation = minDescriptionChars,
   maxToleratedMissingDescriptions = 0,
 }) {
+  const resolvedDataJobsPath = dataJobsPath || jobsPath;
+
   // Auto-repair missing locale fields before validation
-  const localeHardening = hardenJobLocaleFields({ dataJobsPath });
+  const localeHardening = hardenJobLocaleFields({ dataJobsPath: resolvedDataJobsPath });
   if (localeHardening.changed) {
     console.log(`🛡️ Locale hardening: repaired ${localeHardening.repaired}/${localeHardening.total} jobs (filled missing titleByLocale/descriptionByLocale/slugByLocale).`);
   }
-  const hardening = hardenJobsRichResultsData({ dataJobsPath });
+  const hardening = hardenJobsRichResultsData({ dataJobsPath: resolvedDataJobsPath });
   if (hardening.changed) {
     console.log(`🛡️ Shared hardening: baseSalary fixed for ${hardening.updated}/${hardening.total} jobs.`);
   }
@@ -1118,15 +1043,15 @@ export function validateDedicatedLocaleCoverage({
   const strict = String(process.env[strictEnvVar] || '1') !== '0';
   if (!strict) return;
 
-  if (!fs.existsSync(dataJobsPath)) {
+  if (!resolvedDataJobsPath || !fs.existsSync(resolvedDataJobsPath)) {
     if (failOnMissingJobsFile) {
-      throw new Error(`Missing ${dataJobsPath}`);
+      throw new Error(`Missing ${resolvedDataJobsPath}`);
     }
     console.log('ℹ️ jobs.json non trovato — skip validazione locale.');
     return;
   }
 
-  const raw = JSON.parse(fs.readFileSync(dataJobsPath, 'utf-8'));
+  const raw = JSON.parse(fs.readFileSync(resolvedDataJobsPath, 'utf-8'));
   const jobs = Array.isArray(raw) ? raw.filter(isTargetJob) : [];
   if (jobs.length === 0) {
     const message = noJobsMessage || `No ${label} jobs found after crawl.`;
