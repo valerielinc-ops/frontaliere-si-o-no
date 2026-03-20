@@ -1433,6 +1433,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.tassa-transito-parlamento-ticino.title': 'Die Transitsteuer im Tessin zwischen Genehmigung und wirtschaftlichen Auswirkungen',
     'blog.article.tassa-transito-parlamento-ticino.excerpt': 'Die vom Schweizer Parlament genehmigte Transitsteuer könnte die Kosten für Grenzgänger und die Kantonseinnahmen beeinflussen. Hier erfahren Sie, was zu erwarten ist.',
     'blog.article.tassa-transito-parlamento-ticino.imageAlt': 'Grenzübergang im Tessin mit Transitkontrolle und Berglandschaft',
+    'blog.article.inclusione-migranti-ticino.title': 'Alis und Cir: Neue Strategien für die Integration von Migranten im Tessin',
+    'blog.article.inclusione-migranti-ticino.excerpt': 'Der Kanton Tessin stärkt die soziale und berufliche Integration von Migranten durch neue Initiativen von Alis und Cir, mit Fokus auf Ausbildung und Arbeitsmarktintegration.',
+    'blog.article.inclusione-migranti-ticino.imageAlt': 'Grenzgänger am Grenzübergang Brogeda in Tessin, soziale Integration',
 };
 
 export default blogMetaDe;

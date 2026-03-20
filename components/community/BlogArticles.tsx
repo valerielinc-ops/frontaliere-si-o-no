@@ -3938,6 +3938,13 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/tassa-transito-parlamento-ticino.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'inclusione-migranti-ticino',
+    category: 'novita',
+    date: '2026-03-20T11:42:04.126Z',
+    image: '/images/blog/inclusione-migranti-ticino.jpg',
+    hasCalculator: true,
+  },
 ];
 
 const CATEGORIES = ['all', 'fiscale', 'pratico', 'novita', 'pensione'] as const;

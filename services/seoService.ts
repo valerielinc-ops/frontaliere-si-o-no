@@ -1614,6 +1614,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-lavoro-richiedenti-asilo-ucraini-ticino': { name: 'Richiedenti asilo e ucraini', path: '/articoli-frontaliere/lavoro-richiedenti-asilo-ucraini-ticino', parent: 'blog' },
     'blog-riforma-scolastica-ticino-difficolta': { name: 'Riforma scolastica in Ticino', path: '/articoli-frontaliere/riforma-scolastica-ticino-difficolta', parent: 'blog' },
     'blog-tassa-transito-parlamento-ticino': { name: 'La tassa di transito in Ticino tra appro', path: '/articoli-frontaliere/tassa-transito-parlamento-ticino', parent: 'blog' },
+    'blog-inclusione-migranti-ticino': { name: 'Alis e Cir', path: '/articoli-frontaliere/inclusione-migranti-ticino', parent: 'blog' },
   };
 
   const info = sectionNames[section];

@@ -6983,6 +6983,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-inclusione-migranti-ticino': {
+    title: 'Alis e Cir: nuove strategie per l’inclusione dei migranti in Ticino | Frontaliere Ticino',
+    description: 'Alis e Cir promuovono l\'inclusione sociale e lavorativa dei migranti in Ticino con programmi di formazione e inserimento. Scopri di più su Frontaliere Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, alis, nuove, strategie, inclusione',
+    ogTitle: 'Integrazione migranti Ticino | Frontaliere Ticino',
+    ogDescription: 'Alis e Cir collaborano per l\'inclusione dei migranti in Ticino, creando opportunità di formazione e inserimento professionale nel mercato locale.',
+    canonicalPath: '/articoli-frontaliere/inclusione-migranti-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Integrazione migranti in Ticino",
+      "description": "Alis e Cir promuovono l'inclusione sociale e lavorativa dei migranti in Ticino con programmi di formazione e inserimento. Scopri di più su Frontaliere Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/inclusione-migranti-ticino.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Frontalieri ticinesi al valico di Brogeda, lavoro e integrazione sociale"
+      },
+      "datePublished": "2026-03-20T11:42:04+00:00",
+      "dateModified": "2026-03-20T11:42:04+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/inclusione-migranti-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

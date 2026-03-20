@@ -1433,6 +1433,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.tassa-transito-parlamento-ticino.title': 'La tassa di transito in Ticino tra approvazione e impatti economici',
     'blog.article.tassa-transito-parlamento-ticino.excerpt': 'La tassa di transito, approvata dal Parlamento svizzero, potrebbe incidere sui costi dei frontalieri e sulle entrate cantonali. Ecco cosa aspettarsi.',
     'blog.article.tassa-transito-parlamento-ticino.imageAlt': 'Valico di frontiera in Ticino con controllo transito e paesaggio montano',
+    'blog.article.inclusione-migranti-ticino.title': 'Alis e Cir: nuove strategie per l’inclusione dei migranti in Ticino',
+    'blog.article.inclusione-migranti-ticino.excerpt': 'Il Canton Ticino rafforza l’integrazione socio-lavorativa dei migranti con nuove iniziative promosse da Alis e Cir, con focus su formazione e inserimento professionale.',
+    'blog.article.inclusione-migranti-ticino.imageAlt': 'Frontalieri ticinesi al valico di Brogeda, lavoro e integrazione sociale',
 };
 
 export default blogMetaIt;

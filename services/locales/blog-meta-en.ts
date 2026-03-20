@@ -1433,6 +1433,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.tassa-transito-parlamento-ticino.title': 'Transit Tax in Ticino: Approval and Economic Impacts',
     'blog.article.tassa-transito-parlamento-ticino.excerpt': 'The transit tax, approved by the Swiss Parliament, could influence the costs for cross-border workers and cantonal revenues. Here\'s what to expect.',
     'blog.article.tassa-transito-parlamento-ticino.imageAlt': 'Border crossing in Ticino with transit control and mountain landscape',
+    'blog.article.inclusione-migranti-ticino.title': 'Alis and Cir: New Strategies for Migrant Inclusion in Ticino',
+    'blog.article.inclusione-migranti-ticino.excerpt': 'The Canton of Ticino strengthens social and labor integration of migrants with new initiatives promoted by Alis and Cir, focusing on training and professional placement.',
+    'blog.article.inclusione-migranti-ticino.imageAlt': 'Cross-border workers at Brogeda border crossing in Ticino, social inclusion',
 };
 
 export default blogMetaEn;

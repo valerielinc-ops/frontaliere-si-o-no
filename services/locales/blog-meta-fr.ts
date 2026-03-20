@@ -1433,6 +1433,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.tassa-transito-parlamento-ticino.title': 'La taxe de transit au Tessin entre approbation et impacts économiques',
     'blog.article.tassa-transito-parlamento-ticino.excerpt': 'La taxe de transit, approuvée par le Parlement suisse, pourrait influencer les coûts des frontaliers et les recettes cantonales. Voici ce à quoi s’attendre.',
     'blog.article.tassa-transito-parlamento-ticino.imageAlt': 'Poste frontière dans le Tessin avec contrôle de transit et paysage montagnard',
+    'blog.article.inclusione-migranti-ticino.title': 'Alis et Cir : nouvelles stratégies pour l’inclusion des migrants au Tessin',
+    'blog.article.inclusione-migranti-ticino.excerpt': 'Le Canton du Tessin renforce l’intégration socio-professionnelle des migrants avec de nouvelles initiatives promues par Alis et Cir, axées sur la formation et l’insertion professionnelle.',
+    'blog.article.inclusione-migranti-ticino.imageAlt': 'Travailleurs transfrontaliers à la frontière de Brogeda, inclusion sociale',
 };
 
 export default blogMetaFr;
