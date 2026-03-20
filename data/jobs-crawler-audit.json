@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-03-19T20:07:33.231Z",
-  "startedAt": "2026-03-19T20:03:37.639Z",
+  "generatedAt": "2026-03-20T03:18:48.352Z",
+  "startedAt": "2026-03-20T03:12:14.419Z",
   "config": {
     "minQualityScore": 4,
     "minDescriptionChars": 80,
     "aiLocalizationEnabled": true,
-    "aiLocalizationMaxJobsPerRun": 500,
+    "aiLocalizationMaxJobsPerRun": 120,
     "contentReuse": {
       "enabled": true,
       "similarityThreshold": 0.7,
@@ -22,12 +22,12 @@
   },
   "totals": {
     "companiesParsed": 179,
-    "companiesSelected": 1,
+    "companiesSelected": 15,
     "companiesDroppedBySelection": 0,
-    "companiesCrawled": 1,
-    "discoveredCareerPages": 8,
-    "scrapedJobPages": 6,
-    "incomingCandidatesAccepted": 6,
+    "companiesCrawled": 0,
+    "discoveredCareerPages": 0,
+    "scrapedJobPages": 0,
+    "incomingCandidatesAccepted": 0,
     "discardedCandidates": 0,
     "filteredOutNonCandidates": 0,
     "duplicateInCompany": 0,
@@ -37,48 +37,242 @@
     "browserFallbackHits": 0,
     "duplicateIncoming": 0,
     "duplicateExisting": 12,
-    "mergeExcludedJobs": 0,
-    "mergeExclusionByReason": {},
+    "mergeExcludedJobs": 85,
+    "mergeExclusionByReason": {
+      "non_detail_url": 85,
+      "not_ticino_relevant": 6,
+      "outside_swiss_ticino": 7,
+      "location_explicitly_foreign": 5,
+      "explicitly_outside_target": 1
+    },
     "reusedLocalizationFromPrevious": 0,
     "inserted": 0,
-    "refreshed": 6,
-    "mergedTotal": 1018,
-    "aiLocalizationCalls": 6,
+    "refreshed": 0,
+    "mergedTotal": 933,
+    "aiLocalizationCalls": 29,
     "aiPageValidationCalls": 0,
-    "deeplCalls": 0,
+    "deeplCalls": 55,
     "deeplSuccess": 0,
-    "deeplFallbackToLlm": 0,
-    "aiCacheHits": 0,
-    "aiCacheMisses": 20,
-    "aiCacheEntries": 1518,
+    "deeplFallbackToLlm": 53,
+    "aiCacheHits": 57,
+    "aiCacheMisses": 88,
+    "aiCacheEntries": 1606,
     "discoveredCompaniesCandidates": 0,
     "discoveredCompaniesAdded": 0,
     "discoveredCompaniesPending": 0
   },
-  "byCompany": [
-    {
-      "company": "lastminute.com",
-      "domain": "corporate.lastminute.com",
-      "discoveredCareerPages": 8,
-      "scrapedJobPages": 6,
-      "processedCandidates": 6,
-      "extractedAccepted": 6,
-      "discardedCount": 0,
-      "discardedByReason": {},
-      "filteredOutCount": 0,
-      "filteredOutByReason": {},
-      "duplicateInCompany": 0,
-      "webDiscoveryQueries": 0,
-      "webDiscoveryHits": 0,
-      "webDiscoveryProviders": [],
-      "browserFallbackAttempted": 0,
-      "browserFallbackHits": 0,
-      "browserFallbackReason": "",
-      "inserted": 0,
-      "refreshed": 0,
-      "duplicateIncoming": 0
-    }
-  ],
+  "byCompany": [],
   "droppedCompanies": [],
-  "mergeExclusionSamples": []
+  "mergeExclusionSamples": [
+    {
+      "reason": "non_detail_url",
+      "title": "Nachtportier/ Night Auditor (m/w/d)",
+      "company": "Grand Hotel Kronenhof",
+      "location": "Pontresina",
+      "url": "https://careers.kronenhof.com/en/vacancies#job-642"
+    },
+    {
+      "reason": "non_detail_url",
+      "title": "Service Allrounder Festival da Jazz (m/w/d)",
+      "company": "Kulm Hotel St. Moritz",
+      "location": "St. Moritz",
+      "url": "https://careers.kronenhof.com/en/vacancies#job-619"
+    },
+    {
+      "reason": "non_detail_url",
+      "title": "Driver (m/w/d)",
+      "company": "Grand Hotel Kronenhof",
+      "location": "Pontresina",
+      "url": "https://careers.kronenhof.com/en/vacancies#job-638"
+    },
+    {
+      "reason": "non_detail_url",
+      "title": "Linen Employee (part-time 50%) (m/w/d)",
+      "company": "Grand Hotel Kronenhof",
+      "location": "Pontresina",
+      "url": "https://careers.kronenhof.com/en/vacancies#job-648"
+    },
+    {
+      "reason": "non_detail_url",
+      "title": "Chef de Rang (m/w/d)",
+      "company": "Grand Hotel Kronenhof",
+      "location": "Pontresina",
+      "url": "https://careers.kronenhof.com/en/vacancies#job-650"
+    },
+    {
+      "reason": "non_detail_url",
+      "title": "Breakfast Cook/ Commis de Cuisine Breakfast (m/w/d)",
+      "company": "Grand Hotel Kronenhof",
+      "location": "Pontresina",
+      "url": "https://careers.kronenhof.com/en/vacancies#job-658"
+    },
+    {
+      "reason": "non_detail_url",
+      "title": "Service Employee Staff Restaurant (m/w/d)",
+      "company": "Kulm Hotel St. Moritz",
+      "location": "St. Moritz",
+      "url": "https://careers.kronenhof.com/en/vacancies#job-596"
+    },
+    {
+      "reason": "non_detail_url",
+      "title": "Front Office Agent (m/w/d)",
+      "company": "Kulm Hotel St. Moritz",
+      "location": "St. Moritz",
+      "url": "https://careers.kronenhof.com/en/vacancies#job-610"
+    },
+    {
+      "reason": "non_detail_url",
+      "title": "Commis de Cuisine (m/w/d)",
+      "company": "Kulm Hotel St. Moritz",
+      "location": "St. Moritz",
+      "url": "https://careers.kronenhof.com/en/vacancies#job-613"
+    },
+    {
+      "reason": "non_detail_url",
+      "title": "Florist (m/w/d)",
+      "company": "Kulm Hotel St. Moritz",
+      "location": "St. Moritz",
+      "url": "https://careers.kronenhof.com/en/vacancies#job-614"
+    },
+    {
+      "reason": "non_detail_url",
+      "title": "Florist (m/w/d)",
+      "company": "Grand Hotel Kronenhof",
+      "location": "Pontresina",
+      "url": "https://careers.kronenhof.com/en/vacancies#job-615"
+    },
+    {
+      "reason": "non_detail_url",
+      "title": "Chef de Partie - Kulm Country Club (m/w/d)",
+      "company": "Kulm Hotel St. Moritz",
+      "location": "St. Moritz",
+      "url": "https://careers.kronenhof.com/en/vacancies#job-618"
+    },
+    {
+      "reason": "non_detail_url",
+      "title": "Chef de Partie Mitarbeiterrestaurant/ Personalkoch (m/w/d)",
+      "company": "Kulm Hotel St. Moritz",
+      "location": "St. Moritz",
+      "url": "https://careers.kronenhof.com/en/vacancies#job-623"
+    },
+    {
+      "reason": "non_detail_url",
+      "title": "Commis de Bar (m/w/d)",
+      "company": "Kulm Hotel St. Moritz",
+      "location": "St. Moritz",
+      "url": "https://careers.kronenhof.com/en/vacancies#job-624"
+    },
+    {
+      "reason": "non_detail_url",
+      "title": "Commis de Rang (m/w/d)",
+      "company": "Kulm Hotel St. Moritz",
+      "location": "St. Moritz",
+      "url": "https://careers.kronenhof.com/en/vacancies#job-625"
+    },
+    {
+      "reason": "non_detail_url",
+      "title": "Training & Development Manager (m/w/d)",
+      "company": "Kulm Hotel St. Moritz",
+      "location": "St. Moritz",
+      "url": "https://careers.kronenhof.com/en/vacancies#job-627"
+    },
+    {
+      "reason": "non_detail_url",
+      "title": "Barman Chef de Rang - Kulm Altitude Bar (m/w/d)",
+      "company": "Kulm Hotel St. Moritz",
+      "location": "St. Moritz",
+      "url": "https://careers.kronenhof.com/en/vacancies#job-632"
+    },
+    {
+      "reason": "non_detail_url",
+      "title": "Demi Chef de Partie - Breakfast (m/w/d)",
+      "company": "Kulm Hotel St. Moritz",
+      "location": "St. Moritz",
+      "url": "https://careers.kronenhof.com/en/vacancies#job-633"
+    },
+    {
+      "reason": "non_detail_url",
+      "title": "Team Assistant Concierge and Guest Services (m/w/d)",
+      "company": "Kulm Hotel St. Moritz",
+      "location": "St. Moritz",
+      "url": "https://careers.kronenhof.com/en/vacancies#job-635"
+    },
+    {
+      "reason": "non_detail_url",
+      "title": "Employee Kids Club (m/w/d)",
+      "company": "Grand Hotel Kronenhof",
+      "location": "Pontresina",
+      "url": "https://careers.kronenhof.com/en/vacancies#job-646"
+    },
+    {
+      "reason": "non_detail_url",
+      "title": "Commis de Rang/ Assistant Waiter (m/w/d)",
+      "company": "Grand Hotel Kronenhof",
+      "location": "Pontresina",
+      "url": "https://careers.kronenhof.com/en/vacancies#job-651"
+    },
+    {
+      "reason": "non_detail_url",
+      "title": "Supervisor Stewarding (m/w/d)",
+      "company": "Kulm Hotel St. Moritz",
+      "location": "St. Moritz",
+      "url": "https://careers.kronenhof.com/en/vacancies#job-653"
+    },
+    {
+      "reason": "non_detail_url",
+      "title": "Employee Economat & Bike Lounge (m/w/d)",
+      "company": "Kulm Hotel St. Moritz",
+      "location": "St. Moritz",
+      "url": "https://careers.kronenhof.com/en/vacancies#job-654"
+    },
+    {
+      "reason": "non_detail_url",
+      "title": "Upholsterer (m/w/d)",
+      "company": "Kulm Hotel St. Moritz",
+      "location": "St. Moritz",
+      "url": "https://careers.kronenhof.com/en/vacancies#job-600"
+    },
+    {
+      "reason": "non_detail_url",
+      "title": "Reservations Agent (m/w/d)",
+      "company": "Kulm Hotel St. Moritz",
+      "location": "St. Moritz",
+      "url": "https://careers.kronenhof.com/en/vacancies#job-602"
+    },
+    {
+      "reason": "non_detail_url",
+      "title": "Food and Beverage Assistant (m/w/d)",
+      "company": "Kulm Hotel St. Moritz",
+      "location": "St. Moritz",
+      "url": "https://careers.kronenhof.com/en/vacancies#job-608"
+    },
+    {
+      "reason": "non_detail_url",
+      "title": "Restaurant Supervisor (m/w) Deutschsprachig",
+      "company": "Kempinski Palace Engelberg",
+      "location": "Engelberg",
+      "url": "https://kempinski.pinpointhq.com/en/postings/3351dac0-8b9f-4d92-b634-ace170a18f52"
+    },
+    {
+      "reason": "non_detail_url",
+      "title": "Cluster Sales Manager (m/w)",
+      "company": "Kempinski Palace Engelberg",
+      "location": "Engelberg",
+      "url": "https://kempinski.pinpointhq.com/en/postings/8310c6bc-bcc6-487c-967f-15f946e53765"
+    },
+    {
+      "reason": "non_detail_url",
+      "title": "Cluster Reservation Agent (m/w) - Deutschsprachig / ab 01.05.2026 oder nach Vereinbarung",
+      "company": "Kempinski Palace Engelberg",
+      "location": "Engelberg",
+      "url": "https://kempinski.pinpointhq.com/en/postings/e5488ef4-d816-44a4-816a-7183647d8211"
+    },
+    {
+      "reason": "non_detail_url",
+      "title": "Back Office / Sales Support Specialist",
+      "company": "MTIC Group",
+      "location": "Lugano Paradiso",
+      "url": "http://spsintercertsa.mtic-group.org/it/opportunita-di-lavoro/open-position-back-office-/-sales-support-specialist"
+    }
+  ]
 }
