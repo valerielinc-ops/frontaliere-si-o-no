@@ -1,6 +1,6 @@
 {
   "crawlerKey": "boggi-milano",
-  "assembledAt": "2026-03-20T04:37:04.612Z",
+  "assembledAt": "2026-03-20T15:52:09.380Z",
   "jobs": [
     {
       "title": "Sales Advisor - PT- Aubonne",
@@ -58,9 +58,7 @@
           "maxValue": 73000,
           "unitText": "YEAR"
         }
-      },
-      "crawledAt": "",
-      "requirementsByLocale": {}
+      }
     },
     {
       "title": "Treasury Coordinator",
@@ -118,9 +116,7 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      },
-      "crawledAt": "",
-      "requirementsByLocale": {}
+      }
     },
     {
       "title": "Retail HR Specialist",
@@ -163,6 +159,9 @@
         "de": "hr-spezialist-fur-den-einzelhandel-boggi-milano-mendrisio",
         "fr": "specialiste-rh-retail-boggi-milano-mendrisio"
       },
+      "previousSlugs": [
+        "retail-hr-specialist-boggi-milano-mendrisio-ticino"
+      ],
       "salaryMin": 54000,
       "salaryMax": 73000,
       "currency": "CHF",
@@ -175,12 +174,7 @@
           "maxValue": 73000,
           "unitText": "YEAR"
         }
-      },
-      "crawledAt": "",
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "retail-hr-specialist-boggi-milano-mendrisio-ticino"
-      ]
+      }
     },
     {
       "title": "Sales Advisor Categorie Protette L.68/99 - Serravalle",
@@ -223,6 +217,9 @@
         "de": "verkaufsberater-kategorie-protette-l-68-99-serravalle-boggi-milano-serravalle-designer-outlet",
         "fr": "conseiller-commercial-categorie-protette-l-68-99-serravalle-boggi-milano-serravalle-designer-outlet"
       },
+      "previousSlugs": [
+        "sales-advisor-categorie-protette-l-68-99-serravalle-boggi-milano-serravalle-designer-outlet-piemonte"
+      ],
       "salaryMin": 54000,
       "salaryMax": 73000,
       "currency": "CHF",
@@ -235,12 +232,7 @@
           "maxValue": 73000,
           "unitText": "YEAR"
         }
-      },
-      "crawledAt": "",
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "sales-advisor-categorie-protette-l-68-99-serravalle-boggi-milano-serravalle-designer-outlet-piemonte"
-      ]
+      }
     },
     {
       "title": "Senior Sales Advisor - FT - Como - stagionale dal 1 Maggio al 30 Settembre ( 32H)",
@@ -298,9 +290,7 @@
           "maxValue": 89000,
           "unitText": "YEAR"
         }
-      },
-      "crawledAt": "",
-      "requirementsByLocale": {}
+      }
     },
     {
       "title": "Apac Import Support (STAGE)",
@@ -343,6 +333,9 @@
         "de": "apac-importunterstutzung-stage-boggi-milano-mendrisio",
         "fr": "assistance-a-l-importation-apac-etape-boggi-milano-mendrisio"
       },
+      "previousSlugs": [
+        "apac-import-support-stage-boggi-milano-mendrisio-ticino"
+      ],
       "salaryMin": 46500,
       "salaryMax": 62500,
       "currency": "CHF",
@@ -355,12 +348,7 @@
           "maxValue": 62500,
           "unitText": "YEAR"
         }
-      },
-      "crawledAt": "",
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "apac-import-support-stage-boggi-milano-mendrisio-ticino"
-      ]
+      }
     }
   ]
 }
