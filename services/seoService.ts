@@ -1627,6 +1627,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-sanita-fontana-fedriga': { name: 'Sanità', path: '/articoli-frontaliere/sanita-fontana-fedriga', parent: 'blog' },
     'blog-ampliamento-parco-eolico-san-gottardo': { name: 'San Gottardo', path: '/articoli-frontaliere/ampliamento-parco-eolico-san-gottardo', parent: 'blog' },
     'blog-frontalieri-prezzi-carburanti-italia-svizzera': { name: 'Prezzi carburanti in Italia e Svizzera', path: '/articoli-frontaliere/frontalieri-prezzi-carburanti-italia-svizzera', parent: 'blog' },
+    'blog-cure-a-domicilio-tassa-ticino': { name: 'Tassa sulle cure a domicilio', path: '/articoli-frontaliere/cure-a-domicilio-tassa-ticino', parent: 'blog' },
   };
 
   const info = sectionNames[section];

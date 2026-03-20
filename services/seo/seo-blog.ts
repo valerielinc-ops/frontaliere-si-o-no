@@ -7360,6 +7360,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-cure-a-domicilio-tassa-ticino': {
+    title: 'Cure a domicilio: la nuova tassa divide politica e cittadini | Frontaliere Ticino',
+    description: 'La nuova tassa sulle cure a domicilio è stata introdotta in Ticino al 1° aprile 2026. La misura ha suscitato reazioni contrastanti fra politici e cittadini.',
+    keywords: 'frontalieri, ticino, svizzera, italia, cure, domicilio, nuova, tassa',
+    ogTitle: 'Cure a domicilio: la nuova tassa divide politica e cittadini',
+    ogDescription: 'La nuova tassa sulle cure a domicilio è stata introdotta in Ticino al 1° aprile 2026. La misura ha suscitato reazioni contrastanti fra politici e cittadini.',
+    canonicalPath: '/articoli-frontaliere/cure-a-domicilio-tassa-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Cure a domicilio: la nuova tassa divide politica e cittadini",
+      "description": "La nuova tassa sulle cure a domicilio è stata introdotta in Ticino al 1° aprile 2026. La misura ha suscitato reazioni contrastanti fra politici e cittadini.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/cure-a-domicilio-tassa-ticino.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Cure a domicilio in Ticino"
+      },
+      "datePublished": "2026-03-20T21:04:34+00:00",
+      "dateModified": "2026-03-20T21:04:34+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/cure-a-domicilio-tassa-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

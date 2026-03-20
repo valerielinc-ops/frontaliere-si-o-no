@@ -1472,6 +1472,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.frontalieri-prezzi-carburanti-italia-svizzera.title': '‘Prezzi dei carburanti alle stelle, l\'Italia interviene mentre la Svizzera non fa nulla’',
     'blog.article.frontalieri-prezzi-carburanti-italia-svizzera.excerpt': 'L\'Italia ha tagliato le accise sui carburanti, mentre la Svizzera non ha preso alcuna misura.',
     'blog.article.frontalieri-prezzi-carburanti-italia-svizzera.imageAlt': 'Benziaino ai valichi del Gottardo',
+    'blog.article.cure-a-domicilio-tassa-ticino.title': 'Cure a domicilio: la nuova tassa divide politica e cittadini',
+    'blog.article.cure-a-domicilio-tassa-ticino.excerpt': 'La nuova tassa sulle cure a domicilio è stata introdotta in Ticino al 1° aprile 2026. La misura ha suscitato reazioni contrastanti fra politici e cittadini.',
+    'blog.article.cure-a-domicilio-tassa-ticino.imageAlt': 'Cure a domicilio in Ticino',
 };
 
 export default blogMetaIt;

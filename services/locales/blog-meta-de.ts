@@ -1472,6 +1472,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontalieri-prezzi-carburanti-italia-svizzera.title': 'Benzinpreise in die Höhe schnellen – Italien greift ein, die Schweiz tut nichts',
     'blog.article.frontalieri-prezzi-carburanti-italia-svizzera.excerpt': 'Italien hat die Mineralölsteuer gesenkt, während die Schweiz keine Massnahmen ergriffen hat.',
     'blog.article.frontalieri-prezzi-carburanti-italia-svizzera.imageAlt': 'Tankstelle an der Gotthardgrenze',
+    'blog.article.cure-a-domicilio-tassa-ticino.title': 'Spitex-Gebühr spaltet Politik und Bürger',
+    'blog.article.cure-a-domicilio-tassa-ticino.excerpt': 'Seit 1. April 2026 gilt im Kanton Tessin eine neue Spitex-Gebühr. Die Massnahme sorgt bei Politik und Bevölkerung für kontroverse Reaktionen.',
+    'blog.article.cure-a-domicilio-tassa-ticino.imageAlt': 'Hauspflege in Ticino',
 };
 
 export default blogMetaDe;

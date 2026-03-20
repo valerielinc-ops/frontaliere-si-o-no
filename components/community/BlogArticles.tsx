@@ -4029,6 +4029,13 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/frontalieri-prezzi-carburanti-italia-svizzera.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'cure-a-domicilio-tassa-ticino',
+    category: 'novita',
+    date: '2026-03-20T21:04:34.954Z',
+    image: '/images/blog/cure-a-domicilio-tassa-ticino.jpg',
+    hasCalculator: true,
+  },
 ];
 
 const CATEGORIES = ['all', 'fiscale', 'pratico', 'novita', 'pensione'] as const;

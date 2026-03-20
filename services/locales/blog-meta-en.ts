@@ -1472,6 +1472,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontalieri-prezzi-carburanti-italia-svizzera.title': 'Fuel prices sky-high: Italy steps in while Switzerland does nothing',
     'blog.article.frontalieri-prezzi-carburanti-italia-svizzera.excerpt': 'Italy has cut fuel excise duties, whereas Switzerland has taken no action.',
     'blog.article.frontalieri-prezzi-carburanti-italia-svizzera.imageAlt': 'Gas station at the Gotthard border',
+    'blog.article.cure-a-domicilio-tassa-ticino.title': 'Home-care levy: the new tax splitting politicians and citizens',
+    'blog.article.cure-a-domicilio-tassa-ticino.excerpt': 'Introduced on 1 April 2026, Ticino’s new home-care tax is sparking mixed reactions among politicians and residents.',
+    'blog.article.cure-a-domicilio-tassa-ticino.imageAlt': 'Home care in Ticino',
 };
 
 export default blogMetaEn;
