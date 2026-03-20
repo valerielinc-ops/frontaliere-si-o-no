@@ -1,16 +1,16 @@
 {
   "key": "knowledge-lab",
   "label": "Knowledge Lab",
-  "generatedAt": "2026-03-19T16:18:08.275Z",
+  "generatedAt": "2026-03-20T04:49:59.698Z",
   "total": 3,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 3,
-  "durationMs": 31893,
-  "avgDurationMs": 31893,
+  "durationMs": 12702,
+  "avgDurationMs": 12702,
   "durationHistory": [
-    31893
+    12702
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -69,7 +69,9 @@
           "maxValue": 136500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawledAt": "",
+      "requirementsByLocale": {}
     },
     {
       "title": "Platform Engineer (80-100%)",
@@ -124,7 +126,9 @@
           "maxValue": 97500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawledAt": "",
+      "requirementsByLocale": {}
     },
     {
       "title": "Senior Avaloq Consultant (80-100%)",
@@ -179,7 +183,9 @@
           "maxValue": 136500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawledAt": "",
+      "requirementsByLocale": {}
     }
   ]
 }
