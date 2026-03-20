@@ -6635,6 +6635,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-salute-prevenzione-burocrazia-svizzera': {
+    title: 'Bertolaso a Varese: fare presto tra prevenzione e | Frontaliere Ticino',
+    description: 'Analisi delle strategie di Bertolaso per migliorare prevenzione, screening e snellire procedure in Ticino e frontiera svizzera nel 2026. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, bertolaso, varese, fare, presto',
+    ogTitle: 'Salute Ticino: prevenzione e burocrazia 2026',
+    ogDescription: 'Focus sulle strategie di Bertolaso per migliorare i servizi sanitari e snellire le procedure in Canton Ticino e regione di frontiera nel 2026.',
+    canonicalPath: '/articoli-frontaliere/salute-prevenzione-burocrazia-svizzera',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "BlogPost JSON-LD",
+      "description": "Analisi delle strategie di Bertolaso per migliorare prevenzione, screening e snellire procedure in Ticino e frontiera svizzera nel 2026. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/salute-prevenzione-burocrazia-svizzera.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Uffici pubblici in Ticino con valico di frontiera, scena realistica"
+      },
+      "datePublished": "2026-03-20T06:02:30+00:00",
+      "dateModified": "2026-03-20T06:02:30+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/salute-prevenzione-burocrazia-svizzera`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

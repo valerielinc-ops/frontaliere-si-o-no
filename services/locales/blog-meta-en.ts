@@ -1397,6 +1397,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.kebab-case-3-5-words-max-40-chars.title': 'Umberto Bossi, Founder of the \'Lega Nord\', Dies',
     'blog.article.kebab-case-3-5-words-max-40-chars.excerpt': 'Umberto Bossi, the founder of the \'Lega Nord\', has died at the hospital in Varese. The news has shocked the Italian political scene.',
     'blog.article.kebab-case-3-5-words-max-40-chars.imageAlt': 'Lugano view from Lake',
+    'blog.article.salute-prevenzione-burocrazia-svizzera.title': 'Bertolaso in Varese: Acting Quickly Between Prevention and Bureaucracy in Ticino',
+    'blog.article.salute-prevenzione-burocrazia-svizzera.excerpt': 'Bertolaso\'s intervention at the General Health Conference highlights the priority of increasing prevention, screening, and streamlining procedures in Canton Ticino.',
+    'blog.article.salute-prevenzione-burocrazia-svizzera.imageAlt': 'Public offices in Ticino with border crossing, realistic scene',
 };
 
 export default blogMetaEn;

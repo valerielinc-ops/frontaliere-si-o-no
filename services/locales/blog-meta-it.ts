@@ -1397,6 +1397,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.kebab-case-3-5-words-max-40-chars.title': 'È morto Umberto Bossi, il \'senatur\' fondatore della Lega Nord',
     'blog.article.kebab-case-3-5-words-max-40-chars.excerpt': 'Umberto Bossi, il fondatore della Lega Nord, è morto all\'ospedale di Varese. La notizia ha colpito la politica italiana.',
     'blog.article.kebab-case-3-5-words-max-40-chars.imageAlt': 'Lugano vista dal Lago',
+    'blog.article.salute-prevenzione-burocrazia-svizzera.title': 'Bertolaso a Varese: fare presto tra prevenzione e burocrazia in Ticino',
+    'blog.article.salute-prevenzione-burocrazia-svizzera.excerpt': 'L\'intervento di Bertolaso agli Stati generali della salute sottolinea la priorità di aumentare prevenzione, screening e velocizzare procedure nel Canton Ticino.',
+    'blog.article.salute-prevenzione-burocrazia-svizzera.imageAlt': 'Uffici pubblici in Ticino con valico di frontiera, scena realistica',
 };
 
 export default blogMetaIt;

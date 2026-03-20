@@ -1397,6 +1397,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.kebab-case-3-5-words-max-40-chars.title': 'Umberto Bossi, der \'Senator\' und Gründer der Lega Nord, ist gestorben',
     'blog.article.kebab-case-3-5-words-max-40-chars.excerpt': 'Umberto Bossi, der Gründer der Lega Nord, ist an einem Krankenhaus in Varese gestorben. Die Nachricht hat die italienische Politik tief getroffen.',
     'blog.article.kebab-case-3-5-words-max-40-chars.imageAlt': 'Lugano aus dem See',
+    'blog.article.salute-prevenzione-burocrazia-svizzera.title': 'Bertolaso in Varese: Schneller handeln zwischen Prävention und Bürokratie im Tessin',
+    'blog.article.salute-prevenzione-burocrazia-svizzera.excerpt': 'Bertolasos Rede bei den Gesundheits-Generalgutachten unterstreicht die Priorität, Prävention, Screening zu erhöhen und Verfahren im Kanton Tessin zu beschleunigen.',
+    'blog.article.salute-prevenzione-burocrazia-svizzera.imageAlt': 'Öffentliche Ämter in Tessin mit Grenzübergang, realistische Szene',
 };
 
 export default blogMetaDe;

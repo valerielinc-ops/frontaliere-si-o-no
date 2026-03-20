@@ -1397,6 +1397,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.kebab-case-3-5-words-max-40-chars.title': 'Umberto Bossi, le \'senatur\' fondateur de la Ligue Nord, est décédé',
     'blog.article.kebab-case-3-5-words-max-40-chars.excerpt': 'Umberto Bossi, le \'senatur\' fondateur de la Ligue Nord, est décédé à l\'hôpital de Varese. La nouvelle a frappé la politique italienne.',
     'blog.article.kebab-case-3-5-words-max-40-chars.imageAlt': 'Lugano vue du lac',
+    'blog.article.salute-prevenzione-burocrazia-svizzera.title': 'Bertolaso à Varese : agir rapidement entre prévention et bureaucratie au Tessin',
+    'blog.article.salute-prevenzione-burocrazia-svizzera.excerpt': 'L’intervention de Bertolaso lors des États généraux de la santé souligne la priorité d’accroître la prévention, le dépistage et d’accélérer les démarches dans le Canton du Tessin.',
+    'blog.article.salute-prevenzione-burocrazia-svizzera.imageAlt': 'Bureaux publics en Tessin avec passage frontalier, scène réaliste',
 };
 
 export default blogMetaFr;

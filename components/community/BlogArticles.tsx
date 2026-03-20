@@ -3854,6 +3854,13 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/kebab-case-3-5-words-max-40-chars.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'salute-prevenzione-burocrazia-svizzera',
+    category: 'novita',
+    date: '2026-03-20T06:02:30.053Z',
+    image: '/images/blog/salute-prevenzione-burocrazia-svizzera.jpg',
+    hasCalculator: true,
+  },
 ];
 
 const CATEGORIES = ['all', 'fiscale', 'pratico', 'novita', 'pensione'] as const;
