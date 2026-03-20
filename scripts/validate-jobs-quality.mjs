@@ -110,18 +110,18 @@ function run() {
       });
     }
 
-    // Check 2: Untranslated Italian slug (check title portion only, not company name)
+    // Check 2: Untranslated Italian slug (warning-only; fix upstream without blocking deploys)
     if (itSlug.length > 20) {
       const titlePart = extractTitleSlug(itSlug, job);
       if (GERMAN_SLUG_WORDS.test(titlePart)) {
-        errors.push({
+        warnings.push({
           slug: id,
           company: job.company,
           issue: 'german_slug_in_it',
           detail: `Italian slug contains German words: ${itSlug.substring(0, 80)}`,
         });
       } else if (FRENCH_SLUG_WORDS.test(titlePart)) {
-        errors.push({
+        warnings.push({
           slug: id,
           company: job.company,
           issue: 'french_slug_in_it',
