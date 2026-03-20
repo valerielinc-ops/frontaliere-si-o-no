@@ -1415,6 +1415,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.contratti-collettivi-salari-ticino.title': 'Contratti collettivi di lavoro in Ticino: prevalenza sui salari minimi cantonali',
     'blog.article.contratti-collettivi-salari-ticino.excerpt': 'Il Consiglio degli Stati svizzero ha approvato il prioritario ruolo dei CCL rispetto ai salari minimi cantonali, con implicazioni concrete per frontalieri e aziende locali.',
     'blog.article.contratti-collettivi-salari-ticino.imageAlt': 'Vista del Lago Maggiore e delle montagne del Ticino con città di Locarno sullo sfondo',
+    'blog.article.tutela-sovranita-dati-sanitari.title': 'Sanità in Ticino: la tutela della sovranità dei dati sanitari',
+    'blog.article.tutela-sovranita-dati-sanitari.excerpt': 'Il Canton Ticino si prepara a fronteggiare le sfide della sicurezza digitale e della protezione dei dati sanitari, seguendo le recenti dichiarazioni del senatore Zaffini.',
+    'blog.article.tutela-sovranita-dati-sanitari.imageAlt': 'Ufficio sanitario ticinese con tecnologia avanzata al confine Italia-Svizzera',
 };
 
 export default blogMetaIt;

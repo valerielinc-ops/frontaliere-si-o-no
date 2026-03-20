@@ -6809,6 +6809,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-tutela-sovranita-dati-sanitari': {
+    title: 'Sanità in Ticino: la tutela della sovranità dei dati | Frontaliere Ticino',
+    description: 'Il Canton Ticino si prepara a fronteggiare le sfide della sicurezza digitale e della protezione dei dati sanitari, seguendo le recenti dichiarazioni del senator',
+    keywords: 'frontalieri, ticino, svizzera, italia, sanità, tutela, sovranità, dati',
+    ogTitle: 'Sanità in Ticino: la tutela della sovranità dei dati sani',
+    ogDescription: 'Il Canton Ticino si prepara a fronteggiare le sfide della sicurezza digitale e della protezione dei dati sanitari, seguendo le recenti dichiarazioni del senator',
+    canonicalPath: '/articoli-frontaliere/tutela-sovranita-dati-sanitari',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Sanità in Ticino: la tutela della sovranità dei dati sani",
+      "description": "Il Canton Ticino si prepara a fronteggiare le sfide della sicurezza digitale e della protezione dei dati sanitari, seguendo le recenti dichiarazioni del senator",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/tutela-sovranita-dati-sanitari.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Ufficio sanitario ticinese con tecnologia avanzata al confine Italia-Svizzera"
+      },
+      "datePublished": "2026-03-20T08:54:54+00:00",
+      "dateModified": "2026-03-20T08:54:54+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tutela-sovranita-dati-sanitari`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

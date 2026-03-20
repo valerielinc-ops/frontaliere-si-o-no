@@ -3896,6 +3896,13 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/contratti-collettivi-salari-ticino.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'tutela-sovranita-dati-sanitari',
+    category: 'novita',
+    date: '2026-03-20T08:54:54.483Z',
+    image: '/images/blog/tutela-sovranita-dati-sanitari.jpg',
+    hasCalculator: true,
+  },
 ];
 
 const CATEGORIES = ['all', 'fiscale', 'pratico', 'novita', 'pensione'] as const;

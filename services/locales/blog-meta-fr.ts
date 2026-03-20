@@ -1415,6 +1415,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.contratti-collettivi-salari-ticino.title': 'Contrats collectifs de travail au Tessin : priorité sur les salaires minimum cantonaux',
     'blog.article.contratti-collettivi-salari-ticino.excerpt': 'Le Conseil des États suisse a confirmé le rôle prioritaire des CCT par rapport aux salaires minimum cantonaux, avec des implications concrètes pour les frontaliers et les entreprises locales.',
     'blog.article.contratti-collettivi-salari-ticino.imageAlt': 'Vue du lac Majeur et des montagnes du Tessin avec Locarno en arrière-plan',
+    'blog.article.tutela-sovranita-dati-sanitari.title': 'Santé au Tessin : la protection de la souveraineté des données de santé',
+    'blog.article.tutela-sovranita-dati-sanitari.excerpt': 'Le Canton du Tessin se prépare à relever les défis liés à la sécurité numérique et à la protection des données de santé, conformément aux déclarations récentes du sénateur Zaffini.',
+    'blog.article.tutela-sovranita-dati-sanitari.imageAlt': 'Bureau de santé du Tessin avec technologie avancée à la frontière Italie-Suisse',
 };
 
 export default blogMetaFr;

@@ -1415,6 +1415,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.contratti-collettivi-salari-ticino.title': 'Kollektivverträge in Tessin: Vorrang vor kantonalen Mindestlöhnen',
     'blog.article.contratti-collettivi-salari-ticino.excerpt': 'Der Ständerat hat die prioritäre Rolle der Kollektivverträge gegenüber den kantonalen Mindestlöhnen bestätigt, mit konkreten Auswirkungen für Grenzgänger und lokale Unternehmen.',
     'blog.article.contratti-collettivi-salari-ticino.imageAlt': 'Blick auf Lago Maggiore und die Berge im Tessin mit Locarno im Hintergrund',
+    'blog.article.tutela-sovranita-dati-sanitari.title': 'Gesundheitswesen im Tessin: Schutz der Souveränität der Gesundheitsdaten',
+    'blog.article.tutela-sovranita-dati-sanitari.excerpt': 'Der Kanton Tessin bereitet sich darauf vor, die Herausforderungen der digitalen Sicherheit und des Schutzes der Gesundheitsdaten anzugehen, im Einklang mit den jüngsten Aussagen des Senators Zaffini.',
+    'blog.article.tutela-sovranita-dati-sanitari.imageAlt': 'Gesundheitsamt im Tessin mit moderner Technologie an der Grenze Italien-Schweiz',
 };
 
 export default blogMetaDe;

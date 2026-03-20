@@ -1415,6 +1415,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.contratti-collettivi-salari-ticino.title': 'Collective Employment Contracts in Ticino: Priority Over Cantonal Minimum Wages',
     'blog.article.contratti-collettivi-salari-ticino.excerpt': 'The Swiss Council of States has approved the priority role of CCLs over cantonal minimum wages, with concrete implications for cross-border workers and local companies.',
     'blog.article.contratti-collettivi-salari-ticino.imageAlt': 'View of Lake Maggiore and Ticino mountains with Locarno in the background',
+    'blog.article.tutela-sovranita-dati-sanitari.title': 'Healthcare in Ticino: Protecting the Sovereignty of Health Data',
+    'blog.article.tutela-sovranita-dati-sanitari.excerpt': 'The Canton of Ticino is preparing to face the challenges of digital security and health data protection, following recent statements by Senator Zaffini.',
+    'blog.article.tutela-sovranita-dati-sanitari.imageAlt': 'Ticino health office with advanced technology at Italy-Switzerland border',
 };
 
 export default blogMetaEn;
