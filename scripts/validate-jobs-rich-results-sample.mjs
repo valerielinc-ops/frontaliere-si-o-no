@@ -125,6 +125,20 @@ function hasValidBaseSalary(baseSalary) {
   return true;
 }
 
+function jobHasSalarySignals(job) {
+  if (!job || typeof job !== 'object') return false;
+  if (job.baseSalary && typeof job.baseSalary === 'object' && Object.keys(job.baseSalary).length > 0) {
+    return true;
+  }
+  for (const field of ['salaryMin', 'salaryMax']) {
+    const value = job[field];
+    if (value !== undefined && value !== null && String(value).trim().length > 0) {
+      return true;
+    }
+  }
+  return false;
+}
+
 function validateJobPosting(jobPosting, html, job, localeCode) {
   const errors = [];
   const warnings = [];
@@ -156,7 +170,8 @@ function validateJobPosting(jobPosting, html, job, localeCode) {
   if (!hasRemote && !hasLocation) {
     errors.push('missing:jobLocation');
   }
-  if (!hasValidBaseSalary(jobPosting?.baseSalary)) {
+  const hasBaseSalaryOnPage = jobPosting?.baseSalary !== undefined;
+  if ((hasBaseSalaryOnPage || jobHasSalarySignals(job)) && !hasValidBaseSalary(jobPosting?.baseSalary)) {
     errors.push('missing_or_invalid:baseSalary');
   }
   if (!hasRemote) {
