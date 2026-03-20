@@ -1400,6 +1400,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.salute-prevenzione-burocrazia-svizzera.title': 'Bertolaso in Varese: Acting Quickly Between Prevention and Bureaucracy in Ticino',
     'blog.article.salute-prevenzione-burocrazia-svizzera.excerpt': 'Bertolaso\'s intervention at the General Health Conference highlights the priority of increasing prevention, screening, and streamlining procedures in Canton Ticino.',
     'blog.article.salute-prevenzione-burocrazia-svizzera.imageAlt': 'Public offices in Ticino with border crossing, realistic scene',
+    'blog.article.telefonate-choc-truffa-anziani-ticino.title': 'Shocking Calls: Phone Scams Targeting Seniors in Ticino, Risks and Prevention',
+    'blog.article.telefonate-choc-truffa-anziani-ticino.excerpt': 'Two seniors in Ticino fall victim to phone scams in the Mesolcina region. Here\'s what happened, how to protect yourself, and the preventive measures taken by local authorities.',
+    'blog.article.telefonate-choc-truffa-anziani-ticino.imageAlt': 'View of Bellinzona with mountains and cityscape, typical of Ticino canton.',
 };
 
 export default blogMetaEn;

@@ -6664,6 +6664,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-telefonate-choc-truffa-anziani-ticino': {
+    title: 'Telefonate choc: truffe agli anziani in Ticino, rischi e | Frontaliere Ticino',
+    description: 'Due anziani in Ticino vittime di truffa telefonica nella regione della Mesolcina. Ecco cosa è successo, come difendersi e le misure preventive adottate dalle au',
+    keywords: 'frontalieri, ticino, svizzera, italia, telefonate, choc, truffe, agli',
+    ogTitle: 'Telefonate choc: truffe agli anziani in Ticino, rischi e',
+    ogDescription: 'Due anziani in Ticino vittime di truffa telefonica nella regione della Mesolcina. Ecco cosa è successo, come difendersi e le misure preventive adottate dalle au',
+    canonicalPath: '/articoli-frontaliere/telefonate-choc-truffa-anziani-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Telefonate choc: truffe agli anziani in Ticino, rischi e",
+      "description": "Due anziani in Ticino vittime di truffa telefonica nella regione della Mesolcina. Ecco cosa è successo, come difendersi e le misure preventive adottate dalle au",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/telefonate-choc-truffa-anziani-ticino.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Veduta di Bellinzona con scenario di montagne e città, rappresentativa del Canton Ticino."
+      },
+      "datePublished": "2026-03-20T06:36:45+00:00",
+      "dateModified": "2026-03-20T06:36:45+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/telefonate-choc-truffa-anziani-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

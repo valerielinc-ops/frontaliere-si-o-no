@@ -1400,6 +1400,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.salute-prevenzione-burocrazia-svizzera.title': 'Bertolaso in Varese: Schneller handeln zwischen Prävention und Bürokratie im Tessin',
     'blog.article.salute-prevenzione-burocrazia-svizzera.excerpt': 'Bertolasos Rede bei den Gesundheits-Generalgutachten unterstreicht die Priorität, Prävention, Screening zu erhöhen und Verfahren im Kanton Tessin zu beschleunigen.',
     'blog.article.salute-prevenzione-burocrazia-svizzera.imageAlt': 'Öffentliche Ämter in Tessin mit Grenzübergang, realistische Szene',
+    'blog.article.telefonate-choc-truffa-anziani-ticino.title': 'Schockierende Anrufe: Betrugsfälle bei Senioren im Tessin, Risiken und Prävention',
+    'blog.article.telefonate-choc-truffa-anziani-ticino.excerpt': 'Zwei Senioren im Tessin Opfer eines Telefonbetrugs in der Region Mesolcina. Hier erfahren Sie, was passiert ist, wie man sich schützt und welche vorbeugenden Maßnahmen die lokalen Behörden ergriffen haben.',
+    'blog.article.telefonate-choc-truffa-anziani-ticino.imageAlt': 'Blick auf Bellinzona mit Bergen und Stadtbild, typisch für den Kanton Tessin.',
 };
 
 export default blogMetaDe;

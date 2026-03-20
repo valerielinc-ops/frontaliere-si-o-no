@@ -1600,6 +1600,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-contrabbando-ai-confine-aumentano-droga-e-sigarette': { name: 'Contrabbando ai confini', path: '/articoli-frontaliere/contrabbando-ai-confine-aumentano-droga-e-sigarette', parent: 'blog' },
     'blog-kebab-case-3-5-words-max-40-chars': { name: 'Notizie', path: '/articoli-frontaliere/kebab-case-3-5-words-max-40-chars', parent: 'blog' },
     'blog-salute-prevenzione-burocrazia-svizzera': { name: 'Salute Ticino', path: '/articoli-frontaliere/salute-prevenzione-burocrazia-svizzera', parent: 'blog' },
+    'blog-telefonate-choc-truffa-anziani-ticino': { name: 'Telefonate choc', path: '/articoli-frontaliere/telefonate-choc-truffa-anziani-ticino', parent: 'blog' },
   };
 
   const info = sectionNames[section];

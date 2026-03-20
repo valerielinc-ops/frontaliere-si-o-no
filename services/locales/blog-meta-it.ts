@@ -1400,6 +1400,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.salute-prevenzione-burocrazia-svizzera.title': 'Bertolaso a Varese: fare presto tra prevenzione e burocrazia in Ticino',
     'blog.article.salute-prevenzione-burocrazia-svizzera.excerpt': 'L\'intervento di Bertolaso agli Stati generali della salute sottolinea la priorità di aumentare prevenzione, screening e velocizzare procedure nel Canton Ticino.',
     'blog.article.salute-prevenzione-burocrazia-svizzera.imageAlt': 'Uffici pubblici in Ticino con valico di frontiera, scena realistica',
+    'blog.article.telefonate-choc-truffa-anziani-ticino.title': 'Telefonate choc: truffe agli anziani in Ticino, rischi e prevenzione',
+    'blog.article.telefonate-choc-truffa-anziani-ticino.excerpt': 'Due anziani in Ticino vittime di truffa telefonica nella regione della Mesolcina. Ecco cosa è successo, come difendersi e le misure preventive adottate dalle autorità locali.',
+    'blog.article.telefonate-choc-truffa-anziani-ticino.imageAlt': 'Veduta di Bellinzona con scenario di montagne e città, rappresentativa del Canton Ticino.',
 };
 
 export default blogMetaIt;

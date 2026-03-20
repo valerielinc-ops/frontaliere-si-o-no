@@ -3861,6 +3861,13 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/salute-prevenzione-burocrazia-svizzera.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'telefonate-choc-truffa-anziani-ticino',
+    category: 'pratico',
+    date: '2026-03-20T06:36:45.725Z',
+    image: '/images/blog/telefonate-choc-truffa-anziani-ticino.jpg',
+    hasCalculator: true,
+  },
 ];
 
 const CATEGORIES = ['all', 'fiscale', 'pratico', 'novita', 'pensione'] as const;

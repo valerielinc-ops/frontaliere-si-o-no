@@ -3030,7 +3030,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
         "@context": "https://schema.org",
         "@type": "ItemList",
         "name": "Articoli Frontaliere",
-        "numberOfItems": 457,
+        "numberOfItems": 458,
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
           { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -3488,7 +3488,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 454, "name": "Eolico al Gottardo, il Cantone apre la consulta...", "url": `${BASE_URL}/articoli-frontaliere/eolico-gottardo-ampliamento-2026` },
           { "@type": "ListItem", "position": 455, "name": "Contrabbando ai confini: aumentano droga e siga...", "url": `${BASE_URL}/articoli-frontaliere/contrabbando-ai-confine-aumentano-droga-e-sigarette` },
           { "@type": "ListItem", "position": 456, "name": "{\"@context\": \"http://schema.org\", \"@type\": \"Art...", "url": `${BASE_URL}/articoli-frontaliere/kebab-case-3-5-words-max-40-chars` },
-          { "@type": "ListItem", "position": 457, "name": "BlogPost JSON-LD", "url": `${BASE_URL}/articoli-frontaliere/salute-prevenzione-burocrazia-svizzera` }
+          { "@type": "ListItem", "position": 457, "name": "BlogPost JSON-LD", "url": `${BASE_URL}/articoli-frontaliere/salute-prevenzione-burocrazia-svizzera` },
+          { "@type": "ListItem", "position": 458, "name": "Telefonate choc: truffe agli anziani in Ticino,...", "url": `${BASE_URL}/articoli-frontaliere/telefonate-choc-truffa-anziani-ticino` }
         ]
       }
     ]
