@@ -1391,6 +1391,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.eolico-gottardo-ampliamento-2026.title': 'Wind Power at the Gotthard Pass: The Canton Launches Public Consultation for Expansion',
     'blog.article.eolico-gottardo-ampliamento-2026.excerpt': 'The Canton of Ticino has initiated a public consultation for the expansion of the wind farm at the Gotthard Pass.',
     'blog.article.eolico-gottardo-ampliamento-2026.imageAlt': 'Aerial view of the San Gottardo Pass with wind turbines in the background, shot with a DSLR camera in Ticino, Switzerland.',
+    'blog.article.contrabbando-ai-confine-aumentano-droga-e-sigarette.title': 'Smuggling at the borders: Illicit goods and cigarettes on the rise',
+    'blog.article.contrabbando-ai-confine-aumentano-droga-e-sigarette.excerpt': 'According to the Federal Customs Administration and Border Security (UDSC), 1.6 million illicit cigarettes were seized in 2025, a significantly higher number than the 950,000 recorded the previous year and almost doubled compared to 2023.',
+    'blog.article.contrabbando-ai-confine-aumentano-droga-e-sigarette.imageAlt': 'Smuggling at the Swiss-Italian border',
 };
 
 export default blogMetaEn;

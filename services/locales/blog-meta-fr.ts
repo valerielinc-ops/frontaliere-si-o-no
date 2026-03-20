@@ -1391,6 +1391,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.eolico-gottardo-ampliamento-2026.title': 'L\'éolien au Gottardo, le Canton ouvre la consultation pour l\'agrandissement',
     'blog.article.eolico-gottardo-ampliamento-2026.excerpt': 'Le Canton du Tessin a lancé la consultation publique pour l\'agrandissement du parc éolien au col du Saint-Gothard.',
     'blog.article.eolico-gottardo-ampliamento-2026.imageAlt': 'Vue aérienne du col du San Gottardo avec éoliennes en arrière-plan, prise avec une caméra DSLR au Tessin, Suisse.',
+    'blog.article.contrabbando-ai-confine-aumentano-droga-e-sigarette.title': 'Contrebande aux frontières: augmentation de la drogue et des cigarettes',
+    'blog.article.contrabbando-ai-confine-aumentano-droga-e-sigarette.excerpt': 'Selon les données de l\'Office fédéral des douanes et de la sécurité des frontières (OFDF), 1,6 million de cigarettes illégales ont été saisis en 2025.',
+    'blog.article.contrabbando-ai-confine-aumentano-droga-e-sigarette.imageAlt': 'Contrebande aux frontières suisses-italiennes',
 };
 
 export default blogMetaFr;

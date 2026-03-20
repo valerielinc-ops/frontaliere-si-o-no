@@ -3030,7 +3030,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
         "@context": "https://schema.org",
         "@type": "ItemList",
         "name": "Articoli Frontaliere",
-        "numberOfItems": 454,
+        "numberOfItems": 455,
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
           { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -3485,7 +3485,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 451, "name": "La Giustizia in Ticino è in bilico: un accordo ...", "url": `${BASE_URL}/articoli-frontaliere/giustizia-in-bilico-2026` },
           { "@type": "ListItem", "position": 452, "name": "Ampliamento del Parco eolico del San Gottardo: ...", "url": `${BASE_URL}/articoli-frontaliere/ampliamento-parco-eolico-san-gottardo-digital-2026` },
           { "@type": "ListItem", "position": 453, "name": "Irregular Stays in Ticino: February 2026 Data S...", "url": `${BASE_URL}/articoli-frontaliere/soggiorni-irregolari-2026-mendrisio` },
-          { "@type": "ListItem", "position": 454, "name": "Eolico al Gottardo, il Cantone apre la consulta...", "url": `${BASE_URL}/articoli-frontaliere/eolico-gottardo-ampliamento-2026` }
+          { "@type": "ListItem", "position": 454, "name": "Eolico al Gottardo, il Cantone apre la consulta...", "url": `${BASE_URL}/articoli-frontaliere/eolico-gottardo-ampliamento-2026` },
+          { "@type": "ListItem", "position": 455, "name": "Contrabbando ai confini: aumentano droga e siga...", "url": `${BASE_URL}/articoli-frontaliere/contrabbando-ai-confine-aumentano-droga-e-sigarette` }
         ]
       }
     ]

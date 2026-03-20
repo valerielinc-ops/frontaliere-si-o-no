@@ -6577,6 +6577,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-contrabbando-ai-confine-aumentano-droga-e-sigarette': {
+    title: 'Contrabbando ai confini: aumentano droga e sigarette | Frontaliere Ticino',
+    description: 'Secondo i dati dell\'Ufficio federale della dogana e della sicurezza dei confini, sono state sequestrate 1,6 milioni di sigarette illegali nel 2025.',
+    keywords: 'frontalieri, ticino, svizzera, italia, contrabbando, confini, aumentano, droga',
+    ogTitle: 'Contrabbando ai confini: aumentano droga e sigarette |',
+    ogDescription: 'Secondo i dati dell\'Ufficio federale della dogana e della sicurezza dei confini, sono state sequestrate 1,6 milioni di sigarette illegali nel 2025.',
+    canonicalPath: '/articoli-frontaliere/contrabbando-ai-confine-aumentano-droga-e-sigarette',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Contrabbando ai confini: aumentano droga e sigarette",
+      "description": "Secondo i dati dell'Ufficio federale della dogana e della sicurezza dei confini, sono state sequestrate 1,6 milioni di sigarette illegali nel 2025.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/contrabbando-ai-confine-aumentano-droga-e-sigarette.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Contrabbando ai confini"
+      },
+      "datePublished": "2026-03-20T03:22:57+00:00",
+      "dateModified": "2026-03-20T03:22:57+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/contrabbando-ai-confine-aumentano-droga-e-sigarette`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

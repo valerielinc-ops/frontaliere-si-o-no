@@ -3840,6 +3840,13 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/eolico-gottardo-ampliamento-2026.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'contrabbando-ai-confine-aumentano-droga-e-sigarette',
+    category: 'pratico',
+    date: '2026-03-20T03:22:57.912Z',
+    image: '/images/blog/contrabbando-ai-confine-aumentano-droga-e-sigarette.jpg',
+    hasCalculator: true,
+  },
 ];
 
 const CATEGORIES = ['all', 'fiscale', 'pratico', 'novita', 'pensione'] as const;

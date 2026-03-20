@@ -1391,6 +1391,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.eolico-gottardo-ampliamento-2026.title': 'Windkraft am Gotthard: Der Kanton startet die Konsultation für den Ausbau',
     'blog.article.eolico-gottardo-ampliamento-2026.excerpt': 'Der Kanton Tessin hat die öffentliche Konsultation für den Ausbau des Windparks am Gotthardpass gestartet.',
     'blog.article.eolico-gottardo-ampliamento-2026.imageAlt': 'Luftbild des San Gottardo-Passes mit Windrädern im Hintergrund, fotografiert mit einer DSLR-Kamera in Tessin, Schweiz.',
+    'blog.article.contrabbando-ai-confine-aumentano-droga-e-sigarette.title': 'Zoll- und Grenzvergehen: Zigaretten- und Drogenhandel zunehmen',
+    'blog.article.contrabbando-ai-confine-aumentano-droga-e-sigarette.excerpt': 'Laut Daten des Eidgenössischen Zoll- und Zollverwaltungsdienstes (EZZD) wurden 1,6 Millionen illegale Zigaretten im Jahr 2025 beschlagnahmt.',
+    'blog.article.contrabbando-ai-confine-aumentano-droga-e-sigarette.imageAlt': 'Schmuggel an der Schweizer-Italienischen Grenze',
 };
 
 export default blogMetaDe;

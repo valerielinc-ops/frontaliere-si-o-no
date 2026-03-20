@@ -1391,6 +1391,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.eolico-gottardo-ampliamento-2026.title': 'Eolico al Gottardo, il Cantone apre la consultazione per l\'ampliamento',
     'blog.article.eolico-gottardo-ampliamento-2026.excerpt': 'Il Cantone del Ticino ha avviato la consultazione pubblica per l\'ampliamento del parco eolico al Passo del San Gottardo.',
     'blog.article.eolico-gottardo-ampliamento-2026.imageAlt': 'Vista aerea del passo del San Gottardo con eolico nel fondo, scattata con una fotocamera DSLR in Ticino, Svizzera.',
+    'blog.article.contrabbando-ai-confine-aumentano-droga-e-sigarette.title': 'Contrabbando ai confini: aumentano droga e sigarette',
+    'blog.article.contrabbando-ai-confine-aumentano-droga-e-sigarette.excerpt': 'Secondo i dati dell\'Ufficio federale della dogana e della sicurezza dei confini (UDSC), sono state sequestrate 1,6 milioni di sigarette illegali nel 2025.',
+    'blog.article.contrabbando-ai-confine-aumentano-droga-e-sigarette.imageAlt': 'Contrabbando ai confini',
 };
 
 export default blogMetaIt;
