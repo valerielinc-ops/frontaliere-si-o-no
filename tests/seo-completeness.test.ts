@@ -474,7 +474,10 @@ describe('Structured data — Google/Bing compliance rules', () => {
     for (const [key, meta] of Object.entries(SEO_METADATA)) {
       const json = JSON.stringify(meta.structuredData);
       expect(json).not.toContain('undefined');
-      expect(json).not.toContain('null');
+      expect(
+        /:\s*null\b|\[\s*null\b|\bnull\s*]/.test(json),
+        `${key}: structuredData contains a real null value`
+      ).toBe(false);
     }
   });
 
