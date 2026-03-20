@@ -398,8 +398,16 @@ jobs:
           echo "✅ All checks passed for '$ARTICLE_ID'"
           echo "exists=true" >> "$GITHUB_OUTPUT"
 
-      - name: Post to Facebook Page
+      - name: Wait for live article metadata
         if: steps.verify_article.outputs.exists == 'true'
+        id: wait_live_meta
+        run: |
+          node scripts/wait-for-live-article-meta.mjs \
+            "${{ steps.generate.outputs.article_url }}" \
+            "${{ steps.generate.outputs.og_title }}"
+
+      - name: Post to Facebook Page
+        if: steps.verify_article.outputs.exists == 'true' && steps.wait_live_meta.outcome == 'success'
         run: |
           node scripts/post-to-facebook.mjs \
             "${{ steps.generate.outputs.article_id }}" \

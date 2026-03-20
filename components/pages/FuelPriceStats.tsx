@@ -1,16 +1,35 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import { ExternalLink, Fuel, Loader2, MapPin, Search, TrendingDown, TrendingUp } from 'lucide-react';
+import { ChevronDown, ChevronUp, ExternalLink, Fuel, Loader2, MapPin, Route, Search, TrendingDown, TrendingUp } from 'lucide-react';
 import { useTranslation } from '@/services/i18n';
 import { Analytics } from '@/services/analytics';
-import { fetchFuelPrices, type FuelPricesDataset, type MunicipalityFuelRow } from '@/services/fuelPricesService';
+import { fetchFuelPrices, type FuelPricesDataset, type FuelStationItaly, type FuelStationSwitzerland, type MunicipalityFuelRow } from '@/services/fuelPricesService';
 
 type SortKey = 'saving' | 'delta' | 'italy' | 'swiss' | 'name';
+
+interface PersonalizedOption {
+  type: 'IT' | 'CH';
+  label: string;
+  stationName: string;
+  stationMeta: string;
+  pricePerLiterEur: number;
+  litersCostEur: number;
+  travelDistanceKm: number;
+  travelCostEur: number;
+  effectiveTotalEur: number;
+}
 
 function formatMoney(value: number | null, currency: string, locale: string, digits = 3) {
   if (value == null) return '—';
   return new Intl.NumberFormat(locale === 'it' ? 'it-IT' : locale, {
     style: 'currency',
     currency,
+    minimumFractionDigits: digits,
+    maximumFractionDigits: digits,
+  }).format(value);
+}
+
+function formatNumber(value: number, locale: string, digits = 1) {
+  return new Intl.NumberFormat(locale === 'it' ? 'it-IT' : locale, {
     minimumFractionDigits: digits,
     maximumFractionDigits: digits,
   }).format(value);
@@ -46,6 +65,207 @@ function recommendationLabel(code: string) {
   }
 }
 
+function municipalityKey(row: MunicipalityFuelRow) {
+  return `${row.municipality}|${row.province}`;
+}
+
+function municipalityLabel(row: MunicipalityFuelRow) {
+  return `${row.municipality} (${row.province})`;
+}
+
+function haversineKm(lat1: number, lng1: number, lat2: number, lng2: number) {
+  const toRad = (value: number) => (value * Math.PI) / 180;
+  const earthRadiusKm = 6371;
+  const dLat = toRad(lat2 - lat1);
+  const dLng = toRad(lng2 - lng1);
+  const a =
+    Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+    Math.cos(toRad(lat1)) * Math.cos(toRad(lat2)) *
+    Math.sin(dLng / 2) * Math.sin(dLng / 2);
+  const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+  return earthRadiusKm * c;
+}
+
+function roundTripTravelCost(distanceKm: number, costPerKmEur: number) {
+  return distanceKm * 2 * costPerKmEur;
+}
+
+function getItalyStationDistanceKm(row: MunicipalityFuelRow, station: FuelStationItaly) {
+  if (station.lat == null || station.lng == null) return 0;
+  return haversineKm(row.lat, row.lng, station.lat, station.lng);
+}
+
+function getSwissStationDistanceKm(row: MunicipalityFuelRow, station: FuelStationSwitzerland) {
+  if (typeof station.distanceKm === 'number') return station.distanceKm;
+  return haversineKm(row.lat, row.lng, station.lat, station.lng);
+}
+
+function buildPersonalizedOption(
+  row: MunicipalityFuelRow,
+  liters: number,
+  costPerKmEur: number,
+): { italy: PersonalizedOption | null; swiss: PersonalizedOption | null; best: PersonalizedOption | null; savingsEur: number | null } {
+  const italy = row.italy.stations.reduce<PersonalizedOption | null>((best, station) => {
+    const travelDistanceKm = getItalyStationDistanceKm(row, station);
+    const litersCostEur = station.priceEur * liters;
+    const travelCostEur = roundTripTravelCost(travelDistanceKm, costPerKmEur);
+    const effectiveTotalEur = litersCostEur + travelCostEur;
+    const current: PersonalizedOption = {
+      type: 'IT',
+      label: 'Italia',
+      stationName: station.stationName,
+      stationMeta: `${station.brand || 'Pompa'} · ${station.address}`,
+      pricePerLiterEur: station.priceEur,
+      litersCostEur,
+      travelDistanceKm,
+      travelCostEur,
+      effectiveTotalEur,
+    };
+    if (!best || current.effectiveTotalEur < best.effectiveTotalEur) return current;
+    return best;
+  }, null);
+
+  const swiss = row.swiss.nearbyStations.reduce<PersonalizedOption | null>((best, station) => {
+    const travelDistanceKm = getSwissStationDistanceKm(row, station);
+    const litersCostEur = station.sp95PriceEur * liters;
+    const travelCostEur = roundTripTravelCost(travelDistanceKm, costPerKmEur);
+    const effectiveTotalEur = litersCostEur + travelCostEur;
+    const current: PersonalizedOption = {
+      type: 'CH',
+      label: 'Svizzera',
+      stationName: station.name,
+      stationMeta: `${station.brand || 'Pompa'} · ${station.address}`,
+      pricePerLiterEur: station.sp95PriceEur,
+      litersCostEur,
+      travelDistanceKm,
+      travelCostEur,
+      effectiveTotalEur,
+    };
+    if (!best || current.effectiveTotalEur < best.effectiveTotalEur) return current;
+    return best;
+  }, null);
+
+  const best =
+    italy && swiss
+      ? italy.effectiveTotalEur <= swiss.effectiveTotalEur ? italy : swiss
+      : italy || swiss;
+  const other =
+    best?.type === 'IT' ? swiss : best?.type === 'CH' ? italy : null;
+  const savingsEur = best && other ? other.effectiveTotalEur - best.effectiveTotalEur : null;
+
+  return { italy, swiss, best, savingsEur };
+}
+
+function DetailSection({
+  row,
+  locale,
+  tt,
+}: {
+  row: MunicipalityFuelRow;
+  locale: string;
+  tt: (key: string, fallback: string) => string;
+}) {
+  return (
+    <div className="mt-4 space-y-4 rounded-[1.75rem] border border-slate-200 bg-white/90 p-4 sm:p-5">
+      <div className="flex flex-col gap-3 lg:flex-row lg:items-start lg:justify-between">
+        <div>
+          <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wide text-slate-500">
+            <MapPin size={14} />
+            {municipalityLabel(row)}
+          </div>
+          <h3 className="mt-2 text-xl font-black text-slate-900">{tt('fuelPrices.detailTitle', 'Dettaglio comune')}</h3>
+          <p className="mt-1 text-sm text-slate-500">
+            {tt('fuelPrices.detailSubtitle', 'Qui trovi tutte le stazioni italiane rilevate e le migliori alternative svizzere nel raggio di confronto.')}
+          </p>
+        </div>
+        <div className={`inline-flex items-center rounded-2xl border px-4 py-3 text-sm font-semibold ${recommendationTone(row)}`}>
+          {row.comparison.cheaperCountry === 'IT' ? <TrendingDown size={18} /> : <TrendingUp size={18} />}
+          <span className="ml-2">
+            {tt(`fuelPrices.recommendationLong.${row.comparison.cheaperCountry.toLowerCase()}`, recommendationLabel(row.comparison.cheaperCountry))}
+          </span>
+        </div>
+      </div>
+
+      <div className="grid gap-3 sm:grid-cols-3">
+        <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
+          <div className="text-xs font-semibold uppercase text-slate-500">{tt('fuelPrices.detailItalyBest', 'Miglior prezzo Italia')}</div>
+          <div className="mt-2 text-2xl font-black text-slate-900">{formatMoney(row.italy.minPriceEur, 'EUR', locale)}</div>
+          <p className="mt-2 text-xs text-slate-500">{row.italy.cheapestStation?.stationName || '—'}</p>
+        </div>
+        <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
+          <div className="text-xs font-semibold uppercase text-slate-500">{tt('fuelPrices.detailSwissBest', 'Miglior prezzo Svizzera')}</div>
+          <div className="mt-2 text-2xl font-black text-slate-900">
+            {row.swiss.minPriceChf != null ? formatMoney(row.swiss.minPriceChf, 'CHF', locale) : '—'}
+          </div>
+          <p className="mt-2 text-xs text-slate-500">
+            {row.swiss.minPriceEur != null ? `${formatMoney(row.swiss.minPriceEur, 'EUR', locale)} ${tt('fuelPrices.eurEquivalent', 'equivalente')}` : '—'}
+          </p>
+        </div>
+        <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
+          <div className="text-xs font-semibold uppercase text-slate-500">{tt('fuelPrices.detailSaving50L', 'Risparmio su 50 litri')}</div>
+          <div className="mt-2 text-2xl font-black text-slate-900">{formatMoney(row.comparison.saving50LEur, 'EUR', locale, 2)}</div>
+          <p className="mt-2 text-xs text-slate-500">{tt('fuelPrices.detailSavingHint', 'Stima teorica basata sul miglior prezzo italiano locale e sulla migliore opzione svizzera vicina.')}</p>
+        </div>
+      </div>
+
+      <div className="grid gap-4 xl:grid-cols-2">
+        <div className="rounded-2xl border border-slate-200 bg-slate-50/80 p-4">
+          <h4 className="text-sm font-black text-slate-900">{tt('fuelPrices.detailItalyStations', 'Stazioni italiane rilevate')}</h4>
+          <div className="mt-3 space-y-3">
+            {row.italy.stations.slice(0, 12).map((station) => (
+              <div key={`${station.id}-${station.priceEur}-${station.isSelf ? 'self' : 'served'}`} className="rounded-2xl border border-white bg-white p-3">
+                <div className="flex items-start justify-between gap-3">
+                  <div>
+                    <div className="font-semibold text-slate-900">{station.stationName}</div>
+                    <div className="mt-1 text-xs text-slate-500">{station.address}</div>
+                  </div>
+                  <div className="text-right">
+                    <div className="font-black text-slate-900">{formatMoney(station.priceEur, 'EUR', locale)}</div>
+                    <div className="text-xs text-slate-500">{station.isSelf ? tt('fuelPrices.self', 'Self') : tt('fuelPrices.served', 'Servito')}</div>
+                  </div>
+                </div>
+              </div>
+            ))}
+            {!row.italy.stations.length && (
+              <div className="rounded-2xl border border-dashed border-slate-300 bg-white px-4 py-6 text-center text-sm text-slate-500">
+                {tt('fuelPrices.noItalyStations', 'Nessuna stazione italiana trovata per questo comune.')}
+              </div>
+            )}
+          </div>
+        </div>
+
+        <div className="rounded-2xl border border-slate-200 bg-slate-50/80 p-4">
+          <h4 className="text-sm font-black text-slate-900">{tt('fuelPrices.detailSwissStations', 'Migliori opzioni svizzere vicine')}</h4>
+          <div className="mt-3 space-y-3">
+            {row.swiss.nearbyStations.slice(0, 12).map((station) => (
+              <div key={station.id} className="rounded-2xl border border-white bg-white p-3">
+                <div className="flex items-start justify-between gap-3">
+                  <div>
+                    <div className="font-semibold text-slate-900">{station.name}</div>
+                    <div className="mt-1 text-xs text-slate-500">{station.address}</div>
+                  </div>
+                  <div className="text-right">
+                    <div className="font-black text-slate-900">{formatMoney(station.sp95PriceChf, 'CHF', locale)}</div>
+                    <div className="text-xs text-slate-500">{formatMoney(station.sp95PriceEur, 'EUR', locale)}</div>
+                    <div className="mt-1 text-xs text-slate-500">
+                      {typeof station.distanceKm === 'number' ? `${formatNumber(station.distanceKm, locale)} km` : '—'}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+            {!row.swiss.nearbyStations.length && (
+              <div className="rounded-2xl border border-dashed border-slate-300 bg-white px-4 py-6 text-center text-sm text-slate-500">
+                {tt('fuelPrices.noSwissStations', 'Nessuna stazione svizzera utile nel raggio di confronto.')}
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function FuelPriceStats() {
   const { t, locale } = useTranslation();
   const tt = (key: string, fallback: string) => {
@@ -59,6 +279,9 @@ export default function FuelPriceStats() {
   const [province, setProvince] = useState('ALL');
   const [sortKey, setSortKey] = useState<SortKey>('saving');
   const [selectedKey, setSelectedKey] = useState<string | null>(null);
+  const [homeMunicipalityKey, setHomeMunicipalityKey] = useState('');
+  const [tankLiters, setTankLiters] = useState(50);
+  const [costPerKmEur, setCostPerKmEur] = useState(0.18);
 
   useEffect(() => {
     let cancelled = false;
@@ -89,6 +312,15 @@ export default function FuelPriceStats() {
     return ['ALL', ...Array.from(items).sort()];
   }, [data]);
 
+  const municipalityOptions = useMemo(() => {
+    return (data?.municipalities || [])
+      .map((row) => ({
+        key: municipalityKey(row),
+        label: municipalityLabel(row),
+      }))
+      .sort((a, b) => a.label.localeCompare(b.label));
+  }, [data]);
+
   const rows = useMemo(() => {
     const q = search.trim().toLowerCase();
     const list = (data?.municipalities || []).filter((row) => {
@@ -96,24 +328,33 @@ export default function FuelPriceStats() {
       if (!q) return true;
       return `${row.municipality} ${row.province}`.toLowerCase().includes(q);
     });
-    const sorted = [...list].sort((a, b) => {
-      if (sortKey === 'name') return `${a.municipality} ${a.province}`.localeCompare(`${b.municipality} ${b.province}`);
+
+    return [...list].sort((a, b) => {
+      if (sortKey === 'name') return municipalityLabel(a).localeCompare(municipalityLabel(b));
       if (sortKey === 'italy') return (a.italy.minPriceEur ?? 99) - (b.italy.minPriceEur ?? 99);
       if (sortKey === 'swiss') return (a.swiss.minPriceEur ?? 99) - (b.swiss.minPriceEur ?? 99);
-      if (sortKey === 'delta') return Math.abs(a.comparison.priceDeltaEur ?? 0) < Math.abs(b.comparison.priceDeltaEur ?? 0) ? 1 : -1;
+      if (sortKey === 'delta') return Math.abs(b.comparison.priceDeltaEur ?? 0) - Math.abs(a.comparison.priceDeltaEur ?? 0);
       return (b.comparison.saving50LEur ?? -1) - (a.comparison.saving50LEur ?? -1);
     });
-    return sorted;
   }, [data, province, search, sortKey]);
 
   const selected = useMemo(() => {
-    const key = selectedKey || (rows[0] ? `${rows[0].municipality}|${rows[0].province}` : null);
-    return rows.find((row) => `${row.municipality}|${row.province}` === key) || rows[0] || null;
+    if (!selectedKey) return null;
+    return rows.find((row) => municipalityKey(row) === selectedKey) || null;
   }, [rows, selectedKey]);
+
+  const homeMunicipality = useMemo(() => {
+    return (data?.municipalities || []).find((row) => municipalityKey(row) === homeMunicipalityKey) || null;
+  }, [data, homeMunicipalityKey]);
+
+  const personalizedRecommendation = useMemo(() => {
+    if (!homeMunicipality) return null;
+    return buildPersonalizedOption(homeMunicipality, tankLiters, costPerKmEur);
+  }, [costPerKmEur, homeMunicipality, tankLiters]);
 
   if (loading) {
     return (
-        <div className="rounded-3xl border border-slate-200 dark:border-slate-800 bg-white/80 dark:bg-slate-900/80 p-8 flex items-center justify-center gap-3 text-slate-600 dark:text-slate-300">
+      <div className="rounded-3xl border border-slate-200 dark:border-slate-800 bg-white/80 dark:bg-slate-900/80 p-8 flex items-center justify-center gap-3 text-slate-600 dark:text-slate-300">
         <Loader2 className="animate-spin" size={20} />
         <span>{tt('fuelPrices.loading', 'Caricamento prezzi carburanti...')}</span>
       </div>
@@ -131,26 +372,26 @@ export default function FuelPriceStats() {
 
   return (
     <div className="space-y-6">
-      <section className="rounded-[2rem] border border-orange-200/70 bg-gradient-to-br from-orange-50 via-white to-blue-50 p-6 sm:p-8">
-        <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
+      <section className="rounded-[2rem] border border-orange-200/70 bg-gradient-to-br from-orange-50 via-white to-blue-50 p-5 sm:p-8">
+        <div className="flex flex-col gap-5 xl:flex-row xl:items-end xl:justify-between">
           <div className="max-w-3xl">
             <div className="inline-flex items-center gap-2 rounded-full bg-white/80 px-3 py-1 text-xs font-semibold text-orange-700 ring-1 ring-orange-200">
               <Fuel size={14} />
               {tt('fuelPrices.badge', 'Osservatorio carburanti')}
             </div>
-            <h1 className="mt-3 text-3xl font-black tracking-tight text-slate-900 dark:text-white">
+            <h1 className="mt-3 text-3xl font-black tracking-tight text-slate-900 dark:text-white sm:text-4xl">
               {tt('fuelPrices.title', 'Prezzi carburanti Italia-Svizzera')}
             </h1>
-            <p className="mt-3 text-sm leading-6 text-slate-600 dark:text-slate-300">
+            <p className="mt-3 max-w-2xl text-sm leading-6 text-slate-600 dark:text-slate-300 sm:text-base">
               {tt('fuelPrices.subtitle', 'Confronta i prezzi della benzina nei comuni di confine italiani con le stazioni svizzere vicine e scopri dove conviene fare rifornimento oggi.')}
             </p>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm">
-            <div className="rounded-2xl border border-white bg-white/80 px-4 py-3">
+          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+            <div className="rounded-2xl border border-white bg-white/85 px-4 py-3">
               <div className="text-xs font-semibold uppercase tracking-wide text-slate-500">{tt('fuelPrices.italySnapshot', 'Snapshot Italia')}</div>
               <div className="mt-1 font-bold text-slate-900">{formatDate(data.sources.italy.priceSnapshotDate, locale)}</div>
             </div>
-            <div className="rounded-2xl border border-white bg-white/80 px-4 py-3">
+            <div className="rounded-2xl border border-white bg-white/85 px-4 py-3">
               <div className="text-xs font-semibold uppercase tracking-wide text-slate-500">{tt('fuelPrices.exchangeRate', 'Cambio CHF/EUR')}</div>
               <div className="mt-1 font-bold text-slate-900">1 CHF = {formatMoney(data.sources.exchangeRate.eurPerChf, 'EUR', locale, 4)}</div>
             </div>
@@ -158,7 +399,7 @@ export default function FuelPriceStats() {
         </div>
       </section>
 
-      <section className="grid gap-4 md:grid-cols-4">
+      <section className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
         <div className="rounded-3xl border border-slate-200 dark:border-slate-800 bg-white p-5">
           <div className="text-xs font-semibold uppercase text-slate-500">{tt('fuelPrices.cheaperItalyCount', 'Comuni dove conviene IT')}</div>
           <div className="mt-2 text-3xl font-black text-emerald-600">{data.summary.cheaperItalyCount}</div>
@@ -172,7 +413,9 @@ export default function FuelPriceStats() {
         <div className="rounded-3xl border border-slate-200 dark:border-slate-800 bg-white p-5">
           <div className="text-xs font-semibold uppercase text-slate-500">{tt('fuelPrices.bestItalyToday', 'Miglior prezzo Italia')}</div>
           <div className="mt-2 text-xl font-black text-slate-900">
-            {data.summary.cheapestItalyMunicipality ? `${data.summary.cheapestItalyMunicipality.municipality} (${data.summary.cheapestItalyMunicipality.province})` : '—'}
+            {data.summary.cheapestItalyMunicipality
+              ? `${data.summary.cheapestItalyMunicipality.municipality} (${data.summary.cheapestItalyMunicipality.province})`
+              : '—'}
           </div>
           <p className="mt-2 text-sm text-slate-500">
             {data.summary.cheapestItalyMunicipality ? formatMoney(data.summary.cheapestItalyMunicipality.minPriceEur, 'EUR', locale) : '—'}
@@ -189,27 +432,179 @@ export default function FuelPriceStats() {
         </div>
       </section>
 
-      <section className="grid gap-6 xl:grid-cols-[1.4fr,0.9fr]">
-        <div className="rounded-3xl border border-slate-200 dark:border-slate-800 bg-white p-5">
-          <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
-            <div>
-              <h2 className="text-lg font-black text-slate-900">{tt('fuelPrices.compareByMunicipality', 'Confronto per comune')}</h2>
-              <p className="text-sm text-slate-500">{tt('fuelPrices.compareHint', 'Seleziona un comune di confine e confronta la benzina italiana con le opzioni svizzere vicine.')}</p>
+      <section className="rounded-[2rem] border border-slate-200 bg-white p-5 sm:p-6">
+        <div className="flex flex-col gap-4 xl:flex-row xl:items-start xl:justify-between">
+          <div className="max-w-2xl">
+            <div className="inline-flex items-center gap-2 rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-700">
+              <Route size={14} />
+              {tt('fuelPrices.personalizedBadge', 'Confronto dal tuo comune')}
             </div>
-            <div className="flex flex-col gap-2 sm:flex-row">
+            <h2 className="mt-3 text-xl font-black text-slate-900 sm:text-2xl">{tt('fuelPrices.personalizedTitle', 'Dove ti conviene davvero fare benzina')}</h2>
+            <p className="mt-2 text-sm leading-6 text-slate-500">
+              {tt('fuelPrices.personalizedSubtitle', 'Inserisci il tuo comune censito, quanti litri devi fare e un costo chilometrico stimato: il confronto considera sia il prezzo alla pompa sia la distanza andata e ritorno.')}
+            </p>
+          </div>
+
+          {selected && (
+            <button
+              type="button"
+              onClick={() => setHomeMunicipalityKey(municipalityKey(selected))}
+              className="inline-flex items-center justify-center rounded-2xl border border-slate-200 px-4 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
+            >
+              {tt('fuelPrices.useSelectedMunicipality', 'Usa il comune aperto nella lista')}
+            </button>
+          )}
+        </div>
+
+        <div className="mt-5 grid gap-4 lg:grid-cols-[1.1fr,0.9fr]">
+          <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
+            <label className="sm:col-span-2 xl:col-span-2">
+              <div className="mb-2 text-xs font-semibold uppercase tracking-wide text-slate-500">{tt('fuelPrices.homeMunicipality', 'Comune dove vivi')}</div>
+              <input
+                list="fuel-municipalities"
+                value={homeMunicipality ? municipalityLabel(homeMunicipality) : homeMunicipalityKey}
+                onChange={(e) => {
+                  const value = e.target.value;
+                  const match = municipalityOptions.find((option) => option.label === value);
+                  setHomeMunicipalityKey(match?.key || value);
+                }}
+                placeholder={tt('fuelPrices.searchHomeMunicipality', 'Es. Como (CO)')}
+                className="w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm outline-none focus:border-orange-300"
+              />
+              <datalist id="fuel-municipalities">
+                {municipalityOptions.map((option) => (
+                  <option key={option.key} value={option.label} />
+                ))}
+              </datalist>
+            </label>
+
+            <label>
+              <div className="mb-2 text-xs font-semibold uppercase tracking-wide text-slate-500">{tt('fuelPrices.tankLiters', 'Litri da fare')}</div>
+              <input
+                type="number"
+                min={10}
+                max={120}
+                step={5}
+                value={tankLiters}
+                onChange={(e) => setTankLiters(Math.min(120, Math.max(10, Number(e.target.value) || 50)))}
+                className="w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm outline-none focus:border-orange-300"
+              />
+            </label>
+
+            <label>
+              <div className="mb-2 text-xs font-semibold uppercase tracking-wide text-slate-500">{tt('fuelPrices.costPerKm', 'Costo auto per km')}</div>
+              <input
+                type="number"
+                min={0.05}
+                max={1}
+                step={0.01}
+                value={costPerKmEur}
+                onChange={(e) => setCostPerKmEur(Math.min(1, Math.max(0.05, Number(e.target.value) || 0.18)))}
+                className="w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm outline-none focus:border-orange-300"
+              />
+            </label>
+          </div>
+
+          <div className="rounded-3xl border border-slate-200 bg-gradient-to-br from-slate-50 to-white p-4 sm:p-5">
+            {!homeMunicipality || !personalizedRecommendation?.best ? (
+              <div className="flex h-full items-center justify-center rounded-2xl border border-dashed border-slate-300 px-5 py-10 text-center text-sm text-slate-500">
+                {tt('fuelPrices.personalizedEmpty', 'Seleziona un comune censito per ricevere il consiglio personalizzato su dove conviene fare benzina tenendo conto anche dei chilometri.')}
+              </div>
+            ) : (
+              <div className="space-y-4">
+                <div>
+                  <div className="text-xs font-semibold uppercase tracking-wide text-slate-500">{tt('fuelPrices.personalizedResult', 'Risultato personalizzato')}</div>
+                  <h3 className="mt-2 text-xl font-black text-slate-900">
+                    {personalizedRecommendation.best.type === 'IT'
+                      ? tt('fuelPrices.personalizedItaly', 'Per te conviene fare benzina in Italia')
+                      : tt('fuelPrices.personalizedSwiss', 'Per te conviene fare benzina in Svizzera')}
+                  </h3>
+                  <p className="mt-1 text-sm text-slate-500">
+                    {municipalityLabel(homeMunicipality)} · {tankLiters}L · {formatMoney(costPerKmEur, 'EUR', locale, 2)}/km
+                  </p>
+                </div>
+
+                <div className="rounded-2xl border border-slate-200 bg-white p-4">
+                  <div className="flex items-start justify-between gap-3">
+                    <div>
+                      <div className="text-xs font-semibold uppercase tracking-wide text-slate-500">{tt('fuelPrices.bestOption', 'Opzione migliore')}</div>
+                      <div className="mt-2 text-lg font-black text-slate-900">{personalizedRecommendation.best.stationName}</div>
+                      <div className="mt-1 text-sm text-slate-500">{personalizedRecommendation.best.stationMeta}</div>
+                    </div>
+                    <div className={`inline-flex rounded-full border px-3 py-1 text-xs font-semibold ${personalizedRecommendation.best.type === 'IT' ? 'border-emerald-200 bg-emerald-50 text-emerald-700' : 'border-blue-200 bg-blue-50 text-blue-700'}`}>
+                      {personalizedRecommendation.best.label}
+                    </div>
+                  </div>
+
+                  <div className="mt-4 grid gap-3 sm:grid-cols-3">
+                    <div>
+                      <div className="text-xs font-semibold uppercase tracking-wide text-slate-500">{tt('fuelPrices.pumpCost', 'Costo carburante')}</div>
+                      <div className="mt-1 font-black text-slate-900">{formatMoney(personalizedRecommendation.best.litersCostEur, 'EUR', locale, 2)}</div>
+                    </div>
+                    <div>
+                      <div className="text-xs font-semibold uppercase tracking-wide text-slate-500">{tt('fuelPrices.travelCost', 'Costo spostamento')}</div>
+                      <div className="mt-1 font-black text-slate-900">{formatMoney(personalizedRecommendation.best.travelCostEur, 'EUR', locale, 2)}</div>
+                      <div className="text-xs text-slate-500">{formatNumber(personalizedRecommendation.best.travelDistanceKm * 2, locale)} km A/R</div>
+                    </div>
+                    <div>
+                      <div className="text-xs font-semibold uppercase tracking-wide text-slate-500">{tt('fuelPrices.effectiveTotal', 'Totale stimato')}</div>
+                      <div className="mt-1 font-black text-slate-900">{formatMoney(personalizedRecommendation.best.effectiveTotalEur, 'EUR', locale, 2)}</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="grid gap-3 sm:grid-cols-2">
+                  {[personalizedRecommendation.italy, personalizedRecommendation.swiss].filter(Boolean).map((option) => (
+                    <div key={option!.type} className="rounded-2xl border border-slate-200 bg-white p-4">
+                      <div className="flex items-start justify-between gap-3">
+                        <div>
+                          <div className="font-semibold text-slate-900">{option!.label}</div>
+                          <div className="mt-1 text-xs text-slate-500">{option!.stationName}</div>
+                        </div>
+                        <div className="text-sm font-black text-slate-900">{formatMoney(option!.effectiveTotalEur, 'EUR', locale, 2)}</div>
+                      </div>
+                      <div className="mt-3 space-y-1 text-xs text-slate-500">
+                        <div>{tt('fuelPrices.pricePerLiter', 'Prezzo/litro')}: {formatMoney(option!.pricePerLiterEur, 'EUR', locale)}</div>
+                        <div>{tt('fuelPrices.travelDistance', 'Distanza')}: {formatNumber(option!.travelDistanceKm, locale)} km</div>
+                        <div>{tt('fuelPrices.travelCost', 'Costo spostamento')}: {formatMoney(option!.travelCostEur, 'EUR', locale, 2)}</div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                {personalizedRecommendation.savingsEur != null && (
+                  <div className="rounded-2xl border border-orange-200 bg-orange-50 px-4 py-3 text-sm font-semibold text-orange-800">
+                    {tt('fuelPrices.personalizedSavingPrefix', 'Risparmio stimato rispetto all alternativa')}: {formatMoney(personalizedRecommendation.savingsEur, 'EUR', locale, 2)}
+                  </div>
+                )}
+              </div>
+            )}
+          </div>
+        </div>
+      </section>
+
+      <section className="grid gap-6 xl:grid-cols-[1.4fr,0.9fr]">
+        <div className="rounded-[2rem] border border-slate-200 bg-white p-5 sm:p-6">
+          <div className="flex flex-col gap-4">
+            <div className="flex flex-col gap-2">
+              <h2 className="text-lg font-black text-slate-900 sm:text-xl">{tt('fuelPrices.compareByMunicipality', 'Confronto per comune')}</h2>
+              <p className="text-sm text-slate-500">{tt('fuelPrices.compareHint', 'Tocca un comune per aprire subito sotto il dettaglio completo, anche da mobile.')}</p>
+            </div>
+
+            <div className="grid gap-3 lg:grid-cols-[1fr,auto,auto]">
               <label className="relative">
                 <Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" />
                 <input
                   value={search}
                   onChange={(e) => setSearch(e.target.value)}
                   placeholder={tt('fuelPrices.searchPlaceholder', 'Cerca comune o provincia')}
-                  className="w-full rounded-2xl border border-slate-200 bg-slate-50 py-2 pl-9 pr-3 text-sm outline-none focus:border-orange-300"
+                  className="w-full rounded-2xl border border-slate-200 bg-slate-50 py-3 pl-10 pr-3 text-sm outline-none focus:border-orange-300"
                 />
               </label>
               <select
                 value={province}
                 onChange={(e) => setProvince(e.target.value)}
-                className="rounded-2xl border border-slate-200 bg-slate-50 px-3 py-2 text-sm outline-none focus:border-orange-300"
+                className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm outline-none focus:border-orange-300"
               >
                 {provinces.map((item) => (
                   <option key={item} value={item}>
@@ -220,7 +615,7 @@ export default function FuelPriceStats() {
               <select
                 value={sortKey}
                 onChange={(e) => setSortKey(e.target.value as SortKey)}
-                className="rounded-2xl border border-slate-200 bg-slate-50 px-3 py-2 text-sm outline-none focus:border-orange-300"
+                className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm outline-none focus:border-orange-300"
               >
                 <option value="saving">{tt('fuelPrices.sortSaving', 'Ordina per risparmio')}</option>
                 <option value="delta">{tt('fuelPrices.sortDelta', 'Ordina per delta')}</option>
@@ -231,55 +626,84 @@ export default function FuelPriceStats() {
             </div>
           </div>
 
-          <div className="mt-4 overflow-auto">
-            <table className="min-w-full text-sm">
-              <thead>
-                <tr className="border-b border-slate-200 text-left text-xs uppercase tracking-wide text-slate-500">
-                  <th className="px-3 py-3">{tt('fuelPrices.tableMunicipality', 'Comune')}</th>
-                  <th className="px-3 py-3">{tt('fuelPrices.tableItaly', 'Italia')}</th>
-                  <th className="px-3 py-3">{tt('fuelPrices.tableSwiss', 'Svizzera')}</th>
-                  <th className="px-3 py-3">{tt('fuelPrices.tableCheaper', 'Conviene')}</th>
-                  <th className="px-3 py-3">{tt('fuelPrices.tableSaving', 'Risparmio 50L')}</th>
-                </tr>
-              </thead>
-              <tbody>
-                {rows.slice(0, 120).map((row) => {
-                  const isSelected = selected?.municipality === row.municipality && selected?.province === row.province;
-                  return (
-                    <tr
-                      key={`${row.municipality}-${row.province}`}
-                      className={`border-b border-slate-100 cursor-pointer ${isSelected ? 'bg-orange-50/70' : 'hover:bg-slate-50'}`}
-                      onClick={() => {
-                        setSelectedKey(`${row.municipality}|${row.province}`);
-                        Analytics.trackUIInteraction('statistiche', 'carburanti', 'select_municipality', 'click', `${row.municipality}-${row.province}`);
-                      }}
-                    >
-                      <td className="px-3 py-3">
-                        <div className="font-semibold text-slate-900">{row.municipality}</div>
-                        <div className="text-xs text-slate-500">{row.province} · {row.distanceKm} km {tt('fuelPrices.fromBorder', 'dal confine')}</div>
-                      </td>
-                      <td className="px-3 py-3 text-slate-700">{formatMoney(row.italy.minPriceEur, 'EUR', locale)}</td>
-                      <td className="px-3 py-3 text-slate-700">
-                        {row.swiss.minPriceChf != null
-                          ? `${formatMoney(row.swiss.minPriceChf, 'CHF', locale)} · ${formatMoney(row.swiss.minPriceEur, 'EUR', locale)}`
-                          : '—'}
-                      </td>
-                      <td className="px-3 py-3">
-                        <span className={`inline-flex rounded-full border px-2 py-1 text-xs font-semibold ${recommendationTone(row)}`}>
-                          {tt(`fuelPrices.recommendation.${row.comparison.cheaperCountry.toLowerCase()}`, recommendationLabel(row.comparison.cheaperCountry))}
-                        </span>
-                      </td>
-                      <td className="px-3 py-3 font-semibold text-slate-900">{formatMoney(row.comparison.saving50LEur, 'EUR', locale, 2)}</td>
-                    </tr>
-                  );
-                })}
-              </tbody>
-            </table>
+          <div className="mt-5 space-y-3">
+            {rows.slice(0, 120).map((row) => {
+              const isSelected = municipalityKey(row) === municipalityKey(selected || row) && municipalityKey(row) === selectedKey;
+              return (
+                <div key={municipalityKey(row)} className="rounded-[1.5rem] border border-slate-200 bg-slate-50/70">
+                  <button
+                    type="button"
+                    onClick={() => {
+                      const nextKey = municipalityKey(row);
+                      setSelectedKey((current) => current === nextKey ? null : nextKey);
+                      Analytics.trackUIInteraction('statistiche', 'carburanti', 'select_municipality', 'click', `${row.municipality}-${row.province}`);
+                    }}
+                    className="w-full rounded-[1.5rem] px-4 py-4 text-left transition hover:bg-slate-100/70 sm:px-5"
+                  >
+                    <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
+                      <div className="min-w-0">
+                        <div className="flex items-center gap-2">
+                          <div className="text-base font-black text-slate-900">{municipalityLabel(row)}</div>
+                          <span className={`inline-flex rounded-full border px-2 py-1 text-[11px] font-semibold ${recommendationTone(row)}`}>
+                            {tt(`fuelPrices.recommendation.${row.comparison.cheaperCountry.toLowerCase()}`, recommendationLabel(row.comparison.cheaperCountry))}
+                          </span>
+                        </div>
+                        <div className="mt-2 flex flex-wrap items-center gap-2 text-xs text-slate-500">
+                          <span>{formatNumber(row.distanceKm, locale)} km {tt('fuelPrices.fromBorder', 'dal confine')}</span>
+                          <span>•</span>
+                          <span>{row.italy.stationCount} {tt('fuelPrices.italyStationsShort', 'stazioni IT')}</span>
+                          <span>•</span>
+                          <span>{row.swiss.optionCount} {tt('fuelPrices.swissStationsShort', 'opzioni CH')}</span>
+                        </div>
+                      </div>
+
+                      <div className="grid grid-cols-2 gap-3 sm:grid-cols-4 lg:min-w-[520px]">
+                        <div>
+                          <div className="text-[11px] font-semibold uppercase tracking-wide text-slate-500">{tt('fuelPrices.tableItaly', 'Italia')}</div>
+                          <div className="mt-1 font-black text-slate-900">{formatMoney(row.italy.minPriceEur, 'EUR', locale)}</div>
+                        </div>
+                        <div>
+                          <div className="text-[11px] font-semibold uppercase tracking-wide text-slate-500">{tt('fuelPrices.tableSwiss', 'Svizzera')}</div>
+                          <div className="mt-1 font-black text-slate-900">
+                            {row.swiss.minPriceChf != null ? formatMoney(row.swiss.minPriceChf, 'CHF', locale) : '—'}
+                          </div>
+                          <div className="text-[11px] text-slate-500">
+                            {row.swiss.minPriceEur != null ? formatMoney(row.swiss.minPriceEur, 'EUR', locale) : '—'}
+                          </div>
+                        </div>
+                        <div>
+                          <div className="text-[11px] font-semibold uppercase tracking-wide text-slate-500">{tt('fuelPrices.tableSaving', 'Risparmio 50L')}</div>
+                          <div className="mt-1 font-black text-slate-900">{formatMoney(row.comparison.saving50LEur, 'EUR', locale, 2)}</div>
+                        </div>
+                        <div className="flex items-center justify-end lg:justify-start">
+                          <span className="inline-flex items-center gap-2 text-sm font-semibold text-slate-700">
+                            {isSelected ? <ChevronUp size={18} /> : <ChevronDown size={18} />}
+                            {isSelected ? tt('fuelPrices.hideDetails', 'Nascondi') : tt('fuelPrices.showDetails', 'Apri dettaglio')}
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </button>
+
+                  {isSelected && (
+                    <div className="border-t border-slate-200 px-3 pb-3 sm:px-4 sm:pb-4">
+                      <DetailSection row={row} locale={locale} tt={tt} />
+                    </div>
+                  )}
+                </div>
+              );
+            })}
+
+            {!rows.length && (
+              <div className="rounded-3xl border border-dashed border-slate-300 bg-slate-50 px-5 py-10 text-center text-sm text-slate-500">
+                {tt('fuelPrices.noMatches', 'Nessun comune trovato con i filtri attuali.')}
+              </div>
+            )}
           </div>
         </div>
 
         <div className="space-y-6">
-          <div className="rounded-3xl border border-slate-200 dark:border-slate-800 bg-white p-5">
+          <div className="rounded-[2rem] border border-slate-200 bg-white p-5">
             <h2 className="text-lg font-black text-slate-900">{tt('fuelPrices.bestDeals', 'Dove si risparmia di piu')}</h2>
             <div className="mt-4 space-y-3">
               {data.rankings.bestCrossBorderSavings.slice(0, 6).map((item) => (
@@ -289,10 +713,10 @@ export default function FuelPriceStats() {
                       <div className="font-semibold text-slate-900">{item.municipality} ({item.province})</div>
                       <div className="mt-1 text-xs text-slate-500">
                         {item.cheaperCountry === 'IT'
-                            ? tt('fuelPrices.bestDealItaly', 'Meglio fare il pieno in Italia')
-                            : item.cheaperCountry === 'CH'
-                            ? tt('fuelPrices.bestDealSwiss', 'Meglio fare il pieno in Svizzera')
-                            : tt('fuelPrices.bestDealTie', 'Prezzo quasi uguale')}
+                          ? tt('fuelPrices.bestDealItaly', 'Meglio fare il pieno in Italia')
+                          : item.cheaperCountry === 'CH'
+                          ? tt('fuelPrices.bestDealSwiss', 'Meglio fare il pieno in Svizzera')
+                          : tt('fuelPrices.bestDealTie', 'Prezzo quasi uguale')}
                       </div>
                     </div>
                     <div className="text-right">
@@ -305,12 +729,13 @@ export default function FuelPriceStats() {
             </div>
           </div>
 
-          <div className="rounded-3xl border border-slate-200 dark:border-slate-800 bg-white p-5">
+          <div className="rounded-[2rem] border border-slate-200 bg-white p-5">
             <h2 className="text-lg font-black text-slate-900">{tt('fuelPrices.sourceNotes', 'Fonti e metodo')}</h2>
             <ul className="mt-4 space-y-3 text-sm text-slate-600">
               <li>{tt('fuelPrices.noteItaly', 'Italia: dati ufficiali MIMIT del file prezzi alle 8 e anagrafica impianti attivi.')}</li>
               <li>{tt('fuelPrices.noteSwiss', 'Svizzera: dati SP95 ricavati dal feed pubblico TCS delle stazioni nell area di frontiera.')}</li>
               <li>{tt('fuelPrices.noteExchange', 'Il confronto IT-CH converte i prezzi svizzeri in EUR usando il tasso ECB del giorno del dataset.')}</li>
+              <li>{tt('fuelPrices.noteDistance', 'Nel consiglio personalizzato il totale include un costo chilometrico andata e ritorno impostato da te.')}</li>
             </ul>
             <div className="mt-4 flex flex-wrap gap-3">
               <a href={data.sources.italy.pricesUrl} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-full border border-slate-200 px-3 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-50 no-underline">
@@ -325,114 +750,6 @@ export default function FuelPriceStats() {
           </div>
         </div>
       </section>
-
-      {selected && (
-        <section className="rounded-3xl border border-slate-200 dark:border-slate-800 bg-white p-5 sm:p-6">
-          <div className="flex flex-col gap-3 lg:flex-row lg:items-start lg:justify-between">
-            <div>
-              <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wide text-slate-500">
-                <MapPin size={14} />
-                {selected.municipality} ({selected.province})
-              </div>
-              <h2 className="mt-2 text-2xl font-black text-slate-900">{tt('fuelPrices.detailTitle', 'Dettaglio comune')}</h2>
-              <p className="mt-2 text-sm text-slate-500">{tt('fuelPrices.detailSubtitle', 'Qui trovi tutte le stazioni italiane rilevate e le migliori alternative svizzere nel raggio di confronto.')}</p>
-            </div>
-            <div className={`inline-flex rounded-2xl border px-4 py-3 text-sm font-semibold ${recommendationTone(selected)}`}>
-              {selected.comparison.cheaperCountry === 'IT' ? <TrendingDown size={18} /> : <TrendingUp size={18} />}
-              <span className="ml-2">{tt(`fuelPrices.recommendationLong.${selected.comparison.cheaperCountry.toLowerCase()}`, recommendationLabel(selected.comparison.cheaperCountry))}</span>
-            </div>
-          </div>
-
-          <div className="mt-6 grid gap-4 md:grid-cols-3">
-            <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
-              <div className="text-xs font-semibold uppercase text-slate-500">{tt('fuelPrices.detailItalyBest', 'Miglior prezzo Italia')}</div>
-              <div className="mt-2 text-2xl font-black text-slate-900">{formatMoney(selected.italy.minPriceEur, 'EUR', locale)}</div>
-              <p className="mt-2 text-xs text-slate-500">{selected.italy.cheapestStation?.stationName || '—'}</p>
-            </div>
-            <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
-              <div className="text-xs font-semibold uppercase text-slate-500">{tt('fuelPrices.detailSwissBest', 'Miglior prezzo Svizzera')}</div>
-              <div className="mt-2 text-2xl font-black text-slate-900">
-                {selected.swiss.minPriceChf != null
-                  ? `${formatMoney(selected.swiss.minPriceChf, 'CHF', locale)}`
-                  : '—'}
-              </div>
-              <p className="mt-2 text-xs text-slate-500">
-                {selected.swiss.minPriceEur != null ? `${formatMoney(selected.swiss.minPriceEur, 'EUR', locale)} ${tt('fuelPrices.eurEquivalent', 'equivalente')}` : '—'}
-              </p>
-            </div>
-            <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
-              <div className="text-xs font-semibold uppercase text-slate-500">{tt('fuelPrices.detailSaving50L', 'Risparmio su 50 litri')}</div>
-              <div className="mt-2 text-2xl font-black text-slate-900">{formatMoney(selected.comparison.saving50LEur, 'EUR', locale, 2)}</div>
-              <p className="mt-2 text-xs text-slate-500">{tt('fuelPrices.detailSavingHint', 'Stima teorica basata sul miglior prezzo italiano locale e sulla migliore opzione svizzera vicina.')}</p>
-            </div>
-          </div>
-
-          <div className="mt-6 grid gap-6 xl:grid-cols-2">
-            <div>
-              <h3 className="text-base font-black text-slate-900">{tt('fuelPrices.detailItalyStations', 'Stazioni italiane rilevate')}</h3>
-              <div className="mt-3 overflow-auto rounded-2xl border border-slate-200">
-                <table className="min-w-full text-sm">
-                  <thead className="bg-slate-50 text-left text-xs uppercase text-slate-500">
-                    <tr>
-                      <th className="px-3 py-3">{tt('fuelPrices.station', 'Stazione')}</th>
-                      <th className="px-3 py-3">{tt('fuelPrices.price', 'Prezzo')}</th>
-                      <th className="px-3 py-3">{tt('fuelPrices.mode', 'Modalita')}</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {selected.italy.stations.slice(0, 20).map((station) => (
-                      <tr key={`${station.id}-${station.priceEur}-${station.isSelf ? 'self' : 'served'}`} className="border-t border-slate-100">
-                        <td className="px-3 py-3">
-                          <div className="font-medium text-slate-900">{station.stationName}</div>
-                          <div className="text-xs text-slate-500">{station.address}</div>
-                        </td>
-                        <td className="px-3 py-3 font-semibold text-slate-900">{formatMoney(station.priceEur, 'EUR', locale)}</td>
-                        <td className="px-3 py-3 text-slate-600">{station.isSelf ? tt('fuelPrices.self', 'Self') : tt('fuelPrices.served', 'Servito')}</td>
-                      </tr>
-                    ))}
-                    {!selected.italy.stations.length && (
-                      <tr><td colSpan={3} className="px-3 py-6 text-center text-slate-500">{tt('fuelPrices.noItalyStations', 'Nessuna stazione italiana trovata per questo comune.')}</td></tr>
-                    )}
-                  </tbody>
-                </table>
-              </div>
-            </div>
-
-            <div>
-              <h3 className="text-base font-black text-slate-900">{tt('fuelPrices.detailSwissStations', 'Migliori opzioni svizzere vicine')}</h3>
-              <div className="mt-3 overflow-auto rounded-2xl border border-slate-200">
-                <table className="min-w-full text-sm">
-                  <thead className="bg-slate-50 text-left text-xs uppercase text-slate-500">
-                    <tr>
-                      <th className="px-3 py-3">{tt('fuelPrices.station', 'Stazione')}</th>
-                      <th className="px-3 py-3">{tt('fuelPrices.price', 'Prezzo')}</th>
-                      <th className="px-3 py-3">{tt('fuelPrices.distance', 'Distanza')}</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {selected.swiss.nearbyStations.map((station) => (
-                      <tr key={station.id} className="border-t border-slate-100">
-                        <td className="px-3 py-3">
-                          <div className="font-medium text-slate-900">{station.name}</div>
-                          <div className="text-xs text-slate-500">{station.address}</div>
-                        </td>
-                        <td className="px-3 py-3">
-                          <div className="font-semibold text-slate-900">{formatMoney(station.sp95PriceChf, 'CHF', locale)}</div>
-                          <div className="text-xs text-slate-500">{formatMoney(station.sp95PriceEur, 'EUR', locale)}</div>
-                        </td>
-                        <td className="px-3 py-3 text-slate-600">{station.distanceKm != null ? `${station.distanceKm} km` : '—'}</td>
-                      </tr>
-                    ))}
-                    {!selected.swiss.nearbyStations.length && (
-                      <tr><td colSpan={3} className="px-3 py-6 text-center text-slate-500">{tt('fuelPrices.noSwissStations', 'Nessuna stazione svizzera utile nel raggio di confronto.')}</td></tr>
-                    )}
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
-        </section>
-      )}
     </div>
   );
 }

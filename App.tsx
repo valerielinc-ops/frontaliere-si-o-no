@@ -2598,7 +2598,7 @@ const App: React.FC = () => {
                     <div className="mt-2">
                       <button
                         onClick={() => { Analytics.trackSelectContent('job_board_cta', 'desktop'); navigateTo('job-board' as any); }}
-                        className="w-full flex items-center gap-3 px-4 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 rounded-xl text-white transition-all hover:shadow-md text-left"
+                        className="w-full flex items-center gap-3 px-4 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 rounded-xl text-white transition-all hover:shadow-md text-left cursor-pointer"
                       >
                         <div className="p-1.5 bg-white/20 rounded-lg flex-shrink-0">
                           <Briefcase size={16} className="text-white" />

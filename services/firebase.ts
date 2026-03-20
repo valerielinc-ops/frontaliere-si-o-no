@@ -13,6 +13,7 @@ import type { Analytics as FirebaseAnalytics } from "firebase/analytics";
 import type { AppCheck } from "firebase/app-check";
 import type { RemoteConfig } from "firebase/remote-config";
 import { reportCaughtError } from '@/services/errorReporter';
+import { isRecaptchaClientReady, type RecaptchaLikeWindow } from '@/services/recaptchaReady';
 
 const _K = 'JztKDydNL0lRMwFyR3MKcyFaPABJPEF4I2lwFGxORhwwVgkHPyFT';
 const _S = 'fr0nt4l13r3-t1c1n0';
@@ -237,9 +238,7 @@ async function loadRecaptchaScript(siteKey: string): Promise<void> {
  */
 async function waitForRecaptcha(maxAttempts = 50, delayMs = 100): Promise<boolean> {
   for (let i = 0; i < maxAttempts; i++) {
-    if (typeof window !== 'undefined' && 
-        typeof (window as any).grecaptcha !== 'undefined' && 
-        typeof (window as any).grecaptcha.ready === 'function') {
+    if (typeof window !== 'undefined' && isRecaptchaClientReady(window as RecaptchaLikeWindow)) {
       return true;
     }
     await new Promise(resolve => setTimeout(resolve, delayMs));

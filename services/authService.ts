@@ -20,6 +20,21 @@ let _authModule: any = null;
 let _firebaseAuthLoading: Promise<void> | null = null;
 let _eagerAuthRequested = false;
 
+function logAuthDebug(event: string, details?: Record<string, unknown>): void {
+  if (typeof window === 'undefined') return;
+  try {
+    const payload = {
+      event,
+      path: window.location.pathname + window.location.search,
+      ts: new Date().toISOString(),
+      ...details,
+    };
+    console.log('[AuthDebug]', payload);
+  } catch (error) {
+    console.log('[AuthDebug]', event, details, error);
+  }
+}
+
 function shouldStartAuthImmediately(): boolean {
   if (_eagerAuthRequested) return true;
   if (typeof window === 'undefined') return false;
@@ -38,6 +53,7 @@ async function ensureFirebaseAuth(): Promise<void> {
   if (_firebaseAuthLoading) return _firebaseAuthLoading;
   _firebaseAuthLoading = (async () => {
     try {
+      logAuthDebug('ensureFirebaseAuth:start');
       const [firebaseModule, authModule] = await Promise.all([
         import('@/services/firebase'),
         import('firebase/auth'),
@@ -45,8 +61,15 @@ async function ensureFirebaseAuth(): Promise<void> {
       _authModule = authModule;
       const appInstance = await firebaseModule.getApp();
       _auth = authModule.getAuth(appInstance);
+      logAuthDebug('ensureFirebaseAuth:ready', {
+        authDomain: appInstance?.options?.authDomain || null,
+        hasCurrentUser: Boolean(_auth?.currentUser),
+      });
     } catch (error) {
       console.warn('[Auth] Failed to load Firebase Auth', error);
+      logAuthDebug('ensureFirebaseAuth:error', {
+        message: error instanceof Error ? error.message : String(error),
+      });
       reportCaughtError(error, 'auth.loadFirebaseAuth');
     }
   })();
@@ -61,8 +84,10 @@ function getAuthInstance(): any {
 
 function setAuthRedirectState(provider: 'google' | 'facebook'): void {
   if (typeof window === 'undefined') return;
-  sessionStorage.setItem('auth_redirect_path', window.location.pathname + window.location.search);
+  const redirectPath = window.location.pathname + window.location.search;
+  sessionStorage.setItem('auth_redirect_path', redirectPath);
   sessionStorage.setItem('auth_redirect_provider', provider);
+  logAuthDebug('redirect-state:set', { provider, redirectPath });
 }
 
 /**
@@ -94,6 +119,10 @@ export async function signInWithGoogle(): Promise<any | null> {
     );
     if (isMobile) {
       setAuthRedirectState('google');
+      logAuthDebug('google:redirect:start', {
+        isMobile,
+        authDomain: authInstance?.app?.options?.authDomain || null,
+      });
       Analytics.trackUIInteraction('auth', 'google', 'login', 'redirect-start');
       await _authModule.signInWithRedirect(authInstance, googleProvider);
       return null; // page navigates away; result handled by getRedirectResult in useAuth
@@ -116,6 +145,10 @@ export async function signInWithGoogle(): Promise<any | null> {
         popupError?.message?.includes('Cross-Origin-Opener-Policy')
       ) {
         setAuthRedirectState('google');
+        logAuthDebug('google:redirect:fallback', {
+          code: popupError?.code || null,
+          message: popupError?.message || null,
+        });
         Analytics.trackUIInteraction('auth', 'google', 'login', 'redirect-fallback');
         await _authModule.signInWithRedirect(authInstance, googleProvider);
         return null;
@@ -126,6 +159,10 @@ export async function signInWithGoogle(): Promise<any | null> {
   } catch (error: any) {
     if (error?.code !== 'auth/popup-closed-by-user') {
       console.warn('Google sign-in error:', error);
+      logAuthDebug('google:error', {
+        code: error?.code || null,
+        message: error?.message || null,
+      });
       reportCaughtError(error, 'auth.googleSignIn');
       const { Analytics } = await import('@/services/analytics');
       Analytics.trackUIInteraction('auth', 'google', 'login', 'error');
@@ -714,15 +751,28 @@ export function useAuth(): AuthState & {
     const startAuth = () => {
     if (authQueued) return;
     authQueued = true;
+    logAuthDebug('useAuth:startAuth', {
+      redirectProvider: sessionStorage.getItem('auth_redirect_provider'),
+      redirectPath: sessionStorage.getItem('auth_redirect_path'),
+      shouldStartImmediately: shouldStartAuthImmediately(),
+    });
     ensureFirebaseAuth().then(async () => {
       const authInstance = getAuthInstance();
       if (!authInstance || !_authModule) {
+        logAuthDebug('useAuth:no-auth-instance');
         setLoading(false);
         return;
       }
       
       // Handle redirect result (from signInWithRedirect on mobile / fallback)
       _authModule.getRedirectResult(authInstance).then(async (result: any) => {
+        logAuthDebug('useAuth:getRedirectResult:resolved', {
+          hasResult: Boolean(result),
+          hasUser: Boolean(result?.user),
+          providerId: result?.providerId || null,
+          operationType: result?.operationType || null,
+          currentUserUid: authInstance?.currentUser?.uid || null,
+        });
         if (result?.user) {
           const provider = sessionStorage.getItem('auth_redirect_provider') || 'google';
           sessionStorage.removeItem('auth_redirect_provider');
@@ -742,6 +792,12 @@ export function useAuth(): AuthState & {
           });
           // Restore the path the user was on before the redirect
           const savedPath = sessionStorage.getItem('auth_redirect_path');
+          logAuthDebug('useAuth:redirect-success', {
+            provider,
+            savedPath,
+            resultUid: result?.user?.uid || null,
+            resultEmail: result?.user?.email || null,
+          });
           if (savedPath && savedPath !== '/' && window.location.pathname !== savedPath) {
             sessionStorage.removeItem('auth_redirect_path');
             window.history.replaceState(null, '', savedPath);
@@ -751,13 +807,29 @@ export function useAuth(): AuthState & {
             sessionStorage.removeItem('auth_redirect_path');
           }
         }
-      }).catch(() => { /* redirect result may not exist — that's fine */ });
+      }).catch((error: any) => {
+        logAuthDebug('useAuth:getRedirectResult:error', {
+          code: error?.code || null,
+          message: error?.message || null,
+        });
+      });
 
       unsubscribe = _authModule.onAuthStateChanged(authInstance, (u: any) => {
+        logAuthDebug('useAuth:onAuthStateChanged', {
+          hasUser: Boolean(u),
+          uid: u?.uid || null,
+          email: u?.email || null,
+          providerIds: Array.isArray(u?.providerData)
+            ? u.providerData.map((p: any) => p?.providerId).filter(Boolean)
+            : [],
+        });
         setUser(u);
         setLoading(false);
       });
     }).catch((e) => {
+      logAuthDebug('useAuth:startAuth:error', {
+        message: e instanceof Error ? e.message : String(e),
+      });
       reportCaughtError(e, 'auth.initAuthListener');
       setLoading(false);
     });

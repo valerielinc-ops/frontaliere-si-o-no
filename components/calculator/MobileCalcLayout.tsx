@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef, useCallback, Suspense } from 'react';
-import { Coins, TrainFront, Check, ChevronUp, Settings2, Home, Briefcase, TrendingUp, TrendingDown, Ruler, Mail, X, Loader2, CheckCircle2 } from 'lucide-react';
+import { Coins, TrainFront, Check, ChevronUp, ArrowDown, Settings2, Home, Briefcase, TrendingUp, TrendingDown, Ruler, Mail, X, Loader2, CheckCircle2 } from 'lucide-react';
 import { SimulationInputs, SimulationResult } from '../../types';
 import { useTranslation } from '../../services/i18n';
 import { lazyRetry } from '@/services/lazyRetry';
