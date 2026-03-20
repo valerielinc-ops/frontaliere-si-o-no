@@ -1466,6 +1466,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.sanita-fontana-fedriga.title': 'Healthcare, Fontana and Fedriga: \'Hospital-centrism is outdated\'',
     'blog.article.sanita-fontana-fedriga.excerpt': 'The presidents of Lombardy and Friuli Venezia Giulia discuss the sustainability of the healthcare system in Varese.',
     'blog.article.sanita-fontana-fedriga.imageAlt': 'Ville Ponti conference center in Varese',
+    'blog.article.ampliamento-parco-eolico-san-gottardo.title': 'San Gottardo, towards the wind-farm expansion: here are the latest developments',
+    'blog.article.ampliamento-parco-eolico-san-gottardo.excerpt': 'The San Gottardo wind farm could grow: here\'s what it means for the region.',
+    'blog.article.ampliamento-parco-eolico-san-gottardo.imageAlt': 'Wind farm at San Gottardo',
 };
 
 export default blogMetaEn;

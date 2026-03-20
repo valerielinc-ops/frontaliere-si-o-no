@@ -1466,6 +1466,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.sanita-fontana-fedriga.title': 'Gesundheit, Fontana und Fedriga: \'Das Krankenhaus-Zentrismus ist überwunden\'',
     'blog.article.sanita-fontana-fedriga.excerpt': 'Die Präsidenten von Lombardei und Friaul-Julien, Attilio Fontana und Massimiliano Fedriga, diskutieren die Nachhaltigkeit des Gesundheitssystems in Varese.',
     'blog.article.sanita-fontana-fedriga.imageAlt': 'Konferenzcenter Ville Ponti in Varese',
+    'blog.article.ampliamento-parco-eolico-san-gottardo.title': 'San Gottardo: Windpark-Erweiterung steht bevor – das ist neu',
+    'blog.article.ampliamento-parco-eolico-san-gottardo.excerpt': 'Der Windpark San Gottardo könnte erweitert werden – was das für die Region bedeutet.',
+    'blog.article.ampliamento-parco-eolico-san-gottardo.imageAlt': 'Windpark San Gottardo',
 };
 
 export default blogMetaDe;

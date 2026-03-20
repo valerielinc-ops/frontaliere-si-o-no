@@ -1466,6 +1466,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.sanita-fontana-fedriga.title': 'Sanità, Fontana e Fedriga: \'L\'ospedale-centrismo è superato\'',
     'blog.article.sanita-fontana-fedriga.excerpt': 'I presidenti di Lombardia e Friuli Venezia Giulia discutono la sostenibilità del sistema sanitario a Varese.',
     'blog.article.sanita-fontana-fedriga.imageAlt': 'Centro congressi Ville Ponti a Varese',
+    'blog.article.ampliamento-parco-eolico-san-gottardo.title': 'San Gottardo, verso l\'ampliamento del parco eolico: ecco le novità',
+    'blog.article.ampliamento-parco-eolico-san-gottardo.excerpt': 'Il parco eolico di San Gottardo potrebbe ampliarsi: ecco cosa significa per la regione.',
+    'blog.article.ampliamento-parco-eolico-san-gottardo.imageAlt': 'Parco eolico a San Gottardo',
 };
 
 export default blogMetaIt;

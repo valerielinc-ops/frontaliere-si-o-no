@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-03-20T18:19:47.885Z",
+  "generatedAt": "2026-03-20T19:24:55.323Z",
   "sources": {
     "italy": {
       "provider": "MIMIT Open Data",
@@ -11,7 +11,7 @@
       "provider": "TCS Benzinpreis",
       "providerUrl": "https://benzin.tcs.ch/de/map/SP95",
       "stationCount": 219,
-      "latestObservedUpdate": "2026-03-20T18:01:10.652Z"
+      "latestObservedUpdate": "2026-03-20T19:01:41.079Z"
     },
     "exchangeRate": {
       "provider": "ECB",
@@ -8328,18 +8328,18 @@
             "distanceKm": 18.7
           },
           {
-            "id": "cPzjxUql1aHeksaFjXuB",
-            "name": "Garage Ferrari SA",
-            "brand": "UNDEFINED",
-            "address": "Via Lugano 31, Bellinzona",
-            "lat": 46.1859073,
-            "lng": 9.0193456,
-            "sp95PriceChf": 1.73,
-            "updatedAt": "2026-03-15T17:43:12.495Z",
-            "nearestMunicipality": "Cavargna (CO)",
-            "nearestMunicipalityDistanceKm": 12.8,
-            "sp95PriceEur": 1.902,
-            "distanceKm": 16.1
+            "id": "DvrNn0z4cHLvWopylMHZ",
+            "name": "Tecnocars Garage Sagl",
+            "brand": "AVIA",
+            "address": "Via Pian Scairolo 13, 6912 Pazzallo",
+            "lat": 45.983692,
+            "lng": 8.931195,
+            "sp95PriceChf": 1.75,
+            "updatedAt": "2026-02-27T11:28:28.214Z",
+            "nearestMunicipality": "Campione d'Italia (CO)",
+            "nearestMunicipalityDistanceKm": 3.5,
+            "sp95PriceEur": 1.924,
+            "distanceKm": 19.9
           }
         ],
         "minPriceChf": 1.63,
@@ -8805,34 +8805,20 @@
         "searchRadiusKm": 20,
         "optionCount": 14,
         "cheapestStation": {
-          "id": "cPzjxUql1aHeksaFjXuB",
-          "name": "Garage Ferrari SA",
-          "brand": "UNDEFINED",
-          "address": "Via Lugano 31, Bellinzona",
-          "lat": 46.1859073,
-          "lng": 9.0193456,
-          "sp95PriceChf": 1.73,
-          "updatedAt": "2026-03-15T17:43:12.495Z",
+          "id": "TTZ7thy4mNT425M2Mfj3",
+          "name": "Eni",
+          "brand": "ENI",
+          "address": "Via Corogna 6532 Arbedo-Castione",
+          "lat": 46.2247818659616,
+          "lng": 9.04316286140832,
+          "sp95PriceChf": 1.77,
+          "updatedAt": "2026-02-21T14:14:48.858Z",
           "nearestMunicipality": "Cavargna (CO)",
-          "nearestMunicipalityDistanceKm": 12.8,
-          "sp95PriceEur": 1.902,
-          "distanceKm": 19.7
+          "nearestMunicipalityDistanceKm": 15.9,
+          "sp95PriceEur": 1.946,
+          "distanceKm": 18.9
         },
         "nearbyStations": [
-          {
-            "id": "cPzjxUql1aHeksaFjXuB",
-            "name": "Garage Ferrari SA",
-            "brand": "UNDEFINED",
-            "address": "Via Lugano 31, Bellinzona",
-            "lat": 46.1859073,
-            "lng": 9.0193456,
-            "sp95PriceChf": 1.73,
-            "updatedAt": "2026-03-15T17:43:12.495Z",
-            "nearestMunicipality": "Cavargna (CO)",
-            "nearestMunicipalityDistanceKm": 12.8,
-            "sp95PriceEur": 1.902,
-            "distanceKm": 19.7
-          },
           {
             "id": "TTZ7thy4mNT425M2Mfj3",
             "name": "Eni",
@@ -8888,10 +8874,24 @@
             "nearestMunicipalityDistanceKm": 12.3,
             "sp95PriceEur": 1.99,
             "distanceKm": 19.9
+          },
+          {
+            "id": "WunhlPJcSC3aLWcTjWow",
+            "name": "Eni Arbedo",
+            "brand": "ENI",
+            "address": "Via San Gottardo 129, 6517 Arbedo",
+            "lat": 46.2126984,
+            "lng": 9.039422199999999,
+            "sp95PriceChf": 1.84,
+            "updatedAt": "2026-03-17T17:38:48.008Z",
+            "nearestMunicipality": "Cavargna (CO)",
+            "nearestMunicipalityDistanceKm": 14.7,
+            "sp95PriceEur": 2.023,
+            "distanceKm": 18.8
           }
         ],
-        "minPriceChf": 1.73,
-        "minPriceEur": 1.902
+        "minPriceChf": 1.77,
+        "minPriceEur": 1.946
       },
       "comparison": {
         "cheaperCountry": "NO_DATA",
@@ -9967,34 +9967,20 @@
         "searchRadiusKm": 20,
         "optionCount": 22,
         "cheapestStation": {
-          "id": "cPzjxUql1aHeksaFjXuB",
-          "name": "Garage Ferrari SA",
+          "id": "HapjFsEcj5Snc7o1iICH",
+          "name": "Station La Posta Svizzzera",
           "brand": "UNDEFINED",
-          "address": "Via Lugano 31, Bellinzona",
-          "lat": 46.1859073,
-          "lng": 9.0193456,
-          "sp95PriceChf": 1.73,
-          "updatedAt": "2026-03-15T17:43:12.495Z",
+          "address": "Viale Stefano Franscini 30, 6500 Bellinzona ",
+          "lat": 46.1928300156486,
+          "lng": 9.01310606612084,
+          "sp95PriceChf": 1.75,
+          "updatedAt": "2026-03-18T17:51:12.883Z",
           "nearestMunicipality": "Cavargna (CO)",
-          "nearestMunicipalityDistanceKm": 12.8,
-          "sp95PriceEur": 1.902,
-          "distanceKm": 18.5
+          "nearestMunicipalityDistanceKm": 13.7,
+          "sp95PriceEur": 1.924,
+          "distanceKm": 19.2
         },
         "nearbyStations": [
-          {
-            "id": "cPzjxUql1aHeksaFjXuB",
-            "name": "Garage Ferrari SA",
-            "brand": "UNDEFINED",
-            "address": "Via Lugano 31, Bellinzona",
-            "lat": 46.1859073,
-            "lng": 9.0193456,
-            "sp95PriceChf": 1.73,
-            "updatedAt": "2026-03-15T17:43:12.495Z",
-            "nearestMunicipality": "Cavargna (CO)",
-            "nearestMunicipalityDistanceKm": 12.8,
-            "sp95PriceEur": 1.902,
-            "distanceKm": 18.5
-          },
           {
             "id": "HapjFsEcj5Snc7o1iICH",
             "name": "Station La Posta Svizzzera",
@@ -10050,10 +10036,24 @@
             "nearestMunicipalityDistanceKm": 13.6,
             "sp95PriceEur": 1.946,
             "distanceKm": 14.9
+          },
+          {
+            "id": "EWcpoIi8pxEB42DarVWu",
+            "name": "Garage Vera SA",
+            "brand": "AVIA",
+            "address": "Via Cantonale, 6535 Roveredo",
+            "lat": 46.24009,
+            "lng": 9.1359,
+            "sp95PriceChf": 1.79,
+            "updatedAt": "2026-02-28T15:25:19.887Z",
+            "nearestMunicipality": "Dosso del Liro (CO)",
+            "nearestMunicipalityDistanceKm": 13.5,
+            "sp95PriceEur": 1.968,
+            "distanceKm": 14.6
           }
         ],
-        "minPriceChf": 1.73,
-        "minPriceEur": 1.902
+        "minPriceChf": 1.75,
+        "minPriceEur": 1.924
       },
       "comparison": {
         "cheaperCountry": "NO_DATA",
@@ -10393,20 +10393,6 @@
             "distanceKm": 17.9
           },
           {
-            "id": "cPzjxUql1aHeksaFjXuB",
-            "name": "Garage Ferrari SA",
-            "brand": "UNDEFINED",
-            "address": "Via Lugano 31, Bellinzona",
-            "lat": 46.1859073,
-            "lng": 9.0193456,
-            "sp95PriceChf": 1.73,
-            "updatedAt": "2026-03-15T17:43:12.495Z",
-            "nearestMunicipality": "Cavargna (CO)",
-            "nearestMunicipalityDistanceKm": 12.8,
-            "sp95PriceEur": 1.902,
-            "distanceKm": 20
-          },
-          {
             "id": "YOUDkEmnmgADYedhnn9n",
             "name": "SOCAR / Piccadilly Vezia",
             "brand": "PICCADILLY",
@@ -10432,6 +10418,20 @@
             "nearestMunicipality": "Campione d'Italia (CO)",
             "nearestMunicipalityDistanceKm": 6.5,
             "sp95PriceEur": 1.924,
+            "distanceKm": 19.8
+          },
+          {
+            "id": "5LTmgyzdQyG1u08UnDu1",
+            "name": "Euro Service",
+            "brand": "UNDEFINED",
+            "address": "Via Cantonale 12, 6814 Cadempino",
+            "lat": 46.03291417576174,
+            "lng": 8.934531588842782,
+            "sp95PriceChf": 1.76,
+            "updatedAt": "2026-03-19T10:43:04.548Z",
+            "nearestMunicipality": "Campione d'Italia (CO)",
+            "nearestMunicipalityDistanceKm": 7.7,
+            "sp95PriceEur": 1.935,
             "distanceKm": 19.8
           }
         ],
@@ -17164,18 +17164,18 @@
             "distanceKm": 18.8
           },
           {
-            "id": "cPzjxUql1aHeksaFjXuB",
-            "name": "Garage Ferrari SA",
+            "id": "HapjFsEcj5Snc7o1iICH",
+            "name": "Station La Posta Svizzzera",
             "brand": "UNDEFINED",
-            "address": "Via Lugano 31, Bellinzona",
-            "lat": 46.1859073,
-            "lng": 9.0193456,
-            "sp95PriceChf": 1.73,
-            "updatedAt": "2026-03-15T17:43:12.495Z",
+            "address": "Viale Stefano Franscini 30, 6500 Bellinzona ",
+            "lat": 46.1928300156486,
+            "lng": 9.01310606612084,
+            "sp95PriceChf": 1.75,
+            "updatedAt": "2026-03-18T17:51:12.883Z",
             "nearestMunicipality": "Cavargna (CO)",
-            "nearestMunicipalityDistanceKm": 12.8,
-            "sp95PriceEur": 1.902,
-            "distanceKm": 15.2
+            "nearestMunicipalityDistanceKm": 13.7,
+            "sp95PriceEur": 1.924,
+            "distanceKm": 16
           }
         ],
         "minPriceChf": 1.63,

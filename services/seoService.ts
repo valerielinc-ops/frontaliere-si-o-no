@@ -1625,6 +1625,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-danni-riparati-centovallina': { name: 'Danni riparati, riapre la Centovallina-V', path: '/articoli-frontaliere/danni-riparati-centovallina', parent: 'blog' },
     'blog-porrentruy-piscina-comunale-divieto': { name: 'Novità', path: '/articoli-frontaliere/porrentruy-piscina-comunale-divieto', parent: 'blog' },
     'blog-sanita-fontana-fedriga': { name: 'Sanità', path: '/articoli-frontaliere/sanita-fontana-fedriga', parent: 'blog' },
+    'blog-ampliamento-parco-eolico-san-gottardo': { name: 'San Gottardo', path: '/articoli-frontaliere/ampliamento-parco-eolico-san-gottardo', parent: 'blog' },
   };
 
   const info = sectionNames[section];

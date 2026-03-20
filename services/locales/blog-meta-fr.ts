@@ -1466,6 +1466,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.sanita-fontana-fedriga.title': 'Santé, Fontana et Fedriga : \'L\'hôpital-centrisme est dépassé\'',
     'blog.article.sanita-fontana-fedriga.excerpt': 'Les présidents de Lombardie et de Frioul-Vénétie Julienne discutent de la durabilité du système sanitaire à Varèse.',
     'blog.article.sanita-fontana-fedriga.imageAlt': 'Centre de conférence Ville Ponti à Varese',
+    'blog.article.ampliamento-parco-eolico-san-gottardo.title': 'Saint-Gothard, vers l\'extension du parc éolien : voici les nouveautés',
+    'blog.article.ampliamento-parco-eolico-san-gottardo.excerpt': 'Le parc éolien de Saint-Gothard pourrait s\'agrandir : voici ce que cela signifie pour la région.',
+    'blog.article.ampliamento-parco-eolico-san-gottardo.imageAlt': 'Parc éolien de San Gottardo',
 };
 
 export default blogMetaFr;

@@ -4015,6 +4015,13 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/sanita-fontana-fedriga.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'ampliamento-parco-eolico-san-gottardo',
+    category: 'novita',
+    date: '2026-03-20T19:20:07.949Z',
+    image: '/images/blog/ampliamento-parco-eolico-san-gottardo.jpg',
+    hasCalculator: true,
+  },
 ];
 
 const CATEGORIES = ['all', 'fiscale', 'pratico', 'novita', 'pensione'] as const;
