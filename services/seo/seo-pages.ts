@@ -3030,7 +3030,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
         "@context": "https://schema.org",
         "@type": "ItemList",
         "name": "Articoli Frontaliere",
-        "numberOfItems": 459,
+        "numberOfItems": 460,
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
           { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -3490,7 +3490,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 456, "name": "{\"@context\": \"http://schema.org\", \"@type\": \"Art...", "url": `${BASE_URL}/articoli-frontaliere/kebab-case-3-5-words-max-40-chars` },
           { "@type": "ListItem", "position": 457, "name": "BlogPost JSON-LD", "url": `${BASE_URL}/articoli-frontaliere/salute-prevenzione-burocrazia-svizzera` },
           { "@type": "ListItem", "position": 458, "name": "Telefonate choc: truffe agli anziani in Ticino,...", "url": `${BASE_URL}/articoli-frontaliere/telefonate-choc-truffa-anziani-ticino` },
-          { "@type": "ListItem", "position": 459, "name": "Il cantiere di UBS a tre anni dal salvataggio d...", "url": `${BASE_URL}/articoli-frontaliere/ubs-fusione-credit-suisse-ticino` }
+          { "@type": "ListItem", "position": 459, "name": "Il cantiere di UBS a tre anni dal salvataggio d...", "url": `${BASE_URL}/articoli-frontaliere/ubs-fusione-credit-suisse-ticino` },
+          { "@type": "ListItem", "position": 460, "name": "Salari Minimi e CCL in Ticino: Nuove Direttive ...", "url": `${BASE_URL}/articoli-frontaliere/salari-minimi-ccl-ticino-2026` }
         ]
       }
     ]

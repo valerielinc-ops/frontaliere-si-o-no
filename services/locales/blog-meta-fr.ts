@@ -1406,6 +1406,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.ubs-fusione-credit-suisse-ticino.title': 'Le chantier d\'UBS à trois ans du sauvetage de Credit Suisse',
     'blog.article.ubs-fusione-credit-suisse-ticino.excerpt': 'À trois ans du sauvetage de Credit Suisse, UBS termine la migration de 1,2 million de clients et annonce 3 000 licenciements en Suisse. L’attente pour de nouvelles normes sur le capital s’accroît.',
     'blog.article.ubs-fusione-credit-suisse-ticino.imageAlt': 'Chantier UBS à Bellinzona avec ouvriers et skyline urbain',
+    'blog.article.salari-minimi-ccl-ticino-2026.title': 'Salaires Minimaux et CCL au Tessin : Nouvelles Orientations pour 2026',
+    'blog.article.salari-minimi-ccl-ticino-2026.excerpt': 'Le Conseil des États approuve le projet de loi sur les contrats collectifs de travail, avec une priorité sur les salaires minimums et le rôle des CCL déclarés obligatoires. La situation concerne également le Tessin et les frontaliers, avec des impacts potentiels sur le marché du travail et la réglementation locale.',
+    'blog.article.salari-minimi-ccl-ticino-2026.imageAlt': 'Bureaux cantonaux à Bellinzona près du passage de Brogeda avec activités professionnelles',
 };
 
 export default blogMetaFr;

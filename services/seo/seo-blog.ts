@@ -6722,6 +6722,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-salari-minimi-ccl-ticino-2026': {
+    title: 'Salari Minimi e CCL in Ticino: Nuove Direttive per il 2026 | Frontaliere Ticino',
+    description: 'Il Consiglio degli Stati approva il progetto di legge sui contratti collettivi di lavoro, con priorità sui salari minimi e il ruolo dei CCL dichiarati di obblig',
+    keywords: 'frontalieri, ticino, svizzera, italia, salari, minimi, nuove, direttive',
+    ogTitle: 'Salari Minimi e CCL in Ticino: Nuove Direttive per il 202',
+    ogDescription: 'Il Consiglio degli Stati approva il progetto di legge sui contratti collettivi di lavoro, con priorità sui salari minimi e il ruolo dei CCL dichiarati di obblig',
+    canonicalPath: '/articoli-frontaliere/salari-minimi-ccl-ticino-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Salari Minimi e CCL in Ticino: Nuove Direttive per il 202",
+      "description": "Il Consiglio degli Stati approva il progetto di legge sui contratti collettivi di lavoro, con priorità sui salari minimi e il ruolo dei CCL dichiarati di obblig",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/salari-minimi-ccl-ticino-2026.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Uffici cantonali a Bellinzona con valico di Brogeda e attività lavorative in primo piano"
+      },
+      "datePublished": "2026-03-20T07:34:50+00:00",
+      "dateModified": "2026-03-20T07:34:50+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/salari-minimi-ccl-ticino-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

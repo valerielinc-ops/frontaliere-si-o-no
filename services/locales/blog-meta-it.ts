@@ -1406,6 +1406,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.ubs-fusione-credit-suisse-ticino.title': 'Il cantiere di UBS a tre anni dal salvataggio di Credit Suisse',
     'blog.article.ubs-fusione-credit-suisse-ticino.excerpt': 'A tre anni dal salvataggio di Credit Suisse, UBS completa la migrazione di 1,2 milioni di clienti e annuncia 3.000 licenziamenti in Svizzera. Cresce l’attesa per nuove norme sul capitale.',
     'blog.article.ubs-fusione-credit-suisse-ticino.imageAlt': 'Cantiere UBS a Bellinzona, operai al lavoro con skyline della città sullo sfondo',
+    'blog.article.salari-minimi-ccl-ticino-2026.title': 'Salari Minimi e CCL in Ticino: Nuove Direttive per il 2026',
+    'blog.article.salari-minimi-ccl-ticino-2026.excerpt': 'Il Consiglio degli Stati approva il progetto di legge sui contratti collettivi di lavoro, con priorità sui salari minimi e il ruolo dei CCL dichiarati di obbligatorietà. La situazione coinvolge anche il Ticino e i frontalieri, con possibili impatti sul mercato del lavoro e sulla regolamentazione locale.',
+    'blog.article.salari-minimi-ccl-ticino-2026.imageAlt': 'Uffici cantonali a Bellinzona con valico di Brogeda e attività lavorative in primo piano',
 };
 
 export default blogMetaIt;

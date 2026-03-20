@@ -3875,6 +3875,13 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/ubs-fusione-credit-suisse-ticino.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'salari-minimi-ccl-ticino-2026',
+    category: 'fiscale',
+    date: '2026-03-20T07:34:50.409Z',
+    image: '/images/blog/salari-minimi-ccl-ticino-2026.jpg',
+    hasCalculator: true,
+  },
 ];
 
 const CATEGORIES = ['all', 'fiscale', 'pratico', 'novita', 'pensione'] as const;

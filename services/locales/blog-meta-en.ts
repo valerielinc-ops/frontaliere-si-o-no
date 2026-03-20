@@ -1406,6 +1406,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.ubs-fusione-credit-suisse-ticino.title': 'UBS Construction Site Three Years After Credit Suisse Rescue',
     'blog.article.ubs-fusione-credit-suisse-ticino.excerpt': 'Three years after the Credit Suisse rescue, UBS completes the migration of 1.2 million clients and announces 3,000 layoffs in Switzerland. Growing anticipation for new capital regulations.',
     'blog.article.ubs-fusione-credit-suisse-ticino.imageAlt': 'UBS construction site in Bellinzona with workers and city skyline',
+    'blog.article.salari-minimi-ccl-ticino-2026.title': 'Minimum Wages and CCL in Ticino: New Guidelines for 2026',
+    'blog.article.salari-minimi-ccl-ticino-2026.excerpt': 'The Council of States approves the draft law on collective labor agreements, prioritizing minimum wages and the role of CCL declared of general obligation. The situation also involves Ticino and cross-border workers, with potential impacts on the local labor market and regulations.',
+    'blog.article.salari-minimi-ccl-ticino-2026.imageAlt': 'Cantonal offices in Bellinzona near Brogeda crossing with cross-border workers in action',
 };
 
 export default blogMetaEn;
