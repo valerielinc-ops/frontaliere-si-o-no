@@ -1,6 +1,6 @@
 {
   "crawlerKey": "amag-group",
-  "assembledAt": "2026-03-20T04:33:16.759Z",
+  "assembledAt": "2026-03-20T15:48:30.508Z",
   "jobs": [
     {
       "title": "Autista su chiamata",
@@ -43,6 +43,9 @@
         "de": "fahrer-auf-abruf-amag-group-bellinzona",
         "fr": "chauffeur-sur-appel-amag-group-bellinzona"
       },
+      "previousSlugs": [
+        "autista-su-chiamata"
+      ],
       "salaryMin": 58000,
       "salaryMax": 78000,
       "currency": "CHF",
@@ -55,12 +58,7 @@
           "maxValue": 78000,
           "unitText": "YEAR"
         }
-      },
-      "crawledAt": "",
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "autista-su-chiamata"
-      ]
+      }
     }
   ]
 }

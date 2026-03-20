@@ -1,16 +1,16 @@
 {
   "key": "amag-group",
   "label": "AMAG Group",
-  "generatedAt": "2026-03-20T04:33:16.759Z",
+  "generatedAt": "2026-03-20T15:48:30.508Z",
   "total": 1,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 11311,
-  "avgDurationMs": 11311,
+  "durationMs": 9209,
+  "avgDurationMs": 9209,
   "durationHistory": [
-    11311
+    9209
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -57,6 +57,9 @@
         "de": "fahrer-auf-abruf-amag-group-bellinzona",
         "fr": "chauffeur-sur-appel-amag-group-bellinzona"
       },
+      "previousSlugs": [
+        "autista-su-chiamata"
+      ],
       "salaryMin": 58000,
       "salaryMax": 78000,
       "currency": "CHF",
@@ -69,12 +72,7 @@
           "maxValue": 78000,
           "unitText": "YEAR"
         }
-      },
-      "crawledAt": "",
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "autista-su-chiamata"
-      ]
+      }
     }
   ]
 }
