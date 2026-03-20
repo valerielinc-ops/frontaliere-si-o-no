@@ -1,16 +1,16 @@
 {
   "key": "centiel",
   "label": "centiel",
-  "generatedAt": "2026-03-20T04:38:48.131Z",
+  "generatedAt": "2026-03-20T15:54:08.851Z",
   "total": 4,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 4,
-  "durationMs": 7634,
-  "avgDurationMs": 7634,
+  "durationMs": 12163,
+  "avgDurationMs": 12163,
   "durationHistory": [
-    7634
+    12163
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -43,7 +43,7 @@
         "en": "Application Engineer – critical power",
         "it": "Ingegnere applicativo – potenza critica",
         "fr": "Ingénieur d'application – puissance critique",
-        "de": "Application Ingenieur – critical power"
+        "de": "Application Engineer – critical power"
       },
       "descriptionByLocale": {
         "en": "We are looking for a motivated and technically strong Application Engineer for critical power systems. In this role, you\n\nwill support our Sales team by designing and configuring UPS and power protection solutions, providing technical\n\nguidance to customers, and coordinating closely with internal teams throughout the project lifecycle from tender to\n\nimplementation.\n\nYou will be involved from early pre-sales discussions through quotation, project execution, and post-sales support,\n\ncontributing directly to customer satisfaction and the growth of Centiel’s global Data Center business.\n\nWorkplace: Cadro (Lugano), with occasional travel\n\nReporting to: VP Data Center Solutions – Critical Power",
@@ -57,6 +57,9 @@
         "de": "application-engineer-critical-power-centiel-lugano",
         "fr": "ingenieur-d-application-puissance-critique-centiel-lugano"
       },
+      "previousSlugs": [
+        "application-engineer-critical-power-centiel-ticino"
+      ],
       "salaryMin": 72000,
       "salaryMax": 97000,
       "currency": "CHF",
@@ -69,12 +72,7 @@
           "maxValue": 97000,
           "unitText": "YEAR"
         }
-      },
-      "crawledAt": "",
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "application-engineer-critical-power-centiel-ticino"
-      ]
+      }
     },
     {
       "title": "Research & Development Engineer",
@@ -108,8 +106,8 @@
       "descriptionByLocale": {
         "en": "To strengthen our product innovation, we are seeking a Research & Development Engineer with solid expertise in power electronics control and embedded systems for high-reliability industrial products (UPS or similar).\n\nYou are a hands-on engineer with strong analytical skills and lab practice, able to design, implement, and validate control algorithms and embedded firmware/hardware, collaborating closely with Production, Quality, and After-Sales to deliver robust features to market.\n\nWorkplace: Cadro (Lugano), with occasional travel\n\nReporting to: Head of R&D\n\nWorking rate: 100%",
         "it": "Per rafforzare la nostra innovazione di prodotto, cerchiamo un ingegnere di ricerca e sviluppo con solida esperienza nel controllo dell'elettronica di potenza e nei sistemi embedded per prodotti industriali ad alta affidabilità (UPS o simili). Sei un ingegnere pratico con forti capacità analitiche e pratica di laboratorio, in grado di progettare, implementare e convalidare algoritmi di controllo e firmware/hardware integrati, collaborando a stretto contatto con produzione, qualità e post-vendita per fornire funzionalità robuste al mercato. Sede di lavoro: Cadro (Lugano), con trasferte occasionali Riporto a: Responsabile R&D Orario di lavoro: 100%",
-        "de": "Um unsere Produktinnovation zu stärken, suchen wir einen Forschungs- und Entwicklungsingenieur mit fundiertem Fachwissen in der Leistungselektroniksteuerung und eingebetteten Systemen für hochzuverlässige Industrieprodukte (USV oder ähnliches). Sie sind ein praxisorientierter Ingenieur mit ausgeprägten analytischen Fähigkeiten und Laborpraxis, der in der Lage ist, Steueralgorithmen und eingebettete Firmware/Hardware zu entwerfen, zu implementieren und zu validieren und eng mit Produktion, Qualität und Kundendienst zusammenzuarbeiten, um robuste Funktionen auf den Markt zu bringen. Arbeitsplatz: Cadro (Lugano), mit gelegentlichen Reisen. Bericht an: Leiter Forschung und Entwicklung. Arbeitsquote: 100 %.",
-        "fr": "Pour renforcer notre innovation produit, nous recherchons un Ingénieur Recherche & Développement possédant une solide expertise en contrôle électronique de puissance et systèmes embarqués pour produits industriels de haute fiabilité (UPS ou similaire). Vous êtes un ingénieur pratique doté de solides compétences analytiques et d'une pratique de laboratoire, capable de concevoir, de mettre en œuvre et de valider des algorithmes de contrôle et des micrologiciels/matériels intégrés, en collaborant étroitement avec la production, la qualité et le service après-vente pour proposer des fonctionnalités robustes sur le marché. Lieu de travail : Cadro (Lugano), avec déplacements occasionnels Relève du : Responsable R&D Taux de travail : 100%"
+        "de": "Um unsere Produktinnovation zu stärken, suchen wir einen Forschungs- und Entwicklungsingenieur mit fundiertem Fachwissen in der Leistungselektroniksteuerung und eingebetteten Systemen für hochzuverlässige Industrieprodukte (USV oder ähnliches). Sie sind ein praxisorientierter Ingenieur mit ausgeprägten analytischen Fähigkeiten und Laborpraxis, der in der Lage ist, Steueralgorithmen und eingebettete Firmware/Hardware zu entwerfen, zu implementieren und zu validieren und eng mit Produktion, Qualität und Kundendienst zusammenzuarbeiten, um robuste Funktionen auf den Markt zu bringen. Arbeitsplatz: Cadro (Lugano), mit gelegentlichen Reisen. Bericht an: Leiter F&E. Arbeitsquote: 100 %.",
+        "fr": "Pour renforcer notre innovation produit, nous recherchons un Ingénieur Recherche & Développement possédant une solide expertise en contrôle électronique de puissance et systèmes embarqués pour produits industriels de haute fiabilité (UPS ou similaire). Vous êtes un ingénieur pratique doté de solides compétences analytiques et d'une pratique de laboratoire, capable de concevoir, de mettre en œuvre et de valider des algorithmes de contrôle et des micrologiciels/matériels intégrés, en collaborant étroitement avec la production, la qualité et le service après-vente pour proposer des fonctionnalités robustes sur le marché. Lieu de travail : Cadro (Lugano), avec déplacements occasionnels. Rattaché au : Responsable R&D Taux de travail : 100%"
       },
       "slugByLocale": {
         "it": "ingegnere-di-ricerca-e-sviluppo-centiel-lugano",
@@ -117,6 +115,9 @@
         "de": "forschungs-und-entwicklungsingenieur-centiel-lugano",
         "fr": "ingenieur-recherche-et-developpement-centiel-lugano"
       },
+      "previousSlugs": [
+        "research-development-engineer-centiel-ticino"
+      ],
       "salaryMin": 72000,
       "salaryMax": 97000,
       "currency": "CHF",
@@ -129,12 +130,7 @@
           "maxValue": 97000,
           "unitText": "YEAR"
         }
-      },
-      "crawledAt": "",
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "research-development-engineer-centiel-ticino"
-      ]
+      }
     },
     {
       "title": "Sales – 3-phase UPS Channel Partners Manager",
@@ -177,6 +173,9 @@
         "de": "sales-3-phase-ups-channel-partners-manager-centiel-lugano",
         "fr": "ventes-responsable-des-partenaires-de-distribution-ups-triphase-centiel-lugano"
       },
+      "previousSlugs": [
+        "sales-3-phase-ups-channel-partners-manager-centiel-ticino"
+      ],
       "salaryMin": 66000,
       "salaryMax": 89000,
       "currency": "CHF",
@@ -189,12 +188,7 @@
           "maxValue": 89000,
           "unitText": "YEAR"
         }
-      },
-      "crawledAt": "",
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "sales-3-phase-ups-channel-partners-manager-centiel-ticino"
-      ]
+      }
     },
     {
       "title": "After-Sales Technician",
@@ -237,6 +231,9 @@
         "de": "after-sales-techniker-centiel-lugano",
         "fr": "technicien-sav-centiel-lugano"
       },
+      "previousSlugs": [
+        "after-sales-technician-centiel-ticino"
+      ],
       "salaryMin": 54000,
       "salaryMax": 73000,
       "currency": "CHF",
@@ -249,12 +246,7 @@
           "maxValue": 73000,
           "unitText": "YEAR"
         }
-      },
-      "crawledAt": "",
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "after-sales-technician-centiel-ticino"
-      ]
+      }
     }
   ]
 }
