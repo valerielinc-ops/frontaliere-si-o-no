@@ -6751,6 +6751,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-strutture-dedicate-migranti-ticino': {
+    title: 'Migranti problematici, il governo decide strutture | Frontaliere Ticino',
+    description: 'Il Governo del Canton Ticino approva strutture dedicate per migranti problematici. Normative, scadenze e impatti sulla frontiera svizzero-italiana.',
+    keywords: 'frontalieri, ticino, svizzera, italia, migranti, problematici, governo, decide',
+    ogTitle: 'Migranti problematici in Ticino: le nuove strutture dedicate',
+    ogDescription: 'Il Canton Ticino investe in strutture dedicate per migranti problematici. Scopri le normative, i tempi e le implicazioni per la frontiera svizzero-italiana.',
+    canonicalPath: '/articoli-frontaliere/strutture-dedicate-migranti-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Headline JSON-LD",
+      "description": "Il Governo del Canton Ticino approva strutture dedicate per migranti problematici. Normative, scadenze e impatti sulla frontiera svizzero-italiana.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/strutture-dedicate-migranti-ticino.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Valico di Gaggiolo con strutture dedicate ai migranti in Ticino, scena di frontiera svizzero-italiana."
+      },
+      "datePublished": "2026-03-20T07:56:20+00:00",
+      "dateModified": "2026-03-20T07:56:20+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/strutture-dedicate-migranti-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

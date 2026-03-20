@@ -3882,6 +3882,13 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/salari-minimi-ccl-ticino-2026.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'strutture-dedicate-migranti-ticino',
+    category: 'pratico',
+    date: '2026-03-20T07:56:20.962Z',
+    image: '/images/blog/strutture-dedicate-migranti-ticino.jpg',
+    hasCalculator: true,
+  },
 ];
 
 const CATEGORIES = ['all', 'fiscale', 'pratico', 'novita', 'pensione'] as const;

@@ -1409,6 +1409,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.salari-minimi-ccl-ticino-2026.title': 'Salari Minimi e CCL in Ticino: Nuove Direttive per il 2026',
     'blog.article.salari-minimi-ccl-ticino-2026.excerpt': 'Il Consiglio degli Stati approva il progetto di legge sui contratti collettivi di lavoro, con priorità sui salari minimi e il ruolo dei CCL dichiarati di obbligatorietà. La situazione coinvolge anche il Ticino e i frontalieri, con possibili impatti sul mercato del lavoro e sulla regolamentazione locale.',
     'blog.article.salari-minimi-ccl-ticino-2026.imageAlt': 'Uffici cantonali a Bellinzona con valico di Brogeda e attività lavorative in primo piano',
+    'blog.article.strutture-dedicate-migranti-ticino.title': 'Migranti problematici, il governo decide strutture dedicate in Ticino',
+    'blog.article.strutture-dedicate-migranti-ticino.excerpt': 'Il Consiglio di Stato del Canton Ticino annuncia l\'adozione di strutture dedicate per migranti problematici, con nuovi criteri e scadenze. Ecco cosa cambia.',
+    'blog.article.strutture-dedicate-migranti-ticino.imageAlt': 'Valico di Gaggiolo con strutture dedicate ai migranti in Ticino, scena di frontiera svizzero-italiana.',
 };
 
 export default blogMetaIt;

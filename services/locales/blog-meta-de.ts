@@ -1409,6 +1409,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.salari-minimi-ccl-ticino-2026.title': 'Mindestlöhne und CCL im Tessin: Neue Richtlinien für 2026',
     'blog.article.salari-minimi-ccl-ticino-2026.excerpt': 'Der Ständerat verabschiedet das Gesetzesprojekt zu den kollektiven Arbeitsverträgen, mit Schwerpunkt auf Mindestlöhnen und der Rolle der als verpflichtend erklärten CCL. Die Situation betrifft auch das Tessin und die Grenzgänger, mit möglichen Auswirkungen auf den Arbeitsmarkt und die lokale Regulierung.',
     'blog.article.salari-minimi-ccl-ticino-2026.imageAlt': 'Kantonsbüros in Bellinzona mit Grenzübergang Brogeda und Arbeitsaktivitäten',
+    'blog.article.strutture-dedicate-migranti-ticino.title': 'Problematische Migranten, die Regierung entscheidet über spezielle Einrichtungen im Tessin',
+    'blog.article.strutture-dedicate-migranti-ticino.excerpt': 'Der Staatsrat des Kantons Tessin kündigt die Einführung spezieller Einrichtungen für problematische Migranten an, mit neuen Kriterien und Fristen. Hier erfahren Sie, was sich ändert.',
+    'blog.article.strutture-dedicate-migranti-ticino.imageAlt': 'Grenzübergang Gaggiolo mit speziellen Einrichtungen für Migranten in Ticino, Schweiz-Italien Grenze.',
 };
 
 export default blogMetaDe;

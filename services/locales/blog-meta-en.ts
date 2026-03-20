@@ -1409,6 +1409,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.salari-minimi-ccl-ticino-2026.title': 'Minimum Wages and CCL in Ticino: New Guidelines for 2026',
     'blog.article.salari-minimi-ccl-ticino-2026.excerpt': 'The Council of States approves the draft law on collective labor agreements, prioritizing minimum wages and the role of CCL declared of general obligation. The situation also involves Ticino and cross-border workers, with potential impacts on the local labor market and regulations.',
     'blog.article.salari-minimi-ccl-ticino-2026.imageAlt': 'Cantonal offices in Bellinzona near Brogeda crossing with cross-border workers in action',
+    'blog.article.strutture-dedicate-migranti-ticino.title': 'Problematic Migrants, the Government Decides on Dedicated Facilities in Ticino',
+    'blog.article.strutture-dedicate-migranti-ticino.excerpt': 'The Canton Ticino Government announces the adoption of dedicated facilities for problematic migrants, with new criteria and deadlines. Here\'s what’s changing.',
+    'blog.article.strutture-dedicate-migranti-ticino.imageAlt': 'Border crossing at Gaggiolo with dedicated migrant facilities in Ticino, Swiss-Italian border scene.',
 };
 
 export default blogMetaEn;
