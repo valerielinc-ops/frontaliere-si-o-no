@@ -1,16 +1,16 @@
 {
   "key": "tsmg",
   "label": "TSMG",
-  "generatedAt": "2026-03-20T05:03:07.563Z",
+  "generatedAt": "2026-03-20T16:18:47.952Z",
   "total": 7,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 7,
-  "durationMs": 25950,
-  "avgDurationMs": 25950,
+  "durationMs": 24316,
+  "avgDurationMs": 24316,
   "durationHistory": [
-    25950
+    24316
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -57,6 +57,10 @@
         "de": "ki-sprachtester-italian-native-speaker-switzerland-regional-variant-tsmg-bellinzona-2df1b780",
         "fr": "testeur-vocal-ia-italian-native-speaker-switzerland-regional-variant-tsmg-bellinzona-2df1b780"
       },
+      "previousSlugs": [
+        "tester-conversazioni-vocali-ai-italian-native-speaker-switzerland-regional-variant-tsmg-bellinzona-2df1b780",
+        "tester-conversazioni-vocali-ai-italian-native-speaker-switzerland-regional-variant-tsmg-bellinzona"
+      ],
       "salaryMin": 72500,
       "salaryMax": 97500,
       "currency": "CHF",
@@ -69,13 +73,7 @@
           "maxValue": 97500,
           "unitText": "YEAR"
         }
-      },
-      "crawledAt": "",
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "tester-conversazioni-vocali-ai-italian-native-speaker-switzerland-regional-variant-tsmg-bellinzona-2df1b780",
-        "tester-conversazioni-vocali-ai-italian-native-speaker-switzerland-regional-variant-tsmg-bellinzona"
-      ]
+      }
     },
     {
       "title": "Tester conversazioni vocali AI (Italian native speaker - Switzerland regional variant)",
@@ -118,6 +116,10 @@
         "de": "ki-sprachtester-italian-native-speaker-switzerland-regional-variant-tsmg-lugano-741da2fa",
         "fr": "testeur-vocal-ia-italian-native-speaker-switzerland-regional-variant-tsmg-lugano-741da2fa"
       },
+      "previousSlugs": [
+        "tester-conversazioni-vocali-ai-italian-native-speaker-switzerland-regional-variant-tsmg-lugano-741da2fa",
+        "tester-conversazioni-vocali-ai-italian-native-speaker-switzerland-regional-variant-tsmg-lugano"
+      ],
       "salaryMin": 72500,
       "salaryMax": 97500,
       "currency": "CHF",
@@ -130,13 +132,7 @@
           "maxValue": 97500,
           "unitText": "YEAR"
         }
-      },
-      "crawledAt": "",
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "tester-conversazioni-vocali-ai-italian-native-speaker-switzerland-regional-variant-tsmg-lugano-741da2fa",
-        "tester-conversazioni-vocali-ai-italian-native-speaker-switzerland-regional-variant-tsmg-lugano"
-      ]
+      }
     },
     {
       "title": "Autista / Addetto raccolta dati in Chur, Switzerland",
@@ -179,6 +175,10 @@
         "de": "fahrer-datenerfasser-in-chur-switzerland-tsmg-chur-dfa1adf1",
         "fr": "chauffeur-collecteur-de-donnees-in-chur-switzerland-tsmg-chur-dfa1adf1"
       },
+      "previousSlugs": [
+        "autista-addetto-raccolta-dati-in-chur-switzerland-tsmg-chur-dfa1adf1",
+        "autista-addetto-raccolta-dati-in-chur-switzerland-tsmg-chur"
+      ],
       "salaryMin": 58000,
       "salaryMax": 78000,
       "currency": "CHF",
@@ -191,13 +191,7 @@
           "maxValue": 78000,
           "unitText": "YEAR"
         }
-      },
-      "crawledAt": "",
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "autista-addetto-raccolta-dati-in-chur-switzerland-tsmg-chur-dfa1adf1",
-        "autista-addetto-raccolta-dati-in-chur-switzerland-tsmg-chur"
-      ]
+      }
     },
     {
       "title": "Autista / Addetto raccolta dati in Landquart, Switzerland (for Chur area)",
@@ -240,6 +234,10 @@
         "de": "fahrer-datenerfasser-in-landquart-switzerland-for-chur-area-tsmg-landquart-061cc5b5",
         "fr": "chauffeur-collecteur-de-donnees-in-landquart-switzerland-for-chur-area-tsmg-landquart-061cc5b5"
       },
+      "previousSlugs": [
+        "autista-addetto-raccolta-dati-in-landquart-switzerland-for-chur-area-tsmg-landquart-061cc5b5",
+        "autista-addetto-raccolta-dati-in-landquart-switzerland-for-chur-area-tsmg-landquart"
+      ],
       "salaryMin": 58000,
       "salaryMax": 78000,
       "currency": "CHF",
@@ -252,13 +250,7 @@
           "maxValue": 78000,
           "unitText": "YEAR"
         }
-      },
-      "crawledAt": "",
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "autista-addetto-raccolta-dati-in-landquart-switzerland-for-chur-area-tsmg-landquart-061cc5b5",
-        "autista-addetto-raccolta-dati-in-landquart-switzerland-for-chur-area-tsmg-landquart"
-      ]
+      }
     },
     {
       "title": "Autista / Addetto raccolta dati in Obervaz, Switzerland (for Chur area)",
@@ -301,6 +293,10 @@
         "de": "fahrer-datenerfasser-in-obervaz-switzerland-for-chur-area-tsmg-obervaz-661cb622",
         "fr": "chauffeur-collecteur-de-donnees-in-obervaz-switzerland-for-chur-area-tsmg-obervaz-661cb622"
       },
+      "previousSlugs": [
+        "autista-addetto-raccolta-dati-in-obervaz-switzerland-for-chur-area-tsmg-obervaz-661cb622",
+        "autista-addetto-raccolta-dati-in-obervaz-switzerland-for-chur-area-tsmg-obervaz"
+      ],
       "salaryMin": 58000,
       "salaryMax": 78000,
       "currency": "CHF",
@@ -313,13 +309,7 @@
           "maxValue": 78000,
           "unitText": "YEAR"
         }
-      },
-      "crawledAt": "",
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "autista-addetto-raccolta-dati-in-obervaz-switzerland-for-chur-area-tsmg-obervaz-661cb622",
-        "autista-addetto-raccolta-dati-in-obervaz-switzerland-for-chur-area-tsmg-obervaz"
-      ]
+      }
     },
     {
       "title": "Autista / Addetto raccolta dati in Bellinzona, Switzerland",
@@ -362,6 +352,10 @@
         "de": "fahrer-datenerfasser-in-bellinzona-switzerland-tsmg-bellinzona-677ef911",
         "fr": "chauffeur-collecteur-de-donnees-in-bellinzona-switzerland-tsmg-bellinzona-677ef911"
       },
+      "previousSlugs": [
+        "autista-addetto-raccolta-dati-in-bellinzona-switzerland-tsmg-bellinzona-677ef911",
+        "autista-addetto-raccolta-dati-in-bellinzona-switzerland-tsmg-bellinzona"
+      ],
       "salaryMin": 58000,
       "salaryMax": 78000,
       "currency": "CHF",
@@ -374,13 +368,7 @@
           "maxValue": 78000,
           "unitText": "YEAR"
         }
-      },
-      "crawledAt": "",
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "autista-addetto-raccolta-dati-in-bellinzona-switzerland-tsmg-bellinzona-677ef911",
-        "autista-addetto-raccolta-dati-in-bellinzona-switzerland-tsmg-bellinzona"
-      ]
+      }
     },
     {
       "title": "Autista / Addetto raccolta dati in Chur, Switzerland",
