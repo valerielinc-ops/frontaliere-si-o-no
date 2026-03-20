@@ -7,13 +7,13 @@ on:
   schedule:
     # ── Weekdays (Mon–Fri) ──
     # Morning commute peak ≈ CET 04:00–10:00 → every 10 min
-    - cron: '*/10 2-8 * * 1-5'
+    - cron: '*/15 3-8 * * 1-5'
     # Midday off-peak ≈ CET 10:00–15:00 → every hour
     - cron: '0 8-13 * * 1-5'
     # Evening return peak ≈ CET 15:00–20:00 → every 15 min
-    - cron: '*/15 13-18 * * 1-5'
+    - cron: '*/15 13-17 * * 1-5'
     # ── Weekends (Sat–Sun) → every hour all day ──
-    - cron: '0 * * * 0,6'
+    # weekend disabled — no scheduled runs on Saturday/Sunday
   workflow_dispatch: {}
 
 concurrency:
