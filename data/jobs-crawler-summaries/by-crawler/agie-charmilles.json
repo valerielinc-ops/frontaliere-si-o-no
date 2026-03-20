@@ -1,16 +1,16 @@
 {
   "key": "agie-charmilles",
   "label": "AGIE Charmilles",
-  "generatedAt": "2026-03-19T15:59:02.942Z",
+  "generatedAt": "2026-03-20T04:31:42.967Z",
   "total": 6,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 6,
-  "durationMs": 12574,
-  "avgDurationMs": 12574,
+  "durationMs": 16890,
+  "avgDurationMs": 16890,
   "durationHistory": [
-    12574
+    16890
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -34,7 +34,7 @@
       "sector": "Macchine utensili",
       "source": "agie-charmilles-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-03-19",
+      "postedDate": "2026-03-20",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -73,7 +73,9 @@
           "maxValue": 97000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawledAt": "",
+      "requirementsByLocale": {}
     },
     {
       "title": "Electrical Engineer",
@@ -93,7 +95,7 @@
       "sector": "Macchine utensili",
       "source": "agie-charmilles-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-03-19",
+      "postedDate": "2026-03-20",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -132,7 +134,9 @@
           "maxValue": 97000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawledAt": "",
+      "requirementsByLocale": {}
     },
     {
       "title": "Project Leader",
@@ -152,7 +156,7 @@
       "sector": "Macchine utensili",
       "source": "agie-charmilles-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-03-19",
+      "postedDate": "2026-03-20",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -191,7 +195,9 @@
           "maxValue": 97000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawledAt": "",
+      "requirementsByLocale": {}
     },
     {
       "title": "Senior .NET Developer - Test Systems Lead",
@@ -211,7 +217,7 @@
       "sector": "Macchine utensili",
       "source": "agie-charmilles-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-03-19",
+      "postedDate": "2026-03-20",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -250,7 +256,9 @@
           "maxValue": 125000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawledAt": "",
+      "requirementsByLocale": {}
     },
     {
       "title": "CNC-PLC Software Developer",
@@ -270,7 +278,7 @@
       "sector": "Macchine utensili",
       "source": "agie-charmilles-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-03-19",
+      "postedDate": "2026-03-20",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -309,7 +317,9 @@
           "maxValue": 97000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawledAt": "",
+      "requirementsByLocale": {}
     },
     {
       "title": "Control Engineer",
@@ -329,7 +339,7 @@
       "sector": "Macchine utensili",
       "source": "agie-charmilles-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-03-19",
+      "postedDate": "2026-03-20",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -368,7 +378,9 @@
           "maxValue": 97000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawledAt": "",
+      "requirementsByLocale": {}
     }
   ]
 }
