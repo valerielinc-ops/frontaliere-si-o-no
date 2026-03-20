@@ -1421,6 +1421,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.nomine-annullate-sims-tram.title': 'Nominations à la SIMS annulées : le Conseil d\'État capitule face au TRAM',
     'blog.article.nomine-annullate-sims-tram.excerpt': 'Le Tribunal administratif a déclaré illégitimes les nominations des directeurs de la SIMS. Le Conseil d\'État a décidé de ne pas faire appel au Tribunal fédéral, annulant ainsi de facto les nominations et l\'appel d\'offres publié en mars 2024.',
     'blog.article.nomine-annullate-sims-tram.imageAlt': 'Vue de Bellinzona avec bâtiments gouvernementaux et paysage alpin au loin.',
+    'blog.article.tassa-automobilisti-svizzera.title': 'Un autre vote lourd : oui à la taxe pour les automobilistes qui traversent la Suisse sans s’arrêter',
+    'blog.article.tassa-automobilisti-svizzera.excerpt': 'Le Conseil national approuve une motion qui introduit une taxe de transit pour ceux qui traversent la Suisse sans s’arrêter, dans le but de désengorger les principales artères comme le Saint-Gothard.',
+    'blog.article.tassa-automobilisti-svizzera.imageAlt': 'Voitures au passage frontalier suisse dans le Tessin avec caméras de sécurité',
 };
 
 export default blogMetaFr;

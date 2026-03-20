@@ -1421,6 +1421,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.nomine-annullate-sims-tram.title': 'Nomine alla SIMS annullate: il Consiglio di Stato si arrende al TRAM',
     'blog.article.nomine-annullate-sims-tram.excerpt': 'Il Tribunale amministrativo ha dichiarato illegittime le nomine dei direttori della SIMS. Il Consiglio di Stato ha deciso di non ricorrere al Tribunale federale, annullando di fatto le nomine e il bando di concorso pubblicato a marzo 2024.',
     'blog.article.nomine-annullate-sims-tram.imageAlt': 'Vista di Bellinzona con edifici governativi e paesaggio alpino in lontananza.',
+    'blog.article.tassa-automobilisti-svizzera.title': 'Un altro voto pesante: sì alla tassa per gli automobilisti che passano in Svizzera senza fermarsi',
+    'blog.article.tassa-automobilisti-svizzera.excerpt': 'Il Consiglio nazionale approva una mozione che introduce una tassa di transito per chi attraversa la Svizzera senza sostare, con l\'obiettivo di decongestionare le arterie principali come il San Gottardo.',
+    'blog.article.tassa-automobilisti-svizzera.imageAlt': 'Auto al valico di Gaggiolo con telecamere di sicurezza in Ticino',
 };
 
 export default blogMetaIt;

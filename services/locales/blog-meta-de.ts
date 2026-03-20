@@ -1421,6 +1421,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.nomine-annullate-sims-tram.title': 'Rücknahme der Nominierungen bei der SIMS: Der Staatsrat gibt auf dem TRAM nach',
     'blog.article.nomine-annullate-sims-tram.excerpt': 'Das Verwaltungsgericht hat die Nominierungen der Direktorinnen der SIMS für rechtswidrig erklärt. Der Staatsrat hat beschlossen, nicht beim Bundesgericht Berufung einzulegen, wodurch die Nominierungen und die im März 2024 veröffentlichte Ausschreibung faktisch aufgehoben werden.',
     'blog.article.nomine-annullate-sims-tram.imageAlt': 'Blick auf Bellinzona mit Regierungsgebäuden und weiter entferntem Alpenpanorama.',
+    'blog.article.tassa-automobilisti-svizzera.title': 'Eine weitere schwere Abstimmung: Ja zur Maut für Autofahrer, die ohne Halt durch die Schweiz fahren',
+    'blog.article.tassa-automobilisti-svizzera.excerpt': 'Der Nationalrat genehmigt eine Motion, die eine Transitgebühr für jene einführt, die die Schweiz ohne Aufenthalt passieren, mit dem Ziel, die Hauptverkehrsadern wie den Gotthard zu entlasten.',
+    'blog.article.tassa-automobilisti-svizzera.imageAlt': 'Autos am Schweizer Grenzübergang im Tessin mit Überwachungskameras',
 };
 
 export default blogMetaDe;

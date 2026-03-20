@@ -1421,6 +1421,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.nomine-annullate-sims-tram.title': 'Appointments at SIMS Canceled: The Council of State Yields to the TRAM',
     'blog.article.nomine-annullate-sims-tram.excerpt': 'The Administrative Court has declared the appointments of the SIMS directors illegitimate. The Council of State has decided not to appeal to the Federal Court, effectively canceling both the appointments and the public competition announced in March 2024.',
     'blog.article.nomine-annullate-sims-tram.imageAlt': 'View of Bellinzona with government buildings and distant alpine landscape.',
+    'blog.article.tassa-automobilisti-svizzera.title': 'Another Heavy Vote: Yes to a Transit Tax for Drivers Passing Through Switzerland Without Stopping',
+    'blog.article.tassa-automobilisti-svizzera.excerpt': 'The National Council approves a motion that introduces a transit fee for those crossing Switzerland without stopping, aiming to ease congestion on main routes like the Gotthard.',
+    'blog.article.tassa-automobilisti-svizzera.imageAlt': 'Cars passing Swiss border in Ticino with security cameras',
 };
 
 export default blogMetaEn;

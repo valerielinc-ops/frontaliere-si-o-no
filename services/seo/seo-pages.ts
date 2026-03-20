@@ -3030,7 +3030,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
         "@context": "https://schema.org",
         "@type": "ItemList",
         "name": "Articoli Frontaliere",
-        "numberOfItems": 464,
+        "numberOfItems": 465,
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
           { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -3495,7 +3495,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 461, "name": "Headline JSON-LD", "url": `${BASE_URL}/articoli-frontaliere/strutture-dedicate-migranti-ticino` },
           { "@type": "ListItem", "position": 462, "name": "Contratti collettivi di lavoro in Ticino: preva...", "url": `${BASE_URL}/articoli-frontaliere/contratti-collettivi-salari-ticino` },
           { "@type": "ListItem", "position": 463, "name": "Sanità in Ticino: la tutela della sovranità dei...", "url": `${BASE_URL}/articoli-frontaliere/tutela-sovranita-dati-sanitari` },
-          { "@type": "ListItem", "position": 464, "name": "Nomine alla SIMS annullate: il Consiglio di Sta...", "url": `${BASE_URL}/articoli-frontaliere/nomine-annullate-sims-tram` }
+          { "@type": "ListItem", "position": 464, "name": "Nomine alla SIMS annullate: il Consiglio di Sta...", "url": `${BASE_URL}/articoli-frontaliere/nomine-annullate-sims-tram` },
+          { "@type": "ListItem", "position": 465, "name": "Tassa transito Svizzera e frontiere Ticino", "url": `${BASE_URL}/articoli-frontaliere/tassa-automobilisti-svizzera` }
         ]
       }
     ]

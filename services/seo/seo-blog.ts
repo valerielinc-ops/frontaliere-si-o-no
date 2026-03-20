@@ -6867,6 +6867,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-tassa-automobilisti-svizzera': {
+    title: 'Un altro voto pesante: sì alla tassa per gli automobilisti | Frontaliere Ticino',
+    description: 'Il Parlamento svizzero approva una tassa di transito per chi attraversa senza sostare, con impatti su frontalieri e traffico in Ticino. Scopri di più.',
+    keywords: 'frontalieri, ticino, svizzera, italia, altro, voto, pesante, alla',
+    ogTitle: 'Tassa transito Svizzera | Frontaliere Ticino',
+    ogDescription: 'Il Consiglio Nazionale approva una tassa di transito per attraversamenti rapidi in Svizzera, con impatti su Ticino e frontalieri. Leggi i dettagli.',
+    canonicalPath: '/articoli-frontaliere/tassa-automobilisti-svizzera',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Tassa transito Svizzera e frontiere Ticino",
+      "description": "Il Parlamento svizzero approva una tassa di transito per chi attraversa senza sostare, con impatti su frontalieri e traffico in Ticino. Scopri di più.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/tassa-automobilisti-svizzera.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Auto al valico di Gaggiolo con telecamere di sicurezza in Ticino"
+      },
+      "datePublished": "2026-03-20T09:55:23+00:00",
+      "dateModified": "2026-03-20T09:55:23+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tassa-automobilisti-svizzera`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

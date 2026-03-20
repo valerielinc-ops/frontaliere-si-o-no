@@ -3910,6 +3910,13 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/nomine-annullate-sims-tram.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'tassa-automobilisti-svizzera',
+    category: 'fiscale',
+    date: '2026-03-20T09:55:23.904Z',
+    image: '/images/blog/tassa-automobilisti-svizzera.jpg',
+    hasCalculator: true,
+  },
 ];
 
 const CATEGORIES = ['all', 'fiscale', 'pratico', 'novita', 'pensione'] as const;
