@@ -7215,6 +7215,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-danni-riparati-centovallina': {
+    title: 'Danni riparati, riapre la Centovallina-Vigezzina | Frontaliere Ticino',
+    description: 'La linea ferroviaria Centovallina-Vigezzina riapre dopo lavori di riparazione dei danni. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, danni, riparati, riapre, centovallina-vigezzina',
+    ogTitle: 'Danni riparati, riapre la Centovallina-Vigezzina',
+    ogDescription: 'La linea ferroviaria Centovallina-Vigezzina riapre dopo lavori di riparazione dei danni.',
+    canonicalPath: '/articoli-frontaliere/danni-riparati-centovallina',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Danni riparati, riapre la Centovallina-Vigezzina",
+      "description": "La linea ferroviaria Centovallina-Vigezzina riapre dopo lavori di riparazione dei danni. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/danni-riparati-centovallina.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Linea ferroviaria Centovallina-Vigezzina, Ticino"
+      },
+      "datePublished": "2026-03-20T17:31:42+00:00",
+      "dateModified": "2026-03-20T17:31:42+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/danni-riparati-centovallina`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

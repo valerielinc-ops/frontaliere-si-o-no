@@ -1457,6 +1457,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.acinque-lancia-piano-genitorialita.title': 'Acinque lance le plan \'Genitorialità\' : un mois de congé extra et des bonus jusqu\'à 3 200 euros',
     'blog.article.acinque-lancia-piano-genitorialita.excerpt': 'La multiutility lombarde présente un plan de soutien pour les employés des provinces de Varese, Como, Lecco et Sondrio avec des investissements records dans le plan décennal.',
     'blog.article.acinque-lancia-piano-genitorialita.imageAlt': 'Famille heureuse avec enfants se promenant dans le parc de Lugano',
+    'blog.article.danni-riparati-centovallina.title': 'Dégâts réparés, la Centovallina-Vigezzina rouvre',
+    'blog.article.danni-riparati-centovallina.excerpt': 'La ligne ferroviaire Centovallina-Vigezzina, qui relie la Suisse à l\'Italie, rouvre après une période de fermeture pour travaux de réparation des dégâts.',
+    'blog.article.danni-riparati-centovallina.imageAlt': 'Ligne de chemin de fer Centovallina-Vigezzina, Ticino',
 };
 
 export default blogMetaFr;

@@ -1457,6 +1457,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.acinque-lancia-piano-genitorialita.title': 'Acinque lancia il piano \'Genitorialità\': un mese di congedo extra e bonus fino a 3.200 euro',
     'blog.article.acinque-lancia-piano-genitorialita.excerpt': 'La multiutility lombarda presenta un piano di supporto per i dipendenti delle province di Varese, Como, Lecco e Sondrio con investimenti record nel piano decennale.',
     'blog.article.acinque-lancia-piano-genitorialita.imageAlt': 'Famiglia felice con bambini a passeggio nel parco di Lugano',
+    'blog.article.danni-riparati-centovallina.title': 'Danni riparati, riapre la Centovallina-Vigezzina',
+    'blog.article.danni-riparati-centovallina.excerpt': 'La linea ferroviaria Centovallina-Vigezzina riapre dopo lavori di riparazione dei danni.',
+    'blog.article.danni-riparati-centovallina.imageAlt': 'Linea ferroviaria Centovallina-Vigezzina, Ticino',
 };
 
 export default blogMetaIt;

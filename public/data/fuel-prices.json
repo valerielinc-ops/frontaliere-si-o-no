@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-03-20T17:09:35.998Z",
+  "generatedAt": "2026-03-20T17:37:11.956Z",
   "sources": {
     "italy": {
       "provider": "MIMIT Open Data",
@@ -10,8 +10,8 @@
     "switzerland": {
       "provider": "TCS Benzinpreis",
       "providerUrl": "https://benzin.tcs.ch/de/map/SP95",
-      "stationCount": 220,
-      "latestObservedUpdate": "2026-03-20T17:06:17.718Z"
+      "stationCount": 219,
+      "latestObservedUpdate": "2026-03-20T17:26:50.280Z"
     },
     "exchangeRate": {
       "provider": "ECB",
@@ -603,19 +603,6 @@
         "sp95PriceEur": 1.814
       },
       {
-        "id": "wHmJhZoiJ2OTdeWuvkcc",
-        "name": "Eni Eyholz",
-        "brand": "ENI",
-        "address": "Kantonsstrasse, 3930 Eyholz",
-        "lat": 46.29739668676054,
-        "lng": 7.925076860120869,
-        "sp95PriceChf": 1.65,
-        "updatedAt": "2026-02-24T14:22:50.265Z",
-        "nearestMunicipality": "Trasquera (VB)",
-        "nearestMunicipalityDistanceKm": 23.4,
-        "sp95PriceEur": 1.814
-      },
-      {
         "id": "z358BfhGcL129gX6PSXr",
         "name": "Garage du Gd-St-Bernard",
         "brand": "JUBIN",
@@ -640,6 +627,19 @@
         "nearestMunicipality": "Brusimpiano (VA)",
         "nearestMunicipalityDistanceKm": 1.9,
         "sp95PriceEur": 1.814
+      },
+      {
+        "id": "C0N2af7HpbOfesQdHoAq",
+        "name": "BP Unbemannte Station Naters",
+        "brand": "BP",
+        "address": "Furkastrasse 13, 3904 Naters",
+        "lat": 46.32299,
+        "lng": 7.98811,
+        "sp95PriceChf": 1.66,
+        "updatedAt": "2026-03-02T16:13:57.395Z",
+        "nearestMunicipality": "Trasquera (VB)",
+        "nearestMunicipalityDistanceKm": 20.4,
+        "sp95PriceEur": 1.825
       }
     ],
     "bestCrossBorderSavings": [
@@ -5599,7 +5599,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 81,
+        "optionCount": 80,
         "cheapestStation": {
           "id": "ahxEtrinnrLWGsZ2laVB",
           "name": "SOCAR / Piccadilly Gandria",
@@ -6470,7 +6470,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 96,
+        "optionCount": 95,
         "cheapestStation": {
           "id": "ahxEtrinnrLWGsZ2laVB",
           "name": "SOCAR / Piccadilly Gandria",
@@ -7972,7 +7972,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 86,
+        "optionCount": 85,
         "cheapestStation": {
           "id": "ahxEtrinnrLWGsZ2laVB",
           "name": "SOCAR / Piccadilly Gandria",
@@ -8255,7 +8255,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 78,
+        "optionCount": 77,
         "cheapestStation": {
           "id": "ahxEtrinnrLWGsZ2laVB",
           "name": "SOCAR / Piccadilly Gandria",
@@ -8803,7 +8803,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 15,
+        "optionCount": 14,
         "cheapestStation": {
           "id": "cPzjxUql1aHeksaFjXuB",
           "name": "Garage Ferrari SA",
@@ -8832,20 +8832,6 @@
             "nearestMunicipalityDistanceKm": 12.8,
             "sp95PriceEur": 1.902,
             "distanceKm": 19.7
-          },
-          {
-            "id": "3ZoAF92bWbaLO5FjuBrz",
-            "name": "SOCAR Bellinzona",
-            "brand": "SOCAR",
-            "address": "Via San Gottardo 17, 6500 Bellinzona",
-            "lat": 46.199158,
-            "lng": 9.028946,
-            "sp95PriceChf": 1.74,
-            "updatedAt": "2026-02-18T17:19:15.054Z",
-            "nearestMunicipality": "Cavargna (CO)",
-            "nearestMunicipalityDistanceKm": 13.7,
-            "sp95PriceEur": 1.913,
-            "distanceKm": 19.2
           },
           {
             "id": "TTZ7thy4mNT425M2Mfj3",
@@ -8888,6 +8874,20 @@
             "nearestMunicipalityDistanceKm": 13.5,
             "sp95PriceEur": 1.968,
             "distanceKm": 13.5
+          },
+          {
+            "id": "hWTr7x5jrTYOJNzLnBBO",
+            "name": "Garage Künzi SA",
+            "brand": "UNDEFINED",
+            "address": "Viale C. Olgiati 26, 6512 Giubiasco",
+            "lat": 46.17905551041321,
+            "lng": 9.015914517174583,
+            "sp95PriceChf": 1.81,
+            "updatedAt": "2026-03-17T14:40:42.898Z",
+            "nearestMunicipality": "Cavargna (CO)",
+            "nearestMunicipalityDistanceKm": 12.3,
+            "sp95PriceEur": 1.99,
+            "distanceKm": 19.9
           }
         ],
         "minPriceChf": 1.73,
@@ -9965,7 +9965,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 23,
+        "optionCount": 22,
         "cheapestStation": {
           "id": "cPzjxUql1aHeksaFjXuB",
           "name": "Garage Ferrari SA",
@@ -9994,20 +9994,6 @@
             "nearestMunicipalityDistanceKm": 12.8,
             "sp95PriceEur": 1.902,
             "distanceKm": 18.5
-          },
-          {
-            "id": "3ZoAF92bWbaLO5FjuBrz",
-            "name": "SOCAR Bellinzona",
-            "brand": "SOCAR",
-            "address": "Via San Gottardo 17, 6500 Bellinzona",
-            "lat": 46.199158,
-            "lng": 9.028946,
-            "sp95PriceChf": 1.74,
-            "updatedAt": "2026-02-18T17:19:15.054Z",
-            "nearestMunicipality": "Cavargna (CO)",
-            "nearestMunicipalityDistanceKm": 13.7,
-            "sp95PriceEur": 1.913,
-            "distanceKm": 18.4
           },
           {
             "id": "HapjFsEcj5Snc7o1iICH",
@@ -10050,6 +10036,20 @@
             "nearestMunicipalityDistanceKm": 15.9,
             "sp95PriceEur": 1.946,
             "distanceKm": 18.7
+          },
+          {
+            "id": "lnnnrHnz0t3xfccRYzZe",
+            "name": "SOCAR Grono",
+            "brand": "SOCAR",
+            "address": "Strada cantonale 158, 6537 Grono",
+            "lat": 46.246738,
+            "lng": 9.143203,
+            "sp95PriceChf": 1.77,
+            "updatedAt": "2026-03-01T13:55:58.200Z",
+            "nearestMunicipality": "Dosso del Liro (CO)",
+            "nearestMunicipalityDistanceKm": 13.6,
+            "sp95PriceEur": 1.946,
+            "distanceKm": 14.9
           }
         ],
         "minPriceChf": 1.73,
@@ -16085,7 +16085,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 93,
+        "optionCount": 92,
         "cheapestStation": {
           "id": "ahxEtrinnrLWGsZ2laVB",
           "name": "SOCAR / Piccadilly Gandria",
@@ -17091,7 +17091,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 78,
+        "optionCount": 77,
         "cheapestStation": {
           "id": "ahxEtrinnrLWGsZ2laVB",
           "name": "SOCAR / Piccadilly Gandria",
@@ -17354,7 +17354,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 90,
+        "optionCount": 89,
         "cheapestStation": {
           "id": "ahxEtrinnrLWGsZ2laVB",
           "name": "SOCAR / Piccadilly Gandria",
@@ -19003,7 +19003,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 102,
+        "optionCount": 101,
         "cheapestStation": {
           "id": "ahxEtrinnrLWGsZ2laVB",
           "name": "SOCAR / Piccadilly Gandria",
@@ -19264,7 +19264,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 107,
+        "optionCount": 106,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",

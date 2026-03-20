@@ -1622,6 +1622,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-tassa-transito-svizzera-2023': { name: 'Nuova tariffa di transito in Svizzera', path: '/articoli-frontaliere/tassa-transito-svizzera-2023', parent: 'blog' },
     'blog-controlli-cantieri-mendrisiotto': { name: 'Operazione di controllo nei cantieri del', path: '/articoli-frontaliere/controlli-cantieri-mendrisiotto', parent: 'blog' },
     'blog-acinque-lancia-piano-genitorialita': { name: 'Lavoro', path: '/articoli-frontaliere/acinque-lancia-piano-genitorialita', parent: 'blog' },
+    'blog-danni-riparati-centovallina': { name: 'Danni riparati, riapre la Centovallina-V', path: '/articoli-frontaliere/danni-riparati-centovallina', parent: 'blog' },
   };
 
   const info = sectionNames[section];

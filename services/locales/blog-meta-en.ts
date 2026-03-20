@@ -1457,6 +1457,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.acinque-lancia-piano-genitorialita.title': 'Acinque launches \'GenWe - welfare generation\' plan: an extra month of leave and bonuses of up to 3,200 euros',
     'blog.article.acinque-lancia-piano-genitorialita.excerpt': 'The Lombardy multi-utility company presents a support plan for employees in the provinces of Varese, Como, Lecco and Sondrio with record investments in the ten-year plan.',
     'blog.article.acinque-lancia-piano-genitorialita.imageAlt': 'Happy family with children walking in Lugano park',
+    'blog.article.danni-riparati-centovallina.title': 'Damages Repaired, Centovallina-Vigezzina Reopens',
+    'blog.article.danni-riparati-centovallina.excerpt': 'The Centovallina-Vigezzina railway line, connecting Switzerland to Italy, is reopening after a period of closure for repair works.',
+    'blog.article.danni-riparati-centovallina.imageAlt': 'Centovallina-Vigezzina railway line, Ticino',
 };
 
 export default blogMetaEn;

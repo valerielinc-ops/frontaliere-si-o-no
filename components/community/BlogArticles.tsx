@@ -3994,6 +3994,13 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/acinque-lancia-piano-genitorialita.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'danni-riparati-centovallina',
+    category: 'novita',
+    date: '2026-03-20T17:31:42.961Z',
+    image: '/images/blog/danni-riparati-centovallina.jpg',
+    hasCalculator: true,
+  },
 ];
 
 const CATEGORIES = ['all', 'fiscale', 'pratico', 'novita', 'pensione'] as const;
