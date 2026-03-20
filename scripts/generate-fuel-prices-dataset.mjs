@@ -1,0 +1,449 @@
+#!/usr/bin/env node
+
+import fs from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const ROOT = path.resolve(__dirname, '..');
+const MUNICIPALITIES_PATH = path.join(ROOT, 'data', 'municipalities.ts');
+const DATA_OUT = path.join(ROOT, 'data', 'fuel-prices.json');
+const PUBLIC_OUT = path.join(ROOT, 'public', 'data', 'fuel-prices.json');
+
+const ITALY_PRICES_URL = 'https://www.mimit.gov.it/images/exportCSV/prezzo_alle_8.csv';
+const ITALY_STATIONS_URL = 'https://www.mimit.gov.it/images/exportCSV/anagrafica_impianti_attivi.csv';
+const ECB_DAILY_URL = 'https://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml';
+const SWISS_FIRESTORE_KEY = 'AIzaSyCQ8f6sXb1gYIiv5rlHKeZ2EVMzC-anzIU';
+const SWISS_FIRESTORE_URL = 'https://firestore.googleapis.com/v1/projects/gas-prices-prod/databases/(default)/documents/stations';
+const SWISS_SEARCH_RADIUS_KM = 20;
+const SWISS_BORDER_FILTER_KM = 25;
+const TOP_SWISS_OPTIONS = 5;
+const SWISS_MAX_PRICE_AGE_DAYS = 30;
+
+function readMunicipalities() {
+  const source = fs.readFileSync(MUNICIPALITIES_PATH, 'utf8');
+  const rows = [];
+  const re = /\{\s*name:\s*'((?:\\'|[^'])+)',\s*province:\s*'([^']+)',\s*lat:\s*([\d.]+),\s*lng:\s*([\d.]+),\s*irpefAddizionale:\s*([\d.]+),\s*distanceKm:\s*(\d+),\s*avgRentMonthly:\s*(\d+),\s*population:\s*(\d+),\s*fascia:\s*'([^']+)'/g;
+  let match;
+  while ((match = re.exec(source))) {
+    rows.push({
+      name: match[1].replace(/\\'/g, "'"),
+      province: match[2],
+      lat: Number(match[3]),
+      lng: Number(match[4]),
+      irpefAddizionale: Number(match[5]),
+      distanceKm: Number(match[6]),
+      avgRentMonthly: Number(match[7]),
+      population: Number(match[8]),
+      fascia: match[9],
+    });
+  }
+  return rows;
+}
+
+function normalizeText(value = '') {
+  return String(value)
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^A-Za-z0-9]+/g, '')
+    .toUpperCase()
+    .trim();
+}
+
+function parseDelimited(text) {
+  const lines = String(text || '').trim().split(/\r?\n/);
+  const extractedAtLine = lines.shift() || '';
+  const extractedAtMatch = extractedAtLine.match(/(\d{4}-\d{2}-\d{2})/);
+  const header = (lines.shift() || '').split('|');
+  const rows = lines.map((line) => {
+    const cols = line.split('|');
+    return Object.fromEntries(header.map((key, index) => [key, cols[index] ?? '']));
+  });
+  return {
+    extractedAt: extractedAtMatch ? extractedAtMatch[1] : null,
+    rows,
+  };
+}
+
+async function fetchText(url) {
+  const res = await fetch(url, { headers: { 'user-agent': 'FrontaliereTicino/1.0' } });
+  if (!res.ok) throw new Error(`Request failed ${res.status} for ${url}`);
+  return res.text();
+}
+
+function toNumber(value) {
+  const n = Number(String(value || '').replace(',', '.'));
+  return Number.isFinite(n) ? n : null;
+}
+
+function deg2rad(v) {
+  return (v * Math.PI) / 180;
+}
+
+function haversineKm(lat1, lng1, lat2, lng2) {
+  const R = 6371;
+  const dLat = deg2rad(lat2 - lat1);
+  const dLng = deg2rad(lng2 - lng1);
+  const a =
+    Math.sin(dLat / 2) ** 2 +
+    Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) * Math.sin(dLng / 2) ** 2;
+  return 2 * R * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+}
+
+function average(values) {
+  if (!values.length) return null;
+  return values.reduce((sum, item) => sum + item, 0) / values.length;
+}
+
+function round(value, digits = 3) {
+  if (value == null || !Number.isFinite(value)) return null;
+  const factor = 10 ** digits;
+  return Math.round(value * factor) / factor;
+}
+
+function extractEcbRate(xml) {
+  const match = String(xml).match(/currency=['"]CHF['"]\s+rate=['"]([\d.]+)['"]/i);
+  if (!match) throw new Error('CHF rate not found in ECB XML');
+  const chfPerEur = Number(match[1]);
+  return {
+    chfPerEur,
+    eurPerChf: 1 / chfPerEur,
+  };
+}
+
+function unwrapFirestoreValue(node) {
+  if (!node || typeof node !== 'object') return null;
+  if ('stringValue' in node) return node.stringValue;
+  if ('integerValue' in node) return Number(node.integerValue);
+  if ('doubleValue' in node) return Number(node.doubleValue);
+  if ('booleanValue' in node) return Boolean(node.booleanValue);
+  if ('timestampValue' in node) return node.timestampValue;
+  if ('mapValue' in node) {
+    const out = {};
+    for (const [key, value] of Object.entries(node.mapValue.fields || {})) {
+      out[key] = unwrapFirestoreValue(value);
+    }
+    return out;
+  }
+  if ('arrayValue' in node) {
+    return (node.arrayValue.values || []).map(unwrapFirestoreValue);
+  }
+  return null;
+}
+
+async function fetchSwissStations() {
+  const now = Date.now();
+  const docs = [];
+  let pageToken = '';
+  while (true) {
+    const url = new URL(SWISS_FIRESTORE_URL);
+    url.searchParams.set('pageSize', '300');
+    url.searchParams.set('key', SWISS_FIRESTORE_KEY);
+    url.searchParams.set('mask.fieldPaths', 'displayName');
+    url.searchParams.append('mask.fieldPaths', 'brand');
+    url.searchParams.append('mask.fieldPaths', 'formattedAddress');
+    url.searchParams.append('mask.fieldPaths', 'fuelCollection');
+    url.searchParams.append('mask.fieldPaths', 'location');
+    url.searchParams.append('mask.fieldPaths', 'isDeleted');
+    if (pageToken) url.searchParams.set('pageToken', pageToken);
+    const res = await fetch(url, { headers: { 'user-agent': 'FrontaliereTicino/1.0' } });
+    if (!res.ok) throw new Error(`Swiss source failed ${res.status}`);
+    const json = await res.json();
+    for (const doc of json.documents || []) {
+      docs.push(doc);
+    }
+    if (!json.nextPageToken) break;
+    pageToken = json.nextPageToken;
+  }
+  return docs
+    .map((doc) => {
+      const fields = unwrapFirestoreValue({ mapValue: { fields: doc.fields || {} } }) || {};
+      const sp95 = fields.fuelCollection?.SP95;
+      const lat = fields.location?.lat;
+      const lng = fields.location?.lng;
+      if (!sp95 || sp95.isDeleted || fields.isDeleted || !Number.isFinite(lat) || !Number.isFinite(lng)) return null;
+      const updatedAt = sp95.fiability?.lastPriceUpdate || sp95.lastCachedPriceRefresh || null;
+      if (updatedAt) {
+        const ageMs = now - new Date(updatedAt).getTime();
+        if (Number.isFinite(ageMs) && ageMs > SWISS_MAX_PRICE_AGE_DAYS * 24 * 60 * 60 * 1000) return null;
+      }
+      const name = String(doc.name || '').split('/').pop() || '';
+      return {
+        id: name,
+        name: fields.displayName || fields.brand || 'Station',
+        brand: fields.brand || '',
+        address: fields.formattedAddress || '',
+        lat,
+        lng,
+        sp95PriceChf: Number(sp95.displayPrice),
+        updatedAt,
+      };
+    })
+    .filter(Boolean);
+}
+
+function buildItalyStations(municipalities, stationsRows, pricesRows) {
+  const municipalityIndex = new Map();
+  for (const municipality of municipalities) {
+    municipalityIndex.set(`${normalizeText(municipality.name)}:${municipality.province}`, municipality);
+  }
+
+  const stationsById = new Map();
+  for (const row of stationsRows) {
+    const municipality = municipalityIndex.get(`${normalizeText(row.Comune)}:${String(row.Provincia || '').toUpperCase()}`);
+    if (!municipality) continue;
+    stationsById.set(String(row.idImpianto), {
+      id: String(row.idImpianto),
+      municipalityName: municipality.name,
+      province: municipality.province,
+      name: row['Nome Impianto'] || row.Gestore || 'Impianto',
+      brand: row.Bandiera || '',
+      address: row.Indirizzo || '',
+      lat: toNumber(row.Latitudine),
+      lng: toNumber(row.Longitudine),
+    });
+  }
+
+  const pricesByMunicipality = new Map();
+  for (const row of pricesRows) {
+    if (String(row.descCarburante || '') !== 'Benzina') continue;
+    const station = stationsById.get(String(row.idImpianto));
+    const price = toNumber(row.prezzo);
+    if (!station || price == null) continue;
+    const entry = {
+      id: station.id,
+      stationName: station.name,
+      brand: station.brand,
+      address: station.address,
+      lat: station.lat,
+      lng: station.lng,
+      priceEur: price,
+      isSelf: String(row.isSelf || '') === '1',
+      updatedAt: row.dtComu || null,
+    };
+    const key = `${station.municipalityName}:${station.province}`;
+    if (!pricesByMunicipality.has(key)) pricesByMunicipality.set(key, []);
+    pricesByMunicipality.get(key).push(entry);
+  }
+  return pricesByMunicipality;
+}
+
+function summarizeItalyStations(stations) {
+  const allPrices = stations.map((station) => station.priceEur);
+  const selfPrices = stations.filter((station) => station.isSelf).map((station) => station.priceEur);
+  const servedPrices = stations.filter((station) => !station.isSelf).map((station) => station.priceEur);
+  const sorted = [...stations].sort((a, b) => a.priceEur - b.priceEur);
+  const cheapest = sorted[0] || null;
+  return {
+    stationCount: stations.length,
+    minPriceEur: cheapest ? round(cheapest.priceEur) : null,
+    avgPriceEur: round(average(allPrices)),
+    maxPriceEur: round(allPrices.length ? Math.max(...allPrices) : null),
+    minSelfPriceEur: selfPrices.length ? round(Math.min(...selfPrices)) : null,
+    minServedPriceEur: servedPrices.length ? round(Math.min(...servedPrices)) : null,
+    cheapestStation: cheapest,
+    stations: sorted,
+  };
+}
+
+function buildSwissBorderStations(municipalities, swissStations, eurPerChf) {
+  const filtered = [];
+  for (const station of swissStations) {
+    let closestMunicipality = null;
+    let minDistance = Number.POSITIVE_INFINITY;
+    for (const municipality of municipalities) {
+      const distanceKm = haversineKm(municipality.lat, municipality.lng, station.lat, station.lng);
+      if (distanceKm < minDistance) {
+        minDistance = distanceKm;
+        closestMunicipality = municipality;
+      }
+    }
+    if (minDistance > SWISS_BORDER_FILTER_KM) continue;
+    filtered.push({
+      ...station,
+      nearestMunicipality: closestMunicipality ? `${closestMunicipality.name} (${closestMunicipality.province})` : null,
+      nearestMunicipalityDistanceKm: round(minDistance, 1),
+      sp95PriceEur: round(station.sp95PriceChf * eurPerChf),
+    });
+  }
+  return filtered.sort((a, b) => a.sp95PriceChf - b.sp95PriceChf);
+}
+
+function buildDataset({
+  municipalities,
+  italyExtractedAt,
+  swissStations,
+  italyByMunicipality,
+  exchangeRate,
+}) {
+  const municipalityRows = municipalities.map((municipality) => {
+    const italyStations = italyByMunicipality.get(`${municipality.name}:${municipality.province}`) || [];
+    const italy = summarizeItalyStations(italyStations);
+    const swissCandidates = swissStations
+      .map((station) => ({
+        ...station,
+        distanceKm: round(haversineKm(municipality.lat, municipality.lng, station.lat, station.lng), 1),
+      }))
+      .filter((station) => station.distanceKm <= SWISS_SEARCH_RADIUS_KM)
+      .sort((a, b) => a.sp95PriceChf - b.sp95PriceChf);
+
+    const cheapestSwiss = swissCandidates[0] || null;
+    let cheaperCountry = 'NO_DATA';
+    let priceDeltaEur = null;
+    let saving50LEur = null;
+    if (italy.minPriceEur != null && cheapestSwiss?.sp95PriceEur != null) {
+      priceDeltaEur = round(cheapestSwiss.sp95PriceEur - italy.minPriceEur);
+      saving50LEur = round(Math.abs(priceDeltaEur) * 50, 2);
+      if (Math.abs(priceDeltaEur) < 0.005) cheaperCountry = 'SAME';
+      else cheaperCountry = priceDeltaEur > 0 ? 'IT' : 'CH';
+    }
+
+    return {
+      municipality: municipality.name,
+      province: municipality.province,
+      lat: municipality.lat,
+      lng: municipality.lng,
+      distanceKm: municipality.distanceKm,
+      fascia: municipality.fascia,
+      italy,
+      swiss: {
+        searchRadiusKm: SWISS_SEARCH_RADIUS_KM,
+        optionCount: swissCandidates.length,
+        cheapestStation: cheapestSwiss,
+        nearbyStations: swissCandidates.slice(0, TOP_SWISS_OPTIONS),
+        minPriceChf: cheapestSwiss ? round(cheapestSwiss.sp95PriceChf) : null,
+        minPriceEur: cheapestSwiss ? round(cheapestSwiss.sp95PriceEur) : null,
+      },
+      comparison: {
+        cheaperCountry,
+        priceDeltaEur,
+        saving50LEur,
+      },
+    };
+  });
+
+  const comparisonRows = municipalityRows.filter((row) => row.comparison.cheaperCountry !== 'NO_DATA');
+  const cheaperItalyCount = comparisonRows.filter((row) => row.comparison.cheaperCountry === 'IT').length;
+  const cheaperSwissCount = comparisonRows.filter((row) => row.comparison.cheaperCountry === 'CH').length;
+  const tieCount = comparisonRows.filter((row) => row.comparison.cheaperCountry === 'SAME').length;
+
+  const cheapestItalyMunicipalities = municipalityRows
+    .filter((row) => row.italy.minPriceEur != null)
+    .sort((a, b) => a.italy.minPriceEur - b.italy.minPriceEur)
+    .slice(0, 20)
+    .map((row) => ({
+      municipality: row.municipality,
+      province: row.province,
+      minPriceEur: row.italy.minPriceEur,
+      cheapestStation: row.italy.cheapestStation,
+    }));
+
+  const bestCrossBorderSavings = comparisonRows
+    .slice()
+    .sort((a, b) => {
+      const aValue = a.comparison.saving50LEur || 0;
+      const bValue = b.comparison.saving50LEur || 0;
+      return bValue - aValue;
+    })
+    .slice(0, 20)
+    .map((row) => ({
+      municipality: row.municipality,
+      province: row.province,
+      cheaperCountry: row.comparison.cheaperCountry,
+      saving50LEur: row.comparison.saving50LEur,
+      italyPriceEur: row.italy.minPriceEur,
+      swissPriceEur: row.swiss.minPriceEur,
+      swissPriceChf: row.swiss.minPriceChf,
+      swissStation: row.swiss.cheapestStation,
+    }));
+
+  const swissUpdatedAtValues = swissStations.map((item) => item.updatedAt).filter(Boolean).sort();
+
+  return {
+    generatedAt: new Date().toISOString(),
+    sources: {
+      italy: {
+        provider: 'MIMIT Open Data',
+        priceSnapshotDate: italyExtractedAt,
+        stationsUrl: ITALY_STATIONS_URL,
+        pricesUrl: ITALY_PRICES_URL,
+      },
+      switzerland: {
+        provider: 'TCS Benzinpreis',
+        providerUrl: 'https://benzin.tcs.ch/de/map/SP95',
+        stationCount: swissStations.length,
+        latestObservedUpdate: swissUpdatedAtValues[swissUpdatedAtValues.length - 1] || null,
+      },
+      exchangeRate: {
+        provider: 'ECB',
+        sourceUrl: ECB_DAILY_URL,
+        chfPerEur: round(exchangeRate.chfPerEur, 6),
+        eurPerChf: round(exchangeRate.eurPerChf, 6),
+      },
+    },
+    summary: {
+      municipalityCount: municipalityRows.length,
+      municipalitiesWithItalyPrices: municipalityRows.filter((row) => row.italy.stationCount > 0).length,
+      municipalitiesWithSwissComparison: comparisonRows.length,
+      cheaperItalyCount,
+      cheaperSwissCount,
+      tieCount,
+      cheapestItalyMunicipality: cheapestItalyMunicipalities[0] || null,
+      cheapestSwissStation: swissStations[0] || null,
+    },
+    rankings: {
+      cheapestItalyMunicipalities,
+      cheapestSwissStations: swissStations.slice(0, 20),
+      bestCrossBorderSavings,
+    },
+    municipalities: municipalityRows,
+  };
+}
+
+function writeJson(filePath, value) {
+  fs.mkdirSync(path.dirname(filePath), { recursive: true });
+  fs.writeFileSync(filePath, `${JSON.stringify(value, null, 2)}\n`, 'utf8');
+}
+
+async function main() {
+  const municipalities = readMunicipalities();
+  if (!municipalities.length) throw new Error('Unable to read municipalities dataset');
+
+  try {
+    const [pricesText, stationsText, ecbXml, swissDocs] = await Promise.all([
+      fetchText(ITALY_PRICES_URL),
+      fetchText(ITALY_STATIONS_URL),
+      fetchText(ECB_DAILY_URL),
+      fetchSwissStations(),
+    ]);
+
+    const prices = parseDelimited(pricesText);
+    const stations = parseDelimited(stationsText);
+    const exchangeRate = extractEcbRate(ecbXml);
+    const italyByMunicipality = buildItalyStations(municipalities, stations.rows, prices.rows);
+    const swissStations = buildSwissBorderStations(municipalities, swissDocs, exchangeRate.eurPerChf);
+
+    const payload = buildDataset({
+      municipalities,
+      italyExtractedAt: prices.extractedAt,
+      swissStations,
+      italyByMunicipality,
+      exchangeRate,
+    });
+
+    writeJson(DATA_OUT, payload);
+    writeJson(PUBLIC_OUT, payload);
+    console.log(`⛽ Fuel dataset generated: ${payload.summary.municipalityCount} municipalities, ${payload.summary.municipalitiesWithItalyPrices} with Italian prices, ${payload.summary.municipalitiesWithSwissComparison} with IT/CH comparison.`);
+  } catch (error) {
+    if (fs.existsSync(PUBLIC_OUT)) {
+      console.warn(`⚠️ Fuel dataset refresh failed, keeping existing snapshot. ${error instanceof Error ? error.message : String(error)}`);
+      return;
+    }
+    throw error;
+  }
+}
+
+main().catch((error) => {
+  console.error(error);
+  process.exit(1);
+});

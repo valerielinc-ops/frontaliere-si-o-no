@@ -1,9 +1,10 @@
 import React, { useState, useEffect, useRef, useCallback, Suspense } from 'react';
-import { Coins, TrainFront, Check, ChevronUp, Settings2, Home, Briefcase, TrendingUp, TrendingDown, ArrowDown, Ruler, Mail, X, Loader2, CheckCircle2, ArrowUp } from 'lucide-react';
+import { Coins, TrainFront, Check, ChevronUp, Settings2, Home, Briefcase, TrendingUp, TrendingDown, Ruler, Mail, X, Loader2, CheckCircle2 } from 'lucide-react';
 import { SimulationInputs, SimulationResult } from '../../types';
 import { useTranslation } from '../../services/i18n';
 import { lazyRetry } from '@/services/lazyRetry';
 import { Analytics } from '@/services/analytics';
+import InlineNetDeltaBadge from './InlineNetDeltaBadge';
 
 const ShareableResultCard = lazyRetry(() => import('@/components/shared/ShareableResultCard'));
 const SubscriptionCTA = lazyRetry(() => import('@/components/shared/SubscriptionCTA'));
@@ -53,26 +54,6 @@ function useNetDelta(value: number | null): { delta: number; key: number } {
 
   return state;
 }
-
-const MobileNetDeltaBadge: React.FC<{ delta: number }> = ({ delta }) => {
-  if (Math.abs(delta) < 1) return null;
-  const isPositive = delta > 0;
-
-  return (
-    <span
-      className={`inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-[10px] font-bold font-mono ${
-        isPositive
-          ? 'animate-net-tick-up bg-emerald-100 text-emerald-700 dark:bg-emerald-900/50 dark:text-emerald-300'
-          : 'animate-net-tick-down bg-red-100 text-red-700 dark:bg-red-900/50 dark:text-red-300'
-      }`}
-      aria-live="polite"
-      aria-atomic="true"
-    >
-      {isPositive ? <ArrowUp size={10} strokeWidth={3} /> : <ArrowDown size={10} strokeWidth={3} />}
-      {isPositive ? '+' : '-'}CHF {formatCHF(Math.abs(delta))}
-    </span>
-  );
-};
 
 /**
  * Mobile-only results-first calculator layout (Proposal D).
@@ -388,7 +369,7 @@ const MobileCalcLayout: React.FC<Props> = ({
                     CHF {formatCHF(chNetMonthly ?? 0)}
                   </div>
                   {chDelta.key > 0 && (
-                    <MobileNetDeltaBadge key={`ch-${chDelta.key}`} delta={chDelta.delta} />
+                    <InlineNetDeltaBadge key={`ch-${chDelta.key}`} delta={chDelta.delta} size="mobile" />
                   )}
                 </div>
                 <div className="text-[10px] text-slate-500 font-semibold">{t('mobileCalc.perMonth')}</div>
@@ -414,7 +395,7 @@ const MobileCalcLayout: React.FC<Props> = ({
                     CHF {formatCHF(itNetMonthly ?? 0)}
                   </div>
                   {itDelta.key > 0 && (
-                    <MobileNetDeltaBadge key={`it-${itDelta.key}`} delta={itDelta.delta} />
+                    <InlineNetDeltaBadge key={`it-${itDelta.key}`} delta={itDelta.delta} size="mobile" />
                   )}
                 </div>
                 <div className="text-[10px] text-slate-500 font-semibold">{t('mobileCalc.perMonth')}</div>

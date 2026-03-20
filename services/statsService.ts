@@ -6,8 +6,8 @@
  *
  * Data flow:
  * 1. localStorage cache  (instant, same browser)
- * 2. Firestore cache      (shared across all clients, refreshed once/day)
- * 3. Remote CSV fetch     (only if Firestore is stale > 24h)
+ * 2. Firestore cache      (shared across all clients, refreshed once/hour)
+ * 3. Remote CSV fetch     (only if Firestore is stale > 1h)
  * 4. Save to Firestore + localStorage
  * 5. Fallback: stale Firestore → stale localStorage
  *
@@ -60,7 +60,7 @@ export const SOURCE_LINK =
 const LOCAL_CACHE_KEY = 'bfs_stats_cache_v2';
 const FIRESTORE_COLLECTION = 'config';
 const FIRESTORE_DOC = 'bfs_stats';
-const ONE_DAY_MS = 24 * 60 * 60 * 1000;
+export const STATS_CACHE_DURATION_MS = 60 * 60 * 1000;
 const SHOULD_LOG_STATS_WARNINGS = import.meta.env.MODE !== 'test';
 
 import { reportCaughtError } from '@/services/errorReporter';
@@ -390,8 +390,8 @@ export interface StatsResult {
  * Fetch BFS cross-border worker statistics.
  *
  * Strategy:
- * 1. Return localStorage cache immediately if fresh (< 24h)
- * 2. Check Firestore cache — if fresh (< 24h), use it and update localStorage
+ * 1. Return localStorage cache immediately if fresh (< 1h)
+ * 2. Check Firestore cache — if fresh (< 1h), use it and update localStorage
  * 3. Fetch remote CSV, parse, save to Firestore + localStorage
  * 4. On remote failure, fall back to any available cache (even stale)
  *
@@ -403,7 +403,7 @@ export async function fetchStats(forceRefresh = false): Promise<StatsResult> {
   // 1. localStorage (L1) — instant
   if (!forceRefresh) {
     const local = getLocalCache();
-    if (local && (now - local.timestamp) < ONE_DAY_MS) {
+    if (local && (now - local.timestamp) < STATS_CACHE_DURATION_MS) {
       return { data: local, source: 'cache' };
     }
   }
@@ -411,7 +411,7 @@ export async function fetchStats(forceRefresh = false): Promise<StatsResult> {
   // 2. Firestore (L2) — shared across clients
   if (!forceRefresh) {
     const firestore = await getFirestoreStats();
-    if (firestore && (now - firestore.timestamp) < ONE_DAY_MS) {
+    if (firestore && (now - firestore.timestamp) < STATS_CACHE_DURATION_MS) {
       setLocalCache(firestore); // populate L1
       return { data: firestore, source: 'firestore' };
     }

@@ -98,6 +98,7 @@ export default function SiteMapPage() {
         { label: t('sitemap.link.livability'), route: { activeTab: 'stats', statsSubTab: 'livability' } },
         { label: t('sitemap.link.salaryCompare'), route: { activeTab: 'stats', statsSubTab: 'salary-compare' } },
         { label: t('sitemap.link.trafficHistory'), route: { activeTab: 'stats', statsSubTab: 'traffic-history' } },
+        { label: t('sitemap.link.fuelPrices'), route: { activeTab: 'stats', statsSubTab: 'fuel-prices' } },
       ],
     },
     {

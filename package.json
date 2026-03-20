@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite",
     "predev": "node scripts/assemble-jobs-dataset.mjs --stats",
-    "prebuild": "node scripts/generate-image-thumbnails.mjs && node scripts/assemble-jobs-dataset.mjs --stats",
+    "prebuild": "node scripts/generate-image-thumbnails.mjs && node scripts/generate-fuel-prices-dataset.mjs && node scripts/assemble-jobs-dataset.mjs --stats",
     "build": "vite build",
     "preview": "vite preview",
     "test": "vitest run",
@@ -100,6 +100,7 @@
     "jobs:generate-adapters": "node scripts/generate-company-adapter-stubs.mjs",
     "jobs:company-keys": "node scripts/list-job-crawler-company-keys.mjs --json",
     "images:thumbs": "node scripts/generate-image-thumbnails.mjs",
+    "fuel:generate": "node scripts/generate-fuel-prices-dataset.mjs",
     "optimize:blog-images": "node scripts/optimize-blog-images.mjs",
     "validate:structured-data": "node scripts/validate-structured-data.mjs",
     "validate:jobs-rich-results": "node scripts/validate-jobs-rich-results-sample.mjs",

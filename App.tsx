@@ -81,6 +81,7 @@ const NewFrontierOver20KmHub = lazyRetry(() => import('@/components/calculator/N
 const TrafficHistory = lazyRetry(() => import('@/components/guide/TrafficHistory'));
 const UnemploymentStats = lazyRetry(() => import('@/components/pages/UnemploymentStats'));
 const MortgageComparison = lazyRetry(() => import('@/components/comparators/MortgageComparison'));
+const FuelPriceStats = lazyRetry(() => import('@/components/pages/FuelPriceStats'));
 const BlogArticles = lazyRetry(() => {
   // Prefetch blog meta translations in parallel with component chunk
   import('@/services/i18n').then(m => m.loadBlogMeta()).catch(() => {});
@@ -178,7 +179,7 @@ import {
   Home, Timer, Users, Calendar, Shield, Mountain, GraduationCap,
   LifeBuoy, Rocket, Mail, Bug, Sunrise, User as UserIcon, LogIn,
   FileText, Gift, Hammer, BookA, School, Database, Clock, Receipt, Languages, BarChart3,
-  Banknote
+  Banknote, Fuel
 } from 'lucide-react';
 
 import SkeletonFallback, { SkeletonPageShell, SkeletonComparator, SkeletonGuide, SkeletonDashboard, SkeletonFisco, SkeletonStats, SkeletonBlog, SkeletonVita, SkeletonNewsTicker, SkeletonWeeklyFact, SkeletonInputCard, SkeletonFooterSlot } from '@/components/shared/Skeletons';
@@ -2535,7 +2536,7 @@ const App: React.FC = () => {
         {activeTab === 'stats' && (
           <div className="border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2.5">
-              <div className="grid grid-cols-4 sm:grid-cols-7 md:grid-cols-7 gap-1.5 max-w-5xl mx-auto">
+              <div className="grid grid-cols-4 sm:grid-cols-4 md:grid-cols-8 gap-1.5 max-w-6xl mx-auto">
                 {([
                   { key: 'overview' as const, icon: Database, label: t('stats.tabOverview') },
                   { key: 'livability' as const, icon: MapPin, label: t('strumenti.livability') },
@@ -2544,6 +2545,7 @@ const App: React.FC = () => {
                   { key: 'traffic-history' as const, icon: Clock, label: t('stats.trafficHistory') },
                   { key: 'unemployment' as const, icon: BarChart3, label: t('stats.tabUnemployment') },
                   { key: 'mortgage' as const, icon: Home, label: t('stats.tabMortgage') },
+                  { key: 'fuel-prices' as const, icon: Fuel, label: t('stats.tabFuelPrices') },
                 ] as const).map(({ key, icon: Icon, label }) => (
                   <button
                     key={key}
@@ -2852,6 +2854,8 @@ const App: React.FC = () => {
                 <UnemploymentStats />
               ) : statsSubTab === 'mortgage' ? (
                 <MortgageComparison />
+              ) : statsSubTab === 'fuel-prices' ? (
+                <FuelPriceStats />
               ) : null}
             </div>
           ) : activeTab === 'blog' ? (
@@ -3123,6 +3127,15 @@ const App: React.FC = () => {
               </a>
               <span className="text-slate-300 dark:text-slate-700">·</span>
               <a
+                href={buildPath({ activeTab: 'stats', statsSubTab: 'fuel-prices' })}
+                onClick={(e) => { e.preventDefault(); setStatsSubTab('fuel-prices'); navigateTo('stats', 'fuel-prices'); }}
+                className="inline-flex items-center gap-1 text-xs text-slate-600 dark:text-slate-400 hover:text-orange-600 dark:hover:text-orange-400 transition-colors no-underline"
+              >
+                <Fuel className="w-3.5 h-3.5" />
+                {t('footer.fuelPrices')}
+              </a>
+              <span className="text-slate-300 dark:text-slate-700">·</span>
+              <a
                 href={buildPath({ activeTab: 'morning' as any })}
                 onClick={(e) => { e.preventDefault(); navigateTo('morning' as any); }}
                 className="inline-flex items-center gap-1 text-xs text-slate-600 dark:text-slate-400 hover:text-orange-600 dark:hover:text-orange-400 transition-colors no-underline"
@@ -3357,6 +3370,7 @@ const App: React.FC = () => {
                       { sub: 'traffic-history' as const, label: t('stats.trafficHistory') },
                       { sub: 'unemployment' as const, label: t('stats.tabUnemployment') },
                       { sub: 'mortgage' as const, label: t('stats.tabMortgage') },
+                      { sub: 'fuel-prices' as const, label: t('stats.tabFuelPrices') },
                     ] as const).map(({ sub, label }) => (
                       <li key={sub}>
                         <a

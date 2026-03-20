@@ -726,10 +726,15 @@ export function useAuth(): AuthState & {
         if (result?.user) {
           const provider = sessionStorage.getItem('auth_redirect_provider') || 'google';
           sessionStorage.removeItem('auth_redirect_provider');
+          // Mirror the redirect result into local hook state immediately.
+          // On some mobile Google redirect returns, Firebase restores the session
+          // but onAuthStateChanged does not emit a second event after the initial
+          // null snapshot, leaving pages that rely on App-level auth stuck logged out.
+          setUser(Object.create(result.user));
           // Patch Facebook email and profile on redirect flow too
           if (provider === 'facebook') {
             await patchFacebookData(result);
-            // Force UI refresh — onAuthStateChanged won't re-fire after data patching
+            // Force UI refresh again after profile patching mutates the user object.
             setUser(Object.create(result.user));
           }
           import('@/services/analytics').then(({ Analytics }) => {

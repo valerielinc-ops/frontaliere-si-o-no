@@ -35,7 +35,7 @@ export type ConfrontiSubTab = 'exchange' | 'banks' | 'health' | 'mobile' | 'shop
 export type FiscoSubTab = 'tax-return' | 'calendar' | 'holidays' | 'ristorni' | 'pension' | 'pillar3' | 'quiz' | 'tax-credit' | 'withholding-rates';
 export type GuidaSubTab = 'first-day' | 'permits' | 'border' | 'unemployment' | 'car-transfer' | 'car-cost' | 'permit-compare' | 'border-map';
 export type VitaSubTab = 'living-ch' | 'living-it' | 'companies' | 'schools' | 'nursery' | 'places' | 'transport' | 'municipalities';
-export type StatsSubTab = 'overview' | 'livability' | 'jobs-observatory' | 'salary-compare' | 'traffic-history' | 'unemployment' | 'mortgage';
+export type StatsSubTab = 'overview' | 'livability' | 'jobs-observatory' | 'salary-compare' | 'traffic-history' | 'unemployment' | 'mortgage' | 'fuel-prices';
 
 // ── Border crossing deep links (indexable URLs) ─────────────
 
@@ -402,7 +402,7 @@ export const ALL_CONFRONTI_SUBTABS: string[] = ['exchange', 'banks', 'health', '
 export const ALL_FISCO_SUBTABS: string[] = ['tax-return', 'calendar', 'holidays', 'ristorni', 'pension', 'pillar3', 'quiz', 'tax-credit', 'withholding-rates'];
 export const ALL_GUIDA_SUBTABS: string[] = ['first-day', 'permits', 'border', 'unemployment', 'car-transfer', 'car-cost', 'permit-compare', 'border-map'];
 export const ALL_VITA_SUBTABS: string[] = ['living-ch', 'living-it', 'companies', 'schools', 'nursery', 'places', 'transport', 'municipalities'];
-export const ALL_STATS_SUBTABS: string[] = ['overview', 'livability', 'jobs-observatory', 'salary-compare', 'traffic-history', 'unemployment', 'mortgage'];
+export const ALL_STATS_SUBTABS: string[] = ['overview', 'livability', 'jobs-observatory', 'salary-compare', 'traffic-history', 'unemployment', 'mortgage', 'fuel-prices'];
 
 // Legacy exports for backward compat
 export const ALL_COMPARATORI_SUBTABS = ALL_CONFRONTI_SUBTABS;
@@ -520,6 +520,7 @@ interface SlugTable {
   trafficHistory: string;
   unemploymentStats: string;
   mortgageComparison: string;
+  fuelPrices: string;
   // calcolatore extra slugs
   salaryQuiz: string;
   // top-level extra slugs
@@ -625,6 +626,7 @@ const SLUG_TABLES: Record<Locale, SlugTable> = {
     trafficHistory: 'storico-traffico-dogane',
     unemploymentStats: 'disoccupazione-svizzera',
     mortgageComparison: 'confronto-mutui',
+    fuelPrices: 'prezzi-benzina-confine',
     salaryQuiz: 'quanto-guadagneresti-in-svizzera',
     blog: 'articoli-frontaliere',
 
@@ -714,6 +716,7 @@ const SLUG_TABLES: Record<Locale, SlugTable> = {
     trafficHistory: 'border-traffic-history',
     unemploymentStats: 'unemployment-switzerland',
     mortgageComparison: 'mortgage-comparison',
+    fuelPrices: 'border-fuel-prices',
     salaryQuiz: 'how-much-would-you-earn-in-switzerland',
     blog: 'cross-border-articles',
 
@@ -803,6 +806,7 @@ const SLUG_TABLES: Record<Locale, SlugTable> = {
     trafficHistory: 'grenzverkehr-verlauf',
     unemploymentStats: 'arbeitslosigkeit-schweiz',
     mortgageComparison: 'hypotheken-vergleich',
+    fuelPrices: 'spritpreise-grenze',
     salaryQuiz: 'verdienst-in-der-schweiz',
     blog: 'grenzgaenger-artikel',
 
@@ -892,6 +896,7 @@ const SLUG_TABLES: Record<Locale, SlugTable> = {
     trafficHistory: 'historique-trafic-frontiere',
     unemploymentStats: 'chomage-suisse',
     mortgageComparison: 'comparaison-hypotheques',
+    fuelPrices: 'prix-essence-frontiere',
     salaryQuiz: 'combien-gagneriez-vous-en-suisse',
     blog: 'articles-frontalier',
 
@@ -983,7 +988,8 @@ const STATS_KEYS: { key: keyof SlugTable; id: StatsSubTab }[] = [
   { key: 'salaryCompare', id: 'salary-compare' },
   { key: 'trafficHistory', id: 'traffic-history' },
   { key: 'unemploymentStats', id: 'unemployment' },
-  { key: 'mortgageComparison', id: 'mortgage' }
+  { key: 'mortgageComparison', id: 'mortgage' },
+  { key: 'fuelPrices', id: 'fuel-prices' }
 ];
 const LEGACY_STATS_KEYS: { key: keyof SlugTable; id: StatsSubTab }[] = [
   { key: 'salarySurvey', id: 'salary-compare' }
@@ -1009,6 +1015,7 @@ function buildLocaleReverses<T extends string>(mapping: Record<T, keyof SlugTabl
 // ── Job slug cross-locale translation ──
 // Maps any-locale job slug → per-locale slugs (populated by JobBoard after loading jobs).
 let _jobSlugMap: Map<string, Record<string, string>> | null = null;
+let _jobSlugMapPromise: Promise<void> | null = null;
 
 /** Register the job slug map so the router can translate job slugs across locales. */
 export function registerJobSlugMap(jobs: Array<{ slug?: string; slugByLocale?: Partial<Record<string, string>>; previousSlugs?: string[] }>): void {
@@ -1073,15 +1080,25 @@ export function getLocalizedJobSlug(slug: string, targetLocale: string): string 
   return translateJobSlug(slug, targetLocale);
 }
 
+export async function ensureJobSlugMapLoaded(): Promise<void> {
+  if (_jobSlugMap) return;
+  if (!_jobSlugMapPromise) {
+    _jobSlugMapPromise = fetch('/data/jobs.json')
+      .then(r => r.ok ? r.json() : Promise.reject(r.status))
+      .then((data: Array<{ slug?: string; slugByLocale?: Partial<Record<string, string>>; previousSlugs?: string[] }>) => {
+        registerJobSlugMap(data);
+      })
+      .finally(() => {
+        _jobSlugMapPromise = null;
+      });
+  }
+  await _jobSlugMapPromise;
+}
+
 // Eagerly preload the job slug map so language switches work immediately.
 // The JobBoard component will overwrite this with a potentially fresher copy later.
 if (typeof window !== 'undefined') {
-  fetch('/data/jobs.json')
-    .then(r => r.ok ? r.json() : Promise.reject(r.status))
-    .then((data: Array<{ slug?: string; slugByLocale?: Partial<Record<string, string>>; previousSlugs?: string[] }>) => {
-      if (!_jobSlugMap) registerJobSlugMap(data);
-    })
-    .catch(() => { /* non-critical — JobBoard will register later */ });
+  ensureJobSlugMapLoaded().catch(() => { /* non-critical — JobBoard will register later */ });
 }
 
 // ── Lazy-loaded blog data (code-split into routerBlogData.ts) ──
@@ -1987,7 +2004,7 @@ export function getSeoSection(route: AppRoute): string {
     }
     case 'stats': {
       const ss = route.statsSubTab || 'overview';
-      const map: Record<string, string> = { livability: 'livability', 'jobs-observatory': 'jobsObservatory', traffic: 'traffic', 'salary-compare': 'salaryCompare', 'traffic-history': 'trafficHistory', unemployment: 'unemploymentStats', mortgage: 'mortgageComparison' };
+      const map: Record<string, string> = { livability: 'livability', 'jobs-observatory': 'jobsObservatory', traffic: 'traffic', 'salary-compare': 'salaryCompare', 'traffic-history': 'trafficHistory', unemployment: 'unemploymentStats', mortgage: 'mortgageComparison', 'fuel-prices': 'fuelPrices' };
       return map[ss] || 'stats';
     }
     case 'job-board':

@@ -29,7 +29,17 @@ interface AdSenseBannerProps {
 }
 
 const CLIENT_ID = 'ca-pub-8628054934855353';
-const IS_PROD = typeof window !== 'undefined' && window.location.hostname === 'www.frontaliereticino.ch';
+const ADSENSE_PRODUCTION_HOSTNAMES = new Set([
+  'frontaliereticino.ch',
+  'www.frontaliereticino.ch',
+]);
+
+export function isAdSenseProductionHost(hostname: string) {
+  return ADSENSE_PRODUCTION_HOSTNAMES.has(hostname);
+}
+
+const IS_PROD =
+  typeof window !== 'undefined' && isAdSenseProductionHost(window.location.hostname);
 
 type AdState = 'idle' | 'waiting_width' | 'loading' | 'filled' | 'collapsed';
 const initializedAdElements = new WeakSet<Element>();

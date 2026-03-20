@@ -864,7 +864,7 @@ const AiChatbot: React.FC<AiChatbotProps> = ({ isLoggedIn, onSignIn, onSignInFac
                 </div>
                 <img src="/icons/icon-192x192.png" alt="Frontaliere Ticino" width={40} height={40} className="rounded-full mb-3 mx-auto" />
                 <h3 className="text-base font-semibold text-slate-900 dark:text-white text-center">{t('chatbot.authTitle')}</h3>
-                <p className="text-xs font-medium text-blue-600 dark:text-blue-400 text-center">frontaliere-ticino.ch</p>
+                <p className="text-xs font-medium text-blue-600 dark:text-blue-400 text-center">frontaliereticino.ch</p>
                 <p className="text-xs text-slate-600 dark:text-slate-400 text-center mt-1 mb-3">{t('chatbot.authSubtitle')}</p>
 
                 <div className="text-[11px] text-blue-700 dark:text-blue-300 bg-blue-50 dark:bg-blue-950/30 border border-blue-200 dark:border-blue-800 rounded-lg p-2 mb-3">

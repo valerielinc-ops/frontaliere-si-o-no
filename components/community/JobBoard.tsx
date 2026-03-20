@@ -3101,7 +3101,13 @@ const JobBoard: React.FC<JobBoardProps> = ({
     setAuthError(null);
     const jobToTrack = pendingJob || selectedJob;
     const jobContext = jobToTrack ? buildJobTrackingContext(jobToTrack) : {};
+    const redirectSlug = jobToTrack ? deriveLocalizedJobSlug(jobToTrack, locale) : null;
     try {
+      // Persist the intended detail target before auth starts. On mobile redirect
+      // flows, the browser may navigate away before post-await code runs.
+      if (redirectSlug) {
+        saveJobAuthRedirectSlug(redirectSlug);
+      }
       const result = await authFn();
       if (!result) {
         const redirectProvider = (() => {
@@ -3112,16 +3118,14 @@ const JobBoard: React.FC<JobBoardProps> = ({
           }
         })();
         if (redirectProvider === provider) {
-          const redirectJob = pendingJob || selectedJob;
-          if (redirectJob) {
-            saveJobAuthRedirectSlug(deriveLocalizedJobSlug(redirectJob, locale));
-          }
           return;
         }
+        clearJobAuthRedirectSlug();
         setAuthError(t('jobBoard.authCancelled'));
         Analytics.trackJobAuthFunnel('auth_fail', { method: provider, ...jobContext });
         return;
       }
+      clearJobAuthRedirectSlug();
       const userEmail = result.email || result.user?.email;
       const sourceSuffix = jobToTrack ? `:${jobToTrack.company}:${sanitizeJobTitle(jobToTrack.title).slice(0, 60)}` : '';
       autoNewsletterSubscribe(userEmail, `job_gate_google${sourceSuffix}`);
@@ -3506,7 +3510,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
             <img src="/icons/icon-192x192.png" alt="Frontaliere Ticino" width={40} height={40} className="flex-shrink-0 rounded-xl" />
             <div>
               <h2 className="text-lg font-extrabold text-slate-900 dark:text-white">{t('jobBoard.authGateTitle')}</h2>
-              <p className="text-xs font-medium text-indigo-600 dark:text-indigo-400">frontaliere-ticino.ch</p>
+              <p className="text-xs font-medium text-indigo-600 dark:text-indigo-400">frontaliereticino.ch</p>
               <p className="text-sm text-slate-600 dark:text-slate-400">{t('jobBoard.authGateDescription')}</p>
             </div>
           </div>

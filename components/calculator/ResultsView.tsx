@@ -1,5 +1,5 @@
 import React, { useState, useCallback, Suspense, useEffect, useRef } from 'react';
-import { ScrollText, Trophy, Armchair, Info, PartyPopper, Calculator, ChevronRight, Home, Briefcase, Heart, AlertCircle, ShoppingBag, ShieldCheck, User, Coins, Baby, TrainFront, Maximize2, Minimize2, Share2, Check, ArrowUp, ArrowDown } from 'lucide-react';
+import { ScrollText, Trophy, Armchair, Info, PartyPopper, Calculator, ChevronRight, Home, Briefcase, Heart, AlertCircle, ShoppingBag, ShieldCheck, User, Coins, Baby, TrainFront, Maximize2, Minimize2, Share2, Check } from 'lucide-react';
 // jsPDF and autoTable are lazy-imported inside exportPDF() — only needed on user click (~134KB gzip saved from critical path)
 import { SimulationResult, TaxResult, TaxBreakdownItem, SimulationInputs } from '../../types';
 import { lazyRetry } from '@/services/lazyRetry';
@@ -13,6 +13,7 @@ import { reportCaughtError } from '@/services/errorReporter';
 import { useTranslation } from '../../services/i18n';
 import { buildShareURL } from '../../services/urlStateService';
 import { useNavigationOptional } from '@/services/NavigationContext';
+import InlineNetDeltaBadge from './InlineNetDeltaBadge';
 
 interface Props {
   result: SimulationResult;
@@ -52,26 +53,6 @@ function useNetDelta(value: number): { delta: number; key: number } {
   }, [value]);
   return state;
 }
-
-/** Inline stock-ticker badge shown near the monthly net value after a change. */
-const NetDeltaBadge: React.FC<{ delta: number; currency?: string }> = ({ delta, currency = 'CHF' }) => {
-  if (Math.abs(delta) < 1) return null;
-  const isPositive = delta > 0;
-  return (
-    <span
-      className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-bold font-mono pointer-events-none select-none ${
-        isPositive
-          ? 'animate-net-tick-up bg-emerald-100 dark:bg-emerald-900/50 text-emerald-700 dark:text-emerald-300'
-          : 'animate-net-tick-down bg-red-100 dark:bg-red-900/50 text-red-700 dark:text-red-300'
-      }`}
-      aria-live="polite"
-      aria-atomic="true"
-    >
-      {isPositive ? <ArrowUp size={10} strokeWidth={3} /> : <ArrowDown size={10} strokeWidth={3} />}
-      {isPositive ? '+' : ''}{currency}&nbsp;{Math.abs(delta).toLocaleString('it-IT')}
-    </span>
-  );
-};
 
 const getBreakdownColor = (label: string): string => {
   const l = label.toLowerCase();
@@ -590,7 +571,7 @@ export const ResultsView: React.FC<Props> = ({ result, inputs, focusArea = null,
                       <CurrencyValue value={chResident.netIncomeMonthly} currency="CHF" />
                     </div>
                   )}
-                  {chDelta.key > 0 && <NetDeltaBadge key={chDelta.key} delta={chDelta.delta} />}
+                  {chDelta.key > 0 && <InlineNetDeltaBadge key={chDelta.key} delta={chDelta.delta} />}
                 </div>
                 {showEUR && (
                   <div className="text-sm font-mono text-blue-600/70 dark:text-blue-400/70 mt-0.5">
@@ -646,7 +627,7 @@ export const ResultsView: React.FC<Props> = ({ result, inputs, focusArea = null,
                       <CurrencyValue value={itResident.netIncomeMonthly} currency="CHF" />
                     </div>
                   )}
-                  {itDelta.key > 0 && <NetDeltaBadge key={itDelta.key} delta={itDelta.delta} />}
+                  {itDelta.key > 0 && <InlineNetDeltaBadge key={itDelta.key} delta={itDelta.delta} />}
                 </div>
                 {showEUR && (
                   <div className="text-sm font-mono text-red-600/70 dark:text-red-400/70 mt-0.5">

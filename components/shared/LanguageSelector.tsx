@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { type Locale, getLocale, setLocale, onLocaleChange, LOCALE_LABELS } from '@/services/i18n';
+import { ensureJobSlugMapLoaded, updatePathForLocale } from '@/services/router';
 import { Analytics } from '@/services/analytics';
 
 const LanguageSelector: React.FC = () => {
@@ -22,8 +23,14 @@ const LanguageSelector: React.FC = () => {
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
-  const handleSelect = (locale: Locale) => {
+  const handleSelect = async (locale: Locale) => {
+    try {
+      await ensureJobSlugMapLoaded();
+    } catch {
+      // Non-blocking: locale switch should still work even if the slug map preload fails.
+    }
     setLocale(locale);
+    updatePathForLocale(locale);
     setCurrent(locale);
     setIsOpen(false);
     Analytics.trackSettingsChange('locale', locale);

@@ -53,7 +53,7 @@ export const CRAWLED_COMPANY_LOGOS: Record<string, string> = {
   'avaloq': gFavicon('avaloq.com'),
   'banca-cler': gFavicon('cler.ch'),
   'banca-sempione': gFavicon('bancasempione.ch'),
-  'boggi-milano': 'https://www.boggi.com/on/demandware.static/Sites-Boggi-Site/-/default/dw7dc8b6c7/images/logo.svg',
+  'boggi-milano': 'https://www.boggi.com/on/demandware.static/Sites-Boggi-Site/-/default/dwc9d6c35e/images/global/boggi-logo.svg',
   'bosch-thermotechnik-ag': gFavicon('bosch.ch'),
   'board-international': gFavicon('board.com'),
   'bracco': gFavicon('bracco.com'),

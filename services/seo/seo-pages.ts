@@ -2805,6 +2805,25 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  fuelPrices: {
+    title: 'Prezzi Benzina Italia-Svizzera | Dove Conviene Fare Benzina al Confine',
+    description: 'Confronto prezzi benzina tra comuni di confine italiani e stazioni svizzere vicine: dati ufficiali Italia, confronto IT-CH, ranking e risparmio stimato su 50 litri.',
+    keywords: 'prezzi benzina italia svizzera, dove conviene fare benzina ticino, prezzo benzina como svizzera, prezzo benzina varese ticino, carburanti confine, confronto benzina italia svizzera, mrprezzi confine',
+    ogTitle: 'Prezzi Benzina Italia-Svizzera | Dove Conviene Oggi',
+    ogDescription: 'Confronta i prezzi benzina nei comuni di confine italiani con le stazioni svizzere vicine e scopri dove conviene fare rifornimento oggi.',
+    canonicalPath: '/statistiche/prezzi-benzina-confine',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "Dataset",
+      "name": "Prezzi benzina al confine Italia-Svizzera",
+      "url": `${BASE_URL}/statistiche/prezzi-benzina-confine`,
+      "description": "Dataset comparativo dei prezzi benzina tra comuni di confine italiani e stazioni svizzere dell'area di frontiera.",
+      "license": "https://creativecommons.org/licenses/by-nc/4.0/",
+      "creator": { "@type": "Organization", "name": "Frontaliere Ticino" },
+      "distribution": [{ "@type": "DataDownload", "encodingFormat": "application/json", "contentUrl": `${BASE_URL}/data/fuel-prices.json` }]
+    }
+  },
+
   ristorni: {
     title: 'Ristorni Fiscali Frontalieri 2026 | Statistiche Comuni Italiani',
     description: 'Statistiche sui ristorni fiscali dei frontalieri: importi per comune italiano, andamento storico, confronto tra province. Dati aggiornati sui compensi fiscali Svizzera-Italia.',
