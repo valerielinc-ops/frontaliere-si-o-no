@@ -1,16 +1,16 @@
 {
   "key": "tarchini-group",
   "label": "Tarchini Group",
-  "generatedAt": "2026-03-19T16:30:00.660Z",
+  "generatedAt": "2026-03-20T05:01:37.899Z",
   "total": 4,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 4,
-  "durationMs": 37204,
-  "avgDurationMs": 37204,
+  "durationMs": 18938,
+  "avgDurationMs": 18938,
   "durationHistory": [
-    37204
+    18938
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -34,7 +34,7 @@
       "sector": "Immobiliare",
       "source": "tarchini-group-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-03-19",
+      "postedDate": "2026-03-20",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -69,7 +69,9 @@
           "maxValue": 73000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawledAt": "",
+      "requirementsByLocale": {}
     },
     {
       "title": "Junior Facility Manager",
@@ -89,7 +91,7 @@
       "sector": "Immobiliare",
       "source": "tarchini-group-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-03-19",
+      "postedDate": "2026-03-20",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -124,7 +126,9 @@
           "maxValue": 62500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawledAt": "",
+      "requirementsByLocale": {}
     },
     {
       "title": "Responsabile investimenti e partecipazioni",
@@ -144,7 +148,7 @@
       "sector": "Immobiliare",
       "source": "tarchini-group-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-03-19",
+      "postedDate": "2026-03-20",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -179,7 +183,9 @@
           "maxValue": 97000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawledAt": "",
+      "requirementsByLocale": {}
     },
     {
       "title": "Sales Manager",
@@ -199,7 +205,7 @@
       "sector": "Immobiliare",
       "source": "tarchini-group-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-03-19",
+      "postedDate": "2026-03-20",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -234,7 +240,9 @@
           "maxValue": 97000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawledAt": "",
+      "requirementsByLocale": {}
     }
   ]
 }
