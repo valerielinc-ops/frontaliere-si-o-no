@@ -990,7 +990,7 @@ export async function initOneTap(): Promise<boolean> {
       window.google.accounts.id.initialize({
         client_id: clientId,
         callback: handleOneTapResponse,
-        auto_select: false,
+        auto_select: true,
         cancel_on_tap_outside: true,
         context: 'signin',
         use_fedcm_for_prompt: false,
@@ -1042,10 +1042,6 @@ async function handleOneTapResponse(response: OneTapResponse): Promise<void> {
  * Call this when the user arrives at a sign-in page
  */
 export async function promptOneTap(): Promise<void> {
-  // Avoid auto-prompting Google One Tap on mobile: it is the most fragile
-  // environment for GIS/FedCM and we already provide explicit Google login CTAs.
-  if (isMobileBrowserContext()) return;
-
   await ensureFirebaseAuth();
   const authInstance = getAuthInstance();
   if (authInstance?.currentUser) return;

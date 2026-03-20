@@ -357,4 +357,63 @@ describe('dedicated-crawler-common locale hardening', () => {
     expect(itDescription.length).toBeGreaterThanOrEqual(300);
     expect(itDescription).toContain('Ticino Premium Properties SA');
   });
+
+  it('repairs recurring VTG and Hamilton italian slug regressions from localized titles', () => {
+    const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), 'ft-locale-hardening-'));
+    const jobsPath = path.join(tempDir, 'jobs.json');
+    const jobs = [
+      {
+        slug: 'lernende-r-strassentransportfachmann-frau-cfc-swiss-armed-forces-vtg-claro-ti',
+        title: 'Lernende/-r Strassentransportfachmann/-frau EFZ',
+        company: 'Swiss Armed Forces (VTG)',
+        location: 'Claro (TI)',
+        description: 'Deutschsprachige Stellenbeschreibung mit ausreichend Inhalt, damit die italienische Reparatur fuer diesen VTG-Lehrberuf ohne externe Uebersetzung reproduzierbar getestet werden kann.',
+        titleByLocale: {
+          de: 'Lernende/-r Strassentransportfachmann/-frau EFZ',
+          it: 'Lernende/-r Strassentransportfachmann/-frau CFC',
+        },
+        descriptionByLocale: {
+          de: 'Deutschsprachige Stellenbeschreibung mit ausreichend Inhalt, damit die italienische Reparatur fuer diesen VTG-Lehrberuf ohne externe Uebersetzung reproduzierbar getestet werden kann.',
+          it: 'Descrizione italiana di supporto usata solo per mantenere stabile il test locale durante la riparazione del titolo e dello slug.',
+        },
+        slugByLocale: {
+          de: 'lernende-r-strassentransportfachmann-frau-efz-swiss-armed-forces-vtg-claro-ti',
+          it: 'lernende-r-strassentransportfachmann-frau-cfc-swiss-armed-forces-vtg-claro-ti',
+        },
+      },
+      {
+        slug: 'entwickler-fur-crm-systeme-80-100-m-w-d-hamilton-bonaduz-ag-bonaduz',
+        title: 'ICT Developer CRM 80 - 100 % (w/m/d)',
+        company: 'Hamilton Bonaduz AG',
+        location: 'Bonaduz',
+        description: 'Deutschsprachige Hamilton-Beschreibung mit genug Text, damit der Source-Lang deutsch bleibt, waehrend der eigentliche Jobtitel englisch ist und die italienische Reparatur deterministisch erfolgen muss.',
+        titleByLocale: {
+          en: 'ICT Developer CRM 80 - 100 % (w/m/d)',
+          de: 'IKT-Entwickler CRM 80 - 100 % (w/m/d)',
+          it: 'Entwickler für CRM-Systeme (80 - 100 %) (m/w/d)',
+        },
+        descriptionByLocale: {
+          de: 'Deutschsprachige Hamilton-Beschreibung mit genug Text, damit der Source-Lang deutsch bleibt, waehrend der eigentliche Jobtitel englisch ist und die italienische Reparatur deterministisch erfolgen muss.',
+          it: 'Descrizione italiana di supporto usata solo per mantenere stabile il test locale mentre titolo e slug vengono ricostruiti.',
+        },
+        slugByLocale: {
+          en: 'ict-developer-crm-80-100-w-m-d-hamilton-bonaduz-ag-bonaduz',
+          de: 'ikt-entwickler-crm-80-100-w-m-d-hamilton-bonaduz-ag-bonaduz',
+          it: 'entwickler-fur-crm-systeme-80-100-m-w-d-hamilton-bonaduz-ag-bonaduz',
+        },
+      },
+    ];
+    fs.writeFileSync(jobsPath, `${JSON.stringify(jobs, null, 2)}\n`, 'utf-8');
+
+    hardenJobLocaleFields({ dataJobsPath: jobsPath });
+    const after = JSON.parse(fs.readFileSync(jobsPath, 'utf-8'));
+
+    expect(after[0].titleByLocale.it).toBe('Apprendista Specialista in trasporti stradali CFC');
+    expect(after[0].slugByLocale.it).toBe('apprendista-specialista-in-trasporti-stradali-cfc-swiss-armed-forces-vtg-claro-ti');
+    expect(after[0].slug).toBe('apprendista-specialista-in-trasporti-stradali-cfc-swiss-armed-forces-vtg-claro-ti');
+
+    expect(after[1].titleByLocale.it).toBe('Sviluppatore/trice ICT CRM 80 - 100 % (w/m/d)');
+    expect(after[1].slugByLocale.it).toBe('sviluppatore-trice-ict-crm-80-100-w-m-d-hamilton-bonaduz-ag-bonaduz');
+    expect(after[1].slug).toBe('sviluppatore-trice-ict-crm-80-100-w-m-d-hamilton-bonaduz-ag-bonaduz');
+  });
 });

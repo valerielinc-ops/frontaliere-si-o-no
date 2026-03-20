@@ -25,10 +25,6 @@ function extractSitemapUrls() {
     if (!file.startsWith('sitemap') || !file.endsWith('.xml')) continue;
     // Skip sitemap index
     if (file === 'sitemap.xml') continue;
-    // Skip expired jobs sitemap — these are intentionally soft-landing pages
-    // with canonicals pointing to the job board index (by design)
-    if (file === 'sitemap-jobs-expired.xml') continue;
-
     const content = fs.readFileSync(path.join(sitemapDir, file), 'utf-8');
     const locRegex = /<loc>([^<]+)<\/loc>/g;
     let match;

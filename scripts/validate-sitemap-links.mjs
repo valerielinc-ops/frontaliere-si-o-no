@@ -62,7 +62,7 @@ function urlToDistPath(url) {
 
 // Discover all sitemap XML files in dist/ (copied from public/ by Vite)
 const sitemapFiles = readdirSync(DIST)
-  .filter((f) => f.startsWith('sitemap') && f.endsWith('.xml') && f !== 'sitemap-jobs-expired.xml')
+  .filter((f) => f.startsWith('sitemap') && f.endsWith('.xml'))
   .sort();
 
 if (sitemapFiles.length === 0) {

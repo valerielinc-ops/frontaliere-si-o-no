@@ -138,53 +138,20 @@ export function useUserState(
     return ok;
   }, [upsertNewsletterSubscriber]);
 
-  // Google One Tap: prompt on first user interaction when not signed in
+  // Google One Tap: prompt automatically once auth state is resolved.
+  // With auto_select: true, returning Google users are signed in silently.
   useEffect(() => {
     if (authUser) {
-      sessionStorage.removeItem('onetap_pending');
       cancelOneTap();
       return;
     }
+    if (authLoading) return;
     if (sessionStorage.getItem('onetap_prompted')) return;
 
-    let queued = false;
-    let promptTimeout: ReturnType<typeof setTimeout> | null = null;
-    const trigger = () => {
-      if (queued || sessionStorage.getItem('onetap_prompted')) return;
-      queued = true;
-      for (const e of ['pointerdown', 'keydown', 'touchstart'] as const)
-        window.removeEventListener(e, trigger, { capture: true });
-      promptTimeout = setTimeout(() => {
-        if (authUser) return;
-        if (authLoading) {
-          sessionStorage.setItem('onetap_pending', '1');
-          return;
-        }
-        sessionStorage.setItem('onetap_prompted', '1');
-        sessionStorage.removeItem('onetap_pending');
-        promptOneTap();
-      }, 2000);
-    };
-
-    for (const e of ['pointerdown', 'keydown', 'touchstart'] as const)
-      window.addEventListener(e, trigger, { capture: true, passive: true } as AddEventListenerOptions);
-
-    return () => {
-      if (promptTimeout) clearTimeout(promptTimeout);
-      for (const e of ['pointerdown', 'keydown', 'touchstart'] as const)
-        window.removeEventListener(e, trigger, { capture: true });
-      cancelOneTap();
-    };
-  }, [authLoading, authUser]);
-
-  // Handle deferred One Tap prompt after auth loading resolves
-  useEffect(() => {
-    if (authLoading || authUser) return;
-    if (sessionStorage.getItem('onetap_prompted')) return;
-    if (sessionStorage.getItem('onetap_pending') !== '1') return;
     sessionStorage.setItem('onetap_prompted', '1');
-    sessionStorage.removeItem('onetap_pending');
     promptOneTap();
+
+    return () => { cancelOneTap(); };
   }, [authLoading, authUser]);
 
   return {
