@@ -1609,6 +1609,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-nomine-annullate-sims-tram': { name: 'Nomine alla SIMS annullate', path: '/articoli-frontaliere/nomine-annullate-sims-tram', parent: 'blog' },
     'blog-tassa-automobilisti-svizzera': { name: 'Mobilità transfrontaliera', path: '/articoli-frontaliere/tassa-automobilisti-svizzera', parent: 'blog' },
     'blog-lavoro-richiedenti-asilo-ucraini-ticino': { name: 'Richiedenti asilo e ucraini', path: '/articoli-frontaliere/lavoro-richiedenti-asilo-ucraini-ticino', parent: 'blog' },
+    'blog-riforma-scolastica-ticino-difficolta': { name: 'Riforma scolastica in Ticino', path: '/articoli-frontaliere/riforma-scolastica-ticino-difficolta', parent: 'blog' },
   };
 
   const info = sectionNames[section];

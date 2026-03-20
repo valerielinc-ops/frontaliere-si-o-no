@@ -1427,6 +1427,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.lavoro-richiedenti-asilo-ucraini-ticino.title': 'Asylsuchende und Ukrainer: Jetzt dürfen sie in der Schweiz arbeiten',
     'blog.article.lavoro-richiedenti-asilo-ucraini-ticino.excerpt': 'Neue Bundesverordnungen erlauben Asylsuchenden und Inhabern des Schutzstatus S, einschließlich der Ukrainer, eine Erwerbstätigkeit in der Schweiz auszuüben, auch im Tessin.',
     'blog.article.lavoro-richiedenti-asilo-ucraini-ticino.imageAlt': 'Grenzübergang Ticino-Italien mit Grenzgängern an Brogeda, Landschaft und Stadtbild.',
+    'blog.article.riforma-scolastica-ticino-difficolta.title': 'Bildungsreform im Tessin: Ein Kontext zunehmender Herausforderungen',
+    'blog.article.riforma-scolastica-ticino-difficolta.excerpt': 'Die Verbände fordern angemessene Ressourcen, um die Herausforderungen der Gymnasialreform zu bewältigen, angesichts regulatorischer Kritikalitäten und wachsender Unzufriedenheit bei Schülern und Lehrkräften.',
+    'blog.article.riforma-scolastica-ticino-difficolta.imageAlt': 'Oberstufenschule in Locarno mit Schülern und Lehrern im Freien',
 };
 
 export default blogMetaDe;

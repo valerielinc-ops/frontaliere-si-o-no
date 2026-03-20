@@ -6925,6 +6925,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-riforma-scolastica-ticino-difficolta': {
+    title: 'Riforma scolastica in Ticino: un contesto segnato da | Frontaliere Ticino',
+    description: 'Le associazioni chiedono risorse adeguate per affrontare le sfide della riforma del liceo, tra criticità normative e aumento del disagio tra studenti e docenti.',
+    keywords: 'frontalieri, ticino, svizzera, italia, riforma, scolastica, contesto, segnato',
+    ogTitle: 'Riforma scolastica in Ticino: un contesto segnato da cres',
+    ogDescription: 'Le associazioni chiedono risorse adeguate per affrontare le sfide della riforma del liceo, tra criticità normative e aumento del disagio tra studenti e docenti.',
+    canonicalPath: '/articoli-frontaliere/riforma-scolastica-ticino-difficolta',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Riforma scolastica in Ticino: un contesto segnato da cres",
+      "description": "Le associazioni chiedono risorse adeguate per affrontare le sfide della riforma del liceo, tra criticità normative e aumento del disagio tra studenti e docenti.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/riforma-scolastica-ticino-difficolta.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Scuola secondaria superiore a Locarno con studenti e insegnanti all'aperto"
+      },
+      "datePublished": "2026-03-20T10:52:35+00:00",
+      "dateModified": "2026-03-20T10:52:35+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/riforma-scolastica-ticino-difficolta`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

@@ -1427,6 +1427,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.lavoro-richiedenti-asilo-ucraini-ticino.title': 'Asylum Seekers and Ukrainians: Now Allowed to Work in Switzerland',
     'blog.article.lavoro-richiedenti-asilo-ucraini-ticino.excerpt': 'New federal ordinances now permit asylum seekers and holders of S protection status, including Ukrainians, to engage in gainful employment in Switzerland, even in Ticino.',
     'blog.article.lavoro-richiedenti-asilo-ucraini-ticino.imageAlt': 'Ticino-Italy border crossing with cross-border workers at Brogeda, natural and urban landscape.',
+    'blog.article.riforma-scolastica-ticino-difficolta.title': 'Educational Reform in Ticino: A Context Marked by Increasing Challenges',
+    'blog.article.riforma-scolastica-ticino-difficolta.excerpt': 'Associations call for adequate resources to face the challenges of the high school reform, amid regulatory issues and rising discomfort among students and teachers.',
+    'blog.article.riforma-scolastica-ticino-difficolta.imageAlt': 'High school in Locarno with students and teachers outdoors',
 };
 
 export default blogMetaEn;

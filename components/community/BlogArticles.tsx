@@ -3924,6 +3924,13 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/lavoro-richiedenti-asilo-ucraini-ticino.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'riforma-scolastica-ticino-difficolta',
+    category: 'novita',
+    date: '2026-03-20T10:52:35.225Z',
+    image: '/images/blog/riforma-scolastica-ticino-difficolta.jpg',
+    hasCalculator: true,
+  },
 ];
 
 const CATEGORIES = ['all', 'fiscale', 'pratico', 'novita', 'pensione'] as const;

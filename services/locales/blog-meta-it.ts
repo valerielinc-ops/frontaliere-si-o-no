@@ -1427,6 +1427,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.lavoro-richiedenti-asilo-ucraini-ticino.title': 'Richiedenti asilo e ucraini: ora possono lavorare in Svizzera',
     'blog.article.lavoro-richiedenti-asilo-ucraini-ticino.excerpt': 'Nuove ordinanze federali permettono a richiedenti asilo e titolari di protezione S, compresi gli ucraini, di esercitare attività lucrativa in Svizzera, anche in Ticino.',
     'blog.article.lavoro-richiedenti-asilo-ucraini-ticino.imageAlt': 'Frontiera Ticino-Italia con frontaliere al valico di Brogeda, scenario naturale e urbano.',
+    'blog.article.riforma-scolastica-ticino-difficolta.title': 'Riforma scolastica in Ticino: un contesto segnato da crescenti difficoltà',
+    'blog.article.riforma-scolastica-ticino-difficolta.excerpt': 'Le associazioni chiedono risorse adeguate per affrontare le sfide della riforma del liceo, tra criticità normative e aumento del disagio tra studenti e docenti.',
+    'blog.article.riforma-scolastica-ticino-difficolta.imageAlt': 'Scuola secondaria superiore a Locarno con studenti e insegnanti all\'aperto',
 };
 
 export default blogMetaIt;
