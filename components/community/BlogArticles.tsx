@@ -3945,6 +3945,13 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/inclusione-migranti-ticino.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'franco-svizzero-impatti-ticino',
+    category: 'fiscale',
+    date: '2026-03-20T13:19:14.359Z',
+    image: '/images/blog/franco-svizzero-impatti-ticino.jpg',
+    hasCalculator: true,
+  },
 ];
 
 const CATEGORIES = ['all', 'fiscale', 'pratico', 'novita', 'pensione'] as const;

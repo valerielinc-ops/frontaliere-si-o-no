@@ -1436,6 +1436,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.inclusione-migranti-ticino.title': 'Alis and Cir: New Strategies for Migrant Inclusion in Ticino',
     'blog.article.inclusione-migranti-ticino.excerpt': 'The Canton of Ticino strengthens social and labor integration of migrants with new initiatives promoted by Alis and Cir, focusing on training and professional placement.',
     'blog.article.inclusione-migranti-ticino.imageAlt': 'Cross-border workers at Brogeda border crossing in Ticino, social inclusion',
+    'blog.article.franco-svizzero-impatti-ticino.title': 'Luss Attacks the SNB: The Franc Hurts Ticino Businesses',
+    'blog.article.franco-svizzero-impatti-ticino.excerpt': 'The Swiss Union criticizes the SNB\'s policy on the franc, highlighting risks for export companies and the Ticino economy. Analysis and strategies.',
+    'blog.article.franco-svizzero-impatti-ticino.imageAlt': 'Ticino border crossing with traffic between Italy and Switzerland, scene of cross-border workers and alpine landscape.',
 };
 
 export default blogMetaEn;

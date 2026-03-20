@@ -7012,6 +7012,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-franco-svizzero-impatti-ticino': {
+    title: 'Luss attacca la BNS: il franco danneggia le imprese del Ticino | Frontaliere Ticino',
+    description: 'Analisi sul franco svizzero e le ripercussioni sull\'economia e le imprese del Ticino, con focus sulle strategie della BNS e opportunità per i frontalieri.',
+    keywords: 'frontalieri, ticino, svizzera, italia, luss, attacca, franco, danneggia',
+    ogTitle: 'Impatti del franco forte sul Ticino',
+    ogDescription: 'Come il franco forte influisce sulle imprese e sui frontalieri del Ticino. Strategie, normative e strumenti per affrontare questa sfida.',
+    canonicalPath: '/articoli-frontaliere/franco-svizzero-impatti-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Analisi sul franco svizzero e l'economia ticinese",
+      "description": "Analisi sul franco svizzero e le ripercussioni sull'economia e le imprese del Ticino, con focus sulle strategie della BNS e opportunità per i frontalieri.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/franco-svizzero-impatti-ticino.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Valico di confine Ticino con traffico tra Italia e Svizzera, scena di frontaliers e paesaggio alpino."
+      },
+      "datePublished": "2026-03-20T13:19:14+00:00",
+      "dateModified": "2026-03-20T13:19:14+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/franco-svizzero-impatti-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

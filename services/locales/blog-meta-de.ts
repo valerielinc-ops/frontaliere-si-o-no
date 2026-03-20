@@ -1436,6 +1436,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.inclusione-migranti-ticino.title': 'Alis und Cir: Neue Strategien für die Integration von Migranten im Tessin',
     'blog.article.inclusione-migranti-ticino.excerpt': 'Der Kanton Tessin stärkt die soziale und berufliche Integration von Migranten durch neue Initiativen von Alis und Cir, mit Fokus auf Ausbildung und Arbeitsmarktintegration.',
     'blog.article.inclusione-migranti-ticino.imageAlt': 'Grenzgänger am Grenzübergang Brogeda in Tessin, soziale Integration',
+    'blog.article.franco-svizzero-impatti-ticino.title': 'Luss greift die SNB an: Der Franken schadet den Tessiner Unternehmen',
+    'blog.article.franco-svizzero-impatti-ticino.excerpt': 'Der Schweizerische Gewerkschaftsbund kritisiert die Politik der SNB zum Franken, hebt Risiken für exportierende Unternehmen und die Tessiner Wirtschaft hervor. Analyse und Strategien.',
+    'blog.article.franco-svizzero-impatti-ticino.imageAlt': 'Grenzübergang im Tessin mit Verkehr zwischen Italien und Schweiz, Szene von Grenzgängern und Alpenlandschaft.',
 };
 
 export default blogMetaDe;

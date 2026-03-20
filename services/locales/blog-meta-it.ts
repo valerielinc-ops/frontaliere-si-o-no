@@ -1436,6 +1436,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.inclusione-migranti-ticino.title': 'Alis e Cir: nuove strategie per l’inclusione dei migranti in Ticino',
     'blog.article.inclusione-migranti-ticino.excerpt': 'Il Canton Ticino rafforza l’integrazione socio-lavorativa dei migranti con nuove iniziative promosse da Alis e Cir, con focus su formazione e inserimento professionale.',
     'blog.article.inclusione-migranti-ticino.imageAlt': 'Frontalieri ticinesi al valico di Brogeda, lavoro e integrazione sociale',
+    'blog.article.franco-svizzero-impatti-ticino.title': 'Luss attacca la BNS: il franco danneggia le imprese del Ticino',
+    'blog.article.franco-svizzero-impatti-ticino.excerpt': 'L\'Unione sindacale svizzera critica la politica della BNS sul franco, evidenziando rischi per le imprese esportatrici e l\'economia del Ticino. Analisi e strategie.',
+    'blog.article.franco-svizzero-impatti-ticino.imageAlt': 'Valico di confine Ticino con traffico tra Italia e Svizzera, scena di frontaliers e paesaggio alpino.',
 };
 
 export default blogMetaIt;

@@ -1615,6 +1615,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-riforma-scolastica-ticino-difficolta': { name: 'Riforma scolastica in Ticino', path: '/articoli-frontaliere/riforma-scolastica-ticino-difficolta', parent: 'blog' },
     'blog-tassa-transito-parlamento-ticino': { name: 'La tassa di transito in Ticino tra appro', path: '/articoli-frontaliere/tassa-transito-parlamento-ticino', parent: 'blog' },
     'blog-inclusione-migranti-ticino': { name: 'Alis e Cir', path: '/articoli-frontaliere/inclusione-migranti-ticino', parent: 'blog' },
+    'blog-franco-svizzero-impatti-ticino': { name: 'Economia Ticino', path: '/articoli-frontaliere/franco-svizzero-impatti-ticino', parent: 'blog' },
   };
 
   const info = sectionNames[section];
