@@ -2777,14 +2777,12 @@ ${alternates}${hasSpaBundle ? `\n    <link rel="stylesheet" href="/assets/${entr
       const writeSoftLandingPage = (outRelPath: string, html: string) => {
         const outDir = np.join(distDir, outRelPath);
         fs.mkdirSync(outDir, { recursive: true });
-        if (!fs.existsSync(np.join(outDir, 'index.html'))) {
-          fs.writeFileSync(np.join(outDir, 'index.html'), html, 'utf-8');
-        }
+        // Always overwrite: soft-landing pages take priority over any
+        // earlier bridge/compat page (e.g. from legacyRedirectsPlugin)
+        fs.writeFileSync(np.join(outDir, 'index.html'), html, 'utf-8');
         const flatFile = np.join(distDir, outRelPath + '.html');
         fs.mkdirSync(np.dirname(flatFile), { recursive: true });
-        if (!fs.existsSync(flatFile)) {
-          fs.writeFileSync(flatFile, html, 'utf-8');
-        }
+        fs.writeFileSync(flatFile, html, 'utf-8');
       };
 
       for (const slug of expiredSlugs) {
