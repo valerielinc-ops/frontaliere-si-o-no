@@ -41,6 +41,7 @@ if [ "$SLICE_ONLY" = true ]; then
   # Shared monolithic files are assembled during deploy, not per-crawler.
   STANDARD_FILES=(
     data/jobs/by-crawler/
+    data/jobs/expired/by-crawler/
     data/jobs-crawler-summaries/by-crawler/
     data/jobs-ai-cache.json
   )

@@ -28,6 +28,7 @@ const DATA_JOBS_PATH = path.resolve(__dirname, '..', 'data', 'jobs.json');
 const PUBLIC_JOBS_PATH = path.resolve(__dirname, '..', 'public', 'data', 'jobs.json');
 const META_PATH = path.resolve(__dirname, '..', 'data', 'jobs-meta.json');
 const EXPIRED_JOBS_PATH = path.resolve(__dirname, '..', 'data', 'expired-jobs.json');
+const EXPIRED_SLICES_DIR = path.resolve(__dirname, '..', 'data', 'jobs', 'expired', 'by-crawler');
 
 const MAX_CONCURRENCY = Math.max(1, Math.min(20, Number(process.env.JOBS_HOUSEKEEPING_CONCURRENCY || DEFAULT_CONCURRENCY)));
 const TIMEOUT_MS = Math.max(2000, Math.min(15000, Number(process.env.JOBS_HOUSEKEEPING_TIMEOUT_MS || DEFAULT_TIMEOUT_MS)));
@@ -102,8 +103,26 @@ function jobMatchesHousekeepingScope(job, scopeRaw) {
 const EXPIRED_JOBS_CAP = 5000;
 
 /**
- * Archive removed jobs to data/expired-jobs.json so the build plugin can
- * generate rich soft-landing pages with original title, company, description.
+ * Build an expired-job archive entry from a job object.
+ */
+function buildExpiredEntry(job) {
+  return {
+    slug: job.slug,
+    title: job.title || '',
+    titleByLocale: job.titleByLocale || {},
+    company: job.company || '',
+    companyKey: job.companyKey || '',
+    location: job.location || '',
+    addressLocality: job.addressLocality || '',
+    descriptionByLocale: job.descriptionByLocale || {},
+    slugByLocale: job.slugByLocale || {},
+    sector: job.sector || '',
+    expiredAt: new Date().toISOString(),
+  };
+}
+
+/**
+ * Archive removed jobs to data/expired-jobs.json (aggregated, used during deploy).
  *
  * Only jobs with a slug are archived (slugless jobs have no page to land on).
  * Existing entries are preserved; newer removals overwrite older ones for the
@@ -125,19 +144,7 @@ function archiveExpiredJobs(removedJobs, allJobsById) {
   for (const r of removedJobs) {
     const job = allJobsById.get(r.id);
     if (!job || !job.slug) continue;
-
-    bySlug.set(job.slug, {
-      slug: job.slug,
-      title: job.title || '',
-      titleByLocale: job.titleByLocale || {},
-      company: job.company || '',
-      location: job.location || '',
-      addressLocality: job.addressLocality || '',
-      descriptionByLocale: job.descriptionByLocale || {},
-      slugByLocale: job.slugByLocale || {},
-      sector: job.sector || '',
-      expiredAt: new Date().toISOString(),
-    });
+    bySlug.set(job.slug, buildExpiredEntry(job));
     added++;
   }
 
@@ -151,6 +158,44 @@ function archiveExpiredJobs(removedJobs, allJobsById) {
   }
 
   writeJson(EXPIRED_JOBS_PATH, archived);
+  return added;
+}
+
+/**
+ * Archive removed jobs to a per-crawler expired slice file.
+ * Used in slice-only mode so each crawler persists its own expired jobs
+ * independently. The aggregated expired-jobs.json is assembled at deploy time.
+ */
+function archiveExpiredJobsPerCrawler(removedJobs, allJobsById, crawlerKey) {
+  if (!crawlerKey) return 0;
+
+  fs.mkdirSync(EXPIRED_SLICES_DIR, { recursive: true });
+  const slicePath = path.join(EXPIRED_SLICES_DIR, `${crawlerKey}.json`);
+
+  let existing = [];
+  try {
+    existing = JSON.parse(fs.readFileSync(slicePath, 'utf-8'));
+    if (!Array.isArray(existing)) existing = [];
+  } catch { /* file missing or malformed — start fresh */ }
+
+  const bySlug = new Map();
+  for (const ej of existing) {
+    if (ej.slug) bySlug.set(ej.slug, ej);
+  }
+
+  let added = 0;
+  for (const r of removedJobs) {
+    const job = allJobsById.get(r.id);
+    if (!job || !job.slug) continue;
+    bySlug.set(job.slug, buildExpiredEntry(job));
+    added++;
+  }
+
+  if (added === 0 && existing.length === bySlug.size) return 0;
+
+  const archived = [...bySlug.values()]
+    .sort((a, b) => (b.expiredAt || '').localeCompare(a.expiredAt || ''));
+  writeJson(slicePath, archived);
   return added;
 }
 
@@ -254,16 +299,18 @@ async function main() {
       }
       kept = deduped;
 
-      // Archive removed jobs for rich soft-landing pages
+      // Archive removed jobs to per-crawler expired slice (not the shared file)
       const keptSlugs = new Set(kept.map((j) => j.slug).filter(Boolean));
       const sliceRemoved = hardenedJobs.filter((j) => j.slug && !keptSlugs.has(j.slug));
       if (sliceRemoved.length > 0) {
         const sliceJobsById = new Map(hardenedJobs.map((j) => [j.id, j]));
-        const sliceArchived = archiveExpiredJobs(
+        const crawlerKey = sliceData?.crawlerKey || path.basename(slicePath, '.json');
+        const sliceArchived = archiveExpiredJobsPerCrawler(
           sliceRemoved.map((j) => ({ id: j.id })),
           sliceJobsById,
+          crawlerKey,
         );
-        if (sliceArchived > 0) console.log(`📦 Archived ${sliceArchived} expired jobs from slice (soft-landing SEO)`);
+        if (sliceArchived > 0) console.log(`📦 Archived ${sliceArchived} expired jobs → data/jobs/expired/by-crawler/${crawlerKey}.json`);
       }
 
       // Write back to slice file (preserve envelope)

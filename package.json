@@ -5,8 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "predev": "node -e \"const fs=require('fs');if(fs.existsSync('data/jobs.json')&&!fs.existsSync('public/data/jobs.json')){fs.mkdirSync('public/data',{recursive:true});fs.copyFileSync('data/jobs.json','public/data/jobs.json');console.log('✅ Synced data/jobs.json → public/data/jobs.json')}\"",
-    "prebuild": "node scripts/generate-image-thumbnails.mjs && node -e \"const fs=require('fs');if(fs.existsSync('data/jobs.json')){fs.mkdirSync('public/data',{recursive:true});fs.copyFileSync('data/jobs.json','public/data/jobs.json');console.log('✅ Synced data/jobs.json → public/data/jobs.json')}\"",
+    "predev": "node scripts/assemble-jobs-dataset.mjs",
+    "prebuild": "node scripts/generate-image-thumbnails.mjs && node scripts/assemble-jobs-dataset.mjs",
     "build": "vite build",
     "preview": "vite preview",
     "test": "vitest run",

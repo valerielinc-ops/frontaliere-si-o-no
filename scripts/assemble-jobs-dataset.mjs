@@ -65,11 +65,17 @@ function assemblerIdentity(job = {}) {
 const ROOT = path.resolve(__dirname, '..');
 
 const JOBS_SLICES_DIR = path.join(ROOT, 'data', 'jobs', 'by-crawler');
+const EXPIRED_SLICES_DIR = path.join(ROOT, 'data', 'jobs', 'expired', 'by-crawler');
 const SUMMARIES_SLICES_DIR = path.join(ROOT, 'data', 'jobs-crawler-summaries', 'by-crawler');
 
 const DATA_JOBS = path.join(ROOT, 'data', 'jobs.json');
 const PUBLIC_JOBS = path.join(ROOT, 'public', 'data', 'jobs.json');
+const DATA_EXPIRED = path.join(ROOT, 'data', 'expired-jobs.json');
+const DATA_META = path.join(ROOT, 'data', 'jobs-meta.json');
 const DATA_SUMMARIES = path.join(ROOT, 'data', 'jobs-crawler-summaries.json');
+
+/** Maximum number of expired jobs to keep across all crawlers. */
+const EXPIRED_JOBS_CAP = 5000;
 
 /* ── I/O helpers ──────────────────────────────────────────────────────── */
 
@@ -315,6 +321,89 @@ function assembleSummaries() {
   return payload;
 }
 
+/* ── Expired jobs assembly ─────────────────────────────────────────────── */
+
+/**
+ * Assemble all per-crawler expired job slices into data/expired-jobs.json.
+ * Each slice is an array of expired job entries with slugs as unique keys.
+ * Returns the assembled array, or null if no slices exist.
+ */
+function assembleExpiredJobs() {
+  const sliceFiles = listSliceFiles(EXPIRED_SLICES_DIR);
+
+  if (sliceFiles.length === 0) {
+    console.log('ℹ️  No per-crawler expired job slices found — data/expired-jobs.json left unchanged.');
+    return null;
+  }
+
+  const bySlug = new Map();
+  let totalSliceEntries = 0;
+
+  for (const slicePath of sliceFiles) {
+    const entries = readJson(slicePath, null);
+    if (!Array.isArray(entries)) {
+      console.warn(`⚠️  Skipping malformed expired slice: ${path.basename(slicePath)}`);
+      continue;
+    }
+    totalSliceEntries += entries.length;
+    for (const entry of entries) {
+      if (!entry.slug) continue;
+      const existing = bySlug.get(entry.slug);
+      // Keep the most recently expired entry for each slug
+      if (!existing || (entry.expiredAt || '') >= (existing.expiredAt || '')) {
+        bySlug.set(entry.slug, entry);
+      }
+    }
+  }
+
+  // Also merge any existing aggregated expired-jobs.json (from deploy-time cleanup)
+  const existingAgg = readJson(DATA_EXPIRED, []);
+  if (Array.isArray(existingAgg)) {
+    for (const entry of existingAgg) {
+      if (!entry.slug) continue;
+      const existing = bySlug.get(entry.slug);
+      if (!existing || (entry.expiredAt || '') >= (existing.expiredAt || '')) {
+        bySlug.set(entry.slug, entry);
+      }
+    }
+  }
+
+  // Sort by expiredAt descending, cap at EXPIRED_JOBS_CAP
+  let assembled = [...bySlug.values()]
+    .sort((a, b) => (b.expiredAt || '').localeCompare(a.expiredAt || ''));
+  if (assembled.length > EXPIRED_JOBS_CAP) {
+    assembled = assembled.slice(0, EXPIRED_JOBS_CAP);
+  }
+
+  console.log(`  📄 ${sliceFiles.length} expired slices: ${totalSliceEntries} entries → ${assembled.length} unique slugs`);
+  return assembled;
+}
+
+/* ── Meta generation ──────────────────────────────────────────────────── */
+
+/**
+ * Generate data/jobs-meta.json from the assembled jobs array.
+ */
+function generateMeta(jobCount) {
+  const existing = readJson(DATA_META, {});
+  return {
+    ...existing,
+    lastUpdated: new Date().toISOString(),
+    totalJobs: jobCount,
+    sources: {
+      ...(existing.sources || {}),
+      arbeitSwiss: 0,
+      ubs: 0,
+      migros: 0,
+      tutti: 0,
+      remotive: 0,
+      findwork: 0,
+      adzuna: 0,
+      curatedTicino: jobCount,
+    },
+  };
+}
+
 /* ── Main assembly entry point ────────────────────────────────────────── */
 
 /**
@@ -335,10 +424,21 @@ export async function assembleJobsDataset({ withStats = false } = {}) {
   const assembled = assembleJobs();
   if (assembled !== null) {
     writeJson(DATA_JOBS, assembled);
-    if (fs.existsSync(PUBLIC_JOBS) || fs.existsSync(path.dirname(PUBLIC_JOBS))) {
-      writeJson(PUBLIC_JOBS, assembled);
-    }
+    fs.mkdirSync(path.dirname(PUBLIC_JOBS), { recursive: true });
+    writeJson(PUBLIC_JOBS, assembled);
     console.log(`✅ data/jobs.json assembled: ${assembled.length} jobs from ${listSliceFiles(JOBS_SLICES_DIR).length} slices`);
+
+    // --- Meta (derived from assembled jobs) ---
+    const meta = generateMeta(assembled.length);
+    writeJson(DATA_META, meta);
+    console.log(`✅ data/jobs-meta.json generated: ${assembled.length} total jobs`);
+  }
+
+  // --- Expired jobs ---
+  const expiredJobs = assembleExpiredJobs();
+  if (expiredJobs !== null) {
+    writeJson(DATA_EXPIRED, expiredJobs);
+    console.log(`✅ data/expired-jobs.json assembled: ${expiredJobs.length} expired jobs`);
   }
 
   // --- Summaries ---

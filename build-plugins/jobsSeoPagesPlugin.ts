@@ -628,6 +628,10 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
         return tokens.length > 0 && tokens.every((token) => haystack.includes(token));
       };
 
+      /** Tracks every dist/ directory written by the active-job page generator
+       *  so that expired soft-landing pages never overwrite a live job page. */
+      const activeJobDirs = new Set<string>();
+
       for (const job of validJobs) {
         const perLocaleSlug = {
           it: localizedSlug(job, 'it'),
@@ -860,6 +864,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
           });
 
           const outDir = np.join(distDir, canonicalPath.slice(1));
+          activeJobDirs.add(canonicalPath.slice(1).replace(/\/+$/, ''));
           fs.mkdirSync(outDir, { recursive: true });
           const html = `<!doctype html>
 <html lang="${locale}">
@@ -2775,10 +2780,14 @@ ${alternates}${hasSpaBundle ? `\n    <link rel="stylesheet" href="/assets/${entr
       const expiredSitemapEntries: string[] = [];
 
       const writeSoftLandingPage = (outRelPath: string, html: string) => {
+        // Never overwrite an active job page — expired locale paths can
+        // collide with active job locale paths when slugs diverge
+        if (activeJobDirs.has(outRelPath.replace(/\/+$/, ''))) return;
+
         const outDir = np.join(distDir, outRelPath);
         fs.mkdirSync(outDir, { recursive: true });
-        // Always overwrite: soft-landing pages take priority over any
-        // earlier bridge/compat page (e.g. from legacyRedirectsPlugin)
+        // Overwrite bridge/compat pages (e.g. from legacyRedirectsPlugin)
+        // but not active job pages (guarded above)
         fs.writeFileSync(np.join(outDir, 'index.html'), html, 'utf-8');
         const flatFile = np.join(distDir, outRelPath + '.html');
         fs.mkdirSync(np.dirname(flatFile), { recursive: true });

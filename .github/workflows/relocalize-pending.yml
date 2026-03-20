@@ -62,6 +62,9 @@ jobs:
       - name: Load secrets from Remote Config
         run: node scripts/load-rc-env.mjs
 
+      - name: Assemble jobs dataset (needed for scanning)
+        run: node scripts/assemble-jobs-dataset.mjs
+
       - name: Re-localize incomplete jobs
         env:
           RELOCALIZE_MAX_JOBS: ${{ github.event.inputs.max_jobs || '120' }}
@@ -69,5 +72,8 @@ jobs:
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: '1'
         run: node scripts/relocalize-pending-jobs.mjs
 
+      - name: Scatter changes back to per-crawler slices
+        run: node scripts/scatter-jobs-to-slices.mjs
+
       - name: Commit and push
-        run: bash scripts/lib/git-commit-data.sh "🌐 Auto-relocalize pending job translations"
+        run: bash scripts/lib/git-commit-data.sh --slice-only "🌐 Auto-relocalize pending job translations"

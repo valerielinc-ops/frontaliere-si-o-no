@@ -44,7 +44,14 @@ public/images/places/thumbnails/
 data/pending-releases.json
 scratchpad.md
 
-# Generated at build/dev time from data/jobs.json — never commit this copy
+# Aggregated data files — assembled at build/deploy time from per-crawler slices
+# (like dist/, these are generated artifacts, not source of truth)
+data/jobs.json
+data/expired-jobs.json
+data/jobs-meta.json
+data/jobs-crawler-summaries.json
+data/all-known-job-slugs.json
+data/jobs-crawler-audit.json
 public/data/jobs.json
 
 # Generated at build time from data/jobs.json (see localeJobsSplitPlugin in vite.config.ts)

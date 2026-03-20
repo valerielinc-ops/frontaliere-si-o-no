@@ -46,15 +46,20 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Remove expired job listings
+      - name: Cleanup each per-crawler slice
         env:
           JOBS_STALE_DAYS: ${{ github.event.inputs.stale_days || '' }}
           JOBS_HOUSEKEEPING_CONCURRENCY: ${{ github.event.inputs.concurrency || '' }}
           JOBS_HOUSEKEEPING_TIMEOUT_MS: ${{ github.event.inputs.timeout_ms || '' }}
-        run: node scripts/cleanup-jobs.mjs
+        run: |
+          # Iterate over all per-crawler slice files and clean each one
+          for slice in data/jobs/by-crawler/*.json; do
+            [ -f "$slice" ] || continue
+            echo "──── Cleaning: $slice ────"
+            JOBS_SLICE_FILE="$slice" node scripts/cleanup-jobs.mjs || true
+          done
+          echo "✅ Per-slice cleanup complete"
 
       - name: Commit and push
         id: changes
-        run: bash scripts/lib/git-commit-data.sh "🧹 Daily cleanup — remove expired job listings"
-
-
+        run: bash scripts/lib/git-commit-data.sh --slice-only "🧹 Daily cleanup — remove expired job listings"
