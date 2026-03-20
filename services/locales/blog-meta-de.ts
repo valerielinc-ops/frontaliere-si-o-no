@@ -1475,6 +1475,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.cure-a-domicilio-tassa-ticino.title': 'Spitex-Gebühr spaltet Politik und Bürger',
     'blog.article.cure-a-domicilio-tassa-ticino.excerpt': 'Seit 1. April 2026 gilt im Kanton Tessin eine neue Spitex-Gebühr. Die Massnahme sorgt bei Politik und Bevölkerung für kontroverse Reaktionen.',
     'blog.article.cure-a-domicilio-tassa-ticino.imageAlt': 'Hauspflege in Ticino',
+    'blog.article.kebab-case-ticino-nubifragio-grigioni.title': 'Tessin: Beitrag des Kantons für die Wiederherstellung von landwirtschaftlichen Strukturen, die durch das Unwetter 2024 in der Region Graubünden beschädigt wurden',
+    'blog.article.kebab-case-ticino-nubifragio-grigioni.excerpt': 'Die Regierung von Graubünden gewährt einen kantonalen Beitrag von 511.000 Franken für die Wiederherstellung von landwirtschaftlichen Strukturen, die durch das Unwetter 2024 in der Region Graubünden beschädigt wurden.',
+    'blog.article.kebab-case-ticino-nubifragio-grigioni.imageAlt': 'Acker Schutt nach Grigioni Ticino-Überflutung',
 };
 
 export default blogMetaDe;

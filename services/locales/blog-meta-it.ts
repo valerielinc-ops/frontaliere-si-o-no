@@ -1475,6 +1475,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.cure-a-domicilio-tassa-ticino.title': 'Cure a domicilio: la nuova tassa divide politica e cittadini',
     'blog.article.cure-a-domicilio-tassa-ticino.excerpt': 'La nuova tassa sulle cure a domicilio è stata introdotta in Ticino al 1° aprile 2026. La misura ha suscitato reazioni contrastanti fra politici e cittadini.',
     'blog.article.cure-a-domicilio-tassa-ticino.imageAlt': 'Cure a domicilio in Ticino',
+    'blog.article.kebab-case-ticino-nubifragio-grigioni.title': 'Ticino: contributo cantonale per ripristino strutture agricole danneggiate dal nubifragio del 2024 nella regione Grigioni',
+    'blog.article.kebab-case-ticino-nubifragio-grigioni.excerpt': 'Il governo grigionese concede 511\'000 franchi per ripristino strutture agricole danneggiate dal nubifragio del 2024 nella regione Grigioni.',
+    'blog.article.kebab-case-ticino-nubifragio-grigioni.imageAlt': 'Campo detriti nubifragio Grigioni Ticino',
 };
 
 export default blogMetaIt;

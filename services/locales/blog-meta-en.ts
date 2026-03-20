@@ -1475,6 +1475,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.cure-a-domicilio-tassa-ticino.title': 'Home-care levy: the new tax splitting politicians and citizens',
     'blog.article.cure-a-domicilio-tassa-ticino.excerpt': 'Introduced on 1 April 2026, Ticino’s new home-care tax is sparking mixed reactions among politicians and residents.',
     'blog.article.cure-a-domicilio-tassa-ticino.imageAlt': 'Home care in Ticino',
+    'blog.article.kebab-case-ticino-nubifragio-grigioni.title': 'Ticino: Federal Contribution for Restoration of Agrarian Structures Damaged by the 2024 Flood in the Grisons Region',
+    'blog.article.kebab-case-ticino-nubifragio-grigioni.excerpt': 'The Grisons government grants 511,000 Swiss francs for the restoration of agrarian structures damaged by the 2024 flood in the Grisons region.',
+    'blog.article.kebab-case-ticino-nubifragio-grigioni.imageAlt': 'Field debris after Grigioni Ticino flood',
 };
 
 export default blogMetaEn;

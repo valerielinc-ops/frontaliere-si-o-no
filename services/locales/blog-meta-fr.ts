@@ -1475,6 +1475,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.cure-a-domicilio-tassa-ticino.title': 'Cures à domicile : la nouvelle taxe divise politique et citoyens',
     'blog.article.cure-a-domicilio-tassa-ticino.excerpt': 'La nouvelle taxe sur les cures à domicile est entrée en vigueur au 1er avril 2026. La mesure a suscité des réactions contrastées entre les politiciens et les citoyens.',
     'blog.article.cure-a-domicilio-tassa-ticino.imageAlt': 'Soin à domicile au Tessin',
+    'blog.article.kebab-case-ticino-nubifragio-grigioni.title': 'Tessin: contribution cantonale pour la remise en état des structures agricoles endommagées par l\'orage de 2024 dans la région des Grisons',
+    'blog.article.kebab-case-ticino-nubifragio-grigioni.excerpt': 'Le gouvernement grison accorde 511 000 francs pour la remise en état des structures agricoles endommagées par l\'orage de 2024 dans la région des Grisons.',
+    'blog.article.kebab-case-ticino-nubifragio-grigioni.imageAlt': 'Champ détritus inondation Grigioni Ticino',
 };
 
 export default blogMetaFr;

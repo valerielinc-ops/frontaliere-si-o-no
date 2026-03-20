@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-03-20T20:10:19.250Z",
+  "generatedAt": "2026-03-20T22:04:09.182Z",
   "sources": {
     "italy": {
       "provider": "MIMIT Open Data",
@@ -11,7 +11,7 @@
       "provider": "TCS Benzinpreis",
       "providerUrl": "https://benzin.tcs.ch/de/map/SP95",
       "stationCount": 219,
-      "latestObservedUpdate": "2026-03-20T19:57:40.234Z"
+      "latestObservedUpdate": "2026-03-20T21:17:23.200Z"
     },
     "exchangeRate": {
       "provider": "ECB",
@@ -6543,18 +6543,18 @@
             "distanceKm": 18
           },
           {
-            "id": "nmLqFaiqNVI0QovIZD01",
-            "name": "ENI",
-            "brand": "ENI",
-            "address": "Via Cantonale, 6928 Manno",
-            "lat": 46.02771199406422,
-            "lng": 8.91911838444807,
-            "sp95PriceChf": 1.72,
-            "updatedAt": "2026-03-06T08:48:50.814Z",
-            "nearestMunicipality": "Campione d'Italia (CO)",
-            "nearestMunicipalityDistanceKm": 7.7,
-            "sp95PriceEur": 1.891,
-            "distanceKm": 16.4
+            "id": "9DlkfBuzFkNLAf4DuIXp",
+            "name": "AVIA Shop Claro",
+            "brand": "AVIA",
+            "address": "Strada Cantonale, 6702 Claro",
+            "lat": 46.2531657,
+            "lng": 9.0201113,
+            "sp95PriceChf": 1.74,
+            "updatedAt": "2026-03-03T11:21:03.179Z",
+            "nearestMunicipality": "Cavargna (CO)",
+            "nearestMunicipalityDistanceKm": 19.4,
+            "sp95PriceEur": 1.913,
+            "distanceKm": 19.4
           }
         ],
         "minPriceChf": 1.63,
@@ -8314,20 +8314,6 @@
             "distanceKm": 18.6
           },
           {
-            "id": "nmLqFaiqNVI0QovIZD01",
-            "name": "ENI",
-            "brand": "ENI",
-            "address": "Via Cantonale, 6928 Manno",
-            "lat": 46.02771199406422,
-            "lng": 8.91911838444807,
-            "sp95PriceChf": 1.72,
-            "updatedAt": "2026-03-06T08:48:50.814Z",
-            "nearestMunicipality": "Campione d'Italia (CO)",
-            "nearestMunicipalityDistanceKm": 7.7,
-            "sp95PriceEur": 1.891,
-            "distanceKm": 18.7
-          },
-          {
             "id": "DvrNn0z4cHLvWopylMHZ",
             "name": "Tecnocars Garage Sagl",
             "brand": "AVIA",
@@ -8340,6 +8326,20 @@
             "nearestMunicipalityDistanceKm": 3.5,
             "sp95PriceEur": 1.924,
             "distanceKm": 19.9
+          },
+          {
+            "id": "HapjFsEcj5Snc7o1iICH",
+            "name": "Station La Posta Svizzzera",
+            "brand": "UNDEFINED",
+            "address": "Viale Stefano Franscini 30, 6500 Bellinzona ",
+            "lat": 46.1928300156486,
+            "lng": 9.01310606612084,
+            "sp95PriceChf": 1.75,
+            "updatedAt": "2026-03-18T17:51:12.883Z",
+            "nearestMunicipality": "Cavargna (CO)",
+            "nearestMunicipalityDistanceKm": 13.7,
+            "sp95PriceEur": 1.924,
+            "distanceKm": 17
           }
         ],
         "minPriceChf": 1.63,
@@ -17150,20 +17150,6 @@
             "distanceKm": 18.9
           },
           {
-            "id": "nmLqFaiqNVI0QovIZD01",
-            "name": "ENI",
-            "brand": "ENI",
-            "address": "Via Cantonale, 6928 Manno",
-            "lat": 46.02771199406422,
-            "lng": 8.91911838444807,
-            "sp95PriceChf": 1.72,
-            "updatedAt": "2026-03-06T08:48:50.814Z",
-            "nearestMunicipality": "Campione d'Italia (CO)",
-            "nearestMunicipalityDistanceKm": 7.7,
-            "sp95PriceEur": 1.891,
-            "distanceKm": 18.8
-          },
-          {
             "id": "HapjFsEcj5Snc7o1iICH",
             "name": "Station La Posta Svizzzera",
             "brand": "UNDEFINED",
@@ -17176,6 +17162,20 @@
             "nearestMunicipalityDistanceKm": 13.7,
             "sp95PriceEur": 1.924,
             "distanceKm": 16
+          },
+          {
+            "id": "YOUDkEmnmgADYedhnn9n",
+            "name": "SOCAR / Piccadilly Vezia",
+            "brand": "PICCADILLY",
+            "address": "Via San Gottardo 5b, 6943 Vezia",
+            "lat": 46.02155,
+            "lng": 8.936964,
+            "sp95PriceChf": 1.75,
+            "updatedAt": "2026-03-07T15:05:19.668Z",
+            "nearestMunicipality": "Campione d'Italia (CO)",
+            "nearestMunicipalityDistanceKm": 6.5,
+            "sp95PriceEur": 1.924,
+            "distanceKm": 17.8
           }
         ],
         "minPriceChf": 1.63,
@@ -17427,18 +17427,18 @@
             "distanceKm": 19
           },
           {
-            "id": "nmLqFaiqNVI0QovIZD01",
-            "name": "ENI",
-            "brand": "ENI",
-            "address": "Via Cantonale, 6928 Manno",
-            "lat": 46.02771199406422,
-            "lng": 8.91911838444807,
-            "sp95PriceChf": 1.72,
-            "updatedAt": "2026-03-06T08:48:50.814Z",
-            "nearestMunicipality": "Campione d'Italia (CO)",
-            "nearestMunicipalityDistanceKm": 7.7,
-            "sp95PriceEur": 1.891,
-            "distanceKm": 17.5
+            "id": "9DlkfBuzFkNLAf4DuIXp",
+            "name": "AVIA Shop Claro",
+            "brand": "AVIA",
+            "address": "Strada Cantonale, 6702 Claro",
+            "lat": 46.2531657,
+            "lng": 9.0201113,
+            "sp95PriceChf": 1.74,
+            "updatedAt": "2026-03-03T11:21:03.179Z",
+            "nearestMunicipality": "Cavargna (CO)",
+            "nearestMunicipalityDistanceKm": 19.4,
+            "sp95PriceEur": 1.913,
+            "distanceKm": 20
           }
         ],
         "minPriceChf": 1.63,

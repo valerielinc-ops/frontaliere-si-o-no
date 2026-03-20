@@ -4036,6 +4036,13 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/cure-a-domicilio-tassa-ticino.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'kebab-case-ticino-nubifragio-grigioni',
+    category: 'pratico',
+    date: '2026-03-20T21:58:42.386Z',
+    image: '/images/blog/kebab-case-ticino-nubifragio-grigioni.jpg',
+    hasCalculator: true,
+  },
 ];
 
 const CATEGORIES = ['all', 'fiscale', 'pratico', 'novita', 'pensione'] as const;

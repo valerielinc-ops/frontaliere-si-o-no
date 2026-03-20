@@ -1628,6 +1628,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-ampliamento-parco-eolico-san-gottardo': { name: 'San Gottardo', path: '/articoli-frontaliere/ampliamento-parco-eolico-san-gottardo', parent: 'blog' },
     'blog-frontalieri-prezzi-carburanti-italia-svizzera': { name: 'Prezzi carburanti in Italia e Svizzera', path: '/articoli-frontaliere/frontalieri-prezzi-carburanti-italia-svizzera', parent: 'blog' },
     'blog-cure-a-domicilio-tassa-ticino': { name: 'Tassa sulle cure a domicilio', path: '/articoli-frontaliere/cure-a-domicilio-tassa-ticino', parent: 'blog' },
+    'blog-kebab-case-ticino-nubifragio-grigioni': { name: 'Ticino: contributo cantonale per', path: '/articoli-frontaliere/kebab-case-ticino-nubifragio-grigioni', parent: 'blog' },
   };
 
   const info = sectionNames[section];
