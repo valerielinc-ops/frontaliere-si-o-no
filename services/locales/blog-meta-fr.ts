@@ -1388,6 +1388,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.soggiorni-irregolari-2026-mendrisio.title': 'Migrazione, plus de séjours irréguliers en février. Le plus \'chaud\' est la frontière sud',
     'blog.article.soggiorni-irregolari-2026-mendrisio.excerpt': 'Selon l\'Office fédéral des douanes et de la sécurité des frontières, le nombre de séjours irréguliers a augmenté en février, avec la frontière sud enregistrant les cas les plus élevés.',
     'blog.article.soggiorni-irregolari-2026-mendrisio.imageAlt': 'Un jeune couple en train de traverser la frontière au poste de contrôle de Brogeda, une zone de péage animée dans le canton du Tessin, en Suisse.',
+    'blog.article.eolico-gottardo-ampliamento-2026.title': 'L\'éolien au Gottardo, le Canton ouvre la consultation pour l\'agrandissement',
+    'blog.article.eolico-gottardo-ampliamento-2026.excerpt': 'Le Canton du Tessin a lancé la consultation publique pour l\'agrandissement du parc éolien au col du Saint-Gothard.',
+    'blog.article.eolico-gottardo-ampliamento-2026.imageAlt': 'Vue aérienne du col du San Gottardo avec éoliennes en arrière-plan, prise avec une caméra DSLR au Tessin, Suisse.',
 };
 
 export default blogMetaFr;

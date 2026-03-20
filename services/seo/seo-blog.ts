@@ -6548,6 +6548,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-eolico-gottardo-ampliamento-2026': {
+    title: 'Eolico al Gottardo, il Cantone apre la consultazione per | Frontaliere Ticino',
+    description: 'Il Cantone del Ticino ha avviato la consultazione pubblica per l\'ampliamento del parco eolico al Passo del San Gottardo. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, eolico, gottardo, cantone, apre',
+    ogTitle: 'Eolico al Gottardo, il Cantone apre la consultazione per',
+    ogDescription: 'Il Cantone del Ticino ha avviato la consultazione pubblica per l\'ampliamento del parco eolico al Passo del San Gottardo.',
+    canonicalPath: '/articoli-frontaliere/eolico-gottardo-ampliamento-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Eolico al Gottardo, il Cantone apre la consultazione per l'ampliamento",
+      "description": "Il Cantone del Ticino ha avviato la consultazione pubblica per l'ampliamento del parco eolico al Passo del San Gottardo. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/eolico-gottardo-ampliamento-2026.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Vista aerea del passo del San Gottardo con eolico nel fondo, scattata con una fotocamera DSLR in Ticino, Svizzera."
+      },
+      "datePublished": "2026-03-20T02:46:46+00:00",
+      "dateModified": "2026-03-20T02:46:46+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/eolico-gottardo-ampliamento-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

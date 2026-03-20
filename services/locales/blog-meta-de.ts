@@ -1388,6 +1388,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.soggiorni-irregolari-2026-mendrisio.title': 'Migrazione, mehr illegale Aufenthalt in Februar. Das Südportal ist der heißeste Punkt',
     'blog.article.soggiorni-irregolari-2026-mendrisio.excerpt': 'Laut dem Bundesamt für Zoll und Grenzsicherheit (BAGS) ist die Anzahl der illegalen Aufenthalte im Februar gestiegen, mit dem Südportal als am heißesten Punkt.',
     'blog.article.soggiorni-irregolari-2026-mendrisio.imageAlt': 'Ein junges Paar überquert die Grenze bei Brogeda, einem belebten Zollstellen im Kanton Tessin, Schweiz.',
+    'blog.article.eolico-gottardo-ampliamento-2026.title': 'Windkraft am Gotthard: Der Kanton startet die Konsultation für den Ausbau',
+    'blog.article.eolico-gottardo-ampliamento-2026.excerpt': 'Der Kanton Tessin hat die öffentliche Konsultation für den Ausbau des Windparks am Gotthardpass gestartet.',
+    'blog.article.eolico-gottardo-ampliamento-2026.imageAlt': 'Luftbild des San Gottardo-Passes mit Windrädern im Hintergrund, fotografiert mit einer DSLR-Kamera in Tessin, Schweiz.',
 };
 
 export default blogMetaDe;

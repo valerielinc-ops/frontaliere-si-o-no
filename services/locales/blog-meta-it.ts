@@ -1388,6 +1388,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.soggiorni-irregolari-2026-mendrisio.title': 'Migrazione, più soggiorni irregolari a febbraio. Il più \'caldo\' è il confine sud',
     'blog.article.soggiorni-irregolari-2026-mendrisio.excerpt': 'Secondo l\'Ufficio federale della dogana e della sicurezza dei confini, il numero di soggiorni irregolari è aumentato a febbraio, con il confine sud che registra i casi più alti.',
     'blog.article.soggiorni-irregolari-2026-mendrisio.imageAlt': 'Una coppia giovane attraversa il confine al varco di Brogeda, un\'area di pedaggio affollata nel Cantone Ticino, in Svizzera.',
+    'blog.article.eolico-gottardo-ampliamento-2026.title': 'Eolico al Gottardo, il Cantone apre la consultazione per l\'ampliamento',
+    'blog.article.eolico-gottardo-ampliamento-2026.excerpt': 'Il Cantone del Ticino ha avviato la consultazione pubblica per l\'ampliamento del parco eolico al Passo del San Gottardo.',
+    'blog.article.eolico-gottardo-ampliamento-2026.imageAlt': 'Vista aerea del passo del San Gottardo con eolico nel fondo, scattata con una fotocamera DSLR in Ticino, Svizzera.',
 };
 
 export default blogMetaIt;

@@ -1388,6 +1388,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.soggiorni-irregolari-2026-mendrisio.title': 'Migration, More Irregular Stays in February. The South Border is the Hottest',
     'blog.article.soggiorni-irregolari-2026-mendrisio.excerpt': 'According to the Federal Customs Administration and Border Security Office (Udsc), the number of irregular stays has increased in February, with the south border registering the highest cases.',
     'blog.article.soggiorni-irregolari-2026-mendrisio.imageAlt': 'A young couple crossing the border at Brogeda, a busy toll station in Ticino, Switzerland.',
+    'blog.article.eolico-gottardo-ampliamento-2026.title': 'Wind Power at the Gotthard Pass: The Canton Launches Public Consultation for Expansion',
+    'blog.article.eolico-gottardo-ampliamento-2026.excerpt': 'The Canton of Ticino has initiated a public consultation for the expansion of the wind farm at the Gotthard Pass.',
+    'blog.article.eolico-gottardo-ampliamento-2026.imageAlt': 'Aerial view of the San Gottardo Pass with wind turbines in the background, shot with a DSLR camera in Ticino, Switzerland.',
 };
 
 export default blogMetaEn;

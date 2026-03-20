@@ -3833,6 +3833,13 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/soggiorni-irregolari-2026-mendrisio.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'eolico-gottardo-ampliamento-2026',
+    category: 'novita',
+    date: '2026-03-20T02:46:46.318Z',
+    image: '/images/blog/eolico-gottardo-ampliamento-2026.jpg',
+    hasCalculator: true,
+  },
 ];
 
 const CATEGORIES = ['all', 'fiscale', 'pratico', 'novita', 'pensione'] as const;
