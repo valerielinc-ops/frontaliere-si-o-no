@@ -1,16 +1,16 @@
 {
   "key": "skyguide-sa",
   "label": "Skyguide",
-  "generatedAt": "2026-03-20T04:59:21.479Z",
+  "generatedAt": "2026-03-20T16:15:08.232Z",
   "total": 2,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 7755,
-  "avgDurationMs": 7755,
+  "durationMs": 11707,
+  "avgDurationMs": 11707,
   "durationHistory": [
-    7755
+    11707
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -57,6 +57,9 @@
         "de": "fluglotsenausbildung-locarno-skyguide-locarno",
         "fr": "formation-controleur-du-trafic-aerien-locarno-skyguide-locarno"
       },
+      "previousSlugs": [
+        "formazione-controllore-a-del-traffico-aereo-locarno-skyguide-locarno-ch"
+      ],
       "salaryMin": 58000,
       "salaryMax": 78000,
       "currency": "CHF",
@@ -69,12 +72,7 @@
           "maxValue": 78000,
           "unitText": "YEAR"
         }
-      },
-      "crawledAt": "",
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "formazione-controllore-a-del-traffico-aereo-locarno-skyguide-locarno-ch"
-      ]
+      }
     },
     {
       "title": "Formazione controllore/a del traffico aereo - Lugano",
@@ -117,6 +115,9 @@
         "de": "fluglotsenausbildung-lugano-skyguide-lugano-agno",
         "fr": "formation-controleur-du-trafic-aerien-lugano-skyguide-lugano-agno"
       },
+      "previousSlugs": [
+        "formazione-controllore-a-del-traffico-aereo-lugano-skyguide-lugano-agno-ch"
+      ],
       "salaryMin": 58000,
       "salaryMax": 78000,
       "currency": "CHF",
@@ -129,12 +130,7 @@
           "maxValue": 78000,
           "unitText": "YEAR"
         }
-      },
-      "crawledAt": "",
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "formazione-controllore-a-del-traffico-aereo-lugano-skyguide-lugano-agno-ch"
-      ]
+      }
     }
   ]
 }
