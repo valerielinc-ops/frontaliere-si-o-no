@@ -1595,6 +1595,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-kebab-case-borse-freddo-2024': { name: 'Borse', path: '/articoli-frontaliere/kebab-case-borse-freddo-2024', parent: 'blog' },
     'blog-giustizia-in-bilico-2026': { name: 'Giustizia in Ticino', path: '/articoli-frontaliere/giustizia-in-bilico-2026', parent: 'blog' },
     'blog-ampliamento-parco-eolico-san-gottardo-digital-2026': { name: 'Ampliamento del Parco eolico del San', path: '/articoli-frontaliere/ampliamento-parco-eolico-san-gottardo-digital-2026', parent: 'blog' },
+    'blog-soggiorni-irregolari-2026-mendrisio': { name: 'Soggiorni irregolari a febbraio', path: '/articoli-frontaliere/soggiorni-irregolari-2026-mendrisio', parent: 'blog' },
   };
 
   const info = sectionNames[section];

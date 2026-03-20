@@ -1385,6 +1385,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.ampliamento-parco-eolico-san-gottardo-digital-2026.title': 'Ampliamento du Parc éolien du Saint-Gothard : la consultation est lancée',
     'blog.article.ampliamento-parco-eolico-san-gottardo-digital-2026.excerpt': 'Après cinq ans de fonctionnement, le Parc éolien du Saint-Gothard peut être agrandi grâce à la consultation digitale en cours',
     'blog.article.ampliamento-parco-eolico-san-gottardo-digital-2026.imageAlt': 'Imaginez un parc éolien au Tessin avec des turbines qui tournent lentement dans le vent à la tombée de la nuit',
+    'blog.article.soggiorni-irregolari-2026-mendrisio.title': 'Migrazione, plus de séjours irréguliers en février. Le plus \'chaud\' est la frontière sud',
+    'blog.article.soggiorni-irregolari-2026-mendrisio.excerpt': 'Selon l\'Office fédéral des douanes et de la sécurité des frontières, le nombre de séjours irréguliers a augmenté en février, avec la frontière sud enregistrant les cas les plus élevés.',
+    'blog.article.soggiorni-irregolari-2026-mendrisio.imageAlt': 'Un jeune couple en train de traverser la frontière au poste de contrôle de Brogeda, une zone de péage animée dans le canton du Tessin, en Suisse.',
 };
 
 export default blogMetaFr;

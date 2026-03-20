@@ -3826,6 +3826,13 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/ampliamento-parco-eolico-san-gottardo-digital-2026.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'soggiorni-irregolari-2026-mendrisio',
+    category: 'pratico',
+    date: '2026-03-20T00:03:31.827Z',
+    image: '/images/blog/soggiorni-irregolari-2026-mendrisio.jpg',
+    hasCalculator: true,
+  },
 ];
 
 const CATEGORIES = ['all', 'fiscale', 'pratico', 'novita', 'pensione'] as const;

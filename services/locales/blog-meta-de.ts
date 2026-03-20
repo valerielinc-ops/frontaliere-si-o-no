@@ -1385,6 +1385,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.ampliamento-parco-eolico-san-gottardo-digital-2026.title': 'Erweiterung des Windparks am San Gottardo: Die Konsultation ist gestartet',
     'blog.article.ampliamento-parco-eolico-san-gottardo-digital-2026.excerpt': 'Nach fünf Jahren in Betrieb kann der Windpark am San Gottardo erweitert werden, dank der laufenden digitalen Konsultation',
     'blog.article.ampliamento-parco-eolico-san-gottardo-digital-2026.imageAlt': 'Bilden Sie sich ein Bild eines Windparks in Ticino mit Turbinen, die langsam im Wind drehen, während die Sonne untergeht',
+    'blog.article.soggiorni-irregolari-2026-mendrisio.title': 'Migrazione, mehr illegale Aufenthalt in Februar. Das Südportal ist der heißeste Punkt',
+    'blog.article.soggiorni-irregolari-2026-mendrisio.excerpt': 'Laut dem Bundesamt für Zoll und Grenzsicherheit (BAGS) ist die Anzahl der illegalen Aufenthalte im Februar gestiegen, mit dem Südportal als am heißesten Punkt.',
+    'blog.article.soggiorni-irregolari-2026-mendrisio.imageAlt': 'Ein junges Paar überquert die Grenze bei Brogeda, einem belebten Zollstellen im Kanton Tessin, Schweiz.',
 };
 
 export default blogMetaDe;

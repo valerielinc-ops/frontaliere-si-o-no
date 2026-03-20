@@ -1385,6 +1385,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.ampliamento-parco-eolico-san-gottardo-digital-2026.title': 'Expansion of the San Gottardo Wind Park: Public Consultation Launched',
     'blog.article.ampliamento-parco-eolico-san-gottardo-digital-2026.excerpt': 'After five years of operation, the San Gottardo Wind Park can be expanded thanks to the ongoing digital public consultation.',
     'blog.article.ampliamento-parco-eolico-san-gottardo-digital-2026.imageAlt': 'Imagine a wind farm in Ticino with turbines rotating slowly in the wind at sunset',
+    'blog.article.soggiorni-irregolari-2026-mendrisio.title': 'Migration, More Irregular Stays in February. The South Border is the Hottest',
+    'blog.article.soggiorni-irregolari-2026-mendrisio.excerpt': 'According to the Federal Customs Administration and Border Security Office (Udsc), the number of irregular stays has increased in February, with the south border registering the highest cases.',
+    'blog.article.soggiorni-irregolari-2026-mendrisio.imageAlt': 'A young couple crossing the border at Brogeda, a busy toll station in Ticino, Switzerland.',
 };
 
 export default blogMetaEn;

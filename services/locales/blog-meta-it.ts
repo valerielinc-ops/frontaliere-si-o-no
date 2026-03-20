@@ -1385,6 +1385,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.ampliamento-parco-eolico-san-gottardo-digital-2026.title': 'Ampliamento del Parco eolico del San Gottardo: al via la consultazione',
     'blog.article.ampliamento-parco-eolico-san-gottardo-digital-2026.excerpt': 'Dopo cinque anni dalla sua entrata in funzione, il Parco eolico del San Gottardo può essere ampliato grazie alla consultazione digitale in corso',
     'blog.article.ampliamento-parco-eolico-san-gottardo-digital-2026.imageAlt': 'Immagine un parco eolico in Ticino con turbine che ruotano lentamente nel vento al tramonto',
+    'blog.article.soggiorni-irregolari-2026-mendrisio.title': 'Migrazione, più soggiorni irregolari a febbraio. Il più \'caldo\' è il confine sud',
+    'blog.article.soggiorni-irregolari-2026-mendrisio.excerpt': 'Secondo l\'Ufficio federale della dogana e della sicurezza dei confini, il numero di soggiorni irregolari è aumentato a febbraio, con il confine sud che registra i casi più alti.',
+    'blog.article.soggiorni-irregolari-2026-mendrisio.imageAlt': 'Una coppia giovane attraversa il confine al varco di Brogeda, un\'area di pedaggio affollata nel Cantone Ticino, in Svizzera.',
 };
 
 export default blogMetaIt;

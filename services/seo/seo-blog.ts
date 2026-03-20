@@ -6519,6 +6519,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-soggiorni-irregolari-2026-mendrisio': {
+    title: 'Migrazione, più soggiorni irregolari a febbraio. Il più | Frontaliere Ticino',
+    description: 'Il numero di soggiorni irregolari a febbraio è aumentato, con il confine sud che registra i casi più alti. I migranti entrati in Svizzera in modo irregolare',
+    keywords: 'frontalieri, ticino, svizzera, italia, migrazione, soggiorni, irregolari, febbraio',
+    ogTitle: 'Migrazione, più soggiorni irregolari a febbraio. Il più',
+    ogDescription: 'Il numero di soggiorni irregolari a febbraio è aumentato, con il confine sud che registra i casi più alti.',
+    canonicalPath: '/articoli-frontaliere/soggiorni-irregolari-2026-mendrisio',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Irregular Stays in Ticino: February 2026 Data Shows Increase, South",
+      "description": "Il numero di soggiorni irregolari a febbraio è aumentato, con il confine sud che registra i casi più alti. I migranti entrati in Svizzera in modo irregolare",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/soggiorni-irregolari-2026-mendrisio.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Una coppia giovane attraversa il confine al varco di Brogeda, un'area di pedaggio affollata nel Cantone Ticino, in Svizzera."
+      },
+      "datePublished": "2026-03-20T00:03:31+00:00",
+      "dateModified": "2026-03-20T00:03:31+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/soggiorni-irregolari-2026-mendrisio`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
