@@ -1448,6 +1448,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.lotta-violenza-di-genere-ticino.title': 'Tessin und Schweiz im Fokus des Europarats im Kampf gegen geschlechtsspezifische Gewalt',
     'blog.article.lotta-violenza-di-genere-ticino.excerpt': 'Am 11. März besuchte eine GREVIO-Delegation den Kanton Tessin und hob die Fortschritte in der Prävention sowie die neuen Empfehlungen für den Kanton und das Land hervor.',
     'blog.article.lotta-violenza-di-genere-ticino.imageAlt': 'Panorama von Bellinzona mit den Drei Türmen und klarem Himmel',
+    'blog.article.tassa-transito-svizzera-2023.title': 'Neue Durchfahrtsgebühr in der Schweiz: Was ändert sich?',
+    'blog.article.tassa-transito-svizzera-2023.excerpt': 'Das Parlament genehmigt eine neue Gebühr für die Durchfahrt in der Schweiz, ein umstrittener Schritt zur Reduzierung des Verkehrs.',
+    'blog.article.tassa-transito-svizzera-2023.imageAlt': 'Grenzübergang zwischen Italien und der Schweiz mit vorbeifahrenden Autos.',
 };
 
 export default blogMetaDe;

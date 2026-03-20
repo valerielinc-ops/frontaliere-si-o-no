@@ -3973,6 +3973,13 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/lotta-violenza-di-genere-ticino.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'tassa-transito-svizzera-2023',
+    category: 'novita',
+    date: '2026-03-20T15:59:52.990Z',
+    image: '/images/blog/tassa-transito-svizzera-2023.jpg',
+    hasCalculator: true,
+  },
 ];
 
 const CATEGORIES = ['all', 'fiscale', 'pratico', 'novita', 'pensione'] as const;

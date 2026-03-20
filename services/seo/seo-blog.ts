@@ -7128,6 +7128,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-tassa-transito-svizzera-2023': {
+    title: 'Nuova tariffa di transito in Svizzera: cosa cambia? | Frontaliere Ticino',
+    description: 'Il Parlamento approva una nuova tassa per il transito in Svizzera, un passo controverso per ridurre il traffico. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, nuova, tariffa, transito, cosa',
+    ogTitle: 'Nuova tariffa di transito in Svizzera: cosa cambia?',
+    ogDescription: 'Il Parlamento approva una nuova tassa per il transito in Svizzera, un passo controverso per ridurre il traffico.',
+    canonicalPath: '/articoli-frontaliere/tassa-transito-svizzera-2023',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Nuova tariffa di transito in Svizzera: cosa cambia?",
+      "description": "Il Parlamento approva una nuova tassa per il transito in Svizzera, un passo controverso per ridurre il traffico. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/tassa-transito-svizzera-2023.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Valico di confine tra Italia e Svizzera con auto in transito."
+      },
+      "datePublished": "2026-03-20T15:59:53+00:00",
+      "dateModified": "2026-03-20T15:59:53+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tassa-transito-svizzera-2023`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-03-20T15:34:39.708Z",
+  "generatedAt": "2026-03-20T16:04:26.640Z",
   "sources": {
     "italy": {
       "provider": "MIMIT Open Data",
@@ -11,7 +11,7 @@
       "provider": "TCS Benzinpreis",
       "providerUrl": "https://benzin.tcs.ch/de/map/SP95",
       "stationCount": 220,
-      "latestObservedUpdate": "2026-03-20T15:09:59.127Z"
+      "latestObservedUpdate": "2026-03-20T15:49:55.329Z"
     },
     "exchangeRate": {
       "provider": "ECB",
@@ -36874,11 +36874,11 @@
             "address": "Hauptstrasse, 3929 Täsch",
             "lat": 46.06906,
             "lng": 7.77617,
-            "sp95PriceChf": 1.79,
-            "updatedAt": "2026-03-19T11:05:21.102Z",
+            "sp95PriceChf": 1.84,
+            "updatedAt": "2026-03-20T15:34:43.052Z",
             "nearestMunicipality": "Macugnaga (VB)",
             "nearestMunicipalityDistanceKm": 18.5,
-            "sp95PriceEur": 1.968,
+            "sp95PriceEur": 2.023,
             "distanceKm": 18.5
           }
         ],

@@ -3049,7 +3049,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
         "@context": "https://schema.org",
         "@type": "ItemList",
         "name": "Articoli Frontaliere",
-        "numberOfItems": 473,
+        "numberOfItems": 474,
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
           { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -3523,7 +3523,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 470, "name": "Analisi sul franco svizzero e l'economia ticinese", "url": `${BASE_URL}/articoli-frontaliere/franco-svizzero-impatti-ticino` },
           { "@type": "ListItem", "position": 471, "name": "Tassa di transito in Ticino: cosa cambia per gl...", "url": `${BASE_URL}/articoli-frontaliere/tassa-transito-automobilisti-ticino` },
           { "@type": "ListItem", "position": 472, "name": "Nubifragio Giugno 2024: Ristoro Finanziario in ...", "url": `${BASE_URL}/articoli-frontaliere/nubifragio-coira-mesolcina-ristoro` },
-          { "@type": "ListItem", "position": 473, "name": "Ticino e Svizzera sotto l'attenzione del Consig...", "url": `${BASE_URL}/articoli-frontaliere/lotta-violenza-di-genere-ticino` }
+          { "@type": "ListItem", "position": 473, "name": "Ticino e Svizzera sotto l'attenzione del Consig...", "url": `${BASE_URL}/articoli-frontaliere/lotta-violenza-di-genere-ticino` },
+          { "@type": "ListItem", "position": 474, "name": "Nuova tariffa di transito in Svizzera: cosa cam...", "url": `${BASE_URL}/articoli-frontaliere/tassa-transito-svizzera-2023` }
         ]
       }
     ]

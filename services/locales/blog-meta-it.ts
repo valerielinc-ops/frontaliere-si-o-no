@@ -1448,6 +1448,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.lotta-violenza-di-genere-ticino.title': 'Ticino e Svizzera sotto l\'attenzione del Consiglio d\'Europa per la lotta alla violenza di genere',
     'blog.article.lotta-violenza-di-genere-ticino.excerpt': 'Il 11 marzo una delegazione GREVIO ha visitato il Ticino, evidenziando i progressi nella prevenzione e le nuove raccomandazioni per il Canton e il Paese.',
     'blog.article.lotta-violenza-di-genere-ticino.imageAlt': 'Panorama di Bellinzona con le Tre Torri e il cielo azzurro',
+    'blog.article.tassa-transito-svizzera-2023.title': 'Nuova tariffa di transito in Svizzera: cosa cambia?',
+    'blog.article.tassa-transito-svizzera-2023.excerpt': 'Il Parlamento approva una nuova tassa per il transito in Svizzera, un passo controverso per ridurre il traffico.',
+    'blog.article.tassa-transito-svizzera-2023.imageAlt': 'Valico di confine tra Italia e Svizzera con auto in transito.',
 };
 
 export default blogMetaIt;

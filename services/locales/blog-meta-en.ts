@@ -1448,6 +1448,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.lotta-violenza-di-genere-ticino.title': 'Ticino and Switzerland Under the European Court of Human Rights Spotlight in the Fight Against Gender-Based Violence',
     'blog.article.lotta-violenza-di-genere-ticino.excerpt': 'On March 11, a GREVIO delegation visited Ticino, highlighting progress in prevention efforts and new recommendations for the Canton and the country as a whole.',
     'blog.article.lotta-violenza-di-genere-ticino.imageAlt': 'Bellinzona skyline with Three Towers and clear sky',
+    'blog.article.tassa-transito-svizzera-2023.title': 'New transit fee in Switzerland: what changes?',
+    'blog.article.tassa-transito-svizzera-2023.excerpt': 'Parliament approves a new tax for transit in Switzerland, a controversial step to reduce traffic.',
+    'blog.article.tassa-transito-svizzera-2023.imageAlt': 'Border crossing between Italy and Switzerland with cars passing.',
 };
 
 export default blogMetaEn;

@@ -1448,6 +1448,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.lotta-violenza-di-genere-ticino.title': 'Tessin et Suisse sous l\'attention du Conseil de l\'Europe pour la lutte contre la violence de genre',
     'blog.article.lotta-violenza-di-genere-ticino.excerpt': 'Le 11 mars, une délégation du GREVIO a visité le Tessin, soulignant les progrès en matière de prévention et formulant de nouvelles recommandations pour le Canton et le pays.',
     'blog.article.lotta-violenza-di-genere-ticino.imageAlt': 'Paysage de Bellinzona avec les Trois Tours et ciel bleu',
+    'blog.article.tassa-transito-svizzera-2023.title': 'Nouvelle taxe de transit en Suisse : qu\'est-ce qui change ?',
+    'blog.article.tassa-transito-svizzera-2023.excerpt': 'Le Parlement approuve une nouvelle taxe pour le transit en Suisse, une étape controversée pour réduire le trafic.',
+    'blog.article.tassa-transito-svizzera-2023.imageAlt': 'Passage frontière entre l\'Italie et la Suisse avec des voitures en transit.',
 };
 
 export default blogMetaFr;
