@@ -1430,6 +1430,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.riforma-scolastica-ticino-difficolta.title': 'Educational Reform in Ticino: A Context Marked by Increasing Challenges',
     'blog.article.riforma-scolastica-ticino-difficolta.excerpt': 'Associations call for adequate resources to face the challenges of the high school reform, amid regulatory issues and rising discomfort among students and teachers.',
     'blog.article.riforma-scolastica-ticino-difficolta.imageAlt': 'High school in Locarno with students and teachers outdoors',
+    'blog.article.tassa-transito-parlamento-ticino.title': 'Transit Tax in Ticino: Approval and Economic Impacts',
+    'blog.article.tassa-transito-parlamento-ticino.excerpt': 'The transit tax, approved by the Swiss Parliament, could influence the costs for cross-border workers and cantonal revenues. Here\'s what to expect.',
+    'blog.article.tassa-transito-parlamento-ticino.imageAlt': 'Border crossing in Ticino with transit control and mountain landscape',
 };
 
 export default blogMetaEn;

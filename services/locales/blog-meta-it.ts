@@ -1430,6 +1430,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.riforma-scolastica-ticino-difficolta.title': 'Riforma scolastica in Ticino: un contesto segnato da crescenti difficoltà',
     'blog.article.riforma-scolastica-ticino-difficolta.excerpt': 'Le associazioni chiedono risorse adeguate per affrontare le sfide della riforma del liceo, tra criticità normative e aumento del disagio tra studenti e docenti.',
     'blog.article.riforma-scolastica-ticino-difficolta.imageAlt': 'Scuola secondaria superiore a Locarno con studenti e insegnanti all\'aperto',
+    'blog.article.tassa-transito-parlamento-ticino.title': 'La tassa di transito in Ticino tra approvazione e impatti economici',
+    'blog.article.tassa-transito-parlamento-ticino.excerpt': 'La tassa di transito, approvata dal Parlamento svizzero, potrebbe incidere sui costi dei frontalieri e sulle entrate cantonali. Ecco cosa aspettarsi.',
+    'blog.article.tassa-transito-parlamento-ticino.imageAlt': 'Valico di frontiera in Ticino con controllo transito e paesaggio montano',
 };
 
 export default blogMetaIt;

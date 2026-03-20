@@ -1430,6 +1430,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.riforma-scolastica-ticino-difficolta.title': 'Bildungsreform im Tessin: Ein Kontext zunehmender Herausforderungen',
     'blog.article.riforma-scolastica-ticino-difficolta.excerpt': 'Die Verbände fordern angemessene Ressourcen, um die Herausforderungen der Gymnasialreform zu bewältigen, angesichts regulatorischer Kritikalitäten und wachsender Unzufriedenheit bei Schülern und Lehrkräften.',
     'blog.article.riforma-scolastica-ticino-difficolta.imageAlt': 'Oberstufenschule in Locarno mit Schülern und Lehrern im Freien',
+    'blog.article.tassa-transito-parlamento-ticino.title': 'Die Transitsteuer im Tessin zwischen Genehmigung und wirtschaftlichen Auswirkungen',
+    'blog.article.tassa-transito-parlamento-ticino.excerpt': 'Die vom Schweizer Parlament genehmigte Transitsteuer könnte die Kosten für Grenzgänger und die Kantonseinnahmen beeinflussen. Hier erfahren Sie, was zu erwarten ist.',
+    'blog.article.tassa-transito-parlamento-ticino.imageAlt': 'Grenzübergang im Tessin mit Transitkontrolle und Berglandschaft',
 };
 
 export default blogMetaDe;

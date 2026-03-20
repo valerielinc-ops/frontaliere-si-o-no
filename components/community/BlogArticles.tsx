@@ -3931,6 +3931,13 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/riforma-scolastica-ticino-difficolta.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'tassa-transito-parlamento-ticino',
+    category: 'fiscale',
+    date: '2026-03-20T11:11:29.556Z',
+    image: '/images/blog/tassa-transito-parlamento-ticino.jpg',
+    hasCalculator: true,
+  },
 ];
 
 const CATEGORIES = ['all', 'fiscale', 'pratico', 'novita', 'pensione'] as const;
