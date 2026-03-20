@@ -5,8 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "predev": "node scripts/assemble-jobs-dataset.mjs",
-    "prebuild": "node scripts/generate-image-thumbnails.mjs && node scripts/assemble-jobs-dataset.mjs",
+    "predev": "node scripts/assemble-jobs-dataset.mjs --stats",
+    "prebuild": "node scripts/generate-image-thumbnails.mjs && node scripts/assemble-jobs-dataset.mjs --stats",
     "build": "vite build",
     "preview": "vite preview",
     "test": "vitest run",

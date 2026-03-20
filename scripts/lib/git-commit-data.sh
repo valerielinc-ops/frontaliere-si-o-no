@@ -43,16 +43,12 @@ if [ "$SLICE_ONLY" = true ]; then
     data/jobs/by-crawler/
     data/jobs/expired/by-crawler/
     data/jobs-crawler-summaries/by-crawler/
-    data/jobs-ai-cache.json
   )
 else
   # Legacy mode: commit all shared files (used by non-migrated crawlers).
   STANDARD_FILES=(
     data/jobs.json
     data/jobs-meta.json
-    data/jobs-stats-history.json
-    data/jobs-stats.json
-    public/data/jobs-stats.json
     data/jobs-crawler-audit.json
     data/jobs-crawler-summaries.json
     data/jobs-crawler-config.json
