@@ -4043,6 +4043,13 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/kebab-case-ticino-nubifragio-grigioni.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'kebab-case-rossi-bruxelles-ticino',
+    category: 'fiscale',
+    date: '2026-03-20T22:58:17.294Z',
+    image: '/images/blog/kebab-case-rossi-bruxelles-ticino.jpg',
+    hasCalculator: true,
+  },
 ];
 
 const CATEGORIES = ['all', 'fiscale', 'pratico', 'novita', 'pensione'] as const;

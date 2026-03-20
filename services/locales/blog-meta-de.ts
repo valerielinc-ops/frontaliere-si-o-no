@@ -1478,6 +1478,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.kebab-case-ticino-nubifragio-grigioni.title': 'Tessin: Beitrag des Kantons für die Wiederherstellung von landwirtschaftlichen Strukturen, die durch das Unwetter 2024 in der Region Graubünden beschädigt wurden',
     'blog.article.kebab-case-ticino-nubifragio-grigioni.excerpt': 'Die Regierung von Graubünden gewährt einen kantonalen Beitrag von 511.000 Franken für die Wiederherstellung von landwirtschaftlichen Strukturen, die durch das Unwetter 2024 in der Region Graubünden beschädigt wurden.',
     'blog.article.kebab-case-ticino-nubifragio-grigioni.imageAlt': 'Acker Schutt nach Grigioni Ticino-Überflutung',
+    'blog.article.kebab-case-rossi-bruxelles-ticino.title': 'Transitgebühr – Brüssel rümpft die Nase',
+    'blog.article.kebab-case-rossi-bruxelles-ticino.excerpt': 'Die Schweiz führt eine Transitgebühr ein, um den Verkehr zu reduzieren, doch die Europäische Kommission ist damit nicht einverstanden.',
+    'blog.article.kebab-case-rossi-bruxelles-ticino.imageAlt': 'Eine Szene einer überfüllten Autobahn im Tessin, Schweiz, mit Autos und Lkw im Verkehr und wenigen Fußgängern, die auf dem Gehweg spazieren.',
 };
 
 export default blogMetaDe;

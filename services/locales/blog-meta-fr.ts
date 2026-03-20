@@ -1478,6 +1478,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.kebab-case-ticino-nubifragio-grigioni.title': 'Tessin: contribution cantonale pour la remise en état des structures agricoles endommagées par l\'orage de 2024 dans la région des Grisons',
     'blog.article.kebab-case-ticino-nubifragio-grigioni.excerpt': 'Le gouvernement grison accorde 511 000 francs pour la remise en état des structures agricoles endommagées par l\'orage de 2024 dans la région des Grisons.',
     'blog.article.kebab-case-ticino-nubifragio-grigioni.imageAlt': 'Champ détritus inondation Grigioni Ticino',
+    'blog.article.kebab-case-rossi-bruxelles-ticino.title': 'Taxe de transit, Bruxelles renonce',
+    'blog.article.kebab-case-rossi-bruxelles-ticino.excerpt': 'La Suisse introduit la taxe de transit pour réduire le trafic, mais la Commission européenne n\'est pas satisfaite.',
+    'blog.article.kebab-case-rossi-bruxelles-ticino.imageAlt': 'Une scène d\'une autoroute encombrée dans le Tessin, en Suisse, avec des voitures et des camions qui passent par là, et quelques piétons qui marchent sur le trottoir.',
 };
 
 export default blogMetaFr;

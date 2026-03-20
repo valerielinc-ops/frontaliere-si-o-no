@@ -1478,6 +1478,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.kebab-case-ticino-nubifragio-grigioni.title': 'Ticino: Federal Contribution for Restoration of Agrarian Structures Damaged by the 2024 Flood in the Grisons Region',
     'blog.article.kebab-case-ticino-nubifragio-grigioni.excerpt': 'The Grisons government grants 511,000 Swiss francs for the restoration of agrarian structures damaged by the 2024 flood in the Grisons region.',
     'blog.article.kebab-case-ticino-nubifragio-grigioni.imageAlt': 'Field debris after Grigioni Ticino flood',
+    'blog.article.kebab-case-rossi-bruxelles-ticino.title': 'Switzerland Introduces Transit Tax, EU Commission Objects',
+    'blog.article.kebab-case-rossi-bruxelles-ticino.excerpt': 'The Swiss government has introduced a transit tax to reduce traffic and improve quality of life for residents, but the EU Commission is not pleased with the decision.',
+    'blog.article.kebab-case-rossi-bruxelles-ticino.imageAlt': 'A scene of a crowded highway in Ticino, Switzerland, with cars and trucks passing by, and a few pedestrians walking on the sidewalk.',
 };
 
 export default blogMetaEn;
