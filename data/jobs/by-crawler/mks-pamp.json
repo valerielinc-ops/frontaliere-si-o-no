@@ -1,6 +1,6 @@
 {
   "crawlerKey": "mks-pamp",
-  "assembledAt": "2026-03-20T04:55:33.273Z",
+  "assembledAt": "2026-03-20T16:11:04.043Z",
   "jobs": [
     {
       "title": "HR Business Partner",
@@ -26,8 +26,8 @@
       "validThrough": "",
       "description": "<h4>MISSION</h4><p>The mission of this role is to provide HR services in support of the company’s growth, performance, and international development. The position reports to the Head of Human Resources and acts as a regular business partner to the management while ensuring operat",
       "titleByLocale": {
-        "fr": "HR Business Partner",
         "en": "HR Business Partner",
+        "fr": "HR Business Partner",
         "it": "Partner commerciale delle risorse umane",
         "de": "HR-Geschäftspartner"
       },
@@ -55,9 +55,7 @@
           "maxValue": 78000,
           "unitText": "YEAR"
         }
-      },
-      "crawledAt": "",
-      "requirementsByLocale": {}
+      }
     },
     {
       "title": "Idraulico Manutentore Macchinari Industriali",
@@ -112,9 +110,7 @@
           "maxValue": 97000,
           "unitText": "YEAR"
         }
-      },
-      "crawledAt": "",
-      "requirementsByLocale": {}
+      }
     },
     {
       "title": "Metal &amp; Inventory Controller",
@@ -169,13 +165,7 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      },
-      "crawledAt": "",
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "controller-metallo-e-inventario-mks-pamp-castel-san-pietro",
-        "controller-per-metalli-e-inventario-mks-pamp-castel-san-pietro"
-      ]
+      }
     },
     {
       "title": "Operatore reparto Raffineria",
@@ -230,9 +220,7 @@
           "maxValue": 97000,
           "unitText": "YEAR"
         }
-      },
-      "crawledAt": "",
-      "requirementsByLocale": {}
+      }
     },
     {
       "title": "Specialista tecnico chimico responsabile conduzione impianto",
@@ -287,9 +275,7 @@
           "maxValue": 125000,
           "unitText": "YEAR"
         }
-      },
-      "crawledAt": "",
-      "requirementsByLocale": {}
+      }
     }
   ]
 }
