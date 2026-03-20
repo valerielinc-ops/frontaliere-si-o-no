@@ -1604,6 +1604,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-ubs-fusione-credit-suisse-ticino': { name: 'Il cantiere di UBS a tre anni dal salvat', path: '/articoli-frontaliere/ubs-fusione-credit-suisse-ticino', parent: 'blog' },
     'blog-salari-minimi-ccl-ticino-2026': { name: 'Salari Minimi e CCL in Ticino', path: '/articoli-frontaliere/salari-minimi-ccl-ticino-2026', parent: 'blog' },
     'blog-strutture-dedicate-migranti-ticino': { name: 'Migranti in Ticino', path: '/articoli-frontaliere/strutture-dedicate-migranti-ticino', parent: 'blog' },
+    'blog-contratti-collettivi-salari-ticino': { name: 'Contratti collettivi di lavoro in Ticino', path: '/articoli-frontaliere/contratti-collettivi-salari-ticino', parent: 'blog' },
   };
 
   const info = sectionNames[section];

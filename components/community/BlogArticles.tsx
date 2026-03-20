@@ -3889,6 +3889,13 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/strutture-dedicate-migranti-ticino.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'contratti-collettivi-salari-ticino',
+    category: 'novita',
+    date: '2026-03-20T08:08:37.700Z',
+    image: '/images/blog/contratti-collettivi-salari-ticino.jpg',
+    hasCalculator: true,
+  },
 ];
 
 const CATEGORIES = ['all', 'fiscale', 'pratico', 'novita', 'pensione'] as const;

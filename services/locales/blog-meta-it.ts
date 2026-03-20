@@ -1412,6 +1412,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.strutture-dedicate-migranti-ticino.title': 'Migranti problematici, il governo decide strutture dedicate in Ticino',
     'blog.article.strutture-dedicate-migranti-ticino.excerpt': 'Il Consiglio di Stato del Canton Ticino annuncia l\'adozione di strutture dedicate per migranti problematici, con nuovi criteri e scadenze. Ecco cosa cambia.',
     'blog.article.strutture-dedicate-migranti-ticino.imageAlt': 'Valico di Gaggiolo con strutture dedicate ai migranti in Ticino, scena di frontiera svizzero-italiana.',
+    'blog.article.contratti-collettivi-salari-ticino.title': 'Contratti collettivi di lavoro in Ticino: prevalenza sui salari minimi cantonali',
+    'blog.article.contratti-collettivi-salari-ticino.excerpt': 'Il Consiglio degli Stati svizzero ha approvato il prioritario ruolo dei CCL rispetto ai salari minimi cantonali, con implicazioni concrete per frontalieri e aziende locali.',
+    'blog.article.contratti-collettivi-salari-ticino.imageAlt': 'Vista del Lago Maggiore e delle montagne del Ticino con città di Locarno sullo sfondo',
 };
 
 export default blogMetaIt;

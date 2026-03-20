@@ -1412,6 +1412,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.strutture-dedicate-migranti-ticino.title': 'Problematic Migrants, the Government Decides on Dedicated Facilities in Ticino',
     'blog.article.strutture-dedicate-migranti-ticino.excerpt': 'The Canton Ticino Government announces the adoption of dedicated facilities for problematic migrants, with new criteria and deadlines. Here\'s what’s changing.',
     'blog.article.strutture-dedicate-migranti-ticino.imageAlt': 'Border crossing at Gaggiolo with dedicated migrant facilities in Ticino, Swiss-Italian border scene.',
+    'blog.article.contratti-collettivi-salari-ticino.title': 'Collective Employment Contracts in Ticino: Priority Over Cantonal Minimum Wages',
+    'blog.article.contratti-collettivi-salari-ticino.excerpt': 'The Swiss Council of States has approved the priority role of CCLs over cantonal minimum wages, with concrete implications for cross-border workers and local companies.',
+    'blog.article.contratti-collettivi-salari-ticino.imageAlt': 'View of Lake Maggiore and Ticino mountains with Locarno in the background',
 };
 
 export default blogMetaEn;

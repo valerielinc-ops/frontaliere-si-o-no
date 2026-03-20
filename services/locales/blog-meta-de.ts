@@ -1412,6 +1412,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.strutture-dedicate-migranti-ticino.title': 'Problematische Migranten, die Regierung entscheidet über spezielle Einrichtungen im Tessin',
     'blog.article.strutture-dedicate-migranti-ticino.excerpt': 'Der Staatsrat des Kantons Tessin kündigt die Einführung spezieller Einrichtungen für problematische Migranten an, mit neuen Kriterien und Fristen. Hier erfahren Sie, was sich ändert.',
     'blog.article.strutture-dedicate-migranti-ticino.imageAlt': 'Grenzübergang Gaggiolo mit speziellen Einrichtungen für Migranten in Ticino, Schweiz-Italien Grenze.',
+    'blog.article.contratti-collettivi-salari-ticino.title': 'Kollektivverträge in Tessin: Vorrang vor kantonalen Mindestlöhnen',
+    'blog.article.contratti-collettivi-salari-ticino.excerpt': 'Der Ständerat hat die prioritäre Rolle der Kollektivverträge gegenüber den kantonalen Mindestlöhnen bestätigt, mit konkreten Auswirkungen für Grenzgänger und lokale Unternehmen.',
+    'blog.article.contratti-collettivi-salari-ticino.imageAlt': 'Blick auf Lago Maggiore und die Berge im Tessin mit Locarno im Hintergrund',
 };
 
 export default blogMetaDe;

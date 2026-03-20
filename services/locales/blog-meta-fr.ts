@@ -1412,6 +1412,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.strutture-dedicate-migranti-ticino.title': 'Migrants problématiques, le gouvernement décide de structures dédiées dans le Tessin',
     'blog.article.strutture-dedicate-migranti-ticino.excerpt': 'Le Conseil d\'État du canton du Tessin annonce l\'adoption de structures dédiées pour les migrants problématiques, avec de nouveaux critères et échéances. Voici ce qui change.',
     'blog.article.strutture-dedicate-migranti-ticino.imageAlt': 'Poste frontière de Gaggiolo avec structures dédiées aux migrants en Ticino, scène de la frontière suisse-italienne.',
+    'blog.article.contratti-collettivi-salari-ticino.title': 'Contrats collectifs de travail au Tessin : priorité sur les salaires minimum cantonaux',
+    'blog.article.contratti-collettivi-salari-ticino.excerpt': 'Le Conseil des États suisse a confirmé le rôle prioritaire des CCT par rapport aux salaires minimum cantonaux, avec des implications concrètes pour les frontaliers et les entreprises locales.',
+    'blog.article.contratti-collettivi-salari-ticino.imageAlt': 'Vue du lac Majeur et des montagnes du Tessin avec Locarno en arrière-plan',
 };
 
 export default blogMetaFr;

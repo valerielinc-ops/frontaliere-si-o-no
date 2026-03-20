@@ -6780,6 +6780,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-contratti-collettivi-salari-ticino': {
+    title: 'Contratti collettivi di lavoro in Ticino: prevalenza sui | Frontaliere Ticino',
+    description: 'Il Consiglio degli Stati svizzero ha approvato il prioritario ruolo dei CCL rispetto ai salari minimi cantonali, con implicazioni concrete per frontalieri e azi',
+    keywords: 'frontalieri, ticino, svizzera, italia, contratti, collettivi, lavoro, prevalenza',
+    ogTitle: 'Contratti collettivi di lavoro in Ticino: prevalenza sui',
+    ogDescription: 'Il Consiglio degli Stati svizzero ha approvato il prioritario ruolo dei CCL rispetto ai salari minimi cantonali, con implicazioni concrete per frontalieri e azi',
+    canonicalPath: '/articoli-frontaliere/contratti-collettivi-salari-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Contratti collettivi di lavoro in Ticino: prevalenza sui",
+      "description": "Il Consiglio degli Stati svizzero ha approvato il prioritario ruolo dei CCL rispetto ai salari minimi cantonali, con implicazioni concrete per frontalieri e azi",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/contratti-collettivi-salari-ticino.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Vista del Lago Maggiore e delle montagne del Ticino con città di Locarno sullo sfondo"
+      },
+      "datePublished": "2026-03-20T08:08:37+00:00",
+      "dateModified": "2026-03-20T08:08:37+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/contratti-collettivi-salari-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
