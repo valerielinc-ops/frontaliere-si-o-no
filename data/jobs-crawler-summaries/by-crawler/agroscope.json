@@ -1,16 +1,16 @@
 {
   "key": "agroscope",
   "label": "Agroscope",
-  "generatedAt": "2026-03-20T04:31:59.464Z",
+  "generatedAt": "2026-03-20T15:47:02.621Z",
   "total": 1,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 13230,
-  "avgDurationMs": 13230,
+  "durationMs": 4721,
+  "avgDurationMs": 4721,
   "durationHistory": [
-    13230
+    4721
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -69,9 +69,7 @@
           "maxValue": 78000,
           "unitText": "YEAR"
         }
-      },
-      "crawledAt": "",
-      "requirementsByLocale": {}
+      }
     }
   ]
 }
