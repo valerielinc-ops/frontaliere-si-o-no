@@ -19,7 +19,9 @@ const DOMAIN = 'https://www.frontaliereticino.ch/';
 const MIN_WORDS = 50;
 
 function extractSitemapUrls() {
-  const sitemaps = readdirSync(DIST).filter(f => f.startsWith('sitemap') && f.endsWith('.xml'));
+  const sitemaps = readdirSync(DIST).filter(f =>
+    f.startsWith('sitemap') && f.endsWith('.xml') && f !== 'sitemap-jobs-expired.xml'
+  );
   const urls = [];
 
   for (const sm of sitemaps) {
