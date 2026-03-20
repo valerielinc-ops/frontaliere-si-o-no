@@ -47,7 +47,7 @@ import AdSenseBanner from '@/components/shared/AdSenseBanner';
 import { SkeletonJobDetail } from '@/components/shared/Skeletons';
 import { AD_SLOTS } from '@/services/adsenseSlots';
 import { useMediaQuery } from '@/hooks/useMediaQuery';
-import { eagerAuth, promptOneTap } from '@/services/authService';
+import { eagerAuth, getAuthEmail, promptOneTap, renderGoogleButton } from '@/services/authService';
 import {
   isMultiLocation,
   normalizeJobCategory,
@@ -214,6 +214,7 @@ interface JobBoardProps {
   initialJobSlug?: string;
   onJobRouteChange?: (slug?: string) => void;
   isLoggedIn?: boolean;
+  authUser?: any | null;
   authLoading?: boolean;
   onGoogleAuthRequired?: () => Promise<any | null>;
   onFacebookAuthRequired?: () => Promise<any | null>;
@@ -2160,6 +2161,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
   initialJobSlug,
   onJobRouteChange,
   isLoggedIn = false,
+  authUser = null,
   authLoading = false,
   onGoogleAuthRequired,
   onFacebookAuthRequired,
@@ -2181,6 +2183,10 @@ const JobBoard: React.FC<JobBoardProps> = ({
   const [showNewOnly, setShowNewOnly] = useState(false);
   const [filtersExpanded, setFiltersExpanded] = useState(false);
   const searchInputRef = useRef<HTMLInputElement>(null);
+  const modalGoogleButtonRef = useRef<HTMLDivElement | null>(null);
+  const inlineGoogleButtonRef = useRef<HTMLDivElement | null>(null);
+  const authUnlockCandidateRef = useRef<string | null>(null);
+  const wasLoggedInRef = useRef(isLoggedIn);
 
   // Device breakpoints for conditional ad rendering (prevents CSS-hidden width=0 bug)
   const isMobile = useMediaQuery('(max-width: 767px)');      // md breakpoint
@@ -2241,6 +2247,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
   const [authBusy, setAuthBusy] = useState<'google' | 'facebook' | 'email' | null>(null);
   const [authError, setAuthError] = useState<string | null>(null);
   const [authNotice, setAuthNotice] = useState<{ kind: 'pending'; email: string } | null>(null);
+  const [modalGoogleButtonReady, setModalGoogleButtonReady] = useState(false);
+  const [inlineGoogleButtonReady, setInlineGoogleButtonReady] = useState(false);
   const [emailInput, setEmailInput] = useState('');
   const [emailAccessGranted, setEmailAccessGranted] = useState(
     () => !!localStorage.getItem(JOB_EMAIL_ACCESS_KEY)
@@ -2992,9 +3000,90 @@ const JobBoard: React.FC<JobBoardProps> = ({
 
   useEffect(() => {
     if (!authResolved || !selectedJob || hasAccess) return;
+    authUnlockCandidateRef.current = selectedJob.id;
     void promptOneTap();
     Analytics.trackJobAuthFunnel('gate_view', buildJobTrackingContext(selectedJob));
   }, [authResolved, selectedJob, hasAccess]);
+
+  useEffect(() => {
+    let cancelled = false;
+
+    const mountGoogleButton = async (
+      buttonContainer: HTMLDivElement | null,
+      setReady: React.Dispatch<React.SetStateAction<boolean>>,
+      active: boolean,
+    ) => {
+      if (!active || !buttonContainer) {
+        setReady(false);
+        return;
+      }
+
+      buttonContainer.innerHTML = '';
+      try {
+        await renderGoogleButton(buttonContainer, {
+          theme: 'outline',
+          size: 'large',
+          text: 'signin_with',
+          width: Math.max(240, Math.min(380, Math.floor(buttonContainer.clientWidth || 320))),
+          locale,
+        });
+        if (cancelled) return;
+        setReady(buttonContainer.children.length > 0);
+      } catch (error) {
+        if (cancelled) return;
+        setReady(false);
+        reportCaughtError(error, 'jobBoard.renderGoogleButton');
+      }
+    };
+
+    void mountGoogleButton(modalGoogleButtonRef.current, setModalGoogleButtonReady, authGateOpen && !hasAccess);
+    void mountGoogleButton(inlineGoogleButtonRef.current, setInlineGoogleButtonReady, Boolean(selectedJob && !hasAccess));
+
+    return () => {
+      cancelled = true;
+    };
+  }, [authGateOpen, hasAccess, locale, selectedJob]);
+
+  useEffect(() => {
+    const becameLoggedIn = !wasLoggedInRef.current && isLoggedIn;
+    wasLoggedInRef.current = isLoggedIn;
+
+    if (!authResolved || !isLoggedIn) return;
+    if (!becameLoggedIn) return;
+
+    const unlockedJob =
+      pendingJob && authUnlockCandidateRef.current === pendingJob.id
+        ? pendingJob
+        : selectedJob && authUnlockCandidateRef.current === selectedJob.id
+          ? selectedJob
+          : null;
+    if (!unlockedJob) return;
+
+    authUnlockCandidateRef.current = null;
+
+    const userEmail = getAuthEmail(authUser);
+    const sourceSuffix = `:${unlockedJob.company}:${sanitizeJobTitle(unlockedJob.title).slice(0, 60)}`;
+    const emailDomain = String(userEmail || '').split('@')[1] || 'unknown';
+
+    autoNewsletterSubscribe(userEmail || undefined, `job_gate_google${sourceSuffix}`);
+    setAuthNotice(null);
+    setAuthError(null);
+    setAuthGateOpen(false);
+    releaseSlot('job-auth-gate');
+    Analytics.trackJobAuthFunnel('auth_success', {
+      method: 'google',
+      emailDomain,
+      ...buildJobTrackingContext(unlockedJob),
+    });
+    Analytics.trackNewsletter('subscribe', emailDomain);
+    Analytics.trackSelectContent('job_board_open_detail', `${unlockedJob.company}_${unlockedJob.title}`);
+
+    const nextSlug = deriveLocalizedJobSlug(unlockedJob, locale);
+    setPendingJob(null);
+    if (!selectedJob || selectedJob.id !== unlockedJob.id || initialJobSlug !== nextSlug) {
+      onJobRouteChange?.(nextSlug);
+    }
+  }, [authResolved, authUser, initialJobSlug, isLoggedIn, locale, onJobRouteChange, pendingJob, selectedJob]);
 
   useEffect(() => {
     if (!authResolved || !hasAccess) return;
@@ -3002,6 +3091,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
     if (!redirectSlug) return;
 
     clearJobAuthRedirectSlug();
+    authUnlockCandidateRef.current = null;
     setAuthGateOpen(false);
     setPendingJob(null);
     setAuthError(null);
@@ -3014,6 +3104,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
   const openDetail = (job: JobListing) => {
     if (!authResolved) return;
     if (!hasAccess) {
+      authUnlockCandidateRef.current = job.id;
       setPendingJob(job);
       setAuthError(null);
       setAuthGateOpen(true);
@@ -3125,6 +3216,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
         Analytics.trackJobAuthFunnel('auth_fail', { method: provider, ...jobContext });
         return;
       }
+      authUnlockCandidateRef.current = null;
       clearJobAuthRedirectSlug();
       const userEmail = result.email || result.user?.email;
       const sourceSuffix = jobToTrack ? `:${jobToTrack.company}:${sanitizeJobTitle(jobToTrack.title).slice(0, 60)}` : '';
@@ -3165,6 +3257,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
       Analytics.trackJobAuthFunnel('auth_success', { method: 'email', emailDomain, ...jobContext });
       Analytics.trackNewsletter('subscribe', emailDomain);
       Analytics.trackSelectContent('job_board_email_access', emailDomain);
+      authUnlockCandidateRef.current = null;
       setAuthGateOpen(false);
       releaseSlot('job-auth-gate');
       setEmailInput('');
@@ -3197,6 +3290,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
       const emailDomain = email.split('@')[1] || 'unknown';
       Analytics.trackJobAuthFunnel('auth_success', { method: 'email', emailDomain, ...jobContext });
       Analytics.trackNewsletter('subscribe', emailDomain);
+      authUnlockCandidateRef.current = null;
       setEmailInput('');
       // No need to route — the component will re-render with hasAccess=true
       Analytics.trackSelectContent('job_board_open_detail', `${job.company}_${job.title}`);
@@ -3502,7 +3596,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
   ) : null;
 
   const authGateModalJsx = authGateOpen ? (
-    <div className="fixed inset-0 z-[90] bg-black/45 backdrop-blur-sm flex items-center justify-center p-4" onClick={(e) => { if (e.target === e.currentTarget) { setAuthGateOpen(false); releaseSlot('job-auth-gate'); setPendingJob(null); setAuthError(null); } }}>
+    <div className="fixed inset-0 z-[90] bg-black/45 backdrop-blur-sm flex items-center justify-center p-4" onClick={(e) => { if (e.target === e.currentTarget) { authUnlockCandidateRef.current = null; setAuthGateOpen(false); releaseSlot('job-auth-gate'); setPendingJob(null); setAuthError(null); } }}>
       <div className="w-full max-w-md rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 p-5 space-y-4">
         {/* Close X button */}
         <div className="flex items-start justify-between">
@@ -3514,7 +3608,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
               <p className="text-sm text-slate-600 dark:text-slate-400">{t('jobBoard.authGateDescription')}</p>
             </div>
           </div>
-          <button type="button" onClick={() => { setAuthGateOpen(false); releaseSlot('job-auth-gate'); setPendingJob(null); setAuthError(null); }} className="p-1 rounded-lg text-slate-400 hover:text-slate-600 dark:hover:text-slate-200" aria-label={t('common.close')}>
+          <button type="button" onClick={() => { authUnlockCandidateRef.current = null; setAuthGateOpen(false); releaseSlot('job-auth-gate'); setPendingJob(null); setAuthError(null); }} className="p-1 rounded-lg text-slate-400 hover:text-slate-600 dark:hover:text-slate-200" aria-label={t('common.close')}>
             <X size={18} />
           </button>
         </div>
@@ -3531,23 +3625,27 @@ const JobBoard: React.FC<JobBoardProps> = ({
         )}
 
         <div className="space-y-3">
-          {/* Google sign-in */}
-          <button
-            type="button"
-            onClick={() => void handleAuthAndOpen('google')}
-            disabled={authBusy !== null}
-            className="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-600 hover:bg-slate-50 dark:hover:bg-slate-700 disabled:opacity-60 text-slate-800 dark:text-slate-100 text-sm font-semibold shadow-sm transition-colors"
-          >
-            {authBusy === 'google' ? <Loader2 className="w-4 h-4 animate-spin" /> : (
-              <svg className="w-4 h-4" viewBox="0 0 24 24" aria-hidden="true">
-                <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" />
-                <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" />
-                <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" />
-                <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" />
-              </svg>
+          <div className="space-y-2">
+            <div ref={modalGoogleButtonRef} className="flex min-h-[44px] w-full items-center justify-center overflow-hidden rounded-xl" />
+            {!modalGoogleButtonReady && (
+              <button
+                type="button"
+                onClick={() => void handleAuthAndOpen('google')}
+                disabled={authBusy !== null}
+                className="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-600 hover:bg-slate-50 dark:hover:bg-slate-700 disabled:opacity-60 text-slate-800 dark:text-slate-100 text-sm font-semibold shadow-sm transition-colors"
+              >
+                {authBusy === 'google' ? <Loader2 className="w-4 h-4 animate-spin" /> : (
+                  <svg className="w-4 h-4" viewBox="0 0 24 24" aria-hidden="true">
+                    <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" />
+                    <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" />
+                    <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" />
+                    <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" />
+                  </svg>
+                )}
+                {t('newsletter.popup.googleSignIn')}
+              </button>
             )}
-            {t('newsletter.popup.googleSignIn')}
-          </button>
+          </div>
 
           {/* Google redirect trust note */}
           <p className="flex items-center justify-center gap-1.5 text-[11px] text-slate-500 dark:text-slate-400">
@@ -4477,27 +4575,31 @@ const JobBoard: React.FC<JobBoardProps> = ({
             </div>
 
             <div className="space-y-3 mt-4">
-              {/* Google sign-in */}
-              <button
-                type="button"
-                onClick={() => {
-                  const ctx = buildJobTrackingContext(selectedJob);
-                  Analytics.trackJobAuthFunnel('auth_method_click', { method: 'google', ...ctx });
-                  void handleAuthAndOpen('google');
-                }}
-                disabled={authBusy !== null}
-                className="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-600 hover:bg-slate-50 dark:hover:bg-slate-700 disabled:opacity-60 text-slate-800 dark:text-slate-100 text-sm font-semibold shadow-sm transition-colors"
-              >
-                {authBusy === 'google' ? <Loader2 className="w-4 h-4 animate-spin" /> : (
-                  <svg className="w-4 h-4" viewBox="0 0 24 24" aria-hidden="true">
-                    <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" />
-                    <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" />
-                    <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" />
-                    <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" />
-                  </svg>
+              <div className="space-y-2">
+                <div ref={inlineGoogleButtonRef} className="flex min-h-[44px] w-full items-center justify-center overflow-hidden rounded-xl" />
+                {!inlineGoogleButtonReady && (
+                  <button
+                    type="button"
+                    onClick={() => {
+                      const ctx = buildJobTrackingContext(selectedJob);
+                      Analytics.trackJobAuthFunnel('auth_method_click', { method: 'google', ...ctx });
+                      void handleAuthAndOpen('google');
+                    }}
+                    disabled={authBusy !== null}
+                    className="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-600 hover:bg-slate-50 dark:hover:bg-slate-700 disabled:opacity-60 text-slate-800 dark:text-slate-100 text-sm font-semibold shadow-sm transition-colors"
+                  >
+                    {authBusy === 'google' ? <Loader2 className="w-4 h-4 animate-spin" /> : (
+                      <svg className="w-4 h-4" viewBox="0 0 24 24" aria-hidden="true">
+                        <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" />
+                        <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" />
+                        <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" />
+                        <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" />
+                      </svg>
+                    )}
+                    {t('newsletter.popup.googleSignIn')}
+                  </button>
                 )}
-                {t('newsletter.popup.googleSignIn')}
-              </button>
+              </div>
 
               {/* Divider */}
               <div className="flex items-center gap-3">

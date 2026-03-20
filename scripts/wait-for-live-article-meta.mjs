@@ -36,11 +36,17 @@ function normalize(text) {
   return String(text || '').replace(/\s+/g, ' ').trim();
 }
 
+function normalizePathname(pathname) {
+  const value = String(pathname || '').trim();
+  if (!value || value === '/') return '/';
+  return value.replace(/\/+$/, '') || '/';
+}
+
 function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
-const expectedPath = new URL(url).pathname;
+const expectedPath = normalizePathname(new URL(url).pathname);
 
 while (Date.now() < deadline) {
   try {
@@ -61,7 +67,7 @@ while (Date.now() < deadline) {
 
     const titleMatches = ogTitle === normalize(expectedOgTitle);
     const imageMatches = !expectedOgImage || ogImage === normalize(expectedOgImage);
-    const pathMatches = !!ogUrl && new URL(ogUrl).pathname === expectedPath;
+    const pathMatches = !!ogUrl && normalizePathname(new URL(ogUrl).pathname) === expectedPath;
 
     if (res.ok && titleMatches && imageMatches && pathMatches) {
       console.log(`✅ Live article metadata ready: ${url}`);

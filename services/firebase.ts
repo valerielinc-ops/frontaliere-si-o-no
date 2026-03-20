@@ -200,6 +200,23 @@ let appCheck: AppCheck | null = null;
 let recaptchaSiteKey: string | null = null;
 let recaptchaScriptLoaded = false;
 
+type AppCheckModuleLike = {
+  ReCaptchaV3Provider: new (siteKey: string) => unknown;
+  ReCaptchaEnterpriseProvider?: new (siteKey: string) => unknown;
+};
+
+export function createRecaptchaAppCheckProvider(
+  appCheckModule: AppCheckModuleLike,
+  siteKey: string,
+  targetWindow: RecaptchaLikeWindow | undefined,
+) {
+  const hasEnterpriseClient = typeof targetWindow?.grecaptcha?.enterprise?.ready === 'function';
+  if (hasEnterpriseClient && typeof appCheckModule.ReCaptchaEnterpriseProvider === 'function') {
+    return new appCheckModule.ReCaptchaEnterpriseProvider(siteKey);
+  }
+  return new appCheckModule.ReCaptchaV3Provider(siteKey);
+}
+
 /**
  * Carica lo script reCAPTCHA dinamicamente con la site key da Remote Config
  */
@@ -290,12 +307,22 @@ async function initAppCheck(): Promise<void> {
     const { recaptchaService } = await import('@/services/recaptchaService');
     recaptchaService.setSiteKey(recaptchaSiteKey);
     
-    const { initializeAppCheck, ReCaptchaV3Provider } = await import("firebase/app-check");
-    appCheck = initializeAppCheck(await getAppInstance(), {
-      provider: new ReCaptchaV3Provider(recaptchaSiteKey),
+    const appCheckModule = await import("firebase/app-check");
+    const provider = createRecaptchaAppCheckProvider(
+      appCheckModule,
+      recaptchaSiteKey,
+      window as RecaptchaLikeWindow,
+    );
+
+    appCheck = appCheckModule.initializeAppCheck(await getAppInstance(), {
+      provider,
       isTokenAutoRefreshEnabled: true
     });
-    console.log('✅ Firebase App Check inizializzato con reCAPTCHA v3');
+    console.log(
+      provider.constructor?.name === 'ReCaptchaEnterpriseProvider'
+        ? '✅ Firebase App Check inizializzato con reCAPTCHA Enterprise'
+        : '✅ Firebase App Check inizializzato con reCAPTCHA v3',
+    );
   } catch (error) {
     firebaseWarn('⚠️ App Check non disponibile:', error);
     reportCaughtError(error, 'firebase.initAppCheck');

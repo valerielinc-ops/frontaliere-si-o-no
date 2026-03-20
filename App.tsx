@@ -2906,6 +2906,7 @@ const App: React.FC = () => {
               <JobBoard
                 initialJobSlug={jobSlug || undefined}
                 isLoggedIn={!!authUser}
+                authUser={authUser}
                 authLoading={authLoading}
                 onGoogleAuthRequired={googleSignIn}
                 onFacebookAuthRequired={facebookSignIn}

@@ -355,11 +355,6 @@ jobs:
           echo "committed=false" >> "$GITHUB_OUTPUT"
           exit 1
 
-      # Trigger deploy.yml (GITHUB_TOKEN pushes don't trigger other workflows)
-      - name: Trigger deploy workflow
-        if: steps.commit.outputs.committed == 'true'
-        run: bash scripts/lib/trigger-deploy.sh
-
       - name: Verify article exists in committed source and dist
         if: steps.commit.outputs.committed == 'true' && steps.generate.outputs.article_id != ''
         id: verify_article
@@ -398,24 +393,18 @@ jobs:
           echo "✅ All checks passed for '$ARTICLE_ID'"
           echo "exists=true" >> "$GITHUB_OUTPUT"
 
-      - name: Wait for live article metadata
-        if: steps.verify_article.outputs.exists == 'true'
-        id: wait_live_meta
+      # Trigger deploy.yml (GITHUB_TOKEN pushes don't trigger other workflows)
+      - name: Trigger deploy workflow
+        id: trigger_deploy
+        if: steps.commit.outputs.committed == 'true' && steps.verify_article.outputs.exists == 'true'
         run: |
-          node scripts/wait-for-live-article-meta.mjs \
-            "${{ steps.generate.outputs.article_url }}" \
-            "${{ steps.generate.outputs.og_title }}"
-
-      - name: Post to Facebook Page
-        if: steps.verify_article.outputs.exists == 'true' && steps.wait_live_meta.outcome == 'success'
-        run: |
-          node scripts/post-to-facebook.mjs \
-            "${{ steps.generate.outputs.article_id }}" \
-            "${{ steps.generate.outputs.article_url }}" \
-            "${{ steps.generate.outputs.og_title }}" \
-            "${{ steps.generate.outputs.og_description }}" \
-            "${{ steps.generate.outputs.category }}"
-        continue-on-error: true
+          EXPECTED_SHA="$(git rev-parse HEAD)" \
+          DEPLOY_ARTICLE_ID="${{ steps.generate.outputs.article_id }}" \
+          DEPLOY_ARTICLE_URL="${{ steps.generate.outputs.article_url }}" \
+          DEPLOY_ARTICLE_OG_TITLE="${{ steps.generate.outputs.og_title }}" \
+          DEPLOY_ARTICLE_OG_DESCRIPTION="${{ steps.generate.outputs.og_description }}" \
+          DEPLOY_ARTICLE_CATEGORY="${{ steps.generate.outputs.category }}" \
+          bash scripts/lib/trigger-deploy.sh
 
       # ── Final disposition report ──────────────────────────────────────
       # This step runs ALWAYS to give a clear summary of what happened
@@ -429,11 +418,15 @@ jobs:
           HAS_CHANGES="${{ steps.changes.outputs.has_changes }}"
           COMMITTED="${{ steps.commit.outputs.committed }}"
           VERIFIED="${{ steps.verify_article.outputs.exists }}"
+          DEPLOY_DISPATCHED="${{ steps.trigger_deploy.outputs.dispatch_sent }}"
 
           # Determine final status
-          if [ "$VERIFIED" == "true" ]; then
-            STATUS="✅ Published & submitted"
+          if [ "$VERIFIED" == "true" ] && [ "$DEPLOY_DISPATCHED" == "true" ]; then
+            STATUS="✅ Committed, verified in build, deploy triggered"
             ICON="🟢"
+          elif [ "$VERIFIED" == "true" ] && [ "$DEPLOY_DISPATCHED" != "true" ]; then
+            STATUS="⚠️ Committed and verified in build, but deploy dispatch was not confirmed"
+            ICON="🟠"
           elif [ "$COMMITTED" == "true" ] && [ "$VERIFIED" != "true" ]; then
             STATUS="⚠️ Committed but verification FAILED — article may be broken"
             ICON="🟠"
@@ -456,7 +449,7 @@ jobs:
           echo "   Article: $ARTICLE_ID"
           echo "   URL: $ARTICLE_URL"
           echo "   Source: $SOURCE_URL"
-          echo "   committed=$COMMITTED  verified=$VERIFIED  has_changes=$HAS_CHANGES"
+          echo "   committed=$COMMITTED  verified=$VERIFIED  deploy_dispatched=$DEPLOY_DISPATCHED  has_changes=$HAS_CHANGES"
           echo ""
 
           # Append to step summary for clear visibility
@@ -472,6 +465,7 @@ jobs:
             echo "| Changes detected | $HAS_CHANGES |"
             echo "| Committed to main | $COMMITTED |"
             echo "| Verified in dist | $VERIFIED |"
+            echo "| Deploy dispatched | $DEPLOY_DISPATCHED |"
           } >> "$GITHUB_STEP_SUMMARY"
 
           # Emit warning annotation for lost articles (visible in PR / Actions UI)

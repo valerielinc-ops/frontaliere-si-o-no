@@ -5,6 +5,27 @@ on:
     branches:
       - main
   workflow_dispatch:
+    inputs:
+      article_id:
+        description: 'Optional article id to verify live metadata and post to Facebook after deploy'
+        required: false
+        type: string
+      article_url:
+        description: 'Optional live article URL for post-deploy metadata verification'
+        required: false
+        type: string
+      og_title:
+        description: 'Optional expected OG title for the deployed article'
+        required: false
+        type: string
+      og_description:
+        description: 'Optional OG description for the Facebook post copy'
+        required: false
+        type: string
+      article_category:
+        description: 'Optional article category used for Facebook hashtags'
+        required: false
+        type: string
 
 permissions:
   contents: read
@@ -112,6 +133,25 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+      - name: Wait for live article metadata
+        if: success() && github.event_name == 'workflow_dispatch' && github.event.inputs.article_url != '' && github.event.inputs.og_title != ''
+        id: wait_live_meta
+        run: |
+          node scripts/wait-for-live-article-meta.mjs \
+            "${{ github.event.inputs.article_url }}" \
+            "${{ github.event.inputs.og_title }}"
+
+      - name: Post to Facebook Page
+        if: success() && github.event_name == 'workflow_dispatch' && github.event.inputs.article_id != '' && steps.wait_live_meta.outcome == 'success'
+        continue-on-error: true
+        run: |
+          node scripts/post-to-facebook.mjs \
+            "${{ github.event.inputs.article_id }}" \
+            "${{ github.event.inputs.article_url }}" \
+            "${{ github.event.inputs.og_title }}" \
+            "${{ github.event.inputs.og_description }}" \
+            "${{ github.event.inputs.article_category }}"
 
       - name: Google Indexing API — JobPosting only
         if: success()
