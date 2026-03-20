@@ -27,6 +27,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const DATA_JOBS_PATH = path.resolve(__dirname, '..', 'data', 'jobs.json');
 const PUBLIC_JOBS_PATH = path.resolve(__dirname, '..', 'public', 'data', 'jobs.json');
 const META_PATH = path.resolve(__dirname, '..', 'data', 'jobs-meta.json');
+const EXPIRED_JOBS_PATH = path.resolve(__dirname, '..', 'data', 'expired-jobs.json');
 
 const MAX_CONCURRENCY = Math.max(1, Math.min(20, Number(process.env.JOBS_HOUSEKEEPING_CONCURRENCY || DEFAULT_CONCURRENCY)));
 const TIMEOUT_MS = Math.max(2000, Math.min(15000, Number(process.env.JOBS_HOUSEKEEPING_TIMEOUT_MS || DEFAULT_TIMEOUT_MS)));
@@ -94,6 +95,63 @@ function jobMatchesHousekeepingScope(job, scopeRaw) {
 
   const jobTokens = buildJobScopeTokens(job);
   return jobTokens.has(scope) || jobTokens.has(compactScope);
+}
+
+/** Maximum number of expired jobs to keep in the archive. Older entries are
+ *  evicted when the cap is exceeded. */
+const EXPIRED_JOBS_CAP = 5000;
+
+/**
+ * Archive removed jobs to data/expired-jobs.json so the build plugin can
+ * generate rich soft-landing pages with original title, company, description.
+ *
+ * Only jobs with a slug are archived (slugless jobs have no page to land on).
+ * Existing entries are preserved; newer removals overwrite older ones for the
+ * same slug.
+ */
+function archiveExpiredJobs(removedJobs, allJobsById) {
+  let existing = [];
+  try {
+    existing = JSON.parse(fs.readFileSync(EXPIRED_JOBS_PATH, 'utf-8'));
+    if (!Array.isArray(existing)) existing = [];
+  } catch { /* file missing or malformed — start fresh */ }
+
+  const bySlug = new Map();
+  for (const ej of existing) {
+    if (ej.slug) bySlug.set(ej.slug, ej);
+  }
+
+  let added = 0;
+  for (const r of removedJobs) {
+    const job = allJobsById.get(r.id);
+    if (!job || !job.slug) continue;
+
+    bySlug.set(job.slug, {
+      slug: job.slug,
+      title: job.title || '',
+      titleByLocale: job.titleByLocale || {},
+      company: job.company || '',
+      location: job.location || '',
+      addressLocality: job.addressLocality || '',
+      descriptionByLocale: job.descriptionByLocale || {},
+      slugByLocale: job.slugByLocale || {},
+      sector: job.sector || '',
+      expiredAt: new Date().toISOString(),
+    });
+    added++;
+  }
+
+  if (added === 0 && existing.length === bySlug.size) return 0;
+
+  // Sort by expiredAt descending, cap at EXPIRED_JOBS_CAP
+  let archived = [...bySlug.values()]
+    .sort((a, b) => (b.expiredAt || '').localeCompare(a.expiredAt || ''));
+  if (archived.length > EXPIRED_JOBS_CAP) {
+    archived = archived.slice(0, EXPIRED_JOBS_CAP);
+  }
+
+  writeJson(EXPIRED_JOBS_PATH, archived);
+  return added;
 }
 
 function updateMeta(totalJobs) {
@@ -195,6 +253,18 @@ async function main() {
         deduped.push(job);
       }
       kept = deduped;
+
+      // Archive removed jobs for rich soft-landing pages
+      const keptSlugs = new Set(kept.map((j) => j.slug).filter(Boolean));
+      const sliceRemoved = hardenedJobs.filter((j) => j.slug && !keptSlugs.has(j.slug));
+      if (sliceRemoved.length > 0) {
+        const sliceJobsById = new Map(hardenedJobs.map((j) => [j.id, j]));
+        const sliceArchived = archiveExpiredJobs(
+          sliceRemoved.map((j) => ({ id: j.id })),
+          sliceJobsById,
+        );
+        if (sliceArchived > 0) console.log(`📦 Archived ${sliceArchived} expired jobs from slice (soft-landing SEO)`);
+      }
 
       // Write back to slice file (preserve envelope)
       const totalRemoved = hardenedJobs.length - kept.length;
@@ -359,6 +429,13 @@ async function main() {
     console.log(`   - ${r.id} (${r.status ?? '?'}) ${r.reason}`);
   }
   if (removed.length > 30) console.log(`   … +${removed.length - 30} altri`);
+
+  // Archive removed jobs for rich soft-landing pages
+  const jobsById = new Map(jobs.map((j) => [j.id, j]));
+  const archived = archiveExpiredJobs(removed, jobsById);
+  if (archived > 0) {
+    console.log(`📦 Archiviati ${archived} job scaduti in data/expired-jobs.json (soft-landing SEO)`);
+  }
 
   const finalJobs = HOUSEKEEPING_SCOPE ? [...untouchedJobs, ...kept] : kept;
 
