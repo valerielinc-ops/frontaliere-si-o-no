@@ -79,7 +79,7 @@ describe('jobDataNormalization', () => {
       url: 'https://boggimilano1.recruitee.com/l/it/o/retail-hr-specialist-2',
     });
 
-    expect(logo).toBe('https://www.boggi.com/on/demandware.static/Sites-Boggi-Site/-/default/dw7dc8b6c7/images/logo.svg');
+    expect(logo).toBe('https://www.boggi.com/on/demandware.static/Sites-Boggi-Site/-/default/dwc9d6c35e/images/global/boggi-logo.svg');
   });
 
   it('returns Boggi official logo even when the crawler record has no companyKey', () => {
@@ -89,7 +89,7 @@ describe('jobDataNormalization', () => {
       url: 'https://boggimilano1.recruitee.com/l/it/o/retail-hr-specialist-2',
     });
 
-    expect(logo).toBe('https://www.boggi.com/on/demandware.static/Sites-Boggi-Site/-/default/dw7dc8b6c7/images/logo.svg');
+    expect(logo).toBe('https://www.boggi.com/on/demandware.static/Sites-Boggi-Site/-/default/dwc9d6c35e/images/global/boggi-logo.svg');
   });
 
   it('returns Convit official logo for Convit jobs instead of careers-page favicon', () => {

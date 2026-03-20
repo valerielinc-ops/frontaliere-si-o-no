@@ -9,7 +9,8 @@ describe('JobBoard mobile Google redirect flow', () => {
     const source = readFileSync(resolve(root, 'components/community/JobBoard.tsx'), 'utf8');
 
     expect(source).toContain("const JOB_AUTH_REDIRECT_SLUG_KEY = 'frontaliere_job_auth_redirect_slug';");
-    expect(source).toContain('saveJobAuthRedirectSlug(deriveLocalizedJobSlug(redirectJob, locale));');
+    expect(source).toContain('if (redirectSlug) {');
+    expect(source).toContain('saveJobAuthRedirectSlug(redirectSlug);');
     expect(source).toContain("const redirectProvider = (() => {");
     expect(source).toContain("if (redirectProvider === provider) {");
     expect(source).toContain("if (initialJobSlug === redirectSlug) return;");
