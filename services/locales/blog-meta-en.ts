@@ -1439,6 +1439,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.franco-svizzero-impatti-ticino.title': 'Luss Attacks the SNB: The Franc Hurts Ticino Businesses',
     'blog.article.franco-svizzero-impatti-ticino.excerpt': 'The Swiss Union criticizes the SNB\'s policy on the franc, highlighting risks for export companies and the Ticino economy. Analysis and strategies.',
     'blog.article.franco-svizzero-impatti-ticino.imageAlt': 'Ticino border crossing with traffic between Italy and Switzerland, scene of cross-border workers and alpine landscape.',
+    'blog.article.tassa-transito-automobilisti-ticino.title': 'Transit Tax in Ticino: What Changes for Foreign Drivers',
+    'blog.article.tassa-transito-automobilisti-ticino.excerpt': 'Starting from 2026, foreigners crossing Ticino in their cars without significant stops will be required to pay a dynamic transit fee. Analysis and practical details.',
+    'blog.article.tassa-transito-automobilisti-ticino.imageAlt': 'Cars crossing the Gaggiolo border in Ticino with mountains in the background',
 };
 
 export default blogMetaEn;

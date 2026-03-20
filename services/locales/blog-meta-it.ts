@@ -1439,6 +1439,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.franco-svizzero-impatti-ticino.title': 'Luss attacca la BNS: il franco danneggia le imprese del Ticino',
     'blog.article.franco-svizzero-impatti-ticino.excerpt': 'L\'Unione sindacale svizzera critica la politica della BNS sul franco, evidenziando rischi per le imprese esportatrici e l\'economia del Ticino. Analisi e strategie.',
     'blog.article.franco-svizzero-impatti-ticino.imageAlt': 'Valico di confine Ticino con traffico tra Italia e Svizzera, scena di frontaliers e paesaggio alpino.',
+    'blog.article.tassa-transito-automobilisti-ticino.title': 'Tassa di transito in Ticino: cosa cambia per gli automobilisti stranieri',
+    'blog.article.tassa-transito-automobilisti-ticino.excerpt': 'Dal 2026, gli stranieri che attraversano il Ticino in auto senza soste significative dovranno pagare una tassa di transito dinamica. Analisi e dettagli pratici.',
+    'blog.article.tassa-transito-automobilisti-ticino.imageAlt': 'Auto in transito al valico di Gaggiolo con montagne sullo sfondo in Ticino',
 };
 
 export default blogMetaIt;

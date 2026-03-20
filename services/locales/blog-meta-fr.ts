@@ -1439,6 +1439,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.franco-svizzero-impatti-ticino.title': 'Luss attaque la BNS : le franc suisse nuit aux entreprises du Tessin',
     'blog.article.franco-svizzero-impatti-ticino.excerpt': 'L\'Union syndicale suisse critique la politique de la BNS concernant le franc, soulignant les risques pour les entreprises exportatrices et l\'économie du Tessin. Analyse et stratégies.',
     'blog.article.franco-svizzero-impatti-ticino.imageAlt': 'Passage frontalier dans le Tessin avec trafic entre l\'Italie et la Suisse, scène de frontaliers et paysage alpin.',
+    'blog.article.tassa-transito-automobilisti-ticino.title': 'Taxe de transit au Tessin : quelles sont les nouveautés pour les automobilistes étrangers',
+    'blog.article.tassa-transito-automobilisti-ticino.excerpt': 'À partir de 2026, les étrangers traversant le Tessin en voiture sans s’arrêter significativement devront payer une taxe de transit dynamique. Analyse et détails pratiques.',
+    'blog.article.tassa-transito-automobilisti-ticino.imageAlt': 'Voitures traversant la frontière de Gaggiolo dans le Tessin avec montagnes en arrière-plan',
 };
 
 export default blogMetaFr;

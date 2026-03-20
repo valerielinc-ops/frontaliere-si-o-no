@@ -7041,6 +7041,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-tassa-transito-automobilisti-ticino': {
+    title: 'Tassa di transito in Ticino: cosa cambia per gli automobilisti stranieri | Frontaliere Ticino',
+    description: 'Dal 2026, gli stranieri che attraversano il Ticino in auto senza soste significative dovranno pagare una tassa di transito dinamica. Analisi e dettagli pratici.',
+    keywords: 'frontalieri, ticino, svizzera, italia, tassa, transito, cosa, cambia',
+    ogTitle: 'Tassa di transito in Ticino: cosa cambia per gli automobi',
+    ogDescription: 'Dal 2026, gli stranieri che attraversano il Ticino in auto senza soste significative dovranno pagare una tassa di transito dinamica. Analisi e dettagli pratici.',
+    canonicalPath: '/articoli-frontaliere/tassa-transito-automobilisti-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Tassa di transito in Ticino: cosa cambia per gli automobi",
+      "description": "Dal 2026, gli stranieri che attraversano il Ticino in auto senza soste significative dovranno pagare una tassa di transito dinamica. Analisi e dettagli pratici.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/tassa-transito-automobilisti-ticino.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Auto in transito al valico di Gaggiolo con montagne sullo sfondo in Ticino"
+      },
+      "datePublished": "2026-03-20T13:49:13+00:00",
+      "dateModified": "2026-03-20T13:49:13+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tassa-transito-automobilisti-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

@@ -1439,6 +1439,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.franco-svizzero-impatti-ticino.title': 'Luss greift die SNB an: Der Franken schadet den Tessiner Unternehmen',
     'blog.article.franco-svizzero-impatti-ticino.excerpt': 'Der Schweizerische Gewerkschaftsbund kritisiert die Politik der SNB zum Franken, hebt Risiken für exportierende Unternehmen und die Tessiner Wirtschaft hervor. Analyse und Strategien.',
     'blog.article.franco-svizzero-impatti-ticino.imageAlt': 'Grenzübergang im Tessin mit Verkehr zwischen Italien und Schweiz, Szene von Grenzgängern und Alpenlandschaft.',
+    'blog.article.tassa-transito-automobilisti-ticino.title': 'Durchfahrtssteuer im Tessin: Was ändert sich für ausländische Autofahrer',
+    'blog.article.tassa-transito-automobilisti-ticino.excerpt': 'Ab 2026 müssen Ausländer, die das Tessin ohne bedeutende Stopps durchqueren, eine dynamische Durchfahrtssteuer bezahlen. Analyse und praktische Details.',
+    'blog.article.tassa-transito-automobilisti-ticino.imageAlt': 'Autos am Grenzübergang Gaggiolo in Tessin mit Bergen im Hintergrund',
 };
 
 export default blogMetaDe;

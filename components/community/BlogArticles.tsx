@@ -3952,6 +3952,13 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/franco-svizzero-impatti-ticino.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'tassa-transito-automobilisti-ticino',
+    category: 'fiscale',
+    date: '2026-03-20T13:49:13.780Z',
+    image: '/images/blog/tassa-transito-automobilisti-ticino.jpg',
+    hasCalculator: true,
+  },
 ];
 
 const CATEGORIES = ['all', 'fiscale', 'pratico', 'novita', 'pensione'] as const;
