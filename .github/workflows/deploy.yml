@@ -1,4 +1,4 @@
-name: Deploy to Firebase Hosting
+name: Deploy to GitHub Pages
 
 on:
   push:
@@ -8,14 +8,19 @@ on:
 
 permissions:
   contents: read
+  pages: write
+  id-token: write
 
 concurrency:
-  group: deploy-firebase-hosting-live
+  group: deploy-github-pages-live
   cancel-in-progress: false
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Checkout
         uses: actions/checkout@v5
@@ -62,6 +67,9 @@ jobs:
           NODE_OPTIONS: '--max-old-space-size=4096'
         run: npm run build
 
+      - name: SPA fallback (GitHub Pages serves 404.html for unknown paths)
+        run: cp dist/index.html dist/404.html
+
       - name: Replace flat redirect files with content copies
         run: node scripts/flat-content-replace.mjs
 
@@ -83,14 +91,8 @@ jobs:
       - name: Validate sitemap content quality (blocking)
         run: node scripts/validate-content-quality.mjs
 
-      - name: Compress assets (gzip + brotli)
+      - name: Build size summary
         run: |
-          # Pre-compress static assets for CDN/server that supports pre-compressed files
-          find dist -type f \( -name "*.js" -o -name "*.css" -o -name "*.html" -o -name "*.svg" -o -name "*.json" \) | while read file; do
-            gzip -9 -k "$file"
-          done
-          echo "✅ Gzip compression complete"
-          # Print size summary
           echo "=== Build size summary ==="
           du -sh dist/
           echo "JS files:"
@@ -102,13 +104,14 @@ jobs:
         continue-on-error: true
         run: node scripts/capture-deployed-sitemaps.mjs
 
-      - name: Deploy to Firebase Hosting
-        uses: FirebaseExtended/action-hosting-deploy@v0
+      - name: Upload artifact for GitHub Pages
+        uses: actions/upload-pages-artifact@v3
         with:
-          repoToken: ${{ secrets.GITHUB_TOKEN }}
-          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
-          channelId: live
-          projectId: frontaliere-ticino
+          path: dist
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
 
       - name: Google Indexing API — JobPosting only
         if: success()
