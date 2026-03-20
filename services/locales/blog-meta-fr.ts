@@ -1454,6 +1454,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.controlli-cantieri-mendrisiotto.title': 'Opération de contrôle dans les chantiers du Mendrisiotto : aucune irrégularité constatée',
     'blog.article.controlli-cantieri-mendrisiotto.excerpt': 'Contrôles rigoureux dans sept chantiers du Mendrisiotto : 66 travailleurs impliqués, aucune irrégularité relevée. Voici ce qui ressort.',
     'blog.article.controlli-cantieri-mendrisiotto.imageAlt': 'Chantiers de construction à Mendrisio, ouvriers au travail et structures en cours, Tessin.',
+    'blog.article.acinque-lancia-piano-genitorialita.title': 'Acinque lance le plan \'Genitorialità\' : un mois de congé extra et des bonus jusqu\'à 3 200 euros',
+    'blog.article.acinque-lancia-piano-genitorialita.excerpt': 'La multiutility lombarde présente un plan de soutien pour les employés des provinces de Varese, Como, Lecco et Sondrio avec des investissements records dans le plan décennal.',
+    'blog.article.acinque-lancia-piano-genitorialita.imageAlt': 'Famille heureuse avec enfants se promenant dans le parc de Lugano',
 };
 
 export default blogMetaFr;

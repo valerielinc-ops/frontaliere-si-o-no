@@ -1454,6 +1454,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.controlli-cantieri-mendrisiotto.title': 'Operazione di controllo nei cantieri del Mendrisiotto: nessuna irregolarità riscontrata',
     'blog.article.controlli-cantieri-mendrisiotto.excerpt': 'Controlli rigorosi in sette cantieri del Mendrisiotto: coinvolti 66 lavoratori, nessuna irregolarità rilevata. Ecco cosa emerge.',
     'blog.article.controlli-cantieri-mendrisiotto.imageAlt': 'Cantieri edilizi nel Mendrisiotto, operai al lavoro e strutture in costruzione.',
+    'blog.article.acinque-lancia-piano-genitorialita.title': 'Acinque lancia il piano \'Genitorialità\': un mese di congedo extra e bonus fino a 3.200 euro',
+    'blog.article.acinque-lancia-piano-genitorialita.excerpt': 'La multiutility lombarda presenta un piano di supporto per i dipendenti delle province di Varese, Como, Lecco e Sondrio con investimenti record nel piano decennale.',
+    'blog.article.acinque-lancia-piano-genitorialita.imageAlt': 'Famiglia felice con bambini a passeggio nel parco di Lugano',
 };
 
 export default blogMetaIt;

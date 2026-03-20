@@ -7186,6 +7186,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-acinque-lancia-piano-genitorialita': {
+    title: 'Acinque lancia il piano \'Genitorialità\': un mese di congedo extra e | Frontaliere Ticino',
+    description: 'La multiutility lombarda Acinque lancia un piano di supporto per i dipendenti con un mese di congedo extra e bonus fino a 3.200 euro. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, acinque, lancia, piano, genitorialità',
+    ogTitle: 'Acinque lancia piano \'Genitorialità\': un mese di congedo extra e bonus',
+    ogDescription: 'La multiutility lombarda presenta un piano di supporto per i dipendenti delle province di Varese, Como, Lecco e Sondrio.',
+    canonicalPath: '/articoli-frontaliere/acinque-lancia-piano-genitorialita',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Acinque lancia il piano 'Genitorialità': un mese di congedo extra e bonus fino a 3.200 euro",
+      "description": "La multiutility lombarda Acinque lancia un piano di supporto per i dipendenti con un mese di congedo extra e bonus fino a 3.200 euro. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/acinque-lancia-piano-genitorialita.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Famiglia felice con bambini a passeggio nel parco di Lugano"
+      },
+      "datePublished": "2026-03-20T17:04:05+00:00",
+      "dateModified": "2026-03-20T17:04:05+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/acinque-lancia-piano-genitorialita`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

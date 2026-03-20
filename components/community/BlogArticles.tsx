@@ -3987,6 +3987,13 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/controlli-cantieri-mendrisiotto.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'acinque-lancia-piano-genitorialita',
+    category: 'novita',
+    date: '2026-03-20T17:04:05.420Z',
+    image: '/images/blog/acinque-lancia-piano-genitorialita.jpg',
+    hasCalculator: true,
+  },
 ];
 
 const CATEGORIES = ['all', 'fiscale', 'pratico', 'novita', 'pensione'] as const;
