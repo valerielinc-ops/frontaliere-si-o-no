@@ -1394,6 +1394,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.contrabbando-ai-confine-aumentano-droga-e-sigarette.title': 'Smuggling at the borders: Illicit goods and cigarettes on the rise',
     'blog.article.contrabbando-ai-confine-aumentano-droga-e-sigarette.excerpt': 'According to the Federal Customs Administration and Border Security (UDSC), 1.6 million illicit cigarettes were seized in 2025, a significantly higher number than the 950,000 recorded the previous year and almost doubled compared to 2023.',
     'blog.article.contrabbando-ai-confine-aumentano-droga-e-sigarette.imageAlt': 'Smuggling at the Swiss-Italian border',
+    'blog.article.kebab-case-3-5-words-max-40-chars.title': 'Umberto Bossi, Founder of the \'Lega Nord\', Dies',
+    'blog.article.kebab-case-3-5-words-max-40-chars.excerpt': 'Umberto Bossi, the founder of the \'Lega Nord\', has died at the hospital in Varese. The news has shocked the Italian political scene.',
+    'blog.article.kebab-case-3-5-words-max-40-chars.imageAlt': 'Lugano view from Lake',
 };
 
 export default blogMetaEn;

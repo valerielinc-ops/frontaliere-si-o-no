@@ -1394,6 +1394,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.contrabbando-ai-confine-aumentano-droga-e-sigarette.title': 'Contrebande aux frontières: augmentation de la drogue et des cigarettes',
     'blog.article.contrabbando-ai-confine-aumentano-droga-e-sigarette.excerpt': 'Selon les données de l\'Office fédéral des douanes et de la sécurité des frontières (OFDF), 1,6 million de cigarettes illégales ont été saisis en 2025.',
     'blog.article.contrabbando-ai-confine-aumentano-droga-e-sigarette.imageAlt': 'Contrebande aux frontières suisses-italiennes',
+    'blog.article.kebab-case-3-5-words-max-40-chars.title': 'Umberto Bossi, le \'senatur\' fondateur de la Ligue Nord, est décédé',
+    'blog.article.kebab-case-3-5-words-max-40-chars.excerpt': 'Umberto Bossi, le \'senatur\' fondateur de la Ligue Nord, est décédé à l\'hôpital de Varese. La nouvelle a frappé la politique italienne.',
+    'blog.article.kebab-case-3-5-words-max-40-chars.imageAlt': 'Lugano vue du lac',
 };
 
 export default blogMetaFr;

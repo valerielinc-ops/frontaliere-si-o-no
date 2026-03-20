@@ -1598,6 +1598,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-soggiorni-irregolari-2026-mendrisio': { name: 'Soggiorni irregolari a febbraio', path: '/articoli-frontaliere/soggiorni-irregolari-2026-mendrisio', parent: 'blog' },
     'blog-eolico-gottardo-ampliamento-2026': { name: 'Energia eolica', path: '/articoli-frontaliere/eolico-gottardo-ampliamento-2026', parent: 'blog' },
     'blog-contrabbando-ai-confine-aumentano-droga-e-sigarette': { name: 'Contrabbando ai confini', path: '/articoli-frontaliere/contrabbando-ai-confine-aumentano-droga-e-sigarette', parent: 'blog' },
+    'blog-kebab-case-3-5-words-max-40-chars': { name: 'Notizie', path: '/articoli-frontaliere/kebab-case-3-5-words-max-40-chars', parent: 'blog' },
   };
 
   const info = sectionNames[section];

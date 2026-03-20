@@ -1394,6 +1394,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.contrabbando-ai-confine-aumentano-droga-e-sigarette.title': 'Contrabbando ai confini: aumentano droga e sigarette',
     'blog.article.contrabbando-ai-confine-aumentano-droga-e-sigarette.excerpt': 'Secondo i dati dell\'Ufficio federale della dogana e della sicurezza dei confini (UDSC), sono state sequestrate 1,6 milioni di sigarette illegali nel 2025.',
     'blog.article.contrabbando-ai-confine-aumentano-droga-e-sigarette.imageAlt': 'Contrabbando ai confini',
+    'blog.article.kebab-case-3-5-words-max-40-chars.title': 'È morto Umberto Bossi, il \'senatur\' fondatore della Lega Nord',
+    'blog.article.kebab-case-3-5-words-max-40-chars.excerpt': 'Umberto Bossi, il fondatore della Lega Nord, è morto all\'ospedale di Varese. La notizia ha colpito la politica italiana.',
+    'blog.article.kebab-case-3-5-words-max-40-chars.imageAlt': 'Lugano vista dal Lago',
 };
 
 export default blogMetaIt;

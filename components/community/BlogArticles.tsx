@@ -3847,6 +3847,13 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/contrabbando-ai-confine-aumentano-droga-e-sigarette.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'kebab-case-3-5-words-max-40-chars',
+    category: 'novita',
+    date: '2026-03-20T04:58:04.475Z',
+    image: '/images/blog/kebab-case-3-5-words-max-40-chars.jpg',
+    hasCalculator: true,
+  },
 ];
 
 const CATEGORIES = ['all', 'fiscale', 'pratico', 'novita', 'pensione'] as const;

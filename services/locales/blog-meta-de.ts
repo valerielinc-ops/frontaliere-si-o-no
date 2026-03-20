@@ -1394,6 +1394,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.contrabbando-ai-confine-aumentano-droga-e-sigarette.title': 'Zoll- und Grenzvergehen: Zigaretten- und Drogenhandel zunehmen',
     'blog.article.contrabbando-ai-confine-aumentano-droga-e-sigarette.excerpt': 'Laut Daten des Eidgenössischen Zoll- und Zollverwaltungsdienstes (EZZD) wurden 1,6 Millionen illegale Zigaretten im Jahr 2025 beschlagnahmt.',
     'blog.article.contrabbando-ai-confine-aumentano-droga-e-sigarette.imageAlt': 'Schmuggel an der Schweizer-Italienischen Grenze',
+    'blog.article.kebab-case-3-5-words-max-40-chars.title': 'Umberto Bossi, der \'Senator\' und Gründer der Lega Nord, ist gestorben',
+    'blog.article.kebab-case-3-5-words-max-40-chars.excerpt': 'Umberto Bossi, der Gründer der Lega Nord, ist an einem Krankenhaus in Varese gestorben. Die Nachricht hat die italienische Politik tief getroffen.',
+    'blog.article.kebab-case-3-5-words-max-40-chars.imageAlt': 'Lugano aus dem See',
 };
 
 export default blogMetaDe;
