@@ -1,5 +1,9 @@
 #!/bin/sh
-# Pre-push hook: Run tests, build verification, quiz freshness, and job scraping before pushing
+# Pre-push hook: mirrors the deploy pipeline (assemble → build → validate)
+# then runs extra local-only checks (WhatsNew, quiz freshness, CI health).
+#
+# The core pipeline lives in package.json "prepush" — same steps as deploy.yml.
+# This avoids duplicating the validation chain in two places.
 #
 # ── Regole editoriali per la creazione articoli (create-article.mjs) ──
 #
@@ -30,35 +34,7 @@
 # ── Load environment variables (GEMINI_API_KEY etc.) ──
 [ -f "$HOME/.bashrc" ] && . "$HOME/.bashrc"
 
-echo "🏗️  Verifying build..."
-npx vite build --logLevel error 2>&1
-if [ $? -ne 0 ]; then
-  echo "❌ Build failed. Push aborted."
-  exit 1
-fi
-
-echo "🧪 Running test suite..."
-npm test
-if [ $? -ne 0 ]; then
-  echo "❌ Tests failed. Push aborted."
-  exit 1
-fi
-
-echo "🧩 Validating structured data JSON-LD..."
-npm run validate:structured-data
-if [ $? -ne 0 ]; then
-  echo "❌ Invalid structured data found. Push aborted."
-  exit 1
-fi
-
-echo "🔑 Validating jobs crawler company key resolution..."
-npm run validate:jobs-crawler-keys
-if [ $? -ne 0 ]; then
-  echo "❌ Jobs crawler key validation failed. Push aborted."
-  exit 1
-fi
-
-# WhatsNew pending releases enforcement (auto-apply every 30 commits)
+# ── WhatsNew pending releases enforcement (auto-apply every 30 commits) ──
 PENDING_RELEASES="data/pending-releases.json"
 if [ -f "$PENDING_RELEASES" ]; then
   PENDING_COUNT=$(node -e "try{const e=JSON.parse(require('fs').readFileSync('$PENDING_RELEASES','utf8'));console.log(Array.isArray(e)?e.length:0)}catch{console.log(0)}" 2>/dev/null)
@@ -106,7 +82,19 @@ if [ -f "$PENDING_RELEASES" ]; then
   fi
 fi
 
-# Quiz freshness reminder
+# ── Core deploy pipeline (assemble → build → all validations) ──
+echo ""
+echo "🚀 Running deploy pipeline locally (npm run prepush)..."
+echo ""
+npm run prepush
+if [ $? -ne 0 ]; then
+  echo ""
+  echo "❌ Deploy pipeline failed. Push aborted."
+  echo "   Fix the errors above and try again."
+  exit 1
+fi
+
+# ── Quiz freshness reminder (non-blocking) ──
 QUIZ_FILE="components/WeeklyQuiz.tsx"
 if [ -f "$QUIZ_FILE" ]; then
   QUIZ_LAST_MODIFIED=$(git log -1 --format="%at" -- "$QUIZ_FILE" 2>/dev/null || echo 0)
@@ -120,39 +108,13 @@ if [ -f "$QUIZ_FILE" ]; then
   fi
 fi
 
-# Job board freshness check and optional scrape
-JOBS_FILE="data/jobs.json"
-JOBS_META="data/jobs-meta.json"
-if [ -f "$JOBS_META" ]; then
-  JOBS_LAST_UPDATED=$(cat "$JOBS_META" 2>/dev/null | grep -o '"lastUpdated":"[^"]*"' | cut -d'"' -f4)
-  if [ -n "$JOBS_LAST_UPDATED" ]; then
-    JOBS_TIMESTAMP=$(date -j -f "%Y-%m-%dT%H:%M:%S" "${JOBS_LAST_UPDATED%%.*}" +%s 2>/dev/null || date -d "$JOBS_LAST_UPDATED" +%s 2>/dev/null || echo 0)
-    NOW=$(date +%s)
-    ONE_WEEK=$((7 * 24 * 60 * 60))
-    if [ "$JOBS_TIMESTAMP" -gt 0 ] && [ $((NOW - JOBS_TIMESTAMP)) -gt $ONE_WEEK ]; then
-      echo ""
-      echo "📋 Job board data is over 1 week old."
-      echo "   Running job scraper to refresh listings..."
-      npx ts-node scripts/update-jobs.ts 2>&1 || echo "   ⚠️ Job scraper encountered issues (non-blocking)"
-      # Stage updated job files if they changed
-      if git diff --quiet data/jobs.json data/jobs-meta.json 2>/dev/null; then
-        echo "   ℹ️  No changes to job data"
-      else
-        git add data/jobs.json data/jobs-meta.json 2>/dev/null
-        echo "   ✅ Job data updated and staged for commit"
-      fi
-      echo ""
-    fi
-  fi
-fi
-
 # ── CI Health Check: verify latest workflow runs for errors/warnings ──
 if command -v gh >/dev/null 2>&1; then
   echo ""
   echo "🔍 Checking latest CI workflow runs for errors/warnings..."
   CI_ISSUES=0
 
-  for WORKFLOW in "Generate Blog Article" "Deploy to GitHub Pages"; do
+  for WORKFLOW in "Generate Blog Article" "Deploy to Firebase Hosting"; do
     # Get the latest completed run
     RUN_JSON=$(gh run list --workflow "$WORKFLOW" --status completed --limit 1 --json databaseId,conclusion,startedAt,displayTitle 2>/dev/null)
     if [ -z "$RUN_JSON" ] || [ "$RUN_JSON" = "[]" ]; then
@@ -221,7 +183,6 @@ if command -v gh >/dev/null 2>&1; then
     echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
     echo ""
     # Non-blocking: report but don't abort push
-    # To make it blocking, uncomment: exit 1
   else
     echo "   ✅ Tutti i workflow CI sono puliti"
   fi
