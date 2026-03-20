@@ -2188,6 +2188,17 @@ Regeln:
     'seoContent.stats.check4': 'Daten zur Tessiner Grenzgänger-Gemeinschaft',
 
     // ─── What's New / Feature Announcements ─────────────────────────────
+    'whatsNew.v3330.title': 'Verbesserungen für eine bessere Erfahrung und Suchergebnisse',
+    'whatsNew.v3330.seo.title': 'Hilfreichere und auffindbarere Archivseiten',
+    'whatsNew.v3330.seo.desc': 'Wir haben Archivseiten informativer und einfacher zu navigieren gemacht, was Ihre Erfahrung verbessert und Suchmaschinen hilft, Ihnen relevante Inhalte anzuzeigen.',
+    'whatsNew.v3330.quality.title': 'Korrekturen für genauere Stellenanzeigen',
+    'whatsNew.v3330.quality.desc': 'Wir haben mehrere Probleme behoben, die zu Fehlern bei der Anzeige von Kurzbeschreibungen und deutschen Titeln für Stellenanzeigen führen konnten, und so für mehr Genauigkeit gesorgt.',
+    'whatsNew.v3330.assembler.title': 'Entfernung von Duplikaten für bessere Organisation',
+    'whatsNew.v3330.assembler.desc': 'Wir haben ein System zur Eliminierung doppelter Titel eingeführt, das sicherstellt, dass jedes Element einzigartig ist und die allgemeine Inhaltsorganisation verbessert.',
+    'whatsNew.v3330.indexnow.title': 'Schnellere Updates für Suchmaschinen',
+    'whatsNew.v3330.indexnow.desc': 'Wir vergleichen nun Änderungen mit früheren Versionen von Sitemaps und übermitteln nur neue oder aktualisierte URLs an Suchmaschinen, um die Effizienz zu steigern.',
+    'whatsNew.v3330.limit-blockquote-rendering.title': 'Verbesserungen bei der Inhaltsanzeige',
+    'whatsNew.v3330.limit-blockquote-rendering.desc': 'Wir haben Zitate auf zwei pro Artikel begrenzt und Firmenlogos zu Stellenkarten im Blog hinzugefügt, um die Lesbarkeit und Erkennung zu verbessern.',
     'whatsNew.v3320.title': 'Verbesserungen für einfacheres und genaueres Management',
     'whatsNew.v3320.admin.title': 'Deutlichere Unterscheidung für Job-Statistiken',
     'whatsNew.v3320.admin.desc': 'Sie können nun leicht zwischen täglichen Daten und neuen Stellenanzeigen auf Ihrem Dashboard unterscheiden.',

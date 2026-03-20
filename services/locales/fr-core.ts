@@ -2188,6 +2188,17 @@ Règles :
     'seoContent.stats.check4': 'Données sur la communauté frontalière tessinoise',
 
     // ─── What's New / Feature Announcements ─────────────────────────────────
+    'whatsNew.v3330.title': 'Améliorations pour une meilleure expérience et des résultats de recherche',
+    'whatsNew.v3330.seo.title': 'Pages d\'archives plus utiles et faciles à découvrir',
+    'whatsNew.v3330.seo.desc': 'Nous avons rendu les pages d\'archives plus riches et plus faciles à parcourir, améliorant votre expérience et aidant les moteurs de recherche à vous montrer du contenu pertinent.',
+    'whatsNew.v3330.quality.title': 'Corrections pour des offres d\'emploi plus précises',
+    'whatsNew.v3330.quality.desc': 'Nous avons résolu plusieurs problèmes qui pouvaient causer des erreurs dans l\'affichage des descriptions courtes et des titres en allemand pour les offres d\'emploi, garantissant ainsi une plus grande précision.',
+    'whatsNew.v3330.assembler.title': 'Suppression des doublons pour une meilleure organisation',
+    'whatsNew.v3330.assembler.desc': 'Nous avons introduit un système pour éliminer les titres en double, garantissant que chaque élément est unique et améliorant l\'organisation générale du contenu.',
+    'whatsNew.v3330.indexnow.title': 'Mises à jour plus rapides pour les moteurs de recherche',
+    'whatsNew.v3330.indexnow.desc': 'Nous comparons désormais les modifications aux versions précédentes des plans de site, en soumettant uniquement les URL nouvelles ou mises à jour aux moteurs de recherche pour une plus grande efficacité.',
+    'whatsNew.v3330.limit-blockquote-rendering.title': 'Améliorations de l\'affichage du contenu',
+    'whatsNew.v3330.limit-blockquote-rendering.desc': 'Nous avons limité les citations à deux par article et ajouté les logos des entreprises aux cartes d\'emploi du blog pour une meilleure lisibilité et reconnaissance.',
     'whatsNew.v3320.title': 'Améliorations pour une gestion plus simple et précise',
     'whatsNew.v3320.admin.title': 'Distinction plus claire pour les statistiques d\'emploi',
     'whatsNew.v3320.admin.desc': 'Vous pouvez désormais distinguer facilement les données quotidiennes des nouvelles offres d\'emploi sur votre tableau de bord.',

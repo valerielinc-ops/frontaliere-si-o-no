@@ -2280,6 +2280,17 @@ Regole:
     'seoContent.stats.check4': 'Dati sulla comunità frontaliera Ticino',
 
     // ─── What's New / Feature Announcements ─────────────────────────────
+    'whatsNew.v3330.title': 'Miglioramenti per una migliore esperienza e risultati di ricerca',
+    'whatsNew.v3330.seo.title': 'Pagine di archivio più utili e facili da trovare',
+    'whatsNew.v3330.seo.desc': 'Abbiamo reso le pagine di archivio più ricche di informazioni e più facili da navigare, migliorando la tua esperienza e aiutando i motori di ricerca a mostrarti contenuti pertinenti.',
+    'whatsNew.v3330.quality.title': 'Correzioni per annunci di lavoro più precisi',
+    'whatsNew.v3330.quality.desc': 'Abbiamo risolto diversi problemi che potevano causare errori nella visualizzazione delle descrizioni brevi e dei titoli in tedesco per gli annunci di lavoro, garantendo maggiore accuratezza.',
+    'whatsNew.v3330.assembler.title': 'Eliminazione di duplicati per una migliore organizzazione',
+    'whatsNew.v3330.assembler.desc': 'Abbiamo introdotto un sistema per eliminare i titoli duplicati, assicurando che ogni elemento sia unico e migliorando l\'organizzazione generale dei contenuti.',
+    'whatsNew.v3330.indexnow.title': 'Aggiornamenti più rapidi per i motori di ricerca',
+    'whatsNew.v3330.indexnow.desc': 'Ora confrontiamo le modifiche con le versioni precedenti delle mappe del sito, inviando ai motori di ricerca solo gli URL nuovi o aggiornati per una maggiore efficienza.',
+    'whatsNew.v3330.limit-blockquote-rendering.title': 'Miglioramenti alla visualizzazione dei contenuti',
+    'whatsNew.v3330.limit-blockquote-rendering.desc': 'Abbiamo limitato il numero di citazioni a due per articolo e aggiunto i loghi delle aziende alle schede dei lavori nel blog per una migliore leggibilità e riconoscimento.',
     'whatsNew.v3320.title': 'Miglioramenti per una gestione più semplice e accurata',
     'whatsNew.v3320.admin.title': 'Differenziazione chiara delle statistiche di lavoro',
     'whatsNew.v3320.admin.desc': 'Ora puoi distinguere facilmente tra i dati giornalieri e quelli dei nuovi annunci di lavoro nella tua dashboard.',

@@ -2188,6 +2188,17 @@ Rules:
     'seoContent.stats.check4': 'Ticino cross-border community data',
 
     // ─── What's New / Feature Announcements ─────────────────────────────
+    'whatsNew.v3330.title': 'Improvements for a Better Experience and Search Results',
+    'whatsNew.v3330.seo.title': 'More helpful and discoverable archive pages',
+    'whatsNew.v3330.seo.desc': 'We\'ve made archive pages richer and easier to navigate, improving your experience and helping search engines show you relevant content.',
+    'whatsNew.v3330.quality.title': 'Fixes for more accurate job postings',
+    'whatsNew.v3330.quality.desc': 'We\'ve resolved several issues that could cause errors in displaying short descriptions and German titles for job postings, ensuring greater accuracy.',
+    'whatsNew.v3330.assembler.title': 'Duplicate removal for better organization',
+    'whatsNew.v3330.assembler.desc': 'We\'ve introduced a system to eliminate duplicate titles, ensuring each item is unique and improving overall content organization.',
+    'whatsNew.v3330.indexnow.title': 'Faster updates for search engines',
+    'whatsNew.v3330.indexnow.desc': 'We now compare changes against pre-deploy sitemaps, submitting only new or updated URLs to search engines for greater efficiency.',
+    'whatsNew.v3330.limit-blockquote-rendering.title': 'Content display improvements',
+    'whatsNew.v3330.limit-blockquote-rendering.desc': 'We\'ve limited blockquotes to two per article and added company logos to blog job cards for better readability and recognition.',
     'whatsNew.v3320.title': 'Easier and More Accurate Management Improvements',
     'whatsNew.v3320.admin.title': 'Clearer Distinction for Job Statistics',
     'whatsNew.v3320.admin.desc': 'You can now easily distinguish between daily data and new job postings on your dashboard.',
