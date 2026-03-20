@@ -1,16 +1,16 @@
 {
   "key": "hoval",
   "label": "Hoval",
-  "generatedAt": "2026-03-20T04:48:32.079Z",
+  "generatedAt": "2026-03-20T16:03:57.769Z",
   "total": 3,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 3,
-  "durationMs": 23882,
-  "avgDurationMs": 23882,
+  "durationMs": 26865,
+  "avgDurationMs": 26865,
   "durationHistory": [
-    23882
+    26865
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -69,9 +69,7 @@
           "maxValue": 78000,
           "unitText": "YEAR"
         }
-      },
-      "crawledAt": "",
-      "requirementsByLocale": {}
+      }
     },
     {
       "title": "Tecnico di servizio per impianti di riscaldamento energie rinnovabili (m/f/d)",
@@ -126,9 +124,7 @@
           "maxValue": 78000,
           "unitText": "YEAR"
         }
-      },
-      "crawledAt": "",
-      "requirementsByLocale": {}
+      }
     },
     {
       "title": "Tecnico di servizio per impianti di riscaldamento olio/gas (m/f/d)",
@@ -183,9 +179,7 @@
           "maxValue": 78000,
           "unitText": "YEAR"
         }
-      },
-      "crawledAt": "",
-      "requirementsByLocale": {}
+      }
     }
   ]
 }
