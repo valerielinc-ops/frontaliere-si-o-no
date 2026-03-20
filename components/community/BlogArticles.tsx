@@ -3868,6 +3868,13 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/telefonate-choc-truffa-anziani-ticino.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'ubs-fusione-credit-suisse-ticino',
+    category: 'novita',
+    date: '2026-03-20T07:09:05.333Z',
+    image: '/images/blog/ubs-fusione-credit-suisse-ticino.jpg',
+    hasCalculator: true,
+  },
 ];
 
 const CATEGORIES = ['all', 'fiscale', 'pratico', 'novita', 'pensione'] as const;

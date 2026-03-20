@@ -6693,6 +6693,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-ubs-fusione-credit-suisse-ticino': {
+    title: 'Il cantiere di UBS a tre anni dal salvataggio di Credit | Frontaliere Ticino',
+    description: 'A tre anni dal salvataggio di Credit Suisse, UBS completa la migrazione di 1,2 milioni di clienti e annuncia 3.000 licenziamenti in Svizzera. Cresce l’attesa pe',
+    keywords: 'frontalieri, ticino, svizzera, italia, cantiere, anni, salvataggio, credit',
+    ogTitle: 'Il cantiere di UBS a tre anni dal salvataggio di Credit S',
+    ogDescription: 'A tre anni dal salvataggio di Credit Suisse, UBS completa la migrazione di 1,2 milioni di clienti e annuncia 3.000 licenziamenti in Svizzera. Cresce l’attesa pe',
+    canonicalPath: '/articoli-frontaliere/ubs-fusione-credit-suisse-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Il cantiere di UBS a tre anni dal salvataggio di Credit S",
+      "description": "A tre anni dal salvataggio di Credit Suisse, UBS completa la migrazione di 1,2 milioni di clienti e annuncia 3.000 licenziamenti in Svizzera. Cresce l’attesa pe",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/ubs-fusione-credit-suisse-ticino.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Cantiere UBS a Bellinzona, operai al lavoro con skyline della città sullo sfondo"
+      },
+      "datePublished": "2026-03-20T07:09:05+00:00",
+      "dateModified": "2026-03-20T07:09:05+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ubs-fusione-credit-suisse-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

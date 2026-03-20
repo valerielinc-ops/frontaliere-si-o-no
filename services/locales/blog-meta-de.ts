@@ -1403,6 +1403,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.telefonate-choc-truffa-anziani-ticino.title': 'Schockierende Anrufe: Betrugsfälle bei Senioren im Tessin, Risiken und Prävention',
     'blog.article.telefonate-choc-truffa-anziani-ticino.excerpt': 'Zwei Senioren im Tessin Opfer eines Telefonbetrugs in der Region Mesolcina. Hier erfahren Sie, was passiert ist, wie man sich schützt und welche vorbeugenden Maßnahmen die lokalen Behörden ergriffen haben.',
     'blog.article.telefonate-choc-truffa-anziani-ticino.imageAlt': 'Blick auf Bellinzona mit Bergen und Stadtbild, typisch für den Kanton Tessin.',
+    'blog.article.ubs-fusione-credit-suisse-ticino.title': 'Die UBS-Baustelle drei Jahre nach der Credit Suisse-Rettung',
+    'blog.article.ubs-fusione-credit-suisse-ticino.excerpt': 'Drei Jahre nach der Rettung von Credit Suisse schließt UBS die Migration von 1,2 Millionen Kunden ab und kündigt 3.000 Stellenabbau in der Schweiz an. Die Erwartungen an neue Kapitalvorschriften steigen.',
+    'blog.article.ubs-fusione-credit-suisse-ticino.imageAlt': 'Baustelle bei Bellinzona mit Arbeitern und Stadtblick',
 };
 
 export default blogMetaDe;

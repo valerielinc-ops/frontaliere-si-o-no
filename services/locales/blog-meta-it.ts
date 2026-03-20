@@ -1403,6 +1403,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.telefonate-choc-truffa-anziani-ticino.title': 'Telefonate choc: truffe agli anziani in Ticino, rischi e prevenzione',
     'blog.article.telefonate-choc-truffa-anziani-ticino.excerpt': 'Due anziani in Ticino vittime di truffa telefonica nella regione della Mesolcina. Ecco cosa è successo, come difendersi e le misure preventive adottate dalle autorità locali.',
     'blog.article.telefonate-choc-truffa-anziani-ticino.imageAlt': 'Veduta di Bellinzona con scenario di montagne e città, rappresentativa del Canton Ticino.',
+    'blog.article.ubs-fusione-credit-suisse-ticino.title': 'Il cantiere di UBS a tre anni dal salvataggio di Credit Suisse',
+    'blog.article.ubs-fusione-credit-suisse-ticino.excerpt': 'A tre anni dal salvataggio di Credit Suisse, UBS completa la migrazione di 1,2 milioni di clienti e annuncia 3.000 licenziamenti in Svizzera. Cresce l’attesa per nuove norme sul capitale.',
+    'blog.article.ubs-fusione-credit-suisse-ticino.imageAlt': 'Cantiere UBS a Bellinzona, operai al lavoro con skyline della città sullo sfondo',
 };
 
 export default blogMetaIt;

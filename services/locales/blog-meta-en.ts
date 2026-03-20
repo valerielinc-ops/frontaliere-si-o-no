@@ -1403,6 +1403,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.telefonate-choc-truffa-anziani-ticino.title': 'Shocking Calls: Phone Scams Targeting Seniors in Ticino, Risks and Prevention',
     'blog.article.telefonate-choc-truffa-anziani-ticino.excerpt': 'Two seniors in Ticino fall victim to phone scams in the Mesolcina region. Here\'s what happened, how to protect yourself, and the preventive measures taken by local authorities.',
     'blog.article.telefonate-choc-truffa-anziani-ticino.imageAlt': 'View of Bellinzona with mountains and cityscape, typical of Ticino canton.',
+    'blog.article.ubs-fusione-credit-suisse-ticino.title': 'UBS Construction Site Three Years After Credit Suisse Rescue',
+    'blog.article.ubs-fusione-credit-suisse-ticino.excerpt': 'Three years after the Credit Suisse rescue, UBS completes the migration of 1.2 million clients and announces 3,000 layoffs in Switzerland. Growing anticipation for new capital regulations.',
+    'blog.article.ubs-fusione-credit-suisse-ticino.imageAlt': 'UBS construction site in Bellinzona with workers and city skyline',
 };
 
 export default blogMetaEn;
