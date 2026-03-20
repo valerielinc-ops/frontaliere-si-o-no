@@ -22,6 +22,10 @@ on:
         description: 'Optional OG description for the Facebook post copy'
         required: false
         type: string
+      og_image:
+        description: 'Optional expected OG image for the deployed article'
+        required: false
+        type: string
       article_category:
         description: 'Optional article category used for Facebook hashtags'
         required: false
@@ -140,7 +144,8 @@ jobs:
         run: |
           node scripts/wait-for-live-article-meta.mjs \
             "${{ github.event.inputs.article_url }}" \
-            "${{ github.event.inputs.og_title }}"
+            "${{ github.event.inputs.og_title }}" \
+            "${{ github.event.inputs.og_image }}"
 
       - name: Post to Facebook Page
         if: success() && github.event_name == 'workflow_dispatch' && github.event.inputs.article_id != '' && steps.wait_live_meta.outcome == 'success'

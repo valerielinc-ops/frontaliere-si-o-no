@@ -403,6 +403,7 @@ jobs:
           DEPLOY_ARTICLE_URL="${{ steps.generate.outputs.article_url }}" \
           DEPLOY_ARTICLE_OG_TITLE="${{ steps.generate.outputs.og_title }}" \
           DEPLOY_ARTICLE_OG_DESCRIPTION="${{ steps.generate.outputs.og_description }}" \
+          DEPLOY_ARTICLE_OG_IMAGE="${{ steps.generate.outputs.og_image }}" \
           DEPLOY_ARTICLE_CATEGORY="${{ steps.generate.outputs.category }}" \
           bash scripts/lib/trigger-deploy.sh
 

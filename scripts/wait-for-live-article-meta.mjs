@@ -18,22 +18,91 @@ if (!rawUrl || !expectedOgTitle) {
 }
 
 const url = rawUrl.trim();
-const timeoutMs = Number(process.env.LIVE_ARTICLE_WAIT_TIMEOUT_MS || 12 * 60 * 1000);
-const intervalMs = Number(process.env.LIVE_ARTICLE_WAIT_INTERVAL_MS || 15 * 1000);
+const timeoutMs = Number(process.env.LIVE_ARTICLE_WAIT_TIMEOUT_MS || 15 * 60 * 1000);
+const intervalMs = Number(process.env.LIVE_ARTICLE_WAIT_INTERVAL_MS || 10 * 1000);
 const deadline = Date.now() + timeoutMs;
 
+function parseAttributes(tag) {
+  const attributes = {};
+  const attrRx = /([^\s=/>]+)\s*=\s*(?:"([^"]*)"|'([^']*)')/g;
+  let match;
+  while ((match = attrRx.exec(tag))) {
+    const [, rawName, doubleQuoted = '', singleQuoted = ''] = match;
+    attributes[String(rawName || '').toLowerCase()] = doubleQuoted || singleQuoted || '';
+  }
+  return attributes;
+}
+
+function findTagAttributeValue(html, tagName, predicate, attributeName) {
+  const tagRx = new RegExp(`<${tagName}\\b[^>]*>`, 'gi');
+  let match;
+  while ((match = tagRx.exec(html))) {
+    const attrs = parseAttributes(match[0]);
+    if (predicate(attrs)) {
+      return attrs[String(attributeName || '').toLowerCase()] || '';
+    }
+  }
+  return '';
+}
+
 function extractMeta(html, selector) {
-  const propertyRx = new RegExp(`<meta\\s+property=["']${selector}["']\\s+content=["']([^"']*)["']`, 'i');
-  const nameRx = new RegExp(`<meta\\s+name=["']${selector}["']\\s+content=["']([^"']*)["']`, 'i');
-  return html.match(propertyRx)?.[1] || html.match(nameRx)?.[1] || '';
+  const target = String(selector || '').trim().toLowerCase();
+  return findTagAttributeValue(
+    html,
+    'meta',
+    (attrs) => attrs.property === target || attrs.name === target,
+    'content',
+  );
+}
+
+function extractCanonicalUrl(html) {
+  return findTagAttributeValue(
+    html,
+    'link',
+    (attrs) => String(attrs.rel || '').toLowerCase().split(/\s+/).includes('canonical'),
+    'href',
+  );
 }
 
 function extractTitle(html) {
   return html.match(/<title>([^<]*)<\/title>/i)?.[1]?.trim() || '';
 }
 
+function decodeHtmlEntities(text) {
+  return String(text || '').replace(/&(?:amp|lt|gt|quot|apos|nbsp|#39|rsquo|lsquo|ndash|mdash);/gi, (entity) => {
+    const normalized = entity.toLowerCase();
+    switch (normalized) {
+      case '&amp;':
+        return '&';
+      case '&lt;':
+        return '<';
+      case '&gt;':
+        return '>';
+      case '&quot;':
+        return '"';
+      case '&apos;':
+      case '&#39;':
+      case '&rsquo;':
+      case '&lsquo;':
+        return "'";
+      case '&nbsp;':
+        return ' ';
+      case '&ndash;':
+        return '-';
+      case '&mdash;':
+        return '--';
+      default:
+        return entity;
+    }
+  });
+}
+
 function normalize(text) {
-  return String(text || '').replace(/\s+/g, ' ').trim();
+  return decodeHtmlEntities(String(text || ''))
+    .normalize('NFKC')
+    .replace(/\u00a0/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
 }
 
 function normalizePathname(pathname) {
@@ -42,11 +111,42 @@ function normalizePathname(pathname) {
   return value.replace(/\/+$/, '') || '/';
 }
 
+function normalizeHostname(hostname) {
+  return String(hostname || '')
+    .trim()
+    .toLowerCase()
+    .replace(/^www\./, '');
+}
+
+function parseUrl(value) {
+  try {
+    return new URL(value);
+  } catch {
+    return null;
+  }
+}
+
+function normalizeUrlForCompare(value) {
+  const parsed = parseUrl(value);
+  if (!parsed) return normalize(value);
+  const search = parsed.search || '';
+  return `${normalizeHostname(parsed.hostname)}${normalizePathname(parsed.pathname)}${search}`;
+}
+
+function getPathCandidate(value) {
+  const parsed = parseUrl(value);
+  if (!parsed) return '';
+  return normalizePathname(parsed.pathname);
+}
+
 function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
-const expectedPath = normalizePathname(new URL(url).pathname);
+const requestedUrl = new URL(url);
+const expectedPath = normalizePathname(requestedUrl.pathname);
+const expectedOgTitleNormalized = normalize(expectedOgTitle);
+const expectedOgImageNormalized = normalizeUrlForCompare(expectedOgImage);
 
 while (Date.now() < deadline) {
   try {
@@ -64,15 +164,24 @@ while (Date.now() < deadline) {
     const ogTitle = normalize(extractMeta(html, 'og:title'));
     const ogImage = normalize(extractMeta(html, 'og:image'));
     const ogUrl = normalize(extractMeta(html, 'og:url'));
+    const canonicalUrl = normalize(extractCanonicalUrl(html));
+    const finalUrl = normalize(res.url || url);
 
-    const titleMatches = ogTitle === normalize(expectedOgTitle);
-    const imageMatches = !expectedOgImage || ogImage === normalize(expectedOgImage);
-    const pathMatches = !!ogUrl && normalizePathname(new URL(ogUrl).pathname) === expectedPath;
+    const titleMatches = ogTitle === expectedOgTitleNormalized;
+    const imageMatches = !expectedOgImageNormalized || normalizeUrlForCompare(ogImage) === expectedOgImageNormalized;
+    const pathCandidates = [
+      ['og:url', getPathCandidate(ogUrl)],
+      ['canonical', getPathCandidate(canonicalUrl)],
+      ['final-url', getPathCandidate(finalUrl)],
+    ].filter(([, path]) => Boolean(path));
+    const matchedPathSource = pathCandidates.find(([, path]) => path === expectedPath)?.[0] || '';
+    const pathMatches = Boolean(matchedPathSource);
 
     if (res.ok && titleMatches && imageMatches && pathMatches) {
       console.log(`✅ Live article metadata ready: ${url}`);
       console.log(`   og:title = ${ogTitle}`);
       console.log(`   og:image = ${ogImage}`);
+      console.log(`   path     = ${expectedPath} via ${matchedPathSource}`);
       process.exit(0);
     }
 
@@ -82,6 +191,11 @@ while (Date.now() < deadline) {
     console.log(`   og:title = ${ogTitle || '(missing)'}`);
     console.log(`   og:image = ${ogImage || '(missing)'}`);
     console.log(`   og:url   = ${ogUrl || '(missing)'}`);
+    console.log(`   canonical= ${canonicalUrl || '(missing)'}`);
+    console.log(`   final-url= ${finalUrl || '(missing)'}`);
+    console.log(
+      `   checks   = title:${titleMatches ? 'ok' : 'wait'} image:${imageMatches ? 'ok' : 'wait'} path:${pathMatches ? `ok (${matchedPathSource})` : 'wait'}`,
+    );
   } catch (error) {
     console.log(`⏳ Live article not ready yet: ${error instanceof Error ? error.message : String(error)}`);
   }

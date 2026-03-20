@@ -18,6 +18,7 @@
 #   DEPLOY_ARTICLE_URL       — optional live article URL for metadata verification
 #   DEPLOY_ARTICLE_OG_TITLE  — optional expected OG title for the live page
 #   DEPLOY_ARTICLE_OG_DESCRIPTION — optional OG description for Facebook copy
+#   DEPLOY_ARTICLE_OG_IMAGE  — optional expected OG image for the live page
 #   DEPLOY_ARTICLE_CATEGORY  — optional article category for Facebook hashtags
 #
 # Exit codes:
@@ -52,6 +53,7 @@ ARTICLE_ID="${DEPLOY_ARTICLE_ID:-}"
 ARTICLE_URL="${DEPLOY_ARTICLE_URL:-}"
 ARTICLE_OG_TITLE="${DEPLOY_ARTICLE_OG_TITLE:-}"
 ARTICLE_OG_DESCRIPTION="${DEPLOY_ARTICLE_OG_DESCRIPTION:-}"
+ARTICLE_OG_IMAGE="${DEPLOY_ARTICLE_OG_IMAGE:-}"
 ARTICLE_CATEGORY="${DEPLOY_ARTICLE_CATEGORY:-}"
 
 read_ref_sha() {
@@ -87,7 +89,7 @@ if [ -n "$EXPECTED_SHA" ]; then
 fi
 
 echo "🚀 Triggering deploy workflow via workflow_dispatch..."
-if [ -n "$ARTICLE_ID" ] || [ -n "$ARTICLE_URL" ] || [ -n "$ARTICLE_OG_TITLE" ] || [ -n "$ARTICLE_OG_DESCRIPTION" ]; then
+if [ -n "$ARTICLE_ID" ] || [ -n "$ARTICLE_URL" ] || [ -n "$ARTICLE_OG_TITLE" ] || [ -n "$ARTICLE_OG_DESCRIPTION" ] || [ -n "$ARTICLE_OG_IMAGE" ]; then
   echo "📰 Passing article metadata to deploy workflow for post-deploy live checks"
 fi
 
@@ -97,6 +99,7 @@ PAYLOAD="$(
   DEPLOY_ARTICLE_URL_JSON="$ARTICLE_URL" \
   DEPLOY_ARTICLE_OG_TITLE_JSON="$ARTICLE_OG_TITLE" \
   DEPLOY_ARTICLE_OG_DESCRIPTION_JSON="$ARTICLE_OG_DESCRIPTION" \
+  DEPLOY_ARTICLE_OG_IMAGE_JSON="$ARTICLE_OG_IMAGE" \
   DEPLOY_ARTICLE_CATEGORY_JSON="$ARTICLE_CATEGORY" \
   node <<'NODE'
 const trim = (value) => String(value || '').trim();
@@ -106,6 +109,7 @@ const inputs = {
   article_url: trim(process.env.DEPLOY_ARTICLE_URL_JSON),
   og_title: trim(process.env.DEPLOY_ARTICLE_OG_TITLE_JSON),
   og_description: trim(process.env.DEPLOY_ARTICLE_OG_DESCRIPTION_JSON),
+  og_image: trim(process.env.DEPLOY_ARTICLE_OG_IMAGE_JSON),
   article_category: trim(process.env.DEPLOY_ARTICLE_CATEGORY_JSON),
 };
 const nonEmptyInputs = Object.fromEntries(

@@ -3879,11 +3879,15 @@ async function generateAndValidateArticle(url, sourceContext = null) {
   if (ghOutput) {
     const { appendFileSync } = await import('fs');
     const articleUrl = `${BASE_URL}/articoli-frontaliere/${data.id}`;
+    const ogImagePath = data._generatedImagePath
+      ? data._generatedImagePath.replace(/^\//, '')
+      : `images/places/${data.image}`;
     appendFileSync(ghOutput, `article_id=${data.id}\n`);
     appendFileSync(ghOutput, `article_url=${articleUrl}\n`);
     appendFileSync(ghOutput, `source_url=${url}\n`);
     appendFileSync(ghOutput, `og_title=${data.seo.ogTitle}\n`);
     appendFileSync(ghOutput, `og_description=${data.seo.ogDescription}\n`);
+    appendFileSync(ghOutput, `og_image=${BASE_URL}/${ogImagePath}\n`);
     appendFileSync(ghOutput, `category=${data.category}\n`);
     appendFileSync(ghOutput, `create_article_report=${CREATE_ARTICLE_REPORT_FILE}\n`);
     console.error('   📤 GitHub Actions outputs written');
