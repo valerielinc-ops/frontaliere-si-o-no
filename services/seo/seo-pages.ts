@@ -3049,7 +3049,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
         "@context": "https://schema.org",
         "@type": "ItemList",
         "name": "Articoli Frontaliere",
-        "numberOfItems": 477,
+        "numberOfItems": 478,
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
           { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -3527,7 +3527,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 474, "name": "Nuova tariffa di transito in Svizzera: cosa cam...", "url": `${BASE_URL}/articoli-frontaliere/tassa-transito-svizzera-2023` },
           { "@type": "ListItem", "position": 475, "name": "Operazione di controllo nei cantieri del Mendri...", "url": `${BASE_URL}/articoli-frontaliere/controlli-cantieri-mendrisiotto` },
           { "@type": "ListItem", "position": 476, "name": "Acinque lancia il piano 'Genitorialità': un mes...", "url": `${BASE_URL}/articoli-frontaliere/acinque-lancia-piano-genitorialita` },
-          { "@type": "ListItem", "position": 477, "name": "Danni riparati, riapre la Centovallina-Vigezzina", "url": `${BASE_URL}/articoli-frontaliere/danni-riparati-centovallina` }
+          { "@type": "ListItem", "position": 477, "name": "Danni riparati, riapre la Centovallina-Vigezzina", "url": `${BASE_URL}/articoli-frontaliere/danni-riparati-centovallina` },
+          { "@type": "ListItem", "position": 478, "name": "Porrentruy potrà vietare l'accesso alla piscina...", "url": `${BASE_URL}/articoli-frontaliere/porrentruy-piscina-comunale-divieto` }
         ]
       }
     ]

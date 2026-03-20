@@ -7244,6 +7244,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-porrentruy-piscina-comunale-divieto': {
+    title: 'Porrentruy potrà vietare l\'accesso alla piscina comunale ai non | Frontaliere Ticino',
+    description: 'Il Consiglio comunale di Porrentruy ha approvato una modifica legale per autorizzare il Municipio a imporre restrizioni all\'accesso della piscina all\'aperto.',
+    keywords: 'frontalieri, ticino, svizzera, italia, porrentruy, potrà, vietare, accesso',
+    ogTitle: 'Porrentruy potrà vietare l\'accesso alla piscina comunale ai non residenti',
+    ogDescription: 'Il Consiglio comunale di Porrentruy ha approvato una modifica legale per autorizzare il Municipio a imporre restrizioni all\'accesso della piscina all\'aperto.',
+    canonicalPath: '/articoli-frontaliere/porrentruy-piscina-comunale-divieto',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Porrentruy potrà vietare l'accesso alla piscina comunale ai non residenti",
+      "description": "Il Consiglio comunale di Porrentruy ha approvato una modifica legale per autorizzare il Municipio a imporre restrizioni all'accesso della piscina all'aperto.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/porrentruy-piscina-comunale-divieto.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Piscina comunale a Porrentruy, Svizzera"
+      },
+      "datePublished": "2026-03-20T17:50:17+00:00",
+      "dateModified": "2026-03-20T17:50:17+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/porrentruy-piscina-comunale-divieto`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

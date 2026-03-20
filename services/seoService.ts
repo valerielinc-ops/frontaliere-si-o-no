@@ -1623,6 +1623,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-controlli-cantieri-mendrisiotto': { name: 'Operazione di controllo nei cantieri del', path: '/articoli-frontaliere/controlli-cantieri-mendrisiotto', parent: 'blog' },
     'blog-acinque-lancia-piano-genitorialita': { name: 'Lavoro', path: '/articoli-frontaliere/acinque-lancia-piano-genitorialita', parent: 'blog' },
     'blog-danni-riparati-centovallina': { name: 'Danni riparati, riapre la Centovallina-V', path: '/articoli-frontaliere/danni-riparati-centovallina', parent: 'blog' },
+    'blog-porrentruy-piscina-comunale-divieto': { name: 'Novità', path: '/articoli-frontaliere/porrentruy-piscina-comunale-divieto', parent: 'blog' },
   };
 
   const info = sectionNames[section];

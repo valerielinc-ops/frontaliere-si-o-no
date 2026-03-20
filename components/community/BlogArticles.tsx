@@ -4001,6 +4001,13 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/danni-riparati-centovallina.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'porrentruy-piscina-comunale-divieto',
+    category: 'novita',
+    date: '2026-03-20T17:50:17.309Z',
+    image: '/images/blog/porrentruy-piscina-comunale-divieto.jpg',
+    hasCalculator: true,
+  },
 ];
 
 const CATEGORIES = ['all', 'fiscale', 'pratico', 'novita', 'pensione'] as const;

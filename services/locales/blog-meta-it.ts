@@ -1460,6 +1460,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.danni-riparati-centovallina.title': 'Danni riparati, riapre la Centovallina-Vigezzina',
     'blog.article.danni-riparati-centovallina.excerpt': 'La linea ferroviaria Centovallina-Vigezzina riapre dopo lavori di riparazione dei danni.',
     'blog.article.danni-riparati-centovallina.imageAlt': 'Linea ferroviaria Centovallina-Vigezzina, Ticino',
+    'blog.article.porrentruy-piscina-comunale-divieto.title': 'Porrentruy potrà vietare l\'accesso alla piscina comunale ai non residenti',
+    'blog.article.porrentruy-piscina-comunale-divieto.excerpt': 'Il Consiglio comunale di Porrentruy ha approvato una modifica legale per autorizzare il Municipio a imporre restrizioni all\'accesso della piscina all\'aperto.',
+    'blog.article.porrentruy-piscina-comunale-divieto.imageAlt': 'Piscina comunale a Porrentruy, Svizzera',
 };
 
 export default blogMetaIt;
