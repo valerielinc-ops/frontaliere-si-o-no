@@ -1451,6 +1451,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.tassa-transito-svizzera-2023.title': 'Neue Durchfahrtsgebühr in der Schweiz: Was ändert sich?',
     'blog.article.tassa-transito-svizzera-2023.excerpt': 'Das Parlament genehmigt eine neue Gebühr für die Durchfahrt in der Schweiz, ein umstrittener Schritt zur Reduzierung des Verkehrs.',
     'blog.article.tassa-transito-svizzera-2023.imageAlt': 'Grenzübergang zwischen Italien und der Schweiz mit vorbeifahrenden Autos.',
+    'blog.article.controlli-cantieri-mendrisiotto.title': 'Kontrollaktion auf Baustellen im Mendrisiotto: Keine Unregelmäßigkeiten festgestellt',
+    'blog.article.controlli-cantieri-mendrisiotto.excerpt': 'Strenge Kontrollen in sieben Baustellen im Mendrisiotto: 66 Arbeiter involviert, keine Unregelmäßigkeiten festgestellt. Das sind die Ergebnisse.',
+    'blog.article.controlli-cantieri-mendrisiotto.imageAlt': 'Baustellen im Mendrisio, Arbeiter bei der Arbeit und Bauwerke in Entwicklung, Ticino.',
 };
 
 export default blogMetaDe;

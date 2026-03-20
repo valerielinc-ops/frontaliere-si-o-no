@@ -7157,6 +7157,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-controlli-cantieri-mendrisiotto': {
+    title: 'Operazione di controllo nei cantieri del Mendrisiotto: nessuna | Frontaliere Ticino',
+    description: 'Controlli rigorosi in sette cantieri del Mendrisiotto: coinvolti 66 lavoratori, nessuna irregolarità rilevata. Ecco cosa emerge. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, operazione, controllo, cantieri, mendrisiotto',
+    ogTitle: 'Operazione di controllo nei cantieri del Mendrisiotto: ne',
+    ogDescription: 'Controlli rigorosi in sette cantieri del Mendrisiotto: coinvolti 66 lavoratori, nessuna irregolarità rilevata. Ecco cosa emerge.',
+    canonicalPath: '/articoli-frontaliere/controlli-cantieri-mendrisiotto',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Operazione di controllo nei cantieri del Mendrisiotto: ne",
+      "description": "Controlli rigorosi in sette cantieri del Mendrisiotto: coinvolti 66 lavoratori, nessuna irregolarità rilevata. Ecco cosa emerge. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/controlli-cantieri-mendrisiotto.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Cantieri edilizi nel Mendrisiotto, operai al lavoro e strutture in costruzione."
+      },
+      "datePublished": "2026-03-20T16:14:46+00:00",
+      "dateModified": "2026-03-20T16:14:46+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/controlli-cantieri-mendrisiotto`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

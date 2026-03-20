@@ -1451,6 +1451,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.tassa-transito-svizzera-2023.title': 'Nuova tariffa di transito in Svizzera: cosa cambia?',
     'blog.article.tassa-transito-svizzera-2023.excerpt': 'Il Parlamento approva una nuova tassa per il transito in Svizzera, un passo controverso per ridurre il traffico.',
     'blog.article.tassa-transito-svizzera-2023.imageAlt': 'Valico di confine tra Italia e Svizzera con auto in transito.',
+    'blog.article.controlli-cantieri-mendrisiotto.title': 'Operazione di controllo nei cantieri del Mendrisiotto: nessuna irregolarità riscontrata',
+    'blog.article.controlli-cantieri-mendrisiotto.excerpt': 'Controlli rigorosi in sette cantieri del Mendrisiotto: coinvolti 66 lavoratori, nessuna irregolarità rilevata. Ecco cosa emerge.',
+    'blog.article.controlli-cantieri-mendrisiotto.imageAlt': 'Cantieri edilizi nel Mendrisiotto, operai al lavoro e strutture in costruzione.',
 };
 
 export default blogMetaIt;

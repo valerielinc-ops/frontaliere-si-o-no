@@ -1620,6 +1620,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-nubifragio-coira-mesolcina-ristoro': { name: 'Nubifragio Giugno 2024', path: '/articoli-frontaliere/nubifragio-coira-mesolcina-ristoro', parent: 'blog' },
     'blog-lotta-violenza-di-genere-ticino': { name: 'Ticino e Svizzera sotto l\'attenzione del', path: '/articoli-frontaliere/lotta-violenza-di-genere-ticino', parent: 'blog' },
     'blog-tassa-transito-svizzera-2023': { name: 'Nuova tariffa di transito in Svizzera', path: '/articoli-frontaliere/tassa-transito-svizzera-2023', parent: 'blog' },
+    'blog-controlli-cantieri-mendrisiotto': { name: 'Operazione di controllo nei cantieri del', path: '/articoli-frontaliere/controlli-cantieri-mendrisiotto', parent: 'blog' },
   };
 
   const info = sectionNames[section];

@@ -3980,6 +3980,13 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/tassa-transito-svizzera-2023.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'controlli-cantieri-mendrisiotto',
+    category: 'fiscale',
+    date: '2026-03-20T16:14:46.964Z',
+    image: '/images/blog/controlli-cantieri-mendrisiotto.jpg',
+    hasCalculator: true,
+  },
 ];
 
 const CATEGORIES = ['all', 'fiscale', 'pratico', 'novita', 'pensione'] as const;

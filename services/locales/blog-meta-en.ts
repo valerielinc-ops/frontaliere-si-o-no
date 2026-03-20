@@ -1451,6 +1451,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.tassa-transito-svizzera-2023.title': 'New transit fee in Switzerland: what changes?',
     'blog.article.tassa-transito-svizzera-2023.excerpt': 'Parliament approves a new tax for transit in Switzerland, a controversial step to reduce traffic.',
     'blog.article.tassa-transito-svizzera-2023.imageAlt': 'Border crossing between Italy and Switzerland with cars passing.',
+    'blog.article.controlli-cantieri-mendrisiotto.title': 'Control Operation in Mendrisiotto Construction Sites: No Irregularities Found',
+    'blog.article.controlli-cantieri-mendrisiotto.excerpt': 'Thorough checks in seven construction sites in Mendrisiotto: 66 workers involved, no irregularities detected. Here\'s what emerged.',
+    'blog.article.controlli-cantieri-mendrisiotto.imageAlt': 'Construction sites in Mendrisio, workers at work and structures in progress, Ticino.',
 };
 
 export default blogMetaEn;

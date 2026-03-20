@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-03-20T16:04:26.640Z",
+  "generatedAt": "2026-03-20T16:20:09.480Z",
   "sources": {
     "italy": {
       "provider": "MIMIT Open Data",
@@ -11,7 +11,7 @@
       "provider": "TCS Benzinpreis",
       "providerUrl": "https://benzin.tcs.ch/de/map/SP95",
       "stationCount": 220,
-      "latestObservedUpdate": "2026-03-20T15:49:55.329Z"
+      "latestObservedUpdate": "2026-03-20T16:12:36.390Z"
     },
     "exchangeRate": {
       "provider": "ECB",
@@ -38401,34 +38401,20 @@
         "searchRadiusKm": 20,
         "optionCount": 4,
         "cheapestStation": {
-          "id": "p0HDKTo18FYSWzKCOaXV",
-          "name": "BP Unbemannte Station Mörel",
-          "brand": "BP",
-          "address": "Furkastrasse 7, 3983 Mörel",
-          "lat": 46.35445,
-          "lng": 8.04321,
-          "sp95PriceChf": 1.74,
-          "updatedAt": "2026-03-18T17:23:14.773Z",
+          "id": "5GABW402f1nC7TrNr0Uy",
+          "name": "Eni Gondo",
+          "brand": "ENI",
+          "address": "Simplonstrasse, 3907 Gondo",
+          "lat": 46.19588101209614,
+          "lng": 8.139144951049095,
+          "sp95PriceChf": 1.77,
+          "updatedAt": "2026-03-18T16:47:50.932Z",
           "nearestMunicipality": "Trasquera (VB)",
-          "nearestMunicipalityDistanceKm": 19.6,
-          "sp95PriceEur": 1.913,
-          "distanceKm": 19.6
+          "nearestMunicipalityDistanceKm": 5.8,
+          "sp95PriceEur": 1.946,
+          "distanceKm": 5.8
         },
         "nearbyStations": [
-          {
-            "id": "p0HDKTo18FYSWzKCOaXV",
-            "name": "BP Unbemannte Station Mörel",
-            "brand": "BP",
-            "address": "Furkastrasse 7, 3983 Mörel",
-            "lat": 46.35445,
-            "lng": 8.04321,
-            "sp95PriceChf": 1.74,
-            "updatedAt": "2026-03-18T17:23:14.773Z",
-            "nearestMunicipality": "Trasquera (VB)",
-            "nearestMunicipalityDistanceKm": 19.6,
-            "sp95PriceEur": 1.913,
-            "distanceKm": 19.6
-          },
           {
             "id": "5GABW402f1nC7TrNr0Uy",
             "name": "Eni Gondo",
@@ -38458,6 +38444,20 @@
             "distanceKm": 5.8
           },
           {
+            "id": "p0HDKTo18FYSWzKCOaXV",
+            "name": "BP Unbemannte Station Mörel",
+            "brand": "BP",
+            "address": "Furkastrasse 7, 3983 Mörel",
+            "lat": 46.35445,
+            "lng": 8.04321,
+            "sp95PriceChf": 1.79,
+            "updatedAt": "2026-03-20T16:12:36.390Z",
+            "nearestMunicipality": "Trasquera (VB)",
+            "nearestMunicipalityDistanceKm": 19.6,
+            "sp95PriceEur": 1.968,
+            "distanceKm": 19.6
+          },
+          {
             "id": "7bG6RoCRdKQwTNFyefuX",
             "name": "Ikas Tankstelle",
             "brand": "UNDEFINED",
@@ -38472,8 +38472,8 @@
             "distanceKm": 19.3
           }
         ],
-        "minPriceChf": 1.74,
-        "minPriceEur": 1.913
+        "minPriceChf": 1.77,
+        "minPriceEur": 1.946
       },
       "comparison": {
         "cheaperCountry": "NO_DATA",
