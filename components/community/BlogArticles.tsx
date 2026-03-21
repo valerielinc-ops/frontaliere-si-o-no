@@ -4309,6 +4309,13 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/spiagge-libere-sul-lago-maggiore.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'snl-stagione-green-concessione',
+    category: 'novita',
+    date: '2026-03-21T23:01:25.287Z',
+    image: '/images/blog/snl-stagione-green-concessione.jpg',
+    hasCalculator: true,
+  },
 ];
 
 const CATEGORIES = ['all', 'fiscale', 'pratico', 'novita', 'pensione'] as const;

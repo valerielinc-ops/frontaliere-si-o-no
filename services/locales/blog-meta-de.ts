@@ -1592,6 +1592,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.spiagge-libere-sul-lago-maggiore.title': 'Freie Strände am Lago Maggiore: ein Kampf für den öffentlichen Zugang',
     'blog.article.spiagge-libere-sul-lago-maggiore.excerpt': 'Eine Demonstration, organisiert von den Jungen Grünen, fordert einen garantierten Zugang zu den Ufern des Lago Maggiore das ganze Jahr über und entfacht erneut die Debatte über die öffentliche Nutzung der Strände.',
     'blog.article.spiagge-libere-sul-lago-maggiore.imageAlt': 'Panoramablick auf den Lago Maggiore, ein natürliches Paradies, das entdeckt werden will.',
+    'blog.article.snl-stagione-green-concessione.title': 'Die Saison 2026 der SNL: Nachhaltigkeit und Spannung um die Konzession',
+    'blog.article.snl-stagione-green-concessione.excerpt': 'Die Società di Navigazione Lago di Lugano startet in die Saison 2026 mit einem Fokus auf Nachhaltigkeit und Elektrifizierung, während man auf die Entscheidung über die Verlängerung der Bundeskonzession wartet.',
+    'blog.article.snl-stagione-green-concessione.imageAlt': 'Panoramablick auf den Luganersee und die Stadt Lugano.',
 };
 
 export default blogMetaDe;

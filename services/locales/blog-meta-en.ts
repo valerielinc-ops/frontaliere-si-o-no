@@ -1592,6 +1592,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.spiagge-libere-sul-lago-maggiore.title': 'Free Beaches on Lake Maggiore: A Battle for Public Access',
     'blog.article.spiagge-libere-sul-lago-maggiore.excerpt': 'A demonstration organized by the Young Greens calls for guaranteed access to the shores of Lake Maggiore all year round, reigniting the debate on public use of beaches.',
     'blog.article.spiagge-libere-sul-lago-maggiore.imageAlt': 'Panoramic view of Lake Maggiore, a natural paradise waiting to be explored.',
+    'blog.article.snl-stagione-green-concessione.title': 'The 2026 SNL Season: Sustainability and the Federal Concession Decision',
+    'blog.article.snl-stagione-green-concessione.excerpt': 'The Lake Lugano Navigation Company launches the 2026 season with a focus on sustainability and electrification, awaiting the decision on the renewal of the federal concession.',
+    'blog.article.snl-stagione-green-concessione.imageAlt': 'Panoramic view of Lake Lugano and the city of Lugano.',
 };
 
 export default blogMetaEn;

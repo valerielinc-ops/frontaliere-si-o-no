@@ -1592,6 +1592,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.spiagge-libere-sul-lago-maggiore.title': 'Spiagge libere sul Lago Maggiore: una battaglia per l\'accesso pubblico',
     'blog.article.spiagge-libere-sul-lago-maggiore.excerpt': 'Una manifestazione organizzata dalle Giovani Verdi chiede l\'accesso garantito tutto l\'anno alle rive del Lago Maggiore, riaccendendo il dibattito sull\'uso pubblico delle spiagge.',
     'blog.article.spiagge-libere-sul-lago-maggiore.imageAlt': 'Vista panoramica del Lago Maggiore, un paradiso naturale che attende di essere scoperto.',
+    'blog.article.snl-stagione-green-concessione.title': 'La stagione 2026 della SNL: sostenibilità e attesa per la concessione',
+    'blog.article.snl-stagione-green-concessione.excerpt': 'La Società di Navigazione Lago di Lugano lancia la stagione 2026 con un focus sulla sostenibilità e l\'elettrificazione, in attesa della decisione sul rinnovo della concessione federale.',
+    'blog.article.snl-stagione-green-concessione.imageAlt': 'Vista panoramica del Lago di Lugano e della città di Lugano.',
 };
 
 export default blogMetaIt;

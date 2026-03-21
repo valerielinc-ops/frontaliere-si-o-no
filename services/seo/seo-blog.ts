@@ -8520,6 +8520,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-snl-stagione-green-concessione': {
+    title: 'La stagione 2026 della SNL: sostenibilità e attesa per la concessione | Frontaliere Ticino',
+    description: 'La SNL lancia la stagione 2026 con progetti green e attesa per la decisione sul rinnovo della concessione federale. Scopri le novità e i servizi per i',
+    keywords: 'frontalieri, ticino, svizzera, italia, stagione, sostenibilità, attesa, concessione',
+    ogTitle: 'SNL: stagione 2026 all\'insegna della sostenibilità e attesa per la concessione',
+    ogDescription: 'La SNL presenta la stagione 2026 con un focus sulla sostenibilità e l\'elettrificazione, in attesa della decisione sul rinnovo della concessione federale.',
+    canonicalPath: '/articoli-frontaliere/snl-stagione-green-concessione',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "SNL: stagione 2026 all'insegna della sostenibilità e attesa per la concessione",
+      "description": "La SNL lancia la stagione 2026 con progetti green e attesa per la decisione sul rinnovo della concessione federale. Scopri le novità e i servizi per i",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/snl-stagione-green-concessione.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Vista panoramica del Lago di Lugano e della città di Lugano."
+      },
+      "datePublished": "2026-03-21T23:01:25+00:00",
+      "dateModified": "2026-03-21T23:01:25+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/snl-stagione-green-concessione`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
