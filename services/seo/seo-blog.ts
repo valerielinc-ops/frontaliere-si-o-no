@@ -7534,6 +7534,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-globalisti-fuga-medio-oriente-ticino': {
+    title: 'Fuga dei Globalisti dal Medio Oriente: Opportunità per il Ticino? | Frontaliere Ticino',
+    description: 'Il Ticino potrebbe beneficiare dell\'uscita di grandi patrimoni dal Medio Oriente, ma serve una strategia chiara. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, fuga, globalisti, medio, oriente',
+    ogTitle: 'Fuga dei Globalisti dal Medio Oriente: Opportunità per il',
+    ogDescription: 'Il Ticino potrebbe beneficiare dell\'uscita di grandi patrimoni dal Medio Oriente, ma serve una strategia chiara.',
+    canonicalPath: '/articoli-frontaliere/globalisti-fuga-medio-oriente-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Fuga dei Globalisti dal Medio Oriente: Opportunità per il",
+      "description": "Il Ticino potrebbe beneficiare dell'uscita di grandi patrimoni dal Medio Oriente, ma serve una strategia chiara. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/globalisti-fuga-medio-oriente-ticino.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Vista panoramica di Bellinzona con castelli storici."
+      },
+      "datePublished": "2026-03-21T04:49:46+00:00",
+      "dateModified": "2026-03-21T04:49:46+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/globalisti-fuga-medio-oriente-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

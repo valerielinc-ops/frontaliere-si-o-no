@@ -1490,6 +1490,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.rinnovo-concessioni-snl-2026.title': 'Neubewilligungen und Erweiterung der Leistungen: Die Pläne der SNL für 2026',
     'blog.article.rinnovo-concessioni-snl-2026.excerpt': 'Die Società Navigazione del Lago di Lugano (SNL) wird ihre Pläne für die Neubewilligungen und die Erweiterung der Leistungen für 2026 vorstellen. Die neuen Verbindungen, thematischen Erfahrungen und große Ereignisse auf den Seen Maggiore und Ceresio werden im Fokus stehen.',
     'blog.article.rinnovo-concessioni-snl-2026.imageAlt': 'Immagini di un lago con una nave in movimento, con il profilo di una città sullo sfondo',
+    'blog.article.globalisti-fuga-medio-oriente-ticino.title': 'Flucht der Globalisten aus dem Nahen Osten: Chance für den Tessin?',
+    'blog.article.globalisti-fuga-medio-oriente-ticino.excerpt': 'Der Tessin könnte von der Abwanderung großer Vermögen aus dem Nahen Osten profitieren, benötigt jedoch eine klare Strategie.',
+    'blog.article.globalisti-fuga-medio-oriente-ticino.imageAlt': 'Panoramablick auf Bellinzona mit historischen Burgen.',
 };
 
 export default blogMetaDe;

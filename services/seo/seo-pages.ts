@@ -3049,7 +3049,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
         "@context": "https://schema.org",
         "@type": "ItemList",
         "name": "Articoli Frontaliere",
-        "numberOfItems": 487,
+        "numberOfItems": 488,
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
           { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -3537,7 +3537,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 484, "name": "La Commissione europea non è contenta della tas...", "url": `${BASE_URL}/articoli-frontaliere/kebab-case-rossi-bruxelles-ticino` },
           { "@type": "ListItem", "position": 485, "name": "Umberto Bossi e il Ticino", "url": `${BASE_URL}/articoli-frontaliere/bossi-voleva-bene-al-ticino` },
           { "@type": "ListItem", "position": 486, "name": "Chiamate shock in Ticino: due arresti per truff...", "url": `${BASE_URL}/articoli-frontaliere/chiamate-shock-arresti-ticino` },
-          { "@type": "ListItem", "position": 487, "name": "Rinnovo delle concessioni e ampliamento dell'of...", "url": `${BASE_URL}/articoli-frontaliere/rinnovo-concessioni-snl-2026` }
+          { "@type": "ListItem", "position": 487, "name": "Rinnovo delle concessioni e ampliamento dell'of...", "url": `${BASE_URL}/articoli-frontaliere/rinnovo-concessioni-snl-2026` },
+          { "@type": "ListItem", "position": 488, "name": "Fuga dei Globalisti dal Medio Oriente: Opportun...", "url": `${BASE_URL}/articoli-frontaliere/globalisti-fuga-medio-oriente-ticino` }
         ]
       }
     ]

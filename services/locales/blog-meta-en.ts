@@ -1490,6 +1490,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.rinnovo-concessioni-snl-2026.title': 'Renewal of concessions and expansion of services: SNL\'s plans for 2026',
     'blog.article.rinnovo-concessioni-snl-2026.excerpt': 'The Società Navigazione del Lago di Lugano (SNL) will present its plans for the renewal of concessions and expansion of services for 2026. New connections, themed experiences, and large events on Lake Maggiore and Lake Ceresio will be at the center of attention.',
     'blog.article.rinnovo-concessioni-snl-2026.imageAlt': 'Immagini di un lago con una nave in movimento, con il profilo di una città sullo sfondo',
+    'blog.article.globalisti-fuga-medio-oriente-ticino.title': 'Globalists\' Exodus from the Middle East: An Opportunity for Ticino?',
+    'blog.article.globalisti-fuga-medio-oriente-ticino.excerpt': 'Ticino could benefit from the exit of significant wealth from the Middle East, but a clear strategy is needed.',
+    'blog.article.globalisti-fuga-medio-oriente-ticino.imageAlt': 'Panoramic view of Bellinzona with historic castles.',
 };
 
 export default blogMetaEn;

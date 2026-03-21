@@ -4071,6 +4071,13 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/rinnovo-concessioni-snl-2026.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'globalisti-fuga-medio-oriente-ticino',
+    category: 'novita',
+    date: '2026-03-21T04:49:46.161Z',
+    image: '/images/blog/globalisti-fuga-medio-oriente-ticino.jpg',
+    hasCalculator: true,
+  },
 ];
 
 const CATEGORIES = ['all', 'fiscale', 'pratico', 'novita', 'pensione'] as const;

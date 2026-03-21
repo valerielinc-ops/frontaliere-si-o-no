@@ -1633,6 +1633,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-bossi-voleva-bene-al-ticino': { name: 'Bossi e il Ticino', path: '/articoli-frontaliere/bossi-voleva-bene-al-ticino', parent: 'blog' },
     'blog-chiamate-shock-arresti-ticino': { name: 'Chiamate shock in Ticino', path: '/articoli-frontaliere/chiamate-shock-arresti-ticino', parent: 'blog' },
     'blog-rinnovo-concessioni-snl-2026': { name: 'Rinnovo delle concessioni e ampliamento', path: '/articoli-frontaliere/rinnovo-concessioni-snl-2026', parent: 'blog' },
+    'blog-globalisti-fuga-medio-oriente-ticino': { name: 'Fuga dei Globalisti dal Medio Oriente', path: '/articoli-frontaliere/globalisti-fuga-medio-oriente-ticino', parent: 'blog' },
   };
 
   const info = sectionNames[section];
