@@ -1529,6 +1529,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.iva-bassa-svizzera-immagine-ingannevole.title': 'La TVA basse en Suisse : une image trompeuse',
     'blog.article.iva-bassa-svizzera-immagine-ingannevole.excerpt': 'Malgré un taux de 8,1 %, des experts avertissent : le système fiscal suisse est complexe et ne devrait pas être simplifié.',
     'blog.article.iva-bassa-svizzera-immagine-ingannevole.imageAlt': 'Vue du lac de Lugano avec des montagnes environnantes.',
+    'blog.article.divieto-smartphone-scuola-ticino.title': 'Interdiction des smartphones dans les écoles du Tessin : nouvelles mesures',
+    'blog.article.divieto-smartphone-scuola-ticino.excerpt': 'À partir du 30 mars, le Tessin étend l\'interdiction des smartphones à toutes les écoles obligatoires pour protéger la santé des jeunes.',
+    'blog.article.divieto-smartphone-scuola-ticino.imageAlt': 'Une scène scolaire à Lugano avec des étudiants en apprentissage.',
 };
 
 export default blogMetaFr;

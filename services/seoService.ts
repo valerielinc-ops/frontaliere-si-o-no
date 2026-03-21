@@ -1646,6 +1646,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-diesel-aumento-prezzi-svizzera-2026': { name: 'Prezzi Diesel', path: '/articoli-frontaliere/diesel-aumento-prezzi-svizzera-2026', parent: 'blog' },
     'blog-sanita-manifesto-varese-2026': { name: 'A Varese nasce il Manifesto per il welfa', path: '/articoli-frontaliere/sanita-manifesto-varese-2026', parent: 'blog' },
     'blog-iva-bassa-svizzera-immagine-ingannevole': { name: 'IVA Svizzera', path: '/articoli-frontaliere/iva-bassa-svizzera-immagine-ingannevole', parent: 'blog' },
+    'blog-divieto-smartphone-scuola-ticino': { name: 'Divieto di smartphone nelle scuole del T', path: '/articoli-frontaliere/divieto-smartphone-scuola-ticino', parent: 'blog' },
   };
 
   const info = sectionNames[section];

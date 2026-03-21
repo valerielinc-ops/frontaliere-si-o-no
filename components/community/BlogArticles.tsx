@@ -4162,6 +4162,13 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/iva-bassa-svizzera-immagine-ingannevole.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'divieto-smartphone-scuola-ticino',
+    category: 'novita',
+    date: '2026-03-21T11:44:36.863Z',
+    image: '/images/blog/divieto-smartphone-scuola-ticino.jpg',
+    hasCalculator: true,
+  },
 ];
 
 const CATEGORIES = ['all', 'fiscale', 'pratico', 'novita', 'pensione'] as const;

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-03-21T11:07:38.592Z",
+  "generatedAt": "2026-03-21T11:50:26.781Z",
   "sources": {
     "italy": {
       "provider": "MIMIT Open Data",
@@ -11,7 +11,7 @@
       "provider": "TCS Benzinpreis",
       "providerUrl": "https://benzin.tcs.ch/de/map/SP95",
       "stationCount": 221,
-      "latestObservedUpdate": "2026-03-21T10:35:58.265Z"
+      "latestObservedUpdate": "2026-03-21T11:18:59.686Z"
     },
     "exchangeRate": {
       "provider": "ECB",
@@ -6529,20 +6529,6 @@
             "distanceKm": 16.9
           },
           {
-            "id": "ijc3YeBOHGIWQdqfuZPt",
-            "name": "Migrol Service",
-            "brand": "MIGROL",
-            "address": "Strada Regina 10, 6934 Bioggio",
-            "lat": 46.01259,
-            "lng": 8.90711,
-            "sp95PriceChf": 1.67,
-            "updatedAt": "2026-02-21T12:39:14.037Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 6.3,
-            "sp95PriceEur": 1.836,
-            "distanceKm": 18
-          },
-          {
             "id": "9DlkfBuzFkNLAf4DuIXp",
             "name": "AVIA Shop Claro",
             "brand": "AVIA",
@@ -6555,6 +6541,20 @@
             "nearestMunicipalityDistanceKm": 19.4,
             "sp95PriceEur": 1.913,
             "distanceKm": 19.4
+          },
+          {
+            "id": "Ma1s7ixOimaKRcftiJzY",
+            "name": "Eni Melide",
+            "brand": "ENI",
+            "address": "Via Cantonale 31, 6815 Melide",
+            "lat": 45.9562952,
+            "lng": 8.9473102,
+            "sp95PriceChf": 1.74,
+            "updatedAt": "2026-03-15T17:00:19.709Z",
+            "nearestMunicipality": "Campione d'Italia (CO)",
+            "nearestMunicipalityDistanceKm": 2.3,
+            "sp95PriceEur": 1.913,
+            "distanceKm": 19.5
           }
         ],
         "minPriceChf": 1.63,
@@ -17413,20 +17413,6 @@
             "distanceKm": 17.8
           },
           {
-            "id": "ijc3YeBOHGIWQdqfuZPt",
-            "name": "Migrol Service",
-            "brand": "MIGROL",
-            "address": "Strada Regina 10, 6934 Bioggio",
-            "lat": 46.01259,
-            "lng": 8.90711,
-            "sp95PriceChf": 1.67,
-            "updatedAt": "2026-02-21T12:39:14.037Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 6.3,
-            "sp95PriceEur": 1.836,
-            "distanceKm": 19
-          },
-          {
             "id": "9DlkfBuzFkNLAf4DuIXp",
             "name": "AVIA Shop Claro",
             "brand": "AVIA",
@@ -17439,6 +17425,20 @@
             "nearestMunicipalityDistanceKm": 19.4,
             "sp95PriceEur": 1.913,
             "distanceKm": 20
+          },
+          {
+            "id": "DvrNn0z4cHLvWopylMHZ",
+            "name": "Tecnocars Garage Sagl",
+            "brand": "AVIA",
+            "address": "Via Pian Scairolo 13, 6912 Pazzallo",
+            "lat": 45.983692,
+            "lng": 8.931195,
+            "sp95PriceChf": 1.75,
+            "updatedAt": "2026-02-27T11:28:28.214Z",
+            "nearestMunicipality": "Campione d'Italia (CO)",
+            "nearestMunicipalityDistanceKm": 3.5,
+            "sp95PriceEur": 1.924,
+            "distanceKm": 19.2
           }
         ],
         "minPriceChf": 1.63,

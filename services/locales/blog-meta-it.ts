@@ -1529,6 +1529,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.iva-bassa-svizzera-immagine-ingannevole.title': 'L\'IVA bassa in Svizzera: un\'immagine ingannevole',
     'blog.article.iva-bassa-svizzera-immagine-ingannevole.excerpt': 'Nonostante l\'aliquota dell\'8,1%, esperti avvertono: il sistema fiscale svizzero è complesso e non dovrebbe essere semplificato.',
     'blog.article.iva-bassa-svizzera-immagine-ingannevole.imageAlt': 'Vista del Lago di Lugano con montagne circostanti.',
+    'blog.article.divieto-smartphone-scuola-ticino.title': 'Divieto di smartphone nelle scuole del Ticino: nuove misure',
+    'blog.article.divieto-smartphone-scuola-ticino.excerpt': 'A partire dal 30 marzo, il Ticino estende il divieto di smartphone a tutte le scuole dell\'obbligo per tutelare la salute dei giovani.',
+    'blog.article.divieto-smartphone-scuola-ticino.imageAlt': 'Scena scolastica a Lugano con studenti impegnati nell\'apprendimento.',
 };
 
 export default blogMetaIt;

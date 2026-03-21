@@ -1529,6 +1529,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.iva-bassa-svizzera-immagine-ingannevole.title': 'Die niedrige Mehrwertsteuer in der Schweiz: ein irreführendes Bild',
     'blog.article.iva-bassa-svizzera-immagine-ingannevole.excerpt': 'Trotz des Satzes von 8,1% warnen Experten: Das Steuersystem der Schweiz ist komplex und sollte nicht vereinfacht werden.',
     'blog.article.iva-bassa-svizzera-immagine-ingannevole.imageAlt': 'Blick auf den Luganersee mit umliegenden Bergen.',
+    'blog.article.divieto-smartphone-scuola-ticino.title': 'Verbot von Smartphones in den Schulen des Tessins: neue Maßnahmen',
+    'blog.article.divieto-smartphone-scuola-ticino.excerpt': 'Ab dem 30. März erweitert das Tessin das Verbot von Smartphones auf alle Schulen der Pflichtbildung, um die Gesundheit der Jugendlichen zu schützen.',
+    'blog.article.divieto-smartphone-scuola-ticino.imageAlt': 'Eine Schulszene in Lugano mit Schülern, die lernen.',
 };
 
 export default blogMetaDe;
