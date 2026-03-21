@@ -4106,6 +4106,13 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/taglio-alle-accise-mette-sotto-pressione-i-distributori-ticinesi.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'farmaci-competitiva-europa',
+    category: 'pratico',
+    date: '2026-03-21T07:40:32.381Z',
+    image: '/images/blog/farmaci-competitiva-europa.jpg',
+    hasCalculator: true,
+  },
 ];
 
 const CATEGORIES = ['all', 'fiscale', 'pratico', 'novita', 'pensione'] as const;

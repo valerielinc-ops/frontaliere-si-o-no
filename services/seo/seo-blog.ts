@@ -7679,6 +7679,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-farmaci-competitiva-europa': {
+    title: 'L\'industria farmaceutica: per essere competitiva l\'Europa deve avere | Frontaliere Ticino',
+    description: 'L\'industria farmaceutica è un settore strategico per l\'economia italiana e europea. È un settore che crea posti di lavoro, innova e contribuisce alla crescita',
+    keywords: 'frontalieri, ticino, svizzera, italia, industria, farmaceutica, essere, competitiva',
+    ogTitle: 'L\'industria farmaceutica: per essere competitiva l\'Europa deve avere regole chiare e',
+    ogDescription: 'L\'industria farmaceutica è un settore strategico per l\'economia italiana e europea. È un settore che crea posti di lavoro, innova e contribuisce alla crescita',
+    canonicalPath: '/articoli-frontaliere/farmaci-competitiva-europa',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "L'industria farmaceutica: per essere competitiva l'Europa deve avere regole chiare e prevedibili",
+      "description": "L'industria farmaceutica è un settore strategico per l'economia italiana e europea. È un settore che crea posti di lavoro, innova e contribuisce alla crescita",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/farmaci-competitiva-europa.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Una scena dei laboratori farmaceutici in Ticino"
+      },
+      "datePublished": "2026-03-21T07:40:32+00:00",
+      "dateModified": "2026-03-21T07:40:32+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/farmaci-competitiva-europa`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

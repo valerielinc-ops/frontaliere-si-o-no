@@ -1505,6 +1505,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.taglio-alle-accise-mette-sotto-pressione-i-distributori-ticinesi.title': 'Der Preisverfall bei den Benzinsteuern bringt die Tankstellen im Tessin unter Druck',
     'blog.article.taglio-alle-accise-mette-sotto-pressione-i-distributori-ticinesi.excerpt': 'Die Maßnahme, die von Rom beschlossen wurde und für 20 Tage gültig ist, sieht einen \'Rabatt\' von 25 Centimes pro Liter vor. Die Vereinigung der Kategorietankstellen im Tessin äußert sich besorgt und bittet um politische Intervention.',
     'blog.article.taglio-alle-accise-mette-sotto-pressione-i-distributori-ticinesi.imageAlt': 'Die Brennstoffsteuerrabatze belasten die Kraftstoffverteilungsfirmen in der Schweiz, mit dem Risiko eines Kundenflusses in die Schweiz.',
+    'blog.article.farmaci-competitiva-europa.title': 'Die Pharmaindustrie: Um wettbewerbsfähig zu sein, muss Europa klare und vorhersehbare Regeln haben',
+    'blog.article.farmaci-competitiva-europa.excerpt': 'Italienische Bürger über 75 Jahre konsumieren dreimal mehr Medikamente als die Durchschnittspopulation',
+    'blog.article.farmaci-competitiva-europa.imageAlt': 'Eine realistische Szene eines pharmazeutischen Labors in Ticino',
 };
 
 export default blogMetaDe;

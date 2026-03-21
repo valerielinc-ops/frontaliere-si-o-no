@@ -1505,6 +1505,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.taglio-alle-accise-mette-sotto-pressione-i-distributori-ticinesi.title': 'Il taglio alle accise mette sotto pressione i distributori ticinesi',
     'blog.article.taglio-alle-accise-mette-sotto-pressione-i-distributori-ticinesi.excerpt': 'La misura, decisa da Roma e valida per 20 giorni, prevede uno \'sconto\' di 25 centesimi al litro. L\'associazione di categoria ticinese si dice preoccupata e chiede un intervento politico.',
     'blog.article.taglio-alle-accise-mette-sotto-pressione-i-distributori-ticinesi.imageAlt': 'I tagli alle accise stanno mettendo sotto pressione i distributori di carburante in Ticino.',
+    'blog.article.farmaci-competitiva-europa.title': 'L\'industria farmaceutica: per essere competitiva l\'Europa deve avere regole chiare e prevedibili',
+    'blog.article.farmaci-competitiva-europa.excerpt': 'I cittadini italiani con più di 75 anni consumano tre volte in più la quantità di medicinali rispetto alla media del resto della popolazione',
+    'blog.article.farmaci-competitiva-europa.imageAlt': 'Una scena dei laboratori farmaceutici in Ticino',
 };
 
 export default blogMetaIt;

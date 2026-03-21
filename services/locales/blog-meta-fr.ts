@@ -1505,6 +1505,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.taglio-alle-accise-mette-sotto-pressione-i-distributori-ticinesi.title': 'Le réductions des taxes sur les carburants mettent la pression sur les distributeurs ticinois',
     'blog.article.taglio-alle-accise-mette-sotto-pressione-i-distributori-ticinesi.excerpt': 'La mesure, décidée à Rome et valable pour 20 jours, prévoit un \'rabais\' de 25 centimes par litre. L\'association de catégorie ticinoise se dit inquiète et demande une intervention politique.',
     'blog.article.taglio-alle-accise-mette-sotto-pressione-i-distributori-ticinesi.imageAlt': 'Les baisses de taxes sur les carburants mettent sous pression les distributeurs de carburants dans le canton de Tessin, avec le risque d\'une fuite de clients vers la Suisse.',
+    'blog.article.farmaci-competitiva-europa.title': 'L\'industria pharmaceutique : pour être compétitive, l\'Europe doit avoir des règles claires et prévisibles',
+    'blog.article.farmaci-competitiva-europa.excerpt': 'Les citoyens italiens âgés de plus de 75 ans consomment trois fois plus de médicaments que la moyenne de la population',
+    'blog.article.farmaci-competitiva-europa.imageAlt': 'Une scène réaliste d\'un laboratoire pharmaceutique en Tessin',
 };
 
 export default blogMetaFr;

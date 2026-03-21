@@ -1505,6 +1505,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.taglio-alle-accise-mette-sotto-pressione-i-distributori-ticinesi.title': 'Fuel tax cut puts pressure on Ticinese distributors',
     'blog.article.taglio-alle-accise-mette-sotto-pressione-i-distributori-ticinesi.excerpt': 'The measure, decided by Rome and valid for 20 days, provides a 25-cent discount per liter. The Ticinese category association is concerned and is asking for a political intervention.',
     'blog.article.taglio-alle-accise-mette-sotto-pressione-i-distributori-ticinesi.imageAlt': 'The fuel tax cuts are putting pressure on fuel distributors in Ticino, with the risk of a flight of customers to Switzerland.',
+    'blog.article.farmaci-competitiva-europa.title': 'The Pharmaceutical Industry: For Europe to be Competitive, it Must Have Clear and Predictable Rules',
+    'blog.article.farmaci-competitiva-europa.excerpt': 'Italian citizens over 75 years old consume three times more medication than the average of the rest of the population',
+    'blog.article.farmaci-competitiva-europa.imageAlt': 'A realistic scene of a pharmaceutical laboratory in Ticino',
 };
 
 export default blogMetaEn;
