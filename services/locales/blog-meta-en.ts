@@ -1532,6 +1532,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.divieto-smartphone-scuola-ticino.title': 'Smartphone Ban in Ticino Schools: New Measures',
     'blog.article.divieto-smartphone-scuola-ticino.excerpt': 'Starting March 30, Ticino extends the smartphone ban to all compulsory schools to protect the health of young people.',
     'blog.article.divieto-smartphone-scuola-ticino.imageAlt': 'A school scene in Lugano with students engaged in learning.',
+    'blog.article.la-navigazione-rafforza-offerta-2026.title': 'Ticino Navigation: Enhanced Offers for 2026',
+    'blog.article.la-navigazione-rafforza-offerta-2026.excerpt': 'Lugano Lake Navigation is preparing for a new season with enhanced offers, aiming to become a leading tourist carrier.',
+    'blog.article.la-navigazione-rafforza-offerta-2026.imageAlt': 'Panoramic view of Lake Lugano with boats.',
 };
 
 export default blogMetaEn;

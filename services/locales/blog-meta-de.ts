@@ -1532,6 +1532,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.divieto-smartphone-scuola-ticino.title': 'Verbot von Smartphones in den Schulen des Tessins: neue Maßnahmen',
     'blog.article.divieto-smartphone-scuola-ticino.excerpt': 'Ab dem 30. März erweitert das Tessin das Verbot von Smartphones auf alle Schulen der Pflichtbildung, um die Gesundheit der Jugendlichen zu schützen.',
     'blog.article.divieto-smartphone-scuola-ticino.imageAlt': 'Eine Schulszene in Lugano mit Schülern, die lernen.',
+    'blog.article.la-navigazione-rafforza-offerta-2026.title': 'Navigazione Ticino: Verbesserte Angebote für 2026',
+    'blog.article.la-navigazione-rafforza-offerta-2026.excerpt': 'Die Navigazione Lago di Lugano bereitet sich auf eine neue Saison mit verbesserten Angeboten vor, mit dem Ziel, ein führendes touristisches Verkehrsmittel zu werden.',
+    'blog.article.la-navigazione-rafforza-offerta-2026.imageAlt': 'Panoramablick auf den Luganersee mit Booten.',
 };
 
 export default blogMetaDe;

@@ -7940,6 +7940,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-la-navigazione-rafforza-offerta-2026': {
+    title: 'Navigazione Ticino: Offerte potenziate per il 2026 | Frontaliere Ticino',
+    description: 'La Navigazione Lago di Lugano si prepara per una nuova stagione con offerte potenziate, mirando a diventare un vettore turistico di riferimento. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, navigazione, offerte, potenziate, lago',
+    ogTitle: 'Navigazione Ticino: Offerte potenziate per il 2026',
+    ogDescription: 'La Navigazione Lago di Lugano si prepara per una nuova stagione con offerte potenziate, mirando a diventare un vettore turistico di riferimento.',
+    canonicalPath: '/articoli-frontaliere/la-navigazione-rafforza-offerta-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Navigazione Ticino: Offerte potenziate per il 2026",
+      "description": "La Navigazione Lago di Lugano si prepara per una nuova stagione con offerte potenziate, mirando a diventare un vettore turistico di riferimento. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/la-navigazione-rafforza-offerta-2026.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Vista panoramica del Lago di Lugano con barche."
+      },
+      "datePublished": "2026-03-21T13:09:21+00:00",
+      "dateModified": "2026-03-21T13:09:21+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/la-navigazione-rafforza-offerta-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

@@ -1532,6 +1532,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.divieto-smartphone-scuola-ticino.title': 'Divieto di smartphone nelle scuole del Ticino: nuove misure',
     'blog.article.divieto-smartphone-scuola-ticino.excerpt': 'A partire dal 30 marzo, il Ticino estende il divieto di smartphone a tutte le scuole dell\'obbligo per tutelare la salute dei giovani.',
     'blog.article.divieto-smartphone-scuola-ticino.imageAlt': 'Scena scolastica a Lugano con studenti impegnati nell\'apprendimento.',
+    'blog.article.la-navigazione-rafforza-offerta-2026.title': 'Navigazione Ticino: Offerte potenziate per il 2026',
+    'blog.article.la-navigazione-rafforza-offerta-2026.excerpt': 'La Navigazione Lago di Lugano si prepara per una nuova stagione con offerte potenziate, mirando a diventare un vettore turistico di riferimento.',
+    'blog.article.la-navigazione-rafforza-offerta-2026.imageAlt': 'Vista panoramica del Lago di Lugano con barche.',
 };
 
 export default blogMetaIt;

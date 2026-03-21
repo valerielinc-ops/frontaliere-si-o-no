@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-03-21T11:50:26.781Z",
+  "generatedAt": "2026-03-21T13:15:04.768Z",
   "sources": {
     "italy": {
       "provider": "MIMIT Open Data",
@@ -10,8 +10,8 @@
     "switzerland": {
       "provider": "TCS Benzinpreis",
       "providerUrl": "https://benzin.tcs.ch/de/map/SP95",
-      "stationCount": 221,
-      "latestObservedUpdate": "2026-03-21T11:18:59.686Z"
+      "stationCount": 222,
+      "latestObservedUpdate": "2026-03-21T13:03:21.693Z"
     },
     "exchangeRate": {
       "provider": "ECB",
@@ -785,23 +785,23 @@
         "municipality": "Crosio della Valle",
         "province": "VA",
         "cheaperCountry": "IT",
-        "saving50LEur": 15.15,
+        "saving50LEur": 16.8,
         "italyPriceEur": 1.555,
-        "swissPriceEur": 1.858,
-        "swissPriceChf": 1.69,
+        "swissPriceEur": 1.891,
+        "swissPriceChf": 1.72,
         "swissStation": {
-          "id": "BuLqgLtrkWKZWPB1oaHr",
-          "name": "BP Unbemannte Station Genestrerio",
-          "brand": "BP",
-          "address": "Via Adorna, 6852 Genestrerio",
-          "lat": 45.85708,
-          "lng": 8.96782,
-          "sp95PriceChf": 1.69,
-          "updatedAt": "2026-03-12T11:19:25.645Z",
+          "id": "g1Ewt2bs9nFFxymi7tYL",
+          "name": "TAMOIL Stabio",
+          "brand": "TAMOIL",
+          "address": "Giulia 47, 6855 Stabio",
+          "lat": 45.848008,
+          "lng": 8.935833,
+          "sp95PriceChf": 1.72,
+          "updatedAt": "2026-03-07T18:03:01.884Z",
           "nearestMunicipality": "Bizzarone (CO)",
-          "nearestMunicipalityDistanceKm": 2.8,
-          "sp95PriceEur": 1.858,
-          "distanceKm": 18.7
+          "nearestMunicipalityDistanceKm": 1.6,
+          "sp95PriceEur": 1.891,
+          "distanceKm": 16.1
         }
       },
       {
@@ -1035,6 +1035,29 @@
         }
       },
       {
+        "municipality": "Albizzate",
+        "province": "VA",
+        "cheaperCountry": "IT",
+        "saving50LEur": 12.3,
+        "italyPriceEur": 1.645,
+        "swissPriceEur": 1.891,
+        "swissPriceChf": 1.72,
+        "swissStation": {
+          "id": "g1Ewt2bs9nFFxymi7tYL",
+          "name": "TAMOIL Stabio",
+          "brand": "TAMOIL",
+          "address": "Giulia 47, 6855 Stabio",
+          "lat": 45.848008,
+          "lng": 8.935833,
+          "sp95PriceChf": 1.72,
+          "updatedAt": "2026-03-07T18:03:01.884Z",
+          "nearestMunicipality": "Bizzarone (CO)",
+          "nearestMunicipalityDistanceKm": 1.6,
+          "sp95PriceEur": 1.891,
+          "distanceKm": 17.2
+        }
+      },
+      {
         "municipality": "Lonate Ceppino",
         "province": "VA",
         "cheaperCountry": "IT",
@@ -1078,29 +1101,6 @@
           "nearestMunicipalityDistanceKm": 2.3,
           "sp95PriceEur": 1.825,
           "distanceKm": 16.6
-        }
-      },
-      {
-        "municipality": "Erba",
-        "province": "CO",
-        "cheaperCountry": "IT",
-        "saving50LEur": 12,
-        "italyPriceEur": 1.585,
-        "swissPriceEur": 1.825,
-        "swissPriceChf": 1.66,
-        "swissStation": {
-          "id": "pXVgLf2jUOKzOewFCsnj",
-          "name": "Migrol Service",
-          "brand": "MIGROL",
-          "address": "Centro Commerciale Serfontana, 6836 Serfontana",
-          "lat": 45.843756,
-          "lng": 9.016943,
-          "sp95PriceChf": 1.66,
-          "updatedAt": "2026-03-15T23:20:48.297Z",
-          "nearestMunicipality": "Maslianico (CO)",
-          "nearestMunicipalityDistanceKm": 2.3,
-          "sp95PriceEur": 1.825,
-          "distanceKm": 16.3
         }
       }
     ]
@@ -1189,20 +1189,6 @@
             "distanceKm": 14
           },
           {
-            "id": "BuLqgLtrkWKZWPB1oaHr",
-            "name": "BP Unbemannte Station Genestrerio",
-            "brand": "BP",
-            "address": "Via Adorna, 6852 Genestrerio",
-            "lat": 45.85708,
-            "lng": 8.96782,
-            "sp95PriceChf": 1.69,
-            "updatedAt": "2026-03-12T11:19:25.645Z",
-            "nearestMunicipality": "Bizzarone (CO)",
-            "nearestMunicipalityDistanceKm": 2.8,
-            "sp95PriceEur": 1.858,
-            "distanceKm": 18.1
-          },
-          {
             "id": "ukK4QQ2nixpThGubzzE3",
             "name": "Orcam",
             "brand": "UNDEFINED",
@@ -1243,6 +1229,20 @@
             "nearestMunicipalityDistanceKm": 1.6,
             "sp95PriceEur": 1.902,
             "distanceKm": 12.7
+          },
+          {
+            "id": "EDsfoWTW5mhInO152CPP",
+            "name": "Eni Chiasso",
+            "brand": "ENI",
+            "address": "Via Como 7, 6830 Chiasso",
+            "lat": 45.8378284,
+            "lng": 9.0340937,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-03-16T08:42:42.056Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 1.2,
+            "sp95PriceEur": 1.902,
+            "distanceKm": 12.6
           }
         ],
         "minPriceChf": 1.66,
@@ -1365,20 +1365,6 @@
             "distanceKm": 19.1
           },
           {
-            "id": "BuLqgLtrkWKZWPB1oaHr",
-            "name": "BP Unbemannte Station Genestrerio",
-            "brand": "BP",
-            "address": "Via Adorna, 6852 Genestrerio",
-            "lat": 45.85708,
-            "lng": 8.96782,
-            "sp95PriceChf": 1.69,
-            "updatedAt": "2026-03-12T11:19:25.645Z",
-            "nearestMunicipality": "Bizzarone (CO)",
-            "nearestMunicipalityDistanceKm": 2.8,
-            "sp95PriceEur": 1.858,
-            "distanceKm": 16.4
-          },
-          {
             "id": "ukK4QQ2nixpThGubzzE3",
             "name": "Orcam",
             "brand": "UNDEFINED",
@@ -1391,6 +1377,20 @@
             "nearestMunicipalityDistanceKm": 4.6,
             "sp95PriceEur": 1.88,
             "distanceKm": 16.7
+          },
+          {
+            "id": "g1Ewt2bs9nFFxymi7tYL",
+            "name": "TAMOIL Stabio",
+            "brand": "TAMOIL",
+            "address": "Giulia 47, 6855 Stabio",
+            "lat": 45.848008,
+            "lng": 8.935833,
+            "sp95PriceChf": 1.72,
+            "updatedAt": "2026-03-07T18:03:01.884Z",
+            "nearestMunicipality": "Bizzarone (CO)",
+            "nearestMunicipalityDistanceKm": 1.6,
+            "sp95PriceEur": 1.891,
+            "distanceKm": 18.5
           }
         ],
         "minPriceChf": 1.64,
@@ -1567,20 +1567,6 @@
             "distanceKm": 15.9
           },
           {
-            "id": "BuLqgLtrkWKZWPB1oaHr",
-            "name": "BP Unbemannte Station Genestrerio",
-            "brand": "BP",
-            "address": "Via Adorna, 6852 Genestrerio",
-            "lat": 45.85708,
-            "lng": 8.96782,
-            "sp95PriceChf": 1.69,
-            "updatedAt": "2026-03-12T11:19:25.645Z",
-            "nearestMunicipality": "Bizzarone (CO)",
-            "nearestMunicipalityDistanceKm": 2.8,
-            "sp95PriceEur": 1.858,
-            "distanceKm": 19.9
-          },
-          {
             "id": "2cyTEGqZPuSVhtpjGqzf",
             "name": "Silo Shop",
             "brand": "UNDEFINED",
@@ -1621,6 +1607,20 @@
             "nearestMunicipalityDistanceKm": 1.2,
             "sp95PriceEur": 1.902,
             "distanceKm": 14.4
+          },
+          {
+            "id": "IGIlo1f7hrzC174Fqgmt",
+            "name": "TAMOIL Balerna (San Gottardo)",
+            "brand": "TAMOIL",
+            "address": "San Gottardo 12, 6828 Balerna",
+            "lat": 45.840241,
+            "lng": 9.018873,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-03-16T08:40:53.906Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 2.2,
+            "sp95PriceEur": 1.902,
+            "distanceKm": 15.6
           }
         ],
         "minPriceChf": 1.66,
@@ -1819,20 +1819,6 @@
             "distanceKm": 15.2
           },
           {
-            "id": "BuLqgLtrkWKZWPB1oaHr",
-            "name": "BP Unbemannte Station Genestrerio",
-            "brand": "BP",
-            "address": "Via Adorna, 6852 Genestrerio",
-            "lat": 45.85708,
-            "lng": 8.96782,
-            "sp95PriceChf": 1.69,
-            "updatedAt": "2026-03-12T11:19:25.645Z",
-            "nearestMunicipality": "Bizzarone (CO)",
-            "nearestMunicipalityDistanceKm": 2.8,
-            "sp95PriceEur": 1.858,
-            "distanceKm": 19.2
-          },
-          {
             "id": "2cyTEGqZPuSVhtpjGqzf",
             "name": "Silo Shop",
             "brand": "UNDEFINED",
@@ -1873,6 +1859,20 @@
             "nearestMunicipalityDistanceKm": 1.2,
             "sp95PriceEur": 1.902,
             "distanceKm": 13.7
+          },
+          {
+            "id": "IGIlo1f7hrzC174Fqgmt",
+            "name": "TAMOIL Balerna (San Gottardo)",
+            "brand": "TAMOIL",
+            "address": "San Gottardo 12, 6828 Balerna",
+            "lat": 45.840241,
+            "lng": 9.018873,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-03-16T08:40:53.906Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 2.2,
+            "sp95PriceEur": 1.902,
+            "distanceKm": 14.9
           }
         ],
         "minPriceChf": 1.66,
@@ -2104,20 +2104,6 @@
             "distanceKm": 12.3
           },
           {
-            "id": "BuLqgLtrkWKZWPB1oaHr",
-            "name": "BP Unbemannte Station Genestrerio",
-            "brand": "BP",
-            "address": "Via Adorna, 6852 Genestrerio",
-            "lat": 45.85708,
-            "lng": 8.96782,
-            "sp95PriceChf": 1.69,
-            "updatedAt": "2026-03-12T11:19:25.645Z",
-            "nearestMunicipality": "Bizzarone (CO)",
-            "nearestMunicipalityDistanceKm": 2.8,
-            "sp95PriceEur": 1.858,
-            "distanceKm": 13.5
-          },
-          {
             "id": "ukK4QQ2nixpThGubzzE3",
             "name": "Orcam",
             "brand": "UNDEFINED",
@@ -2157,6 +2143,20 @@
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
             "sp95PriceEur": 1.891,
+            "distanceKm": 11.6
+          },
+          {
+            "id": "4rZcVZZyMdcg9utPrsXv",
+            "name": "GARAGE 64",
+            "brand": "UNDEFINED",
+            "address": "Via Emilio Bossi 6, 6830 Chiasso",
+            "lat": 45.834176890224306,
+            "lng": 9.031274331501768,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-02-20T14:24:22.760Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 1.6,
+            "sp95PriceEur": 1.902,
             "distanceKm": 11.6
           }
         ],
@@ -2969,20 +2969,6 @@
             "distanceKm": 17.1
           },
           {
-            "id": "BuLqgLtrkWKZWPB1oaHr",
-            "name": "BP Unbemannte Station Genestrerio",
-            "brand": "BP",
-            "address": "Via Adorna, 6852 Genestrerio",
-            "lat": 45.85708,
-            "lng": 8.96782,
-            "sp95PriceChf": 1.69,
-            "updatedAt": "2026-03-12T11:19:25.645Z",
-            "nearestMunicipality": "Bizzarone (CO)",
-            "nearestMunicipalityDistanceKm": 2.8,
-            "sp95PriceEur": 1.858,
-            "distanceKm": 9.6
-          },
-          {
             "id": "ukK4QQ2nixpThGubzzE3",
             "name": "Orcam",
             "brand": "UNDEFINED",
@@ -2995,6 +2981,20 @@
             "nearestMunicipalityDistanceKm": 4.6,
             "sp95PriceEur": 1.88,
             "distanceKm": 12.8
+          },
+          {
+            "id": "g1Ewt2bs9nFFxymi7tYL",
+            "name": "TAMOIL Stabio",
+            "brand": "TAMOIL",
+            "address": "Giulia 47, 6855 Stabio",
+            "lat": 45.848008,
+            "lng": 8.935833,
+            "sp95PriceChf": 1.72,
+            "updatedAt": "2026-03-07T18:03:01.884Z",
+            "nearestMunicipality": "Bizzarone (CO)",
+            "nearestMunicipalityDistanceKm": 1.6,
+            "sp95PriceEur": 1.891,
+            "distanceKm": 8.7
           }
         ],
         "minPriceChf": 1.64,
@@ -3084,20 +3084,6 @@
             "distanceKm": 16.2
           },
           {
-            "id": "BuLqgLtrkWKZWPB1oaHr",
-            "name": "BP Unbemannte Station Genestrerio",
-            "brand": "BP",
-            "address": "Via Adorna, 6852 Genestrerio",
-            "lat": 45.85708,
-            "lng": 8.96782,
-            "sp95PriceChf": 1.69,
-            "updatedAt": "2026-03-12T11:19:25.645Z",
-            "nearestMunicipality": "Bizzarone (CO)",
-            "nearestMunicipalityDistanceKm": 2.8,
-            "sp95PriceEur": 1.858,
-            "distanceKm": 8.8
-          },
-          {
             "id": "ukK4QQ2nixpThGubzzE3",
             "name": "Orcam",
             "brand": "UNDEFINED",
@@ -3110,6 +3096,20 @@
             "nearestMunicipalityDistanceKm": 4.6,
             "sp95PriceEur": 1.88,
             "distanceKm": 12.1
+          },
+          {
+            "id": "g1Ewt2bs9nFFxymi7tYL",
+            "name": "TAMOIL Stabio",
+            "brand": "TAMOIL",
+            "address": "Giulia 47, 6855 Stabio",
+            "lat": 45.848008,
+            "lng": 8.935833,
+            "sp95PriceChf": 1.72,
+            "updatedAt": "2026-03-07T18:03:01.884Z",
+            "nearestMunicipality": "Bizzarone (CO)",
+            "nearestMunicipalityDistanceKm": 1.6,
+            "sp95PriceEur": 1.891,
+            "distanceKm": 7.2
           }
         ],
         "minPriceChf": 1.64,
@@ -3443,18 +3443,18 @@
             "distanceKm": 13.2
           },
           {
-            "id": "BuLqgLtrkWKZWPB1oaHr",
-            "name": "BP Unbemannte Station Genestrerio",
-            "brand": "BP",
-            "address": "Via Adorna, 6852 Genestrerio",
-            "lat": 45.85708,
-            "lng": 8.96782,
-            "sp95PriceChf": 1.69,
-            "updatedAt": "2026-03-12T11:19:25.645Z",
-            "nearestMunicipality": "Bizzarone (CO)",
-            "nearestMunicipalityDistanceKm": 2.8,
-            "sp95PriceEur": 1.858,
-            "distanceKm": 10.6
+            "id": "ukK4QQ2nixpThGubzzE3",
+            "name": "Orcam",
+            "brand": "UNDEFINED",
+            "address": "Via Carlo Maderno 41, 6850 Mendrisio",
+            "lat": 45.8851362482152,
+            "lng": 8.981086222287052,
+            "sp95PriceChf": 1.7100000000000002,
+            "updatedAt": "2026-03-11T11:53:32.610Z",
+            "nearestMunicipality": "Clivio (VA)",
+            "nearestMunicipalityDistanceKm": 4.6,
+            "sp95PriceEur": 1.88,
+            "distanceKm": 10.7
           }
         ],
         "minPriceChf": 1.64,
@@ -3571,20 +3571,6 @@
             "distanceKm": 16.6
           },
           {
-            "id": "BuLqgLtrkWKZWPB1oaHr",
-            "name": "BP Unbemannte Station Genestrerio",
-            "brand": "BP",
-            "address": "Via Adorna, 6852 Genestrerio",
-            "lat": 45.85708,
-            "lng": 8.96782,
-            "sp95PriceChf": 1.69,
-            "updatedAt": "2026-03-12T11:19:25.645Z",
-            "nearestMunicipality": "Bizzarone (CO)",
-            "nearestMunicipalityDistanceKm": 2.8,
-            "sp95PriceEur": 1.858,
-            "distanceKm": 19.2
-          },
-          {
             "id": "g1Ewt2bs9nFFxymi7tYL",
             "name": "TAMOIL Stabio",
             "brand": "TAMOIL",
@@ -3625,6 +3611,20 @@
             "nearestMunicipalityDistanceKm": 1.6,
             "sp95PriceEur": 1.902,
             "distanceKm": 15.4
+          },
+          {
+            "id": "EDsfoWTW5mhInO152CPP",
+            "name": "Eni Chiasso",
+            "brand": "ENI",
+            "address": "Via Como 7, 6830 Chiasso",
+            "lat": 45.8378284,
+            "lng": 9.0340937,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-03-16T08:42:42.056Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 1.2,
+            "sp95PriceEur": 1.902,
+            "distanceKm": 15.8
           }
         ],
         "minPriceChf": 1.66,
@@ -3991,18 +3991,18 @@
             "distanceKm": 14
           },
           {
-            "id": "BuLqgLtrkWKZWPB1oaHr",
-            "name": "BP Unbemannte Station Genestrerio",
-            "brand": "BP",
-            "address": "Via Adorna, 6852 Genestrerio",
-            "lat": 45.85708,
-            "lng": 8.96782,
-            "sp95PriceChf": 1.69,
-            "updatedAt": "2026-03-12T11:19:25.645Z",
-            "nearestMunicipality": "Bizzarone (CO)",
-            "nearestMunicipalityDistanceKm": 2.8,
-            "sp95PriceEur": 1.858,
-            "distanceKm": 10.3
+            "id": "ukK4QQ2nixpThGubzzE3",
+            "name": "Orcam",
+            "brand": "UNDEFINED",
+            "address": "Via Carlo Maderno 41, 6850 Mendrisio",
+            "lat": 45.8851362482152,
+            "lng": 8.981086222287052,
+            "sp95PriceChf": 1.7100000000000002,
+            "updatedAt": "2026-03-11T11:53:32.610Z",
+            "nearestMunicipality": "Clivio (VA)",
+            "nearestMunicipalityDistanceKm": 4.6,
+            "sp95PriceEur": 1.88,
+            "distanceKm": 10.9
           }
         ],
         "minPriceChf": 1.64,
@@ -4092,20 +4092,6 @@
             "distanceKm": 19.8
           },
           {
-            "id": "BuLqgLtrkWKZWPB1oaHr",
-            "name": "BP Unbemannte Station Genestrerio",
-            "brand": "BP",
-            "address": "Via Adorna, 6852 Genestrerio",
-            "lat": 45.85708,
-            "lng": 8.96782,
-            "sp95PriceChf": 1.69,
-            "updatedAt": "2026-03-12T11:19:25.645Z",
-            "nearestMunicipality": "Bizzarone (CO)",
-            "nearestMunicipalityDistanceKm": 2.8,
-            "sp95PriceEur": 1.858,
-            "distanceKm": 12.6
-          },
-          {
             "id": "ukK4QQ2nixpThGubzzE3",
             "name": "Orcam",
             "brand": "UNDEFINED",
@@ -4118,6 +4104,20 @@
             "nearestMunicipalityDistanceKm": 4.6,
             "sp95PriceEur": 1.88,
             "distanceKm": 15.5
+          },
+          {
+            "id": "g1Ewt2bs9nFFxymi7tYL",
+            "name": "TAMOIL Stabio",
+            "brand": "TAMOIL",
+            "address": "Giulia 47, 6855 Stabio",
+            "lat": 45.848008,
+            "lng": 8.935833,
+            "sp95PriceChf": 1.72,
+            "updatedAt": "2026-03-07T18:03:01.884Z",
+            "nearestMunicipality": "Bizzarone (CO)",
+            "nearestMunicipalityDistanceKm": 1.6,
+            "sp95PriceEur": 1.891,
+            "distanceKm": 12.5
           }
         ],
         "minPriceChf": 1.64,
@@ -4320,20 +4320,6 @@
             "distanceKm": 13.4
           },
           {
-            "id": "BuLqgLtrkWKZWPB1oaHr",
-            "name": "BP Unbemannte Station Genestrerio",
-            "brand": "BP",
-            "address": "Via Adorna, 6852 Genestrerio",
-            "lat": 45.85708,
-            "lng": 8.96782,
-            "sp95PriceChf": 1.69,
-            "updatedAt": "2026-03-12T11:19:25.645Z",
-            "nearestMunicipality": "Bizzarone (CO)",
-            "nearestMunicipalityDistanceKm": 2.8,
-            "sp95PriceEur": 1.858,
-            "distanceKm": 15.7
-          },
-          {
             "id": "ukK4QQ2nixpThGubzzE3",
             "name": "Orcam",
             "brand": "UNDEFINED",
@@ -4374,6 +4360,20 @@
             "nearestMunicipalityDistanceKm": 1.5,
             "sp95PriceEur": 1.891,
             "distanceKm": 12.3
+          },
+          {
+            "id": "4rZcVZZyMdcg9utPrsXv",
+            "name": "GARAGE 64",
+            "brand": "UNDEFINED",
+            "address": "Via Emilio Bossi 6, 6830 Chiasso",
+            "lat": 45.834176890224306,
+            "lng": 9.031274331501768,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-02-20T14:24:22.760Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 1.6,
+            "sp95PriceEur": 1.902,
+            "distanceKm": 12.2
           }
         ],
         "minPriceChf": 1.66,
@@ -4885,20 +4885,6 @@
             "distanceKm": 14.5
           },
           {
-            "id": "BuLqgLtrkWKZWPB1oaHr",
-            "name": "BP Unbemannte Station Genestrerio",
-            "brand": "BP",
-            "address": "Via Adorna, 6852 Genestrerio",
-            "lat": 45.85708,
-            "lng": 8.96782,
-            "sp95PriceChf": 1.69,
-            "updatedAt": "2026-03-12T11:19:25.645Z",
-            "nearestMunicipality": "Bizzarone (CO)",
-            "nearestMunicipalityDistanceKm": 2.8,
-            "sp95PriceEur": 1.858,
-            "distanceKm": 18.1
-          },
-          {
             "id": "ukK4QQ2nixpThGubzzE3",
             "name": "Orcam",
             "brand": "UNDEFINED",
@@ -4939,6 +4925,20 @@
             "nearestMunicipalityDistanceKm": 1.5,
             "sp95PriceEur": 1.891,
             "distanceKm": 13.1
+          },
+          {
+            "id": "4rZcVZZyMdcg9utPrsXv",
+            "name": "GARAGE 64",
+            "brand": "UNDEFINED",
+            "address": "Via Emilio Bossi 6, 6830 Chiasso",
+            "lat": 45.834176890224306,
+            "lng": 9.031274331501768,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-02-20T14:24:22.760Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 1.6,
+            "sp95PriceEur": 1.902,
+            "distanceKm": 13
           }
         ],
         "minPriceChf": 1.66,
@@ -5170,20 +5170,6 @@
             "distanceKm": 11.9
           },
           {
-            "id": "BuLqgLtrkWKZWPB1oaHr",
-            "name": "BP Unbemannte Station Genestrerio",
-            "brand": "BP",
-            "address": "Via Adorna, 6852 Genestrerio",
-            "lat": 45.85708,
-            "lng": 8.96782,
-            "sp95PriceChf": 1.69,
-            "updatedAt": "2026-03-12T11:19:25.645Z",
-            "nearestMunicipality": "Bizzarone (CO)",
-            "nearestMunicipalityDistanceKm": 2.8,
-            "sp95PriceEur": 1.858,
-            "distanceKm": 15.8
-          },
-          {
             "id": "ukK4QQ2nixpThGubzzE3",
             "name": "Orcam",
             "brand": "UNDEFINED",
@@ -5224,6 +5210,20 @@
             "nearestMunicipalityDistanceKm": 1.5,
             "sp95PriceEur": 1.891,
             "distanceKm": 10.5
+          },
+          {
+            "id": "4rZcVZZyMdcg9utPrsXv",
+            "name": "GARAGE 64",
+            "brand": "UNDEFINED",
+            "address": "Via Emilio Bossi 6, 6830 Chiasso",
+            "lat": 45.834176890224306,
+            "lng": 9.031274331501768,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-02-20T14:24:22.760Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 1.6,
+            "sp95PriceEur": 1.902,
+            "distanceKm": 10.4
           }
         ],
         "minPriceChf": 1.66,
@@ -5400,20 +5400,6 @@
             "distanceKm": 18.8
           },
           {
-            "id": "BuLqgLtrkWKZWPB1oaHr",
-            "name": "BP Unbemannte Station Genestrerio",
-            "brand": "BP",
-            "address": "Via Adorna, 6852 Genestrerio",
-            "lat": 45.85708,
-            "lng": 8.96782,
-            "sp95PriceChf": 1.69,
-            "updatedAt": "2026-03-12T11:19:25.645Z",
-            "nearestMunicipality": "Bizzarone (CO)",
-            "nearestMunicipalityDistanceKm": 2.8,
-            "sp95PriceEur": 1.858,
-            "distanceKm": 19.4
-          },
-          {
             "id": "g1Ewt2bs9nFFxymi7tYL",
             "name": "TAMOIL Stabio",
             "brand": "TAMOIL",
@@ -5454,6 +5440,20 @@
             "nearestMunicipalityDistanceKm": 1.6,
             "sp95PriceEur": 1.902,
             "distanceKm": 18.2
+          },
+          {
+            "id": "EDsfoWTW5mhInO152CPP",
+            "name": "Eni Chiasso",
+            "brand": "ENI",
+            "address": "Via Como 7, 6830 Chiasso",
+            "lat": 45.8378284,
+            "lng": 9.0340937,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-03-16T08:42:42.056Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 1.2,
+            "sp95PriceEur": 1.902,
+            "distanceKm": 18.6
           }
         ],
         "minPriceChf": 1.66,
@@ -5599,7 +5599,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 80,
+        "optionCount": 81,
         "cheapestStation": {
           "id": "ahxEtrinnrLWGsZ2laVB",
           "name": "SOCAR / Piccadilly Gandria",
@@ -6008,20 +6008,6 @@
             "distanceKm": 10.9
           },
           {
-            "id": "BuLqgLtrkWKZWPB1oaHr",
-            "name": "BP Unbemannte Station Genestrerio",
-            "brand": "BP",
-            "address": "Via Adorna, 6852 Genestrerio",
-            "lat": 45.85708,
-            "lng": 8.96782,
-            "sp95PriceChf": 1.69,
-            "updatedAt": "2026-03-12T11:19:25.645Z",
-            "nearestMunicipality": "Bizzarone (CO)",
-            "nearestMunicipalityDistanceKm": 2.8,
-            "sp95PriceEur": 1.858,
-            "distanceKm": 14.1
-          },
-          {
             "id": "ukK4QQ2nixpThGubzzE3",
             "name": "Orcam",
             "brand": "UNDEFINED",
@@ -6062,6 +6048,20 @@
             "nearestMunicipalityDistanceKm": 1.5,
             "sp95PriceEur": 1.891,
             "distanceKm": 9.6
+          },
+          {
+            "id": "4rZcVZZyMdcg9utPrsXv",
+            "name": "GARAGE 64",
+            "brand": "UNDEFINED",
+            "address": "Via Emilio Bossi 6, 6830 Chiasso",
+            "lat": 45.834176890224306,
+            "lng": 9.031274331501768,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-02-20T14:24:22.760Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 1.6,
+            "sp95PriceEur": 1.902,
+            "distanceKm": 9.5
           }
         ],
         "minPriceChf": 1.66,
@@ -6151,20 +6151,6 @@
             "distanceKm": 19.7
           },
           {
-            "id": "BuLqgLtrkWKZWPB1oaHr",
-            "name": "BP Unbemannte Station Genestrerio",
-            "brand": "BP",
-            "address": "Via Adorna, 6852 Genestrerio",
-            "lat": 45.85708,
-            "lng": 8.96782,
-            "sp95PriceChf": 1.69,
-            "updatedAt": "2026-03-12T11:19:25.645Z",
-            "nearestMunicipality": "Bizzarone (CO)",
-            "nearestMunicipalityDistanceKm": 2.8,
-            "sp95PriceEur": 1.858,
-            "distanceKm": 12.8
-          },
-          {
             "id": "ukK4QQ2nixpThGubzzE3",
             "name": "Orcam",
             "brand": "UNDEFINED",
@@ -6177,6 +6163,20 @@
             "nearestMunicipalityDistanceKm": 4.6,
             "sp95PriceEur": 1.88,
             "distanceKm": 15.5
+          },
+          {
+            "id": "g1Ewt2bs9nFFxymi7tYL",
+            "name": "TAMOIL Stabio",
+            "brand": "TAMOIL",
+            "address": "Giulia 47, 6855 Stabio",
+            "lat": 45.848008,
+            "lng": 8.935833,
+            "sp95PriceChf": 1.72,
+            "updatedAt": "2026-03-07T18:03:01.884Z",
+            "nearestMunicipality": "Bizzarone (CO)",
+            "nearestMunicipalityDistanceKm": 1.6,
+            "sp95PriceEur": 1.891,
+            "distanceKm": 13.1
           }
         ],
         "minPriceChf": 1.64,
@@ -6414,20 +6414,6 @@
             "distanceKm": 18
           },
           {
-            "id": "BuLqgLtrkWKZWPB1oaHr",
-            "name": "BP Unbemannte Station Genestrerio",
-            "brand": "BP",
-            "address": "Via Adorna, 6852 Genestrerio",
-            "lat": 45.85708,
-            "lng": 8.96782,
-            "sp95PriceChf": 1.69,
-            "updatedAt": "2026-03-12T11:19:25.645Z",
-            "nearestMunicipality": "Bizzarone (CO)",
-            "nearestMunicipalityDistanceKm": 2.8,
-            "sp95PriceEur": 1.858,
-            "distanceKm": 10.5
-          },
-          {
             "id": "ukK4QQ2nixpThGubzzE3",
             "name": "Orcam",
             "brand": "UNDEFINED",
@@ -6440,6 +6426,20 @@
             "nearestMunicipalityDistanceKm": 4.6,
             "sp95PriceEur": 1.88,
             "distanceKm": 13.7
+          },
+          {
+            "id": "g1Ewt2bs9nFFxymi7tYL",
+            "name": "TAMOIL Stabio",
+            "brand": "TAMOIL",
+            "address": "Giulia 47, 6855 Stabio",
+            "lat": 45.848008,
+            "lng": 8.935833,
+            "sp95PriceChf": 1.72,
+            "updatedAt": "2026-03-07T18:03:01.884Z",
+            "nearestMunicipality": "Bizzarone (CO)",
+            "nearestMunicipalityDistanceKm": 1.6,
+            "sp95PriceEur": 1.891,
+            "distanceKm": 9.3
           }
         ],
         "minPriceChf": 1.64,
@@ -6470,7 +6470,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 95,
+        "optionCount": 96,
         "cheapestStation": {
           "id": "ahxEtrinnrLWGsZ2laVB",
           "name": "SOCAR / Piccadilly Gandria",
@@ -6529,20 +6529,6 @@
             "distanceKm": 16.9
           },
           {
-            "id": "9DlkfBuzFkNLAf4DuIXp",
-            "name": "AVIA Shop Claro",
-            "brand": "AVIA",
-            "address": "Strada Cantonale, 6702 Claro",
-            "lat": 46.2531657,
-            "lng": 9.0201113,
-            "sp95PriceChf": 1.74,
-            "updatedAt": "2026-03-03T11:21:03.179Z",
-            "nearestMunicipality": "Cavargna (CO)",
-            "nearestMunicipalityDistanceKm": 19.4,
-            "sp95PriceEur": 1.913,
-            "distanceKm": 19.4
-          },
-          {
             "id": "Ma1s7ixOimaKRcftiJzY",
             "name": "Eni Melide",
             "brand": "ENI",
@@ -6555,6 +6541,20 @@
             "nearestMunicipalityDistanceKm": 2.3,
             "sp95PriceEur": 1.913,
             "distanceKm": 19.5
+          },
+          {
+            "id": "DvrNn0z4cHLvWopylMHZ",
+            "name": "Tecnocars Garage Sagl",
+            "brand": "AVIA",
+            "address": "Via Pian Scairolo 13, 6912 Pazzallo",
+            "lat": 45.983692,
+            "lng": 8.931195,
+            "sp95PriceChf": 1.75,
+            "updatedAt": "2026-02-27T11:28:28.214Z",
+            "nearestMunicipality": "Campione d'Italia (CO)",
+            "nearestMunicipalityDistanceKm": 3.5,
+            "sp95PriceEur": 1.924,
+            "distanceKm": 18.2
           }
         ],
         "minPriceChf": 1.63,
@@ -6923,20 +6923,6 @@
             "distanceKm": 16.7
           },
           {
-            "id": "BuLqgLtrkWKZWPB1oaHr",
-            "name": "BP Unbemannte Station Genestrerio",
-            "brand": "BP",
-            "address": "Via Adorna, 6852 Genestrerio",
-            "lat": 45.85708,
-            "lng": 8.96782,
-            "sp95PriceChf": 1.69,
-            "updatedAt": "2026-03-12T11:19:25.645Z",
-            "nearestMunicipality": "Bizzarone (CO)",
-            "nearestMunicipalityDistanceKm": 2.8,
-            "sp95PriceEur": 1.858,
-            "distanceKm": 19.5
-          },
-          {
             "id": "g1Ewt2bs9nFFxymi7tYL",
             "name": "TAMOIL Stabio",
             "brand": "TAMOIL",
@@ -6977,6 +6963,20 @@
             "nearestMunicipalityDistanceKm": 1.6,
             "sp95PriceEur": 1.902,
             "distanceKm": 15.4
+          },
+          {
+            "id": "EDsfoWTW5mhInO152CPP",
+            "name": "Eni Chiasso",
+            "brand": "ENI",
+            "address": "Via Como 7, 6830 Chiasso",
+            "lat": 45.8378284,
+            "lng": 9.0340937,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-03-16T08:42:42.056Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 1.2,
+            "sp95PriceEur": 1.902,
+            "distanceKm": 15.7
           }
         ],
         "minPriceChf": 1.66,
@@ -7153,20 +7153,6 @@
             "distanceKm": 16
           },
           {
-            "id": "BuLqgLtrkWKZWPB1oaHr",
-            "name": "BP Unbemannte Station Genestrerio",
-            "brand": "BP",
-            "address": "Via Adorna, 6852 Genestrerio",
-            "lat": 45.85708,
-            "lng": 8.96782,
-            "sp95PriceChf": 1.69,
-            "updatedAt": "2026-03-12T11:19:25.645Z",
-            "nearestMunicipality": "Bizzarone (CO)",
-            "nearestMunicipalityDistanceKm": 2.8,
-            "sp95PriceEur": 1.858,
-            "distanceKm": 17.8
-          },
-          {
             "id": "g1Ewt2bs9nFFxymi7tYL",
             "name": "TAMOIL Stabio",
             "brand": "TAMOIL",
@@ -7207,6 +7193,20 @@
             "nearestMunicipalityDistanceKm": 1.6,
             "sp95PriceEur": 1.902,
             "distanceKm": 15
+          },
+          {
+            "id": "EDsfoWTW5mhInO152CPP",
+            "name": "Eni Chiasso",
+            "brand": "ENI",
+            "address": "Via Como 7, 6830 Chiasso",
+            "lat": 45.8378284,
+            "lng": 9.0340937,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-03-16T08:42:42.056Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 1.2,
+            "sp95PriceEur": 1.902,
+            "distanceKm": 15.4
           }
         ],
         "minPriceChf": 1.66,
@@ -7540,18 +7540,18 @@
             "distanceKm": 13.4
           },
           {
-            "id": "BuLqgLtrkWKZWPB1oaHr",
-            "name": "BP Unbemannte Station Genestrerio",
-            "brand": "BP",
-            "address": "Via Adorna, 6852 Genestrerio",
-            "lat": 45.85708,
-            "lng": 8.96782,
-            "sp95PriceChf": 1.69,
-            "updatedAt": "2026-03-12T11:19:25.645Z",
-            "nearestMunicipality": "Bizzarone (CO)",
-            "nearestMunicipalityDistanceKm": 2.8,
-            "sp95PriceEur": 1.858,
-            "distanceKm": 6.4
+            "id": "ukK4QQ2nixpThGubzzE3",
+            "name": "Orcam",
+            "brand": "UNDEFINED",
+            "address": "Via Carlo Maderno 41, 6850 Mendrisio",
+            "lat": 45.8851362482152,
+            "lng": 8.981086222287052,
+            "sp95PriceChf": 1.7100000000000002,
+            "updatedAt": "2026-03-11T11:53:32.610Z",
+            "nearestMunicipality": "Clivio (VA)",
+            "nearestMunicipalityDistanceKm": 4.6,
+            "sp95PriceEur": 1.88,
+            "distanceKm": 9.1
           }
         ],
         "minPriceChf": 1.64,
@@ -7930,18 +7930,18 @@
             "distanceKm": 14.7
           },
           {
-            "id": "BuLqgLtrkWKZWPB1oaHr",
-            "name": "BP Unbemannte Station Genestrerio",
-            "brand": "BP",
-            "address": "Via Adorna, 6852 Genestrerio",
-            "lat": 45.85708,
-            "lng": 8.96782,
-            "sp95PriceChf": 1.69,
-            "updatedAt": "2026-03-12T11:19:25.645Z",
-            "nearestMunicipality": "Bizzarone (CO)",
-            "nearestMunicipalityDistanceKm": 2.8,
-            "sp95PriceEur": 1.858,
-            "distanceKm": 10.3
+            "id": "ukK4QQ2nixpThGubzzE3",
+            "name": "Orcam",
+            "brand": "UNDEFINED",
+            "address": "Via Carlo Maderno 41, 6850 Mendrisio",
+            "lat": 45.8851362482152,
+            "lng": 8.981086222287052,
+            "sp95PriceChf": 1.7100000000000002,
+            "updatedAt": "2026-03-11T11:53:32.610Z",
+            "nearestMunicipality": "Clivio (VA)",
+            "nearestMunicipalityDistanceKm": 4.6,
+            "sp95PriceEur": 1.88,
+            "distanceKm": 11.4
           }
         ],
         "minPriceChf": 1.64,
@@ -7972,7 +7972,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 85,
+        "optionCount": 86,
         "cheapestStation": {
           "id": "ahxEtrinnrLWGsZ2laVB",
           "name": "SOCAR / Piccadilly Gandria",
@@ -8171,20 +8171,6 @@
             "distanceKm": 13.1
           },
           {
-            "id": "BuLqgLtrkWKZWPB1oaHr",
-            "name": "BP Unbemannte Station Genestrerio",
-            "brand": "BP",
-            "address": "Via Adorna, 6852 Genestrerio",
-            "lat": 45.85708,
-            "lng": 8.96782,
-            "sp95PriceChf": 1.69,
-            "updatedAt": "2026-03-12T11:19:25.645Z",
-            "nearestMunicipality": "Bizzarone (CO)",
-            "nearestMunicipalityDistanceKm": 2.8,
-            "sp95PriceEur": 1.858,
-            "distanceKm": 16.4
-          },
-          {
             "id": "ukK4QQ2nixpThGubzzE3",
             "name": "Orcam",
             "brand": "UNDEFINED",
@@ -8225,6 +8211,20 @@
             "nearestMunicipalityDistanceKm": 1.5,
             "sp95PriceEur": 1.891,
             "distanceKm": 11.7
+          },
+          {
+            "id": "4rZcVZZyMdcg9utPrsXv",
+            "name": "GARAGE 64",
+            "brand": "UNDEFINED",
+            "address": "Via Emilio Bossi 6, 6830 Chiasso",
+            "lat": 45.834176890224306,
+            "lng": 9.031274331501768,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-02-20T14:24:22.760Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 1.6,
+            "sp95PriceEur": 1.902,
+            "distanceKm": 11.6
           }
         ],
         "minPriceChf": 1.66,
@@ -8255,7 +8255,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 77,
+        "optionCount": 78,
         "cheapestStation": {
           "id": "ahxEtrinnrLWGsZ2laVB",
           "name": "SOCAR / Piccadilly Gandria",
@@ -8803,36 +8803,22 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 14,
+        "optionCount": 15,
         "cheapestStation": {
-          "id": "TTZ7thy4mNT425M2Mfj3",
-          "name": "Eni",
-          "brand": "ENI",
-          "address": "Via Corogna 6532 Arbedo-Castione",
-          "lat": 46.2247818659616,
-          "lng": 9.04316286140832,
+          "id": "lnnnrHnz0t3xfccRYzZe",
+          "name": "SOCAR Grono",
+          "brand": "SOCAR",
+          "address": "Strada cantonale 158, 6537 Grono",
+          "lat": 46.246738,
+          "lng": 9.143203,
           "sp95PriceChf": 1.77,
-          "updatedAt": "2026-02-21T14:14:48.858Z",
-          "nearestMunicipality": "Cavargna (CO)",
-          "nearestMunicipalityDistanceKm": 15.9,
+          "updatedAt": "2026-03-01T13:55:58.200Z",
+          "nearestMunicipality": "Dosso del Liro (CO)",
+          "nearestMunicipalityDistanceKm": 13.6,
           "sp95PriceEur": 1.946,
-          "distanceKm": 18.9
+          "distanceKm": 13.6
         },
         "nearbyStations": [
-          {
-            "id": "TTZ7thy4mNT425M2Mfj3",
-            "name": "Eni",
-            "brand": "ENI",
-            "address": "Via Corogna 6532 Arbedo-Castione",
-            "lat": 46.2247818659616,
-            "lng": 9.04316286140832,
-            "sp95PriceChf": 1.77,
-            "updatedAt": "2026-02-21T14:14:48.858Z",
-            "nearestMunicipality": "Cavargna (CO)",
-            "nearestMunicipalityDistanceKm": 15.9,
-            "sp95PriceEur": 1.946,
-            "distanceKm": 18.9
-          },
           {
             "id": "lnnnrHnz0t3xfccRYzZe",
             "name": "SOCAR Grono",
@@ -8876,18 +8862,32 @@
             "distanceKm": 19.9
           },
           {
-            "id": "WunhlPJcSC3aLWcTjWow",
-            "name": "Eni Arbedo",
-            "brand": "ENI",
-            "address": "Via San Gottardo 129, 6517 Arbedo",
-            "lat": 46.2126984,
-            "lng": 9.039422199999999,
+            "id": "cPzjxUql1aHeksaFjXuB",
+            "name": "Garage Ferrari SA",
+            "brand": "UNDEFINED",
+            "address": "Via Lugano 31, Bellinzona",
+            "lat": 46.1859073,
+            "lng": 9.0193456,
             "sp95PriceChf": 1.84,
-            "updatedAt": "2026-03-17T17:38:48.008Z",
+            "updatedAt": "2026-03-20T19:01:41.079Z",
             "nearestMunicipality": "Cavargna (CO)",
-            "nearestMunicipalityDistanceKm": 14.7,
+            "nearestMunicipalityDistanceKm": 12.8,
             "sp95PriceEur": 2.023,
-            "distanceKm": 18.8
+            "distanceKm": 19.7
+          },
+          {
+            "id": "viYoAJMjWUU1BEwgcjDL",
+            "name": "Stazione di servizio Migrol",
+            "brand": "MIGROL",
+            "address": "Via al Foss 29, 6557 Cama",
+            "lat": 46.270147,
+            "lng": 9.169142,
+            "sp95PriceChf": 1.84,
+            "updatedAt": "2026-03-17T06:58:15.618Z",
+            "nearestMunicipality": "Dosso del Liro (CO)",
+            "nearestMunicipalityDistanceKm": 14.2,
+            "sp95PriceEur": 2.023,
+            "distanceKm": 14.2
           }
         ],
         "minPriceChf": 1.77,
@@ -9298,18 +9298,18 @@
             "distanceKm": 16.3
           },
           {
-            "id": "BuLqgLtrkWKZWPB1oaHr",
-            "name": "BP Unbemannte Station Genestrerio",
-            "brand": "BP",
-            "address": "Via Adorna, 6852 Genestrerio",
-            "lat": 45.85708,
-            "lng": 8.96782,
-            "sp95PriceChf": 1.69,
-            "updatedAt": "2026-03-12T11:19:25.645Z",
-            "nearestMunicipality": "Bizzarone (CO)",
-            "nearestMunicipalityDistanceKm": 2.8,
-            "sp95PriceEur": 1.858,
-            "distanceKm": 15.7
+            "id": "ukK4QQ2nixpThGubzzE3",
+            "name": "Orcam",
+            "brand": "UNDEFINED",
+            "address": "Via Carlo Maderno 41, 6850 Mendrisio",
+            "lat": 45.8851362482152,
+            "lng": 8.981086222287052,
+            "sp95PriceChf": 1.7100000000000002,
+            "updatedAt": "2026-03-11T11:53:32.610Z",
+            "nearestMunicipality": "Clivio (VA)",
+            "nearestMunicipalityDistanceKm": 4.6,
+            "sp95PriceEur": 1.88,
+            "distanceKm": 15
           }
         ],
         "minPriceChf": 1.64,
@@ -9541,20 +9541,6 @@
             "distanceKm": 16
           },
           {
-            "id": "BuLqgLtrkWKZWPB1oaHr",
-            "name": "BP Unbemannte Station Genestrerio",
-            "brand": "BP",
-            "address": "Via Adorna, 6852 Genestrerio",
-            "lat": 45.85708,
-            "lng": 8.96782,
-            "sp95PriceChf": 1.69,
-            "updatedAt": "2026-03-12T11:19:25.645Z",
-            "nearestMunicipality": "Bizzarone (CO)",
-            "nearestMunicipalityDistanceKm": 2.8,
-            "sp95PriceEur": 1.858,
-            "distanceKm": 17.6
-          },
-          {
             "id": "g1Ewt2bs9nFFxymi7tYL",
             "name": "TAMOIL Stabio",
             "brand": "TAMOIL",
@@ -9595,6 +9581,20 @@
             "nearestMunicipalityDistanceKm": 1.6,
             "sp95PriceEur": 1.902,
             "distanceKm": 15.1
+          },
+          {
+            "id": "EDsfoWTW5mhInO152CPP",
+            "name": "Eni Chiasso",
+            "brand": "ENI",
+            "address": "Via Como 7, 6830 Chiasso",
+            "lat": 45.8378284,
+            "lng": 9.0340937,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-03-16T08:42:42.056Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 1.2,
+            "sp95PriceEur": 1.902,
+            "distanceKm": 15.5
           }
         ],
         "minPriceChf": 1.66,
@@ -9909,20 +9909,6 @@
             "distanceKm": 19.9
           },
           {
-            "id": "BuLqgLtrkWKZWPB1oaHr",
-            "name": "BP Unbemannte Station Genestrerio",
-            "brand": "BP",
-            "address": "Via Adorna, 6852 Genestrerio",
-            "lat": 45.85708,
-            "lng": 8.96782,
-            "sp95PriceChf": 1.69,
-            "updatedAt": "2026-03-12T11:19:25.645Z",
-            "nearestMunicipality": "Bizzarone (CO)",
-            "nearestMunicipalityDistanceKm": 2.8,
-            "sp95PriceEur": 1.858,
-            "distanceKm": 13.2
-          },
-          {
             "id": "ukK4QQ2nixpThGubzzE3",
             "name": "Orcam",
             "brand": "UNDEFINED",
@@ -9935,6 +9921,20 @@
             "nearestMunicipalityDistanceKm": 4.6,
             "sp95PriceEur": 1.88,
             "distanceKm": 15.7
+          },
+          {
+            "id": "g1Ewt2bs9nFFxymi7tYL",
+            "name": "TAMOIL Stabio",
+            "brand": "TAMOIL",
+            "address": "Giulia 47, 6855 Stabio",
+            "lat": 45.848008,
+            "lng": 8.935833,
+            "sp95PriceChf": 1.72,
+            "updatedAt": "2026-03-07T18:03:01.884Z",
+            "nearestMunicipality": "Bizzarone (CO)",
+            "nearestMunicipalityDistanceKm": 1.6,
+            "sp95PriceEur": 1.891,
+            "distanceKm": 13.7
           }
         ],
         "minPriceChf": 1.64,
@@ -9965,7 +9965,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 22,
+        "optionCount": 23,
         "cheapestStation": {
           "id": "HapjFsEcj5Snc7o1iICH",
           "name": "Station La Posta Svizzzera",
@@ -10010,20 +10010,6 @@
             "distanceKm": 19.9
           },
           {
-            "id": "TTZ7thy4mNT425M2Mfj3",
-            "name": "Eni",
-            "brand": "ENI",
-            "address": "Via Corogna 6532 Arbedo-Castione",
-            "lat": 46.2247818659616,
-            "lng": 9.04316286140832,
-            "sp95PriceChf": 1.77,
-            "updatedAt": "2026-02-21T14:14:48.858Z",
-            "nearestMunicipality": "Cavargna (CO)",
-            "nearestMunicipalityDistanceKm": 15.9,
-            "sp95PriceEur": 1.946,
-            "distanceKm": 18.7
-          },
-          {
             "id": "lnnnrHnz0t3xfccRYzZe",
             "name": "SOCAR Grono",
             "brand": "SOCAR",
@@ -10050,6 +10036,20 @@
             "nearestMunicipalityDistanceKm": 13.5,
             "sp95PriceEur": 1.968,
             "distanceKm": 14.6
+          },
+          {
+            "id": "hWTr7x5jrTYOJNzLnBBO",
+            "name": "Garage Künzi SA",
+            "brand": "UNDEFINED",
+            "address": "Viale C. Olgiati 26, 6512 Giubiasco",
+            "lat": 46.17905551041321,
+            "lng": 9.015914517174583,
+            "sp95PriceChf": 1.81,
+            "updatedAt": "2026-03-17T14:40:42.898Z",
+            "nearestMunicipality": "Cavargna (CO)",
+            "nearestMunicipalityDistanceKm": 12.3,
+            "sp95PriceEur": 1.99,
+            "distanceKm": 18.6
           }
         ],
         "minPriceChf": 1.75,
@@ -10270,20 +10270,6 @@
             "distanceKm": 17.5
           },
           {
-            "id": "BuLqgLtrkWKZWPB1oaHr",
-            "name": "BP Unbemannte Station Genestrerio",
-            "brand": "BP",
-            "address": "Via Adorna, 6852 Genestrerio",
-            "lat": 45.85708,
-            "lng": 8.96782,
-            "sp95PriceChf": 1.69,
-            "updatedAt": "2026-03-12T11:19:25.645Z",
-            "nearestMunicipality": "Bizzarone (CO)",
-            "nearestMunicipalityDistanceKm": 2.8,
-            "sp95PriceEur": 1.858,
-            "distanceKm": 11.6
-          },
-          {
             "id": "ukK4QQ2nixpThGubzzE3",
             "name": "Orcam",
             "brand": "UNDEFINED",
@@ -10296,6 +10282,20 @@
             "nearestMunicipalityDistanceKm": 4.6,
             "sp95PriceEur": 1.88,
             "distanceKm": 13.6
+          },
+          {
+            "id": "g1Ewt2bs9nFFxymi7tYL",
+            "name": "TAMOIL Stabio",
+            "brand": "TAMOIL",
+            "address": "Giulia 47, 6855 Stabio",
+            "lat": 45.848008,
+            "lng": 8.935833,
+            "sp95PriceChf": 1.72,
+            "updatedAt": "2026-03-07T18:03:01.884Z",
+            "nearestMunicipality": "Bizzarone (CO)",
+            "nearestMunicipalityDistanceKm": 1.6,
+            "sp95PriceEur": 1.891,
+            "distanceKm": 12.7
           }
         ],
         "minPriceChf": 1.64,
@@ -10704,20 +10704,6 @@
             "distanceKm": 12.9
           },
           {
-            "id": "BuLqgLtrkWKZWPB1oaHr",
-            "name": "BP Unbemannte Station Genestrerio",
-            "brand": "BP",
-            "address": "Via Adorna, 6852 Genestrerio",
-            "lat": 45.85708,
-            "lng": 8.96782,
-            "sp95PriceChf": 1.69,
-            "updatedAt": "2026-03-12T11:19:25.645Z",
-            "nearestMunicipality": "Bizzarone (CO)",
-            "nearestMunicipalityDistanceKm": 2.8,
-            "sp95PriceEur": 1.858,
-            "distanceKm": 14.9
-          },
-          {
             "id": "ukK4QQ2nixpThGubzzE3",
             "name": "Orcam",
             "brand": "UNDEFINED",
@@ -10758,6 +10744,20 @@
             "nearestMunicipalityDistanceKm": 1.5,
             "sp95PriceEur": 1.891,
             "distanceKm": 12
+          },
+          {
+            "id": "4rZcVZZyMdcg9utPrsXv",
+            "name": "GARAGE 64",
+            "brand": "UNDEFINED",
+            "address": "Via Emilio Bossi 6, 6830 Chiasso",
+            "lat": 45.834176890224306,
+            "lng": 9.031274331501768,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-02-20T14:24:22.760Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 1.6,
+            "sp95PriceEur": 1.902,
+            "distanceKm": 11.9
           }
         ],
         "minPriceChf": 1.66,
@@ -11608,20 +11608,6 @@
             "distanceKm": 17.4
           },
           {
-            "id": "BuLqgLtrkWKZWPB1oaHr",
-            "name": "BP Unbemannte Station Genestrerio",
-            "brand": "BP",
-            "address": "Via Adorna, 6852 Genestrerio",
-            "lat": 45.85708,
-            "lng": 8.96782,
-            "sp95PriceChf": 1.69,
-            "updatedAt": "2026-03-12T11:19:25.645Z",
-            "nearestMunicipality": "Bizzarone (CO)",
-            "nearestMunicipalityDistanceKm": 2.8,
-            "sp95PriceEur": 1.858,
-            "distanceKm": 18.7
-          },
-          {
             "id": "g1Ewt2bs9nFFxymi7tYL",
             "name": "TAMOIL Stabio",
             "brand": "TAMOIL",
@@ -11662,6 +11648,20 @@
             "nearestMunicipalityDistanceKm": 1.6,
             "sp95PriceEur": 1.902,
             "distanceKm": 16.6
+          },
+          {
+            "id": "EDsfoWTW5mhInO152CPP",
+            "name": "Eni Chiasso",
+            "brand": "ENI",
+            "address": "Via Como 7, 6830 Chiasso",
+            "lat": 45.8378284,
+            "lng": 9.0340937,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-03-16T08:42:42.056Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 1.2,
+            "sp95PriceEur": 1.902,
+            "distanceKm": 17.1
           }
         ],
         "minPriceChf": 1.66,
@@ -11784,20 +11784,6 @@
             "distanceKm": 17.2
           },
           {
-            "id": "BuLqgLtrkWKZWPB1oaHr",
-            "name": "BP Unbemannte Station Genestrerio",
-            "brand": "BP",
-            "address": "Via Adorna, 6852 Genestrerio",
-            "lat": 45.85708,
-            "lng": 8.96782,
-            "sp95PriceChf": 1.69,
-            "updatedAt": "2026-03-12T11:19:25.645Z",
-            "nearestMunicipality": "Bizzarone (CO)",
-            "nearestMunicipalityDistanceKm": 2.8,
-            "sp95PriceEur": 1.858,
-            "distanceKm": 13
-          },
-          {
             "id": "ukK4QQ2nixpThGubzzE3",
             "name": "Orcam",
             "brand": "UNDEFINED",
@@ -11810,6 +11796,20 @@
             "nearestMunicipalityDistanceKm": 4.6,
             "sp95PriceEur": 1.88,
             "distanceKm": 14
+          },
+          {
+            "id": "g1Ewt2bs9nFFxymi7tYL",
+            "name": "TAMOIL Stabio",
+            "brand": "TAMOIL",
+            "address": "Giulia 47, 6855 Stabio",
+            "lat": 45.848008,
+            "lng": 8.935833,
+            "sp95PriceChf": 1.72,
+            "updatedAt": "2026-03-07T18:03:01.884Z",
+            "nearestMunicipality": "Bizzarone (CO)",
+            "nearestMunicipalityDistanceKm": 1.6,
+            "sp95PriceEur": 1.891,
+            "distanceKm": 14.8
           }
         ],
         "minPriceChf": 1.64,
@@ -12019,20 +12019,6 @@
             "distanceKm": 18.5
           },
           {
-            "id": "BuLqgLtrkWKZWPB1oaHr",
-            "name": "BP Unbemannte Station Genestrerio",
-            "brand": "BP",
-            "address": "Via Adorna, 6852 Genestrerio",
-            "lat": 45.85708,
-            "lng": 8.96782,
-            "sp95PriceChf": 1.69,
-            "updatedAt": "2026-03-12T11:19:25.645Z",
-            "nearestMunicipality": "Bizzarone (CO)",
-            "nearestMunicipalityDistanceKm": 2.8,
-            "sp95PriceEur": 1.858,
-            "distanceKm": 18.9
-          },
-          {
             "id": "g1Ewt2bs9nFFxymi7tYL",
             "name": "TAMOIL Stabio",
             "brand": "TAMOIL",
@@ -12073,6 +12059,20 @@
             "nearestMunicipalityDistanceKm": 1.6,
             "sp95PriceEur": 1.902,
             "distanceKm": 17.9
+          },
+          {
+            "id": "EDsfoWTW5mhInO152CPP",
+            "name": "Eni Chiasso",
+            "brand": "ENI",
+            "address": "Via Como 7, 6830 Chiasso",
+            "lat": 45.8378284,
+            "lng": 9.0340937,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-03-16T08:42:42.056Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 1.2,
+            "sp95PriceEur": 1.902,
+            "distanceKm": 18.4
           }
         ],
         "minPriceChf": 1.66,
@@ -12211,20 +12211,6 @@
             "distanceKm": 15.8
           },
           {
-            "id": "BuLqgLtrkWKZWPB1oaHr",
-            "name": "BP Unbemannte Station Genestrerio",
-            "brand": "BP",
-            "address": "Via Adorna, 6852 Genestrerio",
-            "lat": 45.85708,
-            "lng": 8.96782,
-            "sp95PriceChf": 1.69,
-            "updatedAt": "2026-03-12T11:19:25.645Z",
-            "nearestMunicipality": "Bizzarone (CO)",
-            "nearestMunicipalityDistanceKm": 2.8,
-            "sp95PriceEur": 1.858,
-            "distanceKm": 18.1
-          },
-          {
             "id": "g1Ewt2bs9nFFxymi7tYL",
             "name": "TAMOIL Stabio",
             "brand": "TAMOIL",
@@ -12265,6 +12251,20 @@
             "nearestMunicipalityDistanceKm": 1.6,
             "sp95PriceEur": 1.902,
             "distanceKm": 14.6
+          },
+          {
+            "id": "EDsfoWTW5mhInO152CPP",
+            "name": "Eni Chiasso",
+            "brand": "ENI",
+            "address": "Via Como 7, 6830 Chiasso",
+            "lat": 45.8378284,
+            "lng": 9.0340937,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-03-16T08:42:42.056Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 1.2,
+            "sp95PriceEur": 1.902,
+            "distanceKm": 15
           }
         ],
         "minPriceChf": 1.66,
@@ -12491,20 +12491,6 @@
             "distanceKm": 18.4
           },
           {
-            "id": "BuLqgLtrkWKZWPB1oaHr",
-            "name": "BP Unbemannte Station Genestrerio",
-            "brand": "BP",
-            "address": "Via Adorna, 6852 Genestrerio",
-            "lat": 45.85708,
-            "lng": 8.96782,
-            "sp95PriceChf": 1.69,
-            "updatedAt": "2026-03-12T11:19:25.645Z",
-            "nearestMunicipality": "Bizzarone (CO)",
-            "nearestMunicipalityDistanceKm": 2.8,
-            "sp95PriceEur": 1.858,
-            "distanceKm": 11.7
-          },
-          {
             "id": "ukK4QQ2nixpThGubzzE3",
             "name": "Orcam",
             "brand": "UNDEFINED",
@@ -12517,6 +12503,20 @@
             "nearestMunicipalityDistanceKm": 4.6,
             "sp95PriceEur": 1.88,
             "distanceKm": 14.2
+          },
+          {
+            "id": "g1Ewt2bs9nFFxymi7tYL",
+            "name": "TAMOIL Stabio",
+            "brand": "TAMOIL",
+            "address": "Giulia 47, 6855 Stabio",
+            "lat": 45.848008,
+            "lng": 8.935833,
+            "sp95PriceChf": 1.72,
+            "updatedAt": "2026-03-07T18:03:01.884Z",
+            "nearestMunicipality": "Bizzarone (CO)",
+            "nearestMunicipalityDistanceKm": 1.6,
+            "sp95PriceEur": 1.891,
+            "distanceKm": 12.2
           }
         ],
         "minPriceChf": 1.64,
@@ -12715,20 +12715,6 @@
             "distanceKm": 15.6
           },
           {
-            "id": "BuLqgLtrkWKZWPB1oaHr",
-            "name": "BP Unbemannte Station Genestrerio",
-            "brand": "BP",
-            "address": "Via Adorna, 6852 Genestrerio",
-            "lat": 45.85708,
-            "lng": 8.96782,
-            "sp95PriceChf": 1.69,
-            "updatedAt": "2026-03-12T11:19:25.645Z",
-            "nearestMunicipality": "Bizzarone (CO)",
-            "nearestMunicipalityDistanceKm": 2.8,
-            "sp95PriceEur": 1.858,
-            "distanceKm": 16.9
-          },
-          {
             "id": "ukK4QQ2nixpThGubzzE3",
             "name": "Orcam",
             "brand": "UNDEFINED",
@@ -12769,6 +12755,20 @@
             "nearestMunicipalityDistanceKm": 1.5,
             "sp95PriceEur": 1.891,
             "distanceKm": 14.9
+          },
+          {
+            "id": "4rZcVZZyMdcg9utPrsXv",
+            "name": "GARAGE 64",
+            "brand": "UNDEFINED",
+            "address": "Via Emilio Bossi 6, 6830 Chiasso",
+            "lat": 45.834176890224306,
+            "lng": 9.031274331501768,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-02-20T14:24:22.760Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 1.6,
+            "sp95PriceEur": 1.902,
+            "distanceKm": 14.8
           }
         ],
         "minPriceChf": 1.66,
@@ -12902,20 +12902,6 @@
             "distanceKm": 17.3
           },
           {
-            "id": "BuLqgLtrkWKZWPB1oaHr",
-            "name": "BP Unbemannte Station Genestrerio",
-            "brand": "BP",
-            "address": "Via Adorna, 6852 Genestrerio",
-            "lat": 45.85708,
-            "lng": 8.96782,
-            "sp95PriceChf": 1.69,
-            "updatedAt": "2026-03-12T11:19:25.645Z",
-            "nearestMunicipality": "Bizzarone (CO)",
-            "nearestMunicipalityDistanceKm": 2.8,
-            "sp95PriceEur": 1.858,
-            "distanceKm": 10
-          },
-          {
             "id": "ukK4QQ2nixpThGubzzE3",
             "name": "Orcam",
             "brand": "UNDEFINED",
@@ -12928,6 +12914,20 @@
             "nearestMunicipalityDistanceKm": 4.6,
             "sp95PriceEur": 1.88,
             "distanceKm": 13
+          },
+          {
+            "id": "g1Ewt2bs9nFFxymi7tYL",
+            "name": "TAMOIL Stabio",
+            "brand": "TAMOIL",
+            "address": "Giulia 47, 6855 Stabio",
+            "lat": 45.848008,
+            "lng": 8.935833,
+            "sp95PriceChf": 1.72,
+            "updatedAt": "2026-03-07T18:03:01.884Z",
+            "nearestMunicipality": "Bizzarone (CO)",
+            "nearestMunicipalityDistanceKm": 1.6,
+            "sp95PriceEur": 1.891,
+            "distanceKm": 9.7
           }
         ],
         "minPriceChf": 1.64,
@@ -14017,18 +14017,18 @@
             "distanceKm": 15.3
           },
           {
-            "id": "BuLqgLtrkWKZWPB1oaHr",
-            "name": "BP Unbemannte Station Genestrerio",
-            "brand": "BP",
-            "address": "Via Adorna, 6852 Genestrerio",
-            "lat": 45.85708,
-            "lng": 8.96782,
-            "sp95PriceChf": 1.69,
-            "updatedAt": "2026-03-12T11:19:25.645Z",
-            "nearestMunicipality": "Bizzarone (CO)",
-            "nearestMunicipalityDistanceKm": 2.8,
-            "sp95PriceEur": 1.858,
-            "distanceKm": 8.7
+            "id": "ukK4QQ2nixpThGubzzE3",
+            "name": "Orcam",
+            "brand": "UNDEFINED",
+            "address": "Via Carlo Maderno 41, 6850 Mendrisio",
+            "lat": 45.8851362482152,
+            "lng": 8.981086222287052,
+            "sp95PriceChf": 1.7100000000000002,
+            "updatedAt": "2026-03-11T11:53:32.610Z",
+            "nearestMunicipality": "Clivio (VA)",
+            "nearestMunicipalityDistanceKm": 4.6,
+            "sp95PriceEur": 1.88,
+            "distanceKm": 11.1
           }
         ],
         "minPriceChf": 1.64,
@@ -14205,20 +14205,6 @@
             "distanceKm": 19.9
           },
           {
-            "id": "BuLqgLtrkWKZWPB1oaHr",
-            "name": "BP Unbemannte Station Genestrerio",
-            "brand": "BP",
-            "address": "Via Adorna, 6852 Genestrerio",
-            "lat": 45.85708,
-            "lng": 8.96782,
-            "sp95PriceChf": 1.69,
-            "updatedAt": "2026-03-12T11:19:25.645Z",
-            "nearestMunicipality": "Bizzarone (CO)",
-            "nearestMunicipalityDistanceKm": 2.8,
-            "sp95PriceEur": 1.858,
-            "distanceKm": 15.9
-          },
-          {
             "id": "ukK4QQ2nixpThGubzzE3",
             "name": "Orcam",
             "brand": "UNDEFINED",
@@ -14231,6 +14217,20 @@
             "nearestMunicipalityDistanceKm": 4.6,
             "sp95PriceEur": 1.88,
             "distanceKm": 16.9
+          },
+          {
+            "id": "g1Ewt2bs9nFFxymi7tYL",
+            "name": "TAMOIL Stabio",
+            "brand": "TAMOIL",
+            "address": "Giulia 47, 6855 Stabio",
+            "lat": 45.848008,
+            "lng": 8.935833,
+            "sp95PriceChf": 1.72,
+            "updatedAt": "2026-03-07T18:03:01.884Z",
+            "nearestMunicipality": "Bizzarone (CO)",
+            "nearestMunicipalityDistanceKm": 1.6,
+            "sp95PriceEur": 1.891,
+            "distanceKm": 17.7
           }
         ],
         "minPriceChf": 1.64,
@@ -14981,18 +14981,18 @@
             "distanceKm": 15.6
           },
           {
-            "id": "BuLqgLtrkWKZWPB1oaHr",
-            "name": "BP Unbemannte Station Genestrerio",
-            "brand": "BP",
-            "address": "Via Adorna, 6852 Genestrerio",
-            "lat": 45.85708,
-            "lng": 8.96782,
-            "sp95PriceChf": 1.69,
-            "updatedAt": "2026-03-12T11:19:25.645Z",
-            "nearestMunicipality": "Bizzarone (CO)",
-            "nearestMunicipalityDistanceKm": 2.8,
-            "sp95PriceEur": 1.858,
-            "distanceKm": 8.1
+            "id": "ukK4QQ2nixpThGubzzE3",
+            "name": "Orcam",
+            "brand": "UNDEFINED",
+            "address": "Via Carlo Maderno 41, 6850 Mendrisio",
+            "lat": 45.8851362482152,
+            "lng": 8.981086222287052,
+            "sp95PriceChf": 1.7100000000000002,
+            "updatedAt": "2026-03-11T11:53:32.610Z",
+            "nearestMunicipality": "Clivio (VA)",
+            "nearestMunicipalityDistanceKm": 4.6,
+            "sp95PriceEur": 1.88,
+            "distanceKm": 11.3
           }
         ],
         "minPriceChf": 1.64,
@@ -15082,20 +15082,6 @@
             "distanceKm": 18.6
           },
           {
-            "id": "BuLqgLtrkWKZWPB1oaHr",
-            "name": "BP Unbemannte Station Genestrerio",
-            "brand": "BP",
-            "address": "Via Adorna, 6852 Genestrerio",
-            "lat": 45.85708,
-            "lng": 8.96782,
-            "sp95PriceChf": 1.69,
-            "updatedAt": "2026-03-12T11:19:25.645Z",
-            "nearestMunicipality": "Bizzarone (CO)",
-            "nearestMunicipalityDistanceKm": 2.8,
-            "sp95PriceEur": 1.858,
-            "distanceKm": 11.1
-          },
-          {
             "id": "ukK4QQ2nixpThGubzzE3",
             "name": "Orcam",
             "brand": "UNDEFINED",
@@ -15108,6 +15094,20 @@
             "nearestMunicipalityDistanceKm": 4.6,
             "sp95PriceEur": 1.88,
             "distanceKm": 14.3
+          },
+          {
+            "id": "g1Ewt2bs9nFFxymi7tYL",
+            "name": "TAMOIL Stabio",
+            "brand": "TAMOIL",
+            "address": "Giulia 47, 6855 Stabio",
+            "lat": 45.848008,
+            "lng": 8.935833,
+            "sp95PriceChf": 1.72,
+            "updatedAt": "2026-03-07T18:03:01.884Z",
+            "nearestMunicipality": "Bizzarone (CO)",
+            "nearestMunicipalityDistanceKm": 1.6,
+            "sp95PriceEur": 1.891,
+            "distanceKm": 10.6
           }
         ],
         "minPriceChf": 1.64,
@@ -15202,20 +15202,6 @@
             "distanceKm": 14.7
           },
           {
-            "id": "BuLqgLtrkWKZWPB1oaHr",
-            "name": "BP Unbemannte Station Genestrerio",
-            "brand": "BP",
-            "address": "Via Adorna, 6852 Genestrerio",
-            "lat": 45.85708,
-            "lng": 8.96782,
-            "sp95PriceChf": 1.69,
-            "updatedAt": "2026-03-12T11:19:25.645Z",
-            "nearestMunicipality": "Bizzarone (CO)",
-            "nearestMunicipalityDistanceKm": 2.8,
-            "sp95PriceEur": 1.858,
-            "distanceKm": 18.8
-          },
-          {
             "id": "ukK4QQ2nixpThGubzzE3",
             "name": "Orcam",
             "brand": "UNDEFINED",
@@ -15254,6 +15240,20 @@
             "updatedAt": "2026-02-20T14:24:22.760Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.6,
+            "sp95PriceEur": 1.902,
+            "distanceKm": 13.2
+          },
+          {
+            "id": "EDsfoWTW5mhInO152CPP",
+            "name": "Eni Chiasso",
+            "brand": "ENI",
+            "address": "Via Como 7, 6830 Chiasso",
+            "lat": 45.8378284,
+            "lng": 9.0340937,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-03-16T08:42:42.056Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 1.2,
             "sp95PriceEur": 1.902,
             "distanceKm": 13.2
           }
@@ -16085,7 +16085,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 94,
+        "optionCount": 95,
         "cheapestStation": {
           "id": "ahxEtrinnrLWGsZ2laVB",
           "name": "SOCAR / Piccadilly Gandria",
@@ -17091,7 +17091,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 77,
+        "optionCount": 78,
         "cheapestStation": {
           "id": "ahxEtrinnrLWGsZ2laVB",
           "name": "SOCAR / Piccadilly Gandria",
@@ -17312,18 +17312,18 @@
             "distanceKm": 13.8
           },
           {
-            "id": "BuLqgLtrkWKZWPB1oaHr",
-            "name": "BP Unbemannte Station Genestrerio",
-            "brand": "BP",
-            "address": "Via Adorna, 6852 Genestrerio",
-            "lat": 45.85708,
-            "lng": 8.96782,
-            "sp95PriceChf": 1.69,
-            "updatedAt": "2026-03-12T11:19:25.645Z",
-            "nearestMunicipality": "Bizzarone (CO)",
-            "nearestMunicipalityDistanceKm": 2.8,
-            "sp95PriceEur": 1.858,
-            "distanceKm": 8.3
+            "id": "ukK4QQ2nixpThGubzzE3",
+            "name": "Orcam",
+            "brand": "UNDEFINED",
+            "address": "Via Carlo Maderno 41, 6850 Mendrisio",
+            "lat": 45.8851362482152,
+            "lng": 8.981086222287052,
+            "sp95PriceChf": 1.7100000000000002,
+            "updatedAt": "2026-03-11T11:53:32.610Z",
+            "nearestMunicipality": "Clivio (VA)",
+            "nearestMunicipalityDistanceKm": 4.6,
+            "sp95PriceEur": 1.88,
+            "distanceKm": 10
           }
         ],
         "minPriceChf": 1.64,
@@ -17354,7 +17354,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 89,
+        "optionCount": 90,
         "cheapestStation": {
           "id": "ahxEtrinnrLWGsZ2laVB",
           "name": "SOCAR / Piccadilly Gandria",
@@ -17413,20 +17413,6 @@
             "distanceKm": 17.8
           },
           {
-            "id": "9DlkfBuzFkNLAf4DuIXp",
-            "name": "AVIA Shop Claro",
-            "brand": "AVIA",
-            "address": "Strada Cantonale, 6702 Claro",
-            "lat": 46.2531657,
-            "lng": 9.0201113,
-            "sp95PriceChf": 1.74,
-            "updatedAt": "2026-03-03T11:21:03.179Z",
-            "nearestMunicipality": "Cavargna (CO)",
-            "nearestMunicipalityDistanceKm": 19.4,
-            "sp95PriceEur": 1.913,
-            "distanceKm": 20
-          },
-          {
             "id": "DvrNn0z4cHLvWopylMHZ",
             "name": "Tecnocars Garage Sagl",
             "brand": "AVIA",
@@ -17439,6 +17425,20 @@
             "nearestMunicipalityDistanceKm": 3.5,
             "sp95PriceEur": 1.924,
             "distanceKm": 19.2
+          },
+          {
+            "id": "HapjFsEcj5Snc7o1iICH",
+            "name": "Station La Posta Svizzzera",
+            "brand": "UNDEFINED",
+            "address": "Viale Stefano Franscini 30, 6500 Bellinzona ",
+            "lat": 46.1928300156486,
+            "lng": 9.01310606612084,
+            "sp95PriceChf": 1.75,
+            "updatedAt": "2026-03-18T17:51:12.883Z",
+            "nearestMunicipality": "Cavargna (CO)",
+            "nearestMunicipalityDistanceKm": 13.7,
+            "sp95PriceEur": 1.924,
+            "distanceKm": 14.5
           }
         ],
         "minPriceChf": 1.63,
@@ -17646,20 +17646,6 @@
             "distanceKm": 11.6
           },
           {
-            "id": "BuLqgLtrkWKZWPB1oaHr",
-            "name": "BP Unbemannte Station Genestrerio",
-            "brand": "BP",
-            "address": "Via Adorna, 6852 Genestrerio",
-            "lat": 45.85708,
-            "lng": 8.96782,
-            "sp95PriceChf": 1.69,
-            "updatedAt": "2026-03-12T11:19:25.645Z",
-            "nearestMunicipality": "Bizzarone (CO)",
-            "nearestMunicipalityDistanceKm": 2.8,
-            "sp95PriceEur": 1.858,
-            "distanceKm": 15.3
-          },
-          {
             "id": "ukK4QQ2nixpThGubzzE3",
             "name": "Orcam",
             "brand": "UNDEFINED",
@@ -17700,6 +17686,20 @@
             "nearestMunicipalityDistanceKm": 1.5,
             "sp95PriceEur": 1.891,
             "distanceKm": 10.1
+          },
+          {
+            "id": "4rZcVZZyMdcg9utPrsXv",
+            "name": "GARAGE 64",
+            "brand": "UNDEFINED",
+            "address": "Via Emilio Bossi 6, 6830 Chiasso",
+            "lat": 45.834176890224306,
+            "lng": 9.031274331501768,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-02-20T14:24:22.760Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 1.6,
+            "sp95PriceEur": 1.902,
+            "distanceKm": 10
           }
         ],
         "minPriceChf": 1.66,
@@ -18144,34 +18144,6 @@
             "distanceKm": 15.5
           },
           {
-            "id": "WunhlPJcSC3aLWcTjWow",
-            "name": "Eni Arbedo",
-            "brand": "ENI",
-            "address": "Via San Gottardo 129, 6517 Arbedo",
-            "lat": 46.2126984,
-            "lng": 9.039422199999999,
-            "sp95PriceChf": 1.84,
-            "updatedAt": "2026-03-17T17:38:48.008Z",
-            "nearestMunicipality": "Cavargna (CO)",
-            "nearestMunicipalityDistanceKm": 14.7,
-            "sp95PriceEur": 2.023,
-            "distanceKm": 19.9
-          },
-          {
-            "id": "ct1153C6DNSnIqT0Hq9u",
-            "name": "Coop Pronto",
-            "brand": "COOP",
-            "address": "Via San Gottardo 73, 6500 Bellinzona",
-            "lat": 46.2057,
-            "lng": 9.03673,
-            "sp95PriceChf": 1.84,
-            "updatedAt": "2026-03-18T06:48:05.530Z",
-            "nearestMunicipality": "Cavargna (CO)",
-            "nearestMunicipalityDistanceKm": 14.1,
-            "sp95PriceEur": 2.023,
-            "distanceKm": 19.8
-          },
-          {
             "id": "viYoAJMjWUU1BEwgcjDL",
             "name": "Stazione di servizio Migrol",
             "brand": "MIGROL",
@@ -18184,6 +18156,34 @@
             "nearestMunicipalityDistanceKm": 14.2,
             "sp95PriceEur": 2.023,
             "distanceKm": 16.7
+          },
+          {
+            "id": "MNydGBweUV8pmXuAtQKE",
+            "name": "Agrola Bellinzona",
+            "brand": "AGROLA",
+            "address": "Via San Gottardo 65, 6500 Bellinzona",
+            "lat": 46.204418,
+            "lng": 9.035782,
+            "sp95PriceChf": 1.8900000000000001,
+            "updatedAt": "2026-03-21T12:41:05.136Z",
+            "nearestMunicipality": "Cavargna (CO)",
+            "nearestMunicipalityDistanceKm": 14,
+            "sp95PriceEur": 2.078,
+            "distanceKm": 19.8
+          },
+          {
+            "id": "Sa0bhjn6sx2GZuVSscy2",
+            "name": "SOCAR / Piccadilly Bellinzona Via San Gottardo",
+            "brand": "PICCADILLY",
+            "address": "Via San Gottardo 104, 6500 Bellinzona",
+            "lat": 46.206642,
+            "lng": 9.038361,
+            "sp95PriceChf": 1.8900000000000001,
+            "updatedAt": "2026-03-21T12:21:10.460Z",
+            "nearestMunicipality": "Cavargna (CO)",
+            "nearestMunicipalityDistanceKm": 14.1,
+            "sp95PriceEur": 2.078,
+            "distanceKm": 19.7
           }
         ],
         "minPriceChf": 1.77,
@@ -18273,20 +18273,6 @@
             "distanceKm": 18.5
           },
           {
-            "id": "BuLqgLtrkWKZWPB1oaHr",
-            "name": "BP Unbemannte Station Genestrerio",
-            "brand": "BP",
-            "address": "Via Adorna, 6852 Genestrerio",
-            "lat": 45.85708,
-            "lng": 8.96782,
-            "sp95PriceChf": 1.69,
-            "updatedAt": "2026-03-12T11:19:25.645Z",
-            "nearestMunicipality": "Bizzarone (CO)",
-            "nearestMunicipalityDistanceKm": 2.8,
-            "sp95PriceEur": 1.858,
-            "distanceKm": 15.1
-          },
-          {
             "id": "ukK4QQ2nixpThGubzzE3",
             "name": "Orcam",
             "brand": "UNDEFINED",
@@ -18299,6 +18285,20 @@
             "nearestMunicipalityDistanceKm": 4.6,
             "sp95PriceEur": 1.88,
             "distanceKm": 15.8
+          },
+          {
+            "id": "g1Ewt2bs9nFFxymi7tYL",
+            "name": "TAMOIL Stabio",
+            "brand": "TAMOIL",
+            "address": "Giulia 47, 6855 Stabio",
+            "lat": 45.848008,
+            "lng": 8.935833,
+            "sp95PriceChf": 1.72,
+            "updatedAt": "2026-03-07T18:03:01.884Z",
+            "nearestMunicipality": "Bizzarone (CO)",
+            "nearestMunicipalityDistanceKm": 1.6,
+            "sp95PriceEur": 1.891,
+            "distanceKm": 17.1
           }
         ],
         "minPriceChf": 1.64,
@@ -19003,7 +19003,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 102,
+        "optionCount": 103,
         "cheapestStation": {
           "id": "ahxEtrinnrLWGsZ2laVB",
           "name": "SOCAR / Piccadilly Gandria",
@@ -19264,7 +19264,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 108,
+        "optionCount": 109,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -19547,20 +19547,6 @@
             "distanceKm": 14.5
           },
           {
-            "id": "BuLqgLtrkWKZWPB1oaHr",
-            "name": "BP Unbemannte Station Genestrerio",
-            "brand": "BP",
-            "address": "Via Adorna, 6852 Genestrerio",
-            "lat": 45.85708,
-            "lng": 8.96782,
-            "sp95PriceChf": 1.69,
-            "updatedAt": "2026-03-12T11:19:25.645Z",
-            "nearestMunicipality": "Bizzarone (CO)",
-            "nearestMunicipalityDistanceKm": 2.8,
-            "sp95PriceEur": 1.858,
-            "distanceKm": 15.8
-          },
-          {
             "id": "ukK4QQ2nixpThGubzzE3",
             "name": "Orcam",
             "brand": "UNDEFINED",
@@ -19601,6 +19587,20 @@
             "nearestMunicipalityDistanceKm": 1.5,
             "sp95PriceEur": 1.891,
             "distanceKm": 13.8
+          },
+          {
+            "id": "4rZcVZZyMdcg9utPrsXv",
+            "name": "GARAGE 64",
+            "brand": "UNDEFINED",
+            "address": "Via Emilio Bossi 6, 6830 Chiasso",
+            "lat": 45.834176890224306,
+            "lng": 9.031274331501768,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-02-20T14:24:22.760Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 1.6,
+            "sp95PriceEur": 1.902,
+            "distanceKm": 13.7
           }
         ],
         "minPriceChf": 1.66,
@@ -19821,20 +19821,6 @@
             "distanceKm": 13.7
           },
           {
-            "id": "BuLqgLtrkWKZWPB1oaHr",
-            "name": "BP Unbemannte Station Genestrerio",
-            "brand": "BP",
-            "address": "Via Adorna, 6852 Genestrerio",
-            "lat": 45.85708,
-            "lng": 8.96782,
-            "sp95PriceChf": 1.69,
-            "updatedAt": "2026-03-12T11:19:25.645Z",
-            "nearestMunicipality": "Bizzarone (CO)",
-            "nearestMunicipalityDistanceKm": 2.8,
-            "sp95PriceEur": 1.858,
-            "distanceKm": 16.7
-          },
-          {
             "id": "ukK4QQ2nixpThGubzzE3",
             "name": "Orcam",
             "brand": "UNDEFINED",
@@ -19875,6 +19861,20 @@
             "nearestMunicipalityDistanceKm": 1.5,
             "sp95PriceEur": 1.891,
             "distanceKm": 12.4
+          },
+          {
+            "id": "4rZcVZZyMdcg9utPrsXv",
+            "name": "GARAGE 64",
+            "brand": "UNDEFINED",
+            "address": "Via Emilio Bossi 6, 6830 Chiasso",
+            "lat": 45.834176890224306,
+            "lng": 9.031274331501768,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-02-20T14:24:22.760Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 1.6,
+            "sp95PriceEur": 1.902,
+            "distanceKm": 12.3
           }
         ],
         "minPriceChf": 1.66,
@@ -19997,20 +19997,6 @@
             "distanceKm": 17
           },
           {
-            "id": "BuLqgLtrkWKZWPB1oaHr",
-            "name": "BP Unbemannte Station Genestrerio",
-            "brand": "BP",
-            "address": "Via Adorna, 6852 Genestrerio",
-            "lat": 45.85708,
-            "lng": 8.96782,
-            "sp95PriceChf": 1.69,
-            "updatedAt": "2026-03-12T11:19:25.645Z",
-            "nearestMunicipality": "Bizzarone (CO)",
-            "nearestMunicipalityDistanceKm": 2.8,
-            "sp95PriceEur": 1.858,
-            "distanceKm": 10.2
-          },
-          {
             "id": "ukK4QQ2nixpThGubzzE3",
             "name": "Orcam",
             "brand": "UNDEFINED",
@@ -20023,6 +20009,20 @@
             "nearestMunicipalityDistanceKm": 4.6,
             "sp95PriceEur": 1.88,
             "distanceKm": 12.8
+          },
+          {
+            "id": "g1Ewt2bs9nFFxymi7tYL",
+            "name": "TAMOIL Stabio",
+            "brand": "TAMOIL",
+            "address": "Giulia 47, 6855 Stabio",
+            "lat": 45.848008,
+            "lng": 8.935833,
+            "sp95PriceChf": 1.72,
+            "updatedAt": "2026-03-07T18:03:01.884Z",
+            "nearestMunicipality": "Bizzarone (CO)",
+            "nearestMunicipalityDistanceKm": 1.6,
+            "sp95PriceEur": 1.891,
+            "distanceKm": 10.7
           }
         ],
         "minPriceChf": 1.64,
@@ -20307,34 +20307,20 @@
         "searchRadiusKm": 20,
         "optionCount": 2,
         "cheapestStation": {
-          "id": "BuLqgLtrkWKZWPB1oaHr",
-          "name": "BP Unbemannte Station Genestrerio",
-          "brand": "BP",
-          "address": "Via Adorna, 6852 Genestrerio",
-          "lat": 45.85708,
-          "lng": 8.96782,
-          "sp95PriceChf": 1.69,
-          "updatedAt": "2026-03-12T11:19:25.645Z",
+          "id": "g1Ewt2bs9nFFxymi7tYL",
+          "name": "TAMOIL Stabio",
+          "brand": "TAMOIL",
+          "address": "Giulia 47, 6855 Stabio",
+          "lat": 45.848008,
+          "lng": 8.935833,
+          "sp95PriceChf": 1.72,
+          "updatedAt": "2026-03-07T18:03:01.884Z",
           "nearestMunicipality": "Bizzarone (CO)",
-          "nearestMunicipalityDistanceKm": 2.8,
-          "sp95PriceEur": 1.858,
-          "distanceKm": 19.6
+          "nearestMunicipalityDistanceKm": 1.6,
+          "sp95PriceEur": 1.891,
+          "distanceKm": 17.2
         },
         "nearbyStations": [
-          {
-            "id": "BuLqgLtrkWKZWPB1oaHr",
-            "name": "BP Unbemannte Station Genestrerio",
-            "brand": "BP",
-            "address": "Via Adorna, 6852 Genestrerio",
-            "lat": 45.85708,
-            "lng": 8.96782,
-            "sp95PriceChf": 1.69,
-            "updatedAt": "2026-03-12T11:19:25.645Z",
-            "nearestMunicipality": "Bizzarone (CO)",
-            "nearestMunicipalityDistanceKm": 2.8,
-            "sp95PriceEur": 1.858,
-            "distanceKm": 19.6
-          },
           {
             "id": "g1Ewt2bs9nFFxymi7tYL",
             "name": "TAMOIL Stabio",
@@ -20348,15 +20334,29 @@
             "nearestMunicipalityDistanceKm": 1.6,
             "sp95PriceEur": 1.891,
             "distanceKm": 17.2
+          },
+          {
+            "id": "BuLqgLtrkWKZWPB1oaHr",
+            "name": "BP Unbemannte Station Genestrerio",
+            "brand": "BP",
+            "address": "Via Adorna, 6852 Genestrerio",
+            "lat": 45.85708,
+            "lng": 8.96782,
+            "sp95PriceChf": 1.8,
+            "updatedAt": "2026-03-21T12:15:41.072Z",
+            "nearestMunicipality": "Bizzarone (CO)",
+            "nearestMunicipalityDistanceKm": 2.8,
+            "sp95PriceEur": 1.979,
+            "distanceKm": 19.6
           }
         ],
-        "minPriceChf": 1.69,
-        "minPriceEur": 1.858
+        "minPriceChf": 1.72,
+        "minPriceEur": 1.891
       },
       "comparison": {
         "cheaperCountry": "IT",
-        "priceDeltaEur": 0.213,
-        "saving50LEur": 10.65
+        "priceDeltaEur": 0.246,
+        "saving50LEur": 12.3
       }
     },
     {
@@ -20636,34 +20636,20 @@
         "searchRadiusKm": 20,
         "optionCount": 7,
         "cheapestStation": {
-          "id": "BuLqgLtrkWKZWPB1oaHr",
-          "name": "BP Unbemannte Station Genestrerio",
-          "brand": "BP",
-          "address": "Via Adorna, 6852 Genestrerio",
-          "lat": 45.85708,
-          "lng": 8.96782,
-          "sp95PriceChf": 1.69,
-          "updatedAt": "2026-03-12T11:19:25.645Z",
-          "nearestMunicipality": "Bizzarone (CO)",
-          "nearestMunicipalityDistanceKm": 2.8,
-          "sp95PriceEur": 1.858,
-          "distanceKm": 17.3
+          "id": "ukK4QQ2nixpThGubzzE3",
+          "name": "Orcam",
+          "brand": "UNDEFINED",
+          "address": "Via Carlo Maderno 41, 6850 Mendrisio",
+          "lat": 45.8851362482152,
+          "lng": 8.981086222287052,
+          "sp95PriceChf": 1.7100000000000002,
+          "updatedAt": "2026-03-11T11:53:32.610Z",
+          "nearestMunicipality": "Clivio (VA)",
+          "nearestMunicipalityDistanceKm": 4.6,
+          "sp95PriceEur": 1.88,
+          "distanceKm": 19.7
         },
         "nearbyStations": [
-          {
-            "id": "BuLqgLtrkWKZWPB1oaHr",
-            "name": "BP Unbemannte Station Genestrerio",
-            "brand": "BP",
-            "address": "Via Adorna, 6852 Genestrerio",
-            "lat": 45.85708,
-            "lng": 8.96782,
-            "sp95PriceChf": 1.69,
-            "updatedAt": "2026-03-12T11:19:25.645Z",
-            "nearestMunicipality": "Bizzarone (CO)",
-            "nearestMunicipalityDistanceKm": 2.8,
-            "sp95PriceEur": 1.858,
-            "distanceKm": 17.3
-          },
           {
             "id": "ukK4QQ2nixpThGubzzE3",
             "name": "Orcam",
@@ -20719,15 +20705,29 @@
             "nearestMunicipalityDistanceKm": 3.8,
             "sp95PriceEur": 1.946,
             "distanceKm": 18.5
+          },
+          {
+            "id": "BuLqgLtrkWKZWPB1oaHr",
+            "name": "BP Unbemannte Station Genestrerio",
+            "brand": "BP",
+            "address": "Via Adorna, 6852 Genestrerio",
+            "lat": 45.85708,
+            "lng": 8.96782,
+            "sp95PriceChf": 1.8,
+            "updatedAt": "2026-03-21T12:15:41.072Z",
+            "nearestMunicipality": "Bizzarone (CO)",
+            "nearestMunicipalityDistanceKm": 2.8,
+            "sp95PriceEur": 1.979,
+            "distanceKm": 17.3
           }
         ],
-        "minPriceChf": 1.69,
-        "minPriceEur": 1.858
+        "minPriceChf": 1.71,
+        "minPriceEur": 1.88
       },
       "comparison": {
         "cheaperCountry": "CH",
-        "priceDeltaEur": -0.041,
-        "saving50LEur": 2.05
+        "priceDeltaEur": -0.019,
+        "saving50LEur": 0.95
       }
     },
     {
@@ -21691,34 +21691,20 @@
         "searchRadiusKm": 20,
         "optionCount": 6,
         "cheapestStation": {
-          "id": "BuLqgLtrkWKZWPB1oaHr",
-          "name": "BP Unbemannte Station Genestrerio",
-          "brand": "BP",
-          "address": "Via Adorna, 6852 Genestrerio",
-          "lat": 45.85708,
-          "lng": 8.96782,
-          "sp95PriceChf": 1.69,
-          "updatedAt": "2026-03-12T11:19:25.645Z",
+          "id": "g1Ewt2bs9nFFxymi7tYL",
+          "name": "TAMOIL Stabio",
+          "brand": "TAMOIL",
+          "address": "Giulia 47, 6855 Stabio",
+          "lat": 45.848008,
+          "lng": 8.935833,
+          "sp95PriceChf": 1.72,
+          "updatedAt": "2026-03-07T18:03:01.884Z",
           "nearestMunicipality": "Bizzarone (CO)",
-          "nearestMunicipalityDistanceKm": 2.8,
-          "sp95PriceEur": 1.858,
-          "distanceKm": 18.3
+          "nearestMunicipalityDistanceKm": 1.6,
+          "sp95PriceEur": 1.891,
+          "distanceKm": 15.7
         },
         "nearbyStations": [
-          {
-            "id": "BuLqgLtrkWKZWPB1oaHr",
-            "name": "BP Unbemannte Station Genestrerio",
-            "brand": "BP",
-            "address": "Via Adorna, 6852 Genestrerio",
-            "lat": 45.85708,
-            "lng": 8.96782,
-            "sp95PriceChf": 1.69,
-            "updatedAt": "2026-03-12T11:19:25.645Z",
-            "nearestMunicipality": "Bizzarone (CO)",
-            "nearestMunicipalityDistanceKm": 2.8,
-            "sp95PriceEur": 1.858,
-            "distanceKm": 18.3
-          },
           {
             "id": "g1Ewt2bs9nFFxymi7tYL",
             "name": "TAMOIL Stabio",
@@ -21762,6 +21748,20 @@
             "distanceKm": 19.5
           },
           {
+            "id": "BuLqgLtrkWKZWPB1oaHr",
+            "name": "BP Unbemannte Station Genestrerio",
+            "brand": "BP",
+            "address": "Via Adorna, 6852 Genestrerio",
+            "lat": 45.85708,
+            "lng": 8.96782,
+            "sp95PriceChf": 1.8,
+            "updatedAt": "2026-03-21T12:15:41.072Z",
+            "nearestMunicipality": "Bizzarone (CO)",
+            "nearestMunicipalityDistanceKm": 2.8,
+            "sp95PriceEur": 1.979,
+            "distanceKm": 18.3
+          },
+          {
             "id": "C9ajQvOEOfsMQZ4JfC4l",
             "name": "SOCAR / Piccadilly Coldrerio",
             "brand": "PICCADILLY",
@@ -21776,13 +21776,13 @@
             "distanceKm": 19.6
           }
         ],
-        "minPriceChf": 1.69,
-        "minPriceEur": 1.858
+        "minPriceChf": 1.72,
+        "minPriceEur": 1.891
       },
       "comparison": {
         "cheaperCountry": "IT",
-        "priceDeltaEur": 0.129,
-        "saving50LEur": 6.45
+        "priceDeltaEur": 0.162,
+        "saving50LEur": 8.1
       }
     },
     {
@@ -22436,20 +22436,6 @@
             "distanceKm": 19.1
           },
           {
-            "id": "BuLqgLtrkWKZWPB1oaHr",
-            "name": "BP Unbemannte Station Genestrerio",
-            "brand": "BP",
-            "address": "Via Adorna, 6852 Genestrerio",
-            "lat": 45.85708,
-            "lng": 8.96782,
-            "sp95PriceChf": 1.69,
-            "updatedAt": "2026-03-12T11:19:25.645Z",
-            "nearestMunicipality": "Bizzarone (CO)",
-            "nearestMunicipalityDistanceKm": 2.8,
-            "sp95PriceEur": 1.858,
-            "distanceKm": 16.7
-          },
-          {
             "id": "ukK4QQ2nixpThGubzzE3",
             "name": "Orcam",
             "brand": "UNDEFINED",
@@ -22489,6 +22475,20 @@
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
             "sp95PriceEur": 1.891,
+            "distanceKm": 19.7
+          },
+          {
+            "id": "4rZcVZZyMdcg9utPrsXv",
+            "name": "GARAGE 64",
+            "brand": "UNDEFINED",
+            "address": "Via Emilio Bossi 6, 6830 Chiasso",
+            "lat": 45.834176890224306,
+            "lng": 9.031274331501768,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-02-20T14:24:22.760Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 1.6,
+            "sp95PriceEur": 1.902,
             "distanceKm": 19.7
           }
         ],
@@ -22710,20 +22710,6 @@
             "distanceKm": 17.6
           },
           {
-            "id": "BuLqgLtrkWKZWPB1oaHr",
-            "name": "BP Unbemannte Station Genestrerio",
-            "brand": "BP",
-            "address": "Via Adorna, 6852 Genestrerio",
-            "lat": 45.85708,
-            "lng": 8.96782,
-            "sp95PriceChf": 1.69,
-            "updatedAt": "2026-03-12T11:19:25.645Z",
-            "nearestMunicipality": "Bizzarone (CO)",
-            "nearestMunicipalityDistanceKm": 2.8,
-            "sp95PriceEur": 1.858,
-            "distanceKm": 14.9
-          },
-          {
             "id": "ukK4QQ2nixpThGubzzE3",
             "name": "Orcam",
             "brand": "UNDEFINED",
@@ -22764,6 +22750,20 @@
             "nearestMunicipalityDistanceKm": 1.5,
             "sp95PriceEur": 1.891,
             "distanceKm": 18.4
+          },
+          {
+            "id": "4rZcVZZyMdcg9utPrsXv",
+            "name": "GARAGE 64",
+            "brand": "UNDEFINED",
+            "address": "Via Emilio Bossi 6, 6830 Chiasso",
+            "lat": 45.834176890224306,
+            "lng": 9.031274331501768,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-02-20T14:24:22.760Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 1.6,
+            "sp95PriceEur": 1.902,
+            "distanceKm": 18.3
           }
         ],
         "minPriceChf": 1.66,
@@ -23041,34 +23041,20 @@
         "searchRadiusKm": 20,
         "optionCount": 2,
         "cheapestStation": {
-          "id": "BuLqgLtrkWKZWPB1oaHr",
-          "name": "BP Unbemannte Station Genestrerio",
-          "brand": "BP",
-          "address": "Via Adorna, 6852 Genestrerio",
-          "lat": 45.85708,
-          "lng": 8.96782,
-          "sp95PriceChf": 1.69,
-          "updatedAt": "2026-03-12T11:19:25.645Z",
+          "id": "g1Ewt2bs9nFFxymi7tYL",
+          "name": "TAMOIL Stabio",
+          "brand": "TAMOIL",
+          "address": "Giulia 47, 6855 Stabio",
+          "lat": 45.848008,
+          "lng": 8.935833,
+          "sp95PriceChf": 1.72,
+          "updatedAt": "2026-03-07T18:03:01.884Z",
           "nearestMunicipality": "Bizzarone (CO)",
-          "nearestMunicipalityDistanceKm": 2.8,
-          "sp95PriceEur": 1.858,
-          "distanceKm": 19.9
+          "nearestMunicipalityDistanceKm": 1.6,
+          "sp95PriceEur": 1.891,
+          "distanceKm": 18.1
         },
         "nearbyStations": [
-          {
-            "id": "BuLqgLtrkWKZWPB1oaHr",
-            "name": "BP Unbemannte Station Genestrerio",
-            "brand": "BP",
-            "address": "Via Adorna, 6852 Genestrerio",
-            "lat": 45.85708,
-            "lng": 8.96782,
-            "sp95PriceChf": 1.69,
-            "updatedAt": "2026-03-12T11:19:25.645Z",
-            "nearestMunicipality": "Bizzarone (CO)",
-            "nearestMunicipalityDistanceKm": 2.8,
-            "sp95PriceEur": 1.858,
-            "distanceKm": 19.9
-          },
           {
             "id": "g1Ewt2bs9nFFxymi7tYL",
             "name": "TAMOIL Stabio",
@@ -23082,15 +23068,29 @@
             "nearestMunicipalityDistanceKm": 1.6,
             "sp95PriceEur": 1.891,
             "distanceKm": 18.1
+          },
+          {
+            "id": "BuLqgLtrkWKZWPB1oaHr",
+            "name": "BP Unbemannte Station Genestrerio",
+            "brand": "BP",
+            "address": "Via Adorna, 6852 Genestrerio",
+            "lat": 45.85708,
+            "lng": 8.96782,
+            "sp95PriceChf": 1.8,
+            "updatedAt": "2026-03-21T12:15:41.072Z",
+            "nearestMunicipality": "Bizzarone (CO)",
+            "nearestMunicipalityDistanceKm": 2.8,
+            "sp95PriceEur": 1.979,
+            "distanceKm": 19.9
           }
         ],
-        "minPriceChf": 1.69,
-        "minPriceEur": 1.858
+        "minPriceChf": 1.72,
+        "minPriceEur": 1.891
       },
       "comparison": {
         "cheaperCountry": "IT",
-        "priceDeltaEur": 0.163,
-        "saving50LEur": 8.15
+        "priceDeltaEur": 0.196,
+        "saving50LEur": 9.8
       }
     },
     {
@@ -23392,20 +23392,6 @@
             "distanceKm": 19.4
           },
           {
-            "id": "BuLqgLtrkWKZWPB1oaHr",
-            "name": "BP Unbemannte Station Genestrerio",
-            "brand": "BP",
-            "address": "Via Adorna, 6852 Genestrerio",
-            "lat": 45.85708,
-            "lng": 8.96782,
-            "sp95PriceChf": 1.69,
-            "updatedAt": "2026-03-12T11:19:25.645Z",
-            "nearestMunicipality": "Bizzarone (CO)",
-            "nearestMunicipalityDistanceKm": 2.8,
-            "sp95PriceEur": 1.858,
-            "distanceKm": 18.1
-          },
-          {
             "id": "g1Ewt2bs9nFFxymi7tYL",
             "name": "TAMOIL Stabio",
             "brand": "TAMOIL",
@@ -23446,6 +23432,20 @@
             "nearestMunicipalityDistanceKm": 1.6,
             "sp95PriceEur": 1.902,
             "distanceKm": 19.6
+          },
+          {
+            "id": "EDsfoWTW5mhInO152CPP",
+            "name": "Eni Chiasso",
+            "brand": "ENI",
+            "address": "Via Como 7, 6830 Chiasso",
+            "lat": 45.8378284,
+            "lng": 9.0340937,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-03-16T08:42:42.056Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 1.2,
+            "sp95PriceEur": 1.902,
+            "distanceKm": 20
           }
         ],
         "minPriceChf": 1.66,
@@ -23540,20 +23540,6 @@
             "distanceKm": 18.6
           },
           {
-            "id": "BuLqgLtrkWKZWPB1oaHr",
-            "name": "BP Unbemannte Station Genestrerio",
-            "brand": "BP",
-            "address": "Via Adorna, 6852 Genestrerio",
-            "lat": 45.85708,
-            "lng": 8.96782,
-            "sp95PriceChf": 1.69,
-            "updatedAt": "2026-03-12T11:19:25.645Z",
-            "nearestMunicipality": "Bizzarone (CO)",
-            "nearestMunicipalityDistanceKm": 2.8,
-            "sp95PriceEur": 1.858,
-            "distanceKm": 16.9
-          },
-          {
             "id": "ukK4QQ2nixpThGubzzE3",
             "name": "Orcam",
             "brand": "UNDEFINED",
@@ -23593,6 +23579,20 @@
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
             "sp95PriceEur": 1.891,
+            "distanceKm": 18.8
+          },
+          {
+            "id": "4rZcVZZyMdcg9utPrsXv",
+            "name": "GARAGE 64",
+            "brand": "UNDEFINED",
+            "address": "Via Emilio Bossi 6, 6830 Chiasso",
+            "lat": 45.834176890224306,
+            "lng": 9.031274331501768,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-02-20T14:24:22.760Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 1.6,
+            "sp95PriceEur": 1.902,
             "distanceKm": 18.8
           }
         ],
@@ -24326,20 +24326,6 @@
             "distanceKm": 18.4
           },
           {
-            "id": "BuLqgLtrkWKZWPB1oaHr",
-            "name": "BP Unbemannte Station Genestrerio",
-            "brand": "BP",
-            "address": "Via Adorna, 6852 Genestrerio",
-            "lat": 45.85708,
-            "lng": 8.96782,
-            "sp95PriceChf": 1.69,
-            "updatedAt": "2026-03-12T11:19:25.645Z",
-            "nearestMunicipality": "Bizzarone (CO)",
-            "nearestMunicipalityDistanceKm": 2.8,
-            "sp95PriceEur": 1.858,
-            "distanceKm": 17.4
-          },
-          {
             "id": "g1Ewt2bs9nFFxymi7tYL",
             "name": "TAMOIL Stabio",
             "brand": "TAMOIL",
@@ -24380,6 +24366,20 @@
             "nearestMunicipalityDistanceKm": 1.6,
             "sp95PriceEur": 1.902,
             "distanceKm": 18.3
+          },
+          {
+            "id": "EDsfoWTW5mhInO152CPP",
+            "name": "Eni Chiasso",
+            "brand": "ENI",
+            "address": "Via Como 7, 6830 Chiasso",
+            "lat": 45.8378284,
+            "lng": 9.0340937,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-03-16T08:42:42.056Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 1.2,
+            "sp95PriceEur": 1.902,
+            "distanceKm": 18.8
           }
         ],
         "minPriceChf": 1.66,
@@ -24578,20 +24578,6 @@
             "distanceKm": 15.2
           },
           {
-            "id": "BuLqgLtrkWKZWPB1oaHr",
-            "name": "BP Unbemannte Station Genestrerio",
-            "brand": "BP",
-            "address": "Via Adorna, 6852 Genestrerio",
-            "lat": 45.85708,
-            "lng": 8.96782,
-            "sp95PriceChf": 1.69,
-            "updatedAt": "2026-03-12T11:19:25.645Z",
-            "nearestMunicipality": "Bizzarone (CO)",
-            "nearestMunicipalityDistanceKm": 2.8,
-            "sp95PriceEur": 1.858,
-            "distanceKm": 13.7
-          },
-          {
             "id": "ukK4QQ2nixpThGubzzE3",
             "name": "Orcam",
             "brand": "UNDEFINED",
@@ -24631,6 +24617,20 @@
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
             "sp95PriceEur": 1.891,
+            "distanceKm": 15.5
+          },
+          {
+            "id": "4rZcVZZyMdcg9utPrsXv",
+            "name": "GARAGE 64",
+            "brand": "UNDEFINED",
+            "address": "Via Emilio Bossi 6, 6830 Chiasso",
+            "lat": 45.834176890224306,
+            "lng": 9.031274331501768,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-02-20T14:24:22.760Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 1.6,
+            "sp95PriceEur": 1.902,
             "distanceKm": 15.5
           }
         ],
@@ -24748,20 +24748,6 @@
             "distanceKm": 19.1
           },
           {
-            "id": "BuLqgLtrkWKZWPB1oaHr",
-            "name": "BP Unbemannte Station Genestrerio",
-            "brand": "BP",
-            "address": "Via Adorna, 6852 Genestrerio",
-            "lat": 45.85708,
-            "lng": 8.96782,
-            "sp95PriceChf": 1.69,
-            "updatedAt": "2026-03-12T11:19:25.645Z",
-            "nearestMunicipality": "Bizzarone (CO)",
-            "nearestMunicipalityDistanceKm": 2.8,
-            "sp95PriceEur": 1.858,
-            "distanceKm": 17.1
-          },
-          {
             "id": "g1Ewt2bs9nFFxymi7tYL",
             "name": "TAMOIL Stabio",
             "brand": "TAMOIL",
@@ -24802,6 +24788,20 @@
             "nearestMunicipalityDistanceKm": 1.6,
             "sp95PriceEur": 1.902,
             "distanceKm": 19.4
+          },
+          {
+            "id": "EDsfoWTW5mhInO152CPP",
+            "name": "Eni Chiasso",
+            "brand": "ENI",
+            "address": "Via Como 7, 6830 Chiasso",
+            "lat": 45.8378284,
+            "lng": 9.0340937,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-03-16T08:42:42.056Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 1.2,
+            "sp95PriceEur": 1.902,
+            "distanceKm": 19.8
           }
         ],
         "minPriceChf": 1.66,
@@ -24898,34 +24898,20 @@
         "searchRadiusKm": 20,
         "optionCount": 3,
         "cheapestStation": {
-          "id": "BuLqgLtrkWKZWPB1oaHr",
-          "name": "BP Unbemannte Station Genestrerio",
-          "brand": "BP",
-          "address": "Via Adorna, 6852 Genestrerio",
-          "lat": 45.85708,
-          "lng": 8.96782,
-          "sp95PriceChf": 1.69,
-          "updatedAt": "2026-03-12T11:19:25.645Z",
+          "id": "g1Ewt2bs9nFFxymi7tYL",
+          "name": "TAMOIL Stabio",
+          "brand": "TAMOIL",
+          "address": "Giulia 47, 6855 Stabio",
+          "lat": 45.848008,
+          "lng": 8.935833,
+          "sp95PriceChf": 1.72,
+          "updatedAt": "2026-03-07T18:03:01.884Z",
           "nearestMunicipality": "Bizzarone (CO)",
-          "nearestMunicipalityDistanceKm": 2.8,
-          "sp95PriceEur": 1.858,
-          "distanceKm": 19.3
+          "nearestMunicipalityDistanceKm": 1.6,
+          "sp95PriceEur": 1.891,
+          "distanceKm": 16.7
         },
         "nearbyStations": [
-          {
-            "id": "BuLqgLtrkWKZWPB1oaHr",
-            "name": "BP Unbemannte Station Genestrerio",
-            "brand": "BP",
-            "address": "Via Adorna, 6852 Genestrerio",
-            "lat": 45.85708,
-            "lng": 8.96782,
-            "sp95PriceChf": 1.69,
-            "updatedAt": "2026-03-12T11:19:25.645Z",
-            "nearestMunicipality": "Bizzarone (CO)",
-            "nearestMunicipalityDistanceKm": 2.8,
-            "sp95PriceEur": 1.858,
-            "distanceKm": 19.3
-          },
           {
             "id": "g1Ewt2bs9nFFxymi7tYL",
             "name": "TAMOIL Stabio",
@@ -24953,10 +24939,24 @@
             "nearestMunicipalityDistanceKm": 3.4,
             "sp95PriceEur": 1.924,
             "distanceKm": 19.9
+          },
+          {
+            "id": "BuLqgLtrkWKZWPB1oaHr",
+            "name": "BP Unbemannte Station Genestrerio",
+            "brand": "BP",
+            "address": "Via Adorna, 6852 Genestrerio",
+            "lat": 45.85708,
+            "lng": 8.96782,
+            "sp95PriceChf": 1.8,
+            "updatedAt": "2026-03-21T12:15:41.072Z",
+            "nearestMunicipality": "Bizzarone (CO)",
+            "nearestMunicipalityDistanceKm": 2.8,
+            "sp95PriceEur": 1.979,
+            "distanceKm": 19.3
           }
         ],
-        "minPriceChf": 1.69,
-        "minPriceEur": 1.858
+        "minPriceChf": 1.72,
+        "minPriceEur": 1.891
       },
       "comparison": {
         "cheaperCountry": "NO_DATA",
@@ -25972,34 +25972,20 @@
         "searchRadiusKm": 20,
         "optionCount": 5,
         "cheapestStation": {
-          "id": "BuLqgLtrkWKZWPB1oaHr",
-          "name": "BP Unbemannte Station Genestrerio",
-          "brand": "BP",
-          "address": "Via Adorna, 6852 Genestrerio",
-          "lat": 45.85708,
-          "lng": 8.96782,
-          "sp95PriceChf": 1.69,
-          "updatedAt": "2026-03-12T11:19:25.645Z",
+          "id": "g1Ewt2bs9nFFxymi7tYL",
+          "name": "TAMOIL Stabio",
+          "brand": "TAMOIL",
+          "address": "Giulia 47, 6855 Stabio",
+          "lat": 45.848008,
+          "lng": 8.935833,
+          "sp95PriceChf": 1.72,
+          "updatedAt": "2026-03-07T18:03:01.884Z",
           "nearestMunicipality": "Bizzarone (CO)",
-          "nearestMunicipalityDistanceKm": 2.8,
-          "sp95PriceEur": 1.858,
-          "distanceKm": 18.7
+          "nearestMunicipalityDistanceKm": 1.6,
+          "sp95PriceEur": 1.891,
+          "distanceKm": 16.1
         },
         "nearbyStations": [
-          {
-            "id": "BuLqgLtrkWKZWPB1oaHr",
-            "name": "BP Unbemannte Station Genestrerio",
-            "brand": "BP",
-            "address": "Via Adorna, 6852 Genestrerio",
-            "lat": 45.85708,
-            "lng": 8.96782,
-            "sp95PriceChf": 1.69,
-            "updatedAt": "2026-03-12T11:19:25.645Z",
-            "nearestMunicipality": "Bizzarone (CO)",
-            "nearestMunicipalityDistanceKm": 2.8,
-            "sp95PriceEur": 1.858,
-            "distanceKm": 18.7
-          },
           {
             "id": "g1Ewt2bs9nFFxymi7tYL",
             "name": "TAMOIL Stabio",
@@ -26027,6 +26013,20 @@
             "nearestMunicipalityDistanceKm": 3.4,
             "sp95PriceEur": 1.924,
             "distanceKm": 19.4
+          },
+          {
+            "id": "BuLqgLtrkWKZWPB1oaHr",
+            "name": "BP Unbemannte Station Genestrerio",
+            "brand": "BP",
+            "address": "Via Adorna, 6852 Genestrerio",
+            "lat": 45.85708,
+            "lng": 8.96782,
+            "sp95PriceChf": 1.8,
+            "updatedAt": "2026-03-21T12:15:41.072Z",
+            "nearestMunicipality": "Bizzarone (CO)",
+            "nearestMunicipalityDistanceKm": 2.8,
+            "sp95PriceEur": 1.979,
+            "distanceKm": 18.7
           },
           {
             "id": "C9ajQvOEOfsMQZ4JfC4l",
@@ -26057,13 +26057,13 @@
             "distanceKm": 20
           }
         ],
-        "minPriceChf": 1.69,
-        "minPriceEur": 1.858
+        "minPriceChf": 1.72,
+        "minPriceEur": 1.891
       },
       "comparison": {
         "cheaperCountry": "IT",
-        "priceDeltaEur": 0.303,
-        "saving50LEur": 15.15
+        "priceDeltaEur": 0.336,
+        "saving50LEur": 16.8
       }
     },
     {
@@ -26876,34 +26876,20 @@
         "searchRadiusKm": 20,
         "optionCount": 6,
         "cheapestStation": {
-          "id": "BuLqgLtrkWKZWPB1oaHr",
-          "name": "BP Unbemannte Station Genestrerio",
-          "brand": "BP",
-          "address": "Via Adorna, 6852 Genestrerio",
-          "lat": 45.85708,
-          "lng": 8.96782,
-          "sp95PriceChf": 1.69,
-          "updatedAt": "2026-03-12T11:19:25.645Z",
+          "id": "g1Ewt2bs9nFFxymi7tYL",
+          "name": "TAMOIL Stabio",
+          "brand": "TAMOIL",
+          "address": "Giulia 47, 6855 Stabio",
+          "lat": 45.848008,
+          "lng": 8.935833,
+          "sp95PriceChf": 1.72,
+          "updatedAt": "2026-03-07T18:03:01.884Z",
           "nearestMunicipality": "Bizzarone (CO)",
-          "nearestMunicipalityDistanceKm": 2.8,
-          "sp95PriceEur": 1.858,
-          "distanceKm": 17.5
+          "nearestMunicipalityDistanceKm": 1.6,
+          "sp95PriceEur": 1.891,
+          "distanceKm": 14.9
         },
         "nearbyStations": [
-          {
-            "id": "BuLqgLtrkWKZWPB1oaHr",
-            "name": "BP Unbemannte Station Genestrerio",
-            "brand": "BP",
-            "address": "Via Adorna, 6852 Genestrerio",
-            "lat": 45.85708,
-            "lng": 8.96782,
-            "sp95PriceChf": 1.69,
-            "updatedAt": "2026-03-12T11:19:25.645Z",
-            "nearestMunicipality": "Bizzarone (CO)",
-            "nearestMunicipalityDistanceKm": 2.8,
-            "sp95PriceEur": 1.858,
-            "distanceKm": 17.5
-          },
           {
             "id": "g1Ewt2bs9nFFxymi7tYL",
             "name": "TAMOIL Stabio",
@@ -26947,6 +26933,20 @@
             "distanceKm": 18.8
           },
           {
+            "id": "BuLqgLtrkWKZWPB1oaHr",
+            "name": "BP Unbemannte Station Genestrerio",
+            "brand": "BP",
+            "address": "Via Adorna, 6852 Genestrerio",
+            "lat": 45.85708,
+            "lng": 8.96782,
+            "sp95PriceChf": 1.8,
+            "updatedAt": "2026-03-21T12:15:41.072Z",
+            "nearestMunicipality": "Bizzarone (CO)",
+            "nearestMunicipalityDistanceKm": 2.8,
+            "sp95PriceEur": 1.979,
+            "distanceKm": 17.5
+          },
+          {
             "id": "C9ajQvOEOfsMQZ4JfC4l",
             "name": "SOCAR / Piccadilly Coldrerio",
             "brand": "PICCADILLY",
@@ -26961,13 +26961,13 @@
             "distanceKm": 18.7
           }
         ],
-        "minPriceChf": 1.69,
-        "minPriceEur": 1.858
+        "minPriceChf": 1.72,
+        "minPriceEur": 1.891
       },
       "comparison": {
         "cheaperCountry": "CH",
-        "priceDeltaEur": -0.04,
-        "saving50LEur": 2
+        "priceDeltaEur": -0.007,
+        "saving50LEur": 0.35
       }
     },
     {
@@ -27794,34 +27794,20 @@
         "searchRadiusKm": 20,
         "optionCount": 8,
         "cheapestStation": {
-          "id": "BuLqgLtrkWKZWPB1oaHr",
-          "name": "BP Unbemannte Station Genestrerio",
-          "brand": "BP",
-          "address": "Via Adorna, 6852 Genestrerio",
-          "lat": 45.85708,
-          "lng": 8.96782,
-          "sp95PriceChf": 1.69,
-          "updatedAt": "2026-03-12T11:19:25.645Z",
-          "nearestMunicipality": "Bizzarone (CO)",
-          "nearestMunicipalityDistanceKm": 2.8,
-          "sp95PriceEur": 1.858,
-          "distanceKm": 17.3
+          "id": "ukK4QQ2nixpThGubzzE3",
+          "name": "Orcam",
+          "brand": "UNDEFINED",
+          "address": "Via Carlo Maderno 41, 6850 Mendrisio",
+          "lat": 45.8851362482152,
+          "lng": 8.981086222287052,
+          "sp95PriceChf": 1.7100000000000002,
+          "updatedAt": "2026-03-11T11:53:32.610Z",
+          "nearestMunicipality": "Clivio (VA)",
+          "nearestMunicipalityDistanceKm": 4.6,
+          "sp95PriceEur": 1.88,
+          "distanceKm": 19.8
         },
         "nearbyStations": [
-          {
-            "id": "BuLqgLtrkWKZWPB1oaHr",
-            "name": "BP Unbemannte Station Genestrerio",
-            "brand": "BP",
-            "address": "Via Adorna, 6852 Genestrerio",
-            "lat": 45.85708,
-            "lng": 8.96782,
-            "sp95PriceChf": 1.69,
-            "updatedAt": "2026-03-12T11:19:25.645Z",
-            "nearestMunicipality": "Bizzarone (CO)",
-            "nearestMunicipalityDistanceKm": 2.8,
-            "sp95PriceEur": 1.858,
-            "distanceKm": 17.3
-          },
           {
             "id": "ukK4QQ2nixpThGubzzE3",
             "name": "Orcam",
@@ -27877,10 +27863,24 @@
             "nearestMunicipalityDistanceKm": 3.4,
             "sp95PriceEur": 1.924,
             "distanceKm": 17.9
+          },
+          {
+            "id": "sGRKkbZsI7X2ry7BiFc6",
+            "name": "Piccadilly SA - Pica, Migrolino",
+            "brand": "UNDEFINED",
+            "address": "Via Stefano Franscini 2, Mendrisio",
+            "lat": 45.8678618,
+            "lng": 8.977782399999999,
+            "sp95PriceChf": 1.77,
+            "updatedAt": "2026-03-20T05:01:14.951Z",
+            "nearestMunicipality": "Clivio (VA)",
+            "nearestMunicipalityDistanceKm": 3.8,
+            "sp95PriceEur": 1.946,
+            "distanceKm": 18.5
           }
         ],
-        "minPriceChf": 1.69,
-        "minPriceEur": 1.858
+        "minPriceChf": 1.71,
+        "minPriceEur": 1.88
       },
       "comparison": {
         "cheaperCountry": "NO_DATA",
@@ -28235,20 +28235,6 @@
             "distanceKm": 19.7
           },
           {
-            "id": "BuLqgLtrkWKZWPB1oaHr",
-            "name": "BP Unbemannte Station Genestrerio",
-            "brand": "BP",
-            "address": "Via Adorna, 6852 Genestrerio",
-            "lat": 45.85708,
-            "lng": 8.96782,
-            "sp95PriceChf": 1.69,
-            "updatedAt": "2026-03-12T11:19:25.645Z",
-            "nearestMunicipality": "Bizzarone (CO)",
-            "nearestMunicipalityDistanceKm": 2.8,
-            "sp95PriceEur": 1.858,
-            "distanceKm": 13.5
-          },
-          {
             "id": "ukK4QQ2nixpThGubzzE3",
             "name": "Orcam",
             "brand": "UNDEFINED",
@@ -28261,6 +28247,20 @@
             "nearestMunicipalityDistanceKm": 4.6,
             "sp95PriceEur": 1.88,
             "distanceKm": 16.3
+          },
+          {
+            "id": "g1Ewt2bs9nFFxymi7tYL",
+            "name": "TAMOIL Stabio",
+            "brand": "TAMOIL",
+            "address": "Giulia 47, 6855 Stabio",
+            "lat": 45.848008,
+            "lng": 8.935833,
+            "sp95PriceChf": 1.72,
+            "updatedAt": "2026-03-07T18:03:01.884Z",
+            "nearestMunicipality": "Bizzarone (CO)",
+            "nearestMunicipalityDistanceKm": 1.6,
+            "sp95PriceEur": 1.891,
+            "distanceKm": 10.9
           }
         ],
         "minPriceChf": 1.64,
@@ -28832,20 +28832,6 @@
             "distanceKm": 16.8
           },
           {
-            "id": "BuLqgLtrkWKZWPB1oaHr",
-            "name": "BP Unbemannte Station Genestrerio",
-            "brand": "BP",
-            "address": "Via Adorna, 6852 Genestrerio",
-            "lat": 45.85708,
-            "lng": 8.96782,
-            "sp95PriceChf": 1.69,
-            "updatedAt": "2026-03-12T11:19:25.645Z",
-            "nearestMunicipality": "Bizzarone (CO)",
-            "nearestMunicipalityDistanceKm": 2.8,
-            "sp95PriceEur": 1.858,
-            "distanceKm": 15.5
-          },
-          {
             "id": "ukK4QQ2nixpThGubzzE3",
             "name": "Orcam",
             "brand": "UNDEFINED",
@@ -28885,6 +28871,20 @@
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
             "sp95PriceEur": 1.891,
+            "distanceKm": 17
+          },
+          {
+            "id": "4rZcVZZyMdcg9utPrsXv",
+            "name": "GARAGE 64",
+            "brand": "UNDEFINED",
+            "address": "Via Emilio Bossi 6, 6830 Chiasso",
+            "lat": 45.834176890224306,
+            "lng": 9.031274331501768,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-02-20T14:24:22.760Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 1.6,
+            "sp95PriceEur": 1.902,
             "distanceKm": 17
           }
         ],
@@ -29033,34 +29033,20 @@
         "searchRadiusKm": 20,
         "optionCount": 2,
         "cheapestStation": {
-          "id": "BuLqgLtrkWKZWPB1oaHr",
-          "name": "BP Unbemannte Station Genestrerio",
-          "brand": "BP",
-          "address": "Via Adorna, 6852 Genestrerio",
-          "lat": 45.85708,
-          "lng": 8.96782,
-          "sp95PriceChf": 1.69,
-          "updatedAt": "2026-03-12T11:19:25.645Z",
+          "id": "g1Ewt2bs9nFFxymi7tYL",
+          "name": "TAMOIL Stabio",
+          "brand": "TAMOIL",
+          "address": "Giulia 47, 6855 Stabio",
+          "lat": 45.848008,
+          "lng": 8.935833,
+          "sp95PriceChf": 1.72,
+          "updatedAt": "2026-03-07T18:03:01.884Z",
           "nearestMunicipality": "Bizzarone (CO)",
-          "nearestMunicipalityDistanceKm": 2.8,
-          "sp95PriceEur": 1.858,
-          "distanceKm": 19.8
+          "nearestMunicipalityDistanceKm": 1.6,
+          "sp95PriceEur": 1.891,
+          "distanceKm": 17.1
         },
         "nearbyStations": [
-          {
-            "id": "BuLqgLtrkWKZWPB1oaHr",
-            "name": "BP Unbemannte Station Genestrerio",
-            "brand": "BP",
-            "address": "Via Adorna, 6852 Genestrerio",
-            "lat": 45.85708,
-            "lng": 8.96782,
-            "sp95PriceChf": 1.69,
-            "updatedAt": "2026-03-12T11:19:25.645Z",
-            "nearestMunicipality": "Bizzarone (CO)",
-            "nearestMunicipalityDistanceKm": 2.8,
-            "sp95PriceEur": 1.858,
-            "distanceKm": 19.8
-          },
           {
             "id": "g1Ewt2bs9nFFxymi7tYL",
             "name": "TAMOIL Stabio",
@@ -29074,10 +29060,24 @@
             "nearestMunicipalityDistanceKm": 1.6,
             "sp95PriceEur": 1.891,
             "distanceKm": 17.1
+          },
+          {
+            "id": "BuLqgLtrkWKZWPB1oaHr",
+            "name": "BP Unbemannte Station Genestrerio",
+            "brand": "BP",
+            "address": "Via Adorna, 6852 Genestrerio",
+            "lat": 45.85708,
+            "lng": 8.96782,
+            "sp95PriceChf": 1.8,
+            "updatedAt": "2026-03-21T12:15:41.072Z",
+            "nearestMunicipality": "Bizzarone (CO)",
+            "nearestMunicipalityDistanceKm": 2.8,
+            "sp95PriceEur": 1.979,
+            "distanceKm": 19.8
           }
         ],
-        "minPriceChf": 1.69,
-        "minPriceEur": 1.858
+        "minPriceChf": 1.72,
+        "minPriceEur": 1.891
       },
       "comparison": {
         "cheaperCountry": "NO_DATA",
@@ -29669,20 +29669,6 @@
             "distanceKm": 19
           },
           {
-            "id": "BuLqgLtrkWKZWPB1oaHr",
-            "name": "BP Unbemannte Station Genestrerio",
-            "brand": "BP",
-            "address": "Via Adorna, 6852 Genestrerio",
-            "lat": 45.85708,
-            "lng": 8.96782,
-            "sp95PriceChf": 1.69,
-            "updatedAt": "2026-03-12T11:19:25.645Z",
-            "nearestMunicipality": "Bizzarone (CO)",
-            "nearestMunicipalityDistanceKm": 2.8,
-            "sp95PriceEur": 1.858,
-            "distanceKm": 18.5
-          },
-          {
             "id": "g1Ewt2bs9nFFxymi7tYL",
             "name": "TAMOIL Stabio",
             "brand": "TAMOIL",
@@ -29723,6 +29709,20 @@
             "nearestMunicipalityDistanceKm": 1.6,
             "sp95PriceEur": 1.902,
             "distanceKm": 18.9
+          },
+          {
+            "id": "EDsfoWTW5mhInO152CPP",
+            "name": "Eni Chiasso",
+            "brand": "ENI",
+            "address": "Via Como 7, 6830 Chiasso",
+            "lat": 45.8378284,
+            "lng": 9.0340937,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-03-16T08:42:42.056Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 1.2,
+            "sp95PriceEur": 1.902,
+            "distanceKm": 19.3
           }
         ],
         "minPriceChf": 1.66,
@@ -29812,20 +29812,6 @@
             "distanceKm": 19.1
           },
           {
-            "id": "BuLqgLtrkWKZWPB1oaHr",
-            "name": "BP Unbemannte Station Genestrerio",
-            "brand": "BP",
-            "address": "Via Adorna, 6852 Genestrerio",
-            "lat": 45.85708,
-            "lng": 8.96782,
-            "sp95PriceChf": 1.69,
-            "updatedAt": "2026-03-12T11:19:25.645Z",
-            "nearestMunicipality": "Bizzarone (CO)",
-            "nearestMunicipalityDistanceKm": 2.8,
-            "sp95PriceEur": 1.858,
-            "distanceKm": 12.4
-          },
-          {
             "id": "ukK4QQ2nixpThGubzzE3",
             "name": "Orcam",
             "brand": "UNDEFINED",
@@ -29838,6 +29824,20 @@
             "nearestMunicipalityDistanceKm": 4.6,
             "sp95PriceEur": 1.88,
             "distanceKm": 15.5
+          },
+          {
+            "id": "g1Ewt2bs9nFFxymi7tYL",
+            "name": "TAMOIL Stabio",
+            "brand": "TAMOIL",
+            "address": "Giulia 47, 6855 Stabio",
+            "lat": 45.848008,
+            "lng": 8.935833,
+            "sp95PriceChf": 1.72,
+            "updatedAt": "2026-03-07T18:03:01.884Z",
+            "nearestMunicipality": "Bizzarone (CO)",
+            "nearestMunicipalityDistanceKm": 1.6,
+            "sp95PriceEur": 1.891,
+            "distanceKm": 10.1
           }
         ],
         "minPriceChf": 1.64,
@@ -31172,20 +31172,6 @@
             "distanceKm": 16.8
           },
           {
-            "id": "BuLqgLtrkWKZWPB1oaHr",
-            "name": "BP Unbemannte Station Genestrerio",
-            "brand": "BP",
-            "address": "Via Adorna, 6852 Genestrerio",
-            "lat": 45.85708,
-            "lng": 8.96782,
-            "sp95PriceChf": 1.69,
-            "updatedAt": "2026-03-12T11:19:25.645Z",
-            "nearestMunicipality": "Bizzarone (CO)",
-            "nearestMunicipalityDistanceKm": 2.8,
-            "sp95PriceEur": 1.858,
-            "distanceKm": 14.7
-          },
-          {
             "id": "ukK4QQ2nixpThGubzzE3",
             "name": "Orcam",
             "brand": "UNDEFINED",
@@ -31225,6 +31211,20 @@
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
             "sp95PriceEur": 1.891,
+            "distanceKm": 17.3
+          },
+          {
+            "id": "4rZcVZZyMdcg9utPrsXv",
+            "name": "GARAGE 64",
+            "brand": "UNDEFINED",
+            "address": "Via Emilio Bossi 6, 6830 Chiasso",
+            "lat": 45.834176890224306,
+            "lng": 9.031274331501768,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-02-20T14:24:22.760Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 1.6,
+            "sp95PriceEur": 1.902,
             "distanceKm": 17.3
           }
         ],
@@ -32451,34 +32451,20 @@
         "searchRadiusKm": 20,
         "optionCount": 2,
         "cheapestStation": {
-          "id": "BuLqgLtrkWKZWPB1oaHr",
-          "name": "BP Unbemannte Station Genestrerio",
-          "brand": "BP",
-          "address": "Via Adorna, 6852 Genestrerio",
-          "lat": 45.85708,
-          "lng": 8.96782,
-          "sp95PriceChf": 1.69,
-          "updatedAt": "2026-03-12T11:19:25.645Z",
+          "id": "g1Ewt2bs9nFFxymi7tYL",
+          "name": "TAMOIL Stabio",
+          "brand": "TAMOIL",
+          "address": "Giulia 47, 6855 Stabio",
+          "lat": 45.848008,
+          "lng": 8.935833,
+          "sp95PriceChf": 1.72,
+          "updatedAt": "2026-03-07T18:03:01.884Z",
           "nearestMunicipality": "Bizzarone (CO)",
-          "nearestMunicipalityDistanceKm": 2.8,
-          "sp95PriceEur": 1.858,
-          "distanceKm": 19.4
+          "nearestMunicipalityDistanceKm": 1.6,
+          "sp95PriceEur": 1.891,
+          "distanceKm": 17.2
         },
         "nearbyStations": [
-          {
-            "id": "BuLqgLtrkWKZWPB1oaHr",
-            "name": "BP Unbemannte Station Genestrerio",
-            "brand": "BP",
-            "address": "Via Adorna, 6852 Genestrerio",
-            "lat": 45.85708,
-            "lng": 8.96782,
-            "sp95PriceChf": 1.69,
-            "updatedAt": "2026-03-12T11:19:25.645Z",
-            "nearestMunicipality": "Bizzarone (CO)",
-            "nearestMunicipalityDistanceKm": 2.8,
-            "sp95PriceEur": 1.858,
-            "distanceKm": 19.4
-          },
           {
             "id": "g1Ewt2bs9nFFxymi7tYL",
             "name": "TAMOIL Stabio",
@@ -32492,15 +32478,29 @@
             "nearestMunicipalityDistanceKm": 1.6,
             "sp95PriceEur": 1.891,
             "distanceKm": 17.2
+          },
+          {
+            "id": "BuLqgLtrkWKZWPB1oaHr",
+            "name": "BP Unbemannte Station Genestrerio",
+            "brand": "BP",
+            "address": "Via Adorna, 6852 Genestrerio",
+            "lat": 45.85708,
+            "lng": 8.96782,
+            "sp95PriceChf": 1.8,
+            "updatedAt": "2026-03-21T12:15:41.072Z",
+            "nearestMunicipality": "Bizzarone (CO)",
+            "nearestMunicipalityDistanceKm": 2.8,
+            "sp95PriceEur": 1.979,
+            "distanceKm": 19.4
           }
         ],
-        "minPriceChf": 1.69,
-        "minPriceEur": 1.858
+        "minPriceChf": 1.72,
+        "minPriceEur": 1.891
       },
       "comparison": {
         "cheaperCountry": "IT",
-        "priceDeltaEur": 0.153,
-        "saving50LEur": 7.65
+        "priceDeltaEur": 0.186,
+        "saving50LEur": 9.3
       }
     },
     {
@@ -32610,34 +32610,20 @@
         "searchRadiusKm": 20,
         "optionCount": 2,
         "cheapestStation": {
-          "id": "BuLqgLtrkWKZWPB1oaHr",
-          "name": "BP Unbemannte Station Genestrerio",
-          "brand": "BP",
-          "address": "Via Adorna, 6852 Genestrerio",
-          "lat": 45.85708,
-          "lng": 8.96782,
-          "sp95PriceChf": 1.69,
-          "updatedAt": "2026-03-12T11:19:25.645Z",
+          "id": "g1Ewt2bs9nFFxymi7tYL",
+          "name": "TAMOIL Stabio",
+          "brand": "TAMOIL",
+          "address": "Giulia 47, 6855 Stabio",
+          "lat": 45.848008,
+          "lng": 8.935833,
+          "sp95PriceChf": 1.72,
+          "updatedAt": "2026-03-07T18:03:01.884Z",
           "nearestMunicipality": "Bizzarone (CO)",
-          "nearestMunicipalityDistanceKm": 2.8,
-          "sp95PriceEur": 1.858,
-          "distanceKm": 19.5
+          "nearestMunicipalityDistanceKm": 1.6,
+          "sp95PriceEur": 1.891,
+          "distanceKm": 17
         },
         "nearbyStations": [
-          {
-            "id": "BuLqgLtrkWKZWPB1oaHr",
-            "name": "BP Unbemannte Station Genestrerio",
-            "brand": "BP",
-            "address": "Via Adorna, 6852 Genestrerio",
-            "lat": 45.85708,
-            "lng": 8.96782,
-            "sp95PriceChf": 1.69,
-            "updatedAt": "2026-03-12T11:19:25.645Z",
-            "nearestMunicipality": "Bizzarone (CO)",
-            "nearestMunicipalityDistanceKm": 2.8,
-            "sp95PriceEur": 1.858,
-            "distanceKm": 19.5
-          },
           {
             "id": "g1Ewt2bs9nFFxymi7tYL",
             "name": "TAMOIL Stabio",
@@ -32651,15 +32637,29 @@
             "nearestMunicipalityDistanceKm": 1.6,
             "sp95PriceEur": 1.891,
             "distanceKm": 17
+          },
+          {
+            "id": "BuLqgLtrkWKZWPB1oaHr",
+            "name": "BP Unbemannte Station Genestrerio",
+            "brand": "BP",
+            "address": "Via Adorna, 6852 Genestrerio",
+            "lat": 45.85708,
+            "lng": 8.96782,
+            "sp95PriceChf": 1.8,
+            "updatedAt": "2026-03-21T12:15:41.072Z",
+            "nearestMunicipality": "Bizzarone (CO)",
+            "nearestMunicipalityDistanceKm": 2.8,
+            "sp95PriceEur": 1.979,
+            "distanceKm": 19.5
           }
         ],
-        "minPriceChf": 1.69,
-        "minPriceEur": 1.858
+        "minPriceChf": 1.72,
+        "minPriceEur": 1.891
       },
       "comparison": {
         "cheaperCountry": "IT",
-        "priceDeltaEur": 0.203,
-        "saving50LEur": 10.15
+        "priceDeltaEur": 0.236,
+        "saving50LEur": 11.8
       }
     },
     {
@@ -32908,20 +32908,6 @@
             "distanceKm": 17.1
           },
           {
-            "id": "BuLqgLtrkWKZWPB1oaHr",
-            "name": "BP Unbemannte Station Genestrerio",
-            "brand": "BP",
-            "address": "Via Adorna, 6852 Genestrerio",
-            "lat": 45.85708,
-            "lng": 8.96782,
-            "sp95PriceChf": 1.69,
-            "updatedAt": "2026-03-12T11:19:25.645Z",
-            "nearestMunicipality": "Bizzarone (CO)",
-            "nearestMunicipalityDistanceKm": 2.8,
-            "sp95PriceEur": 1.858,
-            "distanceKm": 16.9
-          },
-          {
             "id": "g1Ewt2bs9nFFxymi7tYL",
             "name": "TAMOIL Stabio",
             "brand": "TAMOIL",
@@ -32962,6 +32948,20 @@
             "nearestMunicipalityDistanceKm": 1.6,
             "sp95PriceEur": 1.902,
             "distanceKm": 16.8
+          },
+          {
+            "id": "EDsfoWTW5mhInO152CPP",
+            "name": "Eni Chiasso",
+            "brand": "ENI",
+            "address": "Via Como 7, 6830 Chiasso",
+            "lat": 45.8378284,
+            "lng": 9.0340937,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-03-16T08:42:42.056Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 1.2,
+            "sp95PriceEur": 1.902,
+            "distanceKm": 17.3
           }
         ],
         "minPriceChf": 1.66,
@@ -34025,20 +34025,6 @@
             "distanceKm": 18
           },
           {
-            "id": "BuLqgLtrkWKZWPB1oaHr",
-            "name": "BP Unbemannte Station Genestrerio",
-            "brand": "BP",
-            "address": "Via Adorna, 6852 Genestrerio",
-            "lat": 45.85708,
-            "lng": 8.96782,
-            "sp95PriceChf": 1.69,
-            "updatedAt": "2026-03-12T11:19:25.645Z",
-            "nearestMunicipality": "Bizzarone (CO)",
-            "nearestMunicipalityDistanceKm": 2.8,
-            "sp95PriceEur": 1.858,
-            "distanceKm": 11
-          },
-          {
             "id": "ukK4QQ2nixpThGubzzE3",
             "name": "Orcam",
             "brand": "UNDEFINED",
@@ -34051,6 +34037,20 @@
             "nearestMunicipalityDistanceKm": 4.6,
             "sp95PriceEur": 1.88,
             "distanceKm": 14.1
+          },
+          {
+            "id": "g1Ewt2bs9nFFxymi7tYL",
+            "name": "TAMOIL Stabio",
+            "brand": "TAMOIL",
+            "address": "Giulia 47, 6855 Stabio",
+            "lat": 45.848008,
+            "lng": 8.935833,
+            "sp95PriceChf": 1.72,
+            "updatedAt": "2026-03-07T18:03:01.884Z",
+            "nearestMunicipality": "Bizzarone (CO)",
+            "nearestMunicipalityDistanceKm": 1.6,
+            "sp95PriceEur": 1.891,
+            "distanceKm": 8.8
           }
         ],
         "minPriceChf": 1.64,
@@ -34156,20 +34156,6 @@
             "distanceKm": 14.8
           },
           {
-            "id": "BuLqgLtrkWKZWPB1oaHr",
-            "name": "BP Unbemannte Station Genestrerio",
-            "brand": "BP",
-            "address": "Via Adorna, 6852 Genestrerio",
-            "lat": 45.85708,
-            "lng": 8.96782,
-            "sp95PriceChf": 1.69,
-            "updatedAt": "2026-03-12T11:19:25.645Z",
-            "nearestMunicipality": "Bizzarone (CO)",
-            "nearestMunicipalityDistanceKm": 2.8,
-            "sp95PriceEur": 1.858,
-            "distanceKm": 14.2
-          },
-          {
             "id": "ukK4QQ2nixpThGubzzE3",
             "name": "Orcam",
             "brand": "UNDEFINED",
@@ -34209,6 +34195,20 @@
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
             "sp95PriceEur": 1.891,
+            "distanceKm": 14.7
+          },
+          {
+            "id": "4rZcVZZyMdcg9utPrsXv",
+            "name": "GARAGE 64",
+            "brand": "UNDEFINED",
+            "address": "Via Emilio Bossi 6, 6830 Chiasso",
+            "lat": 45.834176890224306,
+            "lng": 9.031274331501768,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-02-20T14:24:22.760Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 1.6,
+            "sp95PriceEur": 1.902,
             "distanceKm": 14.7
           }
         ],
@@ -34271,20 +34271,6 @@
             "distanceKm": 13.5
           },
           {
-            "id": "BuLqgLtrkWKZWPB1oaHr",
-            "name": "BP Unbemannte Station Genestrerio",
-            "brand": "BP",
-            "address": "Via Adorna, 6852 Genestrerio",
-            "lat": 45.85708,
-            "lng": 8.96782,
-            "sp95PriceChf": 1.69,
-            "updatedAt": "2026-03-12T11:19:25.645Z",
-            "nearestMunicipality": "Bizzarone (CO)",
-            "nearestMunicipalityDistanceKm": 2.8,
-            "sp95PriceEur": 1.858,
-            "distanceKm": 12.7
-          },
-          {
             "id": "ukK4QQ2nixpThGubzzE3",
             "name": "Orcam",
             "brand": "UNDEFINED",
@@ -34325,6 +34311,20 @@
             "nearestMunicipalityDistanceKm": 1.5,
             "sp95PriceEur": 1.891,
             "distanceKm": 13.5
+          },
+          {
+            "id": "4rZcVZZyMdcg9utPrsXv",
+            "name": "GARAGE 64",
+            "brand": "UNDEFINED",
+            "address": "Via Emilio Bossi 6, 6830 Chiasso",
+            "lat": 45.834176890224306,
+            "lng": 9.031274331501768,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-02-20T14:24:22.760Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 1.6,
+            "sp95PriceEur": 1.902,
+            "distanceKm": 13.4
           }
         ],
         "minPriceChf": 1.66,
