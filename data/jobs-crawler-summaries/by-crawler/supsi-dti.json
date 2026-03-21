@@ -1,16 +1,16 @@
 {
   "key": "supsi-dti",
   "label": "SUPSI",
-  "generatedAt": "2026-03-21T04:57:46.780Z",
+  "generatedAt": "2026-03-21T16:15:45.069Z",
   "total": 12,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 12,
-  "durationMs": 355182,
-  "avgDurationMs": 355182,
+  "durationMs": 1003905,
+  "avgDurationMs": 1003905,
   "durationHistory": [
-    355182
+    1003905
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -48,7 +48,7 @@
       },
       "companyKey": "supsi-dti",
       "companyDomain": "supsi.ch",
-      "crawledAt": "2026-03-21T04:52:16.382Z",
+      "crawledAt": "2026-03-21T15:59:27.157Z",
       "titleByLocale": {
         "it": "Docente di scienze dell’educazione",
         "en": "Docente di scienze dell’educazione",
@@ -151,7 +151,7 @@
       },
       "companyKey": "supsi-dti",
       "companyDomain": "supsi.ch",
-      "crawledAt": "2026-03-21T04:52:16.382Z",
+      "crawledAt": "2026-03-21T15:59:27.157Z",
       "titleByLocale": {
         "it": "Assistente per il corso di laurea in Economia aziendale",
         "en": "Assistente per il corso di laurea in Economia aziendale",
@@ -233,7 +233,7 @@
       },
       "companyKey": "supsi-dti",
       "companyDomain": "supsi.ch",
-      "crawledAt": "2026-03-21T04:52:16.382Z",
+      "crawledAt": "2026-03-21T15:59:27.157Z",
       "titleByLocale": {
         "it": "Assistente per il corso di laurea in Leisure Management",
         "en": "Assistente per il corso di laurea in Leisure Management",
@@ -252,20 +252,30 @@
           "ottima conoscenza della lingua italiana, buona conoscenza dell’inglese e di una seconda lingua nazionale."
         ],
         "en": [
-          "Contributes to projects implemented within the course in collaboration with various partners.",
-          "Holds a Bachelor's degree in Leisure Management or in economic disciplines obtained within the last three years.",
-          "Available for flexible hours and willing to assume diversified tasks.",
-          "Excellent knowledge of Italian, good knowledge of English, and a second national language."
+          "Holds a Bachelor's degree in Leisure Management or related economic disciplines, obtained no more than three years ago.",
+          "Available for flexible hours and diverse responsibilities.",
+          "Strong communication, relational, and social abilities.",
+          "Willingness to work in a team and collaborate.",
+          "Ability to work independently.",
+          "Excellent knowledge of software, particularly PPT, Excel, Word, and new communication technologies.",
+          "Good knowledge of English and a second national language."
         ],
         "de": [
-          "Beteiligt sich an den Projekten im Studienprogramm in Zusammenarbeit mit verschiedenen Partnern.",
-          "Bereit für flexible Arbeitszeiten und bereit, unterschiedliche Aufgaben zu übernehmen."
+          "Flexibilität im Arbeitszeitrahmen und Bereitschaft, vielfältige Aufgaben zu übernehmen.",
+          "Ausgeprägte kommunikative, soziale und zwischenmenschliche Fähigkeiten.",
+          "Bereitschaft, im Team zu arbeiten und zu kooperieren.",
+          "Fähigkeit, eigenständig zu arbeiten.",
+          "Sehr gute Kenntnisse in der Nutzung von Software, insbesondere PPT, Excel, Word und neuen Kommunikationstechnologien.",
+          "Gute Kenntnisse der englischen Sprache und einer zweiten nationalen Sprache."
         ],
         "fr": [
-          "Contribue aux projets réalisés au sein du programme en collaboration avec différents partenaires.",
-          "Détient un baccalauréat en gestion de loisirs ou en disciplines économiques obtenu au plus trois ans.",
+          "Possède une licence en Gestion du Loisir ou en disciplines économiques, obtenue au maximum il y a trois ans.",
           "Disponible pour des horaires flexibles et prête à assumer des tâches diversifiées.",
-          "Excellentnes connaissances de la langue italienne, bonnes connaissances de l'anglais et d'une deuxième langue nationale."
+          "Excellentes capacités de communication, relationnelles et sociales.",
+          "Prise de décision pour travailler en équipe et collaborer.",
+          "Capacité à travailler de manière autonome.",
+          "Excellentes connaissances des logiciels, notamment PPT, Excel, Word et des nouvelles technologies de communication.",
+          "Bonne connaissance de l'anglais et d'une deuxième langue nationale."
         ]
       },
       "slugByLocale": {
@@ -312,7 +322,7 @@
       },
       "companyKey": "supsi-dti",
       "companyDomain": "supsi.ch",
-      "crawledAt": "2026-03-21T04:52:16.382Z",
+      "crawledAt": "2026-03-21T15:59:27.157Z",
       "titleByLocale": {
         "it": "Stage tecnico/scientifico EcoVet",
         "en": "Stage tecnico/scientifico EcoVet",
@@ -327,19 +337,18 @@
       },
       "requirementsByLocale": {
         "en": [
-          "Maturity certificate from the canton or federal level",
-          "Ideally, a category B driving license (not required if the candidate uses public transportation)",
-          "Interest in the biological field, with particular attention to ecology and public health"
+          "Canton or federal maturity certificate",
+          "Ideally a category B driver's license (not required if the candidate uses public transport)",
+          "Interest in the biological field, with a particular focus on ecology and public health"
         ],
         "de": [
-          "Maturitätszeugnis des Kantons oder der Bundesrepublik",
-          "Idealerweise Führerschein der Kategorie B (nicht erforderlich, wenn der Kandidat öffentliche Verkehrsmittel nutzt)",
-          "Interesse an der biologischen Fachrichtung, insbesondere an Ökologie und öffentlicher Gesundheit"
+          "Kantons- oder Bundesmatur",
+          "Interesse am biologischen Bereich, mit besonderem Fokus auf Ökologie und öffentliche Gesundheit"
         ],
         "fr": [
-          "Diplôme de maturité cantonal ou fédéral",
-          "Idéalement, permis de conduire de catégorie B (non nécessaire si le candidat utilise les transports publics)",
-          "Intérêt pour le domaine biologique, en particulier l'écologie et la santé publique"
+          "Maturité cantonale ou fédérale",
+          "Idéalement permis de conduire catégorie B (non requis si le candidat se déplace en transports en commun)",
+          "Intérêt pour le domaine biologique, avec un accent particulier sur l'écologie et la santé publique"
         ]
       },
       "slugByLocale": {
@@ -395,7 +404,7 @@
       },
       "companyKey": "supsi-dti",
       "companyDomain": "supsi.ch",
-      "crawledAt": "2026-03-21T04:52:16.382Z",
+      "crawledAt": "2026-03-21T15:59:27.157Z",
       "titleByLocale": {
         "it": "Assistente con Bachelor o Master per il Corso di laurea in Architettura",
         "en": "Assistente con Bachelor o Master per il Corso di laurea in Architettura",
@@ -518,7 +527,7 @@
       },
       "companyKey": "supsi-dti",
       "companyDomain": "supsi.ch",
-      "crawledAt": "2026-03-21T04:52:16.382Z",
+      "crawledAt": "2026-03-21T15:59:27.157Z",
       "titleByLocale": {
         "it": "Ricercatore / Ricercatrice con PhD nell'area di ricerca sistemi intelligenti",
         "en": "Researcher with PhD in the Research Area of Intelligent Systems",
@@ -686,7 +695,7 @@
       },
       "companyKey": "supsi-dti",
       "companyDomain": "supsi.ch",
-      "crawledAt": "2026-03-21T04:52:16.382Z",
+      "crawledAt": "2026-03-21T15:59:27.157Z",
       "titleByLocale": {
         "it": "Assistente con Master nel Settore sistema edificio",
         "en": "Assistente con Master nel Settore sistema edificio",
@@ -792,7 +801,7 @@
       },
       "companyKey": "supsi-dti",
       "companyDomain": "supsi.ch",
-      "crawledAt": "2026-03-21T04:52:16.382Z",
+      "crawledAt": "2026-03-21T15:59:27.157Z",
       "titleByLocale": {
         "it": "Apprendista Operatrice / Operatore socioassistenziale AFC, indirizzo Infanzia",
         "en": "Apprendista Operatrice / Operatore socioassistenziale AFC, indirizzo Infanzia",
@@ -895,7 +904,7 @@
       },
       "companyKey": "supsi-dti",
       "companyDomain": "supsi.ch",
-      "crawledAt": "2026-03-21T04:52:16.382Z",
+      "crawledAt": "2026-03-21T15:59:27.157Z",
       "titleByLocale": {
         "it": "Responsabile del Corso di laurea Bachelor in Ingegneria gestionale",
         "en": "Responsabile del Corso di laurea Bachelor in Ingegneria gestionale",
@@ -1013,7 +1022,7 @@
       },
       "companyKey": "supsi-dti",
       "companyDomain": "supsi.ch",
-      "crawledAt": "2026-03-21T04:52:16.382Z",
+      "crawledAt": "2026-03-21T15:59:27.157Z",
       "titleByLocale": {
         "it": "Apprendista Elettronica/o AFC con maturità professionale",
         "en": "Apprendista Elettronica/o AFC con maturità professionale",
@@ -1111,7 +1120,7 @@
       },
       "companyKey": "supsi-dti",
       "companyDomain": "supsi.ch",
-      "crawledAt": "2026-03-21T04:52:16.382Z",
+      "crawledAt": "2026-03-21T15:59:27.157Z",
       "titleByLocale": {
         "it": "Apprendista Operatrice Informatica / Operatore Informatico AFC",
         "en": "Apprendista Operatrice Informatica / Operatore Informatico AFC",
@@ -1211,7 +1220,7 @@
       },
       "companyKey": "supsi-dti",
       "companyDomain": "supsi.ch",
-      "crawledAt": "2026-03-21T04:52:16.382Z",
+      "crawledAt": "2026-03-21T15:59:27.157Z",
       "titleByLocale": {
         "it": "Concorso generale / Personale educativo Servizio prima infanzia 2026",
         "en": "Concorso generale / Personale educativo Servizio prima infanzia 2026",
