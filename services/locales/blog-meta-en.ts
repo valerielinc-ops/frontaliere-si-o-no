@@ -1514,6 +1514,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.byd-expansion-ticino-2026.title': 'BYD expands in Ticino: 50 dealerships by 2026',
     'blog.article.byd-expansion-ticino-2026.excerpt': 'The Chinese manufacturer BYD aims for 50 dealerships in Switzerland by 2026, with two already operational in Ticino.',
     'blog.article.byd-expansion-ticino-2026.imageAlt': 'View of Lugano, Swiss city with lake and mountains.',
+    'blog.article.controllo-affitti-nazionale-ticino.title': 'High Rents: National Council Rejects Rent Control',
+    'blog.article.controllo-affitti-nazionale-ticino.excerpt': 'The National Council rejects proposals for greater control over rents, raising concerns about the housing crisis.',
+    'blog.article.controllo-affitti-nazionale-ticino.imageAlt': 'Panoramic view of Bellinzona and its castles.',
 };
 
 export default blogMetaEn;

@@ -4127,6 +4127,13 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/byd-expansion-ticino-2026.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'controllo-affitti-nazionale-ticino',
+    category: 'novita',
+    date: '2026-03-21T09:07:48.153Z',
+    image: '/images/blog/controllo-affitti-nazionale-ticino.jpg',
+    hasCalculator: true,
+  },
 ];
 
 const CATEGORIES = ['all', 'fiscale', 'pratico', 'novita', 'pensione'] as const;

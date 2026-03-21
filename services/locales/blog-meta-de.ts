@@ -1514,6 +1514,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.byd-expansion-ticino-2026.title': 'BYD expandiert im Tessin: 50 Händler bis 2026',
     'blog.article.byd-expansion-ticino-2026.excerpt': 'Der chinesische Hersteller BYD strebt bis 2026 50 Händler in der Schweiz an, von denen bereits zwei im Tessin tätig sind.',
     'blog.article.byd-expansion-ticino-2026.imageAlt': 'Blick auf Lugano, Schweizer Stadt mit See und Bergen.',
+    'blog.article.controllo-affitti-nazionale-ticino.title': 'Hohe Mieten: Nationalrat lehnt Mietkontrolle ab',
+    'blog.article.controllo-affitti-nazionale-ticino.excerpt': 'Der Nationalrat lehnt Vorschläge für eine stärkere Kontrolle der Mieten ab und äußert Bedenken hinsichtlich der Wohnkrise.',
+    'blog.article.controllo-affitti-nazionale-ticino.imageAlt': 'Panoramablick auf Bellinzona und seine Burgen.',
 };
 
 export default blogMetaDe;

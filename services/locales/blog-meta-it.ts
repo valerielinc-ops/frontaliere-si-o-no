@@ -1514,6 +1514,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.byd-expansion-ticino-2026.title': 'BYD si espande in Ticino: 50 concessionari entro il 2026',
     'blog.article.byd-expansion-ticino-2026.excerpt': 'Il costruttore cinese BYD punta a 50 concessionari in Svizzera entro il 2026, con due già operativi in Ticino.',
     'blog.article.byd-expansion-ticino-2026.imageAlt': 'Vista di Lugano, città svizzera con lago e montagne.',
+    'blog.article.controllo-affitti-nazionale-ticino.title': 'Caro affitti: il Nazionale respinge il controllo delle pigioni',
+    'blog.article.controllo-affitti-nazionale-ticino.excerpt': 'Il Consiglio nazionale rifiuta proposte per un maggiore controllo sugli affitti, sollevando preoccupazioni per la crisi abitativa.',
+    'blog.article.controllo-affitti-nazionale-ticino.imageAlt': 'Vista panoramica di Bellinzona e dei suoi castelli.',
 };
 
 export default blogMetaIt;
