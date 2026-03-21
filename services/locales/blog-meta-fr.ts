@@ -1481,6 +1481,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.kebab-case-rossi-bruxelles-ticino.title': 'Taxe de transit, Bruxelles renonce',
     'blog.article.kebab-case-rossi-bruxelles-ticino.excerpt': 'La Suisse introduit la taxe de transit pour réduire le trafic, mais la Commission européenne n\'est pas satisfaite.',
     'blog.article.kebab-case-rossi-bruxelles-ticino.imageAlt': 'Une scène d\'une autoroute encombrée dans le Tessin, en Suisse, avec des voitures et des camions qui passent par là, et quelques piétons qui marchent sur le trottoir.',
+    'blog.article.bossi-voleva-bene-al-ticino.title': 'Un homme qui a changé la politique italienne, Bossi aimait bien le Tessin',
+    'blog.article.bossi-voleva-bene-al-ticino.excerpt': 'Le fondateur de la Ligue du Nord est rappelé par les deux journalistes tessinois Norman Gobbi et Lorenzo Quadri. Un homme qui a laissé une marque profonde dans l\'histoire politique italienne.',
+    'blog.article.bossi-voleva-bene-al-ticino.imageAlt': 'Umberto Bossi à Locarno',
 };
 
 export default blogMetaFr;

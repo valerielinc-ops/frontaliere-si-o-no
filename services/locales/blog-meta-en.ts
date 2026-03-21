@@ -1481,6 +1481,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.kebab-case-rossi-bruxelles-ticino.title': 'Switzerland Introduces Transit Tax, EU Commission Objects',
     'blog.article.kebab-case-rossi-bruxelles-ticino.excerpt': 'The Swiss government has introduced a transit tax to reduce traffic and improve quality of life for residents, but the EU Commission is not pleased with the decision.',
     'blog.article.kebab-case-rossi-bruxelles-ticino.imageAlt': 'A scene of a crowded highway in Ticino, Switzerland, with cars and trucks passing by, and a few pedestrians walking on the sidewalk.',
+    'blog.article.bossi-voleva-bene-al-ticino.title': 'The man who changed Italian politics: Bossi\'s deep affection for Ticino',
+    'blog.article.bossi-voleva-bene-al-ticino.excerpt': 'The founder of the Northern League remembered by Ticino journalists Norman Gobbi and Lorenzo Quadri. A man who left a profound mark on Italian political history.',
+    'blog.article.bossi-voleva-bene-al-ticino.imageAlt': 'Umberto Bossi in Locarno',
 };
 
 export default blogMetaEn;

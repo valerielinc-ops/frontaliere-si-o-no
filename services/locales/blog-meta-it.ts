@@ -1481,6 +1481,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.kebab-case-rossi-bruxelles-ticino.title': 'Tassa di transito, Bruxelles storce il naso',
     'blog.article.kebab-case-rossi-bruxelles-ticino.excerpt': 'La Svizzera introduce la tassa di transito per ridurre il traffico, ma la Commissione europea non è contenta.',
     'blog.article.kebab-case-rossi-bruxelles-ticino.imageAlt': 'Una scena di una autostrada affollata nel Ticino, Svizzera, con automobili e camion in transito e pochi pedoni che camminano sulla banchina.',
+    'blog.article.bossi-voleva-bene-al-ticino.title': '\'Un uomo che ha cambiato la politica italiana, Bossi voleva bene al Ticino\'',
+    'blog.article.bossi-voleva-bene-al-ticino.excerpt': 'Il fondatore della Lega Nord ricordato dai due giornalisti ticinesi Norman Gobbi e Lorenzo Quadri. Un uomo che ha lasciato un segno profondo nella storia politica italiana.',
+    'blog.article.bossi-voleva-bene-al-ticino.imageAlt': 'Umberto Bossi a Locarno',
 };
 
 export default blogMetaIt;

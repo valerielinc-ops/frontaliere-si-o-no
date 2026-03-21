@@ -4050,6 +4050,13 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/kebab-case-rossi-bruxelles-ticino.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'bossi-voleva-bene-al-ticino',
+    category: 'novita',
+    date: '2026-03-21T00:11:21.690Z',
+    image: '/images/blog/bossi-voleva-bene-al-ticino.jpg',
+    hasCalculator: true,
+  },
 ];
 
 const CATEGORIES = ['all', 'fiscale', 'pratico', 'novita', 'pensione'] as const;

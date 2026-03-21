@@ -7447,6 +7447,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-bossi-voleva-bene-al-ticino': {
+    title: '\'Un uomo che ha cambiato la politica italiana, Bossi voleva bene al | Frontaliere Ticino',
+    description: 'Il fondatore della Lega Nord ricordato dai due giornalisti ticinesi Norman Gobbi e Lorenzo Quadri. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, uomo, cambiato, politica, italiana',
+    ogTitle: 'Umberto Bossi e il Ticino',
+    ogDescription: 'Il fondatore della Lega Nord ricordato dai due giornalisti ticinesi Norman Gobbi e Lorenzo Quadri.',
+    canonicalPath: '/articoli-frontaliere/bossi-voleva-bene-al-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Umberto Bossi e il Ticino",
+      "description": "Il fondatore della Lega Nord ricordato dai due giornalisti ticinesi Norman Gobbi e Lorenzo Quadri. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/bossi-voleva-bene-al-ticino.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Umberto Bossi a Locarno"
+      },
+      "datePublished": "2026-03-21T00:11:21+00:00",
+      "dateModified": "2026-03-21T00:11:21+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/bossi-voleva-bene-al-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

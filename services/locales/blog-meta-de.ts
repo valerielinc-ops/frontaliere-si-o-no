@@ -1481,6 +1481,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.kebab-case-rossi-bruxelles-ticino.title': 'Transitgebühr – Brüssel rümpft die Nase',
     'blog.article.kebab-case-rossi-bruxelles-ticino.excerpt': 'Die Schweiz führt eine Transitgebühr ein, um den Verkehr zu reduzieren, doch die Europäische Kommission ist damit nicht einverstanden.',
     'blog.article.kebab-case-rossi-bruxelles-ticino.imageAlt': 'Eine Szene einer überfüllten Autobahn im Tessin, Schweiz, mit Autos und Lkw im Verkehr und wenigen Fußgängern, die auf dem Gehweg spazieren.',
+    'blog.article.bossi-voleva-bene-al-ticino.title': 'Ein Mann, der die italienische Politik veränderte – Bossi hatte den Tessin lieb',
+    'blog.article.bossi-voleva-bene-al-ticino.excerpt': 'Der Gründer der Lega Nord wird von den beiden Tessiner Journalisten Norman Gobbi und Lorenzo Quadri gewürdigt. Ein Mann, der der italienischen Politikgeschichte eine tiefe Spur hinterlassen hat.',
+    'blog.article.bossi-voleva-bene-al-ticino.imageAlt': 'Umberto Bossi in Locarno',
 };
 
 export default blogMetaDe;

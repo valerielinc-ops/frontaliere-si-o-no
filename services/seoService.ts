@@ -1630,6 +1630,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-cure-a-domicilio-tassa-ticino': { name: 'Tassa sulle cure a domicilio', path: '/articoli-frontaliere/cure-a-domicilio-tassa-ticino', parent: 'blog' },
     'blog-kebab-case-ticino-nubifragio-grigioni': { name: 'Ticino: contributo cantonale per', path: '/articoli-frontaliere/kebab-case-ticino-nubifragio-grigioni', parent: 'blog' },
     'blog-kebab-case-rossi-bruxelles-ticino': { name: 'Tassa di transito, Bruxelles', path: '/articoli-frontaliere/kebab-case-rossi-bruxelles-ticino', parent: 'blog' },
+    'blog-bossi-voleva-bene-al-ticino': { name: 'Bossi e il Ticino', path: '/articoli-frontaliere/bossi-voleva-bene-al-ticino', parent: 'blog' },
   };
 
   const info = sectionNames[section];
