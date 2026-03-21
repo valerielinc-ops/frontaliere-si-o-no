@@ -1484,6 +1484,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.bossi-voleva-bene-al-ticino.title': '\'Un uomo che ha cambiato la politica italiana, Bossi voleva bene al Ticino\'',
     'blog.article.bossi-voleva-bene-al-ticino.excerpt': 'Il fondatore della Lega Nord ricordato dai due giornalisti ticinesi Norman Gobbi e Lorenzo Quadri. Un uomo che ha lasciato un segno profondo nella storia politica italiana.',
     'blog.article.bossi-voleva-bene-al-ticino.imageAlt': 'Umberto Bossi a Locarno',
+    'blog.article.chiamate-shock-arresti-ticino.title': 'Chiamate shock in Ticino: due arresti per truffe agli anziani',
+    'blog.article.chiamate-shock-arresti-ticino.excerpt': 'Due cittadini polacchi sono stati fermati il 9 marzo nel Canton Ticino, accusati di aver messo in atto truffe ai danni di anziani tramite chiamate shock a Chiasso e Biasca.',
+    'blog.article.chiamate-shock-arresti-ticino.imageAlt': 'Veduta di Bellinzona con Castelgrande e montagne circostanti in luce naturale',
 };
 
 export default blogMetaIt;

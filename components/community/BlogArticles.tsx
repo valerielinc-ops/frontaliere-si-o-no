@@ -4057,6 +4057,13 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/bossi-voleva-bene-al-ticino.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'chiamate-shock-arresti-ticino',
+    category: 'pratico',
+    date: '2026-03-21T02:41:32.827Z',
+    image: '/images/blog/chiamate-shock-arresti-ticino.jpg',
+    hasCalculator: true,
+  },
 ];
 
 const CATEGORIES = ['all', 'fiscale', 'pratico', 'novita', 'pensione'] as const;

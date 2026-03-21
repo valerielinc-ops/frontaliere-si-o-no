@@ -1484,6 +1484,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.bossi-voleva-bene-al-ticino.title': 'Ein Mann, der die italienische Politik veränderte – Bossi hatte den Tessin lieb',
     'blog.article.bossi-voleva-bene-al-ticino.excerpt': 'Der Gründer der Lega Nord wird von den beiden Tessiner Journalisten Norman Gobbi und Lorenzo Quadri gewürdigt. Ein Mann, der der italienischen Politikgeschichte eine tiefe Spur hinterlassen hat.',
     'blog.article.bossi-voleva-bene-al-ticino.imageAlt': 'Umberto Bossi in Locarno',
+    'blog.article.chiamate-shock-arresti-ticino.title': 'Schockanrufe im Tessin: Zwei Festnahmen wegen Betrugs an Senioren',
+    'blog.article.chiamate-shock-arresti-ticino.excerpt': 'Zwei polnische Staatsbürger wurden am 9. März im Kanton Tessin festgenommen, weil sie Senioren durch Schockanrufe in Chiasso und Biasca betrogen haben.',
+    'blog.article.chiamate-shock-arresti-ticino.imageAlt': 'Blick auf Bellinzona mit Castelgrande und umliegenden Bergen bei natürlichem Licht',
 };
 
 export default blogMetaDe;

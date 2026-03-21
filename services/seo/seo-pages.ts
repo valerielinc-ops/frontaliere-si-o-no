@@ -3049,7 +3049,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
         "@context": "https://schema.org",
         "@type": "ItemList",
         "name": "Articoli Frontaliere",
-        "numberOfItems": 485,
+        "numberOfItems": 486,
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
           { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -3535,7 +3535,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 482, "name": "Cure a domicilio: la nuova tassa divide politic...", "url": `${BASE_URL}/articoli-frontaliere/cure-a-domicilio-tassa-ticino` },
           { "@type": "ListItem", "position": 483, "name": "Ticino: contributo cantonale per ripristino str...", "url": `${BASE_URL}/articoli-frontaliere/kebab-case-ticino-nubifragio-grigioni` },
           { "@type": "ListItem", "position": 484, "name": "La Commissione europea non è contenta della tas...", "url": `${BASE_URL}/articoli-frontaliere/kebab-case-rossi-bruxelles-ticino` },
-          { "@type": "ListItem", "position": 485, "name": "Umberto Bossi e il Ticino", "url": `${BASE_URL}/articoli-frontaliere/bossi-voleva-bene-al-ticino` }
+          { "@type": "ListItem", "position": 485, "name": "Umberto Bossi e il Ticino", "url": `${BASE_URL}/articoli-frontaliere/bossi-voleva-bene-al-ticino` },
+          { "@type": "ListItem", "position": 486, "name": "Chiamate shock in Ticino: due arresti per truff...", "url": `${BASE_URL}/articoli-frontaliere/chiamate-shock-arresti-ticino` }
         ]
       }
     ]

@@ -7476,6 +7476,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-chiamate-shock-arresti-ticino': {
+    title: 'Chiamate shock in Ticino: due arresti per truffe agli anziani | Frontaliere Ticino',
+    description: 'Due cittadini polacchi sono stati fermati il 9 marzo nel Canton Ticino, accusati di aver messo in atto truffe ai danni di anziani tramite chiamate shock a Chias',
+    keywords: 'frontalieri, ticino, svizzera, italia, chiamate, shock, arresti, truffe',
+    ogTitle: 'Chiamate shock in Ticino: due arresti per truffe agli anz',
+    ogDescription: 'Due cittadini polacchi sono stati fermati il 9 marzo nel Canton Ticino, accusati di aver messo in atto truffe ai danni di anziani tramite chiamate shock a Chias',
+    canonicalPath: '/articoli-frontaliere/chiamate-shock-arresti-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Chiamate shock in Ticino: due arresti per truffe agli anz",
+      "description": "Due cittadini polacchi sono stati fermati il 9 marzo nel Canton Ticino, accusati di aver messo in atto truffe ai danni di anziani tramite chiamate shock a Chias",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/chiamate-shock-arresti-ticino.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Veduta di Bellinzona con Castelgrande e montagne circostanti in luce naturale"
+      },
+      "datePublished": "2026-03-21T02:41:32+00:00",
+      "dateModified": "2026-03-21T02:41:32+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/chiamate-shock-arresti-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

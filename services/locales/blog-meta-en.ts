@@ -1484,6 +1484,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.bossi-voleva-bene-al-ticino.title': 'The man who changed Italian politics: Bossi\'s deep affection for Ticino',
     'blog.article.bossi-voleva-bene-al-ticino.excerpt': 'The founder of the Northern League remembered by Ticino journalists Norman Gobbi and Lorenzo Quadri. A man who left a profound mark on Italian political history.',
     'blog.article.bossi-voleva-bene-al-ticino.imageAlt': 'Umberto Bossi in Locarno',
+    'blog.article.chiamate-shock-arresti-ticino.title': 'Shock Calls in Ticino: Two Arrests for Elderly Scams',
+    'blog.article.chiamate-shock-arresti-ticino.excerpt': 'Two Polish nationals were detained on March 9 in the Canton of Ticino, accused of carrying out scams targeting seniors through shock calls in Chiasso and Biasca.',
+    'blog.article.chiamate-shock-arresti-ticino.imageAlt': 'View of Bellinzona with Castelgrande and surrounding mountains in natural light',
 };
 
 export default blogMetaEn;
