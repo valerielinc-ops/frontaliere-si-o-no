@@ -1523,6 +1523,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.diesel-aumento-prezzi-svizzera-2026.title': 'Increase in diesel prices: 2.10 francs in Switzerland',
     'blog.article.diesel-aumento-prezzi-svizzera-2026.excerpt': 'Diesel prices continue to rise in Switzerland, reaching 2.10 francs per liter due to the international crisis.',
     'blog.article.diesel-aumento-prezzi-svizzera-2026.imageAlt': 'Gas station in Ticino with diesel prices.',
+    'blog.article.sanita-manifesto-varese-2026.title': 'The Manifesto for Health Welfare is Born in Varese',
+    'blog.article.sanita-manifesto-varese-2026.excerpt': 'A new manifesto for welfare in Varese: fifteen pillars for the voice of patients in public health.',
+    'blog.article.sanita-manifesto-varese-2026.imageAlt': 'Healthcare conference in Varese with welfare initiatives.',
 };
 
 export default blogMetaEn;

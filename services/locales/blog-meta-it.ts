@@ -1523,6 +1523,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.diesel-aumento-prezzi-svizzera-2026.title': 'Aumento del prezzo del diesel: 2,10 franchi in Svizzera',
     'blog.article.diesel-aumento-prezzi-svizzera-2026.excerpt': 'I prezzi del diesel continuano a salire in Svizzera, raggiungendo i 2,10 franchi al litro a causa della crisi internazionale.',
     'blog.article.diesel-aumento-prezzi-svizzera-2026.imageAlt': 'Stazione di servizio in Ticino con prezzi del diesel.',
+    'blog.article.sanita-manifesto-varese-2026.title': 'A Varese nasce il Manifesto per il welfare sanitario',
+    'blog.article.sanita-manifesto-varese-2026.excerpt': 'Un nuovo manifesto per il welfare a Varese: quindici pilastri per la voce dei pazienti nella sanità pubblica.',
+    'blog.article.sanita-manifesto-varese-2026.imageAlt': 'Conferenza sulla sanità a Varese con iniziative di welfare.',
 };
 
 export default blogMetaIt;

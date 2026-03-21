@@ -1523,6 +1523,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.diesel-aumento-prezzi-svizzera-2026.title': 'Augmentation du prix du diesel : 2,10 francs en Suisse',
     'blog.article.diesel-aumento-prezzi-svizzera-2026.excerpt': 'Les prix du diesel continuent d\'augmenter en Suisse, atteignant 2,10 francs le litre en raison de la crise internationale.',
     'blog.article.diesel-aumento-prezzi-svizzera-2026.imageAlt': 'Station-service au Tessin avec prix du diesel.',
+    'blog.article.sanita-manifesto-varese-2026.title': 'À Varèse, naît le Manifeste pour le bien-être sanitaire',
+    'blog.article.sanita-manifesto-varese-2026.excerpt': 'Un nouveau manifeste pour le bien-être à Varèse : quinze piliers pour la voix des patients dans la santé publique.',
+    'blog.article.sanita-manifesto-varese-2026.imageAlt': 'Conférence sur la santé à Varese avec des initiatives de bien-être.',
 };
 
 export default blogMetaFr;

@@ -4148,6 +4148,13 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/diesel-aumento-prezzi-svizzera-2026.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'sanita-manifesto-varese-2026',
+    category: 'novita',
+    date: '2026-03-21T10:40:36.290Z',
+    image: '/images/blog/sanita-manifesto-varese-2026.jpg',
+    hasCalculator: true,
+  },
 ];
 
 const CATEGORIES = ['all', 'fiscale', 'pratico', 'novita', 'pensione'] as const;

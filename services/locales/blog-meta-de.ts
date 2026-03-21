@@ -1523,6 +1523,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.diesel-aumento-prezzi-svizzera-2026.title': 'Preisanstieg beim Diesel: 2,10 Franken in der Schweiz',
     'blog.article.diesel-aumento-prezzi-svizzera-2026.excerpt': 'Die Dieselpreise steigen weiterhin in der Schweiz und erreichen aufgrund der internationalen Krise 2,10 Franken pro Liter.',
     'blog.article.diesel-aumento-prezzi-svizzera-2026.imageAlt': 'Tankstelle in Tessin mit Dieselpreisen.',
+    'blog.article.sanita-manifesto-varese-2026.title': 'In Varese entsteht das Manifest für die Gesundheitsversorgung',
+    'blog.article.sanita-manifesto-varese-2026.excerpt': 'Ein neues Manifest für das Wohlergehen in Varese: fünfzehn Säulen für die Stimme der Patienten im öffentlichen Gesundheitswesen.',
+    'blog.article.sanita-manifesto-varese-2026.imageAlt': 'Gesundheitskonferenz in Varese mit Wohlfahrtsinitiativen.',
 };
 
 export default blogMetaDe;
