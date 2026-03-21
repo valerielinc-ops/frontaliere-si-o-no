@@ -1657,6 +1657,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-ricchi-fuga-medio-oriente-ticino': { name: 'Ricchi in fuga', path: '/articoli-frontaliere/ricchi-fuga-medio-oriente-ticino', parent: 'blog' },
     'blog-divieto-cellulari-scuola-ticino-2024': { name: 'No Natel Ticino', path: '/articoli-frontaliere/divieto-cellulari-scuola-ticino-2024', parent: 'blog' },
     'blog-sindacati-contro-snl-ticino-2026': { name: 'Sindacati e SNL', path: '/articoli-frontaliere/sindacati-contro-snl-ticino-2026', parent: 'blog' },
+    'blog-aumento-iva-costo-ticino-2026': { name: 'Quanto costerà l’aumento dell’IVA per le', path: '/articoli-frontaliere/aumento-iva-costo-ticino-2026', parent: 'blog' },
   };
 
   const info = sectionNames[section];

@@ -8230,6 +8230,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-aumento-iva-costo-ticino-2026': {
+    title: 'Quanto costerà l’aumento dell’IVA per le famiglie in Ticino | Frontaliere Ticino',
+    description: 'Un aumento dell’IVA al 9,6% graverebbe tra 300 e 1’400 franchi annui per le famiglie ticinesi, con impatti differenziati per reddito e composizione.',
+    keywords: 'frontalieri, ticino, svizzera, italia, quanto, costerà, aumento, dell',
+    ogTitle: 'Quanto costerà l’aumento dell’IVA per le famiglie in Tici',
+    ogDescription: 'Un aumento dell’IVA al 9,6% graverebbe tra 300 e 1’400 franchi annui per le famiglie ticinesi, con impatti differenziati per reddito e composizione.',
+    canonicalPath: '/articoli-frontaliere/aumento-iva-costo-ticino-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Quanto costerà l’aumento dell’IVA per le famiglie in Tici",
+      "description": "Un aumento dell’IVA al 9,6% graverebbe tra 300 e 1’400 franchi annui per le famiglie ticinesi, con impatti differenziati per reddito e composizione.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/aumento-iva-costo-ticino-2026.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Veduta panoramica di Lugano con il lago e le montagne sullo sfondo in una giornata limpida"
+      },
+      "datePublished": "2026-03-21T17:56:57+00:00",
+      "dateModified": "2026-03-21T17:56:57+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/aumento-iva-costo-ticino-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

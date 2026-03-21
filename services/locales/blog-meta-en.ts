@@ -1562,6 +1562,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.sindacati-contro-snl-ticino-2026.title': 'Unions Against SNL: Wages, Transparency, and Rights in the Spotlight',
     'blog.article.sindacati-contro-snl-ticino-2026.excerpt': 'Angelo Stroppini (SEV) denounces irregularities and wage disparities at the Società Navigazione Lago di Lugano, highlighting unresolved issues in 2026.',
     'blog.article.sindacati-contro-snl-ticino-2026.imageAlt': 'Società Navigazione Lago boat on Lake Lugano with mountains and lakeside view of Lugano.',
+    'blog.article.aumento-iva-costo-ticino-2026.title': 'How Much Will the VAT Increase Cost Families in Ticino',
+    'blog.article.aumento-iva-costo-ticino-2026.excerpt': 'A VAT increase to 9.6% would weigh between 300 and 1,400 francs annually on Ticino families, with impacts varying by income and household composition.',
+    'blog.article.aumento-iva-costo-ticino-2026.imageAlt': 'Panoramic view of Lugano with lake and mountains in the background on a clear day',
 };
 
 export default blogMetaEn;

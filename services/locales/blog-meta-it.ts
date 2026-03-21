@@ -1562,6 +1562,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.sindacati-contro-snl-ticino-2026.title': 'Sindacati contro SNL: salari, trasparenza e diritti nel mirino',
     'blog.article.sindacati-contro-snl-ticino-2026.excerpt': 'Angelo Stroppini (SEV) denuncia irregolarità e disparità salariali alla Società Navigazione Lago di Lugano, evidenziando problemi irrisolti nel 2026.',
     'blog.article.sindacati-contro-snl-ticino-2026.imageAlt': 'Imbarcazione della Società Navigazione Lago sul Lago di Lugano con vista delle montagne e del lungolago di Lugano.',
+    'blog.article.aumento-iva-costo-ticino-2026.title': 'Quanto costerà l’aumento dell’IVA per le famiglie in Ticino',
+    'blog.article.aumento-iva-costo-ticino-2026.excerpt': 'Un aumento dell’IVA al 9,6% graverebbe tra 300 e 1’400 franchi annui per le famiglie ticinesi, con impatti differenziati per reddito e composizione.',
+    'blog.article.aumento-iva-costo-ticino-2026.imageAlt': 'Veduta panoramica di Lugano con il lago e le montagne sullo sfondo in una giornata limpida',
 };
 
 export default blogMetaIt;

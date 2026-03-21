@@ -1562,6 +1562,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.sindacati-contro-snl-ticino-2026.title': 'Syndicats contre SNL : salaires, transparence et droits dans le viseur',
     'blog.article.sindacati-contro-snl-ticino-2026.excerpt': 'Angelo Stroppini (SEV) dénonce des irrégularités et des disparités salariales à la Société de Navigation du Lac de Lugano, mettant en lumière des problèmes non résolus en 2026.',
     'blog.article.sindacati-contro-snl-ticino-2026.imageAlt': 'Bateau de la Società Navigazione Lago sur le lac de Lugano avec vue sur les montagnes et le bord du lac à Lugano.',
+    'blog.article.aumento-iva-costo-ticino-2026.title': 'Quel sera le coût de la hausse de la TVA pour les familles au Tessin',
+    'blog.article.aumento-iva-costo-ticino-2026.excerpt': 'Une augmentation de la TVA à 9,6 % pèserait entre 300 et 1 400 francs par an pour les familles tessinoises, avec des impacts variables selon le revenu et la composition familiale.',
+    'blog.article.aumento-iva-costo-ticino-2026.imageAlt': 'Vue panoramique de Lugano avec lac et montagnes en arrière-plan par une journée claire',
 };
 
 export default blogMetaFr;

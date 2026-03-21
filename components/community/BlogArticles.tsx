@@ -4239,6 +4239,13 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/sindacati-contro-snl-ticino-2026.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'aumento-iva-costo-ticino-2026',
+    category: 'fiscale',
+    date: '2026-03-21T17:56:57.517Z',
+    image: '/images/blog/aumento-iva-costo-ticino-2026.jpg',
+    hasCalculator: true,
+  },
 ];
 
 const CATEGORIES = ['all', 'fiscale', 'pratico', 'novita', 'pensione'] as const;

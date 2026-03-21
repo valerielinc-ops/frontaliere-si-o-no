@@ -1562,6 +1562,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.sindacati-contro-snl-ticino-2026.title': 'Gewerkschaften gegen SNL: Löhne, Transparenz und Rechte im Visier',
     'blog.article.sindacati-contro-snl-ticino-2026.excerpt': 'Angelo Stroppini (SEV) prangert Unregelmäßigkeiten und Lohnunterschiede bei der Società Navigazione Lago di Lugano an und hebt ungelöste Probleme im Jahr 2026 hervor.',
     'blog.article.sindacati-contro-snl-ticino-2026.imageAlt': 'Schiff der Società Navigazione Lago auf dem Luganersee mit Blick auf die Berge und die Uferpromenade von Lugano.',
+    'blog.article.aumento-iva-costo-ticino-2026.title': 'Wie viel wird die Mehrwertsteuererhöhung die Familien im Tessin kosten',
+    'blog.article.aumento-iva-costo-ticino-2026.excerpt': 'Eine Erhöhung der Mehrwertsteuer auf 9,6 % würde für Tessiner Familien zwischen 300 und 1’400 Franken jährlich bedeuten, mit unterschiedlichen Auswirkungen je nach Einkommen und Familienzusammensetzung.',
+    'blog.article.aumento-iva-costo-ticino-2026.imageAlt': 'Panoramablick auf Lugano mit See und Bergen im Hintergrund an einem klaren Tag',
 };
 
 export default blogMetaDe;
