@@ -1589,6 +1589,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.cure-domicilio-ticino.title': 'Protest against the home care tax in Canton Ticino',
     'blog.article.cure-domicilio-ticino.excerpt': 'Growing protest against patient participation in the costs of home care: here\'s what\'s happening and how it could impact cross-border workers.',
     'blog.article.cure-domicilio-ticino.imageAlt': 'Home healthcare services in Ticino, Switzerland.',
+    'blog.article.spiagge-libere-sul-lago-maggiore.title': 'Free Beaches on Lake Maggiore: A Battle for Public Access',
+    'blog.article.spiagge-libere-sul-lago-maggiore.excerpt': 'A demonstration organized by the Young Greens calls for guaranteed access to the shores of Lake Maggiore all year round, reigniting the debate on public use of beaches.',
+    'blog.article.spiagge-libere-sul-lago-maggiore.imageAlt': 'Panoramic view of Lake Maggiore, a natural paradise waiting to be explored.',
 };
 
 export default blogMetaEn;

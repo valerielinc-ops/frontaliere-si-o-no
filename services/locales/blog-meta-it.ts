@@ -1589,6 +1589,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.cure-domicilio-ticino.title': 'La protesta contro la tassa sulle cure a domicilio nel Canton Ticino',
     'blog.article.cure-domicilio-ticino.excerpt': 'Cresce la protesta contro la partecipazione dei pazienti ai costi delle cure a domicilio: ecco cosa sta succedendo e come potrebbe impattare i frontalieri.',
     'blog.article.cure-domicilio-ticino.imageAlt': 'Assistenza sanitaria a domicilio nel Canton Ticino.',
+    'blog.article.spiagge-libere-sul-lago-maggiore.title': 'Spiagge libere sul Lago Maggiore: una battaglia per l\'accesso pubblico',
+    'blog.article.spiagge-libere-sul-lago-maggiore.excerpt': 'Una manifestazione organizzata dalle Giovani Verdi chiede l\'accesso garantito tutto l\'anno alle rive del Lago Maggiore, riaccendendo il dibattito sull\'uso pubblico delle spiagge.',
+    'blog.article.spiagge-libere-sul-lago-maggiore.imageAlt': 'Vista panoramica del Lago Maggiore, un paradiso naturale che attende di essere scoperto.',
 };
 
 export default blogMetaIt;

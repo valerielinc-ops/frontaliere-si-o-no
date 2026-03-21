@@ -1589,6 +1589,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.cure-domicilio-ticino.title': 'Proteste gegen die Steuer für häusliche Pflege im Kanton Tessin',
     'blog.article.cure-domicilio-ticino.excerpt': 'Die Proteste gegen die Beteiligung der Patienten an den Kosten für die häusliche Pflege nehmen zu: Hier erfahren Sie, was passiert und wie es die Grenzgänger beeinflussen könnte.',
     'blog.article.cure-domicilio-ticino.imageAlt': 'Heimgesundheitsdienste im Kanton Tessin, Schweiz.',
+    'blog.article.spiagge-libere-sul-lago-maggiore.title': 'Freie Strände am Lago Maggiore: ein Kampf für den öffentlichen Zugang',
+    'blog.article.spiagge-libere-sul-lago-maggiore.excerpt': 'Eine Demonstration, organisiert von den Jungen Grünen, fordert einen garantierten Zugang zu den Ufern des Lago Maggiore das ganze Jahr über und entfacht erneut die Debatte über die öffentliche Nutzung der Strände.',
+    'blog.article.spiagge-libere-sul-lago-maggiore.imageAlt': 'Panoramablick auf den Lago Maggiore, ein natürliches Paradies, das entdeckt werden will.',
 };
 
 export default blogMetaDe;

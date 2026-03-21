@@ -1589,6 +1589,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.cure-domicilio-ticino.title': 'La protestation contre la taxe sur les soins à domicile dans le canton du Tessin',
     'blog.article.cure-domicilio-ticino.excerpt': 'La protestation contre la participation des patients aux coûts des soins à domicile prend de l\'ampleur : voici ce qui se passe et comment cela pourrait affecter les frontaliers.',
     'blog.article.cure-domicilio-ticino.imageAlt': 'Services de santé à domicile dans le canton du Tessin, Suisse.',
+    'blog.article.spiagge-libere-sul-lago-maggiore.title': 'Plages libres sur le Lac Majeur : une bataille pour l\'accès public',
+    'blog.article.spiagge-libere-sul-lago-maggiore.excerpt': 'Une manifestation organisée par les Jeunes Verts demande un accès garanti toute l\'année aux rives du Lac Majeur, relançant le débat sur l\'usage public des plages.',
+    'blog.article.spiagge-libere-sul-lago-maggiore.imageAlt': 'Vue panoramique du Lac Majeur, un paradis naturel à découvrir.',
 };
 
 export default blogMetaFr;

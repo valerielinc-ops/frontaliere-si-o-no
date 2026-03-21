@@ -3049,7 +3049,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
         "@context": "https://schema.org",
         "@type": "ItemList",
         "name": "Articoli Frontaliere",
-        "numberOfItems": 520,
+        "numberOfItems": 521,
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
           { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -3570,7 +3570,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 517, "name": "Divieto di smartphone a scuola: la misura si es...", "url": `${BASE_URL}/articoli-frontaliere/divieto-smartphone-scuola-ticino-2026` },
           { "@type": "ListItem", "position": 518, "name": "Carenza di farmaci in Ticino: la ricetta del go...", "url": `${BASE_URL}/articoli-frontaliere/carenza-farmaci-ticino` },
           { "@type": "ListItem", "position": 519, "name": "Lago Maggiore: una camminata per l'accesso libe...", "url": `${BASE_URL}/articoli-frontaliere/lago-maggiore-accesso-tutto-l-anno` },
-          { "@type": "ListItem", "position": 520, "name": "Protesta contro la tassa sulle cure a domicilio...", "url": `${BASE_URL}/articoli-frontaliere/cure-domicilio-ticino` }
+          { "@type": "ListItem", "position": 520, "name": "Protesta contro la tassa sulle cure a domicilio...", "url": `${BASE_URL}/articoli-frontaliere/cure-domicilio-ticino` },
+          { "@type": "ListItem", "position": 521, "name": "Battaglia per le spiagge libere sul Lago Maggiore", "url": `${BASE_URL}/articoli-frontaliere/spiagge-libere-sul-lago-maggiore` }
         ]
       }
     ]

@@ -1666,6 +1666,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-carenza-farmaci-ticino': { name: 'Carenza farmaci', path: '/articoli-frontaliere/carenza-farmaci-ticino', parent: 'blog' },
     'blog-lago-maggiore-accesso-tutto-l-anno': { name: 'Lago Maggiore', path: '/articoli-frontaliere/lago-maggiore-accesso-tutto-l-anno', parent: 'blog' },
     'blog-cure-domicilio-ticino': { name: 'Protesta Ticino', path: '/articoli-frontaliere/cure-domicilio-ticino', parent: 'blog' },
+    'blog-spiagge-libere-sul-lago-maggiore': { name: 'Spiagge libere', path: '/articoli-frontaliere/spiagge-libere-sul-lago-maggiore', parent: 'blog' },
   };
 
   const info = sectionNames[section];

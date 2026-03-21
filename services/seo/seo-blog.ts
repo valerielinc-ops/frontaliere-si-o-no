@@ -8491,6 +8491,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-spiagge-libere-sul-lago-maggiore': {
+    title: 'Spiagge libere sul Lago Maggiore: una battaglia per l\'accesso pubblico | Frontaliere Ticino',
+    description: 'Una manifestazione organizzata dalle Giovani Verdi chiede l\'accesso garantito tutto l\'anno alle rive del Lago Maggiore, riaccendendo il dibattito sull\'uso',
+    keywords: 'frontalieri, ticino, svizzera, italia, spiagge, libere, lago, maggiore',
+    ogTitle: 'Battaglia per le spiagge libere sul Lago Maggiore',
+    ogDescription: 'Una manifestazione organizzata dalle Giovani Verdi chiede l\'accesso garantito tutto l\'anno alle rive del Lago Maggiore, riaccendendo il dibattito sull\'uso',
+    canonicalPath: '/articoli-frontaliere/spiagge-libere-sul-lago-maggiore',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Battaglia per le spiagge libere sul Lago Maggiore",
+      "description": "Una manifestazione organizzata dalle Giovani Verdi chiede l'accesso garantito tutto l'anno alle rive del Lago Maggiore, riaccendendo il dibattito sull'uso",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/spiagge-libere-sul-lago-maggiore.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Vista panoramica del Lago Maggiore, un paradiso naturale che attende di essere scoperto."
+      },
+      "datePublished": "2026-03-21T22:39:14+00:00",
+      "dateModified": "2026-03-21T22:39:14+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/spiagge-libere-sul-lago-maggiore`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
