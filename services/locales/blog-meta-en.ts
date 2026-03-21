@@ -1583,6 +1583,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.carenza-farmaci-ticino.title': 'Drug Shortage in Ticino: The Government\'s Recipe to Tackle the Issue',
     'blog.article.carenza-farmaci-ticino.excerpt': 'The Federal Council presents a series of measures to tackle the drug shortage in Switzerland, a problem that particularly affects affordable medicines and those for chronic illnesses.',
     'blog.article.carenza-farmaci-ticino.imageAlt': 'A line of people waiting outside a pharmacy in Locarno.',
+    'blog.article.lago-maggiore-accesso-tutto-l-anno.title': 'Lake Maggiore: A Walk to Demand Year-Round Access',
+    'blog.article.lago-maggiore-accesso-tutto-l-anno.excerpt': 'Around 100 people demonstrated to demand free access to the beaches of Lake Maggiore all year round. Protesters want the shores to be accessible to the local population, not just tourists.',
+    'blog.article.lago-maggiore-accesso-tutto-l-anno.imageAlt': 'Panoramic view of Lake Maggiore at sunset.',
 };
 
 export default blogMetaEn;

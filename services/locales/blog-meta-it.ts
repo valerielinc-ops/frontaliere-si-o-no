@@ -1583,6 +1583,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.carenza-farmaci-ticino.title': 'Carenza di farmaci in Ticino: la ricetta del governo per affrontare il problema',
     'blog.article.carenza-farmaci-ticino.excerpt': 'Il Consiglio federale presenta una serie di misure per contrastare la carenza di farmaci in Svizzera, un problema che colpisce soprattutto i medicinali a prezzo conveniente e quelli per malattie croniche.',
     'blog.article.carenza-farmaci-ticino.imageAlt': 'Fila di persone in attesa fuori da una farmacia a Locarno.',
+    'blog.article.lago-maggiore-accesso-tutto-l-anno.title': 'Lago Maggiore: una camminata per chiedere l\'accesso tutto l\'anno',
+    'blog.article.lago-maggiore-accesso-tutto-l-anno.excerpt': 'Circa 100 persone hanno manifestato per chiedere l\'accesso libero alle spiagge del Lago Maggiore durante tutto l\'anno. I manifestanti vogliono che le rive siano accessibili alla popolazione locale e non solo ai turisti.',
+    'blog.article.lago-maggiore-accesso-tutto-l-anno.imageAlt': 'Vista panoramica del Lago Maggiore al tramonto.',
 };
 
 export default blogMetaIt;

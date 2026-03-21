@@ -1664,6 +1664,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-quanto-costa-la-discriminazione': { name: 'Discriminazione', path: '/articoli-frontaliere/quanto-costa-la-discriminazione', parent: 'blog' },
     'blog-divieto-smartphone-scuola-ticino-2026': { name: 'Divieto smartphone', path: '/articoli-frontaliere/divieto-smartphone-scuola-ticino-2026', parent: 'blog' },
     'blog-carenza-farmaci-ticino': { name: 'Carenza farmaci', path: '/articoli-frontaliere/carenza-farmaci-ticino', parent: 'blog' },
+    'blog-lago-maggiore-accesso-tutto-l-anno': { name: 'Lago Maggiore', path: '/articoli-frontaliere/lago-maggiore-accesso-tutto-l-anno', parent: 'blog' },
   };
 
   const info = sectionNames[section];

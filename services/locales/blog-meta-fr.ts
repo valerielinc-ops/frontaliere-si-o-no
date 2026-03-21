@@ -1583,6 +1583,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.carenza-farmaci-ticino.title': 'Pénurie de médicaments au Tessin : la recette du gouvernement pour faire face au problème',
     'blog.article.carenza-farmaci-ticino.excerpt': 'Le Conseil fédéral présente une série de mesures pour lutter contre la pénurie de médicaments en Suisse, un problème qui touche particulièrement les médicaments à prix abordable et ceux pour les maladies chroniques.',
     'blog.article.carenza-farmaci-ticino.imageAlt': 'Une file d\'attente de personnes devant une pharmacie à Locarno.',
+    'blog.article.lago-maggiore-accesso-tutto-l-anno.title': 'Lac Majeur : une marche pour demander un accès toute l\'année',
+    'blog.article.lago-maggiore-accesso-tutto-l-anno.excerpt': 'Environ 100 personnes ont manifesté pour demander un accès libre aux plages du Lac Majeur toute l\'année. Les manifestants veulent que les rives soient accessibles à la population locale et non seulement aux touristes.',
+    'blog.article.lago-maggiore-accesso-tutto-l-anno.imageAlt': 'Vue panoramique du Lac Majeur au coucher du soleil.',
 };
 
 export default blogMetaFr;

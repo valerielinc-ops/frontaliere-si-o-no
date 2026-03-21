@@ -8433,6 +8433,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-lago-maggiore-accesso-tutto-l-anno': {
+    title: 'Lago Maggiore: una camminata per chiedere l\'accesso tutto l\'anno | Frontaliere Ticino',
+    description: 'Circa 100 persone hanno manifestato per chiedere l\'accesso libero alle spiagge del Lago Maggiore durante tutto l\'anno. I manifestanti vogliono che le rive siano',
+    keywords: 'frontalieri, ticino, svizzera, italia, lago, maggiore, camminata, chiedere',
+    ogTitle: 'Lago Maggiore: una camminata per l\'accesso libero tutto l\'anno',
+    ogDescription: 'Circa 100 persone hanno manifestato per chiedere l\'accesso libero alle spiagge del Lago Maggiore durante tutto l\'anno. I manifestanti vogliono che le rive siano',
+    canonicalPath: '/articoli-frontaliere/lago-maggiore-accesso-tutto-l-anno',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Lago Maggiore: una camminata per l'accesso libero tutto l'anno",
+      "description": "Circa 100 persone hanno manifestato per chiedere l'accesso libero alle spiagge del Lago Maggiore durante tutto l'anno. I manifestanti vogliono che le rive siano",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/lago-maggiore-accesso-tutto-l-anno.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Vista panoramica del Lago Maggiore al tramonto."
+      },
+      "datePublished": "2026-03-21T21:37:14+00:00",
+      "dateModified": "2026-03-21T21:37:14+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/lago-maggiore-accesso-tutto-l-anno`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

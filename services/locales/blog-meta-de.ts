@@ -1583,6 +1583,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.carenza-farmaci-ticino.title': 'Arzneimittelknappheit im Tessin: Die Rezeptur der Regierung zur Bewältigung des Problems',
     'blog.article.carenza-farmaci-ticino.excerpt': 'Der Bundesrat stellt eine Reihe von Maßnahmen vor, um dem Arzneimittelmangel in der Schweiz entgegenzuwirken, einem Problem, das vor allem preisgünstige Medikamente und solche für chronische Krankheiten betrifft.',
     'blog.article.carenza-farmaci-ticino.imageAlt': 'Eine Schlange von Menschen, die vor einer Apotheke in Locarno warten.',
+    'blog.article.lago-maggiore-accesso-tutto-l-anno.title': 'Lago Maggiore: ein Spaziergang, um den ganzjährigen Zugang zu fordern',
+    'blog.article.lago-maggiore-accesso-tutto-l-anno.excerpt': 'Etwa 100 Personen haben demonstriert, um den freien Zugang zu den Stränden des Lago Maggiore das ganze Jahr über zu fordern. Die Demonstranten möchten, dass die Ufer für die lokale Bevölkerung zugänglich sind und nicht nur für Touristen.',
+    'blog.article.lago-maggiore-accesso-tutto-l-anno.imageAlt': 'Panoramablick auf den Lago Maggiore bei Sonnenuntergang.',
 };
 
 export default blogMetaDe;

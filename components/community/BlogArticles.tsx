@@ -4288,6 +4288,13 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/carenza-farmaci-ticino.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'lago-maggiore-accesso-tutto-l-anno',
+    category: 'pratico',
+    date: '2026-03-21T21:37:14.417Z',
+    image: '/images/blog/lago-maggiore-accesso-tutto-l-anno.jpg',
+    hasCalculator: true,
+  },
 ];
 
 const CATEGORIES = ['all', 'fiscale', 'pratico', 'novita', 'pensione'] as const;
