@@ -8288,6 +8288,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-ritardo-sconto-carburante-ticino-2026': {
+    title: 'Sconto carburante: ritardi e disagi al confine Ticino-Italia | Frontaliere Ticino',
+    description: 'Ritardi nell\'applicazione dello sconto carburante in Italia creano disagi per i frontalieri ticinesi al confine, con proteste e attese fino a 20 giorni.',
+    keywords: 'frontalieri, ticino, svizzera, italia, sconto, carburante, ritardi, disagi',
+    ogTitle: 'Ritardo sconto carburante 2026: disagi al confine Ticino',
+    ogDescription: 'Lo sconto carburante annunciato dal Governo italiano arriva in ritardo, con effetti su frontalieri e automobilisti ticinesi. Info e consigli aggiornati.',
+    canonicalPath: '/articoli-frontaliere/ritardo-sconto-carburante-ticino-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Italia - Lo sconto carburante scatta in ritardo: \"La comunicazione delle compagnie petrolifere è",
+      "description": "Ritardi nell'applicazione dello sconto carburante in Italia creano disagi per i frontalieri ticinesi al confine, con proteste e attese fino a 20 giorni.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/ritardo-sconto-carburante-ticino-2026.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Stazione di servizio al confine italo-svizzero a Mendrisio con auto in attesa e cartelli prezzi carburante"
+      },
+      "datePublished": "2026-03-21T19:07:14+00:00",
+      "dateModified": "2026-03-21T19:07:14+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ritardo-sconto-carburante-ticino-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

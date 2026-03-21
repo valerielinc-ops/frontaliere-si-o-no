@@ -1568,6 +1568,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.acquarossa-nuovo-polo-filovia-2026.title': 'Acquarossa invests 250,000 francs in healthcare hub and Dagro trolleybus line',
     'blog.article.acquarossa-nuovo-polo-filovia-2026.excerpt': 'The Municipality of Acquarossa approves two credits totaling 250,000 francs: trolleybus maintenance and design of new 47-million franc social-healthcare center.',
     'blog.article.acquarossa-nuovo-polo-filovia-2026.imageAlt': 'Panoramic view of Bellinzona with Alps in the background in spring, urban and natural landscape of Ticino',
+    'blog.article.ritardo-sconto-carburante-ticino-2026.title': 'Fuel Discount: Delays and Disruptions at the Ticino-Italy Border',
+    'blog.article.ritardo-sconto-carburante-ticino-2026.excerpt': 'The fuel excise cut announced by the Italian Government arrived late, causing confusion and protests among cross-border commuters and Ticino drivers.',
+    'blog.article.ritardo-sconto-carburante-ticino-2026.imageAlt': 'Fuel station near the Swiss-Italian border in Mendrisio with cars waiting and fuel price signs',
 };
 
 export default blogMetaEn;

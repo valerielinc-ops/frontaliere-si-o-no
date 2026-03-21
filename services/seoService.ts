@@ -1659,6 +1659,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-sindacati-contro-snl-ticino-2026': { name: 'Sindacati e SNL', path: '/articoli-frontaliere/sindacati-contro-snl-ticino-2026', parent: 'blog' },
     'blog-aumento-iva-costo-ticino-2026': { name: 'Quanto costerà l’aumento dell’IVA per le', path: '/articoli-frontaliere/aumento-iva-costo-ticino-2026', parent: 'blog' },
     'blog-acquarossa-nuovo-polo-filovia-2026': { name: 'Acquarossa investimenti', path: '/articoli-frontaliere/acquarossa-nuovo-polo-filovia-2026', parent: 'blog' },
+    'blog-ritardo-sconto-carburante-ticino-2026': { name: 'Sconto carburante', path: '/articoli-frontaliere/ritardo-sconto-carburante-ticino-2026', parent: 'blog' },
   };
 
   const info = sectionNames[section];

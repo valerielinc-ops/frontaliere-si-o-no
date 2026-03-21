@@ -1568,6 +1568,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.acquarossa-nuovo-polo-filovia-2026.title': 'Acquarossa investiert 250\'000 Franken in Gesundheitszentrum und Oberleitungsbus Dagro',
     'blog.article.acquarossa-nuovo-polo-filovia-2026.excerpt': 'Die Gemeinde Acquarossa genehmigt zwei Kredite über 250\'000 Franken: Wartung der Oberleitungsbuslinie und Planung eines neuen sozio-sanitären Zentrums im Wert von 47 Millionen.',
     'blog.article.acquarossa-nuovo-polo-filovia-2026.imageAlt': 'Panoramablick auf Bellinzona mit Alpen im Hintergrund im Frühling, städtische und natürliche Landschaft im Tessin',
+    'blog.article.ritardo-sconto-carburante-ticino-2026.title': 'Kraftstoffrabatt: Verzögerungen und Probleme an der Grenze Tessin-Italien',
+    'blog.article.ritardo-sconto-carburante-ticino-2026.excerpt': 'Die vom italienischen Staat angekündigte Senkung der Kraftstoffabgaben kommt verspätet und sorgt für Verwirrung und Proteste unter Grenzgängern und Tessiner Autofahrern.',
+    'blog.article.ritardo-sconto-carburante-ticino-2026.imageAlt': 'Tankstelle an der schweizerisch-italienischen Grenze in Mendrisio mit wartenden Autos und Preisschildern',
 };
 
 export default blogMetaDe;

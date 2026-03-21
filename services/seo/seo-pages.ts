@@ -3049,7 +3049,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
         "@context": "https://schema.org",
         "@type": "ItemList",
         "name": "Articoli Frontaliere",
-        "numberOfItems": 513,
+        "numberOfItems": 514,
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
           { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -3563,7 +3563,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 510, "name": "Scuola dell’obbligo, scatta il “No Natel”: cell...", "url": `${BASE_URL}/articoli-frontaliere/divieto-cellulari-scuola-ticino-2024` },
           { "@type": "ListItem", "position": 511, "name": "I sindacati (ancora) contro SNL: «Tout va très ...", "url": `${BASE_URL}/articoli-frontaliere/sindacati-contro-snl-ticino-2026` },
           { "@type": "ListItem", "position": 512, "name": "Quanto costerà l’aumento dell’IVA per le famigl...", "url": `${BASE_URL}/articoli-frontaliere/aumento-iva-costo-ticino-2026` },
-          { "@type": "ListItem", "position": 513, "name": "Acquarossa investe nel nuovo polo sanitario e n...", "url": `${BASE_URL}/articoli-frontaliere/acquarossa-nuovo-polo-filovia-2026` }
+          { "@type": "ListItem", "position": 513, "name": "Acquarossa investe nel nuovo polo sanitario e n...", "url": `${BASE_URL}/articoli-frontaliere/acquarossa-nuovo-polo-filovia-2026` },
+          { "@type": "ListItem", "position": 514, "name": "Italia - Lo sconto carburante scatta in ritardo...", "url": `${BASE_URL}/articoli-frontaliere/ritardo-sconto-carburante-ticino-2026` }
         ]
       }
     ]

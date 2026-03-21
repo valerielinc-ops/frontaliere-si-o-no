@@ -1568,6 +1568,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.acquarossa-nuovo-polo-filovia-2026.title': 'Acquarossa investe 250mila franchi in polo sanitario e filovia Dagro',
     'blog.article.acquarossa-nuovo-polo-filovia-2026.excerpt': 'Il Comune di Acquarossa approva due crediti per 250mila franchi: manutenzione filovia e progettazione nuovo polo sociosanitario da 47 milioni.',
     'blog.article.acquarossa-nuovo-polo-filovia-2026.imageAlt': 'Vista panoramica di Bellinzona con le Alpi sullo sfondo in primavera, paesaggio urbano e naturale del Ticino',
+    'blog.article.ritardo-sconto-carburante-ticino-2026.title': 'Sconto carburante: ritardi e disagi al confine Ticino-Italia',
+    'blog.article.ritardo-sconto-carburante-ticino-2026.excerpt': 'Il taglio accise carburante annunciato dal Governo italiano arriva in ritardo, generando confusione e proteste tra frontalieri e automobilisti ticinesi.',
+    'blog.article.ritardo-sconto-carburante-ticino-2026.imageAlt': 'Stazione di servizio al confine italo-svizzero a Mendrisio con auto in attesa e cartelli prezzi carburante',
 };
 
 export default blogMetaIt;

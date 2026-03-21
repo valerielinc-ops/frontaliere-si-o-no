@@ -4253,6 +4253,13 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/acquarossa-nuovo-polo-filovia-2026.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'ritardo-sconto-carburante-ticino-2026',
+    category: 'novita',
+    date: '2026-03-21T19:07:13.999Z',
+    image: '/images/blog/ritardo-sconto-carburante-ticino-2026.jpg',
+    hasCalculator: true,
+  },
 ];
 
 const CATEGORIES = ['all', 'fiscale', 'pratico', 'novita', 'pensione'] as const;

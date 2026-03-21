@@ -1568,6 +1568,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.acquarossa-nuovo-polo-filovia-2026.title': 'Acquarossa investit 250 000 francs dans un pôle sanitaire et le trolleybus Dagro',
     'blog.article.acquarossa-nuovo-polo-filovia-2026.excerpt': 'La commune d’Acquarossa approuve deux crédits pour 250 000 francs : maintenance du trolleybus et conception du nouveau pôle sociosanitaire à 47 millions.',
     'blog.article.acquarossa-nuovo-polo-filovia-2026.imageAlt': 'Vue panoramique de Bellinzona avec les Alpes en arrière-plan au printemps, paysage urbain et naturel du Tessin',
+    'blog.article.ritardo-sconto-carburante-ticino-2026.title': 'Remise sur le carburant : retards et désagréments à la frontière Tessin-Italie',
+    'blog.article.ritardo-sconto-carburante-ticino-2026.excerpt': 'La réduction des accises sur le carburant annoncée par le gouvernement italien arrive en retard, générant confusion et protestations parmi les frontaliers et automobilistes tessinois.',
+    'blog.article.ritardo-sconto-carburante-ticino-2026.imageAlt': 'Station-service près de la frontière suisse-italienne à Mendrisio avec voitures en attente et panneaux de prix du carburant',
 };
 
 export default blogMetaFr;
