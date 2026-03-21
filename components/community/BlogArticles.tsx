@@ -4225,6 +4225,13 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/ricchi-fuga-medio-oriente-ticino.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'divieto-cellulari-scuola-ticino-2024',
+    category: 'novita',
+    date: '2026-03-21T17:01:21.915Z',
+    image: '/images/blog/divieto-cellulari-scuola-ticino-2024.jpg',
+    hasCalculator: true,
+  },
 ];
 
 const CATEGORIES = ['all', 'fiscale', 'pratico', 'novita', 'pensione'] as const;

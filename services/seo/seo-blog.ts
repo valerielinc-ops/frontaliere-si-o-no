@@ -8172,6 +8172,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-divieto-cellulari-scuola-ticino-2024': {
+    title: 'Scuola dell’obbligo, scatta il divieto assoluto di cellulari in Ticino | Frontaliere Ticino',
+    description: 'Nel 2024 il Canton Ticino vieta l\'uso dei cellulari nelle scuole dell\'obbligo per migliorare concentrazione e apprendimento. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, scuola, dell, obbligo, scatta',
+    ogTitle: 'Divieto cellulari scuole Ticino 2024',
+    ogDescription: 'Il Canton Ticino impone il divieto totale di cellulari nelle scuole dell\'obbligo dal 2024, coinvolgendo studenti ticinesi e frontalieri.',
+    canonicalPath: '/articoli-frontaliere/divieto-cellulari-scuola-ticino-2024',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Scuola dell’obbligo, scatta il “No Natel”: cellulari azzerati in aula e fuori",
+      "description": "Nel 2024 il Canton Ticino vieta l'uso dei cellulari nelle scuole dell'obbligo per migliorare concentrazione e apprendimento. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/divieto-cellulari-scuola-ticino-2024.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Aula scolastica in Ticino senza cellulari, studenti concentrati durante la lezione"
+      },
+      "datePublished": "2026-03-21T17:01:21+00:00",
+      "dateModified": "2026-03-21T17:01:21+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/divieto-cellulari-scuola-ticino-2024`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

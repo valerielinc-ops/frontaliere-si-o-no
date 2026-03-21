@@ -1556,6 +1556,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.ricchi-fuga-medio-oriente-ticino.title': 'Ricchi in fuga dal Medio Oriente: il Ticino rischia di perdere un’opportunità',
     'blog.article.ricchi-fuga-medio-oriente-ticino.excerpt': 'Il contesto instabile in Medio Oriente spinge capitali e contribuenti facoltosi a cercare nuove residenze. Il Canton Ticino deve agire per attrarre questa ricchezza.',
     'blog.article.ricchi-fuga-medio-oriente-ticino.imageAlt': 'Veduta panoramica della città di Lugano con il lago e le montagne sullo sfondo, simbolo del Ticino attrattivo per ricchi e investitori',
+    'blog.article.divieto-cellulari-scuola-ticino-2024.title': 'Scuola dell’obbligo, scatta il divieto assoluto di cellulari in Ticino',
+    'blog.article.divieto-cellulari-scuola-ticino-2024.excerpt': 'Dal 2024 in Ticino, la scuola dell’obbligo vieta l’uso di cellulari in aula e fuori: una misura decisa per favorire la concentrazione e l’apprendimento.',
+    'blog.article.divieto-cellulari-scuola-ticino-2024.imageAlt': 'Aula scolastica in Ticino senza cellulari, studenti concentrati durante la lezione',
 };
 
 export default blogMetaIt;

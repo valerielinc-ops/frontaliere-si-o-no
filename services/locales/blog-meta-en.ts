@@ -1556,6 +1556,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.ricchi-fuga-medio-oriente-ticino.title': 'Wealthy Fleeing the Middle East: Ticino Risks Missing an Opportunity',
     'blog.article.ricchi-fuga-medio-oriente-ticino.excerpt': 'The unstable situation in the Middle East is pushing capital and affluent taxpayers to seek new residences. Canton Ticino must act to attract this wealth.',
     'blog.article.ricchi-fuga-medio-oriente-ticino.imageAlt': 'Panoramic view of Lugano city with lake and mountains, symbolizing Ticino’s attractiveness for wealthy individuals and investors',
+    'blog.article.divieto-cellulari-scuola-ticino-2024.title': 'Compulsory Schooling, Total Ban on Cell Phones Takes Effect in Ticino',
+    'blog.article.divieto-cellulari-scuola-ticino-2024.excerpt': 'From 2024 in Ticino, compulsory schools ban the use of cell phones both inside classrooms and on school grounds: a measure aimed at promoting concentration and learning.',
+    'blog.article.divieto-cellulari-scuola-ticino-2024.imageAlt': 'Classroom in Ticino with students focused and no smartphones visible',
 };
 
 export default blogMetaEn;

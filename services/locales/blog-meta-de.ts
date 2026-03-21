@@ -1556,6 +1556,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.ricchi-fuga-medio-oriente-ticino.title': 'Reiche auf der Flucht aus dem Nahen Osten: Der Tessin riskiert, eine Chance zu verlieren',
     'blog.article.ricchi-fuga-medio-oriente-ticino.excerpt': 'Die instabile Lage im Nahen Osten treibt wohlhabende Kapitalanleger und Steuerzahler dazu, neue Wohnsitze zu suchen. Der Kanton Tessin muss handeln, um diesen Reichtum anzuziehen.',
     'blog.article.ricchi-fuga-medio-oriente-ticino.imageAlt': 'Panoramablick auf die Stadt Lugano mit See und Bergen im Hintergrund, Symbol für das attraktive Tessin für Reiche und Investoren',
+    'blog.article.divieto-cellulari-scuola-ticino-2024.title': 'Schulpflicht, absolutes Handyverbot im Tessin tritt in Kraft',
+    'blog.article.divieto-cellulari-scuola-ticino-2024.excerpt': 'Ab 2024 verbietet die Schulpflicht im Tessin die Nutzung von Handys im Unterricht und auf dem Schulgelände: Eine Maßnahme zur Förderung der Konzentration und des Lernens.',
+    'blog.article.divieto-cellulari-scuola-ticino-2024.imageAlt': 'Klassenzimmer im Tessin ohne sichtbare Handys, konzentrierte Schüler',
 };
 
 export default blogMetaDe;

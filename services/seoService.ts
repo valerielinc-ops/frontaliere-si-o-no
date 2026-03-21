@@ -1655,6 +1655,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-trojani-capo-servizi-esercito-ticino': { name: 'Esercito', path: '/articoli-frontaliere/trojani-capo-servizi-esercito-ticino', parent: 'blog' },
     'blog-funivia-monteviasco-orari-corsi': { name: 'Funivia Monteviasco', path: '/articoli-frontaliere/funivia-monteviasco-orari-corsi', parent: 'blog' },
     'blog-ricchi-fuga-medio-oriente-ticino': { name: 'Ricchi in fuga', path: '/articoli-frontaliere/ricchi-fuga-medio-oriente-ticino', parent: 'blog' },
+    'blog-divieto-cellulari-scuola-ticino-2024': { name: 'No Natel Ticino', path: '/articoli-frontaliere/divieto-cellulari-scuola-ticino-2024', parent: 'blog' },
   };
 
   const info = sectionNames[section];
