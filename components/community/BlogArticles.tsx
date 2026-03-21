@@ -4064,6 +4064,13 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/chiamate-shock-arresti-ticino.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'rinnovo-concessioni-snl-2026',
+    category: 'novita',
+    date: '2026-03-21T03:13:32.605Z',
+    image: '/images/blog/rinnovo-concessioni-snl-2026.jpg',
+    hasCalculator: true,
+  },
 ];
 
 const CATEGORIES = ['all', 'fiscale', 'pratico', 'novita', 'pensione'] as const;

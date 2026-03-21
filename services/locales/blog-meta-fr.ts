@@ -1487,6 +1487,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.chiamate-shock-arresti-ticino.title': 'Chocs téléphoniques en Tessin : deux arrestations pour escroqueries envers les personnes âgées',
     'blog.article.chiamate-shock-arresti-ticino.excerpt': 'Deux citoyens polonais ont été arrêtés le 9 mars dans le Canton du Tessin, accusés d’avoir orchestré des escroqueries contre des personnes âgées via des appels téléphoniques choquants à Chiasso et Biasca.',
     'blog.article.chiamate-shock-arresti-ticino.imageAlt': 'Vue de Bellinzona avec Castelgrande et montagnes environnantes en lumière naturelle',
+    'blog.article.rinnovo-concessioni-snl-2026.title': 'Renouvellement des concessions et extension de l\'offre : les plans de SNL pour 2026',
+    'blog.article.rinnovo-concessioni-snl-2026.excerpt': 'La Société de Navigation du Lac de Lugano (SNL) présentera ses plans pour le renouvellement des concessions et l\'extension de l\'offre pour 2026. Les nouveaux itinéraires, expériences thématiques et grands événements sur les lacs de Maggiore et Ceresio seront au centre de l\'attention.',
+    'blog.article.rinnovo-concessioni-snl-2026.imageAlt': 'Immagini di un lago con una nave in movimento, con il profilo di una città sullo sfondo',
 };
 
 export default blogMetaFr;

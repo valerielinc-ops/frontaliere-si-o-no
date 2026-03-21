@@ -1487,6 +1487,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.chiamate-shock-arresti-ticino.title': 'Shock Calls in Ticino: Two Arrests for Elderly Scams',
     'blog.article.chiamate-shock-arresti-ticino.excerpt': 'Two Polish nationals were detained on March 9 in the Canton of Ticino, accused of carrying out scams targeting seniors through shock calls in Chiasso and Biasca.',
     'blog.article.chiamate-shock-arresti-ticino.imageAlt': 'View of Bellinzona with Castelgrande and surrounding mountains in natural light',
+    'blog.article.rinnovo-concessioni-snl-2026.title': 'Renewal of concessions and expansion of services: SNL\'s plans for 2026',
+    'blog.article.rinnovo-concessioni-snl-2026.excerpt': 'The Società Navigazione del Lago di Lugano (SNL) will present its plans for the renewal of concessions and expansion of services for 2026. New connections, themed experiences, and large events on Lake Maggiore and Lake Ceresio will be at the center of attention.',
+    'blog.article.rinnovo-concessioni-snl-2026.imageAlt': 'Immagini di un lago con una nave in movimento, con il profilo di una città sullo sfondo',
 };
 
 export default blogMetaEn;

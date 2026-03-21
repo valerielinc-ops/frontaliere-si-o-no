@@ -1632,6 +1632,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-kebab-case-rossi-bruxelles-ticino': { name: 'Tassa di transito, Bruxelles', path: '/articoli-frontaliere/kebab-case-rossi-bruxelles-ticino', parent: 'blog' },
     'blog-bossi-voleva-bene-al-ticino': { name: 'Bossi e il Ticino', path: '/articoli-frontaliere/bossi-voleva-bene-al-ticino', parent: 'blog' },
     'blog-chiamate-shock-arresti-ticino': { name: 'Chiamate shock in Ticino', path: '/articoli-frontaliere/chiamate-shock-arresti-ticino', parent: 'blog' },
+    'blog-rinnovo-concessioni-snl-2026': { name: 'Rinnovo delle concessioni e ampliamento', path: '/articoli-frontaliere/rinnovo-concessioni-snl-2026', parent: 'blog' },
   };
 
   const info = sectionNames[section];

@@ -7505,6 +7505,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-rinnovo-concessioni-snl-2026': {
+    title: 'Rinnovo delle concessioni e ampliamento dell\'offerta: i piani di SNL per | Frontaliere Ticino',
+    description: 'La Società Navigazione del Lago di Lugano (SNL) si appresta a presentare i suoi piani per il rinnovo delle concessioni e l\'ampliamento dell\'offerta per il 2026.',
+    keywords: 'frontalieri, ticino, svizzera, italia, rinnovo, concessioni, ampliamento, dell',
+    ogTitle: 'Rinnovo delle concessioni e ampliamento dell\'offerta: i piani di SNL per il 2026',
+    ogDescription: 'La Società Navigazione del Lago di Lugano (SNL) si appresta a presentare i suoi piani per il rinnovo delle concessioni e l\'ampliamento dell\'offerta per il 2026.',
+    canonicalPath: '/articoli-frontaliere/rinnovo-concessioni-snl-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Rinnovo delle concessioni e ampliamento dell'offerta: i piani di SNL per il 2026",
+      "description": "La Società Navigazione del Lago di Lugano (SNL) si appresta a presentare i suoi piani per il rinnovo delle concessioni e l'ampliamento dell'offerta per il 2026.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/rinnovo-concessioni-snl-2026.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Immagini di un lago con una nave in movimento, con il profilo di una città sullo sfondo"
+      },
+      "datePublished": "2026-03-21T03:13:32+00:00",
+      "dateModified": "2026-03-21T03:13:32+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/rinnovo-concessioni-snl-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

@@ -1487,6 +1487,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.chiamate-shock-arresti-ticino.title': 'Schockanrufe im Tessin: Zwei Festnahmen wegen Betrugs an Senioren',
     'blog.article.chiamate-shock-arresti-ticino.excerpt': 'Zwei polnische Staatsbürger wurden am 9. März im Kanton Tessin festgenommen, weil sie Senioren durch Schockanrufe in Chiasso und Biasca betrogen haben.',
     'blog.article.chiamate-shock-arresti-ticino.imageAlt': 'Blick auf Bellinzona mit Castelgrande und umliegenden Bergen bei natürlichem Licht',
+    'blog.article.rinnovo-concessioni-snl-2026.title': 'Neubewilligungen und Erweiterung der Leistungen: Die Pläne der SNL für 2026',
+    'blog.article.rinnovo-concessioni-snl-2026.excerpt': 'Die Società Navigazione del Lago di Lugano (SNL) wird ihre Pläne für die Neubewilligungen und die Erweiterung der Leistungen für 2026 vorstellen. Die neuen Verbindungen, thematischen Erfahrungen und große Ereignisse auf den Seen Maggiore und Ceresio werden im Fokus stehen.',
+    'blog.article.rinnovo-concessioni-snl-2026.imageAlt': 'Immagini di un lago con una nave in movimento, con il profilo di una città sullo sfondo',
 };
 
 export default blogMetaDe;

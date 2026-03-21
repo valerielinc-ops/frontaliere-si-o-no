@@ -1487,6 +1487,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.chiamate-shock-arresti-ticino.title': 'Chiamate shock in Ticino: due arresti per truffe agli anziani',
     'blog.article.chiamate-shock-arresti-ticino.excerpt': 'Due cittadini polacchi sono stati fermati il 9 marzo nel Canton Ticino, accusati di aver messo in atto truffe ai danni di anziani tramite chiamate shock a Chiasso e Biasca.',
     'blog.article.chiamate-shock-arresti-ticino.imageAlt': 'Veduta di Bellinzona con Castelgrande e montagne circostanti in luce naturale',
+    'blog.article.rinnovo-concessioni-snl-2026.title': 'Rinnovo delle concessioni e ampliamento dell\'offerta: i piani di SNL per il 2026',
+    'blog.article.rinnovo-concessioni-snl-2026.excerpt': 'La Società Navigazione del Lago di Lugano (SNL) presenterà i suoi piani per il rinnovo delle concessioni e l\'ampliamento dell\'offerta per il 2026. I nuovi collegamenti, esperienze tematiche e grandi eventi sui laghi Maggiore e Ceresio saranno al centro dell\'attenzione.',
+    'blog.article.rinnovo-concessioni-snl-2026.imageAlt': 'Immagini di un lago con una nave in movimento, con il profilo di una città sullo sfondo',
 };
 
 export default blogMetaIt;
