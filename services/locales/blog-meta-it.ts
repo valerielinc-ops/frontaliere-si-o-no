@@ -1553,6 +1553,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.funivia-monteviasco-orari-corsi.title': 'Funivia di Monteviasco: nuovi orari e più corse per una mobilità potenziata',
     'blog.article.funivia-monteviasco-orari-corsi.excerpt': 'La funivia di Monteviasco amplia il servizio a sei giorni su sette, offrendo un collegamento affidabile tra Ponte di Piero e la frazione montana. Scopri gli orari e i vantaggi per residenti e turisti.',
     'blog.article.funivia-monteviasco-orari-corsi.imageAlt': 'Funivia di Monteviasco che attraversa la Val Veddasca, offrendo viste panoramiche sulle Alpi.',
+    'blog.article.ricchi-fuga-medio-oriente-ticino.title': 'Ricchi in fuga dal Medio Oriente: il Ticino rischia di perdere un’opportunità',
+    'blog.article.ricchi-fuga-medio-oriente-ticino.excerpt': 'Il contesto instabile in Medio Oriente spinge capitali e contribuenti facoltosi a cercare nuove residenze. Il Canton Ticino deve agire per attrarre questa ricchezza.',
+    'blog.article.ricchi-fuga-medio-oriente-ticino.imageAlt': 'Veduta panoramica della città di Lugano con il lago e le montagne sullo sfondo, simbolo del Ticino attrattivo per ricchi e investitori',
 };
 
 export default blogMetaIt;

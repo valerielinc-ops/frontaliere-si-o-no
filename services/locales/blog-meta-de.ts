@@ -1553,6 +1553,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.funivia-monteviasco-orari-corsi.title': 'Monteviasco Seilbahn: neue Fahrzeiten und mehr Fahrten für verbesserte Mobilität',
     'blog.article.funivia-monteviasco-orari-corsi.excerpt': 'Die Monteviasco Seilbahn erweitert den Betrieb auf sechs Tage pro Woche und bietet eine verlässliche Verbindung zwischen Ponte di Piero und dem Bergdorf. Entdecken Sie die Fahrzeiten und Vorteile für Einwohner und Touristen.',
     'blog.article.funivia-monteviasco-orari-corsi.imageAlt': 'Die Monteviasco Seilbahn überquert die Val Veddasca und bietet einen Panoramablick auf die Alpen.',
+    'blog.article.ricchi-fuga-medio-oriente-ticino.title': 'Reiche auf der Flucht aus dem Nahen Osten: Der Tessin riskiert, eine Chance zu verlieren',
+    'blog.article.ricchi-fuga-medio-oriente-ticino.excerpt': 'Die instabile Lage im Nahen Osten treibt wohlhabende Kapitalanleger und Steuerzahler dazu, neue Wohnsitze zu suchen. Der Kanton Tessin muss handeln, um diesen Reichtum anzuziehen.',
+    'blog.article.ricchi-fuga-medio-oriente-ticino.imageAlt': 'Panoramablick auf die Stadt Lugano mit See und Bergen im Hintergrund, Symbol für das attraktive Tessin für Reiche und Investoren',
 };
 
 export default blogMetaDe;

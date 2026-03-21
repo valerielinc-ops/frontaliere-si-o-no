@@ -1553,6 +1553,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.funivia-monteviasco-orari-corsi.title': 'Téléphérique de Monteviasco : nouveaux horaires et plus de rotations pour une mobilité renforcée',
     'blog.article.funivia-monteviasco-orari-corsi.excerpt': 'Le téléphérique de Monteviasco étend son service à six jours sur sept, offrant une liaison fiable entre Ponte di Piero et la fraction de montagne. Découvrez les horaires et les avantages pour les résidents et les touristes.',
     'blog.article.funivia-monteviasco-orari-corsi.imageAlt': 'La télécabine de Monteviasco traverse la Val Veddasca, offrant une vue panoramique sur les Alpes.',
+    'blog.article.ricchi-fuga-medio-oriente-ticino.title': 'Riches en fuite du Moyen-Orient : le Tessin risque de perdre une opportunité',
+    'blog.article.ricchi-fuga-medio-oriente-ticino.excerpt': 'Le contexte instable au Moyen-Orient pousse des capitaux et des contribuables fortunés à chercher de nouvelles résidences. Le canton du Tessin doit agir pour attirer cette richesse.',
+    'blog.article.ricchi-fuga-medio-oriente-ticino.imageAlt': 'Vue panoramique de la ville de Lugano avec le lac et les montagnes en arrière-plan, symbole de l\'attractivité du Tessin pour les riches et investisseurs',
 };
 
 export default blogMetaFr;

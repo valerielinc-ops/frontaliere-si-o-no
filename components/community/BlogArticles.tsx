@@ -4218,6 +4218,13 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/funivia-monteviasco-orari-corsi.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'ricchi-fuga-medio-oriente-ticino',
+    category: 'novita',
+    date: '2026-03-21T16:41:51.578Z',
+    image: '/images/blog/ricchi-fuga-medio-oriente-ticino.jpg',
+    hasCalculator: true,
+  },
 ];
 
 const CATEGORIES = ['all', 'fiscale', 'pratico', 'novita', 'pensione'] as const;

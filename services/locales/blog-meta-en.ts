@@ -1553,6 +1553,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.funivia-monteviasco-orari-corsi.title': 'Monteviasco Cable Car: New Schedules and More Trips for Enhanced Mobility',
     'blog.article.funivia-monteviasco-orari-corsi.excerpt': 'The Monteviasco cable car expands its service to six days a week, providing a reliable connection between Ponte di Piero and the mountain village. Discover the schedules and benefits for residents and tourists.',
     'blog.article.funivia-monteviasco-orari-corsi.imageAlt': 'Monteviasco Cable Car traversing the Val Veddasca, offering panoramic views of the Alps.',
+    'blog.article.ricchi-fuga-medio-oriente-ticino.title': 'Wealthy Fleeing the Middle East: Ticino Risks Missing an Opportunity',
+    'blog.article.ricchi-fuga-medio-oriente-ticino.excerpt': 'The unstable situation in the Middle East is pushing capital and affluent taxpayers to seek new residences. Canton Ticino must act to attract this wealth.',
+    'blog.article.ricchi-fuga-medio-oriente-ticino.imageAlt': 'Panoramic view of Lugano city with lake and mountains, symbolizing Ticino’s attractiveness for wealthy individuals and investors',
 };
 
 export default blogMetaEn;
