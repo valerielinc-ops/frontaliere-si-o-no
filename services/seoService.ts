@@ -1637,6 +1637,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-guasto-tra-parabiago-e-rho': { name: 'Ritardi ferroviari e cancellazioni', path: '/articoli-frontaliere/guasto-tra-parabiago-e-rho', parent: 'blog' },
     'blog-tassa-transito-ticino-pedemontana': { name: 'Tassa di transito in Svizzera', path: '/articoli-frontaliere/tassa-transito-ticino-pedemontana', parent: 'blog' },
     'blog-franco-svizzero-a-valori-record-2026': { name: 'Frontaliere Ticino', path: '/articoli-frontaliere/franco-svizzero-a-valori-record-2026', parent: 'blog' },
+    'blog-taglio-alle-accise-mette-sotto-pressione-i-distributori-ticinesi': { name: 'Tessin', path: '/articoli-frontaliere/taglio-alle-accise-mette-sotto-pressione-i-distributori-ticinesi', parent: 'blog' },
   };
 
   const info = sectionNames[section];

@@ -4099,6 +4099,13 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/franco-svizzero-a-valori-record-2026.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'taglio-alle-accise-mette-sotto-pressione-i-distributori-ticinesi',
+    category: 'fiscale',
+    date: '2026-03-21T07:27:46.207Z',
+    image: '/images/blog/taglio-alle-accise-mette-sotto-pressione-i-distributori-ticinesi.jpg',
+    hasCalculator: true,
+  },
 ];
 
 const CATEGORIES = ['all', 'fiscale', 'pratico', 'novita', 'pensione'] as const;

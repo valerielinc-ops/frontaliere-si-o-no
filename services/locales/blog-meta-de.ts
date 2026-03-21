@@ -1502,6 +1502,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.franco-svizzero-a-valori-record-2026.title': 'Der Schweizer Franken bei Rekordwerten macht die Grenzgänger reicher, aber eine Ankündigung kann alles ändern',
     'blog.article.franco-svizzero-a-valori-record-2026.excerpt': 'Der Schweizer Franken erreicht Rekordwerte, was den Grenzgängern zu mehr Reichtum verhilft, aber eine Ankündigung der Nationalbank Schweiz kann alles ändern.',
     'blog.article.franco-svizzero-a-valori-record-2026.imageAlt': 'Der starke Schweizer Franken macht die Grenzarbeiter reicher, aber eine Ankündigung der Schweizerischen Nationalbank könnte alles ändern.',
+    'blog.article.taglio-alle-accise-mette-sotto-pressione-i-distributori-ticinesi.title': 'Der Preisverfall bei den Benzinsteuern bringt die Tankstellen im Tessin unter Druck',
+    'blog.article.taglio-alle-accise-mette-sotto-pressione-i-distributori-ticinesi.excerpt': 'Die Maßnahme, die von Rom beschlossen wurde und für 20 Tage gültig ist, sieht einen \'Rabatt\' von 25 Centimes pro Liter vor. Die Vereinigung der Kategorietankstellen im Tessin äußert sich besorgt und bittet um politische Intervention.',
+    'blog.article.taglio-alle-accise-mette-sotto-pressione-i-distributori-ticinesi.imageAlt': 'Die Brennstoffsteuerrabatze belasten die Kraftstoffverteilungsfirmen in der Schweiz, mit dem Risiko eines Kundenflusses in die Schweiz.',
 };
 
 export default blogMetaDe;

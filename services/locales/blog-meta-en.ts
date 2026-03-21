@@ -1502,6 +1502,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.franco-svizzero-a-valori-record-2026.title': 'The Swiss Franc at Record Values Makes Frontaliers Richer, but an Announcement Can Change Everything',
     'blog.article.franco-svizzero-a-valori-record-2026.excerpt': 'The Swiss franc has reached record values, making frontaliers richer, but the announcement of the Swiss National Bank may change everything.',
     'blog.article.franco-svizzero-a-valori-record-2026.imageAlt': 'The strong Swiss franc is making border workers richer, but an announcement from the Swiss National Bank could change everything.',
+    'blog.article.taglio-alle-accise-mette-sotto-pressione-i-distributori-ticinesi.title': 'Fuel tax cut puts pressure on Ticinese distributors',
+    'blog.article.taglio-alle-accise-mette-sotto-pressione-i-distributori-ticinesi.excerpt': 'The measure, decided by Rome and valid for 20 days, provides a 25-cent discount per liter. The Ticinese category association is concerned and is asking for a political intervention.',
+    'blog.article.taglio-alle-accise-mette-sotto-pressione-i-distributori-ticinesi.imageAlt': 'The fuel tax cuts are putting pressure on fuel distributors in Ticino, with the risk of a flight of customers to Switzerland.',
 };
 
 export default blogMetaEn;

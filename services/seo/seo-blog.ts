@@ -7650,6 +7650,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-taglio-alle-accise-mette-sotto-pressione-i-distributori-ticinesi': {
+    title: 'Il taglio alle accise mette sotto pressione i distributori ticinesi | Frontaliere Ticino',
+    description: 'La misura, decisa da Roma e valida per 20 giorni, prevede uno \'sconto\' di 25 centesimi al litro. L\'associazione di categoria ticinese si dice preoccupata e',
+    keywords: 'frontalieri, ticino, svizzera, italia, taglio, alle, accise, mette',
+    ogTitle: 'Il taglio alle accise mette sotto pressione i distributori ticinesi',
+    ogDescription: 'La misura, decisa da Roma e valida per 20 giorni, prevede uno \'sconto\' di 25 centesimi al litro. L\'associazione di categoria ticinese si dice preoccupata e',
+    canonicalPath: '/articoli-frontaliere/taglio-alle-accise-mette-sotto-pressione-i-distributori-ticinesi',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Il taglio alle accise mette sotto pressione i distributori ticinesi",
+      "description": "La misura, decisa da Roma e valida per 20 giorni, prevede uno 'sconto' di 25 centesimi al litro. L'associazione di categoria ticinese si dice preoccupata e",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/taglio-alle-accise-mette-sotto-pressione-i-distributori-ticinesi.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "I tagli alle accise stanno mettendo sotto pressione i distributori di carburante in Ticino."
+      },
+      "datePublished": "2026-03-21T07:27:46+00:00",
+      "dateModified": "2026-03-21T07:27:46+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/taglio-alle-accise-mette-sotto-pressione-i-distributori-ticinesi`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

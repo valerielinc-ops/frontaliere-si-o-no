@@ -1502,6 +1502,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.franco-svizzero-a-valori-record-2026.title': 'Le francs suisses à des valeurs records rendent plus riches les frontaliers, mais un annonce peut tout changer',
     'blog.article.franco-svizzero-a-valori-record-2026.excerpt': 'Les francs suisses ont atteint des valeurs records, rendant plus riches les frontaliers, mais l\'annonce de la Banque nationale suisse peut tout changer.',
     'blog.article.franco-svizzero-a-valori-record-2026.imageAlt': 'Le franc suisse fort en valeur rend les travailleurs frontaliers plus riches, mais un annonce de la Banque nationale suisse pourrait everything.',
+    'blog.article.taglio-alle-accise-mette-sotto-pressione-i-distributori-ticinesi.title': 'Le réductions des taxes sur les carburants mettent la pression sur les distributeurs ticinois',
+    'blog.article.taglio-alle-accise-mette-sotto-pressione-i-distributori-ticinesi.excerpt': 'La mesure, décidée à Rome et valable pour 20 jours, prévoit un \'rabais\' de 25 centimes par litre. L\'association de catégorie ticinoise se dit inquiète et demande une intervention politique.',
+    'blog.article.taglio-alle-accise-mette-sotto-pressione-i-distributori-ticinesi.imageAlt': 'Les baisses de taxes sur les carburants mettent sous pression les distributeurs de carburants dans le canton de Tessin, avec le risque d\'une fuite de clients vers la Suisse.',
 };
 
 export default blogMetaFr;

@@ -1502,6 +1502,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.franco-svizzero-a-valori-record-2026.title': 'Il franco svizzero a valori record rende più ricchi i frontalieri, ma un annuncio può cambiare tutto',
     'blog.article.franco-svizzero-a-valori-record-2026.excerpt': 'Il franco svizzero ha raggiunto valori record, rendendo più ricchi i frontalieri, ma l\'annuncio della Banca Nazionale Svizzera potrebbe cambiare tutto.',
     'blog.article.franco-svizzero-a-valori-record-2026.imageAlt': 'Il franco svizzero a valori record sta rendendo più ricchi i frontalieri, ma un annuncio della Banca Nazionale Svizzera potrebbe cambiare tutto.',
+    'blog.article.taglio-alle-accise-mette-sotto-pressione-i-distributori-ticinesi.title': 'Il taglio alle accise mette sotto pressione i distributori ticinesi',
+    'blog.article.taglio-alle-accise-mette-sotto-pressione-i-distributori-ticinesi.excerpt': 'La misura, decisa da Roma e valida per 20 giorni, prevede uno \'sconto\' di 25 centesimi al litro. L\'associazione di categoria ticinese si dice preoccupata e chiede un intervento politico.',
+    'blog.article.taglio-alle-accise-mette-sotto-pressione-i-distributori-ticinesi.imageAlt': 'I tagli alle accise stanno mettendo sotto pressione i distributori di carburante in Ticino.',
 };
 
 export default blogMetaIt;
