@@ -4197,6 +4197,13 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/divieto-cellulari-scuola-ticino.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'violenza-donne-consiglio-europa-ticino',
+    category: 'novita',
+    date: '2026-03-21T15:10:47.926Z',
+    image: '/images/blog/violenza-donne-consiglio-europa-ticino.jpg',
+    hasCalculator: true,
+  },
 ];
 
 const CATEGORIES = ['all', 'fiscale', 'pratico', 'novita', 'pensione'] as const;

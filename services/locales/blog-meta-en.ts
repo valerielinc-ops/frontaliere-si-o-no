@@ -1544,6 +1544,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.divieto-cellulari-scuola-ticino.title': 'Ban on mobile phones in compulsory schools in Ticino',
     'blog.article.divieto-cellulari-scuola-ticino.excerpt': 'From March 30, 2026, Ticino extends the ban on mobile phone use in compulsory schools, involving all educational institutions.',
     'blog.article.divieto-cellulari-scuola-ticino.imageAlt': 'Students in a classroom without cell phones, Ticino school environment.',
+    'blog.article.violenza-donne-consiglio-europa-ticino.title': 'The Council of Europe Assesses Switzerland and Ticino\'s Progress in Combating Violence Against Women',
+    'blog.article.violenza-donne-consiglio-europa-ticino.excerpt': 'On March 11, the Council of Europe monitored Switzerland and Ticino\'s progress in addressing gender-based violence.',
+    'blog.article.violenza-donne-consiglio-europa-ticino.imageAlt': 'Bellinzona with a view of the castle and surrounding mountains.',
 };
 
 export default blogMetaEn;

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-03-21T14:53:54.867Z",
+  "generatedAt": "2026-03-21T15:16:30.307Z",
   "sources": {
     "italy": {
       "provider": "MIMIT Open Data",
@@ -11,7 +11,7 @@
       "provider": "TCS Benzinpreis",
       "providerUrl": "https://benzin.tcs.ch/de/map/SP95",
       "stationCount": 222,
-      "latestObservedUpdate": "2026-03-21T14:32:55.426Z"
+      "latestObservedUpdate": "2026-03-21T15:07:45.301Z"
     },
     "exchangeRate": {
       "provider": "ECB",
@@ -9996,20 +9996,6 @@
             "distanceKm": 19.2
           },
           {
-            "id": "CU8XdIj9j59yePVpcIsv",
-            "name": "Eni - City Carburoil",
-            "brand": "ENI",
-            "address": "Via Pobbia 2, 6514 Sementina",
-            "lat": 46.177170681350034,
-            "lng": 8.997278791234466,
-            "sp95PriceChf": 1.76,
-            "updatedAt": "2026-02-24T16:05:10.163Z",
-            "nearestMunicipality": "Cavargna (CO)",
-            "nearestMunicipalityDistanceKm": 13.1,
-            "sp95PriceEur": 1.935,
-            "distanceKm": 19.9
-          },
-          {
             "id": "lnnnrHnz0t3xfccRYzZe",
             "name": "SOCAR Grono",
             "brand": "SOCAR",
@@ -10050,6 +10036,20 @@
             "nearestMunicipalityDistanceKm": 12.3,
             "sp95PriceEur": 1.99,
             "distanceKm": 18.6
+          },
+          {
+            "id": "cPzjxUql1aHeksaFjXuB",
+            "name": "Garage Ferrari SA",
+            "brand": "UNDEFINED",
+            "address": "Via Lugano 31, Bellinzona",
+            "lat": 46.1859073,
+            "lng": 9.0193456,
+            "sp95PriceChf": 1.84,
+            "updatedAt": "2026-03-20T19:01:41.079Z",
+            "nearestMunicipality": "Cavargna (CO)",
+            "nearestMunicipalityDistanceKm": 12.8,
+            "sp95PriceEur": 2.023,
+            "distanceKm": 18.5
           }
         ],
         "minPriceChf": 1.75,
@@ -18179,7 +18179,7 @@
             "lat": 46.2126984,
             "lng": 9.039422199999999,
             "sp95PriceChf": 1.8900000000000001,
-            "updatedAt": "2026-03-21T12:20:07.861Z",
+            "updatedAt": "2026-03-21T14:58:41.590Z",
             "nearestMunicipality": "Cavargna (CO)",
             "nearestMunicipalityDistanceKm": 14.7,
             "sp95PriceEur": 2.078,

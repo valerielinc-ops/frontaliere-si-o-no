@@ -1651,6 +1651,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-sanita-integrativa-lombardia-ticino': { name: 'Sanità Integrativa', path: '/articoli-frontaliere/sanita-integrativa-lombardia-ticino', parent: 'blog' },
     'blog-fatture-mediche-gonfiate-ticino': { name: 'Fatture Mediche', path: '/articoli-frontaliere/fatture-mediche-gonfiate-ticino', parent: 'blog' },
     'blog-divieto-cellulari-scuola-ticino': { name: 'Divieto Cellulari', path: '/articoli-frontaliere/divieto-cellulari-scuola-ticino', parent: 'blog' },
+    'blog-violenza-donne-consiglio-europa-ticino': { name: 'Violenza Donne', path: '/articoli-frontaliere/violenza-donne-consiglio-europa-ticino', parent: 'blog' },
   };
 
   const info = sectionNames[section];

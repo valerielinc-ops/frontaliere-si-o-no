@@ -8056,6 +8056,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-violenza-donne-consiglio-europa-ticino': {
+    title: 'Il Consiglio d’Europa Valuta i Progressi della Svizzera e del Ticino | Frontaliere Ticino',
+    description: 'Scopri come il Consiglio d’Europa valuta i progressi della Svizzera e del Ticino nella lotta contro la violenza di genere. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, consiglio, europa, valuta, progressi',
+    ogTitle: 'Consiglio d’Europa e Lotta alla Violenza in Ticino',
+    ogDescription: 'Il 11 marzo, il Consiglio d\'Europa ha monitorato i progressi della Svizzera e del Ticino nella lotta alla violenza di genere.',
+    canonicalPath: '/articoli-frontaliere/violenza-donne-consiglio-europa-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Violenza contro le donne, il Consiglio d’Europa valuta i progressi di Svizzera e Ticino",
+      "description": "Scopri come il Consiglio d’Europa valuta i progressi della Svizzera e del Ticino nella lotta contro la violenza di genere. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/violenza-donne-consiglio-europa-ticino.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Bellinzona con vista sul castello e montagne circostanti."
+      },
+      "datePublished": "2026-03-21T15:10:47+00:00",
+      "dateModified": "2026-03-21T15:10:47+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/violenza-donne-consiglio-europa-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

@@ -1544,6 +1544,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.divieto-cellulari-scuola-ticino.title': 'Handyverbot in den obligatorischen Schulen im Tessin',
     'blog.article.divieto-cellulari-scuola-ticino.excerpt': 'Ab dem 30. März 2026 wird im Tessin das Verbot der Nutzung von Handys in den obligatorischen Schulen ausgeweitet, wobei alle Bildungseinrichtungen einbezogen werden.',
     'blog.article.divieto-cellulari-scuola-ticino.imageAlt': 'Schüler in einem Klassenzimmer ohne Handys, Schulumgebung in der Schweiz.',
+    'blog.article.violenza-donne-consiglio-europa-ticino.title': 'Der Europarat bewertet die Fortschritte der Schweiz und des Tessins im Kampf gegen Gewalt gegen Frauen',
+    'blog.article.violenza-donne-consiglio-europa-ticino.excerpt': 'Am 11. März überwachte der Europarat die Fortschritte der Schweiz und des Tessins im Kampf gegen geschlechtsspezifische Gewalt.',
+    'blog.article.violenza-donne-consiglio-europa-ticino.imageAlt': 'Bellinzona mit Blick auf das Schloss und die umliegenden Berge.',
 };
 
 export default blogMetaDe;

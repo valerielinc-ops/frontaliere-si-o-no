@@ -1544,6 +1544,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.divieto-cellulari-scuola-ticino.title': 'Divieto di cellulari nelle scuole dell\'obbligo in Ticino',
     'blog.article.divieto-cellulari-scuola-ticino.excerpt': 'Dal 30 marzo 2026, il Ticino estende il divieto di utilizzo dei cellulari nelle scuole dell\'obbligo, coinvolgendo tutte le istituzioni scolastiche.',
     'blog.article.divieto-cellulari-scuola-ticino.imageAlt': 'Ragazzi in aula senza cellulari, ambiente scolastico Ticino.',
+    'blog.article.violenza-donne-consiglio-europa-ticino.title': 'Il Consiglio d’Europa Valuta i Progressi della Svizzera e del Ticino nella Lotta alla Violenza contro le Donne',
+    'blog.article.violenza-donne-consiglio-europa-ticino.excerpt': 'Il 11 marzo, il Consiglio d\'Europa ha monitorato i progressi della Svizzera e del Ticino nella lotta alla violenza di genere.',
+    'blog.article.violenza-donne-consiglio-europa-ticino.imageAlt': 'Bellinzona con vista sul castello e montagne circostanti.',
 };
 
 export default blogMetaIt;

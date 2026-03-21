@@ -1544,6 +1544,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.divieto-cellulari-scuola-ticino.title': 'Interdiction des téléphones portables dans les écoles obligatoires au Tessin',
     'blog.article.divieto-cellulari-scuola-ticino.excerpt': 'À partir du 30 mars 2026, le Tessin étend l\'interdiction d\'utilisation des téléphones portables dans les écoles obligatoires, touchant toutes les institutions scolaires.',
     'blog.article.divieto-cellulari-scuola-ticino.imageAlt': 'Des élèves dans une salle de classe sans téléphones portables, environnement scolaire en Suisse.',
+    'blog.article.violenza-donne-consiglio-europa-ticino.title': 'Le Conseil de l\'Europe Évalue les Progrès de la Suisse et du Tessin dans la Lutte contre la Violence à l\'Égard des Femmes',
+    'blog.article.violenza-donne-consiglio-europa-ticino.excerpt': 'Le 11 mars, le Conseil de l\'Europe a surveillé les progrès de la Suisse et du Tessin dans la lutte contre la violence de genre.',
+    'blog.article.violenza-donne-consiglio-europa-ticino.imageAlt': 'Bellinzone avec vue sur le château et les montagnes environnantes.',
 };
 
 export default blogMetaFr;
