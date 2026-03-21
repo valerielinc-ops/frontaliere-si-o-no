@@ -1517,6 +1517,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.controllo-affitti-nazionale-ticino.title': 'Loyers élevés : le National rejette le contrôle des loyers',
     'blog.article.controllo-affitti-nazionale-ticino.excerpt': 'Le Conseil national refuse des propositions pour un contrôle accru des loyers, soulevant des inquiétudes concernant la crise du logement.',
     'blog.article.controllo-affitti-nazionale-ticino.imageAlt': 'Vue panoramique de Bellinzona et de ses châteaux.',
+    'blog.article.cioccolato-meno-ma-pagato-di-piu.title': 'Chocolat en Suisse : moins de consommation mais des prix en hausse',
+    'blog.article.cioccolato-meno-ma-pagato-di-piu.excerpt': 'En 2025, la consommation de chocolat en Suisse a diminué, mais le chiffre d\'affaires a augmenté de 11,8 %, avec une forte pression sur les coûts.',
+    'blog.article.cioccolato-meno-ma-pagato-di-piu.imageAlt': 'Vue du lac de Lugano avec des boutiques de chocolat.',
 };
 
 export default blogMetaFr;

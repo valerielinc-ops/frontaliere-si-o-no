@@ -4134,6 +4134,13 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/controllo-affitti-nazionale-ticino.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'cioccolato-meno-ma-pagato-di-piu',
+    category: 'novita',
+    date: '2026-03-21T09:45:15.892Z',
+    image: '/images/blog/cioccolato-meno-ma-pagato-di-piu.jpg',
+    hasCalculator: true,
+  },
 ];
 
 const CATEGORIES = ['all', 'fiscale', 'pratico', 'novita', 'pensione'] as const;

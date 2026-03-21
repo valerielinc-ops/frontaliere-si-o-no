@@ -1517,6 +1517,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.controllo-affitti-nazionale-ticino.title': 'Caro affitti: il Nazionale respinge il controllo delle pigioni',
     'blog.article.controllo-affitti-nazionale-ticino.excerpt': 'Il Consiglio nazionale rifiuta proposte per un maggiore controllo sugli affitti, sollevando preoccupazioni per la crisi abitativa.',
     'blog.article.controllo-affitti-nazionale-ticino.imageAlt': 'Vista panoramica di Bellinzona e dei suoi castelli.',
+    'blog.article.cioccolato-meno-ma-pagato-di-piu.title': 'Cioccolato in Svizzera: meno consumo ma prezzi in aumento',
+    'blog.article.cioccolato-meno-ma-pagato-di-piu.excerpt': 'Nel 2025 il consumo di cioccolato in Svizzera è calato, ma il fatturato è cresciuto del 11,8%, con una forte pressione sui costi.',
+    'blog.article.cioccolato-meno-ma-pagato-di-piu.imageAlt': 'Vista del Lago di Lugano con negozi di cioccolato.',
 };
 
 export default blogMetaIt;

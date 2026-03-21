@@ -7795,6 +7795,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-cioccolato-meno-ma-pagato-di-piu': {
+    title: 'Cioccolato in Svizzera: meno consumo ma prezzi in aumento | Frontaliere Ticino',
+    description: 'Nel 2025 il consumo di cioccolato in Svizzera è calato, ma il fatturato è cresciuto del 11,8%, con una forte pressione sui costi. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, cioccolato, meno, consumo, prezzi',
+    ogTitle: 'Cioccolato in Svizzera: meno consumo ma prezzi in aumento',
+    ogDescription: 'Nel 2025 il consumo di cioccolato in Svizzera è calato, ma il fatturato è cresciuto del 11,8%, con una forte pressione sui costi.',
+    canonicalPath: '/articoli-frontaliere/cioccolato-meno-ma-pagato-di-piu',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Cioccolato in Svizzera: meno consumo ma prezzi in aumento",
+      "description": "Nel 2025 il consumo di cioccolato in Svizzera è calato, ma il fatturato è cresciuto del 11,8%, con una forte pressione sui costi. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/cioccolato-meno-ma-pagato-di-piu.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Vista del Lago di Lugano con negozi di cioccolato."
+      },
+      "datePublished": "2026-03-21T09:45:15+00:00",
+      "dateModified": "2026-03-21T09:45:15+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/cioccolato-meno-ma-pagato-di-piu`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

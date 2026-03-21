@@ -3049,7 +3049,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
         "@context": "https://schema.org",
         "@type": "ItemList",
         "name": "Articoli Frontaliere",
-        "numberOfItems": 496,
+        "numberOfItems": 497,
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
           { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -3546,7 +3546,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 493, "name": "L'industria farmaceutica: per essere competitiv...", "url": `${BASE_URL}/articoli-frontaliere/farmaci-competitiva-europa` },
           { "@type": "ListItem", "position": 494, "name": "Sette ispezioni in cantieri del Mendrisiotto: 6...", "url": `${BASE_URL}/articoli-frontaliere/controlli-cantieri-mendrisiotto-2026` },
           { "@type": "ListItem", "position": 495, "name": "BYD si espande in Ticino: 50 concessionari entr...", "url": `${BASE_URL}/articoli-frontaliere/byd-expansion-ticino-2026` },
-          { "@type": "ListItem", "position": 496, "name": "Caro affitti: il Nazionale respinge il controll...", "url": `${BASE_URL}/articoli-frontaliere/controllo-affitti-nazionale-ticino` }
+          { "@type": "ListItem", "position": 496, "name": "Caro affitti: il Nazionale respinge il controll...", "url": `${BASE_URL}/articoli-frontaliere/controllo-affitti-nazionale-ticino` },
+          { "@type": "ListItem", "position": 497, "name": "Cioccolato in Svizzera: meno consumo ma prezzi ...", "url": `${BASE_URL}/articoli-frontaliere/cioccolato-meno-ma-pagato-di-piu` }
         ]
       }
     ]

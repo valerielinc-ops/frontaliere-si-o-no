@@ -1517,6 +1517,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.controllo-affitti-nazionale-ticino.title': 'High Rents: National Council Rejects Rent Control',
     'blog.article.controllo-affitti-nazionale-ticino.excerpt': 'The National Council rejects proposals for greater control over rents, raising concerns about the housing crisis.',
     'blog.article.controllo-affitti-nazionale-ticino.imageAlt': 'Panoramic view of Bellinzona and its castles.',
+    'blog.article.cioccolato-meno-ma-pagato-di-piu.title': 'Chocolate in Switzerland: Decreased Consumption but Rising Prices',
+    'blog.article.cioccolato-meno-ma-pagato-di-piu.excerpt': 'In 2025, chocolate consumption in Switzerland declined, but revenue grew by 11.8%, amid significant cost pressures.',
+    'blog.article.cioccolato-meno-ma-pagato-di-piu.imageAlt': 'View of Lake Lugano with chocolate shops.',
 };
 
 export default blogMetaEn;

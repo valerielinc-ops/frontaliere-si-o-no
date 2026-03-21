@@ -1517,6 +1517,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.controllo-affitti-nazionale-ticino.title': 'Hohe Mieten: Nationalrat lehnt Mietkontrolle ab',
     'blog.article.controllo-affitti-nazionale-ticino.excerpt': 'Der Nationalrat lehnt Vorschläge für eine stärkere Kontrolle der Mieten ab und äußert Bedenken hinsichtlich der Wohnkrise.',
     'blog.article.controllo-affitti-nazionale-ticino.imageAlt': 'Panoramablick auf Bellinzona und seine Burgen.',
+    'blog.article.cioccolato-meno-ma-pagato-di-piu.title': 'Schokolade in der Schweiz: Weniger Verbrauch, aber steigende Preise',
+    'blog.article.cioccolato-meno-ma-pagato-di-piu.excerpt': 'Im Jahr 2025 ist der Schokoladenverbrauch in der Schweiz gesunken, doch der Umsatz ist um 11,8% gestiegen, was zu einem starken Kostendruck führt.',
+    'blog.article.cioccolato-meno-ma-pagato-di-piu.imageAlt': 'Blick auf den Luganersee mit Schokoladengeschäften.',
 };
 
 export default blogMetaDe;

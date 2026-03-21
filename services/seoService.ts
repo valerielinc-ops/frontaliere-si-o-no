@@ -1642,6 +1642,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-controlli-cantieri-mendrisiotto-2026': { name: 'Controlli Cantieri', path: '/articoli-frontaliere/controlli-cantieri-mendrisiotto-2026', parent: 'blog' },
     'blog-byd-expansion-ticino-2026': { name: 'BYD si espande in Ticino', path: '/articoli-frontaliere/byd-expansion-ticino-2026', parent: 'blog' },
     'blog-controllo-affitti-nazionale-ticino': { name: 'Caro affitti', path: '/articoli-frontaliere/controllo-affitti-nazionale-ticino', parent: 'blog' },
+    'blog-cioccolato-meno-ma-pagato-di-piu': { name: 'Cioccolato in Svizzera', path: '/articoli-frontaliere/cioccolato-meno-ma-pagato-di-piu', parent: 'blog' },
   };
 
   const info = sectionNames[section];
