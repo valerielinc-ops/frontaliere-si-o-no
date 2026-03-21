@@ -1,6 +1,6 @@
 {
   "crawlerKey": "pemsa",
-  "assembledAt": "2026-03-21T05:25:41.376Z",
+  "assembledAt": "2026-03-21T06:30:03.965Z",
   "jobs": [
     {
       "title": "Installatore Idraulico Imp. Sanitari",
@@ -2572,61 +2572,6 @@
         "en": "mason-carpenter-pemsa-bellinzona",
         "de": "maurer-zimmerer-pemsa-bellinzona",
         "fr": "macon-charpentier-pemsa-bellinzona"
-      },
-      "salaryMin": 58000,
-      "salaryMax": 78000,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 58000,
-          "maxValue": 78000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "title": "Meccanico di mezzi pesanti",
-      "slug": "meccanico-di-mezzi-graviti-pemsa-bellinzona",
-      "url": "https://www.pemsa.ch/it/job/meccanico-di-mezzi-pesanti-2665809/",
-      "applyUrl": "https://www.pemsa.ch/it/job/meccanico-di-mezzi-pesanti-2665809/",
-      "company": "PEMSA",
-      "companyKey": "pemsa",
-      "companyDomain": "pemsa.ch",
-      "location": "Bellinzona",
-      "addressLocality": "Bellinzona",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "meccanica",
-      "sector": "Edilizia e tecnica",
-      "source": "pemsa-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-03-16",
-      "employmentType": "full-time",
-      "contractType": "temporary",
-      "validThrough": "2026-05-31",
-      "description": "Vuoi la libertà di un lavoro temporaneo e la sicurezza di uno permanente? Da 30 anni, assistiamo centinaia di aziende nei settori tecnici dell'edilizia, delle costruzioni e dell'industria in tutta la Svizzera, offrendo loro i migliori talenti. Non ti mentiremo, ma siamo esigenti. Quindi, se sei una persona motivata ed entusiasta, si unisciti al clan per la posizione di Meccanico di mezzi pesanti\n\n## Missione :\n- Assunzione temporanea tramite agenzia in vista di un’assunzione a tempo indeterminato\n- Conoscenza delle parti meccaniche, elettroniche e idrauliche\n- Esperienza in svizzera\n\n## Profilo :\n- Molti anni di esperienza nel settore della meccanica dei mezzi pesanti\n- Eseguire le riparazioni di routine e sostituire le parti difettose\n- Ottimo uso degli attrezzi di lavoro",
-      "titleByLocale": {
-        "fr": "Meccanico di mezzi pesanti",
-        "it": "Meccanico di mezzi graviti",
-        "en": "",
-        "de": ""
-      },
-      "descriptionByLocale": {
-        "it": "Vuoi la libertà di un lavoro temporaneo e la sicurezza di uno permanente? Da 30 anni, assistiamo centinaia di aziende nei settori tecnici dell'edilizia, delle costruzioni e dell'industria in tutta la Svizzera, offrendo loro i migliori talenti. Non ti mentiremo, ma siamo esigenti. Quindi, se sei una persona motivata ed entusiasta, si unisciti al clan per la posizione di Meccanico di mezzi pesanti\n\n## Missione :\n- Assunzione temporanea tramite agenzia in vista di un’assunzione a tempo indeterminato\n- Conoscenza delle parti meccaniche, elettroniche e idrauliche\n- Esperienza in svizzera\n\n## Profilo :\n- Molti anni di esperienza nel settore della meccanica dei mezzi pesanti\n- Eseguire le riparazioni di routine e sostituire le parti difettose\n- Ottimo uso degli attrezzi di lavoro",
-        "en": "PEMSA, a staffing agency specialised in construction and technical trades, is looking for a Meccanico di mezzi pesanti in Bellinzona. PEMSA ensures optimal working conditions and professional support. Apply through the official portal.",
-        "de": "PEMSA, eine auf Bau und Technik spezialisierte Personalvermittlung, sucht ein Profil als Meccanico di mezzi pesanti in Bellinzona. PEMSA gewährleistet optimale Arbeitsbedingungen und professionelle Unterstützung. Bewirb dich über das offizielle Portal.",
-        "fr": "PEMSA, agence de recrutement spécialisée dans le bâtiment et la technique, recherche un profil Meccanico di mezzi pesanti à Bellinzona. PEMSA garantit des conditions de travail optimales et un accompagnement professionnel. Postulez via le portail officiel."
-      },
-      "slugByLocale": {
-        "it": "meccanico-di-mezzi-graviti-pemsa-bellinzona",
-        "en": "meccanico-di-mezzi-pesanti-pemsa-bellinzona",
-        "de": "meccanico-di-mezzi-pesanti-pemsa-bellinzona",
-        "fr": "meccanico-di-mezzi-pesanti-pemsa-bellinzona"
       },
       "salaryMin": 58000,
       "salaryMax": 78000,
