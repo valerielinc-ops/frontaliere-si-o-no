@@ -8114,6 +8114,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-funivia-monteviasco-orari-corsi': {
+    title: 'Funivia di Monteviasco: nuovi orari e più corse per una mobilità | Frontaliere Ticino',
+    description: 'La funivia di Monteviasco amplia il servizio a sei giorni su sette, offrendo un collegamento affidabile tra Ponte di Piero e la frazione montana. Scopri gli',
+    keywords: 'frontalieri, ticino, svizzera, italia, funivia, monteviasco, nuovi, orari',
+    ogTitle: 'Funivia di Monteviasco: nuovi orari e più corse',
+    ogDescription: 'La funivia di Monteviasco amplia il servizio, offrendo un collegamento affidabile tra Ponte di Piero e la frazione montana. Scopri gli orari e i vantaggi per',
+    canonicalPath: '/articoli-frontaliere/funivia-monteviasco-orari-corsi',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Funivia di Monteviasco: nuovi orari e più corse per una mobilità potenziata",
+      "description": "La funivia di Monteviasco amplia il servizio a sei giorni su sette, offrendo un collegamento affidabile tra Ponte di Piero e la frazione montana. Scopri gli",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/funivia-monteviasco-orari-corsi.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Funivia di Monteviasco che attraversa la Val Veddasca, offrendo viste panoramiche sulle Alpi."
+      },
+      "datePublished": "2026-03-21T16:13:56+00:00",
+      "dateModified": "2026-03-21T16:13:56+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/funivia-monteviasco-orari-corsi`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

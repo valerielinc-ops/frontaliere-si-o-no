@@ -1653,6 +1653,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-divieto-cellulari-scuola-ticino': { name: 'Divieto Cellulari', path: '/articoli-frontaliere/divieto-cellulari-scuola-ticino', parent: 'blog' },
     'blog-violenza-donne-consiglio-europa-ticino': { name: 'Violenza Donne', path: '/articoli-frontaliere/violenza-donne-consiglio-europa-ticino', parent: 'blog' },
     'blog-trojani-capo-servizi-esercito-ticino': { name: 'Esercito', path: '/articoli-frontaliere/trojani-capo-servizi-esercito-ticino', parent: 'blog' },
+    'blog-funivia-monteviasco-orari-corsi': { name: 'Funivia Monteviasco', path: '/articoli-frontaliere/funivia-monteviasco-orari-corsi', parent: 'blog' },
   };
 
   const info = sectionNames[section];

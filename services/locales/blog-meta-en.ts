@@ -1550,6 +1550,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.trojani-capo-servizi-esercito-ticino.title': 'A Ticino native to head two important military services',
     'blog.article.trojani-capo-servizi-esercito-ticino.excerpt': 'Colonel SMG Stefano Trojani will take over as head of the Military Intelligence Service and the Preventive Protection Service of the army as of June 1, 2026.',
     'blog.article.trojani-capo-servizi-esercito-ticino.imageAlt': 'Colonel Stefano Trojani',
+    'blog.article.funivia-monteviasco-orari-corsi.title': 'Monteviasco Cable Car: New Schedules and More Trips for Enhanced Mobility',
+    'blog.article.funivia-monteviasco-orari-corsi.excerpt': 'The Monteviasco cable car expands its service to six days a week, providing a reliable connection between Ponte di Piero and the mountain village. Discover the schedules and benefits for residents and tourists.',
+    'blog.article.funivia-monteviasco-orari-corsi.imageAlt': 'Monteviasco Cable Car traversing the Val Veddasca, offering panoramic views of the Alps.',
 };
 
 export default blogMetaEn;

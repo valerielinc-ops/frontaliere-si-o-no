@@ -1550,6 +1550,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.trojani-capo-servizi-esercito-ticino.title': 'Un ticinese a capo di due importanti servizi dell\'esercito',
     'blog.article.trojani-capo-servizi-esercito-ticino.excerpt': 'Il colonnello SMG Stefano Trojani assumerà il comando del Servizio informazioni militare e del Servizio di protezione preventiva dell\'esercito dal 1° giugno 2026.',
     'blog.article.trojani-capo-servizi-esercito-ticino.imageAlt': 'Il colonnello SMG Stefano Trojani',
+    'blog.article.funivia-monteviasco-orari-corsi.title': 'Funivia di Monteviasco: nuovi orari e più corse per una mobilità potenziata',
+    'blog.article.funivia-monteviasco-orari-corsi.excerpt': 'La funivia di Monteviasco amplia il servizio a sei giorni su sette, offrendo un collegamento affidabile tra Ponte di Piero e la frazione montana. Scopri gli orari e i vantaggi per residenti e turisti.',
+    'blog.article.funivia-monteviasco-orari-corsi.imageAlt': 'Funivia di Monteviasco che attraversa la Val Veddasca, offrendo viste panoramiche sulle Alpi.',
 };
 
 export default blogMetaIt;

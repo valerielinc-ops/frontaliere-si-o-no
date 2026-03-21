@@ -4211,6 +4211,13 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/trojani-capo-servizi-esercito-ticino.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'funivia-monteviasco-orari-corsi',
+    category: 'pratico',
+    date: '2026-03-21T16:13:56.502Z',
+    image: '/images/blog/funivia-monteviasco-orari-corsi.jpg',
+    hasCalculator: true,
+  },
 ];
 
 const CATEGORIES = ['all', 'fiscale', 'pratico', 'novita', 'pensione'] as const;

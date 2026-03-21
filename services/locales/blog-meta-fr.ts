@@ -1550,6 +1550,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.trojani-capo-servizi-esercito-ticino.title': 'Un Tessinese à la tête de deux importants services de l\'armée',
     'blog.article.trojani-capo-servizi-esercito-ticino.excerpt': 'Le colonel SMG Stefano Trojani assumera le commandement du Service de renseignements militaires et du Service de protection préventive de l\'armée à partir du 1er juin 2026.',
     'blog.article.trojani-capo-servizi-esercito-ticino.imageAlt': 'Colonel Stefano Trojani',
+    'blog.article.funivia-monteviasco-orari-corsi.title': 'Téléphérique de Monteviasco : nouveaux horaires et plus de rotations pour une mobilité renforcée',
+    'blog.article.funivia-monteviasco-orari-corsi.excerpt': 'Le téléphérique de Monteviasco étend son service à six jours sur sept, offrant une liaison fiable entre Ponte di Piero et la fraction de montagne. Découvrez les horaires et les avantages pour les résidents et les touristes.',
+    'blog.article.funivia-monteviasco-orari-corsi.imageAlt': 'La télécabine de Monteviasco traverse la Val Veddasca, offrant une vue panoramique sur les Alpes.',
 };
 
 export default blogMetaFr;

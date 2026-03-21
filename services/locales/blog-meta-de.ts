@@ -1550,6 +1550,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.trojani-capo-servizi-esercito-ticino.title': 'Ein Tessiner an der Spitze von zwei wichtigen Militärdiensten',
     'blog.article.trojani-capo-servizi-esercito-ticino.excerpt': 'Oberstleutnant Stefano Trojani wird ab dem 1. Juni 2026 die Führung des Militärischen Nachrichtendienstes und des Dienstes für präventiven Schutz des Schweizerischen Militärs übernehmen.',
     'blog.article.trojani-capo-servizi-esercito-ticino.imageAlt': 'Oberst Stefano Trojani',
+    'blog.article.funivia-monteviasco-orari-corsi.title': 'Monteviasco Seilbahn: neue Fahrzeiten und mehr Fahrten für verbesserte Mobilität',
+    'blog.article.funivia-monteviasco-orari-corsi.excerpt': 'Die Monteviasco Seilbahn erweitert den Betrieb auf sechs Tage pro Woche und bietet eine verlässliche Verbindung zwischen Ponte di Piero und dem Bergdorf. Entdecken Sie die Fahrzeiten und Vorteile für Einwohner und Touristen.',
+    'blog.article.funivia-monteviasco-orari-corsi.imageAlt': 'Die Monteviasco Seilbahn überquert die Val Veddasca und bietet einen Panoramablick auf die Alpen.',
 };
 
 export default blogMetaDe;
