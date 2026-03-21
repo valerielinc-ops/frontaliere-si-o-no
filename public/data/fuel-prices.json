@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-03-21T08:08:08.038Z",
+  "generatedAt": "2026-03-21T08:53:41.544Z",
   "sources": {
     "italy": {
       "provider": "MIMIT Open Data",
@@ -10,8 +10,8 @@
     "switzerland": {
       "provider": "TCS Benzinpreis",
       "providerUrl": "https://benzin.tcs.ch/de/map/SP95",
-      "stationCount": 219,
-      "latestObservedUpdate": "2026-03-21T08:03:45.800Z"
+      "stationCount": 220,
+      "latestObservedUpdate": "2026-03-21T08:10:13.884Z"
     },
     "exchangeRate": {
       "provider": "ECB",
@@ -1421,7 +1421,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 42,
+        "optionCount": 43,
         "cheapestStation": {
           "id": "2iMRCPqDCHHpLcBX8dCN",
           "name": "Agrola Melano",
@@ -1651,7 +1651,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 90,
+        "optionCount": 91,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -2188,7 +2188,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 78,
+        "optionCount": 79,
         "cheapestStation": {
           "id": "ahxEtrinnrLWGsZ2laVB",
           "name": "SOCAR / Piccadilly Gandria",
@@ -3140,7 +3140,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 62,
+        "optionCount": 63,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -3255,7 +3255,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 81,
+        "optionCount": 82,
         "cheapestStation": {
           "id": "ahxEtrinnrLWGsZ2laVB",
           "name": "SOCAR / Piccadilly Gandria",
@@ -4519,7 +4519,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 90,
+        "optionCount": 91,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -6585,7 +6585,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 84,
+        "optionCount": 85,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -6700,7 +6700,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 80,
+        "optionCount": 81,
         "cheapestStation": {
           "id": "ahxEtrinnrLWGsZ2laVB",
           "name": "SOCAR / Piccadilly Gandria",
@@ -7237,7 +7237,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 102,
+        "optionCount": 103,
         "cheapestStation": {
           "id": "ahxEtrinnrLWGsZ2laVB",
           "name": "SOCAR / Piccadilly Gandria",
@@ -8370,7 +8370,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 80,
+        "optionCount": 81,
         "cheapestStation": {
           "id": "ahxEtrinnrLWGsZ2laVB",
           "name": "SOCAR / Piccadilly Gandria",
@@ -11095,7 +11095,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 88,
+        "optionCount": 89,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -15502,7 +15502,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 79,
+        "optionCount": 80,
         "cheapestStation": {
           "id": "ahxEtrinnrLWGsZ2laVB",
           "name": "SOCAR / Piccadilly Gandria",
@@ -15833,7 +15833,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 85,
+        "optionCount": 86,
         "cheapestStation": {
           "id": "ahxEtrinnrLWGsZ2laVB",
           "name": "SOCAR / Piccadilly Gandria",
@@ -16085,7 +16085,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 92,
+        "optionCount": 93,
         "cheapestStation": {
           "id": "ahxEtrinnrLWGsZ2laVB",
           "name": "SOCAR / Piccadilly Gandria",
@@ -16158,18 +16158,18 @@
             "distanceKm": 12.5
           },
           {
-            "id": "Xxm88IaKZlgaLjKp4rVa",
-            "name": "TAMOIL Sorengo",
-            "brand": "TAMOIL",
-            "address": "Paradiso 22, 6924 Sorengo",
-            "lat": 45.99666,
-            "lng": 8.938646,
-            "sp95PriceChf": 1.67,
-            "updatedAt": "2026-03-01T11:04:19.197Z",
-            "nearestMunicipality": "Campione d'Italia (CO)",
-            "nearestMunicipalityDistanceKm": 4,
-            "sp95PriceEur": 1.836,
-            "distanceKm": 14.6
+            "id": "VW0cjs2jCw25mkNyuE9t",
+            "name": "Texon Service",
+            "brand": "UNDEFINED",
+            "address": "Via Cantonale 50, 6987 Caslano",
+            "lat": 45.97858351864336,
+            "lng": 8.87647837854075,
+            "sp95PriceChf": 1.6600000000000001,
+            "updatedAt": "2026-03-21T08:10:13.884Z",
+            "nearestMunicipality": "Brusimpiano (VA)",
+            "nearestMunicipalityDistanceKm": 2.1,
+            "sp95PriceEur": 1.825,
+            "distanceKm": 19.7
           }
         ],
         "minPriceChf": 1.63,
@@ -16545,7 +16545,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 53,
+        "optionCount": 54,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -16660,7 +16660,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 57,
+        "optionCount": 58,
         "cheapestStation": {
           "id": "ahxEtrinnrLWGsZ2laVB",
           "name": "SOCAR / Piccadilly Gandria",
@@ -17500,7 +17500,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 80,
+        "optionCount": 81,
         "cheapestStation": {
           "id": "ahxEtrinnrLWGsZ2laVB",
           "name": "SOCAR / Piccadilly Gandria",
@@ -17763,7 +17763,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 34,
+        "optionCount": 35,
         "cheapestStation": {
           "id": "2iMRCPqDCHHpLcBX8dCN",
           "name": "Agrola Melano",
@@ -18888,7 +18888,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 52,
+        "optionCount": 53,
         "cheapestStation": {
           "id": "2iMRCPqDCHHpLcBX8dCN",
           "name": "Agrola Melano",
@@ -19149,7 +19149,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 49,
+        "optionCount": 50,
         "cheapestStation": {
           "id": "2iMRCPqDCHHpLcBX8dCN",
           "name": "Agrola Melano",
@@ -19264,7 +19264,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 106,
+        "optionCount": 107,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -20168,7 +20168,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 101,
+        "optionCount": 102,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -20411,7 +20411,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 74,
+        "optionCount": 75,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -20749,7 +20749,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 13,
+        "optionCount": 14,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -20822,18 +20822,18 @@
             "distanceKm": 15.6
           },
           {
-            "id": "g1Ewt2bs9nFFxymi7tYL",
-            "name": "TAMOIL Stabio",
-            "brand": "TAMOIL",
-            "address": "Giulia 47, 6855 Stabio",
-            "lat": 45.848008,
-            "lng": 8.935833,
-            "sp95PriceChf": 1.72,
-            "updatedAt": "2026-03-07T18:03:01.884Z",
-            "nearestMunicipality": "Bizzarone (CO)",
-            "nearestMunicipalityDistanceKm": 1.6,
-            "sp95PriceEur": 1.891,
-            "distanceKm": 18
+            "id": "VW0cjs2jCw25mkNyuE9t",
+            "name": "Texon Service",
+            "brand": "UNDEFINED",
+            "address": "Via Cantonale 50, 6987 Caslano",
+            "lat": 45.97858351864336,
+            "lng": 8.87647837854075,
+            "sp95PriceChf": 1.6600000000000001,
+            "updatedAt": "2026-03-21T08:10:13.884Z",
+            "nearestMunicipality": "Brusimpiano (VA)",
+            "nearestMunicipalityDistanceKm": 2.1,
+            "sp95PriceEur": 1.825,
+            "distanceKm": 16.6
           }
         ],
         "minPriceChf": 1.61,
@@ -20886,7 +20886,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 24,
+        "optionCount": 25,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -21093,7 +21093,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 69,
+        "optionCount": 70,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -21208,7 +21208,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 81,
+        "optionCount": 82,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -21541,7 +21541,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 77,
+        "optionCount": 78,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -21912,7 +21912,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 9,
+        "optionCount": 10,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -21985,18 +21985,18 @@
             "distanceKm": 16.6
           },
           {
-            "id": "TyVGrppSLdVuEl3mGLQi",
-            "name": "Eni",
-            "brand": "ENI",
-            "address": "Via Cantonale 36, 6987 Caslano",
-            "lat": 45.97394481908457,
-            "lng": 8.869804789687063,
-            "sp95PriceChf": 1.73,
-            "updatedAt": "2026-03-16T09:08:20.313Z",
-            "nearestMunicipality": "Lavena Ponte Tresa (VA)",
-            "nearestMunicipalityDistanceKm": 1.6,
-            "sp95PriceEur": 1.902,
-            "distanceKm": 16.9
+            "id": "VW0cjs2jCw25mkNyuE9t",
+            "name": "Texon Service",
+            "brand": "UNDEFINED",
+            "address": "Via Cantonale 50, 6987 Caslano",
+            "lat": 45.97858351864336,
+            "lng": 8.87647837854075,
+            "sp95PriceChf": 1.6600000000000001,
+            "updatedAt": "2026-03-21T08:10:13.884Z",
+            "nearestMunicipality": "Brusimpiano (VA)",
+            "nearestMunicipalityDistanceKm": 2.1,
+            "sp95PriceEur": 1.825,
+            "distanceKm": 17.6
           }
         ],
         "minPriceChf": 1.61,
@@ -22027,7 +22027,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 52,
+        "optionCount": 53,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -22100,18 +22100,18 @@
             "distanceKm": 11.5
           },
           {
-            "id": "Xxm88IaKZlgaLjKp4rVa",
-            "name": "TAMOIL Sorengo",
-            "brand": "TAMOIL",
-            "address": "Paradiso 22, 6924 Sorengo",
-            "lat": 45.99666,
-            "lng": 8.938646,
-            "sp95PriceChf": 1.67,
-            "updatedAt": "2026-03-01T11:04:19.197Z",
-            "nearestMunicipality": "Campione d'Italia (CO)",
-            "nearestMunicipalityDistanceKm": 4,
-            "sp95PriceEur": 1.836,
-            "distanceKm": 17.1
+            "id": "VW0cjs2jCw25mkNyuE9t",
+            "name": "Texon Service",
+            "brand": "UNDEFINED",
+            "address": "Via Cantonale 50, 6987 Caslano",
+            "lat": 45.97858351864336,
+            "lng": 8.87647837854075,
+            "sp95PriceChf": 1.6600000000000001,
+            "updatedAt": "2026-03-21T08:10:13.884Z",
+            "nearestMunicipality": "Brusimpiano (VA)",
+            "nearestMunicipalityDistanceKm": 2.1,
+            "sp95PriceEur": 1.825,
+            "distanceKm": 12.2
           }
         ],
         "minPriceChf": 1.61,
@@ -22175,7 +22175,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 73,
+        "optionCount": 74,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -22290,7 +22290,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 63,
+        "optionCount": 64,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -22520,7 +22520,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 90,
+        "optionCount": 91,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -22794,7 +22794,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 79,
+        "optionCount": 80,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -23112,7 +23112,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 52,
+        "optionCount": 53,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -23683,7 +23683,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 26,
+        "optionCount": 27,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -23756,18 +23756,18 @@
             "distanceKm": 14.6
           },
           {
-            "id": "ijc3YeBOHGIWQdqfuZPt",
-            "name": "Migrol Service",
-            "brand": "MIGROL",
-            "address": "Strada Regina 10, 6934 Bioggio",
-            "lat": 46.01259,
-            "lng": 8.90711,
-            "sp95PriceChf": 1.67,
-            "updatedAt": "2026-02-21T12:39:14.037Z",
+            "id": "VW0cjs2jCw25mkNyuE9t",
+            "name": "Texon Service",
+            "brand": "UNDEFINED",
+            "address": "Via Cantonale 50, 6987 Caslano",
+            "lat": 45.97858351864336,
+            "lng": 8.87647837854075,
+            "sp95PriceChf": 1.6600000000000001,
+            "updatedAt": "2026-03-21T08:10:13.884Z",
             "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 6.3,
-            "sp95PriceEur": 1.836,
-            "distanceKm": 19.6
+            "nearestMunicipalityDistanceKm": 2.1,
+            "sp95PriceEur": 1.825,
+            "distanceKm": 15.5
           }
         ],
         "minPriceChf": 1.61,
@@ -23798,7 +23798,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 42,
+        "optionCount": 43,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -24032,7 +24032,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 65,
+        "optionCount": 66,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -24147,7 +24147,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 52,
+        "optionCount": 53,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -24410,7 +24410,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 15,
+        "optionCount": 16,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -24483,18 +24483,18 @@
             "distanceKm": 15.5
           },
           {
-            "id": "ijc3YeBOHGIWQdqfuZPt",
-            "name": "Migrol Service",
-            "brand": "MIGROL",
-            "address": "Strada Regina 10, 6934 Bioggio",
-            "lat": 46.01259,
-            "lng": 8.90711,
-            "sp95PriceChf": 1.67,
-            "updatedAt": "2026-02-21T12:39:14.037Z",
+            "id": "VW0cjs2jCw25mkNyuE9t",
+            "name": "Texon Service",
+            "brand": "UNDEFINED",
+            "address": "Via Cantonale 50, 6987 Caslano",
+            "lat": 45.97858351864336,
+            "lng": 8.87647837854075,
+            "sp95PriceChf": 1.6600000000000001,
+            "updatedAt": "2026-03-21T08:10:13.884Z",
             "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 6.3,
-            "sp95PriceEur": 1.836,
-            "distanceKm": 19.6
+            "nearestMunicipalityDistanceKm": 2.1,
+            "sp95PriceEur": 1.825,
+            "distanceKm": 16.3
           }
         ],
         "minPriceChf": 1.61,
@@ -25188,7 +25188,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 5,
+        "optionCount": 6,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -25261,18 +25261,18 @@
             "distanceKm": 18.2
           },
           {
-            "id": "TyVGrppSLdVuEl3mGLQi",
-            "name": "Eni",
-            "brand": "ENI",
-            "address": "Via Cantonale 36, 6987 Caslano",
-            "lat": 45.97394481908457,
-            "lng": 8.869804789687063,
-            "sp95PriceChf": 1.73,
-            "updatedAt": "2026-03-16T09:08:20.313Z",
-            "nearestMunicipality": "Lavena Ponte Tresa (VA)",
-            "nearestMunicipalityDistanceKm": 1.6,
-            "sp95PriceEur": 1.902,
-            "distanceKm": 18.5
+            "id": "VW0cjs2jCw25mkNyuE9t",
+            "name": "Texon Service",
+            "brand": "UNDEFINED",
+            "address": "Via Cantonale 50, 6987 Caslano",
+            "lat": 45.97858351864336,
+            "lng": 8.87647837854075,
+            "sp95PriceChf": 1.6600000000000001,
+            "updatedAt": "2026-03-21T08:10:13.884Z",
+            "nearestMunicipality": "Brusimpiano (VA)",
+            "nearestMunicipalityDistanceKm": 2.1,
+            "sp95PriceEur": 1.825,
+            "distanceKm": 19.2
           }
         ],
         "minPriceChf": 1.61,
@@ -25303,7 +25303,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 77,
+        "optionCount": 78,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -25473,7 +25473,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 7,
+        "optionCount": 8,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -25546,18 +25546,18 @@
             "distanceKm": 17.9
           },
           {
-            "id": "g1Ewt2bs9nFFxymi7tYL",
-            "name": "TAMOIL Stabio",
-            "brand": "TAMOIL",
-            "address": "Giulia 47, 6855 Stabio",
-            "lat": 45.848008,
-            "lng": 8.935833,
-            "sp95PriceChf": 1.72,
-            "updatedAt": "2026-03-07T18:03:01.884Z",
-            "nearestMunicipality": "Bizzarone (CO)",
-            "nearestMunicipalityDistanceKm": 1.6,
-            "sp95PriceEur": 1.891,
-            "distanceKm": 18.7
+            "id": "VW0cjs2jCw25mkNyuE9t",
+            "name": "Texon Service",
+            "brand": "UNDEFINED",
+            "address": "Via Cantonale 50, 6987 Caslano",
+            "lat": 45.97858351864336,
+            "lng": 8.87647837854075,
+            "sp95PriceChf": 1.6600000000000001,
+            "updatedAt": "2026-03-21T08:10:13.884Z",
+            "nearestMunicipality": "Brusimpiano (VA)",
+            "nearestMunicipalityDistanceKm": 2.1,
+            "sp95PriceEur": 1.825,
+            "distanceKm": 19
           }
         ],
         "minPriceChf": 1.61,
@@ -25707,7 +25707,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 18,
+        "optionCount": 19,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -25780,18 +25780,18 @@
             "distanceKm": 17.4
           },
           {
-            "id": "BuLqgLtrkWKZWPB1oaHr",
-            "name": "BP Unbemannte Station Genestrerio",
-            "brand": "BP",
-            "address": "Via Adorna, 6852 Genestrerio",
-            "lat": 45.85708,
-            "lng": 8.96782,
-            "sp95PriceChf": 1.69,
-            "updatedAt": "2026-03-12T11:19:25.645Z",
-            "nearestMunicipality": "Bizzarone (CO)",
-            "nearestMunicipalityDistanceKm": 2.8,
-            "sp95PriceEur": 1.858,
-            "distanceKm": 17.3
+            "id": "VW0cjs2jCw25mkNyuE9t",
+            "name": "Texon Service",
+            "brand": "UNDEFINED",
+            "address": "Via Cantonale 50, 6987 Caslano",
+            "lat": 45.97858351864336,
+            "lng": 8.87647837854075,
+            "sp95PriceChf": 1.6600000000000001,
+            "updatedAt": "2026-03-21T08:10:13.884Z",
+            "nearestMunicipality": "Brusimpiano (VA)",
+            "nearestMunicipalityDistanceKm": 2.1,
+            "sp95PriceEur": 1.825,
+            "distanceKm": 18.4
           }
         ],
         "minPriceChf": 1.61,
@@ -25822,7 +25822,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 86,
+        "optionCount": 87,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -26085,7 +26085,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 82,
+        "optionCount": 83,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -26200,7 +26200,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 75,
+        "optionCount": 76,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -26337,7 +26337,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 72,
+        "optionCount": 73,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -26452,7 +26452,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 108,
+        "optionCount": 109,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -26611,7 +26611,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 43,
+        "optionCount": 44,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -26726,7 +26726,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 41,
+        "optionCount": 42,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -26989,7 +26989,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 101,
+        "optionCount": 102,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -27104,7 +27104,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 51,
+        "optionCount": 52,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -27283,7 +27283,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 68,
+        "optionCount": 69,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -28006,7 +28006,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 10,
+        "optionCount": 11,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -28079,18 +28079,18 @@
             "distanceKm": 18.2
           },
           {
-            "id": "BuLqgLtrkWKZWPB1oaHr",
-            "name": "BP Unbemannte Station Genestrerio",
-            "brand": "BP",
-            "address": "Via Adorna, 6852 Genestrerio",
-            "lat": 45.85708,
-            "lng": 8.96782,
-            "sp95PriceChf": 1.69,
-            "updatedAt": "2026-03-12T11:19:25.645Z",
-            "nearestMunicipality": "Bizzarone (CO)",
-            "nearestMunicipalityDistanceKm": 2.8,
-            "sp95PriceEur": 1.858,
-            "distanceKm": 18.9
+            "id": "VW0cjs2jCw25mkNyuE9t",
+            "name": "Texon Service",
+            "brand": "UNDEFINED",
+            "address": "Via Cantonale 50, 6987 Caslano",
+            "lat": 45.97858351864336,
+            "lng": 8.87647837854075,
+            "sp95PriceChf": 1.6600000000000001,
+            "updatedAt": "2026-03-21T08:10:13.884Z",
+            "nearestMunicipality": "Brusimpiano (VA)",
+            "nearestMunicipalityDistanceKm": 2.1,
+            "sp95PriceEur": 1.825,
+            "distanceKm": 19.2
           }
         ],
         "minPriceChf": 1.61,
@@ -28324,7 +28324,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 6,
+        "optionCount": 7,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -28397,18 +28397,18 @@
             "distanceKm": 18.1
           },
           {
-            "id": "TyVGrppSLdVuEl3mGLQi",
-            "name": "Eni",
-            "brand": "ENI",
-            "address": "Via Cantonale 36, 6987 Caslano",
-            "lat": 45.97394481908457,
-            "lng": 8.869804789687063,
-            "sp95PriceChf": 1.73,
-            "updatedAt": "2026-03-16T09:08:20.313Z",
-            "nearestMunicipality": "Lavena Ponte Tresa (VA)",
-            "nearestMunicipalityDistanceKm": 1.6,
-            "sp95PriceEur": 1.902,
-            "distanceKm": 18.4
+            "id": "VW0cjs2jCw25mkNyuE9t",
+            "name": "Texon Service",
+            "brand": "UNDEFINED",
+            "address": "Via Cantonale 50, 6987 Caslano",
+            "lat": 45.97858351864336,
+            "lng": 8.87647837854075,
+            "sp95PriceChf": 1.6600000000000001,
+            "updatedAt": "2026-03-21T08:10:13.884Z",
+            "nearestMunicipality": "Brusimpiano (VA)",
+            "nearestMunicipalityDistanceKm": 2.1,
+            "sp95PriceEur": 1.825,
+            "distanceKm": 19.1
           }
         ],
         "minPriceChf": 1.61,
@@ -28525,7 +28525,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 65,
+        "optionCount": 66,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -28598,18 +28598,18 @@
             "distanceKm": 11.1
           },
           {
-            "id": "Xxm88IaKZlgaLjKp4rVa",
-            "name": "TAMOIL Sorengo",
-            "brand": "TAMOIL",
-            "address": "Paradiso 22, 6924 Sorengo",
-            "lat": 45.99666,
-            "lng": 8.938646,
-            "sp95PriceChf": 1.67,
-            "updatedAt": "2026-03-01T11:04:19.197Z",
-            "nearestMunicipality": "Campione d'Italia (CO)",
-            "nearestMunicipalityDistanceKm": 4,
-            "sp95PriceEur": 1.836,
-            "distanceKm": 16.4
+            "id": "VW0cjs2jCw25mkNyuE9t",
+            "name": "Texon Service",
+            "brand": "UNDEFINED",
+            "address": "Via Cantonale 50, 6987 Caslano",
+            "lat": 45.97858351864336,
+            "lng": 8.87647837854075,
+            "sp95PriceChf": 1.6600000000000001,
+            "updatedAt": "2026-03-21T08:10:13.884Z",
+            "nearestMunicipality": "Brusimpiano (VA)",
+            "nearestMunicipalityDistanceKm": 2.1,
+            "sp95PriceEur": 1.825,
+            "distanceKm": 11.7
           }
         ],
         "minPriceChf": 1.61,
@@ -28916,7 +28916,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 71,
+        "optionCount": 72,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -29104,7 +29104,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 63,
+        "optionCount": 64,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -29300,7 +29300,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 90,
+        "optionCount": 91,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -29890,7 +29890,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 79,
+        "optionCount": 80,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -30005,7 +30005,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 31,
+        "optionCount": 32,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -30120,7 +30120,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 102,
+        "optionCount": 103,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -30301,7 +30301,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 33,
+        "optionCount": 34,
         "cheapestStation": {
           "id": "2iMRCPqDCHHpLcBX8dCN",
           "name": "Agrola Melano",
@@ -30449,7 +30449,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 83,
+        "optionCount": 84,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -30564,7 +30564,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 85,
+        "optionCount": 86,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -30679,7 +30679,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 65,
+        "optionCount": 66,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -30847,7 +30847,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 63,
+        "optionCount": 64,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -30962,7 +30962,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 71,
+        "optionCount": 72,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -31396,7 +31396,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 22,
+        "optionCount": 23,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -31469,18 +31469,18 @@
             "distanceKm": 15.3
           },
           {
-            "id": "BuLqgLtrkWKZWPB1oaHr",
-            "name": "BP Unbemannte Station Genestrerio",
-            "brand": "BP",
-            "address": "Via Adorna, 6852 Genestrerio",
-            "lat": 45.85708,
-            "lng": 8.96782,
-            "sp95PriceChf": 1.69,
-            "updatedAt": "2026-03-12T11:19:25.645Z",
-            "nearestMunicipality": "Bizzarone (CO)",
-            "nearestMunicipalityDistanceKm": 2.8,
-            "sp95PriceEur": 1.858,
-            "distanceKm": 19.6
+            "id": "VW0cjs2jCw25mkNyuE9t",
+            "name": "Texon Service",
+            "brand": "UNDEFINED",
+            "address": "Via Cantonale 50, 6987 Caslano",
+            "lat": 45.97858351864336,
+            "lng": 8.87647837854075,
+            "sp95PriceChf": 1.6600000000000001,
+            "updatedAt": "2026-03-21T08:10:13.884Z",
+            "nearestMunicipality": "Brusimpiano (VA)",
+            "nearestMunicipalityDistanceKm": 2.1,
+            "sp95PriceEur": 1.825,
+            "distanceKm": 16.3
           }
         ],
         "minPriceChf": 1.61,
@@ -31511,7 +31511,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 82,
+        "optionCount": 83,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -31659,7 +31659,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 28,
+        "optionCount": 29,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -31732,18 +31732,18 @@
             "distanceKm": 14.4
           },
           {
-            "id": "ijc3YeBOHGIWQdqfuZPt",
-            "name": "Migrol Service",
-            "brand": "MIGROL",
-            "address": "Strada Regina 10, 6934 Bioggio",
-            "lat": 46.01259,
-            "lng": 8.90711,
-            "sp95PriceChf": 1.67,
-            "updatedAt": "2026-02-21T12:39:14.037Z",
+            "id": "VW0cjs2jCw25mkNyuE9t",
+            "name": "Texon Service",
+            "brand": "UNDEFINED",
+            "address": "Via Cantonale 50, 6987 Caslano",
+            "lat": 45.97858351864336,
+            "lng": 8.87647837854075,
+            "sp95PriceChf": 1.6600000000000001,
+            "updatedAt": "2026-03-21T08:10:13.884Z",
             "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 6.3,
-            "sp95PriceEur": 1.836,
-            "distanceKm": 18.3
+            "nearestMunicipalityDistanceKm": 2.1,
+            "sp95PriceEur": 1.825,
+            "distanceKm": 15.2
           }
         ],
         "minPriceChf": 1.61,
@@ -31774,7 +31774,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 64,
+        "optionCount": 65,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -31889,7 +31889,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 79,
+        "optionCount": 80,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -33056,7 +33056,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 96,
+        "optionCount": 97,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -33129,18 +33129,18 @@
             "distanceKm": 16.6
           },
           {
-            "id": "Xxm88IaKZlgaLjKp4rVa",
-            "name": "TAMOIL Sorengo",
-            "brand": "TAMOIL",
-            "address": "Paradiso 22, 6924 Sorengo",
-            "lat": 45.99666,
-            "lng": 8.938646,
-            "sp95PriceChf": 1.67,
-            "updatedAt": "2026-03-01T11:04:19.197Z",
-            "nearestMunicipality": "Campione d'Italia (CO)",
-            "nearestMunicipalityDistanceKm": 4,
-            "sp95PriceEur": 1.836,
-            "distanceKm": 18.9
+            "id": "VW0cjs2jCw25mkNyuE9t",
+            "name": "Texon Service",
+            "brand": "UNDEFINED",
+            "address": "Via Cantonale 50, 6987 Caslano",
+            "lat": 45.97858351864336,
+            "lng": 8.87647837854075,
+            "sp95PriceChf": 1.6600000000000001,
+            "updatedAt": "2026-03-21T08:10:13.884Z",
+            "nearestMunicipality": "Brusimpiano (VA)",
+            "nearestMunicipalityDistanceKm": 2.1,
+            "sp95PriceEur": 1.825,
+            "distanceKm": 16.5
           }
         ],
         "minPriceChf": 1.61,
@@ -33204,7 +33204,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 79,
+        "optionCount": 80,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -33851,7 +33851,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 42,
+        "optionCount": 43,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -34496,7 +34496,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 78,
+        "optionCount": 79,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -35380,7 +35380,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 32,
+        "optionCount": 33,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -35453,18 +35453,18 @@
             "distanceKm": 16.2
           },
           {
-            "id": "ijc3YeBOHGIWQdqfuZPt",
-            "name": "Migrol Service",
-            "brand": "MIGROL",
-            "address": "Strada Regina 10, 6934 Bioggio",
-            "lat": 46.01259,
-            "lng": 8.90711,
-            "sp95PriceChf": 1.67,
-            "updatedAt": "2026-02-21T12:39:14.037Z",
+            "id": "VW0cjs2jCw25mkNyuE9t",
+            "name": "Texon Service",
+            "brand": "UNDEFINED",
+            "address": "Via Cantonale 50, 6987 Caslano",
+            "lat": 45.97858351864336,
+            "lng": 8.87647837854075,
+            "sp95PriceChf": 1.6600000000000001,
+            "updatedAt": "2026-03-21T08:10:13.884Z",
             "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 6.3,
-            "sp95PriceEur": 1.836,
-            "distanceKm": 18.4
+            "nearestMunicipalityDistanceKm": 2.1,
+            "sp95PriceEur": 1.825,
+            "distanceKm": 16.6
           }
         ],
         "minPriceChf": 1.61,
@@ -35528,7 +35528,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 63,
+        "optionCount": 64,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -35601,18 +35601,18 @@
             "distanceKm": 16.6
           },
           {
-            "id": "ijc3YeBOHGIWQdqfuZPt",
-            "name": "Migrol Service",
-            "brand": "MIGROL",
-            "address": "Strada Regina 10, 6934 Bioggio",
-            "lat": 46.01259,
-            "lng": 8.90711,
-            "sp95PriceChf": 1.67,
-            "updatedAt": "2026-02-21T12:39:14.037Z",
+            "id": "VW0cjs2jCw25mkNyuE9t",
+            "name": "Texon Service",
+            "brand": "UNDEFINED",
+            "address": "Via Cantonale 50, 6987 Caslano",
+            "lat": 45.97858351864336,
+            "lng": 8.87647837854075,
+            "sp95PriceChf": 1.6600000000000001,
+            "updatedAt": "2026-03-21T08:10:13.884Z",
             "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 6.3,
-            "sp95PriceEur": 1.836,
-            "distanceKm": 17.4
+            "nearestMunicipalityDistanceKm": 2.1,
+            "sp95PriceEur": 1.825,
+            "distanceKm": 16.8
           }
         ],
         "minPriceChf": 1.61,
@@ -37352,7 +37352,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 11,
+        "optionCount": 12,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -37425,18 +37425,18 @@
             "distanceKm": 17.5
           },
           {
-            "id": "TyVGrppSLdVuEl3mGLQi",
-            "name": "Eni",
-            "brand": "ENI",
-            "address": "Via Cantonale 36, 6987 Caslano",
-            "lat": 45.97394481908457,
-            "lng": 8.869804789687063,
-            "sp95PriceChf": 1.73,
-            "updatedAt": "2026-03-16T09:08:20.313Z",
-            "nearestMunicipality": "Lavena Ponte Tresa (VA)",
-            "nearestMunicipalityDistanceKm": 1.6,
-            "sp95PriceEur": 1.902,
-            "distanceKm": 17.7
+            "id": "VW0cjs2jCw25mkNyuE9t",
+            "name": "Texon Service",
+            "brand": "UNDEFINED",
+            "address": "Via Cantonale 50, 6987 Caslano",
+            "lat": 45.97858351864336,
+            "lng": 8.87647837854075,
+            "sp95PriceChf": 1.6600000000000001,
+            "updatedAt": "2026-03-21T08:10:13.884Z",
+            "nearestMunicipality": "Brusimpiano (VA)",
+            "nearestMunicipalityDistanceKm": 2.1,
+            "sp95PriceEur": 1.825,
+            "distanceKm": 18.2
           }
         ],
         "minPriceChf": 1.61,
@@ -38284,7 +38284,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 24,
+        "optionCount": 25,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -38357,18 +38357,18 @@
             "distanceKm": 18.6
           },
           {
-            "id": "TyVGrppSLdVuEl3mGLQi",
-            "name": "Eni",
-            "brand": "ENI",
-            "address": "Via Cantonale 36, 6987 Caslano",
-            "lat": 45.97394481908457,
-            "lng": 8.869804789687063,
-            "sp95PriceChf": 1.73,
-            "updatedAt": "2026-03-16T09:08:20.313Z",
-            "nearestMunicipality": "Lavena Ponte Tresa (VA)",
-            "nearestMunicipalityDistanceKm": 1.6,
-            "sp95PriceEur": 1.902,
-            "distanceKm": 18.7
+            "id": "VW0cjs2jCw25mkNyuE9t",
+            "name": "Texon Service",
+            "brand": "UNDEFINED",
+            "address": "Via Cantonale 50, 6987 Caslano",
+            "lat": 45.97858351864336,
+            "lng": 8.87647837854075,
+            "sp95PriceChf": 1.6600000000000001,
+            "updatedAt": "2026-03-21T08:10:13.884Z",
+            "nearestMunicipality": "Brusimpiano (VA)",
+            "nearestMunicipalityDistanceKm": 2.1,
+            "sp95PriceEur": 1.825,
+            "distanceKm": 19
           }
         ],
         "minPriceChf": 1.61,

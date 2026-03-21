@@ -7737,6 +7737,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-byd-expansion-ticino-2026': {
+    title: 'BYD si espande in Ticino: 50 concessionari entro il 2026 | Frontaliere Ticino',
+    description: 'Il costruttore cinese BYD punta a 50 concessionari in Svizzera entro il 2026, con due già operativi in Ticino. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, espande, concessionari, entro, costruttore',
+    ogTitle: 'BYD si espande in Ticino: 50 concessionari entro il 2026',
+    ogDescription: 'Il costruttore cinese BYD punta a 50 concessionari in Svizzera entro il 2026, con due già operativi in Ticino.',
+    canonicalPath: '/articoli-frontaliere/byd-expansion-ticino-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "BYD si espande in Ticino: 50 concessionari entro il 2026",
+      "description": "Il costruttore cinese BYD punta a 50 concessionari in Svizzera entro il 2026, con due già operativi in Ticino. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/byd-expansion-ticino-2026.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Vista di Lugano, città svizzera con lago e montagne."
+      },
+      "datePublished": "2026-03-21T08:47:56+00:00",
+      "dateModified": "2026-03-21T08:47:56+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/byd-expansion-ticino-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

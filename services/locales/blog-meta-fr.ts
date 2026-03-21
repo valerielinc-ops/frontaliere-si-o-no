@@ -1511,6 +1511,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.controlli-cantieri-mendrisiotto-2026.title': 'Contrôles sur les chantiers du Mendrisiotto : résultat positif',
     'blog.article.controlli-cantieri-mendrisiotto-2026.excerpt': 'Sept inspections sur les chantiers du Mendrisiotto n\'ont révélé aucune irrégularité, confirmant la régularité des travailleurs.',
     'blog.article.controlli-cantieri-mendrisiotto-2026.imageAlt': 'Chantier moderne à Mendrisio, Tessin, avec des ouvriers en action.',
+    'blog.article.byd-expansion-ticino-2026.title': 'BYD s\'expandit au Tessin : 50 concessionnaires d\'ici 2026',
+    'blog.article.byd-expansion-ticino-2026.excerpt': 'Le constructeur chinois BYD vise 50 concessionnaires en Suisse d\'ici 2026, avec deux déjà opérationnels au Tessin.',
+    'blog.article.byd-expansion-ticino-2026.imageAlt': 'Vue de Lugano, ville suisse avec lac et montagnes.',
 };
 
 export default blogMetaFr;

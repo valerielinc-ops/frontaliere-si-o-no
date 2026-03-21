@@ -1640,6 +1640,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-taglio-alle-accise-mette-sotto-pressione-i-distributori-ticinesi': { name: 'Tessin', path: '/articoli-frontaliere/taglio-alle-accise-mette-sotto-pressione-i-distributori-ticinesi', parent: 'blog' },
     'blog-farmaci-competitiva-europa': { name: 'Industria farmaceutica', path: '/articoli-frontaliere/farmaci-competitiva-europa', parent: 'blog' },
     'blog-controlli-cantieri-mendrisiotto-2026': { name: 'Controlli Cantieri', path: '/articoli-frontaliere/controlli-cantieri-mendrisiotto-2026', parent: 'blog' },
+    'blog-byd-expansion-ticino-2026': { name: 'BYD si espande in Ticino', path: '/articoli-frontaliere/byd-expansion-ticino-2026', parent: 'blog' },
   };
 
   const info = sectionNames[section];

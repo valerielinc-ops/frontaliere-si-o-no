@@ -1511,6 +1511,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.controlli-cantieri-mendrisiotto-2026.title': 'Inspections at Construction Sites in Mendrisiotto: Positive Outcome',
     'blog.article.controlli-cantieri-mendrisiotto-2026.excerpt': 'Seven inspections at construction sites in Mendrisiotto revealed no irregularities, confirming the compliance of workers.',
     'blog.article.controlli-cantieri-mendrisiotto-2026.imageAlt': 'Modern construction site in Mendrisio, Ticino, with workers in action.',
+    'blog.article.byd-expansion-ticino-2026.title': 'BYD expands in Ticino: 50 dealerships by 2026',
+    'blog.article.byd-expansion-ticino-2026.excerpt': 'The Chinese manufacturer BYD aims for 50 dealerships in Switzerland by 2026, with two already operational in Ticino.',
+    'blog.article.byd-expansion-ticino-2026.imageAlt': 'View of Lugano, Swiss city with lake and mountains.',
 };
 
 export default blogMetaEn;

@@ -4120,6 +4120,13 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/controlli-cantieri-mendrisiotto-2026.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'byd-expansion-ticino-2026',
+    category: 'novita',
+    date: '2026-03-21T08:47:56.314Z',
+    image: '/images/blog/byd-expansion-ticino-2026.jpg',
+    hasCalculator: true,
+  },
 ];
 
 const CATEGORIES = ['all', 'fiscale', 'pratico', 'novita', 'pensione'] as const;
