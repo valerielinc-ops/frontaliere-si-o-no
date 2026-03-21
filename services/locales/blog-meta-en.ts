@@ -1520,6 +1520,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.cioccolato-meno-ma-pagato-di-piu.title': 'Chocolate in Switzerland: Decreased Consumption but Rising Prices',
     'blog.article.cioccolato-meno-ma-pagato-di-piu.excerpt': 'In 2025, chocolate consumption in Switzerland declined, but revenue grew by 11.8%, amid significant cost pressures.',
     'blog.article.cioccolato-meno-ma-pagato-di-piu.imageAlt': 'View of Lake Lugano with chocolate shops.',
+    'blog.article.diesel-aumento-prezzi-svizzera-2026.title': 'Increase in diesel prices: 2.10 francs in Switzerland',
+    'blog.article.diesel-aumento-prezzi-svizzera-2026.excerpt': 'Diesel prices continue to rise in Switzerland, reaching 2.10 francs per liter due to the international crisis.',
+    'blog.article.diesel-aumento-prezzi-svizzera-2026.imageAlt': 'Gas station in Ticino with diesel prices.',
 };
 
 export default blogMetaEn;

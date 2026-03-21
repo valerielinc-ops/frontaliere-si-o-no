@@ -4141,6 +4141,13 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/cioccolato-meno-ma-pagato-di-piu.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'diesel-aumento-prezzi-svizzera-2026',
+    category: 'novita',
+    date: '2026-03-21T10:03:22.205Z',
+    image: '/images/blog/diesel-aumento-prezzi-svizzera-2026.jpg',
+    hasCalculator: true,
+  },
 ];
 
 const CATEGORIES = ['all', 'fiscale', 'pratico', 'novita', 'pensione'] as const;

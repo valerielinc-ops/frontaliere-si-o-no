@@ -1520,6 +1520,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.cioccolato-meno-ma-pagato-di-piu.title': 'Schokolade in der Schweiz: Weniger Verbrauch, aber steigende Preise',
     'blog.article.cioccolato-meno-ma-pagato-di-piu.excerpt': 'Im Jahr 2025 ist der Schokoladenverbrauch in der Schweiz gesunken, doch der Umsatz ist um 11,8% gestiegen, was zu einem starken Kostendruck führt.',
     'blog.article.cioccolato-meno-ma-pagato-di-piu.imageAlt': 'Blick auf den Luganersee mit Schokoladengeschäften.',
+    'blog.article.diesel-aumento-prezzi-svizzera-2026.title': 'Preisanstieg beim Diesel: 2,10 Franken in der Schweiz',
+    'blog.article.diesel-aumento-prezzi-svizzera-2026.excerpt': 'Die Dieselpreise steigen weiterhin in der Schweiz und erreichen aufgrund der internationalen Krise 2,10 Franken pro Liter.',
+    'blog.article.diesel-aumento-prezzi-svizzera-2026.imageAlt': 'Tankstelle in Tessin mit Dieselpreisen.',
 };
 
 export default blogMetaDe;

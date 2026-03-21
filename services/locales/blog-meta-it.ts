@@ -1520,6 +1520,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.cioccolato-meno-ma-pagato-di-piu.title': 'Cioccolato in Svizzera: meno consumo ma prezzi in aumento',
     'blog.article.cioccolato-meno-ma-pagato-di-piu.excerpt': 'Nel 2025 il consumo di cioccolato in Svizzera è calato, ma il fatturato è cresciuto del 11,8%, con una forte pressione sui costi.',
     'blog.article.cioccolato-meno-ma-pagato-di-piu.imageAlt': 'Vista del Lago di Lugano con negozi di cioccolato.',
+    'blog.article.diesel-aumento-prezzi-svizzera-2026.title': 'Aumento del prezzo del diesel: 2,10 franchi in Svizzera',
+    'blog.article.diesel-aumento-prezzi-svizzera-2026.excerpt': 'I prezzi del diesel continuano a salire in Svizzera, raggiungendo i 2,10 franchi al litro a causa della crisi internazionale.',
+    'blog.article.diesel-aumento-prezzi-svizzera-2026.imageAlt': 'Stazione di servizio in Ticino con prezzi del diesel.',
 };
 
 export default blogMetaIt;

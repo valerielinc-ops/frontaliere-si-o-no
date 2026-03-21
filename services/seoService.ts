@@ -1643,6 +1643,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-byd-expansion-ticino-2026': { name: 'BYD si espande in Ticino', path: '/articoli-frontaliere/byd-expansion-ticino-2026', parent: 'blog' },
     'blog-controllo-affitti-nazionale-ticino': { name: 'Caro affitti', path: '/articoli-frontaliere/controllo-affitti-nazionale-ticino', parent: 'blog' },
     'blog-cioccolato-meno-ma-pagato-di-piu': { name: 'Cioccolato in Svizzera', path: '/articoli-frontaliere/cioccolato-meno-ma-pagato-di-piu', parent: 'blog' },
+    'blog-diesel-aumento-prezzi-svizzera-2026': { name: 'Prezzi Diesel', path: '/articoli-frontaliere/diesel-aumento-prezzi-svizzera-2026', parent: 'blog' },
   };
 
   const info = sectionNames[section];
