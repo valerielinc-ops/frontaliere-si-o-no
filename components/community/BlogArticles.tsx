@@ -4085,6 +4085,13 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/guasto-tra-parabiago-e-rho.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'tassa-transito-ticino-pedemontana',
+    category: 'fiscale',
+    date: '2026-03-21T06:12:12.156Z',
+    image: '/images/blog/tassa-transito-ticino-pedemontana.jpg',
+    hasCalculator: true,
+  },
 ];
 
 const CATEGORIES = ['all', 'fiscale', 'pratico', 'novita', 'pensione'] as const;

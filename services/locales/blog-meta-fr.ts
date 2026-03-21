@@ -1496,6 +1496,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.guasto-tra-parabiago-e-rho.title': 'Panne entre Parabiago et Rho, retards jusqu\'à 30 minutes sur les lignes pour Milan',
     'blog.article.guasto-tra-parabiago-e-rho.excerpt': 'Les difficultés sur la ligne ferroviaire reliant Milan : annulations et modifications pour plusieurs lignes lombardes',
     'blog.article.guasto-tra-parabiago-e-rho.imageAlt': 'Coucher de soleil sur la rive du lac Lugano, avec la ville de Lugano en arrière-plan',
+    'blog.article.tassa-transito-ticino-pedemontana.title': 'L\'imposta di transito potrebbe funzionare come la Pedemontana: chi, cosa, dove, quando, perché',
+    'blog.article.tassa-transito-ticino-pedemontana.excerpt': 'La proposta di introdurre un\'imposta di transito in Svizzera è stata presentata dal Consigliere Nazionale UDC Paolo Pamini. Secondo il suo piano, la tassa sarebbe automaticamente calcolata e riscossa attraverso telecamere che riconoscono le targhe degli automobili.',
+    'blog.article.tassa-transito-ticino-pedemontana.imageAlt': 'Un conducteur traverse le péage de Brogeda',
 };
 
 export default blogMetaFr;

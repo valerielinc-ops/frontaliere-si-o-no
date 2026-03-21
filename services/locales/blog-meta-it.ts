@@ -1496,6 +1496,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.guasto-tra-parabiago-e-rho.title': 'Guasto tra Parabiago e Rho, ritardi fino a 30 minuti sulle linee per Milano',
     'blog.article.guasto-tra-parabiago-e-rho.excerpt': 'Disagi sulla direttrice ferroviaria verso Milano: possibili cancellazioni e variazioni per diversi collegamenti lombardi',
     'blog.article.guasto-tra-parabiago-e-rho.imageAlt': 'Il tramonto sulla riva del lago Lugano, con la città di Lugano sullo sfondo',
+    'blog.article.tassa-transito-ticino-pedemontana.title': 'L\'imposta di transito potrebbe funzionare come la Pedemontana: chi, cosa, dove, quando, perché',
+    'blog.article.tassa-transito-ticino-pedemontana.excerpt': 'L\'imposta di transito potrebbe essere introdotta in Svizzera per disincentivare il traffico che attraversa il paese senza portare benefici economici diretti. Il Consigliere Nazionale UDC Paolo Pamini ha proposto un sistema di tassazione automatica elettronica, simile a quello utilizzato dalla Pedemontana tra Como e Malpensa',
+    'blog.article.tassa-transito-ticino-pedemontana.imageAlt': 'Un automobilista attraversa il valico di Brogeda',
 };
 
 export default blogMetaIt;

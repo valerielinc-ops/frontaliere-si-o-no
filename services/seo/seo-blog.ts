@@ -7592,6 +7592,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-tassa-transito-ticino-pedemontana': {
+    title: 'L\'imposta di transito potrebbe funzionare come la Pedemontana: chi | Frontaliere Ticino',
+    description: 'La tassa di transito potrebbe essere un modo efficace per ridurre il traffico in Svizzera e per disincentivare la guida in orari di punta. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, imposta, transito, potrebbe, funzionare',
+    ogTitle: 'Tassa di transito in Svizzera: come funziona e cosa c\'è da sapere',
+    ogDescription: 'La tassa di transito potrebbe essere un modo efficace per ridurre il traffico in Svizzera e per disincentivare la guida in orari di punta.',
+    canonicalPath: '/articoli-frontaliere/tassa-transito-ticino-pedemontana',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Tassa di transito in Svizzera: come funziona e cosa c'è da sapere",
+      "description": "La tassa di transito potrebbe essere un modo efficace per ridurre il traffico in Svizzera e per disincentivare la guida in orari di punta. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/tassa-transito-ticino-pedemontana.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Un automobilista attraversa il valico di Brogeda"
+      },
+      "datePublished": "2026-03-21T06:12:12+00:00",
+      "dateModified": "2026-03-21T06:12:12+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tassa-transito-ticino-pedemontana`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

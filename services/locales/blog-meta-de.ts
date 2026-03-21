@@ -1496,6 +1496,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.guasto-tra-parabiago-e-rho.title': 'Störung zwischen Parabiago und Rho: Verzögerungen bis 30 Minuten auf den Linien nach Mailand',
     'blog.article.guasto-tra-parabiago-e-rho.excerpt': 'Störungen auf der Bahnlinie nach Mailand: mögliche Absagen und Änderungen für verschiedene lombardische Verbindungen',
     'blog.article.guasto-tra-parabiago-e-rho.imageAlt': 'Sonnenuntergang am Ufer des Luganer Sees, mit der Stadt Lugano im Hintergrund',
+    'blog.article.tassa-transito-ticino-pedemontana.title': 'Die Umweltabgabe könnte funktionieren wie die Pedemontana: wer, was, wo, wann, warum',
+    'blog.article.tassa-transito-ticino-pedemontana.excerpt': 'Die Umweltabgabe könnte in der Schweiz eingeführt werden, um den Verkehr zu reduzieren, der das Land ohne direkte wirtschaftliche Vorteile durchquert. Der Nationalrat Paolo Pamini hat einen System der automatischen elektronischen Abgabeberechnung vorgeschlagen, ähnlich wie bei der Pedemontana zwischen Como und Malpensa.',
+    'blog.article.tassa-transito-ticino-pedemontana.imageAlt': 'Ein Fahrer passiert die Mautstelle Brogeda',
 };
 
 export default blogMetaDe;

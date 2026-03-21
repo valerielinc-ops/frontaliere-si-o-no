@@ -1,0 +1,7 @@
+const bodyTassaTransitoTicinoPedemontana: Record<string, string> = {
+    'blog.article.tassa-transito-ticino-pedemontana.body1': 'Die Umweltabgabe könnte funktionieren wie die Pedemontana: wer, was, wo, wann, warum',
+    'blog.article.tassa-transito-ticino-pedemontana.body2': 'Die Idee, eine Umweltabgabe in der Schweiz einzuführen, wurde von dem Nationalrat Paolo Pamini vorgeschlagen. Laut seinem Plan würde die Abgabe automatisch berechnet und eingezogen werden, indem die Nummernschilder der Fahrzeuge durch Kameras erkannt werden. Das System wäre ähnlich wie bei der Pedemontana zwischen Como und Malpensa, die gezeigt hat, wie effektiv sie ist, den Verkehr in Spitzenzeiten zu reduzieren.\n\n## Empfohlene Tools\nFür eine aktuelle Schätzung nutzen Sie den [Nettolohnrechner](nav:calculator) und den [CHF-EUR-Wechselvergleich](nav:exchange).',
+    'blog.article.tassa-transito-ticino-pedemontana.body3': 'Die Umweltabgabe könnte ein wichtiger Schritt sein, um den Verkehr in der Schweiz zu reduzieren, insbesondere in Regionen wie dem Kanton Tessin. Die Abgabe könnte ein effektives Mittel sein, um den Verkehr in Spitzenzeiten zu reduzieren und den Verkehr in Regionen wie Lugano, Bellinzona und Locarno zu reduzieren.\n\nFür eine genaue Berechnung Ihres Nettogehalts als Grenzgänger nutzen Sie unseren Vergleichsrechner: das umfassendste Tool zum Vergleich Ihres Nettogehalts zwischen G- und B-Bewilligung, mit allen Steuer- und Sozialabzügen auf dem Stand 2026.',
+};
+
+export default bodyTassaTransitoTicinoPedemontana;

@@ -1496,6 +1496,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.guasto-tra-parabiago-e-rho.title': 'Delays on the Lines to Milan: Fault Between Parabiago and Rho',
     'blog.article.guasto-tra-parabiago-e-rho.excerpt': 'Disruptions on the railway line to Milan: possible cancellations and changes for various Lombardy connections',
     'blog.article.guasto-tra-parabiago-e-rho.imageAlt': 'Sunset on the Lake Lugano shore, with the city of Lugano in the background',
+    'blog.article.tassa-transito-ticino-pedemontana.title': 'The Transit Tax Could Work Like the Pedemontana: Who, What, Where, When, Why',
+    'blog.article.tassa-transito-ticino-pedemontana.excerpt': 'The transit tax could be introduced in Switzerland to discourage traffic that crosses the country without bringing direct economic benefits. National Councillor UDC Paolo Pamini has proposed an automatic electronic taxation system, similar to that used by the Pedemontana between Como and Malpensa.',
+    'blog.article.tassa-transito-ticino-pedemontana.imageAlt': 'A driver crossing the Brogeda toll booth',
 };
 
 export default blogMetaEn;
