@@ -1526,6 +1526,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.sanita-manifesto-varese-2026.title': 'A Varese nasce il Manifesto per il welfare sanitario',
     'blog.article.sanita-manifesto-varese-2026.excerpt': 'Un nuovo manifesto per il welfare a Varese: quindici pilastri per la voce dei pazienti nella sanità pubblica.',
     'blog.article.sanita-manifesto-varese-2026.imageAlt': 'Conferenza sulla sanità a Varese con iniziative di welfare.',
+    'blog.article.iva-bassa-svizzera-immagine-ingannevole.title': 'L\'IVA bassa in Svizzera: un\'immagine ingannevole',
+    'blog.article.iva-bassa-svizzera-immagine-ingannevole.excerpt': 'Nonostante l\'aliquota dell\'8,1%, esperti avvertono: il sistema fiscale svizzero è complesso e non dovrebbe essere semplificato.',
+    'blog.article.iva-bassa-svizzera-immagine-ingannevole.imageAlt': 'Vista del Lago di Lugano con montagne circostanti.',
 };
 
 export default blogMetaIt;

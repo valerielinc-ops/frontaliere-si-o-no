@@ -7882,6 +7882,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-iva-bassa-svizzera-immagine-ingannevole': {
+    title: 'L\'IVA bassa in Svizzera: un\'immagine ingannevole | Frontaliere Ticino',
+    description: 'Esplora l\'idea dell\'IVA bassa in Svizzera e le sue implicazioni fiscali. Un\'analisi approfondita con punti di vista esperti. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, bassa, immagine, ingannevole, nonostante',
+    ogTitle: 'L\'IVA bassa in Svizzera: un\'immagine ingannevole',
+    ogDescription: 'Un\'analisi critica sull\'aliquota IVA in Svizzera e le sue conseguenze fiscali.',
+    canonicalPath: '/articoli-frontaliere/iva-bassa-svizzera-immagine-ingannevole',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "IVA bassa in Svizzera: un'immagine ingannevole",
+      "description": "Esplora l'idea dell'IVA bassa in Svizzera e le sue implicazioni fiscali. Un'analisi approfondita con punti di vista esperti. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/iva-bassa-svizzera-immagine-ingannevole.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Vista del Lago di Lugano con montagne circostanti."
+      },
+      "datePublished": "2026-03-21T11:01:59+00:00",
+      "dateModified": "2026-03-21T11:01:59+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/iva-bassa-svizzera-immagine-ingannevole`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

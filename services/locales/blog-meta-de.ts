@@ -1526,6 +1526,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.sanita-manifesto-varese-2026.title': 'In Varese entsteht das Manifest für die Gesundheitsversorgung',
     'blog.article.sanita-manifesto-varese-2026.excerpt': 'Ein neues Manifest für das Wohlergehen in Varese: fünfzehn Säulen für die Stimme der Patienten im öffentlichen Gesundheitswesen.',
     'blog.article.sanita-manifesto-varese-2026.imageAlt': 'Gesundheitskonferenz in Varese mit Wohlfahrtsinitiativen.',
+    'blog.article.iva-bassa-svizzera-immagine-ingannevole.title': 'Die niedrige Mehrwertsteuer in der Schweiz: ein irreführendes Bild',
+    'blog.article.iva-bassa-svizzera-immagine-ingannevole.excerpt': 'Trotz des Satzes von 8,1% warnen Experten: Das Steuersystem der Schweiz ist komplex und sollte nicht vereinfacht werden.',
+    'blog.article.iva-bassa-svizzera-immagine-ingannevole.imageAlt': 'Blick auf den Luganersee mit umliegenden Bergen.',
 };
 
 export default blogMetaDe;

@@ -1526,6 +1526,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.sanita-manifesto-varese-2026.title': 'À Varèse, naît le Manifeste pour le bien-être sanitaire',
     'blog.article.sanita-manifesto-varese-2026.excerpt': 'Un nouveau manifeste pour le bien-être à Varèse : quinze piliers pour la voix des patients dans la santé publique.',
     'blog.article.sanita-manifesto-varese-2026.imageAlt': 'Conférence sur la santé à Varese avec des initiatives de bien-être.',
+    'blog.article.iva-bassa-svizzera-immagine-ingannevole.title': 'La TVA basse en Suisse : une image trompeuse',
+    'blog.article.iva-bassa-svizzera-immagine-ingannevole.excerpt': 'Malgré un taux de 8,1 %, des experts avertissent : le système fiscal suisse est complexe et ne devrait pas être simplifié.',
+    'blog.article.iva-bassa-svizzera-immagine-ingannevole.imageAlt': 'Vue du lac de Lugano avec des montagnes environnantes.',
 };
 
 export default blogMetaFr;

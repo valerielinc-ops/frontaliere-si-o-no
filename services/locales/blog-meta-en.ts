@@ -1526,6 +1526,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.sanita-manifesto-varese-2026.title': 'The Manifesto for Health Welfare is Born in Varese',
     'blog.article.sanita-manifesto-varese-2026.excerpt': 'A new manifesto for welfare in Varese: fifteen pillars for the voice of patients in public health.',
     'blog.article.sanita-manifesto-varese-2026.imageAlt': 'Healthcare conference in Varese with welfare initiatives.',
+    'blog.article.iva-bassa-svizzera-immagine-ingannevole.title': 'The Low VAT in Switzerland: A Misleading Image',
+    'blog.article.iva-bassa-svizzera-immagine-ingannevole.excerpt': 'Despite the rate of 8.1%, experts warn: the Swiss tax system is complex and should not be oversimplified.',
+    'blog.article.iva-bassa-svizzera-immagine-ingannevole.imageAlt': 'View of Lake Lugano with surrounding mountains.',
 };
 
 export default blogMetaEn;

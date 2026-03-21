@@ -4155,6 +4155,13 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/sanita-manifesto-varese-2026.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'iva-bassa-svizzera-immagine-ingannevole',
+    category: 'fiscale',
+    date: '2026-03-21T11:01:59.120Z',
+    image: '/images/blog/iva-bassa-svizzera-immagine-ingannevole.jpg',
+    hasCalculator: true,
+  },
 ];
 
 const CATEGORIES = ['all', 'fiscale', 'pratico', 'novita', 'pensione'] as const;
