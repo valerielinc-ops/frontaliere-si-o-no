@@ -1586,6 +1586,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.lago-maggiore-accesso-tutto-l-anno.title': 'Lago Maggiore: una camminata per chiedere l\'accesso tutto l\'anno',
     'blog.article.lago-maggiore-accesso-tutto-l-anno.excerpt': 'Circa 100 persone hanno manifestato per chiedere l\'accesso libero alle spiagge del Lago Maggiore durante tutto l\'anno. I manifestanti vogliono che le rive siano accessibili alla popolazione locale e non solo ai turisti.',
     'blog.article.lago-maggiore-accesso-tutto-l-anno.imageAlt': 'Vista panoramica del Lago Maggiore al tramonto.',
+    'blog.article.cure-domicilio-ticino.title': 'La protesta contro la tassa sulle cure a domicilio nel Canton Ticino',
+    'blog.article.cure-domicilio-ticino.excerpt': 'Cresce la protesta contro la partecipazione dei pazienti ai costi delle cure a domicilio: ecco cosa sta succedendo e come potrebbe impattare i frontalieri.',
+    'blog.article.cure-domicilio-ticino.imageAlt': 'Assistenza sanitaria a domicilio nel Canton Ticino.',
 };
 
 export default blogMetaIt;

@@ -1586,6 +1586,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.lago-maggiore-accesso-tutto-l-anno.title': 'Lago Maggiore: ein Spaziergang, um den ganzjährigen Zugang zu fordern',
     'blog.article.lago-maggiore-accesso-tutto-l-anno.excerpt': 'Etwa 100 Personen haben demonstriert, um den freien Zugang zu den Stränden des Lago Maggiore das ganze Jahr über zu fordern. Die Demonstranten möchten, dass die Ufer für die lokale Bevölkerung zugänglich sind und nicht nur für Touristen.',
     'blog.article.lago-maggiore-accesso-tutto-l-anno.imageAlt': 'Panoramablick auf den Lago Maggiore bei Sonnenuntergang.',
+    'blog.article.cure-domicilio-ticino.title': 'Proteste gegen die Steuer für häusliche Pflege im Kanton Tessin',
+    'blog.article.cure-domicilio-ticino.excerpt': 'Die Proteste gegen die Beteiligung der Patienten an den Kosten für die häusliche Pflege nehmen zu: Hier erfahren Sie, was passiert und wie es die Grenzgänger beeinflussen könnte.',
+    'blog.article.cure-domicilio-ticino.imageAlt': 'Heimgesundheitsdienste im Kanton Tessin, Schweiz.',
 };
 
 export default blogMetaDe;

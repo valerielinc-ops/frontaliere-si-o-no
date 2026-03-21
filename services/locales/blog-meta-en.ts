@@ -1586,6 +1586,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.lago-maggiore-accesso-tutto-l-anno.title': 'Lake Maggiore: A Walk to Demand Year-Round Access',
     'blog.article.lago-maggiore-accesso-tutto-l-anno.excerpt': 'Around 100 people demonstrated to demand free access to the beaches of Lake Maggiore all year round. Protesters want the shores to be accessible to the local population, not just tourists.',
     'blog.article.lago-maggiore-accesso-tutto-l-anno.imageAlt': 'Panoramic view of Lake Maggiore at sunset.',
+    'blog.article.cure-domicilio-ticino.title': 'Protest against the home care tax in Canton Ticino',
+    'blog.article.cure-domicilio-ticino.excerpt': 'Growing protest against patient participation in the costs of home care: here\'s what\'s happening and how it could impact cross-border workers.',
+    'blog.article.cure-domicilio-ticino.imageAlt': 'Home healthcare services in Ticino, Switzerland.',
 };
 
 export default blogMetaEn;

@@ -8462,6 +8462,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-cure-domicilio-ticino': {
+    title: 'La protesta contro la tassa sulle cure a domicilio nel Canton Ticino | Frontaliere Ticino',
+    description: 'Cresce la protesta contro la partecipazione dei pazienti ai costi delle cure a domicilio nel Canton Ticino. Scopri come potrebbe impattare i frontalieri e cosa',
+    keywords: 'frontalieri, ticino, svizzera, italia, protesta, contro, tassa, sulle',
+    ogTitle: 'Protesta contro la tassa sulle cure a domicilio nel Canton Ticino',
+    ogDescription: 'Cresce la protesta contro la partecipazione dei pazienti ai costi delle cure a domicilio nel Canton Ticino. Scopri come potrebbe impattare i frontalieri e cosa',
+    canonicalPath: '/articoli-frontaliere/cure-domicilio-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Protesta contro la tassa sulle cure a domicilio nel Canton Ticino",
+      "description": "Cresce la protesta contro la partecipazione dei pazienti ai costi delle cure a domicilio nel Canton Ticino. Scopri come potrebbe impattare i frontalieri e cosa",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/cure-domicilio-ticino.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Assistenza sanitaria a domicilio nel Canton Ticino."
+      },
+      "datePublished": "2026-03-21T21:58:16+00:00",
+      "dateModified": "2026-03-21T21:58:16+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/cure-domicilio-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

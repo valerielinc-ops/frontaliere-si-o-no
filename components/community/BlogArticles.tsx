@@ -4295,6 +4295,13 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/lago-maggiore-accesso-tutto-l-anno.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'cure-domicilio-ticino',
+    category: 'pratico',
+    date: '2026-03-21T21:58:16.481Z',
+    image: '/images/blog/cure-domicilio-ticino.jpg',
+    hasCalculator: true,
+  },
 ];
 
 const CATEGORIES = ['all', 'fiscale', 'pratico', 'novita', 'pensione'] as const;

@@ -1586,6 +1586,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.lago-maggiore-accesso-tutto-l-anno.title': 'Lac Majeur : une marche pour demander un accès toute l\'année',
     'blog.article.lago-maggiore-accesso-tutto-l-anno.excerpt': 'Environ 100 personnes ont manifesté pour demander un accès libre aux plages du Lac Majeur toute l\'année. Les manifestants veulent que les rives soient accessibles à la population locale et non seulement aux touristes.',
     'blog.article.lago-maggiore-accesso-tutto-l-anno.imageAlt': 'Vue panoramique du Lac Majeur au coucher du soleil.',
+    'blog.article.cure-domicilio-ticino.title': 'La protestation contre la taxe sur les soins à domicile dans le canton du Tessin',
+    'blog.article.cure-domicilio-ticino.excerpt': 'La protestation contre la participation des patients aux coûts des soins à domicile prend de l\'ampleur : voici ce qui se passe et comment cela pourrait affecter les frontaliers.',
+    'blog.article.cure-domicilio-ticino.imageAlt': 'Services de santé à domicile dans le canton du Tessin, Suisse.',
 };
 
 export default blogMetaFr;
