@@ -1565,6 +1565,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.aumento-iva-costo-ticino-2026.title': 'Quel sera le coût de la hausse de la TVA pour les familles au Tessin',
     'blog.article.aumento-iva-costo-ticino-2026.excerpt': 'Une augmentation de la TVA à 9,6 % pèserait entre 300 et 1 400 francs par an pour les familles tessinoises, avec des impacts variables selon le revenu et la composition familiale.',
     'blog.article.aumento-iva-costo-ticino-2026.imageAlt': 'Vue panoramique de Lugano avec lac et montagnes en arrière-plan par une journée claire',
+    'blog.article.acquarossa-nuovo-polo-filovia-2026.title': 'Acquarossa investit 250 000 francs dans un pôle sanitaire et le trolleybus Dagro',
+    'blog.article.acquarossa-nuovo-polo-filovia-2026.excerpt': 'La commune d’Acquarossa approuve deux crédits pour 250 000 francs : maintenance du trolleybus et conception du nouveau pôle sociosanitaire à 47 millions.',
+    'blog.article.acquarossa-nuovo-polo-filovia-2026.imageAlt': 'Vue panoramique de Bellinzona avec les Alpes en arrière-plan au printemps, paysage urbain et naturel du Tessin',
 };
 
 export default blogMetaFr;

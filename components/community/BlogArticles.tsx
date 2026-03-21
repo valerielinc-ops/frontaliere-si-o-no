@@ -4246,6 +4246,13 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/aumento-iva-costo-ticino-2026.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'acquarossa-nuovo-polo-filovia-2026',
+    category: 'novita',
+    date: '2026-03-21T18:50:30.483Z',
+    image: '/images/blog/acquarossa-nuovo-polo-filovia-2026.jpg',
+    hasCalculator: true,
+  },
 ];
 
 const CATEGORIES = ['all', 'fiscale', 'pratico', 'novita', 'pensione'] as const;

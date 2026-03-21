@@ -1565,6 +1565,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.aumento-iva-costo-ticino-2026.title': 'How Much Will the VAT Increase Cost Families in Ticino',
     'blog.article.aumento-iva-costo-ticino-2026.excerpt': 'A VAT increase to 9.6% would weigh between 300 and 1,400 francs annually on Ticino families, with impacts varying by income and household composition.',
     'blog.article.aumento-iva-costo-ticino-2026.imageAlt': 'Panoramic view of Lugano with lake and mountains in the background on a clear day',
+    'blog.article.acquarossa-nuovo-polo-filovia-2026.title': 'Acquarossa invests 250,000 francs in healthcare hub and Dagro trolleybus line',
+    'blog.article.acquarossa-nuovo-polo-filovia-2026.excerpt': 'The Municipality of Acquarossa approves two credits totaling 250,000 francs: trolleybus maintenance and design of new 47-million franc social-healthcare center.',
+    'blog.article.acquarossa-nuovo-polo-filovia-2026.imageAlt': 'Panoramic view of Bellinzona with Alps in the background in spring, urban and natural landscape of Ticino',
 };
 
 export default blogMetaEn;

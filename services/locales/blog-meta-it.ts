@@ -1565,6 +1565,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.aumento-iva-costo-ticino-2026.title': 'Quanto costerà l’aumento dell’IVA per le famiglie in Ticino',
     'blog.article.aumento-iva-costo-ticino-2026.excerpt': 'Un aumento dell’IVA al 9,6% graverebbe tra 300 e 1’400 franchi annui per le famiglie ticinesi, con impatti differenziati per reddito e composizione.',
     'blog.article.aumento-iva-costo-ticino-2026.imageAlt': 'Veduta panoramica di Lugano con il lago e le montagne sullo sfondo in una giornata limpida',
+    'blog.article.acquarossa-nuovo-polo-filovia-2026.title': 'Acquarossa investe 250mila franchi in polo sanitario e filovia Dagro',
+    'blog.article.acquarossa-nuovo-polo-filovia-2026.excerpt': 'Il Comune di Acquarossa approva due crediti per 250mila franchi: manutenzione filovia e progettazione nuovo polo sociosanitario da 47 milioni.',
+    'blog.article.acquarossa-nuovo-polo-filovia-2026.imageAlt': 'Vista panoramica di Bellinzona con le Alpi sullo sfondo in primavera, paesaggio urbano e naturale del Ticino',
 };
 
 export default blogMetaIt;

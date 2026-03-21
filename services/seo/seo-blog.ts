@@ -8259,6 +8259,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-acquarossa-nuovo-polo-filovia-2026': {
+    title: 'Acquarossa investe 250mila franchi in polo sanitario e filovia Dagro | Frontaliere Ticino',
+    description: 'Acquarossa approva 250mila CHF per manutenzione filovia e progettazione nuovo polo sociosanitario da 47 milioni, migliorando servizi per frontalieri e',
+    keywords: 'frontalieri, ticino, svizzera, italia, acquarossa, investe, 250mila, franchi',
+    ogTitle: 'Acquarossa investe in polo sanitario e filovia Dagro',
+    ogDescription: 'Due crediti per 250mila franchi approvati dal Comune di Acquarossa per filovia e nuovo polo sociosanitario da 47 milioni in Ticino.',
+    canonicalPath: '/articoli-frontaliere/acquarossa-nuovo-polo-filovia-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Acquarossa investe nel nuovo polo sanitario e nella filovia di Dagro",
+      "description": "Acquarossa approva 250mila CHF per manutenzione filovia e progettazione nuovo polo sociosanitario da 47 milioni, migliorando servizi per frontalieri e",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/acquarossa-nuovo-polo-filovia-2026.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Vista panoramica di Bellinzona con le Alpi sullo sfondo in primavera, paesaggio urbano e naturale del Ticino"
+      },
+      "datePublished": "2026-03-21T18:50:30+00:00",
+      "dateModified": "2026-03-21T18:50:30+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/acquarossa-nuovo-polo-filovia-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

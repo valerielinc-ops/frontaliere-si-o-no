@@ -1565,6 +1565,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.aumento-iva-costo-ticino-2026.title': 'Wie viel wird die Mehrwertsteuererhöhung die Familien im Tessin kosten',
     'blog.article.aumento-iva-costo-ticino-2026.excerpt': 'Eine Erhöhung der Mehrwertsteuer auf 9,6 % würde für Tessiner Familien zwischen 300 und 1’400 Franken jährlich bedeuten, mit unterschiedlichen Auswirkungen je nach Einkommen und Familienzusammensetzung.',
     'blog.article.aumento-iva-costo-ticino-2026.imageAlt': 'Panoramablick auf Lugano mit See und Bergen im Hintergrund an einem klaren Tag',
+    'blog.article.acquarossa-nuovo-polo-filovia-2026.title': 'Acquarossa investiert 250\'000 Franken in Gesundheitszentrum und Oberleitungsbus Dagro',
+    'blog.article.acquarossa-nuovo-polo-filovia-2026.excerpt': 'Die Gemeinde Acquarossa genehmigt zwei Kredite über 250\'000 Franken: Wartung der Oberleitungsbuslinie und Planung eines neuen sozio-sanitären Zentrums im Wert von 47 Millionen.',
+    'blog.article.acquarossa-nuovo-polo-filovia-2026.imageAlt': 'Panoramablick auf Bellinzona mit Alpen im Hintergrund im Frühling, städtische und natürliche Landschaft im Tessin',
 };
 
 export default blogMetaDe;
