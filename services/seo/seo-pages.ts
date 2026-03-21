@@ -3049,7 +3049,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
         "@context": "https://schema.org",
         "@type": "ItemList",
         "name": "Articoli Frontaliere",
-        "numberOfItems": 506,
+        "numberOfItems": 507,
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
           { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -3556,7 +3556,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 503, "name": "Salute - Lombardia, scontro sulla sanità integr...", "url": `${BASE_URL}/articoli-frontaliere/sanita-integrativa-lombardia-ticino` },
           { "@type": "ListItem", "position": 504, "name": "Fatture Mediche Gonfiate", "url": `${BASE_URL}/articoli-frontaliere/fatture-mediche-gonfiate-ticino` },
           { "@type": "ListItem", "position": 505, "name": "Divieto cellulari nelle scuole dell'obbligo in ...", "url": `${BASE_URL}/articoli-frontaliere/divieto-cellulari-scuola-ticino` },
-          { "@type": "ListItem", "position": 506, "name": "Violenza contro le donne, il Consiglio d’Europa...", "url": `${BASE_URL}/articoli-frontaliere/violenza-donne-consiglio-europa-ticino` }
+          { "@type": "ListItem", "position": 506, "name": "Violenza contro le donne, il Consiglio d’Europa...", "url": `${BASE_URL}/articoli-frontaliere/violenza-donne-consiglio-europa-ticino` },
+          { "@type": "ListItem", "position": 507, "name": "Un ticinese a capo di due importanti servizi de...", "url": `${BASE_URL}/articoli-frontaliere/trojani-capo-servizi-esercito-ticino` }
         ]
       }
     ]

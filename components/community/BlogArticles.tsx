@@ -4204,6 +4204,13 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/violenza-donne-consiglio-europa-ticino.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'trojani-capo-servizi-esercito-ticino',
+    category: 'novita',
+    date: '2026-03-21T15:43:34.878Z',
+    image: '/images/blog/trojani-capo-servizi-esercito-ticino.jpg',
+    hasCalculator: true,
+  },
 ];
 
 const CATEGORIES = ['all', 'fiscale', 'pratico', 'novita', 'pensione'] as const;

@@ -1547,6 +1547,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.violenza-donne-consiglio-europa-ticino.title': 'Der Europarat bewertet die Fortschritte der Schweiz und des Tessins im Kampf gegen Gewalt gegen Frauen',
     'blog.article.violenza-donne-consiglio-europa-ticino.excerpt': 'Am 11. März überwachte der Europarat die Fortschritte der Schweiz und des Tessins im Kampf gegen geschlechtsspezifische Gewalt.',
     'blog.article.violenza-donne-consiglio-europa-ticino.imageAlt': 'Bellinzona mit Blick auf das Schloss und die umliegenden Berge.',
+    'blog.article.trojani-capo-servizi-esercito-ticino.title': 'Ein Tessiner an der Spitze von zwei wichtigen Militärdiensten',
+    'blog.article.trojani-capo-servizi-esercito-ticino.excerpt': 'Oberstleutnant Stefano Trojani wird ab dem 1. Juni 2026 die Führung des Militärischen Nachrichtendienstes und des Dienstes für präventiven Schutz des Schweizerischen Militärs übernehmen.',
+    'blog.article.trojani-capo-servizi-esercito-ticino.imageAlt': 'Oberst Stefano Trojani',
 };
 
 export default blogMetaDe;

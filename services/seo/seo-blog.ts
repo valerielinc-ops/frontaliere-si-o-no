@@ -8085,6 +8085,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-trojani-capo-servizi-esercito-ticino': {
+    title: 'Un ticinese a capo di due importanti servizi dell\'esercito | Frontaliere Ticino',
+    description: 'Il colonnello SMG Stefano Trojani assumerà il comando del Servizio informazioni militare e del Servizio di protezione preventiva dell\'esercito dal 1° giugno',
+    keywords: 'frontalieri, ticino, svizzera, italia, ticinese, capo, importanti, servizi',
+    ogTitle: 'Un ticinese a capo di due importanti servizi dell\'esercito',
+    ogDescription: 'Il colonnello SMG Stefano Trojani assumerà il comando del Servizio informazioni militare e del Servizio di protezione preventiva dell\'esercito dal 1° giugno',
+    canonicalPath: '/articoli-frontaliere/trojani-capo-servizi-esercito-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Un ticinese a capo di due importanti servizi dell'esercito",
+      "description": "Il colonnello SMG Stefano Trojani assumerà il comando del Servizio informazioni militare e del Servizio di protezione preventiva dell'esercito dal 1° giugno",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/trojani-capo-servizi-esercito-ticino.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Il colonnello SMG Stefano Trojani"
+      },
+      "datePublished": "2026-03-21T15:43:34+00:00",
+      "dateModified": "2026-03-21T15:43:34+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/trojani-capo-servizi-esercito-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

@@ -1547,6 +1547,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.violenza-donne-consiglio-europa-ticino.title': 'Le Conseil de l\'Europe Évalue les Progrès de la Suisse et du Tessin dans la Lutte contre la Violence à l\'Égard des Femmes',
     'blog.article.violenza-donne-consiglio-europa-ticino.excerpt': 'Le 11 mars, le Conseil de l\'Europe a surveillé les progrès de la Suisse et du Tessin dans la lutte contre la violence de genre.',
     'blog.article.violenza-donne-consiglio-europa-ticino.imageAlt': 'Bellinzone avec vue sur le château et les montagnes environnantes.',
+    'blog.article.trojani-capo-servizi-esercito-ticino.title': 'Un Tessinese à la tête de deux importants services de l\'armée',
+    'blog.article.trojani-capo-servizi-esercito-ticino.excerpt': 'Le colonel SMG Stefano Trojani assumera le commandement du Service de renseignements militaires et du Service de protection préventive de l\'armée à partir du 1er juin 2026.',
+    'blog.article.trojani-capo-servizi-esercito-ticino.imageAlt': 'Colonel Stefano Trojani',
 };
 
 export default blogMetaFr;

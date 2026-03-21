@@ -1547,6 +1547,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.violenza-donne-consiglio-europa-ticino.title': 'Il Consiglio d’Europa Valuta i Progressi della Svizzera e del Ticino nella Lotta alla Violenza contro le Donne',
     'blog.article.violenza-donne-consiglio-europa-ticino.excerpt': 'Il 11 marzo, il Consiglio d\'Europa ha monitorato i progressi della Svizzera e del Ticino nella lotta alla violenza di genere.',
     'blog.article.violenza-donne-consiglio-europa-ticino.imageAlt': 'Bellinzona con vista sul castello e montagne circostanti.',
+    'blog.article.trojani-capo-servizi-esercito-ticino.title': 'Un ticinese a capo di due importanti servizi dell\'esercito',
+    'blog.article.trojani-capo-servizi-esercito-ticino.excerpt': 'Il colonnello SMG Stefano Trojani assumerà il comando del Servizio informazioni militare e del Servizio di protezione preventiva dell\'esercito dal 1° giugno 2026.',
+    'blog.article.trojani-capo-servizi-esercito-ticino.imageAlt': 'Il colonnello SMG Stefano Trojani',
 };
 
 export default blogMetaIt;

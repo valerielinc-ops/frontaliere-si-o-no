@@ -1547,6 +1547,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.violenza-donne-consiglio-europa-ticino.title': 'The Council of Europe Assesses Switzerland and Ticino\'s Progress in Combating Violence Against Women',
     'blog.article.violenza-donne-consiglio-europa-ticino.excerpt': 'On March 11, the Council of Europe monitored Switzerland and Ticino\'s progress in addressing gender-based violence.',
     'blog.article.violenza-donne-consiglio-europa-ticino.imageAlt': 'Bellinzona with a view of the castle and surrounding mountains.',
+    'blog.article.trojani-capo-servizi-esercito-ticino.title': 'A Ticino native to head two important military services',
+    'blog.article.trojani-capo-servizi-esercito-ticino.excerpt': 'Colonel SMG Stefano Trojani will take over as head of the Military Intelligence Service and the Preventive Protection Service of the army as of June 1, 2026.',
+    'blog.article.trojani-capo-servizi-esercito-ticino.imageAlt': 'Colonel Stefano Trojani',
 };
 
 export default blogMetaEn;
