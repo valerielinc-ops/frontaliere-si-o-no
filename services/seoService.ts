@@ -1668,6 +1668,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-cure-domicilio-ticino': { name: 'Protesta Ticino', path: '/articoli-frontaliere/cure-domicilio-ticino', parent: 'blog' },
     'blog-spiagge-libere-sul-lago-maggiore': { name: 'Spiagge libere', path: '/articoli-frontaliere/spiagge-libere-sul-lago-maggiore', parent: 'blog' },
     'blog-snl-stagione-green-concessione': { name: 'Stagione SNL', path: '/articoli-frontaliere/snl-stagione-green-concessione', parent: 'blog' },
+    'blog-smartphone-a-scuola-e-nuove-direttive': { name: 'Smartphone a scuola', path: '/articoli-frontaliere/smartphone-a-scuola-e-nuove-direttive', parent: 'blog' },
   };
 
   const info = sectionNames[section];

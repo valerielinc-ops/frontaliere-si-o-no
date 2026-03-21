@@ -4316,6 +4316,13 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/snl-stagione-green-concessione.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'smartphone-a-scuola-e-nuove-direttive',
+    category: 'novita',
+    date: '2026-03-21T23:36:39.323Z',
+    image: '/images/blog/smartphone-a-scuola-e-nuove-direttive.jpg',
+    hasCalculator: true,
+  },
 ];
 
 const CATEGORIES = ['all', 'fiscale', 'pratico', 'novita', 'pensione'] as const;

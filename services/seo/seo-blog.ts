@@ -8549,6 +8549,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-smartphone-a-scuola-e-nuove-direttive': {
+    title: 'Smartphone a scuola: il DECS cambia rotta, ma l\'iniziativa popolare | Frontaliere Ticino',
+    description: 'Il dibattito sull\'uso degli smartphone a scuola nel Canton Ticino continua. Il DECS annuncia nuove direttive, ma l\'iniziativa popolare per il divieto totale non',
+    keywords: 'frontalieri, ticino, svizzera, italia, smartphone, scuola, decs, cambia',
+    ogTitle: 'Smartphone a scuola: il DECS cambia rotta | Frontaliere Ticino',
+    ogDescription: 'Il DECS annuncia nuove direttive sull\'uso degli smartphone a scuola, ma l\'iniziativa popolare per il divieto totale non viene ritirata. Scopri i dettagli.',
+    canonicalPath: '/articoli-frontaliere/smartphone-a-scuola-e-nuove-direttive',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Smartphone a scuola: il DECS cambia rotta, ma l'iniziativa popolare resta",
+      "description": "Il dibattito sull'uso degli smartphone a scuola nel Canton Ticino continua. Il DECS annuncia nuove direttive, ma l'iniziativa popolare per il divieto totale non",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/smartphone-a-scuola-e-nuove-direttive.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Studenti in una classe di scuola superiore a Locarno con gli smartphone in mano."
+      },
+      "datePublished": "2026-03-21T23:36:39+00:00",
+      "dateModified": "2026-03-21T23:36:39+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/smartphone-a-scuola-e-nuove-direttive`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

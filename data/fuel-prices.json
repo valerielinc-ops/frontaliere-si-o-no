@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-03-21T23:07:24.918Z",
+  "generatedAt": "2026-03-21T23:42:41.535Z",
   "sources": {
     "italy": {
       "provider": "MIMIT Open Data",
@@ -11,7 +11,7 @@
       "provider": "TCS Benzinpreis",
       "providerUrl": "https://benzin.tcs.ch/de/map/SP95",
       "stationCount": 222,
-      "latestObservedUpdate": "2026-03-21T22:42:22.255Z"
+      "latestObservedUpdate": "2026-03-21T23:10:38.986Z"
     },
     "exchangeRate": {
       "provider": "ECB",
@@ -18179,7 +18179,7 @@
             "lat": 46.2126984,
             "lng": 9.039422199999999,
             "sp95PriceChf": 1.8900000000000001,
-            "updatedAt": "2026-03-21T14:58:41.590Z",
+            "updatedAt": "2026-03-21T23:10:38.986Z",
             "nearestMunicipality": "Cavargna (CO)",
             "nearestMunicipalityDistanceKm": 14.7,
             "sp95PriceEur": 2.078,

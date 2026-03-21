@@ -1595,6 +1595,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.snl-stagione-green-concessione.title': 'La stagione 2026 della SNL: sostenibilità e attesa per la concessione',
     'blog.article.snl-stagione-green-concessione.excerpt': 'La Società di Navigazione Lago di Lugano lancia la stagione 2026 con un focus sulla sostenibilità e l\'elettrificazione, in attesa della decisione sul rinnovo della concessione federale.',
     'blog.article.snl-stagione-green-concessione.imageAlt': 'Vista panoramica del Lago di Lugano e della città di Lugano.',
+    'blog.article.smartphone-a-scuola-e-nuove-direttive.title': 'Smartphone a scuola: il DECS cambia rotta, ma l\'iniziativa popolare resta',
+    'blog.article.smartphone-a-scuola-e-nuove-direttive.excerpt': 'Il Dipartimento dell\'Educazione, della Cultura e dello Sport (DECS) del Canton Ticino ha annunciato nuove direttive sull\'uso degli smartphone a scuola, ma l\'iniziativa popolare per il divieto totale non viene ritirata.',
+    'blog.article.smartphone-a-scuola-e-nuove-direttive.imageAlt': 'Studenti in una classe di scuola superiore a Locarno con gli smartphone in mano.',
 };
 
 export default blogMetaIt;
