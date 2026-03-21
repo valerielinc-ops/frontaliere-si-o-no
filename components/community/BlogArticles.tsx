@@ -4260,6 +4260,13 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/ritardo-sconto-carburante-ticino-2026.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'lavori-a8-castellanza-notturni-2026',
+    category: 'pratico',
+    date: '2026-03-21T19:38:54.409Z',
+    image: '/images/blog/lavori-a8-castellanza-notturni-2026.jpg',
+    hasCalculator: true,
+  },
 ];
 
 const CATEGORIES = ['all', 'fiscale', 'pratico', 'novita', 'pensione'] as const;

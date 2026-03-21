@@ -1571,6 +1571,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.ritardo-sconto-carburante-ticino-2026.title': 'Sconto carburante: ritardi e disagi al confine Ticino-Italia',
     'blog.article.ritardo-sconto-carburante-ticino-2026.excerpt': 'Il taglio accise carburante annunciato dal Governo italiano arriva in ritardo, generando confusione e proteste tra frontalieri e automobilisti ticinesi.',
     'blog.article.ritardo-sconto-carburante-ticino-2026.imageAlt': 'Stazione di servizio al confine italo-svizzero a Mendrisio con auto in attesa e cartelli prezzi carburante',
+    'blog.article.lavori-a8-castellanza-notturni-2026.title': 'A8 Milano-Varese: chiusure notturne allo svincolo di Castellanza a marzo 2026',
+    'blog.article.lavori-a8-castellanza-notturni-2026.excerpt': 'Tre notti di chiusura notturna allo svincolo di Castellanza per lavori di riqualifica delle barriere antirumore, con impatti sul traffico verso Milano e frontalieri.',
+    'blog.article.lavori-a8-castellanza-notturni-2026.imageAlt': 'Autostrada Ticino al confine italo-svizzero con traffico serale e montagne sullo sfondo',
 };
 
 export default blogMetaIt;

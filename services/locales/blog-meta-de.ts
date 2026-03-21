@@ -1571,6 +1571,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.ritardo-sconto-carburante-ticino-2026.title': 'Kraftstoffrabatt: Verzögerungen und Probleme an der Grenze Tessin-Italien',
     'blog.article.ritardo-sconto-carburante-ticino-2026.excerpt': 'Die vom italienischen Staat angekündigte Senkung der Kraftstoffabgaben kommt verspätet und sorgt für Verwirrung und Proteste unter Grenzgängern und Tessiner Autofahrern.',
     'blog.article.ritardo-sconto-carburante-ticino-2026.imageAlt': 'Tankstelle an der schweizerisch-italienischen Grenze in Mendrisio mit wartenden Autos und Preisschildern',
+    'blog.article.lavori-a8-castellanza-notturni-2026.title': 'A8 Mailand-Varese: nächtliche Sperrungen an der Ausfahrt Castellanza im März 2026',
+    'blog.article.lavori-a8-castellanza-notturni-2026.excerpt': 'Drei Nächte mit nächtlichen Sperrungen an der Ausfahrt Castellanza wegen Sanierungsarbeiten an den Lärmschutzwänden, mit Auswirkungen auf den Verkehr in Richtung Mailand und Grenzgänger.',
+    'blog.article.lavori-a8-castellanza-notturni-2026.imageAlt': 'Tessin Autobahn an der italienisch-schweizerischen Grenze mit Abendverkehr und Bergen im Hintergrund',
 };
 
 export default blogMetaDe;

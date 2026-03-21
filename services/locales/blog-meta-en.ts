@@ -1571,6 +1571,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.ritardo-sconto-carburante-ticino-2026.title': 'Fuel Discount: Delays and Disruptions at the Ticino-Italy Border',
     'blog.article.ritardo-sconto-carburante-ticino-2026.excerpt': 'The fuel excise cut announced by the Italian Government arrived late, causing confusion and protests among cross-border commuters and Ticino drivers.',
     'blog.article.ritardo-sconto-carburante-ticino-2026.imageAlt': 'Fuel station near the Swiss-Italian border in Mendrisio with cars waiting and fuel price signs',
+    'blog.article.lavori-a8-castellanza-notturni-2026.title': 'A8 Milan-Varese: Night Closures at Castellanza Junction in March 2026',
+    'blog.article.lavori-a8-castellanza-notturni-2026.excerpt': 'Three nights of night closures at the Castellanza junction for noise barrier renovation works, impacting traffic towards Milan and cross-border commuters.',
+    'blog.article.lavori-a8-castellanza-notturni-2026.imageAlt': 'Ticino highway at the Italian-Swiss border with evening traffic and mountains in background',
 };
 
 export default blogMetaEn;

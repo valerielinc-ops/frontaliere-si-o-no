@@ -8317,6 +8317,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-lavori-a8-castellanza-notturni-2026': {
+    title: 'A8 Milano-Varese: chiusure notturne allo svincolo di Castellanza a marzo | Frontaliere Ticino',
+    description: 'Chiusure notturne allo svincolo di Castellanza sulla A8 per lavori antirumore dal 24 al 26 marzo 2026, con impatti sul traffico frontalieri Ticino-Lombardia.',
+    keywords: 'frontalieri, ticino, svizzera, italia, milano-varese, chiusure, notturne, allo',
+    ogTitle: 'Chiusure notturne A8 Castellanza marzo 2026 | Frontaliere Ticino',
+    ogDescription: 'Interventi notturni per la riqualifica delle barriere antirumore allo svincolo di Castellanza sulla A8, con deviazioni per frontalieri Ticino verso Milano.',
+    canonicalPath: '/articoli-frontaliere/lavori-a8-castellanza-notturni-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Lavori autostradali - A8 Milano-Varese, chiusure notturne allo svincolo di Castellanza verso Milano",
+      "description": "Chiusure notturne allo svincolo di Castellanza sulla A8 per lavori antirumore dal 24 al 26 marzo 2026, con impatti sul traffico frontalieri Ticino-Lombardia.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/lavori-a8-castellanza-notturni-2026.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Autostrada Ticino al confine italo-svizzero con traffico serale e montagne sullo sfondo"
+      },
+      "datePublished": "2026-03-21T19:38:54+00:00",
+      "dateModified": "2026-03-21T19:38:54+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/lavori-a8-castellanza-notturni-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
