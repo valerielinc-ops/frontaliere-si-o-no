@@ -1538,6 +1538,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.sanita-integrativa-lombardia-ticino.title': 'Conflit sur la santé complémentaire en Lombardie : 27 organisations s\'opposent',
     'blog.article.sanita-integrativa-lombardia-ticino.excerpt': 'Vingt-sept organisations contre les conventions entre public et privé en Lombardie. Risque de voies privilégiées et de moindre transparence.',
     'blog.article.sanita-integrativa-lombardia-ticino.imageAlt': 'Vue panoramique de Lugano avec lac et montagnes.',
+    'blog.article.fatture-mediche-gonfiate-ticino.title': 'Factures Médicales Gonflées : Un Problème de Plus en Plus Répandu au Tessin',
+    'blog.article.fatture-mediche-gonfiate-ticino.excerpt': 'Au Tessin, 60 % des patients ont reçu des factures médicales erronées, impactant les coûts des soins et les primes d\'assurance.',
+    'blog.article.fatture-mediche-gonfiate-ticino.imageAlt': 'Vue panoramique de Lugano avec des montagnes en arrière-plan.',
 };
 
 export default blogMetaFr;

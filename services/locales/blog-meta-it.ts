@@ -1538,6 +1538,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.sanita-integrativa-lombardia-ticino.title': 'Scontro sulla sanità integrativa in Lombardia: 27 sigle si oppongono',
     'blog.article.sanita-integrativa-lombardia-ticino.excerpt': 'Ventisette organizzazioni contro le convenzioni fra pubblico e privato in Lombardia. Rischio di corsie privilegiate e minore trasparenza.',
     'blog.article.sanita-integrativa-lombardia-ticino.imageAlt': 'Vista panoramica di Lugano con lago e montagne.',
+    'blog.article.fatture-mediche-gonfiate-ticino.title': 'Fatture Mediche Gonfiate: Un Problema Sempre Più Diffuso in Ticino',
+    'blog.article.fatture-mediche-gonfiate-ticino.excerpt': 'In Ticino, il 60% dei pazienti ha ricevuto fatture mediche errate, con un impatto sui costi delle cure e premi assicurativi.',
+    'blog.article.fatture-mediche-gonfiate-ticino.imageAlt': 'Vista panoramica di Lugano con montagne sullo sfondo.',
 };
 
 export default blogMetaIt;

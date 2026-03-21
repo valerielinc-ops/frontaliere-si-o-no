@@ -1538,6 +1538,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.sanita-integrativa-lombardia-ticino.title': 'Clash Over Supplemental Healthcare in Lombardy: 27 Organizations Oppose',
     'blog.article.sanita-integrativa-lombardia-ticino.excerpt': 'Twenty-seven organizations against agreements between public and private sectors in Lombardy. Risk of privileged access and reduced transparency.',
     'blog.article.sanita-integrativa-lombardia-ticino.imageAlt': 'Panoramic view of Lugano with lake and mountains.',
+    'blog.article.fatture-mediche-gonfiate-ticino.title': 'Inflated Medical Bills: An Increasingly Common Problem in Ticino',
+    'blog.article.fatture-mediche-gonfiate-ticino.excerpt': 'In Ticino, 60% of patients have received incorrect medical bills, impacting care costs and insurance premiums.',
+    'blog.article.fatture-mediche-gonfiate-ticino.imageAlt': 'Panoramic view of Lugano with mountains in the background.',
 };
 
 export default blogMetaEn;

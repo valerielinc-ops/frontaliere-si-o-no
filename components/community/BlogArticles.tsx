@@ -4183,6 +4183,13 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/sanita-integrativa-lombardia-ticino.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'fatture-mediche-gonfiate-ticino',
+    category: 'pratico',
+    date: '2026-03-21T13:54:29.953Z',
+    image: '/images/blog/fatture-mediche-gonfiate-ticino.jpg',
+    hasCalculator: true,
+  },
 ];
 
 const CATEGORIES = ['all', 'fiscale', 'pratico', 'novita', 'pensione'] as const;

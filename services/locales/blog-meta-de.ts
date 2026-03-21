@@ -1538,6 +1538,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.sanita-integrativa-lombardia-ticino.title': 'Konflikt über die Zusatzversorgung im Gesundheitswesen in Lombardei: 27 Verbände wehren sich',
     'blog.article.sanita-integrativa-lombardia-ticino.excerpt': 'Siebenundzwanzig Organisationen gegen die Vereinbarungen zwischen öffentlichem und privatem Sektor in Lombardei. Risiko von Sonderbehandlungen und geringerer Transparenz.',
     'blog.article.sanita-integrativa-lombardia-ticino.imageAlt': 'Panoramablick auf Lugano mit See und Bergen.',
+    'blog.article.fatture-mediche-gonfiate-ticino.title': 'Aufgeblähte Arztrechnungen: Ein Immer Häufigeres Problem im Tessin',
+    'blog.article.fatture-mediche-gonfiate-ticino.excerpt': 'Im Tessin haben 60% der Patienten fehlerhafte Arztrechnungen erhalten, was Auswirkungen auf die Behandlungskosten und die Versicherungsprämien hat.',
+    'blog.article.fatture-mediche-gonfiate-ticino.imageAlt': 'Panoramablick auf Lugano mit Bergen im Hintergrund.',
 };
 
 export default blogMetaDe;

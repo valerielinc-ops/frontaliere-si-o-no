@@ -7998,6 +7998,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-fatture-mediche-gonfiate-ticino': {
+    title: 'Fatture Mediche Gonfiate: Un Problema Sempre Più Diffuso in Ticino | Frontaliere Ticino',
+    description: 'In Ticino, il 60% dei pazienti ha ricevuto fatture mediche errate. Scopri come affrontare questa problematica. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, fatture, mediche, gonfiate, problema',
+    ogTitle: 'Fatture Mediche Gonfiate in Ticino',
+    ogDescription: 'Scopri il fenomeno delle fatture mediche gonfiate in Ticino e come difenderti.',
+    canonicalPath: '/articoli-frontaliere/fatture-mediche-gonfiate-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Fatture Mediche Gonfiate",
+      "description": "In Ticino, il 60% dei pazienti ha ricevuto fatture mediche errate. Scopri come affrontare questa problematica. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/fatture-mediche-gonfiate-ticino.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Vista panoramica di Lugano con montagne sullo sfondo."
+      },
+      "datePublished": "2026-03-21T13:54:29+00:00",
+      "dateModified": "2026-03-21T13:54:29+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/fatture-mediche-gonfiate-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
