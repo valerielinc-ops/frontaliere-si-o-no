@@ -1648,6 +1648,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-iva-bassa-svizzera-immagine-ingannevole': { name: 'IVA Svizzera', path: '/articoli-frontaliere/iva-bassa-svizzera-immagine-ingannevole', parent: 'blog' },
     'blog-divieto-smartphone-scuola-ticino': { name: 'Divieto di smartphone nelle scuole del T', path: '/articoli-frontaliere/divieto-smartphone-scuola-ticino', parent: 'blog' },
     'blog-la-navigazione-rafforza-offerta-2026': { name: 'Navigazione Ticino', path: '/articoli-frontaliere/la-navigazione-rafforza-offerta-2026', parent: 'blog' },
+    'blog-sanita-integrativa-lombardia-ticino': { name: 'Sanità Integrativa', path: '/articoli-frontaliere/sanita-integrativa-lombardia-ticino', parent: 'blog' },
   };
 
   const info = sectionNames[section];

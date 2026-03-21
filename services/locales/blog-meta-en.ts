@@ -1535,6 +1535,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.la-navigazione-rafforza-offerta-2026.title': 'Ticino Navigation: Enhanced Offers for 2026',
     'blog.article.la-navigazione-rafforza-offerta-2026.excerpt': 'Lugano Lake Navigation is preparing for a new season with enhanced offers, aiming to become a leading tourist carrier.',
     'blog.article.la-navigazione-rafforza-offerta-2026.imageAlt': 'Panoramic view of Lake Lugano with boats.',
+    'blog.article.sanita-integrativa-lombardia-ticino.title': 'Clash Over Supplemental Healthcare in Lombardy: 27 Organizations Oppose',
+    'blog.article.sanita-integrativa-lombardia-ticino.excerpt': 'Twenty-seven organizations against agreements between public and private sectors in Lombardy. Risk of privileged access and reduced transparency.',
+    'blog.article.sanita-integrativa-lombardia-ticino.imageAlt': 'Panoramic view of Lugano with lake and mountains.',
 };
 
 export default blogMetaEn;

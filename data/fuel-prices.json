@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-03-21T13:15:04.768Z",
+  "generatedAt": "2026-03-21T13:43:55.486Z",
   "sources": {
     "italy": {
       "provider": "MIMIT Open Data",
@@ -11,7 +11,7 @@
       "provider": "TCS Benzinpreis",
       "providerUrl": "https://benzin.tcs.ch/de/map/SP95",
       "stationCount": 222,
-      "latestObservedUpdate": "2026-03-21T13:03:21.693Z"
+      "latestObservedUpdate": "2026-03-21T13:33:16.783Z"
     },
     "exchangeRate": {
       "provider": "ECB",
@@ -20679,20 +20679,6 @@
             "distanceKm": 14.6
           },
           {
-            "id": "jyoUfNzRecwgKimvcY2C",
-            "name": "Carrozzeria San Giovanni SA",
-            "brand": "AVIA",
-            "address": "Via Campagna Adorna 13, 6850 Mendrisio",
-            "lat": 45.862217,
-            "lng": 8.972931,
-            "sp95PriceChf": 1.75,
-            "updatedAt": "2026-03-20T11:10:12.078Z",
-            "nearestMunicipality": "Clivio (VA)",
-            "nearestMunicipalityDistanceKm": 3.4,
-            "sp95PriceEur": 1.924,
-            "distanceKm": 17.9
-          },
-          {
             "id": "sGRKkbZsI7X2ry7BiFc6",
             "name": "Piccadilly SA - Pica, Migrolino",
             "brand": "UNDEFINED",
@@ -20705,6 +20691,20 @@
             "nearestMunicipalityDistanceKm": 3.8,
             "sp95PriceEur": 1.946,
             "distanceKm": 18.5
+          },
+          {
+            "id": "jyoUfNzRecwgKimvcY2C",
+            "name": "Carrozzeria San Giovanni SA",
+            "brand": "AVIA",
+            "address": "Via Campagna Adorna 13, 6850 Mendrisio",
+            "lat": 45.862217,
+            "lng": 8.972931,
+            "sp95PriceChf": 1.79,
+            "updatedAt": "2026-03-21T13:33:16.783Z",
+            "nearestMunicipality": "Clivio (VA)",
+            "nearestMunicipalityDistanceKm": 3.4,
+            "sp95PriceEur": 1.968,
+            "distanceKm": 17.9
           },
           {
             "id": "BuLqgLtrkWKZWPB1oaHr",
@@ -21720,20 +21720,6 @@
             "distanceKm": 15.7
           },
           {
-            "id": "jyoUfNzRecwgKimvcY2C",
-            "name": "Carrozzeria San Giovanni SA",
-            "brand": "AVIA",
-            "address": "Via Campagna Adorna 13, 6850 Mendrisio",
-            "lat": 45.862217,
-            "lng": 8.972931,
-            "sp95PriceChf": 1.75,
-            "updatedAt": "2026-03-20T11:10:12.078Z",
-            "nearestMunicipality": "Clivio (VA)",
-            "nearestMunicipalityDistanceKm": 3.4,
-            "sp95PriceEur": 1.924,
-            "distanceKm": 18.9
-          },
-          {
             "id": "sGRKkbZsI7X2ry7BiFc6",
             "name": "Piccadilly SA - Pica, Migrolino",
             "brand": "UNDEFINED",
@@ -21746,6 +21732,20 @@
             "nearestMunicipalityDistanceKm": 3.8,
             "sp95PriceEur": 1.946,
             "distanceKm": 19.5
+          },
+          {
+            "id": "jyoUfNzRecwgKimvcY2C",
+            "name": "Carrozzeria San Giovanni SA",
+            "brand": "AVIA",
+            "address": "Via Campagna Adorna 13, 6850 Mendrisio",
+            "lat": 45.862217,
+            "lng": 8.972931,
+            "sp95PriceChf": 1.79,
+            "updatedAt": "2026-03-21T13:33:16.783Z",
+            "nearestMunicipality": "Clivio (VA)",
+            "nearestMunicipalityDistanceKm": 3.4,
+            "sp95PriceEur": 1.968,
+            "distanceKm": 18.9
           },
           {
             "id": "BuLqgLtrkWKZWPB1oaHr",
@@ -24933,11 +24933,11 @@
             "address": "Via Campagna Adorna 13, 6850 Mendrisio",
             "lat": 45.862217,
             "lng": 8.972931,
-            "sp95PriceChf": 1.75,
-            "updatedAt": "2026-03-20T11:10:12.078Z",
+            "sp95PriceChf": 1.79,
+            "updatedAt": "2026-03-21T13:33:16.783Z",
             "nearestMunicipality": "Clivio (VA)",
             "nearestMunicipalityDistanceKm": 3.4,
-            "sp95PriceEur": 1.924,
+            "sp95PriceEur": 1.968,
             "distanceKm": 19.9
           },
           {
@@ -26007,11 +26007,11 @@
             "address": "Via Campagna Adorna 13, 6850 Mendrisio",
             "lat": 45.862217,
             "lng": 8.972931,
-            "sp95PriceChf": 1.75,
-            "updatedAt": "2026-03-20T11:10:12.078Z",
+            "sp95PriceChf": 1.79,
+            "updatedAt": "2026-03-21T13:33:16.783Z",
             "nearestMunicipality": "Clivio (VA)",
             "nearestMunicipalityDistanceKm": 3.4,
-            "sp95PriceEur": 1.924,
+            "sp95PriceEur": 1.968,
             "distanceKm": 19.4
           },
           {
@@ -26905,20 +26905,6 @@
             "distanceKm": 14.9
           },
           {
-            "id": "jyoUfNzRecwgKimvcY2C",
-            "name": "Carrozzeria San Giovanni SA",
-            "brand": "AVIA",
-            "address": "Via Campagna Adorna 13, 6850 Mendrisio",
-            "lat": 45.862217,
-            "lng": 8.972931,
-            "sp95PriceChf": 1.75,
-            "updatedAt": "2026-03-20T11:10:12.078Z",
-            "nearestMunicipality": "Clivio (VA)",
-            "nearestMunicipalityDistanceKm": 3.4,
-            "sp95PriceEur": 1.924,
-            "distanceKm": 18.2
-          },
-          {
             "id": "sGRKkbZsI7X2ry7BiFc6",
             "name": "Piccadilly SA - Pica, Migrolino",
             "brand": "UNDEFINED",
@@ -26931,6 +26917,20 @@
             "nearestMunicipalityDistanceKm": 3.8,
             "sp95PriceEur": 1.946,
             "distanceKm": 18.8
+          },
+          {
+            "id": "jyoUfNzRecwgKimvcY2C",
+            "name": "Carrozzeria San Giovanni SA",
+            "brand": "AVIA",
+            "address": "Via Campagna Adorna 13, 6850 Mendrisio",
+            "lat": 45.862217,
+            "lng": 8.972931,
+            "sp95PriceChf": 1.79,
+            "updatedAt": "2026-03-21T13:33:16.783Z",
+            "nearestMunicipality": "Clivio (VA)",
+            "nearestMunicipalityDistanceKm": 3.4,
+            "sp95PriceEur": 1.968,
+            "distanceKm": 18.2
           },
           {
             "id": "BuLqgLtrkWKZWPB1oaHr",
@@ -27851,20 +27851,6 @@
             "distanceKm": 20
           },
           {
-            "id": "jyoUfNzRecwgKimvcY2C",
-            "name": "Carrozzeria San Giovanni SA",
-            "brand": "AVIA",
-            "address": "Via Campagna Adorna 13, 6850 Mendrisio",
-            "lat": 45.862217,
-            "lng": 8.972931,
-            "sp95PriceChf": 1.75,
-            "updatedAt": "2026-03-20T11:10:12.078Z",
-            "nearestMunicipality": "Clivio (VA)",
-            "nearestMunicipalityDistanceKm": 3.4,
-            "sp95PriceEur": 1.924,
-            "distanceKm": 17.9
-          },
-          {
             "id": "sGRKkbZsI7X2ry7BiFc6",
             "name": "Piccadilly SA - Pica, Migrolino",
             "brand": "UNDEFINED",
@@ -27877,6 +27863,20 @@
             "nearestMunicipalityDistanceKm": 3.8,
             "sp95PriceEur": 1.946,
             "distanceKm": 18.5
+          },
+          {
+            "id": "jyoUfNzRecwgKimvcY2C",
+            "name": "Carrozzeria San Giovanni SA",
+            "brand": "AVIA",
+            "address": "Via Campagna Adorna 13, 6850 Mendrisio",
+            "lat": 45.862217,
+            "lng": 8.972931,
+            "sp95PriceChf": 1.79,
+            "updatedAt": "2026-03-21T13:33:16.783Z",
+            "nearestMunicipality": "Clivio (VA)",
+            "nearestMunicipalityDistanceKm": 3.4,
+            "sp95PriceEur": 1.968,
+            "distanceKm": 17.9
           }
         ],
         "minPriceChf": 1.71,

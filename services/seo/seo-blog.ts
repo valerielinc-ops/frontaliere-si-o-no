@@ -7969,6 +7969,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-sanita-integrativa-lombardia-ticino': {
+    title: 'Scontro sulla sanità integrativa in Lombardia: 27 sigle si oppongono | Frontaliere Ticino',
+    description: 'Scopri come la nuova delibera lombarda impatta i frontalieri e il sistema sanitario in Ticino. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, scontro, sulla, sanità, integrativa',
+    ogTitle: 'Sanità Integrativa in Lombardia',
+    ogDescription: '27 sigle si oppongono alle convenzioni sanitarie nel pubblico.',
+    canonicalPath: '/articoli-frontaliere/sanita-integrativa-lombardia-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Salute - Lombardia, scontro sulla sanità integrativa: 27 sigle contro le convenzioni nel pubblico",
+      "description": "Scopri come la nuova delibera lombarda impatta i frontalieri e il sistema sanitario in Ticino. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/sanita-integrativa-lombardia-ticino.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Vista panoramica di Lugano con lago e montagne."
+      },
+      "datePublished": "2026-03-21T13:38:10+00:00",
+      "dateModified": "2026-03-21T13:38:10+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/sanita-integrativa-lombardia-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

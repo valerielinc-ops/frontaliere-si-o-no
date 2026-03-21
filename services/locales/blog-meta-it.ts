@@ -1535,6 +1535,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.la-navigazione-rafforza-offerta-2026.title': 'Navigazione Ticino: Offerte potenziate per il 2026',
     'blog.article.la-navigazione-rafforza-offerta-2026.excerpt': 'La Navigazione Lago di Lugano si prepara per una nuova stagione con offerte potenziate, mirando a diventare un vettore turistico di riferimento.',
     'blog.article.la-navigazione-rafforza-offerta-2026.imageAlt': 'Vista panoramica del Lago di Lugano con barche.',
+    'blog.article.sanita-integrativa-lombardia-ticino.title': 'Scontro sulla sanità integrativa in Lombardia: 27 sigle si oppongono',
+    'blog.article.sanita-integrativa-lombardia-ticino.excerpt': 'Ventisette organizzazioni contro le convenzioni fra pubblico e privato in Lombardia. Rischio di corsie privilegiate e minore trasparenza.',
+    'blog.article.sanita-integrativa-lombardia-ticino.imageAlt': 'Vista panoramica di Lugano con lago e montagne.',
 };
 
 export default blogMetaIt;

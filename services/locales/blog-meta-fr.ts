@@ -1535,6 +1535,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.la-navigazione-rafforza-offerta-2026.title': 'Navigation Tessin : Offres renforcées pour 2026',
     'blog.article.la-navigazione-rafforza-offerta-2026.excerpt': 'La Navigation du Lac de Lugano se prépare pour une nouvelle saison avec des offres renforcées, visant à devenir un transporteur touristique de référence.',
     'blog.article.la-navigazione-rafforza-offerta-2026.imageAlt': 'Vue panoramique du lac de Lugano avec des bateaux.',
+    'blog.article.sanita-integrativa-lombardia-ticino.title': 'Conflit sur la santé complémentaire en Lombardie : 27 organisations s\'opposent',
+    'blog.article.sanita-integrativa-lombardia-ticino.excerpt': 'Vingt-sept organisations contre les conventions entre public et privé en Lombardie. Risque de voies privilégiées et de moindre transparence.',
+    'blog.article.sanita-integrativa-lombardia-ticino.imageAlt': 'Vue panoramique de Lugano avec lac et montagnes.',
 };
 
 export default blogMetaFr;

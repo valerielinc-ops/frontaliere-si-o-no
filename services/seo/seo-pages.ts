@@ -3049,7 +3049,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
         "@context": "https://schema.org",
         "@type": "ItemList",
         "name": "Articoli Frontaliere",
-        "numberOfItems": 502,
+        "numberOfItems": 503,
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
           { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -3552,7 +3552,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 499, "name": "A Varese nasce il Manifesto per il welfare sani...", "url": `${BASE_URL}/articoli-frontaliere/sanita-manifesto-varese-2026` },
           { "@type": "ListItem", "position": 500, "name": "IVA bassa in Svizzera: un'immagine ingannevole", "url": `${BASE_URL}/articoli-frontaliere/iva-bassa-svizzera-immagine-ingannevole` },
           { "@type": "ListItem", "position": 501, "name": "Divieto di smartphone nelle scuole del Ticino: ...", "url": `${BASE_URL}/articoli-frontaliere/divieto-smartphone-scuola-ticino` },
-          { "@type": "ListItem", "position": 502, "name": "Navigazione Ticino: Offerte potenziate per il 2026", "url": `${BASE_URL}/articoli-frontaliere/la-navigazione-rafforza-offerta-2026` }
+          { "@type": "ListItem", "position": 502, "name": "Navigazione Ticino: Offerte potenziate per il 2026", "url": `${BASE_URL}/articoli-frontaliere/la-navigazione-rafforza-offerta-2026` },
+          { "@type": "ListItem", "position": 503, "name": "Salute - Lombardia, scontro sulla sanità integr...", "url": `${BASE_URL}/articoli-frontaliere/sanita-integrativa-lombardia-ticino` }
         ]
       }
     ]

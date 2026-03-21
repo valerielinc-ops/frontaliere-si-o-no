@@ -4176,6 +4176,13 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/la-navigazione-rafforza-offerta-2026.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'sanita-integrativa-lombardia-ticino',
+    category: 'novita',
+    date: '2026-03-21T13:38:10.050Z',
+    image: '/images/blog/sanita-integrativa-lombardia-ticino.jpg',
+    hasCalculator: true,
+  },
 ];
 
 const CATEGORIES = ['all', 'fiscale', 'pratico', 'novita', 'pensione'] as const;

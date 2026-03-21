@@ -1535,6 +1535,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.la-navigazione-rafforza-offerta-2026.title': 'Navigazione Ticino: Verbesserte Angebote für 2026',
     'blog.article.la-navigazione-rafforza-offerta-2026.excerpt': 'Die Navigazione Lago di Lugano bereitet sich auf eine neue Saison mit verbesserten Angeboten vor, mit dem Ziel, ein führendes touristisches Verkehrsmittel zu werden.',
     'blog.article.la-navigazione-rafforza-offerta-2026.imageAlt': 'Panoramablick auf den Luganersee mit Booten.',
+    'blog.article.sanita-integrativa-lombardia-ticino.title': 'Konflikt über die Zusatzversorgung im Gesundheitswesen in Lombardei: 27 Verbände wehren sich',
+    'blog.article.sanita-integrativa-lombardia-ticino.excerpt': 'Siebenundzwanzig Organisationen gegen die Vereinbarungen zwischen öffentlichem und privatem Sektor in Lombardei. Risiko von Sonderbehandlungen und geringerer Transparenz.',
+    'blog.article.sanita-integrativa-lombardia-ticino.imageAlt': 'Panoramablick auf Lugano mit See und Bergen.',
 };
 
 export default blogMetaDe;
