@@ -1499,6 +1499,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.tassa-transito-ticino-pedemontana.title': 'L\'imposta di transito potrebbe funzionare come la Pedemontana: chi, cosa, dove, quando, perché',
     'blog.article.tassa-transito-ticino-pedemontana.excerpt': 'La proposta di introdurre un\'imposta di transito in Svizzera è stata presentata dal Consigliere Nazionale UDC Paolo Pamini. Secondo il suo piano, la tassa sarebbe automaticamente calcolata e riscossa attraverso telecamere che riconoscono le targhe degli automobili.',
     'blog.article.tassa-transito-ticino-pedemontana.imageAlt': 'Un conducteur traverse le péage de Brogeda',
+    'blog.article.franco-svizzero-a-valori-record-2026.title': 'Le francs suisses à des valeurs records rendent plus riches les frontaliers, mais un annonce peut tout changer',
+    'blog.article.franco-svizzero-a-valori-record-2026.excerpt': 'Les francs suisses ont atteint des valeurs records, rendant plus riches les frontaliers, mais l\'annonce de la Banque nationale suisse peut tout changer.',
+    'blog.article.franco-svizzero-a-valori-record-2026.imageAlt': 'Le franc suisse fort en valeur rend les travailleurs frontaliers plus riches, mais un annonce de la Banque nationale suisse pourrait everything.',
 };
 
 export default blogMetaFr;

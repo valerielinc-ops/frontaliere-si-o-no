@@ -1636,6 +1636,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-globalisti-fuga-medio-oriente-ticino': { name: 'Fuga dei Globalisti dal Medio Oriente', path: '/articoli-frontaliere/globalisti-fuga-medio-oriente-ticino', parent: 'blog' },
     'blog-guasto-tra-parabiago-e-rho': { name: 'Ritardi ferroviari e cancellazioni', path: '/articoli-frontaliere/guasto-tra-parabiago-e-rho', parent: 'blog' },
     'blog-tassa-transito-ticino-pedemontana': { name: 'Tassa di transito in Svizzera', path: '/articoli-frontaliere/tassa-transito-ticino-pedemontana', parent: 'blog' },
+    'blog-franco-svizzero-a-valori-record-2026': { name: 'Frontaliere Ticino', path: '/articoli-frontaliere/franco-svizzero-a-valori-record-2026', parent: 'blog' },
   };
 
   const info = sectionNames[section];

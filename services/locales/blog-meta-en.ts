@@ -1499,6 +1499,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.tassa-transito-ticino-pedemontana.title': 'The Transit Tax Could Work Like the Pedemontana: Who, What, Where, When, Why',
     'blog.article.tassa-transito-ticino-pedemontana.excerpt': 'The transit tax could be introduced in Switzerland to discourage traffic that crosses the country without bringing direct economic benefits. National Councillor UDC Paolo Pamini has proposed an automatic electronic taxation system, similar to that used by the Pedemontana between Como and Malpensa.',
     'blog.article.tassa-transito-ticino-pedemontana.imageAlt': 'A driver crossing the Brogeda toll booth',
+    'blog.article.franco-svizzero-a-valori-record-2026.title': 'The Swiss Franc at Record Values Makes Frontaliers Richer, but an Announcement Can Change Everything',
+    'blog.article.franco-svizzero-a-valori-record-2026.excerpt': 'The Swiss franc has reached record values, making frontaliers richer, but the announcement of the Swiss National Bank may change everything.',
+    'blog.article.franco-svizzero-a-valori-record-2026.imageAlt': 'The strong Swiss franc is making border workers richer, but an announcement from the Swiss National Bank could change everything.',
 };
 
 export default blogMetaEn;

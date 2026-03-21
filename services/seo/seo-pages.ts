@@ -3049,7 +3049,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
         "@context": "https://schema.org",
         "@type": "ItemList",
         "name": "Articoli Frontaliere",
-        "numberOfItems": 490,
+        "numberOfItems": 491,
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
           { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -3540,7 +3540,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 487, "name": "Rinnovo delle concessioni e ampliamento dell'of...", "url": `${BASE_URL}/articoli-frontaliere/rinnovo-concessioni-snl-2026` },
           { "@type": "ListItem", "position": 488, "name": "Fuga dei Globalisti dal Medio Oriente: Opportun...", "url": `${BASE_URL}/articoli-frontaliere/globalisti-fuga-medio-oriente-ticino` },
           { "@type": "ListItem", "position": 489, "name": "Guasto tra Parabiago e Rho: ritardi fino a 30 m...", "url": `${BASE_URL}/articoli-frontaliere/guasto-tra-parabiago-e-rho` },
-          { "@type": "ListItem", "position": 490, "name": "Tassa di transito in Svizzera: come funziona e ...", "url": `${BASE_URL}/articoli-frontaliere/tassa-transito-ticino-pedemontana` }
+          { "@type": "ListItem", "position": 490, "name": "Tassa di transito in Svizzera: come funziona e ...", "url": `${BASE_URL}/articoli-frontaliere/tassa-transito-ticino-pedemontana` },
+          { "@type": "ListItem", "position": 491, "name": "Il franco svizzero a valori record rende più ri...", "url": `${BASE_URL}/articoli-frontaliere/franco-svizzero-a-valori-record-2026` }
         ]
       }
     ]

@@ -7621,6 +7621,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-franco-svizzero-a-valori-record-2026': {
+    title: 'Il franco svizzero a valori record rende più ricchi i frontalieri, ma un | Frontaliere Ticino',
+    description: 'Il franco svizzero ha raggiunto valori record, rendendo più ricchi i frontalieri, ma l\'annuncio della Banca Nazionale Svizzera potrebbe cambiare tutto.',
+    keywords: 'frontalieri, ticino, svizzera, italia, franco, svizzero, valori, record',
+    ogTitle: 'Il franco svizzero a valori record rende più ricchi i frontalieri, ma un annuncio può',
+    ogDescription: 'Il franco svizzero ha raggiunto valori record, rendendo più ricchi i frontalieri, ma l\'annuncio della Banca Nazionale Svizzera potrebbe cambiare tutto.',
+    canonicalPath: '/articoli-frontaliere/franco-svizzero-a-valori-record-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Il franco svizzero a valori record rende più ricchi i frontalieri, ma un annuncio può cambiare tutto",
+      "description": "Il franco svizzero ha raggiunto valori record, rendendo più ricchi i frontalieri, ma l'annuncio della Banca Nazionale Svizzera potrebbe cambiare tutto.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/franco-svizzero-a-valori-record-2026.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Il franco svizzero a valori record sta rendendo più ricchi i frontalieri, ma un annuncio della Banca Nazionale Svizzera potrebbe cambiare tutto."
+      },
+      "datePublished": "2026-03-21T07:02:06+00:00",
+      "dateModified": "2026-03-21T07:02:06+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/franco-svizzero-a-valori-record-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

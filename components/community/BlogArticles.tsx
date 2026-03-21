@@ -4092,6 +4092,13 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/tassa-transito-ticino-pedemontana.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'franco-svizzero-a-valori-record-2026',
+    category: 'fiscale',
+    date: '2026-03-21T07:02:06.128Z',
+    image: '/images/blog/franco-svizzero-a-valori-record-2026.jpg',
+    hasCalculator: true,
+  },
 ];
 
 const CATEGORIES = ['all', 'fiscale', 'pratico', 'novita', 'pensione'] as const;

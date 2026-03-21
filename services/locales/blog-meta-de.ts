@@ -1499,6 +1499,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.tassa-transito-ticino-pedemontana.title': 'Die Umweltabgabe könnte funktionieren wie die Pedemontana: wer, was, wo, wann, warum',
     'blog.article.tassa-transito-ticino-pedemontana.excerpt': 'Die Umweltabgabe könnte in der Schweiz eingeführt werden, um den Verkehr zu reduzieren, der das Land ohne direkte wirtschaftliche Vorteile durchquert. Der Nationalrat Paolo Pamini hat einen System der automatischen elektronischen Abgabeberechnung vorgeschlagen, ähnlich wie bei der Pedemontana zwischen Como und Malpensa.',
     'blog.article.tassa-transito-ticino-pedemontana.imageAlt': 'Ein Fahrer passiert die Mautstelle Brogeda',
+    'blog.article.franco-svizzero-a-valori-record-2026.title': 'Der Schweizer Franken bei Rekordwerten macht die Grenzgänger reicher, aber eine Ankündigung kann alles ändern',
+    'blog.article.franco-svizzero-a-valori-record-2026.excerpt': 'Der Schweizer Franken erreicht Rekordwerte, was den Grenzgängern zu mehr Reichtum verhilft, aber eine Ankündigung der Nationalbank Schweiz kann alles ändern.',
+    'blog.article.franco-svizzero-a-valori-record-2026.imageAlt': 'Der starke Schweizer Franken macht die Grenzarbeiter reicher, aber eine Ankündigung der Schweizerischen Nationalbank könnte alles ändern.',
 };
 
 export default blogMetaDe;

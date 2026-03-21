@@ -1499,6 +1499,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.tassa-transito-ticino-pedemontana.title': 'L\'imposta di transito potrebbe funzionare come la Pedemontana: chi, cosa, dove, quando, perché',
     'blog.article.tassa-transito-ticino-pedemontana.excerpt': 'L\'imposta di transito potrebbe essere introdotta in Svizzera per disincentivare il traffico che attraversa il paese senza portare benefici economici diretti. Il Consigliere Nazionale UDC Paolo Pamini ha proposto un sistema di tassazione automatica elettronica, simile a quello utilizzato dalla Pedemontana tra Como e Malpensa',
     'blog.article.tassa-transito-ticino-pedemontana.imageAlt': 'Un automobilista attraversa il valico di Brogeda',
+    'blog.article.franco-svizzero-a-valori-record-2026.title': 'Il franco svizzero a valori record rende più ricchi i frontalieri, ma un annuncio può cambiare tutto',
+    'blog.article.franco-svizzero-a-valori-record-2026.excerpt': 'Il franco svizzero ha raggiunto valori record, rendendo più ricchi i frontalieri, ma l\'annuncio della Banca Nazionale Svizzera potrebbe cambiare tutto.',
+    'blog.article.franco-svizzero-a-valori-record-2026.imageAlt': 'Il franco svizzero a valori record sta rendendo più ricchi i frontalieri, ma un annuncio della Banca Nazionale Svizzera potrebbe cambiare tutto.',
 };
 
 export default blogMetaIt;
