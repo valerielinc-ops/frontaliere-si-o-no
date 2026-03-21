@@ -8404,6 +8404,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-carenza-farmaci-ticino': {
+    title: 'Carenza di farmaci in Ticino: la ricetta del governo per affrontare il | Frontaliere Ticino',
+    description: 'Il governo svizzero presenta una serie di misure per affrontare la carenza di farmaci in Svizzera, un problema che colpisce soprattutto i medicinali a prezzo',
+    keywords: 'frontalieri, ticino, svizzera, italia, carenza, farmaci, ricetta, governo',
+    ogTitle: 'Carenza di farmaci in Ticino: la ricetta del governo svizzero',
+    ogDescription: 'Il governo svizzero presenta una serie di misure per affrontare la carenza di farmaci in Svizzera, un problema che colpisce soprattutto i medicinali a prezzo',
+    canonicalPath: '/articoli-frontaliere/carenza-farmaci-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Carenza di farmaci in Ticino: la ricetta del governo svizzero",
+      "description": "Il governo svizzero presenta una serie di misure per affrontare la carenza di farmaci in Svizzera, un problema che colpisce soprattutto i medicinali a prezzo",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/carenza-farmaci-ticino.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Fila di persone in attesa fuori da una farmacia a Locarno."
+      },
+      "datePublished": "2026-03-21T21:00:53+00:00",
+      "dateModified": "2026-03-21T21:00:53+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/carenza-farmaci-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

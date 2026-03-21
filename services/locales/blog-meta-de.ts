@@ -1580,6 +1580,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.divieto-smartphone-scuola-ticino-2026.title': 'Verbot von Smartphones in der Schule: Die Maßnahme wird auf das Liceo Lugano 3 ausgeweitet',
     'blog.article.divieto-smartphone-scuola-ticino-2026.excerpt': 'Ab dem 13. April müssen die Schüler des Liceo Lugano 3 ihre Smartphones am Anfang der Unterrichtsstunden abgeben und dürfen sie während der Pausen zwischen den Stunden derselben Fächer nicht benutzen.',
     'blog.article.divieto-smartphone-scuola-ticino-2026.imageAlt': 'Eine Schülerin in Locarno, die zum See blickt.',
+    'blog.article.carenza-farmaci-ticino.title': 'Arzneimittelknappheit im Tessin: Die Rezeptur der Regierung zur Bewältigung des Problems',
+    'blog.article.carenza-farmaci-ticino.excerpt': 'Der Bundesrat stellt eine Reihe von Maßnahmen vor, um dem Arzneimittelmangel in der Schweiz entgegenzuwirken, einem Problem, das vor allem preisgünstige Medikamente und solche für chronische Krankheiten betrifft.',
+    'blog.article.carenza-farmaci-ticino.imageAlt': 'Eine Schlange von Menschen, die vor einer Apotheke in Locarno warten.',
 };
 
 export default blogMetaDe;

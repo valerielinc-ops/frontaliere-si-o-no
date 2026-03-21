@@ -4281,6 +4281,13 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/divieto-smartphone-scuola-ticino-2026.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'carenza-farmaci-ticino',
+    category: 'pratico',
+    date: '2026-03-21T21:00:53.977Z',
+    image: '/images/blog/carenza-farmaci-ticino.jpg',
+    hasCalculator: true,
+  },
 ];
 
 const CATEGORIES = ['all', 'fiscale', 'pratico', 'novita', 'pensione'] as const;

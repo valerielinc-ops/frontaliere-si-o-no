@@ -1580,6 +1580,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.divieto-smartphone-scuola-ticino-2026.title': 'Divieto di smartphone a scuola: la misura si estende al Liceo Lugano 3',
     'blog.article.divieto-smartphone-scuola-ticino-2026.excerpt': 'A partire dal 13 aprile, gli studenti del Liceo Lugano 3 dovranno depositare i propri smartphone all\'inizio delle lezioni e non potranno utilizzarli durante le pause tra le ore della stessa materia.',
     'blog.article.divieto-smartphone-scuola-ticino-2026.imageAlt': 'Una studentessa a Locarno, con lo sguardo rivolto verso il lago.',
+    'blog.article.carenza-farmaci-ticino.title': 'Carenza di farmaci in Ticino: la ricetta del governo per affrontare il problema',
+    'blog.article.carenza-farmaci-ticino.excerpt': 'Il Consiglio federale presenta una serie di misure per contrastare la carenza di farmaci in Svizzera, un problema che colpisce soprattutto i medicinali a prezzo conveniente e quelli per malattie croniche.',
+    'blog.article.carenza-farmaci-ticino.imageAlt': 'Fila di persone in attesa fuori da una farmacia a Locarno.',
 };
 
 export default blogMetaIt;

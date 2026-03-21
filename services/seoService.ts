@@ -1663,6 +1663,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-lavori-a8-castellanza-notturni-2026': { name: 'Lavori A8 Castellanza', path: '/articoli-frontaliere/lavori-a8-castellanza-notturni-2026', parent: 'blog' },
     'blog-quanto-costa-la-discriminazione': { name: 'Discriminazione', path: '/articoli-frontaliere/quanto-costa-la-discriminazione', parent: 'blog' },
     'blog-divieto-smartphone-scuola-ticino-2026': { name: 'Divieto smartphone', path: '/articoli-frontaliere/divieto-smartphone-scuola-ticino-2026', parent: 'blog' },
+    'blog-carenza-farmaci-ticino': { name: 'Carenza farmaci', path: '/articoli-frontaliere/carenza-farmaci-ticino', parent: 'blog' },
   };
 
   const info = sectionNames[section];
