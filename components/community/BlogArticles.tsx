@@ -4078,6 +4078,13 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/globalisti-fuga-medio-oriente-ticino.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'guasto-tra-parabiago-e-rho',
+    category: 'pratico',
+    date: '2026-03-21T05:52:27.782Z',
+    image: '/images/blog/guasto-tra-parabiago-e-rho.jpg',
+    hasCalculator: true,
+  },
 ];
 
 const CATEGORIES = ['all', 'fiscale', 'pratico', 'novita', 'pensione'] as const;

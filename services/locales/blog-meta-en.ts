@@ -1493,6 +1493,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.globalisti-fuga-medio-oriente-ticino.title': 'Globalists\' Exodus from the Middle East: An Opportunity for Ticino?',
     'blog.article.globalisti-fuga-medio-oriente-ticino.excerpt': 'Ticino could benefit from the exit of significant wealth from the Middle East, but a clear strategy is needed.',
     'blog.article.globalisti-fuga-medio-oriente-ticino.imageAlt': 'Panoramic view of Bellinzona with historic castles.',
+    'blog.article.guasto-tra-parabiago-e-rho.title': 'Delays on the Lines to Milan: Fault Between Parabiago and Rho',
+    'blog.article.guasto-tra-parabiago-e-rho.excerpt': 'Disruptions on the railway line to Milan: possible cancellations and changes for various Lombardy connections',
+    'blog.article.guasto-tra-parabiago-e-rho.imageAlt': 'Sunset on the Lake Lugano shore, with the city of Lugano in the background',
 };
 
 export default blogMetaEn;

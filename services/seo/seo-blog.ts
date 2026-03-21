@@ -7563,6 +7563,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-guasto-tra-parabiago-e-rho': {
+    title: 'Guasto tra Parabiago e Rho, ritardi fino a 30 minuti sulle linee per | Frontaliere Ticino',
+    description: 'Disagi sulla direttrice ferroviaria verso Milano: possibili cancellazioni e variazioni per diversi collegamenti lombardi. Consulta lo stato delle corse e',
+    keywords: 'frontalieri, ticino, svizzera, italia, guasto, parabiago, ritardi, fino',
+    ogTitle: 'Guasto tra Parabiago e Rho: ritardi fino a 30 minuti sulle linee per Milano',
+    ogDescription: 'Disagi sulla direttrice ferroviaria verso Milano: possibili cancellazioni e variazioni per diversi collegamenti lombardi. Consulta lo stato delle corse e',
+    canonicalPath: '/articoli-frontaliere/guasto-tra-parabiago-e-rho',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Guasto tra Parabiago e Rho: ritardi fino a 30 minuti sulle linee per Milano",
+      "description": "Disagi sulla direttrice ferroviaria verso Milano: possibili cancellazioni e variazioni per diversi collegamenti lombardi. Consulta lo stato delle corse e",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/guasto-tra-parabiago-e-rho.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Il tramonto sulla riva del lago Lugano, con la città di Lugano sullo sfondo"
+      },
+      "datePublished": "2026-03-21T05:52:27+00:00",
+      "dateModified": "2026-03-21T05:52:27+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/guasto-tra-parabiago-e-rho`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

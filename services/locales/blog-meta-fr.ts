@@ -1493,6 +1493,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.globalisti-fuga-medio-oriente-ticino.title': 'Fuite des globalistes du Moyen-Orient : Opportunité pour le Tessin ?',
     'blog.article.globalisti-fuga-medio-oriente-ticino.excerpt': 'Le Tessin pourrait bénéficier du départ de grandes fortunes du Moyen-Orient, mais il faut une stratégie claire.',
     'blog.article.globalisti-fuga-medio-oriente-ticino.imageAlt': 'Vue panoramique de Bellinzone avec ses châteaux historiques.',
+    'blog.article.guasto-tra-parabiago-e-rho.title': 'Panne entre Parabiago et Rho, retards jusqu\'à 30 minutes sur les lignes pour Milan',
+    'blog.article.guasto-tra-parabiago-e-rho.excerpt': 'Les difficultés sur la ligne ferroviaire reliant Milan : annulations et modifications pour plusieurs lignes lombardes',
+    'blog.article.guasto-tra-parabiago-e-rho.imageAlt': 'Coucher de soleil sur la rive du lac Lugano, avec la ville de Lugano en arrière-plan',
 };
 
 export default blogMetaFr;

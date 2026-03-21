@@ -1493,6 +1493,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.globalisti-fuga-medio-oriente-ticino.title': 'Fuga dei Globalisti dal Medio Oriente: Opportunità per il Ticino?',
     'blog.article.globalisti-fuga-medio-oriente-ticino.excerpt': 'Il Ticino potrebbe beneficiare dell\'uscita di grandi patrimoni dal Medio Oriente, ma serve una strategia chiara.',
     'blog.article.globalisti-fuga-medio-oriente-ticino.imageAlt': 'Vista panoramica di Bellinzona con castelli storici.',
+    'blog.article.guasto-tra-parabiago-e-rho.title': 'Guasto tra Parabiago e Rho, ritardi fino a 30 minuti sulle linee per Milano',
+    'blog.article.guasto-tra-parabiago-e-rho.excerpt': 'Disagi sulla direttrice ferroviaria verso Milano: possibili cancellazioni e variazioni per diversi collegamenti lombardi',
+    'blog.article.guasto-tra-parabiago-e-rho.imageAlt': 'Il tramonto sulla riva del lago Lugano, con la città di Lugano sullo sfondo',
 };
 
 export default blogMetaIt;
