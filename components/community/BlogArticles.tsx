@@ -4267,6 +4267,13 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/lavori-a8-castellanza-notturni-2026.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'quanto-costa-la-discriminazione',
+    category: 'pratico',
+    date: '2026-03-21T19:55:19.399Z',
+    image: '/images/blog/quanto-costa-la-discriminazione.jpg',
+    hasCalculator: true,
+  },
 ];
 
 const CATEGORIES = ['all', 'fiscale', 'pratico', 'novita', 'pensione'] as const;

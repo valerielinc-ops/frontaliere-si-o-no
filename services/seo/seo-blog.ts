@@ -8346,6 +8346,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-quanto-costa-la-discriminazione': {
+    title: 'Il costo della discriminazione nel mondo del lavoro ticinese | Frontaliere Ticino',
+    description: 'Scopri come la discriminazione nel settore lavorativo ticinese può costare fino a 35 miliardi di franchi all\'economia svizzera. Impara a contrastare questo',
+    keywords: 'frontalieri, ticino, svizzera, italia, costo, discriminazione, mondo, lavoro',
+    ogTitle: 'Il costo della discriminazione nel mondo del lavoro ticinese',
+    ogDescription: 'La discriminazione nel settore lavorativo ticinese ha un impatto significativo sull\'economia svizzera. Scopri come contrastare questo fenomeno e promuovere',
+    canonicalPath: '/articoli-frontaliere/quanto-costa-la-discriminazione',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Il costo della discriminazione nel mondo del lavoro ticinese",
+      "description": "Scopri come la discriminazione nel settore lavorativo ticinese può costare fino a 35 miliardi di franchi all'economia svizzera. Impara a contrastare questo",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/quanto-costa-la-discriminazione.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Lavoratori di diverse nazionalità si stringono la mano in un ufficio moderno."
+      },
+      "datePublished": "2026-03-21T19:55:19+00:00",
+      "dateModified": "2026-03-21T19:55:19+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/quanto-costa-la-discriminazione`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

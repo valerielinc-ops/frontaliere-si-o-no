@@ -1574,6 +1574,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.lavori-a8-castellanza-notturni-2026.title': 'A8 Milano-Varese: chiusure notturne allo svincolo di Castellanza a marzo 2026',
     'blog.article.lavori-a8-castellanza-notturni-2026.excerpt': 'Tre notti di chiusura notturna allo svincolo di Castellanza per lavori di riqualifica delle barriere antirumore, con impatti sul traffico verso Milano e frontalieri.',
     'blog.article.lavori-a8-castellanza-notturni-2026.imageAlt': 'Autostrada Ticino al confine italo-svizzero con traffico serale e montagne sullo sfondo',
+    'blog.article.quanto-costa-la-discriminazione.title': 'Il costo della discriminazione nel mondo del lavoro ticinese',
+    'blog.article.quanto-costa-la-discriminazione.excerpt': 'La discriminazione nel settore lavorativo costa fino a 35 miliardi di franchi alla Svizzera, con stipendi mediamente inferiori del 24% per gli stranieri rispetto agli svizzeri. Scopri come l\'integrazione può essere una scelta strategica per le aziende e come contrastare questo fenomeno.',
+    'blog.article.quanto-costa-la-discriminazione.imageAlt': 'Lavoratori di diverse nazionalità si stringono la mano in un ufficio moderno.',
 };
 
 export default blogMetaIt;

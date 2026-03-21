@@ -1661,6 +1661,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-acquarossa-nuovo-polo-filovia-2026': { name: 'Acquarossa investimenti', path: '/articoli-frontaliere/acquarossa-nuovo-polo-filovia-2026', parent: 'blog' },
     'blog-ritardo-sconto-carburante-ticino-2026': { name: 'Sconto carburante', path: '/articoli-frontaliere/ritardo-sconto-carburante-ticino-2026', parent: 'blog' },
     'blog-lavori-a8-castellanza-notturni-2026': { name: 'Lavori A8 Castellanza', path: '/articoli-frontaliere/lavori-a8-castellanza-notturni-2026', parent: 'blog' },
+    'blog-quanto-costa-la-discriminazione': { name: 'Discriminazione', path: '/articoli-frontaliere/quanto-costa-la-discriminazione', parent: 'blog' },
   };
 
   const info = sectionNames[section];

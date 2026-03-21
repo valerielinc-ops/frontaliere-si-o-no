@@ -1574,6 +1574,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.lavori-a8-castellanza-notturni-2026.title': 'A8 Mailand-Varese: nächtliche Sperrungen an der Ausfahrt Castellanza im März 2026',
     'blog.article.lavori-a8-castellanza-notturni-2026.excerpt': 'Drei Nächte mit nächtlichen Sperrungen an der Ausfahrt Castellanza wegen Sanierungsarbeiten an den Lärmschutzwänden, mit Auswirkungen auf den Verkehr in Richtung Mailand und Grenzgänger.',
     'blog.article.lavori-a8-castellanza-notturni-2026.imageAlt': 'Tessin Autobahn an der italienisch-schweizerischen Grenze mit Abendverkehr und Bergen im Hintergrund',
+    'blog.article.quanto-costa-la-discriminazione.title': 'Die Kosten der Diskriminierung am Arbeitsplatz im Tessin',
+    'blog.article.quanto-costa-la-discriminazione.excerpt': 'Diskriminierung am Arbeitsplatz kostet die Schweiz bis zu 35 Milliarden Franken, mit durchschnittlich 24 % niedrigeren Löhnen für Ausländer im Vergleich zu Schweizern. Erfahren Sie, wie Integration für Unternehmen eine strategische Entscheidung sein kann und wie man dieses Phänomen bekämpft.',
+    'blog.article.quanto-costa-la-discriminazione.imageAlt': 'Arbeiter verschiedener Nationalitäten schütteln sich in einem modernen Büro die Hände.',
 };
 
 export default blogMetaDe;

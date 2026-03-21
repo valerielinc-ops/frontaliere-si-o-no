@@ -1574,6 +1574,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.lavori-a8-castellanza-notturni-2026.title': 'A8 Milan-Varese: Night Closures at Castellanza Junction in March 2026',
     'blog.article.lavori-a8-castellanza-notturni-2026.excerpt': 'Three nights of night closures at the Castellanza junction for noise barrier renovation works, impacting traffic towards Milan and cross-border commuters.',
     'blog.article.lavori-a8-castellanza-notturni-2026.imageAlt': 'Ticino highway at the Italian-Swiss border with evening traffic and mountains in background',
+    'blog.article.quanto-costa-la-discriminazione.title': 'The Cost of Discrimination in the Ticino Labour Market',
+    'blog.article.quanto-costa-la-discriminazione.excerpt': 'Discrimination in the workplace costs Switzerland up to CHF 35 billion, with foreigners earning on average 24% less than Swiss nationals. Discover how integration can be a strategic choice for businesses and how to tackle this issue.',
+    'blog.article.quanto-costa-la-discriminazione.imageAlt': 'Workers from different nationalities shaking hands in a modern office.',
 };
 
 export default blogMetaEn;
