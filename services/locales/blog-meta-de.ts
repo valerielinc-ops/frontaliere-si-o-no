@@ -1577,6 +1577,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.quanto-costa-la-discriminazione.title': 'Die Kosten der Diskriminierung am Arbeitsplatz im Tessin',
     'blog.article.quanto-costa-la-discriminazione.excerpt': 'Diskriminierung am Arbeitsplatz kostet die Schweiz bis zu 35 Milliarden Franken, mit durchschnittlich 24 % niedrigeren Löhnen für Ausländer im Vergleich zu Schweizern. Erfahren Sie, wie Integration für Unternehmen eine strategische Entscheidung sein kann und wie man dieses Phänomen bekämpft.',
     'blog.article.quanto-costa-la-discriminazione.imageAlt': 'Arbeiter verschiedener Nationalitäten schütteln sich in einem modernen Büro die Hände.',
+    'blog.article.divieto-smartphone-scuola-ticino-2026.title': 'Verbot von Smartphones in der Schule: Die Maßnahme wird auf das Liceo Lugano 3 ausgeweitet',
+    'blog.article.divieto-smartphone-scuola-ticino-2026.excerpt': 'Ab dem 13. April müssen die Schüler des Liceo Lugano 3 ihre Smartphones am Anfang der Unterrichtsstunden abgeben und dürfen sie während der Pausen zwischen den Stunden derselben Fächer nicht benutzen.',
+    'blog.article.divieto-smartphone-scuola-ticino-2026.imageAlt': 'Eine Schülerin in Locarno, die zum See blickt.',
 };
 
 export default blogMetaDe;

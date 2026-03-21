@@ -8375,6 +8375,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-divieto-smartphone-scuola-ticino-2026': {
+    title: 'Divieto di smartphone a scuola: la misura si estende al Liceo Lugano 3 | Frontaliere Ticino',
+    description: 'Il Liceo Lugano 3 adotta una misura restrittiva sull\'uso degli smartphone a scuola, estendendo il divieto già in vigore nei licei di Lugano 1 e Locarno. Scopri',
+    keywords: 'frontalieri, ticino, svizzera, italia, divieto, smartphone, scuola, misura',
+    ogTitle: 'Divieto di smartphone a scuola: la misura si estende al Liceo Lugano 3',
+    ogDescription: 'Il Liceo Lugano 3 ha deciso di vietare l\'uso degli smartphone durante le pause, estendendo una misura già in vigore in altri licei ticinesi. Scopri di più su',
+    canonicalPath: '/articoli-frontaliere/divieto-smartphone-scuola-ticino-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Divieto di smartphone a scuola: la misura si estende al Liceo Lugano 3",
+      "description": "Il Liceo Lugano 3 adotta una misura restrittiva sull'uso degli smartphone a scuola, estendendo il divieto già in vigore nei licei di Lugano 1 e Locarno. Scopri",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/divieto-smartphone-scuola-ticino-2026.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Una studentessa a Locarno, con lo sguardo rivolto verso il lago."
+      },
+      "datePublished": "2026-03-21T20:42:50+00:00",
+      "dateModified": "2026-03-21T20:42:50+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/divieto-smartphone-scuola-ticino-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

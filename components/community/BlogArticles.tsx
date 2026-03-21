@@ -4274,6 +4274,13 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/quanto-costa-la-discriminazione.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'divieto-smartphone-scuola-ticino-2026',
+    category: 'pratico',
+    date: '2026-03-21T20:42:50.803Z',
+    image: '/images/blog/divieto-smartphone-scuola-ticino-2026.jpg',
+    hasCalculator: true,
+  },
 ];
 
 const CATEGORIES = ['all', 'fiscale', 'pratico', 'novita', 'pensione'] as const;

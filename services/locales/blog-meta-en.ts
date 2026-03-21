@@ -1577,6 +1577,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.quanto-costa-la-discriminazione.title': 'The Cost of Discrimination in the Ticino Labour Market',
     'blog.article.quanto-costa-la-discriminazione.excerpt': 'Discrimination in the workplace costs Switzerland up to CHF 35 billion, with foreigners earning on average 24% less than Swiss nationals. Discover how integration can be a strategic choice for businesses and how to tackle this issue.',
     'blog.article.quanto-costa-la-discriminazione.imageAlt': 'Workers from different nationalities shaking hands in a modern office.',
+    'blog.article.divieto-smartphone-scuola-ticino-2026.title': 'Smartphone Ban at School: The Measure Extends to Liceo Lugano 3',
+    'blog.article.divieto-smartphone-scuola-ticino-2026.excerpt': 'Starting from April 13th, students at Liceo Lugano 3 will have to deposit their smartphones at the beginning of classes and will not be allowed to use them during breaks between hours of the same subject.',
+    'blog.article.divieto-smartphone-scuola-ticino-2026.imageAlt': 'A student in Locarno, gazing at the lake.',
 };
 
 export default blogMetaEn;

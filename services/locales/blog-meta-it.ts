@@ -1577,6 +1577,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.quanto-costa-la-discriminazione.title': 'Il costo della discriminazione nel mondo del lavoro ticinese',
     'blog.article.quanto-costa-la-discriminazione.excerpt': 'La discriminazione nel settore lavorativo costa fino a 35 miliardi di franchi alla Svizzera, con stipendi mediamente inferiori del 24% per gli stranieri rispetto agli svizzeri. Scopri come l\'integrazione può essere una scelta strategica per le aziende e come contrastare questo fenomeno.',
     'blog.article.quanto-costa-la-discriminazione.imageAlt': 'Lavoratori di diverse nazionalità si stringono la mano in un ufficio moderno.',
+    'blog.article.divieto-smartphone-scuola-ticino-2026.title': 'Divieto di smartphone a scuola: la misura si estende al Liceo Lugano 3',
+    'blog.article.divieto-smartphone-scuola-ticino-2026.excerpt': 'A partire dal 13 aprile, gli studenti del Liceo Lugano 3 dovranno depositare i propri smartphone all\'inizio delle lezioni e non potranno utilizzarli durante le pause tra le ore della stessa materia.',
+    'blog.article.divieto-smartphone-scuola-ticino-2026.imageAlt': 'Una studentessa a Locarno, con lo sguardo rivolto verso il lago.',
 };
 
 export default blogMetaIt;
