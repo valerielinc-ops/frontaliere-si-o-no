@@ -4113,6 +4113,13 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/farmaci-competitiva-europa.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'controlli-cantieri-mendrisiotto-2026',
+    category: 'novita',
+    date: '2026-03-21T08:02:26.303Z',
+    image: '/images/blog/controlli-cantieri-mendrisiotto-2026.jpg',
+    hasCalculator: true,
+  },
 ];
 
 const CATEGORIES = ['all', 'fiscale', 'pratico', 'novita', 'pensione'] as const;

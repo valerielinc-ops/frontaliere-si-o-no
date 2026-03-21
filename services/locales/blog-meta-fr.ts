@@ -1508,6 +1508,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.farmaci-competitiva-europa.title': 'L\'industria pharmaceutique : pour être compétitive, l\'Europe doit avoir des règles claires et prévisibles',
     'blog.article.farmaci-competitiva-europa.excerpt': 'Les citoyens italiens âgés de plus de 75 ans consomment trois fois plus de médicaments que la moyenne de la population',
     'blog.article.farmaci-competitiva-europa.imageAlt': 'Une scène réaliste d\'un laboratoire pharmaceutique en Tessin',
+    'blog.article.controlli-cantieri-mendrisiotto-2026.title': 'Contrôles sur les chantiers du Mendrisiotto : résultat positif',
+    'blog.article.controlli-cantieri-mendrisiotto-2026.excerpt': 'Sept inspections sur les chantiers du Mendrisiotto n\'ont révélé aucune irrégularité, confirmant la régularité des travailleurs.',
+    'blog.article.controlli-cantieri-mendrisiotto-2026.imageAlt': 'Chantier moderne à Mendrisio, Tessin, avec des ouvriers en action.',
 };
 
 export default blogMetaFr;

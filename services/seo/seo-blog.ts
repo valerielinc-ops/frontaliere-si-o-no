@@ -7708,6 +7708,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-controlli-cantieri-mendrisiotto-2026': {
+    title: 'Controlli nei cantieri del Mendrisiotto: esito positivo | Frontaliere Ticino',
+    description: 'Sette ispezioni in cantieri del Mendrisiotto confermano l\'assenza di irregolarità per i frontalieri. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, controlli, cantieri, mendrisiotto, esito',
+    ogTitle: 'Controlli nei Cantieri del Mendrisiotto | Frontaliere Ticino',
+    ogDescription: 'Esito positivo per sette ispezioni nei cantieri del Mendrisiotto, con zero irregolarità.',
+    canonicalPath: '/articoli-frontaliere/controlli-cantieri-mendrisiotto-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Sette ispezioni in cantieri del Mendrisiotto: 66 verifiche, problemi zero",
+      "description": "Sette ispezioni in cantieri del Mendrisiotto confermano l'assenza di irregolarità per i frontalieri. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/controlli-cantieri-mendrisiotto-2026.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Cantiere moderno a Mendrisio, Ticino, con operai al lavoro."
+      },
+      "datePublished": "2026-03-21T08:02:26+00:00",
+      "dateModified": "2026-03-21T08:02:26+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/controlli-cantieri-mendrisiotto-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

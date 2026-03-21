@@ -3049,7 +3049,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
         "@context": "https://schema.org",
         "@type": "ItemList",
         "name": "Articoli Frontaliere",
-        "numberOfItems": 493,
+        "numberOfItems": 494,
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
           { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -3543,7 +3543,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 490, "name": "Tassa di transito in Svizzera: come funziona e ...", "url": `${BASE_URL}/articoli-frontaliere/tassa-transito-ticino-pedemontana` },
           { "@type": "ListItem", "position": 491, "name": "Il franco svizzero a valori record rende più ri...", "url": `${BASE_URL}/articoli-frontaliere/franco-svizzero-a-valori-record-2026` },
           { "@type": "ListItem", "position": 492, "name": "Il taglio alle accise mette sotto pressione i d...", "url": `${BASE_URL}/articoli-frontaliere/taglio-alle-accise-mette-sotto-pressione-i-distributori-ticinesi` },
-          { "@type": "ListItem", "position": 493, "name": "L'industria farmaceutica: per essere competitiv...", "url": `${BASE_URL}/articoli-frontaliere/farmaci-competitiva-europa` }
+          { "@type": "ListItem", "position": 493, "name": "L'industria farmaceutica: per essere competitiv...", "url": `${BASE_URL}/articoli-frontaliere/farmaci-competitiva-europa` },
+          { "@type": "ListItem", "position": 494, "name": "Sette ispezioni in cantieri del Mendrisiotto: 6...", "url": `${BASE_URL}/articoli-frontaliere/controlli-cantieri-mendrisiotto-2026` }
         ]
       }
     ]

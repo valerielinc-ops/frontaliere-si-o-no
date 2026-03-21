@@ -1508,6 +1508,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.farmaci-competitiva-europa.title': 'L\'industria farmaceutica: per essere competitiva l\'Europa deve avere regole chiare e prevedibili',
     'blog.article.farmaci-competitiva-europa.excerpt': 'I cittadini italiani con più di 75 anni consumano tre volte in più la quantità di medicinali rispetto alla media del resto della popolazione',
     'blog.article.farmaci-competitiva-europa.imageAlt': 'Una scena dei laboratori farmaceutici in Ticino',
+    'blog.article.controlli-cantieri-mendrisiotto-2026.title': 'Controlli nei cantieri del Mendrisiotto: esito positivo',
+    'blog.article.controlli-cantieri-mendrisiotto-2026.excerpt': 'Sette ispezioni nei cantieri del Mendrisiotto non hanno evidenziato irregolarità, confermando la regolarità dei lavoratori.',
+    'blog.article.controlli-cantieri-mendrisiotto-2026.imageAlt': 'Cantiere moderno a Mendrisio, Ticino, con operai al lavoro.',
 };
 
 export default blogMetaIt;
