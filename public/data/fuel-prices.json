@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-03-21T14:00:18.519Z",
+  "generatedAt": "2026-03-21T14:53:54.867Z",
   "sources": {
     "italy": {
       "provider": "MIMIT Open Data",
@@ -11,7 +11,7 @@
       "provider": "TCS Benzinpreis",
       "providerUrl": "https://benzin.tcs.ch/de/map/SP95",
       "stationCount": 222,
-      "latestObservedUpdate": "2026-03-21T13:56:12.667Z"
+      "latestObservedUpdate": "2026-03-21T14:32:55.426Z"
     },
     "exchangeRate": {
       "provider": "ECB",
@@ -8569,11 +8569,11 @@
             "address": "Via al Foss 29, 6557 Cama",
             "lat": 46.270147,
             "lng": 9.169142,
-            "sp95PriceChf": 1.84,
-            "updatedAt": "2026-03-17T06:58:15.618Z",
+            "sp95PriceChf": 1.8900000000000001,
+            "updatedAt": "2026-03-21T14:03:44.317Z",
             "nearestMunicipality": "Dosso del Liro (CO)",
             "nearestMunicipalityDistanceKm": 14.2,
-            "sp95PriceEur": 2.023,
+            "sp95PriceEur": 2.078,
             "distanceKm": 18
           },
           {
@@ -8739,11 +8739,11 @@
             "address": "Via al Foss 29, 6557 Cama",
             "lat": 46.270147,
             "lng": 9.169142,
-            "sp95PriceChf": 1.84,
-            "updatedAt": "2026-03-17T06:58:15.618Z",
+            "sp95PriceChf": 1.8900000000000001,
+            "updatedAt": "2026-03-21T14:03:44.317Z",
             "nearestMunicipality": "Dosso del Liro (CO)",
             "nearestMunicipalityDistanceKm": 14.2,
-            "sp95PriceEur": 2.023,
+            "sp95PriceEur": 2.078,
             "distanceKm": 18.2
           },
           {
@@ -8876,18 +8876,18 @@
             "distanceKm": 19.7
           },
           {
-            "id": "viYoAJMjWUU1BEwgcjDL",
-            "name": "Stazione di servizio Migrol",
-            "brand": "MIGROL",
-            "address": "Via al Foss 29, 6557 Cama",
-            "lat": 46.270147,
-            "lng": 9.169142,
-            "sp95PriceChf": 1.84,
-            "updatedAt": "2026-03-17T06:58:15.618Z",
-            "nearestMunicipality": "Dosso del Liro (CO)",
-            "nearestMunicipalityDistanceKm": 14.2,
-            "sp95PriceEur": 2.023,
-            "distanceKm": 14.2
+            "id": "3ZoAF92bWbaLO5FjuBrz",
+            "name": "SOCAR Bellinzona",
+            "brand": "SOCAR",
+            "address": "Via San Gottardo 17, 6500 Bellinzona",
+            "lat": 46.199158,
+            "lng": 9.028946,
+            "sp95PriceChf": 1.8900000000000001,
+            "updatedAt": "2026-03-21T12:43:03.424Z",
+            "nearestMunicipality": "Cavargna (CO)",
+            "nearestMunicipalityDistanceKm": 13.7,
+            "sp95PriceEur": 2.078,
+            "distanceKm": 19.2
           }
         ],
         "minPriceChf": 1.77,
@@ -10153,11 +10153,11 @@
             "address": "Via al Foss 29, 6557 Cama",
             "lat": 46.270147,
             "lng": 9.169142,
-            "sp95PriceChf": 1.84,
-            "updatedAt": "2026-03-17T06:58:15.618Z",
+            "sp95PriceChf": 1.8900000000000001,
+            "updatedAt": "2026-03-21T14:03:44.317Z",
             "nearestMunicipality": "Dosso del Liro (CO)",
             "nearestMunicipalityDistanceKm": 14.2,
-            "sp95PriceEur": 2.023,
+            "sp95PriceEur": 2.078,
             "distanceKm": 19.1
           }
         ],
@@ -10514,11 +10514,11 @@
             "address": "Via al Foss 29, 6557 Cama",
             "lat": 46.270147,
             "lng": 9.169142,
-            "sp95PriceChf": 1.84,
-            "updatedAt": "2026-03-17T06:58:15.618Z",
+            "sp95PriceChf": 1.8900000000000001,
+            "updatedAt": "2026-03-21T14:03:44.317Z",
             "nearestMunicipality": "Dosso del Liro (CO)",
             "nearestMunicipalityDistanceKm": 14.2,
-            "sp95PriceEur": 2.023,
+            "sp95PriceEur": 2.078,
             "distanceKm": 16.9
           },
           {
@@ -11891,11 +11891,11 @@
             "address": "Via al Foss 29, 6557 Cama",
             "lat": 46.270147,
             "lng": 9.169142,
-            "sp95PriceChf": 1.84,
-            "updatedAt": "2026-03-17T06:58:15.618Z",
+            "sp95PriceChf": 1.8900000000000001,
+            "updatedAt": "2026-03-21T14:03:44.317Z",
             "nearestMunicipality": "Dosso del Liro (CO)",
             "nearestMunicipalityDistanceKm": 14.2,
-            "sp95PriceEur": 2.023,
+            "sp95PriceEur": 2.078,
             "distanceKm": 15.3
           },
           {
@@ -14110,11 +14110,11 @@
             "address": "Via al Foss 29, 6557 Cama",
             "lat": 46.270147,
             "lng": 9.169142,
-            "sp95PriceChf": 1.84,
-            "updatedAt": "2026-03-17T06:58:15.618Z",
+            "sp95PriceChf": 1.8900000000000001,
+            "updatedAt": "2026-03-21T14:03:44.317Z",
             "nearestMunicipality": "Dosso del Liro (CO)",
             "nearestMunicipalityDistanceKm": 14.2,
-            "sp95PriceEur": 2.023,
+            "sp95PriceEur": 2.078,
             "distanceKm": 18.8
           }
         ],
@@ -14504,11 +14504,11 @@
             "address": "Via al Foss 29, 6557 Cama",
             "lat": 46.270147,
             "lng": 9.169142,
-            "sp95PriceChf": 1.84,
-            "updatedAt": "2026-03-17T06:58:15.618Z",
+            "sp95PriceChf": 1.8900000000000001,
+            "updatedAt": "2026-03-21T14:03:44.317Z",
             "nearestMunicipality": "Dosso del Liro (CO)",
             "nearestMunicipalityDistanceKm": 14.2,
-            "sp95PriceEur": 2.023,
+            "sp95PriceEur": 2.078,
             "distanceKm": 19.2
           },
           {
@@ -15337,11 +15337,11 @@
             "address": "Via al Foss 29, 6557 Cama",
             "lat": 46.270147,
             "lng": 9.169142,
-            "sp95PriceChf": 1.84,
-            "updatedAt": "2026-03-17T06:58:15.618Z",
+            "sp95PriceChf": 1.8900000000000001,
+            "updatedAt": "2026-03-21T14:03:44.317Z",
             "nearestMunicipality": "Dosso del Liro (CO)",
             "nearestMunicipalityDistanceKm": 14.2,
-            "sp95PriceEur": 2.023,
+            "sp95PriceEur": 2.078,
             "distanceKm": 15.6
           },
           {
@@ -17948,11 +17948,11 @@
             "address": "Via al Foss 29, 6557 Cama",
             "lat": 46.270147,
             "lng": 9.169142,
-            "sp95PriceChf": 1.84,
-            "updatedAt": "2026-03-17T06:58:15.618Z",
+            "sp95PriceChf": 1.8900000000000001,
+            "updatedAt": "2026-03-21T14:03:44.317Z",
             "nearestMunicipality": "Dosso del Liro (CO)",
             "nearestMunicipalityDistanceKm": 14.2,
-            "sp95PriceEur": 2.023,
+            "sp95PriceEur": 2.078,
             "distanceKm": 19.5
           }
         ],
@@ -18144,20 +18144,6 @@
             "distanceKm": 15.5
           },
           {
-            "id": "viYoAJMjWUU1BEwgcjDL",
-            "name": "Stazione di servizio Migrol",
-            "brand": "MIGROL",
-            "address": "Via al Foss 29, 6557 Cama",
-            "lat": 46.270147,
-            "lng": 9.169142,
-            "sp95PriceChf": 1.84,
-            "updatedAt": "2026-03-17T06:58:15.618Z",
-            "nearestMunicipality": "Dosso del Liro (CO)",
-            "nearestMunicipalityDistanceKm": 14.2,
-            "sp95PriceEur": 2.023,
-            "distanceKm": 16.7
-          },
-          {
             "id": "MNydGBweUV8pmXuAtQKE",
             "name": "Agrola Bellinzona",
             "brand": "AGROLA",
@@ -18184,6 +18170,20 @@
             "nearestMunicipalityDistanceKm": 14.1,
             "sp95PriceEur": 2.078,
             "distanceKm": 19.7
+          },
+          {
+            "id": "WunhlPJcSC3aLWcTjWow",
+            "name": "Eni Arbedo",
+            "brand": "ENI",
+            "address": "Via San Gottardo 129, 6517 Arbedo",
+            "lat": 46.2126984,
+            "lng": 9.039422199999999,
+            "sp95PriceChf": 1.8900000000000001,
+            "updatedAt": "2026-03-21T12:20:07.861Z",
+            "nearestMunicipality": "Cavargna (CO)",
+            "nearestMunicipalityDistanceKm": 14.7,
+            "sp95PriceEur": 2.078,
+            "distanceKm": 19.9
           }
         ],
         "minPriceChf": 1.77,
@@ -18676,11 +18676,11 @@
             "address": "Via al Foss 29, 6557 Cama",
             "lat": 46.270147,
             "lng": 9.169142,
-            "sp95PriceChf": 1.84,
-            "updatedAt": "2026-03-17T06:58:15.618Z",
+            "sp95PriceChf": 1.8900000000000001,
+            "updatedAt": "2026-03-21T14:03:44.317Z",
             "nearestMunicipality": "Dosso del Liro (CO)",
             "nearestMunicipalityDistanceKm": 14.2,
-            "sp95PriceEur": 2.023,
+            "sp95PriceEur": 2.078,
             "distanceKm": 16.4
           },
           {
@@ -19682,11 +19682,11 @@
             "address": "Via al Foss 29, 6557 Cama",
             "lat": 46.270147,
             "lng": 9.169142,
-            "sp95PriceChf": 1.84,
-            "updatedAt": "2026-03-17T06:58:15.618Z",
+            "sp95PriceChf": 1.8900000000000001,
+            "updatedAt": "2026-03-21T14:03:44.317Z",
             "nearestMunicipality": "Dosso del Liro (CO)",
             "nearestMunicipalityDistanceKm": 14.2,
-            "sp95PriceEur": 2.023,
+            "sp95PriceEur": 2.078,
             "distanceKm": 17.7
           },
           {
@@ -38465,7 +38465,7 @@
             "lat": 46.3290252012447,
             "lng": 8.01189248217558,
             "sp95PriceChf": 1.8,
-            "updatedAt": "2026-03-13T14:59:22.144Z",
+            "updatedAt": "2026-03-21T14:32:55.426Z",
             "nearestMunicipality": "Trasquera (VB)",
             "nearestMunicipalityDistanceKm": 19.3,
             "sp95PriceEur": 1.979,
@@ -40323,11 +40323,11 @@
             "address": "Via al Foss 29, 6557 Cama",
             "lat": 46.270147,
             "lng": 9.169142,
-            "sp95PriceChf": 1.84,
-            "updatedAt": "2026-03-17T06:58:15.618Z",
+            "sp95PriceChf": 1.8900000000000001,
+            "updatedAt": "2026-03-21T14:03:44.317Z",
             "nearestMunicipality": "Dosso del Liro (CO)",
             "nearestMunicipalityDistanceKm": 14.2,
-            "sp95PriceEur": 2.023,
+            "sp95PriceEur": 2.078,
             "distanceKm": 19.9
           },
           {
@@ -40726,11 +40726,11 @@
             "address": "Via al Foss 29, 6557 Cama",
             "lat": 46.270147,
             "lng": 9.169142,
-            "sp95PriceChf": 1.84,
-            "updatedAt": "2026-03-17T06:58:15.618Z",
+            "sp95PriceChf": 1.8900000000000001,
+            "updatedAt": "2026-03-21T14:03:44.317Z",
             "nearestMunicipality": "Dosso del Liro (CO)",
             "nearestMunicipalityDistanceKm": 14.2,
-            "sp95PriceEur": 2.023,
+            "sp95PriceEur": 2.078,
             "distanceKm": 18.6
           }
         ],
@@ -41528,11 +41528,11 @@
             "address": "Via al Foss 29, 6557 Cama",
             "lat": 46.270147,
             "lng": 9.169142,
-            "sp95PriceChf": 1.84,
-            "updatedAt": "2026-03-17T06:58:15.618Z",
+            "sp95PriceChf": 1.8900000000000001,
+            "updatedAt": "2026-03-21T14:03:44.317Z",
             "nearestMunicipality": "Dosso del Liro (CO)",
             "nearestMunicipalityDistanceKm": 14.2,
-            "sp95PriceEur": 2.023,
+            "sp95PriceEur": 2.078,
             "distanceKm": 15.3
           }
         ],
@@ -42418,11 +42418,11 @@
             "address": "Via al Foss 29, 6557 Cama",
             "lat": 46.270147,
             "lng": 9.169142,
-            "sp95PriceChf": 1.84,
-            "updatedAt": "2026-03-17T06:58:15.618Z",
+            "sp95PriceChf": 1.8900000000000001,
+            "updatedAt": "2026-03-21T14:03:44.317Z",
             "nearestMunicipality": "Dosso del Liro (CO)",
             "nearestMunicipalityDistanceKm": 14.2,
-            "sp95PriceEur": 2.023,
+            "sp95PriceEur": 2.078,
             "distanceKm": 16.7
           }
         ],
@@ -43173,11 +43173,11 @@
             "address": "Via al Foss 29, 6557 Cama",
             "lat": 46.270147,
             "lng": 9.169142,
-            "sp95PriceChf": 1.84,
-            "updatedAt": "2026-03-17T06:58:15.618Z",
+            "sp95PriceChf": 1.8900000000000001,
+            "updatedAt": "2026-03-21T14:03:44.317Z",
             "nearestMunicipality": "Dosso del Liro (CO)",
             "nearestMunicipalityDistanceKm": 14.2,
-            "sp95PriceEur": 2.023,
+            "sp95PriceEur": 2.078,
             "distanceKm": 17.9
           }
         ],
@@ -43461,11 +43461,11 @@
             "address": "Via al Foss 29, 6557 Cama",
             "lat": 46.270147,
             "lng": 9.169142,
-            "sp95PriceChf": 1.84,
-            "updatedAt": "2026-03-17T06:58:15.618Z",
+            "sp95PriceChf": 1.8900000000000001,
+            "updatedAt": "2026-03-21T14:03:44.317Z",
             "nearestMunicipality": "Dosso del Liro (CO)",
             "nearestMunicipalityDistanceKm": 14.2,
-            "sp95PriceEur": 2.023,
+            "sp95PriceEur": 2.078,
             "distanceKm": 17.6
           }
         ],
@@ -43534,11 +43534,11 @@
             "address": "Via al Foss 29, 6557 Cama",
             "lat": 46.270147,
             "lng": 9.169142,
-            "sp95PriceChf": 1.84,
-            "updatedAt": "2026-03-17T06:58:15.618Z",
+            "sp95PriceChf": 1.8900000000000001,
+            "updatedAt": "2026-03-21T14:03:44.317Z",
             "nearestMunicipality": "Dosso del Liro (CO)",
             "nearestMunicipalityDistanceKm": 14.2,
-            "sp95PriceEur": 2.023,
+            "sp95PriceEur": 2.078,
             "distanceKm": 17.2
           },
           {

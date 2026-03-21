@@ -1541,6 +1541,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.fatture-mediche-gonfiate-ticino.title': 'Fatture Mediche Gonfiate: Un Problema Sempre Più Diffuso in Ticino',
     'blog.article.fatture-mediche-gonfiate-ticino.excerpt': 'In Ticino, il 60% dei pazienti ha ricevuto fatture mediche errate, con un impatto sui costi delle cure e premi assicurativi.',
     'blog.article.fatture-mediche-gonfiate-ticino.imageAlt': 'Vista panoramica di Lugano con montagne sullo sfondo.',
+    'blog.article.divieto-cellulari-scuola-ticino.title': 'Divieto di cellulari nelle scuole dell\'obbligo in Ticino',
+    'blog.article.divieto-cellulari-scuola-ticino.excerpt': 'Dal 30 marzo 2026, il Ticino estende il divieto di utilizzo dei cellulari nelle scuole dell\'obbligo, coinvolgendo tutte le istituzioni scolastiche.',
+    'blog.article.divieto-cellulari-scuola-ticino.imageAlt': 'Ragazzi in aula senza cellulari, ambiente scolastico Ticino.',
 };
 
 export default blogMetaIt;

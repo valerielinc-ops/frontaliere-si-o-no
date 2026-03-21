@@ -1541,6 +1541,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.fatture-mediche-gonfiate-ticino.title': 'Aufgeblähte Arztrechnungen: Ein Immer Häufigeres Problem im Tessin',
     'blog.article.fatture-mediche-gonfiate-ticino.excerpt': 'Im Tessin haben 60% der Patienten fehlerhafte Arztrechnungen erhalten, was Auswirkungen auf die Behandlungskosten und die Versicherungsprämien hat.',
     'blog.article.fatture-mediche-gonfiate-ticino.imageAlt': 'Panoramablick auf Lugano mit Bergen im Hintergrund.',
+    'blog.article.divieto-cellulari-scuola-ticino.title': 'Handyverbot in den obligatorischen Schulen im Tessin',
+    'blog.article.divieto-cellulari-scuola-ticino.excerpt': 'Ab dem 30. März 2026 wird im Tessin das Verbot der Nutzung von Handys in den obligatorischen Schulen ausgeweitet, wobei alle Bildungseinrichtungen einbezogen werden.',
+    'blog.article.divieto-cellulari-scuola-ticino.imageAlt': 'Schüler in einem Klassenzimmer ohne Handys, Schulumgebung in der Schweiz.',
 };
 
 export default blogMetaDe;

@@ -1541,6 +1541,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.fatture-mediche-gonfiate-ticino.title': 'Inflated Medical Bills: An Increasingly Common Problem in Ticino',
     'blog.article.fatture-mediche-gonfiate-ticino.excerpt': 'In Ticino, 60% of patients have received incorrect medical bills, impacting care costs and insurance premiums.',
     'blog.article.fatture-mediche-gonfiate-ticino.imageAlt': 'Panoramic view of Lugano with mountains in the background.',
+    'blog.article.divieto-cellulari-scuola-ticino.title': 'Ban on mobile phones in compulsory schools in Ticino',
+    'blog.article.divieto-cellulari-scuola-ticino.excerpt': 'From March 30, 2026, Ticino extends the ban on mobile phone use in compulsory schools, involving all educational institutions.',
+    'blog.article.divieto-cellulari-scuola-ticino.imageAlt': 'Students in a classroom without cell phones, Ticino school environment.',
 };
 
 export default blogMetaEn;

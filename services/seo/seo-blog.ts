@@ -8027,6 +8027,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-divieto-cellulari-scuola-ticino': {
+    title: 'Divieto di cellulari nelle scuole dell\'obbligo in Ticino | Frontaliere Ticino',
+    description: 'Scopri il nuovo divieto di cellulari nelle scuole dell\'obbligo in Ticino, in vigore dal 30 marzo 2026. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, divieto, cellulari, nelle, scuole',
+    ogTitle: 'Divieto cellulari nelle scuole Ticino',
+    ogDescription: 'Dal 30 marzo 2026, il Ticino estende il divieto di cellulari nelle scuole dell\'obbligo.',
+    canonicalPath: '/articoli-frontaliere/divieto-cellulari-scuola-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Divieto cellulari nelle scuole dell'obbligo in Ticino",
+      "description": "Scopri il nuovo divieto di cellulari nelle scuole dell'obbligo in Ticino, in vigore dal 30 marzo 2026. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/divieto-cellulari-scuola-ticino.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Ragazzi in aula senza cellulari, ambiente scolastico Ticino."
+      },
+      "datePublished": "2026-03-21T14:48:58+00:00",
+      "dateModified": "2026-03-21T14:48:58+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/divieto-cellulari-scuola-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

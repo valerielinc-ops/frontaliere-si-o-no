@@ -1650,6 +1650,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-la-navigazione-rafforza-offerta-2026': { name: 'Navigazione Ticino', path: '/articoli-frontaliere/la-navigazione-rafforza-offerta-2026', parent: 'blog' },
     'blog-sanita-integrativa-lombardia-ticino': { name: 'Sanità Integrativa', path: '/articoli-frontaliere/sanita-integrativa-lombardia-ticino', parent: 'blog' },
     'blog-fatture-mediche-gonfiate-ticino': { name: 'Fatture Mediche', path: '/articoli-frontaliere/fatture-mediche-gonfiate-ticino', parent: 'blog' },
+    'blog-divieto-cellulari-scuola-ticino': { name: 'Divieto Cellulari', path: '/articoli-frontaliere/divieto-cellulari-scuola-ticino', parent: 'blog' },
   };
 
   const info = sectionNames[section];

@@ -1541,6 +1541,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.fatture-mediche-gonfiate-ticino.title': 'Factures Médicales Gonflées : Un Problème de Plus en Plus Répandu au Tessin',
     'blog.article.fatture-mediche-gonfiate-ticino.excerpt': 'Au Tessin, 60 % des patients ont reçu des factures médicales erronées, impactant les coûts des soins et les primes d\'assurance.',
     'blog.article.fatture-mediche-gonfiate-ticino.imageAlt': 'Vue panoramique de Lugano avec des montagnes en arrière-plan.',
+    'blog.article.divieto-cellulari-scuola-ticino.title': 'Interdiction des téléphones portables dans les écoles obligatoires au Tessin',
+    'blog.article.divieto-cellulari-scuola-ticino.excerpt': 'À partir du 30 mars 2026, le Tessin étend l\'interdiction d\'utilisation des téléphones portables dans les écoles obligatoires, touchant toutes les institutions scolaires.',
+    'blog.article.divieto-cellulari-scuola-ticino.imageAlt': 'Des élèves dans une salle de classe sans téléphones portables, environnement scolaire en Suisse.',
 };
 
 export default blogMetaFr;
