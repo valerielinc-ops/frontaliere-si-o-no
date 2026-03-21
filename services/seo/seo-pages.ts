@@ -3049,7 +3049,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
         "@context": "https://schema.org",
         "@type": "ItemList",
         "name": "Articoli Frontaliere",
-        "numberOfItems": 510,
+        "numberOfItems": 511,
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
           { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -3560,7 +3560,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 507, "name": "Un ticinese a capo di due importanti servizi de...", "url": `${BASE_URL}/articoli-frontaliere/trojani-capo-servizi-esercito-ticino` },
           { "@type": "ListItem", "position": 508, "name": "Funivia di Monteviasco: nuovi orari e più corse...", "url": `${BASE_URL}/articoli-frontaliere/funivia-monteviasco-orari-corsi` },
           { "@type": "ListItem", "position": 509, "name": "Ricchi in fuga dal Medio Oriente, «Il Ticino vu...", "url": `${BASE_URL}/articoli-frontaliere/ricchi-fuga-medio-oriente-ticino` },
-          { "@type": "ListItem", "position": 510, "name": "Scuola dell’obbligo, scatta il “No Natel”: cell...", "url": `${BASE_URL}/articoli-frontaliere/divieto-cellulari-scuola-ticino-2024` }
+          { "@type": "ListItem", "position": 510, "name": "Scuola dell’obbligo, scatta il “No Natel”: cell...", "url": `${BASE_URL}/articoli-frontaliere/divieto-cellulari-scuola-ticino-2024` },
+          { "@type": "ListItem", "position": 511, "name": "I sindacati (ancora) contro SNL: «Tout va très ...", "url": `${BASE_URL}/articoli-frontaliere/sindacati-contro-snl-ticino-2026` }
         ]
       }
     ]

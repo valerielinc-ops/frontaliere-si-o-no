@@ -1559,6 +1559,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.divieto-cellulari-scuola-ticino-2024.title': 'École obligatoire, interdiction totale des téléphones portables au Tessin',
     'blog.article.divieto-cellulari-scuola-ticino-2024.excerpt': 'À partir de 2024 au Tessin, l’école obligatoire interdit l’usage des téléphones portables en classe et en dehors : une mesure décidée pour favoriser la concentration et l’apprentissage.',
     'blog.article.divieto-cellulari-scuola-ticino-2024.imageAlt': 'Salle de classe au Tessin sans téléphones visibles, élèves concentrés',
+    'blog.article.sindacati-contro-snl-ticino-2026.title': 'Syndicats contre SNL : salaires, transparence et droits dans le viseur',
+    'blog.article.sindacati-contro-snl-ticino-2026.excerpt': 'Angelo Stroppini (SEV) dénonce des irrégularités et des disparités salariales à la Société de Navigation du Lac de Lugano, mettant en lumière des problèmes non résolus en 2026.',
+    'blog.article.sindacati-contro-snl-ticino-2026.imageAlt': 'Bateau de la Società Navigazione Lago sur le lac de Lugano avec vue sur les montagnes et le bord du lac à Lugano.',
 };
 
 export default blogMetaFr;

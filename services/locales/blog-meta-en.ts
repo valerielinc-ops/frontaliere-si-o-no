@@ -1559,6 +1559,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.divieto-cellulari-scuola-ticino-2024.title': 'Compulsory Schooling, Total Ban on Cell Phones Takes Effect in Ticino',
     'blog.article.divieto-cellulari-scuola-ticino-2024.excerpt': 'From 2024 in Ticino, compulsory schools ban the use of cell phones both inside classrooms and on school grounds: a measure aimed at promoting concentration and learning.',
     'blog.article.divieto-cellulari-scuola-ticino-2024.imageAlt': 'Classroom in Ticino with students focused and no smartphones visible',
+    'blog.article.sindacati-contro-snl-ticino-2026.title': 'Unions Against SNL: Wages, Transparency, and Rights in the Spotlight',
+    'blog.article.sindacati-contro-snl-ticino-2026.excerpt': 'Angelo Stroppini (SEV) denounces irregularities and wage disparities at the Società Navigazione Lago di Lugano, highlighting unresolved issues in 2026.',
+    'blog.article.sindacati-contro-snl-ticino-2026.imageAlt': 'Società Navigazione Lago boat on Lake Lugano with mountains and lakeside view of Lugano.',
 };
 
 export default blogMetaEn;

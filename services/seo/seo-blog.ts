@@ -8201,6 +8201,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-sindacati-contro-snl-ticino-2026': {
+    title: 'Sindacati contro SNL: salari, trasparenza e diritti nel mirino | Frontaliere Ticino',
+    description: 'Angelo Stroppini (SEV) denuncia salari iniqui e mancanza di trasparenza alla Società Navigazione Lago di Lugano nel 2026. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, sindacati, contro, salari, trasparenza',
+    ogTitle: 'Sindacati contro SNL: salari e trasparenza in Ticino 2026',
+    ogDescription: 'Critiche sindacali alla Società Navigazione Lago di Lugano per infrazioni e condizioni salariali inique nel 2026.',
+    canonicalPath: '/articoli-frontaliere/sindacati-contro-snl-ticino-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "I sindacati (ancora) contro SNL: «Tout va très bien Madame la Marquise»",
+      "description": "Angelo Stroppini (SEV) denuncia salari iniqui e mancanza di trasparenza alla Società Navigazione Lago di Lugano nel 2026. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/sindacati-contro-snl-ticino-2026.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Imbarcazione della Società Navigazione Lago sul Lago di Lugano con vista delle montagne e del lungolago di Lugano."
+      },
+      "datePublished": "2026-03-21T17:36:16+00:00",
+      "dateModified": "2026-03-21T17:36:16+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/sindacati-contro-snl-ticino-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

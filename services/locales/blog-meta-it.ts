@@ -1559,6 +1559,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.divieto-cellulari-scuola-ticino-2024.title': 'Scuola dell’obbligo, scatta il divieto assoluto di cellulari in Ticino',
     'blog.article.divieto-cellulari-scuola-ticino-2024.excerpt': 'Dal 2024 in Ticino, la scuola dell’obbligo vieta l’uso di cellulari in aula e fuori: una misura decisa per favorire la concentrazione e l’apprendimento.',
     'blog.article.divieto-cellulari-scuola-ticino-2024.imageAlt': 'Aula scolastica in Ticino senza cellulari, studenti concentrati durante la lezione',
+    'blog.article.sindacati-contro-snl-ticino-2026.title': 'Sindacati contro SNL: salari, trasparenza e diritti nel mirino',
+    'blog.article.sindacati-contro-snl-ticino-2026.excerpt': 'Angelo Stroppini (SEV) denuncia irregolarità e disparità salariali alla Società Navigazione Lago di Lugano, evidenziando problemi irrisolti nel 2026.',
+    'blog.article.sindacati-contro-snl-ticino-2026.imageAlt': 'Imbarcazione della Società Navigazione Lago sul Lago di Lugano con vista delle montagne e del lungolago di Lugano.',
 };
 
 export default blogMetaIt;

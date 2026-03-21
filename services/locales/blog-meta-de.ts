@@ -1559,6 +1559,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.divieto-cellulari-scuola-ticino-2024.title': 'Schulpflicht, absolutes Handyverbot im Tessin tritt in Kraft',
     'blog.article.divieto-cellulari-scuola-ticino-2024.excerpt': 'Ab 2024 verbietet die Schulpflicht im Tessin die Nutzung von Handys im Unterricht und auf dem Schulgelände: Eine Maßnahme zur Förderung der Konzentration und des Lernens.',
     'blog.article.divieto-cellulari-scuola-ticino-2024.imageAlt': 'Klassenzimmer im Tessin ohne sichtbare Handys, konzentrierte Schüler',
+    'blog.article.sindacati-contro-snl-ticino-2026.title': 'Gewerkschaften gegen SNL: Löhne, Transparenz und Rechte im Visier',
+    'blog.article.sindacati-contro-snl-ticino-2026.excerpt': 'Angelo Stroppini (SEV) prangert Unregelmäßigkeiten und Lohnunterschiede bei der Società Navigazione Lago di Lugano an und hebt ungelöste Probleme im Jahr 2026 hervor.',
+    'blog.article.sindacati-contro-snl-ticino-2026.imageAlt': 'Schiff der Società Navigazione Lago auf dem Luganersee mit Blick auf die Berge und die Uferpromenade von Lugano.',
 };
 
 export default blogMetaDe;
