@@ -801,9 +801,11 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
             const p = `${localePrefix[l]}/${sectionByLocale[l]}/${perLocaleSlug[l]}`.replace(/\/+/g, '/');
             return { lang: l, href: `${BASE_URL}${withSlash(p)}` };
           });
-          const hreflangHtml = alternates
-            .map((h) => `    <link rel="alternate" hreflang="${h.lang}" href="${h.href}">`)
-            .join('\n');
+          const xDefaultHref = (alternates.find((h) => h.lang === 'it') || alternates[0])?.href || '';
+          const hreflangHtml = [
+            ...alternates.map((h) => `    <link rel="alternate" hreflang="${h.lang}" href="${h.href}">`),
+            ...(xDefaultHref ? [`    <link rel="alternate" hreflang="x-default" href="${xDefaultHref}">`] : []),
+          ].join('\n');
 
           // Build an HTML-formatted description for JobPosting structured data.
           // Google requires a non-empty description and recommends HTML format.
@@ -1218,9 +1220,11 @@ ${jobLd ? `    <script type="application/ld+json">${jobLd}</script>\n` : ''}    
             const p = `${localePrefix[l]}/${sectionByLocale[l]}/${lSlug}`.replace(/\/+/g, '/');
             return { lang: l, href: `${BASE_URL}${withSlash(p)}` };
           });
-          const hreflangHtml = alternates
-            .map((h) => `    <link rel="alternate" hreflang="${h.lang}" href="${h.href}">`)
-            .join('\n');
+          const xDefaultHrefC = (alternates.find((h) => h.lang === 'it') || alternates[0])?.href || '';
+          const hreflangHtml = [
+            ...alternates.map((h) => `    <link rel="alternate" hreflang="${h.lang}" href="${h.href}">`),
+            ...(xDefaultHrefC ? [`    <link rel="alternate" hreflang="x-default" href="${xDefaultHrefC}">`] : []),
+          ].join('\n');
 
           const jobListHtml = companyJobs.slice(0, 20).map((job) => {
             const jSlug = localizedSlug(job, locale);
@@ -2844,12 +2848,15 @@ ${alternates}${hasSpaBundle ? `\n    <link rel="stylesheet" href="/assets/${entr
         const paths = tracking[slug];
         const ejData = expiredBySlug.get(slug);
 
-        // Build hreflang alternates for this expired slug
-        const hreflangLinks = localeList.map((l) => {
-          const p = paths[l];
-          if (!p) return '';
-          return `    <link rel="alternate" hreflang="${l}" href="${BASE_URL}${withSlash(p)}">`;
-        }).filter(Boolean).join('\n');
+        // Build hreflang alternates for this expired slug (x-default → IT version)
+        const hreflangLinks = [
+          ...localeList.map((l) => {
+            const p = paths[l];
+            if (!p) return '';
+            return `    <link rel="alternate" hreflang="${l}" href="${BASE_URL}${withSlash(p)}">`;
+          }).filter(Boolean),
+          ...(paths.it ? [`    <link rel="alternate" hreflang="x-default" href="${BASE_URL}${withSlash(paths.it)}">`] : []),
+        ].join('\n');
 
         for (const locale of localeList) {
           const relPath = paths[locale];
