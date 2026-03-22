@@ -1601,6 +1601,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.infortuni-sul-lavoro-protesi-hi-tech.title': 'Workplace accidents: INAIL opens the door to hi-tech prosthetics for better protection of cross-border workers',
     'blog.article.infortuni-sul-lavoro-protesi-hi-tech.excerpt': 'INAIL has updated the operational instructions of the Prosthetics Regulation, introducing changes that guarantee greater autonomy and protection for cross-border workers who have fallen victim to serious workplace accidents.',
     'blog.article.infortuni-sul-lavoro-protesi-hi-tech.imageAlt': 'Hi-tech prosthesis and Brogeda border crossing: a symbol of hope and resilience for cross-border workers.',
+    'blog.article.bellinzona-scomparsa-ricerche-ticino-piemonte.title': 'Bellinzona: Active Search for Missing 64-Year-Old',
+    'blog.article.bellinzona-scomparsa-ricerche-ticino-piemonte.excerpt': 'A 64-year-old man has gone missing in Bellinzona, with ongoing searches between Ticino and Piedmont.',
+    'blog.article.bellinzona-scomparsa-ricerche-ticino-piemonte.imageAlt': 'View of Bellinzona featuring the castle and surrounding mountains.',
 };
 
 export default blogMetaEn;

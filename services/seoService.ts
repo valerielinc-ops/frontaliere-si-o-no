@@ -1670,6 +1670,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-snl-stagione-green-concessione': { name: 'Stagione SNL', path: '/articoli-frontaliere/snl-stagione-green-concessione', parent: 'blog' },
     'blog-smartphone-a-scuola-e-nuove-direttive': { name: 'Smartphone a scuola', path: '/articoli-frontaliere/smartphone-a-scuola-e-nuove-direttive', parent: 'blog' },
     'blog-infortuni-sul-lavoro-protesi-hi-tech': { name: 'Infortuni sul lavoro', path: '/articoli-frontaliere/infortuni-sul-lavoro-protesi-hi-tech', parent: 'blog' },
+    'blog-bellinzona-scomparsa-ricerche-ticino-piemonte': { name: 'Bellinzona', path: '/articoli-frontaliere/bellinzona-scomparsa-ricerche-ticino-piemonte', parent: 'blog' },
   };
 
   const info = sectionNames[section];

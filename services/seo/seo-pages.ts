@@ -3049,7 +3049,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
         "@context": "https://schema.org",
         "@type": "ItemList",
         "name": "Articoli Frontaliere",
-        "numberOfItems": 524,
+        "numberOfItems": 525,
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
           { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -3574,7 +3574,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 521, "name": "Battaglia per le spiagge libere sul Lago Maggiore", "url": `${BASE_URL}/articoli-frontaliere/spiagge-libere-sul-lago-maggiore` },
           { "@type": "ListItem", "position": 522, "name": "SNL: stagione 2026 all'insegna della sostenibil...", "url": `${BASE_URL}/articoli-frontaliere/snl-stagione-green-concessione` },
           { "@type": "ListItem", "position": 523, "name": "Smartphone a scuola: il DECS cambia rotta, ma l...", "url": `${BASE_URL}/articoli-frontaliere/smartphone-a-scuola-e-nuove-direttive` },
-          { "@type": "ListItem", "position": 524, "name": "Infortuni sul lavoro: l'Inail apre alle protesi...", "url": `${BASE_URL}/articoli-frontaliere/infortuni-sul-lavoro-protesi-hi-tech` }
+          { "@type": "ListItem", "position": 524, "name": "Infortuni sul lavoro: l'Inail apre alle protesi...", "url": `${BASE_URL}/articoli-frontaliere/infortuni-sul-lavoro-protesi-hi-tech` },
+          { "@type": "ListItem", "position": 525, "name": "Bellinzona: Ricerche attive per un 64enne scomp...", "url": `${BASE_URL}/articoli-frontaliere/bellinzona-scomparsa-ricerche-ticino-piemonte` }
         ]
       }
     ]

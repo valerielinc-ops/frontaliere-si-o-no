@@ -1601,6 +1601,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.infortuni-sul-lavoro-protesi-hi-tech.title': 'Infortuni sul lavoro: l\'Inail apre alle protesi hi-tech per una maggiore tutela dei frontalieri',
     'blog.article.infortuni-sul-lavoro-protesi-hi-tech.excerpt': 'L\'Inail ha aggiornato le istruzioni operative del Regolamento protesico, introducendo modifiche che garantiscono maggiore autonomia e tutele ai lavoratori frontalieri rimasti vittima di gravi infortuni.',
     'blog.article.infortuni-sul-lavoro-protesi-hi-tech.imageAlt': 'Protesi hi-tech e valico di Brogeda: un simbolo di speranza e resilienza per i lavoratori frontalieri.',
+    'blog.article.bellinzona-scomparsa-ricerche-ticino-piemonte.title': 'Bellinzona: Ricerche attive per un 64enne scomparso',
+    'blog.article.bellinzona-scomparsa-ricerche-ticino-piemonte.excerpt': 'Un uomo di 64 anni è scomparso a Bellinzona, con ricerche in corso tra Ticino e Piemonte.',
+    'blog.article.bellinzona-scomparsa-ricerche-ticino-piemonte.imageAlt': 'Veduta di Bellinzona con il castello e le montagne circostanti.',
 };
 
 export default blogMetaIt;

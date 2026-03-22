@@ -1601,6 +1601,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.infortuni-sul-lavoro-protesi-hi-tech.title': 'Unfallverletzungen: INAIL öffnet sich für Hightech-Prothesen für einen besseren Schutz von Grenzgängern',
     'blog.article.infortuni-sul-lavoro-protesi-hi-tech.excerpt': 'INAIL hat die Betriebsanweisungen der Prothesenverordnung aktualisiert und Änderungen eingeführt, die Grenzgängern, die Opfer schwerer Arbeitsunfälle wurden, mehr Autonomie und Schutz bieten.',
     'blog.article.infortuni-sul-lavoro-protesi-hi-tech.imageAlt': 'High-Tech-Prothese und Grenzübergang Brogeda: ein Symbol der Hoffnung und Widerstandsfähigkeit für grenzüberschreitende Arbeitnehmer.',
+    'blog.article.bellinzona-scomparsa-ricerche-ticino-piemonte.title': 'Bellinzona: Aktive Suche nach einem verschwundenen 64-Jährigen',
+    'blog.article.bellinzona-scomparsa-ricerche-ticino-piemonte.excerpt': 'Ein 64-jähriger Mann wird in Bellinzona vermisst, die Suche läuft zwischen dem Tessin und dem Piemont.',
+    'blog.article.bellinzona-scomparsa-ricerche-ticino-piemonte.imageAlt': 'Blick auf Bellinzona mit der Burg und den umliegenden Bergen.',
 };
 
 export default blogMetaDe;

@@ -8607,6 +8607,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-bellinzona-scomparsa-ricerche-ticino-piemonte': {
+    title: 'Bellinzona: Ricerche attive per un 64enne scomparso | Frontaliere Ticino',
+    description: 'Un uomo di 64 anni è scomparso a Bellinzona, con ricerche in corso tra Ticino e Piemonte. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, bellinzona, ricerche, attive, 64enne',
+    ogTitle: 'Bellinzona: Ricerche attive per un 64enne scomparso',
+    ogDescription: 'Un uomo di 64 anni è scomparso a Bellinzona, con ricerche in corso tra Ticino e Piemonte.',
+    canonicalPath: '/articoli-frontaliere/bellinzona-scomparsa-ricerche-ticino-piemonte',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Bellinzona: Ricerche attive per un 64enne scomparso",
+      "description": "Un uomo di 64 anni è scomparso a Bellinzona, con ricerche in corso tra Ticino e Piemonte. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/bellinzona-scomparsa-ricerche-ticino-piemonte.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Veduta di Bellinzona con il castello e le montagne circostanti."
+      },
+      "datePublished": "2026-03-22T03:08:23+00:00",
+      "dateModified": "2026-03-22T03:08:23+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/bellinzona-scomparsa-ricerche-ticino-piemonte`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
