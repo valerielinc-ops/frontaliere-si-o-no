@@ -1658,6 +1658,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.ticino-attenti-ai-radar-2026.title': 'Ticino, watch out for speed cameras: when and where speed checks will take place',
     'blog.article.ticino-attenti-ai-radar-2026.excerpt': 'Mobile and semi-stationary speed checks in Ticino from March 23 to March 29, 2026.',
     'blog.article.ticino-attenti-ai-radar-2026.imageAlt': 'Speed camera in place in Ticino',
+    'blog.article.sequestro-stupefacenti-ecuador.title': 'Over Three Tons of Narcotics Seized',
+    'blog.article.sequestro-stupefacenti-ecuador.excerpt': 'Ecuador has seized over three tons of narcotics at sea, thanks to a joint operation with the United States.',
+    'blog.article.sequestro-stupefacenti-ecuador.imageAlt': 'Ecuadorian warship at sea',
 };
 
 export default blogMetaEn;

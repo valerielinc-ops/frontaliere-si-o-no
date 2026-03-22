@@ -1689,6 +1689,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-tragedia-titlis-raffica-vento': { name: 'Ticino', path: '/articoli-frontaliere/tragedia-titlis-raffica-vento', parent: 'blog' },
     'blog-accesso-libero-alle-rive': { name: 'Economia', path: '/articoli-frontaliere/accesso-libero-alle-rive', parent: 'blog' },
     'blog-ticino-attenti-ai-radar-2026': { name: 'Ticino, attenti ai radar', path: '/articoli-frontaliere/ticino-attenti-ai-radar-2026', parent: 'blog' },
+    'blog-sequestro-stupefacenti-ecuador': { name: 'Sequestro di sostanze stupefacenti', path: '/articoli-frontaliere/sequestro-stupefacenti-ecuador', parent: 'blog' },
   };
 
   const info = sectionNames[section];

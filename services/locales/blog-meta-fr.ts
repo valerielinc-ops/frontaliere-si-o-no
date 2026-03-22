@@ -1658,6 +1658,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.ticino-attenti-ai-radar-2026.title': 'Suisse-romande, attention aux radars : quand et où les contrôles de vitesse',
     'blog.article.ticino-attenti-ai-radar-2026.excerpt': 'Les contrôles de vitesse mobiles et semi-stationnaires en Suisse-romande du 23 mars au 29 mars 2026.',
     'blog.article.ticino-attenti-ai-radar-2026.imageAlt': 'Câmera de vitesse en place au Tessin',
+    'blog.article.sequestro-stupefacenti-ecuador.title': 'Saisie de trois tonnes de substances stupéfiantes',
+    'blog.article.sequestro-stupefacenti-ecuador.excerpt': 'L\'Équateur a saisi plus de trois tonnes de substances stupéfiantes en mer, grâce à une opération conjointe avec les États-Unis.',
+    'blog.article.sequestro-stupefacenti-ecuador.imageAlt': 'Navire de guerre équatorien en mer',
 };
 
 export default blogMetaFr;

@@ -1658,6 +1658,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.ticino-attenti-ai-radar-2026.title': 'Ticino, attenti ai radar: quando e dove i controlli della velocità',
     'blog.article.ticino-attenti-ai-radar-2026.excerpt': 'I controlli della velocità mobili e semi-stazionari a Ticino dalle 23 marzo al 29 marzo 2026.',
     'blog.article.ticino-attenti-ai-radar-2026.imageAlt': 'Radar in loco per controllare la velocità in Ticino',
+    'blog.article.sequestro-stupefacenti-ecuador.title': 'Sequestrate tre tonnellate di sostanze stupefacenti',
+    'blog.article.sequestro-stupefacenti-ecuador.excerpt': 'L\'Ecuador ha sequestrato oltre tre tonnellate di sostanze stupefacenti in mare aperto, grazie a un\'operazione congiunta con gli Stati Uniti.',
+    'blog.article.sequestro-stupefacenti-ecuador.imageAlt': 'Nave da guerra ecuadoregna in mare aperto',
 };
 
 export default blogMetaIt;

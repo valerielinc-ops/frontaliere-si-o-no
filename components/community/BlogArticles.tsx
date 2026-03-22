@@ -4463,6 +4463,13 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/ticino-attenti-ai-radar-2026.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'sequestro-stupefacenti-ecuador',
+    category: 'novita',
+    date: '2026-03-22T14:54:43.183Z',
+    image: '/images/blog/sequestro-stupefacenti-ecuador.jpg',
+    hasCalculator: true,
+  },
 ];
 
 const CATEGORIES = ['all', 'fiscale', 'pratico', 'novita', 'pensione'] as const;

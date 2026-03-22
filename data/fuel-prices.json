@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-03-22T13:45:01.726Z",
+  "generatedAt": "2026-03-22T15:00:59.903Z",
   "sources": {
     "italy": {
       "provider": "MIMIT Open Data",
@@ -11,7 +11,7 @@
       "provider": "TCS Benzinpreis",
       "providerUrl": "https://benzin.tcs.ch/de/map/SP95",
       "stationCount": 224,
-      "latestObservedUpdate": "2026-03-22T13:34:48.050Z"
+      "latestObservedUpdate": "2026-03-22T14:49:20.523Z"
     },
     "exchangeRate": {
       "provider": "ECB",
@@ -623,7 +623,7 @@
         "lat": 45.97698951091755,
         "lng": 8.874521781054243,
         "sp95PriceChf": 1.6500000000000001,
-        "updatedAt": "2026-03-15T18:07:48.450Z",
+        "updatedAt": "2026-03-22T14:46:31.666Z",
         "nearestMunicipality": "Brusimpiano (VA)",
         "nearestMunicipalityDistanceKm": 1.9,
         "sp95PriceEur": 1.814
@@ -1158,7 +1158,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 23,
+        "optionCount": 22,
         "cheapestStation": {
           "id": "2cyTEGqZPuSVhtpjGqzf",
           "name": "Silo Shop",
@@ -1203,20 +1203,6 @@
             "distanceKm": 14
           },
           {
-            "id": "4rZcVZZyMdcg9utPrsXv",
-            "name": "GARAGE 64",
-            "brand": "UNDEFINED",
-            "address": "Via Emilio Bossi 6, 6830 Chiasso",
-            "lat": 45.834176890224306,
-            "lng": 9.031274331501768,
-            "sp95PriceChf": 1.73,
-            "updatedAt": "2026-02-20T14:24:22.760Z",
-            "nearestMunicipality": "Maslianico (CO)",
-            "nearestMunicipalityDistanceKm": 1.6,
-            "sp95PriceEur": 1.902,
-            "distanceKm": 12.7
-          },
-          {
             "id": "EDsfoWTW5mhInO152CPP",
             "name": "Eni Chiasso",
             "brand": "ENI",
@@ -1243,6 +1229,20 @@
             "nearestMunicipalityDistanceKm": 2.2,
             "sp95PriceEur": 1.902,
             "distanceKm": 13.8
+          },
+          {
+            "id": "JSwIQAHxBJkmBFEgWvIF",
+            "name": "Piccadilly SA - Socar, Coop",
+            "brand": "SOCAR",
+            "address": "Via Maestri Comacini 10, 6830 Chiasso",
+            "lat": 45.83465592,
+            "lng": 9.035368517,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-03-19T10:20:19.034Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 1.3,
+            "sp95PriceEur": 1.902,
+            "distanceKm": 12.4
           }
         ],
         "minPriceChf": 1.65,
@@ -1306,7 +1306,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 27,
+        "optionCount": 26,
         "cheapestStation": {
           "id": "2iMRCPqDCHHpLcBX8dCN",
           "name": "Agrola Melano",
@@ -1473,7 +1473,7 @@
             "lat": 45.97698951091755,
             "lng": 8.874521781054243,
             "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-15T18:07:48.450Z",
+            "updatedAt": "2026-03-22T14:46:31.666Z",
             "nearestMunicipality": "Brusimpiano (VA)",
             "nearestMunicipalityDistanceKm": 1.9,
             "sp95PriceEur": 1.814,
@@ -1536,7 +1536,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 19,
+        "optionCount": 18,
         "cheapestStation": {
           "id": "2cyTEGqZPuSVhtpjGqzf",
           "name": "Silo Shop",
@@ -1581,20 +1581,6 @@
             "distanceKm": 15.9
           },
           {
-            "id": "4rZcVZZyMdcg9utPrsXv",
-            "name": "GARAGE 64",
-            "brand": "UNDEFINED",
-            "address": "Via Emilio Bossi 6, 6830 Chiasso",
-            "lat": 45.834176890224306,
-            "lng": 9.031274331501768,
-            "sp95PriceChf": 1.73,
-            "updatedAt": "2026-02-20T14:24:22.760Z",
-            "nearestMunicipality": "Maslianico (CO)",
-            "nearestMunicipalityDistanceKm": 1.6,
-            "sp95PriceEur": 1.902,
-            "distanceKm": 14.4
-          },
-          {
             "id": "EDsfoWTW5mhInO152CPP",
             "name": "Eni Chiasso",
             "brand": "ENI",
@@ -1621,6 +1607,20 @@
             "nearestMunicipalityDistanceKm": 2.2,
             "sp95PriceEur": 1.902,
             "distanceKm": 15.6
+          },
+          {
+            "id": "JSwIQAHxBJkmBFEgWvIF",
+            "name": "Piccadilly SA - Socar, Coop",
+            "brand": "SOCAR",
+            "address": "Via Maestri Comacini 10, 6830 Chiasso",
+            "lat": 45.83465592,
+            "lng": 9.035368517,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-03-19T10:20:19.034Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 1.3,
+            "sp95PriceEur": 1.902,
+            "distanceKm": 14.1
           }
         ],
         "minPriceChf": 1.65,
@@ -1731,7 +1731,7 @@
             "lat": 45.97698951091755,
             "lng": 8.874521781054243,
             "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-15T18:07:48.450Z",
+            "updatedAt": "2026-03-22T14:46:31.666Z",
             "nearestMunicipality": "Brusimpiano (VA)",
             "nearestMunicipalityDistanceKm": 1.9,
             "sp95PriceEur": 1.814,
@@ -1788,7 +1788,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 21,
+        "optionCount": 20,
         "cheapestStation": {
           "id": "2cyTEGqZPuSVhtpjGqzf",
           "name": "Silo Shop",
@@ -1833,20 +1833,6 @@
             "distanceKm": 15.2
           },
           {
-            "id": "4rZcVZZyMdcg9utPrsXv",
-            "name": "GARAGE 64",
-            "brand": "UNDEFINED",
-            "address": "Via Emilio Bossi 6, 6830 Chiasso",
-            "lat": 45.834176890224306,
-            "lng": 9.031274331501768,
-            "sp95PriceChf": 1.73,
-            "updatedAt": "2026-02-20T14:24:22.760Z",
-            "nearestMunicipality": "Maslianico (CO)",
-            "nearestMunicipalityDistanceKm": 1.6,
-            "sp95PriceEur": 1.902,
-            "distanceKm": 13.7
-          },
-          {
             "id": "EDsfoWTW5mhInO152CPP",
             "name": "Eni Chiasso",
             "brand": "ENI",
@@ -1873,6 +1859,20 @@
             "nearestMunicipalityDistanceKm": 2.2,
             "sp95PriceEur": 1.902,
             "distanceKm": 14.9
+          },
+          {
+            "id": "JSwIQAHxBJkmBFEgWvIF",
+            "name": "Piccadilly SA - Socar, Coop",
+            "brand": "SOCAR",
+            "address": "Via Maestri Comacini 10, 6830 Chiasso",
+            "lat": 45.83465592,
+            "lng": 9.035368517,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-03-19T10:20:19.034Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 1.3,
+            "sp95PriceEur": 1.902,
+            "distanceKm": 13.5
           }
         ],
         "minPriceChf": 1.65,
@@ -1925,7 +1925,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 16,
+        "optionCount": 15,
         "cheapestStation": {
           "id": "2cyTEGqZPuSVhtpjGqzf",
           "name": "Silo Shop",
@@ -1970,20 +1970,6 @@
             "distanceKm": 16.4
           },
           {
-            "id": "4rZcVZZyMdcg9utPrsXv",
-            "name": "GARAGE 64",
-            "brand": "UNDEFINED",
-            "address": "Via Emilio Bossi 6, 6830 Chiasso",
-            "lat": 45.834176890224306,
-            "lng": 9.031274331501768,
-            "sp95PriceChf": 1.73,
-            "updatedAt": "2026-02-20T14:24:22.760Z",
-            "nearestMunicipality": "Maslianico (CO)",
-            "nearestMunicipalityDistanceKm": 1.6,
-            "sp95PriceEur": 1.902,
-            "distanceKm": 14.9
-          },
-          {
             "id": "EDsfoWTW5mhInO152CPP",
             "name": "Eni Chiasso",
             "brand": "ENI",
@@ -2010,6 +1996,20 @@
             "nearestMunicipalityDistanceKm": 2.2,
             "sp95PriceEur": 1.902,
             "distanceKm": 16
+          },
+          {
+            "id": "JSwIQAHxBJkmBFEgWvIF",
+            "name": "Piccadilly SA - Socar, Coop",
+            "brand": "SOCAR",
+            "address": "Via Maestri Comacini 10, 6830 Chiasso",
+            "lat": 45.83465592,
+            "lng": 9.035368517,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-03-19T10:20:19.034Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 1.3,
+            "sp95PriceEur": 1.902,
+            "distanceKm": 14.6
           }
         ],
         "minPriceChf": 1.65,
@@ -2073,7 +2073,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 25,
+        "optionCount": 24,
         "cheapestStation": {
           "id": "2cyTEGqZPuSVhtpjGqzf",
           "name": "Silo Shop",
@@ -2132,20 +2132,6 @@
             "distanceKm": 12.9
           },
           {
-            "id": "4rZcVZZyMdcg9utPrsXv",
-            "name": "GARAGE 64",
-            "brand": "UNDEFINED",
-            "address": "Via Emilio Bossi 6, 6830 Chiasso",
-            "lat": 45.834176890224306,
-            "lng": 9.031274331501768,
-            "sp95PriceChf": 1.73,
-            "updatedAt": "2026-02-20T14:24:22.760Z",
-            "nearestMunicipality": "Maslianico (CO)",
-            "nearestMunicipalityDistanceKm": 1.6,
-            "sp95PriceEur": 1.902,
-            "distanceKm": 11.6
-          },
-          {
             "id": "EDsfoWTW5mhInO152CPP",
             "name": "Eni Chiasso",
             "brand": "ENI",
@@ -2158,6 +2144,20 @@
             "nearestMunicipalityDistanceKm": 1.2,
             "sp95PriceEur": 1.902,
             "distanceKm": 12
+          },
+          {
+            "id": "IGIlo1f7hrzC174Fqgmt",
+            "name": "TAMOIL Balerna (San Gottardo)",
+            "brand": "TAMOIL",
+            "address": "San Gottardo 12, 6828 Balerna",
+            "lat": 45.840241,
+            "lng": 9.018873,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-03-16T08:40:53.906Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 2.2,
+            "sp95PriceEur": 1.902,
+            "distanceKm": 11.9
           }
         ],
         "minPriceChf": 1.65,
@@ -2188,7 +2188,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 82,
+        "optionCount": 81,
         "cheapestStation": {
           "id": "2iMRCPqDCHHpLcBX8dCN",
           "name": "Agrola Melano",
@@ -2240,7 +2240,7 @@
             "lat": 45.97698951091755,
             "lng": 8.874521781054243,
             "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-15T18:07:48.450Z",
+            "updatedAt": "2026-03-22T14:46:31.666Z",
             "nearestMunicipality": "Brusimpiano (VA)",
             "nearestMunicipalityDistanceKm": 1.9,
             "sp95PriceEur": 1.814,
@@ -2336,7 +2336,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 10,
+        "optionCount": 9,
         "cheapestStation": {
           "id": "2cyTEGqZPuSVhtpjGqzf",
           "name": "Silo Shop",
@@ -2365,20 +2365,6 @@
             "nearestMunicipalityDistanceKm": 1.5,
             "sp95PriceEur": 1.814,
             "distanceKm": 19
-          },
-          {
-            "id": "4rZcVZZyMdcg9utPrsXv",
-            "name": "GARAGE 64",
-            "brand": "UNDEFINED",
-            "address": "Via Emilio Bossi 6, 6830 Chiasso",
-            "lat": 45.834176890224306,
-            "lng": 9.031274331501768,
-            "sp95PriceChf": 1.73,
-            "updatedAt": "2026-02-20T14:24:22.760Z",
-            "nearestMunicipality": "Maslianico (CO)",
-            "nearestMunicipalityDistanceKm": 1.6,
-            "sp95PriceEur": 1.902,
-            "distanceKm": 18.9
           },
           {
             "id": "EDsfoWTW5mhInO152CPP",
@@ -2421,6 +2407,20 @@
             "nearestMunicipalityDistanceKm": 1.2,
             "sp95PriceEur": 1.902,
             "distanceKm": 18.8
+          },
+          {
+            "id": "zZw4XjLK62YAQrdkYEl8",
+            "name": "Eni Chiasso",
+            "brand": "ENI",
+            "address": "Via Comacini 6, 6830 Chiasso",
+            "lat": 45.833713,
+            "lng": 9.034569399999999,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-03-18T12:07:45.078Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 1.4,
+            "sp95PriceEur": 1.902,
+            "distanceKm": 18.7
           }
         ],
         "minPriceChf": 1.65,
@@ -2484,7 +2484,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 13,
+        "optionCount": 12,
         "cheapestStation": {
           "id": "2cyTEGqZPuSVhtpjGqzf",
           "name": "Silo Shop",
@@ -2529,20 +2529,6 @@
             "distanceKm": 19.7
           },
           {
-            "id": "4rZcVZZyMdcg9utPrsXv",
-            "name": "GARAGE 64",
-            "brand": "UNDEFINED",
-            "address": "Via Emilio Bossi 6, 6830 Chiasso",
-            "lat": 45.834176890224306,
-            "lng": 9.031274331501768,
-            "sp95PriceChf": 1.73,
-            "updatedAt": "2026-02-20T14:24:22.760Z",
-            "nearestMunicipality": "Maslianico (CO)",
-            "nearestMunicipalityDistanceKm": 1.6,
-            "sp95PriceEur": 1.902,
-            "distanceKm": 18.7
-          },
-          {
             "id": "EDsfoWTW5mhInO152CPP",
             "name": "Eni Chiasso",
             "brand": "ENI",
@@ -2569,6 +2555,20 @@
             "nearestMunicipalityDistanceKm": 2.2,
             "sp95PriceEur": 1.902,
             "distanceKm": 19.6
+          },
+          {
+            "id": "JSwIQAHxBJkmBFEgWvIF",
+            "name": "Piccadilly SA - Socar, Coop",
+            "brand": "SOCAR",
+            "address": "Via Maestri Comacini 10, 6830 Chiasso",
+            "lat": 45.83465592,
+            "lng": 9.035368517,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-03-19T10:20:19.034Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 1.3,
+            "sp95PriceEur": 1.902,
+            "distanceKm": 18.4
           }
         ],
         "minPriceChf": 1.65,
@@ -2599,7 +2599,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 10,
+        "optionCount": 9,
         "cheapestStation": {
           "id": "2cyTEGqZPuSVhtpjGqzf",
           "name": "Silo Shop",
@@ -2627,20 +2627,6 @@
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
             "sp95PriceEur": 1.814,
-            "distanceKm": 20
-          },
-          {
-            "id": "4rZcVZZyMdcg9utPrsXv",
-            "name": "GARAGE 64",
-            "brand": "UNDEFINED",
-            "address": "Via Emilio Bossi 6, 6830 Chiasso",
-            "lat": 45.834176890224306,
-            "lng": 9.031274331501768,
-            "sp95PriceChf": 1.73,
-            "updatedAt": "2026-02-20T14:24:22.760Z",
-            "nearestMunicipality": "Maslianico (CO)",
-            "nearestMunicipalityDistanceKm": 1.6,
-            "sp95PriceEur": 1.902,
             "distanceKm": 20
           },
           {
@@ -2684,6 +2670,20 @@
             "nearestMunicipalityDistanceKm": 1.2,
             "sp95PriceEur": 1.902,
             "distanceKm": 19.7
+          },
+          {
+            "id": "zZw4XjLK62YAQrdkYEl8",
+            "name": "Eni Chiasso",
+            "brand": "ENI",
+            "address": "Via Comacini 6, 6830 Chiasso",
+            "lat": 45.833713,
+            "lng": 9.034569399999999,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-03-18T12:07:45.078Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 1.4,
+            "sp95PriceEur": 1.902,
+            "distanceKm": 19.8
           }
         ],
         "minPriceChf": 1.65,
@@ -2882,7 +2882,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 28,
+        "optionCount": 27,
         "cheapestStation": {
           "id": "2iMRCPqDCHHpLcBX8dCN",
           "name": "Agrola Melano",
@@ -2997,7 +2997,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 31,
+        "optionCount": 30,
         "cheapestStation": {
           "id": "2iMRCPqDCHHpLcBX8dCN",
           "name": "Agrola Melano",
@@ -3178,7 +3178,7 @@
             "lat": 45.97698951091755,
             "lng": 8.874521781054243,
             "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-15T18:07:48.450Z",
+            "updatedAt": "2026-03-22T14:46:31.666Z",
             "nearestMunicipality": "Brusimpiano (VA)",
             "nearestMunicipalityDistanceKm": 1.9,
             "sp95PriceEur": 1.814,
@@ -3279,7 +3279,7 @@
             "lat": 45.97698951091755,
             "lng": 8.874521781054243,
             "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-15T18:07:48.450Z",
+            "updatedAt": "2026-03-22T14:46:31.666Z",
             "nearestMunicipality": "Brusimpiano (VA)",
             "nearestMunicipalityDistanceKm": 1.9,
             "sp95PriceEur": 1.814,
@@ -3342,7 +3342,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 33,
+        "optionCount": 32,
         "cheapestStation": {
           "id": "2iMRCPqDCHHpLcBX8dCN",
           "name": "Agrola Melano",
@@ -3512,7 +3512,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 20,
+        "optionCount": 19,
         "cheapestStation": {
           "id": "2cyTEGqZPuSVhtpjGqzf",
           "name": "Silo Shop",
@@ -3571,20 +3571,6 @@
             "distanceKm": 19.3
           },
           {
-            "id": "4rZcVZZyMdcg9utPrsXv",
-            "name": "GARAGE 64",
-            "brand": "UNDEFINED",
-            "address": "Via Emilio Bossi 6, 6830 Chiasso",
-            "lat": 45.834176890224306,
-            "lng": 9.031274331501768,
-            "sp95PriceChf": 1.73,
-            "updatedAt": "2026-02-20T14:24:22.760Z",
-            "nearestMunicipality": "Maslianico (CO)",
-            "nearestMunicipalityDistanceKm": 1.6,
-            "sp95PriceEur": 1.902,
-            "distanceKm": 15.4
-          },
-          {
             "id": "EDsfoWTW5mhInO152CPP",
             "name": "Eni Chiasso",
             "brand": "ENI",
@@ -3597,6 +3583,20 @@
             "nearestMunicipalityDistanceKm": 1.2,
             "sp95PriceEur": 1.902,
             "distanceKm": 15.8
+          },
+          {
+            "id": "IGIlo1f7hrzC174Fqgmt",
+            "name": "TAMOIL Balerna (San Gottardo)",
+            "brand": "TAMOIL",
+            "address": "San Gottardo 12, 6828 Balerna",
+            "lat": 45.840241,
+            "lng": 9.018873,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-03-16T08:40:53.906Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 2.2,
+            "sp95PriceEur": 1.902,
+            "distanceKm": 16.2
           }
         ],
         "minPriceChf": 1.65,
@@ -3660,7 +3660,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 14,
+        "optionCount": 13,
         "cheapestStation": {
           "id": "2cyTEGqZPuSVhtpjGqzf",
           "name": "Silo Shop",
@@ -3705,20 +3705,6 @@
             "distanceKm": 17.3
           },
           {
-            "id": "4rZcVZZyMdcg9utPrsXv",
-            "name": "GARAGE 64",
-            "brand": "UNDEFINED",
-            "address": "Via Emilio Bossi 6, 6830 Chiasso",
-            "lat": 45.834176890224306,
-            "lng": 9.031274331501768,
-            "sp95PriceChf": 1.73,
-            "updatedAt": "2026-02-20T14:24:22.760Z",
-            "nearestMunicipality": "Maslianico (CO)",
-            "nearestMunicipalityDistanceKm": 1.6,
-            "sp95PriceEur": 1.902,
-            "distanceKm": 15.8
-          },
-          {
             "id": "EDsfoWTW5mhInO152CPP",
             "name": "Eni Chiasso",
             "brand": "ENI",
@@ -3745,6 +3731,20 @@
             "nearestMunicipalityDistanceKm": 2.2,
             "sp95PriceEur": 1.902,
             "distanceKm": 16.9
+          },
+          {
+            "id": "JSwIQAHxBJkmBFEgWvIF",
+            "name": "Piccadilly SA - Socar, Coop",
+            "brand": "SOCAR",
+            "address": "Via Maestri Comacini 10, 6830 Chiasso",
+            "lat": 45.83465592,
+            "lng": 9.035368517,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-03-19T10:20:19.034Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 1.3,
+            "sp95PriceEur": 1.902,
+            "distanceKm": 15.6
           }
         ],
         "minPriceChf": 1.65,
@@ -3775,7 +3775,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 62,
+        "optionCount": 61,
         "cheapestStation": {
           "id": "2iMRCPqDCHHpLcBX8dCN",
           "name": "Agrola Melano",
@@ -3890,7 +3890,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 32,
+        "optionCount": 31,
         "cheapestStation": {
           "id": "2iMRCPqDCHHpLcBX8dCN",
           "name": "Agrola Melano",
@@ -4005,7 +4005,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 27,
+        "optionCount": 26,
         "cheapestStation": {
           "id": "2iMRCPqDCHHpLcBX8dCN",
           "name": "Agrola Melano",
@@ -4261,7 +4261,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 24,
+        "optionCount": 23,
         "cheapestStation": {
           "id": "2cyTEGqZPuSVhtpjGqzf",
           "name": "Silo Shop",
@@ -4320,20 +4320,6 @@
             "distanceKm": 15.9
           },
           {
-            "id": "4rZcVZZyMdcg9utPrsXv",
-            "name": "GARAGE 64",
-            "brand": "UNDEFINED",
-            "address": "Via Emilio Bossi 6, 6830 Chiasso",
-            "lat": 45.834176890224306,
-            "lng": 9.031274331501768,
-            "sp95PriceChf": 1.73,
-            "updatedAt": "2026-02-20T14:24:22.760Z",
-            "nearestMunicipality": "Maslianico (CO)",
-            "nearestMunicipalityDistanceKm": 1.6,
-            "sp95PriceEur": 1.902,
-            "distanceKm": 12.2
-          },
-          {
             "id": "EDsfoWTW5mhInO152CPP",
             "name": "Eni Chiasso",
             "brand": "ENI",
@@ -4346,6 +4332,20 @@
             "nearestMunicipalityDistanceKm": 1.2,
             "sp95PriceEur": 1.902,
             "distanceKm": 12.6
+          },
+          {
+            "id": "IGIlo1f7hrzC174Fqgmt",
+            "name": "TAMOIL Balerna (San Gottardo)",
+            "brand": "TAMOIL",
+            "address": "San Gottardo 12, 6828 Balerna",
+            "lat": 45.840241,
+            "lng": 9.018873,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-03-16T08:40:53.906Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 2.2,
+            "sp95PriceEur": 1.902,
+            "distanceKm": 12.9
           }
         ],
         "minPriceChf": 1.65,
@@ -4376,7 +4376,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 17,
+        "optionCount": 16,
         "cheapestStation": {
           "id": "2cyTEGqZPuSVhtpjGqzf",
           "name": "Silo Shop",
@@ -4421,20 +4421,6 @@
             "distanceKm": 17.4
           },
           {
-            "id": "4rZcVZZyMdcg9utPrsXv",
-            "name": "GARAGE 64",
-            "brand": "UNDEFINED",
-            "address": "Via Emilio Bossi 6, 6830 Chiasso",
-            "lat": 45.834176890224306,
-            "lng": 9.031274331501768,
-            "sp95PriceChf": 1.73,
-            "updatedAt": "2026-02-20T14:24:22.760Z",
-            "nearestMunicipality": "Maslianico (CO)",
-            "nearestMunicipalityDistanceKm": 1.6,
-            "sp95PriceEur": 1.902,
-            "distanceKm": 16.6
-          },
-          {
             "id": "EDsfoWTW5mhInO152CPP",
             "name": "Eni Chiasso",
             "brand": "ENI",
@@ -4461,6 +4447,20 @@
             "nearestMunicipalityDistanceKm": 2.2,
             "sp95PriceEur": 1.902,
             "distanceKm": 17.3
+          },
+          {
+            "id": "JSwIQAHxBJkmBFEgWvIF",
+            "name": "Piccadilly SA - Socar, Coop",
+            "brand": "SOCAR",
+            "address": "Via Maestri Comacini 10, 6830 Chiasso",
+            "lat": 45.83465592,
+            "lng": 9.035368517,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-03-19T10:20:19.034Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 1.3,
+            "sp95PriceEur": 1.902,
+            "distanceKm": 16.2
           }
         ],
         "minPriceChf": 1.65,
@@ -4571,7 +4571,7 @@
             "lat": 45.97698951091755,
             "lng": 8.874521781054243,
             "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-15T18:07:48.450Z",
+            "updatedAt": "2026-03-22T14:46:31.666Z",
             "nearestMunicipality": "Brusimpiano (VA)",
             "nearestMunicipalityDistanceKm": 1.9,
             "sp95PriceEur": 1.814,
@@ -4826,7 +4826,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 23,
+        "optionCount": 22,
         "cheapestStation": {
           "id": "2cyTEGqZPuSVhtpjGqzf",
           "name": "Silo Shop",
@@ -4885,20 +4885,6 @@
             "distanceKm": 19.2
           },
           {
-            "id": "4rZcVZZyMdcg9utPrsXv",
-            "name": "GARAGE 64",
-            "brand": "UNDEFINED",
-            "address": "Via Emilio Bossi 6, 6830 Chiasso",
-            "lat": 45.834176890224306,
-            "lng": 9.031274331501768,
-            "sp95PriceChf": 1.73,
-            "updatedAt": "2026-02-20T14:24:22.760Z",
-            "nearestMunicipality": "Maslianico (CO)",
-            "nearestMunicipalityDistanceKm": 1.6,
-            "sp95PriceEur": 1.902,
-            "distanceKm": 13
-          },
-          {
             "id": "EDsfoWTW5mhInO152CPP",
             "name": "Eni Chiasso",
             "brand": "ENI",
@@ -4911,6 +4897,20 @@
             "nearestMunicipalityDistanceKm": 1.2,
             "sp95PriceEur": 1.902,
             "distanceKm": 13.2
+          },
+          {
+            "id": "IGIlo1f7hrzC174Fqgmt",
+            "name": "TAMOIL Balerna (San Gottardo)",
+            "brand": "TAMOIL",
+            "address": "San Gottardo 12, 6828 Balerna",
+            "lat": 45.840241,
+            "lng": 9.018873,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-03-16T08:40:53.906Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 2.2,
+            "sp95PriceEur": 1.902,
+            "distanceKm": 14.1
           }
         ],
         "minPriceChf": 1.65,
@@ -4996,7 +4996,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 12,
+        "optionCount": 11,
         "cheapestStation": {
           "id": "2cyTEGqZPuSVhtpjGqzf",
           "name": "Silo Shop",
@@ -5041,20 +5041,6 @@
             "distanceKm": 19.9
           },
           {
-            "id": "4rZcVZZyMdcg9utPrsXv",
-            "name": "GARAGE 64",
-            "brand": "UNDEFINED",
-            "address": "Via Emilio Bossi 6, 6830 Chiasso",
-            "lat": 45.834176890224306,
-            "lng": 9.031274331501768,
-            "sp95PriceChf": 1.73,
-            "updatedAt": "2026-02-20T14:24:22.760Z",
-            "nearestMunicipality": "Maslianico (CO)",
-            "nearestMunicipalityDistanceKm": 1.6,
-            "sp95PriceEur": 1.902,
-            "distanceKm": 18.9
-          },
-          {
             "id": "EDsfoWTW5mhInO152CPP",
             "name": "Eni Chiasso",
             "brand": "ENI",
@@ -5081,6 +5067,20 @@
             "nearestMunicipalityDistanceKm": 2.2,
             "sp95PriceEur": 1.902,
             "distanceKm": 19.8
+          },
+          {
+            "id": "JSwIQAHxBJkmBFEgWvIF",
+            "name": "Piccadilly SA - Socar, Coop",
+            "brand": "SOCAR",
+            "address": "Via Maestri Comacini 10, 6830 Chiasso",
+            "lat": 45.83465592,
+            "lng": 9.035368517,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-03-19T10:20:19.034Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 1.3,
+            "sp95PriceEur": 1.902,
+            "distanceKm": 18.6
           }
         ],
         "minPriceChf": 1.65,
@@ -5111,7 +5111,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 25,
+        "optionCount": 24,
         "cheapestStation": {
           "id": "2cyTEGqZPuSVhtpjGqzf",
           "name": "Silo Shop",
@@ -5170,20 +5170,6 @@
             "distanceKm": 17.3
           },
           {
-            "id": "4rZcVZZyMdcg9utPrsXv",
-            "name": "GARAGE 64",
-            "brand": "UNDEFINED",
-            "address": "Via Emilio Bossi 6, 6830 Chiasso",
-            "lat": 45.834176890224306,
-            "lng": 9.031274331501768,
-            "sp95PriceChf": 1.73,
-            "updatedAt": "2026-02-20T14:24:22.760Z",
-            "nearestMunicipality": "Maslianico (CO)",
-            "nearestMunicipalityDistanceKm": 1.6,
-            "sp95PriceEur": 1.902,
-            "distanceKm": 10.4
-          },
-          {
             "id": "EDsfoWTW5mhInO152CPP",
             "name": "Eni Chiasso",
             "brand": "ENI",
@@ -5196,6 +5182,20 @@
             "nearestMunicipalityDistanceKm": 1.2,
             "sp95PriceEur": 1.902,
             "distanceKm": 10.5
+          },
+          {
+            "id": "IGIlo1f7hrzC174Fqgmt",
+            "name": "TAMOIL Balerna (San Gottardo)",
+            "brand": "TAMOIL",
+            "address": "San Gottardo 12, 6828 Balerna",
+            "lat": 45.840241,
+            "lng": 9.018873,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-03-16T08:40:53.906Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 2.2,
+            "sp95PriceEur": 1.902,
+            "distanceKm": 11.6
           }
         ],
         "minPriceChf": 1.65,
@@ -5226,7 +5226,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 56,
+        "optionCount": 55,
         "cheapestStation": {
           "id": "2iMRCPqDCHHpLcBX8dCN",
           "name": "Agrola Melano",
@@ -5341,7 +5341,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 19,
+        "optionCount": 18,
         "cheapestStation": {
           "id": "2cyTEGqZPuSVhtpjGqzf",
           "name": "Silo Shop",
@@ -5400,20 +5400,6 @@
             "distanceKm": 18.3
           },
           {
-            "id": "4rZcVZZyMdcg9utPrsXv",
-            "name": "GARAGE 64",
-            "brand": "UNDEFINED",
-            "address": "Via Emilio Bossi 6, 6830 Chiasso",
-            "lat": 45.834176890224306,
-            "lng": 9.031274331501768,
-            "sp95PriceChf": 1.73,
-            "updatedAt": "2026-02-20T14:24:22.760Z",
-            "nearestMunicipality": "Maslianico (CO)",
-            "nearestMunicipalityDistanceKm": 1.6,
-            "sp95PriceEur": 1.902,
-            "distanceKm": 18.2
-          },
-          {
             "id": "EDsfoWTW5mhInO152CPP",
             "name": "Eni Chiasso",
             "brand": "ENI",
@@ -5426,6 +5412,20 @@
             "nearestMunicipalityDistanceKm": 1.2,
             "sp95PriceEur": 1.902,
             "distanceKm": 18.6
+          },
+          {
+            "id": "IGIlo1f7hrzC174Fqgmt",
+            "name": "TAMOIL Balerna (San Gottardo)",
+            "brand": "TAMOIL",
+            "address": "San Gottardo 12, 6828 Balerna",
+            "lat": 45.840241,
+            "lng": 9.018873,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-03-16T08:40:53.906Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 2.2,
+            "sp95PriceEur": 1.902,
+            "distanceKm": 18.5
           }
         ],
         "minPriceChf": 1.65,
@@ -5456,7 +5456,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 16,
+        "optionCount": 15,
         "cheapestStation": {
           "id": "2cyTEGqZPuSVhtpjGqzf",
           "name": "Silo Shop",
@@ -5501,20 +5501,6 @@
             "distanceKm": 17.3
           },
           {
-            "id": "4rZcVZZyMdcg9utPrsXv",
-            "name": "GARAGE 64",
-            "brand": "UNDEFINED",
-            "address": "Via Emilio Bossi 6, 6830 Chiasso",
-            "lat": 45.834176890224306,
-            "lng": 9.031274331501768,
-            "sp95PriceChf": 1.73,
-            "updatedAt": "2026-02-20T14:24:22.760Z",
-            "nearestMunicipality": "Maslianico (CO)",
-            "nearestMunicipalityDistanceKm": 1.6,
-            "sp95PriceEur": 1.902,
-            "distanceKm": 15.8
-          },
-          {
             "id": "EDsfoWTW5mhInO152CPP",
             "name": "Eni Chiasso",
             "brand": "ENI",
@@ -5541,6 +5527,20 @@
             "nearestMunicipalityDistanceKm": 2.2,
             "sp95PriceEur": 1.902,
             "distanceKm": 16.8
+          },
+          {
+            "id": "JSwIQAHxBJkmBFEgWvIF",
+            "name": "Piccadilly SA - Socar, Coop",
+            "brand": "SOCAR",
+            "address": "Via Maestri Comacini 10, 6830 Chiasso",
+            "lat": 45.83465592,
+            "lng": 9.035368517,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-03-19T10:20:19.034Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 1.3,
+            "sp95PriceEur": 1.902,
+            "distanceKm": 15.8
           }
         ],
         "minPriceChf": 1.65,
@@ -5719,7 +5719,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 11,
+        "optionCount": 10,
         "cheapestStation": {
           "id": "2cyTEGqZPuSVhtpjGqzf",
           "name": "Silo Shop",
@@ -5748,20 +5748,6 @@
             "nearestMunicipalityDistanceKm": 1.5,
             "sp95PriceEur": 1.814,
             "distanceKm": 18.9
-          },
-          {
-            "id": "4rZcVZZyMdcg9utPrsXv",
-            "name": "GARAGE 64",
-            "brand": "UNDEFINED",
-            "address": "Via Emilio Bossi 6, 6830 Chiasso",
-            "lat": 45.834176890224306,
-            "lng": 9.031274331501768,
-            "sp95PriceChf": 1.73,
-            "updatedAt": "2026-02-20T14:24:22.760Z",
-            "nearestMunicipality": "Maslianico (CO)",
-            "nearestMunicipalityDistanceKm": 1.6,
-            "sp95PriceEur": 1.902,
-            "distanceKm": 18.8
           },
           {
             "id": "EDsfoWTW5mhInO152CPP",
@@ -5804,6 +5790,20 @@
             "nearestMunicipalityDistanceKm": 1.3,
             "sp95PriceEur": 1.902,
             "distanceKm": 18.6
+          },
+          {
+            "id": "gJijYgru8FOot7x1ovvk",
+            "name": "BP Service Chiasso",
+            "brand": "BP",
+            "address": "Via Maestri Comacini 5, 6830 Chiasso",
+            "lat": 45.835437,
+            "lng": 9.035372,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-03-18T11:42:00.621Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 1.2,
+            "sp95PriceEur": 1.902,
+            "distanceKm": 18.7
           }
         ],
         "minPriceChf": 1.65,
@@ -5834,7 +5834,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 19,
+        "optionCount": 18,
         "cheapestStation": {
           "id": "2cyTEGqZPuSVhtpjGqzf",
           "name": "Silo Shop",
@@ -5879,20 +5879,6 @@
             "distanceKm": 16.6
           },
           {
-            "id": "4rZcVZZyMdcg9utPrsXv",
-            "name": "GARAGE 64",
-            "brand": "UNDEFINED",
-            "address": "Via Emilio Bossi 6, 6830 Chiasso",
-            "lat": 45.834176890224306,
-            "lng": 9.031274331501768,
-            "sp95PriceChf": 1.73,
-            "updatedAt": "2026-02-20T14:24:22.760Z",
-            "nearestMunicipality": "Maslianico (CO)",
-            "nearestMunicipalityDistanceKm": 1.6,
-            "sp95PriceEur": 1.902,
-            "distanceKm": 15.5
-          },
-          {
             "id": "EDsfoWTW5mhInO152CPP",
             "name": "Eni Chiasso",
             "brand": "ENI",
@@ -5919,6 +5905,20 @@
             "nearestMunicipalityDistanceKm": 2.2,
             "sp95PriceEur": 1.902,
             "distanceKm": 16.4
+          },
+          {
+            "id": "JSwIQAHxBJkmBFEgWvIF",
+            "name": "Piccadilly SA - Socar, Coop",
+            "brand": "SOCAR",
+            "address": "Via Maestri Comacini 10, 6830 Chiasso",
+            "lat": 45.83465592,
+            "lng": 9.035368517,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-03-19T10:20:19.034Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 1.3,
+            "sp95PriceEur": 1.902,
+            "distanceKm": 15.2
           }
         ],
         "minPriceChf": 1.65,
@@ -5949,7 +5949,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 25,
+        "optionCount": 24,
         "cheapestStation": {
           "id": "2cyTEGqZPuSVhtpjGqzf",
           "name": "Silo Shop",
@@ -6008,20 +6008,6 @@
             "distanceKm": 14.9
           },
           {
-            "id": "4rZcVZZyMdcg9utPrsXv",
-            "name": "GARAGE 64",
-            "brand": "UNDEFINED",
-            "address": "Via Emilio Bossi 6, 6830 Chiasso",
-            "lat": 45.834176890224306,
-            "lng": 9.031274331501768,
-            "sp95PriceChf": 1.73,
-            "updatedAt": "2026-02-20T14:24:22.760Z",
-            "nearestMunicipality": "Maslianico (CO)",
-            "nearestMunicipalityDistanceKm": 1.6,
-            "sp95PriceEur": 1.902,
-            "distanceKm": 9.5
-          },
-          {
             "id": "EDsfoWTW5mhInO152CPP",
             "name": "Eni Chiasso",
             "brand": "ENI",
@@ -6034,6 +6020,20 @@
             "nearestMunicipalityDistanceKm": 1.2,
             "sp95PriceEur": 1.902,
             "distanceKm": 9.8
+          },
+          {
+            "id": "IGIlo1f7hrzC174Fqgmt",
+            "name": "TAMOIL Balerna (San Gottardo)",
+            "brand": "TAMOIL",
+            "address": "San Gottardo 12, 6828 Balerna",
+            "lat": 45.840241,
+            "lng": 9.018873,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-03-16T08:40:53.906Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 2.2,
+            "sp95PriceEur": 1.902,
+            "distanceKm": 10.5
           }
         ],
         "minPriceChf": 1.65,
@@ -6064,7 +6064,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 27,
+        "optionCount": 26,
         "cheapestStation": {
           "id": "2iMRCPqDCHHpLcBX8dCN",
           "name": "Agrola Melano",
@@ -6212,7 +6212,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 16,
+        "optionCount": 15,
         "cheapestStation": {
           "id": "2cyTEGqZPuSVhtpjGqzf",
           "name": "Silo Shop",
@@ -6257,20 +6257,6 @@
             "distanceKm": 16.8
           },
           {
-            "id": "4rZcVZZyMdcg9utPrsXv",
-            "name": "GARAGE 64",
-            "brand": "UNDEFINED",
-            "address": "Via Emilio Bossi 6, 6830 Chiasso",
-            "lat": 45.834176890224306,
-            "lng": 9.031274331501768,
-            "sp95PriceChf": 1.73,
-            "updatedAt": "2026-02-20T14:24:22.760Z",
-            "nearestMunicipality": "Maslianico (CO)",
-            "nearestMunicipalityDistanceKm": 1.6,
-            "sp95PriceEur": 1.902,
-            "distanceKm": 15.6
-          },
-          {
             "id": "EDsfoWTW5mhInO152CPP",
             "name": "Eni Chiasso",
             "brand": "ENI",
@@ -6297,6 +6283,20 @@
             "nearestMunicipalityDistanceKm": 2.2,
             "sp95PriceEur": 1.902,
             "distanceKm": 16.6
+          },
+          {
+            "id": "JSwIQAHxBJkmBFEgWvIF",
+            "name": "Piccadilly SA - Socar, Coop",
+            "brand": "SOCAR",
+            "address": "Via Maestri Comacini 10, 6830 Chiasso",
+            "lat": 45.83465592,
+            "lng": 9.035368517,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-03-19T10:20:19.034Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 1.3,
+            "sp95PriceEur": 1.902,
+            "distanceKm": 15.3
           }
         ],
         "minPriceChf": 1.65,
@@ -6327,7 +6327,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 28,
+        "optionCount": 27,
         "cheapestStation": {
           "id": "2iMRCPqDCHHpLcBX8dCN",
           "name": "Agrola Melano",
@@ -6623,7 +6623,7 @@
             "lat": 45.97698951091755,
             "lng": 8.874521781054243,
             "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-15T18:07:48.450Z",
+            "updatedAt": "2026-03-22T14:46:31.666Z",
             "nearestMunicipality": "Brusimpiano (VA)",
             "nearestMunicipalityDistanceKm": 1.9,
             "sp95PriceEur": 1.814,
@@ -6724,7 +6724,7 @@
             "lat": 45.97698951091755,
             "lng": 8.874521781054243,
             "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-15T18:07:48.450Z",
+            "updatedAt": "2026-03-22T14:46:31.666Z",
             "nearestMunicipality": "Brusimpiano (VA)",
             "nearestMunicipalityDistanceKm": 1.9,
             "sp95PriceEur": 1.814,
@@ -6864,7 +6864,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 19,
+        "optionCount": 18,
         "cheapestStation": {
           "id": "2cyTEGqZPuSVhtpjGqzf",
           "name": "Silo Shop",
@@ -6923,20 +6923,6 @@
             "distanceKm": 19.9
           },
           {
-            "id": "4rZcVZZyMdcg9utPrsXv",
-            "name": "GARAGE 64",
-            "brand": "UNDEFINED",
-            "address": "Via Emilio Bossi 6, 6830 Chiasso",
-            "lat": 45.834176890224306,
-            "lng": 9.031274331501768,
-            "sp95PriceChf": 1.73,
-            "updatedAt": "2026-02-20T14:24:22.760Z",
-            "nearestMunicipality": "Maslianico (CO)",
-            "nearestMunicipalityDistanceKm": 1.6,
-            "sp95PriceEur": 1.902,
-            "distanceKm": 15.4
-          },
-          {
             "id": "EDsfoWTW5mhInO152CPP",
             "name": "Eni Chiasso",
             "brand": "ENI",
@@ -6949,6 +6935,20 @@
             "nearestMunicipalityDistanceKm": 1.2,
             "sp95PriceEur": 1.902,
             "distanceKm": 15.7
+          },
+          {
+            "id": "IGIlo1f7hrzC174Fqgmt",
+            "name": "TAMOIL Balerna (San Gottardo)",
+            "brand": "TAMOIL",
+            "address": "San Gottardo 12, 6828 Balerna",
+            "lat": 45.840241,
+            "lng": 9.018873,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-03-16T08:40:53.906Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 2.2,
+            "sp95PriceEur": 1.902,
+            "distanceKm": 16.3
           }
         ],
         "minPriceChf": 1.65,
@@ -6979,7 +6979,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 44,
+        "optionCount": 43,
         "cheapestStation": {
           "id": "2iMRCPqDCHHpLcBX8dCN",
           "name": "Agrola Melano",
@@ -7094,7 +7094,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 23,
+        "optionCount": 22,
         "cheapestStation": {
           "id": "2cyTEGqZPuSVhtpjGqzf",
           "name": "Silo Shop",
@@ -7153,20 +7153,6 @@
             "distanceKm": 17.5
           },
           {
-            "id": "4rZcVZZyMdcg9utPrsXv",
-            "name": "GARAGE 64",
-            "brand": "UNDEFINED",
-            "address": "Via Emilio Bossi 6, 6830 Chiasso",
-            "lat": 45.834176890224306,
-            "lng": 9.031274331501768,
-            "sp95PriceChf": 1.73,
-            "updatedAt": "2026-02-20T14:24:22.760Z",
-            "nearestMunicipality": "Maslianico (CO)",
-            "nearestMunicipalityDistanceKm": 1.6,
-            "sp95PriceEur": 1.902,
-            "distanceKm": 15
-          },
-          {
             "id": "EDsfoWTW5mhInO152CPP",
             "name": "Eni Chiasso",
             "brand": "ENI",
@@ -7179,6 +7165,20 @@
             "nearestMunicipalityDistanceKm": 1.2,
             "sp95PriceEur": 1.902,
             "distanceKm": 15.4
+          },
+          {
+            "id": "IGIlo1f7hrzC174Fqgmt",
+            "name": "TAMOIL Balerna (San Gottardo)",
+            "brand": "TAMOIL",
+            "address": "San Gottardo 12, 6828 Balerna",
+            "lat": 45.840241,
+            "lng": 9.018873,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-03-16T08:40:53.906Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 2.2,
+            "sp95PriceEur": 1.902,
+            "distanceKm": 15.6
           }
         ],
         "minPriceChf": 1.65,
@@ -7261,7 +7261,7 @@
             "lat": 45.97698951091755,
             "lng": 8.874521781054243,
             "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-15T18:07:48.450Z",
+            "updatedAt": "2026-03-22T14:46:31.666Z",
             "nearestMunicipality": "Brusimpiano (VA)",
             "nearestMunicipalityDistanceKm": 1.9,
             "sp95PriceEur": 1.814,
@@ -7324,7 +7324,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 70,
+        "optionCount": 69,
         "cheapestStation": {
           "id": "2iMRCPqDCHHpLcBX8dCN",
           "name": "Agrola Melano",
@@ -7439,7 +7439,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 33,
+        "optionCount": 32,
         "cheapestStation": {
           "id": "2iMRCPqDCHHpLcBX8dCN",
           "name": "Agrola Melano",
@@ -7829,7 +7829,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 32,
+        "optionCount": 31,
         "cheapestStation": {
           "id": "2iMRCPqDCHHpLcBX8dCN",
           "name": "Agrola Melano",
@@ -8112,7 +8112,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 24,
+        "optionCount": 23,
         "cheapestStation": {
           "id": "2cyTEGqZPuSVhtpjGqzf",
           "name": "Silo Shop",
@@ -8171,20 +8171,6 @@
             "distanceKm": 17.3
           },
           {
-            "id": "4rZcVZZyMdcg9utPrsXv",
-            "name": "GARAGE 64",
-            "brand": "UNDEFINED",
-            "address": "Via Emilio Bossi 6, 6830 Chiasso",
-            "lat": 45.834176890224306,
-            "lng": 9.031274331501768,
-            "sp95PriceChf": 1.73,
-            "updatedAt": "2026-02-20T14:24:22.760Z",
-            "nearestMunicipality": "Maslianico (CO)",
-            "nearestMunicipalityDistanceKm": 1.6,
-            "sp95PriceEur": 1.902,
-            "distanceKm": 11.6
-          },
-          {
             "id": "EDsfoWTW5mhInO152CPP",
             "name": "Eni Chiasso",
             "brand": "ENI",
@@ -8197,6 +8183,20 @@
             "nearestMunicipalityDistanceKm": 1.2,
             "sp95PriceEur": 1.902,
             "distanceKm": 11.9
+          },
+          {
+            "id": "IGIlo1f7hrzC174Fqgmt",
+            "name": "TAMOIL Balerna (San Gottardo)",
+            "brand": "TAMOIL",
+            "address": "San Gottardo 12, 6828 Balerna",
+            "lat": 45.840241,
+            "lng": 9.018873,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-03-16T08:40:53.906Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 2.2,
+            "sp95PriceEur": 1.902,
+            "distanceKm": 12.6
           }
         ],
         "minPriceChf": 1.65,
@@ -8394,7 +8394,7 @@
             "lat": 45.97698951091755,
             "lng": 8.874521781054243,
             "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-15T18:07:48.450Z",
+            "updatedAt": "2026-03-22T14:46:31.666Z",
             "nearestMunicipality": "Brusimpiano (VA)",
             "nearestMunicipalityDistanceKm": 1.9,
             "sp95PriceEur": 1.814,
@@ -8834,6 +8834,20 @@
             "distanceKm": 19.7
           },
           {
+            "id": "ct1153C6DNSnIqT0Hq9u",
+            "name": "Coop Pronto",
+            "brand": "COOP",
+            "address": "Via San Gottardo 73, 6500 Bellinzona",
+            "lat": 46.2057,
+            "lng": 9.03673,
+            "sp95PriceChf": 1.84,
+            "updatedAt": "2026-03-18T06:48:05.530Z",
+            "nearestMunicipality": "Cavargna (CO)",
+            "nearestMunicipalityDistanceKm": 14.1,
+            "sp95PriceEur": 2.023,
+            "distanceKm": 18.8
+          },
+          {
             "id": "hWTr7x5jrTYOJNzLnBBO",
             "name": "Garage Künzi SA",
             "brand": "UNDEFINED",
@@ -8846,20 +8860,6 @@
             "nearestMunicipalityDistanceKm": 12.3,
             "sp95PriceEur": 2.023,
             "distanceKm": 19.9
-          },
-          {
-            "id": "3ZoAF92bWbaLO5FjuBrz",
-            "name": "SOCAR Bellinzona",
-            "brand": "SOCAR",
-            "address": "Via San Gottardo 17, 6500 Bellinzona",
-            "lat": 46.199158,
-            "lng": 9.028946,
-            "sp95PriceChf": 1.8900000000000001,
-            "updatedAt": "2026-03-21T12:43:03.424Z",
-            "nearestMunicipality": "Cavargna (CO)",
-            "nearestMunicipalityDistanceKm": 13.7,
-            "sp95PriceEur": 2.078,
-            "distanceKm": 19.2
           }
         ],
         "minPriceChf": 1.77,
@@ -8967,7 +8967,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 17,
+        "optionCount": 16,
         "cheapestStation": {
           "id": "2cyTEGqZPuSVhtpjGqzf",
           "name": "Silo Shop",
@@ -9012,20 +9012,6 @@
             "distanceKm": 16.3
           },
           {
-            "id": "4rZcVZZyMdcg9utPrsXv",
-            "name": "GARAGE 64",
-            "brand": "UNDEFINED",
-            "address": "Via Emilio Bossi 6, 6830 Chiasso",
-            "lat": 45.834176890224306,
-            "lng": 9.031274331501768,
-            "sp95PriceChf": 1.73,
-            "updatedAt": "2026-02-20T14:24:22.760Z",
-            "nearestMunicipality": "Maslianico (CO)",
-            "nearestMunicipalityDistanceKm": 1.6,
-            "sp95PriceEur": 1.902,
-            "distanceKm": 15
-          },
-          {
             "id": "EDsfoWTW5mhInO152CPP",
             "name": "Eni Chiasso",
             "brand": "ENI",
@@ -9052,6 +9038,20 @@
             "nearestMunicipalityDistanceKm": 2.2,
             "sp95PriceEur": 1.902,
             "distanceKm": 16.1
+          },
+          {
+            "id": "JSwIQAHxBJkmBFEgWvIF",
+            "name": "Piccadilly SA - Socar, Coop",
+            "brand": "SOCAR",
+            "address": "Via Maestri Comacini 10, 6830 Chiasso",
+            "lat": 45.83465592,
+            "lng": 9.035368517,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-03-19T10:20:19.034Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 1.3,
+            "sp95PriceEur": 1.902,
+            "distanceKm": 14.7
           }
         ],
         "minPriceChf": 1.65,
@@ -9082,7 +9082,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 13,
+        "optionCount": 12,
         "cheapestStation": {
           "id": "2cyTEGqZPuSVhtpjGqzf",
           "name": "Silo Shop",
@@ -9127,20 +9127,6 @@
             "distanceKm": 19.4
           },
           {
-            "id": "4rZcVZZyMdcg9utPrsXv",
-            "name": "GARAGE 64",
-            "brand": "UNDEFINED",
-            "address": "Via Emilio Bossi 6, 6830 Chiasso",
-            "lat": 45.834176890224306,
-            "lng": 9.031274331501768,
-            "sp95PriceChf": 1.73,
-            "updatedAt": "2026-02-20T14:24:22.760Z",
-            "nearestMunicipality": "Maslianico (CO)",
-            "nearestMunicipalityDistanceKm": 1.6,
-            "sp95PriceEur": 1.902,
-            "distanceKm": 18.2
-          },
-          {
             "id": "EDsfoWTW5mhInO152CPP",
             "name": "Eni Chiasso",
             "brand": "ENI",
@@ -9167,6 +9153,20 @@
             "nearestMunicipalityDistanceKm": 2.2,
             "sp95PriceEur": 1.902,
             "distanceKm": 19.2
+          },
+          {
+            "id": "JSwIQAHxBJkmBFEgWvIF",
+            "name": "Piccadilly SA - Socar, Coop",
+            "brand": "SOCAR",
+            "address": "Via Maestri Comacini 10, 6830 Chiasso",
+            "lat": 45.83465592,
+            "lng": 9.035368517,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-03-19T10:20:19.034Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 1.3,
+            "sp95PriceEur": 1.902,
+            "distanceKm": 17.9
           }
         ],
         "minPriceChf": 1.65,
@@ -9197,7 +9197,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 30,
+        "optionCount": 29,
         "cheapestStation": {
           "id": "2iMRCPqDCHHpLcBX8dCN",
           "name": "Agrola Melano",
@@ -9312,7 +9312,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 42,
+        "optionCount": 41,
         "cheapestStation": {
           "id": "2iMRCPqDCHHpLcBX8dCN",
           "name": "Agrola Melano",
@@ -9392,7 +9392,7 @@
             "lat": 45.972068975787,
             "lng": 8.86726121879764,
             "sp95PriceChf": 1.66,
-            "updatedAt": "2026-03-21T08:03:32.380Z",
+            "updatedAt": "2026-03-22T14:49:20.523Z",
             "nearestMunicipality": "Lavena Ponte Tresa (VA)",
             "nearestMunicipalityDistanceKm": 1.3,
             "sp95PriceEur": 1.825,
@@ -9482,7 +9482,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 23,
+        "optionCount": 22,
         "cheapestStation": {
           "id": "2cyTEGqZPuSVhtpjGqzf",
           "name": "Silo Shop",
@@ -9541,20 +9541,6 @@
             "distanceKm": 17.1
           },
           {
-            "id": "4rZcVZZyMdcg9utPrsXv",
-            "name": "GARAGE 64",
-            "brand": "UNDEFINED",
-            "address": "Via Emilio Bossi 6, 6830 Chiasso",
-            "lat": 45.834176890224306,
-            "lng": 9.031274331501768,
-            "sp95PriceChf": 1.73,
-            "updatedAt": "2026-02-20T14:24:22.760Z",
-            "nearestMunicipality": "Maslianico (CO)",
-            "nearestMunicipalityDistanceKm": 1.6,
-            "sp95PriceEur": 1.902,
-            "distanceKm": 15.1
-          },
-          {
             "id": "EDsfoWTW5mhInO152CPP",
             "name": "Eni Chiasso",
             "brand": "ENI",
@@ -9567,6 +9553,20 @@
             "nearestMunicipalityDistanceKm": 1.2,
             "sp95PriceEur": 1.902,
             "distanceKm": 15.5
+          },
+          {
+            "id": "IGIlo1f7hrzC174Fqgmt",
+            "name": "TAMOIL Balerna (San Gottardo)",
+            "brand": "TAMOIL",
+            "address": "San Gottardo 12, 6828 Balerna",
+            "lat": 45.840241,
+            "lng": 9.018873,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-03-16T08:40:53.906Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 2.2,
+            "sp95PriceEur": 1.902,
+            "distanceKm": 15.6
           }
         ],
         "minPriceChf": 1.65,
@@ -9630,7 +9630,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 16,
+        "optionCount": 15,
         "cheapestStation": {
           "id": "2cyTEGqZPuSVhtpjGqzf",
           "name": "Silo Shop",
@@ -9675,20 +9675,6 @@
             "distanceKm": 17.2
           },
           {
-            "id": "4rZcVZZyMdcg9utPrsXv",
-            "name": "GARAGE 64",
-            "brand": "UNDEFINED",
-            "address": "Via Emilio Bossi 6, 6830 Chiasso",
-            "lat": 45.834176890224306,
-            "lng": 9.031274331501768,
-            "sp95PriceChf": 1.73,
-            "updatedAt": "2026-02-20T14:24:22.760Z",
-            "nearestMunicipality": "Maslianico (CO)",
-            "nearestMunicipalityDistanceKm": 1.6,
-            "sp95PriceEur": 1.902,
-            "distanceKm": 15.8
-          },
-          {
             "id": "EDsfoWTW5mhInO152CPP",
             "name": "Eni Chiasso",
             "brand": "ENI",
@@ -9715,6 +9701,20 @@
             "nearestMunicipalityDistanceKm": 2.2,
             "sp95PriceEur": 1.902,
             "distanceKm": 16.8
+          },
+          {
+            "id": "JSwIQAHxBJkmBFEgWvIF",
+            "name": "Piccadilly SA - Socar, Coop",
+            "brand": "SOCAR",
+            "address": "Via Maestri Comacini 10, 6830 Chiasso",
+            "lat": 45.83465592,
+            "lng": 9.035368517,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-03-19T10:20:19.034Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 1.3,
+            "sp95PriceEur": 1.902,
+            "distanceKm": 15.7
           }
         ],
         "minPriceChf": 1.65,
@@ -9822,7 +9822,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 27,
+        "optionCount": 26,
         "cheapestStation": {
           "id": "2iMRCPqDCHHpLcBX8dCN",
           "name": "Agrola Melano",
@@ -10010,18 +10010,18 @@
             "distanceKm": 18.5
           },
           {
-            "id": "hWTr7x5jrTYOJNzLnBBO",
-            "name": "Garage Künzi SA",
-            "brand": "UNDEFINED",
-            "address": "Viale C. Olgiati 26, 6512 Giubiasco",
-            "lat": 46.17905551041321,
-            "lng": 9.015914517174583,
+            "id": "ct1153C6DNSnIqT0Hq9u",
+            "name": "Coop Pronto",
+            "brand": "COOP",
+            "address": "Via San Gottardo 73, 6500 Bellinzona",
+            "lat": 46.2057,
+            "lng": 9.03673,
             "sp95PriceChf": 1.84,
-            "updatedAt": "2026-03-22T13:00:49.083Z",
+            "updatedAt": "2026-03-18T06:48:05.530Z",
             "nearestMunicipality": "Cavargna (CO)",
-            "nearestMunicipalityDistanceKm": 12.3,
+            "nearestMunicipalityDistanceKm": 14.1,
             "sp95PriceEur": 2.023,
-            "distanceKm": 18.6
+            "distanceKm": 18.1
           }
         ],
         "minPriceChf": 1.75,
@@ -10183,7 +10183,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 28,
+        "optionCount": 27,
         "cheapestStation": {
           "id": "2iMRCPqDCHHpLcBX8dCN",
           "name": "Agrola Melano",
@@ -10631,7 +10631,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 24,
+        "optionCount": 23,
         "cheapestStation": {
           "id": "2cyTEGqZPuSVhtpjGqzf",
           "name": "Silo Shop",
@@ -10690,20 +10690,6 @@
             "distanceKm": 14.8
           },
           {
-            "id": "4rZcVZZyMdcg9utPrsXv",
-            "name": "GARAGE 64",
-            "brand": "UNDEFINED",
-            "address": "Via Emilio Bossi 6, 6830 Chiasso",
-            "lat": 45.834176890224306,
-            "lng": 9.031274331501768,
-            "sp95PriceChf": 1.73,
-            "updatedAt": "2026-02-20T14:24:22.760Z",
-            "nearestMunicipality": "Maslianico (CO)",
-            "nearestMunicipalityDistanceKm": 1.6,
-            "sp95PriceEur": 1.902,
-            "distanceKm": 11.9
-          },
-          {
             "id": "EDsfoWTW5mhInO152CPP",
             "name": "Eni Chiasso",
             "brand": "ENI",
@@ -10716,6 +10702,20 @@
             "nearestMunicipalityDistanceKm": 1.2,
             "sp95PriceEur": 1.902,
             "distanceKm": 12.3
+          },
+          {
+            "id": "IGIlo1f7hrzC174Fqgmt",
+            "name": "TAMOIL Balerna (San Gottardo)",
+            "brand": "TAMOIL",
+            "address": "San Gottardo 12, 6828 Balerna",
+            "lat": 45.840241,
+            "lng": 9.018873,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-03-16T08:40:53.906Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 2.2,
+            "sp95PriceEur": 1.902,
+            "distanceKm": 12.5
           }
         ],
         "minPriceChf": 1.65,
@@ -10823,7 +10823,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 13,
+        "optionCount": 12,
         "cheapestStation": {
           "id": "2cyTEGqZPuSVhtpjGqzf",
           "name": "Silo Shop",
@@ -10868,20 +10868,6 @@
             "distanceKm": 19.7
           },
           {
-            "id": "4rZcVZZyMdcg9utPrsXv",
-            "name": "GARAGE 64",
-            "brand": "UNDEFINED",
-            "address": "Via Emilio Bossi 6, 6830 Chiasso",
-            "lat": 45.834176890224306,
-            "lng": 9.031274331501768,
-            "sp95PriceChf": 1.73,
-            "updatedAt": "2026-02-20T14:24:22.760Z",
-            "nearestMunicipality": "Maslianico (CO)",
-            "nearestMunicipalityDistanceKm": 1.6,
-            "sp95PriceEur": 1.902,
-            "distanceKm": 18.2
-          },
-          {
             "id": "EDsfoWTW5mhInO152CPP",
             "name": "Eni Chiasso",
             "brand": "ENI",
@@ -10908,6 +10894,20 @@
             "nearestMunicipalityDistanceKm": 2.2,
             "sp95PriceEur": 1.902,
             "distanceKm": 19.4
+          },
+          {
+            "id": "JSwIQAHxBJkmBFEgWvIF",
+            "name": "Piccadilly SA - Socar, Coop",
+            "brand": "SOCAR",
+            "address": "Via Maestri Comacini 10, 6830 Chiasso",
+            "lat": 45.83465592,
+            "lng": 9.035368517,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-03-19T10:20:19.034Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 1.3,
+            "sp95PriceEur": 1.902,
+            "distanceKm": 18
           }
         ],
         "minPriceChf": 1.65,
@@ -10938,7 +10938,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 43,
+        "optionCount": 42,
         "cheapestStation": {
           "id": "2iMRCPqDCHHpLcBX8dCN",
           "name": "Agrola Melano",
@@ -11119,7 +11119,7 @@
             "lat": 45.97698951091755,
             "lng": 8.874521781054243,
             "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-15T18:07:48.450Z",
+            "updatedAt": "2026-03-22T14:46:31.666Z",
             "nearestMunicipality": "Brusimpiano (VA)",
             "nearestMunicipalityDistanceKm": 1.9,
             "sp95PriceEur": 1.814,
@@ -11190,7 +11190,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 13,
+        "optionCount": 12,
         "cheapestStation": {
           "id": "2cyTEGqZPuSVhtpjGqzf",
           "name": "Silo Shop",
@@ -11235,20 +11235,6 @@
             "distanceKm": 19.8
           },
           {
-            "id": "4rZcVZZyMdcg9utPrsXv",
-            "name": "GARAGE 64",
-            "brand": "UNDEFINED",
-            "address": "Via Emilio Bossi 6, 6830 Chiasso",
-            "lat": 45.834176890224306,
-            "lng": 9.031274331501768,
-            "sp95PriceChf": 1.73,
-            "updatedAt": "2026-02-20T14:24:22.760Z",
-            "nearestMunicipality": "Maslianico (CO)",
-            "nearestMunicipalityDistanceKm": 1.6,
-            "sp95PriceEur": 1.902,
-            "distanceKm": 18.3
-          },
-          {
             "id": "EDsfoWTW5mhInO152CPP",
             "name": "Eni Chiasso",
             "brand": "ENI",
@@ -11275,6 +11261,20 @@
             "nearestMunicipalityDistanceKm": 2.2,
             "sp95PriceEur": 1.902,
             "distanceKm": 19.5
+          },
+          {
+            "id": "JSwIQAHxBJkmBFEgWvIF",
+            "name": "Piccadilly SA - Socar, Coop",
+            "brand": "SOCAR",
+            "address": "Via Maestri Comacini 10, 6830 Chiasso",
+            "lat": 45.83465592,
+            "lng": 9.035368517,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-03-19T10:20:19.034Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 1.3,
+            "sp95PriceEur": 1.902,
+            "distanceKm": 18.1
           }
         ],
         "minPriceChf": 1.65,
@@ -11305,7 +11305,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 13,
+        "optionCount": 12,
         "cheapestStation": {
           "id": "2cyTEGqZPuSVhtpjGqzf",
           "name": "Silo Shop",
@@ -11350,20 +11350,6 @@
             "distanceKm": 19.8
           },
           {
-            "id": "4rZcVZZyMdcg9utPrsXv",
-            "name": "GARAGE 64",
-            "brand": "UNDEFINED",
-            "address": "Via Emilio Bossi 6, 6830 Chiasso",
-            "lat": 45.834176890224306,
-            "lng": 9.031274331501768,
-            "sp95PriceChf": 1.73,
-            "updatedAt": "2026-02-20T14:24:22.760Z",
-            "nearestMunicipality": "Maslianico (CO)",
-            "nearestMunicipalityDistanceKm": 1.6,
-            "sp95PriceEur": 1.902,
-            "distanceKm": 19
-          },
-          {
             "id": "EDsfoWTW5mhInO152CPP",
             "name": "Eni Chiasso",
             "brand": "ENI",
@@ -11390,6 +11376,20 @@
             "nearestMunicipalityDistanceKm": 2.2,
             "sp95PriceEur": 1.902,
             "distanceKm": 19.8
+          },
+          {
+            "id": "JSwIQAHxBJkmBFEgWvIF",
+            "name": "Piccadilly SA - Socar, Coop",
+            "brand": "SOCAR",
+            "address": "Via Maestri Comacini 10, 6830 Chiasso",
+            "lat": 45.83465592,
+            "lng": 9.035368517,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-03-19T10:20:19.034Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 1.3,
+            "sp95PriceEur": 1.902,
+            "distanceKm": 18.7
           }
         ],
         "minPriceChf": 1.65,
@@ -11420,7 +11420,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 35,
+        "optionCount": 34,
         "cheapestStation": {
           "id": "2iMRCPqDCHHpLcBX8dCN",
           "name": "Agrola Melano",
@@ -11535,7 +11535,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 21,
+        "optionCount": 20,
         "cheapestStation": {
           "id": "2cyTEGqZPuSVhtpjGqzf",
           "name": "Silo Shop",
@@ -11594,20 +11594,6 @@
             "distanceKm": 18
           },
           {
-            "id": "4rZcVZZyMdcg9utPrsXv",
-            "name": "GARAGE 64",
-            "brand": "UNDEFINED",
-            "address": "Via Emilio Bossi 6, 6830 Chiasso",
-            "lat": 45.834176890224306,
-            "lng": 9.031274331501768,
-            "sp95PriceChf": 1.73,
-            "updatedAt": "2026-02-20T14:24:22.760Z",
-            "nearestMunicipality": "Maslianico (CO)",
-            "nearestMunicipalityDistanceKm": 1.6,
-            "sp95PriceEur": 1.902,
-            "distanceKm": 16.6
-          },
-          {
             "id": "EDsfoWTW5mhInO152CPP",
             "name": "Eni Chiasso",
             "brand": "ENI",
@@ -11618,6 +11604,20 @@
             "updatedAt": "2026-03-16T08:42:42.056Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.2,
+            "sp95PriceEur": 1.902,
+            "distanceKm": 17.1
+          },
+          {
+            "id": "IGIlo1f7hrzC174Fqgmt",
+            "name": "TAMOIL Balerna (San Gottardo)",
+            "brand": "TAMOIL",
+            "address": "San Gottardo 12, 6828 Balerna",
+            "lat": 45.840241,
+            "lng": 9.018873,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-03-16T08:40:53.906Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 2.2,
             "sp95PriceEur": 1.902,
             "distanceKm": 17.1
           }
@@ -11683,7 +11683,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 28,
+        "optionCount": 27,
         "cheapestStation": {
           "id": "2iMRCPqDCHHpLcBX8dCN",
           "name": "Agrola Melano",
@@ -11946,7 +11946,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 19,
+        "optionCount": 18,
         "cheapestStation": {
           "id": "2cyTEGqZPuSVhtpjGqzf",
           "name": "Silo Shop",
@@ -12005,20 +12005,6 @@
             "distanceKm": 17.7
           },
           {
-            "id": "4rZcVZZyMdcg9utPrsXv",
-            "name": "GARAGE 64",
-            "brand": "UNDEFINED",
-            "address": "Via Emilio Bossi 6, 6830 Chiasso",
-            "lat": 45.834176890224306,
-            "lng": 9.031274331501768,
-            "sp95PriceChf": 1.73,
-            "updatedAt": "2026-02-20T14:24:22.760Z",
-            "nearestMunicipality": "Maslianico (CO)",
-            "nearestMunicipalityDistanceKm": 1.6,
-            "sp95PriceEur": 1.902,
-            "distanceKm": 17.9
-          },
-          {
             "id": "EDsfoWTW5mhInO152CPP",
             "name": "Eni Chiasso",
             "brand": "ENI",
@@ -12031,6 +12017,20 @@
             "nearestMunicipalityDistanceKm": 1.2,
             "sp95PriceEur": 1.902,
             "distanceKm": 18.4
+          },
+          {
+            "id": "IGIlo1f7hrzC174Fqgmt",
+            "name": "TAMOIL Balerna (San Gottardo)",
+            "brand": "TAMOIL",
+            "address": "San Gottardo 12, 6828 Balerna",
+            "lat": 45.840241,
+            "lng": 9.018873,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-03-16T08:40:53.906Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 2.2,
+            "sp95PriceEur": 1.902,
+            "distanceKm": 18.2
           }
         ],
         "minPriceChf": 1.65,
@@ -12138,7 +12138,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 23,
+        "optionCount": 22,
         "cheapestStation": {
           "id": "2cyTEGqZPuSVhtpjGqzf",
           "name": "Silo Shop",
@@ -12197,20 +12197,6 @@
             "distanceKm": 18.1
           },
           {
-            "id": "4rZcVZZyMdcg9utPrsXv",
-            "name": "GARAGE 64",
-            "brand": "UNDEFINED",
-            "address": "Via Emilio Bossi 6, 6830 Chiasso",
-            "lat": 45.834176890224306,
-            "lng": 9.031274331501768,
-            "sp95PriceChf": 1.73,
-            "updatedAt": "2026-02-20T14:24:22.760Z",
-            "nearestMunicipality": "Maslianico (CO)",
-            "nearestMunicipalityDistanceKm": 1.6,
-            "sp95PriceEur": 1.902,
-            "distanceKm": 14.6
-          },
-          {
             "id": "EDsfoWTW5mhInO152CPP",
             "name": "Eni Chiasso",
             "brand": "ENI",
@@ -12223,6 +12209,20 @@
             "nearestMunicipalityDistanceKm": 1.2,
             "sp95PriceEur": 1.902,
             "distanceKm": 15
+          },
+          {
+            "id": "IGIlo1f7hrzC174Fqgmt",
+            "name": "TAMOIL Balerna (San Gottardo)",
+            "brand": "TAMOIL",
+            "address": "San Gottardo 12, 6828 Balerna",
+            "lat": 45.840241,
+            "lng": 9.018873,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-03-16T08:40:53.906Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 2.2,
+            "sp95PriceEur": 1.902,
+            "distanceKm": 15.4
           }
         ],
         "minPriceChf": 1.65,
@@ -12253,7 +12253,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 14,
+        "optionCount": 13,
         "cheapestStation": {
           "id": "2cyTEGqZPuSVhtpjGqzf",
           "name": "Silo Shop",
@@ -12298,20 +12298,6 @@
             "distanceKm": 18.3
           },
           {
-            "id": "4rZcVZZyMdcg9utPrsXv",
-            "name": "GARAGE 64",
-            "brand": "UNDEFINED",
-            "address": "Via Emilio Bossi 6, 6830 Chiasso",
-            "lat": 45.834176890224306,
-            "lng": 9.031274331501768,
-            "sp95PriceChf": 1.73,
-            "updatedAt": "2026-02-20T14:24:22.760Z",
-            "nearestMunicipality": "Maslianico (CO)",
-            "nearestMunicipalityDistanceKm": 1.6,
-            "sp95PriceEur": 1.902,
-            "distanceKm": 17.1
-          },
-          {
             "id": "EDsfoWTW5mhInO152CPP",
             "name": "Eni Chiasso",
             "brand": "ENI",
@@ -12338,6 +12324,20 @@
             "nearestMunicipalityDistanceKm": 2.2,
             "sp95PriceEur": 1.902,
             "distanceKm": 18.1
+          },
+          {
+            "id": "JSwIQAHxBJkmBFEgWvIF",
+            "name": "Piccadilly SA - Socar, Coop",
+            "brand": "SOCAR",
+            "address": "Via Maestri Comacini 10, 6830 Chiasso",
+            "lat": 45.83465592,
+            "lng": 9.035368517,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-03-19T10:20:19.034Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 1.3,
+            "sp95PriceEur": 1.902,
+            "distanceKm": 16.7
           }
         ],
         "minPriceChf": 1.65,
@@ -12390,7 +12390,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 28,
+        "optionCount": 27,
         "cheapestStation": {
           "id": "2iMRCPqDCHHpLcBX8dCN",
           "name": "Agrola Melano",
@@ -12527,7 +12527,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 13,
+        "optionCount": 12,
         "cheapestStation": {
           "id": "2cyTEGqZPuSVhtpjGqzf",
           "name": "Silo Shop",
@@ -12572,20 +12572,6 @@
             "distanceKm": 18.7
           },
           {
-            "id": "4rZcVZZyMdcg9utPrsXv",
-            "name": "GARAGE 64",
-            "brand": "UNDEFINED",
-            "address": "Via Emilio Bossi 6, 6830 Chiasso",
-            "lat": 45.834176890224306,
-            "lng": 9.031274331501768,
-            "sp95PriceChf": 1.73,
-            "updatedAt": "2026-02-20T14:24:22.760Z",
-            "nearestMunicipality": "Maslianico (CO)",
-            "nearestMunicipalityDistanceKm": 1.6,
-            "sp95PriceEur": 1.902,
-            "distanceKm": 17.2
-          },
-          {
             "id": "EDsfoWTW5mhInO152CPP",
             "name": "Eni Chiasso",
             "brand": "ENI",
@@ -12612,6 +12598,20 @@
             "nearestMunicipalityDistanceKm": 2.2,
             "sp95PriceEur": 1.902,
             "distanceKm": 18.4
+          },
+          {
+            "id": "JSwIQAHxBJkmBFEgWvIF",
+            "name": "Piccadilly SA - Socar, Coop",
+            "brand": "SOCAR",
+            "address": "Via Maestri Comacini 10, 6830 Chiasso",
+            "lat": 45.83465592,
+            "lng": 9.035368517,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-03-19T10:20:19.034Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 1.3,
+            "sp95PriceEur": 1.902,
+            "distanceKm": 17
           }
         ],
         "minPriceChf": 1.65,
@@ -12642,7 +12642,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 24,
+        "optionCount": 23,
         "cheapestStation": {
           "id": "2cyTEGqZPuSVhtpjGqzf",
           "name": "Silo Shop",
@@ -12701,20 +12701,6 @@
             "distanceKm": 16.2
           },
           {
-            "id": "4rZcVZZyMdcg9utPrsXv",
-            "name": "GARAGE 64",
-            "brand": "UNDEFINED",
-            "address": "Via Emilio Bossi 6, 6830 Chiasso",
-            "lat": 45.834176890224306,
-            "lng": 9.031274331501768,
-            "sp95PriceChf": 1.73,
-            "updatedAt": "2026-02-20T14:24:22.760Z",
-            "nearestMunicipality": "Maslianico (CO)",
-            "nearestMunicipalityDistanceKm": 1.6,
-            "sp95PriceEur": 1.902,
-            "distanceKm": 14.8
-          },
-          {
             "id": "EDsfoWTW5mhInO152CPP",
             "name": "Eni Chiasso",
             "brand": "ENI",
@@ -12725,6 +12711,20 @@
             "updatedAt": "2026-03-16T08:42:42.056Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.2,
+            "sp95PriceEur": 1.902,
+            "distanceKm": 15.2
+          },
+          {
+            "id": "IGIlo1f7hrzC174Fqgmt",
+            "name": "TAMOIL Balerna (San Gottardo)",
+            "brand": "TAMOIL",
+            "address": "San Gottardo 12, 6828 Balerna",
+            "lat": 45.840241,
+            "lng": 9.018873,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-03-16T08:40:53.906Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 2.2,
             "sp95PriceEur": 1.902,
             "distanceKm": 15.2
           }
@@ -12801,7 +12801,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 28,
+        "optionCount": 27,
         "cheapestStation": {
           "id": "2iMRCPqDCHHpLcBX8dCN",
           "name": "Agrola Melano",
@@ -13185,7 +13185,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 11,
+        "optionCount": 10,
         "cheapestStation": {
           "id": "2cyTEGqZPuSVhtpjGqzf",
           "name": "Silo Shop",
@@ -13214,20 +13214,6 @@
             "nearestMunicipalityDistanceKm": 1.5,
             "sp95PriceEur": 1.814,
             "distanceKm": 18.8
-          },
-          {
-            "id": "4rZcVZZyMdcg9utPrsXv",
-            "name": "GARAGE 64",
-            "brand": "UNDEFINED",
-            "address": "Via Emilio Bossi 6, 6830 Chiasso",
-            "lat": 45.834176890224306,
-            "lng": 9.031274331501768,
-            "sp95PriceChf": 1.73,
-            "updatedAt": "2026-02-20T14:24:22.760Z",
-            "nearestMunicipality": "Maslianico (CO)",
-            "nearestMunicipalityDistanceKm": 1.6,
-            "sp95PriceEur": 1.902,
-            "distanceKm": 18.7
           },
           {
             "id": "EDsfoWTW5mhInO152CPP",
@@ -13270,6 +13256,20 @@
             "nearestMunicipalityDistanceKm": 1.3,
             "sp95PriceEur": 1.902,
             "distanceKm": 18.6
+          },
+          {
+            "id": "gJijYgru8FOot7x1ovvk",
+            "name": "BP Service Chiasso",
+            "brand": "BP",
+            "address": "Via Maestri Comacini 5, 6830 Chiasso",
+            "lat": 45.835437,
+            "lng": 9.035372,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-03-18T11:42:00.621Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 1.2,
+            "sp95PriceEur": 1.902,
+            "distanceKm": 18.7
           }
         ],
         "minPriceChf": 1.65,
@@ -13352,7 +13352,7 @@
             "lat": 45.97698951091755,
             "lng": 8.874521781054243,
             "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-15T18:07:48.450Z",
+            "updatedAt": "2026-03-22T14:46:31.666Z",
             "nearestMunicipality": "Brusimpiano (VA)",
             "nearestMunicipalityDistanceKm": 1.9,
             "sp95PriceEur": 1.814,
@@ -13543,7 +13543,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 13,
+        "optionCount": 12,
         "cheapestStation": {
           "id": "2cyTEGqZPuSVhtpjGqzf",
           "name": "Silo Shop",
@@ -13588,20 +13588,6 @@
             "distanceKm": 18.8
           },
           {
-            "id": "4rZcVZZyMdcg9utPrsXv",
-            "name": "GARAGE 64",
-            "brand": "UNDEFINED",
-            "address": "Via Emilio Bossi 6, 6830 Chiasso",
-            "lat": 45.834176890224306,
-            "lng": 9.031274331501768,
-            "sp95PriceChf": 1.73,
-            "updatedAt": "2026-02-20T14:24:22.760Z",
-            "nearestMunicipality": "Maslianico (CO)",
-            "nearestMunicipalityDistanceKm": 1.6,
-            "sp95PriceEur": 1.902,
-            "distanceKm": 17.5
-          },
-          {
             "id": "EDsfoWTW5mhInO152CPP",
             "name": "Eni Chiasso",
             "brand": "ENI",
@@ -13628,6 +13614,20 @@
             "nearestMunicipalityDistanceKm": 2.2,
             "sp95PriceEur": 1.902,
             "distanceKm": 18.6
+          },
+          {
+            "id": "JSwIQAHxBJkmBFEgWvIF",
+            "name": "Piccadilly SA - Socar, Coop",
+            "brand": "SOCAR",
+            "address": "Via Maestri Comacini 10, 6830 Chiasso",
+            "lat": 45.83465592,
+            "lng": 9.035368517,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-03-19T10:20:19.034Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 1.3,
+            "sp95PriceEur": 1.902,
+            "distanceKm": 17.2
           }
         ],
         "minPriceChf": 1.65,
@@ -13658,7 +13658,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 49,
+        "optionCount": 48,
         "cheapestStation": {
           "id": "2iMRCPqDCHHpLcBX8dCN",
           "name": "Agrola Melano",
@@ -13773,7 +13773,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 14,
+        "optionCount": 13,
         "cheapestStation": {
           "id": "2cyTEGqZPuSVhtpjGqzf",
           "name": "Silo Shop",
@@ -13818,20 +13818,6 @@
             "distanceKm": 18
           },
           {
-            "id": "4rZcVZZyMdcg9utPrsXv",
-            "name": "GARAGE 64",
-            "brand": "UNDEFINED",
-            "address": "Via Emilio Bossi 6, 6830 Chiasso",
-            "lat": 45.834176890224306,
-            "lng": 9.031274331501768,
-            "sp95PriceChf": 1.73,
-            "updatedAt": "2026-02-20T14:24:22.760Z",
-            "nearestMunicipality": "Maslianico (CO)",
-            "nearestMunicipalityDistanceKm": 1.6,
-            "sp95PriceEur": 1.902,
-            "distanceKm": 16.6
-          },
-          {
             "id": "EDsfoWTW5mhInO152CPP",
             "name": "Eni Chiasso",
             "brand": "ENI",
@@ -13858,6 +13844,20 @@
             "nearestMunicipalityDistanceKm": 2.2,
             "sp95PriceEur": 1.902,
             "distanceKm": 17.7
+          },
+          {
+            "id": "JSwIQAHxBJkmBFEgWvIF",
+            "name": "Piccadilly SA - Socar, Coop",
+            "brand": "SOCAR",
+            "address": "Via Maestri Comacini 10, 6830 Chiasso",
+            "lat": 45.83465592,
+            "lng": 9.035368517,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-03-19T10:20:19.034Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 1.3,
+            "sp95PriceEur": 1.902,
+            "distanceKm": 16.3
           }
         ],
         "minPriceChf": 1.65,
@@ -13888,7 +13888,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 32,
+        "optionCount": 31,
         "cheapestStation": {
           "id": "2iMRCPqDCHHpLcBX8dCN",
           "name": "Agrola Melano",
@@ -14090,7 +14090,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 27,
+        "optionCount": 26,
         "cheapestStation": {
           "id": "2iMRCPqDCHHpLcBX8dCN",
           "name": "Agrola Melano",
@@ -14282,7 +14282,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 14,
+        "optionCount": 13,
         "cheapestStation": {
           "id": "2cyTEGqZPuSVhtpjGqzf",
           "name": "Silo Shop",
@@ -14341,20 +14341,6 @@
             "distanceKm": 19.3
           },
           {
-            "id": "4rZcVZZyMdcg9utPrsXv",
-            "name": "GARAGE 64",
-            "brand": "UNDEFINED",
-            "address": "Via Emilio Bossi 6, 6830 Chiasso",
-            "lat": 45.834176890224306,
-            "lng": 9.031274331501768,
-            "sp95PriceChf": 1.73,
-            "updatedAt": "2026-02-20T14:24:22.760Z",
-            "nearestMunicipality": "Maslianico (CO)",
-            "nearestMunicipalityDistanceKm": 1.6,
-            "sp95PriceEur": 1.902,
-            "distanceKm": 18.6
-          },
-          {
             "id": "EDsfoWTW5mhInO152CPP",
             "name": "Eni Chiasso",
             "brand": "ENI",
@@ -14367,6 +14353,20 @@
             "nearestMunicipalityDistanceKm": 1.2,
             "sp95PriceEur": 1.902,
             "distanceKm": 19.1
+          },
+          {
+            "id": "IGIlo1f7hrzC174Fqgmt",
+            "name": "TAMOIL Balerna (San Gottardo)",
+            "brand": "TAMOIL",
+            "address": "San Gottardo 12, 6828 Balerna",
+            "lat": 45.840241,
+            "lng": 9.018873,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-03-16T08:40:53.906Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 2.2,
+            "sp95PriceEur": 1.902,
+            "distanceKm": 19
           }
         ],
         "minPriceChf": 1.65,
@@ -14512,7 +14512,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 54,
+        "optionCount": 53,
         "cheapestStation": {
           "id": "2iMRCPqDCHHpLcBX8dCN",
           "name": "Agrola Melano",
@@ -14682,7 +14682,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 13,
+        "optionCount": 12,
         "cheapestStation": {
           "id": "2cyTEGqZPuSVhtpjGqzf",
           "name": "Silo Shop",
@@ -14727,20 +14727,6 @@
             "distanceKm": 18
           },
           {
-            "id": "4rZcVZZyMdcg9utPrsXv",
-            "name": "GARAGE 64",
-            "brand": "UNDEFINED",
-            "address": "Via Emilio Bossi 6, 6830 Chiasso",
-            "lat": 45.834176890224306,
-            "lng": 9.031274331501768,
-            "sp95PriceChf": 1.73,
-            "updatedAt": "2026-02-20T14:24:22.760Z",
-            "nearestMunicipality": "Maslianico (CO)",
-            "nearestMunicipalityDistanceKm": 1.6,
-            "sp95PriceEur": 1.902,
-            "distanceKm": 16.6
-          },
-          {
             "id": "EDsfoWTW5mhInO152CPP",
             "name": "Eni Chiasso",
             "brand": "ENI",
@@ -14767,6 +14753,20 @@
             "nearestMunicipalityDistanceKm": 2.2,
             "sp95PriceEur": 1.902,
             "distanceKm": 17.6
+          },
+          {
+            "id": "JSwIQAHxBJkmBFEgWvIF",
+            "name": "Piccadilly SA - Socar, Coop",
+            "brand": "SOCAR",
+            "address": "Via Maestri Comacini 10, 6830 Chiasso",
+            "lat": 45.83465592,
+            "lng": 9.035368517,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-03-19T10:20:19.034Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 1.3,
+            "sp95PriceEur": 1.902,
+            "distanceKm": 16.5
           }
         ],
         "minPriceChf": 1.65,
@@ -14852,7 +14852,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 32,
+        "optionCount": 31,
         "cheapestStation": {
           "id": "2iMRCPqDCHHpLcBX8dCN",
           "name": "Agrola Melano",
@@ -14967,7 +14967,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 28,
+        "optionCount": 27,
         "cheapestStation": {
           "id": "2iMRCPqDCHHpLcBX8dCN",
           "name": "Agrola Melano",
@@ -15115,7 +15115,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 22,
+        "optionCount": 21,
         "cheapestStation": {
           "id": "2cyTEGqZPuSVhtpjGqzf",
           "name": "Silo Shop",
@@ -15160,20 +15160,6 @@
             "distanceKm": 14.7
           },
           {
-            "id": "4rZcVZZyMdcg9utPrsXv",
-            "name": "GARAGE 64",
-            "brand": "UNDEFINED",
-            "address": "Via Emilio Bossi 6, 6830 Chiasso",
-            "lat": 45.834176890224306,
-            "lng": 9.031274331501768,
-            "sp95PriceChf": 1.73,
-            "updatedAt": "2026-02-20T14:24:22.760Z",
-            "nearestMunicipality": "Maslianico (CO)",
-            "nearestMunicipalityDistanceKm": 1.6,
-            "sp95PriceEur": 1.902,
-            "distanceKm": 13.2
-          },
-          {
             "id": "EDsfoWTW5mhInO152CPP",
             "name": "Eni Chiasso",
             "brand": "ENI",
@@ -15200,6 +15186,20 @@
             "nearestMunicipalityDistanceKm": 2.2,
             "sp95PriceEur": 1.902,
             "distanceKm": 14.4
+          },
+          {
+            "id": "JSwIQAHxBJkmBFEgWvIF",
+            "name": "Piccadilly SA - Socar, Coop",
+            "brand": "SOCAR",
+            "address": "Via Maestri Comacini 10, 6830 Chiasso",
+            "lat": 45.83465592,
+            "lng": 9.035368517,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-03-19T10:20:19.034Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 1.3,
+            "sp95PriceEur": 1.902,
+            "distanceKm": 13
           }
         ],
         "minPriceChf": 1.65,
@@ -15498,7 +15498,7 @@
             "lat": 45.97698951091755,
             "lng": 8.874521781054243,
             "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-15T18:07:48.450Z",
+            "updatedAt": "2026-03-22T14:46:31.666Z",
             "nearestMunicipality": "Brusimpiano (VA)",
             "nearestMunicipalityDistanceKm": 1.9,
             "sp95PriceEur": 1.814,
@@ -15648,7 +15648,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 32,
+        "optionCount": 31,
         "cheapestStation": {
           "id": "2iMRCPqDCHHpLcBX8dCN",
           "name": "Agrola Melano",
@@ -15815,7 +15815,7 @@
             "lat": 45.97698951091755,
             "lng": 8.874521781054243,
             "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-15T18:07:48.450Z",
+            "updatedAt": "2026-03-22T14:46:31.666Z",
             "nearestMunicipality": "Brusimpiano (VA)",
             "nearestMunicipalityDistanceKm": 1.9,
             "sp95PriceEur": 1.814,
@@ -15878,7 +15878,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 21,
+        "optionCount": 20,
         "cheapestStation": {
           "id": "2cyTEGqZPuSVhtpjGqzf",
           "name": "Silo Shop",
@@ -15923,20 +15923,6 @@
             "distanceKm": 16.3
           },
           {
-            "id": "4rZcVZZyMdcg9utPrsXv",
-            "name": "GARAGE 64",
-            "brand": "UNDEFINED",
-            "address": "Via Emilio Bossi 6, 6830 Chiasso",
-            "lat": 45.834176890224306,
-            "lng": 9.031274331501768,
-            "sp95PriceChf": 1.73,
-            "updatedAt": "2026-02-20T14:24:22.760Z",
-            "nearestMunicipality": "Maslianico (CO)",
-            "nearestMunicipalityDistanceKm": 1.6,
-            "sp95PriceEur": 1.902,
-            "distanceKm": 15.1
-          },
-          {
             "id": "EDsfoWTW5mhInO152CPP",
             "name": "Eni Chiasso",
             "brand": "ENI",
@@ -15963,6 +15949,20 @@
             "nearestMunicipalityDistanceKm": 2.2,
             "sp95PriceEur": 1.902,
             "distanceKm": 16.1
+          },
+          {
+            "id": "JSwIQAHxBJkmBFEgWvIF",
+            "name": "Piccadilly SA - Socar, Coop",
+            "brand": "SOCAR",
+            "address": "Via Maestri Comacini 10, 6830 Chiasso",
+            "lat": 45.83465592,
+            "lng": 9.035368517,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-03-19T10:20:19.034Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 1.3,
+            "sp95PriceEur": 1.902,
+            "distanceKm": 14.8
           }
         ],
         "minPriceChf": 1.65,
@@ -16053,7 +16053,7 @@
             "lat": 45.97698951091755,
             "lng": 8.874521781054243,
             "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-15T18:07:48.450Z",
+            "updatedAt": "2026-03-22T14:46:31.666Z",
             "nearestMunicipality": "Brusimpiano (VA)",
             "nearestMunicipalityDistanceKm": 1.9,
             "sp95PriceEur": 1.814,
@@ -16130,7 +16130,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 14,
+        "optionCount": 13,
         "cheapestStation": {
           "id": "2cyTEGqZPuSVhtpjGqzf",
           "name": "Silo Shop",
@@ -16175,20 +16175,6 @@
             "distanceKm": 17.8
           },
           {
-            "id": "4rZcVZZyMdcg9utPrsXv",
-            "name": "GARAGE 64",
-            "brand": "UNDEFINED",
-            "address": "Via Emilio Bossi 6, 6830 Chiasso",
-            "lat": 45.834176890224306,
-            "lng": 9.031274331501768,
-            "sp95PriceChf": 1.73,
-            "updatedAt": "2026-02-20T14:24:22.760Z",
-            "nearestMunicipality": "Maslianico (CO)",
-            "nearestMunicipalityDistanceKm": 1.6,
-            "sp95PriceEur": 1.902,
-            "distanceKm": 16.6
-          },
-          {
             "id": "EDsfoWTW5mhInO152CPP",
             "name": "Eni Chiasso",
             "brand": "ENI",
@@ -16215,6 +16201,20 @@
             "nearestMunicipalityDistanceKm": 2.2,
             "sp95PriceEur": 1.902,
             "distanceKm": 17.6
+          },
+          {
+            "id": "JSwIQAHxBJkmBFEgWvIF",
+            "name": "Piccadilly SA - Socar, Coop",
+            "brand": "SOCAR",
+            "address": "Via Maestri Comacini 10, 6830 Chiasso",
+            "lat": 45.83465592,
+            "lng": 9.035368517,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-03-19T10:20:19.034Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 1.3,
+            "sp95PriceEur": 1.902,
+            "distanceKm": 16.3
           }
         ],
         "minPriceChf": 1.65,
@@ -16245,7 +16245,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 10,
+        "optionCount": 9,
         "cheapestStation": {
           "id": "2cyTEGqZPuSVhtpjGqzf",
           "name": "Silo Shop",
@@ -16274,20 +16274,6 @@
             "nearestMunicipalityDistanceKm": 1.5,
             "sp95PriceEur": 1.814,
             "distanceKm": 19.6
-          },
-          {
-            "id": "4rZcVZZyMdcg9utPrsXv",
-            "name": "GARAGE 64",
-            "brand": "UNDEFINED",
-            "address": "Via Emilio Bossi 6, 6830 Chiasso",
-            "lat": 45.834176890224306,
-            "lng": 9.031274331501768,
-            "sp95PriceChf": 1.73,
-            "updatedAt": "2026-02-20T14:24:22.760Z",
-            "nearestMunicipality": "Maslianico (CO)",
-            "nearestMunicipalityDistanceKm": 1.6,
-            "sp95PriceEur": 1.902,
-            "distanceKm": 19.5
           },
           {
             "id": "EDsfoWTW5mhInO152CPP",
@@ -16330,6 +16316,20 @@
             "nearestMunicipalityDistanceKm": 1.2,
             "sp95PriceEur": 1.902,
             "distanceKm": 19.2
+          },
+          {
+            "id": "zZw4XjLK62YAQrdkYEl8",
+            "name": "Eni Chiasso",
+            "brand": "ENI",
+            "address": "Via Comacini 6, 6830 Chiasso",
+            "lat": 45.833713,
+            "lng": 9.034569399999999,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-03-18T12:07:45.078Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 1.4,
+            "sp95PriceEur": 1.902,
+            "distanceKm": 19.3
           }
         ],
         "minPriceChf": 1.65,
@@ -16360,7 +16360,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 14,
+        "optionCount": 13,
         "cheapestStation": {
           "id": "2cyTEGqZPuSVhtpjGqzf",
           "name": "Silo Shop",
@@ -16405,20 +16405,6 @@
             "distanceKm": 18.2
           },
           {
-            "id": "4rZcVZZyMdcg9utPrsXv",
-            "name": "GARAGE 64",
-            "brand": "UNDEFINED",
-            "address": "Via Emilio Bossi 6, 6830 Chiasso",
-            "lat": 45.834176890224306,
-            "lng": 9.031274331501768,
-            "sp95PriceChf": 1.73,
-            "updatedAt": "2026-02-20T14:24:22.760Z",
-            "nearestMunicipality": "Maslianico (CO)",
-            "nearestMunicipalityDistanceKm": 1.6,
-            "sp95PriceEur": 1.902,
-            "distanceKm": 17.3
-          },
-          {
             "id": "EDsfoWTW5mhInO152CPP",
             "name": "Eni Chiasso",
             "brand": "ENI",
@@ -16445,6 +16431,20 @@
             "nearestMunicipalityDistanceKm": 2.2,
             "sp95PriceEur": 1.902,
             "distanceKm": 18.1
+          },
+          {
+            "id": "JSwIQAHxBJkmBFEgWvIF",
+            "name": "Piccadilly SA - Socar, Coop",
+            "brand": "SOCAR",
+            "address": "Via Maestri Comacini 10, 6830 Chiasso",
+            "lat": 45.83465592,
+            "lng": 9.035368517,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-03-19T10:20:19.034Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 1.3,
+            "sp95PriceEur": 1.902,
+            "distanceKm": 17
           }
         ],
         "minPriceChf": 1.65,
@@ -16541,7 +16541,7 @@
             "lat": 45.97698951091755,
             "lng": 8.874521781054243,
             "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-15T18:07:48.450Z",
+            "updatedAt": "2026-03-22T14:46:31.666Z",
             "nearestMunicipality": "Brusimpiano (VA)",
             "nearestMunicipalityDistanceKm": 1.9,
             "sp95PriceEur": 1.814,
@@ -16642,7 +16642,7 @@
             "lat": 45.97698951091755,
             "lng": 8.874521781054243,
             "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-15T18:07:48.450Z",
+            "updatedAt": "2026-03-22T14:46:31.666Z",
             "nearestMunicipality": "Brusimpiano (VA)",
             "nearestMunicipalityDistanceKm": 1.9,
             "sp95PriceEur": 1.814,
@@ -16738,7 +16738,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 13,
+        "optionCount": 12,
         "cheapestStation": {
           "id": "2cyTEGqZPuSVhtpjGqzf",
           "name": "Silo Shop",
@@ -16783,20 +16783,6 @@
             "distanceKm": 19.8
           },
           {
-            "id": "4rZcVZZyMdcg9utPrsXv",
-            "name": "GARAGE 64",
-            "brand": "UNDEFINED",
-            "address": "Via Emilio Bossi 6, 6830 Chiasso",
-            "lat": 45.834176890224306,
-            "lng": 9.031274331501768,
-            "sp95PriceChf": 1.73,
-            "updatedAt": "2026-02-20T14:24:22.760Z",
-            "nearestMunicipality": "Maslianico (CO)",
-            "nearestMunicipalityDistanceKm": 1.6,
-            "sp95PriceEur": 1.902,
-            "distanceKm": 18.6
-          },
-          {
             "id": "EDsfoWTW5mhInO152CPP",
             "name": "Eni Chiasso",
             "brand": "ENI",
@@ -16823,6 +16809,20 @@
             "nearestMunicipalityDistanceKm": 2.2,
             "sp95PriceEur": 1.902,
             "distanceKm": 19.3
+          },
+          {
+            "id": "JSwIQAHxBJkmBFEgWvIF",
+            "name": "Piccadilly SA - Socar, Coop",
+            "brand": "SOCAR",
+            "address": "Via Maestri Comacini 10, 6830 Chiasso",
+            "lat": 45.83465592,
+            "lng": 9.035368517,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-03-19T10:20:19.034Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 1.3,
+            "sp95PriceEur": 1.902,
+            "distanceKm": 18.6
           }
         ],
         "minPriceChf": 1.65,
@@ -16906,7 +16906,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 61,
+        "optionCount": 60,
         "cheapestStation": {
           "id": "2iMRCPqDCHHpLcBX8dCN",
           "name": "Agrola Melano",
@@ -17169,7 +17169,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 32,
+        "optionCount": 31,
         "cheapestStation": {
           "id": "2iMRCPqDCHHpLcBX8dCN",
           "name": "Agrola Melano",
@@ -17482,7 +17482,7 @@
             "lat": 45.97698951091755,
             "lng": 8.874521781054243,
             "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-15T18:07:48.450Z",
+            "updatedAt": "2026-03-22T14:46:31.666Z",
             "nearestMunicipality": "Brusimpiano (VA)",
             "nearestMunicipalityDistanceKm": 1.9,
             "sp95PriceEur": 1.814,
@@ -17545,7 +17545,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 25,
+        "optionCount": 24,
         "cheapestStation": {
           "id": "2cyTEGqZPuSVhtpjGqzf",
           "name": "Silo Shop",
@@ -17604,20 +17604,6 @@
             "distanceKm": 16.5
           },
           {
-            "id": "4rZcVZZyMdcg9utPrsXv",
-            "name": "GARAGE 64",
-            "brand": "UNDEFINED",
-            "address": "Via Emilio Bossi 6, 6830 Chiasso",
-            "lat": 45.834176890224306,
-            "lng": 9.031274331501768,
-            "sp95PriceChf": 1.73,
-            "updatedAt": "2026-02-20T14:24:22.760Z",
-            "nearestMunicipality": "Maslianico (CO)",
-            "nearestMunicipalityDistanceKm": 1.6,
-            "sp95PriceEur": 1.902,
-            "distanceKm": 10
-          },
-          {
             "id": "EDsfoWTW5mhInO152CPP",
             "name": "Eni Chiasso",
             "brand": "ENI",
@@ -17630,6 +17616,20 @@
             "nearestMunicipalityDistanceKm": 1.2,
             "sp95PriceEur": 1.902,
             "distanceKm": 10.2
+          },
+          {
+            "id": "IGIlo1f7hrzC174Fqgmt",
+            "name": "TAMOIL Balerna (San Gottardo)",
+            "brand": "TAMOIL",
+            "address": "San Gottardo 12, 6828 Balerna",
+            "lat": 45.840241,
+            "lng": 9.018873,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-03-16T08:40:53.906Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 2.2,
+            "sp95PriceEur": 1.902,
+            "distanceKm": 11.2
           }
         ],
         "minPriceChf": 1.65,
@@ -17745,7 +17745,7 @@
             "lat": 45.97698951091755,
             "lng": 8.874521781054243,
             "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-15T18:07:48.450Z",
+            "updatedAt": "2026-03-22T14:46:31.666Z",
             "nearestMunicipality": "Brusimpiano (VA)",
             "nearestMunicipalityDistanceKm": 1.9,
             "sp95PriceEur": 1.814,
@@ -17914,7 +17914,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 14,
+        "optionCount": 13,
         "cheapestStation": {
           "id": "2cyTEGqZPuSVhtpjGqzf",
           "name": "Silo Shop",
@@ -17959,20 +17959,6 @@
             "distanceKm": 18.3
           },
           {
-            "id": "4rZcVZZyMdcg9utPrsXv",
-            "name": "GARAGE 64",
-            "brand": "UNDEFINED",
-            "address": "Via Emilio Bossi 6, 6830 Chiasso",
-            "lat": 45.834176890224306,
-            "lng": 9.031274331501768,
-            "sp95PriceChf": 1.73,
-            "updatedAt": "2026-02-20T14:24:22.760Z",
-            "nearestMunicipality": "Maslianico (CO)",
-            "nearestMunicipalityDistanceKm": 1.6,
-            "sp95PriceEur": 1.902,
-            "distanceKm": 17.5
-          },
-          {
             "id": "EDsfoWTW5mhInO152CPP",
             "name": "Eni Chiasso",
             "brand": "ENI",
@@ -17999,6 +17985,20 @@
             "nearestMunicipalityDistanceKm": 2.2,
             "sp95PriceEur": 1.902,
             "distanceKm": 18.3
+          },
+          {
+            "id": "JSwIQAHxBJkmBFEgWvIF",
+            "name": "Piccadilly SA - Socar, Coop",
+            "brand": "SOCAR",
+            "address": "Via Maestri Comacini 10, 6830 Chiasso",
+            "lat": 45.83465592,
+            "lng": 9.035368517,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-03-19T10:20:19.034Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 1.3,
+            "sp95PriceEur": 1.902,
+            "distanceKm": 17.2
           }
         ],
         "minPriceChf": 1.65,
@@ -18074,17 +18074,31 @@
             "distanceKm": 15.5
           },
           {
+            "id": "ct1153C6DNSnIqT0Hq9u",
+            "name": "Coop Pronto",
+            "brand": "COOP",
+            "address": "Via San Gottardo 73, 6500 Bellinzona",
+            "lat": 46.2057,
+            "lng": 9.03673,
+            "sp95PriceChf": 1.84,
+            "updatedAt": "2026-03-18T06:48:05.530Z",
+            "nearestMunicipality": "Cavargna (CO)",
+            "nearestMunicipalityDistanceKm": 14.1,
+            "sp95PriceEur": 2.023,
+            "distanceKm": 19.8
+          },
+          {
             "id": "MNydGBweUV8pmXuAtQKE",
             "name": "Agrola Bellinzona",
             "brand": "AGROLA",
             "address": "Via San Gottardo 65, 6500 Bellinzona",
             "lat": 46.204418,
             "lng": 9.035782,
-            "sp95PriceChf": 1.8900000000000001,
-            "updatedAt": "2026-03-21T12:41:05.136Z",
+            "sp95PriceChf": 1.85,
+            "updatedAt": "2026-03-18T06:48:25.002Z",
             "nearestMunicipality": "Cavargna (CO)",
             "nearestMunicipalityDistanceKm": 14,
-            "sp95PriceEur": 2.078,
+            "sp95PriceEur": 2.034,
             "distanceKm": 19.8
           },
           {
@@ -18094,26 +18108,12 @@
             "address": "Via San Gottardo 104, 6500 Bellinzona",
             "lat": 46.206642,
             "lng": 9.038361,
-            "sp95PriceChf": 1.8900000000000001,
-            "updatedAt": "2026-03-21T12:21:10.460Z",
+            "sp95PriceChf": 1.86,
+            "updatedAt": "2026-03-10T16:33:11.472Z",
             "nearestMunicipality": "Cavargna (CO)",
             "nearestMunicipalityDistanceKm": 14.1,
-            "sp95PriceEur": 2.078,
+            "sp95PriceEur": 2.045,
             "distanceKm": 19.7
-          },
-          {
-            "id": "WunhlPJcSC3aLWcTjWow",
-            "name": "Eni Arbedo",
-            "brand": "ENI",
-            "address": "Via San Gottardo 129, 6517 Arbedo",
-            "lat": 46.2126984,
-            "lng": 9.039422199999999,
-            "sp95PriceChf": 1.8900000000000001,
-            "updatedAt": "2026-03-21T23:10:38.986Z",
-            "nearestMunicipality": "Cavargna (CO)",
-            "nearestMunicipalityDistanceKm": 14.7,
-            "sp95PriceEur": 2.078,
-            "distanceKm": 19.9
           }
         ],
         "minPriceChf": 1.77,
@@ -18144,7 +18144,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 28,
+        "optionCount": 27,
         "cheapestStation": {
           "id": "2iMRCPqDCHHpLcBX8dCN",
           "name": "Agrola Melano",
@@ -18281,7 +18281,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 40,
+        "optionCount": 39,
         "cheapestStation": {
           "id": "2iMRCPqDCHHpLcBX8dCN",
           "name": "Agrola Melano",
@@ -18703,7 +18703,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 6,
+        "optionCount": 5,
         "cheapestStation": {
           "id": "2cyTEGqZPuSVhtpjGqzf",
           "name": "Silo Shop",
@@ -18732,20 +18732,6 @@
             "nearestMunicipalityDistanceKm": 1.5,
             "sp95PriceEur": 1.814,
             "distanceKm": 19.6
-          },
-          {
-            "id": "4rZcVZZyMdcg9utPrsXv",
-            "name": "GARAGE 64",
-            "brand": "UNDEFINED",
-            "address": "Via Emilio Bossi 6, 6830 Chiasso",
-            "lat": 45.834176890224306,
-            "lng": 9.031274331501768,
-            "sp95PriceChf": 1.73,
-            "updatedAt": "2026-02-20T14:24:22.760Z",
-            "nearestMunicipality": "Maslianico (CO)",
-            "nearestMunicipalityDistanceKm": 1.6,
-            "sp95PriceEur": 1.902,
-            "distanceKm": 19.5
           },
           {
             "id": "EDsfoWTW5mhInO152CPP",
@@ -18788,6 +18774,20 @@
             "nearestMunicipalityDistanceKm": 1.2,
             "sp95PriceEur": 1.902,
             "distanceKm": 19.7
+          },
+          {
+            "id": "zZw4XjLK62YAQrdkYEl8",
+            "name": "Eni Chiasso",
+            "brand": "ENI",
+            "address": "Via Comacini 6, 6830 Chiasso",
+            "lat": 45.833713,
+            "lng": 9.034569399999999,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-03-18T12:07:45.078Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 1.4,
+            "sp95PriceEur": 1.902,
+            "distanceKm": 19.5
           }
         ],
         "minPriceChf": 1.65,
@@ -18870,7 +18870,7 @@
             "lat": 45.97698951091755,
             "lng": 8.874521781054243,
             "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-15T18:07:48.450Z",
+            "updatedAt": "2026-03-22T14:46:31.666Z",
             "nearestMunicipality": "Brusimpiano (VA)",
             "nearestMunicipalityDistanceKm": 1.9,
             "sp95PriceEur": 1.814,
@@ -19131,7 +19131,7 @@
             "lat": 45.97698951091755,
             "lng": 8.874521781054243,
             "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-15T18:07:48.450Z",
+            "updatedAt": "2026-03-22T14:46:31.666Z",
             "nearestMunicipality": "Brusimpiano (VA)",
             "nearestMunicipalityDistanceKm": 1.9,
             "sp95PriceEur": 1.814,
@@ -19194,7 +19194,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 110,
+        "optionCount": 111,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -19260,7 +19260,7 @@
             "lat": 45.97698951091755,
             "lng": 8.874521781054243,
             "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-15T18:07:48.450Z",
+            "updatedAt": "2026-03-22T14:46:31.666Z",
             "nearestMunicipality": "Brusimpiano (VA)",
             "nearestMunicipalityDistanceKm": 1.9,
             "sp95PriceEur": 1.814,
@@ -19309,7 +19309,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 32,
+        "optionCount": 31,
         "cheapestStation": {
           "id": "2iMRCPqDCHHpLcBX8dCN",
           "name": "Agrola Melano",
@@ -19446,7 +19446,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 24,
+        "optionCount": 23,
         "cheapestStation": {
           "id": "2cyTEGqZPuSVhtpjGqzf",
           "name": "Silo Shop",
@@ -19505,20 +19505,6 @@
             "distanceKm": 15.2
           },
           {
-            "id": "4rZcVZZyMdcg9utPrsXv",
-            "name": "GARAGE 64",
-            "brand": "UNDEFINED",
-            "address": "Via Emilio Bossi 6, 6830 Chiasso",
-            "lat": 45.834176890224306,
-            "lng": 9.031274331501768,
-            "sp95PriceChf": 1.73,
-            "updatedAt": "2026-02-20T14:24:22.760Z",
-            "nearestMunicipality": "Maslianico (CO)",
-            "nearestMunicipalityDistanceKm": 1.6,
-            "sp95PriceEur": 1.902,
-            "distanceKm": 13.7
-          },
-          {
             "id": "EDsfoWTW5mhInO152CPP",
             "name": "Eni Chiasso",
             "brand": "ENI",
@@ -19531,6 +19517,20 @@
             "nearestMunicipalityDistanceKm": 1.2,
             "sp95PriceEur": 1.902,
             "distanceKm": 14.2
+          },
+          {
+            "id": "IGIlo1f7hrzC174Fqgmt",
+            "name": "TAMOIL Balerna (San Gottardo)",
+            "brand": "TAMOIL",
+            "address": "San Gottardo 12, 6828 Balerna",
+            "lat": 45.840241,
+            "lng": 9.018873,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-03-16T08:40:53.906Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 2.2,
+            "sp95PriceEur": 1.902,
+            "distanceKm": 14.1
           }
         ],
         "minPriceChf": 1.65,
@@ -19720,7 +19720,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 24,
+        "optionCount": 23,
         "cheapestStation": {
           "id": "2cyTEGqZPuSVhtpjGqzf",
           "name": "Silo Shop",
@@ -19779,20 +19779,6 @@
             "distanceKm": 17.3
           },
           {
-            "id": "4rZcVZZyMdcg9utPrsXv",
-            "name": "GARAGE 64",
-            "brand": "UNDEFINED",
-            "address": "Via Emilio Bossi 6, 6830 Chiasso",
-            "lat": 45.834176890224306,
-            "lng": 9.031274331501768,
-            "sp95PriceChf": 1.73,
-            "updatedAt": "2026-02-20T14:24:22.760Z",
-            "nearestMunicipality": "Maslianico (CO)",
-            "nearestMunicipalityDistanceKm": 1.6,
-            "sp95PriceEur": 1.902,
-            "distanceKm": 12.3
-          },
-          {
             "id": "EDsfoWTW5mhInO152CPP",
             "name": "Eni Chiasso",
             "brand": "ENI",
@@ -19805,6 +19791,20 @@
             "nearestMunicipalityDistanceKm": 1.2,
             "sp95PriceEur": 1.902,
             "distanceKm": 12.7
+          },
+          {
+            "id": "IGIlo1f7hrzC174Fqgmt",
+            "name": "TAMOIL Balerna (San Gottardo)",
+            "brand": "TAMOIL",
+            "address": "San Gottardo 12, 6828 Balerna",
+            "lat": 45.840241,
+            "lng": 9.018873,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-03-16T08:40:53.906Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 2.2,
+            "sp95PriceEur": 1.902,
+            "distanceKm": 13.3
           }
         ],
         "minPriceChf": 1.65,
@@ -19868,7 +19868,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 28,
+        "optionCount": 27,
         "cheapestStation": {
           "id": "2iMRCPqDCHHpLcBX8dCN",
           "name": "Agrola Melano",
@@ -19983,7 +19983,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 33,
+        "optionCount": 32,
         "cheapestStation": {
           "id": "2iMRCPqDCHHpLcBX8dCN",
           "name": "Agrola Melano",
@@ -20098,7 +20098,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 102,
+        "optionCount": 103,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -20150,7 +20150,7 @@
             "lat": 45.97698951091755,
             "lng": 8.874521781054243,
             "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-15T18:07:48.450Z",
+            "updatedAt": "2026-03-22T14:46:31.666Z",
             "nearestMunicipality": "Brusimpiano (VA)",
             "nearestMunicipalityDistanceKm": 1.9,
             "sp95PriceEur": 1.814,
@@ -20178,7 +20178,7 @@
             "lat": 45.972068975787,
             "lng": 8.86726121879764,
             "sp95PriceChf": 1.66,
-            "updatedAt": "2026-03-21T08:03:32.380Z",
+            "updatedAt": "2026-03-22T14:49:20.523Z",
             "nearestMunicipality": "Lavena Ponte Tresa (VA)",
             "nearestMunicipalityDistanceKm": 1.3,
             "sp95PriceEur": 1.825,
@@ -20435,7 +20435,7 @@
             "lat": 45.97698951091755,
             "lng": 8.874521781054243,
             "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-15T18:07:48.450Z",
+            "updatedAt": "2026-03-22T14:46:31.666Z",
             "nearestMunicipality": "Brusimpiano (VA)",
             "nearestMunicipalityDistanceKm": 1.9,
             "sp95PriceEur": 1.814,
@@ -20693,7 +20693,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 16,
+        "optionCount": 17,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -20745,7 +20745,7 @@
             "lat": 45.97698951091755,
             "lng": 8.874521781054243,
             "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-15T18:07:48.450Z",
+            "updatedAt": "2026-03-22T14:46:31.666Z",
             "nearestMunicipality": "Brusimpiano (VA)",
             "nearestMunicipalityDistanceKm": 1.9,
             "sp95PriceEur": 1.814,
@@ -20759,7 +20759,7 @@
             "lat": 45.972068975787,
             "lng": 8.86726121879764,
             "sp95PriceChf": 1.66,
-            "updatedAt": "2026-03-21T08:03:32.380Z",
+            "updatedAt": "2026-03-22T14:49:20.523Z",
             "nearestMunicipality": "Lavena Ponte Tresa (VA)",
             "nearestMunicipalityDistanceKm": 1.3,
             "sp95PriceEur": 1.825,
@@ -20830,7 +20830,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 29,
+        "optionCount": 30,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -20896,7 +20896,7 @@
             "lat": 45.97698951091755,
             "lng": 8.874521781054243,
             "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-15T18:07:48.450Z",
+            "updatedAt": "2026-03-22T14:46:31.666Z",
             "nearestMunicipality": "Brusimpiano (VA)",
             "nearestMunicipalityDistanceKm": 1.9,
             "sp95PriceEur": 1.814,
@@ -20910,7 +20910,7 @@
             "lat": 45.972068975787,
             "lng": 8.86726121879764,
             "sp95PriceChf": 1.66,
-            "updatedAt": "2026-03-21T08:03:32.380Z",
+            "updatedAt": "2026-03-22T14:49:20.523Z",
             "nearestMunicipality": "Lavena Ponte Tresa (VA)",
             "nearestMunicipalityDistanceKm": 1.3,
             "sp95PriceEur": 1.825,
@@ -21051,7 +21051,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 73,
+        "optionCount": 74,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -21117,7 +21117,7 @@
             "lat": 45.97698951091755,
             "lng": 8.874521781054243,
             "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-15T18:07:48.450Z",
+            "updatedAt": "2026-03-22T14:46:31.666Z",
             "nearestMunicipality": "Brusimpiano (VA)",
             "nearestMunicipalityDistanceKm": 1.9,
             "sp95PriceEur": 1.814,
@@ -21246,7 +21246,7 @@
             "lat": 45.97698951091755,
             "lng": 8.874521781054243,
             "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-15T18:07:48.450Z",
+            "updatedAt": "2026-03-22T14:46:31.666Z",
             "nearestMunicipality": "Brusimpiano (VA)",
             "nearestMunicipalityDistanceKm": 1.9,
             "sp95PriceEur": 1.814,
@@ -21593,7 +21593,7 @@
             "lat": 45.97698951091755,
             "lng": 8.874521781054243,
             "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-15T18:07:48.450Z",
+            "updatedAt": "2026-03-22T14:46:31.666Z",
             "nearestMunicipality": "Brusimpiano (VA)",
             "nearestMunicipalityDistanceKm": 1.9,
             "sp95PriceEur": 1.814,
@@ -21884,7 +21884,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 12,
+        "optionCount": 13,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -21936,7 +21936,7 @@
             "lat": 45.97698951091755,
             "lng": 8.874521781054243,
             "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-15T18:07:48.450Z",
+            "updatedAt": "2026-03-22T14:46:31.666Z",
             "nearestMunicipality": "Brusimpiano (VA)",
             "nearestMunicipalityDistanceKm": 1.9,
             "sp95PriceEur": 1.814,
@@ -21950,7 +21950,7 @@
             "lat": 45.972068975787,
             "lng": 8.86726121879764,
             "sp95PriceChf": 1.66,
-            "updatedAt": "2026-03-21T08:03:32.380Z",
+            "updatedAt": "2026-03-22T14:49:20.523Z",
             "nearestMunicipality": "Lavena Ponte Tresa (VA)",
             "nearestMunicipalityDistanceKm": 1.3,
             "sp95PriceEur": 1.825,
@@ -21999,7 +21999,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 54,
+        "optionCount": 55,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -22051,7 +22051,7 @@
             "lat": 45.97698951091755,
             "lng": 8.874521781054243,
             "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-15T18:07:48.450Z",
+            "updatedAt": "2026-03-22T14:46:31.666Z",
             "nearestMunicipality": "Brusimpiano (VA)",
             "nearestMunicipalityDistanceKm": 1.9,
             "sp95PriceEur": 1.814,
@@ -22065,7 +22065,7 @@
             "lat": 45.972068975787,
             "lng": 8.86726121879764,
             "sp95PriceChf": 1.66,
-            "updatedAt": "2026-03-21T08:03:32.380Z",
+            "updatedAt": "2026-03-22T14:49:20.523Z",
             "nearestMunicipality": "Lavena Ponte Tresa (VA)",
             "nearestMunicipalityDistanceKm": 1.3,
             "sp95PriceEur": 1.825,
@@ -22194,7 +22194,7 @@
             "lat": 45.97698951091755,
             "lng": 8.874521781054243,
             "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-15T18:07:48.450Z",
+            "updatedAt": "2026-03-22T14:46:31.666Z",
             "nearestMunicipality": "Brusimpiano (VA)",
             "nearestMunicipalityDistanceKm": 1.9,
             "sp95PriceEur": 1.814,
@@ -22229,7 +22229,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 68,
+        "optionCount": 69,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -22295,7 +22295,7 @@
             "lat": 45.97698951091755,
             "lng": 8.874521781054243,
             "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-15T18:07:48.450Z",
+            "updatedAt": "2026-03-22T14:46:31.666Z",
             "nearestMunicipality": "Brusimpiano (VA)",
             "nearestMunicipalityDistanceKm": 1.9,
             "sp95PriceEur": 1.814,
@@ -22344,7 +22344,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 20,
+        "optionCount": 19,
         "cheapestStation": {
           "id": "2cyTEGqZPuSVhtpjGqzf",
           "name": "Silo Shop",
@@ -22403,20 +22403,6 @@
             "distanceKm": 14.1
           },
           {
-            "id": "4rZcVZZyMdcg9utPrsXv",
-            "name": "GARAGE 64",
-            "brand": "UNDEFINED",
-            "address": "Via Emilio Bossi 6, 6830 Chiasso",
-            "lat": 45.834176890224306,
-            "lng": 9.031274331501768,
-            "sp95PriceChf": 1.73,
-            "updatedAt": "2026-02-20T14:24:22.760Z",
-            "nearestMunicipality": "Maslianico (CO)",
-            "nearestMunicipalityDistanceKm": 1.6,
-            "sp95PriceEur": 1.902,
-            "distanceKm": 19.7
-          },
-          {
             "id": "EDsfoWTW5mhInO152CPP",
             "name": "Eni Chiasso",
             "brand": "ENI",
@@ -22429,6 +22415,20 @@
             "nearestMunicipalityDistanceKm": 1.2,
             "sp95PriceEur": 1.902,
             "distanceKm": 20
+          },
+          {
+            "id": "IGIlo1f7hrzC174Fqgmt",
+            "name": "TAMOIL Balerna (San Gottardo)",
+            "brand": "TAMOIL",
+            "address": "San Gottardo 12, 6828 Balerna",
+            "lat": 45.840241,
+            "lng": 9.018873,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-03-16T08:40:53.906Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 2.2,
+            "sp95PriceEur": 1.902,
+            "distanceKm": 19.1
           }
         ],
         "minPriceChf": 1.65,
@@ -22539,7 +22539,7 @@
             "lat": 45.97698951091755,
             "lng": 8.874521781054243,
             "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-15T18:07:48.450Z",
+            "updatedAt": "2026-03-22T14:46:31.666Z",
             "nearestMunicipality": "Brusimpiano (VA)",
             "nearestMunicipalityDistanceKm": 1.9,
             "sp95PriceEur": 1.814,
@@ -22618,7 +22618,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 25,
+        "optionCount": 24,
         "cheapestStation": {
           "id": "2cyTEGqZPuSVhtpjGqzf",
           "name": "Silo Shop",
@@ -22677,20 +22677,6 @@
             "distanceKm": 12.3
           },
           {
-            "id": "4rZcVZZyMdcg9utPrsXv",
-            "name": "GARAGE 64",
-            "brand": "UNDEFINED",
-            "address": "Via Emilio Bossi 6, 6830 Chiasso",
-            "lat": 45.834176890224306,
-            "lng": 9.031274331501768,
-            "sp95PriceChf": 1.73,
-            "updatedAt": "2026-02-20T14:24:22.760Z",
-            "nearestMunicipality": "Maslianico (CO)",
-            "nearestMunicipalityDistanceKm": 1.6,
-            "sp95PriceEur": 1.902,
-            "distanceKm": 18.3
-          },
-          {
             "id": "EDsfoWTW5mhInO152CPP",
             "name": "Eni Chiasso",
             "brand": "ENI",
@@ -22703,6 +22689,20 @@
             "nearestMunicipalityDistanceKm": 1.2,
             "sp95PriceEur": 1.902,
             "distanceKm": 18.7
+          },
+          {
+            "id": "IGIlo1f7hrzC174Fqgmt",
+            "name": "TAMOIL Balerna (San Gottardo)",
+            "brand": "TAMOIL",
+            "address": "San Gottardo 12, 6828 Balerna",
+            "lat": 45.840241,
+            "lng": 9.018873,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-03-16T08:40:53.906Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 2.2,
+            "sp95PriceEur": 1.902,
+            "distanceKm": 17.6
           }
         ],
         "minPriceChf": 1.65,
@@ -22733,7 +22733,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 83,
+        "optionCount": 84,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -22799,7 +22799,7 @@
             "lat": 45.97698951091755,
             "lng": 8.874521781054243,
             "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-15T18:07:48.450Z",
+            "updatedAt": "2026-03-22T14:46:31.666Z",
             "nearestMunicipality": "Brusimpiano (VA)",
             "nearestMunicipalityDistanceKm": 1.9,
             "sp95PriceEur": 1.814,
@@ -23131,7 +23131,7 @@
             "lat": 45.97698951091755,
             "lng": 8.874521781054243,
             "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-15T18:07:48.450Z",
+            "updatedAt": "2026-03-22T14:46:31.666Z",
             "nearestMunicipality": "Brusimpiano (VA)",
             "nearestMunicipalityDistanceKm": 1.9,
             "sp95PriceEur": 1.814,
@@ -23265,7 +23265,7 @@
             "lat": 45.972068975787,
             "lng": 8.86726121879764,
             "sp95PriceChf": 1.66,
-            "updatedAt": "2026-03-21T08:03:32.380Z",
+            "updatedAt": "2026-03-22T14:49:20.523Z",
             "nearestMunicipality": "Lavena Ponte Tresa (VA)",
             "nearestMunicipalityDistanceKm": 1.3,
             "sp95PriceEur": 1.825,
@@ -23278,11 +23278,11 @@
             "address": "Via Cantonale 36, 6987 Caslano",
             "lat": 45.97394481908457,
             "lng": 8.869804789687063,
-            "sp95PriceChf": 1.73,
-            "updatedAt": "2026-03-16T09:08:20.313Z",
+            "sp95PriceChf": 1.76,
+            "updatedAt": "2026-03-22T14:49:01.260Z",
             "nearestMunicipality": "Lavena Ponte Tresa (VA)",
             "nearestMunicipalityDistanceKm": 1.6,
-            "sp95PriceEur": 1.902,
+            "sp95PriceEur": 1.935,
             "distanceKm": 19.9
           }
         ],
@@ -23314,7 +23314,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 18,
+        "optionCount": 17,
         "cheapestStation": {
           "id": "2cyTEGqZPuSVhtpjGqzf",
           "name": "Silo Shop",
@@ -23373,20 +23373,6 @@
             "distanceKm": 15.9
           },
           {
-            "id": "4rZcVZZyMdcg9utPrsXv",
-            "name": "GARAGE 64",
-            "brand": "UNDEFINED",
-            "address": "Via Emilio Bossi 6, 6830 Chiasso",
-            "lat": 45.834176890224306,
-            "lng": 9.031274331501768,
-            "sp95PriceChf": 1.73,
-            "updatedAt": "2026-02-20T14:24:22.760Z",
-            "nearestMunicipality": "Maslianico (CO)",
-            "nearestMunicipalityDistanceKm": 1.6,
-            "sp95PriceEur": 1.902,
-            "distanceKm": 19.6
-          },
-          {
             "id": "EDsfoWTW5mhInO152CPP",
             "name": "Eni Chiasso",
             "brand": "ENI",
@@ -23399,6 +23385,20 @@
             "nearestMunicipalityDistanceKm": 1.2,
             "sp95PriceEur": 1.902,
             "distanceKm": 20
+          },
+          {
+            "id": "IGIlo1f7hrzC174Fqgmt",
+            "name": "TAMOIL Balerna (San Gottardo)",
+            "brand": "TAMOIL",
+            "address": "San Gottardo 12, 6828 Balerna",
+            "lat": 45.840241,
+            "lng": 9.018873,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-03-16T08:40:53.906Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 2.2,
+            "sp95PriceEur": 1.902,
+            "distanceKm": 19.3
           }
         ],
         "minPriceChf": 1.65,
@@ -23462,7 +23462,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 24,
+        "optionCount": 23,
         "cheapestStation": {
           "id": "2cyTEGqZPuSVhtpjGqzf",
           "name": "Silo Shop",
@@ -23521,20 +23521,6 @@
             "distanceKm": 14.6
           },
           {
-            "id": "4rZcVZZyMdcg9utPrsXv",
-            "name": "GARAGE 64",
-            "brand": "UNDEFINED",
-            "address": "Via Emilio Bossi 6, 6830 Chiasso",
-            "lat": 45.834176890224306,
-            "lng": 9.031274331501768,
-            "sp95PriceChf": 1.73,
-            "updatedAt": "2026-02-20T14:24:22.760Z",
-            "nearestMunicipality": "Maslianico (CO)",
-            "nearestMunicipalityDistanceKm": 1.6,
-            "sp95PriceEur": 1.902,
-            "distanceKm": 18.8
-          },
-          {
             "id": "EDsfoWTW5mhInO152CPP",
             "name": "Eni Chiasso",
             "brand": "ENI",
@@ -23547,6 +23533,20 @@
             "nearestMunicipalityDistanceKm": 1.2,
             "sp95PriceEur": 1.902,
             "distanceKm": 19.2
+          },
+          {
+            "id": "IGIlo1f7hrzC174Fqgmt",
+            "name": "TAMOIL Balerna (San Gottardo)",
+            "brand": "TAMOIL",
+            "address": "San Gottardo 12, 6828 Balerna",
+            "lat": 45.840241,
+            "lng": 9.018873,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-03-16T08:40:53.906Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 2.2,
+            "sp95PriceEur": 1.902,
+            "distanceKm": 18.4
           }
         ],
         "minPriceChf": 1.65,
@@ -23650,7 +23650,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 29,
+        "optionCount": 30,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -23702,7 +23702,7 @@
             "lat": 45.97698951091755,
             "lng": 8.874521781054243,
             "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-15T18:07:48.450Z",
+            "updatedAt": "2026-03-22T14:46:31.666Z",
             "nearestMunicipality": "Brusimpiano (VA)",
             "nearestMunicipalityDistanceKm": 1.9,
             "sp95PriceEur": 1.814,
@@ -23716,7 +23716,7 @@
             "lat": 45.972068975787,
             "lng": 8.86726121879764,
             "sp95PriceChf": 1.66,
-            "updatedAt": "2026-03-21T08:03:32.380Z",
+            "updatedAt": "2026-03-22T14:49:20.523Z",
             "nearestMunicipality": "Lavena Ponte Tresa (VA)",
             "nearestMunicipalityDistanceKm": 1.3,
             "sp95PriceEur": 1.825,
@@ -23845,7 +23845,7 @@
             "lat": 45.97698951091755,
             "lng": 8.874521781054243,
             "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-15T18:07:48.450Z",
+            "updatedAt": "2026-03-22T14:46:31.666Z",
             "nearestMunicipality": "Brusimpiano (VA)",
             "nearestMunicipalityDistanceKm": 1.9,
             "sp95PriceEur": 1.814,
@@ -23999,7 +23999,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 70,
+        "optionCount": 71,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -24065,7 +24065,7 @@
             "lat": 45.97698951091755,
             "lng": 8.874521781054243,
             "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-15T18:07:48.450Z",
+            "updatedAt": "2026-03-22T14:46:31.666Z",
             "nearestMunicipality": "Brusimpiano (VA)",
             "nearestMunicipalityDistanceKm": 1.9,
             "sp95PriceEur": 1.814,
@@ -24114,7 +24114,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 57,
+        "optionCount": 58,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -24180,7 +24180,7 @@
             "lat": 45.97698951091755,
             "lng": 8.874521781054243,
             "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-15T18:07:48.450Z",
+            "updatedAt": "2026-03-22T14:46:31.666Z",
             "nearestMunicipality": "Brusimpiano (VA)",
             "nearestMunicipalityDistanceKm": 1.9,
             "sp95PriceEur": 1.814,
@@ -24194,7 +24194,7 @@
             "lat": 45.972068975787,
             "lng": 8.86726121879764,
             "sp95PriceChf": 1.66,
-            "updatedAt": "2026-03-21T08:03:32.380Z",
+            "updatedAt": "2026-03-22T14:49:20.523Z",
             "nearestMunicipality": "Lavena Ponte Tresa (VA)",
             "nearestMunicipalityDistanceKm": 1.3,
             "sp95PriceEur": 1.825,
@@ -24262,7 +24262,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 23,
+        "optionCount": 22,
         "cheapestStation": {
           "id": "2cyTEGqZPuSVhtpjGqzf",
           "name": "Silo Shop",
@@ -24321,20 +24321,6 @@
             "distanceKm": 15.5
           },
           {
-            "id": "4rZcVZZyMdcg9utPrsXv",
-            "name": "GARAGE 64",
-            "brand": "UNDEFINED",
-            "address": "Via Emilio Bossi 6, 6830 Chiasso",
-            "lat": 45.834176890224306,
-            "lng": 9.031274331501768,
-            "sp95PriceChf": 1.73,
-            "updatedAt": "2026-02-20T14:24:22.760Z",
-            "nearestMunicipality": "Maslianico (CO)",
-            "nearestMunicipalityDistanceKm": 1.6,
-            "sp95PriceEur": 1.902,
-            "distanceKm": 18.3
-          },
-          {
             "id": "EDsfoWTW5mhInO152CPP",
             "name": "Eni Chiasso",
             "brand": "ENI",
@@ -24347,6 +24333,20 @@
             "nearestMunicipalityDistanceKm": 1.2,
             "sp95PriceEur": 1.902,
             "distanceKm": 18.8
+          },
+          {
+            "id": "IGIlo1f7hrzC174Fqgmt",
+            "name": "TAMOIL Balerna (San Gottardo)",
+            "brand": "TAMOIL",
+            "address": "San Gottardo 12, 6828 Balerna",
+            "lat": 45.840241,
+            "lng": 9.018873,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-03-16T08:40:53.906Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 2.2,
+            "sp95PriceEur": 1.902,
+            "distanceKm": 18.2
           }
         ],
         "minPriceChf": 1.65,
@@ -24377,7 +24377,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 17,
+        "optionCount": 18,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -24429,7 +24429,7 @@
             "lat": 45.97698951091755,
             "lng": 8.874521781054243,
             "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-15T18:07:48.450Z",
+            "updatedAt": "2026-03-22T14:46:31.666Z",
             "nearestMunicipality": "Brusimpiano (VA)",
             "nearestMunicipalityDistanceKm": 1.9,
             "sp95PriceEur": 1.814,
@@ -24443,7 +24443,7 @@
             "lat": 45.972068975787,
             "lng": 8.86726121879764,
             "sp95PriceChf": 1.66,
-            "updatedAt": "2026-03-21T08:03:32.380Z",
+            "updatedAt": "2026-03-22T14:49:20.523Z",
             "nearestMunicipality": "Lavena Ponte Tresa (VA)",
             "nearestMunicipalityDistanceKm": 1.3,
             "sp95PriceEur": 1.825,
@@ -24514,7 +24514,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 25,
+        "optionCount": 24,
         "cheapestStation": {
           "id": "2cyTEGqZPuSVhtpjGqzf",
           "name": "Silo Shop",
@@ -24573,20 +24573,6 @@
             "distanceKm": 11.6
           },
           {
-            "id": "4rZcVZZyMdcg9utPrsXv",
-            "name": "GARAGE 64",
-            "brand": "UNDEFINED",
-            "address": "Via Emilio Bossi 6, 6830 Chiasso",
-            "lat": 45.834176890224306,
-            "lng": 9.031274331501768,
-            "sp95PriceChf": 1.73,
-            "updatedAt": "2026-02-20T14:24:22.760Z",
-            "nearestMunicipality": "Maslianico (CO)",
-            "nearestMunicipalityDistanceKm": 1.6,
-            "sp95PriceEur": 1.902,
-            "distanceKm": 15.5
-          },
-          {
             "id": "EDsfoWTW5mhInO152CPP",
             "name": "Eni Chiasso",
             "brand": "ENI",
@@ -24599,6 +24585,20 @@
             "nearestMunicipalityDistanceKm": 1.2,
             "sp95PriceEur": 1.902,
             "distanceKm": 15.9
+          },
+          {
+            "id": "IGIlo1f7hrzC174Fqgmt",
+            "name": "TAMOIL Balerna (San Gottardo)",
+            "brand": "TAMOIL",
+            "address": "San Gottardo 12, 6828 Balerna",
+            "lat": 45.840241,
+            "lng": 9.018873,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-03-16T08:40:53.906Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 2.2,
+            "sp95PriceEur": 1.902,
+            "distanceKm": 15.1
           }
         ],
         "minPriceChf": 1.65,
@@ -24684,7 +24684,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 19,
+        "optionCount": 18,
         "cheapestStation": {
           "id": "2cyTEGqZPuSVhtpjGqzf",
           "name": "Silo Shop",
@@ -24743,20 +24743,6 @@
             "distanceKm": 14.7
           },
           {
-            "id": "4rZcVZZyMdcg9utPrsXv",
-            "name": "GARAGE 64",
-            "brand": "UNDEFINED",
-            "address": "Via Emilio Bossi 6, 6830 Chiasso",
-            "lat": 45.834176890224306,
-            "lng": 9.031274331501768,
-            "sp95PriceChf": 1.73,
-            "updatedAt": "2026-02-20T14:24:22.760Z",
-            "nearestMunicipality": "Maslianico (CO)",
-            "nearestMunicipalityDistanceKm": 1.6,
-            "sp95PriceEur": 1.902,
-            "distanceKm": 19.4
-          },
-          {
             "id": "EDsfoWTW5mhInO152CPP",
             "name": "Eni Chiasso",
             "brand": "ENI",
@@ -24769,6 +24755,20 @@
             "nearestMunicipalityDistanceKm": 1.2,
             "sp95PriceEur": 1.902,
             "distanceKm": 19.8
+          },
+          {
+            "id": "IGIlo1f7hrzC174Fqgmt",
+            "name": "TAMOIL Balerna (San Gottardo)",
+            "brand": "TAMOIL",
+            "address": "San Gottardo 12, 6828 Balerna",
+            "lat": 45.840241,
+            "lng": 9.018873,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-03-16T08:40:53.906Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 2.2,
+            "sp95PriceEur": 1.902,
+            "distanceKm": 19
           }
         ],
         "minPriceChf": 1.65,
@@ -25052,36 +25052,22 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 2,
+        "optionCount": 1,
         "cheapestStation": {
-          "id": "4rZcVZZyMdcg9utPrsXv",
-          "name": "GARAGE 64",
-          "brand": "UNDEFINED",
-          "address": "Via Emilio Bossi 6, 6830 Chiasso",
-          "lat": 45.834176890224306,
-          "lng": 9.031274331501768,
+          "id": "zZw4XjLK62YAQrdkYEl8",
+          "name": "Eni Chiasso",
+          "brand": "ENI",
+          "address": "Via Comacini 6, 6830 Chiasso",
+          "lat": 45.833713,
+          "lng": 9.034569399999999,
           "sp95PriceChf": 1.73,
-          "updatedAt": "2026-02-20T14:24:22.760Z",
+          "updatedAt": "2026-03-18T12:07:45.078Z",
           "nearestMunicipality": "Maslianico (CO)",
-          "nearestMunicipalityDistanceKm": 1.6,
+          "nearestMunicipalityDistanceKm": 1.4,
           "sp95PriceEur": 1.902,
           "distanceKm": 20
         },
         "nearbyStations": [
-          {
-            "id": "4rZcVZZyMdcg9utPrsXv",
-            "name": "GARAGE 64",
-            "brand": "UNDEFINED",
-            "address": "Via Emilio Bossi 6, 6830 Chiasso",
-            "lat": 45.834176890224306,
-            "lng": 9.031274331501768,
-            "sp95PriceChf": 1.73,
-            "updatedAt": "2026-02-20T14:24:22.760Z",
-            "nearestMunicipality": "Maslianico (CO)",
-            "nearestMunicipalityDistanceKm": 1.6,
-            "sp95PriceEur": 1.902,
-            "distanceKm": 20
-          },
           {
             "id": "zZw4XjLK62YAQrdkYEl8",
             "name": "Eni Chiasso",
@@ -25158,7 +25144,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 7,
+        "optionCount": 8,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -25210,7 +25196,7 @@
             "lat": 45.97698951091755,
             "lng": 8.874521781054243,
             "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-15T18:07:48.450Z",
+            "updatedAt": "2026-03-22T14:46:31.666Z",
             "nearestMunicipality": "Brusimpiano (VA)",
             "nearestMunicipalityDistanceKm": 1.9,
             "sp95PriceEur": 1.814,
@@ -25224,7 +25210,7 @@
             "lat": 45.972068975787,
             "lng": 8.86726121879764,
             "sp95PriceChf": 1.66,
-            "updatedAt": "2026-03-21T08:03:32.380Z",
+            "updatedAt": "2026-03-22T14:49:20.523Z",
             "nearestMunicipality": "Lavena Ponte Tresa (VA)",
             "nearestMunicipalityDistanceKm": 1.3,
             "sp95PriceEur": 1.825,
@@ -25353,7 +25339,7 @@
             "lat": 45.97698951091755,
             "lng": 8.874521781054243,
             "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-15T18:07:48.450Z",
+            "updatedAt": "2026-03-22T14:46:31.666Z",
             "nearestMunicipality": "Brusimpiano (VA)",
             "nearestMunicipalityDistanceKm": 1.9,
             "sp95PriceEur": 1.814,
@@ -25443,7 +25429,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 10,
+        "optionCount": 11,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -25495,7 +25481,7 @@
             "lat": 45.97698951091755,
             "lng": 8.874521781054243,
             "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-15T18:07:48.450Z",
+            "updatedAt": "2026-03-22T14:46:31.666Z",
             "nearestMunicipality": "Brusimpiano (VA)",
             "nearestMunicipalityDistanceKm": 1.9,
             "sp95PriceEur": 1.814,
@@ -25509,7 +25495,7 @@
             "lat": 45.972068975787,
             "lng": 8.86726121879764,
             "sp95PriceChf": 1.66,
-            "updatedAt": "2026-03-21T08:03:32.380Z",
+            "updatedAt": "2026-03-22T14:49:20.523Z",
             "nearestMunicipality": "Lavena Ponte Tresa (VA)",
             "nearestMunicipalityDistanceKm": 1.3,
             "sp95PriceEur": 1.825,
@@ -25677,7 +25663,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 23,
+        "optionCount": 24,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -25729,7 +25715,7 @@
             "lat": 45.97698951091755,
             "lng": 8.874521781054243,
             "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-15T18:07:48.450Z",
+            "updatedAt": "2026-03-22T14:46:31.666Z",
             "nearestMunicipality": "Brusimpiano (VA)",
             "nearestMunicipalityDistanceKm": 1.9,
             "sp95PriceEur": 1.814,
@@ -25743,7 +25729,7 @@
             "lat": 45.972068975787,
             "lng": 8.86726121879764,
             "sp95PriceChf": 1.66,
-            "updatedAt": "2026-03-21T08:03:32.380Z",
+            "updatedAt": "2026-03-22T14:49:20.523Z",
             "nearestMunicipality": "Lavena Ponte Tresa (VA)",
             "nearestMunicipalityDistanceKm": 1.3,
             "sp95PriceEur": 1.825,
@@ -25792,7 +25778,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 90,
+        "optionCount": 91,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -25858,7 +25844,7 @@
             "lat": 45.97698951091755,
             "lng": 8.874521781054243,
             "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-15T18:07:48.450Z",
+            "updatedAt": "2026-03-22T14:46:31.666Z",
             "nearestMunicipality": "Brusimpiano (VA)",
             "nearestMunicipalityDistanceKm": 1.9,
             "sp95PriceEur": 1.814,
@@ -26135,7 +26121,7 @@
             "lat": 45.97698951091755,
             "lng": 8.874521781054243,
             "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-15T18:07:48.450Z",
+            "updatedAt": "2026-03-22T14:46:31.666Z",
             "nearestMunicipality": "Brusimpiano (VA)",
             "nearestMunicipalityDistanceKm": 1.9,
             "sp95PriceEur": 1.814,
@@ -26170,7 +26156,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 79,
+        "optionCount": 80,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -26236,7 +26222,7 @@
             "lat": 45.97698951091755,
             "lng": 8.874521781054243,
             "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-15T18:07:48.450Z",
+            "updatedAt": "2026-03-22T14:46:31.666Z",
             "nearestMunicipality": "Brusimpiano (VA)",
             "nearestMunicipalityDistanceKm": 1.9,
             "sp95PriceEur": 1.814,
@@ -26307,7 +26293,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 76,
+        "optionCount": 77,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -26373,7 +26359,7 @@
             "lat": 45.97698951091755,
             "lng": 8.874521781054243,
             "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-15T18:07:48.450Z",
+            "updatedAt": "2026-03-22T14:46:31.666Z",
             "nearestMunicipality": "Brusimpiano (VA)",
             "nearestMunicipalityDistanceKm": 1.9,
             "sp95PriceEur": 1.814,
@@ -26422,7 +26408,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 109,
+        "optionCount": 110,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -26474,7 +26460,7 @@
             "lat": 45.97698951091755,
             "lng": 8.874521781054243,
             "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-15T18:07:48.450Z",
+            "updatedAt": "2026-03-22T14:46:31.666Z",
             "nearestMunicipality": "Brusimpiano (VA)",
             "nearestMunicipalityDistanceKm": 1.9,
             "sp95PriceEur": 1.814,
@@ -26502,7 +26488,7 @@
             "lat": 45.972068975787,
             "lng": 8.86726121879764,
             "sp95PriceChf": 1.66,
-            "updatedAt": "2026-03-21T08:03:32.380Z",
+            "updatedAt": "2026-03-22T14:49:20.523Z",
             "nearestMunicipality": "Lavena Ponte Tresa (VA)",
             "nearestMunicipalityDistanceKm": 1.3,
             "sp95PriceEur": 1.825,
@@ -26581,7 +26567,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 48,
+        "optionCount": 49,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -26647,7 +26633,7 @@
             "lat": 45.97698951091755,
             "lng": 8.874521781054243,
             "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-15T18:07:48.450Z",
+            "updatedAt": "2026-03-22T14:46:31.666Z",
             "nearestMunicipality": "Brusimpiano (VA)",
             "nearestMunicipalityDistanceKm": 1.9,
             "sp95PriceEur": 1.814,
@@ -26661,7 +26647,7 @@
             "lat": 45.972068975787,
             "lng": 8.86726121879764,
             "sp95PriceChf": 1.66,
-            "updatedAt": "2026-03-21T08:03:32.380Z",
+            "updatedAt": "2026-03-22T14:49:20.523Z",
             "nearestMunicipality": "Lavena Ponte Tresa (VA)",
             "nearestMunicipalityDistanceKm": 1.3,
             "sp95PriceEur": 1.825,
@@ -26696,7 +26682,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 46,
+        "optionCount": 47,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -26762,7 +26748,7 @@
             "lat": 45.97698951091755,
             "lng": 8.874521781054243,
             "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-15T18:07:48.450Z",
+            "updatedAt": "2026-03-22T14:46:31.666Z",
             "nearestMunicipality": "Brusimpiano (VA)",
             "nearestMunicipalityDistanceKm": 1.9,
             "sp95PriceEur": 1.814,
@@ -26776,7 +26762,7 @@
             "lat": 45.972068975787,
             "lng": 8.86726121879764,
             "sp95PriceChf": 1.66,
-            "updatedAt": "2026-03-21T08:03:32.380Z",
+            "updatedAt": "2026-03-22T14:49:20.523Z",
             "nearestMunicipality": "Lavena Ponte Tresa (VA)",
             "nearestMunicipalityDistanceKm": 1.3,
             "sp95PriceEur": 1.825,
@@ -26959,7 +26945,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 102,
+        "optionCount": 103,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -27025,7 +27011,7 @@
             "lat": 45.97698951091755,
             "lng": 8.874521781054243,
             "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-15T18:07:48.450Z",
+            "updatedAt": "2026-03-22T14:46:31.666Z",
             "nearestMunicipality": "Brusimpiano (VA)",
             "nearestMunicipalityDistanceKm": 1.9,
             "sp95PriceEur": 1.814,
@@ -27074,7 +27060,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 56,
+        "optionCount": 57,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -27140,7 +27126,7 @@
             "lat": 45.97698951091755,
             "lng": 8.874521781054243,
             "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-15T18:07:48.450Z",
+            "updatedAt": "2026-03-22T14:46:31.666Z",
             "nearestMunicipality": "Brusimpiano (VA)",
             "nearestMunicipalityDistanceKm": 1.9,
             "sp95PriceEur": 1.814,
@@ -27154,7 +27140,7 @@
             "lat": 45.972068975787,
             "lng": 8.86726121879764,
             "sp95PriceChf": 1.66,
-            "updatedAt": "2026-03-21T08:03:32.380Z",
+            "updatedAt": "2026-03-22T14:49:20.523Z",
             "nearestMunicipality": "Lavena Ponte Tresa (VA)",
             "nearestMunicipalityDistanceKm": 1.3,
             "sp95PriceEur": 1.825,
@@ -27253,7 +27239,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 72,
+        "optionCount": 73,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -27319,7 +27305,7 @@
             "lat": 45.97698951091755,
             "lng": 8.874521781054243,
             "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-15T18:07:48.450Z",
+            "updatedAt": "2026-03-22T14:46:31.666Z",
             "nearestMunicipality": "Brusimpiano (VA)",
             "nearestMunicipalityDistanceKm": 1.9,
             "sp95PriceEur": 1.814,
@@ -27976,7 +27962,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 15,
+        "optionCount": 16,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -28028,7 +28014,7 @@
             "lat": 45.97698951091755,
             "lng": 8.874521781054243,
             "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-15T18:07:48.450Z",
+            "updatedAt": "2026-03-22T14:46:31.666Z",
             "nearestMunicipality": "Brusimpiano (VA)",
             "nearestMunicipalityDistanceKm": 1.9,
             "sp95PriceEur": 1.814,
@@ -28042,7 +28028,7 @@
             "lat": 45.972068975787,
             "lng": 8.86726121879764,
             "sp95PriceChf": 1.66,
-            "updatedAt": "2026-03-21T08:03:32.380Z",
+            "updatedAt": "2026-03-22T14:49:20.523Z",
             "nearestMunicipality": "Lavena Ponte Tresa (VA)",
             "nearestMunicipalityDistanceKm": 1.3,
             "sp95PriceEur": 1.825,
@@ -28146,7 +28132,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 28,
+        "optionCount": 27,
         "cheapestStation": {
           "id": "2iMRCPqDCHHpLcBX8dCN",
           "name": "Agrola Melano",
@@ -28294,7 +28280,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 8,
+        "optionCount": 9,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -28346,7 +28332,7 @@
             "lat": 45.97698951091755,
             "lng": 8.874521781054243,
             "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-15T18:07:48.450Z",
+            "updatedAt": "2026-03-22T14:46:31.666Z",
             "nearestMunicipality": "Brusimpiano (VA)",
             "nearestMunicipalityDistanceKm": 1.9,
             "sp95PriceEur": 1.814,
@@ -28360,7 +28346,7 @@
             "lat": 45.972068975787,
             "lng": 8.86726121879764,
             "sp95PriceChf": 1.66,
-            "updatedAt": "2026-03-21T08:03:32.380Z",
+            "updatedAt": "2026-03-22T14:49:20.523Z",
             "nearestMunicipality": "Lavena Ponte Tresa (VA)",
             "nearestMunicipalityDistanceKm": 1.3,
             "sp95PriceEur": 1.825,
@@ -28495,7 +28481,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 67,
+        "optionCount": 68,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -28547,7 +28533,7 @@
             "lat": 45.97698951091755,
             "lng": 8.874521781054243,
             "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-15T18:07:48.450Z",
+            "updatedAt": "2026-03-22T14:46:31.666Z",
             "nearestMunicipality": "Brusimpiano (VA)",
             "nearestMunicipalityDistanceKm": 1.9,
             "sp95PriceEur": 1.814,
@@ -28561,7 +28547,7 @@
             "lat": 45.972068975787,
             "lng": 8.86726121879764,
             "sp95PriceChf": 1.66,
-            "updatedAt": "2026-03-21T08:03:32.380Z",
+            "updatedAt": "2026-03-22T14:49:20.523Z",
             "nearestMunicipality": "Lavena Ponte Tresa (VA)",
             "nearestMunicipalityDistanceKm": 1.3,
             "sp95PriceEur": 1.825,
@@ -28771,7 +28757,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 24,
+        "optionCount": 23,
         "cheapestStation": {
           "id": "2cyTEGqZPuSVhtpjGqzf",
           "name": "Silo Shop",
@@ -28830,20 +28816,6 @@
             "distanceKm": 13.4
           },
           {
-            "id": "4rZcVZZyMdcg9utPrsXv",
-            "name": "GARAGE 64",
-            "brand": "UNDEFINED",
-            "address": "Via Emilio Bossi 6, 6830 Chiasso",
-            "lat": 45.834176890224306,
-            "lng": 9.031274331501768,
-            "sp95PriceChf": 1.73,
-            "updatedAt": "2026-02-20T14:24:22.760Z",
-            "nearestMunicipality": "Maslianico (CO)",
-            "nearestMunicipalityDistanceKm": 1.6,
-            "sp95PriceEur": 1.902,
-            "distanceKm": 17
-          },
-          {
             "id": "EDsfoWTW5mhInO152CPP",
             "name": "Eni Chiasso",
             "brand": "ENI",
@@ -28856,6 +28828,20 @@
             "nearestMunicipalityDistanceKm": 1.2,
             "sp95PriceEur": 1.902,
             "distanceKm": 17.4
+          },
+          {
+            "id": "IGIlo1f7hrzC174Fqgmt",
+            "name": "TAMOIL Balerna (San Gottardo)",
+            "brand": "TAMOIL",
+            "address": "San Gottardo 12, 6828 Balerna",
+            "lat": 45.840241,
+            "lng": 9.018873,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-03-16T08:40:53.906Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 2.2,
+            "sp95PriceEur": 1.902,
+            "distanceKm": 16.7
           }
         ],
         "minPriceChf": 1.65,
@@ -28886,7 +28872,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 75,
+        "optionCount": 76,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -28952,7 +28938,7 @@
             "lat": 45.97698951091755,
             "lng": 8.874521781054243,
             "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-15T18:07:48.450Z",
+            "updatedAt": "2026-03-22T14:46:31.666Z",
             "nearestMunicipality": "Brusimpiano (VA)",
             "nearestMunicipalityDistanceKm": 1.9,
             "sp95PriceEur": 1.814,
@@ -29168,7 +29154,7 @@
             "lat": 45.97698951091755,
             "lng": 8.874521781054243,
             "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-15T18:07:48.450Z",
+            "updatedAt": "2026-03-22T14:46:31.666Z",
             "nearestMunicipality": "Brusimpiano (VA)",
             "nearestMunicipalityDistanceKm": 1.9,
             "sp95PriceEur": 1.814,
@@ -29378,7 +29364,7 @@
             "lat": 45.97698951091755,
             "lng": 8.874521781054243,
             "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-15T18:07:48.450Z",
+            "updatedAt": "2026-03-22T14:46:31.666Z",
             "nearestMunicipality": "Brusimpiano (VA)",
             "nearestMunicipalityDistanceKm": 1.9,
             "sp95PriceEur": 1.814,
@@ -29636,7 +29622,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 20,
+        "optionCount": 19,
         "cheapestStation": {
           "id": "2cyTEGqZPuSVhtpjGqzf",
           "name": "Silo Shop",
@@ -29695,20 +29681,6 @@
             "distanceKm": 16.7
           },
           {
-            "id": "4rZcVZZyMdcg9utPrsXv",
-            "name": "GARAGE 64",
-            "brand": "UNDEFINED",
-            "address": "Via Emilio Bossi 6, 6830 Chiasso",
-            "lat": 45.834176890224306,
-            "lng": 9.031274331501768,
-            "sp95PriceChf": 1.73,
-            "updatedAt": "2026-02-20T14:24:22.760Z",
-            "nearestMunicipality": "Maslianico (CO)",
-            "nearestMunicipalityDistanceKm": 1.6,
-            "sp95PriceEur": 1.902,
-            "distanceKm": 18.9
-          },
-          {
             "id": "EDsfoWTW5mhInO152CPP",
             "name": "Eni Chiasso",
             "brand": "ENI",
@@ -29721,6 +29693,20 @@
             "nearestMunicipalityDistanceKm": 1.2,
             "sp95PriceEur": 1.902,
             "distanceKm": 19.3
+          },
+          {
+            "id": "IGIlo1f7hrzC174Fqgmt",
+            "name": "TAMOIL Balerna (San Gottardo)",
+            "brand": "TAMOIL",
+            "address": "San Gottardo 12, 6828 Balerna",
+            "lat": 45.840241,
+            "lng": 9.018873,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-03-16T08:40:53.906Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 2.2,
+            "sp95PriceEur": 1.902,
+            "distanceKm": 18.8
           }
         ],
         "minPriceChf": 1.65,
@@ -29751,7 +29737,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 28,
+        "optionCount": 27,
         "cheapestStation": {
           "id": "2iMRCPqDCHHpLcBX8dCN",
           "name": "Agrola Melano",
@@ -29888,7 +29874,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 81,
+        "optionCount": 82,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -29940,7 +29926,7 @@
             "lat": 45.97698951091755,
             "lng": 8.874521781054243,
             "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-15T18:07:48.450Z",
+            "updatedAt": "2026-03-22T14:46:31.666Z",
             "nearestMunicipality": "Brusimpiano (VA)",
             "nearestMunicipalityDistanceKm": 1.9,
             "sp95PriceEur": 1.814,
@@ -29968,7 +29954,7 @@
             "lat": 45.972068975787,
             "lng": 8.86726121879764,
             "sp95PriceChf": 1.66,
-            "updatedAt": "2026-03-21T08:03:32.380Z",
+            "updatedAt": "2026-03-22T14:49:20.523Z",
             "nearestMunicipality": "Lavena Ponte Tresa (VA)",
             "nearestMunicipalityDistanceKm": 1.3,
             "sp95PriceEur": 1.825,
@@ -30003,7 +29989,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 36,
+        "optionCount": 37,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -30069,7 +30055,7 @@
             "lat": 45.97698951091755,
             "lng": 8.874521781054243,
             "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-15T18:07:48.450Z",
+            "updatedAt": "2026-03-22T14:46:31.666Z",
             "nearestMunicipality": "Brusimpiano (VA)",
             "nearestMunicipalityDistanceKm": 1.9,
             "sp95PriceEur": 1.814,
@@ -30118,7 +30104,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 103,
+        "optionCount": 104,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -30170,7 +30156,7 @@
             "lat": 45.97698951091755,
             "lng": 8.874521781054243,
             "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-15T18:07:48.450Z",
+            "updatedAt": "2026-03-22T14:46:31.666Z",
             "nearestMunicipality": "Brusimpiano (VA)",
             "nearestMunicipalityDistanceKm": 1.9,
             "sp95PriceEur": 1.814,
@@ -30184,7 +30170,7 @@
             "lat": 45.972068975787,
             "lng": 8.86726121879764,
             "sp95PriceChf": 1.66,
-            "updatedAt": "2026-03-21T08:03:32.380Z",
+            "updatedAt": "2026-03-22T14:49:20.523Z",
             "nearestMunicipality": "Lavena Ponte Tresa (VA)",
             "nearestMunicipalityDistanceKm": 1.3,
             "sp95PriceEur": 1.825,
@@ -30351,7 +30337,7 @@
             "lat": 45.97698951091755,
             "lng": 8.874521781054243,
             "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-15T18:07:48.450Z",
+            "updatedAt": "2026-03-22T14:46:31.666Z",
             "nearestMunicipality": "Brusimpiano (VA)",
             "nearestMunicipalityDistanceKm": 1.9,
             "sp95PriceEur": 1.814,
@@ -30447,7 +30433,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 87,
+        "optionCount": 88,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -30527,7 +30513,7 @@
             "lat": 45.97698951091755,
             "lng": 8.874521781054243,
             "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-15T18:07:48.450Z",
+            "updatedAt": "2026-03-22T14:46:31.666Z",
             "nearestMunicipality": "Brusimpiano (VA)",
             "nearestMunicipalityDistanceKm": 1.9,
             "sp95PriceEur": 1.814,
@@ -30642,7 +30628,7 @@
             "lat": 45.97698951091755,
             "lng": 8.874521781054243,
             "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-15T18:07:48.450Z",
+            "updatedAt": "2026-03-22T14:46:31.666Z",
             "nearestMunicipality": "Brusimpiano (VA)",
             "nearestMunicipalityDistanceKm": 1.9,
             "sp95PriceEur": 1.814,
@@ -30677,7 +30663,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 70,
+        "optionCount": 71,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -30743,7 +30729,7 @@
             "lat": 45.97698951091755,
             "lng": 8.874521781054243,
             "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-15T18:07:48.450Z",
+            "updatedAt": "2026-03-22T14:46:31.666Z",
             "nearestMunicipality": "Brusimpiano (VA)",
             "nearestMunicipalityDistanceKm": 1.9,
             "sp95PriceEur": 1.814,
@@ -30845,7 +30831,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 68,
+        "optionCount": 69,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -30911,7 +30897,7 @@
             "lat": 45.97698951091755,
             "lng": 8.874521781054243,
             "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-15T18:07:48.450Z",
+            "updatedAt": "2026-03-22T14:46:31.666Z",
             "nearestMunicipality": "Brusimpiano (VA)",
             "nearestMunicipalityDistanceKm": 1.9,
             "sp95PriceEur": 1.814,
@@ -30960,7 +30946,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 75,
+        "optionCount": 76,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -31026,7 +31012,7 @@
             "lat": 45.97698951091755,
             "lng": 8.874521781054243,
             "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-15T18:07:48.450Z",
+            "updatedAt": "2026-03-22T14:46:31.666Z",
             "nearestMunicipality": "Brusimpiano (VA)",
             "nearestMunicipalityDistanceKm": 1.9,
             "sp95PriceEur": 1.814,
@@ -31139,7 +31125,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 25,
+        "optionCount": 24,
         "cheapestStation": {
           "id": "2cyTEGqZPuSVhtpjGqzf",
           "name": "Silo Shop",
@@ -31198,20 +31184,6 @@
             "distanceKm": 12.3
           },
           {
-            "id": "4rZcVZZyMdcg9utPrsXv",
-            "name": "GARAGE 64",
-            "brand": "UNDEFINED",
-            "address": "Via Emilio Bossi 6, 6830 Chiasso",
-            "lat": 45.834176890224306,
-            "lng": 9.031274331501768,
-            "sp95PriceChf": 1.73,
-            "updatedAt": "2026-02-20T14:24:22.760Z",
-            "nearestMunicipality": "Maslianico (CO)",
-            "nearestMunicipalityDistanceKm": 1.6,
-            "sp95PriceEur": 1.902,
-            "distanceKm": 17.3
-          },
-          {
             "id": "EDsfoWTW5mhInO152CPP",
             "name": "Eni Chiasso",
             "brand": "ENI",
@@ -31224,6 +31196,20 @@
             "nearestMunicipalityDistanceKm": 1.2,
             "sp95PriceEur": 1.902,
             "distanceKm": 17.7
+          },
+          {
+            "id": "IGIlo1f7hrzC174Fqgmt",
+            "name": "TAMOIL Balerna (San Gottardo)",
+            "brand": "TAMOIL",
+            "address": "San Gottardo 12, 6828 Balerna",
+            "lat": 45.840241,
+            "lng": 9.018873,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-03-16T08:40:53.906Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 2.2,
+            "sp95PriceEur": 1.902,
+            "distanceKm": 16.8
           }
         ],
         "minPriceChf": 1.65,
@@ -31422,7 +31408,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 25,
+        "optionCount": 26,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -31474,7 +31460,7 @@
             "lat": 45.97698951091755,
             "lng": 8.874521781054243,
             "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-15T18:07:48.450Z",
+            "updatedAt": "2026-03-22T14:46:31.666Z",
             "nearestMunicipality": "Brusimpiano (VA)",
             "nearestMunicipalityDistanceKm": 1.9,
             "sp95PriceEur": 1.814,
@@ -31488,7 +31474,7 @@
             "lat": 45.972068975787,
             "lng": 8.86726121879764,
             "sp95PriceChf": 1.66,
-            "updatedAt": "2026-03-21T08:03:32.380Z",
+            "updatedAt": "2026-03-22T14:49:20.523Z",
             "nearestMunicipality": "Lavena Ponte Tresa (VA)",
             "nearestMunicipalityDistanceKm": 1.3,
             "sp95PriceEur": 1.825,
@@ -31617,7 +31603,7 @@
             "lat": 45.97698951091755,
             "lng": 8.874521781054243,
             "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-15T18:07:48.450Z",
+            "updatedAt": "2026-03-22T14:46:31.666Z",
             "nearestMunicipality": "Brusimpiano (VA)",
             "nearestMunicipalityDistanceKm": 1.9,
             "sp95PriceEur": 1.814,
@@ -31685,7 +31671,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 30,
+        "optionCount": 31,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -31737,7 +31723,7 @@
             "lat": 45.97698951091755,
             "lng": 8.874521781054243,
             "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-15T18:07:48.450Z",
+            "updatedAt": "2026-03-22T14:46:31.666Z",
             "nearestMunicipality": "Brusimpiano (VA)",
             "nearestMunicipalityDistanceKm": 1.9,
             "sp95PriceEur": 1.814,
@@ -31751,7 +31737,7 @@
             "lat": 45.972068975787,
             "lng": 8.86726121879764,
             "sp95PriceChf": 1.66,
-            "updatedAt": "2026-03-21T08:03:32.380Z",
+            "updatedAt": "2026-03-22T14:49:20.523Z",
             "nearestMunicipality": "Lavena Ponte Tresa (VA)",
             "nearestMunicipalityDistanceKm": 1.3,
             "sp95PriceEur": 1.825,
@@ -31800,7 +31786,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 69,
+        "optionCount": 70,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -31866,7 +31852,7 @@
             "lat": 45.97698951091755,
             "lng": 8.874521781054243,
             "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-15T18:07:48.450Z",
+            "updatedAt": "2026-03-22T14:46:31.666Z",
             "nearestMunicipality": "Brusimpiano (VA)",
             "nearestMunicipalityDistanceKm": 1.9,
             "sp95PriceEur": 1.814,
@@ -31995,7 +31981,7 @@
             "lat": 45.97698951091755,
             "lng": 8.874521781054243,
             "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-15T18:07:48.450Z",
+            "updatedAt": "2026-03-22T14:46:31.666Z",
             "nearestMunicipality": "Brusimpiano (VA)",
             "nearestMunicipalityDistanceKm": 1.9,
             "sp95PriceEur": 1.814,
@@ -32931,7 +32917,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 23,
+        "optionCount": 22,
         "cheapestStation": {
           "id": "2cyTEGqZPuSVhtpjGqzf",
           "name": "Silo Shop",
@@ -32990,20 +32976,6 @@
             "distanceKm": 15.4
           },
           {
-            "id": "4rZcVZZyMdcg9utPrsXv",
-            "name": "GARAGE 64",
-            "brand": "UNDEFINED",
-            "address": "Via Emilio Bossi 6, 6830 Chiasso",
-            "lat": 45.834176890224306,
-            "lng": 9.031274331501768,
-            "sp95PriceChf": 1.73,
-            "updatedAt": "2026-02-20T14:24:22.760Z",
-            "nearestMunicipality": "Maslianico (CO)",
-            "nearestMunicipalityDistanceKm": 1.6,
-            "sp95PriceEur": 1.902,
-            "distanceKm": 16.8
-          },
-          {
             "id": "EDsfoWTW5mhInO152CPP",
             "name": "Eni Chiasso",
             "brand": "ENI",
@@ -33016,6 +32988,20 @@
             "nearestMunicipalityDistanceKm": 1.2,
             "sp95PriceEur": 1.902,
             "distanceKm": 17.3
+          },
+          {
+            "id": "IGIlo1f7hrzC174Fqgmt",
+            "name": "TAMOIL Balerna (San Gottardo)",
+            "brand": "TAMOIL",
+            "address": "San Gottardo 12, 6828 Balerna",
+            "lat": 45.840241,
+            "lng": 9.018873,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-03-16T08:40:53.906Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 2.2,
+            "sp95PriceEur": 1.902,
+            "distanceKm": 16.8
           }
         ],
         "minPriceChf": 1.65,
@@ -33110,7 +33096,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 98,
+        "optionCount": 99,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -33162,7 +33148,7 @@
             "lat": 45.97698951091755,
             "lng": 8.874521781054243,
             "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-15T18:07:48.450Z",
+            "updatedAt": "2026-03-22T14:46:31.666Z",
             "nearestMunicipality": "Brusimpiano (VA)",
             "nearestMunicipalityDistanceKm": 1.9,
             "sp95PriceEur": 1.814,
@@ -33176,7 +33162,7 @@
             "lat": 45.972068975787,
             "lng": 8.86726121879764,
             "sp95PriceChf": 1.66,
-            "updatedAt": "2026-03-21T08:03:32.380Z",
+            "updatedAt": "2026-03-22T14:49:20.523Z",
             "nearestMunicipality": "Lavena Ponte Tresa (VA)",
             "nearestMunicipalityDistanceKm": 1.3,
             "sp95PriceEur": 1.825,
@@ -33338,7 +33324,7 @@
             "lat": 45.97698951091755,
             "lng": 8.874521781054243,
             "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-15T18:07:48.450Z",
+            "updatedAt": "2026-03-22T14:46:31.666Z",
             "nearestMunicipality": "Brusimpiano (VA)",
             "nearestMunicipalityDistanceKm": 1.9,
             "sp95PriceEur": 1.814,
@@ -33985,7 +33971,7 @@
             "lat": 45.97698951091755,
             "lng": 8.874521781054243,
             "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-15T18:07:48.450Z",
+            "updatedAt": "2026-03-22T14:46:31.666Z",
             "nearestMunicipality": "Brusimpiano (VA)",
             "nearestMunicipalityDistanceKm": 1.9,
             "sp95PriceEur": 1.814,
@@ -34020,7 +34006,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 28,
+        "optionCount": 27,
         "cheapestStation": {
           "id": "2iMRCPqDCHHpLcBX8dCN",
           "name": "Agrola Melano",
@@ -34179,7 +34165,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 24,
+        "optionCount": 23,
         "cheapestStation": {
           "id": "2cyTEGqZPuSVhtpjGqzf",
           "name": "Silo Shop",
@@ -34238,20 +34224,6 @@
             "distanceKm": 12.5
           },
           {
-            "id": "4rZcVZZyMdcg9utPrsXv",
-            "name": "GARAGE 64",
-            "brand": "UNDEFINED",
-            "address": "Via Emilio Bossi 6, 6830 Chiasso",
-            "lat": 45.834176890224306,
-            "lng": 9.031274331501768,
-            "sp95PriceChf": 1.73,
-            "updatedAt": "2026-02-20T14:24:22.760Z",
-            "nearestMunicipality": "Maslianico (CO)",
-            "nearestMunicipalityDistanceKm": 1.6,
-            "sp95PriceEur": 1.902,
-            "distanceKm": 14.7
-          },
-          {
             "id": "EDsfoWTW5mhInO152CPP",
             "name": "Eni Chiasso",
             "brand": "ENI",
@@ -34264,6 +34236,20 @@
             "nearestMunicipalityDistanceKm": 1.2,
             "sp95PriceEur": 1.902,
             "distanceKm": 15.1
+          },
+          {
+            "id": "IGIlo1f7hrzC174Fqgmt",
+            "name": "TAMOIL Balerna (San Gottardo)",
+            "brand": "TAMOIL",
+            "address": "San Gottardo 12, 6828 Balerna",
+            "lat": 45.840241,
+            "lng": 9.018873,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-03-16T08:40:53.906Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 2.2,
+            "sp95PriceEur": 1.902,
+            "distanceKm": 14.5
           }
         ],
         "minPriceChf": 1.65,
@@ -34294,7 +34280,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 25,
+        "optionCount": 24,
         "cheapestStation": {
           "id": "2cyTEGqZPuSVhtpjGqzf",
           "name": "Silo Shop",
@@ -34353,20 +34339,6 @@
             "distanceKm": 11
           },
           {
-            "id": "4rZcVZZyMdcg9utPrsXv",
-            "name": "GARAGE 64",
-            "brand": "UNDEFINED",
-            "address": "Via Emilio Bossi 6, 6830 Chiasso",
-            "lat": 45.834176890224306,
-            "lng": 9.031274331501768,
-            "sp95PriceChf": 1.73,
-            "updatedAt": "2026-02-20T14:24:22.760Z",
-            "nearestMunicipality": "Maslianico (CO)",
-            "nearestMunicipalityDistanceKm": 1.6,
-            "sp95PriceEur": 1.902,
-            "distanceKm": 13.4
-          },
-          {
             "id": "EDsfoWTW5mhInO152CPP",
             "name": "Eni Chiasso",
             "brand": "ENI",
@@ -34379,6 +34351,20 @@
             "nearestMunicipalityDistanceKm": 1.2,
             "sp95PriceEur": 1.902,
             "distanceKm": 13.9
+          },
+          {
+            "id": "IGIlo1f7hrzC174Fqgmt",
+            "name": "TAMOIL Balerna (San Gottardo)",
+            "brand": "TAMOIL",
+            "address": "San Gottardo 12, 6828 Balerna",
+            "lat": 45.840241,
+            "lng": 9.018873,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-03-16T08:40:53.906Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 2.2,
+            "sp95PriceEur": 1.902,
+            "distanceKm": 13.3
           }
         ],
         "minPriceChf": 1.65,
@@ -34630,7 +34616,7 @@
             "lat": 45.97698951091755,
             "lng": 8.874521781054243,
             "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-15T18:07:48.450Z",
+            "updatedAt": "2026-03-22T14:46:31.666Z",
             "nearestMunicipality": "Brusimpiano (VA)",
             "nearestMunicipalityDistanceKm": 1.9,
             "sp95PriceEur": 1.814,
@@ -35434,7 +35420,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 34,
+        "optionCount": 35,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -35486,7 +35472,7 @@
             "lat": 45.97698951091755,
             "lng": 8.874521781054243,
             "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-15T18:07:48.450Z",
+            "updatedAt": "2026-03-22T14:46:31.666Z",
             "nearestMunicipality": "Brusimpiano (VA)",
             "nearestMunicipalityDistanceKm": 1.9,
             "sp95PriceEur": 1.814,
@@ -35500,7 +35486,7 @@
             "lat": 45.972068975787,
             "lng": 8.86726121879764,
             "sp95PriceChf": 1.66,
-            "updatedAt": "2026-03-21T08:03:32.380Z",
+            "updatedAt": "2026-03-22T14:49:20.523Z",
             "nearestMunicipality": "Lavena Ponte Tresa (VA)",
             "nearestMunicipalityDistanceKm": 1.3,
             "sp95PriceEur": 1.825,
@@ -35582,7 +35568,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 65,
+        "optionCount": 66,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -35634,7 +35620,7 @@
             "lat": 45.97698951091755,
             "lng": 8.874521781054243,
             "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-15T18:07:48.450Z",
+            "updatedAt": "2026-03-22T14:46:31.666Z",
             "nearestMunicipality": "Brusimpiano (VA)",
             "nearestMunicipalityDistanceKm": 1.9,
             "sp95PriceEur": 1.814,
@@ -35648,7 +35634,7 @@
             "lat": 45.972068975787,
             "lng": 8.86726121879764,
             "sp95PriceChf": 1.66,
-            "updatedAt": "2026-03-21T08:03:32.380Z",
+            "updatedAt": "2026-03-22T14:49:20.523Z",
             "nearestMunicipality": "Lavena Ponte Tresa (VA)",
             "nearestMunicipalityDistanceKm": 1.3,
             "sp95PriceEur": 1.825,
@@ -37406,7 +37392,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 13,
+        "optionCount": 14,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -37458,7 +37444,7 @@
             "lat": 45.97698951091755,
             "lng": 8.874521781054243,
             "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-15T18:07:48.450Z",
+            "updatedAt": "2026-03-22T14:46:31.666Z",
             "nearestMunicipality": "Brusimpiano (VA)",
             "nearestMunicipalityDistanceKm": 1.9,
             "sp95PriceEur": 1.814,
@@ -37472,7 +37458,7 @@
             "lat": 45.972068975787,
             "lng": 8.86726121879764,
             "sp95PriceChf": 1.66,
-            "updatedAt": "2026-03-21T08:03:32.380Z",
+            "updatedAt": "2026-03-22T14:49:20.523Z",
             "nearestMunicipality": "Lavena Ponte Tresa (VA)",
             "nearestMunicipalityDistanceKm": 1.3,
             "sp95PriceEur": 1.825,
@@ -38338,7 +38324,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 26,
+        "optionCount": 27,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -38390,7 +38376,7 @@
             "lat": 45.97698951091755,
             "lng": 8.874521781054243,
             "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-15T18:07:48.450Z",
+            "updatedAt": "2026-03-22T14:46:31.666Z",
             "nearestMunicipality": "Brusimpiano (VA)",
             "nearestMunicipalityDistanceKm": 1.9,
             "sp95PriceEur": 1.814,
@@ -38404,7 +38390,7 @@
             "lat": 45.972068975787,
             "lng": 8.86726121879764,
             "sp95PriceChf": 1.66,
-            "updatedAt": "2026-03-21T08:03:32.380Z",
+            "updatedAt": "2026-03-22T14:49:20.523Z",
             "nearestMunicipality": "Lavena Ponte Tresa (VA)",
             "nearestMunicipalityDistanceKm": 1.3,
             "sp95PriceEur": 1.825,
@@ -43263,7 +43249,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 10,
+        "optionCount": 9,
         "cheapestStation": {
           "id": "2cyTEGqZPuSVhtpjGqzf",
           "name": "Silo Shop",
@@ -43291,20 +43277,6 @@
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
             "sp95PriceEur": 1.814,
-            "distanceKm": 19.7
-          },
-          {
-            "id": "4rZcVZZyMdcg9utPrsXv",
-            "name": "GARAGE 64",
-            "brand": "UNDEFINED",
-            "address": "Via Emilio Bossi 6, 6830 Chiasso",
-            "lat": 45.834176890224306,
-            "lng": 9.031274331501768,
-            "sp95PriceChf": 1.73,
-            "updatedAt": "2026-02-20T14:24:22.760Z",
-            "nearestMunicipality": "Maslianico (CO)",
-            "nearestMunicipalityDistanceKm": 1.6,
-            "sp95PriceEur": 1.902,
             "distanceKm": 19.7
           },
           {
@@ -43346,6 +43318,20 @@
             "updatedAt": "2026-03-18T11:42:00.621Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.2,
+            "sp95PriceEur": 1.902,
+            "distanceKm": 19.4
+          },
+          {
+            "id": "zZw4XjLK62YAQrdkYEl8",
+            "name": "Eni Chiasso",
+            "brand": "ENI",
+            "address": "Via Comacini 6, 6830 Chiasso",
+            "lat": 45.833713,
+            "lng": 9.034569399999999,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-03-18T12:07:45.078Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 1.4,
             "sp95PriceEur": 1.902,
             "distanceKm": 19.4
           }
@@ -48849,7 +48835,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 13,
+        "optionCount": 12,
         "cheapestStation": {
           "id": "2cyTEGqZPuSVhtpjGqzf",
           "name": "Silo Shop",
@@ -48894,20 +48880,6 @@
             "distanceKm": 19.8
           },
           {
-            "id": "4rZcVZZyMdcg9utPrsXv",
-            "name": "GARAGE 64",
-            "brand": "UNDEFINED",
-            "address": "Via Emilio Bossi 6, 6830 Chiasso",
-            "lat": 45.834176890224306,
-            "lng": 9.031274331501768,
-            "sp95PriceChf": 1.73,
-            "updatedAt": "2026-02-20T14:24:22.760Z",
-            "nearestMunicipality": "Maslianico (CO)",
-            "nearestMunicipalityDistanceKm": 1.6,
-            "sp95PriceEur": 1.902,
-            "distanceKm": 18.5
-          },
-          {
             "id": "EDsfoWTW5mhInO152CPP",
             "name": "Eni Chiasso",
             "brand": "ENI",
@@ -48934,6 +48906,20 @@
             "nearestMunicipalityDistanceKm": 2.2,
             "sp95PriceEur": 1.902,
             "distanceKm": 19.4
+          },
+          {
+            "id": "JSwIQAHxBJkmBFEgWvIF",
+            "name": "Piccadilly SA - Socar, Coop",
+            "brand": "SOCAR",
+            "address": "Via Maestri Comacini 10, 6830 Chiasso",
+            "lat": 45.83465592,
+            "lng": 9.035368517,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-03-19T10:20:19.034Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 1.3,
+            "sp95PriceEur": 1.902,
+            "distanceKm": 18.5
           }
         ],
         "minPriceChf": 1.65,
@@ -49019,7 +49005,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 13,
+        "optionCount": 12,
         "cheapestStation": {
           "id": "2cyTEGqZPuSVhtpjGqzf",
           "name": "Silo Shop",
@@ -49064,20 +49050,6 @@
             "distanceKm": 20
           },
           {
-            "id": "4rZcVZZyMdcg9utPrsXv",
-            "name": "GARAGE 64",
-            "brand": "UNDEFINED",
-            "address": "Via Emilio Bossi 6, 6830 Chiasso",
-            "lat": 45.834176890224306,
-            "lng": 9.031274331501768,
-            "sp95PriceChf": 1.73,
-            "updatedAt": "2026-02-20T14:24:22.760Z",
-            "nearestMunicipality": "Maslianico (CO)",
-            "nearestMunicipalityDistanceKm": 1.6,
-            "sp95PriceEur": 1.902,
-            "distanceKm": 18.6
-          },
-          {
             "id": "EDsfoWTW5mhInO152CPP",
             "name": "Eni Chiasso",
             "brand": "ENI",
@@ -49104,6 +49076,20 @@
             "nearestMunicipalityDistanceKm": 2.2,
             "sp95PriceEur": 1.902,
             "distanceKm": 19.6
+          },
+          {
+            "id": "JSwIQAHxBJkmBFEgWvIF",
+            "name": "Piccadilly SA - Socar, Coop",
+            "brand": "SOCAR",
+            "address": "Via Maestri Comacini 10, 6830 Chiasso",
+            "lat": 45.83465592,
+            "lng": 9.035368517,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-03-19T10:20:19.034Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 1.3,
+            "sp95PriceEur": 1.902,
+            "distanceKm": 18.5
           }
         ],
         "minPriceChf": 1.65,
@@ -49253,7 +49239,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 6,
+        "optionCount": 5,
         "cheapestStation": {
           "id": "2cyTEGqZPuSVhtpjGqzf",
           "name": "Silo Shop",
@@ -49282,20 +49268,6 @@
             "nearestMunicipalityDistanceKm": 1.5,
             "sp95PriceEur": 1.814,
             "distanceKm": 19.5
-          },
-          {
-            "id": "4rZcVZZyMdcg9utPrsXv",
-            "name": "GARAGE 64",
-            "brand": "UNDEFINED",
-            "address": "Via Emilio Bossi 6, 6830 Chiasso",
-            "lat": 45.834176890224306,
-            "lng": 9.031274331501768,
-            "sp95PriceChf": 1.73,
-            "updatedAt": "2026-02-20T14:24:22.760Z",
-            "nearestMunicipality": "Maslianico (CO)",
-            "nearestMunicipalityDistanceKm": 1.6,
-            "sp95PriceEur": 1.902,
-            "distanceKm": 19.4
           },
           {
             "id": "EDsfoWTW5mhInO152CPP",
@@ -49338,6 +49310,20 @@
             "nearestMunicipalityDistanceKm": 1.2,
             "sp95PriceEur": 1.902,
             "distanceKm": 19.5
+          },
+          {
+            "id": "zZw4XjLK62YAQrdkYEl8",
+            "name": "Eni Chiasso",
+            "brand": "ENI",
+            "address": "Via Comacini 6, 6830 Chiasso",
+            "lat": 45.833713,
+            "lng": 9.034569399999999,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-03-18T12:07:45.078Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 1.4,
+            "sp95PriceEur": 1.902,
+            "distanceKm": 19.3
           }
         ],
         "minPriceChf": 1.65,

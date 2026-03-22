@@ -1658,6 +1658,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.ticino-attenti-ai-radar-2026.title': 'Tessin, aufgepasst Radarfallen: Wann und wo Geschwindigkeitskontrollen stattfinden',
     'blog.article.ticino-attenti-ai-radar-2026.excerpt': 'Mobile und semi-stationäre Geschwindigkeitskontrollen im Tessin vom 23. März bis 29. März 2026.',
     'blog.article.ticino-attenti-ai-radar-2026.imageAlt': 'Geschwindigkeitskamera in Ticino',
+    'blog.article.sequestro-stupefacenti-ecuador.title': 'Drei Tonnen Rauschgift beschlagnahmt',
+    'blog.article.sequestro-stupefacenti-ecuador.excerpt': 'Ecuador hat über drei Tonnen Rauschgift auf offener See beschlagnahmt, dank einer gemeinsamen Operation mit den Vereinigten Staaten.',
+    'blog.article.sequestro-stupefacenti-ecuador.imageAlt': 'Ecuadorianisches Kriegsschiff auf See',
 };
 
 export default blogMetaDe;
