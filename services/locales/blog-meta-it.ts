@@ -1613,6 +1613,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.parco-vedeggio-comuni-firman.title': 'Firmata la nascita del Parco del Vedeggio: il futuro verde del Ticino',
     'blog.article.parco-vedeggio-comuni-firman.excerpt': 'Cinque comuni del Ticino siglano l\'intesa per un parco pubblico tra Agno, Bioggio, Manno, Muzzano e Vezia. Progetti e investimenti in vista.',
     'blog.article.parco-vedeggio-comuni-firman.imageAlt': 'Vista panoramica del Lago di Lugano con aree verdi e sentieri nel Ticino.',
+    'blog.article.stop-export-materiale-bellico.title': 'Ticino sospende esportazioni di materiale bellico verso gli USA',
+    'blog.article.stop-export-materiale-bellico.excerpt': 'Il Consiglio federale svizzero decide di bloccare le esportazioni di armamenti verso gli Stati Uniti, in risposta alla crisi in Medio Oriente e alle recenti tensioni geopolitiche.',
+    'blog.article.stop-export-materiale-bellico.imageAlt': 'Valico di frontiera tra Ticino e Italia con controlli e montagne sullo sfondo',
 };
 
 export default blogMetaIt;

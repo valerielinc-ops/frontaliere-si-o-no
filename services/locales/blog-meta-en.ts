@@ -1613,6 +1613,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.parco-vedeggio-comuni-firman.title': 'Approval Signed for Vedeggio Park: Ticino’s Green Future',
     'blog.article.parco-vedeggio-comuni-firman.excerpt': 'Five municipalities in Ticino sign an agreement for a public park between Agno, Bioggio, Manno, Muzzano, and Vezia. Projects and investments on the horizon.',
     'blog.article.parco-vedeggio-comuni-firman.imageAlt': 'Panoramic view of Lake Lugano with green areas and walking paths in Ticino.',
+    'blog.article.stop-export-materiale-bellico.title': 'Ticino Suspends Arms Exports to the USA',
+    'blog.article.stop-export-materiale-bellico.excerpt': 'The Swiss Federal Council has decided to halt arms exports to the United States in response to the Middle East crisis and recent geopolitical tensions.',
+    'blog.article.stop-export-materiale-bellico.imageAlt': 'Border crossing in Ticino with mountains and security controls',
 };
 
 export default blogMetaEn;

@@ -1613,6 +1613,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.parco-vedeggio-comuni-firman.title': 'Unterzeichnung der Gründung des Vedeggio-Parks: die grüne Zukunft des Tessins',
     'blog.article.parco-vedeggio-comuni-firman.excerpt': 'Fünf Gemeinden im Tessin unterzeichnen die Vereinbarung für einen öffentlichen Park zwischen Agno, Bioggio, Manno, Muzzano und Vezia. Projekte und Investitionen sind geplant.',
     'blog.article.parco-vedeggio-comuni-firman.imageAlt': 'Panoramablick auf den Lago di Lugano mit Grünflächen und Wanderwegen in Tessin.',
+    'blog.article.stop-export-materiale-bellico.title': 'Tessin setzt Waffenexporte in die USA aus',
+    'blog.article.stop-export-materiale-bellico.excerpt': 'Der Schweizer Bundesrat beschließt, den Export von Rüstungsgütern in die Vereinigten Staaten zu stoppen, als Reaktion auf die Krise im Nahen Osten und die jüngsten geopolitischen Spannungen.',
+    'blog.article.stop-export-materiale-bellico.imageAlt': 'Grenzübergang im Tessin mit Bergen und Sicherheitskontrollen',
 };
 
 export default blogMetaDe;

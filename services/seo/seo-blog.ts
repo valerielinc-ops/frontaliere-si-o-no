@@ -8723,6 +8723,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-stop-export-materiale-bellico': {
+    title: 'Ticino sospende esportazioni di materiale bellico verso gli USA | Frontaliere Ticino',
+    description: 'Il Consiglio federale svizzero decide di bloccare le esportazioni di armamenti verso gli Stati Uniti, in risposta alla crisi in Medio Oriente e alle recenti ten',
+    keywords: 'frontalieri, ticino, svizzera, italia, sospende, esportazioni, materiale, bellico',
+    ogTitle: 'Ticino sospende esportazioni di materiale bellico verso g',
+    ogDescription: 'Il Consiglio federale svizzero decide di bloccare le esportazioni di armamenti verso gli Stati Uniti, in risposta alla crisi in Medio Oriente e alle recenti ten',
+    canonicalPath: '/articoli-frontaliere/stop-export-materiale-bellico',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ticino sospende esportazioni di materiale bellico verso g",
+      "description": "Il Consiglio federale svizzero decide di bloccare le esportazioni di armamenti verso gli Stati Uniti, in risposta alla crisi in Medio Oriente e alle recenti ten",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/stop-export-materiale-bellico.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Valico di frontiera tra Ticino e Italia con controlli e montagne sullo sfondo"
+      },
+      "datePublished": "2026-03-22T06:32:27+00:00",
+      "dateModified": "2026-03-22T06:32:27+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/stop-export-materiale-bellico`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

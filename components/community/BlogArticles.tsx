@@ -4358,6 +4358,13 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/parco-vedeggio-comuni-firman.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'stop-export-materiale-bellico',
+    category: 'novita',
+    date: '2026-03-22T06:32:27.277Z',
+    image: '/images/blog/stop-export-materiale-bellico.jpg',
+    hasCalculator: true,
+  },
 ];
 
 const CATEGORIES = ['all', 'fiscale', 'pratico', 'novita', 'pensione'] as const;
