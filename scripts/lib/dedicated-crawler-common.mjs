@@ -806,7 +806,7 @@ export async function translateMissingJobLocales({ dataJobsPath, isTargetJob, ma
       const baseTitle = String(job.title || '').trim();
       const baseDesc = String(job.description || '').trim();
       const titleSourceLang = detectJobTitleLang(baseTitle, detectLang(baseDesc || baseTitle, 'it'));
-      const sourceLang = detectTextLocale(baseDesc || baseTitle, titleSourceLang).lang;
+      let sourceLang = detectTextLocale(baseDesc || baseTitle, titleSourceLang).lang;
       let jobTranslated = false;
 
       if (!job.titleByLocale || typeof job.titleByLocale !== 'object') job.titleByLocale = {};
