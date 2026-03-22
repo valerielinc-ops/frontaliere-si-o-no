@@ -829,14 +829,25 @@ export async function translateMissingJobLocales({ dataJobsPath, isTargetJob, ma
       }
 
       const sourceTitle = String(job.titleByLocale[titleSourceLang] || baseTitle).trim();
-      const sourceDesc = String(job.descriptionByLocale[sourceLang] || baseDesc).trim();
+      let sourceDesc = String(job.descriptionByLocale[sourceLang] || baseDesc).trim();
 
-      // Debug: log detection for jobs that previously failed validation
-      if (/bewerbermanagement/i.test(baseTitle)) {
-        console.log(`[DEBUG] ${baseTitle}: sourceLang=${sourceLang}, titleSourceLang=${titleSourceLang}, baseDesc.len=${baseDesc.length}`);
+      // If the detected source description is garbage (same as base which is page chrome),
+      // look for the best available translation to use as the actual source for translations.
+      const sourceIsGarbage = sourceDesc.length < 120 ||
+        normalize(sourceDesc) === normalize(baseDesc) && /^(Zum Hauptinhalt|Skip to|Aller au|Vai al|Springe)/i.test(baseDesc);
+      if (sourceIsGarbage) {
+        let bestLang = sourceLang;
+        let bestLen = 0;
         for (const l of DEFAULT_LOCALES) {
           const d = String(job.descriptionByLocale[l] || '').trim();
-          console.log(`  [${l}] len=${d.length} sameAsBase=${normalize(d) === normalize(baseDesc)} sameAsSource=${normalize(d) === normalize(sourceDesc)}`);
+          if (d.length > bestLen && normalize(d) !== normalize(baseDesc)) {
+            bestLen = d.length;
+            bestLang = l;
+          }
+        }
+        if (bestLen >= 120 && bestLang !== sourceLang) {
+          sourceDesc = String(job.descriptionByLocale[bestLang]).trim();
+          console.log(`  ℹ️ ${baseTitle}: using [${bestLang}] (${bestLen} chars) as translation source instead of garbage [${sourceLang}] (${sourceDesc.length < 120 ? sourceDesc.length : 'short'})`);
         }
       }
 
