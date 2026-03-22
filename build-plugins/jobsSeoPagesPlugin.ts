@@ -575,6 +575,42 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
         const canton = String(job.canton || job.addressRegion || 'TI').toUpperCase().trim();
         return CANTON_CAPITAL_ADDRESS[canton] || CANTON_CAPITAL_ADDRESS['TI'] || 'Piazza Governo';
       };
+      // Map internal category strings to O*NET-SOC major group codes for Google Jobs.
+      // https://www.onetcenter.org/taxonomy.html
+      const CATEGORY_TO_ONET: Record<string, string> = {
+        tech: '15-0000', technology: '15-0000', it: '15-0000', development: '15-0000',
+        devops: '15-0000', analysis: '15-2000', 'IT / Software Development': '15-0000',
+        'Corporate and Staff Functions/Information Technology': '15-0000',
+        engineering: '17-0000', 'Ingegneria & Tecnica': '17-0000', impiantistica: '17-0000',
+        meccanica: '17-0000', metallo: '17-0000', drafting: '17-3000', technician: '17-3000',
+        architecture: '17-1000', 'Robotica & Automazione': '17-0000',
+        health: '29-0000', healthcare: '29-0000', 'Life Science & Tecnologia Medica': '29-0000',
+        'Chimica & Analisi': '19-0000', science: '19-0000', researcher: '19-0000',
+        phd: '19-0000', sustainability: '19-0000',
+        finance: '13-0000', finanza: '13-0000', assicurazioni: '13-0000', insurance: '13-0000',
+        'Corporate and Staff Functions/Finance & Control': '13-0000', accounting: '13-2000',
+        management: '11-0000', consulting: '11-0000', 'Consulenza gestionale': '11-0000',
+        operations: '11-0000',
+        admin: '43-0000', Administration: '43-0000', 'Servizi Aziendali': '43-0000',
+        staff: '43-0000', general: '43-0000', 'public-administration': '43-0000',
+        sales: '41-0000', vendita: '41-0000', 'Vendita & Commercio': '41-0000',
+        'Commercio al dettaglio': '41-0000',
+        logistics: '53-0000', 'Logistica & Trasporti': '53-0000', 'Logistica & Magazzino': '53-0000',
+        Logistik: '53-0000', aviation: '53-0000',
+        marketing: '27-3000', design: '27-1000', translation: '27-3000',
+        hr: '13-1000', 'risorse-umane': '13-1000',
+        legal: '23-0000',
+        education: '25-0000', professor: '25-0000',
+        'social-services': '21-0000', 'real-estate': '13-0000',
+        'Turismo & Ospitalità': '35-0000', hospitality: '35-0000', gastronomy: '35-0000',
+        cucina: '35-0000', servizio: '35-0000',
+        'Agricoltura & Commercio': '45-0000',
+        edilizia: '47-0000', cantiere: '47-0000',
+        production: '51-0000', manufacturing: '51-0000',
+        security: '33-0000', safety: '33-0000',
+      };
+      const mapCategoryToONet = (cat: string): string | undefined => CATEGORY_TO_ONET[cat];
+
       const companyLogo = (job: any): string => {
         const key = job?.companyKey || '';
         if (key && CRAWLED_COMPANY_LOGOS[key]) return CRAWLED_COMPANY_LOGOS[key];
@@ -887,6 +923,11 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
             } : {}),
             directApply: Boolean(job.url),
             url: canonicalUrl,
+            ...(canonicalResponsibilities.length > 0 ? { responsibilities: canonicalResponsibilities.join('\n') } : {}),
+            ...(canonicalKeywords.length > 0 ? { skills: canonicalKeywords.join(', ') } : {}),
+            ...(canonicalRequirements.length > 0 ? { qualifications: canonicalRequirements.join('\n') } : {}),
+            ...(job.crawledAt ? { dateModified: new Date(job.crawledAt).toISOString() } : job.updatedAt ? { dateModified: new Date(job.updatedAt).toISOString() } : {}),
+            ...(job.category && mapCategoryToONet(job.category) ? { occupationalCategory: mapCategoryToONet(job.category) } : {}),
           }) : null;
           const breadcrumbLd = JSON.stringify({
             '@context': 'https://schema.org',
