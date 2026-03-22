@@ -319,14 +319,14 @@ async function translateWithLibreTranslate(text, sourceLang, targetLang) {
   });
 }
 
-// ── Mozhi (open-source translation proxy) ───────────────────────────────────
-async function translateWithMozhi(text, sourceLang, targetLang) {
+// ── Mozhi (open-source proxy, supports: google, deepl, duckduckgo, yandex) ──
+async function translateWithMozhiEngine(text, sourceLang, targetLang, engine = 'google') {
   const q = normalizeSpace(text);
   if (!q || sourceLang === targetLang) return '';
 
   return raceInstances(MOZHI_INSTANCES, async (base, signal) => {
     const params = new URLSearchParams({
-      engine: 'google',
+      engine,
       from: sourceLang || 'auto',
       to: targetLang,
       text: q,
@@ -337,7 +337,8 @@ async function translateWithMozhi(text, sourceLang, targetLang) {
     });
     if (!res.ok) return '';
     const data = await res.json();
-    const translated = normalizeSpace(data?.translated_text || '');
+    // Mozhi uses 'translated-text' (hyphenated) in its response
+    const translated = normalizeSpace(data?.['translated-text'] || data?.translated_text || '');
     if (translated && translated.toLowerCase() !== q.toLowerCase()) return translated;
     return '';
   });
@@ -419,14 +420,17 @@ function delay(ms) {
  * Translate text using a cascade of free & open-source translation services.
  * Returns translated text or empty string if all services fail.
  *
- * Cascade (7 tiers):
- *   1. DeepL Free        — best quality, requires API key
- *   2. MyMemory           — good for EU languages, ≤500 chars
- *   3. Lingva             — free Google Translate proxy (6 mirrors, parallel race)
- *   4. SimplyTranslate    — another free proxy (4 mirrors, parallel race)
- *   5. LibreTranslate     — open-source MT (5 public instances, parallel race)
- *   6. Mozhi              — open-source proxy (3 instances, parallel race)
- *   7. Google Translate    — unofficial direct endpoint, multi-endpoint, chunked
+ * Cascade (10 tiers):
+ *   1. DeepL Free         — best quality, requires API key
+ *   2. Mozhi+DeepL        — DeepL via Mozhi proxy (no API key needed!)
+ *   3. MyMemory            — good for EU languages, ≤500 chars
+ *   4. Lingva              — free Google Translate proxy
+ *   5. SimplyTranslate     — another free proxy
+ *   6. Mozhi+DuckDuckGo    — Bing/DuckDuckGo via Mozhi proxy
+ *   7. LibreTranslate      — open-source MT
+ *   8. Mozhi+Google        — Google Translate via Mozhi proxy
+ *   9. Google Translate     — unofficial direct endpoint, chunked
+ *  10. Mozhi+Yandex        — Yandex Translate via Mozhi (slow fallback)
  *
  * @param {Object} options
  * @param {string} options.text - Text to translate
@@ -439,13 +443,19 @@ export async function freeTranslate({ text, sourceLang, targetLang }) {
   if (!clean) return '';
   if (sourceLang === targetLang) return clean;
 
-  // Tier 1: DeepL Free (best quality)
+  // Tier 1: DeepL Free API (best quality, if API key set)
   try {
     const deepl = await translateWithDeepL(clean, sourceLang, targetLang);
     if (deepl) return deepl;
   } catch { /* continue */ }
 
-  // Tier 2: MyMemory (good quality for EU languages, limited to 500 chars)
+  // Tier 2: Mozhi+DeepL (DeepL via proxy — no API key needed!)
+  try {
+    const mozhiDeepL = await translateWithMozhiEngine(clean, sourceLang, targetLang, 'deepl');
+    if (mozhiDeepL) return mozhiDeepL;
+  } catch { /* continue */ }
+
+  // Tier 3: MyMemory (good quality for EU languages, limited to 500 chars)
   if (clean.length <= 500) {
     try {
       const mm = await translateWithMyMemory(clean, sourceLang, targetLang);
@@ -455,34 +465,46 @@ export async function freeTranslate({ text, sourceLang, targetLang }) {
     } catch { /* continue */ }
   }
 
-  // Tier 3: Lingva (free Google Translate proxy, 6 mirrors, parallel race)
+  // Tier 4: Lingva (free Google Translate proxy)
   try {
     const lingva = await translateWithLingva(clean, sourceLang, targetLang);
     if (lingva) return lingva;
   } catch { /* continue */ }
 
-  // Tier 4: SimplyTranslate (another free proxy, 4 mirrors, parallel race)
+  // Tier 5: SimplyTranslate (another free proxy)
   try {
     const simply = await translateWithSimplyTranslate(clean, sourceLang, targetLang);
     if (simply) return simply;
   } catch { /* continue */ }
 
-  // Tier 5: LibreTranslate (open-source, 5 public instances, parallel race)
+  // Tier 6: Mozhi+DuckDuckGo (Bing translation via Mozhi proxy)
+  try {
+    const mozhiDdg = await translateWithMozhiEngine(clean, sourceLang, targetLang, 'duckduckgo');
+    if (mozhiDdg) return mozhiDdg;
+  } catch { /* continue */ }
+
+  // Tier 7: LibreTranslate (open-source)
   try {
     const libre = await translateWithLibreTranslate(clean, sourceLang, targetLang);
     if (libre) return libre;
   } catch { /* continue */ }
 
-  // Tier 6: Mozhi (open-source proxy, 3 instances, parallel race)
+  // Tier 8: Mozhi+Google (Google Translate via Mozhi proxy)
   try {
-    const mozhi = await translateWithMozhi(clean, sourceLang, targetLang);
-    if (mozhi) return mozhi;
+    const mozhiGoogle = await translateWithMozhiEngine(clean, sourceLang, targetLang, 'google');
+    if (mozhiGoogle) return mozhiGoogle;
   } catch { /* continue */ }
 
-  // Tier 7: Google Translate (unofficial, multi-endpoint, chunked)
+  // Tier 9: Google Translate (unofficial direct endpoint, chunked)
   try {
     const google = await translateWithGoogle(clean, sourceLang, targetLang);
     if (google) return google;
+  } catch { /* continue */ }
+
+  // Tier 10: Mozhi+Yandex (slow but reliable last resort)
+  try {
+    const mozhiYandex = await translateWithMozhiEngine(clean, sourceLang, targetLang, 'yandex');
+    if (mozhiYandex) return mozhiYandex;
   } catch { /* continue */ }
 
   return '';
