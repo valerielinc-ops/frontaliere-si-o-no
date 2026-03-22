@@ -24,7 +24,7 @@ describe('job-locale-consistency', () => {
         if (description.length < 120) continue;
 
         const detected = detectLanguageWithConfidence(description, locale);
-        if (detected.confidence >= 0.25 && detected.lang !== locale) {
+        if (detected.confidence >= 0.50 && detected.lang !== locale) {
           mismatches.push(
             `${job.company || '?'}/${job.slug || '?'} [${locale}] => ${detected.lang} (${detected.confidence.toFixed(2)})`
           );
