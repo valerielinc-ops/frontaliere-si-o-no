@@ -943,15 +943,23 @@ export default function AdminPanel() {
                   {activeJobs.length > 0 && (
                     <details className="rounded-md border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900/60">
                       <summary className="cursor-pointer list-none px-2 py-1.5 text-[11px] font-semibold text-slate-700 dark:text-slate-300">
-                        Annunci attivi ({activeJobs.length}) — <span className="text-emerald-600">nuovi</span> / <span className="text-blue-600">aggiornati</span> / <span className="text-amber-600">invariati</span>
+                        Annunci attivi ({activeJobs.length}) — <span className="text-emerald-600">{summary.newCount} nuovi</span> / <span className="text-blue-600">{summary.updatedCount} aggiornati</span> / <span className="text-amber-600">{summary.unchangedCount} invariati</span>
                       </summary>
                       <div className="px-2 py-1 space-y-1">
                         {activeJobs.map((job, idx) => {
                           const jobSiteUrl = siteUrl(job.slug);
                           const color = job._status === 'new' ? 'border-l-emerald-500 bg-emerald-50/50 dark:bg-emerald-950/20' : job._status === 'updated' ? 'border-l-blue-500 bg-blue-50/50 dark:bg-blue-950/20' : 'border-l-amber-400';
+                          const badgeClass = job._status === 'new' ? 'bg-emerald-100 text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-300' : job._status === 'updated' ? 'bg-blue-100 text-blue-700 dark:bg-blue-900/40 dark:text-blue-300' : 'bg-amber-100 text-amber-700 dark:bg-amber-900/40 dark:text-amber-300';
+                          const badgeLabel = job._status === 'new' ? 'Nuovo' : job._status === 'updated' ? 'Aggiornato' : 'Invariato';
                           return (
-                            <div key={`active-${job.slug || idx}`} className={`rounded-md border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 px-2 py-1 border-l-2 ${color}`}>
-                              <div className="text-xs font-medium text-slate-800 dark:text-slate-100">{job.title || '—'}</div>
+                            <div key={`active-${job.slug || idx}`} className={`rounded-md border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 px-2 py-1.5 border-l-2 ${color}`}>
+                              <div className="flex items-center gap-1.5">
+                                <div className="text-xs font-medium text-slate-800 dark:text-slate-100">{job.title || '—'}</div>
+                                <span className={`text-[9px] font-bold px-1.5 py-0.5 rounded-full ${badgeClass}`}>{badgeLabel}</span>
+                              </div>
+                              <div className="text-[11px] text-slate-500 dark:text-slate-400">
+                                {job.company || 'Azienda n/d'}{job.location ? ` • ${job.location}` : ''}
+                              </div>
                               <div className="flex gap-3 mt-0.5">
                                 {job.url && <a href={job.url} target="_blank" rel="noreferrer" className="text-[10px] text-blue-600 hover:underline">🔗 Sorgente</a>}
                                 {jobSiteUrl && <a href={jobSiteUrl} target="_blank" rel="noreferrer" className="text-[10px] text-indigo-600 hover:underline">🏠 Sito</a>}

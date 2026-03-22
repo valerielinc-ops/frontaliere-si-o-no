@@ -578,9 +578,10 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
       const companyLogo = (job: any): string => {
         const key = job?.companyKey || '';
         if (key && CRAWLED_COMPANY_LOGOS[key]) return CRAWLED_COMPANY_LOGOS[key];
-        const domain = job?.companyDomain || hostFromUrl(job?.url);
-        if (!domain) return `${BASE_URL}/icons/icon-512x512.png`;
-        return `https://www.google.com/s2/favicons?domain=${encodeURIComponent(domain)}&sz=128`;
+        // Use branded 1200×630 OG image as fallback — Google's favicon service
+        // only returns 128px which is too small for social preview requirements
+        // (minimum 600×314px recommended by Open Graph spec).
+        return `${BASE_URL}/og-image.png`;
       };
 
       const referralUrl = (raw: string, job: any): string => {
