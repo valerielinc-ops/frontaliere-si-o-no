@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-03-22T17:00:12.457Z",
+  "generatedAt": "2026-03-22T17:55:44.459Z",
   "sources": {
     "italy": {
       "provider": "MIMIT Open Data",
@@ -36428,34 +36428,20 @@
         "searchRadiusKm": 20,
         "optionCount": 8,
         "cheapestStation": {
-          "id": "lxes64eiTuWx6LnaN2tY",
-          "name": "TAMOIL Münster",
-          "brand": "TAMOIL",
-          "address": "Furkastrasse 7, 3985 Münster",
-          "lat": 46.482963,
-          "lng": 8.259239,
+          "id": "wbNwqDD2yTH68fy2YnDm",
+          "name": "Agrola- Oberwald",
+          "brand": "AGROLA",
+          "address": "Furkastrasse 64, 3999 Oberwald",
+          "lat": 46.5342031199402,
+          "lng": 8.34815928735867,
           "sp95PriceChf": 1.77,
-          "updatedAt": "2026-03-08T13:41:35.332Z",
+          "updatedAt": "2026-03-08T12:17:04.494Z",
           "nearestMunicipality": "Formazza (VB)",
-          "nearestMunicipalityDistanceKm": 14.3,
+          "nearestMunicipalityDistanceKm": 16.2,
           "sp95PriceEur": 1.946,
-          "distanceKm": 14.3
+          "distanceKm": 16.2
         },
         "nearbyStations": [
-          {
-            "id": "lxes64eiTuWx6LnaN2tY",
-            "name": "TAMOIL Münster",
-            "brand": "TAMOIL",
-            "address": "Furkastrasse 7, 3985 Münster",
-            "lat": 46.482963,
-            "lng": 8.259239,
-            "sp95PriceChf": 1.77,
-            "updatedAt": "2026-03-08T13:41:35.332Z",
-            "nearestMunicipality": "Formazza (VB)",
-            "nearestMunicipalityDistanceKm": 14.3,
-            "sp95PriceEur": 1.946,
-            "distanceKm": 14.3
-          },
           {
             "id": "wbNwqDD2yTH68fy2YnDm",
             "name": "Agrola- Oberwald",
@@ -36496,6 +36482,20 @@
             "nearestMunicipality": "Formazza (VB)",
             "nearestMunicipalityDistanceKm": 14.3,
             "sp95PriceEur": 1.968,
+            "distanceKm": 14.3
+          },
+          {
+            "id": "lxes64eiTuWx6LnaN2tY",
+            "name": "TAMOIL Münster",
+            "brand": "TAMOIL",
+            "address": "Furkastrasse 7, 3985 Münster",
+            "lat": 46.482963,
+            "lng": 8.259239,
+            "sp95PriceChf": 1.81,
+            "updatedAt": "2026-03-10T08:59:40.581Z",
+            "nearestMunicipality": "Formazza (VB)",
+            "nearestMunicipalityDistanceKm": 14.3,
+            "sp95PriceEur": 1.99,
             "distanceKm": 14.3
           },
           {
