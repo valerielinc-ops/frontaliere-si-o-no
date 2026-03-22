@@ -93,6 +93,7 @@ const TicineseDialect = lazyRetry(() => import('@/components/vita/TicineseDialec
 const FaqSection = lazyRetry(() => import('@/components/pages/FaqSection'));
 const SiteMapPage = lazyRetry(() => import('@/components/pages/SiteMapPage'));
 const ContractsGuide = lazyRetry(() => import('@/components/guide/ContractsGuide'));
+const Sindacati = lazyRetry(() => import('@/components/pages/Sindacati'));
 const TfrCalculator = lazyRetry(() => import('@/components/calculator/TfrCalculator'));
 const PermitQuiz = lazyRetry(() => import('@/components/guide/PermitQuiz'));
 const TredicesimalCalculator = lazyRetry(() => import('@/components/calculator/TredicesimalCalculator'));
@@ -180,7 +181,7 @@ import {
   Home, Timer, Users, Calendar, Shield, Mountain, GraduationCap,
   LifeBuoy, Rocket, Mail, Bug, Sunrise, User as UserIcon, LogIn,
   FileText, Gift, Hammer, BookA, School, Database, Clock, Receipt, Languages, BarChart3,
-  Banknote, Fuel
+  Banknote, Fuel, Scale
 } from 'lucide-react';
 
 import SkeletonFallback, { SkeletonPageShell, SkeletonComparator, SkeletonGuide, SkeletonDashboard, SkeletonFisco, SkeletonStats, SkeletonBlog, SkeletonVita, SkeletonNewsTicker, SkeletonWeeklyFact, SkeletonInputCard, SkeletonFooterSlot } from '@/components/shared/Skeletons';
@@ -2989,6 +2990,10 @@ const App: React.FC = () => {
             <div className="max-w-7xl mx-auto">
               <ContractsGuide />
             </div>
+          ) : activeTab === 'sindacati' ? (
+            <div className="max-w-7xl mx-auto">
+              <Sindacati />
+            </div>
           ) : activeTab === 'tfr-calculator' ? (
             <div className="max-w-7xl mx-auto">
               <TfrCalculator />
@@ -3237,6 +3242,15 @@ const App: React.FC = () => {
               >
                 <FileText className="w-3.5 h-3.5" />
                 {t('contracts.footerLink')}
+              </a>
+              <span className="text-slate-300 dark:text-slate-700">·</span>
+              <a
+                href={buildPath({ activeTab: 'sindacati' as any })}
+                onClick={(e) => { e.preventDefault(); navigateTo('sindacati' as any); }}
+                className="inline-flex items-center gap-1 text-xs text-slate-600 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors no-underline"
+              >
+                <Scale className="w-3.5 h-3.5" />
+                Sindacati
               </a>
               <span className="text-slate-300 dark:text-slate-700">·</span>
               <a
