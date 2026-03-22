@@ -860,8 +860,11 @@ export async function translateMissingJobLocales({ dataJobsPath, isTargetJob, ma
           !currentTitle ||
           (locale !== titleSourceLang && normalize(currentTitle) === normalize(sourceTitle));
         const sourceDescriptionIsRich = sourceDesc.length >= minDescriptionChars;
+        const isGarbageCopy = currentDesc && normalize(currentDesc) === normalize(baseDesc) &&
+          baseDesc.length < 400 && /^(Zum Hauptinhalt|Skip to|Aller au|Vai al|Springe)/i.test(baseDesc);
         const descNeedsWork =
           !currentDesc ||
+          isGarbageCopy ||
           (sourceDescriptionIsRich && currentDesc.length < minDescriptionChars) ||
           (locale !== sourceLang && normalize(currentDesc) === normalize(sourceDesc));
 
