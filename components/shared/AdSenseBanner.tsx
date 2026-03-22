@@ -243,21 +243,31 @@ export default function AdSenseBanner({
     cleanupAsyncWatchers();
   }, [cleanupAsyncWatchers]);
 
-  // ── Render nothing in dev, disabled, or collapsed ────────
-  if (!IS_PROD || !enabled || !adSlot || state === 'collapsed') {
+  // ── Render nothing in dev or disabled ─────────────────────
+  if (!IS_PROD || !enabled || !adSlot) {
     return null;
   }
 
   // ── Production ad unit ───────────────────────────────────
-  // Before 'filled': use visibility:hidden + opacity:0 so the container
-  // stays in layout with real measurable width (never display:none).
+  // Use CSS containment + smooth height transitions to prevent CLS.
+  // Collapsed: height shrinks to 0 with transition (no abrupt removal).
+  // Loading: invisible placeholder with fixed height.
+  // Filled: natural height with contain:layout to prevent sibling shifts.
   const isVisible = state === 'filled';
+  const isCollapsed = state === 'collapsed';
 
   return (
     <div
       ref={wrapperRef}
       className={className}
-      style={isVisible ? undefined : { opacity: 0, pointerEvents: 'none', overflow: 'hidden', minHeight: placeholderMinHeight }}
+      style={{
+        contain: 'layout',
+        transition: 'opacity 0.3s ease, max-height 0.3s ease',
+        maxHeight: isCollapsed ? 0 : isVisible ? 9999 : placeholderMinHeight,
+        opacity: isVisible ? 1 : 0,
+        overflow: 'hidden',
+        ...(isVisible ? {} : { pointerEvents: 'none' as const }),
+      }}
       aria-hidden={!isVisible}
     >
       {label && (

@@ -5061,7 +5061,7 @@ export default function BlogArticles({
 
         <article className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 overflow-hidden shadow-lg">
           {/* Hero image */}
-          <div className="relative h-48 sm:h-64 md:h-80 overflow-hidden">
+          <div className="relative overflow-hidden" style={{ aspectRatio: '2/1', contain: 'layout' }}>
             {(() => {
               const responsive = imageFallbackMap[article.image] ? null : getResponsiveImageSet(article.image);
               return (
