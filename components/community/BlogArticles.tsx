@@ -4449,6 +4449,13 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/tragedia-titlis-raffica-vento.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'accesso-libero-alle-rive',
+    category: 'pratico',
+    date: '2026-03-22T13:38:46.483Z',
+    image: '/images/blog/accesso-libero-alle-rive.jpg',
+    hasCalculator: true,
+  },
 ];
 
 const CATEGORIES = ['all', 'fiscale', 'pratico', 'novita', 'pensione'] as const;

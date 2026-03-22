@@ -3049,7 +3049,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
         "@context": "https://schema.org",
         "@type": "ItemList",
         "name": "Articoli Frontaliere",
-        "numberOfItems": 541,
+        "numberOfItems": 542,
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
           { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -3591,7 +3591,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 538, "name": "La morte di un figlio: come affrontarla", "url": `${BASE_URL}/articoli-frontaliere/morte-bimbo-efamilia-ticino` },
           { "@type": "ListItem", "position": 539, "name": "I fondi sottratti all'HCAP saranno in larga par...", "url": `${BASE_URL}/articoli-frontaliere/fondi-hcap-restituiti` },
           { "@type": "ListItem", "position": 540, "name": "«Il futuro è triste. Bellinzona ormai è un paes...", "url": `${BASE_URL}/articoli-frontaliere/bellinzona-paese-dormitorio` },
-          { "@type": "ListItem", "position": 541, "name": "Tragedia sul Titlis: una raffica di vento impro...", "url": `${BASE_URL}/articoli-frontaliere/tragedia-titlis-raffica-vento` }
+          { "@type": "ListItem", "position": 541, "name": "Tragedia sul Titlis: una raffica di vento impro...", "url": `${BASE_URL}/articoli-frontaliere/tragedia-titlis-raffica-vento` },
+          { "@type": "ListItem", "position": 542, "name": "Una camminata di protesta per il libero accesso...", "url": `${BASE_URL}/articoli-frontaliere/accesso-libero-alle-rive` }
         ]
       }
     ]

@@ -1652,6 +1652,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.tragedia-titlis-raffica-vento.title': 'Tragödie am Titlis: Ein plötzlicher Windstoß verursacht den Tod einer Frau',
     'blog.article.tragedia-titlis-raffica-vento.excerpt': 'Eine 61-jährige Frau stirbt, nachdem die Seilbahnkabine auf dem Titlis aufgrund eines plötzlichen Windstoßes zu Boden gefallen ist.',
     'blog.article.tragedia-titlis-raffica-vento.imageAlt': 'Seilbahn in den Bergen mit einem plötzlichen Windstoß',
+    'blog.article.accesso-libero-alle-rive.title': 'Ein Protestmarsch für den freien Zugang zu den Ufern des Lugano-See',
+    'blog.article.accesso-libero-alle-rive.excerpt': 'Die Jungen Grünen und die Vereinigung \'Öffentliche Ufer der italienischen Schweiz\' organisieren einen Protestmarsch, um den freien Zugang zu den Ufern des Lugano-Sees zu fordern, der derzeit während der Sommermonate eingeschränkt ist.',
+    'blog.article.accesso-libero-alle-rive.imageAlt': 'Spaziergang am Luganersee',
 };
 
 export default blogMetaDe;

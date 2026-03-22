@@ -1687,6 +1687,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-fondi-hcap-restituiti': { name: 'Economia', path: '/articoli-frontaliere/fondi-hcap-restituiti', parent: 'blog' },
     'blog-bellinzona-paese-dormitorio': { name: 'Economia', path: '/articoli-frontaliere/bellinzona-paese-dormitorio', parent: 'blog' },
     'blog-tragedia-titlis-raffica-vento': { name: 'Ticino', path: '/articoli-frontaliere/tragedia-titlis-raffica-vento', parent: 'blog' },
+    'blog-accesso-libero-alle-rive': { name: 'Economia', path: '/articoli-frontaliere/accesso-libero-alle-rive', parent: 'blog' },
   };
 
   const info = sectionNames[section];

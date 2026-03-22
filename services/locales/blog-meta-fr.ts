@@ -1652,6 +1652,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.tragedia-titlis-raffica-vento.title': 'Tragédie sur le Titlis : une rafale de vent soudaine provoque la mort d\'une femme',
     'blog.article.tragedia-titlis-raffica-vento.excerpt': 'Une femme de 61 ans meurt après que la cabine de la télécabine est tombée au sol à cause d\'une rafale de vent soudaine sur le Titlis.',
     'blog.article.tragedia-titlis-raffica-vento.imageAlt': 'Téléphérique en montagne avec une rafale de vent soudaine',
+    'blog.article.accesso-libero-alle-rive.title': 'Une marche de protestation pour l\'accès libre aux rives du lac de Lugano',
+    'blog.article.accesso-libero-alle-rive.excerpt': 'Les Jeunes Verts et l\'association \'Rives publiques de Suisse italienne\' organisent une marche pour revendiquer l\'accès libre aux rives du lac de Lugano, actuellement limité pendant les mois d\'été.',
+    'blog.article.accesso-libero-alle-rive.imageAlt': 'Promenade le long du lac de Lugano',
 };
 
 export default blogMetaFr;

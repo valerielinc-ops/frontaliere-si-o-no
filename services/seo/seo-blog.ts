@@ -9100,6 +9100,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-accesso-libero-alle-rive': {
+    title: 'Una camminata di protesta per il libero accesso alle rive del Lago di | Frontaliere Ticino',
+    description: 'I Giovani Verdi e l\'associazione \'Rive pubbliche della Svizzera italiana\' organizzano una camminata per richiedere il libero accesso alle rive del Lago di',
+    keywords: 'frontalieri, ticino, svizzera, italia, camminata, protesta, libero, accesso',
+    ogTitle: 'Una camminata di protesta per il libero accesso alle rive del Lago di Lugano',
+    ogDescription: 'I Giovani Verdi e l\'associazione \'Rive pubbliche della Svizzera italiana\' organizzano una camminata per richiedere il libero accesso alle rive del Lago di',
+    canonicalPath: '/articoli-frontaliere/accesso-libero-alle-rive',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Una camminata di protesta per il libero accesso alle rive del Lago di Lugano",
+      "description": "I Giovani Verdi e l'associazione 'Rive pubbliche della Svizzera italiana' organizzano una camminata per richiedere il libero accesso alle rive del Lago di",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/accesso-libero-alle-rive.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Passeggiata lungo il Lago di Lugano"
+      },
+      "datePublished": "2026-03-22T13:38:46+00:00",
+      "dateModified": "2026-03-22T13:38:46+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/accesso-libero-alle-rive`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

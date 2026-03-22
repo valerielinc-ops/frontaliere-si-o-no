@@ -1652,6 +1652,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.tragedia-titlis-raffica-vento.title': 'Tragedia sul Titlis: una raffica di vento improvvisa causa la morte di una donna',
     'blog.article.tragedia-titlis-raffica-vento.excerpt': 'Una donna di 61 anni muore dopo che la cabina della funivia è caduta a terra a causa di una raffica di vento improvvisa sul Titlis.',
     'blog.article.tragedia-titlis-raffica-vento.imageAlt': 'Funivia in montagna con una raffica di vento improvvisa',
+    'blog.article.accesso-libero-alle-rive.title': 'Una camminata di protesta per il libero accesso alle rive del Lago di Lugano',
+    'blog.article.accesso-libero-alle-rive.excerpt': 'I Giovani Verdi e l\'associazione \'Rive pubbliche della Svizzera italiana\' organizzano una camminata per richiedere il libero accesso alle rive del Lago di Lugano, attualmente limitato durante i mesi estivi.',
+    'blog.article.accesso-libero-alle-rive.imageAlt': 'Passeggiata lungo il Lago di Lugano',
 };
 
 export default blogMetaIt;

@@ -1652,6 +1652,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.tragedia-titlis-raffica-vento.title': 'Tragedy on Titlis: a sudden gust of wind causes the death of a woman',
     'blog.article.tragedia-titlis-raffica-vento.excerpt': 'A 61-year-old woman dies after the cable car cabin fell to the ground due to a sudden gust of wind on Titlis.',
     'blog.article.tragedia-titlis-raffica-vento.imageAlt': 'Cable car in the mountains with a sudden gust of wind',
+    'blog.article.accesso-libero-alle-rive.title': 'A protest walk for free access to the shores of Lake Lugano',
+    'blog.article.accesso-libero-alle-rive.excerpt': 'The Young Greens and the \'Public Shores of Italian Switzerland\' association are organizing a walk to demand free access to the shores of Lake Lugano, currently limited during the summer months.',
+    'blog.article.accesso-libero-alle-rive.imageAlt': 'Walk along Lake Lugano',
 };
 
 export default blogMetaEn;
