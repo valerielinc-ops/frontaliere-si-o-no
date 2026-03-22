@@ -1640,6 +1640,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.chiusure-notturne-autostrada.title': 'Chiusure notturne sull\'autostrada A9',
     'blog.article.chiusure-notturne-autostrada.excerpt': 'La prossima settimana saranno effettuate chiusure notturne sull\'autostrada A9',
     'blog.article.chiusure-notturne-autostrada.imageAlt': 'Autostrada A9 chiusa di notte',
+    'blog.article.morte-bimbo-efamilia-ticino.title': 'La morte di un figlio: come affrontarla',
+    'blog.article.morte-bimbo-efamilia-ticino.excerpt': 'La storia di Jessica e della sua famiglia che ha perso il piccolo Kevin.',
+    'blog.article.morte-bimbo-efamilia-ticino.imageAlt': 'Fotografia di una famiglia in lutto a Lugano, Canton Ticino.',
 };
 
 export default blogMetaIt;

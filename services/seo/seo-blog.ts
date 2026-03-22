@@ -8984,6 +8984,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-morte-bimbo-efamilia-ticino': {
+    title: 'La morte di un figlio: come affrontarla | Frontaliere Ticino',
+    description: 'La storia di Jessica e della sua famiglia che ha perso il piccolo Kevin. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, morte, figlio, affrontarla, storia',
+    ogTitle: 'La morte di un figlio: come affrontarla',
+    ogDescription: 'La storia di Jessica e della sua famiglia che ha perso il piccolo Kevin.',
+    canonicalPath: '/articoli-frontaliere/morte-bimbo-efamilia-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "La morte di un figlio: come affrontarla",
+      "description": "La storia di Jessica e della sua famiglia che ha perso il piccolo Kevin. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/morte-bimbo-efamilia-ticino.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Fotografia di una famiglia in lutto a Lugano, Canton Ticino."
+      },
+      "datePublished": "2026-03-22T10:45:15+00:00",
+      "dateModified": "2026-03-22T10:45:15+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/morte-bimbo-efamilia-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

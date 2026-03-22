@@ -4421,6 +4421,13 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/chiusure-notturne-autostrada.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'morte-bimbo-efamilia-ticino',
+    category: 'pratico',
+    date: '2026-03-22T10:45:15.114Z',
+    image: '/images/blog/morte-bimbo-efamilia-ticino.jpg',
+    hasCalculator: true,
+  },
 ];
 
 const CATEGORIES = ['all', 'fiscale', 'pratico', 'novita', 'pensione'] as const;

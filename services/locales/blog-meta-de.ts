@@ -1640,6 +1640,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.chiusure-notturne-autostrada.title': 'Nächtliche Sperrungen auf der Autobahn A9',
     'blog.article.chiusure-notturne-autostrada.excerpt': 'In der nächsten Woche werden nächtliche Sperrungen auf der Autobahn A9 durchgeführt.',
     'blog.article.chiusure-notturne-autostrada.imageAlt': 'A9 Autobahn bei Nacht geschlossen',
+    'blog.article.morte-bimbo-efamilia-ticino.title': 'Der Tod eines Kindes: Wie man ihn verarbeitet',
+    'blog.article.morte-bimbo-efamilia-ticino.excerpt': 'Die Geschichte von Jessica und ihrer Familie, die ihren kleinen Kevin verloren hat.',
+    'blog.article.morte-bimbo-efamilia-ticino.imageAlt': 'Fotografie einer trauernden Familie in Lugano, Kanton Tessin.',
 };
 
 export default blogMetaDe;

@@ -1640,6 +1640,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.chiusure-notturne-autostrada.title': 'Nighttime Closures on A9 Highway',
     'blog.article.chiusure-notturne-autostrada.excerpt': 'Nighttime closures are scheduled for next week on the A9 highway',
     'blog.article.chiusure-notturne-autostrada.imageAlt': 'A9 highway closed at night',
+    'blog.article.morte-bimbo-efamilia-ticino.title': 'Dealing with the Death of a Child: A Family\'s Story',
+    'blog.article.morte-bimbo-efamilia-ticino.excerpt': 'The story of Jessica and her family, who lost their little Kevin.',
+    'blog.article.morte-bimbo-efamilia-ticino.imageAlt': 'Photograph of a grieving family in Lugano, Canton Ticino.',
 };
 
 export default blogMetaEn;

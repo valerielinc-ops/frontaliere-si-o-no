@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-03-22T10:13:42.590Z",
+  "generatedAt": "2026-03-22T10:50:37.879Z",
   "sources": {
     "italy": {
       "provider": "MIMIT Open Data",
@@ -10,8 +10,8 @@
     "switzerland": {
       "provider": "TCS Benzinpreis",
       "providerUrl": "https://benzin.tcs.ch/de/map/SP95",
-      "stationCount": 221,
-      "latestObservedUpdate": "2026-03-22T10:07:00.204Z"
+      "stationCount": 223,
+      "latestObservedUpdate": "2026-03-22T10:33:43.440Z"
     },
     "exchangeRate": {
       "provider": "ECB",
@@ -1158,7 +1158,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 21,
+        "optionCount": 23,
         "cheapestStation": {
           "id": "2cyTEGqZPuSVhtpjGqzf",
           "name": "Silo Shop",
@@ -1203,20 +1203,6 @@
             "distanceKm": 14
           },
           {
-            "id": "ukK4QQ2nixpThGubzzE3",
-            "name": "Orcam",
-            "brand": "UNDEFINED",
-            "address": "Via Carlo Maderno 41, 6850 Mendrisio",
-            "lat": 45.8851362482152,
-            "lng": 8.981086222287052,
-            "sp95PriceChf": 1.7100000000000002,
-            "updatedAt": "2026-03-11T11:53:32.610Z",
-            "nearestMunicipality": "Clivio (VA)",
-            "nearestMunicipalityDistanceKm": 4.6,
-            "sp95PriceEur": 1.88,
-            "distanceKm": 18.5
-          },
-          {
             "id": "4rZcVZZyMdcg9utPrsXv",
             "name": "GARAGE 64",
             "brand": "UNDEFINED",
@@ -1243,6 +1229,20 @@
             "nearestMunicipalityDistanceKm": 1.2,
             "sp95PriceEur": 1.902,
             "distanceKm": 12.6
+          },
+          {
+            "id": "IGIlo1f7hrzC174Fqgmt",
+            "name": "TAMOIL Balerna (San Gottardo)",
+            "brand": "TAMOIL",
+            "address": "San Gottardo 12, 6828 Balerna",
+            "lat": 45.840241,
+            "lng": 9.018873,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-03-16T08:40:53.906Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 2.2,
+            "sp95PriceEur": 1.902,
+            "distanceKm": 13.8
           }
         ],
         "minPriceChf": 1.65,
@@ -1306,7 +1306,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 24,
+        "optionCount": 26,
         "cheapestStation": {
           "id": "2iMRCPqDCHHpLcBX8dCN",
           "name": "Agrola Melano",
@@ -1379,18 +1379,18 @@
             "distanceKm": 19.1
           },
           {
-            "id": "ukK4QQ2nixpThGubzzE3",
-            "name": "Orcam",
-            "brand": "UNDEFINED",
-            "address": "Via Carlo Maderno 41, 6850 Mendrisio",
-            "lat": 45.8851362482152,
-            "lng": 8.981086222287052,
-            "sp95PriceChf": 1.7100000000000002,
-            "updatedAt": "2026-03-11T11:53:32.610Z",
-            "nearestMunicipality": "Clivio (VA)",
-            "nearestMunicipalityDistanceKm": 4.6,
-            "sp95PriceEur": 1.88,
-            "distanceKm": 16.7
+            "id": "g1Ewt2bs9nFFxymi7tYL",
+            "name": "TAMOIL Stabio",
+            "brand": "TAMOIL",
+            "address": "Giulia 47, 6855 Stabio",
+            "lat": 45.848008,
+            "lng": 8.935833,
+            "sp95PriceChf": 1.72,
+            "updatedAt": "2026-03-07T18:03:01.884Z",
+            "nearestMunicipality": "Bizzarone (CO)",
+            "nearestMunicipalityDistanceKm": 1.6,
+            "sp95PriceEur": 1.891,
+            "distanceKm": 18.5
           }
         ],
         "minPriceChf": 1.64,
@@ -1421,7 +1421,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 44,
+        "optionCount": 46,
         "cheapestStation": {
           "id": "2iMRCPqDCHHpLcBX8dCN",
           "name": "Agrola Melano",
@@ -1651,7 +1651,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 91,
+        "optionCount": 93,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -1788,7 +1788,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 19,
+        "optionCount": 21,
         "cheapestStation": {
           "id": "2cyTEGqZPuSVhtpjGqzf",
           "name": "Silo Shop",
@@ -2073,7 +2073,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 22,
+        "optionCount": 24,
         "cheapestStation": {
           "id": "2cyTEGqZPuSVhtpjGqzf",
           "name": "Silo Shop",
@@ -2118,20 +2118,6 @@
             "distanceKm": 12.3
           },
           {
-            "id": "ukK4QQ2nixpThGubzzE3",
-            "name": "Orcam",
-            "brand": "UNDEFINED",
-            "address": "Via Carlo Maderno 41, 6850 Mendrisio",
-            "lat": 45.8851362482152,
-            "lng": 8.981086222287052,
-            "sp95PriceChf": 1.7100000000000002,
-            "updatedAt": "2026-03-11T11:53:32.610Z",
-            "nearestMunicipality": "Clivio (VA)",
-            "nearestMunicipalityDistanceKm": 4.6,
-            "sp95PriceEur": 1.88,
-            "distanceKm": 16.6
-          },
-          {
             "id": "g1Ewt2bs9nFFxymi7tYL",
             "name": "TAMOIL Stabio",
             "brand": "TAMOIL",
@@ -2158,6 +2144,20 @@
             "nearestMunicipalityDistanceKm": 1.6,
             "sp95PriceEur": 1.902,
             "distanceKm": 11.6
+          },
+          {
+            "id": "EDsfoWTW5mhInO152CPP",
+            "name": "Eni Chiasso",
+            "brand": "ENI",
+            "address": "Via Como 7, 6830 Chiasso",
+            "lat": 45.8378284,
+            "lng": 9.0340937,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-03-16T08:42:42.056Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 1.2,
+            "sp95PriceEur": 1.902,
+            "distanceKm": 12
           }
         ],
         "minPriceChf": 1.65,
@@ -2188,7 +2188,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 79,
+        "optionCount": 81,
         "cheapestStation": {
           "id": "2iMRCPqDCHHpLcBX8dCN",
           "name": "Agrola Melano",
@@ -2882,7 +2882,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 25,
+        "optionCount": 27,
         "cheapestStation": {
           "id": "2iMRCPqDCHHpLcBX8dCN",
           "name": "Agrola Melano",
@@ -2955,18 +2955,18 @@
             "distanceKm": 17.1
           },
           {
-            "id": "ukK4QQ2nixpThGubzzE3",
-            "name": "Orcam",
-            "brand": "UNDEFINED",
-            "address": "Via Carlo Maderno 41, 6850 Mendrisio",
-            "lat": 45.8851362482152,
-            "lng": 8.981086222287052,
-            "sp95PriceChf": 1.7100000000000002,
-            "updatedAt": "2026-03-11T11:53:32.610Z",
-            "nearestMunicipality": "Clivio (VA)",
-            "nearestMunicipalityDistanceKm": 4.6,
-            "sp95PriceEur": 1.88,
-            "distanceKm": 12.8
+            "id": "g1Ewt2bs9nFFxymi7tYL",
+            "name": "TAMOIL Stabio",
+            "brand": "TAMOIL",
+            "address": "Giulia 47, 6855 Stabio",
+            "lat": 45.848008,
+            "lng": 8.935833,
+            "sp95PriceChf": 1.72,
+            "updatedAt": "2026-03-07T18:03:01.884Z",
+            "nearestMunicipality": "Bizzarone (CO)",
+            "nearestMunicipalityDistanceKm": 1.6,
+            "sp95PriceEur": 1.891,
+            "distanceKm": 8.7
           }
         ],
         "minPriceChf": 1.64,
@@ -2997,7 +2997,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 28,
+        "optionCount": 30,
         "cheapestStation": {
           "id": "2iMRCPqDCHHpLcBX8dCN",
           "name": "Agrola Melano",
@@ -3070,18 +3070,18 @@
             "distanceKm": 16.2
           },
           {
-            "id": "ukK4QQ2nixpThGubzzE3",
-            "name": "Orcam",
-            "brand": "UNDEFINED",
-            "address": "Via Carlo Maderno 41, 6850 Mendrisio",
-            "lat": 45.8851362482152,
-            "lng": 8.981086222287052,
-            "sp95PriceChf": 1.7100000000000002,
-            "updatedAt": "2026-03-11T11:53:32.610Z",
-            "nearestMunicipality": "Clivio (VA)",
-            "nearestMunicipalityDistanceKm": 4.6,
-            "sp95PriceEur": 1.88,
-            "distanceKm": 12.1
+            "id": "g1Ewt2bs9nFFxymi7tYL",
+            "name": "TAMOIL Stabio",
+            "brand": "TAMOIL",
+            "address": "Giulia 47, 6855 Stabio",
+            "lat": 45.848008,
+            "lng": 8.935833,
+            "sp95PriceChf": 1.72,
+            "updatedAt": "2026-03-07T18:03:01.884Z",
+            "nearestMunicipality": "Bizzarone (CO)",
+            "nearestMunicipalityDistanceKm": 1.6,
+            "sp95PriceEur": 1.891,
+            "distanceKm": 7.2
           }
         ],
         "minPriceChf": 1.64,
@@ -3112,7 +3112,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 63,
+        "optionCount": 65,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -3227,7 +3227,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 82,
+        "optionCount": 84,
         "cheapestStation": {
           "id": "2iMRCPqDCHHpLcBX8dCN",
           "name": "Agrola Melano",
@@ -3342,7 +3342,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 30,
+        "optionCount": 32,
         "cheapestStation": {
           "id": "2iMRCPqDCHHpLcBX8dCN",
           "name": "Agrola Melano",
@@ -3775,7 +3775,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 59,
+        "optionCount": 61,
         "cheapestStation": {
           "id": "2iMRCPqDCHHpLcBX8dCN",
           "name": "Agrola Melano",
@@ -3890,7 +3890,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 29,
+        "optionCount": 31,
         "cheapestStation": {
           "id": "2iMRCPqDCHHpLcBX8dCN",
           "name": "Agrola Melano",
@@ -4005,7 +4005,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 24,
+        "optionCount": 26,
         "cheapestStation": {
           "id": "2iMRCPqDCHHpLcBX8dCN",
           "name": "Agrola Melano",
@@ -4078,18 +4078,18 @@
             "distanceKm": 19.8
           },
           {
-            "id": "ukK4QQ2nixpThGubzzE3",
-            "name": "Orcam",
-            "brand": "UNDEFINED",
-            "address": "Via Carlo Maderno 41, 6850 Mendrisio",
-            "lat": 45.8851362482152,
-            "lng": 8.981086222287052,
-            "sp95PriceChf": 1.7100000000000002,
-            "updatedAt": "2026-03-11T11:53:32.610Z",
-            "nearestMunicipality": "Clivio (VA)",
-            "nearestMunicipalityDistanceKm": 4.6,
-            "sp95PriceEur": 1.88,
-            "distanceKm": 15.5
+            "id": "g1Ewt2bs9nFFxymi7tYL",
+            "name": "TAMOIL Stabio",
+            "brand": "TAMOIL",
+            "address": "Giulia 47, 6855 Stabio",
+            "lat": 45.848008,
+            "lng": 8.935833,
+            "sp95PriceChf": 1.72,
+            "updatedAt": "2026-03-07T18:03:01.884Z",
+            "nearestMunicipality": "Bizzarone (CO)",
+            "nearestMunicipalityDistanceKm": 1.6,
+            "sp95PriceEur": 1.891,
+            "distanceKm": 12.5
           }
         ],
         "minPriceChf": 1.64,
@@ -4261,7 +4261,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 21,
+        "optionCount": 23,
         "cheapestStation": {
           "id": "2cyTEGqZPuSVhtpjGqzf",
           "name": "Silo Shop",
@@ -4306,20 +4306,6 @@
             "distanceKm": 13.4
           },
           {
-            "id": "ukK4QQ2nixpThGubzzE3",
-            "name": "Orcam",
-            "brand": "UNDEFINED",
-            "address": "Via Carlo Maderno 41, 6850 Mendrisio",
-            "lat": 45.8851362482152,
-            "lng": 8.981086222287052,
-            "sp95PriceChf": 1.7100000000000002,
-            "updatedAt": "2026-03-11T11:53:32.610Z",
-            "nearestMunicipality": "Clivio (VA)",
-            "nearestMunicipalityDistanceKm": 4.6,
-            "sp95PriceEur": 1.88,
-            "distanceKm": 18.4
-          },
-          {
             "id": "g1Ewt2bs9nFFxymi7tYL",
             "name": "TAMOIL Stabio",
             "brand": "TAMOIL",
@@ -4346,6 +4332,20 @@
             "nearestMunicipalityDistanceKm": 1.6,
             "sp95PriceEur": 1.902,
             "distanceKm": 12.2
+          },
+          {
+            "id": "EDsfoWTW5mhInO152CPP",
+            "name": "Eni Chiasso",
+            "brand": "ENI",
+            "address": "Via Como 7, 6830 Chiasso",
+            "lat": 45.8378284,
+            "lng": 9.0340937,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-03-16T08:42:42.056Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 1.2,
+            "sp95PriceEur": 1.902,
+            "distanceKm": 12.6
           }
         ],
         "minPriceChf": 1.65,
@@ -4421,20 +4421,6 @@
             "distanceKm": 17.4
           },
           {
-            "id": "ukK4QQ2nixpThGubzzE3",
-            "name": "Orcam",
-            "brand": "UNDEFINED",
-            "address": "Via Carlo Maderno 41, 6850 Mendrisio",
-            "lat": 45.8851362482152,
-            "lng": 8.981086222287052,
-            "sp95PriceChf": 1.7100000000000002,
-            "updatedAt": "2026-03-11T11:53:32.610Z",
-            "nearestMunicipality": "Clivio (VA)",
-            "nearestMunicipalityDistanceKm": 4.6,
-            "sp95PriceEur": 1.88,
-            "distanceKm": 20
-          },
-          {
             "id": "4rZcVZZyMdcg9utPrsXv",
             "name": "GARAGE 64",
             "brand": "UNDEFINED",
@@ -4461,6 +4447,20 @@
             "nearestMunicipalityDistanceKm": 1.2,
             "sp95PriceEur": 1.902,
             "distanceKm": 16.3
+          },
+          {
+            "id": "IGIlo1f7hrzC174Fqgmt",
+            "name": "TAMOIL Balerna (San Gottardo)",
+            "brand": "TAMOIL",
+            "address": "San Gottardo 12, 6828 Balerna",
+            "lat": 45.840241,
+            "lng": 9.018873,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-03-16T08:40:53.906Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 2.2,
+            "sp95PriceEur": 1.902,
+            "distanceKm": 17.3
           }
         ],
         "minPriceChf": 1.65,
@@ -4491,7 +4491,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 91,
+        "optionCount": 93,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -4826,7 +4826,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 21,
+        "optionCount": 23,
         "cheapestStation": {
           "id": "2cyTEGqZPuSVhtpjGqzf",
           "name": "Silo Shop",
@@ -4871,20 +4871,6 @@
             "distanceKm": 14.5
           },
           {
-            "id": "ukK4QQ2nixpThGubzzE3",
-            "name": "Orcam",
-            "brand": "UNDEFINED",
-            "address": "Via Carlo Maderno 41, 6850 Mendrisio",
-            "lat": 45.8851362482152,
-            "lng": 8.981086222287052,
-            "sp95PriceChf": 1.7100000000000002,
-            "updatedAt": "2026-03-11T11:53:32.610Z",
-            "nearestMunicipality": "Clivio (VA)",
-            "nearestMunicipalityDistanceKm": 4.6,
-            "sp95PriceEur": 1.88,
-            "distanceKm": 19.9
-          },
-          {
             "id": "g1Ewt2bs9nFFxymi7tYL",
             "name": "TAMOIL Stabio",
             "brand": "TAMOIL",
@@ -4911,6 +4897,20 @@
             "nearestMunicipalityDistanceKm": 1.6,
             "sp95PriceEur": 1.902,
             "distanceKm": 13
+          },
+          {
+            "id": "EDsfoWTW5mhInO152CPP",
+            "name": "Eni Chiasso",
+            "brand": "ENI",
+            "address": "Via Como 7, 6830 Chiasso",
+            "lat": 45.8378284,
+            "lng": 9.0340937,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-03-16T08:42:42.056Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 1.2,
+            "sp95PriceEur": 1.902,
+            "distanceKm": 13.2
           }
         ],
         "minPriceChf": 1.65,
@@ -5111,7 +5111,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 22,
+        "optionCount": 24,
         "cheapestStation": {
           "id": "2cyTEGqZPuSVhtpjGqzf",
           "name": "Silo Shop",
@@ -5156,20 +5156,6 @@
             "distanceKm": 11.9
           },
           {
-            "id": "ukK4QQ2nixpThGubzzE3",
-            "name": "Orcam",
-            "brand": "UNDEFINED",
-            "address": "Via Carlo Maderno 41, 6850 Mendrisio",
-            "lat": 45.8851362482152,
-            "lng": 8.981086222287052,
-            "sp95PriceChf": 1.7100000000000002,
-            "updatedAt": "2026-03-11T11:53:32.610Z",
-            "nearestMunicipality": "Clivio (VA)",
-            "nearestMunicipalityDistanceKm": 4.6,
-            "sp95PriceEur": 1.88,
-            "distanceKm": 17.2
-          },
-          {
             "id": "g1Ewt2bs9nFFxymi7tYL",
             "name": "TAMOIL Stabio",
             "brand": "TAMOIL",
@@ -5196,6 +5182,20 @@
             "nearestMunicipalityDistanceKm": 1.6,
             "sp95PriceEur": 1.902,
             "distanceKm": 10.4
+          },
+          {
+            "id": "EDsfoWTW5mhInO152CPP",
+            "name": "Eni Chiasso",
+            "brand": "ENI",
+            "address": "Via Como 7, 6830 Chiasso",
+            "lat": 45.8378284,
+            "lng": 9.0340937,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-03-16T08:42:42.056Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 1.2,
+            "sp95PriceEur": 1.902,
+            "distanceKm": 10.5
           }
         ],
         "minPriceChf": 1.65,
@@ -5226,7 +5226,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 53,
+        "optionCount": 55,
         "cheapestStation": {
           "id": "2iMRCPqDCHHpLcBX8dCN",
           "name": "Agrola Melano",
@@ -5834,7 +5834,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 17,
+        "optionCount": 19,
         "cheapestStation": {
           "id": "2cyTEGqZPuSVhtpjGqzf",
           "name": "Silo Shop",
@@ -5949,7 +5949,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 22,
+        "optionCount": 24,
         "cheapestStation": {
           "id": "2cyTEGqZPuSVhtpjGqzf",
           "name": "Silo Shop",
@@ -5994,20 +5994,6 @@
             "distanceKm": 10.9
           },
           {
-            "id": "ukK4QQ2nixpThGubzzE3",
-            "name": "Orcam",
-            "brand": "UNDEFINED",
-            "address": "Via Carlo Maderno 41, 6850 Mendrisio",
-            "lat": 45.8851362482152,
-            "lng": 8.981086222287052,
-            "sp95PriceChf": 1.7100000000000002,
-            "updatedAt": "2026-03-11T11:53:32.610Z",
-            "nearestMunicipality": "Clivio (VA)",
-            "nearestMunicipalityDistanceKm": 4.6,
-            "sp95PriceEur": 1.88,
-            "distanceKm": 16.2
-          },
-          {
             "id": "g1Ewt2bs9nFFxymi7tYL",
             "name": "TAMOIL Stabio",
             "brand": "TAMOIL",
@@ -6034,6 +6020,20 @@
             "nearestMunicipalityDistanceKm": 1.6,
             "sp95PriceEur": 1.902,
             "distanceKm": 9.5
+          },
+          {
+            "id": "EDsfoWTW5mhInO152CPP",
+            "name": "Eni Chiasso",
+            "brand": "ENI",
+            "address": "Via Como 7, 6830 Chiasso",
+            "lat": 45.8378284,
+            "lng": 9.0340937,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-03-16T08:42:42.056Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 1.2,
+            "sp95PriceEur": 1.902,
+            "distanceKm": 9.8
           }
         ],
         "minPriceChf": 1.65,
@@ -6064,7 +6064,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 24,
+        "optionCount": 26,
         "cheapestStation": {
           "id": "2iMRCPqDCHHpLcBX8dCN",
           "name": "Agrola Melano",
@@ -6137,18 +6137,18 @@
             "distanceKm": 19.7
           },
           {
-            "id": "ukK4QQ2nixpThGubzzE3",
-            "name": "Orcam",
-            "brand": "UNDEFINED",
-            "address": "Via Carlo Maderno 41, 6850 Mendrisio",
-            "lat": 45.8851362482152,
-            "lng": 8.981086222287052,
-            "sp95PriceChf": 1.7100000000000002,
-            "updatedAt": "2026-03-11T11:53:32.610Z",
-            "nearestMunicipality": "Clivio (VA)",
-            "nearestMunicipalityDistanceKm": 4.6,
-            "sp95PriceEur": 1.88,
-            "distanceKm": 15.5
+            "id": "g1Ewt2bs9nFFxymi7tYL",
+            "name": "TAMOIL Stabio",
+            "brand": "TAMOIL",
+            "address": "Giulia 47, 6855 Stabio",
+            "lat": 45.848008,
+            "lng": 8.935833,
+            "sp95PriceChf": 1.72,
+            "updatedAt": "2026-03-07T18:03:01.884Z",
+            "nearestMunicipality": "Bizzarone (CO)",
+            "nearestMunicipalityDistanceKm": 1.6,
+            "sp95PriceEur": 1.891,
+            "distanceKm": 13.1
           }
         ],
         "minPriceChf": 1.64,
@@ -6327,7 +6327,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 25,
+        "optionCount": 27,
         "cheapestStation": {
           "id": "2iMRCPqDCHHpLcBX8dCN",
           "name": "Agrola Melano",
@@ -6400,18 +6400,18 @@
             "distanceKm": 18
           },
           {
-            "id": "ukK4QQ2nixpThGubzzE3",
-            "name": "Orcam",
-            "brand": "UNDEFINED",
-            "address": "Via Carlo Maderno 41, 6850 Mendrisio",
-            "lat": 45.8851362482152,
-            "lng": 8.981086222287052,
-            "sp95PriceChf": 1.7100000000000002,
-            "updatedAt": "2026-03-11T11:53:32.610Z",
-            "nearestMunicipality": "Clivio (VA)",
-            "nearestMunicipalityDistanceKm": 4.6,
-            "sp95PriceEur": 1.88,
-            "distanceKm": 13.7
+            "id": "g1Ewt2bs9nFFxymi7tYL",
+            "name": "TAMOIL Stabio",
+            "brand": "TAMOIL",
+            "address": "Giulia 47, 6855 Stabio",
+            "lat": 45.848008,
+            "lng": 8.935833,
+            "sp95PriceChf": 1.72,
+            "updatedAt": "2026-03-07T18:03:01.884Z",
+            "nearestMunicipality": "Bizzarone (CO)",
+            "nearestMunicipalityDistanceKm": 1.6,
+            "sp95PriceEur": 1.891,
+            "distanceKm": 9.3
           }
         ],
         "minPriceChf": 1.64,
@@ -6557,7 +6557,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 85,
+        "optionCount": 87,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -6672,7 +6672,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 81,
+        "optionCount": 83,
         "cheapestStation": {
           "id": "2iMRCPqDCHHpLcBX8dCN",
           "name": "Agrola Melano",
@@ -6979,7 +6979,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 41,
+        "optionCount": 43,
         "cheapestStation": {
           "id": "2iMRCPqDCHHpLcBX8dCN",
           "name": "Agrola Melano",
@@ -7094,7 +7094,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 20,
+        "optionCount": 22,
         "cheapestStation": {
           "id": "2cyTEGqZPuSVhtpjGqzf",
           "name": "Silo Shop",
@@ -7209,7 +7209,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 103,
+        "optionCount": 105,
         "cheapestStation": {
           "id": "2iMRCPqDCHHpLcBX8dCN",
           "name": "Agrola Melano",
@@ -7324,7 +7324,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 68,
+        "optionCount": 70,
         "cheapestStation": {
           "id": "2iMRCPqDCHHpLcBX8dCN",
           "name": "Agrola Melano",
@@ -7439,7 +7439,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 30,
+        "optionCount": 32,
         "cheapestStation": {
           "id": "2iMRCPqDCHHpLcBX8dCN",
           "name": "Agrola Melano",
@@ -7829,7 +7829,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 29,
+        "optionCount": 31,
         "cheapestStation": {
           "id": "2iMRCPqDCHHpLcBX8dCN",
           "name": "Agrola Melano",
@@ -8112,7 +8112,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 21,
+        "optionCount": 23,
         "cheapestStation": {
           "id": "2cyTEGqZPuSVhtpjGqzf",
           "name": "Silo Shop",
@@ -8157,20 +8157,6 @@
             "distanceKm": 13.1
           },
           {
-            "id": "ukK4QQ2nixpThGubzzE3",
-            "name": "Orcam",
-            "brand": "UNDEFINED",
-            "address": "Via Carlo Maderno 41, 6850 Mendrisio",
-            "lat": 45.8851362482152,
-            "lng": 8.981086222287052,
-            "sp95PriceChf": 1.7100000000000002,
-            "updatedAt": "2026-03-11T11:53:32.610Z",
-            "nearestMunicipality": "Clivio (VA)",
-            "nearestMunicipalityDistanceKm": 4.6,
-            "sp95PriceEur": 1.88,
-            "distanceKm": 18.4
-          },
-          {
             "id": "g1Ewt2bs9nFFxymi7tYL",
             "name": "TAMOIL Stabio",
             "brand": "TAMOIL",
@@ -8197,6 +8183,20 @@
             "nearestMunicipalityDistanceKm": 1.6,
             "sp95PriceEur": 1.902,
             "distanceKm": 11.6
+          },
+          {
+            "id": "EDsfoWTW5mhInO152CPP",
+            "name": "Eni Chiasso",
+            "brand": "ENI",
+            "address": "Via Como 7, 6830 Chiasso",
+            "lat": 45.8378284,
+            "lng": 9.0340937,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-03-16T08:42:42.056Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 1.2,
+            "sp95PriceEur": 1.902,
+            "distanceKm": 11.9
           }
         ],
         "minPriceChf": 1.65,
@@ -8342,7 +8342,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 81,
+        "optionCount": 83,
         "cheapestStation": {
           "id": "2iMRCPqDCHHpLcBX8dCN",
           "name": "Agrola Melano",
@@ -9197,7 +9197,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 27,
+        "optionCount": 29,
         "cheapestStation": {
           "id": "2iMRCPqDCHHpLcBX8dCN",
           "name": "Agrola Melano",
@@ -9312,7 +9312,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 39,
+        "optionCount": 41,
         "cheapestStation": {
           "id": "2iMRCPqDCHHpLcBX8dCN",
           "name": "Agrola Melano",
@@ -9482,7 +9482,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 20,
+        "optionCount": 22,
         "cheapestStation": {
           "id": "2cyTEGqZPuSVhtpjGqzf",
           "name": "Silo Shop",
@@ -9822,7 +9822,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 24,
+        "optionCount": 26,
         "cheapestStation": {
           "id": "2iMRCPqDCHHpLcBX8dCN",
           "name": "Agrola Melano",
@@ -9895,18 +9895,18 @@
             "distanceKm": 19.9
           },
           {
-            "id": "ukK4QQ2nixpThGubzzE3",
-            "name": "Orcam",
-            "brand": "UNDEFINED",
-            "address": "Via Carlo Maderno 41, 6850 Mendrisio",
-            "lat": 45.8851362482152,
-            "lng": 8.981086222287052,
-            "sp95PriceChf": 1.7100000000000002,
-            "updatedAt": "2026-03-11T11:53:32.610Z",
-            "nearestMunicipality": "Clivio (VA)",
-            "nearestMunicipalityDistanceKm": 4.6,
-            "sp95PriceEur": 1.88,
-            "distanceKm": 15.7
+            "id": "g1Ewt2bs9nFFxymi7tYL",
+            "name": "TAMOIL Stabio",
+            "brand": "TAMOIL",
+            "address": "Giulia 47, 6855 Stabio",
+            "lat": 45.848008,
+            "lng": 8.935833,
+            "sp95PriceChf": 1.72,
+            "updatedAt": "2026-03-07T18:03:01.884Z",
+            "nearestMunicipality": "Bizzarone (CO)",
+            "nearestMunicipalityDistanceKm": 1.6,
+            "sp95PriceEur": 1.891,
+            "distanceKm": 13.7
           }
         ],
         "minPriceChf": 1.64,
@@ -10183,7 +10183,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 25,
+        "optionCount": 27,
         "cheapestStation": {
           "id": "2iMRCPqDCHHpLcBX8dCN",
           "name": "Agrola Melano",
@@ -10256,18 +10256,18 @@
             "distanceKm": 17.5
           },
           {
-            "id": "ukK4QQ2nixpThGubzzE3",
-            "name": "Orcam",
-            "brand": "UNDEFINED",
-            "address": "Via Carlo Maderno 41, 6850 Mendrisio",
-            "lat": 45.8851362482152,
-            "lng": 8.981086222287052,
-            "sp95PriceChf": 1.7100000000000002,
-            "updatedAt": "2026-03-11T11:53:32.610Z",
-            "nearestMunicipality": "Clivio (VA)",
-            "nearestMunicipalityDistanceKm": 4.6,
-            "sp95PriceEur": 1.88,
-            "distanceKm": 13.6
+            "id": "g1Ewt2bs9nFFxymi7tYL",
+            "name": "TAMOIL Stabio",
+            "brand": "TAMOIL",
+            "address": "Giulia 47, 6855 Stabio",
+            "lat": 45.848008,
+            "lng": 8.935833,
+            "sp95PriceChf": 1.72,
+            "updatedAt": "2026-03-07T18:03:01.884Z",
+            "nearestMunicipality": "Bizzarone (CO)",
+            "nearestMunicipalityDistanceKm": 1.6,
+            "sp95PriceEur": 1.891,
+            "distanceKm": 12.7
           }
         ],
         "minPriceChf": 1.64,
@@ -10631,7 +10631,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 21,
+        "optionCount": 23,
         "cheapestStation": {
           "id": "2cyTEGqZPuSVhtpjGqzf",
           "name": "Silo Shop",
@@ -10676,20 +10676,6 @@
             "distanceKm": 12.9
           },
           {
-            "id": "ukK4QQ2nixpThGubzzE3",
-            "name": "Orcam",
-            "brand": "UNDEFINED",
-            "address": "Via Carlo Maderno 41, 6850 Mendrisio",
-            "lat": 45.8851362482152,
-            "lng": 8.981086222287052,
-            "sp95PriceChf": 1.7100000000000002,
-            "updatedAt": "2026-03-11T11:53:32.610Z",
-            "nearestMunicipality": "Clivio (VA)",
-            "nearestMunicipalityDistanceKm": 4.6,
-            "sp95PriceEur": 1.88,
-            "distanceKm": 17.7
-          },
-          {
             "id": "g1Ewt2bs9nFFxymi7tYL",
             "name": "TAMOIL Stabio",
             "brand": "TAMOIL",
@@ -10716,6 +10702,20 @@
             "nearestMunicipalityDistanceKm": 1.6,
             "sp95PriceEur": 1.902,
             "distanceKm": 11.9
+          },
+          {
+            "id": "EDsfoWTW5mhInO152CPP",
+            "name": "Eni Chiasso",
+            "brand": "ENI",
+            "address": "Via Como 7, 6830 Chiasso",
+            "lat": 45.8378284,
+            "lng": 9.0340937,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-03-16T08:42:42.056Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 1.2,
+            "sp95PriceEur": 1.902,
+            "distanceKm": 12.3
           }
         ],
         "minPriceChf": 1.65,
@@ -10938,7 +10938,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 40,
+        "optionCount": 42,
         "cheapestStation": {
           "id": "2iMRCPqDCHHpLcBX8dCN",
           "name": "Agrola Melano",
@@ -11053,7 +11053,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 89,
+        "optionCount": 91,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -11420,7 +11420,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 33,
+        "optionCount": 35,
         "cheapestStation": {
           "id": "2iMRCPqDCHHpLcBX8dCN",
           "name": "Agrola Melano",
@@ -11683,7 +11683,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 25,
+        "optionCount": 27,
         "cheapestStation": {
           "id": "2iMRCPqDCHHpLcBX8dCN",
           "name": "Agrola Melano",
@@ -11756,18 +11756,18 @@
             "distanceKm": 17.2
           },
           {
-            "id": "ukK4QQ2nixpThGubzzE3",
-            "name": "Orcam",
-            "brand": "UNDEFINED",
-            "address": "Via Carlo Maderno 41, 6850 Mendrisio",
-            "lat": 45.8851362482152,
-            "lng": 8.981086222287052,
-            "sp95PriceChf": 1.7100000000000002,
-            "updatedAt": "2026-03-11T11:53:32.610Z",
-            "nearestMunicipality": "Clivio (VA)",
-            "nearestMunicipalityDistanceKm": 4.6,
-            "sp95PriceEur": 1.88,
-            "distanceKm": 14
+            "id": "g1Ewt2bs9nFFxymi7tYL",
+            "name": "TAMOIL Stabio",
+            "brand": "TAMOIL",
+            "address": "Giulia 47, 6855 Stabio",
+            "lat": 45.848008,
+            "lng": 8.935833,
+            "sp95PriceChf": 1.72,
+            "updatedAt": "2026-03-07T18:03:01.884Z",
+            "nearestMunicipality": "Bizzarone (CO)",
+            "nearestMunicipalityDistanceKm": 1.6,
+            "sp95PriceEur": 1.891,
+            "distanceKm": 14.8
           }
         ],
         "minPriceChf": 1.64,
@@ -12138,7 +12138,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 20,
+        "optionCount": 22,
         "cheapestStation": {
           "id": "2cyTEGqZPuSVhtpjGqzf",
           "name": "Silo Shop",
@@ -12390,7 +12390,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 25,
+        "optionCount": 27,
         "cheapestStation": {
           "id": "2iMRCPqDCHHpLcBX8dCN",
           "name": "Agrola Melano",
@@ -12463,18 +12463,18 @@
             "distanceKm": 18.4
           },
           {
-            "id": "ukK4QQ2nixpThGubzzE3",
-            "name": "Orcam",
-            "brand": "UNDEFINED",
-            "address": "Via Carlo Maderno 41, 6850 Mendrisio",
-            "lat": 45.8851362482152,
-            "lng": 8.981086222287052,
-            "sp95PriceChf": 1.7100000000000002,
-            "updatedAt": "2026-03-11T11:53:32.610Z",
-            "nearestMunicipality": "Clivio (VA)",
-            "nearestMunicipalityDistanceKm": 4.6,
-            "sp95PriceEur": 1.88,
-            "distanceKm": 14.2
+            "id": "g1Ewt2bs9nFFxymi7tYL",
+            "name": "TAMOIL Stabio",
+            "brand": "TAMOIL",
+            "address": "Giulia 47, 6855 Stabio",
+            "lat": 45.848008,
+            "lng": 8.935833,
+            "sp95PriceChf": 1.72,
+            "updatedAt": "2026-03-07T18:03:01.884Z",
+            "nearestMunicipality": "Bizzarone (CO)",
+            "nearestMunicipalityDistanceKm": 1.6,
+            "sp95PriceEur": 1.891,
+            "distanceKm": 12.2
           }
         ],
         "minPriceChf": 1.64,
@@ -12642,7 +12642,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 21,
+        "optionCount": 23,
         "cheapestStation": {
           "id": "2cyTEGqZPuSVhtpjGqzf",
           "name": "Silo Shop",
@@ -12687,20 +12687,6 @@
             "distanceKm": 15.6
           },
           {
-            "id": "ukK4QQ2nixpThGubzzE3",
-            "name": "Orcam",
-            "brand": "UNDEFINED",
-            "address": "Via Carlo Maderno 41, 6850 Mendrisio",
-            "lat": 45.8851362482152,
-            "lng": 8.981086222287052,
-            "sp95PriceChf": 1.7100000000000002,
-            "updatedAt": "2026-03-11T11:53:32.610Z",
-            "nearestMunicipality": "Clivio (VA)",
-            "nearestMunicipalityDistanceKm": 4.6,
-            "sp95PriceEur": 1.88,
-            "distanceKm": 19.9
-          },
-          {
             "id": "g1Ewt2bs9nFFxymi7tYL",
             "name": "TAMOIL Stabio",
             "brand": "TAMOIL",
@@ -12727,6 +12713,20 @@
             "nearestMunicipalityDistanceKm": 1.6,
             "sp95PriceEur": 1.902,
             "distanceKm": 14.8
+          },
+          {
+            "id": "EDsfoWTW5mhInO152CPP",
+            "name": "Eni Chiasso",
+            "brand": "ENI",
+            "address": "Via Como 7, 6830 Chiasso",
+            "lat": 45.8378284,
+            "lng": 9.0340937,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-03-16T08:42:42.056Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 1.2,
+            "sp95PriceEur": 1.902,
+            "distanceKm": 15.2
           }
         ],
         "minPriceChf": 1.65,
@@ -12801,7 +12801,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 25,
+        "optionCount": 27,
         "cheapestStation": {
           "id": "2iMRCPqDCHHpLcBX8dCN",
           "name": "Agrola Melano",
@@ -12874,18 +12874,18 @@
             "distanceKm": 17.3
           },
           {
-            "id": "ukK4QQ2nixpThGubzzE3",
-            "name": "Orcam",
-            "brand": "UNDEFINED",
-            "address": "Via Carlo Maderno 41, 6850 Mendrisio",
-            "lat": 45.8851362482152,
-            "lng": 8.981086222287052,
-            "sp95PriceChf": 1.7100000000000002,
-            "updatedAt": "2026-03-11T11:53:32.610Z",
-            "nearestMunicipality": "Clivio (VA)",
-            "nearestMunicipalityDistanceKm": 4.6,
-            "sp95PriceEur": 1.88,
-            "distanceKm": 13
+            "id": "g1Ewt2bs9nFFxymi7tYL",
+            "name": "TAMOIL Stabio",
+            "brand": "TAMOIL",
+            "address": "Giulia 47, 6855 Stabio",
+            "lat": 45.848008,
+            "lng": 8.935833,
+            "sp95PriceChf": 1.72,
+            "updatedAt": "2026-03-07T18:03:01.884Z",
+            "nearestMunicipality": "Bizzarone (CO)",
+            "nearestMunicipalityDistanceKm": 1.6,
+            "sp95PriceEur": 1.891,
+            "distanceKm": 9.7
           }
         ],
         "minPriceChf": 1.64,
@@ -13300,7 +13300,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 54,
+        "optionCount": 56,
         "cheapestStation": {
           "id": "2iMRCPqDCHHpLcBX8dCN",
           "name": "Agrola Melano",
@@ -13658,7 +13658,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 46,
+        "optionCount": 48,
         "cheapestStation": {
           "id": "2iMRCPqDCHHpLcBX8dCN",
           "name": "Agrola Melano",
@@ -13888,7 +13888,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 29,
+        "optionCount": 31,
         "cheapestStation": {
           "id": "2iMRCPqDCHHpLcBX8dCN",
           "name": "Agrola Melano",
@@ -14090,7 +14090,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 24,
+        "optionCount": 26,
         "cheapestStation": {
           "id": "2iMRCPqDCHHpLcBX8dCN",
           "name": "Agrola Melano",
@@ -14163,18 +14163,18 @@
             "distanceKm": 19.9
           },
           {
-            "id": "ukK4QQ2nixpThGubzzE3",
-            "name": "Orcam",
-            "brand": "UNDEFINED",
-            "address": "Via Carlo Maderno 41, 6850 Mendrisio",
-            "lat": 45.8851362482152,
-            "lng": 8.981086222287052,
-            "sp95PriceChf": 1.7100000000000002,
-            "updatedAt": "2026-03-11T11:53:32.610Z",
-            "nearestMunicipality": "Clivio (VA)",
-            "nearestMunicipalityDistanceKm": 4.6,
-            "sp95PriceEur": 1.88,
-            "distanceKm": 16.9
+            "id": "g1Ewt2bs9nFFxymi7tYL",
+            "name": "TAMOIL Stabio",
+            "brand": "TAMOIL",
+            "address": "Giulia 47, 6855 Stabio",
+            "lat": 45.848008,
+            "lng": 8.935833,
+            "sp95PriceChf": 1.72,
+            "updatedAt": "2026-03-07T18:03:01.884Z",
+            "nearestMunicipality": "Bizzarone (CO)",
+            "nearestMunicipalityDistanceKm": 1.6,
+            "sp95PriceEur": 1.891,
+            "distanceKm": 17.7
           }
         ],
         "minPriceChf": 1.64,
@@ -14512,7 +14512,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 51,
+        "optionCount": 53,
         "cheapestStation": {
           "id": "2iMRCPqDCHHpLcBX8dCN",
           "name": "Agrola Melano",
@@ -14852,7 +14852,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 29,
+        "optionCount": 31,
         "cheapestStation": {
           "id": "2iMRCPqDCHHpLcBX8dCN",
           "name": "Agrola Melano",
@@ -14967,7 +14967,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 25,
+        "optionCount": 27,
         "cheapestStation": {
           "id": "2iMRCPqDCHHpLcBX8dCN",
           "name": "Agrola Melano",
@@ -15040,18 +15040,18 @@
             "distanceKm": 18.6
           },
           {
-            "id": "ukK4QQ2nixpThGubzzE3",
-            "name": "Orcam",
-            "brand": "UNDEFINED",
-            "address": "Via Carlo Maderno 41, 6850 Mendrisio",
-            "lat": 45.8851362482152,
-            "lng": 8.981086222287052,
-            "sp95PriceChf": 1.7100000000000002,
-            "updatedAt": "2026-03-11T11:53:32.610Z",
-            "nearestMunicipality": "Clivio (VA)",
-            "nearestMunicipalityDistanceKm": 4.6,
-            "sp95PriceEur": 1.88,
-            "distanceKm": 14.3
+            "id": "g1Ewt2bs9nFFxymi7tYL",
+            "name": "TAMOIL Stabio",
+            "brand": "TAMOIL",
+            "address": "Giulia 47, 6855 Stabio",
+            "lat": 45.848008,
+            "lng": 8.935833,
+            "sp95PriceChf": 1.72,
+            "updatedAt": "2026-03-07T18:03:01.884Z",
+            "nearestMunicipality": "Bizzarone (CO)",
+            "nearestMunicipalityDistanceKm": 1.6,
+            "sp95PriceEur": 1.891,
+            "distanceKm": 10.6
           }
         ],
         "minPriceChf": 1.64,
@@ -15115,7 +15115,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 20,
+        "optionCount": 22,
         "cheapestStation": {
           "id": "2cyTEGqZPuSVhtpjGqzf",
           "name": "Silo Shop",
@@ -15160,20 +15160,6 @@
             "distanceKm": 14.7
           },
           {
-            "id": "ukK4QQ2nixpThGubzzE3",
-            "name": "Orcam",
-            "brand": "UNDEFINED",
-            "address": "Via Carlo Maderno 41, 6850 Mendrisio",
-            "lat": 45.8851362482152,
-            "lng": 8.981086222287052,
-            "sp95PriceChf": 1.7100000000000002,
-            "updatedAt": "2026-03-11T11:53:32.610Z",
-            "nearestMunicipality": "Clivio (VA)",
-            "nearestMunicipalityDistanceKm": 4.6,
-            "sp95PriceEur": 1.88,
-            "distanceKm": 19.6
-          },
-          {
             "id": "4rZcVZZyMdcg9utPrsXv",
             "name": "GARAGE 64",
             "brand": "UNDEFINED",
@@ -15200,6 +15186,20 @@
             "nearestMunicipalityDistanceKm": 1.2,
             "sp95PriceEur": 1.902,
             "distanceKm": 13.2
+          },
+          {
+            "id": "IGIlo1f7hrzC174Fqgmt",
+            "name": "TAMOIL Balerna (San Gottardo)",
+            "brand": "TAMOIL",
+            "address": "San Gottardo 12, 6828 Balerna",
+            "lat": 45.840241,
+            "lng": 9.018873,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-03-16T08:40:53.906Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 2.2,
+            "sp95PriceEur": 1.902,
+            "distanceKm": 14.4
           }
         ],
         "minPriceChf": 1.65,
@@ -15446,7 +15446,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 80,
+        "optionCount": 82,
         "cheapestStation": {
           "id": "2iMRCPqDCHHpLcBX8dCN",
           "name": "Agrola Melano",
@@ -15648,7 +15648,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 29,
+        "optionCount": 31,
         "cheapestStation": {
           "id": "2iMRCPqDCHHpLcBX8dCN",
           "name": "Agrola Melano",
@@ -15763,7 +15763,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 86,
+        "optionCount": 88,
         "cheapestStation": {
           "id": "2iMRCPqDCHHpLcBX8dCN",
           "name": "Agrola Melano",
@@ -15878,7 +15878,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 19,
+        "optionCount": 21,
         "cheapestStation": {
           "id": "2cyTEGqZPuSVhtpjGqzf",
           "name": "Silo Shop",
@@ -15923,20 +15923,6 @@
             "distanceKm": 16.3
           },
           {
-            "id": "ukK4QQ2nixpThGubzzE3",
-            "name": "Orcam",
-            "brand": "UNDEFINED",
-            "address": "Via Carlo Maderno 41, 6850 Mendrisio",
-            "lat": 45.8851362482152,
-            "lng": 8.981086222287052,
-            "sp95PriceChf": 1.7100000000000002,
-            "updatedAt": "2026-03-11T11:53:32.610Z",
-            "nearestMunicipality": "Clivio (VA)",
-            "nearestMunicipalityDistanceKm": 4.6,
-            "sp95PriceEur": 1.88,
-            "distanceKm": 20
-          },
-          {
             "id": "4rZcVZZyMdcg9utPrsXv",
             "name": "GARAGE 64",
             "brand": "UNDEFINED",
@@ -15963,6 +15949,20 @@
             "nearestMunicipalityDistanceKm": 1.2,
             "sp95PriceEur": 1.902,
             "distanceKm": 14.9
+          },
+          {
+            "id": "IGIlo1f7hrzC174Fqgmt",
+            "name": "TAMOIL Balerna (San Gottardo)",
+            "brand": "TAMOIL",
+            "address": "San Gottardo 12, 6828 Balerna",
+            "lat": 45.840241,
+            "lng": 9.018873,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-03-16T08:40:53.906Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 2.2,
+            "sp95PriceEur": 1.902,
+            "distanceKm": 16.1
           }
         ],
         "minPriceChf": 1.65,
@@ -16475,7 +16475,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 55,
+        "optionCount": 57,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -16590,7 +16590,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 58,
+        "optionCount": 60,
         "cheapestStation": {
           "id": "2iMRCPqDCHHpLcBX8dCN",
           "name": "Agrola Melano",
@@ -16906,7 +16906,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 59,
+        "optionCount": 61,
         "cheapestStation": {
           "id": "2iMRCPqDCHHpLcBX8dCN",
           "name": "Agrola Melano",
@@ -17169,7 +17169,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 29,
+        "optionCount": 31,
         "cheapestStation": {
           "id": "2iMRCPqDCHHpLcBX8dCN",
           "name": "Agrola Melano",
@@ -17430,7 +17430,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 81,
+        "optionCount": 83,
         "cheapestStation": {
           "id": "2iMRCPqDCHHpLcBX8dCN",
           "name": "Agrola Melano",
@@ -17545,7 +17545,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 22,
+        "optionCount": 24,
         "cheapestStation": {
           "id": "2cyTEGqZPuSVhtpjGqzf",
           "name": "Silo Shop",
@@ -17590,20 +17590,6 @@
             "distanceKm": 11.6
           },
           {
-            "id": "ukK4QQ2nixpThGubzzE3",
-            "name": "Orcam",
-            "brand": "UNDEFINED",
-            "address": "Via Carlo Maderno 41, 6850 Mendrisio",
-            "lat": 45.8851362482152,
-            "lng": 8.981086222287052,
-            "sp95PriceChf": 1.7100000000000002,
-            "updatedAt": "2026-03-11T11:53:32.610Z",
-            "nearestMunicipality": "Clivio (VA)",
-            "nearestMunicipalityDistanceKm": 4.6,
-            "sp95PriceEur": 1.88,
-            "distanceKm": 16.9
-          },
-          {
             "id": "g1Ewt2bs9nFFxymi7tYL",
             "name": "TAMOIL Stabio",
             "brand": "TAMOIL",
@@ -17630,6 +17616,20 @@
             "nearestMunicipalityDistanceKm": 1.6,
             "sp95PriceEur": 1.902,
             "distanceKm": 10
+          },
+          {
+            "id": "EDsfoWTW5mhInO152CPP",
+            "name": "Eni Chiasso",
+            "brand": "ENI",
+            "address": "Via Como 7, 6830 Chiasso",
+            "lat": 45.8378284,
+            "lng": 9.0340937,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-03-16T08:42:42.056Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 1.2,
+            "sp95PriceEur": 1.902,
+            "distanceKm": 10.2
           }
         ],
         "minPriceChf": 1.65,
@@ -17693,7 +17693,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 35,
+        "optionCount": 37,
         "cheapestStation": {
           "id": "2iMRCPqDCHHpLcBX8dCN",
           "name": "Agrola Melano",
@@ -18144,7 +18144,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 25,
+        "optionCount": 27,
         "cheapestStation": {
           "id": "2iMRCPqDCHHpLcBX8dCN",
           "name": "Agrola Melano",
@@ -18217,18 +18217,18 @@
             "distanceKm": 18.5
           },
           {
-            "id": "ukK4QQ2nixpThGubzzE3",
-            "name": "Orcam",
-            "brand": "UNDEFINED",
-            "address": "Via Carlo Maderno 41, 6850 Mendrisio",
-            "lat": 45.8851362482152,
-            "lng": 8.981086222287052,
-            "sp95PriceChf": 1.7100000000000002,
-            "updatedAt": "2026-03-11T11:53:32.610Z",
-            "nearestMunicipality": "Clivio (VA)",
-            "nearestMunicipalityDistanceKm": 4.6,
-            "sp95PriceEur": 1.88,
-            "distanceKm": 15.8
+            "id": "g1Ewt2bs9nFFxymi7tYL",
+            "name": "TAMOIL Stabio",
+            "brand": "TAMOIL",
+            "address": "Giulia 47, 6855 Stabio",
+            "lat": 45.848008,
+            "lng": 8.935833,
+            "sp95PriceChf": 1.72,
+            "updatedAt": "2026-03-07T18:03:01.884Z",
+            "nearestMunicipality": "Bizzarone (CO)",
+            "nearestMunicipalityDistanceKm": 1.6,
+            "sp95PriceEur": 1.891,
+            "distanceKm": 17.1
           }
         ],
         "minPriceChf": 1.64,
@@ -18281,7 +18281,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 37,
+        "optionCount": 39,
         "cheapestStation": {
           "id": "2iMRCPqDCHHpLcBX8dCN",
           "name": "Agrola Melano",
@@ -18499,20 +18499,6 @@
             "distanceKm": 17.4
           },
           {
-            "id": "ukK4QQ2nixpThGubzzE3",
-            "name": "Orcam",
-            "brand": "UNDEFINED",
-            "address": "Via Carlo Maderno 41, 6850 Mendrisio",
-            "lat": 45.8851362482152,
-            "lng": 8.981086222287052,
-            "sp95PriceChf": 1.7100000000000002,
-            "updatedAt": "2026-03-11T11:53:32.610Z",
-            "nearestMunicipality": "Clivio (VA)",
-            "nearestMunicipalityDistanceKm": 4.6,
-            "sp95PriceEur": 1.88,
-            "distanceKm": 19.6
-          },
-          {
             "id": "3tylGHcPsorvwOkbCCP8",
             "name": "ENI Vacallo",
             "brand": "ENI",
@@ -18525,6 +18511,20 @@
             "nearestMunicipalityDistanceKm": 0.8,
             "sp95PriceEur": 1.902,
             "distanceKm": 19.6
+          },
+          {
+            "id": "8QgVfPq0az3upJZD19TN",
+            "name": "SOCAR / Piccadilly Capolago",
+            "brand": "PICCADILLY",
+            "address": "Via Carlo Maderno 56, 6825 Capolago",
+            "lat": 45.909946,
+            "lng": 8.982814,
+            "sp95PriceChf": 1.75,
+            "updatedAt": "2026-03-18T12:29:13.580Z",
+            "nearestMunicipality": "Porto Ceresio (VA)",
+            "nearestMunicipalityDistanceKm": 6.1,
+            "sp95PriceEur": 1.924,
+            "distanceKm": 18.1
           }
         ],
         "minPriceChf": 1.64,
@@ -18818,7 +18818,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 54,
+        "optionCount": 56,
         "cheapestStation": {
           "id": "2iMRCPqDCHHpLcBX8dCN",
           "name": "Agrola Melano",
@@ -19079,7 +19079,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 51,
+        "optionCount": 53,
         "cheapestStation": {
           "id": "2iMRCPqDCHHpLcBX8dCN",
           "name": "Agrola Melano",
@@ -19194,7 +19194,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 108,
+        "optionCount": 110,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -19309,7 +19309,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 29,
+        "optionCount": 31,
         "cheapestStation": {
           "id": "2iMRCPqDCHHpLcBX8dCN",
           "name": "Agrola Melano",
@@ -19446,7 +19446,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 21,
+        "optionCount": 23,
         "cheapestStation": {
           "id": "2cyTEGqZPuSVhtpjGqzf",
           "name": "Silo Shop",
@@ -19491,20 +19491,6 @@
             "distanceKm": 14.5
           },
           {
-            "id": "ukK4QQ2nixpThGubzzE3",
-            "name": "Orcam",
-            "brand": "UNDEFINED",
-            "address": "Via Carlo Maderno 41, 6850 Mendrisio",
-            "lat": 45.8851362482152,
-            "lng": 8.981086222287052,
-            "sp95PriceChf": 1.7100000000000002,
-            "updatedAt": "2026-03-11T11:53:32.610Z",
-            "nearestMunicipality": "Clivio (VA)",
-            "nearestMunicipalityDistanceKm": 4.6,
-            "sp95PriceEur": 1.88,
-            "distanceKm": 18.9
-          },
-          {
             "id": "g1Ewt2bs9nFFxymi7tYL",
             "name": "TAMOIL Stabio",
             "brand": "TAMOIL",
@@ -19531,6 +19517,20 @@
             "nearestMunicipalityDistanceKm": 1.6,
             "sp95PriceEur": 1.902,
             "distanceKm": 13.7
+          },
+          {
+            "id": "EDsfoWTW5mhInO152CPP",
+            "name": "Eni Chiasso",
+            "brand": "ENI",
+            "address": "Via Como 7, 6830 Chiasso",
+            "lat": 45.8378284,
+            "lng": 9.0340937,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-03-16T08:42:42.056Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 1.2,
+            "sp95PriceEur": 1.902,
+            "distanceKm": 14.2
           }
         ],
         "minPriceChf": 1.65,
@@ -19720,7 +19720,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 21,
+        "optionCount": 23,
         "cheapestStation": {
           "id": "2cyTEGqZPuSVhtpjGqzf",
           "name": "Silo Shop",
@@ -19765,20 +19765,6 @@
             "distanceKm": 13.7
           },
           {
-            "id": "ukK4QQ2nixpThGubzzE3",
-            "name": "Orcam",
-            "brand": "UNDEFINED",
-            "address": "Via Carlo Maderno 41, 6850 Mendrisio",
-            "lat": 45.8851362482152,
-            "lng": 8.981086222287052,
-            "sp95PriceChf": 1.7100000000000002,
-            "updatedAt": "2026-03-11T11:53:32.610Z",
-            "nearestMunicipality": "Clivio (VA)",
-            "nearestMunicipalityDistanceKm": 4.6,
-            "sp95PriceEur": 1.88,
-            "distanceKm": 19
-          },
-          {
             "id": "g1Ewt2bs9nFFxymi7tYL",
             "name": "TAMOIL Stabio",
             "brand": "TAMOIL",
@@ -19805,6 +19791,20 @@
             "nearestMunicipalityDistanceKm": 1.6,
             "sp95PriceEur": 1.902,
             "distanceKm": 12.3
+          },
+          {
+            "id": "EDsfoWTW5mhInO152CPP",
+            "name": "Eni Chiasso",
+            "brand": "ENI",
+            "address": "Via Como 7, 6830 Chiasso",
+            "lat": 45.8378284,
+            "lng": 9.0340937,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-03-16T08:42:42.056Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 1.2,
+            "sp95PriceEur": 1.902,
+            "distanceKm": 12.7
           }
         ],
         "minPriceChf": 1.65,
@@ -19868,7 +19868,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 25,
+        "optionCount": 27,
         "cheapestStation": {
           "id": "2iMRCPqDCHHpLcBX8dCN",
           "name": "Agrola Melano",
@@ -19941,18 +19941,18 @@
             "distanceKm": 17
           },
           {
-            "id": "ukK4QQ2nixpThGubzzE3",
-            "name": "Orcam",
-            "brand": "UNDEFINED",
-            "address": "Via Carlo Maderno 41, 6850 Mendrisio",
-            "lat": 45.8851362482152,
-            "lng": 8.981086222287052,
-            "sp95PriceChf": 1.7100000000000002,
-            "updatedAt": "2026-03-11T11:53:32.610Z",
-            "nearestMunicipality": "Clivio (VA)",
-            "nearestMunicipalityDistanceKm": 4.6,
-            "sp95PriceEur": 1.88,
-            "distanceKm": 12.8
+            "id": "g1Ewt2bs9nFFxymi7tYL",
+            "name": "TAMOIL Stabio",
+            "brand": "TAMOIL",
+            "address": "Giulia 47, 6855 Stabio",
+            "lat": 45.848008,
+            "lng": 8.935833,
+            "sp95PriceChf": 1.72,
+            "updatedAt": "2026-03-07T18:03:01.884Z",
+            "nearestMunicipality": "Bizzarone (CO)",
+            "nearestMunicipalityDistanceKm": 1.6,
+            "sp95PriceEur": 1.891,
+            "distanceKm": 10.7
           }
         ],
         "minPriceChf": 1.64,
@@ -19983,7 +19983,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 30,
+        "optionCount": 32,
         "cheapestStation": {
           "id": "2iMRCPqDCHHpLcBX8dCN",
           "name": "Agrola Melano",
@@ -20341,7 +20341,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 75,
+        "optionCount": 77,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -20564,36 +20564,22 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 7,
+        "optionCount": 9,
         "cheapestStation": {
-          "id": "ukK4QQ2nixpThGubzzE3",
-          "name": "Orcam",
-          "brand": "UNDEFINED",
-          "address": "Via Carlo Maderno 41, 6850 Mendrisio",
-          "lat": 45.8851362482152,
-          "lng": 8.981086222287052,
-          "sp95PriceChf": 1.7100000000000002,
-          "updatedAt": "2026-03-11T11:53:32.610Z",
-          "nearestMunicipality": "Clivio (VA)",
-          "nearestMunicipalityDistanceKm": 4.6,
-          "sp95PriceEur": 1.88,
-          "distanceKm": 19.7
+          "id": "g1Ewt2bs9nFFxymi7tYL",
+          "name": "TAMOIL Stabio",
+          "brand": "TAMOIL",
+          "address": "Giulia 47, 6855 Stabio",
+          "lat": 45.848008,
+          "lng": 8.935833,
+          "sp95PriceChf": 1.72,
+          "updatedAt": "2026-03-07T18:03:01.884Z",
+          "nearestMunicipality": "Bizzarone (CO)",
+          "nearestMunicipalityDistanceKm": 1.6,
+          "sp95PriceEur": 1.891,
+          "distanceKm": 14.6
         },
         "nearbyStations": [
-          {
-            "id": "ukK4QQ2nixpThGubzzE3",
-            "name": "Orcam",
-            "brand": "UNDEFINED",
-            "address": "Via Carlo Maderno 41, 6850 Mendrisio",
-            "lat": 45.8851362482152,
-            "lng": 8.981086222287052,
-            "sp95PriceChf": 1.7100000000000002,
-            "updatedAt": "2026-03-11T11:53:32.610Z",
-            "nearestMunicipality": "Clivio (VA)",
-            "nearestMunicipalityDistanceKm": 4.6,
-            "sp95PriceEur": 1.88,
-            "distanceKm": 19.7
-          },
           {
             "id": "g1Ewt2bs9nFFxymi7tYL",
             "name": "TAMOIL Stabio",
@@ -20621,6 +20607,20 @@
             "nearestMunicipalityDistanceKm": 3.8,
             "sp95PriceEur": 1.946,
             "distanceKm": 18.5
+          },
+          {
+            "id": "ukK4QQ2nixpThGubzzE3",
+            "name": "Orcam",
+            "brand": "UNDEFINED",
+            "address": "Via Carlo Maderno 41, 6850 Mendrisio",
+            "lat": 45.8851362482152,
+            "lng": 8.981086222287052,
+            "sp95PriceChf": 1.7700000000000002,
+            "updatedAt": "2026-03-22T10:26:06.281Z",
+            "nearestMunicipality": "Clivio (VA)",
+            "nearestMunicipalityDistanceKm": 4.6,
+            "sp95PriceEur": 1.946,
+            "distanceKm": 19.7
           },
           {
             "id": "jyoUfNzRecwgKimvcY2C",
@@ -20651,13 +20651,13 @@
             "distanceKm": 17.3
           }
         ],
-        "minPriceChf": 1.71,
-        "minPriceEur": 1.88
+        "minPriceChf": 1.72,
+        "minPriceEur": 1.891
       },
       "comparison": {
         "cheaperCountry": "IT",
-        "priceDeltaEur": 0.181,
-        "saving50LEur": 9.05
+        "priceDeltaEur": 0.192,
+        "saving50LEur": 9.6
       }
     },
     {
@@ -20816,7 +20816,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 26,
+        "optionCount": 28,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -21023,7 +21023,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 70,
+        "optionCount": 72,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -21138,7 +21138,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 82,
+        "optionCount": 84,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -21471,7 +21471,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 78,
+        "optionCount": 80,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -21619,7 +21619,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 6,
+        "optionCount": 8,
         "cheapestStation": {
           "id": "g1Ewt2bs9nFFxymi7tYL",
           "name": "TAMOIL Stabio",
@@ -21692,18 +21692,18 @@
             "distanceKm": 18.3
           },
           {
-            "id": "C9ajQvOEOfsMQZ4JfC4l",
-            "name": "SOCAR / Piccadilly Coldrerio",
-            "brand": "PICCADILLY",
-            "address": "Via San Gottardo 37, 6877 Coldrerio",
-            "lat": 45.857751,
-            "lng": 8.98526,
-            "sp95PriceChf": 1.81,
-            "updatedAt": "2026-03-21T10:12:59.946Z",
-            "nearestMunicipality": "Ronago (CO)",
-            "nearestMunicipalityDistanceKm": 2.8,
-            "sp95PriceEur": 1.99,
-            "distanceKm": 19.6
+            "id": "vbEF6LPJUVx6BKRmHD5T",
+            "name": "Station Allo Svincolo",
+            "brand": "UNDEFINED",
+            "address": "Via Francesco Borromini 6, 6850 Mendrisio",
+            "lat": 45.87329729581304,
+            "lng": 8.978156929315192,
+            "sp95PriceChf": 1.8,
+            "updatedAt": "2026-03-22T10:33:04.222Z",
+            "nearestMunicipality": "Clivio (VA)",
+            "nearestMunicipalityDistanceKm": 3.9,
+            "sp95PriceEur": 1.979,
+            "distanceKm": 19.8
           }
         ],
         "minPriceChf": 1.72,
@@ -22072,7 +22072,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 75,
+        "optionCount": 77,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -22187,7 +22187,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 65,
+        "optionCount": 67,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -22302,7 +22302,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 17,
+        "optionCount": 19,
         "cheapestStation": {
           "id": "2cyTEGqZPuSVhtpjGqzf",
           "name": "Silo Shop",
@@ -22347,20 +22347,6 @@
             "distanceKm": 19.1
           },
           {
-            "id": "ukK4QQ2nixpThGubzzE3",
-            "name": "Orcam",
-            "brand": "UNDEFINED",
-            "address": "Via Carlo Maderno 41, 6850 Mendrisio",
-            "lat": 45.8851362482152,
-            "lng": 8.981086222287052,
-            "sp95PriceChf": 1.7100000000000002,
-            "updatedAt": "2026-03-11T11:53:32.610Z",
-            "nearestMunicipality": "Clivio (VA)",
-            "nearestMunicipalityDistanceKm": 4.6,
-            "sp95PriceEur": 1.88,
-            "distanceKm": 19.5
-          },
-          {
             "id": "g1Ewt2bs9nFFxymi7tYL",
             "name": "TAMOIL Stabio",
             "brand": "TAMOIL",
@@ -22387,6 +22373,20 @@
             "nearestMunicipalityDistanceKm": 1.6,
             "sp95PriceEur": 1.902,
             "distanceKm": 19.7
+          },
+          {
+            "id": "EDsfoWTW5mhInO152CPP",
+            "name": "Eni Chiasso",
+            "brand": "ENI",
+            "address": "Via Como 7, 6830 Chiasso",
+            "lat": 45.8378284,
+            "lng": 9.0340937,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-03-16T08:42:42.056Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 1.2,
+            "sp95PriceEur": 1.902,
+            "distanceKm": 20
           }
         ],
         "minPriceChf": 1.65,
@@ -22417,7 +22417,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 91,
+        "optionCount": 93,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -22576,7 +22576,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 22,
+        "optionCount": 24,
         "cheapestStation": {
           "id": "2cyTEGqZPuSVhtpjGqzf",
           "name": "Silo Shop",
@@ -22621,20 +22621,6 @@
             "distanceKm": 17.6
           },
           {
-            "id": "ukK4QQ2nixpThGubzzE3",
-            "name": "Orcam",
-            "brand": "UNDEFINED",
-            "address": "Via Carlo Maderno 41, 6850 Mendrisio",
-            "lat": 45.8851362482152,
-            "lng": 8.981086222287052,
-            "sp95PriceChf": 1.7100000000000002,
-            "updatedAt": "2026-03-11T11:53:32.610Z",
-            "nearestMunicipality": "Clivio (VA)",
-            "nearestMunicipalityDistanceKm": 4.6,
-            "sp95PriceEur": 1.88,
-            "distanceKm": 17.5
-          },
-          {
             "id": "g1Ewt2bs9nFFxymi7tYL",
             "name": "TAMOIL Stabio",
             "brand": "TAMOIL",
@@ -22661,6 +22647,20 @@
             "nearestMunicipalityDistanceKm": 1.6,
             "sp95PriceEur": 1.902,
             "distanceKm": 18.3
+          },
+          {
+            "id": "EDsfoWTW5mhInO152CPP",
+            "name": "Eni Chiasso",
+            "brand": "ENI",
+            "address": "Via Como 7, 6830 Chiasso",
+            "lat": 45.8378284,
+            "lng": 9.0340937,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-03-16T08:42:42.056Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 1.2,
+            "sp95PriceEur": 1.902,
+            "distanceKm": 18.7
           }
         ],
         "minPriceChf": 1.65,
@@ -22691,7 +22691,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 80,
+        "optionCount": 82,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -23009,7 +23009,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 54,
+        "optionCount": 56,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -23258,7 +23258,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 15,
+        "optionCount": 17,
         "cheapestStation": {
           "id": "2cyTEGqZPuSVhtpjGqzf",
           "name": "Silo Shop",
@@ -23406,7 +23406,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 21,
+        "optionCount": 23,
         "cheapestStation": {
           "id": "2cyTEGqZPuSVhtpjGqzf",
           "name": "Silo Shop",
@@ -23451,20 +23451,6 @@
             "distanceKm": 18.6
           },
           {
-            "id": "ukK4QQ2nixpThGubzzE3",
-            "name": "Orcam",
-            "brand": "UNDEFINED",
-            "address": "Via Carlo Maderno 41, 6850 Mendrisio",
-            "lat": 45.8851362482152,
-            "lng": 8.981086222287052,
-            "sp95PriceChf": 1.7100000000000002,
-            "updatedAt": "2026-03-11T11:53:32.610Z",
-            "nearestMunicipality": "Clivio (VA)",
-            "nearestMunicipalityDistanceKm": 4.6,
-            "sp95PriceEur": 1.88,
-            "distanceKm": 20
-          },
-          {
             "id": "g1Ewt2bs9nFFxymi7tYL",
             "name": "TAMOIL Stabio",
             "brand": "TAMOIL",
@@ -23491,6 +23477,20 @@
             "nearestMunicipalityDistanceKm": 1.6,
             "sp95PriceEur": 1.902,
             "distanceKm": 18.8
+          },
+          {
+            "id": "EDsfoWTW5mhInO152CPP",
+            "name": "Eni Chiasso",
+            "brand": "ENI",
+            "address": "Via Como 7, 6830 Chiasso",
+            "lat": 45.8378284,
+            "lng": 9.0340937,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-03-16T08:42:42.056Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 1.2,
+            "sp95PriceEur": 1.902,
+            "distanceKm": 19.2
           }
         ],
         "minPriceChf": 1.65,
@@ -23695,7 +23695,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 44,
+        "optionCount": 46,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -23929,7 +23929,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 67,
+        "optionCount": 69,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -24044,7 +24044,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 54,
+        "optionCount": 56,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -24192,7 +24192,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 20,
+        "optionCount": 22,
         "cheapestStation": {
           "id": "2cyTEGqZPuSVhtpjGqzf",
           "name": "Silo Shop",
@@ -24444,7 +24444,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 22,
+        "optionCount": 24,
         "cheapestStation": {
           "id": "2cyTEGqZPuSVhtpjGqzf",
           "name": "Silo Shop",
@@ -24489,20 +24489,6 @@
             "distanceKm": 15.2
           },
           {
-            "id": "ukK4QQ2nixpThGubzzE3",
-            "name": "Orcam",
-            "brand": "UNDEFINED",
-            "address": "Via Carlo Maderno 41, 6850 Mendrisio",
-            "lat": 45.8851362482152,
-            "lng": 8.981086222287052,
-            "sp95PriceChf": 1.7100000000000002,
-            "updatedAt": "2026-03-11T11:53:32.610Z",
-            "nearestMunicipality": "Clivio (VA)",
-            "nearestMunicipalityDistanceKm": 4.6,
-            "sp95PriceEur": 1.88,
-            "distanceKm": 16.9
-          },
-          {
             "id": "g1Ewt2bs9nFFxymi7tYL",
             "name": "TAMOIL Stabio",
             "brand": "TAMOIL",
@@ -24529,6 +24515,20 @@
             "nearestMunicipalityDistanceKm": 1.6,
             "sp95PriceEur": 1.902,
             "distanceKm": 15.5
+          },
+          {
+            "id": "EDsfoWTW5mhInO152CPP",
+            "name": "Eni Chiasso",
+            "brand": "ENI",
+            "address": "Via Como 7, 6830 Chiasso",
+            "lat": 45.8378284,
+            "lng": 9.0340937,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-03-16T08:42:42.056Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 1.2,
+            "sp95PriceEur": 1.902,
+            "distanceKm": 15.9
           }
         ],
         "minPriceChf": 1.65,
@@ -24614,7 +24614,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 16,
+        "optionCount": 18,
         "cheapestStation": {
           "id": "2cyTEGqZPuSVhtpjGqzf",
           "name": "Silo Shop",
@@ -25189,7 +25189,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 78,
+        "optionCount": 80,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -25593,7 +25593,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 20,
+        "optionCount": 22,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -25708,7 +25708,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 87,
+        "optionCount": 89,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -25971,7 +25971,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 83,
+        "optionCount": 85,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -26086,7 +26086,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 76,
+        "optionCount": 78,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -26223,7 +26223,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 73,
+        "optionCount": 75,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -26497,7 +26497,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 45,
+        "optionCount": 47,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -26612,7 +26612,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 43,
+        "optionCount": 45,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -26760,7 +26760,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 6,
+        "optionCount": 8,
         "cheapestStation": {
           "id": "g1Ewt2bs9nFFxymi7tYL",
           "name": "TAMOIL Stabio",
@@ -26833,18 +26833,18 @@
             "distanceKm": 17.5
           },
           {
-            "id": "C9ajQvOEOfsMQZ4JfC4l",
-            "name": "SOCAR / Piccadilly Coldrerio",
-            "brand": "PICCADILLY",
-            "address": "Via San Gottardo 37, 6877 Coldrerio",
-            "lat": 45.857751,
-            "lng": 8.98526,
-            "sp95PriceChf": 1.81,
-            "updatedAt": "2026-03-21T10:12:59.946Z",
-            "nearestMunicipality": "Ronago (CO)",
-            "nearestMunicipalityDistanceKm": 2.8,
-            "sp95PriceEur": 1.99,
-            "distanceKm": 18.7
+            "id": "vbEF6LPJUVx6BKRmHD5T",
+            "name": "Station Allo Svincolo",
+            "brand": "UNDEFINED",
+            "address": "Via Francesco Borromini 6, 6850 Mendrisio",
+            "lat": 45.87329729581304,
+            "lng": 8.978156929315192,
+            "sp95PriceChf": 1.8,
+            "updatedAt": "2026-03-22T10:33:04.222Z",
+            "nearestMunicipality": "Clivio (VA)",
+            "nearestMunicipalityDistanceKm": 3.9,
+            "sp95PriceEur": 1.979,
+            "distanceKm": 19.2
           }
         ],
         "minPriceChf": 1.72,
@@ -26990,7 +26990,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 53,
+        "optionCount": 55,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -27169,7 +27169,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 69,
+        "optionCount": 71,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -27678,36 +27678,22 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 8,
+        "optionCount": 10,
         "cheapestStation": {
-          "id": "ukK4QQ2nixpThGubzzE3",
-          "name": "Orcam",
-          "brand": "UNDEFINED",
-          "address": "Via Carlo Maderno 41, 6850 Mendrisio",
-          "lat": 45.8851362482152,
-          "lng": 8.981086222287052,
-          "sp95PriceChf": 1.7100000000000002,
-          "updatedAt": "2026-03-11T11:53:32.610Z",
-          "nearestMunicipality": "Clivio (VA)",
-          "nearestMunicipalityDistanceKm": 4.6,
-          "sp95PriceEur": 1.88,
-          "distanceKm": 19.8
+          "id": "g1Ewt2bs9nFFxymi7tYL",
+          "name": "TAMOIL Stabio",
+          "brand": "TAMOIL",
+          "address": "Giulia 47, 6855 Stabio",
+          "lat": 45.848008,
+          "lng": 8.935833,
+          "sp95PriceChf": 1.72,
+          "updatedAt": "2026-03-07T18:03:01.884Z",
+          "nearestMunicipality": "Bizzarone (CO)",
+          "nearestMunicipalityDistanceKm": 1.6,
+          "sp95PriceEur": 1.891,
+          "distanceKm": 14.6
         },
         "nearbyStations": [
-          {
-            "id": "ukK4QQ2nixpThGubzzE3",
-            "name": "Orcam",
-            "brand": "UNDEFINED",
-            "address": "Via Carlo Maderno 41, 6850 Mendrisio",
-            "lat": 45.8851362482152,
-            "lng": 8.981086222287052,
-            "sp95PriceChf": 1.7100000000000002,
-            "updatedAt": "2026-03-11T11:53:32.610Z",
-            "nearestMunicipality": "Clivio (VA)",
-            "nearestMunicipalityDistanceKm": 4.6,
-            "sp95PriceEur": 1.88,
-            "distanceKm": 19.8
-          },
           {
             "id": "g1Ewt2bs9nFFxymi7tYL",
             "name": "TAMOIL Stabio",
@@ -27751,6 +27737,20 @@
             "distanceKm": 18.5
           },
           {
+            "id": "ukK4QQ2nixpThGubzzE3",
+            "name": "Orcam",
+            "brand": "UNDEFINED",
+            "address": "Via Carlo Maderno 41, 6850 Mendrisio",
+            "lat": 45.8851362482152,
+            "lng": 8.981086222287052,
+            "sp95PriceChf": 1.7700000000000002,
+            "updatedAt": "2026-03-22T10:26:06.281Z",
+            "nearestMunicipality": "Clivio (VA)",
+            "nearestMunicipalityDistanceKm": 4.6,
+            "sp95PriceEur": 1.946,
+            "distanceKm": 19.8
+          },
+          {
             "id": "jyoUfNzRecwgKimvcY2C",
             "name": "Carrozzeria San Giovanni SA",
             "brand": "AVIA",
@@ -27765,8 +27765,8 @@
             "distanceKm": 17.9
           }
         ],
-        "minPriceChf": 1.71,
-        "minPriceEur": 1.88
+        "minPriceChf": 1.72,
+        "minPriceEur": 1.891
       },
       "comparison": {
         "cheaperCountry": "NO_DATA",
@@ -27892,7 +27892,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 12,
+        "optionCount": 14,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -28062,7 +28062,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 25,
+        "optionCount": 27,
         "cheapestStation": {
           "id": "2iMRCPqDCHHpLcBX8dCN",
           "name": "Agrola Melano",
@@ -28135,18 +28135,18 @@
             "distanceKm": 19.7
           },
           {
-            "id": "ukK4QQ2nixpThGubzzE3",
-            "name": "Orcam",
-            "brand": "UNDEFINED",
-            "address": "Via Carlo Maderno 41, 6850 Mendrisio",
-            "lat": 45.8851362482152,
-            "lng": 8.981086222287052,
-            "sp95PriceChf": 1.7100000000000002,
-            "updatedAt": "2026-03-11T11:53:32.610Z",
-            "nearestMunicipality": "Clivio (VA)",
-            "nearestMunicipalityDistanceKm": 4.6,
-            "sp95PriceEur": 1.88,
-            "distanceKm": 16.3
+            "id": "g1Ewt2bs9nFFxymi7tYL",
+            "name": "TAMOIL Stabio",
+            "brand": "TAMOIL",
+            "address": "Giulia 47, 6855 Stabio",
+            "lat": 45.848008,
+            "lng": 8.935833,
+            "sp95PriceChf": 1.72,
+            "updatedAt": "2026-03-07T18:03:01.884Z",
+            "nearestMunicipality": "Bizzarone (CO)",
+            "nearestMunicipalityDistanceKm": 1.6,
+            "sp95PriceEur": 1.891,
+            "distanceKm": 10.9
           }
         ],
         "minPriceChf": 1.64,
@@ -28687,7 +28687,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 21,
+        "optionCount": 23,
         "cheapestStation": {
           "id": "2cyTEGqZPuSVhtpjGqzf",
           "name": "Silo Shop",
@@ -28732,20 +28732,6 @@
             "distanceKm": 16.8
           },
           {
-            "id": "ukK4QQ2nixpThGubzzE3",
-            "name": "Orcam",
-            "brand": "UNDEFINED",
-            "address": "Via Carlo Maderno 41, 6850 Mendrisio",
-            "lat": 45.8851362482152,
-            "lng": 8.981086222287052,
-            "sp95PriceChf": 1.7100000000000002,
-            "updatedAt": "2026-03-11T11:53:32.610Z",
-            "nearestMunicipality": "Clivio (VA)",
-            "nearestMunicipalityDistanceKm": 4.6,
-            "sp95PriceEur": 1.88,
-            "distanceKm": 18.7
-          },
-          {
             "id": "g1Ewt2bs9nFFxymi7tYL",
             "name": "TAMOIL Stabio",
             "brand": "TAMOIL",
@@ -28772,6 +28758,20 @@
             "nearestMunicipalityDistanceKm": 1.6,
             "sp95PriceEur": 1.902,
             "distanceKm": 17
+          },
+          {
+            "id": "EDsfoWTW5mhInO152CPP",
+            "name": "Eni Chiasso",
+            "brand": "ENI",
+            "address": "Via Como 7, 6830 Chiasso",
+            "lat": 45.8378284,
+            "lng": 9.0340937,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-03-16T08:42:42.056Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 1.2,
+            "sp95PriceEur": 1.902,
+            "distanceKm": 17.4
           }
         ],
         "minPriceChf": 1.65,
@@ -28802,7 +28802,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 72,
+        "optionCount": 74,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -28990,7 +28990,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 65,
+        "optionCount": 67,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -29186,7 +29186,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 91,
+        "optionCount": 93,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -29639,7 +29639,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 25,
+        "optionCount": 27,
         "cheapestStation": {
           "id": "2iMRCPqDCHHpLcBX8dCN",
           "name": "Agrola Melano",
@@ -29712,18 +29712,18 @@
             "distanceKm": 19.1
           },
           {
-            "id": "ukK4QQ2nixpThGubzzE3",
-            "name": "Orcam",
-            "brand": "UNDEFINED",
-            "address": "Via Carlo Maderno 41, 6850 Mendrisio",
-            "lat": 45.8851362482152,
-            "lng": 8.981086222287052,
-            "sp95PriceChf": 1.7100000000000002,
-            "updatedAt": "2026-03-11T11:53:32.610Z",
-            "nearestMunicipality": "Clivio (VA)",
-            "nearestMunicipalityDistanceKm": 4.6,
-            "sp95PriceEur": 1.88,
-            "distanceKm": 15.5
+            "id": "g1Ewt2bs9nFFxymi7tYL",
+            "name": "TAMOIL Stabio",
+            "brand": "TAMOIL",
+            "address": "Giulia 47, 6855 Stabio",
+            "lat": 45.848008,
+            "lng": 8.935833,
+            "sp95PriceChf": 1.72,
+            "updatedAt": "2026-03-07T18:03:01.884Z",
+            "nearestMunicipality": "Bizzarone (CO)",
+            "nearestMunicipalityDistanceKm": 1.6,
+            "sp95PriceEur": 1.891,
+            "distanceKm": 10.1
           }
         ],
         "minPriceChf": 1.64,
@@ -29891,7 +29891,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 33,
+        "optionCount": 35,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -30187,7 +30187,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 35,
+        "optionCount": 37,
         "cheapestStation": {
           "id": "2iMRCPqDCHHpLcBX8dCN",
           "name": "Agrola Melano",
@@ -30335,7 +30335,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 84,
+        "optionCount": 86,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -30450,7 +30450,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 86,
+        "optionCount": 88,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -30565,7 +30565,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 67,
+        "optionCount": 69,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -30733,7 +30733,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 65,
+        "optionCount": 67,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -30848,7 +30848,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 72,
+        "optionCount": 74,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -31027,7 +31027,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 22,
+        "optionCount": 24,
         "cheapestStation": {
           "id": "2cyTEGqZPuSVhtpjGqzf",
           "name": "Silo Shop",
@@ -31072,20 +31072,6 @@
             "distanceKm": 16.8
           },
           {
-            "id": "ukK4QQ2nixpThGubzzE3",
-            "name": "Orcam",
-            "brand": "UNDEFINED",
-            "address": "Via Carlo Maderno 41, 6850 Mendrisio",
-            "lat": 45.8851362482152,
-            "lng": 8.981086222287052,
-            "sp95PriceChf": 1.7100000000000002,
-            "updatedAt": "2026-03-11T11:53:32.610Z",
-            "nearestMunicipality": "Clivio (VA)",
-            "nearestMunicipalityDistanceKm": 4.6,
-            "sp95PriceEur": 1.88,
-            "distanceKm": 17.7
-          },
-          {
             "id": "g1Ewt2bs9nFFxymi7tYL",
             "name": "TAMOIL Stabio",
             "brand": "TAMOIL",
@@ -31112,6 +31098,20 @@
             "nearestMunicipalityDistanceKm": 1.6,
             "sp95PriceEur": 1.902,
             "distanceKm": 17.3
+          },
+          {
+            "id": "EDsfoWTW5mhInO152CPP",
+            "name": "Eni Chiasso",
+            "brand": "ENI",
+            "address": "Via Como 7, 6830 Chiasso",
+            "lat": 45.8378284,
+            "lng": 9.0340937,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-03-16T08:42:42.056Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 1.2,
+            "sp95PriceEur": 1.902,
+            "distanceKm": 17.7
           }
         ],
         "minPriceChf": 1.65,
@@ -31397,7 +31397,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 83,
+        "optionCount": 85,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -31660,7 +31660,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 66,
+        "optionCount": 68,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -31775,7 +31775,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 80,
+        "optionCount": 82,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -32763,7 +32763,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 20,
+        "optionCount": 22,
         "cheapestStation": {
           "id": "2cyTEGqZPuSVhtpjGqzf",
           "name": "Silo Shop",
@@ -33090,7 +33090,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 80,
+        "optionCount": 82,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -33737,7 +33737,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 44,
+        "optionCount": 46,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -33852,7 +33852,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 25,
+        "optionCount": 27,
         "cheapestStation": {
           "id": "2iMRCPqDCHHpLcBX8dCN",
           "name": "Agrola Melano",
@@ -33925,18 +33925,18 @@
             "distanceKm": 18
           },
           {
-            "id": "ukK4QQ2nixpThGubzzE3",
-            "name": "Orcam",
-            "brand": "UNDEFINED",
-            "address": "Via Carlo Maderno 41, 6850 Mendrisio",
-            "lat": 45.8851362482152,
-            "lng": 8.981086222287052,
-            "sp95PriceChf": 1.7100000000000002,
-            "updatedAt": "2026-03-11T11:53:32.610Z",
-            "nearestMunicipality": "Clivio (VA)",
-            "nearestMunicipalityDistanceKm": 4.6,
-            "sp95PriceEur": 1.88,
-            "distanceKm": 14.1
+            "id": "g1Ewt2bs9nFFxymi7tYL",
+            "name": "TAMOIL Stabio",
+            "brand": "TAMOIL",
+            "address": "Giulia 47, 6855 Stabio",
+            "lat": 45.848008,
+            "lng": 8.935833,
+            "sp95PriceChf": 1.72,
+            "updatedAt": "2026-03-07T18:03:01.884Z",
+            "nearestMunicipality": "Bizzarone (CO)",
+            "nearestMunicipalityDistanceKm": 1.6,
+            "sp95PriceEur": 1.891,
+            "distanceKm": 8.8
           }
         ],
         "minPriceChf": 1.64,
@@ -34011,7 +34011,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 21,
+        "optionCount": 23,
         "cheapestStation": {
           "id": "2cyTEGqZPuSVhtpjGqzf",
           "name": "Silo Shop",
@@ -34056,20 +34056,6 @@
             "distanceKm": 14.8
           },
           {
-            "id": "ukK4QQ2nixpThGubzzE3",
-            "name": "Orcam",
-            "brand": "UNDEFINED",
-            "address": "Via Carlo Maderno 41, 6850 Mendrisio",
-            "lat": 45.8851362482152,
-            "lng": 8.981086222287052,
-            "sp95PriceChf": 1.7100000000000002,
-            "updatedAt": "2026-03-11T11:53:32.610Z",
-            "nearestMunicipality": "Clivio (VA)",
-            "nearestMunicipalityDistanceKm": 4.6,
-            "sp95PriceEur": 1.88,
-            "distanceKm": 17.5
-          },
-          {
             "id": "g1Ewt2bs9nFFxymi7tYL",
             "name": "TAMOIL Stabio",
             "brand": "TAMOIL",
@@ -34096,6 +34082,20 @@
             "nearestMunicipalityDistanceKm": 1.6,
             "sp95PriceEur": 1.902,
             "distanceKm": 14.7
+          },
+          {
+            "id": "EDsfoWTW5mhInO152CPP",
+            "name": "Eni Chiasso",
+            "brand": "ENI",
+            "address": "Via Como 7, 6830 Chiasso",
+            "lat": 45.8378284,
+            "lng": 9.0340937,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-03-16T08:42:42.056Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 1.2,
+            "sp95PriceEur": 1.902,
+            "distanceKm": 15.1
           }
         ],
         "minPriceChf": 1.65,
@@ -34126,7 +34126,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 22,
+        "optionCount": 24,
         "cheapestStation": {
           "id": "2cyTEGqZPuSVhtpjGqzf",
           "name": "Silo Shop",
@@ -34171,20 +34171,6 @@
             "distanceKm": 13.5
           },
           {
-            "id": "ukK4QQ2nixpThGubzzE3",
-            "name": "Orcam",
-            "brand": "UNDEFINED",
-            "address": "Via Carlo Maderno 41, 6850 Mendrisio",
-            "lat": 45.8851362482152,
-            "lng": 8.981086222287052,
-            "sp95PriceChf": 1.7100000000000002,
-            "updatedAt": "2026-03-11T11:53:32.610Z",
-            "nearestMunicipality": "Clivio (VA)",
-            "nearestMunicipalityDistanceKm": 4.6,
-            "sp95PriceEur": 1.88,
-            "distanceKm": 16
-          },
-          {
             "id": "g1Ewt2bs9nFFxymi7tYL",
             "name": "TAMOIL Stabio",
             "brand": "TAMOIL",
@@ -34211,6 +34197,20 @@
             "nearestMunicipalityDistanceKm": 1.6,
             "sp95PriceEur": 1.902,
             "distanceKm": 13.4
+          },
+          {
+            "id": "EDsfoWTW5mhInO152CPP",
+            "name": "Eni Chiasso",
+            "brand": "ENI",
+            "address": "Via Como 7, 6830 Chiasso",
+            "lat": 45.8378284,
+            "lng": 9.0340937,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-03-16T08:42:42.056Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 1.2,
+            "sp95PriceEur": 1.902,
+            "distanceKm": 13.9
           }
         ],
         "minPriceChf": 1.65,
@@ -34382,7 +34382,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 79,
+        "optionCount": 81,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
