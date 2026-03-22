@@ -1637,6 +1637,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.passaggio-statuto-s-permesso-b.title': 'Vom Status S zum Permis B im Tessin',
     'blog.article.passaggio-statuto-s-permesso-b.excerpt': 'Der Übergang vom Status S zum Permis B betrifft ukrainische Flüchtlinge in der Schweiz, mit wirtschaftlichen und sozialen Auswirkungen für den Kanton Tessin bis 2027.',
     'blog.article.passaggio-statuto-s-permesso-b.imageAlt': 'Panoramablick auf Bellinzona mit seinen Burgen und den umliegenden Bergen, Symbol der Schweizer-italienischen Grenze.',
+    'blog.article.chiusure-notturne-autostrada.title': 'Nächtliche Sperrungen auf der Autobahn A9',
+    'blog.article.chiusure-notturne-autostrada.excerpt': 'In der nächsten Woche werden nächtliche Sperrungen auf der Autobahn A9 durchgeführt.',
+    'blog.article.chiusure-notturne-autostrada.imageAlt': 'A9 Autobahn bei Nacht geschlossen',
 };
 
 export default blogMetaDe;

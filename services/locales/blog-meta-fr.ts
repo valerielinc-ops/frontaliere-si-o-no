@@ -1637,6 +1637,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.passaggio-statuto-s-permesso-b.title': 'Du statut S au permis B au Tessin',
     'blog.article.passaggio-statuto-s-permesso-b.excerpt': 'Le passage du statut S au permis B concerne les réfugiés ukrainiens en Suisse, avec des implications économiques et sociales pour le canton du Tessin, jusqu\'en 2027.',
     'blog.article.passaggio-statuto-s-permesso-b.imageAlt': 'Vue panoramique de Bellinzona avec ses châteaux et ses montagnes environnantes, symbolisant la frontière suisse-italienne.',
+    'blog.article.chiusure-notturne-autostrada.title': 'Fermetures nocturnes sur l\'autoroute A9',
+    'blog.article.chiusure-notturne-autostrada.excerpt': 'La semaine prochaine, des fermetures nocturnes seront effectuées sur l\'autoroute A9',
+    'blog.article.chiusure-notturne-autostrada.imageAlt': 'Autoroute A9 fermée la nuit',
 };
 
 export default blogMetaFr;

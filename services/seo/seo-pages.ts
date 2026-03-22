@@ -3049,7 +3049,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
         "@context": "https://schema.org",
         "@type": "ItemList",
         "name": "Articoli Frontaliere",
-        "numberOfItems": 536,
+        "numberOfItems": 537,
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
           { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -3586,7 +3586,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 533, "name": "Morte Bossi: l’impatto sui frontalieri del Ticino", "url": `${BASE_URL}/articoli-frontaliere/bossi-morto-ticino-frontalieri` },
           { "@type": "ListItem", "position": 534, "name": "Fallimento dell’iniziativa contro gli OGM in Sv...", "url": `${BASE_URL}/articoli-frontaliere/ogm-fallimento-ticino` },
           { "@type": "ListItem", "position": 535, "name": "Referendum sulla giustizia in Ticino: oggi si v...", "url": `${BASE_URL}/articoli-frontaliere/referendum-giustizia-ticino-2026` },
-          { "@type": "ListItem", "position": 536, "name": "Dallo statuto S al permesso B in Ticino", "url": `${BASE_URL}/articoli-frontaliere/passaggio-statuto-s-permesso-b` }
+          { "@type": "ListItem", "position": 536, "name": "Dallo statuto S al permesso B in Ticino", "url": `${BASE_URL}/articoli-frontaliere/passaggio-statuto-s-permesso-b` },
+          { "@type": "ListItem", "position": 537, "name": "Chiusure notturne autostrada A9", "url": `${BASE_URL}/articoli-frontaliere/chiusure-notturne-autostrada` }
         ]
       }
     ]

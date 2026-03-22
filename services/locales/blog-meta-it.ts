@@ -1637,6 +1637,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.passaggio-statuto-s-permesso-b.title': 'Dallo statuto S al permesso B in Ticino',
     'blog.article.passaggio-statuto-s-permesso-b.excerpt': 'Il passaggio dallo statuto S al permesso B riguarda i profughi ucraini in Svizzera, con implicazioni economiche e sociali per il Canton Ticino, fino al 2027.',
     'blog.article.passaggio-statuto-s-permesso-b.imageAlt': 'Panorama di Bellinzona con le sue torri e il paesaggio montano circostante, rappresentativo del confine tra Italia e Svizzera.',
+    'blog.article.chiusure-notturne-autostrada.title': 'Chiusure notturne sull\'autostrada A9',
+    'blog.article.chiusure-notturne-autostrada.excerpt': 'La prossima settimana saranno effettuate chiusure notturne sull\'autostrada A9',
+    'blog.article.chiusure-notturne-autostrada.imageAlt': 'Autostrada A9 chiusa di notte',
 };
 
 export default blogMetaIt;

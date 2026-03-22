@@ -4414,6 +4414,13 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/passaggio-statuto-s-permesso-b.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'chiusure-notturne-autostrada',
+    category: 'pratico',
+    date: '2026-03-22T10:07:25.106Z',
+    image: '/images/blog/chiusure-notturne-autostrada.jpg',
+    hasCalculator: true,
+  },
 ];
 
 const CATEGORIES = ['all', 'fiscale', 'pratico', 'novita', 'pensione'] as const;

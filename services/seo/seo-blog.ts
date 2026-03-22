@@ -8955,6 +8955,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-chiusure-notturne-autostrada': {
+    title: 'Chiusure notturne sull\'autostrada A9 | Frontaliere Ticino',
+    description: 'La prossima settimana saranno effettuate chiusure notturne sull\'autostrada A9, che collega Como a Chiasso. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, chiusure, notturne, sull, autostrada',
+    ogTitle: 'Chiusure notturne autostrada A9',
+    ogDescription: 'La prossima settimana saranno effettuate chiusure notturne sull\'autostrada A9',
+    canonicalPath: '/articoli-frontaliere/chiusure-notturne-autostrada',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Chiusure notturne autostrada A9",
+      "description": "La prossima settimana saranno effettuate chiusure notturne sull'autostrada A9, che collega Como a Chiasso. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/chiusure-notturne-autostrada.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Autostrada A9 chiusa di notte"
+      },
+      "datePublished": "2026-03-22T10:07:25+00:00",
+      "dateModified": "2026-03-22T10:07:25+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/chiusure-notturne-autostrada`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
