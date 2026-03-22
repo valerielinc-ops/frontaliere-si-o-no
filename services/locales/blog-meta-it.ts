@@ -1625,6 +1625,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.rischio-lugano-young-boys.title': 'Rischio-Lugano in casa dello Young Boys: una sfida decisiva',
     'blog.article.rischio-lugano-young-boys.excerpt': 'Il Lugano deve affrontare lo Young Boys a Berna in una partita cruciale per la stagione. Analisi, normative e strategie per i frontalieri ticinesi.',
     'blog.article.rischio-lugano-young-boys.imageAlt': 'Stadio di calcio a Lugano con tifosi e campo in primo piano',
+    'blog.article.bossi-morto-ticino-frontalieri.title': 'Addio al Senatùr: Bossi e il sogno federalista che attraversa il Ticino',
+    'blog.article.bossi-morto-ticino-frontalieri.excerpt': 'Morto a 84 anni il leader della Lega Nord: dal referendum del 1993 agli accordi bilaterali, come cambiò la partita per i 68.000 frontalieri',
+    'blog.article.bossi-morto-ticino-frontalieri.imageAlt': 'Lago di Lugano al tramonto con frontalieri in fila al valico',
 };
 
 export default blogMetaIt;

@@ -4386,6 +4386,13 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/rischio-lugano-young-boys.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'bossi-morto-ticino-frontalieri',
+    category: 'novita',
+    date: '2026-03-22T08:03:38.584Z',
+    image: '/images/blog/bossi-morto-ticino-frontalieri.jpg',
+    hasCalculator: true,
+  },
 ];
 
 const CATEGORIES = ['all', 'fiscale', 'pratico', 'novita', 'pensione'] as const;

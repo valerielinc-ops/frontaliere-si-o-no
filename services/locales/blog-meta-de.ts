@@ -1625,6 +1625,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.rischio-lugano-young-boys.title': 'Risiko-Lugano bei Young Boys: Ein entscheidendes Duell',
     'blog.article.rischio-lugano-young-boys.excerpt': 'Lugano muss in Bern gegen die Young Boys antreten – ein entscheidendes Spiel für die Saison. Analyse, Vorschriften und Strategien für die Grenzgänger im Tessin.',
     'blog.article.rischio-lugano-young-boys.imageAlt': 'Fußballstadion in Lugano mit Fans und Spielfeld im Fokus',
+    'blog.article.bossi-morto-ticino-frontalieri.title': 'Abschied vom Senatùr: Bossi und der föderalistische Traum, der durch den Ticino zieht',
+    'blog.article.bossi-morto-ticino-frontalieri.excerpt': 'Der Tod des Nord-Lega-Führers im Alter von 84 Jahren: vom Referendum 1993 bis zu den bilateralen Abkommen – wie sich die Lage für die 68.000 Grenzgänger veränderte',
+    'blog.article.bossi-morto-ticino-frontalieri.imageAlt': 'Luganer See bei Sonnenuntergang mit Grenzgängern',
 };
 
 export default blogMetaDe;

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-03-22T07:50:14.332Z",
+  "generatedAt": "2026-03-22T08:08:51.058Z",
   "sources": {
     "italy": {
       "provider": "MIMIT Open Data",
@@ -11,7 +11,7 @@
       "provider": "TCS Benzinpreis",
       "providerUrl": "https://benzin.tcs.ch/de/map/SP95",
       "stationCount": 222,
-      "latestObservedUpdate": "2026-03-22T02:21:42.745Z"
+      "latestObservedUpdate": "2026-03-22T08:01:57.853Z"
     },
     "exchangeRate": {
       "provider": "ECB",
@@ -2868,18 +2868,18 @@
             "distanceKm": 18.3
           },
           {
-            "id": "Ma1s7ixOimaKRcftiJzY",
-            "name": "Eni Melide",
-            "brand": "ENI",
-            "address": "Via Cantonale 31, 6815 Melide",
-            "lat": 45.9562952,
-            "lng": 8.9473102,
-            "sp95PriceChf": 1.74,
-            "updatedAt": "2026-03-15T17:00:19.709Z",
-            "nearestMunicipality": "Campione d'Italia (CO)",
-            "nearestMunicipalityDistanceKm": 2.3,
-            "sp95PriceEur": 1.913,
-            "distanceKm": 18.8
+            "id": "8QgVfPq0az3upJZD19TN",
+            "name": "SOCAR / Piccadilly Capolago",
+            "brand": "PICCADILLY",
+            "address": "Via Carlo Maderno 56, 6825 Capolago",
+            "lat": 45.909946,
+            "lng": 8.982814,
+            "sp95PriceChf": 1.75,
+            "updatedAt": "2026-03-18T12:29:13.580Z",
+            "nearestMunicipality": "Porto Ceresio (VA)",
+            "nearestMunicipalityDistanceKm": 6.1,
+            "sp95PriceEur": 1.924,
+            "distanceKm": 19.3
           }
         ],
         "minPriceChf": 1.63,
@@ -5672,18 +5672,18 @@
             "distanceKm": 19.3
           },
           {
-            "id": "Ma1s7ixOimaKRcftiJzY",
-            "name": "Eni Melide",
-            "brand": "ENI",
-            "address": "Via Cantonale 31, 6815 Melide",
-            "lat": 45.9562952,
-            "lng": 8.9473102,
-            "sp95PriceChf": 1.74,
-            "updatedAt": "2026-03-15T17:00:19.709Z",
-            "nearestMunicipality": "Campione d'Italia (CO)",
-            "nearestMunicipalityDistanceKm": 2.3,
-            "sp95PriceEur": 1.913,
-            "distanceKm": 19.1
+            "id": "HapjFsEcj5Snc7o1iICH",
+            "name": "Station La Posta Svizzzera",
+            "brand": "UNDEFINED",
+            "address": "Viale Stefano Franscini 30, 6500 Bellinzona ",
+            "lat": 46.1928300156486,
+            "lng": 9.01310606612084,
+            "sp95PriceChf": 1.75,
+            "updatedAt": "2026-03-18T17:51:12.883Z",
+            "nearestMunicipality": "Cavargna (CO)",
+            "nearestMunicipalityDistanceKm": 13.7,
+            "sp95PriceEur": 1.924,
+            "distanceKm": 19.3
           }
         ],
         "minPriceChf": 1.63,
@@ -6515,20 +6515,6 @@
             "distanceKm": 16.9
           },
           {
-            "id": "Ma1s7ixOimaKRcftiJzY",
-            "name": "Eni Melide",
-            "brand": "ENI",
-            "address": "Via Cantonale 31, 6815 Melide",
-            "lat": 45.9562952,
-            "lng": 8.9473102,
-            "sp95PriceChf": 1.74,
-            "updatedAt": "2026-03-15T17:00:19.709Z",
-            "nearestMunicipality": "Campione d'Italia (CO)",
-            "nearestMunicipalityDistanceKm": 2.3,
-            "sp95PriceEur": 1.913,
-            "distanceKm": 19.5
-          },
-          {
             "id": "HapjFsEcj5Snc7o1iICH",
             "name": "Station La Posta Svizzzera",
             "brand": "UNDEFINED",
@@ -6555,6 +6541,20 @@
             "nearestMunicipalityDistanceKm": 6.5,
             "sp95PriceEur": 1.924,
             "distanceKm": 15.5
+          },
+          {
+            "id": "Z8cpWklO19xnaCUaIJf9",
+            "name": "BP Service Agno",
+            "brand": "BP",
+            "address": "Strada Regina 151, 6982 Agno",
+            "lat": 46.0107135374649,
+            "lng": 8.90468663143751,
+            "sp95PriceChf": 1.75,
+            "updatedAt": "2026-03-09T17:39:17.154Z",
+            "nearestMunicipality": "Brusimpiano (VA)",
+            "nearestMunicipalityDistanceKm": 6,
+            "sp95PriceEur": 1.924,
+            "distanceKm": 18.2
           }
         ],
         "minPriceChf": 1.63,
@@ -8045,18 +8045,18 @@
             "distanceKm": 18.2
           },
           {
-            "id": "Ma1s7ixOimaKRcftiJzY",
-            "name": "Eni Melide",
-            "brand": "ENI",
-            "address": "Via Cantonale 31, 6815 Melide",
-            "lat": 45.9562952,
-            "lng": 8.9473102,
-            "sp95PriceChf": 1.74,
-            "updatedAt": "2026-03-15T17:00:19.709Z",
-            "nearestMunicipality": "Campione d'Italia (CO)",
-            "nearestMunicipalityDistanceKm": 2.3,
-            "sp95PriceEur": 1.913,
-            "distanceKm": 17.9
+            "id": "8QgVfPq0az3upJZD19TN",
+            "name": "SOCAR / Piccadilly Capolago",
+            "brand": "PICCADILLY",
+            "address": "Via Carlo Maderno 56, 6825 Capolago",
+            "lat": 45.909946,
+            "lng": 8.982814,
+            "sp95PriceChf": 1.75,
+            "updatedAt": "2026-03-18T12:29:13.580Z",
+            "nearestMunicipality": "Porto Ceresio (VA)",
+            "nearestMunicipalityDistanceKm": 6.1,
+            "sp95PriceEur": 1.924,
+            "distanceKm": 19.4
           }
         ],
         "minPriceChf": 1.63,
@@ -8328,18 +8328,18 @@
             "distanceKm": 17.6
           },
           {
-            "id": "tLUurkvUjTt4DHQHQ5Yx",
-            "name": "SOCAR / Piccadilly Bissone",
-            "brand": "PICCADILLY",
-            "address": "Via Campione, 6816 Bissone",
-            "lat": 45.953873,
-            "lng": 8.965661,
+            "id": "ty1NJLEj5uZ9YRKJ3aX5",
+            "name": "Eni Vezia",
+            "brand": "ENI",
+            "address": "Via San Gottardo 7, 6943 Vezia",
+            "lat": 46.0220127,
+            "lng": 8.9370494,
             "sp95PriceChf": 1.75,
-            "updatedAt": "2026-03-19T14:07:09.557Z",
+            "updatedAt": "2026-03-04T07:29:51.055Z",
             "nearestMunicipality": "Campione d'Italia (CO)",
-            "nearestMunicipalityDistanceKm": 1.6,
+            "nearestMunicipalityDistanceKm": 6.5,
             "sp95PriceEur": 1.924,
-            "distanceKm": 19.7
+            "distanceKm": 17.6
           }
         ],
         "minPriceChf": 1.63,

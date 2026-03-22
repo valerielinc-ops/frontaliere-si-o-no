@@ -8839,6 +8839,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-bossi-morto-ticino-frontalieri': {
+    title: 'Addio al Senatùr: Bossi e il sogno federalista che attraversa il Ticino | Frontaliere Ticino',
+    description: 'Morto Umberto Bossi: la parabola del Senatùr e gli effetti concreti su tasse, permessi, congedi per i 68.000 frontalieri del Canton Ticino. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, addio, senatùr, bossi, sogno',
+    ogTitle: 'Addio al Senatùr: l’eredità di Bossi sui frontalieri',
+    ogDescription: 'Morto a 84 anni il leader della Lega: come cambiarono tasse, permessi e mobilità per i 68.000 frontalieri del Canton Ticino',
+    canonicalPath: '/articoli-frontaliere/bossi-morto-ticino-frontalieri',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Morte Bossi: l’impatto sui frontalieri del Ticino",
+      "description": "Morto Umberto Bossi: la parabola del Senatùr e gli effetti concreti su tasse, permessi, congedi per i 68.000 frontalieri del Canton Ticino. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/bossi-morto-ticino-frontalieri.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Lago di Lugano al tramonto con frontalieri in fila al valico"
+      },
+      "datePublished": "2026-03-22T08:03:38+00:00",
+      "dateModified": "2026-03-22T08:03:38+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/bossi-morto-ticino-frontalieri`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
