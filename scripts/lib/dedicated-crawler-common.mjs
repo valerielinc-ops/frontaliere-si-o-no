@@ -846,8 +846,10 @@ export async function translateMissingJobLocales({ dataJobsPath, isTargetJob, ma
           }
         }
         if (bestLen >= 120 && bestLang !== sourceLang) {
+          const prevSourceLang = sourceLang;
+          sourceLang = bestLang;
           sourceDesc = String(job.descriptionByLocale[bestLang]).trim();
-          console.log(`  ℹ️ ${baseTitle}: using [${bestLang}] (${bestLen} chars) as translation source instead of garbage [${sourceLang}] (${sourceDesc.length < 120 ? sourceDesc.length : 'short'})`);
+          console.log(`  ℹ️ ${baseTitle}: using [${bestLang}] (${bestLen} chars) as translation source instead of garbage [${prevSourceLang}]`);
         }
       }
 
