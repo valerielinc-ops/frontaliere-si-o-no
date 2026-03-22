@@ -8636,6 +8636,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-cure-domicilio-ticino-politica': {
+    title: 'Cure a domicilio in Ticino: le nuove norme e le sfide politiche | Frontaliere Ticino',
+    description: 'Il Ticino si prepara ad affrontare le sfide dei costi delle cure a domicilio con l\'introduzione di nuove misure legislative. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, cure, domicilio, nuove, norme',
+    ogTitle: 'Cure a domicilio in Ticino: le nuove norme e le sfide pol',
+    ogDescription: 'Il Ticino si prepara ad affrontare le sfide dei costi delle cure a domicilio con l\'introduzione di nuove misure legislative.',
+    canonicalPath: '/articoli-frontaliere/cure-domicilio-ticino-politica',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Cure a domicilio in Ticino: le nuove norme e le sfide pol",
+      "description": "Il Ticino si prepara ad affrontare le sfide dei costi delle cure a domicilio con l'introduzione di nuove misure legislative. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/cure-domicilio-ticino-politica.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Vista storica di Bellinzona con strutture sanitarie moderne."
+      },
+      "datePublished": "2026-03-22T03:39:29+00:00",
+      "dateModified": "2026-03-22T03:39:29+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/cure-domicilio-ticino-politica`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

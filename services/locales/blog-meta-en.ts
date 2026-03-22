@@ -1604,6 +1604,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.bellinzona-scomparsa-ricerche-ticino-piemonte.title': 'Bellinzona: Active Search for Missing 64-Year-Old',
     'blog.article.bellinzona-scomparsa-ricerche-ticino-piemonte.excerpt': 'A 64-year-old man has gone missing in Bellinzona, with ongoing searches between Ticino and Piedmont.',
     'blog.article.bellinzona-scomparsa-ricerche-ticino-piemonte.imageAlt': 'View of Bellinzona featuring the castle and surrounding mountains.',
+    'blog.article.cure-domicilio-ticino-politica.title': 'Home Care in Ticino: New Regulations and Political Challenges',
+    'blog.article.cure-domicilio-ticino-politica.excerpt': 'Ticino is preparing to face the challenges of home care costs with the introduction of new legislative measures.',
+    'blog.article.cure-domicilio-ticino-politica.imageAlt': 'Historic view of Bellinzona with modern healthcare facilities.',
 };
 
 export default blogMetaEn;

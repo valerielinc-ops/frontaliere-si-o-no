@@ -4337,6 +4337,13 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/bellinzona-scomparsa-ricerche-ticino-piemonte.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'cure-domicilio-ticino-politica',
+    category: 'novita',
+    date: '2026-03-22T03:39:29.140Z',
+    image: '/images/blog/cure-domicilio-ticino-politica.jpg',
+    hasCalculator: true,
+  },
 ];
 
 const CATEGORIES = ['all', 'fiscale', 'pratico', 'novita', 'pensione'] as const;

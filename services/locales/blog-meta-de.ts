@@ -1604,6 +1604,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.bellinzona-scomparsa-ricerche-ticino-piemonte.title': 'Bellinzona: Aktive Suche nach einem verschwundenen 64-Jährigen',
     'blog.article.bellinzona-scomparsa-ricerche-ticino-piemonte.excerpt': 'Ein 64-jähriger Mann wird in Bellinzona vermisst, die Suche läuft zwischen dem Tessin und dem Piemont.',
     'blog.article.bellinzona-scomparsa-ricerche-ticino-piemonte.imageAlt': 'Blick auf Bellinzona mit der Burg und den umliegenden Bergen.',
+    'blog.article.cure-domicilio-ticino-politica.title': 'Hauspflege im Tessin: neue Vorschriften und politische Herausforderungen',
+    'blog.article.cure-domicilio-ticino-politica.excerpt': 'Das Tessin bereitet sich darauf vor, die Herausforderungen der Kosten für die Hauspflege mit der Einführung neuer gesetzlicher Maßnahmen anzugehen.',
+    'blog.article.cure-domicilio-ticino-politica.imageAlt': 'Historische Sicht auf Bellinzona mit modernen Gesundheitseinrichtungen.',
 };
 
 export default blogMetaDe;

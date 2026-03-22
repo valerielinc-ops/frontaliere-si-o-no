@@ -1604,6 +1604,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.bellinzona-scomparsa-ricerche-ticino-piemonte.title': 'Bellinzona: Ricerche attive per un 64enne scomparso',
     'blog.article.bellinzona-scomparsa-ricerche-ticino-piemonte.excerpt': 'Un uomo di 64 anni è scomparso a Bellinzona, con ricerche in corso tra Ticino e Piemonte.',
     'blog.article.bellinzona-scomparsa-ricerche-ticino-piemonte.imageAlt': 'Veduta di Bellinzona con il castello e le montagne circostanti.',
+    'blog.article.cure-domicilio-ticino-politica.title': 'Cure a domicilio in Ticino: le nuove norme e le sfide politiche',
+    'blog.article.cure-domicilio-ticino-politica.excerpt': 'Il Ticino si prepara ad affrontare le sfide dei costi delle cure a domicilio con l\'introduzione di nuove misure legislative.',
+    'blog.article.cure-domicilio-ticino-politica.imageAlt': 'Vista storica di Bellinzona con strutture sanitarie moderne.',
 };
 
 export default blogMetaIt;
