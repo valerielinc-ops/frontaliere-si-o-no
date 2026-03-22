@@ -5181,13 +5181,16 @@ export default function BlogArticles({
 
               {/* In-article ad — mobile only (conditional mount) */}
               {isMobile && (
-                <AdSenseBanner
-                  adSlot={AD_SLOTS.ARTICLE_INLINE_MOBILE.slot}
-                  adFormat={AD_SLOTS.ARTICLE_INLINE_MOBILE.format}
-                  adLayout={AD_SLOTS.ARTICLE_INLINE_MOBILE.layout}
-                  fullWidthResponsive={false}
-                  className="my-4"
-                />
+                <Suspense fallback={null}>
+                  <AdSenseBanner
+                    adSlot={AD_SLOTS.ARTICLE_INLINE_MOBILE.slot}
+                    adFormat={AD_SLOTS.ARTICLE_INLINE_MOBILE.format}
+                    adLayout={AD_SLOTS.ARTICLE_INLINE_MOBILE.layout}
+                    fullWidthResponsive={false}
+                    enabled={adEligible}
+                    className="my-4"
+                  />
+                </Suspense>
               )}
 
               {/* Inline job teaser — shows 1-2 relevant jobs mid-article */}

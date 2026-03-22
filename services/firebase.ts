@@ -210,7 +210,12 @@ export function createRecaptchaAppCheckProvider(
   siteKey: string,
   targetWindow: RecaptchaLikeWindow | undefined,
 ) {
-  const hasEnterpriseClient = typeof targetWindow?.grecaptcha?.enterprise?.ready === 'function';
+  // We always load enterprise.js, so prefer the Enterprise provider.
+  // Check for the enterprise *object* (not just .ready) because .ready may
+  // not yet be a function even though the enterprise client is available.
+  const hasEnterpriseClient =
+    targetWindow?.grecaptcha?.enterprise != null &&
+    typeof targetWindow.grecaptcha.enterprise === 'object';
   if (hasEnterpriseClient && typeof appCheckModule.ReCaptchaEnterpriseProvider === 'function') {
     return new appCheckModule.ReCaptchaEnterpriseProvider(siteKey);
   }
@@ -314,15 +319,35 @@ async function initAppCheck(): Promise<void> {
       window as RecaptchaLikeWindow,
     );
 
-    appCheck = appCheckModule.initializeAppCheck(await getAppInstance(), {
+    // Initialize with auto-refresh OFF to prevent the SDK from immediately
+    // requesting a token — if the first request fails (400), Firebase logs
+    // noisy "initial-throttle" warnings.  We acquire the first token manually
+    // and only enable auto-refresh after a successful attestation.
+    const instance = appCheckModule.initializeAppCheck(await getAppInstance(), {
       provider,
-      isTokenAutoRefreshEnabled: true
+      isTokenAutoRefreshEnabled: false,
     });
-    console.log(
-      provider.constructor?.name === 'ReCaptchaEnterpriseProvider'
-        ? '✅ Firebase App Check inizializzato con reCAPTCHA Enterprise'
-        : '✅ Firebase App Check inizializzato con reCAPTCHA v3',
-    );
+    const providerName = provider.constructor?.name === 'ReCaptchaEnterpriseProvider'
+      ? 'reCAPTCHA Enterprise'
+      : 'reCAPTCHA v3';
+
+    // Validate with a manual token request before trusting the instance.
+    try {
+      await appCheckModule.getToken(instance, /* forceRefresh */ false);
+      appCheck = instance;
+      // First token succeeded — enable auto-refresh for future renewals
+      appCheckModule.setTokenAutoRefreshEnabled(instance, true);
+      console.log(`✅ Firebase App Check attivo (${providerName})`);
+    } catch (tokenError: any) {
+      // Token acquisition failed — App Check is non-functional.
+      // Log once and continue without it (non-blocking).
+      firebaseWarn(
+        `⚠️ App Check token non ottenuto (${providerName}):`,
+        tokenError?.code || tokenError?.message || tokenError,
+      );
+      // Don't set appCheck — leaves it null so isAppCheckActive() returns false
+      // and the rest of the app works without attestation.
+    }
   } catch (error) {
     firebaseWarn('⚠️ App Check non disponibile:', error);
     reportCaughtError(error, 'firebase.initAppCheck');

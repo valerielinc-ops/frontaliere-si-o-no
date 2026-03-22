@@ -36,6 +36,12 @@ export const AD_SLOTS = {
     layoutKey: '-f9+5v+4m-d8+7b',
     fullWidthResponsive: false,
   },
+  /** Job listing: end-of-list multiplex */
+  JOBLIST_END_MULTIPLEX: {
+    slot: '5196931137',
+    format: 'autorelaxed',
+    fullWidthResponsive: false,
+  },
   /** Job detail: desktop sidebar display */
   JOBDETAIL_SIDEBAR: {
     slot: '8164676143',

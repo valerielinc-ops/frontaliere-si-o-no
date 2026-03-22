@@ -109,7 +109,7 @@ const DEEPL_API_KEY = (process.env.DEEPL_API_KEY || '').trim();
 const GOOGLE_CSE_API_KEY = normalizeSpace(process.env.GOOGLE_CSE_API_KEY || process.env.GOOGLE_API_KEY || '');
 const GOOGLE_CSE_CX = normalizeSpace(process.env.GOOGLE_CSE_CX || '');
 const GOOGLE_MAPS_API_KEY = normalizeSpace(process.env.GOOGLE_MAPS_API_KEY || '');
-const GOOGLE_TRANSLATE_ENDPOINT = 'https://translate.googleapis.com/translate_a/single';
+// Moved to GOOGLE_TRANSLATE_ENDPOINTS array inside translateChunkGoogle
 const WEB_DISCOVERY_RESULTS_PER_QUERY = clampNum(process.env.JOBS_WEB_DISCOVERY_RESULTS_PER_QUERY, 3, 10, 8);
 const WEB_DISCOVERY_MAX_QUERIES_PER_COMPANY = clampNum(process.env.JOBS_WEB_DISCOVERY_MAX_QUERIES_PER_COMPANY, 1, 16, 6);
 const SITEMAP_MAX_URLS_PER_FILE = clampNum(process.env.JOBS_SITEMAP_MAX_URLS_PER_FILE, 50, 4000, 1200);
@@ -587,48 +587,73 @@ async function translateWithDeepL(text, sourceLang, targetLang) {
   return merged;
 }
 
+// Google Translate free endpoints — try multiple to survive IP-based rate limits
+const GOOGLE_TRANSLATE_ENDPOINTS = [
+  'https://translate.googleapis.com/translate_a/single',
+  'https://clients5.google.com/translate_a/t',
+];
+
 async function translateChunkGoogle({ text, sourceLang = 'auto', targetLang }) {
   const q = normalizeSpace(text);
   if (!q) return '';
-  const query = new URLSearchParams({
-    client: 'gtx',
-    sl: sourceLang || 'auto',
-    tl: targetLang,
-    dt: 't',
-    q,
-  });
-  const endpoint = `${GOOGLE_TRANSLATE_ENDPOINT}?${query.toString()}`;
-  try {
-    const res = await fetch(endpoint, {
-      headers: {
-        Accept: 'application/json,text/plain,*/*',
-        'User-Agent': 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://www.frontaliereticino.ch/)',
-      },
-      signal: AbortSignal.timeout(AI_LOCALIZATION_TIMEOUT_MS),
+
+  for (const base of GOOGLE_TRANSLATE_ENDPOINTS) {
+    const isClients5 = base.includes('clients5');
+    const query = new URLSearchParams({
+      client: isClients5 ? 'dict-chrome-ex' : 'gtx',
+      sl: sourceLang || 'auto',
+      tl: targetLang,
+      ...(isClients5 ? {} : { dt: 't' }),
+      q,
     });
-    if (!res.ok) return '';
-    const raw = await res.text().catch(() => '');
-    if (!raw) return '';
+    const endpoint = `${base}?${query.toString()}`;
     try {
-      const parsed = JSON.parse(raw);
-      const segments = Array.isArray(parsed?.[0]) ? parsed[0] : [];
-      const translated = segments
-        .map((seg) => (Array.isArray(seg) ? String(seg[0] || '') : ''))
-        .join('');
-      return cleanDescription(translated);
+      const res = await fetch(endpoint, {
+        headers: {
+          Accept: 'application/json,text/plain,*/*',
+          // Standard browser UA — bot UAs get blocked from CI/datacenter IPs
+          'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36',
+        },
+        signal: AbortSignal.timeout(AI_LOCALIZATION_TIMEOUT_MS),
+      });
+      if (!res.ok) continue;
+      const raw = await res.text().catch(() => '');
+      if (!raw) continue;
+      try {
+        const parsed = JSON.parse(raw);
+        // clients5 returns [{sentences:[{trans:"..."}]}] or [[["translated","original",...]]]
+        let translated = '';
+        if (isClients5) {
+          if (Array.isArray(parsed?.sentences)) {
+            translated = parsed.sentences.map((s) => s?.trans || '').join('');
+          } else if (Array.isArray(parsed)) {
+            translated = parsed.map((s) => String(s || '')).join('');
+          }
+        } else {
+          const segments = Array.isArray(parsed?.[0]) ? parsed[0] : [];
+          translated = segments
+            .map((seg) => (Array.isArray(seg) ? String(seg[0] || '') : ''))
+            .join('');
+        }
+        const result = cleanDescription(translated);
+        if (result && result.toLowerCase() !== q.toLowerCase()) return result;
+      } catch {
+        continue;
+      }
     } catch {
-      return '';
+      continue;
     }
-  } catch {
-    return '';
   }
+  return '';
 }
 
 // ── Lingva Translate (free Google Translate proxy, multiple instances) ──
+// Maintained list — check https://github.com/thedaviddelta/lingva-translate#instances
 const LINGVA_INSTANCES = [
-  'https://lingva.ml',
-  'https://translate.plausibility.cloud',
   'https://lingva.thedaviddelta.com',
+  'https://translate.plausibility.cloud',
+  'https://lingva.garuber.eu',
+  'https://translate.projectsegfau.lt',
 ];
 
 async function translateChunkLingva({ text, sourceLang = 'auto', targetLang }) {
@@ -694,6 +719,42 @@ async function translateChunkedWithMyMemory({ text, sourceLang, targetLang }) {
   return isShort ? normalizeSpace(raw) : cleanDescription(raw);
 }
 
+// ── LibreTranslate public instances (open-source, no API key) ──
+const LIBRETRANSLATE_PUBLIC_INSTANCES = [
+  'https://libretranslate.com',
+  'https://translate.terraprint.co',
+  'https://trans.zillyhuhn.com',
+];
+
+async function translateWithLibreTranslatePublic({ text, sourceLang, targetLang }) {
+  const q = normalizeSpace(text || '');
+  if (!q || sourceLang === targetLang) return '';
+  for (const base of LIBRETRANSLATE_PUBLIC_INSTANCES) {
+    try {
+      const res = await fetch(`${base}/translate`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          q,
+          source: sourceLang || 'auto',
+          target: targetLang,
+          format: 'text',
+        }),
+        signal: AbortSignal.timeout(20000),
+      });
+      if (!res.ok) continue;
+      const data = await res.json();
+      const translated = normalizeSpace(data?.translatedText || '');
+      if (translated && translated.toLowerCase() !== q.toLowerCase()) {
+        return translated;
+      }
+    } catch {
+      // try next instance
+    }
+  }
+  return '';
+}
+
 async function fallbackTranslateText({
   text,
   sourceLang = 'en',
@@ -718,6 +779,12 @@ async function fallbackTranslateText({
   if (lingva && lingva.length >= minChars &&
       normalizeSpace(lingva).toLowerCase() !== normalizeSpace(clean).toLowerCase()) {
     return isShort ? normalizeSpace(lingva) : cleanDescription(lingva);
+  }
+  // Try LibreTranslate public instances (open-source, no API key required)
+  const libre = await translateWithLibreTranslatePublic({ text: clean, sourceLang, targetLang });
+  if (libre && libre.length >= minChars &&
+      normalizeSpace(libre).toLowerCase() !== normalizeSpace(clean).toLowerCase()) {
+    return isShort ? normalizeSpace(libre) : cleanDescription(libre);
   }
   // Fallback to free Google Translate (direct endpoint)
   const chunks = chunkTextForTranslation(clean, 1800);

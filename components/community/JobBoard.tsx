@@ -47,7 +47,7 @@ import AdSenseBanner from '@/components/shared/AdSenseBanner';
 import { SkeletonJobDetail } from '@/components/shared/Skeletons';
 import { AD_SLOTS } from '@/services/adsenseSlots';
 import { useMediaQuery } from '@/hooks/useMediaQuery';
-import { eagerAuth, getAuthEmail, promptOneTap, renderGoogleButtonWithReadiness } from '@/services/authService';
+import { eagerAuth, getAuthEmail, promptOneTap, renderGoogleButton } from '@/services/authService';
 import {
   isMultiLocation,
   normalizeJobCategory,
@@ -3006,6 +3006,12 @@ const JobBoard: React.FC<JobBoardProps> = ({
   }, [authResolved, selectedJob, hasAccess]);
 
   useEffect(() => {
+    // Wait for auth to resolve before rendering GIS buttons.
+    // This ensures onAuthStateChanged listener is active, so when GIS
+    // signs in via handleOneTapResponse → signInWithCredential, the
+    // useAuth hook captures the state change and updates the UI.
+    if (!authResolved) return;
+
     let cancelled = false;
 
     const mountGoogleButton = async (
@@ -3020,15 +3026,22 @@ const JobBoard: React.FC<JobBoardProps> = ({
 
       buttonContainer.innerHTML = '';
       try {
-        const ready = await renderGoogleButtonWithReadiness(buttonContainer, {
+        // Use renderGoogleButton directly (same approach as profile page).
+        await renderGoogleButton(buttonContainer, {
           theme: 'outline',
           size: 'large',
           text: 'signin_with',
-          width: Math.max(240, Math.min(380, Math.floor(buttonContainer.clientWidth || 320))),
-          locale,
         });
         if (cancelled) return;
-        setReady(ready);
+        // Check if GIS rendered children (same readiness check as profile page)
+        if (buttonContainer.children.length > 0) {
+          setReady(true);
+        } else {
+          // GIS may need more time — check again after a short delay
+          await new Promise(r => setTimeout(r, 500));
+          if (cancelled) return;
+          setReady(buttonContainer.children.length > 0);
+        }
       } catch (error) {
         if (cancelled) return;
         setReady(false);
@@ -3042,7 +3055,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
     return () => {
       cancelled = true;
     };
-  }, [authGateOpen, hasAccess, locale, selectedJob]);
+  }, [authResolved, authGateOpen, hasAccess, locale, selectedJob]);
 
   useEffect(() => {
     const becameLoggedIn = !wasLoggedInRef.current && isLoggedIn;
@@ -5650,6 +5663,15 @@ const JobBoard: React.FC<JobBoardProps> = ({
       <div className="flex flex-wrap items-center justify-center sm:justify-end gap-3">
         {renderPagination()}
       </div>
+
+      {/* AdSense — end-of-list multiplex */}
+      {filteredJobs.length > 0 && (
+        <AdSenseBanner
+          adSlot={AD_SLOTS.JOBLIST_END_MULTIPLEX.slot}
+          adFormat={AD_SLOTS.JOBLIST_END_MULTIPLEX.format}
+          className="mt-6 mb-4"
+        />
+      )}
 
       {authGateModalJsx}
 

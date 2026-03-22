@@ -473,6 +473,19 @@ function maybeRehomeLocalizedValue({
   return true;
 }
 
+/** Check if a slug plausibly matches a title (first 3+ words overlap). */
+function slugMatchesTitle(slug, title) {
+  const slugified = title
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+  // Compare the first 30 chars — enough to detect title renames
+  const prefix = slugified.slice(0, 30);
+  return prefix.length >= 5 && slug.startsWith(prefix);
+}
+
 export function hardenJobLocaleFields({ dataJobsPath }) {
   if (!dataJobsPath || !fs.existsSync(dataJobsPath)) {
     return { changed: false, repaired: 0, total: 0 };
@@ -599,17 +612,19 @@ export function hardenJobLocaleFields({ dataJobsPath }) {
         job.slugByLocale[locale] = baseSlug;
         jobChanged = true;
       }
-      // Re-derive slug from translated title if current slug is still the untranslated base
+      // Re-derive slug from current title when the existing slug is stale.
+      // Covers both source locale (title updated by company) and non-source
+      // locales (slug still matches untranslated base).
       {
         const existingSlug = String(job.slugByLocale[locale] || '').trim();
         const localizedTitle = String(job.titleByLocale[locale] || '').trim();
-        if (
-          existingSlug &&
-          existingSlug === baseSlug &&
-          localizedTitle &&
-          localizedTitle !== baseTitle &&
-          locale !== titleSourceLang
-        ) {
+        const isSourceLocale = locale === titleSourceLang;
+        const isStaleSlug = isSourceLocale
+          // Source locale: re-derive if slug doesn't start with a slug-ified prefix of current title
+          ? existingSlug && localizedTitle && !slugMatchesTitle(existingSlug, localizedTitle)
+          // Non-source locale: re-derive if slug still equals the untranslated base
+          : existingSlug && existingSlug === baseSlug && localizedTitle && localizedTitle !== baseTitle;
+        if (isStaleSlug) {
           const company = String(job.company || '').trim();
           const location = String(job.addressLocality || job.location || '').trim();
           const parts = [localizedTitle, company, location].filter(Boolean).join('-');

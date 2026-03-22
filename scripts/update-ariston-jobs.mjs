@@ -129,7 +129,7 @@ async function fetchAristonListings() {
     console.log(`  📄 ${row.title} (${row.location})`);
   }
   if (target.length < 1) {
-    throw new Error(`Expected at least 1 Ariston job in Ticino/Grigioni, found ${target.length}`);
+    console.log('ℹ️ No Ariston jobs in Ticino/Grigioni — company may have no active openings.');
   }
   return target;
 }
@@ -244,8 +244,8 @@ function validateLocales() {
     locales: LOCALES,
     isTrustedDomain,
     untrustedDomainReason: 'url_not_ariston_domain',
-    failWhenNoJobs: true,
-    noJobsMessage: 'No Ariston Group jobs found after dedicated crawl.',
+    failWhenNoJobs: false,
+    noJobsMessage: 'No Ariston Group jobs found after dedicated crawl — company may have no active TI/GR openings.',
     detectSourceLang: (text) => detectLang(text, 'it'),
   });
 }

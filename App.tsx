@@ -2914,27 +2914,27 @@ const App: React.FC = () => {
               <EmailConfirmed />
             </div>
           ) : activeTab === 'gamification' ? (
-            <div className="max-w-5xl mx-auto">
+            <div className="max-w-7xl mx-auto">
               <GamificationPage />
             </div>
           ) : activeTab === 'forum' ? (
-            <div className="max-w-4xl mx-auto">
+            <div className="max-w-7xl mx-auto">
               <CommunityForum />
             </div>
           ) : activeTab === 'api-status' ? (
-            <div className="max-w-5xl mx-auto">
+            <div className="max-w-7xl mx-auto">
               <ApiStatus />
             </div>
           ) : activeTab === 'contact' ? (
-            <div className="max-w-2xl mx-auto">
+            <div className="max-w-7xl mx-auto">
               <ContactPage prefill={contactPrefill} onPrefillConsumed={() => setContactPrefill(null)} />
             </div>
           ) : activeTab === 'partners' ? (
-            <div className="max-w-5xl mx-auto">
+            <div className="max-w-7xl mx-auto">
               <PartnerServices />
             </div>
           ) : activeTab === 'consulting' ? (
-            <div className="max-w-4xl mx-auto">
+            <div className="max-w-7xl mx-auto">
               <ConsultingPage />
             </div>
           ) : activeTab === 'job-board' ? (
@@ -2962,51 +2962,51 @@ const App: React.FC = () => {
               />
             </div>
           ) : activeTab === 'profile' ? (
-            <div className="max-w-4xl mx-auto">
+            <div className="max-w-7xl mx-auto">
               <UserProfile currentInputs={inputs} currentResult={result} />
             </div>
           ) : activeTab === 'morning' ? (
-            <div className="max-w-4xl mx-auto">
+            <div className="max-w-7xl mx-auto">
               <MorningDashboard />
             </div>
           ) : activeTab === 'glossario' ? (
-            <div className="max-w-4xl mx-auto">
+            <div className="max-w-7xl mx-auto">
               <Glossary initialEntry={glossaryTerm || undefined} />
             </div>
           ) : activeTab === 'dialetto' ? (
-            <div className="max-w-4xl mx-auto">
+            <div className="max-w-7xl mx-auto">
               <TicineseDialect />
             </div>
           ) : activeTab === 'faq' ? (
-            <div className="max-w-4xl mx-auto">
+            <div className="max-w-7xl mx-auto">
               <FaqSection />
             </div>
           ) : activeTab === 'sitemap' ? (
-            <div className="max-w-5xl mx-auto">
+            <div className="max-w-7xl mx-auto">
               <SiteMapPage />
             </div>
           ) : activeTab === 'contracts' ? (
-            <div className="max-w-4xl mx-auto">
+            <div className="max-w-7xl mx-auto">
               <ContractsGuide />
             </div>
           ) : activeTab === 'tfr-calculator' ? (
-            <div className="max-w-4xl mx-auto">
+            <div className="max-w-7xl mx-auto">
               <TfrCalculator />
             </div>
           ) : activeTab === 'permit-quiz' ? (
-            <div className="max-w-4xl mx-auto">
+            <div className="max-w-7xl mx-auto">
               <PermitQuiz />
             </div>
           ) : activeTab === 'tredicesima' ? (
-            <div className="max-w-4xl mx-auto">
+            <div className="max-w-7xl mx-auto">
               <TredicesimalCalculator />
             </div>
           ) : activeTab === 'weekly-digest' ? (
-            <div className="max-w-4xl mx-auto">
+            <div className="max-w-7xl mx-auto">
               <WeeklyDigest />
             </div>
           ) : activeTab === 'tool-of-week' ? (
-            <div className="max-w-4xl mx-auto">
+            <div className="max-w-7xl mx-auto">
               <ToolOfTheWeek />
             </div>
           ) : activeTab === 'admin' ? (
@@ -3045,7 +3045,7 @@ const App: React.FC = () => {
               )}
             </div>
           ) : (
-            <div className="max-w-4xl mx-auto">
+            <div className="max-w-7xl mx-auto">
               <FeedbackSection />
             </div>
           )}

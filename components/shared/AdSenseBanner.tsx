@@ -189,7 +189,11 @@ export default function AdSenseBanner({
       statusObserverRef.current = observer;
 
       fillTimeoutRef.current = setTimeout(() => {
-        console.info(`[AdSense] fill timeout for slot=${adSlot}, keeping slot mounted for late fill`);
+        const status = el.getAttribute('data-ad-status');
+        if (status === 'filled') return;
+        console.info(`[AdSense] fill timeout for slot=${adSlot} (status=${status}), collapsing`);
+        cleanupAsyncWatchers();
+        setState('collapsed');
       }, 90_000);
 
       return true;
