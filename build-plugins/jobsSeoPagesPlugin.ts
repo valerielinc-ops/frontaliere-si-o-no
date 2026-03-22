@@ -358,10 +358,19 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
         const safe = new Date(`${raw}T00:00:00.000Z`);
         return Number.isNaN(safe.getTime()) ? new Date().toISOString() : safe.toISOString();
       };
-      const toValidThrough = (postedRaw: string) => {
-        const posted = new Date(toIsoDateTime(postedRaw));
-        posted.setUTCDate(posted.getUTCDate() + 60);
-        return posted.toISOString();
+      const toValidThrough = (postedRaw: string, crawledAt?: string) => {
+        // If crawledAt is available (= job was verified active at crawl time),
+        // use it as base + 30 days so validThrough stays fresh with each rebuild.
+        // Fallback: postedDate + 90 days (more lenient than the old 60d window).
+        const base = crawledAt ? new Date(crawledAt) : new Date(toIsoDateTime(postedRaw));
+        if (Number.isNaN(base.getTime())) {
+          const fallback = new Date();
+          fallback.setUTCDate(fallback.getUTCDate() + 30);
+          return fallback.toISOString();
+        }
+        const result = new Date(base);
+        result.setUTCDate(result.getUTCDate() + (crawledAt ? 30 : 90));
+        return result.toISOString();
       };
       const contractMap: Record<string, string> = {
         'full-time': 'FULL_TIME',
@@ -829,7 +838,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
             description: jobPostingDescription,
             inLanguage: locale,
             datePosted: toIsoDateTime(job.postedDate),
-            validThrough: toValidThrough(job.postedDate),
+            validThrough: toValidThrough(job.postedDate, job.crawledAt),
             employmentType: contractMap[String(job.contract || '').toLowerCase()] || 'OTHER',
             identifier: {
               '@type': 'PropertyValue',
@@ -1068,7 +1077,7 @@ ${jobLd ? `    <script type="application/ld+json">${jobLd}</script>\n` : ''}    
     <main class="static-job-page">
       <article class="proposal">
         <section class="hero">
-          <div class="hero-title">${esc(localizedTitle)}</div>
+          <h1 class="hero-title">${esc(localizedTitle)}</h1>
           <div class="hero-sub">${esc(job.company)} · ${esc(job.location)} (${esc(job.canton || 'TI')})</div>
           <div class="hero-meta">
             <span>${esc(`Categoria: ${String(job.category || 'other')}`)}</span>

@@ -47,6 +47,21 @@ const ADAPTERS_DIR = path.resolve(ROOT, 'data', 'jobs-crawler-adapters', 'adapte
 const COOP_KEY = 'coop-ticino';
 
 /**
+ * Lightweight translation cache that persists Coop locale data across runs,
+ * independently of STRICT validation success.
+ *
+ * Problem: when all 5 previous runs failed at validateCoopLocaleCoverage(),
+ * the slice file was never written → no Coop jobs in data/jobs.json → the
+ * shared-jobs-crawler contentReuse mechanism has nothing to reuse → all 177
+ * jobs are AI-translated from scratch every run, exhausting free model quotas.
+ *
+ * Fix: save translations before validation. Next run injects them into
+ * data/jobs.json so the merge step can preserve them for unchanged jobs.
+ */
+// Stored in by-crawler/ so it's automatically committed by git-commit-data.sh --slice-only.
+const COOP_TRANSLATIONS_CACHE = path.resolve(ROOT, 'data', 'jobs', 'by-crawler', 'coop-ticino-locale-cache.json');
+
+/**
  * Prospective.ch Career Center API for Coop.
  * Medium ID 1000103 = Coop's career center.
  *
@@ -353,6 +368,87 @@ function ensureAdapterSeedUrls(seedUrls, seedMetaByUrl = {}) {
 // Base crawler invocation
 // ──────────────────────────────────────────────────────────────
 
+/**
+ * Before the crawler runs, inject Coop jobs from the translation cache into
+ * data/jobs.json. This allows shared-jobs-crawler's contentReuse mechanism to
+ * preserve existing translations for unchanged jobs, avoiding a full 177/177
+ * AI backfill on every run after a failed previous run.
+ */
+function injectCachedCoopTranslations() {
+  if (!fs.existsSync(COOP_TRANSLATIONS_CACHE)) return;
+  if (!fs.existsSync(DATA_JOBS)) return;
+
+  let cache;
+  try { cache = JSON.parse(fs.readFileSync(COOP_TRANSLATIONS_CACHE, 'utf-8')); } catch { return; }
+  if (!Array.isArray(cache) || cache.length === 0) return;
+
+  let allJobs;
+  try { allJobs = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')); } catch { return; }
+  if (!Array.isArray(allJobs)) return;
+
+  const existingCoopCount = allJobs.filter(isCoopJob).length;
+  if (existingCoopCount >= cache.length * 0.5) {
+    // Dataset already has most Coop jobs — contentReuse will handle it naturally.
+    return;
+  }
+
+  const existingUrls = new Set(allJobs.map((j) => j.url).filter(Boolean));
+  const toInject = cache.filter((c) => c.url && !existingUrls.has(c.url));
+  if (toInject.length === 0) return;
+
+  allJobs.push(...toInject);
+  fs.writeFileSync(DATA_JOBS, JSON.stringify(allJobs, null, 2) + '\n');
+  console.log(`♻️  Translation cache: injected ${toInject.length}/${cache.length} Coop jobs into jobs.json for localization reuse`);
+}
+
+/**
+ * After the crawler runs (but BEFORE STRICT validation), persist Coop
+ * translations to a lightweight cache file. Even if validation fails and the
+ * slice is never written, the next run can restore these translations and
+ * avoid a full 177/177 AI backfill.
+ */
+function saveCoopTranslationsCache() {
+  if (!fs.existsSync(DATA_JOBS)) return;
+  let allJobs;
+  try { allJobs = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')); } catch { return; }
+  const coopJobs = Array.isArray(allJobs) ? allJobs.filter(isCoopJob) : [];
+  if (coopJobs.length === 0) return;
+
+  const cache = coopJobs.map((job) => ({
+    url: job.url,
+    slug: job.slug,
+    title: job.title,
+    company: job.company,
+    companyKey: job.companyKey,
+    location: job.location,
+    canton: job.canton,
+    description: job.description,
+    requirements: job.requirements || [],
+    titleByLocale: job.titleByLocale || {},
+    descriptionByLocale: job.descriptionByLocale || {},
+    requirementsByLocale: job.requirementsByLocale || {},
+    slugByLocale: job.slugByLocale || {},
+    postedDate: job.postedDate,
+    crawledAt: job.crawledAt,
+    source: job.source,
+    sourceLang: job.sourceLang,
+    cachedAt: new Date().toISOString(),
+  }));
+
+  try {
+    // Directory is data/jobs/by-crawler/ which always exists after a crawler run.
+    fs.mkdirSync(path.dirname(COOP_TRANSLATIONS_CACHE), { recursive: true });
+    fs.writeFileSync(COOP_TRANSLATIONS_CACHE, JSON.stringify(cache, null, 2) + '\n');
+    const LOCALES_CHECK = ['it', 'en', 'de', 'fr'];
+    const fullyTranslated = cache.filter((c) =>
+      LOCALES_CHECK.every((l) => (c.titleByLocale[l] || '').length >= 3 && (c.descriptionByLocale[l] || '').length >= 120)
+    ).length;
+    console.log(`💾 Translation cache saved: ${cache.length} Coop jobs (${fullyTranslated} fully translated, ${cache.length - fullyTranslated} partial)`);
+  } catch (err) {
+    console.warn(`⚠️  Failed to save Coop translation cache: ${err?.message || err}`);
+  }
+}
+
 function runBaseCrawler() {
   return runDedicatedBaseCrawler({
     root: ROOT,
@@ -550,6 +646,12 @@ async function main() {
   // Step 2: Update the adapter with the discovered detail URLs as seed URLs
   ensureAdapterSeedUrls(detailUrls, discovery.seedMetaByUrl);
 
+  // Step 2b: Inject cached translations into jobs.json BEFORE the crawler runs.
+  // When previous runs failed at validation, no slice was written → no Coop jobs
+  // in jobs.json → shared-jobs-crawler re-translates all 177 from scratch.
+  // Injecting the cache lets the merge step reuse existing translations via contentReuse.
+  injectCachedCoopTranslations();
+
   // Snapshot company jobs before crawl for diff summary
   let _beforeSnapshot = new Map();
   if (fs.existsSync(DATA_JOBS)) {
@@ -565,6 +667,12 @@ async function main() {
 
   // Step 3b: Post-process — validate titles and descriptions against JSON-LD
   await postProcessCoopJobs();
+
+  // Step 3c: Persist translations to cache BEFORE STRICT validation.
+  // Even if validateCoopLocaleCoverage() exits with code 1 below, the cache
+  // preserves partial translations. Next run injects them back, reducing the
+  // AI backfill from 177/177 → ~5-15/177 (only new or changed jobs).
+  saveCoopTranslationsCache();
 
   // Step 4: Log stats and validate
   const stats = logCoopJobStats(_beforeSnapshot);

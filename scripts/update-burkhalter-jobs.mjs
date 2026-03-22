@@ -161,6 +161,11 @@ async function scrapeDetailPage(relativeUrl) {
     if (!contentMatch) return '';
 
     let text = contentMatch[1]
+      // Strip script/style content entirely — tag-only stripping below leaves JSON-LD
+      // payload visible as raw text (the Burkhalter pages embed schema.org JobPosting
+      // JSON-LD inside the content div, which was leaking into descriptionByLocale).
+      .replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, '')
+      .replace(/<style\b[^<]*(?:(?!<\/style>)<[^<]*)*<\/style>/gi, '')
       .replace(/<br\s*\/?>/gi, '\n')
       .replace(/<\/p>/gi, '\n\n')
       .replace(/<\/li>/gi, '\n')
