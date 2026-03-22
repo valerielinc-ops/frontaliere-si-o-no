@@ -627,16 +627,19 @@ export function hardenJobLocaleFields({ dataJobsPath }) {
         const descValue = String(job.descriptionByLocale[locale] || '').trim();
         const isSubstantialTranslation = descValue.length >= 120 &&
           normalize(descValue) !== normalize(baseDesc);
-        // Only drop descriptions that are clearly in the wrong language.
-        // Preserve substantial translations even if language detection is uncertain —
-        // false positives (dropping a valid translation) are worse than false negatives.
-        if (!isSubstantialTranslation && shouldDropLocalizedValue({
+        // Drop descriptions that are in the wrong language.
+        // - Short/garbage descriptions: low confidence threshold (0.25) to catch obvious errors.
+        // - Substantial descriptions in wrong language (e.g. entire DE text stored under IT):
+        //   use higher confidence threshold (0.70) to avoid false positives on multilingual content.
+        const dropMinChars = isSubstantialTranslation ? 200 : 80;
+        const dropMinConfidence = isSubstantialTranslation ? 0.70 : 0.25;
+        if (shouldDropLocalizedValue({
           value: descValue,
           locale,
           sourceLocale: sourceLang,
           sourceValue: baseDesc,
-          minCharsForDetection: 80,
-          minConfidence: 0.25,
+          minCharsForDetection: dropMinChars,
+          minConfidence: dropMinConfidence,
         })) {
           delete job.descriptionByLocale[locale];
           jobChanged = true;
@@ -884,9 +887,18 @@ export async function translateMissingJobLocales({ dataJobsPath, isTargetJob, ma
         const sourceDescriptionIsRich = sourceDesc.length >= minDescriptionChars;
         const isGarbageCopy = currentDesc && normalize(currentDesc) === normalize(baseDesc) &&
           baseDesc.length < 400 && /^(Zum Hauptinhalt|Skip to|Aller au|Vai al|Springe)/i.test(baseDesc);
+        // Quality gate: translation is suspiciously thin — less than 30% of source length
+        // while source is substantial (≥500 chars). Indicates the translation pipeline
+        // produced a fallback boilerplate sentence instead of translating the full content.
+        const isThinTranslation =
+          locale !== sourceLang &&
+          currentDesc.length > 0 &&
+          sourceDesc.length >= 500 &&
+          currentDesc.length < sourceDesc.length * 0.3;
         const descNeedsWork =
           !currentDesc ||
           isGarbageCopy ||
+          isThinTranslation ||
           (sourceDescriptionIsRich && currentDesc.length < minDescriptionChars) ||
           (locale !== sourceLang && normalize(currentDesc) === normalize(sourceDesc));
 
