@@ -4344,6 +4344,13 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/cure-domicilio-ticino-politica.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'navigazione-lago-lugano-2026',
+    category: 'novita',
+    date: '2026-03-22T05:02:39.305Z',
+    image: '/images/blog/navigazione-lago-lugano-2026.jpg',
+    hasCalculator: true,
+  },
 ];
 
 const CATEGORIES = ['all', 'fiscale', 'pratico', 'novita', 'pensione'] as const;

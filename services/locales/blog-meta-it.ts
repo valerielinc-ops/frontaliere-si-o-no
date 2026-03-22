@@ -1607,6 +1607,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.cure-domicilio-ticino-politica.title': 'Cure a domicilio in Ticino: le nuove norme e le sfide politiche',
     'blog.article.cure-domicilio-ticino-politica.excerpt': 'Il Ticino si prepara ad affrontare le sfide dei costi delle cure a domicilio con l\'introduzione di nuove misure legislative.',
     'blog.article.cure-domicilio-ticino-politica.imageAlt': 'Vista storica di Bellinzona con strutture sanitarie moderne.',
+    'blog.article.navigazione-lago-lugano-2026.title': 'Navigazione Lago di Lugano: stagione 2026 al via',
+    'blog.article.navigazione-lago-lugano-2026.excerpt': 'La stagione della Navigazione Lago di Lugano inizia con eventi speciali e progetti di elettrificazione per un futuro sostenibile.',
+    'blog.article.navigazione-lago-lugano-2026.imageAlt': 'Vista panoramica del Lago di Lugano con battelli pronti per la stagione turistica.',
 };
 
 export default blogMetaIt;

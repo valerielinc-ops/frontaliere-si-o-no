@@ -8665,6 +8665,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-navigazione-lago-lugano-2026': {
+    title: 'Navigazione Lago di Lugano: stagione 2026 al via | Frontaliere Ticino',
+    description: 'Scopri le novità della stagione 2026 della Navigazione Lago di Lugano, progetti di elettrificazione e collegamenti innovativi. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, navigazione, lago, lugano, stagione',
+    ogTitle: 'Navigazione Lago di Lugano: stagione 2026 al via',
+    ogDescription: 'La stagione 2026 della Navigazione Lago di Lugano inizia con eventi speciali e progetti di elettrificazione.',
+    canonicalPath: '/articoli-frontaliere/navigazione-lago-lugano-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Navigazione Lago di Lugano, stagione al via",
+      "description": "Scopri le novità della stagione 2026 della Navigazione Lago di Lugano, progetti di elettrificazione e collegamenti innovativi. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/navigazione-lago-lugano-2026.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Vista panoramica del Lago di Lugano con battelli pronti per la stagione turistica."
+      },
+      "datePublished": "2026-03-22T05:02:39+00:00",
+      "dateModified": "2026-03-22T05:02:39+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/navigazione-lago-lugano-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

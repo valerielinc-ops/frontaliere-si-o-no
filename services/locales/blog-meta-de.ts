@@ -1607,6 +1607,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.cure-domicilio-ticino-politica.title': 'Hauspflege im Tessin: neue Vorschriften und politische Herausforderungen',
     'blog.article.cure-domicilio-ticino-politica.excerpt': 'Das Tessin bereitet sich darauf vor, die Herausforderungen der Kosten für die Hauspflege mit der Einführung neuer gesetzlicher Maßnahmen anzugehen.',
     'blog.article.cure-domicilio-ticino-politica.imageAlt': 'Historische Sicht auf Bellinzona mit modernen Gesundheitseinrichtungen.',
+    'blog.article.navigazione-lago-lugano-2026.title': 'Navigazione Lago di Lugano: Saison 2026 beginnt',
+    'blog.article.navigazione-lago-lugano-2026.excerpt': 'Die Saison der Navigazione Lago di Lugano beginnt mit besonderen Veranstaltungen und Elektrifizierungsprojekten für eine nachhaltige Zukunft.',
+    'blog.article.navigazione-lago-lugano-2026.imageAlt': 'Panoramablick auf den Luganersee mit Booten, bereit für die Tourismussaison.',
 };
 
 export default blogMetaDe;

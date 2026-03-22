@@ -1607,6 +1607,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.cure-domicilio-ticino-politica.title': 'Home Care in Ticino: New Regulations and Political Challenges',
     'blog.article.cure-domicilio-ticino-politica.excerpt': 'Ticino is preparing to face the challenges of home care costs with the introduction of new legislative measures.',
     'blog.article.cure-domicilio-ticino-politica.imageAlt': 'Historic view of Bellinzona with modern healthcare facilities.',
+    'blog.article.navigazione-lago-lugano-2026.title': 'Lugano Lake Navigation: 2026 Season Kicks Off',
+    'blog.article.navigazione-lago-lugano-2026.excerpt': 'The Lugano Lake Navigation season begins with special events and electrification projects for a sustainable future.',
+    'blog.article.navigazione-lago-lugano-2026.imageAlt': 'Panoramic view of Lake Lugano with boats ready for the tourist season.',
 };
 
 export default blogMetaEn;
