@@ -1619,6 +1619,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.gestione-scontri-frontali-ticino.title': 'Scontri violenti tra uomini nel Ticino: ospedalizzazioni e tensioni',
     'blog.article.gestione-scontri-frontali-ticino.excerpt': 'Due uomini coinvolti in un\'escalation di violenza nel Mendrisiotto sono finiti in ospedale. La vicenda riaccende il dibattito sulla sicurezza e sugli incidenti ai valichi.',
     'blog.article.gestione-scontri-frontali-ticino.imageAlt': 'Scontro tra uomini vicino al confine svizzero in Ticino, scena tesa con montagna sullo sfondo.',
+    'blog.article.auto-intrusione-frontalieri-ticino.title': 'Controlli e arresti di frontalieri per autoeinbrüche nel Ticino',
+    'blog.article.auto-intrusione-frontalieri-ticino.excerpt': 'Due cittadini stranieri sono stati fermati nei pressi dei valichi di Gaggiolo e Brogeda per aver perpetrato diversi furti d\'auto. La polizia cantonale ha condotto operazioni mirate tra Mendrisio e Chiasso, evidenziando un aumento di casi di intrusione ai veicoli. Questo episodio mette in luce la crescente presenza di attività illegali legate ai frontalieri e la necessità di rafforzare i controlli alle frontiere.',
+    'blog.article.auto-intrusione-frontalieri-ticino.imageAlt': 'Strada di confine tra Ticino e Italia con controlli di frontiera, scena urbana e naturale',
 };
 
 export default blogMetaIt;

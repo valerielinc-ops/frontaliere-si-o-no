@@ -1619,6 +1619,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.gestione-scontri-frontali-ticino.title': 'Gewaltsame Auseinandersetzungen zwischen Männern im Tessin: Hospitalisierungen und Spannungen',
     'blog.article.gestione-scontri-frontali-ticino.excerpt': 'Zwei Männer, die in einer Eskalation von Gewalt im Mendrisiotto verwickelt waren, mussten ins Krankenhaus eingeliefert werden. Der Vorfall entzündet erneut die Debatte über Sicherheit und Zwischenfälle an den Grenzübergängen.',
     'blog.article.gestione-scontri-frontali-ticino.imageAlt': 'Angespannte Auseinandersetzung zwischen Männern an der Schweizer Grenze in Tessin, Berg im Hintergrund.',
+    'blog.article.auto-intrusione-frontalieri-ticino.title': 'Kontrollen und Festnahmen von Grenzgängern wegen Autoeinbrüchen im Tessin',
+    'blog.article.auto-intrusione-frontalieri-ticino.excerpt': 'Zwei ausländische Staatsbürger wurden in der Nähe der Grenzübergänge Gaggiolo und Brogeda festgenommen, weil sie mehrere Autodiebstähle begangen haben. Die Kantonspolizei führte gezielte Einsätze zwischen Mendrisio und Chiasso durch, was auf einen Anstieg bei Fahrzeugeinbrüchen hinweist. Dieser Vorfall verdeutlicht die zunehmende Präsenz illegaler Aktivitäten im Zusammenhang mit Grenzgängern und die Notwendigkeit, die Grenzkontrollen zu verstärken.',
+    'blog.article.auto-intrusione-frontalieri-ticino.imageAlt': 'Grenzübergang im Tessin mit Grenzkontrollen, städtische und natürliche Szenerie',
 };
 
 export default blogMetaDe;

@@ -1619,6 +1619,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.gestione-scontri-frontali-ticino.title': 'Violent Clashes Between Men in Ticino: Hospitalizations and Rising Tensions',
     'blog.article.gestione-scontri-frontali-ticino.excerpt': 'Two men involved in an escalation of violence in Mendrisiotto have ended up in hospital. The incident rekindles the debate on border security and crossing incidents.',
     'blog.article.gestione-scontri-frontali-ticino.imageAlt': 'Tense altercation between men near the Swiss border in Ticino with mountain scenery.',
+    'blog.article.auto-intrusione-frontalieri-ticino.title': 'Border Control and Arrests of Cross-Border Workers for Car Break-Ins in Ticino',
+    'blog.article.auto-intrusione-frontalieri-ticino.excerpt': 'Two foreign nationals were detained near the Gaggiolo and Brogeda border crossings for committing multiple car thefts. The canton police conducted targeted operations between Mendrisio and Chiasso, highlighting a rise in vehicle intrusion cases. This incident underscores the growing presence of illegal activities linked to cross-border workers and the need to strengthen border controls.',
+    'blog.article.auto-intrusione-frontalieri-ticino.imageAlt': 'Border crossing in Ticino with border controls, urban and natural scenery',
 };
 
 export default blogMetaEn;

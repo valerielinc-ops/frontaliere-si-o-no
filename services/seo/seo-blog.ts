@@ -8781,6 +8781,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-auto-intrusione-frontalieri-ticino': {
+    title: 'Controlli e arresti di frontalieri per autoeinbrüche nel Ticino | Frontaliere Ticino',
+    description: 'Due stranieri arrestati nel Ticino per autoeinbrüche lungo i valichi di Gaggiolo e Brogeda. Controlli rafforzati e normative più severe per la sicurezza.',
+    keywords: 'frontalieri, ticino, svizzera, italia, controlli, arresti, autoeinbrüche, cittadini',
+    ogTitle: 'Autoeinbrüche nel Ticino | Frontaliere Ticino',
+    ogDescription: 'Due cittadini stranieri arrestati nel Ticino per furti di auto lungo le frontiere. Rafforzati i controlli e migliorate le normative di sicurezza.',
+    canonicalPath: '/articoli-frontaliere/auto-intrusione-frontalieri-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Headline JSON-LD",
+      "description": "Due stranieri arrestati nel Ticino per autoeinbrüche lungo i valichi di Gaggiolo e Brogeda. Controlli rafforzati e normative più severe per la sicurezza.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/auto-intrusione-frontalieri-ticino.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Strada di confine tra Ticino e Italia con controlli di frontiera, scena urbana e naturale"
+      },
+      "datePublished": "2026-03-22T07:29:11+00:00",
+      "dateModified": "2026-03-22T07:29:11+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/auto-intrusione-frontalieri-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

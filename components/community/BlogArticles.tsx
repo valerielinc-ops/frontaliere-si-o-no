@@ -4372,6 +4372,13 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/gestione-scontri-frontali-ticino.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'auto-intrusione-frontalieri-ticino',
+    category: 'pratico',
+    date: '2026-03-22T07:29:11.119Z',
+    image: '/images/blog/auto-intrusione-frontalieri-ticino.jpg',
+    hasCalculator: true,
+  },
 ];
 
 const CATEGORIES = ['all', 'fiscale', 'pratico', 'novita', 'pensione'] as const;
