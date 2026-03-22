@@ -2794,6 +2794,10 @@ ${alternates}${hasSpaBundle ? `\n    <link rel="stylesheet" href="/assets/${entr
         return h;
       };
 
+      // AdSense config (shared by expired soft-landing, orphan, and bridge pages)
+      const AD_CLIENT_ID = 'ca-pub-8628054934855353';
+      const BRIDGE_AD_SLOT = '5196931137'; // multiplex autorelaxed
+
       let expiredCount = 0;
       let legacyCount = 0;
       const expiredSitemapEntries: string[] = [];
@@ -2977,8 +2981,6 @@ ${hreflangLinks}
         de: { heading: 'Diese Stellenanzeige wurde verschoben', cta: 'Zur aktualisierten Anzeige', signup: 'Registrieren Sie sich für alle Stellenangebote', emailPlaceholder: 'Ihre E-Mail', orLabel: 'oder', related: 'Ähnliche Stellen' },
         fr: { heading: 'Cette offre a été déplacée', cta: 'Voir l\'annonce mise à jour', signup: 'Inscrivez-vous pour accéder à toutes les offres', emailPlaceholder: 'Votre email', orLabel: 'ou', related: 'Postes similaires' },
       };
-      const AD_CLIENT_ID = 'ca-pub-8628054934855353';
-      const BRIDGE_AD_SLOT = '5196931137'; // multiplex autorelaxed
 
       let bridgeCount = 0;
       for (const job of validJobs) {
