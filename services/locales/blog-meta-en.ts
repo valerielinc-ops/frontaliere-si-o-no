@@ -1616,6 +1616,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.stop-export-materiale-bellico.title': 'Ticino Suspends Arms Exports to the USA',
     'blog.article.stop-export-materiale-bellico.excerpt': 'The Swiss Federal Council has decided to halt arms exports to the United States in response to the Middle East crisis and recent geopolitical tensions.',
     'blog.article.stop-export-materiale-bellico.imageAlt': 'Border crossing in Ticino with mountains and security controls',
+    'blog.article.gestione-scontri-frontali-ticino.title': 'Violent Clashes Between Men in Ticino: Hospitalizations and Rising Tensions',
+    'blog.article.gestione-scontri-frontali-ticino.excerpt': 'Two men involved in an escalation of violence in Mendrisiotto have ended up in hospital. The incident rekindles the debate on border security and crossing incidents.',
+    'blog.article.gestione-scontri-frontali-ticino.imageAlt': 'Tense altercation between men near the Swiss border in Ticino with mountain scenery.',
 };
 
 export default blogMetaEn;

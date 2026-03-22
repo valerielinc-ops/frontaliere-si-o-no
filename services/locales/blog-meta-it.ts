@@ -1616,6 +1616,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.stop-export-materiale-bellico.title': 'Ticino sospende esportazioni di materiale bellico verso gli USA',
     'blog.article.stop-export-materiale-bellico.excerpt': 'Il Consiglio federale svizzero decide di bloccare le esportazioni di armamenti verso gli Stati Uniti, in risposta alla crisi in Medio Oriente e alle recenti tensioni geopolitiche.',
     'blog.article.stop-export-materiale-bellico.imageAlt': 'Valico di frontiera tra Ticino e Italia con controlli e montagne sullo sfondo',
+    'blog.article.gestione-scontri-frontali-ticino.title': 'Scontri violenti tra uomini nel Ticino: ospedalizzazioni e tensioni',
+    'blog.article.gestione-scontri-frontali-ticino.excerpt': 'Due uomini coinvolti in un\'escalation di violenza nel Mendrisiotto sono finiti in ospedale. La vicenda riaccende il dibattito sulla sicurezza e sugli incidenti ai valichi.',
+    'blog.article.gestione-scontri-frontali-ticino.imageAlt': 'Scontro tra uomini vicino al confine svizzero in Ticino, scena tesa con montagna sullo sfondo.',
 };
 
 export default blogMetaIt;

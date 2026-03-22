@@ -4365,6 +4365,13 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/stop-export-materiale-bellico.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'gestione-scontri-frontali-ticino',
+    category: 'novita',
+    date: '2026-03-22T07:03:41.393Z',
+    image: '/images/blog/gestione-scontri-frontali-ticino.jpg',
+    hasCalculator: true,
+  },
 ];
 
 const CATEGORIES = ['all', 'fiscale', 'pratico', 'novita', 'pensione'] as const;

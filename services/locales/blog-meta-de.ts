@@ -1616,6 +1616,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.stop-export-materiale-bellico.title': 'Tessin setzt Waffenexporte in die USA aus',
     'blog.article.stop-export-materiale-bellico.excerpt': 'Der Schweizer Bundesrat beschließt, den Export von Rüstungsgütern in die Vereinigten Staaten zu stoppen, als Reaktion auf die Krise im Nahen Osten und die jüngsten geopolitischen Spannungen.',
     'blog.article.stop-export-materiale-bellico.imageAlt': 'Grenzübergang im Tessin mit Bergen und Sicherheitskontrollen',
+    'blog.article.gestione-scontri-frontali-ticino.title': 'Gewaltsame Auseinandersetzungen zwischen Männern im Tessin: Hospitalisierungen und Spannungen',
+    'blog.article.gestione-scontri-frontali-ticino.excerpt': 'Zwei Männer, die in einer Eskalation von Gewalt im Mendrisiotto verwickelt waren, mussten ins Krankenhaus eingeliefert werden. Der Vorfall entzündet erneut die Debatte über Sicherheit und Zwischenfälle an den Grenzübergängen.',
+    'blog.article.gestione-scontri-frontali-ticino.imageAlt': 'Angespannte Auseinandersetzung zwischen Männern an der Schweizer Grenze in Tessin, Berg im Hintergrund.',
 };
 
 export default blogMetaDe;

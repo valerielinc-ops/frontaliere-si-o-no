@@ -3049,7 +3049,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
         "@context": "https://schema.org",
         "@type": "ItemList",
         "name": "Articoli Frontaliere",
-        "numberOfItems": 529,
+        "numberOfItems": 530,
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
           { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -3579,7 +3579,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 526, "name": "Cure a domicilio in Ticino: le nuove norme e le...", "url": `${BASE_URL}/articoli-frontaliere/cure-domicilio-ticino-politica` },
           { "@type": "ListItem", "position": 527, "name": "Navigazione Lago di Lugano, stagione al via", "url": `${BASE_URL}/articoli-frontaliere/navigazione-lago-lugano-2026` },
           { "@type": "ListItem", "position": 528, "name": "Firmata la nascita del Parco del Vedeggio: il f...", "url": `${BASE_URL}/articoli-frontaliere/parco-vedeggio-comuni-firman` },
-          { "@type": "ListItem", "position": 529, "name": "Ticino sospende esportazioni di materiale belli...", "url": `${BASE_URL}/articoli-frontaliere/stop-export-materiale-bellico` }
+          { "@type": "ListItem", "position": 529, "name": "Ticino sospende esportazioni di materiale belli...", "url": `${BASE_URL}/articoli-frontaliere/stop-export-materiale-bellico` },
+          { "@type": "ListItem", "position": 530, "name": "Scontri violenti tra uomini nel Ticino: ospedal...", "url": `${BASE_URL}/articoli-frontaliere/gestione-scontri-frontali-ticino` }
         ]
       }
     ]
