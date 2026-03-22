@@ -26,6 +26,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const DATA_JOBS_PATH = path.resolve(__dirname, '..', 'data', 'jobs.json');
 const PUBLIC_JOBS_PATH = path.resolve(__dirname, '..', 'public', 'data', 'jobs.json');
+const PUBLIC_EXPIRED_JOBS_PATH = path.resolve(__dirname, '..', 'public', 'data', 'expired-jobs.json');
 const META_PATH = path.resolve(__dirname, '..', 'data', 'jobs-meta.json');
 const EXPIRED_JOBS_PATH = path.resolve(__dirname, '..', 'data', 'expired-jobs.json');
 const EXPIRED_SLICES_DIR = path.resolve(__dirname, '..', 'data', 'jobs', 'expired', 'by-crawler');
@@ -158,6 +159,7 @@ function archiveExpiredJobs(removedJobs, allJobsById) {
   }
 
   writeJson(EXPIRED_JOBS_PATH, archived);
+  writeJson(PUBLIC_EXPIRED_JOBS_PATH, archived);
   return added;
 }
 

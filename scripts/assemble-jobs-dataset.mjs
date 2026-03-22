@@ -72,6 +72,7 @@ const SUMMARIES_SLICES_DIR = path.join(ROOT, 'data', 'jobs-crawler-summaries', '
 const DATA_JOBS = path.join(ROOT, 'data', 'jobs.json');
 const PUBLIC_JOBS = path.join(ROOT, 'public', 'data', 'jobs.json');
 const DATA_EXPIRED = path.join(ROOT, 'data', 'expired-jobs.json');
+const PUBLIC_EXPIRED = path.join(ROOT, 'public', 'data', 'expired-jobs.json');
 const DATA_META = path.join(ROOT, 'data', 'jobs-meta.json');
 const DATA_SUMMARIES = path.join(ROOT, 'data', 'jobs-crawler-summaries.json');
 
@@ -441,6 +442,8 @@ export async function assembleJobsDataset({ withStats = false } = {}) {
   const expiredJobs = assembleExpiredJobs();
   if (expiredJobs !== null) {
     writeJson(DATA_EXPIRED, expiredJobs);
+    fs.mkdirSync(path.dirname(PUBLIC_EXPIRED), { recursive: true });
+    writeJson(PUBLIC_EXPIRED, expiredJobs);
     console.log(`✅ data/expired-jobs.json assembled: ${expiredJobs.length} expired jobs`);
   }
 
