@@ -550,8 +550,13 @@ export function hardenJobLocaleFields({ dataJobsPath }) {
       jobChanged = true;
     }
     if (baseDesc && !String(job.descriptionByLocale[sourceLang] || '').trim()) {
-      job.descriptionByLocale[sourceLang] = baseDesc;
-      jobChanged = true;
+      // Only copy baseDesc if it's substantial content, not page chrome/boilerplate
+      const isGarbage = baseDesc.length < 80 ||
+        /^(Zum Hauptinhalt|Skip to|Aller au|Vai al)/i.test(baseDesc);
+      if (!isGarbage) {
+        job.descriptionByLocale[sourceLang] = baseDesc;
+        jobChanged = true;
+      }
     }
 
     const repairedCoopGroupItSlug = getCoopGroupItalianApprenticeshipSlug(job);
@@ -596,16 +601,24 @@ export function hardenJobLocaleFields({ dataJobsPath }) {
         delete job.titleByLocale[locale];
         jobChanged = true;
       }
-      if (shouldDropLocalizedValue({
-        value: job.descriptionByLocale[locale],
-        locale,
-        sourceLocale: sourceLang,
-        sourceValue: baseDesc,
-        minCharsForDetection: 80,
-        minConfidence: 0.25,
-      })) {
-        delete job.descriptionByLocale[locale];
-        jobChanged = true;
+      {
+        const descValue = String(job.descriptionByLocale[locale] || '').trim();
+        const isSubstantialTranslation = descValue.length >= 120 &&
+          normalize(descValue) !== normalize(baseDesc);
+        // Only drop descriptions that are clearly in the wrong language.
+        // Preserve substantial translations even if language detection is uncertain —
+        // false positives (dropping a valid translation) are worse than false negatives.
+        if (!isSubstantialTranslation && shouldDropLocalizedValue({
+          value: descValue,
+          locale,
+          sourceLocale: sourceLang,
+          sourceValue: baseDesc,
+          minCharsForDetection: 80,
+          minConfidence: 0.25,
+        })) {
+          delete job.descriptionByLocale[locale];
+          jobChanged = true;
+        }
       }
       const currentSlug = String(job.slugByLocale[locale] || '').trim();
       if (!currentSlug && baseSlug) {
