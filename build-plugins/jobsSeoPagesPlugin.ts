@@ -976,12 +976,6 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
         font-weight: 800;
         color: #385171;
       }
-      .hero-meta span.coverage {
-        font-size: 12px;
-        color: #1d4f90;
-        border-color: #b9d4fa;
-        background: #ebf5ff;
-      }
       .section {
         border: 1px solid #dce6f5;
         border-radius: 14px;
@@ -1083,7 +1077,6 @@ ${jobLd ? `    <script type="application/ld+json">${jobLd}</script>\n` : ''}    
             <span>${esc(`Categoria: ${String(job.category || 'other')}`)}</span>
             <span>${esc(`Contratto: ${String(job.contract || 'other')}`)}</span>
             <span>${esc(`Salario: ${salaryText}`)}</span>
-            <span class="coverage">${esc(`Coverage parser: ${parserCoverage}%`)}</span>
           </div>
         </section>
         <section class="section">
