@@ -2845,9 +2845,22 @@ ${alternates}${hasSpaBundle ? `\n    <link rel="stylesheet" href="/assets/${entr
       // fs.existsSync cannot guard against the bridge page overwriting the expired HTML, so
       // the cleanest fix is to exclude bridge slugs from expiredSlugs entirely.
       const bridgeSlugSet = new Set<string>();
+      // Collect IT paths of all previous slugs so we can also exclude their
+      // locale-variant tracking keys (e.g. EN/DE/FR slug for the same old job).
+      // The tracking file stores one key per locale slug, all pointing to the
+      // same IT path, so we must group by IT path to catch them all.
+      const bridgeItPaths = new Set<string>();
       for (const job of validJobs) {
         const prevSlugs = Array.isArray(job.previousSlugs) ? job.previousSlugs : [];
-        for (const s of prevSlugs) bridgeSlugSet.add(s);
+        for (const s of prevSlugs) {
+          bridgeSlugSet.add(s);
+          const itPath = (tracking[s] as any)?.it;
+          if (itPath) bridgeItPaths.add(itPath);
+        }
+      }
+      // Expand: any tracking key whose IT path is the same as a bridge path is also a bridge
+      for (const [key, paths] of Object.entries(tracking) as [string, any][]) {
+        if (paths?.it && bridgeItPaths.has(paths.it)) bridgeSlugSet.add(key);
       }
       const expiredSlugs = Object.keys(tracking).filter((s) => !currentSlugs.has(s) && !bridgeSlugSet.has(s));
 

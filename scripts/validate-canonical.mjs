@@ -84,7 +84,7 @@ for (const url of sitemapUrls) {
     continue;
   }
 
-  const content = fs.readFileSync(htmlFile, 'utf-8').slice(0, 3000);
+  const content = fs.readFileSync(htmlFile, 'utf-8').slice(0, 8000);
 
   // Check 1: Bridge page in sitemap
   if (isBridgePage(content)) {
