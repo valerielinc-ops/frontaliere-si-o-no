@@ -66,7 +66,7 @@ jobs:
       - name: Housekeeping — remove expired job listings (scoped)
         env:
           JOBS_HOUSEKEEPING_SCOPE: 'burkhalter'
-          JOBS_SLICE_FILE: 'data/jobs/by-crawler/burkhalter.json'
+          JOBS_SLICE_FILE: 'data/jobs/by-crawler/burkhalter-group.json'
         run: node scripts/cleanup-jobs.mjs
         continue-on-error: true
 
