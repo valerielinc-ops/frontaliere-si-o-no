@@ -1,11 +1,11 @@
 /**
- * Centralized AI Model Service — v9 (free-only, 40 models, 4 providers)
+ * Centralized AI Model Service — v10 (free-only, 55 models, 9 providers)
  *
  * Single source of truth for all LLM calls across scripts (jobs crawler,
  * article generator, company parser, etc.).
  *
  * Features:
- * - Extended fallback chain with 40 FREE models across 4 providers
+ * - Extended fallback chain with 55 FREE models across 9 providers
  * - **Scored model selection**: models gain/lose score based on success/failure,
  *   so models that keep working float to the top and broken ones sink down,
  *   avoiding repeated failures that slow the crawl
@@ -19,7 +19,7 @@
  * - Global stats tracking for observability (includes live scoreboard)
  * - Smart 429 backoff: longer waits for rate-limit errors
  *
- * Providers (ALL FREE):
+ * Providers (ALL FREE or free-tier):
  * - GitHub Models (GH_MODELS_PAT) — OpenAI-compatible endpoint hosting
  *   GPT-4o/4.1/5-nano, Llama, Phi, Cohere, DeepSeek, Codestral, o4-mini, etc.
  *   Each model has its own daily limit (UserByModelByDay), so using 20+
@@ -28,13 +28,28 @@
  * - Groq (GROQ_API_KEY) — Ultra-fast inference, OpenAI-compatible
  *   Llama 4 Scout, Llama 3.3 70B, Qwen3 32B, Kimi K2, GPT-OSS (1000 req/day each)
  * - OpenRouter (OPENROUTER_API_KEY) — Free tier with 50 req/day
- *   Llama 3.3 70B, Gemma 3 27B, Mistral Small 3.1, Qwen3 Coder, Trinity (all ":free" suffix)
+ *   Llama 3.3 70B, Gemma 3 27B, Mistral Small 3.1, DeepSeek R1 Zero, etc. (all ":free")
+ * - Cerebras (CEREBRAS_API_KEY) — Ultra-fast inference (free tier)
+ *   Llama 3.1 8B/70B, Llama 3.3 70B — very low latency
+ * - Together AI (TOGETHER_API_KEY) — Free tier inference
+ *   Mistral 7B, Qwen 2.5 7B Turbo
+ * - Fireworks AI (FIREWORKS_API_KEY) — Free tier inference
+ *   Llama 3.1 8B, Mixtral 8x7B
+ * - NVIDIA NIM (NVIDIA_NIM_API_KEY) — Free tier inference
+ *   Llama 3.1 8B, Phi-3 Mini
+ * - HuggingFace (HUGGINGFACE_API_KEY) — Free tier inference router
+ *   Mistral 7B, Zephyr 7B
  *
  * Environment variables:
  * - GH_MODELS_PAT — GitHub Models token (covers GPT, Llama, Phi, Cohere, etc.)
  * - GEMINI_API_KEY or VITE_GEMINI_API_KEY — Google Gemini API key
  * - GROQ_API_KEY — Groq Cloud API key (optional, for extra capacity)
  * - OPENROUTER_API_KEY — OpenRouter API key (optional, for extra capacity)
+ * - CEREBRAS_API_KEY — Cerebras API key (optional, ultra-fast inference)
+ * - TOGETHER_API_KEY — Together AI API key (optional, free tier)
+ * - FIREWORKS_API_KEY — Fireworks AI API key (optional, free tier)
+ * - NVIDIA_NIM_API_KEY — NVIDIA NIM API key (optional, free tier)
+ * - HUGGINGFACE_API_KEY — HuggingFace API key (optional, free tier)
  */
 
 // ── Model catalog ────────────────────────────────────────────
@@ -90,15 +105,43 @@ export const AI_MODELS = Object.freeze({
   OR_MISTRAL_SM:    'openrouter/mistralai/mistral-small-3.1-24b-instruct:free',
   OR_QWEN3_CODER:   'openrouter/qwen/qwen3-coder:free',
   OR_TRINITY:       'openrouter/arcee-ai/trinity-large-preview:free',
+  OR_DEEPSEEK_R1Z:  'openrouter/deepseek/deepseek-r1-zero:free',
+  OR_MISTRAL_NEMO:  'openrouter/mistralai/mistral-nemo:free',
+
+  // ── Groq additional models (OpenAI-compatible, ultra-fast inference) ──
+  GROQ_GEMMA2_9B:      'groq/gemma2-9b-it',
+  GROQ_LLAMA_3_1_70B:  'groq/llama-3.1-70b-versatile',
+
+  // ── Cerebras (OpenAI-compatible, ultra-fast inference, free tier) ──
+  CB_LLAMA_3_1_8B:  'cerebras/llama3.1-8b',
+  CB_LLAMA_3_1_70B: 'cerebras/llama3.1-70b',
+  CB_LLAMA_3_3_70B: 'cerebras/llama3.3-70b',
+
+  // ── Together AI (OpenAI-compatible, free tier inference) ──
+  TGT_MISTRAL_7B:  'together/mistralai/Mistral-7B-Instruct-v0.3',
+  TGT_QWEN_2_5_7B: 'together/Qwen/Qwen2.5-7B-Instruct-Turbo',
+
+  // ── Fireworks AI (OpenAI-compatible, free tier inference) ──
+  FW_LLAMA_3_1_8B: 'fireworks/accounts/fireworks/models/llama-v3p1-8b-instruct',
+  FW_MIXTRAL_8X7B: 'fireworks/accounts/fireworks/models/mixtral-8x7b-instruct',
+
+  // ── NVIDIA NIM (OpenAI-compatible, free tier inference) ──
+  NV_LLAMA_3_1_8B: 'nvidia/meta/llama-3.1-8b-instruct',
+  NV_PHI_3_MINI:   'nvidia/microsoft/phi-3-mini-4k-instruct',
+
+  // ── HuggingFace Inference Router (OpenAI-compatible, free tier) ──
+  HF_MISTRAL_7B:   'hf/mistralai/Mistral-7B-Instruct-v0.3',
+  HF_ZEPHYR_7B:    'hf/HuggingFaceH4/zephyr-7b-beta',
 });
 
 /**
  * Default fallback chain — initial quality-based ordering.
  * Dynamically re-sorted by success/failure scores during the run.
  * Each GitHub Models model has its own daily limit (UserByModelByDay),
- * so using 20 GH Models gives us 20× the capacity with one API key.
- * Groq models add ultra-fast inference as fallback (7 models, 1000 req/day each).
- * OpenRouter adds 50 extra free requests per day.
+ * so using 24 GH Models gives us 24× the capacity with one API key.
+ * Groq models add ultra-fast inference as fallback (9 models, 1000 req/day each).
+ * OpenRouter adds 50 extra free requests per day (7 :free models).
+ * Cerebras, Together, Fireworks, NVIDIA, HuggingFace provide additional fallback capacity.
  *
  * Initial order: quality-based (best first), with provider diversity.
  * During a run, models that succeed frequently rise; models that
@@ -130,21 +173,36 @@ export const DEFAULT_CHAIN = [
   AI_MODELS.GPT_4_1_NANO,       // 23. GPT 4.1 Nano           (GitHub Models)
   AI_MODELS.GEMINI_PRO,         // 24. Google pro             (Gemini API free)
   AI_MODELS.GROQ_GPT_OSS_20B,   // 25. GPT-OSS 20B           (Groq - ultra fast)
-  AI_MODELS.OR_GEMMA_3_27B,     // 26. Gemma 3 27B instruct   (OpenRouter free)
-  AI_MODELS.COHERE_CMD_R,       // 27. Cohere Command R       (GitHub Models)
-  AI_MODELS.DEEPSEEK_R1_0528,   // 28. DeepSeek R1 0528       (GitHub Models)
-  AI_MODELS.DEEPSEEK_R1,        // 29. DeepSeek R1 reasoning  (GitHub Models)
-  AI_MODELS.GROQ_LLAMA_4_SCT,   // 30. Llama 4 Scout          (Groq)
-  AI_MODELS.OR_MISTRAL_SM,      // 31. Mistral Small 3.1      (OpenRouter free)
-  AI_MODELS.O4_MINI,            // 32. OpenAI o4-mini reason  (GitHub Models)
-  AI_MODELS.CODESTRAL,          // 33. Mistral Codestral      (GitHub Models)
-  AI_MODELS.GEMINI_FLASH_LITE,  // 34. Google flash lite      (Gemini API free)
-  AI_MODELS.OR_QWEN3_CODER,     // 35. Qwen3 Coder            (OpenRouter free)
-  AI_MODELS.GROQ_LLAMA_3_1_8B,  // 36. Llama 3.1 8B instant   (Groq)
-  AI_MODELS.LLAMA_3_1_8B,       // 37. Meta 8B fast           (GitHub Models)
-  AI_MODELS.MINISTRAL_3B,       // 38. Mistral 3B fast        (GitHub Models)
-  AI_MODELS.O3_MINI,            // 39. OpenAI o3-mini reason  (GitHub Models)
-  AI_MODELS.OR_TRINITY,         // 40. Arcee Trinity Large    (OpenRouter free)
+  AI_MODELS.CB_LLAMA_3_3_70B,   // 26. Llama 3.3 70B          (Cerebras - ultra fast)
+  AI_MODELS.OR_GEMMA_3_27B,     // 27. Gemma 3 27B instruct   (OpenRouter free)
+  AI_MODELS.CB_LLAMA_3_1_70B,   // 28. Llama 3.1 70B          (Cerebras - ultra fast)
+  AI_MODELS.COHERE_CMD_R,       // 29. Cohere Command R       (GitHub Models)
+  AI_MODELS.GROQ_LLAMA_3_1_70B, // 30. Llama 3.1 70B          (Groq)
+  AI_MODELS.DEEPSEEK_R1_0528,   // 31. DeepSeek R1 0528       (GitHub Models)
+  AI_MODELS.DEEPSEEK_R1,        // 32. DeepSeek R1 reasoning  (GitHub Models)
+  AI_MODELS.GROQ_LLAMA_4_SCT,   // 33. Llama 4 Scout          (Groq)
+  AI_MODELS.OR_MISTRAL_SM,      // 34. Mistral Small 3.1      (OpenRouter free)
+  AI_MODELS.O4_MINI,            // 35. OpenAI o4-mini reason  (GitHub Models)
+  AI_MODELS.CODESTRAL,          // 36. Mistral Codestral      (GitHub Models)
+  AI_MODELS.GEMINI_FLASH_LITE,  // 37. Google flash lite      (Gemini API free)
+  AI_MODELS.OR_QWEN3_CODER,     // 38. Qwen3 Coder            (OpenRouter free)
+  AI_MODELS.GROQ_GEMMA2_9B,     // 39. Gemma2 9B              (Groq)
+  AI_MODELS.GROQ_LLAMA_3_1_8B,  // 40. Llama 3.1 8B instant   (Groq)
+  AI_MODELS.OR_DEEPSEEK_R1Z,    // 41. DeepSeek R1 Zero       (OpenRouter free)
+  AI_MODELS.LLAMA_3_1_8B,       // 42. Meta 8B fast           (GitHub Models)
+  AI_MODELS.MINISTRAL_3B,       // 43. Mistral 3B fast        (GitHub Models)
+  AI_MODELS.O3_MINI,            // 44. OpenAI o3-mini reason  (GitHub Models)
+  AI_MODELS.OR_TRINITY,         // 45. Arcee Trinity Large    (OpenRouter free)
+  AI_MODELS.OR_MISTRAL_NEMO,    // 46. Mistral Nemo           (OpenRouter free)
+  AI_MODELS.CB_LLAMA_3_1_8B,    // 47. Llama 3.1 8B           (Cerebras - ultra fast)
+  AI_MODELS.TGT_QWEN_2_5_7B,    // 48. Qwen 2.5 7B Turbo      (Together AI)
+  AI_MODELS.TGT_MISTRAL_7B,     // 49. Mistral 7B             (Together AI)
+  AI_MODELS.FW_LLAMA_3_1_8B,    // 50. Llama 3.1 8B           (Fireworks AI)
+  AI_MODELS.FW_MIXTRAL_8X7B,    // 51. Mixtral 8x7B           (Fireworks AI)
+  AI_MODELS.NV_LLAMA_3_1_8B,    // 52. Llama 3.1 8B           (NVIDIA NIM)
+  AI_MODELS.NV_PHI_3_MINI,      // 53. Phi-3 Mini             (NVIDIA NIM)
+  AI_MODELS.HF_MISTRAL_7B,      // 54. Mistral 7B             (HuggingFace)
+  AI_MODELS.HF_ZEPHYR_7B,       // 55. Zephyr 7B              (HuggingFace)
 ];
 
 // ── Provider constants ───────────────────────────────────────
@@ -153,19 +211,34 @@ const PROVIDER = Object.freeze({
   GEMINI:      'gemini',
   GROQ:        'groq',
   OPENROUTER:  'openrouter',
+  CEREBRAS:    'cerebras',
+  TOGETHER:    'together',
+  FIREWORKS:   'fireworks',
+  NVIDIA:      'nvidia',
+  HUGGINGFACE: 'huggingface',
 });
 
 // ── Endpoints ────────────────────────────────────────────────
-const GH_MODELS_BASE = 'https://models.inference.ai.azure.com/chat/completions';
-const GEMINI_API_BASE = 'https://generativelanguage.googleapis.com/v1beta/models';
-const GROQ_API_BASE = 'https://api.groq.com/openai/v1/chat/completions';
+const GH_MODELS_BASE      = 'https://models.inference.ai.azure.com/chat/completions';
+const GEMINI_API_BASE     = 'https://generativelanguage.googleapis.com/v1beta/models';
+const GROQ_API_BASE       = 'https://api.groq.com/openai/v1/chat/completions';
 const OPENROUTER_API_BASE = 'https://openrouter.ai/api/v1/chat/completions';
+const CEREBRAS_API_BASE   = 'https://api.cerebras.ai/v1/chat/completions';
+const TOGETHER_API_BASE   = 'https://api.together.xyz/v1/chat/completions';
+const FIREWORKS_API_BASE  = 'https://api.fireworks.ai/inference/v1/chat/completions';
+const NVIDIA_API_BASE     = 'https://integrate.api.nvidia.com/v1/chat/completions';
+const HUGGINGFACE_API_BASE = 'https://router.huggingface.co/v1/chat/completions';
 
 // ── API keys (lazy-loaded from environment) ──────────────────
-function getGhModelsPat()      { return (process.env.GH_MODELS_PAT || '').trim(); }
-function getGeminiApiKey()     { return (process.env.GEMINI_API_KEY || process.env.VITE_GEMINI_API_KEY || '').trim(); }
-function getGroqApiKey()       { return (process.env.GROQ_API_KEY || '').trim(); }
-function getOpenRouterApiKey() { return (process.env.OPENROUTER_API_KEY || '').trim(); }
+function getGhModelsPat()       { return (process.env.GH_MODELS_PAT || '').trim(); }
+function getGeminiApiKey()      { return (process.env.GEMINI_API_KEY || process.env.VITE_GEMINI_API_KEY || '').trim(); }
+function getGroqApiKey()        { return (process.env.GROQ_API_KEY || '').trim(); }
+function getOpenRouterApiKey()  { return (process.env.OPENROUTER_API_KEY || '').trim(); }
+function getCerebrasApiKey()    { return (process.env.CEREBRAS_API_KEY || '').trim(); }
+function getTogetherApiKey()    { return (process.env.TOGETHER_API_KEY || '').trim(); }
+function getFireworksApiKey()   { return (process.env.FIREWORKS_API_KEY || '').trim(); }
+function getNvidiaApiKey()      { return (process.env.NVIDIA_NIM_API_KEY || '').trim(); }
+function getHuggingFaceApiKey() { return (process.env.HUGGINGFACE_API_KEY || '').trim(); }
 
 // ── Provider detection ───────────────────────────────────────
 /**
@@ -173,12 +246,22 @@ function getOpenRouterApiKey() { return (process.env.OPENROUTER_API_KEY || '').t
  * - `groq/*` → Groq Cloud (ultra-fast inference, free tier)
  * - `openrouter/*` → OpenRouter (free models with :free suffix)
  * - `gemini-*` → Google Gemini (free tier)
+ * - `cerebras/*` → Cerebras (ultra-fast inference, free tier)
+ * - `together/*` → Together AI (free tier)
+ * - `fireworks/*` → Fireworks AI (free tier)
+ * - `nvidia/*` → NVIDIA NIM (free tier)
+ * - `hf/*` → HuggingFace Inference Router (free tier)
  * - Everything else → GitHub Models (GPT, Llama, Mistral, Cohere, Phi — all free)
  */
 function getProvider(model) {
-  if (model.startsWith('groq/'))          return PROVIDER.GROQ;
-  if (model.startsWith('openrouter/'))    return PROVIDER.OPENROUTER;
-  if (model.startsWith('gemini-'))        return PROVIDER.GEMINI;
+  if (model.startsWith('groq/'))        return PROVIDER.GROQ;
+  if (model.startsWith('openrouter/'))  return PROVIDER.OPENROUTER;
+  if (model.startsWith('gemini-'))      return PROVIDER.GEMINI;
+  if (model.startsWith('cerebras/'))    return PROVIDER.CEREBRAS;
+  if (model.startsWith('together/'))    return PROVIDER.TOGETHER;
+  if (model.startsWith('fireworks/'))   return PROVIDER.FIREWORKS;
+  if (model.startsWith('nvidia/'))      return PROVIDER.NVIDIA;
+  if (model.startsWith('hf/'))          return PROVIDER.HUGGINGFACE;
   return PROVIDER.GITHUB;
 }
 
@@ -186,11 +269,21 @@ function getProvider(model) {
  * Strip provider prefix from model ID to get the API model name.
  * e.g. 'groq/llama-3.3-70b-versatile' → 'llama-3.3-70b-versatile'
  *      'openrouter/meta-llama/llama-3.3-70b-instruct:free' → 'meta-llama/llama-3.3-70b-instruct:free'
+ *      'cerebras/llama3.3-70b' → 'llama3.3-70b'
+ *      'together/mistralai/Mistral-7B-Instruct-v0.3' → 'mistralai/Mistral-7B-Instruct-v0.3'
+ *      'fireworks/accounts/fireworks/models/...' → 'accounts/fireworks/models/...'
+ *      'nvidia/meta/llama-3.1-8b-instruct' → 'meta/llama-3.1-8b-instruct'
+ *      'hf/mistralai/Mistral-7B-Instruct-v0.3' → 'mistralai/Mistral-7B-Instruct-v0.3'
  *      'gpt-4o' → 'gpt-4o' (no prefix)
  */
 function getApiModelId(model) {
-  if (model.startsWith('groq/'))       return model.slice(5);
-  if (model.startsWith('openrouter/')) return model.slice(11);
+  if (model.startsWith('groq/'))        return model.slice(5);   // 5 chars: "groq/"
+  if (model.startsWith('openrouter/'))  return model.slice(11);  // 11 chars: "openrouter/"
+  if (model.startsWith('cerebras/'))    return model.slice(9);   // 9 chars: "cerebras/"
+  if (model.startsWith('together/'))    return model.slice(8);   // 8 chars: "together/"
+  if (model.startsWith('fireworks/'))   return model.slice(10);  // 10 chars: "fireworks/"
+  if (model.startsWith('nvidia/'))      return model.slice(7);   // 7 chars: "nvidia/"
+  if (model.startsWith('hf/'))          return model.slice(3);   // 3 chars: "hf/"
   return model;
 }
 
@@ -201,6 +294,11 @@ function getApiKeyForProvider(provider) {
     case PROVIDER.GEMINI:      return getGeminiApiKey();
     case PROVIDER.GROQ:        return getGroqApiKey();
     case PROVIDER.OPENROUTER:  return getOpenRouterApiKey();
+    case PROVIDER.CEREBRAS:    return getCerebrasApiKey();
+    case PROVIDER.TOGETHER:    return getTogetherApiKey();
+    case PROVIDER.FIREWORKS:   return getFireworksApiKey();
+    case PROVIDER.NVIDIA:      return getNvidiaApiKey();
+    case PROVIDER.HUGGINGFACE: return getHuggingFaceApiKey();
     default: return '';
   }
 }
@@ -552,7 +650,8 @@ export function isModelAvailable(modelId) {
 /**
  * Check whether ANY model in the default chain is available.
  * Use this instead of directly checking GEMINI_API_KEY || GH_MODELS_PAT,
- * so that all 4 providers (GitHub Models, Gemini, Groq, OpenRouter) are considered.
+ * so that all 9 providers (GitHub Models, Gemini, Groq, OpenRouter, Cerebras,
+ * Together AI, Fireworks AI, NVIDIA NIM, HuggingFace) are considered.
  */
 export function isAnyModelAvailable() {
   return DEFAULT_CHAIN.some(m => isModelAvailable(m));
@@ -686,6 +785,7 @@ const REASONING_MODELS = new Set([
   'DeepSeek-R1',
   'DeepSeek-R1-0528',
   'deepseek-reasoner',
+  'deepseek/deepseek-r1-zero',  // OpenRouter DeepSeek R1 Zero (API model ID after prefix strip)
   'o4-mini',
   'o3-mini',
   'qwen/qwen3-32b',     // Groq Qwen3 uses <think> tags
@@ -880,6 +980,72 @@ function _callOpenRouter(model, messages, opts) {
 }
 
 /**
+ * Call a model on Cerebras Cloud (OpenAI-compatible, ultra-fast inference).
+ * Free tier available for supported Llama models.
+ */
+function _callCerebras(model, messages, opts) {
+  const apiModel = getApiModelId(model);
+  return _callOpenAICompatible(apiModel, messages, opts, {
+    endpoint: CEREBRAS_API_BASE,
+    apiKey: getCerebrasApiKey(),
+    providerName: 'Cerebras',
+    trackAs: model,
+  });
+}
+
+/**
+ * Call a model on Together AI (OpenAI-compatible, free tier).
+ */
+function _callTogether(model, messages, opts) {
+  const apiModel = getApiModelId(model);
+  return _callOpenAICompatible(apiModel, messages, opts, {
+    endpoint: TOGETHER_API_BASE,
+    apiKey: getTogetherApiKey(),
+    providerName: 'Together',
+    trackAs: model,
+  });
+}
+
+/**
+ * Call a model on Fireworks AI (OpenAI-compatible, free tier).
+ */
+function _callFireworks(model, messages, opts) {
+  const apiModel = getApiModelId(model);
+  return _callOpenAICompatible(apiModel, messages, opts, {
+    endpoint: FIREWORKS_API_BASE,
+    apiKey: getFireworksApiKey(),
+    providerName: 'Fireworks',
+    trackAs: model,
+  });
+}
+
+/**
+ * Call a model on NVIDIA NIM (OpenAI-compatible, free tier).
+ */
+function _callNvidia(model, messages, opts) {
+  const apiModel = getApiModelId(model);
+  return _callOpenAICompatible(apiModel, messages, opts, {
+    endpoint: NVIDIA_API_BASE,
+    apiKey: getNvidiaApiKey(),
+    providerName: 'NVIDIA',
+    trackAs: model,
+  });
+}
+
+/**
+ * Call a model on HuggingFace Inference Router (OpenAI-compatible, free tier).
+ */
+function _callHuggingFace(model, messages, opts) {
+  const apiModel = getApiModelId(model);
+  return _callOpenAICompatible(apiModel, messages, opts, {
+    endpoint: HUGGINGFACE_API_BASE,
+    apiKey: getHuggingFaceApiKey(),
+    providerName: 'HuggingFace',
+    trackAs: model,
+  });
+}
+
+/**
  * Call a single Gemini model with retry.
  * Returns the text content on success.
  */
@@ -989,6 +1155,11 @@ function _callModel(model, messages, opts) {
     case PROVIDER.GEMINI:      return _callGeminiRaw(model, messages, opts);
     case PROVIDER.GROQ:        return _callGroq(model, messages, opts);
     case PROVIDER.OPENROUTER:  return _callOpenRouter(model, messages, opts);
+    case PROVIDER.CEREBRAS:    return _callCerebras(model, messages, opts);
+    case PROVIDER.TOGETHER:    return _callTogether(model, messages, opts);
+    case PROVIDER.FIREWORKS:   return _callFireworks(model, messages, opts);
+    case PROVIDER.NVIDIA:      return _callNvidia(model, messages, opts);
+    case PROVIDER.HUGGINGFACE: return _callHuggingFace(model, messages, opts);
     default: throw new Error(`[${model}] Unknown provider: ${provider}`);
   }
 }
@@ -1044,7 +1215,8 @@ export async function callSingleModel(messages, opts = {}) {
  * 4. On success, record success score (+2) and return
  * 5. On failure, record failure score (-3/-10/-50) and move to next model
  *
- * Default chain: 40 models across 4 providers (GitHub Models, Gemini, Groq, OpenRouter).
+ * Default chain: 55 models across 9 providers (GitHub Models, Gemini, Groq, OpenRouter,
+ * Cerebras, Together AI, Fireworks AI, NVIDIA NIM, HuggingFace).
  * Initial order is quality-based (best first), but dynamically adapts as the
  * run progresses based on actual success/failure patterns.
  *
