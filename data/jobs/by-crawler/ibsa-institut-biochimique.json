@@ -1,6 +1,6 @@
 {
   "crawlerKey": "ibsa-institut-biochimique",
-  "assembledAt": "2026-03-22T05:18:11.609Z",
+  "assembledAt": "2026-03-22T06:37:40.355Z",
   "jobs": [
     {
       "id": "company-u6h437",
@@ -630,7 +630,7 @@
     },
     {
       "id": "company-u9trv9",
-      "slug": "specialista-qa-it-junior-del-lavoro-personale-orientamento-al-cliente-interno-e-al-risultato-descrizione-della-posizione-la-posizione-e-inse",
+      "slug": "specialista-qa-it-junior-ibsa-institut-biochimique-6926-working-area",
       "company": "IBSA Institut Biochimique",
       "title": "Jr IT QA Specialist",
       "location": "6926 Working Area",
@@ -694,7 +694,7 @@
         ]
       },
       "slugByLocale": {
-        "it": "specialista-qa-it-junior-del-lavoro-personale-orientamento-al-cliente-interno-e-al-risultato-descrizione-della-posizione-la-posizione-e-inse",
+        "it": "specialista-qa-it-junior-ibsa-institut-biochimique-6926-working-area",
         "en": "jr-it-qa-specialist-ibsa-institut-biochimique-6926-working-area",
         "de": "jr-it-qa-spezialist-del-lavoro-personale-orientamento-al-cliente-interno-e-al-risultato-descrizione-della-posizione-la-posizione-e-inserita-",
         "fr": "jr-it-qa-specialiste-del-lavoro-personale-orientamento-al-cliente-interno-e-al-risultato-descrizione-della-posizione-la-posizione-e-inserita"
@@ -702,7 +702,8 @@
       "country": "CH",
       "sourceLang": "it",
       "previousSlugs": [
-        "jr-it-qa-specialist-del-lavoro-personale-orientamento-al-cliente-interno-e-al-risultato-descrizione-della-posizione-la-posizione-e-inserita-"
+        "jr-it-qa-specialist-del-lavoro-personale-orientamento-al-cliente-interno-e-al-risultato-descrizione-della-posizione-la-posizione-e-inserita-",
+        "specialista-qa-it-junior-del-lavoro-personale-orientamento-al-cliente-interno-e-al-risultato-descrizione-della-posizione-la-posizione-e-inse"
       ],
       "salaryMin": 55500,
       "salaryMax": 75500,
@@ -777,7 +778,7 @@
     },
     {
       "id": "company-cohd02",
-      "slug": "specialista-in-contratti-e-audit-ibsa-institut-biochimique-13484-ecc-ottima-conoscenza-della-lingua-inglese-scritta-e-parlata-ottima-conos",
+      "slug": "specialista-in-contratti-e-audit-ibsa-institut-biochimique-13484-ecc-ottima-conoscenza-della-lingua-inglese-scritta-e-pa",
       "company": "IBSA Institut Biochimique",
       "title": "Contractors & Audits Specialist",
       "location": "13484 ecc) Ottima conoscenza della lingua inglese scritta e parlata Ottima conos",
@@ -842,7 +843,7 @@
         ]
       },
       "slugByLocale": {
-        "it": "specialista-in-contratti-e-audit-ibsa-institut-biochimique-13484-ecc-ottima-conoscenza-della-lingua-inglese-scritta-e-parlata-ottima-conos",
+        "it": "specialista-in-contratti-e-audit-ibsa-institut-biochimique-13484-ecc-ottima-conoscenza-della-lingua-inglese-scritta-e-pa",
         "en": "contractors-audits-specialist-ibsa-institut-biochimique-13484-ecc-ottima-conoscenza-della-lingua-inglese-scritta-e-parlata-ottima-conos",
         "de": "spezialist-fur-auftragnehmer-und-audits-ibsa-institut-biochimique-13484-ecc-ottima-conoscenza-della-lingua-inglese-scritta-e-parlata-ottima-",
         "fr": "specialiste-des-contrats-et-des-audits-ibsa-institut-biochimique-13484-ecc-ottima-conoscenza-della-lingua-inglese-scritta-e-parlata-ottima-c"
@@ -860,11 +861,14 @@
           "maxValue": 108000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugs": [
+        "specialista-in-contratti-e-audit-ibsa-institut-biochimique-13484-ecc-ottima-conoscenza-della-lingua-inglese-scritta-e-parlata-ottima-conos"
+      ]
     },
     {
       "id": "company-dbsgw8",
-      "slug": "specialista-supporto-clienti-e-business-ibsa-institut-biochimique-6916-working-area",
+      "slug": "specialista-supporto-clienti-e-aziendale-ibsa-institut-biochimique-6916-working-area",
       "company": "IBSA Institut Biochimique",
       "title": "Customer & Business Support Specialist",
       "location": "6916 Working Area",
@@ -909,7 +913,7 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "specialista-supporto-clienti-e-business-ibsa-institut-biochimique-6916-working-area",
+        "it": "specialista-supporto-clienti-e-aziendale-ibsa-institut-biochimique-6916-working-area",
         "en": "customer-business-support-specialist-ibsa-institut-biochimique-6916-working-area",
         "de": "customer-business-support-spezialist-ibsa-institut-biochimique-6916-working-area",
         "fr": "specialiste-support-client-et-business-ibsa-institut-biochimique-6916-working-area"
@@ -927,91 +931,14 @@
           "maxValue": 97500,
           "unitText": "YEAR"
         }
-      }
-    },
-    {
-      "id": "company-e3ivbg",
-      "slug": "meccatronico-ibsa-institut-biochimique-6912-working-area",
-      "company": "IBSA Institut Biochimique",
-      "title": "Meccatronico",
-      "location": "6912 Working Area",
-      "canton": "TI",
-      "category": "other",
-      "contract": "temporary",
-      "currency": "CHF",
-      "description": "## Descrizione\nSiamo alla ricerca di un profilo Meccatronico da inserire all’interno del team di Manutenzione. La risorsa avrà la responsabilità di garantire la piena efficienza delle linee produttive e di confezionamento, nel rispetto degli standard di qualità e delle normative GMP.\n\n## Responsabilità principali\n- Eseguire interventi di manutenzione preventiva, predittiva e correttiva su macchine automatizzate\n- Effettuare l’avvio macchina (set up e regolazione dei parametri operativi) dopo le operazioni di cambio formato sulle macchine precedentemente indicate\n- Diagnosticare guasti di natura meccanica, elettrica, pneumatica e oleodinamica, assicurando tempi di fermo minimi.\n- Affiancare il personale esterno nei casi di interventi particolari richiesti a ditte specializzate\n- Collaborare all’installazione, qualificazione, collaudo e messa in servizio di nuovi macchinari e linee di confezionamento\n- Intervenire su sistemi di controllo e PLC\n\n## Profilo richiesto\n- AFC in ambito meccanico o titolo equivalente\n- Comprovata esperienza di almeno 5 anni in ruoli simili in aziende farmaceutiche o alimentari\n- Sono richieste:\n  - Attitudine al lavoro in team\n  - Buona capacità organizzativa del lavoro personale e del team\n  - Dinamicità e flessibilità",
-      "requirements": [],
-      "featured": false,
-      "postedDate": "2026-03-21",
-      "url": "https://career.ibsagroup.com/job/Lugano-Pazzallo-Meccatronico-TI-6912/1342644055/",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Ticino",
-        "canton": "TI"
       },
-      "companyKey": "ibsa-institut-biochimique",
-      "companyDomain": "ibsa.ch",
-      "crawledAt": "2026-03-21T15:47:28.414Z",
-      "titleByLocale": {
-        "it": "Meccatronico",
-        "en": "Meccatronician",
-        "de": "Meccatroniker",
-        "fr": "Mécatronicien"
-      },
-      "descriptionByLocale": {
-        "it": "## Descrizione Siamo alla ricerca di un profilo Meccatronico da inserire all’interno del team di Manutenzione. La risorsa avrà la responsabilità di garantire la piena efficienza delle linee produttive e di confezionamento, nel rispetto degli standard di qualità e delle normative GMP. ## Responsabilità principali - Eseguire interventi di manutenzione preventiva, predittiva e correttiva su macchine automatizzate - Effettuare l’avvio macchina (set up e regolazione dei parametri operativi) dopo le operazioni di cambio formato sulle macchine precedentemente indicate - Diagnosticare guasti di natura meccanica, elettrica, pneumatica e oleodinamica, assicurando tempi di fermo minimi. - Affiancare il personale esterno nei casi di interventi particolari richiesti a ditte specializzate - Collaborare all’installazione, qualificazione, collaudo e messa in servizio di nuovi macchinari e linee di confezionamento - Intervenire su sistemi di controllo e PLC ## Profilo richiesto - AFC in ambito meccanico o titolo equivalente - Comprovata esperienza di almeno 5 anni in ruoli simili in aziende farmaceutiche o alimentari - Sono richieste: - Attitudine al lavoro in team - Buona capacità organizzativa del lavoro personale e del team - Dinamicità e flessibilità",
-        "en": "## Description We are looking for a Meccatronician to join our Maintenance team. The resource will be responsible for ensuring the full efficiency of production and packaging lines, in compliance with quality standards and GMP regulations. ## Main Responsibilities - Perform preventive, predictive, and corrective maintenance on automated machines - Set up and adjust operational parameters after format changes on previously indicated machines - Diagnose mechanical, electrical, pneumatic, and hydraulic faults, ensuring minimum downtime - Support external personnel in cases of specific interventions required by specialized companies - Collaborate in the installation, qualification, testing, and commissioning of new machinery and packaging lines - Intervene on control systems and PLCs ## Required Profile - AFC in mechanical field or equivalent title - Proven experience of at least 5 years in similar roles in pharmaceutical or food industries - Required: - Teamwork attitude - Good organizational skills for personal and team work - Dynamism and flexibility",
-        "de": "## Beschreibung Wir suchen einen Meccatroniker, der unser Maintenance-Team beitritt. Die Ressource wird für die Sicherstellung der vollständigen Effizienz der Produktions- und Verpackungslinien verantwortlich sein, wobei die Qualitätsstandards und GMP-Regelungen eingehalten werden. ## Hauptverantwortlichkeiten - Durchführen von präventiver, vorhersagender und korrigierender Wartung an automatisierten Maschinen - Einrichten und Anpassen der Betriebsparameter nach Formatänderungen an zuvor angegebenen Maschinen - Diagnostizieren mechanischer, elektrischer, pneumatischer und hydraulischer Defekte, um die Mindestunterbrechung zu gewährleisten - Unterstützung externer Personal bei spezifischen Interventionen, die von spezialisierten Unternehmen erforderlich sind - Zusammenarbeit bei der Installation, Qualifizierung, Überprüfung und Inbetriebnahme neuer Maschinen und Verpackungslinien - Eingreifen in Steuerungssysteme und PLCs ## Anforderungsprofil - Fachhochschulabschluss im mechanischen Bereich oder äquivalenter Titel - Proven Erfahrung von mindestens 5 Jahren in ähnlichen Positionen in pharmazeutischen oder Lebensmittelindustrie - Anforderungen: - Teamarbeit - Gute organisatorische Fähigkeiten für persönliche und Teamarbeit - Dynamik und Flexibilität",
-        "fr": "## Description Nous recherchons un Mécatronicien à intégrer notre équipe de Maintenance. La ressource aura pour mission de garantir l'efficacité totale des lignes de production et d'emballage, en respectant les normes de qualité et les réglementations GMP. ## Responsabilités principales - Effectuer des interventions de maintenance préventive, prédictive et corrective sur les machines automatisées - Mettre en service et ajuster les paramètres opérationnels après les changements de format sur les machines précédemment indiquées - Diagnostiquer les pannes mécaniques, électriques, pneumatiques et hydrauliques, en assurant les temps d'arrêt minimums - Travailler en étroite collaboration avec le personnel externe dans les cas d'interventions particulières nécessitant des entreprises spécialisées - Collaborer à l'installation, à la qualification, au test et à la mise en service des nouveaux équipements et lignes de conditionnement - Intervenir sur les systèmes de contrôle et les PLCs ## Profil recherché - Diplôme d'AFC dans le domaine mécanique ou équivalent - Expérience de travail de au moins 5 ans dans des rôles similaires dans les industries pharmaceutiques ou alimentaires - Requis: - Attitude au travail en équipe - Bonnes compétences organisationnelles pour le travail personnel et d'équipe - Dynamisme et flexibilité"
-      },
-      "requirementsByLocale": {
-        "en": [
-          "AFC in mechanical field or equivalent title",
-          "At least 5 years of experience in similar roles in pharmaceutical or food companies",
-          "Teamwork attitude",
-          "Good organizational skills for personal and team work",
-          "Dynamism and flexibility"
-        ],
-        "de": [
-          "AFC im Bereich Mechanik oder äquivalentes Diplom",
-          "Mindestens 5 Jahre Erfahrung in ähnlichen Funktionen in pharmazeutischen oder Lebensmittelunternehmen",
-          "Teamarbeit",
-          "Gute organisatorische Fähigkeiten für persönliche und Teamarbeit",
-          "Dynamik und Flexibilität"
-        ],
-        "fr": [
-          "Diplôme AFC en mécanique ou titre équivalent",
-          "Au moins 5 ans d'expérience dans des postes similaires dans des entreprises pharmaceutiques ou alimentaires",
-          "Attitude de travail en équipe",
-          "Bonnes capacités d'organisation pour le travail personnel et en équipe",
-          "Dynamisme et flexibilité"
-        ]
-      },
-      "slugByLocale": {
-        "it": "meccatronico-ibsa-institut-biochimique-6912-working-area",
-        "en": "mechatronic-technician-ibsa-institut-biochimique-6912-working-area",
-        "de": "mechatroniker-ibsa-institut-biochimique-6912-working-area",
-        "fr": "technicien-en-mecatronique-ibsa-institut-biochimique-6912-working-area"
-      },
-      "country": "CH",
-      "sourceLang": "it",
-      "salaryMin": 58000,
-      "salaryMax": 78000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 58000,
-          "maxValue": 78000,
-          "unitText": "YEAR"
-        }
-      }
+      "previousSlugs": [
+        "specialista-supporto-clienti-e-business-ibsa-institut-biochimique-6916-working-area"
+      ]
     },
     {
       "id": "company-toyw1a",
-      "slug": "responsabile-contabile-sostegno-maternita-e-collaborazione-persona-responsabile-ed-affidabile-abituata-a-gestire-scadenze-a-breve-termine-lu",
+      "slug": "accounting-officer-maternity-leave-ibsa-institut-biochimique-6926-working-area",
       "company": "IBSA Institut Biochimique",
       "title": "Accounting Officer (sost. maternità)",
       "location": "6926 Working Area",
@@ -1035,7 +962,7 @@
       "crawledAt": "2026-03-21T15:47:28.414Z",
       "titleByLocale": {
         "fr": "Accounting Officer (sost. maternità)",
-        "en": "",
+        "en": "Accounting Officer (sost. maternità)",
         "de": "Rechnungsführer (Mutterschutz)",
         "it": "Accounting Officer (Maternity Leave)"
       },
@@ -1075,7 +1002,7 @@
         ]
       },
       "slugByLocale": {
-        "it": "responsabile-contabile-sostegno-maternita-e-collaborazione-persona-responsabile-ed-affidabile-abituata-a-gestire-scadenze-a-breve-termine-lu",
+        "it": "accounting-officer-maternity-leave-ibsa-institut-biochimique-6926-working-area",
         "en": "accounting-officer-maternity-leave-replacement-e-collaborazione-persona-responsabile-ed-affidabile-abituata-a-gestire-scadenze-a-breve-termi",
         "de": "rechnungsfuhrer-mutterschaftsvertretung-e-collaborazione-persona-responsabile-ed-affidabile-abituata-a-gestire-scadenze-a-breve-termine-luog",
         "fr": "accounting-officer-sost-maternita-ibsa-institut-biochimique-6926-working-area"
@@ -1083,7 +1010,8 @@
       "country": "CH",
       "sourceLang": "it",
       "previousSlugs": [
-        "accounting-officer-sost-maternita-e-collaborazione-persona-responsabile-ed-affidabile-abituata-a-gestire-scadenze-a-breve-termine-luogo-di-l"
+        "accounting-officer-sost-maternita-e-collaborazione-persona-responsabile-ed-affidabile-abituata-a-gestire-scadenze-a-breve-termine-luogo-di-l",
+        "responsabile-contabile-sostegno-maternita-e-collaborazione-persona-responsabile-ed-affidabile-abituata-a-gestire-scadenze-a-breve-termine-lu"
       ],
       "salaryMin": 109000,
       "salaryMax": 147000,
@@ -1100,7 +1028,7 @@
     },
     {
       "id": "company-u9trv9",
-      "slug": "specialista-qa-it-junior-del-lavoro-personale-orientamento-al-cliente-interno-e-al-risultato-descrizione-della-posizione-la-posizione-e-inse",
+      "slug": "jr-it-qa-specialista-ibsa-institut-biochimique-6926-working-area",
       "company": "IBSA Institut Biochimique",
       "title": "Jr IT QA Specialist",
       "location": "6926 Working Area",
@@ -1130,9 +1058,7 @@
       },
       "descriptionByLocale": {
         "it": "## Descrizione della posizione La posizione è inserita all’interno del reparto Information Technology & Security Quality Assurance presso l’Head Quarter della società IBSA Institut Biochimique SA sita in Lugano sud (CH). L’azienda è geograficamente distribuita su diversi stabilimenti produttivi e su diverse country commerciali worldwide. Come Jr IT QA Specialist, la persona seguirà attività sia di qualifica e mantenimento della compliance dell’infrastruttura informatica aziendale. All’interno delle competenze quanto segue: - eseguire le attività di qualifica dell’infrastruttura informatica Corporate e filiali - eseguire le attività di qualifica dei Sistemi Computerizzati in carico al reparto ET&T - emettere le procedure ed istruzioni di lavoro del reparto IT - redigere la documentazione di qualifica dei sistemi in carico al reparto IT - eseguire e/o supportare i test di qualifica dei sistemi in carico al reparto IT - revisionare la documentazione di convalida e le procedure dei reparti - applicare le procedure in materia IT e IS in accordo alle policy aziendali ## Profilo richiesto - Minimo 1-2 anni di esperienza in posizioni similari - Preferenza Laurea in discipline scientifiche - Ottima conoscenza dei sistemi informatici di base - Ottima conoscenza della lingua inglese parlata e scritta - Conoscenza del quadro normativo nell'ambiente GMP come ICH, PICs, FDA, EUGMP - Conoscenza del quadro normativo relativo alla qualifica e mantenimento delle Infrastrutture IT in ambito Life Science - Conoscenza del quadro normativo relativo all’integrità dei dati e dei sistemi computerizzati - Conoscenza di base delle infrastrutture network e relativi componenti - Capacità di lavoro in team, flessibilità e spirito di adattamento, capacità comunicative e relazionali, buona resistenza alle sollecitazioni, capacità di organizzazione del lavoro personale, orientamento al cliente interno e al risultato. ## Descrizione della posizione La posizione è inserita all’interno del reparto Information Technology & Security Quality Assurance presso l’Head Quarter della società IBSA Institut Biochimique SA sita in Lugano sud (CH). L’azienda è geograficamente distribuita su diversi stabilimenti produttivi e su diverse country commerciali worldwide. Come Jr IT QA Specialist, la persona seguirà attività sia di qualifica e mantenimento della compliance dell’infrastruttura informatica aziendale. All’interno delle competenze quanto segue: - eseguire le attività di qualifica dell’infrastruttura informatica Corporate e filiali - eseguire le attività di qualifica dei Sistemi Computerizzati in carico al reparto ET&T - emettere le procedure ed istruzioni di lavoro del reparto IT - redigere la documentazione di qualifica dei sistemi in carico al reparto IT - eseguire e/o supportare i test di qualifica dei sistemi in carico al reparto IT - revisionare la documentazione di convalida e le procedure dei reparti - applicare le procedure in materia IT e IS in accordo alle policy aziendali ## Profilo richiesto - Minimo 1-2 anni di esperienza in posizioni similari - Preferenza Laurea in discipline scientifiche - Ottima conoscenza dei sistemi informatici di base - Ottima conoscenza della lingua inglese parlata e scritta - Conoscenza del quadro normativo nell'ambiente GMP come ICH, PICs, FDA, EUGMP - Conoscenza del quadro normativo relativo alla qualifica e mantenimento delle Infrastrutture IT in ambito Life Science - Conoscenza del quadro normativo relativo all’integrità dei dati e dei sistemi computerizzati - Conoscenza di base delle infrastrutture network e relativi componenti - Capacità di lavoro in team, flessibilità e spirito di adattamento, capacità comunicative e relazionali, buona resistenza alle sollecitazioni, capacità di organizzazione del lavoro personale, orientamento al cliente interno e al risultato.",
-        "en": "## Job Description The position is located within the Information Technology & Security Quality Assurance department at the Head Quarter of the company IBSA Institut Biochimique SA, situated in Lugano south (CH). The company is geographically distributed across various production facilities and commercial countries worldwide. As a Jr IT QA Specialist, the individual will follow activities related to the qualification and maintenance of the company's IT infrastructure. Within the following competencies: - Execute the qualification activities of the corporate and branch IT infrastructure - Execute the qualification activities of the computer systems assigned to the ET&T department - Issue work procedures and instructions for the IT department - Prepare the qualification documentation of the systems assigned to the IT department - Execute and/or support the qualification tests of the systems assigned to the IT department - Review the validation documentation and procedures of the departments - Apply IT and IS procedures in accordance with the company's policies ## Required Profile - Minimum 1-2 years of experience in similar positions - Preference for a degree in scientific disciplines - Excellent knowledge of basic information systems - Excellent knowledge of the English language, both spoken and written - Knowledge of the regulatory framework in the GMP environment, such as ICH, PICs, FDA, EUGMP - Knowledge of the regulatory framework for the qualification and maintenance of IT infrastructures in the Life Science sector - Knowledge of the regulatory framework for data integrity and computer systems - Basic knowledge of network infrastructures and their components - Ability to work in teams, flexibility, adaptability, communication and interpersonal skills, good resistance to stress, ability to organize personal work, customer orientation towards internal customers and results-oriented",
-        "de": "## Job Description The position is located within the Information Technology & Security Quality Assurance department at the Head Quarter of the company IBSA Institut Biochimique SA, situated in Lugano south (CH). The company is geographically distributed across various production facilities and commercial countries worldwide. As a Jr IT QA Specialist, the person will follow activities related to the qualification and maintenance of the company's IT infrastructure. Within the following competencies: - Execute the qualification activities of the corporate and filial IT infrastructure - Execute the qualification activities of the computerized systems assigned to the ET&T department - Issue work procedures and instructions for the IT department - Draft the qualification documentation of the systems assigned to the IT department - Execute and/or support the qualification tests of the systems assigned to the IT department - Review the validation documentation and procedures of the departments - Apply IT and IS procedures in accordance with the company's policies. ## Required Profile - Minimum 1-2 years of experience in similar positions - Preference for a degree in scientific disciplines - Good knowledge of basic information systems - Good knowledge of the English language, both spoken and written - Knowledge of the regulatory framework in the GMP environment, such as ICH, PICs, FDA, EUGMP - Knowledge of the regulatory framework for the qualification and maintenance of IT infrastructures in the Life Science sector - Knowledge of the regulatory framework for data integrity and computer systems - Basic knowledge of network infrastructures and their components - Ability to work in teams, flexibility, adaptability, communication and relational skills, good resistance to stress, ability to organize personal work, customer orientation and result orientation.",
-        "fr": "## Description of the Position The position is located within the Information Technology & Security Quality Assurance department at the Head Quarter of the company IBSA Institut Biochimique SA, situated in Lugano sud (CH). The company is geographically distributed across various production sites and commercial countries worldwide. As a Jr IT QA Specialist, the individual will follow activities related to the qualification and maintenance of the company's IT infrastructure. Within the following competencies: - Execute the qualification activities of the corporate and branch IT infrastructure - Execute the qualification activities of the computerized systems assigned to the ET&T department - Issue the work procedures and instructions of the IT department - Draft the qualification documentation of the systems assigned to the IT department - Execute and/or support the qualification tests of the systems assigned to the IT department - Review the validation documentation and procedures of the departments - Apply the IT and IS procedures in accordance with the company's policies. ## Required Profile - Minimum 1-2 years of experience in similar positions - Preference for a degree in scientific disciplines - Excellent knowledge of basic information systems - Excellent knowledge of the English language, both spoken and written - Knowledge of the regulatory framework in the GMP environment, such as ICH, PICs, FDA, EUGMP - Knowledge of the regulatory framework related to the qualification and maintenance of IT infrastructures in the Life Science sector - Knowledge of the regulatory framework related to the integrity of data and computerized systems - Basic knowledge of network infrastructures and their components - Ability to work in teams, flexibility, adaptability, communication and relational skills, good resistance to stress, ability to organize personal work, customer orientation and result orientation."
+        "en": "## Job Description The position is located within the Information Technology & Security Quality Assurance department at the Head Quarter of the company IBSA Institut Biochimique SA, situated in Lugano south (CH). The company is geographically distributed across various production facilities and commercial countries worldwide. As a Jr IT QA Specialist, the individual will follow activities related to the qualification and maintenance of the company's IT infrastructure. Within the following competencies: - Execute the qualification activities of the corporate and branch IT infrastructure - Execute the qualification activities of the computer systems assigned to the ET&T department - Issue work procedures and instructions for the IT department - Prepare the qualification documentation of the systems assigned to the IT department - Execute and/or support the qualification tests of the systems assigned to the IT department - Review the validation documentation and procedures of the departments - Apply IT and IS procedures in accordance with the company's policies ## Required Profile - Minimum 1-2 years of experience in similar positions - Preference for a degree in scientific disciplines - Excellent knowledge of basic information systems - Excellent knowledge of the English language, both spoken and written - Knowledge of the regulatory framework in the GMP environment, such as ICH, PICs, FDA, EUGMP - Knowledge of the regulatory framework for the qualification and maintenance of IT infrastructures in the Life Science sector - Knowledge of the regulatory framework for data integrity and computer systems - Basic knowledge of network infrastructures and their components - Ability to work in teams, flexibility, adaptability, communication and interpersonal skills, good resistance to stress, ability to organize personal work, customer orientation towards internal customers and results-oriented"
       },
       "requirementsByLocale": {
         "en": [
@@ -1164,7 +1090,7 @@
         ]
       },
       "slugByLocale": {
-        "it": "specialista-qa-it-junior-del-lavoro-personale-orientamento-al-cliente-interno-e-al-risultato-descrizione-della-posizione-la-posizione-e-inse",
+        "it": "jr-it-qa-specialista-ibsa-institut-biochimique-6926-working-area",
         "en": "jr-it-qa-specialist-ibsa-institut-biochimique-6926-working-area",
         "de": "jr-it-qa-spezialist-del-lavoro-personale-orientamento-al-cliente-interno-e-al-risultato-descrizione-della-posizione-la-posizione-e-inserita-",
         "fr": "specialiste-qa-it-junior-del-lavoro-personale-orientamento-al-cliente-interno-e-al-risultato-descrizione-della-posizione-la-posizione-e-inse"
@@ -1172,7 +1098,8 @@
       "country": "CH",
       "sourceLang": "it",
       "previousSlugs": [
-        "jr-it-qa-specialist-del-lavoro-personale-orientamento-al-cliente-interno-e-al-risultato-descrizione-della-posizione-la-posizione-e-inserita-"
+        "jr-it-qa-specialist-del-lavoro-personale-orientamento-al-cliente-interno-e-al-risultato-descrizione-della-posizione-la-posizione-e-inserita-",
+        "specialista-qa-it-junior-del-lavoro-personale-orientamento-al-cliente-interno-e-al-risultato-descrizione-della-posizione-la-posizione-e-inse"
       ],
       "salaryMin": 55500,
       "salaryMax": 75500,
@@ -1189,7 +1116,7 @@
     },
     {
       "id": "company-dfoci7",
-      "slug": "coordinatore-dei-servizi-generali-e-della-sicurezza-della-struttura-ibsa-institut-biochimique-6926-working-area",
+      "slug": "general-services-plant-security-coordinatore-ibsa-institut-biochimique-6926-working-area",
       "company": "IBSA Institut Biochimique",
       "title": "General Services & Plant Security Coordinator",
       "location": "6926 Working Area",
@@ -1256,7 +1183,7 @@
         ]
       },
       "slugByLocale": {
-        "it": "coordinatore-dei-servizi-generali-e-della-sicurezza-della-struttura-ibsa-institut-biochimique-6926-working-area",
+        "it": "general-services-plant-security-coordinatore-ibsa-institut-biochimique-6926-working-area",
         "en": "general-services-plant-security-coordinator-ibsa-institut-biochimique-6926-working-area",
         "de": "koordinator-fur-allgemeine-dienste-und-betriebssicherheit-ibsa-institut-biochimique-6926-working-area",
         "fr": "coordinateur-des-services-generaux-et-de-la-securite-des-etablissements-ibsa-institut-biochimique-6926-working-area"
@@ -1274,11 +1201,14 @@
           "maxValue": 97500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugs": [
+        "coordinatore-dei-servizi-generali-e-della-sicurezza-della-struttura-ibsa-institut-biochimique-6926-working-area"
+      ]
     },
     {
       "id": "company-cohd02",
-      "slug": "esperto-di-contratti-e-revisioni-ibsa-institut-biochimique-13484-ecc-ottima-conoscenza-della-lingua-inglese-scritta-e-parlata-ottima-conos",
+      "slug": "contractors-audits-specialista-ibsa-institut-biochimique-13484-ecc-ottima-conoscenza-della-lingua-inglese-scritta-e-parl",
       "company": "IBSA Institut Biochimique",
       "title": "Contractors & Audits Specialist",
       "location": "13484 ecc) Ottima conoscenza della lingua inglese scritta e parlata Ottima conos",
@@ -1337,7 +1267,7 @@
         ]
       },
       "slugByLocale": {
-        "it": "esperto-di-contratti-e-revisioni-ibsa-institut-biochimique-13484-ecc-ottima-conoscenza-della-lingua-inglese-scritta-e-parlata-ottima-conos",
+        "it": "contractors-audits-specialista-ibsa-institut-biochimique-13484-ecc-ottima-conoscenza-della-lingua-inglese-scritta-e-parl",
         "en": "contractors-audits-specialist-ibsa-institut-biochimique-13484-ecc-ottima-conoscenza-della-lingua-inglese-scritta-e-parlata-ottima-conos",
         "de": "spezialist-fur-auftragnehmer-und-audits-ibsa-institut-biochimique-13484-ecc-ottima-conoscenza-della-lingua-inglese-scritta-e-parlata-ottima-",
         "fr": "specialiste-des-contractants-et-audits-ibsa-institut-biochimique-13484-ecc-ottima-conoscenza-della-lingua-inglese-scritta-e-parlata-ottima-c"
@@ -1355,7 +1285,10 @@
           "maxValue": 108000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugs": [
+        "esperto-di-contratti-e-revisioni-ibsa-institut-biochimique-13484-ecc-ottima-conoscenza-della-lingua-inglese-scritta-e-parlata-ottima-conos"
+      ]
     }
   ]
 }
