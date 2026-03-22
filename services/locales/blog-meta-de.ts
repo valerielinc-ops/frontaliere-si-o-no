@@ -1598,6 +1598,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.smartphone-a-scuola-e-nuove-direttive.title': 'Smartphones in der Schule: Das DECS ändert seine Strategie, aber die Volksinitiative bleibt bestehen',
     'blog.article.smartphone-a-scuola-e-nuove-direttive.excerpt': 'Das Bildungs-, Kultur- und Sportdepartement (DECS) des Kantons Tessin hat neue Richtlinien zum Gebrauch von Smartphones in der Schule angekündigt, aber die Volksinitiative für ein totales Verbot wird nicht zurückgezogen.',
     'blog.article.smartphone-a-scuola-e-nuove-direttive.imageAlt': 'Schüler in einem Klassenzimmer einer Oberschule in Locarno mit Smartphones in der Hand.',
+    'blog.article.infortuni-sul-lavoro-protesi-hi-tech.title': 'Unfallverletzungen: INAIL öffnet sich für Hightech-Prothesen für einen besseren Schutz von Grenzgängern',
+    'blog.article.infortuni-sul-lavoro-protesi-hi-tech.excerpt': 'INAIL hat die Betriebsanweisungen der Prothesenverordnung aktualisiert und Änderungen eingeführt, die Grenzgängern, die Opfer schwerer Arbeitsunfälle wurden, mehr Autonomie und Schutz bieten.',
+    'blog.article.infortuni-sul-lavoro-protesi-hi-tech.imageAlt': 'High-Tech-Prothese und Grenzübergang Brogeda: ein Symbol der Hoffnung und Widerstandsfähigkeit für grenzüberschreitende Arbeitnehmer.',
 };
 
 export default blogMetaDe;

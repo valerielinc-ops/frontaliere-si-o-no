@@ -1598,6 +1598,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.smartphone-a-scuola-e-nuove-direttive.title': 'Smartphones in School: DECS Changes Course, but People\'s Initiative Remains',
     'blog.article.smartphone-a-scuola-e-nuove-direttive.excerpt': 'The Department of Education, Culture and Sport (DECS) of Canton Ticino has announced new guidelines on the use of smartphones in school, but the people\'s initiative for a total ban is not withdrawn.',
     'blog.article.smartphone-a-scuola-e-nuove-direttive.imageAlt': 'Students in a high school classroom in Locarno holding smartphones.',
+    'blog.article.infortuni-sul-lavoro-protesi-hi-tech.title': 'Workplace accidents: INAIL opens the door to hi-tech prosthetics for better protection of cross-border workers',
+    'blog.article.infortuni-sul-lavoro-protesi-hi-tech.excerpt': 'INAIL has updated the operational instructions of the Prosthetics Regulation, introducing changes that guarantee greater autonomy and protection for cross-border workers who have fallen victim to serious workplace accidents.',
+    'blog.article.infortuni-sul-lavoro-protesi-hi-tech.imageAlt': 'Hi-tech prosthesis and Brogeda border crossing: a symbol of hope and resilience for cross-border workers.',
 };
 
 export default blogMetaEn;

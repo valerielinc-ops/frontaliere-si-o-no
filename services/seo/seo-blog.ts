@@ -8578,6 +8578,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-infortuni-sul-lavoro-protesi-hi-tech': {
+    title: 'Infortuni sul lavoro: l\'Inail apre alle protesi hi-tech per una maggiore | Frontaliere Ticino',
+    description: 'L\'Inail ha aggiornato le istruzioni operative del Regolamento protesico, introducendo modifiche che garantiscono maggiore autonomia e tutele ai lavoratori',
+    keywords: 'frontalieri, ticino, svizzera, italia, infortuni, lavoro, inail, apre',
+    ogTitle: 'Infortuni sul lavoro: l\'Inail apre alle protesi hi-tech per i frontalieri',
+    ogDescription: 'L\'Inail ha aggiornato le istruzioni operative del Regolamento protesico, introducendo modifiche che garantiscono maggiore autonomia e tutele ai lavoratori',
+    canonicalPath: '/articoli-frontaliere/infortuni-sul-lavoro-protesi-hi-tech',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Infortuni sul lavoro: l'Inail apre alle protesi hi-tech per una maggiore tutela dei frontalieri",
+      "description": "L'Inail ha aggiornato le istruzioni operative del Regolamento protesico, introducendo modifiche che garantiscono maggiore autonomia e tutele ai lavoratori",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/infortuni-sul-lavoro-protesi-hi-tech.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Protesi hi-tech e valico di Brogeda: un simbolo di speranza e resilienza per i lavoratori frontalieri."
+      },
+      "datePublished": "2026-03-21T23:59:46+00:00",
+      "dateModified": "2026-03-21T23:59:46+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/infortuni-sul-lavoro-protesi-hi-tech`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

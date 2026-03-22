@@ -4323,6 +4323,13 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/smartphone-a-scuola-e-nuove-direttive.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'infortuni-sul-lavoro-protesi-hi-tech',
+    category: 'pratico',
+    date: '2026-03-21T23:59:46.152Z',
+    image: '/images/blog/infortuni-sul-lavoro-protesi-hi-tech.jpg',
+    hasCalculator: true,
+  },
 ];
 
 const CATEGORIES = ['all', 'fiscale', 'pratico', 'novita', 'pensione'] as const;
