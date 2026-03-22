@@ -66,10 +66,20 @@ export async function buildNewsletterPreviewHtml(payload: NewsletterPreviewPaylo
   const matchedJobs = matchJobsForSubscriber({ locationInterest: null, sectorInterest: null }, jobs, 3);
   const toolIndex = Math.floor((Date.now() - new Date('2025-01-06').getTime()) / (7 * 24 * 60 * 60 * 1000)) % FEATURED_TOOLS.length;
 
+  // Use the same article and totalJobs as the real email to match output exactly
+  const defaultArticle = {
+    title: 'Votazioni cantonali Ticino 2026: cosa cambia per i frontalieri',
+    excerpt: 'SSR, imposizione individuale, fondo climatico: 4 temi su cui voti (o dovresti). Ecco cosa significa per il tuo portafoglio.',
+    url: '/articoli-frontaliere/votazioni-imposizione-ticino-2026',
+    badge: '🗳️ Voto 18 maggio',
+  };
+
   return buildNewsletter({
     aiBriefing: getFallbackBriefing('it', fallbackExchange),
     exchangeRate: fallbackExchange,
     matchedJobs,
+    totalJobs: jobs.length,
+    article: defaultArticle,
     featuredTool: FEATURED_TOOLS[toolIndex],
     weeklyFact: getWeeklyFact(),
     locale: 'it',
