@@ -1643,6 +1643,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.morte-bimbo-efamilia-ticino.title': 'Dealing with the Death of a Child: A Family\'s Story',
     'blog.article.morte-bimbo-efamilia-ticino.excerpt': 'The story of Jessica and her family, who lost their little Kevin.',
     'blog.article.morte-bimbo-efamilia-ticino.imageAlt': 'Photograph of a grieving family in Lugano, Canton Ticino.',
+    'blog.article.fondi-hcap-restituiti.title': 'The funds withdrawn from HCAP will be largely returned',
+    'blog.article.fondi-hcap-restituiti.excerpt': 'The Hockey Club Ambrì-Piotta recovers a significant part of the withdrawn funds, thanks to an agreement with the former member of the Support Group.',
+    'blog.article.fondi-hcap-restituiti.imageAlt': 'An aerial view of Bellinzona city',
 };
 
 export default blogMetaEn;

@@ -3049,7 +3049,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
         "@context": "https://schema.org",
         "@type": "ItemList",
         "name": "Articoli Frontaliere",
-        "numberOfItems": 538,
+        "numberOfItems": 539,
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
           { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -3588,7 +3588,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 535, "name": "Referendum sulla giustizia in Ticino: oggi si v...", "url": `${BASE_URL}/articoli-frontaliere/referendum-giustizia-ticino-2026` },
           { "@type": "ListItem", "position": 536, "name": "Dallo statuto S al permesso B in Ticino", "url": `${BASE_URL}/articoli-frontaliere/passaggio-statuto-s-permesso-b` },
           { "@type": "ListItem", "position": 537, "name": "Chiusure notturne autostrada A9", "url": `${BASE_URL}/articoli-frontaliere/chiusure-notturne-autostrada` },
-          { "@type": "ListItem", "position": 538, "name": "La morte di un figlio: come affrontarla", "url": `${BASE_URL}/articoli-frontaliere/morte-bimbo-efamilia-ticino` }
+          { "@type": "ListItem", "position": 538, "name": "La morte di un figlio: come affrontarla", "url": `${BASE_URL}/articoli-frontaliere/morte-bimbo-efamilia-ticino` },
+          { "@type": "ListItem", "position": 539, "name": "I fondi sottratti all'HCAP saranno in larga par...", "url": `${BASE_URL}/articoli-frontaliere/fondi-hcap-restituiti` }
         ]
       }
     ]

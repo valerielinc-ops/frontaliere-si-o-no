@@ -1643,6 +1643,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.morte-bimbo-efamilia-ticino.title': 'La mort d\'un enfant : comment y faire face',
     'blog.article.morte-bimbo-efamilia-ticino.excerpt': 'L\'histoire de Jessica et de sa famille qui a perdu le petit Kevin.',
     'blog.article.morte-bimbo-efamilia-ticino.imageAlt': 'Photographie d\'une famille en deuil à Lugano, Canton du Tessin.',
+    'blog.article.fondi-hcap-restituiti.title': 'Les fonds soustraits au HCAP seront en grande partie restitués',
+    'blog.article.fondi-hcap-restituiti.excerpt': 'Le Hockey Club Ambrì-Piotta récupère une partie considérable des fonds soustraits, grâce à un accord avec l\'ancien membre du Groupe de soutien.',
+    'blog.article.fondi-hcap-restituiti.imageAlt': 'Une vue aérienne de la ville de Bellinzona',
 };
 
 export default blogMetaFr;

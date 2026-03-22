@@ -9013,6 +9013,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-fondi-hcap-restituiti': {
+    title: 'I fondi sottratti all\'HCAP saranno in larga parte restituiti | Frontaliere Ticino',
+    description: 'L\'HCAP recupera una parte dei fondi sottratti grazie ad un accordo con l\'ex membro del Gruppo di sostegno. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, fondi, sottratti, hcap, saranno',
+    ogTitle: 'Fondi HCAP restituiti, una buona notizia per la società',
+    ogDescription: 'L\'Hockey Club Ambrì-Piotta recupera una parte consistente dei fondi sottratti alle casse del proprio Gruppo di sostegno.',
+    canonicalPath: '/articoli-frontaliere/fondi-hcap-restituiti',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "I fondi sottratti all'HCAP saranno in larga parte restituiti",
+      "description": "L'HCAP recupera una parte dei fondi sottratti grazie ad un accordo con l'ex membro del Gruppo di sostegno. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/fondi-hcap-restituiti.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Una veduta aerea della città di Bellinzona"
+      },
+      "datePublished": "2026-03-22T11:06:11+00:00",
+      "dateModified": "2026-03-22T11:06:11+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/fondi-hcap-restituiti`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

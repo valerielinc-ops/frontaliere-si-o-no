@@ -1643,6 +1643,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.morte-bimbo-efamilia-ticino.title': 'La morte di un figlio: come affrontarla',
     'blog.article.morte-bimbo-efamilia-ticino.excerpt': 'La storia di Jessica e della sua famiglia che ha perso il piccolo Kevin.',
     'blog.article.morte-bimbo-efamilia-ticino.imageAlt': 'Fotografia di una famiglia in lutto a Lugano, Canton Ticino.',
+    'blog.article.fondi-hcap-restituiti.title': 'I fondi sottratti all\'HCAP saranno in larga parte restituiti',
+    'blog.article.fondi-hcap-restituiti.excerpt': 'L\'Hockey Club Ambrì-Piotta recupera una parte consistente dei fondi sottratti, grazie ad un accordo con l\'ex membro del Gruppo di sostegno.',
+    'blog.article.fondi-hcap-restituiti.imageAlt': 'Una veduta aerea della città di Bellinzona',
 };
 
 export default blogMetaIt;

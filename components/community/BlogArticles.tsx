@@ -4428,6 +4428,13 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/morte-bimbo-efamilia-ticino.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'fondi-hcap-restituiti',
+    category: 'novita',
+    date: '2026-03-22T11:06:11.007Z',
+    image: '/images/blog/fondi-hcap-restituiti.jpg',
+    hasCalculator: true,
+  },
 ];
 
 const CATEGORIES = ['all', 'fiscale', 'pratico', 'novita', 'pensione'] as const;
