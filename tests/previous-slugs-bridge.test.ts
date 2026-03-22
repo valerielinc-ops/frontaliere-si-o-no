@@ -19,8 +19,10 @@ describe('previousSlugs bridge pages', () => {
     expect(pluginSource).toContain('canonical');
   });
 
-  it('bridge pages use buildCanonicalBridgePage helper', () => {
-    const bridgeSection = pluginSource.slice(pluginSource.indexOf('Bridge pages for previousSlugs'));
-    expect(bridgeSection).toContain('buildCanonicalBridgePage');
+  it('bridge pages include rich content with AdSense and signup', () => {
+    const bridgeSection = pluginSource.slice(pluginSource.indexOf('Rich bridge pages for previousSlugs'));
+    expect(bridgeSection).toContain('adsbygoogle');
+    expect(bridgeSection).toContain('Google Sign In');
+    expect(bridgeSection).toContain('BreadcrumbList');
   });
 });
