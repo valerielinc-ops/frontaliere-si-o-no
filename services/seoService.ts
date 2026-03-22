@@ -1673,6 +1673,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-bellinzona-scomparsa-ricerche-ticino-piemonte': { name: 'Bellinzona', path: '/articoli-frontaliere/bellinzona-scomparsa-ricerche-ticino-piemonte', parent: 'blog' },
     'blog-cure-domicilio-ticino-politica': { name: 'Cure a domicilio in Ticino', path: '/articoli-frontaliere/cure-domicilio-ticino-politica', parent: 'blog' },
     'blog-navigazione-lago-lugano-2026': { name: 'Navigazione Lago', path: '/articoli-frontaliere/navigazione-lago-lugano-2026', parent: 'blog' },
+    'blog-parco-vedeggio-comuni-firman': { name: 'Firmata la nascita del Parco del Vedeggi', path: '/articoli-frontaliere/parco-vedeggio-comuni-firman', parent: 'blog' },
   };
 
   const info = sectionNames[section];

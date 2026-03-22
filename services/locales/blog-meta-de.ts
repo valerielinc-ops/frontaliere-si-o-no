@@ -1610,6 +1610,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.navigazione-lago-lugano-2026.title': 'Navigazione Lago di Lugano: Saison 2026 beginnt',
     'blog.article.navigazione-lago-lugano-2026.excerpt': 'Die Saison der Navigazione Lago di Lugano beginnt mit besonderen Veranstaltungen und Elektrifizierungsprojekten für eine nachhaltige Zukunft.',
     'blog.article.navigazione-lago-lugano-2026.imageAlt': 'Panoramablick auf den Luganersee mit Booten, bereit für die Tourismussaison.',
+    'blog.article.parco-vedeggio-comuni-firman.title': 'Unterzeichnung der Gründung des Vedeggio-Parks: die grüne Zukunft des Tessins',
+    'blog.article.parco-vedeggio-comuni-firman.excerpt': 'Fünf Gemeinden im Tessin unterzeichnen die Vereinbarung für einen öffentlichen Park zwischen Agno, Bioggio, Manno, Muzzano und Vezia. Projekte und Investitionen sind geplant.',
+    'blog.article.parco-vedeggio-comuni-firman.imageAlt': 'Panoramablick auf den Lago di Lugano mit Grünflächen und Wanderwegen in Tessin.',
 };
 
 export default blogMetaDe;

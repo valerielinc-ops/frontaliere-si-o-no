@@ -1610,6 +1610,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.navigazione-lago-lugano-2026.title': 'Navigazione Lago di Lugano: stagione 2026 al via',
     'blog.article.navigazione-lago-lugano-2026.excerpt': 'La stagione della Navigazione Lago di Lugano inizia con eventi speciali e progetti di elettrificazione per un futuro sostenibile.',
     'blog.article.navigazione-lago-lugano-2026.imageAlt': 'Vista panoramica del Lago di Lugano con battelli pronti per la stagione turistica.',
+    'blog.article.parco-vedeggio-comuni-firman.title': 'Firmata la nascita del Parco del Vedeggio: il futuro verde del Ticino',
+    'blog.article.parco-vedeggio-comuni-firman.excerpt': 'Cinque comuni del Ticino siglano l\'intesa per un parco pubblico tra Agno, Bioggio, Manno, Muzzano e Vezia. Progetti e investimenti in vista.',
+    'blog.article.parco-vedeggio-comuni-firman.imageAlt': 'Vista panoramica del Lago di Lugano con aree verdi e sentieri nel Ticino.',
 };
 
 export default blogMetaIt;

@@ -4351,6 +4351,13 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/navigazione-lago-lugano-2026.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'parco-vedeggio-comuni-firman',
+    category: 'novita',
+    date: '2026-03-22T06:01:07.566Z',
+    image: '/images/blog/parco-vedeggio-comuni-firman.jpg',
+    hasCalculator: true,
+  },
 ];
 
 const CATEGORIES = ['all', 'fiscale', 'pratico', 'novita', 'pensione'] as const;

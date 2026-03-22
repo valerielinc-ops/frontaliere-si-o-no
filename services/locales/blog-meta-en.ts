@@ -1610,6 +1610,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.navigazione-lago-lugano-2026.title': 'Lugano Lake Navigation: 2026 Season Kicks Off',
     'blog.article.navigazione-lago-lugano-2026.excerpt': 'The Lugano Lake Navigation season begins with special events and electrification projects for a sustainable future.',
     'blog.article.navigazione-lago-lugano-2026.imageAlt': 'Panoramic view of Lake Lugano with boats ready for the tourist season.',
+    'blog.article.parco-vedeggio-comuni-firman.title': 'Approval Signed for Vedeggio Park: Ticino’s Green Future',
+    'blog.article.parco-vedeggio-comuni-firman.excerpt': 'Five municipalities in Ticino sign an agreement for a public park between Agno, Bioggio, Manno, Muzzano, and Vezia. Projects and investments on the horizon.',
+    'blog.article.parco-vedeggio-comuni-firman.imageAlt': 'Panoramic view of Lake Lugano with green areas and walking paths in Ticino.',
 };
 
 export default blogMetaEn;

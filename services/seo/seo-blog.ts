@@ -8694,6 +8694,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-parco-vedeggio-comuni-firman': {
+    title: 'Firmata la nascita del Parco del Vedeggio: il futuro verde del Ticino | Frontaliere Ticino',
+    description: 'Cinque comuni del Ticino siglano l\'intesa per un parco pubblico tra Agno, Bioggio, Manno, Muzzano e Vezia. Progetti e investimenti in vista. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, firmata, nascita, parco, vedeggio',
+    ogTitle: 'Firmata la nascita del Parco del Vedeggio: il futuro verd',
+    ogDescription: 'Cinque comuni del Ticino siglano l\'intesa per un parco pubblico tra Agno, Bioggio, Manno, Muzzano e Vezia. Progetti e investimenti in vista.',
+    canonicalPath: '/articoli-frontaliere/parco-vedeggio-comuni-firman',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Firmata la nascita del Parco del Vedeggio: il futuro verd",
+      "description": "Cinque comuni del Ticino siglano l'intesa per un parco pubblico tra Agno, Bioggio, Manno, Muzzano e Vezia. Progetti e investimenti in vista. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/parco-vedeggio-comuni-firman.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Vista panoramica del Lago di Lugano con aree verdi e sentieri nel Ticino."
+      },
+      "datePublished": "2026-03-22T06:01:07+00:00",
+      "dateModified": "2026-03-22T06:01:07+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/parco-vedeggio-comuni-firman`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
