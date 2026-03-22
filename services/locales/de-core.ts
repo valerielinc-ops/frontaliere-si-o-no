@@ -2188,6 +2188,17 @@ Regeln:
     'seoContent.stats.check4': 'Daten zur Tessiner Grenzgänger-Gemeinschaft',
 
     // ─── What's New / Feature Announcements ─────────────────────────────
+    'whatsNew.v3350.title': 'Verbesserungen bei Übersetzungen und Benutzererlebnis',
+    'whatsNew.v3350.clear-untranslated-english.title': 'Klarere Beschreibungen für Angebote',
+    'whatsNew.v3350.clear-untranslated-english.desc': 'Wir haben nicht übersetzten englischen Text aus den Beschreibungen von lastminute.com-Angeboten in Italien entfernt, um sie besser verständlich zu machen.',
+    'whatsNew.v3350.extend-free-translation.title': 'Mehr Stufen kostenloser Übersetzung',
+    'whatsNew.v3350.extend-free-translation.desc': 'Sie können nun von kostenlosen Übersetzungen bis zu 7 Stufen profitieren, mit einem parallelen Prüfsystem für bessere Ergebnisse.',
+    'whatsNew.v3350.FRO-150.title': 'Einheitlicher Login für alle Geräte',
+    'whatsNew.v3350.FRO-150.desc': 'Der Anmeldebildschirm erscheint nun konsistent auf allen Geräten und vereinfacht Ihren Zugriff auf die App.',
+    'whatsNew.v3350.prune-dead-translation.title': 'Interne Übersetzungsverbesserungen',
+    'whatsNew.v3350.prune-dead-translation.desc': 'Wir haben das Übersetzungssystem optimiert, indem wir unnötige Elemente entfernt und das Mozhi-Antwortfeld korrigiert haben.',
+    'whatsNew.v3350.expand-free-translation.title': 'Noch umfangreichere kostenlose Übersetzung',
+    'whatsNew.v3350.expand-free-translation.desc': 'Die kostenlose Übersetzung deckt nun bis zu 10 Stufen ab und nutzt mehrere Mozhi-Übersetzungs-Engines für höhere Genauigkeit.',
     'whatsNew.v3340.title': 'Verbesserungen und Korrekturen für eine reibungslosere Erfahrung',
     'whatsNew.v3340.update-jobs-stats.title': 'Aktualisierte Stellenangebote und Statistiken',
     'whatsNew.v3340.update-jobs-stats.desc': 'Wir haben die Anzeige von Stellenangeboten, Statistiken und Kraftstoffpreisen verbessert und einige werbebezogene Probleme behoben. Sie erhalten nun genauere und aktuellere Informationen.',

@@ -2280,6 +2280,17 @@ Regole:
     'seoContent.stats.check4': 'Dati sulla comunità frontaliera Ticino',
 
     // ─── What's New / Feature Announcements ─────────────────────────────
+    'whatsNew.v3350.title': 'Miglioramenti alla traduzione e all\'esperienza utente',
+    'whatsNew.v3350.clear-untranslated-english.title': 'Descrizioni più chiare per le offerte',
+    'whatsNew.v3350.clear-untranslated-english.desc': 'Abbiamo rimosso testi in inglese non tradotti dalle descrizioni delle offerte lastminute.com in Italia, rendendole più facili da capire.',
+    'whatsNew.v3350.extend-free-translation.title': 'Più livelli di traduzione gratuita',
+    'whatsNew.v3350.extend-free-translation.desc': 'Ora puoi usufruire di traduzioni gratuite fino a 7 livelli, con un sistema di ricerca parallela per risultati migliori.',
+    'whatsNew.v3350.FRO-150.title': 'Accesso unificato per tutti i dispositivi',
+    'whatsNew.v3350.FRO-150.desc': 'La schermata di accesso ora appare in modo coerente su tutti i dispositivi, semplificando l\'accesso all\'app.',
+    'whatsNew.v3350.prune-dead-translation.title': 'Miglioramenti interni alla traduzione',
+    'whatsNew.v3350.prune-dead-translation.desc': 'Abbiamo ottimizzato il sistema di traduzione rimuovendo elementi non più necessari e correggendo la risposta del sistema Mozhi.',
+    'whatsNew.v3350.expand-free-translation.title': 'Traduzione gratuita ancora più estesa',
+    'whatsNew.v3350.expand-free-translation.desc': 'Ora la traduzione gratuita copre fino a 10 livelli, utilizzando più motori di traduzione Mozhi per una maggiore accuratezza.',
     'whatsNew.v3340.title': 'Miglioramenti e correzioni per un\'esperienza più fluida',
     'whatsNew.v3340.update-jobs-stats.title': 'Aggiornamenti su offerte di lavoro e statistiche',
     'whatsNew.v3340.update-jobs-stats.desc': 'Abbiamo migliorato la visualizzazione delle offerte di lavoro, delle statistiche, dei prezzi del carburante e risolto alcuni problemi con gli annunci pubblicitari. Ora avrai informazioni più precise e aggiornate.',

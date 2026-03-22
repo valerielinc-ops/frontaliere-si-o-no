@@ -2188,6 +2188,17 @@ Règles :
     'seoContent.stats.check4': 'Données sur la communauté frontalière tessinoise',
 
     // ─── What's New / Feature Announcements ─────────────────────────────────
+    'whatsNew.v3350.title': 'Améliorations des traductions et de l\'expérience utilisateur',
+    'whatsNew.v3350.clear-untranslated-english.title': 'Descriptions plus claires pour les offres',
+    'whatsNew.v3350.clear-untranslated-english.desc': 'Nous avons supprimé le texte anglais non traduit des descriptions des offres lastminute.com en Italie, les rendant plus faciles à comprendre.',
+    'whatsNew.v3350.extend-free-translation.title': 'Plus de niveaux de traduction gratuite',
+    'whatsNew.v3350.extend-free-translation.desc': 'Vous pouvez désormais bénéficier de traductions gratuites jusqu\'à 7 niveaux, avec un système de sondage parallèle pour de meilleurs résultats.',
+    'whatsNew.v3350.FRO-150.title': 'Connexion unifiée pour tous les appareils',
+    'whatsNew.v3350.FRO-150.desc': 'L\'écran de connexion apparaît désormais de manière cohérente sur tous les appareils, simplifiant votre accès à l\'application.',
+    'whatsNew.v3350.prune-dead-translation.title': 'Améliorations internes de la traduction',
+    'whatsNew.v3350.prune-dead-translation.desc': 'Nous avons optimisé le système de traduction en supprimant les éléments inutiles et en corrigeant le champ de réponse Mozhi.',
+    'whatsNew.v3350.expand-free-translation.title': 'Traduction gratuite encore plus étendue',
+    'whatsNew.v3350.expand-free-translation.desc': 'La traduction gratuite couvre désormais jusqu\'à 10 niveaux, utilisant plusieurs moteurs de traduction Mozhi pour une plus grande précision.',
     'whatsNew.v3340.title': 'Améliorations et corrections pour une expérience plus fluide',
     'whatsNew.v3340.update-jobs-stats.title': 'Mises à jour des offres d\'emploi et des statistiques',
     'whatsNew.v3340.update-jobs-stats.desc': 'Nous avons amélioré l\'affichage des offres d\'emploi, des statistiques et des prix du carburant, et résolu certains problèmes liés aux publicités. Vous disposez désormais d\'informations plus précises et à jour.',

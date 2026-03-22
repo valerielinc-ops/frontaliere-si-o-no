@@ -2188,6 +2188,17 @@ Rules:
     'seoContent.stats.check4': 'Ticino cross-border community data',
 
     // ─── What's New / Feature Announcements ─────────────────────────────
+    'whatsNew.v3350.title': 'Translation Improvements and User Experience Enhancements',
+    'whatsNew.v3350.clear-untranslated-english.title': 'Clearer descriptions for offers',
+    'whatsNew.v3350.clear-untranslated-english.desc': 'We\'ve removed untranslated English text from lastminute.com offer descriptions in Italy, making them easier to understand.',
+    'whatsNew.v3350.extend-free-translation.title': 'More tiers of free translation',
+    'whatsNew.v3350.extend-free-translation.desc': 'You can now benefit from free translations up to 7 tiers, with a parallel probing system for better results.',
+    'whatsNew.v3350.FRO-150.title': 'Unified login for all devices',
+    'whatsNew.v3350.FRO-150.desc': 'The login screen now appears consistently across all devices, simplifying your access to the app.',
+    'whatsNew.v3350.prune-dead-translation.title': 'Internal translation improvements',
+    'whatsNew.v3350.prune-dead-translation.desc': 'We\'ve optimized the translation system by removing unnecessary elements and fixing the Mozhi response field.',
+    'whatsNew.v3350.expand-free-translation.title': 'Even more extensive free translation',
+    'whatsNew.v3350.expand-free-translation.desc': 'Free translation now covers up to 10 tiers, using multiple Mozhi translation engines for greater accuracy.',
     'whatsNew.v3340.title': 'Improvements and fixes for a smoother experience',
     'whatsNew.v3340.update-jobs-stats.title': 'Updated job listings and statistics',
     'whatsNew.v3340.update-jobs-stats.desc': 'We\'ve improved how job listings, statistics, and fuel prices are displayed, and fixed some ad-related issues. You\'ll now have more accurate and up-to-date information.',

@@ -27,6 +27,43 @@ interface Release {
 
 export const RELEASES: Release[] = [
   {
+    version: '3.35.0',
+    date: '2026-03-22',
+    titleKey: 'whatsNew.v3350.title',
+    items: [
+      {
+        type: 'fix',
+        titleKey: 'whatsNew.v3350.clear-untranslated-english.title',
+        descKey: 'whatsNew.v3350.clear-untranslated-english.desc',
+
+      },
+      {
+        type: 'feature',
+        titleKey: 'whatsNew.v3350.extend-free-translation.title',
+        descKey: 'whatsNew.v3350.extend-free-translation.desc',
+        link: { tab: 'calculator', subTab: 'calculator' },
+      },
+      {
+        type: 'fix',
+        titleKey: 'whatsNew.v3350.FRO-150.title',
+        descKey: 'whatsNew.v3350.FRO-150.desc',
+
+      },
+      {
+        type: 'fix',
+        titleKey: 'whatsNew.v3350.prune-dead-translation.title',
+        descKey: 'whatsNew.v3350.prune-dead-translation.desc',
+
+      },
+      {
+        type: 'feature',
+        titleKey: 'whatsNew.v3350.expand-free-translation.title',
+        descKey: 'whatsNew.v3350.expand-free-translation.desc',
+
+      },
+    ],
+  },
+  {
     version: '3.34.0',
     date: '2026-03-22',
     titleKey: 'whatsNew.v3340.title',
