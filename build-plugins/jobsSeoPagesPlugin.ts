@@ -2736,6 +2736,25 @@ ${alternates}${hasSpaBundle ? `\n    <link rel="stylesheet" href="/assets/${entr
       }
       fs.writeFileSync(trackingPath, JSON.stringify(tracking, null, 2) + '\n', 'utf-8');
 
+      // 1b. Merge orphan indexed slugs (GSC-indexed URLs with no matching job)
+      //     into the tracking so they get soft-landing pages too.
+      const orphanSlugsPath = np.resolve(rootDir, 'data/orphan-indexed-job-slugs.json');
+      try {
+        const orphanSlugs: string[] = JSON.parse(fs.readFileSync(orphanSlugsPath, 'utf-8'));
+        if (Array.isArray(orphanSlugs)) {
+          let orphansMerged = 0;
+          for (const slug of orphanSlugs) {
+            if (!slug || tracking[slug]) continue;
+            // Create IT-only tracking entry (we only know the Italian path)
+            tracking[slug] = { it: `/cerca-lavoro-ticino/${slug}` };
+            orphansMerged++;
+          }
+          if (orphansMerged > 0) {
+            console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Merged ${orphansMerged} orphan GSC slugs into expired tracking`);
+          }
+        }
+      } catch { /* file missing — skip */ }
+
       // 2. Load expired job data for rich content (previousSlugs, title, company, etc.)
       const expiredJobsPath = np.resolve(rootDir, 'data/expired-jobs.json');
       let expiredJobsData: any[] = [];
@@ -2842,6 +2861,14 @@ ${alternates}${hasSpaBundle ? `\n    <link rel="stylesheet" href="/assets/${entr
           // Meta info line
           const metaLine = [jobCompany, jobLocation].filter(Boolean).map(s => esc(s)).join(' — ');
 
+          const expiredSignupCopy: Record<string, { signup: string; orLabel: string; emailPlaceholder: string }> = {
+            it: { signup: 'Registrati per ricevere annunci simili via email', orLabel: 'oppure con email', emailPlaceholder: 'La tua email' },
+            en: { signup: 'Sign up to receive similar job alerts', orLabel: 'or with email', emailPlaceholder: 'Your email' },
+            de: { signup: 'Registrieren Sie sich für ähnliche Stellenangebote', orLabel: 'oder per E-Mail', emailPlaceholder: 'Ihre E-Mail' },
+            fr: { signup: 'Inscrivez-vous pour recevoir des offres similaires', orLabel: 'ou par email', emailPlaceholder: 'Votre email' },
+          };
+          const signupCopy = expiredSignupCopy[locale] || expiredSignupCopy.it;
+
           const softLandingHtml = `<!DOCTYPE html>
 <html lang="${locale}">
   <head>
@@ -2860,6 +2887,7 @@ ${hreflangLinks}
         { '@type': 'ListItem', position: 3, name: jobTitle },
       ],
     })}</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${AD_CLIENT_ID}" crossorigin="anonymous"></script>
   </head>
   <body>
     <main style="font-family:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;max-width:720px;margin:40px auto;padding:0 16px;line-height:1.6;color:#0f172a">
@@ -2867,6 +2895,20 @@ ${hreflangLinks}
       <h1 style="font-size:28px;line-height:1.2;margin:0 0 8px">${esc(jobTitle)}</h1>
       ${metaLine ? `<p style="margin:0 0 16px;color:#475569;font-size:15px">${metaLine}</p>` : ''}
       ${descriptionHtml}
+      <ins class="adsbygoogle" style="display:block;text-align:center;margin:0 0 24px" data-ad-client="${AD_CLIENT_ID}" data-ad-slot="${BRIDGE_AD_SLOT}" data-ad-format="autorelaxed"></ins>
+      <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+      <div style="margin:0 0 24px;padding:20px;background:#f1f5f9;border-radius:12px;border:1px solid #e2e8f0;text-align:center">
+        <p style="margin:0 0 12px;font-weight:700;font-size:16px;color:#1e293b">${esc(signupCopy.signup)}</p>
+        <a href="/" onclick="sessionStorage.setItem('auth_redirect_path','${listingPath}cerca/${encodeURIComponent(jobTitle.replace(/[^a-zA-Z0-9àèéìòùÀÈÉÌÒÙäöüÄÖÜ\\s]/g, ' ').trim())}');return true" style="display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid #d1d5db;padding:10px 20px;border-radius:10px;font-weight:600;font-size:14px;color:#1f2937;text-decoration:none;cursor:pointer">
+          <svg width="18" height="18" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+          Google Sign In
+        </a>
+        <p style="margin:12px 0 8px;font-size:13px;color:#94a3b8">${esc(signupCopy.orLabel)}</p>
+        <form action="/" method="get" onsubmit="sessionStorage.setItem('auth_redirect_path','${listingPath}cerca/${encodeURIComponent(jobTitle.replace(/[^a-zA-Z0-9àèéìòùÀÈÉÌÒÙäöüÄÖÜ\\s]/g, ' ').trim())}')" style="display:flex;gap:8px;max-width:360px;margin:0 auto">
+          <input type="email" name="email" placeholder="${esc(signupCopy.emailPlaceholder)}" required style="flex:1;padding:10px 14px;border:1px solid #d1d5db;border-radius:10px;font-size:14px;outline:none">
+          <button type="submit" style="background:#4f46e5;color:#fff;border:none;padding:10px 18px;border-radius:10px;font-weight:600;font-size:14px;cursor:pointer">&rarr;</button>
+        </form>
+      </div>
       <h2 style="font-size:20px;margin:24px 0 12px">${esc(archiveRelatedLabel[locale] || archiveRelatedLabel.it)}</h2>
       <ul style="list-style:none;padding:0;margin:0 0 20px">${relatedItems.join('\n')}</ul>
       <p style="margin:0 0 14px"><a href="${listingPath}" style="color:#1d4ed8;font-weight:700;text-decoration:none">&rarr; ${esc(archiveCtaLabel[locale] || archiveCtaLabel.it)}</a></p>
