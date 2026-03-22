@@ -2925,7 +2925,19 @@ ${hreflangLinks}
         console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Generated ${expiredCount} soft-landing pages for ${expiredSlugs.length} expired jobs${legacyCount > 0 ? ` (+ ${legacyCount} legacy slug bridges)` : ''}`);
       }
 
-      /* ── Bridge pages for previousSlugs of active jobs ──────────── */
+      /* ── Rich bridge pages for previousSlugs of active jobs ────── */
+      // These pages serve users arriving via old URLs (bookmarks, search engines).
+      // Instead of a bare redirect, they show: job description excerpt, AdSense,
+      // email/Google signup gate, related jobs, then a link to the canonical URL.
+      const bridgeCopy: Record<string, { heading: string; cta: string; signup: string; emailPlaceholder: string; orLabel: string; related: string }> = {
+        it: { heading: 'Questa offerta si è spostata', cta: 'Vai all\'annuncio aggiornato', signup: 'Registrati per accedere a tutte le offerte', emailPlaceholder: 'La tua email', orLabel: 'oppure', related: 'Offerte simili' },
+        en: { heading: 'This job listing has moved', cta: 'Go to the updated listing', signup: 'Sign up to access all job listings', emailPlaceholder: 'Your email', orLabel: 'or', related: 'Similar positions' },
+        de: { heading: 'Diese Stellenanzeige wurde verschoben', cta: 'Zur aktualisierten Anzeige', signup: 'Registrieren Sie sich für alle Stellenangebote', emailPlaceholder: 'Ihre E-Mail', orLabel: 'oder', related: 'Ähnliche Stellen' },
+        fr: { heading: 'Cette offre a été déplacée', cta: 'Voir l\'annonce mise à jour', signup: 'Inscrivez-vous pour accéder à toutes les offres', emailPlaceholder: 'Votre email', orLabel: 'ou', related: 'Postes similaires' },
+      };
+      const AD_CLIENT_ID = 'ca-pub-8628054934855353';
+      const BRIDGE_AD_SLOT = '5196931137'; // multiplex autorelaxed
+
       let bridgeCount = 0;
       for (const job of validJobs) {
         const prevSlugs = Array.isArray(job.previousSlugs) ? job.previousSlugs : [];
@@ -2935,25 +2947,88 @@ ${hreflangLinks}
           const currentSlug = localizedSlug(job, locale);
           const currentPath = `${localePrefix[locale]}/${sectionByLocale[locale]}/${currentSlug}`.replace(/\/+/g, '/');
           const canonicalUrl = `${BASE_URL}${withSlash(currentPath)}`;
+          const listingPath = `${localePrefix[locale]}/${sectionByLocale[locale]}/`.replace(/\/+/g, '/');
 
           for (const oldSlug of prevSlugs) {
             if (oldSlug === currentSlug) continue;
             const oldPath = `${localePrefix[locale]}/${sectionByLocale[locale]}/${oldSlug}`.replace(/\/+/g, '/');
-            // Don't overwrite active job pages
             const outDir = np.join(distDir, oldPath.replace(/^\//, ''));
             if (fs.existsSync(np.join(outDir, 'index.html'))) continue;
 
             const localizedTitle = String(job.titleByLocale?.[locale] || job.title || '');
-            const bridgeHtml = buildCanonicalBridgePage({
-              canonicalUrl,
-              pathLabel: currentPath,
-              title: `${esc(localizedTitle)} — ${esc(job.company || '')} | Frontaliere Ticino`,
-              description: `${esc(localizedTitle)} ${esc(job.company || '')}`,
-              body: localeCopy[locale]?.sectionName || 'Job Board',
-              ctaLabel: archiveCtaLabel[locale] || archiveCtaLabel.it,
-              lang: locale,
-              noindex: false,
-            });
+            const jobCompany = String(job.company || '');
+            const jobLocation = String((job as any).addressLocality || (job as any).location || '');
+            const jobDescription = String((job as any).descriptionByLocale?.[locale] || (job as any).description || '');
+            const metaLine = [jobCompany, jobLocation].filter(Boolean).map(s => esc(s)).join(' — ');
+            const copy = bridgeCopy[locale] || bridgeCopy.it;
+
+            // Description excerpt (first 600 chars, cleaned)
+            const descExcerpt = jobDescription.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim().slice(0, 600);
+            const descHtml = descExcerpt
+              ? `<div style="margin:0 0 20px;padding:16px;background:#f8fafc;border-radius:8px;border:1px solid #e2e8f0;font-size:14px;color:#334155">${esc(descExcerpt)}${descExcerpt.length >= 600 ? '…' : ''}</div>`
+              : '';
+
+            // Related jobs (8, varied per slug)
+            const offset = hashCode(oldSlug) % Math.max(1, validJobs.length);
+            const relatedItems: string[] = [];
+            for (let i = 0; i < 8 && i < validJobs.length; i++) {
+              const rj = validJobs[(offset + i) % validJobs.length];
+              if (rj === job) continue;
+              const rjTitle = String(rj.titleByLocale?.[locale] || rj.title || '');
+              const rjSlug = localizedSlug(rj, locale);
+              const rjPath = `${localePrefix[locale]}/${sectionByLocale[locale]}/${rjSlug}`.replace(/\/+/g, '/');
+              relatedItems.push(`<li style="margin:0 0 8px"><a href="${rjPath}" style="color:#1d4ed8;text-decoration:none">${esc(rjTitle)} &mdash; ${esc(rj.company || '')}</a></li>`);
+            }
+
+            const pageTitle = `${esc(localizedTitle)}${jobCompany ? ` — ${esc(jobCompany)}` : ''} | Frontaliere Ticino`;
+
+            const bridgeHtml = `<!DOCTYPE html>
+<html lang="${locale}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>${pageTitle}</title>
+    <meta name="description" content="${esc(localizedTitle)} ${esc(jobCompany)}. ${esc(copy.related)}.">
+    <meta name="robots" content="index,follow">
+    <link rel="canonical" href="${canonicalUrl}">
+    <script type="application/ld+json">${JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Frontaliere Ticino', item: BASE_URL + '/' },
+        { '@type': 'ListItem', position: 2, name: localeCopy[locale]?.sectionName || 'Job Board', item: `${BASE_URL}${listingPath}` },
+        { '@type': 'ListItem', position: 3, name: localizedTitle },
+      ],
+    })}</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${AD_CLIENT_ID}" crossorigin="anonymous"></script>
+    ${SPA_ACTION_REDIRECT_SCRIPT}
+  </head>
+  <body>
+    <main style="font-family:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;max-width:720px;margin:40px auto;padding:0 16px;line-height:1.6;color:#0f172a">
+      <div style="background:#e0f2fe;border:1px solid #38bdf8;border-radius:8px;padding:12px 16px;margin:0 0 20px;color:#0c4a6e;font-size:14px">${esc(copy.heading)}</div>
+      <h1 style="font-size:28px;line-height:1.2;margin:0 0 8px">${esc(localizedTitle)}</h1>
+      ${metaLine ? `<p style="margin:0 0 16px;color:#475569;font-size:15px">${metaLine}</p>` : ''}
+      ${descHtml}
+      <p style="margin:0 0 24px"><a href="${currentPath}" style="display:inline-block;background:#4f46e5;color:#fff;padding:12px 24px;border-radius:10px;font-weight:700;text-decoration:none;font-size:15px">&rarr; ${esc(copy.cta)}</a></p>
+      <ins class="adsbygoogle" style="display:block;text-align:center" data-ad-client="${AD_CLIENT_ID}" data-ad-slot="${BRIDGE_AD_SLOT}" data-ad-format="autorelaxed"></ins>
+      <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+      <div style="margin:24px 0;padding:20px;background:#f1f5f9;border-radius:12px;border:1px solid #e2e8f0;text-align:center">
+        <p style="margin:0 0 12px;font-weight:700;font-size:16px;color:#1e293b">${esc(copy.signup)}</p>
+        <a href="/" onclick="sessionStorage.setItem('auth_redirect_path','${currentPath}');return true" style="display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid #d1d5db;padding:10px 20px;border-radius:10px;font-weight:600;font-size:14px;color:#1f2937;text-decoration:none;cursor:pointer">
+          <svg width="18" height="18" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+          Google Sign In
+        </a>
+        <p style="margin:12px 0 8px;font-size:13px;color:#94a3b8">${esc(copy.orLabel)}</p>
+        <form action="/" method="get" style="display:flex;gap:8px;max-width:360px;margin:0 auto">
+          <input type="email" name="email" placeholder="${esc(copy.emailPlaceholder)}" required style="flex:1;padding:10px 14px;border:1px solid #d1d5db;border-radius:10px;font-size:14px;outline:none">
+          <button type="submit" style="background:#4f46e5;color:#fff;border:none;padding:10px 18px;border-radius:10px;font-weight:600;font-size:14px;cursor:pointer">&rarr;</button>
+        </form>
+      </div>
+      ${relatedItems.length > 0 ? `<h2 style="font-size:20px;margin:24px 0 12px">${esc(copy.related)}</h2><ul style="list-style:none;padding:0;margin:0 0 20px">${relatedItems.join('\n')}</ul>` : ''}
+      <p style="margin:0 0 14px"><a href="${listingPath}" style="color:#1d4ed8;font-weight:700;text-decoration:none">&rarr; ${esc(archiveCtaLabel[locale] || archiveCtaLabel.it)}</a></p>
+    </main>
+  </body>
+</html>`;
 
             fs.mkdirSync(outDir, { recursive: true });
             fs.writeFileSync(np.join(outDir, 'index.html'), bridgeHtml, 'utf-8');
