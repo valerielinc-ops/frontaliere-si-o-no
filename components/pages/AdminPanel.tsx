@@ -324,6 +324,7 @@ export default function AdminPanel() {
     direction: 'asc',
   });
   const [retryFailedProgress, setRetryFailedProgress] = useState<{ running: boolean; current: number; total: number; currentLabel: string } | null>(null);
+  const [ghDurationsMap, setGhDurationsMap] = useState<Record<string, number | null | undefined>>({});
 
   // Merged workflow actions: static (content/seo/analytics) + dynamically loaded crawler workflows
   const workflowActions = useMemo(() => {
@@ -331,6 +332,15 @@ export default function AdminPanel() {
     const dynamic = dynamicCrawlerWorkflows.filter(w => !ids.has(w.id));
     return [...STATIC_WORKFLOW_ACTIONS, ...dynamic];
   }, [dynamicCrawlerWorkflows]);
+
+  // Reverse map: summaryKey → workflowId (for lazy GH duration fetch)
+  const summaryKeyToWorkflowId = useMemo(() => {
+    const map: Record<string, string> = {};
+    for (const wf of workflowActions) {
+      if (wf.summaryKey) map[wf.summaryKey] = wf.id;
+    }
+    return map;
+  }, [workflowActions]);
 
   const getWorkflowState = (workflowId: string): WorkflowRunState => {
     return workflowStates[workflowId] || {
@@ -890,6 +900,12 @@ export default function AdminPanel() {
               <details
                 key={summary.key}
                 className="rounded-md border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-950/40"
+                onToggle={(e) => {
+                  if ((e.currentTarget as HTMLDetailsElement).open) {
+                    const workflowId = summaryKeyToWorkflowId[summary.key];
+                    if (workflowId) fetchGhDurationForSummary(summary.key, workflowId);
+                  }
+                }}
               >
                 <summary className="cursor-pointer list-none px-3 py-2">
                   <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
@@ -897,8 +913,14 @@ export default function AdminPanel() {
                       <div className="text-sm font-semibold text-slate-800 dark:text-slate-100">{summary.label}</div>
                       <div className="text-[11px] text-slate-500 dark:text-slate-400">
                         {summary.generatedAt ? `Run: ${summary.generatedAt}` : 'Run: n/d'}
-                        {summary.durationMs != null && ` • Durata: ${(summary.durationMs / 1000).toFixed(0)}s`}
-                        {summary.avgDurationMs != null && ` (media: ${(summary.avgDurationMs / 1000).toFixed(0)}s)`}
+                        {ghDurationsMap[summary.key] !== undefined
+                          ? ghDurationsMap[summary.key] != null
+                            ? ` • Durata GH: ${ghDurationsMap[summary.key]}s`
+                            : summary.durationMs != null ? ` • Script: ${(summary.durationMs / 1000).toFixed(0)}s` : ''
+                          : summaryKeyToWorkflowId[summary.key]
+                            ? ' • Durata: ⏳'
+                            : summary.durationMs != null ? ` • Script: ${(summary.durationMs / 1000).toFixed(0)}s` : ''}
+                        {summary.avgDurationMs != null && ` (script media: ${(summary.avgDurationMs / 1000).toFixed(0)}s)`}
                       </div>
                     </div>
                     <div className="flex flex-wrap gap-1.5 text-[10px] font-semibold">
@@ -1832,6 +1854,29 @@ export default function AdminPanel() {
       { method: 'GET' },
     );
     return Array.isArray(json?.workflow_runs) ? json.workflow_runs : [];
+  };
+
+  const fetchGhDurationForSummary = async (summaryKey: string, workflowId: string) => {
+    if (ghDurationsMap[summaryKey] !== undefined) return; // already fetched or in-flight
+    setGhDurationsMap(prev => ({ ...prev, [summaryKey]: undefined })); // mark as in-flight
+    try {
+      const connection = await getGitHubConnection();
+      const runs = await listWorkflowRuns(connection, workflowId);
+      const lastCompleted = runs.find((r: any) => String(r.status) === 'completed');
+      if (!lastCompleted) {
+        setGhDurationsMap(prev => ({ ...prev, [summaryKey]: null }));
+        return;
+      }
+      const startedAt = lastCompleted.run_started_at || lastCompleted.created_at;
+      const completedAt = lastCompleted.updated_at;
+      const durationSeconds =
+        startedAt && completedAt
+          ? Math.max(0, Math.round((Date.parse(completedAt) - Date.parse(startedAt)) / 1000))
+          : null;
+      setGhDurationsMap(prev => ({ ...prev, [summaryKey]: durationSeconds }));
+    } catch {
+      setGhDurationsMap(prev => ({ ...prev, [summaryKey]: null }));
+    }
   };
 
   const listRunJobs = async (
