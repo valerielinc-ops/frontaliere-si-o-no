@@ -1646,6 +1646,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.fondi-hcap-restituiti.title': 'I fondi sottratti all\'HCAP saranno in larga parte restituiti',
     'blog.article.fondi-hcap-restituiti.excerpt': 'L\'Hockey Club Ambrì-Piotta recupera una parte consistente dei fondi sottratti, grazie ad un accordo con l\'ex membro del Gruppo di sostegno.',
     'blog.article.fondi-hcap-restituiti.imageAlt': 'Una veduta aerea della città di Bellinzona',
+    'blog.article.bellinzona-paese-dormitorio.title': '«Il futuro è triste. Bellinzona ormai è un paese dormitorio»',
+    'blog.article.bellinzona-paese-dormitorio.excerpt': 'La città di Bellinzona sta affrontando una crisi commerciale, con numerose chiusure di negozi.',
+    'blog.article.bellinzona-paese-dormitorio.imageAlt': 'Bellinzona, la città dei castelli',
 };
 
 export default blogMetaIt;

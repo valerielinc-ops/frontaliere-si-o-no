@@ -1685,6 +1685,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-chiusure-notturne-autostrada': { name: 'Chiusure notturne autostrada', path: '/articoli-frontaliere/chiusure-notturne-autostrada', parent: 'blog' },
     'blog-morte-bimbo-efamilia-ticino': { name: 'Morte figlio', path: '/articoli-frontaliere/morte-bimbo-efamilia-ticino', parent: 'blog' },
     'blog-fondi-hcap-restituiti': { name: 'Economia', path: '/articoli-frontaliere/fondi-hcap-restituiti', parent: 'blog' },
+    'blog-bellinzona-paese-dormitorio': { name: 'Economia', path: '/articoli-frontaliere/bellinzona-paese-dormitorio', parent: 'blog' },
   };
 
   const info = sectionNames[section];

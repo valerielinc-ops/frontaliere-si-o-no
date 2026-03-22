@@ -1646,6 +1646,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.fondi-hcap-restituiti.title': 'The funds withdrawn from HCAP will be largely returned',
     'blog.article.fondi-hcap-restituiti.excerpt': 'The Hockey Club Ambrì-Piotta recovers a significant part of the withdrawn funds, thanks to an agreement with the former member of the Support Group.',
     'blog.article.fondi-hcap-restituiti.imageAlt': 'An aerial view of Bellinzona city',
+    'blog.article.bellinzona-paese-dormitorio.title': 'The future looks sad. Bellinzona is now a dormitory town',
+    'blog.article.bellinzona-paese-dormitorio.excerpt': 'The city of Bellinzona is facing a commercial crisis, with numerous shop closures.',
+    'blog.article.bellinzona-paese-dormitorio.imageAlt': 'Bellinzona, the city of castles',
 };
 
 export default blogMetaEn;

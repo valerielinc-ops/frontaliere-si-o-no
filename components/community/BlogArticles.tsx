@@ -4435,6 +4435,13 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/fondi-hcap-restituiti.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'bellinzona-paese-dormitorio',
+    category: 'pratico',
+    date: '2026-03-22T11:41:52.879Z',
+    image: '/images/blog/bellinzona-paese-dormitorio.jpg',
+    hasCalculator: true,
+  },
 ];
 
 const CATEGORIES = ['all', 'fiscale', 'pratico', 'novita', 'pensione'] as const;

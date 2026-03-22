@@ -9042,6 +9042,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-bellinzona-paese-dormitorio': {
+    title: '«Il futuro è triste. Bellinzona ormai è un paese dormitorio» | Frontaliere Ticino',
+    description: 'La città di Bellinzona sta affrontando una crisi commerciale, con numerose chiusure di negozi. Scopri come la situazione potrebbe influire sulle tue finanze.',
+    keywords: 'frontalieri, ticino, svizzera, italia, futuro, triste, bellinzona, ormai',
+    ogTitle: 'Bellinzona, la città dei castelli in crisi',
+    ogDescription: 'La città di Bellinzona sta affrontando una crisi commerciale, con numerose chiusure di negozi.',
+    canonicalPath: '/articoli-frontaliere/bellinzona-paese-dormitorio',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "«Il futuro è triste. Bellinzona ormai è un paese dormitorio»",
+      "description": "La città di Bellinzona sta affrontando una crisi commerciale, con numerose chiusure di negozi. Scopri come la situazione potrebbe influire sulle tue finanze.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/bellinzona-paese-dormitorio.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Bellinzona, la città dei castelli"
+      },
+      "datePublished": "2026-03-22T11:41:52+00:00",
+      "dateModified": "2026-03-22T11:41:52+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/bellinzona-paese-dormitorio`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
