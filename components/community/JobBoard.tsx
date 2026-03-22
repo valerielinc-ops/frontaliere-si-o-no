@@ -45,6 +45,10 @@ import { buildPath, registerJobSlugMap } from '@/services/router';
 import { useNavigation } from '@/services/NavigationContext';
 import AdSenseBanner from '@/components/shared/AdSenseBanner';
 import { SkeletonJobDetail } from '@/components/shared/Skeletons';
+import { useExpiredJob } from '@/hooks/useExpiredJob';
+import JobExpiredView from '@/components/community/JobExpiredView';
+import JobOrphanView from '@/components/community/JobOrphanView';
+import JobBridgeView from '@/components/community/JobBridgeView';
 import { AD_SLOTS } from '@/services/adsenseSlots';
 import { useMediaQuery } from '@/hooks/useMediaQuery';
 import { eagerAuth, getAuthEmail, promptOneTap, renderGoogleButton } from '@/services/authService';
@@ -2265,6 +2269,16 @@ const JobBoard: React.FC<JobBoardProps> = ({
   const companySlugFilter = useMemo(() => parseCompanySlugFilter(initialJobSlug), [initialJobSlug]);
   const searchSlugFilter = useMemo(() => parseSearchSlugFilter(initialJobSlug), [initialJobSlug]);
 
+  // Bridge detection: the plugin writes window.__BRIDGE_TARGET_SLUG__ in the static HTML for old URLs
+  const bridgeTargetSlug = useMemo(
+    () => (typeof window !== 'undefined' ? ((window as any).__BRIDGE_TARGET_SLUG__ as string | undefined) : undefined),
+    [],
+  );
+  const bridgeJobData = useMemo(
+    () => (typeof window !== 'undefined' ? ((window as any).__JOB_DATA__ as { title?: string; titleByLocale?: Record<string, string>; company?: string; location?: string } | undefined) : undefined),
+    [],
+  );
+
   useEffect(() => {
     const syncSearchQueryFromUrl = () => {
       const next = parseSearchSlugFilter(initialJobSlug) || readSearchQueryFromUrl();
@@ -2766,6 +2780,30 @@ const JobBoard: React.FC<JobBoardProps> = ({
       .slice(0, 6)
       .map((x) => x.job);
   }, [selectedJob, sortedJobs]);
+
+  // Expired/orphan/bridge cascade: fetch expired-jobs.json only when needed
+  const notFoundSlug = !jobsLoading && initialJobSlug && !selectedJob && !companySlugFilter && !searchSlugFilter && !bridgeTargetSlug
+    ? initialJobSlug
+    : undefined;
+  const { expiredJob, loading: expiredJobLoading } = useExpiredJob(notFoundSlug);
+
+  // Related jobs for expired/bridge views — score by category/location from jobs store
+  const relatedJobsForNotFound = useMemo(() => {
+    const category = expiredJob?.sector;
+    const company = expiredJob?.company;
+    return sortedJobs
+      .filter((j) => j.slug)
+      .map((j) => {
+        let score = 0;
+        if (category && j.category === category) score += 3;
+        if (company && j.company === company) score += 2;
+        const freshness = new Date(j.crawledAt || j.postedDate).getTime();
+        return { job: j, score, freshness };
+      })
+      .sort((a, b) => (b.score !== a.score ? b.score - a.score : b.freshness - a.freshness))
+      .slice(0, 6)
+      .map((x) => x.job);
+  }, [expiredJob, sortedJobs]);
 
   // Load blog meta translations for article titles in cross-linking
   const [blogMetaReady, setBlogMetaReady] = useState(false);
@@ -4472,23 +4510,30 @@ const JobBoard: React.FC<JobBoardProps> = ({
   }
 
   if (initialJobSlug && !selectedJob && !companySlugFilter && !searchSlugFilter) {
-    return (
-      <div className="space-y-6">
-        <div className="rounded-2xl border border-red-200 dark:border-red-800 bg-red-50 dark:bg-red-900/10 p-6 text-center">
-            <h1 className="text-xl font-bold text-red-700 dark:text-red-300">{t('jobBoard.notFoundTitle')}</h1>
-            <p className="text-sm text-red-600 dark:text-red-400 mt-2">
-              {t('jobBoard.notFoundDescription')}
-            </p>
-          <button
-            onClick={backToList}
-            className="mt-4 inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-red-600 hover:bg-red-700 text-white text-sm font-semibold"
-          >
-            <ArrowLeft size={14} />
-            {t('jobBoard.backToList')}
-          </button>
-        </div>
-      </div>
-    );
+    // Bridge: old URL with a known active replacement (window.__BRIDGE_TARGET_SLUG__ set by plugin template)
+    if (bridgeTargetSlug) {
+      return (
+        <JobBridgeView
+          targetSlug={bridgeTargetSlug}
+          jobData={bridgeJobData}
+          relatedJobs={relatedJobsForNotFound}
+          onBack={backToList}
+        />
+      );
+    }
+    // Expired: slug found in expired-jobs.json — show metadata + sign-in + related
+    if (expiredJobLoading) return <SkeletonJobDetail />;
+    if (expiredJob) {
+      return (
+        <JobExpiredView
+          job={expiredJob}
+          relatedJobs={relatedJobsForNotFound}
+          onBack={backToList}
+        />
+      );
+    }
+    // Orphan: GSC slug / legacy URL with no data — show derived title + sign-in
+    return <JobOrphanView slug={initialJobSlug} onBack={backToList} />;
   }
 
   if (selectedJob) {

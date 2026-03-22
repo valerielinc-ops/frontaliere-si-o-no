@@ -1,0 +1,205 @@
+/**
+ * JobExpiredView — view for jobs found in /data/expired-jobs.json.
+ *
+ * Layout: orange banner → job header → truncated description →
+ * Google Sign-In block → AdSense unit → related active jobs → CTA
+ */
+
+import { useEffect, useRef, useState } from 'react';
+import { ArrowLeft, ArrowRight, Building2, Calendar, MapPin } from 'lucide-react';
+import { useLocale } from '@/services/i18n';
+import { renderGoogleButton } from '@/services/authService';
+import { reportCaughtError } from '@/services/errorReporter';
+import AdSenseUnit from '@/components/shared/AdSenseUnit';
+import type { ExpiredJob } from '@/hooks/useExpiredJob';
+
+interface RelatedJob {
+  slug: string;
+  title?: string;
+  titleByLocale?: Record<string, string>;
+  company?: string;
+  location?: string;
+}
+
+interface JobExpiredViewProps {
+  job: ExpiredJob;
+  relatedJobs?: RelatedJob[];
+  onBack?: () => void;
+}
+
+const SECTION_BY_LOCALE: Record<string, string> = {
+  it: 'cerca-lavoro-ticino',
+  en: 'find-jobs-ticino',
+  de: 'jobs-im-tessin',
+  fr: 'trouver-emploi-tessin',
+};
+const PREFIX_BY_LOCALE: Record<string, string> = { it: '', en: '/en', de: '/de', fr: '/fr' };
+
+const BANNER_COPY: Record<string, string> = {
+  it: 'Questa posizione non è più attiva.',
+  en: 'This position is no longer active.',
+  de: 'Diese Stelle ist nicht mehr aktiv.',
+  fr: 'Ce poste n\'est plus actif.',
+};
+const SIGNUP_COPY: Record<string, string> = {
+  it: 'Accedi per vedere le ultime offerte simili e ricevere alert',
+  en: 'Sign in to see the latest similar jobs and receive alerts',
+  de: 'Anmelden für ähnliche Stellenangebote und Benachrichtigungen',
+  fr: 'Connectez-vous pour voir les offres similaires et recevoir des alertes',
+};
+const RELATED_COPY: Record<string, string> = {
+  it: 'Offerte simili attive',
+  en: 'Similar active jobs',
+  de: 'Ähnliche offene Stellen',
+  fr: 'Postes similaires ouverts',
+};
+const CTA_COPY: Record<string, string> = {
+  it: 'Tutte le offerte di lavoro in Ticino',
+  en: 'All job openings in Ticino',
+  de: 'Alle offenen Stellen im Tessin',
+  fr: 'Toutes les offres d\'emploi au Tessin',
+};
+const EXPIRED_AT_COPY: Record<string, string> = {
+  it: 'Scaduta il',
+  en: 'Expired on',
+  de: 'Abgelaufen am',
+  fr: 'Expirée le',
+};
+
+export default function JobExpiredView({ job, relatedJobs = [], onBack }: JobExpiredViewProps) {
+  const [locale] = useLocale();
+  const googleButtonRef = useRef<HTMLDivElement>(null);
+  const [googleButtonReady, setGoogleButtonReady] = useState(false);
+
+  const sectionSlug = SECTION_BY_LOCALE[locale] ?? SECTION_BY_LOCALE.it;
+  const prefix = PREFIX_BY_LOCALE[locale] ?? '';
+  const listingPath = `${prefix}/${sectionSlug}/`.replace(/\/+/g, '/');
+
+  const localizedTitle = job.titleByLocale?.[locale] ?? job.title;
+  const description = job.descriptionByLocale?.[locale] ?? '';
+  const descriptionPreview = description.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim().slice(0, 400);
+
+  const expiredDate = job.expiredAt
+    ? new Date(job.expiredAt).toLocaleDateString(locale === 'it' ? 'it-IT' : locale === 'de' ? 'de-CH' : locale === 'fr' ? 'fr-CH' : 'en-GB', { year: 'numeric', month: 'long', day: 'numeric' })
+    : null;
+
+  useEffect(() => {
+    const container = googleButtonRef.current;
+    if (!container) return;
+    let cancelled = false;
+    container.innerHTML = '';
+    renderGoogleButton(container, { theme: 'outline', size: 'large', text: 'signin_with' })
+      .then(() => {
+        if (!cancelled) setGoogleButtonReady(container.children.length > 0);
+      })
+      .catch((err) => {
+        if (!cancelled) reportCaughtError(err, 'jobExpiredView.renderGoogleButton');
+      });
+    return () => { cancelled = true; };
+  }, []);
+
+  return (
+    <div className="space-y-5 max-w-2xl mx-auto">
+      {onBack && (
+        <button
+          onClick={onBack}
+          className="inline-flex items-center gap-1.5 text-sm text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100"
+        >
+          <ArrowLeft size={14} />
+          {locale === 'it' ? 'Torna alla lista' : locale === 'de' ? 'Zurück zur Liste' : locale === 'fr' ? 'Retour à la liste' : 'Back to list'}
+        </button>
+      )}
+
+      {/* Orange banner */}
+      <div className="rounded-xl bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-700 px-4 py-3 text-sm text-amber-800 dark:text-amber-300">
+        {BANNER_COPY[locale] ?? BANNER_COPY.it}
+      </div>
+
+      {/* Job header */}
+      <div>
+        <h1 className="text-2xl font-bold text-slate-900 dark:text-slate-100 leading-snug">{localizedTitle}</h1>
+        <div className="flex flex-wrap gap-3 mt-2 text-sm text-slate-600 dark:text-slate-400">
+          {job.company && (
+            <span className="flex items-center gap-1">
+              <Building2 size={14} />
+              {job.company}
+            </span>
+          )}
+          {(job.addressLocality ?? job.location) && (
+            <span className="flex items-center gap-1">
+              <MapPin size={14} />
+              {job.addressLocality ?? job.location}
+            </span>
+          )}
+          {expiredDate && (
+            <span className="flex items-center gap-1">
+              <Calendar size={14} />
+              {EXPIRED_AT_COPY[locale] ?? EXPIRED_AT_COPY.it} {expiredDate}
+            </span>
+          )}
+        </div>
+      </div>
+
+      {/* Description excerpt */}
+      {descriptionPreview && (
+        <p className="text-sm text-slate-700 dark:text-slate-300 leading-relaxed line-clamp-4">
+          {descriptionPreview}{description.length > 400 ? '…' : ''}
+        </p>
+      )}
+
+      {/* Google Sign-In block */}
+      <div className="rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900/60 p-5 text-center space-y-3">
+        <p className="text-sm font-semibold text-slate-800 dark:text-slate-100">
+          {SIGNUP_COPY[locale] ?? SIGNUP_COPY.it}
+        </p>
+        <div ref={googleButtonRef} className="flex justify-center" />
+        {!googleButtonReady && (
+          <a
+            href={`/?redirect=${encodeURIComponent(listingPath)}`}
+            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-sm font-semibold text-slate-800 dark:text-slate-100 hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors"
+          >
+            {locale === 'it' ? 'Accedi' : locale === 'de' ? 'Anmelden' : locale === 'fr' ? 'Se connecter' : 'Sign in'}
+          </a>
+        )}
+      </div>
+
+      {/* AdSense */}
+      <AdSenseUnit slot="5196931137" className="my-2" />
+
+      {/* Related active jobs */}
+      {relatedJobs.length > 0 && (
+        <div className="space-y-2">
+          <h2 className="text-base font-semibold text-slate-800 dark:text-slate-100">{RELATED_COPY[locale] ?? RELATED_COPY.it}</h2>
+          <ul className="space-y-1.5">
+            {relatedJobs.slice(0, 6).map((rj) => {
+              const rjSlug = rj.slug;
+              const rjTitle = rj.titleByLocale?.[locale] ?? rj.title ?? rjSlug;
+              const rjPath = `${prefix}/${sectionSlug}/${rjSlug}/`.replace(/\/+/g, '/');
+              return (
+                <li key={rjSlug}>
+                  <a
+                    href={rjPath}
+                    className="flex items-center gap-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 px-3 py-2 text-sm hover:border-indigo-300 dark:hover:border-indigo-600 transition-colors"
+                  >
+                    <span className="flex-1 font-medium text-slate-800 dark:text-slate-100 truncate">{rjTitle}</span>
+                    {rj.company && <span className="text-slate-500 dark:text-slate-400 text-xs shrink-0">{rj.company}</span>}
+                    <ArrowRight size={12} className="text-slate-400 shrink-0" />
+                  </a>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+      )}
+
+      {/* CTA */}
+      <a
+        href={listingPath}
+        className="inline-flex items-center gap-1.5 font-semibold text-indigo-600 dark:text-indigo-400 hover:underline text-sm"
+      >
+        <ArrowRight size={14} />
+        {CTA_COPY[locale] ?? CTA_COPY.it}
+      </a>
+    </div>
+  );
+}
