@@ -6980,12 +6980,22 @@ async function main() {
   console.log('✅ Jobs crawler completed');
 }
 
-main().catch((err) => {
-  try {
-    persistAiCacheToDisk({ force: true });
-  } catch {
-    // ignore cache persist failures on fatal exit
-  }
-  console.error('❌ Jobs crawler failed:', err?.message || err);
-  process.exit(1);
-});
+// Export main for in-process invocation (used by dedicated-crawler-common.mjs)
+export { main as runSharedCrawlerPipeline };
+
+// Auto-run only when executed directly (not imported as module)
+const isDirectExecution = typeof process !== 'undefined' &&
+  process.argv[1] &&
+  import.meta.url.endsWith(process.argv[1].replace(/\\/g, '/'));
+
+if (isDirectExecution) {
+  main().catch((err) => {
+    try {
+      persistAiCacheToDisk({ force: true });
+    } catch {
+      // ignore cache persist failures on fatal exit
+    }
+    console.error('❌ Jobs crawler failed:', err?.message || err);
+    process.exit(1);
+  });
+}
