@@ -907,12 +907,17 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>${esc(title)}</title>
     <meta name="description" content="${esc(description)}">
-    <meta property="og:type" content="article">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Frontaliere Ticino">
     <meta property="og:locale" content="${localeOg[locale]}">
     <meta property="og:title" content="${esc(title)}">
     <meta property="og:description" content="${esc(description)}">
     <meta property="og:url" content="${canonicalUrl}">
     <meta property="og:image" content="${logoUrl}">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="${esc(title)}">
+    <meta name="twitter:description" content="${esc(description)}">
+    <meta name="twitter:image" content="${logoUrl}">
     <link rel="canonical" href="${canonicalUrl}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1252,10 +1257,14 @@ ${jobLd ? `    <script type="application/ld+json">${jobLd}</script>\n` : ''}    
     <title>${esc(title)}</title>
     <meta name="description" content="${esc(description)}">
     <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Frontaliere Ticino">
     <meta property="og:locale" content="${localeOg[locale]}">
     <meta property="og:title" content="${esc(title)}">
     <meta property="og:description" content="${esc(description)}">
     <meta property="og:url" content="${canonicalUrl}">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="${esc(title)}">
+    <meta name="twitter:description" content="${esc(description)}">
     <link rel="canonical" href="${canonicalUrl}">
 ${hreflangHtml}
     <script type="application/ld+json">${breadcrumbLd}</script>${hasSpaBundle ? `\n    <link rel="stylesheet" href="/assets/${entryCss}" crossorigin media="all">` : ''}
@@ -1432,10 +1441,14 @@ ${hreflangHtml}
     <title>${esc(model.title)}</title>
     <meta name="description" content="${esc(model.description)}">
     <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Frontaliere Ticino">
     <meta property="og:locale" content="${localeOg[locale]}">
     <meta property="og:title" content="${esc(model.title)}">
     <meta property="og:description" content="${esc(model.description)}">
     <meta property="og:url" content="${canonicalUrl}">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="${esc(model.title)}">
+    <meta name="twitter:description" content="${esc(model.description)}">
     <link rel="canonical" href="${canonicalUrl}">
 ${alternates}
     <script type="application/ld+json">${breadcrumbLd}</script>
@@ -1581,10 +1594,14 @@ ${alternates}
     <title>${esc(model.title)}</title>
     <meta name="description" content="${esc(model.description)}">
     <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Frontaliere Ticino">
     <meta property="og:locale" content="${localeOg[locale]}">
     <meta property="og:title" content="${esc(model.title)}">
     <meta property="og:description" content="${esc(model.description)}">
     <meta property="og:url" content="${canonicalUrl}">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="${esc(model.title)}">
+    <meta name="twitter:description" content="${esc(model.description)}">
     <link rel="canonical" href="${canonicalUrl}">
 ${alternates}
     <script type="application/ld+json">${breadcrumbLd}</script>
@@ -1717,10 +1734,14 @@ ${alternates}
     <title>${esc(model.title)}</title>
     <meta name="description" content="${esc(model.description)}">
     <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Frontaliere Ticino">
     <meta property="og:locale" content="${localeOg[locale]}">
     <meta property="og:title" content="${esc(model.title)}">
     <meta property="og:description" content="${esc(model.description)}">
     <meta property="og:url" content="${canonicalUrl}">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="${esc(model.title)}">
+    <meta name="twitter:description" content="${esc(model.description)}">
     <link rel="canonical" href="${canonicalUrl}">
 ${alternates}
     <script type="application/ld+json">${breadcrumbLd}</script>
@@ -1858,10 +1879,14 @@ ${alternates}
     <title>${esc(model.title)}</title>
     <meta name="description" content="${esc(model.description)}">
     <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Frontaliere Ticino">
     <meta property="og:locale" content="${localeOg[locale]}">
     <meta property="og:title" content="${esc(model.title)}">
     <meta property="og:description" content="${esc(model.description)}">
     <meta property="og:url" content="${canonicalUrl}">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="${esc(model.title)}">
+    <meta name="twitter:description" content="${esc(model.description)}">
     <link rel="canonical" href="${canonicalUrl}">
 ${alternates}
     <script type="application/ld+json">${breadcrumbLd}</script>
@@ -1994,10 +2019,14 @@ ${alternates}
     <title>${esc(model.title)}</title>
     <meta name="description" content="${esc(model.description)}">
     <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Frontaliere Ticino">
     <meta property="og:locale" content="${localeOg[locale]}">
     <meta property="og:title" content="${esc(model.title)}">
     <meta property="og:description" content="${esc(model.description)}">
     <meta property="og:url" content="${canonicalUrl}">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="${esc(model.title)}">
+    <meta name="twitter:description" content="${esc(model.description)}">
     <link rel="canonical" href="${canonicalUrl}">
 ${alternates}
     <script type="application/ld+json">${breadcrumbLd}</script>
@@ -2134,10 +2163,14 @@ ${alternates}
     <title>${esc(model.title)}</title>
     <meta name="description" content="${esc(model.description)}">
     <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Frontaliere Ticino">
     <meta property="og:locale" content="${localeOg[locale]}">
     <meta property="og:title" content="${esc(model.title)}">
     <meta property="og:description" content="${esc(model.description)}">
     <meta property="og:url" content="${canonicalUrl}">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="${esc(model.title)}">
+    <meta name="twitter:description" content="${esc(model.description)}">
     <link rel="canonical" href="${canonicalUrl}">
 ${alternates}
     <script type="application/ld+json">${breadcrumbLd}</script>
@@ -2273,10 +2306,14 @@ ${alternates}
     <title>${esc(model.title)}</title>
     <meta name="description" content="${esc(model.description)}">
     <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Frontaliere Ticino">
     <meta property="og:locale" content="${localeOg[locale]}">
     <meta property="og:title" content="${esc(model.title)}">
     <meta property="og:description" content="${esc(model.description)}">
     <meta property="og:url" content="${canonicalUrl}">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="${esc(model.title)}">
+    <meta name="twitter:description" content="${esc(model.description)}">
     <link rel="canonical" href="${canonicalUrl}">
 ${alternates}
     <script type="application/ld+json">${breadcrumbLd}</script>
@@ -2411,10 +2448,14 @@ ${alternates}
     <title>${esc(title)}</title>
     <meta name="description" content="${esc(description)}">
     <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Frontaliere Ticino">
     <meta property="og:locale" content="${localeOg[locale]}">
     <meta property="og:title" content="${esc(title)}">
     <meta property="og:description" content="${esc(description)}">
     <meta property="og:url" content="${canonicalUrl}">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="${esc(title)}">
+    <meta name="twitter:description" content="${esc(description)}">
     <link rel="canonical" href="${canonicalUrl}">
 ${alternates}${hasSpaBundle ? `\n    <link rel="stylesheet" href="/assets/${entryCss}" crossorigin media="all">` : ''}
   </head>
