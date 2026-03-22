@@ -24,6 +24,13 @@ import { localeJobsSplitPlugin } from './build-plugins/localeJobsSplitPlugin';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+/* ── Fast build mode ─────────────────────────────────────────────
+ * FAST_BUILD=1 npm run build   → esbuild minifier, no sourcemaps
+ * npm run build:fast            → same via package.json shortcut
+ * npm run build                 → full production build (terser)
+ * ─────────────────────────────────────────────────────────────── */
+const isFastBuild = !!process.env.FAST_BUILD;
+
 /* ================================================================
  * Vite configuration
  * ================================================================ */
@@ -64,19 +71,21 @@ export default defineConfig(({ mode }) => {
       },
       build: {
         emptyOutDir: false,
-        sourcemap: 'hidden',
-        // Use terser instead of esbuild for better minification of vendor bundles
-        // (saves ~56KB: 50KB vendor-firebase + 6KB vendor-icons SVG paths)
-        minify: 'terser',
-        terserOptions: {
-          compress: {
-            passes: 2,
-            drop_console: false, // Keep console for debugging in production
+        // No error tracking service (Sentry etc.) — sourcemaps not needed
+        sourcemap: false,
+        // Fast build: esbuild (10-100x faster), production: terser (saves ~56KB)
+        minify: isFastBuild ? 'esbuild' : 'terser',
+        ...(!isFastBuild && {
+          terserOptions: {
+            compress: {
+              passes: 2,
+              drop_console: false,
+            },
+            format: {
+              comments: false,
+            },
           },
-          format: {
-            comments: false,
-          },
-        },
+        }),
         modulePreload: {
           // Prevent eager preloading of lazy vendor chunks (charts, pdf, etc.)
           resolveDependencies: (filename, deps, { hostId, hostType }) => {

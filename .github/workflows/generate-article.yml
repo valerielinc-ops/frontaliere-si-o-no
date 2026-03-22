@@ -161,7 +161,7 @@ jobs:
         if: steps.changes.outputs.has_changes == 'true'
         env:
           NODE_OPTIONS: '--max-old-space-size=4096'
-        run: npm run build
+        run: npm run build:prod
 
       - name: Commit and push
         id: commit

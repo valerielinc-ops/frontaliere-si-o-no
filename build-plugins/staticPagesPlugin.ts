@@ -43,6 +43,21 @@ export function staticPagesPlugin(rootDir: string): Plugin {
 
       const distDir  = np.resolve(rootDir, 'dist');
 
+      /* ── Buffered write system ── */
+      const _pw: { p: string; c: string }[] = [];
+      const _dirs = new Set<string>();
+      function _qw(filePath: string, content: string) {
+        const dir = np.dirname(filePath);
+        if (!_dirs.has(dir)) { fs.mkdirSync(dir, { recursive: true }); _dirs.add(dir); }
+        _pw.push({ p: filePath, c: content });
+      }
+      async function _flush() {
+        const B = 300;
+        for (let i = 0; i < _pw.length; i += B) {
+          await Promise.all(_pw.slice(i, i + B).map(w => fs.promises.writeFile(w.p, w.c, 'utf-8')));
+        }
+      }
+
       /* ── 0. Find entry JS/CSS bundle + Italian locale chunk ────── */
       // IMPORTANT: Extract from Vite-generated index.html to get the correct entry
       // (multiple index-*.js chunks exist; find() would pick the wrong one)
@@ -1367,17 +1382,17 @@ ${hrefTags}
         // (important: still generate locale variants below even when Italian exists)
         if (!italianPageExists) {
           const dir = np.join(distDir, url.path);
-          fs.mkdirSync(dir, { recursive: true });
+          /* dir created by _qw */
           const pageHtml = buildPage('it', url.path, seo, url.hreflangs);
-          fs.writeFileSync(filePath, pageHtml);
+          _qw(filePath, pageHtml);
           // Also write flat .html so /slug serves 200 (avoids GitHub Pages 301 redirect)
           // Uses minimal noindex redirect instead of content duplicate to avoid
           // Google's "alternative page with proper canonical" status
           if (url.path !== '/') {
             const flatFile = np.join(distDir, url.path + '.html');
             const canonUrl = `${BASE_URL}/${url.path.replace(/^\/+/, '')}/`.replace(/\/+$/, '/');
-            fs.mkdirSync(np.dirname(flatFile), { recursive: true });
-            fs.writeFileSync(flatFile, buildFlatRedirect(canonUrl, `/${url.path.replace(/^\/+/, '')}/`));
+            /* dir created by _qw */
+            _qw(flatFile, buildFlatRedirect(canonUrl, `/${url.path.replace(/^\/+/, '')}/`));
           }
           count++;
         } else {
@@ -1394,7 +1409,7 @@ ${hrefTags}
                     '<div id="root"></div>',
                     `<div id="root">${rootMatch[1]}</div>`,
                   );
-                  fs.writeFileSync(filePath, existingHtml);
+                  _qw(filePath, existingHtml);
                   console.log('[static-pages] Injected static content into homepage index.html');
                 }
               }
@@ -1407,8 +1422,8 @@ ${hrefTags}
             const flatFile = np.join(distDir, url.path + '.html');
             if (!fs.existsSync(flatFile)) {
               const canonUrl = `${BASE_URL}/${url.path.replace(/^\/+/, '')}/`.replace(/\/+$/, '/');
-              fs.mkdirSync(np.dirname(flatFile), { recursive: true });
-              fs.writeFileSync(flatFile, buildFlatRedirect(canonUrl, `/${url.path.replace(/^\/+/, '')}/`));
+              /* dir created by _qw */
+              _qw(flatFile, buildFlatRedirect(canonUrl, `/${url.path.replace(/^\/+/, '')}/`));
             }
           }
           skipped++;
@@ -1426,8 +1441,7 @@ ${hrefTags}
             const flatLoc = np.join(distDir, locPath + '.html');
             if (!fs.existsSync(flatLoc)) {
               const canonLocUrl = `${BASE_URL}/${locPath.replace(/^\/+/, '')}/`.replace(/\/+$/, '/');
-              fs.mkdirSync(np.dirname(flatLoc), { recursive: true });
-              fs.writeFileSync(flatLoc, buildFlatRedirect(canonLocUrl, `/${locPath.replace(/^\/+/, '')}/`));
+              _qw(flatLoc, buildFlatRedirect(canonLocUrl, `/${locPath.replace(/^\/+/, '')}/`));
             }
             continue;
           }
@@ -1454,18 +1468,19 @@ ${hrefTags}
           }
 
           const locDir = np.join(distDir, locPath);
-          fs.mkdirSync(locDir, { recursive: true });
           const locPageHtml = buildPage(hl.lang, locPath, locSeo, url.hreflangs);
-          fs.writeFileSync(locFile, locPageHtml);
+          _qw(locFile, locPageHtml);
           // Also write flat .html for clean URL — noindex redirect to trailing-slash canonical
           const flatLoc = np.join(distDir, locPath + '.html');
           const canonLocUrl = `${BASE_URL}/${locPath.replace(/^\/+/, '')}/`.replace(/\/+$/, '/');
-          fs.mkdirSync(np.dirname(flatLoc), { recursive: true });
-          fs.writeFileSync(flatLoc, buildFlatRedirect(canonLocUrl, `/${locPath.replace(/^\/+/, '')}/`));
+          _qw(flatLoc, buildFlatRedirect(canonLocUrl, `/${locPath.replace(/^\/+/, '')}/`));
           count++;
         }
       }
 
+      const t0 = Date.now();
+      await _flush();
+      console.log(`[static-pages] Flushed ${_pw.length} files in ${((Date.now() - t0) / 1000).toFixed(1)}s`);
       console.log(`\x1b[36m[static-pages]\x1b[0m Generated ${count} static pages (${skipped} skipped — already exist or no SEO data)`);
     },
   };
