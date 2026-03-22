@@ -2838,7 +2838,18 @@ ${alternates}${hasSpaBundle ? `\n    <link rel="stylesheet" href="/assets/${entr
       }
 
       // 3. Generate soft-landing pages for expired slugs
-      const expiredSlugs = Object.keys(tracking).filter((s) => !currentSlugs.has(s));
+      // Pre-build a set of all previousSlugs from active jobs so we can exclude them from
+      // expiredSlugs. These slugs will be handled as bridge pages (canonical → new URL) and
+      // must NOT appear in the expired sitemap (which would cause validate-canonical failures
+      // because bridge HTML has a non-self canonical). The all-writes-are-queued pattern means
+      // fs.existsSync cannot guard against the bridge page overwriting the expired HTML, so
+      // the cleanest fix is to exclude bridge slugs from expiredSlugs entirely.
+      const bridgeSlugSet = new Set<string>();
+      for (const job of validJobs) {
+        const prevSlugs = Array.isArray(job.previousSlugs) ? job.previousSlugs : [];
+        for (const s of prevSlugs) bridgeSlugSet.add(s);
+      }
+      const expiredSlugs = Object.keys(tracking).filter((s) => !currentSlugs.has(s) && !bridgeSlugSet.has(s));
 
       const expiredBannerCopy: Record<string, { title: string; banner: string }> = {
         it: { title: 'Offerta non più disponibile', banner: 'Questa posizione non è più attiva. Di seguito trovi i dettagli originali e posizioni simili.' },
