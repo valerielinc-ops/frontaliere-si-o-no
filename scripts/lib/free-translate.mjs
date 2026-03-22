@@ -14,8 +14,26 @@ import { translateWithMyMemory } from './mymemory-translate.mjs';
 
 // ── Config ──────────────────────────────────────────────────────────────────
 const DEEPL_API_KEY = (process.env.DEEPL_API_KEY || '').trim();
-const GOOGLE_TRANSLATE_ENDPOINT = 'https://translate.googleapis.com/translate_a/single';
+const GOOGLE_TRANSLATE_ENDPOINTS = [
+  'https://translate.googleapis.com/translate_a/single',
+  'https://clients5.google.com/translate_a/t',
+];
 const TIMEOUT_MS = 15000;
+
+// Lingva Translate instances (free Google Translate proxy)
+const LINGVA_INSTANCES = [
+  'https://lingva.thedaviddelta.com',
+  'https://translate.plausibility.cloud',
+  'https://lingva.garuber.eu',
+  'https://translate.projectsegfau.lt',
+];
+
+// LibreTranslate public instances (open-source, no API key)
+const LIBRETRANSLATE_PUBLIC = [
+  'https://libretranslate.com',
+  'https://translate.terraprint.co',
+  'https://trans.zillyhuhn.com',
+];
 const DEEPL_LANG_MAP = { it: 'IT', en: 'EN', de: 'DE', fr: 'FR' };
 
 function normalizeSpace(s) {
@@ -68,38 +86,92 @@ async function translateWithDeepL(text, sourceLang, targetLang) {
   return result;
 }
 
-// ── Google Translate (unofficial free) ──────────────────────────────────────
+// ── Google Translate (unofficial free, multi-endpoint) ──────────────────────
 async function translateChunkGoogle(text, sourceLang, targetLang) {
   const q = normalizeSpace(text);
   if (!q) return '';
 
-  const params = new URLSearchParams({
-    client: 'gtx',
-    sl: sourceLang || 'auto',
-    tl: targetLang,
-    dt: 't',
-    q,
-  });
-
-  try {
-    const res = await fetch(`${GOOGLE_TRANSLATE_ENDPOINT}?${params.toString()}`, {
-      headers: {
-        'Accept': 'application/json,text/plain,*/*',
-        'User-Agent': 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://www.frontaliereticino.ch/)',
-      },
-      signal: AbortSignal.timeout(TIMEOUT_MS),
+  for (const base of GOOGLE_TRANSLATE_ENDPOINTS) {
+    const isClients5 = base.includes('clients5');
+    const params = new URLSearchParams({
+      client: isClients5 ? 'dict-chrome-ex' : 'gtx',
+      sl: sourceLang || 'auto',
+      tl: targetLang,
+      ...(isClients5 ? {} : { dt: 't' }),
+      q,
     });
-    if (!res.ok) return '';
-    const raw = await res.text().catch(() => '');
-    if (!raw) return '';
-    const parsed = JSON.parse(raw);
-    const segments = Array.isArray(parsed?.[0]) ? parsed[0] : [];
-    return normalizeSpace(
-      segments.map((seg) => (Array.isArray(seg) ? String(seg[0] || '') : '')).join('')
-    );
-  } catch {
-    return '';
+
+    try {
+      const res = await fetch(`${base}?${params.toString()}`, {
+        headers: {
+          'Accept': 'application/json,text/plain,*/*',
+          'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36',
+        },
+        signal: AbortSignal.timeout(TIMEOUT_MS),
+      });
+      if (!res.ok) continue;
+      const raw = await res.text().catch(() => '');
+      if (!raw) continue;
+      try {
+        const parsed = JSON.parse(raw);
+        let translated = '';
+        if (isClients5) {
+          if (Array.isArray(parsed?.sentences)) {
+            translated = parsed.sentences.map((s) => s?.trans || '').join('');
+          } else if (Array.isArray(parsed)) {
+            translated = parsed.map((s) => String(s || '')).join('');
+          }
+        } else {
+          const segments = Array.isArray(parsed?.[0]) ? parsed[0] : [];
+          translated = segments.map((seg) => (Array.isArray(seg) ? String(seg[0] || '') : '')).join('');
+        }
+        const result = normalizeSpace(translated);
+        if (result && result.toLowerCase() !== q.toLowerCase()) return result;
+      } catch { continue; }
+    } catch { continue; }
   }
+  return '';
+}
+
+// ── Lingva Translate (free Google Translate proxy) ───────────────────────────
+async function translateWithLingva(text, sourceLang, targetLang) {
+  const q = normalizeSpace(text);
+  if (!q || sourceLang === targetLang) return '';
+  const encoded = encodeURIComponent(q);
+  for (const base of LINGVA_INSTANCES) {
+    try {
+      const res = await fetch(`${base}/api/v1/${sourceLang || 'auto'}/${targetLang}/${encoded}`, {
+        headers: { 'User-Agent': 'FrontaliereTicino/1.0' },
+        signal: AbortSignal.timeout(TIMEOUT_MS),
+      });
+      if (!res.ok) continue;
+      const data = await res.json();
+      const translated = normalizeSpace(data?.translation || '');
+      if (translated && translated.toLowerCase() !== q.toLowerCase()) return translated;
+    } catch { /* try next */ }
+  }
+  return '';
+}
+
+// ── LibreTranslate public instances ─────────────────────────────────────────
+async function translateWithLibreTranslate(text, sourceLang, targetLang) {
+  const q = normalizeSpace(text);
+  if (!q || sourceLang === targetLang) return '';
+  for (const base of LIBRETRANSLATE_PUBLIC) {
+    try {
+      const res = await fetch(`${base}/translate`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ q, source: sourceLang || 'auto', target: targetLang, format: 'text' }),
+        signal: AbortSignal.timeout(20000),
+      });
+      if (!res.ok) continue;
+      const data = await res.json();
+      const translated = normalizeSpace(data?.translatedText || '');
+      if (translated && translated.toLowerCase() !== q.toLowerCase()) return translated;
+    } catch { /* try next */ }
+  }
+  return '';
 }
 
 async function translateWithGoogle(text, sourceLang, targetLang) {
@@ -178,7 +250,7 @@ function delay(ms) {
  * Translate text using a cascade of free translation services.
  * Returns translated text or empty string if all services fail.
  *
- * Cascade: DeepL Free → MyMemory → Google Translate
+ * Cascade: DeepL Free → MyMemory → Lingva → LibreTranslate → Google Translate
  *
  * @param {Object} options
  * @param {string} options.text - Text to translate
@@ -207,7 +279,19 @@ export async function freeTranslate({ text, sourceLang, targetLang }) {
     } catch { /* continue */ }
   }
 
-  // Tier 3: Google Translate (unofficial, works for any length via chunking)
+  // Tier 3: Lingva (free Google Translate proxy, 4 mirror instances)
+  try {
+    const lingva = await translateWithLingva(clean, sourceLang, targetLang);
+    if (lingva) return lingva;
+  } catch { /* continue */ }
+
+  // Tier 4: LibreTranslate (open-source, 3 public instances)
+  try {
+    const libre = await translateWithLibreTranslate(clean, sourceLang, targetLang);
+    if (libre) return libre;
+  } catch { /* continue */ }
+
+  // Tier 5: Google Translate (unofficial, multi-endpoint, chunked)
   try {
     const google = await translateWithGoogle(clean, sourceLang, targetLang);
     if (google) return google;
