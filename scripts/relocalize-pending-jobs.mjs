@@ -27,7 +27,7 @@
 
 import fs from 'node:fs';
 import path from 'node:path';
-import { spawn } from 'node:child_process';
+
 import { fileURLToPath } from 'node:url';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -90,37 +90,39 @@ function normalizeCompanyKey(value = '') {
 }
 
 /**
- * Run the shared crawler in LOCALIZE_EXISTING_ONLY mode.
+ * Run the shared crawler in LOCALIZE_EXISTING_ONLY mode (in-process).
  */
-function runSharedCrawler(companyKeys, maxJobs) {
-  return new Promise((resolve, reject) => {
-    const env = {
-      ...process.env,
-      JOBS_CRAWLER_COMPANY_KEYS: companyKeys.join(','),
-      JOBS_CRAWLER_FORCE_LOCALIZE_KEYS: companyKeys.join(','),
-      JOBS_CRAWLER_LOCALIZE_EXISTING_ONLY: '1',
-      JOBS_AI_LOCALIZATION_ENABLED: '1',
-      JOBS_AI_MAX_JOBS_PER_RUN: String(maxJobs),
-      JOBS_FORCE_LOCALIZE_WORKDAY: '0',
-      JOBS_SKIP_CRAWL_CHANGE_SUMMARY: '1',
-    };
+async function runSharedCrawler(companyKeys, maxJobs) {
+  const overrides = {
+    JOBS_CRAWLER_COMPANY_KEYS: companyKeys.join(','),
+    JOBS_CRAWLER_FORCE_LOCALIZE_KEYS: companyKeys.join(','),
+    JOBS_CRAWLER_LOCALIZE_EXISTING_ONLY: '1',
+    JOBS_AI_LOCALIZATION_ENABLED: '1',
+    JOBS_AI_MAX_JOBS_PER_RUN: String(maxJobs),
+    JOBS_FORCE_LOCALIZE_WORKDAY: '0',
+    JOBS_SKIP_CRAWL_CHANGE_SUMMARY: '1',
+  };
 
-    console.log(`\n🚀 Running shared crawler in LOCALIZE_EXISTING_ONLY mode...`);
-    console.log(`   Company keys: ${companyKeys.join(', ')}`);
-    console.log(`   Max AI jobs: ${maxJobs}\n`);
+  console.log(`\n🚀 Running shared crawler in LOCALIZE_EXISTING_ONLY mode (in-process)...`);
+  console.log(`   Company keys: ${companyKeys.join(', ')}`);
+  console.log(`   Max AI jobs: ${maxJobs}\n`);
 
-    const child = spawn('node', ['scripts/lib/shared-jobs-crawler.mjs'], {
-      cwd: ROOT,
-      stdio: 'inherit',
-      env,
-    });
+  // Save and override env
+  const originals = {};
+  for (const [key, value] of Object.entries(overrides)) {
+    if (key in process.env) originals[key] = process.env[key];
+    process.env[key] = value;
+  }
 
-    child.on('error', reject);
-    child.on('exit', (code) => {
-      if (code === 0) resolve();
-      else reject(new Error(`shared-jobs-crawler exited with code ${code}`));
-    });
-  });
+  try {
+    const { runSharedCrawlerPipeline } = await import('./lib/shared-jobs-crawler.mjs');
+    await runSharedCrawlerPipeline();
+  } finally {
+    // Restore original env
+    for (const [key, value] of Object.entries(originals)) {
+      process.env[key] = value;
+    }
+  }
 }
 
 async function main() {

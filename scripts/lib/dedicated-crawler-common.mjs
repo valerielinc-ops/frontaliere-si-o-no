@@ -1,6 +1,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
-import { spawn } from 'node:child_process';
+
 import { detectLanguage } from './detect-language.mjs';
 import { freeTranslateWithRetry } from './free-translate.mjs';
 import { translateTextWithLocalPipeline } from './job-localization-pipeline.mjs';
@@ -414,19 +414,41 @@ function toNormalizedSet(values) {
   return [...new Set(list.flatMap((x) => toNormalizedKeyList(String(x || ''))))];
 }
 
-function runSpawnedSharedCrawler({ root, env }) {
-  return new Promise((resolve, reject) => {
-    const child = spawn('node', ['scripts/lib/shared-jobs-crawler.mjs'], {
-      cwd: root,
-      stdio: 'inherit',
-      env,
-    });
-    child.on('error', reject);
-    child.on('exit', (code) => {
-      if (code === 0) resolve();
-      else reject(new Error(`shared-jobs-crawler exited with code ${code}`));
-    });
-  });
+/**
+ * Run the shared crawler pipeline in-process instead of spawning a subprocess.
+ * Temporarily injects the env vars that the old subprocess would receive,
+ * then restores the original values after the pipeline completes.
+ */
+async function runSharedCrawlerInProcess({ root, env }) {
+  // Save original env values we're about to override
+  const overrides = {};
+  const originals = {};
+  for (const [key, value] of Object.entries(env)) {
+    if (key in process.env && process.env[key] !== value) {
+      originals[key] = process.env[key];
+    }
+    overrides[key] = value;
+  }
+
+  // Apply env overrides
+  Object.assign(process.env, overrides);
+
+  try {
+    // Dynamic import to avoid loading 7k-line module at parse time
+    const { runSharedCrawlerPipeline } = await import('./shared-jobs-crawler.mjs');
+    await runSharedCrawlerPipeline();
+  } finally {
+    // Restore original env values
+    for (const [key, value] of Object.entries(originals)) {
+      process.env[key] = value;
+    }
+    // Remove keys that weren't in the original env
+    for (const key of Object.keys(overrides)) {
+      if (!(key in originals) && !(key in process.env)) {
+        delete process.env[key];
+      }
+    }
+  }
 }
 
 function inferPublicJobsPath(dataJobsPath) {
@@ -1056,7 +1078,7 @@ export async function runDedicatedBaseCrawler({
     env.JOBS_CRAWLER_LOCALIZE_EXISTING_ONLY = '1';
   }
 
-  await runSpawnedSharedCrawler({ root, env });
+  await runSharedCrawlerInProcess({ root, env });
 }
 
 export function validateDedicatedLocaleCoverage({
