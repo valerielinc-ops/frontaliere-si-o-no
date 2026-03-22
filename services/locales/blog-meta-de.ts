@@ -1664,6 +1664,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.nuovi-radar-ticino-multe.title': 'Gebündelte Radarkontrollen: Neue Herausforderungen für Grenzgänger im Tessin',
     'blog.article.nuovi-radar-ticino-multe.excerpt': 'Auf den Tessiner Strassen nimmt die Zahl der Radarkontrollen zu, mit \'gebündelten\' Installationen, die Tausende von Grenzgängern betreffen. Eine Analyse der wirtschaftlichen Folgen und praktische Ratschläge.',
     'blog.article.nuovi-radar-ticino-multe.imageAlt': 'Strassenradar im Tessin mit Castelgrande im Hintergrund, als Symbol für Verkehrskontrollen',
+    'blog.article.rifugiati-ucraini-assistenza-2027.title': 'Flüchtlinge ab 2027 erhalten gleiche Unterstützung wie die Schweiz',
+    'blog.article.rifugiati-ucraini-assistenza-2027.excerpt': 'Ab 2027 erhalten ukrainische Flüchtlinge mit Schutzstatus S das gesamte soziale Unterstützungsangebot der Schweiz, was einen finanziellen Aufwand von etwa 300 Millionen Franken für die Tessiner Kantone verursacht.',
+    'blog.article.rifugiati-ucraini-assistenza-2027.imageAlt': 'Panoramablick auf die Schweizerisch-Italienische Grenze bei Chiasso, Berge im Hintergrund und ein geschäftiger Grenzposten.',
 };
 
 export default blogMetaDe;

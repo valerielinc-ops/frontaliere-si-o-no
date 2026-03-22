@@ -1691,6 +1691,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-ticino-attenti-ai-radar-2026': { name: 'Ticino, attenti ai radar', path: '/articoli-frontaliere/ticino-attenti-ai-radar-2026', parent: 'blog' },
     'blog-sequestro-stupefacenti-ecuador': { name: 'Sequestro di sostanze stupefacenti', path: '/articoli-frontaliere/sequestro-stupefacenti-ecuador', parent: 'blog' },
     'blog-nuovi-radar-ticino-multe': { name: 'Radar Ticino', path: '/articoli-frontaliere/nuovi-radar-ticino-multe', parent: 'blog' },
+    'blog-rifugiati-ucraini-assistenza-2027': { name: 'Rifugiati', path: '/articoli-frontaliere/rifugiati-ucraini-assistenza-2027', parent: 'blog' },
   };
 
   const info = sectionNames[section];

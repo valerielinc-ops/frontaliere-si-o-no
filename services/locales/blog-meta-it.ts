@@ -1664,6 +1664,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.nuovi-radar-ticino-multe.title': 'Radar a mazzetti: nuove sfide per i frontalieri in Ticino',
     'blog.article.nuovi-radar-ticino-multe.excerpt': 'Le strade ticinesi vedono un aumento dei controlli radar, con installazioni a \'mazzetti\' che impattano migliaia di frontalieri. Un\'analisi delle conseguenze economiche e consigli pratici.',
     'blog.article.nuovi-radar-ticino-multe.imageAlt': 'Radar stradale in Ticino con Castelgrande sullo sfondo, simboleggiando i controlli sul traffico',
+    'blog.article.rifugiati-ucraini-assistenza-2027.title': 'Rifugiati dal 2027 assistenza pari a quella svizzera',
+    'blog.article.rifugiati-ucraini-assistenza-2027.excerpt': 'Dal 2027 i rifugiati ucraini con protezione S riceveranno l’intero pacchetto di assistenza sociale svizzera, con un impatto di circa 300 milioni di franchi sui cantoni ticinesi.',
+    'blog.article.rifugiati-ucraini-assistenza-2027.imageAlt': 'Vista panoramica del confine svizzero-italiano vicino a Chiasso, con le montagne sullo sfondo e il posto di frontiera in attività.',
 };
 
 export default blogMetaIt;

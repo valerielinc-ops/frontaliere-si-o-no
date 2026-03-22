@@ -3049,7 +3049,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
         "@context": "https://schema.org",
         "@type": "ItemList",
         "name": "Articoli Frontaliere",
-        "numberOfItems": 545,
+        "numberOfItems": 546,
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
           { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -3595,7 +3595,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 542, "name": "Una camminata di protesta per il libero accesso...", "url": `${BASE_URL}/articoli-frontaliere/accesso-libero-alle-rive` },
           { "@type": "ListItem", "position": 543, "name": "Ticino, attenti ai radar: quando e dove i contr...", "url": `${BASE_URL}/articoli-frontaliere/ticino-attenti-ai-radar-2026` },
           { "@type": "ListItem", "position": 544, "name": "Sequestro di sostanze stupefacenti in Ecuador", "url": `${BASE_URL}/articoli-frontaliere/sequestro-stupefacenti-ecuador` },
-          { "@type": "ListItem", "position": 545, "name": "Radar a Mazzetti sulle Strade Ticinesi: Nuove S...", "url": `${BASE_URL}/articoli-frontaliere/nuovi-radar-ticino-multe` }
+          { "@type": "ListItem", "position": 545, "name": "Radar a Mazzetti sulle Strade Ticinesi: Nuove S...", "url": `${BASE_URL}/articoli-frontaliere/nuovi-radar-ticino-multe` },
+          { "@type": "ListItem", "position": 546, "name": "{\"@context\":\"https://schema.org\",\"@type\":\"NewsA...", "url": `${BASE_URL}/articoli-frontaliere/rifugiati-ucraini-assistenza-2027` }
         ]
       }
     ]

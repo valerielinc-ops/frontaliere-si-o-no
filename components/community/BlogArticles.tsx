@@ -4477,6 +4477,13 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/nuovi-radar-ticino-multe.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'rifugiati-ucraini-assistenza-2027',
+    category: 'novita',
+    date: '2026-03-22T23:13:50.805Z',
+    image: '/images/blog/rifugiati-ucraini-assistenza-2027.jpg',
+    hasCalculator: true,
+  },
 ];
 
 const CATEGORIES = ['all', 'fiscale', 'pratico', 'novita', 'pensione'] as const;

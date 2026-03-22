@@ -9216,6 +9216,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-rifugiati-ucraini-assistenza-2027': {
+    title: 'Rifugiati dal 2027 assistenza pari a quella svizzera | Frontaliere Ticino',
+    description: 'Dal 2027 i rifugiati ucraini con protezione S avranno lo stesso livello di assistenza sociale dei cittadini svizzeri. Scopri impatti, costi e consigli pratici.',
+    keywords: 'frontalieri, ticino, svizzera, italia, rifugiati, 2027, assistenza, pari',
+    ogTitle: 'Rifugiati ucraini 2027: assistenza pari a quella svizzera',
+    ogDescription: 'Dal 2027 i rifugiati ucraini con protezione S avranno lo stesso livello di assistenza sociale dei cittadini svizzeri. Leggi l\'analisi completa su impatti e',
+    canonicalPath: '/articoli-frontaliere/rifugiati-ucraini-assistenza-2027',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "{\"@context\":\"https://schema.org\",\"@type\":\"NewsArticle\",\"headline\":\"Rifugiati dal 2027 assistenza",
+      "description": "Dal 2027 i rifugiati ucraini con protezione S avranno lo stesso livello di assistenza sociale dei cittadini svizzeri. Scopri impatti, costi e consigli pratici.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/rifugiati-ucraini-assistenza-2027.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Vista panoramica del confine svizzero-italiano vicino a Chiasso, con le montagne sullo sfondo e il posto di frontiera in attività."
+      },
+      "datePublished": "2026-03-22T23:13:50+00:00",
+      "dateModified": "2026-03-22T23:13:50+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/rifugiati-ucraini-assistenza-2027`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

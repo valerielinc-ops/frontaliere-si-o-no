@@ -1664,6 +1664,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.nuovi-radar-ticino-multe.title': 'Cluster Radars: New Challenges for Cross-Border Commuters in Ticino',
     'blog.article.nuovi-radar-ticino-multe.excerpt': 'Ticino\'s roads are experiencing an increase in radar checks, with \'cluster\' installations affecting thousands of cross-border commuters. An analysis of the economic consequences and practical advice.',
     'blog.article.nuovi-radar-ticino-multe.imageAlt': 'Road radar in Ticino with Castelgrande in the background, symbolizing traffic controls',
+    'blog.article.rifugiati-ucraini-assistenza-2027.title': 'Refugees from 2027: same social assistance as Swiss residents',
+    'blog.article.rifugiati-ucraini-assistenza-2027.excerpt': 'From 2027, Ukrainian refugees with S protection will receive the full Swiss social-assistance package, adding some CHF 300 million to the cantonal coffers.',
+    'blog.article.rifugiati-ucraini-assistenza-2027.imageAlt': 'Panoramic view of the Swiss-Italian border near Chiasso with mountains and a busy customs checkpoint.',
 };
 
 export default blogMetaEn;

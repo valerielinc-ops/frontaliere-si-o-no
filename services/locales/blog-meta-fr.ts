@@ -1664,6 +1664,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.nuovi-radar-ticino-multe.title': 'Radars en grappes : nouveaux défis pour les frontaliers au Tessin',
     'blog.article.nuovi-radar-ticino-multe.excerpt': 'Les routes tessinoises connaissent une augmentation des contrôles radar, avec des installations \'en grappes\' qui impactent des milliers de frontaliers. Une analyse des conséquences économiques et des conseils pratiques.',
     'blog.article.nuovi-radar-ticino-multe.imageAlt': 'Radar routier au Tessin avec Castelgrande en arrière-plan, symbolisant les contrôles de la circulation',
+    'blog.article.rifugiati-ucraini-assistenza-2027.title': 'Réfugiés: à partir de 2027, une assistance équivalente à celle de la Suisse',
+    'blog.article.rifugiati-ucraini-assistenza-2027.excerpt': 'À partir de 2027, les réfugiés ukrainiens bénéficiant de la protection S recevront l\'intégralité du package d\'assistance sociale suisse, avec un impact estimé à environ 300 millions de francs sur les cantons tessinois.',
+    'blog.article.rifugiati-ucraini-assistenza-2027.imageAlt': 'Vue panoramique de la frontière Suisse-Italienne près de Chiasso, montagnes en arrière‑plan et poste de douane animé.',
 };
 
 export default blogMetaFr;
