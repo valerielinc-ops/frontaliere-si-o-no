@@ -849,7 +849,7 @@ export default function AdminPanel() {
           {crawlerSummaries.map((summary) => {
             const siteUrl = (slug: string) => slug ? `https://www.frontaliereticino.ch/cerca-lavoro-ticino/${slug}/` : '';
 
-            const renderJobList = (title: string, items: CrawlerSummaryLinkRow[], highlight?: 'new' | 'updated' | 'unchanged') => (
+            const renderJobList = (title: string, items: CrawlerSummaryLinkRow[], highlight?: 'new' | 'updated' | 'unchanged', isRemoved?: boolean) => (
               <div className="space-y-1">
                 <div className="text-[11px] font-semibold text-slate-700 dark:text-slate-300">{title} ({items.length})</div>
                 {items.length > 0 ? (
@@ -874,9 +874,15 @@ export default function AdminPanel() {
                               </a>
                             )}
                             {jobSiteUrl && (
-                              <a href={jobSiteUrl} target="_blank" rel="noreferrer" className="text-[10px] font-mono text-indigo-600 dark:text-indigo-300 truncate hover:underline" title="Pagina sul nostro sito">
-                                🏠 Sito
-                              </a>
+                              isRemoved ? (
+                                <a href={jobSiteUrl} target="_blank" rel="noreferrer" className="text-[10px] font-mono text-slate-400 dark:text-slate-500 truncate hover:underline" title="Pagina archiviata sul nostro sito">
+                                  🏚 Sito (archiviato)
+                                </a>
+                              ) : (
+                                <a href={jobSiteUrl} target="_blank" rel="noreferrer" className="text-[10px] font-mono text-indigo-600 dark:text-indigo-300 truncate hover:underline" title="Pagina sul nostro sito">
+                                  🏠 Sito
+                                </a>
+                              )
                             )}
                           </div>
                         </div>
@@ -958,7 +964,7 @@ export default function AdminPanel() {
                   )}
                   {renderJobList('Nuovi link creati', summary.newJobs, 'new')}
                   {renderJobList('Link aggiornati', summary.updatedJobs, 'updated')}
-                  {renderJobList('Link rimossi', summary.removedJobs)}
+                  {renderJobList('Link rimossi', summary.removedJobs, undefined, true)}
                   {renderJobList('Link invariati', summary.unchangedJobs, 'unchanged')}
                 </div>
               </details>
