@@ -8926,6 +8926,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-passaggio-statuto-s-permesso-b': {
+    title: 'Dallo statuto S al permesso B in Ticino | Frontaliere Ticino',
+    description: 'Il passaggio dallo statuto S al permesso B riguarda i profughi ucraini in Svizzera, con implicazioni economiche e sociali per il Canton Ticino, fino al 2027.',
+    keywords: 'frontalieri, ticino, svizzera, italia, dallo, statuto, permesso, passaggio',
+    ogTitle: 'Dallo statuto S al permesso B in Ticino',
+    ogDescription: 'Il passaggio dallo statuto S al permesso B riguarda i profughi ucraini in Svizzera, con implicazioni economiche e sociali per il Canton Ticino, fino al 2027.',
+    canonicalPath: '/articoli-frontaliere/passaggio-statuto-s-permesso-b',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Dallo statuto S al permesso B in Ticino",
+      "description": "Il passaggio dallo statuto S al permesso B riguarda i profughi ucraini in Svizzera, con implicazioni economiche e sociali per il Canton Ticino, fino al 2027.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/passaggio-statuto-s-permesso-b.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Panorama di Bellinzona con le sue torri e il paesaggio montano circostante, rappresentativo del confine tra Italia e Svizzera."
+      },
+      "datePublished": "2026-03-22T09:44:18+00:00",
+      "dateModified": "2026-03-22T09:44:18+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/passaggio-statuto-s-permesso-b`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

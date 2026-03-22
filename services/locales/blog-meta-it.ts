@@ -1634,6 +1634,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.referendum-giustizia-ticino-2026.title': 'Referendum sulla giustizia in Ticino: oggi si vota senza quorum',
     'blog.article.referendum-giustizia-ticino-2026.excerpt': 'Oltre 690mila aventi diritto in provincia di Varese e Ticino sono chiamati a esprimersi sulla riforma della magistratura. Seggi aperti dalle 7 di oggi, domenica 22 marzo.',
     'blog.article.referendum-giustizia-ticino-2026.imageAlt': 'Seggi elettorale in Ticino con cittadini che votano durante il referendum sulla giustizia.',
+    'blog.article.passaggio-statuto-s-permesso-b.title': 'Dallo statuto S al permesso B in Ticino',
+    'blog.article.passaggio-statuto-s-permesso-b.excerpt': 'Il passaggio dallo statuto S al permesso B riguarda i profughi ucraini in Svizzera, con implicazioni economiche e sociali per il Canton Ticino, fino al 2027.',
+    'blog.article.passaggio-statuto-s-permesso-b.imageAlt': 'Panorama di Bellinzona con le sue torri e il paesaggio montano circostante, rappresentativo del confine tra Italia e Svizzera.',
 };
 
 export default blogMetaIt;

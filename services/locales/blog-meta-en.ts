@@ -1634,6 +1634,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.referendum-giustizia-ticino-2026.title': 'Referendum on Justice in Ticino: Voting Today Without Quorum',
     'blog.article.referendum-giustizia-ticino-2026.excerpt': 'Over 690,000 eligible voters in the provinces of Varese and Ticino are called to express their opinion on judicial reform. Polls open from 7 a.m. today, Sunday, March 22.',
     'blog.article.referendum-giustizia-ticino-2026.imageAlt': 'Polling station in Ticino with residents voting during the justice referendum.',
+    'blog.article.passaggio-statuto-s-permesso-b.title': 'From S Status to B Permit in Ticino',
+    'blog.article.passaggio-statuto-s-permesso-b.excerpt': 'The transition from S status to B permit concerns Ukrainian refugees in Switzerland, with economic and social implications for the Canton of Ticino until 2027.',
+    'blog.article.passaggio-statuto-s-permesso-b.imageAlt': 'Panoramic view of Bellinzona with its castles and surrounding mountains, symbolizing the Swiss-Italian border.',
 };
 
 export default blogMetaEn;

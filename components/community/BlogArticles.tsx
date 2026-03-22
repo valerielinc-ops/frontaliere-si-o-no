@@ -4407,6 +4407,13 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/referendum-giustizia-ticino-2026.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'passaggio-statuto-s-permesso-b',
+    category: 'pratico',
+    date: '2026-03-22T09:44:18.179Z',
+    image: '/images/blog/passaggio-statuto-s-permesso-b.jpg',
+    hasCalculator: true,
+  },
 ];
 
 const CATEGORIES = ['all', 'fiscale', 'pratico', 'novita', 'pensione'] as const;

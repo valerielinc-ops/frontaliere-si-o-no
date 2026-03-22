@@ -1634,6 +1634,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.referendum-giustizia-ticino-2026.title': 'Référendum sur la justice au Tessin : vote aujourd\'hui sans quorum',
     'blog.article.referendum-giustizia-ticino-2026.excerpt': 'Plus de 690 000 personnes ayant le droit de vote dans la province de Varese et le Tessin sont appelées à se prononcer sur la réforme de la magistrature. Les bureaux de vote ouvrent dès 7 heures ce dimanche 22 mars.',
     'blog.article.referendum-giustizia-ticino-2026.imageAlt': 'bureau de vote dans le Tessin avec des citoyens lors du référendum sur la justice.',
+    'blog.article.passaggio-statuto-s-permesso-b.title': 'Du statut S au permis B au Tessin',
+    'blog.article.passaggio-statuto-s-permesso-b.excerpt': 'Le passage du statut S au permis B concerne les réfugiés ukrainiens en Suisse, avec des implications économiques et sociales pour le canton du Tessin, jusqu\'en 2027.',
+    'blog.article.passaggio-statuto-s-permesso-b.imageAlt': 'Vue panoramique de Bellinzona avec ses châteaux et ses montagnes environnantes, symbolisant la frontière suisse-italienne.',
 };
 
 export default blogMetaFr;

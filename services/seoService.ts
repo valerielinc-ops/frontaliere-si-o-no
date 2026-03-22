@@ -1681,6 +1681,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-bossi-morto-ticino-frontalieri': { name: 'Morte Bossi', path: '/articoli-frontaliere/bossi-morto-ticino-frontalieri', parent: 'blog' },
     'blog-ogm-fallimento-ticino': { name: 'Fallimento dell’iniziativa contro gli OG', path: '/articoli-frontaliere/ogm-fallimento-ticino', parent: 'blog' },
     'blog-referendum-giustizia-ticino-2026': { name: 'Referendum sulla giustizia in Ticino', path: '/articoli-frontaliere/referendum-giustizia-ticino-2026', parent: 'blog' },
+    'blog-passaggio-statuto-s-permesso-b': { name: 'Dallo statuto S al permesso B in Ticino', path: '/articoli-frontaliere/passaggio-statuto-s-permesso-b', parent: 'blog' },
   };
 
   const info = sectionNames[section];
