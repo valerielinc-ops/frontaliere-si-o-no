@@ -1631,6 +1631,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.ogm-fallimento-ticino.title': 'Fallimento dell’iniziativa contro gli OGM in Svizzera',
     'blog.article.ogm-fallimento-ticino.excerpt': 'L’iniziativa popolare per il controllo degli OGM in Svizzera non ha raggiunto il quorum di 100’000 firme, con implicazioni significative anche per il Ticino.',
     'blog.article.ogm-fallimento-ticino.imageAlt': 'Lago di Lugano con montagne sullo sfondo, paesaggio naturale in Ticino',
+    'blog.article.referendum-giustizia-ticino-2026.title': 'Referendum sulla giustizia in Ticino: oggi si vota senza quorum',
+    'blog.article.referendum-giustizia-ticino-2026.excerpt': 'Oltre 690mila aventi diritto in provincia di Varese e Ticino sono chiamati a esprimersi sulla riforma della magistratura. Seggi aperti dalle 7 di oggi, domenica 22 marzo.',
+    'blog.article.referendum-giustizia-ticino-2026.imageAlt': 'Seggi elettorale in Ticino con cittadini che votano durante il referendum sulla giustizia.',
 };
 
 export default blogMetaIt;

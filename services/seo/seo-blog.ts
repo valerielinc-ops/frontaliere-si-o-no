@@ -8897,6 +8897,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-referendum-giustizia-ticino-2026': {
+    title: 'Referendum sulla giustizia in Ticino: oggi si vota senza quorum | Frontaliere Ticino',
+    description: 'Oltre 690mila aventi diritto in provincia di Varese e Ticino sono chiamati a esprimersi sulla riforma della magistratura. Seggi aperti dalle 7 di oggi, domenica',
+    keywords: 'frontalieri, ticino, svizzera, italia, referendum, sulla, giustizia, oggi',
+    ogTitle: 'Referendum sulla giustizia in Ticino: oggi si vota senza',
+    ogDescription: 'Oltre 690mila aventi diritto in provincia di Varese e Ticino sono chiamati a esprimersi sulla riforma della magistratura. Seggi aperti dalle 7 di oggi, domenica',
+    canonicalPath: '/articoli-frontaliere/referendum-giustizia-ticino-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Referendum sulla giustizia in Ticino: oggi si vota senza",
+      "description": "Oltre 690mila aventi diritto in provincia di Varese e Ticino sono chiamati a esprimersi sulla riforma della magistratura. Seggi aperti dalle 7 di oggi, domenica",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/referendum-giustizia-ticino-2026.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Seggi elettorale in Ticino con cittadini che votano durante il referendum sulla giustizia."
+      },
+      "datePublished": "2026-03-22T09:05:10+00:00",
+      "dateModified": "2026-03-22T09:05:10+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/referendum-giustizia-ticino-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

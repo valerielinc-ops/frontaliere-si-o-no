@@ -1631,6 +1631,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.ogm-fallimento-ticino.title': 'Échec de l’initiative contre les OGM en Suisse',
     'blog.article.ogm-fallimento-ticino.excerpt': 'L’initiative populaire pour le contrôle des OGM en Suisse n’a pas atteint le quorum de 100’000 signatures, avec des implications importantes également pour le Tessin.',
     'blog.article.ogm-fallimento-ticino.imageAlt': 'Lac de Lugano avec montagnes en arrière-plan, paysage typique du Tessin',
+    'blog.article.referendum-giustizia-ticino-2026.title': 'Référendum sur la justice au Tessin : vote aujourd\'hui sans quorum',
+    'blog.article.referendum-giustizia-ticino-2026.excerpt': 'Plus de 690 000 personnes ayant le droit de vote dans la province de Varese et le Tessin sont appelées à se prononcer sur la réforme de la magistrature. Les bureaux de vote ouvrent dès 7 heures ce dimanche 22 mars.',
+    'blog.article.referendum-giustizia-ticino-2026.imageAlt': 'bureau de vote dans le Tessin avec des citoyens lors du référendum sur la justice.',
 };
 
 export default blogMetaFr;

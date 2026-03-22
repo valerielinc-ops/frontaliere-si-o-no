@@ -4400,6 +4400,13 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/ogm-fallimento-ticino.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'referendum-giustizia-ticino-2026',
+    category: 'novita',
+    date: '2026-03-22T09:05:10.975Z',
+    image: '/images/blog/referendum-giustizia-ticino-2026.jpg',
+    hasCalculator: true,
+  },
 ];
 
 const CATEGORIES = ['all', 'fiscale', 'pratico', 'novita', 'pensione'] as const;

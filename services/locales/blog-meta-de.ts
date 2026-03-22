@@ -1631,6 +1631,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.ogm-fallimento-ticino.title': 'Scheitern der Initiative gegen GVO in der Schweiz',
     'blog.article.ogm-fallimento-ticino.excerpt': 'Die Volksinitiative zur Kontrolle der GVO in der Schweiz hat die nötige Unterschriftenquorum von 100.000 nicht erreicht, was auch für das Tessin bedeutende Konsequenzen hat.',
     'blog.article.ogm-fallimento-ticino.imageAlt': 'Lugano-See mit Bergen im Hintergrund, typisch Tessiner Landschaft',
+    'blog.article.referendum-giustizia-ticino-2026.title': 'Referendum zur Justiz im Tessin: Heute ohne Quorum abgestimmt',
+    'blog.article.referendum-giustizia-ticino-2026.excerpt': 'Über 690.000 Wahlberechtigte in der Provinz Varese und im Tessin sind aufgerufen, sich zur Reform der Justiz zu äußern. Die Wahllokale sind heute ab 7 Uhr geöffnet, Sonntag, 22. März.',
+    'blog.article.referendum-giustizia-ticino-2026.imageAlt': 'Wahllokal im Tessin mit Bürgern beim Abstimmen über Justizreform.',
 };
 
 export default blogMetaDe;

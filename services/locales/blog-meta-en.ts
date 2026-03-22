@@ -1631,6 +1631,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.ogm-fallimento-ticino.title': 'Failure of the Initiative Against GMOs in Switzerland',
     'blog.article.ogm-fallimento-ticino.excerpt': 'The popular initiative for GMO control in Switzerland did not reach the required 100,000 signatures, with significant implications also for Ticino.',
     'blog.article.ogm-fallimento-ticino.imageAlt': 'Lugano Lake with mountains in the background, typical Ticino landscape',
+    'blog.article.referendum-giustizia-ticino-2026.title': 'Referendum on Justice in Ticino: Voting Today Without Quorum',
+    'blog.article.referendum-giustizia-ticino-2026.excerpt': 'Over 690,000 eligible voters in the provinces of Varese and Ticino are called to express their opinion on judicial reform. Polls open from 7 a.m. today, Sunday, March 22.',
+    'blog.article.referendum-giustizia-ticino-2026.imageAlt': 'Polling station in Ticino with residents voting during the justice referendum.',
 };
 
 export default blogMetaEn;
