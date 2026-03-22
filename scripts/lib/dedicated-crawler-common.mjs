@@ -831,6 +831,15 @@ export async function translateMissingJobLocales({ dataJobsPath, isTargetJob, ma
       const sourceTitle = String(job.titleByLocale[titleSourceLang] || baseTitle).trim();
       const sourceDesc = String(job.descriptionByLocale[sourceLang] || baseDesc).trim();
 
+      // Debug: log detection for jobs that previously failed validation
+      if (/bewerbermanagement/i.test(baseTitle)) {
+        console.log(`[DEBUG] ${baseTitle}: sourceLang=${sourceLang}, titleSourceLang=${titleSourceLang}, baseDesc.len=${baseDesc.length}`);
+        for (const l of DEFAULT_LOCALES) {
+          const d = String(job.descriptionByLocale[l] || '').trim();
+          console.log(`  [${l}] len=${d.length} sameAsBase=${normalize(d) === normalize(baseDesc)} sameAsSource=${normalize(d) === normalize(sourceDesc)}`);
+        }
+      }
+
       for (const locale of DEFAULT_LOCALES) {
         const currentTitle = String(job.titleByLocale[locale] || '').trim();
         const currentDesc = String(job.descriptionByLocale[locale] || '').trim();
