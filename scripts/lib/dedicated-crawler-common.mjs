@@ -324,6 +324,25 @@ export function getCompanyBoilerplateIT(company = '') {
 }
 
 /**
+ * Detect whether a description is a known placeholder (not actual job content).
+ * Returns true if the text is a short boilerplate template that should be cleared.
+ * Patterns: recruiter portal notices, "full description available at", etc.
+ */
+export function isPlaceholderDescription(text = '') {
+  const clean = String(text || '').trim();
+  if (!clean || clean.length >= 500) return false; // Long texts likely have real content
+  const PLACEHOLDER_PATTERNS = [
+    /la descrizione completa[^\n]{0,60}(portale|societ|sito)/i,
+    /full (job )?description (is )?available (at|on)/i,
+    /vollst[äa]ndige (stellen)?beschreibung[^\n]{0,50}(portal|website|webseite)/i,
+    /description complète[^\n]{0,60}(disponible|portail)/i,
+    /pubblica questa opportunit[aà] nel suo portale/i,
+    /per candidature e informazioni visita(re)? il sito/i,
+  ];
+  return PLACEHOLDER_PATTERNS.some(re => re.test(clean));
+}
+
+/**
  * Enrich thin IT descriptions with company boilerplate. Mutates jobs in-place.
  * Returns count of enriched jobs.
  */
@@ -572,13 +591,25 @@ export function hardenJobLocaleFields({ dataJobsPath }) {
       jobChanged = true;
     }
     if (baseDesc && !String(job.descriptionByLocale[sourceLang] || '').trim()) {
-      // Only copy baseDesc if it's substantial content, not page chrome/boilerplate
+      // Only copy baseDesc if it's substantial content, not page chrome/boilerplate/placeholder
       const isGarbage = baseDesc.length < 80 ||
-        /^(Zum Hauptinhalt|Skip to|Aller au|Vai al)/i.test(baseDesc);
+        /^(Zum Hauptinhalt|Skip to|Aller au|Vai al)/i.test(baseDesc) ||
+        isPlaceholderDescription(baseDesc);
       if (!isGarbage) {
         job.descriptionByLocale[sourceLang] = baseDesc;
         jobChanged = true;
       }
+    }
+
+    // Mark jobs whose base description is a known placeholder so callers can handle them.
+    if (baseDesc && isPlaceholderDescription(baseDesc)) {
+      if (job.descriptionStatus !== 'placeholder') {
+        job.descriptionStatus = 'placeholder';
+        jobChanged = true;
+      }
+    } else if (job.descriptionStatus === 'placeholder') {
+      delete job.descriptionStatus;
+      jobChanged = true;
     }
 
     const repairedCoopGroupItSlug = getCoopGroupItalianApprenticeshipSlug(job);
@@ -625,6 +656,12 @@ export function hardenJobLocaleFields({ dataJobsPath }) {
       }
       {
         const descValue = String(job.descriptionByLocale[locale] || '').trim();
+        // Drop known placeholder descriptions (recruiter portal notices, etc.)
+        if (isPlaceholderDescription(descValue)) {
+          delete job.descriptionByLocale[locale];
+          jobChanged = true;
+          continue;
+        }
         const isSubstantialTranslation = descValue.length >= 120 &&
           normalize(descValue) !== normalize(baseDesc);
         // Drop descriptions that are in the wrong language.
