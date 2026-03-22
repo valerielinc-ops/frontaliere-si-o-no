@@ -2188,6 +2188,17 @@ Rules:
     'seoContent.stats.check4': 'Ticino cross-border community data',
 
     // ─── What's New / Feature Announcements ─────────────────────────────
+    'whatsNew.v3340.title': 'Improvements and fixes for a smoother experience',
+    'whatsNew.v3340.update-jobs-stats.title': 'Updated job listings and statistics',
+    'whatsNew.v3340.update-jobs-stats.desc': 'We\'ve improved how job listings, statistics, and fuel prices are displayed, and fixed some ad-related issues. You\'ll now have more accurate and up-to-date information.',
+    'whatsNew.v3340.fix-auth-debug.title': 'More secure and stable login',
+    'whatsNew.v3340.fix-auth-debug.desc': 'We\'ve fixed some issues related to login and system updates. You can now access your data more quickly and securely.',
+    'whatsNew.v3340.fix-seo-sitemap.title': 'Improved search engine visibility',
+    'whatsNew.v3340.fix-seo-sitemap.desc': 'We\'ve fixed the sitemap coverage for search engines. This will help our content be found more easily online.',
+    'whatsNew.v3340.fix-auth-and.title': 'Additional login and system fixes',
+    'whatsNew.v3340.fix-auth-and.desc': 'We\'ve made further improvements to the login and deployment process. The user experience should now be smoother.',
+    'whatsNew.v3340.ci.title': 'More reliable article publishing',
+    'whatsNew.v3340.ci.desc': 'We\'ve improved how we handle waiting times before posting articles to Facebook. This ensures your content is shared correctly.',
     'whatsNew.v3330.title': 'Improvements for a Better Experience and Search Results',
     'whatsNew.v3330.seo.title': 'More helpful and discoverable archive pages',
     'whatsNew.v3330.seo.desc': 'We\'ve made archive pages richer and easier to navigate, improving your experience and helping search engines show you relevant content.',

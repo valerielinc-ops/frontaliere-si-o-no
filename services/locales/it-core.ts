@@ -2280,6 +2280,17 @@ Regole:
     'seoContent.stats.check4': 'Dati sulla comunità frontaliera Ticino',
 
     // ─── What's New / Feature Announcements ─────────────────────────────
+    'whatsNew.v3340.title': 'Miglioramenti e correzioni per un\'esperienza più fluida',
+    'whatsNew.v3340.update-jobs-stats.title': 'Aggiornamenti su offerte di lavoro e statistiche',
+    'whatsNew.v3340.update-jobs-stats.desc': 'Abbiamo migliorato la visualizzazione delle offerte di lavoro, delle statistiche, dei prezzi del carburante e risolto alcuni problemi con gli annunci pubblicitari. Ora avrai informazioni più precise e aggiornate.',
+    'whatsNew.v3340.fix-auth-debug.title': 'Accesso più sicuro e stabile',
+    'whatsNew.v3340.fix-auth-debug.desc': 'Abbiamo risolto alcuni problemi legati all\'accesso e agli aggiornamenti di sistema. Ora potrai accedere ai tuoi dati in modo più rapido e sicuro.',
+    'whatsNew.v3340.fix-seo-sitemap.title': 'Miglioramento della visibilità sui motori di ricerca',
+    'whatsNew.v3340.fix-seo-sitemap.desc': 'Abbiamo corretto la copertura della mappa del sito per i motori di ricerca. Questo aiuterà a far trovare più facilmente i nostri contenuti online.',
+    'whatsNew.v3340.fix-auth-and.title': 'Correzioni aggiuntive per l\'accesso e il sistema',
+    'whatsNew.v3340.fix-auth-and.desc': 'Abbiamo apportato ulteriori miglioramenti all\'accesso e al processo di distribuzione. L\'esperienza utente dovrebbe essere ora più fluida.',
+    'whatsNew.v3340.ci.title': 'Maggiore affidabilità nella pubblicazione di articoli',
+    'whatsNew.v3340.ci.desc': 'Abbiamo migliorato la gestione dei tempi di attesa prima di pubblicare articoli su Facebook. Questo assicura che i tuoi contenuti vengano condivisi correttamente.',
     'whatsNew.v3330.title': 'Miglioramenti per una migliore esperienza e risultati di ricerca',
     'whatsNew.v3330.seo.title': 'Pagine di archivio più utili e facili da trovare',
     'whatsNew.v3330.seo.desc': 'Abbiamo reso le pagine di archivio più ricche di informazioni e più facili da navigare, migliorando la tua esperienza e aiutando i motori di ricerca a mostrarti contenuti pertinenti.',

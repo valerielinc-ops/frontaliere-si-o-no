@@ -31,37 +31,29 @@ const GOOGLE_TRANSLATE_ENDPOINTS = [
 const TIMEOUT_MS = 15000;
 
 // Lingva Translate instances (free Google Translate proxy)
+// Verified 2026-03-22 — only instances that returned valid translations
 const LINGVA_INSTANCES = [
-  'https://lingva.thedaviddelta.com',
-  'https://translate.plausibility.cloud',
-  'https://lingva.garuber.eu',
-  'https://translate.projectsegfau.lt',
-  'https://lingva.lunar.icu',
-  'https://lingva.privacyredirect.com',
+  'https://translate.plausibility.cloud',  // ✅ 3.3s
 ];
 
-// SimplyTranslate instances (another free proxy supporting Google/LibreTranslate/ICIBA)
+// SimplyTranslate instances (another free proxy)
+// Verified 2026-03-22
 const SIMPLYTRANSLATE_INSTANCES = [
-  'https://simplytranslate.org',
-  'https://st.tokhmi.xyz',
-  'https://translate.bus-hit.me',
-  'https://simplytranslate.pussthecat.org',
+  'https://simplytranslate.org',           // ✅ 1.3s
 ];
 
 // Mozhi instances (open-source translation proxy supporting multiple engines)
+// Verified 2026-03-22
 const MOZHI_INSTANCES = [
-  'https://mozhi.aryak.me',
-  'https://translate.bus-hit.me',
-  'https://nyc1.mundoose.com',
+  'https://mozhi.adminforge.de',           // ✅ 1.5s
+  'https://mozhi.pussthecat.org',          // ✅ 0.7s
+  'https://mozhi.aryak.me',               // ✅ 3.4s (slow but reliable)
 ];
 
 // LibreTranslate public instances (open-source, no API key)
+// Verified 2026-03-22
 const LIBRETRANSLATE_PUBLIC = [
-  'https://libretranslate.com',
-  'https://translate.terraprint.co',
-  'https://trans.zillyhuhn.com',
-  'https://translate.fedilab.app',
-  'https://lt.vern.cc',
+  'https://translate.cutie.dating',        // ✅ 4.7s
 ];
 const DEEPL_LANG_MAP = { it: 'IT', en: 'EN', de: 'DE', fr: 'FR' };
 

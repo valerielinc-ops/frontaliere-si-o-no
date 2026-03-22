@@ -2188,6 +2188,17 @@ Regeln:
     'seoContent.stats.check4': 'Daten zur Tessiner Grenzgänger-Gemeinschaft',
 
     // ─── What's New / Feature Announcements ─────────────────────────────
+    'whatsNew.v3340.title': 'Verbesserungen und Korrekturen für eine reibungslosere Erfahrung',
+    'whatsNew.v3340.update-jobs-stats.title': 'Aktualisierte Stellenangebote und Statistiken',
+    'whatsNew.v3340.update-jobs-stats.desc': 'Wir haben die Anzeige von Stellenangeboten, Statistiken und Kraftstoffpreisen verbessert und einige werbebezogene Probleme behoben. Sie erhalten nun genauere und aktuellere Informationen.',
+    'whatsNew.v3340.fix-auth-debug.title': 'Sicherer und stabilerer Login',
+    'whatsNew.v3340.fix-auth-debug.desc': 'Wir haben einige Probleme im Zusammenhang mit der Anmeldung und Systemaktualisierungen behoben. Sie können nun schneller und sicherer auf Ihre Daten zugreifen.',
+    'whatsNew.v3340.fix-seo-sitemap.title': 'Verbesserte Sichtbarkeit in Suchmaschinen',
+    'whatsNew.v3340.fix-seo-sitemap.desc': 'Wir haben die Abdeckung der Sitemap für Suchmaschinen korrigiert. Dies wird dazu beitragen, dass unsere Inhalte online leichter gefunden werden.',
+    'whatsNew.v3340.fix-auth-and.title': 'Zusätzliche Korrekturen für Login und System',
+    'whatsNew.v3340.fix-auth-and.desc': 'Wir haben weitere Verbesserungen am Anmelde- und Bereitstellungsprozess vorgenommen. Das Benutzererlebnis sollte nun reibungsloser sein.',
+    'whatsNew.v3340.ci.title': 'Zuverlässigeres Veröffentlichen von Artikeln',
+    'whatsNew.v3340.ci.desc': 'Wir haben die Handhabung von Wartezeiten vor dem Posten von Artikeln auf Facebook verbessert. Dies stellt sicher, dass Ihre Inhalte korrekt geteilt werden.',
     'whatsNew.v3330.title': 'Verbesserungen für eine bessere Erfahrung und Suchergebnisse',
     'whatsNew.v3330.seo.title': 'Hilfreichere und auffindbarere Archivseiten',
     'whatsNew.v3330.seo.desc': 'Wir haben Archivseiten informativer und einfacher zu navigieren gemacht, was Ihre Erfahrung verbessert und Suchmaschinen hilft, Ihnen relevante Inhalte anzuzeigen.',

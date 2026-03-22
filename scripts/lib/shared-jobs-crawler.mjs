@@ -692,14 +692,10 @@ async function raceProxyInstances(instances, fetchFn) {
   return '';
 }
 
-// ── Lingva Translate (free Google Translate proxy, multiple instances) ──
+// ── Lingva Translate (free Google Translate proxy) ──
+// Verified 2026-03-22
 const LINGVA_INSTANCES = [
-  'https://lingva.thedaviddelta.com',
   'https://translate.plausibility.cloud',
-  'https://lingva.garuber.eu',
-  'https://translate.projectsegfau.lt',
-  'https://lingva.lunar.icu',
-  'https://lingva.privacyredirect.com',
 ];
 
 async function translateChunkLingva({ text, sourceLang = 'auto', targetLang }) {
@@ -742,11 +738,9 @@ async function translateChunkedWithLingva({ text, sourceLang, targetLang }) {
 }
 
 // ── SimplyTranslate (another free Google Translate proxy) ──
+// Verified 2026-03-22
 const SIMPLYTRANSLATE_INSTANCES = [
   'https://simplytranslate.org',
-  'https://st.tokhmi.xyz',
-  'https://translate.bus-hit.me',
-  'https://simplytranslate.pussthecat.org',
 ];
 
 async function translateWithSimplyTranslateChunked({ text, sourceLang, targetLang }) {
@@ -780,10 +774,11 @@ async function translateWithSimplyTranslateChunked({ text, sourceLang, targetLan
 }
 
 // ── Mozhi (open-source translation proxy) ──
+// Verified 2026-03-22
 const MOZHI_INSTANCES = [
+  'https://mozhi.adminforge.de',
+  'https://mozhi.pussthecat.org',
   'https://mozhi.aryak.me',
-  'https://translate.bus-hit.me',
-  'https://nyc1.mundoose.com',
 ];
 
 async function translateWithMozhiChunked({ text, sourceLang, targetLang }) {
@@ -805,7 +800,8 @@ async function translateWithMozhiChunked({ text, sourceLang, targetLang }) {
       });
       if (!res.ok) return '';
       const data = await res.json();
-      const t = normalizeSpace(data?.translated_text || '');
+      // Mozhi uses 'translated-text' (hyphenated) in its response
+      const t = normalizeSpace(data?.['translated-text'] || data?.translated_text || '');
       if (t && t.toLowerCase() !== normalizeSpace(chunk).toLowerCase()) return t;
       return '';
     });
@@ -835,12 +831,9 @@ async function translateChunkedWithMyMemory({ text, sourceLang, targetLang }) {
 }
 
 // ── LibreTranslate public instances (open-source, no API key) ──
+// Verified 2026-03-22
 const LIBRETRANSLATE_PUBLIC_INSTANCES = [
-  'https://libretranslate.com',
-  'https://translate.terraprint.co',
-  'https://trans.zillyhuhn.com',
-  'https://translate.fedilab.app',
-  'https://lt.vern.cc',
+  'https://translate.cutie.dating',
 ];
 
 async function translateWithLibreTranslatePublic({ text, sourceLang, targetLang }) {

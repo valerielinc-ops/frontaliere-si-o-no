@@ -2188,6 +2188,17 @@ Règles :
     'seoContent.stats.check4': 'Données sur la communauté frontalière tessinoise',
 
     // ─── What's New / Feature Announcements ─────────────────────────────────
+    'whatsNew.v3340.title': 'Améliorations et corrections pour une expérience plus fluide',
+    'whatsNew.v3340.update-jobs-stats.title': 'Mises à jour des offres d\'emploi et des statistiques',
+    'whatsNew.v3340.update-jobs-stats.desc': 'Nous avons amélioré l\'affichage des offres d\'emploi, des statistiques et des prix du carburant, et résolu certains problèmes liés aux publicités. Vous disposez désormais d\'informations plus précises et à jour.',
+    'whatsNew.v3340.fix-auth-debug.title': 'Connexion plus sûre et stable',
+    'whatsNew.v3340.fix-auth-debug.desc': 'Nous avons résolu certains problèmes liés à la connexion et aux mises à jour du système. Vous pouvez désormais accéder à vos données plus rapidement et en toute sécurité.',
+    'whatsNew.v3340.fix-seo-sitemap.title': 'Amélioration de la visibilité sur les moteurs de recherche',
+    'whatsNew.v3340.fix-seo-sitemap.desc': 'Nous avons corrigé la couverture du plan du site pour les moteurs de recherche. Cela aidera nos contenus à être trouvés plus facilement en ligne.',
+    'whatsNew.v3340.fix-auth-and.title': 'Corrections supplémentaires pour la connexion et le système',
+    'whatsNew.v3340.fix-auth-and.desc': 'Nous avons apporté d\'autres améliorations au processus de connexion et de déploiement. L\'expérience utilisateur devrait maintenant être plus fluide.',
+    'whatsNew.v3340.ci.title': 'Publication d\'articles plus fiable',
+    'whatsNew.v3340.ci.desc': 'Nous avons amélioré la gestion des délais d\'attente avant de publier des articles sur Facebook. Cela garantit que votre contenu est partagé correctement.',
     'whatsNew.v3330.title': 'Améliorations pour une meilleure expérience et des résultats de recherche',
     'whatsNew.v3330.seo.title': 'Pages d\'archives plus utiles et faciles à découvrir',
     'whatsNew.v3330.seo.desc': 'Nous avons rendu les pages d\'archives plus riches et plus faciles à parcourir, améliorant votre expérience et aidant les moteurs de recherche à vous montrer du contenu pertinent.',
