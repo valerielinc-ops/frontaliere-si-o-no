@@ -1655,6 +1655,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.accesso-libero-alle-rive.title': 'Una camminata di protesta per il libero accesso alle rive del Lago di Lugano',
     'blog.article.accesso-libero-alle-rive.excerpt': 'I Giovani Verdi e l\'associazione \'Rive pubbliche della Svizzera italiana\' organizzano una camminata per richiedere il libero accesso alle rive del Lago di Lugano, attualmente limitato durante i mesi estivi.',
     'blog.article.accesso-libero-alle-rive.imageAlt': 'Passeggiata lungo il Lago di Lugano',
+    'blog.article.ticino-attenti-ai-radar-2026.title': 'Ticino, attenti ai radar: quando e dove i controlli della velocità',
+    'blog.article.ticino-attenti-ai-radar-2026.excerpt': 'I controlli della velocità mobili e semi-stazionari a Ticino dalle 23 marzo al 29 marzo 2026.',
+    'blog.article.ticino-attenti-ai-radar-2026.imageAlt': 'Radar in loco per controllare la velocità in Ticino',
 };
 
 export default blogMetaIt;

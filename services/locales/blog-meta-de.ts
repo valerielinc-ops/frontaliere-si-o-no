@@ -1655,6 +1655,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.accesso-libero-alle-rive.title': 'Ein Protestmarsch für den freien Zugang zu den Ufern des Lugano-See',
     'blog.article.accesso-libero-alle-rive.excerpt': 'Die Jungen Grünen und die Vereinigung \'Öffentliche Ufer der italienischen Schweiz\' organisieren einen Protestmarsch, um den freien Zugang zu den Ufern des Lugano-Sees zu fordern, der derzeit während der Sommermonate eingeschränkt ist.',
     'blog.article.accesso-libero-alle-rive.imageAlt': 'Spaziergang am Luganersee',
+    'blog.article.ticino-attenti-ai-radar-2026.title': 'Tessin, aufgepasst Radarfallen: Wann und wo Geschwindigkeitskontrollen stattfinden',
+    'blog.article.ticino-attenti-ai-radar-2026.excerpt': 'Mobile und semi-stationäre Geschwindigkeitskontrollen im Tessin vom 23. März bis 29. März 2026.',
+    'blog.article.ticino-attenti-ai-radar-2026.imageAlt': 'Geschwindigkeitskamera in Ticino',
 };
 
 export default blogMetaDe;

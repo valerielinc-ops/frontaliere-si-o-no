@@ -1655,6 +1655,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.accesso-libero-alle-rive.title': 'Une marche de protestation pour l\'accès libre aux rives du lac de Lugano',
     'blog.article.accesso-libero-alle-rive.excerpt': 'Les Jeunes Verts et l\'association \'Rives publiques de Suisse italienne\' organisent une marche pour revendiquer l\'accès libre aux rives du lac de Lugano, actuellement limité pendant les mois d\'été.',
     'blog.article.accesso-libero-alle-rive.imageAlt': 'Promenade le long du lac de Lugano',
+    'blog.article.ticino-attenti-ai-radar-2026.title': 'Suisse-romande, attention aux radars : quand et où les contrôles de vitesse',
+    'blog.article.ticino-attenti-ai-radar-2026.excerpt': 'Les contrôles de vitesse mobiles et semi-stationnaires en Suisse-romande du 23 mars au 29 mars 2026.',
+    'blog.article.ticino-attenti-ai-radar-2026.imageAlt': 'Câmera de vitesse en place au Tessin',
 };
 
 export default blogMetaFr;

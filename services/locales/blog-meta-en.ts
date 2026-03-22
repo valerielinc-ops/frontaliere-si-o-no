@@ -1655,6 +1655,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.accesso-libero-alle-rive.title': 'A protest walk for free access to the shores of Lake Lugano',
     'blog.article.accesso-libero-alle-rive.excerpt': 'The Young Greens and the \'Public Shores of Italian Switzerland\' association are organizing a walk to demand free access to the shores of Lake Lugano, currently limited during the summer months.',
     'blog.article.accesso-libero-alle-rive.imageAlt': 'Walk along Lake Lugano',
+    'blog.article.ticino-attenti-ai-radar-2026.title': 'Ticino, watch out for speed cameras: when and where speed checks will take place',
+    'blog.article.ticino-attenti-ai-radar-2026.excerpt': 'Mobile and semi-stationary speed checks in Ticino from March 23 to March 29, 2026.',
+    'blog.article.ticino-attenti-ai-radar-2026.imageAlt': 'Speed camera in place in Ticino',
 };
 
 export default blogMetaEn;

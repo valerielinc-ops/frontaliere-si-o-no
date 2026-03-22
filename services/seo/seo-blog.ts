@@ -9129,6 +9129,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-ticino-attenti-ai-radar-2026': {
+    title: 'Ticino, attenti ai radar: quando e dove i controlli della velocità | Frontaliere Ticino',
+    description: 'I controlli della velocità mobili e semi-stazionari a Ticino dalle 23 marzo al 29 marzo 2026. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, attenti, radar, quando, dove',
+    ogTitle: 'Ticino, attenti ai radar: quando e dove i controlli della velocità',
+    ogDescription: 'I controlli della velocità mobili e semi-stazionari a Ticino dalle 23 marzo al 29 marzo 2026.',
+    canonicalPath: '/articoli-frontaliere/ticino-attenti-ai-radar-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ticino, attenti ai radar: quando e dove i controlli della velocità",
+      "description": "I controlli della velocità mobili e semi-stazionari a Ticino dalle 23 marzo al 29 marzo 2026. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/ticino-attenti-ai-radar-2026.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Radar in loco per controllare la velocità in Ticino"
+      },
+      "datePublished": "2026-03-22T14:25:10+00:00",
+      "dateModified": "2026-03-22T14:25:10+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ticino-attenti-ai-radar-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

@@ -4456,6 +4456,13 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/accesso-libero-alle-rive.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'ticino-attenti-ai-radar-2026',
+    category: 'pratico',
+    date: '2026-03-22T14:25:10.266Z',
+    image: '/images/blog/ticino-attenti-ai-radar-2026.jpg',
+    hasCalculator: true,
+  },
 ];
 
 const CATEGORIES = ['all', 'fiscale', 'pratico', 'novita', 'pensione'] as const;
