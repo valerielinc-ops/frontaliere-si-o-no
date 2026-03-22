@@ -1578,6 +1578,10 @@ function cleanDescription(desc) {
   text = text
     .replace(/(privacy policy|cookie policy|all rights reserved|accept all cookies|manage preferences)/gi, ' ')
     .replace(/(apply now|candidati ora|learn more|scopri di più)\s*$/gi, ' ')
+    // Strip residual markdown formatting (***bold***, ##headings, # titles)
+    .replace(/\*{2,}([^*]+)\*{2,}/g, '$1')   // ***bold*** or **bold** → bold
+    .replace(/^#{1,6}\s+/gm, '')               // ## Heading → Heading
+    .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')   // [text](url) → text
     .replace(/[^\S\n]+/g, ' ')      // collapse horizontal whitespace, preserve \n
     .replace(/\n{3,}/g, '\n\n')      // max 2 consecutive newlines
     .replace(/^\n+|\n+$/g, '')       // trim leading/trailing newlines
