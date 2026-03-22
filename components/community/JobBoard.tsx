@@ -4509,18 +4509,20 @@ const JobBoard: React.FC<JobBoardProps> = ({
     );
   }
 
+  // Bridge: old URL with a known active replacement (window.__BRIDGE_TARGET_SLUG__ set by plugin template).
+  // Checked before selectedJob so bridge pages show JobBridgeView even when previousSlugs matches.
+  if (initialJobSlug && bridgeTargetSlug && !companySlugFilter && !searchSlugFilter) {
+    return (
+      <JobBridgeView
+        targetSlug={bridgeTargetSlug}
+        jobData={bridgeJobData}
+        relatedJobs={relatedJobsForNotFound}
+        onBack={backToList}
+      />
+    );
+  }
+
   if (initialJobSlug && !selectedJob && !companySlugFilter && !searchSlugFilter) {
-    // Bridge: old URL with a known active replacement (window.__BRIDGE_TARGET_SLUG__ set by plugin template)
-    if (bridgeTargetSlug) {
-      return (
-        <JobBridgeView
-          targetSlug={bridgeTargetSlug}
-          jobData={bridgeJobData}
-          relatedJobs={relatedJobsForNotFound}
-          onBack={backToList}
-        />
-      );
-    }
     // Expired: slug found in expired-jobs.json — show metadata + sign-in + related
     if (expiredJobLoading) return <SkeletonJobDetail />;
     if (expiredJob) {
