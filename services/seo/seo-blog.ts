@@ -9187,6 +9187,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-nuovi-radar-ticino-multe': {
+    title: 'Radar a mazzetti: nuove sfide per i frontalieri in Ticino | Frontaliere Ticino',
+    description: 'L\'intensificazione dei controlli radar in Ticino, con installazioni \'a mazzetti\', mette a rischio i frontalieri. Scopri le implicazioni e come evitare multe',
+    keywords: 'frontalieri, ticino, svizzera, italia, radar, mazzetti, nuove, sfide',
+    ogTitle: 'Radar a Mazzetti in Ticino: Frontalieri, Attenzione! | Frontaliere Ticino',
+    ogDescription: 'L\'intensificazione dei controlli radar in Ticino, con installazioni \'a mazzetti\', mette a rischio i frontalieri. Scopri le implicazioni e come evitare multe',
+    canonicalPath: '/articoli-frontaliere/nuovi-radar-ticino-multe',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Radar a Mazzetti sulle Strade Ticinesi: Nuove Sfide per i Frontalieri e l'Impatto Economico",
+      "description": "L'intensificazione dei controlli radar in Ticino, con installazioni 'a mazzetti', mette a rischio i frontalieri. Scopri le implicazioni e come evitare multe",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/nuovi-radar-ticino-multe.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Radar stradale in Ticino con Castelgrande sullo sfondo, simboleggiando i controlli sul traffico"
+      },
+      "datePublished": "2026-03-22T16:06:40+00:00",
+      "dateModified": "2026-03-22T16:06:40+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/nuovi-radar-ticino-multe`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

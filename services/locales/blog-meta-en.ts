@@ -1661,6 +1661,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.sequestro-stupefacenti-ecuador.title': 'Over Three Tons of Narcotics Seized',
     'blog.article.sequestro-stupefacenti-ecuador.excerpt': 'Ecuador has seized over three tons of narcotics at sea, thanks to a joint operation with the United States.',
     'blog.article.sequestro-stupefacenti-ecuador.imageAlt': 'Ecuadorian warship at sea',
+    'blog.article.nuovi-radar-ticino-multe.title': 'Cluster Radars: New Challenges for Cross-Border Commuters in Ticino',
+    'blog.article.nuovi-radar-ticino-multe.excerpt': 'Ticino\'s roads are experiencing an increase in radar checks, with \'cluster\' installations affecting thousands of cross-border commuters. An analysis of the economic consequences and practical advice.',
+    'blog.article.nuovi-radar-ticino-multe.imageAlt': 'Road radar in Ticino with Castelgrande in the background, symbolizing traffic controls',
 };
 
 export default blogMetaEn;

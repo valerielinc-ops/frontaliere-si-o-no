@@ -1661,6 +1661,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.sequestro-stupefacenti-ecuador.title': 'Saisie de trois tonnes de substances stupéfiantes',
     'blog.article.sequestro-stupefacenti-ecuador.excerpt': 'L\'Équateur a saisi plus de trois tonnes de substances stupéfiantes en mer, grâce à une opération conjointe avec les États-Unis.',
     'blog.article.sequestro-stupefacenti-ecuador.imageAlt': 'Navire de guerre équatorien en mer',
+    'blog.article.nuovi-radar-ticino-multe.title': 'Radars en grappes : nouveaux défis pour les frontaliers au Tessin',
+    'blog.article.nuovi-radar-ticino-multe.excerpt': 'Les routes tessinoises connaissent une augmentation des contrôles radar, avec des installations \'en grappes\' qui impactent des milliers de frontaliers. Une analyse des conséquences économiques et des conseils pratiques.',
+    'blog.article.nuovi-radar-ticino-multe.imageAlt': 'Radar routier au Tessin avec Castelgrande en arrière-plan, symbolisant les contrôles de la circulation',
 };
 
 export default blogMetaFr;

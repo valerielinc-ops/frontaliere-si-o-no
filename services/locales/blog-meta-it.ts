@@ -1661,6 +1661,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.sequestro-stupefacenti-ecuador.title': 'Sequestrate tre tonnellate di sostanze stupefacenti',
     'blog.article.sequestro-stupefacenti-ecuador.excerpt': 'L\'Ecuador ha sequestrato oltre tre tonnellate di sostanze stupefacenti in mare aperto, grazie a un\'operazione congiunta con gli Stati Uniti.',
     'blog.article.sequestro-stupefacenti-ecuador.imageAlt': 'Nave da guerra ecuadoregna in mare aperto',
+    'blog.article.nuovi-radar-ticino-multe.title': 'Radar a mazzetti: nuove sfide per i frontalieri in Ticino',
+    'blog.article.nuovi-radar-ticino-multe.excerpt': 'Le strade ticinesi vedono un aumento dei controlli radar, con installazioni a \'mazzetti\' che impattano migliaia di frontalieri. Un\'analisi delle conseguenze economiche e consigli pratici.',
+    'blog.article.nuovi-radar-ticino-multe.imageAlt': 'Radar stradale in Ticino con Castelgrande sullo sfondo, simboleggiando i controlli sul traffico',
 };
 
 export default blogMetaIt;

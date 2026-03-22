@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-03-22T15:00:59.903Z",
+  "generatedAt": "2026-03-22T16:13:01.591Z",
   "sources": {
     "italy": {
       "provider": "MIMIT Open Data",
@@ -11,7 +11,7 @@
       "provider": "TCS Benzinpreis",
       "providerUrl": "https://benzin.tcs.ch/de/map/SP95",
       "stationCount": 224,
-      "latestObservedUpdate": "2026-03-22T14:49:20.523Z"
+      "latestObservedUpdate": "2026-03-22T16:10:30.114Z"
     },
     "exchangeRate": {
       "provider": "ECB",
@@ -6501,20 +6501,6 @@
             "distanceKm": 15.5
           },
           {
-            "id": "Z8cpWklO19xnaCUaIJf9",
-            "name": "BP Service Agno",
-            "brand": "BP",
-            "address": "Strada Regina 151, 6982 Agno",
-            "lat": 46.0107135374649,
-            "lng": 8.90468663143751,
-            "sp95PriceChf": 1.75,
-            "updatedAt": "2026-03-09T17:39:17.154Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 6,
-            "sp95PriceEur": 1.924,
-            "distanceKm": 18.2
-          },
-          {
             "id": "ty1NJLEj5uZ9YRKJ3aX5",
             "name": "Eni Vezia",
             "brand": "ENI",
@@ -6527,6 +6513,20 @@
             "nearestMunicipalityDistanceKm": 6.5,
             "sp95PriceEur": 1.924,
             "distanceKm": 15.4
+          },
+          {
+            "id": "UaXDpxug9j7B4sRgwDcp",
+            "name": "Eni Lugano",
+            "brand": "ENI",
+            "address": "Riva Paradiso 40, 6900 Lugano",
+            "lat": 45.9888137,
+            "lng": 8.9537972,
+            "sp95PriceChf": 1.76,
+            "updatedAt": "2026-03-01T08:16:15.795Z",
+            "nearestMunicipality": "Campione d'Italia (CO)",
+            "nearestMunicipalityDistanceKm": 2.7,
+            "sp95PriceEur": 1.935,
+            "distanceKm": 16.6
           }
         ],
         "minPriceChf": 1.66,
@@ -17343,20 +17343,6 @@
             "distanceKm": 16.5
           },
           {
-            "id": "Z8cpWklO19xnaCUaIJf9",
-            "name": "BP Service Agno",
-            "brand": "BP",
-            "address": "Strada Regina 151, 6982 Agno",
-            "lat": 46.0107135374649,
-            "lng": 8.90468663143751,
-            "sp95PriceChf": 1.75,
-            "updatedAt": "2026-03-09T17:39:17.154Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 6,
-            "sp95PriceEur": 1.924,
-            "distanceKm": 19.3
-          },
-          {
             "id": "ty1NJLEj5uZ9YRKJ3aX5",
             "name": "Eni Vezia",
             "brand": "ENI",
@@ -17369,6 +17355,20 @@
             "nearestMunicipalityDistanceKm": 6.5,
             "sp95PriceEur": 1.924,
             "distanceKm": 16.5
+          },
+          {
+            "id": "UaXDpxug9j7B4sRgwDcp",
+            "name": "Eni Lugano",
+            "brand": "ENI",
+            "address": "Riva Paradiso 40, 6900 Lugano",
+            "lat": 45.9888137,
+            "lng": 8.9537972,
+            "sp95PriceChf": 1.76,
+            "updatedAt": "2026-03-01T08:16:15.795Z",
+            "nearestMunicipality": "Campione d'Italia (CO)",
+            "nearestMunicipalityDistanceKm": 2.7,
+            "sp95PriceEur": 1.935,
+            "distanceKm": 17.5
           }
         ],
         "minPriceChf": 1.66,

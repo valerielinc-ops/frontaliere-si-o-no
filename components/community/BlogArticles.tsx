@@ -4470,6 +4470,13 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/sequestro-stupefacenti-ecuador.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'nuovi-radar-ticino-multe',
+    category: 'novita',
+    date: '2026-03-22T16:06:40.417Z',
+    image: '/images/blog/nuovi-radar-ticino-multe.jpg',
+    hasCalculator: true,
+  },
 ];
 
 const CATEGORIES = ['all', 'fiscale', 'pratico', 'novita', 'pensione'] as const;

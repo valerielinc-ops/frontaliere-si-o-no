@@ -1661,6 +1661,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.sequestro-stupefacenti-ecuador.title': 'Drei Tonnen Rauschgift beschlagnahmt',
     'blog.article.sequestro-stupefacenti-ecuador.excerpt': 'Ecuador hat über drei Tonnen Rauschgift auf offener See beschlagnahmt, dank einer gemeinsamen Operation mit den Vereinigten Staaten.',
     'blog.article.sequestro-stupefacenti-ecuador.imageAlt': 'Ecuadorianisches Kriegsschiff auf See',
+    'blog.article.nuovi-radar-ticino-multe.title': 'Gebündelte Radarkontrollen: Neue Herausforderungen für Grenzgänger im Tessin',
+    'blog.article.nuovi-radar-ticino-multe.excerpt': 'Auf den Tessiner Strassen nimmt die Zahl der Radarkontrollen zu, mit \'gebündelten\' Installationen, die Tausende von Grenzgängern betreffen. Eine Analyse der wirtschaftlichen Folgen und praktische Ratschläge.',
+    'blog.article.nuovi-radar-ticino-multe.imageAlt': 'Strassenradar im Tessin mit Castelgrande im Hintergrund, als Symbol für Verkehrskontrollen',
 };
 
 export default blogMetaDe;
