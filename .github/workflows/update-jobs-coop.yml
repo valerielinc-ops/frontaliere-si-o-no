@@ -1,6 +1,10 @@
 name: Update Coop Jobs (Dedicated)
 
 on:
+  schedule:
+    # Runs at 06:00 UTC daily — before the orchestrator's 08:00 UTC run so Coop
+    # always gets fresh AI-model quotas (177 jobs × 4 locales = heavy quota consumer).
+    - cron: '0 6 * * *'
   workflow_dispatch:
     inputs:
       strict_localization:

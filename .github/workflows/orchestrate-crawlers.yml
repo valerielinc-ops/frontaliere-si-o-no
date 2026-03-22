@@ -2,9 +2,11 @@ name: Orchestrate Job Crawlers
 
 on:
   schedule:
-    # Run twice daily: early morning + afternoon (UTC)
-    - cron: '0 3 * * *'
-    - cron: '0 15 * * *'
+    # Run twice daily: morning + afternoon (UTC).
+    # Starts at 08:00 so the dedicated Coop crawler (06:00 UTC, heavy quota user)
+    # always gets first access to fresh daily AI-model quotas.
+    - cron: '0 8 * * *'
+    - cron: '0 20 * * *'
   workflow_dispatch:
     inputs:
       group:
