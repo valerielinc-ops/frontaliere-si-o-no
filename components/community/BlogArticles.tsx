@@ -4393,6 +4393,13 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/bossi-morto-ticino-frontalieri.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'ogm-fallimento-ticino',
+    category: 'novita',
+    date: '2026-03-22T08:49:32.012Z',
+    image: '/images/blog/ogm-fallimento-ticino.jpg',
+    hasCalculator: true,
+  },
 ];
 
 const CATEGORIES = ['all', 'fiscale', 'pratico', 'novita', 'pensione'] as const;

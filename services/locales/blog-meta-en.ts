@@ -1628,6 +1628,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.bossi-morto-ticino-frontalieri.title': 'Farewell to the Senatùr: Bossi and the Federalist Dream Crossing Ticino',
     'blog.article.bossi-morto-ticino-frontalieri.excerpt': 'The leader of Lega Nord died at 84: from the 1993 referendum on the \'fiscal strike\' to bilateral agreements, how the game changed for the 68,000 cross-border workers in Ticino',
     'blog.article.bossi-morto-ticino-frontalieri.imageAlt': 'Lake Lugano sunset with cross-border workers queueing at border',
+    'blog.article.ogm-fallimento-ticino.title': 'Failure of the Initiative Against GMOs in Switzerland',
+    'blog.article.ogm-fallimento-ticino.excerpt': 'The popular initiative for GMO control in Switzerland did not reach the required 100,000 signatures, with significant implications also for Ticino.',
+    'blog.article.ogm-fallimento-ticino.imageAlt': 'Lugano Lake with mountains in the background, typical Ticino landscape',
 };
 
 export default blogMetaEn;

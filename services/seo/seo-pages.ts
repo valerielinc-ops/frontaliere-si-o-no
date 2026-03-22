@@ -3049,7 +3049,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
         "@context": "https://schema.org",
         "@type": "ItemList",
         "name": "Articoli Frontaliere",
-        "numberOfItems": 533,
+        "numberOfItems": 534,
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
           { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -3583,7 +3583,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 530, "name": "Scontri violenti tra uomini nel Ticino: ospedal...", "url": `${BASE_URL}/articoli-frontaliere/gestione-scontri-frontali-ticino` },
           { "@type": "ListItem", "position": 531, "name": "Headline JSON-LD", "url": `${BASE_URL}/articoli-frontaliere/auto-intrusione-frontalieri-ticino` },
           { "@type": "ListItem", "position": 532, "name": "Rischio-Lugano in casa dello Young Boys: una sf...", "url": `${BASE_URL}/articoli-frontaliere/rischio-lugano-young-boys` },
-          { "@type": "ListItem", "position": 533, "name": "Morte Bossi: l’impatto sui frontalieri del Ticino", "url": `${BASE_URL}/articoli-frontaliere/bossi-morto-ticino-frontalieri` }
+          { "@type": "ListItem", "position": 533, "name": "Morte Bossi: l’impatto sui frontalieri del Ticino", "url": `${BASE_URL}/articoli-frontaliere/bossi-morto-ticino-frontalieri` },
+          { "@type": "ListItem", "position": 534, "name": "Fallimento dell’iniziativa contro gli OGM in Sv...", "url": `${BASE_URL}/articoli-frontaliere/ogm-fallimento-ticino` }
         ]
       }
     ]

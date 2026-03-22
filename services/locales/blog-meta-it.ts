@@ -1628,6 +1628,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.bossi-morto-ticino-frontalieri.title': 'Addio al Senatùr: Bossi e il sogno federalista che attraversa il Ticino',
     'blog.article.bossi-morto-ticino-frontalieri.excerpt': 'Morto a 84 anni il leader della Lega Nord: dal referendum del 1993 agli accordi bilaterali, come cambiò la partita per i 68.000 frontalieri',
     'blog.article.bossi-morto-ticino-frontalieri.imageAlt': 'Lago di Lugano al tramonto con frontalieri in fila al valico',
+    'blog.article.ogm-fallimento-ticino.title': 'Fallimento dell’iniziativa contro gli OGM in Svizzera',
+    'blog.article.ogm-fallimento-ticino.excerpt': 'L’iniziativa popolare per il controllo degli OGM in Svizzera non ha raggiunto il quorum di 100’000 firme, con implicazioni significative anche per il Ticino.',
+    'blog.article.ogm-fallimento-ticino.imageAlt': 'Lago di Lugano con montagne sullo sfondo, paesaggio naturale in Ticino',
 };
 
 export default blogMetaIt;

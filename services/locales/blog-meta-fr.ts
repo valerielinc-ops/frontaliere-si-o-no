@@ -1628,6 +1628,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.bossi-morto-ticino-frontalieri.title': 'Adieu au Senatùr : Bossi et le rêve fédéraliste qui traverse le Tessin',
     'blog.article.bossi-morto-ticino-frontalieri.excerpt': 'Décès à 84 ans du leader de la Ligue du Nord : du référendum de 1993 aux accords bilatéraux, comment il a changé la donne pour les 68 000 frontaliers tessinois',
     'blog.article.bossi-morto-ticino-frontalieri.imageAlt': 'Lac de Lugano au coucher du soleil avec frontaliers',
+    'blog.article.ogm-fallimento-ticino.title': 'Échec de l’initiative contre les OGM en Suisse',
+    'blog.article.ogm-fallimento-ticino.excerpt': 'L’initiative populaire pour le contrôle des OGM en Suisse n’a pas atteint le quorum de 100’000 signatures, avec des implications importantes également pour le Tessin.',
+    'blog.article.ogm-fallimento-ticino.imageAlt': 'Lac de Lugano avec montagnes en arrière-plan, paysage typique du Tessin',
 };
 
 export default blogMetaFr;

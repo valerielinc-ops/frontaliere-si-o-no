@@ -1679,6 +1679,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-auto-intrusione-frontalieri-ticino': { name: 'Controlli frontiera', path: '/articoli-frontaliere/auto-intrusione-frontalieri-ticino', parent: 'blog' },
     'blog-rischio-lugano-young-boys': { name: 'Rischio-Lugano in casa dello Young Boys', path: '/articoli-frontaliere/rischio-lugano-young-boys', parent: 'blog' },
     'blog-bossi-morto-ticino-frontalieri': { name: 'Morte Bossi', path: '/articoli-frontaliere/bossi-morto-ticino-frontalieri', parent: 'blog' },
+    'blog-ogm-fallimento-ticino': { name: 'Fallimento dell’iniziativa contro gli OG', path: '/articoli-frontaliere/ogm-fallimento-ticino', parent: 'blog' },
   };
 
   const info = sectionNames[section];

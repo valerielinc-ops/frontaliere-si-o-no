@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-03-22T08:08:51.058Z",
+  "generatedAt": "2026-03-22T08:54:42.821Z",
   "sources": {
     "italy": {
       "provider": "MIMIT Open Data",
@@ -10,8 +10,8 @@
     "switzerland": {
       "provider": "TCS Benzinpreis",
       "providerUrl": "https://benzin.tcs.ch/de/map/SP95",
-      "stationCount": 222,
-      "latestObservedUpdate": "2026-03-22T08:01:57.853Z"
+      "stationCount": 221,
+      "latestObservedUpdate": "2026-03-22T08:13:12.248Z"
     },
     "exchangeRate": {
       "provider": "ECB",
@@ -23,8 +23,8 @@
   "summary": {
     "municipalityCount": 518,
     "municipalitiesWithItalyPrices": 211,
-    "municipalitiesWithSwissComparison": 119,
-    "cheaperItalyCount": 111,
+    "municipalitiesWithSwissComparison": 118,
+    "cheaperItalyCount": 110,
     "cheaperSwissCount": 8,
     "tieCount": 0,
     "cheapestItalyMunicipality": {
@@ -499,19 +499,6 @@
         "sp95PriceEur": 1.77
       },
       {
-        "id": "ahxEtrinnrLWGsZ2laVB",
-        "name": "SOCAR / Piccadilly Gandria",
-        "brand": "PICCADILLY",
-        "address": "Via Cantonale 14, 6978 Gandria",
-        "lat": 46.008082,
-        "lng": 9.007765,
-        "sp95PriceChf": 1.63,
-        "updatedAt": "2026-02-20T08:30:17.440Z",
-        "nearestMunicipality": "Valsolda (CO)",
-        "nearestMunicipalityDistanceKm": 3.6,
-        "sp95PriceEur": 1.792
-      },
-      {
         "id": "2iMRCPqDCHHpLcBX8dCN",
         "name": "Agrola Melano",
         "brand": "AGROLA",
@@ -640,6 +627,19 @@
         "nearestMunicipality": "Brusimpiano (VA)",
         "nearestMunicipalityDistanceKm": 1.9,
         "sp95PriceEur": 1.814
+      },
+      {
+        "id": "C0N2af7HpbOfesQdHoAq",
+        "name": "BP Unbemannte Station Naters",
+        "brand": "BP",
+        "address": "Furkastrasse 13, 3904 Naters",
+        "lat": 46.32299,
+        "lng": 7.98811,
+        "sp95PriceChf": 1.66,
+        "updatedAt": "2026-03-02T16:13:57.395Z",
+        "nearestMunicipality": "Trasquera (VB)",
+        "nearestMunicipalityDistanceKm": 20.4,
+        "sp95PriceEur": 1.825
       }
     ],
     "bestCrossBorderSavings": [
@@ -1651,7 +1651,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 92,
+        "optionCount": 91,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -1696,20 +1696,6 @@
             "distanceKm": 18
           },
           {
-            "id": "ahxEtrinnrLWGsZ2laVB",
-            "name": "SOCAR / Piccadilly Gandria",
-            "brand": "PICCADILLY",
-            "address": "Via Cantonale 14, 6978 Gandria",
-            "lat": 46.008082,
-            "lng": 9.007765,
-            "sp95PriceChf": 1.63,
-            "updatedAt": "2026-02-20T08:30:17.440Z",
-            "nearestMunicipality": "Valsolda (CO)",
-            "nearestMunicipalityDistanceKm": 3.6,
-            "sp95PriceEur": 1.792,
-            "distanceKm": 4
-          },
-          {
             "id": "2iMRCPqDCHHpLcBX8dCN",
             "name": "Agrola Melano",
             "brand": "AGROLA",
@@ -1736,6 +1722,20 @@
             "nearestMunicipalityDistanceKm": 1.5,
             "sp95PriceEur": 1.814,
             "distanceKm": 16.2
+          },
+          {
+            "id": "LP7oYktKWhoncV2qvpHG",
+            "name": "ECSA Energy SA - Caslano",
+            "brand": "UNDEFINED",
+            "address": "Via Colombera 10, 6987 Caslano",
+            "lat": 45.97698951091755,
+            "lng": 8.874521781054243,
+            "sp95PriceChf": 1.6500000000000001,
+            "updatedAt": "2026-03-15T18:07:48.450Z",
+            "nearestMunicipality": "Brusimpiano (VA)",
+            "nearestMunicipalityDistanceKm": 1.9,
+            "sp95PriceEur": 1.814,
+            "distanceKm": 12.9
           }
         ],
         "minPriceChf": 1.61,
@@ -2188,36 +2188,22 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 80,
+        "optionCount": 79,
         "cheapestStation": {
-          "id": "ahxEtrinnrLWGsZ2laVB",
-          "name": "SOCAR / Piccadilly Gandria",
-          "brand": "PICCADILLY",
-          "address": "Via Cantonale 14, 6978 Gandria",
-          "lat": 46.008082,
-          "lng": 9.007765,
-          "sp95PriceChf": 1.63,
-          "updatedAt": "2026-02-20T08:30:17.440Z",
-          "nearestMunicipality": "Valsolda (CO)",
-          "nearestMunicipalityDistanceKm": 3.6,
-          "sp95PriceEur": 1.792,
-          "distanceKm": 11.8
+          "id": "2iMRCPqDCHHpLcBX8dCN",
+          "name": "Agrola Melano",
+          "brand": "AGROLA",
+          "address": "Via Cantonal 59, 6818 Melano",
+          "lat": 45.924022,
+          "lng": 8.984077,
+          "sp95PriceChf": 1.64,
+          "updatedAt": "2026-02-21T16:05:09.420Z",
+          "nearestMunicipality": "Campione d'Italia (CO)",
+          "nearestMunicipalityDistanceKm": 5,
+          "sp95PriceEur": 1.803,
+          "distanceKm": 11.4
         },
         "nearbyStations": [
-          {
-            "id": "ahxEtrinnrLWGsZ2laVB",
-            "name": "SOCAR / Piccadilly Gandria",
-            "brand": "PICCADILLY",
-            "address": "Via Cantonale 14, 6978 Gandria",
-            "lat": 46.008082,
-            "lng": 9.007765,
-            "sp95PriceChf": 1.63,
-            "updatedAt": "2026-02-20T08:30:17.440Z",
-            "nearestMunicipality": "Valsolda (CO)",
-            "nearestMunicipalityDistanceKm": 3.6,
-            "sp95PriceEur": 1.792,
-            "distanceKm": 11.8
-          },
           {
             "id": "2iMRCPqDCHHpLcBX8dCN",
             "name": "Agrola Melano",
@@ -2273,10 +2259,24 @@
             "nearestMunicipalityDistanceKm": 2.3,
             "sp95PriceEur": 1.825,
             "distanceKm": 10.2
+          },
+          {
+            "id": "pXVgLf2jUOKzOewFCsnj",
+            "name": "Migrol Service",
+            "brand": "MIGROL",
+            "address": "Centro Commerciale Serfontana, 6836 Serfontana",
+            "lat": 45.843756,
+            "lng": 9.016943,
+            "sp95PriceChf": 1.66,
+            "updatedAt": "2026-03-15T23:20:48.297Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 2.3,
+            "sp95PriceEur": 1.825,
+            "distanceKm": 14
           }
         ],
-        "minPriceChf": 1.63,
-        "minPriceEur": 1.792
+        "minPriceChf": 1.64,
+        "minPriceEur": 1.803
       },
       "comparison": {
         "cheaperCountry": "NO_DATA",
@@ -2736,44 +2736,16 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 1,
-        "cheapestStation": {
-          "id": "ahxEtrinnrLWGsZ2laVB",
-          "name": "SOCAR / Piccadilly Gandria",
-          "brand": "PICCADILLY",
-          "address": "Via Cantonale 14, 6978 Gandria",
-          "lat": 46.008082,
-          "lng": 9.007765,
-          "sp95PriceChf": 1.63,
-          "updatedAt": "2026-02-20T08:30:17.440Z",
-          "nearestMunicipality": "Valsolda (CO)",
-          "nearestMunicipalityDistanceKm": 3.6,
-          "sp95PriceEur": 1.792,
-          "distanceKm": 19.7
-        },
-        "nearbyStations": [
-          {
-            "id": "ahxEtrinnrLWGsZ2laVB",
-            "name": "SOCAR / Piccadilly Gandria",
-            "brand": "PICCADILLY",
-            "address": "Via Cantonale 14, 6978 Gandria",
-            "lat": 46.008082,
-            "lng": 9.007765,
-            "sp95PriceChf": 1.63,
-            "updatedAt": "2026-02-20T08:30:17.440Z",
-            "nearestMunicipality": "Valsolda (CO)",
-            "nearestMunicipalityDistanceKm": 3.6,
-            "sp95PriceEur": 1.792,
-            "distanceKm": 19.7
-          }
-        ],
-        "minPriceChf": 1.63,
-        "minPriceEur": 1.792
+        "optionCount": 0,
+        "cheapestStation": null,
+        "nearbyStations": [],
+        "minPriceChf": null,
+        "minPriceEur": null
       },
       "comparison": {
-        "cheaperCountry": "IT",
-        "priceDeltaEur": 0.053,
-        "saving50LEur": 2.65
+        "cheaperCountry": "NO_DATA",
+        "priceDeltaEur": null,
+        "saving50LEur": null
       }
     },
     {
@@ -2795,36 +2767,22 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 48,
+        "optionCount": 47,
         "cheapestStation": {
-          "id": "ahxEtrinnrLWGsZ2laVB",
-          "name": "SOCAR / Piccadilly Gandria",
-          "brand": "PICCADILLY",
-          "address": "Via Cantonale 14, 6978 Gandria",
-          "lat": 46.008082,
-          "lng": 9.007765,
-          "sp95PriceChf": 1.63,
-          "updatedAt": "2026-02-20T08:30:17.440Z",
-          "nearestMunicipality": "Valsolda (CO)",
-          "nearestMunicipalityDistanceKm": 3.6,
-          "sp95PriceEur": 1.792,
-          "distanceKm": 12.7
+          "id": "2iMRCPqDCHHpLcBX8dCN",
+          "name": "Agrola Melano",
+          "brand": "AGROLA",
+          "address": "Via Cantonal 59, 6818 Melano",
+          "lat": 45.924022,
+          "lng": 8.984077,
+          "sp95PriceChf": 1.64,
+          "updatedAt": "2026-02-21T16:05:09.420Z",
+          "nearestMunicipality": "Campione d'Italia (CO)",
+          "nearestMunicipalityDistanceKm": 5,
+          "sp95PriceEur": 1.803,
+          "distanceKm": 18.2
         },
         "nearbyStations": [
-          {
-            "id": "ahxEtrinnrLWGsZ2laVB",
-            "name": "SOCAR / Piccadilly Gandria",
-            "brand": "PICCADILLY",
-            "address": "Via Cantonale 14, 6978 Gandria",
-            "lat": 46.008082,
-            "lng": 9.007765,
-            "sp95PriceChf": 1.63,
-            "updatedAt": "2026-02-20T08:30:17.440Z",
-            "nearestMunicipality": "Valsolda (CO)",
-            "nearestMunicipalityDistanceKm": 3.6,
-            "sp95PriceEur": 1.792,
-            "distanceKm": 12.7
-          },
           {
             "id": "2iMRCPqDCHHpLcBX8dCN",
             "name": "Agrola Melano",
@@ -2880,10 +2838,24 @@
             "nearestMunicipalityDistanceKm": 6.1,
             "sp95PriceEur": 1.924,
             "distanceKm": 19.3
+          },
+          {
+            "id": "IqXnbVgQGsblZuiJdXA0",
+            "name": "Piccadilly SA - Eni, Migrolino",
+            "brand": "ENI",
+            "address": "Via Cantonale 10, 6818 Melano",
+            "lat": 45.9317133374317,
+            "lng": 8.97427393373679,
+            "sp95PriceChf": 1.75,
+            "updatedAt": "2026-03-12T07:59:13.432Z",
+            "nearestMunicipality": "Campione d'Italia (CO)",
+            "nearestMunicipalityDistanceKm": 4.1,
+            "sp95PriceEur": 1.924,
+            "distanceKm": 18.3
           }
         ],
-        "minPriceChf": 1.63,
-        "minPriceEur": 1.792
+        "minPriceChf": 1.64,
+        "minPriceEur": 1.803
       },
       "comparison": {
         "cheaperCountry": "NO_DATA",
@@ -3140,7 +3112,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 64,
+        "optionCount": 63,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -3169,20 +3141,6 @@
             "nearestMunicipalityDistanceKm": 1.3,
             "sp95PriceEur": 1.77,
             "distanceKm": 19.8
-          },
-          {
-            "id": "ahxEtrinnrLWGsZ2laVB",
-            "name": "SOCAR / Piccadilly Gandria",
-            "brand": "PICCADILLY",
-            "address": "Via Cantonale 14, 6978 Gandria",
-            "lat": 46.008082,
-            "lng": 9.007765,
-            "sp95PriceChf": 1.63,
-            "updatedAt": "2026-02-20T08:30:17.440Z",
-            "nearestMunicipality": "Valsolda (CO)",
-            "nearestMunicipalityDistanceKm": 3.6,
-            "sp95PriceEur": 1.792,
-            "distanceKm": 19.7
           },
           {
             "id": "2iMRCPqDCHHpLcBX8dCN",
@@ -3225,6 +3183,20 @@
             "nearestMunicipalityDistanceKm": 1.9,
             "sp95PriceEur": 1.814,
             "distanceKm": 16.6
+          },
+          {
+            "id": "eyss2Vf8mj29JzsCvuUr",
+            "name": "Piccadilly SA",
+            "brand": "UNDEFINED",
+            "address": "Stráda da Valmára, 6822 Arogno",
+            "lat": 45.96022467397532,
+            "lng": 8.998347379932348,
+            "sp95PriceChf": 1.66,
+            "updatedAt": "2026-03-10T08:07:48.373Z",
+            "nearestMunicipality": "Campione d'Italia (CO)",
+            "nearestMunicipalityDistanceKm": 2.3,
+            "sp95PriceEur": 1.825,
+            "distanceKm": 14.4
           }
         ],
         "minPriceChf": 1.61,
@@ -3255,36 +3227,22 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 83,
+        "optionCount": 82,
         "cheapestStation": {
-          "id": "ahxEtrinnrLWGsZ2laVB",
-          "name": "SOCAR / Piccadilly Gandria",
-          "brand": "PICCADILLY",
-          "address": "Via Cantonale 14, 6978 Gandria",
-          "lat": 46.008082,
-          "lng": 9.007765,
-          "sp95PriceChf": 1.63,
-          "updatedAt": "2026-02-20T08:30:17.440Z",
-          "nearestMunicipality": "Valsolda (CO)",
-          "nearestMunicipalityDistanceKm": 3.6,
-          "sp95PriceEur": 1.792,
-          "distanceKm": 8.8
+          "id": "2iMRCPqDCHHpLcBX8dCN",
+          "name": "Agrola Melano",
+          "brand": "AGROLA",
+          "address": "Via Cantonal 59, 6818 Melano",
+          "lat": 45.924022,
+          "lng": 8.984077,
+          "sp95PriceChf": 1.64,
+          "updatedAt": "2026-02-21T16:05:09.420Z",
+          "nearestMunicipality": "Campione d'Italia (CO)",
+          "nearestMunicipalityDistanceKm": 5,
+          "sp95PriceEur": 1.803,
+          "distanceKm": 9.6
         },
         "nearbyStations": [
-          {
-            "id": "ahxEtrinnrLWGsZ2laVB",
-            "name": "SOCAR / Piccadilly Gandria",
-            "brand": "PICCADILLY",
-            "address": "Via Cantonale 14, 6978 Gandria",
-            "lat": 46.008082,
-            "lng": 9.007765,
-            "sp95PriceChf": 1.63,
-            "updatedAt": "2026-02-20T08:30:17.440Z",
-            "nearestMunicipality": "Valsolda (CO)",
-            "nearestMunicipalityDistanceKm": 3.6,
-            "sp95PriceEur": 1.792,
-            "distanceKm": 8.8
-          },
           {
             "id": "2iMRCPqDCHHpLcBX8dCN",
             "name": "Agrola Melano",
@@ -3340,10 +3298,24 @@
             "nearestMunicipalityDistanceKm": 2.3,
             "sp95PriceEur": 1.825,
             "distanceKm": 7.7
+          },
+          {
+            "id": "pXVgLf2jUOKzOewFCsnj",
+            "name": "Migrol Service",
+            "brand": "MIGROL",
+            "address": "Centro Commerciale Serfontana, 6836 Serfontana",
+            "lat": 45.843756,
+            "lng": 9.016943,
+            "sp95PriceChf": 1.66,
+            "updatedAt": "2026-03-15T23:20:48.297Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 2.3,
+            "sp95PriceEur": 1.825,
+            "distanceKm": 14.3
           }
         ],
-        "minPriceChf": 1.63,
-        "minPriceEur": 1.792
+        "minPriceChf": 1.64,
+        "minPriceEur": 1.803
       },
       "comparison": {
         "cheaperCountry": "NO_DATA",
@@ -3803,36 +3775,22 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 60,
+        "optionCount": 59,
         "cheapestStation": {
-          "id": "ahxEtrinnrLWGsZ2laVB",
-          "name": "SOCAR / Piccadilly Gandria",
-          "brand": "PICCADILLY",
-          "address": "Via Cantonale 14, 6978 Gandria",
-          "lat": 46.008082,
-          "lng": 9.007765,
-          "sp95PriceChf": 1.63,
-          "updatedAt": "2026-02-20T08:30:17.440Z",
-          "nearestMunicipality": "Valsolda (CO)",
-          "nearestMunicipalityDistanceKm": 3.6,
-          "sp95PriceEur": 1.792,
-          "distanceKm": 14.4
+          "id": "2iMRCPqDCHHpLcBX8dCN",
+          "name": "Agrola Melano",
+          "brand": "AGROLA",
+          "address": "Via Cantonal 59, 6818 Melano",
+          "lat": 45.924022,
+          "lng": 8.984077,
+          "sp95PriceChf": 1.64,
+          "updatedAt": "2026-02-21T16:05:09.420Z",
+          "nearestMunicipality": "Campione d'Italia (CO)",
+          "nearestMunicipalityDistanceKm": 5,
+          "sp95PriceEur": 1.803,
+          "distanceKm": 11.5
         },
         "nearbyStations": [
-          {
-            "id": "ahxEtrinnrLWGsZ2laVB",
-            "name": "SOCAR / Piccadilly Gandria",
-            "brand": "PICCADILLY",
-            "address": "Via Cantonale 14, 6978 Gandria",
-            "lat": 46.008082,
-            "lng": 9.007765,
-            "sp95PriceChf": 1.63,
-            "updatedAt": "2026-02-20T08:30:17.440Z",
-            "nearestMunicipality": "Valsolda (CO)",
-            "nearestMunicipalityDistanceKm": 3.6,
-            "sp95PriceEur": 1.792,
-            "distanceKm": 14.4
-          },
           {
             "id": "2iMRCPqDCHHpLcBX8dCN",
             "name": "Agrola Melano",
@@ -3888,10 +3846,24 @@
             "nearestMunicipalityDistanceKm": 2.3,
             "sp95PriceEur": 1.825,
             "distanceKm": 11.6
+          },
+          {
+            "id": "a3ydF9cfEWFnSCLRCrQi",
+            "name": "Eni Melano",
+            "brand": "ENI",
+            "address": "Strada Cantonale, 06818 Melano",
+            "lat": 45.9241382,
+            "lng": 8.9826835,
+            "sp95PriceChf": 1.67,
+            "updatedAt": "2026-02-21T16:05:02.430Z",
+            "nearestMunicipality": "Campione d'Italia (CO)",
+            "nearestMunicipalityDistanceKm": 5,
+            "sp95PriceEur": 1.836,
+            "distanceKm": 11.6
           }
         ],
-        "minPriceChf": 1.63,
-        "minPriceEur": 1.792
+        "minPriceChf": 1.64,
+        "minPriceEur": 1.803
       },
       "comparison": {
         "cheaperCountry": "NO_DATA",
@@ -4519,7 +4491,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 92,
+        "optionCount": 91,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -4564,20 +4536,6 @@
             "distanceKm": 12.8
           },
           {
-            "id": "ahxEtrinnrLWGsZ2laVB",
-            "name": "SOCAR / Piccadilly Gandria",
-            "brand": "PICCADILLY",
-            "address": "Via Cantonale 14, 6978 Gandria",
-            "lat": 46.008082,
-            "lng": 9.007765,
-            "sp95PriceChf": 1.63,
-            "updatedAt": "2026-02-20T08:30:17.440Z",
-            "nearestMunicipality": "Valsolda (CO)",
-            "nearestMunicipalityDistanceKm": 3.6,
-            "sp95PriceEur": 1.792,
-            "distanceKm": 5.3
-          },
-          {
             "id": "2iMRCPqDCHHpLcBX8dCN",
             "name": "Agrola Melano",
             "brand": "AGROLA",
@@ -4604,6 +4562,20 @@
             "nearestMunicipalityDistanceKm": 1.5,
             "sp95PriceEur": 1.814,
             "distanceKm": 15.5
+          },
+          {
+            "id": "LP7oYktKWhoncV2qvpHG",
+            "name": "ECSA Energy SA - Caslano",
+            "brand": "UNDEFINED",
+            "address": "Via Colombera 10, 6987 Caslano",
+            "lat": 45.97698951091755,
+            "lng": 8.874521781054243,
+            "sp95PriceChf": 1.6500000000000001,
+            "updatedAt": "2026-03-15T18:07:48.450Z",
+            "nearestMunicipality": "Brusimpiano (VA)",
+            "nearestMunicipalityDistanceKm": 1.9,
+            "sp95PriceEur": 1.814,
+            "distanceKm": 7.5
           }
         ],
         "minPriceChf": 1.61,
@@ -5254,36 +5226,22 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 54,
+        "optionCount": 53,
         "cheapestStation": {
-          "id": "ahxEtrinnrLWGsZ2laVB",
-          "name": "SOCAR / Piccadilly Gandria",
-          "brand": "PICCADILLY",
-          "address": "Via Cantonale 14, 6978 Gandria",
-          "lat": 46.008082,
-          "lng": 9.007765,
-          "sp95PriceChf": 1.63,
-          "updatedAt": "2026-02-20T08:30:17.440Z",
-          "nearestMunicipality": "Valsolda (CO)",
-          "nearestMunicipalityDistanceKm": 3.6,
-          "sp95PriceEur": 1.792,
-          "distanceKm": 16.3
+          "id": "2iMRCPqDCHHpLcBX8dCN",
+          "name": "Agrola Melano",
+          "brand": "AGROLA",
+          "address": "Via Cantonal 59, 6818 Melano",
+          "lat": 45.924022,
+          "lng": 8.984077,
+          "sp95PriceChf": 1.64,
+          "updatedAt": "2026-02-21T16:05:09.420Z",
+          "nearestMunicipality": "Campione d'Italia (CO)",
+          "nearestMunicipalityDistanceKm": 5,
+          "sp95PriceEur": 1.803,
+          "distanceKm": 10.9
         },
         "nearbyStations": [
-          {
-            "id": "ahxEtrinnrLWGsZ2laVB",
-            "name": "SOCAR / Piccadilly Gandria",
-            "brand": "PICCADILLY",
-            "address": "Via Cantonale 14, 6978 Gandria",
-            "lat": 46.008082,
-            "lng": 9.007765,
-            "sp95PriceChf": 1.63,
-            "updatedAt": "2026-02-20T08:30:17.440Z",
-            "nearestMunicipality": "Valsolda (CO)",
-            "nearestMunicipalityDistanceKm": 3.6,
-            "sp95PriceEur": 1.792,
-            "distanceKm": 16.3
-          },
           {
             "id": "2iMRCPqDCHHpLcBX8dCN",
             "name": "Agrola Melano",
@@ -5339,10 +5297,24 @@
             "nearestMunicipalityDistanceKm": 2.3,
             "sp95PriceEur": 1.825,
             "distanceKm": 8.3
+          },
+          {
+            "id": "a3ydF9cfEWFnSCLRCrQi",
+            "name": "Eni Melano",
+            "brand": "ENI",
+            "address": "Strada Cantonale, 06818 Melano",
+            "lat": 45.9241382,
+            "lng": 8.9826835,
+            "sp95PriceChf": 1.67,
+            "updatedAt": "2026-02-21T16:05:02.430Z",
+            "nearestMunicipality": "Campione d'Italia (CO)",
+            "nearestMunicipalityDistanceKm": 5,
+            "sp95PriceEur": 1.836,
+            "distanceKm": 11
           }
         ],
-        "minPriceChf": 1.63,
-        "minPriceEur": 1.792
+        "minPriceChf": 1.64,
+        "minPriceEur": 1.803
       },
       "comparison": {
         "cheaperCountry": "NO_DATA",
@@ -5599,36 +5571,22 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 81,
+        "optionCount": 80,
         "cheapestStation": {
-          "id": "ahxEtrinnrLWGsZ2laVB",
-          "name": "SOCAR / Piccadilly Gandria",
-          "brand": "PICCADILLY",
-          "address": "Via Cantonale 14, 6978 Gandria",
-          "lat": 46.008082,
-          "lng": 9.007765,
-          "sp95PriceChf": 1.63,
-          "updatedAt": "2026-02-20T08:30:17.440Z",
-          "nearestMunicipality": "Valsolda (CO)",
-          "nearestMunicipalityDistanceKm": 3.6,
-          "sp95PriceEur": 1.792,
-          "distanceKm": 12.2
+          "id": "2iMRCPqDCHHpLcBX8dCN",
+          "name": "Agrola Melano",
+          "brand": "AGROLA",
+          "address": "Via Cantonal 59, 6818 Melano",
+          "lat": 45.924022,
+          "lng": 8.984077,
+          "sp95PriceChf": 1.64,
+          "updatedAt": "2026-02-21T16:05:09.420Z",
+          "nearestMunicipality": "Campione d'Italia (CO)",
+          "nearestMunicipalityDistanceKm": 5,
+          "sp95PriceEur": 1.803,
+          "distanceKm": 19.2
         },
         "nearbyStations": [
-          {
-            "id": "ahxEtrinnrLWGsZ2laVB",
-            "name": "SOCAR / Piccadilly Gandria",
-            "brand": "PICCADILLY",
-            "address": "Via Cantonale 14, 6978 Gandria",
-            "lat": 46.008082,
-            "lng": 9.007765,
-            "sp95PriceChf": 1.63,
-            "updatedAt": "2026-02-20T08:30:17.440Z",
-            "nearestMunicipality": "Valsolda (CO)",
-            "nearestMunicipalityDistanceKm": 3.6,
-            "sp95PriceEur": 1.792,
-            "distanceKm": 12.2
-          },
           {
             "id": "2iMRCPqDCHHpLcBX8dCN",
             "name": "Agrola Melano",
@@ -5684,10 +5642,24 @@
             "nearestMunicipalityDistanceKm": 13.7,
             "sp95PriceEur": 1.924,
             "distanceKm": 19.3
+          },
+          {
+            "id": "IqXnbVgQGsblZuiJdXA0",
+            "name": "Piccadilly SA - Eni, Migrolino",
+            "brand": "ENI",
+            "address": "Via Cantonale 10, 6818 Melano",
+            "lat": 45.9317133374317,
+            "lng": 8.97427393373679,
+            "sp95PriceChf": 1.75,
+            "updatedAt": "2026-03-12T07:59:13.432Z",
+            "nearestMunicipality": "Campione d'Italia (CO)",
+            "nearestMunicipalityDistanceKm": 4.1,
+            "sp95PriceEur": 1.924,
+            "distanceKm": 19.2
           }
         ],
-        "minPriceChf": 1.63,
-        "minPriceEur": 1.792
+        "minPriceChf": 1.64,
+        "minPriceEur": 1.803
       },
       "comparison": {
         "cheaperCountry": "NO_DATA",
@@ -6470,36 +6442,22 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 96,
+        "optionCount": 95,
         "cheapestStation": {
-          "id": "ahxEtrinnrLWGsZ2laVB",
-          "name": "SOCAR / Piccadilly Gandria",
-          "brand": "PICCADILLY",
-          "address": "Via Cantonale 14, 6978 Gandria",
-          "lat": 46.008082,
-          "lng": 9.007765,
-          "sp95PriceChf": 1.63,
-          "updatedAt": "2026-02-20T08:30:17.440Z",
-          "nearestMunicipality": "Valsolda (CO)",
-          "nearestMunicipalityDistanceKm": 3.6,
-          "sp95PriceEur": 1.792,
-          "distanceKm": 12.1
+          "id": "eyss2Vf8mj29JzsCvuUr",
+          "name": "Piccadilly SA",
+          "brand": "UNDEFINED",
+          "address": "Stráda da Valmára, 6822 Arogno",
+          "lat": 45.96022467397532,
+          "lng": 8.998347379932348,
+          "sp95PriceChf": 1.66,
+          "updatedAt": "2026-03-10T08:07:48.373Z",
+          "nearestMunicipality": "Campione d'Italia (CO)",
+          "nearestMunicipalityDistanceKm": 2.3,
+          "sp95PriceEur": 1.825,
+          "distanceKm": 16.9
         },
         "nearbyStations": [
-          {
-            "id": "ahxEtrinnrLWGsZ2laVB",
-            "name": "SOCAR / Piccadilly Gandria",
-            "brand": "PICCADILLY",
-            "address": "Via Cantonale 14, 6978 Gandria",
-            "lat": 46.008082,
-            "lng": 9.007765,
-            "sp95PriceChf": 1.63,
-            "updatedAt": "2026-02-20T08:30:17.440Z",
-            "nearestMunicipality": "Valsolda (CO)",
-            "nearestMunicipalityDistanceKm": 3.6,
-            "sp95PriceEur": 1.792,
-            "distanceKm": 12.1
-          },
           {
             "id": "eyss2Vf8mj29JzsCvuUr",
             "name": "Piccadilly SA",
@@ -6555,10 +6513,24 @@
             "nearestMunicipalityDistanceKm": 6,
             "sp95PriceEur": 1.924,
             "distanceKm": 18.2
+          },
+          {
+            "id": "ty1NJLEj5uZ9YRKJ3aX5",
+            "name": "Eni Vezia",
+            "brand": "ENI",
+            "address": "Via San Gottardo 7, 6943 Vezia",
+            "lat": 46.0220127,
+            "lng": 8.9370494,
+            "sp95PriceChf": 1.75,
+            "updatedAt": "2026-03-04T07:29:51.055Z",
+            "nearestMunicipality": "Campione d'Italia (CO)",
+            "nearestMunicipalityDistanceKm": 6.5,
+            "sp95PriceEur": 1.924,
+            "distanceKm": 15.4
           }
         ],
-        "minPriceChf": 1.63,
-        "minPriceEur": 1.792
+        "minPriceChf": 1.66,
+        "minPriceEur": 1.825
       },
       "comparison": {
         "cheaperCountry": "NO_DATA",
@@ -6585,7 +6557,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 86,
+        "optionCount": 85,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -6614,20 +6586,6 @@
             "nearestMunicipalityDistanceKm": 1.3,
             "sp95PriceEur": 1.77,
             "distanceKm": 19.4
-          },
-          {
-            "id": "ahxEtrinnrLWGsZ2laVB",
-            "name": "SOCAR / Piccadilly Gandria",
-            "brand": "PICCADILLY",
-            "address": "Via Cantonale 14, 6978 Gandria",
-            "lat": 46.008082,
-            "lng": 9.007765,
-            "sp95PriceChf": 1.63,
-            "updatedAt": "2026-02-20T08:30:17.440Z",
-            "nearestMunicipality": "Valsolda (CO)",
-            "nearestMunicipalityDistanceKm": 3.6,
-            "sp95PriceEur": 1.792,
-            "distanceKm": 7.7
           },
           {
             "id": "2iMRCPqDCHHpLcBX8dCN",
@@ -6670,6 +6628,20 @@
             "nearestMunicipalityDistanceKm": 1.9,
             "sp95PriceEur": 1.814,
             "distanceKm": 14.9
+          },
+          {
+            "id": "eyss2Vf8mj29JzsCvuUr",
+            "name": "Piccadilly SA",
+            "brand": "UNDEFINED",
+            "address": "Stráda da Valmára, 6822 Arogno",
+            "lat": 45.96022467397532,
+            "lng": 8.998347379932348,
+            "sp95PriceChf": 1.66,
+            "updatedAt": "2026-03-10T08:07:48.373Z",
+            "nearestMunicipality": "Campione d'Italia (CO)",
+            "nearestMunicipalityDistanceKm": 2.3,
+            "sp95PriceEur": 1.825,
+            "distanceKm": 5.2
           }
         ],
         "minPriceChf": 1.61,
@@ -6700,36 +6672,22 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 82,
+        "optionCount": 81,
         "cheapestStation": {
-          "id": "ahxEtrinnrLWGsZ2laVB",
-          "name": "SOCAR / Piccadilly Gandria",
-          "brand": "PICCADILLY",
-          "address": "Via Cantonale 14, 6978 Gandria",
-          "lat": 46.008082,
-          "lng": 9.007765,
-          "sp95PriceChf": 1.63,
-          "updatedAt": "2026-02-20T08:30:17.440Z",
-          "nearestMunicipality": "Valsolda (CO)",
-          "nearestMunicipalityDistanceKm": 3.6,
-          "sp95PriceEur": 1.792,
-          "distanceKm": 9.5
+          "id": "2iMRCPqDCHHpLcBX8dCN",
+          "name": "Agrola Melano",
+          "brand": "AGROLA",
+          "address": "Via Cantonal 59, 6818 Melano",
+          "lat": 45.924022,
+          "lng": 8.984077,
+          "sp95PriceChf": 1.64,
+          "updatedAt": "2026-02-21T16:05:09.420Z",
+          "nearestMunicipality": "Campione d'Italia (CO)",
+          "nearestMunicipalityDistanceKm": 5,
+          "sp95PriceEur": 1.803,
+          "distanceKm": 8.4
         },
         "nearbyStations": [
-          {
-            "id": "ahxEtrinnrLWGsZ2laVB",
-            "name": "SOCAR / Piccadilly Gandria",
-            "brand": "PICCADILLY",
-            "address": "Via Cantonale 14, 6978 Gandria",
-            "lat": 46.008082,
-            "lng": 9.007765,
-            "sp95PriceChf": 1.63,
-            "updatedAt": "2026-02-20T08:30:17.440Z",
-            "nearestMunicipality": "Valsolda (CO)",
-            "nearestMunicipalityDistanceKm": 3.6,
-            "sp95PriceEur": 1.792,
-            "distanceKm": 9.5
-          },
           {
             "id": "2iMRCPqDCHHpLcBX8dCN",
             "name": "Agrola Melano",
@@ -6785,10 +6743,24 @@
             "nearestMunicipalityDistanceKm": 2.3,
             "sp95PriceEur": 1.825,
             "distanceKm": 7.2
+          },
+          {
+            "id": "pXVgLf2jUOKzOewFCsnj",
+            "name": "Migrol Service",
+            "brand": "MIGROL",
+            "address": "Centro Commerciale Serfontana, 6836 Serfontana",
+            "lat": 45.843756,
+            "lng": 9.016943,
+            "sp95PriceChf": 1.66,
+            "updatedAt": "2026-03-15T23:20:48.297Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 2.3,
+            "sp95PriceEur": 1.825,
+            "distanceKm": 12.4
           }
         ],
-        "minPriceChf": 1.63,
-        "minPriceEur": 1.792
+        "minPriceChf": 1.64,
+        "minPriceEur": 1.803
       },
       "comparison": {
         "cheaperCountry": "NO_DATA",
@@ -7007,36 +6979,22 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 42,
+        "optionCount": 41,
         "cheapestStation": {
-          "id": "ahxEtrinnrLWGsZ2laVB",
-          "name": "SOCAR / Piccadilly Gandria",
-          "brand": "PICCADILLY",
-          "address": "Via Cantonale 14, 6978 Gandria",
-          "lat": 46.008082,
-          "lng": 9.007765,
-          "sp95PriceChf": 1.63,
-          "updatedAt": "2026-02-20T08:30:17.440Z",
-          "nearestMunicipality": "Valsolda (CO)",
-          "nearestMunicipalityDistanceKm": 3.6,
-          "sp95PriceEur": 1.792,
-          "distanceKm": 19.3
+          "id": "2iMRCPqDCHHpLcBX8dCN",
+          "name": "Agrola Melano",
+          "brand": "AGROLA",
+          "address": "Via Cantonal 59, 6818 Melano",
+          "lat": 45.924022,
+          "lng": 8.984077,
+          "sp95PriceChf": 1.64,
+          "updatedAt": "2026-02-21T16:05:09.420Z",
+          "nearestMunicipality": "Campione d'Italia (CO)",
+          "nearestMunicipalityDistanceKm": 5,
+          "sp95PriceEur": 1.803,
+          "distanceKm": 11.6
         },
         "nearbyStations": [
-          {
-            "id": "ahxEtrinnrLWGsZ2laVB",
-            "name": "SOCAR / Piccadilly Gandria",
-            "brand": "PICCADILLY",
-            "address": "Via Cantonale 14, 6978 Gandria",
-            "lat": 46.008082,
-            "lng": 9.007765,
-            "sp95PriceChf": 1.63,
-            "updatedAt": "2026-02-20T08:30:17.440Z",
-            "nearestMunicipality": "Valsolda (CO)",
-            "nearestMunicipalityDistanceKm": 3.6,
-            "sp95PriceEur": 1.792,
-            "distanceKm": 19.3
-          },
           {
             "id": "2iMRCPqDCHHpLcBX8dCN",
             "name": "Agrola Melano",
@@ -7092,10 +7050,24 @@
             "nearestMunicipalityDistanceKm": 2.3,
             "sp95PriceEur": 1.825,
             "distanceKm": 4.6
+          },
+          {
+            "id": "a3ydF9cfEWFnSCLRCrQi",
+            "name": "Eni Melano",
+            "brand": "ENI",
+            "address": "Strada Cantonale, 06818 Melano",
+            "lat": 45.9241382,
+            "lng": 8.9826835,
+            "sp95PriceChf": 1.67,
+            "updatedAt": "2026-02-21T16:05:02.430Z",
+            "nearestMunicipality": "Campione d'Italia (CO)",
+            "nearestMunicipalityDistanceKm": 5,
+            "sp95PriceEur": 1.836,
+            "distanceKm": 11.7
           }
         ],
-        "minPriceChf": 1.63,
-        "minPriceEur": 1.792
+        "minPriceChf": 1.64,
+        "minPriceEur": 1.803
       },
       "comparison": {
         "cheaperCountry": "NO_DATA",
@@ -7237,36 +7209,22 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 104,
+        "optionCount": 103,
         "cheapestStation": {
-          "id": "ahxEtrinnrLWGsZ2laVB",
-          "name": "SOCAR / Piccadilly Gandria",
-          "brand": "PICCADILLY",
-          "address": "Via Cantonale 14, 6978 Gandria",
-          "lat": 46.008082,
-          "lng": 9.007765,
-          "sp95PriceChf": 1.63,
-          "updatedAt": "2026-02-20T08:30:17.440Z",
-          "nearestMunicipality": "Valsolda (CO)",
-          "nearestMunicipalityDistanceKm": 3.6,
-          "sp95PriceEur": 1.792,
-          "distanceKm": 6.4
+          "id": "2iMRCPqDCHHpLcBX8dCN",
+          "name": "Agrola Melano",
+          "brand": "AGROLA",
+          "address": "Via Cantonal 59, 6818 Melano",
+          "lat": 45.924022,
+          "lng": 8.984077,
+          "sp95PriceChf": 1.64,
+          "updatedAt": "2026-02-21T16:05:09.420Z",
+          "nearestMunicipality": "Campione d'Italia (CO)",
+          "nearestMunicipalityDistanceKm": 5,
+          "sp95PriceEur": 1.803,
+          "distanceKm": 12.5
         },
         "nearbyStations": [
-          {
-            "id": "ahxEtrinnrLWGsZ2laVB",
-            "name": "SOCAR / Piccadilly Gandria",
-            "brand": "PICCADILLY",
-            "address": "Via Cantonale 14, 6978 Gandria",
-            "lat": 46.008082,
-            "lng": 9.007765,
-            "sp95PriceChf": 1.63,
-            "updatedAt": "2026-02-20T08:30:17.440Z",
-            "nearestMunicipality": "Valsolda (CO)",
-            "nearestMunicipalityDistanceKm": 3.6,
-            "sp95PriceEur": 1.792,
-            "distanceKm": 6.4
-          },
           {
             "id": "2iMRCPqDCHHpLcBX8dCN",
             "name": "Agrola Melano",
@@ -7322,10 +7280,24 @@
             "nearestMunicipalityDistanceKm": 2.3,
             "sp95PriceEur": 1.825,
             "distanceKm": 9
+          },
+          {
+            "id": "pXVgLf2jUOKzOewFCsnj",
+            "name": "Migrol Service",
+            "brand": "MIGROL",
+            "address": "Centro Commerciale Serfontana, 6836 Serfontana",
+            "lat": 45.843756,
+            "lng": 9.016943,
+            "sp95PriceChf": 1.66,
+            "updatedAt": "2026-03-15T23:20:48.297Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 2.3,
+            "sp95PriceEur": 1.825,
+            "distanceKm": 19.3
           }
         ],
-        "minPriceChf": 1.63,
-        "minPriceEur": 1.792
+        "minPriceChf": 1.64,
+        "minPriceEur": 1.803
       },
       "comparison": {
         "cheaperCountry": "NO_DATA",
@@ -7352,36 +7324,22 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 69,
+        "optionCount": 68,
         "cheapestStation": {
-          "id": "ahxEtrinnrLWGsZ2laVB",
-          "name": "SOCAR / Piccadilly Gandria",
-          "brand": "PICCADILLY",
-          "address": "Via Cantonale 14, 6978 Gandria",
-          "lat": 46.008082,
-          "lng": 9.007765,
-          "sp95PriceChf": 1.63,
-          "updatedAt": "2026-02-20T08:30:17.440Z",
-          "nearestMunicipality": "Valsolda (CO)",
-          "nearestMunicipalityDistanceKm": 3.6,
-          "sp95PriceEur": 1.792,
-          "distanceKm": 12.7
+          "id": "2iMRCPqDCHHpLcBX8dCN",
+          "name": "Agrola Melano",
+          "brand": "AGROLA",
+          "address": "Via Cantonal 59, 6818 Melano",
+          "lat": 45.924022,
+          "lng": 8.984077,
+          "sp95PriceChf": 1.64,
+          "updatedAt": "2026-02-21T16:05:09.420Z",
+          "nearestMunicipality": "Campione d'Italia (CO)",
+          "nearestMunicipalityDistanceKm": 5,
+          "sp95PriceEur": 1.803,
+          "distanceKm": 13.8
         },
         "nearbyStations": [
-          {
-            "id": "ahxEtrinnrLWGsZ2laVB",
-            "name": "SOCAR / Piccadilly Gandria",
-            "brand": "PICCADILLY",
-            "address": "Via Cantonale 14, 6978 Gandria",
-            "lat": 46.008082,
-            "lng": 9.007765,
-            "sp95PriceChf": 1.63,
-            "updatedAt": "2026-02-20T08:30:17.440Z",
-            "nearestMunicipality": "Valsolda (CO)",
-            "nearestMunicipalityDistanceKm": 3.6,
-            "sp95PriceEur": 1.792,
-            "distanceKm": 12.7
-          },
           {
             "id": "2iMRCPqDCHHpLcBX8dCN",
             "name": "Agrola Melano",
@@ -7437,10 +7395,24 @@
             "nearestMunicipalityDistanceKm": 2.3,
             "sp95PriceEur": 1.825,
             "distanceKm": 16.6
+          },
+          {
+            "id": "a3ydF9cfEWFnSCLRCrQi",
+            "name": "Eni Melano",
+            "brand": "ENI",
+            "address": "Strada Cantonale, 06818 Melano",
+            "lat": 45.9241382,
+            "lng": 8.9826835,
+            "sp95PriceChf": 1.67,
+            "updatedAt": "2026-02-21T16:05:02.430Z",
+            "nearestMunicipality": "Campione d'Italia (CO)",
+            "nearestMunicipalityDistanceKm": 5,
+            "sp95PriceEur": 1.836,
+            "distanceKm": 13.9
           }
         ],
-        "minPriceChf": 1.63,
-        "minPriceEur": 1.792
+        "minPriceChf": 1.64,
+        "minPriceEur": 1.803
       },
       "comparison": {
         "cheaperCountry": "NO_DATA",
@@ -7972,36 +7944,22 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 86,
+        "optionCount": 85,
         "cheapestStation": {
-          "id": "ahxEtrinnrLWGsZ2laVB",
-          "name": "SOCAR / Piccadilly Gandria",
-          "brand": "PICCADILLY",
-          "address": "Via Cantonale 14, 6978 Gandria",
-          "lat": 46.008082,
-          "lng": 9.007765,
-          "sp95PriceChf": 1.63,
-          "updatedAt": "2026-02-20T08:30:17.440Z",
-          "nearestMunicipality": "Valsolda (CO)",
-          "nearestMunicipalityDistanceKm": 3.6,
-          "sp95PriceEur": 1.792,
-          "distanceKm": 11
+          "id": "2iMRCPqDCHHpLcBX8dCN",
+          "name": "Agrola Melano",
+          "brand": "AGROLA",
+          "address": "Via Cantonal 59, 6818 Melano",
+          "lat": 45.924022,
+          "lng": 8.984077,
+          "sp95PriceChf": 1.64,
+          "updatedAt": "2026-02-21T16:05:09.420Z",
+          "nearestMunicipality": "Campione d'Italia (CO)",
+          "nearestMunicipalityDistanceKm": 5,
+          "sp95PriceEur": 1.803,
+          "distanceKm": 18.1
         },
         "nearbyStations": [
-          {
-            "id": "ahxEtrinnrLWGsZ2laVB",
-            "name": "SOCAR / Piccadilly Gandria",
-            "brand": "PICCADILLY",
-            "address": "Via Cantonale 14, 6978 Gandria",
-            "lat": 46.008082,
-            "lng": 9.007765,
-            "sp95PriceChf": 1.63,
-            "updatedAt": "2026-02-20T08:30:17.440Z",
-            "nearestMunicipality": "Valsolda (CO)",
-            "nearestMunicipalityDistanceKm": 3.6,
-            "sp95PriceEur": 1.792,
-            "distanceKm": 11
-          },
           {
             "id": "2iMRCPqDCHHpLcBX8dCN",
             "name": "Agrola Melano",
@@ -8057,10 +8015,24 @@
             "nearestMunicipalityDistanceKm": 6.1,
             "sp95PriceEur": 1.924,
             "distanceKm": 19.4
+          },
+          {
+            "id": "HapjFsEcj5Snc7o1iICH",
+            "name": "Station La Posta Svizzzera",
+            "brand": "UNDEFINED",
+            "address": "Viale Stefano Franscini 30, 6500 Bellinzona ",
+            "lat": 46.1928300156486,
+            "lng": 9.01310606612084,
+            "sp95PriceChf": 1.75,
+            "updatedAt": "2026-03-18T17:51:12.883Z",
+            "nearestMunicipality": "Cavargna (CO)",
+            "nearestMunicipalityDistanceKm": 13.7,
+            "sp95PriceEur": 1.924,
+            "distanceKm": 19
           }
         ],
-        "minPriceChf": 1.63,
-        "minPriceEur": 1.792
+        "minPriceChf": 1.64,
+        "minPriceEur": 1.803
       },
       "comparison": {
         "cheaperCountry": "NO_DATA",
@@ -8255,36 +8227,22 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 78,
+        "optionCount": 77,
         "cheapestStation": {
-          "id": "ahxEtrinnrLWGsZ2laVB",
-          "name": "SOCAR / Piccadilly Gandria",
-          "brand": "PICCADILLY",
-          "address": "Via Cantonale 14, 6978 Gandria",
-          "lat": 46.008082,
-          "lng": 9.007765,
-          "sp95PriceChf": 1.63,
-          "updatedAt": "2026-02-20T08:30:17.440Z",
-          "nearestMunicipality": "Valsolda (CO)",
-          "nearestMunicipalityDistanceKm": 3.6,
-          "sp95PriceEur": 1.792,
-          "distanceKm": 13.4
+          "id": "eyss2Vf8mj29JzsCvuUr",
+          "name": "Piccadilly SA",
+          "brand": "UNDEFINED",
+          "address": "Stráda da Valmára, 6822 Arogno",
+          "lat": 45.96022467397532,
+          "lng": 8.998347379932348,
+          "sp95PriceChf": 1.66,
+          "updatedAt": "2026-03-10T08:07:48.373Z",
+          "nearestMunicipality": "Campione d'Italia (CO)",
+          "nearestMunicipalityDistanceKm": 2.3,
+          "sp95PriceEur": 1.825,
+          "distanceKm": 17.4
         },
         "nearbyStations": [
-          {
-            "id": "ahxEtrinnrLWGsZ2laVB",
-            "name": "SOCAR / Piccadilly Gandria",
-            "brand": "PICCADILLY",
-            "address": "Via Cantonale 14, 6978 Gandria",
-            "lat": 46.008082,
-            "lng": 9.007765,
-            "sp95PriceChf": 1.63,
-            "updatedAt": "2026-02-20T08:30:17.440Z",
-            "nearestMunicipality": "Valsolda (CO)",
-            "nearestMunicipalityDistanceKm": 3.6,
-            "sp95PriceEur": 1.792,
-            "distanceKm": 13.4
-          },
           {
             "id": "eyss2Vf8mj29JzsCvuUr",
             "name": "Piccadilly SA",
@@ -8340,10 +8298,24 @@
             "nearestMunicipalityDistanceKm": 6.5,
             "sp95PriceEur": 1.924,
             "distanceKm": 17.6
+          },
+          {
+            "id": "UaXDpxug9j7B4sRgwDcp",
+            "name": "Eni Lugano",
+            "brand": "ENI",
+            "address": "Riva Paradiso 40, 6900 Lugano",
+            "lat": 45.9888137,
+            "lng": 8.9537972,
+            "sp95PriceChf": 1.76,
+            "updatedAt": "2026-03-01T08:16:15.795Z",
+            "nearestMunicipality": "Campione d'Italia (CO)",
+            "nearestMunicipalityDistanceKm": 2.7,
+            "sp95PriceEur": 1.935,
+            "distanceKm": 18.1
           }
         ],
-        "minPriceChf": 1.63,
-        "minPriceEur": 1.792
+        "minPriceChf": 1.66,
+        "minPriceEur": 1.825
       },
       "comparison": {
         "cheaperCountry": "NO_DATA",
@@ -8370,36 +8342,22 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 82,
+        "optionCount": 81,
         "cheapestStation": {
-          "id": "ahxEtrinnrLWGsZ2laVB",
-          "name": "SOCAR / Piccadilly Gandria",
-          "brand": "PICCADILLY",
-          "address": "Via Cantonale 14, 6978 Gandria",
-          "lat": 46.008082,
-          "lng": 9.007765,
-          "sp95PriceChf": 1.63,
-          "updatedAt": "2026-02-20T08:30:17.440Z",
-          "nearestMunicipality": "Valsolda (CO)",
-          "nearestMunicipalityDistanceKm": 3.6,
-          "sp95PriceEur": 1.792,
-          "distanceKm": 10.1
+          "id": "2iMRCPqDCHHpLcBX8dCN",
+          "name": "Agrola Melano",
+          "brand": "AGROLA",
+          "address": "Via Cantonal 59, 6818 Melano",
+          "lat": 45.924022,
+          "lng": 8.984077,
+          "sp95PriceChf": 1.64,
+          "updatedAt": "2026-02-21T16:05:09.420Z",
+          "nearestMunicipality": "Campione d'Italia (CO)",
+          "nearestMunicipalityDistanceKm": 5,
+          "sp95PriceEur": 1.803,
+          "distanceKm": 9.2
         },
         "nearbyStations": [
-          {
-            "id": "ahxEtrinnrLWGsZ2laVB",
-            "name": "SOCAR / Piccadilly Gandria",
-            "brand": "PICCADILLY",
-            "address": "Via Cantonale 14, 6978 Gandria",
-            "lat": 46.008082,
-            "lng": 9.007765,
-            "sp95PriceChf": 1.63,
-            "updatedAt": "2026-02-20T08:30:17.440Z",
-            "nearestMunicipality": "Valsolda (CO)",
-            "nearestMunicipalityDistanceKm": 3.6,
-            "sp95PriceEur": 1.792,
-            "distanceKm": 10.1
-          },
           {
             "id": "2iMRCPqDCHHpLcBX8dCN",
             "name": "Agrola Melano",
@@ -8455,10 +8413,24 @@
             "nearestMunicipalityDistanceKm": 2.3,
             "sp95PriceEur": 1.825,
             "distanceKm": 8
+          },
+          {
+            "id": "pXVgLf2jUOKzOewFCsnj",
+            "name": "Migrol Service",
+            "brand": "MIGROL",
+            "address": "Centro Commerciale Serfontana, 6836 Serfontana",
+            "lat": 45.843756,
+            "lng": 9.016943,
+            "sp95PriceChf": 1.66,
+            "updatedAt": "2026-03-15T23:20:48.297Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 2.3,
+            "sp95PriceEur": 1.825,
+            "distanceKm": 12.8
           }
         ],
-        "minPriceChf": 1.63,
-        "minPriceEur": 1.792
+        "minPriceChf": 1.64,
+        "minPriceEur": 1.803
       },
       "comparison": {
         "cheaperCountry": "NO_DATA",
@@ -10348,36 +10320,22 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 26,
+        "optionCount": 25,
         "cheapestStation": {
-          "id": "ahxEtrinnrLWGsZ2laVB",
-          "name": "SOCAR / Piccadilly Gandria",
-          "brand": "PICCADILLY",
-          "address": "Via Cantonale 14, 6978 Gandria",
-          "lat": 46.008082,
-          "lng": 9.007765,
-          "sp95PriceChf": 1.63,
-          "updatedAt": "2026-02-20T08:30:17.440Z",
-          "nearestMunicipality": "Valsolda (CO)",
-          "nearestMunicipalityDistanceKm": 3.6,
-          "sp95PriceEur": 1.792,
-          "distanceKm": 14.8
+          "id": "eyss2Vf8mj29JzsCvuUr",
+          "name": "Piccadilly SA",
+          "brand": "UNDEFINED",
+          "address": "Stráda da Valmára, 6822 Arogno",
+          "lat": 45.96022467397532,
+          "lng": 8.998347379932348,
+          "sp95PriceChf": 1.66,
+          "updatedAt": "2026-03-10T08:07:48.373Z",
+          "nearestMunicipality": "Campione d'Italia (CO)",
+          "nearestMunicipalityDistanceKm": 2.3,
+          "sp95PriceEur": 1.825,
+          "distanceKm": 17.9
         },
         "nearbyStations": [
-          {
-            "id": "ahxEtrinnrLWGsZ2laVB",
-            "name": "SOCAR / Piccadilly Gandria",
-            "brand": "PICCADILLY",
-            "address": "Via Cantonale 14, 6978 Gandria",
-            "lat": 46.008082,
-            "lng": 9.007765,
-            "sp95PriceChf": 1.63,
-            "updatedAt": "2026-02-20T08:30:17.440Z",
-            "nearestMunicipality": "Valsolda (CO)",
-            "nearestMunicipalityDistanceKm": 3.6,
-            "sp95PriceEur": 1.792,
-            "distanceKm": 14.8
-          },
           {
             "id": "eyss2Vf8mj29JzsCvuUr",
             "name": "Piccadilly SA",
@@ -10433,15 +10391,29 @@
             "nearestMunicipalityDistanceKm": 2.7,
             "sp95PriceEur": 1.935,
             "distanceKm": 19.5
+          },
+          {
+            "id": "wzPgEs0c2X33mB8NPi1X",
+            "name": "Eni Savosa",
+            "brand": "ENI",
+            "address": "Via San Gottardo 146, 6942 Savosa",
+            "lat": 46.016059,
+            "lng": 8.9412766,
+            "sp95PriceChf": 1.78,
+            "updatedAt": "2026-03-18T23:59:47.333Z",
+            "nearestMunicipality": "Campione d'Italia (CO)",
+            "nearestMunicipalityDistanceKm": 5.8,
+            "sp95PriceEur": 1.957,
+            "distanceKm": 19.6
           }
         ],
-        "minPriceChf": 1.63,
-        "minPriceEur": 1.792
+        "minPriceChf": 1.66,
+        "minPriceEur": 1.825
       },
       "comparison": {
         "cheaperCountry": "IT",
-        "priceDeltaEur": 0.013,
-        "saving50LEur": 0.65
+        "priceDeltaEur": 0.046,
+        "saving50LEur": 2.3
       }
     },
     {
@@ -10578,36 +10550,22 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 2,
+        "optionCount": 1,
         "cheapestStation": {
-          "id": "ahxEtrinnrLWGsZ2laVB",
-          "name": "SOCAR / Piccadilly Gandria",
-          "brand": "PICCADILLY",
-          "address": "Via Cantonale 14, 6978 Gandria",
-          "lat": 46.008082,
-          "lng": 9.007765,
-          "sp95PriceChf": 1.63,
-          "updatedAt": "2026-02-20T08:30:17.440Z",
-          "nearestMunicipality": "Valsolda (CO)",
-          "nearestMunicipalityDistanceKm": 3.6,
-          "sp95PriceEur": 1.792,
-          "distanceKm": 17.6
+          "id": "eyss2Vf8mj29JzsCvuUr",
+          "name": "Piccadilly SA",
+          "brand": "UNDEFINED",
+          "address": "Stráda da Valmára, 6822 Arogno",
+          "lat": 45.96022467397532,
+          "lng": 8.998347379932348,
+          "sp95PriceChf": 1.66,
+          "updatedAt": "2026-03-10T08:07:48.373Z",
+          "nearestMunicipality": "Campione d'Italia (CO)",
+          "nearestMunicipalityDistanceKm": 2.3,
+          "sp95PriceEur": 1.825,
+          "distanceKm": 18.7
         },
         "nearbyStations": [
-          {
-            "id": "ahxEtrinnrLWGsZ2laVB",
-            "name": "SOCAR / Piccadilly Gandria",
-            "brand": "PICCADILLY",
-            "address": "Via Cantonale 14, 6978 Gandria",
-            "lat": 46.008082,
-            "lng": 9.007765,
-            "sp95PriceChf": 1.63,
-            "updatedAt": "2026-02-20T08:30:17.440Z",
-            "nearestMunicipality": "Valsolda (CO)",
-            "nearestMunicipalityDistanceKm": 3.6,
-            "sp95PriceEur": 1.792,
-            "distanceKm": 17.6
-          },
           {
             "id": "eyss2Vf8mj29JzsCvuUr",
             "name": "Piccadilly SA",
@@ -10623,8 +10581,8 @@
             "distanceKm": 18.7
           }
         ],
-        "minPriceChf": 1.63,
-        "minPriceEur": 1.792
+        "minPriceChf": 1.66,
+        "minPriceEur": 1.825
       },
       "comparison": {
         "cheaperCountry": "NO_DATA",
@@ -10980,36 +10938,22 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 41,
+        "optionCount": 40,
         "cheapestStation": {
-          "id": "ahxEtrinnrLWGsZ2laVB",
-          "name": "SOCAR / Piccadilly Gandria",
-          "brand": "PICCADILLY",
-          "address": "Via Cantonale 14, 6978 Gandria",
-          "lat": 46.008082,
-          "lng": 9.007765,
-          "sp95PriceChf": 1.63,
-          "updatedAt": "2026-02-20T08:30:17.440Z",
-          "nearestMunicipality": "Valsolda (CO)",
-          "nearestMunicipalityDistanceKm": 3.6,
-          "sp95PriceEur": 1.792,
-          "distanceKm": 17.7
+          "id": "2iMRCPqDCHHpLcBX8dCN",
+          "name": "Agrola Melano",
+          "brand": "AGROLA",
+          "address": "Via Cantonal 59, 6818 Melano",
+          "lat": 45.924022,
+          "lng": 8.984077,
+          "sp95PriceChf": 1.64,
+          "updatedAt": "2026-02-21T16:05:09.420Z",
+          "nearestMunicipality": "Campione d'Italia (CO)",
+          "nearestMunicipalityDistanceKm": 5,
+          "sp95PriceEur": 1.803,
+          "distanceKm": 13
         },
         "nearbyStations": [
-          {
-            "id": "ahxEtrinnrLWGsZ2laVB",
-            "name": "SOCAR / Piccadilly Gandria",
-            "brand": "PICCADILLY",
-            "address": "Via Cantonale 14, 6978 Gandria",
-            "lat": 46.008082,
-            "lng": 9.007765,
-            "sp95PriceChf": 1.63,
-            "updatedAt": "2026-02-20T08:30:17.440Z",
-            "nearestMunicipality": "Valsolda (CO)",
-            "nearestMunicipalityDistanceKm": 3.6,
-            "sp95PriceEur": 1.792,
-            "distanceKm": 17.7
-          },
           {
             "id": "2iMRCPqDCHHpLcBX8dCN",
             "name": "Agrola Melano",
@@ -11065,10 +11009,24 @@
             "nearestMunicipalityDistanceKm": 2.3,
             "sp95PriceEur": 1.825,
             "distanceKm": 10.1
+          },
+          {
+            "id": "a3ydF9cfEWFnSCLRCrQi",
+            "name": "Eni Melano",
+            "brand": "ENI",
+            "address": "Strada Cantonale, 06818 Melano",
+            "lat": 45.9241382,
+            "lng": 8.9826835,
+            "sp95PriceChf": 1.67,
+            "updatedAt": "2026-02-21T16:05:02.430Z",
+            "nearestMunicipality": "Campione d'Italia (CO)",
+            "nearestMunicipalityDistanceKm": 5,
+            "sp95PriceEur": 1.836,
+            "distanceKm": 13.1
           }
         ],
-        "minPriceChf": 1.63,
-        "minPriceEur": 1.792
+        "minPriceChf": 1.64,
+        "minPriceEur": 1.803
       },
       "comparison": {
         "cheaperCountry": "NO_DATA",
@@ -11095,7 +11053,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 90,
+        "optionCount": 89,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -11124,20 +11082,6 @@
             "nearestMunicipalityDistanceKm": 1.3,
             "sp95PriceEur": 1.77,
             "distanceKm": 19.8
-          },
-          {
-            "id": "ahxEtrinnrLWGsZ2laVB",
-            "name": "SOCAR / Piccadilly Gandria",
-            "brand": "PICCADILLY",
-            "address": "Via Cantonale 14, 6978 Gandria",
-            "lat": 46.008082,
-            "lng": 9.007765,
-            "sp95PriceChf": 1.63,
-            "updatedAt": "2026-02-20T08:30:17.440Z",
-            "nearestMunicipality": "Valsolda (CO)",
-            "nearestMunicipalityDistanceKm": 3.6,
-            "sp95PriceEur": 1.792,
-            "distanceKm": 5.8
           },
           {
             "id": "2iMRCPqDCHHpLcBX8dCN",
@@ -11180,6 +11124,20 @@
             "nearestMunicipalityDistanceKm": 1.9,
             "sp95PriceEur": 1.814,
             "distanceKm": 15.5
+          },
+          {
+            "id": "eyss2Vf8mj29JzsCvuUr",
+            "name": "Piccadilly SA",
+            "brand": "UNDEFINED",
+            "address": "Stráda da Valmára, 6822 Arogno",
+            "lat": 45.96022467397532,
+            "lng": 8.998347379932348,
+            "sp95PriceChf": 1.66,
+            "updatedAt": "2026-03-10T08:07:48.373Z",
+            "nearestMunicipality": "Campione d'Italia (CO)",
+            "nearestMunicipalityDistanceKm": 2.3,
+            "sp95PriceEur": 1.825,
+            "distanceKm": 6.5
           }
         ],
         "minPriceChf": 1.61,
@@ -11462,36 +11420,22 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 34,
+        "optionCount": 33,
         "cheapestStation": {
-          "id": "ahxEtrinnrLWGsZ2laVB",
-          "name": "SOCAR / Piccadilly Gandria",
-          "brand": "PICCADILLY",
-          "address": "Via Cantonale 14, 6978 Gandria",
-          "lat": 46.008082,
-          "lng": 9.007765,
-          "sp95PriceChf": 1.63,
-          "updatedAt": "2026-02-20T08:30:17.440Z",
-          "nearestMunicipality": "Valsolda (CO)",
-          "nearestMunicipalityDistanceKm": 3.6,
-          "sp95PriceEur": 1.792,
-          "distanceKm": 16
+          "id": "2iMRCPqDCHHpLcBX8dCN",
+          "name": "Agrola Melano",
+          "brand": "AGROLA",
+          "address": "Via Cantonal 59, 6818 Melano",
+          "lat": 45.924022,
+          "lng": 8.984077,
+          "sp95PriceChf": 1.64,
+          "updatedAt": "2026-02-21T16:05:09.420Z",
+          "nearestMunicipality": "Campione d'Italia (CO)",
+          "nearestMunicipalityDistanceKm": 5,
+          "sp95PriceEur": 1.803,
+          "distanceKm": 16.4
         },
         "nearbyStations": [
-          {
-            "id": "ahxEtrinnrLWGsZ2laVB",
-            "name": "SOCAR / Piccadilly Gandria",
-            "brand": "PICCADILLY",
-            "address": "Via Cantonale 14, 6978 Gandria",
-            "lat": 46.008082,
-            "lng": 9.007765,
-            "sp95PriceChf": 1.63,
-            "updatedAt": "2026-02-20T08:30:17.440Z",
-            "nearestMunicipality": "Valsolda (CO)",
-            "nearestMunicipalityDistanceKm": 3.6,
-            "sp95PriceEur": 1.792,
-            "distanceKm": 16
-          },
           {
             "id": "2iMRCPqDCHHpLcBX8dCN",
             "name": "Agrola Melano",
@@ -11547,10 +11491,24 @@
             "nearestMunicipalityDistanceKm": 2.3,
             "sp95PriceEur": 1.825,
             "distanceKm": 17.7
+          },
+          {
+            "id": "a3ydF9cfEWFnSCLRCrQi",
+            "name": "Eni Melano",
+            "brand": "ENI",
+            "address": "Strada Cantonale, 06818 Melano",
+            "lat": 45.9241382,
+            "lng": 8.9826835,
+            "sp95PriceChf": 1.67,
+            "updatedAt": "2026-02-21T16:05:02.430Z",
+            "nearestMunicipality": "Campione d'Italia (CO)",
+            "nearestMunicipalityDistanceKm": 5,
+            "sp95PriceEur": 1.836,
+            "distanceKm": 16.5
           }
         ],
-        "minPriceChf": 1.63,
-        "minPriceEur": 1.792
+        "minPriceChf": 1.64,
+        "minPriceEur": 1.803
       },
       "comparison": {
         "cheaperCountry": "NO_DATA",
@@ -13342,36 +13300,22 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 55,
+        "optionCount": 54,
         "cheapestStation": {
-          "id": "ahxEtrinnrLWGsZ2laVB",
-          "name": "SOCAR / Piccadilly Gandria",
-          "brand": "PICCADILLY",
-          "address": "Via Cantonale 14, 6978 Gandria",
-          "lat": 46.008082,
-          "lng": 9.007765,
-          "sp95PriceChf": 1.63,
-          "updatedAt": "2026-02-20T08:30:17.440Z",
-          "nearestMunicipality": "Valsolda (CO)",
-          "nearestMunicipalityDistanceKm": 3.6,
-          "sp95PriceEur": 1.792,
-          "distanceKm": 18.6
+          "id": "2iMRCPqDCHHpLcBX8dCN",
+          "name": "Agrola Melano",
+          "brand": "AGROLA",
+          "address": "Via Cantonal 59, 6818 Melano",
+          "lat": 45.924022,
+          "lng": 8.984077,
+          "sp95PriceChf": 1.64,
+          "updatedAt": "2026-02-21T16:05:09.420Z",
+          "nearestMunicipality": "Campione d'Italia (CO)",
+          "nearestMunicipalityDistanceKm": 5,
+          "sp95PriceEur": 1.803,
+          "distanceKm": 10.3
         },
         "nearbyStations": [
-          {
-            "id": "ahxEtrinnrLWGsZ2laVB",
-            "name": "SOCAR / Piccadilly Gandria",
-            "brand": "PICCADILLY",
-            "address": "Via Cantonale 14, 6978 Gandria",
-            "lat": 46.008082,
-            "lng": 9.007765,
-            "sp95PriceChf": 1.63,
-            "updatedAt": "2026-02-20T08:30:17.440Z",
-            "nearestMunicipality": "Valsolda (CO)",
-            "nearestMunicipalityDistanceKm": 3.6,
-            "sp95PriceEur": 1.792,
-            "distanceKm": 18.6
-          },
           {
             "id": "2iMRCPqDCHHpLcBX8dCN",
             "name": "Agrola Melano",
@@ -13427,10 +13371,24 @@
             "nearestMunicipalityDistanceKm": 2.3,
             "sp95PriceEur": 1.825,
             "distanceKm": 13.6
+          },
+          {
+            "id": "pXVgLf2jUOKzOewFCsnj",
+            "name": "Migrol Service",
+            "brand": "MIGROL",
+            "address": "Centro Commerciale Serfontana, 6836 Serfontana",
+            "lat": 45.843756,
+            "lng": 9.016943,
+            "sp95PriceChf": 1.66,
+            "updatedAt": "2026-03-15T23:20:48.297Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 2.3,
+            "sp95PriceEur": 1.825,
+            "distanceKm": 2.3
           }
         ],
-        "minPriceChf": 1.63,
-        "minPriceEur": 1.792
+        "minPriceChf": 1.64,
+        "minPriceEur": 1.803
       },
       "comparison": {
         "cheaperCountry": "NO_DATA",
@@ -13490,36 +13448,22 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 3,
+        "optionCount": 2,
         "cheapestStation": {
-          "id": "ahxEtrinnrLWGsZ2laVB",
-          "name": "SOCAR / Piccadilly Gandria",
-          "brand": "PICCADILLY",
-          "address": "Via Cantonale 14, 6978 Gandria",
-          "lat": 46.008082,
-          "lng": 9.007765,
-          "sp95PriceChf": 1.63,
-          "updatedAt": "2026-02-20T08:30:17.440Z",
-          "nearestMunicipality": "Valsolda (CO)",
-          "nearestMunicipalityDistanceKm": 3.6,
-          "sp95PriceEur": 1.792,
-          "distanceKm": 17.7
+          "id": "eyss2Vf8mj29JzsCvuUr",
+          "name": "Piccadilly SA",
+          "brand": "UNDEFINED",
+          "address": "Stráda da Valmára, 6822 Arogno",
+          "lat": 45.96022467397532,
+          "lng": 8.998347379932348,
+          "sp95PriceChf": 1.66,
+          "updatedAt": "2026-03-10T08:07:48.373Z",
+          "nearestMunicipality": "Campione d'Italia (CO)",
+          "nearestMunicipalityDistanceKm": 2.3,
+          "sp95PriceEur": 1.825,
+          "distanceKm": 19.6
         },
         "nearbyStations": [
-          {
-            "id": "ahxEtrinnrLWGsZ2laVB",
-            "name": "SOCAR / Piccadilly Gandria",
-            "brand": "PICCADILLY",
-            "address": "Via Cantonale 14, 6978 Gandria",
-            "lat": 46.008082,
-            "lng": 9.007765,
-            "sp95PriceChf": 1.63,
-            "updatedAt": "2026-02-20T08:30:17.440Z",
-            "nearestMunicipality": "Valsolda (CO)",
-            "nearestMunicipalityDistanceKm": 3.6,
-            "sp95PriceEur": 1.792,
-            "distanceKm": 17.7
-          },
           {
             "id": "eyss2Vf8mj29JzsCvuUr",
             "name": "Piccadilly SA",
@@ -13549,13 +13493,13 @@
             "distanceKm": 19.7
           }
         ],
-        "minPriceChf": 1.63,
-        "minPriceEur": 1.792
+        "minPriceChf": 1.66,
+        "minPriceEur": 1.825
       },
       "comparison": {
         "cheaperCountry": "IT",
-        "priceDeltaEur": 0.013,
-        "saving50LEur": 0.65
+        "priceDeltaEur": 0.046,
+        "saving50LEur": 2.3
       }
     },
     {
@@ -13714,36 +13658,22 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 47,
+        "optionCount": 46,
         "cheapestStation": {
-          "id": "ahxEtrinnrLWGsZ2laVB",
-          "name": "SOCAR / Piccadilly Gandria",
-          "brand": "PICCADILLY",
-          "address": "Via Cantonale 14, 6978 Gandria",
-          "lat": 46.008082,
-          "lng": 9.007765,
-          "sp95PriceChf": 1.63,
-          "updatedAt": "2026-02-20T08:30:17.440Z",
-          "nearestMunicipality": "Valsolda (CO)",
-          "nearestMunicipalityDistanceKm": 3.6,
-          "sp95PriceEur": 1.792,
-          "distanceKm": 17.9
+          "id": "2iMRCPqDCHHpLcBX8dCN",
+          "name": "Agrola Melano",
+          "brand": "AGROLA",
+          "address": "Via Cantonal 59, 6818 Melano",
+          "lat": 45.924022,
+          "lng": 8.984077,
+          "sp95PriceChf": 1.64,
+          "updatedAt": "2026-02-21T16:05:09.420Z",
+          "nearestMunicipality": "Campione d'Italia (CO)",
+          "nearestMunicipalityDistanceKm": 5,
+          "sp95PriceEur": 1.803,
+          "distanceKm": 11.1
         },
         "nearbyStations": [
-          {
-            "id": "ahxEtrinnrLWGsZ2laVB",
-            "name": "SOCAR / Piccadilly Gandria",
-            "brand": "PICCADILLY",
-            "address": "Via Cantonale 14, 6978 Gandria",
-            "lat": 46.008082,
-            "lng": 9.007765,
-            "sp95PriceChf": 1.63,
-            "updatedAt": "2026-02-20T08:30:17.440Z",
-            "nearestMunicipality": "Valsolda (CO)",
-            "nearestMunicipalityDistanceKm": 3.6,
-            "sp95PriceEur": 1.792,
-            "distanceKm": 17.9
-          },
           {
             "id": "2iMRCPqDCHHpLcBX8dCN",
             "name": "Agrola Melano",
@@ -13799,10 +13729,24 @@
             "nearestMunicipalityDistanceKm": 2.3,
             "sp95PriceEur": 1.825,
             "distanceKm": 6.1
+          },
+          {
+            "id": "a3ydF9cfEWFnSCLRCrQi",
+            "name": "Eni Melano",
+            "brand": "ENI",
+            "address": "Strada Cantonale, 06818 Melano",
+            "lat": 45.9241382,
+            "lng": 8.9826835,
+            "sp95PriceChf": 1.67,
+            "updatedAt": "2026-02-21T16:05:02.430Z",
+            "nearestMunicipality": "Campione d'Italia (CO)",
+            "nearestMunicipalityDistanceKm": 5,
+            "sp95PriceEur": 1.836,
+            "distanceKm": 11.2
           }
         ],
-        "minPriceChf": 1.63,
-        "minPriceEur": 1.792
+        "minPriceChf": 1.64,
+        "minPriceEur": 1.803
       },
       "comparison": {
         "cheaperCountry": "NO_DATA",
@@ -14568,36 +14512,22 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 52,
+        "optionCount": 51,
         "cheapestStation": {
-          "id": "ahxEtrinnrLWGsZ2laVB",
-          "name": "SOCAR / Piccadilly Gandria",
-          "brand": "PICCADILLY",
-          "address": "Via Cantonale 14, 6978 Gandria",
-          "lat": 46.008082,
-          "lng": 9.007765,
-          "sp95PriceChf": 1.63,
-          "updatedAt": "2026-02-20T08:30:17.440Z",
-          "nearestMunicipality": "Valsolda (CO)",
-          "nearestMunicipalityDistanceKm": 3.6,
-          "sp95PriceEur": 1.792,
-          "distanceKm": 15.8
+          "id": "2iMRCPqDCHHpLcBX8dCN",
+          "name": "Agrola Melano",
+          "brand": "AGROLA",
+          "address": "Via Cantonal 59, 6818 Melano",
+          "lat": 45.924022,
+          "lng": 8.984077,
+          "sp95PriceChf": 1.64,
+          "updatedAt": "2026-02-21T16:05:09.420Z",
+          "nearestMunicipality": "Campione d'Italia (CO)",
+          "nearestMunicipalityDistanceKm": 5,
+          "sp95PriceEur": 1.803,
+          "distanceKm": 13.5
         },
         "nearbyStations": [
-          {
-            "id": "ahxEtrinnrLWGsZ2laVB",
-            "name": "SOCAR / Piccadilly Gandria",
-            "brand": "PICCADILLY",
-            "address": "Via Cantonale 14, 6978 Gandria",
-            "lat": 46.008082,
-            "lng": 9.007765,
-            "sp95PriceChf": 1.63,
-            "updatedAt": "2026-02-20T08:30:17.440Z",
-            "nearestMunicipality": "Valsolda (CO)",
-            "nearestMunicipalityDistanceKm": 3.6,
-            "sp95PriceEur": 1.792,
-            "distanceKm": 15.8
-          },
           {
             "id": "2iMRCPqDCHHpLcBX8dCN",
             "name": "Agrola Melano",
@@ -14653,10 +14583,24 @@
             "nearestMunicipalityDistanceKm": 2.3,
             "sp95PriceEur": 1.825,
             "distanceKm": 13.2
+          },
+          {
+            "id": "a3ydF9cfEWFnSCLRCrQi",
+            "name": "Eni Melano",
+            "brand": "ENI",
+            "address": "Strada Cantonale, 06818 Melano",
+            "lat": 45.9241382,
+            "lng": 8.9826835,
+            "sp95PriceChf": 1.67,
+            "updatedAt": "2026-02-21T16:05:02.430Z",
+            "nearestMunicipality": "Campione d'Italia (CO)",
+            "nearestMunicipalityDistanceKm": 5,
+            "sp95PriceEur": 1.836,
+            "distanceKm": 13.6
           }
         ],
-        "minPriceChf": 1.63,
-        "minPriceEur": 1.792
+        "minPriceChf": 1.64,
+        "minPriceEur": 1.803
       },
       "comparison": {
         "cheaperCountry": "NO_DATA",
@@ -15502,36 +15446,22 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 81,
+        "optionCount": 80,
         "cheapestStation": {
-          "id": "ahxEtrinnrLWGsZ2laVB",
-          "name": "SOCAR / Piccadilly Gandria",
-          "brand": "PICCADILLY",
-          "address": "Via Cantonale 14, 6978 Gandria",
-          "lat": 46.008082,
-          "lng": 9.007765,
-          "sp95PriceChf": 1.63,
-          "updatedAt": "2026-02-20T08:30:17.440Z",
-          "nearestMunicipality": "Valsolda (CO)",
-          "nearestMunicipalityDistanceKm": 3.6,
-          "sp95PriceEur": 1.792,
-          "distanceKm": 10.8
+          "id": "2iMRCPqDCHHpLcBX8dCN",
+          "name": "Agrola Melano",
+          "brand": "AGROLA",
+          "address": "Via Cantonal 59, 6818 Melano",
+          "lat": 45.924022,
+          "lng": 8.984077,
+          "sp95PriceChf": 1.64,
+          "updatedAt": "2026-02-21T16:05:09.420Z",
+          "nearestMunicipality": "Campione d'Italia (CO)",
+          "nearestMunicipalityDistanceKm": 5,
+          "sp95PriceEur": 1.803,
+          "distanceKm": 11.7
         },
         "nearbyStations": [
-          {
-            "id": "ahxEtrinnrLWGsZ2laVB",
-            "name": "SOCAR / Piccadilly Gandria",
-            "brand": "PICCADILLY",
-            "address": "Via Cantonale 14, 6978 Gandria",
-            "lat": 46.008082,
-            "lng": 9.007765,
-            "sp95PriceChf": 1.63,
-            "updatedAt": "2026-02-20T08:30:17.440Z",
-            "nearestMunicipality": "Valsolda (CO)",
-            "nearestMunicipalityDistanceKm": 3.6,
-            "sp95PriceEur": 1.792,
-            "distanceKm": 10.8
-          },
           {
             "id": "2iMRCPqDCHHpLcBX8dCN",
             "name": "Agrola Melano",
@@ -15587,10 +15517,24 @@
             "nearestMunicipalityDistanceKm": 2.3,
             "sp95PriceEur": 1.825,
             "distanceKm": 10
+          },
+          {
+            "id": "pXVgLf2jUOKzOewFCsnj",
+            "name": "Migrol Service",
+            "brand": "MIGROL",
+            "address": "Centro Commerciale Serfontana, 6836 Serfontana",
+            "lat": 45.843756,
+            "lng": 9.016943,
+            "sp95PriceChf": 1.66,
+            "updatedAt": "2026-03-15T23:20:48.297Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 2.3,
+            "sp95PriceEur": 1.825,
+            "distanceKm": 15.3
           }
         ],
-        "minPriceChf": 1.63,
-        "minPriceEur": 1.792
+        "minPriceChf": 1.64,
+        "minPriceEur": 1.803
       },
       "comparison": {
         "cheaperCountry": "NO_DATA",
@@ -15617,36 +15561,22 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 4,
+        "optionCount": 3,
         "cheapestStation": {
-          "id": "ahxEtrinnrLWGsZ2laVB",
-          "name": "SOCAR / Piccadilly Gandria",
-          "brand": "PICCADILLY",
-          "address": "Via Cantonale 14, 6978 Gandria",
-          "lat": 46.008082,
-          "lng": 9.007765,
-          "sp95PriceChf": 1.63,
-          "updatedAt": "2026-02-20T08:30:17.440Z",
+          "id": "oE9ujs5ie5VaYL9ls0Y0",
+          "name": "Stazione di servizio Migrol",
+          "brand": "MIGROL",
+          "address": "Via Lugano 49, 6953 Lugaggia",
+          "lat": 46.053738,
+          "lng": 8.972878,
+          "sp95PriceChf": 1.79,
+          "updatedAt": "2026-03-17T22:30:57.548Z",
           "nearestMunicipality": "Valsolda (CO)",
-          "nearestMunicipalityDistanceKm": 3.6,
-          "sp95PriceEur": 1.792,
-          "distanceKm": 17.7
+          "nearestMunicipalityDistanceKm": 6.1,
+          "sp95PriceEur": 1.968,
+          "distanceKm": 19.9
         },
         "nearbyStations": [
-          {
-            "id": "ahxEtrinnrLWGsZ2laVB",
-            "name": "SOCAR / Piccadilly Gandria",
-            "brand": "PICCADILLY",
-            "address": "Via Cantonale 14, 6978 Gandria",
-            "lat": 46.008082,
-            "lng": 9.007765,
-            "sp95PriceChf": 1.63,
-            "updatedAt": "2026-02-20T08:30:17.440Z",
-            "nearestMunicipality": "Valsolda (CO)",
-            "nearestMunicipalityDistanceKm": 3.6,
-            "sp95PriceEur": 1.792,
-            "distanceKm": 17.7
-          },
           {
             "id": "oE9ujs5ie5VaYL9ls0Y0",
             "name": "Stazione di servizio Migrol",
@@ -15690,8 +15620,8 @@
             "distanceKm": 19
           }
         ],
-        "minPriceChf": 1.63,
-        "minPriceEur": 1.792
+        "minPriceChf": 1.79,
+        "minPriceEur": 1.968
       },
       "comparison": {
         "cheaperCountry": "NO_DATA",
@@ -15718,36 +15648,22 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 30,
+        "optionCount": 29,
         "cheapestStation": {
-          "id": "ahxEtrinnrLWGsZ2laVB",
-          "name": "SOCAR / Piccadilly Gandria",
-          "brand": "PICCADILLY",
-          "address": "Via Cantonale 14, 6978 Gandria",
-          "lat": 46.008082,
-          "lng": 9.007765,
-          "sp95PriceChf": 1.63,
-          "updatedAt": "2026-02-20T08:30:17.440Z",
-          "nearestMunicipality": "Valsolda (CO)",
-          "nearestMunicipalityDistanceKm": 3.6,
-          "sp95PriceEur": 1.792,
-          "distanceKm": 18.5
+          "id": "2iMRCPqDCHHpLcBX8dCN",
+          "name": "Agrola Melano",
+          "brand": "AGROLA",
+          "address": "Via Cantonal 59, 6818 Melano",
+          "lat": 45.924022,
+          "lng": 8.984077,
+          "sp95PriceChf": 1.64,
+          "updatedAt": "2026-02-21T16:05:09.420Z",
+          "nearestMunicipality": "Campione d'Italia (CO)",
+          "nearestMunicipalityDistanceKm": 5,
+          "sp95PriceEur": 1.803,
+          "distanceKm": 14.7
         },
         "nearbyStations": [
-          {
-            "id": "ahxEtrinnrLWGsZ2laVB",
-            "name": "SOCAR / Piccadilly Gandria",
-            "brand": "PICCADILLY",
-            "address": "Via Cantonale 14, 6978 Gandria",
-            "lat": 46.008082,
-            "lng": 9.007765,
-            "sp95PriceChf": 1.63,
-            "updatedAt": "2026-02-20T08:30:17.440Z",
-            "nearestMunicipality": "Valsolda (CO)",
-            "nearestMunicipalityDistanceKm": 3.6,
-            "sp95PriceEur": 1.792,
-            "distanceKm": 18.5
-          },
           {
             "id": "2iMRCPqDCHHpLcBX8dCN",
             "name": "Agrola Melano",
@@ -15803,10 +15719,24 @@
             "nearestMunicipalityDistanceKm": 2.3,
             "sp95PriceEur": 1.825,
             "distanceKm": 12.2
+          },
+          {
+            "id": "a3ydF9cfEWFnSCLRCrQi",
+            "name": "Eni Melano",
+            "brand": "ENI",
+            "address": "Strada Cantonale, 06818 Melano",
+            "lat": 45.9241382,
+            "lng": 8.9826835,
+            "sp95PriceChf": 1.67,
+            "updatedAt": "2026-02-21T16:05:02.430Z",
+            "nearestMunicipality": "Campione d'Italia (CO)",
+            "nearestMunicipalityDistanceKm": 5,
+            "sp95PriceEur": 1.836,
+            "distanceKm": 14.8
           }
         ],
-        "minPriceChf": 1.63,
-        "minPriceEur": 1.792
+        "minPriceChf": 1.64,
+        "minPriceEur": 1.803
       },
       "comparison": {
         "cheaperCountry": "NO_DATA",
@@ -15833,36 +15763,22 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 87,
+        "optionCount": 86,
         "cheapestStation": {
-          "id": "ahxEtrinnrLWGsZ2laVB",
-          "name": "SOCAR / Piccadilly Gandria",
-          "brand": "PICCADILLY",
-          "address": "Via Cantonale 14, 6978 Gandria",
-          "lat": 46.008082,
-          "lng": 9.007765,
-          "sp95PriceChf": 1.63,
-          "updatedAt": "2026-02-20T08:30:17.440Z",
-          "nearestMunicipality": "Valsolda (CO)",
-          "nearestMunicipalityDistanceKm": 3.6,
-          "sp95PriceEur": 1.792,
-          "distanceKm": 8.1
+          "id": "2iMRCPqDCHHpLcBX8dCN",
+          "name": "Agrola Melano",
+          "brand": "AGROLA",
+          "address": "Via Cantonal 59, 6818 Melano",
+          "lat": 45.924022,
+          "lng": 8.984077,
+          "sp95PriceChf": 1.64,
+          "updatedAt": "2026-02-21T16:05:09.420Z",
+          "nearestMunicipality": "Campione d'Italia (CO)",
+          "nearestMunicipalityDistanceKm": 5,
+          "sp95PriceEur": 1.803,
+          "distanceKm": 12.6
         },
         "nearbyStations": [
-          {
-            "id": "ahxEtrinnrLWGsZ2laVB",
-            "name": "SOCAR / Piccadilly Gandria",
-            "brand": "PICCADILLY",
-            "address": "Via Cantonale 14, 6978 Gandria",
-            "lat": 46.008082,
-            "lng": 9.007765,
-            "sp95PriceChf": 1.63,
-            "updatedAt": "2026-02-20T08:30:17.440Z",
-            "nearestMunicipality": "Valsolda (CO)",
-            "nearestMunicipalityDistanceKm": 3.6,
-            "sp95PriceEur": 1.792,
-            "distanceKm": 8.1
-          },
           {
             "id": "2iMRCPqDCHHpLcBX8dCN",
             "name": "Agrola Melano",
@@ -15918,10 +15834,24 @@
             "nearestMunicipalityDistanceKm": 2.3,
             "sp95PriceEur": 1.825,
             "distanceKm": 9.5
+          },
+          {
+            "id": "pXVgLf2jUOKzOewFCsnj",
+            "name": "Migrol Service",
+            "brand": "MIGROL",
+            "address": "Centro Commerciale Serfontana, 6836 Serfontana",
+            "lat": 45.843756,
+            "lng": 9.016943,
+            "sp95PriceChf": 1.66,
+            "updatedAt": "2026-03-15T23:20:48.297Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 2.3,
+            "sp95PriceEur": 1.825,
+            "distanceKm": 18.4
           }
         ],
-        "minPriceChf": 1.63,
-        "minPriceEur": 1.792
+        "minPriceChf": 1.64,
+        "minPriceEur": 1.803
       },
       "comparison": {
         "cheaperCountry": "NO_DATA",
@@ -16085,36 +16015,22 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 95,
+        "optionCount": 94,
         "cheapestStation": {
-          "id": "ahxEtrinnrLWGsZ2laVB",
-          "name": "SOCAR / Piccadilly Gandria",
-          "brand": "PICCADILLY",
-          "address": "Via Cantonale 14, 6978 Gandria",
-          "lat": 46.008082,
-          "lng": 9.007765,
-          "sp95PriceChf": 1.63,
-          "updatedAt": "2026-02-20T08:30:17.440Z",
-          "nearestMunicipality": "Valsolda (CO)",
-          "nearestMunicipalityDistanceKm": 3.6,
-          "sp95PriceEur": 1.792,
-          "distanceKm": 9.1
+          "id": "2iMRCPqDCHHpLcBX8dCN",
+          "name": "Agrola Melano",
+          "brand": "AGROLA",
+          "address": "Via Cantonal 59, 6818 Melano",
+          "lat": 45.924022,
+          "lng": 8.984077,
+          "sp95PriceChf": 1.64,
+          "updatedAt": "2026-02-21T16:05:09.420Z",
+          "nearestMunicipality": "Campione d'Italia (CO)",
+          "nearestMunicipalityDistanceKm": 5,
+          "sp95PriceEur": 1.803,
+          "distanceKm": 16.2
         },
         "nearbyStations": [
-          {
-            "id": "ahxEtrinnrLWGsZ2laVB",
-            "name": "SOCAR / Piccadilly Gandria",
-            "brand": "PICCADILLY",
-            "address": "Via Cantonale 14, 6978 Gandria",
-            "lat": 46.008082,
-            "lng": 9.007765,
-            "sp95PriceChf": 1.63,
-            "updatedAt": "2026-02-20T08:30:17.440Z",
-            "nearestMunicipality": "Valsolda (CO)",
-            "nearestMunicipalityDistanceKm": 3.6,
-            "sp95PriceEur": 1.792,
-            "distanceKm": 9.1
-          },
           {
             "id": "2iMRCPqDCHHpLcBX8dCN",
             "name": "Agrola Melano",
@@ -16170,15 +16086,29 @@
             "nearestMunicipalityDistanceKm": 2.1,
             "sp95PriceEur": 1.825,
             "distanceKm": 19.7
+          },
+          {
+            "id": "gyZYYvcytMmf7B92Ix1w",
+            "name": "Euro Service",
+            "brand": "UNDEFINED",
+            "address": "Via Cantonale 18, 6987 Caslano",
+            "lat": 45.98019132146254,
+            "lng": 8.877659257998385,
+            "sp95PriceChf": 1.6600000000000001,
+            "updatedAt": "2026-03-21T09:43:34.620Z",
+            "nearestMunicipality": "Brusimpiano (VA)",
+            "nearestMunicipalityDistanceKm": 2.2,
+            "sp95PriceEur": 1.825,
+            "distanceKm": 19.6
           }
         ],
-        "minPriceChf": 1.63,
-        "minPriceEur": 1.792
+        "minPriceChf": 1.64,
+        "minPriceEur": 1.803
       },
       "comparison": {
         "cheaperCountry": "IT",
-        "priceDeltaEur": 0.057,
-        "saving50LEur": 2.85
+        "priceDeltaEur": 0.068,
+        "saving50LEur": 3.4
       }
     },
     {
@@ -16660,36 +16590,22 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 59,
+        "optionCount": 58,
         "cheapestStation": {
-          "id": "ahxEtrinnrLWGsZ2laVB",
-          "name": "SOCAR / Piccadilly Gandria",
-          "brand": "PICCADILLY",
-          "address": "Via Cantonale 14, 6978 Gandria",
-          "lat": 46.008082,
-          "lng": 9.007765,
-          "sp95PriceChf": 1.63,
-          "updatedAt": "2026-02-20T08:30:17.440Z",
-          "nearestMunicipality": "Valsolda (CO)",
-          "nearestMunicipalityDistanceKm": 3.6,
-          "sp95PriceEur": 1.792,
-          "distanceKm": 19.6
+          "id": "2iMRCPqDCHHpLcBX8dCN",
+          "name": "Agrola Melano",
+          "brand": "AGROLA",
+          "address": "Via Cantonal 59, 6818 Melano",
+          "lat": 45.924022,
+          "lng": 8.984077,
+          "sp95PriceChf": 1.64,
+          "updatedAt": "2026-02-21T16:05:09.420Z",
+          "nearestMunicipality": "Campione d'Italia (CO)",
+          "nearestMunicipalityDistanceKm": 5,
+          "sp95PriceEur": 1.803,
+          "distanceKm": 10.2
         },
         "nearbyStations": [
-          {
-            "id": "ahxEtrinnrLWGsZ2laVB",
-            "name": "SOCAR / Piccadilly Gandria",
-            "brand": "PICCADILLY",
-            "address": "Via Cantonale 14, 6978 Gandria",
-            "lat": 46.008082,
-            "lng": 9.007765,
-            "sp95PriceChf": 1.63,
-            "updatedAt": "2026-02-20T08:30:17.440Z",
-            "nearestMunicipality": "Valsolda (CO)",
-            "nearestMunicipalityDistanceKm": 3.6,
-            "sp95PriceEur": 1.792,
-            "distanceKm": 19.6
-          },
           {
             "id": "2iMRCPqDCHHpLcBX8dCN",
             "name": "Agrola Melano",
@@ -16745,10 +16661,24 @@
             "nearestMunicipalityDistanceKm": 2.3,
             "sp95PriceEur": 1.825,
             "distanceKm": 14.3
+          },
+          {
+            "id": "pXVgLf2jUOKzOewFCsnj",
+            "name": "Migrol Service",
+            "brand": "MIGROL",
+            "address": "Centro Commerciale Serfontana, 6836 Serfontana",
+            "lat": 45.843756,
+            "lng": 9.016943,
+            "sp95PriceChf": 1.66,
+            "updatedAt": "2026-03-15T23:20:48.297Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 2.3,
+            "sp95PriceEur": 1.825,
+            "distanceKm": 2.9
           }
         ],
-        "minPriceChf": 1.63,
-        "minPriceEur": 1.792
+        "minPriceChf": 1.64,
+        "minPriceEur": 1.803
       },
       "comparison": {
         "cheaperCountry": "NO_DATA",
@@ -16976,36 +16906,22 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 60,
+        "optionCount": 59,
         "cheapestStation": {
-          "id": "ahxEtrinnrLWGsZ2laVB",
-          "name": "SOCAR / Piccadilly Gandria",
-          "brand": "PICCADILLY",
-          "address": "Via Cantonale 14, 6978 Gandria",
-          "lat": 46.008082,
-          "lng": 9.007765,
-          "sp95PriceChf": 1.63,
-          "updatedAt": "2026-02-20T08:30:17.440Z",
-          "nearestMunicipality": "Valsolda (CO)",
-          "nearestMunicipalityDistanceKm": 3.6,
-          "sp95PriceEur": 1.792,
-          "distanceKm": 13.3
+          "id": "2iMRCPqDCHHpLcBX8dCN",
+          "name": "Agrola Melano",
+          "brand": "AGROLA",
+          "address": "Via Cantonal 59, 6818 Melano",
+          "lat": 45.924022,
+          "lng": 8.984077,
+          "sp95PriceChf": 1.64,
+          "updatedAt": "2026-02-21T16:05:09.420Z",
+          "nearestMunicipality": "Campione d'Italia (CO)",
+          "nearestMunicipalityDistanceKm": 5,
+          "sp95PriceEur": 1.803,
+          "distanceKm": 15
         },
         "nearbyStations": [
-          {
-            "id": "ahxEtrinnrLWGsZ2laVB",
-            "name": "SOCAR / Piccadilly Gandria",
-            "brand": "PICCADILLY",
-            "address": "Via Cantonale 14, 6978 Gandria",
-            "lat": 46.008082,
-            "lng": 9.007765,
-            "sp95PriceChf": 1.63,
-            "updatedAt": "2026-02-20T08:30:17.440Z",
-            "nearestMunicipality": "Valsolda (CO)",
-            "nearestMunicipalityDistanceKm": 3.6,
-            "sp95PriceEur": 1.792,
-            "distanceKm": 13.3
-          },
           {
             "id": "2iMRCPqDCHHpLcBX8dCN",
             "name": "Agrola Melano",
@@ -17061,10 +16977,24 @@
             "nearestMunicipalityDistanceKm": 2.3,
             "sp95PriceEur": 1.825,
             "distanceKm": 17.9
+          },
+          {
+            "id": "a3ydF9cfEWFnSCLRCrQi",
+            "name": "Eni Melano",
+            "brand": "ENI",
+            "address": "Strada Cantonale, 06818 Melano",
+            "lat": 45.9241382,
+            "lng": 8.9826835,
+            "sp95PriceChf": 1.67,
+            "updatedAt": "2026-02-21T16:05:02.430Z",
+            "nearestMunicipality": "Campione d'Italia (CO)",
+            "nearestMunicipalityDistanceKm": 5,
+            "sp95PriceEur": 1.836,
+            "distanceKm": 15.1
           }
         ],
-        "minPriceChf": 1.63,
-        "minPriceEur": 1.792
+        "minPriceChf": 1.64,
+        "minPriceEur": 1.803
       },
       "comparison": {
         "cheaperCountry": "NO_DATA",
@@ -17091,36 +17021,22 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 78,
+        "optionCount": 77,
         "cheapestStation": {
-          "id": "ahxEtrinnrLWGsZ2laVB",
-          "name": "SOCAR / Piccadilly Gandria",
-          "brand": "PICCADILLY",
-          "address": "Via Cantonale 14, 6978 Gandria",
-          "lat": 46.008082,
-          "lng": 9.007765,
-          "sp95PriceChf": 1.63,
-          "updatedAt": "2026-02-20T08:30:17.440Z",
-          "nearestMunicipality": "Valsolda (CO)",
-          "nearestMunicipalityDistanceKm": 3.6,
-          "sp95PriceEur": 1.792,
-          "distanceKm": 13.8
+          "id": "eyss2Vf8mj29JzsCvuUr",
+          "name": "Piccadilly SA",
+          "brand": "UNDEFINED",
+          "address": "Stráda da Valmára, 6822 Arogno",
+          "lat": 45.96022467397532,
+          "lng": 8.998347379932348,
+          "sp95PriceChf": 1.66,
+          "updatedAt": "2026-03-10T08:07:48.373Z",
+          "nearestMunicipality": "Campione d'Italia (CO)",
+          "nearestMunicipalityDistanceKm": 2.3,
+          "sp95PriceEur": 1.825,
+          "distanceKm": 18
         },
         "nearbyStations": [
-          {
-            "id": "ahxEtrinnrLWGsZ2laVB",
-            "name": "SOCAR / Piccadilly Gandria",
-            "brand": "PICCADILLY",
-            "address": "Via Cantonale 14, 6978 Gandria",
-            "lat": 46.008082,
-            "lng": 9.007765,
-            "sp95PriceChf": 1.63,
-            "updatedAt": "2026-02-20T08:30:17.440Z",
-            "nearestMunicipality": "Valsolda (CO)",
-            "nearestMunicipalityDistanceKm": 3.6,
-            "sp95PriceEur": 1.792,
-            "distanceKm": 13.8
-          },
           {
             "id": "eyss2Vf8mj29JzsCvuUr",
             "name": "Piccadilly SA",
@@ -17176,10 +17092,24 @@
             "nearestMunicipalityDistanceKm": 6.5,
             "sp95PriceEur": 1.924,
             "distanceKm": 17.7
+          },
+          {
+            "id": "UaXDpxug9j7B4sRgwDcp",
+            "name": "Eni Lugano",
+            "brand": "ENI",
+            "address": "Riva Paradiso 40, 6900 Lugano",
+            "lat": 45.9888137,
+            "lng": 8.9537972,
+            "sp95PriceChf": 1.76,
+            "updatedAt": "2026-03-01T08:16:15.795Z",
+            "nearestMunicipality": "Campione d'Italia (CO)",
+            "nearestMunicipalityDistanceKm": 2.7,
+            "sp95PriceEur": 1.935,
+            "distanceKm": 18.4
           }
         ],
-        "minPriceChf": 1.63,
-        "minPriceEur": 1.792
+        "minPriceChf": 1.66,
+        "minPriceEur": 1.825
       },
       "comparison": {
         "cheaperCountry": "NO_DATA",
@@ -17354,36 +17284,22 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 90,
+        "optionCount": 89,
         "cheapestStation": {
-          "id": "ahxEtrinnrLWGsZ2laVB",
-          "name": "SOCAR / Piccadilly Gandria",
-          "brand": "PICCADILLY",
-          "address": "Via Cantonale 14, 6978 Gandria",
-          "lat": 46.008082,
-          "lng": 9.007765,
-          "sp95PriceChf": 1.63,
-          "updatedAt": "2026-02-20T08:30:17.440Z",
-          "nearestMunicipality": "Valsolda (CO)",
-          "nearestMunicipalityDistanceKm": 3.6,
-          "sp95PriceEur": 1.792,
-          "distanceKm": 12.9
+          "id": "eyss2Vf8mj29JzsCvuUr",
+          "name": "Piccadilly SA",
+          "brand": "UNDEFINED",
+          "address": "Stráda da Valmára, 6822 Arogno",
+          "lat": 45.96022467397532,
+          "lng": 8.998347379932348,
+          "sp95PriceChf": 1.66,
+          "updatedAt": "2026-03-10T08:07:48.373Z",
+          "nearestMunicipality": "Campione d'Italia (CO)",
+          "nearestMunicipalityDistanceKm": 2.3,
+          "sp95PriceEur": 1.825,
+          "distanceKm": 17.5
         },
         "nearbyStations": [
-          {
-            "id": "ahxEtrinnrLWGsZ2laVB",
-            "name": "SOCAR / Piccadilly Gandria",
-            "brand": "PICCADILLY",
-            "address": "Via Cantonale 14, 6978 Gandria",
-            "lat": 46.008082,
-            "lng": 9.007765,
-            "sp95PriceChf": 1.63,
-            "updatedAt": "2026-02-20T08:30:17.440Z",
-            "nearestMunicipality": "Valsolda (CO)",
-            "nearestMunicipalityDistanceKm": 3.6,
-            "sp95PriceEur": 1.792,
-            "distanceKm": 12.9
-          },
           {
             "id": "eyss2Vf8mj29JzsCvuUr",
             "name": "Piccadilly SA",
@@ -17439,10 +17355,24 @@
             "nearestMunicipalityDistanceKm": 6,
             "sp95PriceEur": 1.924,
             "distanceKm": 19.3
+          },
+          {
+            "id": "ty1NJLEj5uZ9YRKJ3aX5",
+            "name": "Eni Vezia",
+            "brand": "ENI",
+            "address": "Via San Gottardo 7, 6943 Vezia",
+            "lat": 46.0220127,
+            "lng": 8.9370494,
+            "sp95PriceChf": 1.75,
+            "updatedAt": "2026-03-04T07:29:51.055Z",
+            "nearestMunicipality": "Campione d'Italia (CO)",
+            "nearestMunicipalityDistanceKm": 6.5,
+            "sp95PriceEur": 1.924,
+            "distanceKm": 16.5
           }
         ],
-        "minPriceChf": 1.63,
-        "minPriceEur": 1.792
+        "minPriceChf": 1.66,
+        "minPriceEur": 1.825
       },
       "comparison": {
         "cheaperCountry": "NO_DATA",
@@ -17500,36 +17430,22 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 82,
+        "optionCount": 81,
         "cheapestStation": {
-          "id": "ahxEtrinnrLWGsZ2laVB",
-          "name": "SOCAR / Piccadilly Gandria",
-          "brand": "PICCADILLY",
-          "address": "Via Cantonale 14, 6978 Gandria",
-          "lat": 46.008082,
-          "lng": 9.007765,
-          "sp95PriceChf": 1.63,
-          "updatedAt": "2026-02-20T08:30:17.440Z",
-          "nearestMunicipality": "Valsolda (CO)",
-          "nearestMunicipalityDistanceKm": 3.6,
-          "sp95PriceEur": 1.792,
-          "distanceKm": 12.1
+          "id": "2iMRCPqDCHHpLcBX8dCN",
+          "name": "Agrola Melano",
+          "brand": "AGROLA",
+          "address": "Via Cantonal 59, 6818 Melano",
+          "lat": 45.924022,
+          "lng": 8.984077,
+          "sp95PriceChf": 1.64,
+          "updatedAt": "2026-02-21T16:05:09.420Z",
+          "nearestMunicipality": "Campione d'Italia (CO)",
+          "nearestMunicipalityDistanceKm": 5,
+          "sp95PriceEur": 1.803,
+          "distanceKm": 9
         },
         "nearbyStations": [
-          {
-            "id": "ahxEtrinnrLWGsZ2laVB",
-            "name": "SOCAR / Piccadilly Gandria",
-            "brand": "PICCADILLY",
-            "address": "Via Cantonale 14, 6978 Gandria",
-            "lat": 46.008082,
-            "lng": 9.007765,
-            "sp95PriceChf": 1.63,
-            "updatedAt": "2026-02-20T08:30:17.440Z",
-            "nearestMunicipality": "Valsolda (CO)",
-            "nearestMunicipalityDistanceKm": 3.6,
-            "sp95PriceEur": 1.792,
-            "distanceKm": 12.1
-          },
           {
             "id": "2iMRCPqDCHHpLcBX8dCN",
             "name": "Agrola Melano",
@@ -17585,10 +17501,24 @@
             "nearestMunicipalityDistanceKm": 2.3,
             "sp95PriceEur": 1.825,
             "distanceKm": 9.1
+          },
+          {
+            "id": "pXVgLf2jUOKzOewFCsnj",
+            "name": "Migrol Service",
+            "brand": "MIGROL",
+            "address": "Centro Commerciale Serfontana, 6836 Serfontana",
+            "lat": 45.843756,
+            "lng": 9.016943,
+            "sp95PriceChf": 1.66,
+            "updatedAt": "2026-03-15T23:20:48.297Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 2.3,
+            "sp95PriceEur": 1.825,
+            "distanceKm": 10.6
           }
         ],
-        "minPriceChf": 1.63,
-        "minPriceEur": 1.792
+        "minPriceChf": 1.64,
+        "minPriceEur": 1.803
       },
       "comparison": {
         "cheaperCountry": "NO_DATA",
@@ -18351,36 +18281,22 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 38,
+        "optionCount": 37,
         "cheapestStation": {
-          "id": "ahxEtrinnrLWGsZ2laVB",
-          "name": "SOCAR / Piccadilly Gandria",
-          "brand": "PICCADILLY",
-          "address": "Via Cantonale 14, 6978 Gandria",
-          "lat": 46.008082,
-          "lng": 9.007765,
-          "sp95PriceChf": 1.63,
-          "updatedAt": "2026-02-20T08:30:17.440Z",
-          "nearestMunicipality": "Valsolda (CO)",
-          "nearestMunicipalityDistanceKm": 3.6,
-          "sp95PriceEur": 1.792,
-          "distanceKm": 18.7
+          "id": "2iMRCPqDCHHpLcBX8dCN",
+          "name": "Agrola Melano",
+          "brand": "AGROLA",
+          "address": "Via Cantonal 59, 6818 Melano",
+          "lat": 45.924022,
+          "lng": 8.984077,
+          "sp95PriceChf": 1.64,
+          "updatedAt": "2026-02-21T16:05:09.420Z",
+          "nearestMunicipality": "Campione d'Italia (CO)",
+          "nearestMunicipalityDistanceKm": 5,
+          "sp95PriceEur": 1.803,
+          "distanceKm": 12.6
         },
         "nearbyStations": [
-          {
-            "id": "ahxEtrinnrLWGsZ2laVB",
-            "name": "SOCAR / Piccadilly Gandria",
-            "brand": "PICCADILLY",
-            "address": "Via Cantonale 14, 6978 Gandria",
-            "lat": 46.008082,
-            "lng": 9.007765,
-            "sp95PriceChf": 1.63,
-            "updatedAt": "2026-02-20T08:30:17.440Z",
-            "nearestMunicipality": "Valsolda (CO)",
-            "nearestMunicipalityDistanceKm": 3.6,
-            "sp95PriceEur": 1.792,
-            "distanceKm": 18.7
-          },
           {
             "id": "2iMRCPqDCHHpLcBX8dCN",
             "name": "Agrola Melano",
@@ -18436,15 +18352,29 @@
             "nearestMunicipalityDistanceKm": 2.3,
             "sp95PriceEur": 1.825,
             "distanceKm": 7.8
+          },
+          {
+            "id": "a3ydF9cfEWFnSCLRCrQi",
+            "name": "Eni Melano",
+            "brand": "ENI",
+            "address": "Strada Cantonale, 06818 Melano",
+            "lat": 45.9241382,
+            "lng": 8.9826835,
+            "sp95PriceChf": 1.67,
+            "updatedAt": "2026-02-21T16:05:02.430Z",
+            "nearestMunicipality": "Campione d'Italia (CO)",
+            "nearestMunicipalityDistanceKm": 5,
+            "sp95PriceEur": 1.836,
+            "distanceKm": 12.7
           }
         ],
-        "minPriceChf": 1.63,
-        "minPriceEur": 1.792
+        "minPriceChf": 1.64,
+        "minPriceEur": 1.803
       },
       "comparison": {
         "cheaperCountry": "IT",
-        "priceDeltaEur": 0.013,
-        "saving50LEur": 0.65
+        "priceDeltaEur": 0.024,
+        "saving50LEur": 1.2
       }
     },
     {
@@ -18510,36 +18440,22 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 33,
+        "optionCount": 32,
         "cheapestStation": {
-          "id": "ahxEtrinnrLWGsZ2laVB",
-          "name": "SOCAR / Piccadilly Gandria",
-          "brand": "PICCADILLY",
-          "address": "Via Cantonale 14, 6978 Gandria",
-          "lat": 46.008082,
-          "lng": 9.007765,
-          "sp95PriceChf": 1.63,
-          "updatedAt": "2026-02-20T08:30:17.440Z",
-          "nearestMunicipality": "Valsolda (CO)",
-          "nearestMunicipalityDistanceKm": 3.6,
-          "sp95PriceEur": 1.792,
-          "distanceKm": 14.5
+          "id": "2iMRCPqDCHHpLcBX8dCN",
+          "name": "Agrola Melano",
+          "brand": "AGROLA",
+          "address": "Via Cantonal 59, 6818 Melano",
+          "lat": 45.924022,
+          "lng": 8.984077,
+          "sp95PriceChf": 1.64,
+          "updatedAt": "2026-02-21T16:05:09.420Z",
+          "nearestMunicipality": "Campione d'Italia (CO)",
+          "nearestMunicipalityDistanceKm": 5,
+          "sp95PriceEur": 1.803,
+          "distanceKm": 17.3
         },
         "nearbyStations": [
-          {
-            "id": "ahxEtrinnrLWGsZ2laVB",
-            "name": "SOCAR / Piccadilly Gandria",
-            "brand": "PICCADILLY",
-            "address": "Via Cantonale 14, 6978 Gandria",
-            "lat": 46.008082,
-            "lng": 9.007765,
-            "sp95PriceChf": 1.63,
-            "updatedAt": "2026-02-20T08:30:17.440Z",
-            "nearestMunicipality": "Valsolda (CO)",
-            "nearestMunicipalityDistanceKm": 3.6,
-            "sp95PriceEur": 1.792,
-            "distanceKm": 14.5
-          },
           {
             "id": "2iMRCPqDCHHpLcBX8dCN",
             "name": "Agrola Melano",
@@ -18595,15 +18511,29 @@
             "nearestMunicipalityDistanceKm": 4.6,
             "sp95PriceEur": 1.88,
             "distanceKm": 19.6
+          },
+          {
+            "id": "3tylGHcPsorvwOkbCCP8",
+            "name": "ENI Vacallo",
+            "brand": "ENI",
+            "address": "Via del Breggia 15, 6833 Vacallo",
+            "lat": 45.84348408,
+            "lng": 9.037555849,
+            "sp95PriceChf": 1.7300000000000002,
+            "updatedAt": "2026-03-20T08:32:15.700Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 0.8,
+            "sp95PriceEur": 1.902,
+            "distanceKm": 19.6
           }
         ],
-        "minPriceChf": 1.63,
-        "minPriceEur": 1.792
+        "minPriceChf": 1.64,
+        "minPriceEur": 1.803
       },
       "comparison": {
         "cheaperCountry": "IT",
-        "priceDeltaEur": 0.152,
-        "saving50LEur": 7.6
+        "priceDeltaEur": 0.163,
+        "saving50LEur": 8.15
       }
     },
     {
@@ -19003,36 +18933,22 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 103,
+        "optionCount": 102,
         "cheapestStation": {
-          "id": "ahxEtrinnrLWGsZ2laVB",
-          "name": "SOCAR / Piccadilly Gandria",
-          "brand": "PICCADILLY",
-          "address": "Via Cantonale 14, 6978 Gandria",
-          "lat": 46.008082,
-          "lng": 9.007765,
-          "sp95PriceChf": 1.63,
-          "updatedAt": "2026-02-20T08:30:17.440Z",
-          "nearestMunicipality": "Valsolda (CO)",
-          "nearestMunicipalityDistanceKm": 3.6,
-          "sp95PriceEur": 1.792,
-          "distanceKm": 10
+          "id": "2iMRCPqDCHHpLcBX8dCN",
+          "name": "Agrola Melano",
+          "brand": "AGROLA",
+          "address": "Via Cantonal 59, 6818 Melano",
+          "lat": 45.924022,
+          "lng": 8.984077,
+          "sp95PriceChf": 1.64,
+          "updatedAt": "2026-02-21T16:05:09.420Z",
+          "nearestMunicipality": "Campione d'Italia (CO)",
+          "nearestMunicipalityDistanceKm": 5,
+          "sp95PriceEur": 1.803,
+          "distanceKm": 18.6
         },
         "nearbyStations": [
-          {
-            "id": "ahxEtrinnrLWGsZ2laVB",
-            "name": "SOCAR / Piccadilly Gandria",
-            "brand": "PICCADILLY",
-            "address": "Via Cantonale 14, 6978 Gandria",
-            "lat": 46.008082,
-            "lng": 9.007765,
-            "sp95PriceChf": 1.63,
-            "updatedAt": "2026-02-20T08:30:17.440Z",
-            "nearestMunicipality": "Valsolda (CO)",
-            "nearestMunicipalityDistanceKm": 3.6,
-            "sp95PriceEur": 1.792,
-            "distanceKm": 10
-          },
           {
             "id": "2iMRCPqDCHHpLcBX8dCN",
             "name": "Agrola Melano",
@@ -19088,10 +19004,24 @@
             "nearestMunicipalityDistanceKm": 5,
             "sp95PriceEur": 1.836,
             "distanceKm": 18.6
+          },
+          {
+            "id": "jLWgOqHiSgH8QJ1xjpck",
+            "name": "Anfra Carburanti Sagl",
+            "brand": "UNDEFINED",
+            "address": "Via Cantonale 8, Magliaso",
+            "lat": 45.9857434,
+            "lng": 8.8908046,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-03-19T13:47:48.455Z",
+            "nearestMunicipality": "Brusimpiano (VA)",
+            "nearestMunicipalityDistanceKm": 3,
+            "sp95PriceEur": 1.902,
+            "distanceKm": 18.7
           }
         ],
-        "minPriceChf": 1.63,
-        "minPriceEur": 1.792
+        "minPriceChf": 1.64,
+        "minPriceEur": 1.803
       },
       "comparison": {
         "cheaperCountry": "NO_DATA",
@@ -19264,7 +19194,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 109,
+        "optionCount": 108,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -19309,20 +19239,6 @@
             "distanceKm": 18.7
           },
           {
-            "id": "ahxEtrinnrLWGsZ2laVB",
-            "name": "SOCAR / Piccadilly Gandria",
-            "brand": "PICCADILLY",
-            "address": "Via Cantonale 14, 6978 Gandria",
-            "lat": 46.008082,
-            "lng": 9.007765,
-            "sp95PriceChf": 1.63,
-            "updatedAt": "2026-02-20T08:30:17.440Z",
-            "nearestMunicipality": "Valsolda (CO)",
-            "nearestMunicipalityDistanceKm": 3.6,
-            "sp95PriceEur": 1.792,
-            "distanceKm": 3.6
-          },
-          {
             "id": "2iMRCPqDCHHpLcBX8dCN",
             "name": "Agrola Melano",
             "brand": "AGROLA",
@@ -19349,6 +19265,20 @@
             "nearestMunicipalityDistanceKm": 1.9,
             "sp95PriceEur": 1.814,
             "distanceKm": 14.3
+          },
+          {
+            "id": "eyss2Vf8mj29JzsCvuUr",
+            "name": "Piccadilly SA",
+            "brand": "UNDEFINED",
+            "address": "Stráda da Valmára, 6822 Arogno",
+            "lat": 45.96022467397532,
+            "lng": 8.998347379932348,
+            "sp95PriceChf": 1.66,
+            "updatedAt": "2026-03-10T08:07:48.373Z",
+            "nearestMunicipality": "Campione d'Italia (CO)",
+            "nearestMunicipalityDistanceKm": 2.3,
+            "sp95PriceEur": 1.825,
+            "distanceKm": 8.4
           }
         ],
         "minPriceChf": 1.61,
@@ -19379,36 +19309,22 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 30,
+        "optionCount": 29,
         "cheapestStation": {
-          "id": "ahxEtrinnrLWGsZ2laVB",
-          "name": "SOCAR / Piccadilly Gandria",
-          "brand": "PICCADILLY",
-          "address": "Via Cantonale 14, 6978 Gandria",
-          "lat": 46.008082,
-          "lng": 9.007765,
-          "sp95PriceChf": 1.63,
-          "updatedAt": "2026-02-20T08:30:17.440Z",
-          "nearestMunicipality": "Valsolda (CO)",
-          "nearestMunicipalityDistanceKm": 3.6,
-          "sp95PriceEur": 1.792,
-          "distanceKm": 17.4
+          "id": "2iMRCPqDCHHpLcBX8dCN",
+          "name": "Agrola Melano",
+          "brand": "AGROLA",
+          "address": "Via Cantonal 59, 6818 Melano",
+          "lat": 45.924022,
+          "lng": 8.984077,
+          "sp95PriceChf": 1.64,
+          "updatedAt": "2026-02-21T16:05:09.420Z",
+          "nearestMunicipality": "Campione d'Italia (CO)",
+          "nearestMunicipalityDistanceKm": 5,
+          "sp95PriceEur": 1.803,
+          "distanceKm": 15.4
         },
         "nearbyStations": [
-          {
-            "id": "ahxEtrinnrLWGsZ2laVB",
-            "name": "SOCAR / Piccadilly Gandria",
-            "brand": "PICCADILLY",
-            "address": "Via Cantonale 14, 6978 Gandria",
-            "lat": 46.008082,
-            "lng": 9.007765,
-            "sp95PriceChf": 1.63,
-            "updatedAt": "2026-02-20T08:30:17.440Z",
-            "nearestMunicipality": "Valsolda (CO)",
-            "nearestMunicipalityDistanceKm": 3.6,
-            "sp95PriceEur": 1.792,
-            "distanceKm": 17.4
-          },
           {
             "id": "2iMRCPqDCHHpLcBX8dCN",
             "name": "Agrola Melano",
@@ -19464,10 +19380,24 @@
             "nearestMunicipalityDistanceKm": 2.3,
             "sp95PriceEur": 1.825,
             "distanceKm": 14.7
+          },
+          {
+            "id": "a3ydF9cfEWFnSCLRCrQi",
+            "name": "Eni Melano",
+            "brand": "ENI",
+            "address": "Strada Cantonale, 06818 Melano",
+            "lat": 45.9241382,
+            "lng": 8.9826835,
+            "sp95PriceChf": 1.67,
+            "updatedAt": "2026-02-21T16:05:02.430Z",
+            "nearestMunicipality": "Campione d'Italia (CO)",
+            "nearestMunicipalityDistanceKm": 5,
+            "sp95PriceEur": 1.836,
+            "distanceKm": 15.5
           }
         ],
-        "minPriceChf": 1.63,
-        "minPriceEur": 1.792
+        "minPriceChf": 1.64,
+        "minPriceEur": 1.803
       },
       "comparison": {
         "cheaperCountry": "NO_DATA",
@@ -20053,36 +19983,22 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 31,
+        "optionCount": 30,
         "cheapestStation": {
-          "id": "ahxEtrinnrLWGsZ2laVB",
-          "name": "SOCAR / Piccadilly Gandria",
-          "brand": "PICCADILLY",
-          "address": "Via Cantonale 14, 6978 Gandria",
-          "lat": 46.008082,
-          "lng": 9.007765,
-          "sp95PriceChf": 1.63,
-          "updatedAt": "2026-02-20T08:30:17.440Z",
-          "nearestMunicipality": "Valsolda (CO)",
-          "nearestMunicipalityDistanceKm": 3.6,
-          "sp95PriceEur": 1.792,
-          "distanceKm": 17.6
+          "id": "2iMRCPqDCHHpLcBX8dCN",
+          "name": "Agrola Melano",
+          "brand": "AGROLA",
+          "address": "Via Cantonal 59, 6818 Melano",
+          "lat": 45.924022,
+          "lng": 8.984077,
+          "sp95PriceChf": 1.64,
+          "updatedAt": "2026-02-21T16:05:09.420Z",
+          "nearestMunicipality": "Campione d'Italia (CO)",
+          "nearestMunicipalityDistanceKm": 5,
+          "sp95PriceEur": 1.803,
+          "distanceKm": 15.3
         },
         "nearbyStations": [
-          {
-            "id": "ahxEtrinnrLWGsZ2laVB",
-            "name": "SOCAR / Piccadilly Gandria",
-            "brand": "PICCADILLY",
-            "address": "Via Cantonale 14, 6978 Gandria",
-            "lat": 46.008082,
-            "lng": 9.007765,
-            "sp95PriceChf": 1.63,
-            "updatedAt": "2026-02-20T08:30:17.440Z",
-            "nearestMunicipality": "Valsolda (CO)",
-            "nearestMunicipalityDistanceKm": 3.6,
-            "sp95PriceEur": 1.792,
-            "distanceKm": 17.6
-          },
           {
             "id": "2iMRCPqDCHHpLcBX8dCN",
             "name": "Agrola Melano",
@@ -20138,10 +20054,24 @@
             "nearestMunicipalityDistanceKm": 2.3,
             "sp95PriceEur": 1.825,
             "distanceKm": 14.4
+          },
+          {
+            "id": "a3ydF9cfEWFnSCLRCrQi",
+            "name": "Eni Melano",
+            "brand": "ENI",
+            "address": "Strada Cantonale, 06818 Melano",
+            "lat": 45.9241382,
+            "lng": 8.9826835,
+            "sp95PriceChf": 1.67,
+            "updatedAt": "2026-02-21T16:05:02.430Z",
+            "nearestMunicipality": "Campione d'Italia (CO)",
+            "nearestMunicipalityDistanceKm": 5,
+            "sp95PriceEur": 1.836,
+            "distanceKm": 15.5
           }
         ],
-        "minPriceChf": 1.63,
-        "minPriceEur": 1.792
+        "minPriceChf": 1.64,
+        "minPriceEur": 1.803
       },
       "comparison": {
         "cheaperCountry": "NO_DATA",
@@ -20168,7 +20098,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 103,
+        "optionCount": 102,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -20213,20 +20143,6 @@
             "distanceKm": 5.7
           },
           {
-            "id": "ahxEtrinnrLWGsZ2laVB",
-            "name": "SOCAR / Piccadilly Gandria",
-            "brand": "PICCADILLY",
-            "address": "Via Cantonale 14, 6978 Gandria",
-            "lat": 46.008082,
-            "lng": 9.007765,
-            "sp95PriceChf": 1.63,
-            "updatedAt": "2026-02-20T08:30:17.440Z",
-            "nearestMunicipality": "Valsolda (CO)",
-            "nearestMunicipalityDistanceKm": 3.6,
-            "sp95PriceEur": 1.792,
-            "distanceKm": 18.5
-          },
-          {
             "id": "LP7oYktKWhoncV2qvpHG",
             "name": "ECSA Energy SA - Caslano",
             "brand": "UNDEFINED",
@@ -20253,6 +20169,20 @@
             "nearestMunicipalityDistanceKm": 2.3,
             "sp95PriceEur": 1.825,
             "distanceKm": 19.4
+          },
+          {
+            "id": "qAULcG7RwtmdWPH52365",
+            "name": "Euro service",
+            "brand": "UNDEFINED",
+            "address": "Via Colombera 45, 6987 Caslano",
+            "lat": 45.972068975787,
+            "lng": 8.86726121879764,
+            "sp95PriceChf": 1.66,
+            "updatedAt": "2026-03-21T08:03:32.380Z",
+            "nearestMunicipality": "Lavena Ponte Tresa (VA)",
+            "nearestMunicipalityDistanceKm": 1.3,
+            "sp95PriceEur": 1.825,
+            "distanceKm": 10.2
           }
         ],
         "minPriceChf": 1.61,
@@ -20411,7 +20341,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 76,
+        "optionCount": 75,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -20456,20 +20386,6 @@
             "distanceKm": 14.4
           },
           {
-            "id": "ahxEtrinnrLWGsZ2laVB",
-            "name": "SOCAR / Piccadilly Gandria",
-            "brand": "PICCADILLY",
-            "address": "Via Cantonale 14, 6978 Gandria",
-            "lat": 46.008082,
-            "lng": 9.007765,
-            "sp95PriceChf": 1.63,
-            "updatedAt": "2026-02-20T08:30:17.440Z",
-            "nearestMunicipality": "Valsolda (CO)",
-            "nearestMunicipalityDistanceKm": 3.6,
-            "sp95PriceEur": 1.792,
-            "distanceKm": 19.8
-          },
-          {
             "id": "2iMRCPqDCHHpLcBX8dCN",
             "name": "Agrola Melano",
             "brand": "AGROLA",
@@ -20496,6 +20412,20 @@
             "nearestMunicipalityDistanceKm": 1.5,
             "sp95PriceEur": 1.814,
             "distanceKm": 14
+          },
+          {
+            "id": "LP7oYktKWhoncV2qvpHG",
+            "name": "ECSA Energy SA - Caslano",
+            "brand": "UNDEFINED",
+            "address": "Via Colombera 10, 6987 Caslano",
+            "lat": 45.97698951091755,
+            "lng": 8.874521781054243,
+            "sp95PriceChf": 1.6500000000000001,
+            "updatedAt": "2026-03-15T18:07:48.450Z",
+            "nearestMunicipality": "Brusimpiano (VA)",
+            "nearestMunicipalityDistanceKm": 1.9,
+            "sp95PriceEur": 1.814,
+            "distanceKm": 12.5
           }
         ],
         "minPriceChf": 1.61,
@@ -21093,7 +21023,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 71,
+        "optionCount": 70,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -21138,20 +21068,6 @@
             "distanceKm": 8.6
           },
           {
-            "id": "ahxEtrinnrLWGsZ2laVB",
-            "name": "SOCAR / Piccadilly Gandria",
-            "brand": "PICCADILLY",
-            "address": "Via Cantonale 14, 6978 Gandria",
-            "lat": 46.008082,
-            "lng": 9.007765,
-            "sp95PriceChf": 1.63,
-            "updatedAt": "2026-02-20T08:30:17.440Z",
-            "nearestMunicipality": "Valsolda (CO)",
-            "nearestMunicipalityDistanceKm": 3.6,
-            "sp95PriceEur": 1.792,
-            "distanceKm": 19.5
-          },
-          {
             "id": "2iMRCPqDCHHpLcBX8dCN",
             "name": "Agrola Melano",
             "brand": "AGROLA",
@@ -21178,6 +21094,20 @@
             "nearestMunicipalityDistanceKm": 1.9,
             "sp95PriceEur": 1.814,
             "distanceKm": 9.3
+          },
+          {
+            "id": "eyss2Vf8mj29JzsCvuUr",
+            "name": "Piccadilly SA",
+            "brand": "UNDEFINED",
+            "address": "Stráda da Valmára, 6822 Arogno",
+            "lat": 45.96022467397532,
+            "lng": 8.998347379932348,
+            "sp95PriceChf": 1.66,
+            "updatedAt": "2026-03-10T08:07:48.373Z",
+            "nearestMunicipality": "Campione d'Italia (CO)",
+            "nearestMunicipalityDistanceKm": 2.3,
+            "sp95PriceEur": 1.825,
+            "distanceKm": 16.6
           }
         ],
         "minPriceChf": 1.61,
@@ -21208,7 +21138,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 83,
+        "optionCount": 82,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -21253,20 +21183,6 @@
             "distanceKm": 13.3
           },
           {
-            "id": "ahxEtrinnrLWGsZ2laVB",
-            "name": "SOCAR / Piccadilly Gandria",
-            "brand": "PICCADILLY",
-            "address": "Via Cantonale 14, 6978 Gandria",
-            "lat": 46.008082,
-            "lng": 9.007765,
-            "sp95PriceChf": 1.63,
-            "updatedAt": "2026-02-20T08:30:17.440Z",
-            "nearestMunicipality": "Valsolda (CO)",
-            "nearestMunicipalityDistanceKm": 3.6,
-            "sp95PriceEur": 1.792,
-            "distanceKm": 16.4
-          },
-          {
             "id": "2iMRCPqDCHHpLcBX8dCN",
             "name": "Agrola Melano",
             "brand": "AGROLA",
@@ -21293,6 +21209,20 @@
             "nearestMunicipalityDistanceKm": 1.5,
             "sp95PriceEur": 1.814,
             "distanceKm": 12.3
+          },
+          {
+            "id": "LP7oYktKWhoncV2qvpHG",
+            "name": "ECSA Energy SA - Caslano",
+            "brand": "UNDEFINED",
+            "address": "Via Colombera 10, 6987 Caslano",
+            "lat": 45.97698951091755,
+            "lng": 8.874521781054243,
+            "sp95PriceChf": 1.6500000000000001,
+            "updatedAt": "2026-03-15T18:07:48.450Z",
+            "nearestMunicipality": "Brusimpiano (VA)",
+            "nearestMunicipalityDistanceKm": 1.9,
+            "sp95PriceEur": 1.814,
+            "distanceKm": 10.3
           }
         ],
         "minPriceChf": 1.61,
@@ -21541,7 +21471,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 79,
+        "optionCount": 78,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -21586,20 +21516,6 @@
             "distanceKm": 14.2
           },
           {
-            "id": "ahxEtrinnrLWGsZ2laVB",
-            "name": "SOCAR / Piccadilly Gandria",
-            "brand": "PICCADILLY",
-            "address": "Via Cantonale 14, 6978 Gandria",
-            "lat": 46.008082,
-            "lng": 9.007765,
-            "sp95PriceChf": 1.63,
-            "updatedAt": "2026-02-20T08:30:17.440Z",
-            "nearestMunicipality": "Valsolda (CO)",
-            "nearestMunicipalityDistanceKm": 3.6,
-            "sp95PriceEur": 1.792,
-            "distanceKm": 18.6
-          },
-          {
             "id": "2iMRCPqDCHHpLcBX8dCN",
             "name": "Agrola Melano",
             "brand": "AGROLA",
@@ -21626,6 +21542,20 @@
             "nearestMunicipalityDistanceKm": 1.5,
             "sp95PriceEur": 1.814,
             "distanceKm": 13.1
+          },
+          {
+            "id": "LP7oYktKWhoncV2qvpHG",
+            "name": "ECSA Energy SA - Caslano",
+            "brand": "UNDEFINED",
+            "address": "Via Colombera 10, 6987 Caslano",
+            "lat": 45.97698951091755,
+            "lng": 8.874521781054243,
+            "sp95PriceChf": 1.6500000000000001,
+            "updatedAt": "2026-03-15T18:07:48.450Z",
+            "nearestMunicipality": "Brusimpiano (VA)",
+            "nearestMunicipalityDistanceKm": 1.9,
+            "sp95PriceEur": 1.814,
+            "distanceKm": 11.9
           }
         ],
         "minPriceChf": 1.61,
@@ -22487,7 +22417,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 92,
+        "optionCount": 91,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -22532,20 +22462,6 @@
             "distanceKm": 6.4
           },
           {
-            "id": "ahxEtrinnrLWGsZ2laVB",
-            "name": "SOCAR / Piccadilly Gandria",
-            "brand": "PICCADILLY",
-            "address": "Via Cantonale 14, 6978 Gandria",
-            "lat": 46.008082,
-            "lng": 9.007765,
-            "sp95PriceChf": 1.63,
-            "updatedAt": "2026-02-20T08:30:17.440Z",
-            "nearestMunicipality": "Valsolda (CO)",
-            "nearestMunicipalityDistanceKm": 3.6,
-            "sp95PriceEur": 1.792,
-            "distanceKm": 11.3
-          },
-          {
             "id": "2iMRCPqDCHHpLcBX8dCN",
             "name": "Agrola Melano",
             "brand": "AGROLA",
@@ -22572,6 +22488,20 @@
             "nearestMunicipalityDistanceKm": 1.5,
             "sp95PriceEur": 1.814,
             "distanceKm": 18.3
+          },
+          {
+            "id": "LP7oYktKWhoncV2qvpHG",
+            "name": "ECSA Energy SA - Caslano",
+            "brand": "UNDEFINED",
+            "address": "Via Colombera 10, 6987 Caslano",
+            "lat": 45.97698951091755,
+            "lng": 8.874521781054243,
+            "sp95PriceChf": 1.6500000000000001,
+            "updatedAt": "2026-03-15T18:07:48.450Z",
+            "nearestMunicipality": "Brusimpiano (VA)",
+            "nearestMunicipalityDistanceKm": 1.9,
+            "sp95PriceEur": 1.814,
+            "distanceKm": 1.9
           }
         ],
         "minPriceChf": 1.61,
@@ -22761,7 +22691,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 81,
+        "optionCount": 80,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -22806,20 +22736,6 @@
             "distanceKm": 3.4
           },
           {
-            "id": "ahxEtrinnrLWGsZ2laVB",
-            "name": "SOCAR / Piccadilly Gandria",
-            "brand": "PICCADILLY",
-            "address": "Via Cantonale 14, 6978 Gandria",
-            "lat": 46.008082,
-            "lng": 9.007765,
-            "sp95PriceChf": 1.63,
-            "updatedAt": "2026-02-20T08:30:17.440Z",
-            "nearestMunicipality": "Valsolda (CO)",
-            "nearestMunicipalityDistanceKm": 3.6,
-            "sp95PriceEur": 1.792,
-            "distanceKm": 14.5
-          },
-          {
             "id": "2iMRCPqDCHHpLcBX8dCN",
             "name": "Agrola Melano",
             "brand": "AGROLA",
@@ -22846,6 +22762,20 @@
             "nearestMunicipalityDistanceKm": 1.9,
             "sp95PriceEur": 1.814,
             "distanceKm": 3.6
+          },
+          {
+            "id": "eyss2Vf8mj29JzsCvuUr",
+            "name": "Piccadilly SA",
+            "brand": "UNDEFINED",
+            "address": "Stráda da Valmára, 6822 Arogno",
+            "lat": 45.96022467397532,
+            "lng": 8.998347379932348,
+            "sp95PriceChf": 1.66,
+            "updatedAt": "2026-03-10T08:07:48.373Z",
+            "nearestMunicipality": "Campione d'Italia (CO)",
+            "nearestMunicipalityDistanceKm": 2.3,
+            "sp95PriceEur": 1.825,
+            "distanceKm": 13
           }
         ],
         "minPriceChf": 1.61,
@@ -25259,7 +25189,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 79,
+        "optionCount": 78,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -25304,20 +25234,6 @@
             "distanceKm": 16.9
           },
           {
-            "id": "ahxEtrinnrLWGsZ2laVB",
-            "name": "SOCAR / Piccadilly Gandria",
-            "brand": "PICCADILLY",
-            "address": "Via Cantonale 14, 6978 Gandria",
-            "lat": 46.008082,
-            "lng": 9.007765,
-            "sp95PriceChf": 1.63,
-            "updatedAt": "2026-02-20T08:30:17.440Z",
-            "nearestMunicipality": "Valsolda (CO)",
-            "nearestMunicipalityDistanceKm": 3.6,
-            "sp95PriceEur": 1.792,
-            "distanceKm": 17.1
-          },
-          {
             "id": "2iMRCPqDCHHpLcBX8dCN",
             "name": "Agrola Melano",
             "brand": "AGROLA",
@@ -25344,6 +25260,20 @@
             "nearestMunicipalityDistanceKm": 1.5,
             "sp95PriceEur": 1.814,
             "distanceKm": 8.5
+          },
+          {
+            "id": "LP7oYktKWhoncV2qvpHG",
+            "name": "ECSA Energy SA - Caslano",
+            "brand": "UNDEFINED",
+            "address": "Via Colombera 10, 6987 Caslano",
+            "lat": 45.97698951091755,
+            "lng": 8.874521781054243,
+            "sp95PriceChf": 1.6500000000000001,
+            "updatedAt": "2026-03-15T18:07:48.450Z",
+            "nearestMunicipality": "Brusimpiano (VA)",
+            "nearestMunicipalityDistanceKm": 1.9,
+            "sp95PriceEur": 1.814,
+            "distanceKm": 13.2
           }
         ],
         "minPriceChf": 1.61,
@@ -25778,7 +25708,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 88,
+        "optionCount": 87,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -25823,20 +25753,6 @@
             "distanceKm": 0.5
           },
           {
-            "id": "ahxEtrinnrLWGsZ2laVB",
-            "name": "SOCAR / Piccadilly Gandria",
-            "brand": "PICCADILLY",
-            "address": "Via Cantonale 14, 6978 Gandria",
-            "lat": 46.008082,
-            "lng": 9.007765,
-            "sp95PriceChf": 1.63,
-            "updatedAt": "2026-02-20T08:30:17.440Z",
-            "nearestMunicipality": "Valsolda (CO)",
-            "nearestMunicipalityDistanceKm": 3.6,
-            "sp95PriceEur": 1.792,
-            "distanceKm": 16
-          },
-          {
             "id": "2iMRCPqDCHHpLcBX8dCN",
             "name": "Agrola Melano",
             "brand": "AGROLA",
@@ -25863,6 +25779,20 @@
             "nearestMunicipalityDistanceKm": 1.9,
             "sp95PriceEur": 1.814,
             "distanceKm": 5.7
+          },
+          {
+            "id": "eyss2Vf8mj29JzsCvuUr",
+            "name": "Piccadilly SA",
+            "brand": "UNDEFINED",
+            "address": "Stráda da Valmára, 6822 Arogno",
+            "lat": 45.96022467397532,
+            "lng": 8.998347379932348,
+            "sp95PriceChf": 1.66,
+            "updatedAt": "2026-03-10T08:07:48.373Z",
+            "nearestMunicipality": "Campione d'Italia (CO)",
+            "nearestMunicipalityDistanceKm": 2.3,
+            "sp95PriceEur": 1.825,
+            "distanceKm": 15.5
           }
         ],
         "minPriceChf": 1.61,
@@ -26041,7 +25971,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 84,
+        "optionCount": 83,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -26086,20 +26016,6 @@
             "distanceKm": 10
           },
           {
-            "id": "ahxEtrinnrLWGsZ2laVB",
-            "name": "SOCAR / Piccadilly Gandria",
-            "brand": "PICCADILLY",
-            "address": "Via Cantonale 14, 6978 Gandria",
-            "lat": 46.008082,
-            "lng": 9.007765,
-            "sp95PriceChf": 1.63,
-            "updatedAt": "2026-02-20T08:30:17.440Z",
-            "nearestMunicipality": "Valsolda (CO)",
-            "nearestMunicipalityDistanceKm": 3.6,
-            "sp95PriceEur": 1.792,
-            "distanceKm": 14.4
-          },
-          {
             "id": "2iMRCPqDCHHpLcBX8dCN",
             "name": "Agrola Melano",
             "brand": "AGROLA",
@@ -26126,6 +26042,20 @@
             "nearestMunicipalityDistanceKm": 1.5,
             "sp95PriceEur": 1.814,
             "distanceKm": 14.7
+          },
+          {
+            "id": "LP7oYktKWhoncV2qvpHG",
+            "name": "ECSA Energy SA - Caslano",
+            "brand": "UNDEFINED",
+            "address": "Via Colombera 10, 6987 Caslano",
+            "lat": 45.97698951091755,
+            "lng": 8.874521781054243,
+            "sp95PriceChf": 1.6500000000000001,
+            "updatedAt": "2026-03-15T18:07:48.450Z",
+            "nearestMunicipality": "Brusimpiano (VA)",
+            "nearestMunicipalityDistanceKm": 1.9,
+            "sp95PriceEur": 1.814,
+            "distanceKm": 6.9
           }
         ],
         "minPriceChf": 1.61,
@@ -26156,7 +26086,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 77,
+        "optionCount": 76,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -26201,20 +26131,6 @@
             "distanceKm": 5.1
           },
           {
-            "id": "ahxEtrinnrLWGsZ2laVB",
-            "name": "SOCAR / Piccadilly Gandria",
-            "brand": "PICCADILLY",
-            "address": "Via Cantonale 14, 6978 Gandria",
-            "lat": 46.008082,
-            "lng": 9.007765,
-            "sp95PriceChf": 1.63,
-            "updatedAt": "2026-02-20T08:30:17.440Z",
-            "nearestMunicipality": "Valsolda (CO)",
-            "nearestMunicipalityDistanceKm": 3.6,
-            "sp95PriceEur": 1.792,
-            "distanceKm": 15.9
-          },
-          {
             "id": "2iMRCPqDCHHpLcBX8dCN",
             "name": "Agrola Melano",
             "brand": "AGROLA",
@@ -26241,6 +26157,20 @@
             "nearestMunicipalityDistanceKm": 1.9,
             "sp95PriceEur": 1.814,
             "distanceKm": 5.3
+          },
+          {
+            "id": "eyss2Vf8mj29JzsCvuUr",
+            "name": "Piccadilly SA",
+            "brand": "UNDEFINED",
+            "address": "Stráda da Valmára, 6822 Arogno",
+            "lat": 45.96022467397532,
+            "lng": 8.998347379932348,
+            "sp95PriceChf": 1.66,
+            "updatedAt": "2026-03-10T08:07:48.373Z",
+            "nearestMunicipality": "Campione d'Italia (CO)",
+            "nearestMunicipalityDistanceKm": 2.3,
+            "sp95PriceEur": 1.825,
+            "distanceKm": 13.7
           }
         ],
         "minPriceChf": 1.61,
@@ -26293,7 +26223,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 74,
+        "optionCount": 73,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -26338,20 +26268,6 @@
             "distanceKm": 6.8
           },
           {
-            "id": "ahxEtrinnrLWGsZ2laVB",
-            "name": "SOCAR / Piccadilly Gandria",
-            "brand": "PICCADILLY",
-            "address": "Via Cantonale 14, 6978 Gandria",
-            "lat": 46.008082,
-            "lng": 9.007765,
-            "sp95PriceChf": 1.63,
-            "updatedAt": "2026-02-20T08:30:17.440Z",
-            "nearestMunicipality": "Valsolda (CO)",
-            "nearestMunicipalityDistanceKm": 3.6,
-            "sp95PriceEur": 1.792,
-            "distanceKm": 18.1
-          },
-          {
             "id": "2iMRCPqDCHHpLcBX8dCN",
             "name": "Agrola Melano",
             "brand": "AGROLA",
@@ -26378,6 +26294,20 @@
             "nearestMunicipalityDistanceKm": 1.9,
             "sp95PriceEur": 1.814,
             "distanceKm": 7.7
+          },
+          {
+            "id": "eyss2Vf8mj29JzsCvuUr",
+            "name": "Piccadilly SA",
+            "brand": "UNDEFINED",
+            "address": "Stráda da Valmára, 6822 Arogno",
+            "lat": 45.96022467397532,
+            "lng": 8.998347379932348,
+            "sp95PriceChf": 1.66,
+            "updatedAt": "2026-03-10T08:07:48.373Z",
+            "nearestMunicipality": "Campione d'Italia (CO)",
+            "nearestMunicipalityDistanceKm": 2.3,
+            "sp95PriceEur": 1.825,
+            "distanceKm": 15.5
           }
         ],
         "minPriceChf": 1.61,
@@ -26408,7 +26338,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 110,
+        "optionCount": 109,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -26453,20 +26383,6 @@
             "distanceKm": 7.7
           },
           {
-            "id": "ahxEtrinnrLWGsZ2laVB",
-            "name": "SOCAR / Piccadilly Gandria",
-            "brand": "PICCADILLY",
-            "address": "Via Cantonale 14, 6978 Gandria",
-            "lat": 46.008082,
-            "lng": 9.007765,
-            "sp95PriceChf": 1.63,
-            "updatedAt": "2026-02-20T08:30:17.440Z",
-            "nearestMunicipality": "Valsolda (CO)",
-            "nearestMunicipalityDistanceKm": 3.6,
-            "sp95PriceEur": 1.792,
-            "distanceKm": 16.7
-          },
-          {
             "id": "LP7oYktKWhoncV2qvpHG",
             "name": "ECSA Energy SA - Caslano",
             "brand": "UNDEFINED",
@@ -26493,6 +26409,20 @@
             "nearestMunicipalityDistanceKm": 2.3,
             "sp95PriceEur": 1.825,
             "distanceKm": 18.7
+          },
+          {
+            "id": "qAULcG7RwtmdWPH52365",
+            "name": "Euro service",
+            "brand": "UNDEFINED",
+            "address": "Via Colombera 45, 6987 Caslano",
+            "lat": 45.972068975787,
+            "lng": 8.86726121879764,
+            "sp95PriceChf": 1.66,
+            "updatedAt": "2026-03-21T08:03:32.380Z",
+            "nearestMunicipality": "Lavena Ponte Tresa (VA)",
+            "nearestMunicipalityDistanceKm": 1.3,
+            "sp95PriceEur": 1.825,
+            "distanceKm": 10.9
           }
         ],
         "minPriceChf": 1.61,
@@ -26945,7 +26875,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 103,
+        "optionCount": 102,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -26990,20 +26920,6 @@
             "distanceKm": 3.6
           },
           {
-            "id": "ahxEtrinnrLWGsZ2laVB",
-            "name": "SOCAR / Piccadilly Gandria",
-            "brand": "PICCADILLY",
-            "address": "Via Cantonale 14, 6978 Gandria",
-            "lat": 46.008082,
-            "lng": 9.007765,
-            "sp95PriceChf": 1.63,
-            "updatedAt": "2026-02-20T08:30:17.440Z",
-            "nearestMunicipality": "Valsolda (CO)",
-            "nearestMunicipalityDistanceKm": 3.6,
-            "sp95PriceEur": 1.792,
-            "distanceKm": 17.1
-          },
-          {
             "id": "2iMRCPqDCHHpLcBX8dCN",
             "name": "Agrola Melano",
             "brand": "AGROLA",
@@ -27030,6 +26946,20 @@
             "nearestMunicipalityDistanceKm": 1.9,
             "sp95PriceEur": 1.814,
             "distanceKm": 8.2
+          },
+          {
+            "id": "eyss2Vf8mj29JzsCvuUr",
+            "name": "Piccadilly SA",
+            "brand": "UNDEFINED",
+            "address": "Stráda da Valmára, 6822 Arogno",
+            "lat": 45.96022467397532,
+            "lng": 8.998347379932348,
+            "sp95PriceChf": 1.66,
+            "updatedAt": "2026-03-10T08:07:48.373Z",
+            "nearestMunicipality": "Campione d'Italia (CO)",
+            "nearestMunicipalityDistanceKm": 2.3,
+            "sp95PriceEur": 1.825,
+            "distanceKm": 17.6
           }
         ],
         "minPriceChf": 1.61,
@@ -27239,7 +27169,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 70,
+        "optionCount": 69,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -27284,20 +27214,6 @@
             "distanceKm": 6.5
           },
           {
-            "id": "ahxEtrinnrLWGsZ2laVB",
-            "name": "SOCAR / Piccadilly Gandria",
-            "brand": "PICCADILLY",
-            "address": "Via Cantonale 14, 6978 Gandria",
-            "lat": 46.008082,
-            "lng": 9.007765,
-            "sp95PriceChf": 1.63,
-            "updatedAt": "2026-02-20T08:30:17.440Z",
-            "nearestMunicipality": "Valsolda (CO)",
-            "nearestMunicipalityDistanceKm": 3.6,
-            "sp95PriceEur": 1.792,
-            "distanceKm": 19
-          },
-          {
             "id": "2iMRCPqDCHHpLcBX8dCN",
             "name": "Agrola Melano",
             "brand": "AGROLA",
@@ -27324,6 +27240,20 @@
             "nearestMunicipalityDistanceKm": 1.9,
             "sp95PriceEur": 1.814,
             "distanceKm": 8.3
+          },
+          {
+            "id": "eyss2Vf8mj29JzsCvuUr",
+            "name": "Piccadilly SA",
+            "brand": "UNDEFINED",
+            "address": "Stráda da Valmára, 6822 Arogno",
+            "lat": 45.96022467397532,
+            "lng": 8.998347379932348,
+            "sp95PriceChf": 1.66,
+            "updatedAt": "2026-03-10T08:07:48.373Z",
+            "nearestMunicipality": "Campione d'Italia (CO)",
+            "nearestMunicipalityDistanceKm": 2.3,
+            "sp95PriceEur": 1.825,
+            "distanceKm": 16.7
           }
         ],
         "minPriceChf": 1.61,
@@ -28872,7 +28802,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 73,
+        "optionCount": 72,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -28917,20 +28847,6 @@
             "distanceKm": 5.3
           },
           {
-            "id": "ahxEtrinnrLWGsZ2laVB",
-            "name": "SOCAR / Piccadilly Gandria",
-            "brand": "PICCADILLY",
-            "address": "Via Cantonale 14, 6978 Gandria",
-            "lat": 46.008082,
-            "lng": 9.007765,
-            "sp95PriceChf": 1.63,
-            "updatedAt": "2026-02-20T08:30:17.440Z",
-            "nearestMunicipality": "Valsolda (CO)",
-            "nearestMunicipalityDistanceKm": 3.6,
-            "sp95PriceEur": 1.792,
-            "distanceKm": 19.2
-          },
-          {
             "id": "2iMRCPqDCHHpLcBX8dCN",
             "name": "Agrola Melano",
             "brand": "AGROLA",
@@ -28957,6 +28873,20 @@
             "nearestMunicipalityDistanceKm": 1.9,
             "sp95PriceEur": 1.814,
             "distanceKm": 8.3
+          },
+          {
+            "id": "eyss2Vf8mj29JzsCvuUr",
+            "name": "Piccadilly SA",
+            "brand": "UNDEFINED",
+            "address": "Stráda da Valmára, 6822 Arogno",
+            "lat": 45.96022467397532,
+            "lng": 8.998347379932348,
+            "sp95PriceChf": 1.66,
+            "updatedAt": "2026-03-10T08:07:48.373Z",
+            "nearestMunicipality": "Campione d'Italia (CO)",
+            "nearestMunicipalityDistanceKm": 2.3,
+            "sp95PriceEur": 1.825,
+            "distanceKm": 17.4
           }
         ],
         "minPriceChf": 1.61,
@@ -29256,7 +29186,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 92,
+        "optionCount": 91,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -29301,20 +29231,6 @@
             "distanceKm": 4.7
           },
           {
-            "id": "ahxEtrinnrLWGsZ2laVB",
-            "name": "SOCAR / Piccadilly Gandria",
-            "brand": "PICCADILLY",
-            "address": "Via Cantonale 14, 6978 Gandria",
-            "lat": 46.008082,
-            "lng": 9.007765,
-            "sp95PriceChf": 1.63,
-            "updatedAt": "2026-02-20T08:30:17.440Z",
-            "nearestMunicipality": "Valsolda (CO)",
-            "nearestMunicipalityDistanceKm": 3.6,
-            "sp95PriceEur": 1.792,
-            "distanceKm": 12.7
-          },
-          {
             "id": "2iMRCPqDCHHpLcBX8dCN",
             "name": "Agrola Melano",
             "brand": "AGROLA",
@@ -29341,6 +29257,20 @@
             "nearestMunicipalityDistanceKm": 1.5,
             "sp95PriceEur": 1.814,
             "distanceKm": 19.7
+          },
+          {
+            "id": "LP7oYktKWhoncV2qvpHG",
+            "name": "ECSA Energy SA - Caslano",
+            "brand": "UNDEFINED",
+            "address": "Via Colombera 10, 6987 Caslano",
+            "lat": 45.97698951091755,
+            "lng": 8.874521781054243,
+            "sp95PriceChf": 1.6500000000000001,
+            "updatedAt": "2026-03-15T18:07:48.450Z",
+            "nearestMunicipality": "Brusimpiano (VA)",
+            "nearestMunicipalityDistanceKm": 1.9,
+            "sp95PriceEur": 1.814,
+            "distanceKm": 2.1
           }
         ],
         "minPriceChf": 1.61,
@@ -30076,7 +30006,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 104,
+        "optionCount": 103,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -30121,20 +30051,6 @@
             "distanceKm": 9.6
           },
           {
-            "id": "ahxEtrinnrLWGsZ2laVB",
-            "name": "SOCAR / Piccadilly Gandria",
-            "brand": "PICCADILLY",
-            "address": "Via Cantonale 14, 6978 Gandria",
-            "lat": 46.008082,
-            "lng": 9.007765,
-            "sp95PriceChf": 1.63,
-            "updatedAt": "2026-02-20T08:30:17.440Z",
-            "nearestMunicipality": "Valsolda (CO)",
-            "nearestMunicipalityDistanceKm": 3.6,
-            "sp95PriceEur": 1.792,
-            "distanceKm": 19.3
-          },
-          {
             "id": "LP7oYktKWhoncV2qvpHG",
             "name": "ECSA Energy SA - Caslano",
             "brand": "UNDEFINED",
@@ -30161,6 +30077,20 @@
             "nearestMunicipalityDistanceKm": 1.3,
             "sp95PriceEur": 1.825,
             "distanceKm": 13.3
+          },
+          {
+            "id": "VW0cjs2jCw25mkNyuE9t",
+            "name": "Texon Service",
+            "brand": "UNDEFINED",
+            "address": "Via Cantonale 50, 6987 Caslano",
+            "lat": 45.97858351864336,
+            "lng": 8.87647837854075,
+            "sp95PriceChf": 1.6600000000000001,
+            "updatedAt": "2026-03-21T08:10:13.884Z",
+            "nearestMunicipality": "Brusimpiano (VA)",
+            "nearestMunicipalityDistanceKm": 2.1,
+            "sp95PriceEur": 1.825,
+            "distanceKm": 13.1
           }
         ],
         "minPriceChf": 1.61,
@@ -30405,7 +30335,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 85,
+        "optionCount": 84,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -30450,20 +30380,6 @@
             "distanceKm": 4.9
           },
           {
-            "id": "ahxEtrinnrLWGsZ2laVB",
-            "name": "SOCAR / Piccadilly Gandria",
-            "brand": "PICCADILLY",
-            "address": "Via Cantonale 14, 6978 Gandria",
-            "lat": 46.008082,
-            "lng": 9.007765,
-            "sp95PriceChf": 1.63,
-            "updatedAt": "2026-02-20T08:30:17.440Z",
-            "nearestMunicipality": "Valsolda (CO)",
-            "nearestMunicipalityDistanceKm": 3.6,
-            "sp95PriceEur": 1.792,
-            "distanceKm": 15
-          },
-          {
             "id": "2iMRCPqDCHHpLcBX8dCN",
             "name": "Agrola Melano",
             "brand": "AGROLA",
@@ -30490,6 +30406,20 @@
             "nearestMunicipalityDistanceKm": 1.5,
             "sp95PriceEur": 1.814,
             "distanceKm": 20
+          },
+          {
+            "id": "LP7oYktKWhoncV2qvpHG",
+            "name": "ECSA Energy SA - Caslano",
+            "brand": "UNDEFINED",
+            "address": "Via Colombera 10, 6987 Caslano",
+            "lat": 45.97698951091755,
+            "lng": 8.874521781054243,
+            "sp95PriceChf": 1.6500000000000001,
+            "updatedAt": "2026-03-15T18:07:48.450Z",
+            "nearestMunicipality": "Brusimpiano (VA)",
+            "nearestMunicipalityDistanceKm": 1.9,
+            "sp95PriceEur": 1.814,
+            "distanceKm": 4.4
           }
         ],
         "minPriceChf": 1.61,
@@ -30520,7 +30450,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 87,
+        "optionCount": 86,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -30565,20 +30495,6 @@
             "distanceKm": 7
           },
           {
-            "id": "ahxEtrinnrLWGsZ2laVB",
-            "name": "SOCAR / Piccadilly Gandria",
-            "brand": "PICCADILLY",
-            "address": "Via Cantonale 14, 6978 Gandria",
-            "lat": 46.008082,
-            "lng": 9.007765,
-            "sp95PriceChf": 1.63,
-            "updatedAt": "2026-02-20T08:30:17.440Z",
-            "nearestMunicipality": "Valsolda (CO)",
-            "nearestMunicipalityDistanceKm": 3.6,
-            "sp95PriceEur": 1.792,
-            "distanceKm": 13.8
-          },
-          {
             "id": "2iMRCPqDCHHpLcBX8dCN",
             "name": "Agrola Melano",
             "brand": "AGROLA",
@@ -30605,6 +30521,20 @@
             "nearestMunicipalityDistanceKm": 1.5,
             "sp95PriceEur": 1.814,
             "distanceKm": 17.6
+          },
+          {
+            "id": "LP7oYktKWhoncV2qvpHG",
+            "name": "ECSA Energy SA - Caslano",
+            "brand": "UNDEFINED",
+            "address": "Via Colombera 10, 6987 Caslano",
+            "lat": 45.97698951091755,
+            "lng": 8.874521781054243,
+            "sp95PriceChf": 1.6500000000000001,
+            "updatedAt": "2026-03-15T18:07:48.450Z",
+            "nearestMunicipality": "Brusimpiano (VA)",
+            "nearestMunicipalityDistanceKm": 1.9,
+            "sp95PriceEur": 1.814,
+            "distanceKm": 4.4
           }
         ],
         "minPriceChf": 1.61,
@@ -30918,7 +30848,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 73,
+        "optionCount": 72,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -30963,20 +30893,6 @@
             "distanceKm": 3.6
           },
           {
-            "id": "ahxEtrinnrLWGsZ2laVB",
-            "name": "SOCAR / Piccadilly Gandria",
-            "brand": "PICCADILLY",
-            "address": "Via Cantonale 14, 6978 Gandria",
-            "lat": 46.008082,
-            "lng": 9.007765,
-            "sp95PriceChf": 1.63,
-            "updatedAt": "2026-02-20T08:30:17.440Z",
-            "nearestMunicipality": "Valsolda (CO)",
-            "nearestMunicipalityDistanceKm": 3.6,
-            "sp95PriceEur": 1.792,
-            "distanceKm": 18.9
-          },
-          {
             "id": "2iMRCPqDCHHpLcBX8dCN",
             "name": "Agrola Melano",
             "brand": "AGROLA",
@@ -31003,6 +30919,20 @@
             "nearestMunicipalityDistanceKm": 1.9,
             "sp95PriceEur": 1.814,
             "distanceKm": 8.2
+          },
+          {
+            "id": "eyss2Vf8mj29JzsCvuUr",
+            "name": "Piccadilly SA",
+            "brand": "UNDEFINED",
+            "address": "Stráda da Valmára, 6822 Arogno",
+            "lat": 45.96022467397532,
+            "lng": 8.998347379932348,
+            "sp95PriceChf": 1.66,
+            "updatedAt": "2026-03-10T08:07:48.373Z",
+            "nearestMunicipality": "Campione d'Italia (CO)",
+            "nearestMunicipalityDistanceKm": 2.3,
+            "sp95PriceEur": 1.825,
+            "distanceKm": 17.8
           }
         ],
         "minPriceChf": 1.61,
@@ -31467,7 +31397,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 84,
+        "optionCount": 83,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -31512,20 +31442,6 @@
             "distanceKm": 11.8
           },
           {
-            "id": "ahxEtrinnrLWGsZ2laVB",
-            "name": "SOCAR / Piccadilly Gandria",
-            "brand": "PICCADILLY",
-            "address": "Via Cantonale 14, 6978 Gandria",
-            "lat": 46.008082,
-            "lng": 9.007765,
-            "sp95PriceChf": 1.63,
-            "updatedAt": "2026-02-20T08:30:17.440Z",
-            "nearestMunicipality": "Valsolda (CO)",
-            "nearestMunicipalityDistanceKm": 3.6,
-            "sp95PriceEur": 1.792,
-            "distanceKm": 13.8
-          },
-          {
             "id": "2iMRCPqDCHHpLcBX8dCN",
             "name": "Agrola Melano",
             "brand": "AGROLA",
@@ -31552,6 +31468,20 @@
             "nearestMunicipalityDistanceKm": 1.5,
             "sp95PriceEur": 1.814,
             "distanceKm": 12.7
+          },
+          {
+            "id": "LP7oYktKWhoncV2qvpHG",
+            "name": "ECSA Energy SA - Caslano",
+            "brand": "UNDEFINED",
+            "address": "Via Colombera 10, 6987 Caslano",
+            "lat": 45.97698951091755,
+            "lng": 8.874521781054243,
+            "sp95PriceChf": 1.6500000000000001,
+            "updatedAt": "2026-03-15T18:07:48.450Z",
+            "nearestMunicipality": "Brusimpiano (VA)",
+            "nearestMunicipalityDistanceKm": 1.9,
+            "sp95PriceEur": 1.814,
+            "distanceKm": 8.1
           }
         ],
         "minPriceChf": 1.61,
@@ -31845,7 +31775,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 81,
+        "optionCount": 80,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -31890,20 +31820,6 @@
             "distanceKm": 15.7
           },
           {
-            "id": "ahxEtrinnrLWGsZ2laVB",
-            "name": "SOCAR / Piccadilly Gandria",
-            "brand": "PICCADILLY",
-            "address": "Via Cantonale 14, 6978 Gandria",
-            "lat": 46.008082,
-            "lng": 9.007765,
-            "sp95PriceChf": 1.63,
-            "updatedAt": "2026-02-20T08:30:17.440Z",
-            "nearestMunicipality": "Valsolda (CO)",
-            "nearestMunicipalityDistanceKm": 3.6,
-            "sp95PriceEur": 1.792,
-            "distanceKm": 16.3
-          },
-          {
             "id": "2iMRCPqDCHHpLcBX8dCN",
             "name": "Agrola Melano",
             "brand": "AGROLA",
@@ -31930,6 +31846,20 @@
             "nearestMunicipalityDistanceKm": 1.5,
             "sp95PriceEur": 1.814,
             "distanceKm": 9.5
+          },
+          {
+            "id": "LP7oYktKWhoncV2qvpHG",
+            "name": "ECSA Energy SA - Caslano",
+            "brand": "UNDEFINED",
+            "address": "Via Colombera 10, 6987 Caslano",
+            "lat": 45.97698951091755,
+            "lng": 8.874521781054243,
+            "sp95PriceChf": 1.6500000000000001,
+            "updatedAt": "2026-03-15T18:07:48.450Z",
+            "nearestMunicipality": "Brusimpiano (VA)",
+            "nearestMunicipalityDistanceKm": 1.9,
+            "sp95PriceEur": 1.814,
+            "distanceKm": 12
           }
         ],
         "minPriceChf": 1.61,
@@ -33160,7 +33090,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 81,
+        "optionCount": 80,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -33205,20 +33135,6 @@
             "distanceKm": 9.9
           },
           {
-            "id": "ahxEtrinnrLWGsZ2laVB",
-            "name": "SOCAR / Piccadilly Gandria",
-            "brand": "PICCADILLY",
-            "address": "Via Cantonale 14, 6978 Gandria",
-            "lat": 46.008082,
-            "lng": 9.007765,
-            "sp95PriceChf": 1.63,
-            "updatedAt": "2026-02-20T08:30:17.440Z",
-            "nearestMunicipality": "Valsolda (CO)",
-            "nearestMunicipalityDistanceKm": 3.6,
-            "sp95PriceEur": 1.792,
-            "distanceKm": 18.4
-          },
-          {
             "id": "2iMRCPqDCHHpLcBX8dCN",
             "name": "Agrola Melano",
             "brand": "AGROLA",
@@ -33245,6 +33161,20 @@
             "nearestMunicipalityDistanceKm": 1.5,
             "sp95PriceEur": 1.814,
             "distanceKm": 17.6
+          },
+          {
+            "id": "LP7oYktKWhoncV2qvpHG",
+            "name": "ECSA Energy SA - Caslano",
+            "brand": "UNDEFINED",
+            "address": "Via Colombera 10, 6987 Caslano",
+            "lat": 45.97698951091755,
+            "lng": 8.874521781054243,
+            "sp95PriceChf": 1.6500000000000001,
+            "updatedAt": "2026-03-15T18:07:48.450Z",
+            "nearestMunicipality": "Brusimpiano (VA)",
+            "nearestMunicipalityDistanceKm": 1.9,
+            "sp95PriceEur": 1.814,
+            "distanceKm": 9.1
           }
         ],
         "minPriceChf": 1.61,
@@ -34452,7 +34382,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 80,
+        "optionCount": 79,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -34497,20 +34427,6 @@
             "distanceKm": 15.2
           },
           {
-            "id": "ahxEtrinnrLWGsZ2laVB",
-            "name": "SOCAR / Piccadilly Gandria",
-            "brand": "PICCADILLY",
-            "address": "Via Cantonale 14, 6978 Gandria",
-            "lat": 46.008082,
-            "lng": 9.007765,
-            "sp95PriceChf": 1.63,
-            "updatedAt": "2026-02-20T08:30:17.440Z",
-            "nearestMunicipality": "Valsolda (CO)",
-            "nearestMunicipalityDistanceKm": 3.6,
-            "sp95PriceEur": 1.792,
-            "distanceKm": 17
-          },
-          {
             "id": "2iMRCPqDCHHpLcBX8dCN",
             "name": "Agrola Melano",
             "brand": "AGROLA",
@@ -34537,6 +34453,20 @@
             "nearestMunicipalityDistanceKm": 1.5,
             "sp95PriceEur": 1.814,
             "distanceKm": 10.5
+          },
+          {
+            "id": "LP7oYktKWhoncV2qvpHG",
+            "name": "ECSA Energy SA - Caslano",
+            "brand": "UNDEFINED",
+            "address": "Via Colombera 10, 6987 Caslano",
+            "lat": 45.97698951091755,
+            "lng": 8.874521781054243,
+            "sp95PriceChf": 1.6500000000000001,
+            "updatedAt": "2026-03-15T18:07:48.450Z",
+            "nearestMunicipality": "Brusimpiano (VA)",
+            "nearestMunicipalityDistanceKm": 1.9,
+            "sp95PriceEur": 1.814,
+            "distanceKm": 11.9
           }
         ],
         "minPriceChf": 1.61,

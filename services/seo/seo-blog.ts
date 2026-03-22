@@ -8868,6 +8868,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-ogm-fallimento-ticino': {
+    title: 'Fallimento dell’iniziativa contro gli OGM in Svizzera | Frontaliere Ticino',
+    description: 'L’iniziativa popolare per il controllo degli OGM in Svizzera non ha raggiunto il quorum di 100’000 firme, con implicazioni significative anche per il Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, fallimento, dell, iniziativa, contro',
+    ogTitle: 'Fallimento dell’iniziativa contro gli OGM in Svizzera',
+    ogDescription: 'L’iniziativa popolare per il controllo degli OGM in Svizzera non ha raggiunto il quorum di 100’000 firme, con implicazioni significative anche per il Ticino.',
+    canonicalPath: '/articoli-frontaliere/ogm-fallimento-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Fallimento dell’iniziativa contro gli OGM in Svizzera",
+      "description": "L’iniziativa popolare per il controllo degli OGM in Svizzera non ha raggiunto il quorum di 100’000 firme, con implicazioni significative anche per il Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/ogm-fallimento-ticino.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Lago di Lugano con montagne sullo sfondo, paesaggio naturale in Ticino"
+      },
+      "datePublished": "2026-03-22T08:49:32+00:00",
+      "dateModified": "2026-03-22T08:49:32+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ogm-fallimento-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

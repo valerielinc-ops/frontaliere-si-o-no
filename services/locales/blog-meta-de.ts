@@ -1628,6 +1628,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.bossi-morto-ticino-frontalieri.title': 'Abschied vom Senatùr: Bossi und der föderalistische Traum, der durch den Ticino zieht',
     'blog.article.bossi-morto-ticino-frontalieri.excerpt': 'Der Tod des Nord-Lega-Führers im Alter von 84 Jahren: vom Referendum 1993 bis zu den bilateralen Abkommen – wie sich die Lage für die 68.000 Grenzgänger veränderte',
     'blog.article.bossi-morto-ticino-frontalieri.imageAlt': 'Luganer See bei Sonnenuntergang mit Grenzgängern',
+    'blog.article.ogm-fallimento-ticino.title': 'Scheitern der Initiative gegen GVO in der Schweiz',
+    'blog.article.ogm-fallimento-ticino.excerpt': 'Die Volksinitiative zur Kontrolle der GVO in der Schweiz hat die nötige Unterschriftenquorum von 100.000 nicht erreicht, was auch für das Tessin bedeutende Konsequenzen hat.',
+    'blog.article.ogm-fallimento-ticino.imageAlt': 'Lugano-See mit Bergen im Hintergrund, typisch Tessiner Landschaft',
 };
 
 export default blogMetaDe;
