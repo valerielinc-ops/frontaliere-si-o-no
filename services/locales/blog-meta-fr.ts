@@ -1649,6 +1649,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.bellinzona-paese-dormitorio.title': '«L\'avenir est triste. Bellinzona est désormais une ville dortoir»',
     'blog.article.bellinzona-paese-dormitorio.excerpt': 'La ville de Bellinzona est confrontée à une crise commerciale, avec de nombreuses fermetures de magasins.',
     'blog.article.bellinzona-paese-dormitorio.imageAlt': 'Bellinzona, la ville des châteaux',
+    'blog.article.tragedia-titlis-raffica-vento.title': 'Tragédie sur le Titlis : une rafale de vent soudaine provoque la mort d\'une femme',
+    'blog.article.tragedia-titlis-raffica-vento.excerpt': 'Une femme de 61 ans meurt après que la cabine de la télécabine est tombée au sol à cause d\'une rafale de vent soudaine sur le Titlis.',
+    'blog.article.tragedia-titlis-raffica-vento.imageAlt': 'Téléphérique en montagne avec une rafale de vent soudaine',
 };
 
 export default blogMetaFr;

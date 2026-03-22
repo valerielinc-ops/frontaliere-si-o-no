@@ -1649,6 +1649,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.bellinzona-paese-dormitorio.title': '«Il futuro è triste. Bellinzona ormai è un paese dormitorio»',
     'blog.article.bellinzona-paese-dormitorio.excerpt': 'La città di Bellinzona sta affrontando una crisi commerciale, con numerose chiusure di negozi.',
     'blog.article.bellinzona-paese-dormitorio.imageAlt': 'Bellinzona, la città dei castelli',
+    'blog.article.tragedia-titlis-raffica-vento.title': 'Tragedia sul Titlis: una raffica di vento improvvisa causa la morte di una donna',
+    'blog.article.tragedia-titlis-raffica-vento.excerpt': 'Una donna di 61 anni muore dopo che la cabina della funivia è caduta a terra a causa di una raffica di vento improvvisa sul Titlis.',
+    'blog.article.tragedia-titlis-raffica-vento.imageAlt': 'Funivia in montagna con una raffica di vento improvvisa',
 };
 
 export default blogMetaIt;

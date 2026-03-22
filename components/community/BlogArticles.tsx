@@ -4442,6 +4442,13 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/bellinzona-paese-dormitorio.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'tragedia-titlis-raffica-vento',
+    category: 'novita',
+    date: '2026-03-22T12:01:16.433Z',
+    image: '/images/blog/tragedia-titlis-raffica-vento.jpg',
+    hasCalculator: true,
+  },
 ];
 
 const CATEGORIES = ['all', 'fiscale', 'pratico', 'novita', 'pensione'] as const;

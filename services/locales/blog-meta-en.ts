@@ -1649,6 +1649,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.bellinzona-paese-dormitorio.title': 'The future looks sad. Bellinzona is now a dormitory town',
     'blog.article.bellinzona-paese-dormitorio.excerpt': 'The city of Bellinzona is facing a commercial crisis, with numerous shop closures.',
     'blog.article.bellinzona-paese-dormitorio.imageAlt': 'Bellinzona, the city of castles',
+    'blog.article.tragedia-titlis-raffica-vento.title': 'Tragedy on Titlis: a sudden gust of wind causes the death of a woman',
+    'blog.article.tragedia-titlis-raffica-vento.excerpt': 'A 61-year-old woman dies after the cable car cabin fell to the ground due to a sudden gust of wind on Titlis.',
+    'blog.article.tragedia-titlis-raffica-vento.imageAlt': 'Cable car in the mountains with a sudden gust of wind',
 };
 
 export default blogMetaEn;

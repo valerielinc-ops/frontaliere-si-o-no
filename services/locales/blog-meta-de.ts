@@ -1649,6 +1649,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.bellinzona-paese-dormitorio.title': '«Die Zukunft ist traurig. Bellinzona ist mittlerweile ein Schlafzimmerdorf»',
     'blog.article.bellinzona-paese-dormitorio.excerpt': 'Die Stadt Bellinzona erlebt eine Handels Krise, mit zahlreichen Schließungen von Geschäften.',
     'blog.article.bellinzona-paese-dormitorio.imageAlt': 'Bellinzona, die Stadt der Burgen',
+    'blog.article.tragedia-titlis-raffica-vento.title': 'Tragödie am Titlis: Ein plötzlicher Windstoß verursacht den Tod einer Frau',
+    'blog.article.tragedia-titlis-raffica-vento.excerpt': 'Eine 61-jährige Frau stirbt, nachdem die Seilbahnkabine auf dem Titlis aufgrund eines plötzlichen Windstoßes zu Boden gefallen ist.',
+    'blog.article.tragedia-titlis-raffica-vento.imageAlt': 'Seilbahn in den Bergen mit einem plötzlichen Windstoß',
 };
 
 export default blogMetaDe;
