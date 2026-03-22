@@ -837,33 +837,54 @@ export default function AdminPanel() {
       {crawlerSummaries.length > 0 ? (
         <div className="space-y-2">
           {crawlerSummaries.map((summary) => {
-            const renderJobList = (title: string, items: CrawlerSummaryLinkRow[]) => (
+            const siteUrl = (slug: string) => slug ? `https://www.frontaliereticino.ch/cerca-lavoro-ticino/${slug}/` : '';
+
+            const renderJobList = (title: string, items: CrawlerSummaryLinkRow[], highlight?: 'new' | 'updated' | 'unchanged') => (
               <div className="space-y-1">
-                <div className="text-[11px] font-semibold text-slate-700 dark:text-slate-300">{title}</div>
+                <div className="text-[11px] font-semibold text-slate-700 dark:text-slate-300">{title} ({items.length})</div>
                 {items.length > 0 ? (
                   <div className="space-y-1">
-                    {items.map((job, idx) => (
-                      <a
-                        key={`${summary.key}-${title}-${job.slug || idx}`}
-                        href={job.url}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="block rounded-md border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 px-2 py-1.5 hover:border-blue-300 dark:hover:border-blue-600"
-                      >
-                        <div className="text-xs font-medium text-slate-800 dark:text-slate-100">{job.title || 'Job senza titolo'}</div>
-                        <div className="text-[11px] text-slate-500 dark:text-slate-400">
-                          {job.company || 'Azienda n/d'}
-                          {job.location ? ` • ${job.location}` : ''}
+                    {items.map((job, idx) => {
+                      const highlightBorder = highlight === 'new' ? 'border-l-emerald-500' : highlight === 'updated' ? 'border-l-blue-500' : highlight === 'unchanged' ? 'border-l-amber-400' : '';
+                      const jobSiteUrl = siteUrl(job.slug);
+                      return (
+                        <div
+                          key={`${summary.key}-${title}-${job.slug || idx}`}
+                          className={`rounded-md border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 px-2 py-1.5 ${highlightBorder ? `border-l-2 ${highlightBorder}` : ''}`}
+                        >
+                          <div className="text-xs font-medium text-slate-800 dark:text-slate-100">{job.title || 'Job senza titolo'}</div>
+                          <div className="text-[11px] text-slate-500 dark:text-slate-400">
+                            {job.company || 'Azienda n/d'}
+                            {job.location ? ` • ${job.location}` : ''}
+                          </div>
+                          <div className="flex gap-3 mt-0.5">
+                            {job.url && (
+                              <a href={job.url} target="_blank" rel="noreferrer" className="text-[10px] font-mono text-blue-600 dark:text-blue-300 truncate hover:underline" title="Pagina sorgente crawler">
+                                🔗 Sorgente
+                              </a>
+                            )}
+                            {jobSiteUrl && (
+                              <a href={jobSiteUrl} target="_blank" rel="noreferrer" className="text-[10px] font-mono text-indigo-600 dark:text-indigo-300 truncate hover:underline" title="Pagina sul nostro sito">
+                                🏠 Sito
+                              </a>
+                            )}
+                          </div>
                         </div>
-                        <div className="text-[10px] font-mono text-blue-600 dark:text-blue-300 truncate">{job.url}</div>
-                      </a>
-                    ))}
+                      );
+                    })}
                   </div>
                 ) : (
                   <div className="text-[11px] text-slate-500 dark:text-slate-400">Nessun elemento.</div>
                 )}
               </div>
             );
+
+            // Build "Attivi" list: merge new + updated + unchanged with status highlight
+            const activeJobs = [
+              ...summary.newJobs.map(j => ({ ...j, _status: 'new' as const })),
+              ...summary.updatedJobs.map(j => ({ ...j, _status: 'updated' as const })),
+              ...summary.unchangedJobs.map(j => ({ ...j, _status: 'unchanged' as const })),
+            ];
 
             return (
               <details
@@ -876,6 +897,8 @@ export default function AdminPanel() {
                       <div className="text-sm font-semibold text-slate-800 dark:text-slate-100">{summary.label}</div>
                       <div className="text-[11px] text-slate-500 dark:text-slate-400">
                         {summary.generatedAt ? `Run: ${summary.generatedAt}` : 'Run: n/d'}
+                        {summary.durationMs != null && ` • Durata: ${(summary.durationMs / 1000).toFixed(0)}s`}
+                        {summary.avgDurationMs != null && ` (media: ${(summary.avgDurationMs / 1000).toFixed(0)}s)`}
                       </div>
                     </div>
                     <div className="flex flex-wrap gap-1.5 text-[10px] font-semibold">
@@ -888,10 +911,33 @@ export default function AdminPanel() {
                   </div>
                 </summary>
                 <div className="border-t border-slate-200 dark:border-slate-700 px-3 py-3 space-y-3">
-                  {renderJobList('Nuovi link creati', summary.newJobs)}
-                  {renderJobList('Link aggiornati', summary.updatedJobs)}
+                  {/* Active jobs: merged view with status highlights */}
+                  {activeJobs.length > 0 && (
+                    <details className="rounded-md border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900/60">
+                      <summary className="cursor-pointer list-none px-2 py-1.5 text-[11px] font-semibold text-slate-700 dark:text-slate-300">
+                        Annunci attivi ({activeJobs.length}) — <span className="text-emerald-600">nuovi</span> / <span className="text-blue-600">aggiornati</span> / <span className="text-amber-600">invariati</span>
+                      </summary>
+                      <div className="px-2 py-1 space-y-1">
+                        {activeJobs.map((job, idx) => {
+                          const jobSiteUrl = siteUrl(job.slug);
+                          const color = job._status === 'new' ? 'border-l-emerald-500 bg-emerald-50/50 dark:bg-emerald-950/20' : job._status === 'updated' ? 'border-l-blue-500 bg-blue-50/50 dark:bg-blue-950/20' : 'border-l-amber-400';
+                          return (
+                            <div key={`active-${job.slug || idx}`} className={`rounded-md border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 px-2 py-1 border-l-2 ${color}`}>
+                              <div className="text-xs font-medium text-slate-800 dark:text-slate-100">{job.title || '—'}</div>
+                              <div className="flex gap-3 mt-0.5">
+                                {job.url && <a href={job.url} target="_blank" rel="noreferrer" className="text-[10px] text-blue-600 hover:underline">🔗 Sorgente</a>}
+                                {jobSiteUrl && <a href={jobSiteUrl} target="_blank" rel="noreferrer" className="text-[10px] text-indigo-600 hover:underline">🏠 Sito</a>}
+                              </div>
+                            </div>
+                          );
+                        })}
+                      </div>
+                    </details>
+                  )}
+                  {renderJobList('Nuovi link creati', summary.newJobs, 'new')}
+                  {renderJobList('Link aggiornati', summary.updatedJobs, 'updated')}
                   {renderJobList('Link rimossi', summary.removedJobs)}
-                  {renderJobList('Link invariati', summary.unchangedJobs)}
+                  {renderJobList('Link invariati', summary.unchangedJobs, 'unchanged')}
                 </div>
               </details>
             );
