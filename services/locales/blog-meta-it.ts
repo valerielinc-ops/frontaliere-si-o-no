@@ -1622,6 +1622,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.auto-intrusione-frontalieri-ticino.title': 'Controlli e arresti di frontalieri per autoeinbrüche nel Ticino',
     'blog.article.auto-intrusione-frontalieri-ticino.excerpt': 'Due cittadini stranieri sono stati fermati nei pressi dei valichi di Gaggiolo e Brogeda per aver perpetrato diversi furti d\'auto. La polizia cantonale ha condotto operazioni mirate tra Mendrisio e Chiasso, evidenziando un aumento di casi di intrusione ai veicoli. Questo episodio mette in luce la crescente presenza di attività illegali legate ai frontalieri e la necessità di rafforzare i controlli alle frontiere.',
     'blog.article.auto-intrusione-frontalieri-ticino.imageAlt': 'Strada di confine tra Ticino e Italia con controlli di frontiera, scena urbana e naturale',
+    'blog.article.rischio-lugano-young-boys.title': 'Rischio-Lugano in casa dello Young Boys: una sfida decisiva',
+    'blog.article.rischio-lugano-young-boys.excerpt': 'Il Lugano deve affrontare lo Young Boys a Berna in una partita cruciale per la stagione. Analisi, normative e strategie per i frontalieri ticinesi.',
+    'blog.article.rischio-lugano-young-boys.imageAlt': 'Stadio di calcio a Lugano con tifosi e campo in primo piano',
 };
 
 export default blogMetaIt;

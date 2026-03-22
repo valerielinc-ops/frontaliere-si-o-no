@@ -3049,7 +3049,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
         "@context": "https://schema.org",
         "@type": "ItemList",
         "name": "Articoli Frontaliere",
-        "numberOfItems": 531,
+        "numberOfItems": 532,
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
           { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -3581,7 +3581,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 528, "name": "Firmata la nascita del Parco del Vedeggio: il f...", "url": `${BASE_URL}/articoli-frontaliere/parco-vedeggio-comuni-firman` },
           { "@type": "ListItem", "position": 529, "name": "Ticino sospende esportazioni di materiale belli...", "url": `${BASE_URL}/articoli-frontaliere/stop-export-materiale-bellico` },
           { "@type": "ListItem", "position": 530, "name": "Scontri violenti tra uomini nel Ticino: ospedal...", "url": `${BASE_URL}/articoli-frontaliere/gestione-scontri-frontali-ticino` },
-          { "@type": "ListItem", "position": 531, "name": "Headline JSON-LD", "url": `${BASE_URL}/articoli-frontaliere/auto-intrusione-frontalieri-ticino` }
+          { "@type": "ListItem", "position": 531, "name": "Headline JSON-LD", "url": `${BASE_URL}/articoli-frontaliere/auto-intrusione-frontalieri-ticino` },
+          { "@type": "ListItem", "position": 532, "name": "Rischio-Lugano in casa dello Young Boys: una sf...", "url": `${BASE_URL}/articoli-frontaliere/rischio-lugano-young-boys` }
         ]
       }
     ]

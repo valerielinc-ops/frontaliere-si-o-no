@@ -4379,6 +4379,13 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/auto-intrusione-frontalieri-ticino.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'rischio-lugano-young-boys',
+    category: 'novita',
+    date: '2026-03-22T07:44:04.068Z',
+    image: '/images/blog/rischio-lugano-young-boys.jpg',
+    hasCalculator: true,
+  },
 ];
 
 const CATEGORIES = ['all', 'fiscale', 'pratico', 'novita', 'pensione'] as const;

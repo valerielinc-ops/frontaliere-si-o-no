@@ -8810,6 +8810,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-rischio-lugano-young-boys': {
+    title: 'Rischio-Lugano in casa dello Young Boys: una sfida decisiva | Frontaliere Ticino',
+    description: 'Il Lugano deve affrontare lo Young Boys a Berna in una partita cruciale per la stagione. Analisi, normative e strategie per i frontalieri ticinesi.',
+    keywords: 'frontalieri, ticino, svizzera, italia, rischio-lugano, casa, dello, young',
+    ogTitle: 'Rischio-Lugano in casa dello Young Boys: una sfida decisi',
+    ogDescription: 'Il Lugano deve affrontare lo Young Boys a Berna in una partita cruciale per la stagione. Analisi, normative e strategie per i frontalieri ticinesi.',
+    canonicalPath: '/articoli-frontaliere/rischio-lugano-young-boys',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Rischio-Lugano in casa dello Young Boys: una sfida decisi",
+      "description": "Il Lugano deve affrontare lo Young Boys a Berna in una partita cruciale per la stagione. Analisi, normative e strategie per i frontalieri ticinesi.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/rischio-lugano-young-boys.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Stadio di calcio a Lugano con tifosi e campo in primo piano"
+      },
+      "datePublished": "2026-03-22T07:44:04+00:00",
+      "dateModified": "2026-03-22T07:44:04+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/rischio-lugano-young-boys`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

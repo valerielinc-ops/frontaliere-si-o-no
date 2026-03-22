@@ -1622,6 +1622,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.auto-intrusione-frontalieri-ticino.title': 'Kontrollen und Festnahmen von Grenzgängern wegen Autoeinbrüchen im Tessin',
     'blog.article.auto-intrusione-frontalieri-ticino.excerpt': 'Zwei ausländische Staatsbürger wurden in der Nähe der Grenzübergänge Gaggiolo und Brogeda festgenommen, weil sie mehrere Autodiebstähle begangen haben. Die Kantonspolizei führte gezielte Einsätze zwischen Mendrisio und Chiasso durch, was auf einen Anstieg bei Fahrzeugeinbrüchen hinweist. Dieser Vorfall verdeutlicht die zunehmende Präsenz illegaler Aktivitäten im Zusammenhang mit Grenzgängern und die Notwendigkeit, die Grenzkontrollen zu verstärken.',
     'blog.article.auto-intrusione-frontalieri-ticino.imageAlt': 'Grenzübergang im Tessin mit Grenzkontrollen, städtische und natürliche Szenerie',
+    'blog.article.rischio-lugano-young-boys.title': 'Risiko-Lugano bei Young Boys: Ein entscheidendes Duell',
+    'blog.article.rischio-lugano-young-boys.excerpt': 'Lugano muss in Bern gegen die Young Boys antreten – ein entscheidendes Spiel für die Saison. Analyse, Vorschriften und Strategien für die Grenzgänger im Tessin.',
+    'blog.article.rischio-lugano-young-boys.imageAlt': 'Fußballstadion in Lugano mit Fans und Spielfeld im Fokus',
 };
 
 export default blogMetaDe;

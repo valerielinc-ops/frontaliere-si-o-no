@@ -1677,6 +1677,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-stop-export-materiale-bellico': { name: 'Ticino sospende esportazioni di material', path: '/articoli-frontaliere/stop-export-materiale-bellico', parent: 'blog' },
     'blog-gestione-scontri-frontali-ticino': { name: 'Scontri violenti tra uomini nel Ticino', path: '/articoli-frontaliere/gestione-scontri-frontali-ticino', parent: 'blog' },
     'blog-auto-intrusione-frontalieri-ticino': { name: 'Controlli frontiera', path: '/articoli-frontaliere/auto-intrusione-frontalieri-ticino', parent: 'blog' },
+    'blog-rischio-lugano-young-boys': { name: 'Rischio-Lugano in casa dello Young Boys', path: '/articoli-frontaliere/rischio-lugano-young-boys', parent: 'blog' },
   };
 
   const info = sectionNames[section];
