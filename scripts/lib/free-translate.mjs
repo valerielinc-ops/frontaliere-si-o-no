@@ -1,10 +1,20 @@
 /**
  * Free Translation Cascade — Reusable multi-service translation utility.
  *
- * Provides a robust translation cascade using free APIs:
- *   1. DeepL Free API  (if DEEPL_API_KEY is set)
- *   2. MyMemory API    (up to ~500 chars per call)
- *   3. Google Translate (unofficial free endpoint, chunked for long text)
+ * Provides a robust 7-tier translation cascade using free & open-source APIs:
+ *   1. DeepL Free API     (if DEEPL_API_KEY is set)
+ *   2. MyMemory API       (up to ~500 chars per call)
+ *   3. Lingva Translate   (free Google Translate proxy, multiple mirrors)
+ *   4. SimplyTranslate    (another free translation proxy)
+ *   5. LibreTranslate     (open-source MT, multiple public instances)
+ *   6. Mozhi              (another open-source translation proxy)
+ *   7. Google Translate    (unofficial free endpoint, multi-endpoint, chunked)
+ *
+ * Features:
+ *   - Instance health tracking: remembers which instances are down to skip them
+ *   - Parallel instance probing for proxy tiers: races multiple instances,
+ *     uses the first successful response for lower latency
+ *   - Automatic retry with exponential backoff
  *
  * This module is designed to be imported by any script that needs translation
  * without depending on the full shared-jobs-crawler.mjs infrastructure.
@@ -26,6 +36,23 @@ const LINGVA_INSTANCES = [
   'https://translate.plausibility.cloud',
   'https://lingva.garuber.eu',
   'https://translate.projectsegfau.lt',
+  'https://lingva.lunar.icu',
+  'https://lingva.privacyredirect.com',
+];
+
+// SimplyTranslate instances (another free proxy supporting Google/LibreTranslate/ICIBA)
+const SIMPLYTRANSLATE_INSTANCES = [
+  'https://simplytranslate.org',
+  'https://st.tokhmi.xyz',
+  'https://translate.bus-hit.me',
+  'https://simplytranslate.pussthecat.org',
+];
+
+// Mozhi instances (open-source translation proxy supporting multiple engines)
+const MOZHI_INSTANCES = [
+  'https://mozhi.aryak.me',
+  'https://translate.bus-hit.me',
+  'https://nyc1.mundoose.com',
 ];
 
 // LibreTranslate public instances (open-source, no API key)
@@ -33,8 +60,52 @@ const LIBRETRANSLATE_PUBLIC = [
   'https://libretranslate.com',
   'https://translate.terraprint.co',
   'https://trans.zillyhuhn.com',
+  'https://translate.fedilab.app',
+  'https://lt.vern.cc',
 ];
 const DEEPL_LANG_MAP = { it: 'IT', en: 'EN', de: 'DE', fr: 'FR' };
+
+// ── Instance Health Tracking ────────────────────────────────────────────────
+// Track which instances have failed recently to skip them on subsequent calls.
+// After HEALTH_RECOVERY_MS, an instance is retried.
+const HEALTH_RECOVERY_MS = 10 * 60 * 1000; // 10 minutes
+const instanceHealth = new Map(); // url → { failedAt: number, failures: number }
+
+function isInstanceHealthy(url) {
+  const entry = instanceHealth.get(url);
+  if (!entry) return true;
+  if (Date.now() - entry.failedAt > HEALTH_RECOVERY_MS) {
+    instanceHealth.delete(url);
+    return true;
+  }
+  return false;
+}
+
+function markInstanceFailed(url) {
+  const entry = instanceHealth.get(url) || { failures: 0 };
+  entry.failedAt = Date.now();
+  entry.failures += 1;
+  instanceHealth.set(url, entry);
+}
+
+function markInstanceHealthy(url) {
+  instanceHealth.delete(url);
+}
+
+/**
+ * Get current health stats for all tracked instances.
+ */
+export function getInstanceHealthStats() {
+  const stats = {};
+  for (const [url, entry] of instanceHealth) {
+    stats[url] = {
+      failedAt: new Date(entry.failedAt).toISOString(),
+      failures: entry.failures,
+      recoversAt: new Date(entry.failedAt + HEALTH_RECOVERY_MS).toISOString(),
+    };
+  }
+  return stats;
+}
 
 function normalizeSpace(s) {
   return String(s || '').replace(/\u00a0/g, ' ').replace(/\s+/g, ' ').trim();
@@ -133,45 +204,151 @@ async function translateChunkGoogle(text, sourceLang, targetLang) {
   return '';
 }
 
+// ── Parallel Race Helper ─────────────────────────────────────────────────────
+// Probe multiple instances in parallel, return the first valid translation.
+// Much faster than sequential probing when some instances are slow/down.
+async function raceInstances(instances, fetchFn) {
+  const healthy = instances.filter(isInstanceHealthy);
+  if (healthy.length === 0) {
+    // All marked unhealthy — try one anyway in case they recovered
+    const oldest = instances[0];
+    if (oldest) {
+      instanceHealth.delete(oldest);
+      return fetchFn(oldest);
+    }
+    return '';
+  }
+
+  // Race up to 3 instances in parallel for speed
+  const batch = healthy.slice(0, 3);
+  const controller = new AbortController();
+
+  const promises = batch.map(async (base) => {
+    try {
+      const result = await fetchFn(base, controller.signal);
+      if (result) {
+        controller.abort(); // cancel others
+        markInstanceHealthy(base);
+        return result;
+      }
+      markInstanceFailed(base);
+      return '';
+    } catch {
+      markInstanceFailed(base);
+      return '';
+    }
+  });
+
+  const results = await Promise.allSettled(promises);
+  const firstSuccess = results.find(
+    (r) => r.status === 'fulfilled' && r.value
+  );
+  if (firstSuccess) return firstSuccess.value;
+
+  // Try remaining healthy instances sequentially
+  for (const base of healthy.slice(3)) {
+    try {
+      const result = await fetchFn(base);
+      if (result) {
+        markInstanceHealthy(base);
+        return result;
+      }
+      markInstanceFailed(base);
+    } catch {
+      markInstanceFailed(base);
+    }
+  }
+  return '';
+}
+
 // ── Lingva Translate (free Google Translate proxy) ───────────────────────────
 async function translateWithLingva(text, sourceLang, targetLang) {
   const q = normalizeSpace(text);
   if (!q || sourceLang === targetLang) return '';
   const encoded = encodeURIComponent(q);
-  for (const base of LINGVA_INSTANCES) {
-    try {
-      const res = await fetch(`${base}/api/v1/${sourceLang || 'auto'}/${targetLang}/${encoded}`, {
+
+  return raceInstances(LINGVA_INSTANCES, async (base, signal) => {
+    const res = await fetch(
+      `${base}/api/v1/${sourceLang || 'auto'}/${targetLang}/${encoded}`,
+      {
         headers: { 'User-Agent': 'FrontaliereTicino/1.0' },
-        signal: AbortSignal.timeout(TIMEOUT_MS),
-      });
-      if (!res.ok) continue;
-      const data = await res.json();
-      const translated = normalizeSpace(data?.translation || '');
-      if (translated && translated.toLowerCase() !== q.toLowerCase()) return translated;
-    } catch { /* try next */ }
-  }
-  return '';
+        signal: signal || AbortSignal.timeout(TIMEOUT_MS),
+      },
+    );
+    if (!res.ok) return '';
+    const data = await res.json();
+    const translated = normalizeSpace(data?.translation || '');
+    if (translated && translated.toLowerCase() !== q.toLowerCase()) return translated;
+    return '';
+  });
+}
+
+// ── SimplyTranslate (another free Google Translate proxy) ────────────────────
+async function translateWithSimplyTranslate(text, sourceLang, targetLang) {
+  const q = normalizeSpace(text);
+  if (!q || sourceLang === targetLang) return '';
+
+  return raceInstances(SIMPLYTRANSLATE_INSTANCES, async (base, signal) => {
+    const params = new URLSearchParams({
+      engine: 'google',
+      from: sourceLang || 'auto',
+      to: targetLang,
+      text: q,
+    });
+    const res = await fetch(`${base}/api/translate/?${params.toString()}`, {
+      headers: { 'User-Agent': 'FrontaliereTicino/1.0' },
+      signal: signal || AbortSignal.timeout(TIMEOUT_MS),
+    });
+    if (!res.ok) return '';
+    const data = await res.json();
+    const translated = normalizeSpace(data?.translated_text || '');
+    if (translated && translated.toLowerCase() !== q.toLowerCase()) return translated;
+    return '';
+  });
 }
 
 // ── LibreTranslate public instances ─────────────────────────────────────────
 async function translateWithLibreTranslate(text, sourceLang, targetLang) {
   const q = normalizeSpace(text);
   if (!q || sourceLang === targetLang) return '';
-  for (const base of LIBRETRANSLATE_PUBLIC) {
-    try {
-      const res = await fetch(`${base}/translate`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ q, source: sourceLang || 'auto', target: targetLang, format: 'text' }),
-        signal: AbortSignal.timeout(20000),
-      });
-      if (!res.ok) continue;
-      const data = await res.json();
-      const translated = normalizeSpace(data?.translatedText || '');
-      if (translated && translated.toLowerCase() !== q.toLowerCase()) return translated;
-    } catch { /* try next */ }
-  }
-  return '';
+
+  return raceInstances(LIBRETRANSLATE_PUBLIC, async (base, signal) => {
+    const res = await fetch(`${base}/translate`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ q, source: sourceLang || 'auto', target: targetLang, format: 'text' }),
+      signal: signal || AbortSignal.timeout(20000),
+    });
+    if (!res.ok) return '';
+    const data = await res.json();
+    const translated = normalizeSpace(data?.translatedText || '');
+    if (translated && translated.toLowerCase() !== q.toLowerCase()) return translated;
+    return '';
+  });
+}
+
+// ── Mozhi (open-source translation proxy) ───────────────────────────────────
+async function translateWithMozhi(text, sourceLang, targetLang) {
+  const q = normalizeSpace(text);
+  if (!q || sourceLang === targetLang) return '';
+
+  return raceInstances(MOZHI_INSTANCES, async (base, signal) => {
+    const params = new URLSearchParams({
+      engine: 'google',
+      from: sourceLang || 'auto',
+      to: targetLang,
+      text: q,
+    });
+    const res = await fetch(`${base}/api/translate?${params.toString()}`, {
+      headers: { 'User-Agent': 'FrontaliereTicino/1.0' },
+      signal: signal || AbortSignal.timeout(TIMEOUT_MS),
+    });
+    if (!res.ok) return '';
+    const data = await res.json();
+    const translated = normalizeSpace(data?.translated_text || '');
+    if (translated && translated.toLowerCase() !== q.toLowerCase()) return translated;
+    return '';
+  });
 }
 
 async function translateWithGoogle(text, sourceLang, targetLang) {
@@ -247,10 +424,17 @@ function delay(ms) {
 // ── Public API ──────────────────────────────────────────────────────────────
 
 /**
- * Translate text using a cascade of free translation services.
+ * Translate text using a cascade of free & open-source translation services.
  * Returns translated text or empty string if all services fail.
  *
- * Cascade: DeepL Free → MyMemory → Lingva → LibreTranslate → Google Translate
+ * Cascade (7 tiers):
+ *   1. DeepL Free        — best quality, requires API key
+ *   2. MyMemory           — good for EU languages, ≤500 chars
+ *   3. Lingva             — free Google Translate proxy (6 mirrors, parallel race)
+ *   4. SimplyTranslate    — another free proxy (4 mirrors, parallel race)
+ *   5. LibreTranslate     — open-source MT (5 public instances, parallel race)
+ *   6. Mozhi              — open-source proxy (3 instances, parallel race)
+ *   7. Google Translate    — unofficial direct endpoint, multi-endpoint, chunked
  *
  * @param {Object} options
  * @param {string} options.text - Text to translate
@@ -279,19 +463,31 @@ export async function freeTranslate({ text, sourceLang, targetLang }) {
     } catch { /* continue */ }
   }
 
-  // Tier 3: Lingva (free Google Translate proxy, 4 mirror instances)
+  // Tier 3: Lingva (free Google Translate proxy, 6 mirrors, parallel race)
   try {
     const lingva = await translateWithLingva(clean, sourceLang, targetLang);
     if (lingva) return lingva;
   } catch { /* continue */ }
 
-  // Tier 4: LibreTranslate (open-source, 3 public instances)
+  // Tier 4: SimplyTranslate (another free proxy, 4 mirrors, parallel race)
+  try {
+    const simply = await translateWithSimplyTranslate(clean, sourceLang, targetLang);
+    if (simply) return simply;
+  } catch { /* continue */ }
+
+  // Tier 5: LibreTranslate (open-source, 5 public instances, parallel race)
   try {
     const libre = await translateWithLibreTranslate(clean, sourceLang, targetLang);
     if (libre) return libre;
   } catch { /* continue */ }
 
-  // Tier 5: Google Translate (unofficial, multi-endpoint, chunked)
+  // Tier 6: Mozhi (open-source proxy, 3 instances, parallel race)
+  try {
+    const mozhi = await translateWithMozhi(clean, sourceLang, targetLang);
+    if (mozhi) return mozhi;
+  } catch { /* continue */ }
+
+  // Tier 7: Google Translate (unofficial, multi-endpoint, chunked)
   try {
     const google = await translateWithGoogle(clean, sourceLang, targetLang);
     if (google) return google;
