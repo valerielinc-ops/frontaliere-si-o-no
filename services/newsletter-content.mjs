@@ -194,8 +194,13 @@ export function buildBriefingPrompt(ctx) {
   if (prefs.tips) interests.push('practical tips');
   if (prefs.traffic) interests.push('border traffic');
 
+  // Provide the actual date so the AI never needs to invent one
+  const todayStr = new Date().toLocaleDateString(locale === 'de' ? 'de-CH' : locale === 'fr' ? 'fr-CH' : locale === 'en' ? 'en-GB' : 'it-CH', {
+    weekday: 'long', day: 'numeric', month: 'long', year: 'numeric',
+  });
+
   const rateTrend = ctx.exchangeRate
-    ? `CHF/EUR rate this week: ${ctx.exchangeRate.rate.toFixed(4)} (previous: ${ctx.exchangeRate.previousRate.toFixed(4)})`
+    ? `CHF/EUR rate as of ${todayStr}: ${ctx.exchangeRate.rate.toFixed(4)} (previous: ${ctx.exchangeRate.previousRate.toFixed(4)})`
     : 'Exchange rate data unavailable';
 
   const insightLine = ctx.exchangeInsight
@@ -205,9 +210,12 @@ export function buildBriefingPrompt(ctx) {
   const jobLines = (ctx.matchedJobs || []).slice(0, 3)
     .map((j) => {
       const url = j.url ? `${BASE_URL}${j.url.startsWith('/') ? j.url : '/' + j.url}` : '';
+      const postedInfo = j.postedDate || j.crawledAt || j.createdAt
+        ? ` (posted: ${new Date(j.postedDate || j.crawledAt || j.createdAt).toLocaleDateString('it-CH')})`
+        : '';
       return url
-        ? `- ${j.title} at ${j.company} (${j.location}) → URL: ${url}`
-        : `- ${j.title} at ${j.company} (${j.location})`;
+        ? `- ${j.title} at ${j.company} (${j.location})${postedInfo} → URL: ${url}`
+        : `- ${j.title} at ${j.company} (${j.location})${postedInfo}`;
     })
     .join('\n');
 
@@ -233,6 +241,7 @@ export function buildBriefingPrompt(ctx) {
     `Output 2-3 short paragraphs. Use simple HTML: <p> tags for paragraphs, <strong> for emphasis, <a href="URL" style="color:#2563eb;text-decoration:underline;"> for links. No greetings, no sign-offs, no subject line.`,
     `When you mention a job position that has a URL, hyperlink ONLY the job title — keep company and location as plain text. Example: "un ruolo di <a href="https://www.frontaliereticino.ch/cerca-lavoro-ticino/software-engineer/" style="color:#2563eb;text-decoration:underline;">Software Engineer</a> presso Board International a Chiasso". For site tools with a URL, hyperlink only the tool name the same way.`,
     `Naturally weave in the exchange rate, any relevant job or fiscal context, and the weekly fact if interesting. Do NOT list everything — pick what matters most for this reader.`,
+    `CRITICAL: Only mention dates that are explicitly provided in the data below. NEVER invent, guess, or assume dates for events, job postings, or facts. If no date is given for something, do not add one. Today's date is ${todayStr}.`,
     `Keep total length under 200 words. Be concise but engaging.`,
   ].join(' ');
 
