@@ -1670,6 +1670,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.cannabis-sequestro-ticino.title': 'Séquestre record de cannabis en Argovie : risques pour les frontaliers',
     'blog.article.cannabis-sequestro-ticino.excerpt': 'Une tonne de marijuana et 24 000 plantes séquestrées à Spreitenbach : trois arrestations et armes trouvées. Qu\'est-ce qui change pour ceux qui travaillent au-delà des frontières',
     'blog.article.cannabis-sequestro-ticino.imageAlt': 'Vue aérienne de Lugano à l\'aube avec le lac et le Monte Brè',
+    'blog.article.pfaffikon-kanton-schwyz-franzosi-einbrecher.title': 'Pfäffikon (Canton Schwyz): Trois mineurs français arrêtés pour intrusion',
+    'blog.article.pfaffikon-kanton-schwyz-franzosi-einbrecher.excerpt': 'Trois mineurs français ont été arrêtés à Pfäffikon (Canton Schwyz).',
+    'blog.article.pfaffikon-kanton-schwyz-franzosi-einbrecher.imageAlt': 'Lugano avec lac et montagnes',
 };
 
 export default blogMetaFr;

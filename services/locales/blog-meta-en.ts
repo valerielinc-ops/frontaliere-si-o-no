@@ -1670,6 +1670,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.cannabis-sequestro-ticino.title': 'Record cannabis seizure in Aargau: risks for cross-border commuters',
     'blog.article.cannabis-sequestro-ticino.excerpt': 'A ton of marijuana and 24,000 plants seized in Spreitenbach: three arrests and weapons found. What changes for those working across the border',
     'blog.article.cannabis-sequestro-ticino.imageAlt': 'Aerial view of Lugano at dawn with lake and Monte Brè',
+    'blog.article.pfaffikon-kanton-schwyz-franzosi-einbrecher.title': 'Pfäffikon (Kanton Schwyz): Three Minor French Intruders Arrested',
+    'blog.article.pfaffikon-kanton-schwyz-franzosi-einbrecher.excerpt': 'Three minor French intruders were arrested in Pfäffikon (Kanton Schwyz).',
+    'blog.article.pfaffikon-kanton-schwyz-franzosi-einbrecher.imageAlt': 'Lugano with lake and mountains',
 };
 
 export default blogMetaEn;

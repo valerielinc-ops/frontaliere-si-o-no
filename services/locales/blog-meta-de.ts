@@ -1670,6 +1670,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.cannabis-sequestro-ticino.title': 'Rekord-Cannabis-Beschlagnahmung in Aargau: Risiken für Grenzgänger',
     'blog.article.cannabis-sequestro-ticino.excerpt': 'Eine Tonne Marihuana und 24 000 Pflanzen in Spreitenbach beschlagnahmt: drei Festnahmen und Waffen gefunden. Was sich für Grenzgänger ändert',
     'blog.article.cannabis-sequestro-ticino.imageAlt': 'Luftaufnahme von Lugano bei Morgengrauen mit See und Monte Brè',
+    'blog.article.pfaffikon-kanton-schwyz-franzosi-einbrecher.title': 'Pfäffikon (Kanton Schwyz): Drei minderjährige französische Einbrecher festgenommen',
+    'blog.article.pfaffikon-kanton-schwyz-franzosi-einbrecher.excerpt': 'Drei minderjährige französische Einbrecher sind in Pfäffikon (Kanton Schwyz) festgenommen worden.',
+    'blog.article.pfaffikon-kanton-schwyz-franzosi-einbrecher.imageAlt': 'Lugano mit See und Bergen',
 };
 
 export default blogMetaDe;

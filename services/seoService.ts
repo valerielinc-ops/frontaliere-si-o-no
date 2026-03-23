@@ -1693,6 +1693,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-nuovi-radar-ticino-multe': { name: 'Radar Ticino', path: '/articoli-frontaliere/nuovi-radar-ticino-multe', parent: 'blog' },
     'blog-rifugiati-ucraini-assistenza-2027': { name: 'Rifugiati', path: '/articoli-frontaliere/rifugiati-ucraini-assistenza-2027', parent: 'blog' },
     'blog-cannabis-sequestro-ticino': { name: 'Sequestro record di cannabis in Argovia', path: '/articoli-frontaliere/cannabis-sequestro-ticino', parent: 'blog' },
+    'blog-pfaffikon-kanton-schwyz-franzosi-einbrecher': { name: 'Notizie', path: '/articoli-frontaliere/pfaffikon-kanton-schwyz-franzosi-einbrecher', parent: 'blog' },
   };
 
   const info = sectionNames[section];

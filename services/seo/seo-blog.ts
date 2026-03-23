@@ -9274,6 +9274,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-pfaffikon-kanton-schwyz-franzosi-einbrecher': {
+    title: 'Pfäffikon (Kanton Schwyz): Drei minderjährige französische Einbrecher | Frontaliere Ticino',
+    description: 'Tre giovani francesi arrestati a Pfäffikon (Kanton Schwyz) per infrazioni. La comunità locale esprime il suo supporto alla polizia. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, pfäffikon, kanton, schwyz, drei',
+    ogTitle: 'Pfäffikon (Kanton Schwyz): Drei minderjährige französische Einbrecher festgenommen',
+    ogDescription: 'Tre giovani francesi arrestati a Pfäffikon (Kanton Schwyz) per infrazioni. La comunità locale esprime il suo supporto alla polizia.',
+    canonicalPath: '/articoli-frontaliere/pfaffikon-kanton-schwyz-franzosi-einbrecher',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "{\"@context\":\"https://schema.org\",\"@type\":\"Article\",\"mainEntityOfPage\":{\"@type\":\"WebPage\"",
+      "description": "Tre giovani francesi arrestati a Pfäffikon (Kanton Schwyz) per infrazioni. La comunità locale esprime il suo supporto alla polizia. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/pfaffikon-kanton-schwyz-franzosi-einbrecher.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Lugano con il lago e le montagne"
+      },
+      "datePublished": "2026-03-23T02:56:26+00:00",
+      "dateModified": "2026-03-23T02:56:26+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/pfaffikon-kanton-schwyz-franzosi-einbrecher`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

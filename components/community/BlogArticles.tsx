@@ -4491,6 +4491,13 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/cannabis-sequestro-ticino.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'pfaffikon-kanton-schwyz-franzosi-einbrecher',
+    category: 'novita',
+    date: '2026-03-23T02:56:26.885Z',
+    image: '/images/blog/pfaffikon-kanton-schwyz-franzosi-einbrecher.jpg',
+    hasCalculator: true,
+  },
 ];
 
 const CATEGORIES = ['all', 'fiscale', 'pratico', 'novita', 'pensione'] as const;
