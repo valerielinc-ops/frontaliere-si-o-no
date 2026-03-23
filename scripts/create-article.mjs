@@ -1942,12 +1942,14 @@ function validate(data) {
     // Non-blocking: log warning but don't reject the article outright,
     // as false positives are possible. The warning is visible in GH Actions.
   }
-  // Thin content guard: reject articles with very short body (SEO penalty risk)
+  // Thin content guard: warn but don't reject yet — the word-count retry loop
+  // (later in the pipeline) will attempt to expand short articles via AI.
+  // Final thin content check happens after all retry/expand attempts.
   const MIN_BODY_CHARS = 800;
-  const itBody = `${(data.content.it || data.content)?.body1 || ''} ${(data.content.it || data.content)?.body2 || ''} ${(data.content.it || data.content)?.body3 || ''}`;
-  const itPlainChars = itBody.replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim().length;
-  if (itPlainChars < MIN_BODY_CHARS) {
-    throw new Error(`Articolo troppo corto: ${itPlainChars} chars (min: ${MIN_BODY_CHARS}). Google penalizza thin content.`);
+  const itBodyEarly = `${(data.content.it || data.content)?.body1 || ''} ${(data.content.it || data.content)?.body2 || ''} ${(data.content.it || data.content)?.body3 || ''}`;
+  const itPlainCharsEarly = itBodyEarly.replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim().length;
+  if (itPlainCharsEarly < MIN_BODY_CHARS) {
+    console.warn(`  ⚠️  [thin-content] Articolo corto: ${itPlainCharsEarly} chars (min: ${MIN_BODY_CHARS}) — il retry loop tenterà di espandere`);
   }
 
   // Slug validation for translated locales (slugs come from IT generation call)
@@ -3813,6 +3815,16 @@ async function generateAndValidateArticle(url, sourceContext = null) {
       console.error(`  ⚠️  Espansione fallita: ${expandErr.message}`);
     }
     throw new Error(`Contenuto IT troppo corto dopo ${CREATE_ARTICLE_MIN_WORDS_RETRIES} tentativi + espansione (${italianBodyWordCount(data)}/${CREATE_ARTICLE_MIN_IT_WORDS} parole).`);
+  }
+
+  // Final thin content guard (after retry/expand attempts)
+  {
+    const itBodyFinal = `${(data.content.it || data.content)?.body1 || ''} ${(data.content.it || data.content)?.body2 || ''} ${(data.content.it || data.content)?.body3 || ''}`;
+    const itPlainCharsFinal = itBodyFinal.replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim().length;
+    if (itPlainCharsFinal < MIN_BODY_CHARS) {
+      throw new Error(`Articolo troppo corto dopo retry: ${itPlainCharsFinal} chars (min: ${MIN_BODY_CHARS}). Google penalizza thin content.`);
+    }
+    console.error(`  ✅ [thin-content] Body finale: ${itPlainCharsFinal} chars (min: ${MIN_BODY_CHARS})`);
   }
 
   // Step 3a.0b: Strip leaked internal URLs from IT
