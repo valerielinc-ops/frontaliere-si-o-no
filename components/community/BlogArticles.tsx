@@ -590,11 +590,11 @@ function jobLogoUrl(job: JobPreview): string | null {
 const JOB_STOP_WORDS = new Set([...STOP_WORDS, 'the', 'and', 'for', 'with', 'von', 'und', 'les', 'des', 'pour', 'dans']);
 
 /** Find jobs related to an article based on slug-word ↔ job-title/keyword overlap */
-function getRelatedJobsForArticle(articleId: string, jobs: JobPreview[], locale: Locale, count = 3): JobPreview[] {
+function getRelatedJobsForArticle(articleId: string, jobs: JobPreview[], locale: Locale, allArticles: Article[] = [], count = 3): JobPreview[] {
   const articleWords = slugTopicWords(articleId);
 
   // Category→keyword fallback: boost matching when slug overlap is low
-  const article = ARTICLES.find(a => a.id === articleId);
+  const article = allArticles.find(a => a.id === articleId);
   const categoryKeywords: Record<string, string[]> = {
     fiscale: ['finance', 'contabile', 'fiscale', 'accounting', 'tax', 'payroll', 'revisore', 'fiduciario', 'compliance'],
     pratico: ['operatore', 'logistica', 'assistente', 'segretaria', 'receptionist', 'magazzino', 'tecnico'],
@@ -639,15 +639,12 @@ function getRelatedJobsForArticle(articleId: string, jobs: JobPreview[], locale:
 }
 
 // FRO-328: ARTICLES data extracted to data/blog-articles-data.ts for code-splitting.
-// Consumers that need sync access import directly from '@/data/blog-articles-data'.
-// Re-export for backward compatibility — this is a re-export, Vite will point
-// consumers to the original chunk without duplicating.
+// Re-export for consumers that need sync access (e.g. tests, other lazy components).
 export { ARTICLES } from '@/data/blog-articles-data';
 
-// Within this component, we use the re-exported ARTICLES synchronously.
-// The code-split benefit comes from BlogArticles.tsx itself being lazy-loaded
-// by App.tsx — the ARTICLES data travels with this chunk, not the main bundle.
-import { ARTICLES } from '@/data/blog-articles-data';
+// FRO-314: Dynamic import — blog-articles-data (122KB) is loaded asynchronously
+// so it doesn't block the BlogArticles chunk parse/execute time on mobile.
+// The component renders a skeleton until the data is ready.
 
 const CATEGORIES = ['all', 'fiscale', 'pratico', 'novita', 'pensione'] as const;
 
@@ -759,6 +756,8 @@ export default function BlogArticles({
   const [locale] = useLocale();
   const [blogReady, setBlogReady] = useState(false);
   const [bodyReady, setBodyReady] = useState(false);
+  // FRO-314: Articles data loaded dynamically to reduce TBT on mobile
+  const [articles, setArticles] = useState<Article[]>([]);
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
   const [copied, setCopied] = useState(false);
   const [currentPage, setCurrentPage] = useState(() => {
@@ -779,9 +778,16 @@ export default function BlogArticles({
   const isMobile = useMediaQuery('(max-width: 639px)');      // sm breakpoint
   const isDesktopXl = useMediaQuery('(min-width: 1280px)');   // xl breakpoint
 
-  // Lazy-load blog META translations (titles, excerpts) on mount
+  // FRO-314: Load blog meta translations AND articles data in parallel on mount.
+  // Dynamic import of blog-articles-data (122KB) so it doesn't block component parse time.
   useEffect(() => {
-    loadBlogMeta().then(() => setBlogReady(true)).catch(() => {});
+    Promise.all([
+      loadBlogMeta(),
+      import('@/data/blog-articles-data').then(m => m.ARTICLES),
+    ]).then(([, data]) => {
+      setArticles(data);
+      setBlogReady(true);
+    }).catch(() => {});
   }, []);
 
   // Lazy-load article BODY when a specific article is selected
@@ -812,14 +818,14 @@ export default function BlogArticles({
 
   const relatedJobs = useMemo(() => {
     if (!selectedArticle || crossLinkJobs.length === 0) return [];
-    return getRelatedJobsForArticle(selectedArticle, crossLinkJobs, locale);
-  }, [selectedArticle, crossLinkJobs, locale]);
+    return getRelatedJobsForArticle(selectedArticle, crossLinkJobs, locale, articles);
+  }, [selectedArticle, crossLinkJobs, locale, articles]);
 
   // Fetch trending articles from Firestore (cached 1h in localStorage)
   const [trendingArticles, setTrendingArticles] = useState<TrendingEntry[]>([]);
   useEffect(() => {
     if (!selectedArticle) return;
-    const validIds = new Set(ARTICLES.map(a => a.id));
+    const validIds = new Set(articles.map(a => a.id));
     fetchTrendingArticles(validIds).then(setTrendingArticles).catch(() => {});
   }, [selectedArticle]);
 
@@ -843,10 +849,10 @@ export default function BlogArticles({
 
   const filteredArticles = useMemo(() => {
     const filtered = selectedCategory === 'all'
-      ? [...ARTICLES]
-      : ARTICLES.filter(a => a.category === selectedCategory);
+      ? [...articles]
+      : articles.filter(a => a.category === selectedCategory);
     return filtered.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
-  }, [selectedCategory]);
+  }, [selectedCategory, articles]);
 
   const totalPages = Math.max(1, Math.ceil(filteredArticles.length / ARTICLES_PER_PAGE));
   const pageArticles = filteredArticles.slice(
@@ -1104,7 +1110,7 @@ export default function BlogArticles({
 
   // ── Single Article View ──────────────────────────────
   if (selectedArticle) {
-    const article = ARTICLES.find(a => a.id === selectedArticle);
+    const article = articles.find(a => a.id === selectedArticle);
     if (!article) return null;
 
     // Wait for article body translations to load
@@ -1522,7 +1528,7 @@ export default function BlogArticles({
               if (trendingFiltered.length === 0) return null;
               const trendingLookup = new Map(trendingFiltered.map(e => [e.id, e.views]));
               const trendingCards = trendingFiltered
-                .map(e => ARTICLES.find(a => a.id === e.id))
+                .map(e => articles.find(a => a.id === e.id))
                 .filter(Boolean) as Article[];
               if (trendingCards.length === 0) return null;
               return (
@@ -1590,7 +1596,7 @@ export default function BlogArticles({
             <div className="border-t border-slate-200 dark:border-slate-700 pt-6 mt-8 content-auto">
               <h3 className="text-lg font-bold text-slate-800 dark:text-slate-100 mb-4">{t('blog.relatedArticles')}</h3>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                {getRelatedArticles(article.id, ARTICLES, 3).map(related => (
+                {getRelatedArticles(article.id, articles, 3).map(related => (
                   <a
                     key={related.id}
                     href={buildPath({ activeTab: 'blog', blogArticle: related.id })}

@@ -67,7 +67,7 @@ import {
 } from '@/services/newsletterSubscribers';
 import EmailInput, { validateEmailStrict } from '@/components/shared/EmailInput';
 import { requestSlot, releaseSlot, POPUP_PRIORITY } from '@/services/popupQueue';
-import { ARTICLES, type Article } from '@/data/blog-articles-data';
+import type { Article } from '@/data/blog-articles-data';
 import {
   buildJobCareVariantLandingModel,
   buildJobLocationLandingModel,
@@ -2813,17 +2813,24 @@ const JobBoard: React.FC<JobBoardProps> = ({
       .map((x) => x.job);
   }, [expiredJob, sortedJobs]);
 
-  // Load blog meta translations for article titles in cross-linking
+  // Load blog meta translations + articles data for cross-linking (only when job selected)
   const [blogMetaReady, setBlogMetaReady] = useState(false);
+  const [blogArticles, setBlogArticles] = useState<Article[]>([]);
   useEffect(() => {
     if (!selectedJob) return;
-    loadBlogMeta().then(() => setBlogMetaReady(true)).catch(() => {});
+    Promise.all([
+      loadBlogMeta(),
+      import('@/data/blog-articles-data').then(m => m.ARTICLES),
+    ]).then(([, data]) => {
+      setBlogArticles(data);
+      setBlogMetaReady(true);
+    }).catch(() => {});
   }, [selectedJob]);
 
   const relatedArticles = useMemo(() => {
-    if (!selectedJob || !blogMetaReady) return [];
-    return getRelatedArticlesForJob(selectedJob, ARTICLES, locale, t);
-  }, [selectedJob, blogMetaReady, locale, t]);
+    if (!selectedJob || !blogMetaReady || blogArticles.length === 0) return [];
+    return getRelatedArticlesForJob(selectedJob, blogArticles, locale, t);
+  }, [selectedJob, blogMetaReady, blogArticles, locale, t]);
 
   const detailDescription = useMemo(() => {
     if (!selectedJob) return '';
