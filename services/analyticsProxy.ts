@@ -1,0 +1,21 @@
+/**
+ * analyticsProxy — lightweight lazy proxy for Analytics.
+ *
+ * All Analytics calls are fire-and-forget; no return values are used.
+ * The proxy defers the actual import('@/services/analytics') until the
+ * first user interaction (or consent grant), keeping Firebase out of the
+ * critical bundle path and reducing TBT.
+ *
+ * Usage:
+ *   import { Analytics } from '@/services/analyticsProxy';
+ *   Analytics.trackPageView('/foo');   // safe to call immediately
+ */
+export const Analytics: Record<string, (...a: unknown[]) => void> = new Proxy(
+  {} as Record<string, (...a: unknown[]) => void>,
+  {
+    get: (_t, method: string) =>
+      (...args: unknown[]) => {
+        import('@/services/analytics').then(m => (m.Analytics as any)[method](...args));
+      },
+  },
+);

@@ -1,14 +1,11 @@
 import React, { useState, useEffect, useRef, useMemo, useCallback, Suspense } from 'react';
 import { lazyRetry } from '@/services/lazyRetry';
-import { InputCard } from '@/components/calculator/InputCard';
-import MobileCalcLayout from '@/components/calculator/MobileCalcLayout';
+// Analytics proxy: lazy, fire-and-forget, deferred to user interaction (FRO-367)
+import { Analytics } from '@/services/analyticsProxy';
+// TabContentContext: passes app-level state to lazy tab content components (FRO-367)
+import { TabContentContext } from '@/services/TabContentContext';
+import type { TabContentState } from '@/services/TabContentContext';
 
-// NOTE: Analytics is NOT imported eagerly here — it's defined as a lazy Proxy
-// below (~line 183) that defers imports until first use. The lazyRetry function
-// in services/lazyRetry.ts uses dynamic import('@/services/analytics') to avoid
-// pulling Firebase into the critical bundle path.
-
-const ResultsView = lazyRetry(() => import('@/components/calculator/ResultsView').then(m => ({ default: m.ResultsView as any })));
 import { ErrorBoundary } from '@/components/shared/ErrorBoundary';
 import { reportCaughtError } from '@/services/errorReporter';
 // Gamification lazily loaded — all calls are fire-and-forget
@@ -22,33 +19,14 @@ const SiteSearch = lazyRetry(() => import('@/components/shared/SiteSearch'));
 const WhatsNewModal = lazyRetry(() => import('@/components/community/WhatsNewModal'));
 const WhatsNewBellLazy = lazyRetry(() => import('@/components/community/WhatsNewModal').then(m => ({ default: m.WhatsNewBell })));
 
-// Lazy-loaded components — only loaded when their tab is active
+// Lazy-loaded components — still used in secondary tabs / non-extracted sections
 const FeedbackSection = lazyRetry(() => import('@/components/community/FeedbackSection').then(m => ({ default: m.FeedbackSection })));
-const StatsView = lazyRetry(() => import('@/components/pages/StatsView').then(m => ({ default: m.StatsView })));
-const JobsSalaryObservatory = lazyRetry(() => import('@/components/pages/JobsSalaryObservatory'));
-const PensionPlanner = lazyRetry(() => import('@/components/fisco/PensionPlanner'));
-const Pillar3Simulator = lazyRetry(() => import('@/components/fisco/Pillar3Simulator'));
-const FrontierGuide = lazyRetry(() => import('@/components/guide/FrontierGuide'));
-const CurrencyExchange = lazyRetry(() => import('@/components/comparators/CurrencyExchange'));
-const MobileOperators = lazyRetry(() => import('@/components/comparators/MobileOperators'));
-const TransportCalculator = lazyRetry(() => import('@/components/vita/TransportCalculator'));
-const HealthInsurance = lazyRetry(() => import('@/components/comparators/HealthInsurance'));
-const BankComparison = lazyRetry(() => import('@/components/comparators/BankComparison'));
-const TrafficAlerts = lazyRetry(() => import('@/components/guide/TrafficAlerts'));
-const JobComparator = lazyRetry(() => import('@/components/comparators/JobComparator'));
-const ShoppingCalculator = lazyRetry(() => import('@/components/comparators/ShoppingCalculator'));
-const CostOfLiving = lazyRetry(() => import('@/components/comparators/CostOfLiving'));
-const WhatIfSimulator = lazyRetry(() => import('@/components/calculator/WhatIfSimulator'));
 const ApiStatus = lazyRetry(() => import('@/components/pages/ApiStatus'));
 const PrivacyPolicy = lazyRetry(() => import('@/components/pages/PrivacyPolicy').then(m => ({ default: m.PrivacyPolicy })));
 const ChiSiamo = lazyRetry(() => import('@/components/pages/ChiSiamo').then(m => ({ default: m.ChiSiamo })));
 const DataDeletion = lazyRetry(() => import('@/components/pages/DataDeletion').then(m => ({ default: m.DataDeletion })));
 const EmailConfirmed = lazyRetry(() => import('@/components/pages/EmailConfirmed').then(m => ({ default: m.EmailConfirmed })));
 const GamificationPage = lazyRetry(() => import('@/components/community/GamificationPage'));
-const RalComparator = lazyRetry(() => import('@/components/calculator/RalComparator'));
-const ParentalLeaveCalculator = lazyRetry(() => import('@/components/calculator/ParentalLeaveCalculator'));
-const BorderMunicipalitiesMap = lazyRetry(() => import('@/components/guide/BorderMunicipalitiesMap'));
-const ResidencySimulator = lazyRetry(() => import('@/components/calculator/ResidencySimulator'));
 const CommunityForum = lazyRetry(() => import('@/components/community/CommunityForum'));
 const ContactPage = lazyRetry(() => import('@/components/pages/ContactPage'));
 const PartnerServices = lazyRetry(() => import('@/components/pages/PartnerServices'));
@@ -59,30 +37,6 @@ const FooterWeather = lazyRetry(() => import('@/components/shared/FooterWeather'
 const MorningDashboard = lazyRetry(() => import('@/components/vita/MorningDashboard'));
 // UserProfile component is lazy-loaded; utility functions loaded on demand
 const UserProfile = lazyRetry(() => import('@/components/pages/UserProfile'));
-
-const TaxReturnGuide = lazyRetry(() => import('@/components/fisco/TaxReturnGuide'));
-const NurseryComparator = lazyRetry(() => import('@/components/comparators/NurseryComparator'));
-const BonusCalculator = lazyRetry(() => import('@/components/calculator/BonusCalculator'));
-const RenovationCalculator = lazyRetry(() => import('@/components/comparators/RenovationCalculator'));
-const RistorniTracker = lazyRetry(() => import('@/components/fisco/RistorniTracker'));
-const PayslipSimulator = lazyRetry(() => import('@/components/calculator/PayslipSimulator'));
-const CarCostCalculator = lazyRetry(() => import('@/components/guide/CarCostCalculator'));
-const PermitCompare = lazyRetry(() => import('@/components/guide/PermitCompare'));
-const LivabilityIndex = lazyRetry(() => import('@/components/vita/LivabilityIndex'));
-const SalaryCompare = lazyRetry(() => import('@/components/comparators/SalaryCompare'));
-const WeeklyQuiz = lazyRetry(() => import('@/components/fisco/WeeklyQuiz'));
-const TaxCalendar = lazyRetry(() => import('@/components/fisco/TaxCalendar'));
-const FirstDayGuide = lazyRetry(() => import('@/components/guide/FirstDayGuide'));
-const WorkPermitsGuide = lazyRetry(() => import('@/components/guide/WorkPermitsGuide'));
-const TicinoCompanies = lazyRetry(() => import('@/components/vita/TicinoCompanies'));
-const SalaryQuiz = lazyRetry(() => import('@/components/calculator/SalaryQuiz'));
-const TaxCreditCalculator = lazyRetry(() => import('@/components/fisco/TaxCreditCalculator'));
-const WithholdingRatesHub = lazyRetry(() => import('@/components/fisco/WithholdingRatesHub'));
-const NewFrontierOver20KmHub = lazyRetry(() => import('@/components/calculator/NewFrontierOver20KmHub'));
-const TrafficHistory = lazyRetry(() => import('@/components/guide/TrafficHistory'));
-const UnemploymentStats = lazyRetry(() => import('@/components/pages/UnemploymentStats'));
-const MortgageComparison = lazyRetry(() => import('@/components/comparators/MortgageComparison'));
-const FuelPriceStats = lazyRetry(() => import('@/components/pages/FuelPriceStats'));
 const BlogArticles = lazyRetry(() => {
   // Prefetch blog meta translations in parallel with component chunk
   import('@/services/i18n').then(m => m.loadBlogMeta()).catch(() => {});
@@ -101,20 +55,19 @@ const TredicesimalCalculator = lazyRetry(() => import('@/components/calculator/T
 const WeeklyDigest = lazyRetry(() => import('@/components/community/WeeklyDigest'));
 const ToolOfTheWeek = lazyRetry(() => import('@/components/community/ToolOfTheWeek'));
 const AiChatbot = lazyRetry(() => import('@/components/shared/AiChatbot'));
-const SeoContentBlock = lazyRetry(() => import('@/components/shared/SeoContentBlock'));
-const NewsFeed = lazyRetry(() => import('@/components/community/NewsFeed'));
-const WeeklyFact = lazyRetry(() => import('@/components/vita/WeeklyFact'));
-const DailyDialectPhrase = lazyRetry(() => import('@/components/vita/DailyDialectPhrase'));
-const SocialProofBadge = lazyRetry(() => import('@/components/shared/SocialProofBadge'));
+
+// Lazy tab content components (FRO-367): each owns its own sub-components + rendering.
+// This moves InputCard, MobileCalcLayout, FrontierGuide, and 40+ other components
+// out of the critical bundle — they only parse when their tab is first visited.
+const CalcolatoreTabContent = lazyRetry(() => import('@/components/tabs/CalcolatoreTabContent'));
+const ConfrontiTabContent = lazyRetry(() => import('@/components/tabs/ConfrontiTabContent'));
+const FiscoTabContent = lazyRetry(() => import('@/components/tabs/FiscoTabContent'));
+const GuidaTabContent = lazyRetry(() => import('@/components/tabs/GuidaTabContent'));
+const VitaTabContent = lazyRetry(() => import('@/components/tabs/VitaTabContent'));
+const StatsTabContent = lazyRetry(() => import('@/components/tabs/StatsTabContent'));
+
 // calculationService is lazy-loaded — only needed when user clicks Calculate
 const lazyCalculate = () => import('@/services/calculationService');
-// Analytics lazily loaded — deferred to user interaction anyway (see initAnalytics effect),
-// all methods are fire-and-forget with no return values used.
-const Analytics: Record<string, (...a: unknown[]) => void> = new Proxy({} as any, {
-  get: (_t, method: string) => (...args: unknown[]) => {
-    import('@/services/analytics').then(m => (m.Analytics as any)[method](...args));
-  },
-});
 import { setDefaultConsent, onConsentChange, isAnalyticsGranted } from '@/services/consentService';
 import { prefetchTab } from '@/services/prefetch';
 const CookieBanner = lazyRetry(() => import('@/components/shared/CookieBanner'));
@@ -2136,8 +2089,24 @@ const App: React.FC = () => {
   // isTranslationsReady() returns true immediately — no skeleton gate needed.
   // Full translations (it-core + it-calculator) still load lazily in background.
 
+  // FRO-367: TabContentContext passes app-level state to lazy tab components.
+  const tabContentValue: TabContentState = {
+    inputs, setInputs, result, handleCalculate,
+    showDeferredHomeWidgets, seoLanding, setSeoLanding,
+    userProfile, authUser, authLoading, isPrivilegedAdmin,
+    googleSignIn, facebookSignIn,
+    adminGoogleButtonRef, adminGoogleButtonReady,
+    taxReturnCountry, setTaxReturnCountry,
+    borderCrossing, setBorderCrossing,
+    blogArticle, setBlogArticle,
+    jobSlug, setJobSlug,
+    setActiveTab: setActiveTab as any, navigateTo,
+    setContactPrefill, glossaryTerm, setGlossaryTerm,
+  };
+
   return (
     <ErrorBoundary>
+    <TabContentContext.Provider value={tabContentValue}>
     <NavigationContext.Provider value={navContextValue}>
       <div className={`min-h-screen relative flex flex-col font-sans text-slate-800 dark:text-slate-100 transition-colors duration-300 overflow-hidden`}>
         {/* Fun & Modern Background Blobs — deferred until after LCP for perf */}
@@ -2626,290 +2595,17 @@ const App: React.FC = () => {
         }`}>
          <Suspense fallback={<LazyFallback />}>
           {activeTab === 'calculator' ? (
-            <div className="space-y-6">
-              {calcolatoreSubTab === 'calculator' ? (
-              <>
-                {seoLanding === 'new-frontier-over20km' ? (
-                  <Suspense fallback={<div className="h-64 rounded-3xl bg-slate-200 dark:bg-slate-800 animate-pulse mb-6" />}>
-                    <NewFrontierOver20KmHub />
-                  </Suspense>
-                ) : (
-                <>
-                {showDeferredHomeWidgets ? (
-                  <div className="hidden md:block space-y-2 mb-4">
-                    <div className="grid grid-cols-1 md:grid-cols-20 gap-2 items-stretch">
-                      <div className="md:col-span-13 h-full">
-                        <Suspense fallback={<SkeletonNewsTicker />}><NewsFeed onNavigate={(tab, article) => { setActiveTab(tab as ActiveTab); if (article) setBlogArticle(article as BlogArticleId); pushRoute({ activeTab: tab as ActiveTab, blogArticle: article as BlogArticleId }); window.scrollTo({ top: 0, behavior: 'instant' }); }} /></Suspense>
-                      </div>
-                      <div className="md:col-span-7 h-full">
-                        <Suspense fallback={<div className="h-[34px]" />}>
-                          <DailyDialectPhrase />
-                        </Suspense>
-                      </div>
-                    </div>
-                    <div className="mt-2">
-                      <button
-                        onClick={() => { Analytics.trackSelectContent('job_board_cta', 'desktop'); navigateTo('job-board' as any); }}
-                        className="w-full flex items-center gap-3 px-4 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 rounded-xl text-white transition-all hover:shadow-md text-left cursor-pointer"
-                      >
-                        <div className="p-1.5 bg-white/20 rounded-lg flex-shrink-0">
-                          <Briefcase size={16} className="text-white" />
-                        </div>
-                        <div className="min-w-0">
-                          <div className="text-sm font-bold leading-tight truncate">{t('jobBoard.homeCta.title')}</div>
-                          <div className="text-xs text-blue-100 line-clamp-1">{t('jobBoard.homeCta.desc')}</div>
-                        </div>
-                        <div className="ml-auto flex-shrink-0 text-xs font-semibold text-blue-100 whitespace-nowrap hidden lg:block">{t('jobBoard.homeCta.button')}</div>
-                      </button>
-                    </div>
-                  </div>
-                ) : (
-                  <div className="hidden md:block space-y-2 mb-4" aria-hidden="true">
-                    <div className="grid grid-cols-1 md:grid-cols-20 gap-2 items-stretch">
-                      <div className="md:col-span-13 h-full"><SkeletonNewsTicker /></div>
-                      <div className="md:col-span-7 h-full"><div className="h-[34px] rounded-xl bg-slate-200 dark:bg-slate-700 animate-pulse" /></div>
-                    </div>
-                    <div className="mt-2"><div className="h-12 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 animate-pulse" /></div>
-                  </div>
-                )}
-                {/* Mobile: Results-first bottom-sheet layout (Proposal D) */}
-                <div className="md:hidden">
-                  <MobileCalcLayout
-                    inputs={inputs}
-                    setInputs={setInputs}
-                    onCalculate={handleCalculate}
-                    result={result}
-                    renderResultView={(focusArea, onProfileTagClick) => result ? <Suspense fallback={<LazyFallback />}><ResultsView result={result} inputs={inputs} focusArea={focusArea ?? null} onProfileTagClick={onProfileTagClick} /></Suspense> : null}
-                    renderInputCard={(focusField, focusRequestId) => (
-                      <InputCard
-                        inputs={inputs}
-                        setInputs={setInputs}
-                        onCalculate={handleCalculate}
-                        focusField={focusField}
-                        focusRequestId={focusRequestId}
-                      />
-                    )}
-                  />
-                </div>
-                {/* Desktop: original side-by-side layout */}
-                <div className="hidden md:grid grid-cols-12 gap-6 h-full">
-                  <div className={`transition-all duration-500 ease-in-out md:col-span-4 lg:col-span-4 xl:col-span-3 h-full`}>
-                    <InputCard 
-                      inputs={inputs} 
-                      setInputs={setInputs} 
-                      onCalculate={handleCalculate}
-                    />
-                  </div>
-                  <div className={`transition-all duration-500 ease-in-out md:col-span-8 lg:col-span-8 xl:col-span-9 h-full`}>
-                    {result && <Suspense fallback={<LazyFallback />}><ResultsView result={result} inputs={inputs} /></Suspense>}
-                  </div>
-                </div>
-                {/* Mobile: move news/fact/phrase widgets below results, before CTA cards */}
-                {showDeferredHomeWidgets ? (
-                  <div className="md:hidden space-y-2 mt-2">
-                    <Suspense fallback={<SkeletonNewsTicker />}><NewsFeed onNavigate={(tab, article) => { setActiveTab(tab as ActiveTab); if (article) setBlogArticle(article as BlogArticleId); pushRoute({ activeTab: tab as ActiveTab, blogArticle: article as BlogArticleId }); window.scrollTo({ top: 0, behavior: 'instant' }); }} /></Suspense>
-                    <div className="space-y-2">
-                      <Suspense fallback={<SkeletonWeeklyFact />}><WeeklyFact /></Suspense>
-                      <button
-                        onClick={() => { Analytics.trackSelectContent('job_board_cta', 'mobile'); navigateTo('job-board' as any); }}
-                        className="w-full flex items-center justify-between gap-3 px-4 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 rounded-xl text-white transition-all active:scale-[0.98]"
-                      >
-                        <div className="flex items-center gap-2.5 min-w-0">
-                          <Briefcase size={18} className="text-white flex-shrink-0" />
-                          <span className="text-sm font-bold truncate">{t('jobBoard.homeCta.mobile.title')}</span>
-                        </div>
-                        <span className="text-xs font-semibold text-blue-100 flex-shrink-0">{t('jobBoard.homeCta.mobile.button')} →</span>
-                      </button>
-                    </div>
-                    <Suspense fallback={<div className="h-[34px]" />}>
-                      <DailyDialectPhrase />
-                    </Suspense>
-                  </div>
-                ) : (
-                  <div className="md:hidden space-y-2 mt-2" aria-hidden="true">
-                    <SkeletonNewsTicker />
-                    <SkeletonWeeklyFact />
-                    <div className="h-[34px] rounded-xl bg-slate-200 dark:bg-slate-700 animate-pulse" />
-                    <div className="h-[34px] rounded-xl bg-slate-200 dark:bg-slate-700 animate-pulse" />
-                  </div>
-                )}
-                {/* Popular Tools CTA — drives discovery of high-value features */}
-                {result && (
-                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-2">
-                    {[
-                      { icon: ArrowRightLeft, label: t('nav.confronti'), desc: t('cta.confrontiDesc'), color: 'from-violet-500 to-purple-600', tab: 'confronti' as ActiveTab },
-                      { icon: Layers, label: t('cta.whatif'), desc: t('cta.whatifDesc'), color: 'from-amber-500 to-orange-600', tab: 'calculator' as ActiveTab, sub: 'whatif' as CalcolatoreSubTab },
-                      { icon: Shield, label: t('nav.fisco'), desc: t('cta.fiscalDesc'), color: 'from-emerald-500 to-teal-600', tab: 'fisco' as ActiveTab },
-                      { icon: Briefcase, label: t('nav.guida'), desc: t('cta.guidaDesc'), color: 'from-blue-500 to-indigo-600', tab: 'guida' as ActiveTab },
-                    ].map(({ icon: Icon, label, desc, color, tab, sub }) => (
-                      <button
-                        key={tab + (sub || '')}
-                        onClick={() => {
-                          navigateTo(tab, sub);
-                        }}
-                        className="flex items-start gap-3 p-4 bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 hover:shadow-md hover:-translate-y-0.5 transition-all text-left group"
-                      >
-                        <div className={`p-2 rounded-lg bg-gradient-to-br ${color} flex-shrink-0`}>
-                          <Icon size={18} className="text-white" />
-                        </div>
-                        <div className="min-w-0">
-                          <div className="text-sm font-bold text-slate-800 dark:text-slate-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">{label}</div>
-                          <div className="text-xs text-slate-600 dark:text-slate-500 line-clamp-2">{desc}</div>
-                        </div>
-                      </button>
-                    ))}
-                  </div>
-                )}
-                {result && (
-                  <div className="mt-3">
-                    <Suspense fallback={<div className="h-[34px]" />}><SocialProofBadge fullWidth /></Suspense>
-                  </div>
-                )}
-                {result && (
-                  <div className="mt-2 w-full">
-                    <Suspense fallback={<SkeletonWeeklyFact />}><WeeklyFact /></Suspense>
-                  </div>
-                )}
-                </>
-                )}
-                </>
-              ) : calcolatoreSubTab === 'payslip' ? (
-                <div className="w-full">
-                  <PayslipSimulator userProfile={userProfile} />
-                </div>
-              ) : calcolatoreSubTab === 'whatif' ? (
-                <div className="w-full">
-                  {result && <WhatIfSimulator baseInputs={inputs} baseResult={result} userProfile={userProfile} />}
-                </div>
-              ) : calcolatoreSubTab === 'ral' ? (
-                <div className="max-w-7xl mx-auto">
-                  <RalComparator userProfile={userProfile} />
-                </div>
-              ) : calcolatoreSubTab === 'bonus' ? (
-                <div className="max-w-7xl mx-auto">
-                  <BonusCalculator userProfile={userProfile} />
-                </div>
-              ) : calcolatoreSubTab === 'parental-leave' ? (
-                <div className="max-w-7xl mx-auto">
-                  <ParentalLeaveCalculator userProfile={userProfile} />
-                </div>
-              ) : calcolatoreSubTab === 'residency' ? (
-                <div className="max-w-7xl mx-auto">
-                  <ResidencySimulator />
-                </div>
-              ) : calcolatoreSubTab === 'salary-quiz' ? (
-                <div className="max-w-7xl mx-auto">
-                  <SalaryQuiz />
-                </div>
-              ) : null}
-            </div>
+            <CalcolatoreTabContent />
           ) : activeTab === 'confronti' ? (
-            <div className="max-w-7xl mx-auto min-h-[60vh]">
-              <Suspense fallback={<div className="min-h-[44px]" />}><SeoContentBlock context="confronti" /></Suspense>
-              {confrontiSubTab === 'exchange' ? (
-                <CurrencyExchange />
-              ) : confrontiSubTab === 'banks' ? (
-                <BankComparison />
-              ) : confrontiSubTab === 'health' ? (
-                <HealthInsurance />
-              ) : confrontiSubTab === 'mobile' ? (
-                <MobileOperators />
-              ) : confrontiSubTab === 'shopping' ? (
-                <ShoppingCalculator />
-              ) : confrontiSubTab === 'cost-of-living' ? (
-                <CostOfLiving />
-              ) : confrontiSubTab === 'jobs' ? (
-                <JobComparator userProfile={userProfile} />
-              ) : confrontiSubTab === 'renovation' ? (
-                <RenovationCalculator simulationResult={result ?? undefined} simulationInputs={inputs} />
-              ) : null}
-            </div>
+            <ConfrontiTabContent />
           ) : activeTab === 'fisco' ? (
-            <div className="max-w-7xl mx-auto">
-              <Suspense fallback={<div className="min-h-[44px]" />}><SeoContentBlock context="fisco" /></Suspense>
-              {fiscoSubTab === 'tax-return' ? (
-                <TaxReturnGuide initialCountry={taxReturnCountry} onCountryChange={setTaxReturnCountry} />
-              ) : fiscoSubTab === 'withholding-rates' ? (
-                <Suspense fallback={<SkeletonFisco />}><WithholdingRatesHub /></Suspense>
-              ) : fiscoSubTab === 'calendar' ? (
-                <Suspense fallback={<SkeletonFisco />}><TaxCalendar /></Suspense>
-              ) : fiscoSubTab === 'holidays' ? (
-                <FrontierGuide activeSection="holidays" />
-              ) : fiscoSubTab === 'ristorni' ? (
-                <RistorniTracker />
-              ) : fiscoSubTab === 'pension' ? (
-                <PensionPlanner userProfile={userProfile} />
-              ) : fiscoSubTab === 'pillar3' ? (
-                <Pillar3Simulator />
-              ) : fiscoSubTab === 'quiz' ? (
-                <Suspense fallback={<SkeletonFisco />}><WeeklyQuiz /></Suspense>
-              ) : fiscoSubTab === 'tax-credit' ? (
-                <Suspense fallback={<SkeletonFisco />}><TaxCreditCalculator /></Suspense>
-              ) : null}
-            </div>
+            <FiscoTabContent />
           ) : activeTab === 'guida' ? (
-            <div className="max-w-7xl mx-auto">
-              <Suspense fallback={<div className="min-h-[44px]" />}><SeoContentBlock context="guida" /></Suspense>
-              {guidaSubTab === 'first-day' ? (
-                <FrontierGuide activeSection="first-day" />
-              ) : guidaSubTab === 'permits' ? (
-                <FrontierGuide activeSection="permits" />
-              ) : guidaSubTab === 'border' ? (
-                <TrafficAlerts initialCrossingId={borderCrossing || undefined} />
-              ) : guidaSubTab === 'unemployment' ? (
-                <FrontierGuide activeSection="unemployment" />
-              ) : guidaSubTab === 'car-transfer' ? (
-                <FrontierGuide activeSection="car-transfer" />
-              ) : guidaSubTab === 'car-cost' ? (
-                <CarCostCalculator />
-              ) : guidaSubTab === 'permit-compare' ? (
-                <PermitCompare userProfile={userProfile} />
-              ) : guidaSubTab === 'border-map' ? (
-                <BorderMunicipalitiesMap userProfile={userProfile} />
-              ) : null}
-            </div>
+            <GuidaTabContent />
           ) : activeTab === 'vita' ? (
-            <div className="max-w-7xl mx-auto">
-              <Suspense fallback={<div className="min-h-[44px]" />}><SeoContentBlock context="vita" /></Suspense>
-              {vitaSubTab === 'living-ch' ? (
-                <FrontierGuide activeSection="living-ch" />
-              ) : vitaSubTab === 'living-it' ? (
-                <FrontierGuide activeSection="living-it" />
-              ) : vitaSubTab === 'companies' ? (
-                <Suspense fallback={<SkeletonComparator />}><TicinoCompanies /></Suspense>
-              ) : vitaSubTab === 'schools' ? (
-                <FrontierGuide activeSection="schools" />
-              ) : vitaSubTab === 'nursery' ? (
-                <NurseryComparator userProfile={userProfile} />
-              ) : vitaSubTab === 'places' ? (
-                <FrontierGuide activeSection="places" />
-              ) : vitaSubTab === 'transport' ? (
-                <TransportCalculator />
-              ) : vitaSubTab === 'municipalities' ? (
-                <FrontierGuide activeSection="municipalities" />
-              ) : null}
-            </div>
+            <VitaTabContent />
           ) : activeTab === 'stats' ? (
-            <div className="max-w-7xl mx-auto">
-              <Suspense fallback={<div className="min-h-[44px]" />}><SeoContentBlock context="stats" /></Suspense>
-              {statsSubTab === 'overview' ? (
-                <StatsView />
-              ) : statsSubTab === 'livability' ? (
-                <LivabilityIndex />
-              ) : statsSubTab === 'jobs-observatory' ? (
-                <JobsSalaryObservatory />
-              ) : statsSubTab === 'salary-compare' ? (
-                <SalaryCompare />
-              ) : statsSubTab === 'traffic-history' ? (
-                <TrafficHistory />
-              ) : statsSubTab === 'unemployment' ? (
-                <UnemploymentStats />
-              ) : statsSubTab === 'mortgage' ? (
-                <MortgageComparison />
-              ) : statsSubTab === 'fuel-prices' ? (
-                <FuelPriceStats />
-              ) : null}
-            </div>
+            <StatsTabContent />
           ) : activeTab === 'blog' ? (
             <div className="max-w-7xl mx-auto">
               <BlogArticles
@@ -3525,6 +3221,7 @@ const App: React.FC = () => {
         </Suspense>
       </div>
     </NavigationContext.Provider>
+    </TabContentContext.Provider>
     {showCoinExplosion && CoinExplosionRef.current && (
       <CoinExplosionRef.current onComplete={handleCoinExplosionComplete} />
     )}
