@@ -13,12 +13,10 @@
     "https://www.supsi.ch/lavora-con-noi"
   ],
   "notes": "Dedicated SUPSI crawler seeds from lavora-con-noi (including pagination via POST) and canonicalizes job URLs under supsi.ch.",
-  "updatedAt": "2026-03-22T16:04:37.592Z",
+  "updatedAt": "2026-03-23T09:38:27.517Z",
   "seedDetailUrls": [
     "https://www.supsi.ch/bando26_3001",
     "https://www.supsi.ch/bando26_2002",
-    "https://www.supsi.ch/bando26_2003",
-    "https://www.supsi.ch/bando26_1004",
     "https://www.supsi.ch/assistente-con-bachelor-o-master-per-il-corso-di-laurea-in-architettura-supsi-26_1006-",
     "https://www.supsi.ch/bando26_5007",
     "https://www.supsi.ch/bando26_1001",
@@ -45,24 +43,6 @@
       "company": "SUPSI / DTI",
       "companyDomain": "supsi.ch",
       "contract": "Part-time",
-      "expiresAt": "2026-03-22"
-    },
-    "https://www.supsi.ch/bando26_2003": {
-      "location": "Manno",
-      "canton": "TI",
-      "country": "CH",
-      "company": "SUPSI / DTI",
-      "companyDomain": "supsi.ch",
-      "contract": "Part-time",
-      "expiresAt": "2026-03-22"
-    },
-    "https://www.supsi.ch/bando26_1004": {
-      "location": "Mendrisio",
-      "canton": "TI",
-      "country": "CH",
-      "company": "SUPSI / DTI",
-      "companyDomain": "supsi.ch",
-      "contract": "Stage",
       "expiresAt": "2026-03-22"
     },
     "https://www.supsi.ch/assistente-con-bachelor-o-master-per-il-corso-di-laurea-in-architettura-supsi-26_1006-": {
