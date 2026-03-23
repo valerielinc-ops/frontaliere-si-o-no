@@ -5,6 +5,8 @@ import { detectLanguage } from './detect-language.mjs';
 import { freeTranslateWithRetry } from './free-translate.mjs';
 import { translateTextWithLocalPipeline } from './job-localization-pipeline.mjs';
 import { hardenJobsWithStructuredSalary } from './structured-salary.mjs';
+let _aiModels = null;
+try { _aiModels = await import('./ai-models.mjs'); } catch { /* ai-models not available */ }
 import {
   DEFAULT_JOB_LOCALES,
   detectJobTitleLang,
@@ -1454,13 +1456,30 @@ export function validateDedicatedLocaleCoverage({
   }
 
   if (blockingIssues.length > 0) {
-    // Tolerate a small number of missing/untranslated description issues (translation providers are flaky)
-    if (maxToleratedMissingDescriptions > 0) {
+    // Detect AI/translation provider quota exhaustion — if all providers are exhausted,
+    // missing translations are expected and should be tolerated (they'll be retried next run)
+    let effectiveTolerance = maxToleratedMissingDescriptions;
+    if (_aiModels) {
+      try {
+        const stats = _aiModels.getStats();
+        const allAiExhausted = !_aiModels.isAnyModelAvailable();
+        if (allAiExhausted || (stats.exhaustedModels && stats.exhaustedModels.length >= 3)) {
+          const descIssueCount = blockingIssues.filter((i) => i.reason === 'missing_description' || i.reason === 'untranslated_description').length;
+          effectiveTolerance = Math.max(effectiveTolerance, descIssueCount);
+          console.warn(`⚠️  AI quota exhaustion detected (${stats.exhaustedModels?.length || 0} models exhausted). ` +
+            `Raising description tolerance from ${maxToleratedMissingDescriptions} to ${effectiveTolerance} for this run.`);
+        }
+      } catch { /* stats not available */ }
+    }
+
+    // Tolerate missing/untranslated description issues up to the effective tolerance
+    if (effectiveTolerance > 0) {
       const descIssues = blockingIssues.filter((i) => i.reason === 'missing_description' || i.reason === 'untranslated_description');
       const otherIssues = blockingIssues.filter((i) => i.reason !== 'missing_description' && i.reason !== 'untranslated_description');
-      if (descIssues.length <= maxToleratedMissingDescriptions && otherIssues.length === 0) {
-        const slugs = descIssues.map((i) => `${i.slug} [${i.locale}]`).join(', ');
-        console.warn(`⚠️  Tolerating ${descIssues.length} missing/untranslated description(s) (max ${maxToleratedMissingDescriptions}): ${slugs}`);
+      if (descIssues.length <= effectiveTolerance && otherIssues.length === 0) {
+        const sample = descIssues.slice(0, 10).map((i) => `${i.slug} [${i.locale}]`).join(', ');
+        const suffix = descIssues.length > 10 ? ` ... and ${descIssues.length - 10} more` : '';
+        console.warn(`⚠️  Tolerating ${descIssues.length} missing/untranslated description(s) (tolerance ${effectiveTolerance}): ${sample}${suffix}`);
         softIssues.push(...descIssues);
         blockingIssues.length = 0;
       }

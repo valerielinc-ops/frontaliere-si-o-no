@@ -99,7 +99,7 @@ export const AI_MODELS = Object.freeze({
   GROQ_GPT_OSS_20B: 'groq/openai/gpt-oss-20b',
 
   // ── OpenRouter (OpenAI-compatible, free models with :free suffix) ──
-  // Shared quota: 50 req/day (free tier)
+  // Rate limits: 20 req/min, 200 req/day (free tier, no credit card)
   OR_LLAMA_3_3:     'openrouter/meta-llama/llama-3.3-70b-instruct:free',
   OR_GEMMA_3_27B:   'openrouter/google/gemma-3-27b-it:free',
   OR_MISTRAL_SM:    'openrouter/mistralai/mistral-small-3.1-24b-instruct:free',
@@ -107,10 +107,23 @@ export const AI_MODELS = Object.freeze({
   OR_TRINITY:       'openrouter/arcee-ai/trinity-large-preview:free',
   OR_DEEPSEEK_R1Z:  'openrouter/deepseek/deepseek-r1-zero:free',
   OR_MISTRAL_NEMO:  'openrouter/mistralai/mistral-nemo:free',
+  OR_NV_NEMOTRON_120B: 'openrouter/nvidia/nemotron-3-super-120b-a12b:free',
+  OR_QWEN3_NEXT_80B:   'openrouter/qwen/qwen3-next-80b-a3b-instruct:free',
+  OR_STEPFUN_FLASH:    'openrouter/stepfun/step-3.5-flash:free',
+  OR_NV_NEMOTRON_30B:  'openrouter/nvidia/nemotron-3-nano-30b-a3b:free',
+  OR_MINIMAX_M25:      'openrouter/minimax/minimax-m2.5:free',
+  OR_GPT_OSS_120B:     'openrouter/openai/gpt-oss-120b:free',
+  OR_HERMES_405B:      'openrouter/nousresearch/hermes-3-llama-3.1-405b:free',
+  OR_GLM_45_AIR:       'openrouter/z-ai/glm-4.5-air:free',
+  OR_GEMMA_3_12B:      'openrouter/google/gemma-3-12b-it:free',
+  OR_NV_NEMOTRON_9B:   'openrouter/nvidia/nemotron-nano-9b-v2:free',
+  OR_TRINITY_MINI:     'openrouter/arcee-ai/trinity-mini:free',
 
   // ── Groq additional models (OpenAI-compatible, ultra-fast inference) ──
   GROQ_GEMMA2_9B:      'groq/gemma2-9b-it',
   GROQ_LLAMA_3_1_70B:  'groq/llama-3.1-70b-versatile',
+  GROQ_LLAMA3_8B:      'groq/llama3-8b-8192',
+  GROQ_LLAMA3_70B:     'groq/llama3-70b-8192',
 
   // ── Cerebras (OpenAI-compatible, ultra-fast inference, free tier) ──
   CB_LLAMA_3_1_8B:  'cerebras/llama3.1-8b',
@@ -143,6 +156,7 @@ export const AI_MODELS = Object.freeze({
  * OpenRouter adds 50 extra free requests per day (7 :free models).
  * Cerebras, Together, Fireworks, NVIDIA, HuggingFace provide additional fallback capacity.
  *
+ * Total: 68 models across 9+ providers for maximum translation capacity.
  * Initial order: quality-based (best first), with provider diversity.
  * During a run, models that succeed frequently rise; models that
  * fail repeatedly (rate-limited, down) sink to the bottom.
@@ -203,6 +217,21 @@ export const DEFAULT_CHAIN = [
   AI_MODELS.NV_PHI_3_MINI,      // 53. Phi-3 Mini             (NVIDIA NIM)
   AI_MODELS.HF_MISTRAL_7B,      // 54. Mistral 7B             (HuggingFace)
   AI_MODELS.HF_ZEPHYR_7B,       // 55. Zephyr 7B              (HuggingFace)
+  // ── Extended capacity: new OpenRouter free models (200 req/day each) ──
+  AI_MODELS.OR_NV_NEMOTRON_120B, // 56. NVIDIA Nemotron 120B   (OpenRouter free)
+  AI_MODELS.OR_QWEN3_NEXT_80B,   // 57. Qwen3 Next 80B         (OpenRouter free)
+  AI_MODELS.OR_STEPFUN_FLASH,    // 58. StepFun 3.5 Flash       (OpenRouter free)
+  AI_MODELS.OR_NV_NEMOTRON_30B,  // 59. NVIDIA Nemotron 30B    (OpenRouter free)
+  AI_MODELS.OR_MINIMAX_M25,      // 60. MiniMax M2.5            (OpenRouter free)
+  AI_MODELS.OR_GPT_OSS_120B,     // 61. GPT-OSS 120B            (OpenRouter free)
+  AI_MODELS.OR_HERMES_405B,      // 62. Hermes 3 405B           (OpenRouter free)
+  AI_MODELS.OR_GLM_45_AIR,       // 63. GLM 4.5 Air             (OpenRouter free)
+  AI_MODELS.OR_GEMMA_3_12B,      // 64. Gemma 3 12B             (OpenRouter free)
+  AI_MODELS.OR_NV_NEMOTRON_9B,   // 65. NVIDIA Nemotron 9B     (OpenRouter free)
+  AI_MODELS.OR_TRINITY_MINI,     // 66. Arcee Trinity Mini      (OpenRouter free)
+  // ── Extended capacity: additional Groq models (1000 req/day each) ──
+  AI_MODELS.GROQ_LLAMA3_8B,      // 67. Llama 3 8B              (Groq)
+  AI_MODELS.GROQ_LLAMA3_70B,     // 68. Llama 3 70B             (Groq)
 ];
 
 // ── Provider constants ───────────────────────────────────────

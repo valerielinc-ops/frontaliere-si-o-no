@@ -321,8 +321,9 @@ export function ogPagesPlugin(rootDir: string): Plugin {
               cssSelector: ['article h1', 'article h2', 'article p'],
             },
           };
-          if (en.datePub) ldObj.datePublished = normalizeDateTime(en.datePub);
-          if (en.dateMod) ldObj.dateModified = normalizeDateTime(en.dateMod);
+          const todayIso = new Date().toISOString().slice(0, 10);
+          ldObj.datePublished = normalizeDateTime(en.datePub || en.dateMod || todayIso);
+          ldObj.dateModified  = normalizeDateTime(en.dateMod || en.datePub || todayIso);
           const ldJsonStr = JSON.stringify(ldObj).replace(/</g, '\\u003c');
 
           const headTags = `    <meta charset="utf-8">
@@ -339,8 +340,8 @@ export function ogPagesPlugin(rootDir: string): Plugin {
     <meta property="og:site_name" content="Frontaliere Ticino">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <meta property="fb:app_id" content="891036063797338">
-    ${en.datePub ? `<meta property="article:published_time" content="${esc(normalizeDateTime(en.datePub))}">` : ''}
-    ${en.dateMod ? `<meta property="article:modified_time" content="${esc(normalizeDateTime(en.dateMod))}">` : ''}
+    <meta property="article:published_time" content="${esc(normalizeDateTime(en.datePub || en.dateMod || todayIso))}">
+    <meta property="article:modified_time" content="${esc(normalizeDateTime(en.dateMod || en.datePub || todayIso))}">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="${esc(localizedTitle)}">
     <meta name="twitter:description" content="${esc(localizedDesc)}">
