@@ -89,6 +89,13 @@ function slugifyLocalizedLabel(value = '') {
     .slice(0, 180);
 }
 
+/** Known company boilerplate fragments that leak into slugs when description text
+ *  is accidentally included in the slug source. */
+const SLUG_BOILERPLATE_RE = /permette-di-combinare-efficacemente|garantendo-alla-popolaz|visione-d-insieme-garantendo|approccio-locale-e-visione/;
+function needsBoilerplateSlugRepair(slug = '') {
+  return SLUG_BOILERPLATE_RE.test(String(slug || '').trim());
+}
+
 function needsItalianSlugRepair(slug = '') {
   const clean = String(slug || '').trim();
   if (!clean) return false;
@@ -658,8 +665,11 @@ export function hardenJobLocaleFields({ dataJobsPath }) {
   if (!dataJobsPath || !fs.existsSync(dataJobsPath)) {
     return { changed: false, repaired: 0, total: 0 };
   }
-  const raw = JSON.parse(fs.readFileSync(dataJobsPath, 'utf-8'));
-  if (!Array.isArray(raw)) {
+  const parsed = JSON.parse(fs.readFileSync(dataJobsPath, 'utf-8'));
+  // Support both flat array format and { jobs: [...] } wrapper format
+  const raw = Array.isArray(parsed) ? parsed : (Array.isArray(parsed?.jobs) ? parsed.jobs : null);
+  const isWrapped = !Array.isArray(parsed) && Array.isArray(parsed?.jobs);
+  if (!raw) {
     return { changed: false, repaired: 0, total: 0 };
   }
 
@@ -896,12 +906,14 @@ export function hardenJobLocaleFields({ dataJobsPath }) {
         !localizedSlug ||
         (!isSlugMeaningful && localizedSlug === baseSlug) ||
         (locale === 'it' && needsItalianSlugRepair(localizedSlug)) ||
-        needsCanonicalCompanySlugRepair(localizedSlug, company);
+        needsCanonicalCompanySlugRepair(localizedSlug, company) ||
+        needsBoilerplateSlugRepair(localizedSlug);
 
       if (shouldRefreshSlug && nextSlug && nextSlug !== localizedSlug) {
         const reason = !localizedSlug ? 'missing'
           : (!isSlugMeaningful && localizedSlug === baseSlug) ? 'short_base_match'
           : (locale === 'it' && needsItalianSlugRepair(localizedSlug)) ? 'italian_repair'
+          : needsBoilerplateSlugRepair(localizedSlug) ? 'boilerplate_repair'
           : 'company_repair';
         slugChangeCount[reason] = (slugChangeCount[reason] || 0) + 1;
         console.log(`  🔄 SLUG [${locale}] ${reason}: ${job.companyKey || job.company} | ${localizedSlug || '(empty)'} → ${nextSlug}`);
@@ -913,7 +925,7 @@ export function hardenJobLocaleFields({ dataJobsPath }) {
     const canonicalItSlug = String(job.slugByLocale.it || '').trim();
     if (canonicalItSlug) {
       const currentCanonicalSlug = String(job.slug || '').trim();
-      if (!currentCanonicalSlug || currentCanonicalSlug === baseSlug || needsItalianSlugRepair(currentCanonicalSlug)) {
+      if (!currentCanonicalSlug || currentCanonicalSlug === baseSlug || needsItalianSlugRepair(currentCanonicalSlug) || needsBoilerplateSlugRepair(currentCanonicalSlug)) {
         if (currentCanonicalSlug !== canonicalItSlug) {
           job.slug = canonicalItSlug;
           jobChanged = true;

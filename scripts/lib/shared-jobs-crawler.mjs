@@ -2380,12 +2380,24 @@ function isLowQualityLocalizedTitle(value = '') {
   return false;
 }
 
+/** Known company boilerplate fragments that leak into slugs when description text
+ *  is accidentally included in the slug source. Each pattern is tested against the
+ *  slugified value (lowercase, hyphens). */
+const SLUG_BOILERPLATE_PATTERNS = [
+  /permette-di-combinare-efficacemente/,
+  /garantendo-alla-popolaz/,
+  /visione-d-insieme-garantendo/,
+  /approccio-locale-e-visione/,
+];
+
 function isLowQualityLocalizedSlug(value = '') {
   const s = normalizeSpace(value || '');
   if (!s) return true;
   if (s.length < 12) return true;
   if (/^(h|he|her|here)(-|$)/i.test(s)) return true;
   if (!/^[a-z0-9-]+$/i.test(s)) return true;
+  // Detect slugs polluted with company boilerplate description text
+  if (SLUG_BOILERPLATE_PATTERNS.some(re => re.test(s))) return true;
   return false;
 }
 
@@ -2507,7 +2519,8 @@ function ensureLocaleFields(job) {
     if (localizedSlug) slugByLocale[locale] = localizedSlug;
   }
   out.slugByLocale = slugByLocale;
-  if (!normalizeSpace(out.slug || '') && normalizeSpace(slugByLocale.it || '')) {
+  const currentMainSlug = normalizeSpace(out.slug || '');
+  if ((!currentMainSlug || isLowQualityLocalizedSlug(currentMainSlug)) && normalizeSpace(slugByLocale.it || '')) {
     out.slug = normalizeSpace(slugByLocale.it);
   }
   return out;
