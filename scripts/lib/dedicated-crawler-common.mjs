@@ -870,8 +870,16 @@ export function hardenJobLocaleFields({ dataJobsPath }) {
     if (sourceTitleFallback) {
       for (const locale of DEFAULT_LOCALES) {
         if (!String(job.titleByLocale[locale] || '').trim()) {
-          job.titleByLocale[locale] = sourceTitleFallback;
-          jobChanged = true;
+          // FRO-263: Don't blindly copy foreign-language title as a fallback for
+          // a different locale (e.g. DE title → IT field). This was causing
+          // Coop Grigioni DE titles to appear under titleByLocale.it.
+          // Only copy if the source language matches this locale OR if it's the
+          // source language slot itself.
+          if (locale === sourceLang || locale === titleSourceLang) {
+            job.titleByLocale[locale] = sourceTitleFallback;
+            jobChanged = true;
+          }
+          // Other locales left empty — will be filled by AI translation pipeline
         }
       }
     }
