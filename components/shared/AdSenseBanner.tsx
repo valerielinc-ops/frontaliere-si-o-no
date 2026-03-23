@@ -265,8 +265,9 @@ export default function AdSenseBanner({
       style={{
         contain: 'layout',
         transition: 'opacity 0.3s ease, min-height 0.3s ease, max-height 0.3s ease',
-        // Reserve space during loading via minHeight (the key CLS fix)
-        minHeight: isCollapsed ? 0 : isReservingSpace ? placeholderMinHeight : undefined,
+        // Reserve space via minHeight — keep it even after ad loads to prevent CLS
+        // when the actual ad is shorter than the placeholder (FRO-299)
+        minHeight: isCollapsed ? 0 : placeholderMinHeight,
         // Cap collapsed state to 0
         maxHeight: isCollapsed ? 0 : undefined,
         opacity: isVisible ? 1 : 0,

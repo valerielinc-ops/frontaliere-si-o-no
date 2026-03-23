@@ -130,7 +130,7 @@
         font-family: 'Inter';
         font-style: normal;
         font-weight: 400 700;
-        font-display: swap;
+        font-display: optional;
         src: url('/fonts/inter-latin.woff2') format('woff2');
         size-adjust: 100%;
         ascent-override: 90%;
@@ -255,9 +255,9 @@
         <main class="sh-main" style="flex:1;max-width:1800px;width:95%;margin:0 auto;padding-top:24px;padding-bottom:24px">
           <!-- NewsFeed + WeeklyFact tickers — calculator pages only (hidden on other pages via sh-route script) -->
           <div id="sh-ticker-area" style="display:flex;flex-direction:column;gap:8px;margin-bottom:24px">
-            <div class="sh-skel sh-pulse" style="height:38px;background:#f1f5f9;border-radius:12px"></div>
-            <!-- WeeklyFact skeleton — h-[38px] -->
-            <div class="sh-skel sh-pulse" style="height:38px;background:#fef3c7;border-radius:12px"></div>
+            <div class="sh-skel sh-pulse" style="height:34px;background:#f1f5f9;border-radius:12px"></div>
+            <!-- WeeklyFact skeleton — h-[34px] matches component -->
+            <div class="sh-skel sh-pulse" style="height:34px;background:#fef3c7;border-radius:12px"></div>
           </div>
 
           <!-- Content grid — 1 col mobile, 12 cols md+ (calculator pages only) -->
