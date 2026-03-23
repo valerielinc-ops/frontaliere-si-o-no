@@ -14,7 +14,8 @@ function removeDir(dir: string): void {
     // Use `find -delete` instead of `rm -rf`: it traverses the tree bottom-up
     // and deletes each entry individually, avoiding the ENOTEMPTY errors that
     // macOS `rm -rf` produces when Spotlight/Finder hold .DS_Store xattr locks.
-    execSync(`find ${JSON.stringify(dir)} -delete`);
+    // maxBuffer: 50MB to handle 40K+ file trees without ENOBUFS (FRO-280)
+    execSync(`find ${JSON.stringify(dir)} -delete`, { maxBuffer: 50 * 1024 * 1024, stdio: 'pipe' });
   } else {
     fs.rmSync(dir, { recursive: true, force: true });
   }

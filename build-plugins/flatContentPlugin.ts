@@ -45,7 +45,9 @@ export function flatContentPlugin(): Plugin {
           ) continue;
 
           const flatPath = path.join(dir, entry.name);
-          const content = fs.readFileSync(flatPath, 'utf-8');
+          let content: string;
+          try { content = fs.readFileSync(flatPath, 'utf-8'); }
+          catch { continue; /* file removed between readdir and read */ }
 
           // Replace files that contain our redirect markers:
           // - Old pattern: location.replace() JS redirect
