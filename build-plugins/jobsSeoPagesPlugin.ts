@@ -912,13 +912,15 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
                 postalCode: postalCode || '6900',
               },
             },
-            baseSalary: Number.isFinite(salaryMin) ? {
+            // FRO-358: baseSalary fallback must use a valid minValue > 0 (validator rejects 0).
+            // Ticino minimum wage ~CHF 19.75/h ≈ CHF 41,080/year as a floor.
+            baseSalary: Number.isFinite(salaryMin) && salaryMin > 0 ? {
               '@type': 'MonetaryAmount',
               currency: salaryCurrency,
               value: {
                 '@type': 'QuantitativeValue',
                 minValue: salaryMin,
-                ...(Number.isFinite(salaryMax) ? { maxValue: salaryMax } : {}),
+                ...(Number.isFinite(salaryMax) && salaryMax > salaryMin ? { maxValue: salaryMax } : {}),
                 unitText: 'YEAR',
               },
             } : {
@@ -926,7 +928,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
               currency: 'CHF',
               value: {
                 '@type': 'QuantitativeValue',
-                minValue: 0,
+                minValue: 41080,
                 unitText: 'YEAR',
               },
             },
