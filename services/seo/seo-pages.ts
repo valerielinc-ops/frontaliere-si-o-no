@@ -3049,7 +3049,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
         "@context": "https://schema.org",
         "@type": "ItemList",
         "name": "Articoli Frontaliere",
-        "numberOfItems": 558,
+        "numberOfItems": 559,
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
           { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -3608,7 +3608,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 555, "name": "Sequestro di Cannabis a Spreitenbach: Operazion...", "url": `${BASE_URL}/articoli-frontaliere/cannabis-sequestro-ticino-2026` },
           { "@type": "ListItem", "position": 556, "name": "Svizzeri dubitano delle capacità di difesa del ...", "url": `${BASE_URL}/articoli-frontaliere/svizzeri-dubitano-difesa-paese` },
           { "@type": "ListItem", "position": 557, "name": "Referendum Costituzionale 2026: Varese al 43,40%", "url": `${BASE_URL}/articoli-frontaliere/referendum-varese-ticino-2026` },
-          { "@type": "ListItem", "position": 558, "name": "Controlli radar in Ticino diminuiranno: cosa ca...", "url": `${BASE_URL}/articoli-frontaliere/controlli-radar-ticino` }
+          { "@type": "ListItem", "position": 558, "name": "Controlli radar in Ticino diminuiranno: cosa ca...", "url": `${BASE_URL}/articoli-frontaliere/controlli-radar-ticino` },
+          { "@type": "ListItem", "position": 559, "name": "Frontalieri: a Zurigo solo avanzi immobiliari", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-casa-zurigo` }
         ]
       }
     ]

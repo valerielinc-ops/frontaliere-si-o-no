@@ -4568,6 +4568,13 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/controlli-radar-ticino.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'frontalieri-casa-zurigo',
+    category: 'pratico',
+    date: '2026-03-23T12:40:56.176Z',
+    image: '/images/blog/frontalieri-casa-zurigo.jpg',
+    hasCalculator: true,
+  },
 ];
 
 const CATEGORIES = ['all', 'fiscale', 'pratico', 'novita', 'pensione'] as const;

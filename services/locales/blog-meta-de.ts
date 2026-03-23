@@ -1703,6 +1703,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.controlli-radar-ticino.title': 'Die Radarkontrollen in Tessin werden verringert: Was ändert sich?',
     'blog.article.controlli-radar-ticino.excerpt': 'Die Polizei des Kantons Tessin hat angekündigt, dass die Radarkontrollen auf den Strassen in Tessin verringert werden. Was bedeutet das für die Grenzgänger und die Einwohner?',
     'blog.article.controlli-radar-ticino.imageAlt': 'Bild einer Straße in Ticino mit einem fahrenden Fahrzeug und einem Polizisten, der mit einem Radar überprüft.',
+    'blog.article.frontalieri-casa-zurigo.title': 'Frontalieri: Nur Wertanlagen in Zürich zu finden',
+    'blog.article.frontalieri-casa-zurigo.excerpt': 'Einer von zehn Neuzuzüglern wählt Zürich aus, findet aber nur veraltete oder überhöhte Mietwohnungen. Was ändert sich für die Arbeitnehmer im Tessin?',
+    'blog.article.frontalieri-casa-zurigo.imageAlt': 'Abendansicht von Lugano mit Wohnungslichtern und Grenzverkehr',
 };
 
 export default blogMetaDe;

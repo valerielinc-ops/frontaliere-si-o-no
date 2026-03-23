@@ -9593,6 +9593,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-frontalieri-casa-zurigo': {
+    title: 'Frontalieri: a Zurigo solo avanzi immobiliari | Frontaliere Ticino',
+    description: 'Uno su dieci nuovi immigrati sceglie Zurigo, ma trova solo appartamenti fatiscenti o affitti esagerati. Cosa cambia per chi lavora in Ticino. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, zurigo, solo, avanzi, immobiliari',
+    ogTitle: 'Frontalieri: a Zurigo solo avanzi immobiliari',
+    ogDescription: 'Uno su dieci nuovi immigrati sceglie Zurigo, ma trova solo appartamenti fatiscenti o affitti esagerati. Cosa cambia per chi lavora in Ticino.',
+    canonicalPath: '/articoli-frontaliere/frontalieri-casa-zurigo',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Frontalieri: a Zurigo solo avanzi immobiliari",
+      "description": "Uno su dieci nuovi immigrati sceglie Zurigo, ma trova solo appartamenti fatiscenti o affitti esagerati. Cosa cambia per chi lavora in Ticino. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/frontalieri-casa-zurigo.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Vista notturna di Lugano con luci degli appartamenti e traffico verso il confine"
+      },
+      "datePublished": "2026-03-23T12:40:56+00:00",
+      "dateModified": "2026-03-23T12:40:56+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontalieri-casa-zurigo`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

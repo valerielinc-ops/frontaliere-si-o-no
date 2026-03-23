@@ -1703,6 +1703,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.controlli-radar-ticino.title': 'I Controlli Radar in Ticino Diminuiranno: Cosa Cambia?',
     'blog.article.controlli-radar-ticino.excerpt': 'La polizia cantonale di Lugano ha comunicato che i controlli radar sulle strade ticinesi saranno ridotti, ma cosa significa per i frontalieri e i residenti?',
     'blog.article.controlli-radar-ticino.imageAlt': 'Image of a road in Ticino with a vehicle in motion and a police officer checking with a radar.',
+    'blog.article.frontalieri-casa-zurigo.title': 'Frontalieri: Only Surplus Properties in Zurich',
+    'blog.article.frontalieri-casa-zurigo.excerpt': 'One out of ten new immigrants chooses Zurich, but finds only dilapidated apartments or exorbitant rents. What changes for those working in Ticino.',
+    'blog.article.frontalieri-casa-zurigo.imageAlt': 'Evening view of Lugano with apartment lights and traffic heading to the border',
 };
 
 export default blogMetaEn;
