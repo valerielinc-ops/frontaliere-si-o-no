@@ -78,6 +78,7 @@ const GH_MODEL_HEAVY = AI_MODELS.GPT4O;
 const GH_MODEL_LIGHT = AI_MODELS.GPT4O_MINI;
 const BLOG_IMAGE_TARGET_MAX_BYTES = 220 * 1024; // target ~220KB
 const BLOG_IMAGE_HARD_MAX_BYTES = 320 * 1024;   // hard cap ~320KB
+const MIN_BODY_CHARS = 800;                      // minimum article body length (plain text chars)
 
 // Static places catalog
 const PLACES_IMAGES = [
@@ -1945,7 +1946,6 @@ function validate(data) {
   // Thin content guard: warn but don't reject yet — the word-count retry loop
   // (later in the pipeline) will attempt to expand short articles via AI.
   // Final thin content check happens after all retry/expand attempts.
-  const MIN_BODY_CHARS = 800;
   const itBodyEarly = `${(data.content.it || data.content)?.body1 || ''} ${(data.content.it || data.content)?.body2 || ''} ${(data.content.it || data.content)?.body3 || ''}`;
   const itPlainCharsEarly = itBodyEarly.replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim().length;
   if (itPlainCharsEarly < MIN_BODY_CHARS) {

@@ -162,7 +162,7 @@ const llmsTxtContent = readProjectFile('public/llms.txt');
 const VALID_SCHEMA_TYPES = new Set([
   'WebSite', 'WebPage', 'WebApplication', 'SoftwareApplication',
   'Article', 'BlogPosting', 'NewsArticle', 'HowTo', 'FAQPage', 'Dataset', 'Quiz',
-  'CollectionPage', 'ContactPage', 'ItemList',
+  'CollectionPage', 'ContactPage', 'ItemList', 'AboutPage',
   'Service', 'DiscussionForum', 'BreadcrumbList',
   'Organization', 'FinancialService', 'DefinedTermSet',
   'Product', 'Offer', 'Event', 'Review', 'AggregateRating',
