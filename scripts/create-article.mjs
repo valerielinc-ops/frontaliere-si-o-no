@@ -113,7 +113,8 @@ const RECENT_ARTICLE_IMAGE_COUNT = 7;
 
 function _getRecentArticleImages() {
   try {
-    const blogSrc = readFileSync(resolve('components/community/BlogArticles.tsx'), 'utf8');
+    // FRO-360: ARTICLES array is now in data/blog-articles-data.ts
+    const blogSrc = readFileSync(resolve('data/blog-articles-data.ts'), 'utf8');
     // Extract all image: '...' values from the ARTICLES array
     const imageMatches = [...blogSrc.matchAll(/image:\s*['"]([^'"]+)['"]/g)].map(m => m[1]);
     // Last N are the most recent articles
@@ -3113,7 +3114,8 @@ function modifyRouterTs(data) {
 }
 
 function modifyBlogArticlesTsx(data) {
-  const file = 'components/community/BlogArticles.tsx';
+  // FRO-360: ARTICLES array extracted to data/blog-articles-data.ts (FRO-328)
+  const file = 'data/blog-articles-data.ts';
   let src = read(file);
   const today = new Date().toISOString();
 
@@ -3484,7 +3486,7 @@ function gitAddAll(data) {
   const files = [
     'services/router.ts',
     'services/routerBlogData.ts',
-    'components/community/BlogArticles.tsx',
+    'data/blog-articles-data.ts',
     'services/locales/blog-meta-it.ts',
     'services/locales/blog-meta-en.ts',
     'services/locales/blog-meta-de.ts',
