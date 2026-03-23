@@ -229,22 +229,13 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
         .replace(/^-+|-+$/g, '')
         .slice(0, 90);
       const localeList = JOB_SEO_LOCALES;
-      // Max slug length: keep well under 255-char filesystem path limit.
-      // Path = dist/<locale-prefix>/<section>/<slug>/index.html (prefix+section ≈ 30 chars, index.html = 10)
-      const MAX_SLUG_LEN = 120;
-      const truncateSlug = (s: string) => {
-        if (s.length <= MAX_SLUG_LEN) return s;
-        const cut = s.slice(0, MAX_SLUG_LEN).replace(/-[^-]*$/, ''); // cut at last word boundary
-        return cut || s.slice(0, MAX_SLUG_LEN);
-      };
-
       const localizedSlug = (job: any, locale: 'it' | 'en' | 'de' | 'fr') => {
         // 1. Explicit per-locale slug (from AI-translated crawlers)
         const explicit = String(job?.slugByLocale?.[locale] || '').trim();
-        if (explicit) return truncateSlug(explicit);
+        if (explicit) return explicit;
         // 2. Canonical slug from data (set by all crawlers, including custom ones)
         const canonical = String(job?.slug || '').trim();
-        if (canonical) return truncateSlug(canonical);
+        if (canonical) return canonical;
         // 3. Compute from localized title + company + location (last-resort fallback)
         const localizedTitle = String(job?.titleByLocale?.[locale] || job?.title || '');
         return slugify(`${localizedTitle}-${job?.company || ''}-${job?.location || ''}`) || slugify(localizedTitle);
