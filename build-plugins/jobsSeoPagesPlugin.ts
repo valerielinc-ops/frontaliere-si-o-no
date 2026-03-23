@@ -2946,7 +2946,7 @@ ${alternates}${hasSpaBundle ? `\n    <link rel="stylesheet" href="/assets/${entr
         // but not active job pages (guarded above)
         _qw(np.join(outDir, 'index.html'), html);
         const flatFile = np.join(distDir, outRelPath + '.html');
-        _qw(flatFile, html);
+        _qw(flatFile, html.replace(SPA_ACTION_REDIRECT_SCRIPT, ''));
       };
 
       for (const slug of expiredSlugs) {
@@ -2981,21 +2981,6 @@ ${alternates}${hasSpaBundle ? `\n    <link rel="stylesheet" href="/assets/${entr
             ? `${esc(jobTitle)}${jobCompany ? ` — ${esc(jobCompany)}` : ''} | Frontaliere Ticino`
             : `${esc(copy.title)} | Frontaliere Ticino`;
 
-          // JobPosting JSON-LD for expired/orphan pages (FRO-194)
-          const descExcerptForLd = jobDescription.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim().slice(0, 500);
-          const jobPostingLdObj: Record<string, unknown> = {
-            '@context': 'https://schema.org',
-            '@type': 'JobPosting',
-            title: jobTitle,
-            directApply: false,
-            validThrough: ejData?.expiredAt
-              ? new Date(ejData.expiredAt).toISOString()
-              : '2025-01-01T00:00:00Z',
-          };
-          if (jobCompany) jobPostingLdObj.hiringOrganization = { '@type': 'Organization', name: jobCompany };
-          if (jobLocation) jobPostingLdObj.jobLocation = { '@type': 'Place', address: { '@type': 'PostalAddress', addressLocality: jobLocation } };
-          if (descExcerptForLd) jobPostingLdObj.description = descExcerptForLd;
-
           const pageDesc = `${esc(jobTitle)}${jobCompany ? ` — ${esc(jobCompany)}` : ''}. ${esc(archiveRelatedLabel[locale] || archiveRelatedLabel.it)}.`;
 
           const softLandingHtml = `<!DOCTYPE html>
@@ -3015,8 +3000,7 @@ ${hreflangLinks}
         { '@type': 'ListItem', position: 2, name: localeCopy[locale].sectionName, item: `${BASE_URL}${listingPath}` },
         { '@type': 'ListItem', position: 3, name: jobTitle },
       ],
-    })}</script>
-    <script type="application/ld+json">${JSON.stringify(jobPostingLdObj)}</script>${hasSpaBundle ? `\n    <link rel="stylesheet" href="/assets/${entryCss}" crossorigin media="all">` : ''}
+    })}</script>${hasSpaBundle ? `\n    <link rel="stylesheet" href="/assets/${entryCss}" crossorigin media="all">` : ''}
     ${SPA_ACTION_REDIRECT_SCRIPT}
   </head>
   <body>
@@ -3100,18 +3084,8 @@ ${hreflangLinks}
             const jobLocation = String((job as any).addressLocality || (job as any).location || '');
             const pageTitle = `${esc(localizedTitle)}${jobCompany ? ` — ${esc(jobCompany)}` : ''} | Frontaliere Ticino`;
 
-            // JobPosting JSON-LD for bridge pages (FRO-194) — sameAs points to canonical URL
-            const bridgeJobPostingLd: Record<string, unknown> = {
-              '@context': 'https://schema.org',
-              '@type': 'JobPosting',
-              title: localizedTitle,
-              sameAs: canonicalUrl,
-              directApply: false,
-            };
-            if (jobCompany) bridgeJobPostingLd.hiringOrganization = { '@type': 'Organization', name: jobCompany };
-            if (jobLocation) bridgeJobPostingLd.jobLocation = { '@type': 'Place', address: { '@type': 'PostalAddress', addressLocality: jobLocation } };
-
-            // Pre-inject job data and bridge target so the SPA can show JobBridgeView immediately
+            // Pre-inject job data and bridge target so the SPA can show JobBridgeView immediately.
+            // JobBridgeView renders: adsbygoogle (AdSense) + Google Sign In + countdown redirect.
             const bridgeWindowData = JSON.stringify({
               title: localizedTitle,
               titleByLocale: job.titleByLocale,
@@ -3137,7 +3111,6 @@ ${hreflangLinks}
         { '@type': 'ListItem', position: 3, name: localizedTitle },
       ],
     })}</script>
-    <script type="application/ld+json">${JSON.stringify(bridgeJobPostingLd)}</script>
     <script>window.__BRIDGE_TARGET_SLUG__=${JSON.stringify(currentSlug)};window.__JOB_DATA__=${bridgeWindowData};</script>${hasSpaBundle ? `\n    <link rel="stylesheet" href="/assets/${entryCss}" crossorigin media="all">` : ''}
     ${SPA_ACTION_REDIRECT_SCRIPT}
   </head>
