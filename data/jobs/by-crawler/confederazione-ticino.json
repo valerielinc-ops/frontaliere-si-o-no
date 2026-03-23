@@ -1,7 +1,62 @@
 {
   "crawlerKey": "confederazione-ticino",
-  "assembledAt": "2026-03-23T09:18:14.858Z",
+  "assembledAt": "2026-03-23T21:06:49.995Z",
   "jobs": [
+    {
+      "title": "Lernende Kauffrau EFZ / Lernender Kaufmann EFZ",
+      "slug": "apprendista-kauffrau-cfc-lernender-kaufmann-cfc-confederazione-svizzera-bellinzona",
+      "url": "https://jobs.admin.ch/posti-vacanti/lernende-kauffrau-efz-lernender-kaufmann-efz/c8555081-fe5b-458b-a244-5ec2d9abed41",
+      "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=17852",
+      "company": "Confederazione Svizzera",
+      "companyKey": "confederazione-ticino",
+      "companyDomain": "admin.ch",
+      "location": "Bellinzona",
+      "addressLocality": "Bellinzona",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "apprenticeship",
+      "sector": "Pubblica amministrazione",
+      "source": "confederazione-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-03-22",
+      "validThrough": "2028-03-21",
+      "employmentType": "apprenticeship",
+      "contractType": "apprenticeship",
+      "description": "Kaufmännische Aufgaben in verschiedenen Bereichen erlernen und erledigen\nRechnungen verbuchen und bearbeiten\nTägliche Korrespondenz bearbeiten\nVerantwortung für kleinere Projekte übernehmen\nSitzungen und/oder kleinere Anlässe organisieren und daran teilnehmen\n\nSekundarschulabschluss  \nFreude an Sprachen und Zahlen sowie an kaufmännischen Arbeiten\nTeamgeist und Verantwortungsbewusstsein\nInteressierte, offene, initiative und motivierte Person\nSelbstständige Arbeitsweise",
+      "titleByLocale": {
+        "de": "Lernende Kauffrau EFZ / Lernender Kaufmann EFZ",
+        "it": "Apprendista Kauffrau CFC / Lernender Kaufmann CFC",
+        "fr": "Apprentie employée de commerce CFC / apprenti employé de commerce CFC"
+      },
+      "descriptionByLocale": {
+        "de": "Kaufmännische Aufgaben in verschiedenen Bereichen erlernen und erledigen\nRechnungen verbuchen und bearbeiten\nTägliche Korrespondenz bearbeiten\nVerantwortung für kleinere Projekte übernehmen\nSitzungen und/oder kleinere Anlässe organisieren und daran teilnehmen\n\nSekundarschulabschluss  \nFreude an Sprachen und Zahlen sowie an kaufmännischen Arbeiten\nTeamgeist und Verantwortungsbewusstsein\nInteressierte, offene, initiative und motivierte Person\nSelbstständige Arbeitsweise",
+        "it": "Impara e gestisci compiti commerciali in diversi settori Contabilizzare ed elaborare le fatture Elaborare la corrispondenza quotidiana Assumere la responsabilità per progetti più piccoli Organizzare riunioni e/o eventi più piccoli e parteciparvi Diploma di scuola secondaria Piacere per le lingue e i numeri, nonché per il lavoro commerciale Spirito di squadra e senso di responsabilità Persona interessata, aperta, intraprendente e motivata Metodo di lavoro autonomo",
+        "en": "Learning and completing commercial tasks in various areas Posting and processing invoices Handling daily correspondence Taking responsibility for smaller projects Organising and participating in meetings and/or smaller events Secondary school graduation Enjoyment of languages and numbers as well as commercial work Team spirit and sense of responsibility Interested, open, initiative and motivated person Independent working method",
+        "fr": "Apprendre et effectuer des tâches commerciales dans différents domaines Comptabiliser et traiter les factures Traiter la correspondance quotidienne Assumer la responsabilité de petits projets Organiser des réunions et/ou des événements mineurs et y participer Diplôme d'études secondaires Plaisir des langues et des chiffres ainsi que du travail commercial Esprit d'équipe et sens des responsabilités Personne intéressée, ouverte, dynamique et motivée Méthode de travail indépendante"
+      },
+      "slugByLocale": {
+        "de": "lernende-kauffrau-efz-lernender-kaufmann-efz-confederazione-bellinzona",
+        "it": "apprendista-kauffrau-cfc-lernender-kaufmann-cfc-confederazione-svizzera-bellinzona",
+        "en": "lernende-kauffrau-efz-lernender-kaufmann-efz-confederazione-bellinzona",
+        "fr": "apprentie-employee-de-commerce-cfc-apprenti-employe-de-commerce-cfc-confederazione-svizzera-bellinzona"
+      },
+      "salaryMin": 46500,
+      "salaryMax": 62500,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 46500,
+          "maxValue": 62500,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "6500"
+    },
     {
       "title": "Spezialist/in Verwaltung und Finanzen/Controlling",
       "slug": "spezialist-in-verwaltung-e-finanzen-controlling-confederazione-svizzera-bern",
@@ -55,7 +110,8 @@
           "maxValue": 78000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "3001"
     },
     {
       "title": "Nebenamtliche/r Richter/in der Berufungskammer mit Hauptsprache Französisch",
@@ -110,7 +166,8 @@
           "maxValue": 97500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "6500"
     },
     {
       "title": "GERICHTSSCHREIBERIN / GERICHTSSCHREIBER der Strafkammer",
@@ -165,7 +222,8 @@
           "maxValue": 108500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "6500"
     },
     {
       "title": "Leiter/-in Führungs- und Informationssysteme",
@@ -205,8 +263,8 @@
       "slugByLocale": {
         "de": "leiter-in-fuhrungs-und-informationssysteme-confederazione-rivera",
         "it": "responsabile-fuhrungs-e-informationssysteme-confederazione-svizzera-rivera",
-        "en": "leiter-in-fuhrungs-und-informationssysteme-confederazione-rivera",
-        "fr": "leiter-in-fuhrungs-und-informationssysteme-confederazione-rivera"
+        "en": "head-of-leadership-and-information-systems-confederazione-svizzera-rivera",
+        "fr": "responsable-des-systemes-de-gestion-et-d-information-confederazione-svizzera-rivera"
       },
       "salaryMin": 94000,
       "salaryMax": 127000,
@@ -220,7 +278,8 @@
           "maxValue": 127000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "6802"
     },
     {
       "title": "Wissenschaftlich-technische/r Mitarbeiter/in für ein Projekt zur Bekämpfung des Japankäfers",
@@ -260,8 +319,8 @@
       "slugByLocale": {
         "de": "wissenschaftlich-technische-r-mitarbeiter-in-fur-ein-projekt-zur-bekampfung-des-japankafers-confederazione-cadenazzo",
         "it": "collaboratore-trice-scientifico-tecnico-a-per-un-progetto-per-la-lotta-contro-il-coleottero-giapponese-confederazione-sv",
-        "en": "wissenschaftlich-technische-r-mitarbeiter-in-fur-ein-projekt-zur-bekampfung-des-japankafers-confederazione-cadenazzo",
-        "fr": "wissenschaftlich-technische-r-mitarbeiter-in-fur-ein-projekt-zur-bekampfung-des-japankafers-confederazione-cadenazzo"
+        "en": "scientific-and-technical-assistant-for-a-project-to-combat-the-japanese-beetle-confederazione-svizzera-cadenazzo",
+        "fr": "collaborateur-trice-scientifique-et-technique-pour-un-projet-de-lutte-contre-le-scarabee-japonais-confederazione-svizzer"
       },
       "previousSlugs": [
         "collaboratore-trice-scientifico-tecnico-a-per-un-progetto-per-la-lotta-contro-il-coleottero-giapponese-confederazione-svizzera-cadenazzo"
@@ -278,7 +337,8 @@
           "maxValue": 97000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "6593"
     },
     {
       "title": "Logistiker/-in (Lager Ambrì/Andermatt)",
@@ -333,7 +393,8 @@
           "maxValue": 78000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "6500"
     },
     {
       "title": "Hochschulpraktikant/in",
@@ -388,7 +449,8 @@
           "maxValue": 62500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "3001"
     },
     {
       "title": "Raus aus der Routine? Werde Berufsoffizier/-in",
@@ -428,12 +490,9 @@
       "slugByLocale": {
         "de": "raus-aus-der-routine-werde-berufsoffizier-in-confederazione-schweiz-und-ausland-abhangig-von-funktion-und-einsatzort",
         "it": "uscire-dalla-routine-diventa-ufficiale-a-di-professione-confederazione-svizzera-schweiz-und-ausland-abhangig-von-funktion-und-einsatzort",
-        "en": "raus-aus-der-routine-werde-berufsoffizier-in-confederazione-schweiz-und-ausland-abhangig-von-funktion-und-einsatzort",
-        "fr": "raus-aus-der-routine-werde-berufsoffizier-in-confederazione-schweiz-und-ausland-abhangig-von-funktion-und-einsatzort"
+        "en": "get-out-of-the-routine-become-a-professional-officer-confederazione-svizzera-schweiz-und-ausland-abhangig-von-funktion-u",
+        "fr": "sortir-de-la-routine-devenez-officier-de-carriere-confederazione-svizzera-schweiz-und-ausland-abhangig-von-funktion-und-"
       },
-      "previousSlugs": [
-        "raus-aus-der-routine-werde-berufsoffizier-in-confederazione-svizzera-schweiz-und-ausland-abhangig-von-funktion-und-einsatzort"
-      ],
       "salaryMin": 72500,
       "salaryMax": 97500,
       "currency": "CHF",
@@ -446,7 +505,8 @@
           "maxValue": 97500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "6500"
     },
     {
       "title": "Dein Beruf sollte mehr bieten? Werde Berufsunteroffizier/-in",
@@ -486,12 +546,9 @@
       "slugByLocale": {
         "de": "dein-beruf-sollte-mehr-bieten-werde-berufsunteroffizier-in-confederazione-schweiz-und-ausland-abhangig-von-funktion-und-einsatzort",
         "it": "il-tuo-lavoro-dovrebbe-offrire-di-piu-diventa-sottufficiale-a-di-professione-confederazione-svizzera-schweiz-und-ausland-abhangig-von-funktion-und-einsatzort",
-        "en": "dein-beruf-sollte-mehr-bieten-werde-berufsunteroffizier-in-confederazione-schweiz-und-ausland-abhangig-von-funktion-und-einsatzort",
-        "fr": "dein-beruf-sollte-mehr-bieten-werde-berufsunteroffizier-in-confederazione-schweiz-und-ausland-abhangig-von-funktion-und-einsatzort"
+        "en": "your-profession-should-offer-more-become-a-petty-officer-confederazione-svizzera-schweiz-und-ausland-abhangig-von-funkti",
+        "fr": "ton-metier-devrait-il-offrir-plus-devenez-sous-officier-e-de-carriere-confederazione-svizzera-schweiz-und-ausland-abhang"
       },
-      "previousSlugs": [
-        "dein-beruf-sollte-mehr-bieten-werde-berufsunteroffizier-in-confederazione-svizzera-schweiz-und-ausland-abhangig-von-funktion-und-einsatzort"
-      ],
       "salaryMin": 72500,
       "salaryMax": 97500,
       "currency": "CHF",
@@ -504,7 +561,8 @@
           "maxValue": 97500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "6500"
     },
     {
       "title": "Lernende/-r Automobil-Mechatroniker/-in EFZ, Fachrichtung Personenwagen",
@@ -559,7 +617,8 @@
           "maxValue": 62500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "6802"
     },
     {
       "title": "Lernende/-r Strassentransportfachmann/-frau EFZ",
@@ -599,8 +658,8 @@
       "slugByLocale": {
         "de": "lernende-r-strassentransportfachmann-frau-efz-confederazione-claro",
         "it": "apprendista-specialista-in-trasporti-stradali-cfc-confederazione-svizzera-claro",
-        "en": "lernende-r-strassentransportfachmann-frau-efz-confederazione-claro",
-        "fr": "lernende-r-strassentransportfachmann-frau-efz-confederazione-claro"
+        "en": "apprentice-road-transport-specialist-efz-confederazione-svizzera-claro",
+        "fr": "apprenti-e-specialiste-du-transport-routier-cfc-confederazione-svizzera-claro"
       },
       "salaryMin": 46500,
       "salaryMax": 62500,
@@ -614,7 +673,8 @@
           "maxValue": 62500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "6702"
     },
     {
       "title": "Asyl-Dolmetscher/-in",
@@ -669,7 +729,8 @@
           "maxValue": 78000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "6500"
     }
   ]
 }

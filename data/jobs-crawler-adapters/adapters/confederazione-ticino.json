@@ -12,8 +12,14 @@
     "https://ohws.prospective.ch/public/v1/medium/1000624/jobs?lang=it&f=region:1083334"
   ],
   "notes": "Confederazione Svizzera — federal jobs in Ticino (region 1083341) + Graubünden (filtered from Ostschweiz region 1083334). Uses Prospective.ch API (medium 1000624 — Stellenportal Bund / jobs.admin.ch). Covers departments not handled by VTG or Agroscope crawlers: DATEC, DEFR/SECO, DFGP, TPF, etc. Includes apprenticeship and internship positions.",
-  "updatedAt": "2026-03-23T09:17:24.418Z",
+  "updatedAt": "2026-03-23T21:05:58.484Z",
   "seedMetaByUrl": {
+    "https://jobs.admin.ch/posti-vacanti/lernende-kauffrau-efz-lernender-kaufmann-efz/c8555081-fe5b-458b-a244-5ec2d9abed41": {
+      "location": "Bellinzona",
+      "canton": "TI",
+      "company": "Confederazione Svizzera",
+      "postedDate": "2026-03-22"
+    },
     "https://jobs.admin.ch/posti-vacanti/spezialist-in-verwaltung-und-finanzen-controlling/1b383652-1a43-46fc-8e86-9a006833002f": {
       "location": "Bern",
       "canton": "TI",
