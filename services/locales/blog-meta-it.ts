@@ -1667,6 +1667,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.rifugiati-ucraini-assistenza-2027.title': 'Rifugiati dal 2027 assistenza pari a quella svizzera',
     'blog.article.rifugiati-ucraini-assistenza-2027.excerpt': 'Dal 2027 i rifugiati ucraini con protezione S riceveranno l’intero pacchetto di assistenza sociale svizzera, con un impatto di circa 300 milioni di franchi sui cantoni ticinesi.',
     'blog.article.rifugiati-ucraini-assistenza-2027.imageAlt': 'Vista panoramica del confine svizzero-italiano vicino a Chiasso, con le montagne sullo sfondo e il posto di frontiera in attività.',
+    'blog.article.cannabis-sequestro-ticino.title': 'Sequestro record di cannabis in Argovia: rischi per i frontalieri',
+    'blog.article.cannabis-sequestro-ticino.excerpt': 'Una tonnellata di marijuana e 24.000 piante sequestrate a Spreitenbach: tre arresti e armi trovate. Cosa cambia per chi lavora oltreconfine',
+    'blog.article.cannabis-sequestro-ticino.imageAlt': 'Vista aerea di Lugano all\'alba con il lago e Monte Brè',
 };
 
 export default blogMetaIt;

@@ -1667,6 +1667,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.rifugiati-ucraini-assistenza-2027.title': 'Réfugiés: à partir de 2027, une assistance équivalente à celle de la Suisse',
     'blog.article.rifugiati-ucraini-assistenza-2027.excerpt': 'À partir de 2027, les réfugiés ukrainiens bénéficiant de la protection S recevront l\'intégralité du package d\'assistance sociale suisse, avec un impact estimé à environ 300 millions de francs sur les cantons tessinois.',
     'blog.article.rifugiati-ucraini-assistenza-2027.imageAlt': 'Vue panoramique de la frontière Suisse-Italienne près de Chiasso, montagnes en arrière‑plan et poste de douane animé.',
+    'blog.article.cannabis-sequestro-ticino.title': 'Séquestre record de cannabis en Argovie : risques pour les frontaliers',
+    'blog.article.cannabis-sequestro-ticino.excerpt': 'Une tonne de marijuana et 24 000 plantes séquestrées à Spreitenbach : trois arrestations et armes trouvées. Qu\'est-ce qui change pour ceux qui travaillent au-delà des frontières',
+    'blog.article.cannabis-sequestro-ticino.imageAlt': 'Vue aérienne de Lugano à l\'aube avec le lac et le Monte Brè',
 };
 
 export default blogMetaFr;

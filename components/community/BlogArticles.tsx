@@ -4484,6 +4484,13 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/rifugiati-ucraini-assistenza-2027.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'cannabis-sequestro-ticino',
+    category: 'novita',
+    date: '2026-03-23T00:01:56.031Z',
+    image: '/images/blog/cannabis-sequestro-ticino.jpg',
+    hasCalculator: true,
+  },
 ];
 
 const CATEGORIES = ['all', 'fiscale', 'pratico', 'novita', 'pensione'] as const;

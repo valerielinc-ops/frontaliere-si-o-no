@@ -1667,6 +1667,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.rifugiati-ucraini-assistenza-2027.title': 'Flüchtlinge ab 2027 erhalten gleiche Unterstützung wie die Schweiz',
     'blog.article.rifugiati-ucraini-assistenza-2027.excerpt': 'Ab 2027 erhalten ukrainische Flüchtlinge mit Schutzstatus S das gesamte soziale Unterstützungsangebot der Schweiz, was einen finanziellen Aufwand von etwa 300 Millionen Franken für die Tessiner Kantone verursacht.',
     'blog.article.rifugiati-ucraini-assistenza-2027.imageAlt': 'Panoramablick auf die Schweizerisch-Italienische Grenze bei Chiasso, Berge im Hintergrund und ein geschäftiger Grenzposten.',
+    'blog.article.cannabis-sequestro-ticino.title': 'Rekord-Cannabis-Beschlagnahmung in Aargau: Risiken für Grenzgänger',
+    'blog.article.cannabis-sequestro-ticino.excerpt': 'Eine Tonne Marihuana und 24 000 Pflanzen in Spreitenbach beschlagnahmt: drei Festnahmen und Waffen gefunden. Was sich für Grenzgänger ändert',
+    'blog.article.cannabis-sequestro-ticino.imageAlt': 'Luftaufnahme von Lugano bei Morgengrauen mit See und Monte Brè',
 };
 
 export default blogMetaDe;

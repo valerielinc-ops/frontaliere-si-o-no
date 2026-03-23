@@ -1667,6 +1667,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.rifugiati-ucraini-assistenza-2027.title': 'Refugees from 2027: same social assistance as Swiss residents',
     'blog.article.rifugiati-ucraini-assistenza-2027.excerpt': 'From 2027, Ukrainian refugees with S protection will receive the full Swiss social-assistance package, adding some CHF 300 million to the cantonal coffers.',
     'blog.article.rifugiati-ucraini-assistenza-2027.imageAlt': 'Panoramic view of the Swiss-Italian border near Chiasso with mountains and a busy customs checkpoint.',
+    'blog.article.cannabis-sequestro-ticino.title': 'Record cannabis seizure in Aargau: risks for cross-border commuters',
+    'blog.article.cannabis-sequestro-ticino.excerpt': 'A ton of marijuana and 24,000 plants seized in Spreitenbach: three arrests and weapons found. What changes for those working across the border',
+    'blog.article.cannabis-sequestro-ticino.imageAlt': 'Aerial view of Lugano at dawn with lake and Monte Brè',
 };
 
 export default blogMetaEn;
