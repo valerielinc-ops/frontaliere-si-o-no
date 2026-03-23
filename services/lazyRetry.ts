@@ -18,6 +18,7 @@ export function lazyRetry<T extends React.ComponentType<any>>(
     factory().catch((err: Error) => {
       const isChunkError =
         err?.message?.includes('Failed to fetch dynamically imported module') ||
+        err?.message?.includes('Importing a module script failed') ||
         err?.message?.includes('Loading chunk') ||
         err?.message?.includes('Loading CSS chunk') ||
         err?.message?.includes('error loading dynamically imported module') ||

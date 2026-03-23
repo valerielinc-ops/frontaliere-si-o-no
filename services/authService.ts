@@ -204,11 +204,19 @@ export async function signInWithEmailPassword(email: string, password: string): 
 
 export async function isEmailLinkSignIn(url?: string): Promise<boolean> {
   try {
-    const href = url || (typeof window !== 'undefined' ? window.location.href : '');
+    if (typeof window === 'undefined') return false;
+    const href = url || window.location.href;
     if (!href || typeof href !== 'string' || !href.includes('oobCode')) return false;
     await ensureFirebaseAuth();
     if (!_authModule || !_auth) return false;
-    return Boolean(_authModule.isSignInWithEmailLink(_auth, href));
+    // Firebase SDK internally calls url.indexOf() — guard against partial Auth init
+    if (typeof _authModule.isSignInWithEmailLink !== 'function') return false;
+    try {
+      return Boolean(_authModule.isSignInWithEmailLink(_auth, String(href)));
+    } catch {
+      // Swallow Firebase internal TypeError (indexOf on undefined) — not a real error
+      return false;
+    }
   } catch (error) {
     reportCaughtError(error, 'auth.isEmailLinkSignIn');
     return false;
