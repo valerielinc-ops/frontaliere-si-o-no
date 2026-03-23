@@ -25,7 +25,7 @@ import { execFile } from 'node:child_process';
 import { promisify } from 'node:util';
 import { printPublishedJobUrls, writeJobsSummary, snapshotJobSlugs, computeCrawlDiff, printCrawlChangeSummary, writeCrawlChangeSummaryToGH } from '../jobs-url-helper.mjs';
 import { detectJobTitleLang, detectJobTitleLocaleDetails } from './job-locale-utils.mjs';
-import { heuristicTranslateJobTitle, detectLang } from './dedicated-crawler-common.mjs';
+import { heuristicTranslateJobTitle, detectLang, normalizeKey } from './dedicated-crawler-common.mjs';
 import {
   getJobLocalizationPipelineStats,
   localizeJobContentWithPipeline,
@@ -393,16 +393,7 @@ function readJson(filePath, fallback = null) {
   }
 }
 
-function normalizeCompanyKey(input = '') {
-  return String(input || '')
-    .trim()
-    .toLowerCase()
-    .normalize('NFD')
-    .replace(/[\u0300-\u036f]/g, '')
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/^-+|-+$/g, '')
-    .slice(0, 64);
-}
+const normalizeCompanyKey = (input) => normalizeKey(input).slice(0, 64);
 
 function writeJson(filePath, value) {
   const dir = path.dirname(filePath);
