@@ -28,7 +28,7 @@ import {
 
 // ── Route types ──────────────────────────────────────────────
 
-export type ActiveTab = 'calculator' | 'confronti' | 'fisco' | 'guida' | 'vita' | 'stats' | 'feedback' | 'privacy' | 'data-deletion' | 'api-status' | 'gamification' | 'forum' | 'contact' | 'partners' | 'consulting' | 'job-board' | 'profile' | 'morning' | 'blog' | 'admin' | 'glossario' | 'faq' | 'sitemap' | 'dialetto' | 'contracts' | 'tfr-calculator' | 'permit-quiz' | 'tredicesima' | 'weekly-digest' | 'tool-of-week' | 'email-confirmed' | 'sindacati';
+export type ActiveTab = 'calculator' | 'confronti' | 'fisco' | 'guida' | 'vita' | 'stats' | 'feedback' | 'privacy' | 'data-deletion' | 'api-status' | 'gamification' | 'forum' | 'contact' | 'partners' | 'consulting' | 'job-board' | 'profile' | 'morning' | 'blog' | 'admin' | 'glossario' | 'faq' | 'sitemap' | 'dialetto' | 'contracts' | 'tfr-calculator' | 'permit-quiz' | 'tredicesima' | 'weekly-digest' | 'tool-of-week' | 'email-confirmed' | 'sindacati' | 'chi-siamo';
 
 export type CalcolatoreSubTab = 'calculator' | 'whatif' | 'payslip' | 'ral' | 'bonus' | 'parental-leave' | 'residency' | 'salary-quiz';
 export type ConfrontiSubTab = 'exchange' | 'banks' | 'health' | 'mobile' | 'shopping' | 'cost-of-living' | 'jobs' | 'renovation';
@@ -549,6 +549,8 @@ interface SlugTable {
   emailConfirmed: string;
   // hidden admin route
   admin: string;
+  // About / Chi Siamo page (E-E-A-T)
+  chiSiamo: string;
   // legacy slugs (for backward compat parsing)
   costs: string;
   salarySurvey: string;
@@ -643,6 +645,7 @@ const SLUG_TABLES: Record<Locale, SlugTable> = {
     toolOfWeek: 'strumento-della-settimana',
     emailConfirmed: 'benvenuto-frontaliere',
     admin: 'gestione-contenuti-xk9mp2q',
+    chiSiamo: 'chi-siamo',
     costs: 'costi-pendolarismo',
     salarySurvey: 'sondaggio-stipendi',
     comparatori: 'comparatori',
@@ -733,6 +736,7 @@ const SLUG_TABLES: Record<Locale, SlugTable> = {
     toolOfWeek: 'tool-of-the-week',
     emailConfirmed: 'welcome',
     admin: 'gestione-contenuti-xk9mp2q',
+    chiSiamo: 'about-us',
     costs: 'commuting-costs',
     salarySurvey: 'salary-survey',
     comparatori: 'comparators',
@@ -823,6 +827,7 @@ const SLUG_TABLES: Record<Locale, SlugTable> = {
     toolOfWeek: 'werkzeug-der-woche',
     emailConfirmed: 'willkommen',
     admin: 'gestione-contenuti-xk9mp2q',
+    chiSiamo: 'ueber-uns',
     costs: 'pendelkosten',
     salarySurvey: 'gehaltsumfrage',
     comparatori: 'vergleiche',
@@ -913,6 +918,7 @@ const SLUG_TABLES: Record<Locale, SlugTable> = {
     toolOfWeek: 'outil-de-la-semaine',
     emailConfirmed: 'bienvenue',
     admin: 'gestione-contenuti-xk9mp2q',
+    chiSiamo: 'a-propos',
     costs: 'couts-pendulaire',
     salarySurvey: 'sondage-salaires',
     comparatori: 'comparateurs',
@@ -1357,6 +1363,7 @@ function buildTopLevelReverse(table: SlugTable, locale: Locale): TopLevelSlugMap
     [table.stats]: { tab: 'stats' },
     [table.feedback]: { tab: 'feedback' },
     [table.privacy]: { tab: 'privacy' },
+    [table.chiSiamo]: { tab: 'chi-siamo' },
     [table.dataDeletion]: { tab: 'data-deletion' },
     [table.apiStatus]: { tab: 'api-status' },
     [table.newsletter]: { tab: 'feedback' },
@@ -1884,6 +1891,8 @@ export function buildPath(route: AppRoute, locale?: Locale): string {
       return finish(`${prefix}/${table.feedback}${hashSuffix}`);
     case 'privacy':
       return finish(`${prefix}/${table.privacy}${hashSuffix}`);
+    case 'chi-siamo':
+      return finish(`${prefix}/${table.chiSiamo}${hashSuffix}`);
     case 'data-deletion':
       return finish(`${prefix}/${table.dataDeletion}${hashSuffix}`);
     case 'api-status':

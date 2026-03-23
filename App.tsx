@@ -41,6 +41,7 @@ const CostOfLiving = lazyRetry(() => import('@/components/comparators/CostOfLivi
 const WhatIfSimulator = lazyRetry(() => import('@/components/calculator/WhatIfSimulator'));
 const ApiStatus = lazyRetry(() => import('@/components/pages/ApiStatus'));
 const PrivacyPolicy = lazyRetry(() => import('@/components/pages/PrivacyPolicy').then(m => ({ default: m.PrivacyPolicy })));
+const ChiSiamo = lazyRetry(() => import('@/components/pages/ChiSiamo').then(m => ({ default: m.ChiSiamo })));
 const DataDeletion = lazyRetry(() => import('@/components/pages/DataDeletion').then(m => ({ default: m.DataDeletion })));
 const EmailConfirmed = lazyRetry(() => import('@/components/pages/EmailConfirmed').then(m => ({ default: m.EmailConfirmed })));
 const GamificationPage = lazyRetry(() => import('@/components/community/GamificationPage'));
@@ -2905,6 +2906,10 @@ const App: React.FC = () => {
           ) : activeTab === 'privacy' ? (
             <div>
               <PrivacyPolicy />
+            </div>
+          ) : activeTab === 'chi-siamo' ? (
+            <div>
+              <ChiSiamo />
             </div>
           ) : activeTab === 'data-deletion' ? (
             <div>
