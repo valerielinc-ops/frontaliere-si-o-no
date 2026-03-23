@@ -2895,6 +2895,13 @@ ${alternates}${hasSpaBundle ? `\n    <link rel="stylesheet" href="/assets/${entr
         if (ej.slug) expiredBySlug.set(ej.slug, ej);
       }
 
+      // FRO-343: Load swiss-postal-codes for postalCode enrichment of soft-landing pages
+      let plzLookup: Record<string, string> = {};
+      const plzPath = np.join(dataDir, 'swiss-postal-codes.json');
+      if (fs.existsSync(plzPath)) {
+        try { plzLookup = JSON.parse(fs.readFileSync(plzPath, 'utf-8')); } catch { /* ok */ }
+      }
+
       // 3. Generate soft-landing pages for expired slugs
       // Pre-build a set of all previousSlugs from active jobs so we can exclude them from
       // expiredSlugs. These slugs will be handled as bridge pages (canonical → new URL) and
@@ -3083,10 +3090,45 @@ ${hreflangLinks}
           ? { '@type': 'Organization', name: jobCompany }
           : { '@id': `${BASE_URL}/#organization` },
       };
+      // FRO-343: Enrich jobLocation with postalCode and streetAddress
       if (jobLocation) {
-        jp.jobLocation = {
-          '@type': 'Place',
-          address: { '@type': 'PostalAddress', addressLocality: jobLocation, addressCountry: 'CH' },
+        const address: Record<string, string> = {
+          '@type': 'PostalAddress',
+          addressLocality: jobLocation,
+          addressCountry: 'CH',
+        };
+        // Try postalCode from ejData, then swiss-postal-codes lookup
+        const ejPostalCode = ejData?.postalCode;
+        if (ejPostalCode) {
+          address.postalCode = ejPostalCode;
+        } else if (plzLookup[jobLocation]) {
+          address.postalCode = plzLookup[jobLocation];
+        }
+        // Try streetAddress from ejData, then company HQ lookup
+        const ejStreet = ejData?.streetAddress;
+        if (ejStreet) {
+          address.streetAddress = ejStreet;
+        } else if (ejData?.companyKey && COMPANY_HQ_ADDRESSES[ejData.companyKey]) {
+          const hq = COMPANY_HQ_ADDRESSES[ejData.companyKey];
+          address.streetAddress = hq.streetAddress;
+          if (!address.postalCode) address.postalCode = hq.postalCode;
+        }
+        jp.jobLocation = { '@type': 'Place', address };
+      }
+      // FRO-343: Add baseSalary if available from ejData
+      if (ejData?.salaryMin || ejData?.salaryMax) {
+        const salaryValue: Record<string, unknown> = { '@type': 'QuantitativeValue' };
+        if (ejData.salaryMin && ejData.salaryMax) {
+          salaryValue.minValue = ejData.salaryMin;
+          salaryValue.maxValue = ejData.salaryMax;
+        } else {
+          salaryValue.value = ejData.salaryMin || ejData.salaryMax;
+        }
+        salaryValue.unitText = ejData?.salaryPeriod || 'YEAR';
+        jp.baseSalary = {
+          '@type': 'MonetaryAmount',
+          currency: ejData?.salaryCurrency || 'CHF',
+          value: salaryValue,
         };
       }
       return jp;

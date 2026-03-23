@@ -107,7 +107,7 @@ const EXPIRED_JOBS_CAP = 5000;
  * Build an expired-job archive entry from a job object.
  */
 function buildExpiredEntry(job) {
-  return {
+  const entry = {
     slug: job.slug,
     title: job.title || '',
     titleByLocale: job.titleByLocale || {},
@@ -119,7 +119,20 @@ function buildExpiredEntry(job) {
     slugByLocale: job.slugByLocale || {},
     sector: job.sector || '',
     expiredAt: new Date().toISOString(),
+    // FRO-343: preserve address + salary data for rich soft-landing pages
+    postalCode: job.postalCode || '',
+    streetAddress: job.streetAddress || '',
+    salaryMin: job.salaryMin || null,
+    salaryMax: job.salaryMax || null,
+    salaryCurrency: job.salaryCurrency || 'CHF',
+    salaryPeriod: job.salaryPeriod || 'YEAR',
   };
+  // Clean up empty fields
+  if (!entry.postalCode) delete entry.postalCode;
+  if (!entry.streetAddress) delete entry.streetAddress;
+  if (!entry.salaryMin) delete entry.salaryMin;
+  if (!entry.salaryMax) delete entry.salaryMax;
+  return entry;
 }
 
 /**
