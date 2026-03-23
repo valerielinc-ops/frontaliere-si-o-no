@@ -45,9 +45,10 @@ async function translateJobFieldWithFallback({
     if (heuristicTitle && normalize(heuristicTitle) !== normalize(text)) {
       return heuristicTitle;
     }
-    return String(text || '').trim();
+    // Do NOT fall back to source text — storing wrong-language content is worse than empty.
+    return null;
   }
-  return '';
+  return null;
 }
 
 export function normalize(value = '') {
@@ -487,13 +488,26 @@ function shouldDropLocalizedValue({
   sourceValue,
   minCharsForDetection = 0,
   minConfidence = 0.35,
+  checkScoreRatio = false,
 }) {
   const clean = String(value || '').trim();
   if (!clean || locale === sourceLocale) return false;
   if (sourceValue && normalize(clean) === normalize(sourceValue)) return true;
   if (clean.length < minCharsForDetection) return false;
   const detected = detectTextLocale(clean, sourceLocale);
-  return detected.confidence >= minConfidence && detected.lang !== locale;
+  if (detected.confidence >= minConfidence && detected.lang !== locale) return true;
+  // For substantial content with mixed-language text (e.g. partial translations where only
+  // the heading was translated but the body stayed in source language), standard confidence
+  // may be too low. Use score ratio: if source-language score dominates target-language score
+  // by 2x, the content is overwhelmingly in the wrong language.
+  if (checkScoreRatio && detected.scores) {
+    const sourceScore = detected.scores[sourceLocale] ?? 0;
+    const targetScore = detected.scores[locale] ?? 0;
+    if (sourceScore > 0 && targetScore > 0 && detected.lang !== locale && sourceScore > targetScore * 1.5) {
+      return true;
+    }
+  }
+  return false;
 }
 
 function maybeRehomeLocalizedValue({
@@ -677,6 +691,7 @@ export function hardenJobLocaleFields({ dataJobsPath }) {
           sourceValue: baseDesc,
           minCharsForDetection: dropMinChars,
           minConfidence: dropMinConfidence,
+          checkScoreRatio: isSubstantialTranslation,
         })) {
           delete job.descriptionByLocale[locale];
           jobChanged = true;
@@ -957,9 +972,8 @@ export async function translateMissingJobLocales({ dataJobsPath, isTargetJob, ma
             },
             minChars: 2,
           });
-          const finalTitle = String(translatedTitle || sourceTitle).trim();
-          if (finalTitle) {
-            job.titleByLocale[locale] = finalTitle;
+          if (translatedTitle) {
+            job.titleByLocale[locale] = String(translatedTitle).trim();
             jobTranslated = true;
           }
         }
