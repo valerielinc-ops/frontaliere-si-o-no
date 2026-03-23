@@ -24,9 +24,8 @@ import { validateJobUrl, validateJobUrls, isFreshProtected } from './validate-jo
 import { execFile } from 'node:child_process';
 import { promisify } from 'node:util';
 import { printPublishedJobUrls, writeJobsSummary, snapshotJobSlugs, computeCrawlDiff, printCrawlChangeSummary, writeCrawlChangeSummaryToGH } from '../jobs-url-helper.mjs';
-import { detectLanguage } from './detect-language.mjs';
 import { detectJobTitleLang, detectJobTitleLocaleDetails } from './job-locale-utils.mjs';
-import { heuristicTranslateJobTitle } from './dedicated-crawler-common.mjs';
+import { heuristicTranslateJobTitle, detectLang } from './dedicated-crawler-common.mjs';
 import {
   getJobLocalizationPipelineStats,
   localizeJobContentWithPipeline,
@@ -2546,14 +2545,14 @@ function ensureLocaleFields(job) {
     normalizeSpace(descriptionByLocale.de || '') ||
     normalizeSpace(descriptionByLocale.fr || '') ||
     baseDescription;
-  const sourceLang = detectLanguageFromContent(`${bestTitle} ${bestDescription}`, 'en');
+  const sourceLang = detectLang(`${bestTitle} ${bestDescription}`, 'en');
   const titleSourceLang = detectJobTitleLang(baseTitle || bestTitle, sourceLang);
   const sourceTitle = baseTitle || normalizeSpace(titleByLocale[titleSourceLang] || bestTitle);
 
   // Detect the language of the raw base description separately — it may differ
   // from sourceLang when titleByLocale has wrong-language entries.
   const baseDescLang = baseDescription.length >= 60
-    ? detectLanguageFromContent(baseDescription, sourceLang)
+    ? detectLang(baseDescription, sourceLang)
     : sourceLang;
 
   if (sourceTitle) {
@@ -2741,9 +2740,6 @@ async function aiTranslateJobDescription({ description, locale, sourceLang = 'en
   return '';
 }
 
-function detectLanguageFromContent(text = '', fallback = 'en') {
-  return detectLanguage(text, fallback);
-}
 
 function extractCompanyFromText(html = '', fallback = '') {
   const jd = bestJobPostingNodeFromHtml(html);
@@ -3228,7 +3224,7 @@ async function enrichJobLocales(job, crawlerConfig) {
   const currentByLocale = (out.descriptionByLocale && typeof out.descriptionByLocale === 'object')
     ? { ...out.descriptionByLocale }
     : {};
-  const sourceLang = detectLanguageFromContent(out.description || '', 'en');
+  const sourceLang = detectLang(out.description || '', 'en');
   const forceLocalization = shouldForceLocalizationForJob(out);
   const titleSourceLang = detectJobTitleLang(out.title || '', sourceLang);
   const sourceTitle = normalizeSpace(titleByLocale[titleSourceLang] || out.title || '');
@@ -3452,7 +3448,7 @@ async function enrichJobLocales(job, crawlerConfig) {
 function hasUntranslatedLocaleDescriptions(job = {}) {
   const sourceDesc = cleanDescription(job?.description || '');
   if (!sourceDesc) return false;
-  const sourceLang = detectLanguageFromContent(sourceDesc, 'en');
+  const sourceLang = detectLang(sourceDesc, 'en');
   for (const locale of LOCALES) {
     if (locale === sourceLang) continue;
     const localized = cleanDescription(job?.descriptionByLocale?.[locale] || '');
@@ -3465,7 +3461,7 @@ function hasUntranslatedLocaleDescriptions(job = {}) {
 function hasUntranslatedLocaleTitles(job = {}) {
   const sourceTitle = normalizeSpace(job?.title || '');
   if (!sourceTitle) return false;
-  const sourceLang = detectJobTitleLang(sourceTitle, detectLanguageFromContent(job?.description || '', 'en'));
+  const sourceLang = detectJobTitleLang(sourceTitle, detectLang(job?.description || '', 'en'));
   for (const locale of LOCALES) {
     if (locale === sourceLang) continue;
     const localized = normalizeSpace(job?.titleByLocale?.[locale] || '');
@@ -4093,7 +4089,7 @@ function stripCopyPasteLocales(job) {
   const baseDesc = normalizeSpace(out.description || '');
   if (!baseDesc || baseDesc.length < 30) return out;
 
-  const sourceLang = detectLanguageFromContent(baseDesc, 'en');
+  const sourceLang = detectLang(baseDesc, 'en');
 
   // Strip identical descriptions
   if (out.descriptionByLocale && typeof out.descriptionByLocale === 'object') {
@@ -4421,7 +4417,7 @@ async function extractDetailPayload(html, detailUrl) {
     requirements: supsiParsed?.requirements?.length ? supsiParsed.requirements : requirements,
     descriptionByLocale,
     requirementsByLocale,
-    sourceLang: detectLanguageFromContent(description, pageLang),
+    sourceLang: detectLang(description, pageLang),
     locationFromPage: supsiParsed?.location || extractLocationFromText(html, ''),
     companyFromPage: extractCompanyFromText(html, ''),
     applyUrl: extractWorkdayApplyUrl(html, detailUrl),
@@ -4566,7 +4562,7 @@ async function crawlWorkdayJobs(company, source, crawlerConfig, knownJobUrls = n
               location,
               description: descriptionSeed,
               requirements: requirementsSeed,
-              sourceLang: detailPayload.sourceLang || detectLanguageFromContent(descriptionSeed, 'en'),
+              sourceLang: detailPayload.sourceLang || detectLang(descriptionSeed, 'en'),
             });
             if (aiLocalized) {
               for (const localeKey of Object.keys(aiLocalized)) {
@@ -5437,13 +5433,13 @@ function mergeAndDeduplicate(existingJobs, incomingJobs, qualityCfg, options = {
     }
     if (localeTextCoverage(best.descriptionByLocale, 120) === 0 && (best.description || '').length >= 120) {
       const fallbackDesc = {};
-      const descSourceLang = detectLanguageFromContent(best.description || '', 'en');
+      const descSourceLang = detectLang(best.description || '', 'en');
       fallbackDesc[descSourceLang] = best.description;
       best.descriptionByLocale = fallbackDesc;
     }
     if (localeTextCoverage(best.titleByLocale, 3) === 0 && best.title) {
       const fallbackTitle = {};
-      const titleSourceLang = detectJobTitleLang(best.title, detectLanguageFromContent(best.description || '', 'en'));
+      const titleSourceLang = detectJobTitleLang(best.title, detectLang(best.description || '', 'en'));
       fallbackTitle[titleSourceLang] = best.title;
       best.titleByLocale = fallbackTitle;
     }
