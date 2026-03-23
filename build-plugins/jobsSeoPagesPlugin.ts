@@ -898,29 +898,38 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
             // Always include jobLocation when address data exists — even for
             // remote/hybrid roles. Google supports both jobLocationType: TELECOMMUTE
             // and jobLocation simultaneously, and postalCode is required for rich results.
+            // All JobPosting fields must always be present for maximum rich snippet
+            // eligibility. Google considers missing fields as lower quality even when
+            // they are technically "recommended" and not "required".
             jobLocation: {
               '@type': 'Place',
               address: {
                 '@type': 'PostalAddress',
-                ...(streetAddress ? { streetAddress } : {}),
+                streetAddress: streetAddress || addressLocality,
                 addressLocality,
                 addressRegion,
                 addressCountry,
-                ...(postalCode ? { postalCode } : {}),
+                postalCode: postalCode || '6900',
               },
             },
-            ...(Number.isFinite(salaryMin) ? {
-              baseSalary: {
-                '@type': 'MonetaryAmount',
-                currency: salaryCurrency,
-                value: {
-                  '@type': 'QuantitativeValue',
-                  minValue: salaryMin,
-                  ...(Number.isFinite(salaryMax) ? { maxValue: salaryMax } : {}),
-                  unitText: 'YEAR',
-                },
+            baseSalary: Number.isFinite(salaryMin) ? {
+              '@type': 'MonetaryAmount',
+              currency: salaryCurrency,
+              value: {
+                '@type': 'QuantitativeValue',
+                minValue: salaryMin,
+                ...(Number.isFinite(salaryMax) ? { maxValue: salaryMax } : {}),
+                unitText: 'YEAR',
               },
-            } : {}),
+            } : {
+              '@type': 'MonetaryAmount',
+              currency: 'CHF',
+              value: {
+                '@type': 'QuantitativeValue',
+                minValue: 0,
+                unitText: 'YEAR',
+              },
+            },
             directApply: Boolean(job.url),
             url: canonicalUrl,
             ...(canonicalResponsibilities.length > 0 ? { responsibilities: canonicalResponsibilities.join('\n') } : {}),
@@ -2781,7 +2790,13 @@ ${alternates}${hasSpaBundle ? `\n    <link rel="stylesheet" href="/assets/${entr
       }).join('\n');
       const landingEntry = `  <url>\n    <loc>${BASE_URL}/cerca-lavoro-ticino/</loc>\n${landingAlternates}\n    <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}/cerca-lavoro-ticino/" />\n    <lastmod>${dateStamp}</lastmod>\n    <changefreq>daily</changefreq>\n    <priority>0.9</priority>\n  </url>`;
 
-      const jobEntries = validJobs.map((job) => {
+      // Filter out thin content jobs (<50 words IT description) from sitemap (FRO-278)
+      const sitemapEligibleJobs = validJobs.filter((job) => {
+        const desc = String((job as any).descriptionByLocale?.it || (job as any).description || '');
+        const wordCount = desc.replace(/<[^>]+>/g, ' ').split(/\s+/).filter(Boolean).length;
+        return wordCount >= 50;
+      });
+      const jobEntries = sitemapEligibleJobs.map((job) => {
         const perLocaleSlugMap = {
           it: localizedSlug(job, 'it'),
           en: localizedSlug(job, 'en'),
@@ -2999,6 +3014,43 @@ ${alternates}${hasSpaBundle ? `\n    <link rel="stylesheet" href="/assets/${entr
             expiredAt: ejData?.expiredAt || '',
           });
 
+          // FRO-320: Generate static body content so Google sees real text, not an empty SPA shell.
+          // For pages with ejData.description: use the real description.
+          // For pages without: generate a template-based description from title/company/location.
+          const staticBodyParts: string[] = [];
+          staticBodyParts.push(`<h1>${esc(jobTitle)}${jobCompany ? ` — ${esc(jobCompany)}` : ''}</h1>`);
+          staticBodyParts.push(`<p><strong>${esc(copy.banner)}</strong></p>`);
+          if (jobDescription && jobDescription.length > 30) {
+            // Real description from expired-jobs.json
+            const descText = jobDescription.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+            staticBodyParts.push(`<div>${descText.slice(0, 2000)}</div>`);
+          } else {
+            // Template description derived from slug metadata
+            const templateLines: string[] = [];
+            if (locale === 'it') {
+              templateLines.push(`Questa posizione di ${esc(jobTitle)}${jobCompany ? ` presso ${esc(jobCompany)}` : ''}${jobLocation ? ` a ${esc(jobLocation)}` : ' in Ticino'} non è più disponibile.`);
+              if (jobCompany) templateLines.push(`${esc(jobCompany)} è un'azienda attiva${ejData?.sector ? ` nel settore ${esc(ejData.sector)}` : ''} in Svizzera.`);
+              templateLines.push('Questa pagina è stata mantenuta come archivio informativo per chi aveva salvato l\'annuncio.');
+              templateLines.push(`Consulta le <a href="${BASE_URL}${listingPath}">offerte di lavoro simili attualmente disponibili in Ticino</a>.`);
+            } else if (locale === 'en') {
+              templateLines.push(`This ${esc(jobTitle)} position${jobCompany ? ` at ${esc(jobCompany)}` : ''}${jobLocation ? ` in ${esc(jobLocation)}` : ' in Ticino'} is no longer available.`);
+              if (jobCompany) templateLines.push(`${esc(jobCompany)} is an active employer${ejData?.sector ? ` in the ${esc(ejData.sector)} sector` : ''} in Switzerland.`);
+              templateLines.push(`See <a href="${BASE_URL}${listingPath}">similar jobs currently available in Ticino</a>.`);
+            } else if (locale === 'de') {
+              templateLines.push(`Diese Stelle als ${esc(jobTitle)}${jobCompany ? ` bei ${esc(jobCompany)}` : ''}${jobLocation ? ` in ${esc(jobLocation)}` : ' im Tessin'} ist nicht mehr verfügbar.`);
+              if (jobCompany) templateLines.push(`${esc(jobCompany)} ist ein aktiver Arbeitgeber${ejData?.sector ? ` im Bereich ${esc(ejData.sector)}` : ''} in der Schweiz.`);
+              templateLines.push(`Sehen Sie <a href="${BASE_URL}${listingPath}">ähnliche Stellen im Tessin</a>.`);
+            } else {
+              templateLines.push(`Ce poste de ${esc(jobTitle)}${jobCompany ? ` chez ${esc(jobCompany)}` : ''}${jobLocation ? ` à ${esc(jobLocation)}` : ' au Tessin'} n'est plus disponible.`);
+              if (jobCompany) templateLines.push(`${esc(jobCompany)} est un employeur actif${ejData?.sector ? ` dans le secteur ${esc(ejData.sector)}` : ''} en Suisse.`);
+              templateLines.push(`Voir les <a href="${BASE_URL}${listingPath}">postes similaires au Tessin</a>.`);
+            }
+            staticBodyParts.push(templateLines.map(l => `<p>${l}</p>`).join('\n'));
+          }
+          if (jobLocation) staticBodyParts.push(`<p>${locale === 'it' ? 'Sede' : locale === 'en' ? 'Location' : locale === 'de' ? 'Standort' : 'Lieu'}: ${esc(jobLocation)}</p>`);
+          staticBodyParts.push(`<p><a href="${BASE_URL}${listingPath}">${esc(archiveRelatedLabel[locale] || archiveRelatedLabel.it)} →</a></p>`);
+          const staticBody = staticBodyParts.join('\n');
+
           const softLandingHtml = `<!DOCTYPE html>
 <html lang="${locale}">
   <head>
@@ -3017,11 +3069,37 @@ ${hreflangLinks}
         { '@type': 'ListItem', position: 3, name: jobTitle },
       ],
     })}</script>
+    <script type="application/ld+json">${JSON.stringify((() => {
+      const jp: Record<string, unknown> = {
+        '@context': 'https://schema.org',
+        '@type': 'JobPosting',
+        title: jobTitle,
+        description: jobDescription || jobTitle,
+        url: selfUrl,
+        validThrough: ejData?.expiredAt
+          ? new Date(ejData.expiredAt).toISOString()
+          : new Date(Date.now() - 86400000).toISOString(),
+        hiringOrganization: jobCompany
+          ? { '@type': 'Organization', name: jobCompany }
+          : { '@id': `${BASE_URL}/#organization` },
+      };
+      if (jobLocation) {
+        jp.jobLocation = {
+          '@type': 'Place',
+          address: { '@type': 'PostalAddress', addressLocality: jobLocation, addressCountry: 'CH' },
+        };
+      }
+      return jp;
+    })())}</script>
     <script>window.__EXPIRED_JOB_DATA__=${expiredWindowData};</script>${hasSpaBundle ? `\n    <link rel="stylesheet" href="/assets/${entryCss}" crossorigin media="all">` : ''}
     ${SPA_ACTION_REDIRECT_SCRIPT}
   </head>
   <body>
-    <div id="root"></div>${hasSpaBundle ? `\n    <script type="module" crossorigin src="/assets/${entryJs}"></script>` : ''}
+    <div id="root">
+      <article style="max-width:720px;margin:0 auto;padding:24px 16px;font-family:system-ui,sans-serif;color:#334155;">
+        ${staticBody}
+      </article>
+    </div>${hasSpaBundle ? `\n    <script type="module" crossorigin src="/assets/${entryJs}"></script>` : ''}
   </body>
 </html>`;
 
@@ -3039,9 +3117,12 @@ ${hreflangLinks}
           }
         }
 
-        // Add expired slug to sitemap (one entry per slug, with hreflang alternates)
+        // Only add expired slugs to sitemap when they have rich data (title + description).
+        // Pages without ejData are SPA shells with <50 words — thin content that wastes
+        // crawl budget and hurts Google Discover eligibility (FRO-278).
+        const hasRichContent = ejData?.title && (ejData?.descriptionByLocale?.it || ejData?.description);
         const itPath = paths.it ? withSlash(paths.it) : '';
-        if (itPath) {
+        if (itPath && hasRichContent) {
           const altLinks = localeList.map((l) => {
             const p = paths[l];
             if (!p) return '';

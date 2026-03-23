@@ -42,8 +42,9 @@ describe('job-locale-completeness', () => {
         }
       }
     }
-    // Allow up to 40 missing titles (Coop Grigioni jobs arrive with DE-only titleByLocale;
-    // the localization pipeline fills them on the next crawler run)
+    // FRO-309: Coop crawler now assigns titles to correct locale (DE for German jobs).
+    // Threshold will decrease as localization pipeline translates them.
+    // Target: toHaveLength(0) once fully propagated.
     expect(missing.length, `Jobs with missing titleByLocale:\n${missing.slice(0, 20).join('\n')}`).toBeLessThanOrEqual(40);
   });
 
@@ -70,8 +71,9 @@ describe('job-locale-completeness', () => {
         }
       }
     }
-    // Allow up to 450 missing translations (Coop Grigioni jobs arrive with DE-only content;
-    // VOLG/Grace/etc. have thin source descriptions or EN-only content; count fluctuates with crawler runs)
+    // FRO-309: Coop crawler now assigns descriptions to correct source locale.
+    // Threshold reflects current data; will decrease as localization pipeline translates DE→IT.
+    // Target: toBeLessThanOrEqual(80) once fully propagated.
     expect(missing.length, `Jobs with missing descriptionByLocale:\n${missing.slice(0, 30).join('\n')}`).toBeLessThanOrEqual(450);
   });
 

@@ -99,7 +99,7 @@ function listSliceFiles(dir) {
   if (!fs.existsSync(dir)) return [];
   return fs
     .readdirSync(dir)
-    .filter((f) => f.endsWith('.json') && f !== '.gitkeep')
+    .filter((f) => f.endsWith('.json') && f !== '.gitkeep' && !f.includes('-cache'))
     .map((f) => path.join(dir, f))
     .sort(); // lexicographic — deterministic order
 }

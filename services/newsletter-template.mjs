@@ -351,13 +351,48 @@ function renderQuote(fact) {
     </td></tr>`;
 }
 
+// FRO-275: Emoji per articolo basate su categoria/titolo del contenuto
+const ARTICLE_EMOJI_MAP = {
+  fiscale:     '💰 📊 🇨🇭',
+  tasse:       '💰 📊 🧾',
+  lavoro:      '💼 🏢 🇨🇭',
+  pratico:     '📋 ✅ 🇨🇭',
+  pensione:    '🏦 📈 🇨🇭',
+  sanita:      '🏥 💊 🇨🇭',
+  novita:      '🗞️ ⚡ 🇨🇭',
+  votazioni:   '🗳️ 🏔️ 🇨🇭',
+  cambio:      '💱 📉 🇨🇭',
+  traffico:    '🚗 🛃 🇨🇭',
+  assicurazione:'🛡️ 📋 🇨🇭',
+  default:     '📰 🏔️ 🇨🇭',
+};
+
+function deriveArticleEmoji(article) {
+  if (!article) return ARTICLE_EMOJI_MAP.default;
+  const text = `${article.title || ''} ${article.excerpt || ''} ${article.badge || ''} ${article.category || ''}`.toLowerCase();
+  for (const [key, emoji] of Object.entries(ARTICLE_EMOJI_MAP)) {
+    if (key === 'default') continue;
+    if (text.includes(key)) return emoji;
+  }
+  // Keyword fallback
+  if (text.match(/impost|irpef|730|dichiarazion/)) return ARTICLE_EMOJI_MAP.fiscale;
+  if (text.match(/stipendio|salario|contratt/)) return ARTICLE_EMOJI_MAP.lavoro;
+  if (text.match(/avs|lpp|pilastro|rendita/)) return ARTICLE_EMOJI_MAP.pensione;
+  if (text.match(/lamal|cassa malat|medic/)) return ARTICLE_EMOJI_MAP.sanita;
+  if (text.match(/vot|referendum|iniziativa/)) return ARTICLE_EMOJI_MAP.votazioni;
+  if (text.match(/chf|eur|franco|cambio/)) return ARTICLE_EMOJI_MAP.cambio;
+  if (text.match(/dogana|valico|frontalier.*auto/)) return ARTICLE_EMOJI_MAP.traffico;
+  return ARTICLE_EMOJI_MAP.default;
+}
+
 function renderArticle(article, locale) {
   if (!article) return '';
+  const emoji = deriveArticleEmoji(article);
   return `
     <tr><td class="section-pad" style="background:${WHITE};padding:0 28px 8px;">
       <div style="background:${CARD_BG};border:1px solid ${BORDER_COLOR};border-radius:14px;overflow:hidden;">
         <div style="width:100%;height:180px;background:linear-gradient(135deg,#1e293b 0%,${BRAND_DARK} 50%,${BRAND_ORANGE} 100%);text-align:center;line-height:180px;">
-          <span style="font-size:42px;">\ud83d\uddf3\ufe0f \ud83c\udfd4\ufe0f \ud83c\udde8\ud83c\udded</span>
+          <span style="font-size:42px;">${emoji}</span>
         </div>
         <div style="padding:18px 20px;">
           ${article.badge ? `<span style="display:inline-block;background:#fef3c7;color:#92400e;font-size:10px;font-weight:700;padding:3px 10px;border-radius:6px;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:8px;">${escapeHtml(article.badge)}</span>` : ''}

@@ -27,15 +27,16 @@ describe('Soft-landing SEO pages for expired jobs', () => {
     expect(pluginSource).toContain('previousSlugs');
   });
 
-  it('does NOT include JobPosting schema for expired jobs', () => {
-    // Scope to only the expired-job section — bridge pages (which follow) legitimately have JobPosting
-    const expiredStart = pluginSource.indexOf('Expired-job');
+  it('includes JobPosting with validThrough in expired pages (FRO-194)', () => {
+    // Expired pages now include a JobPosting with a past validThrough date
+    // so Google recognizes the job as expired while keeping semantic data
+    const expiredStart = pluginSource.indexOf('Expired-job') ?? pluginSource.indexOf('expired');
     const bridgeStart = pluginSource.indexOf('Rich bridge pages');
     const expiredSection = bridgeStart > expiredStart
       ? pluginSource.slice(expiredStart, bridgeStart)
       : pluginSource.slice(expiredStart);
-    expect(expiredSection).not.toContain("'JobPosting'");
-    expect(expiredSection).not.toContain('"JobPosting"');
+    expect(expiredSection).toContain('JobPosting');
+    expect(expiredSection).toContain('validThrough');
   });
 
   it('includes expired jobs in sitemap at low priority', () => {

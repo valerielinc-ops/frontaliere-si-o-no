@@ -64,12 +64,31 @@ jobs:
           echo "╚══════════════════════════════════════════════════════════╝"
           echo ""
 
-          # Validate delay
-          delay="${DELAY}"
-          if ! [[ "$delay" =~ ^[0-9]+$ ]] || [ "$delay" -lt 10 ] || [ "$delay" -gt 120 ]; then
-            echo "⚠️  Invalid delay '$delay', using default 20s"
-            delay=20
-          fi
+          # FRO-326: Volume-based staggering
+          # Large crawlers (>50 jobs): 300s delay between each (5 minutes)
+          # Medium crawlers (10-50 jobs): 60s delay
+          # Small crawlers (<10 jobs): 30s delay
+          # Coop is excluded (runs at 06:00 UTC separately)
+
+          # Known large crawlers (>50 estimated jobs per run)
+          LARGE_CRAWLERS="update-jobs-sbb update-jobs-migros update-jobs-post update-jobs-confederazione update-jobs-sunrise update-jobs-amag"
+          # Known medium crawlers (10-50 jobs)
+          MEDIUM_CRAWLERS="update-jobs-allianz update-jobs-axpo update-jobs-axa update-jobs-raiffeisen update-jobs-hamilton update-jobs-volg update-jobs-hitachi update-jobs-trumpf update-jobs-agroscope update-jobs-bosch update-jobs-boggi update-jobs-kempinski update-jobs-colin-cie update-jobs-dot-life update-jobs-engelvoelkers update-jobs-stadt-chur update-jobs-cler update-jobs-guess update-jobs-giorgio-armani"
+
+          get_delay() {
+            local name="$1"
+            local base="${name%.yml}"
+            base="${base#update-jobs-}"
+            # Skip Coop — it has its own schedule
+            if [[ "$base" == "coop"* ]]; then echo "SKIP"; return; fi
+            for lg in $LARGE_CRAWLERS; do
+              if [[ "$lg" == "update-jobs-$base" ]]; then echo "300"; return; fi
+            done
+            for md in $MEDIUM_CRAWLERS; do
+              if [[ "$md" == "update-jobs-$base" ]]; then echo "60"; return; fi
+            done
+            echo "30"
+          }
 
           # Discover all crawler workflow files
           mapfile -t workflows < <(find .github/workflows -name 'update-jobs-*.yml' -type f | sort)
@@ -80,20 +99,27 @@ jobs:
             exit 1
           fi
 
-          echo "📋 Found $total crawler workflows (delay: ${delay}s between each)"
+          echo "📋 Found $total crawler workflows (FRO-326: volume-based staggering)"
           echo ""
 
           dispatched=0
           skipped=0
           failed=0
 
+          # Dispatch large crawlers first, then medium, then small
           for wf in "${workflows[@]}"; do
             filename=$(basename "$wf")
-            # Extract human-readable name from workflow
             wf_name=$(head -1 "$wf" | sed 's/^name: //')
             counter=$((dispatched + skipped + failed + 1))
 
-            echo -n "  [$counter/$total] $filename"
+            this_delay=$(get_delay "$filename")
+            if [ "$this_delay" = "SKIP" ]; then
+              echo "  [$counter/$total] $filename — ⏭️  skipped (separate schedule)"
+              skipped=$((skipped + 1))
+              continue
+            fi
+
+            echo -n "  [$counter/$total] $filename (delay: ${this_delay}s)"
 
             if [ "$DRY_RUN" = "true" ]; then
               echo " — 🔵 DRY RUN (would dispatch)"
@@ -109,9 +135,9 @@ jobs:
               failed=$((failed + 1))
             fi
 
-            # Delay between dispatches (skip after last one)
+            # Volume-based delay between dispatches
             if [ "$counter" -lt "$total" ] && [ "$DRY_RUN" != "true" ]; then
-              sleep "$delay"
+              sleep "$this_delay"
             fi
           done
 

@@ -1,5 +1,6 @@
 import { describe, it, expect } from 'vitest';
-import { estimateReadingMinutes, ARTICLES } from '@/components/community/BlogArticles';
+import { estimateReadingMinutes } from '@/components/community/BlogArticles';
+import { ARTICLES } from '@/data/blog-articles-data';
 
 // ── Mock translation function ───────────────────────────────
 /** Returns a string with the given word count for body1; empty for body2/body3 */

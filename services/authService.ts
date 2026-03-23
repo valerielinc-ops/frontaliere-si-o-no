@@ -61,9 +61,17 @@ async function ensureFirebaseAuth(): Promise<void> {
       _authModule = authModule;
       const appInstance = await firebaseModule.getApp();
       _auth = authModule.getAuth(appInstance);
+      // Wait for Firebase Auth internal initialization to complete.
+      // getAuth() returns synchronously but internal config (apiKey, authDomain)
+      // may not be ready yet — calling SDK methods before this resolves causes
+      // TypeError on internal property access (e.g. indexOf on undefined).
+      if (typeof _auth.authStateReady === 'function') {
+        await _auth.authStateReady();
+      }
       logAuthDebug('ensureFirebaseAuth:ready', {
         authDomain: appInstance?.options?.authDomain || null,
         hasCurrentUser: Boolean(_auth?.currentUser),
+        configReady: Boolean(_auth?.config?.apiKey),
       });
     } catch (error) {
       console.warn('[Auth] Failed to load Firebase Auth', error);
@@ -209,14 +217,16 @@ export async function isEmailLinkSignIn(url?: string): Promise<boolean> {
     if (!href || typeof href !== 'string' || !href.includes('oobCode')) return false;
     await ensureFirebaseAuth();
     if (!_authModule || !_auth) return false;
-    // Firebase SDK internally calls url.indexOf() — guard against partial Auth init
     if (typeof _authModule.isSignInWithEmailLink !== 'function') return false;
-    try {
-      return Boolean(_authModule.isSignInWithEmailLink(_auth, String(href)));
-    } catch {
-      // Swallow Firebase internal TypeError (indexOf on undefined) — not a real error
+    // Verify Auth is fully initialized — config.apiKey must be present,
+    // otherwise Firebase internals throw TypeError on property access.
+    if (!_auth.config?.apiKey) {
+      logAuthDebug('isEmailLinkSignIn:config-not-ready', {
+        hasConfig: Boolean(_auth.config),
+      });
       return false;
     }
+    return Boolean(_authModule.isSignInWithEmailLink(_auth, String(href)));
   } catch (error) {
     reportCaughtError(error, 'auth.isEmailLinkSignIn');
     return false;

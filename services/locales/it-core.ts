@@ -659,6 +659,24 @@ const translations: Record<string, string> = {
     'jobBoard.pricing.premium': 'Premium/mese',
     'jobBoard.footerLink': 'Lavoro Ticino',
 
+    // Job Alerts (FRO-332)
+    'jobAlert.trigger': 'Avvisami per nuovi lavori',
+    'jobAlert.keyword': 'Parole chiave',
+    'jobAlert.keywordPlaceholder': 'es. developer, ingegnere, contabile',
+    'jobAlert.zone': 'Zona',
+    'jobAlert.contractType': 'Tipo contratto',
+    'jobAlert.frequency': 'Frequenza',
+    'jobAlert.daily': 'Giornaliera',
+    'jobAlert.weekly': 'Settimanale',
+    'jobAlert.create': 'Crea alert',
+    'jobAlert.loginRequired': 'Accedi per creare un alert',
+    'jobAlert.created': 'Alert creata! Riceverai una email con le nuove offerte.',
+    'jobAlert.deleted': 'Alert eliminata.',
+    'jobAlert.delete': 'Elimina',
+    'jobAlert.yourAlerts': 'Le tue alert',
+    'jobAlert.loading': 'Caricamento alert...',
+    'jobAlert.error.emptyFields': 'Inserisci almeno una keyword o una zona.',
+
     // Search
     'search.placeholder': 'Cerca sezioni, strumenti, funzionalità...',
     'search.hint': 'Digita per cercare tra tutte le sezioni del sito',

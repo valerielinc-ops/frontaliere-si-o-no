@@ -87,6 +87,10 @@ jobs:
       - name: Validate third-party secrets are not committed (blocking)
         run: npm run validate:third-party-secrets
 
+      - name: Fetch Amazon product data
+        continue-on-error: true
+        run: node scripts/fetch-amazon-products.mjs
+
       - name: Build
         env:
           NODE_OPTIONS: '--max-old-space-size=4096'
@@ -152,6 +156,17 @@ jobs:
         continue-on-error: true
         run: |
           node scripts/post-to-facebook.mjs \
+            "${{ github.event.inputs.article_id }}" \
+            "${{ github.event.inputs.article_url }}" \
+            "${{ github.event.inputs.og_title }}" \
+            "${{ github.event.inputs.og_description }}" \
+            "${{ github.event.inputs.article_category }}"
+
+      - name: Post to LinkedIn Company Page
+        if: success() && github.event_name == 'workflow_dispatch' && github.event.inputs.article_id != '' && steps.wait_live_meta.outcome == 'success'
+        continue-on-error: true
+        run: |
+          node scripts/post-to-linkedin.mjs \
             "${{ github.event.inputs.article_id }}" \
             "${{ github.event.inputs.article_url }}" \
             "${{ github.event.inputs.og_title }}" \

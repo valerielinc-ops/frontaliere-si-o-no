@@ -495,12 +495,15 @@ async function postProcessCoopJobs() {
     if (ldTitle && job.title !== ldTitle) {
       const overlap = titleOverlap(job.title, ldTitle);
       if (overlap < 0.6) {
-        console.log(`  ⚠️ Title fix: "${job.title}" → "${ldTitle}" (overlap=${overlap.toFixed(2)})`);
+        const titleLang = detectLang(ldTitle);
+        console.log(`  ⚠️ Title fix: "${job.title}" → "${ldTitle}" (overlap=${overlap.toFixed(2)}, lang=${titleLang})`);
         job.title = ldTitle;
-        // Update title in all locales
+        // Assign title to the correct locale based on detected language
         if (job.titleByLocale) {
-          for (const locale of Object.keys(job.titleByLocale)) {
-            job.titleByLocale[locale] = ldTitle;
+          job.titleByLocale[titleLang] = ldTitle;
+          // Don't copy German/French/English titles into IT locale
+          if (titleLang !== 'it' && !job.titleByLocale.it) {
+            // Leave IT empty — will be translated by localization pipeline
           }
         }
         changed = true;
@@ -535,11 +538,17 @@ async function postProcessCoopJobs() {
           const fullDesc = lines.join('\n');
           const prevLen = (job.description || '').length;
           job.description = fullDesc;
-          // Clear stale locale translations only on significant change
+          // Detect source language and assign to the correct locale (FRO-309)
+          const descLang = detectLang(fullDesc);
           if (job.descriptionByLocale && Math.abs(fullDesc.length - prevLen) > 100) {
-            job.descriptionByLocale = { it: fullDesc };
+            // Significant change — reset with correct locale assignment
+            job.descriptionByLocale = { [descLang]: fullDesc };
           } else if (job.descriptionByLocale) {
-            job.descriptionByLocale.it = fullDesc;
+            job.descriptionByLocale[descLang] = fullDesc;
+          }
+          // Update sourceLang to match detected language (FRO-309)
+          if (descLang !== 'it') {
+            job.sourceLang = descLang;
           }
           changed = true;
         }

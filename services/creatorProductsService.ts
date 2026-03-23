@@ -103,12 +103,6 @@ const CREATOR_PRODUCTS: CreatorProduct[] = [
   },
 ];
 
-function extractPartnerTagFromCsvStyleId(applicationId?: string): string {
-  if (!applicationId) return DEFAULT_AMAZON_PARTNER_TAG;
-  const maybeTag = applicationId.split('.')[0]?.trim();
-  if (maybeTag && maybeTag.endsWith('-21')) return maybeTag;
-  return DEFAULT_AMAZON_PARTNER_TAG;
-}
 
 function buildAmazonAffiliateUrl(asin: string, locale: Locale, partnerTag: string): string {
   const marketplace = MARKETPLACE_BY_LOCALE[locale] || MARKETPLACE_BY_LOCALE.it;
@@ -169,10 +163,7 @@ export function getCreatorProductsForContext({
 }: CreatorProductInput): CreatorProductSuggestion[] {
   const locale = getLocale();
   const normalized = contextText.toLowerCase();
-  const configuredTag =
-    (typeof import.meta !== 'undefined' ? (import.meta as any).env?.VITE_AMAZON_PARTNER_TAG : undefined) ||
-    (typeof import.meta !== 'undefined' ? (import.meta as any).env?.VITE_AMAZON_CREATOR_APP_ID : undefined);
-  const partnerTag = extractPartnerTagFromCsvStyleId(configuredTag);
+  const partnerTag = DEFAULT_AMAZON_PARTNER_TAG;
 
   const scored = CREATOR_PRODUCTS.map((product) => {
     const keywordHits = product.keywordTags.reduce((acc, tag) => (normalized.includes(tag) ? acc + 1 : acc), 0);

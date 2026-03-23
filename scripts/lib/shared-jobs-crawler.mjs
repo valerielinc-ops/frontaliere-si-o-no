@@ -25,7 +25,30 @@ import { execFile } from 'node:child_process';
 import { promisify } from 'node:util';
 import { writeJobsSummary, snapshotJobSlugs, computeCrawlDiff, printCrawlChangeSummary, writeCrawlChangeSummaryToGH } from '../jobs-url-helper.mjs';
 import { detectJobTitleLang, detectJobTitleLocaleDetails } from './job-locale-utils.mjs';
-import { heuristicTranslateJobTitle, detectLang, normalizeKey, guessCategory, normalizeContract, qualityScore, evaluateJobQuality, isLikelyGenericCareerTitle, isLikelyJobDetailUrl } from './dedicated-crawler-common.mjs';
+import {
+  heuristicTranslateJobTitle, detectLang, normalizeKey, guessCategory, normalizeContract, qualityScore, evaluateJobQuality, isLikelyGenericCareerTitle, isLikelyJobDetailUrl,
+  // FRO-231: slug utilities extracted from this file
+  normalizeSpace as _normalizeSpace,
+  slugify as _slugify,
+  decodeHtmlEntities as _decodeHtmlEntities,
+  decodeNumericEntities as _decodeNumericEntities,
+  hostOf as _hostOf,
+  normalizeHost as _normalizeHost,
+  registrableDomain as _registrableDomain,
+  canonicalizeJobUrl as _canonicalizeJobUrl,
+  extractJobIdentityFromUrl as _extractJobIdentityFromUrl,
+  isLowQualityLocalizedTitle as _isLowQualityLocalizedTitle,
+  isLowQualityLocalizedSlug as _isLowQualityLocalizedSlug,
+  fingerprintJob as _fingerprintJob,
+  dedupHeuristicKey as _dedupHeuristicKey,
+  ensureJobSlug as _ensureJobSlug,
+  stableSlugHash as _stableSlugHash,
+  buildStableId as _buildStableId,
+  loadSlugRegistry as _loadSlugRegistry,
+  saveSlugRegistry as _saveSlugRegistry,
+  getRegisteredSlug as _getRegisteredSlug,
+  registerJobSlug as _registerJobSlug,
+} from './dedicated-crawler-common.mjs';
 import {
   getJobLocalizationPipelineStats,
   localizeJobContentWithPipeline,
@@ -425,12 +448,8 @@ function getCompanyAdapter(company) {
   return null;
 }
 
-function normalizeSpace(s) {
-  return String(s || '')
-    .replace(/\u00a0/g, ' ')
-    .replace(/\s+/g, ' ')
-    .trim();
-}
+// FRO-231: normalizeSpace → imported from DCC
+const normalizeSpace = _normalizeSpace;
 
 // AI model calls now handled by centralized scripts/lib/ai-models.mjs
 // (isModelBusyOrRateLimited, callGitHubModels, callGeminiText, callLlmWithFallback removed)
@@ -911,108 +930,16 @@ function tryUrl(raw, base = null) {
   }
 }
 
-function hostOf(url) {
-  try {
-    return new URL(url).hostname.toLowerCase();
-  } catch {
-    return '';
-  }
-}
+// FRO-231: URL utilities → imported from DCC
+const hostOf = _hostOf;
+const normalizeHost = _normalizeHost;
+const registrableDomain = _registrableDomain;
 
-function normalizeHost(host) {
-  return String(host || '').toLowerCase().trim().replace(/^www\d?\./, '');
-}
+// FRO-231: canonicalizeJobUrl → imported from DCC
+const canonicalizeJobUrl = _canonicalizeJobUrl;
 
-function registrableDomain(host) {
-  const h = normalizeHost(host);
-  if (!h) return '';
-  const parts = h.split('.').filter(Boolean);
-  if (parts.length <= 2) return h;
-  const secondLevelSet = new Set(['co', 'com', 'org', 'gov', 'ac', 'edu', 'net']);
-  const tld = parts[parts.length - 1];
-  const sld = parts[parts.length - 2];
-  if (tld.length === 2 && secondLevelSet.has(sld) && parts.length >= 3) {
-    return parts.slice(-3).join('.');
-  }
-  return parts.slice(-2).join('.');
-}
-
-function canonicalizeJobUrl(rawUrl = '') {
-  let u;
-  try {
-    u = new URL(rawUrl);
-  } catch {
-    return '';
-  }
-  const noisyParams = [
-    'utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content',
-    'gclid', 'fbclid', 'mc_cid', 'mc_eid', '_ga', '_gl', 'trk', 'tracking',
-    'source', 'medium', 'campaign',
-  ];
-  for (const key of noisyParams) u.searchParams.delete(key);
-  u.hash = '';
-  const pathClean = u.pathname.replace(/\/+$/, '');
-  return `${u.origin}${pathClean}${u.search ? `?${u.searchParams.toString()}` : ''}`.toLowerCase();
-}
-
-function extractUuidLikeId(raw = '') {
-  const text = String(raw || '');
-  const uuidMatch = text.match(/\b[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}\b/i);
-  return uuidMatch?.[0] ? uuidMatch[0].toLowerCase() : '';
-}
-
-function extractJobIdentityFromUrl(rawUrl = '') {
-  let u;
-  try {
-    u = new URL(rawUrl);
-  } catch {
-    return '';
-  }
-  const host = normalizeHost(u.hostname);
-  const full = `${host}${u.pathname}${u.search}`.toLowerCase();
-
-  // Coop JobBooster can expose the same job with different path prefixes/slugs:
-  // /offene-stellen/{slug}/{uuid} and /posti-vacanti/{slug}/{uuid}
-  // Prefer the final UUID segment to avoid duplicate entries across locale routes.
-  const coopPathMatch = full.match(/\/(?:offene-stellen|posti-vacanti)\/[^/?#]+\/([^/?#]+)/i);
-  if (coopPathMatch?.[1]) {
-    const coopIdCandidate = normalizeSpace(coopPathMatch[1]);
-    const coopUuid = extractUuidLikeId(coopIdCandidate) || extractUuidLikeId(full);
-    if (coopUuid) return `${registrableDomain(host)}|${coopUuid}`;
-    if (coopIdCandidate) return `${registrableDomain(host)}|${coopIdCandidate.toLowerCase()}`;
-  }
-
-  const inPath = [
-    /\/jobs\/view\/(\d+)/i, // LinkedIn
-    /\/job\/(\d+)/i, // swatchgroup + many boards
-    /\/details\/([^/?#]+)/i, // Workday detail pages
-    /\/jobs\/(\d+)/i,
-    /\/positions\/(\d+)/i,
-    /\/vacanc(?:y|ies)\/(\d+)/i,
-    /\/(?:offene-stellen|posti-vacanti)\/[^/?#]+\/([^/?#]+)/i,
-    /\/career\/jobs\/([^/?#]+)/i,
-    /\/job\/[^/?#]*\/([^/?#]+)/i, // workday-like
-  ];
-  for (const re of inPath) {
-    const m = full.match(re);
-    if (m?.[1]) return `${registrableDomain(host)}|${m[1]}`;
-  }
-  const queryKeys = ['jobid', 'job_id', 'gh_jid', 'jid', 'wdjobid', 'vacancyid'];
-  for (const key of queryKeys) {
-    const val = normalizeSpace(u.searchParams.get(key));
-    if (val) return `${registrableDomain(host)}|${val.toLowerCase()}`;
-  }
-  // Hash-based job identifiers (e.g. #job.id=12345 or #slug-name)
-  const hashRaw = normalizeSpace(u.hash.replace(/^#/, ''));
-  if (hashRaw) {
-    const keyedMatch = hashRaw.match(/(?:job[._-]?id|id)=(\w+)/i);
-    if (keyedMatch?.[1]) return `${registrableDomain(host)}|${keyedMatch[1].toLowerCase()}`;
-    if (hashRaw.length > 3 && /^[\w-]+$/.test(hashRaw)) {
-      return `${registrableDomain(host)}|#${hashRaw.toLowerCase()}`;
-    }
-  }
-  return '';
-}
+// FRO-231: extractJobIdentityFromUrl → imported from DCC
+const extractJobIdentityFromUrl = _extractJobIdentityFromUrl;
 
 function recencyTs(job) {
   const raw = job?.crawledAt || job?.postedDate || '';
@@ -1547,15 +1474,8 @@ function isLikelyListingSummaryContent(title = '', description = '') {
   return false;
 }
 
-function slugify(input = '', maxLen = 140) {
-  return normalizeSpace(decodeNumericEntities(decodeHtmlEntities(input)))
-    .toLowerCase()
-    .normalize('NFD')
-    .replace(/[\u0300-\u036f]/g, '')
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/^-+|-+$/g, '')
-    .slice(0, maxLen);
-}
+// FRO-231: slugify → imported from DCC
+const slugify = _slugify;
 
 
 
@@ -2376,35 +2296,9 @@ function shouldReusePreviousLocalization(prev = {}, next = {}, cfg = {}) {
   return true;
 }
 
-function isLowQualityLocalizedTitle(value = '') {
-  const t = normalizeSpace(value || '');
-  if (!t) return true;
-  if (t.length < 3) return true;
-  if (/^(h|he|her|here|here is|title|job title)\b/i.test(t)) return true;
-  if (/^[\W_]+$/.test(t)) return true;
-  return false;
-}
-
-/** Known company boilerplate fragments that leak into slugs when description text
- *  is accidentally included in the slug source. Each pattern is tested against the
- *  slugified value (lowercase, hyphens). */
-const SLUG_BOILERPLATE_PATTERNS = [
-  /permette-di-combinare-efficacemente/,
-  /garantendo-alla-popolaz/,
-  /visione-d-insieme-garantendo/,
-  /approccio-locale-e-visione/,
-];
-
-function isLowQualityLocalizedSlug(value = '') {
-  const s = normalizeSpace(value || '');
-  if (!s) return true;
-  if (s.length < 12) return true;
-  if (/^(h|he|her|here)(-|$)/i.test(s)) return true;
-  if (!/^[a-z0-9-]+$/i.test(s)) return true;
-  // Detect slugs polluted with company boilerplate description text
-  if (SLUG_BOILERPLATE_PATTERNS.some(re => re.test(s))) return true;
-  return false;
-}
+// FRO-231: slug quality checks → imported from DCC
+const isLowQualityLocalizedTitle = _isLowQualityLocalizedTitle;
+const isLowQualityLocalizedSlug = _isLowQualityLocalizedSlug;
 
 function ensureLocaleFields(job) {
   const out = { ...job };
@@ -3951,21 +3845,9 @@ function absoluteLinks(html, baseUrl) {
   return [...links];
 }
 
-function decodeHtmlEntities(value = '') {
-  return String(value || '')
-    .replace(/&amp;/g, '&')
-    .replace(/&quot;/g, '"')
-    .replace(/&#39;/g, "'")
-    .replace(/&lt;/g, '<')
-    .replace(/&gt;/g, '>')
-    .replace(/&nbsp;/g, ' ');
-}
-
-function decodeNumericEntities(value = '') {
-  return String(value || '')
-    .replace(/&#(\d+);/g, (_, code) => String.fromCharCode(Number(code)))
-    .replace(/&#x([0-9a-f]+);/gi, (_, code) => String.fromCharCode(parseInt(code, 16)));
-}
+// FRO-231: HTML entity decoders → imported from DCC
+const decodeHtmlEntities = _decodeHtmlEntities;
+const decodeNumericEntities = _decodeNumericEntities;
 
 /**
  * Strip locale fields that are just copies of the source text (not translated).
@@ -5096,113 +4978,18 @@ function toJobFromHtmlFallback(html, pageUrl, companyName, companyCity, options 
   return { job, reason: null };
 }
 
-function fingerprintJob(job) {
-  const identity = extractJobIdentityFromUrl(job.url || '');
-  if (identity) return `id|${identity}`;
+// FRO-231: fingerprint, slug registry → imported from DCC
+const fingerprintJob = _fingerprintJob;
+const loadSlugRegistry = _loadSlugRegistry;
+const saveSlugRegistry = _saveSlugRegistry;
+const getRegisteredSlug = _getRegisteredSlug;
+const registerJobSlug = _registerJobSlug;
 
-  const canonicalUrl = canonicalizeJobUrl(job.url || '');
-  if (canonicalUrl) return `url|${canonicalUrl}`;
-
-  const domain = registrableDomain(hostOf(job.url || '')) || normalizeSpace(job.company).toLowerCase();
-  const key = `${normalizeSpace(job.title).toLowerCase()}|${normalizeSpace(job.location).toLowerCase()}|${domain}`;
-  return `tl|${key.replace(/\s+/g, ' ')}`;
-}
-
-// ── Slug Registry: persistent, authoritative slug-to-fingerprint mapping ──
-
-function loadSlugRegistry() {
-  try {
-    if (fs.existsSync(SLUG_REGISTRY_PATH)) {
-      return JSON.parse(fs.readFileSync(SLUG_REGISTRY_PATH, 'utf-8'));
-    }
-  } catch { /* ignore malformed file */ }
-  return {};
-}
-
-function saveSlugRegistry(registry) {
-  fs.writeFileSync(SLUG_REGISTRY_PATH, JSON.stringify(registry, null, 2) + '\n');
-}
-
-/**
- * Look up a job in the slug registry by its fingerprint.
- * Returns { canonicalSlug, slugByLocale, createdAt } or null.
- */
-function getRegisteredSlug(job, registry) {
-  const fp = fingerprintJob(job);
-  if (!fp || !registry[fp]) return null;
-  return registry[fp];
-}
-
-/**
- * Register or update a job's slug in the registry.
- * Only registers jobs with stable fingerprints (id| or url|, not tl|).
- */
-function registerJobSlug(job, registry) {
-  const fp = fingerprintJob(job);
-  if (!fp || fp.startsWith('tl|')) return;
-  const slug = String(job.slug || '').trim();
-  if (!slug) return;
-  if (registry[fp]) return; // Never overwrite — immutable
-  registry[fp] = {
-    canonicalSlug: slug,
-    slugByLocale: job.slugByLocale && typeof job.slugByLocale === 'object'
-      ? { ...job.slugByLocale }
-      : {},
-    createdAt: new Date().toISOString().slice(0, 10),
-  };
-}
-
-function dedupHeuristicKey(job) {
-  const identity = extractJobIdentityFromUrl(job?.url || '');
-  if (identity) return `id|${identity}`;
-
-  const domain = registrableDomain(hostOf(job?.url || '')) || normalizeSpace(job?.company).toLowerCase();
-  const company = normalizeSpace(job?.company || '').toLowerCase().replace(/\s+/g, ' ');
-  const title = normalizeSpace(job?.title || '').toLowerCase().replace(/\s+/g, ' ');
-  const location = normalizeSpace(job?.location || '').toLowerCase().replace(/\s+/g, ' ');
-  const canton = normalizeCantonCode(job?.canton || '');
-  const contract = normalizeContract(job?.contract || '', job?.title || '', '').toLowerCase();
-  const category = normalizeSpace(job?.category || '').toLowerCase();
-  const salaryMin = Number.isFinite(Number(job?.salaryMin)) ? Math.round(Number(job.salaryMin)) : '';
-  const salaryMax = Number.isFinite(Number(job?.salaryMax)) ? Math.round(Number(job.salaryMax)) : '';
-
-  return `h|${domain}|${company}|${title}|${location}|${canton}|${contract}|${category}|${salaryMin}-${salaryMax}`;
-}
-
-function buildStableId(job) {
-  const s = fingerprintJob(job);
-  let hash = 0;
-  for (let i = 0; i < s.length; i += 1) {
-    hash = ((hash << 5) - hash) + s.charCodeAt(i);
-    hash |= 0;
-  }
-  return `company-${Math.abs(hash).toString(36)}`;
-}
-
-function ensureJobSlug(job) {
-  // Build slug from title first; only append company+location if short enough.
-  // Italian government job titles are very long ("Concorso generale 2026:
-  // aiuto cucina presso l'Ufficio della refezione e dei trasporti scolastici"),
-  // so concatenating title+company+location caused truncation at the old 90-char limit.
-  const titleSlug = slugify(job.title);
-  const fullSlug = slugify(`${job.title}-${job.company}-${job.location}`);
-  // Prefer full slug if it fits comfortably; otherwise title-only slug is more readable
-  const base = (fullSlug && fullSlug.length <= 140) ? fullSlug : (titleSlug || job.id || 'job');
-  return base;
-}
-
-/**
- * For jobs with a stable URL-derived fingerprint, append a short hash to the slug.
- * This makes the slug immutable w.r.t. title changes and avoids -2/-3 suffix instability.
- * Returns null for jobs identified by title+location only (tl|...) — those lack a stable identity.
- */
-function stableSlugHash(job) {
-  const fp = fingerprintJob(job);
-  if (!fp || fp.startsWith('tl|')) return null;
-  let hash = 0;
-  for (const c of fp) hash = ((hash << 5) - hash + c.charCodeAt(0)) | 0;
-  return Math.abs(hash).toString(36).padStart(6, '0').slice(-6);
-}
+// FRO-231: dedup, slug generation → imported from DCC
+const dedupHeuristicKey = _dedupHeuristicKey;
+const buildStableId = _buildStableId;
+const ensureJobSlug = _ensureJobSlug;
+const stableSlugHash = _stableSlugHash;
 
 function preferJob(a, b) {
   const aScore = qualityScore(a) + (a.featured ? 2 : 0) + ((a.source === 'Company Careers Crawler') ? 1 : 0);

@@ -9,7 +9,7 @@ import { describe, it, expect } from 'vitest';
 import { readFileSync } from 'fs';
 import { resolve } from 'path';
 import { ALL_BLOG_ARTICLE_IDS, BLOG_SLUGS } from '@/services/routerBlogData';
-import { ARTICLES } from '@/components/community/BlogArticles';
+import { ARTICLES } from '@/data/blog-articles-data';
 
 const root = resolve(__dirname, '..');
 

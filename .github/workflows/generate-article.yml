@@ -373,7 +373,8 @@ jobs:
           # Check 2: Static HTML was generated in dist/
           ARTICLE_URL="${{ steps.generate.outputs.article_url }}"
           # Extract path from URL (e.g., /articoli-frontaliere/my-slug)
-          ARTICLE_PATH=$(echo "$ARTICLE_URL" | sed 's|https://www.frontaliereticino.ch||')
+          # FRO-348: handle both www and non-www URLs
+          ARTICLE_PATH=$(echo "$ARTICLE_URL" | sed 's|https://\(www\.\)\{0,1\}frontaliereticino\.ch||')
           DIST_FILE="dist${ARTICLE_PATH}/index.html"
           if [ ! -f "$DIST_FILE" ]; then
             echo "❌ Static page NOT found at $DIST_FILE"
@@ -423,7 +424,7 @@ jobs:
             import fs from 'fs';
             const id = '${{ steps.generate.outputs.article_id }}';
             if (!id) { console.log('[indexing-api] No article ID — skip'); process.exit(0); }
-            const BASE = 'https://www.frontaliereticino.ch';
+            const BASE = 'https://frontaliereticino.ch'; // FRO-348: no www
             // Read locale-specific slugs from BlogArticles.tsx BLOG_SLUGS map
             const src = fs.readFileSync('components/community/BlogArticles.tsx', 'utf8');
             const match = src.match(new RegExp(\"'\" + id + \"':\\\\s*\\\\{([^}]+)\\\\}\"));

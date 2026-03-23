@@ -14,7 +14,7 @@ type Translations = Record<TranslationKey, string>;
 let currentLocale: Locale = 'it';
 const listeners: Array<(locale: Locale) => void> = [];
 
-// Loaded locale data — IT is always available, others load on demand
+// Loaded locale data — IT critical keys are available synchronously, others load on demand
 const loadedLocales: Partial<Record<Locale, Translations>> = {};
 const localeLoading: Partial<Record<Locale, Promise<void>>> = {};
 
@@ -349,8 +349,13 @@ export const LOCALE_LABELS: Record<Locale, { flag: string; name: string; nativeN
 // Core chrome + calculator keys load first (the landing page critical path).
 // Other page chunks load in the background after first render.
 
-let itTranslations: Translations = {};
-let _itReady = false;
+// Critical above-the-fold translations loaded synchronously (FRO-310).
+// This tiny (~4KB) module is bundled into the main chunk, so t() returns
+// real strings on first render — no skeleton, no 3s timeout, no CLS.
+import itCritical from './locales/it-critical';
+
+let itTranslations: Translations = { ...itCritical };
+let _itReady = true; // Critical keys are already available synchronously
 
 // Page chunk loaders — loaded on demand per tab
 const itPageLoaders: Record<string, () => Promise<{ default: Translations }>> = {

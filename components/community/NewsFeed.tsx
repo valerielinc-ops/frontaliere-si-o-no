@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useMemo, useCallback } from 'react';
 import { useTranslation, loadBlogMeta } from '@/services/i18n';
 import { buildPath } from '@/services/router';
-import { ARTICLES } from '@/components/community/BlogArticles';
+import { ARTICLES } from '@/data/blog-articles-data';
 import { ChevronRight, ChevronLeft, Newspaper } from 'lucide-react';
 import { Analytics } from '@/services/analytics';
 

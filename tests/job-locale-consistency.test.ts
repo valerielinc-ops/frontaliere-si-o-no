@@ -32,8 +32,9 @@ describe('job-locale-consistency', () => {
       }
     }
 
-    // Allow up to 120 mismatches (Coop Grigioni/Graubünden jobs arrive with DE descriptions
-    // stored under IT locale; these get repaired by the localization pipeline on next crawler run)
+    // FRO-309: Coop crawler now detects source language and assigns to correct locale.
+    // Threshold will decrease as old data cycles out after crawler runs.
+    // Target: toBeLessThanOrEqual(10) once all German Coop jobs are re-crawled.
     expect(
       mismatches.length,
       `Descriptions stored under the wrong locale:\n${mismatches.slice(0, 20).join('\n')}`

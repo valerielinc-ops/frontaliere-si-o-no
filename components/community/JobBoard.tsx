@@ -5,7 +5,8 @@
  * - Detail: dedicated SEO-friendly page per job (slug route), with sidebar widgets and related jobs.
  */
 
-import React, { useCallback, useDeferredValue, useEffect, useMemo, useRef, useState } from 'react';
+import React, { useCallback, useDeferredValue, useEffect, useMemo, useRef, useState, lazy, Suspense } from 'react';
+const JobAlertForm = lazy(() => import('@/components/community/JobAlertForm'));
 import { reportCaughtError } from '@/services/errorReporter';
 import { calculateSimulation } from '@/services/calculationService';
 import { DEFAULT_INPUTS } from '@/constants';
@@ -66,7 +67,7 @@ import {
 } from '@/services/newsletterSubscribers';
 import EmailInput, { validateEmailStrict } from '@/components/shared/EmailInput';
 import { requestSlot, releaseSlot, POPUP_PRIORITY } from '@/services/popupQueue';
-import { ARTICLES, type Article } from '@/components/community/BlogArticles';
+import { ARTICLES, type Article } from '@/data/blog-articles-data';
 import {
   buildJobCareVariantLandingModel,
   buildJobLocationLandingModel,
@@ -5471,6 +5472,15 @@ const JobBoard: React.FC<JobBoardProps> = ({
             </button>
           ))}
         </div>
+
+        {/* FRO-332: Job Alert form */}
+        <Suspense fallback={null}>
+          <JobAlertForm
+            authUser={authUser}
+            onRequireAuth={onRequireAuth}
+            initialKeyword={searchQuery}
+          />
+        </Suspense>
 
         {/* Filter toggle bar */}
         <div className="flex items-center gap-2">

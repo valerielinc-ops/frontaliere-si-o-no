@@ -43,6 +43,7 @@ if [ "$SLICE_ONLY" = true ]; then
     data/jobs/by-crawler/
     data/jobs/expired/by-crawler/
     data/jobs-crawler-summaries/by-crawler/
+    data/translation-cache/
   )
 else
   # Legacy mode: commit all shared files (used by non-migrated crawlers).
@@ -58,6 +59,7 @@ else
     # by expand_path_to_files() so new slices are picked up automatically.
     data/jobs/by-crawler/
     data/jobs-crawler-summaries/by-crawler/
+    data/translation-cache/
   )
 fi
 ALL_FILES=("${STANDARD_FILES[@]}")

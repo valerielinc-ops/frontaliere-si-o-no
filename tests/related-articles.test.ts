@@ -1,5 +1,6 @@
 import { describe, it, expect } from 'vitest';
-import { getRelatedArticles, ARTICLES } from '@/components/community/BlogArticles';
+import { getRelatedArticles } from '@/components/community/BlogArticles';
+import { ARTICLES } from '@/data/blog-articles-data';
 
 describe('getRelatedArticles', () => {
   it('returns the requested number of articles', () => {

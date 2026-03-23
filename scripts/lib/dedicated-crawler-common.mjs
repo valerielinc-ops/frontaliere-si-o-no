@@ -1,3 +1,4 @@
+import { createHash } from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
 
@@ -5,6 +6,7 @@ import { detectLanguage } from './detect-language.mjs';
 import { freeTranslateWithRetry } from './free-translate.mjs';
 import { translateTextWithLocalPipeline } from './job-localization-pipeline.mjs';
 import { hardenJobsWithStructuredSalary } from './structured-salary.mjs';
+import { normalizeCantonCode } from './target-swiss-locations.mjs';
 let _aiModels = null;
 try { _aiModels = await import('./ai-models.mjs'); } catch { /* ai-models not available */ }
 import {
@@ -1023,9 +1025,80 @@ export function hardenJobLocaleFields({ dataJobsPath }) {
  * @param {string} options.dataJobsPath - Path to data/jobs.json
  * @param {function} [options.isTargetJob] - Optional filter to only translate specific jobs
  * @param {number} [options.maxJobs=0] - Max jobs to translate (0 = all)
+ * @param {string} [options.companySlug] - Company slug for translation cache file name
  * @returns {Promise<{changed: boolean, translated: number, total: number, details: Array}>}
  */
-export async function translateMissingJobLocales({ dataJobsPath, isTargetJob, maxJobs = 0, minDescriptionChars = 120 }) {
+
+// ── Translation Cache (FRO-324) ──────────────────────────────────────────
+// Avoids re-translating jobs whose title+description haven't changed.
+// Cache lives in data/translation-cache/{companySlug}.json.
+// TTL: 30 days — after that, force re-translation.
+const TRANSLATION_CACHE_DIR = path.resolve(import.meta.dirname || path.dirname(new URL(import.meta.url).pathname), '..', '..', 'data', 'translation-cache');
+const TRANSLATION_CACHE_TTL_MS = 30 * 24 * 60 * 60 * 1000; // 30 days
+
+function computeContentHash(title, description) {
+  return createHash('sha256').update(`${title || ''}|${description || ''}`).digest('hex');
+}
+
+function loadTranslationCache(companySlug) {
+  const filePath = path.join(TRANSLATION_CACHE_DIR, `${companySlug}.json`);
+  if (!fs.existsSync(filePath)) return {};
+  try {
+    return JSON.parse(fs.readFileSync(filePath, 'utf-8'));
+  } catch {
+    return {};
+  }
+}
+
+function saveTranslationCache(companySlug, cache) {
+  if (!fs.existsSync(TRANSLATION_CACHE_DIR)) {
+    fs.mkdirSync(TRANSLATION_CACHE_DIR, { recursive: true });
+  }
+  const filePath = path.join(TRANSLATION_CACHE_DIR, `${companySlug}.json`);
+  fs.writeFileSync(filePath, `${JSON.stringify(cache, null, 2)}\n`, 'utf-8');
+}
+
+function deriveCompanySlug(jobs) {
+  const company = (jobs[0]?.company || 'unknown').trim();
+  return company.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+}
+
+function isTranslationCacheValid(entry) {
+  if (!entry || !entry.hash || !entry.cachedAt) return false;
+  return (Date.now() - new Date(entry.cachedAt).getTime()) < TRANSLATION_CACHE_TTL_MS;
+}
+
+function applyTranslationCache(job, cacheEntry) {
+  const translations = cacheEntry.translations || {};
+  let applied = false;
+  for (const locale of DEFAULT_LOCALES) {
+    if (translations.titles?.[locale] && !String(job.titleByLocale?.[locale] || '').trim()) {
+      if (!job.titleByLocale) job.titleByLocale = {};
+      job.titleByLocale[locale] = translations.titles[locale];
+      applied = true;
+    }
+    if (translations.descriptions?.[locale] && !String(job.descriptionByLocale?.[locale] || '').trim()) {
+      if (!job.descriptionByLocale) job.descriptionByLocale = {};
+      job.descriptionByLocale[locale] = translations.descriptions[locale];
+      applied = true;
+    }
+  }
+  return applied;
+}
+
+function buildCacheEntry(job, hash) {
+  const titles = {};
+  const descriptions = {};
+  for (const locale of DEFAULT_LOCALES) {
+    const t = String(job.titleByLocale?.[locale] || '').trim();
+    const d = String(job.descriptionByLocale?.[locale] || '').trim();
+    if (t) titles[locale] = t;
+    if (d) descriptions[locale] = d;
+  }
+  return { hash, translations: { titles, descriptions }, cachedAt: new Date().toISOString() };
+}
+
+export async function translateMissingJobLocales({ dataJobsPath, isTargetJob, maxJobs = 0, minDescriptionChars = 120, companySlug }) {
   if (!dataJobsPath || !fs.existsSync(dataJobsPath)) {
     return { changed: false, translated: 0, total: 0, details: [] };
   }
@@ -1040,8 +1113,28 @@ export async function translateMissingJobLocales({ dataJobsPath, isTargetJob, ma
   const details = [];
   const concurrency = Math.max(1, Math.min(6, Number(process.env.JOBS_LOCALE_TRANSLATION_CONCURRENCY || 3)));
 
-  const candidates = isTargetJob ? raw.filter(isTargetJob) : raw;
+  const filtered = isTargetJob ? raw.filter(isTargetJob) : raw;
+  // FRO-327: prioritize jobs marked for retranslation (failed in a previous run)
+  const candidates = filtered.sort((a, b) => {
+    const aNeedsRetranslation = a.needsRetranslation ? 1 : 0;
+    const bNeedsRetranslation = b.needsRetranslation ? 1 : 0;
+    return bNeedsRetranslation - aNeedsRetranslation;
+  });
+  const retranslationCount = candidates.filter(j => j.needsRetranslation).length;
+  if (retranslationCount > 0) {
+    console.log(`  🔁 ${retranslationCount} jobs marked for retranslation — processing first`);
+  }
   const limit = maxJobs > 0 ? Math.min(maxJobs, candidates.length) : candidates.length;
+
+  // ── Translation cache (FRO-324) ──
+  // Disable cache during tests to avoid cross-run interference
+  const cacheEnabled = !process.env.VITEST;
+  const slug = companySlug || (candidates.length > 0 ? deriveCompanySlug(candidates) : 'unknown');
+  const translationCache = cacheEnabled ? loadTranslationCache(slug) : {};
+  let cacheHits = 0;
+  let cacheMisses = 0;
+  let cacheUpdated = false;
+
   let cursor = 0;
 
   const worker = async () => {
@@ -1051,6 +1144,27 @@ export async function translateMissingJobLocales({ dataJobsPath, isTargetJob, ma
       const job = candidates[i];
       const baseTitle = String(job.title || '').trim();
       const baseDesc = String(job.description || '').trim();
+
+      // ── Translation cache check (FRO-324) ──
+      const jobCacheKey = job.slug || job.id || `job-${i}`;
+      const contentHash = computeContentHash(baseTitle, baseDesc);
+      const cached = translationCache[jobCacheKey];
+      // FRO-327: skip cache for jobs needing retranslation
+      if (cached && cached.hash === contentHash && isTranslationCacheValid(cached) && !job.needsRetranslation) {
+        // Content unchanged and cache is fresh — apply cached translations
+        if (!job.titleByLocale || typeof job.titleByLocale !== 'object') job.titleByLocale = {};
+        if (!job.descriptionByLocale || typeof job.descriptionByLocale !== 'object') job.descriptionByLocale = {};
+        const cacheApplied = applyTranslationCache(job, cached);
+        if (cacheApplied) {
+          changed = true;
+          translated += 1;
+          details.push({ company: job.company, slug: job.slug, sourceLang: 'cache' });
+        }
+        cacheHits += 1;
+        continue;
+      }
+      cacheMisses += 1;
+
       const titleSourceLang = detectJobTitleLang(baseTitle, detectLang(baseDesc || baseTitle, 'it'));
       let sourceLang = detectTextLocale(baseDesc || baseTitle, titleSourceLang).lang;
       let jobTranslated = false;
@@ -1144,12 +1258,13 @@ export async function translateMissingJobLocales({ dataJobsPath, isTargetJob, ma
           if (translatedTitle) {
             job.titleByLocale[locale] = String(translatedTitle).trim();
             jobTranslated = true;
+            // FRO-327: clear retranslation flag on success
+            if (job.needsRetranslation) delete job.needsRetranslation;
           } else if (!String(job.titleByLocale[locale] || '').trim()) {
             // FRO-263: AI translation failed — use source title as last-resort fallback.
-            // This is intentionally done here (after AI attempt) rather than in
-            // hardenJobLocaleFields (which runs before AI), so we don't pollute
-            // locale fields with untranslated foreign text prematurely.
             job.titleByLocale[locale] = sourceTitle;
+            // FRO-327: mark for retranslation on next run with fresh quota
+            job.needsRetranslation = true;
             jobTranslated = true;
           }
         }
@@ -1175,9 +1290,21 @@ export async function translateMissingJobLocales({ dataJobsPath, isTargetJob, ma
           if (translatedDesc) {
             job.descriptionByLocale[locale] = translatedDesc;
             jobTranslated = true;
+          } else if (!String(job.descriptionByLocale[locale] || '').trim() && sourceDesc) {
+            // FRO-327: fallback — keep original description in locale slot
+            // so the job page isn't blank. Mark for retranslation.
+            job.descriptionByLocale[locale] = sourceDesc;
+            job.needsRetranslation = true;
+            jobTranslated = true;
           }
         }
       }
+
+      // ── Update translation cache (FRO-324) ──
+      // Always cache the current state (even if no translation happened this run)
+      // so future runs can skip the "needs work" checks entirely.
+      translationCache[jobCacheKey] = buildCacheEntry(job, contentHash);
+      cacheUpdated = true;
 
       if (jobTranslated) {
         changed = true;
@@ -1219,8 +1346,20 @@ export async function translateMissingJobLocales({ dataJobsPath, isTargetJob, ma
     }
   }
 
+  // ── Save translation cache (FRO-324) ──
+  if (cacheEnabled && cacheUpdated) {
+    try {
+      saveTranslationCache(slug, translationCache);
+    } catch (e) {
+      console.warn(`  ⚠️ Failed to save translation cache for [${slug}]:`, e.message);
+    }
+  }
+  if (cacheHits > 0 || cacheMisses > 0) {
+    console.log(`  📦 Translation cache [${slug}]: ${cacheHits} hits, ${cacheMisses} misses (${cacheHits + cacheMisses} total)`);
+  }
+
   if (!changed) {
-    return { changed: false, translated: 0, total: candidates.length, details: [] };
+    return { changed: false, translated: 0, total: candidates.length, details: [], cacheHits, cacheMisses };
   }
 
   writeJson(dataJobsPath, raw);
@@ -1228,7 +1367,7 @@ export async function translateMissingJobLocales({ dataJobsPath, isTargetJob, ma
   if (fs.existsSync(publicJobsPath)) {
     writeJson(publicJobsPath, raw);
   }
-  return { changed: true, translated, total: candidates.length, details };
+  return { changed: true, translated, total: candidates.length, details, cacheHits, cacheMisses };
 }
 
 export function hardenJobsRichResultsData({ dataJobsPath }) {
@@ -1528,15 +1667,18 @@ export function validateDedicatedLocaleCoverage({
       } catch { /* stats not available */ }
     }
 
-    // Tolerate missing/untranslated description issues up to the effective tolerance
+    // Tolerate translation-related issues up to the effective tolerance (FRO-317)
+    // Includes missing_title when caused by LLM quota exhaustion — titles that weren't
+    // translated are retried on next crawler run, same as missing descriptions.
+    const TRANSLATION_ISSUES = new Set(['missing_description', 'untranslated_description', 'missing_title']);
     if (effectiveTolerance > 0) {
-      const descIssues = blockingIssues.filter((i) => i.reason === 'missing_description' || i.reason === 'untranslated_description');
-      const otherIssues = blockingIssues.filter((i) => i.reason !== 'missing_description' && i.reason !== 'untranslated_description');
-      if (descIssues.length <= effectiveTolerance && otherIssues.length === 0) {
-        const sample = descIssues.slice(0, 10).map((i) => `${i.slug} [${i.locale}]`).join(', ');
-        const suffix = descIssues.length > 10 ? ` ... and ${descIssues.length - 10} more` : '';
-        console.warn(`⚠️  Tolerating ${descIssues.length} missing/untranslated description(s) (tolerance ${effectiveTolerance}): ${sample}${suffix}`);
-        softIssues.push(...descIssues);
+      const translationIssues = blockingIssues.filter((i) => TRANSLATION_ISSUES.has(i.reason));
+      const otherIssues = blockingIssues.filter((i) => !TRANSLATION_ISSUES.has(i.reason));
+      if (translationIssues.length <= effectiveTolerance && otherIssues.length === 0) {
+        const sample = translationIssues.slice(0, 10).map((i) => `${i.slug} [${i.locale}] ${i.reason}`).join(', ');
+        const suffix = translationIssues.length > 10 ? ` ... and ${translationIssues.length - 10} more` : '';
+        console.warn(`⚠️  Tolerating ${translationIssues.length} translation issue(s) (tolerance ${effectiveTolerance}): ${sample}${suffix}`);
+        softIssues.push(...translationIssues);
         blockingIssues.length = 0;
       }
     }
@@ -1744,4 +1886,275 @@ export function isLikelyJobDetailUrl(rawUrl = '') {
     /[?&](jobid|jobid=|gh_jid|lever-source|wdjobid|job_id|yid)=/.test(url) ||
     /\/position\//.test(url)
   );
+}
+
+// ══════════════════════════════════════════════════════════════
+// FRO-231: Slug utilities extracted from shared-jobs-crawler.mjs
+// ══════════════════════════════════════════════════════════════
+
+// ── HTML entity decoders ─────────────────────────────────────
+
+export function decodeHtmlEntities(value = '') {
+  return String(value || '')
+    .replace(/&amp;/g, '&')
+    .replace(/&quot;/g, '"')
+    .replace(/&#39;/g, "'")
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>')
+    .replace(/&nbsp;/g, ' ');
+}
+
+export function decodeNumericEntities(value = '') {
+  return String(value || '')
+    .replace(/&#(\d+);/g, (_, code) => String.fromCharCode(Number(code)))
+    .replace(/&#x([0-9a-f]+);/gi, (_, code) => String.fromCharCode(parseInt(code, 16)));
+}
+
+// ── String normalization ─────────────────────────────────────
+
+export function normalizeSpace(s) {
+  return String(s || '')
+    .replace(/\u00a0/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+// ── URL utilities ────────────────────────────────────────────
+
+export function hostOf(url) {
+  try {
+    return new URL(url).hostname.toLowerCase();
+  } catch {
+    return '';
+  }
+}
+
+export function normalizeHost(host) {
+  return String(host || '').toLowerCase().trim().replace(/^www\d?\./, '');
+}
+
+export function registrableDomain(host) {
+  const h = normalizeHost(host);
+  if (!h) return '';
+  const parts = h.split('.').filter(Boolean);
+  if (parts.length <= 2) return h;
+  const secondLevelSet = new Set(['co', 'com', 'org', 'gov', 'ac', 'edu', 'net']);
+  const tld = parts[parts.length - 1];
+  const sld = parts[parts.length - 2];
+  if (tld.length === 2 && secondLevelSet.has(sld) && parts.length >= 3) {
+    return parts.slice(-3).join('.');
+  }
+  return parts.slice(-2).join('.');
+}
+
+export function canonicalizeJobUrl(rawUrl = '') {
+  let u;
+  try {
+    u = new URL(rawUrl);
+  } catch {
+    return '';
+  }
+  const noisyParams = [
+    'utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content',
+    'gclid', 'fbclid', 'mc_cid', 'mc_eid', '_ga', '_gl', 'trk', 'tracking',
+    'source', 'medium', 'campaign',
+  ];
+  for (const key of noisyParams) u.searchParams.delete(key);
+  u.hash = '';
+  const pathClean = u.pathname.replace(/\/+$/, '');
+  return `${u.origin}${pathClean}${u.search ? `?${u.searchParams.toString()}` : ''}`.toLowerCase();
+}
+
+function extractUuidLikeId(raw = '') {
+  const text = String(raw || '');
+  const uuidMatch = text.match(/\b[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}\b/i);
+  return uuidMatch?.[0] ? uuidMatch[0].toLowerCase() : '';
+}
+
+export function extractJobIdentityFromUrl(rawUrl = '') {
+  let u;
+  try {
+    u = new URL(rawUrl);
+  } catch {
+    return '';
+  }
+  const host = normalizeHost(u.hostname);
+  const full = `${host}${u.pathname}${u.search}`.toLowerCase();
+
+  const coopPathMatch = full.match(/\/(?:offene-stellen|posti-vacanti)\/[^/?#]+\/([^/?#]+)/i);
+  if (coopPathMatch?.[1]) {
+    const coopIdCandidate = normalizeSpace(coopPathMatch[1]);
+    const coopUuid = extractUuidLikeId(coopIdCandidate) || extractUuidLikeId(full);
+    if (coopUuid) return `${registrableDomain(host)}|${coopUuid}`;
+    if (coopIdCandidate) return `${registrableDomain(host)}|${coopIdCandidate.toLowerCase()}`;
+  }
+
+  const inPath = [
+    /\/jobs\/view\/(\d+)/i,
+    /\/job\/(\d+)/i,
+    /\/details\/([^/?#]+)/i,
+    /\/jobs\/(\d+)/i,
+    /\/positions\/(\d+)/i,
+    /\/vacanc(?:y|ies)\/(\d+)/i,
+    /\/(?:offene-stellen|posti-vacanti)\/[^/?#]+\/([^/?#]+)/i,
+    /\/career\/jobs\/([^/?#]+)/i,
+    /\/job\/[^/?#]*\/([^/?#]+)/i,
+  ];
+  for (const re of inPath) {
+    const m = full.match(re);
+    if (m?.[1]) return `${registrableDomain(host)}|${m[1]}`;
+  }
+  const queryKeys = ['jobid', 'job_id', 'gh_jid', 'jid', 'wdjobid', 'vacancyid'];
+  for (const key of queryKeys) {
+    const val = normalizeSpace(u.searchParams.get(key));
+    if (val) return `${registrableDomain(host)}|${val.toLowerCase()}`;
+  }
+  const hashRaw = normalizeSpace(u.hash.replace(/^#/, ''));
+  if (hashRaw) {
+    const keyedMatch = hashRaw.match(/(?:job[._-]?id|id)=(\w+)/i);
+    if (keyedMatch?.[1]) return `${registrableDomain(host)}|${keyedMatch[1].toLowerCase()}`;
+    if (hashRaw.length > 3 && /^[\w-]+$/.test(hashRaw)) {
+      return `${registrableDomain(host)}|#${hashRaw.toLowerCase()}`;
+    }
+  }
+  return '';
+}
+
+// ── Slugify ──────────────────────────────────────────────────
+
+export function slugify(input = '', maxLen = 140) {
+  return normalizeSpace(decodeNumericEntities(decodeHtmlEntities(input)))
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '')
+    .slice(0, maxLen);
+}
+
+// ── Slug quality checks ──────────────────────────────────────
+
+export function isLowQualityLocalizedTitle(value = '') {
+  const t = normalizeSpace(value || '');
+  if (!t) return true;
+  if (t.length < 3) return true;
+  if (/^(h|he|her|here|here is|title|job title)\b/i.test(t)) return true;
+  if (/^[\W_]+$/.test(t)) return true;
+  return false;
+}
+
+const SLUG_BOILERPLATE_PATTERNS = [
+  /permette-di-combinare-efficacemente/,
+  /garantendo-alla-popolaz/,
+  /visione-d-insieme-garantendo/,
+  /approccio-locale-e-visione/,
+];
+
+export function isLowQualityLocalizedSlug(value = '') {
+  const s = normalizeSpace(value || '');
+  if (!s) return true;
+  if (s.length < 12) return true;
+  if (/^(h|he|her|here)(-|$)/i.test(s)) return true;
+  if (!/^[a-z0-9-]+$/i.test(s)) return true;
+  if (SLUG_BOILERPLATE_PATTERNS.some(re => re.test(s))) return true;
+  return false;
+}
+
+// ── Job fingerprinting & deduplication ───────────────────────
+
+export function fingerprintJob(job) {
+  const identity = extractJobIdentityFromUrl(job.url || '');
+  if (identity) return `id|${identity}`;
+
+  const canonicalUrl = canonicalizeJobUrl(job.url || '');
+  if (canonicalUrl) return `url|${canonicalUrl}`;
+
+  const domain = registrableDomain(hostOf(job.url || '')) || normalizeSpace(job.company).toLowerCase();
+  const key = `${normalizeSpace(job.title).toLowerCase()}|${normalizeSpace(job.location).toLowerCase()}|${domain}`;
+  return `tl|${key.replace(/\s+/g, ' ')}`;
+}
+
+export function dedupHeuristicKey(job) {
+  const identity = extractJobIdentityFromUrl(job?.url || '');
+  if (identity) return `id|${identity}`;
+
+  const domain = registrableDomain(hostOf(job?.url || '')) || normalizeSpace(job?.company).toLowerCase();
+  const company = normalizeSpace(job?.company || '').toLowerCase().replace(/\s+/g, ' ');
+  const title = normalizeSpace(job?.title || '').toLowerCase().replace(/\s+/g, ' ');
+  const location = normalizeSpace(job?.location || '').toLowerCase().replace(/\s+/g, ' ');
+  const canton = normalizeCantonCode(job?.canton || '');
+  const contract = normalizeContract(job?.contract || '', job?.title || '', '').toLowerCase();
+  const category = normalizeSpace(job?.category || '').toLowerCase();
+  const salaryMin = Number.isFinite(Number(job?.salaryMin)) ? Math.round(Number(job.salaryMin)) : '';
+  const salaryMax = Number.isFinite(Number(job?.salaryMax)) ? Math.round(Number(job.salaryMax)) : '';
+
+  return `h|${domain}|${company}|${title}|${location}|${canton}|${contract}|${category}|${salaryMin}-${salaryMax}`;
+}
+
+// ── Slug registry (persistent slug-to-fingerprint mapping) ───
+
+const SLUG_REGISTRY_PATH = path.resolve(
+  import.meta.dirname || path.dirname(new URL(import.meta.url).pathname),
+  '..', '..', 'data', 'slug-registry.json',
+);
+
+export function loadSlugRegistry() {
+  try {
+    if (fs.existsSync(SLUG_REGISTRY_PATH)) {
+      return JSON.parse(fs.readFileSync(SLUG_REGISTRY_PATH, 'utf-8'));
+    }
+  } catch { /* ignore malformed file */ }
+  return {};
+}
+
+export function saveSlugRegistry(registry) {
+  fs.writeFileSync(SLUG_REGISTRY_PATH, JSON.stringify(registry, null, 2) + '\n');
+}
+
+export function getRegisteredSlug(job, registry) {
+  const fp = fingerprintJob(job);
+  if (!fp || !registry[fp]) return null;
+  return registry[fp];
+}
+
+export function registerJobSlug(job, registry) {
+  const fp = fingerprintJob(job);
+  if (!fp || fp.startsWith('tl|')) return;
+  const slug = String(job.slug || '').trim();
+  if (!slug) return;
+  if (registry[fp]) return; // Never overwrite — immutable
+  registry[fp] = {
+    canonicalSlug: slug,
+    slugByLocale: job.slugByLocale && typeof job.slugByLocale === 'object'
+      ? { ...job.slugByLocale }
+      : {},
+    createdAt: new Date().toISOString().slice(0, 10),
+  };
+}
+
+// ── Slug generation ──────────────────────────────────────────
+
+export function ensureJobSlug(job) {
+  const titleSlug = slugify(job.title);
+  const fullSlug = slugify(`${job.title}-${job.company}-${job.location}`);
+  const base = (fullSlug && fullSlug.length <= 140) ? fullSlug : (titleSlug || job.id || 'job');
+  return base;
+}
+
+export function stableSlugHash(job) {
+  const fp = fingerprintJob(job);
+  if (!fp || fp.startsWith('tl|')) return null;
+  let hash = 0;
+  for (const c of fp) hash = ((hash << 5) - hash + c.charCodeAt(0)) | 0;
+  return Math.abs(hash).toString(36).padStart(6, '0').slice(-6);
+}
+
+export function buildStableId(job) {
+  const s = fingerprintJob(job);
+  let hash = 0;
+  for (let i = 0; i < s.length; i += 1) {
+    hash = ((hash << 5) - hash) + s.charCodeAt(i);
+    hash |= 0;
+  }
+  return `company-${Math.abs(hash).toString(36)}`;
 }

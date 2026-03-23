@@ -842,9 +842,17 @@ const App: React.FC = () => {
           sessionStorage.setItem('onetap_pending', '1');
           return;
         }
-        sessionStorage.setItem('onetap_prompted', '1');
-        sessionStorage.removeItem('onetap_pending');
-        promptOneTap().catch(() => {});
+        // FRO-329: defer to idle callback to avoid blocking main thread
+        const run = () => {
+          sessionStorage.setItem('onetap_prompted', '1');
+          sessionStorage.removeItem('onetap_pending');
+          promptOneTap().catch(() => {});
+        };
+        if ('requestIdleCallback' in window) {
+          (window as any).requestIdleCallback(run, { timeout: 5000 });
+        } else {
+          run();
+        }
       }, 2000);
     };
 
@@ -1049,15 +1057,24 @@ const App: React.FC = () => {
       analyticsReady = true;
       enableRuntimeSeo();
       cleanupAnalyticsListeners();
-      Analytics.init();
-      Analytics.trackPageView(`${window.location.pathname}${window.location.search}${window.location.hash}`);
-      Analytics.trackFunnelStep('entry', { source: document.referrer ? 'referral' : 'direct' });
-      // Init global error tracking (window.onerror, unhandledrejection, SW stale cache recovery)
-      Analytics.initGlobalErrorTracking();
-      // Init Web Vitals telemetry (reports CWV to GA4)
-      import('@/services/webVitals').then(m => m.initWebVitals()).catch(() => {});
-      // Init Microsoft Clarity (free heatmaps & session recordings)
-      import('@/services/clarity').then(m => m.initClarity()).catch(() => {});
+      // FRO-329: defer heavy analytics/tracking init to idle callback
+      // so it doesn't block the main thread during page interaction.
+      const run = () => {
+        Analytics.init();
+        Analytics.trackPageView(`${window.location.pathname}${window.location.search}${window.location.hash}`);
+        Analytics.trackFunnelStep('entry', { source: document.referrer ? 'referral' : 'direct' });
+        // Init global error tracking (window.onerror, unhandledrejection, SW stale cache recovery)
+        Analytics.initGlobalErrorTracking();
+        // Init Web Vitals telemetry (reports CWV to GA4)
+        import('@/services/webVitals').then(m => m.initWebVitals()).catch(() => {});
+        // Init Microsoft Clarity (free heatmaps & session recordings)
+        import('@/services/clarity').then(m => m.initClarity()).catch(() => {});
+      };
+      if ('requestIdleCallback' in window) {
+        (window as any).requestIdleCallback(run, { timeout: 3000 });
+      } else {
+        run();
+      }
     };
     analyticsEvents.forEach((eventName) => {
       window.addEventListener(eventName, initAnalytics, listenerOptions);
@@ -2115,22 +2132,9 @@ const App: React.FC = () => {
     navigateTo,
   };
 
-  // FRO-297: On slow mobile, itReady can take >20s to resolve (chunk parse time).
-  // The static HTML shell already has the real H1/content for a good LCP.
-  // Mounting SkeletonPageShell destroys that content → LCP regresses to >20s.
-  // Fix: keep skeleton gate but add a 3s safety timeout. After 3s, render the
-  // real app even if translations aren't loaded yet (t() returns keys as fallback,
-  // then re-renders once translations arrive — much better than 20s skeleton).
-  useEffect(() => {
-    if (!translationsReady) {
-      const timer = setTimeout(() => setTranslationsReady(true), 3000);
-      return () => clearTimeout(timer);
-    }
-  }, [translationsReady]);
-
-  if (!translationsReady) {
-    return <SkeletonPageShell />;
-  }
+  // FRO-310: Critical IT translations are loaded synchronously (it-critical.ts, ~4KB).
+  // isTranslationsReady() returns true immediately — no skeleton gate needed.
+  // Full translations (it-core + it-calculator) still load lazily in background.
 
   return (
     <ErrorBoundary>

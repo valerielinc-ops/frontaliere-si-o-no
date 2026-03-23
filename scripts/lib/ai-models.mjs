@@ -342,7 +342,7 @@ const DEFAULT_OPTS = {
   maxTokens: 4096,
   jsonMode: false,
   timeout: 30_000,
-  maxRetriesPerModel: 5,
+  maxRetriesPerModel: 2,   // FRO-325: reduced from 5 — failing models drain quota fast
   backoffMs: 2500,
   /** Override the default fallback chain */
   chain: undefined,
@@ -350,6 +350,11 @@ const DEFAULT_OPTS = {
 
 // ── Run-level state (reset only between process invocations) ─
 const _exhaustedModels = new Set();
+
+// FRO-325: Track consecutive 429s per model — exhaust after 2
+/** @type {Map<string, number>} model → consecutive 429 count */
+const _consecutive429 = new Map();
+const MAX_CONSECUTIVE_429 = 2;
 
 // Provider-level cooldown: when a provider returns 429, all its models
 // get a temporary cooldown to avoid wasting retries on sibling models.
@@ -714,11 +719,33 @@ export function getStats() {
   return {
     ..._stats,
     exhaustedModels: [..._exhaustedModels],
+    consecutive429s: Object.fromEntries(_consecutive429),  // FRO-325
     activeCooldowns: Object.fromEntries([..._providerCooldown].map(([p, t]) => [p, Math.max(0, Math.ceil((t - Date.now()) / 1000))])),
     scoreBoard: getScoreBoard(),
     storeBackend: _firestoreDb ? 'firestore' : 'memory',
     dirtyModels: _dirtyModels.size,
   };
+}
+
+/**
+ * FRO-325: Print a human-readable end-of-run summary to console.
+ * Call this at the end of a crawler run for visibility into AI usage.
+ */
+export function printRunSummary() {
+  const s = getStats();
+  const lines = [
+    `\n📊 AI Model Run Summary`,
+    `   Calls: ${s.calls} | Successes: ${s.successes} | Retries: ${s.retries} | Fallbacks: ${s.fallbacks}`,
+    `   Exhausted: ${s.exhausted} models [${s.exhaustedModels.join(', ') || 'none'}]`,
+    `   Provider cooldowns: ${s.providerCooldowns}`,
+  ];
+  if (Object.keys(s.consecutive429s).length > 0) {
+    lines.push(`   429 streak: ${Object.entries(s.consecutive429s).map(([m, c]) => `${m}=${c}`).join(', ')}`);
+  }
+  if (s.errors.length > 0) {
+    lines.push(`   Errors: ${s.errors.length}`);
+  }
+  console.log(lines.join('\n'));
 }
 
 /** Reset exhausted models and scores (useful for long-running processes or tests) */
@@ -1346,6 +1373,7 @@ export async function callLLM(messages, opts = {}) {
 
       // ✅ Success — boost this model's score so it stays near the top
       recordModelSuccess(model);
+      _consecutive429.delete(model); // FRO-325: reset 429 counter on success
 
       if (i > 0) {
         console.warn(`✅ Fallback to ${model} succeeded (score → ${_modelScores.get(model) || 0})`);
@@ -1361,6 +1389,20 @@ export async function callLLM(messages, opts = {}) {
         msg.includes('Daily quota') ||
         msg.toLowerCase().includes('exceeded your current quota') ||
         msg.toLowerCase().includes('plan and billing details');
+      // FRO-325: Track consecutive 429s — exhaust model after MAX_CONSECUTIVE_429
+      const is429Failure = /429|rate.?limit|resource.?exhausted/i.test(msg);
+      if (is429Failure) {
+        const count = (_consecutive429.get(model) || 0) + 1;
+        _consecutive429.set(model, count);
+        if (count >= MAX_CONSECUTIVE_429) {
+          markModelExhausted(model);
+          _stats.exhausted++;
+          console.warn(`🚫 [${model}] Exhausted after ${count} consecutive 429s`);
+        }
+      } else {
+        // Reset counter on non-429 failure (model is reachable but errored differently)
+        _consecutive429.delete(model);
+      }
       // Timeout circuit breaker: if a model timed out after retries, mark it
       // exhausted so subsequent callLLM invocations skip it entirely.
       const isTimeoutFailure = e.name === 'AbortError' || e.name === 'TimeoutError' || /timeout|aborted/i.test(msg);

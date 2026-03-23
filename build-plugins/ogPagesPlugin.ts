@@ -320,19 +320,9 @@ export function ogPagesPlugin(rootDir: string): Plugin {
             image: imgU,
             url: full,
             inLanguage: locale,
-            publisher: {
-              '@type': 'Organization',
-              name: 'Frontaliere Ticino',
-              url: BASE_URL,
-              logo: { '@type': 'ImageObject', url: `${BASE_URL}/icons/icon-512x512.png` },
-            },
-            author: {
-              '@type': 'Organization',
-              name: 'Frontaliere Ticino',
-              url: BASE_URL,
-              sameAs: ['https://www.facebook.com/profile.php?id=61588174947294'],
-              knowsAbout: ['Cross-border worker taxation Italy-Switzerland', 'Swiss withholding tax', 'Italian IRPEF', 'LAMal health insurance', 'Swiss pension system AVS/LPP'],
-            },
+            // Reference standalone Organization defined in index.html (FRO-312)
+            publisher: { '@id': `${BASE_URL}/#organization` },
+            author: { '@id': `${BASE_URL}/#organization` },
             mainEntityOfPage: full,
             speakable: {
               '@type': 'SpeakableSpecification',

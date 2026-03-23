@@ -298,7 +298,7 @@ export default function AdminPanel() {
   // Newsletter state
   const [nlSubscriberCount, setNlSubscriberCount] = useState<number | null>(null);
   const [nlLastSend, setNlLastSend] = useState<string | null>(null);
-  const [nlSubject, setNlSubject] = useState('Frontaliere Weekly');
+  const [nlSubject, setNlSubject] = useState('');
   const [nlPreviewHtml, setNlPreviewHtml] = useState<string | null>(null);
   const [nlPreviewLoading, setNlPreviewLoading] = useState(false);
   const [nlSending, setNlSending] = useState(false);
@@ -825,10 +825,14 @@ export default function AdminPanel() {
     setNlPreviewLoading(true);
     setNlSendResult(null);
     try {
-      const html = await buildNewsletterPreviewHtml({
-        subject: nlSubject.trim() || 'Frontaliere Weekly',
+      const result = await buildNewsletterPreviewHtml({
+        subject: nlSubject.trim() || '',
       });
-      setNlPreviewHtml(html);
+      setNlPreviewHtml(result.html);
+      // Update subject field with AI-generated subject if user hasn't typed one
+      if (!nlSubject.trim() || nlSubject === 'Frontaliere Weekly') {
+        setNlSubject(result.subject);
+      }
     } catch (err) {
       setNlSendResult(`✗ Errore generazione anteprima: ${err instanceof Error ? err.message : String(err)}`);
     } finally {

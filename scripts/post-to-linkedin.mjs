@@ -37,8 +37,9 @@ const CATEGORY_EMOJI = {
 
 async function getAccessToken() {
   const refreshToken = process.env.LINKEDIN_REFRESH_TOKEN;
-  const clientId = process.env.LINKEDIN_CLIENT_ID;
-  const clientSecret = process.env.LINKEDIN_CLIENT_SECRET;
+  // Prefer LINKEDIN_POSTING_* vars (from RC) over LINKEDIN_* (legacy GitHub Secrets)
+  const clientId = process.env.LINKEDIN_POSTING_CLIENT_ID || process.env.LINKEDIN_CLIENT_ID;
+  const clientSecret = process.env.LINKEDIN_POSTING_CLIENT_SECRET || process.env.LINKEDIN_CLIENT_SECRET;
   const staticToken = process.env.LINKEDIN_ACCESS_TOKEN;
 
   // Preferred: auto-refresh using refresh token

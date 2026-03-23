@@ -33,14 +33,36 @@ jobs:
         run: node scripts/generate-fuel-prices-dataset.mjs
 
       - name: Commit and push if changed
+        id: commit
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add data/fuel-prices.json public/data/fuel-prices.json
           if git diff --cached --quiet; then
             echo "ℹ️ No fuel price changes detected."
+            echo "has_changes=false" >> "$GITHUB_OUTPUT"
           else
             git commit -m "⛽ Auto-update fuel prices (Italy + Switzerland)"
             git pull --rebase origin main
             git push origin main
+            echo "has_changes=true" >> "$GITHUB_OUTPUT"
           fi
+
+      # FRO-349: Trigger deploy after data push (GITHUB_TOKEN pushes don't trigger workflows)
+      - name: Prepare Firebase credentials
+        if: steps.commit.outputs.has_changes == 'true'
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+            echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+          fi
+
+      - name: Load secrets from Remote Config
+        if: steps.commit.outputs.has_changes == 'true'
+        run: node scripts/load-rc-env.mjs
+
+      - name: Trigger deploy workflow
+        if: steps.commit.outputs.has_changes == 'true'
+        run: bash scripts/lib/trigger-deploy.sh || true
