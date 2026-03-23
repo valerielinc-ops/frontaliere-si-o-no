@@ -1,16 +1,16 @@
 {
   "key": "tsmg",
   "label": "TSMG",
-  "generatedAt": "2026-03-23T09:42:01.846Z",
+  "generatedAt": "2026-03-23T22:03:05.077Z",
   "total": 7,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 7,
-  "durationMs": 66078,
-  "avgDurationMs": 66078,
+  "durationMs": 73680,
+  "avgDurationMs": 73680,
   "durationHistory": [
-    66078
+    73680
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -73,7 +73,8 @@
           "maxValue": 97500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "6500"
     },
     {
       "title": "Tester conversazioni vocali AI (Italian native speaker - Switzerland regional variant)",
@@ -132,7 +133,8 @@
           "maxValue": 97500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "6900"
     },
     {
       "title": "Autista / Addetto raccolta dati in Chur, Switzerland",
@@ -191,7 +193,8 @@
           "maxValue": 78000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "7000"
     },
     {
       "title": "Autista / Addetto raccolta dati in Landquart, Switzerland (for Chur area)",
@@ -250,7 +253,8 @@
           "maxValue": 78000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "7302"
     },
     {
       "title": "Autista / Addetto raccolta dati in Obervaz, Switzerland (for Chur area)",
@@ -309,7 +313,8 @@
           "maxValue": 78000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "7000"
     },
     {
       "title": "Autista / Addetto raccolta dati in Bellinzona, Switzerland",
@@ -368,7 +373,8 @@
           "maxValue": 78000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "6500"
     },
     {
       "title": "Autista / Addetto raccolta dati in Chur, Switzerland",
@@ -427,7 +433,8 @@
           "maxValue": 78000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "7000"
     }
   ]
 }
