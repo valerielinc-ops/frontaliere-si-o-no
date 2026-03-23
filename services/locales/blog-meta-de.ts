@@ -1715,6 +1715,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.chiasso-ora-terra-2026.title': 'Chiasso nimmt an der Earth Hour 2026 teil',
     'blog.article.chiasso-ora-terra-2026.excerpt': 'Die Stadt Chiasso schließt sich der internationalen Initiative Earth Hour an und schaltet die öffentlichen Lichter am 28. März von 20:30 bis 21:30 Uhr aus.',
     'blog.article.chiasso-ora-terra-2026.imageAlt': 'Chiasso nimmt an der Earth Hour 2026 teil',
+    'blog.article.radar-ticino-riduzione.title': 'Radar-Reduzierung im Tessin',
+    'blog.article.radar-ticino-riduzione.excerpt': 'Die Kantonspolizei Tessin reduziert die Anzahl der Radar-Kontrollen',
+    'blog.article.radar-ticino-riduzione.imageAlt': 'Radar-Reduzierung in Tessin',
 };
 
 export default blogMetaDe;

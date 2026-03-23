@@ -1693,6 +1693,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-lugano-sicurezza-2025': { name: 'Sicurezza a Lugano', path: '/articoli-frontaliere/lugano-sicurezza-2025', parent: 'blog' },
     'blog-migranti-dublino-ticino': { name: 'Migranti Dublino', path: '/articoli-frontaliere/migranti-dublino-ticino', parent: 'blog' },
     'blog-chiasso-ora-terra-2026': { name: 'Ora della Terra Chiasso', path: '/articoli-frontaliere/chiasso-ora-terra-2026', parent: 'blog' },
+    'blog-radar-ticino-riduzione': { name: 'Riduzione radar', path: '/articoli-frontaliere/radar-ticino-riduzione', parent: 'blog' },
   };
 
   const info = sectionNames[section];

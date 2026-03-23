@@ -4629,6 +4629,13 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/chiasso-ora-terra-2026.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'radar-ticino-riduzione',
+    category: 'pratico',
+    date: '2026-03-23T16:14:32.093Z',
+    image: '/images/blog/radar-ticino-riduzione.jpg',
+    hasCalculator: true,
+  },
 ];
 
 const CATEGORIES = ['all', 'fiscale', 'pratico', 'novita', 'pensione'] as const;

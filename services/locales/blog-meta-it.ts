@@ -1715,6 +1715,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.chiasso-ora-terra-2026.title': 'Chiasso aderisce all\'Ora della Terra 2026',
     'blog.article.chiasso-ora-terra-2026.excerpt': 'La città di Chiasso si unisce all\'iniziativa internazionale Earth Hour, spegnendo le luci pubbliche il 28 marzo dalle 20.30 alle 21.30.',
     'blog.article.chiasso-ora-terra-2026.imageAlt': 'Chiasso partecipa all\'Ora della Terra 2026',
+    'blog.article.radar-ticino-riduzione.title': 'Riduzione radar in Ticino',
+    'blog.article.radar-ticino-riduzione.excerpt': 'La Polizia cantonale ticinese riduce il numero di controlli radar',
+    'blog.article.radar-ticino-riduzione.imageAlt': 'Riduzione radar in Ticino',
 };
 
 export default blogMetaIt;

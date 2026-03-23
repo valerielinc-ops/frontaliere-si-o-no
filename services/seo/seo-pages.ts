@@ -3049,7 +3049,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
         "@context": "https://schema.org",
         "@type": "ItemList",
         "name": "Articoli Frontaliere",
-        "numberOfItems": 562,
+        "numberOfItems": 563,
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
           { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -3612,7 +3612,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 559, "name": "Frontalieri: a Zurigo solo avanzi immobiliari", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-casa-zurigo` },
           { "@type": "ListItem", "position": 560, "name": "Sicurezza a Lugano: bilancio 2025 della Polizia...", "url": `${BASE_URL}/articoli-frontaliere/lugano-sicurezza-2025` },
           { "@type": "ListItem", "position": 561, "name": "Migranti Dublino: quanti casi e quali costi per...", "url": `${BASE_URL}/articoli-frontaliere/migranti-dublino-ticino` },
-          { "@type": "ListItem", "position": 562, "name": "Chiasso aderisce all'Ora della Terra 2026", "url": `${BASE_URL}/articoli-frontaliere/chiasso-ora-terra-2026` }
+          { "@type": "ListItem", "position": 562, "name": "Chiasso aderisce all'Ora della Terra 2026", "url": `${BASE_URL}/articoli-frontaliere/chiasso-ora-terra-2026` },
+          { "@type": "ListItem", "position": 563, "name": "Riduzione radar in Ticino", "url": `${BASE_URL}/articoli-frontaliere/radar-ticino-riduzione` }
         ]
       }
     ]

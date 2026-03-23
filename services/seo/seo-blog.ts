@@ -9709,6 +9709,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-radar-ticino-riduzione': {
+    title: 'Riduzione radar in Ticino | Frontaliere Ticino',
+    description: 'La Polizia cantonale ticinese riduce il numero di controlli radar. Scopri di più sulla sicurezza stradale in Ticino. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, riduzione, radar, polizia, cantonale',
+    ogTitle: 'Riduzione radar in Ticino',
+    ogDescription: 'La Polizia cantonale ticinese riduce il numero di controlli radar. Scopri di più sulla sicurezza stradale in Ticino.',
+    canonicalPath: '/articoli-frontaliere/radar-ticino-riduzione',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Riduzione radar in Ticino",
+      "description": "La Polizia cantonale ticinese riduce il numero di controlli radar. Scopri di più sulla sicurezza stradale in Ticino. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/radar-ticino-riduzione.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Riduzione radar in Ticino"
+      },
+      "datePublished": "2026-03-23T16:14:32+00:00",
+      "dateModified": "2026-03-23T16:14:32+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/radar-ticino-riduzione`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
