@@ -3,7 +3,7 @@ import path from 'node:path';
 
 import { describe, expect, it } from 'vitest';
 
-const DIST_DIR = path.resolve(__dirname, '..', 'dist');
+const DIST_DIR = path.resolve(__dirname, '..', '..', 'dist');
 
 /**
  * Recursively gather all index.html files under a directory.
