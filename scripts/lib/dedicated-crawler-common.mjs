@@ -924,6 +924,22 @@ export function hardenJobLocaleFields({ dataJobsPath }) {
       }
     }
 
+    // Truncate slugs > 120 chars to prevent filesystem ENOENT errors.
+    // Long slugs are simply shortened — no redirect needed since these
+    // are very long URLs that search engines rarely index well anyway.
+    const MAX_SLUG_LEN = 120;
+    for (const locale of DEFAULT_LOCALES) {
+      const slug = String(job.slugByLocale[locale] || '').trim();
+      if (slug.length > MAX_SLUG_LEN) {
+        job.slugByLocale[locale] = slug.slice(0, MAX_SLUG_LEN).replace(/-[^-]*$/, '') || slug.slice(0, MAX_SLUG_LEN);
+        jobChanged = true;
+      }
+    }
+    if (job.slug && String(job.slug).length > MAX_SLUG_LEN) {
+      job.slug = String(job.slug).slice(0, MAX_SLUG_LEN).replace(/-[^-]*$/, '') || String(job.slug).slice(0, MAX_SLUG_LEN);
+      jobChanged = true;
+    }
+
     const canonicalItSlug = String(job.slugByLocale.it || '').trim();
     if (canonicalItSlug) {
       const currentCanonicalSlug = String(job.slug || '').trim();

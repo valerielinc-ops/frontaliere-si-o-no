@@ -1942,6 +1942,14 @@ function validate(data) {
     // Non-blocking: log warning but don't reject the article outright,
     // as false positives are possible. The warning is visible in GH Actions.
   }
+  // Thin content guard: reject articles with very short body (SEO penalty risk)
+  const MIN_BODY_CHARS = 800;
+  const itBody = `${(data.content.it || data.content)?.body1 || ''} ${(data.content.it || data.content)?.body2 || ''} ${(data.content.it || data.content)?.body3 || ''}`;
+  const itPlainChars = itBody.replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim().length;
+  if (itPlainChars < MIN_BODY_CHARS) {
+    throw new Error(`Articolo troppo corto: ${itPlainChars} chars (min: ${MIN_BODY_CHARS}). Google penalizza thin content.`);
+  }
+
   // Slug validation for translated locales (slugs come from IT generation call)
   for (const locale of ['en', 'de', 'fr']) {
     if (!data.slugs[locale]) throw new Error(`Slug mancante per ${locale}`);
