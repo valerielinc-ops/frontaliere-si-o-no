@@ -3846,6 +3846,14 @@ async function generateAndValidateArticle(url, sourceContext = null) {
   modifySitemap(data);
   modifySitemapNews(data);
 
+  // Step 4a.2: Regenerate RSS feeds (includes the new article)
+  try {
+    const { execSync } = await import('child_process');
+    execSync('node scripts/generate-rss-feeds.mjs', { cwd: ROOT, stdio: 'inherit' });
+  } catch (e) {
+    console.error(`⚠️  RSS feed generation failed (non-blocking): ${e.message}`);
+  }
+
   // Step 4b: Validate structured data (simulates ogPagesPlugin extraction)
   console.error('\n🔍 Validazione dati strutturati:');
   validateStructuredData(data);

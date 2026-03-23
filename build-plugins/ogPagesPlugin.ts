@@ -347,6 +347,7 @@ export function ogPagesPlugin(rootDir: string): Plugin {
     <meta name="twitter:description" content="${esc(localizedDesc)}">
     <meta name="twitter:image" content="${imgU}">
 ${href}
+    <link rel="alternate" type="application/rss+xml" title="Frontaliere Ticino" href="${BASE_URL}/rss.xml">
     <script type="application/ld+json">${ldJsonStr}</script>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">`;
 
