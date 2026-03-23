@@ -1,0 +1,78 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Social proof counter — public increment
+    match /counters/{counterId} {
+      allow read, write: if true;
+    }
+
+    // Saved simulations — owned by authenticated user
+    match /simulations/{simId} {
+      allow read: if request.auth != null;
+      allow create: if request.auth != null && request.auth.uid == request.resource.data.userId;
+      allow delete: if request.auth != null && request.auth.uid == resource.data.userId;
+    }
+
+    // Forum questions — public read, auth write/delete own
+    match /forum_questions/{questionId} {
+      allow read: if true;
+      allow create: if request.auth != null;
+      allow update: if request.auth != null;
+      allow delete: if request.auth != null && request.auth.uid == resource.data.authorId;
+    }
+
+    // Forum answers — public read, auth write/delete own
+    match /forum_answers/{answerId} {
+      allow read: if true;
+      allow create: if request.auth != null;
+      allow update: if request.auth != null;
+      allow delete: if request.auth != null && request.auth.uid == resource.data.authorId;
+    }
+
+    // Newsletter subscribers — public subscribe/unsubscribe (including sub-collections)
+    match /newsletter_subscribers/{email} {
+      allow read, write: if true;
+      match /{document=**} {
+        allow read, write: if true;
+      }
+    }
+
+    // Feedback — owned by authenticated user
+    match /feedback/{docId} {
+      allow read: if request.auth != null && request.auth.uid == resource.data.userId;
+      allow create: if request.auth != null && request.auth.uid == request.resource.data.userId;
+      allow delete: if request.auth != null && request.auth.uid == resource.data.userId;
+    }
+
+    // Contact submissions — anonymous create only
+    match /contact_submissions/{docId} {
+      allow create: if true;
+    }
+
+    // Salary survey — public
+    match /salary_survey/{docId} {
+      allow read, write: if true;
+    }
+
+    // Traffic data — public read only (writes via Admin SDK)
+    match /trafficCurrent/{docId} {
+      allow read: if true;
+    }
+    match /trafficHistory/{slug}/snapshots/{snapshotId} {
+      allow read: if true;
+    }
+
+    // Job alerts — owned by authenticated user
+    match /job_alerts/{alertId} {
+      allow read, write: if request.auth != null && request.auth.uid == resource.data.userId;
+      allow create: if request.auth != null && request.auth.uid == request.resource.data.userId;
+    }
+
+    // Config — read only for clients (writes via Admin SDK)
+    match /config/{docId} {
+      allow read: if true;
+    }
+  }
+}
