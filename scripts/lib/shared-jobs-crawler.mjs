@@ -25,7 +25,7 @@ import { execFile } from 'node:child_process';
 import { promisify } from 'node:util';
 import { printPublishedJobUrls, writeJobsSummary, snapshotJobSlugs, computeCrawlDiff, printCrawlChangeSummary, writeCrawlChangeSummaryToGH } from '../jobs-url-helper.mjs';
 import { detectJobTitleLang, detectJobTitleLocaleDetails } from './job-locale-utils.mjs';
-import { heuristicTranslateJobTitle, detectLang, normalizeKey } from './dedicated-crawler-common.mjs';
+import { heuristicTranslateJobTitle, detectLang, normalizeKey, guessCategory, normalizeContract } from './dedicated-crawler-common.mjs';
 import {
   getJobLocalizationPipelineStats,
   localizeJobContentWithPipeline,
@@ -201,20 +201,7 @@ const CAREER_HINTS = [
   '/lavora',
 ];
 
-const CONTRACT_MAP = {
-  full_time: 'full-time',
-  fulltime: 'full-time',
-  full: 'full-time',
-  fulltimeemployment: 'full-time',
-  part_time: 'part-time',
-  parttime: 'part-time',
-  temporary: 'temporary',
-  temp: 'temporary',
-  intern: 'internship',
-  internship: 'internship',
-  contractor: 'contract',
-  contract: 'contract',
-};
+// CONTRACT_MAP, guessCategory, normalizeContract imported from dedicated-crawler-common.mjs
 
 const COMPANY_DISCOVERY_DOMAIN_BLACKLIST = new Set([
   'linkedin.com',
@@ -1087,33 +1074,7 @@ function dateOnly(input) {
   return d.toISOString().slice(0, 10);
 }
 
-function guessCategory(title = '', description = '') {
-  const t = `${title} ${description}`.toLowerCase();
-  // Check strong healthcare markers only (avoid generic "health and wellness" benefits
-  // causing false positives on non-health jobs such as marketing/retail internships).
-  if (/(nurse|doctor|clinica|ospedal|healthcare|health\s*care|medical|infermier|farmac|medico|psicologo|psichiatr|sanitari|terapist|chirurg|ostetr|ortoped|salute\s+mentale|curante)\b/.test(t)) return 'health';
-  if (/(software|developer|devops|cloud|frontend|backend|full stack|security|informatica|sviluppo\s+software)\b/.test(t)) return 'tech';
-  if (/\b(data\s+(?:engineer|scien|analy|warehouse|lake|pipelin|mining|govern)|programm(?:er|ier|ing|ierung))\b/.test(t)) return 'tech';
-  if (/(finance|bank|contab|account|audit|tax|wealth|risk|finanz|cred|invest)/.test(t)) return 'finance';
-  if (/(engineer|ingegner|mechanic|electrical|automation|industrial|lavori\s+pubblici|edil|costruzion)/.test(t)) return 'engineering';
-  if (/(admin|assistant|back office|hr|human resources|segret|amministrativ|servizi\s+generali|operatore\s+socio|collaborat\w+\s+amministrativ)/.test(t)) return 'admin';
-  if (/(sales|commercial|business development|account manager|retail|store|vendita|commerciale)/.test(t)) return 'sales';
-  return 'other';
-}
-
-function normalizeContract(raw = '', title = '', description = '') {
-  const s = normalizeSpace(`${raw} ${title} ${description}`).toLowerCase();
-  const percent = Number((s.match(/\b(\d{1,3})\s*%/)?.[1] || ''));
-  if (Number.isFinite(percent) && percent > 0 && percent < 90) return 'part-time';
-  for (const [k, v] of Object.entries(CONTRACT_MAP)) {
-    if (s.replace(/[\s-]/g, '_').includes(k)) return v;
-  }
-  if (/(part[- ]?time|tempo parziale)/.test(s)) return 'part-time';
-  if (/\b(intern|internship|stage|tirocinio|apprendist)\b/.test(s)) return 'internship';
-  if (/\b(temp|temporary|determinato|fixed[- ]term)\b/.test(s)) return 'temporary';
-  if (/\b(contractor|freelance|consul)\b/.test(s)) return 'contract';
-  return 'full-time';
-}
+// guessCategory and normalizeContract imported from dedicated-crawler-common.mjs
 
 function extractRequirements(description) {
   const text = normalizeSpace(description);
