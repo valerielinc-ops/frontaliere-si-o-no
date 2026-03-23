@@ -1733,6 +1733,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.crescita-economica-ticino-2026.title': 'Crescita economica moderata in Svizzera nel 2026',
     'blog.article.crescita-economica-ticino-2026.excerpt': 'Gli economisti prevedono una crescita del PIL dell\'1,0% per l\'anno in corso e un miglioramento per il 2027',
     'blog.article.crescita-economica-ticino-2026.imageAlt': 'Vista di Lugano con strade commerciali',
+    'blog.article.lombardia-sport-ticino.title': 'Lombardia investe 30 milioni per lo sport',
+    'blog.article.lombardia-sport-ticino.excerpt': 'La Regione Lombardia ha stanziato 30 milioni di euro per finanziare progetti sportivi nelle province',
+    'blog.article.lombardia-sport-ticino.imageAlt': 'Impianto sportivo in Lombardia',
 };
 
 export default blogMetaIt;

@@ -9883,6 +9883,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-lombardia-sport-ticino': {
+    title: 'Lombardia investe 30 milioni per lo sport | Frontaliere Ticino',
+    description: 'La Regione Lombardia ha stanziato 30 milioni di euro per finanziare progetti sportivi nelle province. Scopri di più sul Bando Impianti Sportivi 2025.',
+    keywords: 'frontalieri, ticino, svizzera, italia, lombardia, investe, milioni, sport',
+    ogTitle: 'Lombardia investe 30 milioni per lo sport',
+    ogDescription: 'La Regione Lombardia ha stanziato 30 milioni di euro per finanziare progetti sportivi nelle province. Scopri di più sul Bando Impianti Sportivi 2025.',
+    canonicalPath: '/articoli-frontaliere/lombardia-sport-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Lombardia investe 30 milioni per lo sport",
+      "description": "La Regione Lombardia ha stanziato 30 milioni di euro per finanziare progetti sportivi nelle province. Scopri di più sul Bando Impianti Sportivi 2025.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/lombardia-sport-ticino.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Impianto sportivo in Lombardia"
+      },
+      "datePublished": "2026-03-23T19:36:51+00:00",
+      "dateModified": "2026-03-23T19:36:51+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/lombardia-sport-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

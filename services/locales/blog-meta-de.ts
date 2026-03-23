@@ -1733,6 +1733,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.crescita-economica-ticino-2026.title': 'Maßvolles Wirtschaftswachstum in der Schweiz im Jahr 2026',
     'blog.article.crescita-economica-ticino-2026.excerpt': 'Ökonomen prognostizieren ein Wirtschaftswachstum des BIP von 1,0% für das laufende Jahr und eine Verbesserung für 2027',
     'blog.article.crescita-economica-ticino-2026.imageAlt': 'Lugano Geschäftsstraße',
+    'blog.article.lombardia-sport-ticino.title': 'Lombardei investiert 30 Millionen für den Sport',
+    'blog.article.lombardia-sport-ticino.excerpt': 'Die Region Lombardei hat 30 Millionen Euro bereitgestellt, um sportliche Projekte in den Provinzen zu finanzieren',
+    'blog.article.lombardia-sport-ticino.imageAlt': 'Sportanlage in der Lombardei',
 };
 
 export default blogMetaDe;

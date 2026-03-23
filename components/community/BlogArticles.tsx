@@ -4671,6 +4671,13 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/crescita-economica-ticino-2026.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'lombardia-sport-ticino',
+    category: 'pratico',
+    date: '2026-03-23T19:36:51.174Z',
+    image: '/images/blog/lombardia-sport-ticino.jpg',
+    hasCalculator: true,
+  },
 ];
 
 const CATEGORIES = ['all', 'fiscale', 'pratico', 'novita', 'pensione'] as const;
