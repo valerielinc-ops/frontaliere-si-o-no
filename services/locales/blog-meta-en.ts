@@ -1718,6 +1718,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.radar-ticino-riduzione.title': 'Reduction of Radar Controls in Ticino',
     'blog.article.radar-ticino-riduzione.excerpt': 'The Ticino Cantonal Police is reducing the number of radar controls on the roads of the Canton of Ticino',
     'blog.article.radar-ticino-riduzione.imageAlt': 'Radar reduction in Ticino',
+    'blog.article.nomine-sims-illegittime.title': 'Illegitimate SIMS Appointments',
+    'blog.article.nomine-sims-illegittime.excerpt': 'State Councilor Marina Carobbio has expressed her views on the illegitimate appointments to the management of the Upper Secondary Education Section (SIMS).',
+    'blog.article.nomine-sims-illegittime.imageAlt': 'Meeting of the Ticino Grand Council',
 };
 
 export default blogMetaEn;

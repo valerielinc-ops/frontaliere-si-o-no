@@ -4636,6 +4636,13 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/radar-ticino-riduzione.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'nomine-sims-illegittime',
+    category: 'pratico',
+    date: '2026-03-23T17:11:03.536Z',
+    image: '/images/blog/nomine-sims-illegittime.jpg',
+    hasCalculator: true,
+  },
 ];
 
 const CATEGORIES = ['all', 'fiscale', 'pratico', 'novita', 'pensione'] as const;

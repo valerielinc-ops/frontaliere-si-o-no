@@ -9738,6 +9738,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-nomine-sims-illegittime': {
+    title: 'Nomine SIMS illegittime | Frontaliere Ticino',
+    description: 'La consigliera di Stato Marina Carobbio si è espressa sulle nomine illegittime alla guida della Sezione dell’insegnamento medio superiore (SIMS).',
+    keywords: 'frontalieri, ticino, svizzera, italia, nomine, sims, illegittime, consigliera',
+    ogTitle: 'Nomine SIMS illegittime',
+    ogDescription: 'La consigliera di Stato Marina Carobbio si è espressa sulle nomine illegittime alla guida della Sezione dell’insegnamento medio superiore (SIMS).',
+    canonicalPath: '/articoli-frontaliere/nomine-sims-illegittime',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Nomine SIMS illegittime",
+      "description": "La consigliera di Stato Marina Carobbio si è espressa sulle nomine illegittime alla guida della Sezione dell’insegnamento medio superiore (SIMS).",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/nomine-sims-illegittime.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Riunione del Gran Consiglio ticinese"
+      },
+      "datePublished": "2026-03-23T17:11:03+00:00",
+      "dateModified": "2026-03-23T17:11:03+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/nomine-sims-illegittime`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

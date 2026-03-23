@@ -1718,6 +1718,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.radar-ticino-riduzione.title': 'Riduzione radar in Ticino',
     'blog.article.radar-ticino-riduzione.excerpt': 'La Polizia cantonale ticinese riduce il numero di controlli radar',
     'blog.article.radar-ticino-riduzione.imageAlt': 'Riduzione radar in Ticino',
+    'blog.article.nomine-sims-illegittime.title': 'Nomine SIMS illegittime',
+    'blog.article.nomine-sims-illegittime.excerpt': 'La consigliera di Stato Marina Carobbio si è espressa sulle nomine illegittime alla guida della Sezione dell’insegnamento medio superiore (SIMS).',
+    'blog.article.nomine-sims-illegittime.imageAlt': 'Riunione del Gran Consiglio ticinese',
 };
 
 export default blogMetaIt;

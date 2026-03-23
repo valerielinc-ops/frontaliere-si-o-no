@@ -1718,6 +1718,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.radar-ticino-riduzione.title': 'Radar-Reduzierung im Tessin',
     'blog.article.radar-ticino-riduzione.excerpt': 'Die Kantonspolizei Tessin reduziert die Anzahl der Radar-Kontrollen',
     'blog.article.radar-ticino-riduzione.imageAlt': 'Radar-Reduzierung in Tessin',
+    'blog.article.nomine-sims-illegittime.title': 'Unrechtmäßige Ernennungen bei SIMS',
+    'blog.article.nomine-sims-illegittime.excerpt': 'Die Staatsrätin Marina Carobbio hat sich zu den unrechtmäßigen Ernennungen an der Spitze der Abteilung für höhere Mittelschulbildung (SIMS) geäußert.',
+    'blog.article.nomine-sims-illegittime.imageAlt': 'Sitzung des Grossen Rats Tessin',
 };
 
 export default blogMetaDe;
