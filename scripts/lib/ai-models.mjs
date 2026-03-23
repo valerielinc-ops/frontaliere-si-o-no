@@ -901,10 +901,10 @@ async function _callOpenAICompatible(apiModel, messages, opts, { endpoint, apiKe
       // Parse response
       const data = JSON.parse(raw);
       let text = data?.choices?.[0]?.message?.content || '';
-      // Strip <think> reasoning tags from reasoning models
-      if (text && REASONING_MODELS.has(apiModel)) {
-        text = stripThinkTags(text);
-      }
+      // Strip <think> reasoning tags — apply universally (safe: no valid
+      // translation output contains <think> XML; catches models not yet in
+      // REASONING_MODELS set that still emit chain-of-thought tags)
+      if (text) text = stripThinkTags(text);
       if (!text) {
         if (attempt < opts.maxRetriesPerModel) {
           _stats.retries++;

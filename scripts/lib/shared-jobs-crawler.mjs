@@ -19,11 +19,11 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { createHash } from 'node:crypto';
-import { callLLM, AI_MODELS, isModelAvailable, isAnyModelAvailable, getStats as getAiStats, initScoreStore, flushScores } from './ai-models.mjs';
-import { validateJobUrl, validateJobUrls, isFreshProtected } from './validate-job-url.mjs';
+import { callLLM, isAnyModelAvailable, getStats as getAiStats, initScoreStore, flushScores } from './ai-models.mjs';
+import { validateJobUrls } from './validate-job-url.mjs';
 import { execFile } from 'node:child_process';
 import { promisify } from 'node:util';
-import { printPublishedJobUrls, writeJobsSummary, snapshotJobSlugs, computeCrawlDiff, printCrawlChangeSummary, writeCrawlChangeSummaryToGH } from '../jobs-url-helper.mjs';
+import { writeJobsSummary, snapshotJobSlugs, computeCrawlDiff, printCrawlChangeSummary, writeCrawlChangeSummaryToGH } from '../jobs-url-helper.mjs';
 import { detectJobTitleLang, detectJobTitleLocaleDetails } from './job-locale-utils.mjs';
 import { heuristicTranslateJobTitle, detectLang, normalizeKey, guessCategory, normalizeContract, qualityScore, evaluateJobQuality, isLikelyGenericCareerTitle, isLikelyJobDetailUrl } from './dedicated-crawler-common.mjs';
 import {
@@ -358,7 +358,7 @@ function readJson(filePath, fallback = null) {
   }
 }
 
-const normalizeCompanyKey = (input) => normalizeKey(input).slice(0, 64);
+function normalizeCompanyKey(input) { return normalizeKey(input).slice(0, 64); }
 
 function writeJson(filePath, value) {
   const dir = path.dirname(filePath);
