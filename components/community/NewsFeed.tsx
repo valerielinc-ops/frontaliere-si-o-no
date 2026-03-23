@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useMemo, useCallback } from 'react';
 import { useTranslation, loadBlogMeta } from '@/services/i18n';
 import { buildPath } from '@/services/router';
-import { ARTICLES } from '@/data/blog-articles-data';
+import type { Article } from '@/data/blog-articles-data';
 import { ChevronRight, ChevronLeft, Newspaper } from 'lucide-react';
 import { Analytics } from '@/services/analytics';
 
@@ -17,9 +17,17 @@ const NewsFeed: React.FC<NewsFeedProps> = ({ onNavigate }) => {
   const { t, locale } = useTranslation();
   const [blogReady, setBlogReady] = useState(false);
   const [idx, setIdx] = useState(0);
+  // FRO-346: Dynamic import so blog-articles-data chunk isn't loaded until NewsFeed mounts
+  const [articles, setArticles] = useState<Article[]>([]);
 
   useEffect(() => {
-    loadBlogMeta().then(() => setBlogReady(true)).catch(() => {});
+    Promise.all([
+      loadBlogMeta(),
+      import('@/data/blog-articles-data').then(m => m.ARTICLES),
+    ]).then(([, data]) => {
+      setArticles(data);
+      setBlogReady(true);
+    }).catch(() => {});
   }, []);
 
   useEffect(() => {
@@ -27,10 +35,10 @@ const NewsFeed: React.FC<NewsFeedProps> = ({ onNavigate }) => {
   }, []);
 
   const latestArticles = useMemo(() => {
-    return [...ARTICLES]
+    return [...articles]
       .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
       .slice(0, 5);
-  }, []);
+  }, [articles]);
 
   const count = latestArticles.length;
 
