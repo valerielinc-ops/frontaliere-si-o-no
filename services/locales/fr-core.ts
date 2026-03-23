@@ -2188,6 +2188,17 @@ Règles :
     'seoContent.stats.check4': 'Données sur la communauté frontalière tessinoise',
 
     // ─── What's New / Feature Announcements ─────────────────────────────────
+    'whatsNew.v3370.title': 'Améliorations de la recherche d\'emploi et stabilité de l\'application',
+    'whatsNew.v3370.repair-job-locale.title': 'Traductions plus précises des offres d\'emploi',
+    'whatsNew.v3370.repair-job-locale.desc': 'Nous avons corrigé les traductions des offres d\'emploi pour les rendre plus claires et supprimé les offres expirées pour une meilleure expérience de recherche.',
+    'whatsNew.v3370.correct-swapped-iten.title': 'Catégorie d\'emploi en économie domestique corrigée',
+    'whatsNew.v3370.correct-swapped-iten.desc': 'Nous avons résolu un problème où les emplois en économie domestique s\'affichaient dans la mauvaise langue, garantissant leur affichage correct.',
+    'whatsNew.v3370.remove-invalid-jobposting.title': 'Données invalides supprimées des offres d\'emploi',
+    'whatsNew.v3370.remove-invalid-jobposting.desc': 'Nous avons supprimé des informations incorrectes des offres d\'emploi et mis à jour les données pour améliorer la fiabilité des informations présentées.',
+    'whatsNew.v3370.increase-global-test.title': 'Stabilité améliorée des tests internes',
+    'whatsNew.v3370.increase-global-test.desc': 'Nous avons augmenté le temps alloué aux tests internes, rendant l\'application plus stable et fiable pour tous.',
+    'whatsNew.v3370.increase-waitforlivearticlemeta-test.title': 'Attente améliorée pour les mises à jour de contenu',
+    'whatsNew.v3370.increase-waitforlivearticlemeta-test.desc': 'Nous avons optimisé la manière dont l\'application attend les mises à jour de contenu, garantissant que les informations les plus récentes soient toujours disponibles.',
     'whatsNew.v3360.title': 'Améliorations de la qualité et nouvelles fonctionnalités IA',
     'whatsNew.v3360.translation-pipeline.title': 'Meilleure qualité de traduction automatique',
     'whatsNew.v3360.translation-pipeline.desc': 'Nous avons ajouté des vérifications pour garantir que les traductions sont précises et dans la bonne langue. Cela rend vos traductions plus fiables.',

@@ -2188,6 +2188,17 @@ Regeln:
     'seoContent.stats.check4': 'Daten zur Tessiner Grenzgänger-Gemeinschaft',
 
     // ─── What's New / Feature Announcements ─────────────────────────────
+    'whatsNew.v3370.title': 'Verbesserungen bei der Jobsuche und App-Stabilität',
+    'whatsNew.v3370.repair-job-locale.title': 'Genauere Übersetzungen von Stellenanzeigen',
+    'whatsNew.v3370.repair-job-locale.desc': 'Wir haben die Übersetzungen von Stellenanzeigen korrigiert, um sie klarer zu machen, und abgelaufene Anzeigen entfernt, um die Sucherfahrung zu verbessern.',
+    'whatsNew.v3370.correct-swapped-iten.title': 'Korrigierte Kategorie für Haushaltsberufe',
+    'whatsNew.v3370.correct-swapped-iten.desc': 'Wir haben ein Problem behoben, bei dem Haushaltsberufe in der falschen Sprache angezeigt wurden, und stellen sicher, dass sie korrekt angezeigt werden.',
+    'whatsNew.v3370.remove-invalid-jobposting.title': 'Ungültige Daten aus Stellenanzeigen entfernt',
+    'whatsNew.v3370.remove-invalid-jobposting.desc': 'Wir haben fehlerhafte Informationen aus Stellenanzeigen entfernt und Daten aktualisiert, um die Zuverlässigkeit der angezeigten Informationen zu verbessern.',
+    'whatsNew.v3370.increase-global-test.title': 'Verbesserte Stabilität bei internen Tests',
+    'whatsNew.v3370.increase-global-test.desc': 'Wir haben die für interne Tests zulässige Zeit erhöht, wodurch die App für alle stabiler und zuverlässiger wird.',
+    'whatsNew.v3370.increase-waitforlivearticlemeta-test.title': 'Verbesserte Wartezeit für Inhaltsaktualisierungen',
+    'whatsNew.v3370.increase-waitforlivearticlemeta-test.desc': 'Wir haben optimiert, wie die App auf Inhaltsaktualisierungen wartet, und stellt sicher, dass die neuesten Informationen immer verfügbar sind.',
     'whatsNew.v3360.title': 'Qualitätsverbesserungen und neue KI-Funktionen',
     'whatsNew.v3360.translation-pipeline.title': 'Bessere automatische Übersetzungsqualität',
     'whatsNew.v3360.translation-pipeline.desc': 'Wir haben Prüfungen hinzugefügt, um sicherzustellen, dass Übersetzungen korrekt und in der richtigen Sprache sind. Dies macht Ihre Übersetzungen zuverlässiger.',

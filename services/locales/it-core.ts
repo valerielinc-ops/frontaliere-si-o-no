@@ -2280,6 +2280,17 @@ Regole:
     'seoContent.stats.check4': 'Dati sulla comunità frontaliera Ticino',
 
     // ─── What's New / Feature Announcements ─────────────────────────────
+    'whatsNew.v3370.title': 'Miglioramenti alla ricerca di lavoro e stabilità dell\'app',
+    'whatsNew.v3370.repair-job-locale.title': 'Traduzioni annunci di lavoro più accurate',
+    'whatsNew.v3370.repair-job-locale.desc': 'Abbiamo corretto le traduzioni degli annunci di lavoro per renderli più chiari e abbiamo rimosso gli annunci scaduti per una migliore esperienza di ricerca.',
+    'whatsNew.v3370.correct-swapped-iten.title': 'Corretta categorizzazione annunci di economia domestica',
+    'whatsNew.v3370.correct-swapped-iten.desc': 'Abbiamo risolto un problema che mostrava gli annunci di lavoro di economia domestica nella lingua sbagliata, assicurando che vengano visualizzati correttamente.',
+    'whatsNew.v3370.remove-invalid-jobposting.title': 'Rimossi dati non validi dagli annunci di lavoro',
+    'whatsNew.v3370.remove-invalid-jobposting.desc': 'Abbiamo eliminato informazioni non corrette dagli annunci di lavoro e aggiornato i dati per migliorare l\'affidabilità delle informazioni presentate.',
+    'whatsNew.v3370.increase-global-test.title': 'Maggiore stabilità nei test interni',
+    'whatsNew.v3370.increase-global-test.desc': 'Abbiamo aumentato il tempo concesso per i test interni, rendendo l\'app più stabile e affidabile per tutti.',
+    'whatsNew.v3370.increase-waitforlivearticlemeta-test.title': 'Migliorata attesa per aggiornamenti contenuti',
+    'whatsNew.v3370.increase-waitforlivearticlemeta-test.desc': 'Abbiamo ottimizzato il modo in cui l\'app attende gli aggiornamenti dei contenuti, garantendo che le informazioni più recenti siano sempre disponibili.',
     'whatsNew.v3360.title': 'Miglioramenti alla qualità e nuove funzionalità AI',
     'whatsNew.v3360.translation-pipeline.title': 'Migliorata la qualità delle traduzioni automatiche',
     'whatsNew.v3360.translation-pipeline.desc': 'Abbiamo aggiunto controlli per garantire che le traduzioni siano accurate e che il contenuto sia nella lingua corretta. Questo rende le tue traduzioni più affidabili.',

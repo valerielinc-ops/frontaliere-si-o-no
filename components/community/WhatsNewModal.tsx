@@ -27,6 +27,43 @@ interface Release {
 
 export const RELEASES: Release[] = [
   {
+    version: '3.37.0',
+    date: '2026-03-23',
+    titleKey: 'whatsNew.v3370.title',
+    items: [
+      {
+        type: 'fix',
+        titleKey: 'whatsNew.v3370.repair-job-locale.title',
+        descKey: 'whatsNew.v3370.repair-job-locale.desc',
+        link: { tab: 'job-board' },
+      },
+      {
+        type: 'fix',
+        titleKey: 'whatsNew.v3370.correct-swapped-iten.title',
+        descKey: 'whatsNew.v3370.correct-swapped-iten.desc',
+        link: { tab: 'job-board' },
+      },
+      {
+        type: 'fix',
+        titleKey: 'whatsNew.v3370.remove-invalid-jobposting.title',
+        descKey: 'whatsNew.v3370.remove-invalid-jobposting.desc',
+        link: { tab: 'job-board' },
+      },
+      {
+        type: 'fix',
+        titleKey: 'whatsNew.v3370.increase-global-test.title',
+        descKey: 'whatsNew.v3370.increase-global-test.desc',
+
+      },
+      {
+        type: 'fix',
+        titleKey: 'whatsNew.v3370.increase-waitforlivearticlemeta-test.title',
+        descKey: 'whatsNew.v3370.increase-waitforlivearticlemeta-test.desc',
+
+      },
+    ],
+  },
+  {
     version: '3.36.0',
     date: '2026-03-23',
     titleKey: 'whatsNew.v3360.title',

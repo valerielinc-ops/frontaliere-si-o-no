@@ -2188,6 +2188,17 @@ Rules:
     'seoContent.stats.check4': 'Ticino cross-border community data',
 
     // ─── What's New / Feature Announcements ─────────────────────────────
+    'whatsNew.v3370.title': 'Job Search Improvements and App Stability',
+    'whatsNew.v3370.repair-job-locale.title': 'More accurate job ad translations',
+    'whatsNew.v3370.repair-job-locale.desc': 'We\'ve fixed job ad translations to be clearer and removed expired ads for a better search experience.',
+    'whatsNew.v3370.correct-swapped-iten.title': 'Corrected home economics job category',
+    'whatsNew.v3370.correct-swapped-iten.desc': 'We fixed an issue where home economics jobs were shown in the wrong language, ensuring they display correctly.',
+    'whatsNew.v3370.remove-invalid-jobposting.title': 'Removed invalid data from job postings',
+    'whatsNew.v3370.remove-invalid-jobposting.desc': 'We\'ve removed incorrect information from job ads and updated data to improve the reliability of the information shown.',
+    'whatsNew.v3370.increase-global-test.title': 'Improved internal testing stability',
+    'whatsNew.v3370.increase-global-test.desc': 'We\'ve increased the time allowed for internal tests, making the app more stable and reliable for everyone.',
+    'whatsNew.v3370.increase-waitforlivearticlemeta-test.title': 'Improved waiting for content updates',
+    'whatsNew.v3370.increase-waitforlivearticlemeta-test.desc': 'We\'ve optimized how the app waits for content updates, ensuring the latest information is always available.',
     'whatsNew.v3360.title': 'Quality Improvements and New AI Features',
     'whatsNew.v3360.translation-pipeline.title': 'Better automatic translation quality',
     'whatsNew.v3360.translation-pipeline.desc': 'We\'ve added checks to ensure translations are accurate and in the correct language. This makes your translations more reliable.',
