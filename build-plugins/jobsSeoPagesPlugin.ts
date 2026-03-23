@@ -360,16 +360,16 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
       };
       const toValidThrough = (postedRaw: string, crawledAt?: string) => {
         // If crawledAt is available (= job was verified active at crawl time),
-        // use it as base + 30 days so validThrough stays fresh with each rebuild.
+        // use it as base + 60 days — tolerates up to ~1 month of rebuild interruption.
         // Fallback: postedDate + 90 days (more lenient than the old 60d window).
         const base = crawledAt ? new Date(crawledAt) : new Date(toIsoDateTime(postedRaw));
         if (Number.isNaN(base.getTime())) {
           const fallback = new Date();
-          fallback.setUTCDate(fallback.getUTCDate() + 30);
+          fallback.setUTCDate(fallback.getUTCDate() + 60);
           return fallback.toISOString();
         }
         const result = new Date(base);
-        result.setUTCDate(result.getUTCDate() + (crawledAt ? 30 : 90));
+        result.setUTCDate(result.getUTCDate() + (crawledAt ? 60 : 90));
         return result.toISOString();
       };
       const contractMap: Record<string, string> = {
@@ -3000,7 +3000,16 @@ ${hreflangLinks}
         { '@type': 'ListItem', position: 2, name: localeCopy[locale].sectionName, item: `${BASE_URL}${listingPath}` },
         { '@type': 'ListItem', position: 3, name: jobTitle },
       ],
-    })}</script>${hasSpaBundle ? `\n    <link rel="stylesheet" href="/assets/${entryCss}" crossorigin media="all">` : ''}
+    })}</script>${ejData ? `\n    <script type="application/ld+json">${JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'JobPosting',
+      title: jobTitle,
+      description: (jobDescription || '').slice(0, 500) || jobTitle,
+      datePosted: ejData.postedDate || ejData.crawledAt || '',
+      validThrough: ejData.crawledAt || ejData.postedDate || '',
+      ...(jobCompany ? { hiringOrganization: { '@type': 'Organization', name: jobCompany } } : {}),
+      ...(jobLocation ? { jobLocation: { '@type': 'Place', address: { '@type': 'PostalAddress', addressLocality: jobLocation, addressCountry: 'CH' } } } : {}),
+    })}</script>` : ''}${hasSpaBundle ? `\n    <link rel="stylesheet" href="/assets/${entryCss}" crossorigin media="all">` : ''}
     ${SPA_ACTION_REDIRECT_SCRIPT}
   </head>
   <body>

@@ -65,6 +65,7 @@ const CRAWLER_CONFIG_PATH = path.resolve(ROOT, 'data', 'jobs-crawler-config.json
 const AUDIT_PATH = path.resolve(ROOT, 'data', 'jobs-crawler-audit.json');
 const EXTRA_COMPANIES_PATH = path.resolve(ROOT, 'data', 'ticino-companies-extra.json');
 
+const SLUG_REGISTRY_PATH = path.resolve(ROOT, 'data', 'slug-registry.json');
 const ADAPTERS_REGISTRY_PATH = path.resolve(ROOT, 'data', 'jobs-crawler-adapters', 'registry.json');
 const ADAPTERS_BASE_DIR = path.resolve(ROOT, 'data', 'jobs-crawler-adapters');
 const CRAWLER_FIRESTORE_DOC = 'admin_config/jobsCrawler';
@@ -2492,11 +2493,17 @@ function ensureLocaleFields(job) {
       currentSlug === baseItSlug;
     const cleanCurrentSlug =
       isLowQualityLocalizedSlug(currentSlug) || shouldRegenerateLocalizedSlug ? '' : currentSlug;
+    // Use heuristic (deterministic) translation for slug derivation, not AI title
+    const slugSourceTitle = heuristicTranslateJobTitle(out.title, locale) || localizedTitle;
+    const hashSuffix = stableSlugHash(out);
+    const derivedSlug =
+      slugify(`${slugSourceTitle}-${out.company || ''}-${out.location || ''}`) ||
+      slugify(slugSourceTitle) ||
+      normalizeSpace(out.slug || '');
+    // Append stable fingerprint hash to new slugs for URL-identified jobs
     const localizedSlug =
       cleanCurrentSlug ||
-      slugify(`${localizedTitle}-${out.company || ''}-${out.location || ''}`) ||
-      slugify(localizedTitle) ||
-      normalizeSpace(out.slug || '');
+      (derivedSlug && hashSuffix ? `${derivedSlug}-${hashSuffix}` : derivedSlug);
     if (localizedSlug) slugByLocale[locale] = localizedSlug;
   }
   out.slugByLocale = slugByLocale;
@@ -5083,6 +5090,50 @@ function fingerprintJob(job) {
   return `tl|${key.replace(/\s+/g, ' ')}`;
 }
 
+// ── Slug Registry: persistent, authoritative slug-to-fingerprint mapping ──
+
+function loadSlugRegistry() {
+  try {
+    if (fs.existsSync(SLUG_REGISTRY_PATH)) {
+      return JSON.parse(fs.readFileSync(SLUG_REGISTRY_PATH, 'utf-8'));
+    }
+  } catch { /* ignore malformed file */ }
+  return {};
+}
+
+function saveSlugRegistry(registry) {
+  fs.writeFileSync(SLUG_REGISTRY_PATH, JSON.stringify(registry, null, 2) + '\n');
+}
+
+/**
+ * Look up a job in the slug registry by its fingerprint.
+ * Returns { canonicalSlug, slugByLocale, createdAt } or null.
+ */
+function getRegisteredSlug(job, registry) {
+  const fp = fingerprintJob(job);
+  if (!fp || !registry[fp]) return null;
+  return registry[fp];
+}
+
+/**
+ * Register or update a job's slug in the registry.
+ * Only registers jobs with stable fingerprints (id| or url|, not tl|).
+ */
+function registerJobSlug(job, registry) {
+  const fp = fingerprintJob(job);
+  if (!fp || fp.startsWith('tl|')) return;
+  const slug = String(job.slug || '').trim();
+  if (!slug) return;
+  if (registry[fp]) return; // Never overwrite — immutable
+  registry[fp] = {
+    canonicalSlug: slug,
+    slugByLocale: job.slugByLocale && typeof job.slugByLocale === 'object'
+      ? { ...job.slugByLocale }
+      : {},
+    createdAt: new Date().toISOString().slice(0, 10),
+  };
+}
+
 function dedupHeuristicKey(job) {
   const identity = extractJobIdentityFromUrl(job?.url || '');
   if (identity) return `id|${identity}`;
@@ -5120,6 +5171,19 @@ function ensureJobSlug(job) {
   // Prefer full slug if it fits comfortably; otherwise title-only slug is more readable
   const base = (fullSlug && fullSlug.length <= 140) ? fullSlug : (titleSlug || job.id || 'job');
   return base;
+}
+
+/**
+ * For jobs with a stable URL-derived fingerprint, append a short hash to the slug.
+ * This makes the slug immutable w.r.t. title changes and avoids -2/-3 suffix instability.
+ * Returns null for jobs identified by title+location only (tl|...) — those lack a stable identity.
+ */
+function stableSlugHash(job) {
+  const fp = fingerprintJob(job);
+  if (!fp || fp.startsWith('tl|')) return null;
+  let hash = 0;
+  for (const c of fp) hash = ((hash << 5) - hash + c.charCodeAt(0)) | 0;
+  return Math.abs(hash).toString(36).padStart(6, '0').slice(-6);
 }
 
 function preferJob(a, b) {
@@ -5287,6 +5351,13 @@ function mergeAndDeduplicate(existingJobs, incomingJobs, qualityCfg, options = {
       descriptionByLocale: mergeLocaleTextMap(prev.descriptionByLocale || {}, next.descriptionByLocale || {}, 120),
       requirementsByLocale: mergeLocaleRequirementsMap(prev.requirementsByLocale || {}, next.requirementsByLocale || {}),
       slugByLocale: mergeLocaleTextMap(prev.slugByLocale || {}, next.slugByLocale || {}, 3),
+      // Explicit merge: union of previousSlugs from both versions (cap at 20)
+      previousSlugs: [
+        ...new Set([
+          ...(Array.isArray(prev.previousSlugs) ? prev.previousSlugs : []),
+          ...(Array.isArray(next.previousSlugs) ? next.previousSlugs : []),
+        ])
+      ].slice(0, 20),
     };
     if (shouldReusePreviousLocalization(prev, next, options.contentReuse || {})) {
       best.titleByLocale = { ...(prev.titleByLocale || {}) };
@@ -5402,8 +5473,26 @@ function mergeAndDeduplicate(existingJobs, incomingJobs, qualityCfg, options = {
     console.log(`\n🔄 Heuristic dedup: removed ${heuristicDupes} duplicate(s) using identity + multi-field signature`);
   }
 
+  // ── Slug Registry: use registered slugs where available ──
+  const slugRegistry = loadSlugRegistry();
+  let registryHits = 0;
+  let registryNewEntries = 0;
   const usedSlugs = new Set();
   for (const job of deduped) {
+    // Check registry first — immutable slugs for known fingerprints
+    const registered = getRegisteredSlug(job, slugRegistry);
+    if (registered && registered.canonicalSlug) {
+      job.slug = registered.canonicalSlug;
+      if (registered.slugByLocale && typeof registered.slugByLocale === 'object') {
+        if (!job.slugByLocale || typeof job.slugByLocale !== 'object') job.slugByLocale = {};
+        for (const [loc, s] of Object.entries(registered.slugByLocale)) {
+          if (s && !job.slugByLocale[loc]) job.slugByLocale[loc] = s;
+        }
+      }
+      usedSlugs.add(job.slug);
+      registryHits += 1;
+      continue;
+    }
     let slug = normalizeSpace(job.slug || ensureJobSlug(job));
     if (!slug) slug = `job-${job.id}`;
     let candidate = slug;
@@ -5414,6 +5503,14 @@ function mergeAndDeduplicate(existingJobs, incomingJobs, qualityCfg, options = {
     }
     job.slug = candidate;
     usedSlugs.add(candidate);
+    // Register new slug for jobs with stable fingerprints
+    const sizeBefore = Object.keys(slugRegistry).length;
+    registerJobSlug(job, slugRegistry);
+    if (Object.keys(slugRegistry).length > sizeBefore) registryNewEntries += 1;
+  }
+  saveSlugRegistry(slugRegistry);
+  if (registryHits > 0 || registryNewEntries > 0) {
+    console.log(`🔒 Slug registry: ${registryHits} locked from registry, ${registryNewEntries} new entries added (${Object.keys(slugRegistry).length} total)`);
   }
 
   return {

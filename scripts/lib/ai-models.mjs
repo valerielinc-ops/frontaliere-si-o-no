@@ -322,12 +322,35 @@ const DEFAULT_OPTS = {
 // ── Run-level state (reset only between process invocations) ─
 const _exhaustedModels = new Set();
 
+// Provider-level cooldown: when a provider returns 429, all its models
+// get a temporary cooldown to avoid wasting retries on sibling models.
+// Maps provider name → cooldown-until timestamp (ms).
+const _providerCooldown = new Map();
+const PROVIDER_COOLDOWN_MS = 60_000; // 1 minute cooldown after 429
+
+function isProviderCoolingDown(provider) {
+  const until = _providerCooldown.get(provider);
+  if (!until) return false;
+  if (Date.now() >= until) {
+    _providerCooldown.delete(provider);
+    return false;
+  }
+  return true;
+}
+
+function cooldownProvider(provider) {
+  const until = Date.now() + PROVIDER_COOLDOWN_MS;
+  _providerCooldown.set(provider, until);
+  console.warn(`🧊 Provider ${provider} cooled down for ${PROVIDER_COOLDOWN_MS / 1000}s (rate-limited)`);
+}
+
 const _stats = {
   calls: 0,
   successes: 0,
   retries: 0,
   fallbacks: 0,
   exhausted: 0,
+  providerCooldowns: 0,
   errors: [],
 };
 
@@ -662,6 +685,7 @@ export function getStats() {
   return {
     ..._stats,
     exhaustedModels: [..._exhaustedModels],
+    activeCooldowns: Object.fromEntries([..._providerCooldown].map(([p, t]) => [p, Math.max(0, Math.ceil((t - Date.now()) / 1000))])),
     scoreBoard: getScoreBoard(),
     storeBackend: _firestoreDb ? 'firestore' : 'memory',
     dirtyModels: _dirtyModels.size,
@@ -671,6 +695,7 @@ export function getStats() {
 /** Reset exhausted models and scores (useful for long-running processes or tests) */
 export function resetState() {
   _exhaustedModels.clear();
+  _providerCooldown.clear();
   _modelScores.clear();
   _modelDetails.clear();
   _dirtyModels.clear();
@@ -888,6 +913,11 @@ async function _callOpenAICompatible(apiModel, messages, opts, { endpoint, apiKe
         if (isRetryableError(res.status, raw) && attempt < opts.maxRetriesPerModel) {
           _stats.retries++;
           const is429 = res.status === 429;
+          // On 429: cool down the entire provider so sibling models are skipped
+          if (is429) {
+            cooldownProvider(getProvider(modelForTracking));
+            _stats.providerCooldowns++;
+          }
           const waitMs = is429
             ? attempt * opts.backoffMs * 3   // Triple backoff for rate limits
             : attempt * opts.backoffMs;
@@ -1106,6 +1136,10 @@ async function _callGeminiRaw(model, messages, opts) {
         }
         if (isRetryableError(res.status, raw) && attempt < opts.maxRetriesPerModel) {
           _stats.retries++;
+          if (res.status === 429) {
+            cooldownProvider(PROVIDER.GEMINI);
+            _stats.providerCooldowns++;
+          }
           const waitMs = attempt * opts.backoffMs;
           console.warn(`⚠️  [${model}] ${res.status} retry ${attempt}/${opts.maxRetriesPerModel} — wait ${waitMs}ms`);
           await sleep(waitMs);
@@ -1259,6 +1293,12 @@ export async function callLLM(messages, opts = {}) {
     // Skip exhausted models
     if (_exhaustedModels.has(model)) {
       console.warn(`⏭️  [${model}] Skipped — exhausted (daily limit)`);
+      continue;
+    }
+
+    // Skip models whose provider is cooling down (recent 429)
+    const provider = getProvider(model);
+    if (isProviderCoolingDown(provider)) {
       continue;
     }
 

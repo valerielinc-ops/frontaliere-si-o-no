@@ -638,7 +638,7 @@ function maybeRehomeLocalizedValue({
   return true;
 }
 
-/** Check if a slug plausibly matches a title (first 3+ words overlap). */
+/** Check if a slug plausibly matches a title (prefix or first 4 words overlap). */
 function slugMatchesTitle(slug, title) {
   const slugified = title
     .toLowerCase()
@@ -646,9 +646,12 @@ function slugMatchesTitle(slug, title) {
     .replace(/[\u0300-\u036f]/g, '')
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '');
-  // Compare the first 30 chars — enough to detect title renames
-  const prefix = slugified.slice(0, 30);
-  return prefix.length >= 5 && slug.startsWith(prefix);
+  // Compare the first 50 chars — wider window to tolerate minor title variations
+  const prefix = slugified.slice(0, 50);
+  if (prefix.length >= 8 && slug.startsWith(prefix)) return true;
+  // Fallback: the first 4 words of the title must appear in the slug
+  const titleWords = slugified.split('-').slice(0, 4).join('-');
+  return titleWords.length >= 10 && slug.includes(titleWords);
 }
 
 export function hardenJobLocaleFields({ dataJobsPath }) {
@@ -662,6 +665,7 @@ export function hardenJobLocaleFields({ dataJobsPath }) {
 
   let changed = false;
   let repaired = 0;
+  const slugChangeCount = {};
 
   for (const job of raw) {
     let jobChanged = false;
@@ -836,6 +840,9 @@ export function hardenJobLocaleFields({ dataJobsPath }) {
             .replace(/^-+|-+$/g, '')
             .slice(0, 120);
           if (derived && derived !== existingSlug) {
+            const reason = 'stale_slug';
+            slugChangeCount[reason] = (slugChangeCount[reason] || 0) + 1;
+            console.log(`  🔄 SLUG [${locale}] ${reason}: ${job.companyKey || job.company} | ${existingSlug} → ${derived}`);
             job.slugByLocale[locale] = derived;
             jobChanged = true;
           }
@@ -884,13 +891,20 @@ export function hardenJobLocaleFields({ dataJobsPath }) {
       const company = String(job.company || '').trim();
       const location = String(job.addressLocality || job.location || '').trim();
       const nextSlug = slugifyLocalizedLabel([localizedTitle, company, location].filter(Boolean).join(' '));
+      const isSlugMeaningful = localizedSlug && localizedSlug.length >= 15;
       const shouldRefreshSlug =
         !localizedSlug ||
-        localizedSlug === baseSlug ||
+        (!isSlugMeaningful && localizedSlug === baseSlug) ||
         (locale === 'it' && needsItalianSlugRepair(localizedSlug)) ||
         needsCanonicalCompanySlugRepair(localizedSlug, company);
 
       if (shouldRefreshSlug && nextSlug && nextSlug !== localizedSlug) {
+        const reason = !localizedSlug ? 'missing'
+          : (!isSlugMeaningful && localizedSlug === baseSlug) ? 'short_base_match'
+          : (locale === 'it' && needsItalianSlugRepair(localizedSlug)) ? 'italian_repair'
+          : 'company_repair';
+        slugChangeCount[reason] = (slugChangeCount[reason] || 0) + 1;
+        console.log(`  🔄 SLUG [${locale}] ${reason}: ${job.companyKey || job.company} | ${localizedSlug || '(empty)'} → ${nextSlug}`);
         job.slugByLocale[locale] = nextSlug;
         jobChanged = true;
       }
@@ -931,6 +945,24 @@ export function hardenJobLocaleFields({ dataJobsPath }) {
 
       changed = true;
       repaired += 1;
+    }
+  }
+
+  // Log slug change summary
+  const totalSlugChanges = Object.values(slugChangeCount).reduce((a, b) => a + b, 0);
+  if (totalSlugChanges > 0) {
+    console.log(`📊 Slug changes this run: ${totalSlugChanges} total — ${JSON.stringify(slugChangeCount)}`);
+  }
+
+  // Alert for jobs approaching the previousSlugs cap (20)
+  const instableJobs = raw.filter(j => Array.isArray(j.previousSlugs) && j.previousSlugs.length >= 10);
+  if (instableJobs.length > 0) {
+    console.warn(`⚠️  SLUG INSTABILITY ALERT: ${instableJobs.length} job(s) with 10+ previousSlugs:`);
+    for (const job of instableJobs.slice(0, 10)) {
+      console.warn(`  - ${job.company}: ${job.slug} (${job.previousSlugs.length} alias)`);
+    }
+    if (instableJobs.length > 10) {
+      console.warn(`  ... and ${instableJobs.length - 10} more`);
     }
   }
 
