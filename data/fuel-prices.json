@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-03-23T08:32:41.373Z",
+  "generatedAt": "2026-03-23T09:43:02.897Z",
   "sources": {
     "italy": {
       "provider": "MIMIT Open Data",
@@ -11,7 +11,7 @@
       "provider": "TCS Benzinpreis",
       "providerUrl": "https://benzin.tcs.ch/de/map/SP95",
       "stationCount": 224,
-      "latestObservedUpdate": "2026-03-23T08:25:54.213Z"
+      "latestObservedUpdate": "2026-03-23T09:11:04.471Z"
     },
     "exchangeRate": {
       "provider": "ECB",
@@ -2826,20 +2826,6 @@
             "distanceKm": 18.3
           },
           {
-            "id": "8QgVfPq0az3upJZD19TN",
-            "name": "SOCAR / Piccadilly Capolago",
-            "brand": "PICCADILLY",
-            "address": "Via Carlo Maderno 56, 6825 Capolago",
-            "lat": 45.909946,
-            "lng": 8.982814,
-            "sp95PriceChf": 1.75,
-            "updatedAt": "2026-03-18T12:29:13.580Z",
-            "nearestMunicipality": "Porto Ceresio (VA)",
-            "nearestMunicipalityDistanceKm": 6.1,
-            "sp95PriceEur": 1.924,
-            "distanceKm": 19.3
-          },
-          {
             "id": "IqXnbVgQGsblZuiJdXA0",
             "name": "Piccadilly SA - Eni, Migrolino",
             "brand": "ENI",
@@ -2852,6 +2838,20 @@
             "nearestMunicipalityDistanceKm": 4.1,
             "sp95PriceEur": 1.924,
             "distanceKm": 18.3
+          },
+          {
+            "id": "YOUDkEmnmgADYedhnn9n",
+            "name": "SOCAR / Piccadilly Vezia",
+            "brand": "PICCADILLY",
+            "address": "Via San Gottardo 5b, 6943 Vezia",
+            "lat": 46.02155,
+            "lng": 8.936964,
+            "sp95PriceChf": 1.75,
+            "updatedAt": "2026-03-07T15:05:19.668Z",
+            "nearestMunicipality": "Campione d'Italia (CO)",
+            "nearestMunicipalityDistanceKm": 6.5,
+            "sp95PriceEur": 1.924,
+            "distanceKm": 18.1
           }
         ],
         "minPriceChf": 1.64,
@@ -8017,18 +8017,18 @@
             "distanceKm": 19
           },
           {
-            "id": "8QgVfPq0az3upJZD19TN",
-            "name": "SOCAR / Piccadilly Capolago",
-            "brand": "PICCADILLY",
-            "address": "Via Carlo Maderno 56, 6825 Capolago",
-            "lat": 45.909946,
-            "lng": 8.982814,
+            "id": "IqXnbVgQGsblZuiJdXA0",
+            "name": "Piccadilly SA - Eni, Migrolino",
+            "brand": "ENI",
+            "address": "Via Cantonale 10, 6818 Melano",
+            "lat": 45.9317133374317,
+            "lng": 8.97427393373679,
             "sp95PriceChf": 1.75,
-            "updatedAt": "2026-03-18T12:29:13.580Z",
-            "nearestMunicipality": "Porto Ceresio (VA)",
-            "nearestMunicipalityDistanceKm": 6.1,
+            "updatedAt": "2026-03-12T07:59:13.432Z",
+            "nearestMunicipality": "Campione d'Italia (CO)",
+            "nearestMunicipalityDistanceKm": 4.1,
             "sp95PriceEur": 1.924,
-            "distanceKm": 19.4
+            "distanceKm": 18
           }
         ],
         "minPriceChf": 1.64,
@@ -18513,18 +18513,18 @@
             "distanceKm": 19.6
           },
           {
-            "id": "8QgVfPq0az3upJZD19TN",
-            "name": "SOCAR / Piccadilly Capolago",
-            "brand": "PICCADILLY",
-            "address": "Via Carlo Maderno 56, 6825 Capolago",
-            "lat": 45.909946,
-            "lng": 8.982814,
+            "id": "IqXnbVgQGsblZuiJdXA0",
+            "name": "Piccadilly SA - Eni, Migrolino",
+            "brand": "ENI",
+            "address": "Via Cantonale 10, 6818 Melano",
+            "lat": 45.9317133374317,
+            "lng": 8.97427393373679,
             "sp95PriceChf": 1.75,
-            "updatedAt": "2026-03-18T12:29:13.580Z",
-            "nearestMunicipality": "Porto Ceresio (VA)",
-            "nearestMunicipalityDistanceKm": 6.1,
+            "updatedAt": "2026-03-12T07:59:13.432Z",
+            "nearestMunicipality": "Campione d'Italia (CO)",
+            "nearestMunicipalityDistanceKm": 4.1,
             "sp95PriceEur": 1.924,
-            "distanceKm": 18.1
+            "distanceKm": 17.8
           }
         ],
         "minPriceChf": 1.64,
