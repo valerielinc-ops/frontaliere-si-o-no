@@ -1685,6 +1685,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.chiusure-notturne-a4-ticino.title': 'Lavori autostradali: chiusure notturne ad Agrate, Cavenago e Monza',
     'blog.article.chiusure-notturne-a4-ticino.excerpt': 'Le chiusure notturne saranno fatte per consentire lavori di ispezione e manutenzione sulla rete autostradale. Ecco gli orari e le motivazioni.',
     'blog.article.chiusure-notturne-a4-ticino.imageAlt': 'Autostrada notturna in Ticino',
+    'blog.article.svizzera-frontalieri-franco-lavoro.title': 'Svizzera: crescita più debole e inflazione in lieve risalita',
+    'blog.article.svizzera-frontalieri-franco-lavoro.excerpt': 'La Svizzera registra una crescita economica del 1% nel 2026, con inflazione leggermente in aumento. Cosa significa per i frontalieri italiani?',
+    'blog.article.svizzera-frontalieri-franco-lavoro.imageAlt': 'Un lavoratore italiano al confine tra Svizzera e Ticino, con il Lago di Lugano in sfondo.',
 };
 
 export default blogMetaIt;

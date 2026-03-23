@@ -1685,6 +1685,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.chiusure-notturne-a4-ticino.title': 'Roadworks: Night Closures at Agrate, Cavenago, and Monza',
     'blog.article.chiusure-notturne-a4-ticino.excerpt': 'Night closures will be implemented to allow for inspection and maintenance work on the highway network. Here are the schedules and reasons.',
     'blog.article.chiusure-notturne-a4-ticino.imageAlt': 'Nighttime highway in Ticino',
+    'blog.article.svizzera-frontalieri-franco-lavoro.title': 'Switzerland: Slower Growth and Mild Inflation Increase',
+    'blog.article.svizzera-frontalieri-franco-lavoro.excerpt': 'Switzerland is expected to see economic growth of 1% in 2026, with inflation slightly rising. What does this mean for Italian border workers?',
+    'blog.article.svizzera-frontalieri-franco-lavoro.imageAlt': 'An Italian worker at the border between Switzerland and Ticino, with Lake Lugano in the background.',
 };
 
 export default blogMetaEn;

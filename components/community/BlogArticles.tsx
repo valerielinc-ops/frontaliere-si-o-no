@@ -4526,6 +4526,13 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/chiusure-notturne-a4-ticino.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'svizzera-frontalieri-franco-lavoro',
+    category: 'novita',
+    date: '2026-03-23T07:27:30.977Z',
+    image: '/images/blog/svizzera-frontalieri-franco-lavoro.jpg',
+    hasCalculator: true,
+  },
 ];
 
 const CATEGORIES = ['all', 'fiscale', 'pratico', 'novita', 'pensione'] as const;

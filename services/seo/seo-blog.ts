@@ -9419,6 +9419,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-svizzera-frontalieri-franco-lavoro': {
+    title: 'Svizzera: crescita più debole e inflazione in lieve risalita | Frontaliere Ticino',
+    description: 'La Svizzera registra una crescita economica del 1% nel 2026, con inflazione in aumento. Scopri come questo influisce sui frontalieri italiani. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, crescita, debole, inflazione, lieve',
+    ogTitle: 'Svizzera: crescita debole e inflazione',
+    ogDescription: 'La Svizzera registra una crescita economica del 1% nel 2026, con inflazione in aumento. Scopri come questo influisce sui frontalieri italiani.',
+    canonicalPath: '/articoli-frontaliere/svizzera-frontalieri-franco-lavoro',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Svizzera: crescita più debole e inflazione in lieve risalita. Cosa può cambiare per i frontalieri",
+      "description": "La Svizzera registra una crescita economica del 1% nel 2026, con inflazione in aumento. Scopri come questo influisce sui frontalieri italiani. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/svizzera-frontalieri-franco-lavoro.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Un lavoratore italiano al confine tra Svizzera e Ticino, con il Lago di Lugano in sfondo."
+      },
+      "datePublished": "2026-03-23T07:27:30+00:00",
+      "dateModified": "2026-03-23T07:27:30+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/svizzera-frontalieri-franco-lavoro`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

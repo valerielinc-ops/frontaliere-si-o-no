@@ -1685,6 +1685,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.chiusure-notturne-a4-ticino.title': 'Arbeitsstellen auf der Autobahn: nächtliche Sperrungen in Agrate, Cavenago und Monza',
     'blog.article.chiusure-notturne-a4-ticino.excerpt': 'Die nächtlichen Sperrungen werden durchgeführt, um Inspektionen und Wartungsarbeiten auf der Autobahnnetz durchzuführen. Hier finden Sie die Uhrzeiten und Gründe.',
     'blog.article.chiusure-notturne-a4-ticino.imageAlt': 'Nachtzeit Autobahn in Tessin',
+    'blog.article.svizzera-frontalieri-franco-lavoro.title': 'Schweiz: schwächeres Wachstum und leichte Anstieg der Inflation',
+    'blog.article.svizzera-frontalieri-franco-lavoro.excerpt': 'Die Schweiz verzeichnet im Jahr 2026 ein Wirtschaftswachstum von 1%, wobei die Inflation leicht ansteigt. Was bedeutet dies für italienische Grenzarbeiter?',
+    'blog.article.svizzera-frontalieri-franco-lavoro.imageAlt': 'Ein italienischer Arbeiter an der Grenze zwischen der Schweiz und dem Kanton Tessin, mit dem Luganersee im Hintergrund.',
 };
 
 export default blogMetaDe;
