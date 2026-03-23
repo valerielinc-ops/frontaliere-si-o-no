@@ -3049,7 +3049,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
         "@context": "https://schema.org",
         "@type": "ItemList",
         "name": "Articoli Frontaliere",
-        "numberOfItems": 566,
+        "numberOfItems": 567,
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
           { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -3616,7 +3616,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 563, "name": "Riduzione radar in Ticino", "url": `${BASE_URL}/articoli-frontaliere/radar-ticino-riduzione` },
           { "@type": "ListItem", "position": 564, "name": "Nomine SIMS illegittime", "url": `${BASE_URL}/articoli-frontaliere/nomine-sims-illegittime` },
           { "@type": "ListItem", "position": 565, "name": "Ticino: nuovo elicottero Rega a Locarno", "url": `${BASE_URL}/articoli-frontaliere/elicottero-rega-locarno` },
-          { "@type": "ListItem", "position": 566, "name": "Monte Lema cable-car season 2026: prices, exten...", "url": `${BASE_URL}/articoli-frontaliere/funivia-monte-lema-stagione-2026` }
+          { "@type": "ListItem", "position": 566, "name": "Monte Lema cable-car season 2026: prices, exten...", "url": `${BASE_URL}/articoli-frontaliere/funivia-monte-lema-stagione-2026` },
+          { "@type": "ListItem", "position": 567, "name": "Cambio al Municipio di Stabio", "url": `${BASE_URL}/articoli-frontaliere/stabio-municipio-cambios` }
         ]
       }
     ]

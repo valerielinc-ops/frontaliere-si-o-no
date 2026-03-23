@@ -4657,6 +4657,13 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/funivia-monte-lema-stagione-2026.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'stabio-municipio-cambios',
+    category: 'novita',
+    date: '2026-03-23T18:35:00.780Z',
+    image: '/images/blog/stabio-municipio-cambios.jpg',
+    hasCalculator: true,
+  },
 ];
 
 const CATEGORIES = ['all', 'fiscale', 'pratico', 'novita', 'pensione'] as const;

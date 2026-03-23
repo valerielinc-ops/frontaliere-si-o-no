@@ -9825,6 +9825,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-stabio-municipio-cambios': {
+    title: 'Cambio al Municipio di Stabio | Frontaliere Ticino',
+    description: 'Cihan Aydemir lascia il Municipio di Stabio, subentra Katia Camponovo. Leggi le ultime notizie sul cambio di leadership al Municipio di Stabio. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, cambio, municipio, stabio, cihan',
+    ogTitle: 'Cambio al Municipio di Stabio',
+    ogDescription: 'Cihan Aydemir lascia il Municipio di Stabio, subentra Katia Camponovo. Leggi le ultime notizie sul cambio di leadership al Municipio di Stabio.',
+    canonicalPath: '/articoli-frontaliere/stabio-municipio-cambios',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Cambio al Municipio di Stabio",
+      "description": "Cihan Aydemir lascia il Municipio di Stabio, subentra Katia Camponovo. Leggi le ultime notizie sul cambio di leadership al Municipio di Stabio. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/stabio-municipio-cambios.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Municipio di Stabio"
+      },
+      "datePublished": "2026-03-23T18:35:00+00:00",
+      "dateModified": "2026-03-23T18:35:00+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/stabio-municipio-cambios`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

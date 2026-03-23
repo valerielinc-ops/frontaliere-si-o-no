@@ -1727,6 +1727,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.funivia-monte-lema-stagione-2026.title': 'Télécabine Monte Lema, nouvelle saison 2026 : horaires étendus et tarifs',
     'blog.article.funivia-monte-lema-stagione-2026.excerpt': 'À partir du 28 mars, la télécabine rouvre avec des courses jusqu\'à 22h30 et 30 événements au calendrier. Tarif billet 28 CHF A/R, réductions pour les frontaliers',
     'blog.article.funivia-monte-lema-stagione-2026.imageAlt': 'Téléphérique Monte Lema au coucher du soleil',
+    'blog.article.stabio-municipio-cambios.title': 'Changement au Municipio de Stabio',
+    'blog.article.stabio-municipio-cambios.excerpt': 'Cihan Aydemir quitte le Municipio de Stabio, Katia Camponovo le remplace.',
+    'blog.article.stabio-municipio-cambios.imageAlt': 'Municipalité de Stabio',
 };
 
 export default blogMetaFr;

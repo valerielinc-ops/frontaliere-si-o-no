@@ -1727,6 +1727,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.funivia-monte-lema-stagione-2026.title': 'Monte Lema Cable Car, New 2026 Season: Extended Hours and Prices',
     'blog.article.funivia-monte-lema-stagione-2026.excerpt': 'From March 28, the cable car reopens with trips until 22:30 and 30 events scheduled. Round-trip ticket price is 28 CHF, with discounts for cross-border commuters',
     'blog.article.funivia-monte-lema-stagione-2026.imageAlt': 'Monte Lema cable-car panoramic view at sunset',
+    'blog.article.stabio-municipio-cambios.title': 'Change at the Municipality of Stabio',
+    'blog.article.stabio-municipio-cambios.excerpt': 'Cihan Aydemir leaves the Municipality of Stabio, Katia Camponovo takes over.',
+    'blog.article.stabio-municipio-cambios.imageAlt': 'Stabio Municipality',
 };
 
 export default blogMetaEn;

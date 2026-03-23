@@ -1727,6 +1727,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.funivia-monte-lema-stagione-2026.title': 'Funivia Monte Lema, nuova stagione 2026: orari estesi e prezzi',
     'blog.article.funivia-monte-lema-stagione-2026.excerpt': 'Dal 28 marzo la funivia riapre con corse fino alle 22.30 e 30 eventi in calendario. Prezzo biglietto 28 CHF A/R, riduzioni per frontalieri',
     'blog.article.funivia-monte-lema-stagione-2026.imageAlt': 'Funivia Monte Lema vista panoramica al tramonto',
+    'blog.article.stabio-municipio-cambios.title': 'Cambio al Municipio di Stabio',
+    'blog.article.stabio-municipio-cambios.excerpt': 'Cihan Aydemir lascia il Municipio di Stabio, subentra Katia Camponovo.',
+    'blog.article.stabio-municipio-cambios.imageAlt': 'Municipio di Stabio',
 };
 
 export default blogMetaIt;

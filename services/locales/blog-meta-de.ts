@@ -1727,6 +1727,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.funivia-monte-lema-stagione-2026.title': 'Seilbahn Monte Lema, neue Saison 2026: erweiterte Öffnungszeiten und Preise',
     'blog.article.funivia-monte-lema-stagione-2026.excerpt': 'Ab dem 28. März öffnet die Seilbahn wieder mit Fahrten bis 22:30 Uhr und 30 Veranstaltungen im Kalender. Der Preis für ein Ticket beträgt 28 CHF für Hin- und Rückfahrt, Ermäßigungen für Grenzgänger',
     'blog.article.funivia-monte-lema-stagione-2026.imageAlt': 'Seilbahn Monte Lema bei Sonnenuntergang',
+    'blog.article.stabio-municipio-cambios.title': 'Wechsel im Gemeinderat von Stabio',
+    'blog.article.stabio-municipio-cambios.excerpt': 'Cihan Aydemir verlässt den Gemeinderat von Stabio, Katia Camponovo übernimmt',
+    'blog.article.stabio-municipio-cambios.imageAlt': 'Stabio Gemeinde',
 };
 
 export default blogMetaDe;
