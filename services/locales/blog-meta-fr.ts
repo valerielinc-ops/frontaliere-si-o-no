@@ -1724,6 +1724,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.elicottero-rega-locarno.title': 'Tessin : nouvel hélicoptère Rega à Locarno',
     'blog.article.elicottero-rega-locarno.excerpt': 'La base Rega de Locarno reçoit un hélicoptère de dernière génération, un Airbus H145 D3.',
     'blog.article.elicottero-rega-locarno.imageAlt': 'Hélicoptère Rega à Locarno',
+    'blog.article.funivia-monte-lema-stagione-2026.title': 'Télécabine Monte Lema, nouvelle saison 2026 : horaires étendus et tarifs',
+    'blog.article.funivia-monte-lema-stagione-2026.excerpt': 'À partir du 28 mars, la télécabine rouvre avec des courses jusqu\'à 22h30 et 30 événements au calendrier. Tarif billet 28 CHF A/R, réductions pour les frontaliers',
+    'blog.article.funivia-monte-lema-stagione-2026.imageAlt': 'Téléphérique Monte Lema au coucher du soleil',
 };
 
 export default blogMetaFr;

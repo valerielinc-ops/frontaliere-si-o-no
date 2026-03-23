@@ -9796,6 +9796,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-funivia-monte-lema-stagione-2026': {
+    title: 'Funivia Monte Lema, nuova stagione 2026: orari estesi e prezzi | Frontaliere Ticino',
+    description: 'Apertura il 28 marzo, biglietto 28 CHF A/R, detraibilità per i frontalieri, 30 eventi e nuovo motore da 132 kW: tutto quello che serve per pianificare l’estate',
+    keywords: 'frontalieri, ticino, svizzera, italia, funivia, monte, lema, nuova',
+    ogTitle: 'Funivia Monte Lema 2026: prezzi e detrazioni per i frontalieri',
+    ogDescription: 'Dal 28 marzo riapre la funivia più panoramica del Ticino: 28 CHF A/R, orario prolungato fino alle 22.30, 30 eventi e detraibilità dell’abbonamento per chi',
+    canonicalPath: '/articoli-frontaliere/funivia-monte-lema-stagione-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Monte Lema cable-car season 2026: prices, extended hours, commuter deductions",
+      "description": "Apertura il 28 marzo, biglietto 28 CHF A/R, detraibilità per i frontalieri, 30 eventi e nuovo motore da 132 kW: tutto quello che serve per pianificare l’estate",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/funivia-monte-lema-stagione-2026.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Funivia Monte Lema vista panoramica al tramonto"
+      },
+      "datePublished": "2026-03-23T18:01:12+00:00",
+      "dateModified": "2026-03-23T18:01:12+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/funivia-monte-lema-stagione-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

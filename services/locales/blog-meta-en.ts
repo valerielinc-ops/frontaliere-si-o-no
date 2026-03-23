@@ -1724,6 +1724,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.elicottero-rega-locarno.title': 'Ticino: new Rega helicopter in Locarno',
     'blog.article.elicottero-rega-locarno.excerpt': 'The Rega base in Locarno has received a new rescue helicopter, an Airbus H145 D3, which is ready to intervene in emergency situations.',
     'blog.article.elicottero-rega-locarno.imageAlt': 'Rega helicopter in Locarno',
+    'blog.article.funivia-monte-lema-stagione-2026.title': 'Monte Lema Cable Car, New 2026 Season: Extended Hours and Prices',
+    'blog.article.funivia-monte-lema-stagione-2026.excerpt': 'From March 28, the cable car reopens with trips until 22:30 and 30 events scheduled. Round-trip ticket price is 28 CHF, with discounts for cross-border commuters',
+    'blog.article.funivia-monte-lema-stagione-2026.imageAlt': 'Monte Lema cable-car panoramic view at sunset',
 };
 
 export default blogMetaEn;

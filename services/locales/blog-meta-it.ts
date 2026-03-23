@@ -1724,6 +1724,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.elicottero-rega-locarno.title': 'Ticino: nuovo elicottero Rega a Locarno',
     'blog.article.elicottero-rega-locarno.excerpt': 'La base Rega di Locarno riceve un elicottero di ultima generazione, un Airbus H145 D3.',
     'blog.article.elicottero-rega-locarno.imageAlt': 'Elicottero Rega a Locarno',
+    'blog.article.funivia-monte-lema-stagione-2026.title': 'Funivia Monte Lema, nuova stagione 2026: orari estesi e prezzi',
+    'blog.article.funivia-monte-lema-stagione-2026.excerpt': 'Dal 28 marzo la funivia riapre con corse fino alle 22.30 e 30 eventi in calendario. Prezzo biglietto 28 CHF A/R, riduzioni per frontalieri',
+    'blog.article.funivia-monte-lema-stagione-2026.imageAlt': 'Funivia Monte Lema vista panoramica al tramonto',
 };
 
 export default blogMetaIt;
