@@ -1,16 +1,16 @@
 {
   "key": "engel-voelkers",
   "label": "Engel & Völkers",
-  "generatedAt": "2026-03-23T09:21:18.621Z",
+  "generatedAt": "2026-03-23T21:16:03.763Z",
   "total": 2,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 24950,
-  "avgDurationMs": 24950,
+  "durationMs": 24844,
+  "avgDurationMs": 24844,
   "durationHistory": [
-    24950
+    24844
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -69,7 +69,8 @@
           "maxValue": 65000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "6900"
     },
     {
       "title": "Immobilienberater/in 100 % | Ascona",
@@ -108,9 +109,9 @@
       },
       "slugByLocale": {
         "it": "consulente-immobiliare-100-ascona-ticino-premium-properties-sa-ascona",
-        "en": "immobilienberater-in-100-ascona-engel-voelkers-ascona",
+        "en": "real-estate-consultant-100-ascona-ticino-premium-properties-sa-ascona",
         "de": "immobilienberater-in-100-ascona-engel-voelkers-ascona",
-        "fr": "immobilienberater-in-100-ascona-engel-voelkers-ascona"
+        "fr": "conseiller-ere-immobilier-e-100-ascona-ticino-premium-properties-sa-ascona"
       },
       "salaryMin": 54000,
       "salaryMax": 73000,
@@ -124,7 +125,8 @@
           "maxValue": 73000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "6612"
     }
   ]
 }

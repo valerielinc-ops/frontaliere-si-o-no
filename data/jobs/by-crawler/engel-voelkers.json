@@ -1,6 +1,6 @@
 {
   "crawlerKey": "engel-voelkers",
-  "assembledAt": "2026-03-23T09:21:18.621Z",
+  "assembledAt": "2026-03-23T21:16:03.763Z",
   "jobs": [
     {
       "title": "Stage Assistente Team (3-6 mesi) | Lugano",
@@ -55,7 +55,8 @@
           "maxValue": 65000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "6900"
     },
     {
       "title": "Immobilienberater/in 100 % | Ascona",
@@ -94,9 +95,9 @@
       },
       "slugByLocale": {
         "it": "consulente-immobiliare-100-ascona-ticino-premium-properties-sa-ascona",
-        "en": "immobilienberater-in-100-ascona-engel-voelkers-ascona",
+        "en": "real-estate-consultant-100-ascona-ticino-premium-properties-sa-ascona",
         "de": "immobilienberater-in-100-ascona-engel-voelkers-ascona",
-        "fr": "immobilienberater-in-100-ascona-engel-voelkers-ascona"
+        "fr": "conseiller-ere-immobilier-e-100-ascona-ticino-premium-properties-sa-ascona"
       },
       "salaryMin": 54000,
       "salaryMax": 73000,
@@ -110,7 +111,8 @@
           "maxValue": 73000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "6612"
     }
   ]
 }
