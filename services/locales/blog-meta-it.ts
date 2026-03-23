@@ -1730,6 +1730,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.stabio-municipio-cambios.title': 'Cambio al Municipio di Stabio',
     'blog.article.stabio-municipio-cambios.excerpt': 'Cihan Aydemir lascia il Municipio di Stabio, subentra Katia Camponovo.',
     'blog.article.stabio-municipio-cambios.imageAlt': 'Municipio di Stabio',
+    'blog.article.crescita-economica-ticino-2026.title': 'Crescita economica moderata in Svizzera nel 2026',
+    'blog.article.crescita-economica-ticino-2026.excerpt': 'Gli economisti prevedono una crescita del PIL dell\'1,0% per l\'anno in corso e un miglioramento per il 2027',
+    'blog.article.crescita-economica-ticino-2026.imageAlt': 'Vista di Lugano con strade commerciali',
 };
 
 export default blogMetaIt;

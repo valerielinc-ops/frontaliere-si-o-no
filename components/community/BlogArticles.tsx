@@ -4664,6 +4664,13 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/stabio-municipio-cambios.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'crescita-economica-ticino-2026',
+    category: 'novita',
+    date: '2026-03-23T19:09:10.943Z',
+    image: '/images/blog/crescita-economica-ticino-2026.jpg',
+    hasCalculator: true,
+  },
 ];
 
 const CATEGORIES = ['all', 'fiscale', 'pratico', 'novita', 'pensione'] as const;

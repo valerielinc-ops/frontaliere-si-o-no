@@ -1730,6 +1730,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.stabio-municipio-cambios.title': 'Wechsel im Gemeinderat von Stabio',
     'blog.article.stabio-municipio-cambios.excerpt': 'Cihan Aydemir verlässt den Gemeinderat von Stabio, Katia Camponovo übernimmt',
     'blog.article.stabio-municipio-cambios.imageAlt': 'Stabio Gemeinde',
+    'blog.article.crescita-economica-ticino-2026.title': 'Maßvolles Wirtschaftswachstum in der Schweiz im Jahr 2026',
+    'blog.article.crescita-economica-ticino-2026.excerpt': 'Ökonomen prognostizieren ein Wirtschaftswachstum des BIP von 1,0% für das laufende Jahr und eine Verbesserung für 2027',
+    'blog.article.crescita-economica-ticino-2026.imageAlt': 'Lugano Geschäftsstraße',
 };
 
 export default blogMetaDe;

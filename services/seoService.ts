@@ -1698,6 +1698,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-elicottero-rega-locarno': { name: 'Novità', path: '/articoli-frontaliere/elicottero-rega-locarno', parent: 'blog' },
     'blog-funivia-monte-lema-stagione-2026': { name: 'Funivia Monte Lema', path: '/articoli-frontaliere/funivia-monte-lema-stagione-2026', parent: 'blog' },
     'blog-stabio-municipio-cambios': { name: 'Municipio di Stabio', path: '/articoli-frontaliere/stabio-municipio-cambios', parent: 'blog' },
+    'blog-crescita-economica-ticino-2026': { name: 'Crescita economica', path: '/articoli-frontaliere/crescita-economica-ticino-2026', parent: 'blog' },
   };
 
   const info = sectionNames[section];

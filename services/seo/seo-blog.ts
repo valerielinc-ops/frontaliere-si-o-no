@@ -9854,6 +9854,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-crescita-economica-ticino-2026': {
+    title: 'Crescita economica moderata in Svizzera nel 2026 | Frontaliere Ticino',
+    description: 'Gli economisti prevedono una crescita del PIL dell\'1,0% per l\'anno in corso e un miglioramento per il 2027. Scopri di più sulle previsioni economiche e sul loro',
+    keywords: 'frontalieri, ticino, svizzera, italia, crescita, economica, moderata, economisti',
+    ogTitle: 'Crescita economica in Svizzera nel 2026',
+    ogDescription: 'Gli economisti prevedono una crescita del PIL dell\'1,0% per l\'anno in corso e un miglioramento per il 2027. Scopri di più sulle previsioni economiche e sul loro',
+    canonicalPath: '/articoli-frontaliere/crescita-economica-ticino-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Crescita economica moderata in Svizzera nel 2026",
+      "description": "Gli economisti prevedono una crescita del PIL dell'1,0% per l'anno in corso e un miglioramento per il 2027. Scopri di più sulle previsioni economiche e sul loro",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/crescita-economica-ticino-2026.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Vista di Lugano con strade commerciali"
+      },
+      "datePublished": "2026-03-23T19:09:10+00:00",
+      "dateModified": "2026-03-23T19:09:10+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/crescita-economica-ticino-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
