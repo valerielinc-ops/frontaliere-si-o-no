@@ -3860,6 +3860,23 @@ async function generateAndValidateArticle(url, sourceContext = null) {
   validateAndEnforceCTA(data);
   enforceStrongInternalLinks(data);
 
+  // Step 3e: Append source citation to body3 (E-E-A-T compliance)
+  if (url && !url.startsWith('evergreen://')) {
+    try {
+      const sourceDomain = new URL(url).hostname.replace(/^www\./, '');
+      const SOURCE_LABEL = { it: 'Fonte', en: 'Source', de: 'Quelle', fr: 'Source' };
+      for (const locale of ['it', 'en', 'de', 'fr']) {
+        if (!data.content[locale]?.body3) continue;
+        const label = SOURCE_LABEL[locale] || 'Source';
+        // Only append if not already present
+        if (!data.content[locale].body3.includes(sourceDomain)) {
+          data.content[locale].body3 += `\n\n*${label}: [${sourceDomain}](${url})*`;
+        }
+      }
+      console.error(`  📰 Citazione fonte aggiunta: ${sourceDomain}`);
+    } catch { /* invalid URL — skip */ }
+  }
+
   console.error(`\n📝 Articolo generato: "${data.content.it.title}"`);
   console.error(`   ID: ${data.id}`);
   console.error(`   Categoria: ${data.category}`);
