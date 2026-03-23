@@ -103,6 +103,7 @@
     "images:thumbs": "node scripts/generate-image-thumbnails.mjs",
     "fuel:generate": "node scripts/generate-fuel-prices-dataset.mjs",
     "optimize:blog-images": "node scripts/optimize-blog-images.mjs",
+    "test:post-build": "vitest run --config vitest.post-build.config.ts",
     "validate:structured-data": "node scripts/validate-structured-data.mjs",
     "validate:jobs-rich-results": "node scripts/validate-jobs-rich-results-sample.mjs",
     "validate:jobs-quality": "node scripts/validate-jobs-quality.mjs",
@@ -142,7 +143,7 @@
     "jobs:update:vtg": "node scripts/update-vtg-jobs.mjs",
     "jobs:update:confederazione": "node scripts/update-confederazione-jobs.mjs",
     "jobs:update:tinext": "node scripts/update-tinext-jobs.mjs",
-    "prepush": "node scripts/assemble-jobs-dataset.mjs --stats && npm run validate:crawler-summaries && npm run validate:third-party-secrets && npm run validate:jobs-crawler-keys && npm test && npm run build && cp dist/index.html dist/404.html && node scripts/flat-content-replace.mjs && npm run validate:structured-data && npm run validate:jobs-rich-results && npm run validate:jobs-quality && npm run validate:sitemap-links && node scripts/validate-soft404.mjs && node scripts/validate-canonical.mjs && node scripts/validate-content-quality.mjs"
+    "prepush": "node scripts/assemble-jobs-dataset.mjs --stats && npm run validate:crawler-summaries && npm run validate:third-party-secrets && npm run validate:jobs-crawler-keys && npm test && npm run build && cp dist/index.html dist/404.html && node scripts/flat-content-replace.mjs && npm run test:post-build && npm run validate:structured-data && npm run validate:jobs-rich-results && npm run validate:jobs-quality && npm run validate:sitemap-links && node scripts/validate-soft404.mjs && node scripts/validate-canonical.mjs && node scripts/validate-content-quality.mjs"
   },
   "dependencies": {
     "@google/genai": "^1.44.0",
