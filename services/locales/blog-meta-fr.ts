@@ -1682,6 +1682,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.domeniche-senza-auto-ticino-2026.title': 'Dimanches sans voiture en Suisse : le Tessin vers une nouvelle mobilité ?',
     'blog.article.domeniche-senza-auto-ticino-2026.excerpt': 'Martine Docourt relance au niveau fédéral les dimanches sans automobile après le refus de Neuchâtel. Quelles implications pour le Tessin et les frontaliers ?',
     'blog.article.domeniche-senza-auto-ticino-2026.imageAlt': 'Vue d\'une rue animée à Lugano, canton du Tessin, avec des voitures et des piétons en journée',
+    'blog.article.chiusure-notturne-a4-ticino.title': 'Travaux autoroutiers : fermetures nocturnes à Agrate, Cavenago et Monza',
+    'blog.article.chiusure-notturne-a4-ticino.excerpt': 'Les fermetures nocturnes seront effectuées pour permettre des travaux d\'inspection et de maintenance sur le réseau autoroutier. Voici les horaires et les motivations.',
+    'blog.article.chiusure-notturne-a4-ticino.imageAlt': 'Autoroute nocturne dans le Tessin',
 };
 
 export default blogMetaFr;

@@ -1682,6 +1682,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.domeniche-senza-auto-ticino-2026.title': 'Autofreie Sonntage in der Schweiz: Steht der Tessin vor einer neuen Mobilität?',
     'blog.article.domeniche-senza-auto-ticino-2026.excerpt': 'Martine Docourt bringt autofreie Sonntage auf Bundesebene wieder ins Gespräch, nachdem Neuenburg abgelehnt hat. Was bedeutet das für den Tessin und die Grenzgänger?',
     'blog.article.domeniche-senza-auto-ticino-2026.imageAlt': 'Blick auf eine belebte Straße in Lugano, Kanton Tessin, mit Autos und Fußgängern am Tag',
+    'blog.article.chiusure-notturne-a4-ticino.title': 'Arbeitsstellen auf der Autobahn: nächtliche Sperrungen in Agrate, Cavenago und Monza',
+    'blog.article.chiusure-notturne-a4-ticino.excerpt': 'Die nächtlichen Sperrungen werden durchgeführt, um Inspektionen und Wartungsarbeiten auf der Autobahnnetz durchzuführen. Hier finden Sie die Uhrzeiten und Gründe.',
+    'blog.article.chiusure-notturne-a4-ticino.imageAlt': 'Nachtzeit Autobahn in Tessin',
 };
 
 export default blogMetaDe;

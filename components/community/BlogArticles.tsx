@@ -4519,6 +4519,13 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/domeniche-senza-auto-ticino-2026.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'chiusure-notturne-a4-ticino',
+    category: 'pratico',
+    date: '2026-03-23T06:54:37.648Z',
+    image: '/images/blog/chiusure-notturne-a4-ticino.jpg',
+    hasCalculator: true,
+  },
 ];
 
 const CATEGORIES = ['all', 'fiscale', 'pratico', 'novita', 'pensione'] as const;

@@ -3049,7 +3049,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
         "@context": "https://schema.org",
         "@type": "ItemList",
         "name": "Articoli Frontaliere",
-        "numberOfItems": 551,
+        "numberOfItems": 552,
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
           { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -3601,7 +3601,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 548, "name": "{\"@context\":\"https://schema.org\",\"@type\":\"Artic...", "url": `${BASE_URL}/articoli-frontaliere/pfaffikon-kanton-schwyz-franzosi-einbrecher` },
           { "@type": "ListItem", "position": 549, "name": "Riapre la Casetta a Davesco-Soragno: punto di r...", "url": `${BASE_URL}/articoli-frontaliere/riapertura-casetta-chiosco-davesco` },
           { "@type": "ListItem", "position": 550, "name": "I giovani non tornano: cosa fanno i Comuni tici...", "url": `${BASE_URL}/articoli-frontaliere/giovani-ticino-comuni-innovazioni` },
-          { "@type": "ListItem", "position": 551, "name": "Domeniche senza auto in Svizzera: il Ticino ver...", "url": `${BASE_URL}/articoli-frontaliere/domeniche-senza-auto-ticino-2026` }
+          { "@type": "ListItem", "position": 551, "name": "Domeniche senza auto in Svizzera: il Ticino ver...", "url": `${BASE_URL}/articoli-frontaliere/domeniche-senza-auto-ticino-2026` },
+          { "@type": "ListItem", "position": 552, "name": "Lavori autostradali A4 Milano-Brescia: chiusure...", "url": `${BASE_URL}/articoli-frontaliere/chiusure-notturne-a4-ticino` }
         ]
       }
     ]

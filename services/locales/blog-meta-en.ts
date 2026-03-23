@@ -1682,6 +1682,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.domeniche-senza-auto-ticino-2026.title': 'Car-Free Sundays in Switzerland: Is Ticino Moving Towards New Mobility?',
     'blog.article.domeniche-senza-auto-ticino-2026.excerpt': 'Martine Docourt is pushing for car-free Sundays at the federal level after Neuchâtel’s rejection. What this means for Ticino and cross-border commuters.',
     'blog.article.domeniche-senza-auto-ticino-2026.imageAlt': 'View of a busy street in Lugano, Ticino canton, with cars and pedestrians during daytime',
+    'blog.article.chiusure-notturne-a4-ticino.title': 'Roadworks: Night Closures at Agrate, Cavenago, and Monza',
+    'blog.article.chiusure-notturne-a4-ticino.excerpt': 'Night closures will be implemented to allow for inspection and maintenance work on the highway network. Here are the schedules and reasons.',
+    'blog.article.chiusure-notturne-a4-ticino.imageAlt': 'Nighttime highway in Ticino',
 };
 
 export default blogMetaEn;

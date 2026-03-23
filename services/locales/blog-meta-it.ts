@@ -1682,6 +1682,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.domeniche-senza-auto-ticino-2026.title': 'Domeniche senza auto in Svizzera: il Ticino verso una nuova mobilità?',
     'blog.article.domeniche-senza-auto-ticino-2026.excerpt': 'Martine Docourt rilancia a livello federale le domeniche senza automobili dopo il no di Neuchâtel. Cosa significa per il Ticino e i frontalieri.',
     'blog.article.domeniche-senza-auto-ticino-2026.imageAlt': 'Vista di una strada trafficata a Lugano, Canton Ticino, con automobili e pedoni durante il giorno',
+    'blog.article.chiusure-notturne-a4-ticino.title': 'Lavori autostradali: chiusure notturne ad Agrate, Cavenago e Monza',
+    'blog.article.chiusure-notturne-a4-ticino.excerpt': 'Le chiusure notturne saranno fatte per consentire lavori di ispezione e manutenzione sulla rete autostradale. Ecco gli orari e le motivazioni.',
+    'blog.article.chiusure-notturne-a4-ticino.imageAlt': 'Autostrada notturna in Ticino',
 };
 
 export default blogMetaIt;

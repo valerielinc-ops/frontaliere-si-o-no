@@ -1697,6 +1697,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-riapertura-casetta-chiosco-davesco': { name: 'Riapre la Casetta a Davesco-Soragno', path: '/articoli-frontaliere/riapertura-casetta-chiosco-davesco', parent: 'blog' },
     'blog-giovani-ticino-comuni-innovazioni': { name: 'I giovani non tornano', path: '/articoli-frontaliere/giovani-ticino-comuni-innovazioni', parent: 'blog' },
     'blog-domeniche-senza-auto-ticino-2026': { name: 'Domeniche senza auto in Svizzera', path: '/articoli-frontaliere/domeniche-senza-auto-ticino-2026', parent: 'blog' },
+    'blog-chiusure-notturne-a4-ticino': { name: 'Lavori autostradali A4 Milano-Brescia', path: '/articoli-frontaliere/chiusure-notturne-a4-ticino', parent: 'blog' },
   };
 
   const info = sectionNames[section];
