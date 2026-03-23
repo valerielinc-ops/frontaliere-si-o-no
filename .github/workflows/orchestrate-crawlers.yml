@@ -19,7 +19,7 @@ on:
       delay_seconds:
         description: 'Seconds to wait between dispatches (10-120)'
         required: false
-        default: '20'
+        default: '120'
         type: string
       dry_run:
         description: 'Log which workflows would run without dispatching'
@@ -54,7 +54,7 @@ jobs:
       - name: Discover and dispatch crawler workflows
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          DELAY: ${{ inputs.delay_seconds || '20' }}
+          DELAY: ${{ inputs.delay_seconds || '120' }}
           DRY_RUN: ${{ inputs.dry_run || 'false' }}
         run: |
           set -euo pipefail
