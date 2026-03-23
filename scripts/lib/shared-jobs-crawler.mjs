@@ -180,7 +180,6 @@ const CAREER_HINTS = [
   '/lavora',
 ];
 
-// CONTRACT_MAP, guessCategory, normalizeContract imported from dedicated-crawler-common.mjs
 
 const COMPANY_DISCOVERY_DOMAIN_BLACKLIST = new Set([
   'linkedin.com',
@@ -3080,7 +3079,6 @@ async function aiTranslateJobTitle({ title, locale, sourceLang = 'en' }) {
   return cleanTitle;
 }
 
-// heuristicTranslateJobTitle imported from dedicated-crawler-common.mjs
 
 async function enrichJobLocales(job, crawlerConfig) {
   const out = { ...job };
