@@ -76,6 +76,30 @@ import {
   normalizeFederalJobLocation,
 } from './federal-job-normalization.mjs';
 
+// FRO-359: Re-alias DCC imports immediately after import block to avoid TDZ errors.
+// These were scattered throughout the file, causing "Cannot access before initialization"
+// when used at top level (e.g., normalizeSpace at line 133) before the alias declaration.
+const normalizeSpace = _normalizeSpace;
+const slugify = _slugify;
+const decodeHtmlEntities = _decodeHtmlEntities;
+const decodeNumericEntities = _decodeNumericEntities;
+const hostOf = _hostOf;
+const normalizeHost = _normalizeHost;
+const registrableDomain = _registrableDomain;
+const canonicalizeJobUrl = _canonicalizeJobUrl;
+const extractJobIdentityFromUrl = _extractJobIdentityFromUrl;
+const isLowQualityLocalizedTitle = _isLowQualityLocalizedTitle;
+const isLowQualityLocalizedSlug = _isLowQualityLocalizedSlug;
+const fingerprintJob = _fingerprintJob;
+const dedupHeuristicKey = _dedupHeuristicKey;
+const ensureJobSlug = _ensureJobSlug;
+const stableSlugHash = _stableSlugHash;
+const buildStableId = _buildStableId;
+const loadSlugRegistry = _loadSlugRegistry;
+const saveSlugRegistry = _saveSlugRegistry;
+const getRegisteredSlug = _getRegisteredSlug;
+const registerJobSlug = _registerJobSlug;
+
 const execFileAsync = promisify(execFile);
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -448,8 +472,7 @@ function getCompanyAdapter(company) {
   return null;
 }
 
-// FRO-231: normalizeSpace → imported from DCC
-const normalizeSpace = _normalizeSpace;
+// FRO-231: normalizeSpace → moved to top of file (FRO-359)
 
 // AI model calls now handled by centralized scripts/lib/ai-models.mjs
 // (isModelBusyOrRateLimited, callGitHubModels, callGeminiText, callLlmWithFallback removed)
@@ -930,16 +953,7 @@ function tryUrl(raw, base = null) {
   }
 }
 
-// FRO-231: URL utilities → imported from DCC
-const hostOf = _hostOf;
-const normalizeHost = _normalizeHost;
-const registrableDomain = _registrableDomain;
-
-// FRO-231: canonicalizeJobUrl → imported from DCC
-const canonicalizeJobUrl = _canonicalizeJobUrl;
-
-// FRO-231: extractJobIdentityFromUrl → imported from DCC
-const extractJobIdentityFromUrl = _extractJobIdentityFromUrl;
+// FRO-231: URL utilities → moved to top of file (FRO-359)
 
 function recencyTs(job) {
   const raw = job?.crawledAt || job?.postedDate || '';
@@ -1474,8 +1488,7 @@ function isLikelyListingSummaryContent(title = '', description = '') {
   return false;
 }
 
-// FRO-231: slugify → imported from DCC
-const slugify = _slugify;
+// FRO-231: slugify → moved to top of file (FRO-359)
 
 
 
@@ -2296,9 +2309,7 @@ function shouldReusePreviousLocalization(prev = {}, next = {}, cfg = {}) {
   return true;
 }
 
-// FRO-231: slug quality checks → imported from DCC
-const isLowQualityLocalizedTitle = _isLowQualityLocalizedTitle;
-const isLowQualityLocalizedSlug = _isLowQualityLocalizedSlug;
+// FRO-231: slug quality checks → moved to top of file (FRO-359)
 
 function ensureLocaleFields(job) {
   const out = { ...job };
@@ -3845,9 +3856,7 @@ function absoluteLinks(html, baseUrl) {
   return [...links];
 }
 
-// FRO-231: HTML entity decoders → imported from DCC
-const decodeHtmlEntities = _decodeHtmlEntities;
-const decodeNumericEntities = _decodeNumericEntities;
+// FRO-231: HTML entity decoders → moved to top of file (FRO-359)
 
 /**
  * Strip locale fields that are just copies of the source text (not translated).
@@ -4978,18 +4987,7 @@ function toJobFromHtmlFallback(html, pageUrl, companyName, companyCity, options 
   return { job, reason: null };
 }
 
-// FRO-231: fingerprint, slug registry → imported from DCC
-const fingerprintJob = _fingerprintJob;
-const loadSlugRegistry = _loadSlugRegistry;
-const saveSlugRegistry = _saveSlugRegistry;
-const getRegisteredSlug = _getRegisteredSlug;
-const registerJobSlug = _registerJobSlug;
-
-// FRO-231: dedup, slug generation → imported from DCC
-const dedupHeuristicKey = _dedupHeuristicKey;
-const buildStableId = _buildStableId;
-const ensureJobSlug = _ensureJobSlug;
-const stableSlugHash = _stableSlugHash;
+// FRO-231: fingerprint, slug registry, dedup → moved to top of file (FRO-359)
 
 function preferJob(a, b) {
   const aScore = qualityScore(a) + (a.featured ? 2 : 0) + ((a.source === 'Company Careers Crawler') ? 1 : 0);
