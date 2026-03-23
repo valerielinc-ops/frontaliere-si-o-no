@@ -50,7 +50,7 @@ export interface SEOMetadata {
   structuredData?: Record<string, any> | Record<string, any>[];
 }
 
-const BASE_URL = 'https://www.frontaliereticino.ch';
+const BASE_URL = 'https://frontaliereticino.ch';
 const DEFAULT_DATASET_LICENSE = 'https://creativecommons.org/licenses/by-nc/4.0/';
 
 /**

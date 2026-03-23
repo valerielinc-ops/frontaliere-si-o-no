@@ -16,7 +16,7 @@ import path from 'node:path';
 
 const ROOT = process.cwd();
 const DIST = path.join(ROOT, 'dist');
-const BASE_URL = 'https://www.frontaliereticino.ch';
+const BASE_URL = 'https://frontaliereticino.ch';
 const LOC_ONLY = process.argv.includes('--loc-only');
 
 // ── Helpers ──────────────────────────────────────────────────────────
@@ -41,8 +41,8 @@ function extractHreflangs(xml) {
 
 /**
  * Convert an absolute URL to the expected dist/ file path.
- * e.g. https://www.frontaliereticino.ch/calcola-stipendio/ → dist/calcola-stipendio/index.html
- *      https://www.frontaliereticino.ch/                    → dist/index.html
+ * e.g. https://frontaliereticino.ch/calcola-stipendio/ → dist/calcola-stipendio/index.html
+ *      https://frontaliereticino.ch/                    → dist/index.html
  */
 function urlToDistPath(url) {
   let pathname = url.replace(BASE_URL, '');

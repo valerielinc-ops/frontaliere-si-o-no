@@ -17,7 +17,7 @@ import { fileURLToPath } from 'node:url';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
 
-const SITE_URL = 'https://www.frontaliereticino.ch';
+const SITE_URL = 'https://frontaliereticino.ch';
 const JOB_PREFIX = '/cerca-lavoro-ticino/';
 
 // ── Load env ─────────────────────────────────────────────

@@ -53,7 +53,7 @@ const FEED_URL = 'https://jobs.chur.ch/rss_generator-rss0.php?unit=chur&lang=de'
 const LOCALES = ['it', 'en', 'de', 'fr'];
 
 const TIMEOUT_MS = parseInt(process.env.JOBS_CRAWLER_TIMEOUT_MS || '30000', 10);
-const UA = 'Mozilla/5.0 (compatible; FrontaliereTicinoCrawler/1.0; +https://www.frontaliereticino.ch)';
+const UA = 'Mozilla/5.0 (compatible; FrontaliereTicinoCrawler/1.0; +https://frontaliereticino.ch)';
 const DETAIL_DELAY_MS = 800;
 const MAX_RETRIES = 3;
 const RETRY_DELAY_MS = 5000;

@@ -67,7 +67,7 @@ describe('jobEditorialLanding', () => {
       locale: 'it',
       now: '2026-03-09T10:00:00.000+01:00',
       localizedSlug: (job) => String(job.slug),
-      baseUrl: 'https://www.frontaliereticino.ch',
+      baseUrl: 'https://frontaliereticino.ch',
       sectionSlug: 'cerca-lavoro-ticino',
       localePrefix: '',
     });
@@ -80,7 +80,7 @@ describe('jobEditorialLanding', () => {
     expect(model.sections.cities[0]).toMatchObject({
       name: 'Lugano',
       count: 2,
-      href: 'https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-lugano/',
+      href: 'https://frontaliereticino.ch/cerca-lavoro-ticino/ricerca-lugano/',
     });
     expect(model.internalLinks).toEqual(
       expect.arrayContaining([
@@ -104,7 +104,7 @@ describe('jobEditorialLanding', () => {
       locale: 'de',
       now: '2026-03-09T10:00:00.000+01:00',
       localizedSlug: (job) => String(job.slug),
-      baseUrl: 'https://www.frontaliereticino.ch',
+      baseUrl: 'https://frontaliereticino.ch',
       sectionSlug: 'jobs-im-tessin',
       localePrefix: '/de',
     });
@@ -115,7 +115,7 @@ describe('jobEditorialLanding', () => {
     expect(model.sections.last3Days.label).toBe('Jobs der letzten 3 Tage');
     expect(model.sections.partTime.label).toBe('Teilzeitjobs im Tessin');
     expect(model.sections.cityHubLabel).toBe('Nach Stadt suchen');
-    expect(model.sections.cities[0].href).toBe('https://www.frontaliereticino.ch/de/jobs-im-tessin/suche-chiasso/');
+    expect(model.sections.cities[0].href).toBe('https://frontaliereticino.ch/de/jobs-im-tessin/suche-chiasso/');
   });
 
   it('recognizes editorial landing slugs in all supported languages', () => {
@@ -142,7 +142,7 @@ describe('jobEditorialLanding', () => {
       location: 'Lugano',
       now: '2026-03-09T10:00:00.000+01:00',
       localizedSlug: (item) => String(item.slug),
-      baseUrl: 'https://www.frontaliereticino.ch',
+      baseUrl: 'https://frontaliereticino.ch',
       sectionSlug: 'cerca-lavoro-ticino',
       localePrefix: '',
     });
@@ -168,7 +168,7 @@ describe('jobEditorialLanding', () => {
       typeKey: 'apprenticeship',
       now: '2026-03-09T10:00:00.000+01:00',
       localizedSlug: (item) => String(item.slug),
-      baseUrl: 'https://www.frontaliereticino.ch',
+      baseUrl: 'https://frontaliereticino.ch',
       sectionSlug: 'find-jobs-ticino',
       localePrefix: '/en',
     });
@@ -181,7 +181,7 @@ describe('jobEditorialLanding', () => {
       title: 'Apprendistato impiegato di commercio AFC',
       location: 'Lugano',
     });
-    expect(typeModel.parentLocationHref).toBe('https://www.frontaliereticino.ch/en/find-jobs-ticino/search-lugano/');
+    expect(typeModel.parentLocationHref).toBe('https://frontaliereticino.ch/en/find-jobs-ticino/search-lugano/');
   });
 
   it('supports new city hubs and city plus sector landings', () => {
@@ -197,7 +197,7 @@ describe('jobEditorialLanding', () => {
       location: 'Chiasso',
       now: '2026-03-09T10:00:00.000+01:00',
       localizedSlug: (item) => String(item.slug),
-      baseUrl: 'https://www.frontaliereticino.ch',
+      baseUrl: 'https://frontaliereticino.ch',
       sectionSlug: 'cerca-lavoro-ticino',
       localePrefix: '',
     });
@@ -217,7 +217,7 @@ describe('jobEditorialLanding', () => {
       sectorKey: 'finance',
       now: '2026-03-09T10:00:00.000+01:00',
       localizedSlug: (item) => String(item.slug),
-      baseUrl: 'https://www.frontaliereticino.ch',
+      baseUrl: 'https://frontaliereticino.ch',
       sectionSlug: 'cerca-lavoro-ticino',
       localePrefix: '',
     });
@@ -263,7 +263,7 @@ describe('jobEditorialLanding', () => {
       locale: 'it',
       now: '2026-03-09T10:00:00.000+01:00',
       localizedSlug: (item) => String(item.slug),
-      baseUrl: 'https://www.frontaliereticino.ch',
+      baseUrl: 'https://frontaliereticino.ch',
       sectionSlug: 'cerca-lavoro-ticino',
       localePrefix: '',
     });
@@ -291,7 +291,7 @@ describe('jobEditorialLanding', () => {
       locale: 'it',
       now: '2026-03-09T10:00:00.000+01:00',
       localizedSlug: (item) => String(item.slug),
-      baseUrl: 'https://www.frontaliereticino.ch',
+      baseUrl: 'https://frontaliereticino.ch',
       sectionSlug: 'cerca-lavoro-ticino',
       localePrefix: '',
     });
@@ -325,7 +325,7 @@ describe('jobEditorialLanding', () => {
       clusterKey: 'clinics',
       now: '2026-03-09T10:00:00.000+01:00',
       localizedSlug: (item) => String(item.slug),
-      baseUrl: 'https://www.frontaliereticino.ch',
+      baseUrl: 'https://frontaliereticino.ch',
       sectionSlug: 'find-jobs-ticino',
       localePrefix: '/en',
     });
@@ -333,7 +333,7 @@ describe('jobEditorialLanding', () => {
     expect(model.slug).toBe('clinics-ticino-jobs');
     expect(model.heading).toContain('Clinics in Ticino');
     expect(model.totalJobs).toBe(1);
-    expect(model.parentHubHref).toBe('https://www.frontaliereticino.ch/en/find-jobs-ticino/nurses-in-ticino/');
+    expect(model.parentHubHref).toBe('https://frontaliereticino.ch/en/find-jobs-ticino/nurses-in-ticino/');
     expect(model.siblingLinks).toEqual(
       expect.arrayContaining([
         expect.objectContaining({ label: 'Care homes in Ticino' }),

@@ -52,7 +52,7 @@ const JYSK_LISTING_URL = 'https://jobs.de.jysk.ch/offene-stellen';
 
 const UA =
   process.env.JOBS_CRAWLER_USER_AGENT ||
-  'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://www.frontaliereticino.ch/)';
+  'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)';
 
 /* ── Matchers ──────────────────────────────────────────────── */
 function isJyskJob(job) {

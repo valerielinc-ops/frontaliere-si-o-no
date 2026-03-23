@@ -77,14 +77,14 @@ export function legacyRedirectsPlugin(rootDir: string): Plugin {
         // Skip if a higher-priority plugin already generated this page (e.g. active job or soft-landing)
         if (fs.existsSync(path.join(outDir, 'index.html'))) continue;
         const targetNoLeadingSlash = to.slice(1).replace(/&/g, '~and~');
-        const fromUrl = `https://www.frontaliereticino.ch${from}`;
-        const toUrl = `https://www.frontaliereticino.ch${to}`;
+        const fromUrl = `https://frontaliereticino.ch${from}`;
+        const toUrl = `https://frontaliereticino.ch${to}`;
         const redirectLd = JSON.stringify({
           '@context': 'https://schema.org',
           '@type': 'WebPage',
           name: `Redirect ${from} → ${to}`,
           url: fromUrl,
-          isPartOf: { '@type': 'WebSite', name: 'Frontaliere Ticino', url: 'https://www.frontaliereticino.ch' },
+          isPartOf: { '@type': 'WebSite', name: 'Frontaliere Ticino', url: 'https://frontaliereticino.ch' },
           mainEntityOfPage: toUrl,
           description: `Pagina legacy reindirizzata verso ${to}`,
           inLanguage: 'it',
@@ -97,7 +97,7 @@ export function legacyRedirectsPlugin(rootDir: string): Plugin {
     <title>Pagina spostata | Frontaliere Ticino</title>
     <meta name="description" content="Questa URL legacy ha una pagina canonica aggiornata su Frontaliere Ticino.">
     <meta name="robots" content="index,follow">
-    <link rel="canonical" href="https://www.frontaliereticino.ch${to}">
+    <link rel="canonical" href="https://frontaliereticino.ch${to}">
     <script type="application/ld+json">${redirectLd}</script>
     ${SPA_ACTION_REDIRECT_SCRIPT}
   </head>

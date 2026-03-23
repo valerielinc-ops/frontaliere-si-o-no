@@ -104,26 +104,26 @@ describe('job-board-stats', () => {
       removed: 1,
     });
 
-    expect(summary.links.allJobs).toBe('https://www.frontaliereticino.ch/cerca-lavoro-ticino');
+    expect(summary.links.allJobs).toBe('https://frontaliereticino.ch/cerca-lavoro-ticino');
     expect(summary.leaders.topCompaniesActive[0]).toMatchObject({
       name: 'Swisscom (sede Ticino)',
       count: 2,
-      url: 'https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-swisscom-sede-ticino',
+      url: 'https://frontaliereticino.ch/cerca-lavoro-ticino/azienda-swisscom-sede-ticino',
     });
     expect(summary.leaders.topLocationsActive[0]).toMatchObject({
       name: 'Bellinzona',
       count: 2,
-      url: 'https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-bellinzona',
+      url: 'https://frontaliereticino.ch/cerca-lavoro-ticino/ricerca-bellinzona',
     });
     expect(summary.leaders.topCompaniesAddedToday[0]).toMatchObject({
       name: 'Swisscom (sede Ticino)',
       added: 1,
-      url: 'https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-swisscom-sede-ticino',
+      url: 'https://frontaliereticino.ch/cerca-lavoro-ticino/azienda-swisscom-sede-ticino',
     });
     expect(summary.leaders.topTitlesAdded30d[0]).toMatchObject({
       name: 'Network Specialist',
       added: 1,
-      url: 'https://www.frontaliereticino.ch/cerca-lavoro-ticino/ricerca-network-specialist',
+      url: 'https://frontaliereticino.ch/cerca-lavoro-ticino/ricerca-network-specialist',
     });
     expect(summary.salary.coverage).toMatchObject({
       jobsWithSalary: 0,
@@ -151,7 +151,7 @@ describe('job-board-stats', () => {
             {
               key: 'swisscom-sede-ticino',
               name: 'Swisscom (sede Ticino)',
-              url: 'https://www.frontaliereticino.ch/cerca-lavoro-ticino/azienda-swisscom-sede-ticino',
+              url: 'https://frontaliereticino.ch/cerca-lavoro-ticino/azienda-swisscom-sede-ticino',
               addedKeys: ['url:https://example.com/job-c'],
               updatedKeys: ['url:https://example.com/job-a'],
               removedKeys: [],

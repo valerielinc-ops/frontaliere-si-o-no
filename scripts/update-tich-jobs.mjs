@@ -381,7 +381,7 @@ async function fetchTichJobDetailUrls() {
   const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 12_000;
   const userAgent =
     process.env.JOBS_CRAWLER_USER_AGENT ||
-    'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://www.frontaliereticino.ch/)';
+    'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)';
 
   // ── Step 1: Fetch the main listing page ──
   console.log(`🔍 Fetching Ti.CH listing page: ${LISTING_URL}`);
@@ -599,7 +599,7 @@ async function fetchTichHtml(url, timeoutMs = Number(process.env.JOBS_CRAWLER_TI
         'Accept-Language': 'it-CH,it;q=0.9,en;q=0.8',
         'User-Agent':
           process.env.JOBS_CRAWLER_USER_AGENT ||
-          'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://www.frontaliereticino.ch/)',
+          'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)',
       },
     });
     if (!res.ok) { console.warn(`  ⚠️ HTTP ${res.status} for ${url}`); return null; }

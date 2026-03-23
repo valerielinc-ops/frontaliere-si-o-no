@@ -87,7 +87,7 @@ async function fetchText(url, timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOU
       signal: controller.signal,
       headers: {
         Accept: 'text/html,application/xhtml+xml',
-        'User-Agent': 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://www.frontaliereticino.ch/)',
+        'User-Agent': 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)',
       },
     });
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
@@ -101,7 +101,7 @@ async function fetchRenderedBoschListings() {
   const browser = await chromium.launch({ headless: true });
   try {
     const page = await browser.newPage({
-      userAgent: 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://www.frontaliereticino.ch/)',
+      userAgent: 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)',
     });
     await page.goto(CAREERS_URL, { waitUntil: 'domcontentloaded', timeout: 30000 });
     const declineCookies = page.getByRole('button', { name: /decline|reject|only necessary/i });

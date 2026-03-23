@@ -323,7 +323,7 @@ async function fetchSupsiJobDetailUrls() {
   const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 30000;
   const userAgent =
     process.env.JOBS_CRAWLER_USER_AGENT ||
-    'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://www.frontaliereticino.ch/)';
+    'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)';
 
   const byUrl = new Map();
   const seedMetaByUrl = {};
@@ -597,7 +597,7 @@ async function repairSupsiJobFromSource(job) {
 
   const userAgent =
     process.env.JOBS_CRAWLER_USER_AGENT ||
-    'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://www.frontaliereticino.ch/)';
+    'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)';
   const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 30000;
 
   let html = '';

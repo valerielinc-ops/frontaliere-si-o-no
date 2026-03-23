@@ -228,7 +228,7 @@ async function fetchLidlJobDetailUrls() {
   const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 12000;
   const userAgent =
     process.env.JOBS_CRAWLER_USER_AGENT ||
-    'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://www.frontaliereticino.ch/)';
+    'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)';
 
   console.log('🔍 Fetching Lidl jobs from team.lidl.ch search API...');
 
@@ -406,7 +406,7 @@ async function fetchLidlPage(url, timeoutMs = 15000) {
         Accept: 'text/html,application/xhtml+xml',
         'Accept-Language': 'de-CH,de;q=0.9,it;q=0.8',
         'User-Agent': process.env.JOBS_CRAWLER_USER_AGENT ||
-          'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://www.frontaliereticino.ch/)',
+          'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)',
       },
     });
     clearTimeout(timer);

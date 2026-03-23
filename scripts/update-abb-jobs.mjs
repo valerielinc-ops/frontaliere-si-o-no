@@ -268,7 +268,7 @@ async function fetchAbbJobDetailUrls() {
   const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 12000;
   const userAgent =
     process.env.JOBS_CRAWLER_USER_AGENT ||
-    'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://www.frontaliereticino.ch/)';
+    'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)';
   const maxPages = Math.max(1, Number(process.env.JOBS_ABB_MAX_PAGES || 10));
 
   console.log('🔍 Fetching ABB jobs from careers.abb search-results...');

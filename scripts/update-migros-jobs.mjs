@@ -141,7 +141,7 @@ async function fetchMigrosJobDetailUrls() {
   const allUrls = new Set();
   const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 12000;
   const userAgent = process.env.JOBS_CRAWLER_USER_AGENT ||
-    'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://www.frontaliereticino.ch/)';
+    'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)';
 
   for (const [regionName, regionId] of Object.entries(REGION_IDS)) {
     let page = 0;

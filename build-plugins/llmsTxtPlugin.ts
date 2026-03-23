@@ -7,7 +7,7 @@
 import path from 'path';
 import type { Plugin } from 'vite';
 
-const BASE_URL = 'https://www.frontaliereticino.ch';
+const BASE_URL = 'https://frontaliereticino.ch';
 
 const SITEMAP_FILES = [
   'sitemap-pages.xml', 'sitemap-blog.xml', 'sitemap-glossario.xml',

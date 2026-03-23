@@ -18,7 +18,7 @@ import path from 'node:path';
 
 const ROOT = process.cwd();
 const DIST = path.join(ROOT, 'dist');
-const BASE_URL = 'https://www.frontaliereticino.ch';
+const BASE_URL = 'https://frontaliereticino.ch';
 const WARN_ONLY = process.argv.includes('--warn-only');
 
 // Minimum visible text characters for a page to not be flagged as soft 404.

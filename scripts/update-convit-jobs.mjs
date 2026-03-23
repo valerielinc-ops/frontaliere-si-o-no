@@ -93,7 +93,7 @@ async function fetchText(url, timeoutMs = TIMEOUT_MS) {
       signal: controller.signal,
       headers: {
         Accept: 'text/html,application/xhtml+xml',
-        'User-Agent': 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://www.frontaliereticino.ch/)',
+        'User-Agent': 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)',
       },
     });
     if (!res.ok) throw new Error(`HTTP ${res.status}`);

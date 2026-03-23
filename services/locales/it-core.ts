@@ -1272,7 +1272,7 @@ const translations: Record<string, string> = {
     'salaryQuiz.rangeLabel': 'Range stipendiale nel tuo settore',
     'salaryQuiz.median': 'mediana',
     'salaryQuiz.shareTitle': 'Condividi con i tuoi colleghi!',
-    'salaryQuiz.shareText': 'Ho scoperto che nel settore {sector} in Svizzera potrei guadagnare €{net} netti al mese! Fai il quiz anche tu → https://www.frontaliereticino.ch',
+    'salaryQuiz.shareText': 'Ho scoperto che nel settore {sector} in Svizzera potrei guadagnare €{net} netti al mese! Fai il quiz anche tu → https://frontaliereticino.ch',
     'salaryQuiz.copied': 'Copiato!',
     'salaryQuiz.copyLink': 'Copia link',
     'salaryQuiz.disclaimer': '⚠️ Stima indicativa basata su dati aggregati del mercato del lavoro ticinese. Lo stipendio effettivo dipende dall\'azienda, dal ruolo specifico e dalle tue qualifiche. Usa il Calcolatore Frontaliere per un calcolo personalizzato.',

@@ -270,7 +270,7 @@ const ShareableResultCard: React.FC<ShareableCardProps> = ({
   // ─── Share via WhatsApp ─────────────────────────────────────────────
 
   const shareWhatsApp = useCallback(() => {
-    const text = `${title}\n${rows.filter(r => r.highlight).map(r => `${r.label}: ${r.value}`).join('\n')}\n\n${t('shareCard.whatsappFooter')}\nhttps://www.frontaliereticino.ch`;
+    const text = `${title}\n${rows.filter(r => r.highlight).map(r => `${r.label}: ${r.value}`).join('\n')}\n\n${t('shareCard.whatsappFooter')}\nhttps://frontaliereticino.ch`;
     window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, '_blank');
     Analytics.trackShare('whatsapp', 'result_card', context);
   }, [title, rows, t, context]);
@@ -291,10 +291,10 @@ const ShareableResultCard: React.FC<ShareableCardProps> = ({
   const shareNative = useCallback(async () => {
     if (!generatedImage) {
       // Fall back to text sharing
-      const text = `${title}\n${rows.filter(r => r.highlight).map(r => `${r.label}: ${r.value}`).join('\n')}\nhttps://www.frontaliereticino.ch`;
+      const text = `${title}\n${rows.filter(r => r.highlight).map(r => `${r.label}: ${r.value}`).join('\n')}\nhttps://frontaliereticino.ch`;
       try {
         if (navigator.share) {
-          await navigator.share({ title, text, url: 'https://www.frontaliereticino.ch' });
+          await navigator.share({ title, text, url: 'https://frontaliereticino.ch' });
         } else {
           await navigator.clipboard.writeText(text);
           setCopied(true);
@@ -326,7 +326,7 @@ const ShareableResultCard: React.FC<ShareableCardProps> = ({
   // ─── Copy data to clipboard ─────────────────────────────────────────
 
   const copyData = useCallback(async () => {
-    const text = `${title}\n${'─'.repeat(30)}\n${rows.map(r => `${r.label}: ${r.value}`).join('\n')}\n${'─'.repeat(30)}\n${footer || ''}\nhttps://www.frontaliereticino.ch`;
+    const text = `${title}\n${'─'.repeat(30)}\n${rows.map(r => `${r.label}: ${r.value}`).join('\n')}\n${'─'.repeat(30)}\n${footer || ''}\nhttps://frontaliereticino.ch`;
     try {
       await navigator.clipboard.writeText(text);
     } catch {

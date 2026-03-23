@@ -134,7 +134,7 @@ async function fetchPage(url, timeoutMs = 20_000) {
       signal: controller.signal,
       headers: {
         'User-Agent':
-          'Mozilla/5.0 (compatible; FrontaliereBot/1.0; +https://www.frontaliereticino.ch)',
+          'Mozilla/5.0 (compatible; FrontaliereBot/1.0; +https://frontaliereticino.ch)',
         Accept: 'text/html,application/xhtml+xml',
       },
     });

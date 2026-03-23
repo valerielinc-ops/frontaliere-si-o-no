@@ -21,7 +21,7 @@ import {
   jobsDiffer,
 } from './lib/job-identity.mjs';
 
-const BASE_URL = 'https://www.frontaliereticino.ch';
+const BASE_URL = 'https://frontaliereticino.ch';
 const JOB_PATH = 'cerca-lavoro-ticino';
 const DATA_SUMMARIES_PATH = resolveCrawlerSummaryStorePath();
 

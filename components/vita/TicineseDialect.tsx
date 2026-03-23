@@ -268,7 +268,7 @@ const TicineseDialect: React.FC = () => {
   const handleShare = async (entry: DialectEntry) => {
     const phrase = termField(entry, 'phrase');
     const italian = termField(entry, 'italian');
-    const text = `🇨🇭 ${tt('dialect.title', 'Dialetto Ticinese')}: "${phrase}" — ${italian}\n\nhttps://www.frontaliereticino.ch/dialetto-ticinese`;
+    const text = `🇨🇭 ${tt('dialect.title', 'Dialetto Ticinese')}: "${phrase}" — ${italian}\n\nhttps://frontaliereticino.ch/dialetto-ticinese`;
     try {
       if (navigator.share) {
         await navigator.share({ title: tt('dialect.title', 'Dialetto Ticinese'), text });

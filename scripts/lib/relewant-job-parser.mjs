@@ -160,7 +160,7 @@ export async function fetchRelewantDetailPage(detailUrl, timeoutMs = 15000) {
       signal: controller.signal,
       headers: {
         Accept: 'text/html',
-        'User-Agent': 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://www.frontaliereticino.ch/)',
+        'User-Agent': 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)',
       },
     });
     if (!res.ok) {
@@ -249,7 +249,7 @@ export async function fetchRelewantJobs(timeoutMs = 20000) {
       signal: controller.signal,
       headers: {
         Accept: 'application/json',
-        'User-Agent': 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://www.frontaliereticino.ch/)',
+        'User-Agent': 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)',
       },
     });
     if (!res.ok) throw new Error(`HTTP ${res.status}`);

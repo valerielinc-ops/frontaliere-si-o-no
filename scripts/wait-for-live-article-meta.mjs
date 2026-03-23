@@ -153,7 +153,7 @@ while (Date.now() < deadline) {
     const res = await fetch(url, {
       redirect: 'follow',
       headers: {
-        'user-agent': 'FrontaliereTicinoMetaWait/1.0 (+https://www.frontaliereticino.ch)',
+        'user-agent': 'FrontaliereTicinoMetaWait/1.0 (+https://frontaliereticino.ch)',
         'cache-control': 'no-cache',
         pragma: 'no-cache',
       },

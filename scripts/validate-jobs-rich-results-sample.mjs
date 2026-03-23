@@ -5,7 +5,7 @@ import path from 'node:path';
 const ROOT = process.cwd();
 const DIST = path.join(ROOT, 'dist');
 const JOBS_PATH = path.join(ROOT, 'data', 'jobs.json');
-const BASE_URL = 'https://www.frontaliereticino.ch';
+const BASE_URL = 'https://frontaliereticino.ch';
 
 const LOCALES = [
   { code: 'it', prefix: '', segment: 'cerca-lavoro-ticino' },

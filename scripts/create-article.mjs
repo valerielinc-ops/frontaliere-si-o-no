@@ -71,7 +71,7 @@ import { callLLM as _aiCallLLM, AI_MODELS, getStats as getAiStats, initScoreStor
 const GEMINI_API_BASE = 'https://generativelanguage.googleapis.com/v1beta/models';
 const IMAGE_MODEL_PRO = 'gemini-3-pro-image-preview';
 const IMAGE_MODEL_FLASH = 'gemini-2.5-flash-image';
-const BASE_URL = 'https://www.frontaliereticino.ch';
+const BASE_URL = 'https://frontaliereticino.ch';
 
 // Model aliases for callLLM opts (used by callers that pass opts.model)
 const GH_MODEL_HEAVY = AI_MODELS.GPT4O;
@@ -3362,7 +3362,7 @@ function validateStructuredData(data) {
   if (!cp) throw new Error(`[validate-ld] Empty canonicalPath for ${entryKey}`);
 
   // 4. Build the same JSON-LD object ogPagesPlugin builds and verify JSON.stringify works
-  const BASE = 'https://www.frontaliereticino.ch';
+  const BASE = 'https://frontaliereticino.ch';
   const ldObj = {
     '@context': 'https://schema.org',
     '@type': 'Article',

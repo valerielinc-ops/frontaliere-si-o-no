@@ -231,7 +231,7 @@ const WhatIfSimulator: React.FC<WhatIfSimulatorProps> = ({ baseInputs, baseResul
         ? `${t('whatif.italyBetterBy')} € ${Math.abs(Math.round(newDifferential)).toLocaleString('it-IT')}/${t('whatif.perYear')}`
         : `${t('whatif.swissBetterBy')} € ${Math.abs(Math.round(newDifferential)).toLocaleString('it-IT')}/${t('whatif.perYear')}`,
       '',
-      `${t('whatif.share.cta')} https://www.frontaliereticino.ch/calcola-stipendio/cosa-cambia-se`,
+      `${t('whatif.share.cta')} https://frontaliereticino.ch/calcola-stipendio/cosa-cambia-se`,
     ].join('\n');
 
     try {

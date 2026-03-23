@@ -11,7 +11,7 @@
  *  - Featured tool
  *  - Weekly fact
  *
- * All links are direct URLs (https://www.frontaliereticino.ch/...)
+ * All links are direct URLs (https://frontaliereticino.ch/...)
  * Autologin via Firebase generateSignInWithEmailLink() on each internal link.
  *
  * Usage:
@@ -35,7 +35,7 @@ import { matchJobsForSubscriber, validateJobUrls, buildBriefingPrompt, buildSubj
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
 const QA_DIR = path.resolve(ROOT, 'docs', 'newsletter-qa');
-const BASE_URL = 'https://www.frontaliereticino.ch';
+const BASE_URL = 'https://frontaliereticino.ch';
 const ADMIN_EMAIL = 'luigisag@gmail.com';
 const RESEND_ENDPOINT = 'https://api.resend.com/emails/batch';
 const DEFAULT_FROM_EMAIL = 'Frontaliere Ticino <newsletter@frontaliereticino.ch>';

@@ -15,7 +15,7 @@
 
 import { writeFileSync } from 'node:fs';
 
-const HOST = 'www.frontaliereticino.ch';
+const HOST = 'frontaliereticino.ch';
 const OUTPUT = '/tmp/pre-deploy-sitemap-urls.json';
 const SITEMAP_FILES = [
   'sitemap-pages.xml',

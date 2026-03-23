@@ -159,7 +159,7 @@ async function fetchRecruiteeOffers() {
       headers: {
         Accept: 'application/json',
         'User-Agent': process.env.JOBS_CRAWLER_USER_AGENT ||
-          'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://www.frontaliereticino.ch/)',
+          'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)',
       },
     });
     clearTimeout(timer);

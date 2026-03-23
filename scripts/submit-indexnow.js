@@ -24,7 +24,7 @@ import { fileURLToPath } from 'node:url';
 import { dirname, resolve } from 'node:path';
 
 const INDEXNOW_KEY = '39093e02a74b4a2dbf867c74bc53a7d8';
-const HOST = 'www.frontaliereticino.ch';
+const HOST = 'frontaliereticino.ch';
 const KEY_LOCATION = `https://${HOST}/${INDEXNOW_KEY}.txt`;
 const MAX_RETRIES = 2;
 const BATCH_SIZE = 500; // conservative batch size

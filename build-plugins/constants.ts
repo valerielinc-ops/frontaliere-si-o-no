@@ -134,4 +134,4 @@ try {
 export const COMMIT_HASH = _commitHash;
 export const SHORT_COMMIT_HASH = COMMIT_HASH.slice(0, 8);
 
-export const BASE_URL = 'https://www.frontaliereticino.ch';
+export const BASE_URL = 'https://frontaliereticino.ch';

@@ -30,7 +30,7 @@ const WeeklyFact: React.FC = () => {
     const shareText = `💡 ${t('weeklyFact.title')}: ${factText}${factSource !== `weeklyFact.sources.${weekIndex}` ? ` (${factSource})` : ''} — frontaliereticino.ch`;
     try {
       if (navigator.share) {
-        await navigator.share({ text: shareText, url: 'https://www.frontaliereticino.ch' });
+        await navigator.share({ text: shareText, url: 'https://frontaliereticino.ch' });
         return;
       }
     } catch { /* user cancelled or not supported */ }

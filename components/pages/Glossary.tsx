@@ -31,7 +31,7 @@ function useGlossaryStructuredData(entries: GlossaryEntry[], t: (key: string) =>
       '@type': 'DefinedTermSet',
       name: 'Glossario del Frontaliere - Termini Fiscali, Previdenziali e Legali',
       description: 'Glossario completo dei termini fiscali, previdenziali e legali per i lavoratori frontalieri in Svizzera.',
-      url: 'https://www.frontaliereticino.ch/glossario-frontaliere',
+      url: 'https://frontaliereticino.ch/glossario-frontaliere',
       hasDefinedTerm: definedTerms,
     };
 

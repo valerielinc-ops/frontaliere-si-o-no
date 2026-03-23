@@ -59,7 +59,7 @@ const MANOR_TICINO_CITIES = TICINO_CITIES.map((city) => normalize(city));
 
 const UA =
   process.env.JOBS_CRAWLER_USER_AGENT ||
-  'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://www.frontaliereticino.ch/)';
+  'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)';
 
 /* ── Matcher ───────────────────────────────────────────────── */
 function isManorJob(job) {

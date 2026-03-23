@@ -50,7 +50,7 @@ const IST_BASE_URL = 'https://jobs.inspirededu.com';
 const LOCALES = ['it', 'en', 'de', 'fr'];
 
 const UA = process.env.JOBS_CRAWLER_USER_AGENT ||
-  'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://www.frontaliereticino.ch/)';
+  'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)';
 
 /* ── Helpers ───────────────────────────────────────────────── */
 

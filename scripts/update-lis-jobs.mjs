@@ -55,7 +55,7 @@ const LIS_LISTING_URLS = [
  * the Arca24 bot-detection whitelist lets us through without cookies.
  */
 const LIS_USER_AGENT =
-  'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://www.frontaliereticino.ch/; Slackbot compatible)';
+  'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/; Slackbot compatible)';
 
 // ──────────────────────────────────────────────────────────────
 // Helpers

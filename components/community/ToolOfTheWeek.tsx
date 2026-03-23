@@ -78,7 +78,7 @@ const ToolOfTheWeek: React.FC<ToolOfTheWeekProps> = ({ compact = false, onNaviga
 
   const toolTitle = t(tool.titleKey);
   const toolDesc = t(tool.descKey);
-  const baseUrl = 'https://www.frontaliereticino.ch';
+  const baseUrl = 'https://frontaliereticino.ch';
   const toolUrl = `${baseUrl}${tool.slug}`;
 
   // ─── Share text ─────────────────────────────────────────────────────

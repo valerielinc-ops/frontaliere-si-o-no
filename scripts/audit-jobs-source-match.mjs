@@ -13,14 +13,14 @@ const OUTPUT_PATH = path.resolve(ROOT, 'data', 'jobs-source-match-audit.json');
 
 const USER_AGENT =
   process.env.JOBS_CRAWLER_USER_AGENT ||
-  'Mozilla/5.0 (compatible; FrontaliereTicinoAudit/1.0; +https://www.frontaliereticino.ch/)';
+  'Mozilla/5.0 (compatible; FrontaliereTicinoAudit/1.0; +https://frontaliereticino.ch/)';
 
 const LOCALES = ['it', 'en', 'de', 'fr'];
 const SITE_ROOTS = {
-  it: 'https://www.frontaliereticino.ch/cerca-lavoro-ticino',
-  en: 'https://www.frontaliereticino.ch/en/find-jobs-ticino',
-  de: 'https://www.frontaliereticino.ch/de/jobs-im-tessin',
-  fr: 'https://www.frontaliereticino.ch/fr/trouver-emploi-tessin',
+  it: 'https://frontaliereticino.ch/cerca-lavoro-ticino',
+  en: 'https://frontaliereticino.ch/en/find-jobs-ticino',
+  de: 'https://frontaliereticino.ch/de/jobs-im-tessin',
+  fr: 'https://frontaliereticino.ch/fr/trouver-emploi-tessin',
 };
 
 const STOPWORDS = new Set([
@@ -228,7 +228,7 @@ jsdomVirtualConsole.on('jsdomError', () => {});
 
 function extractHtmlDocument(html = '', pageUrl = '') {
   const dom = new JSDOM(html, {
-    url: pageUrl || 'https://www.frontaliereticino.ch/',
+    url: pageUrl || 'https://frontaliereticino.ch/',
     virtualConsole: jsdomVirtualConsole,
   });
   const { document } = dom.window;

@@ -817,7 +817,7 @@ const CONTACT_EMAIL_REGEX = /[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}/gi;
 const CONTACT_TOKEN_REGEX = /([A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}|(?:(?:\+|00)\d[\d\s()./-]{5,}\d|\b\d[\d\s()./-]{6,}\d\b))/gi;
 const ISO_DATE_CONTACT_REGEX = /^\d{4}-\d{2}-\d{2}$/;
 const YEAR_RANGE_CONTACT_REGEX = /\b\d{4}\s*\/\s*\d{4}\b/;
-const PUBLIC_SITE_URL = 'https://www.frontaliereticino.ch';
+const PUBLIC_SITE_URL = 'https://frontaliereticino.ch';
 
 const MAILTO_COPY_BY_LOCALE: Record<'it' | 'en' | 'de' | 'fr', {
   subject: (jobTitle: string, company: string) => string;
@@ -2864,7 +2864,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
       const isRemote = /remote|telelavor|smart[-\s]?working|home office|hybrid/i.test(
         `${localizedTitle} ${description || ''} ${job.location || ''}`
       );
-      const logo = companyLogoUrl(job) || 'https://www.frontaliereticino.ch/icons/icon-512x512.png';
+      const logo = companyLogoUrl(job) || 'https://frontaliereticino.ch/icons/icon-512x512.png';
       const salaryMin = Number.isFinite(Number(job.salaryMin))
         ? Number(job.salaryMin)
         : Number(job.baseSalary?.value?.minValue);
@@ -2905,7 +2905,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
               companyDomain: job.companyDomain,
               url: job.url,
             });
-            return host ? `https://www.${host}` : 'https://www.frontaliereticino.ch';
+            return host ? `https://www.${host}` : 'https://frontaliereticino.ch';
           })(),
           logo,
         },

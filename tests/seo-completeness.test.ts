@@ -41,7 +41,7 @@ const SEO_METADATA = await getAllSeoMetadata();
 
 // ── Helpers ─────────────────────────────────────────────────────────────────
 
-const BASE_URL = 'https://www.frontaliereticino.ch';
+const BASE_URL = 'https://frontaliereticino.ch';
 
 /** Read a project file relative to root */
 function readProjectFile(relativePath: string): string {
@@ -385,7 +385,7 @@ describe('IndexNow — submit-indexnow.js reads sitemap and submits to Bing', ()
     it(`${label} → sitemap contains ${buildPath(route, 'it')} (indexed via IndexNow)`, () => {
       const itPath = buildPath(route, 'it');
       expect(
-        sitemapContent.includes(`https://www.frontaliereticino.ch${itPath}`),
+        sitemapContent.includes(`https://frontaliereticino.ch${itPath}`),
         `Missing from sitemap.xml (and thus IndexNow): ${itPath}`
       ).toBe(true);
     });

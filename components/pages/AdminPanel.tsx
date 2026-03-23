@@ -1148,7 +1148,7 @@ export default function AdminPanel() {
       {crawlerSummaries.length > 0 ? (
         <div className="space-y-2">
           {crawlerSummaries.map((summary) => {
-            const siteUrl = (slug: string) => slug ? `https://www.frontaliereticino.ch/cerca-lavoro-ticino/${slug}/` : '';
+            const siteUrl = (slug: string) => slug ? `https://frontaliereticino.ch/cerca-lavoro-ticino/${slug}/` : '';
 
             const renderJobList = (title: string, items: CrawlerSummaryLinkRow[], highlight?: 'new' | 'updated' | 'unchanged', isRemoved?: boolean) => (
               <div className="space-y-1">
@@ -1632,7 +1632,7 @@ export default function AdminPanel() {
                   unchanged: 'border-amber-200 dark:border-amber-800 bg-amber-50/50 dark:bg-amber-900/20',
                   active: 'border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900',
                 } as const;
-                const jobSiteUrl = (slug: string) => slug ? `https://www.frontaliereticino.ch/cerca-lavoro-ticino/${slug}/` : '';
+                const jobSiteUrl = (slug: string) => slug ? `https://frontaliereticino.ch/cerca-lavoro-ticino/${slug}/` : '';
                 return (
                   <div className="space-y-1">
                     {(jobs as (CrawlerSummaryLinkRow & { _status?: 'new' | 'updated' | 'unchanged' })[]).map((job, idx) => {
@@ -3197,8 +3197,8 @@ export default function AdminPanel() {
     <tr><td align="center">
       <table width="100%" cellpadding="0" cellspacing="0" style="max-width:600px;">
         <tr><td style="text-align:center;padding-bottom:24px;">
-          <a href="https://www.frontaliereticino.ch" style="text-decoration:none;">
-            <img src="https://www.frontaliereticino.ch/icons/icon-192x192.png" alt="Frontaliere Ticino" width="48" height="48" style="display:block;margin:0 auto 8px;border-radius:12px;" />
+          <a href="https://frontaliereticino.ch" style="text-decoration:none;">
+            <img src="https://frontaliereticino.ch/icons/icon-192x192.png" alt="Frontaliere Ticino" width="48" height="48" style="display:block;margin:0 auto 8px;border-radius:12px;" />
             <div style="font-size:22px;font-weight:800;color:#2563EB;">Frontaliere Ticino</div>
             <div style="font-size:12px;color:#6b7280;letter-spacing:.04em;">La guida per i lavoratori frontalieri</div>
           </a>
@@ -3219,7 +3219,7 @@ export default function AdminPanel() {
             Oppure copia e incolla questo link nel browser:
           </div>
           <div style="background:#f8fafc;border:1px solid #dbe2ea;border-radius:8px;padding:12px;font-size:12px;color:#6b7280;word-break:break-all;">
-            https://www.frontaliereticino.ch/?action=confirm_newsletter&amp;email=esempio@email.com&amp;token=abc123
+            https://frontaliereticino.ch/?action=confirm_newsletter&amp;email=esempio@email.com&amp;token=abc123
           </div>
           <div style="border-top:1px solid #dbe2ea;margin:24px 0;"></div>
           <div style="font-size:14px;color:#1f2937;line-height:1.6;">
@@ -3239,7 +3239,7 @@ export default function AdminPanel() {
         <tr><td style="text-align:center;padding:20px 0 8px;">
           <div style="font-size:12px;color:#6b7280;">
             © ${new Date().getFullYear()} Frontaliere Ticino ·
-            <a href="https://www.frontaliereticino.ch" style="color:#6b7280;text-decoration:none;">frontaliereticino.ch</a>
+            <a href="https://frontaliereticino.ch" style="color:#6b7280;text-decoration:none;">frontaliereticino.ch</a>
           </div>
         </td></tr>
       </table>

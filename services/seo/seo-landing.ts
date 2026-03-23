@@ -7,7 +7,7 @@
 
 import type { SEOMetadata } from '../seoService';
 
-const BASE_URL = 'https://www.frontaliereticino.ch';
+const BASE_URL = 'https://frontaliereticino.ch';
 
 const SALARY_LANDING_FAQ_SCHEMA = {
   '@context': 'https://schema.org',

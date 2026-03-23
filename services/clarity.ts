@@ -26,7 +26,7 @@ export async function initClarity(): Promise<void> {
 
   // Only load Clarity on the official production domain — skip everywhere else
   // (localhost, preview builds, staging, GitHub Pages default domain, etc.)
-  const PRODUCTION_HOSTS = ['www.frontaliereticino.ch', 'frontaliereticino.ch'];
+  const PRODUCTION_HOSTS = ['frontaliereticino.ch', 'frontaliereticino.ch'];
   const host = window.location.hostname;
   if (!PRODUCTION_HOSTS.includes(host)) {
     if (import.meta.env.DEV) {

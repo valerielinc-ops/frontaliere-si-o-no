@@ -157,7 +157,7 @@ async function fetchSchindlerSearchResults() {
   const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 15000;
   const userAgent =
     process.env.JOBS_CRAWLER_USER_AGENT ||
-    'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://www.frontaliereticino.ch/)';
+    'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)';
 
   console.log('🔍 Fetching Schindler Ticino jobs from search page...');
   console.log(`  📡 ${SCHINDLER_SEARCH_URL}`);
@@ -234,7 +234,7 @@ async function fetchSchindlerJobDetail(url) {
   const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 15000;
   const userAgent =
     process.env.JOBS_CRAWLER_USER_AGENT ||
-    'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://www.frontaliereticino.ch/)';
+    'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)';
 
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), timeoutMs);

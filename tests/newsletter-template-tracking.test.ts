@@ -20,8 +20,8 @@ describe('newsletter template v2', () => {
       featuredTool: SAMPLE_TOOL,
       weeklyFact: SAMPLE_FACT,
       locale: 'it',
-      unsubscribeUrl: 'https://www.frontaliereticino.ch/?action=unsubscribe&email=test@example.com',
-      resubscribeUrl: 'https://www.frontaliereticino.ch/?action=resubscribe&email=test@example.com',
+      unsubscribeUrl: 'https://frontaliereticino.ch/?action=unsubscribe&email=test@example.com',
+      resubscribeUrl: 'https://frontaliereticino.ch/?action=resubscribe&email=test@example.com',
     });
 
     expect(html).toContain('<!DOCTYPE html>');
@@ -41,12 +41,12 @@ describe('newsletter template v2', () => {
       featuredTool: SAMPLE_TOOL,
       weeklyFact: SAMPLE_FACT,
       locale: 'it',
-      unsubscribeUrl: 'https://www.frontaliereticino.ch/?action=unsubscribe&email=test@example.com',
-      resubscribeUrl: 'https://www.frontaliereticino.ch/?action=resubscribe&email=test@example.com',
+      unsubscribeUrl: 'https://frontaliereticino.ch/?action=unsubscribe&email=test@example.com',
+      resubscribeUrl: 'https://frontaliereticino.ch/?action=resubscribe&email=test@example.com',
     });
 
     expect(html).not.toContain('/newsletter/click/');
-    expect(html).toContain('https://www.frontaliereticino.ch');
+    expect(html).toContain('https://frontaliereticino.ch');
   });
 
   it('includes unsubscribe link', () => {
@@ -57,7 +57,7 @@ describe('newsletter template v2', () => {
       featuredTool: SAMPLE_TOOL,
       weeklyFact: SAMPLE_FACT,
       locale: 'it',
-      unsubscribeUrl: 'https://www.frontaliereticino.ch/?action=unsubscribe&email=test@example.com',
+      unsubscribeUrl: 'https://frontaliereticino.ch/?action=unsubscribe&email=test@example.com',
     });
 
     expect(html).toContain('action=unsubscribe');
@@ -70,8 +70,8 @@ describe('newsletter template v2', () => {
       featuredTool: SAMPLE_TOOL,
       weeklyFact: SAMPLE_FACT,
       locale: 'it',
-      unsubscribeUrl: 'https://www.frontaliereticino.ch/?action=unsubscribe&email=test@example.com',
-      resubscribeUrl: 'https://www.frontaliereticino.ch/?action=resubscribe&email=test@example.com',
+      unsubscribeUrl: 'https://frontaliereticino.ch/?action=unsubscribe&email=test@example.com',
+      resubscribeUrl: 'https://frontaliereticino.ch/?action=resubscribe&email=test@example.com',
     });
 
     expect(html).toContain('<!DOCTYPE html>');
@@ -86,8 +86,8 @@ describe('newsletter template v2', () => {
       featuredTool: SAMPLE_TOOL,
       weeklyFact: SAMPLE_FACT,
       locale: 'it',
-      unsubscribeUrl: 'https://www.frontaliereticino.ch/?action=unsubscribe&email=test@example.com',
-      resubscribeUrl: 'https://www.frontaliereticino.ch/?action=resubscribe&email=test@example.com',
+      unsubscribeUrl: 'https://frontaliereticino.ch/?action=unsubscribe&email=test@example.com',
+      resubscribeUrl: 'https://frontaliereticino.ch/?action=resubscribe&email=test@example.com',
       preheaderText: 'Questa settimana il cambio CHF/EUR sale!',
     });
 
@@ -136,12 +136,12 @@ describe('newsletter content v2', () => {
 });
 
 describe('directUrl helper', () => {
-  it('produces https://www.frontaliereticino.ch URLs', () => {
-    expect(directUrl('/calcola-stipendio/')).toBe('https://www.frontaliereticino.ch/calcola-stipendio/');
+  it('produces https://frontaliereticino.ch URLs', () => {
+    expect(directUrl('/calcola-stipendio/')).toBe('https://frontaliereticino.ch/calcola-stipendio/');
   });
 
   it('handles paths without leading slash', () => {
     const url = directUrl('cerca-lavoro-ticino/');
-    expect(url).toContain('www.frontaliereticino.ch');
+    expect(url).toContain('frontaliereticino.ch');
   });
 });

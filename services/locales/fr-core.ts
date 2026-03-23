@@ -1188,7 +1188,7 @@ const frCore: Record<string, string> = {
     'salaryQuiz.rangeLabel': 'Fourchette salariale dans votre secteur',
     'salaryQuiz.median': 'médiane',
     'salaryQuiz.shareTitle': 'Partagez avec vos collègues !',
-    'salaryQuiz.shareText': 'J\'ai découvert que dans le secteur {sector} en Suisse je pourrais gagner €{net} net par mois ! Faites le quiz aussi → https://www.frontaliereticino.ch',
+    'salaryQuiz.shareText': 'J\'ai découvert que dans le secteur {sector} en Suisse je pourrais gagner €{net} net par mois ! Faites le quiz aussi → https://frontaliereticino.ch',
     'salaryQuiz.copied': 'Copié !',
     'salaryQuiz.copyLink': 'Copier le lien',
     'salaryQuiz.disclaimer': '⚠️ Estimation indicative basée sur des données agrégées du marché du travail tessinois. Le salaire réel dépend de l\'entreprise, du poste et de vos qualifications.',

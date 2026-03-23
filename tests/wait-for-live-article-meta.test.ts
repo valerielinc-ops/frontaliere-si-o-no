@@ -148,8 +148,8 @@ describe('wait-for-live-article-meta', () => {
           res.end(`<!doctype html><html><head>
             <title>Simulazione Tasse Nuovi Frontalieri 2026 | Calcolo Netto</title>
             <meta property="og:title" content="Simulazione Tasse Nuovi Frontalieri 2026 | Calcolo Netto" />
-            <meta property="og:image" content="https://www.frontaliereticino.ch/og-image.png" />
-            <meta property="og:url" content="https://www.frontaliereticino.ch/" />
+            <meta property="og:image" content="https://frontaliereticino.ch/og-image.png" />
+            <meta property="og:url" content="https://frontaliereticino.ch/" />
           </head><body></body></html>`);
           return;
         }
@@ -184,7 +184,7 @@ describe('wait-for-live-article-meta', () => {
           createArticleHtml({
             baseUrl,
             ogTitle: 'Lavoro &amp; frontalieri | Frontaliere Ticino',
-            ogImage: 'https://www.frontaliereticino.ch/images/blog/test.jpg',
+            ogImage: 'https://frontaliereticino.ch/images/blog/test.jpg',
           }),
         );
         return;

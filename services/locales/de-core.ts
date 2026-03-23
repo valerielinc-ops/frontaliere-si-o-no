@@ -1188,7 +1188,7 @@ const deCore: Record<string, string> = {
     'salaryQuiz.rangeLabel': 'Gehaltsspanne in Ihrer Branche',
     'salaryQuiz.median': 'Median',
     'salaryQuiz.shareTitle': 'Teilen Sie es mit Ihren Kollegen!',
-    'salaryQuiz.shareText': 'Ich habe herausgefunden, dass ich im Bereich {sector} in der Schweiz €{net} netto pro Monat verdienen könnte! Mach das Quiz auch → https://www.frontaliereticino.ch',
+    'salaryQuiz.shareText': 'Ich habe herausgefunden, dass ich im Bereich {sector} in der Schweiz €{net} netto pro Monat verdienen könnte! Mach das Quiz auch → https://frontaliereticino.ch',
     'salaryQuiz.copied': 'Kopiert!',
     'salaryQuiz.copyLink': 'Link kopieren',
     'salaryQuiz.disclaimer': '⚠️ Richtwertschätzung basierend auf aggregierten Tessiner Arbeitsmarktdaten. Das tatsächliche Gehalt hängt vom Unternehmen, der Rolle und Ihren Qualifikationen ab.',

@@ -1188,7 +1188,7 @@ const enCore: Record<string, string> = {
     'salaryQuiz.rangeLabel': 'Salary range in your sector',
     'salaryQuiz.median': 'median',
     'salaryQuiz.shareTitle': 'Share with your colleagues!',
-    'salaryQuiz.shareText': 'I found out that in {sector} in Switzerland I could earn €{net} net per month! Take the quiz too → https://www.frontaliereticino.ch',
+    'salaryQuiz.shareText': 'I found out that in {sector} in Switzerland I could earn €{net} net per month! Take the quiz too → https://frontaliereticino.ch',
     'salaryQuiz.copied': 'Copied!',
     'salaryQuiz.copyLink': 'Copy link',
     'salaryQuiz.disclaimer': '⚠️ Indicative estimate based on aggregated Ticino labour market data. Actual salary depends on the company, role and your qualifications. Use the Cross-Border Calculator for a personalised calculation.',

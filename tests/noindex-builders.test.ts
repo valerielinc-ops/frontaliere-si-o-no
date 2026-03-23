@@ -7,7 +7,7 @@ import { buildCanonicalBridgePage, buildFlatRedirect } from '@/build-plugins/con
 
 describe('SEO builder noindex guards', () => {
   it('flat alias pages use a canonical bridge without JS redirect or meta refresh', () => {
-    const html = buildFlatRedirect('https://www.frontaliereticino.ch/articoli-frontaliere/test/', '/articoli-frontaliere/test/');
+    const html = buildFlatRedirect('https://frontaliereticino.ch/articoli-frontaliere/test/', '/articoli-frontaliere/test/');
     expect(html).not.toContain('location.replace(');
     expect(html).toContain('rel="canonical"');
     expect(html).not.toContain('http-equiv="refresh"');
@@ -17,7 +17,7 @@ describe('SEO builder noindex guards', () => {
   describe('buildCanonicalBridgePage noindex parameter', () => {
     it('defaults to index,follow when noindex is not set', () => {
       const html = buildCanonicalBridgePage({
-        canonicalUrl: 'https://www.frontaliereticino.ch/test/',
+        canonicalUrl: 'https://frontaliereticino.ch/test/',
         pathLabel: '/test/',
       });
       expect(html).toContain('content="index,follow"');
@@ -26,7 +26,7 @@ describe('SEO builder noindex guards', () => {
 
     it('outputs noindex,follow when noindex is true', () => {
       const html = buildCanonicalBridgePage({
-        canonicalUrl: 'https://www.frontaliereticino.ch/test/',
+        canonicalUrl: 'https://frontaliereticino.ch/test/',
         pathLabel: '/test/',
         noindex: true,
       });
@@ -36,7 +36,7 @@ describe('SEO builder noindex guards', () => {
 
     it('outputs index,follow when noindex is explicitly false', () => {
       const html = buildCanonicalBridgePage({
-        canonicalUrl: 'https://www.frontaliereticino.ch/test/',
+        canonicalUrl: 'https://frontaliereticino.ch/test/',
         pathLabel: '/test/',
         noindex: false,
       });

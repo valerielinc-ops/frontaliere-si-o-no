@@ -228,7 +228,7 @@ function generateSeoText(parsed, history) {
 async function main() {
   const res = await fetch(SOURCE_URL, {
     headers: {
-      'user-agent': 'FrontaliereTicinoBot/1.0 (+https://www.frontaliereticino.ch)',
+      'user-agent': 'FrontaliereTicinoBot/1.0 (+https://frontaliereticino.ch)',
       accept: 'text/html,application/xhtml+xml',
     },
   });

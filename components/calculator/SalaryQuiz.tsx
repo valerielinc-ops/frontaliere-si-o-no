@@ -204,7 +204,7 @@ export default function SalaryQuiz() {
     if (platform === 'whatsapp') {
       window.open(`https://wa.me/?text=${encodeURIComponent(shareText)}`, '_blank');
     } else if (platform === 'facebook') {
-      window.open(`https://www.facebook.com/sharer/sharer.php?quote=${encodeURIComponent(shareText)}&u=${encodeURIComponent('https://www.frontaliereticino.ch')}`, '_blank');
+      window.open(`https://www.facebook.com/sharer/sharer.php?quote=${encodeURIComponent(shareText)}&u=${encodeURIComponent('https://frontaliereticino.ch')}`, '_blank');
     } else {
       try { await navigator.clipboard.writeText(shareText); } catch { /* ignore */ }
     }

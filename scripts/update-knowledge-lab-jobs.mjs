@@ -93,7 +93,7 @@ async function fetchJson(url, timeoutMs = TIMEOUT_MS) {
       headers: {
         Accept: 'application/json',
         Authorization: `Bearer ${FRESHTEAM_TOKEN}`,
-        'User-Agent': 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://www.frontaliereticino.ch/)',
+        'User-Agent': 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)',
       },
     });
     if (!res.ok) throw new Error(`HTTP ${res.status}`);

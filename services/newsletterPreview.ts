@@ -4,7 +4,7 @@ import { buildNewsletter, FEATURED_TOOLS } from '@/services/newsletter-template.
 import { matchJobsForSubscriber, getFallbackBriefing } from '@/services/newsletter-content.mjs';
 import { reportCaughtError } from '@/services/errorReporter';
 
-const BASE_URL = 'https://www.frontaliereticino.ch';
+const BASE_URL = 'https://frontaliereticino.ch';
 
 type NewsletterPreviewPayload = {
   subject: string;

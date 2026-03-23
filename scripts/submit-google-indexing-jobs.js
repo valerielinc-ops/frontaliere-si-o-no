@@ -22,7 +22,7 @@ import { createSign } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import { dirname, resolve } from 'node:path';
 
-const SITE_URL = 'https://www.frontaliereticino.ch';
+const SITE_URL = 'https://frontaliereticino.ch';
 const MAX_SUBMISSIONS = Math.max(1, Math.min(100, Number(process.env.GSC_JOBS_INDEXING_MAX || 50)));
 const MAX_RETRIES = 2;
 const INDEXING_API = 'https://indexing.googleapis.com/v3/urlNotifications:publish';

@@ -14,7 +14,7 @@ import fs from 'fs';
 import path from 'path';
 
 const DIST = path.resolve('dist');
-const BASE_URL = 'https://www.frontaliereticino.ch';
+const BASE_URL = 'https://frontaliereticino.ch';
 
 // Parse all sitemap XML files and extract <loc> URLs
 function extractSitemapUrls() {

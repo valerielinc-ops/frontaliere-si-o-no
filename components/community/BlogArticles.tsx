@@ -4913,7 +4913,7 @@ export default function BlogArticles({
   };
 
   const getArticleUrl = (articleId: BlogArticleId): string => {
-    return `https://www.frontaliereticino.ch${buildPath({ activeTab: 'blog', blogArticle: articleId })}`;
+    return `https://frontaliereticino.ch${buildPath({ activeTab: 'blog', blogArticle: articleId })}`;
   };
 
   const handleCopyLink = async (articleId: BlogArticleId) => {

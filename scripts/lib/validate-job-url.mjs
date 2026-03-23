@@ -17,7 +17,7 @@
 const DEFAULT_TIMEOUT_MS = 7000;
 const DEFAULT_CONCURRENCY = 10;
 const DEFAULT_USER_AGENT =
-  'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://www.frontaliereticino.ch/)';
+  'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)';
 
 // Fresh protection: jobs crawled within this many hours are never removed
 const DEFAULT_FRESH_PROTECTION_HOURS = 72;

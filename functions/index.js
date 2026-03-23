@@ -144,7 +144,7 @@ export const chatbotInference = onRequest(
     memory: '256MiB',
     timeoutSeconds: 30,
     cors: [
-      'https://www.frontaliereticino.ch',
+      'https://frontaliereticino.ch',
       'https://frontaliere-ticino.web.app',
       'https://frontaliere-ticino.firebaseapp.com',
       // Allow localhost/dev environments

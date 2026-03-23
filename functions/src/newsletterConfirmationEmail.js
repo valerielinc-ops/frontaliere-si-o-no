@@ -12,7 +12,7 @@ import { Resend } from 'resend';
 import { getAdminDb } from './newsletterResendWebhookCore.js';
 import { t, htmlLang, normalizeLocale } from './emailI18n.js';
 
-const BASE_URL = 'https://www.frontaliereticino.ch';
+const BASE_URL = 'https://frontaliereticino.ch';
 const FROM_EMAIL = 'Frontaliere Ticino <noreply@frontaliereticino.ch>';
 const BRAND_BLUE = '#2563EB';
 const BRAND_DARK = '#0f172a';

@@ -73,7 +73,7 @@ describe('flat-content-duplicator (GSC redirect fix)', () => {
     fs.mkdirSync(indexDir, { recursive: true });
     fs.writeFileSync(
       path.join(indexDir, 'index.html'),
-      `<!DOCTYPE html><html><head><title>Test Article</title><link rel="canonical" href="https://www.frontaliereticino.ch/articoli-frontaliere/test-article/"></head><body><article>Full content</article></body></html>`,
+      `<!DOCTYPE html><html><head><title>Test Article</title><link rel="canonical" href="https://frontaliereticino.ch/articoli-frontaliere/test-article/"></head><body><article>Full content</article></body></html>`,
     );
 
     const result = replaceRedirectFlats(tmpDir);

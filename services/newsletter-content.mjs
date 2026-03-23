@@ -6,7 +6,7 @@
  * No more 3-variant system — every subscriber gets unique content.
  */
 
-const BASE_URL = 'https://www.frontaliereticino.ch';
+const BASE_URL = 'https://frontaliereticino.ch';
 
 // ─── Job matching ───────────────────────────────────────────
 
@@ -239,7 +239,7 @@ export function buildBriefingPrompt(ctx) {
     `You write the opening section of a weekly email newsletter for "Frontaliere Ticino", a platform for cross-border workers (frontalieri) between Italy and Switzerland.`,
     `Write in ${langName}. Be warm, conversational, and practical. Like a knowledgeable friend sharing useful updates.`,
     `Output 2-3 short paragraphs. Use simple HTML: <p> tags for paragraphs, <strong> for emphasis, <a href="URL" style="color:#2563eb;text-decoration:underline;"> for links. No greetings, no sign-offs, no subject line.`,
-    `When you mention a job position that has a URL, hyperlink ONLY the job title — keep company and location as plain text. Example: "un ruolo di <a href="https://www.frontaliereticino.ch/cerca-lavoro-ticino/software-engineer/" style="color:#2563eb;text-decoration:underline;">Software Engineer</a> presso Board International a Chiasso". For site tools with a URL, hyperlink only the tool name the same way.`,
+    `When you mention a job position that has a URL, hyperlink ONLY the job title — keep company and location as plain text. Example: "un ruolo di <a href="https://frontaliereticino.ch/cerca-lavoro-ticino/software-engineer/" style="color:#2563eb;text-decoration:underline;">Software Engineer</a> presso Board International a Chiasso". For site tools with a URL, hyperlink only the tool name the same way.`,
     `Naturally weave in the exchange rate, any relevant job or fiscal context, and the weekly fact if interesting. Do NOT list everything — pick what matters most for this reader.`,
     `CRITICAL: Only mention dates that are explicitly provided in the data below. NEVER invent, guess, or assume dates for events, job postings, or facts. If no date is given for something, do not add one. Today's date is ${todayStr}.`,
     `Keep total length under 200 words. Be concise but engaging.`,

@@ -4,7 +4,7 @@ import { Trash2, Shield, CheckCircle2 } from 'lucide-react';
 /**
  * Data Deletion Callback Page for Facebook App
  * This page is required by Facebook for apps that use Facebook Login
- * URL: https://www.frontaliereticino.ch/data-deletion
+ * URL: https://frontaliereticino.ch/data-deletion
  */
 
 export const DataDeletion: React.FC = () => {

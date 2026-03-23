@@ -64,7 +64,7 @@ export async function parseLombardiListingPage(timeoutMs = 20000) {
       signal: controller.signal,
       headers: {
         Accept: 'text/html',
-        'User-Agent': 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://www.frontaliereticino.ch/)',
+        'User-Agent': 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)',
       },
     });
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
@@ -220,7 +220,7 @@ export async function parseLombardiDetailPage(annuncioId, timeoutMs = 15000) {
       signal: controller.signal,
       headers: {
         Accept: 'text/html',
-        'User-Agent': 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://www.frontaliereticino.ch/)',
+        'User-Agent': 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)',
       },
     });
     if (!res.ok) return null;

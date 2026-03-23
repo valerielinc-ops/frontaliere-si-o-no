@@ -6,7 +6,7 @@ const ROOT = process.cwd();
 const DIST = path.resolve(ROOT, 'dist');
 const PUBLIC = path.resolve(ROOT, 'public');
 const REPORTS_DIR = path.resolve(ROOT, 'reports');
-const BASE_URL = 'https://www.frontaliereticino.ch';
+const BASE_URL = 'https://frontaliereticino.ch';
 
 const args = process.argv.slice(2);
 const flags = {

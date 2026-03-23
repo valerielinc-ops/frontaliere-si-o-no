@@ -27,7 +27,7 @@ const ROOT = path.resolve(__dirname, '..');
 const QA_DIR = path.resolve(ROOT, 'docs', 'newsletter-qa');
 const DATA_JOBS = path.resolve(ROOT, 'data', 'jobs.json');
 
-const BASE_URL = 'https://www.frontaliereticino.ch';
+const BASE_URL = 'https://frontaliereticino.ch';
 const today = new Date().toISOString().slice(0, 10); // YYYY-MM-DD (UTC)
 
 const STRESS_MODE = process.argv.includes('--stress');

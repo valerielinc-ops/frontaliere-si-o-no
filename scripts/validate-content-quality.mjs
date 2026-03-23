@@ -15,7 +15,7 @@ import { readFileSync, existsSync, readdirSync } from 'fs';
 import { join } from 'path';
 
 const DIST = 'dist';
-const DOMAIN = 'https://www.frontaliereticino.ch/';
+const DOMAIN = 'https://frontaliereticino.ch/';
 const MIN_WORDS = 50;
 
 function extractSitemapUrls() {

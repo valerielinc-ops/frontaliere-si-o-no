@@ -145,7 +145,7 @@ async function fetchJson(url, options = {}) {
         Accept: 'application/json',
         'Accept-Language': 'en,it-CH;q=0.9',
         'User-Agent': process.env.JOBS_CRAWLER_USER_AGENT ||
-          'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://www.frontaliereticino.ch/)',
+          'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)',
         ...options.headers,
       },
     });

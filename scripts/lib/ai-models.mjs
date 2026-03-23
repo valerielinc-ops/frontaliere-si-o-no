@@ -1032,7 +1032,7 @@ function _callOpenRouter(model, messages, opts) {
     providerName: 'OpenRouter',
     trackAs: model,
     extraHeaders: {
-      'HTTP-Referer': 'https://www.frontaliereticino.ch',
+      'HTTP-Referer': 'https://frontaliereticino.ch',
       'X-Title': 'Frontaliere Ticino',
     },
   });

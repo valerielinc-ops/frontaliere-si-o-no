@@ -3,11 +3,11 @@
  *
  * Generates a branded, engaging, responsive HTML email.
  * Structure: dark hero (exchange rate) → editorial → metrics → jobs → article → tools → footer.
- * All links use direct https://www.frontaliereticino.ch/ URLs.
+ * All links use direct https://frontaliereticino.ch/ URLs.
  * Autologin is handled externally by wrapping links with Firebase auth.
  */
 
-const BASE_URL = 'https://www.frontaliereticino.ch';
+const BASE_URL = 'https://frontaliereticino.ch';
 const BRAND_ORANGE = '#f97316';
 const BRAND_DARK = '#0f172a';
 const DARK_CARD = '#1e293b';

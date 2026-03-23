@@ -42,7 +42,7 @@ import {
 } from './lib/analytics-opportunity-utils.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
-const SITE_URL = 'https://www.frontaliereticino.ch';
+const SITE_URL = 'https://frontaliereticino.ch';
 const SERP_HISTORY_PATH = resolve(__dirname, '..', 'data', 'seo-serp-experiment-history.json');
 const SERP_LAST_RUN_PATH = resolve(__dirname, '..', 'data', 'seo-serp-autopilot-last-run.json');
 
@@ -3463,7 +3463,7 @@ async function reportBing() {
   log('🔵', 'Bing Webmaster Tools');
   log('', '─'.repeat(50));
 
-  const siteHost = 'https://www.frontaliereticino.ch';
+  const siteHost = 'https://frontaliereticino.ch';
   const base = 'https://ssl.bing.com/webmaster/api.svc/json';
   const result = {};
 

@@ -3,7 +3,7 @@ import {
   jobsDiffer,
 } from './job-identity.mjs';
 
-const BASE_URL = 'https://www.frontaliereticino.ch';
+const BASE_URL = 'https://frontaliereticino.ch';
 const JOB_BOARD_ROOT_PATH = '/cerca-lavoro-ticino';
 const JOB_BOARD_ROOT_URL = `${BASE_URL}${JOB_BOARD_ROOT_PATH}`;
 const HISTORY_LIMIT = 180;

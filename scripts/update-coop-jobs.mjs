@@ -270,7 +270,7 @@ async function fetchCoopJobDetailUrls() {
           signal: controller.signal,
           headers: {
             Accept: 'application/json',
-            'User-Agent': 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://www.frontaliereticino.ch/)',
+            'User-Agent': 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)',
           },
         });
         clearTimeout(timer);

@@ -48,7 +48,7 @@ const COMPANY_DOMAIN = 'trumpf.com';
 const LOCALES = ['it', 'en', 'de', 'fr'];
 
 const TIMEOUT_MS = parseInt(process.env.JOBS_CRAWLER_TIMEOUT_MS || '15000', 10);
-const UA = 'Mozilla/5.0 (compatible; FrontaliereTicinoCrawler/1.0; +https://www.frontaliereticino.ch)';
+const UA = 'Mozilla/5.0 (compatible; FrontaliereTicinoCrawler/1.0; +https://frontaliereticino.ch)';
 
 const WORKDAY_BASE = 'https://trumpf.wd3.myworkdayjobs.com';
 const WORKDAY_CXS = `${WORKDAY_BASE}/wday/cxs/trumpf`;

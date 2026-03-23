@@ -31,7 +31,7 @@ interface AdSenseBannerProps {
 const CLIENT_ID = 'ca-pub-8628054934855353';
 const ADSENSE_PRODUCTION_HOSTNAMES = new Set([
   'frontaliereticino.ch',
-  'www.frontaliereticino.ch',
+  'frontaliereticino.ch',
 ]);
 
 export function isAdSenseProductionHost(hostname: string) {

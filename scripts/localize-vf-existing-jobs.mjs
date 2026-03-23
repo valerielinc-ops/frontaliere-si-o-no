@@ -77,7 +77,7 @@ async function translateChunk({ text, sourceLang = 'auto', targetLang }) {
     const res = await fetch(endpoint, {
       headers: {
         Accept: 'application/json,text/plain,*/*',
-        'User-Agent': 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://www.frontaliereticino.ch/)',
+        'User-Agent': 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)',
       },
       signal: AbortSignal.timeout(12000),
     });

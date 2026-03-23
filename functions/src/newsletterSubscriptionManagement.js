@@ -14,7 +14,7 @@ import admin from 'firebase-admin';
 import { ensureAdminApp, getAdminDb } from './newsletterResendWebhookCore.js';
 import { t, htmlLang, normalizeLocale } from './emailI18n.js';
 
-const BASE_URL = 'https://www.frontaliereticino.ch';
+const BASE_URL = 'https://frontaliereticino.ch';
 const BRAND_BLUE = '#2563EB';
 const BRAND_DARK = '#0f172a';
 const LIGHT_BG = '#f3f4f6';

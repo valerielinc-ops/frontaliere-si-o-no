@@ -21,11 +21,11 @@ import { createSign } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import { dirname, resolve } from 'node:path';
 
-const SITE_URL = 'https://www.frontaliereticino.ch';
+const SITE_URL = 'https://frontaliereticino.ch';
 const MAX_INSPECT_URLS = 20; // API quota: 2000/day — we use 20 per deploy
 const MAX_RETRIES = 2;
 
-// The site may be registered in GSC as a URL-prefix property (https://www.frontaliereticino.ch)
+// The site may be registered in GSC as a URL-prefix property (https://frontaliereticino.ch)
 // or as a domain property (sc-domain:frontaliereticino.ch). We auto-detect at startup.
 let RESOLVED_SITE_URL = SITE_URL;
 let ENCODED_SITE_URL = encodeURIComponent(SITE_URL);
