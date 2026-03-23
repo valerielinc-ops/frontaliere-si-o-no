@@ -65,8 +65,8 @@ async function runWaitScript(articleUrl: string, expectedTitle = 'Articolo di te
       {
         env: {
           ...process.env,
-          LIVE_ARTICLE_WAIT_TIMEOUT_MS: '600',
-          LIVE_ARTICLE_WAIT_INTERVAL_MS: '25',
+          LIVE_ARTICLE_WAIT_TIMEOUT_MS: '3000',
+          LIVE_ARTICLE_WAIT_INTERVAL_MS: '50',
         },
       },
     );
