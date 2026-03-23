@@ -2207,6 +2207,17 @@ Règles :
     'seoContent.stats.check4': 'Données sur la communauté frontalière tessinoise',
 
     // ─── What's New / Feature Announcements ─────────────────────────────────
+    'whatsNew.v3390.title': 'Mises à jour pour améliorer votre expérience',
+    'whatsNew.v3390.correct-distdir-path.title': 'Améliorations internes pour la stabilité',
+    'whatsNew.v3390.correct-distdir-path.desc': 'Nous avons apporté quelques ajustements internes pour garantir que tout fonctionne correctement en coulisses. Cela se traduit par une application plus fiable pour vous.',
+    'whatsNew.v3390.exclude-yearlike-values.title': 'Meilleure extraction des codes postaux',
+    'whatsNew.v3390.exclude-yearlike-values.desc': 'Nous sommes désormais plus précis dans l\'identification des codes postaux, évitant ainsi toute confusion avec des nombres qui ressemblent à des années. Cela rend la saisie et la recherche de données plus précises.',
+    'whatsNew.v3390.render-headings-and.title': 'Mise en forme améliorée pour les articles',
+    'whatsNew.v3390.render-headings-and.desc': 'Les titres (comme ceux commençant par ###) et les liens externes dans les articles s\'affichent désormais correctement. Cela rend le contenu plus facile à lire et à parcourir.',
+    'whatsNew.v3390.show-adsense-ads.title': 'Annonces visibles sur les articles courts',
+    'whatsNew.v3390.show-adsense-ads.desc': 'Vous pouvez désormais voir les annonces publicitaires même sur les articles qui n\'ont qu\'une partie de leur contenu. Cela garantit une expérience plus complète.',
+    'whatsNew.v3390.remove-www-from.title': 'Suppression de \'www\' des liens du site',
+    'whatsNew.v3390.remove-www-from.desc': 'Nous avons corrigé un problème qui ajoutait \'www\' à certains liens du plan du site. Les liens sont désormais plus propres et plus cohérents.',
     'whatsNew.v3380.title': 'Améliorations et Nouvelles Fonctionnalités pour une Meilleure Expérience',
     'whatsNew.v3380.expired-job-pages.title': 'Affichage corrigé des offres d\'emploi expirées',
     'whatsNew.v3380.expired-job-pages.desc': 'Nous avons résolu un problème qui empêchait l\'affichage correct des pages d\'offres d\'emploi expirées. Vous pouvez désormais les consulter sans interruption.',

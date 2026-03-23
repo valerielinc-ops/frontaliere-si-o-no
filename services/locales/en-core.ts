@@ -2207,6 +2207,17 @@ Rules:
     'seoContent.stats.check4': 'Ticino cross-border community data',
 
     // ─── What's New / Feature Announcements ─────────────────────────────
+    'whatsNew.v3390.title': 'Updates to improve your experience',
+    'whatsNew.v3390.correct-distdir-path.title': 'Internal improvements for stability',
+    'whatsNew.v3390.correct-distdir-path.desc': 'We\'ve made some internal adjustments to ensure everything runs smoothly behind the scenes. This means a more reliable app for you.',
+    'whatsNew.v3390.exclude-yearlike-values.title': 'Better postal code extraction',
+    'whatsNew.v3390.exclude-yearlike-values.desc': 'We\'re now more precise in identifying postal codes, avoiding confusion with numbers that look like years. This makes data entry and searching more accurate.',
+    'whatsNew.v3390.render-headings-and.title': 'Improved formatting for articles',
+    'whatsNew.v3390.render-headings-and.desc': 'Headings (like those starting with ###) and external links in articles are now displayed correctly. This makes content easier to read and navigate.',
+    'whatsNew.v3390.show-adsense-ads.title': 'Ads visible on shorter articles',
+    'whatsNew.v3390.show-adsense-ads.desc': 'You can now see ads even on articles that have only a portion of their content. This ensures a more complete experience.',
+    'whatsNew.v3390.remove-www-from.title': 'Removing \'www\' from site links',
+    'whatsNew.v3390.remove-www-from.desc': 'We\'ve fixed an issue where \'www\' was being added to some sitemap links. The links are now cleaner and more consistent.',
     'whatsNew.v3380.title': 'Improvements and New Features for a Better Experience',
     'whatsNew.v3380.expired-job-pages.title': 'Fixed display of expired job offers',
     'whatsNew.v3380.expired-job-pages.desc': 'We fixed an issue that prevented expired job pages from displaying correctly. You can now view them without interruptions.',

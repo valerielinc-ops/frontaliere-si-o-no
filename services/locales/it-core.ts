@@ -2298,6 +2298,17 @@ Regole:
     'seoContent.stats.check4': 'Dati sulla comunità frontaliera Ticino',
 
     // ─── What's New / Feature Announcements ─────────────────────────────
+    'whatsNew.v3390.title': 'Aggiornamenti per migliorare la tua esperienza',
+    'whatsNew.v3390.correct-distdir-path.title': 'Miglioramenti interni per la stabilità',
+    'whatsNew.v3390.correct-distdir-path.desc': 'Abbiamo apportato delle modifiche interne per garantire che tutto funzioni correttamente dietro le quinte. Questo si traduce in un\'app più affidabile per te.',
+    'whatsNew.v3390.exclude-yearlike-values.title': 'Migliore estrazione dei codici postali',
+    'whatsNew.v3390.exclude-yearlike-values.desc': 'Ora siamo più precisi nell\'identificare i codici postali, evitando confusioni con numeri che sembrano anni. Questo rende la ricerca e l\'inserimento dei dati più accurati.',
+    'whatsNew.v3390.render-headings-and.title': 'Formattazione migliorata per gli articoli',
+    'whatsNew.v3390.render-headings-and.desc': 'I titoli (come quelli che iniziano con ###) e i link esterni negli articoli ora vengono visualizzati correttamente. Questo rende il contenuto più facile da leggere e navigare.',
+    'whatsNew.v3390.show-adsense-ads.title': 'Annunci visibili anche su articoli brevi',
+    'whatsNew.v3390.show-adsense-ads.desc': 'Ora puoi vedere gli annunci pubblicitari anche negli articoli che hanno solo una parte del contenuto. Questo garantisce un\'esperienza più completa.',
+    'whatsNew.v3390.remove-www-from.title': 'Rimozione di \'www\' dai link del sito',
+    'whatsNew.v3390.remove-www-from.desc': 'Abbiamo corretto un problema che aggiungeva \'www\' ad alcuni link della mappa del sito. Ora i link sono più puliti e coerenti.',
     'whatsNew.v3380.title': 'Miglioramenti e Nuove Funzionalità per un\'Esperienza Migliore',
     'whatsNew.v3380.expired-job-pages.title': 'Corretta visualizzazione delle offerte di lavoro scadute',
     'whatsNew.v3380.expired-job-pages.desc': 'Abbiamo risolto un problema che impediva la corretta visualizzazione delle pagine delle offerte di lavoro scadute. Ora potrai vederle senza interruzioni.',

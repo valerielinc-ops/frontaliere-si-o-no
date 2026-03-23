@@ -2207,6 +2207,17 @@ Regeln:
     'seoContent.stats.check4': 'Daten zur Tessiner Grenzgänger-Gemeinschaft',
 
     // ─── What's New / Feature Announcements ─────────────────────────────
+    'whatsNew.v3390.title': 'Updates zur Verbesserung Ihrer Erfahrung',
+    'whatsNew.v3390.correct-distdir-path.title': 'Interne Verbesserungen für Stabilität',
+    'whatsNew.v3390.correct-distdir-path.desc': 'Wir haben einige interne Anpassungen vorgenommen, um sicherzustellen, dass alles reibungslos im Hintergrund funktioniert. Das bedeutet eine zuverlässigere App für Sie.',
+    'whatsNew.v3390.exclude-yearlike-values.title': 'Bessere Postleitzahl-Extraktion',
+    'whatsNew.v3390.exclude-yearlike-values.desc': 'Wir sind jetzt präziser bei der Identifizierung von Postleitzahlen und vermeiden Verwechslungen mit Zahlen, die wie Jahreszahlen aussehen. Dies macht die Dateneingabe und Suche genauer.',
+    'whatsNew.v3390.render-headings-and.title': 'Verbesserte Formatierung für Artikel',
+    'whatsNew.v3390.render-headings-and.desc': 'Überschriften (wie die, die mit ### beginnen) und externe Links in Artikeln werden jetzt korrekt angezeigt. Dies erleichtert das Lesen und Navigieren von Inhalten.',
+    'whatsNew.v3390.show-adsense-ads.title': 'Anzeigen auch bei kürzeren Artikeln sichtbar',
+    'whatsNew.v3390.show-adsense-ads.desc': 'Sie können jetzt auch auf Artikeln mit nur einem Teil des Inhalts Anzeigen sehen. Dies sorgt für ein umfassenderes Erlebnis.',
+    'whatsNew.v3390.remove-www-from.title': 'Entfernen von \'www\' aus Website-Links',
+    'whatsNew.v3390.remove-www-from.desc': 'Wir haben ein Problem behoben, bei dem \'www\' zu einigen Sitemap-Links hinzugefügt wurde. Die Links sind jetzt sauberer und konsistenter.',
     'whatsNew.v3380.title': 'Verbesserungen und neue Funktionen für eine bessere Erfahrung',
     'whatsNew.v3380.expired-job-pages.title': 'Korrekte Anzeige abgelaufener Stellenangebote',
     'whatsNew.v3380.expired-job-pages.desc': 'Wir haben ein Problem behoben, das die korrekte Anzeige von abgelaufenen Stellenangebotsseiten verhinderte. Sie können diese nun ohne Unterbrechungen einsehen.',
