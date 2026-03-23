@@ -135,9 +135,10 @@ const TechInput: React.FC<{
       <div className="space-y-2">
         <label className="text-[10px] font-bold text-slate-600 uppercase tracking-wide h-4 flex items-end">{label}</label>
         <div className="relative group">
-            <input 
-              type="number" 
-              step={step} 
+            <input
+              type="number"
+              inputMode="decimal"
+              step={step}
               value={displayValue}
               onChange={(e) => {
                   let val = parseFloat(e.target.value);
