@@ -158,14 +158,17 @@ export function staticPagesPlugin(rootDir: string): Plugin {
         assetFiles.find((f: string) => f.startsWith(prefix + '-') && f.endsWith('.js') && !f.endsWith('.js.map'));
 
       // Build modulepreload tags for a given URL path
-      // Extract the blog hero image for preloading on article listing pages
+      // FRO-330: Extract blog article data from blog-articles-data.ts for hero image + SSG article cards
       let blogHeroImageStatic = '';
+      interface StaticArticle { id: string; category: string; date: string; image: string }
+      let blogArticlesStatic: StaticArticle[] = [];
       try {
-        const blogSrc = fs.readFileSync(np.resolve(rootDir, 'components', 'community', 'BlogArticles.tsx'), 'utf-8');
-        const articleBlocks = [...blogSrc.matchAll(/\{\s*id:\s*'[^']+',\s*category:\s*'[^']+',\s*date:\s*'([^']+)',\s*image:\s*'([^']+)'/g)];
-        if (articleBlocks.length) {
-          articleBlocks.sort((a, b) => b[1].localeCompare(a[1]));
-          blogHeroImageStatic = articleBlocks[0][2];
+        const blogDataSrc = fs.readFileSync(np.resolve(rootDir, 'data', 'blog-articles-data.ts'), 'utf-8');
+        const articleBlocks = [...blogDataSrc.matchAll(/\{\s*id:\s*'([^']+)',\s*category:\s*'([^']+)',\s*date:\s*'([^']+)',\s*image:\s*'([^']+)'/gs)];
+        blogArticlesStatic = articleBlocks.map(m => ({ id: m[1], category: m[2], date: m[3], image: m[4] }));
+        blogArticlesStatic.sort((a, b) => b.date.localeCompare(a.date));
+        if (blogArticlesStatic.length) {
+          blogHeroImageStatic = blogArticlesStatic[0].image;
         }
       } catch { /* non-fatal */ }
 
@@ -188,6 +191,14 @@ export function staticPagesPlugin(rootDir: string): Plugin {
           blogArticleIdByLocale.fr[match[5]] = match[1];
         }
       } catch { /* non-fatal */ }
+
+      // FRO-330: Build reverse map article_id → locale_slug for SSG article cards
+      const articleIdToSlug: Record<string, Record<string, string>> = { it: {}, en: {}, de: {}, fr: {} };
+      for (const locale of ['it', 'en', 'de', 'fr'] as const) {
+        for (const [slug, id] of Object.entries(blogArticleIdByLocale[locale])) {
+          articleIdToSlug[locale][id] = slug;
+        }
+      }
 
       const parseBlogBodyLocale = (locale: 'it' | 'en' | 'de' | 'fr') => {
         const out: Record<string, { body1?: string; body2?: string; body3?: string }> = {};
@@ -1292,7 +1303,37 @@ export function staticPagesPlugin(rootDir: string): Plugin {
             const adPlaceholder = `<div style="min-height:180px;contain:layout;overflow:hidden;margin:1rem 0" aria-hidden="true"></div>`;
             rootHtml = isBlogDetailPage
               ? `<div style="max-width:56rem;margin:0 auto;padding:1rem">${heroImg}<article><h1 style="font-size:1.25rem;font-weight:700;margin-bottom:.5rem">${esc(seoData.ogT)}</h1><p style="color:#64748b;font-size:.875rem">${esc(seoData.desc)}</p><div style="margin-top:.75rem;font-size:.95rem;line-height:1.7;color:#334155">${blogArticleHtml}</div>${adPlaceholder}${relatedHtml}</article>${adPlaceholder}<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:1.5rem">${`<div style="${sp};height:12rem"></div>`.repeat(3)}</div><nav style="margin-top:1.5rem;font-size:.75rem;color:#64748b">${navHtml}</nav></div>`
-              : `<div style="max-width:56rem;margin:0 auto;padding:1rem">${heroImg}<article><h1 style="font-size:1.25rem;font-weight:700;margin-bottom:.5rem">${esc(seoData.ogT)}</h1><p style="color:#64748b;font-size:.875rem">${esc(seoData.desc)}</p>${editorialHtml}</article><div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:1.5rem">${`<div style="${sp};height:12rem"></div>`.repeat(3)}</div><nav style="margin-top:1.5rem;font-size:.75rem;color:#64748b">${navHtml}</nav></div>`;
+              : (() => {
+                // FRO-330: SSG article cards — render first 6 articles with real titles for Speed Index
+                const blogListSlug = firstSeg;
+                const localePrefix = localePrefixes.includes(urlSegs[0] ?? '') ? urlSegs[0] : '';
+                const cardLocale = (localePrefix || 'it') as 'it' | 'en' | 'de' | 'fr';
+                const top6 = blogArticlesStatic.slice(0, 6);
+                const CATEGORY_COLORS: Record<string, string> = {
+                  fiscale: 'background:#eef2ff;color:#4338ca',
+                  pratico: 'background:#ecfdf5;color:#059669',
+                  novita: 'background:#fff7ed;color:#ea580c',
+                  pensione: 'background:#fdf4ff;color:#a855f7',
+                };
+                const CATEGORY_LABELS: Record<string, Record<string, string>> = {
+                  fiscale: { it: 'Fiscale', en: 'Tax', de: 'Steuer', fr: 'Fiscal' },
+                  pratico: { it: 'Pratico', en: 'Practical', de: 'Praktisch', fr: 'Pratique' },
+                  novita: { it: 'Novità', en: 'News', de: 'News', fr: 'Actualité' },
+                  pensione: { it: 'Pensione', en: 'Pension', de: 'Rente', fr: 'Retraite' },
+                };
+                const articleCardsHtml = top6.map(art => {
+                  const artSlug = articleIdToSlug[cardLocale]?.[art.id] ?? art.id;
+                  const artPath = localePrefix ? `/${localePrefix}/${blogListSlug}/${artSlug}` : `/${blogListSlug}/${artSlug}`;
+                  const artSeo = seoMap.get(artPath);
+                  const title = artSeo ? esc(artSeo.ogT) : art.id.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+                  const desc = artSeo ? esc(artSeo.desc).substring(0, 150) : '';
+                  const catColor = CATEGORY_COLORS[art.category] ?? CATEGORY_COLORS.fiscale;
+                  const catLabel = CATEGORY_LABELS[art.category]?.[cardLocale] ?? art.category;
+                  const dateStr = new Date(art.date).toLocaleDateString(cardLocale === 'it' ? 'it-IT' : cardLocale, { day: 'numeric', month: 'short', year: 'numeric' });
+                  return `<a href="${artPath}" style="display:block;text-decoration:none;color:inherit;${sp};overflow:hidden"><img src="${art.image}" alt="${title}" width="400" height="200" style="width:100%;height:10rem;object-fit:cover" loading="lazy"><div style="padding:.75rem"><span style="display:inline-block;padding:2px 8px;border-radius:9999px;font-size:.625rem;font-weight:700;${catColor}">${esc(catLabel)}</span><span style="font-size:.625rem;color:#94a3b8;margin-left:.5rem">${dateStr}</span><h3 style="font-size:.875rem;font-weight:700;color:#334155;margin:.5rem 0 .25rem;line-height:1.3;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden">${title}</h3>${desc ? `<p style="font-size:.75rem;color:#64748b;line-height:1.4;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden">${desc}</p>` : ''}</div></a>`;
+                }).join('');
+                return `<style>.ssg-article-grid{display:grid;grid-template-columns:1fr;gap:1.25rem;margin-top:1.5rem}@media(min-width:640px){.ssg-article-grid{grid-template-columns:repeat(2,1fr)}}@media(min-width:1024px){.ssg-article-grid{grid-template-columns:repeat(3,1fr)}}</style><div style="max-width:56rem;margin:0 auto;padding:1rem">${heroImg}<article><h1 style="font-size:1.25rem;font-weight:700;margin-bottom:.5rem">${esc(seoData.ogT)}</h1><p style="color:#64748b;font-size:.875rem">${esc(seoData.desc)}</p>${editorialHtml}</article><div class="ssg-article-grid">${articleCardsHtml}</div><nav style="margin-top:1.5rem;font-size:.75rem;color:#64748b">${navHtml}</nav></div>`;
+              })();
           } else if (statsSlugs.includes(firstSeg)) {
             rootHtml = `<div style="max-width:72rem;margin:0 auto;padding:1rem"><div style="${sp};height:6rem;margin-bottom:1.5rem"></div><article><h1 style="font-size:1.25rem;font-weight:700;margin-bottom:.5rem">${esc(seoData.ogT)}</h1><p style="color:#64748b;font-size:.875rem">${esc(seoData.desc)}</p>${editorialHtml}</article><div style="display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;margin-top:1.5rem"><div style="${sp};height:14rem"></div><div style="${sp};height:14rem"></div></div><nav style="margin-top:1.5rem;font-size:.75rem;color:#64748b">${navHtml}</nav></div>`;
           } else if (vitaSlugs.includes(firstSeg)) {
