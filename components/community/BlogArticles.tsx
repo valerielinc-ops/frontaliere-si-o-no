@@ -4533,6 +4533,13 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/svizzera-frontalieri-franco-lavoro.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'svizzera-cern-ricerca-chip',
+    category: 'novita',
+    date: '2026-03-23T08:35:02.770Z',
+    image: '/images/blog/svizzera-cern-ricerca-chip.jpg',
+    hasCalculator: true,
+  },
 ];
 
 const CATEGORIES = ['all', 'fiscale', 'pratico', 'novita', 'pensione'] as const;

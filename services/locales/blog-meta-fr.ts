@@ -1688,6 +1688,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.svizzera-frontalieri-franco-lavoro.title': 'Suisse : croissance plus faible et inflation en légère remontée',
     'blog.article.svizzera-frontalieri-franco-lavoro.excerpt': 'La Suisse enregistre une croissance économique de 1 % en 2026, avec une légère hausse de l\'inflation. Qu\'en est-il pour les frontaliers italiens ?',
     'blog.article.svizzera-frontalieri-franco-lavoro.imageAlt': 'Un travailleur italien à la frontière entre la Suisse et le Tessin, avec le Lac de Lugano en arrière-plan.',
+    'blog.article.svizzera-cern-ricerca-chip.title': 'La Suisse accueille le \'CERN de la recherche sur les puces\'',
+    'blog.article.svizzera-cern-ricerca-chip.excerpt': 'Le Canton du Tessin devient le \'CERN de la recherche sur les puces\' avec l\'arrivée de RISC-V, un mouvement open-source qui révolutionne l\'industrie des semi-conducteurs.',
+    'blog.article.svizzera-cern-ricerca-chip.imageAlt': 'Laboratoire de recherche avancée avec des scientifiques travaillant sur des puces électroniques à Tessin.',
 };
 
 export default blogMetaFr;

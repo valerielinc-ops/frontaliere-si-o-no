@@ -9448,6 +9448,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-svizzera-cern-ricerca-chip': {
+    title: 'La Svizzera ospita il ‘CERN della ricerca sui chip’ | Frontaliere Ticino',
+    description: 'Il Canton Ticino diventa il ‘CERN della ricerca sui chip’ con RISC-V, un movimento open-source che rivoluziona l\'industria dei semiconduttori. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, ospita, cern, ricerca, chip',
+    ogTitle: 'La Svizzera ospita il ‘CERN della ricerca sui chip’',
+    ogDescription: 'Il Canton Ticino diventa il ‘CERN della ricerca sui chip’ con RISC-V, un movimento open-source che rivoluziona l\'industria dei semiconduttori.',
+    canonicalPath: '/articoli-frontaliere/svizzera-cern-ricerca-chip',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "La Svizzera ospita il ‘CERN della ricerca sui chip’",
+      "description": "Il Canton Ticino diventa il ‘CERN della ricerca sui chip’ con RISC-V, un movimento open-source che rivoluziona l'industria dei semiconduttori. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/svizzera-cern-ricerca-chip.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Laboratorio di ricerca avanzata con scienziati al lavoro su chip elettronici in Ticino."
+      },
+      "datePublished": "2026-03-23T08:35:02+00:00",
+      "dateModified": "2026-03-23T08:35:02+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/svizzera-cern-ricerca-chip`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

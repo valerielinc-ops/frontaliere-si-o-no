@@ -1688,6 +1688,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.svizzera-frontalieri-franco-lavoro.title': 'Schweiz: schwächeres Wachstum und leichte Anstieg der Inflation',
     'blog.article.svizzera-frontalieri-franco-lavoro.excerpt': 'Die Schweiz verzeichnet im Jahr 2026 ein Wirtschaftswachstum von 1%, wobei die Inflation leicht ansteigt. Was bedeutet dies für italienische Grenzarbeiter?',
     'blog.article.svizzera-frontalieri-franco-lavoro.imageAlt': 'Ein italienischer Arbeiter an der Grenze zwischen der Schweiz und dem Kanton Tessin, mit dem Luganersee im Hintergrund.',
+    'blog.article.svizzera-cern-ricerca-chip.title': 'Die Schweiz beherbergt das \'CERN der Chipforschung\'',
+    'blog.article.svizzera-cern-ricerca-chip.excerpt': 'Der Kanton Tessin wird zum \'CERN der Chipforschung\' mit der Ankunft von RISC-V, einer Open-Source-Bewegung, die die Halbleiterindustrie revolutioniert.',
+    'blog.article.svizzera-cern-ricerca-chip.imageAlt': 'Forschungslabor mit Wissenschaftlern, die an Elektronikchips arbeiten, in Tessin.',
 };
 
 export default blogMetaDe;

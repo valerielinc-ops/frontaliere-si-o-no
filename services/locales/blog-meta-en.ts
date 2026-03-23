@@ -1688,6 +1688,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.svizzera-frontalieri-franco-lavoro.title': 'Switzerland: Slower Growth and Mild Inflation Increase',
     'blog.article.svizzera-frontalieri-franco-lavoro.excerpt': 'Switzerland is expected to see economic growth of 1% in 2026, with inflation slightly rising. What does this mean for Italian border workers?',
     'blog.article.svizzera-frontalieri-franco-lavoro.imageAlt': 'An Italian worker at the border between Switzerland and Ticino, with Lake Lugano in the background.',
+    'blog.article.svizzera-cern-ricerca-chip.title': 'Switzerland hosts the \'CERN of chip research\'',
+    'blog.article.svizzera-cern-ricerca-chip.excerpt': 'Canton Ticino becomes the \'CERN of chip research\' with the arrival of RISC-V, an open-source movement revolutionizing the semiconductor industry.',
+    'blog.article.svizzera-cern-ricerca-chip.imageAlt': 'Advanced research laboratory with scientists working on electronic chips in Ticino.',
 };
 
 export default blogMetaEn;

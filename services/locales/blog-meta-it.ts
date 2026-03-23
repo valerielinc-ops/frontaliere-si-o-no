@@ -1688,6 +1688,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.svizzera-frontalieri-franco-lavoro.title': 'Svizzera: crescita più debole e inflazione in lieve risalita',
     'blog.article.svizzera-frontalieri-franco-lavoro.excerpt': 'La Svizzera registra una crescita economica del 1% nel 2026, con inflazione leggermente in aumento. Cosa significa per i frontalieri italiani?',
     'blog.article.svizzera-frontalieri-franco-lavoro.imageAlt': 'Un lavoratore italiano al confine tra Svizzera e Ticino, con il Lago di Lugano in sfondo.',
+    'blog.article.svizzera-cern-ricerca-chip.title': 'La Svizzera ospita il ‘CERN della ricerca sui chip’',
+    'blog.article.svizzera-cern-ricerca-chip.excerpt': 'Il Canton Ticino diventa il ‘CERN della ricerca sui chip’ con l\'arrivo di RISC-V, un movimento open-source che rivoluziona l\'industria dei semiconduttori.',
+    'blog.article.svizzera-cern-ricerca-chip.imageAlt': 'Laboratorio di ricerca avanzata con scienziati al lavoro su chip elettronici in Ticino.',
 };
 
 export default blogMetaIt;
