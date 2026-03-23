@@ -1531,3 +1531,34 @@ export function normalizeContract(raw = '', title = '', description = '') {
   if (/\b(contractor|freelance|consul)\b/.test(s)) return 'contract';
   return 'full-time';
 }
+
+// ─── Job quality scoring ──────────────────────────────────────────────────────
+
+/**
+ * Compute a numeric quality score for a job from its structured fields.
+ * Title threshold is 5 (not 8) to accommodate short Italian job titles
+ * (e.g. "Cuoco"=5, "Gerente"=7, "Autista"=7).
+ */
+export function qualityScore(job) {
+  let score = 0;
+  if (job.title && job.title.length >= 5) score += 2;
+  if (job.company && job.company.length >= 2) score += 1;
+  if (job.location && job.location.length >= 2) score += 1;
+  if (job.description && job.description.length >= 120) score += 2;
+  if (job.requirements?.length) score += 1;
+  if (job.url) score += 1;
+  return score;
+}
+
+/**
+ * Evaluate whether a job meets the minimum quality threshold.
+ * Returns { accepted, score, reasons }.
+ */
+export function evaluateJobQuality(job, { minQualityScore, minDescriptionChars }) {
+  const reasons = [];
+  const score = qualityScore(job);
+  const descLen = (job.description || '').length;
+  if (descLen < minDescriptionChars) reasons.push(`thin_description_lt_${minDescriptionChars}`);
+  if (score < minQualityScore) reasons.push(`quality_score_lt_${minQualityScore}`);
+  return { accepted: reasons.length === 0, score, reasons };
+}

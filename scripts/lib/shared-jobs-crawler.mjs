@@ -25,7 +25,7 @@ import { execFile } from 'node:child_process';
 import { promisify } from 'node:util';
 import { printPublishedJobUrls, writeJobsSummary, snapshotJobSlugs, computeCrawlDiff, printCrawlChangeSummary, writeCrawlChangeSummaryToGH } from '../jobs-url-helper.mjs';
 import { detectJobTitleLang, detectJobTitleLocaleDetails } from './job-locale-utils.mjs';
-import { heuristicTranslateJobTitle, detectLang, normalizeKey, guessCategory, normalizeContract } from './dedicated-crawler-common.mjs';
+import { heuristicTranslateJobTitle, detectLang, normalizeKey, guessCategory, normalizeContract, qualityScore, evaluateJobQuality } from './dedicated-crawler-common.mjs';
 import {
   getJobLocalizationPipelineStats,
   localizeJobContentWithPipeline,
@@ -1613,32 +1613,6 @@ function companyKey(name = '') {
   return slugify(name || '').slice(0, 64);
 }
 
-function qualityScore(job) {
-  let score = 0;
-  // Title threshold lowered from 8→5: Italian job titles can be short
-  // (e.g. "Gerente"=7, "Cuoco"=5, "Autista"=7, "Badante"=7)
-  if (job.title && job.title.length >= 5) score += 2;
-  if (job.company && job.company.length >= 2) score += 1;
-  if (job.location && job.location.length >= 2) score += 1;
-  if (job.description && job.description.length >= 120) score += 2;
-  if (job.requirements?.length) score += 1;
-  if (job.url) score += 1;
-  return score;
-}
-
-function evaluateJobQuality(job, { minQualityScore, minDescriptionChars }) {
-  const reasons = [];
-  const score = qualityScore(job);
-  const descLen = (job.description || '').length;
-
-  if (descLen < minDescriptionChars) {
-    reasons.push(`thin_description_lt_${minDescriptionChars}`);
-  }
-  if (score < minQualityScore) {
-    reasons.push(`quality_score_lt_${minQualityScore}`);
-  }
-  return { accepted: reasons.length === 0, score, reasons };
-}
 
 function cleanDescription(desc) {
   let text = stripHtml(desc);
