@@ -2188,6 +2188,17 @@ Rules:
     'seoContent.stats.check4': 'Ticino cross-border community data',
 
     // ─── What's New / Feature Announcements ─────────────────────────────
+    'whatsNew.v3360.title': 'Quality Improvements and New AI Features',
+    'whatsNew.v3360.translation-pipeline.title': 'Better automatic translation quality',
+    'whatsNew.v3360.translation-pipeline.desc': 'We\'ve added checks to ensure translations are accurate and in the correct language. This makes your translations more reliable.',
+    'whatsNew.v3360.lwphr.title': 'Improved title and description quality',
+    'whatsNew.v3360.lwphr.desc': 'We fixed some title issues and added automatic detection for missing descriptions. Your content will now be more complete and clear.',
+    'whatsNew.v3360.FRO-215.title': 'More AI models for advanced analysis',
+    'whatsNew.v3360.FRO-215.desc': 'We\'ve expanded our AI model offering, going from 40 to 55 models and from 4 to 9 providers. This gives you access to more powerful analysis tools.',
+    'whatsNew.v3360.validate-canonical.title': 'Improved content variant handling',
+    'whatsNew.v3360.validate-canonical.desc': 'We fixed an issue that could cause incorrect language variants to leak into links and expanded the scan window for checks. This ensures your content is presented correctly.',
+    'whatsNew.v3360.FRO-216.title': 'Smart quota scheduling',
+    'whatsNew.v3360.FRO-216.desc': 'We\'ve introduced smarter scheduling for quotas, which now runs before the main system. This optimizes resource usage and improves performance.',
     'whatsNew.v3350.title': 'Translation Improvements and User Experience Enhancements',
     'whatsNew.v3350.clear-untranslated-english.title': 'Clearer descriptions for offers',
     'whatsNew.v3350.clear-untranslated-english.desc': 'We\'ve removed untranslated English text from lastminute.com offer descriptions in Italy, making them easier to understand.',

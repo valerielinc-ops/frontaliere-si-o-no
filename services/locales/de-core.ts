@@ -2188,6 +2188,17 @@ Regeln:
     'seoContent.stats.check4': 'Daten zur Tessiner Grenzgänger-Gemeinschaft',
 
     // ─── What's New / Feature Announcements ─────────────────────────────
+    'whatsNew.v3360.title': 'Qualitätsverbesserungen und neue KI-Funktionen',
+    'whatsNew.v3360.translation-pipeline.title': 'Bessere automatische Übersetzungsqualität',
+    'whatsNew.v3360.translation-pipeline.desc': 'Wir haben Prüfungen hinzugefügt, um sicherzustellen, dass Übersetzungen korrekt und in der richtigen Sprache sind. Dies macht Ihre Übersetzungen zuverlässiger.',
+    'whatsNew.v3360.lwphr.title': 'Verbesserte Titel- und Beschreibungsqualität',
+    'whatsNew.v3360.lwphr.desc': 'Wir haben einige Titelprobleme behoben und die automatische Erkennung fehlender Beschreibungen hinzugefügt. Ihre Inhalte werden nun vollständiger und klarer sein.',
+    'whatsNew.v3360.FRO-215.title': 'Mehr KI-Modelle für erweiterte Analysen',
+    'whatsNew.v3360.FRO-215.desc': 'Wir haben unser Angebot an KI-Modellen erweitert, von 40 auf 55 Modelle und von 4 auf 9 Anbieter. Dies gibt Ihnen Zugang zu leistungsfähigeren Analysewerkzeugen.',
+    'whatsNew.v3360.validate-canonical.title': 'Verbesserte Handhabung von Inhaltsvarianten',
+    'whatsNew.v3360.validate-canonical.desc': 'Wir haben ein Problem behoben, das dazu führen konnte, dass falsche Sprachvarianten in Links durchsickerten, und das Scanfenster für Prüfungen erweitert. Dies stellt sicher, dass Ihre Inhalte korrekt dargestellt werden.',
+    'whatsNew.v3360.FRO-216.title': 'Intelligente Quotenplanung',
+    'whatsNew.v3360.FRO-216.desc': 'Wir haben eine intelligentere Planung für Quoten eingeführt, die nun vor dem Hauptsystem ausgeführt wird. Dies optimiert die Ressourcennutzung und verbessert die Leistung.',
     'whatsNew.v3350.title': 'Verbesserungen bei Übersetzungen und Benutzererlebnis',
     'whatsNew.v3350.clear-untranslated-english.title': 'Klarere Beschreibungen für Angebote',
     'whatsNew.v3350.clear-untranslated-english.desc': 'Wir haben nicht übersetzten englischen Text aus den Beschreibungen von lastminute.com-Angeboten in Italien entfernt, um sie besser verständlich zu machen.',

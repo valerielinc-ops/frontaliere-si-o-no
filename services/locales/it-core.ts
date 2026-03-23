@@ -2280,6 +2280,17 @@ Regole:
     'seoContent.stats.check4': 'Dati sulla comunità frontaliera Ticino',
 
     // ─── What's New / Feature Announcements ─────────────────────────────
+    'whatsNew.v3360.title': 'Miglioramenti alla qualità e nuove funzionalità AI',
+    'whatsNew.v3360.translation-pipeline.title': 'Migliorata la qualità delle traduzioni automatiche',
+    'whatsNew.v3360.translation-pipeline.desc': 'Abbiamo aggiunto controlli per garantire che le traduzioni siano accurate e che il contenuto sia nella lingua corretta. Questo rende le tue traduzioni più affidabili.',
+    'whatsNew.v3360.lwphr.title': 'Migliorata la qualità dei titoli e descrizioni',
+    'whatsNew.v3360.lwphr.desc': 'Abbiamo corretto alcuni problemi relativi ai titoli e aggiunto il rilevamento automatico delle descrizioni mancanti. Ora i tuoi contenuti saranno più completi e chiari.',
+    'whatsNew.v3360.FRO-215.title': 'Più modelli AI per analisi avanzate',
+    'whatsNew.v3360.FRO-215.desc': 'Abbiamo ampliato la nostra offerta di modelli di intelligenza artificiale, passando da 40 a 55 modelli e da 4 a 9 fornitori. Questo ti dà accesso a strumenti di analisi più potenti.',
+    'whatsNew.v3360.validate-canonical.title': 'Migliorata la gestione delle varianti di contenuto',
+    'whatsNew.v3360.validate-canonical.desc': 'Abbiamo risolto un problema che poteva causare la diffusione di varianti di lingua errate nei collegamenti e ampliato la finestra di scansione per i controlli. Questo assicura che il tuo contenuto sia presentato correttamente.',
+    'whatsNew.v3360.FRO-216.title': 'Pianificazione intelligente delle quote',
+    'whatsNew.v3360.FRO-216.desc': 'Abbiamo introdotto una pianificazione più intelligente per le quote, che ora viene eseguita prima del sistema principale. Questo ottimizza l\'uso delle risorse e migliora le prestazioni.',
     'whatsNew.v3350.title': 'Miglioramenti alla traduzione e all\'esperienza utente',
     'whatsNew.v3350.clear-untranslated-english.title': 'Descrizioni più chiare per le offerte',
     'whatsNew.v3350.clear-untranslated-english.desc': 'Abbiamo rimosso testi in inglese non tradotti dalle descrizioni delle offerte lastminute.com in Italia, rendendole più facili da capire.',
