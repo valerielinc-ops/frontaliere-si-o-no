@@ -6,7 +6,7 @@ import { detectLanguage } from './detect-language.mjs';
 import { freeTranslateWithRetry } from './free-translate.mjs';
 import { translateTextWithLocalPipeline } from './job-localization-pipeline.mjs';
 import { hardenJobsWithStructuredSalary } from './structured-salary.mjs';
-import { normalizeCantonCode } from './target-swiss-locations.mjs';
+import { normalizeCantonCode, isTargetSwissLocation, TICINO_CITIES } from './target-swiss-locations.mjs';
 let _aiModels = null;
 try { _aiModels = await import('./ai-models.mjs'); } catch { /* ai-models not available */ }
 import {
@@ -2157,4 +2157,555 @@ export function buildStableId(job) {
     hash |= 0;
   }
   return `company-${Math.abs(hash).toString(36)}`;
+}
+
+// ─── FRO-232: Merge/dedup utilities ──────────────────────────────────────────
+
+export const LOCALES = ['it', 'en', 'de', 'fr'];
+
+export function normalizeCompanyKey(input) { return normalizeKey(input).slice(0, 64); }
+
+export function dateOnly(input) {
+  const d = new Date(input || Date.now());
+  if (Number.isNaN(d.getTime())) return new Date().toISOString().slice(0, 10);
+  return d.toISOString().slice(0, 10);
+}
+
+function getJobTargetScope(job = {}) {
+  const scope = job?._targetScope;
+  return scope && typeof scope === 'object' ? scope : null;
+}
+
+export function hasSeedMetaTargetScope(job = {}) {
+  const scope = getJobTargetScope(job);
+  if (!scope) return false;
+  const canton = normalizeCantonCode(scope.canton || job?.canton || '');
+  if (canton === 'TI' || canton === 'GR') return true;
+  const location = normalizeSpace(scope.location || '');
+  if (!location) return false;
+  return isTargetSwissLocation(location);
+}
+
+export function isJobPortalRelevant(job = {}) {
+  const signal = `${job?.title || ''} ${job?.location || ''} ${job?.description || ''}`;
+  if (isTargetSwissLocation(signal)) return true;
+  return hasSeedMetaTargetScope(job);
+}
+
+export function isExplicitlyOutsideTarget(text) {
+  const lower = String(text || '').toLowerCase();
+  const outsideMarkers = [
+    'österreich', 'austria', 'graz', 'wien', 'vienna',
+    'deutschland', 'germany', 'berlin', 'munich', 'münchen', 'hamburg', 'frankfurt',
+    'france', 'paris', 'lyon', 'marseille', 'toulouse', 'strasbourg',
+    'spain', 'madrid', 'barcelona', 'sevilla', 'valencia',
+    'uk', 'united kingdom', 'london', 'manchester', 'birmingham', 'edinburgh',
+    'portugal', 'lisbon', 'lisboa', 'porto',
+    'netherlands', 'amsterdam', 'rotterdam', 'den haag',
+    'belgium', 'brussels', 'bruxelles', 'antwerp',
+    'sweden', 'stockholm', 'göteborg',
+    'norway', 'oslo',
+    'denmark', 'copenhagen', 'københavn',
+    'finland', 'helsinki',
+    'poland', 'warsaw', 'kraków', 'wroclaw',
+    'czech republic', 'prague', 'praha',
+    'hungary', 'budapest',
+    'romania', 'bucharest', 'bucuresti',
+    'greece', 'athens',
+    'italia', 'italy',
+    'milano', 'milan', 'roma', 'rome', 'firenze', 'florence', 'napoli', 'naples',
+    'torino', 'turin', 'bologna', 'genova', 'palermo', 'catania', 'bari',
+    'venezia', 'venice', 'verona', 'padova', 'trieste', 'brescia', 'modena',
+    'forte dei marmi', 'toscana', 'lazio', 'lombardia', 'piemonte', 'campania',
+    'puglia', 'sicilia', 'sardegna', 'calabria', 'emilia-romagna', 'umbria',
+    'usa', 'united states', 'new york', 'los angeles', 'san francisco', 'chicago',
+    'canada', 'toronto', 'montreal', 'vancouver',
+    'brazil', 'brasile', 'são paulo', 'rio de janeiro',
+    'mexico', 'messico',
+    'malaysia', 'kuala lumpur',
+    'singapore', 'singapour',
+    'china', 'cina', 'beijing', 'shanghai', 'shenzhen', 'guangzhou', 'hong kong',
+    'japan', 'giappone', 'tokyo',
+    'south korea', 'seoul',
+    'india', 'mumbai', 'bangalore', 'delhi', 'new delhi',
+    'thailand', 'bangkok',
+    'indonesia', 'jakarta',
+    'vietnam', 'hanoi', 'ho chi minh',
+    'philippines', 'manila',
+    'taiwan', 'taipei',
+    'united arab emirates', 'uae', 'dubai', 'abu dhabi',
+    'saudi arabia', 'riyadh',
+    'qatar', 'doha',
+    'australia', 'sydney', 'melbourne',
+    'south africa', 'johannesburg', 'cape town',
+  ];
+  const hitOutside = outsideMarkers.some((k) => lower.includes(k));
+  if (!hitOutside) return false;
+  return !/(ticino|lugano|bellinzona|mendrisio|chiasso|svizzera|switzerland|schweiz)/i.test(lower);
+}
+
+/**
+ * Check if a job's LOCATION field explicitly indicates a non-Swiss location.
+ */
+export function isLocationExplicitlyForeign(locationField) {
+  const lower = String(locationField || '').toLowerCase();
+  if (!lower || lower.length < 3) return false;
+  if (/(\bch\b|swiss|svizzera|switzerland|schweiz|suisse)/i.test(lower)) return false;
+  if (/\b(ticino|tessin|ti)\b/i.test(lower)) return false;
+  if (TICINO_CITIES.some((c) => lower.includes(c.toLowerCase()))) return false;
+  const foreignCountries = [
+    'malaysia', 'italy', 'italia', 'france', 'germany', 'deutschland',
+    'austria', 'österreich', 'spain', 'españa', 'portugal',
+    'united kingdom', 'uk', 'usa', 'united states', 'canada',
+    'china', 'japan', 'india', 'singapore', 'thailand', 'indonesia',
+    'vietnam', 'philippines', 'taiwan', 'south korea', 'hong kong',
+    'united arab emirates', 'uae', 'saudi arabia', 'qatar',
+    'australia', 'brazil', 'mexico', 'south africa',
+    'netherlands', 'belgium', 'sweden', 'norway', 'denmark', 'finland',
+    'poland', 'czech republic', 'hungary', 'romania', 'greece',
+    'russia', 'ukraine', 'turkey',
+  ];
+  const foreignCities = [
+    'kuala lumpur', 'milano', 'milan', 'roma', 'rome', 'firenze', 'florence',
+    'napoli', 'naples', 'torino', 'turin', 'bologna', 'genova', 'palermo',
+    'venezia', 'venice', 'forte dei marmi', 'toscana', 'lombardia',
+    'paris', 'lyon', 'marseille', 'london', 'berlin', 'munich', 'münchen',
+    'frankfurt', 'hamburg', 'vienna', 'wien', 'madrid', 'barcelona',
+    'amsterdam', 'brussels', 'bruxelles', 'stockholm', 'oslo', 'copenhagen',
+    'tokyo', 'beijing', 'shanghai', 'singapore', 'bangkok', 'mumbai',
+    'dubai', 'new york', 'los angeles', 'toronto', 'sydney', 'melbourne',
+    'zurich', 'zürich', 'bern', 'berne', 'basel', 'lausanne', 'geneva', 'genève',
+    'fribourg', 'neuchatel', 'neuchâtel', 'winterthur', 'zug', 'aarau', 'lucerne', 'luzern',
+  ];
+  return foreignCountries.some((k) => lower.includes(k)) || foreignCities.some((k) => lower.includes(k));
+}
+
+export function isExplicitlyOutsideSwissTicino(text) {
+  const lower = String(text || '').toLowerCase();
+  if (!lower) return false;
+  if (/\b(ticino|canton ticino|cantone ticino|ch-ti)\b/i.test(lower)) return false;
+  if (/\b(?:ch-?)?\d{4}\s+[a-zà-öø-ÿ'().\-\s]{2,80}\s+(ag|ai|ar|be|bl|bs|fr|ge|gl|gr|ju|lu|ne|nw|ow|sg|sh|so|sz|tg|ur|vd|vs|zg|zh)\b/i.test(lower)) {
+    return true;
+  }
+  const nonTiCantonsCities = [
+    'bern', 'berne', 'zuerich', 'zürich', 'basel', 'lausanne', 'geneva', 'genève',
+    'fribourg', 'neuchatel', 'luzern', 'lucerne', 'winterthur', 'aarau', 'zug',
+    'st. gallen', 'sankt gallen', 'thun', 'biel', 'bienne',
+    'gossau', 'dietlikon', 'jegensdorf', 'lenzburg', 'oberbüren', 'oberbueren',
+    'pratteln', 'muttenz', 'olten', 'langenthal', 'burgdorf', 'emmen', 'kriens',
+    'köniz', 'ostermundigen', 'schaffhausen', 'frauenfeld', 'wil sg', 'rapperswil',
+    'uster', 'dübendorf', 'kloten', 'wetzikon', 'volketswil', 'spreitenbach',
+  ];
+  return nonTiCantonsCities.some((k) => lower.includes(k));
+}
+
+export function recencyTs(job) {
+  const raw = job?.crawledAt || job?.postedDate || '';
+  const t = Date.parse(String(raw));
+  return Number.isFinite(t) ? t : 0;
+}
+
+export function mergeRequirements(a = [], b = []) {
+  const cleanReq = (value = '') =>
+    normalizeSpace(String(value || '')
+      .replace(/&[A-Za-z]+;/g, ' ')
+      .replace(/^[)\]}\-–—:.,\s]+/, '')
+      .replace(/\s+/g, ' ')
+      .trim());
+  const seen = new Set();
+  const out = [];
+  for (const item of [...a, ...b]) {
+    const cleaned = cleanReq(item);
+    if (!cleaned) continue;
+    if (/\.{2,}\s*$/.test(cleaned)) continue;
+    const parts = cleaned.split(/;\s*[-•]\s+/).map((p) => p.replace(/^[-•]\s*/, '').trim()).filter((p) => p.length >= 8);
+    const candidates = parts.length > 1 ? parts : [cleaned];
+    for (const cand of candidates) {
+      const key = cand.toLowerCase();
+      if (seen.has(key)) continue;
+      if (cand.length < 8 || cand.length > 120) continue;
+      if (/\b(streamlined recruitment process|hiring manager|recruiter|business case|how you will make a difference|skills that will make you succeed|skills for success|eligibility requirements)\b/i.test(cand)) continue;
+      seen.add(key);
+      out.push(cand);
+      if (out.length >= 8) break;
+    }
+    if (out.length >= 8) break;
+  }
+  return out;
+}
+
+function localeTextCoverage(map = {}, minChars = 1) {
+  if (!map || typeof map !== 'object') return 0;
+  let c = 0;
+  for (const locale of LOCALES) {
+    const val = normalizeSpace(String(map[locale] || ''));
+    if (val.length >= minChars) c += 1;
+  }
+  return c;
+}
+
+export function mergeLocaleTextMap(a = {}, b = {}, minChars = 1) {
+  const out = {};
+  for (const locale of LOCALES) {
+    const av = normalizeSpace(String(a?.[locale] || ''));
+    const bv = normalizeSpace(String(b?.[locale] || ''));
+    if (av.length < minChars && bv.length < minChars) continue;
+    out[locale] = bv.length >= av.length ? bv : av;
+  }
+  return out;
+}
+
+export function mergeLocaleRequirementsMap(a = {}, b = {}) {
+  const out = {};
+  for (const locale of LOCALES) {
+    const merged = mergeRequirements(
+      Array.isArray(a?.[locale]) ? a[locale] : [],
+      Array.isArray(b?.[locale]) ? b[locale] : [],
+    );
+    if (merged.length > 0) out[locale] = merged;
+  }
+  return out;
+}
+
+function tokenizeForSimilarity(text = '') {
+  return new Set(
+    normalizeSpace(String(text || '').toLowerCase())
+      .replace(/[^\p{L}\p{N}\s]/gu, ' ')
+      .split(/\s+/)
+      .map((w) => w.trim())
+      .filter((w) => w.length >= 3)
+  );
+}
+
+export function textSimilarityRatio(a = '', b = '') {
+  const aa = normalizeSpace(String(a || ''));
+  const bb = normalizeSpace(String(b || ''));
+  if (!aa && !bb) return 1;
+  if (!aa || !bb) return 0;
+  if (aa.toLowerCase() === bb.toLowerCase()) return 1;
+  const at = tokenizeForSimilarity(aa);
+  const bt = tokenizeForSimilarity(bb);
+  if (at.size === 0 || bt.size === 0) return 0;
+  let intersection = 0;
+  for (const t of at) {
+    if (bt.has(t)) intersection += 1;
+  }
+  const union = at.size + bt.size - intersection;
+  if (union <= 0) return 0;
+  return intersection / union;
+}
+
+export function hasCompleteLocalizedCoverage(job = {}) {
+  const descCoverage = localeTextCoverage(job?.descriptionByLocale || {}, 120);
+  const titleCoverage = localeTextCoverage(job?.titleByLocale || {}, 3);
+  const reqCoverage = Object.keys(job?.requirementsByLocale || {}).length;
+  return descCoverage >= LOCALES.length && titleCoverage >= LOCALES.length && reqCoverage >= LOCALES.length;
+}
+
+export function shouldReusePreviousLocalization(prev = {}, next = {}, cfg = {}) {
+  if (!cfg?.enabled) return false;
+  if (!hasCompleteLocalizedCoverage(prev)) return false;
+
+  const prevDesc = normalizeSpace(prev?.description || '');
+  const nextDesc = normalizeSpace(next?.description || '');
+  if (prevDesc.length < cfg.minSourceChars || nextDesc.length < cfg.minSourceChars) return false;
+
+  const similarity = textSimilarityRatio(prevDesc, nextDesc);
+  if (similarity < cfg.similarityThreshold) return false;
+
+  const prevLen = Math.max(1, prevDesc.length);
+  const nextLen = Math.max(1, nextDesc.length);
+  const deltaRatio = Math.abs(nextLen - prevLen) / prevLen;
+  if (deltaRatio > cfg.maxLengthDeltaRatio) return false;
+
+  return true;
+}
+
+export function preferJob(a, b) {
+  const aScore = qualityScore(a) + (a.featured ? 2 : 0) + ((a.source === 'Company Careers Crawler') ? 1 : 0);
+  const bScore = qualityScore(b) + (b.featured ? 2 : 0) + ((b.source === 'Company Careers Crawler') ? 1 : 0);
+  if (aScore !== bScore) return aScore > bScore ? a : b;
+  const aRecency = recencyTs(a);
+  const bRecency = recencyTs(b);
+  if (aRecency !== bRecency) return aRecency > bRecency ? a : b;
+  const aDesc = (a.description || '').length;
+  const bDesc = (b.description || '').length;
+  if (aDesc !== bDesc) return aDesc > bDesc ? a : b;
+  return a;
+}
+
+export function getMergeExclusionReasons(job, qualityCfg) {
+  const reasons = [];
+  if (!(job?.title && job?.company && job?.location && job?.description)) {
+    reasons.push('missing_required_fields');
+    return reasons;
+  }
+  if (isLikelyGenericCareerTitle(job.title)) reasons.push('generic_title');
+  if (!isLikelyJobDetailUrl(job.url || '') && !hasSeedMetaTargetScope(job)) reasons.push('non_detail_url');
+  if (/linkedin\.com/i.test(String(job.url || ''))) reasons.push('linkedin_url');
+  if (isLocationExplicitlyForeign(job.location) && !hasSeedMetaTargetScope(job)) reasons.push('location_explicitly_foreign');
+  if (!isJobPortalRelevant(job)) reasons.push('not_ticino_relevant');
+  {
+    const signal = `${job.title} ${job.location} ${job.description}`;
+    const hasLocalPrimaryScope = isTargetSwissLocation(job.location || '');
+    if (!hasLocalPrimaryScope) {
+      if (isExplicitlyOutsideTarget(signal) && !hasSeedMetaTargetScope(job)) reasons.push('explicitly_outside_target');
+      if (isExplicitlyOutsideSwissTicino(signal) && !hasSeedMetaTargetScope(job)) reasons.push('outside_swiss_ticino');
+    }
+  }
+  const quality = evaluateJobQuality(job, qualityCfg);
+  if (!quality.accepted) {
+    reasons.push(...quality.reasons);
+  }
+  return reasons;
+}
+
+export function mergeAndDeduplicate(existingJobs, incomingJobs, qualityCfg, options = {}) {
+  const nowIsoDate = dateOnly(Date.now());
+  const nowIsoTs = new Date().toISOString();
+  const map = new Map();
+  const scopeCompanyKeys = new Set(
+    (Array.isArray(options.scopeCompanyKeys) ? options.scopeCompanyKeys : [])
+      .map((k) => normalizeCompanyKey(k))
+      .filter(Boolean)
+  );
+  const hasScopedCompanyKeys = scopeCompanyKeys.size > 0;
+  let duplicateExisting = 0;
+
+  for (const job of existingJobs) {
+    if (
+      job?.source === 'Company Careers Crawler' &&
+      !normalizeSpace(job?.crawledAt || '')
+    ) {
+      continue;
+    }
+    const fp = fingerprintJob(job);
+    if (!fp) continue;
+    const normalized = {
+      ...job,
+      crawledAt: normalizeSpace(job.crawledAt || ''),
+    };
+    const prev = map.get(fp);
+    if (!prev) {
+      map.set(fp, normalized);
+      continue;
+    }
+    duplicateExisting += 1;
+    map.set(fp, preferJob(prev, normalized));
+  }
+
+  let inserted = 0;
+  let refreshed = 0;
+  let duplicateIncoming = 0;
+  let reusedLocalizationFromPrevious = 0;
+  const insertedByCompany = {};
+  const refreshedByCompany = {};
+  const duplicateByCompany = {};
+  const seenIncoming = new Set();
+
+  for (const raw of incomingJobs) {
+    const fp = fingerprintJob(raw);
+    if (!fp) continue;
+    if (seenIncoming.has(fp)) {
+      duplicateIncoming += 1;
+      duplicateByCompany[raw.company] = (duplicateByCompany[raw.company] || 0) + 1;
+      continue;
+    }
+    seenIncoming.add(fp);
+    const next = {
+      ...raw,
+      id: raw.id || buildStableId(raw),
+      crawledAt: nowIsoTs,
+    };
+    const prev = map.get(fp);
+    if (!prev) {
+      map.set(fp, next);
+      inserted += 1;
+      insertedByCompany[next.company] = (insertedByCompany[next.company] || 0) + 1;
+      continue;
+    }
+    const best = {
+      ...prev,
+      ...next,
+      id: prev.id || next.id,
+      postedDate: next.postedDate || prev.postedDate || nowIsoDate,
+      crawledAt: prev.crawledAt || next.crawledAt || nowIsoTs,
+      description: (next.description?.length || 0) >= (prev.description?.length || 0) ? next.description : prev.description,
+      requirements: (next.requirements?.length || 0) >= (prev.requirements?.length || 0) ? next.requirements : prev.requirements,
+      source: (next.source === 'Company Careers Crawler' || prev.source !== 'Company Careers Crawler')
+        ? next.source
+        : prev.source,
+      titleByLocale: mergeLocaleTextMap(prev.titleByLocale || {}, next.titleByLocale || {}, 3),
+      descriptionByLocale: mergeLocaleTextMap(prev.descriptionByLocale || {}, next.descriptionByLocale || {}, 120),
+      requirementsByLocale: mergeLocaleRequirementsMap(prev.requirementsByLocale || {}, next.requirementsByLocale || {}),
+      slugByLocale: mergeLocaleTextMap(prev.slugByLocale || {}, next.slugByLocale || {}, 3),
+      previousSlugs: [
+        ...new Set([
+          ...(Array.isArray(prev.previousSlugs) ? prev.previousSlugs : []),
+          ...(Array.isArray(next.previousSlugs) ? next.previousSlugs : []),
+        ])
+      ].slice(0, 20),
+    };
+    if (shouldReusePreviousLocalization(prev, next, options.contentReuse || {})) {
+      best.titleByLocale = { ...(prev.titleByLocale || {}) };
+      best.descriptionByLocale = { ...(prev.descriptionByLocale || {}) };
+      best.requirementsByLocale = { ...(prev.requirementsByLocale || {}) };
+      best.slugByLocale = { ...(prev.slugByLocale || {}) };
+      reusedLocalizationFromPrevious += 1;
+    }
+    if (localeTextCoverage(best.descriptionByLocale, 120) === 0 && (best.description || '').length >= 120) {
+      const fallbackDesc = {};
+      const descSourceLang = detectLang(best.description || '', 'en');
+      fallbackDesc[descSourceLang] = best.description;
+      best.descriptionByLocale = fallbackDesc;
+    }
+    if (localeTextCoverage(best.titleByLocale, 3) === 0 && best.title) {
+      const fallbackTitle = {};
+      const titleSourceLang = detectJobTitleLang(best.title, detectLang(best.description || '', 'en'));
+      fallbackTitle[titleSourceLang] = best.title;
+      best.titleByLocale = fallbackTitle;
+    }
+    const chosen = preferJob(prev, best);
+    if (best._targetScope && !chosen._targetScope) {
+      chosen._targetScope = best._targetScope;
+    }
+    map.set(fp, chosen);
+    refreshed += 1;
+    refreshedByCompany[best.company] = (refreshedByCompany[best.company] || 0) + 1;
+  }
+
+  const allMerged = [...map.values()];
+  const inScopeJobs = hasScopedCompanyKeys
+    ? allMerged.filter((j) => {
+      const key = normalizeCompanyKey(String(j?.companyKey || j?.company || ''));
+      return scopeCompanyKeys.has(key);
+    })
+    : allMerged;
+  const outOfScopeJobs = hasScopedCompanyKeys
+    ? allMerged.filter((j) => {
+      const key = normalizeCompanyKey(String(j?.companyKey || j?.company || ''));
+      return !scopeCompanyKeys.has(key);
+    })
+    : [];
+
+  const mergeExclusionByReason = {};
+  const mergeExclusionSamples = [];
+  let mergeExcludedJobs = 0;
+  const acceptedInScopeJobs = [];
+  for (const job of inScopeJobs) {
+    const reasons = getMergeExclusionReasons(job, qualityCfg);
+    if (reasons.length === 0) {
+      acceptedInScopeJobs.push(job);
+      continue;
+    }
+    mergeExcludedJobs += 1;
+    for (const reason of new Set(reasons)) {
+      mergeExclusionByReason[reason] = (mergeExclusionByReason[reason] || 0) + 1;
+    }
+    if (mergeExclusionSamples.length < 30) {
+      mergeExclusionSamples.push({
+        reason: reasons[0],
+        title: normalizeSpace(job?.title || ''),
+        company: normalizeSpace(job?.company || ''),
+        location: normalizeSpace(job?.location || ''),
+        url: normalizeSpace(job?.url || ''),
+      });
+    }
+  }
+
+  const merged = acceptedInScopeJobs
+    .sort((a, b) => {
+      const recencyDiff = recencyTs(b) - recencyTs(a);
+      if (recencyDiff !== 0) return recencyDiff;
+      return String(b.postedDate).localeCompare(String(a.postedDate));
+    });
+
+  let heuristicDupes = 0;
+  const seenHeuristic = new Map();
+  for (const job of merged) {
+    const dedupKey = dedupHeuristicKey(job);
+    const prev = seenHeuristic.get(dedupKey);
+    if (prev) {
+      heuristicDupes += 1;
+      seenHeuristic.set(dedupKey, preferJob(prev, job));
+    } else {
+      seenHeuristic.set(dedupKey, job);
+    }
+  }
+  const deduped = [...seenHeuristic.values()].sort((a, b) => {
+    const recencyDiff = recencyTs(b) - recencyTs(a);
+    if (recencyDiff !== 0) return recencyDiff;
+    return String(b.postedDate).localeCompare(String(a.postedDate));
+  });
+
+  const withPreservedOutOfScope = hasScopedCompanyKeys
+    ? [...outOfScopeJobs, ...deduped]
+    : deduped;
+  const dedupedByFp = new Map();
+  for (const job of withPreservedOutOfScope) {
+    const fp = fingerprintJob(job);
+    if (!fp) continue;
+    const prev = dedupedByFp.get(fp);
+    dedupedByFp.set(fp, prev ? preferJob(prev, job) : job);
+  }
+  const finalJobs = [...dedupedByFp.values()].sort((a, b) => {
+    const recencyDiff = recencyTs(b) - recencyTs(a);
+    if (recencyDiff !== 0) return recencyDiff;
+    return String(b.postedDate).localeCompare(String(a.postedDate));
+  });
+  if (heuristicDupes > 0) {
+    console.log(`\n🔄 Heuristic dedup: removed ${heuristicDupes} duplicate(s) using identity + multi-field signature`);
+  }
+
+  const slugRegistry = loadSlugRegistry();
+  let registryHits = 0;
+  let registryNewEntries = 0;
+  const usedSlugs = new Set();
+  for (const job of deduped) {
+    const registered = getRegisteredSlug(job, slugRegistry);
+    if (registered && registered.canonicalSlug) {
+      job.slug = registered.canonicalSlug;
+      if (registered.slugByLocale && typeof registered.slugByLocale === 'object') {
+        if (!job.slugByLocale || typeof job.slugByLocale !== 'object') job.slugByLocale = {};
+        for (const [loc, s] of Object.entries(registered.slugByLocale)) {
+          if (s && !job.slugByLocale[loc]) job.slugByLocale[loc] = s;
+        }
+      }
+      usedSlugs.add(job.slug);
+      registryHits += 1;
+      continue;
+    }
+    let slug = normalizeSpace(job.slug || ensureJobSlug(job));
+    if (!slug) slug = `job-${job.id}`;
+    let candidate = slug;
+    let suffix = 2;
+    while (usedSlugs.has(candidate)) {
+      candidate = `${slug}-${suffix}`;
+      suffix += 1;
+    }
+    job.slug = candidate;
+    usedSlugs.add(candidate);
+    const sizeBefore = Object.keys(slugRegistry).length;
+    registerJobSlug(job, slugRegistry);
+    if (Object.keys(slugRegistry).length > sizeBefore) registryNewEntries += 1;
+  }
+  saveSlugRegistry(slugRegistry);
+  if (registryHits > 0 || registryNewEntries > 0) {
+    console.log(`🔒 Slug registry: ${registryHits} locked from registry, ${registryNewEntries} new entries added (${Object.keys(slugRegistry).length} total)`);
+  }
+
+  return {
+    merged: finalJobs,
+    inserted,
+    refreshed,
+    duplicateIncoming,
+    duplicateExisting,
+    insertedByCompany,
+    refreshedByCompany,
+    duplicateByCompany,
+    reusedLocalizationFromPrevious,
+    mergeExcludedJobs,
+    mergeExclusionByReason,
+    mergeExclusionSamples,
+  };
 }

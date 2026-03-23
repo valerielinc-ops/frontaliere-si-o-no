@@ -48,6 +48,25 @@ import {
   saveSlugRegistry as _saveSlugRegistry,
   getRegisteredSlug as _getRegisteredSlug,
   registerJobSlug as _registerJobSlug,
+  // FRO-232: merge/dedup utilities extracted from this file
+  LOCALES as _LOCALES,
+  normalizeCompanyKey as _normalizeCompanyKey,
+  dateOnly as _dateOnly,
+  hasSeedMetaTargetScope as _hasSeedMetaTargetScope,
+  isJobPortalRelevant as _isJobPortalRelevant,
+  isExplicitlyOutsideTarget as _isExplicitlyOutsideTarget,
+  isLocationExplicitlyForeign as _isLocationExplicitlyForeign,
+  isExplicitlyOutsideSwissTicino as _isExplicitlyOutsideSwissTicino,
+  recencyTs as _recencyTs,
+  mergeRequirements as _mergeRequirements,
+  mergeLocaleTextMap as _mergeLocaleTextMap,
+  mergeLocaleRequirementsMap as _mergeLocaleRequirementsMap,
+  textSimilarityRatio as _textSimilarityRatio,
+  hasCompleteLocalizedCoverage as _hasCompleteLocalizedCoverage,
+  shouldReusePreviousLocalization as _shouldReusePreviousLocalization,
+  preferJob as _preferJob,
+  getMergeExclusionReasons as _getMergeExclusionReasons,
+  mergeAndDeduplicate as _mergeAndDeduplicate,
 } from './dedicated-crawler-common.mjs';
 import {
   getJobLocalizationPipelineStats,
@@ -99,6 +118,25 @@ const loadSlugRegistry = _loadSlugRegistry;
 const saveSlugRegistry = _saveSlugRegistry;
 const getRegisteredSlug = _getRegisteredSlug;
 const registerJobSlug = _registerJobSlug;
+// FRO-232: merge/dedup utilities re-aliases
+const LOCALES = _LOCALES;
+const normalizeCompanyKey = _normalizeCompanyKey;
+const dateOnly = _dateOnly;
+const hasSeedMetaTargetScope = _hasSeedMetaTargetScope;
+const isJobPortalRelevant = _isJobPortalRelevant;
+const isExplicitlyOutsideTarget = _isExplicitlyOutsideTarget;
+const isLocationExplicitlyForeign = _isLocationExplicitlyForeign;
+const isExplicitlyOutsideSwissTicino = _isExplicitlyOutsideSwissTicino;
+const recencyTs = _recencyTs;
+const mergeRequirements = _mergeRequirements;
+const mergeLocaleTextMap = _mergeLocaleTextMap;
+const mergeLocaleRequirementsMap = _mergeLocaleRequirementsMap;
+const textSimilarityRatio = _textSimilarityRatio;
+const hasCompleteLocalizedCoverage = _hasCompleteLocalizedCoverage;
+const shouldReusePreviousLocalization = _shouldReusePreviousLocalization;
+const preferJob = _preferJob;
+const getMergeExclusionReasons = _getMergeExclusionReasons;
+const mergeAndDeduplicate = _mergeAndDeduplicate;
 
 const execFileAsync = promisify(execFile);
 
@@ -183,8 +221,6 @@ const LOCALIZE_ONLY_COMPANY_KEYS = new Set(
     .map((x) => normalizeCompanyKey(x))
     .filter(Boolean)
 );
-const LOCALES = ['it', 'en', 'de', 'fr'];
-
 /** Skip gpt-4o for the rest of the run once daily request limit (UserByModelByDay) is hit */
 // Daily limit tracking now handled by centralized ai-models.mjs
 
@@ -405,8 +441,6 @@ function readJson(filePath, fallback = null) {
     return fallback;
   }
 }
-
-function normalizeCompanyKey(input) { return normalizeKey(input).slice(0, 64); }
 
 function writeJson(filePath, value) {
   const dir = path.dirname(filePath);
@@ -955,12 +989,6 @@ function tryUrl(raw, base = null) {
 
 // FRO-231: URL utilities → moved to top of file (FRO-359)
 
-function recencyTs(job) {
-  const raw = job?.crawledAt || job?.postedDate || '';
-  const t = Date.parse(String(raw));
-  return Number.isFinite(t) ? t : 0;
-}
-
 function sameHost(a, b) {
   const ha = normalizeHost(hostOf(a));
   const hb = normalizeHost(hostOf(b));
@@ -991,12 +1019,6 @@ function isKnownAtsHost(host = '') {
     h.includes('usi.ch') ||
     h.includes('allibo.com')
   );
-}
-
-function dateOnly(input) {
-  const d = new Date(input || Date.now());
-  if (Number.isNaN(d.getTime())) return new Date().toISOString().slice(0, 10);
-  return d.toISOString().slice(0, 10);
 }
 
 // guessCategory and normalizeContract imported from dedicated-crawler-common.mjs
@@ -1064,133 +1086,6 @@ function getAdapterSeedMetaForUrl(adapter, rawUrl) {
     if (meta) return meta;
   }
   return null;
-}
-
-function getJobTargetScope(job = {}) {
-  const scope = job?._targetScope;
-  return scope && typeof scope === 'object' ? scope : null;
-}
-
-function hasSeedMetaTargetScope(job = {}) {
-  const scope = getJobTargetScope(job);
-  if (!scope) return false;
-  const canton = normalizeCantonCode(scope.canton || job?.canton || '');
-  if (canton === 'TI' || canton === 'GR') return true;
-  const location = normalizeSpace(scope.location || '');
-  if (!location) return false;
-  return isTargetSwissLocation(location);
-}
-
-function isJobPortalRelevant(job = {}) {
-  const signal = `${job?.title || ''} ${job?.location || ''} ${job?.description || ''}`;
-  if (isTargetSwissLocation(signal)) return true;
-  return hasSeedMetaTargetScope(job);
-}
-
-function isExplicitlyOutsideTarget(text) {
-  const lower = String(text || '').toLowerCase();
-  const outsideMarkers = [
-    // Europe
-    'österreich', 'austria', 'graz', 'wien', 'vienna',
-    'deutschland', 'germany', 'berlin', 'munich', 'münchen', 'hamburg', 'frankfurt',
-    'france', 'paris', 'lyon', 'marseille', 'toulouse', 'strasbourg',
-    'spain', 'madrid', 'barcelona', 'sevilla', 'valencia',
-    'uk', 'united kingdom', 'london', 'manchester', 'birmingham', 'edinburgh',
-    'portugal', 'lisbon', 'lisboa', 'porto',
-    'netherlands', 'amsterdam', 'rotterdam', 'den haag',
-    'belgium', 'brussels', 'bruxelles', 'antwerp',
-    'sweden', 'stockholm', 'göteborg',
-    'norway', 'oslo',
-    'denmark', 'copenhagen', 'københavn',
-    'finland', 'helsinki',
-    'poland', 'warsaw', 'kraków', 'wroclaw',
-    'czech republic', 'prague', 'praha',
-    'hungary', 'budapest',
-    'romania', 'bucharest', 'bucuresti',
-    'greece', 'athens',
-    // Italy (outside border/Ticino area — major Italian cities that are NOT commutable)
-    'italia', 'italy',
-    'milano', 'milan', 'roma', 'rome', 'firenze', 'florence', 'napoli', 'naples',
-    'torino', 'turin', 'bologna', 'genova', 'palermo', 'catania', 'bari',
-    'venezia', 'venice', 'verona', 'padova', 'trieste', 'brescia', 'modena',
-    'forte dei marmi', 'toscana', 'lazio', 'lombardia', 'piemonte', 'campania',
-    'puglia', 'sicilia', 'sardegna', 'calabria', 'emilia-romagna', 'umbria',
-    // Americas
-    'usa', 'united states', 'new york', 'los angeles', 'san francisco', 'chicago',
-    'canada', 'toronto', 'montreal', 'vancouver',
-    'brazil', 'brasile', 'são paulo', 'rio de janeiro',
-    'mexico', 'messico',
-    // Asia & Middle East
-    'malaysia', 'kuala lumpur',
-    'singapore', 'singapour',
-    'china', 'cina', 'beijing', 'shanghai', 'shenzhen', 'guangzhou', 'hong kong',
-    'japan', 'giappone', 'tokyo',
-    'south korea', 'seoul',
-    'india', 'mumbai', 'bangalore', 'delhi', 'new delhi',
-    'thailand', 'bangkok',
-    'indonesia', 'jakarta',
-    'vietnam', 'hanoi', 'ho chi minh',
-    'philippines', 'manila',
-    'taiwan', 'taipei',
-    'united arab emirates', 'uae', 'dubai', 'abu dhabi',
-    'saudi arabia', 'riyadh',
-    'qatar', 'doha',
-    // Africa & Oceania
-    'australia', 'sydney', 'melbourne',
-    'south africa', 'johannesburg', 'cape town',
-  ];
-  const hitOutside = outsideMarkers.some((k) => lower.includes(k));
-  if (!hitOutside) return false;
-  // Keep if there's also a strong Ticino/CH signal.
-  return !/(ticino|lugano|bellinzona|mendrisio|chiasso|svizzera|switzerland|schweiz)/i.test(lower);
-}
-
-/**
- * Check if a job's LOCATION field explicitly indicates a non-Swiss location.
- * Unlike isExplicitlyOutsideTarget (which checks full text and can be fooled by
- * company descriptions mentioning Switzerland), this function checks only the
- * location field where country/city names are the actual work location.
- *
- * This is the strongest filter: if the job location says "Kuala Lumpur, Malaysia"
- * or "Milan, Italy", we reject it regardless of what the description says.
- */
-function isLocationExplicitlyForeign(locationField) {
-  const lower = String(locationField || '').toLowerCase();
-  if (!lower || lower.length < 3) return false;
-  // If location explicitly contains a Swiss indicator, keep it
-  if (/(\bch\b|swiss|svizzera|switzerland|schweiz|suisse)/i.test(lower)) return false;
-  // If location contains a Ticino city or canton indicator, keep it
-  if (/\b(ticino|tessin|ti)\b/i.test(lower)) return false;
-  // If location contains a known Ticino/GR city, keep it (e.g. "Chiasso, Italy" is actually in Switzerland)
-  if (TICINO_CITIES.some((c) => lower.includes(c.toLowerCase()))) return false;
-  // Foreign country names — reject if location explicitly names a non-Swiss country
-  const foreignCountries = [
-    'malaysia', 'italy', 'italia', 'france', 'germany', 'deutschland',
-    'austria', 'österreich', 'spain', 'españa', 'portugal',
-    'united kingdom', 'uk', 'usa', 'united states', 'canada',
-    'china', 'japan', 'india', 'singapore', 'thailand', 'indonesia',
-    'vietnam', 'philippines', 'taiwan', 'south korea', 'hong kong',
-    'united arab emirates', 'uae', 'saudi arabia', 'qatar',
-    'australia', 'brazil', 'mexico', 'south africa',
-    'netherlands', 'belgium', 'sweden', 'norway', 'denmark', 'finland',
-    'poland', 'czech republic', 'hungary', 'romania', 'greece',
-    'russia', 'ukraine', 'turkey',
-  ];
-  // Foreign major cities (non-Swiss, non-border-Italian) — reject
-  const foreignCities = [
-    'kuala lumpur', 'milano', 'milan', 'roma', 'rome', 'firenze', 'florence',
-    'napoli', 'naples', 'torino', 'turin', 'bologna', 'genova', 'palermo',
-    'venezia', 'venice', 'forte dei marmi', 'toscana', 'lombardia',
-    'paris', 'lyon', 'marseille', 'london', 'berlin', 'munich', 'münchen',
-    'frankfurt', 'hamburg', 'vienna', 'wien', 'madrid', 'barcelona',
-    'amsterdam', 'brussels', 'bruxelles', 'stockholm', 'oslo', 'copenhagen',
-    'tokyo', 'beijing', 'shanghai', 'singapore', 'bangkok', 'mumbai',
-    'dubai', 'new york', 'los angeles', 'toronto', 'sydney', 'melbourne',
-    // Swiss cities outside the target area — these should not be auto-mapped to Ticino
-    'zurich', 'zürich', 'bern', 'berne', 'basel', 'lausanne', 'geneva', 'genève',
-    'fribourg', 'neuchatel', 'neuchâtel', 'winterthur', 'zug', 'aarau', 'lucerne', 'luzern',
-  ];
-  return foreignCountries.some((k) => lower.includes(k)) || foreignCities.some((k) => lower.includes(k));
 }
 
 // ─── Google Maps Geocoding — Centralized Ticino Location Verification ────────
@@ -1411,27 +1306,6 @@ async function filterJobsByGeolocation(jobs) {
 
   return { filtered: kept, removedCount: removed.length, removedJobs: removed };
 }
-
-function isExplicitlyOutsideSwissTicino(text) {
-  const lower = String(text || '').toLowerCase();
-  if (!lower) return false;
-  if (/\b(ticino|canton ticino|cantone ticino|ch-ti)\b/i.test(lower)) return false;
-  if (/\b(?:ch-?)?\d{4}\s+[a-zà-öø-ÿ'().\-\s]{2,80}\s+(ag|ai|ar|be|bl|bs|fr|ge|gl|gr|ju|lu|ne|nw|ow|sg|sh|so|sz|tg|ur|vd|vs|zg|zh)\b/i.test(lower)) {
-    return true;
-  }
-  const nonTiCantonsCities = [
-    'bern', 'berne', 'zuerich', 'zürich', 'basel', 'lausanne', 'geneva', 'genève',
-    'fribourg', 'neuchatel', 'luzern', 'lucerne', 'winterthur', 'aarau', 'zug',
-    'st. gallen', 'sankt gallen', 'thun', 'biel', 'bienne',
-    // Smaller Swiss cities frequently seen in apprenticeship listings
-    'gossau', 'dietlikon', 'jegensdorf', 'lenzburg', 'oberbüren', 'oberbueren',
-    'pratteln', 'muttenz', 'olten', 'langenthal', 'burgdorf', 'emmen', 'kriens',
-    'köniz', 'ostermundigen', 'schaffhausen', 'frauenfeld', 'wil sg', 'rapperswil',
-    'uster', 'dübendorf', 'kloten', 'wetzikon', 'volketswil', 'spreitenbach',
-  ];
-  return nonTiCantonsCities.some((k) => lower.includes(k));
-}
-
 
 function isLikelyCommercialPromoContent({ title = '', description = '', pageUrl = '' }) {
   const text = `${title} ${description} ${pageUrl}`.toLowerCase();
@@ -2189,124 +2063,6 @@ function extractAlternateLocaleUrls(html, currentUrl) {
     out[lang] = href;
   }
   return out;
-}
-
-function mergeRequirements(a = [], b = []) {
-  const cleanReq = (value = '') =>
-    normalizeSpace(String(value || '')
-      .replace(/&[A-Za-z]+;/g, ' ')
-      .replace(/^[)\]}\-–—:.,\s]+/, '')
-      .replace(/\s+/g, ' ')
-      .trim());
-  const seen = new Set();
-  const out = [];
-  for (const item of [...a, ...b]) {
-    const cleaned = cleanReq(item);
-    if (!cleaned) continue;
-    // Skip truncated artifacts
-    if (/\.{2,}\s*$/.test(cleaned)) continue;
-    // Split joined list items separated by "; - " or "; •"
-    const parts = cleaned.split(/;\s*[-•]\s+/).map((p) => p.replace(/^[-•]\s*/, '').trim()).filter((p) => p.length >= 8);
-    const candidates = parts.length > 1 ? parts : [cleaned];
-    for (const cand of candidates) {
-      const key = cand.toLowerCase();
-      if (seen.has(key)) continue;
-      if (cand.length < 8 || cand.length > 120) continue;
-      if (/\b(streamlined recruitment process|hiring manager|recruiter|business case|how you will make a difference|skills that will make you succeed|skills for success|eligibility requirements)\b/i.test(cand)) continue;
-      seen.add(key);
-      out.push(cand);
-      if (out.length >= 8) break;
-    }
-    if (out.length >= 8) break;
-  }
-  return out;
-}
-
-function localeTextCoverage(map = {}, minChars = 1) {
-  if (!map || typeof map !== 'object') return 0;
-  let c = 0;
-  for (const locale of LOCALES) {
-    const val = normalizeSpace(String(map[locale] || ''));
-    if (val.length >= minChars) c += 1;
-  }
-  return c;
-}
-
-function mergeLocaleTextMap(a = {}, b = {}, minChars = 1) {
-  const out = {};
-  for (const locale of LOCALES) {
-    const av = normalizeSpace(String(a?.[locale] || ''));
-    const bv = normalizeSpace(String(b?.[locale] || ''));
-    if (av.length < minChars && bv.length < minChars) continue;
-    out[locale] = bv.length >= av.length ? bv : av;
-  }
-  return out;
-}
-
-function mergeLocaleRequirementsMap(a = {}, b = {}) {
-  const out = {};
-  for (const locale of LOCALES) {
-    const merged = mergeRequirements(
-      Array.isArray(a?.[locale]) ? a[locale] : [],
-      Array.isArray(b?.[locale]) ? b[locale] : [],
-    );
-    if (merged.length > 0) out[locale] = merged;
-  }
-  return out;
-}
-
-function tokenizeForSimilarity(text = '') {
-  return new Set(
-    normalizeSpace(String(text || '').toLowerCase())
-      .replace(/[^\p{L}\p{N}\s]/gu, ' ')
-      .split(/\s+/)
-      .map((w) => w.trim())
-      .filter((w) => w.length >= 3)
-  );
-}
-
-function textSimilarityRatio(a = '', b = '') {
-  const aa = normalizeSpace(String(a || ''));
-  const bb = normalizeSpace(String(b || ''));
-  if (!aa && !bb) return 1;
-  if (!aa || !bb) return 0;
-  if (aa.toLowerCase() === bb.toLowerCase()) return 1;
-  const at = tokenizeForSimilarity(aa);
-  const bt = tokenizeForSimilarity(bb);
-  if (at.size === 0 || bt.size === 0) return 0;
-  let intersection = 0;
-  for (const t of at) {
-    if (bt.has(t)) intersection += 1;
-  }
-  const union = at.size + bt.size - intersection;
-  if (union <= 0) return 0;
-  return intersection / union;
-}
-
-function hasCompleteLocalizedCoverage(job = {}) {
-  const descCoverage = localeTextCoverage(job?.descriptionByLocale || {}, 120);
-  const titleCoverage = localeTextCoverage(job?.titleByLocale || {}, 3);
-  const reqCoverage = Object.keys(job?.requirementsByLocale || {}).length;
-  return descCoverage >= LOCALES.length && titleCoverage >= LOCALES.length && reqCoverage >= LOCALES.length;
-}
-
-function shouldReusePreviousLocalization(prev = {}, next = {}, cfg = {}) {
-  if (!cfg?.enabled) return false;
-  if (!hasCompleteLocalizedCoverage(prev)) return false;
-
-  const prevDesc = normalizeSpace(prev?.description || '');
-  const nextDesc = normalizeSpace(next?.description || '');
-  if (prevDesc.length < cfg.minSourceChars || nextDesc.length < cfg.minSourceChars) return false;
-
-  const similarity = textSimilarityRatio(prevDesc, nextDesc);
-  if (similarity < cfg.similarityThreshold) return false;
-
-  const prevLen = Math.max(1, prevDesc.length);
-  const nextLen = Math.max(1, nextDesc.length);
-  const deltaRatio = Math.abs(nextLen - prevLen) / prevLen;
-  if (deltaRatio > cfg.maxLengthDeltaRatio) return false;
-
-  return true;
 }
 
 // FRO-231: slug quality checks → moved to top of file (FRO-359)
@@ -4989,19 +4745,6 @@ function toJobFromHtmlFallback(html, pageUrl, companyName, companyCity, options 
 
 // FRO-231: fingerprint, slug registry, dedup → moved to top of file (FRO-359)
 
-function preferJob(a, b) {
-  const aScore = qualityScore(a) + (a.featured ? 2 : 0) + ((a.source === 'Company Careers Crawler') ? 1 : 0);
-  const bScore = qualityScore(b) + (b.featured ? 2 : 0) + ((b.source === 'Company Careers Crawler') ? 1 : 0);
-  if (aScore !== bScore) return aScore > bScore ? a : b;
-  const aRecency = recencyTs(a);
-  const bRecency = recencyTs(b);
-  if (aRecency !== bRecency) return aRecency > bRecency ? a : b;
-  const aDesc = (a.description || '').length;
-  const bDesc = (b.description || '').length;
-  if (aDesc !== bDesc) return aDesc > bDesc ? a : b;
-  return a;
-}
-
 function pruneStaleCrawlerJobs(existingJobs, incomingJobs, results, options = {}) {
   const activeDomains = new Set(
     (results || [])
@@ -5041,296 +4784,6 @@ function pruneStaleCrawlerJobs(existingJobs, incomingJobs, results, options = {}
   return { prunedExisting, removed };
 }
 
-function getMergeExclusionReasons(job, qualityCfg) {
-  const reasons = [];
-  if (!(job?.title && job?.company && job?.location && job?.description)) {
-    reasons.push('missing_required_fields');
-    return reasons;
-  }
-  if (isLikelyGenericCareerTitle(job.title)) reasons.push('generic_title');
-  if (!isLikelyJobDetailUrl(job.url || '') && !hasSeedMetaTargetScope(job)) reasons.push('non_detail_url');
-  if (/linkedin\.com/i.test(String(job.url || ''))) reasons.push('linkedin_url');
-  if (isLocationExplicitlyForeign(job.location) && !hasSeedMetaTargetScope(job)) reasons.push('location_explicitly_foreign');
-  if (!isJobPortalRelevant(job)) reasons.push('not_ticino_relevant');
-  {
-    const signal = `${job.title} ${job.location} ${job.description}`;
-    const hasLocalPrimaryScope = isTargetSwissLocation(job.location || '');
-    // If the primary job location is already in TI/GR, do not reject due to
-    // incidental mentions of other cities in the description (e.g. travel).
-    if (!hasLocalPrimaryScope) {
-      if (isExplicitlyOutsideTarget(signal) && !hasSeedMetaTargetScope(job)) reasons.push('explicitly_outside_target');
-      if (isExplicitlyOutsideSwissTicino(signal) && !hasSeedMetaTargetScope(job)) reasons.push('outside_swiss_ticino');
-    }
-  }
-  const quality = evaluateJobQuality(job, qualityCfg);
-  if (!quality.accepted) {
-    reasons.push(...quality.reasons);
-  }
-  return reasons;
-}
-
-function mergeAndDeduplicate(existingJobs, incomingJobs, qualityCfg, options = {}) {
-  const nowIsoDate = dateOnly(Date.now());
-  const nowIsoTs = new Date().toISOString();
-  const map = new Map();
-  const scopeCompanyKeys = new Set(
-    (Array.isArray(options.scopeCompanyKeys) ? options.scopeCompanyKeys : [])
-      .map((k) => normalizeCompanyKey(k))
-      .filter(Boolean)
-  );
-  const hasScopedCompanyKeys = scopeCompanyKeys.size > 0;
-  let duplicateExisting = 0;
-
-  // Keep existing jobs as baseline
-  for (const job of existingJobs) {
-    if (
-      job?.source === 'Company Careers Crawler' &&
-      !normalizeSpace(job?.crawledAt || '')
-    ) {
-      // Drop legacy crawler entries without crawl timestamp; they will be re-ingested with richer extraction.
-      continue;
-    }
-    const fp = fingerprintJob(job);
-    if (!fp) continue;
-    const normalized = {
-      ...job,
-      crawledAt: normalizeSpace(job.crawledAt || ''),
-    };
-    const prev = map.get(fp);
-    if (!prev) {
-      map.set(fp, normalized);
-      continue;
-    }
-    duplicateExisting += 1;
-    map.set(fp, preferJob(prev, normalized));
-  }
-
-  let inserted = 0;
-  let refreshed = 0;
-  let duplicateIncoming = 0;
-  let reusedLocalizationFromPrevious = 0;
-  const insertedByCompany = {};
-  const refreshedByCompany = {};
-  const duplicateByCompany = {};
-  const seenIncoming = new Set();
-
-  for (const raw of incomingJobs) {
-    const fp = fingerprintJob(raw);
-    if (!fp) continue;
-    if (seenIncoming.has(fp)) {
-      duplicateIncoming += 1;
-      duplicateByCompany[raw.company] = (duplicateByCompany[raw.company] || 0) + 1;
-      continue;
-    }
-    seenIncoming.add(fp);
-    const next = {
-      ...raw,
-      id: raw.id || buildStableId(raw),
-      crawledAt: nowIsoTs,
-    };
-    const prev = map.get(fp);
-    if (!prev) {
-      map.set(fp, next);
-      inserted += 1;
-      insertedByCompany[next.company] = (insertedByCompany[next.company] || 0) + 1;
-      continue;
-    }
-    // Prefer richer/newer values
-    const best = {
-      ...prev,
-      ...next,
-      id: prev.id || next.id,
-      postedDate: next.postedDate || prev.postedDate || nowIsoDate,
-      // Preserve original crawledAt so fresh protection expires naturally.
-      // Without this, re-crawled jobs get perpetually fresh timestamps,
-      // preventing cleanup from ever removing dead URLs.
-      crawledAt: prev.crawledAt || next.crawledAt || nowIsoTs,
-      description: (next.description?.length || 0) >= (prev.description?.length || 0) ? next.description : prev.description,
-      requirements: (next.requirements?.length || 0) >= (prev.requirements?.length || 0) ? next.requirements : prev.requirements,
-      source: (next.source === 'Company Careers Crawler' || prev.source !== 'Company Careers Crawler')
-        ? next.source
-        : prev.source,
-      titleByLocale: mergeLocaleTextMap(prev.titleByLocale || {}, next.titleByLocale || {}, 3),
-      descriptionByLocale: mergeLocaleTextMap(prev.descriptionByLocale || {}, next.descriptionByLocale || {}, 120),
-      requirementsByLocale: mergeLocaleRequirementsMap(prev.requirementsByLocale || {}, next.requirementsByLocale || {}),
-      slugByLocale: mergeLocaleTextMap(prev.slugByLocale || {}, next.slugByLocale || {}, 3),
-      // Explicit merge: union of previousSlugs from both versions (cap at 20)
-      previousSlugs: [
-        ...new Set([
-          ...(Array.isArray(prev.previousSlugs) ? prev.previousSlugs : []),
-          ...(Array.isArray(next.previousSlugs) ? next.previousSlugs : []),
-        ])
-      ].slice(0, 20),
-    };
-    if (shouldReusePreviousLocalization(prev, next, options.contentReuse || {})) {
-      best.titleByLocale = { ...(prev.titleByLocale || {}) };
-      best.descriptionByLocale = { ...(prev.descriptionByLocale || {}) };
-      best.requirementsByLocale = { ...(prev.requirementsByLocale || {}) };
-      best.slugByLocale = { ...(prev.slugByLocale || {}) };
-      reusedLocalizationFromPrevious += 1;
-    }
-    if (localeTextCoverage(best.descriptionByLocale, 120) === 0 && (best.description || '').length >= 120) {
-      const fallbackDesc = {};
-      const descSourceLang = detectLang(best.description || '', 'en');
-      fallbackDesc[descSourceLang] = best.description;
-      best.descriptionByLocale = fallbackDesc;
-    }
-    if (localeTextCoverage(best.titleByLocale, 3) === 0 && best.title) {
-      const fallbackTitle = {};
-      const titleSourceLang = detectJobTitleLang(best.title, detectLang(best.description || '', 'en'));
-      fallbackTitle[titleSourceLang] = best.title;
-      best.titleByLocale = fallbackTitle;
-    }
-    const chosen = preferJob(prev, best);
-    // Carry forward _targetScope from the merged candidate even when
-    // preferJob picks the existing entry (identical quality/recency).
-    if (best._targetScope && !chosen._targetScope) {
-      chosen._targetScope = best._targetScope;
-    }
-    map.set(fp, chosen);
-    refreshed += 1;
-    refreshedByCompany[best.company] = (refreshedByCompany[best.company] || 0) + 1;
-  }
-
-  const allMerged = [...map.values()];
-  const inScopeJobs = hasScopedCompanyKeys
-    ? allMerged.filter((j) => {
-      const key = normalizeCompanyKey(String(j?.companyKey || j?.company || ''));
-      return scopeCompanyKeys.has(key);
-    })
-    : allMerged;
-  const outOfScopeJobs = hasScopedCompanyKeys
-    ? allMerged.filter((j) => {
-      const key = normalizeCompanyKey(String(j?.companyKey || j?.company || ''));
-      return !scopeCompanyKeys.has(key);
-    })
-    : [];
-
-  const mergeExclusionByReason = {};
-  const mergeExclusionSamples = [];
-  let mergeExcludedJobs = 0;
-  const acceptedInScopeJobs = [];
-  for (const job of inScopeJobs) {
-    const reasons = getMergeExclusionReasons(job, qualityCfg);
-    if (reasons.length === 0) {
-      acceptedInScopeJobs.push(job);
-      continue;
-    }
-    mergeExcludedJobs += 1;
-    for (const reason of new Set(reasons)) {
-      mergeExclusionByReason[reason] = (mergeExclusionByReason[reason] || 0) + 1;
-    }
-    if (mergeExclusionSamples.length < 30) {
-      mergeExclusionSamples.push({
-        reason: reasons[0],
-        title: normalizeSpace(job?.title || ''),
-        company: normalizeSpace(job?.company || ''),
-        location: normalizeSpace(job?.location || ''),
-        url: normalizeSpace(job?.url || ''),
-      });
-    }
-  }
-
-  const merged = acceptedInScopeJobs
-    .sort((a, b) => {
-      const recencyDiff = recencyTs(b) - recencyTs(a);
-      if (recencyDiff !== 0) return recencyDiff;
-      return String(b.postedDate).localeCompare(String(a.postedDate));
-    });
-
-  // ── Heuristic dedup (identity first, then multi-field fallback) ──
-  let heuristicDupes = 0;
-  const seenHeuristic = new Map();
-  for (const job of merged) {
-    const dedupKey = dedupHeuristicKey(job);
-    const prev = seenHeuristic.get(dedupKey);
-    if (prev) {
-      heuristicDupes += 1;
-      seenHeuristic.set(dedupKey, preferJob(prev, job));
-    } else {
-      seenHeuristic.set(dedupKey, job);
-    }
-  }
-  const deduped = [...seenHeuristic.values()].sort((a, b) => {
-    const recencyDiff = recencyTs(b) - recencyTs(a);
-    if (recencyDiff !== 0) return recencyDiff;
-    return String(b.postedDate).localeCompare(String(a.postedDate));
-  });
-
-  const withPreservedOutOfScope = hasScopedCompanyKeys
-    ? [...outOfScopeJobs, ...deduped]
-    : deduped;
-  const dedupedByFp = new Map();
-  for (const job of withPreservedOutOfScope) {
-    const fp = fingerprintJob(job);
-    if (!fp) continue;
-    const prev = dedupedByFp.get(fp);
-    dedupedByFp.set(fp, prev ? preferJob(prev, job) : job);
-  }
-  const finalJobs = [...dedupedByFp.values()].sort((a, b) => {
-    const recencyDiff = recencyTs(b) - recencyTs(a);
-    if (recencyDiff !== 0) return recencyDiff;
-    return String(b.postedDate).localeCompare(String(a.postedDate));
-  });
-  if (heuristicDupes > 0) {
-    console.log(`\n🔄 Heuristic dedup: removed ${heuristicDupes} duplicate(s) using identity + multi-field signature`);
-  }
-
-  // ── Slug Registry: use registered slugs where available ──
-  const slugRegistry = loadSlugRegistry();
-  let registryHits = 0;
-  let registryNewEntries = 0;
-  const usedSlugs = new Set();
-  for (const job of deduped) {
-    // Check registry first — immutable slugs for known fingerprints
-    const registered = getRegisteredSlug(job, slugRegistry);
-    if (registered && registered.canonicalSlug) {
-      job.slug = registered.canonicalSlug;
-      if (registered.slugByLocale && typeof registered.slugByLocale === 'object') {
-        if (!job.slugByLocale || typeof job.slugByLocale !== 'object') job.slugByLocale = {};
-        for (const [loc, s] of Object.entries(registered.slugByLocale)) {
-          if (s && !job.slugByLocale[loc]) job.slugByLocale[loc] = s;
-        }
-      }
-      usedSlugs.add(job.slug);
-      registryHits += 1;
-      continue;
-    }
-    let slug = normalizeSpace(job.slug || ensureJobSlug(job));
-    if (!slug) slug = `job-${job.id}`;
-    let candidate = slug;
-    let suffix = 2;
-    while (usedSlugs.has(candidate)) {
-      candidate = `${slug}-${suffix}`;
-      suffix += 1;
-    }
-    job.slug = candidate;
-    usedSlugs.add(candidate);
-    // Register new slug for jobs with stable fingerprints
-    const sizeBefore = Object.keys(slugRegistry).length;
-    registerJobSlug(job, slugRegistry);
-    if (Object.keys(slugRegistry).length > sizeBefore) registryNewEntries += 1;
-  }
-  saveSlugRegistry(slugRegistry);
-  if (registryHits > 0 || registryNewEntries > 0) {
-    console.log(`🔒 Slug registry: ${registryHits} locked from registry, ${registryNewEntries} new entries added (${Object.keys(slugRegistry).length} total)`);
-  }
-
-  return {
-    merged: finalJobs,
-    inserted,
-    refreshed,
-    duplicateIncoming,
-    duplicateExisting,
-    insertedByCompany,
-    refreshedByCompany,
-    duplicateByCompany,
-    reusedLocalizationFromPrevious,
-    mergeExcludedJobs,
-    mergeExclusionByReason,
-    mergeExclusionSamples,
-  };
-}
 
 async function processCompany(company, hintsRegex, crawlerConfig, knownJobUrls = new Set()) {
   const result = {
