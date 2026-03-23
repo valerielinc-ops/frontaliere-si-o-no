@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-03-23T05:23:38.444Z",
+  "generatedAt": "2026-03-23T06:50:13.208Z",
   "sources": {
     "italy": {
       "provider": "MIMIT Open Data",
@@ -11,7 +11,7 @@
       "provider": "TCS Benzinpreis",
       "providerUrl": "https://benzin.tcs.ch/de/map/SP95",
       "stationCount": 223,
-      "latestObservedUpdate": "2026-03-23T02:55:55.196Z"
+      "latestObservedUpdate": "2026-03-23T06:45:30.504Z"
     },
     "exchangeRate": {
       "provider": "ECB",
@@ -5636,11 +5636,11 @@
             "address": "Viale Stefano Franscini 30, 6500 Bellinzona ",
             "lat": 46.1928300156486,
             "lng": 9.01310606612084,
-            "sp95PriceChf": 1.75,
-            "updatedAt": "2026-03-18T17:51:12.883Z",
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-03-23T06:09:07.579Z",
             "nearestMunicipality": "Cavargna (CO)",
             "nearestMunicipalityDistanceKm": 13.7,
-            "sp95PriceEur": 1.924,
+            "sp95PriceEur": 1.902,
             "distanceKm": 19.3
           },
           {
@@ -6479,11 +6479,11 @@
             "address": "Viale Stefano Franscini 30, 6500 Bellinzona ",
             "lat": 46.1928300156486,
             "lng": 9.01310606612084,
-            "sp95PriceChf": 1.75,
-            "updatedAt": "2026-03-18T17:51:12.883Z",
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-03-23T06:09:07.579Z",
             "nearestMunicipality": "Cavargna (CO)",
             "nearestMunicipalityDistanceKm": 13.7,
-            "sp95PriceEur": 1.924,
+            "sp95PriceEur": 1.902,
             "distanceKm": 13.7
           },
           {
@@ -8003,6 +8003,20 @@
             "distanceKm": 18.2
           },
           {
+            "id": "HapjFsEcj5Snc7o1iICH",
+            "name": "Station La Posta Svizzzera",
+            "brand": "UNDEFINED",
+            "address": "Viale Stefano Franscini 30, 6500 Bellinzona ",
+            "lat": 46.1928300156486,
+            "lng": 9.01310606612084,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-03-23T06:09:07.579Z",
+            "nearestMunicipality": "Cavargna (CO)",
+            "nearestMunicipalityDistanceKm": 13.7,
+            "sp95PriceEur": 1.902,
+            "distanceKm": 19
+          },
+          {
             "id": "8QgVfPq0az3upJZD19TN",
             "name": "SOCAR / Piccadilly Capolago",
             "brand": "PICCADILLY",
@@ -8015,20 +8029,6 @@
             "nearestMunicipalityDistanceKm": 6.1,
             "sp95PriceEur": 1.924,
             "distanceKm": 19.4
-          },
-          {
-            "id": "HapjFsEcj5Snc7o1iICH",
-            "name": "Station La Posta Svizzzera",
-            "brand": "UNDEFINED",
-            "address": "Viale Stefano Franscini 30, 6500 Bellinzona ",
-            "lat": 46.1928300156486,
-            "lng": 9.01310606612084,
-            "sp95PriceChf": 1.75,
-            "updatedAt": "2026-03-18T17:51:12.883Z",
-            "nearestMunicipality": "Cavargna (CO)",
-            "nearestMunicipalityDistanceKm": 13.7,
-            "sp95PriceEur": 1.924,
-            "distanceKm": 19
           }
         ],
         "minPriceChf": 1.64,
@@ -8264,11 +8264,11 @@
             "address": "Viale Stefano Franscini 30, 6500 Bellinzona ",
             "lat": 46.1928300156486,
             "lng": 9.01310606612084,
-            "sp95PriceChf": 1.75,
-            "updatedAt": "2026-03-18T17:51:12.883Z",
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-03-23T06:09:07.579Z",
             "nearestMunicipality": "Cavargna (CO)",
             "nearestMunicipalityDistanceKm": 13.7,
-            "sp95PriceEur": 1.924,
+            "sp95PriceEur": 1.902,
             "distanceKm": 17
           },
           {
@@ -8848,18 +8848,18 @@
             "distanceKm": 19.9
           },
           {
-            "id": "8ewmbnTiwur1lthy2R2r",
-            "name": "Eni Bellinzona",
-            "brand": "ENI",
-            "address": "Via Motta 4, 6500 Bellinzona",
-            "lat": 46.19173989999999,
-            "lng": 9.0181959,
+            "id": "Sa0bhjn6sx2GZuVSscy2",
+            "name": "SOCAR / Piccadilly Bellinzona Via San Gottardo",
+            "brand": "PICCADILLY",
+            "address": "Via San Gottardo 104, 6500 Bellinzona",
+            "lat": 46.206642,
+            "lng": 9.038361,
             "sp95PriceChf": 1.86,
-            "updatedAt": "2026-03-13T08:29:22.425Z",
+            "updatedAt": "2026-03-10T16:33:11.472Z",
             "nearestMunicipality": "Cavargna (CO)",
-            "nearestMunicipalityDistanceKm": 13.4,
+            "nearestMunicipalityDistanceKm": 14.1,
             "sp95PriceEur": 2.045,
-            "distanceKm": 19.9
+            "distanceKm": 18.7
           }
         ],
         "minPriceChf": 1.77,
@@ -9945,11 +9945,11 @@
           "address": "Viale Stefano Franscini 30, 6500 Bellinzona ",
           "lat": 46.1928300156486,
           "lng": 9.01310606612084,
-          "sp95PriceChf": 1.75,
-          "updatedAt": "2026-03-18T17:51:12.883Z",
+          "sp95PriceChf": 1.73,
+          "updatedAt": "2026-03-23T06:09:07.579Z",
           "nearestMunicipality": "Cavargna (CO)",
           "nearestMunicipalityDistanceKm": 13.7,
-          "sp95PriceEur": 1.924,
+          "sp95PriceEur": 1.902,
           "distanceKm": 19.2
         },
         "nearbyStations": [
@@ -9960,11 +9960,11 @@
             "address": "Viale Stefano Franscini 30, 6500 Bellinzona ",
             "lat": 46.1928300156486,
             "lng": 9.01310606612084,
-            "sp95PriceChf": 1.75,
-            "updatedAt": "2026-03-18T17:51:12.883Z",
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-03-23T06:09:07.579Z",
             "nearestMunicipality": "Cavargna (CO)",
             "nearestMunicipalityDistanceKm": 13.7,
-            "sp95PriceEur": 1.924,
+            "sp95PriceEur": 1.902,
             "distanceKm": 19.2
           },
           {
@@ -10024,8 +10024,8 @@
             "distanceKm": 18.6
           }
         ],
-        "minPriceChf": 1.75,
-        "minPriceEur": 1.924
+        "minPriceChf": 1.73,
+        "minPriceEur": 1.902
       },
       "comparison": {
         "cheaperCountry": "NO_DATA",
@@ -15570,7 +15570,7 @@
           "lat": 46.053738,
           "lng": 8.972878,
           "sp95PriceChf": 1.79,
-          "updatedAt": "2026-03-17T22:30:57.548Z",
+          "updatedAt": "2026-03-23T05:59:34.495Z",
           "nearestMunicipality": "Valsolda (CO)",
           "nearestMunicipalityDistanceKm": 6.1,
           "sp95PriceEur": 1.968,
@@ -15585,7 +15585,7 @@
             "lat": 46.053738,
             "lng": 8.972878,
             "sp95PriceChf": 1.79,
-            "updatedAt": "2026-03-17T22:30:57.548Z",
+            "updatedAt": "2026-03-23T05:59:34.495Z",
             "nearestMunicipality": "Valsolda (CO)",
             "nearestMunicipalityDistanceKm": 6.1,
             "sp95PriceEur": 1.968,
@@ -17058,11 +17058,11 @@
             "address": "Viale Stefano Franscini 30, 6500 Bellinzona ",
             "lat": 46.1928300156486,
             "lng": 9.01310606612084,
-            "sp95PriceChf": 1.75,
-            "updatedAt": "2026-03-18T17:51:12.883Z",
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-03-23T06:09:07.579Z",
             "nearestMunicipality": "Cavargna (CO)",
             "nearestMunicipalityDistanceKm": 13.7,
-            "sp95PriceEur": 1.924,
+            "sp95PriceEur": 1.902,
             "distanceKm": 16
           },
           {
@@ -17321,11 +17321,11 @@
             "address": "Viale Stefano Franscini 30, 6500 Bellinzona ",
             "lat": 46.1928300156486,
             "lng": 9.01310606612084,
-            "sp95PriceChf": 1.75,
-            "updatedAt": "2026-03-18T17:51:12.883Z",
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-03-23T06:09:07.579Z",
             "nearestMunicipality": "Cavargna (CO)",
             "nearestMunicipalityDistanceKm": 13.7,
-            "sp95PriceEur": 1.924,
+            "sp95PriceEur": 1.902,
             "distanceKm": 14.5
           },
           {
@@ -18109,7 +18109,7 @@
             "lat": 46.2126984,
             "lng": 9.039422199999999,
             "sp95PriceChf": 1.8900000000000001,
-            "updatedAt": "2026-03-21T23:10:38.986Z",
+            "updatedAt": "2026-03-23T06:04:31.996Z",
             "nearestMunicipality": "Cavargna (CO)",
             "nearestMunicipalityDistanceKm": 14.7,
             "sp95PriceEur": 2.078,
@@ -19006,18 +19006,18 @@
             "distanceKm": 18.6
           },
           {
-            "id": "jLWgOqHiSgH8QJ1xjpck",
-            "name": "Anfra Carburanti Sagl",
+            "id": "HapjFsEcj5Snc7o1iICH",
+            "name": "Station La Posta Svizzzera",
             "brand": "UNDEFINED",
-            "address": "Via Cantonale 8, Magliaso",
-            "lat": 45.9857434,
-            "lng": 8.8908046,
+            "address": "Viale Stefano Franscini 30, 6500 Bellinzona ",
+            "lat": 46.1928300156486,
+            "lng": 9.01310606612084,
             "sp95PriceChf": 1.73,
-            "updatedAt": "2026-03-19T13:47:48.455Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 3,
+            "updatedAt": "2026-03-23T06:09:07.579Z",
+            "nearestMunicipality": "Cavargna (CO)",
+            "nearestMunicipalityDistanceKm": 13.7,
             "sp95PriceEur": 1.902,
-            "distanceKm": 18.7
+            "distanceKm": 15.2
           }
         ],
         "minPriceChf": 1.64,
@@ -38491,7 +38491,7 @@
             "lat": 46.35445,
             "lng": 8.04321,
             "sp95PriceChf": 1.79,
-            "updatedAt": "2026-03-20T16:12:36.390Z",
+            "updatedAt": "2026-03-23T05:32:25.258Z",
             "nearestMunicipality": "Trasquera (VB)",
             "nearestMunicipalityDistanceKm": 19.6,
             "sp95PriceEur": 1.968,
