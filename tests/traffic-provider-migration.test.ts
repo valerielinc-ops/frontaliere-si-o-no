@@ -43,7 +43,7 @@ describe('traffic provider migration', () => {
     expect(url).toContain('api.tomtom.com/routing/1/calculateRoute/45.1,9.1:45.2,9.2/json');
     expect(url).toContain('traffic=true');
     expect(url).toContain('computeTravelTimeFor=all');
-    expect(url).toContain('routeRepresentation=none');
+    expect(url).toContain('routeRepresentation=summaryOnly');
   });
 
   it('prefers TomTom when available and computes aggregate crossing time', async () => {
