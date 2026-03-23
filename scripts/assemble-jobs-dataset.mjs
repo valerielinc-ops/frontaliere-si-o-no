@@ -448,7 +448,7 @@ export async function assembleJobsDataset({ withStats = false } = {}) {
         for (const p of parts) { if (plz[p]) { job.postalCode = plz[p]; postalFilled++; found = true; break; } }
         if (found) continue;
         const m = loc.match(/\b(\d{4})\b/);
-        if (m) { job.postalCode = m[1]; postalFilled++; continue; }
+        if (m && !(Number(m[1]) >= 2020 && Number(m[1]) <= 2039)) { job.postalCode = m[1]; postalFilled++; continue; }
         const canton = (job.canton || '').toUpperCase();
         if (canton && cantonCapitals[canton]) { job.postalCode = cantonCapitals[canton]; postalFilled++; }
       }

@@ -1243,6 +1243,8 @@ export function hardenJobsRichResultsData({ dataJobsPath }) {
       if (found) continue;
       // Extract 4-digit PLZ from location string
       const plzMatch = loc.match(/\b(\d{4})\b/);
+      // Skip years (2020-2039) that look like postal codes
+      if (plzMatch && Number(plzMatch[1]) >= 2020 && Number(plzMatch[1]) <= 2039) plzMatch[1] = '';
       if (plzMatch) { job.postalCode = plzMatch[1]; postalFilled++; continue; }
       // Canton capital fallback
       const canton = (job.canton || '').toUpperCase();
