@@ -42,10 +42,8 @@ describe('job-locale-completeness', () => {
         }
       }
     }
-    // FRO-309: Coop crawler now assigns titles to correct locale (DE for German jobs).
-    // Threshold will decrease as localization pipeline translates them.
-    // Target: toHaveLength(0) once fully propagated.
-    expect(missing.length, `Jobs with missing titleByLocale:\n${missing.slice(0, 20).join('\n')}`).toBeLessThanOrEqual(40);
+    // FRO-321: tightened from 40 — currently 35 missing, will decrease with more crawler runs.
+    expect(missing.length, `Jobs with missing titleByLocale:\n${missing.slice(0, 20).join('\n')}`).toBeLessThanOrEqual(38);
   });
 
   it('every job has slugByLocale for all 4 locales', () => {
@@ -72,9 +70,8 @@ describe('job-locale-completeness', () => {
       }
     }
     // FRO-309: Coop crawler now assigns descriptions to correct source locale.
-    // Threshold reflects current data; will decrease as localization pipeline translates DE→IT.
-    // Target: toBeLessThanOrEqual(80) once fully propagated.
-    expect(missing.length, `Jobs with missing descriptionByLocale:\n${missing.slice(0, 30).join('\n')}`).toBeLessThanOrEqual(450);
+    // FRO-321: tightened from 450 — currently 422 missing, will decrease with more crawler runs.
+    expect(missing.length, `Jobs with missing descriptionByLocale:\n${missing.slice(0, 30).join('\n')}`).toBeLessThanOrEqual(430);
   });
 
   it('no job has a completely empty titleByLocale object', () => {

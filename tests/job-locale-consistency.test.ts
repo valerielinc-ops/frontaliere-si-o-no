@@ -32,12 +32,10 @@ describe('job-locale-consistency', () => {
       }
     }
 
-    // FRO-309: Coop crawler now detects source language and assigns to correct locale.
-    // Threshold will decrease as old data cycles out after crawler runs.
-    // Target: toBeLessThanOrEqual(10) once all German Coop jobs are re-crawled.
+    // FRO-321: tightened from 120 — currently 103, will decrease with more crawler runs.
     expect(
       mismatches.length,
       `Descriptions stored under the wrong locale:\n${mismatches.slice(0, 20).join('\n')}`
-    ).toBeLessThanOrEqual(120);
+    ).toBeLessThanOrEqual(110);
   });
 });
