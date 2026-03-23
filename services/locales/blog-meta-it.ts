@@ -1679,6 +1679,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.giovani-ticino-comuni-innovazioni.title': 'I giovani non tornano: cosa fanno i Comuni ticinesi?',
     'blog.article.giovani-ticino-comuni-innovazioni.excerpt': 'Ogni anno nel Ticino si perdono circa 800 cervelli, mentre i Comuni cercano di rispondere con nuove strategie. Analisi dettagliata delle misure e delle opportunità.',
     'blog.article.giovani-ticino-comuni-innovazioni.imageAlt': 'Veduta panoramica del Lago di Lugano con montagne circostanti durante il giorno',
+    'blog.article.domeniche-senza-auto-ticino-2026.title': 'Domeniche senza auto in Svizzera: il Ticino verso una nuova mobilità?',
+    'blog.article.domeniche-senza-auto-ticino-2026.excerpt': 'Martine Docourt rilancia a livello federale le domeniche senza automobili dopo il no di Neuchâtel. Cosa significa per il Ticino e i frontalieri.',
+    'blog.article.domeniche-senza-auto-ticino-2026.imageAlt': 'Vista di una strada trafficata a Lugano, Canton Ticino, con automobili e pedoni durante il giorno',
 };
 
 export default blogMetaIt;

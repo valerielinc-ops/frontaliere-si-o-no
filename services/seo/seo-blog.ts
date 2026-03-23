@@ -9361,6 +9361,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-domeniche-senza-auto-ticino-2026': {
+    title: 'Domeniche senza auto in Svizzera: il Ticino verso una nuova mobilità? | Frontaliere Ticino',
+    description: 'Martine Docourt rilancia a livello federale le domeniche senza automobili dopo il no di Neuchâtel. Cosa significa per il Ticino e i frontalieri. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, domeniche, senza, auto, verso',
+    ogTitle: 'Domeniche senza auto in Svizzera: il Ticino verso una nuo',
+    ogDescription: 'Martine Docourt rilancia a livello federale le domeniche senza automobili dopo il no di Neuchâtel. Cosa significa per il Ticino e i frontalieri.',
+    canonicalPath: '/articoli-frontaliere/domeniche-senza-auto-ticino-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Domeniche senza auto in Svizzera: il Ticino verso una nuo",
+      "description": "Martine Docourt rilancia a livello federale le domeniche senza automobili dopo il no di Neuchâtel. Cosa significa per il Ticino e i frontalieri. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/domeniche-senza-auto-ticino-2026.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Vista di una strada trafficata a Lugano, Canton Ticino, con automobili e pedoni durante il giorno"
+      },
+      "datePublished": "2026-03-23T05:27:38+00:00",
+      "dateModified": "2026-03-23T05:27:38+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/domeniche-senza-auto-ticino-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

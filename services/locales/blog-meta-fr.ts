@@ -1679,6 +1679,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.giovani-ticino-comuni-innovazioni.title': 'Les jeunes ne reviennent pas : que font les communes tessinoises ?',
     'blog.article.giovani-ticino-comuni-innovazioni.excerpt': 'Chaque année, environ 800 cerveaux quittent le Tessin, tandis que les communes tentent de répondre avec de nouvelles stratégies. Analyse détaillée des mesures et des opportunités.',
     'blog.article.giovani-ticino-comuni-innovazioni.imageAlt': 'Vue panoramique du lac de Lugano avec montagnes environnantes en plein jour',
+    'blog.article.domeniche-senza-auto-ticino-2026.title': 'Dimanches sans voiture en Suisse : le Tessin vers une nouvelle mobilité ?',
+    'blog.article.domeniche-senza-auto-ticino-2026.excerpt': 'Martine Docourt relance au niveau fédéral les dimanches sans automobile après le refus de Neuchâtel. Quelles implications pour le Tessin et les frontaliers ?',
+    'blog.article.domeniche-senza-auto-ticino-2026.imageAlt': 'Vue d\'une rue animée à Lugano, canton du Tessin, avec des voitures et des piétons en journée',
 };
 
 export default blogMetaFr;

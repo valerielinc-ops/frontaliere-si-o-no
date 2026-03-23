@@ -1679,6 +1679,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.giovani-ticino-comuni-innovazioni.title': 'Die Jugend kehrt nicht zurück: Was machen die Gemeinden im Tessin?',
     'blog.article.giovani-ticino-comuni-innovazioni.excerpt': 'Jedes Jahr verliert der Tessin etwa 800 Köpfe, während die Gemeinden mit neuen Strategien versuchen, gegenzusteuern. Detaillierte Analyse der Maßnahmen und Chancen.',
     'blog.article.giovani-ticino-comuni-innovazioni.imageAlt': 'Panoramablick auf den Lago di Lugano mit umliegenden Bergen bei Tageslicht',
+    'blog.article.domeniche-senza-auto-ticino-2026.title': 'Autofreie Sonntage in der Schweiz: Steht der Tessin vor einer neuen Mobilität?',
+    'blog.article.domeniche-senza-auto-ticino-2026.excerpt': 'Martine Docourt bringt autofreie Sonntage auf Bundesebene wieder ins Gespräch, nachdem Neuenburg abgelehnt hat. Was bedeutet das für den Tessin und die Grenzgänger?',
+    'blog.article.domeniche-senza-auto-ticino-2026.imageAlt': 'Blick auf eine belebte Straße in Lugano, Kanton Tessin, mit Autos und Fußgängern am Tag',
 };
 
 export default blogMetaDe;

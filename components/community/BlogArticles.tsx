@@ -4512,6 +4512,13 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/giovani-ticino-comuni-innovazioni.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'domeniche-senza-auto-ticino-2026',
+    category: 'novita',
+    date: '2026-03-23T05:27:38.220Z',
+    image: '/images/blog/domeniche-senza-auto-ticino-2026.jpg',
+    hasCalculator: true,
+  },
 ];
 
 const CATEGORIES = ['all', 'fiscale', 'pratico', 'novita', 'pensione'] as const;

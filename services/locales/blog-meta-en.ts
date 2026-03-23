@@ -1679,6 +1679,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.giovani-ticino-comuni-innovazioni.title': 'Young People Do Not Return: What Are Ticino Municipalities Doing?',
     'blog.article.giovani-ticino-comuni-innovazioni.excerpt': 'Every year in Ticino, around 800 talented individuals leave, while municipalities attempt to respond with new strategies. A detailed analysis of measures and opportunities.',
     'blog.article.giovani-ticino-comuni-innovazioni.imageAlt': 'Panoramic view of Lake Lugano with surrounding mountains during daytime',
+    'blog.article.domeniche-senza-auto-ticino-2026.title': 'Car-Free Sundays in Switzerland: Is Ticino Moving Towards New Mobility?',
+    'blog.article.domeniche-senza-auto-ticino-2026.excerpt': 'Martine Docourt is pushing for car-free Sundays at the federal level after Neuchâtel’s rejection. What this means for Ticino and cross-border commuters.',
+    'blog.article.domeniche-senza-auto-ticino-2026.imageAlt': 'View of a busy street in Lugano, Ticino canton, with cars and pedestrians during daytime',
 };
 
 export default blogMetaEn;
