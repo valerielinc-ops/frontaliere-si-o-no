@@ -330,12 +330,17 @@ async function main() {
   let ok = 1; // first URL was the probe
   let fail = 0;
 
+  let consecutive429 = 0;
   for (let i = 1; i < jobUrls.length; i++) {
+    // Throttle: 200ms between requests to stay under Google's burst limit
+    if (i > 1) await sleep(200);
+
     const item = jobUrls[i];
     const result = await submitUrl(auth.token, item.url);
 
     if (result.ok) {
       ok += 1;
+      consecutive429 = 0;
     } else {
       fail += 1;
       log('⚠️', `Failed (${result.status}): ${item.url} ${result.body || ''}`.trim());
@@ -344,6 +349,17 @@ async function main() {
       if (result.fatal) {
         log('🛑', `Fatal error — aborting remaining ${jobUrls.length - i - 1} submissions`);
         break;
+      }
+
+      // Abort on sustained 429 — quota exhausted, stop wasting requests
+      if (result.status === 429) {
+        consecutive429++;
+        if (consecutive429 >= 3) {
+          log('🛑', `Quota exhausted (${consecutive429} consecutive 429s) — aborting remaining ${jobUrls.length - i - 1} submissions`);
+          break;
+        }
+      } else {
+        consecutive429 = 0;
       }
     }
     await sleep(120);
