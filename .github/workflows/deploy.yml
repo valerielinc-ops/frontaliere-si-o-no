@@ -172,3 +172,19 @@ jobs:
         if: success()
         continue-on-error: true
         run: node scripts/submit-google-indexing.js
+
+      - name: Report failure to Linear
+        if: failure()
+        continue-on-error: true
+        env:
+          LINEAR_API_KEY: ${{ secrets.LINEAR_API_KEY }}
+        run: |
+          node scripts/lib/linear-issue-creator.mjs \
+            --title "CI Failure: ${{ github.workflow }} — run ${{ github.run_number }}" \
+            --description "## Deploy fallito
+          **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          **Branch:** ${{ github.ref_name }}
+          **Trigger:** ${{ github.event_name }}" \
+            --priority 1 \
+            --label Bug \
+            --workflow "${{ github.workflow }}"
