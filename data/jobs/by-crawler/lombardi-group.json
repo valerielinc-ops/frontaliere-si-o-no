@@ -1,10 +1,10 @@
 {
   "crawlerKey": "lombardi-group",
-  "assembledAt": "2026-03-23T03:38:13.286Z",
+  "assembledAt": "2026-03-23T21:33:04.603Z",
   "jobs": [
     {
       "title": "Apprendista IT – Tecnico Sistemistico",
-      "slug": "apprendista-it-tecnico-sistemistico-lombardi-group-giubiasco",
+      "slug": "apprendista-it-tecnico-sistemistico-lombardi-giubiasco",
       "url": "https://lombardi.group/eng/careers/job?id=109274",
       "applyUrl": "https://lombardi.group/eng/careers/job?id=109274",
       "company": "Lombardi Group",
@@ -20,16 +20,16 @@
       "sector": "Ingegneria civile",
       "source": "lombardi-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-03-19",
+      "postedDate": "2026-03-23",
       "employmentType": "full-time",
       "contractType": "permanent",
       "validThrough": "",
       "description": "Inizia la tua carriera con il nostro programma di apprendistato e acquisisci esperienza pratica in un ambiente dinamico, collaborativo e di supporto.\n\n## Mansioni\n- Imparerai a installare e configurare postazioni di lavoro, software e dispositivi IT lavorando con tecnologie moderne.\n- Supporterai i collaboratori attraverso attività di helpdesk, affiancato/a da un team esperto e disponibile.\n- Parteciperai alla gestione e manutenzione di server, reti e infrastrutture aziendali in un ambiente professionale strutturato.\n- Collaborerai in progetti IT interni, acquisendo competenze concrete in ambito sistemistico e sicurezza informatica.\n- Seguirai un percorso di formazione completo di crescita al termine dell’apprendistato.\n\n## Requisiti\n- Stai per terminare le scuole medie con buoni risultati, in particolare nelle materie tecniche e matematiche.\n- Nutri un forte interesse per l’informatica, i sistemi, le reti e le nuove tecnologie.\n- Sei curioso/a, motivato/a e desideroso/a di imparare in un contesto professionale strutturato.\n- Ti piace risolvere problemi tecnici e aiutare gli altri.\n- Sei una persona affidabile, precisa e predisposta al lavoro in team.",
       "titleByLocale": {
         "it": "Apprendista IT – Tecnico Sistemistico",
-        "en": "IT Apprentice – Systems Technician",
-        "de": "IT-Lehrling – Systemtechniker",
-        "fr": "Apprenti informatique – Technicien systèmes"
+        "en": "IT Apprentice – System Technician",
+        "de": "IT-Auszubildender - Systemtechniker",
+        "fr": "Apprenti IT – Technicien Systémique"
       },
       "descriptionByLocale": {
         "it": "Inizia la tua carriera con il nostro programma di apprendistato e acquisisci esperienza pratica in un ambiente dinamico, collaborativo e di supporto.\n\n## Mansioni\n- Imparerai a installare e configurare postazioni di lavoro, software e dispositivi IT lavorando con tecnologie moderne.\n- Supporterai i collaboratori attraverso attività di helpdesk, affiancato/a da un team esperto e disponibile.\n- Parteciperai alla gestione e manutenzione di server, reti e infrastrutture aziendali in un ambiente professionale strutturato.\n- Collaborerai in progetti IT interni, acquisendo competenze concrete in ambito sistemistico e sicurezza informatica.\n- Seguirai un percorso di formazione completo di crescita al termine dell’apprendistato.\n\n## Requisiti\n- Stai per terminare le scuole medie con buoni risultati, in particolare nelle materie tecniche e matematiche.\n- Nutri un forte interesse per l’informatica, i sistemi, le reti e le nuove tecnologie.\n- Sei curioso/a, motivato/a e desideroso/a di imparare in un contesto professionale strutturato.\n- Ti piace risolvere problemi tecnici e aiutare gli altri.\n- Sei una persona affidabile, precisa e predisposta al lavoro in team.",
@@ -38,10 +38,10 @@
         "fr": "Commencez votre carrière avec notre programme d'apprentissage et acquérez une expérience pratique dans un environnement dynamique, collaboratif et solidaire. ## Devoirs - Vous apprendrez à installer et configurer des postes de travail, des logiciels et des appareils informatiques fonctionnant avec les technologies modernes. - Vous accompagnerez les collaborateurs à travers des activités de helpdesk, soutenu par une équipe expérimentée et disponible. - Vous participerez à la gestion et à la maintenance des serveurs, des réseaux et des infrastructures d'entreprise dans un environnement professionnel structuré. - Vous collaborerez à des projets informatiques internes, en acquérant des compétences concrètes en ingénierie système et en sécurité informatique. - Vous suivrez un parcours complet de formation de perfectionnement à la fin de l'apprentissage. ## Exigences - Vous êtes sur le point de terminer vos études secondaires avec de bons résultats, notamment dans les matières techniques et mathématiques. - Vous avez un fort intérêt pour l'informatique, les systèmes, les réseaux et les nouvelles technologies. - Vous êtes curieux, motivé et désireux d'apprendre dans un contexte professionnel structuré. - Vous aimez résoudre des problèmes techniques et aider les autres. - Vous êtes une personne fiable, précise et prédisposée au travail en équipe."
       },
       "slugByLocale": {
-        "it": "apprendista-it-tecnico-sistemistico-lombardi-group-giubiasco",
-        "en": "it-apprentice-systems-technician-lombardi-group-giubiasco",
-        "de": "it-lehrling-systemtechniker-lombardi-group-giubiasco",
-        "fr": "apprenti-informatique-technicien-systemes-lombardi-group-giubiasco"
+        "it": "apprendista-it-tecnico-sistemistico-lombardi-giubiasco",
+        "en": "it-apprentice-system-technician-lombardi-group-giubiasco",
+        "de": "it-auszubildender-systemtechniker-lombardi-group-giubiasco",
+        "fr": "apprenti-it-technicien-systemique-lombardi-group-giubiasco"
       },
       "salaryMin": 46500,
       "salaryMax": 62500,
@@ -56,15 +56,11 @@
           "unitText": "YEAR"
         }
       },
-      "crawledAt": "",
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "apprendista-it-tecnico-sistemistico-lombardi-giubiasco"
-      ]
+      "postalCode": "6512"
     },
     {
       "title": "Progettista / Tecnico RVCS (M/F/X)",
-      "slug": "progettista-tecnico-rvcs-m-f-x-lombardi-group-giubiasco",
+      "slug": "progettista-tecnico-rvcs-m-f-x-lombardi-giubiasco",
       "url": "https://lombardi.group/eng/careers/job?id=108934",
       "applyUrl": "https://lombardi.group/eng/careers/job?id=108934",
       "company": "Lombardi Group",
@@ -80,16 +76,15 @@
       "sector": "Ingegneria civile",
       "source": "lombardi-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-03-19",
+      "postedDate": "2026-03-23",
       "employmentType": "full-time",
       "contractType": "permanent",
       "validThrough": "",
       "description": "Come progettista RVCS, guiderai la realizzazione di impianti innovativi, dalla progettazione alla consegna, assicurando qualità, precisione e il coordinamento di tutte le fasi per garantire il successo dei nostri progetti.\n\n## Mansioni\n- Progettazione e dimensionamento di impianti RVCS per edifici industriali e civili\n- Disegno 2D con AutoCAD, modellazione BIM con software Revit\n- Controllo dei costi, dei termini e della qualità delle opere dal progetto all’esecuzione\n- Allestimento schemi di principio\n- Stestura di capitolati con Messerli CPN\n\n## Requisiti\n- Disegnatore/Tecnico progettista RVCS, con apprendistato tecnico o diploma SSS/ST e almeno 5 anni di esperienza nel settore\n- Capacità di organizzazione autonoma e gestione dei progetti\n- Conoscenza norme SIA-EN\n- Buona conoscenza dei programmi CAD e Office 365. Revit costituisce titolo preferenziale\n- Ottima conoscenza della lingua italiana e tedesca",
       "titleByLocale": {
         "it": "Progettista / Tecnico RVCS (M/F/X)",
-        "fr": "Concepteur / Technicien RVCS (H/F/X)",
-        "en": "Designer / RVCS Technician (M/F/X)",
-        "de": "Planer / RVCS-Techniker (M/F/X)"
+        "de": "Planer / Techniker RVCS (M/F/X)",
+        "fr": "Concepteur / Technicien RVCS (M/F/X)"
       },
       "descriptionByLocale": {
         "it": "Come progettista RVCS, guiderai la realizzazione di impianti innovativi, dalla progettazione alla consegna, assicurando qualità, precisione e il coordinamento di tutte le fasi per garantire il successo dei nostri progetti.\n\n## Mansioni\n- Progettazione e dimensionamento di impianti RVCS per edifici industriali e civili\n- Disegno 2D con AutoCAD, modellazione BIM con software Revit\n- Controllo dei costi, dei termini e della qualità delle opere dal progetto all’esecuzione\n- Allestimento schemi di principio\n- Stestura di capitolati con Messerli CPN\n\n## Requisiti\n- Disegnatore/Tecnico progettista RVCS, con apprendistato tecnico o diploma SSS/ST e almeno 5 anni di esperienza nel settore\n- Capacità di organizzazione autonoma e gestione dei progetti\n- Conoscenza norme SIA-EN\n- Buona conoscenza dei programmi CAD e Office 365. Revit costituisce titolo preferenziale\n- Ottima conoscenza della lingua italiana e tedesca",
@@ -98,10 +93,10 @@
         "fr": "En tant que concepteur RVCS, vous dirigerez la création de systèmes innovants, de la conception à la livraison, en assurant la qualité, la précision et la coordination de toutes les phases pour assurer le succès de nos projets. ## Fonctions - Conception et dimensionnement des systèmes RVCS pour bâtiments industriels et civils - Dessin 2D avec AutoCAD, modélisation BIM avec le logiciel Revit - Contrôle des coûts, des délais et de la qualité des ouvrages de la conception à l'exécution - Elaboration des schémas de principe - Rédaction des cahiers des charges avec Messerli CPN ## Exigences - Concepteur/technicien de conception RVCS, titulaire d'un apprentissage technique ou d'un diplôme SSS/ST et d'au moins 5 ans d'expérience dans le secteur - Capacité d'autonomie en organisation et en gestion de projet - Connaissance de Normes SIA-EN - Bonne connaissance des programmes CAO et Office 365. Revit est une qualification préférentielle - Excellente connaissance de l'italien et de l'allemand"
       },
       "slugByLocale": {
-        "it": "progettista-tecnico-rvcs-m-f-x-lombardi-group-giubiasco",
-        "en": "designer-rvcs-technician-m-f-x-lombardi-group-giubiasco",
-        "de": "planer-rvcs-techniker-m-f-x-lombardi-group-giubiasco",
-        "fr": "concepteur-technicien-rvcs-h-f-x-lombardi-group-giubiasco"
+        "it": "progettista-tecnico-rvcs-m-f-x-lombardi-giubiasco",
+        "en": "progettista-tecnico-rvcs-m-f-x-lombardi-giubiasco",
+        "de": "planer-techniker-rvcs-m-f-x-lombardi-group-giubiasco",
+        "fr": "concepteur-technicien-rvcs-m-f-x-lombardi-group-giubiasco"
       },
       "salaryMin": 72000,
       "salaryMax": 97000,
@@ -116,15 +111,11 @@
           "unitText": "YEAR"
         }
       },
-      "crawledAt": "",
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "progettista-tecnico-rvcs-m-f-x-lombardi-giubiasco"
-      ]
+      "postalCode": "6512"
     },
     {
       "title": "Ingegnere Idromeccanico settore idroelettrico / Luogo di lavoro: Italia (Milano o Roma o Torino)",
-      "slug": "ingegnere-idromeccanico-settore-idroelettrico-luogo-di-lavoro-italia-milano-o-roma-o-torino-lombardi-group-giubiasco",
+      "slug": "ingegnere-idromeccanico-settore-idroelettrico-luogo-di-lavoro-italia-milano-o-roma-o-torino-lombardi-giubiasco",
       "url": "https://lombardi.group/eng/careers/job?id=104044",
       "applyUrl": "https://lombardi.group/eng/careers/job?id=104044",
       "company": "Lombardi Group",
@@ -140,16 +131,16 @@
       "sector": "Ingegneria civile",
       "source": "lombardi-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-03-19",
+      "postedDate": "2026-03-23",
       "employmentType": "full-time",
       "contractType": "permanent",
       "validThrough": "",
       "description": "In qualità di Project Engineer, svolgerete un ruolo chiave nella progettazione, esecuzione e consegna di progetti infrastrutturali impegnativi. Se vi sentite a vostro agio in un ambiente collaborativo e possedete eccellenti competenze tecniche, scoprite di più.\n\n## Mansioni\n- Partecipazione a progetti idroelettrici di rilievo in Italia, Svizzera e all’estero\n- Attività di ingegneria idromeccanica nelle diverse fasi di progetto (studi, progettazione, realizzazione)\n- Collaborazione continua con il team svizzero e con specialisti senior\n- Possibilità di lavorare sia in ufficio sia, se desiderato, in cantiere sui propri progetti\n- Inserimento in un team multidisciplinare composto da giovani ingegneri ed esperti di alto livello\n\n## Requisiti\n- Laurea in ingegneria meccanica (o equivalente)\n- Minimo 10 anni di esperienza nel settore idromeccanico\n- Ottima conoscenza della lingua italiana, buona conoscenza della lingua inglese; la conoscenza del francese o del tedesco costituisce un plus\n- Capacità di lavorare in team internazionali e orientamento ai risultati\n- Autonomia, affidabilità e motivazione ad affrontare nuove sfide professionali",
       "titleByLocale": {
         "it": "Ingegnere Idromeccanico settore idroelettrico / Luogo di lavoro: Italia (Milano o Roma o Torino)",
-        "en": "Hydromechanical Engineer in the hydroelectric sector / Place of work: Italy (Milan or Rome or Turin)",
-        "de": "Hydromechanik-Ingenieur im Wasserkraftsektor / Arbeitsort: Italien (Mailand oder Rom oder Turin)",
-        "fr": "Ingénieur hydromécanique dans le secteur hydroélectrique / Lieu de travail : Italie (Milan ou Rome ou Turin)"
+        "en": "Hydroelectric Hydromechanical Engineer/ Workplace: Italy (Milan or Rome or Turin)",
+        "de": "Hydromechaniker Wasserkraft / Arbeitsort: Italien (Mailand oder Rom oder Turin)",
+        "fr": "Ingénieur Hydromécanicien secteur hydroélectrique / Lieu de travail : Italie (Milan ou Rome ou Turin)"
       },
       "descriptionByLocale": {
         "it": "In qualità di Project Engineer, svolgerete un ruolo chiave nella progettazione, esecuzione e consegna di progetti infrastrutturali impegnativi. Se vi sentite a vostro agio in un ambiente collaborativo e possedete eccellenti competenze tecniche, scoprite di più.\n\n## Mansioni\n- Partecipazione a progetti idroelettrici di rilievo in Italia, Svizzera e all’estero\n- Attività di ingegneria idromeccanica nelle diverse fasi di progetto (studi, progettazione, realizzazione)\n- Collaborazione continua con il team svizzero e con specialisti senior\n- Possibilità di lavorare sia in ufficio sia, se desiderato, in cantiere sui propri progetti\n- Inserimento in un team multidisciplinare composto da giovani ingegneri ed esperti di alto livello\n\n## Requisiti\n- Laurea in ingegneria meccanica (o equivalente)\n- Minimo 10 anni di esperienza nel settore idromeccanico\n- Ottima conoscenza della lingua italiana, buona conoscenza della lingua inglese; la conoscenza del francese o del tedesco costituisce un plus\n- Capacità di lavorare in team internazionali e orientamento ai risultati\n- Autonomia, affidabilità e motivazione ad affrontare nuove sfide professionali",
@@ -158,10 +149,10 @@
         "fr": "En tant qu'ingénieur de projet, vous jouerez un rôle clé dans la conception, l'exécution et la livraison de projets d'infrastructure ambitieux. Si vous êtes à l’aise dans un environnement collaboratif et possédez d’excellentes compétences techniques, renseignez-vous. ## Fonctions - Participation à de grands projets hydroélectriques en Italie, en Suisse et à l'étranger - Activités d'ingénierie hydromécanique dans les différentes phases du projet (études, conception, construction) - Collaboration continue avec l'équipe suisse et avec des spécialistes seniors - Possibilité de travailler aussi bien au bureau que, si vous le souhaitez, sur site sur vos propres projets - Inclusion dans une équipe multidisciplinaire composée de jeunes ingénieurs et d'experts de haut niveau ## Exigences - Diplôme en génie mécanique (ou équivalent) - Minimum 10 ans d'expérience dans le secteur hydromécanique - Excellente connaissance de la langue italienne, bonne connaissance de la langue anglaise ; la connaissance du français ou de l'allemand est un plus - Capacité à travailler dans des équipes internationales et orientation vers les résultats - Autonomie, fiabilité et motivation pour relever de nouveaux défis professionnels"
       },
       "slugByLocale": {
-        "it": "ingegnere-idromeccanico-settore-idroelettrico-luogo-di-lavoro-italia-milano-o-roma-o-torino-lombardi-group-giubiasco",
-        "en": "hydromechanical-engineer-in-the-hydroelectric-sector-place-of-work-italy-milan-or-rome-or-turin-lombardi-group-giubiasco",
-        "de": "hydromechanik-ingenieur-im-wasserkraftsektor-arbeitsort-italien-mailand-oder-rom-oder-turin-lombardi-group-giubiasco",
-        "fr": "ingenieur-hydromecanique-dans-le-secteur-hydroelectrique-lieu-de-travail-italie-milan-ou-rome-ou-turin-lombardi-group-gi"
+        "it": "ingegnere-idromeccanico-settore-idroelettrico-luogo-di-lavoro-italia-milano-o-roma-o-torino-lombardi-giubiasco",
+        "en": "hydroelectric-hydromechanical-engineer-workplace-italy-milan-or-rome-or-turin-lombardi-group-giubiasco",
+        "de": "hydromechaniker-wasserkraft-arbeitsort-italien-mailand-oder-rom-oder-turin-lombardi-group-giubiasco",
+        "fr": "ingenieur-hydromecanicien-secteur-hydroelectrique-lieu-de-travail-italie-milan-ou-rome-ou-turin-lombardi-group-giubiasco"
       },
       "salaryMin": 72000,
       "salaryMax": 97000,
@@ -176,15 +167,11 @@
           "unitText": "YEAR"
         }
       },
-      "crawledAt": "",
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "ingegnere-idromeccanico-settore-idroelettrico-luogo-di-lavoro-italia-milano-o-roma-o-torino-lombardi-giubiasco"
-      ]
+      "postalCode": "6512"
     },
     {
       "title": "Apprendista Disegnatore ingegneria civile AFC (M/F/X)",
-      "slug": "apprendista-disegnatore-ingegneria-civile-afc-m-f-x-lombardi-group-giubiasco",
+      "slug": "apprendista-disegnatore-ingegneria-civile-afc-m-f-x-lombardi-giubiasco",
       "url": "https://lombardi.group/eng/careers/job?id=102173",
       "applyUrl": "https://lombardi.group/eng/careers/job?id=102173",
       "company": "Lombardi Group",
@@ -200,16 +187,16 @@
       "sector": "Ingegneria civile",
       "source": "lombardi-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-03-19",
+      "postedDate": "2026-03-23",
       "employmentType": "full-time",
       "contractType": "permanent",
       "validThrough": "",
       "description": "In qualità di apprendista, apprenderete le basi del disegno tecnico in 2D, della modellazione 3D e della produzione di disegni tecnici che fungono da base per progetti di successo in diversi ambiti dell'ingegneria civile.\n\n## Mansioni\n- Supporto ai giovani talenti: Aiutiamo i giovani agli inizi della loro carriera.\n- Formazione professionale: Offriamo una preparazione mirata per il futuro mestiere.\n- Formatori esperti: I nostri tecnici sono competenti e appassionati del loro lavoro.\n- Competenze fondamentali: Garantiamo una solida base professionale.\n- Futuro lavorativo: Prepariamo gli apprendisti a intraprendere con successo il loro percorso.\n\n## Requisiti\n- Motivazione e desiderio di imparare: Dimostrare interesse per il campo scelto e voglia di crescere.\n- Disponibilità al lavoro di squadra: Essere in grado di collaborare con altri in un ambiente professionale.\n- Responsabilità: Saper rispettare impegni, scadenze e regole.\n- Apertura mentale: Essere pronti ad accettare consigli e critiche costruttive.\n- Curiosità e iniziativa: Mostrare intraprendenza e voglia di approfondire nuove conoscenze.",
       "titleByLocale": {
         "it": "Apprendista Disegnatore ingegneria civile AFC (M/F/X)",
-        "en": "AFC Civil Engineering Draftsman Apprentice (M/F/X)",
-        "de": "AFC Auszubildender zum Bauzeichner (m/w/d)",
-        "fr": "Apprenti Dessinateur Génie Civil AFC (H/F/X)"
+        "en": "Apprentice Civil Engineering Designer AFC (M/F/X)",
+        "de": "Auszubildender Zeichner Bauingenieur EFZ (M/F/X)",
+        "fr": "Apprenti Dessinateur génie civil AFC (M/F/X)"
       },
       "descriptionByLocale": {
         "it": "In qualità di apprendista, apprenderete le basi del disegno tecnico in 2D, della modellazione 3D e della produzione di disegni tecnici che fungono da base per progetti di successo in diversi ambiti dell'ingegneria civile.\n\n## Mansioni\n- Supporto ai giovani talenti: Aiutiamo i giovani agli inizi della loro carriera.\n- Formazione professionale: Offriamo una preparazione mirata per il futuro mestiere.\n- Formatori esperti: I nostri tecnici sono competenti e appassionati del loro lavoro.\n- Competenze fondamentali: Garantiamo una solida base professionale.\n- Futuro lavorativo: Prepariamo gli apprendisti a intraprendere con successo il loro percorso.\n\n## Requisiti\n- Motivazione e desiderio di imparare: Dimostrare interesse per il campo scelto e voglia di crescere.\n- Disponibilità al lavoro di squadra: Essere in grado di collaborare con altri in un ambiente professionale.\n- Responsabilità: Saper rispettare impegni, scadenze e regole.\n- Apertura mentale: Essere pronti ad accettare consigli e critiche costruttive.\n- Curiosità e iniziativa: Mostrare intraprendenza e voglia di approfondire nuove conoscenze.",
@@ -218,10 +205,10 @@
         "fr": "En tant qu'apprenti, vous apprendrez les bases du dessin technique 2D, de la modélisation 3D et de la réalisation de dessins techniques qui servent de base à des projets réussis dans divers domaines du génie civil. ## Missions - Accompagnement des jeunes talents : Nous aidons les jeunes en début de carrière. - Formation professionnelle : Nous proposons une préparation ciblée au futur métier. - Formateurs expérimentés : Nos techniciens sont compétents et passionnés par leur travail. - Compétences fondamentales : Nous garantissons une base professionnelle solide. - Travaux futurs : Nous préparons les apprentis à entreprendre avec succès leur carrière. ## Exigences - Motivation et envie d'apprendre : Démontrer un intérêt pour le domaine choisi et une envie d'évoluer. - Disponibilité pour le travail en équipe : Être capable de collaborer avec d'autres dans un environnement professionnel. - Responsabilité : Savoir respecter les engagements, les délais et les règles. - Ouverture d'esprit : Soyez prêt à accepter les conseils et les critiques constructives. - Curiosité et initiative : Faire preuve de débrouillardise et d'envie d'approfondir de nouvelles connaissances."
       },
       "slugByLocale": {
-        "it": "apprendista-disegnatore-ingegneria-civile-afc-m-f-x-lombardi-group-giubiasco",
-        "en": "afc-civil-engineering-draftsman-apprentice-m-f-x-lombardi-group-giubiasco",
-        "de": "afc-auszubildender-zum-bauzeichner-m-w-d-lombardi-group-giubiasco",
-        "fr": "apprenti-dessinateur-genie-civil-afc-h-f-x-lombardi-group-giubiasco"
+        "it": "apprendista-disegnatore-ingegneria-civile-afc-m-f-x-lombardi-giubiasco",
+        "en": "apprentice-civil-engineering-designer-afc-m-f-x-lombardi-group-giubiasco",
+        "de": "auszubildender-zeichner-bauingenieur-efz-m-f-x-lombardi-group-giubiasco",
+        "fr": "apprenti-dessinateur-genie-civil-afc-m-f-x-lombardi-group-giubiasco"
       },
       "salaryMin": 46500,
       "salaryMax": 62500,
@@ -236,15 +223,11 @@
           "unitText": "YEAR"
         }
       },
-      "crawledAt": "",
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "apprendista-disegnatore-ingegneria-civile-afc-m-f-x-lombardi-giubiasco"
-      ]
+      "postalCode": "6512"
     },
     {
       "title": "Ingegnere di progetto (M/F/X)",
-      "slug": "ingegnere-di-progetto-m-f-x-lombardi-group-giubiasco",
+      "slug": "ingegnere-di-progetto-m-f-x-lombardi-giubiasco",
       "url": "https://lombardi.group/eng/careers/job?id=85851",
       "applyUrl": "https://lombardi.group/eng/careers/job?id=85851",
       "company": "Lombardi Group",
@@ -260,7 +243,7 @@
       "sector": "Ingegneria civile",
       "source": "lombardi-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-03-19",
+      "postedDate": "2026-03-23",
       "employmentType": "full-time",
       "contractType": "permanent",
       "validThrough": "",
@@ -268,8 +251,8 @@
       "titleByLocale": {
         "it": "Ingegnere di progetto (M/F/X)",
         "en": "Project Engineer (M/F/X)",
-        "de": "Projektingenieur (m/w/d)",
-        "fr": "Ingénieur de projet (H/F/X)"
+        "de": "Projektingenieur (M/F/X)",
+        "fr": "Ingénieur de projet (M/F/X)"
       },
       "descriptionByLocale": {
         "it": "In qualità di Project Engineer, svolgerete un ruolo chiave nella progettazione, esecuzione e consegna di progetti infrastrutturali impegnativi. Se vi sentite a vostro agio in un ambiente collaborativo e possedete eccellenti competenze tecniche, scoprite di più.\n\n## Mansioni\n- Studio e progettazione di impianti elettromeccanici e di sicurezza nelle infrastrutture di trasporto;\n- Ispettore di sistemi elettromeccanici;\n- Supporto al team di progetto e alla gestione del progetto;\n\n## Requisiti\n- Certificato federale di competenza (CFC) come installatore/installatore elettrico con laurea triennale in ingegneria elettrica o diploma di tecnico in ingegneria elettrica o elettronica;\n- Minimo 3 anni di esperienza professionale nell'ambito;\n- Capacità di lavorare in autonomia, motivazione ad affrontare nuove sfide professionali;\n- Disponibilità a supervisionare progetti in Svizzera;\n- Ottima conoscenza dei software di base e buona conoscenza di MS Project e Visio, onoscenza di AutoCAD è un vantaggio;",
@@ -278,10 +261,10 @@
         "fr": "En tant qu'ingénieur de projet, vous jouerez un rôle clé dans la conception, l'exécution et la livraison de projets d'infrastructure ambitieux. Si vous êtes à l’aise dans un environnement collaboratif et possédez d’excellentes compétences techniques, renseignez-vous. ## Fonctions - Etude et conception de systèmes électromécaniques et de sécurité dans les infrastructures de transport ; - Inspecteur des systèmes électromécaniques; - Support à l'équipe projet et à la gestion de projet; ## Exigences - Certificat fédéral de compétence (CFC) en tant qu'installateur/installateur électrique titulaire d'un diplôme de trois ans en génie électrique ou d'un diplôme de technicien en génie électrique ou électronique ; - Minimum 3 ans d'expérience professionnelle dans le domaine ; - Capacité à travailler de manière autonome, motivation pour relever de nouveaux défis professionnels ; - Disponibilité pour superviser des projets en Suisse ; - Excellente connaissance des logiciels de base et bonne connaissance de MS Project et Visio, la connaissance d'AutoCAD est un avantage ;"
       },
       "slugByLocale": {
-        "it": "ingegnere-di-progetto-m-f-x-lombardi-group-giubiasco",
+        "it": "ingegnere-di-progetto-m-f-x-lombardi-giubiasco",
         "en": "project-engineer-m-f-x-lombardi-group-giubiasco",
-        "de": "projektingenieur-m-w-d-lombardi-group-giubiasco",
-        "fr": "ingenieur-de-projet-h-f-x-lombardi-group-giubiasco"
+        "de": "projektingenieur-m-f-x-lombardi-group-giubiasco",
+        "fr": "ingenieur-de-projet-m-f-x-lombardi-group-giubiasco"
       },
       "salaryMin": 72000,
       "salaryMax": 97000,
@@ -296,15 +279,11 @@
           "unitText": "YEAR"
         }
       },
-      "crawledAt": "",
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "ingegnere-di-progetto-m-f-x-lombardi-giubiasco"
-      ]
+      "postalCode": "6512"
     },
     {
       "title": "Co-lead Energy & Water Department",
-      "slug": "co-responsabile-del-dipartimento-energia-e-acqua-lombardi-group-giubiasco",
+      "slug": "condurre-congiuntamente-il-dipartimento-energia-e-acqua-lombardi-group-giubiasco",
       "url": "https://lombardi.group/eng/careers/job?id=81547",
       "applyUrl": "https://lombardi.group/eng/careers/job?id=81547",
       "company": "Lombardi Group",
@@ -320,27 +299,27 @@
       "sector": "Ingegneria civile",
       "source": "lombardi-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-03-19",
+      "postedDate": "2026-03-23",
       "employmentType": "full-time",
       "contractType": "permanent",
       "validThrough": "",
       "description": "Every growth brings new challenges. Ours? Building a team capable of leading the energy transition with expertise, innovation, and team spirit. If you want to actively contribute to multidisciplinary, high-impact projects in an international context, and if you believe in engineering that combines quality, sustainability, and collaboration, here you will find the space to make a difference.\n\n## Mansioni\n- You will assume joint strategic and operational responsibility for the department, in a co-management setup.\n- You will ensure the quality, technical, and financial performance of assignments and projects and you will actively contribute to acquiring new mandates and developing business in Switzerland and abroad.\n- You will support the growth of your teams by fostering a work environment based on collaboration, trust, and accountability.\n- As a member of the management team, you will directly contribute to shaping the future of Lombardi Switzerland as a whole.\n- You will act as a key point of contact for clients, partners, and institutional stakeholders.\n\n## Requisiti\n- University degree in civil, hydraulic, or related engineering (ETH/FH/UNI), with additional qualifications in management, finance, and team leadership (leadership and people management), as well as technical expertise in hydropower plants or underground works.\n- Solid experience in the design and management of complex assignments in the hydropower and hydraulic works department.\n- Ability to make fast, pragmatic decisions with a comprehensive vision and ability to lead with consistency, empowering people and creating safe and stimulating work environments.\n- Legal, financial, and contractual awareness for the comprehensive management of assignments.\n- Excellent command of Italian and English, with good knowledge of at least one other national language. Availability for short business trips within Switzerland and abroad.",
       "titleByLocale": {
         "en": "Co-lead Energy & Water Department",
-        "it": "Co-responsabile del dipartimento Energia e acqua",
-        "de": "Co-Leiter der Energie- und Wasserabteilung",
+        "it": "Condurre congiuntamente il Dipartimento Energia e Acqua",
+        "de": "Co-Leiter Energie- und Wasserabteilung",
         "fr": "Co-responsable du département Energie et Eau"
       },
       "descriptionByLocale": {
-        "it": "Lombardi Group, studio di ingegneria con sede a Giubiasco, cerca un profilo Co-lead Energy & Water Department (80%–100%). Lombardi è specializzata nella progettazione di grandi infrastrutture: tunnel, dighe, ponti e impianti idroelettrici in Svizzera e nel mondo. Lo studio, con sede principale a Giubiasco (Ticino), opera nei settori dell'ingegneria civile, idraulica e geotecnica. Candidati tramite il portale ufficiale.",
+        "it": "Ogni crescita porta con sé nuove sfide. Il nostro? Costruire un team in grado di guidare la transizione energetica con competenza, innovazione e spirito di squadra. Se vuoi contribuire attivamente a progetti multidisciplinari e di grande impatto in un contesto internazionale, e se credi nell’ingegneria che unisce qualità, sostenibilità e collaborazione, qui troverai lo spazio per fare la differenza. ## Mansioni - Assumerai la responsabilità strategica e operativa congiunta del dipartimento, in una configurazione di cogestione. - Garantirai la qualità, la performance tecnica e finanziaria degli incarichi e dei progetti e contribuirai attivamente all'acquisizione di nuovi mandati e allo sviluppo del business in Svizzera e all'estero. - Sosterrai la crescita dei tuoi team promuovendo un ambiente di lavoro basato sulla collaborazione, fiducia e responsabilità. - In qualità di membro del management team, contribuirai direttamente a plasmare il futuro di Lombardi Svizzera nel suo complesso. - Agirai come punto di contatto chiave per clienti, partner e stakeholder istituzionali. ## Requisiti - Laurea in ingegneria civile, idraulica o affine (ETH/FH/UNI), con qualifiche aggiuntive in gestione, finanza e leadership di gruppo (leadership e gestione delle persone), nonché competenze tecniche in centrali idroelettriche o lavori sotterranei. - Solida esperienza nella progettazione e gestione di incarichi complessi nel settore delle opere idroelettriche e idrauliche. - Capacità di prendere decisioni rapide e pragmatiche con una visione globale e capacità di guidare con coerenza, responsabilizzando le persone e creando ambienti di lavoro sicuri e stimolanti. - Consapevolezza legale, finanziaria e contrattuale per la gestione completa degli incarichi. - Ottima padronanza della lingua italiana e inglese, con buona conoscenza di almeno un'altra lingua nazionale. Disponibilità a brevi trasferte di lavoro in Svizzera e all'estero.",
         "en": "Every growth brings new challenges. Ours? Building a team capable of leading the energy transition with expertise, innovation, and team spirit. If you want to actively contribute to multidisciplinary, high-impact projects in an international context, and if you believe in engineering that combines quality, sustainability, and collaboration, here you will find the space to make a difference.\n\n## Mansioni\n- You will assume joint strategic and operational responsibility for the department, in a co-management setup.\n- You will ensure the quality, technical, and financial performance of assignments and projects and you will actively contribute to acquiring new mandates and developing business in Switzerland and abroad.\n- You will support the growth of your teams by fostering a work environment based on collaboration, trust, and accountability.\n- As a member of the management team, you will directly contribute to shaping the future of Lombardi Switzerland as a whole.\n- You will act as a key point of contact for clients, partners, and institutional stakeholders.\n\n## Requisiti\n- University degree in civil, hydraulic, or related engineering (ETH/FH/UNI), with additional qualifications in management, finance, and team leadership (leadership and people management), as well as technical expertise in hydropower plants or underground works.\n- Solid experience in the design and management of complex assignments in the hydropower and hydraulic works department.\n- Ability to make fast, pragmatic decisions with a comprehensive vision and ability to lead with consistency, empowering people and creating safe and stimulating work environments.\n- Legal, financial, and contractual awareness for the comprehensive management of assignments.\n- Excellent command of Italian and English, with good knowledge of at least one other national language. Availability for short business trips within Switzerland and abroad.",
         "de": "Jedes Wachstum bringt neue Herausforderungen mit sich. Unsere? Aufbau eines Teams, das in der Lage ist, die Energiewende mit Fachwissen, Innovation und Teamgeist voranzutreiben. Wenn Sie aktiv zu multidisziplinären, wirkungsvollen Projekten im internationalen Kontext beitragen möchten und an Ingenieurskunst glauben, die Qualität, Nachhaltigkeit und Zusammenarbeit vereint, finden Sie hier den Raum, etwas zu bewegen. ## Mansioni – Sie übernehmen im Co-Management-Setup die gemeinsame strategische und operative Verantwortung für die Abteilung. - Sie stellen die Qualität, technische und finanzielle Leistung von Aufträgen und Projekten sicher und tragen aktiv zur Akquise neuer Mandate und zur Geschäftsentwicklung im In- und Ausland bei. - Sie unterstützen das Wachstum Ihrer Teams, indem Sie ein Arbeitsumfeld fördern, das auf Zusammenarbeit, Vertrauen und Verantwortlichkeit basiert. - Als Mitglied der Geschäftsleitung tragen Sie direkt zur Gestaltung der Zukunft von Lombardi Schweiz als Ganzes bei. - Sie fungieren als zentraler Ansprechpartner für Kunden, Partner und institutionelle Stakeholder. ## Voraussetzungen – Universitätsabschluss in Bauingenieurwesen, Wasserbau oder verwandten Ingenieurwissenschaften (ETH/FH/UNI), mit Zusatzqualifikationen in Management, Finanzen und Teamführung (Leadership und People Management) sowie technischer Expertise in Wasserkraftwerken oder Untertagebauwerken. - Fundierte Erfahrung in der Planung und Leitung komplexer Aufgaben im Bereich Wasserkraft und Wasserbau. - Fähigkeit, schnelle, pragmatische Entscheidungen mit einer umfassenden Vision zu treffen und konsequent zu führen, Menschen zu stärken und sichere und anregende Arbeitsumgebungen zu schaffen. - Rechts-, Finanz- und Vertragsbewusstsein für die umfassende Auftragsabwicklung. - Ausgezeichnete Italienisch- und Englischkenntnisse sowie gute Kenntnisse in mindestens einer weiteren Landessprache. Verfügbarkeit für kurze Geschäftsreisen im In- und Ausland.",
         "fr": "Chaque croissance apporte de nouveaux défis. La nôtre? Construire une équipe capable de mener la transition énergétique avec expertise, innovation et esprit d’équipe. Si vous souhaitez contribuer activement à des projets multidisciplinaires à fort impact dans un contexte international et si vous croyez en une ingénierie alliant qualité, durabilité et collaboration, vous trouverez ici l'espace pour faire la différence. ## Mansioni - Vous assumerez la responsabilité stratégique et opérationnelle conjointe du département, dans une configuration de co-gestion. - Vous assurerez la performance qualitative, technique et financière des missions et des projets et vous contribuerez activement à l'acquisition de nouveaux mandats et au développement des affaires en Suisse et à l'étranger. - Vous soutiendrez la croissance de vos équipes en favorisant un environnement de travail basé sur la collaboration, la confiance et la responsabilité. - En tant que membre de l'équipe de direction, vous contribuerez directement à façonner l'avenir de Lombardi Suisse dans son ensemble. - Vous agirez comme point de contact clé pour les clients, les partenaires et les acteurs institutionnels. ## Requisiti - Diplôme universitaire en ingénierie civile, hydraulique ou connexe (ETH/FH/UNI), avec des qualifications supplémentaires en gestion, finance et leadership d'équipe (leadership et gestion des personnes), ainsi qu'une expertise technique en centrales hydroélectriques ou en travaux souterrains. - Solide expérience dans la conception et la gestion de missions complexes dans le département des travaux hydroélectriques et hydrauliques. - Capacité à prendre des décisions rapides et pragmatiques avec une vision globale et capacité à diriger avec cohérence, en responsabilisant les gens et en créant des environnements de travail sûrs et stimulants. - Sensibilisation juridique, financière et contractuelle pour une gestion globale des missions. - Excellente maîtrise de l'italien et de l'anglais, avec une bonne connaissance d'au moins une autre langue nationale. Disponibilité pour de courts déplacements professionnels en Suisse et à l'étranger."
       },
       "slugByLocale": {
-        "it": "co-responsabile-del-dipartimento-energia-e-acqua-lombardi-group-giubiasco",
-        "en": "co-lead-energy-water-department-lombardi-group-giubiasco",
-        "de": "co-leiter-der-energie-und-wasserabteilung-lombardi-group-giubiasco",
+        "it": "condurre-congiuntamente-il-dipartimento-energia-e-acqua-lombardi-group-giubiasco",
+        "en": "co-lead-energy-water-department-lombardi-giubiasco",
+        "de": "co-leiter-energie-und-wasserabteilung-lombardi-group-giubiasco",
         "fr": "co-responsable-du-departement-energie-et-eau-lombardi-group-giubiasco"
       },
       "salaryMin": 92000,
@@ -356,15 +335,11 @@
           "unitText": "YEAR"
         }
       },
-      "crawledAt": "",
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "co-lead-energy-water-department-lombardi-giubiasco"
-      ]
+      "postalCode": "6512"
     },
     {
       "title": "Disegnatore di ingegneria civile (M/F/X)",
-      "slug": "disegnatore-di-ingegneria-civile-m-f-x-lombardi-group-giubiasco",
+      "slug": "disegnatore-di-ingegneria-civile-m-f-x-lombardi-giubiasco",
       "url": "https://lombardi.group/eng/careers/job?id=30530",
       "applyUrl": "https://lombardi.group/eng/careers/job?id=30530",
       "company": "Lombardi Group",
@@ -380,16 +355,16 @@
       "sector": "Ingegneria civile",
       "source": "lombardi-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-03-19",
+      "postedDate": "2026-03-23",
       "employmentType": "full-time",
       "contractType": "permanent",
       "validThrough": "",
       "description": "In qualità di disegnatore, siete responsabili della produzione di disegni tecnici che fungono da base per progetti di successo.\n\n## Mansioni\n- Ottimo trattamento economico e benefit di sicuro interesse\n- Possibilità di sviluppo mediante formazione continua\n- In un ambiento dinamico sarai confrontato con interessanti progetti che richiederanno autonomia, conoscenza e capacità di lavorare in team\n\n## Requisiti\n- Disegnatore di ingegneria civile AFC o Geometra con pluriennale esperienza in opere infrastrutturali, idrauliche, sotterraneo\n- Ottime conoscenze di AutoCad (2d e 3d) e/o Civil 3D",
       "titleByLocale": {
         "it": "Disegnatore di ingegneria civile (M/F/X)",
-        "en": "Civil Engineering Draftsman (M/F/X)",
-        "de": "Bauzeichner (m/w/d)",
-        "fr": "Dessinateur Génie Civil (H/F/X)"
+        "en": "Civil Engineering Designer (M/F/X)",
+        "de": "Bauzeichner (M/F/X)",
+        "fr": "Dessinateur en génie civil (M/F/X)"
       },
       "descriptionByLocale": {
         "it": "In qualità di disegnatore, siete responsabili della produzione di disegni tecnici che fungono da base per progetti di successo.\n\n## Mansioni\n- Ottimo trattamento economico e benefit di sicuro interesse\n- Possibilità di sviluppo mediante formazione continua\n- In un ambiento dinamico sarai confrontato con interessanti progetti che richiederanno autonomia, conoscenza e capacità di lavorare in team\n\n## Requisiti\n- Disegnatore di ingegneria civile AFC o Geometra con pluriennale esperienza in opere infrastrutturali, idrauliche, sotterraneo\n- Ottime conoscenze di AutoCad (2d e 3d) e/o Civil 3D",
@@ -398,10 +373,10 @@
         "fr": "En tant que dessinateur, vous êtes responsable de produire des dessins techniques qui servent de base à des projets réussis. ## Fonctions - Excellent salaire et avantages sociaux d'un grand intérêt - Possibilité d'évolution par formation continue - Dans un environnement dynamique vous serez confronté à des projets intéressants qui nécessiteront de l'autonomie, des connaissances et une capacité à travailler en équipe ## Exigences - Dessinateur ou géomètre AFC en génie civil possédant de nombreuses années d'expérience en travaux d'infrastructures, hydrauliques et souterrains - Excellente connaissance d'AutoCad (2D et 3D) et/ou Civil 3D"
       },
       "slugByLocale": {
-        "it": "disegnatore-di-ingegneria-civile-m-f-x-lombardi-group-giubiasco",
-        "en": "civil-engineering-draftsman-m-f-x-lombardi-group-giubiasco",
-        "de": "bauzeichner-m-w-d-lombardi-group-giubiasco",
-        "fr": "dessinateur-genie-civil-h-f-x-lombardi-group-giubiasco"
+        "it": "disegnatore-di-ingegneria-civile-m-f-x-lombardi-giubiasco",
+        "en": "civil-engineering-designer-m-f-x-lombardi-group-giubiasco",
+        "de": "bauzeichner-m-f-x-lombardi-group-giubiasco",
+        "fr": "dessinateur-en-genie-civil-m-f-x-lombardi-group-giubiasco"
       },
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -416,15 +391,11 @@
           "unitText": "YEAR"
         }
       },
-      "crawledAt": "",
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "disegnatore-di-ingegneria-civile-m-f-x-lombardi-giubiasco"
-      ]
+      "postalCode": "6512"
     },
     {
       "title": "Ingegnere Capo Progetto nella sezione sicurezza ed esercizio (M/F/X)",
-      "slug": "ingegnere-capo-progetto-nella-sezione-sicurezza-ed-esercizio-m-f-x-lombardi-group-giubiasco",
+      "slug": "ingegnere-capo-progetto-nella-sezione-sicurezza-ed-esercizio-m-f-x-lombardi-giubiasco",
       "url": "https://lombardi.group/eng/careers/job?id=1112",
       "applyUrl": "https://lombardi.group/eng/careers/job?id=1112",
       "company": "Lombardi Group",
@@ -440,7 +411,7 @@
       "sector": "Ingegneria civile",
       "source": "lombardi-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-03-19",
+      "postedDate": "2026-03-23",
       "employmentType": "full-time",
       "contractType": "permanent",
       "validThrough": "",
@@ -448,20 +419,20 @@
       "titleByLocale": {
         "it": "Ingegnere Capo Progetto nella sezione sicurezza ed esercizio (M/F/X)",
         "en": "Chief Project Engineer in the safety and operation section (M/F/X)",
-        "de": "Leitender Projektingenieur im Bereich Sicherheit und Betrieb (M/W/D)",
-        "fr": "Ingénieur en chef de projet au sein de la section sécurité et exploitation (H/F/X)"
+        "de": "Projektleiter im Bereich Sicherheit und Betrieb (M/F/X)",
+        "fr": "Ingénieur en chef de projet dans la section sécurité et exploitation (M/F/X)"
       },
       "descriptionByLocale": {
         "it": "Come Ingegnere capo progetto supervisionerai l'intero ciclo di vita del progetto, dalla concezione al completamento, garantendo un coordinamento fluido, un'allocazione efficiente delle risorse e una consegna di successo. Porta al tavolo le tue eccezionali capacità di leadership e la tua competenza tecnica.\n\n## Mansioni\n- Partecipare alle mansioni legate ai doveri del Responsabile della sicurezza ai sensi della Direttiva Europea 54/2004 e del DL 264. Partecipare al processo strategico, di sviluppo del settore e di acquisizione\n- Possibilità di crescita e sviluppo delle proprie competenze personali nell’ambito di un settore di nicchia quale la sicurezza e l’esercizio di infrastrutture di traffico\n- Gestione ed esecuzione di progetti relativi alla sicurezza e all’esercizio di opere di traffico o industriali all’interno della sezione Sicurezza ed Esercizio\n- Redazione di documenti e studi nell’ambito dei progetti della sezione\n\n## Requisiti\n- La conoscenza del tedesco scritto e parlato (minimo B2) e di una seconda lingua nazionale scritta e parlata (minimo B2) costituiscono un requisito indispensabile\n- Formazione tecnica SUP / ETH a indirizzo elettrotecnico, meccanico, civile o equivalente. Comprovata esperienza professionale in posizioni di responsabilità idealmente nella gestione di progetto o di personale\n- Licenza di condurre, cat. B\n- Buone competenze sociali, relazionali e di mediazione, forte indipendenza e autonomia nonché spirito critico e senso pratico completano il suo profilo\n- Flessibilità e disponibilità a prestare orari di lavoro irregolari (inclusi interventi notturni) in Svizzera e all’estero",
-        "en": "As a Project Lead Engineer you will oversee the entire project lifecycle, from conception to completion, ensuring smooth coordination, efficient resource allocation and successful delivery. Bring your exceptional leadership skills and technical expertise to the table. ## Duties - Participate in tasks related to the duties of the Safety Manager pursuant to European Directive 54/2004 and Legislative Decree 264. Participate in the strategic, sector development and acquisition process - Possibility of growth and development of one's personal skills within a niche sector such as safety and the operation of traffic infrastructures - Management and execution of projects relating to the safety and operation of traffic or industrial works within the Safety and Operation section - Drafting of documents and studies within the projects of the section ## Requirements - Knowledge of written and spoken German (minimum B2) and of a second written and spoken national language (minimum B2) constitute an indispensable requirement - Technical training SUP / ETH in electrotechnical, mechanical, civil or equivalent direction. Proven professional experience in positions of responsibility, ideally in project or personnel management - Driving licence, cat. B - Good social, relational and mediation skills, strong independence and autonomy as well as a critical spirit and practical sense complete his profile - Flexibility and willingness to work irregular working hours (including night shifts) in Switzerland and abroad",
-        "de": "Als Projektleiter überwachen Sie den gesamten Projektlebenszyklus, von der Konzeption bis zur Fertigstellung, und sorgen für eine reibungslose Koordination, effiziente Ressourcenzuweisung und erfolgreiche Lieferung. Bringen Sie Ihre außergewöhnlichen Führungsqualitäten und Ihr technisches Fachwissen ein. ## Aufgaben - Mitarbeit an Aufgaben im Zusammenhang mit den Pflichten des Sicherheitsmanagers gemäß der europäischen Richtlinie 54/2004 und dem Gesetzesdekret 264. Mitwirkung am strategischen Sektorentwicklungs- und Akquiseprozess - Möglichkeit zur Weiterentwicklung und Weiterentwicklung der persönlichen Fähigkeiten in einem Nischensektor wie Sicherheit und Betrieb von Verkehrsinfrastrukturen - Leitung und Durchführung von Projekten im Zusammenhang mit der Sicherheit und dem Betrieb von Verkehrs- oder Industrieanlagen im Bereich Sicherheit und Betrieb - Erstellung von Dokumenten und Studien im Bereich Sicherheit und Betrieb Projekte der Sektion ## Anforderungen - Kenntnisse der deutschen Sprache in Wort und Schrift (mindestens B2) sowie einer zweiten Landessprache in Wort und Schrift (mindestens B2) sind eine unabdingbare Voraussetzung - Technische Ausbildung SUP / ETH in elektrotechnischer, mechanischer, ziviler oder gleichwertiger Richtung. Nachgewiesene Berufserfahrung in verantwortungsvollen Positionen, idealerweise im Projekt- oder Personalmanagement - Führerschein, Kat. B – Gute Sozial-, Beziehungs- und Vermittlungsfähigkeiten, ausgeprägte Unabhängigkeit und Autonomie sowie ein kritischer Geist und praktischer Sinn runden sein Profil ab – Flexibilität und Bereitschaft zu unregelmäßigen Arbeitszeiten (einschließlich Nachtschichten) im In- und Ausland",
-        "fr": "En tant qu'ingénieur chef de projet, vous superviserez l'ensemble du cycle de vie du projet, de la conception à l'achèvement, en garantissant une coordination fluide, une allocation efficace des ressources et une livraison réussie. Apportez vos compétences exceptionnelles en leadership et votre expertise technique. ## Fonctions - Participer aux tâches liées aux fonctions de responsable de la sécurité conformément à la directive européenne 54/2004 et au décret législatif 264. Participer au processus stratégique, de développement et d'acquisition du secteur - Possibilité de croissance et de développement de ses compétences personnelles au sein d'un secteur de niche tel que la sécurité et l'exploitation des infrastructures de circulation - Gestion et exécution de projets relatifs à la sécurité et à l'exploitation de la circulation ou des ouvrages industriels au sein de la section Sécurité et exploitation - Rédaction de documents et d'études dans le cadre des projets de la section ## Exigences - La connaissance de l'allemand écrit et parlé (minimum B2) et d'une deuxième langue nationale écrite et parlée (minimum B2) constituent une exigence indispensable - Formation technique SUP/ETH en direction électrotechnique, mécanique, civile ou équivalente. Expérience professionnelle avérée dans des postes à responsabilités, idéalement en gestion de projets ou de personnel - Permis de conduire, cat. B - De bonnes compétences sociales, relationnelles et de médiation, une forte indépendance et autonomie ainsi qu'un esprit critique et un sens pratique complètent son profil - Flexibilité et volonté de travailler selon des horaires irréguliers (y compris de nuit) en Suisse et à l'étranger"
+        "en": "As a Project Lead Engineer you will oversee the entire project lifecycle, from conception to completion, ensuring smooth coordination, efficient resource allocation and successful delivery. Bring your exceptional leadership skills and technical expertise to the table. ## Duties - Participate in tasks related to the duties of the Safety Manager pursuant to European Directive 54/2004 and Legislative Decree 264. Participate in the strategic, sector development and acquisition process - Possibility of growth and development of one's personal skills within a niche sector such as safety and operation of traffic infrastructures - Management and execution of projects relating to safety and operation of traffic or industrial works within the Safety and Operation section - Drafting of documents and studies within the projects of the section ## Requirements - Knowledge of written and spoken German (minimum B2) and of a second written and spoken national language (minimum B2) constitute an indispensable requirement - Technical training SUP / ETH in electrotechnical, mechanical, civil or equivalent direction. Proven professional experience in positions of responsibility, ideally in project or personnel management - Driving licence, cat. B - Good social, relational and mediation skills, strong independence and autonomy as well as a critical spirit and practical sense complete his profile - Flexibility and willingness to work irregular working hours (including night shifts) in Switzerland and abroad",
+        "de": "Als Projektleiter überwachen Sie den gesamten Projektlebenszyklus, von der Konzeption bis zur Fertigstellung, und sorgen für eine reibungslose Koordination, effiziente Ressourcenzuweisung und erfolgreiche Lieferung. Bringen Sie Ihre außergewöhnlichen Führungsqualitäten und Ihr technisches Fachwissen ein. ## Aufgaben - Mitarbeit an Aufgaben im Zusammenhang mit den Pflichten des Sicherheitsmanagers gemäß der europäischen Richtlinie 54/2004 und dem Gesetzesdekret 264. Mitwirkung am strategischen Sektorentwicklungs- und Akquiseprozess - Möglichkeit zur Weiterentwicklung und Weiterentwicklung der persönlichen Fähigkeiten in einem Nischensektor wie Sicherheit und Betrieb von Verkehrsinfrastrukturen - Leitung und Durchführung von Projekten im Zusammenhang mit Sicherheit und Betrieb von Verkehrs- oder Industrieanlagen im Bereich Sicherheit und Betrieb - Erstellung von Dokumenten und Studien im Rahmen der Projekte von Der Abschnitt ## Anforderungen - Kenntnisse der deutschen Sprache in Wort und Schrift (mindestens B2) und einer zweiten Landessprache in Wort und Schrift (mindestens B2) stellen eine unabdingbare Voraussetzung dar - Technische Ausbildung SUP / ETH in elektrotechnischer, mechanischer, ziviler oder gleichwertiger Richtung. Nachgewiesene Berufserfahrung in verantwortungsvollen Positionen, idealerweise im Projekt- oder Personalmanagement - Führerschein, Kat. B – Gute Sozial-, Beziehungs- und Vermittlungsfähigkeiten, ausgeprägte Unabhängigkeit und Autonomie sowie ein kritischer Geist und praktischer Sinn runden sein Profil ab – Flexibilität und Bereitschaft zu unregelmäßigen Arbeitszeiten (einschließlich Nachtschichten) im In- und Ausland",
+        "fr": "En tant qu'ingénieur chef de projet, vous superviserez l'ensemble du cycle de vie du projet, de la conception à l'achèvement, en garantissant une coordination fluide, une allocation efficace des ressources et une livraison réussie. Apportez vos compétences exceptionnelles en leadership et votre expertise technique. ## Fonctions - Participer aux tâches liées aux fonctions de responsable de la sécurité conformément à la directive européenne 54/2004 et au décret législatif 264. Participer au processus stratégique, de développement et d'acquisition du secteur - Possibilité de croissance et de développement de ses compétences personnelles au sein d'un secteur de niche tel que la sécurité et l'exploitation des infrastructures de circulation - Gestion et exécution de projets relatifs à la sécurité et à l'exploitation de la circulation ou des ouvrages industriels au sein de la section Sécurité et exploitation - Rédaction de documents et d'études dans le cadre des projets de la section ## Exigences - La connaissance de l'allemand écrit et parlé (minimum B2) et d'une deuxième langue nationale écrite et parlée (minimum B2) constitue un prérequis indispensable - Formation technique SUP/ETH en direction électrotechnique, mécanique, civile ou équivalente. Expérience professionnelle avérée dans des postes à responsabilités, idéalement en gestion de projets ou de personnel - Permis de conduire, cat. B - De bonnes compétences sociales, relationnelles et de médiation, une forte indépendance et autonomie ainsi qu'un esprit critique et un sens pratique complètent son profil - Flexibilité et volonté de travailler selon des horaires irréguliers (y compris de nuit) en Suisse et à l'étranger"
       },
       "slugByLocale": {
-        "it": "ingegnere-capo-progetto-nella-sezione-sicurezza-ed-esercizio-m-f-x-lombardi-group-giubiasco",
+        "it": "ingegnere-capo-progetto-nella-sezione-sicurezza-ed-esercizio-m-f-x-lombardi-giubiasco",
         "en": "chief-project-engineer-in-the-safety-and-operation-section-m-f-x-lombardi-group-giubiasco",
-        "de": "leitender-projektingenieur-im-bereich-sicherheit-und-betrieb-m-w-d-lombardi-group-giubiasco",
-        "fr": "ingenieur-en-chef-de-projet-au-sein-de-la-section-securite-et-exploitation-h-f-x-lombardi-group-giubiasco"
+        "de": "projektleiter-im-bereich-sicherheit-und-betrieb-m-f-x-lombardi-group-giubiasco",
+        "fr": "ingenieur-en-chef-de-projet-dans-la-section-securite-et-exploitation-m-f-x-lombardi-group-giubiasco"
       },
       "salaryMin": 92000,
       "salaryMax": 125000,
@@ -476,11 +447,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawledAt": "",
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "ingegnere-capo-progetto-nella-sezione-sicurezza-ed-esercizio-m-f-x-lombardi-giubiasco"
-      ]
+      "postalCode": "6512"
     }
   ]
 }
