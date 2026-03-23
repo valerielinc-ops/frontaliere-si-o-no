@@ -1562,3 +1562,69 @@ export function evaluateJobQuality(job, { minQualityScore, minDescriptionChars }
   if (score < minQualityScore) reasons.push(`quality_score_lt_${minQualityScore}`);
   return { accepted: reasons.length === 0, score, reasons };
 }
+
+// ─── Job/career page classification ──────────────────────────────────────────
+
+const GENERIC_CAREER_TITLES = [
+  'your career with us',
+  'la vostra carriera con noi',
+  'votre parcours professionnel avec nous',
+  'sie haben, was es braucht',
+  'bereit fur deine berufliche zukunft',
+  'bereit für deine berufliche zukunft',
+  'careers',
+  'career',
+  'jobs',
+  'stellenangebote',
+  'offene stellen',
+  'open positions',
+  'job opportunities',
+  'about us',
+  'benefits',
+  'equal opportunity employer',
+  'applicants with disabilities',
+  'professional careers',
+  'early careers',
+];
+
+/**
+ * Returns true if the given title looks like a generic career/listing page
+ * rather than a specific job posting.
+ */
+export function isLikelyGenericCareerTitle(title = '') {
+  const lower = String(title || '').replace(/\u00a0/g, ' ').replace(/\s+/g, ' ').trim().toLowerCase();
+  if (!lower) return true;
+  return GENERIC_CAREER_TITLES.some((t) => lower === t || lower.includes(t));
+}
+
+/**
+ * Returns true if the URL appears to point to a single job detail page
+ * rather than a listing/search/category page.
+ */
+export function isLikelyJobDetailUrl(rawUrl = '') {
+  const url = String(rawUrl || '').toLowerCase();
+  if (!url) return false;
+  let host = '';
+  try { host = new URL(url).hostname.toLowerCase(); } catch {}
+  if (/\/job\b/.test(url) && /[?&]id=\d/.test(url)) return true;
+  if (/\/vacanc(?:y|ies)\/?(?:[?#]|$)/.test(url)) return false;
+  if (/\/(jobs?|careers?|karriere|offene-stellen|open-positions?)\/?(?:[?#]|$)/.test(url)) return false;
+  if (/[?&](q|query|search)=/.test(url) && /vacanc|jobs?|careers?/.test(url)) return false;
+  if (/\/application-start\/vacancies\/[^/?#]+\.html(?:[?#]|$)/.test(url)) return false;
+  if (/\/vacancies\/[^/?#]+\.html(?:[?#]|$)/.test(url)) return false;
+  return (
+    ((host.endsWith('recruitee.com') || host.endsWith('jobs.corner.ch')) && /\/o\/[^/?#]+(?:[?#]|$)/.test(url)) ||
+    /\/job\//.test(url) ||
+    /\/details\//.test(url) ||
+    /\/jobs\/view\//.test(url) ||
+    /\/jobs\/[^/?#]+/.test(url) ||
+    /\/vacanc/.test(url) ||
+    /\/offene-stellen\/[^/?#]+/.test(url) ||
+    /\/posti-vacanti\/[^/?#]+/.test(url) ||
+    /\/open-positions?\/[^/?#]+/.test(url) ||
+    /\/offres?-emploi\/[^/?#]+/.test(url) ||
+    /\/careers?\/job/.test(url) ||
+    /[?&](jobid|jobid=|gh_jid|lever-source|wdjobid|job_id|yid)=/.test(url) ||
+    /\/position\//.test(url)
+  );
+}

@@ -25,7 +25,7 @@ import { execFile } from 'node:child_process';
 import { promisify } from 'node:util';
 import { printPublishedJobUrls, writeJobsSummary, snapshotJobSlugs, computeCrawlDiff, printCrawlChangeSummary, writeCrawlChangeSummaryToGH } from '../jobs-url-helper.mjs';
 import { detectJobTitleLang, detectJobTitleLocaleDetails } from './job-locale-utils.mjs';
-import { heuristicTranslateJobTitle, detectLang, normalizeKey, guessCategory, normalizeContract, qualityScore, evaluateJobQuality } from './dedicated-crawler-common.mjs';
+import { heuristicTranslateJobTitle, detectLang, normalizeKey, guessCategory, normalizeContract, qualityScore, evaluateJobQuality, isLikelyGenericCareerTitle, isLikelyJobDetailUrl } from './dedicated-crawler-common.mjs';
 import {
   getJobLocalizationPipelineStats,
   localizeJobContentWithPipeline,
@@ -159,27 +159,6 @@ const TICINO_KEYWORDS = [
   'svizzera italiana',
 ];
 
-const GENERIC_CAREER_TITLES = [
-  'your career with us',
-  'la vostra carriera con noi',
-  'votre parcours professionnel avec nous',
-  'sie haben, was es braucht',
-  'bereit fur deine berufliche zukunft',
-  'bereit für deine berufliche zukunft',
-  'careers',
-  'career',
-  'jobs',
-  'stellenangebote',
-  'offene stellen',
-  'open positions',
-  'job opportunities',
-  'about us',
-  'benefits',
-  'equal opportunity employer',
-  'applicants with disabilities',
-  'professional careers',
-  'early careers',
-];
 
 const CAREER_HINTS = [
   '/careers',
@@ -1507,42 +1486,6 @@ function isExplicitlyOutsideSwissTicino(text) {
   return nonTiCantonsCities.some((k) => lower.includes(k));
 }
 
-function isLikelyGenericCareerTitle(title = '') {
-  const lower = normalizeSpace(title).toLowerCase();
-  if (!lower) return true;
-  return GENERIC_CAREER_TITLES.some((t) => lower === t || lower.includes(t));
-}
-
-function isLikelyJobDetailUrl(rawUrl = '') {
-  const url = String(rawUrl || '').toLowerCase();
-  if (!url) return false;
-  let host = '';
-  try { host = new URL(url).hostname.toLowerCase(); } catch {}
-  // Query-param detail pages: /path/job?id=NNNN is a single-job page, not a listing
-  if (/\/job\b/.test(url) && /[?&]id=\d/.test(url)) return true;
-  // Explicit listing/search roots (not a single job detail)
-  if (/\/vacanc(?:y|ies)\/?(?:[?#]|$)/.test(url)) return false;
-  if (/\/(jobs?|careers?|karriere|offene-stellen|open-positions?)\/?(?:[?#]|$)/.test(url)) return false;
-  if (/[?&](q|query|search)=/.test(url) && /vacanc|jobs?|careers?/.test(url)) return false;
-  // Known listing/category pages that are not real job details.
-  if (/\/application-start\/vacancies\/[^/?#]+\.html(?:[?#]|$)/.test(url)) return false;
-  if (/\/vacancies\/[^/?#]+\.html(?:[?#]|$)/.test(url)) return false;
-  return (
-    ((host.endsWith('recruitee.com') || host.endsWith('jobs.corner.ch')) && /\/o\/[^/?#]+(?:[?#]|$)/.test(url)) ||
-    /\/job\//.test(url) ||
-    /\/details\//.test(url) ||
-    /\/jobs\/view\//.test(url) ||
-    /\/jobs\/[^/?#]+/.test(url) ||
-    /\/vacanc/.test(url) ||
-    /\/offene-stellen\/[^/?#]+/.test(url) ||
-    /\/posti-vacanti\/[^/?#]+/.test(url) ||
-    /\/open-positions?\/[^/?#]+/.test(url) ||
-    /\/offres?-emploi\/[^/?#]+/.test(url) ||
-    /\/careers?\/job/.test(url) ||
-    /[?&](jobid|jobid=|gh_jid|lever-source|wdjobid|job_id|yid)=/.test(url) ||
-    /\/position\//.test(url)
-  );
-}
 
 function isLikelyCommercialPromoContent({ title = '', description = '', pageUrl = '' }) {
   const text = `${title} ${description} ${pageUrl}`.toLowerCase();
@@ -1609,9 +1552,6 @@ function slugify(input = '', maxLen = 140) {
     .slice(0, maxLen);
 }
 
-function companyKey(name = '') {
-  return slugify(name || '').slice(0, 64);
-}
 
 
 function cleanDescription(desc) {
@@ -6371,7 +6311,7 @@ async function main() {
   const extraCompanies = loadExtraCompanies();
   const companies = dedupeAndSortCompanies([...companiesFromMap, ...extraCompanies]).map((c) => ({
     ...c,
-    key: c.key || companyKey(c.name),
+    key: c.key || normalizeKey(c.name || '').slice(0, 64),
   }));
   if (companies.length === 0) {
     throw new Error('No company websites found in TicinoCompanies.tsx');
@@ -6379,11 +6319,11 @@ async function main() {
   const { selected: configuredCompanies, dropped: droppedCompanies } = applyCompanySelection(companies, crawlerConfig);
   const requestedCompanyKeys = String(process.env.JOBS_CRAWLER_COMPANY_KEYS || process.env.JOBS_CRAWLER_COMPANY_KEY || '')
     .split(',')
-    .map((x) => companyKey(x))
+    .map((x) => normalizeKey(x || '').slice(0, 64))
     .filter(Boolean);
   const excludedCompanyKeys = String(process.env.JOBS_CRAWLER_EXCLUDE_COMPANY_KEYS || process.env.JOBS_CRAWLER_EXCLUDE_COMPANY_KEY || '')
     .split(',')
-    .map((x) => companyKey(x))
+    .map((x) => normalizeKey(x || '').slice(0, 64))
     .filter(Boolean);
   const requestedSet = new Set(requestedCompanyKeys);
   const excludedSet = new Set(excludedCompanyKeys);
