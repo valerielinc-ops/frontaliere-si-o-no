@@ -4547,6 +4547,13 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/cannabis-sequestro-ticino-2026.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'svizzeri-dubitano-difesa-paese',
+    category: 'novita',
+    date: '2026-03-23T09:55:12.891Z',
+    image: '/images/blog/svizzeri-dubitano-difesa-paese.jpg',
+    hasCalculator: true,
+  },
 ];
 
 const CATEGORIES = ['all', 'fiscale', 'pratico', 'novita', 'pensione'] as const;

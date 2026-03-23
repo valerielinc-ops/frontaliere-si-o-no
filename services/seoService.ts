@@ -1701,6 +1701,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-svizzera-frontalieri-franco-lavoro': { name: 'Novità', path: '/articoli-frontaliere/svizzera-frontalieri-franco-lavoro', parent: 'blog' },
     'blog-svizzera-cern-ricerca-chip': { name: 'Ricerca sui chip', path: '/articoli-frontaliere/svizzera-cern-ricerca-chip', parent: 'blog' },
     'blog-cannabis-sequestro-ticino-2026': { name: 'Sequestro Cannabis', path: '/articoli-frontaliere/cannabis-sequestro-ticino-2026', parent: 'blog' },
+    'blog-svizzeri-dubitano-difesa-paese': { name: 'Difesa Svizzera', path: '/articoli-frontaliere/svizzeri-dubitano-difesa-paese', parent: 'blog' },
   };
 
   const info = sectionNames[section];

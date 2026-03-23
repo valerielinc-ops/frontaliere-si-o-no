@@ -1694,6 +1694,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.cannabis-sequestro-ticino-2026.title': 'Cannabis-Beschlagnahmung in Spreitenbach: Einsatz der Zürcher Kantonspolizei',
     'blog.article.cannabis-sequestro-ticino-2026.excerpt': 'Die Zürcher Kantonspolizei hat in Spreitenbach eine Hanfplantage ausgehoben und eine Tonne Cannabis sichergestellt.',
     'blog.article.cannabis-sequestro-ticino-2026.imageAlt': 'Zwei Schweizer Polizisten durchsuchen ein Gebäude in Locarno.',
+    'blog.article.svizzeri-dubitano-difesa-paese.title': 'Schweizer bezweifeln die Verteidigungsfähigkeiten des Landes',
+    'blog.article.svizzeri-dubitano-difesa-paese.excerpt': 'Über drei Viertel der Befragten bezweifeln, dass die Eidgenossenschaft ausreichend militärisch vorbereitet ist.',
+    'blog.article.svizzeri-dubitano-difesa-paese.imageAlt': 'Schweizer Bürger diskutieren die Verteidigung des Landes am Luganersee',
 };
 
 export default blogMetaDe;

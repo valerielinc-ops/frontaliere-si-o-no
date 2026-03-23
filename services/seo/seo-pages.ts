@@ -3049,7 +3049,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
         "@context": "https://schema.org",
         "@type": "ItemList",
         "name": "Articoli Frontaliere",
-        "numberOfItems": 555,
+        "numberOfItems": 556,
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
           { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -3605,7 +3605,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 552, "name": "Lavori autostradali A4 Milano-Brescia: chiusure...", "url": `${BASE_URL}/articoli-frontaliere/chiusure-notturne-a4-ticino` },
           { "@type": "ListItem", "position": 553, "name": "Svizzera: crescita più debole e inflazione in l...", "url": `${BASE_URL}/articoli-frontaliere/svizzera-frontalieri-franco-lavoro` },
           { "@type": "ListItem", "position": 554, "name": "La Svizzera ospita il ‘CERN della ricerca sui c...", "url": `${BASE_URL}/articoli-frontaliere/svizzera-cern-ricerca-chip` },
-          { "@type": "ListItem", "position": 555, "name": "Sequestro di Cannabis a Spreitenbach: Operazion...", "url": `${BASE_URL}/articoli-frontaliere/cannabis-sequestro-ticino-2026` }
+          { "@type": "ListItem", "position": 555, "name": "Sequestro di Cannabis a Spreitenbach: Operazion...", "url": `${BASE_URL}/articoli-frontaliere/cannabis-sequestro-ticino-2026` },
+          { "@type": "ListItem", "position": 556, "name": "Svizzeri dubitano delle capacità di difesa del ...", "url": `${BASE_URL}/articoli-frontaliere/svizzeri-dubitano-difesa-paese` }
         ]
       }
     ]

@@ -1694,6 +1694,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.cannabis-sequestro-ticino-2026.title': 'Cannabis Seizure in Spreitenbach: Zurich Cantonal Police Operation',
     'blog.article.cannabis-sequestro-ticino-2026.excerpt': 'The Zurich Cantonal Police dismantled a hemp plantation in Spreitenbach, seizing one ton of cannabis.',
     'blog.article.cannabis-sequestro-ticino-2026.imageAlt': 'Two Swiss police officers are searching a building in Locarno.',
+    'blog.article.svizzeri-dubitano-difesa-paese.title': 'Swiss Doubt the Country\'s Defense Capabilities',
+    'blog.article.svizzeri-dubitano-difesa-paese.excerpt': 'More than three-quarters of those surveyed doubt that the Confederation is sufficiently prepared militarily',
+    'blog.article.svizzeri-dubitano-difesa-paese.imageAlt': 'Swiss citizens discuss the defense of the country near Lake Lugano',
 };
 
 export default blogMetaEn;

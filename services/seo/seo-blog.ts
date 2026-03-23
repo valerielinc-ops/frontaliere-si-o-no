@@ -9506,6 +9506,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-svizzeri-dubitano-difesa-paese': {
+    title: 'Svizzeri dubitano delle capacità di difesa del Paese | Frontaliere Ticino',
+    description: 'Un sondaggio rivela che più di tre quarti degli svizzeri dubitano delle capacità di difesa del Paese. Scopri le misure in corso in Canton Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, svizzeri, dubitano, capacità, difesa',
+    ogTitle: 'Svizzeri dubitano delle capacità di difesa del Paese',
+    ogDescription: 'Un sondaggio rivela che più di tre quarti degli svizzeri dubitano delle capacità di difesa del Paese. Scopri le misure in corso in Canton Ticino.',
+    canonicalPath: '/articoli-frontaliere/svizzeri-dubitano-difesa-paese',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Svizzeri dubitano delle capacità di difesa del Paese",
+      "description": "Un sondaggio rivela che più di tre quarti degli svizzeri dubitano delle capacità di difesa del Paese. Scopri le misure in corso in Canton Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/svizzeri-dubitano-difesa-paese.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Citadini svizzeri discutono la difesa del paese vicino al Lago di Lugano"
+      },
+      "datePublished": "2026-03-23T09:55:12+00:00",
+      "dateModified": "2026-03-23T09:55:12+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/svizzeri-dubitano-difesa-paese`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

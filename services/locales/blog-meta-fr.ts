@@ -1694,6 +1694,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.cannabis-sequestro-ticino-2026.title': 'Saisie de cannabis à Spreitenbach: opération de la police cantonale de Zurich',
     'blog.article.cannabis-sequestro-ticino-2026.excerpt': 'La police cantonale de Zurich a démantelé une plantation de chanvre à Spreitenbach, saisissant une tonne de cannabis.',
     'blog.article.cannabis-sequestro-ticino-2026.imageAlt': 'Deux policiers suisses fouillent un bâtiment à Locarno.',
+    'blog.article.svizzeri-dubitano-difesa-paese.title': 'Les Suisses doutent des capacités de défense du pays',
+    'blog.article.svizzeri-dubitano-difesa-paese.excerpt': 'Plus de trois quarts des interrogés doutent que la Confédération soit suffisamment préparée militairement',
+    'blog.article.svizzeri-dubitano-difesa-paese.imageAlt': 'Citoyens suisses discutent de la défense du pays près du lac de Lugano',
 };
 
 export default blogMetaFr;
