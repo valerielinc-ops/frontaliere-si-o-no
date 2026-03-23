@@ -3271,8 +3271,8 @@ function modifySeoService(data) {
       "datePublished": "${publishedAt}",
       "dateModified": "${modifiedAt}",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "${BASE_URL}", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "${BASE_URL}", "logo": { "@type": "ImageObject", "url": \`\${BASE_URL}/icons/icon-512x512.png\` } },
+      "author": {"@id": "${BASE_URL}/#organization"},
+      "publisher": {"@id": "${BASE_URL}/#organization"},
       "mainEntityOfPage": \`\${BASE_URL}/articoli-frontaliere/${data.slugs.it}\`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }

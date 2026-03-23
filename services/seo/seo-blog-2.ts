@@ -28,8 +28,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-02-28T13:53:07+00:00",
       "dateModified": "2026-02-28T13:53:07+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino" , "url": "https://frontaliereticino.ch" },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/olio-chimica-produzione-ticino`
     }
   },
@@ -56,8 +56,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-02-28T14:50:37+00:00",
       "dateModified": "2026-02-28T14:50:37+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino" , "url": "https://frontaliereticino.ch" },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/incidente-mortale-frontaliere`
     }
   },
@@ -84,8 +84,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-02-28T15:45:23+00:00",
       "dateModified": "2026-02-28T15:45:23+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino" , "url": "https://frontaliereticino.ch" },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/svizzera-dovrebbe-rinunciare-mediazione`
     }
   },
@@ -112,8 +112,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-02-28T16:16:34+00:00",
       "dateModified": "2026-02-28T16:16:34+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino" , "url": "https://frontaliereticino.ch" },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/sanremo-frontalieri-impatti`
     }
   },
@@ -140,8 +140,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-02-28T16:25:31+00:00",
       "dateModified": "2026-02-28T16:25:31+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino" , "url": "https://frontaliereticino.ch" },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/lavorare-germania-educatori`
     }
   },
@@ -168,8 +168,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-02-28T16:55:46+00:00",
       "dateModified": "2026-02-28T16:55:46+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino" , "url": "https://frontaliereticino.ch" },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/porto-ceresio-lungolago-lavori`
     }
   },
@@ -196,8 +196,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-02-28T17:44:22+00:00",
       "dateModified": "2026-02-28T17:44:22+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino" , "url": "https://frontaliereticino.ch" },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/casa-hockey-ticino`
     }
   },
@@ -224,8 +224,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-02-28T19:01:56+00:00",
       "dateModified": "2026-02-28T19:01:56+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino" , "url": "https://frontaliereticino.ch" },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tassazione-individuale-svizzera`
     }
   },
@@ -252,8 +252,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-02-28T19:43:26+00:00",
       "dateModified": "2026-02-28T19:43:26+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino" , "url": "https://frontaliereticino.ch" },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/film-frontaliers-sabotage-varese`
     }
   },
@@ -280,8 +280,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-01T08:59:12+00:00",
       "dateModified": "2026-03-01T08:59:12+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino" , "url": "https://frontaliereticino.ch" },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/salario-minimo-ticino-accordo-ps`
     }
   },
@@ -308,8 +308,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-01T09:57:39+00:00",
       "dateModified": "2026-03-01T09:57:39+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino" , "url": "https://frontaliereticino.ch" },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/chiasso-fede-adulti-integrazione`
     }
   },
@@ -336,8 +336,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-01T10:09:54+00:00",
       "dateModified": "2026-03-01T10:09:54+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino" , "url": "https://frontaliereticino.ch" },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/sicurezza-confine-ticino-brogeda`
     }
   },
@@ -364,8 +364,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-01T10:32:27+00:00",
       "dateModified": "2026-03-01T10:32:27+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino" , "url": "https://frontaliereticino.ch" },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/stipendi-manager-energia-ticino`
     }
   },
@@ -392,8 +392,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-01T10:56:08+00:00",
       "dateModified": "2026-03-01T10:56:08+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino" , "url": "https://frontaliereticino.ch" },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/lavoro-educatori-germania-alternativa-frontalieri`
     }
   },
@@ -420,8 +420,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-01T11:35:22+00:00",
       "dateModified": "2026-03-01T11:35:22+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino" , "url": "https://frontaliereticino.ch" },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/gandria-lusso-immobiliare-ticino`
     }
   },
@@ -448,8 +448,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-01T11:44:50+00:00",
       "dateModified": "2026-03-01T11:44:50+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino" , "url": "https://frontaliereticino.ch" },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vandalismo-bus-ticino-frontalieri`
     }
   },
@@ -476,8 +476,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-01T13:54:26+00:00",
       "dateModified": "2026-03-01T13:54:26+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino" , "url": "https://frontaliereticino.ch" },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ticino-voto-anti-dumping-salariale`
     }
   },
@@ -504,8 +504,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-01T14:55:24+00:00",
       "dateModified": "2026-03-01T14:55:24+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino" , "url": "https://frontaliereticino.ch" },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/controlli-stradali-ticino-frontalieri-marzo-2026`
     }
   },
@@ -532,8 +532,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-01T16:07:24+00:00",
       "dateModified": "2026-03-01T16:07:24+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino" , "url": "https://frontaliereticino.ch" },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/comuni-confine-nuove-regole-fiscali`
     }
   },
@@ -560,8 +560,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-01T16:37:37+00:00",
       "dateModified": "2026-03-01T16:37:37+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino" , "url": "https://frontaliereticino.ch" },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tragedia-stradale-frontaliere-porlezza`
     }
   },
@@ -588,8 +588,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-01T16:48:27+00:00",
       "dateModified": "2026-03-01T16:48:27+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino" , "url": "https://frontaliereticino.ch" },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/chiasso-como-autostrada-a9-chiusure-notturne-cantieri`
     }
   },
@@ -616,8 +616,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-01T18:21:49+00:00",
       "dateModified": "2026-03-01T18:21:49+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino" , "url": "https://frontaliereticino.ch" },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/chiasso-comunita-evoluzione-sociale`
     }
   },
@@ -644,8 +644,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-01T18:45:12+00:00",
       "dateModified": "2026-03-01T18:45:12+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino" , "url": "https://frontaliereticino.ch" },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tragedia-pendolare-frontaliere-porletta`
     }
   },
@@ -672,8 +672,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-01T19:09:16+00:00",
       "dateModified": "2026-03-01T19:09:16+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino" , "url": "https://frontaliereticino.ch" },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/a9-como-chiasso-disagi-notturni-frontiera`
     }
   },
@@ -700,8 +700,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-01T20:12:40+00:00",
       "dateModified": "2026-03-01T20:12:40+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino" , "url": "https://frontaliereticino.ch" },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/economia-svizzera-ripresa-2026`
     }
   },
@@ -728,8 +728,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-01T20:33:06+00:00",
       "dateModified": "2026-03-01T20:33:06+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino" , "url": "https://frontaliereticino.ch" },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontalieri-nuova-mappa-fiscale-comuni-confine`
     }
   },
@@ -756,8 +756,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-01T20:47:16+00:00",
       "dateModified": "2026-03-01T20:47:16+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino" , "url": "https://frontaliereticino.ch" },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/chiusure-notturne-a9-chiasso-como-marzo-frontalieri`
     }
   },
@@ -784,8 +784,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-01T21:09:14+00:00",
       "dateModified": "2026-03-01T21:09:14+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino" , "url": "https://frontaliereticino.ch" },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/chiusura-notturna-a9-chiasso-como-frontalieri`
     }
   },
@@ -812,8 +812,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-01T21:48:11+00:00",
       "dateModified": "2026-03-01T21:48:11+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino" , "url": "https://frontaliereticino.ch" },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/chiusure-a9-trasporti-speciali-como-chiasso`
     }
   },
@@ -840,8 +840,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-01T22:10:14+00:00",
       "dateModified": "2026-03-01T22:10:14+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino" , "url": "https://frontaliereticino.ch" },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/iniziativa-salari-ticino-voto-anti-dumping`
     }
   },
@@ -868,8 +868,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-01T22:29:48+00:00",
       "dateModified": "2026-03-01T22:29:48+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino" , "url": "https://frontaliereticino.ch" },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/dumping-salariale-ticino-voto-frontalieri`
     }
   },
@@ -896,8 +896,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-01T22:56:19+00:00",
       "dateModified": "2026-03-01T22:56:19+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino" , "url": "https://frontaliereticino.ch" },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/scontro-fatale-porlezza-frontaliere`
     }
   },
@@ -924,8 +924,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-01T23:18:17+00:00",
       "dateModified": "2026-03-01T23:18:17+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino" , "url": "https://frontaliereticino.ch" },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontalieri-confine-disparita-fiscale`
     }
   },
@@ -952,8 +952,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-01T23:45:46+00:00",
       "dateModified": "2026-03-01T23:45:46+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino" , "url": "https://frontaliereticino.ch" },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/iniziativa-anti-dumping-salari-ticino-voto`
     }
   },
@@ -980,8 +980,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-02T01:17:57+00:00",
       "dateModified": "2026-03-02T01:17:57+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino" , "url": "https://frontaliereticino.ch" },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/nestle-bonus-lombardia-welfare-frontalieri`
     }
   },
@@ -1008,8 +1008,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-02T04:17:25+00:00",
       "dateModified": "2026-03-02T04:17:25+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino" , "url": "https://frontaliereticino.ch" },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/a9-chiasso-como-chiusure-notturne-cantieri`
     }
   },
@@ -1036,8 +1036,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-02T05:26:02+00:00",
       "dateModified": "2026-03-02T05:26:02+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino" , "url": "https://frontaliereticino.ch" },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/mercato-lavoro-ticino-rallenta-2025`
     }
   },
@@ -1064,8 +1064,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-02T05:54:09+00:00",
       "dateModified": "2026-03-02T05:54:09+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino" , "url": "https://frontaliereticino.ch" },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/comuni-frontiera-nuove-regole-fiscali`
     }
   },
@@ -1092,8 +1092,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-02T06:31:44+00:00",
       "dateModified": "2026-03-02T06:31:44+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino" , "url": "https://frontaliereticino.ch" },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/franco-forte-impatto-frontalieri`
     }
   },
@@ -1120,8 +1120,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-02T06:53:59+00:00",
       "dateModified": "2026-03-02T06:53:59+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino" , "url": "https://frontaliereticino.ch" },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tragedia-frontaliere-porlezza-via-ceresio`
     }
   },
@@ -1148,8 +1148,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-02T07:03:43+00:00",
       "dateModified": "2026-03-02T07:03:43+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino" , "url": "https://frontaliereticino.ch" },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/chiusure-notturne-a9-frontalieri`
     }
   },
@@ -1176,8 +1176,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-02T07:29:12+00:00",
       "dateModified": "2026-03-02T07:29:12+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino" , "url": "https://frontaliereticino.ch" },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/salario-minimo-compromesso-ps-ticino`
     }
   },
@@ -1204,8 +1204,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-02T07:52:00+00:00",
       "dateModified": "2026-03-02T07:52:00+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino" , "url": "https://frontaliereticino.ch" },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/compromesso-salario-minimo-condizioni`
     }
   },
@@ -1232,8 +1232,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-02T08:07:09+00:00",
       "dateModified": "2026-03-02T08:07:09+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino" , "url": "https://frontaliereticino.ch" },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/chiasso-comunita-cambiamento-valori`
     }
   },
@@ -1260,8 +1260,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-02T08:20:07+00:00",
       "dateModified": "2026-03-02T08:20:07+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino" , "url": "https://frontaliereticino.ch" },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/pendolarismo-fatale-frontaliere-porlezza`
     }
   },
@@ -1288,8 +1288,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-02T08:32:27+00:00",
       "dateModified": "2026-03-02T08:32:27+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino" , "url": "https://frontaliereticino.ch" },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/salario-minimo-ticino-trattative-compromesso`
     }
   },
@@ -1316,8 +1316,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-02T09:01:11+00:00",
       "dateModified": "2026-03-02T09:01:11+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino" , "url": "https://frontaliereticino.ch" },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/trevano-campus-riqualifica-12-milioni-lavori`
     }
   },
@@ -1344,8 +1344,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-02T09:21:13+00:00",
       "dateModified": "2026-03-02T09:21:13+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino" , "url": "https://frontaliereticino.ch" },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/lavena-ponte-tresa-nuovo-sagrato-chiesa`
     }
   },
@@ -1372,8 +1372,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-02T09:43:02+00:00",
       "dateModified": "2026-03-02T09:43:02+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino" , "url": "https://frontaliereticino.ch" },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/sportello-lavoro-varese-frontalieri-ticino`
     }
   },
@@ -1400,8 +1400,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-02T10:14:54+00:00",
       "dateModified": "2026-03-02T10:14:54+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino" , "url": "https://frontaliereticino.ch" },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/controlli-stradali-intensivi-frontiera-ticino`
     }
   },
@@ -1428,8 +1428,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-02T10:24:07+00:00",
       "dateModified": "2026-03-02T10:24:07+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino" , "url": "https://frontaliereticino.ch" },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/settimana-di-controlli-radar-intensivi-confine-ticino-marzo`
     }
   },
@@ -1456,8 +1456,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-02T11:11:03+00:00",
       "dateModified": "2026-03-02T11:11:03+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino" , "url": "https://frontaliereticino.ch" },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/controlli-frontiera-ticino-rafforzati`
     }
   },
@@ -1484,8 +1484,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-02T11:30:02+00:00",
       "dateModified": "2026-03-02T11:30:02+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino" , "url": "https://frontaliereticino.ch" },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/lavori-risanamento-a13-cadenazzo-2026`
     }
   },
@@ -1512,8 +1512,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-02T12:42:37+00:00",
       "dateModified": "2026-03-02T12:42:37+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino" , "url": "https://frontaliereticino.ch" },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/salario-minimo-ticino-intesa-storica`
     }
   },
@@ -1540,8 +1540,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-02T13:02:20+00:00",
       "dateModified": "2026-03-02T13:02:20+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino" , "url": "https://frontaliereticino.ch" },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/sicurezza-stradale-ticino-marzo`
     }
   },
@@ -1568,8 +1568,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-02T13:23:18+00:00",
       "dateModified": "2026-03-02T13:23:18+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino" , "url": "https://frontaliereticino.ch" },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/a13-cantieri-frontalieri-ticino`
     }
   },
@@ -1596,8 +1596,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-02T15:52:24+00:00",
       "dateModified": "2026-03-02T15:52:24+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino" , "url": "https://frontaliereticino.ch" },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/bns-utile-calo-2025-impatto-ticino`
     }
   },
@@ -1624,8 +1624,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-02T17:34:53+00:00",
       "dateModified": "2026-03-02T17:34:53+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino" , "url": "https://frontaliereticino.ch" },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/polizia-cantonale-nuovi-gendarmi`
     }
   },
@@ -1652,8 +1652,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-02T18:19:47+00:00",
       "dateModified": "2026-03-02T18:19:47+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino" , "url": "https://frontaliereticino.ch" },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/competenze-tecniche-frontalieri-ticino`
     }
   },
@@ -1680,8 +1680,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-02T18:42:09+00:00",
       "dateModified": "2026-03-02T18:42:09+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino" , "url": "https://frontaliereticino.ch" },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/polizia-cantonale-reclutamento-2026`
     }
   },
@@ -1708,8 +1708,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-02T19:17:12+00:00",
       "dateModified": "2026-03-02T19:17:12+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino" , "url": "https://frontaliereticino.ch" },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/mercato-auto-febbraio-2026`
     }
   },
@@ -1736,8 +1736,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-02T19:35:31+00:00",
       "dateModified": "2026-03-02T19:35:31+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino" , "url": "https://frontaliereticino.ch" },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/como-nuovi-poliziotti-2026`
     }
   },
@@ -1764,8 +1764,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-02T19:56:10+00:00",
       "dateModified": "2026-03-02T19:56:10+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino" , "url": "https://frontaliereticino.ch" },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/sesto-calende-sicurezza-frontalieri`
     }
   },
@@ -1792,8 +1792,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-02T20:23:12+00:00",
       "dateModified": "2026-03-02T20:23:12+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino" , "url": "https://frontaliereticino.ch" },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/nessun-prelievo-avs-sulle-mance`
     }
   },
@@ -1820,8 +1820,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-02T21:09:04+00:00",
       "dateModified": "2026-03-02T21:09:04+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino" , "url": "https://frontaliereticino.ch" },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/imposizione-individuale-donne-ticino`
     }
   },
@@ -1848,8 +1848,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-02T21:37:28+00:00",
       "dateModified": "2026-03-02T21:37:28+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino" , "url": "https://frontaliereticino.ch" },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tassa-salute-frontalieri-vantaggio-ticino`
     }
   },
@@ -1876,8 +1876,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-02T21:59:50+00:00",
       "dateModified": "2026-03-02T21:59:50+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino" , "url": "https://frontaliereticino.ch" },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/docenti-frontalieri-permesso-lavoro`
     }
   },
@@ -1904,8 +1904,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-02T22:16:35+00:00",
       "dateModified": "2026-03-02T22:16:35+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino" , "url": "https://frontaliereticino.ch" },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/iniziativa-anti-dumping-ticino-2026`
     }
   },
@@ -1932,8 +1932,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-02T22:48:09+00:00",
       "dateModified": "2026-03-02T22:48:09+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino" , "url": "https://frontaliereticino.ch" },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/comuni-confine-fiscalita-disparita`
     }
   },
@@ -1960,8 +1960,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-02T23:01:10+00:00",
       "dateModified": "2026-03-02T23:01:10+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino" , "url": "https://frontaliereticino.ch" },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/svizzera-ue-pacchetto-accordi`
     }
   },
@@ -1988,8 +1988,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-02T23:22:43+00:00",
       "dateModified": "2026-03-02T23:22:43+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino" , "url": "https://frontaliereticino.ch" },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tassa-salute-berna-ticino`
     }
   },
@@ -2016,8 +2016,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-02T23:53:59+00:00",
       "dateModified": "2026-03-02T23:53:59+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino" , "url": "https://frontaliereticino.ch" },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tassa-salute-svizzera-vantaggio`
     }
   },
@@ -2044,8 +2044,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-03T04:45:59+00:00",
       "dateModified": "2026-03-03T04:45:59+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino" , "url": "https://frontaliereticino.ch" },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ai-lombardia-impatto-ticino`
     }
   },
@@ -2072,8 +2072,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-03T05:10:59+00:00",
       "dateModified": "2026-03-03T05:10:59+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino" , "url": "https://frontaliereticino.ch" },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/crisi-golfo-carburanti-ticino`
     }
   },
@@ -2100,8 +2100,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-03T05:38:48+00:00",
       "dateModified": "2026-03-03T05:38:48+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino" , "url": "https://frontaliereticino.ch" },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/rincari-benzina-frontalieri-ticino`
     }
   },
@@ -2128,8 +2128,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-03T06:15:45+00:00",
       "dateModified": "2026-03-03T06:15:45+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino" , "url": "https://frontaliereticino.ch" },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/crisi-olio-prezzi-benzina-ticino`
     }
   },
@@ -2156,8 +2156,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-03T06:26:08+00:00",
       "dateModified": "2026-03-03T06:26:08+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino" , "url": "https://frontaliereticino.ch" },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/benzina-ticino-oriente`
     }
   },
@@ -2184,8 +2184,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-03T06:42:20+00:00",
       "dateModified": "2026-03-03T06:42:20+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino" , "url": "https://frontaliereticino.ch" },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ai-lombardia-ticino-frontaliere-2026`
 
     }
@@ -2213,8 +2213,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-03T08:38:23+00:00",
       "dateModified": "2026-03-03T08:38:23+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino" , "url": "https://frontaliereticino.ch" },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/carpooling-ticino-corsie-frontaliere-2026`
     }
   },
@@ -2241,8 +2241,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-03T08:52:06+00:00",
       "dateModified": "2026-03-03T08:52:06+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino" , "url": "https://frontaliereticino.ch" },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tassa-salute-frontalieri-governo-svizzero`
     }
   },
@@ -2269,8 +2269,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-03T09:15:24+00:00",
       "dateModified": "2026-03-03T09:15:24+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/kuhne-nagel-tagli-posti-ticino-2026`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
@@ -2298,8 +2298,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-03T10:05:27+00:00",
       "dateModified": "2026-03-03T10:05:27+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vini-ticinesi-collaborazione`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
@@ -2327,8 +2327,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-03T10:45:58+00:00",
       "dateModified": "2026-03-03T10:45:58+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/hockey-chiasso-wild-boars-bis`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
@@ -2356,8 +2356,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-03T11:32:33+00:00",
       "dateModified": "2026-03-03T11:32:33+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/svincolo-a2-biasca-rischi-frontaliere`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
@@ -2385,8 +2385,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-03T12:07:44+00:00",
       "dateModified": "2026-03-03T12:07:44+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/accordi-svizzera-ue-parmelin-bruxelles`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
@@ -2414,8 +2414,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-03T13:07:32+00:00",
       "dateModified": "2026-03-03T13:07:32+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/lavori-linea-locarno-cadenazzo-2026`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
@@ -2443,8 +2443,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-03T13:39:09+00:00",
       "dateModified": "2026-03-03T13:39:09+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/spirit-varesini-valico-tassa-2026`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
@@ -2472,8 +2472,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-08T17:03:19+00:00",
       "dateModified": "2026-03-08T17:03:19+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/dumping-salariale-ticino-no-iniziativa`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
@@ -2501,8 +2501,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-08T19:05:48+00:00",
       "dateModified": "2026-03-08T19:05:48+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/incidente-viadotto-brogeda-como`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
@@ -2530,8 +2530,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-08T21:04:20+00:00",
       "dateModified": "2026-03-08T21:04:20+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/iniziativa-contro-dumping-ticino`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
@@ -2559,8 +2559,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-08T21:54:21+00:00",
       "dateModified": "2026-03-08T21:54:21+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/dumping-salariale-iniziativa-mps`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
@@ -2588,8 +2588,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-08T23:01:39+00:00",
       "dateModified": "2026-03-08T23:01:39+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/imposizione-individuale-rivoluzione-fiscale`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
@@ -2617,8 +2617,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-08T23:59:47+00:00",
       "dateModified": "2026-03-08T23:59:47+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/svizzera-servizio-pubblico-canone-tv`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
@@ -2646,8 +2646,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-09T05:29:39+00:00",
       "dateModified": "2026-03-09T05:29:39+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/votazioni-federali-tassazione-individuale`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
@@ -2675,8 +2675,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-09T08:04:18+00:00",
       "dateModified": "2026-03-09T08:04:18+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/universita-ticino-frontalieri`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
@@ -2704,8 +2704,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-09T17:22:58+00:00",
       "dateModified": "2026-03-09T17:22:58+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/franco-svizzero-frontalieri-ricchi-2026`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
@@ -2733,8 +2733,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-09T17:41:19+00:00",
       "dateModified": "2026-03-09T17:41:19+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/energia-costi-ticino-rincari-2026`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
@@ -2762,8 +2762,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-09T20:02:22+00:00",
       "dateModified": "2026-03-09T20:02:22+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ticino-carburante-alle-stelle-quadri-berna-riduca-tasse`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
@@ -2791,8 +2791,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-09T21:11:13+00:00",
       "dateModified": "2026-03-09T21:11:13+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/un-test-per-dare-un-nome-al-dolore`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
@@ -2820,8 +2820,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-09T23:08:47+00:00",
       "dateModified": "2026-03-09T23:08:47+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/aumentare-gia-il-prezzo-della-benzina`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
@@ -2849,8 +2849,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-10T00:03:12+00:00",
       "dateModified": "2026-03-10T00:03:12+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/furti-supermercati-ponte-tresa`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
@@ -2878,8 +2878,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-10T05:05:56+00:00",
       "dateModified": "2026-03-10T05:05:56+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ladri-intercettati-lavena-ponte-tresa`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
@@ -2907,8 +2907,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-10T07:33:26+00:00",
       "dateModified": "2026-03-10T07:33:26+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/dumping-salariale-ticino-no`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
@@ -2936,8 +2936,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-10T10:09:52+00:00",
       "dateModified": "2026-03-10T10:09:52+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/sospensione-costi-utenti-ticino`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
@@ -2965,8 +2965,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-10T12:03:12+00:00",
       "dateModified": "2026-03-10T12:03:12+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/investimento-pedone-bioggio`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
@@ -2994,8 +2994,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-10T14:42:02+00:00",
       "dateModified": "2026-03-10T14:42:02+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/sicurezza-stazioni-treni-ticino-2026`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
@@ -3023,8 +3023,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-10T17:41:02+00:00",
       "dateModified": "2026-03-10T17:41:02+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tir-colonna-disagi-valico-brogeda`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
@@ -3052,8 +3052,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-10T19:57:37+00:00",
       "dateModified": "2026-03-10T19:57:37+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/iniziative-cassa-malati-costituzionalista-ticino`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
@@ -3081,8 +3081,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-10T21:07:05+00:00",
       "dateModified": "2026-03-10T21:07:05+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/investimenti-sicurezza-turismo-valsolda-26`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
@@ -3110,8 +3110,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-10T23:02:11+00:00",
       "dateModified": "2026-03-10T23:02:11+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/premio-la-rondine-2026-ticino`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
@@ -3139,8 +3139,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-10T23:57:24+00:00",
       "dateModified": "2026-03-10T23:57:24+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tassi-ipotecari-ticino-medio-oriente-2026`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
@@ -3168,8 +3168,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-11T05:06:52+00:00",
       "dateModified": "2026-03-11T05:06:52+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/aumento-export-bellico-svizzero-ticino`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
@@ -3197,8 +3197,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-11T08:08:50+00:00",
       "dateModified": "2026-03-11T08:08:50+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/assicurazione-auto-rincari-2026`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
@@ -3226,8 +3226,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-11T10:16:30+00:00",
       "dateModified": "2026-03-11T10:16:30+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ticino-biglietti-senza-contanti`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
@@ -3255,8 +3255,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-11T12:16:45+00:00",
       "dateModified": "2026-03-11T12:16:45+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/aziende-como-assumono-lavoratori`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
@@ -3284,8 +3284,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-11T14:56:52+00:00",
       "dateModified": "2026-03-11T14:56:52+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/a2-giornico-cantiere-disagi-frontalieri`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
@@ -3313,8 +3313,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-11T17:48:13+00:00",
       "dateModified": "2026-03-11T17:48:13+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tassa-traffico-pesante-camion-elettrici`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
@@ -3342,8 +3342,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-11T20:01:10+00:00",
       "dateModified": "2026-03-11T20:01:10+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/logistica-sostenibile-a22`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
@@ -3371,8 +3371,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-11T21:10:14+00:00",
       "dateModified": "2026-03-11T21:10:14+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/problemi-rotaia-bellinzona-lugano`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
@@ -3400,8 +3400,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-11T23:00:52+00:00",
       "dateModified": "2026-03-11T23:00:52+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/carpooling-aziendale-ticino`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
@@ -3429,8 +3429,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-11T23:59:02+00:00",
       "dateModified": "2026-03-11T23:59:02+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/energia-ets-von-der-leyen`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
@@ -3458,8 +3458,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-12T05:10:57+00:00",
       "dateModified": "2026-03-12T05:10:57+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/permesso-g-apprendisti-frontali`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
@@ -3487,8 +3487,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-12T08:15:36+00:00",
       "dateModified": "2026-03-12T08:15:36+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/assegni-familiari-frontalieri-ticino`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
@@ -3516,8 +3516,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-12T10:24:00+00:00",
       "dateModified": "2026-03-12T10:24:00+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/dagatra-incontro-migranti-chiasso`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
@@ -3545,8 +3545,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-12T17:43:54+00:00",
       "dateModified": "2026-03-12T17:43:54+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ufficio-postale-chiasso-trasloco`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
@@ -3574,8 +3574,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-12T20:04:30+00:00",
       "dateModified": "2026-03-12T20:04:30+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/confine-tesissimo-assegni-familiari`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
@@ -3603,8 +3603,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-12T21:11:40+00:00",
       "dateModified": "2026-03-12T21:11:40+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/chiasso-jazz-festival-2026`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
@@ -3632,8 +3632,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-12T23:06:54+00:00",
       "dateModified": "2026-03-12T23:06:54+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/apprendisti-frontalieri-riforma-permesso-g`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
@@ -3661,8 +3661,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-12T23:58:37+00:00",
       "dateModified": "2026-03-12T23:58:37+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/chiasso-piano-regolatore-telefonia`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
@@ -3690,8 +3690,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-13T05:09:19+00:00",
       "dateModified": "2026-03-13T05:09:19+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/pensione-et-ticino-sentiero`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
@@ -3719,8 +3719,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-13T08:07:04+00:00",
       "dateModified": "2026-03-13T08:07:04+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/paradosso-ticino-lavoro`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
@@ -3748,8 +3748,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-13T10:07:51+00:00",
       "dateModified": "2026-03-13T10:07:51+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/lavena-ponte-tresa-giro-spaccio`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
@@ -3777,8 +3777,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-13T11:52:37+00:00",
       "dateModified": "2026-03-13T11:52:37+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontalieri-ticino-decreto-omnibus`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
@@ -3806,8 +3806,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-13T14:35:03+00:00",
       "dateModified": "2026-03-13T14:35:03+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/apertura-pesca-ticino`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
@@ -3835,8 +3835,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-13T17:44:42+00:00",
       "dateModified": "2026-03-13T17:44:42+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/cassa-malati-franchigia-minima-ticino`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
@@ -3864,8 +3864,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-13T19:52:14+00:00",
       "dateModified": "2026-03-13T19:52:14+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontalieri-tassa-salute-ritiro`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
@@ -3893,8 +3893,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-13T20:31:24+00:00",
       "dateModified": "2026-03-13T20:31:24+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/trin-tunnel-grave-frontalieri`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
@@ -3922,8 +3922,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-13T21:29:50+00:00",
       "dateModified": "2026-03-13T21:29:50+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/chiasso-verde-sufficiente`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
@@ -3951,8 +3951,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-13T22:26:58+00:00",
       "dateModified": "2026-03-13T22:26:58+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/comitati-malpensa-cuv-2026`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
@@ -3980,8 +3980,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-13T23:25:47+00:00",
       "dateModified": "2026-03-13T23:25:47+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/borsa-di-zurigo-sprazzi-qu-c3-a0-l-27umor-grigio-resta`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
@@ -4009,8 +4009,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-14T01:25:04+00:00",
       "dateModified": "2026-03-14T01:25:04+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/iran-tajani-non-tratta-navi`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
@@ -4038,8 +4038,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-14T04:10:54+00:00",
       "dateModified": "2026-03-14T04:10:54+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/accordi-bilaterali-3-parlamento`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
@@ -4067,8 +4067,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-14T05:50:27+00:00",
       "dateModified": "2026-03-14T05:50:27+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/viaggio-delle-batterie-verso-seconda-vita`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
@@ -4096,8 +4096,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-14T06:42:07+00:00",
       "dateModified": "2026-03-14T06:42:07+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/bilaterali-iii-parlamento-ticino-2026`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
@@ -4125,8 +4125,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-14T07:35:43+00:00",
       "dateModified": "2026-03-14T07:35:43+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/affitti-rialzo-crisi-ticino-2026`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
@@ -4154,8 +4154,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-14T08:31:53+00:00",
       "dateModified": "2026-03-14T08:31:53+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/bilaterali-iii-ticino-parlamento-2026`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
@@ -4183,8 +4183,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-14T09:31:01+00:00",
       "dateModified": "2026-03-14T09:31:01+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/truffa-lavoro-svizzera-anticipo-2026`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
@@ -4212,8 +4212,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-14T10:25:32+00:00",
       "dateModified": "2026-03-14T10:25:32+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ticino-carburanti-prezzo-potere-acquisto`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
@@ -4241,8 +4241,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-14T11:39:29+00:00",
       "dateModified": "2026-03-14T11:39:29+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/aumento-franchigia-minima`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
@@ -4270,8 +4270,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-14T17:34:47+00:00",
       "dateModified": "2026-03-14T17:34:47+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ticino-swissminiatur-inaugura-miniera-doro-sessa`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
@@ -4299,8 +4299,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-14T18:31:29+00:00",
       "dateModified": "2026-03-14T18:31:29+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/lavena-ponte-tresa-addio-antonio-cannavale`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
@@ -4328,8 +4328,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-14T19:25:28+00:00",
       "dateModified": "2026-03-14T19:25:28+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/gravincidente-stradale-regina-feriti`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
@@ -4357,8 +4357,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-14T20:24:20+00:00",
       "dateModified": "2026-03-14T20:24:20+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/scende-limite-nevicate-ticino`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
@@ -4386,8 +4386,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-14T21:24:38+00:00",
       "dateModified": "2026-03-14T21:24:38+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ticino-no-anti-dumping`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
@@ -4415,8 +4415,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-14T22:23:51+00:00",
       "dateModified": "2026-03-14T22:23:51+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/chiusa-val-bedretto`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
@@ -4444,8 +4444,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-14T23:24:29+00:00",
       "dateModified": "2026-03-14T23:24:29+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/un-passaporto-di-fedelt`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
@@ -4473,8 +4473,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-15T01:50:21+00:00",
       "dateModified": "2026-03-15T01:50:21+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/baseball-italia-porto-rico-world-classic`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
@@ -4502,8 +4502,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-15T04:31:21+00:00",
       "dateModified": "2026-03-15T04:31:21+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/chiusure-autostrada-confine-ticino-2026`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
@@ -4531,8 +4531,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-15T06:18:06+00:00",
       "dateModified": "2026-03-15T06:18:06+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/swissminiatur-miniera-doro-sessa`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
@@ -4560,8 +4560,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-15T07:50:20+00:00",
       "dateModified": "2026-03-15T07:50:20+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/sondaggio-tamedia-iva-esercito-avs`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
@@ -4589,8 +4589,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-15T08:50:44+00:00",
       "dateModified": "2026-03-15T08:50:44+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/iran-conflitto-rincari-ticino`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
@@ -4618,8 +4618,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-15T09:51:02+00:00",
       "dateModified": "2026-03-15T09:51:02+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/inverno-ticino-nevicate-2026`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
@@ -4647,8 +4647,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-15T11:25:53+00:00",
       "dateModified": "2026-03-15T11:25:53+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/franchigia-minima-sanitario-ticino`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
@@ -4676,8 +4676,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-15T12:41:17+00:00",
       "dateModified": "2026-03-15T12:41:17+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/svizzera-recessione-cieslakiewicz`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
@@ -4705,8 +4705,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-15T13:50:21+00:00",
       "dateModified": "2026-03-15T13:50:21+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/valanghe-allerta-livello-4-ticino`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
@@ -4734,8 +4734,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-15T14:32:27+00:00",
       "dateModified": "2026-03-15T14:32:27+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/nevicate-strade-bloccate-ticino`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
@@ -4763,8 +4763,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-15T15:29:43+00:00",
       "dateModified": "2026-03-15T15:29:43+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/bilaterali-terza-fase-parlamento-ticino`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
@@ -4792,8 +4792,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-15T16:48:29+00:00",
       "dateModified": "2026-03-15T16:48:29+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/cane-morto-binarie-campo-calcio`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
@@ -4821,8 +4821,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-15T17:40:16+00:00",
       "dateModified": "2026-03-15T17:40:16+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/swissminiatur-miniera-sessa-2026`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
@@ -4850,8 +4850,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-15T18:59:29+00:00",
       "dateModified": "2026-03-15T18:59:29+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/crescita-misera-libera-circolazione`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
@@ -4879,8 +4879,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-15T19:50:07+00:00",
       "dateModified": "2026-03-15T19:50:07+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/treni-varese-milano-ceresio-express`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
@@ -4903,8 +4903,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-15T20:00:00+01:00",
       "inLanguage": "it",
       "articleSection": "Pratico",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}` },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL, "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"}` },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/guida-cambio-franco-euro-frontaliere`
     }
   },
@@ -4925,8 +4925,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-15T20:01:00+01:00",
       "inLanguage": "it",
       "articleSection": "Pensione",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}` },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL, "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"}` },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/guida-pensione-frontaliere-avs-lpp`
     }
   },
@@ -4947,8 +4947,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-15T20:02:00+01:00",
       "inLanguage": "it",
       "articleSection": "Pratico",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}` },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL, "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"}` },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-svizzera-vs-italia-frontaliere`
     }
   },
@@ -4969,8 +4969,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-15T20:03:00+01:00",
       "inLanguage": "it",
       "articleSection": "Fiscale",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}` },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL, "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"}` },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/dumping-salariale-diritti-lavoratore-ticino`
     }
   },
@@ -4991,8 +4991,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-15T20:04:00+01:00",
       "inLanguage": "it",
       "articleSection": "Pratico",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}` },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL, "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"}` },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/malattia-frontaliere-guida-assicurazione`
     }
   },
@@ -5013,8 +5013,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-15T20:05:00+01:00",
       "inLanguage": "it",
       "articleSection": "Pratico",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}` },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": BASE_URL, "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"}` },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/strumenti-frontaliere-guida-comparatori`
     }
   },
@@ -5041,8 +5041,8 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "datePublished": "2026-03-15T20:50:49+00:00",
       "dateModified": "2026-03-15T20:50:49+00:00",
       "inLanguage": "it",
-      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
-      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"} },
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/caro-carburante-benzina-ticino`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
 

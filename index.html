@@ -728,14 +728,56 @@
 
     <!-- Structured Data (JSON-LD) for Google Rich Results -->
 
+    <!-- Organization Schema — standalone entity for Knowledge Panel + E-E-A-T (FRO-307) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "@id": "https://frontaliereticino.ch/#organization",
+      "name": "Frontaliere Ticino",
+      "url": "https://frontaliereticino.ch",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://frontaliereticino.ch/icons/icon-512x512.png",
+        "width": 512,
+        "height": 512
+      },
+      "image": "https://frontaliereticino.ch/icons/icon-512x512.png",
+      "foundingDate": "2023",
+      "description": "Piattaforma informativa per frontalieri italiani in Svizzera: tassazione, permessi, lavoro, sanità e aggiornamenti normativi.",
+      "sameAs": [
+        "https://www.facebook.com/profile.php?id=61588174947294"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "customer support",
+        "url": "https://frontaliereticino.ch/chi-siamo/"
+      },
+      "knowsAbout": [
+        "Tassazione frontalieri Italia-Svizzera",
+        "Imposta alla fonte Canton Ticino",
+        "IRPEF frontalieri",
+        "Permesso G frontalieri",
+        "LAMal assicurazione malattia Svizzera",
+        "AVS LPP previdenza svizzera",
+        "Cambio CHF EUR",
+        "Mercato del lavoro Ticino",
+        "Accordi bilaterali Svizzera-UE",
+        "Dumping salariale Svizzera"
+      ]
+    }
+    </script>
+
     <!-- WebSite Schema — enables sitelinks searchbox (inline for immediate crawler access) -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "WebSite",
+      "@id": "https://frontaliereticino.ch/#website",
       "name": "Frontaliere Ticino",
       "alternateName": ["Frontaliere Ticino", "Simulatore Fiscale Frontalieri"],
       "url": "https://frontaliereticino.ch",
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "description": "Strumento completo per frontalieri Svizzera-Italia: simulatore fiscale, pensione, cambio valuta, assicurazioni e guida pratica.",
       "inLanguage": ["it", "en", "de", "fr"],
       "potentialAction": {
@@ -762,7 +804,7 @@
       "description": "Strumento completo per il calcolo e il confronto della tassazione per i lavoratori frontalieri tra Svizzera e Italia secondo il nuovo accordo 2026. Include simulatore fiscale, pianificatore pensione LPP/AVS/INPS e guida pratica con informazioni su comuni frontalieri, varchi doganali e costi.",
       "featureList": ["Calcolo Imposta alla Fonte Svizzera (aliquote 2026 Canton Ticino)","Calcolo IRPEF Italia con franchigia €10.000","Confronto Vecchio vs Nuovo Frontaliere 2026","Pianificatore Pensione (LPP, AVS, INPS, 3° Pilastro)","Cambio CHF/EUR in tempo reale","Confronto assicurazioni sanitarie LAMal (14 assicuratori, 7 cantoni)","Guida 200+ comuni frontalieri","Informazioni varchi doganali e tempi di attesa","Confronto costi vita CH vs IT","Calcolatore costi trasporto","Calendario fiscale"],
       "screenshot": "https://frontaliereticino.ch/og-image.png",
-      "author": {"@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch"},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "inLanguage": ["it-IT", "en-US", "de-CH", "fr-CH"]
     }
     </script>
@@ -783,7 +825,7 @@
       "description": "App PWA gratuita per il calcolo stipendio netto, tasse, pensione e assicurazione per lavoratori frontalieri Svizzera-Italia. Installabile su qualsiasi dispositivo.",
       "screenshot": "https://frontaliereticino.ch/og-image.png",
       "featureList": ["Calcolo stipendio netto frontaliere", "Simulazione imposta alla fonte", "Pianificatore pensione AVS/LPP", "Confronto assicurazioni LAMal", "Tasso di cambio CHF-EUR in tempo reale", "Funziona offline come app installata"],
-      "author": {"@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch"}
+      "author": {"@id": "https://frontaliereticino.ch/#organization"}
     }
     </script>
 

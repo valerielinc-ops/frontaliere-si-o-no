@@ -58,43 +58,15 @@ const DEFAULT_DATASET_LICENSE = 'https://creativecommons.org/licenses/by-nc/4.0/
  * Using Organization with expert-level knowsAbout signals.
  * Reused across all structured data to ensure consistency.
  */
+// FRO-307: Use @id reference to the standalone Organization in index.html
+// instead of duplicating the full Organization object in every NewsArticle.
+// This reduces JSON-LD size and ensures Google links all schemas to a single entity.
 export const SCHEMA_AUTHOR = {
-  "@type": "Organization",
-  "name": "Frontaliere Ticino",
-  "url": BASE_URL,
-  "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` },
-  "foundingDate": "2023",
-  "description": "Piattaforma informativa di riferimento per i lavoratori frontalieri italiani in Ticino: tassazione, permessi, sanità, previdenza, lavoro e aggiornamenti normativi.",
-  "sameAs": [
-    "https://www.facebook.com/profile.php?id=61588174947294",
-    "https://www.linkedin.com/company/frontaliere-ticino",
-  ],
-  "contactPoint": {
-    "@type": "ContactPoint",
-    "contactType": "customer support",
-    "url": `${BASE_URL}/contattaci`,
-  },
-  "knowsAbout": [
-    "Cross-border worker taxation Italy-Switzerland",
-    "Swiss withholding tax (imposta alla fonte)",
-    "Italian IRPEF for frontalieri",
-    "IRPEF frontalieri nuova convenzione 2024",
-    "LAMal health insurance",
-    "Swiss pension system AVS/LPP",
-    "CHF-EUR exchange rates",
-    "Canton Ticino employment law",
-    "Bilateral agreements Switzerland-EU",
-    "Frontalieri Ticino Lombardia Piemonte",
-    "Dichiarazione dei redditi frontalieri",
-    "Assegni familiari Svizzera frontalieri",
-  ]
+  "@id": `${BASE_URL}/#organization`,
 } as const;
 
 export const SCHEMA_PUBLISHER = {
-  "@type": "Organization",
-  "name": "Frontaliere Ticino",
-  "url": BASE_URL,
-  "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` }
+  "@id": `${BASE_URL}/#organization`,
 } as const;
 
 /**
