@@ -830,16 +830,21 @@ export function hardenJobLocaleFields({ dataJobsPath }) {
       }
       // Re-derive slug from current title when the existing slug is stale.
       // Covers both source locale (title updated by company) and non-source
-      // locales (slug still matches untranslated base).
+      // locales (slug still matches untranslated base or contains foreign words).
       {
         const existingSlug = String(job.slugByLocale[locale] || '').trim();
         const localizedTitle = String(job.titleByLocale[locale] || '').trim();
         const isSourceLocale = locale === titleSourceLang;
+        // FRO-284: Detect foreign words in slug (e.g. German compound words in IT slug)
+        // German compound words are typically 15+ chars without hyphens
+        const FOREIGN_WORD_PATTERN = /(?:^|-)([a-z]{15,})(?:-|$)/;
+        const hasForeignWord = !isSourceLocale && existingSlug && FOREIGN_WORD_PATTERN.test(existingSlug);
         const isStaleSlug = isSourceLocale
           // Source locale: re-derive if slug doesn't start with a slug-ified prefix of current title
           ? existingSlug && localizedTitle && !slugMatchesTitle(existingSlug, localizedTitle)
-          // Non-source locale: re-derive if slug still equals the untranslated base
-          : existingSlug && existingSlug === baseSlug && localizedTitle && localizedTitle !== baseTitle;
+          // Non-source locale: re-derive if slug matches untranslated base OR contains foreign words
+          : (existingSlug && existingSlug === baseSlug && localizedTitle && localizedTitle !== baseTitle)
+            || (hasForeignWord && localizedTitle);
         if (isStaleSlug) {
           const company = String(job.company || '').trim();
           const location = String(job.addressLocality || job.location || '').trim();
