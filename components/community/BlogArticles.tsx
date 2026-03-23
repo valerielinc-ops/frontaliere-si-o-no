@@ -197,8 +197,8 @@ function autoLinkKeywords(text: string, navigators: NavigatorMap): string {
 
 function renderInlineFormatting(text: string, navigators?: NavigatorMap): ReactNode[] {
   const parts: ReactNode[] = [];
-  // Match [link](nav:xxx), **bold**, or *italic* — links take priority
-  const regex = /(\[([^\]]+)\]\(nav:([a-z0-9\-]+)\))|(\*\*(.+?)\*\*)|(\*(.+?)\*)/g;
+  // Match [link](nav:xxx), [link](https://...), **bold**, or *italic* — links take priority
+  const regex = /(\[([^\]]+)\]\(nav:([a-z0-9\-]+)\))|(\[([^\]]+)\]\((https?:\/\/[^)]+)\))|(\*\*(.+?)\*\*)|(\*(.+?)\*)/g;
   let lastIndex = 0;
   let match: RegExpExecArray | null;
   let key = 0;
@@ -227,10 +227,23 @@ function renderInlineFormatting(text: string, navigators?: NavigatorMap): ReactN
       } else {
         parts.push(isBoldLink ? <strong key={`b${key++}`} className="font-semibold text-slate-800 dark:text-slate-200">{linkText}</strong> : linkText);
       }
-    } else if (match[5]) {
-      parts.push(<strong key={`b${key++}`} className="font-semibold text-slate-800 dark:text-slate-200">{match[5]}</strong>);
-    } else if (match[7]) {
-      parts.push(<em key={`i${key++}`} className="italic">{match[7]}</em>);
+    } else if (match[5] && match[6]) {
+      // [text](https://...) — external link
+      parts.push(
+        <a
+          key={`el${key++}`}
+          href={match[6]}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline text-indigo-600 dark:text-indigo-400 font-medium underline underline-offset-2 decoration-indigo-300 dark:decoration-indigo-600 hover:decoration-indigo-600 dark:hover:decoration-indigo-400 transition-colors"
+        >
+          {match[5]}
+        </a>
+      );
+    } else if (match[8]) {
+      parts.push(<strong key={`b${key++}`} className="font-semibold text-slate-800 dark:text-slate-200">{match[8]}</strong>);
+    } else if (match[10]) {
+      parts.push(<em key={`i${key++}`} className="italic">{match[10]}</em>);
     }
     lastIndex = regex.lastIndex;
   }
@@ -266,6 +279,26 @@ function renderFormattedContent(text: string, navigators?: NavigatorMap): ReactE
   let blockquoteCount = 0;
   for (let idx = 0; idx < blocks.length; idx += 1) {
     const trimmed = blocks[idx].trim();
+
+    // Heading: ### (H4 visual — smaller sub-heading)
+    if (trimmed.startsWith('### ')) {
+      const lines = trimmed.split('\n');
+      const heading = lines[0].replace(/^###\s+/, '').trim();
+      const inlineBody = lines.slice(1).join('\n').trim();
+      renderedBlocks.push(
+        <div key={`h4-${idx}`} className="space-y-1.5">
+          <h4 className="text-base font-bold text-slate-800 dark:text-slate-200 mt-1">
+            {renderInlineFormatting(heading, navigators)}
+          </h4>
+          {inlineBody && (
+            <p className="text-slate-700 dark:text-slate-300 leading-relaxed">
+              {renderInlineFormatting(inlineBody, navigators)}
+            </p>
+          )}
+        </div>
+      );
+      continue;
+    }
 
     // Heading: ## (supports malformed blocks where heading and paragraph are in the same block)
     if (trimmed.startsWith('## ')) {
