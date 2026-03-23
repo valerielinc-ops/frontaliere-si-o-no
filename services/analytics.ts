@@ -1437,6 +1437,20 @@ export const Analytics = {
       ...(details || {}),
     });
   },
+
+  // ── FRO-334: Job Alert analytics ──────────────────────────────
+
+  trackJobAlertCreated: (details: { keywords?: string; location?: string; frequency?: string }) => {
+    log('job_alert_created', {
+      alert_keywords: details.keywords || '',
+      alert_location: details.location || '',
+      alert_frequency: details.frequency || 'daily',
+    });
+  },
+
+  trackJobAlertDeleted: () => {
+    log('job_alert_deleted', {});
+  },
 };
 
 // ─── Protect Analytics methods from external modification ──────

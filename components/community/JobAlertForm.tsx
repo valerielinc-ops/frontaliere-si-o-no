@@ -100,6 +100,14 @@ export default function JobAlertForm({ authUser, onRequireAuth, initialKeyword =
       };
       const alert = await createAlert(authUser.uid, authUser.email || '', config);
       setAlerts((prev) => [alert, ...prev]);
+      // FRO-334: Track alert creation
+      import('@/services/analytics').then(({ Analytics }) => {
+        Analytics.trackJobAlertCreated({
+          keywords: config.keywords.join(', '),
+          location: config.locations.join(', '),
+          frequency: config.frequency,
+        });
+      }).catch(() => {});
       showToast(t('jobAlert.created') || 'Alert creata! Riceverai una email con le nuove offerte.');
       // Reset form
       setKeyword('');
@@ -117,6 +125,8 @@ export default function JobAlertForm({ authUser, onRequireAuth, initialKeyword =
     try {
       const { deleteAlert } = await import('@/services/jobAlertService');
       await deleteAlert(alertId);
+      // FRO-334: Track alert deletion
+      import('@/services/analytics').then(({ Analytics }) => Analytics.trackJobAlertDeleted()).catch(() => {});
       setAlerts((prev) => prev.filter((a) => a.id !== alertId));
       showToast(t('jobAlert.deleted') || 'Alert eliminata.');
     } catch {
