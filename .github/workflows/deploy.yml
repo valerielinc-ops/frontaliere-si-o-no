@@ -176,8 +176,6 @@ jobs:
       - name: Report failure to Linear
         if: failure()
         continue-on-error: true
-        env:
-          LINEAR_API_KEY: ${{ secrets.LINEAR_API_KEY }}
         run: |
           node scripts/lib/linear-issue-creator.mjs \
             --title "CI Failure: ${{ github.workflow }} — run ${{ github.run_number }}" \

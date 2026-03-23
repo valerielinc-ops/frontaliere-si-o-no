@@ -57,6 +57,13 @@ const RC_TO_ENV = {
   // Microsoft Clarity (UX analytics)
   CLARITY_API_KEY:                ['CLARITY_API_KEY'],
 
+  // Amazon Creators API (build-time product fetch)
+  AMAZON_CREATOR_ID:              ['AMAZON_CREATOR_ID'],
+  AMAZON_CREATOR_SECRET:          ['AMAZON_CREATOR_SECRET'],
+
+  // Linear API (issue creation on CI failure)
+  LINEAR_API_KEY:                 ['LINEAR_API_KEY'],
+
   // Additional LLM providers (free tiers)
   GROQ_API_KEY:                   ['GROQ_API_KEY'],
   OPENROUTER_API_KEY:             ['OPENROUTER_API_KEY'],
