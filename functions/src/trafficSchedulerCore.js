@@ -86,14 +86,17 @@ export async function getTomTomRouteTravelTimes(originLat, originLng, destLat, d
     traffic: 'true',
     travelMode: 'car',
     routeType: 'fastest',
-    routeRepresentation: 'none',
+    routeRepresentation: 'summaryOnly',  // 'none' requires computeBestOrder=true
     computeTravelTimeFor: 'all',
     departAt: new Date().toISOString(),
   });
 
-  const response = await fetch(`${TOMTOM_CALCULATE_ROUTE_URL}/${routePlanningLocations}/json?${params.toString()}`);
+  const url = `${TOMTOM_CALCULATE_ROUTE_URL}/${routePlanningLocations}/json?${params.toString()}`;
+  const response = await fetch(url);
   if (!response.ok) {
-    throw new Error(`TomTom Routing HTTP ${response.status}`);
+    let errorBody = '';
+    try { errorBody = await response.text(); } catch { /* ignore */ }
+    throw new Error(`TomTom Routing HTTP ${response.status}: ${errorBody.slice(0, 300)}`);
   }
 
   const data = await response.json();
@@ -166,6 +169,11 @@ export async function fetchCrossingTraffic(crossing, options = {}) {
     approachMinutes = Math.max(0, Math.round((durationTrafficSec - durationNormalSec) / 60));
   } else {
     console.warn(`⚠️  Approach segment failed for ${crossing.name}: ${approachResult.reason?.message}`);
+  }
+
+  // If BOTH segments failed, propagate the error instead of silently returning 0-minute data
+  if (crossingResult.status === 'rejected' && approachResult.status === 'rejected') {
+    throw new Error(`Both segments failed for ${crossing.name}: ${crossingResult.reason?.message}`);
   }
 
   const totalCrossingMinutes = waitTimeMinutes + approachMinutes;

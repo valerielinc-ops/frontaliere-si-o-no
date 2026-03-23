@@ -24,8 +24,17 @@ if (!tomtomApiKey && !googleApiKey) {
 const { collected, errors } = await runTrafficCollection({ tomtomApiKey, googleApiKey });
 
 if (collected === 0 && errors > 0) {
-  console.error(`❌ All ${errors} crossings failed`);
+  console.error(`❌ All ${errors} crossings failed — traffic data NOT collected`);
   process.exit(1);
 }
 
-console.log(`✅ Done — ${collected} collected, ${errors} errors`);
+if (errors > 0) {
+  const failRate = errors / (collected + errors);
+  if (failRate > 0.5) {
+    console.error(`⚠️ High failure rate: ${collected} collected, ${errors} errors (${Math.round(failRate * 100)}% failure)`);
+    process.exit(1);
+  }
+  console.warn(`⚠️ Partial success: ${collected} collected, ${errors} errors`);
+} else {
+  console.log(`✅ Done — ${collected} collected, ${errors} errors`);
+}
