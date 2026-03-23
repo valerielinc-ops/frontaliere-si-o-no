@@ -3000,16 +3000,7 @@ ${hreflangLinks}
         { '@type': 'ListItem', position: 2, name: localeCopy[locale].sectionName, item: `${BASE_URL}${listingPath}` },
         { '@type': 'ListItem', position: 3, name: jobTitle },
       ],
-    })}</script>${ejData ? `\n    <script type="application/ld+json">${JSON.stringify({
-      '@context': 'https://schema.org',
-      '@type': 'JobPosting',
-      title: jobTitle,
-      description: (jobDescription || '').slice(0, 500) || jobTitle,
-      datePosted: ejData.postedDate || ejData.crawledAt || '',
-      validThrough: ejData.crawledAt || ejData.postedDate || '',
-      ...(jobCompany ? { hiringOrganization: { '@type': 'Organization', name: jobCompany } } : {}),
-      ...(jobLocation ? { jobLocation: { '@type': 'Place', address: { '@type': 'PostalAddress', addressLocality: jobLocation, addressCountry: 'CH' } } } : {}),
-    })}</script>` : ''}${hasSpaBundle ? `\n    <link rel="stylesheet" href="/assets/${entryCss}" crossorigin media="all">` : ''}
+    })}</script>${hasSpaBundle ? `\n    <link rel="stylesheet" href="/assets/${entryCss}" crossorigin media="all">` : ''}
     ${SPA_ACTION_REDIRECT_SCRIPT}
   </head>
   <body>
