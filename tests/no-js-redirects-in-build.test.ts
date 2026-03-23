@@ -43,7 +43,9 @@ describe('no JS redirects in built flat files', () => {
         ) continue;
 
         const filePath = path.join(dir, entry.name);
-        const content = fs.readFileSync(filePath, 'utf-8');
+        let content: string;
+        try { content = fs.readFileSync(filePath, 'utf-8'); }
+        catch { continue; /* file may have been removed between readdir and read */ }
 
         if (content.includes('location.replace(')) {
           const relPath = path.relative(DIST_DIR, filePath);
