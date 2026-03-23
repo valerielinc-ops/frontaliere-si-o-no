@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-03-22T23:57:32.160Z",
+  "generatedAt": "2026-03-23T03:34:56.811Z",
   "sources": {
     "italy": {
       "provider": "MIMIT Open Data",
@@ -10,8 +10,8 @@
     "switzerland": {
       "provider": "TCS Benzinpreis",
       "providerUrl": "https://benzin.tcs.ch/de/map/SP95",
-      "stationCount": 224,
-      "latestObservedUpdate": "2026-03-22T20:16:36.296Z"
+      "stationCount": 223,
+      "latestObservedUpdate": "2026-03-23T02:55:55.196Z"
     },
     "exchangeRate": {
       "provider": "ECB",
@@ -36426,36 +36426,22 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 8,
+        "optionCount": 7,
         "cheapestStation": {
-          "id": "wbNwqDD2yTH68fy2YnDm",
-          "name": "Agrola- Oberwald",
-          "brand": "AGROLA",
-          "address": "Furkastrasse 64, 3999 Oberwald",
-          "lat": 46.5342031199402,
-          "lng": 8.34815928735867,
-          "sp95PriceChf": 1.77,
-          "updatedAt": "2026-03-08T12:17:04.494Z",
+          "id": "VxyxoOixiziIDZ67kr5g",
+          "name": "Fahrzeug Center Goms AG",
+          "brand": "UNDEFINED",
+          "address": "Furkastrasse 401, 3998 Reckingen-Gluringen",
+          "lat": 46.4668411960693,
+          "lng": 8.235454925730831,
+          "sp95PriceChf": 1.78,
+          "updatedAt": "2026-03-13T19:47:21.891Z",
           "nearestMunicipality": "Formazza (VB)",
-          "nearestMunicipalityDistanceKm": 16.2,
-          "sp95PriceEur": 1.946,
-          "distanceKm": 16.2
+          "nearestMunicipalityDistanceKm": 14.5,
+          "sp95PriceEur": 1.957,
+          "distanceKm": 14.5
         },
         "nearbyStations": [
-          {
-            "id": "wbNwqDD2yTH68fy2YnDm",
-            "name": "Agrola- Oberwald",
-            "brand": "AGROLA",
-            "address": "Furkastrasse 64, 3999 Oberwald",
-            "lat": 46.5342031199402,
-            "lng": 8.34815928735867,
-            "sp95PriceChf": 1.77,
-            "updatedAt": "2026-03-08T12:17:04.494Z",
-            "nearestMunicipality": "Formazza (VB)",
-            "nearestMunicipalityDistanceKm": 16.2,
-            "sp95PriceEur": 1.946,
-            "distanceKm": 16.2
-          },
           {
             "id": "VxyxoOixiziIDZ67kr5g",
             "name": "Fahrzeug Center Goms AG",
@@ -36511,10 +36497,24 @@
             "nearestMunicipalityDistanceKm": 18.4,
             "sp95PriceEur": 1.99,
             "distanceKm": 18.4
+          },
+          {
+            "id": "nQS9hnOs67lshsQWElha",
+            "name": "Garage Grimsel",
+            "brand": "UNDEFINED",
+            "address": "Furkastrasse 743, 3985 Münster",
+            "lat": 46.4882389390156,
+            "lng": 8.26992651595767,
+            "sp95PriceChf": 1.83,
+            "updatedAt": "2026-03-13T19:52:09.336Z",
+            "nearestMunicipality": "Formazza (VB)",
+            "nearestMunicipalityDistanceKm": 14.1,
+            "sp95PriceEur": 2.012,
+            "distanceKm": 14.1
           }
         ],
-        "minPriceChf": 1.77,
-        "minPriceEur": 1.946
+        "minPriceChf": 1.78,
+        "minPriceEur": 1.957
       },
       "comparison": {
         "cheaperCountry": "NO_DATA",
