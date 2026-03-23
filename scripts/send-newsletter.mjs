@@ -320,17 +320,85 @@ function computeExchangeInsight(series, fallbackRate, fallbackPrev) {
 
 async function fetchTopArticles() {
   try {
-    const snap = await db.collection('article_views').orderBy('views', 'desc').limit(3).get();
+    const snap = await db.collection('article_views').orderBy('views', 'desc').limit(10).get();
     if (snap.empty) return [];
     return snap.docs.map((d) => ({
       id: d.id,
       title: d.id.replace(/-/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase()),
       url: `/articoli-frontaliere/${d.id}`,
       views: d.data().views || 0,
+      lastViewed: d.data().lastViewed?.toDate?.() || null,
     }));
   } catch (e) {
     console.warn('\u26a0\ufe0f Top articles fetch failed:', e.message);
     return [];
+  }
+}
+
+/**
+ * Load Italian blog metadata for a given article ID.
+ * Returns { title, excerpt } or null if not found.
+ */
+function loadBlogMeta(articleId) {
+  try {
+    const metaPath = new URL('../services/locales/blog-meta-it.ts', import.meta.url);
+    const raw = fs.readFileSync(metaPath, 'utf8');
+    const titleKey = `blog.article.${articleId}.title`;
+    const excerptKey = `blog.article.${articleId}.excerpt`;
+    const titleMatch = raw.match(new RegExp(`'${titleKey.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}'\\s*:\\s*'([^']*)'`));
+    const excerptMatch = raw.match(new RegExp(`'${excerptKey.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}'\\s*:\\s*'([^']*)'`));
+    if (!titleMatch) return null;
+    return {
+      title: titleMatch[1],
+      excerpt: excerptMatch ? excerptMatch[1] : '',
+    };
+  } catch (e) {
+    console.warn('\u26a0\ufe0f Blog meta load failed:', e.message);
+    return null;
+  }
+}
+
+/**
+ * Pick the best featured article for the newsletter.
+ * Uses Firestore article_views (most viewed this week), falls back to hardcoded default.
+ */
+async function pickFeaturedArticle() {
+  const DEFAULT_ARTICLE = {
+    title: 'I 10 migliori comuni per frontalieri',
+    excerpt: 'Classifica dei comuni italiani di frontiera: affitti, IRPEF comunale, distanza dal confine.',
+    url: '/articoli-frontaliere/comuni-migliori-frontalieri',
+    badge: '🔥 Più letto',
+  };
+
+  if (!db) return DEFAULT_ARTICLE;
+
+  try {
+    const topArticles = await fetchTopArticles();
+    if (topArticles.length === 0) return DEFAULT_ARTICLE;
+
+    // Prefer articles viewed in the last 7 days, sorted by views
+    const weekAgo = new Date(Date.now() - 7 * 24 * 60 * 60 * 1000);
+    const recentTop = topArticles
+      .filter((a) => a.lastViewed && a.lastViewed > weekAgo)
+      .sort((a, b) => b.views - a.views);
+
+    const best = recentTop[0] || topArticles[0];
+    const meta = loadBlogMeta(best.id);
+    if (!meta) {
+      console.warn(`\u26a0\ufe0f No blog meta for top article "${best.id}", using default`);
+      return DEFAULT_ARTICLE;
+    }
+
+    console.log(`\ud83d\udcf0 Featured article: "${best.id}" (${best.views} views)`);
+    return {
+      title: meta.title,
+      excerpt: meta.excerpt,
+      url: `/articoli-frontaliere/${best.id}`,
+      badge: '\ud83d\udd25 Più letto',
+    };
+  } catch (e) {
+    console.warn('\u26a0\ufe0f Featured article pick failed:', e.message);
+    return DEFAULT_ARTICLE;
   }
 }
 
@@ -639,6 +707,7 @@ async function main() {
   const toolIndex = Math.floor((Date.now() - new Date('2025-01-06').getTime()) / (7 * 24 * 60 * 60 * 1000)) % FEATURED_TOOLS.length;
   const featuredTool = FEATURED_TOOLS[toolIndex];
   const campaignId = `weekly_${new Date().toISOString().split('T')[0]}`;
+  const featuredArticle = await pickFeaturedArticle();
 
   // ── Preview mode ──
   if (mode === 'preview') {
@@ -654,18 +723,18 @@ async function main() {
           exchangeRate, exchangeInsight, matchedJobs: previewJobs, weeklyFact, featuredTool,
         })) || getFallbackBriefing(locale, exchangeRate);
 
-    const defaultArticle = {
-      title: 'Votazioni cantonali Ticino 2026: cosa cambia per i frontalieri',
-      excerpt: 'SSR, imposizione individuale, fondo climatico: 4 temi su cui voti (o dovresti). Ecco cosa significa per il tuo portafoglio.',
-      url: '/articoli-frontaliere/votazioni-imposizione-ticino-2026',
-      badge: '🗳️ Voto 18 maggio',
+    const featuredArticle = db ? await pickFeaturedArticle() : {
+      title: 'I 10 migliori comuni per frontalieri',
+      excerpt: 'Classifica dei comuni italiani di frontiera: affitti, IRPEF comunale, distanza dal confine.',
+      url: '/articoli-frontaliere/comuni-migliori-frontalieri',
+      badge: '🔥 Più letto',
     };
     const html = buildNewsletter({
       aiBriefing: briefing,
       exchangeRate,
       matchedJobs: previewJobs,
       totalJobs: jobs.length,
-      article: defaultArticle,
+      article: featuredArticle,
       featuredTool,
       weeklyFact,
       locale,
@@ -755,18 +824,12 @@ async function main() {
     }
 
     // Build HTML
-    const defaultArticle = {
-      title: 'Votazioni cantonali Ticino 2026: cosa cambia per i frontalieri',
-      excerpt: 'SSR, imposizione individuale, fondo climatico: 4 temi su cui voti (o dovresti). Ecco cosa significa per il tuo portafoglio.',
-      url: '/articoli-frontaliere/votazioni-imposizione-ticino-2026',
-      badge: '🗳️ Voto 18 maggio',
-    };
     const html = buildNewsletter({
       aiBriefing: briefing,
       exchangeRate,
       matchedJobs,
       totalJobs: jobs.length,
-      article: defaultArticle,
+      article: featuredArticle,
       featuredTool,
       weeklyFact,
       locale,

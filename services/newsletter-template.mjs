@@ -469,13 +469,15 @@ export function buildNewsletter(data) {
   // 5. Divider
   html += renderDivider();
 
-  // 6. Section header: Jobs
-  html += `<tr><td class="section-pad" style="background:${WHITE};padding:24px 28px 8px;">
-    <div style="font-size:11px;text-transform:uppercase;letter-spacing:2px;color:${BRAND_ORANGE};font-weight:700;margin:0 0 2px;">\ud83d\udcbc Lavoro</div>
-    <div style="font-size:18px;font-weight:800;color:${BRAND_DARK};margin:0;">${nlT(locale, 'jobsTitle')}</div>
-    <div style="font-size:13px;color:${MUTED_COLOR};margin:4px 0 0;">${nlT(locale, 'jobsSub')}</div>
-  </td></tr>`;
-  html += renderJobs(data.matchedJobs, locale, totalJobs);
+  // 6. Section header: Jobs (only if there are matched jobs)
+  if (data.matchedJobs && data.matchedJobs.length > 0) {
+    html += `<tr><td class="section-pad" style="background:${WHITE};padding:24px 28px 8px;">
+      <div style="font-size:11px;text-transform:uppercase;letter-spacing:2px;color:${BRAND_ORANGE};font-weight:700;margin:0 0 2px;">\ud83d\udcbc Lavoro</div>
+      <div style="font-size:18px;font-weight:800;color:${BRAND_DARK};margin:0;">${nlT(locale, 'jobsTitle')}</div>
+      <div style="font-size:13px;color:${MUTED_COLOR};margin:4px 0 0;">${nlT(locale, 'jobsSub')}</div>
+    </td></tr>`;
+    html += renderJobs(data.matchedJobs, locale, totalJobs);
+  }
 
   // 7. Quote (from weekly fact or default)
   html += renderQuote(data.weeklyFact);
