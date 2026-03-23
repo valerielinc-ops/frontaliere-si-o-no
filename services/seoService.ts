@@ -67,6 +67,7 @@ export const SCHEMA_AUTHOR = {
   "description": "Piattaforma informativa di riferimento per i lavoratori frontalieri italiani in Ticino: tassazione, permessi, sanità, previdenza, lavoro e aggiornamenti normativi.",
   "sameAs": [
     "https://www.facebook.com/profile.php?id=61588174947294",
+    "https://www.linkedin.com/company/frontaliere-ticino",
   ],
   "contactPoint": {
     "@type": "ContactPoint",
@@ -1890,7 +1891,7 @@ export async function updateMetaTags(section: string): Promise<void> {
     if (sd.datePublished) updateOrCreateMetaTag('property', 'article:published_time', sd.datePublished);
     if (sd.dateModified) updateOrCreateMetaTag('property', 'article:modified_time', sd.dateModified);
     if (sd.articleSection) updateOrCreateMetaTag('property', 'article:section', sd.articleSection);
-    updateOrCreateMetaTag('property', 'article:author', `${BASE_URL}`);
+    updateOrCreateMetaTag('property', 'article:author', `${BASE_URL}/chi-siamo/`);
   } else {
     // Remove article OG tags for non-article pages
     ['article:published_time', 'article:modified_time', 'article:section', 'article:author'].forEach(prop => {
@@ -2046,8 +2047,21 @@ function updateStructuredData(data: Record<string, any> | Record<string, any>[])
   // structured data even before JS executes.
   document.querySelectorAll('script[type="application/ld+json"][data-dynamic-ld]').forEach(el => el.remove());
 
+  // Collect @type values already present in static JSON-LD (from build plugins).
+  // Skip injecting dynamic JSON-LD for types already covered by static scripts
+  // to avoid duplicate structured data that confuses Google Rich Results.
+  const existingStaticTypes = new Set<string>();
+  document.querySelectorAll('script[type="application/ld+json"]:not([data-dynamic-ld])').forEach((el) => {
+    try {
+      const parsed = JSON.parse(el.textContent || '');
+      if (parsed?.['@type']) existingStaticTypes.add(parsed['@type']);
+    } catch { /* malformed — ignore */ }
+  });
+
   const items = Array.isArray(data) ? data : [data];
   items.forEach((item, i) => {
+    // Skip if a static JSON-LD with the same @type already exists
+    if (item?.['@type'] && existingStaticTypes.has(item['@type'])) return;
     const s = document.createElement('script') as HTMLScriptElement;
     s.type = 'application/ld+json';
     s.setAttribute('data-dynamic-ld', 'true');
