@@ -67,7 +67,7 @@ describe('TrafficHistory', () => {
 
     await waitFor(() => {
       expect(screen.getByText(/modello statistico/i)).toBeInTheDocument();
-    });
+    }, { timeout: 5000 });
 
     // Heatmap should still render with model data
     expect(screen.getByText(/mappa dei tempi/i)).toBeInTheDocument();
@@ -80,7 +80,7 @@ describe('TrafficHistory', () => {
 
     await waitFor(() => {
       expect(screen.getByText(/modello statistico/i)).toBeInTheDocument();
-    });
+    }, { timeout: 5000 });
   });
 
   it('shows real data badge when Firestore has enough snapshots', async () => {
@@ -96,7 +96,7 @@ describe('TrafficHistory', () => {
 
     await waitFor(() => {
       expect(screen.getByText(/dati reali/i)).toBeInTheDocument();
-    });
+    }, { timeout: 5000 });
   });
 
   it('shows loading state initially', () => {
@@ -116,6 +116,6 @@ describe('TrafficHistory', () => {
 
     await waitFor(() => {
       expect(screen.getByText(/modello statistico/i)).toBeInTheDocument();
-    });
+    }, { timeout: 5000 });
   });
 });

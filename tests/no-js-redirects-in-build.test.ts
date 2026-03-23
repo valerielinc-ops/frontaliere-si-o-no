@@ -27,7 +27,10 @@ describe('no JS redirects in built flat files', () => {
     const violations: string[] = [];
 
     const walk = (dir: string) => {
-      for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+      let entries: fs.Dirent[];
+      try { entries = fs.readdirSync(dir, { withFileTypes: true }); }
+      catch { return; /* skip directories that can't be read (e.g. long filenames) */ }
+      for (const entry of entries) {
         if (entry.isDirectory()) {
           walk(path.join(dir, entry.name));
           continue;

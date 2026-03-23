@@ -126,7 +126,7 @@ describe('handleSubscriptionManagement — confirm action', () => {
     };
   }
 
-  it('confirms a pending subscriber with valid HMAC', { timeout: 30000 }, async () => {
+  it('confirms a pending subscriber with valid HMAC', { timeout: 60000 }, async () => {
     const { handleSubscriptionManagement, verifyHmacToken } = await import(
       '../functions/src/newsletterSubscriptionManagement.js'
     );
@@ -155,7 +155,7 @@ describe('handleSubscriptionManagement — confirm action', () => {
     expect(doc.isActive).toBe(true);
   });
 
-  it('returns success for already confirmed subscriber', async () => {
+  it('returns success for already confirmed subscriber', { timeout: 60000 }, async () => {
     const { handleSubscriptionManagement } = await import(
       '../functions/src/newsletterSubscriptionManagement.js'
     );

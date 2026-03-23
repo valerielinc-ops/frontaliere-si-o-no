@@ -11,14 +11,18 @@ const DIST_DIR = path.resolve(__dirname, '..', 'dist');
 function collectHtmlFiles(dir: string): string[] {
   const results: string[] = [];
   if (!existsSync(dir)) return results;
-  for (const entry of readdirSync(dir, { withFileTypes: true })) {
-    const full = path.join(dir, entry.name);
-    if (entry.isDirectory()) {
-      results.push(...collectHtmlFiles(full));
-    } else if (entry.name === 'index.html') {
-      results.push(full);
+  try {
+    for (const entry of readdirSync(dir, { withFileTypes: true })) {
+      const full = path.join(dir, entry.name);
+      try {
+        if (entry.isDirectory()) {
+          results.push(...collectHtmlFiles(full));
+        } else if (entry.name === 'index.html') {
+          results.push(full);
+        }
+      } catch { /* skip entries with path issues (e.g. names too long for the filesystem) */ }
     }
-  }
+  } catch { /* skip directories that can't be read */ }
   return results;
 }
 

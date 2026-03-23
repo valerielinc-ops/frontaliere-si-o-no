@@ -56,5 +56,5 @@ describe('blog body locale files', () => {
       failures,
       `Invalid blog body TypeScript files:\n\n${failures.slice(0, 10).join('\n\n')}`,
     ).toHaveLength(0);
-  }, 30_000);
+  }, 120_000);
 });

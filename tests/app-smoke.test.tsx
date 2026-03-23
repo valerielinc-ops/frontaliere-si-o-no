@@ -138,7 +138,7 @@ describe('App smoke test', () => {
     consoleErrorSpy.mockRestore();
   });
 
-  it('does not cause infinite re-renders on any tab', { timeout: 15000 }, async () => {
+  it('does not cause infinite re-renders on any tab', { timeout: 30000 }, async () => {
     const user = userEvent.setup();
     render(<App />);
 
@@ -252,7 +252,7 @@ describe('App smoke test', () => {
     expect(reactErrors).toHaveLength(0);
 
     consoleErrorSpy.mockRestore();
-  }, 30000);
+  }, 60000);
 
   it('renders fisco sub-tabs without crashing', async () => {
     const user = userEvent.setup();

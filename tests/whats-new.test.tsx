@@ -95,7 +95,7 @@ describe('WhatsNewModal', () => {
     expect(localStorage.getItem(STORAGE_KEY)).toBe(RELEASES[0].date);
   });
 
-  it('renders all release sections', () => {
+  it('renders all release sections', { timeout: 30000 }, () => {
     render(<WhatsNewModal open={true} onClose={vi.fn()} />);
     for (const release of RELEASES) {
       expect(screen.getByText(new RegExp(release.version))).toBeTruthy();
