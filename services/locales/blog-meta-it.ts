@@ -1673,6 +1673,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.pfaffikon-kanton-schwyz-franzosi-einbrecher.title': 'Pfäffikon (Kanton Schwyz): Drei minderjährige französische Einbrecher festgenommen',
     'blog.article.pfaffikon-kanton-schwyz-franzosi-einbrecher.excerpt': 'Drei minderjährige französische Einbrecher sono stati arrestati a Pfäffikon (Kanton Schwyz).',
     'blog.article.pfaffikon-kanton-schwyz-franzosi-einbrecher.imageAlt': 'Lugano con il lago e le montagne',
+    'blog.article.riapertura-casetta-chiosco-davesco.title': 'Riapre la Casetta a Davesco-Soragno: punto di ristoro nel cuore del percorso ciclopedonale',
+    'blog.article.riapertura-casetta-chiosco-davesco.excerpt': 'Dal 28 marzo la Casetta, chiosco temporaneo di Davesco-Soragno, riapre i battenti. Gestito dalla Commissione di Quartiere, sarà aperto ogni fine settimana fino a metà giugno, promuovendo aggregazione e ristoro lungo il percorso.',
+    'blog.article.riapertura-casetta-chiosco-davesco.imageAlt': 'Chiosco rustico in Ticino lungo un percorso ciclopedonale con paesaggio naturale',
 };
 
 export default blogMetaIt;

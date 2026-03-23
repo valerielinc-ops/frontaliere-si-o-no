@@ -4498,6 +4498,13 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/pfaffikon-kanton-schwyz-franzosi-einbrecher.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'riapertura-casetta-chiosco-davesco',
+    category: 'pratico',
+    date: '2026-03-23T03:40:26.200Z',
+    image: '/images/blog/riapertura-casetta-chiosco-davesco.jpg',
+    hasCalculator: true,
+  },
 ];
 
 const CATEGORIES = ['all', 'fiscale', 'pratico', 'novita', 'pensione'] as const;

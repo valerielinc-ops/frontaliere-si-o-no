@@ -9303,6 +9303,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-riapertura-casetta-chiosco-davesco': {
+    title: 'Riapre la Casetta a Davesco-Soragno: punto di ristoro nel cuore del | Frontaliere Ticino',
+    description: 'Dal 28 marzo la Casetta, chiosco temporaneo di Davesco-Soragno, riapre i battenti. Gestito dalla Commissione di Quartiere, sarà aperto ogni fine settimana fino',
+    keywords: 'frontalieri, ticino, svizzera, italia, riapre, casetta, davesco-soragno, punto',
+    ogTitle: 'Riapre la Casetta a Davesco-Soragno: punto di ristoro nel',
+    ogDescription: 'Dal 28 marzo la Casetta, chiosco temporaneo di Davesco-Soragno, riapre i battenti. Gestito dalla Commissione di Quartiere, sarà aperto ogni fine settimana fino',
+    canonicalPath: '/articoli-frontaliere/riapertura-casetta-chiosco-davesco',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Riapre la Casetta a Davesco-Soragno: punto di ristoro nel",
+      "description": "Dal 28 marzo la Casetta, chiosco temporaneo di Davesco-Soragno, riapre i battenti. Gestito dalla Commissione di Quartiere, sarà aperto ogni fine settimana fino",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/riapertura-casetta-chiosco-davesco.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Chiosco rustico in Ticino lungo un percorso ciclopedonale con paesaggio naturale"
+      },
+      "datePublished": "2026-03-23T03:40:26+00:00",
+      "dateModified": "2026-03-23T03:40:26+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/riapertura-casetta-chiosco-davesco`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

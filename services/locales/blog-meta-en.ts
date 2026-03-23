@@ -1673,6 +1673,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.pfaffikon-kanton-schwyz-franzosi-einbrecher.title': 'Pfäffikon (Kanton Schwyz): Three Minor French Intruders Arrested',
     'blog.article.pfaffikon-kanton-schwyz-franzosi-einbrecher.excerpt': 'Three minor French intruders were arrested in Pfäffikon (Kanton Schwyz).',
     'blog.article.pfaffikon-kanton-schwyz-franzosi-einbrecher.imageAlt': 'Lugano with lake and mountains',
+    'blog.article.riapertura-casetta-chiosco-davesco.title': 'The Davesco-Soragno Little House Reopens: Refreshment Point in the Heart of the Cycling and Walking Path',
+    'blog.article.riapertura-casetta-chiosco-davesco.excerpt': 'Starting from March 28, the Little House in Davesco-Soragno reopens its doors. Managed by the Neighborhood Committee, it will be open every weekend until mid-June, promoting community gathering and refreshment along the route.',
+    'blog.article.riapertura-casetta-chiosco-davesco.imageAlt': 'Rustic kiosk along a cycling and walking trail in Ticino with natural scenery',
 };
 
 export default blogMetaEn;

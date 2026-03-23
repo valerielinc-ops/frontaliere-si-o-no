@@ -1673,6 +1673,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.pfaffikon-kanton-schwyz-franzosi-einbrecher.title': 'Pfäffikon (Canton Schwyz): Trois mineurs français arrêtés pour intrusion',
     'blog.article.pfaffikon-kanton-schwyz-franzosi-einbrecher.excerpt': 'Trois mineurs français ont été arrêtés à Pfäffikon (Canton Schwyz).',
     'blog.article.pfaffikon-kanton-schwyz-franzosi-einbrecher.imageAlt': 'Lugano avec lac et montagnes',
+    'blog.article.riapertura-casetta-chiosco-davesco.title': 'Réouverture de la Petite Maison à Davesco-Soragno : point de restauration au cœur du parcours cyclo-piéton',
+    'blog.article.riapertura-casetta-chiosco-davesco.excerpt': 'Depuis le 28 mars, la Petite Maison, kiosque temporaire de Davesco-Soragno, rouvre ses portes. Gérée par la Commission de Quartier, elle sera ouverte chaque week-end jusqu’à la mi-juin, favorisant la convivialité et la détente le long du parcours.',
+    'blog.article.riapertura-casetta-chiosco-davesco.imageAlt': 'Kiosque rustique le long d’un sentier cyclable et pédestre dans le Tessin avec paysage naturel',
 };
 
 export default blogMetaFr;

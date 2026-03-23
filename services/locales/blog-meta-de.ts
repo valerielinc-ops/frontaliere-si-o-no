@@ -1673,6 +1673,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.pfaffikon-kanton-schwyz-franzosi-einbrecher.title': 'Pfäffikon (Kanton Schwyz): Drei minderjährige französische Einbrecher festgenommen',
     'blog.article.pfaffikon-kanton-schwyz-franzosi-einbrecher.excerpt': 'Drei minderjährige französische Einbrecher sind in Pfäffikon (Kanton Schwyz) festgenommen worden.',
     'blog.article.pfaffikon-kanton-schwyz-franzosi-einbrecher.imageAlt': 'Lugano mit See und Bergen',
+    'blog.article.riapertura-casetta-chiosco-davesco.title': 'Wiederöffnung des Davesco-Soragno Häuschens: Erfrischungspunkt im Herzen des Rad- und Wanderwegs',
+    'blog.article.riapertura-casetta-chiosco-davesco.excerpt': 'Ab dem 28. März öffnet das Häuschen, ein temporärer Kiosk in Davesco-Soragno, wieder seine Pforten. Betrieben von der Quartierkommission, wird es an jedem Wochenende bis Mitte Juni geöffnet sein, um Gemeinschaft und Erholung entlang des Weges zu fördern.',
+    'blog.article.riapertura-casetta-chiosco-davesco.imageAlt': 'Rustikaler Kiosk entlang eines Rad- und Wanderwegs in Tessin mit Naturlandschaft',
 };
 
 export default blogMetaDe;
