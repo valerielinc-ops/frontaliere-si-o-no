@@ -1,6 +1,6 @@
 {
   "crawlerKey": "bosch-thermotechnik-ag",
-  "assembledAt": "2026-03-23T09:15:02.517Z",
+  "assembledAt": "2026-03-23T21:00:43.092Z",
   "jobs": [
     {
       "title": "Tecnico di servizio Fossile Regione Ticino (m/f/div.) REF280202G",
@@ -40,9 +40,12 @@
       "slugByLocale": {
         "it": "tecnico-di-servizio-fossile-regione-ticino-m-f-div-ref280202g-bosch-rivera",
         "en": "fossil-service-technician-ticino-region-m-f-div-bosch-rivera",
-        "de": "servicetechniker-fossil-region-tessin-w-m-div-bosch-rivera",
+        "de": "servicetechniker-fossil-region-tessin-w-m-div-bosch-thermotechnik-ag-rivera",
         "fr": "technicien-de-service-fossile-region-tessin-h-f-div-bosch-rivera"
       },
+      "previousSlugs": [
+        "servicetechniker-fossil-region-tessin-w-m-div-bosch-rivera"
+      ],
       "salaryMin": 54000,
       "salaryMax": 73000,
       "currency": "CHF",
@@ -55,7 +58,8 @@
           "maxValue": 73000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "6802"
     }
   ]
 }
