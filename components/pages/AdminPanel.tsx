@@ -261,7 +261,7 @@ export default function AdminPanel() {
   const hasPreloadedWorkflowSnapshots = useRef(false);
   const [copiedCmd, setCopiedCmd] = useState(false);
   const [activeSection, setActiveSection] = useState<'newsletter' | 'owner' | WorkflowContext>('jobs');
-  const [ownerTab, setOwnerTab] = useState<'overview' | 'crawler'>('overview');
+  const [ownerTab] = useState<'overview'>('overview');
   const [workflowStates, setWorkflowStates] = useState<Record<string, WorkflowRunState>>({});
   const [copiedAiPromptFor, setCopiedAiPromptFor] = useState<string | null>(null);
   const [ownerStats, setOwnerStats] = useState<OwnerStats>({
@@ -318,7 +318,7 @@ export default function AdminPanel() {
   // Crawler table filters & expansion
   const [crawlerNameFilter, setCrawlerNameFilter] = useState('');
   const [crawlerChangeFilter, setCrawlerChangeFilter] = useState<'all' | 'new' | 'updated' | 'removed' | 'none'>('all');
-  const [expandedCrawlerDetail, setExpandedCrawlerDetail] = useState<Record<string, 'new' | 'updated' | 'removed' | 'unchanged' | null>>({});
+  const [expandedCrawlerDetail, setExpandedCrawlerDetail] = useState<Record<string, 'new' | 'updated' | 'removed' | 'unchanged' | 'active' | null>>({});
   const [crawlerSort, setCrawlerSort] = useState<{ column: CrawlerSortColumn; direction: CrawlerSortDirection }>({
     column: 'schedule',
     direction: 'asc',
@@ -836,6 +836,307 @@ export default function AdminPanel() {
     }
   };
 
+  const renderCrawlerConfigPanel = () => (
+    <div className="space-y-4 mt-2">
+      {jobsCrawlerConfigMessage && (
+        <div className={`rounded-lg px-3 py-2 text-xs ${
+          jobsCrawlerConfigMessage.toLowerCase().includes('errore')
+            ? 'bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 text-red-700 dark:text-red-300'
+            : 'bg-emerald-50 dark:bg-emerald-900/20 border border-emerald-200 dark:border-emerald-800 text-emerald-700 dark:text-emerald-300'
+        }`}>
+          {jobsCrawlerConfigMessage}
+        </div>
+      )}
+      {crawlerDispatchMessage && (
+        <div className={`rounded-lg px-3 py-2 text-xs ${
+          crawlerDispatchMessage.startsWith('✅')
+            ? 'bg-emerald-50 dark:bg-emerald-900/20 border border-emerald-200 dark:border-emerald-800 text-emerald-700 dark:text-emerald-300'
+            : 'bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 text-red-700 dark:text-red-300'
+        }`}>
+          {crawlerDispatchMessage}
+        </div>
+      )}
+      {parserDispatchMessage && (
+        <div className={`rounded-lg px-3 py-2 text-xs ${
+          parserDispatchMessage.startsWith('✅')
+            ? 'bg-emerald-50 dark:bg-emerald-900/20 border border-emerald-200 dark:border-emerald-800 text-emerald-700 dark:text-emerald-300'
+            : 'bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 text-red-700 dark:text-red-300'
+        }`}>
+          {parserDispatchMessage}
+        </div>
+      )}
+      {renderCrawlerSummariesPanel()}
+      <details className="group rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800">
+        <summary className="flex items-center gap-2 px-4 py-3 cursor-pointer select-none">
+          <Shield size={14} className="text-violet-600 dark:text-violet-400" />
+          <span className="text-sm font-semibold text-slate-800 dark:text-slate-100">Configurazione crawler</span>
+          <span className="ml-auto text-[10px] text-slate-400 dark:text-slate-500 group-open:hidden">▸</span>
+          <span className="ml-auto text-[10px] text-slate-400 dark:text-slate-500 hidden group-open:inline">▾</span>
+        </summary>
+        <div className="px-4 pb-4 space-y-4 border-t border-slate-200 dark:border-slate-700">
+          {/* Genera parser AI */}
+          <div className="rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900/40 p-3 space-y-3 mt-4">
+            <div className="text-xs font-semibold text-slate-700 dark:text-slate-300">
+              Genera parser/crawler AI per nuova azienda
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+              <label className="text-xs text-slate-600 dark:text-slate-400">
+                Nome azienda
+                <input
+                  type="text"
+                  value={parserCompanyName}
+                  onChange={(e) => setParserCompanyName(e.target.value)}
+                  placeholder="es. VF International"
+                  className="mt-1 w-full px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-100"
+                />
+              </label>
+              <label className="text-xs text-slate-600 dark:text-slate-400">
+                URL sito azienda
+                <input
+                  type="url"
+                  value={parserCompanyWebsite}
+                  onChange={(e) => setParserCompanyWebsite(e.target.value)}
+                  placeholder="https://azienda.ch"
+                  className="mt-1 w-full px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-100"
+                />
+              </label>
+              <label className="text-xs text-slate-600 dark:text-slate-400">
+                Company key (opzionale)
+                <input
+                  type="text"
+                  value={parserCompanyKey}
+                  onChange={(e) => setParserCompanyKey(e.target.value)}
+                  placeholder="es. vf-international"
+                  className="mt-1 w-full px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-100"
+                />
+              </label>
+            </div>
+            <div className="flex flex-wrap items-center gap-2">
+              <button
+                type="button"
+                onClick={() => setParserApplyConfig((v) => !v)}
+                className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-lg border text-xs font-semibold transition-colors ${
+                  parserApplyConfig
+                    ? 'border-amber-300 dark:border-amber-700 bg-amber-50 dark:bg-amber-900/20 text-amber-700 dark:text-amber-300'
+                    : 'border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300'
+                }`}
+              >
+                {parserApplyConfig ? <ToggleRight size={13} /> : <ToggleLeft size={13} />}
+                {parserApplyConfig ? 'Applica config automaticamente' : 'Solo proposta (no apply)'}
+              </button>
+              <button
+                onClick={runGenerateParserNow}
+                disabled={parserDispatchLoading}
+                className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-indigo-600 hover:bg-indigo-700 disabled:opacity-60 text-white text-xs font-semibold transition-colors"
+              >
+                <Terminal size={13} className={parserDispatchLoading ? 'animate-pulse' : ''} />
+                {parserDispatchLoading ? 'Generazione…' : 'Genera parser AI'}
+              </button>
+            </div>
+          </div>
+
+          {/* ── Section 1: Quality Gates ── */}
+          <details className="group rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800/50" open>
+            <summary className="flex items-center gap-2 px-4 py-3 cursor-pointer select-none">
+              <Shield size={14} className="text-amber-600 dark:text-amber-400" />
+              <span className="text-sm font-semibold text-slate-800 dark:text-slate-100">Filtri qualità</span>
+              <span className="ml-auto text-[10px] text-slate-400 dark:text-slate-500 group-open:hidden">▸</span>
+              <span className="ml-auto text-[10px] text-slate-400 dark:text-slate-500 hidden group-open:inline">▾</span>
+            </summary>
+            <div className="px-4 pb-4 space-y-3">
+              <p className="text-[11px] text-slate-500 dark:text-slate-400">Soglie minime per accettare un annuncio. Job sotto queste soglie vengono scartati.</p>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <label className="text-xs text-slate-600 dark:text-slate-400">
+                  <span className="flex items-center gap-1">Punteggio qualità minimo <span className="text-[10px] text-slate-400">(4–10)</span></span>
+                  <input type="number" min={4} max={10} value={minQualityScoreInput} onChange={e => setMinQualityScoreInput(Number(e.target.value))}
+                    className="mt-1 w-full px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 text-sm" />
+                </label>
+                <label className="text-xs text-slate-600 dark:text-slate-400">
+                  <span className="flex items-center gap-1">Lunghezza descrizione minima <span className="text-[10px] text-slate-400">(80–600 car.)</span></span>
+                  <input type="number" min={80} max={600} value={minDescriptionCharsInput} onChange={e => setMinDescriptionCharsInput(Number(e.target.value))}
+                    className="mt-1 w-full px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 text-sm" />
+                </label>
+              </div>
+            </div>
+          </details>
+
+          {/* ── Section 2: AI Localization ── */}
+          <details className="group rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800/50">
+            <summary className="flex items-center gap-2 px-4 py-3 cursor-pointer select-none">
+              <Activity size={14} className="text-violet-600 dark:text-violet-400" />
+              <span className="text-sm font-semibold text-slate-800 dark:text-slate-100">Traduzione AI</span>
+              <span className={`ml-2 px-1.5 py-0.5 rounded text-[10px] font-bold ${aiLocalizationEnabledInput ? 'bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300' : 'bg-slate-100 dark:bg-slate-700 text-slate-500 dark:text-slate-400'}`}>
+                {aiLocalizationEnabledInput ? 'ON' : 'OFF'}
+              </span>
+              <span className="ml-auto text-[10px] text-slate-400 dark:text-slate-500 group-open:hidden">▸</span>
+              <span className="ml-auto text-[10px] text-slate-400 dark:text-slate-500 hidden group-open:inline">▾</span>
+            </summary>
+            <div className="px-4 pb-4 space-y-3">
+              <p className="text-[11px] text-slate-500 dark:text-slate-400">Traduzione automatica annunci in IT/EN/DE/FR tramite LLM (free-first, paid fallback).</p>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <label className="text-xs text-slate-600 dark:text-slate-400">
+                  Stato
+                  <button type="button" onClick={() => setAiLocalizationEnabledInput(v => !v)}
+                    className={`mt-1 w-full inline-flex items-center justify-center gap-2 px-3 py-2 rounded-lg border transition-colors text-sm font-medium ${
+                      aiLocalizationEnabledInput
+                        ? 'border-emerald-300 dark:border-emerald-700 bg-emerald-50 dark:bg-emerald-900/20 text-emerald-700 dark:text-emerald-300'
+                        : 'border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 text-slate-700 dark:text-slate-300'
+                    }`}>
+                    {aiLocalizationEnabledInput ? <ToggleRight size={16} /> : <ToggleLeft size={16} />}
+                    {aiLocalizationEnabledInput ? 'Attivo' : 'Disattivo'}
+                  </button>
+                </label>
+                <label className="text-xs text-slate-600 dark:text-slate-400">
+                  <span className="flex items-center gap-1">Max job tradotti per run <span className="text-[10px] text-slate-400">(0–100)</span></span>
+                  <input type="number" min={0} max={100} value={aiLocalizationMaxJobsPerRunInput} onChange={e => setAiLocalizationMaxJobsPerRunInput(Number(e.target.value))}
+                    className="mt-1 w-full px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 text-sm" />
+                </label>
+              </div>
+            </div>
+          </details>
+
+          {/* ── Section 3: Content Reuse ── */}
+          <details className="group rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800/50">
+            <summary className="flex items-center gap-2 px-4 py-3 cursor-pointer select-none">
+              <Copy size={14} className="text-blue-600 dark:text-blue-400" />
+              <span className="text-sm font-semibold text-slate-800 dark:text-slate-100">Riuso traduzioni</span>
+              <span className={`ml-2 px-1.5 py-0.5 rounded text-[10px] font-bold ${contentReuseEnabledInput ? 'bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300' : 'bg-slate-100 dark:bg-slate-700 text-slate-500 dark:text-slate-400'}`}>
+                {contentReuseEnabledInput ? 'ON' : 'OFF'}
+              </span>
+              <span className="ml-auto text-[10px] text-slate-400 dark:text-slate-500 group-open:hidden">▸</span>
+              <span className="ml-auto text-[10px] text-slate-400 dark:text-slate-500 hidden group-open:inline">▾</span>
+            </summary>
+            <div className="px-4 pb-4 space-y-3">
+              <p className="text-[11px] text-slate-500 dark:text-slate-400">Se la descrizione di un job è molto simile al run precedente, riusa le traduzioni già fatte (risparmia crediti AI).</p>
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                <label className="text-xs text-slate-600 dark:text-slate-400">
+                  Stato
+                  <button type="button" onClick={() => setContentReuseEnabledInput(v => !v)}
+                    className={`mt-1 w-full inline-flex items-center justify-center gap-1 px-2 py-2 rounded-lg border text-sm font-medium transition-colors ${
+                      contentReuseEnabledInput
+                        ? 'border-emerald-300 dark:border-emerald-700 bg-emerald-50 dark:bg-emerald-900/20 text-emerald-700 dark:text-emerald-300'
+                        : 'border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 text-slate-700 dark:text-slate-300'
+                    }`}>
+                    {contentReuseEnabledInput ? <ToggleRight size={14} /> : <ToggleLeft size={14} />}
+                    {contentReuseEnabledInput ? 'ON' : 'OFF'}
+                  </button>
+                </label>
+                <label className="text-xs text-slate-600 dark:text-slate-400">
+                  <span>Similarità min <span className="text-[10px] text-slate-400">(0.70–1.00)</span></span>
+                  <input type="number" min={0.7} max={1} step={0.01} value={contentReuseSimilarityThresholdInput} onChange={e => setContentReuseSimilarityThresholdInput(Number(e.target.value))}
+                    className="mt-1 w-full px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 text-sm" />
+                </label>
+                <label className="text-xs text-slate-600 dark:text-slate-400">
+                  <span>Char sorgente min <span className="text-[10px] text-slate-400">(120–8000)</span></span>
+                  <input type="number" min={120} max={8000} value={contentReuseMinSourceCharsInput} onChange={e => setContentReuseMinSourceCharsInput(Number(e.target.value))}
+                    className="mt-1 w-full px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 text-sm" />
+                </label>
+                <label className="text-xs text-slate-600 dark:text-slate-400">
+                  <span>Delta lunghezza max <span className="text-[10px] text-slate-400">(0.02–1.00)</span></span>
+                  <input type="number" min={0.02} max={1} step={0.01} value={contentReuseMaxLengthDeltaRatioInput} onChange={e => setContentReuseMaxLengthDeltaRatioInput(Number(e.target.value))}
+                    className="mt-1 w-full px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 text-sm" />
+                </label>
+              </div>
+            </div>
+          </details>
+
+          {/* ── Section 4: Domain Scope ── */}
+          <details className="group rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800/50">
+            <summary className="flex items-center gap-2 px-4 py-3 cursor-pointer select-none">
+              <Shield size={14} className="text-slate-600 dark:text-slate-400" />
+              <span className="text-sm font-semibold text-slate-800 dark:text-slate-100">Filtro domini</span>
+              <span className="ml-2 text-[10px] text-slate-400 dark:text-slate-500">{domainWhitelistText.split('\n').filter(Boolean).length} whitelist · {domainBlacklistText.split('\n').filter(Boolean).length} blacklist</span>
+              <span className="ml-auto text-[10px] text-slate-400 dark:text-slate-500 group-open:hidden">▸</span>
+              <span className="ml-auto text-[10px] text-slate-400 dark:text-slate-500 hidden group-open:inline">▾</span>
+            </summary>
+            <div className="px-4 pb-4 space-y-3">
+              <p className="text-[11px] text-slate-500 dark:text-slate-400">Whitelist: se compilata, solo questi domini vengono crawlati. Blacklist: domini sempre esclusi.</p>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <label className="text-xs text-slate-600 dark:text-slate-400">
+                  Domain Whitelist <span className="text-[10px] text-slate-400">(1 host per riga)</span>
+                  <textarea rows={5} value={domainWhitelistText} onChange={e => setDomainWhitelistText(e.target.value)} placeholder="esempio.com"
+                    className="mt-1 w-full px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 font-mono text-xs" />
+                </label>
+                <label className="text-xs text-slate-600 dark:text-slate-400">
+                  Domain Blacklist <span className="text-[10px] text-slate-400">(1 host per riga)</span>
+                  <textarea rows={5} value={domainBlacklistText} onChange={e => setDomainBlacklistText(e.target.value)} placeholder="esempio-da-escludere.com"
+                    className="mt-1 w-full px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 font-mono text-xs" />
+                </label>
+              </div>
+            </div>
+          </details>
+
+          {/* ── Section 5: Company Priority & Seeds ── */}
+          <details className="group rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800/50">
+            <summary className="flex items-center gap-2 px-4 py-3 cursor-pointer select-none">
+              <Database size={14} className="text-emerald-600 dark:text-emerald-400" />
+              <span className="text-sm font-semibold text-slate-800 dark:text-slate-100">Priorità aziende &amp; seed URL</span>
+              <span className="ml-auto text-[10px] text-slate-400 dark:text-slate-500 group-open:hidden">▸</span>
+              <span className="ml-auto text-[10px] text-slate-400 dark:text-slate-500 hidden group-open:inline">▾</span>
+            </summary>
+            <div className="px-4 pb-4 space-y-3">
+              <p className="text-[11px] text-slate-500 dark:text-slate-400">Priorità: punteggio numerico per ordinare le aziende nel crawl. Seed: URL career page iniziali.</p>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <label className="text-xs text-slate-600 dark:text-slate-400">
+                  Priorità per dominio <span className="text-[10px] text-slate-400">(JSON: {`{"host": score}`})</span>
+                  <textarea rows={6} value={companyPriorityByDomainText} onChange={e => setCompanyPriorityByDomainText(e.target.value)}
+                    className="mt-1 w-full px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 font-mono text-xs" />
+                </label>
+                <label className="text-xs text-slate-600 dark:text-slate-400">
+                  Priorità per nome <span className="text-[10px] text-slate-400">(JSON: {`{"name": score}`})</span>
+                  <textarea rows={6} value={companyPriorityByNameText} onChange={e => setCompanyPriorityByNameText(e.target.value)}
+                    className="mt-1 w-full px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 font-mono text-xs" />
+                </label>
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <label className="text-xs text-slate-600 dark:text-slate-400">
+                  Seed URL per dominio <span className="text-[10px] text-slate-400">(JSON: {`{"host": ["url1","url2"]}`})</span>
+                  <textarea rows={6} value={sourceSeedsByDomainText} onChange={e => setSourceSeedsByDomainText(e.target.value)}
+                    className="mt-1 w-full px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 font-mono text-xs" />
+                </label>
+                <label className="text-xs text-slate-600 dark:text-slate-400">
+                  Seed URL per nome azienda <span className="text-[10px] text-slate-400">(JSON: {`{"name": ["url1"]}`})</span>
+                  <textarea rows={6} value={sourceSeedsByNameText} onChange={e => setSourceSeedsByNameText(e.target.value)}
+                    className="mt-1 w-full px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 font-mono text-xs" />
+                </label>
+              </div>
+            </div>
+          </details>
+
+          {/* ── Save ── */}
+          <div className="flex flex-wrap items-center gap-3 pt-2">
+            <button
+              onClick={() => saveJobsCrawlerAdminConfig(
+                domainWhitelistText,
+                domainBlacklistText,
+                minQualityScoreInput,
+                minDescriptionCharsInput,
+                aiLocalizationEnabledInput,
+                aiLocalizationMaxJobsPerRunInput,
+                contentReuseEnabledInput,
+                contentReuseSimilarityThresholdInput,
+                contentReuseMinSourceCharsInput,
+                contentReuseMaxLengthDeltaRatioInput,
+                companyPriorityByDomainText,
+                companyPriorityByNameText,
+                sourceSeedsByDomainText,
+                sourceSeedsByNameText,
+              )}
+              disabled={jobsCrawlerConfigSaving || jobsCrawlerConfigLoading}
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-violet-600 hover:bg-violet-700 disabled:opacity-60 text-white text-sm font-semibold transition-colors"
+            >
+              {jobsCrawlerConfigSaving ? <RefreshCw size={14} className="animate-spin" /> : <Database size={14} />}
+              Salva configurazione
+            </button>
+            <span className="text-[11px] text-slate-500 dark:text-slate-400">
+              Salvato in Firestore · applicato al prossimo run crawler.
+            </span>
+          </div>
+        </div>
+      </details>
+    </div>
+  );
+
   const renderCrawlerSummariesPanel = () => (
     <div className="rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900/40 p-3">
       <div className="text-xs font-semibold text-slate-700 dark:text-slate-300 mb-2">
@@ -1153,6 +1454,16 @@ export default function AdminPanel() {
           {meta.label}
         </h2>
         <div className="flex items-center gap-2">
+          {isJobsContext && (
+            <button
+              onClick={runCrawlerNow}
+              disabled={crawlerDispatchLoading}
+              className="inline-flex items-center gap-2 px-3 py-2 rounded-lg bg-emerald-600 hover:bg-emerald-700 disabled:opacity-60 text-white text-sm font-medium transition-colors"
+            >
+              <Send size={14} className={crawlerDispatchLoading ? 'animate-pulse' : ''} />
+              {crawlerDispatchLoading ? 'Avvio…' : 'Run crawler now'}
+            </button>
+          )}
           <button
             onClick={refreshWorkflowSnapshots}
             className="inline-flex items-center gap-2 px-3 py-2 rounded-lg bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-medium transition-colors"
@@ -1305,32 +1616,48 @@ export default function AdminPanel() {
                 .sort()
                 .at(-1) ?? null;
 
-              const toggleExpand = (key: string, type: 'new' | 'updated' | 'removed' | 'unchanged') => {
+              const toggleExpand = (key: string, type: 'new' | 'updated' | 'removed' | 'unchanged' | 'active') => {
                 setExpandedCrawlerDetail(prev => ({
                   ...prev,
                   [key]: prev[key] === type ? null : type,
                 }));
               };
 
-              const renderExpandedJobs = (jobs: CrawlerSummaryLinkRow[], type: 'new' | 'updated' | 'removed' | 'unchanged') => {
+              const renderExpandedJobs = (jobs: CrawlerSummaryLinkRow[], type: 'new' | 'updated' | 'removed' | 'unchanged' | 'active') => {
                 if (jobs.length === 0) return <div className="text-[11px] text-slate-500 dark:text-slate-400 py-1">Nessun elemento.</div>;
                 const styleMap = {
-                  new: 'border-emerald-200 dark:border-emerald-800 bg-emerald-50/50 dark:bg-emerald-900/20 hover:border-emerald-400 dark:hover:border-emerald-600',
-                  updated: 'border-blue-200 dark:border-blue-800 bg-blue-50/50 dark:bg-blue-900/20 hover:border-blue-400 dark:hover:border-blue-600',
-                  removed: 'border-red-200 dark:border-red-800 bg-red-50/50 dark:bg-red-900/20 hover:border-red-400 dark:hover:border-red-600',
-                  unchanged: 'border-amber-200 dark:border-amber-800 bg-amber-50/50 dark:bg-amber-900/20 hover:border-amber-400 dark:hover:border-amber-600',
+                  new: 'border-emerald-200 dark:border-emerald-800 bg-emerald-50/50 dark:bg-emerald-900/20',
+                  updated: 'border-blue-200 dark:border-blue-800 bg-blue-50/50 dark:bg-blue-900/20',
+                  removed: 'border-red-200 dark:border-red-800 bg-red-50/50 dark:bg-red-900/20',
+                  unchanged: 'border-amber-200 dark:border-amber-800 bg-amber-50/50 dark:bg-amber-900/20',
+                  active: 'border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900',
                 } as const;
+                const jobSiteUrl = (slug: string) => slug ? `https://www.frontaliereticino.ch/cerca-lavoro-ticino/${slug}/` : '';
                 return (
                   <div className="space-y-1">
-                    {jobs.map((job, idx) => (
-                      <a key={`${job.slug || idx}`} href={job.url} target="_blank" rel="noreferrer"
-                         className={`block rounded-md border px-2 py-1.5 ${styleMap[type]}`}>
-                        <div className="text-xs font-medium text-slate-800 dark:text-slate-100">{job.title || 'Job senza titolo'}</div>
-                        <div className="text-[11px] text-slate-500 dark:text-slate-400">
-                          {job.company || 'Azienda n/d'}{job.location ? ` \u00B7 ${job.location}` : ''}
+                    {(jobs as (CrawlerSummaryLinkRow & { _status?: 'new' | 'updated' | 'unchanged' })[]).map((job, idx) => {
+                      const rowStyle = type === 'active' && job._status ? styleMap[job._status] : styleMap[type];
+                      const borderColor = type === 'active' && job._status
+                        ? (job._status === 'new' ? 'border-l-emerald-500' : job._status === 'updated' ? 'border-l-blue-500' : 'border-l-amber-400')
+                        : '';
+                      const siteUrl = jobSiteUrl(job.slug);
+                      return (
+                        <div key={`${job.slug || idx}`} className={`rounded-md border px-2 py-1.5 ${rowStyle} ${borderColor ? `border-l-2 ${borderColor}` : ''}`}>
+                          <div className="text-xs font-medium text-slate-800 dark:text-slate-100">{job.title || 'Job senza titolo'}</div>
+                          <div className="text-[11px] text-slate-500 dark:text-slate-400">
+                            {job.company || 'Azienda n/d'}{job.location ? ` \u00B7 ${job.location}` : ''}
+                          </div>
+                          <div className="flex gap-3 mt-0.5">
+                            {job.url && <a href={job.url} target="_blank" rel="noreferrer" className="text-[10px] text-blue-600 dark:text-blue-400 hover:underline">🔗 Sorgente</a>}
+                            {siteUrl && (type === 'removed' ? (
+                              <a href={siteUrl} target="_blank" rel="noreferrer" className="text-[10px] text-slate-400 hover:underline">🏚 Sito (archiviato)</a>
+                            ) : (
+                              <a href={siteUrl} target="_blank" rel="noreferrer" className="text-[10px] text-indigo-600 dark:text-indigo-400 hover:underline">🏠 Sito</a>
+                            ))}
+                          </div>
                         </div>
-                      </a>
-                    ))}
+                      );
+                    })}
                   </div>
                 );
               };
@@ -1586,8 +1913,14 @@ export default function AdminPanel() {
                                 </td>
                                 {/* Annunci (attivi) */}
                                 <td className="text-center py-2 px-1.5">
-                                  {s ? (
-                                    <span className="text-[11px] font-bold font-mono text-violet-700 dark:text-violet-400">{s.total - s.removedCount}</span>
+                                  {s && (s.total - s.removedCount) > 0 ? (
+                                    <button onClick={() => toggleExpand(row.key, 'active')}
+                                      className={`inline-flex items-center gap-0.5 text-violet-700 dark:text-violet-400 font-bold hover:underline cursor-pointer ${expanded === 'active' ? 'underline' : ''}`}>
+                                      {expanded === 'active' ? <ChevronDown size={10} /> : <ChevronRight size={10} />}
+                                      {s.total - s.removedCount}
+                                    </button>
+                                  ) : s ? (
+                                    <span className="text-slate-400 dark:text-slate-600 text-[10px]">0</span>
                                   ) : '—'}
                                 </td>
                                 {/* Durata */}
@@ -1655,18 +1988,25 @@ export default function AdminPanel() {
                                     expanded === 'new' ? 'bg-emerald-50/50 dark:bg-emerald-900/10'
                                       : expanded === 'updated' ? 'bg-blue-50/50 dark:bg-blue-900/10'
                                       : expanded === 'unchanged' ? 'bg-amber-50/50 dark:bg-amber-900/10'
+                                      : expanded === 'active' ? 'bg-violet-50/50 dark:bg-violet-900/10'
                                       : 'bg-red-50/50 dark:bg-red-900/10'
                                   }`}>
                                     <div className="text-[11px] font-semibold text-slate-700 dark:text-slate-300 mb-1.5">
                                       {expanded === 'new' ? `Aggiunti (${s.newCount})`
                                         : expanded === 'updated' ? `Aggiornati (${s.updatedCount})`
                                         : expanded === 'unchanged' ? `Invariati (${s.unchangedCount}${s.unchangedCount > s.unchangedJobs.length ? ` — mostrati ${s.unchangedJobs.length}` : ''})`
+                                        : expanded === 'active' ? <>Annunci attivi ({s.total - s.removedCount}) — <span className="text-emerald-600">{s.newCount} nuovi</span> / <span className="text-blue-600">{s.updatedCount} aggiornati</span> / <span className="text-amber-600">{s.unchangedCount} invariati</span></>
                                         : `Rimossi (${s.removedCount})`}
                                     </div>
                                     {renderExpandedJobs(
                                       expanded === 'new' ? s.newJobs
                                         : expanded === 'updated' ? s.updatedJobs
                                         : expanded === 'unchanged' ? s.unchangedJobs
+                                        : expanded === 'active' ? [
+                                            ...s.newJobs.map(j => ({ ...j, _status: 'new' as const })),
+                                            ...s.updatedJobs.map(j => ({ ...j, _status: 'updated' as const })),
+                                            ...s.unchangedJobs.map(j => ({ ...j, _status: 'unchanged' as const })),
+                                          ]
                                         : s.removedJobs,
                                       expanded,
                                     )}
@@ -1720,6 +2060,7 @@ export default function AdminPanel() {
             </div>
           </div>
         )}
+        {isJobsContext && renderCrawlerConfigPanel()}
       </div>
     </div>
     );
@@ -2530,29 +2871,8 @@ export default function AdminPanel() {
             </div>
           )}
 
-          <div className="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 p-2">
-            <div className="flex flex-wrap gap-2">
-              {[
-                { id: 'overview' as const, label: 'Panoramica' },
-                { id: 'crawler' as const, label: 'Crawler Config' },
-              ].map((tab) => (
-                <button
-                  key={tab.id}
-                  onClick={() => setOwnerTab(tab.id)}
-                  className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-colors ${
-                    ownerTab === tab.id
-                      ? 'bg-violet-100 dark:bg-violet-900/30 text-violet-700 dark:text-violet-300'
-                      : 'bg-slate-50 dark:bg-slate-900 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-700'
-                  }`}
-                >
-                  {tab.label}
-                </button>
-              ))}
-            </div>
-            <p className="mt-2 px-1 text-xs text-slate-500 dark:text-slate-400">
-              {ownerTab === 'overview' && 'Panoramica KPI e check runtime. Usa questa vista per un controllo rapido.'}
-              {ownerTab === 'crawler' && 'Configurazioni e azioni del crawler jobs (parser AI, filtri qualità, seed).'}
-            </p>
+          <div className="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 px-4 py-2">
+            <p className="text-xs text-slate-500 dark:text-slate-400">Panoramica KPI e check runtime. Usa questa vista per un controllo rapido.</p>
           </div>
 
           {ownerTab === 'overview' && (
@@ -2669,327 +2989,6 @@ export default function AdminPanel() {
             </>
           )}
 
-          {ownerTab === 'crawler' && (
-          <div className="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 p-4 space-y-4">
-            <div className="flex items-center justify-between gap-3">
-              <h3 className="text-sm font-bold text-slate-800 dark:text-slate-100">
-                {ownerTab === 'crawler' && 'Crawler Jobs — Configurazione Operativa'}
-              </h3>
-              <div className="flex items-center gap-2">
-                {ownerTab === 'crawler' && (
-                  <>
-                    <button
-                      onClick={runCrawlerNow}
-                      disabled={crawlerDispatchLoading}
-                      className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-700 disabled:opacity-60 text-white text-xs font-semibold transition-colors"
-                    >
-                      <Send size={13} className={crawlerDispatchLoading ? 'animate-pulse' : ''} />
-                      {crawlerDispatchLoading ? 'Avvio…' : 'Run crawler now'}
-                    </button>
-                  </>
-                )}
-                <button
-                  onClick={loadJobsCrawlerAdminConfig}
-                  className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-200 text-xs font-medium hover:bg-slate-200 dark:hover:bg-slate-600 transition-colors"
-                >
-                  <RefreshCw size={13} />
-                  Ricarica
-                </button>
-              </div>
-            </div>
-
-            {jobsCrawlerConfigMessage && (
-              <div className={`rounded-lg px-3 py-2 text-xs ${
-                jobsCrawlerConfigMessage.toLowerCase().includes('errore')
-                  ? 'bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 text-red-700 dark:text-red-300'
-                  : 'bg-emerald-50 dark:bg-emerald-900/20 border border-emerald-200 dark:border-emerald-800 text-emerald-700 dark:text-emerald-300'
-              }`}>
-                {jobsCrawlerConfigMessage}
-              </div>
-            )}
-            {crawlerDispatchMessage && (
-              <div className={`rounded-lg px-3 py-2 text-xs ${
-                crawlerDispatchMessage.startsWith('✅')
-                  ? 'bg-emerald-50 dark:bg-emerald-900/20 border border-emerald-200 dark:border-emerald-800 text-emerald-700 dark:text-emerald-300'
-                  : 'bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 text-red-700 dark:text-red-300'
-              }`}>
-                {crawlerDispatchMessage}
-              </div>
-            )}
-            {parserDispatchMessage && (
-              <div className={`rounded-lg px-3 py-2 text-xs ${
-                parserDispatchMessage.startsWith('✅')
-                  ? 'bg-emerald-50 dark:bg-emerald-900/20 border border-emerald-200 dark:border-emerald-800 text-emerald-700 dark:text-emerald-300'
-                  : 'bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 text-red-700 dark:text-red-300'
-              }`}>
-                {parserDispatchMessage}
-              </div>
-            )}
-            {ownerTab === 'crawler' && (
-              <>
-            {renderCrawlerSummariesPanel()}
-            <div className="rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900/40 p-3 space-y-3">
-              <div className="text-xs font-semibold text-slate-700 dark:text-slate-300">
-                Genera parser/crawler AI per nuova azienda
-              </div>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
-                <label className="text-xs text-slate-600 dark:text-slate-400">
-                  Nome azienda
-                  <input
-                    type="text"
-                    value={parserCompanyName}
-                    onChange={(e) => setParserCompanyName(e.target.value)}
-                    placeholder="es. VF International"
-                    className="mt-1 w-full px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-100"
-                  />
-                </label>
-                <label className="text-xs text-slate-600 dark:text-slate-400">
-                  URL sito azienda
-                  <input
-                    type="url"
-                    value={parserCompanyWebsite}
-                    onChange={(e) => setParserCompanyWebsite(e.target.value)}
-                    placeholder="https://azienda.ch"
-                    className="mt-1 w-full px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-100"
-                  />
-                </label>
-                <label className="text-xs text-slate-600 dark:text-slate-400">
-                  Company key (opzionale)
-                  <input
-                    type="text"
-                    value={parserCompanyKey}
-                    onChange={(e) => setParserCompanyKey(e.target.value)}
-                    placeholder="es. vf-international"
-                    className="mt-1 w-full px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-100"
-                  />
-                </label>
-              </div>
-              <div className="flex flex-wrap items-center gap-2">
-                <button
-                  type="button"
-                  onClick={() => setParserApplyConfig((v) => !v)}
-                  className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-lg border text-xs font-semibold transition-colors ${
-                    parserApplyConfig
-                      ? 'border-amber-300 dark:border-amber-700 bg-amber-50 dark:bg-amber-900/20 text-amber-700 dark:text-amber-300'
-                      : 'border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300'
-                  }`}
-                >
-                  {parserApplyConfig ? <ToggleRight size={13} /> : <ToggleLeft size={13} />}
-                  {parserApplyConfig ? 'Applica config automaticamente' : 'Solo proposta (no apply)'}
-                </button>
-                <button
-                  onClick={runGenerateParserNow}
-                  disabled={parserDispatchLoading}
-                  className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-indigo-600 hover:bg-indigo-700 disabled:opacity-60 text-white text-xs font-semibold transition-colors"
-                >
-                  <Terminal size={13} className={parserDispatchLoading ? 'animate-pulse' : ''} />
-                  {parserDispatchLoading ? 'Generazione…' : 'Genera parser AI'}
-                </button>
-              </div>
-            </div>
-
-            {/* ── Section 1: Quality Gates ── */}
-            <details className="group rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800/50" open>
-              <summary className="flex items-center gap-2 px-4 py-3 cursor-pointer select-none">
-                <Shield size={14} className="text-amber-600 dark:text-amber-400" />
-                <span className="text-sm font-semibold text-slate-800 dark:text-slate-100">Filtri qualità</span>
-                <span className="ml-auto text-[10px] text-slate-400 dark:text-slate-500 group-open:hidden">▸</span>
-                <span className="ml-auto text-[10px] text-slate-400 dark:text-slate-500 hidden group-open:inline">▾</span>
-              </summary>
-              <div className="px-4 pb-4 space-y-3">
-                <p className="text-[11px] text-slate-500 dark:text-slate-400">Soglie minime per accettare un annuncio. Job sotto queste soglie vengono scartati.</p>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                  <label className="text-xs text-slate-600 dark:text-slate-400">
-                    <span className="flex items-center gap-1">Punteggio qualità minimo <span className="text-[10px] text-slate-400">(4–10)</span></span>
-                    <input type="number" min={4} max={10} value={minQualityScoreInput} onChange={e => setMinQualityScoreInput(Number(e.target.value))}
-                      className="mt-1 w-full px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 text-sm" />
-                  </label>
-                  <label className="text-xs text-slate-600 dark:text-slate-400">
-                    <span className="flex items-center gap-1">Lunghezza descrizione minima <span className="text-[10px] text-slate-400">(80–600 car.)</span></span>
-                    <input type="number" min={80} max={600} value={minDescriptionCharsInput} onChange={e => setMinDescriptionCharsInput(Number(e.target.value))}
-                      className="mt-1 w-full px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 text-sm" />
-                  </label>
-                </div>
-              </div>
-            </details>
-
-            {/* ── Section 2: AI Localization ── */}
-            <details className="group rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800/50">
-              <summary className="flex items-center gap-2 px-4 py-3 cursor-pointer select-none">
-                <Activity size={14} className="text-violet-600 dark:text-violet-400" />
-                <span className="text-sm font-semibold text-slate-800 dark:text-slate-100">Traduzione AI</span>
-                <span className={`ml-2 px-1.5 py-0.5 rounded text-[10px] font-bold ${aiLocalizationEnabledInput ? 'bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300' : 'bg-slate-100 dark:bg-slate-700 text-slate-500 dark:text-slate-400'}`}>
-                  {aiLocalizationEnabledInput ? 'ON' : 'OFF'}
-                </span>
-                <span className="ml-auto text-[10px] text-slate-400 dark:text-slate-500 group-open:hidden">▸</span>
-                <span className="ml-auto text-[10px] text-slate-400 dark:text-slate-500 hidden group-open:inline">▾</span>
-              </summary>
-              <div className="px-4 pb-4 space-y-3">
-                <p className="text-[11px] text-slate-500 dark:text-slate-400">Traduzione automatica annunci in IT/EN/DE/FR tramite LLM (free-first, paid fallback).</p>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                  <label className="text-xs text-slate-600 dark:text-slate-400">
-                    Stato
-                    <button type="button" onClick={() => setAiLocalizationEnabledInput(v => !v)}
-                      className={`mt-1 w-full inline-flex items-center justify-center gap-2 px-3 py-2 rounded-lg border transition-colors text-sm font-medium ${
-                        aiLocalizationEnabledInput
-                          ? 'border-emerald-300 dark:border-emerald-700 bg-emerald-50 dark:bg-emerald-900/20 text-emerald-700 dark:text-emerald-300'
-                          : 'border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 text-slate-700 dark:text-slate-300'
-                      }`}>
-                      {aiLocalizationEnabledInput ? <ToggleRight size={16} /> : <ToggleLeft size={16} />}
-                      {aiLocalizationEnabledInput ? 'Attivo' : 'Disattivo'}
-                    </button>
-                  </label>
-                  <label className="text-xs text-slate-600 dark:text-slate-400">
-                    <span className="flex items-center gap-1">Max job tradotti per run <span className="text-[10px] text-slate-400">(0–100)</span></span>
-                    <input type="number" min={0} max={100} value={aiLocalizationMaxJobsPerRunInput} onChange={e => setAiLocalizationMaxJobsPerRunInput(Number(e.target.value))}
-                      className="mt-1 w-full px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 text-sm" />
-                  </label>
-                </div>
-              </div>
-            </details>
-
-            {/* ── Section 3: Content Reuse ── */}
-            <details className="group rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800/50">
-              <summary className="flex items-center gap-2 px-4 py-3 cursor-pointer select-none">
-                <Copy size={14} className="text-blue-600 dark:text-blue-400" />
-                <span className="text-sm font-semibold text-slate-800 dark:text-slate-100">Riuso traduzioni</span>
-                <span className={`ml-2 px-1.5 py-0.5 rounded text-[10px] font-bold ${contentReuseEnabledInput ? 'bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300' : 'bg-slate-100 dark:bg-slate-700 text-slate-500 dark:text-slate-400'}`}>
-                  {contentReuseEnabledInput ? 'ON' : 'OFF'}
-                </span>
-                <span className="ml-auto text-[10px] text-slate-400 dark:text-slate-500 group-open:hidden">▸</span>
-                <span className="ml-auto text-[10px] text-slate-400 dark:text-slate-500 hidden group-open:inline">▾</span>
-              </summary>
-              <div className="px-4 pb-4 space-y-3">
-                <p className="text-[11px] text-slate-500 dark:text-slate-400">Se la descrizione di un job è molto simile al run precedente, riusa le traduzioni già fatte (risparmia crediti AI).</p>
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-                  <label className="text-xs text-slate-600 dark:text-slate-400">
-                    Stato
-                    <button type="button" onClick={() => setContentReuseEnabledInput(v => !v)}
-                      className={`mt-1 w-full inline-flex items-center justify-center gap-1 px-2 py-2 rounded-lg border text-sm font-medium transition-colors ${
-                        contentReuseEnabledInput
-                          ? 'border-emerald-300 dark:border-emerald-700 bg-emerald-50 dark:bg-emerald-900/20 text-emerald-700 dark:text-emerald-300'
-                          : 'border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 text-slate-700 dark:text-slate-300'
-                      }`}>
-                      {contentReuseEnabledInput ? <ToggleRight size={14} /> : <ToggleLeft size={14} />}
-                      {contentReuseEnabledInput ? 'ON' : 'OFF'}
-                    </button>
-                  </label>
-                  <label className="text-xs text-slate-600 dark:text-slate-400">
-                    <span>Similarità min <span className="text-[10px] text-slate-400">(0.70–1.00)</span></span>
-                    <input type="number" min={0.7} max={1} step={0.01} value={contentReuseSimilarityThresholdInput} onChange={e => setContentReuseSimilarityThresholdInput(Number(e.target.value))}
-                      className="mt-1 w-full px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 text-sm" />
-                  </label>
-                  <label className="text-xs text-slate-600 dark:text-slate-400">
-                    <span>Char sorgente min <span className="text-[10px] text-slate-400">(120–8000)</span></span>
-                    <input type="number" min={120} max={8000} value={contentReuseMinSourceCharsInput} onChange={e => setContentReuseMinSourceCharsInput(Number(e.target.value))}
-                      className="mt-1 w-full px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 text-sm" />
-                  </label>
-                  <label className="text-xs text-slate-600 dark:text-slate-400">
-                    <span>Delta lunghezza max <span className="text-[10px] text-slate-400">(0.02–1.00)</span></span>
-                    <input type="number" min={0.02} max={1} step={0.01} value={contentReuseMaxLengthDeltaRatioInput} onChange={e => setContentReuseMaxLengthDeltaRatioInput(Number(e.target.value))}
-                      className="mt-1 w-full px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 text-sm" />
-                  </label>
-                </div>
-              </div>
-            </details>
-
-            {/* ── Section 4: Domain Scope ── */}
-            <details className="group rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800/50">
-              <summary className="flex items-center gap-2 px-4 py-3 cursor-pointer select-none">
-                <Shield size={14} className="text-slate-600 dark:text-slate-400" />
-                <span className="text-sm font-semibold text-slate-800 dark:text-slate-100">Filtro domini</span>
-                <span className="ml-2 text-[10px] text-slate-400 dark:text-slate-500">{domainWhitelistText.split('\n').filter(Boolean).length} whitelist · {domainBlacklistText.split('\n').filter(Boolean).length} blacklist</span>
-                <span className="ml-auto text-[10px] text-slate-400 dark:text-slate-500 group-open:hidden">▸</span>
-                <span className="ml-auto text-[10px] text-slate-400 dark:text-slate-500 hidden group-open:inline">▾</span>
-              </summary>
-              <div className="px-4 pb-4 space-y-3">
-                <p className="text-[11px] text-slate-500 dark:text-slate-400">Whitelist: se compilata, solo questi domini vengono crawlati. Blacklist: domini sempre esclusi.</p>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                  <label className="text-xs text-slate-600 dark:text-slate-400">
-                    Domain Whitelist <span className="text-[10px] text-slate-400">(1 host per riga)</span>
-                    <textarea rows={5} value={domainWhitelistText} onChange={e => setDomainWhitelistText(e.target.value)} placeholder="esempio.com"
-                      className="mt-1 w-full px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 font-mono text-xs" />
-                  </label>
-                  <label className="text-xs text-slate-600 dark:text-slate-400">
-                    Domain Blacklist <span className="text-[10px] text-slate-400">(1 host per riga)</span>
-                    <textarea rows={5} value={domainBlacklistText} onChange={e => setDomainBlacklistText(e.target.value)} placeholder="esempio-da-escludere.com"
-                      className="mt-1 w-full px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 font-mono text-xs" />
-                  </label>
-                </div>
-              </div>
-            </details>
-
-            {/* ── Section 5: Company Priority & Seeds ── */}
-            <details className="group rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800/50">
-              <summary className="flex items-center gap-2 px-4 py-3 cursor-pointer select-none">
-                <Database size={14} className="text-emerald-600 dark:text-emerald-400" />
-                <span className="text-sm font-semibold text-slate-800 dark:text-slate-100">Priorità aziende &amp; seed URL</span>
-                <span className="ml-auto text-[10px] text-slate-400 dark:text-slate-500 group-open:hidden">▸</span>
-                <span className="ml-auto text-[10px] text-slate-400 dark:text-slate-500 hidden group-open:inline">▾</span>
-              </summary>
-              <div className="px-4 pb-4 space-y-3">
-                <p className="text-[11px] text-slate-500 dark:text-slate-400">Priorità: punteggio numerico per ordinare le aziende nel crawl. Seed: URL career page iniziali.</p>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                  <label className="text-xs text-slate-600 dark:text-slate-400">
-                    Priorità per dominio <span className="text-[10px] text-slate-400">(JSON: {`{"host": score}`})</span>
-                    <textarea rows={6} value={companyPriorityByDomainText} onChange={e => setCompanyPriorityByDomainText(e.target.value)}
-                      className="mt-1 w-full px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 font-mono text-xs" />
-                  </label>
-                  <label className="text-xs text-slate-600 dark:text-slate-400">
-                    Priorità per nome <span className="text-[10px] text-slate-400">(JSON: {`{"name": score}`})</span>
-                    <textarea rows={6} value={companyPriorityByNameText} onChange={e => setCompanyPriorityByNameText(e.target.value)}
-                      className="mt-1 w-full px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 font-mono text-xs" />
-                  </label>
-                </div>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                  <label className="text-xs text-slate-600 dark:text-slate-400">
-                    Seed URL per dominio <span className="text-[10px] text-slate-400">(JSON: {`{"host": ["url1","url2"]}`})</span>
-                    <textarea rows={6} value={sourceSeedsByDomainText} onChange={e => setSourceSeedsByDomainText(e.target.value)}
-                      className="mt-1 w-full px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 font-mono text-xs" />
-                  </label>
-                  <label className="text-xs text-slate-600 dark:text-slate-400">
-                    Seed URL per nome azienda <span className="text-[10px] text-slate-400">(JSON: {`{"name": ["url1"]}`})</span>
-                    <textarea rows={6} value={sourceSeedsByNameText} onChange={e => setSourceSeedsByNameText(e.target.value)}
-                      className="mt-1 w-full px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 font-mono text-xs" />
-                  </label>
-                </div>
-              </div>
-            </details>
-
-            {/* ── Save ── */}
-            <div className="flex flex-wrap items-center gap-3 pt-2">
-              <button
-                onClick={() => saveJobsCrawlerAdminConfig(
-                  domainWhitelistText,
-                  domainBlacklistText,
-                  minQualityScoreInput,
-                  minDescriptionCharsInput,
-                  aiLocalizationEnabledInput,
-                  aiLocalizationMaxJobsPerRunInput,
-                  contentReuseEnabledInput,
-                  contentReuseSimilarityThresholdInput,
-                  contentReuseMinSourceCharsInput,
-                  contentReuseMaxLengthDeltaRatioInput,
-                  companyPriorityByDomainText,
-                  companyPriorityByNameText,
-                  sourceSeedsByDomainText,
-                  sourceSeedsByNameText,
-                )}
-                disabled={jobsCrawlerConfigSaving || jobsCrawlerConfigLoading}
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-violet-600 hover:bg-violet-700 disabled:opacity-60 text-white text-sm font-semibold transition-colors"
-              >
-                {jobsCrawlerConfigSaving ? <RefreshCw size={14} className="animate-spin" /> : <Database size={14} />}
-                Salva configurazione
-              </button>
-              <span className="text-[11px] text-slate-500 dark:text-slate-400">
-                Salvato in Firestore · applicato al prossimo run crawler.
-              </span>
-            </div>
-              </>
-            )}
-
-          </div>
-          )}
         </div>
       )}
 

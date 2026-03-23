@@ -51,6 +51,21 @@ function matchExpiredSlug(job: ExpiredJob, slug: string): boolean {
   return false;
 }
 
+/**
+ * Read job data seeded by the build plugin into window.__EXPIRED_JOB_DATA__.
+ * This ensures expired pages have rich content even for jobs that are not in
+ * the runtime expired-jobs.json (which only contains recently expired jobs).
+ */
+function getSeededExpiredJob(): ExpiredJob | null {
+  try {
+    const raw = (window as Record<string, unknown>).__EXPIRED_JOB_DATA__;
+    if (raw && typeof raw === 'object' && 'slug' in (raw as Record<string, unknown>)) {
+      return raw as ExpiredJob;
+    }
+  } catch { /* SSR or missing */ }
+  return null;
+}
+
 export function useExpiredJob(slug: string | undefined): {
   expiredJob: ExpiredJob | null;
   loading: boolean;
@@ -64,6 +79,16 @@ export function useExpiredJob(slug: string | undefined): {
       setExpiredJob(null);
       return;
     }
+
+    // 1. Try window global first (seeded by build plugin — always available on expired pages)
+    const seeded = getSeededExpiredJob();
+    if (seeded && matchExpiredSlug(seeded, slug)) {
+      setExpiredJob(seeded);
+      setLoading(false);
+      return;
+    }
+
+    // 2. Fall back to runtime JSON fetch (for SPA navigation to expired jobs)
     let cancelled = false;
     setLoading(true);
     fetchExpiredJobs().then((jobs) => {

@@ -111,6 +111,10 @@ export default function JobBridgeView({ targetSlug, jobData, relatedJobs = [], o
     const container = googleButtonRef.current;
     if (!container) return;
     let cancelled = false;
+
+    // Save redirect path so One Tap / Google Sign-In navigates to the target job after auth
+    sessionStorage.setItem('auth_redirect_path', targetPath);
+
     container.innerHTML = '';
     renderGoogleButton(container, { theme: 'outline', size: 'large', text: 'signin_with' })
       .then(() => {
@@ -120,7 +124,7 @@ export default function JobBridgeView({ targetSlug, jobData, relatedJobs = [], o
         if (!cancelled) reportCaughtError(err, 'jobBridgeView.renderGoogleButton');
       });
     return () => { cancelled = true; };
-  }, []);
+  }, [targetPath]);
 
   const redirectCopy = (REDIRECT_COPY[locale] ?? REDIRECT_COPY.it).replace('{n}', String(countdown));
 

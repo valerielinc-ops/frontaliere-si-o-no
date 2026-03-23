@@ -249,12 +249,14 @@ export default function AdSenseBanner({
   }
 
   // ── Production ad unit ───────────────────────────────────
-  // Use CSS containment + smooth height transitions to prevent CLS.
-  // Collapsed: height shrinks to 0 with transition (no abrupt removal).
-  // Loading: invisible placeholder with fixed height.
-  // Filled: natural height with contain:layout to prevent sibling shifts.
+  // CLS-safe ad container:
+  // - Loading/idle: reserve space with minHeight so the layout is stable
+  //   (maxHeight alone doesn't work when content is 0px tall — it's just a cap)
+  // - Filled: natural height, fully visible
+  // - Collapsed: smooth transition to 0 height
   const isVisible = state === 'filled';
   const isCollapsed = state === 'collapsed';
+  const isReservingSpace = !isVisible && !isCollapsed;
 
   return (
     <div
@@ -262,8 +264,11 @@ export default function AdSenseBanner({
       className={className}
       style={{
         contain: 'layout',
-        transition: 'opacity 0.3s ease, max-height 0.3s ease',
-        maxHeight: isCollapsed ? 0 : isVisible ? 9999 : placeholderMinHeight,
+        transition: 'opacity 0.3s ease, min-height 0.3s ease, max-height 0.3s ease',
+        // Reserve space during loading via minHeight (the key CLS fix)
+        minHeight: isCollapsed ? 0 : isReservingSpace ? placeholderMinHeight : undefined,
+        // Cap collapsed state to 0
+        maxHeight: isCollapsed ? 0 : undefined,
         opacity: isVisible ? 1 : 0,
         overflow: 'hidden',
         ...(isVisible ? {} : { pointerEvents: 'none' as const }),

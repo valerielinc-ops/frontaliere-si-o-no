@@ -63,17 +63,29 @@ export const SCHEMA_AUTHOR = {
   "name": "Frontaliere Ticino",
   "url": BASE_URL,
   "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` },
+  "foundingDate": "2023",
+  "description": "Piattaforma informativa di riferimento per i lavoratori frontalieri italiani in Ticino: tassazione, permessi, sanità, previdenza, lavoro e aggiornamenti normativi.",
   "sameAs": [
-    "https://www.facebook.com/profile.php?id=61588174947294"
+    "https://www.facebook.com/profile.php?id=61588174947294",
   ],
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "contactType": "customer support",
+    "url": `${BASE_URL}/contattaci`,
+  },
   "knowsAbout": [
     "Cross-border worker taxation Italy-Switzerland",
     "Swiss withholding tax (imposta alla fonte)",
     "Italian IRPEF for frontalieri",
+    "IRPEF frontalieri nuova convenzione 2024",
     "LAMal health insurance",
     "Swiss pension system AVS/LPP",
     "CHF-EUR exchange rates",
-    "Canton Ticino employment law"
+    "Canton Ticino employment law",
+    "Bilateral agreements Switzerland-EU",
+    "Frontalieri Ticino Lombardia Piemonte",
+    "Dichiarazione dei redditi frontalieri",
+    "Assegni familiari Svizzera frontalieri",
   ]
 } as const;
 

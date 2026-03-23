@@ -68,6 +68,10 @@ export default function JobOrphanView({ slug, onBack }: JobOrphanViewProps) {
     const container = googleButtonRef.current;
     if (!container) return;
     let cancelled = false;
+
+    // Save redirect path so One Tap / Google Sign-In navigates to listing after auth
+    sessionStorage.setItem('auth_redirect_path', listingPath);
+
     container.innerHTML = '';
     renderGoogleButton(container, { theme: 'outline', size: 'large', text: 'signin_with' })
       .then(() => {
@@ -77,7 +81,7 @@ export default function JobOrphanView({ slug, onBack }: JobOrphanViewProps) {
         if (!cancelled) reportCaughtError(err, 'jobOrphanView.renderGoogleButton');
       });
     return () => { cancelled = true; };
-  }, []);
+  }, [listingPath]);
 
   return (
     <div className="space-y-5 max-w-2xl mx-auto">

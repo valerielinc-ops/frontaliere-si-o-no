@@ -274,6 +274,24 @@ export function ogPagesPlugin(rootDir: string): Plugin {
           return clean ? `${clean}/` : '/';
         };
 
+        /** Extract plain-text excerpt from HTML body for structured data articleBody */
+        const extractExcerpt = (htmlBody: string | undefined, maxChars = 500): string => {
+          if (!htmlBody) return '';
+          return htmlBody
+            .replace(/<[^>]+>/g, ' ')      // strip HTML tags
+            .replace(/&[a-z]+;/gi, ' ')     // strip HTML entities
+            .replace(/\s+/g, ' ')           // normalize whitespace
+            .trim()
+            .slice(0, maxChars)
+            .replace(/\s+\S*$/, '');        // truncate at last complete word
+        };
+
+        /** Count words in HTML body */
+        const countWords = (htmlBody: string | undefined): number => {
+          if (!htmlBody) return 0;
+          return htmlBody.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim().split(/\s+/).length;
+        };
+
         const html = (locale: string, urlPath: string) => {
           const localeForMeta: 'en' | 'de' | 'fr' | null =
             (locale === 'en' || locale === 'de' || locale === 'fr') ? locale : null;
@@ -320,11 +338,44 @@ export function ogPagesPlugin(rootDir: string): Plugin {
               '@type': 'SpeakableSpecification',
               cssSelector: ['article h1', 'article h2', 'article p'],
             },
+            // Google Discover eligibility fields
+            isAccessibleForFree: true,
+            articleSection: 'Frontalieri Ticino',
           };
           const todayIso = new Date().toISOString().slice(0, 10);
           ldObj.datePublished = normalizeDateTime(en.datePub || en.dateMod || todayIso);
           ldObj.dateModified  = normalizeDateTime(en.dateMod || en.datePub || todayIso);
+
+          // articleBody excerpt + wordCount (Google Discover uses this for topic relevance)
+          const fullBodyHtml = bodySections.join('\n');
+          const excerpt = extractExcerpt(fullBodyHtml, 500);
+          if (excerpt) {
+            ldObj.articleBody = excerpt;
+            ldObj.wordCount = countWords(fullBodyHtml);
+          }
+
+          // keywords from article metadata
+          if (en.keywords) {
+            const kw = typeof en.keywords === 'string'
+              ? en.keywords.split(',').map((k: string) => k.trim()).filter(Boolean)
+              : Array.isArray(en.keywords) ? en.keywords : [];
+            if (kw.length > 0) ldObj.keywords = kw;
+          }
+
           const ldJsonStr = JSON.stringify(ldObj).replace(/</g, '\\u003c');
+
+          // BreadcrumbList for article pages (enables rich result breadcrumbs in Google)
+          const sectionName = locale === 'en' ? 'Articles' : locale === 'de' ? 'Artikel' : locale === 'fr' ? 'Articles' : 'Articoli';
+          const sectionSlug = locale === 'en' ? 'frontier-articles' : locale === 'de' ? 'grenzgaenger-artikel' : locale === 'fr' ? 'articles-frontalier' : 'articoli-frontaliere';
+          const breadcrumbLd = JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'BreadcrumbList',
+            itemListElement: [
+              { '@type': 'ListItem', position: 1, name: 'Home', item: `${BASE_URL}/` },
+              { '@type': 'ListItem', position: 2, name: sectionName, item: `${BASE_URL}/${sectionSlug}/` },
+              { '@type': 'ListItem', position: 3, name: localizedTitle },
+            ],
+          }).replace(/</g, '\\u003c');
 
           const headTags = `    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -336,12 +387,17 @@ export function ogPagesPlugin(rootDir: string): Plugin {
     <meta property="og:title" content="${esc(localizedTitle)}">
     <meta property="og:description" content="${esc(localizedDesc)}">
     <meta property="og:image" content="${imgU}">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="675">
+    <meta property="og:image:type" content="image/jpeg">
     <meta property="og:locale" content="${LOC_TAG[locale] ?? 'it_IT'}">
     <meta property="og:site_name" content="Frontaliere Ticino">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <meta property="fb:app_id" content="891036063797338">
     <meta property="article:published_time" content="${esc(normalizeDateTime(en.datePub || en.dateMod || todayIso))}">
     <meta property="article:modified_time" content="${esc(normalizeDateTime(en.dateMod || en.datePub || todayIso))}">
+    <meta property="article:section" content="Frontalieri Ticino">
+    <meta property="article:author" content="${BASE_URL}/chi-siamo/">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="${esc(localizedTitle)}">
     <meta name="twitter:description" content="${esc(localizedDesc)}">
@@ -349,6 +405,7 @@ export function ogPagesPlugin(rootDir: string): Plugin {
 ${href}
     <link rel="alternate" type="application/rss+xml" title="Frontaliere Ticino" href="${BASE_URL}/rss.xml">
     <script type="application/ld+json">${ldJsonStr}</script>
+    <script type="application/ld+json">${breadcrumbLd}</script>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">`;
 
           const blogPreloads = [

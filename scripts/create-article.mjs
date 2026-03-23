@@ -748,7 +748,7 @@ async function optimizeImageToJpeg(inputPath, outputPath) {
     const encodeWithQuality = async (quality) => {
       return sharp(inputPath)
         .rotate()
-        .resize({ width: 1200, height: 1200, fit: 'inside', withoutEnlargement: true })
+        .resize({ width: 1200, height: 675, fit: 'cover', position: 'attention' })
         .jpeg({
           quality,
           progressive: true,
@@ -782,9 +782,9 @@ async function optimizeImageToJpeg(inputPath, outputPath) {
   };
 
   const encodeCommands = [
-    tools.magick && `magick "${inputPath}" -auto-orient -strip -interlace Plane -sampling-factor 4:2:0 -resize "1200x1200>" -quality 72 "${outputPath}"`,
-    tools.convert && `convert "${inputPath}" -auto-orient -strip -interlace Plane -sampling-factor 4:2:0 -resize "1200x1200>" -quality 72 "${outputPath}"`,
-    tools.ffmpeg && `ffmpeg -y -i "${inputPath}" -vf "scale='min(1200,iw)':-2" -q:v 4 -frames:v 1 "${outputPath}"`,
+    tools.magick && `magick "${inputPath}" -auto-orient -strip -interlace Plane -sampling-factor 4:2:0 -resize "1200x675^" -gravity center -extent 1200x675 -quality 72 "${outputPath}"`,
+    tools.convert && `convert "${inputPath}" -auto-orient -strip -interlace Plane -sampling-factor 4:2:0 -resize "1200x675^" -gravity center -extent 1200x675 -quality 72 "${outputPath}"`,
+    tools.ffmpeg && `ffmpeg -y -i "${inputPath}" -vf "scale=1200:675:force_original_aspect_ratio=increase,crop=1200:675" -q:v 4 -frames:v 1 "${outputPath}"`,
     tools.sips && `sips -s format jpeg --resampleWidth 1200 -s formatOptions 72 "${inputPath}" --out "${outputPath}"`,
   ].filter(Boolean);
 
@@ -2706,9 +2706,11 @@ async function generateArticleImage(data) {
         console.error(`🎨 Generazione immagine con ${isPro ? 'Gemini 3 Pro Image' : 'Gemini 2.5 Flash Image'}...`);
 
         const endpoint = `${GEMINI_API_BASE}/${model}:generateContent?key=${apiKey}`;
+        // Note: imageSize:'1K' removed — it causes Gemini to output 1024x1024 squares.
+        // aspectRatio:'16:9' alone produces proper landscape output.
         const generationConfig = isPro
-          ? { responseModalities: ['TEXT', 'IMAGE'], imageConfig: { aspectRatio: '16:9', imageSize: '1K' } }
-          : { responseModalities: ['IMAGE'], imageConfig: { aspectRatio: '16:9', imageSize: '1K' } };
+          ? { responseModalities: ['TEXT', 'IMAGE'], imageConfig: { aspectRatio: '16:9' } }
+          : { responseModalities: ['IMAGE'], imageConfig: { aspectRatio: '16:9' } };
 
         const res = await fetch(endpoint, {
           method: 'POST',

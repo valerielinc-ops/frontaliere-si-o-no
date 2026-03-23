@@ -1106,6 +1106,14 @@ async function handleOneTapResponse(response: OneTapResponse): Promise<void> {
     const { Analytics } = await import('@/services/analytics');
     Analytics.trackUIInteraction('auth', 'google', 'login', 'onetap');
     console.log('✅ One Tap sign-in successful:', result.user.email);
+
+    // Redirect to saved path if present (e.g., expired/bridge job → listing)
+    const savedPath = sessionStorage.getItem('auth_redirect_path');
+    sessionStorage.removeItem('auth_redirect_path');
+    if (savedPath && savedPath !== '/' && window.location.pathname !== savedPath) {
+      window.history.replaceState(null, '', savedPath);
+      window.dispatchEvent(new PopStateEvent('popstate'));
+    }
   } catch (error) {
     console.warn('⚠️ One Tap credential error:', error);
     reportCaughtError(error, 'auth.oneTapCredential');

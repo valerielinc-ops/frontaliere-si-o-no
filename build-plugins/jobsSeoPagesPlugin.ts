@@ -2983,6 +2983,22 @@ ${alternates}${hasSpaBundle ? `\n    <link rel="stylesheet" href="/assets/${entr
 
           const pageDesc = `${esc(jobTitle)}${jobCompany ? ` — ${esc(jobCompany)}` : ''}. ${esc(archiveRelatedLabel[locale] || archiveRelatedLabel.it)}.`;
 
+          // Seed expired job data as window global so the SPA can render
+          // rich content (title, company, description) without depending on
+          // the runtime expired-jobs.json fetch (which only has recently expired jobs).
+          const expiredWindowData = JSON.stringify({
+            slug,
+            title: ejData?.title || '',
+            titleByLocale: ejData?.titleByLocale || {},
+            company: ejData?.company || '',
+            companyKey: ejData?.companyKey || '',
+            location: ejData?.location || ejData?.addressLocality || '',
+            descriptionByLocale: ejData?.descriptionByLocale || {},
+            slugByLocale: ejData?.slugByLocale || {},
+            sector: ejData?.sector || '',
+            expiredAt: ejData?.expiredAt || '',
+          });
+
           const softLandingHtml = `<!DOCTYPE html>
 <html lang="${locale}">
   <head>
@@ -3000,7 +3016,8 @@ ${hreflangLinks}
         { '@type': 'ListItem', position: 2, name: localeCopy[locale].sectionName, item: `${BASE_URL}${listingPath}` },
         { '@type': 'ListItem', position: 3, name: jobTitle },
       ],
-    })}</script>${hasSpaBundle ? `\n    <link rel="stylesheet" href="/assets/${entryCss}" crossorigin media="all">` : ''}
+    })}</script>
+    <script>window.__EXPIRED_JOB_DATA__=${expiredWindowData};</script>${hasSpaBundle ? `\n    <link rel="stylesheet" href="/assets/${entryCss}" crossorigin media="all">` : ''}
     ${SPA_ACTION_REDIRECT_SCRIPT}
   </head>
   <body>
