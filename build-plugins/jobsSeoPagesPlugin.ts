@@ -3128,6 +3128,25 @@ ${hreflangLinks}
         { '@type': 'ListItem', position: 3, name: localizedTitle },
       ],
     })}</script>
+    ${(() => {
+              // JobPosting for bridge pages — uses target job data for SEO continuity
+              const desc = String(job.descriptionByLocale?.[locale] || job.description || '');
+              const cleanDesc = desc.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+              if (cleanDesc.length >= 30 && localizedTitle && jobCompany) {
+                return `<script type="application/ld+json">${JSON.stringify({
+                  '@context': 'https://schema.org',
+                  '@type': 'JobPosting',
+                  title: localizedTitle,
+                  description: cleanDesc.slice(0, 5000),
+                  datePosted: toIsoDateTime(job.postedDate),
+                  validThrough: toValidThrough(job.postedDate, job.crawledAt),
+                  hiringOrganization: { '@type': 'Organization', name: jobCompany },
+                  jobLocation: jobLocation ? { '@type': 'Place', address: { '@type': 'PostalAddress', addressLocality: jobLocation, addressCountry: 'CH' } } : undefined,
+                  url: canonicalUrl,
+                })}</script>`;
+              }
+              return '';
+            })()}
     <script>window.__BRIDGE_TARGET_SLUG__=${JSON.stringify(currentSlug)};window.__JOB_DATA__=${bridgeWindowData};</script>${hasSpaBundle ? `\n    <link rel="stylesheet" href="/assets/${entryCss}" crossorigin media="all">` : ''}
     ${SPA_ACTION_REDIRECT_SCRIPT}
   </head>
