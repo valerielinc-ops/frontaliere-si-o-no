@@ -1575,7 +1575,19 @@ MAI usare: "In conclusione", "È importante notare", "In questo contesto", "Vale
 Linguaggio diretto: "conviene" non "potrebbe essere utile". Includi citazione dalla fonte. Il testo DEVE superare AI detection.
 
 TICINO: L'articolo DEVE riguardare Canton Ticino, confine italo-svizzero, o frontalieri. Riferimenti locali: Canton Ticino, SUPSI, USI, EOC, Lugano, Bellinzona, Locarno, Mendrisio, DFE, SECO.
-FACT-CHECK (CRITICO): NON inventare fatti. Usa SOLO informazioni presenti in SOURCE CONTENT/HEADLINE/RELATED per: platea interessata, importi, date, scadenze, riferimenti normativi. Se un dato non è esplicito nella fonte, scrivi che non è specificato.
+
+FACT-CHECK (CRITICO): NON inventare fatti. Usa SOLO informazioni presenti in SOURCE CONTENT/HEADLINE/RELATED per: platea interessata, importi, date, scadenze, riferimenti normativi. Se un dato non è esplicito nella fonte, scrivi che non è specificato. Le citazioni dirette devono essere presenti VERBATIM nella fonte. NON usare "secondo esperti" senza citare la fonte specifica. NON aggiungere contesto di background non verificato.
+
+ANTI-CLICKBAIT (CRITICO — Google Discover compliance):
+- Il titolo DEVE essere DESCRITTIVO e SPECIFICO: soggetto + azione + contesto.
+  ✅ Buono: "Aumento stipendi minimi in Ticino: +2.3% dal 1° gennaio 2026"
+  ❌ Vietato: "Tutto quello che devi sapere sugli stipendi in Ticino"
+- MAI titoli vaghi: "tutto cambia", "ecco perché", "scopri cosa", "shock", "clamoroso", "incredibile", "non crederai"
+- MAI domande retoriche come titolo ("Ma davvero i frontalieri...?")
+- MAI titoli TUTTO MAIUSCOLE o con "..." finale (curiosity gap)
+- MAI promettere dettagli non presenti nel testo
+- MAI linguaggio che fa leva su curiosità morbosa, sdegno, o titillazione
+
 TOPIC GUARD: per articoli su "tassa salute", NON invertire la platea (es. "lavora in Lombardia e risiede in Ticino") se non esplicitamente indicata nella fonte.
 
 CTA: body3 DEVE terminare con CTA verso strumenti del sito. Default: calcolatore stipendio. Temi specifici: assicurazione→health, pensioni→pension, costo vita→cost-of-living, cambio→exchange, IRPEF/comuni→border-map, auto→car-transfer, permessi→permit-compare, casa→renovation, telefonia→mobile, congedo→parental-leave, vivere CH→living-ch, vivibilità→livability.
@@ -1864,6 +1876,32 @@ Rispondi con un JSON object (no markdown, no code fences):
   console.error(`  ✅ Articolo assemblato — ${Object.keys(data.content).length} lingue`);
 }
 
+// ── Anti-clickbait title validation (Google Discover compliance) ──
+
+const CLICKBAIT_PATTERNS = [
+  { re: /\b(shock|clamoroso|incredibile|ecco perch[eé]|tutto cambia|scopri cosa|non crederai|assurdo|pazzesco)\b/i, label: 'sensational_word' },
+  { re: /\b(segreto|trucco|metodo che|svela|rivela il)\b/i, label: 'curiosity_gap' },
+  { re: /^\s*[A-ZÀ-Ú\s!]{10,}\s*:/, label: 'all_caps_prefix' },
+  { re: /\?$/, label: 'rhetorical_question' },
+  { re: /\.{3}$/, label: 'trailing_ellipsis' },
+  { re: /\b(ecco cosa|ecco come|ecco quando|ecco chi)\b/i, label: 'ecco_pattern' },
+];
+
+/**
+ * Validate a title against clickbait patterns. Returns { valid, reason } where
+ * reason is the label of the first matching pattern (or null if valid).
+ */
+function validateTitle(title) {
+  if (!title) return { valid: false, reason: 'empty' };
+  for (const { re, label } of CLICKBAIT_PATTERNS) {
+    if (re.test(title)) {
+      console.warn(`  ⚠️ [anti-clickbait] Titolo sospetto: "${title}" — pattern: ${label}`);
+      return { valid: false, reason: label };
+    }
+  }
+  return { valid: true, reason: null };
+}
+
 // ── Step 3: Validate Gemini response ────────────────────────
 function validate(data) {
   const required = ['id', 'category', 'image', 'slugs', 'content'];
@@ -1894,6 +1932,15 @@ function validate(data) {
     for (const field of ['title', 'excerpt', 'body1', 'body2', 'body3']) {
       if (!data.content[locale][field]) throw new Error(`Campo ${field} mancante per ${locale}`);
     }
+  }
+
+  // Anti-clickbait title validation (Google Discover compliance)
+  const itTitle = (data.content.it || data.content)?.title || '';
+  const titleCheck = validateTitle(itTitle);
+  if (!titleCheck.valid) {
+    console.warn(`  ⚠️ [anti-clickbait] Titolo IT non conforme: "${itTitle}" (${titleCheck.reason})`);
+    // Non-blocking: log warning but don't reject the article outright,
+    // as false positives are possible. The warning is visible in GH Actions.
   }
   // Slug validation for translated locales (slugs come from IT generation call)
   for (const locale of ['en', 'de', 'fr']) {
