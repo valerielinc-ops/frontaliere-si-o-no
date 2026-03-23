@@ -28,7 +28,12 @@ describe('Soft-landing SEO pages for expired jobs', () => {
   });
 
   it('does NOT include JobPosting schema for expired jobs', () => {
-    const expiredSection = pluginSource.slice(pluginSource.indexOf('Expired-job'));
+    // Scope to only the expired-job section — bridge pages (which follow) legitimately have JobPosting
+    const expiredStart = pluginSource.indexOf('Expired-job');
+    const bridgeStart = pluginSource.indexOf('Rich bridge pages');
+    const expiredSection = bridgeStart > expiredStart
+      ? pluginSource.slice(expiredStart, bridgeStart)
+      : pluginSource.slice(expiredStart);
     expect(expiredSection).not.toContain("'JobPosting'");
     expect(expiredSection).not.toContain('"JobPosting"');
   });

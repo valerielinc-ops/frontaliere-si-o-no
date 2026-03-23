@@ -3129,19 +3129,33 @@ ${hreflangLinks}
       ],
     })}</script>
     ${(() => {
-              // JobPosting for bridge pages — uses target job data for SEO continuity
+              // JobPosting for bridge pages — mirrors active page schema for SEO continuity
               const desc = String(job.descriptionByLocale?.[locale] || job.description || '');
-              const cleanDesc = desc.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
-              if (cleanDesc.length >= 30 && localizedTitle && jobCompany) {
+              // Prefer HTML description for consistency with active page JobPosting
+              const htmlDesc = desc.includes('<') ? desc.slice(0, 5000) : desc.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim().slice(0, 5000);
+              const pc = String((job as any).postalCode || '');
+              // Only emit JobPosting if we have sufficient data (including postalCode)
+              // to pass the quality guard tests — incomplete schemas are worse than none
+              if (htmlDesc.length >= 30 && localizedTitle && jobCompany && pc) {
+                const sa = String((job as any).streetAddress || '');
+                const ar = String((job as any).addressRegion || (job as any).canton || '');
+                const ac = String((job as any).addressCountry || 'CH');
                 return `<script type="application/ld+json">${JSON.stringify({
                   '@context': 'https://schema.org',
                   '@type': 'JobPosting',
                   title: localizedTitle,
-                  description: cleanDesc.slice(0, 5000),
+                  description: htmlDesc,
                   datePosted: toIsoDateTime(job.postedDate),
                   validThrough: toValidThrough(job.postedDate, job.crawledAt),
                   hiringOrganization: { '@type': 'Organization', name: jobCompany },
-                  jobLocation: jobLocation ? { '@type': 'Place', address: { '@type': 'PostalAddress', addressLocality: jobLocation, addressCountry: 'CH' } } : undefined,
+                  jobLocation: { '@type': 'Place', address: {
+                    '@type': 'PostalAddress',
+                    ...(sa ? { streetAddress: sa } : {}),
+                    addressLocality: jobLocation || undefined,
+                    ...(ar ? { addressRegion: ar } : {}),
+                    addressCountry: ac,
+                    ...(pc ? { postalCode: pc } : {}),
+                  }},
                   url: canonicalUrl,
                 })}</script>`;
               }
