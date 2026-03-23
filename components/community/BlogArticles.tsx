@@ -4505,6 +4505,13 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/riapertura-casetta-chiosco-davesco.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'giovani-ticino-comuni-innovazioni',
+    category: 'pratico',
+    date: '2026-03-23T05:14:57.952Z',
+    image: '/images/blog/giovani-ticino-comuni-innovazioni.jpg',
+    hasCalculator: true,
+  },
 ];
 
 const CATEGORIES = ['all', 'fiscale', 'pratico', 'novita', 'pensione'] as const;

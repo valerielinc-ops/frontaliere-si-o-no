@@ -1676,6 +1676,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.riapertura-casetta-chiosco-davesco.title': 'The Davesco-Soragno Little House Reopens: Refreshment Point in the Heart of the Cycling and Walking Path',
     'blog.article.riapertura-casetta-chiosco-davesco.excerpt': 'Starting from March 28, the Little House in Davesco-Soragno reopens its doors. Managed by the Neighborhood Committee, it will be open every weekend until mid-June, promoting community gathering and refreshment along the route.',
     'blog.article.riapertura-casetta-chiosco-davesco.imageAlt': 'Rustic kiosk along a cycling and walking trail in Ticino with natural scenery',
+    'blog.article.giovani-ticino-comuni-innovazioni.title': 'Young People Do Not Return: What Are Ticino Municipalities Doing?',
+    'blog.article.giovani-ticino-comuni-innovazioni.excerpt': 'Every year in Ticino, around 800 talented individuals leave, while municipalities attempt to respond with new strategies. A detailed analysis of measures and opportunities.',
+    'blog.article.giovani-ticino-comuni-innovazioni.imageAlt': 'Panoramic view of Lake Lugano with surrounding mountains during daytime',
 };
 
 export default blogMetaEn;

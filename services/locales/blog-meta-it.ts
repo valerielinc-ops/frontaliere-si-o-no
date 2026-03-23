@@ -1676,6 +1676,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.riapertura-casetta-chiosco-davesco.title': 'Riapre la Casetta a Davesco-Soragno: punto di ristoro nel cuore del percorso ciclopedonale',
     'blog.article.riapertura-casetta-chiosco-davesco.excerpt': 'Dal 28 marzo la Casetta, chiosco temporaneo di Davesco-Soragno, riapre i battenti. Gestito dalla Commissione di Quartiere, sarà aperto ogni fine settimana fino a metà giugno, promuovendo aggregazione e ristoro lungo il percorso.',
     'blog.article.riapertura-casetta-chiosco-davesco.imageAlt': 'Chiosco rustico in Ticino lungo un percorso ciclopedonale con paesaggio naturale',
+    'blog.article.giovani-ticino-comuni-innovazioni.title': 'I giovani non tornano: cosa fanno i Comuni ticinesi?',
+    'blog.article.giovani-ticino-comuni-innovazioni.excerpt': 'Ogni anno nel Ticino si perdono circa 800 cervelli, mentre i Comuni cercano di rispondere con nuove strategie. Analisi dettagliata delle misure e delle opportunità.',
+    'blog.article.giovani-ticino-comuni-innovazioni.imageAlt': 'Veduta panoramica del Lago di Lugano con montagne circostanti durante il giorno',
 };
 
 export default blogMetaIt;

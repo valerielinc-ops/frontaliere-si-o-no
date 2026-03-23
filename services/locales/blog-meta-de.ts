@@ -1676,6 +1676,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.riapertura-casetta-chiosco-davesco.title': 'Wiederöffnung des Davesco-Soragno Häuschens: Erfrischungspunkt im Herzen des Rad- und Wanderwegs',
     'blog.article.riapertura-casetta-chiosco-davesco.excerpt': 'Ab dem 28. März öffnet das Häuschen, ein temporärer Kiosk in Davesco-Soragno, wieder seine Pforten. Betrieben von der Quartierkommission, wird es an jedem Wochenende bis Mitte Juni geöffnet sein, um Gemeinschaft und Erholung entlang des Weges zu fördern.',
     'blog.article.riapertura-casetta-chiosco-davesco.imageAlt': 'Rustikaler Kiosk entlang eines Rad- und Wanderwegs in Tessin mit Naturlandschaft',
+    'blog.article.giovani-ticino-comuni-innovazioni.title': 'Die Jugend kehrt nicht zurück: Was machen die Gemeinden im Tessin?',
+    'blog.article.giovani-ticino-comuni-innovazioni.excerpt': 'Jedes Jahr verliert der Tessin etwa 800 Köpfe, während die Gemeinden mit neuen Strategien versuchen, gegenzusteuern. Detaillierte Analyse der Maßnahmen und Chancen.',
+    'blog.article.giovani-ticino-comuni-innovazioni.imageAlt': 'Panoramablick auf den Lago di Lugano mit umliegenden Bergen bei Tageslicht',
 };
 
 export default blogMetaDe;

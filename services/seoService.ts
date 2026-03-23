@@ -1695,6 +1695,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-cannabis-sequestro-ticino': { name: 'Sequestro record di cannabis in Argovia', path: '/articoli-frontaliere/cannabis-sequestro-ticino', parent: 'blog' },
     'blog-pfaffikon-kanton-schwyz-franzosi-einbrecher': { name: 'Notizie', path: '/articoli-frontaliere/pfaffikon-kanton-schwyz-franzosi-einbrecher', parent: 'blog' },
     'blog-riapertura-casetta-chiosco-davesco': { name: 'Riapre la Casetta a Davesco-Soragno', path: '/articoli-frontaliere/riapertura-casetta-chiosco-davesco', parent: 'blog' },
+    'blog-giovani-ticino-comuni-innovazioni': { name: 'I giovani non tornano', path: '/articoli-frontaliere/giovani-ticino-comuni-innovazioni', parent: 'blog' },
   };
 
   const info = sectionNames[section];

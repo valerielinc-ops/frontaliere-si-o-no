@@ -9332,6 +9332,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-giovani-ticino-comuni-innovazioni': {
+    title: 'I giovani non tornano: cosa fanno i Comuni ticinesi? | Frontaliere Ticino',
+    description: 'Ogni anno nel Ticino si perdono circa 800 cervelli, mentre i Comuni cercano di rispondere con nuove strategie. Analisi dettagliata delle misure e delle opportun',
+    keywords: 'frontalieri, ticino, svizzera, italia, giovani, tornano, cosa, fanno',
+    ogTitle: 'I giovani non tornano: cosa fanno i Comuni ticinesi?',
+    ogDescription: 'Ogni anno nel Ticino si perdono circa 800 cervelli, mentre i Comuni cercano di rispondere con nuove strategie. Analisi dettagliata delle misure e delle opportun',
+    canonicalPath: '/articoli-frontaliere/giovani-ticino-comuni-innovazioni',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "I giovani non tornano: cosa fanno i Comuni ticinesi?",
+      "description": "Ogni anno nel Ticino si perdono circa 800 cervelli, mentre i Comuni cercano di rispondere con nuove strategie. Analisi dettagliata delle misure e delle opportun",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/giovani-ticino-comuni-innovazioni.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Veduta panoramica del Lago di Lugano con montagne circostanti durante il giorno"
+      },
+      "datePublished": "2026-03-23T05:14:57+00:00",
+      "dateModified": "2026-03-23T05:14:57+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/giovani-ticino-comuni-innovazioni`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

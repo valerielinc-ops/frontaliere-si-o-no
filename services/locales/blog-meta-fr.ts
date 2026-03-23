@@ -1676,6 +1676,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.riapertura-casetta-chiosco-davesco.title': 'Réouverture de la Petite Maison à Davesco-Soragno : point de restauration au cœur du parcours cyclo-piéton',
     'blog.article.riapertura-casetta-chiosco-davesco.excerpt': 'Depuis le 28 mars, la Petite Maison, kiosque temporaire de Davesco-Soragno, rouvre ses portes. Gérée par la Commission de Quartier, elle sera ouverte chaque week-end jusqu’à la mi-juin, favorisant la convivialité et la détente le long du parcours.',
     'blog.article.riapertura-casetta-chiosco-davesco.imageAlt': 'Kiosque rustique le long d’un sentier cyclable et pédestre dans le Tessin avec paysage naturel',
+    'blog.article.giovani-ticino-comuni-innovazioni.title': 'Les jeunes ne reviennent pas : que font les communes tessinoises ?',
+    'blog.article.giovani-ticino-comuni-innovazioni.excerpt': 'Chaque année, environ 800 cerveaux quittent le Tessin, tandis que les communes tentent de répondre avec de nouvelles stratégies. Analyse détaillée des mesures et des opportunités.',
+    'blog.article.giovani-ticino-comuni-innovazioni.imageAlt': 'Vue panoramique du lac de Lugano avec montagnes environnantes en plein jour',
 };
 
 export default blogMetaFr;
