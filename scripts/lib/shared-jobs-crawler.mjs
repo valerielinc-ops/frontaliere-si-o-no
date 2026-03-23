@@ -653,6 +653,11 @@ async function raceProxyInstances(instances, fetchFn) {
 // Verified 2026-03-22
 const LINGVA_INSTANCES = [
   'https://translate.plausibility.cloud',
+  'https://lingva.ml',
+  'https://lingva.lunar.icu',
+  'https://translate.projectsegfau.lt',
+  'https://lingva.garudalinux.org',
+  'https://translate.jae.fi',
 ];
 
 async function translateChunkLingva({ text, sourceLang = 'auto', targetLang }) {

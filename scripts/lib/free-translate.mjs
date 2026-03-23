@@ -33,7 +33,12 @@ const TIMEOUT_MS = 15000;
 // Lingva Translate instances (free Google Translate proxy)
 // Verified 2026-03-22 — only instances that returned valid translations
 const LINGVA_INSTANCES = [
-  'https://translate.plausibility.cloud',  // ✅ 3.3s
+  'https://translate.plausibility.cloud',  // ✅ verified
+  'https://lingva.ml',                    // official
+  'https://lingva.lunar.icu',             // community
+  'https://translate.projectsegfau.lt',   // community
+  'https://lingva.garudalinux.org',       // community
+  'https://translate.jae.fi',             // community
 ];
 
 // SimplyTranslate instances (another free proxy)
