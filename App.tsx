@@ -2115,9 +2115,19 @@ const App: React.FC = () => {
     navigateTo,
   };
 
-  // Show full-chrome skeleton until Italian translations are loaded (CLS-safe).
-  // SkeletonPageShell includes nav + sub-tabs + mobile nav placeholders that
-  // match the loading shell dimensions, so React hydration produces zero CLS.
+  // FRO-297: On slow mobile, itReady can take >20s to resolve (chunk parse time).
+  // The static HTML shell already has the real H1/content for a good LCP.
+  // Mounting SkeletonPageShell destroys that content → LCP regresses to >20s.
+  // Fix: keep skeleton gate but add a 3s safety timeout. After 3s, render the
+  // real app even if translations aren't loaded yet (t() returns keys as fallback,
+  // then re-renders once translations arrive — much better than 20s skeleton).
+  useEffect(() => {
+    if (!translationsReady) {
+      const timer = setTimeout(() => setTranslationsReady(true), 3000);
+      return () => clearTimeout(timer);
+    }
+  }, [translationsReady]);
+
   if (!translationsReady) {
     return <SkeletonPageShell />;
   }
