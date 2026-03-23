@@ -91,6 +91,10 @@ jobs:
       - name: Load secrets from Remote Config
         run: node scripts/load-rc-env.mjs
 
+      - name: Assemble jobs dataset from per-crawler slices
+        continue-on-error: true
+        run: node scripts/assemble-jobs-dataset.mjs 2>&1 || echo "⚠️ Jobs assembly failed — newsletter will proceed without job data"
+
       - name: Run newsletter job
         env:
           NEWSLETTER_EXPERIMENTAL_MODE: false
