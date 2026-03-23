@@ -107,6 +107,7 @@ function getAllRoutes(): { route: AppRoute; label: string }[] {
     'privacy', 'data-deletion', 'api-status', 'glossario', 'faq', 'sitemap',
     'dialetto',
     'email-confirmed',
+    'chi-siamo',
   ];
   for (const tab of standalones) {
     routes.push({ route: { activeTab: tab }, label: tab });

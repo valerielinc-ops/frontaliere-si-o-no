@@ -867,6 +867,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
             'tempi-attesa-dogana': 'Tempi Attesa Dogana',
             'primo-giorno-frontaliere': 'Primo Giorno',
             'buongiorno-frontaliere': 'Buongiorno',
+            'chi-siamo': 'Chi Siamo',
             'community': 'Community',
             'contattaci': 'Contatti',
             'supporto': 'Supporto',
