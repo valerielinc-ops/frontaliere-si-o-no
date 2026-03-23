@@ -431,6 +431,57 @@ function renderFeaturedTool({ title, description, buttonText, toolUrl, campaign,
     </table>`;
 }
 
+// ─── Job section ──────────────────────────────────────────────
+
+const JOB_SECTION_TITLE = {
+  it: '💼 Offerte di lavoro in Ticino',
+  en: '💼 Job openings in Ticino',
+  de: '💼 Stellenangebote im Tessin',
+  fr: '💼 Offres d\'emploi au Tessin',
+};
+const JOB_CTA = {
+  it: 'Vedi tutte le offerte →',
+  en: 'See all openings →',
+  de: 'Alle Stellen ansehen →',
+  fr: 'Voir toutes les offres →',
+};
+
+function renderJobSection({ jobs, campaign, locale }) {
+  if (!jobs || jobs.length === 0) return '';
+  const rows = jobs.slice(0, 5).map((j) => {
+    const title = esc(String(j.title || '').slice(0, 80));
+    const company = esc(String(j.company || ''));
+    const location = esc(String(j.location || ''));
+    const jobUrl = utmUrl(j.url || `/cerca-lavoro-ticino/${j.slug}/`, campaign);
+    return `
+      <tr>
+        <td style="padding:10px 0;border-bottom:1px solid ${BORDER_COLOR};">
+          <a href="${jobUrl}" style="text-decoration:none;">
+            <div style="font-size:14px;font-weight:700;color:${BRAND_DARK};line-height:1.3;">${title}</div>
+            <div style="font-size:12px;color:${TEXT_COLOR};margin-top:2px;">${company}${location ? ` · ${location}` : ''}</div>
+          </a>
+        </td>
+      </tr>`;
+  }).join('');
+
+  return `
+    <table width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:18px;">
+      <tr>
+        <td style="background:${CARD_BG};border:1px solid ${BORDER_COLOR};border-radius:16px;padding:20px;">
+          <div style="font-size:16px;font-weight:800;color:${BRAND_DARK};padding-bottom:12px;">${JOB_SECTION_TITLE[locale] || JOB_SECTION_TITLE.it}</div>
+          <table width="100%" cellpadding="0" cellspacing="0">
+            ${rows}
+          </table>
+          <table width="100%" cellpadding="0" cellspacing="0" style="margin-top:14px;">
+            <tr><td align="center">
+              <a href="${utmUrl('/cerca-lavoro-ticino/offerte-di-lavoro-ticino-oggi/', campaign)}" style="display:inline-block;background:${BRAND_BLUE};color:#ffffff;text-decoration:none;padding:11px 20px;border-radius:10px;font-size:14px;font-weight:700;">${JOB_CTA[locale] || JOB_CTA.it}</a>
+            </td></tr>
+          </table>
+        </td>
+      </tr>
+    </table>`;
+}
+
 // ─── Main layout builder ─────────────────────────────────────
 
 // Legacy export for backward compatibility
@@ -474,6 +525,7 @@ export function buildNewsletter(data) {
   if (sections.articles && data.topArticles?.length) body += renderTopArticles({ articles: data.topArticles, campaign, locale });
   if (sections.fact && data.weeklyFact) body += renderWeeklyFact({ ...data.weeklyFact, campaign, locale });
   if (sections.latest && data.latestArticle) body += renderLatestArticle({ ...data.latestArticle, campaign, locale });
+  if (data.matchedJobs?.length) body += renderJobSection({ jobs: data.matchedJobs, campaign, locale });
   if (sections.tool && featuredTool) body += renderFeaturedTool({ ...featuredTool, campaign, locale });
 
   return `<!DOCTYPE html>
