@@ -1,6 +1,6 @@
 {
   "crawlerKey": "rittmeyer-ag",
-  "assembledAt": "2026-03-23T09:36:12.556Z",
+  "assembledAt": "2026-03-23T21:44:46.140Z",
   "jobs": [
     {
       "title": "Sales Project Engineer (a) Ticino",
@@ -40,11 +40,12 @@
       "slugByLocale": {
         "it": "sales-project-engineer-a-ticino-rittmeyer-ag-tessin",
         "en": "sales-project-engineer-a-ticino-rittmeyer-ag-camorino",
-        "de": "verkaufsprojektingenieur-in-tessin-rittmeyer-ag-tessin",
+        "de": "verkaufsprojektingenieur-in-tessin-rittmeyer-ag-camorino",
         "fr": "ingenieur-commercial-projets-tessin-rittmeyer-ag-tessin"
       },
       "previousSlugs": [
-        "sales-project-engineer-m-f-x-ticino-rittmeyer-ag-ticino"
+        "sales-project-engineer-m-f-x-ticino-rittmeyer-ag-ticino",
+        "verkaufsprojektingenieur-in-tessin-rittmeyer-ag-tessin"
       ],
       "salaryMin": 54000,
       "salaryMax": 73000,
@@ -58,7 +59,8 @@
           "maxValue": 73000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "6528"
     }
   ]
 }

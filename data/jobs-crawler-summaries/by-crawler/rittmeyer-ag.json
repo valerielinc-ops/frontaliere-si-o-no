@@ -1,16 +1,16 @@
 {
   "key": "rittmeyer-ag",
   "label": "Rittmeyer AG",
-  "generatedAt": "2026-03-23T09:36:12.556Z",
+  "generatedAt": "2026-03-23T21:44:46.140Z",
   "total": 1,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 10937,
-  "avgDurationMs": 10937,
+  "durationMs": 8093,
+  "avgDurationMs": 8093,
   "durationHistory": [
-    10937
+    8093
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -54,11 +54,12 @@
       "slugByLocale": {
         "it": "sales-project-engineer-a-ticino-rittmeyer-ag-tessin",
         "en": "sales-project-engineer-a-ticino-rittmeyer-ag-camorino",
-        "de": "verkaufsprojektingenieur-in-tessin-rittmeyer-ag-tessin",
+        "de": "verkaufsprojektingenieur-in-tessin-rittmeyer-ag-camorino",
         "fr": "ingenieur-commercial-projets-tessin-rittmeyer-ag-tessin"
       },
       "previousSlugs": [
-        "sales-project-engineer-m-f-x-ticino-rittmeyer-ag-ticino"
+        "sales-project-engineer-m-f-x-ticino-rittmeyer-ag-ticino",
+        "verkaufsprojektingenieur-in-tessin-rittmeyer-ag-tessin"
       ],
       "salaryMin": 54000,
       "salaryMax": 73000,
@@ -72,7 +73,8 @@
           "maxValue": 73000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "6528"
     }
   ]
 }
