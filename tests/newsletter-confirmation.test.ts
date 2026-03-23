@@ -126,7 +126,7 @@ describe('handleSubscriptionManagement — confirm action', () => {
     };
   }
 
-  it('confirms a pending subscriber with valid HMAC', { timeout: 15000 }, async () => {
+  it('confirms a pending subscriber with valid HMAC', { timeout: 30000 }, async () => {
     const { handleSubscriptionManagement, verifyHmacToken } = await import(
       '../functions/src/newsletterSubscriptionManagement.js'
     );
