@@ -4575,6 +4575,13 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/frontalieri-casa-zurigo.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'lugano-sicurezza-2025',
+    category: 'novita',
+    date: '2026-03-23T13:37:16.108Z',
+    image: '/images/blog/lugano-sicurezza-2025.jpg',
+    hasCalculator: true,
+  },
 ];
 
 const CATEGORIES = ['all', 'fiscale', 'pratico', 'novita', 'pensione'] as const;

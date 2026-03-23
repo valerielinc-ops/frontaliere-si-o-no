@@ -1706,6 +1706,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.frontalieri-casa-zurigo.title': 'Frontalieri: a Zurigo solo avanzi immobiliari',
     'blog.article.frontalieri-casa-zurigo.excerpt': 'Uno su dieci nuovi immigrati sceglie Zurigo, ma trova solo appartamenti fatiscenti o affitti esagerati. Cosa cambia per chi lavora in Ticino.',
     'blog.article.frontalieri-casa-zurigo.imageAlt': 'Vista notturna di Lugano con luci degli appartamenti e traffico verso il confine',
+    'blog.article.lugano-sicurezza-2025.title': 'Sicurezza a Lugano: calano i furti e gli assalti',
+    'blog.article.lugano-sicurezza-2025.excerpt': 'Il bilancio 2025 della Polizia cantonale ticinese evidenzia una riduzione dei furti e degli assalti ai distributori di carburante',
+    'blog.article.lugano-sicurezza-2025.imageAlt': 'Macchina della polizia a Lugano',
 };
 
 export default blogMetaIt;

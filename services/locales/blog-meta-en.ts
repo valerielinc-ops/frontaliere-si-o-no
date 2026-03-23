@@ -1706,6 +1706,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontalieri-casa-zurigo.title': 'Frontalieri: Only Surplus Properties in Zurich',
     'blog.article.frontalieri-casa-zurigo.excerpt': 'One out of ten new immigrants chooses Zurich, but finds only dilapidated apartments or exorbitant rents. What changes for those working in Ticino.',
     'blog.article.frontalieri-casa-zurigo.imageAlt': 'Evening view of Lugano with apartment lights and traffic heading to the border',
+    'blog.article.lugano-sicurezza-2025.title': 'Security in Lugano: Decrease in Thefts and Robberies',
+    'blog.article.lugano-sicurezza-2025.excerpt': 'The 2025 report of the Ticino Cantonal Police highlights a reduction in thefts and robberies at gas stations',
+    'blog.article.lugano-sicurezza-2025.imageAlt': 'Police car in Lugano',
 };
 
 export default blogMetaEn;

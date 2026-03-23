@@ -1706,6 +1706,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.frontalieri-casa-zurigo.title': 'Frontaliers : à Zurich, seulement des avantages immobiliers',
     'blog.article.frontalieri-casa-zurigo.excerpt': 'Un frontalier sur dix choisi Zurich, mais trouve uniquement des appartements vétustes ou des loyers exorbitants. Qu\'est-ce qui change pour ceux qui travaillent dans le Tessin ?',
     'blog.article.frontalieri-casa-zurigo.imageAlt': 'Vue nocturne de Lugano avec lumières d\'appartements et trafic frontalier',
+    'blog.article.lugano-sicurezza-2025.title': 'Sécurité à Lugano : baisse des vols et des agressions',
+    'blog.article.lugano-sicurezza-2025.excerpt': 'Le bilan 2025 de la Police cantonale ticino montre une diminution des vols et des agressions contre les stations-service',
+    'blog.article.lugano-sicurezza-2025.imageAlt': 'Voiture de police à Lugano',
 };
 
 export default blogMetaFr;

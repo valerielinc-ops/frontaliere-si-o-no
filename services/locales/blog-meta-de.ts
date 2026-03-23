@@ -1706,6 +1706,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontalieri-casa-zurigo.title': 'Frontalieri: Nur Wertanlagen in Zürich zu finden',
     'blog.article.frontalieri-casa-zurigo.excerpt': 'Einer von zehn Neuzuzüglern wählt Zürich aus, findet aber nur veraltete oder überhöhte Mietwohnungen. Was ändert sich für die Arbeitnehmer im Tessin?',
     'blog.article.frontalieri-casa-zurigo.imageAlt': 'Abendansicht von Lugano mit Wohnungslichtern und Grenzverkehr',
+    'blog.article.lugano-sicurezza-2025.title': 'Sicherheit in Lugano: Einbrüche und Überfälle gehen zurück',
+    'blog.article.lugano-sicurezza-2025.excerpt': 'Der Jahresbericht 2025 der Tessiner Kantonspolizei zeigt ein insgesamt positives Bild für die Sicherheit im Kanton Tessin. Laut dem Regierungsrat Claudio Zali und dem Kommandanten Matteo Cocchi ist die Zahl der Einbrüche und Überfälle auf Tankstellen im Vergleich zum Vorjahr zurückgegangen.',
+    'blog.article.lugano-sicurezza-2025.imageAlt': 'Polizeiauto in Lugano',
 };
 
 export default blogMetaDe;

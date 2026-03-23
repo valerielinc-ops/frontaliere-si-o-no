@@ -9622,6 +9622,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-lugano-sicurezza-2025': {
+    title: 'Sicurezza a Lugano: calano i furti e gli assalti | Frontaliere Ticino',
+    description: 'Il bilancio 2025 della Polizia cantonale ticinese evidenzia una riduzione dei furti e degli assalti ai distributori di carburante nel Canton Ticino',
+    keywords: 'frontalieri, ticino, svizzera, italia, sicurezza, lugano, calano, furti',
+    ogTitle: 'Sicurezza a Lugano: bilancio 2025 della Polizia cantonale',
+    ogDescription: 'Il bilancio 2025 della Polizia cantonale ticinese evidenzia una riduzione dei furti e degli assalti ai distributori di carburante nel Canton Ticino',
+    canonicalPath: '/articoli-frontaliere/lugano-sicurezza-2025',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Sicurezza a Lugano: bilancio 2025 della Polizia cantonale",
+      "description": "Il bilancio 2025 della Polizia cantonale ticinese evidenzia una riduzione dei furti e degli assalti ai distributori di carburante nel Canton Ticino",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/lugano-sicurezza-2025.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Macchina della polizia a Lugano"
+      },
+      "datePublished": "2026-03-23T13:37:16+00:00",
+      "dateModified": "2026-03-23T13:37:16+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/lugano-sicurezza-2025`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
