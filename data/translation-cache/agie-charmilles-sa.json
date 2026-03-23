@@ -1,405 +1,128 @@
 {
-  "crawlerKey": "agie-charmilles",
-  "assembledAt": "2026-03-23T20:45:42.574Z",
-  "jobs": [
-    {
-      "title": "Software Engineer Expert - R&D",
-      "slug": "software-ingegnere-expert-r-d-agie-charmilles-sa-losone",
-      "url": "https://www.find-your-future.ch/it/arbeiten-mem-branche/branche-unternehmen/jobdetails/agie-charmilles-sa-software-engineer-expert-rd/",
-      "applyUrl": "https://tracking.jobchannel.ch/redirect/e3054053a8fd90cd1592a8ff695c52946ff78dd1e8708f971727f84af8080dc83f8e1dac27484ea71e49ea643526e9c09a339b7e22747ea154d2ec044ba295",
-      "company": "AGIE Charmilles SA",
-      "companyKey": "agie-charmilles",
-      "companyDomain": "gfms.com",
-      "location": "Losone",
-      "addressLocality": "Losone",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "engineering",
-      "sector": "Macchine utensili",
-      "source": "agie-charmilles-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-03-23",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "",
-      "workload": "100%",
-      "description": "AGIE Charmilles SA (GF Machining Solutions) cerca Software Engineer Expert - R&D a Losone. Azienda leader mondiale nelle macchine utensili ad alta precisione (elettroerosione, fresatura, laser, AM). Sede a Losone (TI), parte del gruppo Georg Fischer.",
-      "titleByLocale": {
-        "en": "Software Engineer Expert - R&D",
+  "software-engineer-expert-r-d-agie-charmilles-losone": {
+    "hash": "ffef06162762d6ccde0761906fb3d381dce667e01ab465935f2ed4f9557e4812",
+    "translations": {
+      "titles": {
         "it": "Software Ingegnere Expert - R&D",
+        "en": "Software Engineer Expert - R&D",
         "de": "Software Ingenieur Expert - R&D",
         "fr": "Software Ingénieur Expert - R&D"
       },
-      "descriptionByLocale": {
+      "descriptions": {
         "it": "## Software Ingegnere Expert - R&D\n\n**AGIE Charmilles SA** — Losone (TI)\n\nAGIE Charmilles SA (GF Machining Solutions) cerca Software Engineer Expert - R&D a Losone. Azienda leader mondiale nelle macchine utensili ad alta precisione (elettroerosione, fresatura, laser, AM). Sede a Losone (TI), parte del gruppo Georg Fischer.\n\nAGIE Charmilles SA, parte di GF Machining Solutions e del gruppo Georg Fischer, sviluppa macchine utensili di alta precisione per elettroerosione, fresatura, laser e additive manufacturing. La sede di Losone rappresenta un polo tecnologico di riferimento per il Ticino industriale.\n\nOffriamo un ambiente internazionale, progetti ad alto contenuto tecnico, collaborazione con team di engineering specializzati e concrete opportunità di crescita professionale.",
         "en": "## Software Engineer Expert - R&D **AGIE Charmilles SA** — Losone (TI) AGIE Charmilles SA (GF Machining Solutions) is looking for Software Engineer Expert - R&D in Losone. World leading company in high precision machine tools (EDM, milling, laser, AM). Headquarters in Losone (TI), part of the Georg Fischer group. AGIE Charmilles SA, part of GF Machining Solutions and the Georg Fischer Group, develops high-precision machine tools for EDM, milling, laser and additive manufacturing. The Losone headquarters represents a reference technological hub for industrial Ticino. We offer an international environment, projects with high technical content, collaboration with specialized engineering teams and concrete opportunities for professional growth.",
         "de": "## Software-Ingenieur-Experte – Forschung und Entwicklung **AGIE Charmilles SA** – Losone (TI) AGIE Charmilles SA (GF Machining Solutions) sucht einen Software-Ingenieur-Experten – Forschung und Entwicklung in Losone. Weltweit führendes Unternehmen für hochpräzise Werkzeugmaschinen (EDM, Fräsen, Laser, AM). Hauptsitz in Losone (TI), Teil der Georg Fischer-Gruppe. AGIE Charmilles SA, Teil von GF Machining Solutions und der Georg Fischer Gruppe, entwickelt hochpräzise Werkzeugmaschinen für EDM, Fräsen, Laser und additive Fertigung. Der Hauptsitz in Losone ist ein Referenz-Technologiezentrum für die Tessiner Industrie. Wir bieten ein internationales Umfeld, Projekte mit hohem technischen Inhalt, die Zusammenarbeit mit spezialisierten Ingenieurteams und konkrete Möglichkeiten zur beruflichen Weiterentwicklung.",
         "fr": "## Expert Ingénieur Logiciel - R&D **AGIE Charmilles SA** — Losone (TI) AGIE Charmilles SA (GF Machining Solutions) recherche un Expert Ingénieur Logiciel - R&D à Losone. Entreprise leader mondial dans les machines-outils de haute précision (EDM, fraisage, laser, FA). Siège social à Losone (TI), partie du groupe Georg Fischer. AGIE Charmilles SA, qui fait partie de GF Machining Solutions et du groupe Georg Fischer, développe des machines-outils de haute précision pour l'électroérosion, le fraisage, le laser et la fabrication additive. Le siège de Losone représente un pôle technologique de référence pour l'industrie tessinoise. Nous offrons un environnement international, des projets à haut contenu technique, une collaboration avec des équipes d'ingénierie spécialisées et des opportunités concrètes d'évolution professionnelle."
-      },
-      "slugByLocale": {
-        "it": "software-ingegnere-expert-r-d-agie-charmilles-sa-losone",
-        "en": "software-engineer-expert-r-d-agie-charmilles-losone",
-        "de": "software-ingenieur-expert-r-d-agie-charmilles-sa-losone",
-        "fr": "software-ingenieur-expert-r-d-agie-charmilles-sa-losone"
-      },
-      "salaryMin": 72000,
-      "salaryMax": 97000,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 72000,
-          "maxValue": 97000,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "6616"
+      }
     },
-    {
-      "title": "Software PLC Engineer - R&D",
-      "slug": "software-plc-ingegnere-r-d-agie-charmilles-sa-losone",
-      "url": "https://www.find-your-future.ch/it/arbeiten-mem-branche/branche-unternehmen/jobdetails/agie-charmilles-sa-software-plc-engineer-rd/",
-      "applyUrl": "https://tracking.jobchannel.ch/redirect/0fc2c18187303ea013b1abc66f7187a82b2145015ac7fd81bfd6a67cf2a44fad77a4db702e5188fa8324f7a689160d0331e57ac8ba690417fe512bb95fbd0c",
-      "company": "AGIE Charmilles SA",
-      "companyKey": "agie-charmilles",
-      "companyDomain": "gfms.com",
-      "location": "Losone",
-      "addressLocality": "Losone",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "engineering",
-      "sector": "Macchine utensili",
-      "source": "agie-charmilles-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-03-23",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "",
-      "workload": "100%",
-      "description": "AGIE Charmilles SA (GF Machining Solutions) cerca Software PLC Engineer - R&D a Losone. Azienda leader mondiale nelle macchine utensili ad alta precisione (elettroerosione, fresatura, laser, AM). Sede a Losone (TI), parte del gruppo Georg Fischer.",
-      "titleByLocale": {
-        "en": "Software PLC Engineer - R&D",
+    "cachedAt": "2026-03-23T20:45:15.948Z"
+  },
+  "software-plc-engineer-r-d-agie-charmilles-losone": {
+    "hash": "a9443e9ad415ba706074c4edaf5c0f1e1d3be9fd56719edfe5245389e17973ac",
+    "translations": {
+      "titles": {
         "it": "Software PLC Ingegnere - R&D",
+        "en": "Software PLC Engineer - R&D",
         "de": "Software PLC Ingenieur - R&D",
         "fr": "Software PLC Ingénieur - R&D"
       },
-      "descriptionByLocale": {
+      "descriptions": {
         "it": "## Software PLC Ingegnere - R&D\n\n**AGIE Charmilles SA** — Losone (TI)\n\nAGIE Charmilles SA (GF Machining Solutions) cerca Software PLC Engineer - R&D a Losone. Azienda leader mondiale nelle macchine utensili ad alta precisione (elettroerosione, fresatura, laser, AM). Sede a Losone (TI), parte del gruppo Georg Fischer.\n\nAGIE Charmilles SA, parte di GF Machining Solutions e del gruppo Georg Fischer, sviluppa macchine utensili di alta precisione per elettroerosione, fresatura, laser e additive manufacturing. La sede di Losone rappresenta un polo tecnologico di riferimento per il Ticino industriale.\n\nOffriamo un ambiente internazionale, progetti ad alto contenuto tecnico, collaborazione con team di engineering specializzati e concrete opportunità di crescita professionale.",
         "en": "## Software PLC Engineer - R&D **AGIE Charmilles SA** — Losone (TI) AGIE Charmilles SA (GF Machining Solutions) is looking for Software PLC Engineer - R&D in Losone. World leading company in high precision machine tools (EDM, milling, laser, AM). Headquarters in Losone (TI), part of the Georg Fischer group. AGIE Charmilles SA, part of GF Machining Solutions and the Georg Fischer Group, develops high-precision machine tools for EDM, milling, laser and additive manufacturing. The Losone headquarters represents a reference technological hub for industrial Ticino. We offer an international environment, projects with high technical content, collaboration with specialized engineering teams and concrete opportunities for professional growth.",
         "de": "## Software-SPS-Ingenieur – Forschung und Entwicklung **AGIE Charmilles SA** – Losone (TI) AGIE Charmilles SA (GF Machining Solutions) sucht einen Software-SPS-Ingenieur – Forschung und Entwicklung in Losone. Weltweit führendes Unternehmen für hochpräzise Werkzeugmaschinen (EDM, Fräsen, Laser, AM). Hauptsitz in Losone (TI), Teil der Georg Fischer-Gruppe. AGIE Charmilles SA, Teil von GF Machining Solutions und der Georg Fischer Gruppe, entwickelt hochpräzise Werkzeugmaschinen für EDM, Fräsen, Laser und additive Fertigung. Der Hauptsitz in Losone ist ein Referenz-Technologiezentrum für die Tessiner Industrie. Wir bieten ein internationales Umfeld, Projekte mit hohem technischen Inhalt, die Zusammenarbeit mit spezialisierten Ingenieurteams und konkrete Möglichkeiten zur beruflichen Weiterentwicklung.",
         "fr": "## Ingénieur Logiciel PLC - R&D **AGIE Charmilles SA** — Losone (TI) AGIE Charmilles SA (GF Machining Solutions) recherche un Ingénieur Logiciel PLC - R&D à Losone. Entreprise leader mondial dans les machines-outils de haute précision (EDM, fraisage, laser, FA). Siège social à Losone (TI), partie du groupe Georg Fischer. AGIE Charmilles SA, qui fait partie de GF Machining Solutions et du groupe Georg Fischer, développe des machines-outils de haute précision pour l'électroérosion, le fraisage, le laser et la fabrication additive. Le siège de Losone représente un pôle technologique de référence pour l'industrie tessinoise. Nous offrons un environnement international, des projets à haut contenu technique, une collaboration avec des équipes d'ingénierie spécialisées et des opportunités concrètes d'évolution professionnelle."
-      },
-      "slugByLocale": {
-        "it": "software-plc-ingegnere-r-d-agie-charmilles-sa-losone",
-        "en": "software-plc-engineer-r-d-agie-charmilles-losone",
-        "de": "software-plc-ingenieur-r-d-agie-charmilles-sa-losone",
-        "fr": "software-plc-ingenieur-r-d-agie-charmilles-sa-losone"
-      },
-      "salaryMin": 72000,
-      "salaryMax": 97000,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 72000,
-          "maxValue": 97000,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "6616"
+      }
     },
-    {
-      "title": "Metrology Technician",
-      "slug": "tecnico-laboratorio-metrologia-agie-charmilles-sa-losone",
-      "url": "https://www.find-your-future.ch/it/arbeiten-mem-branche/branche-unternehmen/jobdetails/agie-charmilles-sa-metrology-technician/",
-      "applyUrl": "https://tracking.jobchannel.ch/redirect/79df7fea192de56d211af79539689c2dd05d2f79016349f7331a8117b6034cc014b3c702c76c0ea9cfa6476917fd4bd662599605c1d7ebeb6527186a91e9c3",
-      "company": "AGIE Charmilles SA",
-      "companyKey": "agie-charmilles",
-      "companyDomain": "gfms.com",
-      "location": "Losone",
-      "addressLocality": "Losone",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "engineering",
-      "sector": "Macchine utensili",
-      "source": "agie-charmilles-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-03-23",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "",
-      "workload": "100%",
-      "description": "AGIE Charmilles SA (GF Machining Solutions) cerca Metrology Technician a Losone. Azienda leader mondiale nelle macchine utensili ad alta precisione (elettroerosione, fresatura, laser, AM). Sede a Losone (TI), parte del gruppo Georg Fischer.",
-      "titleByLocale": {
+    "cachedAt": "2026-03-23T20:45:16.299Z"
+  },
+  "metrology-technician-agie-charmilles-losone": {
+    "hash": "5ec75d3ada6eb9e6832a510feac56077e5ea9b624c8b7c1bb1398fc07af8935b",
+    "translations": {
+      "titles": {
         "it": "Tecnico laboratorio metrologia",
         "en": "Metrology Technician",
         "de": "Metrology Techniker",
         "fr": "Metrology Technicien"
       },
-      "descriptionByLocale": {
+      "descriptions": {
         "it": "## Metrology Technician\n\n**AGIE Charmilles SA** — Losone (TI)\n\nAGIE Charmilles SA (GF Machining Solutions) cerca Metrology Technician a Losone. Azienda leader mondiale nelle macchine utensili ad alta precisione (elettroerosione, fresatura, laser, AM). Sede a Losone (TI), parte del gruppo Georg Fischer.\n\nAGIE Charmilles SA, parte di GF Machining Solutions e del gruppo Georg Fischer, sviluppa macchine utensili di alta precisione per elettroerosione, fresatura, laser e additive manufacturing. La sede di Losone rappresenta un polo tecnologico di riferimento per il Ticino industriale.\n\nOffriamo un ambiente internazionale, progetti ad alto contenuto tecnico, collaborazione con team di engineering specializzati e concrete opportunità di crescita professionale.",
         "en": "## Metrology Technician **AGIE Charmilles SA** — Losone (TI) AGIE Charmilles SA (GF Machining Solutions) is looking for Metrology Technician in Losone. World leading company in high precision machine tools (EDM, milling, laser, AM). Headquarters in Losone (TI), part of the Georg Fischer group. AGIE Charmilles SA, part of GF Machining Solutions and the Georg Fischer Group, develops high-precision machine tools for EDM, milling, laser and additive manufacturing. The Losone headquarters represents a reference technological hub for industrial Ticino. We offer an international environment, projects with high technical content, collaboration with specialized engineering teams and concrete opportunities for professional growth.",
         "de": "## Messtechniker **AGIE Charmilles SA** – Losone (TI) AGIE Charmilles SA (GF Machining Solutions) sucht einen Messtechniker in Losone. Weltweit führendes Unternehmen für hochpräzise Werkzeugmaschinen (EDM, Fräsen, Laser, AM). Hauptsitz in Losone (TI), Teil der Georg Fischer-Gruppe. AGIE Charmilles SA, Teil von GF Machining Solutions und der Georg Fischer Gruppe, entwickelt hochpräzise Werkzeugmaschinen für EDM, Fräsen, Laser und additive Fertigung. Der Hauptsitz in Losone ist ein Referenz-Technologiezentrum für die Tessiner Industrie. Wir bieten ein internationales Umfeld, Projekte mit hohem technischen Inhalt, die Zusammenarbeit mit spezialisierten Ingenieurteams und konkrete Möglichkeiten zur beruflichen Weiterentwicklung.",
         "fr": "## Technicien en Métrologie **AGIE Charmilles SA** — Losone (TI) AGIE Charmilles SA (GF Machining Solutions) recherche un Technicien en Métrologie à Losone. Entreprise leader mondial dans les machines-outils de haute précision (EDM, fraisage, laser, FA). Siège social à Losone (TI), partie du groupe Georg Fischer. AGIE Charmilles SA, qui fait partie de GF Machining Solutions et du groupe Georg Fischer, développe des machines-outils de haute précision pour l'électroérosion, le fraisage, le laser et la fabrication additive. Le siège de Losone représente un pôle technologique de référence pour l'industrie tessinoise. Nous offrons un environnement international, des projets à haut contenu technique, une collaboration avec des équipes d'ingénierie spécialisées et des opportunités concrètes d'évolution professionnelle."
-      },
-      "slugByLocale": {
-        "it": "tecnico-laboratorio-metrologia-agie-charmilles-sa-losone",
-        "en": "metrology-technician-agie-charmilles-losone",
-        "de": "metrology-techniker-agie-charmilles-sa-losone",
-        "fr": "metrology-technicien-agie-charmilles-sa-losone"
-      },
-      "salaryMin": 72000,
-      "salaryMax": 97000,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 72000,
-          "maxValue": 97000,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "6616"
+      }
     },
-    {
-      "title": "SAP ABAP / Fiori Developer",
-      "slug": "sap-abap-fiori-sviluppatore-agie-charmilles-sa-biel-bienne",
-      "url": "https://www.find-your-future.ch/it/arbeiten-mem-branche/branche-unternehmen/jobdetails/agie-charmilles-sa-sap-abap-fiori-developer/",
-      "applyUrl": "https://tracking.jobchannel.ch/redirect/3f25f035a1f544722ec8a5c17f340f17169ed126d3ea2aa053e648d7d18a07ec1410e29ac57e96541dde7be516d3d3b7610c6cb95047b4256e8fea4fb1ca48",
-      "company": "AGIE Charmilles SA",
-      "companyKey": "agie-charmilles",
-      "companyDomain": "gfms.com",
-      "location": "Biel/Bienne",
-      "addressLocality": "Biel/Bienne",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "engineering",
-      "sector": "Macchine utensili",
-      "source": "agie-charmilles-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-03-23",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "",
-      "workload": "100%",
-      "description": "AGIE Charmilles SA (GF Machining Solutions) cerca SAP ABAP / Fiori Developer a Biel/Bienne. Azienda leader mondiale nelle macchine utensili ad alta precisione (elettroerosione, fresatura, laser, AM). Sede a Losone (TI), parte del gruppo Georg Fischer.",
-      "titleByLocale": {
-        "en": "SAP ABAP / Fiori Developer",
+    "cachedAt": "2026-03-23T20:45:18.227Z"
+  },
+  "sap-abap-fiori-developer-agie-charmilles-biel-bienne": {
+    "hash": "1f52e10a64164538412d423a0ebb1a159f2c363b0456fb32a0aacc3941abb7d6",
+    "translations": {
+      "titles": {
         "it": "SAP ABAP / Fiori Sviluppatore",
+        "en": "SAP ABAP / Fiori Developer",
         "de": "SAP ABAP / Fiori Entwickler",
         "fr": "SAP ABAP / Fiori Développeur"
       },
-      "descriptionByLocale": {
+      "descriptions": {
         "it": "## SAP ABAP / Fiori Sviluppatore\n\n**AGIE Charmilles SA** — Biel/Bienne (TI)\n\nAGIE Charmilles SA (GF Machining Solutions) cerca SAP ABAP / Fiori Developer a Biel/Bienne. Azienda leader mondiale nelle macchine utensili ad alta precisione (elettroerosione, fresatura, laser, AM). Sede a Losone (TI), parte del gruppo Georg Fischer.\n\nAGIE Charmilles SA, parte di GF Machining Solutions e del gruppo Georg Fischer, sviluppa macchine utensili di alta precisione per elettroerosione, fresatura, laser e additive manufacturing. La sede di Losone rappresenta un polo tecnologico di riferimento per il Ticino industriale.\n\nOffriamo un ambiente internazionale, progetti ad alto contenuto tecnico, collaborazione con team di engineering specializzati e concrete opportunità di crescita professionale.",
         "en": "## SAP ABAP / Fiori Developer **AGIE Charmilles SA** — Biel/Bienne (TI) AGIE Charmilles SA (GF Machining Solutions) is looking for SAP ABAP / Fiori Developer in Biel/Bienne. World leading company in high precision machine tools (EDM, milling, laser, AM). Headquarters in Losone (TI), part of the Georg Fischer group. AGIE Charmilles SA, part of GF Machining Solutions and the Georg Fischer Group, develops high-precision machine tools for EDM, milling, laser and additive manufacturing. The Losone headquarters represents a reference technological hub for industrial Ticino. We offer an international environment, projects with high technical content, collaboration with specialized engineering teams and concrete opportunities for professional growth.",
         "de": "## SAP ABAP / Fiori-Entwickler **AGIE Charmilles SA** – Biel/Bienne (TI) AGIE Charmilles SA (GF Machining Solutions) sucht einen SAP ABAP / Fiori-Entwickler in Biel/Bienne. Weltweit führendes Unternehmen für hochpräzise Werkzeugmaschinen (EDM, Fräsen, Laser, AM). Hauptsitz in Losone (TI), Teil der Georg Fischer-Gruppe. AGIE Charmilles SA, Teil von GF Machining Solutions und der Georg Fischer Gruppe, entwickelt hochpräzise Werkzeugmaschinen für EDM, Fräsen, Laser und additive Fertigung. Der Hauptsitz in Losone ist ein Referenz-Technologiezentrum für die Tessiner Industrie. Wir bieten ein internationales Umfeld, Projekte mit hohem technischen Inhalt, die Zusammenarbeit mit spezialisierten Ingenieurteams und konkrete Möglichkeiten zur beruflichen Weiterentwicklung.",
         "fr": "## Développeur SAP ABAP / Fiori **AGIE Charmilles SA** — Biel/Bienne (TI) AGIE Charmilles SA (GF Machining Solutions) recherche un développeur SAP ABAP / Fiori à Bienne. Entreprise leader mondial dans les machines-outils de haute précision (EDM, fraisage, laser, FA). Siège social à Losone (TI), partie du groupe Georg Fischer. AGIE Charmilles SA, qui fait partie de GF Machining Solutions et du groupe Georg Fischer, développe des machines-outils de haute précision pour l'électroérosion, le fraisage, le laser et la fabrication additive. Le siège de Losone représente un pôle technologique de référence pour l'industrie tessinoise. Nous offrons un environnement international, des projets à haut contenu technique, une collaboration avec des équipes d'ingénierie spécialisées et des opportunités concrètes d'évolution professionnelle."
-      },
-      "slugByLocale": {
-        "it": "sap-abap-fiori-sviluppatore-agie-charmilles-sa-biel-bienne",
-        "en": "sap-abap-fiori-developer-agie-charmilles-biel-bienne",
-        "de": "sap-abap-fiori-entwickler-agie-charmilles-sa-biel-bienne",
-        "fr": "sap-abap-fiori-developpeur-agie-charmilles-sa-biel-bienne"
-      },
-      "salaryMin": 72000,
-      "salaryMax": 97000,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 72000,
-          "maxValue": 97000,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "2501"
+      }
     },
-    {
-      "title": "HR IT Business Partner (SAP HCM + other)",
-      "slug": "hr-it-business-partner-sap-hcm-other-agie-charmilles-biel-bienne",
-      "url": "https://www.find-your-future.ch/it/arbeiten-mem-branche/branche-unternehmen/jobdetails/agie-charmilles-sa-hr-it-business-partner-sap-hcm-other/",
-      "applyUrl": "https://tracking.jobchannel.ch/redirect/666ca43599feda8bfe54efa0ed0ebdb6031dbdb4acb1b569b37b04ac0dd61d1a3836f69049ce4543bab8ead09b3f31eb0623007c741d5c0d2931a0f3e8651c",
-      "company": "AGIE Charmilles SA",
-      "companyKey": "agie-charmilles",
-      "companyDomain": "gfms.com",
-      "location": "Biel/Bienne",
-      "addressLocality": "Biel/Bienne",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "canton": "BE",
-      "country": "CH",
-      "category": "hr",
-      "sector": "Macchine utensili",
-      "source": "agie-charmilles-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-03-23",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "",
-      "workload": "100%",
-      "description": "AGIE Charmilles SA (GF Machining Solutions) cerca HR IT Business Partner (SAP HCM + other) a Biel/Bienne. Azienda leader mondiale nelle macchine utensili ad alta precisione (elettroerosione, fresatura, laser, AM). Sede a Losone (TI), parte del gruppo Georg Fischer.",
-      "titleByLocale": {
-        "it": "HR IT Business Partner (SAP HCM + other)",
-        "de": "Personalwesen IT Business Partner (SAP HCM + other)",
-        "fr": "Ressources Humaines IT Business Partner (SAP HCM + other)",
-        "en": "HR IT Business Partner (SAP HCM other)"
-      },
-      "descriptionByLocale": {
-        "it": "## HR IT Business Partner (SAP HCM + other)\n\n**AGIE Charmilles SA** — Biel/Bienne (BE)\n\nAGIE Charmilles SA (GF Machining Solutions) cerca HR IT Business Partner (SAP HCM + other) a Biel/Bienne. Azienda leader mondiale nelle macchine utensili ad alta precisione (elettroerosione, fresatura, laser, AM). Sede a Losone (TI), parte del gruppo Georg Fischer.\n\nAGIE Charmilles SA, parte di GF Machining Solutions e del gruppo Georg Fischer, sviluppa macchine utensili di alta precisione per elettroerosione, fresatura, laser e additive manufacturing. La sede di Losone rappresenta un polo tecnologico di riferimento per il Ticino industriale.\n\nOffriamo un ambiente internazionale, progetti ad alto contenuto tecnico, collaborazione con team di engineering specializzati e concrete opportunità di crescita professionale.",
-        "en": "## HR IT Business Partner (SAP HCM + other) **AGIE Charmilles SA** — Biel/Bienne (BE) AGIE Charmilles SA (GF Machining Solutions) is looking for HR IT Business Partner (SAP HCM + other) in Biel/Bienne. World leading company in high precision machine tools (EDM, milling, laser, AM). Headquarters in Losone (TI), part of the Georg Fischer group. AGIE Charmilles SA, part of GF Machining Solutions and the Georg Fischer Group, develops high-precision machine tools for EDM, milling, laser and additive manufacturing. The Losone headquarters represents a reference technological hub for industrial Ticino. We offer an international environment, projects with high technical content, collaboration with specialized engineering teams and concrete opportunities for professional growth.",
-        "de": "## HR IT Business Partner (SAP HCM + andere) **AGIE Charmilles SA** – Biel/Bienne (BE) AGIE Charmilles SA (GF Machining Solutions) sucht HR IT Business Partner (SAP HCM + andere) in Biel/Bienne. Weltweit führendes Unternehmen für hochpräzise Werkzeugmaschinen (EDM, Fräsen, Laser, AM). Hauptsitz in Losone (TI), Teil der Georg Fischer-Gruppe. AGIE Charmilles SA, Teil von GF Machining Solutions und der Georg Fischer Gruppe, entwickelt hochpräzise Werkzeugmaschinen für EDM, Fräsen, Laser und additive Fertigung. Der Hauptsitz in Losone ist ein Referenz-Technologiezentrum für die Tessiner Industrie. Wir bieten ein internationales Umfeld, Projekte mit hohem technischen Inhalt, die Zusammenarbeit mit spezialisierten Ingenieurteams und konkrete Möglichkeiten zur beruflichen Weiterentwicklung.",
-        "fr": "## HR IT Business Partner (SAP HCM + autre) **AGIE Charmilles SA** — Biel/Bienne (BE) AGIE Charmilles SA (GF Machining Solutions) recherche un HR IT Business Partner (SAP HCM + autre) à Biel/Bienne. Entreprise leader mondial dans les machines-outils de haute précision (EDM, fraisage, laser, FA). Siège social à Losone (TI), partie du groupe Georg Fischer. AGIE Charmilles SA, qui fait partie de GF Machining Solutions et du groupe Georg Fischer, développe des machines-outils de haute précision pour l'électroérosion, le fraisage, le laser et la fabrication additive. Le siège de Losone représente un pôle technologique de référence pour l'industrie tessinoise. Nous offrons un environnement international, des projets à haut contenu technique, une collaboration avec des équipes d'ingénierie spécialisées et des opportunités concrètes d'évolution professionnelle."
-      },
-      "slugByLocale": {
-        "it": "hr-it-business-partner-sap-hcm-other-agie-charmilles-biel-bienne",
-        "en": "hr-it-business-partner-sap-hcm-other-agie-charmilles-sa-biel-bienne",
-        "de": "personalwesen-it-business-partner-sap-hcm-other-agie-charmilles-sa-biel-bienne",
-        "fr": "ressources-humaines-it-business-partner-sap-hcm-other-agie-charmilles-sa-biel-bienne"
-      },
-      "salaryMin": 58000,
-      "salaryMax": 78000,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 58000,
-          "maxValue": 78000,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "2501"
-    },
-    {
-      "title": "Electrical Engineer - R&D",
-      "slug": "electrical-ingegnere-r-d-agie-charmilles-sa-losone",
-      "url": "https://www.find-your-future.ch/it/arbeiten-mem-branche/branche-unternehmen/jobdetails/agie-charmilles-sa-electrical-engineer-rd/",
-      "applyUrl": "https://tracking.jobchannel.ch/redirect/97f16d11e9a9705990d21383a5d2bed786826f4e7e351d1854c2f412d8ccfb3c02c087ecd2ed835eeffbca60ddcf5f89c0e6ff13fb1c3fe5e39c3363c14b53",
-      "company": "AGIE Charmilles SA",
-      "companyKey": "agie-charmilles",
-      "companyDomain": "gfms.com",
-      "location": "Losone",
-      "addressLocality": "Losone",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "engineering",
-      "sector": "Macchine utensili",
-      "source": "agie-charmilles-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-03-23",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "",
-      "workload": "100%",
-      "description": "AGIE Charmilles SA (GF Machining Solutions) cerca Electrical Engineer - R&D a Losone. Azienda leader mondiale nelle macchine utensili ad alta precisione (elettroerosione, fresatura, laser, AM). Sede a Losone (TI), parte del gruppo Georg Fischer.",
-      "titleByLocale": {
-        "en": "Electrical Engineer - R&D",
+    "cachedAt": "2026-03-23T20:45:27.278Z"
+  },
+  "electrical-engineer-r-d-agie-charmilles-losone": {
+    "hash": "f842f0eb7b32d94d2d159b193be8213e863e07754ff2e0c8a46c894ba5c6f88b",
+    "translations": {
+      "titles": {
         "it": "Electrical Ingegnere - R&D",
+        "en": "Electrical Engineer - R&D",
         "de": "Electrical Ingenieur - R&D",
         "fr": "Electrical Ingénieur - R&D"
       },
-      "descriptionByLocale": {
+      "descriptions": {
         "it": "## Electrical Ingegnere - R&D\n\n**AGIE Charmilles SA** — Losone (TI)\n\nAGIE Charmilles SA (GF Machining Solutions) cerca Electrical Engineer - R&D a Losone. Azienda leader mondiale nelle macchine utensili ad alta precisione (elettroerosione, fresatura, laser, AM). Sede a Losone (TI), parte del gruppo Georg Fischer.\n\nAGIE Charmilles SA, parte di GF Machining Solutions e del gruppo Georg Fischer, sviluppa macchine utensili di alta precisione per elettroerosione, fresatura, laser e additive manufacturing. La sede di Losone rappresenta un polo tecnologico di riferimento per il Ticino industriale.\n\nOffriamo un ambiente internazionale, progetti ad alto contenuto tecnico, collaborazione con team di engineering specializzati e concrete opportunità di crescita professionale.",
         "en": "## Electrical Engineer - R&D **AGIE Charmilles SA** — Losone (TI) AGIE Charmilles SA (GF Machining Solutions) is looking for Electrical Engineer - R&D in Losone. World leading company in high precision machine tools (EDM, milling, laser, AM). Headquarters in Losone (TI), part of the Georg Fischer group. AGIE Charmilles SA, part of GF Machining Solutions and the Georg Fischer Group, develops high-precision machine tools for EDM, milling, laser and additive manufacturing. The Losone headquarters represents a reference technological hub for industrial Ticino. We offer an international environment, projects with high technical content, collaboration with specialized engineering teams and concrete opportunities for professional growth.",
         "de": "## Elektroingenieur – Forschung und Entwicklung **AGIE Charmilles SA** – Losone (TI) AGIE Charmilles SA (GF Machining Solutions) sucht einen Elektroingenieur – Forschung und Entwicklung in Losone. Weltweit führendes Unternehmen für hochpräzise Werkzeugmaschinen (EDM, Fräsen, Laser, AM). Hauptsitz in Losone (TI), Teil der Georg Fischer-Gruppe. AGIE Charmilles SA, Teil von GF Machining Solutions und der Georg Fischer Gruppe, entwickelt hochpräzise Werkzeugmaschinen für EDM, Fräsen, Laser und additive Fertigung. Der Hauptsitz in Losone ist ein Referenz-Technologiezentrum für die Tessiner Industrie. Wir bieten ein internationales Umfeld, Projekte mit hohem technischen Inhalt, die Zusammenarbeit mit spezialisierten Ingenieurteams und konkrete Möglichkeiten zur beruflichen Weiterentwicklung.",
         "fr": "## Ingénieur Électrique - R&D **AGIE Charmilles SA** — Losone (TI) AGIE Charmilles SA (GF Machining Solutions) recherche un Ingénieur Électrique - R&D à Losone. Entreprise leader mondial dans les machines-outils de haute précision (EDM, fraisage, laser, FA). Siège social à Losone (TI), partie du groupe Georg Fischer. AGIE Charmilles SA, qui fait partie de GF Machining Solutions et du groupe Georg Fischer, développe des machines-outils de haute précision pour l'électroérosion, le fraisage, le laser et la fabrication additive. Le siège de Losone représente un pôle technologique de référence pour l'industrie tessinoise. Nous offrons un environnement international, des projets à haut contenu technique, une collaboration avec des équipes d'ingénierie spécialisées et des opportunités concrètes d'évolution professionnelle."
-      },
-      "slugByLocale": {
-        "it": "electrical-ingegnere-r-d-agie-charmilles-sa-losone",
-        "en": "electrical-engineer-r-d-agie-charmilles-losone",
-        "de": "electrical-ingenieur-r-d-agie-charmilles-sa-losone",
-        "fr": "electrical-ingenieur-r-d-agie-charmilles-sa-losone"
-      },
-      "salaryMin": 72000,
-      "salaryMax": 97000,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 72000,
-          "maxValue": 97000,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "6616"
+      }
     },
-    {
-      "title": "Impiegato in logistica di magazzino",
-      "slug": "impiegato-in-logistica-di-magazzino-agie-charmilles-losone",
-      "url": "https://www.find-your-future.ch/it/arbeiten-mem-branche/branche-unternehmen/jobdetails/agie-charmilles-sa-impiegato-in-logistica-di-magazzino/",
-      "applyUrl": "https://tracking.jobchannel.ch/redirect/390655dd6a1e1ce3d8aba90968292f20a2e2b8109ebe4912d3a6ca8a673c0fe2b6b3f17c51d8544f2587dee817b4756342f60283475c337fc13873d6f7fa53",
-      "company": "AGIE Charmilles SA",
-      "companyKey": "agie-charmilles",
-      "companyDomain": "gfms.com",
-      "location": "Losone",
-      "addressLocality": "Losone",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "logistics",
-      "sector": "Macchine utensili",
-      "source": "agie-charmilles-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-03-23",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "",
-      "workload": "100%",
-      "description": "AGIE Charmilles SA (GF Machining Solutions) cerca Impiegato in logistica di magazzino a Losone. Azienda leader mondiale nelle macchine utensili ad alta precisione (elettroerosione, fresatura, laser, AM). Sede a Losone (TI), parte del gruppo Georg Fischer.",
-      "titleByLocale": {
+    "cachedAt": "2026-03-23T20:45:28.579Z"
+  },
+  "hr-it-business-partner-sap-hcm-other-agie-charmilles-biel-bienne": {
+    "hash": "f542457fb1d106efa4f4ccdecf35359cc43d61ca6ed2507ed8928b2c875e74e4",
+    "translations": {
+      "titles": {
+        "it": "HR IT Business Partner (SAP HCM + other)",
+        "en": "HR IT Business Partner (SAP HCM other)",
+        "de": "Personalwesen IT Business Partner (SAP HCM + other)",
+        "fr": "Ressources Humaines IT Business Partner (SAP HCM + other)"
+      },
+      "descriptions": {
+        "it": "## HR IT Business Partner (SAP HCM + other)\n\n**AGIE Charmilles SA** — Biel/Bienne (BE)\n\nAGIE Charmilles SA (GF Machining Solutions) cerca HR IT Business Partner (SAP HCM + other) a Biel/Bienne. Azienda leader mondiale nelle macchine utensili ad alta precisione (elettroerosione, fresatura, laser, AM). Sede a Losone (TI), parte del gruppo Georg Fischer.\n\nAGIE Charmilles SA, parte di GF Machining Solutions e del gruppo Georg Fischer, sviluppa macchine utensili di alta precisione per elettroerosione, fresatura, laser e additive manufacturing. La sede di Losone rappresenta un polo tecnologico di riferimento per il Ticino industriale.\n\nOffriamo un ambiente internazionale, progetti ad alto contenuto tecnico, collaborazione con team di engineering specializzati e concrete opportunità di crescita professionale.",
+        "en": "## HR IT Business Partner (SAP HCM + other) **AGIE Charmilles SA** — Biel/Bienne (BE) AGIE Charmilles SA (GF Machining Solutions) is looking for HR IT Business Partner (SAP HCM + other) in Biel/Bienne. World leading company in high precision machine tools (EDM, milling, laser, AM). Headquarters in Losone (TI), part of the Georg Fischer group. AGIE Charmilles SA, part of GF Machining Solutions and the Georg Fischer Group, develops high-precision machine tools for EDM, milling, laser and additive manufacturing. The Losone headquarters represents a reference technological hub for industrial Ticino. We offer an international environment, projects with high technical content, collaboration with specialized engineering teams and concrete opportunities for professional growth.",
+        "de": "## HR IT Business Partner (SAP HCM + andere) **AGIE Charmilles SA** – Biel/Bienne (BE) AGIE Charmilles SA (GF Machining Solutions) sucht HR IT Business Partner (SAP HCM + andere) in Biel/Bienne. Weltweit führendes Unternehmen für hochpräzise Werkzeugmaschinen (EDM, Fräsen, Laser, AM). Hauptsitz in Losone (TI), Teil der Georg Fischer-Gruppe. AGIE Charmilles SA, Teil von GF Machining Solutions und der Georg Fischer Gruppe, entwickelt hochpräzise Werkzeugmaschinen für EDM, Fräsen, Laser und additive Fertigung. Der Hauptsitz in Losone ist ein Referenz-Technologiezentrum für die Tessiner Industrie. Wir bieten ein internationales Umfeld, Projekte mit hohem technischen Inhalt, die Zusammenarbeit mit spezialisierten Ingenieurteams und konkrete Möglichkeiten zur beruflichen Weiterentwicklung.",
+        "fr": "## HR IT Business Partner (SAP HCM + autre) **AGIE Charmilles SA** — Biel/Bienne (BE) AGIE Charmilles SA (GF Machining Solutions) recherche un HR IT Business Partner (SAP HCM + autre) à Biel/Bienne. Entreprise leader mondial dans les machines-outils de haute précision (EDM, fraisage, laser, FA). Siège social à Losone (TI), partie du groupe Georg Fischer. AGIE Charmilles SA, qui fait partie de GF Machining Solutions et du groupe Georg Fischer, développe des machines-outils de haute précision pour l'électroérosion, le fraisage, le laser et la fabrication additive. Le siège de Losone représente un pôle technologique de référence pour l'industrie tessinoise. Nous offrons un environnement international, des projets à haut contenu technique, une collaboration avec des équipes d'ingénierie spécialisées et des opportunités concrètes d'évolution professionnelle."
+      }
+    },
+    "cachedAt": "2026-03-23T20:45:32.311Z"
+  },
+  "impiegato-in-logistica-di-magazzino-agie-charmilles-losone": {
+    "hash": "52e4c6a5e1f500927689fda1064fe7ee0ee72421ba1cb26f51696902902ce73b",
+    "translations": {
+      "titles": {
         "it": "Impiegato in logistica di magazzino",
         "en": "Employed in warehouse logistics",
         "de": "Sachbearbeiter Lagerlogistik",
         "fr": "Employé en logistique d'entrepôt"
       },
-      "descriptionByLocale": {
+      "descriptions": {
         "it": "## Impiegato in logistica di magazzino\n\n**AGIE Charmilles SA** — Losone (TI)\n\nAGIE Charmilles SA (GF Machining Solutions) cerca Impiegato in logistica di magazzino a Losone. Azienda leader mondiale nelle macchine utensili ad alta precisione (elettroerosione, fresatura, laser, AM). Sede a Losone (TI), parte del gruppo Georg Fischer.\n\nAGIE Charmilles SA, parte di GF Machining Solutions e del gruppo Georg Fischer, sviluppa macchine utensili di alta precisione per elettroerosione, fresatura, laser e additive manufacturing. La sede di Losone rappresenta un polo tecnologico di riferimento per il Ticino industriale.\n\nOffriamo un ambiente internazionale, progetti ad alto contenuto tecnico, collaborazione con team di engineering specializzati e concrete opportunità di crescita professionale.",
         "en": "## Warehouse logistics employee **AGIE Charmilles SA** — Losone (TI) AGIE Charmilles SA (GF Machining Solutions) is looking for a warehouse logistics employee in Losone. World leading company in high precision machine tools (EDM, milling, laser, AM). Headquarters in Losone (TI), part of the Georg Fischer group. AGIE Charmilles SA, part of GF Machining Solutions and the Georg Fischer Group, develops high-precision machine tools for EDM, milling, laser and additive manufacturing. The Losone headquarters represents a reference technological hub for industrial Ticino. We offer an international environment, projects with high technical content, collaboration with specialized engineering teams and concrete opportunities for professional growth.",
         "de": "## Lagerlogistikmitarbeiter **AGIE Charmilles SA** — Losone (TI) AGIE Charmilles SA (GF Machining Solutions) sucht einen Lagerlogistikmitarbeiter in Losone. Weltweit führendes Unternehmen für hochpräzise Werkzeugmaschinen (EDM, Fräsen, Laser, AM). Hauptsitz in Losone (TI), Teil der Georg Fischer-Gruppe. AGIE Charmilles SA, Teil von GF Machining Solutions und der Georg Fischer Gruppe, entwickelt hochpräzise Werkzeugmaschinen für EDM, Fräsen, Laser und additive Fertigung. Der Hauptsitz in Losone ist ein Referenz-Technologiezentrum für die Tessiner Industrie. Wir bieten ein internationales Umfeld, Projekte mit hohem technischen Inhalt, die Zusammenarbeit mit spezialisierten Ingenieurteams und konkrete Möglichkeiten zur beruflichen Weiterentwicklung.",
         "fr": "## Employé en logistique d'entrepôt **AGIE Charmilles SA** — Losone (TI) AGIE Charmilles SA (GF Machining Solutions) recherche un employé en logistique d'entrepôt à Losone. Entreprise leader mondial dans les machines-outils de haute précision (EDM, fraisage, laser, FA). Siège social à Losone (TI), partie du groupe Georg Fischer. AGIE Charmilles SA, qui fait partie de GF Machining Solutions et du groupe Georg Fischer, développe des machines-outils de haute précision pour l'électroérosion, le fraisage, le laser et la fabrication additive. Le siège de Losone représente un pôle technologique de référence pour l'industrie tessinoise. Nous offrons un environnement international, des projets à haut contenu technique, une collaboration avec des équipes d'ingénierie spécialisées et des opportunités concrètes d'évolution professionnelle."
-      },
-      "slugByLocale": {
-        "it": "impiegato-in-logistica-di-magazzino-agie-charmilles-losone",
-        "en": "employed-in-warehouse-logistics-agie-charmilles-sa-losone",
-        "de": "sachbearbeiter-lagerlogistik-agie-charmilles-sa-losone",
-        "fr": "employe-en-logistique-d-entrepot-agie-charmilles-sa-losone"
-      },
-      "salaryMin": 58000,
-      "salaryMax": 78000,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 58000,
-          "maxValue": 78000,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "6616"
-    }
-  ]
+      }
+    },
+    "cachedAt": "2026-03-23T20:45:42.552Z"
+  }
 }
