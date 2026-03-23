@@ -60,7 +60,12 @@ function getSeededExpiredJob(): ExpiredJob | null {
   try {
     const raw = (window as Record<string, unknown>).__EXPIRED_JOB_DATA__;
     if (raw && typeof raw === 'object' && 'slug' in (raw as Record<string, unknown>)) {
-      return raw as ExpiredJob;
+      const candidate = raw as ExpiredJob;
+      // Seeded data must have a meaningful title — empty objects injected for
+      // slugs without metadata in expired-jobs.json should fall through to the
+      // orphan view instead of rendering a broken JobExpiredView.
+      if (!candidate.title?.trim()) return null;
+      return candidate;
     }
   } catch { /* SSR or missing */ }
   return null;
