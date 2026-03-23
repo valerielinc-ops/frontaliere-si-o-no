@@ -1547,7 +1547,7 @@ function isLikelyListingSummaryContent(title = '', description = '') {
   return false;
 }
 
-function slugify(input = '', maxLen = 140) {
+function slugify(input = '', maxLen = 120) {
   return normalizeSpace(decodeNumericEntities(decodeHtmlEntities(input)))
     .toLowerCase()
     .normalize('NFD')
