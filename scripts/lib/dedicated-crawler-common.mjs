@@ -1220,7 +1220,41 @@ export function hardenJobsRichResultsData({ dataJobsPath }) {
     return { changed: false, updated: 0, total: 0 };
   }
 
-  const { jobs: hardened, changed, updated, total } = hardenJobsWithStructuredSalary(raw);
+  const { jobs: hardened, changed: salaryChanged, updated: salaryUpdated, total } = hardenJobsWithStructuredSalary(raw);
+
+  // ── PostalCode enrichment from swiss-postal-codes.json ──
+  let postalFilled = 0;
+  const plzPath = path.join(path.dirname(dataJobsPath), 'swiss-postal-codes.json');
+  if (fs.existsSync(plzPath)) {
+    const plz = JSON.parse(fs.readFileSync(plzPath, 'utf-8'));
+    const cantonCapitals = { TI: '6500', GR: '7000', VS: '1950', ZH: '8001', BE: '3001', SG: '9000', LU: '6003', AG: '5000' };
+    for (const job of hardened) {
+      if (job.postalCode) continue;
+      const loc = (job.addressLocality || job.location || '').trim();
+      if (!loc) continue;
+      // Direct match
+      if (plz[loc]) { job.postalCode = plz[loc]; postalFilled++; continue; }
+      // First segment (e.g. "Chur, Graubünden" → "Chur")
+      const parts = loc.split(/[,·\-/]/).map(s => s.trim()).filter(Boolean);
+      let found = false;
+      for (const part of parts) {
+        if (plz[part]) { job.postalCode = plz[part]; postalFilled++; found = true; break; }
+      }
+      if (found) continue;
+      // Extract 4-digit PLZ from location string
+      const plzMatch = loc.match(/\b(\d{4})\b/);
+      if (plzMatch) { job.postalCode = plzMatch[1]; postalFilled++; continue; }
+      // Canton capital fallback
+      const canton = (job.canton || '').toUpperCase();
+      if (canton && cantonCapitals[canton]) { job.postalCode = cantonCapitals[canton]; postalFilled++; }
+    }
+    if (postalFilled > 0) {
+      console.log(`  📮 PostalCode enrichment: filled ${postalFilled} jobs from swiss-postal-codes.json`);
+    }
+  }
+
+  const changed = salaryChanged || postalFilled > 0;
+  const updated = salaryUpdated + postalFilled;
 
   if (!changed) {
     return { changed: false, updated: 0, total };

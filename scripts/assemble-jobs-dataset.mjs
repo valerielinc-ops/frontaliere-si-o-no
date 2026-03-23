@@ -432,6 +432,33 @@ export async function assembleJobsDataset({ withStats = false } = {}) {
     writeJson(PUBLIC_JOBS, assembled);
     console.log(`✅ data/jobs.json assembled: ${assembled.length} jobs from ${listSliceFiles(JOBS_SLICES_DIR).length} slices`);
 
+    // --- PostalCode enrichment (ensures 100% postalCode for JobPosting schema) ---
+    const plzPath = path.join(ROOT, 'data', 'swiss-postal-codes.json');
+    if (fs.existsSync(plzPath)) {
+      const plz = JSON.parse(fs.readFileSync(plzPath, 'utf-8'));
+      const cantonCapitals = { TI: '6500', GR: '7000', VS: '1950', ZH: '8001', BE: '3001', SG: '9000', LU: '6003', AG: '5000', SO: '4500', BL: '4001', BS: '4001', AR: '9100', AI: '9050', GL: '8750', SH: '8200', TG: '8500', ZG: '6300', SZ: '6430', NW: '6370', OW: '6060', UR: '6460', FR: '1700', NE: '2000', JU: '2800', VD: '1003', GE: '1201' };
+      let postalFilled = 0;
+      for (const job of assembled) {
+        if (job.postalCode) continue;
+        const loc = (job.addressLocality || job.location || '').trim();
+        if (!loc) continue;
+        if (plz[loc]) { job.postalCode = plz[loc]; postalFilled++; continue; }
+        const parts = loc.split(/[,·\-/]/).map(s => s.trim()).filter(Boolean);
+        let found = false;
+        for (const p of parts) { if (plz[p]) { job.postalCode = plz[p]; postalFilled++; found = true; break; } }
+        if (found) continue;
+        const m = loc.match(/\b(\d{4})\b/);
+        if (m) { job.postalCode = m[1]; postalFilled++; continue; }
+        const canton = (job.canton || '').toUpperCase();
+        if (canton && cantonCapitals[canton]) { job.postalCode = cantonCapitals[canton]; postalFilled++; }
+      }
+      if (postalFilled > 0) {
+        writeJson(DATA_JOBS, assembled);
+        writeJson(PUBLIC_JOBS, assembled);
+        console.log(`  📮 PostalCode enrichment: filled ${postalFilled}/${assembled.length} jobs`);
+      }
+    }
+
     // --- Meta (derived from assembled jobs) ---
     const meta = generateMeta(assembled.length);
     writeJson(DATA_META, meta);
