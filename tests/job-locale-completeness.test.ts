@@ -42,9 +42,9 @@ describe('job-locale-completeness', () => {
         }
       }
     }
-    // FRO-321: raised to 100 — crawlers actively adding untranslated jobs (76 at 2026-03-23).
-    // Will decrease after translation cache populates + Coop runs (FRO-359 resolved).
-    expect(missing.length, `Jobs with missing titleByLocale:\n${missing.slice(0, 20).join('\n')}`).toBeLessThanOrEqual(100);
+    // FRO-321: tightened to 80 — actual count 76 at 2026-03-23 after FRO-359 fix.
+    // Will decrease further as translation cache populates with new crawler runs.
+    expect(missing.length, `Jobs with missing titleByLocale:\n${missing.slice(0, 20).join('\n')}`).toBeLessThanOrEqual(80);
   });
 
   it('every job has slugByLocale for all 4 locales', () => {
@@ -71,8 +71,8 @@ describe('job-locale-completeness', () => {
       }
     }
     // FRO-309: Coop crawler now assigns descriptions to correct source locale.
-    // FRO-321: tightened from 450 — currently 422 missing, will decrease with more crawler runs.
-    expect(missing.length, `Jobs with missing descriptionByLocale:\n${missing.slice(0, 30).join('\n')}`).toBeLessThanOrEqual(430);
+    // FRO-321: tightened to 425 — actual count 422 at 2026-03-23, will decrease with more crawler runs.
+    expect(missing.length, `Jobs with missing descriptionByLocale:\n${missing.slice(0, 30).join('\n')}`).toBeLessThanOrEqual(425);
   });
 
   it('no job has a completely empty titleByLocale object', () => {

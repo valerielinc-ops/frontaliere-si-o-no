@@ -32,10 +32,10 @@ describe('job-locale-consistency', () => {
       }
     }
 
-    // FRO-321: tightened from 120 — currently 103, will decrease with more crawler runs.
+    // FRO-321: tightened to 105 — actual count 103 at 2026-03-23, will decrease with more crawler runs.
     expect(
       mismatches.length,
       `Descriptions stored under the wrong locale:\n${mismatches.slice(0, 20).join('\n')}`
-    ).toBeLessThanOrEqual(110);
+    ).toBeLessThanOrEqual(105);
   });
 });
