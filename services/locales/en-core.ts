@@ -2207,6 +2207,17 @@ Rules:
     'seoContent.stats.check4': 'Ticino cross-border community data',
 
     // ─── What's New / Feature Announcements ─────────────────────────────
+    'whatsNew.v3400.title': 'Easier Job Search and Product Discovery',
+    'whatsNew.v3400.seo.title': 'More details on expired job pages',
+    'whatsNew.v3400.seo.desc': 'Expired job pages now show more useful information, improving visibility for search engines.',
+    'whatsNew.v3400.products.title': 'New Amazon Creator products integrated',
+    'whatsNew.v3400.products.desc': 'We\'ve added data from Amazon Creators to show you a wider and more relevant selection of products.',
+    'whatsNew.v3400.alerts.title': 'Smarter and timely job alerts',
+    'whatsNew.v3400.alerts.desc': 'Receive more accurate job alerts that better match your preferences, sent daily.',
+    'whatsNew.v3400.build.title': 'Fix for SEO page generation',
+    'whatsNew.v3400.build.desc': 'We fixed a technical issue that prevented some SEO pages from being generated correctly.',
+    'whatsNew.v3400.tests.title': 'Improved checks for IT job listings',
+    'whatsNew.v3400.tests.desc': 'We refined our checks to ensure active IT job listings have sufficient address information.',
     'whatsNew.v3390.title': 'Updates to improve your experience',
     'whatsNew.v3390.correct-distdir-path.title': 'Internal improvements for stability',
     'whatsNew.v3390.correct-distdir-path.desc': 'We\'ve made some internal adjustments to ensure everything runs smoothly behind the scenes. This means a more reliable app for you.',

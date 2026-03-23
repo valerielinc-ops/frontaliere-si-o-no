@@ -2298,6 +2298,17 @@ Regole:
     'seoContent.stats.check4': 'Dati sulla comunità frontaliera Ticino',
 
     // ─── What's New / Feature Announcements ─────────────────────────────
+    'whatsNew.v3400.title': 'Miglioramenti per trovare offerte di lavoro e prodotti',
+    'whatsNew.v3400.seo.title': 'Più dettagli nelle pagine di offerte di lavoro scadute',
+    'whatsNew.v3400.seo.desc': 'Le pagine delle offerte di lavoro scadute ora mostrano più informazioni utili, migliorando la visibilità per i motori di ricerca.',
+    'whatsNew.v3400.products.title': 'Nuovi prodotti dai Creator Amazon integrati',
+    'whatsNew.v3400.products.desc': 'Abbiamo aggiunto i dati dei Creator Amazon per mostrarti una selezione più ampia e pertinente di prodotti.',
+    'whatsNew.v3400.alerts.title': 'Notifiche di lavoro più intelligenti e puntuali',
+    'whatsNew.v3400.alerts.desc': 'Ricevi avvisi di lavoro più precisi che corrispondono meglio alle tue preferenze, inviati ogni giorno.',
+    'whatsNew.v3400.build.title': 'Correzione per la generazione di pagine SEO',
+    'whatsNew.v3400.build.desc': 'Abbiamo risolto un problema tecnico che impediva la corretta generazione di alcune pagine SEO.',
+    'whatsNew.v3400.tests.title': 'Miglioramento dei controlli per le offerte di lavoro IT',
+    'whatsNew.v3400.tests.desc': 'Abbiamo affinato i nostri controlli per assicurarci che le offerte di lavoro IT attive abbiano informazioni sull\'indirizzo sufficienti.',
     'whatsNew.v3390.title': 'Aggiornamenti per migliorare la tua esperienza',
     'whatsNew.v3390.correct-distdir-path.title': 'Miglioramenti interni per la stabilità',
     'whatsNew.v3390.correct-distdir-path.desc': 'Abbiamo apportato delle modifiche interne per garantire che tutto funzioni correttamente dietro le quinte. Questo si traduce in un\'app più affidabile per te.',

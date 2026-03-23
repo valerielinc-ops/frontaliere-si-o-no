@@ -2207,6 +2207,17 @@ Regeln:
     'seoContent.stats.check4': 'Daten zur Tessiner Grenzgänger-Gemeinschaft',
 
     // ─── What's New / Feature Announcements ─────────────────────────────
+    'whatsNew.v3400.title': 'Einfachere Jobsuche und Produktentdeckung',
+    'whatsNew.v3400.seo.title': 'Mehr Details auf abgelaufenen Stellenseiten',
+    'whatsNew.v3400.seo.desc': 'Abgelaufene Stellenseiten zeigen jetzt mehr nützliche Informationen an, was die Sichtbarkeit für Suchmaschinen verbessert.',
+    'whatsNew.v3400.products.title': 'Neue Amazon Creator-Produkte integriert',
+    'whatsNew.v3400.products.desc': 'Wir haben Daten von Amazon Creators hinzugefügt, um Ihnen eine breitere und relevantere Produktauswahl zu zeigen.',
+    'whatsNew.v3400.alerts.title': 'Intelligentere und zeitnahe Jobbenachrichtigungen',
+    'whatsNew.v3400.alerts.desc': 'Erhalten Sie genauere Jobbenachrichtigungen, die besser zu Ihren Präferenzen passen und täglich versendet werden.',
+    'whatsNew.v3400.build.title': 'Korrektur für SEO-Seitengenerierung',
+    'whatsNew.v3400.build.desc': 'Wir haben ein technisches Problem behoben, das die korrekte Generierung einiger SEO-Seiten verhinderte.',
+    'whatsNew.v3400.tests.title': 'Verbesserte Prüfungen für IT-Stellenangebote',
+    'whatsNew.v3400.tests.desc': 'Wir haben unsere Prüfungen verfeinert, um sicherzustellen, dass aktive IT-Stellenangebote über ausreichende Adressinformationen verfügen.',
     'whatsNew.v3390.title': 'Updates zur Verbesserung Ihrer Erfahrung',
     'whatsNew.v3390.correct-distdir-path.title': 'Interne Verbesserungen für Stabilität',
     'whatsNew.v3390.correct-distdir-path.desc': 'Wir haben einige interne Anpassungen vorgenommen, um sicherzustellen, dass alles reibungslos im Hintergrund funktioniert. Das bedeutet eine zuverlässigere App für Sie.',

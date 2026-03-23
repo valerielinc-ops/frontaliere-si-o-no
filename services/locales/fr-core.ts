@@ -2207,6 +2207,17 @@ Règles :
     'seoContent.stats.check4': 'Données sur la communauté frontalière tessinoise',
 
     // ─── What's New / Feature Announcements ─────────────────────────────────
+    'whatsNew.v3400.title': 'Recherche d\'emploi et découverte de produits simplifiées',
+    'whatsNew.v3400.seo.title': 'Plus de détails sur les pages d\'offres d\'emploi expirées',
+    'whatsNew.v3400.seo.desc': 'Les pages d\'offres d\'emploi expirées affichent désormais plus d\'informations utiles, améliorant la visibilité pour les moteurs de recherche.',
+    'whatsNew.v3400.products.title': 'Nouveaux produits de créateurs Amazon intégrés',
+    'whatsNew.v3400.products.desc': 'Nous avons ajouté des données des créateurs Amazon pour vous montrer une sélection de produits plus large et plus pertinente.',
+    'whatsNew.v3400.alerts.title': 'Alertes d\'emploi plus intelligentes et opportunes',
+    'whatsNew.v3400.alerts.desc': 'Recevez des alertes d\'emploi plus précises qui correspondent mieux à vos préférences, envoyées quotidiennement.',
+    'whatsNew.v3400.build.title': 'Correction pour la génération de pages SEO',
+    'whatsNew.v3400.build.desc': 'Nous avons corrigé un problème technique qui empêchait la génération correcte de certaines pages SEO.',
+    'whatsNew.v3400.tests.title': 'Amélioration des vérifications pour les offres d\'emploi IT',
+    'whatsNew.v3400.tests.desc': 'Nous avons affiné nos vérifications pour nous assurer que les offres d\'emploi IT actives disposent d\'informations d\'adresse suffisantes.',
     'whatsNew.v3390.title': 'Mises à jour pour améliorer votre expérience',
     'whatsNew.v3390.correct-distdir-path.title': 'Améliorations internes pour la stabilité',
     'whatsNew.v3390.correct-distdir-path.desc': 'Nous avons apporté quelques ajustements internes pour garantir que tout fonctionne correctement en coulisses. Cela se traduit par une application plus fiable pour vous.',
