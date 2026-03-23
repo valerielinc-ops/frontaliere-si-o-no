@@ -1139,6 +1139,13 @@ export async function translateMissingJobLocales({ dataJobsPath, isTargetJob, ma
           if (translatedTitle) {
             job.titleByLocale[locale] = String(translatedTitle).trim();
             jobTranslated = true;
+          } else if (!String(job.titleByLocale[locale] || '').trim()) {
+            // FRO-263: AI translation failed — use source title as last-resort fallback.
+            // This is intentionally done here (after AI attempt) rather than in
+            // hardenJobLocaleFields (which runs before AI), so we don't pollute
+            // locale fields with untranslated foreign text prematurely.
+            job.titleByLocale[locale] = sourceTitle;
+            jobTranslated = true;
           }
         }
 
