@@ -1,16 +1,16 @@
 {
   "key": "zucchetti-switzerland",
   "label": "zucchetti",
-  "generatedAt": "2026-03-23T09:43:24.200Z",
+  "generatedAt": "2026-03-23T22:05:48.091Z",
   "total": 1,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 15444,
-  "avgDurationMs": 15444,
+  "durationMs": 10685,
+  "avgDurationMs": 10685,
   "durationHistory": [
-    15444
+    10685
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -69,7 +69,8 @@
           "maxValue": 97500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "6850"
     }
   ]
 }
