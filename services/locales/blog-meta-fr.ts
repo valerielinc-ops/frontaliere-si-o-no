@@ -1691,6 +1691,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.svizzera-cern-ricerca-chip.title': 'La Suisse accueille le \'CERN de la recherche sur les puces\'',
     'blog.article.svizzera-cern-ricerca-chip.excerpt': 'Le Canton du Tessin devient le \'CERN de la recherche sur les puces\' avec l\'arrivée de RISC-V, un mouvement open-source qui révolutionne l\'industrie des semi-conducteurs.',
     'blog.article.svizzera-cern-ricerca-chip.imageAlt': 'Laboratoire de recherche avancée avec des scientifiques travaillant sur des puces électroniques à Tessin.',
+    'blog.article.cannabis-sequestro-ticino-2026.title': 'Saisie de cannabis à Spreitenbach: opération de la police cantonale de Zurich',
+    'blog.article.cannabis-sequestro-ticino-2026.excerpt': 'La police cantonale de Zurich a démantelé une plantation de chanvre à Spreitenbach, saisissant une tonne de cannabis.',
+    'blog.article.cannabis-sequestro-ticino-2026.imageAlt': 'Deux policiers suisses fouillent un bâtiment à Locarno.',
 };
 
 export default blogMetaFr;

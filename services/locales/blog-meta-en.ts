@@ -1691,6 +1691,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.svizzera-cern-ricerca-chip.title': 'Switzerland hosts the \'CERN of chip research\'',
     'blog.article.svizzera-cern-ricerca-chip.excerpt': 'Canton Ticino becomes the \'CERN of chip research\' with the arrival of RISC-V, an open-source movement revolutionizing the semiconductor industry.',
     'blog.article.svizzera-cern-ricerca-chip.imageAlt': 'Advanced research laboratory with scientists working on electronic chips in Ticino.',
+    'blog.article.cannabis-sequestro-ticino-2026.title': 'Cannabis Seizure in Spreitenbach: Zurich Cantonal Police Operation',
+    'blog.article.cannabis-sequestro-ticino-2026.excerpt': 'The Zurich Cantonal Police dismantled a hemp plantation in Spreitenbach, seizing one ton of cannabis.',
+    'blog.article.cannabis-sequestro-ticino-2026.imageAlt': 'Two Swiss police officers are searching a building in Locarno.',
 };
 
 export default blogMetaEn;

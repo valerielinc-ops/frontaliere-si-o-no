@@ -1691,6 +1691,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.svizzera-cern-ricerca-chip.title': 'La Svizzera ospita il ‘CERN della ricerca sui chip’',
     'blog.article.svizzera-cern-ricerca-chip.excerpt': 'Il Canton Ticino diventa il ‘CERN della ricerca sui chip’ con l\'arrivo di RISC-V, un movimento open-source che rivoluziona l\'industria dei semiconduttori.',
     'blog.article.svizzera-cern-ricerca-chip.imageAlt': 'Laboratorio di ricerca avanzata con scienziati al lavoro su chip elettronici in Ticino.',
+    'blog.article.cannabis-sequestro-ticino-2026.title': 'Sequestro di Cannabis a Spreitenbach: Operazione Polizia Cantonale di Zurigo',
+    'blog.article.cannabis-sequestro-ticino-2026.excerpt': 'La polizia cantonale di Zurigo ha smantellato una piantagione di canapa a Spreitenbach, sequestrando una tonnellata di cannabis.',
+    'blog.article.cannabis-sequestro-ticino-2026.imageAlt': 'Due agenti di polizia svizzeri stanno perquisendo un edificio a Locarno.',
 };
 
 export default blogMetaIt;

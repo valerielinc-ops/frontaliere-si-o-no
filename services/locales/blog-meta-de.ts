@@ -1691,6 +1691,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.svizzera-cern-ricerca-chip.title': 'Die Schweiz beherbergt das \'CERN der Chipforschung\'',
     'blog.article.svizzera-cern-ricerca-chip.excerpt': 'Der Kanton Tessin wird zum \'CERN der Chipforschung\' mit der Ankunft von RISC-V, einer Open-Source-Bewegung, die die Halbleiterindustrie revolutioniert.',
     'blog.article.svizzera-cern-ricerca-chip.imageAlt': 'Forschungslabor mit Wissenschaftlern, die an Elektronikchips arbeiten, in Tessin.',
+    'blog.article.cannabis-sequestro-ticino-2026.title': 'Cannabis-Beschlagnahmung in Spreitenbach: Einsatz der Zürcher Kantonspolizei',
+    'blog.article.cannabis-sequestro-ticino-2026.excerpt': 'Die Zürcher Kantonspolizei hat in Spreitenbach eine Hanfplantage ausgehoben und eine Tonne Cannabis sichergestellt.',
+    'blog.article.cannabis-sequestro-ticino-2026.imageAlt': 'Zwei Schweizer Polizisten durchsuchen ein Gebäude in Locarno.',
 };
 
 export default blogMetaDe;

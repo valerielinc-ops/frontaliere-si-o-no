@@ -4540,6 +4540,13 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/svizzera-cern-ricerca-chip.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'cannabis-sequestro-ticino-2026',
+    category: 'novita',
+    date: '2026-03-23T09:13:01.365Z',
+    image: '/images/blog/cannabis-sequestro-ticino-2026.jpg',
+    hasCalculator: true,
+  },
 ];
 
 const CATEGORIES = ['all', 'fiscale', 'pratico', 'novita', 'pensione'] as const;
