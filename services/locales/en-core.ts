@@ -2188,6 +2188,17 @@ Rules:
     'seoContent.stats.check4': 'Ticino cross-border community data',
 
     // ─── What's New / Feature Announcements ─────────────────────────────
+    'whatsNew.v3380.title': 'Improvements and New Features for a Better Experience',
+    'whatsNew.v3380.expired-job-pages.title': 'Fixed display of expired job offers',
+    'whatsNew.v3380.expired-job-pages.desc': 'We fixed an issue that prevented expired job pages from displaying correctly. You can now view them without interruptions.',
+    'whatsNew.v3380.eeat.title': 'New \'About Us\' page for increased transparency',
+    'whatsNew.v3380.eeat.desc': 'We\'ve added a new \'About Us\' page to provide more information about our organization and ensure compliance with our standards.',
+    'whatsNew.v3380.seo.title': 'Improvements for content search and presentation',
+    'whatsNew.v3380.seo.desc': 'We\'ve optimized how content information is presented and fixed some technical details to improve your search experience.',
+    'whatsNew.v3380.auth.title': 'Easier access to dedicated sections',
+    'whatsNew.v3380.auth.desc': 'You can now access the \'Bridge\', \'Expired\', and \'Orphan\' job sections using your email, making navigation simpler.',
+    'whatsNew.v3380.crawler.title': 'Corrected data processing for Lombardi Group',
+    'whatsNew.v3380.crawler.desc': 'We fixed an issue that prevented correct data processing from the Lombardi Group, ensuring greater reliability.',
     'whatsNew.v3370.title': 'Job Search Improvements and App Stability',
     'whatsNew.v3370.repair-job-locale.title': 'More accurate job ad translations',
     'whatsNew.v3370.repair-job-locale.desc': 'We\'ve fixed job ad translations to be clearer and removed expired ads for a better search experience.',

@@ -2280,6 +2280,17 @@ Regole:
     'seoContent.stats.check4': 'Dati sulla comunità frontaliera Ticino',
 
     // ─── What's New / Feature Announcements ─────────────────────────────
+    'whatsNew.v3380.title': 'Miglioramenti e Nuove Funzionalità per un\'Esperienza Migliore',
+    'whatsNew.v3380.expired-job-pages.title': 'Corretta visualizzazione delle offerte di lavoro scadute',
+    'whatsNew.v3380.expired-job-pages.desc': 'Abbiamo risolto un problema che impediva la corretta visualizzazione delle pagine delle offerte di lavoro scadute. Ora potrai vederle senza interruzioni.',
+    'whatsNew.v3380.eeat.title': 'Nuova pagina \'Chi siamo\' per maggiore trasparenza',
+    'whatsNew.v3380.eeat.desc': 'Abbiamo aggiunto una nuova pagina \'Chi siamo\' per fornire maggiori informazioni sulla nostra organizzazione e garantire la conformità ai nostri standard.',
+    'whatsNew.v3380.seo.title': 'Miglioramenti per la ricerca e la presentazione dei contenuti',
+    'whatsNew.v3380.seo.desc': 'Abbiamo ottimizzato la presentazione delle informazioni sui contenuti e corretto alcuni dettagli tecnici per migliorare la tua esperienza di ricerca.',
+    'whatsNew.v3380.auth.title': 'Accesso facilitato alle sezioni dedicate',
+    'whatsNew.v3380.auth.desc': 'Ora puoi accedere alle sezioni \'Bridge\', \'Scadute\' e \'Orfane\' delle offerte di lavoro anche tramite email, rendendo la navigazione più semplice.',
+    'whatsNew.v3380.crawler.title': 'Corretta l\'elaborazione dei dati per il gruppo Lombardi',
+    'whatsNew.v3380.crawler.desc': 'Abbiamo risolto un problema che impediva l\'elaborazione corretta dei dati provenienti dal gruppo Lombardi, garantendo una maggiore affidabilità.',
     'whatsNew.v3370.title': 'Miglioramenti alla ricerca di lavoro e stabilità dell\'app',
     'whatsNew.v3370.repair-job-locale.title': 'Traduzioni annunci di lavoro più accurate',
     'whatsNew.v3370.repair-job-locale.desc': 'Abbiamo corretto le traduzioni degli annunci di lavoro per renderli più chiari e abbiamo rimosso gli annunci scaduti per una migliore esperienza di ricerca.',

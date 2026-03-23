@@ -2188,6 +2188,17 @@ Règles :
     'seoContent.stats.check4': 'Données sur la communauté frontalière tessinoise',
 
     // ─── What's New / Feature Announcements ─────────────────────────────────
+    'whatsNew.v3380.title': 'Améliorations et Nouvelles Fonctionnalités pour une Meilleure Expérience',
+    'whatsNew.v3380.expired-job-pages.title': 'Affichage corrigé des offres d\'emploi expirées',
+    'whatsNew.v3380.expired-job-pages.desc': 'Nous avons résolu un problème qui empêchait l\'affichage correct des pages d\'offres d\'emploi expirées. Vous pouvez désormais les consulter sans interruption.',
+    'whatsNew.v3380.eeat.title': 'Nouvelle page \'Qui sommes-nous\' pour plus de transparence',
+    'whatsNew.v3380.eeat.desc': 'Nous avons ajouté une nouvelle page \'Qui sommes-nous\' pour fournir plus d\'informations sur notre organisation et garantir la conformité à nos normes.',
+    'whatsNew.v3380.seo.title': 'Améliorations pour la recherche et la présentation du contenu',
+    'whatsNew.v3380.seo.desc': 'Nous avons optimisé la présentation des informations de contenu et corrigé certains détails techniques pour améliorer votre expérience de recherche.',
+    'whatsNew.v3380.auth.title': 'Accès facilité aux sections dédiées',
+    'whatsNew.v3380.auth.desc': 'Vous pouvez désormais accéder aux sections \'Bridge\', \'Expirées\' et \'Orphelines\' des offres d\'emploi via votre e-mail, simplifiant ainsi la navigation.',
+    'whatsNew.v3380.crawler.title': 'Traitement des données corrigé pour le groupe Lombardi',
+    'whatsNew.v3380.crawler.desc': 'Nous avons résolu un problème qui empêchait le traitement correct des données du groupe Lombardi, garantissant une plus grande fiabilité.',
     'whatsNew.v3370.title': 'Améliorations de la recherche d\'emploi et stabilité de l\'application',
     'whatsNew.v3370.repair-job-locale.title': 'Traductions plus précises des offres d\'emploi',
     'whatsNew.v3370.repair-job-locale.desc': 'Nous avons corrigé les traductions des offres d\'emploi pour les rendre plus claires et supprimé les offres expirées pour une meilleure expérience de recherche.',

@@ -2188,6 +2188,17 @@ Regeln:
     'seoContent.stats.check4': 'Daten zur Tessiner Grenzgänger-Gemeinschaft',
 
     // ─── What's New / Feature Announcements ─────────────────────────────
+    'whatsNew.v3380.title': 'Verbesserungen und neue Funktionen für eine bessere Erfahrung',
+    'whatsNew.v3380.expired-job-pages.title': 'Korrekte Anzeige abgelaufener Stellenangebote',
+    'whatsNew.v3380.expired-job-pages.desc': 'Wir haben ein Problem behoben, das die korrekte Anzeige von abgelaufenen Stellenangebotsseiten verhinderte. Sie können diese nun ohne Unterbrechungen einsehen.',
+    'whatsNew.v3380.eeat.title': 'Neue \'Über uns\'-Seite für mehr Transparenz',
+    'whatsNew.v3380.eeat.desc': 'Wir haben eine neue \'Über uns\'-Seite hinzugefügt, um weitere Informationen über unsere Organisation bereitzustellen und die Einhaltung unserer Standards zu gewährleisten.',
+    'whatsNew.v3380.seo.title': 'Verbesserungen für die Inhaltssuche und -darstellung',
+    'whatsNew.v3380.seo.desc': 'Wir haben die Darstellung von Inhaltsinformationen optimiert und einige technische Details korrigiert, um Ihre Sucherfahrung zu verbessern.',
+    'whatsNew.v3380.auth.title': 'Einfacherer Zugriff auf spezielle Bereiche',
+    'whatsNew.v3380.auth.desc': 'Sie können nun auch über Ihre E-Mail-Adresse auf die Bereiche \'Bridge\', \'Abgelaufen\' und \'Verwaist\' der Stellenangebote zugreifen, was die Navigation vereinfacht.',
+    'whatsNew.v3380.crawler.title': 'Korrekte Datenverarbeitung für die Lombardi-Gruppe',
+    'whatsNew.v3380.crawler.desc': 'Wir haben ein Problem behoben, das die korrekte Datenverarbeitung von der Lombardi-Gruppe verhinderte, und so für mehr Zuverlässigkeit gesorgt.',
     'whatsNew.v3370.title': 'Verbesserungen bei der Jobsuche und App-Stabilität',
     'whatsNew.v3370.repair-job-locale.title': 'Genauere Übersetzungen von Stellenanzeigen',
     'whatsNew.v3370.repair-job-locale.desc': 'Wir haben die Übersetzungen von Stellenanzeigen korrigiert, um sie klarer zu machen, und abgelaufene Anzeigen entfernt, um die Sucherfahrung zu verbessern.',
