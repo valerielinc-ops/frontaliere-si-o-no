@@ -6,10 +6,12 @@
  */
 
 import { useEffect, useRef, useState } from 'react';
-import { ArrowLeft, ArrowRight, Building2, Calendar, MapPin } from 'lucide-react';
+import { ArrowLeft, ArrowRight, Building2, Calendar, Loader2, Mail, MapPin } from 'lucide-react';
 import { useLocale } from '@/services/i18n';
 import { renderGoogleButton } from '@/services/authService';
 import { reportCaughtError } from '@/services/errorReporter';
+import { upsertNewsletterSubscriber } from '@/services/newsletterSubscribers';
+import EmailInput, { validateEmailStrict } from '@/components/shared/EmailInput';
 import AdSenseUnit from '@/components/shared/AdSenseUnit';
 import type { ExpiredJob } from '@/hooks/useExpiredJob';
 
@@ -65,11 +67,34 @@ const EXPIRED_AT_COPY: Record<string, string> = {
   de: 'Abgelaufen am',
   fr: 'Expirée le',
 };
+const EMAIL_OR_COPY: Record<string, string> = {
+  it: 'oppure con email',
+  en: 'or with email',
+  de: 'oder mit E-Mail',
+  fr: 'ou par email',
+};
+const EMAIL_PLACEHOLDER_COPY: Record<string, string> = {
+  it: 'La tua email',
+  en: 'Your email',
+  de: 'Ihre E-Mail',
+  fr: 'Votre email',
+};
+const EMAIL_CTA_COPY: Record<string, string> = {
+  it: 'Sblocca con email',
+  en: 'Unlock with email',
+  de: 'Mit E-Mail freischalten',
+  fr: 'Débloquer par email',
+};
+
+const JOB_EMAIL_ACCESS_KEY = 'ft_job_email';
 
 export default function JobExpiredView({ job, relatedJobs = [], onBack }: JobExpiredViewProps) {
   const [locale] = useLocale();
   const googleButtonRef = useRef<HTMLDivElement>(null);
   const [googleButtonReady, setGoogleButtonReady] = useState(false);
+  const [emailInput, setEmailInput] = useState('');
+  const [emailBusy, setEmailBusy] = useState(false);
+  const [emailError, setEmailError] = useState<string | null>(null);
 
   const sectionSlug = SECTION_BY_LOCALE[locale] ?? SECTION_BY_LOCALE.it;
   const prefix = PREFIX_BY_LOCALE[locale] ?? '';
@@ -101,6 +126,38 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack }: JobExp
       });
     return () => { cancelled = true; };
   }, [listingPath]);
+
+  const handleEmailSubmit = async (e: { preventDefault(): void }) => {
+    e.preventDefault();
+    const email = emailInput.trim();
+    if (!email || !validateEmailStrict(email).valid) return;
+    setEmailBusy(true);
+    setEmailError(null);
+    try {
+      const [{ getFirestore }, { getApp }] = await Promise.all([
+        import('firebase/firestore'),
+        import('@/services/firebase'),
+      ]);
+      const firestore = getFirestore(await getApp());
+      await upsertNewsletterSubscriber(firestore, {
+        email,
+        source: 'job_expired',
+        sourceChannel: 'job_gate',
+        sourcePage: window.location.pathname,
+        sourceCta: 'job_expired_email_unlock',
+        sourceComponent: 'JobExpiredView',
+        sourceRouteFamily: 'job-board',
+        isActive: false,
+        status: 'pending',
+      });
+      localStorage.setItem(JOB_EMAIL_ACCESS_KEY, email.toLowerCase());
+      window.location.reload();
+    } catch {
+      setEmailError(locale === 'it' ? 'Errore, riprova.' : 'Error, please retry.');
+    } finally {
+      setEmailBusy(false);
+    }
+  };
 
   return (
     <div className="space-y-5 max-w-2xl mx-auto">
@@ -165,6 +222,30 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack }: JobExp
             {locale === 'it' ? 'Accedi' : locale === 'de' ? 'Anmelden' : locale === 'fr' ? 'Se connecter' : 'Sign in'}
           </a>
         )}
+
+        {/* Email divider + form */}
+        <div className="flex items-center gap-3">
+          <div className="flex-1 h-px bg-slate-300/50 dark:bg-slate-600/50" />
+          <span className="text-xs text-slate-500 dark:text-slate-400">{EMAIL_OR_COPY[locale] ?? EMAIL_OR_COPY.it}</span>
+          <div className="flex-1 h-px bg-slate-300/50 dark:bg-slate-600/50" />
+        </div>
+        <form onSubmit={handleEmailSubmit} className="space-y-2">
+          <EmailInput
+            value={emailInput}
+            onChange={setEmailInput}
+            placeholder={EMAIL_PLACEHOLDER_COPY[locale] ?? EMAIL_PLACEHOLDER_COPY.it}
+            className="w-full px-3 py-2.5 rounded-xl border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-sm text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          />
+          <button
+            type="submit"
+            disabled={emailBusy || !emailInput.trim()}
+            className="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 disabled:opacity-60 text-white text-sm font-semibold transition-colors"
+          >
+            {emailBusy ? <Loader2 className="w-4 h-4 animate-spin" /> : <Mail className="w-4 h-4" />}
+            {EMAIL_CTA_COPY[locale] ?? EMAIL_CTA_COPY.it}
+          </button>
+        </form>
+        {emailError && <p className="text-xs text-red-600 dark:text-red-300">{emailError}</p>}
       </div>
 
       {/* AdSense */}
