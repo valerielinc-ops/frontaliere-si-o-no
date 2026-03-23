@@ -1898,10 +1898,10 @@ export default function BlogArticles({
                 <h4 className="text-sm font-bold text-slate-700 dark:text-slate-200 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors line-clamp-2 mb-2">
                   {t(`blog.article.${article.id}.title`)}
                 </h4>
-                <p className="text-xs text-slate-500 dark:text-slate-500 line-clamp-2 mb-3">
+                <p className="text-xs text-slate-500 dark:text-slate-500 line-clamp-3 mb-3">
                   {t(`blog.article.${article.id}.excerpt`)}
                 </p>
-                <span className="inline-flex items-center gap-1 text-xs font-semibold text-indigo-600 dark:text-indigo-400 group-hover:underline">
+                <span className="inline-flex items-center gap-1 px-3 py-1.5 text-xs font-semibold text-white bg-indigo-600 dark:bg-indigo-500 rounded-lg group-hover:bg-indigo-700 dark:group-hover:bg-indigo-600 transition-colors">
                   {t('blog.readMore')} <ChevronRight size={12} />
                 </span>
               </div>
