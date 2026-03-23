@@ -4643,6 +4643,13 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/nomine-sims-illegittime.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'elicottero-rega-locarno',
+    category: 'novita',
+    date: '2026-03-23T17:35:59.394Z',
+    image: '/images/blog/elicottero-rega-locarno.jpg',
+    hasCalculator: true,
+  },
 ];
 
 const CATEGORIES = ['all', 'fiscale', 'pratico', 'novita', 'pensione'] as const;

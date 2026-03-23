@@ -1695,6 +1695,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-chiasso-ora-terra-2026': { name: 'Ora della Terra Chiasso', path: '/articoli-frontaliere/chiasso-ora-terra-2026', parent: 'blog' },
     'blog-radar-ticino-riduzione': { name: 'Riduzione radar', path: '/articoli-frontaliere/radar-ticino-riduzione', parent: 'blog' },
     'blog-nomine-sims-illegittime': { name: 'Nomine SIMS', path: '/articoli-frontaliere/nomine-sims-illegittime', parent: 'blog' },
+    'blog-elicottero-rega-locarno': { name: 'Novità', path: '/articoli-frontaliere/elicottero-rega-locarno', parent: 'blog' },
   };
 
   const info = sectionNames[section];

@@ -1721,6 +1721,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.nomine-sims-illegittime.title': 'Nominations SIMS illégales',
     'blog.article.nomine-sims-illegittime.excerpt': 'La conseillère d\'État Marina Carobbio s\'est exprimée sur les nominations illégales à la tête de la Section de l\'enseignement moyen supérieur (SIMS).',
     'blog.article.nomine-sims-illegittime.imageAlt': 'Réunion du Grand Conseil tessinois',
+    'blog.article.elicottero-rega-locarno.title': 'Tessin : nouvel hélicoptère Rega à Locarno',
+    'blog.article.elicottero-rega-locarno.excerpt': 'La base Rega de Locarno reçoit un hélicoptère de dernière génération, un Airbus H145 D3.',
+    'blog.article.elicottero-rega-locarno.imageAlt': 'Hélicoptère Rega à Locarno',
 };
 
 export default blogMetaFr;

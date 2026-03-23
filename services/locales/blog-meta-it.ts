@@ -1721,6 +1721,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.nomine-sims-illegittime.title': 'Nomine SIMS illegittime',
     'blog.article.nomine-sims-illegittime.excerpt': 'La consigliera di Stato Marina Carobbio si è espressa sulle nomine illegittime alla guida della Sezione dell’insegnamento medio superiore (SIMS).',
     'blog.article.nomine-sims-illegittime.imageAlt': 'Riunione del Gran Consiglio ticinese',
+    'blog.article.elicottero-rega-locarno.title': 'Ticino: nuovo elicottero Rega a Locarno',
+    'blog.article.elicottero-rega-locarno.excerpt': 'La base Rega di Locarno riceve un elicottero di ultima generazione, un Airbus H145 D3.',
+    'blog.article.elicottero-rega-locarno.imageAlt': 'Elicottero Rega a Locarno',
 };
 
 export default blogMetaIt;

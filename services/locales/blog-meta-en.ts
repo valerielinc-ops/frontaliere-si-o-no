@@ -1721,6 +1721,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.nomine-sims-illegittime.title': 'Illegitimate SIMS Appointments',
     'blog.article.nomine-sims-illegittime.excerpt': 'State Councilor Marina Carobbio has expressed her views on the illegitimate appointments to the management of the Upper Secondary Education Section (SIMS).',
     'blog.article.nomine-sims-illegittime.imageAlt': 'Meeting of the Ticino Grand Council',
+    'blog.article.elicottero-rega-locarno.title': 'Ticino: new Rega helicopter in Locarno',
+    'blog.article.elicottero-rega-locarno.excerpt': 'The Rega base in Locarno has received a new rescue helicopter, an Airbus H145 D3, which is ready to intervene in emergency situations.',
+    'blog.article.elicottero-rega-locarno.imageAlt': 'Rega helicopter in Locarno',
 };
 
 export default blogMetaEn;

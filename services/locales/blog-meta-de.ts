@@ -1721,6 +1721,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.nomine-sims-illegittime.title': 'Unrechtmäßige Ernennungen bei SIMS',
     'blog.article.nomine-sims-illegittime.excerpt': 'Die Staatsrätin Marina Carobbio hat sich zu den unrechtmäßigen Ernennungen an der Spitze der Abteilung für höhere Mittelschulbildung (SIMS) geäußert.',
     'blog.article.nomine-sims-illegittime.imageAlt': 'Sitzung des Grossen Rats Tessin',
+    'blog.article.elicottero-rega-locarno.title': 'Tessin: Neuer Rega-Helikopter in Locarno',
+    'blog.article.elicottero-rega-locarno.excerpt': 'Die Rega-Basis in Locarno erhält einen Helikopter der neuesten Generation, einen Airbus H145 D3.',
+    'blog.article.elicottero-rega-locarno.imageAlt': 'Rega-Helikopter in Locarno',
 };
 
 export default blogMetaDe;

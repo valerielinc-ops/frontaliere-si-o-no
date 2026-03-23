@@ -9767,6 +9767,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-elicottero-rega-locarno': {
+    title: 'Ticino: nuovo elicottero Rega a Locarno | Frontaliere Ticino',
+    description: 'La base Rega di Locarno riceve un elicottero di ultima generazione, un Airbus H145 D3, per migliorare i servizi di emergenza medica e di ricerca e salvataggio.',
+    keywords: 'frontalieri, ticino, svizzera, italia, nuovo, elicottero, rega, locarno',
+    ogTitle: 'Ticino: nuovo elicottero Rega a Locarno',
+    ogDescription: 'La base Rega di Locarno riceve un elicottero di ultima generazione, un Airbus H145 D3, per migliorare i servizi di emergenza medica e di ricerca e salvataggio.',
+    canonicalPath: '/articoli-frontaliere/elicottero-rega-locarno',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ticino: nuovo elicottero Rega a Locarno",
+      "description": "La base Rega di Locarno riceve un elicottero di ultima generazione, un Airbus H145 D3, per migliorare i servizi di emergenza medica e di ricerca e salvataggio.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/elicottero-rega-locarno.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Elicottero Rega a Locarno"
+      },
+      "datePublished": "2026-03-23T17:35:59+00:00",
+      "dateModified": "2026-03-23T17:35:59+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/elicottero-rega-locarno`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
