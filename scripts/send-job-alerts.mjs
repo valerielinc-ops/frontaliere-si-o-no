@@ -26,6 +26,10 @@ const FROM_EMAIL = 'Frontaliere Ticino <alerts@frontaliereticino.ch>';
 const DRY_RUN = process.argv.includes('--dry-run');
 const MATCH_WINDOW_MS = 24 * 60 * 60 * 1000; // 24 hours
 
+// Testing allowlist: only send alerts to these emails.
+// Set to null to enable for all users once testing is complete.
+const ALLOWED_EMAILS = new Set(['valerielinc@gmail.com']);
+
 // ── Firebase Admin SDK (lazy init) ───────────────────────────
 
 let _db = null;
@@ -201,7 +205,16 @@ async function main() {
   // 2. Load active alerts from Firestore
   const db = await getFirestoreAdmin();
   const alertsSnap = await db.collection('job_alerts').where('active', '==', true).get();
-  const alerts = alertsSnap.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
+  let alerts = alertsSnap.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
+
+  // Filter to allowed emails during testing phase
+  if (ALLOWED_EMAILS) {
+    const before = alerts.length;
+    alerts = alerts.filter((a) => ALLOWED_EMAILS.has(String(a.email || '').toLowerCase()));
+    if (before !== alerts.length) {
+      console.log(`   ⚠️  Allowlist active: ${before} alerts → ${alerts.length} (admin-only testing)`);
+    }
+  }
   console.log(`   Active alerts: ${alerts.length}`);
   if (alerts.length === 0) {
     console.log('   No active alerts — skipping.');
