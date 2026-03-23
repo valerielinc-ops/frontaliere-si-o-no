@@ -4622,6 +4622,13 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/migranti-dublino-ticino.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'chiasso-ora-terra-2026',
+    category: 'novita',
+    date: '2026-03-23T15:49:32.848Z',
+    image: '/images/blog/chiasso-ora-terra-2026.jpg',
+    hasCalculator: true,
+  },
 ];
 
 const CATEGORIES = ['all', 'fiscale', 'pratico', 'novita', 'pensione'] as const;

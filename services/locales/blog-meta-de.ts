@@ -1712,6 +1712,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.migranti-dublino-ticino.title': 'Migranten Dublino: Wie viele Fälle und welche Kosten für das Tessin?',
     'blog.article.migranti-dublino-ticino.excerpt': 'Die SVP befragt die Regierung zu den Kosten für das Tessin nach der Aussetzung der Zusammenarbeit durch Italien im Dublin-Regime.',
     'blog.article.migranti-dublino-ticino.imageAlt': 'Migranten warten am Einwanderungsamt in Lugano',
+    'blog.article.chiasso-ora-terra-2026.title': 'Chiasso nimmt an der Earth Hour 2026 teil',
+    'blog.article.chiasso-ora-terra-2026.excerpt': 'Die Stadt Chiasso schließt sich der internationalen Initiative Earth Hour an und schaltet die öffentlichen Lichter am 28. März von 20:30 bis 21:30 Uhr aus.',
+    'blog.article.chiasso-ora-terra-2026.imageAlt': 'Chiasso nimmt an der Earth Hour 2026 teil',
 };
 
 export default blogMetaDe;

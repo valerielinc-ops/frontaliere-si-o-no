@@ -9680,6 +9680,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-chiasso-ora-terra-2026': {
+    title: 'Chiasso aderisce all\'Ora della Terra 2026 | Frontaliere Ticino',
+    description: 'La città di Chiasso partecipa all\'Ora della Terra 2026, spegnendo le luci pubbliche il 28 marzo dalle 20.30 alle 21.30. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, chiasso, aderisce, terra, città',
+    ogTitle: 'Chiasso aderisce all\'Ora della Terra 2026',
+    ogDescription: 'La città di Chiasso partecipa all\'Ora della Terra 2026, spegnendo le luci pubbliche il 28 marzo dalle 20.30 alle 21.30.',
+    canonicalPath: '/articoli-frontaliere/chiasso-ora-terra-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Chiasso aderisce all'Ora della Terra 2026",
+      "description": "La città di Chiasso partecipa all'Ora della Terra 2026, spegnendo le luci pubbliche il 28 marzo dalle 20.30 alle 21.30. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/chiasso-ora-terra-2026.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Chiasso partecipa all'Ora della Terra 2026"
+      },
+      "datePublished": "2026-03-23T15:49:32+00:00",
+      "dateModified": "2026-03-23T15:49:32+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/chiasso-ora-terra-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

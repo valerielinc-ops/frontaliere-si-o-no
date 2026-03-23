@@ -1712,6 +1712,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.migranti-dublino-ticino.title': 'Migranti Dublino: quanti casi e quali costi per il Ticino?',
     'blog.article.migranti-dublino-ticino.excerpt': 'L\'UDC interroga il Governo sui costi per il Ticino dopo la sospensione della cooperazione da parte dell\'Italia nel regolamento di Dublino.',
     'blog.article.migranti-dublino-ticino.imageAlt': 'Migranti in attesa all\'ufficio di immigrazione di Lugano',
+    'blog.article.chiasso-ora-terra-2026.title': 'Chiasso aderisce all\'Ora della Terra 2026',
+    'blog.article.chiasso-ora-terra-2026.excerpt': 'La città di Chiasso si unisce all\'iniziativa internazionale Earth Hour, spegnendo le luci pubbliche il 28 marzo dalle 20.30 alle 21.30.',
+    'blog.article.chiasso-ora-terra-2026.imageAlt': 'Chiasso partecipa all\'Ora della Terra 2026',
 };
 
 export default blogMetaIt;
