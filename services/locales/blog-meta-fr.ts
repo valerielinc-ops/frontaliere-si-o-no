@@ -1709,6 +1709,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.lugano-sicurezza-2025.title': 'Sécurité à Lugano : baisse des vols et des agressions',
     'blog.article.lugano-sicurezza-2025.excerpt': 'Le bilan 2025 de la Police cantonale ticino montre une diminution des vols et des agressions contre les stations-service',
     'blog.article.lugano-sicurezza-2025.imageAlt': 'Voiture de police à Lugano',
+    'blog.article.migranti-dublino-ticino.title': 'Migrants Dublino : combien de cas et quels coûts pour le Tessin ?',
+    'blog.article.migranti-dublino-ticino.excerpt': 'L\'UDC interroge le gouvernement sur les coûts pour le Tessin après la suspension de la coopération de l\'Italie dans le règlement de Dublino.',
+    'blog.article.migranti-dublino-ticino.imageAlt': 'Migrants en attente au bureau de l\'immigration de Lugano',
 };
 
 export default blogMetaFr;

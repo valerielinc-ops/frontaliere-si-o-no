@@ -1719,6 +1719,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-controlli-radar-ticino': { name: 'Controlli radar in Ticino', path: '/articoli-frontaliere/controlli-radar-ticino', parent: 'blog' },
     'blog-frontalieri-casa-zurigo': { name: 'Frontalieri', path: '/articoli-frontaliere/frontalieri-casa-zurigo', parent: 'blog' },
     'blog-lugano-sicurezza-2025': { name: 'Sicurezza a Lugano', path: '/articoli-frontaliere/lugano-sicurezza-2025', parent: 'blog' },
+    'blog-migranti-dublino-ticino': { name: 'Migranti Dublino', path: '/articoli-frontaliere/migranti-dublino-ticino', parent: 'blog' },
   };
 
   const info = sectionNames[section];

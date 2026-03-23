@@ -9651,6 +9651,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-migranti-dublino-ticino': {
+    title: 'Migranti Dublino: quanti casi e quali costi per il Ticino? | Frontaliere Ticino',
+    description: 'L\'UDC interroga il Governo sui costi per il Ticino dopo la sospensione della cooperazione da parte dell\'Italia nel regolamento di Dublino. Scopri di più sui',
+    keywords: 'frontalieri, ticino, svizzera, italia, migranti, dublino, quanti, casi',
+    ogTitle: 'Migranti Dublino: costi e casi per il Ticino',
+    ogDescription: 'L\'UDC interroga il Governo sui costi per il Ticino dopo la sospensione della cooperazione da parte dell\'Italia nel regolamento di Dublino.',
+    canonicalPath: '/articoli-frontaliere/migranti-dublino-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Migranti Dublino: quanti casi e quali costi per il Ticino?",
+      "description": "L'UDC interroga il Governo sui costi per il Ticino dopo la sospensione della cooperazione da parte dell'Italia nel regolamento di Dublino. Scopri di più sui",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/migranti-dublino-ticino.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Migranti in attesa all'ufficio di immigrazione di Lugano"
+      },
+      "datePublished": "2026-03-23T14:04:28+00:00",
+      "dateModified": "2026-03-23T14:04:28+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/migranti-dublino-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

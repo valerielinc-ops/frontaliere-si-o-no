@@ -1709,6 +1709,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.lugano-sicurezza-2025.title': 'Security in Lugano: Decrease in Thefts and Robberies',
     'blog.article.lugano-sicurezza-2025.excerpt': 'The 2025 report of the Ticino Cantonal Police highlights a reduction in thefts and robberies at gas stations',
     'blog.article.lugano-sicurezza-2025.imageAlt': 'Police car in Lugano',
+    'blog.article.migranti-dublino-ticino.title': 'Dublin Migrants: How Many Cases and What Costs for Ticino?',
+    'blog.article.migranti-dublino-ticino.excerpt': 'The UDC is questioning the Government about the costs for Ticino after Italy suspended cooperation in the Dublin regulation.',
+    'blog.article.migranti-dublino-ticino.imageAlt': 'Migrants waiting at the immigration office in Lugano',
 };
 
 export default blogMetaEn;

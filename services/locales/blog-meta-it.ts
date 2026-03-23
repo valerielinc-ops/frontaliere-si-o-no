@@ -1709,6 +1709,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.lugano-sicurezza-2025.title': 'Sicurezza a Lugano: calano i furti e gli assalti',
     'blog.article.lugano-sicurezza-2025.excerpt': 'Il bilancio 2025 della Polizia cantonale ticinese evidenzia una riduzione dei furti e degli assalti ai distributori di carburante',
     'blog.article.lugano-sicurezza-2025.imageAlt': 'Macchina della polizia a Lugano',
+    'blog.article.migranti-dublino-ticino.title': 'Migranti Dublino: quanti casi e quali costi per il Ticino?',
+    'blog.article.migranti-dublino-ticino.excerpt': 'L\'UDC interroga il Governo sui costi per il Ticino dopo la sospensione della cooperazione da parte dell\'Italia nel regolamento di Dublino.',
+    'blog.article.migranti-dublino-ticino.imageAlt': 'Migranti in attesa all\'ufficio di immigrazione di Lugano',
 };
 
 export default blogMetaIt;

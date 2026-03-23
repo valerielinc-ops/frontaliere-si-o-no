@@ -4615,6 +4615,13 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/lugano-sicurezza-2025.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'migranti-dublino-ticino',
+    category: 'fiscale',
+    date: '2026-03-23T14:04:28.397Z',
+    image: '/images/blog/migranti-dublino-ticino.jpg',
+    hasCalculator: true,
+  },
 ];
 
 const CATEGORIES = ['all', 'fiscale', 'pratico', 'novita', 'pensione'] as const;

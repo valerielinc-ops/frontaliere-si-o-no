@@ -1709,6 +1709,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.lugano-sicurezza-2025.title': 'Sicherheit in Lugano: Einbrüche und Überfälle gehen zurück',
     'blog.article.lugano-sicurezza-2025.excerpt': 'Der Jahresbericht 2025 der Tessiner Kantonspolizei zeigt ein insgesamt positives Bild für die Sicherheit im Kanton Tessin. Laut dem Regierungsrat Claudio Zali und dem Kommandanten Matteo Cocchi ist die Zahl der Einbrüche und Überfälle auf Tankstellen im Vergleich zum Vorjahr zurückgegangen.',
     'blog.article.lugano-sicurezza-2025.imageAlt': 'Polizeiauto in Lugano',
+    'blog.article.migranti-dublino-ticino.title': 'Migranten Dublino: Wie viele Fälle und welche Kosten für das Tessin?',
+    'blog.article.migranti-dublino-ticino.excerpt': 'Die SVP befragt die Regierung zu den Kosten für das Tessin nach der Aussetzung der Zusammenarbeit durch Italien im Dublin-Regime.',
+    'blog.article.migranti-dublino-ticino.imageAlt': 'Migranten warten am Einwanderungsamt in Lugano',
 };
 
 export default blogMetaDe;
