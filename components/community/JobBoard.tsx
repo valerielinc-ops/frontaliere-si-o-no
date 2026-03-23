@@ -2179,6 +2179,13 @@ const JobBoard: React.FC<JobBoardProps> = ({
 
   const [jobs, setJobs] = useState<JobListing[]>([]);
   const [jobsLoading, setJobsLoading] = useState(true);
+  // FRO-353: Feature flag for Job Alerts (controlled via Firebase Remote Config)
+  const [enableJobAlerts, setEnableJobAlerts] = useState(false);
+  useEffect(() => {
+    import('@/services/firebase').then(({ getConfigValue }) =>
+      getConfigValue('ENABLE_JOB_ALERTS').then((v) => setEnableJobAlerts(v === 'true'))
+    ).catch(() => {});
+  }, []);
   const [searchQuery, setSearchQuery] = useState(() => parseSearchSlugFilter(initialJobSlug) || readSearchQueryFromUrl());
   const deferredSearchQuery = useDeferredValue(searchQuery);
   const [selectedCategory, setSelectedCategory] = useState<JobCategory | 'all'>('all');
@@ -5473,14 +5480,16 @@ const JobBoard: React.FC<JobBoardProps> = ({
           ))}
         </div>
 
-        {/* FRO-332: Job Alert form */}
-        <Suspense fallback={null}>
-          <JobAlertForm
-            authUser={authUser}
-            onRequireAuth={onRequireAuth}
-            initialKeyword={searchQuery}
-          />
-        </Suspense>
+        {/* FRO-332/353: Job Alert form (behind feature flag) */}
+        {enableJobAlerts && (
+          <Suspense fallback={null}>
+            <JobAlertForm
+              authUser={authUser}
+              onRequireAuth={onRequireAuth}
+              initialKeyword={searchQuery}
+            />
+          </Suspense>
+        )}
 
         {/* Filter toggle bar */}
         <div className="flex items-center gap-2">

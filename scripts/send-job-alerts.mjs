@@ -194,6 +194,14 @@ async function main() {
   console.log('🔔 Job Alert Matching — Starting...');
   console.log(`   Mode: ${DRY_RUN ? 'DRY RUN' : 'LIVE'}`);
 
+  // FRO-353: Check feature flag from Firebase Remote Config
+  // The flag is loaded by load-rc-env.mjs into process.env
+  const featureEnabled = process.env.ENABLE_JOB_ALERTS === 'true';
+  if (!featureEnabled) {
+    console.log('   ⚠️  ENABLE_JOB_ALERTS is not true — skipping (feature flag off).');
+    return;
+  }
+
   // 1. Load recent jobs
   const recentJobs = loadRecentJobs();
   console.log(`   Recent jobs (last 24h): ${recentJobs.length}`);

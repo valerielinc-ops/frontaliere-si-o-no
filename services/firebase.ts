@@ -57,6 +57,8 @@ const REMOTE_CONFIG_DEFAULTS: Record<string, string> = {
   SEO_SERP_EXPERIMENT_TARGETS: '*',
   SEO_SERP_EXPERIMENT_YEAR: '2026',
   CLARITY_PROJECT_ID: 'vqi1r9wejc',
+  // FRO-353: Feature flag for Job Alerts (default off until testing complete)
+  ENABLE_JOB_ALERTS: 'false',
 };
 
 const FIREBASE_RUNTIME_LOGS = import.meta.env.MODE !== 'test';
