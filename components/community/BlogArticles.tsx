@@ -5099,11 +5099,16 @@ export default function BlogArticles({
     const articleBody2 = t(`blog.article.${article.id}.body2`);
     const articleBody3 = t(`blog.article.${article.id}.body3`);
     const bodySegments = [articleBody1, articleBody2, articleBody3];
-    const missingBody = bodySegments.some((b) => !b || b.startsWith('blog.article.'));
-    const combinedBody = bodySegments.join(' ');
+    const presentSegments = bodySegments.filter((b) => b && !b.startsWith('blog.article.'));
+    const combinedBody = presentSegments.join(' ');
     const bodyWordCount = combinedBody.split(/\s+/).filter(Boolean).length;
     const bodyCharCount = combinedBody.trim().length;
-    const adEligible = bodyReady && !missingBody && bodyWordCount >= 220 && bodyCharCount >= 1400;
+    // Strict: all 3 body segments present + full content — used for inline mobile ads
+    const adEligibleStrict = bodyReady && presentSegments.length === 3 && bodyWordCount >= 220 && bodyCharCount >= 1400;
+    // Basic: at least body1 present with minimum content — used for end-of-article multiplex + rail
+    const adEligible = bodyReady && presentSegments.length >= 1 && bodyWordCount >= 80 && bodyCharCount >= 500;
+    // Use strict for inline (mid-content) ads, basic for end/rail ads
+    const adEligibleInline = adEligibleStrict;
 
     /** Compact vertical card for desktop side rails */
     const SideRailCard = ({ partner, idx }: { partner: AffiliatePartner; idx: number }) => {
@@ -5367,7 +5372,7 @@ export default function BlogArticles({
                     adFormat={AD_SLOTS.ARTICLE_INLINE_MOBILE.format}
                     adLayout={AD_SLOTS.ARTICLE_INLINE_MOBILE.layout}
                     fullWidthResponsive={false}
-                    enabled={adEligible}
+                    enabled={adEligibleInline}
                     className="my-4"
                   />
                 </Suspense>
