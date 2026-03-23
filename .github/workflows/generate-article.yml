@@ -407,6 +407,39 @@ jobs:
           DEPLOY_ARTICLE_CATEGORY="${{ steps.generate.outputs.category }}" \
           bash scripts/lib/trigger-deploy.sh
 
+      # ── Notify Google Indexing API ────────────────────────────────────
+      # Notify Google immediately so it crawls the new article within minutes.
+      # This runs AFTER deploy is triggered — Google will find the page live
+      # by the time it attempts to crawl (deploy takes ~2-3 min).
+      # Errors here never block the workflow.
+      - name: Notify Google Indexing API
+        if: steps.commit.outputs.committed == 'true' && steps.verify_article.outputs.exists == 'true'
+        continue-on-error: true
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          node --input-type=module -e "
+            import { notifyGoogleIndexing } from './scripts/lib/indexing-api.mjs';
+            import fs from 'fs';
+            const id = '${{ steps.generate.outputs.article_id }}';
+            if (!id) { console.log('[indexing-api] No article ID — skip'); process.exit(0); }
+            const BASE = 'https://www.frontaliereticino.ch';
+            // Read locale-specific slugs from BlogArticles.tsx BLOG_SLUGS map
+            const src = fs.readFileSync('components/community/BlogArticles.tsx', 'utf8');
+            const match = src.match(new RegExp(\"'\" + id + \"':\\\\s*\\\\{([^}]+)\\\\}\"));
+            const slugs = { it: id, en: id, de: id, fr: id };
+            if (match) {
+              for (const [, k, v] of match[1].matchAll(/(it|en|de|fr):\\s*'([^']+)'/g)) slugs[k] = v;
+            }
+            const urls = [
+              \`\${BASE}/articoli-frontaliere/\${slugs.it}/\`,
+              \`\${BASE}/en/articoli-frontaliere/\${slugs.en}/\`,
+              \`\${BASE}/de/articoli-frontaliere/\${slugs.de}/\`,
+              \`\${BASE}/fr/articoli-frontaliere/\${slugs.fr}/\`,
+            ];
+            await notifyGoogleIndexing(urls);
+          "
+
       # ── Final disposition report ──────────────────────────────────────
       # This step runs ALWAYS to give a clear summary of what happened
       # to the generated article (committed? verified? submitted?).
