@@ -4554,6 +4554,13 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/svizzeri-dubitano-difesa-paese.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'referendum-varese-ticino-2026',
+    category: 'novita',
+    date: '2026-03-23T10:25:02.903Z',
+    image: '/images/blog/referendum-varese-ticino-2026.jpg',
+    hasCalculator: true,
+  },
 ];
 
 const CATEGORIES = ['all', 'fiscale', 'pratico', 'novita', 'pensione'] as const;

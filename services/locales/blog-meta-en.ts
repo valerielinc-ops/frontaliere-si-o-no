@@ -1697,6 +1697,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.svizzeri-dubitano-difesa-paese.title': 'Swiss Doubt the Country\'s Defense Capabilities',
     'blog.article.svizzeri-dubitano-difesa-paese.excerpt': 'More than three-quarters of those surveyed doubt that the Confederation is sufficiently prepared militarily',
     'blog.article.svizzeri-dubitano-difesa-paese.imageAlt': 'Swiss citizens discuss the defense of the country near Lake Lugano',
+    'blog.article.referendum-varese-ticino-2026.title': 'Constitutional Referendum 2026: Varese at 43.40%',
+    'blog.article.referendum-varese-ticino-2026.excerpt': 'At 19:00 on March 22, 43.40% of Varese residents voted in the 2026 constitutional referendum.',
+    'blog.article.referendum-varese-ticino-2026.imageAlt': 'Voters in a Swiss city with the 2026 constitutional referendum.',
 };
 
 export default blogMetaEn;

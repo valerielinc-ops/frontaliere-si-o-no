@@ -1697,6 +1697,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.svizzeri-dubitano-difesa-paese.title': 'Les Suisses doutent des capacités de défense du pays',
     'blog.article.svizzeri-dubitano-difesa-paese.excerpt': 'Plus de trois quarts des interrogés doutent que la Confédération soit suffisamment préparée militairement',
     'blog.article.svizzeri-dubitano-difesa-paese.imageAlt': 'Citoyens suisses discutent de la défense du pays près du lac de Lugano',
+    'blog.article.referendum-varese-ticino-2026.title': 'Référendum constitutionnel 2026: Varèse au 43,40%',
+    'blog.article.referendum-varese-ticino-2026.excerpt': 'À 19h00 le 22 mars, 43,40% des Varésiens ont voté pour le référendum constitutionnel de 2026.',
+    'blog.article.referendum-varese-ticino-2026.imageAlt': 'Électeurs dans une ville suisse avec le référendum constitutionnel de 2026.',
 };
 
 export default blogMetaFr;
