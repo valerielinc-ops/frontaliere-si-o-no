@@ -9564,6 +9564,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-controlli-radar-ticino': {
+    title: 'I controlli radar in Ticino diminuiranno: cosa cambia? | Frontaliere Ticino',
+    description: 'La polizia cantonale di Lugano ha comunicato che i controlli radar sulle strade ticinesi saranno ridotti. Scopri cosa cambia e come potrai essere più sicuro',
+    keywords: 'frontalieri, ticino, svizzera, italia, controlli, radar, diminuiranno, cosa',
+    ogTitle: 'Controlli radar in Ticino diminuiranno',
+    ogDescription: 'La polizia cantonale di Lugano ha comunicato che i controlli radar sulle strade ticinesi saranno ridotti.',
+    canonicalPath: '/articoli-frontaliere/controlli-radar-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Controlli radar in Ticino diminuiranno: cosa cambia?",
+      "description": "La polizia cantonale di Lugano ha comunicato che i controlli radar sulle strade ticinesi saranno ridotti. Scopri cosa cambia e come potrai essere più sicuro",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/controlli-radar-ticino.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Immagine di una strada in Ticino con un veicolo in movimento e un poliziotto che controlla con un radar."
+      },
+      "datePublished": "2026-03-23T11:53:10+00:00",
+      "dateModified": "2026-03-23T11:53:10+00:00",
+      "inLanguage": "it",
+      "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294"], "knowsAbout": ["Cross-border worker taxation Italy-Switzerland", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS/LPP"] },
+      "publisher": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://www.frontaliereticino.ch", "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png` } },
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/controlli-radar-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

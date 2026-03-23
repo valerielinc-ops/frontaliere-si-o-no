@@ -4561,6 +4561,13 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/referendum-varese-ticino-2026.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'controlli-radar-ticino',
+    category: 'pratico',
+    date: '2026-03-23T11:53:10.280Z',
+    image: '/images/blog/controlli-radar-ticino.jpg',
+    hasCalculator: true,
+  },
 ];
 
 const CATEGORIES = ['all', 'fiscale', 'pratico', 'novita', 'pensione'] as const;

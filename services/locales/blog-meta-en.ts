@@ -1700,6 +1700,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.referendum-varese-ticino-2026.title': 'Constitutional Referendum 2026: Varese at 43.40%',
     'blog.article.referendum-varese-ticino-2026.excerpt': 'At 19:00 on March 22, 43.40% of Varese residents voted in the 2026 constitutional referendum.',
     'blog.article.referendum-varese-ticino-2026.imageAlt': 'Voters in a Swiss city with the 2026 constitutional referendum.',
+    'blog.article.controlli-radar-ticino.title': 'I Controlli Radar in Ticino Diminuiranno: Cosa Cambia?',
+    'blog.article.controlli-radar-ticino.excerpt': 'La polizia cantonale di Lugano ha comunicato che i controlli radar sulle strade ticinesi saranno ridotti, ma cosa significa per i frontalieri e i residenti?',
+    'blog.article.controlli-radar-ticino.imageAlt': 'Image of a road in Ticino with a vehicle in motion and a police officer checking with a radar.',
 };
 
 export default blogMetaEn;

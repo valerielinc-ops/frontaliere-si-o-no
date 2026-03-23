@@ -1715,6 +1715,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-cannabis-sequestro-ticino-2026': { name: 'Sequestro Cannabis', path: '/articoli-frontaliere/cannabis-sequestro-ticino-2026', parent: 'blog' },
     'blog-svizzeri-dubitano-difesa-paese': { name: 'Difesa Svizzera', path: '/articoli-frontaliere/svizzeri-dubitano-difesa-paese', parent: 'blog' },
     'blog-referendum-varese-ticino-2026': { name: 'Referendum Varese', path: '/articoli-frontaliere/referendum-varese-ticino-2026', parent: 'blog' },
+    'blog-controlli-radar-ticino': { name: 'Controlli radar in Ticino', path: '/articoli-frontaliere/controlli-radar-ticino', parent: 'blog' },
   };
 
   const info = sectionNames[section];
