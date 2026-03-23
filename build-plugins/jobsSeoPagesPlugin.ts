@@ -2897,7 +2897,7 @@ ${alternates}${hasSpaBundle ? `\n    <link rel="stylesheet" href="/assets/${entr
 
       // FRO-343: Load swiss-postal-codes for postalCode enrichment of soft-landing pages
       let plzLookup: Record<string, string> = {};
-      const plzPath = np.join(dataDir, 'swiss-postal-codes.json');
+      const plzPath = np.resolve(rootDir, 'data', 'swiss-postal-codes.json');
       if (fs.existsSync(plzPath)) {
         try { plzLookup = JSON.parse(fs.readFileSync(plzPath, 'utf-8')); } catch { /* ok */ }
       }
