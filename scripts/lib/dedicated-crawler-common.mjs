@@ -209,7 +209,17 @@ export function heuristicTranslateJobTitle(title = '', locale = 'it') {
       [/\bdie\b/gi, 'la'],
       [/\bund\b/gi, 'e'],
     ],
+    de: [
+      // Italian machining/industrial job titles → German (operator, not machine)
+      [/\bFresatore\b/gi, 'Fräser'],
+      [/\bTornitore\b/gi, 'Dreher'],
+      [/\bSmerigliatore\b/gi, 'Schleifer'],
+    ],
     en: [
+      // Italian machining/industrial job titles → English (operator, not machine)
+      [/\bFresatore\b/gi, 'Milling Operator'],
+      [/\bTornitore\b/gi, 'Lathe Operator'],
+      [/\bSmerigliatore\b/gi, 'Grinding Operator'],
       [/\bMitarbeiter:in\b/gi, 'Associate'],
       [/\bProjektleiter:in\b/gi, 'Project Manager'],
       [/\bProjektleiter\/in\b/gi, 'Project Manager'],
@@ -226,6 +236,10 @@ export function heuristicTranslateJobTitle(title = '', locale = 'it') {
       [/\bCDD d'avril à mai\b/gi, 'fixed-term contract from April to May'],
     ],
     fr: [
+      // Italian machining/industrial job titles → French (operator, not machine)
+      [/\bFresatore\b/gi, 'Fraiseur'],
+      [/\bTornitore\b/gi, 'Tourneur'],
+      [/\bSmerigliatore\b/gi, 'Rectifieur'],
       [/\bMitarbeiter:in\b/gi, 'Collaborateur/trice'],
       [/\bProjektleiter:in\b/gi, 'Chef de projet'],
       [/\bProjektleiter\/in\b/gi, 'Chef de projet'],
