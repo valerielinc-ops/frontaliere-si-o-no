@@ -1751,6 +1751,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.apprendisti-frontalieri-permessi-g.title': 'Ausbildungsbewerber Grenzgänger erhalten G-Bewilligung für die gesamte Dauer der Lehre',
     'blog.article.apprendisti-frontalieri-permessi-g.excerpt': 'Der Nationalrat hat die Motion 25.3624 genehmigt, um Grenzgänger-Auszubildende die G-Bewilligung für die gesamte Dauer ihrer Ausbildung zu ermöglichen.',
     'blog.article.apprendisti-frontalieri-permessi-g.imageAlt': 'Frontalier im ticinesischen Werkstatt',
+    'blog.article.crescita-sicurezza-ticino-2025.title': 'Diebstähle im Kanton Tessin sinken um 5,9% im Jahr 2025: Tessin ist das sicherste Ziel für Grenzgänger',
+    'blog.article.crescita-sicurezza-ticino-2025.excerpt': 'Das Polizeirapport zeigt eine Verringerung der Gesamtzahl der Diebstähle um 5,9%, eine Verringerung der Diebstähle in Wohnungen um 29% und eine Zunahme der Diebstähle von E-Bikes um 39%',
+    'blog.article.crescita-sicurezza-ticino-2025.imageAlt': 'Straße in Lugano bei Sonnenuntergang mit Polizeipatrouillen und beleuchteten Häusern, Symbol für mehr Sicherheit.',
 };
 
 export default blogMetaDe;

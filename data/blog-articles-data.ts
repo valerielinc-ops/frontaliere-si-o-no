@@ -5277,4 +5277,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/apprendisti-frontalieri-permessi-g.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'crescita-sicurezza-ticino-2025',
+    category: 'novita',
+    date: '2026-03-24T09:35:48.268Z',
+    image: '/images/blog/crescita-sicurezza-ticino-2025.jpg',
+    hasCalculator: true,
+  },
 ];

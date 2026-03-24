@@ -1751,6 +1751,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.apprendisti-frontalieri-permessi-g.title': 'Apprentis frontaliers vers le permis G pour toute la durée de leur stage',
     'blog.article.apprendisti-frontalieri-permessi-g.excerpt': 'Le Parlement fédéral a adopté la motion 25.3624 pour permettre aux apprentis frontaliers d\'obtenir le permis G pour toute la durée de leur stage.',
     'blog.article.apprendisti-frontalieri-permessi-g.imageAlt': 'Apprenti frontalier dans un atelier ticinois',
+    'blog.article.crescita-sicurezza-ticino-2025.title': 'Vol des biens en baisse de 5,9 % en 2025 : le canton du Tessin plus sûr pour les frontaliers',
+    'blog.article.crescita-sicurezza-ticino-2025.excerpt': 'Le rapport de la police cantonale enregistre -5,9 % de vols au total, -29 % dans les habitations, mais +39 % de vols d’e-bikes.',
+    'blog.article.crescita-sicurezza-ticino-2025.imageAlt': 'Rue de Lugano au coucher du soleil avec patrouilles de police et maisons éclairées, symbole d\'une sécurité accrue.',
 };
 
 export default blogMetaFr;

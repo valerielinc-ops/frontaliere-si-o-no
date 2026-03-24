@@ -1751,6 +1751,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.apprendisti-frontalieri-permessi-g.title': 'Apprentices towards G-permit for the entire duration of training',
     'blog.article.apprendisti-frontalieri-permessi-g.excerpt': 'The Federal Parliament has approved motion 25.3624 to allow apprentices to obtain the G-permit for the entire duration of their training.',
     'blog.article.apprendisti-frontalieri-permessi-g.imageAlt': 'Young frontalier working in a Ticinese workshop',
+    'blog.article.crescita-sicurezza-ticino-2025.title': 'Thefts down 5.9% in 2025: Canton Ticino is safer for cross-border workers',
+    'blog.article.crescita-sicurezza-ticino-2025.excerpt': 'The cantonal police report shows -5.9% total thefts, -29% home burglaries, but +39% e-bike thefts.',
+    'blog.article.crescita-sicurezza-ticino-2025.imageAlt': 'Lugano street at sunset with police patrols and lit houses, symbolising increased safety.',
 };
 
 export default blogMetaEn;

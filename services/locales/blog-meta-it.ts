@@ -1751,6 +1751,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.apprendisti-frontalieri-permessi-g.title': 'Apprendisti frontalieri verso il permesso G per tutta la durata del tirocinio',
     'blog.article.apprendisti-frontalieri-permessi-g.excerpt': 'Il Parlamento federale ha approvato la mozione 25.3624 per consentire agli apprendisti frontalieri di ottenere il permesso G per tutta la durata del tirocinio.',
     'blog.article.apprendisti-frontalieri-permessi-g.imageAlt': 'Apprendista frontaliere in un laboratorio ticinese',
+    'blog.article.crescita-sicurezza-ticino-2025.title': 'Furti in calo del 5,9% nel 2025: il Canton Ticino più sicuro per i frontalieri',
+    'blog.article.crescita-sicurezza-ticino-2025.excerpt': 'Il report della polizia cantonale registra -5,9% di furti complessivi, -29% in abitazione, ma +39% di furti alle e‑bike.',
+    'blog.article.crescita-sicurezza-ticino-2025.imageAlt': 'Via di Lugano al tramonto con pattuglie di polizia e case illuminate, simbolo di maggiore sicurezza.',
 };
 
 export default blogMetaIt;

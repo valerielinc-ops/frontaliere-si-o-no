@@ -1705,6 +1705,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-como-asfaltature-war-costs': { name: 'Como, Rapinese', path: '/articoli-frontaliere/como-asfaltature-war-costs', parent: 'blog' },
     'blog-referendum-opposizione-ticino': { name: 'Referendum in Ticino', path: '/articoli-frontaliere/referendum-opposizione-ticino', parent: 'blog' },
     'blog-apprendisti-frontalieri-permessi-g': { name: 'Frontalieri: permesso G per tutta la', path: '/articoli-frontaliere/apprendisti-frontalieri-permessi-g', parent: 'blog' },
+    'blog-crescita-sicurezza-ticino-2025': { name: 'Sicurezza', path: '/articoli-frontaliere/crescita-sicurezza-ticino-2025', parent: 'blog' },
   };
 
   const info = sectionNames[section];

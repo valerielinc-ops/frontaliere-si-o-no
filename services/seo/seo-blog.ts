@@ -10057,6 +10057,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-crescita-sicurezza-ticino-2025': {
+    title: 'Furti in calo del 5,9% nel 2025: il Canton Ticino più sicuro per i | Frontaliere Ticino',
+    description: 'Il Canton Ticino registra -5,9% di furti nel 2025, -29% in abitazione. Scopri le implicazioni fiscali e le misure anti‑furto per i frontalieri. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, furti, calo, 2025, canton',
+    ogTitle: 'Furti in calo del 5,9% nel 2025 – Frontaliere Ticino',
+    ogDescription: 'Diminuzione dei furti in Ticino, ma aumento dei furti di e‑bike. Ecco come i frontalieri possono proteggere i loro beni e risparmiare sulle tasse.',
+    canonicalPath: '/articoli-frontaliere/crescita-sicurezza-ticino-2025',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "{ \"@context\": \"https://schema.org\", \"@type\": \"NewsArticle\", \"headline\": \"Furti in calo del 5,9% nel",
+      "description": "Il Canton Ticino registra -5,9% di furti nel 2025, -29% in abitazione. Scopri le implicazioni fiscali e le misure anti‑furto per i frontalieri. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/crescita-sicurezza-ticino-2025.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Via di Lugano al tramonto con pattuglie di polizia e case illuminate, simbolo di maggiore sicurezza."
+      },
+      "datePublished": "2026-03-24T09:35:48+00:00",
+      "dateModified": "2026-03-24T09:35:48+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/crescita-sicurezza-ticino-2025`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
