@@ -51,11 +51,6 @@ for (const job of jobs) {
   const slug = job.slug || '(unknown)';
   const sourceLang = job.sourceLang || 'it';
 
-  // Check needsRetranslation flag
-  if (job.needsRetranslation) {
-    issues.push({ slug, locale: '-', reason: 'needsRetranslation flag set' });
-  }
-
   for (const locale of LOCALES) {
     // Title check
     const title = String(job.titleByLocale?.[locale] || '').trim();

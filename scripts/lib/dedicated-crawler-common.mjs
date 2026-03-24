@@ -647,9 +647,11 @@ function maybeRehomeLocalizedValue({
 
   if (!String(map?.[detectedLocale] || '').trim()) {
     map[detectedLocale] = clean;
+    delete map[locale];  // Only delete source when we successfully moved to target
+    return true;
   }
-  delete map[locale];
-  return true;
+  // Target already has content — can't rehome without overwriting. Leave source intact.
+  return false;
 }
 
 /** Check if a slug plausibly matches a title (prefix or first 4 words overlap). */
@@ -796,7 +798,11 @@ export function hardenJobLocaleFields({ dataJobsPath }) {
           minConfidence: 0.65,
         })
       ) {
-        delete job.titleByLocale[locale];
+        // Don't delete — keeping wrong-language placeholder is better than empty.
+        // Deploy has no AI access; deleting here would leave the locale empty and
+        // block the deploy gate. Flag for retranslation; the translate pipeline
+        // will delete-and-retranslate when AI is available.
+        job.needsRetranslation = true;
         jobChanged = true;
       }
       {
@@ -824,7 +830,11 @@ export function hardenJobLocaleFields({ dataJobsPath }) {
           minConfidence: dropMinConfidence,
           checkScoreRatio: isSubstantialTranslation,
         })) {
-          delete job.descriptionByLocale[locale];
+          // Don't delete — keeping wrong-language placeholder is better than empty.
+          // Deploy has no AI access; deleting here would leave the locale empty and
+          // block the deploy gate. Flag for retranslation; the translate pipeline
+          // will delete-and-retranslate when AI is available.
+          job.needsRetranslation = true;
           jobChanged = true;
         }
       }

@@ -71,7 +71,17 @@ jobs:
 
       - name: Trigger deploy
         if: success() && inputs.dry_run != true
-        run: bash scripts/lib/trigger-deploy.sh
+        run: |
+          # Only trigger deploy when ALL translations are complete (validate passes).
+          # If quota was exhausted mid-run, skip deploy — the midnight cron will retry
+          # and trigger deploy once all jobs are properly translated.
+          if node scripts/validate-translation-completeness.mjs 2>/dev/null; then
+            echo "✅ All translations complete — triggering deploy"
+            bash scripts/lib/trigger-deploy.sh
+          else
+            echo "⏳ Some translations still incomplete — skipping deploy trigger"
+            echo "   The next cron run will retry and trigger deploy once all jobs are translated."
+          fi
 
       - name: Report failure to Linear
         if: failure()

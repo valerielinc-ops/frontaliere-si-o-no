@@ -5,7 +5,11 @@ import path from 'path';
 import { hardenJobLocaleFields } from '../scripts/lib/dedicated-crawler-common.mjs';
 
 describe('dedicated-crawler-common locale hardening', () => {
-  it('removes wrong-language copied locales before real localization runs', () => {
+  it('flags wrong-language copied locales for retranslation without deleting (deploy has no AI)', () => {
+    // hardenJobLocaleFields runs in the deploy pipeline where no AI is available.
+    // Deleting wrong-language placeholders would leave locales empty and block the
+    // deploy gate. Instead, we keep the value and set needsRetranslation=true so
+    // the translate pipeline can retranslate with AI when quota is available.
     const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), 'ft-locale-hardening-'));
     const jobsPath = path.join(tempDir, 'jobs.json');
     const jobs = [{
@@ -38,10 +42,14 @@ describe('dedicated-crawler-common locale hardening', () => {
 
     expect(result.changed).toBe(true);
     expect(after[0].sourceLang).toBe('it');
+    // Source locale content is preserved correctly
     expect(after[0].descriptionByLocale.it).toContain('Ti piace scoprire il mondo');
-    expect(after[0].descriptionByLocale.en).toBeUndefined();
-    expect(after[0].descriptionByLocale.de).toBeUndefined();
-    expect(after[0].descriptionByLocale.fr).toBeUndefined();
+    // Wrong-language copies are KEPT as placeholders (not deleted) to avoid empty locales.
+    // The job is flagged for retranslation — the translate pipeline will fix it with AI.
+    expect(after[0].descriptionByLocale.en).toBeDefined();
+    expect(after[0].descriptionByLocale.de).toBeDefined();
+    expect(after[0].descriptionByLocale.fr).toBeDefined();
+    expect(after[0].needsRetranslation).toBe(true);
   });
 
   it('rehomes real titles stored under the wrong locale instead of keeping fake copies', () => {
