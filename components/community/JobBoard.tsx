@@ -147,6 +147,24 @@ interface JobListing {
 const JOB_EMAIL_ACCESS_KEY = 'frontaliere_job_email_access';
 const JOB_AUTH_REDIRECT_SLUG_KEY = 'frontaliere_job_auth_redirect_slug';
 
+/** Module-level cache for full locale job lists (fetched lazily on first detail view). */
+const fullJobsLocaleCache = new Map<string, Promise<JobListing[]>>();
+
+/**
+ * Lazily load the full jobs-{locale}.json (with description/requirements/canonicalContent).
+ * Cached per locale so the fetch happens at most once per session. (FRO-386)
+ */
+function fetchFullJobsLocale(locale: string): Promise<JobListing[]> {
+  if (!fullJobsLocaleCache.has(locale)) {
+    const promise = fetch(`/data/jobs-${locale}.json`)
+      .then((res) => { if (!res.ok) throw new Error(`${res.status}`); return res.json(); })
+      .catch(() => fetch('/data/jobs.json').then((res) => res.json()))
+      .then((data: unknown) => Array.isArray(data) ? data.map((j) => normalizeIncomingJob(j)) : []);
+    fullJobsLocaleCache.set(locale, promise);
+  }
+  return fullJobsLocaleCache.get(locale)!;
+}
+
 const ARTICLE_STOP_WORDS = new Set(['2025', '2026', '2027', 'del', 'dei', 'per', 'con', 'sul', 'fra', 'tra', 'una', 'non', 'che', 'come', 'cosa', 'dal', 'the', 'and', 'for', 'with', 'von', 'und', 'les', 'des', 'pour', 'dans']);
 
 function slugTopicWordsJob(id: string): Set<string> {
@@ -2303,14 +2321,18 @@ const JobBoard: React.FC<JobBoardProps> = ({
 
   useEffect(() => {
     let cancelled = false;
+    // FRO-386: Load slim index first (~150KB gzip) for fast listing LCP.
+    // Falls back to full locale file if slim index not available yet.
+    const slimIndexUrl = `/data/jobs-${locale}-index.json`;
     const localeUrl = `/data/jobs-${locale}.json`;
     const fallbackUrl = '/data/jobs.json';
-    fetch(localeUrl)
-      .then((res) => {
-        if (!res.ok) throw new Error(`${res.status}`);
-        return res.json();
-      })
-      .catch(() => fetch(fallbackUrl).then((res) => res.json()))
+    fetch(slimIndexUrl)
+      .then((res) => { if (!res.ok) throw new Error(`${res.status}`); return res.json(); })
+      .catch(() =>
+        fetch(localeUrl)
+          .then((res) => { if (!res.ok) throw new Error(`${res.status}`); return res.json(); })
+          .catch(() => fetch(fallbackUrl).then((res) => res.json()))
+      )
       .then((data: JobListing[]) => {
         if (cancelled) return;
         const normalized = Array.isArray(data) ? data.map((job) => normalizeIncomingJob(job)) : [];
@@ -2378,6 +2400,21 @@ const JobBoard: React.FC<JobBoardProps> = ({
     if (!initialJobSlug) return null;
     return jobs.find((j) => matchesRouteSlug(j, initialJobSlug)) || null;
   }, [jobs, initialJobSlug, companySlugFilter, searchSlugFilter, editorialLandingDescriptor]);
+
+  // FRO-386: Lazily enrich slim job with full data (description, requirements, canonicalContent)
+  // when the detail view opens. Merges full fields into the jobs state so selectedJob
+  // recomputes automatically with complete data — no separate detailJob variable needed.
+  const selectedJobId = selectedJob?.id ?? null;
+  useEffect(() => {
+    if (!selectedJobId) return;
+    fetchFullJobsLocale(locale).then((fullJobs) => {
+      const full = fullJobs.find((j) => j.id === selectedJobId);
+      if (!full) return;
+      setJobs((prev) => prev.map((j) => (j.id === selectedJobId ? { ...j, ...full } : j)));
+    }).catch(() => {
+      // Silently ignore — slim data already shown, full enrichment is best-effort
+    });
+  }, [selectedJobId, locale]);
 
   const editorialJobTodayLanding = useMemo(() => {
     if (editorialLandingDescriptor?.kind !== 'today') return null;

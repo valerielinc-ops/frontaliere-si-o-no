@@ -4,6 +4,20 @@ import type { Plugin } from 'vite';
 
 const LOCALES = ['it', 'en', 'de', 'fr'] as const;
 
+/** Fields included in the slim index file (used for listing + filtering + routing).
+ *  Detail-only fields (description, requirements, canonicalContent, baseSalary,
+ *  streetAddress, postalCode, applyUrl) are excluded to keep the index small. */
+const SLIM_INDEX_FIELDS = new Set([
+  'id', 'slug', 'previousSlugs',
+  'title',
+  'company', 'companyKey', 'companyDomain', 'url',
+  'location', 'canton',
+  'category', 'contract', 'department',
+  'salaryMin', 'salaryMax', 'currency',
+  'postedDate', 'crawledAt',
+  'featured', 'source',
+]);
+
 interface JobEntry {
   title?: string;
   description?: string;
@@ -15,6 +29,14 @@ interface JobEntry {
   slugByLocale?: Record<string, string>;
   canonicalContent?: { byLocale?: Record<string, unknown>; [k: string]: unknown };
   [key: string]: unknown;
+}
+
+function buildLocaleJobSlim(localeJob: Record<string, unknown>): Record<string, unknown> {
+  const slim: Record<string, unknown> = {};
+  for (const key of SLIM_INDEX_FIELDS) {
+    if (key in localeJob) slim[key] = localeJob[key];
+  }
+  return slim;
 }
 
 function buildLocaleJob(job: JobEntry, locale: string): Record<string, unknown> {
@@ -73,6 +95,13 @@ export function localeJobsSplitPlugin(rootDir: string): Plugin {
         JSON.stringify(localeJobs),
         'utf-8',
       );
+      // Slim index: listing-only fields for fast initial LCP (FRO-386)
+      const slimJobs = localeJobs.map(buildLocaleJobSlim);
+      fs.writeFileSync(
+        path.resolve(dataDir, `jobs-${locale}-index.json`),
+        JSON.stringify(slimJobs),
+        'utf-8',
+      );
     }
     return jobs.length;
   }
@@ -84,7 +113,7 @@ export function localeJobsSplitPlugin(rootDir: string): Plugin {
       const distDir = path.resolve(rootDir, 'dist');
       const count = generateFiles(distDir);
       if (count > 0) {
-        console.log(`[locale-jobs-split] Generated 4 locale job files (${count} jobs each)`);
+        console.log(`[locale-jobs-split] Generated 4 locale job files + 4 slim index files (${count} jobs each)`);
       }
     },
     configureServer(server) {
