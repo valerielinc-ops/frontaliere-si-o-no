@@ -256,7 +256,9 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
         .replace(/>/g, '&gt;')
         .replace(/"/g, '&quot;');
       /** Convert a plain-text description to basic HTML.
-       *  Wraps paragraphs in <p>, converts bullet lines to <ul><li>, and single newlines to <br>. */
+       *  Wraps paragraphs in <p>, converts bullet/numbered lines to <ul>/<ol><li>,
+       *  recognizes section headings (lines ending with ':' followed by list items),
+       *  and single newlines to <br>. */
       const plainTextToHtml = (text: string): string => {
         if (!text || /<(p|ul|li|h[1-6]|br|strong|em)\b/i.test(text)) return text;
         const normalized = text.replace(/\r\n/g, '\n').replace(/\r/g, '\n');
@@ -266,11 +268,33 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
           const trimmed = block.trim();
           if (!trimmed) continue;
           const lines = trimmed.split('\n');
-          // Check if this block is a bullet list (all lines start with - or •)
-          const isList = lines.length > 1 && lines.every((l) => /^\s*[-•*]\s/.test(l));
-          if (isList) {
+          // Check if this block is a bullet list (all lines start with - or • or *)
+          const isBulletList = lines.length > 1 && lines.every((l) => /^\s*[-•*]\s/.test(l));
+          // Check if this block is a numbered list (all lines start with digit.)
+          const isNumberedList = lines.length > 1 && lines.every((l) => /^\s*\d+[.)]\s/.test(l));
+          // Check if this block has a heading line followed by list items
+          const hasHeadingWithList = lines.length > 2
+            && /[:\u2013\u2014]$/.test(lines[0].trim())
+            && lines.slice(1).every((l) => /^\s*[-•*\d]/.test(l));
+
+          if (hasHeadingWithList) {
+            const heading = lines[0].trim().replace(/[:\u2013\u2014]$/, '').trim();
+            htmlParts.push(`<p><strong>${esc(heading)}</strong></p>`);
+            const listLines = lines.slice(1);
+            const isOl = listLines.every((l) => /^\s*\d+[.)]\s/.test(l));
+            const tag = isOl ? 'ol' : 'ul';
+            const items = listLines.map((l) => `<li>${esc(l.replace(/^\s*[-•*]\s+/, '').replace(/^\s*\d+[.)]\s+/, ''))}</li>`).join('');
+            htmlParts.push(`<${tag}>${items}</${tag}>`);
+          } else if (isBulletList) {
             const items = lines.map((l) => `<li>${esc(l.replace(/^\s*[-•*]\s+/, ''))}</li>`).join('');
             htmlParts.push(`<ul>${items}</ul>`);
+          } else if (isNumberedList) {
+            const items = lines.map((l) => `<li>${esc(l.replace(/^\s*\d+[.)]\s+/, ''))}</li>`).join('');
+            htmlParts.push(`<ol>${items}</ol>`);
+          } else if (lines.length === 1 && /[:\u2013\u2014]$/.test(trimmed)) {
+            // Standalone heading-like line ending with colon
+            const heading = trimmed.replace(/[:\u2013\u2014]$/, '').trim();
+            htmlParts.push(`<p><strong>${esc(heading)}</strong></p>`);
           } else {
             // Single block — join internal newlines with <br>
             const inner = lines.map((l) => esc(l.trim())).filter(Boolean).join('<br>');
@@ -3283,7 +3307,23 @@ ${hreflangLinks}
         '@context': 'https://schema.org',
         '@type': 'JobPosting',
         title: jobTitle,
-        description: jobDescription || jobTitle,
+        description: jobDescription || (() => {
+          // Build an HTML description from template data to avoid plain-text fallback
+          const parts: string[] = [];
+          parts.push(`<p><strong>${esc(copy.banner)}</strong></p>`);
+          if (locale === 'it') {
+            parts.push(`<p>Questa posizione di ${esc(jobTitle)}${jobCompany ? ` presso ${esc(jobCompany)}` : ''}${jobLocation ? ` a ${esc(jobLocation)}` : ' in Ticino'} non è più disponibile.</p>`);
+          } else if (locale === 'en') {
+            parts.push(`<p>This ${esc(jobTitle)} position${jobCompany ? ` at ${esc(jobCompany)}` : ''}${jobLocation ? ` in ${esc(jobLocation)}` : ' in Ticino'} is no longer available.</p>`);
+          } else if (locale === 'de') {
+            parts.push(`<p>Diese Stelle als ${esc(jobTitle)}${jobCompany ? ` bei ${esc(jobCompany)}` : ''}${jobLocation ? ` in ${esc(jobLocation)}` : ' im Tessin'} ist nicht mehr verfügbar.</p>`);
+          } else {
+            parts.push(`<p>Ce poste de ${esc(jobTitle)}${jobCompany ? ` chez ${esc(jobCompany)}` : ''}${jobLocation ? ` à ${esc(jobLocation)}` : ' au Tessin'} n'est plus disponible.</p>`);
+          }
+          if (jobCompany) parts.push(`<p>${locale === 'it' ? 'Azienda' : locale === 'en' ? 'Company' : locale === 'de' ? 'Unternehmen' : 'Entreprise'}: ${esc(jobCompany)}</p>`);
+          if (jobLocation) parts.push(`<p>${locale === 'it' ? 'Sede' : locale === 'en' ? 'Location' : locale === 'de' ? 'Standort' : 'Lieu'}: ${esc(jobLocation)}</p>`);
+          return parts.join('');
+        })(),
         url: selfUrl,
         validThrough: ejData?.expiredAt
           ? new Date(ejData.expiredAt).toISOString()

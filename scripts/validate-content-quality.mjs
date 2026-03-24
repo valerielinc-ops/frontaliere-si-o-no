@@ -7,8 +7,9 @@
  *
  * "Crawled - currently not indexed" prevention:
  *  - Every sitemap URL must have a corresponding index.html in dist/
- *  - Every sitemap page must have >50 words of visible text
+ *  - Every sitemap page must have >50 words of visible text (BLOCKING)
  *  - Every job page in sitemap must have JobPosting schema
+ *  - No noindex pages in sitemaps
  */
 
 import { readFileSync, existsSync, readdirSync } from 'fs';
@@ -113,7 +114,7 @@ function main() {
     const words = countWords(html);
     if (words < MIN_WORDS) {
       thinContent.push({ sitemap, path, words });
-      // Thin content is a warning, not blocking
+      errors++; // Thin content in sitemaps is now BLOCKING
     }
 
     if (isIndividualJobPage(path) && !hasJobPostingSchema(html) && words >= MIN_WORDS) {
@@ -143,9 +144,9 @@ function main() {
     console.log();
   }
 
-  // Report thin content (WARNING)
+  // Report thin content (BLOCKING)
   if (thinContent.length > 0) {
-    console.log(`⚠️  ${thinContent.length} sitemap URL(s) have thin content (<${MIN_WORDS} words):`);
+    console.log(`❌ ${thinContent.length} sitemap URL(s) have thin content (<${MIN_WORDS} words) (BLOCKING):`);
     for (const { sitemap, path, words } of thinContent.slice(0, 15)) {
       console.log(`   [${words}w] [${sitemap}] /${path}`);
     }
@@ -165,15 +166,15 @@ function main() {
 
   // Summary
   if (errors > 0) {
-    console.log(`\n❌ BLOCKING: ${errors} sitemap URL(s) have no corresponding file. Fix before deploying.`);
+    console.log(`\n❌ BLOCKING: ${errors} error(s) found. Fix before deploying.`);
     process.exit(1);
   }
 
-  const warnings = thinContent.length + jobsNoSchema.length;
+  const warnings = jobsNoSchema.length;
   if (warnings > 0) {
-    console.log(`✅ No blocking errors. ${warnings} warning(s) — consider enriching thin content.`);
+    console.log(`✅ No blocking errors. ${warnings} warning(s).`);
   } else {
-    console.log(`✅ All sitemap URLs have files with adequate content.`);
+    console.log(`✅ All ${urls.length} sitemap URLs have files with adequate content (>=${MIN_WORDS} words).`);
   }
 }
 

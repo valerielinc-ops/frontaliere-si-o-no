@@ -118,7 +118,7 @@ describe('JobPosting description guard', () => {
     expect(archiveWithJobPosting).toEqual([]);
   });
 
-  it('active IT JobPosting descriptions should use HTML format (>=50%)', () => {
+  it('IT JobPosting descriptions should use HTML format (>=50%)', () => {
     let htmlFormatCount = 0;
     let totalJobPostings = 0;
     for (const { rel, jobPostings } of allPages) {
@@ -126,14 +126,14 @@ describe('JobPosting description guard', () => {
       for (const jp of jobPostings) {
         totalJobPostings++;
         const desc = String(jp.description || '');
-        if (/<(p|ul|li|h[1-6]|br|strong|em)\b/i.test(desc)) {
+        if (/<(p|ul|li|h[1-6]|br|strong|em|ol)\b/i.test(desc)) {
           htmlFormatCount++;
         }
       }
     }
     if (totalJobPostings === 0) return;
     const ratio = htmlFormatCount / totalJobPostings;
-    expect(ratio).toBeGreaterThanOrEqual(0.35);
+    expect(ratio).toBeGreaterThanOrEqual(0.50);
   });
 });
 
