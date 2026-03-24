@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-03-24T08:27:56.158Z",
+  "generatedAt": "2026-03-24T09:35:52.710Z",
   "sources": {
     "italy": {
       "provider": "MIMIT Open Data",
@@ -10,8 +10,8 @@
     "switzerland": {
       "provider": "TCS Benzinpreis",
       "providerUrl": "https://benzin.tcs.ch/de/map/SP95",
-      "stationCount": 223,
-      "latestObservedUpdate": "2026-03-24T08:09:48.736Z"
+      "stationCount": 224,
+      "latestObservedUpdate": "2026-03-24T09:34:58.091Z"
     },
     "exchangeRate": {
       "provider": "ECB",
@@ -23,8 +23,8 @@
   "summary": {
     "municipalityCount": 518,
     "municipalitiesWithItalyPrices": 213,
-    "municipalitiesWithSwissComparison": 134,
-    "cheaperItalyCount": 125,
+    "municipalitiesWithSwissComparison": 135,
+    "cheaperItalyCount": 126,
     "cheaperSwissCount": 9,
     "tieCount": 0,
     "cheapestItalyMunicipality": {
@@ -751,7 +751,7 @@
           "lat": 45.83496780148789,
           "lng": 9.03111642498091,
           "sp95PriceChf": 1.7200000000000002,
-          "updatedAt": "2026-03-24T07:32:31.683Z",
+          "updatedAt": "2026-03-24T08:43:29.448Z",
           "nearestMunicipality": "Maslianico (CO)",
           "nearestMunicipalityDistanceKm": 1.5,
           "sp95PriceEur": 1.885,
@@ -825,6 +825,29 @@
           "nearestMunicipalityDistanceKm": 5.8,
           "sp95PriceEur": 1.94,
           "distanceKm": 17.1
+        }
+      },
+      {
+        "municipality": "Bellagio",
+        "province": "CO",
+        "cheaperCountry": "IT",
+        "saving50LEur": 11.85,
+        "italyPriceEur": 1.769,
+        "swissPriceEur": 2.006,
+        "swissPriceChf": 1.83,
+        "swissStation": {
+          "id": "ahxEtrinnrLWGsZ2laVB",
+          "name": "SOCAR / Piccadilly Gandria",
+          "brand": "PICCADILLY",
+          "address": "Via Cantonale 14, 6978 Gandria",
+          "lat": 46.008082,
+          "lng": 9.007765,
+          "sp95PriceChf": 1.83,
+          "updatedAt": "2026-03-24T08:33:41.793Z",
+          "nearestMunicipality": "Valsolda (CO)",
+          "nearestMunicipalityDistanceKm": 3.6,
+          "sp95PriceEur": 2.006,
+          "distanceKm": 19.7
         }
       },
       {
@@ -1079,29 +1102,6 @@
           "sp95PriceEur": 1.852,
           "distanceKm": 8.7
         }
-      },
-      {
-        "municipality": "Cantù",
-        "province": "CO",
-        "cheaperCountry": "IT",
-        "saving50LEur": 10.2,
-        "italyPriceEur": 1.615,
-        "swissPriceEur": 1.819,
-        "swissPriceChf": 1.66,
-        "swissStation": {
-          "id": "pXVgLf2jUOKzOewFCsnj",
-          "name": "Migrol Service",
-          "brand": "MIGROL",
-          "address": "Centro Commerciale Serfontana, 6836 Serfontana",
-          "lat": 45.843756,
-          "lng": 9.016943,
-          "sp95PriceChf": 1.66,
-          "updatedAt": "2026-03-15T23:20:48.297Z",
-          "nearestMunicipality": "Maslianico (CO)",
-          "nearestMunicipalityDistanceKm": 2.3,
-          "sp95PriceEur": 1.819,
-          "distanceKm": 14.5
-        }
       }
     ]
   },
@@ -1196,7 +1196,7 @@
             "lat": 45.83496780148789,
             "lng": 9.03111642498091,
             "sp95PriceChf": 1.7200000000000002,
-            "updatedAt": "2026-03-24T07:32:31.683Z",
+            "updatedAt": "2026-03-24T08:43:29.448Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
             "sp95PriceEur": 1.885,
@@ -1358,7 +1358,7 @@
             "lat": 45.83496780148789,
             "lng": 9.03111642498091,
             "sp95PriceChf": 1.7200000000000002,
-            "updatedAt": "2026-03-24T07:32:31.683Z",
+            "updatedAt": "2026-03-24T08:43:29.448Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
             "sp95PriceEur": 1.885,
@@ -1574,7 +1574,7 @@
             "lat": 45.83496780148789,
             "lng": 9.03111642498091,
             "sp95PriceChf": 1.7200000000000002,
-            "updatedAt": "2026-03-24T07:32:31.683Z",
+            "updatedAt": "2026-03-24T08:43:29.448Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
             "sp95PriceEur": 1.885,
@@ -1651,7 +1651,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 92,
+        "optionCount": 93,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -1826,7 +1826,7 @@
             "lat": 45.83496780148789,
             "lng": 9.03111642498091,
             "sp95PriceChf": 1.7200000000000002,
-            "updatedAt": "2026-03-24T07:32:31.683Z",
+            "updatedAt": "2026-03-24T08:43:29.448Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
             "sp95PriceEur": 1.885,
@@ -1963,7 +1963,7 @@
             "lat": 45.83496780148789,
             "lng": 9.03111642498091,
             "sp95PriceChf": 1.7200000000000002,
-            "updatedAt": "2026-03-24T07:32:31.683Z",
+            "updatedAt": "2026-03-24T08:43:29.448Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
             "sp95PriceEur": 1.885,
@@ -2125,7 +2125,7 @@
             "lat": 45.83496780148789,
             "lng": 9.03111642498091,
             "sp95PriceChf": 1.7200000000000002,
-            "updatedAt": "2026-03-24T07:32:31.683Z",
+            "updatedAt": "2026-03-24T08:43:29.448Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
             "sp95PriceEur": 1.885,
@@ -2188,7 +2188,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 79,
+        "optionCount": 80,
         "cheapestStation": {
           "id": "LP7oYktKWhoncV2qvpHG",
           "name": "ECSA Energy SA - Caslano",
@@ -2345,7 +2345,7 @@
           "lat": 45.83496780148789,
           "lng": 9.03111642498091,
           "sp95PriceChf": 1.7200000000000002,
-          "updatedAt": "2026-03-24T07:32:31.683Z",
+          "updatedAt": "2026-03-24T08:43:29.448Z",
           "nearestMunicipality": "Maslianico (CO)",
           "nearestMunicipalityDistanceKm": 1.5,
           "sp95PriceEur": 1.885,
@@ -2360,7 +2360,7 @@
             "lat": 45.83496780148789,
             "lng": 9.03111642498091,
             "sp95PriceChf": 1.7200000000000002,
-            "updatedAt": "2026-03-24T07:32:31.683Z",
+            "updatedAt": "2026-03-24T08:43:29.448Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
             "sp95PriceEur": 1.885,
@@ -2522,7 +2522,7 @@
             "lat": 45.83496780148789,
             "lng": 9.03111642498091,
             "sp95PriceChf": 1.7200000000000002,
-            "updatedAt": "2026-03-24T07:32:31.683Z",
+            "updatedAt": "2026-03-24T08:43:29.448Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
             "sp95PriceEur": 1.885,
@@ -2608,7 +2608,7 @@
           "lat": 45.83496780148789,
           "lng": 9.03111642498091,
           "sp95PriceChf": 1.7200000000000002,
-          "updatedAt": "2026-03-24T07:32:31.683Z",
+          "updatedAt": "2026-03-24T08:43:29.448Z",
           "nearestMunicipality": "Maslianico (CO)",
           "nearestMunicipalityDistanceKm": 1.5,
           "sp95PriceEur": 1.885,
@@ -2623,7 +2623,7 @@
             "lat": 45.83496780148789,
             "lng": 9.03111642498091,
             "sp95PriceChf": 1.7200000000000002,
-            "updatedAt": "2026-03-24T07:32:31.683Z",
+            "updatedAt": "2026-03-24T08:43:29.448Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
             "sp95PriceEur": 1.885,
@@ -2736,16 +2736,44 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 0,
-        "cheapestStation": null,
-        "nearbyStations": [],
-        "minPriceChf": null,
-        "minPriceEur": null
+        "optionCount": 1,
+        "cheapestStation": {
+          "id": "ahxEtrinnrLWGsZ2laVB",
+          "name": "SOCAR / Piccadilly Gandria",
+          "brand": "PICCADILLY",
+          "address": "Via Cantonale 14, 6978 Gandria",
+          "lat": 46.008082,
+          "lng": 9.007765,
+          "sp95PriceChf": 1.83,
+          "updatedAt": "2026-03-24T08:33:41.793Z",
+          "nearestMunicipality": "Valsolda (CO)",
+          "nearestMunicipalityDistanceKm": 3.6,
+          "sp95PriceEur": 2.006,
+          "distanceKm": 19.7
+        },
+        "nearbyStations": [
+          {
+            "id": "ahxEtrinnrLWGsZ2laVB",
+            "name": "SOCAR / Piccadilly Gandria",
+            "brand": "PICCADILLY",
+            "address": "Via Cantonale 14, 6978 Gandria",
+            "lat": 46.008082,
+            "lng": 9.007765,
+            "sp95PriceChf": 1.83,
+            "updatedAt": "2026-03-24T08:33:41.793Z",
+            "nearestMunicipality": "Valsolda (CO)",
+            "nearestMunicipalityDistanceKm": 3.6,
+            "sp95PriceEur": 2.006,
+            "distanceKm": 19.7
+          }
+        ],
+        "minPriceChf": 1.83,
+        "minPriceEur": 2.006
       },
       "comparison": {
-        "cheaperCountry": "NO_DATA",
-        "priceDeltaEur": null,
-        "saving50LEur": null
+        "cheaperCountry": "IT",
+        "priceDeltaEur": 0.237,
+        "saving50LEur": 11.85
       }
     },
     {
@@ -2767,7 +2795,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 45,
+        "optionCount": 46,
         "cheapestStation": {
           "id": "eyss2Vf8mj29JzsCvuUr",
           "name": "Piccadilly SA",
@@ -2934,7 +2962,7 @@
             "lat": 45.83496780148789,
             "lng": 9.03111642498091,
             "sp95PriceChf": 1.7200000000000002,
-            "updatedAt": "2026-03-24T07:32:31.683Z",
+            "updatedAt": "2026-03-24T08:43:29.448Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
             "sp95PriceEur": 1.885,
@@ -3049,7 +3077,7 @@
             "lat": 45.83496780148789,
             "lng": 9.03111642498091,
             "sp95PriceChf": 1.7200000000000002,
-            "updatedAt": "2026-03-24T07:32:31.683Z",
+            "updatedAt": "2026-03-24T08:43:29.448Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
             "sp95PriceEur": 1.885,
@@ -3112,7 +3140,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 64,
+        "optionCount": 65,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -3227,7 +3255,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 83,
+        "optionCount": 84,
         "cheapestStation": {
           "id": "LP7oYktKWhoncV2qvpHG",
           "name": "ECSA Energy SA - Caslano",
@@ -3408,7 +3436,7 @@
             "lat": 45.83496780148789,
             "lng": 9.03111642498091,
             "sp95PriceChf": 1.7200000000000002,
-            "updatedAt": "2026-03-24T07:32:31.683Z",
+            "updatedAt": "2026-03-24T08:43:29.448Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
             "sp95PriceEur": 1.885,
@@ -3564,7 +3592,7 @@
             "lat": 45.83496780148789,
             "lng": 9.03111642498091,
             "sp95PriceChf": 1.7200000000000002,
-            "updatedAt": "2026-03-24T07:32:31.683Z",
+            "updatedAt": "2026-03-24T08:43:29.448Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
             "sp95PriceEur": 1.885,
@@ -3698,7 +3726,7 @@
             "lat": 45.83496780148789,
             "lng": 9.03111642498091,
             "sp95PriceChf": 1.7200000000000002,
-            "updatedAt": "2026-03-24T07:32:31.683Z",
+            "updatedAt": "2026-03-24T08:43:29.448Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
             "sp95PriceEur": 1.885,
@@ -3775,7 +3803,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 59,
+        "optionCount": 60,
         "cheapestStation": {
           "id": "eyss2Vf8mj29JzsCvuUr",
           "name": "Piccadilly SA",
@@ -3841,7 +3869,7 @@
             "lat": 45.83496780148789,
             "lng": 9.03111642498091,
             "sp95PriceChf": 1.7200000000000002,
-            "updatedAt": "2026-03-24T07:32:31.683Z",
+            "updatedAt": "2026-03-24T08:43:29.448Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
             "sp95PriceEur": 1.885,
@@ -3956,7 +3984,7 @@
             "lat": 45.83496780148789,
             "lng": 9.03111642498091,
             "sp95PriceChf": 1.7200000000000002,
-            "updatedAt": "2026-03-24T07:32:31.683Z",
+            "updatedAt": "2026-03-24T08:43:29.448Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
             "sp95PriceEur": 1.885,
@@ -4057,7 +4085,7 @@
             "lat": 45.83496780148789,
             "lng": 9.03111642498091,
             "sp95PriceChf": 1.7200000000000002,
-            "updatedAt": "2026-03-24T07:32:31.683Z",
+            "updatedAt": "2026-03-24T08:43:29.448Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
             "sp95PriceEur": 1.885,
@@ -4313,7 +4341,7 @@
             "lat": 45.83496780148789,
             "lng": 9.03111642498091,
             "sp95PriceChf": 1.7200000000000002,
-            "updatedAt": "2026-03-24T07:32:31.683Z",
+            "updatedAt": "2026-03-24T08:43:29.448Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
             "sp95PriceEur": 1.885,
@@ -4414,7 +4442,7 @@
             "lat": 45.83496780148789,
             "lng": 9.03111642498091,
             "sp95PriceChf": 1.7200000000000002,
-            "updatedAt": "2026-03-24T07:32:31.683Z",
+            "updatedAt": "2026-03-24T08:43:29.448Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
             "sp95PriceEur": 1.885,
@@ -4491,7 +4519,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 92,
+        "optionCount": 93,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -4878,7 +4906,7 @@
             "lat": 45.83496780148789,
             "lng": 9.03111642498091,
             "sp95PriceChf": 1.7200000000000002,
-            "updatedAt": "2026-03-24T07:32:31.683Z",
+            "updatedAt": "2026-03-24T08:43:29.448Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
             "sp95PriceEur": 1.885,
@@ -5034,7 +5062,7 @@
             "lat": 45.83496780148789,
             "lng": 9.03111642498091,
             "sp95PriceChf": 1.7200000000000002,
-            "updatedAt": "2026-03-24T07:32:31.683Z",
+            "updatedAt": "2026-03-24T08:43:29.448Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
             "sp95PriceEur": 1.885,
@@ -5163,7 +5191,7 @@
             "lat": 45.83496780148789,
             "lng": 9.03111642498091,
             "sp95PriceChf": 1.7200000000000002,
-            "updatedAt": "2026-03-24T07:32:31.683Z",
+            "updatedAt": "2026-03-24T08:43:29.448Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
             "sp95PriceEur": 1.885,
@@ -5226,7 +5254,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 53,
+        "optionCount": 54,
         "cheapestStation": {
           "id": "eyss2Vf8mj29JzsCvuUr",
           "name": "Piccadilly SA",
@@ -5292,7 +5320,7 @@
             "lat": 45.83496780148789,
             "lng": 9.03111642498091,
             "sp95PriceChf": 1.7200000000000002,
-            "updatedAt": "2026-03-24T07:32:31.683Z",
+            "updatedAt": "2026-03-24T08:43:29.448Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
             "sp95PriceEur": 1.885,
@@ -5393,7 +5421,7 @@
             "lat": 45.83496780148789,
             "lng": 9.03111642498091,
             "sp95PriceChf": 1.7200000000000002,
-            "updatedAt": "2026-03-24T07:32:31.683Z",
+            "updatedAt": "2026-03-24T08:43:29.448Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
             "sp95PriceEur": 1.885,
@@ -5494,7 +5522,7 @@
             "lat": 45.83496780148789,
             "lng": 9.03111642498091,
             "sp95PriceChf": 1.7200000000000002,
-            "updatedAt": "2026-03-24T07:32:31.683Z",
+            "updatedAt": "2026-03-24T08:43:29.448Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
             "sp95PriceEur": 1.885,
@@ -5571,7 +5599,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 78,
+        "optionCount": 79,
         "cheapestStation": {
           "id": "eyss2Vf8mj29JzsCvuUr",
           "name": "Piccadilly SA",
@@ -5728,7 +5756,7 @@
           "lat": 45.83496780148789,
           "lng": 9.03111642498091,
           "sp95PriceChf": 1.7200000000000002,
-          "updatedAt": "2026-03-24T07:32:31.683Z",
+          "updatedAt": "2026-03-24T08:43:29.448Z",
           "nearestMunicipality": "Maslianico (CO)",
           "nearestMunicipalityDistanceKm": 1.5,
           "sp95PriceEur": 1.885,
@@ -5743,7 +5771,7 @@
             "lat": 45.83496780148789,
             "lng": 9.03111642498091,
             "sp95PriceChf": 1.7200000000000002,
-            "updatedAt": "2026-03-24T07:32:31.683Z",
+            "updatedAt": "2026-03-24T08:43:29.448Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
             "sp95PriceEur": 1.885,
@@ -5872,7 +5900,7 @@
             "lat": 45.83496780148789,
             "lng": 9.03111642498091,
             "sp95PriceChf": 1.7200000000000002,
-            "updatedAt": "2026-03-24T07:32:31.683Z",
+            "updatedAt": "2026-03-24T08:43:29.448Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
             "sp95PriceEur": 1.885,
@@ -6001,7 +6029,7 @@
             "lat": 45.83496780148789,
             "lng": 9.03111642498091,
             "sp95PriceChf": 1.7200000000000002,
-            "updatedAt": "2026-03-24T07:32:31.683Z",
+            "updatedAt": "2026-03-24T08:43:29.448Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
             "sp95PriceEur": 1.885,
@@ -6116,7 +6144,7 @@
             "lat": 45.83496780148789,
             "lng": 9.03111642498091,
             "sp95PriceChf": 1.7200000000000002,
-            "updatedAt": "2026-03-24T07:32:31.683Z",
+            "updatedAt": "2026-03-24T08:43:29.448Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
             "sp95PriceEur": 1.885,
@@ -6250,7 +6278,7 @@
             "lat": 45.83496780148789,
             "lng": 9.03111642498091,
             "sp95PriceChf": 1.7200000000000002,
-            "updatedAt": "2026-03-24T07:32:31.683Z",
+            "updatedAt": "2026-03-24T08:43:29.448Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
             "sp95PriceEur": 1.885,
@@ -6379,7 +6407,7 @@
             "lat": 45.83496780148789,
             "lng": 9.03111642498091,
             "sp95PriceChf": 1.7200000000000002,
-            "updatedAt": "2026-03-24T07:32:31.683Z",
+            "updatedAt": "2026-03-24T08:43:29.448Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
             "sp95PriceEur": 1.885,
@@ -6442,7 +6470,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 95,
+        "optionCount": 96,
         "cheapestStation": {
           "id": "eyss2Vf8mj29JzsCvuUr",
           "name": "Piccadilly SA",
@@ -6557,7 +6585,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 86,
+        "optionCount": 87,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -6672,7 +6700,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 82,
+        "optionCount": 83,
         "cheapestStation": {
           "id": "LP7oYktKWhoncV2qvpHG",
           "name": "ECSA Energy SA - Caslano",
@@ -6916,7 +6944,7 @@
             "lat": 45.83496780148789,
             "lng": 9.03111642498091,
             "sp95PriceChf": 1.7200000000000002,
-            "updatedAt": "2026-03-24T07:32:31.683Z",
+            "updatedAt": "2026-03-24T08:43:29.448Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
             "sp95PriceEur": 1.885,
@@ -6979,7 +7007,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 41,
+        "optionCount": 42,
         "cheapestStation": {
           "id": "eyss2Vf8mj29JzsCvuUr",
           "name": "Piccadilly SA",
@@ -7045,7 +7073,7 @@
             "lat": 45.83496780148789,
             "lng": 9.03111642498091,
             "sp95PriceChf": 1.7200000000000002,
-            "updatedAt": "2026-03-24T07:32:31.683Z",
+            "updatedAt": "2026-03-24T08:43:29.448Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
             "sp95PriceEur": 1.885,
@@ -7146,7 +7174,7 @@
             "lat": 45.83496780148789,
             "lng": 9.03111642498091,
             "sp95PriceChf": 1.7200000000000002,
-            "updatedAt": "2026-03-24T07:32:31.683Z",
+            "updatedAt": "2026-03-24T08:43:29.448Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
             "sp95PriceEur": 1.885,
@@ -7209,7 +7237,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 103,
+        "optionCount": 104,
         "cheapestStation": {
           "id": "LP7oYktKWhoncV2qvpHG",
           "name": "ECSA Energy SA - Caslano",
@@ -7324,7 +7352,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 67,
+        "optionCount": 68,
         "cheapestStation": {
           "id": "eyss2Vf8mj29JzsCvuUr",
           "name": "Piccadilly SA",
@@ -7376,7 +7404,7 @@
             "lat": 45.83496780148789,
             "lng": 9.03111642498091,
             "sp95PriceChf": 1.7200000000000002,
-            "updatedAt": "2026-03-24T07:32:31.683Z",
+            "updatedAt": "2026-03-24T08:43:29.448Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
             "sp95PriceEur": 1.885,
@@ -7505,7 +7533,7 @@
             "lat": 45.83496780148789,
             "lng": 9.03111642498091,
             "sp95PriceChf": 1.7200000000000002,
-            "updatedAt": "2026-03-24T07:32:31.683Z",
+            "updatedAt": "2026-03-24T08:43:29.448Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
             "sp95PriceEur": 1.885,
@@ -7895,7 +7923,7 @@
             "lat": 45.83496780148789,
             "lng": 9.03111642498091,
             "sp95PriceChf": 1.7200000000000002,
-            "updatedAt": "2026-03-24T07:32:31.683Z",
+            "updatedAt": "2026-03-24T08:43:29.448Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
             "sp95PriceEur": 1.885,
@@ -7944,7 +7972,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 83,
+        "optionCount": 84,
         "cheapestStation": {
           "id": "eyss2Vf8mj29JzsCvuUr",
           "name": "Piccadilly SA",
@@ -8164,7 +8192,7 @@
             "lat": 45.83496780148789,
             "lng": 9.03111642498091,
             "sp95PriceChf": 1.7200000000000002,
-            "updatedAt": "2026-03-24T07:32:31.683Z",
+            "updatedAt": "2026-03-24T08:43:29.448Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
             "sp95PriceEur": 1.885,
@@ -8227,7 +8255,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 77,
+        "optionCount": 78,
         "cheapestStation": {
           "id": "eyss2Vf8mj29JzsCvuUr",
           "name": "Piccadilly SA",
@@ -8342,7 +8370,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 82,
+        "optionCount": 83,
         "cheapestStation": {
           "id": "LP7oYktKWhoncV2qvpHG",
           "name": "ECSA Energy SA - Caslano",
@@ -9005,7 +9033,7 @@
             "lat": 45.83496780148789,
             "lng": 9.03111642498091,
             "sp95PriceChf": 1.7200000000000002,
-            "updatedAt": "2026-03-24T07:32:31.683Z",
+            "updatedAt": "2026-03-24T08:43:29.448Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
             "sp95PriceEur": 1.885,
@@ -9120,7 +9148,7 @@
             "lat": 45.83496780148789,
             "lng": 9.03111642498091,
             "sp95PriceChf": 1.7200000000000002,
-            "updatedAt": "2026-03-24T07:32:31.683Z",
+            "updatedAt": "2026-03-24T08:43:29.448Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
             "sp95PriceEur": 1.885,
@@ -9263,7 +9291,7 @@
             "lat": 45.83496780148789,
             "lng": 9.03111642498091,
             "sp95PriceChf": 1.7200000000000002,
-            "updatedAt": "2026-03-24T07:32:31.683Z",
+            "updatedAt": "2026-03-24T08:43:29.448Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
             "sp95PriceEur": 1.885,
@@ -9392,7 +9420,7 @@
             "lat": 45.83496780148789,
             "lng": 9.03111642498091,
             "sp95PriceChf": 1.7200000000000002,
-            "updatedAt": "2026-03-24T07:32:31.683Z",
+            "updatedAt": "2026-03-24T08:43:29.448Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
             "sp95PriceEur": 1.885,
@@ -9534,7 +9562,7 @@
             "lat": 45.83496780148789,
             "lng": 9.03111642498091,
             "sp95PriceChf": 1.7200000000000002,
-            "updatedAt": "2026-03-24T07:32:31.683Z",
+            "updatedAt": "2026-03-24T08:43:29.448Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
             "sp95PriceEur": 1.885,
@@ -9668,7 +9696,7 @@
             "lat": 45.83496780148789,
             "lng": 9.03111642498091,
             "sp95PriceChf": 1.7200000000000002,
-            "updatedAt": "2026-03-24T07:32:31.683Z",
+            "updatedAt": "2026-03-24T08:43:29.448Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
             "sp95PriceEur": 1.885,
@@ -9874,7 +9902,7 @@
             "lat": 45.83496780148789,
             "lng": 9.03111642498091,
             "sp95PriceChf": 1.7200000000000002,
-            "updatedAt": "2026-03-24T07:32:31.683Z",
+            "updatedAt": "2026-03-24T08:43:29.448Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
             "sp95PriceEur": 1.885,
@@ -10235,7 +10263,7 @@
             "lat": 45.83496780148789,
             "lng": 9.03111642498091,
             "sp95PriceChf": 1.7200000000000002,
-            "updatedAt": "2026-03-24T07:32:31.683Z",
+            "updatedAt": "2026-03-24T08:43:29.448Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
             "sp95PriceEur": 1.885,
@@ -10320,7 +10348,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 25,
+        "optionCount": 26,
         "cheapestStation": {
           "id": "eyss2Vf8mj29JzsCvuUr",
           "name": "Piccadilly SA",
@@ -10550,7 +10578,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 1,
+        "optionCount": 2,
         "cheapestStation": {
           "id": "eyss2Vf8mj29JzsCvuUr",
           "name": "Piccadilly SA",
@@ -10579,6 +10607,20 @@
             "nearestMunicipalityDistanceKm": 2.3,
             "sp95PriceEur": 1.819,
             "distanceKm": 18.7
+          },
+          {
+            "id": "ahxEtrinnrLWGsZ2laVB",
+            "name": "SOCAR / Piccadilly Gandria",
+            "brand": "PICCADILLY",
+            "address": "Via Cantonale 14, 6978 Gandria",
+            "lat": 46.008082,
+            "lng": 9.007765,
+            "sp95PriceChf": 1.83,
+            "updatedAt": "2026-03-24T08:33:41.793Z",
+            "nearestMunicipality": "Valsolda (CO)",
+            "nearestMunicipalityDistanceKm": 3.6,
+            "sp95PriceEur": 2.006,
+            "distanceKm": 17.6
           }
         ],
         "minPriceChf": 1.66,
@@ -10683,7 +10725,7 @@
             "lat": 45.83496780148789,
             "lng": 9.03111642498091,
             "sp95PriceChf": 1.7200000000000002,
-            "updatedAt": "2026-03-24T07:32:31.683Z",
+            "updatedAt": "2026-03-24T08:43:29.448Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
             "sp95PriceEur": 1.885,
@@ -10861,7 +10903,7 @@
             "lat": 45.83496780148789,
             "lng": 9.03111642498091,
             "sp95PriceChf": 1.7200000000000002,
-            "updatedAt": "2026-03-24T07:32:31.683Z",
+            "updatedAt": "2026-03-24T08:43:29.448Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
             "sp95PriceEur": 1.885,
@@ -10938,7 +10980,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 40,
+        "optionCount": 41,
         "cheapestStation": {
           "id": "eyss2Vf8mj29JzsCvuUr",
           "name": "Piccadilly SA",
@@ -11004,7 +11046,7 @@
             "lat": 45.83496780148789,
             "lng": 9.03111642498091,
             "sp95PriceChf": 1.7200000000000002,
-            "updatedAt": "2026-03-24T07:32:31.683Z",
+            "updatedAt": "2026-03-24T08:43:29.448Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
             "sp95PriceEur": 1.885,
@@ -11053,7 +11095,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 90,
+        "optionCount": 91,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -11228,7 +11270,7 @@
             "lat": 45.83496780148789,
             "lng": 9.03111642498091,
             "sp95PriceChf": 1.7200000000000002,
-            "updatedAt": "2026-03-24T07:32:31.683Z",
+            "updatedAt": "2026-03-24T08:43:29.448Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
             "sp95PriceEur": 1.885,
@@ -11343,7 +11385,7 @@
             "lat": 45.83496780148789,
             "lng": 9.03111642498091,
             "sp95PriceChf": 1.7200000000000002,
-            "updatedAt": "2026-03-24T07:32:31.683Z",
+            "updatedAt": "2026-03-24T08:43:29.448Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
             "sp95PriceEur": 1.885,
@@ -11420,7 +11462,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 32,
+        "optionCount": 33,
         "cheapestStation": {
           "id": "eyss2Vf8mj29JzsCvuUr",
           "name": "Piccadilly SA",
@@ -11472,7 +11514,7 @@
             "lat": 45.83496780148789,
             "lng": 9.03111642498091,
             "sp95PriceChf": 1.7200000000000002,
-            "updatedAt": "2026-03-24T07:32:31.683Z",
+            "updatedAt": "2026-03-24T08:43:29.448Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
             "sp95PriceEur": 1.885,
@@ -11587,7 +11629,7 @@
             "lat": 45.83496780148789,
             "lng": 9.03111642498091,
             "sp95PriceChf": 1.7200000000000002,
-            "updatedAt": "2026-03-24T07:32:31.683Z",
+            "updatedAt": "2026-03-24T08:43:29.448Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
             "sp95PriceEur": 1.885,
@@ -11735,7 +11777,7 @@
             "lat": 45.83496780148789,
             "lng": 9.03111642498091,
             "sp95PriceChf": 1.7200000000000002,
-            "updatedAt": "2026-03-24T07:32:31.683Z",
+            "updatedAt": "2026-03-24T08:43:29.448Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
             "sp95PriceEur": 1.885,
@@ -11998,7 +12040,7 @@
             "lat": 45.83496780148789,
             "lng": 9.03111642498091,
             "sp95PriceChf": 1.7200000000000002,
-            "updatedAt": "2026-03-24T07:32:31.683Z",
+            "updatedAt": "2026-03-24T08:43:29.448Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
             "sp95PriceEur": 1.885,
@@ -12190,7 +12232,7 @@
             "lat": 45.83496780148789,
             "lng": 9.03111642498091,
             "sp95PriceChf": 1.7200000000000002,
-            "updatedAt": "2026-03-24T07:32:31.683Z",
+            "updatedAt": "2026-03-24T08:43:29.448Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
             "sp95PriceEur": 1.885,
@@ -12291,7 +12333,7 @@
             "lat": 45.83496780148789,
             "lng": 9.03111642498091,
             "sp95PriceChf": 1.7200000000000002,
-            "updatedAt": "2026-03-24T07:32:31.683Z",
+            "updatedAt": "2026-03-24T08:43:29.448Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
             "sp95PriceEur": 1.885,
@@ -12442,7 +12484,7 @@
             "lat": 45.83496780148789,
             "lng": 9.03111642498091,
             "sp95PriceChf": 1.7200000000000002,
-            "updatedAt": "2026-03-24T07:32:31.683Z",
+            "updatedAt": "2026-03-24T08:43:29.448Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
             "sp95PriceEur": 1.885,
@@ -12565,7 +12607,7 @@
             "lat": 45.83496780148789,
             "lng": 9.03111642498091,
             "sp95PriceChf": 1.7200000000000002,
-            "updatedAt": "2026-03-24T07:32:31.683Z",
+            "updatedAt": "2026-03-24T08:43:29.448Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
             "sp95PriceEur": 1.885,
@@ -12694,7 +12736,7 @@
             "lat": 45.83496780148789,
             "lng": 9.03111642498091,
             "sp95PriceChf": 1.7200000000000002,
-            "updatedAt": "2026-03-24T07:32:31.683Z",
+            "updatedAt": "2026-03-24T08:43:29.448Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
             "sp95PriceEur": 1.885,
@@ -12853,7 +12895,7 @@
             "lat": 45.83496780148789,
             "lng": 9.03111642498091,
             "sp95PriceChf": 1.7200000000000002,
-            "updatedAt": "2026-03-24T07:32:31.683Z",
+            "updatedAt": "2026-03-24T08:43:29.448Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
             "sp95PriceEur": 1.885,
@@ -13194,7 +13236,7 @@
           "lat": 45.83496780148789,
           "lng": 9.03111642498091,
           "sp95PriceChf": 1.7200000000000002,
-          "updatedAt": "2026-03-24T07:32:31.683Z",
+          "updatedAt": "2026-03-24T08:43:29.448Z",
           "nearestMunicipality": "Maslianico (CO)",
           "nearestMunicipalityDistanceKm": 1.5,
           "sp95PriceEur": 1.885,
@@ -13209,7 +13251,7 @@
             "lat": 45.83496780148789,
             "lng": 9.03111642498091,
             "sp95PriceChf": 1.7200000000000002,
-            "updatedAt": "2026-03-24T07:32:31.683Z",
+            "updatedAt": "2026-03-24T08:43:29.448Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
             "sp95PriceEur": 1.885,
@@ -13300,7 +13342,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 55,
+        "optionCount": 56,
         "cheapestStation": {
           "id": "LP7oYktKWhoncV2qvpHG",
           "name": "ECSA Energy SA - Caslano",
@@ -13448,7 +13490,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 2,
+        "optionCount": 3,
         "cheapestStation": {
           "id": "eyss2Vf8mj29JzsCvuUr",
           "name": "Piccadilly SA",
@@ -13491,6 +13533,20 @@
             "nearestMunicipalityDistanceKm": 5,
             "sp95PriceEur": 2.006,
             "distanceKm": 19.7
+          },
+          {
+            "id": "ahxEtrinnrLWGsZ2laVB",
+            "name": "SOCAR / Piccadilly Gandria",
+            "brand": "PICCADILLY",
+            "address": "Via Cantonale 14, 6978 Gandria",
+            "lat": 46.008082,
+            "lng": 9.007765,
+            "sp95PriceChf": 1.83,
+            "updatedAt": "2026-03-24T08:33:41.793Z",
+            "nearestMunicipality": "Valsolda (CO)",
+            "nearestMunicipalityDistanceKm": 3.6,
+            "sp95PriceEur": 2.006,
+            "distanceKm": 17.7
           }
         ],
         "minPriceChf": 1.66,
@@ -13581,7 +13637,7 @@
             "lat": 45.83496780148789,
             "lng": 9.03111642498091,
             "sp95PriceChf": 1.7200000000000002,
-            "updatedAt": "2026-03-24T07:32:31.683Z",
+            "updatedAt": "2026-03-24T08:43:29.448Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
             "sp95PriceEur": 1.885,
@@ -13658,7 +13714,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 46,
+        "optionCount": 47,
         "cheapestStation": {
           "id": "eyss2Vf8mj29JzsCvuUr",
           "name": "Piccadilly SA",
@@ -13724,7 +13780,7 @@
             "lat": 45.83496780148789,
             "lng": 9.03111642498091,
             "sp95PriceChf": 1.7200000000000002,
-            "updatedAt": "2026-03-24T07:32:31.683Z",
+            "updatedAt": "2026-03-24T08:43:29.448Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
             "sp95PriceEur": 1.885,
@@ -13811,7 +13867,7 @@
             "lat": 45.83496780148789,
             "lng": 9.03111642498091,
             "sp95PriceChf": 1.7200000000000002,
-            "updatedAt": "2026-03-24T07:32:31.683Z",
+            "updatedAt": "2026-03-24T08:43:29.448Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
             "sp95PriceEur": 1.885,
@@ -13954,7 +14010,7 @@
             "lat": 45.83496780148789,
             "lng": 9.03111642498091,
             "sp95PriceChf": 1.7200000000000002,
-            "updatedAt": "2026-03-24T07:32:31.683Z",
+            "updatedAt": "2026-03-24T08:43:29.448Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
             "sp95PriceEur": 1.885,
@@ -14142,7 +14198,7 @@
             "lat": 45.83496780148789,
             "lng": 9.03111642498091,
             "sp95PriceChf": 1.7200000000000002,
-            "updatedAt": "2026-03-24T07:32:31.683Z",
+            "updatedAt": "2026-03-24T08:43:29.448Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
             "sp95PriceEur": 1.885,
@@ -14334,7 +14390,7 @@
             "lat": 45.83496780148789,
             "lng": 9.03111642498091,
             "sp95PriceChf": 1.7200000000000002,
-            "updatedAt": "2026-03-24T07:32:31.683Z",
+            "updatedAt": "2026-03-24T08:43:29.448Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
             "sp95PriceEur": 1.885,
@@ -14512,7 +14568,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 51,
+        "optionCount": 52,
         "cheapestStation": {
           "id": "eyss2Vf8mj29JzsCvuUr",
           "name": "Piccadilly SA",
@@ -14578,7 +14634,7 @@
             "lat": 45.83496780148789,
             "lng": 9.03111642498091,
             "sp95PriceChf": 1.7200000000000002,
-            "updatedAt": "2026-03-24T07:32:31.683Z",
+            "updatedAt": "2026-03-24T08:43:29.448Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
             "sp95PriceEur": 1.885,
@@ -14720,7 +14776,7 @@
             "lat": 45.83496780148789,
             "lng": 9.03111642498091,
             "sp95PriceChf": 1.7200000000000002,
-            "updatedAt": "2026-03-24T07:32:31.683Z",
+            "updatedAt": "2026-03-24T08:43:29.448Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
             "sp95PriceEur": 1.885,
@@ -14918,7 +14974,7 @@
             "lat": 45.83496780148789,
             "lng": 9.03111642498091,
             "sp95PriceChf": 1.7200000000000002,
-            "updatedAt": "2026-03-24T07:32:31.683Z",
+            "updatedAt": "2026-03-24T08:43:29.448Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
             "sp95PriceEur": 1.885,
@@ -15019,7 +15075,7 @@
             "lat": 45.83496780148789,
             "lng": 9.03111642498091,
             "sp95PriceChf": 1.7200000000000002,
-            "updatedAt": "2026-03-24T07:32:31.683Z",
+            "updatedAt": "2026-03-24T08:43:29.448Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
             "sp95PriceEur": 1.885,
@@ -15153,7 +15209,7 @@
             "lat": 45.83496780148789,
             "lng": 9.03111642498091,
             "sp95PriceChf": 1.7200000000000002,
-            "updatedAt": "2026-03-24T07:32:31.683Z",
+            "updatedAt": "2026-03-24T08:43:29.448Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
             "sp95PriceEur": 1.885,
@@ -15446,7 +15502,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 81,
+        "optionCount": 82,
         "cheapestStation": {
           "id": "LP7oYktKWhoncV2qvpHG",
           "name": "ECSA Energy SA - Caslano",
@@ -15561,7 +15617,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 3,
+        "optionCount": 4,
         "cheapestStation": {
           "id": "oE9ujs5ie5VaYL9ls0Y0",
           "name": "Stazione di servizio Migrol",
@@ -15618,6 +15674,20 @@
             "nearestMunicipalityDistanceKm": 5,
             "sp95PriceEur": 2.006,
             "distanceKm": 19
+          },
+          {
+            "id": "ahxEtrinnrLWGsZ2laVB",
+            "name": "SOCAR / Piccadilly Gandria",
+            "brand": "PICCADILLY",
+            "address": "Via Cantonale 14, 6978 Gandria",
+            "lat": 46.008082,
+            "lng": 9.007765,
+            "sp95PriceChf": 1.83,
+            "updatedAt": "2026-03-24T08:33:41.793Z",
+            "nearestMunicipality": "Valsolda (CO)",
+            "nearestMunicipalityDistanceKm": 3.6,
+            "sp95PriceEur": 2.006,
+            "distanceKm": 17.7
           }
         ],
         "minPriceChf": 1.79,
@@ -15648,7 +15718,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 29,
+        "optionCount": 30,
         "cheapestStation": {
           "id": "eyss2Vf8mj29JzsCvuUr",
           "name": "Piccadilly SA",
@@ -15714,7 +15784,7 @@
             "lat": 45.83496780148789,
             "lng": 9.03111642498091,
             "sp95PriceChf": 1.7200000000000002,
-            "updatedAt": "2026-03-24T07:32:31.683Z",
+            "updatedAt": "2026-03-24T08:43:29.448Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
             "sp95PriceEur": 1.885,
@@ -15763,7 +15833,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 86,
+        "optionCount": 87,
         "cheapestStation": {
           "id": "LP7oYktKWhoncV2qvpHG",
           "name": "ECSA Energy SA - Caslano",
@@ -15916,7 +15986,7 @@
             "lat": 45.83496780148789,
             "lng": 9.03111642498091,
             "sp95PriceChf": 1.7200000000000002,
-            "updatedAt": "2026-03-24T07:32:31.683Z",
+            "updatedAt": "2026-03-24T08:43:29.448Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
             "sp95PriceEur": 1.885,
@@ -16015,7 +16085,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 92,
+        "optionCount": 93,
         "cheapestStation": {
           "id": "LP7oYktKWhoncV2qvpHG",
           "name": "ECSA Energy SA - Caslano",
@@ -16168,7 +16238,7 @@
             "lat": 45.83496780148789,
             "lng": 9.03111642498091,
             "sp95PriceChf": 1.7200000000000002,
-            "updatedAt": "2026-03-24T07:32:31.683Z",
+            "updatedAt": "2026-03-24T08:43:29.448Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
             "sp95PriceEur": 1.885,
@@ -16254,7 +16324,7 @@
           "lat": 45.83496780148789,
           "lng": 9.03111642498091,
           "sp95PriceChf": 1.7200000000000002,
-          "updatedAt": "2026-03-24T07:32:31.683Z",
+          "updatedAt": "2026-03-24T08:43:29.448Z",
           "nearestMunicipality": "Maslianico (CO)",
           "nearestMunicipalityDistanceKm": 1.5,
           "sp95PriceEur": 1.885,
@@ -16269,7 +16339,7 @@
             "lat": 45.83496780148789,
             "lng": 9.03111642498091,
             "sp95PriceChf": 1.7200000000000002,
-            "updatedAt": "2026-03-24T07:32:31.683Z",
+            "updatedAt": "2026-03-24T08:43:29.448Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
             "sp95PriceEur": 1.885,
@@ -16398,7 +16468,7 @@
             "lat": 45.83496780148789,
             "lng": 9.03111642498091,
             "sp95PriceChf": 1.7200000000000002,
-            "updatedAt": "2026-03-24T07:32:31.683Z",
+            "updatedAt": "2026-03-24T08:43:29.448Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
             "sp95PriceEur": 1.885,
@@ -16590,7 +16660,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 59,
+        "optionCount": 60,
         "cheapestStation": {
           "id": "LP7oYktKWhoncV2qvpHG",
           "name": "ECSA Energy SA - Caslano",
@@ -16765,7 +16835,7 @@
             "lat": 45.83496780148789,
             "lng": 9.03111642498091,
             "sp95PriceChf": 1.7200000000000002,
-            "updatedAt": "2026-03-24T07:32:31.683Z",
+            "updatedAt": "2026-03-24T08:43:29.448Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
             "sp95PriceEur": 1.885,
@@ -16895,7 +16965,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 58,
+        "optionCount": 59,
         "cheapestStation": {
           "id": "eyss2Vf8mj29JzsCvuUr",
           "name": "Piccadilly SA",
@@ -16947,7 +17017,7 @@
             "lat": 45.83496780148789,
             "lng": 9.03111642498091,
             "sp95PriceChf": 1.7200000000000002,
-            "updatedAt": "2026-03-24T07:32:31.683Z",
+            "updatedAt": "2026-03-24T08:43:29.448Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
             "sp95PriceEur": 1.885,
@@ -17010,7 +17080,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 77,
+        "optionCount": 78,
         "cheapestStation": {
           "id": "eyss2Vf8mj29JzsCvuUr",
           "name": "Piccadilly SA",
@@ -17224,7 +17294,7 @@
             "lat": 45.83496780148789,
             "lng": 9.03111642498091,
             "sp95PriceChf": 1.7200000000000002,
-            "updatedAt": "2026-03-24T07:32:31.683Z",
+            "updatedAt": "2026-03-24T08:43:29.448Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
             "sp95PriceEur": 1.885,
@@ -17273,7 +17343,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 89,
+        "optionCount": 90,
         "cheapestStation": {
           "id": "eyss2Vf8mj29JzsCvuUr",
           "name": "Piccadilly SA",
@@ -17419,7 +17489,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 82,
+        "optionCount": 83,
         "cheapestStation": {
           "id": "LP7oYktKWhoncV2qvpHG",
           "name": "ECSA Energy SA - Caslano",
@@ -17586,7 +17656,7 @@
             "lat": 45.83496780148789,
             "lng": 9.03111642498091,
             "sp95PriceChf": 1.7200000000000002,
-            "updatedAt": "2026-03-24T07:32:31.683Z",
+            "updatedAt": "2026-03-24T08:43:29.448Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
             "sp95PriceEur": 1.885,
@@ -17941,7 +18011,7 @@
             "lat": 45.83496780148789,
             "lng": 9.03111642498091,
             "sp95PriceChf": 1.7200000000000002,
-            "updatedAt": "2026-03-24T07:32:31.683Z",
+            "updatedAt": "2026-03-24T08:43:29.448Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
             "sp95PriceEur": 1.885,
@@ -18185,7 +18255,7 @@
             "lat": 45.83496780148789,
             "lng": 9.03111642498091,
             "sp95PriceChf": 1.7200000000000002,
-            "updatedAt": "2026-03-24T07:32:31.683Z",
+            "updatedAt": "2026-03-24T08:43:29.448Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
             "sp95PriceEur": 1.885,
@@ -18270,7 +18340,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 37,
+        "optionCount": 38,
         "cheapestStation": {
           "id": "eyss2Vf8mj29JzsCvuUr",
           "name": "Piccadilly SA",
@@ -18336,7 +18406,7 @@
             "lat": 45.83496780148789,
             "lng": 9.03111642498091,
             "sp95PriceChf": 1.7200000000000002,
-            "updatedAt": "2026-03-24T07:32:31.683Z",
+            "updatedAt": "2026-03-24T08:43:29.448Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
             "sp95PriceEur": 1.885,
@@ -18429,7 +18499,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 30,
+        "optionCount": 31,
         "cheapestStation": {
           "id": "eyss2Vf8mj29JzsCvuUr",
           "name": "Piccadilly SA",
@@ -18701,7 +18771,7 @@
           "lat": 45.83496780148789,
           "lng": 9.03111642498091,
           "sp95PriceChf": 1.7200000000000002,
-          "updatedAt": "2026-03-24T07:32:31.683Z",
+          "updatedAt": "2026-03-24T08:43:29.448Z",
           "nearestMunicipality": "Maslianico (CO)",
           "nearestMunicipalityDistanceKm": 1.5,
           "sp95PriceEur": 1.885,
@@ -18716,7 +18786,7 @@
             "lat": 45.83496780148789,
             "lng": 9.03111642498091,
             "sp95PriceChf": 1.7200000000000002,
-            "updatedAt": "2026-03-24T07:32:31.683Z",
+            "updatedAt": "2026-03-24T08:43:29.448Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
             "sp95PriceEur": 1.885,
@@ -18922,7 +18992,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 100,
+        "optionCount": 101,
         "cheapestStation": {
           "id": "eyss2Vf8mj29JzsCvuUr",
           "name": "Piccadilly SA",
@@ -19183,7 +19253,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 109,
+        "optionCount": 110,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -19298,7 +19368,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 29,
+        "optionCount": 30,
         "cheapestStation": {
           "id": "eyss2Vf8mj29JzsCvuUr",
           "name": "Piccadilly SA",
@@ -19350,7 +19420,7 @@
             "lat": 45.83496780148789,
             "lng": 9.03111642498091,
             "sp95PriceChf": 1.7200000000000002,
-            "updatedAt": "2026-03-24T07:32:31.683Z",
+            "updatedAt": "2026-03-24T08:43:29.448Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
             "sp95PriceEur": 1.885,
@@ -19487,7 +19557,7 @@
             "lat": 45.83496780148789,
             "lng": 9.03111642498091,
             "sp95PriceChf": 1.7200000000000002,
-            "updatedAt": "2026-03-24T07:32:31.683Z",
+            "updatedAt": "2026-03-24T08:43:29.448Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
             "sp95PriceEur": 1.885,
@@ -19761,7 +19831,7 @@
             "lat": 45.83496780148789,
             "lng": 9.03111642498091,
             "sp95PriceChf": 1.7200000000000002,
-            "updatedAt": "2026-03-24T07:32:31.683Z",
+            "updatedAt": "2026-03-24T08:43:29.448Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
             "sp95PriceEur": 1.885,
@@ -19909,7 +19979,7 @@
             "lat": 45.83496780148789,
             "lng": 9.03111642498091,
             "sp95PriceChf": 1.7200000000000002,
-            "updatedAt": "2026-03-24T07:32:31.683Z",
+            "updatedAt": "2026-03-24T08:43:29.448Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
             "sp95PriceEur": 1.885,
@@ -19972,7 +20042,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 30,
+        "optionCount": 31,
         "cheapestStation": {
           "id": "eyss2Vf8mj29JzsCvuUr",
           "name": "Piccadilly SA",
@@ -20038,7 +20108,7 @@
             "lat": 45.83496780148789,
             "lng": 9.03111642498091,
             "sp95PriceChf": 1.7200000000000002,
-            "updatedAt": "2026-03-24T07:32:31.683Z",
+            "updatedAt": "2026-03-24T08:43:29.448Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
             "sp95PriceEur": 1.885,
@@ -20087,7 +20157,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 103,
+        "optionCount": 104,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -20344,7 +20414,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 76,
+        "optionCount": 77,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -21040,7 +21110,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 72,
+        "optionCount": 73,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -21155,7 +21225,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 83,
+        "optionCount": 84,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -21502,7 +21572,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 79,
+        "optionCount": 80,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -22418,7 +22488,7 @@
             "lat": 45.83496780148789,
             "lng": 9.03111642498091,
             "sp95PriceChf": 1.7200000000000002,
-            "updatedAt": "2026-03-24T07:32:31.683Z",
+            "updatedAt": "2026-03-24T08:43:29.448Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
             "sp95PriceEur": 1.885,
@@ -22481,7 +22551,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 92,
+        "optionCount": 93,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -22692,7 +22762,7 @@
             "lat": 45.83496780148789,
             "lng": 9.03111642498091,
             "sp95PriceChf": 1.7200000000000002,
-            "updatedAt": "2026-03-24T07:32:31.683Z",
+            "updatedAt": "2026-03-24T08:43:29.448Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
             "sp95PriceEur": 1.885,
@@ -22755,7 +22825,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 82,
+        "optionCount": 83,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -23388,7 +23458,7 @@
             "lat": 45.83496780148789,
             "lng": 9.03111642498091,
             "sp95PriceChf": 1.7200000000000002,
-            "updatedAt": "2026-03-24T07:32:31.683Z",
+            "updatedAt": "2026-03-24T08:43:29.448Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
             "sp95PriceEur": 1.885,
@@ -23536,7 +23606,7 @@
             "lat": 45.83496780148789,
             "lng": 9.03111642498091,
             "sp95PriceChf": 1.7200000000000002,
-            "updatedAt": "2026-03-24T07:32:31.683Z",
+            "updatedAt": "2026-03-24T08:43:29.448Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
             "sp95PriceEur": 1.885,
@@ -24336,7 +24406,7 @@
             "lat": 45.83496780148789,
             "lng": 9.03111642498091,
             "sp95PriceChf": 1.7200000000000002,
-            "updatedAt": "2026-03-24T07:32:31.683Z",
+            "updatedAt": "2026-03-24T08:43:29.448Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
             "sp95PriceEur": 1.885,
@@ -24588,7 +24658,7 @@
             "lat": 45.83496780148789,
             "lng": 9.03111642498091,
             "sp95PriceChf": 1.7200000000000002,
-            "updatedAt": "2026-03-24T07:32:31.683Z",
+            "updatedAt": "2026-03-24T08:43:29.448Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
             "sp95PriceEur": 1.885,
@@ -24736,7 +24806,7 @@
             "lat": 45.83496780148789,
             "lng": 9.03111642498091,
             "sp95PriceChf": 1.7200000000000002,
-            "updatedAt": "2026-03-24T07:32:31.683Z",
+            "updatedAt": "2026-03-24T08:43:29.448Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
             "sp95PriceEur": 1.885,
@@ -25270,7 +25340,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 79,
+        "optionCount": 80,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -25789,7 +25859,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 89,
+        "optionCount": 90,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -26052,7 +26122,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 84,
+        "optionCount": 85,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -26167,7 +26237,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 78,
+        "optionCount": 79,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -26304,7 +26374,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 75,
+        "optionCount": 76,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -26419,7 +26489,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 110,
+        "optionCount": 111,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -26956,7 +27026,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 101,
+        "optionCount": 102,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -27250,7 +27320,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 71,
+        "optionCount": 72,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -28195,7 +28265,7 @@
             "lat": 45.83496780148789,
             "lng": 9.03111642498091,
             "sp95PriceChf": 1.7200000000000002,
-            "updatedAt": "2026-03-24T07:32:31.683Z",
+            "updatedAt": "2026-03-24T08:43:29.448Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
             "sp95PriceEur": 1.885,
@@ -28820,7 +28890,7 @@
             "lat": 45.83496780148789,
             "lng": 9.03111642498091,
             "sp95PriceChf": 1.7200000000000002,
-            "updatedAt": "2026-03-24T07:32:31.683Z",
+            "updatedAt": "2026-03-24T08:43:29.448Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
             "sp95PriceEur": 1.885,
@@ -28883,7 +28953,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 74,
+        "optionCount": 75,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -29295,7 +29365,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 92,
+        "optionCount": 93,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -29685,7 +29755,7 @@
             "lat": 45.83496780148789,
             "lng": 9.03111642498091,
             "sp95PriceChf": 1.7200000000000002,
-            "updatedAt": "2026-03-24T07:32:31.683Z",
+            "updatedAt": "2026-03-24T08:43:29.448Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
             "sp95PriceEur": 1.885,
@@ -29800,7 +29870,7 @@
             "lat": 45.83496780148789,
             "lng": 9.03111642498091,
             "sp95PriceChf": 1.7200000000000002,
-            "updatedAt": "2026-03-24T07:32:31.683Z",
+            "updatedAt": "2026-03-24T08:43:29.448Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
             "sp95PriceEur": 1.885,
@@ -30115,7 +30185,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 104,
+        "optionCount": 105,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -30444,7 +30514,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 86,
+        "optionCount": 87,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -30559,7 +30629,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 87,
+        "optionCount": 88,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -30957,7 +31027,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 74,
+        "optionCount": 75,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -31188,7 +31258,7 @@
             "lat": 45.83496780148789,
             "lng": 9.03111642498091,
             "sp95PriceChf": 1.7200000000000002,
-            "updatedAt": "2026-03-24T07:32:31.683Z",
+            "updatedAt": "2026-03-24T08:43:29.448Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
             "sp95PriceEur": 1.885,
@@ -31534,7 +31604,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 84,
+        "optionCount": 85,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -31912,7 +31982,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 81,
+        "optionCount": 82,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -32980,7 +33050,7 @@
             "lat": 45.83496780148789,
             "lng": 9.03111642498091,
             "sp95PriceChf": 1.7200000000000002,
-            "updatedAt": "2026-03-24T07:32:31.683Z",
+            "updatedAt": "2026-03-24T08:43:29.448Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
             "sp95PriceEur": 1.885,
@@ -33255,7 +33325,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 81,
+        "optionCount": 82,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -34069,7 +34139,7 @@
             "lat": 45.83496780148789,
             "lng": 9.03111642498091,
             "sp95PriceChf": 1.7200000000000002,
-            "updatedAt": "2026-03-24T07:32:31.683Z",
+            "updatedAt": "2026-03-24T08:43:29.448Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
             "sp95PriceEur": 1.885,
@@ -34228,7 +34298,7 @@
             "lat": 45.83496780148789,
             "lng": 9.03111642498091,
             "sp95PriceChf": 1.7200000000000002,
-            "updatedAt": "2026-03-24T07:32:31.683Z",
+            "updatedAt": "2026-03-24T08:43:29.448Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
             "sp95PriceEur": 1.885,
@@ -34343,7 +34413,7 @@
             "lat": 45.83496780148789,
             "lng": 9.03111642498091,
             "sp95PriceChf": 1.7200000000000002,
-            "updatedAt": "2026-03-24T07:32:31.683Z",
+            "updatedAt": "2026-03-24T08:43:29.448Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
             "sp95PriceEur": 1.885,
@@ -34547,7 +34617,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 80,
+        "optionCount": 81,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -43927,7 +43997,7 @@
           "lat": 45.83496780148789,
           "lng": 9.03111642498091,
           "sp95PriceChf": 1.7200000000000002,
-          "updatedAt": "2026-03-24T07:32:31.683Z",
+          "updatedAt": "2026-03-24T08:43:29.448Z",
           "nearestMunicipality": "Maslianico (CO)",
           "nearestMunicipalityDistanceKm": 1.5,
           "sp95PriceEur": 1.885,
@@ -43942,7 +44012,7 @@
             "lat": 45.83496780148789,
             "lng": 9.03111642498091,
             "sp95PriceChf": 1.7200000000000002,
-            "updatedAt": "2026-03-24T07:32:31.683Z",
+            "updatedAt": "2026-03-24T08:43:29.448Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
             "sp95PriceEur": 1.885,
@@ -50023,7 +50093,7 @@
             "lat": 45.83496780148789,
             "lng": 9.03111642498091,
             "sp95PriceChf": 1.7200000000000002,
-            "updatedAt": "2026-03-24T07:32:31.683Z",
+            "updatedAt": "2026-03-24T08:43:29.448Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
             "sp95PriceEur": 1.885,
@@ -50193,7 +50263,7 @@
             "lat": 45.83496780148789,
             "lng": 9.03111642498091,
             "sp95PriceChf": 1.7200000000000002,
-            "updatedAt": "2026-03-24T07:32:31.683Z",
+            "updatedAt": "2026-03-24T08:43:29.448Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
             "sp95PriceEur": 1.885,
@@ -50387,7 +50457,7 @@
           "lat": 45.83496780148789,
           "lng": 9.03111642498091,
           "sp95PriceChf": 1.7200000000000002,
-          "updatedAt": "2026-03-24T07:32:31.683Z",
+          "updatedAt": "2026-03-24T08:43:29.448Z",
           "nearestMunicipality": "Maslianico (CO)",
           "nearestMunicipalityDistanceKm": 1.5,
           "sp95PriceEur": 1.885,
@@ -50402,7 +50472,7 @@
             "lat": 45.83496780148789,
             "lng": 9.03111642498091,
             "sp95PriceChf": 1.7200000000000002,
-            "updatedAt": "2026-03-24T07:32:31.683Z",
+            "updatedAt": "2026-03-24T08:43:29.448Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
             "sp95PriceEur": 1.885,
