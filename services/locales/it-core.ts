@@ -2298,6 +2298,17 @@ Regole:
     'seoContent.stats.check4': 'Dati sulla comunità frontaliera Ticino',
 
     // ─── What's New / Feature Announcements ─────────────────────────────
+    'whatsNew.v3410.title': 'Miglioramenti per una navigazione più fluida e contenuti più pertinenti',
+    'whatsNew.v3410.blog.title': 'Articoli correlati ora più visibili sul blog',
+    'whatsNew.v3410.blog.desc': 'Abbiamo riorganizzato la visualizzazione degli articoli correlati sul blog, posizionandoli prima delle pubblicità. Inoltre, la barra di navigazione mobile ora rimane fissa per un accesso più rapido.',
+    'whatsNew.v3410.seo.title': 'Corretto valore di stipendio base per migliore visibilità',
+    'whatsNew.v3410.seo.desc': 'Abbiamo risolto un problema che mostrava uno stipendio base errato, assicurando che le informazioni siano accurate per una migliore indicizzazione sui motori di ricerca.',
+    'whatsNew.v3410.crawlers.title': 'Risolto un errore tecnico nella gestione dei lavori condivisi',
+    'whatsNew.v3410.crawlers.desc': 'Abbiamo corretto un errore interno che poteva verificarsi durante l\'elaborazione dei lavori condivisi, garantendo un funzionamento più stabile.',
+    'whatsNew.v3410.articles.title': 'Aggiornata la creazione di articoli per maggiore coerenza',
+    'whatsNew.v3410.articles.desc': 'Abbiamo aggiornato il modo in cui vengono creati gli articoli per garantire che utilizzino le informazioni più recenti e coerenti disponibili.',
+    'whatsNew.v3410.tests.title': 'Migliorata l\'accuratezza dei controlli automatici',
+    'whatsNew.v3410.tests.desc': 'Abbiamo aumentato la soglia per i controlli automatici sui titoli degli articoli, rendendoli più precisi grazie ai nuovi dati raccolti.',
     'whatsNew.v3400.title': 'Miglioramenti per trovare offerte di lavoro e prodotti',
     'whatsNew.v3400.seo.title': 'Più dettagli nelle pagine di offerte di lavoro scadute',
     'whatsNew.v3400.seo.desc': 'Le pagine delle offerte di lavoro scadute ora mostrano più informazioni utili, migliorando la visibilità per i motori di ricerca.',

@@ -2207,6 +2207,17 @@ Regeln:
     'seoContent.stats.check4': 'Daten zur Tessiner Grenzgänger-Gemeinschaft',
 
     // ─── What's New / Feature Announcements ─────────────────────────────
+    'whatsNew.v3410.title': 'Verbesserungen für reibungslosere Navigation und relevantere Inhalte',
+    'whatsNew.v3410.blog.title': 'Verwandte Artikel jetzt besser sichtbar auf dem Blog',
+    'whatsNew.v3410.blog.desc': 'Wir haben die Anzeige verwandter Artikel auf dem Blog neu organisiert und sie vor Anzeigen platziert. Außerdem bleibt die mobile Navigationsleiste nun fixiert für einen schnelleren Zugriff.',
+    'whatsNew.v3410.seo.title': 'Basisgehaltwert für bessere Sichtbarkeit korrigiert',
+    'whatsNew.v3410.seo.desc': 'Wir haben ein Problem behoben, das ein falsches Basisgehalt anzeigte, und stellen sicher, dass die Informationen für eine bessere Sichtbarkeit in Suchmaschinen korrekt sind.',
+    'whatsNew.v3410.crawlers.title': 'Technischer Fehler bei der Verarbeitung geteilter Stellen behoben',
+    'whatsNew.v3410.crawlers.desc': 'Wir haben einen internen Fehler behoben, der bei der Verarbeitung geteilter Stellen auftreten konnte, und sorgen so für einen stabileren Betrieb.',
+    'whatsNew.v3410.articles.title': 'Erstellung von Artikeln für bessere Konsistenz aktualisiert',
+    'whatsNew.v3410.articles.desc': 'Wir haben die Erstellung von Artikeln aktualisiert, um sicherzustellen, dass sie die neuesten und konsistentesten verfügbaren Informationen verwenden.',
+    'whatsNew.v3410.tests.title': 'Genauigkeit automatisierter Prüfungen verbessert',
+    'whatsNew.v3410.tests.desc': 'Wir haben die Schwelle für automatische Prüfungen von Artikeltiteln erhöht, um sie mit neuen Daten genauer zu machen.',
     'whatsNew.v3400.title': 'Einfachere Jobsuche und Produktentdeckung',
     'whatsNew.v3400.seo.title': 'Mehr Details auf abgelaufenen Stellenseiten',
     'whatsNew.v3400.seo.desc': 'Abgelaufene Stellenseiten zeigen jetzt mehr nützliche Informationen an, was die Sichtbarkeit für Suchmaschinen verbessert.',

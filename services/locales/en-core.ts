@@ -2207,6 +2207,17 @@ Rules:
     'seoContent.stats.check4': 'Ticino cross-border community data',
 
     // ─── What's New / Feature Announcements ─────────────────────────────
+    'whatsNew.v3410.title': 'Smoother navigation and more relevant content improvements',
+    'whatsNew.v3410.blog.title': 'Related articles now more visible on the blog',
+    'whatsNew.v3410.blog.desc': 'We\'ve reorganized how related articles appear on the blog, placing them before ads. The mobile navigation bar also now stays put for quicker access.',
+    'whatsNew.v3410.seo.title': 'Corrected base salary value for better visibility',
+    'whatsNew.v3410.seo.desc': 'We fixed an issue that was showing an incorrect base salary, ensuring information is accurate for better search engine visibility.',
+    'whatsNew.v3410.crawlers.title': 'Technical error fixed in shared jobs handling',
+    'whatsNew.v3410.crawlers.desc': 'We fixed an internal error that could occur when processing shared jobs, ensuring more stable operation.',
+    'whatsNew.v3410.articles.title': 'Article creation updated for better consistency',
+    'whatsNew.v3410.articles.desc': 'We\'ve updated how articles are created to ensure they use the latest and most consistent information available.',
+    'whatsNew.v3410.tests.title': 'Improved accuracy of automated checks',
+    'whatsNew.v3410.tests.desc': 'We\'ve raised the threshold for automated checks on article titles, making them more accurate with new data.',
     'whatsNew.v3400.title': 'Easier Job Search and Product Discovery',
     'whatsNew.v3400.seo.title': 'More details on expired job pages',
     'whatsNew.v3400.seo.desc': 'Expired job pages now show more useful information, improving visibility for search engines.',

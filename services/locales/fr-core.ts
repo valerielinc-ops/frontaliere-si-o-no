@@ -2207,6 +2207,17 @@ Règles :
     'seoContent.stats.check4': 'Données sur la communauté frontalière tessinoise',
 
     // ─── What's New / Feature Announcements ─────────────────────────────────
+    'whatsNew.v3410.title': 'Améliorations pour une navigation plus fluide et un contenu plus pertinent',
+    'whatsNew.v3410.blog.title': 'Articles liés désormais plus visibles sur le blog',
+    'whatsNew.v3410.blog.desc': 'Nous avons réorganisé l\'affichage des articles liés sur le blog, en les plaçant avant les publicités. De plus, la barre de navigation mobile reste désormais fixe pour un accès plus rapide.',
+    'whatsNew.v3410.seo.title': 'Valeur de salaire de base corrigée pour une meilleure visibilité',
+    'whatsNew.v3410.seo.desc': 'Nous avons corrigé un problème qui affichait un salaire de base incorrect, garantissant ainsi l\'exactitude des informations pour une meilleure visibilité sur les moteurs de recherche.',
+    'whatsNew.v3410.crawlers.title': 'Erreur technique corrigée dans la gestion des offres d\'emploi partagées',
+    'whatsNew.v3410.crawlers.desc': 'Nous avons corrigé une erreur interne qui pouvait survenir lors du traitement des offres d\'emploi partagées, assurant un fonctionnement plus stable.',
+    'whatsNew.v3410.articles.title': 'Création d\'articles mise à jour pour une meilleure cohérence',
+    'whatsNew.v3410.articles.desc': 'Nous avons mis à jour la manière dont les articles sont créés pour garantir qu\'ils utilisent les informations les plus récentes et cohérentes disponibles.',
+    'whatsNew.v3410.tests.title': 'Précision des vérifications automatisées améliorée',
+    'whatsNew.v3410.tests.desc': 'Nous avons relevé le seuil des vérifications automatiques sur les titres d\'articles, les rendant plus précis grâce aux nouvelles données collectées.',
     'whatsNew.v3400.title': 'Recherche d\'emploi et découverte de produits simplifiées',
     'whatsNew.v3400.seo.title': 'Plus de détails sur les pages d\'offres d\'emploi expirées',
     'whatsNew.v3400.seo.desc': 'Les pages d\'offres d\'emploi expirées affichent désormais plus d\'informations utiles, améliorant la visibilité pour les moteurs de recherche.',
