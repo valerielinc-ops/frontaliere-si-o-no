@@ -5284,4 +5284,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/crescita-sicurezza-ticino-2025.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'sesto-calende-centro-sportivo',
+    category: 'novita',
+    date: '2026-03-24T13:47:29.815Z',
+    image: '/images/blog/sesto-calende-centro-sportivo.jpg',
+    hasCalculator: true,
+  },
 ];

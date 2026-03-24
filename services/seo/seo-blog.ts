@@ -10086,6 +10086,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-sesto-calende-centro-sportivo': {
+    title: 'Per il centro sportivo di Sesto Calende arrivano 380mila euro da Regione | Frontaliere Ticino',
+    description: 'Il comune di Sesto Calende ha ottenuto 380.000 euro nell\'ambito del bando Impianti Sportivi 2025 di Regione Lombardia. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, centro, sportivo, sesto, calende',
+    ogTitle: 'Per il centro sportivo di Sesto Calende arrivano 380mila euro da Regione Lombardia',
+    ogDescription: 'Il comune di Sesto Calende ha ottenuto 380.000 euro nell\'ambito del bando Impianti Sportivi 2025 di Regione Lombardia',
+    canonicalPath: '/articoli-frontaliere/sesto-calende-centro-sportivo',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Frontaliere Ticino - Per il centro sportivo di Sesto Calende arrivano 380mila euro da Regione",
+      "description": "Il comune di Sesto Calende ha ottenuto 380.000 euro nell'ambito del bando Impianti Sportivi 2025 di Regione Lombardia. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/sesto-calende-centro-sportivo.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Immagine del centro sportivo di Sesto Calende"
+      },
+      "datePublished": "2026-03-24T13:47:29+00:00",
+      "dateModified": "2026-03-24T13:47:29+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/sesto-calende-centro-sportivo`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

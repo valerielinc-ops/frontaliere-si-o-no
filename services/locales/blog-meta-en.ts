@@ -1754,6 +1754,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.crescita-sicurezza-ticino-2025.title': 'Thefts down 5.9% in 2025: Canton Ticino is safer for cross-border workers',
     'blog.article.crescita-sicurezza-ticino-2025.excerpt': 'The cantonal police report shows -5.9% total thefts, -29% home burglaries, but +39% e-bike thefts.',
     'blog.article.crescita-sicurezza-ticino-2025.imageAlt': 'Lugano street at sunset with police patrols and lit houses, symbolising increased safety.',
+    'blog.article.sesto-calende-centro-sportivo.title': 'Sesto Calende\'s Sports Center Receives 380,000 Euros from Lombardy Region',
+    'blog.article.sesto-calende-centro-sportivo.excerpt': 'The town of Sesto Calende has received 380,000 euros from the Lombardy Region\'s \'Impianti Sportivi 2025\' program to improve its sports center.',
+    'blog.article.sesto-calende-centro-sportivo.imageAlt': 'Image of Sesto Calende sports center',
 };
 
 export default blogMetaEn;

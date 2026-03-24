@@ -1754,6 +1754,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.crescita-sicurezza-ticino-2025.title': 'Diebstähle im Kanton Tessin sinken um 5,9% im Jahr 2025: Tessin ist das sicherste Ziel für Grenzgänger',
     'blog.article.crescita-sicurezza-ticino-2025.excerpt': 'Das Polizeirapport zeigt eine Verringerung der Gesamtzahl der Diebstähle um 5,9%, eine Verringerung der Diebstähle in Wohnungen um 29% und eine Zunahme der Diebstähle von E-Bikes um 39%',
     'blog.article.crescita-sicurezza-ticino-2025.imageAlt': 'Straße in Lugano bei Sonnenuntergang mit Polizeipatrouillen und beleuchteten Häusern, Symbol für mehr Sicherheit.',
+    'blog.article.sesto-calende-centro-sportivo.title': 'Das Sportzentrum von Sesto Calende erhält 380.000 Euro von der Region Lombardei',
+    'blog.article.sesto-calende-centro-sportivo.excerpt': 'Das Gemeinde von Sesto Calende hat 380.000 Euro im Rahmen des Programms Sportanlagen 2025 der Region Lombardei erhalten',
+    'blog.article.sesto-calende-centro-sportivo.imageAlt': 'Bild des Sportzentrums von Sesto Calende',
 };
 
 export default blogMetaDe;

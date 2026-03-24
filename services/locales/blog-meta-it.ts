@@ -1754,6 +1754,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.crescita-sicurezza-ticino-2025.title': 'Furti in calo del 5,9% nel 2025: il Canton Ticino più sicuro per i frontalieri',
     'blog.article.crescita-sicurezza-ticino-2025.excerpt': 'Il report della polizia cantonale registra -5,9% di furti complessivi, -29% in abitazione, ma +39% di furti alle e‑bike.',
     'blog.article.crescita-sicurezza-ticino-2025.imageAlt': 'Via di Lugano al tramonto con pattuglie di polizia e case illuminate, simbolo di maggiore sicurezza.',
+    'blog.article.sesto-calende-centro-sportivo.title': 'Per il centro sportivo di Sesto Calende arrivano 380mila euro da Regione Lombardia',
+    'blog.article.sesto-calende-centro-sportivo.excerpt': 'Il comune di Sesto Calende ha ottenuto 380.000 euro nell\'ambito del bando Impianti Sportivi 2025 di Regione Lombardia',
+    'blog.article.sesto-calende-centro-sportivo.imageAlt': 'Immagine del centro sportivo di Sesto Calende',
 };
 
 export default blogMetaIt;

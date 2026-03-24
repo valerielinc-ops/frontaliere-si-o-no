@@ -1754,6 +1754,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.crescita-sicurezza-ticino-2025.title': 'Vol des biens en baisse de 5,9 % en 2025 : le canton du Tessin plus sûr pour les frontaliers',
     'blog.article.crescita-sicurezza-ticino-2025.excerpt': 'Le rapport de la police cantonale enregistre -5,9 % de vols au total, -29 % dans les habitations, mais +39 % de vols d’e-bikes.',
     'blog.article.crescita-sicurezza-ticino-2025.imageAlt': 'Rue de Lugano au coucher du soleil avec patrouilles de police et maisons éclairées, symbole d\'une sécurité accrue.',
+    'blog.article.sesto-calende-centro-sportivo.title': 'La Regione Lombardia sostiene il centro sportivo di Sesto Calende con 380.000 euro',
+    'blog.article.sesto-calende-centro-sportivo.excerpt': 'Il comune di Sesto Calende ha ottenuto un finanziamento di 380.000 euro per il miglioramento delle strutture sportive del centro sportivo.',
+    'blog.article.sesto-calende-centro-sportivo.imageAlt': 'Image du centre sportif de Sesto Calende',
 };
 
 export default blogMetaFr;

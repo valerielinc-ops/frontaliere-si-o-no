@@ -3049,7 +3049,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
         "@context": "https://schema.org",
         "@type": "ItemList",
         "name": "Articoli Frontaliere",
-        "numberOfItems": 575,
+        "numberOfItems": 576,
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
           { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -3625,7 +3625,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 572, "name": "Como, Rapinese: prezzi dell'asfalto in aumento ...", "url": `${BASE_URL}/articoli-frontaliere/como-asfaltature-war-costs` },
           { "@type": "ListItem", "position": 573, "name": "Referendum in Ticino: il messaggio dell'opposiz...", "url": `${BASE_URL}/articoli-frontaliere/referendum-opposizione-ticino` },
           { "@type": "ListItem", "position": 574, "name": "Frontalieri: nuovo permesso G per tutta la dura...", "url": `${BASE_URL}/articoli-frontaliere/apprendisti-frontalieri-permessi-g` },
-          { "@type": "ListItem", "position": 575, "name": "{ \"@context\": \"https://schema.org\", \"@type\": \"N...", "url": `${BASE_URL}/articoli-frontaliere/crescita-sicurezza-ticino-2025` }
+          { "@type": "ListItem", "position": 575, "name": "{ \"@context\": \"https://schema.org\", \"@type\": \"N...", "url": `${BASE_URL}/articoli-frontaliere/crescita-sicurezza-ticino-2025` },
+          { "@type": "ListItem", "position": 576, "name": "Frontaliere Ticino - Per il centro sportivo di ...", "url": `${BASE_URL}/articoli-frontaliere/sesto-calende-centro-sportivo` }
         ]
       }
     ]
