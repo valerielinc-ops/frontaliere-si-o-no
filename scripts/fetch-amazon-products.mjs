@@ -114,7 +114,7 @@ async function getAccessToken(clientId, clientSecret) {
   });
   if (!res.ok) {
     const body = await res.text();
-    throw new Error(`OAuth token request failed (${res.status}): ${body.slice(0, 300)}`);
+    throw new Error(`OAuth token request failed (${res.status}): ${body.slice(0, 2000)}`);
   }
   const data = await res.json();
   return data.access_token;
