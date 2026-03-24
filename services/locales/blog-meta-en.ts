@@ -1748,6 +1748,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.referendum-opposizione-ticino.title': 'Referendum in Ticino: opposition\'s message and border repercussions',
     'blog.article.referendum-opposizione-ticino.excerpt': 'The outcome of the referendum in Italy resulted in a victory for No, with opposition leaders celebrating. In Ticino, this dynamic could influence cross-border workers and relations with the Canton of Ticino.',
     'blog.article.referendum-opposizione-ticino.imageAlt': 'Bellinzona landscape showing Ticino-Italy border crossings and mountains',
+    'blog.article.apprendisti-frontalieri-permessi-g.title': 'Apprentices towards G-permit for the entire duration of training',
+    'blog.article.apprendisti-frontalieri-permessi-g.excerpt': 'The Federal Parliament has approved motion 25.3624 to allow apprentices to obtain the G-permit for the entire duration of their training.',
+    'blog.article.apprendisti-frontalieri-permessi-g.imageAlt': 'Young frontalier working in a Ticinese workshop',
 };
 
 export default blogMetaEn;

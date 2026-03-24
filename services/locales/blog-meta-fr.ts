@@ -1748,6 +1748,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.referendum-opposizione-ticino.title': 'Référendum au Tessin : le message de l\'opposition et ses répercussions à la frontière',
     'blog.article.referendum-opposizione-ticino.excerpt': 'Le résultat du référendum en Italie a vu la victoire du Non, avec des leaders de l\'opposition qui célèbrent. Au Tessin, cette dynamique pourrait influencer les frontaliers et les relations avec le canton.',
     'blog.article.referendum-opposizione-ticino.imageAlt': 'Paysage de Bellinzona avec passages de frontière Ticino-Italie et montagnes',
+    'blog.article.apprendisti-frontalieri-permessi-g.title': 'Apprentis frontaliers vers le permis G pour toute la durée de leur stage',
+    'blog.article.apprendisti-frontalieri-permessi-g.excerpt': 'Le Parlement fédéral a adopté la motion 25.3624 pour permettre aux apprentis frontaliers d\'obtenir le permis G pour toute la durée de leur stage.',
+    'blog.article.apprendisti-frontalieri-permessi-g.imageAlt': 'Apprenti frontalier dans un atelier ticinois',
 };
 
 export default blogMetaFr;

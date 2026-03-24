@@ -1748,6 +1748,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.referendum-opposizione-ticino.title': 'Referendum in Ticino: il messaggio dell\'opposizione e le ripercussioni sul confine',
     'blog.article.referendum-opposizione-ticino.excerpt': 'Il risultato del referendum in Italia ha visto la vittoria del No, con leader dell\'opposizione che festeggiano. In Ticino, questa dinamica potrebbe influenzare i frontalieri e le relazioni con il Canton Ticino.',
     'blog.article.referendum-opposizione-ticino.imageAlt': 'Panorama di Bellinzona con vista sui valichi di confine tra Ticino e Italia',
+    'blog.article.apprendisti-frontalieri-permessi-g.title': 'Apprendisti frontalieri verso il permesso G per tutta la durata del tirocinio',
+    'blog.article.apprendisti-frontalieri-permessi-g.excerpt': 'Il Parlamento federale ha approvato la mozione 25.3624 per consentire agli apprendisti frontalieri di ottenere il permesso G per tutta la durata del tirocinio.',
+    'blog.article.apprendisti-frontalieri-permessi-g.imageAlt': 'Apprendista frontaliere in un laboratorio ticinese',
 };
 
 export default blogMetaIt;

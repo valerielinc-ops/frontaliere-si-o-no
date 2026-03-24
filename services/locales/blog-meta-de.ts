@@ -1748,6 +1748,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.referendum-opposizione-ticino.title': 'Referendum im Tessin: Die Botschaft der Opposition und die Auswirkungen an der Grenze',
     'blog.article.referendum-opposizione-ticino.excerpt': 'Das Ergebnis des Referendums in Italien hat mit einem Sieg für Nein geendet, wobei Oppositionsführer feiern. Im Tessin könnte diese Dynamik die Grenzgänger und die Beziehungen zum Kanton beeinflussen.',
     'blog.article.referendum-opposizione-ticino.imageAlt': 'Landschaft in Bellinzona mit Grenzübergängen zwischen Tessin und Italien',
+    'blog.article.apprendisti-frontalieri-permessi-g.title': 'Ausbildungsbewerber Grenzgänger erhalten G-Bewilligung für die gesamte Dauer der Lehre',
+    'blog.article.apprendisti-frontalieri-permessi-g.excerpt': 'Der Nationalrat hat die Motion 25.3624 genehmigt, um Grenzgänger-Auszubildende die G-Bewilligung für die gesamte Dauer ihrer Ausbildung zu ermöglichen.',
+    'blog.article.apprendisti-frontalieri-permessi-g.imageAlt': 'Frontalier im ticinesischen Werkstatt',
 };
 
 export default blogMetaDe;

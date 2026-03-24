@@ -5270,4 +5270,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/referendum-opposizione-ticino.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'apprendisti-frontalieri-permessi-g',
+    category: 'novita',
+    date: '2026-03-24T09:02:37.653Z',
+    image: '/images/blog/apprendisti-frontalieri-permessi-g.jpg',
+    hasCalculator: true,
+  },
 ];

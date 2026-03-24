@@ -10028,6 +10028,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-apprendisti-frontalieri-permessi-g': {
+    title: 'Apprendisti frontalieri verso il permesso G per tutta la durata del | Frontaliere Ticino',
+    description: 'Il Parlamento federale ha approvato la mozione 25.3624 per consentire agli apprendisti frontalieri di ottenere il permesso G per tutta la durata del tirocinio.',
+    keywords: 'frontalieri, ticino, svizzera, italia, apprendisti, verso, permesso, tutta',
+    ogTitle: 'Apprendisti frontalieri verso il permesso G per tutta la durata del tirocinio',
+    ogDescription: 'Il Parlamento federale ha approvato la mozione 25.3624 per consentire agli apprendisti frontalieri di ottenere il permesso G per tutta la durata del tirocinio.',
+    canonicalPath: '/articoli-frontaliere/apprendisti-frontalieri-permessi-g',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Frontalieri: nuovo permesso G per tutta la durata del tirocinio",
+      "description": "Il Parlamento federale ha approvato la mozione 25.3624 per consentire agli apprendisti frontalieri di ottenere il permesso G per tutta la durata del tirocinio.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/apprendisti-frontalieri-permessi-g.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Apprendista frontaliere in un laboratorio ticinese"
+      },
+      "datePublished": "2026-03-24T09:02:37+00:00",
+      "dateModified": "2026-03-24T09:02:37+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/apprendisti-frontalieri-permessi-g`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
