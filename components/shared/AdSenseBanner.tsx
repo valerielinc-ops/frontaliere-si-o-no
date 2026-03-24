@@ -44,11 +44,13 @@ const IS_PROD =
 type AdState = 'idle' | 'waiting_width' | 'loading' | 'filled' | 'collapsed';
 const initializedAdElements = new WeakSet<Element>();
 
-function getPlaceholderMinHeight(adFormat: string, adLayout?: string) {
-  if (adFormat === 'autorelaxed') return 280;
-  if (adLayout === 'in-article') return 180;
-  if (adFormat === 'fluid') return 180;
-  return 250;
+function getPlaceholderMinHeight(adFormat: string, adLayout?: string): number {
+  // Heights match AD_SLOTS.placeholderMinHeight values in adsenseSlots.ts (FRO-385).
+  // Sized to cover the majority of real ad renders and prevent CLS when ads expand.
+  if (adFormat === 'autorelaxed') return 400;
+  if (adLayout === 'in-article') return 220;
+  if (adFormat === 'fluid') return 220;
+  return 280;
 }
 
 export default function AdSenseBanner({
@@ -263,7 +265,7 @@ export default function AdSenseBanner({
       ref={wrapperRef}
       className={className}
       style={{
-        contain: 'layout',
+        contain: 'content',
         transition: 'opacity 0.3s ease, min-height 0.3s ease, max-height 0.3s ease',
         // Reserve space via minHeight — keep it even after ad loads to prevent CLS
         // when the actual ad is shorter than the placeholder (FRO-299)

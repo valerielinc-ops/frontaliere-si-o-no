@@ -1404,7 +1404,7 @@ export default function BlogArticles({
 
               {/* In-article ad — mobile only (conditional mount) */}
               {isMobile && (
-                <Suspense fallback={null}>
+                <Suspense fallback={adEligibleInline ? <div style={{ minHeight: AD_SLOTS.ARTICLE_INLINE_MOBILE.placeholderMinHeight, contain: 'content' }} className="my-4" /> : null}>
                   <AdSenseBanner
                     adSlot={AD_SLOTS.ARTICLE_INLINE_MOBILE.slot}
                     adFormat={AD_SLOTS.ARTICLE_INLINE_MOBILE.format}
@@ -1551,7 +1551,7 @@ export default function BlogArticles({
 
             {/* AdSense — end-of-article multiplex */}
             <div className="mt-8">
-              <Suspense fallback={null}>
+              <Suspense fallback={adEligible ? <div style={{ minHeight: AD_SLOTS.ARTICLE_END_MULTIPLEX.placeholderMinHeight, contain: 'content' }} className="my-4" /> : null}>
                 <AdSenseBanner
                   adSlot={AD_SLOTS.ARTICLE_END_MULTIPLEX.slot}
                   adFormat={AD_SLOTS.ARTICLE_END_MULTIPLEX.format}
@@ -1707,14 +1707,14 @@ export default function BlogArticles({
 
               {/* AdSense — right rail (desktop xl only, conditional mount) */}
               {isDesktopXl && (
-                <Suspense fallback={null}>
-                <AdSenseBanner
-                  adSlot={AD_SLOTS.ARTICLE_RAIL_RIGHT.slot}
-                  adFormat={AD_SLOTS.ARTICLE_RAIL_RIGHT.format}
-                  label={t('adsense.label')}
-                  enabled={adEligible}
-                  className="mt-3"
-                />
+                <Suspense fallback={adEligible ? <div style={{ minHeight: AD_SLOTS.ARTICLE_RAIL_RIGHT.placeholderMinHeight, contain: 'content' }} className="mt-3" /> : null}>
+                  <AdSenseBanner
+                    adSlot={AD_SLOTS.ARTICLE_RAIL_RIGHT.slot}
+                    adFormat={AD_SLOTS.ARTICLE_RAIL_RIGHT.format}
+                    label={t('adsense.label')}
+                    enabled={adEligible}
+                    className="mt-3"
+                  />
                 </Suspense>
               )}
               <Suspense fallback={null}>
