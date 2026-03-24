@@ -123,6 +123,9 @@ const NewsletterPopup: React.FC = () => {
     // Don't show for crawlers / bots (they must see full page content)
     if (isCrawlerVisitor) return;
 
+    // FRO-407: Don't show on profile page — popup z-index blocks Google One Tap login
+    if (/^\/(profilo|profile|profil|en\/profile|de\/profil|fr\/profil)\/?$/.test(window.location.pathname)) return;
+
     // FRO-25: Check for pending confirmation (> 1 hour old)
     const pendingInfo = getNewsletterPendingEmail();
     const ONE_HOUR = 60 * 60 * 1000;
