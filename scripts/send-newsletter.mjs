@@ -417,14 +417,36 @@ function getWeeklyFact() {
 }
 
 function loadLocalJobsData() {
+  let jobs = [];
+  let jobStats = {};
+
+  // Primary: read assembled data/jobs.json
   try {
-    const jobs = JSON.parse(fs.readFileSync(new URL('../data/jobs.json', import.meta.url), 'utf8'));
-    const jobStats = JSON.parse(fs.readFileSync(new URL('../data/jobs-stats.json', import.meta.url), 'utf8'));
-    return { jobs, jobStats };
-  } catch (e) {
-    console.warn('\u26a0\ufe0f Local jobs load failed:', e.message);
-    return { jobs: [], jobStats: {} };
+    jobs = JSON.parse(fs.readFileSync(new URL('../data/jobs.json', import.meta.url), 'utf8'));
+  } catch {
+    // Fallback: assemble from per-crawler slices (handles CI when assembly step failed)
+    try {
+      const slicesDir = new URL('../data/jobs/by-crawler/', import.meta.url);
+      const sliceFiles = fs.readdirSync(slicesDir).filter((f) => f.endsWith('.json') && f !== '.gitkeep');
+      for (const file of sliceFiles) {
+        const slice = JSON.parse(fs.readFileSync(new URL(file, slicesDir), 'utf8'));
+        if (Array.isArray(slice.jobs)) jobs.push(...slice.jobs);
+      }
+      if (jobs.length > 0) {
+        console.warn(`⚠️  data/jobs.json missing — loaded ${jobs.length} jobs from ${sliceFiles.length} crawler slices`);
+      }
+    } catch (e2) {
+      console.warn('⚠️  Local jobs load failed (both jobs.json and slices):', e2.message);
+    }
   }
+
+  try {
+    jobStats = JSON.parse(fs.readFileSync(new URL('../data/jobs-stats.json', import.meta.url), 'utf8'));
+  } catch {
+    // stats are optional
+  }
+
+  return { jobs, jobStats };
 }
 
 /**

@@ -130,22 +130,42 @@ export function matchJobsForSubscriber(subscriber, jobs, limit = 3) {
 }
 
 /**
+ * Build a Set of known slugs from a jobs array.
+ */
+function buildSlugSet(jobs) {
+  const slugs = new Set();
+  for (const j of jobs) {
+    if (j.slug) slugs.add(j.slug);
+    if (j.slugByLocale) {
+      for (const s of Object.values(j.slugByLocale)) {
+        if (s) slugs.add(s);
+      }
+    }
+  }
+  return slugs;
+}
+
+/**
  * Validate matched job URLs against the set of known valid IT slugs.
  * Removes jobs whose slug doesn't exist in jobs.json (stale/deleted jobs).
+ *
+ * Resilience: if `allJobs` produces an empty slug set, falls back to reading
+ * slugs directly from data/jobs.json. If still empty, skips validation entirely
+ * so that matched jobs are never silently dropped.
+ *
  * @param {object[]} matchedJobs — Output of matchJobsForSubscriber
  * @param {object[]} allJobs — Full jobs array from data/jobs.json
  * @returns {object[]} — Only jobs with valid, resolvable URLs
  */
 export function validateJobUrls(matchedJobs, allJobs) {
-  // Build set of all known slugs (base + all locales)
-  const validSlugs = new Set();
-  for (const j of allJobs) {
-    if (j.slug) validSlugs.add(j.slug);
-    if (j.slugByLocale) {
-      for (const s of Object.values(j.slugByLocale)) {
-        if (s) validSlugs.add(s);
-      }
-    }
+  if (!matchedJobs || matchedJobs.length === 0) return [];
+
+  let validSlugs = buildSlugSet(allJobs || []);
+
+  // Resilience: if slug set is empty, skip validation — never silently drop all jobs
+  if (validSlugs.size === 0) {
+    console.warn('⚠️  validateJobUrls: no valid slugs available — skipping validation, returning all matched jobs');
+    return matchedJobs;
   }
 
   const valid = [];

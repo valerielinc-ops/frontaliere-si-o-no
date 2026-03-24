@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 
 const { buildNewsletter, FEATURED_TOOLS, directUrl } = await import('@/services/newsletter-template.mjs');
-const { matchJobsForSubscriber, getFallbackBriefing, FALLBACK_SUBJECT } = await import('@/services/newsletter-content.mjs');
+const { matchJobsForSubscriber, validateJobUrls, getFallbackBriefing, FALLBACK_SUBJECT } = await import('@/services/newsletter-content.mjs');
 
 const SAMPLE_EXCHANGE = { rate: 1.0942, previousRate: 1.0885 };
 const SAMPLE_FACT = { text: 'Oltre 78.000 frontalieri lavorano nel Canton Ticino.', source: 'USTAT' };
@@ -132,6 +132,48 @@ describe('newsletter content v2', () => {
     expect(FALLBACK_SUBJECT.en).toBeDefined();
     expect(FALLBACK_SUBJECT.de).toBeDefined();
     expect(FALLBACK_SUBJECT.fr).toBeDefined();
+  });
+});
+
+describe('validateJobUrls resilience', () => {
+  const MATCHED = [
+    { title: 'Dev', url: '/cerca-lavoro-ticino/dev-acme/', company: 'Acme', location: 'Lugano', contract: 'Tempo pieno' },
+    { title: 'PM', url: '/cerca-lavoro-ticino/pm-beta/', company: 'Beta', location: 'Bellinzona', contract: 'Part-time' },
+  ];
+  const ALL_JOBS = [
+    { slug: 'dev-acme', company: 'Acme', title: 'Dev' },
+    { slug: 'pm-beta', company: 'Beta', title: 'PM' },
+  ];
+
+  it('keeps jobs whose slugs match allJobs', () => {
+    const result = validateJobUrls(MATCHED, ALL_JOBS);
+    expect(result).toHaveLength(2);
+  });
+
+  it('returns all matched jobs when allJobs is empty (resilience fallback)', () => {
+    const result = validateJobUrls(MATCHED, []);
+    // Should NOT return 0 — resilience: skip validation when slug set is empty
+    expect(result.length).toBeGreaterThan(0);
+  });
+
+  it('returns all matched jobs when allJobs is null', () => {
+    const result = validateJobUrls(MATCHED, null);
+    expect(result.length).toBeGreaterThan(0);
+  });
+
+  it('returns empty array for empty matchedJobs', () => {
+    expect(validateJobUrls([], ALL_JOBS)).toHaveLength(0);
+    expect(validateJobUrls(null, ALL_JOBS)).toHaveLength(0);
+  });
+
+  it('filters out jobs with unknown slugs', () => {
+    const mixed = [
+      ...MATCHED,
+      { title: 'Ghost', url: '/cerca-lavoro-ticino/ghost-job/', company: 'X', location: 'X', contract: 'X' },
+    ];
+    const result = validateJobUrls(mixed, ALL_JOBS);
+    expect(result).toHaveLength(2);
+    expect(result.find((j) => j.title === 'Ghost')).toBeUndefined();
   });
 });
 
