@@ -3065,7 +3065,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
         "@context": "https://schema.org",
         "@type": "ItemList",
         "name": "Articoli Frontaliere",
-        "numberOfItems": 578,
+        "numberOfItems": 579,
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
           { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -3644,7 +3644,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 575, "name": "{ \"@context\": \"https://schema.org\", \"@type\": \"N...", "url": `${BASE_URL}/articoli-frontaliere/crescita-sicurezza-ticino-2025` },
           { "@type": "ListItem", "position": 576, "name": "Frontaliere Ticino - Per il centro sportivo di ...", "url": `${BASE_URL}/articoli-frontaliere/sesto-calende-centro-sportivo` },
           { "@type": "ListItem", "position": 577, "name": "Missione emergenza a Chiasso: un evento unico p...", "url": `${BASE_URL}/articoli-frontaliere/chiasso-missione-emergenza` },
-          { "@type": "ListItem", "position": 578, "name": "Ticinesi e frontalieri comprano sempre più case...", "url": `${BASE_URL}/articoli-frontaliere/ticinesi-e-frontalieri-comprano-case-su-laghi-verbano-e-ceresio` }
+          { "@type": "ListItem", "position": 578, "name": "Ticinesi e frontalieri comprano sempre più case...", "url": `${BASE_URL}/articoli-frontaliere/ticinesi-e-frontalieri-comprano-case-su-laghi-verbano-e-ceresio` },
+          { "@type": "ListItem", "position": 579, "name": "Annaffiatoi e aiuole, il centro si cura insieme...", "url": `${BASE_URL}/articoli-frontaliere/lavena-ponte-tresa-verde` }
         ]
       }
     ]

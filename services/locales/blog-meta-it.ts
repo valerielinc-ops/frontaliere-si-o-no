@@ -1763,6 +1763,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.ticinesi-e-frontalieri-comprano-case-su-laghi-verbano-e-ceresio.title': 'Ticinesi e frontalieri comprano sempre più case sui laghi Verbano e Ceresio',
     'blog.article.ticinesi-e-frontalieri-comprano-case-su-laghi-verbano-e-ceresio.excerpt': 'Secondo una recente indagine, gli acquirenti provenienti dall\'Italia e dai paesi limitrofi stanno aumentando di numero sul mercato immobiliare dei due laghi',
     'blog.article.ticinesi-e-frontalieri-comprano-case-su-laghi-verbano-e-ceresio.imageAlt': 'una vista del lago Verbano da un alto punto di vista, con case sul lago e colline circostanti',
+    'blog.article.lavena-ponte-tresa-verde.title': 'Annaffiatoi e aiuole, il centro si cura insieme: a Lavena Pontre Tresa l’idea ‘verde’ che coinvolge i negozi',
+    'blog.article.lavena-ponte-tresa-verde.excerpt': 'A Lavena Ponte Tresa, il centro si cura insieme con l\'aiuto dei negozi',
+    'blog.article.lavena-ponte-tresa-verde.imageAlt': 'Il centro di Lavena Ponte Tresa si cura insieme con l\'aiuto dei negozi',
 };
 
 export default blogMetaIt;

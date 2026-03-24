@@ -1709,6 +1709,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-sesto-calende-centro-sportivo': { name: 'Sesto Calende centro sportivo', path: '/articoli-frontaliere/sesto-calende-centro-sportivo', parent: 'blog' },
     'blog-chiasso-missione-emergenza': { name: 'Chiasso', path: '/articoli-frontaliere/chiasso-missione-emergenza', parent: 'blog' },
     'blog-ticinesi-e-frontalieri-comprano-case-su-laghi-verbano-e-ceresio': { name: 'Ticinesi e frontalieri', path: '/articoli-frontaliere/ticinesi-e-frontalieri-comprano-case-su-laghi-verbano-e-ceresio', parent: 'blog' },
+    'blog-lavena-ponte-tresa-verde': { name: 'Annaffiatoi e aiuole, il centro si cura', path: '/articoli-frontaliere/lavena-ponte-tresa-verde', parent: 'blog' },
   };
 
   const info = sectionNames[section];

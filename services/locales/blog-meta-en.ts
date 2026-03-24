@@ -1763,6 +1763,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.ticinesi-e-frontalieri-comprano-case-su-laghi-verbano-e-ceresio.title': 'Lake dwellers: Ticinese and frontier buyers snap up homes on Verbano and Ceresio lakes',
     'blog.article.ticinesi-e-frontalieri-comprano-case-su-laghi-verbano-e-ceresio.excerpt': 'According to a recent survey, buyers from Italy and neighboring countries are increasing in number on the real estate market of the two lakes.',
     'blog.article.ticinesi-e-frontalieri-comprano-case-su-laghi-verbano-e-ceresio.imageAlt': 'a view of Lake Maggiore from a high point, with houses on the lake and surrounding hills',
+    'blog.article.lavena-ponte-tresa-verde.title': 'Watering Cans and Flowerbeds, the Town Center Takes Care Together: the \'Green\' Idea in Lavena Ponte Tresa Involving Shops',
+    'blog.article.lavena-ponte-tresa-verde.excerpt': 'In Lavena Ponte Tresa, the town center is taking care together with the help of shops',
+    'blog.article.lavena-ponte-tresa-verde.imageAlt': 'The center of Lavena Ponte Tresa cares for itself with the help of shops',
 };
 
 export default blogMetaEn;

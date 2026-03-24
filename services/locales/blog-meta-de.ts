@@ -1763,6 +1763,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.ticinesi-e-frontalieri-comprano-case-su-laghi-verbano-e-ceresio.title': 'Ticinesi und Grenzgänger kaufen immer mehr Häuser am Lago Maggiore und Lago di Como',
     'blog.article.ticinesi-e-frontalieri-comprano-case-su-laghi-verbano-e-ceresio.excerpt': 'Laut einer jüngsten Umfrage steigen die Anzahl der Käufer aus Italien und den benachbarten Ländern auf dem Immobilienmarkt der beiden Seen an.',
     'blog.article.ticinesi-e-frontalieri-comprano-case-su-laghi-verbano-e-ceresio.imageAlt': 'eine Aussicht auf den Maggiore-See von einem hohen Punkt, mit Häusern am See und umgebenden Hügeln',
+    'blog.article.lavena-ponte-tresa-verde.title': 'Wasserspeier und Blumenbeete, das Zentrum pflegt gemeinsam: In Lavena Ponte Tresa die "grüne" Idee, die die Geschäfte mit einschließt',
+    'blog.article.lavena-ponte-tresa-verde.excerpt': 'In Lavena Ponte Tresa pflegt das Zentrum gemeinsam mit den Geschäften.',
+    'blog.article.lavena-ponte-tresa-verde.imageAlt': 'Das Zentrum von Lavena Ponte Tresa kümmert sich um sich mit der Hilfe der Geschäfte',
 };
 
 export default blogMetaDe;

@@ -10173,6 +10173,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-lavena-ponte-tresa-verde': {
+    title: 'Annaffiatoi e aiuole, il centro si cura insieme: a Lavena Pontre Tresa | Frontaliere Ticino',
+    description: 'A Lavena Ponte Tresa, il centro si cura insieme con l\'aiuto dei negozi. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, annaffiatoi, aiuole, centro, cura',
+    ogTitle: 'Annaffiatoi e aiuole, il centro si cura insieme: a Lavena',
+    ogDescription: 'A Lavena Ponte Tresa, il centro si cura insieme con l\'aiuto dei negozi',
+    canonicalPath: '/articoli-frontaliere/lavena-ponte-tresa-verde',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Annaffiatoi e aiuole, il centro si cura insieme: a Lavena",
+      "description": "A Lavena Ponte Tresa, il centro si cura insieme con l'aiuto dei negozi. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/lavena-ponte-tresa-verde.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Il centro di Lavena Ponte Tresa si cura insieme con l'aiuto dei negozi"
+      },
+      "datePublished": "2026-03-24T21:51:51+00:00",
+      "dateModified": "2026-03-24T21:51:51+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/lavena-ponte-tresa-verde`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

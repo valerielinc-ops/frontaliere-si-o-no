@@ -5305,4 +5305,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/ticinesi-e-frontalieri-comprano-case-su-laghi-verbano-e-ceresio.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'lavena-ponte-tresa-verde',
+    category: 'novita',
+    date: '2026-03-24T21:51:51.047Z',
+    image: '/images/blog/lavena-ponte-tresa-verde.jpg',
+    hasCalculator: true,
+  },
 ];

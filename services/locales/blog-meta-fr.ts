@@ -1763,6 +1763,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.ticinesi-e-frontalieri-comprano-case-su-laghi-verbano-e-ceresio.title': 'Les frontaliers et les résidents du Tessin achètent de plus en plus de maisons sur les lacs Verbano et Ceresio',
     'blog.article.ticinesi-e-frontalieri-comprano-case-su-laghi-verbano-e-ceresio.excerpt': 'Selon une enquête récente, les acheteurs provenant de l\'Italie et des pays voisins augmentent en nombre sur le marché immobilier des deux lacs',
     'blog.article.ticinesi-e-frontalieri-comprano-case-su-laghi-verbano-e-ceresio.imageAlt': 'une vue du lac Majeur depuis un point élevé, avec des maisons sur le lac et des collines alentour',
+    'blog.article.lavena-ponte-tresa-verde.title': 'Le annaffiatoi e le aiuole, il centro si cura insieme : a Lavena Pontre Tresa l’idée ‘verte’ qui implique les commerces',
+    'blog.article.lavena-ponte-tresa-verde.excerpt': 'A Lavena Ponte Tresa, le centre-ville s\'entoure pour prendre soin du vert avec l\'aide des commerces',
+    'blog.article.lavena-ponte-tresa-verde.imageAlt': 'Le centre de Lavena Ponte Tresa prend soin de lui-même avec l\'aide des commerces',
 };
 
 export default blogMetaFr;
