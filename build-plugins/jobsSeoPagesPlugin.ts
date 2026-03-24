@@ -1354,9 +1354,84 @@ ${hreflangHtml}
     <main class="static-job-page">
       <h1>${esc(copy.heading(companyName))}</h1>
       <p>${esc(description)}</p>
-      <ul style="list-style:none;padding:0;margin:16px 0">${jobListHtml}</ul>
-      <p><a href="${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionSlug}`.replace(/\/+/g, '/'))}">${esc(copy.viewAll)}</a></p>
-      <p style="margin-top:16px;font-size:14px;color:#475569;line-height:1.6">${esc(copy.editorial)}</p>
+${(() => {
+            // Collect location info from company jobs
+            const companyLocations = [...new Set(companyJobs.map((j: any) => String(j.location || '')).filter(Boolean))];
+            const companyCantons = [...new Set(companyJobs.map((j: any) => String(j.canton || 'TI')).filter(Boolean))];
+            const companySectors = [...new Set(companyJobs.map((j: any) => String(j.category || j.sector || '')).filter(Boolean))];
+            const companyContracts = [...new Set(companyJobs.map((j: any) => String(j.contract || '')).filter(Boolean))];
+            const primaryLocation = companyLocations[0] || '';
+            const primaryCanton = companyCantons[0] || 'TI';
+            const displayCanton = primaryCanton === 'TI' ? 'Ticino' : primaryCanton;
+            const locationListStr = companyLocations.slice(0, 5).join(', ');
+            const listingUrl = `${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionSlug}`.replace(/\/+/g, '/'))}`;
+
+            const parts: string[] = [];
+
+            // Company info section
+            if (locale === 'it') {
+              parts.push(`<section style="margin-top:20px"><h2>Informazioni su ${esc(companyName)}</h2>`);
+              parts.push(`<p>${esc(companyName)} offre attualmente <strong>${companyJobs.length} posizioni aperte</strong> in Canton ${esc(displayCanton)}.`);
+              if (locationListStr) parts[parts.length - 1] += ` Le sedi di lavoro includono: ${esc(locationListStr)}.`;
+              if (companySectors.length > 0) parts[parts.length - 1] += ` L'azienda opera nel settore ${esc(companySectors.slice(0, 3).join(', '))}.`;
+              parts[parts.length - 1] += '</p>';
+              if (companyContracts.length > 0) parts.push(`<p>Tipologie di contratto disponibili: ${esc(companyContracts.join(', '))}.</p>`);
+              parts.push('</section>');
+            } else if (locale === 'en') {
+              parts.push(`<section style="margin-top:20px"><h2>About ${esc(companyName)}</h2>`);
+              parts.push(`<p>${esc(companyName)} currently has <strong>${companyJobs.length} open positions</strong> in the Canton of ${esc(displayCanton)}.`);
+              if (locationListStr) parts[parts.length - 1] += ` Work locations include: ${esc(locationListStr)}.`;
+              if (companySectors.length > 0) parts[parts.length - 1] += ` The company operates in the ${esc(companySectors.slice(0, 3).join(', '))} sector.`;
+              parts[parts.length - 1] += '</p>';
+              if (companyContracts.length > 0) parts.push(`<p>Available contract types: ${esc(companyContracts.join(', '))}.</p>`);
+              parts.push('</section>');
+            } else if (locale === 'de') {
+              parts.push(`<section style="margin-top:20px"><h2>\u00dcber ${esc(companyName)}</h2>`);
+              parts.push(`<p>${esc(companyName)} bietet derzeit <strong>${companyJobs.length} offene Stellen</strong> im Kanton ${esc(displayCanton)} an.`);
+              if (locationListStr) parts[parts.length - 1] += ` Arbeitsorte sind unter anderem: ${esc(locationListStr)}.`;
+              if (companySectors.length > 0) parts[parts.length - 1] += ` Das Unternehmen ist in den Bereichen ${esc(companySectors.slice(0, 3).join(', '))} t\u00e4tig.`;
+              parts[parts.length - 1] += '</p>';
+              if (companyContracts.length > 0) parts.push(`<p>Verf\u00fcgbare Vertragsarten: ${esc(companyContracts.join(', '))}.</p>`);
+              parts.push('</section>');
+            } else {
+              parts.push(`<section style="margin-top:20px"><h2>\u00c0 propos de ${esc(companyName)}</h2>`);
+              parts.push(`<p>${esc(companyName)} propose actuellement <strong>${companyJobs.length} postes ouverts</strong> dans le Canton du ${esc(displayCanton)}.`);
+              if (locationListStr) parts[parts.length - 1] += ` Les lieux de travail incluent : ${esc(locationListStr)}.`;
+              if (companySectors.length > 0) parts[parts.length - 1] += ` L'entreprise op\u00e8re dans le secteur ${esc(companySectors.slice(0, 3).join(', '))}.`;
+              parts[parts.length - 1] += '</p>';
+              if (companyContracts.length > 0) parts.push(`<p>Types de contrat disponibles : ${esc(companyContracts.join(', '))}.</p>`);
+              parts.push('</section>');
+            }
+
+            // Job list
+            parts.push(`<section style="margin-top:20px"><h2>${locale === 'it' ? 'Posizioni aperte' : locale === 'en' ? 'Open positions' : locale === 'de' ? 'Offene Stellen' : 'Postes ouverts'}</h2>`);
+            parts.push(`<ul style="list-style:none;padding:0;margin:16px 0">${jobListHtml}</ul>`);
+            parts.push(`<p><a href="${listingUrl}">${esc(copy.viewAll)}</a></p>`);
+            parts.push('</section>');
+
+            // Frontalier info section
+            if (locale === 'it') {
+              parts.push(`<section style="margin-top:20px"><h2>Informazioni per frontalieri</h2>`);
+              parts.push(`<p>${esc(companyName)} ha sede${primaryLocation ? ` a ${esc(primaryLocation)}` : ''} in Canton ${esc(displayCanton)}, Svizzera. Per lavorare come frontaliere presso questa azienda serve il Permesso G. Il Canton ${esc(displayCanton)} applica l'imposta alla fonte con aliquote variabili sul reddito lordo dei lavoratori transfrontalieri. Usa il nostro <a href="${BASE_URL}/">simulatore fiscale gratuito</a> per calcolare il tuo stipendio netto e confrontare i costi della vita tra Svizzera e Italia.</p>`);
+              parts.push('</section>');
+            } else if (locale === 'en') {
+              parts.push(`<section style="margin-top:20px"><h2>Information for cross-border workers</h2>`);
+              parts.push(`<p>${esc(companyName)} is based${primaryLocation ? ` in ${esc(primaryLocation)}` : ''} in the Canton of ${esc(displayCanton)}, Switzerland. Cross-border workers need a G Permit to work at this company. The Canton of ${esc(displayCanton)} applies withholding tax at variable rates on the gross income of cross-border employees. Use our <a href="${BASE_URL}/en/">free tax simulator</a> to calculate your net salary and compare the cost of living between Switzerland and Italy.</p>`);
+              parts.push('</section>');
+            } else if (locale === 'de') {
+              parts.push(`<section style="margin-top:20px"><h2>Informationen f\u00fcr Grenzg\u00e4nger</h2>`);
+              parts.push(`<p>${esc(companyName)} hat seinen Sitz${primaryLocation ? ` in ${esc(primaryLocation)}` : ''} im Kanton ${esc(displayCanton)}, Schweiz. Grenzg\u00e4nger ben\u00f6tigen eine G-Bewilligung, um bei diesem Unternehmen zu arbeiten. Der Kanton ${esc(displayCanton)} erhebt eine Quellensteuer mit variablen S\u00e4tzen auf das Bruttoeinkommen der Grenzg\u00e4nger. Nutzen Sie unseren <a href="${BASE_URL}/de/">kostenlosen Steuersimulator</a>, um Ihr Nettogehalt zu berechnen und die Lebenshaltungskosten zwischen der Schweiz und Italien zu vergleichen.</p>`);
+              parts.push('</section>');
+            } else {
+              parts.push(`<section style="margin-top:20px"><h2>Informations pour les frontaliers</h2>`);
+              parts.push(`<p>${esc(companyName)} a son si\u00e8ge${primaryLocation ? ` \u00e0 ${esc(primaryLocation)}` : ''} dans le Canton du ${esc(displayCanton)}, en Suisse. Les travailleurs frontaliers ont besoin d'un permis G pour travailler dans cette entreprise. Le Canton du ${esc(displayCanton)} applique un imp\u00f4t \u00e0 la source \u00e0 taux variable sur le revenu brut des frontaliers. Utilisez notre <a href="${BASE_URL}/fr/">simulateur fiscal gratuit</a> pour calculer votre salaire net et comparer le co\u00fbt de la vie entre la Suisse et l'Italie.</p>`);
+              parts.push('</section>');
+            }
+
+            // Editorial
+            parts.push(`<p style="margin-top:16px;font-size:14px;color:#475569;line-height:1.6">${esc(copy.editorial)}</p>`);
+            return parts.join('\n');
+          })()}
     </main>
     </div>${hasSpaBundle ? `\n    <script type="module" crossorigin src="/assets/${entryJs}"></script>` : ''}
   </body>
@@ -2544,8 +2619,37 @@ ${alternates}${hasSpaBundle ? `\n    <link rel="stylesheet" href="/assets/${entr
     <main class="static-job-page">
       <h1>${esc(copy.heading(name))}</h1>
       <p>${esc(description)}</p>
-      <ul style="list-style:none;padding:0;margin:16px 0">${listHtml}</ul>
-      <p><a href="${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionByLocale[locale]}`.replace(/\/+/g, '/'))}">${esc(copy.openListing)}</a></p>
+${(() => {
+              const listingUrl = `${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionByLocale[locale]}`.replace(/\/+/g, '/'))}`;
+              const uniqueCompanies = [...new Set(matchingJobs.map((j: any) => String(j.company || '')).filter(Boolean))];
+              const uniqueLocations = [...new Set(matchingJobs.map((j: any) => String(j.location || '')).filter(Boolean))];
+              const sp: string[] = [];
+              // Intro paragraph about the search results
+              if (locale === 'it') {
+                sp.push(`<p>Sono attualmente disponibili <strong>${matchingJobs.length} offerte di lavoro</strong> per ${esc(name)} in Ticino, pubblicate da ${uniqueCompanies.length} aziende in ${uniqueLocations.length} localit\u00e0. Gli annunci vengono aggiornati quotidianamente dal nostro crawler automatico che raccoglie le offerte direttamente dai portali carriera delle aziende ticinesi.</p>`);
+              } else if (locale === 'en') {
+                sp.push(`<p>There are currently <strong>${matchingJobs.length} job openings</strong> for ${esc(name)} in Ticino, published by ${uniqueCompanies.length} companies across ${uniqueLocations.length} locations. Listings are refreshed daily by our automated crawler that collects jobs directly from company career portals in Ticino.</p>`);
+              } else if (locale === 'de') {
+                sp.push(`<p>Derzeit sind <strong>${matchingJobs.length} Stellenangebote</strong> f\u00fcr ${esc(name)} im Tessin verf\u00fcgbar, ver\u00f6ffentlicht von ${uniqueCompanies.length} Unternehmen an ${uniqueLocations.length} Standorten. Die Anzeigen werden t\u00e4glich von unserem automatischen Crawler aktualisiert, der Stellen direkt von den Karriereportalen der Tessiner Unternehmen sammelt.</p>`);
+              } else {
+                sp.push(`<p>${matchingJobs.length} <strong>offres d'emploi</strong> sont actuellement disponibles pour ${esc(name)} au Tessin, publi\u00e9es par ${uniqueCompanies.length} entreprises dans ${uniqueLocations.length} localit\u00e9s. Les annonces sont mises \u00e0 jour quotidiennement par notre robot qui collecte les offres directement depuis les portails carri\u00e8re des entreprises tessinoises.</p>`);
+              }
+              // Job list
+              sp.push(`<ul style="list-style:none;padding:0;margin:16px 0">${listHtml}</ul>`);
+              sp.push(`<p><a href="${listingUrl}">${esc(copy.openListing)}</a></p>`);
+              // Market info for frontaliers
+              if (locale === 'it') {
+                sp.push(`<section style="margin-top:20px"><h2>Il mercato del lavoro in Ticino</h2><p>Il Canton Ticino \u00e8 il principale polo economico della Svizzera italiana con oltre 180.000 posti di lavoro. I settori pi\u00f9 attivi includono sanit\u00e0, finanza, tecnologia, ingegneria, commercio e amministrazione. Per i lavoratori frontalieri con Permesso G, il Ticino applica l'imposta alla fonte sul reddito lordo. Usa il nostro <a href="${BASE_URL}/">simulatore fiscale gratuito</a> per calcolare il tuo stipendio netto come frontaliere.</p></section>`);
+              } else if (locale === 'en') {
+                sp.push(`<section style="margin-top:20px"><h2>The Ticino job market</h2><p>The Canton of Ticino is the main economic hub of Italian-speaking Switzerland with over 180,000 jobs. The most active sectors include healthcare, finance, technology, engineering, retail, and administration. For cross-border workers with a G Permit, Ticino applies withholding tax on gross income. Use our <a href="${BASE_URL}/en/">free tax simulator</a> to calculate your net salary as a cross-border worker.</p></section>`);
+              } else if (locale === 'de') {
+                sp.push(`<section style="margin-top:20px"><h2>Der Arbeitsmarkt im Tessin</h2><p>Der Kanton Tessin ist das wirtschaftliche Zentrum der italienischen Schweiz mit \u00fcber 180.000 Arbeitspl\u00e4tzen. Die aktivsten Branchen sind Gesundheitswesen, Finanzen, Technologie, Ingenieurwesen, Handel und Verwaltung. F\u00fcr Grenzg\u00e4nger mit G-Bewilligung erhebt das Tessin eine Quellensteuer auf das Bruttoeinkommen. Nutzen Sie unseren <a href="${BASE_URL}/de/">kostenlosen Steuersimulator</a>, um Ihr Nettogehalt als Grenzg\u00e4nger zu berechnen.</p></section>`);
+              } else {
+                sp.push(`<section style="margin-top:20px"><h2>Le march\u00e9 de l'emploi au Tessin</h2><p>Le Canton du Tessin est le principal p\u00f4le \u00e9conomique de la Suisse italienne avec plus de 180 000 emplois. Les secteurs les plus actifs incluent la sant\u00e9, la finance, la technologie, l'ing\u00e9nierie, le commerce et l'administration. Pour les frontaliers avec un permis G, le Tessin applique un imp\u00f4t \u00e0 la source sur le revenu brut. Utilisez notre <a href="${BASE_URL}/fr/">simulateur fiscal gratuit</a> pour calculer votre salaire net en tant que frontalier.</p></section>`);
+              }
+              sp.push(`<p style="margin-top:16px;font-size:14px;color:#475569;line-height:1.6">${esc(copy.editorial)}</p>`);
+              return sp.join('\n');
+            })()}
     </main>
     </div>${hasSpaBundle ? `\n    <script type="module" crossorigin src="/assets/${entryJs}"></script>` : ''}
   </body>
@@ -2625,9 +2729,37 @@ ${alternates}${hasSpaBundle ? `\n    <link rel="stylesheet" href="/assets/${entr
     <main class="static-job-page">
       <h1>${esc(copy.heading)}</h1>
       <p>${esc(description)}</p>
-      <ul style="list-style:none;padding:0;margin:16px 0">${listHtml}</ul>
-      <p><a href="${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionByLocale[locale]}`.replace(/\/+/g, '/'))}">${esc(searchPageCopy[locale].openListing)}</a></p>
-      <p style="margin-top:16px;font-size:14px;color:#475569;line-height:1.6">${esc(searchPageCopy[locale].editorial)}</p>
+${(() => {
+              const cListingUrl = `${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionByLocale[locale]}`.replace(/\/+/g, '/'))}`;
+              const cUniqueCompanies = [...new Set(matchingJobs.map((j: any) => String(j.company || '')).filter(Boolean))];
+              const cUniqueLocations = [...new Set(matchingJobs.map((j: any) => String(j.location || '')).filter(Boolean))];
+              const cp: string[] = [];
+              // Intro with counts
+              if (locale === 'it') {
+                cp.push(`<p>Abbiamo trovato <strong>${matchingJobs.length} offerte di lavoro</strong> corrispondenti a questa ricerca, pubblicate da ${cUniqueCompanies.length} aziende${cUniqueLocations.length > 1 ? ` in ${cUniqueLocations.length} localit\u00e0 del Ticino` : cUniqueLocations.length === 1 ? ` a ${esc(cUniqueLocations[0])}` : ' in Ticino'}. Ogni annuncio rimanda direttamente alla pagina di candidatura ufficiale dell'azienda.</p>`);
+              } else if (locale === 'en') {
+                cp.push(`<p>We found <strong>${matchingJobs.length} job openings</strong> matching this search, published by ${cUniqueCompanies.length} companies${cUniqueLocations.length > 1 ? ` across ${cUniqueLocations.length} locations in Ticino` : cUniqueLocations.length === 1 ? ` in ${esc(cUniqueLocations[0])}` : ' in Ticino'}. Each listing links directly to the official company application page.</p>`);
+              } else if (locale === 'de') {
+                cp.push(`<p>Wir haben <strong>${matchingJobs.length} Stellenangebote</strong> f\u00fcr diese Suche gefunden, ver\u00f6ffentlicht von ${cUniqueCompanies.length} Unternehmen${cUniqueLocations.length > 1 ? ` an ${cUniqueLocations.length} Standorten im Tessin` : cUniqueLocations.length === 1 ? ` in ${esc(cUniqueLocations[0])}` : ' im Tessin'}. Jedes Inserat verlinkt direkt zur offiziellen Bewerbungsseite des Unternehmens.</p>`);
+              } else {
+                cp.push(`<p>Nous avons trouv\u00e9 <strong>${matchingJobs.length} offres d'emploi</strong> correspondant \u00e0 cette recherche, publi\u00e9es par ${cUniqueCompanies.length} entreprises${cUniqueLocations.length > 1 ? ` dans ${cUniqueLocations.length} localit\u00e9s au Tessin` : cUniqueLocations.length === 1 ? ` \u00e0 ${esc(cUniqueLocations[0])}` : ' au Tessin'}. Chaque annonce renvoie directement \u00e0 la page de candidature officielle de l'entreprise.</p>`);
+              }
+              // Job list
+              cp.push(`<ul style="list-style:none;padding:0;margin:16px 0">${listHtml}</ul>`);
+              cp.push(`<p><a href="${cListingUrl}">${esc(searchPageCopy[locale].openListing)}</a></p>`);
+              // Market context
+              if (locale === 'it') {
+                cp.push(`<section style="margin-top:20px"><h2>Lavorare in Ticino come frontaliere</h2><p>Il Canton Ticino \u00e8 la principale area economica della Svizzera italiana. Per i lavoratori frontalieri con Permesso G, il Ticino applica l'imposta alla fonte con aliquote variabili sul reddito lordo. I principali centri economici sono Lugano, Bellinzona, Mendrisio, Locarno e Chiasso. Usa il nostro <a href="${BASE_URL}/">simulatore fiscale gratuito</a> per calcolare il tuo stipendio netto come frontaliere e confrontare vantaggi e svantaggi tra residenza in Svizzera e pendolarismo dall'Italia.</p></section>`);
+              } else if (locale === 'en') {
+                cp.push(`<section style="margin-top:20px"><h2>Working in Ticino as a cross-border commuter</h2><p>The Canton of Ticino is the main economic area of Italian-speaking Switzerland. For cross-border workers with a G Permit, Ticino applies withholding tax at variable rates on gross income. The main economic centres are Lugano, Bellinzona, Mendrisio, Locarno, and Chiasso. Use our <a href="${BASE_URL}/en/">free tax simulator</a> to calculate your net salary as a cross-border worker and compare the pros and cons of living in Switzerland versus commuting from Italy.</p></section>`);
+              } else if (locale === 'de') {
+                cp.push(`<section style="margin-top:20px"><h2>Arbeiten im Tessin als Grenzg\u00e4nger</h2><p>Der Kanton Tessin ist das wirtschaftliche Zentrum der italienischen Schweiz. F\u00fcr Grenzg\u00e4nger mit G-Bewilligung erhebt das Tessin eine Quellensteuer mit variablen S\u00e4tzen auf das Bruttoeinkommen. Die wichtigsten Wirtschaftszentren sind Lugano, Bellinzona, Mendrisio, Locarno und Chiasso. Nutzen Sie unseren <a href="${BASE_URL}/de/">kostenlosen Steuersimulator</a>, um Ihr Nettogehalt als Grenzg\u00e4nger zu berechnen und die Vor- und Nachteile eines Wohnsitzes in der Schweiz gegen\u00fcber dem Pendeln aus Italien zu vergleichen.</p></section>`);
+              } else {
+                cp.push(`<section style="margin-top:20px"><h2>Travailler au Tessin en tant que frontalier</h2><p>Le Canton du Tessin est la principale zone \u00e9conomique de la Suisse italienne. Pour les frontaliers avec un permis G, le Tessin applique un imp\u00f4t \u00e0 la source \u00e0 taux variable sur le revenu brut. Les principaux centres \u00e9conomiques sont Lugano, Bellinzona, Mendrisio, Locarno et Chiasso. Utilisez notre <a href="${BASE_URL}/fr/">simulateur fiscal gratuit</a> pour calculer votre salaire net en tant que frontalier et comparer les avantages et inconv\u00e9nients entre r\u00e9sider en Suisse et faire la navette depuis l'Italie.</p></section>`);
+              }
+              cp.push(`<p style="margin-top:16px;font-size:14px;color:#475569;line-height:1.6">${esc(searchPageCopy[locale].editorial)}</p>`);
+              return cp.join('\n');
+            })()}
     </main>
     </div>${hasSpaBundle ? `\n    <script type="module" crossorigin src="/assets/${entryJs}"></script>` : ''}
   </body>
@@ -3050,40 +3182,82 @@ ${alternates}${hasSpaBundle ? `\n    <link rel="stylesheet" href="/assets/${entr
           });
 
           // FRO-320: Generate static body content so Google sees real text, not an empty SPA shell.
-          // For pages with ejData.description: use the real description.
-          // For pages without: generate a template-based description from title/company/location.
+          // Enriched template ensures >100 words per page for every expired job.
           const staticBodyParts: string[] = [];
+          const jobCanton = String(ejData?.canton || 'TI');
+          const jobSector = String(ejData?.sector || '');
+          const jobContract = String(ejData?.contract || '');
+          const jobDatePosted = String(ejData?.datePosted || '');
+          const jobExpiredAt = String(ejData?.expiredAt || '');
+          const displayCanton = jobCanton === 'TI' ? 'Ticino' : jobCanton;
+
+          // Find active jobs from the same company for cross-linking
+          const sameCompanyActiveJobs = jobCompany
+            ? validJobs.filter((j: any) => String(j.company || '').toLowerCase() === jobCompany.toLowerCase()).slice(0, 5)
+            : [];
+
+          // --- H1 + expired notice ---
           staticBodyParts.push(`<h1>${esc(jobTitle)}${jobCompany ? ` — ${esc(jobCompany)}` : ''}</h1>`);
           staticBodyParts.push(`<p><strong>${esc(copy.banner)}</strong></p>`);
+
+          // --- Description section ---
           if (jobDescription && jobDescription.length > 30) {
-            // Real description from expired-jobs.json
             const descText = jobDescription.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
-            staticBodyParts.push(`<div>${descText.slice(0, 2000)}</div>`);
-          } else {
-            // Template description derived from slug metadata
-            const templateLines: string[] = [];
-            if (locale === 'it') {
-              templateLines.push(`Questa posizione di ${esc(jobTitle)}${jobCompany ? ` presso ${esc(jobCompany)}` : ''}${jobLocation ? ` a ${esc(jobLocation)}` : ' in Ticino'} non è più disponibile.`);
-              if (jobCompany) templateLines.push(`${esc(jobCompany)} è un'azienda attiva${ejData?.sector ? ` nel settore ${esc(ejData.sector)}` : ''} in Svizzera.`);
-              templateLines.push('Questa pagina è stata mantenuta come archivio informativo per chi aveva salvato l\'annuncio.');
-              templateLines.push(`Consulta le <a href="${BASE_URL}${listingPath}">offerte di lavoro simili attualmente disponibili in Ticino</a>.`);
-            } else if (locale === 'en') {
-              templateLines.push(`This ${esc(jobTitle)} position${jobCompany ? ` at ${esc(jobCompany)}` : ''}${jobLocation ? ` in ${esc(jobLocation)}` : ' in Ticino'} is no longer available.`);
-              if (jobCompany) templateLines.push(`${esc(jobCompany)} is an active employer${ejData?.sector ? ` in the ${esc(ejData.sector)} sector` : ''} in Switzerland.`);
-              templateLines.push(`See <a href="${BASE_URL}${listingPath}">similar jobs currently available in Ticino</a>.`);
-            } else if (locale === 'de') {
-              templateLines.push(`Diese Stelle als ${esc(jobTitle)}${jobCompany ? ` bei ${esc(jobCompany)}` : ''}${jobLocation ? ` in ${esc(jobLocation)}` : ' im Tessin'} ist nicht mehr verfügbar.`);
-              if (jobCompany) templateLines.push(`${esc(jobCompany)} ist ein aktiver Arbeitgeber${ejData?.sector ? ` im Bereich ${esc(ejData.sector)}` : ''} in der Schweiz.`);
-              templateLines.push(`Sehen Sie <a href="${BASE_URL}${listingPath}">ähnliche Stellen im Tessin</a>.`);
-            } else {
-              templateLines.push(`Ce poste de ${esc(jobTitle)}${jobCompany ? ` chez ${esc(jobCompany)}` : ''}${jobLocation ? ` à ${esc(jobLocation)}` : ' au Tessin'} n'est plus disponible.`);
-              if (jobCompany) templateLines.push(`${esc(jobCompany)} est un employeur actif${ejData?.sector ? ` dans le secteur ${esc(ejData.sector)}` : ''} en Suisse.`);
-              templateLines.push(`Voir les <a href="${BASE_URL}${listingPath}">postes similaires au Tessin</a>.`);
-            }
-            staticBodyParts.push(templateLines.map(l => `<p>${l}</p>`).join('\n'));
+            staticBodyParts.push(`<section><h2>${locale === 'it' ? 'Descrizione originale' : locale === 'en' ? 'Original description' : locale === 'de' ? 'Originalbeschreibung' : 'Description originale'}</h2><div>${descText.slice(0, 2000)}</div></section>`);
           }
-          if (jobLocation) staticBodyParts.push(`<p>${locale === 'it' ? 'Sede' : locale === 'en' ? 'Location' : locale === 'de' ? 'Standort' : 'Lieu'}: ${esc(jobLocation)}</p>`);
-          staticBodyParts.push(`<p><a href="${BASE_URL}${listingPath}">${esc(archiveRelatedLabel[locale] || archiveRelatedLabel.it)} →</a></p>`);
+
+          // --- Job details section ---
+          const detailsHeading = locale === 'it' ? 'Dettagli dell\'offerta' : locale === 'en' ? 'Job details' : locale === 'de' ? 'Stellendetails' : 'D\u00e9tails de l\'offre';
+          const detailItems: string[] = [];
+          if (jobCompany) detailItems.push(`<li><strong>${locale === 'it' ? 'Azienda' : locale === 'en' ? 'Company' : locale === 'de' ? 'Unternehmen' : 'Entreprise'}:</strong> ${esc(jobCompany)}</li>`);
+          detailItems.push(`<li><strong>${locale === 'it' ? 'Posizione' : locale === 'en' ? 'Position' : locale === 'de' ? 'Position' : 'Poste'}:</strong> ${esc(jobTitle)}</li>`);
+          if (jobLocation) detailItems.push(`<li><strong>${locale === 'it' ? 'Sede' : locale === 'en' ? 'Location' : locale === 'de' ? 'Standort' : 'Lieu'}:</strong> ${esc(jobLocation)}, ${esc(displayCanton)}</li>`);
+          if (jobContract) detailItems.push(`<li><strong>${locale === 'it' ? 'Tipo contratto' : locale === 'en' ? 'Contract type' : locale === 'de' ? 'Vertragsart' : 'Type de contrat'}:</strong> ${esc(jobContract)}</li>`);
+          if (jobSector) detailItems.push(`<li><strong>${locale === 'it' ? 'Settore' : locale === 'en' ? 'Sector' : locale === 'de' ? 'Branche' : 'Secteur'}:</strong> ${esc(jobSector)}</li>`);
+          if (jobDatePosted) detailItems.push(`<li><strong>${locale === 'it' ? 'Pubblicata il' : locale === 'en' ? 'Posted on' : locale === 'de' ? 'Ver\u00f6ffentlicht am' : 'Publi\u00e9e le'}:</strong> ${esc(jobDatePosted.slice(0, 10))}</li>`);
+          if (jobExpiredAt) detailItems.push(`<li><strong>${locale === 'it' ? 'Scaduta il' : locale === 'en' ? 'Expired on' : locale === 'de' ? 'Abgelaufen am' : 'Expir\u00e9e le'}:</strong> ${esc(jobExpiredAt.slice(0, 10))}</li>`);
+          staticBodyParts.push(`<section><h2>${esc(detailsHeading)}</h2><ul>${detailItems.join('')}</ul></section>`);
+
+          // --- Same-company active jobs ---
+          if (sameCompanyActiveJobs.length > 0) {
+            const companyJobsHeading = locale === 'it' ? `Altre offerte di ${esc(jobCompany)}` : locale === 'en' ? `More jobs at ${esc(jobCompany)}` : locale === 'de' ? `Weitere Stellen bei ${esc(jobCompany)}` : `Autres offres chez ${esc(jobCompany)}`;
+            const companyJobsList = sameCompanyActiveJobs.map((j: any) => {
+              const jSlug = localizedSlug(j, locale);
+              const jPath = `${localePrefix[locale]}/${sectionByLocale[locale]}/${jSlug}`.replace(/\/+/g, '/');
+              const jHref = `${BASE_URL}${withSlash(jPath)}`;
+              const jTitle = String(j?.titleByLocale?.[locale] || j.title || '');
+              return `<li><a href="${jHref}">${esc(jTitle)}</a> — ${esc(j.location)}</li>`;
+            }).join('');
+            staticBodyParts.push(`<section><h2>${companyJobsHeading}</h2><ul>${companyJobsList}</ul></section>`);
+          }
+
+          // --- Search suggestions ---
+          if (locale === 'it') {
+            const searchSugParts: string[] = [];
+            if (jobCompany) searchSugParts.push(`<p>Scopri tutte le <a href="${BASE_URL}/cerca-lavoro-ticino/">posizioni aperte</a> sul nostro job board con oltre 1000 offerte attive in Ticino.</p>`);
+            if (jobLocation) searchSugParts.push(`<p>Cerca altre offerte nella zona: <a href="${BASE_URL}/cerca-lavoro-ticino/">Lavoro in ${esc(displayCanton)}</a></p>`);
+            searchSugParts.push(`<p>Torna alla <a href="${BASE_URL}/cerca-lavoro-ticino/">Job Board completa</a> per trovare la tua prossima opportunit\u00e0 lavorativa come frontaliere in Svizzera.</p>`);
+            staticBodyParts.push(`<section><h2>Offerte simili in ${esc(displayCanton)}</h2>${searchSugParts.join('\n')}</section>`);
+          } else if (locale === 'en') {
+            staticBodyParts.push(`<section><h2>Similar jobs in ${esc(displayCanton)}</h2><p>Browse our <a href="${BASE_URL}/en/find-job-ticino/">complete job board</a> with over 1000 active positions in Ticino.</p>${jobLocation ? `<p>Search for more jobs near ${esc(jobLocation)}: <a href="${BASE_URL}/en/find-job-ticino/">Jobs in ${esc(displayCanton)}</a></p>` : ''}<p>Find your next opportunity as a cross-border worker in Switzerland.</p></section>`);
+          } else if (locale === 'de') {
+            staticBodyParts.push(`<section><h2>\u00c4hnliche Stellen im ${esc(displayCanton)}</h2><p>Durchsuchen Sie unser <a href="${BASE_URL}/de/job-suche-tessin/">komplettes Job Board</a> mit \u00fcber 1000 aktiven Stellen im Tessin.</p>${jobLocation ? `<p>Weitere Stellen in der N\u00e4he von ${esc(jobLocation)}: <a href="${BASE_URL}/de/job-suche-tessin/">Jobs im ${esc(displayCanton)}</a></p>` : ''}<p>Finden Sie Ihre n\u00e4chste Stelle als Grenzg\u00e4nger in der Schweiz.</p></section>`);
+          } else {
+            staticBodyParts.push(`<section><h2>Offres similaires au ${esc(displayCanton)}</h2><p>Parcourez notre <a href="${BASE_URL}/fr/recherche-emploi-tessin/">job board complet</a> avec plus de 1000 postes actifs au Tessin.</p>${jobLocation ? `<p>Recherchez d'autres offres pr\u00e8s de ${esc(jobLocation)}: <a href="${BASE_URL}/fr/recherche-emploi-tessin/">Emplois au ${esc(displayCanton)}</a></p>` : ''}<p>Trouvez votre prochaine opportunit\u00e9 en tant que frontalier en Suisse.</p></section>`);
+          }
+
+          // --- Frontalier info section ---
+          if (locale === 'it') {
+            staticBodyParts.push(`<section><h2>Informazioni per frontalieri</h2><p>${jobCompany ? `${esc(jobCompany)} si trova` : 'Questa posizione si trovava'}${jobLocation ? ` a ${esc(jobLocation)}` : ''} in Canton ${esc(displayCanton)}. Per lavorare come frontaliere in questa zona serve il Permesso G. Il Canton ${esc(displayCanton)} applica l'imposta alla fonte con aliquote variabili sul reddito lordo. Usa il nostro <a href="${BASE_URL}/">simulatore fiscale gratuito</a> per calcolare il tuo stipendio netto come lavoratore transfrontaliero e confrontare i costi della vita tra Svizzera e Italia.</p></section>`);
+          } else if (locale === 'en') {
+            staticBodyParts.push(`<section><h2>Information for cross-border workers</h2><p>${jobCompany ? `${esc(jobCompany)} is located` : 'This position was located'}${jobLocation ? ` in ${esc(jobLocation)}` : ''} in the Canton of ${esc(displayCanton)}. Cross-border workers need a G Permit to work in this area. The Canton of ${esc(displayCanton)} applies withholding tax at variable rates on gross income. Use our <a href="${BASE_URL}/en/">free tax simulator</a> to calculate your net salary as a cross-border worker and compare the cost of living between Switzerland and Italy.</p></section>`);
+          } else if (locale === 'de') {
+            staticBodyParts.push(`<section><h2>Informationen f\u00fcr Grenzg\u00e4nger</h2><p>${jobCompany ? `${esc(jobCompany)} befindet sich` : 'Diese Stelle befand sich'}${jobLocation ? ` in ${esc(jobLocation)}` : ''} im Kanton ${esc(displayCanton)}. Grenzg\u00e4nger ben\u00f6tigen eine G-Bewilligung, um in dieser Region zu arbeiten. Der Kanton ${esc(displayCanton)} erhebt eine Quellensteuer mit variablen S\u00e4tzen auf das Bruttoeinkommen. Nutzen Sie unseren <a href="${BASE_URL}/de/">kostenlosen Steuersimulator</a>, um Ihr Nettogehalt als Grenzg\u00e4nger zu berechnen und die Lebenshaltungskosten zwischen der Schweiz und Italien zu vergleichen.</p></section>`);
+          } else {
+            staticBodyParts.push(`<section><h2>Informations pour les frontaliers</h2><p>${jobCompany ? `${esc(jobCompany)} se trouve` : 'Ce poste se trouvait'}${jobLocation ? ` \u00e0 ${esc(jobLocation)}` : ''} dans le Canton du ${esc(displayCanton)}. Les travailleurs frontaliers ont besoin d'un permis G pour travailler dans cette r\u00e9gion. Le Canton du ${esc(displayCanton)} applique un imp\u00f4t \u00e0 la source \u00e0 taux variable sur le revenu brut. Utilisez notre <a href="${BASE_URL}/fr/">simulateur fiscal gratuit</a> pour calculer votre salaire net en tant que frontalier et comparer le co\u00fbt de la vie entre la Suisse et l'Italie.</p></section>`);
+          }
+
+          staticBodyParts.push(`<p><a href="${BASE_URL}${listingPath}">${esc(archiveRelatedLabel[locale] || archiveRelatedLabel.it)} \u2192</a></p>`);
           const staticBody = staticBodyParts.join('\n');
 
           const softLandingHtml = `<!DOCTYPE html>
