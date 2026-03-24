@@ -2334,7 +2334,7 @@ export function mergeRequirements(a = [], b = []) {
   return out;
 }
 
-function localeTextCoverage(map = {}, minChars = 1) {
+export function localeTextCoverage(map = {}, minChars = 1) {
   if (!map || typeof map !== 'object') return 0;
   let c = 0;
   for (const locale of LOCALES) {

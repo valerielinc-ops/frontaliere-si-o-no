@@ -67,6 +67,7 @@ import {
   preferJob as _preferJob,
   getMergeExclusionReasons as _getMergeExclusionReasons,
   mergeAndDeduplicate as _mergeAndDeduplicate,
+  localeTextCoverage,
 } from './dedicated-crawler-common.mjs';
 import {
   getJobLocalizationPipelineStats,
