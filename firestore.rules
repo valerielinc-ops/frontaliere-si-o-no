@@ -70,14 +70,14 @@ service cloud.firestore {
       allow create: if request.auth != null && request.auth.uid == request.resource.data.userId;
     }
 
-    // Config — read only for clients (writes via Admin SDK)
+    // Config — public read + write for exchange rate cache (best-effort client-side caching)
     match /config/{docId} {
-      allow read: if true;
+      allow read, write: if true;
     }
 
-    // Exchange rate history — public read only (writes via client best-effort cache)
+    // Exchange rate history — public read + write (client-side best-effort cache)
     match /exchangeHistory/{docId} {
-      allow read: if true;
+      allow read, write: if true;
     }
   }
 }
