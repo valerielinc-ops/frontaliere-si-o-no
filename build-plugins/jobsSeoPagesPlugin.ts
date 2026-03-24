@@ -255,6 +255,30 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
         .replace(/</g, '&lt;')
         .replace(/>/g, '&gt;')
         .replace(/"/g, '&quot;');
+      /** Convert a plain-text description to basic HTML.
+       *  Wraps paragraphs in <p>, converts bullet lines to <ul><li>, and single newlines to <br>. */
+      const plainTextToHtml = (text: string): string => {
+        if (!text || /<(p|ul|li|h[1-6]|br|strong|em)\b/i.test(text)) return text;
+        const normalized = text.replace(/\r\n/g, '\n').replace(/\r/g, '\n');
+        const blocks = normalized.split(/\n{2,}/);
+        const htmlParts: string[] = [];
+        for (const block of blocks) {
+          const trimmed = block.trim();
+          if (!trimmed) continue;
+          const lines = trimmed.split('\n');
+          // Check if this block is a bullet list (all lines start with - or •)
+          const isList = lines.length > 1 && lines.every((l) => /^\s*[-•*]\s/.test(l));
+          if (isList) {
+            const items = lines.map((l) => `<li>${esc(l.replace(/^\s*[-•*]\s+/, ''))}</li>`).join('');
+            htmlParts.push(`<ul>${items}</ul>`);
+          } else {
+            // Single block — join internal newlines with <br>
+            const inner = lines.map((l) => esc(l.trim())).filter(Boolean).join('<br>');
+            if (inner) htmlParts.push(`<p>${inner}</p>`);
+          }
+        }
+        return htmlParts.join('');
+      };
       const normalizeText = (s: string) => String(s || '')
         .replace(/\r/g, '\n')
         .replace(/\t/g, ' ')
@@ -867,8 +891,9 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
           const jobPostingDescription = jobPostingDescriptionHtml.length >= 50
             ? jobPostingDescriptionHtml
             : (localizedDescription.length >= 50
-              ? localizedDescription.slice(0, 5000)
-              : `${metaIntro} ${localizedDescription}`.trim().slice(0, 5000));
+              ? plainTextToHtml(localizedDescription).slice(0, 5000) || localizedDescription.slice(0, 5000)
+              : plainTextToHtml(`${metaIntro} ${localizedDescription}`.trim()).slice(0, 5000)
+                || `${metaIntro} ${localizedDescription}`.trim().slice(0, 5000));
           // Skip JobPosting schema entirely when no meaningful description exists
           const hasValidJobPostingDescription = jobPostingDescription.length >= 30;
           const jobLd = hasValidJobPostingDescription ? JSON.stringify({
