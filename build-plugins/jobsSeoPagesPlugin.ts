@@ -952,7 +952,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
 
           const outDir = np.join(distDir, canonicalPath.slice(1));
           activeJobDirs.add(canonicalPath.slice(1).replace(/\/+$/, ''));
-          _md(outDir, { recursive: true });
+          _md(outDir);
           const html = `<!doctype html>
 <html lang="${locale}">
   <head>
@@ -1160,7 +1160,7 @@ ${jobLd ? `    <script type="application/ld+json">${jobLd}</script>\n` : ''}    
           const flatPath = canonicalPath.replace(/\/+$/, '');
           if (flatPath) {
             const flatFile = np.join(distDir, flatPath.slice(1) + '.html');
-            _md(np.dirname(flatFile), { recursive: true });
+            _md(np.dirname(flatFile));
             _qw(flatFile, buildFlatRedirect(canonicalUrl, canonicalPath));
           }
 
@@ -1180,12 +1180,12 @@ ${jobLd ? `    <script type="application/ld+json">${jobLd}</script>\n` : ''}    
             });
             const legacyDir = np.join(distDir, legacyRel);
             if (!fs.existsSync(np.join(legacyDir, 'index.html'))) {
-              _md(legacyDir, { recursive: true });
+              _md(legacyDir);
               _qw(np.join(legacyDir, 'index.html'), legacyHtml);
             }
             const legacyFlat = np.join(distDir, legacyRel + '.html');
             if (!fs.existsSync(legacyFlat)) {
-              _md(np.dirname(legacyFlat), { recursive: true });
+              _md(np.dirname(legacyFlat));
               _qw(legacyFlat, legacyHtml.replace(SPA_ACTION_REDIRECT_SCRIPT, ''));
             }
           }
@@ -1337,13 +1337,13 @@ ${hreflangHtml}
 </html>`;
 
           const outDir = np.join(distDir, canonicalPath.slice(1));
-          _md(outDir, { recursive: true });
+          _md(outDir);
           _qw(np.join(outDir, 'index.html'), companyHtml);
           // Flat .html variant
           const flatPath = canonicalPath.replace(/\/+$/, '');
           if (flatPath) {
             const flatFile = np.join(distDir, flatPath.slice(1) + '.html');
-            _md(np.dirname(flatFile), { recursive: true });
+            _md(np.dirname(flatFile));
             _qw(flatFile, buildFlatRedirect(canonicalUrl, canonicalPath));
           }
           // Redirect pages for raw slugs that differ from canonical (e.g. lidl-svizzera → lidl)
@@ -1362,12 +1362,12 @@ ${hreflangHtml}
             });
             const rawDir = np.join(distDir, rawRelPath);
             if (!fs.existsSync(np.join(rawDir, 'index.html'))) {
-              _md(rawDir, { recursive: true });
+              _md(rawDir);
               _qw(np.join(rawDir, 'index.html'), redirectHtml);
             }
             const rawFlat = np.join(distDir, rawRelPath + '.html');
             if (!fs.existsSync(rawFlat)) {
-              _md(np.dirname(rawFlat), { recursive: true });
+              _md(np.dirname(rawFlat));
               _qw(rawFlat, redirectHtml.replace(SPA_ACTION_REDIRECT_SCRIPT, ''));
             }
           }
@@ -1549,12 +1549,12 @@ ${alternates}
 </html>`;
 
           const outDir = np.join(distDir, canonicalPath.slice(1));
-          _md(outDir, { recursive: true });
+          _md(outDir);
           _qw(np.join(outDir, 'index.html'), editorialHtml);
           const flatPath = canonicalPath.replace(/\/+$/, '');
           if (flatPath) {
             const flatFile = np.join(distDir, flatPath.slice(1) + '.html');
-            _md(np.dirname(flatFile), { recursive: true });
+            _md(np.dirname(flatFile));
             _qw(flatFile, buildFlatRedirect(canonicalUrl, canonicalPath));
           }
         }
@@ -1701,12 +1701,12 @@ ${alternates}
   </body>
 </html>`;
           const outDir = np.join(distDir, canonicalPath.slice(1));
-          _md(outDir, { recursive: true });
+          _md(outDir);
           _qw(np.join(outDir, 'index.html'), html);
           const flatPath = canonicalPath.replace(/\/+$/, '');
           if (flatPath) {
             const flatFile = np.join(distDir, flatPath.slice(1) + '.html');
-            _md(np.dirname(flatFile), { recursive: true });
+            _md(np.dirname(flatFile));
             _qw(flatFile, buildFlatRedirect(canonicalUrl, canonicalPath));
           }
         }
@@ -1843,12 +1843,12 @@ ${alternates}
   </body>
 </html>`;
           const outDir = np.join(distDir, canonicalPath.slice(1));
-          _md(outDir, { recursive: true });
+          _md(outDir);
           _qw(np.join(outDir, 'index.html'), html);
           const flatPath = canonicalPath.replace(/\/+$/, '');
           if (flatPath) {
             const flatFile = np.join(distDir, flatPath.slice(1) + '.html');
-            _md(np.dirname(flatFile), { recursive: true });
+            _md(np.dirname(flatFile));
             _qw(flatFile, buildFlatRedirect(canonicalUrl, canonicalPath));
           }
         }
@@ -1980,12 +1980,12 @@ ${alternates}
   </body>
 </html>`;
             const outDir = np.join(distDir, canonicalPath.slice(1));
-            _md(outDir, { recursive: true });
+            _md(outDir);
             _qw(np.join(outDir, 'index.html'), html);
             const flatPath = canonicalPath.replace(/\/+$/, '');
             if (flatPath) {
               const flatFile = np.join(distDir, flatPath.slice(1) + '.html');
-              _md(np.dirname(flatFile), { recursive: true });
+              _md(np.dirname(flatFile));
               _qw(flatFile, buildFlatRedirect(canonicalUrl, canonicalPath));
             }
           }
@@ -2123,12 +2123,12 @@ ${alternates}
   </body>
 </html>`;
             const outDir = np.join(distDir, canonicalPath.slice(1));
-            _md(outDir, { recursive: true });
+            _md(outDir);
             _qw(np.join(outDir, 'index.html'), html);
             const flatPath = canonicalPath.replace(/\/+$/, '');
             if (flatPath) {
               const flatFile = np.join(distDir, flatPath.slice(1) + '.html');
-              _md(np.dirname(flatFile), { recursive: true });
+              _md(np.dirname(flatFile));
               _qw(flatFile, buildFlatRedirect(canonicalUrl, canonicalPath));
             }
           }
@@ -2264,12 +2264,12 @@ ${alternates}
   </body>
 </html>`;
               const outDir = np.join(distDir, canonicalPath.slice(1));
-              _md(outDir, { recursive: true });
+              _md(outDir);
               _qw(np.join(outDir, 'index.html'), html);
               const flatPath = canonicalPath.replace(/\/+$/, '');
               if (flatPath) {
                 const flatFile = np.join(distDir, flatPath.slice(1) + '.html');
-                _md(np.dirname(flatFile), { recursive: true });
+                _md(np.dirname(flatFile));
                 _qw(flatFile, buildFlatRedirect(canonicalUrl, canonicalPath));
               }
             }
@@ -2407,12 +2407,12 @@ ${alternates}
   </body>
 </html>`;
               const outDir = np.join(distDir, canonicalPath.slice(1));
-              _md(outDir, { recursive: true });
+              _md(outDir);
               _qw(np.join(outDir, 'index.html'), html);
               const flatPath = canonicalPath.replace(/\/+$/, '');
               if (flatPath) {
                 const flatFile = np.join(distDir, flatPath.slice(1) + '.html');
-                _md(np.dirname(flatFile), { recursive: true });
+                _md(np.dirname(flatFile));
                 _qw(flatFile, buildFlatRedirect(canonicalUrl, canonicalPath));
               }
             }
@@ -2526,12 +2526,12 @@ ${alternates}${hasSpaBundle ? `\n    <link rel="stylesheet" href="/assets/${entr
 </html>`;
 
             const outDir = np.join(distDir, canonicalPath.slice(1));
-            _md(outDir, { recursive: true });
+            _md(outDir);
             _qw(np.join(outDir, 'index.html'), searchHtml);
             const flatPath = canonicalPath.replace(/\/+$/, '');
             if (flatPath) {
               const flatFile = np.join(distDir, flatPath.slice(1) + '.html');
-              _md(np.dirname(flatFile), { recursive: true });
+              _md(np.dirname(flatFile));
               _qw(flatFile, buildFlatRedirect(canonicalUrl, canonicalPath));
             }
             searchPageCount++;
@@ -2608,12 +2608,12 @@ ${alternates}${hasSpaBundle ? `\n    <link rel="stylesheet" href="/assets/${entr
 </html>`;
 
             const outDir = np.join(distDir, canonicalPath.slice(1));
-            _md(outDir, { recursive: true });
+            _md(outDir);
             _qw(np.join(outDir, 'index.html'), comboHtml);
             const flatPath = canonicalPath.replace(/\/+$/, '');
             if (flatPath) {
               const flatFile = np.join(distDir, flatPath.slice(1) + '.html');
-              _md(np.dirname(flatFile), { recursive: true });
+              _md(np.dirname(flatFile));
               _qw(flatFile, buildFlatRedirect(canonicalUrl, canonicalPath));
             }
             searchPageCount++;
@@ -3294,11 +3294,11 @@ ${hreflangLinks}
   </body>
 </html>`;
 
-            _md(outDir, { recursive: true });
+            _md(outDir);
             _qw(np.join(outDir, 'index.html'), bridgeHtml);
 
             const flatFile = np.join(distDir, oldPath.replace(/^\//, '') + '.html');
-            _md(np.dirname(flatFile), { recursive: true });
+            _md(np.dirname(flatFile));
             _qw(flatFile, bridgeHtml.replace(SPA_ACTION_REDIRECT_SCRIPT, ''));
             bridgeCount++;
           }

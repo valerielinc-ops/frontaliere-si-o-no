@@ -1294,7 +1294,7 @@ export function buildJobTodayLandingModel(options: {
     ? options.jobs.filter((job) => isTicinoScoped(job))
     : options.jobs;
   const cityLeaders = Array.from(
-    citySourceJobs.reduce((map, job) => {
+    citySourceJobs.reduce<Map<string, number>>((map, job) => {
       const location = normalizeSpace(job.location || '');
       if (!location) return map;
       map.set(location, (map.get(location) || 0) + 1);

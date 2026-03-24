@@ -80,6 +80,11 @@ const RC_TO_ENV = {
   GROQ_API_KEY:                   ['GROQ_API_KEY'],
   OPENROUTER_API_KEY:             ['OPENROUTER_API_KEY'],
   HF_TOKEN:                       ['HF_TOKEN', 'HUGGINGFACE_TOKEN'],
+
+  // Image generation providers (FRO-269)
+  SERVER_TOGETHER_API_KEY:        ['TOGETHER_API_KEY'],
+  SERVER_FAL_KEY:                 ['FAL_KEY'],
+  SERVER_PEXELS_API_KEY:          ['PEXELS_API_KEY'],
 };
 
 // ─── Helpers ─────────────────────────────────────────────────────────────

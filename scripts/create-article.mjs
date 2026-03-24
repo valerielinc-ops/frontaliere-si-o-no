@@ -2860,6 +2860,82 @@ async function generateArticleImage(data) {
   }
   if (pollinationsOriginDown) console.error('  ⚠️  Pollinations.ai non raggiungibile — origin down');
 
+  // ── Strategy 2b: Together.ai (FLUX.1-schnell-Free, free tier with key) ──
+  // https://www.together.ai — free model, needs TOGETHER_API_KEY secret in GH
+  const togetherKey = process.env.TOGETHER_API_KEY;
+  if (togetherKey) {
+    try {
+      console.error('🎨 Generazione immagine con Together.ai (FLUX.1-schnell-Free)...');
+      const togetherRes = await fetch('https://api.together.xyz/v1/images/generations', {
+        method: 'POST',
+        headers: {
+          Authorization: `Bearer ${togetherKey}`,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          model: 'black-forest-labs/FLUX.1-schnell-Free',
+          prompt: prompt.replace(/\n/g, ' ').slice(0, 800),
+          width: 1280,
+          height: 720,
+          steps: 4,
+          n: 1,
+          response_format: 'b64_json',
+        }),
+        signal: AbortSignal.timeout(90000),
+      });
+      if (!togetherRes.ok) {
+        const errText = await togetherRes.text().catch(() => '');
+        throw new Error(`HTTP ${togetherRes.status}: ${errText.slice(0, 200)}`);
+      }
+      const togetherJson = await togetherRes.json();
+      const b64 = togetherJson.data?.[0]?.b64_json;
+      if (!b64) throw new Error('Nessuna immagine nella risposta Together.ai');
+      const rawBuffer = Buffer.from(b64, 'base64');
+      const saved = await _saveAndOptimize(rawBuffer, 'Together.ai/FLUX-schnell', 'image/jpeg');
+      if (saved) return saved;
+    } catch (e) {
+      console.error(`  ⚠️  Together.ai fallito: ${e.message}`);
+    }
+  }
+
+  // ── Strategy 2c: Fal.ai (FLUX schnell, needs FAL_KEY secret in GH) ──
+  // https://fal.ai — pay-per-use with free credits, very fast FLUX inference
+  const falKey = process.env.FAL_KEY;
+  if (falKey) {
+    try {
+      console.error('🎨 Generazione immagine con Fal.ai (FLUX schnell)...');
+      const falRes = await fetch('https://fal.run/fal-ai/flux/schnell', {
+        method: 'POST',
+        headers: {
+          Authorization: `Key ${falKey}`,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          prompt: prompt.replace(/\n/g, ' ').slice(0, 800),
+          image_size: 'landscape_16_9',
+          num_inference_steps: 4,
+          num_images: 1,
+        }),
+        signal: AbortSignal.timeout(90000),
+      });
+      if (!falRes.ok) {
+        const errText = await falRes.text().catch(() => '');
+        throw new Error(`HTTP ${falRes.status}: ${errText.slice(0, 200)}`);
+      }
+      const falJson = await falRes.json();
+      const falImgUrl = falJson.images?.[0]?.url;
+      if (!falImgUrl) throw new Error('Nessuna immagine nella risposta Fal.ai');
+      const falImgRes = await fetch(falImgUrl, { signal: AbortSignal.timeout(30000) });
+      if (!falImgRes.ok) throw new Error(`Download HTTP ${falImgRes.status}`);
+      const falBuf = Buffer.from(await falImgRes.arrayBuffer());
+      const falContentType = falImgRes.headers.get('content-type') || 'image/jpeg';
+      const saved = await _saveAndOptimize(falBuf, 'Fal.ai/FLUX-schnell', falContentType);
+      if (saved) return saved;
+    } catch (e) {
+      console.error(`  ⚠️  Fal.ai fallito: ${e.message}`);
+    }
+  }
+
   // ── Strategy 3: HuggingFace Inference API (free, FLUX-schnell) ──
   // https://huggingface.co/docs/api-inference — free tier with HF_TOKEN
   // FLUX-1-schnell is one of the fastest open-source text-to-image models
@@ -3014,6 +3090,48 @@ async function generateArticleImage(data) {
         }
       } catch (e) {
         console.error(`  ⚠️  Pixabay "${pxQuery}" fallito: ${e.message}`);
+      }
+    }
+  }
+
+  // ── Strategy 5b: Pexels API (stock foto CC0, needs PEXELS_API_KEY secret in GH) ──
+  // https://www.pexels.com/api/ — free tier 200 req/hour, landscape orientation, high quality
+  const pexelsKey = process.env.PEXELS_API_KEY;
+  if (pexelsKey) {
+    const pexelsQueries = _buildWikimediaQueries(data).slice(0, 2).map(q => q.replace(/\bcommons\b/gi, '').trim());
+    if (pexelsQueries.length === 0) pexelsQueries.push('ticino switzerland');
+    pexelsQueries.push('swiss landscape lake');
+
+    for (const pxQuery of pexelsQueries) {
+      try {
+        console.error(`🖼️ Ricerca immagine stock da Pexels ("${pxQuery}")...`);
+        const q = encodeURIComponent(pxQuery);
+        const res = await fetch(
+          `https://api.pexels.com/v1/search?query=${q}&orientation=landscape&size=large&per_page=8`,
+          {
+            headers: { Authorization: pexelsKey },
+            signal: AbortSignal.timeout(15000),
+          },
+        );
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        const json = await res.json();
+        const photos = json.photos || [];
+        if (photos.length === 0) {
+          console.error(`  ⚠️  Pexels "${pxQuery}": nessun risultato`);
+          continue;
+        }
+        const pick = photos[Math.floor(Math.random() * Math.min(5, photos.length))];
+        const imgUrl = pick.src?.large2x || pick.src?.large || pick.src?.original;
+        if (imgUrl) {
+          const imgRes = await fetch(imgUrl, { signal: AbortSignal.timeout(20000) });
+          if (imgRes.ok) {
+            const buf = Buffer.from(await imgRes.arrayBuffer());
+            const saved = await _saveAndOptimize(buf, `Pexels/${pxQuery}`, imgRes.headers.get('content-type'));
+            if (saved) return saved;
+          }
+        }
+      } catch (e) {
+        console.error(`  ⚠️  Pexels "${pxQuery}" fallito: ${e.message}`);
       }
     }
   }
