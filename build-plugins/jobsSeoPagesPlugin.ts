@@ -255,6 +255,16 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
         .replace(/</g, '&lt;')
         .replace(/>/g, '&gt;')
         .replace(/"/g, '&quot;');
+      /** Decode common HTML entities so source text doesn't get double-escaped by esc(). */
+      const decodeHtmlEntities = (s: string) => String(s || '')
+        .replace(/&amp;/g, '&')
+        .replace(/&lt;/g, '<')
+        .replace(/&gt;/g, '>')
+        .replace(/&quot;/g, '"')
+        .replace(/&#39;/g, "'")
+        .replace(/&#x27;/g, "'")
+        .replace(/&#(\d+);/g, (_m, code) => String.fromCharCode(Number(code)))
+        .replace(/&[A-Za-z]+;/g, ' ');
       /** Convert a plain-text description to basic HTML.
        *  Wraps paragraphs in <p>, converts bullet/numbered lines to <ul>/<ol><li>,
        *  recognizes section headings (lines ending with ':' followed by list items),
@@ -766,7 +776,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
           const localizedDescriptionRaw = String(job?.descriptionByLocale?.[locale] || job.description || '');
           const localizedDescription = normalizeText(localizedDescriptionRaw);
           const cleanDesc = cleanMetaDescription(localizedDescriptionRaw);
-          // Build an SEO-friendly meta description: "{title} presso {company} a {location}. {clean body}"
+          // Build an SEO-friendly meta description with salary and CTA
           const metaIntro = locale === 'de'
             ? `${localizedTitle} bei ${job.company} in ${job.location || 'Ticino'}.`
             : locale === 'fr'
@@ -774,8 +784,26 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
               : locale === 'en'
                 ? `${localizedTitle} at ${job.company} in ${job.location || 'Ticino'}.`
                 : `${localizedTitle} presso ${job.company} a ${job.location || 'Ticino'}.`;
+          // Inline salary snippet for meta description (before salaryText is computed)
+          const metaSalaryMin = Number(job.salaryMin);
+          const metaSalaryMax = Number(job.salaryMax);
+          const metaCurrency = String(job.currency || 'CHF');
+          const metaSalarySnippet = Number.isFinite(metaSalaryMin) && metaSalaryMin > 0
+            ? (Number.isFinite(metaSalaryMax) && metaSalaryMax > metaSalaryMin
+              ? ` ${locale === 'de' ? 'Gehalt' : locale === 'fr' ? 'Salaire' : locale === 'en' ? 'Salary' : 'Salario'}: ${metaCurrency} ${Math.round(metaSalaryMin).toLocaleString('de-CH')}-${Math.round(metaSalaryMax).toLocaleString('de-CH')}.`
+              : ` ${locale === 'de' ? 'Gehalt' : locale === 'fr' ? 'Salaire' : locale === 'en' ? 'Salary' : 'Salario'}: ${metaCurrency} ${Math.round(metaSalaryMin).toLocaleString('de-CH')}.`)
+            : '';
+          const metaCta = locale === 'de' ? ' Jetzt auf Frontaliere Ticino bewerben.'
+            : locale === 'fr' ? ' Postulez sur Frontaliere Ticino.'
+            : locale === 'en' ? ' Apply now on Frontaliere Ticino.'
+            : ' Candidati ora su Frontaliere Ticino.';
           const metaBody = cleanDesc.length > 40 ? ` ${cleanDesc}` : '';
-          const description = `${metaIntro}${metaBody}`.slice(0, 320);
+          // Assemble: intro + salary + body, truncated to 160 chars; fallback to body if over limit
+          const descWithSalary = `${metaIntro}${metaSalarySnippet}${metaCta}`;
+          // Decode HTML entities from source data to prevent double-escaping in esc()
+          const description = decodeHtmlEntities(descWithSalary.length <= 160
+            ? descWithSalary
+            : `${metaIntro}${metaSalarySnippet}${metaBody}`.slice(0, 160));
           const descriptionParagraphs = splitIntoParagraphs(localizedDescriptionRaw).slice(0, 10);
           const requirements = firstItems(job?.requirementsByLocale?.[locale] || job?.requirements, 8);
           const canonicalLocale = readCanonicalByLocale(job, locale);
@@ -1200,6 +1228,16 @@ ${jobLd ? `    <script type="application/ld+json">${jobLd}</script>\n` : ''}    
         <a href="${referralUrl(job.url || canonicalUrl, job)}" rel="noopener noreferrer" class="cta">${esc(localeCopy[locale].applyNow)}</a>
       </article>
       ${related.length > 0 ? `<section class="related"><h2>${esc(localeCopy[locale].relatedJobs)}</h2><ul style="list-style:none;padding:0;margin:0">${relatedHtml}</ul></section>` : ''}
+      <nav style="margin:24px 0 0;padding:16px 0;border-top:1px solid #e2e8f0;font-size:14px">
+        <a href="${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionByLocale[locale]}`.replace(/\/+/g, '/'))}" style="color:#1e3a8a;text-decoration:none;font-weight:600">${esc(localeCopy[locale].sectionName)} &rarr;</a>${(() => {
+          const cSlug = canonicalCompanySlugBuild(job.company, job.companyKey);
+          if (!cSlug) return '';
+          const cPrefix = companyRoutePrefix[locale];
+          const cFullSlug = `${cPrefix}-${cSlug}`;
+          const cPath = withSlash(`${localePrefix[locale]}/${sectionByLocale[locale]}/${cFullSlug}`.replace(/\/+/g, '/'));
+          return ` · <a href="${BASE_URL}${cPath}" style="color:#1e3a8a;text-decoration:none;font-weight:600">${esc(job.company)} &rarr;</a>`;
+        })()}
+      </nav>
     </main>
     </div>${hasSpaBundle ? `\n    <script type="module" crossorigin src="/assets/${entryJs}"></script>` : ''}
   </body>
@@ -2626,6 +2664,7 @@ ${alternates}
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>${esc(title)}</title>
     <meta name="description" content="${esc(description)}">
+    <meta name="robots" content="noindex,follow">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Frontaliere Ticino">
     <meta property="og:locale" content="${localeOg[locale]}">
@@ -3287,13 +3326,18 @@ ${(() => {
           // Escape staticBody for embedding in a JS string (JSON.stringify handles quotes/newlines)
           const staticBodyJson = JSON.stringify(staticBody);
 
+          // Expired pages without rich data (no title/description from expired-jobs.json)
+          // are thin-content SPA shells — mark them noindex to avoid crawl budget waste
+          const hasExpiredRichContent = ejData?.title && (ejData?.descriptionByLocale?.[locale] || ejData?.description);
+          const expiredRobotsTag = hasExpiredRichContent ? '' : '\n    <meta name="robots" content="noindex,follow">';
+
           const softLandingHtml = `<!DOCTYPE html>
 <html lang="${locale}">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>${pageTitle}</title>
-    <meta name="description" content="${pageDesc}">
+    <meta name="description" content="${pageDesc}">${expiredRobotsTag}
     <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
     <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)">
     <link rel="canonical" href="${selfUrl}">
@@ -3517,7 +3561,7 @@ ${hreflangLinks}
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>${pageTitle}</title>
     <meta name="description" content="${esc(localizedTitle)}${jobCompany ? ` — ${esc(jobCompany)}` : ''}.">
-    <meta name="robots" content="index,follow">
+    <meta name="robots" content="noindex,follow">
     <link rel="canonical" href="${canonicalUrl}">
     <script type="application/ld+json">${JSON.stringify({
       '@context': 'https://schema.org',

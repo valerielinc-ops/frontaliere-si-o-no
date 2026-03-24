@@ -50,14 +50,16 @@ describe('SEO builder noindex guards', () => {
       'utf-8',
     );
 
-    it('expired job soft-landing pages use self-canonical (no noindex, no meta-refresh)', () => {
+    it('expired job soft-landing pages use self-canonical and conditional noindex for thin content', () => {
       const start = source.indexOf('// 3. Generate soft-landing pages for expired slugs');
       const end = source.indexOf('if (expiredCount > 0)', start);
       const block = source.slice(start, end);
-      // Soft-landing pages use self-referencing canonical, no noindex
+      // Soft-landing pages use self-referencing canonical
       expect(block).toContain('rel="canonical"');
       expect(block).not.toContain('http-equiv="refresh"');
-      expect(block).not.toContain('noindex');
+      // noindex is conditionally applied only for thin-content orphan pages (no ejData)
+      expect(block).toContain('hasExpiredRichContent');
+      expect(block).toContain('expiredRobotsTag');
     });
 
     it('legacy slug bridge pages use noindex', () => {
