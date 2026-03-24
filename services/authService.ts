@@ -88,6 +88,54 @@ function getAuthInstance(): any {
   return _auth;
 }
 
+// ─── User Profile Persistence ────────────────────────────────
+
+/**
+ * Save or update a user profile document in Firestore `users/{uid}`.
+ * Best-effort — sign-in succeeds even if this write fails.
+ * Called after successful Google, Facebook, or LinkedIn sign-in.
+ */
+export async function saveUserProfileToFirestore(user: any, provider: 'google' | 'facebook' | 'linkedin'): Promise<void> {
+  try {
+    if (!user?.uid) return;
+
+    const [{ getApp }, fsModule] = await Promise.all([
+      import('@/services/firebase'),
+      import('firebase/firestore'),
+    ]);
+
+    const db = fsModule.getFirestore(await getApp());
+    const userRef = fsModule.doc(db, 'users', user.uid);
+
+    // Build profile from Firebase Auth user object
+    const displayName = user.displayName || null;
+    const nameParts = displayName ? displayName.split(' ') : [];
+
+    const profileData: Record<string, unknown> = {
+      uid: user.uid,
+      email: user.email || null,
+      displayName,
+      firstName: nameParts[0] || null,
+      lastName: nameParts.length > 1 ? nameParts.slice(1).join(' ') : null,
+      photoURL: user.photoURL || null,
+      provider,
+      lastLoginAt: fsModule.serverTimestamp(),
+    };
+
+    // Check if document exists to set createdAt only on first creation
+    const docSnap = await fsModule.getDoc(userRef);
+    if (!docSnap.exists()) {
+      profileData.createdAt = fsModule.serverTimestamp();
+      profileData.dataSource = provider === 'google' ? 'google_oauth' : provider === 'facebook' ? 'facebook_oauth' : 'linkedin_openid';
+    }
+
+    await fsModule.setDoc(userRef, profileData, { merge: true });
+  } catch (err) {
+    // Best-effort: don't break login if Firestore write fails
+    console.warn('[Auth] Failed to save user profile to Firestore:', err);
+  }
+}
+
 // ─── Auth Functions ──────────────────────────────────────────
 
 function setAuthRedirectState(provider: 'google' | 'facebook'): void {
@@ -141,6 +189,8 @@ export async function signInWithGoogle(): Promise<any | null> {
       Analytics.trackUIInteraction('auth', 'google', 'login', 'popup-start');
       const result = await _authModule.signInWithPopup(authInstance, googleProvider);
       Analytics.trackUIInteraction('auth', 'google', 'login', 'success');
+      // Best-effort: save user profile to Firestore for personalization
+      saveUserProfileToFirestore(result.user, 'google').catch(() => {});
       return result.user;
     } catch (popupError: any) {
       // User closed the popup intentionally — treat as cancellation, no error
@@ -649,6 +699,8 @@ export async function signInWithFacebook(): Promise<any | null> {
       const result = await _authModule.signInWithPopup(authInstance, facebookProvider);
       await patchFacebookData(result);
       Analytics.trackUIInteraction('auth', 'facebook', 'login', 'success');
+      // Best-effort: save user profile to Firestore for personalization
+      saveUserProfileToFirestore(result.user, 'facebook').catch(() => {});
       return result.user;
     } catch (popupError: any) {
       // Account exists with different credential — link accounts
@@ -891,6 +943,8 @@ export function useAuth(): AuthState & {
           import('@/services/analytics').then(({ Analytics }) => {
             Analytics.trackUIInteraction('auth', provider, 'login', 'success-redirect');
           });
+          // Best-effort: save user profile to Firestore for personalization
+          saveUserProfileToFirestore(result.user, provider as 'google' | 'facebook').catch(() => {});
           // Restore the path the user was on before the redirect
           const savedPath = sessionStorage.getItem('auth_redirect_path');
           logAuthDebug('useAuth:redirect-success', {

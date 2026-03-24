@@ -70,6 +70,13 @@ service cloud.firestore {
       allow create: if request.auth != null && request.auth.uid == request.resource.data.userId;
     }
 
+    // User profiles — own data only (admin SDK writes bypass rules)
+    match /users/{uid} {
+      allow read: if request.auth != null && request.auth.uid == uid;
+      allow create: if request.auth != null && request.auth.uid == uid;
+      allow update: if request.auth != null && request.auth.uid == uid;
+    }
+
     // Config — public read + write for exchange rate cache (best-effort client-side caching)
     match /config/{docId} {
       allow read, write: if true;

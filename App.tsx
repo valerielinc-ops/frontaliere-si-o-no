@@ -118,6 +118,7 @@ import {
   renderGoogleButtonWithReadiness,
   signInWithCustomAuthToken,
   exchangeLinkedInCode,
+  saveUserProfileToFirestore,
 } from '@/services/authService';
 import {
   upsertNewsletterSubscriber as upsertNewsletterSubscriberRecord,
@@ -483,6 +484,8 @@ const App: React.FC = () => {
 
         const user = await signInWithCustomAuthToken(customToken);
         Analytics.trackUIInteraction('auth', 'linkedin', 'login', user ? 'success' : 'no-user');
+        // Best-effort: save/update user profile in Firestore for personalization
+        if (user) saveUserProfileToFirestore(user, 'linkedin').catch(() => {});
 
         if (cancelled) return;
 
