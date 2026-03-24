@@ -9,9 +9,12 @@ const pluginSource = fs.readFileSync(
 );
 
 describe('Soft-landing SEO pages for expired jobs', () => {
-  it('does NOT use noindex for expired job pages', () => {
+  it('uses noindex only for expired pages WITHOUT rich content (thin-content orphans)', () => {
     const expiredSection = pluginSource.slice(pluginSource.indexOf('Expired-job'));
-    expect(expiredSection).not.toContain('content="noindex,follow"');
+    // Expired pages without ejData (title + description) are thin content and get noindex
+    expect(expiredSection).toContain('hasExpiredRichContent');
+    // The noindex tag is conditionally applied — only when hasExpiredRichContent is false
+    expect(expiredSection).toContain('expiredRobotsTag');
   });
 
   it('uses self-referencing canonical for expired pages', () => {
