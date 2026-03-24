@@ -1742,6 +1742,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.ora-legale-permanente-ticino.title': 'Permanent Sommerzeit im Tessin: Was ändert sich',
     'blog.article.ora-legale-permanente-ticino.excerpt': 'In Italien wird eine Untersuchung gestartet, um die Sommerzeit das ganze Jahr über beizubehalten, doch im Tessin werden andere Lösungen in Betracht gezogen. Analyse und Auswirkungen auf die Region.',
     'blog.article.ora-legale-permanente-ticino.imageAlt': 'Panoramablick auf Lugano, Tessin, mit See und Bergen im Hintergrund',
+    'blog.article.como-asfaltature-war-costs.title': 'Como, Rapinese: Teerpreise wegen des Krieges um 40 % gestiegen',
+    'blog.article.como-asfaltature-war-costs.excerpt': 'Der Comer Bürgermeister Alessandro Rapinese muss über die Verwendung des 5-Millionen-Fränkigen Asphalt-Programms entscheiden, nachdem die Kosten wegen des Iran-Konflikts um 40 % gestiegen sind.',
+    'blog.article.como-asfaltature-war-costs.imageAlt': 'Asphaltstraße im Tessin mit Seelandschaft im Hintergrund',
 };
 
 export default blogMetaDe;

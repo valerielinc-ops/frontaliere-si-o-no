@@ -9970,6 +9970,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-como-asfaltature-war-costs': {
+    title: 'Como, Rapinese: prezzi dell\'asfalto in aumento del 40% a causa della | Frontaliere Ticino',
+    description: 'Il sindaco di Como, Alessandro Rapinese, si trova di fronte a una difficile decisione sull\'uso del piano da 5 milioni per le asfaltature, con i costi saliti del',
+    keywords: 'frontalieri, ticino, svizzera, italia, como, rapinese, prezzi, dell',
+    ogTitle: 'Como, Rapinese: prezzi dell\'asfalto in aumento del 40% a',
+    ogDescription: 'Il sindaco di Como, Alessandro Rapinese, si trova di fronte a una difficile decisione sull\'uso del piano da 5 milioni per le asfaltature, con i costi saliti del',
+    canonicalPath: '/articoli-frontaliere/como-asfaltature-war-costs',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Como, Rapinese: prezzi dell'asfalto in aumento del 40% a",
+      "description": "Il sindaco di Como, Alessandro Rapinese, si trova di fronte a una difficile decisione sull'uso del piano da 5 milioni per le asfaltature, con i costi saliti del",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/como-asfaltature-war-costs.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Strada in asfaltatura nel Ticino con paesaggio lacustre sullo sfondo"
+      },
+      "datePublished": "2026-03-24T06:43:25+00:00",
+      "dateModified": "2026-03-24T06:43:25+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/como-asfaltature-war-costs`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

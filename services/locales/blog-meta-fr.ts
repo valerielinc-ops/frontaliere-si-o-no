@@ -1742,6 +1742,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.ora-legale-permanente-ticino.title': 'L’heure d’été permanente au Tessin : quelles sont les nouveautés',
     'blog.article.ora-legale-permanente-ticino.excerpt': 'En Italie, une enquête est en cours pour maintenir l’heure d’été toute l’année, mais au Tessin, des solutions différentes sont envisagées. Analyse et impacts sur la région.',
     'blog.article.ora-legale-permanente-ticino.imageAlt': 'Vue panoramique de Lugano, Ticino, avec lac et montagnes en arrière-plan',
+    'blog.article.como-asfaltature-war-costs.title': 'Como, Rapinese : le prix de l\'asphalte grimpe de 40 % à cause de la guerre',
+    'blog.article.como-asfaltature-war-costs.excerpt': 'Le maire de Como, Alessandro Rapinese, doit décider comment utiliser l\'enveloppe de 5 millions d\'euros prévue pour le revêtement routier, les coûts ayant bondi de 40 % en raison du conflit en Iran.',
+    'blog.article.como-asfaltature-war-costs.imageAlt': 'Route asphaltée dans le Tessin avec paysage lacustre en arrière-plan',
 };
 
 export default blogMetaFr;

@@ -1742,6 +1742,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.ora-legale-permanente-ticino.title': 'Permanent Summer Time in Ticino: What Changes',
     'blog.article.ora-legale-permanente-ticino.excerpt': 'In Italy, an investigation is underway to keep daylight saving time all year round, but in Ticino, different solutions are being considered. Analysis and regional impacts.',
     'blog.article.ora-legale-permanente-ticino.imageAlt': 'Panoramic view of Lugano, Ticino, with lake and mountains in the background',
+    'blog.article.como-asfaltature-war-costs.title': 'Como, Rapinese: asphalt prices rise by 40% due to the war',
+    'blog.article.como-asfaltature-war-costs.excerpt': 'The mayor of Como, Alessandro Rapinese, faces a tough decision regarding the use of the 5 million euro plan for road resurfacing, as costs have surged by 40% due to the conflict in Iran.',
+    'blog.article.como-asfaltature-war-costs.imageAlt': 'Asphalt road construction in Ticino with lake landscape in background',
 };
 
 export default blogMetaEn;

@@ -5256,4 +5256,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/ora-legale-permanente-ticino.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'como-asfaltature-war-costs',
+    category: 'pratico',
+    date: '2026-03-24T06:43:25.963Z',
+    image: '/images/blog/como-asfaltature-war-costs.jpg',
+    hasCalculator: true,
+  },
 ];

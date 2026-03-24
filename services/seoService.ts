@@ -1702,6 +1702,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-lombardia-sport-ticino': { name: 'Lombardia sport', path: '/articoli-frontaliere/lombardia-sport-ticino', parent: 'blog' },
     'blog-giustizia-referendum-ticino': { name: 'Referendum sulla giustizia in Italia', path: '/articoli-frontaliere/giustizia-referendum-ticino', parent: 'blog' },
     'blog-ora-legale-permanente-ticino': { name: 'Ora legale permanente in Ticino', path: '/articoli-frontaliere/ora-legale-permanente-ticino', parent: 'blog' },
+    'blog-como-asfaltature-war-costs': { name: 'Como, Rapinese', path: '/articoli-frontaliere/como-asfaltature-war-costs', parent: 'blog' },
   };
 
   const info = sectionNames[section];
