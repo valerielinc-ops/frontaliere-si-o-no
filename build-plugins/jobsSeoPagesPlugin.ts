@@ -3244,7 +3244,11 @@ ${hreflangLinks}
           for (const oldSlug of prevSlugs) {
             if (oldSlug === currentSlug) continue;
             const oldPath = `${localePrefix[locale]}/${sectionByLocale[locale]}/${oldSlug}`.replace(/\/+/g, '/');
-            const outDir = np.join(distDir, oldPath.replace(/^\//, ''));
+            const oldRelPath = oldPath.replace(/^\//, '');
+            // Skip if an active job page already occupies this path (buffered writes
+            // are invisible to fs.existsSync — use the activeJobDirs set instead).
+            if (activeJobDirs.has(oldRelPath.replace(/\/+$/, ''))) continue;
+            const outDir = np.join(distDir, oldRelPath);
             if (fs.existsSync(np.join(outDir, 'index.html'))) continue;
 
             const localizedTitle = String(job.titleByLocale?.[locale] || job.title || '');
