@@ -36,6 +36,7 @@ const __dirname = path.dirname(__filename);
 const ROOT = path.resolve(__dirname, '..');
 
 const DATA_JOBS_PATH = path.join(ROOT, 'data', 'jobs.json');
+const BY_CRAWLER_DIR = path.join(ROOT, 'data', 'jobs', 'by-crawler');
 const LOCALES = ['it', 'en', 'de', 'fr'];
 const MIN_DESC_CHARS = 120;
 const MIN_TITLE_CHARS = 3;
@@ -179,6 +180,69 @@ function clearRetranslationFlags(jobs) {
   return cleared;
 }
 
+/**
+ * Sync translations from jobs.json back to the per-crawler file for a given company key.
+ * The shared crawler writes translations to jobs.json (assembled), but the commit script
+ * with --slice-only only commits per-crawler files. This bridges the gap.
+ *
+ * @param {string} companyKey - The crawler/company key (e.g. 'abb-svizzera-sede-ticino')
+ * @param {Array} assembledJobs - The current jobs from jobs.json
+ * @returns {number} Number of jobs updated in the per-crawler file
+ */
+function syncTranslationsToCrawlerFile(companyKey, assembledJobs) {
+  const crawlerFilePath = path.join(BY_CRAWLER_DIR, `${companyKey}.json`);
+
+  if (!fs.existsSync(crawlerFilePath)) {
+    console.log(`   ⚠️  Per-crawler file not found: ${companyKey}.json — skipping sync`);
+    return 0;
+  }
+
+  const crawlerData = readJson(crawlerFilePath);
+  if (!crawlerData || !Array.isArray(crawlerData.jobs)) {
+    console.log(`   ⚠️  Invalid per-crawler file: ${companyKey}.json — skipping sync`);
+    return 0;
+  }
+
+  // Build a slug -> assembled job lookup for this company
+  const assembledBySlug = new Map();
+  for (const job of assembledJobs) {
+    const jobKey = normalizeCompanyKey(job.companyKey || job.company || '');
+    if (jobKey === companyKey && job.slug) {
+      assembledBySlug.set(job.slug, job);
+    }
+  }
+
+  let updated = 0;
+  for (const crawlerJob of crawlerData.jobs) {
+    const assembled = assembledBySlug.get(crawlerJob.slug);
+    if (!assembled) continue;
+
+    let changed = false;
+
+    // Copy locale fields from assembled (translated) to per-crawler
+    for (const field of ['titleByLocale', 'descriptionByLocale', 'slugByLocale']) {
+      if (assembled[field] && Object.keys(assembled[field]).length > 0) {
+        crawlerJob[field] = assembled[field];
+        changed = true;
+      }
+    }
+
+    // Clear needsRetranslation flag if present
+    if (crawlerJob.needsRetranslation) {
+      delete crawlerJob.needsRetranslation;
+      changed = true;
+    }
+
+    if (changed) updated += 1;
+  }
+
+  if (updated > 0) {
+    fs.writeFileSync(crawlerFilePath, JSON.stringify(crawlerData, null, 2) + '\n', 'utf-8');
+  }
+
+  return updated;
+}
+
 async function main() {
   console.log('🔍 Scanning for jobs needing translation...\n');
 
@@ -272,6 +336,12 @@ async function main() {
           console.log(`   ✅ ${key}: ${cleared} jobs translated, progress saved`);
         } else {
           console.log(`   ℹ️  ${key}: no new translations completed`);
+        }
+
+        // Sync translations back to per-crawler file so git-commit-data --slice-only picks them up
+        const synced = syncTranslationsToCrawlerFile(key, currentJobs);
+        if (synced > 0) {
+          console.log(`   📁 ${key}: ${synced} jobs synced to per-crawler file`);
         }
       }
 
