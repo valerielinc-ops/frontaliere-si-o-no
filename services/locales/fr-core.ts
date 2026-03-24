@@ -2207,6 +2207,17 @@ Règles :
     'seoContent.stats.check4': 'Données sur la communauté frontalière tessinoise',
 
     // ─── What's New / Feature Announcements ─────────────────────────────────
+    'whatsNew.v3430.title': 'Améliorations et Nouvelles Fonctionnalités pour une Meilleure Expérience',
+    'whatsNew.v3430.newsletter.title': 'Plus d\'Options pour les Sections de Newsletter',
+    'whatsNew.v3430.newsletter.desc': 'Vous pouvez désormais inclure facilement la section \'Emplois\' dans vos newsletters, les rendant plus complètes.',
+    'whatsNew.v3430.FRO-396.title': 'Mises à Jour Automatiques pour le Trafic',
+    'whatsNew.v3430.FRO-396.desc': 'Nous avons amélioré le système de gestion du trafic pour des mises à jour plus fluides et fiables.',
+    'whatsNew.v3430.FRO-398.title': 'Déploiement Automatique des Modifications',
+    'whatsNew.v3430.FRO-398.desc': 'Les modifications sont désormais déployées automatiquement, accélérant l\'implémentation des nouvelles versions.',
+    'whatsNew.v3430.FRO-400.title': 'Alertes d\'Emplois Planifiées',
+    'whatsNew.v3430.FRO-400.desc': 'Recevez des notifications automatiques sur les nouveaux emplois selon un calendrier, afin de ne manquer aucune opportunité.',
+    'whatsNew.v3430.FRO-401,FRO-411.title': 'Lien LinkedIn et Texte Mis à Jour',
+    'whatsNew.v3430.FRO-401,FRO-411.desc': 'Vous pouvez désormais lier votre profil LinkedIn depuis votre page Profil utilisateur et nous avons amélioré le texte d\'authentification.',
     'whatsNew.v3420.title': 'Améliorations et corrections pour une expérience plus fluide',
     'whatsNew.v3420.FRO-399.title': 'Rapport d\'erreurs amélioré pour les flux de travail',
     'whatsNew.v3420.FRO-399.desc': 'Vous pouvez désormais recevoir des rapports plus clairs sur les erreurs lors du traitement des données. Cela nous aide à résoudre les problèmes plus rapidement.',

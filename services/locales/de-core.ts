@@ -2207,6 +2207,17 @@ Regeln:
     'seoContent.stats.check4': 'Daten zur Tessiner Grenzgänger-Gemeinschaft',
 
     // ─── What's New / Feature Announcements ─────────────────────────────
+    'whatsNew.v3430.title': 'Verbesserungen und neue Funktionen für eine bessere Erfahrung',
+    'whatsNew.v3430.newsletter.title': 'Mehr Optionen für Newsletter-Bereiche',
+    'whatsNew.v3430.newsletter.desc': 'Sie können jetzt ganz einfach den Bereich \'Jobs\' in Ihre Newsletter aufnehmen, um diese umfassender zu gestalten.',
+    'whatsNew.v3430.FRO-396.title': 'Automatische Updates für den Traffic',
+    'whatsNew.v3430.FRO-396.desc': 'Wir haben das Verkehrsmanagement-System für reibungslosere und zuverlässigere Updates verbessert.',
+    'whatsNew.v3430.FRO-398.title': 'Automatische Bereitstellung von Änderungen',
+    'whatsNew.v3430.FRO-398.desc': 'Änderungen werden jetzt automatisch bereitgestellt, was die Implementierung neuer Versionen beschleunigt.',
+    'whatsNew.v3430.FRO-400.title': 'Geplante Job-Benachrichtigungen',
+    'whatsNew.v3430.FRO-400.desc': 'Erhalten Sie automatische Benachrichtigungen über neue Jobs nach einem Zeitplan, damit Sie keine Gelegenheit verpassen.',
+    'whatsNew.v3430.FRO-401,FRO-411.title': 'LinkedIn-Link und aktualisierter Text',
+    'whatsNew.v3430.FRO-401,FRO-411.desc': 'Sie können Ihr LinkedIn-Profil jetzt von Ihrer Profilseite aus verknüpfen und wir haben den Authentifizierungstext verbessert.',
     'whatsNew.v3420.title': 'Verbesserungen und Korrekturen für eine reibungslosere Erfahrung',
     'whatsNew.v3420.FRO-399.title': 'Verbesserte Fehlerberichterstattung für Arbeitsabläufe',
     'whatsNew.v3420.FRO-399.desc': 'Sie erhalten nun klarere Berichte über Fehler bei der Datenverarbeitung. Dies hilft uns, Probleme schneller zu beheben.',

@@ -2298,6 +2298,17 @@ Regole:
     'seoContent.stats.check4': 'Dati sulla comunità frontaliera Ticino',
 
     // ─── What's New / Feature Announcements ─────────────────────────────
+    'whatsNew.v3430.title': 'Miglioramenti e Nuove Funzionalità per un\'Esperienza Migliore',
+    'whatsNew.v3430.newsletter.title': 'Più Opzioni per le Sezioni delle Newsletter',
+    'whatsNew.v3430.newsletter.desc': 'Ora puoi includere facilmente la sezione \'Lavori\' nelle tue newsletter, rendendole più complete.',
+    'whatsNew.v3430.FRO-396.title': 'Aggiornamenti Automatici per il Traffico',
+    'whatsNew.v3430.FRO-396.desc': 'Abbiamo migliorato il sistema di gestione del traffico per garantire aggiornamenti più fluidi e affidabili.',
+    'whatsNew.v3430.FRO-398.title': 'Distribuzione Automatica delle Modifiche',
+    'whatsNew.v3430.FRO-398.desc': 'Le modifiche ora vengono distribuite automaticamente, velocizzando l\'implementazione delle nuove versioni.',
+    'whatsNew.v3430.FRO-400.title': 'Notifiche Lavori Pianificate',
+    'whatsNew.v3430.FRO-400.desc': 'Ricevi notifiche automatiche sui nuovi lavori in base a una pianificazione, per non perderti nessuna opportunità.',
+    'whatsNew.v3430.FRO-401,FRO-411.title': 'Collegamento a LinkedIn e Testo Aggiornato',
+    'whatsNew.v3430.FRO-401,FRO-411.desc': 'Ora puoi collegare il tuo profilo LinkedIn dalla tua pagina Utente e abbiamo migliorato il testo di autenticazione.',
     'whatsNew.v3420.title': 'Miglioramenti e correzioni per un\'esperienza più fluida',
     'whatsNew.v3420.FRO-399.title': 'Segnalazione errori migliorata per i flussi di lavoro',
     'whatsNew.v3420.FRO-399.desc': 'Ora puoi ricevere segnalazioni più chiare sugli errori che si verificano durante l\'elaborazione dei dati. Questo ci aiuta a risolvere i problemi più velocemente.',

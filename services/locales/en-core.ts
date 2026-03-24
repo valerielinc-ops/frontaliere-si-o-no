@@ -2207,6 +2207,17 @@ Rules:
     'seoContent.stats.check4': 'Ticino cross-border community data',
 
     // ─── What's New / Feature Announcements ─────────────────────────────
+    'whatsNew.v3430.title': 'Improvements and New Features for a Better Experience',
+    'whatsNew.v3430.newsletter.title': 'More Options for Newsletter Sections',
+    'whatsNew.v3430.newsletter.desc': 'You can now easily include the \'Jobs\' section in your newsletters, making them more comprehensive.',
+    'whatsNew.v3430.FRO-396.title': 'Automatic Updates for Traffic',
+    'whatsNew.v3430.FRO-396.desc': 'We\'ve improved the traffic management system for smoother and more reliable updates.',
+    'whatsNew.v3430.FRO-398.title': 'Automatic Deployment of Changes',
+    'whatsNew.v3430.FRO-398.desc': 'Changes are now deployed automatically, speeding up the implementation of new versions.',
+    'whatsNew.v3430.FRO-400.title': 'Scheduled Job Alerts',
+    'whatsNew.v3430.FRO-400.desc': 'Receive automatic notifications about new jobs on a schedule, so you don\'t miss any opportunities.',
+    'whatsNew.v3430.FRO-401,FRO-411.title': 'LinkedIn Link and Updated Text',
+    'whatsNew.v3430.FRO-401,FRO-411.desc': 'You can now link your LinkedIn profile from your User Profile page, and we\'ve improved the authentication text.',
     'whatsNew.v3420.title': 'Improvements and fixes for a smoother experience',
     'whatsNew.v3420.FRO-399.title': 'Improved error reporting for workflows',
     'whatsNew.v3420.FRO-399.desc': 'You can now receive clearer reports on errors during data processing. This helps us resolve issues faster.',
