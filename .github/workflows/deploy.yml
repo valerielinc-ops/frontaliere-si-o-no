@@ -81,6 +81,9 @@ jobs:
       - name: Housekeeping (cross-crawler dedup + locale hardening)
         run: node scripts/cleanup-jobs.mjs
 
+      - name: Validate translation completeness (blocking)
+        run: node scripts/validate-translation-completeness.mjs
+
       - name: Validate crawler summary store (blocking)
         run: npm run validate:crawler-summaries
 

@@ -2063,9 +2063,9 @@ export async function translateMissingJobLocales({ dataJobsPath, isTargetJob = n
             // FRO-327: clear retranslation flag on success
             if (job.needsRetranslation) delete job.needsRetranslation;
           } else if (!String(job.titleByLocale[locale] || '').trim()) {
-            // FRO-263: AI translation failed — use source title as last-resort fallback.
-            job.titleByLocale[locale] = sourceTitle;
-            // FRO-327: mark for retranslation on next run with fresh quota
+            // AI translation failed — leave locale empty (not source copy) so the deploy
+            // gate catches it. Mark for retranslation on next run with fresh quota.
+            job.titleByLocale[locale] = '';
             job.needsRetranslation = true;
             jobTranslated = true;
           }
@@ -2093,9 +2093,9 @@ export async function translateMissingJobLocales({ dataJobsPath, isTargetJob = n
             job.descriptionByLocale[locale] = translatedDesc;
             jobTranslated = true;
           } else if (!String(job.descriptionByLocale[locale] || '').trim() && sourceDesc) {
-            // FRO-327: fallback — keep original description in locale slot
-            // so the job page isn't blank. Mark for retranslation.
-            job.descriptionByLocale[locale] = sourceDesc;
+            // AI translation failed — leave locale empty (not source copy) so the deploy
+            // gate catches it. Mark for retranslation on next run with fresh quota.
+            job.descriptionByLocale[locale] = '';
             job.needsRetranslation = true;
             jobTranslated = true;
           }
@@ -2470,18 +2470,20 @@ export function validateDedicatedLocaleCoverage({
         const stats = _aiModels.getStats();
         allAiExhausted = !_aiModels.isAnyModelAvailable();
         if (allAiExhausted || (stats.exhaustedModels && stats.exhaustedModels.length >= 3)) {
-          // When AI quota is exhausted, tolerate ALL translation-related blocking issues
+          // AI quota exhausted — do NOT raise tolerance. Jobs with incomplete translations
+          // are saved with needsRetranslation flag and empty locale slots. The deploy gate
+          // (validate-translation-completeness.mjs) will block deploy until they're translated.
           const translationIssueCount = blockingIssues.filter((i) => TRANSLATION_ISSUES.has(i.reason)).length;
-          effectiveTolerance = Math.max(effectiveTolerance, translationIssueCount);
           console.warn(`⚠️  AI quota exhaustion detected (${stats.exhaustedModels?.length || 0} models exhausted). ` +
-            `Raising translation tolerance from ${maxToleratedMissingDescriptions} to ${effectiveTolerance} for this run.`);
+            `${translationIssueCount} jobs have incomplete translations — saved with needsRetranslation flag. ` +
+            `Run translate-pending workflow before deploying.`);
         }
       } catch { /* stats not available */ }
     }
 
-    // Tolerate translation-related issues up to the effective tolerance (FRO-317/FRO-424)
-    // When AI quota is exhausted, all translation failures are tolerated — jobs are saved
-    // with needsRetranslation flag and retried on next crawler run.
+    // Tolerate translation-related issues up to the base tolerance (FRO-317)
+    // AI exhaustion no longer inflates tolerance — incomplete jobs are saved with
+    // needsRetranslation flag and the deploy gate blocks until they're translated.
     if (effectiveTolerance > 0) {
       const translationIssues = blockingIssues.filter((i) => TRANSLATION_ISSUES.has(i.reason));
       const otherIssues = blockingIssues.filter((i) => !TRANSLATION_ISSUES.has(i.reason));

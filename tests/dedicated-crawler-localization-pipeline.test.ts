@@ -76,7 +76,7 @@ describe('dedicated crawler localization pipeline integration', () => {
     expect(fetchMock).toHaveBeenCalled();
   });
 
-  it('falls back to the source title when translation providers return nothing, avoiding strict missing_title failures', { timeout: 20000 }, async () => {
+  it('leaves locale empty and sets needsRetranslation when translation providers return nothing', { timeout: 20000 }, async () => {
     fs.writeFileSync(jobsPath, `${JSON.stringify([{
       slug: 'job-title-fallback',
       company: 'Demo SA',
@@ -102,8 +102,10 @@ describe('dedicated crawler localization pipeline integration', () => {
     await translateMissingJobLocales({ dataJobsPath: jobsPath });
     const jobs = JSON.parse(fs.readFileSync(jobsPath, 'utf-8'));
 
-    expect(jobs[0].titleByLocale.de).toBe('Relationship Manager');
-    expect(jobs[0].titleByLocale.fr).toBe('Relationship Manager');
+    // Locale titles left empty (not copied from source) so deploy gate catches them
+    expect(jobs[0].titleByLocale.de).toBe('');
+    expect(jobs[0].titleByLocale.fr).toBe('');
+    expect(jobs[0].needsRetranslation).toBe(true);
   });
 
   it('repairs thin localized descriptions when the base description is rich', async () => {
