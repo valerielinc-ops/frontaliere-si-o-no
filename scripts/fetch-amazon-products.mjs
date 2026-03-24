@@ -2,13 +2,18 @@
 /**
  * FRO-335: Fetch Amazon product data via Creators API (build-time).
  *
- * Authenticates with OAuth 2.0 client_credentials flow, fetches product data
- * (images, prices, availability) for the curated ASINs, and writes the
- * result to data/amazon-products.json for the Vite build to consume.
+ * Authenticates with OAuth 2.0 client_credentials flow (v3.x LwA credentials),
+ * fetches product data (images, prices, availability) for the curated ASINs,
+ * and writes the result to data/amazon-products.json for the Vite build to consume.
  *
  * Environment variables (loaded from Firebase Remote Config via load-rc-env.mjs):
- *   AMAZON_CREATOR_ID     — OAuth client ID
- *   AMAZON_CREATOR_SECRET — OAuth client secret
+ *   AMAZON_CREATOR_ID     — LwA client ID (amzn1.application-oa2-client.xxx)
+ *   AMAZON_CREATOR_SECRET — LwA client secret (amzn1.oa2-cs.v1.xxx)
+ *
+ * Auth docs: https://programma-affiliazione.amazon.it/creatorsapi/docs/en-us/introduction
+ *   - EU v3.x token endpoint: api.amazon.co.uk/auth/o2/token
+ *   - Scope: creatorsapi::default
+ *   - Content-Type: application/json (not form-encoded)
  *
  * Usage:
  *   node scripts/fetch-amazon-products.mjs
@@ -98,18 +103,19 @@ const ASINS = [
 const PARTNER_TAG = 'luigi066-21';
 const MARKETPLACE = 'www.amazon.it';
 
-// ── OAuth 2.0 client_credentials flow ────────────────────────
+// ── OAuth 2.0 client_credentials flow (v3.x LwA, EU endpoint) ────────────────
 
 async function getAccessToken(clientId, clientSecret) {
-  const tokenUrl = 'https://api.amazon.com/auth/o2/token';
+  // EU v3.x token endpoint (for IT, UK, DE, FR, ES, NL, etc.)
+  const tokenUrl = 'https://api.amazon.co.uk/auth/o2/token';
   const res = await fetch(tokenUrl, {
     method: 'POST',
-    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-    body: new URLSearchParams({
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
       grant_type: 'client_credentials',
       client_id: clientId,
       client_secret: clientSecret,
-      scope: 'creatorHub',
+      scope: 'creatorsapi::default',
     }),
   });
   if (!res.ok) {
@@ -123,22 +129,24 @@ async function getAccessToken(clientId, clientSecret) {
 // ── Fetch product data via Creators API ──────────────────────
 
 async function fetchProducts(accessToken) {
-  const url = new URL('https://api.amazon.it/creatorsapi/v1/items');
-  url.searchParams.set('itemIds', ASINS.join(','));
-  url.searchParams.set('resources', [
-    'Images.Primary.Medium',
-    'Offers.Listings.Price',
-    'ItemInfo.Title',
-  ].join(','));
-  url.searchParams.set('partnerTag', PARTNER_TAG);
-  url.searchParams.set('marketplace', MARKETPLACE);
-
-  const res = await fetch(url.toString(), {
-    method: 'GET',
+  const res = await fetch('https://creatorsapi.amazon/catalog/v1/getItems', {
+    method: 'POST',
     headers: {
       Authorization: `Bearer ${accessToken}`,
       'Content-Type': 'application/json',
+      'x-marketplace': MARKETPLACE,
     },
+    body: JSON.stringify({
+      itemIds: ASINS,
+      itemIdType: 'ASIN',
+      marketplace: MARKETPLACE,
+      partnerTag: PARTNER_TAG,
+      resources: [
+        'images.primary.medium',
+        'itemInfo.title',
+        'offersV2.listings.price',
+      ],
+    }),
   });
 
   if (!res.ok) {
@@ -153,15 +161,17 @@ async function fetchProducts(accessToken) {
 // ── Transform API response to our schema ─────────────────────
 
 function transformProducts(apiResponse) {
-  const items = apiResponse?.ItemsResult?.Items || apiResponse?.items || [];
+  const items = apiResponse?.itemsResult?.items || [];
   return items.map((item) => {
-    const asin = item.ASIN || item.asin || '';
-    const title = item.ItemInfo?.Title?.DisplayValue || item.title || '';
-    const imageUrl = item.Images?.Primary?.Medium?.URL || '';
-    const price = item.Offers?.Listings?.[0]?.Price?.DisplayAmount || '';
-    const priceAmount = item.Offers?.Listings?.[0]?.Price?.Amount || 0;
-    const available = !!item.Offers?.Listings?.length;
-    const affiliateUrl = `https://${MARKETPLACE}/dp/${asin}?tag=${PARTNER_TAG}&linkCode=ll1`;
+    const asin = item.asin || '';
+    const title = item.itemInfo?.title?.displayValue || '';
+    const imageUrl = item.images?.primary?.medium?.url || '';
+    const listing = item.offersV2?.listings?.[0];
+    const price = listing?.price?.displayAmount || '';
+    const priceAmount = listing?.price?.amount || 0;
+    const available = !!item.offersV2?.listings?.length;
+    const affiliateUrl = item.detailPageURL
+      || `https://${MARKETPLACE}/dp/${asin}?tag=${PARTNER_TAG}&linkCode=ll1`;
 
     return { asin, title, imageUrl, price, priceAmount, available, affiliateUrl };
   });
@@ -182,7 +192,7 @@ async function main() {
   }
 
   try {
-    console.log('🔑 Authenticating with Amazon Creators API...');
+    console.log('🔑 Authenticating with Amazon Creators API (EU v3.x)...');
     const token = await getAccessToken(clientId, clientSecret);
 
     console.log(`📦 Fetching ${ASINS.length} products...`);
