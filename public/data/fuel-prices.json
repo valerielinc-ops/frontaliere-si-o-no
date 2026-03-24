@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-03-24T23:02:27.039Z",
+  "generatedAt": "2026-03-24T23:58:55.380Z",
   "sources": {
     "italy": {
       "provider": "MIMIT Open Data",
@@ -36509,20 +36509,34 @@
         "searchRadiusKm": 20,
         "optionCount": 7,
         "cheapestStation": {
-          "id": "VxyxoOixiziIDZ67kr5g",
-          "name": "Fahrzeug Center Goms AG",
-          "brand": "UNDEFINED",
-          "address": "Furkastrasse 401, 3998 Reckingen-Gluringen",
-          "lat": 46.4668411960693,
-          "lng": 8.235454925730831,
-          "sp95PriceChf": 1.78,
-          "updatedAt": "2026-03-13T19:47:21.891Z",
+          "id": "lxes64eiTuWx6LnaN2tY",
+          "name": "TAMOIL Münster",
+          "brand": "TAMOIL",
+          "address": "Furkastrasse 7, 3985 Münster",
+          "lat": 46.482963,
+          "lng": 8.259239,
+          "sp95PriceChf": 1.77,
+          "updatedAt": "2026-03-08T13:41:35.332Z",
           "nearestMunicipality": "Formazza (VB)",
-          "nearestMunicipalityDistanceKm": 14.5,
-          "sp95PriceEur": 1.946,
-          "distanceKm": 14.5
+          "nearestMunicipalityDistanceKm": 14.3,
+          "sp95PriceEur": 1.935,
+          "distanceKm": 14.3
         },
         "nearbyStations": [
+          {
+            "id": "lxes64eiTuWx6LnaN2tY",
+            "name": "TAMOIL Münster",
+            "brand": "TAMOIL",
+            "address": "Furkastrasse 7, 3985 Münster",
+            "lat": 46.482963,
+            "lng": 8.259239,
+            "sp95PriceChf": 1.77,
+            "updatedAt": "2026-03-08T13:41:35.332Z",
+            "nearestMunicipality": "Formazza (VB)",
+            "nearestMunicipalityDistanceKm": 14.3,
+            "sp95PriceEur": 1.935,
+            "distanceKm": 14.3
+          },
           {
             "id": "VxyxoOixiziIDZ67kr5g",
             "name": "Fahrzeug Center Goms AG",
@@ -36549,20 +36563,6 @@
             "nearestMunicipality": "Formazza (VB)",
             "nearestMunicipalityDistanceKm": 14.3,
             "sp95PriceEur": 1.957,
-            "distanceKm": 14.3
-          },
-          {
-            "id": "lxes64eiTuWx6LnaN2tY",
-            "name": "TAMOIL Münster",
-            "brand": "TAMOIL",
-            "address": "Furkastrasse 7, 3985 Münster",
-            "lat": 46.482963,
-            "lng": 8.259239,
-            "sp95PriceChf": 1.81,
-            "updatedAt": "2026-03-10T08:59:40.581Z",
-            "nearestMunicipality": "Formazza (VB)",
-            "nearestMunicipalityDistanceKm": 14.3,
-            "sp95PriceEur": 1.979,
             "distanceKm": 14.3
           },
           {
@@ -36594,8 +36594,8 @@
             "distanceKm": 18.2
           }
         ],
-        "minPriceChf": 1.78,
-        "minPriceEur": 1.946
+        "minPriceChf": 1.77,
+        "minPriceEur": 1.935
       },
       "comparison": {
         "cheaperCountry": "NO_DATA",
