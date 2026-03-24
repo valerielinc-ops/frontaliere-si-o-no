@@ -45,6 +45,9 @@ jobs:
           printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
           echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
 
+      - name: Load Remote Config secrets
+        run: node scripts/load-rc-env.mjs >> "$GITHUB_ENV"
+
       - name: Deploy Firestore security rules
         run: firebase deploy --only firestore:rules --project frontaliere-ticino
 
