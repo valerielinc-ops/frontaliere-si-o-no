@@ -2,6 +2,7 @@ import React, { Suspense } from 'react';
 import { lazyRetry } from '@/services/lazyRetry';
 import { useNavigation } from '@/services/NavigationContext';
 
+const AdSenseBanner = lazyRetry(() => import('@/components/shared/AdSenseBanner'));
 const SeoContentBlock = lazyRetry(() => import('@/components/shared/SeoContentBlock'));
 const StatsView = lazyRetry(() => import('@/components/pages/StatsView').then(m => ({ default: m.StatsView as any })));
 const LivabilityIndex = lazyRetry(() => import('@/components/vita/LivabilityIndex'));
@@ -37,6 +38,11 @@ export default function StatsTabContent() {
       ) : statsSubTab === 'fuel-prices' ? (
         <FuelPriceStats />
       ) : null}
+
+      {/* AdSense — bottom multiplex */}
+      <Suspense fallback={null}>
+        <AdSenseBanner adSlot="5196931137" adFormat="autorelaxed" className="mt-8 mb-4" />
+      </Suspense>
     </div>
   );
 }

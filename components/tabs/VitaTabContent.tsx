@@ -4,6 +4,7 @@ import { useNavigation } from '@/services/NavigationContext';
 import { useTabContent } from '@/services/TabContentContext';
 import { SkeletonComparator } from '@/components/shared/Skeletons';
 
+const AdSenseBanner = lazyRetry(() => import('@/components/shared/AdSenseBanner'));
 const SeoContentBlock = lazyRetry(() => import('@/components/shared/SeoContentBlock'));
 const FrontierGuide = lazyRetry(() => import('@/components/guide/FrontierGuide'));
 const TicinoCompanies = lazyRetry(() => import('@/components/vita/TicinoCompanies'));
@@ -36,6 +37,11 @@ export default function VitaTabContent() {
       ) : vitaSubTab === 'municipalities' ? (
         <FrontierGuide activeSection="municipalities" />
       ) : null}
+
+      {/* AdSense — bottom multiplex */}
+      <Suspense fallback={null}>
+        <AdSenseBanner adSlot="5196931137" adFormat="autorelaxed" className="mt-8 mb-4" />
+      </Suspense>
     </div>
   );
 }

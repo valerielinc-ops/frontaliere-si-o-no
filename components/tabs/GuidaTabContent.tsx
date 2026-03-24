@@ -3,6 +3,7 @@ import { lazyRetry } from '@/services/lazyRetry';
 import { useNavigation } from '@/services/NavigationContext';
 import { useTabContent } from '@/services/TabContentContext';
 
+const AdSenseBanner = lazyRetry(() => import('@/components/shared/AdSenseBanner'));
 const SeoContentBlock = lazyRetry(() => import('@/components/shared/SeoContentBlock'));
 const FrontierGuide = lazyRetry(() => import('@/components/guide/FrontierGuide'));
 const TrafficAlerts = lazyRetry(() => import('@/components/guide/TrafficAlerts'));
@@ -36,6 +37,11 @@ export default function GuidaTabContent() {
       ) : guidaSubTab === 'border-map' ? (
         <BorderMunicipalitiesMap userProfile={userProfile} />
       ) : null}
+
+      {/* AdSense — bottom multiplex */}
+      <Suspense fallback={null}>
+        <AdSenseBanner adSlot="5196931137" adFormat="autorelaxed" className="mt-8 mb-4" />
+      </Suspense>
     </div>
   );
 }
