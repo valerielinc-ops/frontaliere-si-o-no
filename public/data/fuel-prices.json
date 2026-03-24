@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-03-24T18:39:18.638Z",
+  "generatedAt": "2026-03-24T21:20:55.423Z",
   "sources": {
     "italy": {
       "provider": "MIMIT Open Data",
@@ -10,8 +10,8 @@
     "switzerland": {
       "provider": "TCS Benzinpreis",
       "providerUrl": "https://benzin.tcs.ch/de/map/SP95",
-      "stationCount": 226,
-      "latestObservedUpdate": "2026-03-24T18:06:11.303Z"
+      "stationCount": 227,
+      "latestObservedUpdate": "2026-03-24T21:08:57.532Z"
     },
     "exchangeRate": {
       "provider": "ECB",
@@ -1158,7 +1158,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 23,
+        "optionCount": 24,
         "cheapestStation": {
           "id": "pXVgLf2jUOKzOewFCsnj",
           "name": "Migrol Service",
@@ -1306,7 +1306,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 25,
+        "optionCount": 26,
         "cheapestStation": {
           "id": "pXVgLf2jUOKzOewFCsnj",
           "name": "Migrol Service",
@@ -1421,7 +1421,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 47,
+        "optionCount": 48,
         "cheapestStation": {
           "id": "eyss2Vf8mj29JzsCvuUr",
           "name": "Piccadilly SA",
@@ -1536,7 +1536,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 19,
+        "optionCount": 20,
         "cheapestStation": {
           "id": "pXVgLf2jUOKzOewFCsnj",
           "name": "Migrol Service",
@@ -1651,7 +1651,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 95,
+        "optionCount": 96,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -1788,7 +1788,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 21,
+        "optionCount": 22,
         "cheapestStation": {
           "id": "pXVgLf2jUOKzOewFCsnj",
           "name": "Migrol Service",
@@ -1925,7 +1925,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 15,
+        "optionCount": 16,
         "cheapestStation": {
           "id": "pXVgLf2jUOKzOewFCsnj",
           "name": "Migrol Service",
@@ -2073,7 +2073,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 25,
+        "optionCount": 26,
         "cheapestStation": {
           "id": "pXVgLf2jUOKzOewFCsnj",
           "name": "Migrol Service",
@@ -2188,7 +2188,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 82,
+        "optionCount": 83,
         "cheapestStation": {
           "id": "eyss2Vf8mj29JzsCvuUr",
           "name": "Piccadilly SA",
@@ -2910,7 +2910,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 26,
+        "optionCount": 27,
         "cheapestStation": {
           "id": "pXVgLf2jUOKzOewFCsnj",
           "name": "Migrol Service",
@@ -3025,7 +3025,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 29,
+        "optionCount": 30,
         "cheapestStation": {
           "id": "pXVgLf2jUOKzOewFCsnj",
           "name": "Migrol Service",
@@ -3140,7 +3140,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 67,
+        "optionCount": 68,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -3255,7 +3255,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 86,
+        "optionCount": 87,
         "cheapestStation": {
           "id": "eyss2Vf8mj29JzsCvuUr",
           "name": "Piccadilly SA",
@@ -3370,7 +3370,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 31,
+        "optionCount": 32,
         "cheapestStation": {
           "id": "eyss2Vf8mj29JzsCvuUr",
           "name": "Piccadilly SA",
@@ -3540,7 +3540,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 20,
+        "optionCount": 21,
         "cheapestStation": {
           "id": "pXVgLf2jUOKzOewFCsnj",
           "name": "Migrol Service",
@@ -3688,7 +3688,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 13,
+        "optionCount": 14,
         "cheapestStation": {
           "id": "pXVgLf2jUOKzOewFCsnj",
           "name": "Migrol Service",
@@ -3803,7 +3803,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 61,
+        "optionCount": 62,
         "cheapestStation": {
           "id": "eyss2Vf8mj29JzsCvuUr",
           "name": "Piccadilly SA",
@@ -3918,7 +3918,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 30,
+        "optionCount": 31,
         "cheapestStation": {
           "id": "eyss2Vf8mj29JzsCvuUr",
           "name": "Piccadilly SA",
@@ -4033,7 +4033,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 25,
+        "optionCount": 26,
         "cheapestStation": {
           "id": "pXVgLf2jUOKzOewFCsnj",
           "name": "Migrol Service",
@@ -4289,7 +4289,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 24,
+        "optionCount": 25,
         "cheapestStation": {
           "id": "pXVgLf2jUOKzOewFCsnj",
           "name": "Migrol Service",
@@ -4404,7 +4404,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 16,
+        "optionCount": 17,
         "cheapestStation": {
           "id": "pXVgLf2jUOKzOewFCsnj",
           "name": "Migrol Service",
@@ -4519,7 +4519,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 95,
+        "optionCount": 96,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -4854,7 +4854,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 23,
+        "optionCount": 24,
         "cheapestStation": {
           "id": "pXVgLf2jUOKzOewFCsnj",
           "name": "Migrol Service",
@@ -5139,7 +5139,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 25,
+        "optionCount": 26,
         "cheapestStation": {
           "id": "pXVgLf2jUOKzOewFCsnj",
           "name": "Migrol Service",
@@ -5254,7 +5254,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 55,
+        "optionCount": 56,
         "cheapestStation": {
           "id": "eyss2Vf8mj29JzsCvuUr",
           "name": "Piccadilly SA",
@@ -5369,7 +5369,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 18,
+        "optionCount": 19,
         "cheapestStation": {
           "id": "pXVgLf2jUOKzOewFCsnj",
           "name": "Migrol Service",
@@ -5484,7 +5484,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 15,
+        "optionCount": 16,
         "cheapestStation": {
           "id": "pXVgLf2jUOKzOewFCsnj",
           "name": "Migrol Service",
@@ -5862,7 +5862,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 19,
+        "optionCount": 20,
         "cheapestStation": {
           "id": "pXVgLf2jUOKzOewFCsnj",
           "name": "Migrol Service",
@@ -5977,7 +5977,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 25,
+        "optionCount": 26,
         "cheapestStation": {
           "id": "pXVgLf2jUOKzOewFCsnj",
           "name": "Migrol Service",
@@ -6092,7 +6092,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 25,
+        "optionCount": 26,
         "cheapestStation": {
           "id": "pXVgLf2jUOKzOewFCsnj",
           "name": "Migrol Service",
@@ -6240,7 +6240,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 15,
+        "optionCount": 16,
         "cheapestStation": {
           "id": "pXVgLf2jUOKzOewFCsnj",
           "name": "Migrol Service",
@@ -6355,7 +6355,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 26,
+        "optionCount": 27,
         "cheapestStation": {
           "id": "pXVgLf2jUOKzOewFCsnj",
           "name": "Migrol Service",
@@ -6585,7 +6585,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 89,
+        "optionCount": 90,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -6700,7 +6700,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 85,
+        "optionCount": 86,
         "cheapestStation": {
           "id": "eyss2Vf8mj29JzsCvuUr",
           "name": "Piccadilly SA",
@@ -6892,7 +6892,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 18,
+        "optionCount": 19,
         "cheapestStation": {
           "id": "pXVgLf2jUOKzOewFCsnj",
           "name": "Migrol Service",
@@ -7007,7 +7007,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 43,
+        "optionCount": 44,
         "cheapestStation": {
           "id": "eyss2Vf8mj29JzsCvuUr",
           "name": "Piccadilly SA",
@@ -7122,7 +7122,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 23,
+        "optionCount": 24,
         "cheapestStation": {
           "id": "pXVgLf2jUOKzOewFCsnj",
           "name": "Migrol Service",
@@ -7237,7 +7237,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 106,
+        "optionCount": 107,
         "cheapestStation": {
           "id": "eyss2Vf8mj29JzsCvuUr",
           "name": "Piccadilly SA",
@@ -7352,7 +7352,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 69,
+        "optionCount": 70,
         "cheapestStation": {
           "id": "eyss2Vf8mj29JzsCvuUr",
           "name": "Piccadilly SA",
@@ -7467,7 +7467,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 31,
+        "optionCount": 32,
         "cheapestStation": {
           "id": "eyss2Vf8mj29JzsCvuUr",
           "name": "Piccadilly SA",
@@ -7857,7 +7857,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 30,
+        "optionCount": 31,
         "cheapestStation": {
           "id": "eyss2Vf8mj29JzsCvuUr",
           "name": "Piccadilly SA",
@@ -8140,7 +8140,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 24,
+        "optionCount": 25,
         "cheapestStation": {
           "id": "pXVgLf2jUOKzOewFCsnj",
           "name": "Migrol Service",
@@ -8370,7 +8370,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 85,
+        "optionCount": 86,
         "cheapestStation": {
           "id": "eyss2Vf8mj29JzsCvuUr",
           "name": "Piccadilly SA",
@@ -8995,7 +8995,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 17,
+        "optionCount": 18,
         "cheapestStation": {
           "id": "pXVgLf2jUOKzOewFCsnj",
           "name": "Migrol Service",
@@ -9225,7 +9225,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 28,
+        "optionCount": 29,
         "cheapestStation": {
           "id": "eyss2Vf8mj29JzsCvuUr",
           "name": "Piccadilly SA",
@@ -9340,7 +9340,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 40,
+        "optionCount": 41,
         "cheapestStation": {
           "id": "eyss2Vf8mj29JzsCvuUr",
           "name": "Piccadilly SA",
@@ -9510,7 +9510,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 23,
+        "optionCount": 24,
         "cheapestStation": {
           "id": "pXVgLf2jUOKzOewFCsnj",
           "name": "Migrol Service",
@@ -9658,7 +9658,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 15,
+        "optionCount": 16,
         "cheapestStation": {
           "id": "pXVgLf2jUOKzOewFCsnj",
           "name": "Migrol Service",
@@ -9850,7 +9850,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 25,
+        "optionCount": 26,
         "cheapestStation": {
           "id": "pXVgLf2jUOKzOewFCsnj",
           "name": "Migrol Service",
@@ -10211,7 +10211,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 26,
+        "optionCount": 27,
         "cheapestStation": {
           "id": "pXVgLf2jUOKzOewFCsnj",
           "name": "Migrol Service",
@@ -10407,20 +10407,6 @@
             "distanceKm": 19.6
           },
           {
-            "id": "oE9ujs5ie5VaYL9ls0Y0",
-            "name": "Stazione di servizio Migrol",
-            "brand": "MIGROL",
-            "address": "Via Lugano 49, 6953 Lugaggia",
-            "lat": 46.053738,
-            "lng": 8.972878,
-            "sp95PriceChf": 1.79,
-            "updatedAt": "2026-03-23T05:59:34.495Z",
-            "nearestMunicipality": "Valsolda (CO)",
-            "nearestMunicipalityDistanceKm": 6.1,
-            "sp95PriceEur": 1.957,
-            "distanceKm": 16.8
-          },
-          {
             "id": "oGGNb7yYSFTt2Kd6prPE",
             "name": "Righetti Distributore Gardel",
             "brand": "UNDEFINED",
@@ -10433,6 +10419,20 @@
             "nearestMunicipalityDistanceKm": 4.6,
             "sp95PriceEur": 1.957,
             "distanceKm": 19.2
+          },
+          {
+            "id": "5LTmgyzdQyG1u08UnDu1",
+            "name": "Euro Service",
+            "brand": "UNDEFINED",
+            "address": "Via Cantonale 12, 6814 Cadempino",
+            "lat": 46.03291417576174,
+            "lng": 8.934531588842782,
+            "sp95PriceChf": 1.82,
+            "updatedAt": "2026-03-21T09:46:58.726Z",
+            "nearestMunicipality": "Campione d'Italia (CO)",
+            "nearestMunicipalityDistanceKm": 7.7,
+            "sp95PriceEur": 1.99,
+            "distanceKm": 19.8
           }
         ],
         "minPriceChf": 1.66,
@@ -10673,7 +10673,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 24,
+        "optionCount": 25,
         "cheapestStation": {
           "id": "pXVgLf2jUOKzOewFCsnj",
           "name": "Migrol Service",
@@ -10980,7 +10980,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 42,
+        "optionCount": 43,
         "cheapestStation": {
           "id": "eyss2Vf8mj29JzsCvuUr",
           "name": "Piccadilly SA",
@@ -11095,7 +11095,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 93,
+        "optionCount": 94,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -11462,7 +11462,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 34,
+        "optionCount": 35,
         "cheapestStation": {
           "id": "eyss2Vf8mj29JzsCvuUr",
           "name": "Piccadilly SA",
@@ -11577,7 +11577,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 21,
+        "optionCount": 22,
         "cheapestStation": {
           "id": "pXVgLf2jUOKzOewFCsnj",
           "name": "Migrol Service",
@@ -11725,7 +11725,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 26,
+        "optionCount": 27,
         "cheapestStation": {
           "id": "pXVgLf2jUOKzOewFCsnj",
           "name": "Migrol Service",
@@ -11988,7 +11988,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 19,
+        "optionCount": 20,
         "cheapestStation": {
           "id": "pXVgLf2jUOKzOewFCsnj",
           "name": "Migrol Service",
@@ -12180,7 +12180,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 23,
+        "optionCount": 24,
         "cheapestStation": {
           "id": "pXVgLf2jUOKzOewFCsnj",
           "name": "Migrol Service",
@@ -12432,7 +12432,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 26,
+        "optionCount": 27,
         "cheapestStation": {
           "id": "pXVgLf2jUOKzOewFCsnj",
           "name": "Migrol Service",
@@ -12684,7 +12684,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 24,
+        "optionCount": 25,
         "cheapestStation": {
           "id": "pXVgLf2jUOKzOewFCsnj",
           "name": "Migrol Service",
@@ -12843,7 +12843,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 26,
+        "optionCount": 27,
         "cheapestStation": {
           "id": "pXVgLf2jUOKzOewFCsnj",
           "name": "Migrol Service",
@@ -13342,7 +13342,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 57,
+        "optionCount": 58,
         "cheapestStation": {
           "id": "eyss2Vf8mj29JzsCvuUr",
           "name": "Piccadilly SA",
@@ -13714,7 +13714,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 48,
+        "optionCount": 49,
         "cheapestStation": {
           "id": "eyss2Vf8mj29JzsCvuUr",
           "name": "Piccadilly SA",
@@ -13944,7 +13944,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 30,
+        "optionCount": 31,
         "cheapestStation": {
           "id": "eyss2Vf8mj29JzsCvuUr",
           "name": "Piccadilly SA",
@@ -14146,7 +14146,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 25,
+        "optionCount": 26,
         "cheapestStation": {
           "id": "pXVgLf2jUOKzOewFCsnj",
           "name": "Migrol Service",
@@ -14568,7 +14568,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 53,
+        "optionCount": 54,
         "cheapestStation": {
           "id": "eyss2Vf8mj29JzsCvuUr",
           "name": "Piccadilly SA",
@@ -14738,7 +14738,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 12,
+        "optionCount": 13,
         "cheapestStation": {
           "id": "pXVgLf2jUOKzOewFCsnj",
           "name": "Migrol Service",
@@ -14908,7 +14908,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 30,
+        "optionCount": 31,
         "cheapestStation": {
           "id": "eyss2Vf8mj29JzsCvuUr",
           "name": "Piccadilly SA",
@@ -15023,7 +15023,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 26,
+        "optionCount": 27,
         "cheapestStation": {
           "id": "pXVgLf2jUOKzOewFCsnj",
           "name": "Migrol Service",
@@ -15171,7 +15171,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 22,
+        "optionCount": 23,
         "cheapestStation": {
           "id": "pXVgLf2jUOKzOewFCsnj",
           "name": "Migrol Service",
@@ -15502,7 +15502,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 84,
+        "optionCount": 85,
         "cheapestStation": {
           "id": "eyss2Vf8mj29JzsCvuUr",
           "name": "Piccadilly SA",
@@ -15619,34 +15619,20 @@
         "searchRadiusKm": 20,
         "optionCount": 4,
         "cheapestStation": {
-          "id": "oE9ujs5ie5VaYL9ls0Y0",
-          "name": "Stazione di servizio Migrol",
-          "brand": "MIGROL",
-          "address": "Via Lugano 49, 6953 Lugaggia",
-          "lat": 46.053738,
-          "lng": 8.972878,
-          "sp95PriceChf": 1.79,
-          "updatedAt": "2026-03-23T05:59:34.495Z",
+          "id": "Vw7zlCaSR4BImrslQopa",
+          "name": "Righetti",
+          "brand": "UNDEFINED",
+          "address": "Via Circonvallazione 9, Lugano",
+          "lat": 46.0460732,
+          "lng": 8.9841337,
+          "sp95PriceChf": 1.83,
+          "updatedAt": "2026-03-14T11:27:10.303Z",
           "nearestMunicipality": "Valsolda (CO)",
-          "nearestMunicipalityDistanceKm": 6.1,
-          "sp95PriceEur": 1.957,
-          "distanceKm": 19.9
+          "nearestMunicipalityDistanceKm": 5,
+          "sp95PriceEur": 2.001,
+          "distanceKm": 19
         },
         "nearbyStations": [
-          {
-            "id": "oE9ujs5ie5VaYL9ls0Y0",
-            "name": "Stazione di servizio Migrol",
-            "brand": "MIGROL",
-            "address": "Via Lugano 49, 6953 Lugaggia",
-            "lat": 46.053738,
-            "lng": 8.972878,
-            "sp95PriceChf": 1.79,
-            "updatedAt": "2026-03-23T05:59:34.495Z",
-            "nearestMunicipality": "Valsolda (CO)",
-            "nearestMunicipalityDistanceKm": 6.1,
-            "sp95PriceEur": 1.957,
-            "distanceKm": 19.9
-          },
           {
             "id": "Vw7zlCaSR4BImrslQopa",
             "name": "Righetti",
@@ -15676,6 +15662,20 @@
             "distanceKm": 17.7
           },
           {
+            "id": "oE9ujs5ie5VaYL9ls0Y0",
+            "name": "Stazione di servizio Migrol",
+            "brand": "MIGROL",
+            "address": "Via Lugano 49, 6953 Lugaggia",
+            "lat": 46.053738,
+            "lng": 8.972878,
+            "sp95PriceChf": 1.84,
+            "updatedAt": "2026-03-24T19:42:27.166Z",
+            "nearestMunicipality": "Valsolda (CO)",
+            "nearestMunicipalityDistanceKm": 6.1,
+            "sp95PriceEur": 2.012,
+            "distanceKm": 19.9
+          },
+          {
             "id": "eDbI0PJQV5oNt1i95qtE",
             "name": "ECSA Energy SA - Stazione di servizio Pregassona",
             "brand": "UNDEFINED",
@@ -15683,15 +15683,15 @@
             "lat": 46.02229342203902,
             "lng": 8.975975510092448,
             "sp95PriceChf": 1.86,
-            "updatedAt": "2026-03-24T16:35:45.033Z",
+            "updatedAt": "2026-03-24T19:25:30.241Z",
             "nearestMunicipality": "Valsolda (CO)",
             "nearestMunicipalityDistanceKm": 5.3,
             "sp95PriceEur": 2.034,
             "distanceKm": 19.8
           }
         ],
-        "minPriceChf": 1.79,
-        "minPriceEur": 1.957
+        "minPriceChf": 1.83,
+        "minPriceEur": 2.001
       },
       "comparison": {
         "cheaperCountry": "NO_DATA",
@@ -15718,7 +15718,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 31,
+        "optionCount": 32,
         "cheapestStation": {
           "id": "eyss2Vf8mj29JzsCvuUr",
           "name": "Piccadilly SA",
@@ -15833,7 +15833,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 89,
+        "optionCount": 90,
         "cheapestStation": {
           "id": "eyss2Vf8mj29JzsCvuUr",
           "name": "Piccadilly SA",
@@ -15948,7 +15948,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 21,
+        "optionCount": 22,
         "cheapestStation": {
           "id": "pXVgLf2jUOKzOewFCsnj",
           "name": "Migrol Service",
@@ -16200,7 +16200,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 13,
+        "optionCount": 14,
         "cheapestStation": {
           "id": "pXVgLf2jUOKzOewFCsnj",
           "name": "Migrol Service",
@@ -16430,7 +16430,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 13,
+        "optionCount": 14,
         "cheapestStation": {
           "id": "pXVgLf2jUOKzOewFCsnj",
           "name": "Migrol Service",
@@ -16545,7 +16545,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 58,
+        "optionCount": 59,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -16660,7 +16660,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 62,
+        "optionCount": 63,
         "cheapestStation": {
           "id": "eyss2Vf8mj29JzsCvuUr",
           "name": "Piccadilly SA",
@@ -16965,7 +16965,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 60,
+        "optionCount": 61,
         "cheapestStation": {
           "id": "eyss2Vf8mj29JzsCvuUr",
           "name": "Piccadilly SA",
@@ -17228,7 +17228,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 30,
+        "optionCount": 31,
         "cheapestStation": {
           "id": "eyss2Vf8mj29JzsCvuUr",
           "name": "Piccadilly SA",
@@ -17489,7 +17489,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 85,
+        "optionCount": 86,
         "cheapestStation": {
           "id": "eyss2Vf8mj29JzsCvuUr",
           "name": "Piccadilly SA",
@@ -17604,7 +17604,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 25,
+        "optionCount": 26,
         "cheapestStation": {
           "id": "pXVgLf2jUOKzOewFCsnj",
           "name": "Migrol Service",
@@ -17752,7 +17752,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 37,
+        "optionCount": 38,
         "cheapestStation": {
           "id": "eyss2Vf8mj29JzsCvuUr",
           "name": "Piccadilly SA",
@@ -17973,7 +17973,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 13,
+        "optionCount": 14,
         "cheapestStation": {
           "id": "pXVgLf2jUOKzOewFCsnj",
           "name": "Migrol Service",
@@ -18203,7 +18203,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 26,
+        "optionCount": 27,
         "cheapestStation": {
           "id": "pXVgLf2jUOKzOewFCsnj",
           "name": "Migrol Service",
@@ -18340,7 +18340,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 39,
+        "optionCount": 40,
         "cheapestStation": {
           "id": "eyss2Vf8mj29JzsCvuUr",
           "name": "Piccadilly SA",
@@ -18877,7 +18877,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 57,
+        "optionCount": 58,
         "cheapestStation": {
           "id": "eyss2Vf8mj29JzsCvuUr",
           "name": "Piccadilly SA",
@@ -19138,7 +19138,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 54,
+        "optionCount": 55,
         "cheapestStation": {
           "id": "eyss2Vf8mj29JzsCvuUr",
           "name": "Piccadilly SA",
@@ -19253,7 +19253,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 112,
+        "optionCount": 113,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -19368,7 +19368,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 31,
+        "optionCount": 32,
         "cheapestStation": {
           "id": "eyss2Vf8mj29JzsCvuUr",
           "name": "Piccadilly SA",
@@ -19505,7 +19505,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 24,
+        "optionCount": 25,
         "cheapestStation": {
           "id": "pXVgLf2jUOKzOewFCsnj",
           "name": "Migrol Service",
@@ -19779,7 +19779,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 24,
+        "optionCount": 25,
         "cheapestStation": {
           "id": "pXVgLf2jUOKzOewFCsnj",
           "name": "Migrol Service",
@@ -19927,7 +19927,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 26,
+        "optionCount": 27,
         "cheapestStation": {
           "id": "pXVgLf2jUOKzOewFCsnj",
           "name": "Migrol Service",
@@ -20042,7 +20042,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 32,
+        "optionCount": 33,
         "cheapestStation": {
           "id": "eyss2Vf8mj29JzsCvuUr",
           "name": "Piccadilly SA",
@@ -20414,7 +20414,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 79,
+        "optionCount": 80,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -20637,7 +20637,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 11,
+        "optionCount": 12,
         "cheapestStation": {
           "id": "g1Ewt2bs9nFFxymi7tYL",
           "name": "TAMOIL Stabio",
@@ -20710,18 +20710,18 @@
             "distanceKm": 19.7
           },
           {
-            "id": "jyoUfNzRecwgKimvcY2C",
-            "name": "Carrozzeria San Giovanni SA",
-            "brand": "AVIA",
-            "address": "Via Campagna Adorna 13, 6850 Mendrisio",
-            "lat": 45.862217,
-            "lng": 8.972931,
+            "id": "XLeLHwJ2EelmIu01vhOk",
+            "name": "Piccadilly SA",
+            "brand": "UNDEFINED",
+            "address": "Via S. Gottardo 12, 6877 Coldrerio",
+            "lat": 45.85575106,
+            "lng": 8.993432117,
             "sp95PriceChf": 1.79,
-            "updatedAt": "2026-03-22T13:26:43.328Z",
-            "nearestMunicipality": "Clivio (VA)",
-            "nearestMunicipalityDistanceKm": 3.4,
+            "updatedAt": "2026-03-24T21:03:54.714Z",
+            "nearestMunicipality": "Ronago (CO)",
+            "nearestMunicipalityDistanceKm": 2.7,
             "sp95PriceEur": 1.957,
-            "distanceKm": 17.9
+            "distanceKm": 19
           }
         ],
         "minPriceChf": 1.72,
@@ -20889,7 +20889,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 30,
+        "optionCount": 31,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -21110,7 +21110,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 75,
+        "optionCount": 76,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -21225,7 +21225,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 86,
+        "optionCount": 87,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -21572,7 +21572,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 82,
+        "optionCount": 83,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -22206,7 +22206,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 78,
+        "optionCount": 79,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -22436,7 +22436,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 20,
+        "optionCount": 21,
         "cheapestStation": {
           "id": "pXVgLf2jUOKzOewFCsnj",
           "name": "Migrol Service",
@@ -22551,7 +22551,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 95,
+        "optionCount": 96,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -22710,7 +22710,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 25,
+        "optionCount": 26,
         "cheapestStation": {
           "id": "pXVgLf2jUOKzOewFCsnj",
           "name": "Migrol Service",
@@ -22825,7 +22825,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 85,
+        "optionCount": 86,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -23157,7 +23157,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 57,
+        "optionCount": 58,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -23406,7 +23406,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 18,
+        "optionCount": 19,
         "cheapestStation": {
           "id": "pXVgLf2jUOKzOewFCsnj",
           "name": "Migrol Service",
@@ -23554,7 +23554,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 24,
+        "optionCount": 25,
         "cheapestStation": {
           "id": "pXVgLf2jUOKzOewFCsnj",
           "name": "Migrol Service",
@@ -23857,7 +23857,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 47,
+        "optionCount": 48,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -24091,7 +24091,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 71,
+        "optionCount": 72,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -24206,7 +24206,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 58,
+        "optionCount": 59,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -24354,7 +24354,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 23,
+        "optionCount": 24,
         "cheapestStation": {
           "id": "pXVgLf2jUOKzOewFCsnj",
           "name": "Migrol Service",
@@ -24606,7 +24606,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 25,
+        "optionCount": 26,
         "cheapestStation": {
           "id": "pXVgLf2jUOKzOewFCsnj",
           "name": "Migrol Service",
@@ -24754,7 +24754,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 19,
+        "optionCount": 20,
         "cheapestStation": {
           "id": "pXVgLf2jUOKzOewFCsnj",
           "name": "Migrol Service",
@@ -25340,7 +25340,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 82,
+        "optionCount": 83,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -25744,7 +25744,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 26,
+        "optionCount": 27,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -26122,7 +26122,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 87,
+        "optionCount": 88,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -26237,7 +26237,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 81,
+        "optionCount": 82,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -26374,7 +26374,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 78,
+        "optionCount": 79,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -26911,7 +26911,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 10,
+        "optionCount": 11,
         "cheapestStation": {
           "id": "g1Ewt2bs9nFFxymi7tYL",
           "name": "TAMOIL Stabio",
@@ -26970,6 +26970,20 @@
             "distanceKm": 18.8
           },
           {
+            "id": "XLeLHwJ2EelmIu01vhOk",
+            "name": "Piccadilly SA",
+            "brand": "UNDEFINED",
+            "address": "Via S. Gottardo 12, 6877 Coldrerio",
+            "lat": 45.85575106,
+            "lng": 8.993432117,
+            "sp95PriceChf": 1.79,
+            "updatedAt": "2026-03-24T21:03:54.714Z",
+            "nearestMunicipality": "Ronago (CO)",
+            "nearestMunicipalityDistanceKm": 2.7,
+            "sp95PriceEur": 1.957,
+            "distanceKm": 19.2
+          },
+          {
             "id": "jyoUfNzRecwgKimvcY2C",
             "name": "Carrozzeria San Giovanni SA",
             "brand": "AVIA",
@@ -26982,20 +26996,6 @@
             "nearestMunicipalityDistanceKm": 3.4,
             "sp95PriceEur": 1.957,
             "distanceKm": 18.2
-          },
-          {
-            "id": "BuLqgLtrkWKZWPB1oaHr",
-            "name": "BP Unbemannte Station Genestrerio",
-            "brand": "BP",
-            "address": "Via Adorna, 6852 Genestrerio",
-            "lat": 45.85708,
-            "lng": 8.96782,
-            "sp95PriceChf": 1.8,
-            "updatedAt": "2026-03-21T12:15:41.072Z",
-            "nearestMunicipality": "Bizzarone (CO)",
-            "nearestMunicipalityDistanceKm": 2.8,
-            "sp95PriceEur": 1.968,
-            "distanceKm": 17.5
           }
         ],
         "minPriceChf": 1.72,
@@ -27320,7 +27320,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 74,
+        "optionCount": 75,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -27829,7 +27829,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 12,
+        "optionCount": 13,
         "cheapestStation": {
           "id": "g1Ewt2bs9nFFxymi7tYL",
           "name": "TAMOIL Stabio",
@@ -28213,7 +28213,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 26,
+        "optionCount": 27,
         "cheapestStation": {
           "id": "pXVgLf2jUOKzOewFCsnj",
           "name": "Migrol Service",
@@ -28838,7 +28838,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 24,
+        "optionCount": 25,
         "cheapestStation": {
           "id": "pXVgLf2jUOKzOewFCsnj",
           "name": "Migrol Service",
@@ -28953,7 +28953,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 77,
+        "optionCount": 78,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -29155,7 +29155,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 68,
+        "optionCount": 69,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -29365,7 +29365,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 95,
+        "optionCount": 96,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -29703,7 +29703,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 20,
+        "optionCount": 21,
         "cheapestStation": {
           "id": "pXVgLf2jUOKzOewFCsnj",
           "name": "Migrol Service",
@@ -29818,7 +29818,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 26,
+        "optionCount": 27,
         "cheapestStation": {
           "id": "pXVgLf2jUOKzOewFCsnj",
           "name": "Migrol Service",
@@ -30070,7 +30070,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 37,
+        "optionCount": 38,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -30366,7 +30366,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 38,
+        "optionCount": 39,
         "cheapestStation": {
           "id": "eyss2Vf8mj29JzsCvuUr",
           "name": "Piccadilly SA",
@@ -30514,7 +30514,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 89,
+        "optionCount": 90,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -30629,7 +30629,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 90,
+        "optionCount": 91,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -30744,7 +30744,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 71,
+        "optionCount": 72,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -31206,7 +31206,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 25,
+        "optionCount": 26,
         "cheapestStation": {
           "id": "pXVgLf2jUOKzOewFCsnj",
           "name": "Migrol Service",
@@ -31604,7 +31604,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 87,
+        "optionCount": 88,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -31867,7 +31867,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 70,
+        "optionCount": 71,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -31982,7 +31982,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 84,
+        "optionCount": 85,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -32998,7 +32998,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 23,
+        "optionCount": 24,
         "cheapestStation": {
           "id": "pXVgLf2jUOKzOewFCsnj",
           "name": "Migrol Service",
@@ -33325,7 +33325,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 84,
+        "optionCount": 85,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -33972,7 +33972,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 47,
+        "optionCount": 48,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -34087,7 +34087,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 26,
+        "optionCount": 27,
         "cheapestStation": {
           "id": "pXVgLf2jUOKzOewFCsnj",
           "name": "Migrol Service",
@@ -34246,7 +34246,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 24,
+        "optionCount": 25,
         "cheapestStation": {
           "id": "pXVgLf2jUOKzOewFCsnj",
           "name": "Migrol Service",
@@ -34361,7 +34361,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 25,
+        "optionCount": 26,
         "cheapestStation": {
           "id": "pXVgLf2jUOKzOewFCsnj",
           "name": "Migrol Service",
@@ -34617,7 +34617,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 83,
+        "optionCount": 84,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -45928,11 +45928,11 @@
           "address": "Julierstrasse 40B, 7457 Surses",
           "lat": 46.47050506,
           "lng": 9.649974065,
-          "sp95PriceChf": 1.77,
-          "updatedAt": "2026-03-09T08:45:15.666Z",
+          "sp95PriceChf": 1.82,
+          "updatedAt": "2026-03-24T21:07:13.416Z",
           "nearestMunicipality": "Villa di Chiavenna (SO)",
           "nearestMunicipalityDistanceKm": 19.8,
-          "sp95PriceEur": 1.935,
+          "sp95PriceEur": 1.99,
           "distanceKm": 19.8
         },
         "nearbyStations": [
@@ -45943,16 +45943,16 @@
             "address": "Julierstrasse 40B, 7457 Surses",
             "lat": 46.47050506,
             "lng": 9.649974065,
-            "sp95PriceChf": 1.77,
-            "updatedAt": "2026-03-09T08:45:15.666Z",
+            "sp95PriceChf": 1.82,
+            "updatedAt": "2026-03-24T21:07:13.416Z",
             "nearestMunicipality": "Villa di Chiavenna (SO)",
             "nearestMunicipalityDistanceKm": 19.8,
-            "sp95PriceEur": 1.935,
+            "sp95PriceEur": 1.99,
             "distanceKm": 19.8
           }
         ],
-        "minPriceChf": 1.77,
-        "minPriceEur": 1.935
+        "minPriceChf": 1.82,
+        "minPriceEur": 1.99
       },
       "comparison": {
         "cheaperCountry": "NO_DATA",
