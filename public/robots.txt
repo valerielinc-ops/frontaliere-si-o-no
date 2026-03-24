@@ -1,4 +1,4 @@
-# robots.txt for Frontaliere Ticino - www.frontaliereticino.ch
+# robots.txt for Frontaliere Ticino - frontaliereticino.ch
 # Allow all search engines and AI crawlers to crawl
 
 User-agent: *
@@ -12,7 +12,7 @@ Disallow: /*?status=*
 Crawl-delay: 1
 
 # Sitemap locations (index includes pages, blog, glossario, and news sub-sitemaps)
-Sitemap: https://www.frontaliereticino.ch/sitemap.xml
+Sitemap: https://frontaliereticino.ch/sitemap.xml
 
 # AI-readable content files (llmstxt.org standard)
 # /llms.txt — structured site summary for AI systems
