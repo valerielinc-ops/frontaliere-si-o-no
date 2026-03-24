@@ -26,6 +26,11 @@ import {
   validateDedicatedLocaleCoverage,
 } from './lib/dedicated-crawler-common.mjs';
 import { callLLM, flushScores, isAnyModelAvailable } from './lib/ai-models.mjs';
+import {
+  fetchLisJobUrls,
+  fetchLisDetailPage,
+  buildLisJob,
+} from './lib/lis-lugano-istituti-sociali-job-parser.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -908,6 +913,122 @@ function runBaseCrawler() {
 }
 
 // ──────────────────────────────────────────────────────────────
+// Direct Arca24 scraping (bypasses shared pipeline discovery)
+// ──────────────────────────────────────────────────────────────
+
+/**
+ * Crawl the Arca24 listing pages directly, fetch each detail page,
+ * and merge discovered jobs into data/jobs.json.
+ *
+ * The shared crawler pipeline cannot discover Arca24 jobs because:
+ *   1. lavoraconnoi.lugano-lis.ch is not in the isKnownAtsHost() list
+ *   2. Adapter seed URLs are deprioritized behind career-hint URLs
+ *      and hit the per-company career-page cap before being processed
+ *
+ * This function bypasses those issues by scraping Arca24 directly.
+ */
+async function crawlArca24Direct() {
+  console.log('\n🔍 Direct Arca24 scraping: discovering job URLs...');
+  const listingJobs = await fetchLisJobUrls({
+    userAgent: LIS_USER_AGENT,
+    timeoutMs: 15000,
+  });
+  console.log(`📋 Found ${listingJobs.length} job URLs on Arca24 listing pages`);
+  if (listingJobs.length === 0) {
+    console.warn('⚠️  No job URLs found on Arca24 listing pages — the ATS may be down or structure changed');
+    return { discovered: 0, parsed: 0, merged: 0 };
+  }
+
+  // Fetch and parse each detail page
+  console.log('\n📄 Fetching Arca24 detail pages...');
+  const parsedJobs = [];
+  const DETAIL_DELAY_MS = 800;
+  for (const listing of listingJobs) {
+    const detail = await fetchLisDetailPage(listing.url, {
+      userAgent: LIS_USER_AGENT,
+      timeoutMs: 15000,
+    });
+    if (detail) {
+      const job = buildLisJob(listing.url, detail);
+      if (job) {
+        console.log(`  ✅ ${detail.title} → ${detail.location || 'unknown'} [${(detail.description || '').length} chars]`);
+        parsedJobs.push(job);
+      } else {
+        console.log(`  ⏭️  ${listing.title} → could not build job object`);
+      }
+    } else {
+      console.log(`  ⚠️  ${listing.url} → detail page parse failed`);
+    }
+    // Polite delay between requests
+    if (parsedJobs.length < listingJobs.length) {
+      await new Promise((r) => setTimeout(r, DETAIL_DELAY_MS));
+    }
+  }
+
+  console.log(`\n🏛️ Parsed LIS jobs: ${parsedJobs.length} / ${listingJobs.length}`);
+  if (parsedJobs.length === 0) {
+    console.warn('⚠️  All detail pages failed to parse — Arca24 structure may have changed');
+    return { discovered: listingJobs.length, parsed: 0, merged: 0 };
+  }
+
+  // Deduplicate by title+location
+  const seenKeys = new Set();
+  const deduplicated = [];
+  for (const job of parsedJobs) {
+    const key = `${normalize(job.title)}|${normalize(job.location)}`;
+    if (!seenKeys.has(key)) {
+      seenKeys.add(key);
+      deduplicated.push(job);
+    }
+  }
+  if (deduplicated.length < parsedJobs.length) {
+    console.log(`🔄 Deduplicated: ${parsedJobs.length} → ${deduplicated.length} unique`);
+  }
+
+  // Merge into jobs.json
+  const existing = fs.existsSync(DATA_JOBS)
+    ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'))
+    : [];
+  const allExisting = Array.isArray(existing) ? existing : [];
+  const nonLisJobs = allExisting.filter((j) => !isLisJob(j));
+  const lisExisting = allExisting.filter(isLisJob);
+  const existingByUrl = new Map();
+  for (const j of lisExisting) {
+    const key = normalizeLisUrlForDedup(j.url);
+    if (key) existingByUrl.set(key, j);
+  }
+
+  let added = 0;
+  let updated = 0;
+  const mergedLis = deduplicated.map((job) => {
+    const key = normalizeLisUrlForDedup(job.url);
+    const prev = existingByUrl.get(key);
+    if (!prev) {
+      added += 1;
+      return job;
+    }
+    updated += 1;
+    // Merge: preserve existing locale translations, update core fields
+    return {
+      ...prev,
+      ...job,
+      titleByLocale: { ...(prev.titleByLocale || {}), ...(job.titleByLocale || {}) },
+      descriptionByLocale: { ...(prev.descriptionByLocale || {}), ...(job.descriptionByLocale || {}) },
+      slugByLocale: { ...(prev.slugByLocale || {}), ...(job.slugByLocale || {}) },
+    };
+  });
+
+  const allJobs = [...nonLisJobs, ...mergedLis];
+  fs.writeFileSync(DATA_JOBS, JSON.stringify(allJobs, null, 2) + '\n');
+  if (fs.existsSync(PUBLIC_DATA_JOBS) || fs.existsSync(path.dirname(PUBLIC_DATA_JOBS))) {
+    fs.writeFileSync(PUBLIC_DATA_JOBS, JSON.stringify(allJobs, null, 2) + '\n');
+  }
+
+  console.log(`\n📊 Merge result: ${mergedLis.length} LIS jobs (${added} added, ${updated} updated)`);
+  return { discovered: listingJobs.length, parsed: deduplicated.length, merged: mergedLis.length };
+}
+
+// ──────────────────────────────────────────────────────────────
 // Stats & validation
 // ──────────────────────────────────────────────────────────────
 
@@ -985,7 +1106,22 @@ async function main() {
     } catch {}
   }
 
-  await runBaseCrawler();
+  // ── Step 1: Direct Arca24 scraping ──
+  // The shared pipeline cannot discover Arca24 jobs due to host-matching
+  // limitations (see parser module for details). Scrape directly first.
+  const arca24Result = await crawlArca24Direct();
+
+  // ── Step 2: Run shared pipeline for AI localization of discovered jobs ──
+  // If we found jobs via direct scraping, run the base crawler in
+  // localize-existing-only mode to handle AI translation.
+  if (arca24Result.merged > 0) {
+    console.log('\n🌐 Running shared pipeline for AI localization...');
+    await runBaseCrawler();
+  } else {
+    // Still try the base crawler as a fallback in case Arca24 direct scraping fails
+    console.log('\n🔄 Direct scraping found 0 jobs — trying shared pipeline as fallback...');
+    await runBaseCrawler();
+  }
 
   // Post-process: fix Arca24 HTML parsing artifacts
   await cleanLisJobs();
@@ -993,7 +1129,10 @@ async function main() {
   // Log stats
   const stats = logLisJobStats(_beforeSnapshot);
   if (stats.total === 0) {
-    console.log('ℹ️ Nessun job LIS trovato in questa esecuzione. Nessun errore — uscita OK.');
+    console.warn('⚠️  WARNING: No LIS jobs found after both direct Arca24 scraping and shared pipeline.');
+    console.warn('⚠️  This likely indicates the Arca24 ATS structure has changed or the site is down.');
+    console.warn(`⚠️  Direct scraping discovered ${arca24Result.discovered} URLs, parsed ${arca24Result.parsed} jobs.`);
+    process.exitCode = 1;
     return;
   }
 
