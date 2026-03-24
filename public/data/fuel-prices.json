@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-03-24T12:08:28.744Z",
+  "generatedAt": "2026-03-24T14:02:25.081Z",
   "sources": {
     "italy": {
       "provider": "MIMIT Open Data",
@@ -11,7 +11,7 @@
       "provider": "TCS Benzinpreis",
       "providerUrl": "https://benzin.tcs.ch/de/map/SP95",
       "stationCount": 223,
-      "latestObservedUpdate": "2026-03-24T11:41:21.997Z"
+      "latestObservedUpdate": "2026-03-24T14:00:44.494Z"
     },
     "exchangeRate": {
       "provider": "ECB",
@@ -20682,34 +20682,6 @@
             "distanceKm": 15.1
           },
           {
-            "id": "C9ajQvOEOfsMQZ4JfC4l",
-            "name": "SOCAR / Piccadilly Coldrerio",
-            "brand": "PICCADILLY",
-            "address": "Via San Gottardo 37, 6877 Coldrerio",
-            "lat": 45.857751,
-            "lng": 8.98526,
-            "sp95PriceChf": 1.76,
-            "updatedAt": "2026-03-20T11:05:37.038Z",
-            "nearestMunicipality": "Ronago (CO)",
-            "nearestMunicipalityDistanceKm": 2.8,
-            "sp95PriceEur": 1.929,
-            "distanceKm": 18.5
-          },
-          {
-            "id": "Exc6M1rVLQj9YFr4eKfN",
-            "name": "Eni Coldrerio Est",
-            "brand": "ENI",
-            "address": "Autostrada Coldrerio, 6877 Coldrerio Est",
-            "lat": 45.8574919,
-            "lng": 8.986749999999999,
-            "sp95PriceChf": 1.76,
-            "updatedAt": "2026-03-20T11:05:41.397Z",
-            "nearestMunicipality": "Ronago (CO)",
-            "nearestMunicipalityDistanceKm": 2.8,
-            "sp95PriceEur": 1.929,
-            "distanceKm": 18.6
-          },
-          {
             "id": "sGRKkbZsI7X2ry7BiFc6",
             "name": "Piccadilly SA - Pica, Migrolino",
             "brand": "UNDEFINED",
@@ -20722,6 +20694,34 @@
             "nearestMunicipalityDistanceKm": 3.8,
             "sp95PriceEur": 1.94,
             "distanceKm": 18.5
+          },
+          {
+            "id": "ukK4QQ2nixpThGubzzE3",
+            "name": "Orcam",
+            "brand": "UNDEFINED",
+            "address": "Via Carlo Maderno 41, 6850 Mendrisio",
+            "lat": 45.8851362482152,
+            "lng": 8.981086222287052,
+            "sp95PriceChf": 1.7700000000000002,
+            "updatedAt": "2026-03-22T10:26:06.281Z",
+            "nearestMunicipality": "Clivio (VA)",
+            "nearestMunicipalityDistanceKm": 4.6,
+            "sp95PriceEur": 1.94,
+            "distanceKm": 19.7
+          },
+          {
+            "id": "jyoUfNzRecwgKimvcY2C",
+            "name": "Carrozzeria San Giovanni SA",
+            "brand": "AVIA",
+            "address": "Via Campagna Adorna 13, 6850 Mendrisio",
+            "lat": 45.862217,
+            "lng": 8.972931,
+            "sp95PriceChf": 1.79,
+            "updatedAt": "2026-03-22T13:26:43.328Z",
+            "nearestMunicipality": "Clivio (VA)",
+            "nearestMunicipalityDistanceKm": 3.4,
+            "sp95PriceEur": 1.962,
+            "distanceKm": 17.9
           }
         ],
         "minPriceChf": 1.72,
@@ -21765,34 +21765,6 @@
             "distanceKm": 16.1
           },
           {
-            "id": "C9ajQvOEOfsMQZ4JfC4l",
-            "name": "SOCAR / Piccadilly Coldrerio",
-            "brand": "PICCADILLY",
-            "address": "Via San Gottardo 37, 6877 Coldrerio",
-            "lat": 45.857751,
-            "lng": 8.98526,
-            "sp95PriceChf": 1.76,
-            "updatedAt": "2026-03-20T11:05:37.038Z",
-            "nearestMunicipality": "Ronago (CO)",
-            "nearestMunicipalityDistanceKm": 2.8,
-            "sp95PriceEur": 1.929,
-            "distanceKm": 19.6
-          },
-          {
-            "id": "Exc6M1rVLQj9YFr4eKfN",
-            "name": "Eni Coldrerio Est",
-            "brand": "ENI",
-            "address": "Autostrada Coldrerio, 6877 Coldrerio Est",
-            "lat": 45.8574919,
-            "lng": 8.986749999999999,
-            "sp95PriceChf": 1.76,
-            "updatedAt": "2026-03-20T11:05:41.397Z",
-            "nearestMunicipality": "Ronago (CO)",
-            "nearestMunicipalityDistanceKm": 2.8,
-            "sp95PriceEur": 1.929,
-            "distanceKm": 19.7
-          },
-          {
             "id": "sGRKkbZsI7X2ry7BiFc6",
             "name": "Piccadilly SA - Pica, Migrolino",
             "brand": "UNDEFINED",
@@ -21805,6 +21777,34 @@
             "nearestMunicipalityDistanceKm": 3.8,
             "sp95PriceEur": 1.94,
             "distanceKm": 19.5
+          },
+          {
+            "id": "jyoUfNzRecwgKimvcY2C",
+            "name": "Carrozzeria San Giovanni SA",
+            "brand": "AVIA",
+            "address": "Via Campagna Adorna 13, 6850 Mendrisio",
+            "lat": 45.862217,
+            "lng": 8.972931,
+            "sp95PriceChf": 1.79,
+            "updatedAt": "2026-03-22T13:26:43.328Z",
+            "nearestMunicipality": "Clivio (VA)",
+            "nearestMunicipalityDistanceKm": 3.4,
+            "sp95PriceEur": 1.962,
+            "distanceKm": 18.9
+          },
+          {
+            "id": "BuLqgLtrkWKZWPB1oaHr",
+            "name": "BP Unbemannte Station Genestrerio",
+            "brand": "BP",
+            "address": "Via Adorna, 6852 Genestrerio",
+            "lat": 45.85708,
+            "lng": 8.96782,
+            "sp95PriceChf": 1.8,
+            "updatedAt": "2026-03-21T12:15:41.072Z",
+            "nearestMunicipality": "Bizzarone (CO)",
+            "nearestMunicipalityDistanceKm": 2.8,
+            "sp95PriceEur": 1.973,
+            "distanceKm": 18.3
           }
         ],
         "minPriceChf": 1.72,
@@ -26052,34 +26052,6 @@
             "distanceKm": 16.8
           },
           {
-            "id": "C9ajQvOEOfsMQZ4JfC4l",
-            "name": "SOCAR / Piccadilly Coldrerio",
-            "brand": "PICCADILLY",
-            "address": "Via San Gottardo 37, 6877 Coldrerio",
-            "lat": 45.857751,
-            "lng": 8.98526,
-            "sp95PriceChf": 1.76,
-            "updatedAt": "2026-03-20T11:05:37.038Z",
-            "nearestMunicipality": "Ronago (CO)",
-            "nearestMunicipalityDistanceKm": 2.8,
-            "sp95PriceEur": 1.929,
-            "distanceKm": 19.9
-          },
-          {
-            "id": "Exc6M1rVLQj9YFr4eKfN",
-            "name": "Eni Coldrerio Est",
-            "brand": "ENI",
-            "address": "Autostrada Coldrerio, 6877 Coldrerio Est",
-            "lat": 45.8574919,
-            "lng": 8.986749999999999,
-            "sp95PriceChf": 1.76,
-            "updatedAt": "2026-03-20T11:05:41.397Z",
-            "nearestMunicipality": "Ronago (CO)",
-            "nearestMunicipalityDistanceKm": 2.8,
-            "sp95PriceEur": 1.929,
-            "distanceKm": 20
-          },
-          {
             "id": "jyoUfNzRecwgKimvcY2C",
             "name": "Carrozzeria San Giovanni SA",
             "brand": "AVIA",
@@ -26092,6 +26064,34 @@
             "nearestMunicipalityDistanceKm": 3.4,
             "sp95PriceEur": 1.962,
             "distanceKm": 19.4
+          },
+          {
+            "id": "BuLqgLtrkWKZWPB1oaHr",
+            "name": "BP Unbemannte Station Genestrerio",
+            "brand": "BP",
+            "address": "Via Adorna, 6852 Genestrerio",
+            "lat": 45.85708,
+            "lng": 8.96782,
+            "sp95PriceChf": 1.8,
+            "updatedAt": "2026-03-21T12:15:41.072Z",
+            "nearestMunicipality": "Bizzarone (CO)",
+            "nearestMunicipalityDistanceKm": 2.8,
+            "sp95PriceEur": 1.973,
+            "distanceKm": 18.7
+          },
+          {
+            "id": "C9ajQvOEOfsMQZ4JfC4l",
+            "name": "SOCAR / Piccadilly Coldrerio",
+            "brand": "PICCADILLY",
+            "address": "Via San Gottardo 37, 6877 Coldrerio",
+            "lat": 45.857751,
+            "lng": 8.98526,
+            "sp95PriceChf": 1.81,
+            "updatedAt": "2026-03-24T13:52:07.566Z",
+            "nearestMunicipality": "Ronago (CO)",
+            "nearestMunicipalityDistanceKm": 2.8,
+            "sp95PriceEur": 1.984,
+            "distanceKm": 19.9
           }
         ],
         "minPriceChf": 1.72,
@@ -26956,34 +26956,6 @@
             "distanceKm": 15.4
           },
           {
-            "id": "C9ajQvOEOfsMQZ4JfC4l",
-            "name": "SOCAR / Piccadilly Coldrerio",
-            "brand": "PICCADILLY",
-            "address": "Via San Gottardo 37, 6877 Coldrerio",
-            "lat": 45.857751,
-            "lng": 8.98526,
-            "sp95PriceChf": 1.76,
-            "updatedAt": "2026-03-20T11:05:37.038Z",
-            "nearestMunicipality": "Ronago (CO)",
-            "nearestMunicipalityDistanceKm": 2.8,
-            "sp95PriceEur": 1.929,
-            "distanceKm": 18.7
-          },
-          {
-            "id": "Exc6M1rVLQj9YFr4eKfN",
-            "name": "Eni Coldrerio Est",
-            "brand": "ENI",
-            "address": "Autostrada Coldrerio, 6877 Coldrerio Est",
-            "lat": 45.8574919,
-            "lng": 8.986749999999999,
-            "sp95PriceChf": 1.76,
-            "updatedAt": "2026-03-20T11:05:41.397Z",
-            "nearestMunicipality": "Ronago (CO)",
-            "nearestMunicipalityDistanceKm": 2.8,
-            "sp95PriceEur": 1.929,
-            "distanceKm": 18.8
-          },
-          {
             "id": "sGRKkbZsI7X2ry7BiFc6",
             "name": "Piccadilly SA - Pica, Migrolino",
             "brand": "UNDEFINED",
@@ -26996,6 +26968,34 @@
             "nearestMunicipalityDistanceKm": 3.8,
             "sp95PriceEur": 1.94,
             "distanceKm": 18.8
+          },
+          {
+            "id": "jyoUfNzRecwgKimvcY2C",
+            "name": "Carrozzeria San Giovanni SA",
+            "brand": "AVIA",
+            "address": "Via Campagna Adorna 13, 6850 Mendrisio",
+            "lat": 45.862217,
+            "lng": 8.972931,
+            "sp95PriceChf": 1.79,
+            "updatedAt": "2026-03-22T13:26:43.328Z",
+            "nearestMunicipality": "Clivio (VA)",
+            "nearestMunicipalityDistanceKm": 3.4,
+            "sp95PriceEur": 1.962,
+            "distanceKm": 18.2
+          },
+          {
+            "id": "BuLqgLtrkWKZWPB1oaHr",
+            "name": "BP Unbemannte Station Genestrerio",
+            "brand": "BP",
+            "address": "Via Adorna, 6852 Genestrerio",
+            "lat": 45.85708,
+            "lng": 8.96782,
+            "sp95PriceChf": 1.8,
+            "updatedAt": "2026-03-21T12:15:41.072Z",
+            "nearestMunicipality": "Bizzarone (CO)",
+            "nearestMunicipalityDistanceKm": 2.8,
+            "sp95PriceEur": 1.973,
+            "distanceKm": 17.5
           }
         ],
         "minPriceChf": 1.72,
@@ -27888,32 +27888,32 @@
             "distanceKm": 15.1
           },
           {
-            "id": "C9ajQvOEOfsMQZ4JfC4l",
-            "name": "SOCAR / Piccadilly Coldrerio",
-            "brand": "PICCADILLY",
-            "address": "Via San Gottardo 37, 6877 Coldrerio",
-            "lat": 45.857751,
-            "lng": 8.98526,
-            "sp95PriceChf": 1.76,
-            "updatedAt": "2026-03-20T11:05:37.038Z",
-            "nearestMunicipality": "Ronago (CO)",
-            "nearestMunicipalityDistanceKm": 2.8,
-            "sp95PriceEur": 1.929,
+            "id": "sGRKkbZsI7X2ry7BiFc6",
+            "name": "Piccadilly SA - Pica, Migrolino",
+            "brand": "UNDEFINED",
+            "address": "Via Stefano Franscini 2, Mendrisio",
+            "lat": 45.8678618,
+            "lng": 8.977782399999999,
+            "sp95PriceChf": 1.77,
+            "updatedAt": "2026-03-20T05:01:14.951Z",
+            "nearestMunicipality": "Clivio (VA)",
+            "nearestMunicipalityDistanceKm": 3.8,
+            "sp95PriceEur": 1.94,
             "distanceKm": 18.5
           },
           {
-            "id": "Exc6M1rVLQj9YFr4eKfN",
-            "name": "Eni Coldrerio Est",
-            "brand": "ENI",
-            "address": "Autostrada Coldrerio, 6877 Coldrerio Est",
-            "lat": 45.8574919,
-            "lng": 8.986749999999999,
-            "sp95PriceChf": 1.76,
-            "updatedAt": "2026-03-20T11:05:41.397Z",
-            "nearestMunicipality": "Ronago (CO)",
-            "nearestMunicipalityDistanceKm": 2.8,
-            "sp95PriceEur": 1.929,
-            "distanceKm": 18.6
+            "id": "ukK4QQ2nixpThGubzzE3",
+            "name": "Orcam",
+            "brand": "UNDEFINED",
+            "address": "Via Carlo Maderno 41, 6850 Mendrisio",
+            "lat": 45.8851362482152,
+            "lng": 8.981086222287052,
+            "sp95PriceChf": 1.7700000000000002,
+            "updatedAt": "2026-03-22T10:26:06.281Z",
+            "nearestMunicipality": "Clivio (VA)",
+            "nearestMunicipalityDistanceKm": 4.6,
+            "sp95PriceEur": 1.94,
+            "distanceKm": 19.8
           }
         ],
         "minPriceChf": 1.72,
@@ -38585,11 +38585,11 @@
             "address": "Furkastrasse 148, 3904 Naters",
             "lat": 46.3290252012447,
             "lng": 8.01189248217558,
-            "sp95PriceChf": 1.8,
-            "updatedAt": "2026-03-21T14:32:55.426Z",
+            "sp95PriceChf": 1.85,
+            "updatedAt": "2026-03-24T14:00:44.494Z",
             "nearestMunicipality": "Trasquera (VB)",
             "nearestMunicipalityDistanceKm": 19.3,
-            "sp95PriceEur": 1.973,
+            "sp95PriceEur": 2.028,
             "distanceKm": 19.3
           }
         ],
