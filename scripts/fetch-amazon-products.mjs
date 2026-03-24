@@ -213,15 +213,32 @@ async function main() {
   }
 }
 
+function buildStaticProducts() {
+  // Associates image widget — publicly accessible for any Amazon affiliate,
+  // no API credentials required. Shows product image from Amazon CDN.
+  return ASINS.map((asin) => ({
+    asin,
+    title: '',
+    imageUrl: `https://ws-eu.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=${asin}&Format=_SL160_&ID=AsinImage&MarketPlace=IT&ServiceVersion=20070822&WS=1&tag=${PARTNER_TAG}`,
+    price: '',
+    priceAmount: 0,
+    available: true,
+    affiliateUrl: `https://www.amazon.it/dp/${asin}?tag=${PARTNER_TAG}&linkCode=ll1`,
+  }));
+}
+
 function writeFallback(reason) {
+  // For API errors (credentials exist but API unavailable), still emit static
+  // products with Associates image URLs so cards render in articles.
+  const products = reason === 'credentials_missing' ? [] : buildStaticProducts();
   const output = {
     fetchedAt: new Date().toISOString(),
     source: 'fallback',
     reason,
-    products: [],
+    products,
   };
   fs.writeFileSync(OUTPUT_PATH, JSON.stringify(output, null, 2) + '\n');
-  console.log(`📄 Wrote fallback JSON to ${path.relative(ROOT, OUTPUT_PATH)} (reason: ${reason})`);
+  console.log(`📄 Wrote fallback JSON to ${path.relative(ROOT, OUTPUT_PATH)} (reason: ${reason}, products: ${products.length})`);
 }
 
 main().catch((err) => {

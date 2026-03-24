@@ -40,13 +40,30 @@ const CreatorProducts: React.FC<CreatorProductsProps> = ({
           }}
           className="group flex items-start gap-2 rounded-lg border border-slate-200/70 dark:border-slate-700/70 bg-slate-50 dark:bg-slate-900/40 px-2 py-1.5 hover:border-indigo-300 dark:hover:border-indigo-700 transition-all"
         >
+          {p.imageUrl && (
+            <img
+              src={p.imageUrl}
+              alt={p.title}
+              width={40}
+              height={40}
+              className="shrink-0 rounded object-contain bg-white"
+              loading="lazy"
+              onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = 'none'; }}
+            />
+          )}
           <div className="min-w-0 flex-1">
             <div className="text-[10px] font-semibold text-slate-700 dark:text-slate-200 leading-snug line-clamp-2">
-              {p.emoji} {p.title}
+              {p.title}
             </div>
-            <div className="mt-0.5 text-[9px] text-slate-500 dark:text-slate-400 truncate">
-              Amazon: {p.query}
-            </div>
+            {p.price ? (
+              <div className="mt-0.5 text-[9px] font-semibold text-emerald-600 dark:text-emerald-400">
+                {p.price}
+              </div>
+            ) : (
+              <div className="mt-0.5 text-[9px] text-slate-500 dark:text-slate-400 truncate">
+                {p.emoji} Amazon
+              </div>
+            )}
             <div className="mt-1 inline-flex items-center gap-1 px-1.5 py-0.5 rounded-full bg-emerald-100 dark:bg-emerald-900/40 text-[8px] font-semibold text-emerald-700 dark:text-emerald-300">
               {t('creatorPicks.highPayout')}
             </div>
