@@ -3049,7 +3049,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
         "@context": "https://schema.org",
         "@type": "ItemList",
         "name": "Articoli Frontaliere",
-        "numberOfItems": 569,
+        "numberOfItems": 570,
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
           { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -3619,7 +3619,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 566, "name": "Monte Lema cable-car season 2026: prices, exten...", "url": `${BASE_URL}/articoli-frontaliere/funivia-monte-lema-stagione-2026` },
           { "@type": "ListItem", "position": 567, "name": "Cambio al Municipio di Stabio", "url": `${BASE_URL}/articoli-frontaliere/stabio-municipio-cambios` },
           { "@type": "ListItem", "position": 568, "name": "Crescita economica moderata in Svizzera nel 2026", "url": `${BASE_URL}/articoli-frontaliere/crescita-economica-ticino-2026` },
-          { "@type": "ListItem", "position": 569, "name": "Lombardia investe 30 milioni per lo sport", "url": `${BASE_URL}/articoli-frontaliere/lombardia-sport-ticino` }
+          { "@type": "ListItem", "position": 569, "name": "Lombardia investe 30 milioni per lo sport", "url": `${BASE_URL}/articoli-frontaliere/lombardia-sport-ticino` },
+          { "@type": "ListItem", "position": 570, "name": "Referendum sulla giustizia in Italia: la posizi...", "url": `${BASE_URL}/articoli-frontaliere/giustizia-referendum-ticino` }
         ]
       }
     ]

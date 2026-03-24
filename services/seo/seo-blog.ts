@@ -9912,6 +9912,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-giustizia-referendum-ticino': {
+    title: 'Referendum sulla giustizia in Italia: la posizione di Salvini e il | Frontaliere Ticino',
+    description: 'Il referendum italiano sulla giustizia ha visto prevalere il No con il 54%, ma in provincia di Varese e nel Canton Ticino la scelta è stata diversa, puntando su',
+    keywords: 'frontalieri, ticino, svizzera, italia, referendum, sulla, giustizia, posizione',
+    ogTitle: 'Referendum sulla giustizia in Italia: la posizione di Sal',
+    ogDescription: 'Il referendum italiano sulla giustizia ha visto prevalere il No con il 54%, ma in provincia di Varese e nel Canton Ticino la scelta è stata diversa, puntando su',
+    canonicalPath: '/articoli-frontaliere/giustizia-referendum-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Referendum sulla giustizia in Italia: la posizione di Sal",
+      "description": "Il referendum italiano sulla giustizia ha visto prevalere il No con il 54%, ma in provincia di Varese e nel Canton Ticino la scelta è stata diversa, puntando su",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/giustizia-referendum-ticino.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Castelgrande a Bellinzona, vista panoramica sulla città e le montagne circostanti"
+      },
+      "datePublished": "2026-03-24T05:01:49+00:00",
+      "dateModified": "2026-03-24T05:01:49+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/giustizia-referendum-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

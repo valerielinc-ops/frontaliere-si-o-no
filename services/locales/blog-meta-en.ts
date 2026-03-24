@@ -1736,6 +1736,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.lombardia-sport-ticino.title': 'Lombardy Invests 30 Million Euros in Sports',
     'blog.article.lombardia-sport-ticino.excerpt': 'The Lombardy Region has allocated 30 million euros to fund sports projects in its provinces',
     'blog.article.lombardia-sport-ticino.imageAlt': 'Sports facility in Lombardy',
+    'blog.article.giustizia-referendum-ticino.title': 'Italian Justice Referendum: Salvini\'s Position and the Situation in Ticino',
+    'blog.article.giustizia-referendum-ticino.excerpt': 'The Italian referendum on justice resulted in a majority voting No with 54%, but in Varese province and in Canton Ticino, the trend was different, leaning towards Yes. Salvini emphasizes the importance of improving the judicial system.',
+    'blog.article.giustizia-referendum-ticino.imageAlt': 'Bellinzona\'s Castelgrande with panoramic view of the city and surrounding mountains',
 };
 
 export default blogMetaEn;

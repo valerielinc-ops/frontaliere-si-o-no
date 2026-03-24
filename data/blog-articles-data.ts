@@ -5242,4 +5242,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/lombardia-sport-ticino.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'giustizia-referendum-ticino',
+    category: 'novita',
+    date: '2026-03-24T05:01:49.744Z',
+    image: '/images/blog/giustizia-referendum-ticino.jpg',
+    hasCalculator: true,
+  },
 ];

@@ -1700,6 +1700,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-stabio-municipio-cambios': { name: 'Municipio di Stabio', path: '/articoli-frontaliere/stabio-municipio-cambios', parent: 'blog' },
     'blog-crescita-economica-ticino-2026': { name: 'Crescita economica', path: '/articoli-frontaliere/crescita-economica-ticino-2026', parent: 'blog' },
     'blog-lombardia-sport-ticino': { name: 'Lombardia sport', path: '/articoli-frontaliere/lombardia-sport-ticino', parent: 'blog' },
+    'blog-giustizia-referendum-ticino': { name: 'Referendum sulla giustizia in Italia', path: '/articoli-frontaliere/giustizia-referendum-ticino', parent: 'blog' },
   };
 
   const info = sectionNames[section];

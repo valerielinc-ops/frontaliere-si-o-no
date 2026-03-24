@@ -1736,6 +1736,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.lombardia-sport-ticino.title': 'Lombardei investiert 30 Millionen für den Sport',
     'blog.article.lombardia-sport-ticino.excerpt': 'Die Region Lombardei hat 30 Millionen Euro bereitgestellt, um sportliche Projekte in den Provinzen zu finanzieren',
     'blog.article.lombardia-sport-ticino.imageAlt': 'Sportanlage in der Lombardei',
+    'blog.article.giustizia-referendum-ticino.title': 'Referendum zur Justiz in Italien: Salvini\'s Position und die Lage im Tessin',
+    'blog.article.giustizia-referendum-ticino.excerpt': 'Das italienische Referendum zur Justiz hat mit 54 % für Nein geendet, doch in der Provinz Varese und im Kanton Tessin war die Entscheidung anders, mit einer Tendenz zum Ja. Salvini bekräftigt die Bedeutung, das Justizsystem zu verbessern.',
+    'blog.article.giustizia-referendum-ticino.imageAlt': 'Bellinzona, Castelgrande mit Blick auf Stadt und Berge',
 };
 
 export default blogMetaDe;
