@@ -2807,9 +2807,10 @@ async function generateArticleImage(data) {
   }
 
   // ── Strategy 2: Pollinations.ai (free, no API key) ──
-  // https://pollinations.ai — free AI image generation, no auth needed
+  // https://gen.pollinations.ai — free AI image generation, no auth needed
+  // Migrated from image.pollinations.ai/prompt/ → gen.pollinations.ai/image/ (2025)
   // Only try 2 models with 1 retry; if origin is down (530/502/503) skip all.
-  const pollinationsModels = ['flux', 'turbo'];
+  const pollinationsModels = ['flux', 'flux-realism'];
   let pollinationsOriginDown = false;
   for (const pModel of pollinationsModels) {
     if (pollinationsOriginDown) break;
@@ -2823,7 +2824,7 @@ async function generateArticleImage(data) {
         const encodedPrompt = encodeURIComponent(
           prompt.replace(/\n/g, ' ').slice(0, 800)
         );
-        const pollinationsUrl = `https://image.pollinations.ai/prompt/${encodedPrompt}?width=1280&height=720&model=${pModel}&nologo=true&seed=${Date.now()}`;
+        const pollinationsUrl = `https://gen.pollinations.ai/image/${encodedPrompt}?width=1280&height=720&model=${pModel}&nologo=true&seed=${Date.now()}`;
 
         const res = await fetch(pollinationsUrl, {
           signal: AbortSignal.timeout(120000),

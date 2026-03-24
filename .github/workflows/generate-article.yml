@@ -2,11 +2,11 @@ name: Generate Blog Article
 
 on:
   schedule:
-    # Runs every 30 minutes, 24/7, but offset from :00 / :30 because GitHub
-    # frequently delays or drops jobs scheduled on the busiest minute marks.
-    # Two explicit entries are more observable in Actions than a combined cron.
-    - cron: '7 * * * *'
-    - cron: '37 * * * *'
+    # Runs every 3 hours to preserve AI model quota (free-tier rate limits).
+    # Previous 30-min cadence (48 runs/day) exhausted all ~60 models in the
+    # fallback chain, causing 80%+ failure rate.  8 runs/day is sufficient
+    # for article freshness while staying within free-tier quotas.
+    - cron: '7 */3 * * *'
   workflow_dispatch:
     inputs:
       url:
@@ -253,8 +253,9 @@ jobs:
                 fi
               fi
               
-              # Syntax check for BlogArticles.tsx — detect merged entries
-              if [[ "$file" == *"BlogArticles.tsx" ]]; then
+              # Syntax check for blog-articles-data.ts — detect merged entries
+              # (FRO-328 moved ARTICLES array from BlogArticles.tsx to data/blog-articles-data.ts)
+              if [[ "$file" == *"blog-articles-data.ts" ]]; then
                 if ! node -e "
                   const fs = require('fs');
                   const src = fs.readFileSync('$file', 'utf8');
@@ -272,7 +273,7 @@ jobs:
                   }
                   console.log('  ✅ $file: ' + ids.length + ' article entries validated (no duplicates)');
                 " 2>&1; then
-                  echo "  ❌ $file: BlogArticles.tsx validation failed after conflict resolution"
+                  echo "  ❌ $file: blog-articles-data.ts validation failed after conflict resolution"
                   ALL_RESOLVED=false
                   continue
                 fi
@@ -362,13 +363,14 @@ jobs:
           ARTICLE_ID="${{ steps.generate.outputs.article_id }}"
           echo "🔍 Verifying article: $ARTICLE_ID"
 
-          # Check 1: Article ID exists in BlogArticles.tsx
-          if ! grep -q "$ARTICLE_ID" components/community/BlogArticles.tsx; then
-            echo "❌ Article '$ARTICLE_ID' NOT found in BlogArticles.tsx"
+          # Check 1: Article ID exists in blog-articles-data.ts
+          # (FRO-328 moved ARTICLES array from BlogArticles.tsx to data/blog-articles-data.ts)
+          if ! grep -q "$ARTICLE_ID" data/blog-articles-data.ts; then
+            echo "❌ Article '$ARTICLE_ID' NOT found in data/blog-articles-data.ts"
             echo "exists=false" >> "$GITHUB_OUTPUT"
             exit 0
           fi
-          echo "  ✅ Found in BlogArticles.tsx"
+          echo "  ✅ Found in data/blog-articles-data.ts"
 
           # Check 2: Static HTML was generated in dist/
           ARTICLE_URL="${{ steps.generate.outputs.article_url }}"
