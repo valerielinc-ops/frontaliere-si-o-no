@@ -109,6 +109,7 @@ async function getAccessToken(clientId, clientSecret) {
       grant_type: 'client_credentials',
       client_id: clientId,
       client_secret: clientSecret,
+      scope: 'cpc_advertising:campaign_management',
     }),
   });
   if (!res.ok) {
