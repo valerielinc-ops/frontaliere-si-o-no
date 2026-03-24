@@ -71,7 +71,7 @@ export const SkeletonTable: React.FC<{ rows?: number; cols?: number }> = ({ rows
 // ---- Page-level Skeletons ----
 
 export const SkeletonComparator: React.FC = () => (
-  <div className="space-y-6">
+  <div className="min-h-[80vh] space-y-6">
     {/* Real heading for early LCP */}
     <div className="bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-slate-800 dark:to-slate-900 rounded-2xl p-6">
       <h2 className="text-2xl font-bold text-slate-900 dark:text-slate-100">Confronta Servizi per Frontalieri</h2>
@@ -93,7 +93,7 @@ export const SkeletonComparator: React.FC = () => (
 );
 
 export const SkeletonGuide: React.FC = () => (
-  <div className="space-y-6">
+  <div className="min-h-[80vh] space-y-6">
     {/* Real heading for early LCP */}
     <div className="bg-gradient-to-br from-amber-50 to-orange-50 dark:from-slate-800 dark:to-slate-900 rounded-2xl p-6">
       <h2 className="text-2xl font-bold text-slate-900 dark:text-slate-100">Guida Completa per Frontalieri</h2>
@@ -108,7 +108,7 @@ export const SkeletonGuide: React.FC = () => (
 );
 
 export const SkeletonDashboard: React.FC = () => (
-  <div className="space-y-6">
+  <div className="min-h-[80vh] space-y-6">
     <div className={`${pulse} h-32 rounded-2xl`} />
     <div className="grid md:grid-cols-3 gap-4">
       <SkeletonCard lines={2} />
@@ -120,7 +120,7 @@ export const SkeletonDashboard: React.FC = () => (
 );
 
 export const SkeletonFisco: React.FC = () => (
-  <div className="space-y-6">
+  <div className="min-h-[80vh] space-y-6">
     {/* Real heading for early LCP */}
     <h2 className="text-2xl font-bold text-slate-900 dark:text-slate-100">Fisco e Previdenza Frontalieri</h2>
     <p className="text-sm text-slate-600 dark:text-slate-400">Tasse, pensioni e pianificazione finanziaria per lavoratori transfrontalieri</p>
@@ -138,7 +138,7 @@ export const SkeletonFisco: React.FC = () => (
 );
 
 export const SkeletonStats: React.FC = () => (
-  <div className="space-y-6">
+  <div className="min-h-[80vh] space-y-6">
     {/* Real heading for early LCP */}
     <h2 className="text-2xl font-bold text-slate-900 dark:text-slate-100">Statistiche Frontalieri</h2>
     <p className="text-sm text-slate-600 dark:text-slate-400">Dati aggiornati su flussi, stipendi e tendenze del lavoro transfrontaliero</p>
@@ -168,7 +168,7 @@ export const SkeletonBlog: React.FC = () => (
 );
 
 export const SkeletonVita: React.FC = () => (
-  <div className="space-y-6">
+  <div className="min-h-[80vh] space-y-6">
     {/* Real heading for early LCP */}
     <h2 className="text-2xl font-bold text-slate-900 dark:text-slate-100">Vivere in Ticino</h2>
     <p className="text-sm text-slate-600 dark:text-slate-400">Costo della vita, alloggi, trasporti e qualità della vita nel Canton Ticino</p>
@@ -294,7 +294,7 @@ export const SkeletonJobDetail: React.FC = () => (
 );
 
 export const SkeletonJobBoard: React.FC = () => (
-  <div className="space-y-4 min-h-[600px]">
+  <div className="space-y-4 min-h-[80vh]">
     {/* Header */}
     <div className="bg-gradient-to-br from-indigo-50 to-blue-50 dark:from-slate-800 dark:to-slate-900 rounded-2xl p-6">
       <h2 className="text-2xl font-bold text-slate-900 dark:text-slate-100">Offerte di Lavoro Ticino</h2>
@@ -381,7 +381,7 @@ const SkeletonFallback: React.FC = () => {
 
   // Default: calculator page (homepage) — matches real layout's full-width grid
   return (
-    <div className="space-y-6">
+    <div className="min-h-[80vh] space-y-6">
       <SkeletonInputCard />
     </div>
   );
