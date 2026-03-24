@@ -57,3 +57,6 @@ jobs:
 
       - name: Collect traffic data
         run: node scripts/collect-traffic.mjs
+
+      - name: Trigger deploy
+        run: bash scripts/lib/trigger-deploy.sh || true
