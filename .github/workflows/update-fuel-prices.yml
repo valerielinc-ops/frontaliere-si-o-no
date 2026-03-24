@@ -59,6 +59,10 @@ jobs:
             echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
           fi
 
+      - name: Install firebase-admin for Remote Config
+        if: steps.commit.outputs.has_changes == 'true'
+        run: npm install firebase-admin
+
       - name: Load secrets from Remote Config
         if: steps.commit.outputs.has_changes == 'true'
         run: node scripts/load-rc-env.mjs
