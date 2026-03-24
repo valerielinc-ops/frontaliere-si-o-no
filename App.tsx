@@ -55,6 +55,7 @@ const TredicesimalCalculator = lazyRetry(() => import('@/components/calculator/T
 const WeeklyDigest = lazyRetry(() => import('@/components/community/WeeklyDigest'));
 const ToolOfTheWeek = lazyRetry(() => import('@/components/community/ToolOfTheWeek'));
 const AiChatbot = lazyRetry(() => import('@/components/shared/AiChatbot'));
+const NotFoundSuggestions = lazyRetry(() => import('@/components/shared/NotFoundSuggestions'));
 
 // Lazy tab content components (FRO-367): each owns its own sub-components + rendering.
 // This moves InputCard, MobileCalcLayout, FrontierGuide, and 40+ other components
@@ -169,6 +170,7 @@ const App: React.FC = () => {
     return { route: parsed.route, locale: parsed.locale };
   });
   const [activeTab, setActiveTab] = useState<ActiveTab>(initialRoute.route.activeTab);
+  const [notFoundPath, setNotFoundPath] = useState<string | undefined>(() => parsePath(window.location.pathname).notFoundPath);
   const [calcolatoreSubTab, setCalcolatoreSubTab] = useState<CalcolatoreSubTab>(initialRoute.route.calcolatoreSubTab || 'calculator');
   const [confrontiSubTab, setConfrontiSubTab] = useState<ConfrontiSubTab>(initialRoute.route.confrontiSubTab || 'exchange');
   const [fiscoSubTab, setFiscoSubTab] = useState<FiscoSubTab>(initialRoute.route.fiscoSubTab || 'tax-return');
@@ -893,7 +895,8 @@ const App: React.FC = () => {
   useEffect(() => {
     const onPopState = () => {
       enableRuntimeSeo();
-      const { route, locale: urlLocale } = parsePath(window.location.pathname);
+      const { route, locale: urlLocale, notFoundPath: parsedNotFoundPath } = parsePath(window.location.pathname);
+      setNotFoundPath(parsedNotFoundPath);
       setActiveTab(route.activeTab);
       if (route.calcolatoreSubTab) setCalcolatoreSubTab(route.calcolatoreSubTab);
       if (route.confrontiSubTab) setConfrontiSubTab(route.confrontiSubTab);
@@ -2673,7 +2676,18 @@ const App: React.FC = () => {
           activeTab === 'admin' ? 'w-full px-3 sm:px-6' : 'max-w-[2400px] w-[95%] px-2 sm:px-4'
         }`}>
          <Suspense fallback={<LazyFallback />}>
-          {activeTab === 'calculator' ? (
+          {notFoundPath ? (
+            <div className="max-w-2xl mx-auto">
+              <NotFoundSuggestions
+                path={notFoundPath}
+                onNavigate={(tab, subTab) => {
+                  setNotFoundPath(undefined);
+                  handleTabChange(tab as ActiveTab);
+                  void subTab; // subTab handled by handleTabChange via existing subtab state
+                }}
+              />
+            </div>
+          ) : activeTab === 'calculator' ? (
             <CalcolatoreTabContent />
           ) : activeTab === 'confronti' ? (
             <ConfrontiTabContent />
