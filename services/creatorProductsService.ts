@@ -42,6 +42,7 @@ const MARKETPLACE_BY_LOCALE: Record<Locale, string> = {
 };
 
 const CREATOR_PRODUCTS: CreatorProduct[] = [
+  // ── Fisco & Finanza (6 prodotti) ──────────────────────────────
   {
     id: 'trading-book',
     asin: '8820383550',
@@ -63,25 +64,47 @@ const CREATOR_PRODUCTS: CreatorProduct[] = [
     searchQuery: 'guida fiscale dichiarazione redditi 730 libro',
   },
   {
-    id: 'language-course',
-    asin: '8869875968',
-    title: 'Corso tedesco/francese per lavoro (libro)',
-    category: 'career',
-    emoji: '🗣️',
-    keywordTags: ['lavoro', 'colloquio', 'cv', 'career', 'job', 'tedesco', 'francese'],
+    id: 'tax-software',
+    asin: 'B0BGQ7KHYH',
+    title: 'Organizzazione documenti fiscali',
+    category: 'tax',
+    emoji: '📂',
+    keywordTags: ['fiscale', 'documenti', 'scadenze', 'dichiarazione', 'moduli'],
     payoutPriority: 8,
-    searchQuery: 'corso tedesco lavoro libro',
+    searchQuery: 'software gestione documenti fiscali',
   },
   {
-    id: 'home-office-kit',
-    asin: 'B0CKN3TNM3',
-    title: 'Supporto laptop + ergonomia home office',
-    category: 'productivity',
-    emoji: '💻',
-    keywordTags: ['smart working', 'lavoro', 'ufficio', 'casa', 'produttività'],
+    id: 'financial-calculator',
+    asin: 'B00004UFNR',
+    title: 'Calcolatrice finanziaria HP 12C',
+    category: 'finance',
+    emoji: '🔢',
+    keywordTags: ['calcolo', 'interessi', 'mutuo', 'investimenti', 'finanza', 'cambio'],
     payoutPriority: 7,
-    searchQuery: 'kit ergonomia home office',
+    searchQuery: 'calcolatrice finanziaria HP 12C',
   },
+  {
+    id: 'intl-tax-book',
+    asin: '8891425065',
+    title: 'Fiscalità internazionale (libro)',
+    category: 'tax',
+    emoji: '🌍',
+    keywordTags: ['tasse', 'frontaliere', 'svizzera', 'italia', 'doppia imposizione', 'accordo'],
+    payoutPriority: 9,
+    searchQuery: 'fiscalità internazionale doppia imposizione libro',
+  },
+  {
+    id: 'document-organizer',
+    asin: 'B0BN2YRQJL',
+    title: 'Organizer documenti a fisarmonica',
+    category: 'tax',
+    emoji: '🗃️',
+    keywordTags: ['documenti', 'dichiarazione', 'fiscale', 'organizzazione', 'archivio'],
+    payoutPriority: 6,
+    searchQuery: 'organizer documenti fisarmonica cartella',
+  },
+
+  // ── Trasporto & Pendolarismo (6 prodotti) ─────────────────────
   {
     id: 'dashcam',
     asin: 'B0CF9YV5SL',
@@ -93,25 +116,119 @@ const CREATOR_PRODUCTS: CreatorProduct[] = [
     searchQuery: 'dashcam auto full hd',
   },
   {
-    id: 'travel-backpack',
-    asin: 'B09YVCSLSN',
-    title: 'Zaino business viaggio',
-    category: 'travel',
-    emoji: '🎒',
-    keywordTags: ['trasporto', 'lavoro', 'frontalieri', 'viaggio', 'treno'],
+    id: 'phone-mount',
+    asin: 'B0CXKZ98QP',
+    title: 'Supporto smartphone magnetico auto',
+    category: 'transport',
+    emoji: '📱',
+    keywordTags: ['auto', 'navigazione', 'pendolare', 'frontiera', 'gps', 'trasporto'],
     payoutPriority: 6,
-    searchQuery: 'zaino business laptop viaggio',
+    searchQuery: 'supporto smartphone magnetico auto cruscotto',
   },
   {
-    id: 'tax-software',
-    asin: 'B0BGQ7KHYH',
-    title: 'Organizzazione documenti fiscali',
-    category: 'tax',
-    emoji: '📂',
-    keywordTags: ['fiscale', 'documenti', 'scadenze', 'dichiarazione', 'moduli'],
-    payoutPriority: 8,
-    searchQuery: 'software gestione documenti fiscali',
+    id: 'car-charger',
+    asin: 'B0B6QFFTMR',
+    title: 'Caricatore auto USB-C rapido',
+    category: 'transport',
+    emoji: '🔌',
+    keywordTags: ['auto', 'pendolare', 'ricarica', 'viaggio', 'trasporto'],
+    payoutPriority: 5,
+    searchQuery: 'caricatore auto USB-C ricarica rapida',
   },
+  {
+    id: 'lumbar-cushion',
+    asin: 'B01M0QFWFH',
+    title: 'Cuscino lombare ergonomico auto',
+    category: 'transport',
+    emoji: '🪑',
+    keywordTags: ['auto', 'pendolare', 'schiena', 'ergonomia', 'viaggio', 'comfort'],
+    payoutPriority: 6,
+    searchQuery: 'cuscino lombare supporto auto ergonomico',
+  },
+  {
+    id: 'commuter-bag',
+    asin: 'B08SBR4GRG',
+    title: 'Borsa laptop da pendolare',
+    category: 'transport',
+    emoji: '💼',
+    keywordTags: ['pendolare', 'lavoro', 'laptop', 'treno', 'viaggio', 'trasporto'],
+    payoutPriority: 6,
+    searchQuery: 'borsa laptop pendolare impermeabile',
+  },
+  {
+    id: 'audiobook-sub',
+    asin: 'B01M3TIVPW',
+    title: 'Audible - audiolibri in viaggio',
+    category: 'transport',
+    emoji: '🎧',
+    keywordTags: ['pendolare', 'viaggio', 'auto', 'treno', 'audiolibri', 'formazione'],
+    payoutPriority: 8,
+    searchQuery: 'audible abbonamento audiolibri',
+  },
+
+  // ── Lavoro & Carriera (6 prodotti) ────────────────────────────
+  {
+    id: 'language-course',
+    asin: '8869875968',
+    title: 'Corso tedesco/francese per lavoro (libro)',
+    category: 'career',
+    emoji: '🗣️',
+    keywordTags: ['lavoro', 'colloquio', 'cv', 'career', 'job', 'tedesco', 'francese'],
+    payoutPriority: 8,
+    searchQuery: 'corso tedesco lavoro libro',
+  },
+  {
+    id: 'swiss-interview-guide',
+    asin: '3038810371',
+    title: 'Guida colloqui di lavoro in Svizzera',
+    category: 'career',
+    emoji: '🤝',
+    keywordTags: ['colloquio', 'lavoro', 'svizzera', 'cv', 'career', 'job', 'candidatura'],
+    payoutPriority: 8,
+    searchQuery: 'guida colloquio lavoro svizzera preparazione',
+  },
+  {
+    id: 'webcam-hd',
+    asin: 'B09B8DWL3S',
+    title: 'Webcam HD per smart working',
+    category: 'career',
+    emoji: '📹',
+    keywordTags: ['smart working', 'lavoro', 'remoto', 'videocall', 'ufficio'],
+    payoutPriority: 7,
+    searchQuery: 'webcam full hd smart working',
+  },
+  {
+    id: 'noise-cancelling-headphones',
+    asin: 'B0C8PSQWB4',
+    title: 'Cuffie noise cancelling per ufficio',
+    category: 'career',
+    emoji: '🎧',
+    keywordTags: ['lavoro', 'ufficio', 'concentrazione', 'smart working', 'cuffie', 'rumore'],
+    payoutPriority: 8,
+    searchQuery: 'cuffie noise cancelling bluetooth ufficio',
+  },
+  {
+    id: 'standing-desk-converter',
+    asin: 'B08CKGH98Z',
+    title: 'Standing desk converter regolabile',
+    category: 'career',
+    emoji: '🖥️',
+    keywordTags: ['ergonomia', 'ufficio', 'smart working', 'salute', 'scrivania', 'lavoro'],
+    payoutPriority: 7,
+    searchQuery: 'standing desk converter scrivania regolabile',
+  },
+  {
+    id: 'home-office-kit',
+    asin: 'B0CKN3TNM3',
+    title: 'Supporto laptop + ergonomia home office',
+    category: 'productivity',
+    emoji: '💻',
+    keywordTags: ['smart working', 'lavoro', 'ufficio', 'casa', 'produttività'],
+    payoutPriority: 7,
+    searchQuery: 'kit ergonomia home office',
+  },
+
+  // ── Casa & Risparmio (5 prodotti) ─────────────────────────────
   {
     id: 'budget-planner',
     asin: 'B0B9S4Y4RN',
@@ -121,6 +238,88 @@ const CREATOR_PRODUCTS: CreatorProduct[] = [
     keywordTags: ['budget', 'risparmio', 'stipendio', 'spese', 'franchi', 'euro'],
     payoutPriority: 7,
     searchQuery: 'planner budget mensile agenda',
+  },
+  {
+    id: 'saving-book',
+    asin: '8804734019',
+    title: 'Libro sul risparmio e gestione denaro',
+    category: 'budget',
+    emoji: '💰',
+    keywordTags: ['risparmio', 'budget', 'denaro', 'spese', 'stipendio', 'finanza'],
+    payoutPriority: 7,
+    searchQuery: 'libro risparmio gestione denaro personale',
+  },
+  {
+    id: 'power-bank',
+    asin: 'B0BVD1B58J',
+    title: 'Power bank 20000mAh USB-C',
+    category: 'travel',
+    emoji: '🔋',
+    keywordTags: ['viaggio', 'pendolare', 'ricarica', 'smartphone', 'lavoro'],
+    payoutPriority: 5,
+    searchQuery: 'power bank 20000mah usb-c ricarica rapida',
+  },
+  {
+    id: 'thermos-coffee',
+    asin: 'B07FDFSK1Q',
+    title: 'Thermos caffè da viaggio 500ml',
+    category: 'travel',
+    emoji: '☕',
+    keywordTags: ['pendolare', 'viaggio', 'caffè', 'mattina', 'auto', 'treno'],
+    payoutPriority: 5,
+    searchQuery: 'thermos caffè viaggio acciaio inox',
+  },
+  {
+    id: 'travel-backpack',
+    asin: 'B09YVCSLSN',
+    title: 'Zaino business viaggio',
+    category: 'travel',
+    emoji: '🎒',
+    keywordTags: ['trasporto', 'lavoro', 'frontalieri', 'viaggio', 'treno'],
+    payoutPriority: 6,
+    searchQuery: 'zaino business laptop viaggio',
+  },
+
+  // ── Salute & Benessere (4 prodotti) ───────────────────────────
+  {
+    id: 'health-guide-ch',
+    asin: '3038811622',
+    title: 'Guida sistema sanitario svizzero',
+    category: 'health',
+    emoji: '🏥',
+    keywordTags: ['salute', 'assicurazione', 'lamal', 'cassa malati', 'svizzera', 'sanità'],
+    payoutPriority: 8,
+    searchQuery: 'guida sistema sanitario svizzero assicurazione',
+  },
+  {
+    id: 'vitamins-commuter',
+    asin: 'B071V2F8WS',
+    title: 'Multivitaminico per ritmi intensi',
+    category: 'health',
+    emoji: '💊',
+    keywordTags: ['salute', 'energia', 'stanchezza', 'pendolare', 'vitamine'],
+    payoutPriority: 5,
+    searchQuery: 'multivitaminico energia stanchezza integratore',
+  },
+  {
+    id: 'water-bottle-thermal',
+    asin: 'B07D5HKRXS',
+    title: 'Borraccia termica 750ml',
+    category: 'health',
+    emoji: '🥤',
+    keywordTags: ['salute', 'idratazione', 'viaggio', 'pendolare', 'borraccia'],
+    payoutPriority: 4,
+    searchQuery: 'borraccia termica acciaio inox 750ml',
+  },
+  {
+    id: 'first-aid-kit-car',
+    asin: 'B0716G63BQ',
+    title: 'Kit primo soccorso auto',
+    category: 'health',
+    emoji: '🩹',
+    keywordTags: ['auto', 'sicurezza', 'emergenza', 'pendolare', 'viaggio', 'primo soccorso'],
+    payoutPriority: 5,
+    searchQuery: 'kit primo soccorso auto emergenza',
   },
 ];
 
@@ -174,10 +373,32 @@ interface CreatorProductInput {
   maxCards?: number;
 }
 
-function simpleHash(input: string): number {
-  let h = 0;
-  for (let i = 0; i < input.length; i += 1) {
-    h = ((h << 5) - h + input.charCodeAt(i)) | 0;
+// ── Session-based rotation seed ───────────────────────────────
+const SESSION_SEED_KEY = 'amz_rotation_seed';
+
+function getSessionSeed(): number {
+  if (typeof window === 'undefined' || !window.sessionStorage) {
+    return Math.random() * 0xFFFFFFFF >>> 0;
+  }
+  const stored = sessionStorage.getItem(SESSION_SEED_KEY);
+  if (stored) {
+    const parsed = parseInt(stored, 10);
+    if (!isNaN(parsed)) return parsed;
+  }
+  const seed = Math.random() * 0xFFFFFFFF >>> 0;
+  try {
+    sessionStorage.setItem(SESSION_SEED_KEY, String(seed));
+  } catch {
+    // sessionStorage full or disabled — use ephemeral seed
+  }
+  return seed;
+}
+
+/** Simple deterministic hash combining seed + context for stable per-session rotation */
+function rotationHash(seed: number, context: string): number {
+  let h = seed;
+  for (let i = 0; i < context.length; i += 1) {
+    h = ((h << 5) - h + context.charCodeAt(i)) | 0;
   }
   return Math.abs(h);
 }
@@ -222,8 +443,10 @@ export function getCreatorProductsForContext({
   const pickCount = Math.max(1, Math.min(maxCards, sorted.length));
   const rotationPoolSize = Math.min(sorted.length, Math.max(pickCount * 3, 6));
   const rotationPool = sorted.slice(0, rotationPoolSize);
-  const dayKey = new Date().toISOString().slice(0, 10);
-  const rotationStart = simpleHash(`${dayKey}|${locale}|${normalized}`) % rotationPool.length;
+
+  // Per-session rotation: each browser session gets a unique seed
+  const sessionSeed = getSessionSeed();
+  const rotationStart = rotationHash(sessionSeed, `${locale}|${normalized}`) % rotationPool.length;
   const ranked: CreatorProductSuggestion[] = [];
   for (let i = 0; i < pickCount; i += 1) {
     ranked.push(rotationPool[(rotationStart + i) % rotationPool.length]);

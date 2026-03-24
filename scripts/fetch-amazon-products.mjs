@@ -3,10 +3,10 @@
  * FRO-335: Fetch Amazon product data via Creators API (build-time).
  *
  * Authenticates with OAuth 2.0 client_credentials flow, fetches product data
- * (images, prices, availability) for the 8 curated ASINs, and writes the
+ * (images, prices, availability) for the curated ASINs, and writes the
  * result to data/amazon-products.json for the Vite build to consume.
  *
- * Environment variables:
+ * Environment variables (loaded from Firebase Remote Config via load-rc-env.mjs):
  *   AMAZON_CREATOR_ID     — OAuth client ID
  *   AMAZON_CREATOR_SECRET — OAuth client secret
  *
@@ -25,16 +25,74 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
 const OUTPUT_PATH = path.join(ROOT, 'data', 'amazon-products.json');
 
+// ── Load RC env vars if not already present ──────────────────
+// In CI, load-rc-env.mjs runs as a prior step and exports to $GITHUB_ENV.
+// For local runs, try to load them inline.
+async function ensureEnvVars() {
+  if (process.env.AMAZON_CREATOR_ID && process.env.AMAZON_CREATOR_SECRET) {
+    return; // already set (CI or manual export)
+  }
+  // Try loading from Firebase RC via load-rc-env.mjs (local dev)
+  try {
+    const loadRcEnv = path.join(ROOT, 'scripts', 'load-rc-env.mjs');
+    if (fs.existsSync(loadRcEnv)) {
+      console.log('🔄 Loading env vars from Firebase Remote Config...');
+      const { execSync } = await import('node:child_process');
+      const output = execSync(`node "${loadRcEnv}"`, {
+        encoding: 'utf-8',
+        env: { ...process.env },
+        timeout: 30_000,
+      });
+      // Parse export lines from stdout (local mode outputs "export KEY=VALUE")
+      for (const line of output.split('\n')) {
+        const match = line.match(/^export\s+(\w+)=(.*)$/);
+        if (match) {
+          const [, key, value] = match;
+          if (!process.env[key]) {
+            process.env[key] = value;
+          }
+        }
+      }
+    }
+  } catch (err) {
+    console.warn(`⚠️  Failed to load RC env vars: ${err.message}`);
+  }
+}
+
 // ── Curated ASINs (from creatorProductsService.ts) ───────────
 const ASINS = [
+  // Fisco & Finanza
   '8820383550',
   '8891657401',
-  '8869875968',
-  'B0CKN3TNM3',
-  'B0CF9YV5SL',
-  'B09YVCSLSN',
   'B0BGQ7KHYH',
+  'B00004UFNR',
+  '8891425065',
+  'B0BN2YRQJL',
+  // Trasporto & Pendolarismo
+  'B0CF9YV5SL',
+  'B0CXKZ98QP',
+  'B0B6QFFTMR',
+  'B01M0QFWFH',
+  'B08SBR4GRG',
+  'B01M3TIVPW',
+  // Lavoro & Carriera
+  '8869875968',
+  '3038810371',
+  'B09B8DWL3S',
+  'B0C8PSQWB4',
+  'B08CKGH98Z',
+  'B0CKN3TNM3',
+  // Casa & Risparmio
   'B0B9S4Y4RN',
+  '8804734019',
+  'B0BVD1B58J',
+  'B07FDFSK1Q',
+  'B09YVCSLSN',
+  // Salute & Benessere
+  '3038811622',
+  'B071V2F8WS',
+  'B07D5HKRXS',
+  'B0716G63BQ',
 ];
 
 const PARTNER_TAG = 'luigi066-21';
@@ -112,6 +170,8 @@ function transformProducts(apiResponse) {
 // ── Main ─────────────────────────────────────────────────────
 
 async function main() {
+  await ensureEnvVars();
+
   const clientId = process.env.AMAZON_CREATOR_ID;
   const clientSecret = process.env.AMAZON_CREATOR_SECRET;
 
