@@ -103,8 +103,8 @@ jobs:
           MODE: ${{ github.event_name == 'schedule' && 'send' || inputs.mode || 'test' }}
           TARGET: ${{ inputs.target_email || '' }}
           SUBJECT: ${{ inputs.subject || '' }}
-          SECTIONS: ${{ inputs.sections || 'exchange,articles,fact,tool' }}
-          SECTION_ORDER: ${{ inputs.section_order || 'exchange,articles,fact,tool' }}
+          SECTIONS: ${{ inputs.sections || 'exchange,jobs,articles,fact,tool' }}
+          SECTION_ORDER: ${{ inputs.section_order || 'exchange,jobs,articles,fact,tool' }}
           VARIANT: ${{ inputs.variant || 'general' }}
           ENHANCEMENTS: ${{ inputs.enhancements || 'topJobs,clusterPages,evergreen' }}
           AB_TEST: ${{ inputs.ab_test || '' }}
