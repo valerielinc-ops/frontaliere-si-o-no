@@ -1,0 +1,821 @@
+{
+  "crawlerKey": "lis-lugano-istituti-sociali",
+  "assembledAt": "2026-03-24T22:39:15.086Z",
+  "jobs": [
+    {
+      "title": "Capireparto",
+      "company": "LIS – Lugano Istituti Sociali",
+      "companyKey": "lis-lugano-istituti-sociali",
+      "companyDomain": "lugano-lis.ch",
+      "url": "https://lavoraconnoi.lugano-lis.ch/job/view-job.php?id=25-capireparto-pregassona&language=it",
+      "slug": "capireparto-lis-lugano-istituti-sociali-pregassona",
+      "location": "Pregassona",
+      "canton": "TI",
+      "country": "CH",
+      "postalCode": "6963",
+      "streetAddress": "Via alla Bozzoreda 15",
+      "description": "Il Consiglio di Amministrazione dell'Ente Autonomo Lugano Istituti Sociali apre il concorso pubblico per l'assunzione di apprendiste/i operatrici/tori socioassistenziali - OSA (indirizzo prima infanzia) per l'anno scolastico 2026/2027 Requisiti di ordine generale: - cittadinanza svizzera o stranie",
+      "datePosted": "2026-01-26",
+      "validThrough": "2026-12-13",
+      "sector": "Ospedaliero/Medicale/Sanitario/Educativo",
+      "role": "Medicina/Salute",
+      "source": "arca24",
+      "titleByLocale": {
+        "fr": "Capireparto",
+        "it": "Capireparto",
+        "en": "Capireparto",
+        "de": "Capireparto"
+      },
+      "slugByLocale": {
+        "it": "capireparto-lis-lugano-istituti-sociali-pregassona",
+        "en": "capireparto-lis-lugano-istituti-sociali-pregassona",
+        "de": "capireparto-lis-lugano-istituti-sociali-pregassona",
+        "fr": "capireparto-lis-lugano-istituti-sociali-pregassona"
+      },
+      "descriptionByLocale": {
+        "it": "Il Consiglio di Amministrazione dell'Ente Autonomo Lugano Istituti Sociali apre il concorso pubblico per l'assunzione di apprendiste/i operatrici/tori socioassistenziali - OSA (indirizzo prima infanzia) per l'anno scolastico 2026/2027 Requisiti di ordine generale: - cittadinanza svizzera o stranie",
+        "en": "Il Consiglio di Amministrazione dell'Ente Autonomo Lugano Istituti Sociali apre il concorso pubblico per l'assunzione di apprendiste/i operatrici/tori socioassistenziali - OSA (indirizzo prima infanzia) per l'anno scolastico 2026/2027 Requisiti di ordine generale: - cittadinanza svizzera o stranie",
+        "de": "Il Consiglio di Amministrazione dell'Ente Autonomo Lugano Istituti Sociali apre il concorso pubblico per l'assunzione di apprendiste/i operatrici/tori socioassistenziali - OSA (indirizzo prima infanzia) per l'anno scolastico 2026/2027 Requisiti di ordine generale: - cittadinanza svizzera o stranie",
+        "fr": "Il Consiglio di Amministrazione dell'Ente Autonomo Lugano Istituti Sociali apre il concorso pubblico per l'assunzione di apprendiste/i operatrici/tori socioassistenziali - OSA (indirizzo prima infanzia) per l'anno scolastico 2026/2027 Requisiti di ordine generale: - cittadinanza svizzera o stranie"
+      },
+      "crawledAt": "",
+      "needsRetranslation": true,
+      "requirementsByLocale": {},
+      "salaryExtraction": {
+        "strategyVersion": "lis_salary_v2",
+        "textHash": "454dff05c94d712530e7",
+        "source": "lis_no_numeric_salary",
+        "confidence": 0,
+        "note": "no_explicit_numeric_salary",
+        "extractedAt": "2026-03-24T22:39:15.057Z"
+      },
+      "sourceLang": "it",
+      "previousSlugs": [
+        "capireparto"
+      ],
+      "salaryMin": 58000,
+      "salaryMax": 78000,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 58000,
+          "maxValue": 78000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "title": "Infermieri",
+      "company": "LIS – Lugano Istituti Sociali",
+      "companyKey": "lis-lugano-istituti-sociali",
+      "companyDomain": "lugano-lis.ch",
+      "url": "https://lavoraconnoi.lugano-lis.ch/job/view-job.php?id=29-infermieri-pregassona&language=it",
+      "slug": "infermieri-lis-lugano-istituti-sociali-pregassona",
+      "location": "Pregassona",
+      "canton": "TI",
+      "country": "CH",
+      "postalCode": "6963",
+      "streetAddress": "Via alla Bozzoreda 15",
+      "description": "Il Consiglio di Amministrazione dell'Ente Autonomo Lugano Istituti Sociali apre il concorso pubblico per l'assunzione di apprendiste/i operatrici/tori socioassistenziali - OSA (indirizzo prima infanzia) per l'anno scolastico 2026/2027 Requisiti di ordine generale: - cittadinanza svizzera o stranie",
+      "datePosted": "2026-01-26",
+      "validThrough": "2026-12-13",
+      "sector": "Ospedaliero/Medicale/Sanitario/Educativo",
+      "role": "Medicina/Salute",
+      "source": "arca24",
+      "titleByLocale": {
+        "it": "Infermieri",
+        "en": "Infermieri",
+        "de": "Infermieri",
+        "fr": "Infermieri"
+      },
+      "slugByLocale": {
+        "it": "infermieri-lis-lugano-istituti-sociali-pregassona",
+        "en": "infermieri-lis-lugano-istituti-sociali-pregassona",
+        "de": "infermieri-lis-lugano-istituti-sociali-pregassona",
+        "fr": "infermieri-lis-lugano-istituti-sociali-pregassona"
+      },
+      "descriptionByLocale": {
+        "it": "Il Consiglio di Amministrazione dell'Ente Autonomo Lugano Istituti Sociali apre il concorso pubblico per l'assunzione di apprendiste/i operatrici/tori socioassistenziali - OSA (indirizzo prima infanzia) per l'anno scolastico 2026/2027 Requisiti di ordine generale: - cittadinanza svizzera o stranie",
+        "en": "Il Consiglio di Amministrazione dell'Ente Autonomo Lugano Istituti Sociali apre il concorso pubblico per l'assunzione di apprendiste/i operatrici/tori socioassistenziali - OSA (indirizzo prima infanzia) per l'anno scolastico 2026/2027 Requisiti di ordine generale: - cittadinanza svizzera o stranie",
+        "de": "Il Consiglio di Amministrazione dell'Ente Autonomo Lugano Istituti Sociali apre il concorso pubblico per l'assunzione di apprendiste/i operatrici/tori socioassistenziali - OSA (indirizzo prima infanzia) per l'anno scolastico 2026/2027 Requisiti di ordine generale: - cittadinanza svizzera o stranie",
+        "fr": "Il Consiglio di Amministrazione dell'Ente Autonomo Lugano Istituti Sociali apre il concorso pubblico per l'assunzione di apprendiste/i operatrici/tori socioassistenziali - OSA (indirizzo prima infanzia) per l'anno scolastico 2026/2027 Requisiti di ordine generale: - cittadinanza svizzera o stranie"
+      },
+      "crawledAt": "",
+      "needsRetranslation": true,
+      "requirementsByLocale": {},
+      "salaryExtraction": {
+        "strategyVersion": "lis_salary_v2",
+        "textHash": "454dff05c94d712530e7",
+        "source": "lis_no_numeric_salary",
+        "confidence": 0,
+        "note": "no_explicit_numeric_salary",
+        "extractedAt": "2026-03-24T22:39:15.058Z"
+      },
+      "sourceLang": "it",
+      "previousSlugs": [
+        "infermieri"
+      ],
+      "salaryMin": 58000,
+      "salaryMax": 78000,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 58000,
+          "maxValue": 78000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "title": "Operatori Sociosanitari",
+      "company": "LIS – Lugano Istituti Sociali",
+      "companyKey": "lis-lugano-istituti-sociali",
+      "companyDomain": "lugano-lis.ch",
+      "url": "https://lavoraconnoi.lugano-lis.ch/job/view-job.php?id=33-operatori-sociosanitari-pregassona&language=it",
+      "slug": "operatori-sociosanitari",
+      "location": "Pregassona",
+      "canton": "TI",
+      "country": "CH",
+      "postalCode": "6963",
+      "streetAddress": "Via alla Bozzoreda 15",
+      "description": "Il Consiglio di Amministrazione dell'Ente Autonomo Lugano Istituti Sociali apre il concorso pubblico per l'assunzione di apprendiste/i operatrici/tori socioassistenziali - OSA (indirizzo prima infanzia) per l'anno scolastico 2026/2027 Requisiti di ordine generale: - cittadinanza svizzera o stranie",
+      "datePosted": "2026-01-26",
+      "validThrough": "2026-12-13",
+      "sector": "Ospedaliero/Medicale/Sanitario/Educativo",
+      "role": "Medicina/Salute",
+      "source": "arca24",
+      "titleByLocale": {
+        "it": "Operatori Sociosanitari",
+        "en": "Operatori Sociosanitari",
+        "de": "Operatori Sociosanitari",
+        "fr": "Operatori Sociosanitari"
+      },
+      "slugByLocale": {
+        "it": "operatori-sociosanitari",
+        "en": "operatori-sociosanitari",
+        "de": "operatori-sociosanitari",
+        "fr": "operatori-sociosanitari"
+      },
+      "descriptionByLocale": {
+        "it": "Il Consiglio di Amministrazione dell'Ente Autonomo Lugano Istituti Sociali apre il concorso pubblico per l'assunzione di apprendiste/i operatrici/tori socioassistenziali - OSA (indirizzo prima infanzia) per l'anno scolastico 2026/2027 Requisiti di ordine generale: - cittadinanza svizzera o stranie",
+        "en": "Il Consiglio di Amministrazione dell'Ente Autonomo Lugano Istituti Sociali apre il concorso pubblico per l'assunzione di apprendiste/i operatrici/tori socioassistenziali - OSA (indirizzo prima infanzia) per l'anno scolastico 2026/2027 Requisiti di ordine generale: - cittadinanza svizzera o stranie",
+        "de": "Il Consiglio di Amministrazione dell'Ente Autonomo Lugano Istituti Sociali apre il concorso pubblico per l'assunzione di apprendiste/i operatrici/tori socioassistenziali - OSA (indirizzo prima infanzia) per l'anno scolastico 2026/2027 Requisiti di ordine generale: - cittadinanza svizzera o stranie",
+        "fr": "Il Consiglio di Amministrazione dell'Ente Autonomo Lugano Istituti Sociali apre il concorso pubblico per l'assunzione di apprendiste/i operatrici/tori socioassistenziali - OSA (indirizzo prima infanzia) per l'anno scolastico 2026/2027 Requisiti di ordine generale: - cittadinanza svizzera o stranie"
+      },
+      "crawledAt": "",
+      "needsRetranslation": true,
+      "requirementsByLocale": {},
+      "salaryExtraction": {
+        "strategyVersion": "lis_salary_v2",
+        "textHash": "454dff05c94d712530e7",
+        "source": "lis_no_numeric_salary",
+        "confidence": 0,
+        "note": "no_explicit_numeric_salary",
+        "extractedAt": "2026-03-24T22:39:15.058Z"
+      },
+      "sourceLang": "it",
+      "salaryMin": 58000,
+      "salaryMax": 78000,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 58000,
+          "maxValue": 78000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "title": "Assistenti di cura",
+      "company": "LIS – Lugano Istituti Sociali",
+      "companyKey": "lis-lugano-istituti-sociali",
+      "companyDomain": "lugano-lis.ch",
+      "url": "https://lavoraconnoi.lugano-lis.ch/job/view-job.php?id=34-assistenti-di-cura-pregassona&language=it",
+      "slug": "assistenti-di-cura",
+      "location": "Pregassona",
+      "canton": "TI",
+      "country": "CH",
+      "postalCode": "6963",
+      "streetAddress": "Via alla Bozzoreda 15",
+      "description": "Il Consiglio di Amministrazione dell'Ente Autonomo Lugano Istituti Sociali apre il concorso pubblico per l'assunzione di apprendiste/i operatrici/tori socioassistenziali - OSA (indirizzo prima infanzia) per l'anno scolastico 2026/2027 Requisiti di ordine generale: - cittadinanza svizzera o stranie",
+      "datePosted": "2026-01-26",
+      "validThrough": "2026-12-13",
+      "sector": "Ospedaliero/Medicale/Sanitario/Educativo",
+      "role": "Medicina/Salute",
+      "source": "arca24",
+      "titleByLocale": {
+        "de": "Assistenti di cura",
+        "it": "Assistenti di cura",
+        "en": "Assistenti di cura",
+        "fr": "Assistenti di cura"
+      },
+      "slugByLocale": {
+        "it": "assistenti-di-cura",
+        "en": "assistenti-di-cura",
+        "de": "assistenti-di-cura",
+        "fr": "assistenti-di-cura"
+      },
+      "descriptionByLocale": {
+        "it": "Il Consiglio di Amministrazione dell'Ente Autonomo Lugano Istituti Sociali apre il concorso pubblico per l'assunzione di apprendiste/i operatrici/tori socioassistenziali - OSA (indirizzo prima infanzia) per l'anno scolastico 2026/2027 Requisiti di ordine generale: - cittadinanza svizzera o stranie",
+        "en": "Il Consiglio di Amministrazione dell'Ente Autonomo Lugano Istituti Sociali apre il concorso pubblico per l'assunzione di apprendiste/i operatrici/tori socioassistenziali - OSA (indirizzo prima infanzia) per l'anno scolastico 2026/2027 Requisiti di ordine generale: - cittadinanza svizzera o stranie",
+        "de": "Il Consiglio di Amministrazione dell'Ente Autonomo Lugano Istituti Sociali apre il concorso pubblico per l'assunzione di apprendiste/i operatrici/tori socioassistenziali - OSA (indirizzo prima infanzia) per l'anno scolastico 2026/2027 Requisiti di ordine generale: - cittadinanza svizzera o stranie",
+        "fr": "Il Consiglio di Amministrazione dell'Ente Autonomo Lugano Istituti Sociali apre il concorso pubblico per l'assunzione di apprendiste/i operatrici/tori socioassistenziali - OSA (indirizzo prima infanzia) per l'anno scolastico 2026/2027 Requisiti di ordine generale: - cittadinanza svizzera o stranie"
+      },
+      "crawledAt": "",
+      "needsRetranslation": true,
+      "requirementsByLocale": {},
+      "salaryExtraction": {
+        "strategyVersion": "lis_salary_v2",
+        "textHash": "454dff05c94d712530e7",
+        "source": "lis_no_numeric_salary",
+        "confidence": 0,
+        "note": "no_explicit_numeric_salary",
+        "extractedAt": "2026-03-24T22:39:15.058Z"
+      },
+      "sourceLang": "it",
+      "salaryMin": 58000,
+      "salaryMax": 78000,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 58000,
+          "maxValue": 78000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "title": "Collaboratori sanitari",
+      "company": "LIS – Lugano Istituti Sociali",
+      "companyKey": "lis-lugano-istituti-sociali",
+      "companyDomain": "lugano-lis.ch",
+      "url": "https://lavoraconnoi.lugano-lis.ch/job/view-job.php?id=35-collaboratori-sanitari-pregassona&language=it",
+      "slug": "collaboratori-sanitari",
+      "location": "Pregassona",
+      "canton": "TI",
+      "country": "CH",
+      "postalCode": "6963",
+      "streetAddress": "Via alla Bozzoreda 15",
+      "description": "Il Consiglio di Amministrazione dell'Ente Autonomo Lugano Istituti Sociali apre il concorso pubblico per l'assunzione di apprendiste/i operatrici/tori socioassistenziali - OSA (indirizzo prima infanzia) per l'anno scolastico 2026/2027 Requisiti di ordine generale: - cittadinanza svizzera o stranie",
+      "datePosted": "2026-01-26",
+      "validThrough": "2026-12-13",
+      "sector": "Ospedaliero/Medicale/Sanitario/Educativo",
+      "role": "Medicina/Salute",
+      "source": "arca24",
+      "titleByLocale": {
+        "it": "Collaboratori sanitari",
+        "en": "Collaboratori sanitari",
+        "de": "Collaboratori sanitari",
+        "fr": "Collaboratori sanitari"
+      },
+      "slugByLocale": {
+        "it": "collaboratori-sanitari",
+        "en": "collaboratori-sanitari",
+        "de": "collaboratori-sanitari",
+        "fr": "collaboratori-sanitari"
+      },
+      "descriptionByLocale": {
+        "it": "Il Consiglio di Amministrazione dell'Ente Autonomo Lugano Istituti Sociali apre il concorso pubblico per l'assunzione di apprendiste/i operatrici/tori socioassistenziali - OSA (indirizzo prima infanzia) per l'anno scolastico 2026/2027 Requisiti di ordine generale: - cittadinanza svizzera o stranie",
+        "en": "Il Consiglio di Amministrazione dell'Ente Autonomo Lugano Istituti Sociali apre il concorso pubblico per l'assunzione di apprendiste/i operatrici/tori socioassistenziali - OSA (indirizzo prima infanzia) per l'anno scolastico 2026/2027 Requisiti di ordine generale: - cittadinanza svizzera o stranie",
+        "de": "Il Consiglio di Amministrazione dell'Ente Autonomo Lugano Istituti Sociali apre il concorso pubblico per l'assunzione di apprendiste/i operatrici/tori socioassistenziali - OSA (indirizzo prima infanzia) per l'anno scolastico 2026/2027 Requisiti di ordine generale: - cittadinanza svizzera o stranie",
+        "fr": "Il Consiglio di Amministrazione dell'Ente Autonomo Lugano Istituti Sociali apre il concorso pubblico per l'assunzione di apprendiste/i operatrici/tori socioassistenziali - OSA (indirizzo prima infanzia) per l'anno scolastico 2026/2027 Requisiti di ordine generale: - cittadinanza svizzera o stranie"
+      },
+      "crawledAt": "",
+      "needsRetranslation": true,
+      "requirementsByLocale": {},
+      "salaryExtraction": {
+        "strategyVersion": "lis_salary_v2",
+        "textHash": "454dff05c94d712530e7",
+        "source": "lis_no_numeric_salary",
+        "confidence": 0,
+        "note": "no_explicit_numeric_salary",
+        "extractedAt": "2026-03-24T22:39:15.058Z"
+      },
+      "sourceLang": "it",
+      "salaryMin": 58000,
+      "salaryMax": 78000,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 58000,
+          "maxValue": 78000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "title": "Operatori settore animazione",
+      "company": "LIS – Lugano Istituti Sociali",
+      "companyKey": "lis-lugano-istituti-sociali",
+      "companyDomain": "lugano-lis.ch",
+      "url": "https://lavoraconnoi.lugano-lis.ch/job/view-job.php?id=36-operatori-settore-animazione-pregassona&language=it",
+      "slug": "operatori-settore-animazione",
+      "location": "Pregassona",
+      "canton": "TI",
+      "country": "CH",
+      "postalCode": "6963",
+      "streetAddress": "Via alla Bozzoreda 15",
+      "description": "Il Consiglio di Amministrazione dell'Ente Autonomo Lugano Istituti Sociali apre il concorso pubblico per l'assunzione di apprendiste/i operatrici/tori socioassistenziali - OSA (indirizzo prima infanzia) per l'anno scolastico 2026/2027 Requisiti di ordine generale: - cittadinanza svizzera o stranie",
+      "datePosted": "2026-01-26",
+      "validThrough": "2026-12-13",
+      "sector": "Ospedaliero/Medicale/Sanitario/Educativo",
+      "role": "Medicina/Salute",
+      "source": "arca24",
+      "titleByLocale": {
+        "it": "Operatori settore animazione",
+        "en": "Operatori settore animazione",
+        "de": "Operatori settore animazione",
+        "fr": "Operatori settore animazione"
+      },
+      "slugByLocale": {
+        "it": "operatori-settore-animazione",
+        "en": "operatori-settore-animazione",
+        "de": "operatori-settore-animazione",
+        "fr": "operatori-settore-animazione"
+      },
+      "descriptionByLocale": {
+        "it": "Il Consiglio di Amministrazione dell'Ente Autonomo Lugano Istituti Sociali apre il concorso pubblico per l'assunzione di apprendiste/i operatrici/tori socioassistenziali - OSA (indirizzo prima infanzia) per l'anno scolastico 2026/2027 Requisiti di ordine generale: - cittadinanza svizzera o stranie",
+        "en": "Il Consiglio di Amministrazione dell'Ente Autonomo Lugano Istituti Sociali apre il concorso pubblico per l'assunzione di apprendiste/i operatrici/tori socioassistenziali - OSA (indirizzo prima infanzia) per l'anno scolastico 2026/2027 Requisiti di ordine generale: - cittadinanza svizzera o stranie",
+        "de": "Il Consiglio di Amministrazione dell'Ente Autonomo Lugano Istituti Sociali apre il concorso pubblico per l'assunzione di apprendiste/i operatrici/tori socioassistenziali - OSA (indirizzo prima infanzia) per l'anno scolastico 2026/2027 Requisiti di ordine generale: - cittadinanza svizzera o stranie",
+        "fr": "Il Consiglio di Amministrazione dell'Ente Autonomo Lugano Istituti Sociali apre il concorso pubblico per l'assunzione di apprendiste/i operatrici/tori socioassistenziali - OSA (indirizzo prima infanzia) per l'anno scolastico 2026/2027 Requisiti di ordine generale: - cittadinanza svizzera o stranie"
+      },
+      "crawledAt": "",
+      "needsRetranslation": true,
+      "requirementsByLocale": {},
+      "salaryExtraction": {
+        "strategyVersion": "lis_salary_v2",
+        "textHash": "454dff05c94d712530e7",
+        "source": "lis_no_numeric_salary",
+        "confidence": 0,
+        "note": "no_explicit_numeric_salary",
+        "extractedAt": "2026-03-24T22:39:15.058Z"
+      },
+      "sourceLang": "it",
+      "salaryMin": 58000,
+      "salaryMax": 78000,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 58000,
+          "maxValue": 78000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "title": "Fisioterapisti / Ergoterapisti",
+      "company": "LIS – Lugano Istituti Sociali",
+      "companyKey": "lis-lugano-istituti-sociali",
+      "companyDomain": "lugano-lis.ch",
+      "url": "https://lavoraconnoi.lugano-lis.ch/job/view-job.php?id=37-fisioterapisti-ergoterapisti-pregassona&language=it",
+      "slug": "fisioterapisti-ergoterapisti",
+      "location": "Pregassona",
+      "canton": "TI",
+      "country": "CH",
+      "postalCode": "6963",
+      "streetAddress": "Via alla Bozzoreda 15",
+      "description": "Il Consiglio di Amministrazione dell'Ente Autonomo Lugano Istituti Sociali apre il concorso pubblico per l'assunzione di apprendiste/i operatrici/tori socioassistenziali - OSA (indirizzo prima infanzia) per l'anno scolastico 2026/2027 Requisiti di ordine generale: - cittadinanza svizzera o stranie",
+      "datePosted": "2026-01-26",
+      "validThrough": "2026-12-13",
+      "sector": "Ospedaliero/Medicale/Sanitario/Educativo",
+      "role": "Medicina/Salute",
+      "source": "arca24",
+      "titleByLocale": {
+        "it": "Fisioterapisti / Ergoterapisti",
+        "en": "Fisioterapisti / Ergoterapisti",
+        "de": "Fisioterapisti / Ergoterapisti",
+        "fr": "Fisioterapisti / Ergoterapisti"
+      },
+      "slugByLocale": {
+        "it": "fisioterapisti-ergoterapisti",
+        "en": "fisioterapisti-ergoterapisti",
+        "de": "fisioterapisti-ergoterapisti",
+        "fr": "fisioterapisti-ergoterapisti"
+      },
+      "descriptionByLocale": {
+        "it": "Il Consiglio di Amministrazione dell'Ente Autonomo Lugano Istituti Sociali apre il concorso pubblico per l'assunzione di apprendiste/i operatrici/tori socioassistenziali - OSA (indirizzo prima infanzia) per l'anno scolastico 2026/2027 Requisiti di ordine generale: - cittadinanza svizzera o stranie",
+        "en": "Il Consiglio di Amministrazione dell'Ente Autonomo Lugano Istituti Sociali apre il concorso pubblico per l'assunzione di apprendiste/i operatrici/tori socioassistenziali - OSA (indirizzo prima infanzia) per l'anno scolastico 2026/2027 Requisiti di ordine generale: - cittadinanza svizzera o stranie",
+        "de": "Il Consiglio di Amministrazione dell'Ente Autonomo Lugano Istituti Sociali apre il concorso pubblico per l'assunzione di apprendiste/i operatrici/tori socioassistenziali - OSA (indirizzo prima infanzia) per l'anno scolastico 2026/2027 Requisiti di ordine generale: - cittadinanza svizzera o stranie",
+        "fr": "Il Consiglio di Amministrazione dell'Ente Autonomo Lugano Istituti Sociali apre il concorso pubblico per l'assunzione di apprendiste/i operatrici/tori socioassistenziali - OSA (indirizzo prima infanzia) per l'anno scolastico 2026/2027 Requisiti di ordine generale: - cittadinanza svizzera o stranie"
+      },
+      "crawledAt": "",
+      "needsRetranslation": true,
+      "requirementsByLocale": {},
+      "salaryExtraction": {
+        "strategyVersion": "lis_salary_v2",
+        "textHash": "454dff05c94d712530e7",
+        "source": "lis_no_numeric_salary",
+        "confidence": 0,
+        "note": "no_explicit_numeric_salary",
+        "extractedAt": "2026-03-24T22:39:15.059Z"
+      },
+      "sourceLang": "it",
+      "salaryMin": 58000,
+      "salaryMax": 78000,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 58000,
+          "maxValue": 78000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "title": "Educatori sociali",
+      "company": "LIS – Lugano Istituti Sociali",
+      "companyKey": "lis-lugano-istituti-sociali",
+      "companyDomain": "lugano-lis.ch",
+      "url": "https://lavoraconnoi.lugano-lis.ch/job/view-job.php?id=38-educatori-sociali-pregassona&language=it",
+      "slug": "educatori-sociali",
+      "location": "Pregassona",
+      "canton": "TI",
+      "country": "CH",
+      "postalCode": "6963",
+      "streetAddress": "Via alla Bozzoreda 15",
+      "description": "Il Consiglio di Amministrazione dell'Ente Autonomo Lugano Istituti Sociali apre il concorso pubblico per l'assunzione di apprendiste/i operatrici/tori socioassistenziali - OSA (indirizzo prima infanzia) per l'anno scolastico 2026/2027 Requisiti di ordine generale: - cittadinanza svizzera o stranie",
+      "datePosted": "2026-01-26",
+      "validThrough": "2026-12-13",
+      "sector": "Ospedaliero/Medicale/Sanitario/Educativo",
+      "role": "Medicina/Salute",
+      "source": "arca24",
+      "titleByLocale": {
+        "it": "Educatori sociali",
+        "en": "Educatori sociali",
+        "de": "Educatori sociali",
+        "fr": "Educatori sociali"
+      },
+      "slugByLocale": {
+        "it": "educatori-sociali",
+        "en": "educatori-sociali",
+        "de": "educatori-sociali",
+        "fr": "educatori-sociali"
+      },
+      "descriptionByLocale": {
+        "it": "Il Consiglio di Amministrazione dell'Ente Autonomo Lugano Istituti Sociali apre il concorso pubblico per l'assunzione di apprendiste/i operatrici/tori socioassistenziali - OSA (indirizzo prima infanzia) per l'anno scolastico 2026/2027 Requisiti di ordine generale: - cittadinanza svizzera o stranie",
+        "en": "Il Consiglio di Amministrazione dell'Ente Autonomo Lugano Istituti Sociali apre il concorso pubblico per l'assunzione di apprendiste/i operatrici/tori socioassistenziali - OSA (indirizzo prima infanzia) per l'anno scolastico 2026/2027 Requisiti di ordine generale: - cittadinanza svizzera o stranie",
+        "de": "Il Consiglio di Amministrazione dell'Ente Autonomo Lugano Istituti Sociali apre il concorso pubblico per l'assunzione di apprendiste/i operatrici/tori socioassistenziali - OSA (indirizzo prima infanzia) per l'anno scolastico 2026/2027 Requisiti di ordine generale: - cittadinanza svizzera o stranie",
+        "fr": "Il Consiglio di Amministrazione dell'Ente Autonomo Lugano Istituti Sociali apre il concorso pubblico per l'assunzione di apprendiste/i operatrici/tori socioassistenziali - OSA (indirizzo prima infanzia) per l'anno scolastico 2026/2027 Requisiti di ordine generale: - cittadinanza svizzera o stranie"
+      },
+      "crawledAt": "",
+      "needsRetranslation": true,
+      "requirementsByLocale": {},
+      "salaryExtraction": {
+        "strategyVersion": "lis_salary_v2",
+        "textHash": "454dff05c94d712530e7",
+        "source": "lis_no_numeric_salary",
+        "confidence": 0,
+        "note": "no_explicit_numeric_salary",
+        "extractedAt": "2026-03-24T22:39:15.059Z"
+      },
+      "sourceLang": "it",
+      "salaryMin": 58000,
+      "salaryMax": 78000,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 58000,
+          "maxValue": 78000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "title": "Operatori socioassistenziali (infanza)",
+      "company": "LIS – Lugano Istituti Sociali",
+      "companyKey": "lis-lugano-istituti-sociali",
+      "companyDomain": "lugano-lis.ch",
+      "url": "https://lavoraconnoi.lugano-lis.ch/job/view-job.php?id=39-operatori-socioassistenziali-infanza-pregassona&language=it",
+      "slug": "operatori-socioassistenziali-infanza",
+      "location": "Pregassona",
+      "canton": "TI",
+      "country": "CH",
+      "postalCode": "6963",
+      "streetAddress": "Via alla Bozzoreda 15",
+      "description": "Il Consiglio di Amministrazione dell'Ente Autonomo Lugano Istituti Sociali apre il concorso pubblico per l'assunzione di apprendiste/i operatrici/tori socioassistenziali - OSA (indirizzo prima infanzia) per l'anno scolastico 2026/2027 Requisiti di ordine generale: - cittadinanza svizzera o stranie",
+      "datePosted": "2026-01-26",
+      "validThrough": "2026-12-13",
+      "sector": "Ospedaliero/Medicale/Sanitario/Educativo",
+      "role": "Medicina/Salute",
+      "source": "arca24",
+      "titleByLocale": {
+        "it": "Operatori socioassistenziali (infanza)",
+        "en": "Operatori socioassistenziali (infanza)",
+        "de": "Operatori socioassistenziali (infanza)",
+        "fr": "Operatori socioassistenziali (infanza)"
+      },
+      "slugByLocale": {
+        "it": "operatori-socioassistenziali-infanza",
+        "en": "operatori-socioassistenziali-infanza-lis-lugano-istituti-sociali-pregassona",
+        "de": "operatori-socioassistenziali-infanza-lis-lugano-istituti-sociali-pregassona",
+        "fr": "operatori-socioassistenziali-infanza-lis-lugano-istituti-sociali-pregassona"
+      },
+      "descriptionByLocale": {
+        "it": "Il Consiglio di Amministrazione dell'Ente Autonomo Lugano Istituti Sociali apre il concorso pubblico per l'assunzione di apprendiste/i operatrici/tori socioassistenziali - OSA (indirizzo prima infanzia) per l'anno scolastico 2026/2027 Requisiti di ordine generale: - cittadinanza svizzera o stranie",
+        "en": "Il Consiglio di Amministrazione dell'Ente Autonomo Lugano Istituti Sociali apre il concorso pubblico per l'assunzione di apprendiste/i operatrici/tori socioassistenziali - OSA (indirizzo prima infanzia) per l'anno scolastico 2026/2027 Requisiti di ordine generale: - cittadinanza svizzera o stranie",
+        "de": "Il Consiglio di Amministrazione dell'Ente Autonomo Lugano Istituti Sociali apre il concorso pubblico per l'assunzione di apprendiste/i operatrici/tori socioassistenziali - OSA (indirizzo prima infanzia) per l'anno scolastico 2026/2027 Requisiti di ordine generale: - cittadinanza svizzera o stranie",
+        "fr": "Il Consiglio di Amministrazione dell'Ente Autonomo Lugano Istituti Sociali apre il concorso pubblico per l'assunzione di apprendiste/i operatrici/tori socioassistenziali - OSA (indirizzo prima infanzia) per l'anno scolastico 2026/2027 Requisiti di ordine generale: - cittadinanza svizzera o stranie"
+      },
+      "crawledAt": "",
+      "needsRetranslation": true,
+      "requirementsByLocale": {},
+      "salaryExtraction": {
+        "strategyVersion": "lis_salary_v2",
+        "textHash": "454dff05c94d712530e7",
+        "source": "lis_no_numeric_salary",
+        "confidence": 0,
+        "note": "no_explicit_numeric_salary",
+        "extractedAt": "2026-03-24T22:39:15.059Z"
+      },
+      "sourceLang": "it",
+      "salaryMin": 58000,
+      "salaryMax": 78000,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 58000,
+          "maxValue": 78000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "title": "Educatori dell'infanzia",
+      "company": "LIS – Lugano Istituti Sociali",
+      "companyKey": "lis-lugano-istituti-sociali",
+      "companyDomain": "lugano-lis.ch",
+      "url": "https://lavoraconnoi.lugano-lis.ch/job/view-job.php?id=40-educatori-dell-infanzia-pregassona&language=it",
+      "slug": "educatori-dell-infanzia",
+      "location": "Pregassona",
+      "canton": "TI",
+      "country": "CH",
+      "postalCode": "6963",
+      "streetAddress": "Via alla Bozzoreda 15",
+      "description": "Il Consiglio di Amministrazione dell'Ente Autonomo Lugano Istituti Sociali apre il concorso pubblico per l'assunzione di apprendiste/i operatrici/tori socioassistenziali - OSA (indirizzo prima infanzia) per l'anno scolastico 2026/2027 Requisiti di ordine generale: - cittadinanza svizzera o stranie",
+      "datePosted": "2026-01-26",
+      "validThrough": "2026-12-13",
+      "sector": "Ospedaliero/Medicale/Sanitario/Educativo",
+      "role": "Medicina/Salute",
+      "source": "arca24",
+      "titleByLocale": {
+        "it": "Educatori dell'infanzia",
+        "en": "Educatori dell'infanzia",
+        "de": "Educatori dell'infanzia",
+        "fr": "Educatori dell'infanzia"
+      },
+      "slugByLocale": {
+        "it": "educatori-dell-infanzia",
+        "en": "educatori-dell-infanzia",
+        "de": "educatori-dell-infanzia",
+        "fr": "educatori-dell-infanzia"
+      },
+      "descriptionByLocale": {
+        "it": "Il Consiglio di Amministrazione dell'Ente Autonomo Lugano Istituti Sociali apre il concorso pubblico per l'assunzione di apprendiste/i operatrici/tori socioassistenziali - OSA (indirizzo prima infanzia) per l'anno scolastico 2026/2027 Requisiti di ordine generale: - cittadinanza svizzera o stranie",
+        "en": "Il Consiglio di Amministrazione dell'Ente Autonomo Lugano Istituti Sociali apre il concorso pubblico per l'assunzione di apprendiste/i operatrici/tori socioassistenziali - OSA (indirizzo prima infanzia) per l'anno scolastico 2026/2027 Requisiti di ordine generale: - cittadinanza svizzera o stranie",
+        "de": "Il Consiglio di Amministrazione dell'Ente Autonomo Lugano Istituti Sociali apre il concorso pubblico per l'assunzione di apprendiste/i operatrici/tori socioassistenziali - OSA (indirizzo prima infanzia) per l'anno scolastico 2026/2027 Requisiti di ordine generale: - cittadinanza svizzera o stranie",
+        "fr": "Il Consiglio di Amministrazione dell'Ente Autonomo Lugano Istituti Sociali apre il concorso pubblico per l'assunzione di apprendiste/i operatrici/tori socioassistenziali - OSA (indirizzo prima infanzia) per l'anno scolastico 2026/2027 Requisiti di ordine generale: - cittadinanza svizzera o stranie"
+      },
+      "crawledAt": "",
+      "needsRetranslation": true,
+      "requirementsByLocale": {},
+      "salaryExtraction": {
+        "strategyVersion": "lis_salary_v2",
+        "textHash": "454dff05c94d712530e7",
+        "source": "lis_no_numeric_salary",
+        "confidence": 0,
+        "note": "no_explicit_numeric_salary",
+        "extractedAt": "2026-03-24T22:39:15.059Z"
+      },
+      "sourceLang": "it",
+      "salaryMin": 58000,
+      "salaryMax": 78000,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 58000,
+          "maxValue": 78000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "title": "Capisquadra - chef di cucina",
+      "company": "LIS – Lugano Istituti Sociali",
+      "companyKey": "lis-lugano-istituti-sociali",
+      "companyDomain": "lugano-lis.ch",
+      "url": "https://lavoraconnoi.lugano-lis.ch/job/view-job.php?id=41-capisquadra-chef-di-cucina-pregassona&language=it",
+      "slug": "capisquadra-chef-di-cucina",
+      "location": "Pregassona",
+      "canton": "TI",
+      "country": "CH",
+      "postalCode": "6963",
+      "streetAddress": "Via alla Bozzoreda 15",
+      "description": "Il Consiglio di Amministrazione dell'Ente Autonomo Lugano Istituti Sociali apre il concorso pubblico per l'assunzione di apprendiste/i operatrici/tori socioassistenziali - OSA (indirizzo prima infanzia) per l'anno scolastico 2026/2027 Requisiti di ordine generale: - cittadinanza svizzera o stranie",
+      "datePosted": "2026-01-26",
+      "validThrough": "2026-12-13",
+      "sector": "Ospedaliero/Medicale/Sanitario/Educativo",
+      "role": "Medicina/Salute",
+      "source": "arca24",
+      "titleByLocale": {
+        "it": "Capisquadra - chef di cucina",
+        "en": "Capisquadra - chef di cucina",
+        "de": "Capisquadra - chef di cucina",
+        "fr": "Capisquadra - chef di cucina"
+      },
+      "slugByLocale": {
+        "it": "capisquadra-chef-di-cucina",
+        "en": "capisquadra-chef-di-cucina",
+        "de": "capisquadra-chef-di-cucina",
+        "fr": "capisquadra-chef-di-cucina"
+      },
+      "descriptionByLocale": {
+        "it": "Il Consiglio di Amministrazione dell'Ente Autonomo Lugano Istituti Sociali apre il concorso pubblico per l'assunzione di apprendiste/i operatrici/tori socioassistenziali - OSA (indirizzo prima infanzia) per l'anno scolastico 2026/2027 Requisiti di ordine generale: - cittadinanza svizzera o stranie",
+        "en": "Il Consiglio di Amministrazione dell'Ente Autonomo Lugano Istituti Sociali apre il concorso pubblico per l'assunzione di apprendiste/i operatrici/tori socioassistenziali - OSA (indirizzo prima infanzia) per l'anno scolastico 2026/2027 Requisiti di ordine generale: - cittadinanza svizzera o stranie",
+        "de": "Il Consiglio di Amministrazione dell'Ente Autonomo Lugano Istituti Sociali apre il concorso pubblico per l'assunzione di apprendiste/i operatrici/tori socioassistenziali - OSA (indirizzo prima infanzia) per l'anno scolastico 2026/2027 Requisiti di ordine generale: - cittadinanza svizzera o stranie",
+        "fr": "Il Consiglio di Amministrazione dell'Ente Autonomo Lugano Istituti Sociali apre il concorso pubblico per l'assunzione di apprendiste/i operatrici/tori socioassistenziali - OSA (indirizzo prima infanzia) per l'anno scolastico 2026/2027 Requisiti di ordine generale: - cittadinanza svizzera o stranie"
+      },
+      "crawledAt": "",
+      "needsRetranslation": true,
+      "requirementsByLocale": {},
+      "salaryExtraction": {
+        "strategyVersion": "lis_salary_v2",
+        "textHash": "454dff05c94d712530e7",
+        "source": "lis_no_numeric_salary",
+        "confidence": 0,
+        "note": "no_explicit_numeric_salary",
+        "extractedAt": "2026-03-24T22:39:15.059Z"
+      },
+      "sourceLang": "it",
+      "salaryMin": 58000,
+      "salaryMax": 78000,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 58000,
+          "maxValue": 78000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "title": "Cuochi",
+      "company": "LIS – Lugano Istituti Sociali",
+      "companyKey": "lis-lugano-istituti-sociali",
+      "companyDomain": "lugano-lis.ch",
+      "url": "https://lavoraconnoi.lugano-lis.ch/job/view-job.php?id=42-cuochi-pregassona&language=it",
+      "slug": "cuochi-lis-lugano-istituti-sociali-pregassona",
+      "location": "Pregassona",
+      "canton": "TI",
+      "country": "CH",
+      "postalCode": "6963",
+      "streetAddress": "Via alla Bozzoreda 15",
+      "description": "Il Consiglio di Amministrazione dell'Ente Autonomo Lugano Istituti Sociali apre il concorso pubblico per l'assunzione di apprendiste/i operatrici/tori socioassistenziali - OSA (indirizzo prima infanzia) per l'anno scolastico 2026/2027 Requisiti di ordine generale: - cittadinanza svizzera o stranie",
+      "datePosted": "2026-01-26",
+      "validThrough": "2026-12-13",
+      "sector": "Ospedaliero/Medicale/Sanitario/Educativo",
+      "role": "Medicina/Salute",
+      "source": "arca24",
+      "titleByLocale": {
+        "it": "Cuochi",
+        "en": "Cuochi",
+        "de": "Cuochi",
+        "fr": "Cuochi"
+      },
+      "slugByLocale": {
+        "it": "cuochi-lis-lugano-istituti-sociali-pregassona",
+        "en": "cuochi-lis-lugano-istituti-sociali-pregassona",
+        "de": "cuochi-lis-lugano-istituti-sociali-pregassona",
+        "fr": "cuochi-lis-lugano-istituti-sociali-pregassona"
+      },
+      "descriptionByLocale": {
+        "it": "Il Consiglio di Amministrazione dell'Ente Autonomo Lugano Istituti Sociali apre il concorso pubblico per l'assunzione di apprendiste/i operatrici/tori socioassistenziali - OSA (indirizzo prima infanzia) per l'anno scolastico 2026/2027 Requisiti di ordine generale: - cittadinanza svizzera o stranie",
+        "en": "Il Consiglio di Amministrazione dell'Ente Autonomo Lugano Istituti Sociali apre il concorso pubblico per l'assunzione di apprendiste/i operatrici/tori socioassistenziali - OSA (indirizzo prima infanzia) per l'anno scolastico 2026/2027 Requisiti di ordine generale: - cittadinanza svizzera o stranie",
+        "de": "Il Consiglio di Amministrazione dell'Ente Autonomo Lugano Istituti Sociali apre il concorso pubblico per l'assunzione di apprendiste/i operatrici/tori socioassistenziali - OSA (indirizzo prima infanzia) per l'anno scolastico 2026/2027 Requisiti di ordine generale: - cittadinanza svizzera o stranie",
+        "fr": "Il Consiglio di Amministrazione dell'Ente Autonomo Lugano Istituti Sociali apre il concorso pubblico per l'assunzione di apprendiste/i operatrici/tori socioassistenziali - OSA (indirizzo prima infanzia) per l'anno scolastico 2026/2027 Requisiti di ordine generale: - cittadinanza svizzera o stranie"
+      },
+      "crawledAt": "",
+      "needsRetranslation": true,
+      "requirementsByLocale": {},
+      "salaryExtraction": {
+        "strategyVersion": "lis_salary_v2",
+        "textHash": "454dff05c94d712530e7",
+        "source": "lis_no_numeric_salary",
+        "confidence": 0,
+        "note": "no_explicit_numeric_salary",
+        "extractedAt": "2026-03-24T22:39:15.059Z"
+      },
+      "sourceLang": "it",
+      "previousSlugs": [
+        "cuochi"
+      ],
+      "salaryMin": 58000,
+      "salaryMax": 78000,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 58000,
+          "maxValue": 78000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "title": "Addetti servizi alla casa",
+      "company": "LIS – Lugano Istituti Sociali",
+      "companyKey": "lis-lugano-istituti-sociali",
+      "companyDomain": "lugano-lis.ch",
+      "url": "https://lavoraconnoi.lugano-lis.ch/job/view-job.php?id=43-addetti-servizi-alla-casa-pregassona&language=it",
+      "slug": "addetti-servizi-alla-casa",
+      "location": "Pregassona",
+      "canton": "TI",
+      "country": "CH",
+      "postalCode": "6963",
+      "streetAddress": "Via alla Bozzoreda 15",
+      "description": "Il Consiglio di Amministrazione dell'Ente Autonomo Lugano Istituti Sociali apre il concorso pubblico per l'assunzione di apprendiste/i operatrici/tori socioassistenziali - OSA (indirizzo prima infanzia) per l'anno scolastico 2026/2027 Requisiti di ordine generale: - cittadinanza svizzera o stranie",
+      "datePosted": "2026-01-26",
+      "validThrough": "2026-12-13",
+      "sector": "Ospedaliero/Medicale/Sanitario/Educativo",
+      "role": "Medicina/Salute",
+      "source": "arca24",
+      "titleByLocale": {
+        "it": "Addetti servizi alla casa",
+        "en": "Addetti servizi alla casa",
+        "de": "Addetti servizi alla casa",
+        "fr": "Addetti servizi alla casa"
+      },
+      "slugByLocale": {
+        "it": "addetti-servizi-alla-casa",
+        "en": "addetti-servizi-alla-casa",
+        "de": "addetti-servizi-alla-casa",
+        "fr": "addetti-servizi-alla-casa"
+      },
+      "descriptionByLocale": {
+        "it": "Il Consiglio di Amministrazione dell'Ente Autonomo Lugano Istituti Sociali apre il concorso pubblico per l'assunzione di apprendiste/i operatrici/tori socioassistenziali - OSA (indirizzo prima infanzia) per l'anno scolastico 2026/2027 Requisiti di ordine generale: - cittadinanza svizzera o stranie",
+        "en": "Il Consiglio di Amministrazione dell'Ente Autonomo Lugano Istituti Sociali apre il concorso pubblico per l'assunzione di apprendiste/i operatrici/tori socioassistenziali - OSA (indirizzo prima infanzia) per l'anno scolastico 2026/2027 Requisiti di ordine generale: - cittadinanza svizzera o stranie",
+        "de": "Il Consiglio di Amministrazione dell'Ente Autonomo Lugano Istituti Sociali apre il concorso pubblico per l'assunzione di apprendiste/i operatrici/tori socioassistenziali - OSA (indirizzo prima infanzia) per l'anno scolastico 2026/2027 Requisiti di ordine generale: - cittadinanza svizzera o stranie",
+        "fr": "Il Consiglio di Amministrazione dell'Ente Autonomo Lugano Istituti Sociali apre il concorso pubblico per l'assunzione di apprendiste/i operatrici/tori socioassistenziali - OSA (indirizzo prima infanzia) per l'anno scolastico 2026/2027 Requisiti di ordine generale: - cittadinanza svizzera o stranie"
+      },
+      "crawledAt": "",
+      "needsRetranslation": true,
+      "requirementsByLocale": {},
+      "salaryExtraction": {
+        "strategyVersion": "lis_salary_v2",
+        "textHash": "454dff05c94d712530e7",
+        "source": "lis_no_numeric_salary",
+        "confidence": 0,
+        "note": "no_explicit_numeric_salary",
+        "extractedAt": "2026-03-24T22:39:15.059Z"
+      },
+      "sourceLang": "it",
+      "salaryMin": 58000,
+      "salaryMax": 78000,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 58000,
+          "maxValue": 78000,
+          "unitText": "YEAR"
+        }
+      }
+    }
+  ]
+}
