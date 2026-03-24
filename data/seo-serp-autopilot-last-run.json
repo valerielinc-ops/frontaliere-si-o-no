@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-03-17T07:17:12.210Z",
+  "generatedAt": "2026-03-24T07:18:06.903Z",
   "config": {
     "days": 28,
     "rotateDays": 7,
@@ -11,26 +11,26 @@
   },
   "current": {
     "enabled": true,
-    "variant": "intent_simulation",
+    "variant": "year_intent",
     "targets": "*",
     "year": "2026"
   },
   "desired": {
     "enabled": true,
-    "variant": "year_intent",
+    "variant": "intent_simulation",
     "targets": "*",
     "year": "2026"
   },
   "decision": {
-    "nextVariant": "year_intent",
+    "nextVariant": "intent_simulation",
     "reason": "rotation_every_7d",
     "mode": "explore",
     "scores": {
       "year_intent": {
-        "samples": 3,
-        "impressions": 3383,
-        "clicks": 101,
-        "ctr": 2.986
+        "samples": 4,
+        "impressions": 18056,
+        "clicks": 1404,
+        "ctr": 7.776
       },
       "intent_simulation": {
         "samples": 1,
@@ -42,11 +42,11 @@
   },
   "kpi": {
     "consideredPages": 20,
-    "totalImpressions": 14550,
-    "totalClicks": 1092,
-    "weightedCtr": 7.505,
+    "totalImpressions": 14673,
+    "totalClicks": 1303,
+    "weightedCtr": 8.88,
     "opportunities": 1,
-    "exposures": 1156
+    "exposures": 1484
   },
   "changed": true,
   "published": true
