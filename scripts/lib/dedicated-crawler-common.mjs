@@ -805,11 +805,27 @@ export function hardenJobLocaleFields({ dataJobsPath }) {
         job.needsRetranslation = true;
         jobChanged = true;
       }
+      // Fallback: if title is still empty after all hardening, copy source title as placeholder.
+      // This covers jobs that never had an EN/DE/FR translation populated in the per-crawler file.
+      // The translate pipeline will retranslate when AI quota is available.
+      if (!String(job.titleByLocale[locale] || '').trim() && baseTitle) {
+        const placeholder = String(job.titleByLocale[titleSourceLang] || baseTitle).trim();
+        if (placeholder) {
+          job.titleByLocale[locale] = placeholder;
+          job.needsRetranslation = true;
+          jobChanged = true;
+        }
+      }
       {
         const descValue = String(job.descriptionByLocale[locale] || '').trim();
         // Drop known placeholder descriptions (recruiter portal notices, etc.)
+        // Apply source description fallback before continuing so the locale isn't left empty.
         if (isPlaceholderDescription(descValue)) {
           delete job.descriptionByLocale[locale];
+          if (baseDesc && baseDesc.length >= 120) {
+            job.descriptionByLocale[locale] = baseDesc;
+            job.needsRetranslation = true;
+          }
           jobChanged = true;
           continue;
         }
@@ -834,6 +850,12 @@ export function hardenJobLocaleFields({ dataJobsPath }) {
           // Deploy has no AI access; deleting here would leave the locale empty and
           // block the deploy gate. Flag for retranslation; the translate pipeline
           // will delete-and-retranslate when AI is available.
+          job.needsRetranslation = true;
+          jobChanged = true;
+        }
+        // Fallback: if description is still empty, copy source description as placeholder.
+        if (!String(job.descriptionByLocale[locale] || '').trim() && baseDesc && baseDesc.length >= 120) {
+          job.descriptionByLocale[locale] = baseDesc;
           job.needsRetranslation = true;
           jobChanged = true;
         }

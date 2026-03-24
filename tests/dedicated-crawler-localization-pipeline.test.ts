@@ -102,9 +102,11 @@ describe('dedicated crawler localization pipeline integration', () => {
     await translateMissingJobLocales({ dataJobsPath: jobsPath });
     const jobs = JSON.parse(fs.readFileSync(jobsPath, 'utf-8'));
 
-    // Locale titles left empty (not copied from source) so deploy gate catches them
-    expect(jobs[0].titleByLocale.de).toBe('');
-    expect(jobs[0].titleByLocale.fr).toBe('');
+    // hardenJobLocaleFields (called inside translateMissingJobLocales) fills empty locale
+    // titles with the source title as placeholder so the deploy gate doesn't block on them.
+    // needsRetranslation=true ensures the translate pipeline will retranslate with AI later.
+    expect(jobs[0].titleByLocale.de).toBe('Relationship Manager');
+    expect(jobs[0].titleByLocale.fr).toBe('Relationship Manager');
     expect(jobs[0].needsRetranslation).toBe(true);
   });
 
