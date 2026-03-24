@@ -2,8 +2,7 @@ name: Send Job Alert Emails
 
 on:
   schedule:
-    # Every day at 10:00 UTC (after morning crawler run at 08:00)
-    - cron: '3 10 * * *'
+    - cron: '0 7 * * *'
   workflow_dispatch: {}
 
 concurrency:
@@ -48,4 +47,20 @@ jobs:
         run: node scripts/load-rc-env.mjs
 
       - name: Send job alert emails
+        continue-on-error: true
+        id: send-alerts
         run: node scripts/send-job-alerts.mjs
+
+      - name: Report failure to Linear
+        if: steps.send-alerts.outcome == 'failure'
+        continue-on-error: true
+        run: |
+          node scripts/lib/linear-issue-creator.mjs \
+            --title "CI Failure: ${{ github.workflow }} — run ${{ github.run_number }}" \
+            --description "## Job Alerts invio fallito
+          **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          **Branch:** ${{ github.ref_name }}
+          **Trigger:** ${{ github.event_name }}" \
+            --priority 2 \
+            --label Bug \
+            --workflow "${{ github.workflow }}"
