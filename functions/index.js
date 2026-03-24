@@ -7,6 +7,7 @@ import { handleSubscriptionManagement } from './src/newsletterSubscriptionManage
 import { sendNewsletterConfirmationEmail } from './src/newsletterConfirmationEmail.js';
 import { getNewsletterSecrets, getRemoteConfigValue } from './src/remoteConfigSecrets.js';
 import { handleChatbotInference } from './src/chatbotInference.js';
+import { handleLinkedInCallback } from './src/linkedinAuthCallback.js';
 
 ensureAdminApp();
 
@@ -187,6 +188,42 @@ export const chatbotInference = onRequest(
       } else {
         res.status(500).json({ ok: false, error: message, code });
       }
+    }
+  },
+);
+
+/**
+ * LinkedIn OAuth2 code exchange → Firebase custom token.
+ * Called by the frontend /auth/linkedin/callback SPA page.
+ * POST { code, redirectUri } → { ok: true, customToken }
+ */
+export const linkedinAuthCallback = onRequest(
+  {
+    region: 'europe-west6',
+    memory: '256MiB',
+    timeoutSeconds: 30,
+    cors: ['https://frontaliereticino.ch', 'http://localhost:3000', 'http://localhost:4173'],
+  },
+  async (req, res) => {
+    if (req.method !== 'POST') {
+      res.status(405).json({ ok: false, error: 'method_not_allowed' });
+      return;
+    }
+
+    const { code, redirectUri } = req.body || {};
+    if (!code || !redirectUri) {
+      res.status(400).json({ ok: false, error: 'missing_code_or_redirect_uri' });
+      return;
+    }
+
+    try {
+      const result = await handleLinkedInCallback({ code, redirectUri });
+      res.status(200).json({ ok: true, ...result });
+    } catch (err) {
+      const status = err.status || 500;
+      const message = err.message || 'linkedin_callback_error';
+      console.warn(`[linkedinAuthCallback] error status=${status}: ${message}`);
+      res.status(status).json({ ok: false, error: message });
     }
   },
 );

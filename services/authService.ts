@@ -744,6 +744,89 @@ export function getLinkedProviders(user: any): string[] {
   return user.providerData.map((p: any) => p.providerId);
 }
 
+// ─── LinkedIn Sign-In ─────────────────────────────────────────────────────
+
+const LINKEDIN_CF_BASE = 'https://europe-west6-frontaliere-ticino.cloudfunctions.net';
+
+/**
+ * Returns true when LINKEDIN_SIGNIN_CLIENT_ID is configured in Remote Config.
+ * Use to conditionally render the LinkedIn Sign-In button — no button if empty.
+ */
+export async function isLinkedInSignInAvailable(): Promise<boolean> {
+  try {
+    const { getConfigValue } = await import('@/services/firebase');
+    const clientId = await getConfigValue('LINKEDIN_SIGNIN_CLIENT_ID');
+    return Boolean(clientId && clientId.trim().length > 0);
+  } catch {
+    return false;
+  }
+}
+
+/**
+ * Redirect the user to LinkedIn's OAuth2 authorization endpoint.
+ * After authorization LinkedIn redirects to /auth/linkedin/callback.
+ * The original path is preserved via the `state` query parameter.
+ */
+export async function signInWithLinkedIn(redirectPath?: string): Promise<void> {
+  try {
+    const { getConfigValue } = await import('@/services/firebase');
+    const { Analytics } = await import('@/services/analytics');
+
+    const clientId = await getConfigValue('LINKEDIN_SIGNIN_CLIENT_ID');
+    if (!clientId) {
+      console.warn('[Auth] LinkedIn Sign-In not configured — client ID empty');
+      return;
+    }
+
+    const origin = typeof window !== 'undefined' ? window.location.origin : 'https://frontaliereticino.ch';
+    const callbackUri = `${origin}/auth/linkedin/callback`;
+    const state = encodeURIComponent(redirectPath || (typeof window !== 'undefined' ? window.location.pathname + window.location.search : '/'));
+
+    Analytics.trackUIInteraction('auth', 'linkedin', 'login', 'button');
+
+    const params = new URLSearchParams({
+      response_type: 'code',
+      client_id: clientId,
+      redirect_uri: callbackUri,
+      scope: 'openid profile email',
+      state,
+    });
+
+    window.location.href = `https://www.linkedin.com/oauth/v2/authorization?${params.toString()}`;
+  } catch (error) {
+    reportCaughtError(error, 'auth.signInWithLinkedIn');
+  }
+}
+
+/**
+ * Exchange a LinkedIn authorization code for a Firebase custom token.
+ * Called by the /auth/linkedin/callback SPA page.
+ */
+export async function exchangeLinkedInCode(code: string): Promise<string | null> {
+  try {
+    const origin = typeof window !== 'undefined' ? window.location.origin : 'https://frontaliereticino.ch';
+    const redirectUri = `${origin}/auth/linkedin/callback`;
+
+    const res = await fetch(`${LINKEDIN_CF_BASE}/linkedinAuthCallback`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ code, redirectUri }),
+    });
+
+    if (!res.ok) {
+      const body = await res.json().catch(() => ({}));
+      console.warn('[Auth] LinkedIn CF error:', res.status, body?.error);
+      return null;
+    }
+
+    const data = await res.json();
+    return data?.customToken || null;
+  } catch (error) {
+    reportCaughtError(error, 'auth.exchangeLinkedInCode');
+    return null;
+  }
+}
+
 // ─── Auth Hook ───────────────────────────────────────────────
 
 export interface AuthState {

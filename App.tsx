@@ -116,6 +116,7 @@ import {
   eagerAuth,
   renderGoogleButtonWithReadiness,
   signInWithCustomAuthToken,
+  exchangeLinkedInCode,
 } from '@/services/authService';
 import {
   upsertNewsletterSubscriber as upsertNewsletterSubscriberRecord,
@@ -135,7 +136,7 @@ import {
   Home, Timer, Users, Calendar, Shield, Mountain, GraduationCap,
   LifeBuoy, Rocket, Mail, Bug, Sunrise, User as UserIcon, LogIn,
   FileText, Gift, Hammer, BookA, School, Database, Clock, Receipt, Languages, BarChart3,
-  Banknote, Fuel, Scale
+  Banknote, Fuel, Scale, Loader2
 } from 'lucide-react';
 
 import SkeletonFallback, { SkeletonPageShell, SkeletonComparator, SkeletonGuide, SkeletonDashboard, SkeletonFisco, SkeletonStats, SkeletonBlog, SkeletonVita, SkeletonNewsTicker, SkeletonWeeklyFact, SkeletonInputCard, SkeletonFooterSlot } from '@/components/shared/Skeletons';
@@ -196,6 +197,8 @@ const App: React.FC = () => {
   const [contactPrefill, setContactPrefill] = useState<ContactPrefill | null>(null);
   const [adminGoogleButtonReady, setAdminGoogleButtonReady] = useState(false);
   const adminGoogleButtonRef = useRef<HTMLDivElement | null>(null);
+  const [linkedInCallbackProcessing, setLinkedInCallbackProcessing] = useState(false);
+  const [linkedInCallbackError, setLinkedInCallbackError] = useState<string | null>(null);
 
   const upsertNewsletterSubscriber = async (
     email: string,
@@ -436,6 +439,60 @@ const App: React.FC = () => {
       } catch (error) {
         reportCaughtError(error, 'app.newsletterCustomTokenAutologin');
         Analytics.trackUIInteraction('newsletter', 'custom_token', 'autologin', 'error');
+      }
+    })();
+    return () => { cancelled = true; };
+  }, []);
+
+  // LinkedIn OAuth2 callback handler — processes /auth/linkedin/callback?code=XXX&state=YYY
+  useEffect(() => {
+    let cancelled = false;
+    (async () => {
+      try {
+        const currentUrl = new URL(window.location.href);
+        const path = currentUrl.pathname.replace(/\/+$/, '');
+        if (path !== '/auth/linkedin/callback') return;
+
+        const code = currentUrl.searchParams.get('code');
+        const state = currentUrl.searchParams.get('state');
+        const errorParam = currentUrl.searchParams.get('error');
+
+        if (errorParam) {
+          // User cancelled or LinkedIn returned an error
+          const redirectTo = state ? decodeURIComponent(state) : '/';
+          Analytics.trackUIInteraction('auth', 'linkedin', 'login', 'cancelled');
+          window.history.replaceState(null, '', redirectTo);
+          return;
+        }
+
+        if (!code) return;
+
+        setLinkedInCallbackProcessing(true);
+
+        const customToken = await exchangeLinkedInCode(code);
+
+        if (cancelled) return;
+
+        if (!customToken) {
+          setLinkedInCallbackError('Errore durante il login con LinkedIn. Riprova.');
+          Analytics.trackUIInteraction('auth', 'linkedin', 'login', 'error');
+          return;
+        }
+
+        const user = await signInWithCustomAuthToken(customToken);
+        Analytics.trackUIInteraction('auth', 'linkedin', 'login', user ? 'success' : 'no-user');
+
+        if (cancelled) return;
+
+        // Navigate to original path (from state param) or homepage
+        const redirectTo = state ? decodeURIComponent(state) : '/';
+        window.history.replaceState(null, '', redirectTo);
+        setLinkedInCallbackProcessing(false);
+      } catch (error) {
+        if (cancelled) return;
+        reportCaughtError(error, 'app.linkedInCallback');
+        Analytics.trackUIInteraction('auth', 'linkedin', 'login', 'error');
+        setLinkedInCallbackError('Errore durante il login con LinkedIn. Riprova.');
       }
     })();
     return () => { cancelled = true; };
@@ -2117,6 +2174,28 @@ const App: React.FC = () => {
           <div className="absolute top-0 right-1/4 w-96 h-96 bg-indigo-300 dark:bg-indigo-900 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob animation-delay-2000" style={{ willChange: 'transform', contain: 'layout style paint' }}></div>
           <div className="absolute -bottom-32 left-1/3 w-96 h-96 bg-pink-300 dark:bg-pink-900 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob animation-delay-4000" style={{ willChange: 'transform', contain: 'layout style paint' }}></div>
         </div>
+        )}
+
+        {/* LinkedIn OAuth2 callback processing overlay */}
+        {linkedInCallbackProcessing && (
+          <div className="fixed inset-0 z-[200] flex flex-col items-center justify-center bg-white dark:bg-slate-900">
+            <div className="flex flex-col items-center gap-4 text-center px-6">
+              <div className="w-12 h-12 rounded-xl bg-[#0A66C2] flex items-center justify-center">
+                <svg className="w-7 h-7 text-white" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+              </div>
+              <Loader2 className="w-6 h-6 animate-spin text-[#0A66C2]" />
+              <p className="text-slate-700 dark:text-slate-300 text-sm font-medium">
+                {linkedInCallbackError
+                  ? linkedInCallbackError
+                  : 'Accesso con LinkedIn in corso…'}
+              </p>
+              {linkedInCallbackError && (
+                <a href="/" className="mt-2 text-sm text-indigo-600 dark:text-indigo-400 underline">
+                  Torna alla home
+                </a>
+              )}
+            </div>
+          </div>
         )}
 
         {/* Newsletter confirmation welcome overlay */}
