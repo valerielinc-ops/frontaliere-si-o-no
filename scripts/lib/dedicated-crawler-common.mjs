@@ -1688,6 +1688,14 @@ export async function enrichJobLocalesDCC(job, crawlerConfig, ctx = {}) {
 
   if (!shouldRunDescriptionLocalization && !shouldRunTitleLocalization) return out;
 
+  // ── SKIP_AI_TRANSLATION: skip AI enrichment, mark for later translation ──
+  if (process.env.SKIP_AI_TRANSLATION === '1') {
+    out.titleByLocale = titleByLocale;
+    out.descriptionByLocale = currentByLocale;
+    out.needsRetranslation = true;
+    return out;
+  }
+
   // Structure flat descriptions before AI localization
   const rawDesc = out.description || '';
   const hasMarkdownStructure = /^## /m.test(rawDesc) && ((rawDesc.match(/\n/g) || []).length >= 3);
@@ -1907,6 +1915,13 @@ export async function translateMissingJobLocales({ dataJobsPath, isTargetJob = n
   let cacheMisses = 0;
   let cacheUpdated = false;
 
+  // ── SKIP_AI_TRANSLATION mode ──
+  // When SKIP_AI_TRANSLATION=1 (set by orchestrator), cache hits still apply
+  // but cache misses skip AI calls and mark jobs with needsRetranslation.
+  // The centralized translate-pending pipeline handles them later.
+  const skipAiTranslation = process.env.SKIP_AI_TRANSLATION === '1';
+  let skipAiMarkedCount = 0;
+
   let cursor = 0;
 
   const worker = async () => {
@@ -1936,6 +1951,21 @@ export async function translateMissingJobLocales({ dataJobsPath, isTargetJob = n
         continue;
       }
       cacheMisses += 1;
+
+      // ── SKIP_AI_TRANSLATION: cache miss → mark for retranslation, skip AI ──
+      if (skipAiTranslation) {
+        if (!job.titleByLocale || typeof job.titleByLocale !== 'object') job.titleByLocale = {};
+        if (!job.descriptionByLocale || typeof job.descriptionByLocale !== 'object') job.descriptionByLocale = {};
+        // Ensure source locale slots are populated
+        const titleLang = detectJobTitleLang(baseTitle, detectLang(baseDesc || baseTitle, 'it'));
+        const descLang = detectTextLocale(baseDesc || baseTitle, titleLang).lang;
+        if (baseTitle && !job.titleByLocale[titleLang]) job.titleByLocale[titleLang] = baseTitle;
+        if (baseDesc && !job.descriptionByLocale[descLang]) job.descriptionByLocale[descLang] = baseDesc;
+        job.needsRetranslation = true;
+        skipAiMarkedCount += 1;
+        changed = true;
+        continue;
+      }
 
       const titleSourceLang = detectJobTitleLang(baseTitle, detectLang(baseDesc || baseTitle, 'it'));
       let sourceLang = detectTextLocale(baseDesc || baseTitle, titleSourceLang).lang;
@@ -2128,6 +2158,9 @@ export async function translateMissingJobLocales({ dataJobsPath, isTargetJob = n
   }
   if (cacheHits > 0 || cacheMisses > 0) {
     console.log(`  📦 Translation cache [${slug}]: ${cacheHits} hits, ${cacheMisses} misses (${cacheHits + cacheMisses} total)`);
+  }
+  if (skipAiTranslation && skipAiMarkedCount > 0) {
+    console.log(`  ℹ️ SKIP_AI_TRANSLATION=1 — using cache only, ${skipAiMarkedCount} jobs need retranslation`);
   }
 
   if (!changed) {

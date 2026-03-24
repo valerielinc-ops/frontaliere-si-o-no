@@ -12,6 +12,11 @@ on:
         description: 'Optional request timeout in ms (4000-20000)'
         required: false
         type: string
+      skip_ai_translation:
+        description: "Skip AI translation (1=yes, cache only)"
+        required: false
+        default: "0"
+        type: string
       scan_start_id:
         description: 'SuccessFactors job req ID to start scanning from (default: 5100)'
         required: false
@@ -66,6 +71,7 @@ jobs:
           JOBS_GIORGIO_ARMANI_STRICT: ${{ github.event.inputs.strict_localization || '0' }}
           ARMANI_SCAN_START_ID: ${{ github.event.inputs.scan_start_id || '' }}
           CRAWLER_SLICE_ONLY: '1'
+          SKIP_AI_TRANSLATION: ${{ github.event.inputs.skip_ai_translation || '0' }}
         run: npm run jobs:update:giorgio-armani
 
       - name: Housekeeping — remove expired job listings (scoped)
@@ -76,6 +82,8 @@ jobs:
         continue-on-error: true
 
       - name: Commit and push
+        env:
+          SKIP_AI_TRANSLATION: ${{ github.event.inputs.skip_ai_translation || '0' }}
         run: bash scripts/lib/git-commit-data.sh --slice-only "👔 Auto-update Giorgio Armani jobs (dedicated crawler)"
 
       - name: Report failure to Linear

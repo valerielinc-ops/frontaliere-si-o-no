@@ -1,27 +1,28 @@
 #!/usr/bin/env node
 /**
- * Re-localize jobs with incomplete locale coverage.
+ * Re-localize jobs with incomplete locale coverage or pending retranslation.
  *
  * Problem: Dedicated crawlers run on staggered cron schedules throughout the
- * UTC day (currently up to 10:45 UTC). Late-running crawlers (USI 06:45,
- * Cornèr 08:25, Schindler 08:35, Galenica 10:15, Manor 10:45, etc.) often
- * find all AI models exhausted because earlier crawlers have consumed the
- * daily free-tier quotas across GitHub Models, Gemini, Groq, and OpenRouter.
+ * UTC day. When SKIP_AI_TRANSLATION=1 (set by orchestrator), crawlers skip
+ * AI calls and mark jobs with needsRetranslation=true. This centralized
+ * translation pipeline runs after all crawlers finish, with exclusive access
+ * to AI model quotas — eliminating contention and quota exhaustion.
  *
- * Solution: This script runs on the following UTC day AFTER daily quotas reset,
- * once the previous day's dedicated crawlers have all finished. A backup
- * scheduled run later in the night covers GitHub Actions cron delays. It
- * identifies jobs with incomplete translations (< 4 locales with adequate
- * title/description) and runs the shared crawler in LOCALIZE_EXISTING_ONLY
- * mode to fill the gaps.
+ * Additionally, crawlers that ran out of AI quota in earlier runs may have
+ * left jobs with incomplete locale coverage.
+ *
+ * Solution: This script identifies ALL jobs needing translation (either
+ * flagged with needsRetranslation or with incomplete locale coverage),
+ * prioritizes by datePosted (most recent first), and runs the shared crawler
+ * in LOCALIZE_EXISTING_ONLY mode to fill the gaps.
  *
  * Usage:
- *   node scripts/relocalize-pending-jobs.mjs
+ *   node scripts/relocalize-pending-jobs.mjs [--max-jobs N]
  *
  * Environment:
  *   - Requires the same API keys as the shared crawler (GH_MODELS_PAT, etc.)
  *   - GOOGLE_APPLICATION_CREDENTIALS for Firestore-backed score store
- *   - RELOCALIZE_MAX_JOBS — max jobs to re-localize (default: 120)
+ *   - RELOCALIZE_MAX_JOBS — max jobs to re-localize (default: 200)
  *   - RELOCALIZE_DRY_RUN — set to '1' to only report, not run (default: '0')
  */
 
@@ -38,8 +39,20 @@ const DATA_JOBS_PATH = path.join(ROOT, 'data', 'jobs.json');
 const LOCALES = ['it', 'en', 'de', 'fr'];
 const MIN_DESC_CHARS = 120;
 const MIN_TITLE_CHARS = 3;
-const MAX_JOBS = Number(process.env.RELOCALIZE_MAX_JOBS) || 120;
 const DRY_RUN = String(process.env.RELOCALIZE_DRY_RUN || '0') === '1';
+
+// Parse --max-jobs from CLI args (takes precedence over env var)
+function parseMaxJobs() {
+  const args = process.argv.slice(2);
+  const idx = args.indexOf('--max-jobs');
+  if (idx !== -1 && args[idx + 1]) {
+    const val = Number(args[idx + 1]);
+    if (!isNaN(val) && val > 0) return val;
+  }
+  return Number(process.env.RELOCALIZE_MAX_JOBS) || 200;
+}
+
+const MAX_JOBS = parseMaxJobs();
 
 function readJson(filePath) {
   try {
@@ -47,6 +60,15 @@ function readJson(filePath) {
   } catch {
     return null;
   }
+}
+
+/**
+ * Check if a job needs translation work.
+ * Returns true if the job has needsRetranslation flag or incomplete locale coverage.
+ */
+function needsTranslation(job) {
+  if (job.needsRetranslation) return true;
+  return isIncomplete(job);
 }
 
 /**
@@ -90,6 +112,21 @@ function normalizeCompanyKey(value = '') {
 }
 
 /**
+ * Sort jobs by priority: needsRetranslation first, then by datePosted (most recent first).
+ */
+function sortByPriority(a, b) {
+  // needsRetranslation flagged jobs come first
+  const aFlag = a.needsRetranslation ? 1 : 0;
+  const bFlag = b.needsRetranslation ? 1 : 0;
+  if (bFlag !== aFlag) return bFlag - aFlag;
+
+  // Then by datePosted (most recent first)
+  const aDate = a.datePosted ? new Date(a.datePosted).getTime() : 0;
+  const bDate = b.datePosted ? new Date(b.datePosted).getTime() : 0;
+  return bDate - aDate;
+}
+
+/**
  * Run the shared crawler in LOCALIZE_EXISTING_ONLY mode (in-process).
  */
 async function runSharedCrawler(companyKeys, maxJobs) {
@@ -101,6 +138,8 @@ async function runSharedCrawler(companyKeys, maxJobs) {
     JOBS_AI_MAX_JOBS_PER_RUN: String(maxJobs),
     JOBS_FORCE_LOCALIZE_WORKDAY: '0',
     JOBS_SKIP_CRAWL_CHANGE_SUMMARY: '1',
+    // Ensure AI translation is NOT skipped in the translation pipeline
+    SKIP_AI_TRANSLATION: '0',
   };
 
   console.log(`\n🚀 Running shared crawler in LOCALIZE_EXISTING_ONLY mode (in-process)...`);
@@ -125,8 +164,23 @@ async function runSharedCrawler(companyKeys, maxJobs) {
   }
 }
 
+/**
+ * Clear needsRetranslation flag from jobs that are now complete.
+ * Returns the number of flags cleared.
+ */
+function clearRetranslationFlags(jobs) {
+  let cleared = 0;
+  for (const job of jobs) {
+    if (job.needsRetranslation && !isIncomplete(job)) {
+      delete job.needsRetranslation;
+      cleared += 1;
+    }
+  }
+  return cleared;
+}
+
 async function main() {
-  console.log('🔍 Scanning for jobs with incomplete locale coverage...\n');
+  console.log('🔍 Scanning for jobs needing translation...\n');
 
   if (!fs.existsSync(DATA_JOBS_PATH)) {
     console.log('ℹ️  data/jobs.json not found — nothing to re-localize.');
@@ -139,28 +193,38 @@ async function main() {
     return;
   }
 
-  // Find incomplete jobs
-  const incomplete = jobs.filter(isIncomplete);
+  // Find all jobs needing translation (flagged or incomplete)
+  const pending = jobs.filter(needsTranslation);
+  const flaggedCount = pending.filter(j => j.needsRetranslation).length;
+  const incompleteCount = pending.length - flaggedCount;
 
-  if (incomplete.length === 0) {
+  if (pending.length === 0) {
     console.log('✅ All jobs have complete locale coverage. Nothing to re-localize.');
     return;
   }
 
+  // Sort by priority (needsRetranslation first, then most recent datePosted)
+  pending.sort(sortByPriority);
+
   // Group by company
   const byCompany = {};
-  for (const job of incomplete) {
+  for (const job of pending) {
     const company = job.company || 'unknown';
     if (!byCompany[company]) byCompany[company] = [];
     byCompany[company].push(job);
   }
 
   // Report
-  console.log(`📊 Found ${incomplete.length}/${jobs.length} jobs with incomplete locale coverage:\n`);
+  console.log(`📊 Found ${pending.length}/${jobs.length} jobs needing translation:`);
+  console.log(`   🔁 ${flaggedCount} flagged with needsRetranslation`);
+  console.log(`   📝 ${incompleteCount} with incomplete locale coverage\n`);
+
   const sorted = Object.entries(byCompany).sort((a, b) => b[1].length - a[1].length);
   for (const [company, companyJobs] of sorted) {
     const key = normalizeCompanyKey(company);
-    console.log(`   ${String(companyJobs.length).padStart(3)} jobs — ${company} (key: ${key})`);
+    const flagged = companyJobs.filter(j => j.needsRetranslation).length;
+    const flagSuffix = flagged > 0 ? ` (${flagged} flagged)` : '';
+    console.log(`   ${String(companyJobs.length).padStart(3)} jobs — ${company} (key: ${key})${flagSuffix}`);
   }
 
   if (DRY_RUN) {
@@ -168,9 +232,9 @@ async function main() {
     return;
   }
 
-  // Extract unique company keys, capped at MAX_JOBS
+  // Extract unique company keys from top-priority jobs, capped at MAX_JOBS
   const companyKeys = [...new Set(
-    incomplete
+    pending
       .slice(0, MAX_JOBS)
       .map(j => normalizeCompanyKey(j.companyKey || j.company || ''))
       .filter(Boolean)
@@ -181,19 +245,27 @@ async function main() {
     return;
   }
 
-  const effectiveMax = Math.min(MAX_JOBS, incomplete.length);
+  const effectiveMax = Math.min(MAX_JOBS, pending.length);
   console.log(`\n🔄 Re-localizing up to ${effectiveMax} jobs across ${companyKeys.length} companies...`);
 
   await runSharedCrawler(companyKeys, effectiveMax);
 
-  // Report results
+  // Post-translation: clear needsRetranslation flags for successfully translated jobs
   const afterJobs = readJson(DATA_JOBS_PATH);
   if (Array.isArray(afterJobs)) {
-    const stillIncomplete = afterJobs.filter(isIncomplete).length;
-    const fixed = incomplete.length - stillIncomplete;
+    const flagsCleared = clearRetranslationFlags(afterJobs);
+    const stillPending = afterJobs.filter(needsTranslation).length;
+    const fixed = pending.length - stillPending;
+
+    if (flagsCleared > 0) {
+      // Write back with cleared flags
+      fs.writeFileSync(DATA_JOBS_PATH, JSON.stringify(afterJobs, null, 2) + '\n', 'utf-8');
+      console.log(`   🏷️  Cleared needsRetranslation flag from ${flagsCleared} jobs`);
+    }
+
     console.log(`\n📈 Re-localization results:`);
-    console.log(`   Before: ${incomplete.length} incomplete`);
-    console.log(`   After:  ${stillIncomplete} incomplete`);
+    console.log(`   Before: ${pending.length} pending (${flaggedCount} flagged)`);
+    console.log(`   After:  ${stillPending} pending`);
     console.log(`   Fixed:  ${fixed} jobs\n`);
   }
 

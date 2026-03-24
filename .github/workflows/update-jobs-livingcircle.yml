@@ -62,6 +62,7 @@ jobs:
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: '1'
           JOBS_LIVINGCIRCLE_STRICT: ${{ github.event.inputs.strict_localization || '1' }}
           CRAWLER_SLICE_ONLY: '1'
+          SKIP_AI_TRANSLATION: ${{ github.event.inputs.skip_ai_translation || '0' }}
         run: npm run jobs:update:livingcircle
 
       - name: Scoped housekeeping
@@ -70,6 +71,8 @@ jobs:
         run: node scripts/cleanup-jobs.mjs
 
       - name: Commit updated data
+        env:
+          SKIP_AI_TRANSLATION: ${{ github.event.inputs.skip_ai_translation || '0' }}
         run: bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update The Living Circle jobs (dedicated crawler)" data/jobs-crawler-adapters/adapters/the-living-circle.json
 
       - name: Report failure to Linear

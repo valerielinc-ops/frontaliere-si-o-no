@@ -2,6 +2,12 @@ name: Update AFRY jobs
 
 on:
   workflow_dispatch:
+    inputs:
+      skip_ai_translation:
+        description: "Skip AI translation (1=yes, cache only)"
+        required: false
+        default: "0"
+        type: string
 
 permissions:
   contents: write
@@ -45,6 +51,8 @@ jobs:
         run: node scripts/load-rc-env.mjs
 
       - name: Run AFRY dedicated crawler
+        env:
+          SKIP_AI_TRANSLATION: ${{ github.event.inputs.skip_ai_translation || \'0\' }}
         run: node scripts/update-afry-jobs.mjs
 
       - name: Housekeeping — remove expired job listings (scoped)
@@ -55,6 +63,8 @@ jobs:
         continue-on-error: true
 
       - name: Commit and push
+        env:
+          SKIP_AI_TRANSLATION: ${{ github.event.inputs.skip_ai_translation || '0' }}
         run: bash scripts/lib/git-commit-data.sh --slice-only "🏗️ Auto-update AFRY jobs (dedicated crawler)"
 
       - name: Report failure to Linear

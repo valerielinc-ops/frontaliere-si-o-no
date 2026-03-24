@@ -1,0 +1,88 @@
+name: Translate Pending Jobs
+
+on:
+  workflow_run:
+    workflows: ["Orchestrate Job Crawlers"]
+    types: [completed]
+  schedule:
+    - cron: '0 12 * * *'   # Fallback: 12:00 UTC (after 08:00 orchestration)
+    - cron: '0 0 * * *'    # Fallback: 00:00 UTC (after 20:00 orchestration)
+  workflow_dispatch:
+    inputs:
+      max_jobs:
+        description: 'Max jobs to translate'
+        default: '200'
+      dry_run:
+        description: 'Dry run (no commit)'
+        type: boolean
+        default: false
+
+concurrency:
+  group: translate-pending
+  cancel-in-progress: true
+
+permissions:
+  contents: write
+
+jobs:
+  translate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 1
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Prepare Firebase credentials (optional)
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+          else
+            echo "ℹ️ Firebase secrets not set — will use file config only."
+            exit 0
+          fi
+          echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+
+      - name: Load RC secrets
+        run: node scripts/load-rc-env.mjs
+
+      - name: Assemble dataset
+        run: node scripts/assemble-jobs-dataset.mjs
+
+      - name: Translate pending jobs
+        run: node scripts/relocalize-pending-jobs.mjs --max-jobs ${{ inputs.max_jobs || '200' }}
+
+      - name: Commit and push
+        if: success() && inputs.dry_run != true
+        run: bash scripts/lib/git-commit-data.sh "🌐 Auto-translate pending jobs" data/
+
+      - name: Trigger deploy
+        if: success() && inputs.dry_run != true
+        run: bash scripts/lib/trigger-deploy.sh
+
+      - name: Report failure to Linear
+        if: failure()
+        continue-on-error: true
+        run: |
+          node scripts/lib/linear-issue-creator.mjs \
+            --title "Translation Pipeline Failure" \
+            --description "## Traduzione fallita
+
+          **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          **Trigger:** ${{ github.event_name }}" \
+            --priority 2 \
+            --label Bug \
+            --workflow "Translate Pending Jobs"

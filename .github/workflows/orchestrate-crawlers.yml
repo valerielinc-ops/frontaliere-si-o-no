@@ -127,7 +127,7 @@ jobs:
               continue
             fi
 
-            if gh workflow run "$filename" --ref main 2>/dev/null; then
+            if gh workflow run "$filename" --ref main -f skip_ai_translation=1 2>/dev/null; then
               echo " — ✅ dispatched"
               dispatched=$((dispatched + 1))
             else

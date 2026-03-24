@@ -12,6 +12,11 @@ on:
         description: 'Optional request timeout in ms (4000-15000)'
         required: false
         type: string
+      skip_ai_translation:
+        description: "Skip AI translation (1=yes, cache only)"
+        required: false
+        default: "0"
+        type: string
 
 concurrency:
   group: jobs-crawler-linnea
@@ -61,6 +66,7 @@ jobs:
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: '1'
           JOBS_LINNEA_STRICT: ${{ github.event.inputs.strict_localization || '1' }}
           CRAWLER_SLICE_ONLY: '1'
+          SKIP_AI_TRANSLATION: ${{ github.event.inputs.skip_ai_translation || '0' }}
         run: npm run jobs:update:linnea
 
       - name: Housekeeping — remove expired job listings (scoped)
@@ -72,6 +78,8 @@ jobs:
 
       - name: Commit and push
         id: changes
+        env:
+          SKIP_AI_TRANSLATION: ${{ github.event.inputs.skip_ai_translation || '0' }}
         run: bash scripts/lib/git-commit-data.sh --slice-only "🏢 Auto-update Linnea SA jobs (dedicated crawler)" data/jobs-crawler-adapters/
 
       - name: Report failure to Linear

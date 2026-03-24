@@ -12,6 +12,11 @@ on:
         description: 'Optional request timeout in ms (4000-20000)'
         required: false
         type: string
+      skip_ai_translation:
+        description: "Skip AI translation (1=yes, cache only)"
+        required: false
+        default: "0"
+        type: string
 
 concurrency:
   group: jobs-crawler-alten
@@ -74,6 +79,8 @@ jobs:
 
       - name: Commit and push
         id: changes
+        env:
+          SKIP_AI_TRANSLATION: \${{ github.event.inputs.skip_ai_translation || '0' }}
         run: bash scripts/lib/git-commit-data.sh --slice-only "🧩 Auto-update ALTEN jobs (dedicated crawler)"
 
       - name: Report failure to Linear

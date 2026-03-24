@@ -686,8 +686,14 @@ if git push origin main; then
   echo "✅ Pushed successfully"
 
   # ── 5. Trigger deploy — GITHUB_TOKEN pushes don't trigger other workflows ─
-  PUSHED_SHA="$(git rev-parse HEAD)"
-  EXPECTED_SHA="$PUSHED_SHA" DEPLOY_REF="main" bash "$(dirname "$0")/trigger-deploy.sh" || true
+  # When SKIP_AI_TRANSLATION=1 (orchestrated run), skip deploy trigger.
+  # The centralized translate-pending pipeline will trigger deploy after translation.
+  if [ "${SKIP_AI_TRANSLATION:-0}" = "1" ]; then
+    echo "ℹ️ SKIP_AI_TRANSLATION=1 — skipping deploy trigger (translate-pending pipeline will deploy)"
+  else
+    PUSHED_SHA="$(git rev-parse HEAD)"
+    EXPECTED_SHA="$PUSHED_SHA" DEPLOY_REF="main" bash "$(dirname "$0")/trigger-deploy.sh" || true
+  fi
 
   exit 0
 fi
