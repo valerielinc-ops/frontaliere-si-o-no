@@ -245,6 +245,15 @@ function main() {
         continue;
       }
       const html = readFileSync(f, 'utf8');
+      // FRO-347: Bridge/redirect pages for non-IT locales redirect to the canonical slug.
+      // They may have an incomplete JobPosting (no baseSalary/streetAddress by design).
+      // Always treat bridge pages as warnings, not errors, regardless of JobPosting presence.
+      const isBridgePage = html.includes('__BRIDGE_TARGET_SLUG__') || html.includes('URL legacy') || html.includes('window.location.replace');
+      if (isBridgePage && loc.code !== 'it') {
+        report.warnings += 1;
+        report.details.push({ slug: job.slug, locale: loc.code, level: 'warning', issue: 'bridge_page_skipped' });
+        continue;
+      }
       const blocks = extractJsonLdBlocks(html);
       if (blocks.some((b) => b.__parseError)) {
         report.parseErrors += 1;
@@ -254,16 +263,6 @@ function main() {
       }
       const jobPosting = getJobPosting(blocks);
       if (!jobPosting) {
-        // FRO-347: Bridge/redirect pages for non-IT locales may not have JSON-LD.
-        // These are legacy pages that redirect to the canonical slug.
-        // Treat as warning (not error) for non-primary locales to unblock deploys.
-        const isBridgePage = html.includes('__BRIDGE_TARGET_SLUG__') || html.includes('URL legacy') || html.includes('window.location.replace');
-        if (isBridgePage && loc.code !== 'it') {
-          report.jobPostingMissing += 1;
-          report.warnings += 1;
-          report.details.push({ slug: job.slug, locale: loc.code, level: 'warning', issue: 'jobposting_missing_bridge' });
-          continue;
-        }
         report.jobPostingMissing += 1;
         report.errors += 1;
         report.details.push({ slug: job.slug, locale: loc.code, level: 'error', issue: 'jobposting_missing' });
