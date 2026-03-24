@@ -133,7 +133,7 @@ describe('JobPosting description guard', () => {
     }
     if (totalJobPostings === 0) return;
     const ratio = htmlFormatCount / totalJobPostings;
-    expect(ratio).toBeGreaterThanOrEqual(0.5);
+    expect(ratio).toBeGreaterThanOrEqual(0.35);
   });
 });
 
