@@ -883,7 +883,7 @@ const TicinoCompanies: React.FC = () => {
                     <div style={{ padding: '4px' }}>
                       <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
                         {company.website ? (
-                          <img src={`https://www.google.com/s2/favicons?domain=${new URL(company.website).hostname}&sz=128`} alt="" style={{ width: 28, height: 28, borderRadius: 6, objectFit: 'contain' }} onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }} />
+                          <img src={`https://www.google.com/s2/favicons?domain=${new URL(company.website).hostname}&sz=128`} alt="" width={28} height={28} style={{ width: 28, height: 28, borderRadius: 6, objectFit: 'contain' }} onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }} />
                         ) : (
                           <span style={{ fontSize: '24px' }}>{SECTOR_ICONS[company.sector] || '🏢'}</span>
                         )}

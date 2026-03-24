@@ -1487,7 +1487,7 @@ export default function BlogArticles({
                         className="flex items-center gap-3 p-2.5 bg-white/70 dark:bg-slate-800/50 rounded-lg hover:bg-white dark:hover:bg-slate-700/50 transition-all group"
                       >
                         <div className="w-8 h-8 rounded-lg bg-indigo-100 dark:bg-indigo-900/50 flex items-center justify-center shrink-0 overflow-hidden">
-                          {logo ? <img src={logo} alt={job.company} className="w-6 h-6 object-contain" loading="lazy" /> : <Building2 size={14} className="text-indigo-600 dark:text-indigo-400" />}
+                          {logo ? <img src={logo} alt={`Logo ${job.company}`} width={24} height={24} className="w-6 h-6 object-contain" loading="lazy" /> : <Building2 size={14} className="text-indigo-600 dark:text-indigo-400" />}
                         </div>
                         <div className="min-w-0 flex-1">
                           <p className="text-sm font-semibold text-slate-700 dark:text-slate-200 truncate group-hover:text-indigo-700 dark:group-hover:text-indigo-300 transition-colors">
@@ -1707,7 +1707,7 @@ export default function BlogArticles({
                         className="flex items-start gap-3 p-3 bg-indigo-50/60 dark:bg-indigo-950/20 rounded-xl hover:bg-indigo-100 dark:hover:bg-indigo-900/30 transition-all text-left border border-indigo-100 dark:border-indigo-900/40"
                       >
                         <div className="w-10 h-10 rounded-lg bg-white dark:bg-slate-700 flex items-center justify-center border border-slate-200 dark:border-slate-600 shrink-0 overflow-hidden">
-                          {logo ? <img src={logo} alt={job.company} className="w-7 h-7 object-contain" loading="lazy" /> : <Briefcase size={16} className="text-indigo-500" />}
+                          {logo ? <img src={logo} alt={`Logo ${job.company}`} width={28} height={28} className="w-7 h-7 object-contain" loading="lazy" /> : <Briefcase size={16} className="text-indigo-500" />}
                         </div>
                         <div className="min-w-0">
                           <p className="text-sm font-semibold text-slate-700 dark:text-slate-200 line-clamp-2">

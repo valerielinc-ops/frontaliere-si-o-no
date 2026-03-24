@@ -909,7 +909,7 @@ const UserProfile: React.FC = () => {
               )}
             </div>
             <div className="flex-1 min-w-0">
-              <h1 className="text-xl font-extrabold truncate">{displayName}</h1>
+              <h2 className="text-xl font-extrabold truncate">{displayName}</h2>
               {getAuthEmail(user) ? (
                 <p className="text-blue-100 text-sm truncate">{getAuthEmail(user)}</p>
               ) : getLinkedProviders(user).includes('facebook.com') ? (
