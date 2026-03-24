@@ -232,42 +232,69 @@ async function main() {
     return;
   }
 
-  // Extract unique company keys from top-priority jobs, capped at MAX_JOBS
-  const companyKeys = [...new Set(
-    pending
-      .slice(0, MAX_JOBS)
-      .map(j => normalizeCompanyKey(j.companyKey || j.company || ''))
-      .filter(Boolean)
-  )];
+  // Build ordered list of (companyKey, jobCount) pairs from priority-sorted pending jobs, capped at MAX_JOBS
+  const effectiveMax = Math.min(MAX_JOBS, pending.length);
+  const cappedPending = pending.slice(0, effectiveMax);
+  const companyJobCounts = new Map();
+  for (const job of cappedPending) {
+    const key = normalizeCompanyKey(job.companyKey || job.company || '');
+    if (!key) continue;
+    companyJobCounts.set(key, (companyJobCounts.get(key) || 0) + 1);
+  }
+
+  const companyKeys = [...companyJobCounts.keys()];
 
   if (companyKeys.length === 0) {
     console.log('⚠️  No valid company keys found. Skipping.');
     return;
   }
 
-  const effectiveMax = Math.min(MAX_JOBS, pending.length);
-  console.log(`\n🔄 Re-localizing up to ${effectiveMax} jobs across ${companyKeys.length} companies...`);
+  console.log(`\n🔄 Re-localizing up to ${effectiveMax} jobs across ${companyKeys.length} companies (incremental save)...`);
 
-  await runSharedCrawler(companyKeys, effectiveMax);
+  // Process each company separately with intermediate saves
+  let totalFixed = 0;
+  let totalProcessed = 0;
 
-  // Post-translation: clear needsRetranslation flags for successfully translated jobs
-  const afterJobs = readJson(DATA_JOBS_PATH);
-  if (Array.isArray(afterJobs)) {
-    const flagsCleared = clearRetranslationFlags(afterJobs);
-    const stillPending = afterJobs.filter(needsTranslation).length;
-    const fixed = pending.length - stillPending;
+  for (const key of companyKeys) {
+    const companyJobCount = companyJobCounts.get(key) || 0;
+    console.log(`\n🔄 [${totalProcessed + companyJobCount}/${effectiveMax}] Translating ${key} (${companyJobCount} jobs)...`);
 
-    if (flagsCleared > 0) {
-      // Write back with cleared flags
-      fs.writeFileSync(DATA_JOBS_PATH, JSON.stringify(afterJobs, null, 2) + '\n', 'utf-8');
-      console.log(`   🏷️  Cleared needsRetranslation flag from ${flagsCleared} jobs`);
+    try {
+      await runSharedCrawler([key], companyJobCount);
+
+      // Save progress after each company: clear flags and write to disk
+      const currentJobs = readJson(DATA_JOBS_PATH);
+      if (Array.isArray(currentJobs)) {
+        const cleared = clearRetranslationFlags(currentJobs);
+        if (cleared > 0) {
+          fs.writeFileSync(DATA_JOBS_PATH, JSON.stringify(currentJobs, null, 2) + '\n', 'utf-8');
+          totalFixed += cleared;
+          console.log(`   ✅ ${key}: ${cleared} jobs translated, progress saved`);
+        } else {
+          console.log(`   ℹ️  ${key}: no new translations completed`);
+        }
+      }
+
+      totalProcessed += companyJobCount;
+      if (totalProcessed >= effectiveMax) break;
+
+    } catch (err) {
+      console.error(`   ❌ ${key} failed: ${err.message}`);
+      console.log(`   💾 Progress saved: ${totalFixed} jobs translated before failure`);
+      // Stop on first failure to avoid burning more AI quota
+      break;
     }
-
-    console.log(`\n📈 Re-localization results:`);
-    console.log(`   Before: ${pending.length} pending (${flaggedCount} flagged)`);
-    console.log(`   After:  ${stillPending} pending`);
-    console.log(`   Fixed:  ${fixed} jobs\n`);
   }
+
+  // Final summary
+  const afterJobs = readJson(DATA_JOBS_PATH);
+  const stillPending = Array.isArray(afterJobs) ? afterJobs.filter(needsTranslation).length : pending.length;
+  const fixed = pending.length - stillPending;
+
+  console.log(`\n📈 Re-localization results:`);
+  console.log(`   Before: ${pending.length} pending (${flaggedCount} flagged)`);
+  console.log(`   After:  ${stillPending} pending`);
+  console.log(`   Fixed:  ${fixed} jobs (${totalFixed} flags cleared)\n`);
 
   console.log('✅ Re-localization complete.');
 }
