@@ -74,6 +74,7 @@ import {
   translateTextWithLocalPipeline,
 } from './job-localization-pipeline.mjs';
 import { translateWithMyMemory, getMyMemoryStats } from './mymemory-translate.mjs';
+import { freeTranslateWithRetry } from './free-translate.mjs';
 import { parseSupsiJobDetail } from './supsi-job-parser.mjs';
 import {
   extractMigrosStructuredData,
@@ -188,14 +189,11 @@ const MAX_GENERIC_DETAIL_PAGES_PER_COMPANY = clampNum(process.env.JOBS_CRAWLER_M
 const FETCH_RETRY_ATTEMPTS = clampNum(process.env.JOBS_CRAWLER_FETCH_RETRIES, 0, 4, 2);
 const FETCH_RETRY_BASE_MS = clampNum(process.env.JOBS_CRAWLER_FETCH_RETRY_BASE_MS, 100, 5000, 350);
 const RETRYABLE_HTTP_STATUS = new Set([408, 425, 429, 500, 502, 503, 504]);
-const AI_LOCALIZATION_TIMEOUT_MS = clampNum(process.env.JOBS_AI_TIMEOUT_MS, 5000, 60000, 20000);
 // AI availability is checked via centralized isAnyModelAvailable() from ai-models.mjs
 // (covers all 4 providers: GitHub Models, Gemini, Groq, OpenRouter)
-const DEEPL_API_KEY = (process.env.DEEPL_API_KEY || '').trim();
 const GOOGLE_CSE_API_KEY = normalizeSpace(process.env.GOOGLE_CSE_API_KEY || process.env.GOOGLE_API_KEY || '');
 const GOOGLE_CSE_CX = normalizeSpace(process.env.GOOGLE_CSE_CX || '');
 const GOOGLE_MAPS_API_KEY = normalizeSpace(process.env.GOOGLE_MAPS_API_KEY || '');
-// Moved to GOOGLE_TRANSLATE_ENDPOINTS array inside translateChunkGoogle
 const WEB_DISCOVERY_RESULTS_PER_QUERY = clampNum(process.env.JOBS_WEB_DISCOVERY_RESULTS_PER_QUERY, 3, 10, 8);
 const WEB_DISCOVERY_MAX_QUERIES_PER_COMPANY = clampNum(process.env.JOBS_WEB_DISCOVERY_MAX_QUERIES_PER_COMPANY, 1, 16, 6);
 const SITEMAP_MAX_URLS_PER_FILE = clampNum(process.env.JOBS_SITEMAP_MAX_URLS_PER_FILE, 50, 4000, 1200);
@@ -282,8 +280,6 @@ const COMPANY_DISCOVERY_DOMAIN_BLACKLIST = new Set([
 
 let aiLocalizationCalls = 0;
 let aiPageValidationCalls = 0;
-let deeplCalls = 0;
-let deeplSuccess = 0;
 let deeplFallbackToLlm = 0;
 let companyAdaptersGlobal = new Map();
 
@@ -521,447 +517,6 @@ function stripCodeFenceJson(text = '') {
 // callGitHubModels, callGeminiText, callLlmWithFallback → centralized in scripts/lib/ai-models.mjs
 // All call sites now use the imported callLLM which handles model fallback chain automatically.
 
-function chunkTextForTranslation(text = '', maxChunkChars = 1800) {
-  const clean = cleanDescription(text);
-  if (!clean) return [];
-  if (clean.length <= maxChunkChars) return [clean];
-  const paragraphs = clean
-    .split(/\n{2,}/)
-    .map((p) => normalizeSpace(p))
-    .filter(Boolean);
-  const out = [];
-  let current = '';
-  for (const paragraph of paragraphs) {
-    const candidate = current ? `${current}\n\n${paragraph}` : paragraph;
-    if (candidate.length <= maxChunkChars) {
-      current = candidate;
-      continue;
-    }
-    if (current) out.push(current);
-    if (paragraph.length <= maxChunkChars) {
-      current = paragraph;
-      continue;
-    }
-    for (let i = 0; i < paragraph.length; i += maxChunkChars) {
-      out.push(paragraph.slice(i, i + maxChunkChars));
-    }
-    current = '';
-  }
-  if (current) out.push(current);
-  return out;
-}
-
-// ─── DeepL Translation ────────────────────────────────────────────────
-// Locale codes → DeepL target_lang codes (DeepL uses uppercase 2-letter)
-const DEEPL_LANG_MAP = { it: 'IT', en: 'EN', de: 'DE', fr: 'FR' };
-
-/**
- * Translate text using the DeepL free API.
- * Returns translated text, or '' on failure.
- * Handles chunking internally for texts > 5000 chars (DeepL free limit).
- */
-async function translateWithDeepL(text, sourceLang, targetLang) {
-  if (!DEEPL_API_KEY) return '';
-  const clean = normalizeSpace(text || '');
-  if (!clean) return '';
-  if (sourceLang === targetLang) return clean;
-  deeplCalls += 1;
-
-  const srcCode = DEEPL_LANG_MAP[sourceLang] || sourceLang?.toUpperCase() || '';
-  const tgtCode = DEEPL_LANG_MAP[targetLang] || targetLang?.toUpperCase() || '';
-  if (!tgtCode) return '';
-
-  // DeepL free API accepts up to ~128KB per request, but chunk at 5000 chars to be safe
-  const MAX_CHUNK = 5000;
-  const chunks = clean.length <= MAX_CHUNK
-    ? [clean]
-    : chunkTextForTranslation(clean, MAX_CHUNK);
-
-  const translatedChunks = [];
-  for (const chunk of chunks) {
-    const body = new URLSearchParams();
-    body.append('text', chunk);
-    if (srcCode) body.append('source_lang', srcCode);
-    body.append('target_lang', tgtCode);
-
-    try {
-      const res = await fetch('https://api-free.deepl.com/v2/translate', {
-        method: 'POST',
-        headers: {
-          'Authorization': `DeepL-Auth-Key ${DEEPL_API_KEY}`,
-          'Content-Type': 'application/x-www-form-urlencoded',
-        },
-        body: body.toString(),
-        signal: AbortSignal.timeout(AI_LOCALIZATION_TIMEOUT_MS),
-      });
-      if (!res.ok) {
-        const errBody = await res.text().catch(() => '');
-        console.warn(`⚠️ DeepL API error ${res.status}: ${errBody.slice(0, 200)}`);
-        return '';
-      }
-      const data = await res.json();
-      const translated = data?.translations?.[0]?.text || '';
-      if (!translated) return '';
-      translatedChunks.push(translated);
-    } catch (err) {
-      console.warn(`⚠️ DeepL request failed: ${err?.message || err}`);
-      return '';
-    }
-    // Small delay between chunk requests to respect rate limits
-    if (chunks.length > 1) {
-      await new Promise((r) => setTimeout(r, 200));
-    }
-  }
-  const raw = translatedChunks.join('\n\n');
-  // For short inputs (titles), skip heavy cleanDescription which strips CTA/boilerplate
-  const merged = clean.length < 200 ? normalizeSpace(raw) : cleanDescription(raw);
-  if (!merged || merged.toLowerCase() === clean.toLowerCase()) return '';
-  deeplSuccess += 1;
-  return merged;
-}
-
-// Google Translate free endpoints — try multiple to survive IP-based rate limits
-const GOOGLE_TRANSLATE_ENDPOINTS = [
-  'https://translate.googleapis.com/translate_a/single',
-  'https://clients5.google.com/translate_a/t',
-];
-
-async function translateChunkGoogle({ text, sourceLang = 'auto', targetLang }) {
-  const q = normalizeSpace(text);
-  if (!q) return '';
-
-  for (const base of GOOGLE_TRANSLATE_ENDPOINTS) {
-    const isClients5 = base.includes('clients5');
-    const query = new URLSearchParams({
-      client: isClients5 ? 'dict-chrome-ex' : 'gtx',
-      sl: sourceLang || 'auto',
-      tl: targetLang,
-      ...(isClients5 ? {} : { dt: 't' }),
-      q,
-    });
-    const endpoint = `${base}?${query.toString()}`;
-    try {
-      const res = await fetch(endpoint, {
-        headers: {
-          Accept: 'application/json,text/plain,*/*',
-          // Standard browser UA — bot UAs get blocked from CI/datacenter IPs
-          'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36',
-        },
-        signal: AbortSignal.timeout(AI_LOCALIZATION_TIMEOUT_MS),
-      });
-      if (!res.ok) continue;
-      const raw = await res.text().catch(() => '');
-      if (!raw) continue;
-      try {
-        const parsed = JSON.parse(raw);
-        // clients5 returns [{sentences:[{trans:"..."}]}] or [[["translated","original",...]]]
-        let translated = '';
-        if (isClients5) {
-          if (Array.isArray(parsed?.sentences)) {
-            translated = parsed.sentences.map((s) => s?.trans || '').join('');
-          } else if (Array.isArray(parsed)) {
-            translated = parsed.map((s) => String(s || '')).join('');
-          }
-        } else {
-          const segments = Array.isArray(parsed?.[0]) ? parsed[0] : [];
-          translated = segments
-            .map((seg) => (Array.isArray(seg) ? String(seg[0] || '') : ''))
-            .join('');
-        }
-        const result = cleanDescription(translated);
-        if (result && result.toLowerCase() !== q.toLowerCase()) return result;
-      } catch {
-        continue;
-      }
-    } catch {
-      continue;
-    }
-  }
-  return '';
-}
-
-// ── Instance Health Tracking (shared across proxy tiers) ──
-const HEALTH_RECOVERY_MS = 10 * 60 * 1000; // 10 minutes
-const proxyHealth = new Map(); // url → { failedAt, failures }
-
-function isProxyHealthy(url) {
-  const entry = proxyHealth.get(url);
-  if (!entry) return true;
-  if (Date.now() - entry.failedAt > HEALTH_RECOVERY_MS) { proxyHealth.delete(url); return true; }
-  return false;
-}
-function markProxyFailed(url) {
-  const e = proxyHealth.get(url) || { failures: 0 };
-  e.failedAt = Date.now(); e.failures += 1; proxyHealth.set(url, e);
-}
-function markProxyOk(url) { proxyHealth.delete(url); }
-
-// Race up to 3 healthy instances in parallel, return first valid result
-async function raceProxyInstances(instances, fetchFn) {
-  const healthy = instances.filter(isProxyHealthy);
-  if (healthy.length === 0 && instances.length > 0) {
-    proxyHealth.delete(instances[0]); // try oldest anyway
-    return fetchFn(instances[0]);
-  }
-  const batch = healthy.slice(0, 3);
-  const controller = new AbortController();
-  const promises = batch.map(async (base) => {
-    try {
-      const r = await fetchFn(base, controller.signal);
-      if (r) { controller.abort(); markProxyOk(base); return r; }
-      markProxyFailed(base); return '';
-    } catch { markProxyFailed(base); return ''; }
-  });
-  const results = await Promise.allSettled(promises);
-  const first = results.find((r) => r.status === 'fulfilled' && r.value);
-  if (first) return first.value;
-  for (const base of healthy.slice(3)) {
-    try {
-      const r = await fetchFn(base);
-      if (r) { markProxyOk(base); return r; }
-      markProxyFailed(base);
-    } catch { markProxyFailed(base); }
-  }
-  return '';
-}
-
-// ── Lingva Translate (free Google Translate proxy) ──
-// Verified 2026-03-22
-const LINGVA_INSTANCES = [
-  'https://translate.plausibility.cloud',
-  'https://lingva.ml',
-  'https://lingva.lunar.icu',
-  'https://translate.projectsegfau.lt',
-  'https://lingva.garudalinux.org',
-  'https://translate.jae.fi',
-];
-
-async function translateChunkLingva({ text, sourceLang = 'auto', targetLang }) {
-  const q = normalizeSpace(text);
-  if (!q) return '';
-  const encoded = encodeURIComponent(q);
-  return raceProxyInstances(LINGVA_INSTANCES, async (base, signal) => {
-    const url = `${base}/api/v1/${sourceLang || 'auto'}/${targetLang}/${encoded}`;
-    const res = await fetch(url, {
-      headers: { 'User-Agent': 'FrontaliereTicino/1.0' },
-      signal: signal || AbortSignal.timeout(15000),
-    });
-    if (!res.ok) return '';
-    const data = await res.json();
-    const translated = normalizeSpace(data?.translation || '');
-    if (translated && translated.toLowerCase() !== q.toLowerCase()) return translated;
-    return '';
-  });
-}
-
-async function translateChunkedWithLingva({ text, sourceLang, targetLang }) {
-  const isShort = normalizeSpace(text || '').length < 200;
-  const clean = isShort ? normalizeSpace(text || '') : cleanDescription(text || '');
-  if (!clean) return '';
-  const chunks = chunkTextForTranslation(clean, 1500);
-  if (chunks.length === 0) return '';
-  const translatedChunks = [];
-  for (const chunk of chunks) {
-    // eslint-disable-next-line no-await-in-loop
-    const translated = await translateChunkLingva({ text: chunk, sourceLang, targetLang });
-    if (!translated) return '';
-    translatedChunks.push(translated);
-    if (chunks.length > 1) {
-      // eslint-disable-next-line no-await-in-loop
-      await new Promise((r) => setTimeout(r, 300));
-    }
-  }
-  const raw = translatedChunks.join('\n\n');
-  return isShort ? normalizeSpace(raw) : cleanDescription(raw);
-}
-
-// ── SimplyTranslate (another free Google Translate proxy) ──
-// Verified 2026-03-22
-const SIMPLYTRANSLATE_INSTANCES = [
-  'https://simplytranslate.org',
-];
-
-async function translateWithSimplyTranslateChunked({ text, sourceLang, targetLang }) {
-  const isShort = normalizeSpace(text || '').length < 200;
-  const clean = isShort ? normalizeSpace(text || '') : cleanDescription(text || '');
-  if (!clean || sourceLang === targetLang) return '';
-  const chunks = chunkTextForTranslation(clean, 1500);
-  if (chunks.length === 0) return '';
-  const translatedChunks = [];
-  for (const chunk of chunks) {
-    // eslint-disable-next-line no-await-in-loop
-    const translated = await raceProxyInstances(SIMPLYTRANSLATE_INSTANCES, async (base, signal) => {
-      const params = new URLSearchParams({
-        engine: 'google', from: sourceLang || 'auto', to: targetLang, text: chunk,
-      });
-      const res = await fetch(`${base}/api/translate/?${params.toString()}`, {
-        headers: { 'User-Agent': 'FrontaliereTicino/1.0' },
-        signal: signal || AbortSignal.timeout(15000),
-      });
-      if (!res.ok) return '';
-      const data = await res.json();
-      const t = normalizeSpace(data?.translated_text || '');
-      if (t && t.toLowerCase() !== normalizeSpace(chunk).toLowerCase()) return t;
-      return '';
-    });
-    if (!translated) return '';
-    translatedChunks.push(translated);
-  }
-  const raw = translatedChunks.join('\n\n');
-  return isShort ? normalizeSpace(raw) : cleanDescription(raw);
-}
-
-// ── Mozhi (open-source translation proxy) ──
-// Verified 2026-03-22
-const MOZHI_INSTANCES = [
-  'https://mozhi.adminforge.de',
-  'https://mozhi.pussthecat.org',
-  'https://mozhi.aryak.me',
-];
-
-async function translateWithMozhiChunked({ text, sourceLang, targetLang }) {
-  const isShort = normalizeSpace(text || '').length < 200;
-  const clean = isShort ? normalizeSpace(text || '') : cleanDescription(text || '');
-  if (!clean || sourceLang === targetLang) return '';
-  const chunks = chunkTextForTranslation(clean, 1500);
-  if (chunks.length === 0) return '';
-  const translatedChunks = [];
-  for (const chunk of chunks) {
-    // eslint-disable-next-line no-await-in-loop
-    const translated = await raceProxyInstances(MOZHI_INSTANCES, async (base, signal) => {
-      const params = new URLSearchParams({
-        engine: 'google', from: sourceLang || 'auto', to: targetLang, text: chunk,
-      });
-      const res = await fetch(`${base}/api/translate?${params.toString()}`, {
-        headers: { 'User-Agent': 'FrontaliereTicino/1.0' },
-        signal: signal || AbortSignal.timeout(15000),
-      });
-      if (!res.ok) return '';
-      const data = await res.json();
-      // Mozhi uses 'translated-text' (hyphenated) in its response
-      const t = normalizeSpace(data?.['translated-text'] || data?.translated_text || '');
-      if (t && t.toLowerCase() !== normalizeSpace(chunk).toLowerCase()) return t;
-      return '';
-    });
-    if (!translated) return '';
-    translatedChunks.push(translated);
-  }
-  const raw = translatedChunks.join('\n\n');
-  return isShort ? normalizeSpace(raw) : cleanDescription(raw);
-}
-
-// ── Chunked MyMemory (for texts > 500 chars) ──
-async function translateChunkedWithMyMemory({ text, sourceLang, targetLang }) {
-  const isShort = normalizeSpace(text || '').length < 200;
-  const clean = isShort ? normalizeSpace(text || '') : cleanDescription(text || '');
-  if (!clean) return '';
-  const chunks = chunkTextForTranslation(clean, 450);
-  if (chunks.length === 0) return '';
-  const translatedChunks = [];
-  for (const chunk of chunks) {
-    // eslint-disable-next-line no-await-in-loop
-    const translated = await translateWithMyMemory(chunk, sourceLang, targetLang);
-    if (!translated) return '';
-    translatedChunks.push(translated);
-  }
-  const raw = translatedChunks.join('\n\n');
-  return isShort ? normalizeSpace(raw) : cleanDescription(raw);
-}
-
-// ── LibreTranslate public instances (open-source, no API key) ──
-// Verified 2026-03-22
-const LIBRETRANSLATE_PUBLIC_INSTANCES = [
-  'https://translate.cutie.dating',
-];
-
-async function translateWithLibreTranslatePublic({ text, sourceLang, targetLang }) {
-  const q = normalizeSpace(text || '');
-  if (!q || sourceLang === targetLang) return '';
-  return raceProxyInstances(LIBRETRANSLATE_PUBLIC_INSTANCES, async (base, signal) => {
-    const res = await fetch(`${base}/translate`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        q,
-        source: sourceLang || 'auto',
-        target: targetLang,
-        format: 'text',
-      }),
-      signal: signal || AbortSignal.timeout(20000),
-    });
-    if (!res.ok) return '';
-    const data = await res.json();
-    const translated = normalizeSpace(data?.translatedText || '');
-    if (translated && translated.toLowerCase() !== q.toLowerCase()) return translated;
-    return '';
-  });
-}
-
-async function fallbackTranslateText({
-  text,
-  sourceLang = 'en',
-  targetLang = 'it',
-  minChars = 1,
-}) {
-  const isShort = normalizeSpace(text || '').length < 200;
-  const clean = isShort ? normalizeSpace(text || '') : cleanDescription(text || '');
-  if (!clean) return '';
-  if (targetLang === sourceLang) return clean;
-  // Try DeepL first (higher quality than Google Translate)
-  const deepl = await translateWithDeepL(clean, sourceLang, targetLang);
-  if (deepl && deepl.length >= minChars) return deepl;
-  // Try MyMemory (chunked for long texts)
-  const myMemory = await translateChunkedWithMyMemory({ text: clean, sourceLang, targetLang });
-  if (myMemory && myMemory.length >= minChars &&
-      normalizeSpace(myMemory).toLowerCase() !== normalizeSpace(clean).toLowerCase()) {
-    return isShort ? normalizeSpace(myMemory) : cleanDescription(myMemory);
-  }
-  // Try Lingva Translate (free Google Translate proxy, 6 mirrors, parallel race)
-  const lingva = await translateChunkedWithLingva({ text: clean, sourceLang, targetLang });
-  if (lingva && lingva.length >= minChars &&
-      normalizeSpace(lingva).toLowerCase() !== normalizeSpace(clean).toLowerCase()) {
-    return isShort ? normalizeSpace(lingva) : cleanDescription(lingva);
-  }
-  // Try SimplyTranslate (another free proxy, 4 mirrors, parallel race)
-  const simply = await translateWithSimplyTranslateChunked({ text: clean, sourceLang, targetLang });
-  if (simply && simply.length >= minChars &&
-      normalizeSpace(simply).toLowerCase() !== normalizeSpace(clean).toLowerCase()) {
-    return isShort ? normalizeSpace(simply) : cleanDescription(simply);
-  }
-  // Try LibreTranslate public instances (open-source, 5 instances, parallel race)
-  const libre = await translateWithLibreTranslatePublic({ text: clean, sourceLang, targetLang });
-  if (libre && libre.length >= minChars &&
-      normalizeSpace(libre).toLowerCase() !== normalizeSpace(clean).toLowerCase()) {
-    return isShort ? normalizeSpace(libre) : cleanDescription(libre);
-  }
-  // Try Mozhi (open-source proxy, 3 instances, parallel race)
-  const mozhi = await translateWithMozhiChunked({ text: clean, sourceLang, targetLang });
-  if (mozhi && mozhi.length >= minChars &&
-      normalizeSpace(mozhi).toLowerCase() !== normalizeSpace(clean).toLowerCase()) {
-    return isShort ? normalizeSpace(mozhi) : cleanDescription(mozhi);
-  }
-  // Fallback to free Google Translate (direct endpoint)
-  const chunks = chunkTextForTranslation(clean, 1800);
-  if (chunks.length === 0) return '';
-  const translatedChunks = [];
-  for (const chunk of chunks) {
-    let translated = '';
-    for (let attempt = 1; attempt <= 3; attempt += 1) {
-      // eslint-disable-next-line no-await-in-loop
-      translated = await translateChunkGoogle({ text: chunk, sourceLang, targetLang });
-      if (translated) break;
-      // eslint-disable-next-line no-await-in-loop
-      await new Promise((resolve) => setTimeout(resolve, attempt * 500));
-    }
-    if (!translated) return '';
-    translatedChunks.push(translated);
-  }
-  const raw = translatedChunks.join('\n\n');
-  const merged = isShort ? normalizeSpace(raw) : cleanDescription(raw);
-  if (merged.length < minChars) return '';
-  if (normalizeSpace(merged).toLowerCase() === normalizeSpace(clean).toLowerCase()) return '';
-  return merged;
-}
 
 function stripHtml(s) {
   return normalizeSpace(
@@ -2230,11 +1785,10 @@ async function aiTranslateJobDescription({ description, locale, sourceLang = 'en
   if (typeof fromCache === 'string') {
     if (fromCache !== AI_CACHE_RAW_SENTINEL) return fromCache;
     // Sentinel means previous LLM attempt failed — still try free translation APIs
-    const sentinelFallback = await fallbackTranslateText({
+    const sentinelFallback = await freeTranslateWithRetry({
       text: clean,
       sourceLang,
       targetLang: locale,
-      minChars: floor,
     });
     if (sentinelFallback && sentinelFallback.length >= floor && sentinelFallback.toLowerCase() !== clean.toLowerCase()) {
       setCachedAiResponse(cacheKey, sentinelFallback);
@@ -2243,7 +1797,7 @@ async function aiTranslateJobDescription({ description, locale, sourceLang = 'en
     return '';
   }
   // Try DeepL first (fast, high quality, saves LLM tokens)
-  const deepl = await translateWithDeepL(clean, sourceLang, locale);
+  const deepl = await freeTranslateWithRetry({ text: clean, sourceLang, targetLang: locale });
   if (deepl && deepl.length >= floor) {
     setCachedAiResponse(cacheKey, deepl);
     return deepl;
@@ -2277,11 +1831,10 @@ async function aiTranslateJobDescription({ description, locale, sourceLang = 'en
       // fallback below
     }
   }
-  const fallback = await fallbackTranslateText({
+  const fallback = await freeTranslateWithRetry({
     text: clean,
     sourceLang,
     targetLang: locale,
-    minChars: floor,
   });
   if (fallback && fallback.length >= floor && fallback.toLowerCase() !== clean.toLowerCase()) {
     setCachedAiResponse(cacheKey, fallback);
@@ -2479,19 +2032,17 @@ async function aiLocalizeJobContent({ title, company, location, description, req
     };
     for (const locale of targetLocales) {
       // eslint-disable-next-line no-await-in-loop
-      const desc = await fallbackTranslateText({
+      const desc = await freeTranslateWithRetry({
         text: cleanedSource,
         sourceLang: sourceLang || 'en',
         targetLang: locale,
-        minChars: floor,
       });
       if (desc && desc.length >= floor) {
         // eslint-disable-next-line no-await-in-loop
-        const localizedTitle = await fallbackTranslateText({
+        const localizedTitle = await freeTranslateWithRetry({
           text: title,
           sourceLang: sourceLang || 'en',
           targetLang: locale,
-          minChars: 2,
         });
         sentinelOut[locale] = {
           title: localizedTitle || title,
@@ -2524,19 +2075,17 @@ async function aiLocalizeJobContent({ title, company, location, description, req
     };
     for (const locale of targetLocales) {
       // eslint-disable-next-line no-await-in-loop
-      const desc = await fallbackTranslateText({
+      const desc = await freeTranslateWithRetry({
         text: cleanedSource,
         sourceLang: sourceLang || 'en',
         targetLang: locale,
-        minChars: floor,
       });
       if (desc && desc.length >= floor) {
         // eslint-disable-next-line no-await-in-loop
-        const localizedTitle = await fallbackTranslateText({
+        const localizedTitle = await freeTranslateWithRetry({
           text: title,
           sourceLang: sourceLang || 'en',
           targetLang: locale,
-          minChars: 2,
         });
         out[locale] = {
           title: localizedTitle || title,
@@ -2606,19 +2155,17 @@ async function aiLocalizeJobContent({ title, company, location, description, req
     if (missingLocales.length > 0 && cleanedSource.length >= floor) {
       for (const locale of missingLocales) {
         // eslint-disable-next-line no-await-in-loop
-        const desc = await fallbackTranslateText({
+        const desc = await freeTranslateWithRetry({
           text: cleanedSource,
           sourceLang: sourceLang || 'en',
           targetLang: locale,
-          minChars: floor,
         });
         if (desc && desc.length >= floor) {
           // eslint-disable-next-line no-await-in-loop
-          const localizedTitle = await fallbackTranslateText({
+          const localizedTitle = await freeTranslateWithRetry({
             text: title,
             sourceLang: sourceLang || 'en',
             targetLang: locale,
-            minChars: 2,
           });
           out[locale] = {
             title: localizedTitle || title,
@@ -2647,19 +2194,17 @@ async function aiLocalizeJobContent({ title, company, location, description, req
       };
       for (const locale of targetLocales) {
         // eslint-disable-next-line no-await-in-loop
-        const desc = await fallbackTranslateText({
+        const desc = await freeTranslateWithRetry({
           text: cleanedFallback,
           sourceLang: sourceLang || 'en',
           targetLang: locale,
-          minChars: floor,
         });
         if (desc && desc.length >= floor) {
           // eslint-disable-next-line no-await-in-loop
-          const localizedTitle = await fallbackTranslateText({
+          const localizedTitle = await freeTranslateWithRetry({
             text: title,
             sourceLang: sourceLang || 'en',
             targetLang: locale,
-            minChars: 2,
           });
           fallbackOut[locale] = {
             title: localizedTitle || title,
@@ -2697,11 +2242,10 @@ async function aiTranslateJobTitle({ title, locale, sourceLang = 'en' }) {
   if (typeof fromCache === 'string') {
     if (fromCache !== AI_CACHE_RAW_SENTINEL) return fromCache;
     // Sentinel means previous LLM attempt failed — still try free translation APIs
-    const sentinelFallback = await fallbackTranslateText({
+    const sentinelFallback = await freeTranslateWithRetry({
       text: cleanTitle,
       sourceLang,
       targetLang: locale,
-      minChars: 2,
     });
     if (sentinelFallback && sentinelFallback.toLowerCase() !== cleanTitle.toLowerCase() &&
         !isLowQualityLocalizedTitle(sentinelFallback)) {
@@ -2711,7 +2255,7 @@ async function aiTranslateJobTitle({ title, locale, sourceLang = 'en' }) {
     return cleanTitle;
   }
   // Try DeepL first (fast, high quality, saves LLM tokens)
-  const deepl = await translateWithDeepL(cleanTitle, sourceLang, locale);
+  const deepl = await freeTranslateWithRetry({ text: cleanTitle, sourceLang, targetLang: locale });
   if (deepl && deepl.length >= 2 && !isLowQualityLocalizedTitle(deepl)) {
     setCachedAiResponse(cacheKey, deepl);
     return deepl;
@@ -2746,11 +2290,10 @@ async function aiTranslateJobTitle({ title, locale, sourceLang = 'en' }) {
       // fallback below
     }
   }
-  const fallback = await fallbackTranslateText({
+  const fallback = await freeTranslateWithRetry({
     text: cleanTitle,
     sourceLang,
     targetLang: locale,
-    minChars: 2,
   });
   if (fallback) {
     setCachedAiResponse(cacheKey, fallback);
@@ -5627,8 +5170,6 @@ async function main() {
   const startedAt = new Date().toISOString();
   aiLocalizationCalls = 0;
   aiPageValidationCalls = 0;
-  deeplCalls = 0;
-  deeplSuccess = 0;
   deeplFallbackToLlm = 0;
   aiCacheHits = 0;
   aiCacheMisses = 0;
@@ -6073,8 +5614,6 @@ async function main() {
       mergedTotal: merged.length,
       aiLocalizationCalls,
       aiPageValidationCalls,
-      deeplCalls,
-      deeplSuccess,
       deeplFallbackToLlm,
       aiCacheHits,
       aiCacheMisses,
@@ -6139,7 +5678,7 @@ async function main() {
   // Log AI model stats & scoreboard
   const aiStats = getAiStats();
   console.log(`\n🤖 AI Model Stats: ${aiStats.calls} calls, ${aiStats.successes} successes, ${aiStats.retries} retries, ${aiStats.fallbacks} fallbacks, ${aiStats.exhausted} exhausted (store: ${aiStats.storeBackend})`);
-  console.log(`🈯 DeepL Stats: calls=${deeplCalls}, success=${deeplSuccess}, fallback_to_llm=${deeplFallbackToLlm}`);
+  console.log(`🈯 Free translate fallback_to_llm=${deeplFallbackToLlm}`);
   const mmStats = getMyMemoryStats();
   console.log(`🌐 MyMemory Stats: chars_used=${mmStats.dailyChars}/${mmStats.limit}`);
   const localLocalizationStats = getJobLocalizationPipelineStats();
