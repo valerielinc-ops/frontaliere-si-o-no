@@ -9941,6 +9941,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-ora-legale-permanente-ticino': {
+    title: 'Ora legale permanente in Ticino: cosa cambia | Frontaliere Ticino',
+    description: 'In Italia si avvia un\'indagine per mantenere l\'ora legale tutto l\'anno, ma in Ticino si pensa a soluzioni diverse. Analisi e impatti sulla regione.',
+    keywords: 'frontalieri, ticino, svizzera, italia, legale, permanente, cosa, cambia',
+    ogTitle: 'Ora legale permanente in Ticino: cosa cambia',
+    ogDescription: 'In Italia si avvia un\'indagine per mantenere l\'ora legale tutto l\'anno, ma in Ticino si pensa a soluzioni diverse. Analisi e impatti sulla regione.',
+    canonicalPath: '/articoli-frontaliere/ora-legale-permanente-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ora legale permanente in Ticino: cosa cambia",
+      "description": "In Italia si avvia un'indagine per mantenere l'ora legale tutto l'anno, ma in Ticino si pensa a soluzioni diverse. Analisi e impatti sulla regione.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/ora-legale-permanente-ticino.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Veduta panoramica di Lugano, Ticino, con lago e montagne sullo sfondo"
+      },
+      "datePublished": "2026-03-24T05:14:22+00:00",
+      "dateModified": "2026-03-24T05:14:22+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ora-legale-permanente-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

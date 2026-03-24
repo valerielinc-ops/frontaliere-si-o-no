@@ -1739,6 +1739,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.giustizia-referendum-ticino.title': 'Referendum zur Justiz in Italien: Salvini\'s Position und die Lage im Tessin',
     'blog.article.giustizia-referendum-ticino.excerpt': 'Das italienische Referendum zur Justiz hat mit 54 % für Nein geendet, doch in der Provinz Varese und im Kanton Tessin war die Entscheidung anders, mit einer Tendenz zum Ja. Salvini bekräftigt die Bedeutung, das Justizsystem zu verbessern.',
     'blog.article.giustizia-referendum-ticino.imageAlt': 'Bellinzona, Castelgrande mit Blick auf Stadt und Berge',
+    'blog.article.ora-legale-permanente-ticino.title': 'Permanent Sommerzeit im Tessin: Was ändert sich',
+    'blog.article.ora-legale-permanente-ticino.excerpt': 'In Italien wird eine Untersuchung gestartet, um die Sommerzeit das ganze Jahr über beizubehalten, doch im Tessin werden andere Lösungen in Betracht gezogen. Analyse und Auswirkungen auf die Region.',
+    'blog.article.ora-legale-permanente-ticino.imageAlt': 'Panoramablick auf Lugano, Tessin, mit See und Bergen im Hintergrund',
 };
 
 export default blogMetaDe;

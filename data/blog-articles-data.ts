@@ -5249,4 +5249,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/giustizia-referendum-ticino.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'ora-legale-permanente-ticino',
+    category: 'novita',
+    date: '2026-03-24T05:14:22.877Z',
+    image: '/images/blog/ora-legale-permanente-ticino.jpg',
+    hasCalculator: true,
+  },
 ];

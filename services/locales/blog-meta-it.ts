@@ -1739,6 +1739,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.giustizia-referendum-ticino.title': 'Referendum sulla giustizia in Italia: la posizione di Salvini e il quadro in Ticino',
     'blog.article.giustizia-referendum-ticino.excerpt': 'Il referendum italiano sulla giustizia ha visto prevalere il No con il 54%, ma in provincia di Varese e nel Canton Ticino la scelta è stata diversa, puntando sul Sì. Salvini ribadisce l\'importanza di migliorare il sistema giudiziario.',
     'blog.article.giustizia-referendum-ticino.imageAlt': 'Castelgrande a Bellinzona, vista panoramica sulla città e le montagne circostanti',
+    'blog.article.ora-legale-permanente-ticino.title': 'Ora legale permanente in Ticino: cosa cambia',
+    'blog.article.ora-legale-permanente-ticino.excerpt': 'In Italia si avvia un\'indagine per mantenere l\'ora legale tutto l\'anno, ma in Ticino si pensa a soluzioni diverse. Analisi e impatti sulla regione.',
+    'blog.article.ora-legale-permanente-ticino.imageAlt': 'Veduta panoramica di Lugano, Ticino, con lago e montagne sullo sfondo',
 };
 
 export default blogMetaIt;
