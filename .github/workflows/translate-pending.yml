@@ -67,7 +67,7 @@ jobs:
 
       - name: Commit and push
         if: success() && inputs.dry_run != true
-        run: bash scripts/lib/git-commit-data.sh "🌐 Auto-translate pending jobs" data/
+        run: bash scripts/lib/git-commit-data.sh --slice-only "🌐 Auto-translate pending jobs" data/jobs/by-crawler/ data/translation-cache/ data/jobs-crawler-config.json data/slug-registry.json
 
       - name: Trigger deploy
         if: success() && inputs.dry_run != true
