@@ -118,32 +118,35 @@ export function useNavigationState(): NavigationState {
     }
   }, []);
 
+  // Shared route application — used by popstate AND global click interceptor
+  const applyRoute = useCallback((pathname: string) => {
+    enableRuntimeSeo();
+    const { route, locale: urlLocale } = parsePath(pathname);
+    setActiveTab(route.activeTab);
+    if (route.calcolatoreSubTab) setCalcolatoreSubTab(route.calcolatoreSubTab);
+    if (route.confrontiSubTab) setConfrontiSubTab(route.confrontiSubTab);
+    if (route.fiscoSubTab) setFiscoSubTab(route.fiscoSubTab);
+    if (route.taxReturnCountry) setTaxReturnCountry(route.taxReturnCountry);
+    if (route.guidaSubTab) setGuidaSubTab(route.guidaSubTab);
+    if (route.vitaSubTab) setVitaSubTab(route.vitaSubTab);
+    if (route.statsSubTab) setStatsSubTab(route.statsSubTab);
+    setBlogArticle(route.blogArticle || null);
+    setSeoLanding(route.seoLanding || null);
+    setGlossaryTerm(route.glossaryTerm || null);
+    setBorderCrossing(route.borderCrossing || null);
+    setJobSlug(route.jobSlug || null);
+    setLocale(urlLocale);
+    const seoKey = getSeoSection(route);
+    updateMetaTags(seoKey);
+    trackSectionView(seoKey);
+    if (!scrollToAnchor()) {
+      window.scrollTo({ top: 0, behavior: 'instant' });
+    }
+  }, []);
+
   // Listen for browser back/forward navigation
   useEffect(() => {
-    const onPopState = () => {
-      enableRuntimeSeo();
-      const { route, locale: urlLocale } = parsePath(window.location.pathname);
-      setActiveTab(route.activeTab);
-      if (route.calcolatoreSubTab) setCalcolatoreSubTab(route.calcolatoreSubTab);
-      if (route.confrontiSubTab) setConfrontiSubTab(route.confrontiSubTab);
-      if (route.fiscoSubTab) setFiscoSubTab(route.fiscoSubTab);
-      if (route.taxReturnCountry) setTaxReturnCountry(route.taxReturnCountry);
-      if (route.guidaSubTab) setGuidaSubTab(route.guidaSubTab);
-      if (route.vitaSubTab) setVitaSubTab(route.vitaSubTab);
-      if (route.statsSubTab) setStatsSubTab(route.statsSubTab);
-      setBlogArticle(route.blogArticle || null);
-      setSeoLanding(route.seoLanding || null);
-      setGlossaryTerm(route.glossaryTerm || null);
-      setBorderCrossing(route.borderCrossing || null);
-      setJobSlug(route.jobSlug || null);
-      setLocale(urlLocale);
-      const seoKey = getSeoSection(route);
-      updateMetaTags(seoKey);
-      trackSectionView(seoKey);
-      if (!scrollToAnchor()) {
-        window.scrollTo({ top: 0, behavior: 'instant' });
-      }
-    };
+    const onPopState = () => applyRoute(window.location.pathname);
     window.addEventListener('popstate', onPopState);
     const unsubLocale = onLocaleChange((newLocale) => {
       updatePathForLocale(newLocale);
@@ -152,7 +155,62 @@ export function useNavigationState(): NavigationState {
       window.removeEventListener('popstate', onPopState);
       unsubLocale();
     };
-  }, []);
+  }, [applyRoute]);
+
+  // Global click interceptor — catch <a href="/..."> internal links and navigate via SPA
+  // This prevents the 404 flash on GitHub Pages where a full page navigation would trigger
+  // 404.html → sessionStorage redirect → index.html → React re-init before showing the page.
+  useEffect(() => {
+    const onClick = (e: MouseEvent) => {
+      // Skip if modifier keys are held (user wants new tab/window)
+      if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return;
+
+      // Walk up from target to find the nearest <a> element
+      let anchor = e.target as HTMLElement | null;
+      while (anchor && anchor.tagName !== 'A') anchor = anchor.parentElement;
+      if (!anchor) return;
+
+      const a = anchor as HTMLAnchorElement;
+
+      // Skip external links, new-tab links, download links, hash-only links, and non-http links
+      if (a.target === '_blank' || a.hasAttribute('download')) return;
+      if (a.origin !== window.location.origin) return;
+
+      const href = a.getAttribute('href');
+      if (!href || !href.startsWith('/')) return;
+
+      // Skip static file links (sitemap.xml, robots.txt, etc.)
+      if (/\.(xml|txt|json|pdf|png|jpg|jpeg|gif|svg|ico|webp|woff2?|css|js)(\?|$)/i.test(href)) return;
+
+      // This is an internal SPA route — intercept it
+      e.preventDefault();
+
+      const [pathname, hash] = href.split('#');
+      const search = a.search || '';
+
+      // Push the new URL and apply the route via SPA navigation
+      const { route } = parsePath(pathname);
+      pushRoute(route);
+
+      // If the href included a query string, preserve it
+      if (search) {
+        const currentUrl = window.location.pathname + search + (hash ? `#${hash}` : '');
+        history.replaceState(history.state, '', currentUrl);
+      }
+
+      applyRoute(pathname);
+
+      // Handle hash anchors
+      if (hash) {
+        requestAnimationFrame(() => {
+          const el = document.getElementById(hash);
+          if (el) el.scrollIntoView({ behavior: 'smooth' });
+        });
+      }
+    };
+    document.addEventListener('click', onClick);
+    return () => document.removeEventListener('click', onClick);
+  }, [applyRoute]);
 
   // Handle in-page hash navigation
   useEffect(() => {

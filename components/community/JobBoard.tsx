@@ -3651,7 +3651,16 @@ const JobBoard: React.FC<JobBoardProps> = ({
   const salaryCalcHref = salaryEstimates
     ? buildPath({ activeTab: 'calculator' }, locale) + `?reddito=${salaryEstimates.salaryMax || salaryEstimates.salaryMin}`
     : '';
-  const goToCalc = (e: React.MouseEvent) => { e.preventDefault(); window.location.href = salaryCalcHref; };
+  const goToCalc = (e: React.MouseEvent) => {
+    e.preventDefault();
+    // SPA navigation: push route + apply query string, avoid full page reload / 404 flash
+    const reddito = salaryEstimates?.salaryMax || salaryEstimates?.salaryMin;
+    nav.navigateTo('calculator');
+    if (reddito) {
+      const url = buildPath({ activeTab: 'calculator' }, locale) + `?reddito=${reddito}`;
+      history.replaceState(history.state, '', url);
+    }
+  };
 
   const salaryEstimateWidget = salaryEstimates ? (
     <div className="rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-4 border-l-4 border-l-amber-500">
