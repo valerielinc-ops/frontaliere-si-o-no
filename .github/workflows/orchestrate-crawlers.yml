@@ -41,7 +41,7 @@ permissions:
 jobs:
   dispatch-all:
     runs-on: ubuntu-latest
-    timeout-minutes: 120
+    timeout-minutes: 180
 
     steps:
       - name: Checkout (workflow files only)
@@ -64,10 +64,10 @@ jobs:
           echo "╚══════════════════════════════════════════════════════════╝"
           echo ""
 
-          # FRO-326: Volume-based staggering
-          # Large crawlers (>50 jobs): 300s delay between each (5 minutes)
-          # Medium crawlers (10-50 jobs): 60s delay
-          # Small crawlers (<10 jobs): 30s delay
+          # FRO-326/FRO-424: Volume-based staggering — increased to spread AI quota
+          # Large crawlers (>50 jobs): 600s delay between each (10 minutes)
+          # Medium crawlers (10-50 jobs): 180s delay (3 minutes)
+          # Small crawlers (<10 jobs): 60s delay (1 minute)
           # Coop is excluded (runs at 06:00 UTC separately)
 
           # Known large crawlers (>50 estimated jobs per run)
@@ -82,12 +82,12 @@ jobs:
             # Skip Coop — it has its own schedule
             if [[ "$base" == "coop"* ]]; then echo "SKIP"; return; fi
             for lg in $LARGE_CRAWLERS; do
-              if [[ "$lg" == "update-jobs-$base" ]]; then echo "300"; return; fi
+              if [[ "$lg" == "update-jobs-$base" ]]; then echo "600"; return; fi
             done
             for md in $MEDIUM_CRAWLERS; do
-              if [[ "$md" == "update-jobs-$base" ]]; then echo "60"; return; fi
+              if [[ "$md" == "update-jobs-$base" ]]; then echo "180"; return; fi
             done
-            echo "30"
+            echo "60"
           }
 
           # Discover all crawler workflow files

@@ -2425,30 +2425,39 @@ export function validateDedicatedLocaleCoverage({
   if (blockingIssues.length > 0) {
     // Detect AI/translation provider quota exhaustion — if all providers are exhausted,
     // missing translations are expected and should be tolerated (they'll be retried next run)
+    // FRO-424: when ALL models are 429'd, tolerate ALL translation issues (not just descriptions)
+    const TRANSLATION_ISSUES = new Set([
+      'missing_description', 'untranslated_description',
+      'missing_title', 'untranslated_title',
+    ]);
     let effectiveTolerance = maxToleratedMissingDescriptions;
+    let allAiExhausted = false;
     if (_aiModels) {
       try {
         const stats = _aiModels.getStats();
-        const allAiExhausted = !_aiModels.isAnyModelAvailable();
+        allAiExhausted = !_aiModels.isAnyModelAvailable();
         if (allAiExhausted || (stats.exhaustedModels && stats.exhaustedModels.length >= 3)) {
-          const descIssueCount = blockingIssues.filter((i) => i.reason === 'missing_description' || i.reason === 'untranslated_description').length;
-          effectiveTolerance = Math.max(effectiveTolerance, descIssueCount);
+          // When AI quota is exhausted, tolerate ALL translation-related blocking issues
+          const translationIssueCount = blockingIssues.filter((i) => TRANSLATION_ISSUES.has(i.reason)).length;
+          effectiveTolerance = Math.max(effectiveTolerance, translationIssueCount);
           console.warn(`⚠️  AI quota exhaustion detected (${stats.exhaustedModels?.length || 0} models exhausted). ` +
-            `Raising description tolerance from ${maxToleratedMissingDescriptions} to ${effectiveTolerance} for this run.`);
+            `Raising translation tolerance from ${maxToleratedMissingDescriptions} to ${effectiveTolerance} for this run.`);
         }
       } catch { /* stats not available */ }
     }
 
-    // Tolerate translation-related issues up to the effective tolerance (FRO-317)
-    // Includes missing_title when caused by LLM quota exhaustion — titles that weren't
-    // translated are retried on next crawler run, same as missing descriptions.
-    const TRANSLATION_ISSUES = new Set(['missing_description', 'untranslated_description', 'missing_title']);
+    // Tolerate translation-related issues up to the effective tolerance (FRO-317/FRO-424)
+    // When AI quota is exhausted, all translation failures are tolerated — jobs are saved
+    // with needsRetranslation flag and retried on next crawler run.
     if (effectiveTolerance > 0) {
       const translationIssues = blockingIssues.filter((i) => TRANSLATION_ISSUES.has(i.reason));
       const otherIssues = blockingIssues.filter((i) => !TRANSLATION_ISSUES.has(i.reason));
       if (translationIssues.length <= effectiveTolerance && otherIssues.length === 0) {
         const sample = translationIssues.slice(0, 10).map((i) => `${i.slug} [${i.locale}] ${i.reason}`).join(', ');
         const suffix = translationIssues.length > 10 ? ` ... and ${translationIssues.length - 10} more` : '';
+        if (allAiExhausted) {
+          console.warn(`⚠️  AI quota exhausted — ${translationIssues.length} jobs saved with needsRetranslation flag`);
+        }
         console.warn(`⚠️  Tolerating ${translationIssues.length} translation issue(s) (tolerance ${effectiveTolerance}): ${sample}${suffix}`);
         softIssues.push(...translationIssues);
         blockingIssues.length = 0;

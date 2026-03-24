@@ -974,9 +974,13 @@ async function _callOpenAICompatible(apiModel, messages, opts, { endpoint, apiKe
             cooldownProvider(getProvider(modelForTracking));
             _stats.providerCooldowns++;
           }
-          const waitMs = is429
+          // Respect Retry-After header if present (seconds or HTTP-date)
+          const retryAfterHeader = res.headers?.get?.('retry-after');
+          const retryAfterMs = retryAfterHeader ? (Number(retryAfterHeader) > 0 ? Number(retryAfterHeader) * 1000 : 0) : 0;
+          const baseWaitMs = is429
             ? attempt * opts.backoffMs * 3   // Triple backoff for rate limits
             : attempt * opts.backoffMs;
+          const waitMs = Math.max(baseWaitMs, retryAfterMs);
           console.warn(`⚠️  [${displayModel}] ${res.status} retry ${attempt}/${opts.maxRetriesPerModel} — wait ${waitMs}ms`);
           await sleep(waitMs);
           continue;
@@ -1196,7 +1200,10 @@ async function _callGeminiRaw(model, messages, opts) {
             cooldownProvider(PROVIDER.GEMINI);
             _stats.providerCooldowns++;
           }
-          const waitMs = attempt * opts.backoffMs;
+          // Respect Retry-After header if present
+          const retryAfterHeader = res.headers?.get?.('retry-after');
+          const retryAfterMs = retryAfterHeader ? (Number(retryAfterHeader) > 0 ? Number(retryAfterHeader) * 1000 : 0) : 0;
+          const waitMs = Math.max(attempt * opts.backoffMs, retryAfterMs);
           console.warn(`⚠️  [${model}] ${res.status} retry ${attempt}/${opts.maxRetriesPerModel} — wait ${waitMs}ms`);
           await sleep(waitMs);
           continue;
@@ -1425,5 +1432,7 @@ export async function callLLM(messages, opts = {}) {
   _stats.errors.push(summary);
   // Flush scores before throwing — ensures failure data is persisted
   await flushScores();
-  throw new Error(`All AI models failed. Chain: [${chain.join(' → ')}]. Errors: ${summary}`);
+  const err = new Error(`All AI models failed. Chain: [${chain.join(' → ')}]. Errors: ${summary}`);
+  err.code = 'ALL_MODELS_EXHAUSTED';
+  throw err;
 }
