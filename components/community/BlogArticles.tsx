@@ -241,9 +241,11 @@ function renderInlineFormatting(text: string, navigators?: NavigatorMap): ReactN
         </a>
       );
     } else if (match[8]) {
-      parts.push(<strong key={`b${key++}`} className="font-semibold text-slate-800 dark:text-slate-200">{match[8]}</strong>);
+      // Recursively process bold content so nested links/italic are rendered
+      parts.push(<strong key={`b${key++}`} className="font-semibold text-slate-800 dark:text-slate-200">{renderInlineFormatting(match[8], navigators)}</strong>);
     } else if (match[10]) {
-      parts.push(<em key={`i${key++}`} className="italic">{match[10]}</em>);
+      // Recursively process italic content so nested links are rendered (e.g. *Fonte: [text](url)*)
+      parts.push(<em key={`i${key++}`} className="italic">{renderInlineFormatting(match[10], navigators)}</em>);
     }
     lastIndex = regex.lastIndex;
   }
@@ -417,6 +419,48 @@ function renderFormattedContent(text: string, navigators?: NavigatorMap): ReactE
         );
       }
       continue;
+    }
+
+    // Markdown table: lines starting with | and containing a separator row |---|
+    const isMdTable = trimmed.includes('|') && /^\|[^|]+\|/m.test(trimmed);
+    if (isMdTable) {
+      const tableLines = trimmed.split('\n').filter(l => l.trim().startsWith('|'));
+      const isSeparator = (line: string) => /^\|(\s*:?-{2,}:?\s*\|)+\s*$/.test(line.trim());
+      const sepIdx = tableLines.findIndex(l => isSeparator(l));
+      const headerLines = sepIdx > 0 ? tableLines.slice(0, sepIdx) : [];
+      const bodyLines = sepIdx >= 0 ? tableLines.slice(sepIdx + 1) : [];
+      const parseCells = (line: string) => line.trim().replace(/^\|/, '').replace(/\|$/, '').split('|').map(c => c.trim());
+
+      if (headerLines.length > 0 && bodyLines.length > 0) {
+        const headers = parseCells(headerLines[0]);
+        renderedBlocks.push(
+          <div key={`table-${idx}`} className="overflow-x-auto my-4">
+            <table className="w-full border-collapse text-sm">
+              <thead>
+                <tr>
+                  {headers.map((h, hi) => (
+                    <th key={hi} className="border border-slate-300 dark:border-slate-600 bg-slate-100 dark:bg-slate-800 px-3 py-2 text-left font-semibold text-slate-800 dark:text-slate-200">
+                      {renderInlineFormatting(h, navigators)}
+                    </th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {bodyLines.map((row, ri) => (
+                  <tr key={ri} className={ri % 2 === 1 ? 'bg-slate-50 dark:bg-slate-800/50' : ''}>
+                    {parseCells(row).map((cell, ci) => (
+                      <td key={ci} className="border border-slate-300 dark:border-slate-600 px-3 py-2 text-slate-700 dark:text-slate-300">
+                        {renderInlineFormatting(cell, navigators)}
+                      </td>
+                    ))}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        );
+        continue;
+      }
     }
 
     // List: lines starting with -
