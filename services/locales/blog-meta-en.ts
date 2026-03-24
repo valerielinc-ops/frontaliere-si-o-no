@@ -1745,6 +1745,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.como-asfaltature-war-costs.title': 'Como, Rapinese: asphalt prices rise by 40% due to the war',
     'blog.article.como-asfaltature-war-costs.excerpt': 'The mayor of Como, Alessandro Rapinese, faces a tough decision regarding the use of the 5 million euro plan for road resurfacing, as costs have surged by 40% due to the conflict in Iran.',
     'blog.article.como-asfaltature-war-costs.imageAlt': 'Asphalt road construction in Ticino with lake landscape in background',
+    'blog.article.referendum-opposizione-ticino.title': 'Referendum in Ticino: opposition\'s message and border repercussions',
+    'blog.article.referendum-opposizione-ticino.excerpt': 'The outcome of the referendum in Italy resulted in a victory for No, with opposition leaders celebrating. In Ticino, this dynamic could influence cross-border workers and relations with the Canton of Ticino.',
+    'blog.article.referendum-opposizione-ticino.imageAlt': 'Bellinzona landscape showing Ticino-Italy border crossings and mountains',
 };
 
 export default blogMetaEn;

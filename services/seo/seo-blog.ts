@@ -9999,6 +9999,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-referendum-opposizione-ticino': {
+    title: 'Referendum in Ticino: il messaggio dell\'opposizione e le ripercussioni | Frontaliere Ticino',
+    description: 'Il risultato del referendum in Italia ha visto la vittoria del No, con leader dell\'opposizione che festeggiano. In Ticino, questa dinamica potrebbe influenzare',
+    keywords: 'frontalieri, ticino, svizzera, italia, referendum, messaggio, dell, opposizione',
+    ogTitle: 'Referendum in Ticino: il messaggio dell\'opposizione e le',
+    ogDescription: 'Il risultato del referendum in Italia ha visto la vittoria del No, con leader dell\'opposizione che festeggiano. In Ticino, questa dinamica potrebbe influenzare',
+    canonicalPath: '/articoli-frontaliere/referendum-opposizione-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Referendum in Ticino: il messaggio dell'opposizione e le",
+      "description": "Il risultato del referendum in Italia ha visto la vittoria del No, con leader dell'opposizione che festeggiano. In Ticino, questa dinamica potrebbe influenzare",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/referendum-opposizione-ticino.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Panorama di Bellinzona con vista sui valichi di confine tra Ticino e Italia"
+      },
+      "datePublished": "2026-03-24T07:18:02+00:00",
+      "dateModified": "2026-03-24T07:18:02+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/referendum-opposizione-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

@@ -1745,6 +1745,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.como-asfaltature-war-costs.title': 'Como, Rapinese: prezzi dell\'asfalto in aumento del 40% a causa della guerra',
     'blog.article.como-asfaltature-war-costs.excerpt': 'Il sindaco di Como, Alessandro Rapinese, si trova di fronte a una difficile decisione sull\'uso del piano da 5 milioni per le asfaltature, con i costi saliti del 40% a causa del conflitto in Iran.',
     'blog.article.como-asfaltature-war-costs.imageAlt': 'Strada in asfaltatura nel Ticino con paesaggio lacustre sullo sfondo',
+    'blog.article.referendum-opposizione-ticino.title': 'Referendum in Ticino: il messaggio dell\'opposizione e le ripercussioni sul confine',
+    'blog.article.referendum-opposizione-ticino.excerpt': 'Il risultato del referendum in Italia ha visto la vittoria del No, con leader dell\'opposizione che festeggiano. In Ticino, questa dinamica potrebbe influenzare i frontalieri e le relazioni con il Canton Ticino.',
+    'blog.article.referendum-opposizione-ticino.imageAlt': 'Panorama di Bellinzona con vista sui valichi di confine tra Ticino e Italia',
 };
 
 export default blogMetaIt;

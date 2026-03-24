@@ -3049,7 +3049,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
         "@context": "https://schema.org",
         "@type": "ItemList",
         "name": "Articoli Frontaliere",
-        "numberOfItems": 572,
+        "numberOfItems": 573,
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
           { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -3622,7 +3622,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 569, "name": "Lombardia investe 30 milioni per lo sport", "url": `${BASE_URL}/articoli-frontaliere/lombardia-sport-ticino` },
           { "@type": "ListItem", "position": 570, "name": "Referendum sulla giustizia in Italia: la posizi...", "url": `${BASE_URL}/articoli-frontaliere/giustizia-referendum-ticino` },
           { "@type": "ListItem", "position": 571, "name": "Ora legale permanente in Ticino: cosa cambia", "url": `${BASE_URL}/articoli-frontaliere/ora-legale-permanente-ticino` },
-          { "@type": "ListItem", "position": 572, "name": "Como, Rapinese: prezzi dell'asfalto in aumento ...", "url": `${BASE_URL}/articoli-frontaliere/como-asfaltature-war-costs` }
+          { "@type": "ListItem", "position": 572, "name": "Como, Rapinese: prezzi dell'asfalto in aumento ...", "url": `${BASE_URL}/articoli-frontaliere/como-asfaltature-war-costs` },
+          { "@type": "ListItem", "position": 573, "name": "Referendum in Ticino: il messaggio dell'opposiz...", "url": `${BASE_URL}/articoli-frontaliere/referendum-opposizione-ticino` }
         ]
       }
     ]

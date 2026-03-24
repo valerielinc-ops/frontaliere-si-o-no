@@ -5263,4 +5263,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/como-asfaltature-war-costs.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'referendum-opposizione-ticino',
+    category: 'novita',
+    date: '2026-03-24T07:18:01.992Z',
+    image: '/images/blog/referendum-opposizione-ticino.jpg',
+    hasCalculator: true,
+  },
 ];

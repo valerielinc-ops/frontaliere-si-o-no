@@ -1745,6 +1745,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.como-asfaltature-war-costs.title': 'Como, Rapinese : le prix de l\'asphalte grimpe de 40 % à cause de la guerre',
     'blog.article.como-asfaltature-war-costs.excerpt': 'Le maire de Como, Alessandro Rapinese, doit décider comment utiliser l\'enveloppe de 5 millions d\'euros prévue pour le revêtement routier, les coûts ayant bondi de 40 % en raison du conflit en Iran.',
     'blog.article.como-asfaltature-war-costs.imageAlt': 'Route asphaltée dans le Tessin avec paysage lacustre en arrière-plan',
+    'blog.article.referendum-opposizione-ticino.title': 'Référendum au Tessin : le message de l\'opposition et ses répercussions à la frontière',
+    'blog.article.referendum-opposizione-ticino.excerpt': 'Le résultat du référendum en Italie a vu la victoire du Non, avec des leaders de l\'opposition qui célèbrent. Au Tessin, cette dynamique pourrait influencer les frontaliers et les relations avec le canton.',
+    'blog.article.referendum-opposizione-ticino.imageAlt': 'Paysage de Bellinzona avec passages de frontière Ticino-Italie et montagnes',
 };
 
 export default blogMetaFr;
