@@ -446,12 +446,12 @@ const NEWS_SOURCES = [
   // copertura categoria economia per aumentare topic finanziari/lavoro
   'https://www.cdt.ch/news/economia',
   'https://www.cdt.ch/news/svizzera',
-  'https://www.tio.ch/economia',
+  'https://www.tio.ch/ticino/economia',  // was /economia (404), fixed to /ticino/economia (FRO-415)
   'https://www.tio.ch/ticino/cronaca',
   'https://www.rsi.ch/info/economia/',
   'https://www.rsi.ch/info/svizzera/?f=rss',
-  'https://www.swissinfo.ch/ita/rss',
-  'https://www.admin.ch/gov/it/pagina-iniziale/documentazione/comunicati-stampa/rss.xml',
+  // swissinfo.ch RSS removed — 410 Gone (FRO-415)
+  // admin.ch RSS removed — WAF challenge blocks scraping (FRO-415)
 ];
 
 // Fallback: when an RSS feed yields 0 recent items, scrape the base HTML site instead
@@ -470,8 +470,8 @@ const RSS_FALLBACK_MAP = {
   'https://www.varesenoi.it/rss.xml': 'https://www.varesenoi.it/sommario/argomenti/economia-7.html',
   'https://www.ilgiornaledelticino.ch/feed/': 'https://www.ilgiornaledelticino.ch',
   'https://www.rsi.ch/info/svizzera/?f=rss': 'https://www.rsi.ch/info/svizzera/',
-  'https://www.swissinfo.ch/ita/rss': 'https://www.swissinfo.ch/ita',
-  'https://www.admin.ch/gov/it/pagina-iniziale/documentazione/comunicati-stampa/rss.xml': 'https://www.admin.ch/gov/it/pagina-iniziale/documentazione/comunicati-stampa.html',
+  // swissinfo.ch removed — 410 Gone (FRO-415)
+  // admin.ch removed — WAF challenge (FRO-415)
 };
 
 const PROJECT_ROOT = new URL('..', import.meta.url).pathname.replace(/\/$/, '');
@@ -4055,7 +4055,7 @@ async function generateAndValidateArticle(url, sourceContext = null) {
   // Step 4a.2: Regenerate RSS feeds (includes the new article)
   try {
     const { execSync } = await import('child_process');
-    execSync('node scripts/generate-rss-feeds.mjs', { cwd: ROOT, stdio: 'inherit' });
+    execSync('node scripts/generate-rss-feeds.mjs', { cwd: PROJECT_ROOT, stdio: 'inherit' });
   } catch (e) {
     console.error(`⚠️  RSS feed generation failed (non-blocking): ${e.message}`);
   }
