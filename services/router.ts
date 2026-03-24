@@ -28,7 +28,7 @@ import {
 
 // ── Route types ──────────────────────────────────────────────
 
-export type ActiveTab = 'calculator' | 'confronti' | 'fisco' | 'guida' | 'vita' | 'stats' | 'feedback' | 'privacy' | 'data-deletion' | 'api-status' | 'gamification' | 'forum' | 'contact' | 'partners' | 'consulting' | 'job-board' | 'profile' | 'morning' | 'blog' | 'admin' | 'glossario' | 'faq' | 'sitemap' | 'dialetto' | 'contracts' | 'tfr-calculator' | 'permit-quiz' | 'tredicesima' | 'weekly-digest' | 'tool-of-week' | 'email-confirmed' | 'sindacati' | 'chi-siamo';
+export type ActiveTab = 'calculator' | 'confronti' | 'fisco' | 'guida' | 'vita' | 'stats' | 'feedback' | 'privacy' | 'terms' | 'data-deletion' | 'api-status' | 'gamification' | 'forum' | 'contact' | 'partners' | 'consulting' | 'job-board' | 'profile' | 'morning' | 'blog' | 'admin' | 'glossario' | 'faq' | 'sitemap' | 'dialetto' | 'contracts' | 'tfr-calculator' | 'permit-quiz' | 'tredicesima' | 'weekly-digest' | 'tool-of-week' | 'email-confirmed' | 'sindacati' | 'chi-siamo';
 
 export type CalcolatoreSubTab = 'calculator' | 'whatif' | 'payslip' | 'ral' | 'bonus' | 'parental-leave' | 'residency' | 'salary-quiz';
 export type ConfrontiSubTab = 'exchange' | 'banks' | 'health' | 'mobile' | 'shopping' | 'cost-of-living' | 'jobs' | 'renovation';
@@ -455,6 +455,7 @@ interface SlugTable {
   stats: string;
   feedback: string;
   privacy: string;
+  terms: string;
   dataDeletion: string;
   apiStatus: string;
   newsletter: string;
@@ -571,6 +572,7 @@ const SLUG_TABLES: Record<Locale, SlugTable> = {
     stats: 'statistiche',
     feedback: 'supporto',
     privacy: 'privacy',
+    terms: 'termini-di-servizio',
     dataDeletion: 'eliminazione-dati',
     apiStatus: 'stato-api',
     newsletter: 'newsletter',
@@ -663,6 +665,7 @@ const SLUG_TABLES: Record<Locale, SlugTable> = {
     stats: 'statistics',
     feedback: 'support',
     privacy: 'privacy',
+    terms: 'terms-of-service',
     dataDeletion: 'data-deletion',
     apiStatus: 'api-status',
     newsletter: 'newsletter',
@@ -755,6 +758,7 @@ const SLUG_TABLES: Record<Locale, SlugTable> = {
     stats: 'statistiken',
     feedback: 'hilfe',
     privacy: 'datenschutz',
+    terms: 'nutzungsbedingungen',
     dataDeletion: 'daten-loeschen',
     apiStatus: 'api-status',
     newsletter: 'newsletter',
@@ -847,6 +851,7 @@ const SLUG_TABLES: Record<Locale, SlugTable> = {
     stats: 'statistiques',
     feedback: 'assistance',
     privacy: 'confidentialite',
+    terms: 'conditions-utilisation',
     dataDeletion: 'suppression-donnees',
     apiStatus: 'etat-api',
     newsletter: 'newsletter',
@@ -1368,6 +1373,7 @@ function buildTopLevelReverse(table: SlugTable, locale: Locale): TopLevelSlugMap
     [table.stats]: { tab: 'stats' },
     [table.feedback]: { tab: 'feedback' },
     [table.privacy]: { tab: 'privacy' },
+    [table.terms]: { tab: 'terms' },
     [table.chiSiamo]: { tab: 'chi-siamo' },
     [table.dataDeletion]: { tab: 'data-deletion' },
     [table.apiStatus]: { tab: 'api-status' },
@@ -1902,6 +1908,8 @@ export function buildPath(route: AppRoute, locale?: Locale): string {
       return finish(`${prefix}/${table.feedback}${hashSuffix}`);
     case 'privacy':
       return finish(`${prefix}/${table.privacy}${hashSuffix}`);
+    case 'terms':
+      return finish(`${prefix}/${table.terms}${hashSuffix}`);
     case 'chi-siamo':
       return finish(`${prefix}/${table.chiSiamo}${hashSuffix}`);
     case 'sindacati':

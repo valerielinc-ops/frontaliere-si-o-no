@@ -104,7 +104,7 @@ function getAllRoutes(): { route: AppRoute; label: string }[] {
   const standalones: AppRoute['activeTab'][] = [
     'feedback', 'forum', 'contact', 'partners', 'consulting',
     'job-board', 'profile', 'morning', 'gamification',
-    'privacy', 'data-deletion', 'api-status', 'glossario', 'faq', 'sitemap',
+    'privacy', 'terms', 'data-deletion', 'api-status', 'glossario', 'faq', 'sitemap',
     'dialetto',
     'email-confirmed',
     'chi-siamo',

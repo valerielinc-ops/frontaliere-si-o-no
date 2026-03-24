@@ -23,6 +23,7 @@ const WhatsNewBellLazy = lazyRetry(() => import('@/components/community/WhatsNew
 const FeedbackSection = lazyRetry(() => import('@/components/community/FeedbackSection').then(m => ({ default: m.FeedbackSection })));
 const ApiStatus = lazyRetry(() => import('@/components/pages/ApiStatus'));
 const PrivacyPolicy = lazyRetry(() => import('@/components/pages/PrivacyPolicy').then(m => ({ default: m.PrivacyPolicy })));
+const TermsOfService = lazyRetry(() => import('@/components/pages/TermsOfService').then(m => ({ default: m.TermsOfService })));
 const ChiSiamo = lazyRetry(() => import('@/components/pages/ChiSiamo').then(m => ({ default: m.ChiSiamo })));
 const DataDeletion = lazyRetry(() => import('@/components/pages/DataDeletion').then(m => ({ default: m.DataDeletion })));
 const EmailConfirmed = lazyRetry(() => import('@/components/pages/EmailConfirmed').then(m => ({ default: m.EmailConfirmed })));
@@ -2717,6 +2718,10 @@ const App: React.FC = () => {
             <div>
               <PrivacyPolicy />
             </div>
+          ) : activeTab === 'terms' ? (
+            <div>
+              <TermsOfService />
+            </div>
           ) : activeTab === 'chi-siamo' ? (
             <div>
               <ChiSiamo />
@@ -2954,6 +2959,15 @@ const App: React.FC = () => {
               >
                 <Shield className="w-3.5 h-3.5" />
                 {t('footer.privacy')}
+              </a>
+              <span className="text-slate-300 dark:text-slate-700">·</span>
+              <a
+                href={buildPath({ activeTab: 'terms' })}
+                onClick={(e) => { e.preventDefault(); navigateTo('terms' as any); }}
+                className="inline-flex items-center gap-1 text-xs text-slate-600 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors no-underline"
+              >
+                <FileText className="w-3.5 h-3.5" />
+                Termini
               </a>
               <span className="text-slate-300 dark:text-slate-700">·</span>
               <a
