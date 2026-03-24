@@ -74,5 +74,10 @@ service cloud.firestore {
     match /config/{docId} {
       allow read: if true;
     }
+
+    // Exchange rate history — public read only (writes via client best-effort cache)
+    match /exchangeHistory/{docId} {
+      allow read: if true;
+    }
   }
 }

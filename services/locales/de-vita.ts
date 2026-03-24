@@ -140,7 +140,7 @@ const deVita: Record<string, string> = {
     'profile.title': 'Ihr Profil',
     'profile.subtitle': 'Verwalten Sie Ihre persönlichen Informationen',
     'profile.signIn': 'Anmelden',
-    'profile.signInDescription': 'Melden Sie sich mit Google oder Facebook an, um Ihr Profil zu speichern und Daten auf allen Geräten zu synchronisieren.',
+    'profile.signInDescription': 'Melden Sie sich mit Google an, um Ihr Profil zu speichern und Daten auf allen Geräten zu synchronisieren.',
     'profile.signInWithGoogle': 'Mit Google anmelden',
     'profile.signInWithFacebook': 'Mit Facebook anmelden',
     'profile.linkedProviders': 'Verknüpfte Konten',

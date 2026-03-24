@@ -100,8 +100,8 @@ async function saveFirestoreRate(rate: number): Promise<void> {
       updatedAt: new Date().toISOString(),
       source: 'twelvedata',
     });
-  } catch (e) {
-    reportCaughtError(e, 'exchangeRate.firestoreWrite', { apiEndpoint: 'config/exchange_rate' });
+  } catch {
+    // Permission denied is expected for anonymous clients — config writes are admin-only
   }
 }
 
@@ -326,8 +326,8 @@ async function saveHistoryToFirestore(period: HistoryPeriod, points: HistoryPoin
       updatedAt: new Date().toISOString(),
       period,
     });
-  } catch (e) {
-    reportCaughtError(e, 'exchangeRate.firestoreHistoryWrite', { apiEndpoint: `exchangeHistory/chf-eur-${period}` });
+  } catch {
+    // Permission denied is expected for anonymous clients — history writes are best-effort
   }
 }
 

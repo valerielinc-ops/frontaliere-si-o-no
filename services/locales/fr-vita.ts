@@ -140,7 +140,7 @@ const frVita: Record<string, string> = {
     'profile.title': 'Votre Profil',
     'profile.subtitle': 'Gérez vos informations personnelles',
     'profile.signIn': 'Se connecter',
-    'profile.signInDescription': 'Connectez-vous avec Google ou Facebook pour sauvegarder votre profil et synchroniser vos données sur tous vos appareils.',
+    'profile.signInDescription': 'Connectez-vous avec Google pour sauvegarder votre profil et synchroniser vos données sur tous vos appareils.',
     'profile.signInWithGoogle': 'Se connecter avec Google',
     'profile.signInWithFacebook': 'Se connecter avec Facebook',
     'profile.linkedProviders': 'Comptes liés',

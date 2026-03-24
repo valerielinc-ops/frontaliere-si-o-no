@@ -140,7 +140,7 @@ const enVita: Record<string, string> = {
     'profile.title': 'Your Profile',
     'profile.subtitle': 'Manage your personal information',
     'profile.signIn': 'Sign in',
-    'profile.signInDescription': 'Sign in with Google or Facebook to save your profile and sync data across all your devices.',
+    'profile.signInDescription': 'Sign in with Google to save your profile and sync data across all your devices.',
     'profile.signInWithGoogle': 'Sign in with Google',
     'profile.signInWithFacebook': 'Sign in with Facebook',
     'profile.linkedProviders': 'Linked accounts',

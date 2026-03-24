@@ -147,7 +147,7 @@ const translations: Record<string, string> = {
     'profile.title': 'Il tuo Profilo',
     'profile.subtitle': 'Gestisci le tue informazioni personali',
     'profile.signIn': 'Accedi',
-    'profile.signInDescription': 'Accedi con Google o Facebook per salvare il tuo profilo e sincronizzare i dati su tutti i tuoi dispositivi.',
+    'profile.signInDescription': 'Accedi con Google per salvare il tuo profilo e sincronizzare i dati su tutti i tuoi dispositivi.',
     'profile.signInWithGoogle': 'Accedi con Google',
     'profile.signInWithFacebook': 'Accedi con Facebook',
     'profile.linkedProviders': 'Account collegati',
