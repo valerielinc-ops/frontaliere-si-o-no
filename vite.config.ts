@@ -16,6 +16,7 @@ import { jobsSeoPagesPlugin } from './build-plugins/jobsSeoPagesPlugin';
 import { staticPagesPlugin } from './build-plugins/staticPagesPlugin';
 import { sitemapAliasPlugin } from './build-plugins/sitemapAliasPlugin';
 import { legacyRedirectsPlugin } from './build-plugins/legacyRedirectsPlugin';
+import { flatContentPlugin } from './build-plugins/flatContentPlugin';
 import { llmsTxtPlugin } from './build-plugins/llmsTxtPlugin';
 import { adminDataPlugin } from './build-plugins/adminDataPlugin';
 import { crawlerRegistryPlugin } from './build-plugins/crawlerRegistryPlugin';
@@ -53,6 +54,7 @@ export default defineConfig(({ mode }) => {
         staticPagesPlugin(__dirname),
         sitemapAliasPlugin(__dirname),
         legacyRedirectsPlugin(__dirname),
+        flatContentPlugin(),
         llmsTxtPlugin(__dirname),
         adminDataPlugin(__dirname),
         crawlerRegistryPlugin(__dirname),
