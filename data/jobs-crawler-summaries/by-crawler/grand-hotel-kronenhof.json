@@ -1,16 +1,16 @@
 {
   "key": "grand-hotel-kronenhof",
   "label": "kronenhof",
-  "generatedAt": "2026-03-23T21:32:10.520Z",
+  "generatedAt": "2026-03-24T09:47:23.655Z",
   "total": 30,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 30,
-  "durationMs": 207446,
-  "avgDurationMs": 207446,
+  "durationMs": 30526,
+  "avgDurationMs": 30526,
   "durationHistory": [
-    207446
+    30526
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -57,7 +57,7 @@
         "de": "team-assistent-concierge-and-guest-services-m-w-d-kulm-hotel-st-moritz-st-moritz",
         "fr": "team-assistant-concierge-and-guest-services-m-w-d-kulm-hotel-st-moritz-st-moritz"
       },
-      "crawledAt": "2026-03-23T21:28:44.810Z",
+      "crawledAt": "2026-03-24T09:46:54.059Z",
       "salaryMin": 58000,
       "salaryMax": 78000,
       "currency": "CHF",
@@ -114,7 +114,7 @@
         "de": "assistant-event-manager-m-w-d-kulm-hotel-st-moritz-st-moritz",
         "fr": "assistant-event-manager-h-w-d-kulm-hotel-st-moritz-st-moritz"
       },
-      "crawledAt": "2026-03-23T21:28:44.811Z",
+      "crawledAt": "2026-03-24T09:46:54.060Z",
       "salaryMin": 72000,
       "salaryMax": 97000,
       "currency": "CHF",
@@ -155,7 +155,7 @@
       "description": "Breakfast Cook/ Commis de Cuisine Breakfast (m/w/d) — Grand Hotel Kronenhof, Pontresina (Engadin, Graubünden). Pensum: 100%. Vertrag: 10-Monats-Stelle / 10-month contract. Stellenantritt: 2026-06-05. Bewerbungen an: people@kulmgroup.com oder über https://careers.kronenhof.com/en/vacancies",
       "titleByLocale": {
         "en": "Breakfast Cook/ Commis de Cuisine Breakfast (m/w/d)",
-        "de": "Frühstück Koch/ Commis de Cuisine Frühstück (m/w/d)",
+        "de": "Breakfast Cook/ Commis de Cuisine Breakfast (m/w/d)",
         "it": "Colazione Cuoco/ Commis de Cuisine Colazione (m/p/g)",
         "fr": "Petit-déjeuner Cuisinier/ Commis de Cuisine Petit-déjeuner (h/w/j)"
       },
@@ -168,10 +168,10 @@
       "slugByLocale": {
         "it": "colazione-cuoco-commis-de-cuisine-colazione-m-p-g-grand-hotel-kronenhof-pontresina",
         "en": "breakfast-cook-commis-de-cuisine-breakfast-m-w-d-grand-hotel-kronenhof-pontresina",
-        "de": "fruhstuck-koch-commis-de-cuisine-fruhstuck-m-w-d-grand-hotel-kronenhof-pontresina",
+        "de": "breakfast-cook-commis-de-cuisine-breakfast-m-w-d-grand-hotel-kronenhof-pontresina",
         "fr": "petit-dejeuner-cuisinier-commis-de-cuisine-petit-dejeuner-h-w-j-grand-hotel-kronenhof-pontresina"
       },
-      "crawledAt": "2026-03-23T21:28:44.811Z",
+      "crawledAt": "2026-03-24T09:46:54.060Z",
       "salaryMin": 58000,
       "salaryMax": 78000,
       "currency": "CHF",
@@ -212,9 +212,8 @@
       "description": "Chef de Partie - Kulm Country Club (m/w/d) — Kulm Hotel St. Moritz, St. Moritz (Engadin, Graubünden). Pensum: 100%. Vertrag: Saisonstelle / Seasonal. Stellenantritt: 2026-06-01. Bewerbungen an: people@kulmgroup.com oder über https://careers.kronenhof.com/en/vacancies",
       "titleByLocale": {
         "fr": "Chef de Partie - Kulm Country Club (m/w/d)",
-        "it": "Capo partita - Kulm Country Club (m/w/d)",
-        "en": "Head of Party - Kulm Country Club (m/w/d)",
-        "de": "Chef de Partie - Kulm Country Club (m/w/d)"
+        "de": "Chef de Partie - Kulm Country Club (m/w/d)",
+        "it": "Capo partita - Kulm Country Club (m/w/d)"
       },
       "descriptionByLocale": {
         "de": "Chef de Partie - Kulm Country Club (m/w/d) — Kulm Hotel St. Moritz, St. Moritz (Engadin, Graubünden). Pensum: 100%. Vertrag: Saisonstelle / Seasonal. Stellenantritt: 2026-06-01. Bewerbungen an: people@kulmgroup.com oder über https://careers.kronenhof.com/en/vacancies",
@@ -228,17 +227,17 @@
         "de": "chef-de-partie-kulm-country-club-m-w-d-kulm-hotel-st-moritz-st-moritz",
         "fr": "chef-de-partie-kulm-country-club-m-w-d-kulm-hotel-st-moritz-st-moritz"
       },
-      "crawledAt": "2026-03-23T21:28:44.812Z",
-      "salaryMin": 72000,
-      "salaryMax": 97000,
+      "crawledAt": "2026-03-24T09:46:54.061Z",
+      "salaryMin": 58000,
+      "salaryMax": 78000,
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 72000,
-          "maxValue": 97000,
+          "minValue": 58000,
+          "maxValue": 78000,
           "unitText": "YEAR"
         }
       },
@@ -285,7 +284,7 @@
         "de": "chef-de-partie-mitarbeiterrestaurant-personalkoch-m-w-d-kulm-hotel-st-moritz-st-moritz",
         "fr": "chef-de-partie-restaurant-du-personnel-chef-du-personnel-h-f-d-kulm-hotel-st-moritz-st-moritz"
       },
-      "crawledAt": "2026-03-23T21:28:44.812Z",
+      "crawledAt": "2026-03-24T09:46:54.061Z",
       "salaryMin": 58000,
       "salaryMax": 78000,
       "currency": "CHF",
@@ -342,7 +341,7 @@
         "de": "chef-de-rang-m-w-d-kulm-hotel-st-moritz-st-moritz",
         "fr": "chef-de-rang-m-w-d-kulm-hotel-st-moritz-st-moritz"
       },
-      "crawledAt": "2026-03-23T21:28:44.812Z",
+      "crawledAt": "2026-03-24T09:46:54.061Z",
       "salaryMin": 58000,
       "salaryMax": 78000,
       "currency": "CHF",
@@ -399,7 +398,7 @@
         "de": "chef-de-rang-m-w-d-grand-hotel-kronenhof-pontresina",
         "fr": "chef-de-rang-h-f-d-grand-hotel-kronenhof-pontresina"
       },
-      "crawledAt": "2026-03-23T21:28:44.812Z",
+      "crawledAt": "2026-03-24T09:46:54.061Z",
       "salaryMin": 72000,
       "salaryMax": 97000,
       "currency": "CHF",
@@ -456,7 +455,7 @@
         "de": "commis-de-rang-assistent-waiter-m-w-d-grand-hotel-kronenhof-pontresina",
         "fr": "commis-de-rang-assistant-waiter-m-w-d-grand-hotel-kronenhof-pontresina"
       },
-      "crawledAt": "2026-03-23T21:28:44.812Z",
+      "crawledAt": "2026-03-24T09:46:54.061Z",
       "salaryMin": 58000,
       "salaryMax": 78000,
       "currency": "CHF",
@@ -503,8 +502,8 @@
       "descriptionByLocale": {
         "de": "Cook - Staff Restaurant (m/w/d) — Grand Hotel Kronenhof, Pontresina (Engadin, Graubünden). Pensum: 100%. Vertrag: Saisonstelle / Seasonal. Stellenantritt: 2025-12-15. Bewerbungen an: people@kulmgroup.com oder über https://careers.kronenhof.com/en/vacancies",
         "it": "## Cook - Staff Restaurant (m/w/d)\n\n**Grand Hotel Kronenhof** — Pontresina (GR)\n\nCook - Staff Restaurant (m/w/d) — Grand Hotel Kronenhof, Pontresina (Engadin, Graubünden). Pensum: 100%. Vertrag: Saisonstelle / Seasonal. Stellenantritt: 2025-12-15. Bewerbungen an: people@kulmgroup.com oder über https://careers.kronenhof.com/en/vacancies\n\nIl Grand Hotel Kronenhof di Pontresina è uno degli hotel di lusso più prestigiosi dell'Engadina, con ruoli in hotellerie, ristorazione, spa e servizi al cliente. La struttura opera in un contesto premium, internazionale e fortemente orientato alla qualità del servizio.\n\nOffriamo un ambiente professionale di alto livello, benefit per il personale, possibilità di crescita stagionale e pluriennale e un'esperienza formativa solida nell'ospitalità svizzera.",
-        "en": "Cook - Staff Restaurant (m/f/d) — Grand Hotel Kronenhof, Pontresina (Engadin, Graubünden). Workload: 100%. Contract: Seasonal position. Start of position: 2025-12-15. Applications to: people@kulmgroup.com or via https://careers.kronenhof.com/en/vacancies",
-        "fr": "Cuisinier - Restaurant du personnel (h/f/d) — Grand Hotel Kronenhof, Pontresina (Engadine, Grisons). Charge de travail : 100 %. Contrat : Poste saisonnier. Début de poste : 2025-12-15. Candidatures à : people@kulmgroup.com ou via https://careers.kronenhof.com/en/vacancies"
+        "en": "Cook - Staff Restaurant (m/f/d) — Grand Hotel Kronenhof, Pontresina (Engadine, Grisons). Workload: 100%. Contract: Seasonal position / Seasonal. Start of employment: 2025-12-15. Applications to: people@kulmgroup.com or via https://careers.kronenhof.com/en/vacancies",
+        "fr": "Cook - Staff Restaurant (h/f/d) — Grand Hotel Kronenhof, Pontresina (Engadine, Grisons). Taux d'occupation : 100 %. Contrat : emploi saisonnier / saisonnier. Entrée en fonction : 2025-12-15. Candidatures à : people@kulmgroup.com ou via https://careers.kronenhof.com/en/vacancies"
       },
       "slugByLocale": {
         "it": "cuoco-ristorante-del-personale-m-l-g-grand-hotel-kronenhof-pontresina",
@@ -512,7 +511,7 @@
         "de": "koch-personal-restaurant-m-w-d-grand-hotel-kronenhof-pontresina",
         "fr": "cook-staff-restaurant-m-w-d-grand-hotel-kronenhof-pontresina"
       },
-      "crawledAt": "2026-03-23T21:28:44.812Z",
+      "crawledAt": "2026-03-24T09:46:54.061Z",
       "salaryMin": 58000,
       "salaryMax": 78000,
       "currency": "CHF",
@@ -553,8 +552,8 @@
       "description": "Cook - Staff Restaurant (m/w/d) — Grand Hotel Kronenhof, Pontresina (Engadin, Graubünden). Pensum: 100%. Vertrag: 10-Monats-Stelle / 10-month contract. Stellenantritt: 2026-06-01. Bewerbungen an: people@kulmgroup.com oder über https://careers.kronenhof.com/en/vacancies",
       "titleByLocale": {
         "fr": "Cook - Staff Restaurant (m/w/d)",
-        "de": "Koch - Personal Restaurant (m/w/d)",
-        "it": "Cuoco - Ristorante del personale (m/l/g)"
+        "it": "Cuoco - Ristorante del personale (m/l/g)",
+        "de": "Cook - Staff Restaurant (m/w/d)"
       },
       "descriptionByLocale": {
         "de": "Cook - Staff Restaurant (m/w/d) — Grand Hotel Kronenhof, Pontresina (Engadin, Graubünden). Pensum: 100%. Vertrag: 10-Monats-Stelle / 10-month contract. Stellenantritt: 2026-06-01. Bewerbungen an: people@kulmgroup.com oder über https://careers.kronenhof.com/en/vacancies",
@@ -565,10 +564,10 @@
       "slugByLocale": {
         "it": "cuoco-ristorante-del-personale-m-l-g-grand-hotel-kronenhof-pontresina",
         "en": "cook-staff-restaurant-m-w-d-grand-hotel-kronenhof-pontresina",
-        "de": "koch-personal-restaurant-m-w-d-grand-hotel-kronenhof-pontresina",
+        "de": "cook-staff-restaurant-m-w-d-grand-hotel-kronenhof-pontresina",
         "fr": "cook-staff-restaurant-m-w-d-grand-hotel-kronenhof-pontresina"
       },
-      "crawledAt": "2026-03-23T21:28:44.812Z",
+      "crawledAt": "2026-03-24T09:46:54.061Z",
       "salaryMin": 58000,
       "salaryMax": 78000,
       "currency": "CHF",
@@ -609,7 +608,7 @@
       "description": "Demi Chef de Partie - Breakfast (m/w/d) — Kulm Hotel St. Moritz, St. Moritz (Engadin, Graubünden). Pensum: 100%. Vertrag: Saisonstelle / Seasonal. Stellenantritt: 2026-06-01. Bewerbungen an: people@kulmgroup.com oder über https://careers.kronenhof.com/en/vacancies",
       "titleByLocale": {
         "fr": "Demi Chef de Partie - Breakfast (m/w/d)",
-        "de": "Demi Chef de Party - Frühstück (m/w/d)",
+        "de": "Demi Chef de Partie - Breakfast (m/w/d)",
         "it": "Demi Chef de Party - Colazione (m/w/g)",
         "en": "Demi Chef de Party - Breakfast (m/w/d)"
       },
@@ -622,10 +621,10 @@
       "slugByLocale": {
         "it": "demi-chef-de-party-colazione-m-w-g-kulm-hotel-st-moritz-st-moritz",
         "en": "demi-chef-de-party-breakfast-m-w-d-kulm-hotel-st-moritz-st-moritz",
-        "de": "demi-chef-de-party-fruhstuck-m-w-d-kulm-hotel-st-moritz-st-moritz",
+        "de": "demi-chef-de-partie-breakfast-m-w-d-kulm-hotel-st-moritz-st-moritz",
         "fr": "demi-chef-de-partie-breakfast-m-w-d-kulm-hotel-st-moritz-st-moritz"
       },
-      "crawledAt": "2026-03-23T21:28:44.812Z",
+      "crawledAt": "2026-03-24T09:46:54.061Z",
       "salaryMin": 58000,
       "salaryMax": 78000,
       "currency": "CHF",
@@ -682,7 +681,7 @@
         "de": "driver-m-w-d-grand-hotel-kronenhof-pontresina",
         "fr": "driver-m-w-d-grand-hotel-kronenhof-pontresina"
       },
-      "crawledAt": "2026-03-23T21:28:44.812Z",
+      "crawledAt": "2026-03-24T09:46:54.061Z",
       "salaryMin": 58000,
       "salaryMax": 78000,
       "currency": "CHF",
@@ -723,7 +722,7 @@
       "description": "Employee Economat & Bike Lounge (m/w/d) — Kulm Hotel St. Moritz, St. Moritz (Engadin, Graubünden). Pensum: 100%. Vertrag: Saisonstelle / Seasonal. Stellenantritt: 2026-06-01. Bewerbungen an: people@kulmgroup.com oder über https://careers.kronenhof.com/en/vacancies",
       "titleByLocale": {
         "it": "Employee Economat & Bike Lounge (m/w/d)",
-        "de": "Mitarbeiter Economat & Bike Lounge (m/w/d)",
+        "de": "Employee Economat & Bike Lounge (m/w/d)",
         "en": "Emplo EconomEe Economat & Bike Lounge (m/w",
         "fr": "Employé Economat & Bike Lounge (m/w/d)"
       },
@@ -736,10 +735,10 @@
       "slugByLocale": {
         "it": "employee-economat-bike-lounge-m-w-d-kulm-hotel-st-moritz-st-moritz",
         "en": "emplo-economee-economat-bike-lounge-m-w-kulm-hotel-st-moritz-st-moritz",
-        "de": "mitarbeiter-economat-bike-lounge-m-w-d-kulm-hotel-st-moritz-st-moritz",
+        "de": "employee-economat-bike-lounge-m-w-d-kulm-hotel-st-moritz-st-moritz",
         "fr": "employe-economat-bike-lounge-m-w-d-kulm-hotel-st-moritz-st-moritz"
       },
-      "crawledAt": "2026-03-23T21:28:44.812Z",
+      "crawledAt": "2026-03-24T09:46:54.061Z",
       "salaryMin": 58000,
       "salaryMax": 78000,
       "currency": "CHF",
@@ -780,7 +779,7 @@
       "description": "Florist (m/w/d) — Kulm Hotel St. Moritz, St. Moritz (Engadin, Graubünden). Pensum: 100%. Vertrag: Saisonstelle / Seasonal. Stellenantritt: 2026-06-01. Bewerbungen an: people@kulmgroup.com oder über https://careers.kronenhof.com/en/vacancies",
       "titleByLocale": {
         "it": "Florist (m/w/d)",
-        "de": "Blumenhändler (m/w/d)",
+        "de": "Florist (m/w/d)",
         "en": "Florist (m / d",
         "fr": "Fleuriste (m/w/d)"
       },
@@ -793,10 +792,10 @@
       "slugByLocale": {
         "it": "florist-m-w-d-kulm-hotel-st-moritz-st-moritz",
         "en": "florist-m-d-kulm-hotel-st-moritz-st-moritz",
-        "de": "blumenhandler-m-w-d-kulm-hotel-st-moritz-st-moritz",
+        "de": "florist-m-w-d-kulm-hotel-st-moritz-st-moritz",
         "fr": "fleuriste-m-w-d-kulm-hotel-st-moritz-st-moritz"
       },
-      "crawledAt": "2026-03-23T21:28:44.812Z",
+      "crawledAt": "2026-03-24T09:46:54.061Z",
       "salaryMin": 58000,
       "salaryMax": 78000,
       "currency": "CHF",
@@ -837,7 +836,7 @@
       "description": "Florist (m/w/d) — Grand Hotel Kronenhof, Pontresina (Engadin, Graubünden). Pensum: 100%. Vertrag: 10-Monats-Stelle / 10-month contract. Stellenantritt: 2026-06-01. Bewerbungen an: people@kulmgroup.com oder über https://careers.kronenhof.com/en/vacancies",
       "titleByLocale": {
         "it": "Florist (m/w/d)",
-        "de": "Blumenhändler (m/w/d)",
+        "de": "Florist (m/w/d)",
         "en": "Florist (m / d",
         "fr": "Fleuriste (m/w/d)"
       },
@@ -850,10 +849,10 @@
       "slugByLocale": {
         "it": "florist-m-w-d-grand-hotel-kronenhof-pontresina",
         "en": "florist-m-d-grand-hotel-kronenhof-pontresina",
-        "de": "blumenhandler-m-w-d-grand-hotel-kronenhof-pontresina",
+        "de": "florist-m-w-d-grand-hotel-kronenhof-pontresina",
         "fr": "fleuriste-m-w-d-grand-hotel-kronenhof-pontresina"
       },
-      "crawledAt": "2026-03-23T21:28:44.812Z",
+      "crawledAt": "2026-03-24T09:46:54.061Z",
       "salaryMin": 58000,
       "salaryMax": 78000,
       "currency": "CHF",
@@ -909,8 +908,7 @@
         "de": "food-and-beverage-assistent-m-w-d-kulm-hotel-st-moritz-st-moritz",
         "fr": "food-and-beverage-assistant-m-w-d-kulm-hotel-st-moritz-st-moritz"
       },
-      "crawledAt": "2026-03-23T21:28:44.812Z",
-      "needsRetranslation": true,
+      "crawledAt": "2026-03-24T09:46:54.061Z",
       "salaryMin": 58000,
       "salaryMax": 78000,
       "currency": "CHF",
@@ -967,7 +965,7 @@
         "de": "food-and-beverage-direktor-m-w-d-grand-hotel-kronenhof-pontresina",
         "fr": "food-and-beverage-directeur-m-w-d-grand-hotel-kronenhof-pontresina"
       },
-      "crawledAt": "2026-03-23T21:28:44.813Z",
+      "crawledAt": "2026-03-24T09:46:54.062Z",
       "salaryMin": 72000,
       "salaryMax": 97000,
       "currency": "CHF",
@@ -1024,7 +1022,7 @@
         "de": "front-office-agent-m-w-d-kulm-hotel-st-moritz-st-moritz",
         "fr": "agent-de-reception-h-f-d-kulm-hotel-st-moritz-st-moritz"
       },
-      "crawledAt": "2026-03-23T21:28:44.813Z",
+      "crawledAt": "2026-03-24T09:46:54.062Z",
       "salaryMin": 58000,
       "salaryMax": 78000,
       "currency": "CHF",
@@ -1080,8 +1078,7 @@
         "de": "linen-employee-teilzeit-50-m-w-d-grand-hotel-kronenhof-pontresina",
         "fr": "linen-employee-part-time-50-m-w-d-grand-hotel-kronenhof-pontresina"
       },
-      "crawledAt": "2026-03-23T21:28:44.813Z",
-      "needsRetranslation": true,
+      "crawledAt": "2026-03-24T09:46:54.062Z",
       "salaryMin": 58000,
       "salaryMax": 78000,
       "currency": "CHF",
@@ -1122,7 +1119,7 @@
       "description": "Maître de Rang (m/w/d) — Grand Hotel Kronenhof, Pontresina (Engadin, Graubünden). Pensum: 100%. Vertrag: Saisonstelle / Seasonal. Stellenantritt: 2025-12-01. Bewerbungen an: people@kulmgroup.com oder über https://careers.kronenhof.com/en/vacancies",
       "titleByLocale": {
         "fr": "Maître de Rang (m/w/d)",
-        "de": "Rangmeister (m/w/d)",
+        "de": "Maître de Rang (m/w/d)",
         "it": "Grado Maestro (m/w/d)",
         "en": "Rank Master (m/w/d)"
       },
@@ -1135,10 +1132,10 @@
       "slugByLocale": {
         "it": "grado-maestro-m-w-d-grand-hotel-kronenhof-pontresina",
         "en": "rank-master-m-w-d-grand-hotel-kronenhof-pontresina",
-        "de": "rangmeister-m-w-d-grand-hotel-kronenhof-pontresina",
+        "de": "maitre-de-rang-m-w-d-grand-hotel-kronenhof-pontresina",
         "fr": "maitre-de-rang-m-w-d-grand-hotel-kronenhof-pontresina"
       },
-      "crawledAt": "2026-03-23T21:28:44.813Z",
+      "crawledAt": "2026-03-24T09:46:54.062Z",
       "salaryMin": 58000,
       "salaryMax": 78000,
       "currency": "CHF",
@@ -1194,7 +1191,7 @@
         "de": "nachtportier-night-auditor-m-w-d-grand-hotel-kronenhof-pontresina",
         "fr": "porteur-de-nuit-auditeur-de-nuit-h-f-d-grand-hotel-kronenhof-pontresina"
       },
-      "crawledAt": "2026-03-23T21:28:44.813Z",
+      "crawledAt": "2026-03-24T09:46:54.062Z",
       "salaryMin": 58000,
       "salaryMax": 78000,
       "currency": "CHF",
@@ -1251,7 +1248,7 @@
         "de": "office-employee-steward-start-immediately-m-w-d-grand-hotel-kronenhof-pontresina",
         "fr": "employe-de-bureau-steward-commence-immediatement-m-f-d-grand-hotel-kronenhof-pontresina"
       },
-      "crawledAt": "2026-03-23T21:28:44.813Z",
+      "crawledAt": "2026-03-24T09:46:54.062Z",
       "salaryMin": 58000,
       "salaryMax": 78000,
       "currency": "CHF",
@@ -1292,7 +1289,7 @@
       "description": "Porter Tournant (m/w/d) — Grand Hotel Kronenhof, Pontresina (Engadin, Graubünden). Pensum: 100%. Vertrag: 10-Monats-Stelle / 10-month contract. Stellenantritt: 2026-06-01. Bewerbungen an: people@kulmgroup.com oder über https://careers.kronenhof.com/en/vacancies",
       "titleByLocale": {
         "fr": "Porter Tournant (m/w/d)",
-        "de": "Porter Drehen (m/w/d)",
+        "de": "Porter Tournant (m/w/d)",
         "en": "Porter Turning (m/w/d)"
       },
       "descriptionByLocale": {
@@ -1304,10 +1301,10 @@
       "slugByLocale": {
         "it": "porter-tournant-m-w-d-grand-hotel-kronenhof-pontresina",
         "en": "porter-turning-m-w-d-grand-hotel-kronenhof-pontresina",
-        "de": "porter-drehen-m-w-d-grand-hotel-kronenhof-pontresina",
+        "de": "porter-tournant-m-w-d-grand-hotel-kronenhof-pontresina",
         "fr": "porter-tournant-m-w-d-grand-hotel-kronenhof-pontresina"
       },
-      "crawledAt": "2026-03-23T21:28:44.813Z",
+      "crawledAt": "2026-03-24T09:46:54.062Z",
       "salaryMin": 58000,
       "salaryMax": 78000,
       "currency": "CHF",
@@ -1364,7 +1361,7 @@
         "de": "reservations-agent-m-w-d-kulm-hotel-st-moritz-st-moritz",
         "fr": "reservations-agent-m-w-d-kulm-hotel-st-moritz-st-moritz"
       },
-      "crawledAt": "2026-03-23T21:28:44.814Z",
+      "crawledAt": "2026-03-24T09:46:54.062Z",
       "salaryMin": 58000,
       "salaryMax": 78000,
       "currency": "CHF",
@@ -1405,7 +1402,7 @@
       "description": "Room Attendant / Zimmerdame / Roomboy (m/w/d) — Grand Hotel Kronenhof, Pontresina (Engadin, Graubünden). Pensum: 100%. Vertrag: Saisonstelle / Seasonal. Stellenantritt: 2026-01-15. Bewerbungen an: people@kulmgroup.com oder über https://careers.kronenhof.com/en/vacancies",
       "titleByLocale": {
         "fr": "Room Attendant / Zimmerdame / Roomboy (m/w/d)",
-        "de": "Zimmerbetreuer / Zimmerdame / Zimmerjunge (m/w/d)",
+        "de": "Room Attendant / Zimmerdame / Roomboy (m/w/d)",
         "it": "Assistente di camera / Zimmerdame / Roomboy (m/w/d)",
         "en": "Room Waiting / Zimmerdame / Roomboy (m/w/d)"
       },
@@ -1418,10 +1415,10 @@
       "slugByLocale": {
         "it": "assistente-di-camera-zimmerdame-roomboy-m-w-d-grand-hotel-kronenhof-pontresina",
         "en": "room-waiting-zimmerdame-roomboy-m-w-d-grand-hotel-kronenhof-pontresina",
-        "de": "zimmerbetreuer-zimmerdame-zimmerjunge-m-w-d-grand-hotel-kronenhof-pontresina",
+        "de": "room-attendant-zimmerdame-roomboy-m-w-d-grand-hotel-kronenhof-pontresina",
         "fr": "room-attendant-zimmerdame-roomboy-m-w-d-grand-hotel-kronenhof-pontresina"
       },
-      "crawledAt": "2026-03-23T21:28:44.814Z",
+      "crawledAt": "2026-03-24T09:46:54.063Z",
       "salaryMin": 58000,
       "salaryMax": 78000,
       "currency": "CHF",
@@ -1462,8 +1459,8 @@
       "description": "Service Employee Staff Restaurant (m/w/d) — Kulm Hotel St. Moritz, St. Moritz (Engadin, Graubünden). Pensum: 100%. Vertrag: Saisonstelle / Seasonal. Stellenantritt: 2026-06-01. Bewerbungen an: people@kulmgroup.com oder über https://careers.kronenhof.com/en/vacancies",
       "titleByLocale": {
         "fr": "Service Employee Staff Restaurant (m/w/d)",
-        "de": "Servicemitarbeiter Restaurantmitarbeiter (m/w/d)",
-        "it": "Servizio Dipendente Personale Ristorante (m/w/g)"
+        "it": "Servizio Dipendente Personale Ristorante (m/w/g)",
+        "de": "Service Employee Staff Restaurant (m/w/d)"
       },
       "descriptionByLocale": {
         "de": "Service Employee Staff Restaurant (m/w/d) — Kulm Hotel St. Moritz, St. Moritz (Engadin, Graubünden). Pensum: 100%. Vertrag: Saisonstelle / Seasonal. Stellenantritt: 2026-06-01. Bewerbungen an: people@kulmgroup.com oder über https://careers.kronenhof.com/en/vacancies",
@@ -1474,10 +1471,10 @@
       "slugByLocale": {
         "it": "servizio-dipendente-personale-ristorante-m-w-g-kulm-hotel-st-moritz-st-moritz",
         "en": "service-employee-staff-restaurant-m-w-d-kulm-hotel-st-moritz-st-moritz",
-        "de": "servicemitarbeiter-restaurantmitarbeiter-m-w-d-kulm-hotel-st-moritz-st-moritz",
+        "de": "service-employee-staff-restaurant-m-w-d-kulm-hotel-st-moritz-st-moritz",
         "fr": "service-employee-staff-restaurant-m-w-d-kulm-hotel-st-moritz-st-moritz"
       },
-      "crawledAt": "2026-03-23T21:28:44.814Z",
+      "crawledAt": "2026-03-24T09:46:54.063Z",
       "salaryMin": 58000,
       "salaryMax": 78000,
       "currency": "CHF",
@@ -1518,7 +1515,7 @@
       "description": "Spa Therapist (m/w/d) — Grand Hotel Kronenhof, Pontresina (Engadin, Graubünden). Pensum: 100%. Vertrag: Saisonstelle / Seasonal. Stellenantritt: 2025-11-15. Bewerbungen an: people@kulmgroup.com oder über https://careers.kronenhof.com/en/vacancies",
       "titleByLocale": {
         "en": "Spa Therapist (m/w/d)",
-        "de": "Spa-Therapeut (m/w/d)",
+        "de": "Spa Therapist (m/w/d)",
         "it": "Terapista termale (m/w/d)",
         "fr": "Thérapeute de spa (lundi/mercredi/leurredi)"
       },
@@ -1531,10 +1528,10 @@
       "slugByLocale": {
         "it": "terapista-termale-m-w-d-grand-hotel-kronenhof-pontresina",
         "en": "spa-therapist-m-w-d-grand-hotel-kronenhof-pontresina",
-        "de": "spa-therapeut-m-w-d-grand-hotel-kronenhof-pontresina",
+        "de": "spa-therapist-m-w-d-grand-hotel-kronenhof-pontresina",
         "fr": "therapeute-de-spa-lundi-mercredi-leurredi-grand-hotel-kronenhof-pontresina"
       },
-      "crawledAt": "2026-03-23T21:28:44.814Z",
+      "crawledAt": "2026-03-24T09:46:54.063Z",
       "salaryMin": 58000,
       "salaryMax": 78000,
       "currency": "CHF",
@@ -1591,7 +1588,7 @@
         "de": "vorgesetzter-stewarding-m-w-d-kulm-hotel-st-moritz-st-moritz",
         "fr": "superviseur-stewarding-m-w-d-kulm-hotel-st-moritz-st-moritz"
       },
-      "crawledAt": "2026-03-23T21:28:44.814Z",
+      "crawledAt": "2026-03-24T09:46:54.063Z",
       "salaryMin": 58000,
       "salaryMax": 78000,
       "currency": "CHF",
@@ -1632,9 +1629,9 @@
       "description": "Training & Development Manager (m/w/d) — Kulm Hotel St. Moritz, St. Moritz (Engadin, Graubünden). Pensum: 100%. Vertrag: Unbefristet / Permanent. Stellenantritt: 2026-06-01. Bewerbungen an: people@kulmgroup.com oder über https://careers.kronenhof.com/en/vacancies",
       "titleByLocale": {
         "en": "Training & Development Manager (m/w/d)",
-        "de": "Schulungs- und Entwicklungsmanager (m/w/d)",
         "it": "Responsabile formazione e sviluppo (m/w/d)",
-        "fr": "Responsable formation et développement (m/w/d)"
+        "fr": "Responsable formation et développement (m/w/d)",
+        "de": "Training & Development Manager (m/w/d)"
       },
       "descriptionByLocale": {
         "de": "Training & Development Manager (m/w/d) — Kulm Hotel St. Moritz, St. Moritz (Engadin, Graubünden). Pensum: 100%. Vertrag: Unbefristet / Permanent. Stellenantritt: 2026-06-01. Bewerbungen an: people@kulmgroup.com oder über https://careers.kronenhof.com/en/vacancies",
@@ -1645,10 +1642,10 @@
       "slugByLocale": {
         "it": "responsabile-formazione-e-sviluppo-m-w-d-kulm-hotel-st-moritz-st-moritz",
         "en": "training-development-manager-m-w-d-kulm-hotel-st-moritz-st-moritz",
-        "de": "schulungs-und-entwicklungsmanager-m-w-d-kulm-hotel-st-moritz-st-moritz",
+        "de": "training-development-manager-m-w-d-kulm-hotel-st-moritz-st-moritz",
         "fr": "responsable-formation-et-developpement-m-w-d-kulm-hotel-st-moritz-st-moritz"
       },
-      "crawledAt": "2026-03-23T21:28:44.814Z",
+      "crawledAt": "2026-03-24T09:46:54.063Z",
       "salaryMin": 72000,
       "salaryMax": 97000,
       "currency": "CHF",
@@ -1705,7 +1702,7 @@
         "de": "upholsterer-m-w-d-kulm-hotel-st-moritz-st-moritz",
         "fr": "tapissier-h-f-d-kulm-hotel-st-moritz-st-moritz"
       },
-      "crawledAt": "2026-03-23T21:28:44.814Z",
+      "crawledAt": "2026-03-24T09:46:54.063Z",
       "salaryMin": 58000,
       "salaryMax": 78000,
       "currency": "CHF",
