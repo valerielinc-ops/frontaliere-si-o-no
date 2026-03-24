@@ -244,17 +244,16 @@ async function fetchExchangeHistory(days = 120) {
   const startStr = start.toISOString().slice(0, 10);
   const endStr = end.toISOString().slice(0, 10);
   const endpoints = [
-    `https://api.frankfurter.dev/v1/${startStr}..${endStr}?base=CHF&symbols=EUR`,
-    `https://api.frankfurter.app/${startStr}..${endStr}?base=CHF&symbols=EUR`,
+    `https://api.frankfurter.dev/v2/rates?base=CHF&quotes=EUR&from=${startStr}&to=${endStr}`,
+    `https://api.frankfurter.app/v2/rates?base=CHF&quotes=EUR&from=${startStr}&to=${endStr}`,
   ];
   for (const url of endpoints) {
     try {
       const res = await fetch(url, { headers: { accept: 'application/json' } });
       if (!res.ok) continue;
       const data = await res.json();
-      const rates = data?.rates || {};
-      const series = Object.entries(rates)
-        .map(([date, row]) => ({ date, rate: Number(row?.EUR || 0) }))
+      const series = (Array.isArray(data) ? data : [])
+        .map((entry) => ({ date: entry.date, rate: Number(entry.rate || 0) }))
         .filter((r) => Number.isFinite(r.rate) && r.rate > 0)
         .sort((a, b) => a.date.localeCompare(b.date));
       if (series.length >= 20) return series;

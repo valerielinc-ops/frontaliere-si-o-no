@@ -331,21 +331,21 @@ async function saveHistoryToFirestore(period: HistoryPeriod, points: HistoryPoin
   }
 }
 
-/** Fetch from a Frankfurter-compatible API */
+/** Fetch from a Frankfurter-compatible API (v2) */
 async function fetchFrankfurter(baseUrl: string, startStr: string, endStr: string): Promise<HistoryPoint[]> {
   const controller = new AbortController();
   const timeoutId = setTimeout(() => controller.abort(), 8000);
   const res = await fetch(
-    `${baseUrl}/${startStr}..${endStr}?from=CHF&to=EUR`,
+    `${baseUrl}/v2/rates?base=CHF&quotes=EUR&from=${startStr}&to=${endStr}`,
     { signal: controller.signal }
   );
   clearTimeout(timeoutId);
   if (!res.ok) throw new Error(`HTTP ${res.status}`);
   const data = await res.json();
-  if (!data?.rates) throw new Error('No rates in response');
-  return Object.entries(data.rates).map(([date, rates]: [string, any]) => ({
-    date,
-    rate: rates.EUR,
+  if (!Array.isArray(data) || data.length === 0) throw new Error('No rates in response');
+  return data.map((entry: { date: string; rate: number }) => ({
+    date: entry.date,
+    rate: entry.rate,
   }));
 }
 

@@ -794,8 +794,8 @@ export default function AdminPanel() {
       const endStr = end.toISOString().slice(0, 10);
 
       const endpoints = [
-        `https://api.frankfurter.dev/v1/${startStr}..${endStr}?base=CHF&symbols=EUR`,
-        `https://api.frankfurter.app/${startStr}..${endStr}?base=CHF&symbols=EUR`,
+        `https://api.frankfurter.dev/v2/rates?base=CHF&quotes=EUR&from=${startStr}&to=${endStr}`,
+        `https://api.frankfurter.app/v2/rates?base=CHF&quotes=EUR&from=${startStr}&to=${endStr}`,
       ];
 
       let series: Array<{ date: string; rate: number }> = [];
@@ -803,10 +803,9 @@ export default function AdminPanel() {
         try {
           const res = await fetch(url);
           if (!res.ok) continue;
-          const json = await res.json();
-          const rates = json?.rates || {};
-          series = Object.entries(rates)
-            .map(([date, row]) => ({ date, rate: Number((row as any)?.EUR || 0) }))
+          const data = await res.json();
+          series = (Array.isArray(data) ? data : [])
+            .map((entry: { date: string; rate: number }) => ({ date: entry.date, rate: Number(entry.rate || 0) }))
             .filter((r) => Number.isFinite(r.rate) && r.rate > 0)
             .sort((a, b) => a.date.localeCompare(b.date));
           if (series.length >= 20) break;
