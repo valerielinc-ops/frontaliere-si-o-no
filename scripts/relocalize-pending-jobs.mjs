@@ -219,11 +219,27 @@ function syncTranslationsToCrawlerFile(companyKey, assembledJobs) {
 
     let changed = false;
 
-    // Copy locale fields from assembled (translated) to per-crawler
+    // Merge locale fields from assembled (translated) into per-crawler.
+    // Only ADD new locales — never remove existing ones. The shared crawler may
+    // delete an untranslated copy (e.g. EN = copy of IT) before attempting
+    // retranslation; if AI then fails (quota exhausted), the assembled object
+    // has fewer locales than the per-crawler file. Overwriting would cause a
+    // regression (losing existing values). Merge per-locale instead.
     for (const field of ['titleByLocale', 'descriptionByLocale', 'slugByLocale']) {
-      if (assembled[field] && Object.keys(assembled[field]).length > 0) {
+      if (!assembled[field] || Object.keys(assembled[field]).length === 0) continue;
+      if (!crawlerJob[field]) {
         crawlerJob[field] = assembled[field];
         changed = true;
+        continue;
+      }
+      for (const [locale, value] of Object.entries(assembled[field])) {
+        const existing = crawlerJob[field][locale];
+        const trimmedValue = String(value || '').trim();
+        // Only update if assembled has a non-empty value AND crawler doesn't
+        if (trimmedValue && !String(existing || '').trim()) {
+          crawlerJob[field][locale] = value;
+          changed = true;
+        }
       }
     }
 
