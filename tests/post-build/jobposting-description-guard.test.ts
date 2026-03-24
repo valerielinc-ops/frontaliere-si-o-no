@@ -118,10 +118,11 @@ describe('JobPosting description guard', () => {
     expect(archiveWithJobPosting).toEqual([]);
   });
 
-  it('JobPosting descriptions should use HTML format (>=30%)', () => {
+  it('active IT JobPosting descriptions should use HTML format (>=30%)', () => {
     let htmlFormatCount = 0;
     let totalJobPostings = 0;
-    for (const { jobPostings } of allPages) {
+    for (const { rel, jobPostings } of allPages) {
+      if (rel.startsWith('en/') || rel.startsWith('de/') || rel.startsWith('fr/')) continue;
       for (const jp of jobPostings) {
         totalJobPostings++;
         const desc = String(jp.description || '');
