@@ -52,7 +52,7 @@ jobs:
 
       - name: Run AXA Svizzera dedicated crawler
         env:
-          SKIP_AI_TRANSLATION: ${{ github.event.inputs.skip_ai_translation || \'0\' }}
+          SKIP_AI_TRANSLATION: ${{ github.event.inputs.skip_ai_translation || '0' }}
         run: node scripts/update-axa-jobs.mjs
 
       - name: Housekeeping — remove expired job listings (scoped)

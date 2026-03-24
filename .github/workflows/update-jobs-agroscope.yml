@@ -52,7 +52,7 @@ jobs:
 
       - name: Run Agroscope dedicated crawler
         env:
-          SKIP_AI_TRANSLATION: ${{ github.event.inputs.skip_ai_translation || \'0\' }}
+          SKIP_AI_TRANSLATION: ${{ github.event.inputs.skip_ai_translation || '0' }}
         run: node scripts/update-agroscope-jobs.mjs
 
       - name: Housekeeping — remove expired job listings (scoped)
