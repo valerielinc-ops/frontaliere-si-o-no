@@ -54,8 +54,10 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
         fs.mkdirSync(dir, { recursive: true });
         _ensuredDirs.add(dir);
       }
+      const _writtenPaths = new Set<string>();
       function _qw(filePath: string, content: string) {
         _md(np.dirname(filePath));
+        _writtenPaths.add(filePath);
         _pendingWrites.push({ p: filePath, c: content });
       }
       async function _flushAllWrites() {
@@ -1493,6 +1495,7 @@ ${(() => {
 </html>`;
 
           const outDir = np.join(distDir, canonicalPath.slice(1));
+          activeJobDirs.add(canonicalPath.slice(1).replace(/\/+$/, ''));
           _md(outDir);
           _qw(np.join(outDir, 'index.html'), companyHtml);
           // Flat .html variant
@@ -2657,7 +2660,6 @@ ${alternates}
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>${esc(title)}</title>
     <meta name="description" content="${esc(description)}">
-    <meta name="robots" content="noindex,follow">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Frontaliere Ticino">
     <meta property="og:locale" content="${localeOg[locale]}">
@@ -2712,6 +2714,7 @@ ${(() => {
 </html>`;
 
             const outDir = np.join(distDir, canonicalPath.slice(1));
+            activeJobDirs.add(canonicalPath.slice(1).replace(/\/+$/, ''));
             _md(outDir);
             _qw(np.join(outDir, 'index.html'), searchHtml);
             const flatPath = canonicalPath.replace(/\/+$/, '');
@@ -2822,6 +2825,7 @@ ${(() => {
 </html>`;
 
             const outDir = np.join(distDir, canonicalPath.slice(1));
+            activeJobDirs.add(canonicalPath.slice(1).replace(/\/+$/, ''));
             _md(outDir);
             _qw(np.join(outDir, 'index.html'), comboHtml);
             const flatPath = canonicalPath.replace(/\/+$/, '');
@@ -3175,13 +3179,13 @@ ${(() => {
       const expiredSitemapEntries: string[] = [];
 
       const writeSoftLandingPage = (outRelPath: string, html: string) => {
-        // Never overwrite an active job page — expired locale paths can
-        // collide with active job locale paths when slugs diverge
+        // Never overwrite ANY page already written by an earlier phase
+        // (active jobs, company pages, search pages, editorial pages)
+        const targetFile = np.join(distDir, outRelPath, 'index.html');
+        if (_writtenPaths.has(targetFile)) return;
         if (activeJobDirs.has(outRelPath.replace(/\/+$/, ''))) return;
 
         const outDir = np.join(distDir, outRelPath);
-        // Overwrite bridge/compat pages (e.g. from legacyRedirectsPlugin)
-        // but not active job pages (guarded above)
         _qw(np.join(outDir, 'index.html'), html);
         const flatFile = np.join(distDir, outRelPath + '.html');
         _qw(flatFile, html.replace(SPA_ACTION_REDIRECT_SCRIPT, ''));
@@ -3469,12 +3473,15 @@ ${hreflangLinks}
           }
         }
 
-        // Only add expired slugs to sitemap when they have rich data (title + description).
-        // Pages without ejData are SPA shells with <50 words — thin content that wastes
-        // crawl budget and hurts Google Discover eligibility (FRO-278).
+        // Only add expired slugs to sitemap when:
+        // 1. They have rich data (title + description) — thin content wastes crawl budget (FRO-278)
+        // 2. The IT page was actually written (not overwritten by an active page)
+        // 3. The IT page is not noindex
         const hasRichContent = ejData?.title && (ejData?.descriptionByLocale?.it || ejData?.description);
         const itPath = paths.it ? withSlash(paths.it) : '';
-        if (itPath && hasRichContent) {
+        const itPageFile = itPath ? np.join(distDir, itPath.slice(1), 'index.html') : '';
+        const itPageOverwritten = itPageFile && _writtenPaths.has(itPageFile);
+        if (itPath && hasRichContent && !itPageOverwritten) {
           const altLinks = localeList.map((l) => {
             const p = paths[l];
             if (!p) return '';
