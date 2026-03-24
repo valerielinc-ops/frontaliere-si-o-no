@@ -68,6 +68,21 @@ import {
   getMergeExclusionReasons as _getMergeExclusionReasons,
   mergeAndDeduplicate as _mergeAndDeduplicate,
   localeTextCoverage,
+  // FRO-234: localization pipeline extracted from this file
+  shouldForceLocalizationForJob as _shouldForceLocalizationForJobDCC,
+  isLocalizationAllowedForJob as _isLocalizationAllowedForJobDCC,
+  hasUntranslatedLocaleDescriptions as _hasUntranslatedLocaleDescriptionsDCC,
+  hasUntranslatedLocaleTitles as _hasUntranslatedLocaleTitlesDCC,
+  aiTranslateJobDescriptionDCC as _aiTranslateJobDescriptionDCC,
+  aiTranslateJobTitleDCC as _aiTranslateJobTitleDCC,
+  aiLocalizeJobContentDCC as _aiLocalizeJobContentDCC,
+  enrichJobLocalesDCC as _enrichJobLocalesDCC,
+  enrichJobLocalesWithRetryDCC as _enrichJobLocalesWithRetryDCC,
+  cleanDescriptionDCC as _cleanDescriptionDCC,
+  stripHtmlBasic as _stripHtmlBasic,
+  stripCodeFenceJson as _stripCodeFenceJsonDCC,
+  extractRequirementsFromText as _extractRequirementsFromText,
+  htmlToStructuredTextDCC as _htmlToStructuredTextDCC,
 } from './dedicated-crawler-common.mjs';
 import {
   getJobLocalizationPipelineStats,
@@ -1748,103 +1763,77 @@ function ensureLocaleFields(job) {
   return out;
 }
 
+// FRO-234: Localization pipeline — thin wrappers delegating to DCC
+// The actual implementations are in dedicated-crawler-common.mjs.
+// SJC builds a context object with its internal state and passes it to DCC.
+
+/** Build the localization context object for DCC functions. */
+function _buildLocalizationCtx() {
+  return {
+    LOCALES,
+    FORCE_LOCALIZE_COMPANY_KEYS,
+    FORCE_LOCALIZE_WORKDAY,
+    LOCALIZE_ONLY_COMPANY_KEYS,
+    AI_CACHE_RAW_SENTINEL,
+    cleanDescription,
+    stripCodeFenceJson,
+    normalizeSpace,
+    normalizeHost,
+    hostOf,
+    normalizeCompanyKey,
+    isLowQualityLocalizedTitle,
+    mergeRequirements,
+    callLLM,
+    isAnyModelAvailable,
+    extractRequirements,
+    structureJobDescription,
+    htmlToStructuredText,
+    aiEnrichThinDescription,
+    buildAiCacheKey,
+    getCachedAiResponse,
+    setCachedAiResponse,
+    getAiLocalizationCalls: () => aiLocalizationCalls,
+    incrAiLocalizationCalls: () => { aiLocalizationCalls += 1; },
+    getDeeplFallbackToLlm: () => deeplFallbackToLlm,
+    incrDeeplFallbackToLlm: () => { deeplFallbackToLlm += 1; },
+  };
+}
+
 function shouldForceLocalizationForJob(job = {}) {
-  const key = normalizeCompanyKey(job.companyKey || job.company || '');
-  if (key && FORCE_LOCALIZE_COMPANY_KEYS.has(key)) return true;
-  const host = normalizeHost(hostOf(job.url || ''));
-  if (FORCE_LOCALIZE_COMPANY_KEYS.has(normalizeCompanyKey(host))) return true;
-  if (FORCE_LOCALIZE_WORKDAY && (/(^|[.-])vfc\.com$/.test(host) || host.includes('myworkdayjobs.com'))) return true;
-  return false;
+  return _shouldForceLocalizationForJobDCC(job, _buildLocalizationCtx());
 }
 
 function isLocalizationAllowedForJob(job = {}) {
-  if (!(LOCALIZE_ONLY_COMPANY_KEYS instanceof Set) || LOCALIZE_ONLY_COMPANY_KEYS.size === 0) return true;
-  const key = normalizeCompanyKey(job.companyKey || job.company || '');
-  if (key && LOCALIZE_ONLY_COMPANY_KEYS.has(key)) return true;
-  const host = normalizeHost(hostOf(job.url || ''));
-  if (LOCALIZE_ONLY_COMPANY_KEYS.has(normalizeCompanyKey(host))) return true;
-  return false;
+  return _isLocalizationAllowedForJobDCC(job, _buildLocalizationCtx());
 }
 
 async function aiTranslateJobDescription({ description, locale, sourceLang = 'en', minChars = 120 }) {
-  const floor = Math.max(minChars, 40);
-  const clean = cleanDescription(description || '');
-  if (!clean || clean.length < floor) return '';
-  if (locale === sourceLang) return clean;
-  const localPipeline = await translateTextWithLocalPipeline({
-    text: clean,
-    sourceLang,
-    targetLang: locale,
-    kind: 'description',
-    minChars: floor,
-  });
-  if (localPipeline && localPipeline.toLowerCase() !== clean.toLowerCase()) {
-    return localPipeline;
-  }
-  const cacheKey = buildAiCacheKey('translate-desc-v2', [clean, locale, sourceLang]);
-  const fromCache = getCachedAiResponse(cacheKey);
-  if (typeof fromCache === 'string') {
-    if (fromCache !== AI_CACHE_RAW_SENTINEL) return fromCache;
-    // Sentinel means previous LLM attempt failed — still try free translation APIs
-    const sentinelFallback = await freeTranslateWithRetry({
-      text: clean,
-      sourceLang,
-      targetLang: locale,
-    });
-    if (sentinelFallback && sentinelFallback.length >= floor && sentinelFallback.toLowerCase() !== clean.toLowerCase()) {
-      setCachedAiResponse(cacheKey, sentinelFallback);
-      return sentinelFallback;
-    }
-    return '';
-  }
-  // Try DeepL first (fast, high quality, saves LLM tokens)
-  const deepl = await freeTranslateWithRetry({ text: clean, sourceLang, targetLang: locale });
-  if (deepl && deepl.length >= floor) {
-    setCachedAiResponse(cacheKey, deepl);
-    return deepl;
-  }
-  // Fallback to LLM
-  const prompt = [
-    `Translate this job description from ${sourceLang} to ${locale}.`,
-    'Rules:',
-    '- Keep company names, product names, acronyms unchanged.',
-    '- Do not invent or add new facts.',
-    '- Preserve the COMPLETE content — translate every paragraph, section, and detail without summarizing or shortening.',
-    '- Keep clear paragraphs and preserve meaning.',
-    '- Return only translated text, no markdown, no quotes.',
-    '',
-    clean,
-  ].join('\n');
-  if (isAnyModelAvailable()) {
-    deeplFallbackToLlm += 1;
-    try {
-      const text = await callLLM([{ role: 'user', content: prompt }], {
-        temperature: 0.1,
-        maxTokens: 8192,
-        jsonMode: false,
-      });
-      const translated = cleanDescription(stripCodeFenceJson(String(text || '')));
-      if (translated.length >= floor && translated.toLowerCase() !== clean.toLowerCase()) {
-        setCachedAiResponse(cacheKey, translated);
-        return translated;
-      }
-    } catch {
-      // fallback below
-    }
-  }
-  const fallback = await freeTranslateWithRetry({
-    text: clean,
-    sourceLang,
-    targetLang: locale,
-  });
-  if (fallback && fallback.length >= floor && fallback.toLowerCase() !== clean.toLowerCase()) {
-    setCachedAiResponse(cacheKey, fallback);
-    return fallback;
-  }
-  setCachedAiResponse(cacheKey, AI_CACHE_RAW_SENTINEL);
-  return '';
+  return _aiTranslateJobDescriptionDCC({ description, locale, sourceLang, minChars }, _buildLocalizationCtx());
 }
 
+async function aiLocalizeJobContent({ title, company, location, description, requirements, sourceLang, maxLocales = 4, minChars = 120 }) {
+  return _aiLocalizeJobContentDCC({ title, company, location, description, requirements, sourceLang, maxLocales, minChars }, _buildLocalizationCtx());
+}
+
+async function aiTranslateJobTitle({ title, locale, sourceLang = 'en' }) {
+  return _aiTranslateJobTitleDCC({ title, locale, sourceLang }, _buildLocalizationCtx());
+}
+
+async function enrichJobLocales(job, crawlerConfig) {
+  return _enrichJobLocalesDCC(job, crawlerConfig, _buildLocalizationCtx());
+}
+
+function hasUntranslatedLocaleDescriptions(job = {}) {
+  return _hasUntranslatedLocaleDescriptionsDCC(job, _buildLocalizationCtx());
+}
+
+function hasUntranslatedLocaleTitles(job = {}) {
+  return _hasUntranslatedLocaleTitlesDCC(job, _buildLocalizationCtx());
+}
+
+async function enrichJobLocalesWithRetry(job, crawlerConfig, maxAttempts = 3) {
+  return _enrichJobLocalesWithRetryDCC(job, crawlerConfig, _buildLocalizationCtx(), maxAttempts);
+}
 
 function extractCompanyFromText(html = '', fallback = '') {
   const jd = bestJobPostingNodeFromHtml(html);
@@ -1929,8 +1918,7 @@ function extractLocationFromText(html = '', fallback = '') {
 
 /**
  * Post-process a raw location string:
- * - Truncate at known noise boundaries ("La posizione consente",
- *   "Aspettiamo", "Wir freuen", "We look forward", etc.)
+ * - Truncate at known noise boundaries
  * - Cap at a reasonable length
  * - Return only the meaningful city/address fragment
  */
@@ -1977,13 +1965,11 @@ function sanitizeLocation(loc) {
   for (const re of LOCATION_NOISE_BOUNDARIES) {
     clean = clean.replace(re, '').trim();
   }
-  // If the location is still > 80 chars, take only up to the first sentence-like boundary
   if (clean.length > 80) {
     const sentenceCut = clean.match(/^(.{3,80}?)(?:\.|,|;|\s{2,}|\s-\s)/)?.[1];
     if (sentenceCut) clean = sentenceCut.trim();
     else clean = clean.slice(0, 80).trim();
   }
-  // Remove trailing punctuation artifacts
   clean = clean.replace(/[,;:\-·•|]+$/, '').trim();
   return clean;
 }
@@ -1992,607 +1978,6 @@ async function fetchHtml(url) {
   const res = await fetchWithTimeout(url);
   if (!res.ok) return '';
   return await res.text();
-}
-
-async function aiLocalizeJobContent({ title, company, location, description, requirements, sourceLang, maxLocales = 4, minChars = 120 }) {
-  const floor = Math.max(minChars, 40);
-  if (!description || description.length < Math.max(floor, 180)) return null;
-  const targetLocales = LOCALES.slice(0, maxLocales).filter((l) => l !== sourceLang);
-  const localPipeline = await localizeJobContentWithPipeline({
-    title,
-    company,
-    location,
-    description,
-    requirements,
-    sourceLang,
-    targetLocales,
-  });
-  if (localPipeline) return localPipeline;
-  const cacheKey = buildAiCacheKey('localize-job-v2', [
-    normalizeSpace(title || ''),
-    normalizeSpace(company || ''),
-    normalizeSpace(location || ''),
-    sourceLang || 'en',
-    targetLocales.join(','),
-    JSON.stringify((requirements || []).map((x) => normalizeSpace(String(x))).filter(Boolean).slice(0, 16)),
-    cleanDescription(description || ''),
-  ]);
-  const fromCache = getCachedAiResponse(cacheKey);
-  if (fromCache === AI_CACHE_RAW_SENTINEL) {
-    // Sentinel means previous LLM attempt failed — still try free translation APIs
-    const cleanedSource = cleanDescription(description || '');
-    if (cleanedSource.length < floor) return null;
-    const sentinelOut = {
-      [sourceLang]: {
-        title: title,
-        description: cleanedSource,
-        requirements: Array.isArray(requirements)
-          ? requirements.map((x) => normalizeSpace(String(x))).filter(Boolean).slice(0, 8)
-          : [],
-      },
-    };
-    for (const locale of targetLocales) {
-      // eslint-disable-next-line no-await-in-loop
-      const desc = await freeTranslateWithRetry({
-        text: cleanedSource,
-        sourceLang: sourceLang || 'en',
-        targetLang: locale,
-      });
-      if (desc && desc.length >= floor) {
-        // eslint-disable-next-line no-await-in-loop
-        const localizedTitle = await freeTranslateWithRetry({
-          text: title,
-          sourceLang: sourceLang || 'en',
-          targetLang: locale,
-        });
-        sentinelOut[locale] = {
-          title: localizedTitle || title,
-          description: desc,
-          requirements: [],
-        };
-      }
-    }
-    if (Object.keys(sentinelOut).length > 1) {
-      setCachedAiResponse(cacheKey, sentinelOut);
-      return sentinelOut;
-    }
-    return null;
-  }
-  if (fromCache && typeof fromCache === 'object' && !Array.isArray(fromCache)) {
-    return fromCache;
-  }
-  if (!isAnyModelAvailable()) {
-    // LLM models exhausted — try free translation APIs per locale
-    const cleanedSource = cleanDescription(description || '');
-    if (cleanedSource.length < floor) return null;
-    const out = {
-      [sourceLang]: {
-        title: title,
-        description: cleanedSource,
-        requirements: Array.isArray(requirements)
-          ? requirements.map((x) => normalizeSpace(String(x))).filter(Boolean).slice(0, 8)
-          : [],
-      },
-    };
-    for (const locale of targetLocales) {
-      // eslint-disable-next-line no-await-in-loop
-      const desc = await freeTranslateWithRetry({
-        text: cleanedSource,
-        sourceLang: sourceLang || 'en',
-        targetLang: locale,
-      });
-      if (desc && desc.length >= floor) {
-        // eslint-disable-next-line no-await-in-loop
-        const localizedTitle = await freeTranslateWithRetry({
-          text: title,
-          sourceLang: sourceLang || 'en',
-          targetLang: locale,
-        });
-        out[locale] = {
-          title: localizedTitle || title,
-          description: desc,
-          requirements: [],
-        };
-      }
-    }
-    return Object.keys(out).length > 1 ? out : null;
-  }
-  const prompt = [
-    'You are a multilingual job content editor for SEO.',
-    `Translate this job posting into these locales: ${targetLocales.join(', ')}. Do NOT include the source locale (${sourceLang}) — it will be kept as-is.`,
-    'CRITICAL: preserve the COMPLETE original content — every section, paragraph, bullet point, and detail MUST appear in each translation. Do NOT omit, condense, or truncate any part of the description.',
-    'Keep company, role, location and requirements consistent with source.',
-    `Return STRICT JSON only with keys: ${targetLocales.join(',')}.`,
-    'Each locale object must contain:',
-    '- title: localized job title in the TARGET locale language (do not keep source language title unless it is only brand/acronym), concise, no embellishments',
-    '- description: FULL translation of the complete description preserving all paragraphs and sections (use \\n\\n between paragraphs)',
-    '- requirements: array of max 8 concise bullet strings',
-    '',
-    `title: ${title}`,
-    `company: ${company}`,
-    `location: ${location}`,
-    `sourceLanguage: ${sourceLang}`,
-    `requirements: ${JSON.stringify((requirements || []).slice(0, 8))}`,
-    `description: ${description}`,
-  ].join('\n');
-
-  try {
-    const messages = [{ role: 'user', content: prompt }];
-    const text = await callLLM(messages, {
-      temperature: 0.2,
-      maxTokens: 16384,
-      jsonMode: true,
-    });
-    const parsed = JSON.parse(stripCodeFenceJson(text));
-    const out = {};
-    // For the source locale, keep the original description as-is (no translation needed)
-    const cleanedSource = cleanDescription(description || '');
-    if (cleanedSource.length >= floor) {
-      out[sourceLang] = {
-        title: title,
-        description: cleanedSource,
-        requirements: Array.isArray(requirements)
-          ? requirements.map((x) => normalizeSpace(String(x))).filter(Boolean).slice(0, 8)
-          : [],
-      };
-    }
-    // Apply translated locales from LLM response
-    for (const locale of targetLocales) {
-      const item = parsed?.[locale];
-      if (!item || typeof item !== 'object') continue;
-      const localizedTitle = normalizeSpace(item.title || '');
-      const desc = cleanDescription(item.description || '');
-      const req = Array.isArray(item.requirements)
-        ? item.requirements.map((x) => normalizeSpace(String(x))).filter(Boolean).slice(0, 8)
-        : [];
-      if (desc.length >= floor) out[locale] = {
-        title: localizedTitle || title,
-        description: desc,
-        requirements: req,
-      };
-    }
-    // Fill missing locales from LLM partial results via free translation fallback
-    const missingLocales = targetLocales.filter((l) => !out[l]);
-    if (missingLocales.length > 0 && cleanedSource.length >= floor) {
-      for (const locale of missingLocales) {
-        // eslint-disable-next-line no-await-in-loop
-        const desc = await freeTranslateWithRetry({
-          text: cleanedSource,
-          sourceLang: sourceLang || 'en',
-          targetLang: locale,
-        });
-        if (desc && desc.length >= floor) {
-          // eslint-disable-next-line no-await-in-loop
-          const localizedTitle = await freeTranslateWithRetry({
-            text: title,
-            sourceLang: sourceLang || 'en',
-            targetLang: locale,
-          });
-          out[locale] = {
-            title: localizedTitle || title,
-            description: desc,
-            requirements: [],
-          };
-        }
-      }
-    }
-    if (Object.keys(out).length > 0) {
-      setCachedAiResponse(cacheKey, out);
-      return out;
-    }
-  } catch {
-    // LLM failed — try free translation APIs per locale as fallback
-    const cleanedFallback = cleanDescription(description || '');
-    if (cleanedFallback.length >= floor) {
-      const fallbackOut = {
-        [sourceLang]: {
-          title: title,
-          description: cleanedFallback,
-          requirements: Array.isArray(requirements)
-            ? requirements.map((x) => normalizeSpace(String(x))).filter(Boolean).slice(0, 8)
-            : [],
-        },
-      };
-      for (const locale of targetLocales) {
-        // eslint-disable-next-line no-await-in-loop
-        const desc = await freeTranslateWithRetry({
-          text: cleanedFallback,
-          sourceLang: sourceLang || 'en',
-          targetLang: locale,
-        });
-        if (desc && desc.length >= floor) {
-          // eslint-disable-next-line no-await-in-loop
-          const localizedTitle = await freeTranslateWithRetry({
-            text: title,
-            sourceLang: sourceLang || 'en',
-            targetLang: locale,
-          });
-          fallbackOut[locale] = {
-            title: localizedTitle || title,
-            description: desc,
-            requirements: [],
-          };
-        }
-      }
-      if (Object.keys(fallbackOut).length > 1) {
-        setCachedAiResponse(cacheKey, fallbackOut);
-        return fallbackOut;
-      }
-    }
-  }
-  setCachedAiResponse(cacheKey, AI_CACHE_RAW_SENTINEL);
-  return null;
-}
-
-async function aiTranslateJobTitle({ title, locale, sourceLang = 'en' }) {
-  const cleanTitle = normalizeSpace(title || '');
-  if (!cleanTitle || locale === sourceLang) return cleanTitle;
-  const localPipeline = await translateTextWithLocalPipeline({
-    text: cleanTitle,
-    sourceLang,
-    targetLang: locale,
-    kind: 'title',
-    context: { title: cleanTitle },
-    minChars: 2,
-  });
-  if (localPipeline && localPipeline.toLowerCase() !== cleanTitle.toLowerCase()) {
-    return localPipeline;
-  }
-  const cacheKey = buildAiCacheKey('translate-title-v2', [cleanTitle, locale, sourceLang]);
-  const fromCache = getCachedAiResponse(cacheKey);
-  if (typeof fromCache === 'string') {
-    if (fromCache !== AI_CACHE_RAW_SENTINEL) return fromCache;
-    // Sentinel means previous LLM attempt failed — still try free translation APIs
-    const sentinelFallback = await freeTranslateWithRetry({
-      text: cleanTitle,
-      sourceLang,
-      targetLang: locale,
-    });
-    if (sentinelFallback && sentinelFallback.toLowerCase() !== cleanTitle.toLowerCase() &&
-        !isLowQualityLocalizedTitle(sentinelFallback)) {
-      setCachedAiResponse(cacheKey, sentinelFallback);
-      return sentinelFallback;
-    }
-    return cleanTitle;
-  }
-  // Try DeepL first (fast, high quality, saves LLM tokens)
-  const deepl = await freeTranslateWithRetry({ text: cleanTitle, sourceLang, targetLang: locale });
-  if (deepl && deepl.length >= 2 && !isLowQualityLocalizedTitle(deepl)) {
-    setCachedAiResponse(cacheKey, deepl);
-    return deepl;
-  }
-  // Fallback to LLM
-  if (isAnyModelAvailable()) {
-    deeplFallbackToLlm += 1;
-    const prompt = [
-      `Translate this job title from ${sourceLang} to ${locale}.`,
-      'Rules:',
-      '- Keep brand names/acronyms unchanged.',
-      '- Translate role words naturally for the target locale.',
-      '- Return only the translated title, no quotes, no extra text.',
-      `Title: ${cleanTitle}`,
-    ].join('\n');
-    try {
-      const text = await callLLM([{ role: 'user', content: prompt }], {
-        temperature: 0.1,
-        maxTokens: 80,
-        jsonMode: false,
-      });
-      const translated = normalizeSpace(String(text || '').replace(/^["']|["']$/g, ''));
-      if (
-        translated &&
-        translated.toLowerCase() !== cleanTitle.toLowerCase() &&
-        !isLowQualityLocalizedTitle(translated)
-      ) {
-        setCachedAiResponse(cacheKey, translated);
-        return translated;
-      }
-    } catch {
-      // fallback below
-    }
-  }
-  const fallback = await freeTranslateWithRetry({
-    text: cleanTitle,
-    sourceLang,
-    targetLang: locale,
-  });
-  if (fallback) {
-    setCachedAiResponse(cacheKey, fallback);
-    return fallback;
-  }
-  const heuristic = heuristicTranslateJobTitle(cleanTitle, locale);
-  if (heuristic && !isLowQualityLocalizedTitle(heuristic)) {
-    setCachedAiResponse(cacheKey, heuristic);
-    return heuristic;
-  }
-  setCachedAiResponse(cacheKey, AI_CACHE_RAW_SENTINEL);
-  return cleanTitle;
-}
-
-
-async function enrichJobLocales(job, crawlerConfig) {
-  const out = { ...job };
-  const titleByLocale = (out.titleByLocale && typeof out.titleByLocale === 'object')
-    ? { ...out.titleByLocale }
-    : {};
-  const currentByLocale = (out.descriptionByLocale && typeof out.descriptionByLocale === 'object')
-    ? { ...out.descriptionByLocale }
-    : {};
-  const sourceLang = detectLang(out.description || '', 'en');
-  const forceLocalization = shouldForceLocalizationForJob(out);
-  const titleSourceLang = detectJobTitleLang(out.title || '', sourceLang);
-  const sourceTitle = normalizeSpace(titleByLocale[titleSourceLang] || out.title || '');
-  if (sourceTitle) {
-    titleByLocale[titleSourceLang] = sourceTitle;
-  }
-  const titleNeedsLocalization = LOCALES
-    .filter((l) => l !== titleSourceLang)
-    .some((locale) => {
-      const localizedTitle = normalizeSpace(titleByLocale[locale] || '');
-      if (!localizedTitle) return true;
-      return sourceTitle && localizedTitle.toLowerCase() === sourceTitle.toLowerCase();
-    });
-  const localeDescFloor = crawlerConfig?.minDescriptionChars || 120;
-  const coverage = LOCALES.filter((l) => normalizeSpace(currentByLocale[l] || '').length >= localeDescFloor).length;
-  const hasBudget =
-    aiLocalizationCalls < (crawlerConfig?.aiLocalizationMaxJobsPerRun || 0) || forceLocalization;
-  const canUseAi = isAnyModelAvailable();
-  const localizationEnabled = Boolean(crawlerConfig?.aiLocalizationEnabled) || forceLocalization;
-  const shouldRunDescriptionLocalization =
-    localizationEnabled &&
-    hasBudget &&
-    (coverage < LOCALES.length || forceLocalization) &&
-    (out.description || '').length >= Math.max(localeDescFloor, 80) &&
-    (canUseAi || forceLocalization);
-  const shouldRunTitleLocalization =
-    localizationEnabled &&
-    sourceTitle.length >= 3 &&
-    (titleNeedsLocalization || forceLocalization);
-  if (!shouldRunDescriptionLocalization && !shouldRunTitleLocalization) return out;
-
-  // ── Structure flat descriptions into markdown before AI localization ──
-  // This ensures that the source text is well-formatted before being translated,
-  // producing better quality translations and structured output for all locales.
-  const rawDesc = out.description || '';
-  const hasMarkdownStructure = /^## /m.test(rawDesc) && ((rawDesc.match(/\n/g) || []).length >= 3);
-  if (shouldRunDescriptionLocalization && rawDesc.length >= 100 && !hasMarkdownStructure) {
-    const hasHtml = /<[^>]+>/.test(rawDesc);
-    if (hasHtml) {
-      // Prefer deterministic HTML → text conversion for ATS APIs (Oracle, Workday, etc.)
-      // to avoid LLM truncation/reformatting drift on already rich descriptions.
-      const structuredFromHtml = htmlToStructuredText(rawDesc);
-      if (structuredFromHtml && structuredFromHtml.length >= 120) {
-        out.description = structuredFromHtml;
-        currentByLocale[sourceLang] = structuredFromHtml;
-      }
-    } else {
-      const structured = await structureJobDescription(rawDesc);
-      if (structured !== rawDesc) {
-        out.description = structured;
-        // Also update the source locale so it gets the structured version
-        currentByLocale[sourceLang] = structured;
-      }
-    }
-  }
-
-  // ── Centralized thin-description enrichment ──
-  // If the description is still thin but we have extracted structured data
-  // (responsibilities, requirements, benefits), use AI to compose a rich description.
-  // This runs for ALL crawlers, not just Migros.
-  const currentDesc = normalizeSpace(out.description || '');
-  const hasExtractedData =
-    (Array.isArray(out._migrosResponsibilities) && out._migrosResponsibilities.length > 0) ||
-    (Array.isArray(out._migrosBenefits) && out._migrosBenefits.length > 0) ||
-    (Array.isArray(out.requirements) && out.requirements.length > 0);
-  if (shouldRunDescriptionLocalization && currentDesc.length < 500 && hasExtractedData && canUseAi) {
-    const enrichedDesc = await aiEnrichThinDescription(out);
-    if (enrichedDesc && enrichedDesc !== out.description && enrichedDesc.length > currentDesc.length) {
-      out.description = enrichedDesc;
-      currentByLocale[sourceLang] = enrichedDesc;
-    }
-  }
-
-  const aiLocalized = shouldRunDescriptionLocalization && canUseAi
-    ? await aiLocalizeJobContent({
-      title: out.title,
-      company: out.company,
-      location: out.location,
-      description: out.description,
-      requirements: out.requirements || [],
-      sourceLang,
-      minChars: localeDescFloor,
-    })
-    : null;
-  if (shouldRunDescriptionLocalization) {
-    aiLocalizationCalls += 1;
-  }
-
-  const reqByLocale = (out.requirementsByLocale && typeof out.requirementsByLocale === 'object')
-    ? { ...out.requirementsByLocale }
-    : {};
-  if (aiLocalized) {
-    for (const locale of LOCALES) {
-      const localized = aiLocalized[locale];
-      if (!localized) continue;
-      if (localized.title && localized.title.length >= 4 && !isLowQualityLocalizedTitle(localized.title)) {
-        titleByLocale[locale] = localized.title;
-      }
-      if (localized.description && localized.description.length >= localeDescFloor) {
-        currentByLocale[locale] = localized.description;
-      }
-      const mergedReq = mergeRequirements(reqByLocale[locale] || [], localized.requirements || []);
-      if (mergedReq.length > 0) reqByLocale[locale] = mergedReq;
-    }
-  }
-  if (shouldRunTitleLocalization) {
-    for (const locale of LOCALES) {
-      if (locale === titleSourceLang) continue;
-      const localizedTitle = normalizeSpace(titleByLocale[locale] || '');
-      if (
-        localizedTitle &&
-        localizedTitle.toLowerCase() !== sourceTitle.toLowerCase() &&
-        !isLowQualityLocalizedTitle(localizedTitle)
-      ) continue;
-      const forced = await aiTranslateJobTitle({ title: sourceTitle, locale, sourceLang: titleSourceLang });
-      if (forced && forced.toLowerCase() !== sourceTitle.toLowerCase() && !isLowQualityLocalizedTitle(forced)) {
-        titleByLocale[locale] = forced;
-        continue;
-      }
-      const fallback = heuristicTranslateJobTitle(sourceTitle, locale);
-      if (fallback && fallback.toLowerCase() !== sourceTitle.toLowerCase() && !isLowQualityLocalizedTitle(fallback)) {
-        titleByLocale[locale] = fallback;
-      }
-    }
-  }
-
-  // Strict fallback for forced companies (e.g. VF): ensure translated content exists per locale.
-  if (forceLocalization) {
-    for (const locale of LOCALES) {
-      const currentDesc = cleanDescription(currentByLocale[locale] || '');
-      const sourceDesc = cleanDescription(out.description || '');
-      const needsDesc =
-        locale !== sourceLang &&
-        (!currentDesc || currentDesc.length < localeDescFloor || currentDesc.toLowerCase() === sourceDesc.toLowerCase());
-      if (needsDesc) {
-        // eslint-disable-next-line no-await-in-loop
-        const translatedDesc = await aiTranslateJobDescription({
-          description: out.description || '',
-          locale,
-          sourceLang,
-          minChars: localeDescFloor,
-        });
-        if (translatedDesc) {
-          currentByLocale[locale] = translatedDesc;
-          const mergedReq = mergeRequirements(
-            reqByLocale[locale] || [],
-            extractRequirements(translatedDesc)
-          );
-          if (mergedReq.length > 0) reqByLocale[locale] = mergedReq;
-        }
-      }
-      const currentTitle = normalizeSpace(titleByLocale[locale] || '');
-      if (locale !== titleSourceLang && (!currentTitle || currentTitle.toLowerCase() === sourceTitle.toLowerCase())) {
-        // eslint-disable-next-line no-await-in-loop
-        const translatedTitle = await aiTranslateJobTitle({ title: sourceTitle, locale, sourceLang: titleSourceLang });
-        if (
-          translatedTitle &&
-          translatedTitle.toLowerCase() !== sourceTitle.toLowerCase() &&
-          !isLowQualityLocalizedTitle(translatedTitle)
-        ) {
-          titleByLocale[locale] = translatedTitle;
-        }
-      }
-    }
-  }
-
-  // ── Inline truncation detection ──
-  // Catch translations that are significantly shorter than source (likely truncated by LLM)
-  // and re-attempt translation via the fallback cascade.
-  const TRUNCATION_RATIO = 0.40;
-  const sourceDescLen = cleanDescription(out.description || '').length;
-  if (sourceDescLen >= 200) {
-    for (const locale of LOCALES) {
-      if (locale === sourceLang) continue;
-      const localized = cleanDescription(currentByLocale[locale] || '');
-      if (localized.length > 0 && localized.length < sourceDescLen * TRUNCATION_RATIO) {
-        // Truncated — attempt re-translation via DeepL/LLM cascade
-        // eslint-disable-next-line no-await-in-loop
-        const retranslated = await aiTranslateJobDescription({
-          description: out.description || '',
-          locale,
-          sourceLang,
-          minChars: localeDescFloor,
-        });
-        if (retranslated && cleanDescription(retranslated).length > localized.length) {
-          currentByLocale[locale] = retranslated;
-        }
-      }
-    }
-  }
-
-  // ── Cross-locale copy detection ──
-  // Detect when a non-source locale has the same text as the source (translation was skipped/copied)
-  const sourceDescNorm = cleanDescription(out.description || '').toLowerCase();
-  if (sourceDescNorm.length >= localeDescFloor) {
-    for (const locale of LOCALES) {
-      if (locale === sourceLang) continue;
-      const localizedNorm = cleanDescription(currentByLocale[locale] || '').toLowerCase();
-      if (localizedNorm && localizedNorm === sourceDescNorm) {
-        // Same as source — try translating
-        // eslint-disable-next-line no-await-in-loop
-        const translated = await aiTranslateJobDescription({
-          description: out.description || '',
-          locale,
-          sourceLang,
-          minChars: localeDescFloor,
-        });
-        if (translated && cleanDescription(translated).toLowerCase() !== sourceDescNorm) {
-          currentByLocale[locale] = translated;
-        }
-      }
-    }
-  }
-
-  out.titleByLocale = titleByLocale;
-  out.descriptionByLocale = currentByLocale;
-  out.requirementsByLocale = reqByLocale;
-  return out;
-}
-
-function hasUntranslatedLocaleDescriptions(job = {}) {
-  const sourceDesc = cleanDescription(job?.description || '');
-  if (!sourceDesc) return false;
-  const sourceLang = detectLang(sourceDesc, 'en');
-  for (const locale of LOCALES) {
-    if (locale === sourceLang) continue;
-    const localized = cleanDescription(job?.descriptionByLocale?.[locale] || '');
-    if (!localized) return true;
-    if (localized.toLowerCase() === sourceDesc.toLowerCase()) return true;
-  }
-  return false;
-}
-
-function hasUntranslatedLocaleTitles(job = {}) {
-  const sourceTitle = normalizeSpace(job?.title || '');
-  if (!sourceTitle) return false;
-  const sourceLang = detectJobTitleLang(sourceTitle, detectLang(job?.description || '', 'en'));
-  for (const locale of LOCALES) {
-    if (locale === sourceLang) continue;
-    const localized = normalizeSpace(job?.titleByLocale?.[locale] || '');
-    if (!localized) return true;
-    if (localized.toLowerCase() === sourceTitle.toLowerCase()) return true;
-  }
-  return false;
-}
-
-async function enrichJobLocalesWithRetry(job, crawlerConfig, maxAttempts = 3) {
-  let lastError = null;
-  for (let attempt = 1; attempt <= Math.max(1, maxAttempts); attempt += 1) {
-    try {
-      // eslint-disable-next-line no-await-in-loop
-      return await enrichJobLocales(job, crawlerConfig);
-    } catch (error) {
-      lastError = error;
-      const msg = String(error?.message || '').toLowerCase();
-      const quotaExhausted =
-        msg.includes('all ai models failed') ||
-        msg.includes('daily request limit') ||
-        msg.includes('daily quota') ||
-        msg.includes('exceeded your current quota') ||
-        msg.includes('plan and billing details');
-      if (quotaExhausted) {
-        break;
-      }
-      if (attempt < maxAttempts) {
-        // eslint-disable-next-line no-await-in-loop
-        await new Promise((resolve) => setTimeout(resolve, attempt * 500));
-      }
-    }
-  }
-  const slug = job?.slug || job?.id || 'unknown';
-  const message = lastError?.message || String(lastError || 'unknown error');
-  console.warn(`⚠️  Localization failed for ${slug}: ${message}`);
-  return job;
 }
 
 function parseCompanySourcesFromTsx(tsxSource) {
