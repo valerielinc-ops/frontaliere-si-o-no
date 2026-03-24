@@ -1760,6 +1760,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.chiasso-missione-emergenza.title': 'Mission Emergency: Chiasso Becomes \'Capital\' of Rescue and Safety',
     'blog.article.chiasso-missione-emergenza.excerpt': 'On April 26, Chiasso will host the extraordinary event of Mission Emergency, where ten first-responder entities will present their daily work with stands in direct contact with citizens.',
     'blog.article.chiasso-missione-emergenza.imageAlt': 'Ambulance in Chiasso',
+    'blog.article.ticinesi-e-frontalieri-comprano-case-su-laghi-verbano-e-ceresio.title': 'Lake dwellers: Ticinese and frontier buyers snap up homes on Verbano and Ceresio lakes',
+    'blog.article.ticinesi-e-frontalieri-comprano-case-su-laghi-verbano-e-ceresio.excerpt': 'According to a recent survey, buyers from Italy and neighboring countries are increasing in number on the real estate market of the two lakes.',
+    'blog.article.ticinesi-e-frontalieri-comprano-case-su-laghi-verbano-e-ceresio.imageAlt': 'a view of Lake Maggiore from a high point, with houses on the lake and surrounding hills',
 };
 
 export default blogMetaEn;

@@ -10144,6 +10144,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-ticinesi-e-frontalieri-comprano-case-su-laghi-verbano-e-ceresio': {
+    title: 'Ticinesi e frontalieri comprano sempre più case sui laghi Verbano e | Frontaliere Ticino',
+    description: 'Secondo una recente indagine, gli acquirenti provenienti dall\'Italia e dai paesi limitrofi stanno aumentando di numero sul mercato immobiliare dei due laghi',
+    keywords: 'frontalieri, ticino, svizzera, italia, ticinesi, comprano, sempre, case',
+    ogTitle: 'Ticinesi e frontalieri comprano sempre più case sui laghi Verbano e Ceresio',
+    ogDescription: 'Secondo una recente indagine, gli acquirenti provenienti dall\'Italia e dai paesi limitrofi stanno aumentando di numero sul mercato immobiliare dei due laghi',
+    canonicalPath: '/articoli-frontaliere/ticinesi-e-frontalieri-comprano-case-su-laghi-verbano-e-ceresio',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ticinesi e frontalieri comprano sempre più case sui laghi Verbano e Ceresio",
+      "description": "Secondo una recente indagine, gli acquirenti provenienti dall'Italia e dai paesi limitrofi stanno aumentando di numero sul mercato immobiliare dei due laghi",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/ticinesi-e-frontalieri-comprano-case-su-laghi-verbano-e-ceresio.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "una vista del lago Verbano da un alto punto di vista, con case sul lago e colline circostanti"
+      },
+      "datePublished": "2026-03-24T19:18:58+00:00",
+      "dateModified": "2026-03-24T19:18:58+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ticinesi-e-frontalieri-comprano-case-su-laghi-verbano-e-ceresio`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

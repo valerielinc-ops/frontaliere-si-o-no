@@ -5298,4 +5298,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/chiasso-missione-emergenza.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'ticinesi-e-frontalieri-comprano-case-su-laghi-verbano-e-ceresio',
+    category: 'novita',
+    date: '2026-03-24T19:18:58.586Z',
+    image: '/images/blog/ticinesi-e-frontalieri-comprano-case-su-laghi-verbano-e-ceresio.jpg',
+    hasCalculator: true,
+  },
 ];

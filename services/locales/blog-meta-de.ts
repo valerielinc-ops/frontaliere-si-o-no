@@ -1760,6 +1760,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.chiasso-missione-emergenza.title': 'Missionskrisen: Chiasso wird \'Hauptstadt\' der Hilfe und der Sicherheit',
     'blog.article.chiasso-missione-emergenza.excerpt': 'Sonntag, 26. April, Chiasso: Unikat-Event Missionskrisen, bei dem zehn erste Hilfe-Einheiten ihr tägliches Werk mit Ausstellungen direkt vor der Bürgerschaft präsentieren.',
     'blog.article.chiasso-missione-emergenza.imageAlt': 'Rettungswagen in Chiasso',
+    'blog.article.ticinesi-e-frontalieri-comprano-case-su-laghi-verbano-e-ceresio.title': 'Ticinesi und Grenzgänger kaufen immer mehr Häuser am Lago Maggiore und Lago di Como',
+    'blog.article.ticinesi-e-frontalieri-comprano-case-su-laghi-verbano-e-ceresio.excerpt': 'Laut einer jüngsten Umfrage steigen die Anzahl der Käufer aus Italien und den benachbarten Ländern auf dem Immobilienmarkt der beiden Seen an.',
+    'blog.article.ticinesi-e-frontalieri-comprano-case-su-laghi-verbano-e-ceresio.imageAlt': 'eine Aussicht auf den Maggiore-See von einem hohen Punkt, mit Häusern am See und umgebenden Hügeln',
 };
 
 export default blogMetaDe;

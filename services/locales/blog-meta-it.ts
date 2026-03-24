@@ -1760,6 +1760,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.chiasso-missione-emergenza.title': 'Missione emergenza: Chiasso diventa \'capitale\' del soccorso e della sicurezza',
     'blog.article.chiasso-missione-emergenza.excerpt': 'Domenica 26 aprile a Chiasso si terrà l\'evento straordinario di Missione emergenza, dove dieci enti di primo intervento presenteranno il loro lavoro quotidiano con stand a diretto contatto con la cittadinanza.',
     'blog.article.chiasso-missione-emergenza.imageAlt': 'Autoambulanza a Chiasso',
+    'blog.article.ticinesi-e-frontalieri-comprano-case-su-laghi-verbano-e-ceresio.title': 'Ticinesi e frontalieri comprano sempre più case sui laghi Verbano e Ceresio',
+    'blog.article.ticinesi-e-frontalieri-comprano-case-su-laghi-verbano-e-ceresio.excerpt': 'Secondo una recente indagine, gli acquirenti provenienti dall\'Italia e dai paesi limitrofi stanno aumentando di numero sul mercato immobiliare dei due laghi',
+    'blog.article.ticinesi-e-frontalieri-comprano-case-su-laghi-verbano-e-ceresio.imageAlt': 'una vista del lago Verbano da un alto punto di vista, con case sul lago e colline circostanti',
 };
 
 export default blogMetaIt;
