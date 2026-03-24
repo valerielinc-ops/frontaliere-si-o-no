@@ -62,9 +62,10 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
         const BATCH = 300;
         for (let i = 0; i < _pendingWrites.length; i += BATCH) {
           await Promise.all(
-            _pendingWrites.slice(i, i + BATCH).map(w =>
-              fs.promises.writeFile(w.p, w.c, 'utf-8')
-            )
+            _pendingWrites.slice(i, i + BATCH).map(async w => {
+              await fs.promises.mkdir(np.dirname(w.p), { recursive: true });
+              return fs.promises.writeFile(w.p, w.c, 'utf-8');
+            })
           );
         }
       }
