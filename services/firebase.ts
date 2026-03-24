@@ -205,8 +205,8 @@ let recaptchaSiteKey: string | null = null;
 let recaptchaScriptLoaded = false;
 
 type AppCheckModuleLike = {
-  ReCaptchaV3Provider: new (siteKey: string) => unknown;
-  ReCaptchaEnterpriseProvider?: new (siteKey: string) => unknown;
+  ReCaptchaV3Provider: new (siteKey: string) => any;
+  ReCaptchaEnterpriseProvider?: new (siteKey: string) => any;
 };
 
 export function createRecaptchaAppCheckProvider(

@@ -1226,7 +1226,7 @@ const TaxCalendar: React.FC<TaxCalendarProps> = ({ initialTab }) => {
       {/* ══════════ LIST VIEW (all events grouped by month) ══════════ */}
       {viewMode === 'list' && (
         <div className="space-y-4">
-          {Object.entries(groupedByMonth)
+          {(Object.entries(groupedByMonth) as [string, TaxDeadline[]][])
             .sort(([a], [b]) => Number(a) - Number(b))
             .map(([monthIdx, events]) => (
               <div key={monthIdx} className="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 overflow-hidden">

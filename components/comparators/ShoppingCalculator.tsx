@@ -111,7 +111,7 @@ const ShoppingCalculator: React.FC = () => {
   const stats = useMemo(() => {
     let totalIT = 0;
     let totalCH = 0;
-    const selectedItems = Object.entries(selectedProducts);
+    const selectedItems = Object.entries(selectedProducts) as [string, number][];
     for (const [id, qty] of selectedItems) {
       const product = PRODUCTS.find(p => p.id === id);
       if (!product) continue;

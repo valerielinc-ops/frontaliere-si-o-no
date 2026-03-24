@@ -133,7 +133,7 @@ const SECTION_ORDER = ['jobDescription', 'qualifications', 'additionalInformatio
  * Parse SmartRecruiters API response into a structured job detail.
  *
  * @param {object} data - Parsed JSON from SR API
- * @returns {{ title, description, location, city, canton, country, applyUrl, postedDate, validThrough, sourceTextLength, sectionCount }}
+ * @returns {{ title, description, location, city, canton, country, applyUrl, postedDate, sourceTextLength, sectionCount, requirements }}
  */
 export function parseSmartRecruitersDetail(data = {}) {
   const title = normalizeSpace(data.name || '');

@@ -72,6 +72,7 @@ describe('handleSubscriptionManagement', () => {
       action: 'unsubscribe',
       email: TEST_EMAIL,
       token: VALID_TOKEN,
+      locale: 'it',
       secret: TEST_SECRET,
       db: db as any,
     });
@@ -101,6 +102,7 @@ describe('handleSubscriptionManagement', () => {
       action: 'resubscribe',
       email: TEST_EMAIL,
       token: VALID_TOKEN,
+      locale: 'it',
       secret: TEST_SECRET,
       db: db as any,
     });
@@ -120,6 +122,7 @@ describe('handleSubscriptionManagement', () => {
       action: 'unsubscribe',
       email: TEST_EMAIL,
       token: 'bad-token',
+      locale: 'it',
       secret: TEST_SECRET,
       db: db as any,
     });
@@ -137,6 +140,7 @@ describe('handleSubscriptionManagement', () => {
       action: 'delete',
       email: TEST_EMAIL,
       token: VALID_TOKEN,
+      locale: 'it',
       secret: TEST_SECRET,
       db: db as any,
     });
@@ -151,6 +155,7 @@ describe('handleSubscriptionManagement', () => {
       action: 'unsubscribe',
       email: 'not-an-email',
       token: 'whatever',
+      locale: 'it',
       secret: TEST_SECRET,
       db: db as any,
     });

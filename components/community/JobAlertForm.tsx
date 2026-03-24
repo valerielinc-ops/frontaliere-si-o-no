@@ -42,7 +42,7 @@ const CONTRACT_TYPES = [
 // ── Component ────────────────────────────────────────────────
 
 export default function JobAlertForm({ authUser, onRequireAuth, initialKeyword = '' }: JobAlertFormProps) {
-  const t = useTranslation();
+  const { t } = useTranslation();
   const [expanded, setExpanded] = useState(false);
   const [keyword, setKeyword] = useState(initialKeyword);
   const [selectedLocations, setSelectedLocations] = useState<string[]>([]);

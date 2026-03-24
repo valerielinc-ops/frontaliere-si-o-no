@@ -41,7 +41,7 @@ const InlineNetDeltaBadge: React.FC<Props> = ({ delta, currency = 'CHF', size = 
       onAnimationEnd={() => setVisible(false)}
     >
       {isPositive ? <ArrowUp size={iconSize} strokeWidth={3} /> : <ArrowDown size={iconSize} strokeWidth={3} />}
-      {formatDeltaText(delta, currency, size)}
+      {formatDeltaText(delta, currency, size as 'desktop' | 'mobile')}
     </span>
   );
 };

@@ -135,10 +135,18 @@ const MobileCalcLayout: React.FC<Props> = ({
     if (!email || !email.includes('@')) return;
     setGateStatus('loading');
     try {
-      const { upsertNewsletterSubscriber, requestConfirmationEmail, markNewsletterSubscribedLocally } =
-        await import('@/services/newsletterSubscribers');
-      const { unlockAchievement } = await import('@/services/gamificationService');
-      await upsertNewsletterSubscriber(email, 'analysis_gate', null);
+      const [
+        { getFirestore }, { getApp },
+        { upsertNewsletterSubscriber, requestConfirmationEmail, markNewsletterSubscribedLocally },
+        { unlockAchievement },
+      ] = await Promise.all([
+        import('firebase/firestore'),
+        import('@/services/firebase'),
+        import('@/services/newsletterSubscribers'),
+        import('@/services/gamificationService'),
+      ]);
+      const db = getFirestore(await getApp());
+      await upsertNewsletterSubscriber(db, { email, source: 'analysis_gate' });
       await requestConfirmationEmail(email);
       markNewsletterSubscribedLocally();
       unlockAchievement('newsletter_subscriber');

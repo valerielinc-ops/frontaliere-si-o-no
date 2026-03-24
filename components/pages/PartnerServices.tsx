@@ -88,7 +88,7 @@ const PartnerServices: React.FC = () => {
       {/* Categories */}
       {CATEGORIES.map(cat => {
         const categoryPartners = allPartners.filter(p => 
-          p.contexts.some(c => cat.contexts.includes(c as any))
+          p.contexts.some(c => (cat.contexts as readonly string[]).includes(c))
         );
         if (categoryPartners.length === 0) return null;
 

@@ -1098,7 +1098,7 @@ function buildCacheEntry(job, hash) {
   return { hash, translations: { titles, descriptions }, cachedAt: new Date().toISOString() };
 }
 
-export async function translateMissingJobLocales({ dataJobsPath, isTargetJob, maxJobs = 0, minDescriptionChars = 120, companySlug }) {
+export async function translateMissingJobLocales({ dataJobsPath, isTargetJob = null, maxJobs = 0, minDescriptionChars = 120, companySlug = '' }) {
   if (!dataJobsPath || !fs.existsSync(dataJobsPath)) {
     return { changed: false, translated: 0, total: 0, details: [] };
   }

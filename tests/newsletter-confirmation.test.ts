@@ -53,8 +53,11 @@ describe('newsletterConfirmationEmail', () => {
     );
     const result = await sendNewsletterConfirmationEmail({
       email: 'not-an-email',
+      locale: 'it',
+      sourcePath: '/',
       resendApiKey: 'key',
       secret: 'secret',
+      db: undefined,
     });
     expect(result.success).toBe(false);
     expect(result.error).toBe('invalid_email');
@@ -66,8 +69,11 @@ describe('newsletterConfirmationEmail', () => {
     );
     const result = await sendNewsletterConfirmationEmail({
       email: 'test@example.com',
+      locale: 'it',
+      sourcePath: '/',
       resendApiKey: '',
       secret: 'secret',
+      db: undefined,
     });
     expect(result.success).toBe(false);
     expect(result.error).toBe('missing_resend_api_key');
@@ -79,8 +85,11 @@ describe('newsletterConfirmationEmail', () => {
     );
     const result = await sendNewsletterConfirmationEmail({
       email: 'test@example.com',
+      locale: 'it',
+      sourcePath: '/',
       resendApiKey: 'key',
       secret: '',
+      db: undefined,
     });
     expect(result.success).toBe(false);
     expect(result.error).toBe('missing_newsletter_secret');
@@ -145,6 +154,7 @@ describe('handleSubscriptionManagement — confirm action', () => {
       email,
       token,
       secret,
+      locale: 'it',
       db,
     });
 
@@ -174,6 +184,7 @@ describe('handleSubscriptionManagement — confirm action', () => {
       email,
       token,
       secret,
+      locale: 'it',
       db,
     });
 
@@ -192,6 +203,7 @@ describe('handleSubscriptionManagement — confirm action', () => {
       email: 'test@example.com',
       token: 'invalid-token',
       secret: 'test-secret',
+      locale: 'it',
       db,
     });
 

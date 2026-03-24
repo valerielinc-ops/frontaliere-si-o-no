@@ -14,7 +14,7 @@ export type NavAction = 'calculator' | 'exchange' | 'health' | 'cost-of-living' 
   'payslip' | 'tax-return' | 'residency' | 'ristorni' | 'unemployment' | 'jobs' | 'companies' | 'banks' |
   'first-day' | 'permits' | 'border' | 'calendar' | 'whatif' | 'shopping' | 'transport' | 'salary-compare' | 'traffic-history' |
   'border-map' | 'municipalities' | 'car-transfer' | 'car-cost' | 'permit-compare' | 'renovation' |
-  'mobile' | 'ral' | 'parental-leave' | 'nursery' | 'living-ch' | 'living-it' | 'livability' | 'job-board';
+  'mobile' | 'ral' | 'parental-leave' | 'nursery' | 'living-ch' | 'living-it' | 'livability' | 'job-board' | 'jobs-observatory';
 
 export type NavigatorMap = Partial<Record<NavAction, () => void>>;
 

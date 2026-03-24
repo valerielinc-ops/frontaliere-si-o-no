@@ -6,7 +6,6 @@
  */
 import { describe, it, expect } from 'vitest';
 
-// @ts-expect-error — ESM .mjs module
 import { parseBaronieDetailHtml, buildBaronieLocalizedContent, titleOverlap, isSwissJob } from '@/scripts/lib/baronie-job-parser.mjs';
 
 // ─── Fixture: International Sales Manager (Caslano, CH) ───
@@ -333,6 +332,7 @@ describe('buildBaronieLocalizedContent', () => {
     const result = buildBaronieLocalizedContent({
       title: 'International Sales Manager',
       location: 'Caslano',
+      company: 'Baronie',
       detailMarkdown: '',
     });
     expect(result.slugByLocale.it).toBe('international-sales-manager-baronie-caslano');

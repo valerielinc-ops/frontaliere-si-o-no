@@ -2931,7 +2931,7 @@ export default function AdminPanel() {
               <div className="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 p-4 space-y-3">
                 <h3 className="text-sm font-bold text-slate-800 dark:text-slate-100">File Pubblici Critici</h3>
                 <div className="space-y-2">
-                  {Object.entries(ownerStats.publicFiles).map(([file, ok]) => (
+                  {(Object.entries(ownerStats.publicFiles) as [string, boolean][]).map(([file, ok]) => (
                     <div key={file} className="flex items-center justify-between text-sm">
                       <span className="font-mono text-slate-700 dark:text-slate-300">/{file}</span>
                       <HealthBadge ok={ok} label={ok ? 'OK' : 'Missing'} />

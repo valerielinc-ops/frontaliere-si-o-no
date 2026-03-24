@@ -9,7 +9,6 @@
  */
 import { describe, it, expect } from 'vitest';
 
-// @ts-expect-error — ESM .mjs module
 import { parseAccordionJobs, htmlToText, MIN_DESC_LENGTH } from '@/scripts/lib/linnea-job-parser.mjs';
 
 // ─── Fixture: real accordion HTML structure from linnea.ch/careers/ ───────────

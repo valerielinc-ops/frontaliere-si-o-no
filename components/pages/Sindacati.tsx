@@ -1,3 +1,4 @@
+import type { FC } from 'react';
 import { useTranslation } from '@/services/i18n';
 import { Building2, ExternalLink, Shield, Scale, Users, Phone, Mail, ChevronRight } from 'lucide-react';
 
@@ -110,7 +111,7 @@ const ITALIAN_UNIONS: UnionInfo[] = [
   },
 ];
 
-function UnionCard({ union, country }: { union: UnionInfo; country: 'ch' | 'it' }) {
+const UnionCard: FC<{ union: UnionInfo; country: 'ch' | 'it' }> = ({ union, country }) => {
   const flag = country === 'ch' ? '🇨🇭' : '🇮🇹';
   return (
     <div className="rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 p-4 hover:shadow-md transition-shadow">

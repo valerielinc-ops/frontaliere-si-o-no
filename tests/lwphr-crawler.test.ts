@@ -12,7 +12,6 @@
  */
 import { describe, it, expect } from 'vitest';
 
-// @ts-expect-error — ESM .mjs module
 import {
   extractTitleFromPdfText,
   reconcilePdfTitle,

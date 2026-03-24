@@ -551,6 +551,8 @@ interface SlugTable {
   admin: string;
   // About / Chi Siamo page (E-E-A-T)
   chiSiamo: string;
+  // Trade unions guide
+  sindacati: string;
   // legacy slugs (for backward compat parsing)
   costs: string;
   salarySurvey: string;
@@ -737,6 +739,7 @@ const SLUG_TABLES: Record<Locale, SlugTable> = {
     emailConfirmed: 'welcome',
     admin: 'gestione-contenuti-xk9mp2q',
     chiSiamo: 'about-us',
+    sindacati: 'trade-unions-cross-border-workers',
     costs: 'commuting-costs',
     salarySurvey: 'salary-survey',
     comparatori: 'comparators',
@@ -828,6 +831,7 @@ const SLUG_TABLES: Record<Locale, SlugTable> = {
     emailConfirmed: 'willkommen',
     admin: 'gestione-contenuti-xk9mp2q',
     chiSiamo: 'ueber-uns',
+    sindacati: 'gewerkschaften-grenzgaenger',
     costs: 'pendelkosten',
     salarySurvey: 'gehaltsumfrage',
     comparatori: 'vergleiche',
@@ -919,6 +923,7 @@ const SLUG_TABLES: Record<Locale, SlugTable> = {
     emailConfirmed: 'bienvenue',
     admin: 'gestione-contenuti-xk9mp2q',
     chiSiamo: 'a-propos',
+    sindacati: 'syndicats-frontaliers',
     costs: 'couts-pendulaire',
     salarySurvey: 'sondage-salaires',
     comparatori: 'comparateurs',
@@ -1389,6 +1394,7 @@ function buildTopLevelReverse(table: SlugTable, locale: Locale): TopLevelSlugMap
     [table.toolOfWeek]: { tab: 'tool-of-week' },
     [table.emailConfirmed]: { tab: 'email-confirmed' },
     [table.admin]: { tab: 'admin' },
+    [table.sindacati]: { tab: 'sindacati' },
     [table.whatif]: { tab: 'calculator', sub: 'whatif' },
     [table.payslip]: { tab: 'calculator', sub: 'payslip' },
   };
@@ -1893,6 +1899,8 @@ export function buildPath(route: AppRoute, locale?: Locale): string {
       return finish(`${prefix}/${table.privacy}${hashSuffix}`);
     case 'chi-siamo':
       return finish(`${prefix}/${table.chiSiamo}${hashSuffix}`);
+    case 'sindacati':
+      return finish(`${prefix}/${table.sindacati}${hashSuffix}`);
     case 'data-deletion':
       return finish(`${prefix}/${table.dataDeletion}${hashSuffix}`);
     case 'api-status':

@@ -311,7 +311,7 @@ const SchoolDirectory: React.FC<{ t: (key: string) => string }> = ({ t }) => {
 
       {/* School list grouped by type */}
       <div className="p-4 space-y-4 max-h-[600px] overflow-y-auto">
-        {Object.entries(groupedByType)
+        {(Object.entries(groupedByType) as [string, import('@/components/vita/TicinoSchoolsData').SchoolEntry[]][])
           .sort(([a], [b]) => {
             const order = ['nido', 'infanzia', 'elementare', 'media', 'superiore'];
             return order.indexOf(a) - order.indexOf(b);

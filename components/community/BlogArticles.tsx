@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo, useCallback, lazy, Suspense, type ReactNode, type ReactElement } from 'react';
+import { useState, useEffect, useMemo, useCallback, lazy, Suspense, type FC, type ReactNode, type ReactElement } from 'react';
 import { useTranslation, useLocale, loadBlogMeta, loadArticleBody } from '@/services/i18n';
 import type { Locale } from '@/services/i18n';
 import { buildPath } from '@/services/router';
@@ -667,7 +667,7 @@ interface CtaConfig {
 }
 
 /** Static mapping from each NavAction to its CTA display config */
-const NAV_ACTION_CTA_MAP: Record<NavAction, { icon: LucideIcon; i18nPrefix: string; color: CtaConfig['color'] }> = {
+const NAV_ACTION_CTA_MAP: Partial<Record<NavAction, { icon: LucideIcon; i18nPrefix: string; color: CtaConfig['color'] }>> = {
   calculator:       { icon: Calculator,   i18nPrefix: 'blog.cta.calculator',    color: 'indigo'  },
   exchange:         { icon: TrendingUp,   i18nPrefix: 'blog.cta.exchange',       color: 'blue'    },
   health:           { icon: Heart,        i18nPrefix: 'blog.cta.health',         color: 'emerald' },
@@ -825,7 +825,7 @@ export default function BlogArticles({
   const [trendingArticles, setTrendingArticles] = useState<TrendingEntry[]>([]);
   useEffect(() => {
     if (!selectedArticle) return;
-    const validIds = new Set(articles.map(a => a.id));
+    const validIds = new Set<string>(articles.map(a => a.id));
     fetchTrendingArticles(validIds).then(setTrendingArticles).catch(() => {});
   }, [selectedArticle]);
 
@@ -1149,7 +1149,7 @@ export default function BlogArticles({
     const adEligibleInline = adEligible;
 
     /** Compact vertical card for desktop side rails */
-    const SideRailCard = ({ partner, idx }: { partner: AffiliatePartner; idx: number }) => {
+    const SideRailCard: FC<{ partner: AffiliatePartner; idx: number }> = ({ partner, idx }) => {
       const handleAffClick = () => {
         Analytics.trackExternalLink(partner.url, `affiliate_${partner.id}`);
         Analytics.trackSelectContent('affiliate_click', `${partner.id}_blog_${article.category}`);

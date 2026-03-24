@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, type MouseEvent } from 'react';
 import { Bell, X, Sparkles, Zap, Bug, ChevronRight, PartyPopper } from 'lucide-react';
 import { useTranslation, useLocale } from '@/services/i18n';
 import { useNavigationOptional } from '@/services/NavigationContext';
@@ -1615,7 +1615,7 @@ export default function WhatsNewModal({ open, onClose }: WhatsNewModalProps) {
     }
   }, [open]);
 
-  const handleLinkClick = useCallback((e: React.MouseEvent<HTMLAnchorElement>, link: { tab: string; subTab?: string }) => {
+  const handleLinkClick = useCallback((e: MouseEvent<HTMLAnchorElement>, link: { tab: string; subTab?: string }) => {
     e.preventDefault();
     onClose();
     // Use SPA navigation when available; the href on the <a> element is a

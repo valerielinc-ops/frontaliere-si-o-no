@@ -1827,7 +1827,8 @@ function canonicalContentRichnessScore(content: CanonicalLocaleContent | undefin
 
 function readCanonicalLocaleContent(job: JobListing, locale: Locale, description: string, requirements: string[]): CanonicalLocaleContent {
   const byLocale = job.canonicalContent?.byLocale;
-  const selected = byLocale?.[locale];
+  // Cast: byLocale entries use all-optional fields but functions expect the full type
+  const selected = byLocale?.[locale] as unknown as CanonicalLocaleContent | undefined;
   const fallbackCanonical = buildFallbackCanonicalContent(description, requirements, locale);
   if (!selected || isSparseCanonicalContent(selected)) return fallbackCanonical;
   if (canonicalContentRichnessScore(selected) + 6 < canonicalContentRichnessScore(fallbackCanonical)) {

@@ -58,7 +58,7 @@ function matchExpiredSlug(job: ExpiredJob, slug: string): boolean {
  */
 function getSeededExpiredJob(): ExpiredJob | null {
   try {
-    const raw = (window as Record<string, unknown>).__EXPIRED_JOB_DATA__;
+    const raw = (window as unknown as Record<string, unknown>).__EXPIRED_JOB_DATA__;
     if (raw && typeof raw === 'object' && 'slug' in (raw as Record<string, unknown>)) {
       const candidate = raw as ExpiredJob;
       // Seeded data must have a meaningful title — empty objects injected for

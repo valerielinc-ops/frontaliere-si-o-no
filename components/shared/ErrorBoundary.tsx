@@ -62,7 +62,7 @@ export class ErrorBoundary extends Component<Props, State> {
           pagePath: window.location.pathname + window.location.search,
           blocked: false,
         });
-        if ('caches' in window) {
+        if (typeof caches !== 'undefined') {
           caches.keys()
             .then(names => Promise.all(names.map(n => caches.delete(n))))
             .then(() => window.location.reload());
@@ -137,6 +137,6 @@ export class ErrorBoundary extends Component<Props, State> {
       );
     }
 
-    return this.props.children;
+    return (this as React.Component<Props, State>).props.children;
   }
 }

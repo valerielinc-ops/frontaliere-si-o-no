@@ -6,7 +6,6 @@
  */
 import { describe, it, expect } from 'vitest';
 
-// @ts-expect-error — ESM .mjs module
 import { parseLombardiDetailHtml, buildLombardiLocalizedContent, titleOverlap } from '@/scripts/lib/lombardi-job-parser.mjs';
 
 // ─── Fixture: Progettista / Tecnico RVCS (id=108934) ───
