@@ -62,10 +62,10 @@ const RC_TO_ENV = {
   AMAZON_CREATOR_SECRET:          ['AMAZON_CREATOR_SECRET'],
 
   // LinkedIn auto-posting (Company Page articles)
-  LINKEDIN_POST_CLIENT_ID:        ['LINKEDIN_POSTING_CLIENT_ID', 'LINKEDIN_POST_CLIENT_ID'],
-  LINKEDIN_POST_CLIENT_SECRET:    ['LINKEDIN_POSTING_CLIENT_SECRET', 'LINKEDIN_POST_CLIENT_SECRET'],
-  LINKEDIN_POST_REFRESH_TOKEN:    ['LINKEDIN_REFRESH_TOKEN', 'LINKEDIN_POST_REFRESH_TOKEN'],
-  LINKEDIN_POST_ACCESS_TOKEN:     ['LINKEDIN_POST_ACCESS_TOKEN', 'LINKEDIN_ACCESS_TOKEN'],
+  LINKEDIN_POST_CLIENT_ID:        ['LINKEDIN_POST_CLIENT_ID'],
+  LINKEDIN_POST_CLIENT_SECRET:    ['LINKEDIN_POST_CLIENT_SECRET'],
+  LINKEDIN_POST_REFRESH_TOKEN:    ['LINKEDIN_POST_REFRESH_TOKEN'],
+  LINKEDIN_POST_ACCESS_TOKEN:     ['LINKEDIN_POST_ACCESS_TOKEN'],
   LINKEDIN_ORGANIZATION_ID:       ['LINKEDIN_ORGANIZATION_ID'],
 
   // LinkedIn Sign-In (OAuth2 for user authentication)
@@ -77,22 +77,19 @@ const RC_TO_ENV = {
   // Linear API (issue creation on CI failure)
   LINEAR_API_KEY:                 ['LINEAR_API_KEY'],
 
-  // Additional LLM providers (free tiers)
+  // LLM providers (AI model chain for articles + crawlers)
   GROQ_API_KEY:                   ['GROQ_API_KEY'],
   OPENROUTER_API_KEY:             ['OPENROUTER_API_KEY'],
   HF_TOKEN:                       ['HF_TOKEN', 'HUGGINGFACE_TOKEN'],
-
-  // Image generation providers (FRO-269)
-  TOGETHER_API_KEY:               ['TOGETHER_API_KEY'],
-  FAL_KEY:                        ['FAL_KEY'],
-  PEXELS_API_KEY:                 ['PEXELS_API_KEY'],
-
-  // Additional LLM providers (configured in RC but missing from mapping)
   CEREBRAS_API_KEY:               ['CEREBRAS_API_KEY'],
-  DEEPSEEK_API_KEY:               ['DEEPSEEK_API_KEY'],
   FIREWORKS_API_KEY:              ['FIREWORKS_API_KEY'],
   NVIDIA_NIM_API_KEY:             ['NVIDIA_NIM_API_KEY'],
   HUGGINGFACE_API_KEY:            ['HUGGINGFACE_API_KEY'],
+
+  // Image generation providers
+  TOGETHER_API_KEY:               ['TOGETHER_API_KEY'],
+  FAL_KEY:                        ['FAL_KEY'],
+  PEXELS_API_KEY:                 ['PEXELS_API_KEY'],
 
   // Resend webhook (newsletter delivery tracking)
   RESEND_WEBHOOK_SECRET:          ['RESEND_WEBHOOK_SECRET'],

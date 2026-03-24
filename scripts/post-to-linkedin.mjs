@@ -9,9 +9,9 @@
  *   LINKEDIN_ORGANIZATION_ID — Numeric LinkedIn company page ID
  *
  * Token strategy (in order of preference):
- *   1. LINKEDIN_REFRESH_TOKEN + LINKEDIN_CLIENT_ID + LINKEDIN_CLIENT_SECRET
+ *   1. LINKEDIN_POST_REFRESH_TOKEN + LINKEDIN_CLIENT_ID + LINKEDIN_CLIENT_SECRET
  *      → auto-refreshes access token before each post (refresh token lasts ~1 year)
- *   2. LINKEDIN_ACCESS_TOKEN
+ *   2. LINKEDIN_POST_ACCESS_TOKEN
  *      → uses token directly (expires in 60 days — manual renewal needed)
  *
  * LinkedIn REST API (version 202401):
@@ -36,11 +36,10 @@ const CATEGORY_EMOJI = {
 };
 
 async function getAccessToken() {
-  const refreshToken = process.env.LINKEDIN_REFRESH_TOKEN;
-  // Prefer LINKEDIN_POSTING_* vars (from RC) over LINKEDIN_* (legacy GitHub Secrets)
-  const clientId = process.env.LINKEDIN_POSTING_CLIENT_ID || process.env.LINKEDIN_CLIENT_ID;
-  const clientSecret = process.env.LINKEDIN_POSTING_CLIENT_SECRET || process.env.LINKEDIN_CLIENT_SECRET;
-  const staticToken = process.env.LINKEDIN_ACCESS_TOKEN;
+  const refreshToken = process.env.LINKEDIN_POST_REFRESH_TOKEN;
+  const clientId = process.env.LINKEDIN_POST_CLIENT_ID;
+  const clientSecret = process.env.LINKEDIN_POST_CLIENT_SECRET;
+  const staticToken = process.env.LINKEDIN_POST_ACCESS_TOKEN;
 
   // Preferred: auto-refresh using refresh token
   if (refreshToken && clientId && clientSecret) {
@@ -65,7 +64,7 @@ async function getAccessToken() {
 
   // Fallback: static access token
   if (staticToken) {
-    console.log('ℹ️  Using static LINKEDIN_ACCESS_TOKEN');
+    console.log('ℹ️  Using static LINKEDIN_POST_ACCESS_TOKEN');
     return staticToken;
   }
 
@@ -92,12 +91,12 @@ async function main() {
   }
 
   const hasCredentials = !!(
-    process.env.LINKEDIN_REFRESH_TOKEN ||
-    process.env.LINKEDIN_ACCESS_TOKEN
+    process.env.LINKEDIN_POST_REFRESH_TOKEN ||
+    process.env.LINKEDIN_POST_ACCESS_TOKEN
   );
 
   if (!dryRun && !hasCredentials) {
-    console.log('⚠️  No LinkedIn token configured (set LINKEDIN_REFRESH_TOKEN or LINKEDIN_ACCESS_TOKEN) — skipping');
+    console.log('⚠️  No LinkedIn token configured (set LINKEDIN_POST_REFRESH_TOKEN or LINKEDIN_POST_ACCESS_TOKEN) — skipping');
     process.exit(0);
   }
 
@@ -172,7 +171,7 @@ async function main() {
       const data = await response.text();
       console.error(`⚠️  LinkedIn API error (${response.status}): ${data}`);
       if (response.status === 401) {
-        console.error('💡 Token expired or invalid. Refresh LINKEDIN_REFRESH_TOKEN or LINKEDIN_ACCESS_TOKEN in GitHub Secrets.');
+        console.error('💡 Token expired or invalid. Refresh LINKEDIN_POST_REFRESH_TOKEN or LINKEDIN_POST_ACCESS_TOKEN in GitHub Secrets.');
       }
       if (response.status === 403) {
         console.error('💡 Missing scopes. Token needs w_organization_social scope (Community Management API).');
