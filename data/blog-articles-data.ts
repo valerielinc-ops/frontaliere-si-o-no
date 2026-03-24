@@ -5291,4 +5291,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/sesto-calende-centro-sportivo.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'chiasso-missione-emergenza',
+    category: 'novita',
+    date: '2026-03-24T16:16:10.216Z',
+    image: '/images/blog/chiasso-missione-emergenza.jpg',
+    hasCalculator: true,
+  },
 ];

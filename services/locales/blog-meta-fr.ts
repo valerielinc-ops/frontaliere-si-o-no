@@ -1757,6 +1757,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.sesto-calende-centro-sportivo.title': 'La Regione Lombardia sostiene il centro sportivo di Sesto Calende con 380.000 euro',
     'blog.article.sesto-calende-centro-sportivo.excerpt': 'Il comune di Sesto Calende ha ottenuto un finanziamento di 380.000 euro per il miglioramento delle strutture sportive del centro sportivo.',
     'blog.article.sesto-calende-centro-sportivo.imageAlt': 'Image du centre sportif de Sesto Calende',
+    'blog.article.chiasso-missione-emergenza.title': 'Mission d\'urgence : Chiasso devient \'capitale\' du secours et de la sécurité',
+    'blog.article.chiasso-missione-emergenza.excerpt': 'Dimanche 26 avril à Chiasso, l\'événement extraordinaire de Mission d\'urgence aura lieu, où dix organismes d\'intervention d\'urgence présenteront leur travail quotidien avec des stands en contact direct avec la population.',
+    'blog.article.chiasso-missione-emergenza.imageAlt': 'Ambulance à Chiasso',
 };
 
 export default blogMetaFr;

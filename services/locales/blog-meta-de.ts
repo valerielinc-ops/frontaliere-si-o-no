@@ -1757,6 +1757,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.sesto-calende-centro-sportivo.title': 'Das Sportzentrum von Sesto Calende erhält 380.000 Euro von der Region Lombardei',
     'blog.article.sesto-calende-centro-sportivo.excerpt': 'Das Gemeinde von Sesto Calende hat 380.000 Euro im Rahmen des Programms Sportanlagen 2025 der Region Lombardei erhalten',
     'blog.article.sesto-calende-centro-sportivo.imageAlt': 'Bild des Sportzentrums von Sesto Calende',
+    'blog.article.chiasso-missione-emergenza.title': 'Missionskrisen: Chiasso wird \'Hauptstadt\' der Hilfe und der Sicherheit',
+    'blog.article.chiasso-missione-emergenza.excerpt': 'Sonntag, 26. April, Chiasso: Unikat-Event Missionskrisen, bei dem zehn erste Hilfe-Einheiten ihr tägliches Werk mit Ausstellungen direkt vor der Bürgerschaft präsentieren.',
+    'blog.article.chiasso-missione-emergenza.imageAlt': 'Rettungswagen in Chiasso',
 };
 
 export default blogMetaDe;

@@ -10115,6 +10115,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-chiasso-missione-emergenza': {
+    title: 'Missione emergenza: Chiasso diventa \'capitale\' del soccorso e della | Frontaliere Ticino',
+    description: 'Domenica 26 aprile a Chiasso si terrà l\'evento straordinario di Missione emergenza. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, missione, emergenza, chiasso, diventa',
+    ogTitle: 'Missione emergenza a Chiasso',
+    ogDescription: 'Domenica 26 aprile a Chiasso si terrà l\'evento straordinario di Missione emergenza',
+    canonicalPath: '/articoli-frontaliere/chiasso-missione-emergenza',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Missione emergenza a Chiasso: un evento unico per il soccorso e la sicurezza",
+      "description": "Domenica 26 aprile a Chiasso si terrà l'evento straordinario di Missione emergenza. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/chiasso-missione-emergenza.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Autoambulanza a Chiasso"
+      },
+      "datePublished": "2026-03-24T16:16:10+00:00",
+      "dateModified": "2026-03-24T16:16:10+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/chiasso-missione-emergenza`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

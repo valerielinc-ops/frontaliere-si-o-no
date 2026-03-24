@@ -1757,6 +1757,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.sesto-calende-centro-sportivo.title': 'Sesto Calende\'s Sports Center Receives 380,000 Euros from Lombardy Region',
     'blog.article.sesto-calende-centro-sportivo.excerpt': 'The town of Sesto Calende has received 380,000 euros from the Lombardy Region\'s \'Impianti Sportivi 2025\' program to improve its sports center.',
     'blog.article.sesto-calende-centro-sportivo.imageAlt': 'Image of Sesto Calende sports center',
+    'blog.article.chiasso-missione-emergenza.title': 'Mission Emergency: Chiasso Becomes \'Capital\' of Rescue and Safety',
+    'blog.article.chiasso-missione-emergenza.excerpt': 'On April 26, Chiasso will host the extraordinary event of Mission Emergency, where ten first-responder entities will present their daily work with stands in direct contact with citizens.',
+    'blog.article.chiasso-missione-emergenza.imageAlt': 'Ambulance in Chiasso',
 };
 
 export default blogMetaEn;

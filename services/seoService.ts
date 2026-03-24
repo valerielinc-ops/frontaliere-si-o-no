@@ -1707,6 +1707,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-apprendisti-frontalieri-permessi-g': { name: 'Frontalieri: permesso G per tutta la', path: '/articoli-frontaliere/apprendisti-frontalieri-permessi-g', parent: 'blog' },
     'blog-crescita-sicurezza-ticino-2025': { name: 'Sicurezza', path: '/articoli-frontaliere/crescita-sicurezza-ticino-2025', parent: 'blog' },
     'blog-sesto-calende-centro-sportivo': { name: 'Sesto Calende centro sportivo', path: '/articoli-frontaliere/sesto-calende-centro-sportivo', parent: 'blog' },
+    'blog-chiasso-missione-emergenza': { name: 'Chiasso', path: '/articoli-frontaliere/chiasso-missione-emergenza', parent: 'blog' },
   };
 
   const info = sectionNames[section];

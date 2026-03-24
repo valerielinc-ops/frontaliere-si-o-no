@@ -1757,6 +1757,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.sesto-calende-centro-sportivo.title': 'Per il centro sportivo di Sesto Calende arrivano 380mila euro da Regione Lombardia',
     'blog.article.sesto-calende-centro-sportivo.excerpt': 'Il comune di Sesto Calende ha ottenuto 380.000 euro nell\'ambito del bando Impianti Sportivi 2025 di Regione Lombardia',
     'blog.article.sesto-calende-centro-sportivo.imageAlt': 'Immagine del centro sportivo di Sesto Calende',
+    'blog.article.chiasso-missione-emergenza.title': 'Missione emergenza: Chiasso diventa \'capitale\' del soccorso e della sicurezza',
+    'blog.article.chiasso-missione-emergenza.excerpt': 'Domenica 26 aprile a Chiasso si terrà l\'evento straordinario di Missione emergenza, dove dieci enti di primo intervento presenteranno il loro lavoro quotidiano con stand a diretto contatto con la cittadinanza.',
+    'blog.article.chiasso-missione-emergenza.imageAlt': 'Autoambulanza a Chiasso',
 };
 
 export default blogMetaIt;
