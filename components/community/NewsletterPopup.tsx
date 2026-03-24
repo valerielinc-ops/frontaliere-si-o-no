@@ -13,7 +13,7 @@ import { reportCaughtError } from '@/services/errorReporter';
 import { unlockAchievement } from '@/services/gamificationService';
 import EmailInput, { validateEmailStrict } from '@/components/shared/EmailInput';
 import { requestSlot, releaseSlot, isActive, subscribe, POPUP_PRIORITY } from '@/services/popupQueue';
-import { useAuth, promptOneTap, cancelOneTap, getAuthEmail, eagerAuth, renderGoogleButtonWithReadiness } from '@/services/authService';
+import { useAuth, promptOneTap, cancelOneTap, getAuthEmail, eagerAuth, renderGoogleButtonWithReadiness, isLinkedInSignInAvailable, signInWithLinkedIn } from '@/services/authService';
 import { useNavigationOptional } from '@/services/NavigationContext';
 import {
   upsertNewsletterSubscriber,
@@ -68,10 +68,12 @@ const NewsletterPopup: React.FC = () => {
   const [reminderMode, setReminderMode] = useState(false);
   const [resendStatus, setResendStatus] = useState<'idle' | 'sending' | 'sent' | 'cooldown' | 'error'>('idle');
   const [googleButtonReady, setGoogleButtonReady] = useState(false);
+  const [linkedInAvailable, setLinkedInAvailable] = useState(false);
   const { user, signIn: googleSignIn, signInFacebook: facebookSignIn } = useAuth();
   const userRef = useRef(user);
   const googleButtonRef = useRef<HTMLDivElement>(null);
   useEffect(() => { userRef.current = user; }, [user]);
+  useEffect(() => { isLinkedInSignInAvailable().then(setLinkedInAvailable).catch(() => {}); }, []);
   const timeReady = useRef(false);
   const scrollReady = useRef(false);
   const exitIntentFired = useRef(false);
@@ -514,6 +516,18 @@ const NewsletterPopup: React.FC = () => {
                   </button>
                 )}
               </div>
+
+              {/* LinkedIn Sign-In Button (conditional on Remote Config) */}
+              {linkedInAvailable && (
+                <button
+                  type="button"
+                  onClick={() => signInWithLinkedIn()}
+                  className="w-full inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg bg-[#0A66C2] hover:bg-[#004182] text-white text-sm font-semibold transition-colors"
+                >
+                  <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                  {locale === 'it' ? 'Continua con LinkedIn' : locale === 'de' ? 'Mit LinkedIn fortfahren' : locale === 'fr' ? 'Continuer avec LinkedIn' : 'Continue with LinkedIn'}
+                </button>
+              )}
 
               {/* Facebook Sign-In button hidden — Facebook app not yet approved */}
               {/* TODO: Re-enable once Facebook app review is complete */}

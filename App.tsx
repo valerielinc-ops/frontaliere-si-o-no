@@ -486,10 +486,12 @@ const App: React.FC = () => {
 
         if (cancelled) return;
 
-        // Navigate to original path (from state param) or homepage
+        // Navigate to original path (from state param) or homepage.
+        // Use location.replace so the SPA router re-parses the target route;
+        // replaceState alone would leave stale tab/subtab state.
         const redirectTo = state ? decodeURIComponent(state) : '/';
-        window.history.replaceState(null, '', redirectTo);
         setLinkedInCallbackProcessing(false);
+        window.location.replace(redirectTo);
       } catch (error) {
         if (cancelled) return;
         reportCaughtError(error, 'app.linkedInCallback');

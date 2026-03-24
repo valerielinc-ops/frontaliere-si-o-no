@@ -1688,6 +1688,11 @@ export function parsePath(pathname: string): ParseResult {
     }
   }
 
+  // OAuth callback routes are handled by App.tsx useEffect — don't flag as 404
+  if (pathname.startsWith('/auth/')) {
+    return { route: { activeTab: 'calculator', calcolatoreSubTab: 'calculator' }, locale };
+  }
+
   return { route: { activeTab: 'calculator', calcolatoreSubTab: 'calculator' }, locale, notFoundPath: pathname };
 }
 

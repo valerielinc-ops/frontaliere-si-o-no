@@ -75,6 +75,9 @@ vi.mock('@/services/authService', () => ({
   renderGoogleButton: vi.fn(),
   deleteCurrentUser: vi.fn(),
   consumeFacebookProfilePrefill: vi.fn(() => null),
+  renderGoogleButtonWithReadiness: vi.fn(() => Promise.resolve(false)),
+  isLinkedInSignInAvailable: vi.fn(() => Promise.resolve(false)),
+  signInWithLinkedIn: vi.fn(() => Promise.resolve(null)),
 }));
 
 // Mock Analytics
