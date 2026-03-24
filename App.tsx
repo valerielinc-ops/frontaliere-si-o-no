@@ -2292,9 +2292,9 @@ const App: React.FC = () => {
                   </div>
                 </div>
                 <div className="hidden sm:block">
-                  <h1 className="text-lg font-bold text-slate-800 dark:text-slate-100 leading-none tracking-tight whitespace-nowrap">
+                  <span className="text-lg font-bold text-slate-800 dark:text-slate-100 leading-none tracking-tight whitespace-nowrap">
                     {t('app.title')}
-                  </h1>
+                  </span>
                   <p className="text-[10px] text-slate-500 dark:text-slate-500 font-bold uppercase tracking-widest mt-0.5">{t('nav.subtitle')}</p>
                 </div>
               </a>
