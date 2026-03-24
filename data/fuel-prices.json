@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-03-24T17:34:53.499Z",
+  "generatedAt": "2026-03-24T18:39:18.638Z",
   "sources": {
     "italy": {
       "provider": "MIMIT Open Data",
@@ -10,8 +10,8 @@
     "switzerland": {
       "provider": "TCS Benzinpreis",
       "providerUrl": "https://benzin.tcs.ch/de/map/SP95",
-      "stationCount": 225,
-      "latestObservedUpdate": "2026-03-24T17:31:45.933Z"
+      "stationCount": 226,
+      "latestObservedUpdate": "2026-03-24T18:06:11.303Z"
     },
     "exchangeRate": {
       "provider": "ECB",
@@ -577,19 +577,6 @@
         "sp95PriceEur": 1.804
       },
       {
-        "id": "LP7oYktKWhoncV2qvpHG",
-        "name": "ECSA Energy SA - Caslano",
-        "brand": "UNDEFINED",
-        "address": "Via Colombera 10, 6987 Caslano",
-        "lat": 45.97698951091755,
-        "lng": 8.874521781054243,
-        "sp95PriceChf": 1.6500000000000001,
-        "updatedAt": "2026-03-22T14:46:31.666Z",
-        "nearestMunicipality": "Brusimpiano (VA)",
-        "nearestMunicipalityDistanceKm": 1.9,
-        "sp95PriceEur": 1.804
-      },
-      {
         "id": "C0N2af7HpbOfesQdHoAq",
         "name": "BP Unbemannte Station Naters",
         "brand": "BP",
@@ -640,6 +627,19 @@
         "nearestMunicipality": "Lavena Ponte Tresa (VA)",
         "nearestMunicipalityDistanceKm": 1.3,
         "sp95PriceEur": 1.815
+      },
+      {
+        "id": "4BT8fOhwbGq3nheQli0N",
+        "name": "Umbrail Garage",
+        "brand": "UNDEFINED",
+        "address": "28, 7536 Santa Maria Val Müstair",
+        "lat": 46.60104435511953,
+        "lng": 10.423608794583739,
+        "sp95PriceChf": 1.67,
+        "updatedAt": "2026-03-02T09:13:53.366Z",
+        "nearestMunicipality": "Tubre (BZ)",
+        "nearestMunicipalityDistanceKm": 5.8,
+        "sp95PriceEur": 1.826
       }
     ],
     "bestCrossBorderSavings": [
@@ -1421,36 +1421,22 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 46,
+        "optionCount": 47,
         "cheapestStation": {
-          "id": "LP7oYktKWhoncV2qvpHG",
-          "name": "ECSA Energy SA - Caslano",
+          "id": "eyss2Vf8mj29JzsCvuUr",
+          "name": "Piccadilly SA",
           "brand": "UNDEFINED",
-          "address": "Via Colombera 10, 6987 Caslano",
-          "lat": 45.97698951091755,
-          "lng": 8.874521781054243,
-          "sp95PriceChf": 1.6500000000000001,
-          "updatedAt": "2026-03-22T14:46:31.666Z",
-          "nearestMunicipality": "Brusimpiano (VA)",
-          "nearestMunicipalityDistanceKm": 1.9,
-          "sp95PriceEur": 1.804,
-          "distanceKm": 19.6
+          "address": "Stráda da Valmára, 6822 Arogno",
+          "lat": 45.96022467397532,
+          "lng": 8.998347379932348,
+          "sp95PriceChf": 1.66,
+          "updatedAt": "2026-03-10T08:07:48.373Z",
+          "nearestMunicipality": "Campione d'Italia (CO)",
+          "nearestMunicipalityDistanceKm": 2.3,
+          "sp95PriceEur": 1.815,
+          "distanceKm": 17.7
         },
         "nearbyStations": [
-          {
-            "id": "LP7oYktKWhoncV2qvpHG",
-            "name": "ECSA Energy SA - Caslano",
-            "brand": "UNDEFINED",
-            "address": "Via Colombera 10, 6987 Caslano",
-            "lat": 45.97698951091755,
-            "lng": 8.874521781054243,
-            "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-22T14:46:31.666Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 1.9,
-            "sp95PriceEur": 1.804,
-            "distanceKm": 19.6
-          },
           {
             "id": "eyss2Vf8mj29JzsCvuUr",
             "name": "Piccadilly SA",
@@ -1494,22 +1480,36 @@
             "distanceKm": 19.2
           },
           {
+            "id": "LP7oYktKWhoncV2qvpHG",
+            "name": "ECSA Energy SA - Caslano",
+            "brand": "UNDEFINED",
+            "address": "Via Colombera 10, 6987 Caslano",
+            "lat": 45.97698951091755,
+            "lng": 8.874521781054243,
+            "sp95PriceChf": 1.71,
+            "updatedAt": "2026-03-24T17:40:27.503Z",
+            "nearestMunicipality": "Brusimpiano (VA)",
+            "nearestMunicipalityDistanceKm": 1.9,
+            "sp95PriceEur": 1.87,
+            "distanceKm": 19.6
+          },
+          {
             "id": "VW0cjs2jCw25mkNyuE9t",
             "name": "Texon Service",
             "brand": "UNDEFINED",
             "address": "Via Cantonale 50, 6987 Caslano",
             "lat": 45.97858351864336,
             "lng": 8.87647837854075,
-            "sp95PriceChf": 1.6600000000000001,
-            "updatedAt": "2026-03-21T08:10:13.884Z",
+            "sp95PriceChf": 1.72,
+            "updatedAt": "2026-03-24T17:38:46.421Z",
             "nearestMunicipality": "Brusimpiano (VA)",
             "nearestMunicipalityDistanceKm": 2.1,
-            "sp95PriceEur": 1.815,
+            "sp95PriceEur": 1.881,
             "distanceKm": 19.7
           }
         ],
-        "minPriceChf": 1.65,
-        "minPriceEur": 1.804
+        "minPriceChf": 1.66,
+        "minPriceEur": 1.815
       },
       "comparison": {
         "cheaperCountry": "NO_DATA",
@@ -1651,7 +1651,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 94,
+        "optionCount": 95,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -1696,20 +1696,6 @@
             "distanceKm": 18
           },
           {
-            "id": "LP7oYktKWhoncV2qvpHG",
-            "name": "ECSA Energy SA - Caslano",
-            "brand": "UNDEFINED",
-            "address": "Via Colombera 10, 6987 Caslano",
-            "lat": 45.97698951091755,
-            "lng": 8.874521781054243,
-            "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-22T14:46:31.666Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 1.9,
-            "sp95PriceEur": 1.804,
-            "distanceKm": 12.9
-          },
-          {
             "id": "eyss2Vf8mj29JzsCvuUr",
             "name": "Piccadilly SA",
             "brand": "UNDEFINED",
@@ -1736,6 +1722,20 @@
             "nearestMunicipalityDistanceKm": 2.3,
             "sp95PriceEur": 1.815,
             "distanceKm": 15.4
+          },
+          {
+            "id": "qAULcG7RwtmdWPH52365",
+            "name": "Euro service",
+            "brand": "UNDEFINED",
+            "address": "Via Colombera 45, 6987 Caslano",
+            "lat": 45.972068975787,
+            "lng": 8.86726121879764,
+            "sp95PriceChf": 1.66,
+            "updatedAt": "2026-03-22T14:49:20.523Z",
+            "nearestMunicipality": "Lavena Ponte Tresa (VA)",
+            "nearestMunicipalityDistanceKm": 1.3,
+            "sp95PriceEur": 1.815,
+            "distanceKm": 13.5
           }
         ],
         "minPriceChf": 1.61,
@@ -2188,36 +2188,22 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 81,
+        "optionCount": 82,
         "cheapestStation": {
-          "id": "LP7oYktKWhoncV2qvpHG",
-          "name": "ECSA Energy SA - Caslano",
+          "id": "eyss2Vf8mj29JzsCvuUr",
+          "name": "Piccadilly SA",
           "brand": "UNDEFINED",
-          "address": "Via Colombera 10, 6987 Caslano",
-          "lat": 45.97698951091755,
-          "lng": 8.874521781054243,
-          "sp95PriceChf": 1.6500000000000001,
-          "updatedAt": "2026-03-22T14:46:31.666Z",
-          "nearestMunicipality": "Brusimpiano (VA)",
-          "nearestMunicipalityDistanceKm": 1.9,
-          "sp95PriceEur": 1.804,
-          "distanceKm": 20
+          "address": "Stráda da Valmára, 6822 Arogno",
+          "lat": 45.96022467397532,
+          "lng": 8.998347379932348,
+          "sp95PriceChf": 1.66,
+          "updatedAt": "2026-03-10T08:07:48.373Z",
+          "nearestMunicipality": "Campione d'Italia (CO)",
+          "nearestMunicipalityDistanceKm": 2.3,
+          "sp95PriceEur": 1.815,
+          "distanceKm": 10.2
         },
         "nearbyStations": [
-          {
-            "id": "LP7oYktKWhoncV2qvpHG",
-            "name": "ECSA Energy SA - Caslano",
-            "brand": "UNDEFINED",
-            "address": "Via Colombera 10, 6987 Caslano",
-            "lat": 45.97698951091755,
-            "lng": 8.874521781054243,
-            "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-22T14:46:31.666Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 1.9,
-            "sp95PriceEur": 1.804,
-            "distanceKm": 20
-          },
           {
             "id": "eyss2Vf8mj29JzsCvuUr",
             "name": "Piccadilly SA",
@@ -2247,36 +2233,50 @@
             "distanceKm": 14
           },
           {
+            "id": "LP7oYktKWhoncV2qvpHG",
+            "name": "ECSA Energy SA - Caslano",
+            "brand": "UNDEFINED",
+            "address": "Via Colombera 10, 6987 Caslano",
+            "lat": 45.97698951091755,
+            "lng": 8.874521781054243,
+            "sp95PriceChf": 1.71,
+            "updatedAt": "2026-03-24T17:40:27.503Z",
+            "nearestMunicipality": "Brusimpiano (VA)",
+            "nearestMunicipalityDistanceKm": 1.9,
+            "sp95PriceEur": 1.87,
+            "distanceKm": 20
+          },
+          {
             "id": "VW0cjs2jCw25mkNyuE9t",
             "name": "Texon Service",
             "brand": "UNDEFINED",
             "address": "Via Cantonale 50, 6987 Caslano",
             "lat": 45.97858351864336,
             "lng": 8.87647837854075,
-            "sp95PriceChf": 1.6600000000000001,
-            "updatedAt": "2026-03-21T08:10:13.884Z",
+            "sp95PriceChf": 1.72,
+            "updatedAt": "2026-03-24T17:38:46.421Z",
             "nearestMunicipality": "Brusimpiano (VA)",
             "nearestMunicipalityDistanceKm": 2.1,
-            "sp95PriceEur": 1.815,
+            "sp95PriceEur": 1.881,
             "distanceKm": 19.8
           },
           {
-            "id": "gyZYYvcytMmf7B92Ix1w",
-            "name": "Euro Service",
-            "brand": "UNDEFINED",
-            "address": "Via Cantonale 18, 6987 Caslano",
-            "lat": 45.98019132146254,
-            "lng": 8.877659257998385,
-            "sp95PriceChf": 1.6600000000000001,
-            "updatedAt": "2026-03-21T09:43:34.620Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 2.2,
-            "sp95PriceEur": 1.815,
-            "distanceKm": 19.8
+            "id": "g1Ewt2bs9nFFxymi7tYL",
+            "name": "TAMOIL Stabio",
+            "brand": "TAMOIL",
+            "address": "Giulia 47, 6855 Stabio",
+            "lat": 45.848008,
+            "lng": 8.935833,
+            "sp95PriceChf": 1.72,
+            "updatedAt": "2026-03-07T18:03:01.884Z",
+            "nearestMunicipality": "Bizzarone (CO)",
+            "nearestMunicipalityDistanceKm": 1.6,
+            "sp95PriceEur": 1.881,
+            "distanceKm": 18.3
           }
         ],
-        "minPriceChf": 1.65,
-        "minPriceEur": 1.804
+        "minPriceChf": 1.66,
+        "minPriceEur": 1.815
       },
       "comparison": {
         "cheaperCountry": "NO_DATA",
@@ -3140,7 +3140,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 66,
+        "optionCount": 67,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -3169,20 +3169,6 @@
             "nearestMunicipalityDistanceKm": 1.3,
             "sp95PriceEur": 1.761,
             "distanceKm": 19.8
-          },
-          {
-            "id": "LP7oYktKWhoncV2qvpHG",
-            "name": "ECSA Energy SA - Caslano",
-            "brand": "UNDEFINED",
-            "address": "Via Colombera 10, 6987 Caslano",
-            "lat": 45.97698951091755,
-            "lng": 8.874521781054243,
-            "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-22T14:46:31.666Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 1.9,
-            "sp95PriceEur": 1.804,
-            "distanceKm": 16.6
           },
           {
             "id": "eyss2Vf8mj29JzsCvuUr",
@@ -3225,6 +3211,20 @@
             "nearestMunicipalityDistanceKm": 1.3,
             "sp95PriceEur": 1.815,
             "distanceKm": 16.3
+          },
+          {
+            "id": "LP7oYktKWhoncV2qvpHG",
+            "name": "ECSA Energy SA - Caslano",
+            "brand": "UNDEFINED",
+            "address": "Via Colombera 10, 6987 Caslano",
+            "lat": 45.97698951091755,
+            "lng": 8.874521781054243,
+            "sp95PriceChf": 1.71,
+            "updatedAt": "2026-03-24T17:40:27.503Z",
+            "nearestMunicipality": "Brusimpiano (VA)",
+            "nearestMunicipalityDistanceKm": 1.9,
+            "sp95PriceEur": 1.87,
+            "distanceKm": 16.6
           }
         ],
         "minPriceChf": 1.61,
@@ -3255,36 +3255,22 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 85,
+        "optionCount": 86,
         "cheapestStation": {
-          "id": "LP7oYktKWhoncV2qvpHG",
-          "name": "ECSA Energy SA - Caslano",
+          "id": "eyss2Vf8mj29JzsCvuUr",
+          "name": "Piccadilly SA",
           "brand": "UNDEFINED",
-          "address": "Via Colombera 10, 6987 Caslano",
-          "lat": 45.97698951091755,
-          "lng": 8.874521781054243,
-          "sp95PriceChf": 1.6500000000000001,
-          "updatedAt": "2026-03-22T14:46:31.666Z",
-          "nearestMunicipality": "Brusimpiano (VA)",
-          "nearestMunicipalityDistanceKm": 1.9,
-          "sp95PriceEur": 1.804,
-          "distanceKm": 17.3
+          "address": "Stráda da Valmára, 6822 Arogno",
+          "lat": 45.96022467397532,
+          "lng": 8.998347379932348,
+          "sp95PriceChf": 1.66,
+          "updatedAt": "2026-03-10T08:07:48.373Z",
+          "nearestMunicipality": "Campione d'Italia (CO)",
+          "nearestMunicipalityDistanceKm": 2.3,
+          "sp95PriceEur": 1.815,
+          "distanceKm": 7.7
         },
         "nearbyStations": [
-          {
-            "id": "LP7oYktKWhoncV2qvpHG",
-            "name": "ECSA Energy SA - Caslano",
-            "brand": "UNDEFINED",
-            "address": "Via Colombera 10, 6987 Caslano",
-            "lat": 45.97698951091755,
-            "lng": 8.874521781054243,
-            "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-22T14:46:31.666Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 1.9,
-            "sp95PriceEur": 1.804,
-            "distanceKm": 17.3
-          },
           {
             "id": "eyss2Vf8mj29JzsCvuUr",
             "name": "Piccadilly SA",
@@ -3328,22 +3314,36 @@
             "distanceKm": 17.9
           },
           {
+            "id": "LP7oYktKWhoncV2qvpHG",
+            "name": "ECSA Energy SA - Caslano",
+            "brand": "UNDEFINED",
+            "address": "Via Colombera 10, 6987 Caslano",
+            "lat": 45.97698951091755,
+            "lng": 8.874521781054243,
+            "sp95PriceChf": 1.71,
+            "updatedAt": "2026-03-24T17:40:27.503Z",
+            "nearestMunicipality": "Brusimpiano (VA)",
+            "nearestMunicipalityDistanceKm": 1.9,
+            "sp95PriceEur": 1.87,
+            "distanceKm": 17.3
+          },
+          {
             "id": "VW0cjs2jCw25mkNyuE9t",
             "name": "Texon Service",
             "brand": "UNDEFINED",
             "address": "Via Cantonale 50, 6987 Caslano",
             "lat": 45.97858351864336,
             "lng": 8.87647837854075,
-            "sp95PriceChf": 1.6600000000000001,
-            "updatedAt": "2026-03-21T08:10:13.884Z",
+            "sp95PriceChf": 1.72,
+            "updatedAt": "2026-03-24T17:38:46.421Z",
             "nearestMunicipality": "Brusimpiano (VA)",
             "nearestMunicipalityDistanceKm": 2.1,
-            "sp95PriceEur": 1.815,
+            "sp95PriceEur": 1.881,
             "distanceKm": 17.2
           }
         ],
-        "minPriceChf": 1.65,
-        "minPriceEur": 1.804
+        "minPriceChf": 1.66,
+        "minPriceEur": 1.815
       },
       "comparison": {
         "cheaperCountry": "NO_DATA",
@@ -4519,7 +4519,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 94,
+        "optionCount": 95,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -4564,20 +4564,6 @@
             "distanceKm": 12.8
           },
           {
-            "id": "LP7oYktKWhoncV2qvpHG",
-            "name": "ECSA Energy SA - Caslano",
-            "brand": "UNDEFINED",
-            "address": "Via Colombera 10, 6987 Caslano",
-            "lat": 45.97698951091755,
-            "lng": 8.874521781054243,
-            "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-22T14:46:31.666Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 1.9,
-            "sp95PriceEur": 1.804,
-            "distanceKm": 7.5
-          },
-          {
             "id": "eyss2Vf8mj29JzsCvuUr",
             "name": "Piccadilly SA",
             "brand": "UNDEFINED",
@@ -4604,6 +4590,20 @@
             "nearestMunicipalityDistanceKm": 2.3,
             "sp95PriceEur": 1.815,
             "distanceKm": 14.3
+          },
+          {
+            "id": "qAULcG7RwtmdWPH52365",
+            "name": "Euro service",
+            "brand": "UNDEFINED",
+            "address": "Via Colombera 45, 6987 Caslano",
+            "lat": 45.972068975787,
+            "lng": 8.86726121879764,
+            "sp95PriceChf": 1.66,
+            "updatedAt": "2026-03-22T14:49:20.523Z",
+            "nearestMunicipality": "Lavena Ponte Tresa (VA)",
+            "nearestMunicipalityDistanceKm": 1.3,
+            "sp95PriceEur": 1.815,
+            "distanceKm": 8
           }
         ],
         "minPriceChf": 1.61,
@@ -6585,7 +6585,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 88,
+        "optionCount": 89,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -6614,20 +6614,6 @@
             "nearestMunicipalityDistanceKm": 1.3,
             "sp95PriceEur": 1.761,
             "distanceKm": 19.4
-          },
-          {
-            "id": "LP7oYktKWhoncV2qvpHG",
-            "name": "ECSA Energy SA - Caslano",
-            "brand": "UNDEFINED",
-            "address": "Via Colombera 10, 6987 Caslano",
-            "lat": 45.97698951091755,
-            "lng": 8.874521781054243,
-            "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-22T14:46:31.666Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 1.9,
-            "sp95PriceEur": 1.804,
-            "distanceKm": 14.9
           },
           {
             "id": "eyss2Vf8mj29JzsCvuUr",
@@ -6670,6 +6656,20 @@
             "nearestMunicipalityDistanceKm": 1.3,
             "sp95PriceEur": 1.815,
             "distanceKm": 15.4
+          },
+          {
+            "id": "LP7oYktKWhoncV2qvpHG",
+            "name": "ECSA Energy SA - Caslano",
+            "brand": "UNDEFINED",
+            "address": "Via Colombera 10, 6987 Caslano",
+            "lat": 45.97698951091755,
+            "lng": 8.874521781054243,
+            "sp95PriceChf": 1.71,
+            "updatedAt": "2026-03-24T17:40:27.503Z",
+            "nearestMunicipality": "Brusimpiano (VA)",
+            "nearestMunicipalityDistanceKm": 1.9,
+            "sp95PriceEur": 1.87,
+            "distanceKm": 14.9
           }
         ],
         "minPriceChf": 1.61,
@@ -6700,36 +6700,22 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 84,
+        "optionCount": 85,
         "cheapestStation": {
-          "id": "LP7oYktKWhoncV2qvpHG",
-          "name": "ECSA Energy SA - Caslano",
+          "id": "eyss2Vf8mj29JzsCvuUr",
+          "name": "Piccadilly SA",
           "brand": "UNDEFINED",
-          "address": "Via Colombera 10, 6987 Caslano",
-          "lat": 45.97698951091755,
-          "lng": 8.874521781054243,
-          "sp95PriceChf": 1.6500000000000001,
-          "updatedAt": "2026-03-22T14:46:31.666Z",
-          "nearestMunicipality": "Brusimpiano (VA)",
-          "nearestMunicipalityDistanceKm": 1.9,
-          "sp95PriceEur": 1.804,
-          "distanceKm": 17
+          "address": "Stráda da Valmára, 6822 Arogno",
+          "lat": 45.96022467397532,
+          "lng": 8.998347379932348,
+          "sp95PriceChf": 1.66,
+          "updatedAt": "2026-03-10T08:07:48.373Z",
+          "nearestMunicipality": "Campione d'Italia (CO)",
+          "nearestMunicipalityDistanceKm": 2.3,
+          "sp95PriceEur": 1.815,
+          "distanceKm": 7.2
         },
         "nearbyStations": [
-          {
-            "id": "LP7oYktKWhoncV2qvpHG",
-            "name": "ECSA Energy SA - Caslano",
-            "brand": "UNDEFINED",
-            "address": "Via Colombera 10, 6987 Caslano",
-            "lat": 45.97698951091755,
-            "lng": 8.874521781054243,
-            "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-22T14:46:31.666Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 1.9,
-            "sp95PriceEur": 1.804,
-            "distanceKm": 17
-          },
           {
             "id": "eyss2Vf8mj29JzsCvuUr",
             "name": "Piccadilly SA",
@@ -6773,22 +6759,36 @@
             "distanceKm": 17.4
           },
           {
+            "id": "LP7oYktKWhoncV2qvpHG",
+            "name": "ECSA Energy SA - Caslano",
+            "brand": "UNDEFINED",
+            "address": "Via Colombera 10, 6987 Caslano",
+            "lat": 45.97698951091755,
+            "lng": 8.874521781054243,
+            "sp95PriceChf": 1.71,
+            "updatedAt": "2026-03-24T17:40:27.503Z",
+            "nearestMunicipality": "Brusimpiano (VA)",
+            "nearestMunicipalityDistanceKm": 1.9,
+            "sp95PriceEur": 1.87,
+            "distanceKm": 17
+          },
+          {
             "id": "VW0cjs2jCw25mkNyuE9t",
             "name": "Texon Service",
             "brand": "UNDEFINED",
             "address": "Via Cantonale 50, 6987 Caslano",
             "lat": 45.97858351864336,
             "lng": 8.87647837854075,
-            "sp95PriceChf": 1.6600000000000001,
-            "updatedAt": "2026-03-21T08:10:13.884Z",
+            "sp95PriceChf": 1.72,
+            "updatedAt": "2026-03-24T17:38:46.421Z",
             "nearestMunicipality": "Brusimpiano (VA)",
             "nearestMunicipalityDistanceKm": 2.1,
-            "sp95PriceEur": 1.815,
+            "sp95PriceEur": 1.881,
             "distanceKm": 16.9
           }
         ],
-        "minPriceChf": 1.65,
-        "minPriceEur": 1.804
+        "minPriceChf": 1.66,
+        "minPriceEur": 1.815
       },
       "comparison": {
         "cheaperCountry": "NO_DATA",
@@ -7237,36 +7237,22 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 105,
+        "optionCount": 106,
         "cheapestStation": {
-          "id": "LP7oYktKWhoncV2qvpHG",
-          "name": "ECSA Energy SA - Caslano",
+          "id": "eyss2Vf8mj29JzsCvuUr",
+          "name": "Piccadilly SA",
           "brand": "UNDEFINED",
-          "address": "Via Colombera 10, 6987 Caslano",
-          "lat": 45.97698951091755,
-          "lng": 8.874521781054243,
-          "sp95PriceChf": 1.6500000000000001,
-          "updatedAt": "2026-03-22T14:46:31.666Z",
-          "nearestMunicipality": "Brusimpiano (VA)",
-          "nearestMunicipalityDistanceKm": 1.9,
-          "sp95PriceEur": 1.804,
-          "distanceKm": 17
+          "address": "Stráda da Valmára, 6822 Arogno",
+          "lat": 45.96022467397532,
+          "lng": 8.998347379932348,
+          "sp95PriceChf": 1.66,
+          "updatedAt": "2026-03-10T08:07:48.373Z",
+          "nearestMunicipality": "Campione d'Italia (CO)",
+          "nearestMunicipalityDistanceKm": 2.3,
+          "sp95PriceEur": 1.815,
+          "distanceKm": 9
         },
         "nearbyStations": [
-          {
-            "id": "LP7oYktKWhoncV2qvpHG",
-            "name": "ECSA Energy SA - Caslano",
-            "brand": "UNDEFINED",
-            "address": "Via Colombera 10, 6987 Caslano",
-            "lat": 45.97698951091755,
-            "lng": 8.874521781054243,
-            "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-22T14:46:31.666Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 1.9,
-            "sp95PriceEur": 1.804,
-            "distanceKm": 17
-          },
           {
             "id": "eyss2Vf8mj29JzsCvuUr",
             "name": "Piccadilly SA",
@@ -7310,22 +7296,36 @@
             "distanceKm": 17.7
           },
           {
+            "id": "LP7oYktKWhoncV2qvpHG",
+            "name": "ECSA Energy SA - Caslano",
+            "brand": "UNDEFINED",
+            "address": "Via Colombera 10, 6987 Caslano",
+            "lat": 45.97698951091755,
+            "lng": 8.874521781054243,
+            "sp95PriceChf": 1.71,
+            "updatedAt": "2026-03-24T17:40:27.503Z",
+            "nearestMunicipality": "Brusimpiano (VA)",
+            "nearestMunicipalityDistanceKm": 1.9,
+            "sp95PriceEur": 1.87,
+            "distanceKm": 17
+          },
+          {
             "id": "VW0cjs2jCw25mkNyuE9t",
             "name": "Texon Service",
             "brand": "UNDEFINED",
             "address": "Via Cantonale 50, 6987 Caslano",
             "lat": 45.97858351864336,
             "lng": 8.87647837854075,
-            "sp95PriceChf": 1.6600000000000001,
-            "updatedAt": "2026-03-21T08:10:13.884Z",
+            "sp95PriceChf": 1.72,
+            "updatedAt": "2026-03-24T17:38:46.421Z",
             "nearestMunicipality": "Brusimpiano (VA)",
             "nearestMunicipalityDistanceKm": 2.1,
-            "sp95PriceEur": 1.815,
+            "sp95PriceEur": 1.881,
             "distanceKm": 16.9
           }
         ],
-        "minPriceChf": 1.65,
-        "minPriceEur": 1.804
+        "minPriceChf": 1.66,
+        "minPriceEur": 1.815
       },
       "comparison": {
         "cheaperCountry": "NO_DATA",
@@ -8370,36 +8370,22 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 84,
+        "optionCount": 85,
         "cheapestStation": {
-          "id": "LP7oYktKWhoncV2qvpHG",
-          "name": "ECSA Energy SA - Caslano",
+          "id": "eyss2Vf8mj29JzsCvuUr",
+          "name": "Piccadilly SA",
           "brand": "UNDEFINED",
-          "address": "Via Colombera 10, 6987 Caslano",
-          "lat": 45.97698951091755,
-          "lng": 8.874521781054243,
-          "sp95PriceChf": 1.6500000000000001,
-          "updatedAt": "2026-03-22T14:46:31.666Z",
-          "nearestMunicipality": "Brusimpiano (VA)",
-          "nearestMunicipalityDistanceKm": 1.9,
-          "sp95PriceEur": 1.804,
-          "distanceKm": 17.8
+          "address": "Stráda da Valmára, 6822 Arogno",
+          "lat": 45.96022467397532,
+          "lng": 8.998347379932348,
+          "sp95PriceChf": 1.66,
+          "updatedAt": "2026-03-10T08:07:48.373Z",
+          "nearestMunicipality": "Campione d'Italia (CO)",
+          "nearestMunicipalityDistanceKm": 2.3,
+          "sp95PriceEur": 1.815,
+          "distanceKm": 8
         },
         "nearbyStations": [
-          {
-            "id": "LP7oYktKWhoncV2qvpHG",
-            "name": "ECSA Energy SA - Caslano",
-            "brand": "UNDEFINED",
-            "address": "Via Colombera 10, 6987 Caslano",
-            "lat": 45.97698951091755,
-            "lng": 8.874521781054243,
-            "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-22T14:46:31.666Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 1.9,
-            "sp95PriceEur": 1.804,
-            "distanceKm": 17.8
-          },
           {
             "id": "eyss2Vf8mj29JzsCvuUr",
             "name": "Piccadilly SA",
@@ -8443,22 +8429,36 @@
             "distanceKm": 18.2
           },
           {
+            "id": "LP7oYktKWhoncV2qvpHG",
+            "name": "ECSA Energy SA - Caslano",
+            "brand": "UNDEFINED",
+            "address": "Via Colombera 10, 6987 Caslano",
+            "lat": 45.97698951091755,
+            "lng": 8.874521781054243,
+            "sp95PriceChf": 1.71,
+            "updatedAt": "2026-03-24T17:40:27.503Z",
+            "nearestMunicipality": "Brusimpiano (VA)",
+            "nearestMunicipalityDistanceKm": 1.9,
+            "sp95PriceEur": 1.87,
+            "distanceKm": 17.8
+          },
+          {
             "id": "VW0cjs2jCw25mkNyuE9t",
             "name": "Texon Service",
             "brand": "UNDEFINED",
             "address": "Via Cantonale 50, 6987 Caslano",
             "lat": 45.97858351864336,
             "lng": 8.87647837854075,
-            "sp95PriceChf": 1.6600000000000001,
-            "updatedAt": "2026-03-21T08:10:13.884Z",
+            "sp95PriceChf": 1.72,
+            "updatedAt": "2026-03-24T17:38:46.421Z",
             "nearestMunicipality": "Brusimpiano (VA)",
             "nearestMunicipalityDistanceKm": 2.1,
-            "sp95PriceEur": 1.815,
+            "sp95PriceEur": 1.881,
             "distanceKm": 17.7
           }
         ],
-        "minPriceChf": 1.65,
-        "minPriceEur": 1.804
+        "minPriceChf": 1.66,
+        "minPriceEur": 1.815
       },
       "comparison": {
         "cheaperCountry": "NO_DATA",
@@ -8848,20 +8848,6 @@
             "distanceKm": 13.5
           },
           {
-            "id": "hWTr7x5jrTYOJNzLnBBO",
-            "name": "Garage Künzi SA",
-            "brand": "UNDEFINED",
-            "address": "Viale C. Olgiati 26, 6512 Giubiasco",
-            "lat": 46.17905551041321,
-            "lng": 9.015914517174583,
-            "sp95PriceChf": 1.81,
-            "updatedAt": "2026-03-17T14:40:42.898Z",
-            "nearestMunicipality": "Cavargna (CO)",
-            "nearestMunicipalityDistanceKm": 12.3,
-            "sp95PriceEur": 1.979,
-            "distanceKm": 19.9
-          },
-          {
             "id": "cPzjxUql1aHeksaFjXuB",
             "name": "Garage Ferrari SA",
             "brand": "UNDEFINED",
@@ -8874,6 +8860,20 @@
             "nearestMunicipalityDistanceKm": 12.8,
             "sp95PriceEur": 2.012,
             "distanceKm": 19.7
+          },
+          {
+            "id": "hWTr7x5jrTYOJNzLnBBO",
+            "name": "Garage Künzi SA",
+            "brand": "UNDEFINED",
+            "address": "Viale C. Olgiati 26, 6512 Giubiasco",
+            "lat": 46.17905551041321,
+            "lng": 9.015914517174583,
+            "sp95PriceChf": 1.84,
+            "updatedAt": "2026-03-22T13:00:49.083Z",
+            "nearestMunicipality": "Cavargna (CO)",
+            "nearestMunicipalityDistanceKm": 12.3,
+            "sp95PriceEur": 2.012,
+            "distanceKm": 19.9
           },
           {
             "id": "MNydGBweUV8pmXuAtQKE",
@@ -10024,20 +10024,6 @@
             "distanceKm": 14.6
           },
           {
-            "id": "hWTr7x5jrTYOJNzLnBBO",
-            "name": "Garage Künzi SA",
-            "brand": "UNDEFINED",
-            "address": "Viale C. Olgiati 26, 6512 Giubiasco",
-            "lat": 46.17905551041321,
-            "lng": 9.015914517174583,
-            "sp95PriceChf": 1.81,
-            "updatedAt": "2026-03-17T14:40:42.898Z",
-            "nearestMunicipality": "Cavargna (CO)",
-            "nearestMunicipalityDistanceKm": 12.3,
-            "sp95PriceEur": 1.979,
-            "distanceKm": 18.6
-          },
-          {
             "id": "cPzjxUql1aHeksaFjXuB",
             "name": "Garage Ferrari SA",
             "brand": "UNDEFINED",
@@ -10050,6 +10036,20 @@
             "nearestMunicipalityDistanceKm": 12.8,
             "sp95PriceEur": 2.012,
             "distanceKm": 18.5
+          },
+          {
+            "id": "hWTr7x5jrTYOJNzLnBBO",
+            "name": "Garage Künzi SA",
+            "brand": "UNDEFINED",
+            "address": "Viale C. Olgiati 26, 6512 Giubiasco",
+            "lat": 46.17905551041321,
+            "lng": 9.015914517174583,
+            "sp95PriceChf": 1.84,
+            "updatedAt": "2026-03-22T13:00:49.083Z",
+            "nearestMunicipality": "Cavargna (CO)",
+            "nearestMunicipalityDistanceKm": 12.3,
+            "sp95PriceEur": 2.012,
+            "distanceKm": 18.6
           }
         ],
         "minPriceChf": 1.73,
@@ -11095,7 +11095,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 92,
+        "optionCount": 93,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -11124,20 +11124,6 @@
             "nearestMunicipalityDistanceKm": 1.3,
             "sp95PriceEur": 1.761,
             "distanceKm": 19.8
-          },
-          {
-            "id": "LP7oYktKWhoncV2qvpHG",
-            "name": "ECSA Energy SA - Caslano",
-            "brand": "UNDEFINED",
-            "address": "Via Colombera 10, 6987 Caslano",
-            "lat": 45.97698951091755,
-            "lng": 8.874521781054243,
-            "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-22T14:46:31.666Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 1.9,
-            "sp95PriceEur": 1.804,
-            "distanceKm": 15.5
           },
           {
             "id": "eyss2Vf8mj29JzsCvuUr",
@@ -11180,6 +11166,20 @@
             "nearestMunicipalityDistanceKm": 1.3,
             "sp95PriceEur": 1.815,
             "distanceKm": 16.1
+          },
+          {
+            "id": "LP7oYktKWhoncV2qvpHG",
+            "name": "ECSA Energy SA - Caslano",
+            "brand": "UNDEFINED",
+            "address": "Via Colombera 10, 6987 Caslano",
+            "lat": 45.97698951091755,
+            "lng": 8.874521781054243,
+            "sp95PriceChf": 1.71,
+            "updatedAt": "2026-03-24T17:40:27.503Z",
+            "nearestMunicipality": "Brusimpiano (VA)",
+            "nearestMunicipalityDistanceKm": 1.9,
+            "sp95PriceEur": 1.87,
+            "distanceKm": 15.5
           }
         ],
         "minPriceChf": 1.61,
@@ -13344,34 +13344,20 @@
         "searchRadiusKm": 20,
         "optionCount": 57,
         "cheapestStation": {
-          "id": "LP7oYktKWhoncV2qvpHG",
-          "name": "ECSA Energy SA - Caslano",
+          "id": "eyss2Vf8mj29JzsCvuUr",
+          "name": "Piccadilly SA",
           "brand": "UNDEFINED",
-          "address": "Via Colombera 10, 6987 Caslano",
-          "lat": 45.97698951091755,
-          "lng": 8.874521781054243,
-          "sp95PriceChf": 1.6500000000000001,
-          "updatedAt": "2026-03-22T14:46:31.666Z",
-          "nearestMunicipality": "Brusimpiano (VA)",
-          "nearestMunicipalityDistanceKm": 1.9,
-          "sp95PriceEur": 1.804,
-          "distanceKm": 20
+          "address": "Stráda da Valmára, 6822 Arogno",
+          "lat": 45.96022467397532,
+          "lng": 8.998347379932348,
+          "sp95PriceChf": 1.66,
+          "updatedAt": "2026-03-10T08:07:48.373Z",
+          "nearestMunicipality": "Campione d'Italia (CO)",
+          "nearestMunicipalityDistanceKm": 2.3,
+          "sp95PriceEur": 1.815,
+          "distanceKm": 13.6
         },
         "nearbyStations": [
-          {
-            "id": "LP7oYktKWhoncV2qvpHG",
-            "name": "ECSA Energy SA - Caslano",
-            "brand": "UNDEFINED",
-            "address": "Via Colombera 10, 6987 Caslano",
-            "lat": 45.97698951091755,
-            "lng": 8.874521781054243,
-            "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-22T14:46:31.666Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 1.9,
-            "sp95PriceEur": 1.804,
-            "distanceKm": 20
-          },
           {
             "id": "eyss2Vf8mj29JzsCvuUr",
             "name": "Piccadilly SA",
@@ -13415,6 +13401,20 @@
             "distanceKm": 20
           },
           {
+            "id": "LP7oYktKWhoncV2qvpHG",
+            "name": "ECSA Energy SA - Caslano",
+            "brand": "UNDEFINED",
+            "address": "Via Colombera 10, 6987 Caslano",
+            "lat": 45.97698951091755,
+            "lng": 8.874521781054243,
+            "sp95PriceChf": 1.71,
+            "updatedAt": "2026-03-24T17:40:27.503Z",
+            "nearestMunicipality": "Brusimpiano (VA)",
+            "nearestMunicipalityDistanceKm": 1.9,
+            "sp95PriceEur": 1.87,
+            "distanceKm": 20
+          },
+          {
             "id": "g1Ewt2bs9nFFxymi7tYL",
             "name": "TAMOIL Stabio",
             "brand": "TAMOIL",
@@ -13429,8 +13429,8 @@
             "distanceKm": 8.6
           }
         ],
-        "minPriceChf": 1.65,
-        "minPriceEur": 1.804
+        "minPriceChf": 1.66,
+        "minPriceEur": 1.815
       },
       "comparison": {
         "cheaperCountry": "NO_DATA",
@@ -15502,36 +15502,22 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 83,
+        "optionCount": 84,
         "cheapestStation": {
-          "id": "LP7oYktKWhoncV2qvpHG",
-          "name": "ECSA Energy SA - Caslano",
+          "id": "eyss2Vf8mj29JzsCvuUr",
+          "name": "Piccadilly SA",
           "brand": "UNDEFINED",
-          "address": "Via Colombera 10, 6987 Caslano",
-          "lat": 45.97698951091755,
-          "lng": 8.874521781054243,
-          "sp95PriceChf": 1.6500000000000001,
-          "updatedAt": "2026-03-22T14:46:31.666Z",
-          "nearestMunicipality": "Brusimpiano (VA)",
-          "nearestMunicipalityDistanceKm": 1.9,
-          "sp95PriceEur": 1.804,
-          "distanceKm": 19.7
+          "address": "Stráda da Valmára, 6822 Arogno",
+          "lat": 45.96022467397532,
+          "lng": 8.998347379932348,
+          "sp95PriceChf": 1.66,
+          "updatedAt": "2026-03-10T08:07:48.373Z",
+          "nearestMunicipality": "Campione d'Italia (CO)",
+          "nearestMunicipalityDistanceKm": 2.3,
+          "sp95PriceEur": 1.815,
+          "distanceKm": 10
         },
         "nearbyStations": [
-          {
-            "id": "LP7oYktKWhoncV2qvpHG",
-            "name": "ECSA Energy SA - Caslano",
-            "brand": "UNDEFINED",
-            "address": "Via Colombera 10, 6987 Caslano",
-            "lat": 45.97698951091755,
-            "lng": 8.874521781054243,
-            "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-22T14:46:31.666Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 1.9,
-            "sp95PriceEur": 1.804,
-            "distanceKm": 19.7
-          },
           {
             "id": "eyss2Vf8mj29JzsCvuUr",
             "name": "Piccadilly SA",
@@ -15561,36 +15547,50 @@
             "distanceKm": 15.3
           },
           {
+            "id": "LP7oYktKWhoncV2qvpHG",
+            "name": "ECSA Energy SA - Caslano",
+            "brand": "UNDEFINED",
+            "address": "Via Colombera 10, 6987 Caslano",
+            "lat": 45.97698951091755,
+            "lng": 8.874521781054243,
+            "sp95PriceChf": 1.71,
+            "updatedAt": "2026-03-24T17:40:27.503Z",
+            "nearestMunicipality": "Brusimpiano (VA)",
+            "nearestMunicipalityDistanceKm": 1.9,
+            "sp95PriceEur": 1.87,
+            "distanceKm": 19.7
+          },
+          {
             "id": "VW0cjs2jCw25mkNyuE9t",
             "name": "Texon Service",
             "brand": "UNDEFINED",
             "address": "Via Cantonale 50, 6987 Caslano",
             "lat": 45.97858351864336,
             "lng": 8.87647837854075,
-            "sp95PriceChf": 1.6600000000000001,
-            "updatedAt": "2026-03-21T08:10:13.884Z",
+            "sp95PriceChf": 1.72,
+            "updatedAt": "2026-03-24T17:38:46.421Z",
             "nearestMunicipality": "Brusimpiano (VA)",
             "nearestMunicipalityDistanceKm": 2.1,
-            "sp95PriceEur": 1.815,
+            "sp95PriceEur": 1.881,
             "distanceKm": 19.6
           },
           {
-            "id": "gyZYYvcytMmf7B92Ix1w",
-            "name": "Euro Service",
-            "brand": "UNDEFINED",
-            "address": "Via Cantonale 18, 6987 Caslano",
-            "lat": 45.98019132146254,
-            "lng": 8.877659257998385,
-            "sp95PriceChf": 1.6600000000000001,
-            "updatedAt": "2026-03-21T09:43:34.620Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 2.2,
-            "sp95PriceEur": 1.815,
-            "distanceKm": 19.5
+            "id": "g1Ewt2bs9nFFxymi7tYL",
+            "name": "TAMOIL Stabio",
+            "brand": "TAMOIL",
+            "address": "Giulia 47, 6855 Stabio",
+            "lat": 45.848008,
+            "lng": 8.935833,
+            "sp95PriceChf": 1.72,
+            "updatedAt": "2026-03-07T18:03:01.884Z",
+            "nearestMunicipality": "Bizzarone (CO)",
+            "nearestMunicipalityDistanceKm": 1.6,
+            "sp95PriceEur": 1.881,
+            "distanceKm": 19.2
           }
         ],
-        "minPriceChf": 1.65,
-        "minPriceEur": 1.804
+        "minPriceChf": 1.66,
+        "minPriceEur": 1.815
       },
       "comparison": {
         "cheaperCountry": "NO_DATA",
@@ -15833,36 +15833,22 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 88,
+        "optionCount": 89,
         "cheapestStation": {
-          "id": "LP7oYktKWhoncV2qvpHG",
-          "name": "ECSA Energy SA - Caslano",
+          "id": "eyss2Vf8mj29JzsCvuUr",
+          "name": "Piccadilly SA",
           "brand": "UNDEFINED",
-          "address": "Via Colombera 10, 6987 Caslano",
-          "lat": 45.97698951091755,
-          "lng": 8.874521781054243,
-          "sp95PriceChf": 1.6500000000000001,
-          "updatedAt": "2026-03-22T14:46:31.666Z",
-          "nearestMunicipality": "Brusimpiano (VA)",
-          "nearestMunicipalityDistanceKm": 1.9,
-          "sp95PriceEur": 1.804,
-          "distanceKm": 18.4
+          "address": "Stráda da Valmára, 6822 Arogno",
+          "lat": 45.96022467397532,
+          "lng": 8.998347379932348,
+          "sp95PriceChf": 1.66,
+          "updatedAt": "2026-03-10T08:07:48.373Z",
+          "nearestMunicipality": "Campione d'Italia (CO)",
+          "nearestMunicipalityDistanceKm": 2.3,
+          "sp95PriceEur": 1.815,
+          "distanceKm": 9.5
         },
         "nearbyStations": [
-          {
-            "id": "LP7oYktKWhoncV2qvpHG",
-            "name": "ECSA Energy SA - Caslano",
-            "brand": "UNDEFINED",
-            "address": "Via Colombera 10, 6987 Caslano",
-            "lat": 45.97698951091755,
-            "lng": 8.874521781054243,
-            "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-22T14:46:31.666Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 1.9,
-            "sp95PriceEur": 1.804,
-            "distanceKm": 18.4
-          },
           {
             "id": "eyss2Vf8mj29JzsCvuUr",
             "name": "Piccadilly SA",
@@ -15906,22 +15892,36 @@
             "distanceKm": 19
           },
           {
+            "id": "LP7oYktKWhoncV2qvpHG",
+            "name": "ECSA Energy SA - Caslano",
+            "brand": "UNDEFINED",
+            "address": "Via Colombera 10, 6987 Caslano",
+            "lat": 45.97698951091755,
+            "lng": 8.874521781054243,
+            "sp95PriceChf": 1.71,
+            "updatedAt": "2026-03-24T17:40:27.503Z",
+            "nearestMunicipality": "Brusimpiano (VA)",
+            "nearestMunicipalityDistanceKm": 1.9,
+            "sp95PriceEur": 1.87,
+            "distanceKm": 18.4
+          },
+          {
             "id": "VW0cjs2jCw25mkNyuE9t",
             "name": "Texon Service",
             "brand": "UNDEFINED",
             "address": "Via Cantonale 50, 6987 Caslano",
             "lat": 45.97858351864336,
             "lng": 8.87647837854075,
-            "sp95PriceChf": 1.6600000000000001,
-            "updatedAt": "2026-03-21T08:10:13.884Z",
+            "sp95PriceChf": 1.72,
+            "updatedAt": "2026-03-24T17:38:46.421Z",
             "nearestMunicipality": "Brusimpiano (VA)",
             "nearestMunicipalityDistanceKm": 2.1,
-            "sp95PriceEur": 1.815,
+            "sp95PriceEur": 1.881,
             "distanceKm": 18.2
           }
         ],
-        "minPriceChf": 1.65,
-        "minPriceEur": 1.804
+        "minPriceChf": 1.66,
+        "minPriceEur": 1.815
       },
       "comparison": {
         "cheaperCountry": "NO_DATA",
@@ -16085,36 +16085,22 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 93,
+        "optionCount": 94,
         "cheapestStation": {
-          "id": "LP7oYktKWhoncV2qvpHG",
-          "name": "ECSA Energy SA - Caslano",
+          "id": "eyss2Vf8mj29JzsCvuUr",
+          "name": "Piccadilly SA",
           "brand": "UNDEFINED",
-          "address": "Via Colombera 10, 6987 Caslano",
-          "lat": 45.97698951091755,
-          "lng": 8.874521781054243,
-          "sp95PriceChf": 1.6500000000000001,
-          "updatedAt": "2026-03-22T14:46:31.666Z",
-          "nearestMunicipality": "Brusimpiano (VA)",
-          "nearestMunicipalityDistanceKm": 1.9,
-          "sp95PriceEur": 1.804,
-          "distanceKm": 19.9
+          "address": "Stráda da Valmára, 6822 Arogno",
+          "lat": 45.96022467397532,
+          "lng": 8.998347379932348,
+          "sp95PriceChf": 1.66,
+          "updatedAt": "2026-03-10T08:07:48.373Z",
+          "nearestMunicipality": "Campione d'Italia (CO)",
+          "nearestMunicipalityDistanceKm": 2.3,
+          "sp95PriceEur": 1.815,
+          "distanceKm": 12.5
         },
         "nearbyStations": [
-          {
-            "id": "LP7oYktKWhoncV2qvpHG",
-            "name": "ECSA Energy SA - Caslano",
-            "brand": "UNDEFINED",
-            "address": "Via Colombera 10, 6987 Caslano",
-            "lat": 45.97698951091755,
-            "lng": 8.874521781054243,
-            "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-22T14:46:31.666Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 1.9,
-            "sp95PriceEur": 1.804,
-            "distanceKm": 19.9
-          },
           {
             "id": "eyss2Vf8mj29JzsCvuUr",
             "name": "Piccadilly SA",
@@ -16130,17 +16116,31 @@
             "distanceKm": 12.5
           },
           {
+            "id": "LP7oYktKWhoncV2qvpHG",
+            "name": "ECSA Energy SA - Caslano",
+            "brand": "UNDEFINED",
+            "address": "Via Colombera 10, 6987 Caslano",
+            "lat": 45.97698951091755,
+            "lng": 8.874521781054243,
+            "sp95PriceChf": 1.71,
+            "updatedAt": "2026-03-24T17:40:27.503Z",
+            "nearestMunicipality": "Brusimpiano (VA)",
+            "nearestMunicipalityDistanceKm": 1.9,
+            "sp95PriceEur": 1.87,
+            "distanceKm": 19.9
+          },
+          {
             "id": "VW0cjs2jCw25mkNyuE9t",
             "name": "Texon Service",
             "brand": "UNDEFINED",
             "address": "Via Cantonale 50, 6987 Caslano",
             "lat": 45.97858351864336,
             "lng": 8.87647837854075,
-            "sp95PriceChf": 1.6600000000000001,
-            "updatedAt": "2026-03-21T08:10:13.884Z",
+            "sp95PriceChf": 1.72,
+            "updatedAt": "2026-03-24T17:38:46.421Z",
             "nearestMunicipality": "Brusimpiano (VA)",
             "nearestMunicipalityDistanceKm": 2.1,
-            "sp95PriceEur": 1.815,
+            "sp95PriceEur": 1.881,
             "distanceKm": 19.7
           },
           {
@@ -16150,11 +16150,11 @@
             "address": "Via Cantonale 18, 6987 Caslano",
             "lat": 45.98019132146254,
             "lng": 8.877659257998385,
-            "sp95PriceChf": 1.6600000000000001,
-            "updatedAt": "2026-03-21T09:43:34.620Z",
+            "sp95PriceChf": 1.72,
+            "updatedAt": "2026-03-24T17:36:58.353Z",
             "nearestMunicipality": "Brusimpiano (VA)",
             "nearestMunicipalityDistanceKm": 2.2,
-            "sp95PriceEur": 1.815,
+            "sp95PriceEur": 1.881,
             "distanceKm": 19.6
           },
           {
@@ -16172,13 +16172,13 @@
             "distanceKm": 18.4
           }
         ],
-        "minPriceChf": 1.65,
-        "minPriceEur": 1.804
+        "minPriceChf": 1.66,
+        "minPriceEur": 1.815
       },
       "comparison": {
         "cheaperCountry": "IT",
-        "priceDeltaEur": 0.049,
-        "saving50LEur": 2.45
+        "priceDeltaEur": 0.06,
+        "saving50LEur": 3
       }
     },
     {
@@ -16545,7 +16545,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 57,
+        "optionCount": 58,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -16574,20 +16574,6 @@
             "nearestMunicipalityDistanceKm": 1.3,
             "sp95PriceEur": 1.761,
             "distanceKm": 19.8
-          },
-          {
-            "id": "LP7oYktKWhoncV2qvpHG",
-            "name": "ECSA Energy SA - Caslano",
-            "brand": "UNDEFINED",
-            "address": "Via Colombera 10, 6987 Caslano",
-            "lat": 45.97698951091755,
-            "lng": 8.874521781054243,
-            "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-22T14:46:31.666Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 1.9,
-            "sp95PriceEur": 1.804,
-            "distanceKm": 17.1
           },
           {
             "id": "eyss2Vf8mj29JzsCvuUr",
@@ -16630,6 +16616,20 @@
             "nearestMunicipalityDistanceKm": 1.3,
             "sp95PriceEur": 1.815,
             "distanceKm": 16.7
+          },
+          {
+            "id": "LP7oYktKWhoncV2qvpHG",
+            "name": "ECSA Energy SA - Caslano",
+            "brand": "UNDEFINED",
+            "address": "Via Colombera 10, 6987 Caslano",
+            "lat": 45.97698951091755,
+            "lng": 8.874521781054243,
+            "sp95PriceChf": 1.71,
+            "updatedAt": "2026-03-24T17:40:27.503Z",
+            "nearestMunicipality": "Brusimpiano (VA)",
+            "nearestMunicipalityDistanceKm": 1.9,
+            "sp95PriceEur": 1.87,
+            "distanceKm": 17.1
           }
         ],
         "minPriceChf": 1.61,
@@ -16660,36 +16660,22 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 61,
+        "optionCount": 62,
         "cheapestStation": {
-          "id": "LP7oYktKWhoncV2qvpHG",
-          "name": "ECSA Energy SA - Caslano",
+          "id": "eyss2Vf8mj29JzsCvuUr",
+          "name": "Piccadilly SA",
           "brand": "UNDEFINED",
-          "address": "Via Colombera 10, 6987 Caslano",
-          "lat": 45.97698951091755,
-          "lng": 8.874521781054243,
-          "sp95PriceChf": 1.6500000000000001,
-          "updatedAt": "2026-03-22T14:46:31.666Z",
-          "nearestMunicipality": "Brusimpiano (VA)",
-          "nearestMunicipalityDistanceKm": 1.9,
-          "sp95PriceEur": 1.804,
-          "distanceKm": 18.2
+          "address": "Stráda da Valmára, 6822 Arogno",
+          "lat": 45.96022467397532,
+          "lng": 8.998347379932348,
+          "sp95PriceChf": 1.66,
+          "updatedAt": "2026-03-10T08:07:48.373Z",
+          "nearestMunicipality": "Campione d'Italia (CO)",
+          "nearestMunicipalityDistanceKm": 2.3,
+          "sp95PriceEur": 1.815,
+          "distanceKm": 14.3
         },
         "nearbyStations": [
-          {
-            "id": "LP7oYktKWhoncV2qvpHG",
-            "name": "ECSA Energy SA - Caslano",
-            "brand": "UNDEFINED",
-            "address": "Via Colombera 10, 6987 Caslano",
-            "lat": 45.97698951091755,
-            "lng": 8.874521781054243,
-            "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-22T14:46:31.666Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 1.9,
-            "sp95PriceEur": 1.804,
-            "distanceKm": 18.2
-          },
           {
             "id": "eyss2Vf8mj29JzsCvuUr",
             "name": "Piccadilly SA",
@@ -16733,22 +16719,36 @@
             "distanceKm": 18
           },
           {
+            "id": "LP7oYktKWhoncV2qvpHG",
+            "name": "ECSA Energy SA - Caslano",
+            "brand": "UNDEFINED",
+            "address": "Via Colombera 10, 6987 Caslano",
+            "lat": 45.97698951091755,
+            "lng": 8.874521781054243,
+            "sp95PriceChf": 1.71,
+            "updatedAt": "2026-03-24T17:40:27.503Z",
+            "nearestMunicipality": "Brusimpiano (VA)",
+            "nearestMunicipalityDistanceKm": 1.9,
+            "sp95PriceEur": 1.87,
+            "distanceKm": 18.2
+          },
+          {
             "id": "VW0cjs2jCw25mkNyuE9t",
             "name": "Texon Service",
             "brand": "UNDEFINED",
             "address": "Via Cantonale 50, 6987 Caslano",
             "lat": 45.97858351864336,
             "lng": 8.87647837854075,
-            "sp95PriceChf": 1.6600000000000001,
-            "updatedAt": "2026-03-21T08:10:13.884Z",
+            "sp95PriceChf": 1.72,
+            "updatedAt": "2026-03-24T17:38:46.421Z",
             "nearestMunicipality": "Brusimpiano (VA)",
             "nearestMunicipalityDistanceKm": 2.1,
-            "sp95PriceEur": 1.815,
+            "sp95PriceEur": 1.881,
             "distanceKm": 18.3
           }
         ],
-        "minPriceChf": 1.65,
-        "minPriceEur": 1.804
+        "minPriceChf": 1.66,
+        "minPriceEur": 1.815
       },
       "comparison": {
         "cheaperCountry": "NO_DATA",
@@ -17489,36 +17489,22 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 84,
+        "optionCount": 85,
         "cheapestStation": {
-          "id": "LP7oYktKWhoncV2qvpHG",
-          "name": "ECSA Energy SA - Caslano",
+          "id": "eyss2Vf8mj29JzsCvuUr",
+          "name": "Piccadilly SA",
           "brand": "UNDEFINED",
-          "address": "Via Colombera 10, 6987 Caslano",
-          "lat": 45.97698951091755,
-          "lng": 8.874521781054243,
-          "sp95PriceChf": 1.6500000000000001,
-          "updatedAt": "2026-03-22T14:46:31.666Z",
-          "nearestMunicipality": "Brusimpiano (VA)",
-          "nearestMunicipalityDistanceKm": 1.9,
-          "sp95PriceEur": 1.804,
-          "distanceKm": 18.6
+          "address": "Stráda da Valmára, 6822 Arogno",
+          "lat": 45.96022467397532,
+          "lng": 8.998347379932348,
+          "sp95PriceChf": 1.66,
+          "updatedAt": "2026-03-10T08:07:48.373Z",
+          "nearestMunicipality": "Campione d'Italia (CO)",
+          "nearestMunicipalityDistanceKm": 2.3,
+          "sp95PriceEur": 1.815,
+          "distanceKm": 9.1
         },
         "nearbyStations": [
-          {
-            "id": "LP7oYktKWhoncV2qvpHG",
-            "name": "ECSA Energy SA - Caslano",
-            "brand": "UNDEFINED",
-            "address": "Via Colombera 10, 6987 Caslano",
-            "lat": 45.97698951091755,
-            "lng": 8.874521781054243,
-            "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-22T14:46:31.666Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 1.9,
-            "sp95PriceEur": 1.804,
-            "distanceKm": 18.6
-          },
           {
             "id": "eyss2Vf8mj29JzsCvuUr",
             "name": "Piccadilly SA",
@@ -17562,22 +17548,36 @@
             "distanceKm": 18.9
           },
           {
+            "id": "LP7oYktKWhoncV2qvpHG",
+            "name": "ECSA Energy SA - Caslano",
+            "brand": "UNDEFINED",
+            "address": "Via Colombera 10, 6987 Caslano",
+            "lat": 45.97698951091755,
+            "lng": 8.874521781054243,
+            "sp95PriceChf": 1.71,
+            "updatedAt": "2026-03-24T17:40:27.503Z",
+            "nearestMunicipality": "Brusimpiano (VA)",
+            "nearestMunicipalityDistanceKm": 1.9,
+            "sp95PriceEur": 1.87,
+            "distanceKm": 18.6
+          },
+          {
             "id": "VW0cjs2jCw25mkNyuE9t",
             "name": "Texon Service",
             "brand": "UNDEFINED",
             "address": "Via Cantonale 50, 6987 Caslano",
             "lat": 45.97858351864336,
             "lng": 8.87647837854075,
-            "sp95PriceChf": 1.6600000000000001,
-            "updatedAt": "2026-03-21T08:10:13.884Z",
+            "sp95PriceChf": 1.72,
+            "updatedAt": "2026-03-24T17:38:46.421Z",
             "nearestMunicipality": "Brusimpiano (VA)",
             "nearestMunicipalityDistanceKm": 2.1,
-            "sp95PriceEur": 1.815,
+            "sp95PriceEur": 1.881,
             "distanceKm": 18.5
           }
         ],
-        "minPriceChf": 1.65,
-        "minPriceEur": 1.804
+        "minPriceChf": 1.66,
+        "minPriceEur": 1.815
       },
       "comparison": {
         "cheaperCountry": "NO_DATA",
@@ -17754,34 +17754,20 @@
         "searchRadiusKm": 20,
         "optionCount": 37,
         "cheapestStation": {
-          "id": "LP7oYktKWhoncV2qvpHG",
-          "name": "ECSA Energy SA - Caslano",
+          "id": "eyss2Vf8mj29JzsCvuUr",
+          "name": "Piccadilly SA",
           "brand": "UNDEFINED",
-          "address": "Via Colombera 10, 6987 Caslano",
-          "lat": 45.97698951091755,
-          "lng": 8.874521781054243,
-          "sp95PriceChf": 1.6500000000000001,
-          "updatedAt": "2026-03-22T14:46:31.666Z",
-          "nearestMunicipality": "Brusimpiano (VA)",
-          "nearestMunicipalityDistanceKm": 1.9,
-          "sp95PriceEur": 1.804,
-          "distanceKm": 19.9
+          "address": "Stráda da Valmára, 6822 Arogno",
+          "lat": 45.96022467397532,
+          "lng": 8.998347379932348,
+          "sp95PriceChf": 1.66,
+          "updatedAt": "2026-03-10T08:07:48.373Z",
+          "nearestMunicipality": "Campione d'Italia (CO)",
+          "nearestMunicipalityDistanceKm": 2.3,
+          "sp95PriceEur": 1.815,
+          "distanceKm": 18.9
         },
         "nearbyStations": [
-          {
-            "id": "LP7oYktKWhoncV2qvpHG",
-            "name": "ECSA Energy SA - Caslano",
-            "brand": "UNDEFINED",
-            "address": "Via Colombera 10, 6987 Caslano",
-            "lat": 45.97698951091755,
-            "lng": 8.874521781054243,
-            "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-22T14:46:31.666Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 1.9,
-            "sp95PriceEur": 1.804,
-            "distanceKm": 19.9
-          },
           {
             "id": "eyss2Vf8mj29JzsCvuUr",
             "name": "Piccadilly SA",
@@ -17825,27 +17811,41 @@
             "distanceKm": 19.4
           },
           {
+            "id": "LP7oYktKWhoncV2qvpHG",
+            "name": "ECSA Energy SA - Caslano",
+            "brand": "UNDEFINED",
+            "address": "Via Colombera 10, 6987 Caslano",
+            "lat": 45.97698951091755,
+            "lng": 8.874521781054243,
+            "sp95PriceChf": 1.71,
+            "updatedAt": "2026-03-24T17:40:27.503Z",
+            "nearestMunicipality": "Brusimpiano (VA)",
+            "nearestMunicipalityDistanceKm": 1.9,
+            "sp95PriceEur": 1.87,
+            "distanceKm": 19.9
+          },
+          {
             "id": "VW0cjs2jCw25mkNyuE9t",
             "name": "Texon Service",
             "brand": "UNDEFINED",
             "address": "Via Cantonale 50, 6987 Caslano",
             "lat": 45.97858351864336,
             "lng": 8.87647837854075,
-            "sp95PriceChf": 1.6600000000000001,
-            "updatedAt": "2026-03-21T08:10:13.884Z",
+            "sp95PriceChf": 1.72,
+            "updatedAt": "2026-03-24T17:38:46.421Z",
             "nearestMunicipality": "Brusimpiano (VA)",
             "nearestMunicipalityDistanceKm": 2.1,
-            "sp95PriceEur": 1.815,
+            "sp95PriceEur": 1.881,
             "distanceKm": 20
           }
         ],
-        "minPriceChf": 1.65,
-        "minPriceEur": 1.804
+        "minPriceChf": 1.66,
+        "minPriceEur": 1.815
       },
       "comparison": {
         "cheaperCountry": "IT",
-        "priceDeltaEur": 0.095,
-        "saving50LEur": 4.75
+        "priceDeltaEur": 0.106,
+        "saving50LEur": 5.3
       }
     },
     {
@@ -18877,36 +18877,22 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 56,
+        "optionCount": 57,
         "cheapestStation": {
-          "id": "LP7oYktKWhoncV2qvpHG",
-          "name": "ECSA Energy SA - Caslano",
+          "id": "eyss2Vf8mj29JzsCvuUr",
+          "name": "Piccadilly SA",
           "brand": "UNDEFINED",
-          "address": "Via Colombera 10, 6987 Caslano",
-          "lat": 45.97698951091755,
-          "lng": 8.874521781054243,
-          "sp95PriceChf": 1.6500000000000001,
-          "updatedAt": "2026-03-22T14:46:31.666Z",
-          "nearestMunicipality": "Brusimpiano (VA)",
-          "nearestMunicipalityDistanceKm": 1.9,
-          "sp95PriceEur": 1.804,
-          "distanceKm": 18.3
+          "address": "Stráda da Valmára, 6822 Arogno",
+          "lat": 45.96022467397532,
+          "lng": 8.998347379932348,
+          "sp95PriceChf": 1.66,
+          "updatedAt": "2026-03-10T08:07:48.373Z",
+          "nearestMunicipality": "Campione d'Italia (CO)",
+          "nearestMunicipalityDistanceKm": 2.3,
+          "sp95PriceEur": 1.815,
+          "distanceKm": 15.5
         },
         "nearbyStations": [
-          {
-            "id": "LP7oYktKWhoncV2qvpHG",
-            "name": "ECSA Energy SA - Caslano",
-            "brand": "UNDEFINED",
-            "address": "Via Colombera 10, 6987 Caslano",
-            "lat": 45.97698951091755,
-            "lng": 8.874521781054243,
-            "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-22T14:46:31.666Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 1.9,
-            "sp95PriceEur": 1.804,
-            "distanceKm": 18.3
-          },
           {
             "id": "eyss2Vf8mj29JzsCvuUr",
             "name": "Piccadilly SA",
@@ -18950,22 +18936,36 @@
             "distanceKm": 18
           },
           {
+            "id": "LP7oYktKWhoncV2qvpHG",
+            "name": "ECSA Energy SA - Caslano",
+            "brand": "UNDEFINED",
+            "address": "Via Colombera 10, 6987 Caslano",
+            "lat": 45.97698951091755,
+            "lng": 8.874521781054243,
+            "sp95PriceChf": 1.71,
+            "updatedAt": "2026-03-24T17:40:27.503Z",
+            "nearestMunicipality": "Brusimpiano (VA)",
+            "nearestMunicipalityDistanceKm": 1.9,
+            "sp95PriceEur": 1.87,
+            "distanceKm": 18.3
+          },
+          {
             "id": "VW0cjs2jCw25mkNyuE9t",
             "name": "Texon Service",
             "brand": "UNDEFINED",
             "address": "Via Cantonale 50, 6987 Caslano",
             "lat": 45.97858351864336,
             "lng": 8.87647837854075,
-            "sp95PriceChf": 1.6600000000000001,
-            "updatedAt": "2026-03-21T08:10:13.884Z",
+            "sp95PriceChf": 1.72,
+            "updatedAt": "2026-03-24T17:38:46.421Z",
             "nearestMunicipality": "Brusimpiano (VA)",
             "nearestMunicipalityDistanceKm": 2.1,
-            "sp95PriceEur": 1.815,
+            "sp95PriceEur": 1.881,
             "distanceKm": 18.4
           }
         ],
-        "minPriceChf": 1.65,
-        "minPriceEur": 1.804
+        "minPriceChf": 1.66,
+        "minPriceEur": 1.815
       },
       "comparison": {
         "cheaperCountry": "NO_DATA",
@@ -18992,7 +18992,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 101,
+        "optionCount": 102,
         "cheapestStation": {
           "id": "eyss2Vf8mj29JzsCvuUr",
           "name": "Piccadilly SA",
@@ -19029,11 +19029,11 @@
             "address": "Via Cantonale 18, 6987 Caslano",
             "lat": 45.98019132146254,
             "lng": 8.877659257998385,
-            "sp95PriceChf": 1.6600000000000001,
-            "updatedAt": "2026-03-21T09:43:34.620Z",
+            "sp95PriceChf": 1.72,
+            "updatedAt": "2026-03-24T17:36:58.353Z",
             "nearestMunicipality": "Brusimpiano (VA)",
             "nearestMunicipalityDistanceKm": 2.2,
-            "sp95PriceEur": 1.815,
+            "sp95PriceEur": 1.881,
             "distanceKm": 19.9
           },
           {
@@ -19138,36 +19138,22 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 53,
+        "optionCount": 54,
         "cheapestStation": {
-          "id": "LP7oYktKWhoncV2qvpHG",
-          "name": "ECSA Energy SA - Caslano",
+          "id": "eyss2Vf8mj29JzsCvuUr",
+          "name": "Piccadilly SA",
           "brand": "UNDEFINED",
-          "address": "Via Colombera 10, 6987 Caslano",
-          "lat": 45.97698951091755,
-          "lng": 8.874521781054243,
-          "sp95PriceChf": 1.6500000000000001,
-          "updatedAt": "2026-03-22T14:46:31.666Z",
-          "nearestMunicipality": "Brusimpiano (VA)",
-          "nearestMunicipalityDistanceKm": 1.9,
-          "sp95PriceEur": 1.804,
-          "distanceKm": 18.3
+          "address": "Stráda da Valmára, 6822 Arogno",
+          "lat": 45.96022467397532,
+          "lng": 8.998347379932348,
+          "sp95PriceChf": 1.66,
+          "updatedAt": "2026-03-10T08:07:48.373Z",
+          "nearestMunicipality": "Campione d'Italia (CO)",
+          "nearestMunicipalityDistanceKm": 2.3,
+          "sp95PriceEur": 1.815,
+          "distanceKm": 16.7
         },
         "nearbyStations": [
-          {
-            "id": "LP7oYktKWhoncV2qvpHG",
-            "name": "ECSA Energy SA - Caslano",
-            "brand": "UNDEFINED",
-            "address": "Via Colombera 10, 6987 Caslano",
-            "lat": 45.97698951091755,
-            "lng": 8.874521781054243,
-            "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-22T14:46:31.666Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 1.9,
-            "sp95PriceEur": 1.804,
-            "distanceKm": 18.3
-          },
           {
             "id": "eyss2Vf8mj29JzsCvuUr",
             "name": "Piccadilly SA",
@@ -19211,22 +19197,36 @@
             "distanceKm": 17.9
           },
           {
+            "id": "LP7oYktKWhoncV2qvpHG",
+            "name": "ECSA Energy SA - Caslano",
+            "brand": "UNDEFINED",
+            "address": "Via Colombera 10, 6987 Caslano",
+            "lat": 45.97698951091755,
+            "lng": 8.874521781054243,
+            "sp95PriceChf": 1.71,
+            "updatedAt": "2026-03-24T17:40:27.503Z",
+            "nearestMunicipality": "Brusimpiano (VA)",
+            "nearestMunicipalityDistanceKm": 1.9,
+            "sp95PriceEur": 1.87,
+            "distanceKm": 18.3
+          },
+          {
             "id": "VW0cjs2jCw25mkNyuE9t",
             "name": "Texon Service",
             "brand": "UNDEFINED",
             "address": "Via Cantonale 50, 6987 Caslano",
             "lat": 45.97858351864336,
             "lng": 8.87647837854075,
-            "sp95PriceChf": 1.6600000000000001,
-            "updatedAt": "2026-03-21T08:10:13.884Z",
+            "sp95PriceChf": 1.72,
+            "updatedAt": "2026-03-24T17:38:46.421Z",
             "nearestMunicipality": "Brusimpiano (VA)",
             "nearestMunicipalityDistanceKm": 2.1,
-            "sp95PriceEur": 1.815,
+            "sp95PriceEur": 1.881,
             "distanceKm": 18.4
           }
         ],
-        "minPriceChf": 1.65,
-        "minPriceEur": 1.804
+        "minPriceChf": 1.66,
+        "minPriceEur": 1.815
       },
       "comparison": {
         "cheaperCountry": "NO_DATA",
@@ -19253,7 +19253,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 111,
+        "optionCount": 112,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -19298,20 +19298,6 @@
             "distanceKm": 18.7
           },
           {
-            "id": "LP7oYktKWhoncV2qvpHG",
-            "name": "ECSA Energy SA - Caslano",
-            "brand": "UNDEFINED",
-            "address": "Via Colombera 10, 6987 Caslano",
-            "lat": 45.97698951091755,
-            "lng": 8.874521781054243,
-            "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-22T14:46:31.666Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 1.9,
-            "sp95PriceEur": 1.804,
-            "distanceKm": 14.3
-          },
-          {
             "id": "eyss2Vf8mj29JzsCvuUr",
             "name": "Piccadilly SA",
             "brand": "UNDEFINED",
@@ -19338,6 +19324,20 @@
             "nearestMunicipalityDistanceKm": 1.3,
             "sp95PriceEur": 1.815,
             "distanceKm": 15
+          },
+          {
+            "id": "LP7oYktKWhoncV2qvpHG",
+            "name": "ECSA Energy SA - Caslano",
+            "brand": "UNDEFINED",
+            "address": "Via Colombera 10, 6987 Caslano",
+            "lat": 45.97698951091755,
+            "lng": 8.874521781054243,
+            "sp95PriceChf": 1.71,
+            "updatedAt": "2026-03-24T17:40:27.503Z",
+            "nearestMunicipality": "Brusimpiano (VA)",
+            "nearestMunicipalityDistanceKm": 1.9,
+            "sp95PriceEur": 1.87,
+            "distanceKm": 14.3
           }
         ],
         "minPriceChf": 1.61,
@@ -20157,7 +20157,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 104,
+        "optionCount": 105,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -20202,20 +20202,6 @@
             "distanceKm": 5.7
           },
           {
-            "id": "LP7oYktKWhoncV2qvpHG",
-            "name": "ECSA Energy SA - Caslano",
-            "brand": "UNDEFINED",
-            "address": "Via Colombera 10, 6987 Caslano",
-            "lat": 45.97698951091755,
-            "lng": 8.874521781054243,
-            "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-22T14:46:31.666Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 1.9,
-            "sp95PriceEur": 1.804,
-            "distanceKm": 10.2
-          },
-          {
             "id": "eyss2Vf8mj29JzsCvuUr",
             "name": "Piccadilly SA",
             "brand": "UNDEFINED",
@@ -20241,6 +20227,20 @@
             "nearestMunicipality": "Lavena Ponte Tresa (VA)",
             "nearestMunicipalityDistanceKm": 1.3,
             "sp95PriceEur": 1.815,
+            "distanceKm": 10.2
+          },
+          {
+            "id": "LP7oYktKWhoncV2qvpHG",
+            "name": "ECSA Energy SA - Caslano",
+            "brand": "UNDEFINED",
+            "address": "Via Colombera 10, 6987 Caslano",
+            "lat": 45.97698951091755,
+            "lng": 8.874521781054243,
+            "sp95PriceChf": 1.71,
+            "updatedAt": "2026-03-24T17:40:27.503Z",
+            "nearestMunicipality": "Brusimpiano (VA)",
+            "nearestMunicipalityDistanceKm": 1.9,
+            "sp95PriceEur": 1.87,
             "distanceKm": 10.2
           }
         ],
@@ -20414,7 +20414,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 78,
+        "optionCount": 79,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -20459,20 +20459,6 @@
             "distanceKm": 14.4
           },
           {
-            "id": "LP7oYktKWhoncV2qvpHG",
-            "name": "ECSA Energy SA - Caslano",
-            "brand": "UNDEFINED",
-            "address": "Via Colombera 10, 6987 Caslano",
-            "lat": 45.97698951091755,
-            "lng": 8.874521781054243,
-            "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-22T14:46:31.666Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 1.9,
-            "sp95PriceEur": 1.804,
-            "distanceKm": 12.5
-          },
-          {
             "id": "eyss2Vf8mj29JzsCvuUr",
             "name": "Piccadilly SA",
             "brand": "UNDEFINED",
@@ -20499,6 +20485,20 @@
             "nearestMunicipalityDistanceKm": 2.3,
             "sp95PriceEur": 1.815,
             "distanceKm": 12.8
+          },
+          {
+            "id": "qAULcG7RwtmdWPH52365",
+            "name": "Euro service",
+            "brand": "UNDEFINED",
+            "address": "Via Colombera 45, 6987 Caslano",
+            "lat": 45.972068975787,
+            "lng": 8.86726121879764,
+            "sp95PriceChf": 1.66,
+            "updatedAt": "2026-03-22T14:49:20.523Z",
+            "nearestMunicipality": "Lavena Ponte Tresa (VA)",
+            "nearestMunicipalityDistanceKm": 1.3,
+            "sp95PriceEur": 1.815,
+            "distanceKm": 11.9
           }
         ],
         "minPriceChf": 1.61,
@@ -20752,7 +20752,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 17,
+        "optionCount": 18,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -20797,20 +20797,6 @@
             "distanceKm": 14.1
           },
           {
-            "id": "LP7oYktKWhoncV2qvpHG",
-            "name": "ECSA Energy SA - Caslano",
-            "brand": "UNDEFINED",
-            "address": "Via Colombera 10, 6987 Caslano",
-            "lat": 45.97698951091755,
-            "lng": 8.874521781054243,
-            "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-22T14:46:31.666Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 1.9,
-            "sp95PriceEur": 1.804,
-            "distanceKm": 16.4
-          },
-          {
             "id": "qAULcG7RwtmdWPH52365",
             "name": "Euro service",
             "brand": "UNDEFINED",
@@ -20825,17 +20811,31 @@
             "distanceKm": 15.6
           },
           {
+            "id": "LP7oYktKWhoncV2qvpHG",
+            "name": "ECSA Energy SA - Caslano",
+            "brand": "UNDEFINED",
+            "address": "Via Colombera 10, 6987 Caslano",
+            "lat": 45.97698951091755,
+            "lng": 8.874521781054243,
+            "sp95PriceChf": 1.71,
+            "updatedAt": "2026-03-24T17:40:27.503Z",
+            "nearestMunicipality": "Brusimpiano (VA)",
+            "nearestMunicipalityDistanceKm": 1.9,
+            "sp95PriceEur": 1.87,
+            "distanceKm": 16.4
+          },
+          {
             "id": "VW0cjs2jCw25mkNyuE9t",
             "name": "Texon Service",
             "brand": "UNDEFINED",
             "address": "Via Cantonale 50, 6987 Caslano",
             "lat": 45.97858351864336,
             "lng": 8.87647837854075,
-            "sp95PriceChf": 1.6600000000000001,
-            "updatedAt": "2026-03-21T08:10:13.884Z",
+            "sp95PriceChf": 1.72,
+            "updatedAt": "2026-03-24T17:38:46.421Z",
             "nearestMunicipality": "Brusimpiano (VA)",
             "nearestMunicipalityDistanceKm": 2.1,
-            "sp95PriceEur": 1.815,
+            "sp95PriceEur": 1.881,
             "distanceKm": 16.6
           }
         ],
@@ -20889,7 +20889,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 29,
+        "optionCount": 30,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -20934,20 +20934,6 @@
             "distanceKm": 17.2
           },
           {
-            "id": "LP7oYktKWhoncV2qvpHG",
-            "name": "ECSA Energy SA - Caslano",
-            "brand": "UNDEFINED",
-            "address": "Via Colombera 10, 6987 Caslano",
-            "lat": 45.97698951091755,
-            "lng": 8.874521781054243,
-            "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-22T14:46:31.666Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 1.9,
-            "sp95PriceEur": 1.804,
-            "distanceKm": 17.7
-          },
-          {
             "id": "qAULcG7RwtmdWPH52365",
             "name": "Euro service",
             "brand": "UNDEFINED",
@@ -20962,17 +20948,31 @@
             "distanceKm": 16.9
           },
           {
+            "id": "LP7oYktKWhoncV2qvpHG",
+            "name": "ECSA Energy SA - Caslano",
+            "brand": "UNDEFINED",
+            "address": "Via Colombera 10, 6987 Caslano",
+            "lat": 45.97698951091755,
+            "lng": 8.874521781054243,
+            "sp95PriceChf": 1.71,
+            "updatedAt": "2026-03-24T17:40:27.503Z",
+            "nearestMunicipality": "Brusimpiano (VA)",
+            "nearestMunicipalityDistanceKm": 1.9,
+            "sp95PriceEur": 1.87,
+            "distanceKm": 17.7
+          },
+          {
             "id": "VW0cjs2jCw25mkNyuE9t",
             "name": "Texon Service",
             "brand": "UNDEFINED",
             "address": "Via Cantonale 50, 6987 Caslano",
             "lat": 45.97858351864336,
             "lng": 8.87647837854075,
-            "sp95PriceChf": 1.6600000000000001,
-            "updatedAt": "2026-03-21T08:10:13.884Z",
+            "sp95PriceChf": 1.72,
+            "updatedAt": "2026-03-24T17:38:46.421Z",
             "nearestMunicipality": "Brusimpiano (VA)",
             "nearestMunicipalityDistanceKm": 2.1,
-            "sp95PriceEur": 1.815,
+            "sp95PriceEur": 1.881,
             "distanceKm": 17.9
           }
         ],
@@ -21110,7 +21110,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 74,
+        "optionCount": 75,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -21155,20 +21155,6 @@
             "distanceKm": 8.6
           },
           {
-            "id": "LP7oYktKWhoncV2qvpHG",
-            "name": "ECSA Energy SA - Caslano",
-            "brand": "UNDEFINED",
-            "address": "Via Colombera 10, 6987 Caslano",
-            "lat": 45.97698951091755,
-            "lng": 8.874521781054243,
-            "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-22T14:46:31.666Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 1.9,
-            "sp95PriceEur": 1.804,
-            "distanceKm": 9.3
-          },
-          {
             "id": "eyss2Vf8mj29JzsCvuUr",
             "name": "Piccadilly SA",
             "brand": "UNDEFINED",
@@ -21195,6 +21181,20 @@
             "nearestMunicipalityDistanceKm": 2.3,
             "sp95PriceEur": 1.815,
             "distanceKm": 18.9
+          },
+          {
+            "id": "qAULcG7RwtmdWPH52365",
+            "name": "Euro service",
+            "brand": "UNDEFINED",
+            "address": "Via Colombera 45, 6987 Caslano",
+            "lat": 45.972068975787,
+            "lng": 8.86726121879764,
+            "sp95PriceChf": 1.66,
+            "updatedAt": "2026-03-22T14:49:20.523Z",
+            "nearestMunicipality": "Lavena Ponte Tresa (VA)",
+            "nearestMunicipalityDistanceKm": 1.3,
+            "sp95PriceEur": 1.815,
+            "distanceKm": 8.6
           }
         ],
         "minPriceChf": 1.61,
@@ -21225,7 +21225,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 85,
+        "optionCount": 86,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -21270,20 +21270,6 @@
             "distanceKm": 13.3
           },
           {
-            "id": "LP7oYktKWhoncV2qvpHG",
-            "name": "ECSA Energy SA - Caslano",
-            "brand": "UNDEFINED",
-            "address": "Via Colombera 10, 6987 Caslano",
-            "lat": 45.97698951091755,
-            "lng": 8.874521781054243,
-            "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-22T14:46:31.666Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 1.9,
-            "sp95PriceEur": 1.804,
-            "distanceKm": 10.3
-          },
-          {
             "id": "eyss2Vf8mj29JzsCvuUr",
             "name": "Piccadilly SA",
             "brand": "UNDEFINED",
@@ -21310,6 +21296,20 @@
             "nearestMunicipalityDistanceKm": 2.3,
             "sp95PriceEur": 1.815,
             "distanceKm": 10.8
+          },
+          {
+            "id": "qAULcG7RwtmdWPH52365",
+            "name": "Euro service",
+            "brand": "UNDEFINED",
+            "address": "Via Colombera 45, 6987 Caslano",
+            "lat": 45.972068975787,
+            "lng": 8.86726121879764,
+            "sp95PriceChf": 1.66,
+            "updatedAt": "2026-03-22T14:49:20.523Z",
+            "nearestMunicipality": "Lavena Ponte Tresa (VA)",
+            "nearestMunicipalityDistanceKm": 1.3,
+            "sp95PriceEur": 1.815,
+            "distanceKm": 9.8
           }
         ],
         "minPriceChf": 1.61,
@@ -21572,7 +21572,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 81,
+        "optionCount": 82,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -21617,20 +21617,6 @@
             "distanceKm": 14.2
           },
           {
-            "id": "LP7oYktKWhoncV2qvpHG",
-            "name": "ECSA Energy SA - Caslano",
-            "brand": "UNDEFINED",
-            "address": "Via Colombera 10, 6987 Caslano",
-            "lat": 45.97698951091755,
-            "lng": 8.874521781054243,
-            "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-22T14:46:31.666Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 1.9,
-            "sp95PriceEur": 1.804,
-            "distanceKm": 11.9
-          },
-          {
             "id": "eyss2Vf8mj29JzsCvuUr",
             "name": "Piccadilly SA",
             "brand": "UNDEFINED",
@@ -21657,6 +21643,20 @@
             "nearestMunicipalityDistanceKm": 2.3,
             "sp95PriceEur": 1.815,
             "distanceKm": 11.7
+          },
+          {
+            "id": "qAULcG7RwtmdWPH52365",
+            "name": "Euro service",
+            "brand": "UNDEFINED",
+            "address": "Via Colombera 45, 6987 Caslano",
+            "lat": 45.972068975787,
+            "lng": 8.86726121879764,
+            "sp95PriceChf": 1.66,
+            "updatedAt": "2026-03-22T14:49:20.523Z",
+            "nearestMunicipality": "Lavena Ponte Tresa (VA)",
+            "nearestMunicipalityDistanceKm": 1.3,
+            "sp95PriceEur": 1.815,
+            "distanceKm": 11.3
           }
         ],
         "minPriceChf": 1.61,
@@ -21943,7 +21943,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 13,
+        "optionCount": 14,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -21988,20 +21988,6 @@
             "distanceKm": 14.5
           },
           {
-            "id": "LP7oYktKWhoncV2qvpHG",
-            "name": "ECSA Energy SA - Caslano",
-            "brand": "UNDEFINED",
-            "address": "Via Colombera 10, 6987 Caslano",
-            "lat": 45.97698951091755,
-            "lng": 8.874521781054243,
-            "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-22T14:46:31.666Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 1.9,
-            "sp95PriceEur": 1.804,
-            "distanceKm": 17.4
-          },
-          {
             "id": "qAULcG7RwtmdWPH52365",
             "name": "Euro service",
             "brand": "UNDEFINED",
@@ -22016,17 +22002,31 @@
             "distanceKm": 16.6
           },
           {
+            "id": "LP7oYktKWhoncV2qvpHG",
+            "name": "ECSA Energy SA - Caslano",
+            "brand": "UNDEFINED",
+            "address": "Via Colombera 10, 6987 Caslano",
+            "lat": 45.97698951091755,
+            "lng": 8.874521781054243,
+            "sp95PriceChf": 1.71,
+            "updatedAt": "2026-03-24T17:40:27.503Z",
+            "nearestMunicipality": "Brusimpiano (VA)",
+            "nearestMunicipalityDistanceKm": 1.9,
+            "sp95PriceEur": 1.87,
+            "distanceKm": 17.4
+          },
+          {
             "id": "VW0cjs2jCw25mkNyuE9t",
             "name": "Texon Service",
             "brand": "UNDEFINED",
             "address": "Via Cantonale 50, 6987 Caslano",
             "lat": 45.97858351864336,
             "lng": 8.87647837854075,
-            "sp95PriceChf": 1.6600000000000001,
-            "updatedAt": "2026-03-21T08:10:13.884Z",
+            "sp95PriceChf": 1.72,
+            "updatedAt": "2026-03-24T17:38:46.421Z",
             "nearestMunicipality": "Brusimpiano (VA)",
             "nearestMunicipalityDistanceKm": 2.1,
-            "sp95PriceEur": 1.815,
+            "sp95PriceEur": 1.881,
             "distanceKm": 17.6
           }
         ],
@@ -22058,7 +22058,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 55,
+        "optionCount": 56,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -22103,20 +22103,6 @@
             "distanceKm": 7.1
           },
           {
-            "id": "LP7oYktKWhoncV2qvpHG",
-            "name": "ECSA Energy SA - Caslano",
-            "brand": "UNDEFINED",
-            "address": "Via Colombera 10, 6987 Caslano",
-            "lat": 45.97698951091755,
-            "lng": 8.874521781054243,
-            "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-22T14:46:31.666Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 1.9,
-            "sp95PriceEur": 1.804,
-            "distanceKm": 12
-          },
-          {
             "id": "qAULcG7RwtmdWPH52365",
             "name": "Euro service",
             "brand": "UNDEFINED",
@@ -22131,17 +22117,31 @@
             "distanceKm": 11.5
           },
           {
+            "id": "LP7oYktKWhoncV2qvpHG",
+            "name": "ECSA Energy SA - Caslano",
+            "brand": "UNDEFINED",
+            "address": "Via Colombera 10, 6987 Caslano",
+            "lat": 45.97698951091755,
+            "lng": 8.874521781054243,
+            "sp95PriceChf": 1.71,
+            "updatedAt": "2026-03-24T17:40:27.503Z",
+            "nearestMunicipality": "Brusimpiano (VA)",
+            "nearestMunicipalityDistanceKm": 1.9,
+            "sp95PriceEur": 1.87,
+            "distanceKm": 12
+          },
+          {
             "id": "VW0cjs2jCw25mkNyuE9t",
             "name": "Texon Service",
             "brand": "UNDEFINED",
             "address": "Via Cantonale 50, 6987 Caslano",
             "lat": 45.97858351864336,
             "lng": 8.87647837854075,
-            "sp95PriceChf": 1.6600000000000001,
-            "updatedAt": "2026-03-21T08:10:13.884Z",
+            "sp95PriceChf": 1.72,
+            "updatedAt": "2026-03-24T17:38:46.421Z",
             "nearestMunicipality": "Brusimpiano (VA)",
             "nearestMunicipalityDistanceKm": 2.1,
-            "sp95PriceEur": 1.815,
+            "sp95PriceEur": 1.881,
             "distanceKm": 12.2
           }
         ],
@@ -22206,7 +22206,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 77,
+        "optionCount": 78,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -22251,20 +22251,6 @@
             "distanceKm": 11.4
           },
           {
-            "id": "LP7oYktKWhoncV2qvpHG",
-            "name": "ECSA Energy SA - Caslano",
-            "brand": "UNDEFINED",
-            "address": "Via Colombera 10, 6987 Caslano",
-            "lat": 45.97698951091755,
-            "lng": 8.874521781054243,
-            "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-22T14:46:31.666Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 1.9,
-            "sp95PriceEur": 1.804,
-            "distanceKm": 11.7
-          },
-          {
             "id": "eyss2Vf8mj29JzsCvuUr",
             "name": "Piccadilly SA",
             "brand": "UNDEFINED",
@@ -22291,6 +22277,20 @@
             "nearestMunicipalityDistanceKm": 2.3,
             "sp95PriceEur": 1.815,
             "distanceKm": 18.3
+          },
+          {
+            "id": "qAULcG7RwtmdWPH52365",
+            "name": "Euro service",
+            "brand": "UNDEFINED",
+            "address": "Via Colombera 45, 6987 Caslano",
+            "lat": 45.972068975787,
+            "lng": 8.86726121879764,
+            "sp95PriceChf": 1.66,
+            "updatedAt": "2026-03-22T14:49:20.523Z",
+            "nearestMunicipality": "Lavena Ponte Tresa (VA)",
+            "nearestMunicipalityDistanceKm": 1.3,
+            "sp95PriceEur": 1.815,
+            "distanceKm": 11
           }
         ],
         "minPriceChf": 1.61,
@@ -22321,7 +22321,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 68,
+        "optionCount": 69,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -22366,20 +22366,6 @@
             "distanceKm": 6.7
           },
           {
-            "id": "LP7oYktKWhoncV2qvpHG",
-            "name": "ECSA Energy SA - Caslano",
-            "brand": "UNDEFINED",
-            "address": "Via Colombera 10, 6987 Caslano",
-            "lat": 45.97698951091755,
-            "lng": 8.874521781054243,
-            "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-22T14:46:31.666Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 1.9,
-            "sp95PriceEur": 1.804,
-            "distanceKm": 10.3
-          },
-          {
             "id": "eyss2Vf8mj29JzsCvuUr",
             "name": "Piccadilly SA",
             "brand": "UNDEFINED",
@@ -22406,6 +22392,20 @@
             "nearestMunicipalityDistanceKm": 1.3,
             "sp95PriceEur": 1.815,
             "distanceKm": 9.6
+          },
+          {
+            "id": "LP7oYktKWhoncV2qvpHG",
+            "name": "ECSA Energy SA - Caslano",
+            "brand": "UNDEFINED",
+            "address": "Via Colombera 10, 6987 Caslano",
+            "lat": 45.97698951091755,
+            "lng": 8.874521781054243,
+            "sp95PriceChf": 1.71,
+            "updatedAt": "2026-03-24T17:40:27.503Z",
+            "nearestMunicipality": "Brusimpiano (VA)",
+            "nearestMunicipalityDistanceKm": 1.9,
+            "sp95PriceEur": 1.87,
+            "distanceKm": 10.3
           }
         ],
         "minPriceChf": 1.61,
@@ -22551,7 +22551,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 94,
+        "optionCount": 95,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -22596,20 +22596,6 @@
             "distanceKm": 6.4
           },
           {
-            "id": "LP7oYktKWhoncV2qvpHG",
-            "name": "ECSA Energy SA - Caslano",
-            "brand": "UNDEFINED",
-            "address": "Via Colombera 10, 6987 Caslano",
-            "lat": 45.97698951091755,
-            "lng": 8.874521781054243,
-            "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-22T14:46:31.666Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 1.9,
-            "sp95PriceEur": 1.804,
-            "distanceKm": 1.9
-          },
-          {
             "id": "eyss2Vf8mj29JzsCvuUr",
             "name": "Piccadilly SA",
             "brand": "UNDEFINED",
@@ -22636,6 +22622,20 @@
             "nearestMunicipalityDistanceKm": 2.3,
             "sp95PriceEur": 1.815,
             "distanceKm": 16.8
+          },
+          {
+            "id": "qAULcG7RwtmdWPH52365",
+            "name": "Euro service",
+            "brand": "UNDEFINED",
+            "address": "Via Colombera 45, 6987 Caslano",
+            "lat": 45.972068975787,
+            "lng": 8.86726121879764,
+            "sp95PriceChf": 1.66,
+            "updatedAt": "2026-03-22T14:49:20.523Z",
+            "nearestMunicipality": "Lavena Ponte Tresa (VA)",
+            "nearestMunicipalityDistanceKm": 1.3,
+            "sp95PriceEur": 1.815,
+            "distanceKm": 1.6
           }
         ],
         "minPriceChf": 1.61,
@@ -22825,7 +22825,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 84,
+        "optionCount": 85,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -22870,20 +22870,6 @@
             "distanceKm": 3.4
           },
           {
-            "id": "LP7oYktKWhoncV2qvpHG",
-            "name": "ECSA Energy SA - Caslano",
-            "brand": "UNDEFINED",
-            "address": "Via Colombera 10, 6987 Caslano",
-            "lat": 45.97698951091755,
-            "lng": 8.874521781054243,
-            "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-22T14:46:31.666Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 1.9,
-            "sp95PriceEur": 1.804,
-            "distanceKm": 3.6
-          },
-          {
             "id": "eyss2Vf8mj29JzsCvuUr",
             "name": "Piccadilly SA",
             "brand": "UNDEFINED",
@@ -22910,6 +22896,20 @@
             "nearestMunicipalityDistanceKm": 2.3,
             "sp95PriceEur": 1.815,
             "distanceKm": 19.7
+          },
+          {
+            "id": "qAULcG7RwtmdWPH52365",
+            "name": "Euro service",
+            "brand": "UNDEFINED",
+            "address": "Via Colombera 45, 6987 Caslano",
+            "lat": 45.972068975787,
+            "lng": 8.86726121879764,
+            "sp95PriceChf": 1.66,
+            "updatedAt": "2026-03-22T14:49:20.523Z",
+            "nearestMunicipality": "Lavena Ponte Tresa (VA)",
+            "nearestMunicipalityDistanceKm": 1.3,
+            "sp95PriceEur": 1.815,
+            "distanceKm": 2.9
           }
         ],
         "minPriceChf": 1.61,
@@ -23157,7 +23157,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 56,
+        "optionCount": 57,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -23186,20 +23186,6 @@
             "nearestMunicipalityDistanceKm": 1.3,
             "sp95PriceEur": 1.761,
             "distanceKm": 19.9
-          },
-          {
-            "id": "LP7oYktKWhoncV2qvpHG",
-            "name": "ECSA Energy SA - Caslano",
-            "brand": "UNDEFINED",
-            "address": "Via Colombera 10, 6987 Caslano",
-            "lat": 45.97698951091755,
-            "lng": 8.874521781054243,
-            "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-22T14:46:31.666Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 1.9,
-            "sp95PriceEur": 1.804,
-            "distanceKm": 17.5
           },
           {
             "id": "eyss2Vf8mj29JzsCvuUr",
@@ -23242,6 +23228,20 @@
             "nearestMunicipalityDistanceKm": 1.3,
             "sp95PriceEur": 1.815,
             "distanceKm": 17.1
+          },
+          {
+            "id": "LP7oYktKWhoncV2qvpHG",
+            "name": "ECSA Energy SA - Caslano",
+            "brand": "UNDEFINED",
+            "address": "Via Colombera 10, 6987 Caslano",
+            "lat": 45.97698951091755,
+            "lng": 8.874521781054243,
+            "sp95PriceChf": 1.71,
+            "updatedAt": "2026-03-24T17:40:27.503Z",
+            "nearestMunicipality": "Brusimpiano (VA)",
+            "nearestMunicipalityDistanceKm": 1.9,
+            "sp95PriceEur": 1.87,
+            "distanceKm": 17.5
           }
         ],
         "minPriceChf": 1.61,
@@ -23742,7 +23742,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 30,
+        "optionCount": 31,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -23787,20 +23787,6 @@
             "distanceKm": 12.4
           },
           {
-            "id": "LP7oYktKWhoncV2qvpHG",
-            "name": "ECSA Energy SA - Caslano",
-            "brand": "UNDEFINED",
-            "address": "Via Colombera 10, 6987 Caslano",
-            "lat": 45.97698951091755,
-            "lng": 8.874521781054243,
-            "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-22T14:46:31.666Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 1.9,
-            "sp95PriceEur": 1.804,
-            "distanceKm": 15.3
-          },
-          {
             "id": "qAULcG7RwtmdWPH52365",
             "name": "Euro service",
             "brand": "UNDEFINED",
@@ -23815,17 +23801,31 @@
             "distanceKm": 14.6
           },
           {
+            "id": "LP7oYktKWhoncV2qvpHG",
+            "name": "ECSA Energy SA - Caslano",
+            "brand": "UNDEFINED",
+            "address": "Via Colombera 10, 6987 Caslano",
+            "lat": 45.97698951091755,
+            "lng": 8.874521781054243,
+            "sp95PriceChf": 1.71,
+            "updatedAt": "2026-03-24T17:40:27.503Z",
+            "nearestMunicipality": "Brusimpiano (VA)",
+            "nearestMunicipalityDistanceKm": 1.9,
+            "sp95PriceEur": 1.87,
+            "distanceKm": 15.3
+          },
+          {
             "id": "VW0cjs2jCw25mkNyuE9t",
             "name": "Texon Service",
             "brand": "UNDEFINED",
             "address": "Via Cantonale 50, 6987 Caslano",
             "lat": 45.97858351864336,
             "lng": 8.87647837854075,
-            "sp95PriceChf": 1.6600000000000001,
-            "updatedAt": "2026-03-21T08:10:13.884Z",
+            "sp95PriceChf": 1.72,
+            "updatedAt": "2026-03-24T17:38:46.421Z",
             "nearestMunicipality": "Brusimpiano (VA)",
             "nearestMunicipalityDistanceKm": 2.1,
-            "sp95PriceEur": 1.815,
+            "sp95PriceEur": 1.881,
             "distanceKm": 15.5
           }
         ],
@@ -23857,7 +23857,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 46,
+        "optionCount": 47,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -23902,20 +23902,6 @@
             "distanceKm": 17.4
           },
           {
-            "id": "LP7oYktKWhoncV2qvpHG",
-            "name": "ECSA Energy SA - Caslano",
-            "brand": "UNDEFINED",
-            "address": "Via Colombera 10, 6987 Caslano",
-            "lat": 45.97698951091755,
-            "lng": 8.874521781054243,
-            "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-22T14:46:31.666Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 1.9,
-            "sp95PriceEur": 1.804,
-            "distanceKm": 17.3
-          },
-          {
             "id": "pXVgLf2jUOKzOewFCsnj",
             "name": "Migrol Service",
             "brand": "MIGROL",
@@ -23942,6 +23928,20 @@
             "nearestMunicipalityDistanceKm": 1.3,
             "sp95PriceEur": 1.815,
             "distanceKm": 16.6
+          },
+          {
+            "id": "LP7oYktKWhoncV2qvpHG",
+            "name": "ECSA Energy SA - Caslano",
+            "brand": "UNDEFINED",
+            "address": "Via Colombera 10, 6987 Caslano",
+            "lat": 45.97698951091755,
+            "lng": 8.874521781054243,
+            "sp95PriceChf": 1.71,
+            "updatedAt": "2026-03-24T17:40:27.503Z",
+            "nearestMunicipality": "Brusimpiano (VA)",
+            "nearestMunicipalityDistanceKm": 1.9,
+            "sp95PriceEur": 1.87,
+            "distanceKm": 17.3
           }
         ],
         "minPriceChf": 1.61,
@@ -24091,7 +24091,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 70,
+        "optionCount": 71,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -24136,20 +24136,6 @@
             "distanceKm": 7.3
           },
           {
-            "id": "LP7oYktKWhoncV2qvpHG",
-            "name": "ECSA Energy SA - Caslano",
-            "brand": "UNDEFINED",
-            "address": "Via Colombera 10, 6987 Caslano",
-            "lat": 45.97698951091755,
-            "lng": 8.874521781054243,
-            "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-22T14:46:31.666Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 1.9,
-            "sp95PriceEur": 1.804,
-            "distanceKm": 9.6
-          },
-          {
             "id": "eyss2Vf8mj29JzsCvuUr",
             "name": "Piccadilly SA",
             "brand": "UNDEFINED",
@@ -24176,6 +24162,20 @@
             "nearestMunicipalityDistanceKm": 1.3,
             "sp95PriceEur": 1.815,
             "distanceKm": 8.9
+          },
+          {
+            "id": "LP7oYktKWhoncV2qvpHG",
+            "name": "ECSA Energy SA - Caslano",
+            "brand": "UNDEFINED",
+            "address": "Via Colombera 10, 6987 Caslano",
+            "lat": 45.97698951091755,
+            "lng": 8.874521781054243,
+            "sp95PriceChf": 1.71,
+            "updatedAt": "2026-03-24T17:40:27.503Z",
+            "nearestMunicipality": "Brusimpiano (VA)",
+            "nearestMunicipalityDistanceKm": 1.9,
+            "sp95PriceEur": 1.87,
+            "distanceKm": 9.6
           }
         ],
         "minPriceChf": 1.61,
@@ -24206,7 +24206,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 57,
+        "optionCount": 58,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -24251,20 +24251,6 @@
             "distanceKm": 11.6
           },
           {
-            "id": "LP7oYktKWhoncV2qvpHG",
-            "name": "ECSA Energy SA - Caslano",
-            "brand": "UNDEFINED",
-            "address": "Via Colombera 10, 6987 Caslano",
-            "lat": 45.97698951091755,
-            "lng": 8.874521781054243,
-            "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-22T14:46:31.666Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 1.9,
-            "sp95PriceEur": 1.804,
-            "distanceKm": 13.1
-          },
-          {
             "id": "qAULcG7RwtmdWPH52365",
             "name": "Euro service",
             "brand": "UNDEFINED",
@@ -24279,17 +24265,31 @@
             "distanceKm": 12.3
           },
           {
+            "id": "LP7oYktKWhoncV2qvpHG",
+            "name": "ECSA Energy SA - Caslano",
+            "brand": "UNDEFINED",
+            "address": "Via Colombera 10, 6987 Caslano",
+            "lat": 45.97698951091755,
+            "lng": 8.874521781054243,
+            "sp95PriceChf": 1.71,
+            "updatedAt": "2026-03-24T17:40:27.503Z",
+            "nearestMunicipality": "Brusimpiano (VA)",
+            "nearestMunicipalityDistanceKm": 1.9,
+            "sp95PriceEur": 1.87,
+            "distanceKm": 13.1
+          },
+          {
             "id": "VW0cjs2jCw25mkNyuE9t",
             "name": "Texon Service",
             "brand": "UNDEFINED",
             "address": "Via Cantonale 50, 6987 Caslano",
             "lat": 45.97858351864336,
             "lng": 8.87647837854075,
-            "sp95PriceChf": 1.6600000000000001,
-            "updatedAt": "2026-03-21T08:10:13.884Z",
+            "sp95PriceChf": 1.72,
+            "updatedAt": "2026-03-24T17:38:46.421Z",
             "nearestMunicipality": "Brusimpiano (VA)",
             "nearestMunicipalityDistanceKm": 2.1,
-            "sp95PriceEur": 1.815,
+            "sp95PriceEur": 1.881,
             "distanceKm": 13.3
           }
         ],
@@ -24469,7 +24469,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 18,
+        "optionCount": 19,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -24514,20 +24514,6 @@
             "distanceKm": 11.6
           },
           {
-            "id": "LP7oYktKWhoncV2qvpHG",
-            "name": "ECSA Energy SA - Caslano",
-            "brand": "UNDEFINED",
-            "address": "Via Colombera 10, 6987 Caslano",
-            "lat": 45.97698951091755,
-            "lng": 8.874521781054243,
-            "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-22T14:46:31.666Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 1.9,
-            "sp95PriceEur": 1.804,
-            "distanceKm": 16.1
-          },
-          {
             "id": "qAULcG7RwtmdWPH52365",
             "name": "Euro service",
             "brand": "UNDEFINED",
@@ -24542,17 +24528,31 @@
             "distanceKm": 15.5
           },
           {
+            "id": "LP7oYktKWhoncV2qvpHG",
+            "name": "ECSA Energy SA - Caslano",
+            "brand": "UNDEFINED",
+            "address": "Via Colombera 10, 6987 Caslano",
+            "lat": 45.97698951091755,
+            "lng": 8.874521781054243,
+            "sp95PriceChf": 1.71,
+            "updatedAt": "2026-03-24T17:40:27.503Z",
+            "nearestMunicipality": "Brusimpiano (VA)",
+            "nearestMunicipalityDistanceKm": 1.9,
+            "sp95PriceEur": 1.87,
+            "distanceKm": 16.1
+          },
+          {
             "id": "VW0cjs2jCw25mkNyuE9t",
             "name": "Texon Service",
             "brand": "UNDEFINED",
             "address": "Via Cantonale 50, 6987 Caslano",
             "lat": 45.97858351864336,
             "lng": 8.87647837854075,
-            "sp95PriceChf": 1.6600000000000001,
-            "updatedAt": "2026-03-21T08:10:13.884Z",
+            "sp95PriceChf": 1.72,
+            "updatedAt": "2026-03-24T17:38:46.421Z",
             "nearestMunicipality": "Brusimpiano (VA)",
             "nearestMunicipalityDistanceKm": 2.1,
-            "sp95PriceEur": 1.815,
+            "sp95PriceEur": 1.881,
             "distanceKm": 16.3
           }
         ],
@@ -25225,7 +25225,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 8,
+        "optionCount": 9,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -25270,20 +25270,6 @@
             "distanceKm": 15.8
           },
           {
-            "id": "LP7oYktKWhoncV2qvpHG",
-            "name": "ECSA Energy SA - Caslano",
-            "brand": "UNDEFINED",
-            "address": "Via Colombera 10, 6987 Caslano",
-            "lat": 45.97698951091755,
-            "lng": 8.874521781054243,
-            "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-22T14:46:31.666Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 1.9,
-            "sp95PriceEur": 1.804,
-            "distanceKm": 19
-          },
-          {
             "id": "qAULcG7RwtmdWPH52365",
             "name": "Euro service",
             "brand": "UNDEFINED",
@@ -25298,17 +25284,31 @@
             "distanceKm": 18.2
           },
           {
+            "id": "LP7oYktKWhoncV2qvpHG",
+            "name": "ECSA Energy SA - Caslano",
+            "brand": "UNDEFINED",
+            "address": "Via Colombera 10, 6987 Caslano",
+            "lat": 45.97698951091755,
+            "lng": 8.874521781054243,
+            "sp95PriceChf": 1.71,
+            "updatedAt": "2026-03-24T17:40:27.503Z",
+            "nearestMunicipality": "Brusimpiano (VA)",
+            "nearestMunicipalityDistanceKm": 1.9,
+            "sp95PriceEur": 1.87,
+            "distanceKm": 19
+          },
+          {
             "id": "VW0cjs2jCw25mkNyuE9t",
             "name": "Texon Service",
             "brand": "UNDEFINED",
             "address": "Via Cantonale 50, 6987 Caslano",
             "lat": 45.97858351864336,
             "lng": 8.87647837854075,
-            "sp95PriceChf": 1.6600000000000001,
-            "updatedAt": "2026-03-21T08:10:13.884Z",
+            "sp95PriceChf": 1.72,
+            "updatedAt": "2026-03-24T17:38:46.421Z",
             "nearestMunicipality": "Brusimpiano (VA)",
             "nearestMunicipalityDistanceKm": 2.1,
-            "sp95PriceEur": 1.815,
+            "sp95PriceEur": 1.881,
             "distanceKm": 19.2
           }
         ],
@@ -25340,7 +25340,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 81,
+        "optionCount": 82,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -25385,20 +25385,6 @@
             "distanceKm": 16.9
           },
           {
-            "id": "LP7oYktKWhoncV2qvpHG",
-            "name": "ECSA Energy SA - Caslano",
-            "brand": "UNDEFINED",
-            "address": "Via Colombera 10, 6987 Caslano",
-            "lat": 45.97698951091755,
-            "lng": 8.874521781054243,
-            "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-22T14:46:31.666Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 1.9,
-            "sp95PriceEur": 1.804,
-            "distanceKm": 13.2
-          },
-          {
             "id": "eyss2Vf8mj29JzsCvuUr",
             "name": "Piccadilly SA",
             "brand": "UNDEFINED",
@@ -25425,6 +25411,20 @@
             "nearestMunicipalityDistanceKm": 2.3,
             "sp95PriceEur": 1.815,
             "distanceKm": 7.2
+          },
+          {
+            "id": "qAULcG7RwtmdWPH52365",
+            "name": "Euro service",
+            "brand": "UNDEFINED",
+            "address": "Via Colombera 45, 6987 Caslano",
+            "lat": 45.972068975787,
+            "lng": 8.86726121879764,
+            "sp95PriceChf": 1.66,
+            "updatedAt": "2026-03-22T14:49:20.523Z",
+            "nearestMunicipality": "Lavena Ponte Tresa (VA)",
+            "nearestMunicipalityDistanceKm": 1.3,
+            "sp95PriceEur": 1.815,
+            "distanceKm": 12.9
           }
         ],
         "minPriceChf": 1.61,
@@ -25510,7 +25510,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 11,
+        "optionCount": 12,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -25555,20 +25555,6 @@
             "distanceKm": 16.6
           },
           {
-            "id": "LP7oYktKWhoncV2qvpHG",
-            "name": "ECSA Energy SA - Caslano",
-            "brand": "UNDEFINED",
-            "address": "Via Colombera 10, 6987 Caslano",
-            "lat": 45.97698951091755,
-            "lng": 8.874521781054243,
-            "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-22T14:46:31.666Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 1.9,
-            "sp95PriceEur": 1.804,
-            "distanceKm": 18.7
-          },
-          {
             "id": "qAULcG7RwtmdWPH52365",
             "name": "Euro service",
             "brand": "UNDEFINED",
@@ -25583,17 +25569,31 @@
             "distanceKm": 17.9
           },
           {
+            "id": "LP7oYktKWhoncV2qvpHG",
+            "name": "ECSA Energy SA - Caslano",
+            "brand": "UNDEFINED",
+            "address": "Via Colombera 10, 6987 Caslano",
+            "lat": 45.97698951091755,
+            "lng": 8.874521781054243,
+            "sp95PriceChf": 1.71,
+            "updatedAt": "2026-03-24T17:40:27.503Z",
+            "nearestMunicipality": "Brusimpiano (VA)",
+            "nearestMunicipalityDistanceKm": 1.9,
+            "sp95PriceEur": 1.87,
+            "distanceKm": 18.7
+          },
+          {
             "id": "VW0cjs2jCw25mkNyuE9t",
             "name": "Texon Service",
             "brand": "UNDEFINED",
             "address": "Via Cantonale 50, 6987 Caslano",
             "lat": 45.97858351864336,
             "lng": 8.87647837854075,
-            "sp95PriceChf": 1.6600000000000001,
-            "updatedAt": "2026-03-21T08:10:13.884Z",
+            "sp95PriceChf": 1.72,
+            "updatedAt": "2026-03-24T17:38:46.421Z",
             "nearestMunicipality": "Brusimpiano (VA)",
             "nearestMunicipalityDistanceKm": 2.1,
-            "sp95PriceEur": 1.815,
+            "sp95PriceEur": 1.881,
             "distanceKm": 19
           }
         ],
@@ -25744,7 +25744,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 25,
+        "optionCount": 26,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -25789,20 +25789,6 @@
             "distanceKm": 17.5
           },
           {
-            "id": "LP7oYktKWhoncV2qvpHG",
-            "name": "ECSA Energy SA - Caslano",
-            "brand": "UNDEFINED",
-            "address": "Via Colombera 10, 6987 Caslano",
-            "lat": 45.97698951091755,
-            "lng": 8.874521781054243,
-            "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-22T14:46:31.666Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 1.9,
-            "sp95PriceEur": 1.804,
-            "distanceKm": 18.2
-          },
-          {
             "id": "qAULcG7RwtmdWPH52365",
             "name": "Euro service",
             "brand": "UNDEFINED",
@@ -25817,17 +25803,31 @@
             "distanceKm": 17.4
           },
           {
+            "id": "LP7oYktKWhoncV2qvpHG",
+            "name": "ECSA Energy SA - Caslano",
+            "brand": "UNDEFINED",
+            "address": "Via Colombera 10, 6987 Caslano",
+            "lat": 45.97698951091755,
+            "lng": 8.874521781054243,
+            "sp95PriceChf": 1.71,
+            "updatedAt": "2026-03-24T17:40:27.503Z",
+            "nearestMunicipality": "Brusimpiano (VA)",
+            "nearestMunicipalityDistanceKm": 1.9,
+            "sp95PriceEur": 1.87,
+            "distanceKm": 18.2
+          },
+          {
             "id": "VW0cjs2jCw25mkNyuE9t",
             "name": "Texon Service",
             "brand": "UNDEFINED",
             "address": "Via Cantonale 50, 6987 Caslano",
             "lat": 45.97858351864336,
             "lng": 8.87647837854075,
-            "sp95PriceChf": 1.6600000000000001,
-            "updatedAt": "2026-03-21T08:10:13.884Z",
+            "sp95PriceChf": 1.72,
+            "updatedAt": "2026-03-24T17:38:46.421Z",
             "nearestMunicipality": "Brusimpiano (VA)",
             "nearestMunicipalityDistanceKm": 2.1,
-            "sp95PriceEur": 1.815,
+            "sp95PriceEur": 1.881,
             "distanceKm": 18.4
           }
         ],
@@ -25859,7 +25859,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 91,
+        "optionCount": 92,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -25904,20 +25904,6 @@
             "distanceKm": 0.5
           },
           {
-            "id": "LP7oYktKWhoncV2qvpHG",
-            "name": "ECSA Energy SA - Caslano",
-            "brand": "UNDEFINED",
-            "address": "Via Colombera 10, 6987 Caslano",
-            "lat": 45.97698951091755,
-            "lng": 8.874521781054243,
-            "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-22T14:46:31.666Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 1.9,
-            "sp95PriceEur": 1.804,
-            "distanceKm": 5.7
-          },
-          {
             "id": "eyss2Vf8mj29JzsCvuUr",
             "name": "Piccadilly SA",
             "brand": "UNDEFINED",
@@ -25944,6 +25930,20 @@
             "nearestMunicipalityDistanceKm": 1.3,
             "sp95PriceEur": 1.815,
             "distanceKm": 5.4
+          },
+          {
+            "id": "LP7oYktKWhoncV2qvpHG",
+            "name": "ECSA Energy SA - Caslano",
+            "brand": "UNDEFINED",
+            "address": "Via Colombera 10, 6987 Caslano",
+            "lat": 45.97698951091755,
+            "lng": 8.874521781054243,
+            "sp95PriceChf": 1.71,
+            "updatedAt": "2026-03-24T17:40:27.503Z",
+            "nearestMunicipality": "Brusimpiano (VA)",
+            "nearestMunicipalityDistanceKm": 1.9,
+            "sp95PriceEur": 1.87,
+            "distanceKm": 5.7
           }
         ],
         "minPriceChf": 1.61,
@@ -26122,7 +26122,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 86,
+        "optionCount": 87,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -26167,20 +26167,6 @@
             "distanceKm": 10
           },
           {
-            "id": "LP7oYktKWhoncV2qvpHG",
-            "name": "ECSA Energy SA - Caslano",
-            "brand": "UNDEFINED",
-            "address": "Via Colombera 10, 6987 Caslano",
-            "lat": 45.97698951091755,
-            "lng": 8.874521781054243,
-            "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-22T14:46:31.666Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 1.9,
-            "sp95PriceEur": 1.804,
-            "distanceKm": 6.9
-          },
-          {
             "id": "eyss2Vf8mj29JzsCvuUr",
             "name": "Piccadilly SA",
             "brand": "UNDEFINED",
@@ -26207,6 +26193,20 @@
             "nearestMunicipalityDistanceKm": 2.3,
             "sp95PriceEur": 1.815,
             "distanceKm": 13.3
+          },
+          {
+            "id": "qAULcG7RwtmdWPH52365",
+            "name": "Euro service",
+            "brand": "UNDEFINED",
+            "address": "Via Colombera 45, 6987 Caslano",
+            "lat": 45.972068975787,
+            "lng": 8.86726121879764,
+            "sp95PriceChf": 1.66,
+            "updatedAt": "2026-03-22T14:49:20.523Z",
+            "nearestMunicipality": "Lavena Ponte Tresa (VA)",
+            "nearestMunicipalityDistanceKm": 1.3,
+            "sp95PriceEur": 1.815,
+            "distanceKm": 6.4
           }
         ],
         "minPriceChf": 1.61,
@@ -26237,7 +26237,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 80,
+        "optionCount": 81,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -26282,20 +26282,6 @@
             "distanceKm": 5.1
           },
           {
-            "id": "LP7oYktKWhoncV2qvpHG",
-            "name": "ECSA Energy SA - Caslano",
-            "brand": "UNDEFINED",
-            "address": "Via Colombera 10, 6987 Caslano",
-            "lat": 45.97698951091755,
-            "lng": 8.874521781054243,
-            "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-22T14:46:31.666Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 1.9,
-            "sp95PriceEur": 1.804,
-            "distanceKm": 5.3
-          },
-          {
             "id": "eyss2Vf8mj29JzsCvuUr",
             "name": "Piccadilly SA",
             "brand": "UNDEFINED",
@@ -26322,6 +26308,20 @@
             "nearestMunicipalityDistanceKm": 2.3,
             "sp95PriceEur": 1.815,
             "distanceKm": 18.9
+          },
+          {
+            "id": "qAULcG7RwtmdWPH52365",
+            "name": "Euro service",
+            "brand": "UNDEFINED",
+            "address": "Via Colombera 45, 6987 Caslano",
+            "lat": 45.972068975787,
+            "lng": 8.86726121879764,
+            "sp95PriceChf": 1.66,
+            "updatedAt": "2026-03-22T14:49:20.523Z",
+            "nearestMunicipality": "Lavena Ponte Tresa (VA)",
+            "nearestMunicipalityDistanceKm": 1.3,
+            "sp95PriceEur": 1.815,
+            "distanceKm": 4.5
           }
         ],
         "minPriceChf": 1.61,
@@ -26374,7 +26374,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 77,
+        "optionCount": 78,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -26419,20 +26419,6 @@
             "distanceKm": 6.8
           },
           {
-            "id": "LP7oYktKWhoncV2qvpHG",
-            "name": "ECSA Energy SA - Caslano",
-            "brand": "UNDEFINED",
-            "address": "Via Colombera 10, 6987 Caslano",
-            "lat": 45.97698951091755,
-            "lng": 8.874521781054243,
-            "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-22T14:46:31.666Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 1.9,
-            "sp95PriceEur": 1.804,
-            "distanceKm": 7.7
-          },
-          {
             "id": "eyss2Vf8mj29JzsCvuUr",
             "name": "Piccadilly SA",
             "brand": "UNDEFINED",
@@ -26459,6 +26445,20 @@
             "nearestMunicipalityDistanceKm": 2.3,
             "sp95PriceEur": 1.815,
             "distanceKm": 19.1
+          },
+          {
+            "id": "qAULcG7RwtmdWPH52365",
+            "name": "Euro service",
+            "brand": "UNDEFINED",
+            "address": "Via Colombera 45, 6987 Caslano",
+            "lat": 45.972068975787,
+            "lng": 8.86726121879764,
+            "sp95PriceChf": 1.66,
+            "updatedAt": "2026-03-22T14:49:20.523Z",
+            "nearestMunicipality": "Lavena Ponte Tresa (VA)",
+            "nearestMunicipalityDistanceKm": 1.3,
+            "sp95PriceEur": 1.815,
+            "distanceKm": 6.9
           }
         ],
         "minPriceChf": 1.61,
@@ -26489,7 +26489,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 111,
+        "optionCount": 112,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -26534,20 +26534,6 @@
             "distanceKm": 7.7
           },
           {
-            "id": "LP7oYktKWhoncV2qvpHG",
-            "name": "ECSA Energy SA - Caslano",
-            "brand": "UNDEFINED",
-            "address": "Via Colombera 10, 6987 Caslano",
-            "lat": 45.97698951091755,
-            "lng": 8.874521781054243,
-            "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-22T14:46:31.666Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 1.9,
-            "sp95PriceEur": 1.804,
-            "distanceKm": 10.7
-          },
-          {
             "id": "eyss2Vf8mj29JzsCvuUr",
             "name": "Piccadilly SA",
             "brand": "UNDEFINED",
@@ -26574,6 +26560,20 @@
             "nearestMunicipalityDistanceKm": 1.3,
             "sp95PriceEur": 1.815,
             "distanceKm": 10.9
+          },
+          {
+            "id": "LP7oYktKWhoncV2qvpHG",
+            "name": "ECSA Energy SA - Caslano",
+            "brand": "UNDEFINED",
+            "address": "Via Colombera 10, 6987 Caslano",
+            "lat": 45.97698951091755,
+            "lng": 8.874521781054243,
+            "sp95PriceChf": 1.71,
+            "updatedAt": "2026-03-24T17:40:27.503Z",
+            "nearestMunicipality": "Brusimpiano (VA)",
+            "nearestMunicipalityDistanceKm": 1.9,
+            "sp95PriceEur": 1.87,
+            "distanceKm": 10.7
           }
         ],
         "minPriceChf": 1.61,
@@ -26648,7 +26648,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 48,
+        "optionCount": 49,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -26693,20 +26693,6 @@
             "distanceKm": 11.2
           },
           {
-            "id": "LP7oYktKWhoncV2qvpHG",
-            "name": "ECSA Energy SA - Caslano",
-            "brand": "UNDEFINED",
-            "address": "Via Colombera 10, 6987 Caslano",
-            "lat": 45.97698951091755,
-            "lng": 8.874521781054243,
-            "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-22T14:46:31.666Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 1.9,
-            "sp95PriceEur": 1.804,
-            "distanceKm": 13.6
-          },
-          {
             "id": "qAULcG7RwtmdWPH52365",
             "name": "Euro service",
             "brand": "UNDEFINED",
@@ -26721,17 +26707,31 @@
             "distanceKm": 12.8
           },
           {
+            "id": "LP7oYktKWhoncV2qvpHG",
+            "name": "ECSA Energy SA - Caslano",
+            "brand": "UNDEFINED",
+            "address": "Via Colombera 10, 6987 Caslano",
+            "lat": 45.97698951091755,
+            "lng": 8.874521781054243,
+            "sp95PriceChf": 1.71,
+            "updatedAt": "2026-03-24T17:40:27.503Z",
+            "nearestMunicipality": "Brusimpiano (VA)",
+            "nearestMunicipalityDistanceKm": 1.9,
+            "sp95PriceEur": 1.87,
+            "distanceKm": 13.6
+          },
+          {
             "id": "VW0cjs2jCw25mkNyuE9t",
             "name": "Texon Service",
             "brand": "UNDEFINED",
             "address": "Via Cantonale 50, 6987 Caslano",
             "lat": 45.97858351864336,
             "lng": 8.87647837854075,
-            "sp95PriceChf": 1.6600000000000001,
-            "updatedAt": "2026-03-21T08:10:13.884Z",
+            "sp95PriceChf": 1.72,
+            "updatedAt": "2026-03-24T17:38:46.421Z",
             "nearestMunicipality": "Brusimpiano (VA)",
             "nearestMunicipalityDistanceKm": 2.1,
-            "sp95PriceEur": 1.815,
+            "sp95PriceEur": 1.881,
             "distanceKm": 13.8
           }
         ],
@@ -26763,7 +26763,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 46,
+        "optionCount": 47,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -26808,20 +26808,6 @@
             "distanceKm": 12
           },
           {
-            "id": "LP7oYktKWhoncV2qvpHG",
-            "name": "ECSA Energy SA - Caslano",
-            "brand": "UNDEFINED",
-            "address": "Via Colombera 10, 6987 Caslano",
-            "lat": 45.97698951091755,
-            "lng": 8.874521781054243,
-            "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-22T14:46:31.666Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 1.9,
-            "sp95PriceEur": 1.804,
-            "distanceKm": 14.2
-          },
-          {
             "id": "qAULcG7RwtmdWPH52365",
             "name": "Euro service",
             "brand": "UNDEFINED",
@@ -26836,17 +26822,31 @@
             "distanceKm": 13.4
           },
           {
+            "id": "LP7oYktKWhoncV2qvpHG",
+            "name": "ECSA Energy SA - Caslano",
+            "brand": "UNDEFINED",
+            "address": "Via Colombera 10, 6987 Caslano",
+            "lat": 45.97698951091755,
+            "lng": 8.874521781054243,
+            "sp95PriceChf": 1.71,
+            "updatedAt": "2026-03-24T17:40:27.503Z",
+            "nearestMunicipality": "Brusimpiano (VA)",
+            "nearestMunicipalityDistanceKm": 1.9,
+            "sp95PriceEur": 1.87,
+            "distanceKm": 14.2
+          },
+          {
             "id": "VW0cjs2jCw25mkNyuE9t",
             "name": "Texon Service",
             "brand": "UNDEFINED",
             "address": "Via Cantonale 50, 6987 Caslano",
             "lat": 45.97858351864336,
             "lng": 8.87647837854075,
-            "sp95PriceChf": 1.6600000000000001,
-            "updatedAt": "2026-03-21T08:10:13.884Z",
+            "sp95PriceChf": 1.72,
+            "updatedAt": "2026-03-24T17:38:46.421Z",
             "nearestMunicipality": "Brusimpiano (VA)",
             "nearestMunicipalityDistanceKm": 2.1,
-            "sp95PriceEur": 1.815,
+            "sp95PriceEur": 1.881,
             "distanceKm": 14.4
           }
         ],
@@ -27026,7 +27026,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 102,
+        "optionCount": 103,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -27071,20 +27071,6 @@
             "distanceKm": 3.6
           },
           {
-            "id": "LP7oYktKWhoncV2qvpHG",
-            "name": "ECSA Energy SA - Caslano",
-            "brand": "UNDEFINED",
-            "address": "Via Colombera 10, 6987 Caslano",
-            "lat": 45.97698951091755,
-            "lng": 8.874521781054243,
-            "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-22T14:46:31.666Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 1.9,
-            "sp95PriceEur": 1.804,
-            "distanceKm": 8.2
-          },
-          {
             "id": "eyss2Vf8mj29JzsCvuUr",
             "name": "Piccadilly SA",
             "brand": "UNDEFINED",
@@ -27111,6 +27097,20 @@
             "nearestMunicipalityDistanceKm": 1.3,
             "sp95PriceEur": 1.815,
             "distanceKm": 8.1
+          },
+          {
+            "id": "LP7oYktKWhoncV2qvpHG",
+            "name": "ECSA Energy SA - Caslano",
+            "brand": "UNDEFINED",
+            "address": "Via Colombera 10, 6987 Caslano",
+            "lat": 45.97698951091755,
+            "lng": 8.874521781054243,
+            "sp95PriceChf": 1.71,
+            "updatedAt": "2026-03-24T17:40:27.503Z",
+            "nearestMunicipality": "Brusimpiano (VA)",
+            "nearestMunicipalityDistanceKm": 1.9,
+            "sp95PriceEur": 1.87,
+            "distanceKm": 8.2
           }
         ],
         "minPriceChf": 1.61,
@@ -27141,7 +27141,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 56,
+        "optionCount": 57,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -27186,20 +27186,6 @@
             "distanceKm": 10.1
           },
           {
-            "id": "LP7oYktKWhoncV2qvpHG",
-            "name": "ECSA Energy SA - Caslano",
-            "brand": "UNDEFINED",
-            "address": "Via Colombera 10, 6987 Caslano",
-            "lat": 45.97698951091755,
-            "lng": 8.874521781054243,
-            "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-22T14:46:31.666Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 1.9,
-            "sp95PriceEur": 1.804,
-            "distanceKm": 12.7
-          },
-          {
             "id": "qAULcG7RwtmdWPH52365",
             "name": "Euro service",
             "brand": "UNDEFINED",
@@ -27214,17 +27200,31 @@
             "distanceKm": 11.9
           },
           {
+            "id": "LP7oYktKWhoncV2qvpHG",
+            "name": "ECSA Energy SA - Caslano",
+            "brand": "UNDEFINED",
+            "address": "Via Colombera 10, 6987 Caslano",
+            "lat": 45.97698951091755,
+            "lng": 8.874521781054243,
+            "sp95PriceChf": 1.71,
+            "updatedAt": "2026-03-24T17:40:27.503Z",
+            "nearestMunicipality": "Brusimpiano (VA)",
+            "nearestMunicipalityDistanceKm": 1.9,
+            "sp95PriceEur": 1.87,
+            "distanceKm": 12.7
+          },
+          {
             "id": "VW0cjs2jCw25mkNyuE9t",
             "name": "Texon Service",
             "brand": "UNDEFINED",
             "address": "Via Cantonale 50, 6987 Caslano",
             "lat": 45.97858351864336,
             "lng": 8.87647837854075,
-            "sp95PriceChf": 1.6600000000000001,
-            "updatedAt": "2026-03-21T08:10:13.884Z",
+            "sp95PriceChf": 1.72,
+            "updatedAt": "2026-03-24T17:38:46.421Z",
             "nearestMunicipality": "Brusimpiano (VA)",
             "nearestMunicipalityDistanceKm": 2.1,
-            "sp95PriceEur": 1.815,
+            "sp95PriceEur": 1.881,
             "distanceKm": 12.9
           }
         ],
@@ -27320,7 +27320,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 73,
+        "optionCount": 74,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -27365,20 +27365,6 @@
             "distanceKm": 6.5
           },
           {
-            "id": "LP7oYktKWhoncV2qvpHG",
-            "name": "ECSA Energy SA - Caslano",
-            "brand": "UNDEFINED",
-            "address": "Via Colombera 10, 6987 Caslano",
-            "lat": 45.97698951091755,
-            "lng": 8.874521781054243,
-            "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-22T14:46:31.666Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 1.9,
-            "sp95PriceEur": 1.804,
-            "distanceKm": 8.3
-          },
-          {
             "id": "eyss2Vf8mj29JzsCvuUr",
             "name": "Piccadilly SA",
             "brand": "UNDEFINED",
@@ -27405,6 +27391,20 @@
             "nearestMunicipalityDistanceKm": 1.3,
             "sp95PriceEur": 1.815,
             "distanceKm": 7.6
+          },
+          {
+            "id": "LP7oYktKWhoncV2qvpHG",
+            "name": "ECSA Energy SA - Caslano",
+            "brand": "UNDEFINED",
+            "address": "Via Colombera 10, 6987 Caslano",
+            "lat": 45.97698951091755,
+            "lng": 8.874521781054243,
+            "sp95PriceChf": 1.71,
+            "updatedAt": "2026-03-24T17:40:27.503Z",
+            "nearestMunicipality": "Brusimpiano (VA)",
+            "nearestMunicipalityDistanceKm": 1.9,
+            "sp95PriceEur": 1.87,
+            "distanceKm": 8.3
           }
         ],
         "minPriceChf": 1.61,
@@ -28043,7 +28043,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 17,
+        "optionCount": 18,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -28088,20 +28088,6 @@
             "distanceKm": 17.7
           },
           {
-            "id": "LP7oYktKWhoncV2qvpHG",
-            "name": "ECSA Energy SA - Caslano",
-            "brand": "UNDEFINED",
-            "address": "Via Colombera 10, 6987 Caslano",
-            "lat": 45.97698951091755,
-            "lng": 8.874521781054243,
-            "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-22T14:46:31.666Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 1.9,
-            "sp95PriceEur": 1.804,
-            "distanceKm": 18.9
-          },
-          {
             "id": "qAULcG7RwtmdWPH52365",
             "name": "Euro service",
             "brand": "UNDEFINED",
@@ -28116,17 +28102,31 @@
             "distanceKm": 18.2
           },
           {
+            "id": "LP7oYktKWhoncV2qvpHG",
+            "name": "ECSA Energy SA - Caslano",
+            "brand": "UNDEFINED",
+            "address": "Via Colombera 10, 6987 Caslano",
+            "lat": 45.97698951091755,
+            "lng": 8.874521781054243,
+            "sp95PriceChf": 1.71,
+            "updatedAt": "2026-03-24T17:40:27.503Z",
+            "nearestMunicipality": "Brusimpiano (VA)",
+            "nearestMunicipalityDistanceKm": 1.9,
+            "sp95PriceEur": 1.87,
+            "distanceKm": 18.9
+          },
+          {
             "id": "VW0cjs2jCw25mkNyuE9t",
             "name": "Texon Service",
             "brand": "UNDEFINED",
             "address": "Via Cantonale 50, 6987 Caslano",
             "lat": 45.97858351864336,
             "lng": 8.87647837854075,
-            "sp95PriceChf": 1.6600000000000001,
-            "updatedAt": "2026-03-21T08:10:13.884Z",
+            "sp95PriceChf": 1.72,
+            "updatedAt": "2026-03-24T17:38:46.421Z",
             "nearestMunicipality": "Brusimpiano (VA)",
             "nearestMunicipalityDistanceKm": 2.1,
-            "sp95PriceEur": 1.815,
+            "sp95PriceEur": 1.881,
             "distanceKm": 19.2
           }
         ],
@@ -28361,7 +28361,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 9,
+        "optionCount": 10,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -28406,20 +28406,6 @@
             "distanceKm": 16.1
           },
           {
-            "id": "LP7oYktKWhoncV2qvpHG",
-            "name": "ECSA Energy SA - Caslano",
-            "brand": "UNDEFINED",
-            "address": "Via Colombera 10, 6987 Caslano",
-            "lat": 45.97698951091755,
-            "lng": 8.874521781054243,
-            "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-22T14:46:31.666Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 1.9,
-            "sp95PriceEur": 1.804,
-            "distanceKm": 18.9
-          },
-          {
             "id": "qAULcG7RwtmdWPH52365",
             "name": "Euro service",
             "brand": "UNDEFINED",
@@ -28434,17 +28420,31 @@
             "distanceKm": 18.1
           },
           {
+            "id": "LP7oYktKWhoncV2qvpHG",
+            "name": "ECSA Energy SA - Caslano",
+            "brand": "UNDEFINED",
+            "address": "Via Colombera 10, 6987 Caslano",
+            "lat": 45.97698951091755,
+            "lng": 8.874521781054243,
+            "sp95PriceChf": 1.71,
+            "updatedAt": "2026-03-24T17:40:27.503Z",
+            "nearestMunicipality": "Brusimpiano (VA)",
+            "nearestMunicipalityDistanceKm": 1.9,
+            "sp95PriceEur": 1.87,
+            "distanceKm": 18.9
+          },
+          {
             "id": "VW0cjs2jCw25mkNyuE9t",
             "name": "Texon Service",
             "brand": "UNDEFINED",
             "address": "Via Cantonale 50, 6987 Caslano",
             "lat": 45.97858351864336,
             "lng": 8.87647837854075,
-            "sp95PriceChf": 1.6600000000000001,
-            "updatedAt": "2026-03-21T08:10:13.884Z",
+            "sp95PriceChf": 1.72,
+            "updatedAt": "2026-03-24T17:38:46.421Z",
             "nearestMunicipality": "Brusimpiano (VA)",
             "nearestMunicipalityDistanceKm": 2.1,
-            "sp95PriceEur": 1.815,
+            "sp95PriceEur": 1.881,
             "distanceKm": 19.1
           }
         ],
@@ -28562,7 +28562,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 68,
+        "optionCount": 69,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -28607,20 +28607,6 @@
             "distanceKm": 6.4
           },
           {
-            "id": "LP7oYktKWhoncV2qvpHG",
-            "name": "ECSA Energy SA - Caslano",
-            "brand": "UNDEFINED",
-            "address": "Via Colombera 10, 6987 Caslano",
-            "lat": 45.97698951091755,
-            "lng": 8.874521781054243,
-            "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-22T14:46:31.666Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 1.9,
-            "sp95PriceEur": 1.804,
-            "distanceKm": 11.6
-          },
-          {
             "id": "qAULcG7RwtmdWPH52365",
             "name": "Euro service",
             "brand": "UNDEFINED",
@@ -28635,17 +28621,31 @@
             "distanceKm": 11.1
           },
           {
+            "id": "LP7oYktKWhoncV2qvpHG",
+            "name": "ECSA Energy SA - Caslano",
+            "brand": "UNDEFINED",
+            "address": "Via Colombera 10, 6987 Caslano",
+            "lat": 45.97698951091755,
+            "lng": 8.874521781054243,
+            "sp95PriceChf": 1.71,
+            "updatedAt": "2026-03-24T17:40:27.503Z",
+            "nearestMunicipality": "Brusimpiano (VA)",
+            "nearestMunicipalityDistanceKm": 1.9,
+            "sp95PriceEur": 1.87,
+            "distanceKm": 11.6
+          },
+          {
             "id": "VW0cjs2jCw25mkNyuE9t",
             "name": "Texon Service",
             "brand": "UNDEFINED",
             "address": "Via Cantonale 50, 6987 Caslano",
             "lat": 45.97858351864336,
             "lng": 8.87647837854075,
-            "sp95PriceChf": 1.6600000000000001,
-            "updatedAt": "2026-03-21T08:10:13.884Z",
+            "sp95PriceChf": 1.72,
+            "updatedAt": "2026-03-24T17:38:46.421Z",
             "nearestMunicipality": "Brusimpiano (VA)",
             "nearestMunicipalityDistanceKm": 2.1,
-            "sp95PriceEur": 1.815,
+            "sp95PriceEur": 1.881,
             "distanceKm": 11.7
           }
         ],
@@ -28953,7 +28953,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 76,
+        "optionCount": 77,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -28998,20 +28998,6 @@
             "distanceKm": 5.3
           },
           {
-            "id": "LP7oYktKWhoncV2qvpHG",
-            "name": "ECSA Energy SA - Caslano",
-            "brand": "UNDEFINED",
-            "address": "Via Colombera 10, 6987 Caslano",
-            "lat": 45.97698951091755,
-            "lng": 8.874521781054243,
-            "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-22T14:46:31.666Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 1.9,
-            "sp95PriceEur": 1.804,
-            "distanceKm": 8.3
-          },
-          {
             "id": "eyss2Vf8mj29JzsCvuUr",
             "name": "Piccadilly SA",
             "brand": "UNDEFINED",
@@ -29038,6 +29024,20 @@
             "nearestMunicipalityDistanceKm": 1.3,
             "sp95PriceEur": 1.815,
             "distanceKm": 7.6
+          },
+          {
+            "id": "LP7oYktKWhoncV2qvpHG",
+            "name": "ECSA Energy SA - Caslano",
+            "brand": "UNDEFINED",
+            "address": "Via Colombera 10, 6987 Caslano",
+            "lat": 45.97698951091755,
+            "lng": 8.874521781054243,
+            "sp95PriceChf": 1.71,
+            "updatedAt": "2026-03-24T17:40:27.503Z",
+            "nearestMunicipality": "Brusimpiano (VA)",
+            "nearestMunicipalityDistanceKm": 1.9,
+            "sp95PriceEur": 1.87,
+            "distanceKm": 8.3
           }
         ],
         "minPriceChf": 1.61,
@@ -29155,7 +29155,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 67,
+        "optionCount": 68,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -29200,20 +29200,6 @@
             "distanceKm": 15.3
           },
           {
-            "id": "LP7oYktKWhoncV2qvpHG",
-            "name": "ECSA Energy SA - Caslano",
-            "brand": "UNDEFINED",
-            "address": "Via Colombera 10, 6987 Caslano",
-            "lat": 45.97698951091755,
-            "lng": 8.874521781054243,
-            "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-22T14:46:31.666Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 1.9,
-            "sp95PriceEur": 1.804,
-            "distanceKm": 14
-          },
-          {
             "id": "eyss2Vf8mj29JzsCvuUr",
             "name": "Piccadilly SA",
             "brand": "UNDEFINED",
@@ -29240,6 +29226,20 @@
             "nearestMunicipalityDistanceKm": 2.3,
             "sp95PriceEur": 1.815,
             "distanceKm": 13.9
+          },
+          {
+            "id": "qAULcG7RwtmdWPH52365",
+            "name": "Euro service",
+            "brand": "UNDEFINED",
+            "address": "Via Colombera 45, 6987 Caslano",
+            "lat": 45.972068975787,
+            "lng": 8.86726121879764,
+            "sp95PriceChf": 1.66,
+            "updatedAt": "2026-03-22T14:49:20.523Z",
+            "nearestMunicipality": "Lavena Ponte Tresa (VA)",
+            "nearestMunicipalityDistanceKm": 1.3,
+            "sp95PriceEur": 1.815,
+            "distanceKm": 13.3
           }
         ],
         "minPriceChf": 1.61,
@@ -29365,7 +29365,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 94,
+        "optionCount": 95,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -29410,20 +29410,6 @@
             "distanceKm": 4.7
           },
           {
-            "id": "LP7oYktKWhoncV2qvpHG",
-            "name": "ECSA Energy SA - Caslano",
-            "brand": "UNDEFINED",
-            "address": "Via Colombera 10, 6987 Caslano",
-            "lat": 45.97698951091755,
-            "lng": 8.874521781054243,
-            "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-22T14:46:31.666Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 1.9,
-            "sp95PriceEur": 1.804,
-            "distanceKm": 2.1
-          },
-          {
             "id": "eyss2Vf8mj29JzsCvuUr",
             "name": "Piccadilly SA",
             "brand": "UNDEFINED",
@@ -29450,6 +29436,20 @@
             "nearestMunicipalityDistanceKm": 2.3,
             "sp95PriceEur": 1.815,
             "distanceKm": 18.3
+          },
+          {
+            "id": "qAULcG7RwtmdWPH52365",
+            "name": "Euro service",
+            "brand": "UNDEFINED",
+            "address": "Via Colombera 45, 6987 Caslano",
+            "lat": 45.972068975787,
+            "lng": 8.86726121879764,
+            "sp95PriceChf": 1.66,
+            "updatedAt": "2026-03-22T14:49:20.523Z",
+            "nearestMunicipality": "Lavena Ponte Tresa (VA)",
+            "nearestMunicipalityDistanceKm": 1.3,
+            "sp95PriceEur": 1.815,
+            "distanceKm": 1.3
           }
         ],
         "minPriceChf": 1.61,
@@ -29955,7 +29955,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 82,
+        "optionCount": 83,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -30000,20 +30000,6 @@
             "distanceKm": 4.9
           },
           {
-            "id": "LP7oYktKWhoncV2qvpHG",
-            "name": "ECSA Energy SA - Caslano",
-            "brand": "UNDEFINED",
-            "address": "Via Colombera 10, 6987 Caslano",
-            "lat": 45.97698951091755,
-            "lng": 8.874521781054243,
-            "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-22T14:46:31.666Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 1.9,
-            "sp95PriceEur": 1.804,
-            "distanceKm": 10.3
-          },
-          {
             "id": "eyss2Vf8mj29JzsCvuUr",
             "name": "Piccadilly SA",
             "brand": "UNDEFINED",
@@ -30040,6 +30026,20 @@
             "nearestMunicipalityDistanceKm": 1.3,
             "sp95PriceEur": 1.815,
             "distanceKm": 9.9
+          },
+          {
+            "id": "LP7oYktKWhoncV2qvpHG",
+            "name": "ECSA Energy SA - Caslano",
+            "brand": "UNDEFINED",
+            "address": "Via Colombera 10, 6987 Caslano",
+            "lat": 45.97698951091755,
+            "lng": 8.874521781054243,
+            "sp95PriceChf": 1.71,
+            "updatedAt": "2026-03-24T17:40:27.503Z",
+            "nearestMunicipality": "Brusimpiano (VA)",
+            "nearestMunicipalityDistanceKm": 1.9,
+            "sp95PriceEur": 1.87,
+            "distanceKm": 10.3
           }
         ],
         "minPriceChf": 1.61,
@@ -30070,7 +30070,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 36,
+        "optionCount": 37,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -30115,20 +30115,6 @@
             "distanceKm": 17.1
           },
           {
-            "id": "LP7oYktKWhoncV2qvpHG",
-            "name": "ECSA Energy SA - Caslano",
-            "brand": "UNDEFINED",
-            "address": "Via Colombera 10, 6987 Caslano",
-            "lat": 45.97698951091755,
-            "lng": 8.874521781054243,
-            "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-22T14:46:31.666Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 1.9,
-            "sp95PriceEur": 1.804,
-            "distanceKm": 17.3
-          },
-          {
             "id": "pXVgLf2jUOKzOewFCsnj",
             "name": "Migrol Service",
             "brand": "MIGROL",
@@ -30155,6 +30141,20 @@
             "nearestMunicipalityDistanceKm": 1.3,
             "sp95PriceEur": 1.815,
             "distanceKm": 16.6
+          },
+          {
+            "id": "LP7oYktKWhoncV2qvpHG",
+            "name": "ECSA Energy SA - Caslano",
+            "brand": "UNDEFINED",
+            "address": "Via Colombera 10, 6987 Caslano",
+            "lat": 45.97698951091755,
+            "lng": 8.874521781054243,
+            "sp95PriceChf": 1.71,
+            "updatedAt": "2026-03-24T17:40:27.503Z",
+            "nearestMunicipality": "Brusimpiano (VA)",
+            "nearestMunicipalityDistanceKm": 1.9,
+            "sp95PriceEur": 1.87,
+            "distanceKm": 17.3
           }
         ],
         "minPriceChf": 1.61,
@@ -30185,7 +30185,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 105,
+        "optionCount": 106,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -30230,20 +30230,6 @@
             "distanceKm": 9.6
           },
           {
-            "id": "LP7oYktKWhoncV2qvpHG",
-            "name": "ECSA Energy SA - Caslano",
-            "brand": "UNDEFINED",
-            "address": "Via Colombera 10, 6987 Caslano",
-            "lat": 45.97698951091755,
-            "lng": 8.874521781054243,
-            "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-22T14:46:31.666Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 1.9,
-            "sp95PriceEur": 1.804,
-            "distanceKm": 13.2
-          },
-          {
             "id": "qAULcG7RwtmdWPH52365",
             "name": "Euro service",
             "brand": "UNDEFINED",
@@ -30258,17 +30244,31 @@
             "distanceKm": 13.3
           },
           {
+            "id": "LP7oYktKWhoncV2qvpHG",
+            "name": "ECSA Energy SA - Caslano",
+            "brand": "UNDEFINED",
+            "address": "Via Colombera 10, 6987 Caslano",
+            "lat": 45.97698951091755,
+            "lng": 8.874521781054243,
+            "sp95PriceChf": 1.71,
+            "updatedAt": "2026-03-24T17:40:27.503Z",
+            "nearestMunicipality": "Brusimpiano (VA)",
+            "nearestMunicipalityDistanceKm": 1.9,
+            "sp95PriceEur": 1.87,
+            "distanceKm": 13.2
+          },
+          {
             "id": "VW0cjs2jCw25mkNyuE9t",
             "name": "Texon Service",
             "brand": "UNDEFINED",
             "address": "Via Cantonale 50, 6987 Caslano",
             "lat": 45.97858351864336,
             "lng": 8.87647837854075,
-            "sp95PriceChf": 1.6600000000000001,
-            "updatedAt": "2026-03-21T08:10:13.884Z",
+            "sp95PriceChf": 1.72,
+            "updatedAt": "2026-03-24T17:38:46.421Z",
             "nearestMunicipality": "Brusimpiano (VA)",
             "nearestMunicipalityDistanceKm": 2.1,
-            "sp95PriceEur": 1.815,
+            "sp95PriceEur": 1.881,
             "distanceKm": 13.1
           }
         ],
@@ -30366,36 +30366,22 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 37,
+        "optionCount": 38,
         "cheapestStation": {
-          "id": "LP7oYktKWhoncV2qvpHG",
-          "name": "ECSA Energy SA - Caslano",
+          "id": "eyss2Vf8mj29JzsCvuUr",
+          "name": "Piccadilly SA",
           "brand": "UNDEFINED",
-          "address": "Via Colombera 10, 6987 Caslano",
-          "lat": 45.97698951091755,
-          "lng": 8.874521781054243,
-          "sp95PriceChf": 1.6500000000000001,
-          "updatedAt": "2026-03-22T14:46:31.666Z",
-          "nearestMunicipality": "Brusimpiano (VA)",
-          "nearestMunicipalityDistanceKm": 1.9,
-          "sp95PriceEur": 1.804,
-          "distanceKm": 19.5
+          "address": "Stráda da Valmára, 6822 Arogno",
+          "lat": 45.96022467397532,
+          "lng": 8.998347379932348,
+          "sp95PriceChf": 1.66,
+          "updatedAt": "2026-03-10T08:07:48.373Z",
+          "nearestMunicipality": "Campione d'Italia (CO)",
+          "nearestMunicipalityDistanceKm": 2.3,
+          "sp95PriceEur": 1.815,
+          "distanceKm": 20
         },
         "nearbyStations": [
-          {
-            "id": "LP7oYktKWhoncV2qvpHG",
-            "name": "ECSA Energy SA - Caslano",
-            "brand": "UNDEFINED",
-            "address": "Via Colombera 10, 6987 Caslano",
-            "lat": 45.97698951091755,
-            "lng": 8.874521781054243,
-            "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-22T14:46:31.666Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 1.9,
-            "sp95PriceEur": 1.804,
-            "distanceKm": 19.5
-          },
           {
             "id": "eyss2Vf8mj29JzsCvuUr",
             "name": "Piccadilly SA",
@@ -30439,27 +30425,41 @@
             "distanceKm": 19
           },
           {
+            "id": "LP7oYktKWhoncV2qvpHG",
+            "name": "ECSA Energy SA - Caslano",
+            "brand": "UNDEFINED",
+            "address": "Via Colombera 10, 6987 Caslano",
+            "lat": 45.97698951091755,
+            "lng": 8.874521781054243,
+            "sp95PriceChf": 1.71,
+            "updatedAt": "2026-03-24T17:40:27.503Z",
+            "nearestMunicipality": "Brusimpiano (VA)",
+            "nearestMunicipalityDistanceKm": 1.9,
+            "sp95PriceEur": 1.87,
+            "distanceKm": 19.5
+          },
+          {
             "id": "VW0cjs2jCw25mkNyuE9t",
             "name": "Texon Service",
             "brand": "UNDEFINED",
             "address": "Via Cantonale 50, 6987 Caslano",
             "lat": 45.97858351864336,
             "lng": 8.87647837854075,
-            "sp95PriceChf": 1.6600000000000001,
-            "updatedAt": "2026-03-21T08:10:13.884Z",
+            "sp95PriceChf": 1.72,
+            "updatedAt": "2026-03-24T17:38:46.421Z",
             "nearestMunicipality": "Brusimpiano (VA)",
             "nearestMunicipalityDistanceKm": 2.1,
-            "sp95PriceEur": 1.815,
+            "sp95PriceEur": 1.881,
             "distanceKm": 19.7
           }
         ],
-        "minPriceChf": 1.65,
-        "minPriceEur": 1.804
+        "minPriceChf": 1.66,
+        "minPriceEur": 1.815
       },
       "comparison": {
         "cheaperCountry": "IT",
-        "priceDeltaEur": 0.129,
-        "saving50LEur": 6.45
+        "priceDeltaEur": 0.14,
+        "saving50LEur": 7
       }
     },
     {
@@ -30514,7 +30514,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 88,
+        "optionCount": 89,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -30559,20 +30559,6 @@
             "distanceKm": 4.9
           },
           {
-            "id": "LP7oYktKWhoncV2qvpHG",
-            "name": "ECSA Energy SA - Caslano",
-            "brand": "UNDEFINED",
-            "address": "Via Colombera 10, 6987 Caslano",
-            "lat": 45.97698951091755,
-            "lng": 8.874521781054243,
-            "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-22T14:46:31.666Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 1.9,
-            "sp95PriceEur": 1.804,
-            "distanceKm": 4.4
-          },
-          {
             "id": "eyss2Vf8mj29JzsCvuUr",
             "name": "Piccadilly SA",
             "brand": "UNDEFINED",
@@ -30599,6 +30585,20 @@
             "nearestMunicipalityDistanceKm": 2.3,
             "sp95PriceEur": 1.815,
             "distanceKm": 18.5
+          },
+          {
+            "id": "qAULcG7RwtmdWPH52365",
+            "name": "Euro service",
+            "brand": "UNDEFINED",
+            "address": "Via Colombera 45, 6987 Caslano",
+            "lat": 45.972068975787,
+            "lng": 8.86726121879764,
+            "sp95PriceChf": 1.66,
+            "updatedAt": "2026-03-22T14:49:20.523Z",
+            "nearestMunicipality": "Lavena Ponte Tresa (VA)",
+            "nearestMunicipalityDistanceKm": 1.3,
+            "sp95PriceEur": 1.815,
+            "distanceKm": 3.6
           }
         ],
         "minPriceChf": 1.61,
@@ -30629,7 +30629,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 89,
+        "optionCount": 90,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -30674,20 +30674,6 @@
             "distanceKm": 7
           },
           {
-            "id": "LP7oYktKWhoncV2qvpHG",
-            "name": "ECSA Energy SA - Caslano",
-            "brand": "UNDEFINED",
-            "address": "Via Colombera 10, 6987 Caslano",
-            "lat": 45.97698951091755,
-            "lng": 8.874521781054243,
-            "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-22T14:46:31.666Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 1.9,
-            "sp95PriceEur": 1.804,
-            "distanceKm": 4.4
-          },
-          {
             "id": "eyss2Vf8mj29JzsCvuUr",
             "name": "Piccadilly SA",
             "brand": "UNDEFINED",
@@ -30714,6 +30700,20 @@
             "nearestMunicipalityDistanceKm": 2.3,
             "sp95PriceEur": 1.815,
             "distanceKm": 16.1
+          },
+          {
+            "id": "qAULcG7RwtmdWPH52365",
+            "name": "Euro service",
+            "brand": "UNDEFINED",
+            "address": "Via Colombera 45, 6987 Caslano",
+            "lat": 45.972068975787,
+            "lng": 8.86726121879764,
+            "sp95PriceChf": 1.66,
+            "updatedAt": "2026-03-22T14:49:20.523Z",
+            "nearestMunicipality": "Lavena Ponte Tresa (VA)",
+            "nearestMunicipalityDistanceKm": 1.3,
+            "sp95PriceEur": 1.815,
+            "distanceKm": 3.8
           }
         ],
         "minPriceChf": 1.61,
@@ -30744,7 +30744,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 70,
+        "optionCount": 71,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -30789,20 +30789,6 @@
             "distanceKm": 8.4
           },
           {
-            "id": "LP7oYktKWhoncV2qvpHG",
-            "name": "ECSA Energy SA - Caslano",
-            "brand": "UNDEFINED",
-            "address": "Via Colombera 10, 6987 Caslano",
-            "lat": 45.97698951091755,
-            "lng": 8.874521781054243,
-            "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-22T14:46:31.666Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 1.9,
-            "sp95PriceEur": 1.804,
-            "distanceKm": 9.8
-          },
-          {
             "id": "eyss2Vf8mj29JzsCvuUr",
             "name": "Piccadilly SA",
             "brand": "UNDEFINED",
@@ -30829,6 +30815,20 @@
             "nearestMunicipalityDistanceKm": 2.3,
             "sp95PriceEur": 1.815,
             "distanceKm": 20
+          },
+          {
+            "id": "qAULcG7RwtmdWPH52365",
+            "name": "Euro service",
+            "brand": "UNDEFINED",
+            "address": "Via Colombera 45, 6987 Caslano",
+            "lat": 45.972068975787,
+            "lng": 8.86726121879764,
+            "sp95PriceChf": 1.66,
+            "updatedAt": "2026-03-22T14:49:20.523Z",
+            "nearestMunicipality": "Lavena Ponte Tresa (VA)",
+            "nearestMunicipalityDistanceKm": 1.3,
+            "sp95PriceEur": 1.815,
+            "distanceKm": 9
           }
         ],
         "minPriceChf": 1.61,
@@ -30912,7 +30912,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 68,
+        "optionCount": 69,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -30957,20 +30957,6 @@
             "distanceKm": 6.2
           },
           {
-            "id": "LP7oYktKWhoncV2qvpHG",
-            "name": "ECSA Energy SA - Caslano",
-            "brand": "UNDEFINED",
-            "address": "Via Colombera 10, 6987 Caslano",
-            "lat": 45.97698951091755,
-            "lng": 8.874521781054243,
-            "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-22T14:46:31.666Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 1.9,
-            "sp95PriceEur": 1.804,
-            "distanceKm": 9.6
-          },
-          {
             "id": "eyss2Vf8mj29JzsCvuUr",
             "name": "Piccadilly SA",
             "brand": "UNDEFINED",
@@ -30997,6 +30983,20 @@
             "nearestMunicipalityDistanceKm": 1.3,
             "sp95PriceEur": 1.815,
             "distanceKm": 8.9
+          },
+          {
+            "id": "LP7oYktKWhoncV2qvpHG",
+            "name": "ECSA Energy SA - Caslano",
+            "brand": "UNDEFINED",
+            "address": "Via Colombera 10, 6987 Caslano",
+            "lat": 45.97698951091755,
+            "lng": 8.874521781054243,
+            "sp95PriceChf": 1.71,
+            "updatedAt": "2026-03-24T17:40:27.503Z",
+            "nearestMunicipality": "Brusimpiano (VA)",
+            "nearestMunicipalityDistanceKm": 1.9,
+            "sp95PriceEur": 1.87,
+            "distanceKm": 9.6
           }
         ],
         "minPriceChf": 1.61,
@@ -31027,7 +31027,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 76,
+        "optionCount": 77,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -31072,20 +31072,6 @@
             "distanceKm": 3.6
           },
           {
-            "id": "LP7oYktKWhoncV2qvpHG",
-            "name": "ECSA Energy SA - Caslano",
-            "brand": "UNDEFINED",
-            "address": "Via Colombera 10, 6987 Caslano",
-            "lat": 45.97698951091755,
-            "lng": 8.874521781054243,
-            "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-22T14:46:31.666Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 1.9,
-            "sp95PriceEur": 1.804,
-            "distanceKm": 8.2
-          },
-          {
             "id": "eyss2Vf8mj29JzsCvuUr",
             "name": "Piccadilly SA",
             "brand": "UNDEFINED",
@@ -31112,6 +31098,20 @@
             "nearestMunicipalityDistanceKm": 1.3,
             "sp95PriceEur": 1.815,
             "distanceKm": 7.6
+          },
+          {
+            "id": "LP7oYktKWhoncV2qvpHG",
+            "name": "ECSA Energy SA - Caslano",
+            "brand": "UNDEFINED",
+            "address": "Via Colombera 10, 6987 Caslano",
+            "lat": 45.97698951091755,
+            "lng": 8.874521781054243,
+            "sp95PriceChf": 1.71,
+            "updatedAt": "2026-03-24T17:40:27.503Z",
+            "nearestMunicipality": "Brusimpiano (VA)",
+            "nearestMunicipalityDistanceKm": 1.9,
+            "sp95PriceEur": 1.87,
+            "distanceKm": 8.2
           }
         ],
         "minPriceChf": 1.61,
@@ -31489,7 +31489,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 26,
+        "optionCount": 27,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -31534,20 +31534,6 @@
             "distanceKm": 13.9
           },
           {
-            "id": "LP7oYktKWhoncV2qvpHG",
-            "name": "ECSA Energy SA - Caslano",
-            "brand": "UNDEFINED",
-            "address": "Via Colombera 10, 6987 Caslano",
-            "lat": 45.97698951091755,
-            "lng": 8.874521781054243,
-            "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-22T14:46:31.666Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 1.9,
-            "sp95PriceEur": 1.804,
-            "distanceKm": 16
-          },
-          {
             "id": "qAULcG7RwtmdWPH52365",
             "name": "Euro service",
             "brand": "UNDEFINED",
@@ -31562,17 +31548,31 @@
             "distanceKm": 15.3
           },
           {
+            "id": "LP7oYktKWhoncV2qvpHG",
+            "name": "ECSA Energy SA - Caslano",
+            "brand": "UNDEFINED",
+            "address": "Via Colombera 10, 6987 Caslano",
+            "lat": 45.97698951091755,
+            "lng": 8.874521781054243,
+            "sp95PriceChf": 1.71,
+            "updatedAt": "2026-03-24T17:40:27.503Z",
+            "nearestMunicipality": "Brusimpiano (VA)",
+            "nearestMunicipalityDistanceKm": 1.9,
+            "sp95PriceEur": 1.87,
+            "distanceKm": 16
+          },
+          {
             "id": "VW0cjs2jCw25mkNyuE9t",
             "name": "Texon Service",
             "brand": "UNDEFINED",
             "address": "Via Cantonale 50, 6987 Caslano",
             "lat": 45.97858351864336,
             "lng": 8.87647837854075,
-            "sp95PriceChf": 1.6600000000000001,
-            "updatedAt": "2026-03-21T08:10:13.884Z",
+            "sp95PriceChf": 1.72,
+            "updatedAt": "2026-03-24T17:38:46.421Z",
             "nearestMunicipality": "Brusimpiano (VA)",
             "nearestMunicipalityDistanceKm": 2.1,
-            "sp95PriceEur": 1.815,
+            "sp95PriceEur": 1.881,
             "distanceKm": 16.3
           }
         ],
@@ -31604,7 +31604,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 86,
+        "optionCount": 87,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -31649,20 +31649,6 @@
             "distanceKm": 11.8
           },
           {
-            "id": "LP7oYktKWhoncV2qvpHG",
-            "name": "ECSA Energy SA - Caslano",
-            "brand": "UNDEFINED",
-            "address": "Via Colombera 10, 6987 Caslano",
-            "lat": 45.97698951091755,
-            "lng": 8.874521781054243,
-            "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-22T14:46:31.666Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 1.9,
-            "sp95PriceEur": 1.804,
-            "distanceKm": 8.1
-          },
-          {
             "id": "eyss2Vf8mj29JzsCvuUr",
             "name": "Piccadilly SA",
             "brand": "UNDEFINED",
@@ -31689,6 +31675,20 @@
             "nearestMunicipalityDistanceKm": 2.3,
             "sp95PriceEur": 1.815,
             "distanceKm": 11.2
+          },
+          {
+            "id": "qAULcG7RwtmdWPH52365",
+            "name": "Euro service",
+            "brand": "UNDEFINED",
+            "address": "Via Colombera 45, 6987 Caslano",
+            "lat": 45.972068975787,
+            "lng": 8.86726121879764,
+            "sp95PriceChf": 1.66,
+            "updatedAt": "2026-03-22T14:49:20.523Z",
+            "nearestMunicipality": "Lavena Ponte Tresa (VA)",
+            "nearestMunicipalityDistanceKm": 1.3,
+            "sp95PriceEur": 1.815,
+            "distanceKm": 7.7
           }
         ],
         "minPriceChf": 1.61,
@@ -31752,7 +31752,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 31,
+        "optionCount": 32,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -31797,20 +31797,6 @@
             "distanceKm": 10.3
           },
           {
-            "id": "LP7oYktKWhoncV2qvpHG",
-            "name": "ECSA Energy SA - Caslano",
-            "brand": "UNDEFINED",
-            "address": "Via Colombera 10, 6987 Caslano",
-            "lat": 45.97698951091755,
-            "lng": 8.874521781054243,
-            "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-22T14:46:31.666Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 1.9,
-            "sp95PriceEur": 1.804,
-            "distanceKm": 15
-          },
-          {
             "id": "qAULcG7RwtmdWPH52365",
             "name": "Euro service",
             "brand": "UNDEFINED",
@@ -31825,17 +31811,31 @@
             "distanceKm": 14.4
           },
           {
+            "id": "LP7oYktKWhoncV2qvpHG",
+            "name": "ECSA Energy SA - Caslano",
+            "brand": "UNDEFINED",
+            "address": "Via Colombera 10, 6987 Caslano",
+            "lat": 45.97698951091755,
+            "lng": 8.874521781054243,
+            "sp95PriceChf": 1.71,
+            "updatedAt": "2026-03-24T17:40:27.503Z",
+            "nearestMunicipality": "Brusimpiano (VA)",
+            "nearestMunicipalityDistanceKm": 1.9,
+            "sp95PriceEur": 1.87,
+            "distanceKm": 15
+          },
+          {
             "id": "VW0cjs2jCw25mkNyuE9t",
             "name": "Texon Service",
             "brand": "UNDEFINED",
             "address": "Via Cantonale 50, 6987 Caslano",
             "lat": 45.97858351864336,
             "lng": 8.87647837854075,
-            "sp95PriceChf": 1.6600000000000001,
-            "updatedAt": "2026-03-21T08:10:13.884Z",
+            "sp95PriceChf": 1.72,
+            "updatedAt": "2026-03-24T17:38:46.421Z",
             "nearestMunicipality": "Brusimpiano (VA)",
             "nearestMunicipalityDistanceKm": 2.1,
-            "sp95PriceEur": 1.815,
+            "sp95PriceEur": 1.881,
             "distanceKm": 15.2
           }
         ],
@@ -31867,7 +31867,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 69,
+        "optionCount": 70,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -31912,20 +31912,6 @@
             "distanceKm": 8.8
           },
           {
-            "id": "LP7oYktKWhoncV2qvpHG",
-            "name": "ECSA Energy SA - Caslano",
-            "brand": "UNDEFINED",
-            "address": "Via Colombera 10, 6987 Caslano",
-            "lat": 45.97698951091755,
-            "lng": 8.874521781054243,
-            "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-22T14:46:31.666Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 1.9,
-            "sp95PriceEur": 1.804,
-            "distanceKm": 10.5
-          },
-          {
             "id": "eyss2Vf8mj29JzsCvuUr",
             "name": "Piccadilly SA",
             "brand": "UNDEFINED",
@@ -31952,6 +31938,20 @@
             "nearestMunicipalityDistanceKm": 1.3,
             "sp95PriceEur": 1.815,
             "distanceKm": 9.7
+          },
+          {
+            "id": "LP7oYktKWhoncV2qvpHG",
+            "name": "ECSA Energy SA - Caslano",
+            "brand": "UNDEFINED",
+            "address": "Via Colombera 10, 6987 Caslano",
+            "lat": 45.97698951091755,
+            "lng": 8.874521781054243,
+            "sp95PriceChf": 1.71,
+            "updatedAt": "2026-03-24T17:40:27.503Z",
+            "nearestMunicipality": "Brusimpiano (VA)",
+            "nearestMunicipalityDistanceKm": 1.9,
+            "sp95PriceEur": 1.87,
+            "distanceKm": 10.5
           }
         ],
         "minPriceChf": 1.61,
@@ -31982,7 +31982,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 83,
+        "optionCount": 84,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -32027,20 +32027,6 @@
             "distanceKm": 15.7
           },
           {
-            "id": "LP7oYktKWhoncV2qvpHG",
-            "name": "ECSA Energy SA - Caslano",
-            "brand": "UNDEFINED",
-            "address": "Via Colombera 10, 6987 Caslano",
-            "lat": 45.97698951091755,
-            "lng": 8.874521781054243,
-            "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-22T14:46:31.666Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 1.9,
-            "sp95PriceEur": 1.804,
-            "distanceKm": 12
-          },
-          {
             "id": "eyss2Vf8mj29JzsCvuUr",
             "name": "Piccadilly SA",
             "brand": "UNDEFINED",
@@ -32067,6 +32053,20 @@
             "nearestMunicipalityDistanceKm": 2.3,
             "sp95PriceEur": 1.815,
             "distanceKm": 8.1
+          },
+          {
+            "id": "qAULcG7RwtmdWPH52365",
+            "name": "Euro service",
+            "brand": "UNDEFINED",
+            "address": "Via Colombera 45, 6987 Caslano",
+            "lat": 45.972068975787,
+            "lng": 8.86726121879764,
+            "sp95PriceChf": 1.66,
+            "updatedAt": "2026-03-22T14:49:20.523Z",
+            "nearestMunicipality": "Lavena Ponte Tresa (VA)",
+            "nearestMunicipalityDistanceKm": 1.3,
+            "sp95PriceEur": 1.815,
+            "distanceKm": 11.7
           }
         ],
         "minPriceChf": 1.61,
@@ -33177,7 +33177,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 99,
+        "optionCount": 100,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -33222,20 +33222,6 @@
             "distanceKm": 12.4
           },
           {
-            "id": "LP7oYktKWhoncV2qvpHG",
-            "name": "ECSA Energy SA - Caslano",
-            "brand": "UNDEFINED",
-            "address": "Via Colombera 10, 6987 Caslano",
-            "lat": 45.97698951091755,
-            "lng": 8.874521781054243,
-            "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-22T14:46:31.666Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 1.9,
-            "sp95PriceEur": 1.804,
-            "distanceKm": 16.5
-          },
-          {
             "id": "qAULcG7RwtmdWPH52365",
             "name": "Euro service",
             "brand": "UNDEFINED",
@@ -33250,17 +33236,31 @@
             "distanceKm": 16.6
           },
           {
+            "id": "LP7oYktKWhoncV2qvpHG",
+            "name": "ECSA Energy SA - Caslano",
+            "brand": "UNDEFINED",
+            "address": "Via Colombera 10, 6987 Caslano",
+            "lat": 45.97698951091755,
+            "lng": 8.874521781054243,
+            "sp95PriceChf": 1.71,
+            "updatedAt": "2026-03-24T17:40:27.503Z",
+            "nearestMunicipality": "Brusimpiano (VA)",
+            "nearestMunicipalityDistanceKm": 1.9,
+            "sp95PriceEur": 1.87,
+            "distanceKm": 16.5
+          },
+          {
             "id": "VW0cjs2jCw25mkNyuE9t",
             "name": "Texon Service",
             "brand": "UNDEFINED",
             "address": "Via Cantonale 50, 6987 Caslano",
             "lat": 45.97858351864336,
             "lng": 8.87647837854075,
-            "sp95PriceChf": 1.6600000000000001,
-            "updatedAt": "2026-03-21T08:10:13.884Z",
+            "sp95PriceChf": 1.72,
+            "updatedAt": "2026-03-24T17:38:46.421Z",
             "nearestMunicipality": "Brusimpiano (VA)",
             "nearestMunicipalityDistanceKm": 2.1,
-            "sp95PriceEur": 1.815,
+            "sp95PriceEur": 1.881,
             "distanceKm": 16.5
           }
         ],
@@ -33325,7 +33325,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 83,
+        "optionCount": 84,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -33370,20 +33370,6 @@
             "distanceKm": 9.9
           },
           {
-            "id": "LP7oYktKWhoncV2qvpHG",
-            "name": "ECSA Energy SA - Caslano",
-            "brand": "UNDEFINED",
-            "address": "Via Colombera 10, 6987 Caslano",
-            "lat": 45.97698951091755,
-            "lng": 8.874521781054243,
-            "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-22T14:46:31.666Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 1.9,
-            "sp95PriceEur": 1.804,
-            "distanceKm": 9.1
-          },
-          {
             "id": "eyss2Vf8mj29JzsCvuUr",
             "name": "Piccadilly SA",
             "brand": "UNDEFINED",
@@ -33410,6 +33396,20 @@
             "nearestMunicipalityDistanceKm": 2.3,
             "sp95PriceEur": 1.815,
             "distanceKm": 16.2
+          },
+          {
+            "id": "qAULcG7RwtmdWPH52365",
+            "name": "Euro service",
+            "brand": "UNDEFINED",
+            "address": "Via Colombera 45, 6987 Caslano",
+            "lat": 45.972068975787,
+            "lng": 8.86726121879764,
+            "sp95PriceChf": 1.66,
+            "updatedAt": "2026-03-22T14:49:20.523Z",
+            "nearestMunicipality": "Lavena Ponte Tresa (VA)",
+            "nearestMunicipalityDistanceKm": 1.3,
+            "sp95PriceEur": 1.815,
+            "distanceKm": 8.4
           }
         ],
         "minPriceChf": 1.61,
@@ -33972,7 +33972,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 46,
+        "optionCount": 47,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -34017,20 +34017,6 @@
             "distanceKm": 19.2
           },
           {
-            "id": "LP7oYktKWhoncV2qvpHG",
-            "name": "ECSA Energy SA - Caslano",
-            "brand": "UNDEFINED",
-            "address": "Via Colombera 10, 6987 Caslano",
-            "lat": 45.97698951091755,
-            "lng": 8.874521781054243,
-            "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-22T14:46:31.666Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 1.9,
-            "sp95PriceEur": 1.804,
-            "distanceKm": 18.1
-          },
-          {
             "id": "pXVgLf2jUOKzOewFCsnj",
             "name": "Migrol Service",
             "brand": "MIGROL",
@@ -34057,6 +34043,20 @@
             "nearestMunicipalityDistanceKm": 1.3,
             "sp95PriceEur": 1.815,
             "distanceKm": 17.4
+          },
+          {
+            "id": "LP7oYktKWhoncV2qvpHG",
+            "name": "ECSA Energy SA - Caslano",
+            "brand": "UNDEFINED",
+            "address": "Via Colombera 10, 6987 Caslano",
+            "lat": 45.97698951091755,
+            "lng": 8.874521781054243,
+            "sp95PriceChf": 1.71,
+            "updatedAt": "2026-03-24T17:40:27.503Z",
+            "nearestMunicipality": "Brusimpiano (VA)",
+            "nearestMunicipalityDistanceKm": 1.9,
+            "sp95PriceEur": 1.87,
+            "distanceKm": 18.1
           }
         ],
         "minPriceChf": 1.61,
@@ -34617,7 +34617,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 82,
+        "optionCount": 83,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -34662,20 +34662,6 @@
             "distanceKm": 15.2
           },
           {
-            "id": "LP7oYktKWhoncV2qvpHG",
-            "name": "ECSA Energy SA - Caslano",
-            "brand": "UNDEFINED",
-            "address": "Via Colombera 10, 6987 Caslano",
-            "lat": 45.97698951091755,
-            "lng": 8.874521781054243,
-            "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-22T14:46:31.666Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 1.9,
-            "sp95PriceEur": 1.804,
-            "distanceKm": 11.9
-          },
-          {
             "id": "eyss2Vf8mj29JzsCvuUr",
             "name": "Piccadilly SA",
             "brand": "UNDEFINED",
@@ -34702,6 +34688,20 @@
             "nearestMunicipalityDistanceKm": 2.3,
             "sp95PriceEur": 1.815,
             "distanceKm": 9.2
+          },
+          {
+            "id": "qAULcG7RwtmdWPH52365",
+            "name": "Euro service",
+            "brand": "UNDEFINED",
+            "address": "Via Colombera 45, 6987 Caslano",
+            "lat": 45.972068975787,
+            "lng": 8.86726121879764,
+            "sp95PriceChf": 1.66,
+            "updatedAt": "2026-03-22T14:49:20.523Z",
+            "nearestMunicipality": "Lavena Ponte Tresa (VA)",
+            "nearestMunicipalityDistanceKm": 1.3,
+            "sp95PriceEur": 1.815,
+            "distanceKm": 11.5
           }
         ],
         "minPriceChf": 1.61,
@@ -35501,7 +35501,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 35,
+        "optionCount": 36,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -35546,20 +35546,6 @@
             "distanceKm": 11.2
           },
           {
-            "id": "LP7oYktKWhoncV2qvpHG",
-            "name": "ECSA Energy SA - Caslano",
-            "brand": "UNDEFINED",
-            "address": "Via Colombera 10, 6987 Caslano",
-            "lat": 45.97698951091755,
-            "lng": 8.874521781054243,
-            "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-22T14:46:31.666Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 1.9,
-            "sp95PriceEur": 1.804,
-            "distanceKm": 16.6
-          },
-          {
             "id": "qAULcG7RwtmdWPH52365",
             "name": "Euro service",
             "brand": "UNDEFINED",
@@ -35574,17 +35560,31 @@
             "distanceKm": 16.2
           },
           {
+            "id": "LP7oYktKWhoncV2qvpHG",
+            "name": "ECSA Energy SA - Caslano",
+            "brand": "UNDEFINED",
+            "address": "Via Colombera 10, 6987 Caslano",
+            "lat": 45.97698951091755,
+            "lng": 8.874521781054243,
+            "sp95PriceChf": 1.71,
+            "updatedAt": "2026-03-24T17:40:27.503Z",
+            "nearestMunicipality": "Brusimpiano (VA)",
+            "nearestMunicipalityDistanceKm": 1.9,
+            "sp95PriceEur": 1.87,
+            "distanceKm": 16.6
+          },
+          {
             "id": "VW0cjs2jCw25mkNyuE9t",
             "name": "Texon Service",
             "brand": "UNDEFINED",
             "address": "Via Cantonale 50, 6987 Caslano",
             "lat": 45.97858351864336,
             "lng": 8.87647837854075,
-            "sp95PriceChf": 1.6600000000000001,
-            "updatedAt": "2026-03-21T08:10:13.884Z",
+            "sp95PriceChf": 1.72,
+            "updatedAt": "2026-03-24T17:38:46.421Z",
             "nearestMunicipality": "Brusimpiano (VA)",
             "nearestMunicipalityDistanceKm": 2.1,
-            "sp95PriceEur": 1.815,
+            "sp95PriceEur": 1.881,
             "distanceKm": 16.6
           }
         ],
@@ -35649,7 +35649,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 66,
+        "optionCount": 67,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -35694,20 +35694,6 @@
             "distanceKm": 11.8
           },
           {
-            "id": "LP7oYktKWhoncV2qvpHG",
-            "name": "ECSA Energy SA - Caslano",
-            "brand": "UNDEFINED",
-            "address": "Via Colombera 10, 6987 Caslano",
-            "lat": 45.97698951091755,
-            "lng": 8.874521781054243,
-            "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-22T14:46:31.666Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 1.9,
-            "sp95PriceEur": 1.804,
-            "distanceKm": 16.8
-          },
-          {
             "id": "qAULcG7RwtmdWPH52365",
             "name": "Euro service",
             "brand": "UNDEFINED",
@@ -35722,17 +35708,31 @@
             "distanceKm": 16.6
           },
           {
+            "id": "LP7oYktKWhoncV2qvpHG",
+            "name": "ECSA Energy SA - Caslano",
+            "brand": "UNDEFINED",
+            "address": "Via Colombera 10, 6987 Caslano",
+            "lat": 45.97698951091755,
+            "lng": 8.874521781054243,
+            "sp95PriceChf": 1.71,
+            "updatedAt": "2026-03-24T17:40:27.503Z",
+            "nearestMunicipality": "Brusimpiano (VA)",
+            "nearestMunicipalityDistanceKm": 1.9,
+            "sp95PriceEur": 1.87,
+            "distanceKm": 16.8
+          },
+          {
             "id": "VW0cjs2jCw25mkNyuE9t",
             "name": "Texon Service",
             "brand": "UNDEFINED",
             "address": "Via Cantonale 50, 6987 Caslano",
             "lat": 45.97858351864336,
             "lng": 8.87647837854075,
-            "sp95PriceChf": 1.6600000000000001,
-            "updatedAt": "2026-03-21T08:10:13.884Z",
+            "sp95PriceChf": 1.72,
+            "updatedAt": "2026-03-24T17:38:46.421Z",
             "nearestMunicipality": "Brusimpiano (VA)",
             "nearestMunicipalityDistanceKm": 2.1,
-            "sp95PriceEur": 1.815,
+            "sp95PriceEur": 1.881,
             "distanceKm": 16.8
           }
         ],
@@ -37473,7 +37473,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 14,
+        "optionCount": 15,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -37518,20 +37518,6 @@
             "distanceKm": 13
           },
           {
-            "id": "LP7oYktKWhoncV2qvpHG",
-            "name": "ECSA Energy SA - Caslano",
-            "brand": "UNDEFINED",
-            "address": "Via Colombera 10, 6987 Caslano",
-            "lat": 45.97698951091755,
-            "lng": 8.874521781054243,
-            "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-22T14:46:31.666Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 1.9,
-            "sp95PriceEur": 1.804,
-            "distanceKm": 18.1
-          },
-          {
             "id": "qAULcG7RwtmdWPH52365",
             "name": "Euro service",
             "brand": "UNDEFINED",
@@ -37546,17 +37532,31 @@
             "distanceKm": 17.5
           },
           {
+            "id": "LP7oYktKWhoncV2qvpHG",
+            "name": "ECSA Energy SA - Caslano",
+            "brand": "UNDEFINED",
+            "address": "Via Colombera 10, 6987 Caslano",
+            "lat": 45.97698951091755,
+            "lng": 8.874521781054243,
+            "sp95PriceChf": 1.71,
+            "updatedAt": "2026-03-24T17:40:27.503Z",
+            "nearestMunicipality": "Brusimpiano (VA)",
+            "nearestMunicipalityDistanceKm": 1.9,
+            "sp95PriceEur": 1.87,
+            "distanceKm": 18.1
+          },
+          {
             "id": "VW0cjs2jCw25mkNyuE9t",
             "name": "Texon Service",
             "brand": "UNDEFINED",
             "address": "Via Cantonale 50, 6987 Caslano",
             "lat": 45.97858351864336,
             "lng": 8.87647837854075,
-            "sp95PriceChf": 1.6600000000000001,
-            "updatedAt": "2026-03-21T08:10:13.884Z",
+            "sp95PriceChf": 1.72,
+            "updatedAt": "2026-03-24T17:38:46.421Z",
             "nearestMunicipality": "Brusimpiano (VA)",
             "nearestMunicipalityDistanceKm": 2.1,
-            "sp95PriceEur": 1.815,
+            "sp95PriceEur": 1.881,
             "distanceKm": 18.2
           }
         ],
@@ -38405,7 +38405,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 27,
+        "optionCount": 28,
         "cheapestStation": {
           "id": "Do0MFhVfknB95UQAcTNW",
           "name": "Eni Molinazzo",
@@ -38450,20 +38450,6 @@
             "distanceKm": 13.6
           },
           {
-            "id": "LP7oYktKWhoncV2qvpHG",
-            "name": "ECSA Energy SA - Caslano",
-            "brand": "UNDEFINED",
-            "address": "Via Colombera 10, 6987 Caslano",
-            "lat": 45.97698951091755,
-            "lng": 8.874521781054243,
-            "sp95PriceChf": 1.6500000000000001,
-            "updatedAt": "2026-03-22T14:46:31.666Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 1.9,
-            "sp95PriceEur": 1.804,
-            "distanceKm": 18.9
-          },
-          {
             "id": "qAULcG7RwtmdWPH52365",
             "name": "Euro service",
             "brand": "UNDEFINED",
@@ -38478,17 +38464,31 @@
             "distanceKm": 18.6
           },
           {
+            "id": "LP7oYktKWhoncV2qvpHG",
+            "name": "ECSA Energy SA - Caslano",
+            "brand": "UNDEFINED",
+            "address": "Via Colombera 10, 6987 Caslano",
+            "lat": 45.97698951091755,
+            "lng": 8.874521781054243,
+            "sp95PriceChf": 1.71,
+            "updatedAt": "2026-03-24T17:40:27.503Z",
+            "nearestMunicipality": "Brusimpiano (VA)",
+            "nearestMunicipalityDistanceKm": 1.9,
+            "sp95PriceEur": 1.87,
+            "distanceKm": 18.9
+          },
+          {
             "id": "VW0cjs2jCw25mkNyuE9t",
             "name": "Texon Service",
             "brand": "UNDEFINED",
             "address": "Via Cantonale 50, 6987 Caslano",
             "lat": 45.97858351864336,
             "lng": 8.87647837854075,
-            "sp95PriceChf": 1.6600000000000001,
-            "updatedAt": "2026-03-21T08:10:13.884Z",
+            "sp95PriceChf": 1.72,
+            "updatedAt": "2026-03-24T17:38:46.421Z",
             "nearestMunicipality": "Brusimpiano (VA)",
             "nearestMunicipalityDistanceKm": 2.1,
-            "sp95PriceEur": 1.815,
+            "sp95PriceEur": 1.881,
             "distanceKm": 19
           }
         ],
