@@ -77,6 +77,15 @@ function slugToTitle(slug: string): string {
     .slice(0, 80);
 }
 
+/** Read the static body HTML seeded by the build plugin (preserved across hydration). */
+function getStaticBodyHtml(): string | null {
+  try {
+    const html = (window as unknown as Record<string, unknown>).__STATIC_BODY_HTML__;
+    if (typeof html === 'string' && html.length > 0) return html;
+  } catch { /* SSR or missing */ }
+  return null;
+}
+
 export default function JobOrphanView({ slug, onBack }: JobOrphanViewProps) {
   const [locale] = useLocale();
   const googleButtonRef = useRef<HTMLDivElement>(null);
@@ -85,6 +94,10 @@ export default function JobOrphanView({ slug, onBack }: JobOrphanViewProps) {
   const [emailInput, setEmailInput] = useState('');
   const [emailBusy, setEmailBusy] = useState(false);
   const [emailError, setEmailError] = useState<string | null>(null);
+
+  // Preserve rich static body content from the build plugin so hydration
+  // does not replace >100 words of SEO content with a slug-derived title.
+  const [staticBodyHtml] = useState(() => getStaticBodyHtml());
 
   const prefix = PREFIX_BY_LOCALE[locale] ?? '';
   const sectionSlug = SECTION_BY_LOCALE[locale] ?? SECTION_BY_LOCALE.it;
@@ -163,8 +176,15 @@ export default function JobOrphanView({ slug, onBack }: JobOrphanViewProps) {
         {BANNER_COPY[locale] ?? BANNER_COPY.it}
       </div>
 
-      {/* Derived title */}
-      <h1 className="text-xl font-bold text-slate-800 dark:text-slate-100 leading-snug">{derivedTitle}</h1>
+      {/* Preserved static body from build plugin (rich SEO content) or slug-derived title fallback */}
+      {staticBodyHtml ? (
+        <div
+          className="prose prose-sm dark:prose-invert max-w-none text-slate-700 dark:text-slate-300 [&_h1]:text-xl [&_h1]:font-bold [&_h1]:text-slate-800 [&_h1]:dark:text-slate-100 [&_h2]:text-lg [&_h2]:font-semibold [&_h2]:text-slate-800 [&_h2]:dark:text-slate-100 [&_a]:text-indigo-600 [&_a]:dark:text-indigo-400"
+          dangerouslySetInnerHTML={{ __html: staticBodyHtml }}
+        />
+      ) : (
+        <h1 className="text-xl font-bold text-slate-800 dark:text-slate-100 leading-snug">{derivedTitle}</h1>
+      )}
 
       {/* Sign-In block */}
       <div className="rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900/60 p-5 text-center space-y-3">
