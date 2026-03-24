@@ -2207,6 +2207,17 @@ Règles :
     'seoContent.stats.check4': 'Données sur la communauté frontalière tessinoise',
 
     // ─── What's New / Feature Announcements ─────────────────────────────────
+    'whatsNew.v3420.title': 'Améliorations et corrections pour une expérience plus fluide',
+    'whatsNew.v3420.FRO-399.title': 'Rapport d\'erreurs amélioré pour les flux de travail',
+    'whatsNew.v3420.FRO-399.desc': 'Vous pouvez désormais recevoir des rapports plus clairs sur les erreurs lors du traitement des données. Cela nous aide à résoudre les problèmes plus rapidement.',
+    'whatsNew.v3420.build.title': 'Correction pour une création de fichiers plus fiable',
+    'whatsNew.v3420.build.desc': 'Nous avons corrigé un problème qui pouvait causer des erreurs lors de la création de nouveaux fichiers. La création de fichiers est maintenant plus stable.',
+    'whatsNew.v3420.data.title': 'Noms de tâches plus précis dans toutes les langues',
+    'whatsNew.v3420.data.desc': 'Nous avons corrigé les noms de certaines tâches qui ne s\'affichaient pas correctement dans différentes langues. Les noms sont maintenant plus précis.',
+    'whatsNew.v3420.FRO-411,FRO-404.title': 'Mises à jour des textes de connexion et de sécurité',
+    'whatsNew.v3420.FRO-411,FRO-404.desc': 'Nous avons mis à jour les textes liés à la connexion pour supprimer les références obsolètes et amélioré les règles de sécurité sous-jacentes.',
+    'whatsNew.v3420.FRO-406.title': 'Suggestions utiles pour les pages non trouvées',
+    'whatsNew.v3420.FRO-406.desc': 'Lorsque vous ne trouvez pas une page, nous vous proposerons désormais des suggestions utiles pour vous guider.',
     'whatsNew.v3410.title': 'Améliorations pour une navigation plus fluide et un contenu plus pertinent',
     'whatsNew.v3410.blog.title': 'Articles liés désormais plus visibles sur le blog',
     'whatsNew.v3410.blog.desc': 'Nous avons réorganisé l\'affichage des articles liés sur le blog, en les plaçant avant les publicités. De plus, la barre de navigation mobile reste désormais fixe pour un accès plus rapide.',

@@ -2298,6 +2298,17 @@ Regole:
     'seoContent.stats.check4': 'Dati sulla comunità frontaliera Ticino',
 
     // ─── What's New / Feature Announcements ─────────────────────────────
+    'whatsNew.v3420.title': 'Miglioramenti e correzioni per un\'esperienza più fluida',
+    'whatsNew.v3420.FRO-399.title': 'Segnalazione errori migliorata per i flussi di lavoro',
+    'whatsNew.v3420.FRO-399.desc': 'Ora puoi ricevere segnalazioni più chiare sugli errori che si verificano durante l\'elaborazione dei dati. Questo ci aiuta a risolvere i problemi più velocemente.',
+    'whatsNew.v3420.build.title': 'Correzione per la creazione di file più affidabile',
+    'whatsNew.v3420.build.desc': 'Abbiamo risolto un problema che poteva causare errori durante la creazione di nuovi file. Ora la creazione di file è più stabile.',
+    'whatsNew.v3420.data.title': 'Nomi dei lavori più precisi in tutte le lingue',
+    'whatsNew.v3420.data.desc': 'Abbiamo corretto i nomi di alcuni lavori che non venivano visualizzati correttamente in diverse lingue. Ora i nomi sono più accurati.',
+    'whatsNew.v3420.FRO-411,FRO-404.title': 'Aggiornamenti ai testi di accesso e sicurezza',
+    'whatsNew.v3420.FRO-411,FRO-404.desc': 'Abbiamo aggiornato i testi relativi all\'accesso per rimuovere riferimenti non più pertinenti e migliorato le regole di sicurezza sottostanti.',
+    'whatsNew.v3420.FRO-406.title': 'Suggerimenti utili per le pagine non trovate',
+    'whatsNew.v3420.FRO-406.desc': 'Quando non riesci a trovare una pagina, ora ti offriremo suggerimenti utili per aiutarti a trovare ciò che cerchi.',
     'whatsNew.v3410.title': 'Miglioramenti per una navigazione più fluida e contenuti più pertinenti',
     'whatsNew.v3410.blog.title': 'Articoli correlati ora più visibili sul blog',
     'whatsNew.v3410.blog.desc': 'Abbiamo riorganizzato la visualizzazione degli articoli correlati sul blog, posizionandoli prima delle pubblicità. Inoltre, la barra di navigazione mobile ora rimane fissa per un accesso più rapido.',

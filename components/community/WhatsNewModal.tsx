@@ -27,6 +27,43 @@ interface Release {
 
 export const RELEASES: Release[] = [
   {
+    version: '3.42.0',
+    date: '2026-03-24',
+    titleKey: 'whatsNew.v3420.title',
+    items: [
+      {
+        type: 'feature',
+        titleKey: 'whatsNew.v3420.FRO-399.title',
+        descKey: 'whatsNew.v3420.FRO-399.desc',
+        link: { tab: 'job-board' },
+      },
+      {
+        type: 'fix',
+        titleKey: 'whatsNew.v3420.build.title',
+        descKey: 'whatsNew.v3420.build.desc',
+
+      },
+      {
+        type: 'fix',
+        titleKey: 'whatsNew.v3420.data.title',
+        descKey: 'whatsNew.v3420.data.desc',
+        link: { tab: 'job-board' },
+      },
+      {
+        type: 'fix',
+        titleKey: 'whatsNew.v3420.FRO-411,FRO-404.title',
+        descKey: 'whatsNew.v3420.FRO-411,FRO-404.desc',
+
+      },
+      {
+        type: 'feature',
+        titleKey: 'whatsNew.v3420.FRO-406.title',
+        descKey: 'whatsNew.v3420.FRO-406.desc',
+
+      },
+    ],
+  },
+  {
     version: '3.41.0',
     date: '2026-03-24',
     titleKey: 'whatsNew.v3410.title',

@@ -2207,6 +2207,17 @@ Rules:
     'seoContent.stats.check4': 'Ticino cross-border community data',
 
     // ─── What's New / Feature Announcements ─────────────────────────────
+    'whatsNew.v3420.title': 'Improvements and fixes for a smoother experience',
+    'whatsNew.v3420.FRO-399.title': 'Improved error reporting for workflows',
+    'whatsNew.v3420.FRO-399.desc': 'You can now receive clearer reports on errors during data processing. This helps us resolve issues faster.',
+    'whatsNew.v3420.build.title': 'Fix for more reliable file creation',
+    'whatsNew.v3420.build.desc': 'We fixed an issue that could cause errors when creating new files. File creation is now more stable.',
+    'whatsNew.v3420.data.title': 'More accurate job names across languages',
+    'whatsNew.v3420.data.desc': 'We corrected the names of some jobs that weren\'t displaying correctly in different languages. Names are now more accurate.',
+    'whatsNew.v3420.FRO-411,FRO-404.title': 'Updates to login and security texts',
+    'whatsNew.v3420.FRO-411,FRO-404.desc': 'We updated login-related texts to remove outdated references and improved underlying security rules.',
+    'whatsNew.v3420.FRO-406.title': 'Helpful suggestions for pages not found',
+    'whatsNew.v3420.FRO-406.desc': 'When you can\'t find a page, we\'ll now offer helpful suggestions to guide you.',
     'whatsNew.v3410.title': 'Smoother navigation and more relevant content improvements',
     'whatsNew.v3410.blog.title': 'Related articles now more visible on the blog',
     'whatsNew.v3410.blog.desc': 'We\'ve reorganized how related articles appear on the blog, placing them before ads. The mobile navigation bar also now stays put for quicker access.',

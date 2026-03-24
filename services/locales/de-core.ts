@@ -2207,6 +2207,17 @@ Regeln:
     'seoContent.stats.check4': 'Daten zur Tessiner Grenzgänger-Gemeinschaft',
 
     // ─── What's New / Feature Announcements ─────────────────────────────
+    'whatsNew.v3420.title': 'Verbesserungen und Korrekturen für eine reibungslosere Erfahrung',
+    'whatsNew.v3420.FRO-399.title': 'Verbesserte Fehlerberichterstattung für Arbeitsabläufe',
+    'whatsNew.v3420.FRO-399.desc': 'Sie erhalten nun klarere Berichte über Fehler bei der Datenverarbeitung. Dies hilft uns, Probleme schneller zu beheben.',
+    'whatsNew.v3420.build.title': 'Korrektur für zuverlässigere Dateierstellung',
+    'whatsNew.v3420.build.desc': 'Wir haben ein Problem behoben, das beim Erstellen neuer Dateien zu Fehlern führen konnte. Die Dateierstellung ist nun stabiler.',
+    'whatsNew.v3420.data.title': 'Genauere Job-Namen in allen Sprachen',
+    'whatsNew.v3420.data.desc': 'Wir haben die Namen einiger Jobs korrigiert, die in verschiedenen Sprachen nicht korrekt angezeigt wurden. Die Namen sind nun genauer.',
+    'whatsNew.v3420.FRO-411,FRO-404.title': 'Aktualisierungen bei Anmelde- und Sicherheitstexten',
+    'whatsNew.v3420.FRO-411,FRO-404.desc': 'Wir haben anmeldebezogene Texte aktualisiert, um veraltete Verweise zu entfernen, und die zugrunde liegenden Sicherheitsregeln verbessert.',
+    'whatsNew.v3420.FRO-406.title': 'Hilfreiche Vorschläge für nicht gefundene Seiten',
+    'whatsNew.v3420.FRO-406.desc': 'Wenn Sie eine Seite nicht finden können, erhalten Sie nun hilfreiche Vorschläge, die Sie leiten.',
     'whatsNew.v3410.title': 'Verbesserungen für reibungslosere Navigation und relevantere Inhalte',
     'whatsNew.v3410.blog.title': 'Verwandte Artikel jetzt besser sichtbar auf dem Blog',
     'whatsNew.v3410.blog.desc': 'Wir haben die Anzeige verwandter Artikel auf dem Blog neu organisiert und sie vor Anzeigen platziert. Außerdem bleibt die mobile Navigationsleiste nun fixiert für einen schnelleren Zugriff.',
