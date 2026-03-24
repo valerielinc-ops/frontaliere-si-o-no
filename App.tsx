@@ -2430,6 +2430,8 @@ const App: React.FC = () => {
                       </div>
                     )}
                   </button>
+                ) : authLoading ? (
+                  <div className="w-[30px] h-[30px] rounded-lg bg-slate-200 dark:bg-slate-700 animate-pulse shrink-0" aria-hidden="true" />
                 ) : (
                   <button
                     onClick={() => handleTabChange('profile')}

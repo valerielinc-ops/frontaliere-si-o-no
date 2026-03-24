@@ -61,6 +61,8 @@ async function ensureFirebaseAuth(): Promise<void> {
       _authModule = authModule;
       const appInstance = await firebaseModule.getApp();
       _auth = authModule.getAuth(appInstance);
+      // Ensure session survives even if IndexedDB is unavailable
+      await authModule.setPersistence(_auth, authModule.browserLocalPersistence);
       // Wait for Firebase Auth internal initialization to complete.
       // getAuth() returns synchronously but internal config (apiKey, authDomain)
       // may not be ready yet — calling SDK methods before this resolves causes
