@@ -805,10 +805,10 @@ export function hardenJobLocaleFields({ dataJobsPath }) {
         job.needsRetranslation = true;
         jobChanged = true;
       }
-      // Fallback: if title is still empty after all hardening, copy source title as placeholder.
-      // This covers jobs that never had an EN/DE/FR translation populated in the per-crawler file.
-      // The translate pipeline will retranslate when AI quota is available.
-      if (!String(job.titleByLocale[locale] || '').trim() && baseTitle) {
+      // Fallback: if title is still empty or too short (< 3 chars) after all hardening,
+      // copy source title as placeholder. Covers jobs never translated or where a bad
+      // 1-char artifact (e.g. '_') was stored. The translate pipeline will retranslate.
+      if (String(job.titleByLocale[locale] || '').trim().length < 3 && baseTitle) {
         const placeholder = String(job.titleByLocale[titleSourceLang] || baseTitle).trim();
         if (placeholder) {
           job.titleByLocale[locale] = placeholder;
