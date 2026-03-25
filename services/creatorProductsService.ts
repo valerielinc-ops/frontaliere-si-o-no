@@ -424,10 +424,14 @@ export function getCreatorProductsForContext({
     const url = isValidAmazonAffiliateUrl(searchUrl) ? searchUrl : fallbackDpUrl;
     // FRO-336: Enrich with real data from Creators API if available
     const apiData = _apiProductsByAsin.get(product.asin);
+    // Only use the direct DP URL from API when we have confirmed real product data
+    // (non-empty title). In fallback mode titles are empty and DP URLs may point to
+    // products that don't exist on Amazon.it — prefer the contextual search URL.
+    const hasRealApiData = Boolean(apiData?.title && apiData.title.trim() !== '');
     return {
       ...product,
       score,
-      url: apiData?.affiliateUrl || url,
+      url: hasRealApiData ? (apiData!.affiliateUrl || url) : url,
       partnerTag,
       query: contextualQuery.trim(),
       imageUrl: apiData?.imageUrl || buildAmazonImageUrl(product.asin),

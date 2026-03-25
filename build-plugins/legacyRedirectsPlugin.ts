@@ -29,6 +29,22 @@ export function legacyRedirectsPlugin(rootDir: string): Plugin {
     '/fr/articles-frontaliers/elections-communales-tessin-2026/': '/fr/articles-frontalier/elections-municipales-tessin/',
     '/articoli-frontaliere/a9-chiusure-notturne-chiasso-como/': '/articoli-frontaliere/chiasso-como-autostrada-a9-chiusure-notturne-cantieri/',
     '/en/cross-border-articles/speed-controls-ticino-2026/': '/en/cross-border-articles/ticino-speed-controls-2026/',
+    // Consolidated Q4 2025 frontalieri duplicates → canonical: frontalieri-ticino-dati-q4-2025
+    // ex frontalieri-ticino-calo-2025
+    '/articoli-frontaliere/frontalieri-ticino-calo-dati-2025/': '/articoli-frontaliere/frontalieri-ticino-dati-calo-fine-2025/',
+    '/en/cross-border-articles/cross-border-workers-ticino-decline-2025-data/': '/en/cross-border-articles/cross-border-workers-ticino-data-decline-end-2025/',
+    '/de/grenzgaenger-artikel/grenzgaenger-tessin-rueckgang-daten-2025/': '/de/grenzgaenger-artikel/grenzgaenger-tessin-daten-rueckgang-ende-2025/',
+    '/fr/articles-frontaliers/frontaliers-tessin-baisse-donnees-2025/': '/fr/articles-frontaliers/frontaliers-tessin-donnees-baisse-fin-2025/',
+    // ex frontalieri-ticino-controtendenza-2026
+    '/articoli-frontaliere/frontalieri-ticino-dati-calo-q4-2025/': '/articoli-frontaliere/frontalieri-ticino-dati-calo-fine-2025/',
+    '/en/cross-border-articles/cross-border-workers-ticino-data-decline-q4-2025/': '/en/cross-border-articles/cross-border-workers-ticino-data-decline-end-2025/',
+    '/de/grenzgaenger-artikel/grenzgaenger-tessin-daten-rueckgang-q4-2025/': '/de/grenzgaenger-artikel/grenzgaenger-tessin-daten-rueckgang-ende-2025/',
+    '/fr/articles-frontaliers/frontaliers-tessin-donnees-baisse-q4-2025/': '/fr/articles-frontaliers/frontaliers-tessin-donnees-baisse-fin-2025/',
+    // ex frontalieri-ticino-calo-q4-2025
+    '/articoli-frontaliere/frontalieri-ticino-calo-dati-q4-2025/': '/articoli-frontaliere/frontalieri-ticino-dati-calo-fine-2025/',
+    '/en/cross-border-articles/cross-border-workers-ticino-decline-q4-2025-data/': '/en/cross-border-articles/cross-border-workers-ticino-data-decline-end-2025/',
+    '/de/grenzgaenger-artikel/grenzgaenger-tessin-rueckgang-q4-2025-daten/': '/de/grenzgaenger-artikel/grenzgaenger-tessin-daten-rueckgang-ende-2025/',
+    '/fr/articles-frontaliers/frontaliers-tessin-baisse-donnees-q4-2025/': '/fr/articles-frontaliers/frontaliers-tessin-donnees-baisse-fin-2025/',
     // Job slugs migrated from German to Italian
     '/cerca-lavoro-ticino/detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-coop-grigioni/': '/cerca-lavoro-ticino/specialista-del-commercio-al-dettaglio-afc-creazione-di-esperienze-di-acquisto-coop-grigioni/',
     '/cerca-lavoro-ticino/detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-interdiscount-grigioni/': '/cerca-lavoro-ticino/specialista-del-commercio-al-dettaglio-afc-creazione-di-esperienze-di-acquisto-interdiscount-grigioni/',

@@ -282,27 +282,6 @@ export const ARTICLES: Article[] = [
     hasCalculator: true,
   },
   {
-    id: 'frontalieri-ticino-calo-2025',
-    category: 'novita',
-    date: '2026-02-19T09:05:03.506Z',
-    image: '/images/blog/frontalieri-ticino-calo-2025.webp',
-    hasCalculator: true,
-  },
-  {
-    id: 'frontalieri-ticino-controtendenza-2026',
-    category: 'novita',
-    date: '2026-02-19T10:30:30.708Z',
-    image: '/images/blog/frontalieri-ticino-controtendenza-2026.webp',
-    hasCalculator: true,
-  },
-  {
-    id: 'frontalieri-ticino-calo-q4-2025',
-    category: 'novita',
-    date: '2026-02-19T12:06:39.207Z',
-    image: '/images/blog/frontalieri-ticino-calo-q4-2025.webp',
-    hasCalculator: true,
-  },
-  {
     id: 'pendolarismo-affitto-tempo-ticino',
     category: 'pratico',
     date: '2026-02-19T15:37:29.161Z',

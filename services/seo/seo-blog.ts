@@ -15,7 +15,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     description: 'Come calcolare lo stipendio netto da frontaliere nel 2026: deduzioni AVS, LPP, imposta alla fonte, IRPEF italiana, nuovo accordo fiscale. Guida con esempi pratici e simulatore.',
     keywords: 'stipendio netto frontaliere 2026, calcolo stipendio svizzera, deduzioni avs lpp, imposta alla fonte ticino, nuovo accordo fiscale frontalieri, stipendio lordo netto svizzera',
     ogTitle: 'Stipendio Netto Frontaliere 2026 | Calcolo Completo',
-    ogDescription: 'Guida completa al calcolo dello stipendio netto per frontalieri: deduzioni svizzere, IRPEF, nuovo accordo fiscale 2024.',
+    ogDescription: 'Guida completa al calcolo dello stipendio netto per frontalieri: deduzioni svizzere, IRPEF, nuovo accordo fiscale corrente.',
     canonicalPath: '/articoli-frontaliere/stipendio-netto-frontaliere-2026',
     structuredData: {
       "@context": "https://schema.org",
@@ -1012,87 +1012,6 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ristorni-frontalieri-scontro-ticino-berna-tassa-salute`
-    }
-  },
-
-  'blog-frontalieri-ticino-calo-2025': {
-    title: 'Frontalieri in calo in Ticino: Dati e Analisi Q4 2025 | Frontaliere Ticino',
-    description: 'Dati ufficiali UST: nel Q4 2025 i frontalieri in Ticino scendono a 78.809 (-1,0%). Analizziamo le cause del calo e le implicazioni per chi lavora in Svizzera.',
-    keywords: 'frontalieri ticino, calo frontalieri, permesso g, lavoro ticino, dati ust svizzera, economia ticino, accordo fiscale italia svizzera',
-    ogTitle: 'Ticino in controtendenza: perché il numero di frontalieri diminuisce?',
-    ogDescription: 'Mentre in Svizzera i frontalieri aumentano, il Ticino registra un calo dell\'1,0%. Ecco i dati ufficiali e le possibili cause di questa inversione di rotta.',
-    canonicalPath: '/articoli-frontaliere/frontalieri-ticino-calo-dati-2025',
-    structuredData: {
-      "@context": "https://schema.org",
-      "@type": "BlogPosting",
-      "headline": "Ticino in controtendenza: perché il numero di frontalieri diminuisce?",
-      "description": "Dati ufficiali UST: nel Q4 2025 i frontalieri in Ticino scendono a 78.809 (-1,0%). Analizziamo le cause del calo e le implicazioni per chi lavora in Svizzera.",
-      "image": {
-        "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/frontalieri-ticino-calo-2025.webp`,
-        "width": 1344,
-        "height": 756,
-        "caption": "Colonna di auto di frontalieri al valico di Chiasso-Brogeda diretta verso il Ticino al mattino"
-      },
-      "datePublished": "2026-02-19T00:00:00+01:00",
-      "dateModified": "2026-02-19T00:00:00+01:00",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
-      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontalieri-ticino-calo-dati-2025`
-    }
-  },
-
-  'blog-frontalieri-ticino-controtendenza-2026': {
-    title: 'Frontalieri in Calo in Ticino: Dati e Analisi Q4 2025 | Frontaliere Ticino',
-    description: 'Dati ufficiali UST: i frontalieri in Svizzera crescono a 411.000, ma il Ticino segna -1,0% nel Q4 2025. Scopri le cause e le implicazioni per i lavoratori italiani.',
-    keywords: 'frontalieri ticino, permessi G, lavoro in svizzera, dati frontalieri 2025, calo frontalieri ticino, economia ticino, UST',
-    ogTitle: 'Frontalieri, il Ticino va controcorrente: i permessi calano',
-    ogDescription: 'Mentre in Svizzera i frontalieri aumentano, in Ticino si registra un calo dello 1,0%. Ecco i dati ufficiali e cosa significano per te.',
-    canonicalPath: '/articoli-frontaliere/frontalieri-ticino-dati-calo-q4-2025',
-    structuredData: {
-      "@context": "https://schema.org",
-      "@type": "BlogPosting",
-      "headline": "Frontalieri, il Ticino va controcorrente: i permessi calano",
-      "description": "Dati ufficiali UST: i frontalieri in Svizzera crescono a 411.000, ma il Ticino segna -1,0% nel Q4 2025. Scopri le cause e le implicazioni per i lavoratori italiani.",
-      "image": {
-        "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/frontalieri-ticino-controtendenza-2026.webp`,
-        "width": 1344,
-        "height": 756,
-        "caption": "Veduta aerea della regione di Mendrisio e del traffico di frontalieri al confine con l'Italia all'alba."
-      },
-      "datePublished": "2026-02-19T00:00:00+01:00",
-      "dateModified": "2026-02-19T00:00:00+01:00",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
-      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontalieri-ticino-dati-calo-q4-2025`
-    }
-  },
-
-  'blog-frontalieri-ticino-calo-q4-2025': {
-    title: 'Frontalieri in Ticino: Dati in Calo nel Q4 2025 | Frontaliere Ticino',
-    description: 'Analisi dei dati UST per il Q4 2025: il numero di frontalieri in Ticino scende a 78\'809 (-1.0%), in controtendenza rispetto alla crescita svizzera (+1.1%).',
-    keywords: 'frontalieri ticino, lavoro ticino, permesso G, dati frontalieri 2025, calo frontalieri, economia ticino, UST, mercato del lavoro',
-    ogTitle: 'Ticino controcorrente: Meno frontalieri a fine 2025. Ecco i dati',
-    ogDescription: 'Mentre in Svizzera i frontalieri aumentano, il Ticino registra un calo dell\'1.0%. Scopri i numeri ufficiali e cosa significa per il mercato del lavoro.',
-    canonicalPath: '/articoli-frontaliere/frontalieri-ticino-calo-dati-q4-2025',
-    structuredData: {
-      "@context": "https://schema.org",
-      "@type": "BlogPosting",
-      "headline": "Ticino controcorrente: Meno frontalieri a fine 2025. Ecco i dati",
-      "description": "Analisi dei dati UST per il Q4 2025: il numero di frontalieri in Ticino scende a 78'809 (-1.0%), in controtendenza rispetto alla crescita svizzera (+1.1%).",
-      "image": {
-        "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/frontalieri-ticino-calo-q4-2025.webp`,
-        "width": 1344,
-        "height": 756,
-        "caption": "Colonna di auto di frontalieri al valico di Chiasso-Brogeda al mattino, simbolo del lavoro transfrontaliero in Ticino."
-      },
-      "datePublished": "2026-02-19T00:00:00+01:00",
-      "dateModified": "2026-02-19T00:00:00+01:00",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
-      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontalieri-ticino-calo-dati-q4-2025`
     }
   },
 

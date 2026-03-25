@@ -1269,7 +1269,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
 
   municipalities: {
     title: 'Comuni di Frontiera Italia-Svizzera',
-    description: 'Mappa interattiva dei comuni italiani di frontiera con la Svizzera: distanze dai valichi, popolazione, servizi, trasporti e informazioni utili per.',
+    description: 'Mappa interattiva dei comuni italiani nella fascia di 20 km dal confine svizzero: distanze dai valichi, popolazione, servizi e trasporti per frontalieri.',
     keywords: 'comuni di frontiera, comuni frontalieri italia svizzera, mappa comuni frontiera, comuni vicino svizzera, comuni como varese frontiera, distanza valichi frontiera, comuni 20 km confine svizzera',
     ogTitle: 'Comuni di Frontiera Italia-Svizzera | Mappa e Distanze',
     ogDescription: '🗺️ Mappa interattiva dei comuni italiani di frontiera: distanze dai valichi, servizi e informazioni per frontalieri.',
@@ -3134,10 +3134,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 36, "name": "Federal Tribunal Overturns Ticino's B Permit De...", "url": `${BASE_URL}/articoli-frontaliere/permesso-b-integrazione-tribunale-federale-ticino` },
           { "@type": "ListItem", "position": 37, "name": "Imposizione Individuale e l'Impatto sul Lavoro ...", "url": `${BASE_URL}/articoli-frontaliere/tassazione-individuale-svizzera-impatto-lavoro-ticino-frontalieri` },
           { "@type": "ListItem", "position": 38, "name": "Ristorni Frontalieri al Centro dello Scontro tr...", "url": `${BASE_URL}/articoli-frontaliere/ristorni-frontalieri-scontro-ticino-berna-tassa-salute` },
-          { "@type": "ListItem", "position": 39, "name": "Cross-border workers declining in Ticino", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-ticino-calo-dati-2025` },
-          { "@type": "ListItem", "position": 40, "name": "Cross-border workers in Ticino: a downward trend", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-ticino-dati-calo-q4-2025` },
-          { "@type": "ListItem", "position": 41, "name": "Frontalieri in Ticino in calo a fine 2025", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-ticino-calo-dati-q4-2025` },
-          { "@type": "ListItem", "position": 42, "name": "Rent vs. Commute Time: The Frontalieri Dilemma", "url": `${BASE_URL}/articoli-frontaliere/pendolarismo-affitto-tempo-dilemma-frontalieri-ticino` },
+          { "@type": "ListItem", "position": 39, "name": "Rent vs. Commute Time: The Frontalieri Dilemma", "url": `${BASE_URL}/articoli-frontaliere/pendolarismo-affitto-tempo-dilemma-frontalieri-ticino` },
           { "@type": "ListItem", "position": 43, "name": "Ticino Center-Right Demands Suspension of Cross...", "url": `${BASE_URL}/articoli-frontaliere/centrodestra-ticino-stop-ristorni-frontalieri-tassa-salute` },
           { "@type": "ListItem", "position": 44, "name": "Frontalieri in Ticino in Calo a Fine 2025", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-ticino-dati-calo-fine-2025` },
           { "@type": "ListItem", "position": 45, "name": "Irregular Entries in Chiasso Decline", "url": `${BASE_URL}/articoli-frontaliere/calo-entrate-irregolari-migranti-chiasso-ticino` },
