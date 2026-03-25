@@ -1,22 +1,15 @@
 {
   "companyKey": "julius-baer",
   "companyName": "Julius Baer",
-  "companyHost": "juliusbaer.com",
+  "companyHost": "juliusbaer.wd3.myworkdayjobs.com",
   "enabled": true,
-  "priority": 0,
+  "priority": 10,
   "crawlerModes": [
-    "generic_ats",
-    "html",
-    "jsonld"
+    "api"
   ],
   "seedUrls": [
-    "https://www.juliusbaer.com/careers",
-    "https://www.juliusbaer.com/career",
-    "https://www.juliusbaer.com/jobs",
-    "https://www.juliusbaer.com/karriere",
-    "https://www.juliusbaer.com/offene-stellen",
-    "https://www.juliusbaer.com/lavora-con-noi"
+    "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External?q=lugano"
   ],
-  "notes": "",
-  "updatedAt": "2026-02-27T17:06:06.956Z"
+  "notes": "Workday API at juliusbaer.wd3.myworkdayjobs.com — Lugano/Ticino positions.",
+  "updatedAt": "2026-03-25T11:14:29.574Z"
 }
