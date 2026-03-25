@@ -1766,6 +1766,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.lavena-ponte-tresa-verde.title': 'Watering Cans and Flowerbeds, the Town Center Takes Care Together: the \'Green\' Idea in Lavena Ponte Tresa Involving Shops',
     'blog.article.lavena-ponte-tresa-verde.excerpt': 'In Lavena Ponte Tresa, the town center is taking care together with the help of shops',
     'blog.article.lavena-ponte-tresa-verde.imageAlt': 'The center of Lavena Ponte Tresa cares for itself with the help of shops',
+    'blog.article.datori-lavoro-cauti.title': 'Swiss Employers Remain Cautious',
+    'blog.article.datori-lavoro-cauti.excerpt': 'Slowdown in employment prospects in Switzerland, with an increase in the use of temporary work',
+    'blog.article.datori-lavoro-cauti.imageAlt': 'Office in Lugano with lake view',
 };
 
 export default blogMetaEn;

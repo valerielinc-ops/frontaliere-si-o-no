@@ -5312,4 +5312,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/lavena-ponte-tresa-verde.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'datori-lavoro-cauti',
+    category: 'pratico',
+    date: '2026-03-25T02:58:53.338Z',
+    image: '/images/blog/datori-lavoro-cauti.jpg',
+    hasCalculator: true,
+  },
 ];

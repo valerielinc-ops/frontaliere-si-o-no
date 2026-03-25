@@ -1766,6 +1766,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.lavena-ponte-tresa-verde.title': 'Wasserspeier und Blumenbeete, das Zentrum pflegt gemeinsam: In Lavena Ponte Tresa die "grüne" Idee, die die Geschäfte mit einschließt',
     'blog.article.lavena-ponte-tresa-verde.excerpt': 'In Lavena Ponte Tresa pflegt das Zentrum gemeinsam mit den Geschäften.',
     'blog.article.lavena-ponte-tresa-verde.imageAlt': 'Das Zentrum von Lavena Ponte Tresa kümmert sich um sich mit der Hilfe der Geschäfte',
+    'blog.article.datori-lavoro-cauti.title': 'Die Schweizer Arbeitgeber bleiben vorsichtig',
+    'blog.article.datori-lavoro-cauti.excerpt': 'Verlangsamung der Beschäftigungsaussichten in der Schweiz, mit einer Zunahme des Einsatzes von Zeitarbeit',
+    'blog.article.datori-lavoro-cauti.imageAlt': 'Büro in Lugano mit Seeblick',
 };
 
 export default blogMetaDe;

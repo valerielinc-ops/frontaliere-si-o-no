@@ -10202,6 +10202,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-datori-lavoro-cauti': {
+    title: 'I datori di lavoro svizzeri restano cauti | Frontaliere Ticino',
+    description: 'Rallentamento delle prospettive occupazionali in Svizzera, con un aumento del ricorso al lavoro temporaneo. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, datori, lavoro, svizzeri, restano',
+    ogTitle: 'I datori di lavoro svizzeri restano cauti',
+    ogDescription: 'Rallentamento delle prospettive occupazionali in Svizzera, con un aumento del ricorso al lavoro temporaneo',
+    canonicalPath: '/articoli-frontaliere/datori-lavoro-cauti',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "I datori di lavoro svizzeri restano cauti",
+      "description": "Rallentamento delle prospettive occupazionali in Svizzera, con un aumento del ricorso al lavoro temporaneo. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/datori-lavoro-cauti.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Ufficio a Lugano con vista sul lago"
+      },
+      "datePublished": "2026-03-25T02:58:53+00:00",
+      "dateModified": "2026-03-25T02:58:53+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/datori-lavoro-cauti`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

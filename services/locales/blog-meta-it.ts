@@ -1766,6 +1766,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.lavena-ponte-tresa-verde.title': 'Annaffiatoi e aiuole, il centro si cura insieme: a Lavena Pontre Tresa l’idea ‘verde’ che coinvolge i negozi',
     'blog.article.lavena-ponte-tresa-verde.excerpt': 'A Lavena Ponte Tresa, il centro si cura insieme con l\'aiuto dei negozi',
     'blog.article.lavena-ponte-tresa-verde.imageAlt': 'Il centro di Lavena Ponte Tresa si cura insieme con l\'aiuto dei negozi',
+    'blog.article.datori-lavoro-cauti.title': 'I datori di lavoro svizzeri restano cauti',
+    'blog.article.datori-lavoro-cauti.excerpt': 'Rallentamento delle prospettive occupazionali in Svizzera, con un aumento del ricorso al lavoro temporaneo',
+    'blog.article.datori-lavoro-cauti.imageAlt': 'Ufficio a Lugano con vista sul lago',
 };
 
 export default blogMetaIt;
