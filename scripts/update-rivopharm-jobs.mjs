@@ -150,8 +150,25 @@ async function fetchCareersPage() {
 // Build job objects
 // ─────────────────────────────────────────────────────────────
 
+/**
+ * Reject titles that are clearly NOT job listings — company names, slogans, etc.
+ */
+function isRealJobTitle(title = '') {
+  if (!title || title.length < 5) return false;
+  const t = title.toLowerCase().trim();
+  // Reject company names / homepage headings
+  if (/^rivopharm\b/i.test(t)) return false;
+  if (/^about\s/i.test(t)) return false;
+  if (/^welcome\b/i.test(t)) return false;
+  if (/^home\b/i.test(t)) return false;
+  // Reject if title is just the company domain or brand
+  if (t === 'rivopharm' || t === 'rivopharm sa' || t === 'rivopharm international') return false;
+  return true;
+}
+
 function buildJobFromParsed(parsed) {
   const title = parsed.title;
+  if (!isRealJobTitle(title)) return null;
   const slug = slugify(title, 'rivopharm-sa');
   const descEn = parsed.descriptionText || `${title} position at Rivopharm SA in Manno, Canton Ticino, Switzerland.`;
   const descIt = `Posizione aperta presso Rivopharm SA a Manno, Cantone Ticino.\nRuolo: ${title}.\n\nRivopharm SA è un'azienda farmaceutica svizzera con sede a Manno, specializzata in farmaci generici.`;
@@ -360,7 +377,11 @@ async function main() {
   const html = await fetchCareersPage();
   if (!html) {
     console.log('\n⚠️ Could not fetch Rivopharm careers page.');
-    console.log('   Keeping existing jobs — no changes.');
+    console.log('   Writing empty slice to clear stale data (career page unreachable).');
+    const _dur = getCrawlerElapsedMs();
+    writeJobsCrawlerSlice(COMPANY_KEY, []);
+    writeSummaryCrawlerSlice({ key: COMPANY_KEY, label: 'Rivopharm SA', generatedAt: new Date().toISOString(), total: 0, newCount: 0, updatedCount: 0, removedCount: 0, unchangedCount: 0, durationMs: _dur, avgDurationMs: _dur, durationHistory: [_dur], newJobs: [], updatedJobs: [], removedJobs: [], unchangedJobs: [] });
+    await assembleJobsDataset();
     logStats(beforeSnapshot);
     return;
   }
@@ -368,11 +389,15 @@ async function main() {
   // Phase 2: Parse jobs
   const parsed = parseRivopharmJobs(html);
   console.log(`  📋 Jobs parsed from HTML: ${parsed.length}`);
-  const discoveredJobs = parsed.map(buildJobFromParsed);
+  const discoveredJobs = parsed.map(buildJobFromParsed).filter(Boolean);
 
   if (discoveredJobs.length === 0) {
     console.log('\n⚠️ No Rivopharm jobs discovered from careers page.');
-    console.log('   The page may have no current openings or changed structure.');
+    console.log('   Writing empty slice to clear stale data.');
+    const _dur = getCrawlerElapsedMs();
+    writeJobsCrawlerSlice(COMPANY_KEY, []);
+    writeSummaryCrawlerSlice({ key: COMPANY_KEY, label: 'Rivopharm SA', generatedAt: new Date().toISOString(), total: 0, newCount: 0, updatedCount: 0, removedCount: 0, unchangedCount: 0, durationMs: _dur, avgDurationMs: _dur, durationHistory: [_dur], newJobs: [], updatedJobs: [], removedJobs: [], unchangedJobs: [] });
+    await assembleJobsDataset();
     logStats(beforeSnapshot);
     return;
   }

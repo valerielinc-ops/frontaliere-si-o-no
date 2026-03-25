@@ -170,7 +170,7 @@ function mergeJobs(discoveredJobs) {
     const key = String(job.url || '').toLowerCase().replace(/\/+$/, '');
     const existing = existingByUrl.get(key);
     if (existing) {
-      Object.assign(existing, { title: job.title, company: job.company, companyKey: job.companyKey, location: job.location, canton: job.canton, country: job.country, category: job.category, description: job.description, postedDate: job.postedDate || existing.postedDate, source: job.source });
+      Object.assign(existing, { title: job.title, company: job.company, companyKey: job.companyKey, location: job.location, canton: job.canton, country: job.country, category: job.category, description: job.description, postedDate: job.postedDate || existing.postedDate, source: job.source, postalCode: job.postalCode || existing.postalCode, streetAddress: job.streetAddress || existing.streetAddress, addressLocality: job.addressLocality || existing.addressLocality, addressRegion: job.addressRegion || existing.addressRegion, addressCountry: job.addressCountry || existing.addressCountry, employmentType: job.employmentType || existing.employmentType });
       if (!existing.slugByLocale || Object.keys(existing.slugByLocale).length === 0) existing.slugByLocale = job.slugByLocale;
       if (!existing.titleByLocale || Object.keys(existing.titleByLocale).length === 0) existing.titleByLocale = job.titleByLocale;
       updated++;
@@ -243,7 +243,13 @@ async function main() {
   }
 
   const discoveredJobs = await fetchJobs();
-  if (discoveredJobs.length === 0) { console.log('ℹ️  No job listings found — skipping crawl.'); return; }
+  if (discoveredJobs.length === 0) {
+    console.log('ℹ️  No job listings found — writing empty slice to clear stale data.');
+    writeJobsCrawlerSlice(COMPANY_KEY, []);
+    writeSummaryCrawlerSlice({ key: COMPANY_KEY, label: COMPANY_NAME, generatedAt: new Date().toISOString(), total: 0, newCount: 0, updatedCount: 0, removedCount: 0, unchangedCount: 0, durationMs: getCrawlerElapsedMs(), avgDurationMs: getCrawlerElapsedMs(), durationHistory: [getCrawlerElapsedMs()], newJobs: [], updatedJobs: [], removedJobs: [], unchangedJobs: [] });
+    await assembleJobsDataset();
+    return;
+  }
 
   const seedUrls = discoveredJobs.map((j) => j.url);
   mergeJobs(discoveredJobs);

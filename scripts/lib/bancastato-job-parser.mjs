@@ -130,7 +130,7 @@ function isJobTitle(title = '') {
   if (!title || title.length < 5) return false;
   const t = title.toLowerCase();
 
-  // Reject product/service names
+  // Reject product/service names and non-job page titles
   const rejectPatterns = [
     /mastercard/i,
     /prepaid/i,
@@ -149,6 +149,18 @@ function isJobTitle(title = '') {
     /disclaimer/i,
     /cookie/i,
     /privacy/i,
+    /certificat/i,
+    /prospett/i,
+    /^come\s+contattare/i,
+    /^esplorare\s+le/i,
+    /rapporto\s+(annuale|diretto)/i,
+    /supporto\s+dello/i,
+    /private\s+banking/i,
+    /^prodotti\s+di/i,
+    /fondi\s+di\s+investimento/i,
+    /panoramica/i,
+    /^le\s+nostre\s+guide/i,
+    /^tutti\s+i\s+prospetti/i,
   ];
   for (const re of rejectPatterns) {
     if (re.test(t)) return false;
