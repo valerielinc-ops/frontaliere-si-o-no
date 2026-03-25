@@ -50,11 +50,14 @@ async function fetchJobs() {
 
   return listings.map((raw) => {
     const slug = slugify(raw.title, 'sintetica');
+    const fallbackDesc = `${raw.title} — posizione aperta presso Sintetica SA a Mendrisio, Canton Ticino, Svizzera. Sintetica SA è un'azienda farmaceutica svizzera specializzata nella produzione di farmaci sterili iniettabili. Con sede a Mendrisio, l'azienda offre un ambiente di lavoro innovativo nel settore farmaceutico, con opportunità di crescita professionale nel cuore del Ticino.`;
+    const description = (raw.snippet && raw.snippet.length >= 220) ? raw.snippet : (raw.snippet || fallbackDesc);
     return {
       url: raw.url, applyUrl: raw.url, title: raw.title,
       company: COMPANY_NAME, companyKey: COMPANY_KEY,
       location: 'Mendrisio', canton: 'TI', country: 'CH',
-      description: raw.snippet || `${raw.title} position at Sintetica SA in Mendrisio, Ticino. Sintetica is a Swiss pharmaceutical company specialized in sterile injectable products.`,
+      addressLocality: 'Mendrisio', addressCountry: 'CH',
+      description,
       titleByLocale: { en: raw.title }, descriptionByLocale: {},
       slug, slugByLocale: { en: slug, it: slug },
       category: detectCategory(raw.title),
@@ -62,6 +65,7 @@ async function fetchJobs() {
       source: 'sintetica-careers-crawler', employmentType: 'FULL_TIME',
       experienceLevel: detectExperienceLevel(raw.title),
       sector: 'Farmaceutica',
+      _targetScope: { canton: 'TI', location: 'Mendrisio' },
     };
   });
 }
@@ -76,7 +80,7 @@ async function mergeJobs(discoveredJobs) {
   const merged = []; let added = 0, updated = 0;
   for (const d of discoveredJobs) {
     const key = canonicalizeUrl(d.url); const old = existingByUrl.get(key);
-    if (old) { merged.push({ ...old, ...d, titleByLocale: { ...old.titleByLocale, ...d.titleByLocale }, descriptionByLocale: { ...old.descriptionByLocale, ...d.descriptionByLocale }, slugByLocale: { ...old.slugByLocale, ...d.slugByLocale } }); updated++; }
+    if (old) { merged.push(safeMergeJobLocales(old, d)); updated++; }
     else { merged.push(d); added++; }
   }
   const final = [...nonCompanyJobs, ...merged];

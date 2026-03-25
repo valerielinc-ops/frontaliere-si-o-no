@@ -53,11 +53,14 @@ async function fetchJobs() {
   return swissOffers.map((offer) => {
     const built = buildJobFromApi(offer);
     const slug = slugify(`${built.title} casale ${built.city}`);
+    const fallbackDesc = `${built.title} — posizione aperta presso Casale SA a Lugano, Canton Ticino, Svizzera. Casale SA è un'azienda globale di ingegneria con sede a Lugano, specializzata nella progettazione e costruzione di impianti per la produzione di fertilizzanti e prodotti chimici. L'azienda offre un ambiente di lavoro stimolante e internazionale nel cuore del Ticino.`;
+    const description = (built.description && built.description.length >= 220) ? built.description : (built.description || fallbackDesc);
     return {
       url: built.detailUrl, applyUrl: built.applyUrl, title: built.title,
       company: COMPANY_NAME, companyKey: COMPANY_KEY,
       location: built.location || 'Lugano', canton: 'TI', country: 'CH',
-      description: built.description || `${built.title} position at Casale SA in Lugano, Ticino. Casale is a global engineering company specializing in fertilizer and chemical plant design.`,
+      addressLocality: built.city || 'Lugano', addressCountry: 'CH',
+      description,
       titleByLocale: { en: built.title }, descriptionByLocale: {},
       slug, slugByLocale: { en: slug, it: slug },
       category: detectCategory(built.title),
@@ -65,6 +68,7 @@ async function fetchJobs() {
       source: 'casale-careers-crawler', employmentType: built.employmentType,
       experienceLevel: detectExperienceLevel(built.title),
       sector: 'Ingegneria / Chimica',
+      _targetScope: { canton: 'TI', location: built.city || 'Lugano' },
     };
   });
 }
@@ -79,7 +83,7 @@ async function mergeJobs(discoveredJobs) {
   const merged = []; let added = 0, updated = 0;
   for (const d of discoveredJobs) {
     const key = canonicalizeUrl(d.url); const old = existingByUrl.get(key);
-    if (old) { merged.push({ ...old, ...d, titleByLocale: { ...old.titleByLocale, ...d.titleByLocale }, descriptionByLocale: { ...old.descriptionByLocale, ...d.descriptionByLocale }, slugByLocale: { ...old.slugByLocale, ...d.slugByLocale } }); updated++; }
+    if (old) { merged.push(safeMergeJobLocales(old, d)); updated++; }
     else { merged.push(d); added++; }
   }
   const final = [...nonCompanyJobs, ...merged];

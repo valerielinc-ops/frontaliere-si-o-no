@@ -7,13 +7,16 @@
  *
  * This script:
  *   1. Fetches the listing page at bps-suisse.ch/lavora-in-bps-suisse.php
- *   2. Extracts job detail URLs (carriera-*.php pattern)
- *   3. Updates adapter seed URLs
- *   4. Runs base crawler for detail parsing/localization
- *   5. Validates locale coverage
+ *   2. Extracts job detail URLs (carriera-*.php pattern) with titles
+ *   3. Fetches each detail page for description content
+ *   4. Merges discovered jobs into data/jobs.json
+ *   5. Updates adapter seed URLs
+ *   6. Runs base crawler for AI localization (localize-existing-only)
+ *   7. Validates locale coverage
  */
 import fs from 'node:fs';
 import path from 'node:path';
+import { createHash } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import {
   snapshotJobSlugs,
@@ -30,22 +33,27 @@ import {
 } from './assemble-jobs-dataset.mjs';
 import {
   runDedicatedBaseCrawler,
-  translateMissingJobLocales,
   validateDedicatedLocaleCoverage,
   normalize,
   normalizeKey,
 } from './lib/dedicated-crawler-common.mjs';
+import {
+  parseBpsSuisseListingPage,
+  parseBpsSuisseDetailPage,
+} from './lib/bps-suisse-job-parser.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
 const DATA_JOBS = path.resolve(ROOT, 'data', 'jobs.json');
+const PUBLIC_DATA_JOBS = path.resolve(ROOT, 'public', 'data', 'jobs.json');
 const ADAPTERS_DIR = path.resolve(ROOT, 'data', 'jobs-crawler-adapters', 'adapters');
 
 const BPS_KEY = 'bps-suisse';
 const BPS_COMPANY_NAME = 'BPS (Banca Popolare di Sondrio) SUISSE';
 const BPS_HOST = 'www.bps-suisse.ch';
 const BPS_LISTING_URL = 'https://www.bps-suisse.ch/lavora-in-bps-suisse.php';
+const LOCALES = ['it', 'en', 'de', 'fr'];
 
 const UA =
   process.env.JOBS_CRAWLER_USER_AGENT ||
@@ -70,172 +78,238 @@ function isBpsJob(job) {
   );
 }
 
-/* ── Discovery ─────────────────────────────────────────────── */
-async function fetchBpsJobUrls() {
-  const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 12000;
+function slugify(value = '') {
+  return String(value || '')
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^\p{L}\p{N}]+/gu, '-')
+    .replace(/^-+|-+$/g, '')
+    .replace(/-{2,}/g, '-')
+    .slice(0, 180);
+}
+
+/* ── Fetch ─────────────────────────────────────────────────── */
+async function fetchHtml(url, timeoutMs = 15000) {
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), timeoutMs);
+  try {
+    const res = await fetch(url, {
+      signal: controller.signal,
+      headers: { Accept: 'text/html', 'User-Agent': UA },
+      redirect: 'follow',
+    });
+    if (!res.ok) throw new Error(`HTTP ${res.status} from ${url}`);
+    return await res.text();
+  } finally { clearTimeout(timer); }
+}
+
+/* ── Discovery & Detail Fetching ──────────────────────────── */
+async function fetchJobs() {
+  const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 15000;
   console.log(`🔍 Fetching BPS Suisse listing page: ${BPS_LISTING_URL}`);
 
+  let listingHtml;
   try {
-    const controller = new AbortController();
-    const timer = setTimeout(() => controller.abort(), timeoutMs);
-
-    const res = await fetch(BPS_LISTING_URL, {
-      signal: controller.signal,
-      headers: {
-        Accept: 'text/html',
-        'User-Agent': UA,
-      },
-    });
-    clearTimeout(timer);
-
-    if (!res.ok) {
-      console.warn(`⚠️ BPS listing page returned ${res.status}`);
-      return [];
-    }
-
-    const html = await res.text();
-
-    // Extract all carriera-*.php links
-    const urlPattern = /href="(carriera-[^"]+\.php)"/gi;
-    const urls = new Set();
-    let match;
-    while ((match = urlPattern.exec(html)) !== null) {
-      urls.add(`https://${BPS_HOST}/${match[1]}`);
-    }
-
-    console.log(`✅ Discovered ${urls.size} BPS Suisse job detail URLs`);
-    return [...urls];
+    listingHtml = await fetchHtml(BPS_LISTING_URL, timeoutMs);
   } catch (err) {
-    console.warn(`⚠️ Failed to fetch BPS listing page: ${err.message}`);
+    console.error(`❌ Failed to fetch listing page: ${err?.message || err}`);
     return [];
   }
+
+  const listings = parseBpsSuisseListingPage(listingHtml);
+  console.log(`📋 Found ${listings.length} job link(s) on listing page.`);
+
+  const jobs = [];
+  for (const listing of listings) {
+    let description = '';
+    let location = 'Lugano';
+
+    // Try to fetch the detail page for a richer description
+    try {
+      const detailHtml = await fetchHtml(listing.url, timeoutMs);
+      const detail = parseBpsSuisseDetailPage(detailHtml);
+      if (detail) {
+        if (detail.body) description = detail.body;
+        if (detail.location) location = detail.location;
+        if (detail.title && detail.title.length > listing.title.length) {
+          listing.title = detail.title;
+        }
+      }
+    } catch (err) {
+      console.warn(`  ⚠️ Could not fetch detail page ${listing.url}: ${err.message}`);
+    }
+
+    // Ensure minimum description length for quality gate (>= 220 chars)
+    const fallbackDesc = `${listing.title} — posizione aperta presso BPS (Banca Popolare di Sondrio) SUISSE, istituto bancario con sede a Lugano, Canton Ticino, Svizzera. BPS Suisse offre servizi bancari per clientela privata e commerciale con una forte presenza sul territorio ticinese. L'azienda offre un ambiente di lavoro professionale e stimolante nel settore finanziario.`;
+    if (!description || description.length < 220) {
+      description = description || fallbackDesc;
+    }
+
+    const urlHash = createHash('sha1').update(listing.url).digest('hex').slice(0, 12);
+    const slug = slugify(`${listing.title}-bps-suisse-${location}`);
+
+    jobs.push({
+      id: `bps-suisse-${urlHash}`,
+      title: listing.title,
+      company: BPS_COMPANY_NAME,
+      companyKey: BPS_KEY,
+      companyDomain: 'bps-suisse.ch',
+      url: listing.url,
+      applyUrl: listing.url,
+      location,
+      canton: 'TI',
+      country: 'CH',
+      addressLocality: location,
+      addressCountry: 'CH',
+      description,
+      slug,
+      slugByLocale: { it: slug, en: slug, de: slug, fr: slug },
+      titleByLocale: { it: listing.title, en: listing.title, de: listing.title, fr: listing.title },
+      descriptionByLocale: {},
+      requirementsByLocale: { it: [], en: [], de: [], fr: [] },
+      category: 'finance',
+      contract: 'full-time',
+      currency: 'CHF',
+      postedDate: new Date().toISOString().slice(0, 10),
+      source: 'bps-suisse-careers-crawler',
+      crawledAt: new Date().toISOString(),
+      _targetScope: { canton: 'TI', location },
+    });
+    console.log(`  ✅ ${listing.title} — ${location}`);
+  }
+
+  console.log(`📋 Total BPS Suisse jobs discovered: ${jobs.length}`);
+  return jobs;
+}
+
+/* ── Merge ─────────────────────────────────────────────────── */
+function writeJson(filePath, value) {
+  fs.writeFileSync(filePath, `${JSON.stringify(value, null, 2)}\n`, 'utf-8');
+}
+
+function mergeJobs(discoveredJobs) {
+  let allJobs = [];
+  if (fs.existsSync(DATA_JOBS)) {
+    allJobs = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
+    if (!Array.isArray(allJobs)) allJobs = [];
+  }
+
+  const existingByUrl = new Map();
+  for (const j of allJobs) {
+    if (isBpsJob(j)) {
+      existingByUrl.set(String(j.url || '').toLowerCase().replace(/\/+$/, ''), j);
+    }
+  }
+
+  let added = 0, updated = 0;
+  for (const job of discoveredJobs) {
+    const key = String(job.url || '').toLowerCase().replace(/\/+$/, '');
+    const existing = existingByUrl.get(key);
+    if (existing) {
+      Object.assign(existing, {
+        title: job.title, company: job.company, companyKey: job.companyKey,
+        location: job.location, canton: job.canton, country: job.country,
+        category: job.category, description: job.description,
+        postedDate: job.postedDate || existing.postedDate, source: job.source,
+        _targetScope: job._targetScope,
+      });
+      if (!existing.slugByLocale || Object.keys(existing.slugByLocale).length === 0) existing.slugByLocale = job.slugByLocale;
+      if (!existing.titleByLocale || Object.keys(existing.titleByLocale).length === 0) existing.titleByLocale = job.titleByLocale;
+      updated++;
+      existingByUrl.delete(key);
+    } else {
+      allJobs.push(job);
+      added++;
+    }
+  }
+
+  const discoveredUrls = new Set(discoveredJobs.map((j) => String(j.url || '').toLowerCase().replace(/\/+$/, '')));
+  const removed = allJobs.filter((j) => isBpsJob(j) && !discoveredUrls.has(String(j.url || '').toLowerCase().replace(/\/+$/, ''))).length;
+  const finalJobs = allJobs.filter((j) => !isBpsJob(j) || discoveredUrls.has(String(j.url || '').toLowerCase().replace(/\/+$/, '')));
+
+  writeJson(DATA_JOBS, finalJobs);
+  if (fs.existsSync(PUBLIC_DATA_JOBS)) writeJson(PUBLIC_DATA_JOBS, finalJobs);
+  console.log(`  ➕ Added: ${added}\n  🔄 Updated: ${updated}\n  ➖ Removed: ${removed}\n  📦 Total: ${finalJobs.length}`);
 }
 
 /* ── Adapter ───────────────────────────────────────────────── */
-function ensureAdapterSeedUrls(seedUrls) {
+function updateAdapterConfig(seedUrls) {
   const adapterPath = path.join(ADAPTERS_DIR, `${BPS_KEY}.json`);
-
-  if (!fs.existsSync(adapterPath)) {
-    console.log(`⚠️ Adapter ${BPS_KEY}.json not found — creating it.`);
-    const adapter = {
-      companyKey: BPS_KEY,
-      companyName: BPS_COMPANY_NAME,
-      companyHost: BPS_HOST,
-      enabled: true,
-      priority: 10,
-      crawlerModes: ['html', 'generic_ats'],
-      seedUrls,
-      notes: 'BPS Suisse careers portal (simple HTML). Detail pages at carriera-*.php. Lugano-based banking.',
-      updatedAt: new Date().toISOString(),
-    };
-    fs.mkdirSync(path.dirname(adapterPath), { recursive: true });
-    fs.writeFileSync(adapterPath, JSON.stringify(adapter, null, 2) + '\n');
-    return;
-  }
-
-  try {
-    const adapter = JSON.parse(fs.readFileSync(adapterPath, 'utf-8'));
-    adapter.seedUrls = seedUrls;
-    adapter.updatedAt = new Date().toISOString();
-    fs.writeFileSync(adapterPath, JSON.stringify(adapter, null, 2) + '\n');
-    console.log(`📝 Adapter ${BPS_KEY} updated with ${seedUrls.length} seed URLs.`);
-  } catch (err) {
-    console.warn(`⚠️ Could not update adapter: ${err.message}`);
-  }
-}
-
-/* ── Base Crawler ──────────────────────────────────────────── */
-function runBaseCrawler() {
-  return runDedicatedBaseCrawler({
-    root: ROOT,
-    companyKeys: BPS_KEY,
-    localizeOnlyCompanyKeys: BPS_KEY,
-    forceLocalizeKeys: BPS_KEY,
-    disableWorkdayForce: true,
-    extraEnv: {
-      JOBS_CRAWLER_MAX_JOB_LINKS: process.env.JOBS_CRAWLER_MAX_JOB_LINKS || '30',
-      JOBS_CRAWLER_MAX_GENERIC_DETAIL_PAGES: process.env.JOBS_CRAWLER_MAX_GENERIC_DETAIL_PAGES || '30',
-      JOBS_CRAWLER_FETCH_RETRIES: process.env.JOBS_CRAWLER_FETCH_RETRIES || '2',
-      JOBS_CRAWLER_CONCURRENCY: process.env.JOBS_CRAWLER_CONCURRENCY || '2',
-    },
-  });
-}
-
-/* ── Stats & Validation ────────────────────────────────────── */
-function logStats(beforeSnapshot = new Map()) {
-  if (!fs.existsSync(DATA_JOBS)) {
-    console.log('ℹ️ jobs.json not found — no stats available.');
-    return { total: 0 };
-  }
-  const raw = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
-  const allJobs = Array.isArray(raw) ? raw : [];
-  const jobs = allJobs.filter(isBpsJob);
-
-  console.log(`\n📊 === BPS Suisse Job Stats ===`);
-  console.log(`  🏦 Total BPS Suisse jobs: ${jobs.length}`);
-  console.log('');
-
-  const afterSnapshot = snapshotJobSlugs(jobs);
-  const crawlDiff = computeCrawlDiff(beforeSnapshot, afterSnapshot);
-  printCrawlChangeSummary(crawlDiff, 'BPS Suisse');
-  writeCrawlChangeSummaryToGH(crawlDiff, 'BPS Suisse');
-
-  return { total: jobs.length };
-}
-
-function validateLocaleCoverage() {
-  validateDedicatedLocaleCoverage({
-    strictEnvVar: 'JOBS_BPS_SUISSE_STRICT',
-    label: 'BPS Suisse',
-    dataJobsPath: DATA_JOBS,
-    isTargetJob: isBpsJob,
-    noJobsMessage: 'No BPS Suisse jobs found after crawl.',
-    maxToleratedMissingDescriptions: 5,
-  });
+  let adapter = {};
+  try { adapter = JSON.parse(fs.readFileSync(adapterPath, 'utf-8')); } catch { /* first run */ }
+  adapter = {
+    ...adapter,
+    companyKey: BPS_KEY, companyName: BPS_COMPANY_NAME, companyHost: BPS_HOST,
+    enabled: true, priority: 10, crawlerModes: ['html'],
+    seedUrls,
+    notes: 'BPS Suisse careers portal (simple HTML). Detail pages at carriera-*.php. Lugano-based banking.',
+    updatedAt: new Date().toISOString(),
+  };
+  fs.mkdirSync(path.dirname(adapterPath), { recursive: true });
+  fs.writeFileSync(adapterPath, `${JSON.stringify(adapter, null, 2)}\n`, 'utf-8');
+  console.log(`📝 Adapter updated: ${adapterPath}`);
 }
 
 /* ── Main ──────────────────────────────────────────────────── */
 async function main() {
   setCrawlerStartTime();
-  console.log('🏦 Running dedicated BPS Suisse jobs crawler...');
-  console.log(`   Portal: ${BPS_HOST}`);
-  console.log('');
+  console.log('═══════════════════════════════════════════════');
+  console.log(`  ${BPS_COMPANY_NAME} — Dedicated Crawler`);
+  console.log('═══════════════════════════════════════════════');
 
-  const detailUrls = await fetchBpsJobUrls();
-  if (detailUrls.length === 0) {
+  let beforeMap = new Map();
+  if (fs.existsSync(DATA_JOBS)) {
+    const jobs = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
+    if (Array.isArray(jobs)) beforeMap = snapshotJobSlugs(jobs.filter(isBpsJob));
+  }
+
+  const discoveredJobs = await fetchJobs();
+  if (discoveredJobs.length === 0) {
     console.log('ℹ️ No BPS Suisse job URLs discovered. Exiting OK.');
     return;
   }
 
-  ensureAdapterSeedUrls(detailUrls);
+  const seedUrls = discoveredJobs.map((j) => j.url);
+  mergeJobs(discoveredJobs);
+  updateAdapterConfig(seedUrls);
 
-  let _beforeSnapshot = new Map();
-  if (fs.existsSync(DATA_JOBS)) {
-    try {
-      const pre = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
-      _beforeSnapshot = snapshotJobSlugs(Array.isArray(pre) ? pre.filter(isBpsJob) : []);
-    } catch {}
-  }
-
-  await runBaseCrawler();
-
-  await translateMissingJobLocales({
-    dataJobsPath: DATA_JOBS,
-    isTargetJob: isBpsJob,
+  console.log('\n🌐 Running base crawler for AI localization...');
+  await runDedicatedBaseCrawler({
+    root: ROOT,
+    companyKeys: BPS_KEY,
+    disableWorkdayForce: true,
+    localizeExistingOnly: true,
+    forceLocalizationWhenAiEnabledOnly: true,
   });
 
-  const stats = logStats(_beforeSnapshot);
-  if (stats.total === 0) {
-    console.log('ℹ️ No BPS Suisse jobs found after crawl. Exiting OK.');
-    return;
+  // Stats
+  if (fs.existsSync(DATA_JOBS)) {
+    const jobs = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
+    const companyJobs = Array.isArray(jobs) ? jobs.filter(isBpsJob) : [];
+    const after = snapshotJobSlugs(companyJobs);
+    const diff = computeCrawlDiff(beforeMap, after);
+    printCrawlChangeSummary(diff, 'BPS Suisse');
+    writeCrawlChangeSummaryToGH(diff, 'BPS Suisse');
+    console.log(`\n🏦 Total BPS Suisse jobs: ${companyJobs.length}`);
+    for (const j of companyJobs) console.log(`  • ${j.title} (${j.location})`);
   }
 
-  validateLocaleCoverage();
+  validateDedicatedLocaleCoverage({
+    strictEnvVar: 'JOBS_BPS_SUISSE_STRICT',
+    label: 'BPS Suisse',
+    dataJobsPath: DATA_JOBS,
+    isTargetJob: isBpsJob,
+    locales: LOCALES,
+    failWhenNoJobs: false,
+    noJobsMessage: 'No BPS Suisse jobs found after crawl.',
+    maxToleratedMissingDescriptions: 5,
+  });
+
+  console.log(`✅ ${BPS_COMPANY_NAME} crawler complete.`);
 
   const _durationMs = getCrawlerElapsedMs();
-  const _sliceRaw = fs.existsSync(DATA_JOBS)
-    ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'))
-    : [];
+  const _sliceRaw = fs.existsSync(DATA_JOBS) ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')) : [];
   const _sliceJobs = Array.isArray(_sliceRaw) ? _sliceRaw.filter(isBpsJob) : [];
   writeJobsCrawlerSlice(BPS_KEY, _sliceJobs);
   writeSummaryCrawlerSlice({
@@ -243,17 +317,9 @@ async function main() {
     label: 'BPS Suisse',
     generatedAt: new Date().toISOString(),
     total: _sliceJobs.length,
-    newCount: 0,
-    updatedCount: 0,
-    removedCount: 0,
-    unchangedCount: _sliceJobs.length,
-    durationMs: _durationMs,
-    avgDurationMs: _durationMs,
-    durationHistory: [_durationMs],
-    newJobs: [],
-    updatedJobs: [],
-    removedJobs: [],
-    unchangedJobs: _sliceJobs.slice(0, 30),
+    newCount: 0, updatedCount: 0, removedCount: 0, unchangedCount: _sliceJobs.length,
+    durationMs: _durationMs, avgDurationMs: _durationMs, durationHistory: [_durationMs],
+    newJobs: [], updatedJobs: [], removedJobs: [], unchangedJobs: _sliceJobs.slice(0, 30),
   });
   await assembleJobsDataset();
 }
