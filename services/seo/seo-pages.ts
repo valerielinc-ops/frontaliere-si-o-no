@@ -3094,7 +3094,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
         "@context": "https://schema.org",
         "@type": "ItemList",
         "name": "Articoli Frontaliere",
-        "numberOfItems": 585,
+        "numberOfItems": 586,
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
           { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -3677,7 +3677,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 582, "name": "Aggregazione Basso Mendrisiotto: Rizza critica ...", "url": `${BASE_URL}/articoli-frontaliere/aggregazione-basso-mendrisiotto-rizza-chiasso-autocritica` },
           { "@type": "ListItem", "position": 583, "name": "Carburanti, prezzo di benzina e diesel in rialz...", "url": `${BASE_URL}/articoli-frontaliere/carburanti-prezzo-rialzo-ticino` },
           { "@type": "ListItem", "position": 584, "name": "Guida Michelin Ticino 2026: i 7 luoghi più bell...", "url": `${BASE_URL}/articoli-frontaliere/guida-michelin-ticino` },
-          { "@type": "ListItem", "position": 585, "name": "Colpo di stiletto / \"Eurospin\" di Luino, occhio...", "url": `${BASE_URL}/articoli-frontaliere/eurospin-luino-occhio-al-cambio` }
+          { "@type": "ListItem", "position": 585, "name": "Colpo di stiletto / \"Eurospin\" di Luino, occhio...", "url": `${BASE_URL}/articoli-frontaliere/eurospin-luino-occhio-al-cambio` },
+          { "@type": "ListItem", "position": 586, "name": "Il territorio poroso tra Varese e la Svizzera: ...", "url": `${BASE_URL}/articoli-frontaliere/lavena-ponte-tresa-territorio-poroso` }
         ]
       }
     ]

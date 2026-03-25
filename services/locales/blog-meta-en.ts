@@ -1775,6 +1775,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.eurospin-luino-occhio-al-cambio.title': 'A Blow to the Economy / \'Eurospin\' of Luino, Watch Out for Exchange Rate... Burble',
     'blog.article.eurospin-luino-occhio-al-cambio.excerpt': 'Unstable exchange rates and financial markets in turmoil. The \'Eurospin\' of Luino, a new tool for managing exchange rate risks.',
     'blog.article.eurospin-luino-occhio-al-cambio.imageAlt': 'Panoramic view of Lugano, Switzerland, with a focus on the financial district and nearby lake.',
+    'blog.article.lavena-ponte-tresa-territorio-poroso.title': 'The Porous Border between Varese and Switzerland: A Frontier that Now Unites More Than Divides',
+    'blog.article.lavena-ponte-tresa-territorio-poroso.excerpt': 'A precise image capturing the essence of a place where the border has never truly been a wall, but rather a membrane through which people, goods, capitals, and cultures filter daily, in both directions',
+    'blog.article.lavena-ponte-tresa-territorio-poroso.imageAlt': 'An image of a border crossing between Lavena Ponte Tresa and the Canton Ticino',
 };
 
 export default blogMetaEn;

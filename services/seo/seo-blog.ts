@@ -10295,6 +10295,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-lavena-ponte-tresa-territorio-poroso': {
+    title: 'Il 3territorio poroso3 tra Varese e la Svizzera: un confine che ora | Frontaliere Ticino',
+    description: 'Il sindaco di Lavena Ponte Tresa, Massimo Mastromarino, descrive il territorio poroso come un luogo dove il confine non è mai stato davvero un muro, ma',
+    keywords: 'frontalieri, ticino, svizzera, italia, 3territorio, poroso, varese, confine',
+    ogTitle: 'Il territorio poroso tra Varese e la Svizzera: un confine che ora unisce più che dividere',
+    ogDescription: 'Il sindaco di Lavena Ponte Tresa, Massimo Mastromarino, descrive il territorio poroso come un luogo dove il confine non è mai stato davvero un muro, ma',
+    canonicalPath: '/articoli-frontaliere/lavena-ponte-tresa-territorio-poroso',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Il territorio poroso tra Varese e la Svizzera: un confine che ora unisce più che dividere",
+      "description": "Il sindaco di Lavena Ponte Tresa, Massimo Mastromarino, descrive il territorio poroso come un luogo dove il confine non è mai stato davvero un muro, ma",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/lavena-ponte-tresa-territorio-poroso.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Un'immagine di un valico tra Lavena Ponte Tresa e il Canton Ticino"
+      },
+      "datePublished": "2026-03-25T19:10:24+00:00",
+      "dateModified": "2026-03-25T19:10:24+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/lavena-ponte-tresa-territorio-poroso`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

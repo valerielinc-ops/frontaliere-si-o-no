@@ -1726,6 +1726,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-carburanti-prezzo-rialzo-ticino': { name: 'Prezzo carburanti', path: '/articoli-frontaliere/carburanti-prezzo-rialzo-ticino', parent: 'blog' },
     'blog-guida-michelin-ticino': { name: 'Guida Michelin Ticino', path: '/articoli-frontaliere/guida-michelin-ticino', parent: 'blog' },
     'blog-eurospin-luino-occhio-al-cambio': { name: 'Colpo di stiletto / "Eurospin" di Luino,', path: '/articoli-frontaliere/eurospin-luino-occhio-al-cambio', parent: 'blog' },
+    'blog-lavena-ponte-tresa-territorio-poroso': { name: 'territorio poroso', path: '/articoli-frontaliere/lavena-ponte-tresa-territorio-poroso', parent: 'blog' },
   };
 
   const info = sectionNames[section];

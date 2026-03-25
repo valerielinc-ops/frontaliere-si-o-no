@@ -1775,6 +1775,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.eurospin-luino-occhio-al-cambio.title': 'Colpo di stiletto / "Eurospin" di Luino, occhio al cambio… burbantino',
     'blog.article.eurospin-luino-occhio-al-cambio.excerpt': 'Tassi di cambio instabili e mercato finanziario in agitazione. Il "Eurospin" di Luino, un nuovo strumento per gestire i rischi del cambio.',
     'blog.article.eurospin-luino-occhio-al-cambio.imageAlt': 'Vista panoramica di Lugano, Svizzera, con un focus sul distretto finanziario e il lago vicino.',
+    'blog.article.lavena-ponte-tresa-territorio-poroso.title': 'Il 3territorio poroso3 tra Varese e la Svizzera: un confine che ora unisce più che dividere',
+    'blog.article.lavena-ponte-tresa-territorio-poroso.excerpt': 'Un\'immagine precisa che cattura l\'essenza di un luogo dove il confine non è mai stato davvero un muro, ma piuttosto una membrana attraverso cui persone, merci, capitali e culture filtrano ogni giorno, in entrambe le direzioni',
+    'blog.article.lavena-ponte-tresa-territorio-poroso.imageAlt': 'Un\'immagine di un valico tra Lavena Ponte Tresa e il Canton Ticino',
 };
 
 export default blogMetaIt;

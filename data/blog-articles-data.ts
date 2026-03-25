@@ -5333,4 +5333,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/eurospin-luino-occhio-al-cambio.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'lavena-ponte-tresa-territorio-poroso',
+    category: 'fiscale',
+    date: '2026-03-25T19:10:24.973Z',
+    image: '/images/blog/lavena-ponte-tresa-territorio-poroso.jpg',
+    hasCalculator: true,
+  },
 ];
