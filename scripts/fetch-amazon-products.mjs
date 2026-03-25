@@ -219,7 +219,7 @@ function buildStaticProducts() {
   return ASINS.map((asin) => ({
     asin,
     title: '',
-    imageUrl: `https://ws-eu.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=${asin}&Format=_SL160_&ID=AsinImage&MarketPlace=IT&ServiceVersion=20070822&WS=1&tag=${PARTNER_TAG}`,
+    imageUrl: `https://images-na.ssl-images-amazon.com/images/P/${asin}.01._SL160_.jpg`,
     price: '',
     priceAmount: 0,
     available: true,
