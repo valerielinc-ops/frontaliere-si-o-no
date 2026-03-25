@@ -64,7 +64,7 @@ async function fetchJobs() {
       slug, slugByLocale: { en: slug, it: slug },
       category: detectCategory(raw.title),
       datePosted: new Date().toISOString().split('T')[0],
-      source: 'interroll-careers-crawler', employmentType: inferEmploymentType(listing.title, detail.body),
+      source: 'interroll-careers-crawler', employmentType: inferEmploymentType(raw.title, raw.snippet || ''),
       experienceLevel: detectExperienceLevel(raw.title),
       sector: 'Industria / Logistica',
     };

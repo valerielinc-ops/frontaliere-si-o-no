@@ -75,7 +75,7 @@ async function fetchJobs() {
       slug, slugByLocale: { en: slug, it: slug },
       category: detectCategory(listing.title),
       datePosted: new Date().toISOString().split('T')[0],
-      source: 'helsinn-careers-crawler', employmentType: inferEmploymentType(listing.title, detail.body),
+      source: 'helsinn-careers-crawler', employmentType: inferEmploymentType(listing.title, listing.snippet || ''),
       experienceLevel: detectExperienceLevel(listing.title),
       sector: 'Farmaceutica / Biopharma',
     });
