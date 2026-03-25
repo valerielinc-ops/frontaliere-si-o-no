@@ -1278,6 +1278,19 @@ export default function BlogArticles({
               </p>
               {sidePartners.slice(0, 2).map((p, i) => <SideRailCard key={p.id} partner={p} idx={i} />)}
 
+              {/* AdSense — left rail (desktop xl only, conditional mount) */}
+              {isDesktopXl && (
+                <Suspense fallback={adEligible ? <div style={{ minHeight: AD_SLOTS.ARTICLE_RAIL_LEFT.placeholderMinHeight, contain: 'content' }} className="mt-3" /> : null}>
+                  <AdSenseBanner
+                    adSlot={AD_SLOTS.ARTICLE_RAIL_LEFT.slot}
+                    adFormat={AD_SLOTS.ARTICLE_RAIL_LEFT.format}
+                    label={t('adsense.label')}
+                    enabled={adEligible}
+                    className="mt-3"
+                  />
+                </Suspense>
+              )}
+
               <Suspense fallback={null}>
                 <CreatorProducts contextText={creatorContextText} className="mt-2" maxCards={2} />
               </Suspense>

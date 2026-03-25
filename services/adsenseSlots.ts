@@ -10,6 +10,13 @@
 export const AD_CLIENT = 'ca-pub-8628054934855353';
 
 export const AD_SLOTS = {
+  /** Blog: desktop left rail */
+  ARTICLE_RAIL_LEFT: {
+    slot: '2663155183',
+    format: 'auto',
+    fullWidthResponsive: true,
+    placeholderMinHeight: 280,
+  },
   /** Blog: desktop right rail */
   ARTICLE_RAIL_RIGHT: {
     slot: '9739778973',
