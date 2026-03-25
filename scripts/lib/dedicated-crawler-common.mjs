@@ -2513,6 +2513,18 @@ export function validateDedicatedLocaleCoverage({
       } catch { /* stats not available */ }
     }
 
+    // When SKIP_AI_TRANSLATION=1, ALL translation issues are expected — new jobs that
+    // missed cache will be translated by translate-pending.yml. Never block the crawler.
+    if (process.env.SKIP_AI_TRANSLATION === '1') {
+      const translationIssues = blockingIssues.filter((i) => TRANSLATION_ISSUES.has(i.reason));
+      const otherIssues = blockingIssues.filter((i) => !TRANSLATION_ISSUES.has(i.reason));
+      if (translationIssues.length > 0 && otherIssues.length === 0) {
+        console.warn(`⚠️  SKIP_AI_TRANSLATION=1 — ${translationIssues.length} translation issue(s) deferred to translate-pending workflow`);
+        softIssues.push(...translationIssues);
+        blockingIssues.length = 0;
+      }
+    }
+
     // Tolerate translation-related issues up to the base tolerance (FRO-317)
     // AI exhaustion no longer inflates tolerance — incomplete jobs are saved with
     // needsRetranslation flag and the deploy gate blocks until they're translated.
