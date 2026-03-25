@@ -1,0 +1,17 @@
+{
+  "companyKey": "denner",
+  "companyName": "Denner",
+  "companyHost": "jobs.migros.ch",
+  "enabled": true,
+  "priority": 10,
+  "crawlerModes": [
+    "jsonld",
+    "html",
+    "generic_ats"
+  ],
+  "seedUrls": [
+    "https://jobs.migros.ch/it/le-nostre-imprese/denner-sa"
+  ],
+  "notes": "Denner (Migros Group subsidiary) careers via jobs.migros.ch. Nuxt.js SSR with GraphQL/Typesense.",
+  "updatedAt": "2026-03-25T09:28:44.438Z"
+}
