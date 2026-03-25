@@ -1,0 +1,17 @@
+{
+  "enabledPlugins": {
+    "marketing-skills@marketingskills": true,
+    "superpowers@superpowers-dev": true,
+    "context7@claude-plugins-official": true,
+    "superpowers@claude-plugins-official": true,
+    "claude-mem@thedotmack": true
+  },
+  "extraKnownMarketplaces": {
+    "thedotmack": {
+      "source": {
+        "source": "git",
+        "url": "https://github.com/thedotmack/claude-mem.git"
+      }
+    }
+  }
+}
