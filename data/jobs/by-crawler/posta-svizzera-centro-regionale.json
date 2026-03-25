@@ -1,6 +1,6 @@
 {
   "crawlerKey": "posta-svizzera-centro-regionale",
-  "assembledAt": "2026-03-25T20:57:10.889Z",
+  "assembledAt": "2026-03-25T22:07:02.501Z",
   "jobs": [
     {
       "url": "https://job.post.ch/v2/job-vacancies/lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete/1fd4c0e6-d303-40dd-b365-6e59b3a1b2f7",
@@ -45,6 +45,7 @@
         "location": "Davos"
       },
       "crawledAt": "",
+      "needsRetranslation": true,
       "requirementsByLocale": {},
       "sourceLang": "de",
       "salaryMin": 46500,
@@ -109,6 +110,7 @@
         "location": "Cadenazzo"
       },
       "crawledAt": "",
+      "needsRetranslation": true,
       "requirementsByLocale": {},
       "sourceLang": "it",
       "salaryMin": 46500,
@@ -173,11 +175,9 @@
         "location": "Ilanz"
       },
       "crawledAt": "",
+      "needsRetranslation": true,
       "requirementsByLocale": {},
       "sourceLang": "de",
-      "previousSlugs": [
-        "lehre-als-detailhandelsfachmann-frau-efz-post"
-      ],
       "salaryMin": 46500,
       "salaryMax": 62500,
       "currency": "CHF",
@@ -240,11 +240,9 @@
         "location": "Trun"
       },
       "crawledAt": "",
+      "needsRetranslation": true,
       "requirementsByLocale": {},
       "sourceLang": "de",
-      "previousSlugs": [
-        "zusteller-in-briefe-und-pakete-60-90-trun-post"
-      ],
       "salaryMin": 58000,
       "salaryMax": 78000,
       "currency": "CHF",
