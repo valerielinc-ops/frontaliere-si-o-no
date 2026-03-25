@@ -14,13 +14,18 @@ import {
   ALDI_SUCCESSFACTORS_BASE,
 } from '@/scripts/lib/aldi-suisse-job-parser.mjs';
 
-// ─── Fixture: Listing page ───
+// --- Fixture: Homepage with /job/{id} links ---
 const LISTING_HTML = `
 <html>
 <body>
 <div class="topjobs">
-  <a href="/it/ricerca-posizione?area=ticino">
-    Area Manager - Ticino
+  <a href="/job/1007064001">
+    Area Manager - Genf / Lausanne
+    100%
+    Mostra
+  </a>
+  <a href="/job/1224938701">
+    Lernender Detailhandel (m/w/d)
     100%
     Mostra
   </a>
@@ -34,7 +39,7 @@ const LISTING_HTML = `
 </body>
 </html>`;
 
-// ─── Fixture: Detail page ───
+// --- Fixture: Detail page ---
 const DETAIL_HTML = `
 <html>
 <body>
@@ -64,14 +69,20 @@ const DETAIL_HTML = `
 </body>
 </html>`;
 
-// ═══════════════════════════════════════════════════════════════
+// ===================================================================
 // parseAldiListingPage
-// ═══════════════════════════════════════════════════════════════
+// ===================================================================
 
 describe('parseAldiListingPage', () => {
   it('extracts job URLs from listing page', () => {
     const results = parseAldiListingPage(LISTING_HTML);
-    expect(results.length).toBeGreaterThanOrEqual(1);
+    expect(results.length).toBeGreaterThanOrEqual(2);
+  });
+
+  it('extracts /job/{id} direct links', () => {
+    const results = parseAldiListingPage(LISTING_HTML);
+    const jobIdUrls = results.filter((r) => r.url.includes('/job/'));
+    expect(jobIdUrls.length).toBeGreaterThanOrEqual(2);
   });
 
   it('includes SuccessFactors URLs', () => {
@@ -92,17 +103,17 @@ describe('parseAldiListingPage', () => {
 
   it('deduplicates URLs', () => {
     const dupeHtml = `
-      <a href="https://career5.successfactors.eu/career?company=aldisuis&jobId=123">Job A - 100% - Mostra</a>
-      <a href="https://career5.successfactors.eu/career?company=aldisuis&jobId=123">Job A dup - 100% - Mostra</a>
+      <a href="/job/123">Job A - 100% - Mostra</a>
+      <a href="/job/123">Job A dup - 100% - Mostra</a>
     `;
     const results = parseAldiListingPage(dupeHtml);
     expect(results.length).toBe(1);
   });
 });
 
-// ═══════════════════════════════════════════════════════════════
+// ===================================================================
 // parseAldiDetailPage
-// ═══════════════════════════════════════════════════════════════
+// ===================================================================
 
 describe('parseAldiDetailPage', () => {
   it('extracts title', () => {
@@ -133,9 +144,9 @@ describe('parseAldiDetailPage', () => {
   });
 });
 
-// ═══════════════════════════════════════════════════════════════
+// ===================================================================
 // isAldiTicinoJob
-// ═══════════════════════════════════════════════════════════════
+// ===================================================================
 
 describe('isAldiTicinoJob', () => {
   it('returns true for Bellinzona', () => {
@@ -159,9 +170,9 @@ describe('isAldiTicinoJob', () => {
   });
 });
 
-// ═══════════════════════════════════════════════════════════════
+// ===================================================================
 // isAldiJob
-// ═══════════════════════════════════════════════════════════════
+// ===================================================================
 
 describe('isAldiJob', () => {
   it('matches by companyKey', () => {
@@ -173,7 +184,7 @@ describe('isAldiJob', () => {
   });
 
   it('matches by URL domain', () => {
-    expect(isAldiJob({ url: 'https://www.jobs.aldi.ch/it/job/123' })).toBe(true);
+    expect(isAldiJob({ url: 'https://www.jobs.aldi.ch/job/1007064001' })).toBe(true);
   });
 
   it('matches SuccessFactors URL', () => {
@@ -189,9 +200,9 @@ describe('isAldiJob', () => {
   });
 });
 
-// ═══════════════════════════════════════════════════════════════
+// ===================================================================
 // Constants
-// ═══════════════════════════════════════════════════════════════
+// ===================================================================
 
 describe('ALDI_SUCCESSFACTORS_BASE', () => {
   it('points to SuccessFactors with ALDI company', () => {

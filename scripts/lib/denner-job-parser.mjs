@@ -1,24 +1,25 @@
 /**
- * Denner — jobs.migros.ch/denner-sa job parser
+ * Denner -- jobs.migros.ch/denner-sa job parser
  *
  * Denner is a subsidiary of the Migros Group. Their jobs are listed on
  * the Migros Group jobs portal at jobs.migros.ch under the "Denner SA"
- * company filter. The portal is a Nuxt.js SSR application backed by
- * GraphQL/Typesense search.
+ * company filter. The portal is a Nuxt.js SSR application.
  *
- * Denner has numerous stores across Ticino, making their positions
- * highly relevant for Italian cross-border workers.
+ * Denner job detail URLs follow the pattern:
+ *   /it/le-nostre-imprese/job/denner-sa/{slug}/{uuid}
+ *   /de/unsere-unternehmen/job/denner-ag/{slug}/{uuid}
+ *   /fr/nos-entreprises/job/denner-sa/{slug}/{uuid}
  *
  * Exports:
- *   parseDennerListingPage(html)  — extract job links from listing page
- *   parseDennerDetailPage(html)   — extract job data from detail page
- *   isDennerTicinoJob(job)        — filter for Ticino positions
- *   isDennerJob(job)              — match Denner jobs in dataset
- *   DENNER_PORTAL_URL             — Migros Group portal URL for Denner
+ *   parseDennerListingPage(html)  -- extract job links from listing page
+ *   parseDennerDetailPage(html)   -- extract job data from detail page
+ *   isDennerTicinoJob(job)        -- filter for Ticino positions
+ *   isDennerJob(job)              -- match Denner jobs in dataset
+ *   DENNER_PORTAL_URL             -- Migros Group portal URL for Denner
  */
 
 /** Migros Group job portal URL for Denner */
-export const DENNER_PORTAL_URL = 'https://jobs.migros.ch/it/le-nostre-imprese/denner-sa';
+export const DENNER_PORTAL_URL = 'https://jobs.migros.ch/it/le-nostre-imprese/denner-sa/posti-di-lavoro-vacanti';
 
 /** Ticino locations where Denner operates */
 const TICINO_LOCATIONS = [
@@ -54,6 +55,13 @@ function stripHtml(html = '') {
  * Extract job links from the Denner/Migros listing page.
  * The Migros portal uses Nuxt.js with job cards linking to detail pages.
  *
+ * URL patterns on the Migros portal:
+ *   /it/le-nostre-imprese/job/denner-sa/{slug}/{uuid}
+ *   /de/unsere-unternehmen/job/denner-ag/{slug}/{uuid}
+ *   /fr/nos-entreprises/job/denner-sa/{slug}/{uuid}
+ *   /it/offerte-di-lavoro/{slug}  (legacy pattern)
+ *   /de/stellenangebote/{slug}    (legacy pattern)
+ *
  * @param {string} html - Raw HTML of the listing page
  * @returns {{ url: string, title: string, location: string }[]}
  */
@@ -62,10 +70,22 @@ export function parseDennerListingPage(html = '') {
 
   const results = [];
 
-  // Migros portal links pattern: /it/offerte-di-lavoro/{slug}
-  const linkPattern = /href="(\/it\/offerte-di-lavoro\/[^"]+)"[^>]*>([\s\S]*?)<\/a>/gi;
+  // Primary: Migros Nuxt detail page pattern
+  // /it/le-nostre-imprese/job/denner-*/slug/uuid
+  const nuxtPattern = /href="(\/(?:it|de|fr|en)\/(?:le-nostre-imprese|unsere-unternehmen|nos-entreprises|our-companies)\/job\/[^"]+)"/gi;
   let match;
-  while ((match = linkPattern.exec(html)) !== null) {
+  while ((match = nuxtPattern.exec(html)) !== null) {
+    const relUrl = match[1];
+    results.push({
+      url: `https://jobs.migros.ch${relUrl}`,
+      title: '',
+      location: '',
+    });
+  }
+
+  // Legacy: /it/offerte-di-lavoro/{slug} pattern
+  const itLegacy = /href="(\/it\/offerte-di-lavoro\/[^"]+)"[^>]*>([\s\S]*?)<\/a>/gi;
+  while ((match = itLegacy.exec(html)) !== null) {
     const relUrl = match[1];
     const rawTitle = normalizeSpace(stripHtml(match[2]));
     if (relUrl && rawTitle && rawTitle.length > 3) {
@@ -77,9 +97,9 @@ export function parseDennerListingPage(html = '') {
     }
   }
 
-  // Also try German URL pattern
-  const deLinkPattern = /href="(\/de\/stellenangebote\/[^"]+)"[^>]*>([\s\S]*?)<\/a>/gi;
-  while ((match = deLinkPattern.exec(html)) !== null) {
+  // Legacy: /de/stellenangebote/{slug} pattern
+  const deLegacy = /href="(\/de\/stellenangebote\/[^"]+)"[^>]*>([\s\S]*?)<\/a>/gi;
+  while ((match = deLegacy.exec(html)) !== null) {
     const relUrl = match[1];
     const rawTitle = normalizeSpace(stripHtml(match[2]));
     if (relUrl && rawTitle && rawTitle.length > 3) {

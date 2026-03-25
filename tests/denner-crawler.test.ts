@@ -14,16 +14,31 @@ import {
   DENNER_PORTAL_URL,
 } from '@/scripts/lib/denner-job-parser.mjs';
 
-// ─── Fixture: Migros portal listing page ───
+// --- Fixture: Migros Nuxt portal listing page (actual URL pattern) ---
 const LISTING_HTML = `
+<html>
+<body>
+<div class="job-list">
+  <a href="/it/le-nostre-imprese/job/denner-sa/gerente/bacaa68b-e4db-4290-9f1b-a94f01026d4d">
+    Gerente (80-100%) - 6710 Biasca
+  </a>
+  <a href="/de/unsere-unternehmen/job/denner-ag/verkauferin/7a9b5d12-9b4c-4639-a010-c7e080110106">
+    Verkauferin - Rubigen
+  </a>
+  <a href="/fr/nos-entreprises/job/denner-sa/vendeur-vendeuse/ba3bbe0e-985f-4e6e-a24c-da6c71c8e35b">
+    Vendeur / vendeuse - Lausanne
+  </a>
+</div>
+</body>
+</html>`;
+
+// --- Fixture: Legacy listing page (old URL pattern) ---
+const LEGACY_LISTING_HTML = `
 <html>
 <body>
 <div class="job-list">
   <a href="/it/offerte-di-lavoro/venditore-filiale-lugano-12345">
     Venditore/Venditrice Filiale Lugano
-  </a>
-  <a href="/it/offerte-di-lavoro/responsabile-filiale-bellinzona-12346">
-    Responsabile Filiale Bellinzona
   </a>
   <a href="/de/stellenangebote/filialleiter-chiasso-12347">
     Filialleiter/in Chiasso
@@ -32,7 +47,7 @@ const LISTING_HTML = `
 </body>
 </html>`;
 
-// ─── Fixture: Detail page ───
+// --- Fixture: Detail page ---
 const DETAIL_HTML = `
 <html>
 <head>
@@ -78,12 +93,12 @@ const DETAIL_HTML = `
 </body>
 </html>`;
 
-// ═══════════════════════════════════════════════════════════════
-// parseDennerListingPage
-// ═══════════════════════════════════════════════════════════════
+// ===================================================================
+// parseDennerListingPage (Nuxt portal pattern)
+// ===================================================================
 
 describe('parseDennerListingPage', () => {
-  it('extracts job URLs from listing page', () => {
+  it('extracts job URLs from Nuxt portal listing page', () => {
     const results = parseDennerListingPage(LISTING_HTML);
     expect(results.length).toBe(3);
   });
@@ -93,12 +108,20 @@ describe('parseDennerListingPage', () => {
     expect(results[0].url).toContain('jobs.migros.ch');
   });
 
-  it('handles both Italian and German URL patterns', () => {
+  it('handles Italian, German, and French URL patterns', () => {
     const results = parseDennerListingPage(LISTING_HTML);
     const itUrls = results.filter((r) => r.url.includes('/it/'));
     const deUrls = results.filter((r) => r.url.includes('/de/'));
-    expect(itUrls.length).toBe(2);
+    const frUrls = results.filter((r) => r.url.includes('/fr/'));
+    expect(itUrls.length).toBe(1);
     expect(deUrls.length).toBe(1);
+    expect(frUrls.length).toBe(1);
+  });
+
+  it('extracts legacy URL patterns', () => {
+    const results = parseDennerListingPage(LEGACY_LISTING_HTML);
+    expect(results.length).toBe(2);
+    expect(results[0].url).toContain('jobs.migros.ch');
   });
 
   it('returns empty array for empty input', () => {
@@ -108,17 +131,17 @@ describe('parseDennerListingPage', () => {
 
   it('deduplicates URLs', () => {
     const dupeHtml = `
-      <a href="/it/offerte-di-lavoro/test-123">Test</a>
-      <a href="/it/offerte-di-lavoro/test-123">Test Dup</a>
+      <a href="/it/le-nostre-imprese/job/denner-sa/gerente/abc123">Test</a>
+      <a href="/it/le-nostre-imprese/job/denner-sa/gerente/abc123">Test Dup</a>
     `;
     const results = parseDennerListingPage(dupeHtml);
     expect(results.length).toBe(1);
   });
 });
 
-// ═══════════════════════════════════════════════════════════════
+// ===================================================================
 // parseDennerDetailPage
-// ═══════════════════════════════════════════════════════════════
+// ===================================================================
 
 describe('parseDennerDetailPage', () => {
   it('extracts title', () => {
@@ -148,9 +171,9 @@ describe('parseDennerDetailPage', () => {
   });
 });
 
-// ═══════════════════════════════════════════════════════════════
+// ===================================================================
 // isDennerTicinoJob
-// ═══════════════════════════════════════════════════════════════
+// ===================================================================
 
 describe('isDennerTicinoJob', () => {
   it('returns true for Lugano', () => {
@@ -174,9 +197,9 @@ describe('isDennerTicinoJob', () => {
   });
 });
 
-// ═══════════════════════════════════════════════════════════════
+// ===================================================================
 // isDennerJob
-// ═══════════════════════════════════════════════════════════════
+// ===================================================================
 
 describe('isDennerJob', () => {
   it('matches by companyKey', () => {
@@ -188,7 +211,7 @@ describe('isDennerJob', () => {
   });
 
   it('matches by Migros portal URL with denner', () => {
-    expect(isDennerJob({ url: 'https://jobs.migros.ch/it/offerte-di-lavoro/denner-venditore' })).toBe(true);
+    expect(isDennerJob({ url: 'https://jobs.migros.ch/it/le-nostre-imprese/job/denner-sa/gerente/abc123' })).toBe(true);
   });
 
   it('does not match unrelated companies', () => {
@@ -200,9 +223,9 @@ describe('isDennerJob', () => {
   });
 });
 
-// ═══════════════════════════════════════════════════════════════
+// ===================================================================
 // Constants
-// ═══════════════════════════════════════════════════════════════
+// ===================================================================
 
 describe('DENNER_PORTAL_URL', () => {
   it('points to Migros Group portal', () => {

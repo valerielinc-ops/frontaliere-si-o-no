@@ -1,20 +1,28 @@
 /**
- * PKB Private Bank — careers portal parser
+ * PKB Private Bank -- careers portal parser
  *
  * Main page: https://www.pkb.ch/en/about-us/work-with-us/
- * Careers portal: https://careers.pkb.ch/jobs.php?source=&lan=en&language=en
+ * Careers portal: https://careers.pkb.ch/jobs.php
  *
- * The careers portal (careers.pkb.ch) uses JavaScript-based redirect/tracking.
- * Job listings may need to be extracted from the rendered HTML or from
- * a separate API endpoint.
+ * The careers portal (careers.pkb.ch) is a JavaScript SPA that does
+ * NOT return server-rendered HTML. Instead, it returns a JS tracking
+ * snippet that redirects. Job listings are loaded client-side only.
  *
- * This parser handles both the main PKB page (for links) and the
- * careers portal (for actual job listings).
+ * Strategy:
+ *   1. Fetch the main PKB "work with us" page for career-related links
+ *   2. Fetch the careers portal HTML and try multiple parsing strategies
+ *   3. If the portal returns only JS (no parseable jobs), create a
+ *      placeholder entry pointing to the careers portal URL so users
+ *      can browse positions directly
+ *
+ * PKB is headquartered in Lugano with all positions in Ticino.
  */
 
 const CAREERS_URL = 'https://www.pkb.ch/en/about-us/work-with-us/';
 const CAREERS_PORTAL = 'https://careers.pkb.ch/jobs.php?source=&lan=en&language=en';
+const CAREERS_PORTAL_IT = 'https://careers.pkb.ch/jobs.php?source=&lan=it&language=it';
 const CAREERS_BASE = 'https://careers.pkb.ch';
+const PKB_MAIN = 'https://www.pkb.ch';
 const UA = 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)';
 
 function normalizeSpace(value = '') {
@@ -53,15 +61,20 @@ export function slugify(value = '') {
 
 /**
  * Parse the PKB careers portal HTML for job listings.
- * The portal may use various HTML structures — we try multiple patterns.
+ * The portal may use various HTML structures -- we try multiple patterns.
  */
 export function parsePkbListingHtml(html) {
   if (!html || typeof html !== 'string') return [];
 
+  // Quick check: if the HTML is just a JS redirect snippet (< 500 chars,
+  // contains "document.referrer" or "window.location"), skip parsing
+  if (html.length < 1000 && /document\.referrer|window\.location/i.test(html)) {
+    return [];
+  }
+
   const jobs = [];
 
   // Strategy 1: Look for job links with typical patterns
-  // careers.pkb.ch/job-details.php?id=XXX or similar
   const linkRe = /<a\s+[^>]*href="([^"]*(?:job[_-]?details|position|vacancy|offer)[^"]*)"[^>]*>([\s\S]*?)<\/a>/gi;
   let match;
 
@@ -111,14 +124,13 @@ export function parsePkbListingHtml(html) {
     }
   }
 
-  // Strategy 3: Fallback — look for any links containing job-related keywords in the title text
+  // Strategy 3: Fallback -- look for any links containing job-related keywords
   if (jobs.length === 0) {
     const allLinksRe = /<a\s+[^>]*href="([^"]+)"[^>]*>([\s\S]*?)<\/a>/gi;
     while ((match = allLinksRe.exec(html)) !== null) {
       const href = match[1];
       const rawTitle = normalizeSpace(stripHtml(match[2]));
 
-      // Filter for job-like titles (must contain banking/finance keywords or typical role words)
       if (!rawTitle || rawTitle.length < 10) continue;
       if (!/(?:analyst|manager|officer|director|specialist|associate|advisor|consultant|compliance|risk|wealth|portfolio|banking|relationship|intern|stage|assistant|developer|engineer)/i.test(rawTitle)) continue;
 
@@ -147,29 +159,49 @@ export function parsePkbListingHtml(html) {
 
 /**
  * Fetch and parse the PKB careers portal.
+ * Tries both the English and Italian portal URLs, plus the main PKB
+ * "work with us" page for any embedded job links.
  */
 export async function fetchPkbJobs(timeoutMs = 15000) {
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), timeoutMs);
-  try {
-    const res = await fetch(CAREERS_PORTAL, {
-      signal: controller.signal,
-      headers: {
-        Accept: 'text/html',
-        'User-Agent': UA,
-      },
-      redirect: 'follow',
-    });
-    clearTimeout(timer);
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
-    const html = await res.text();
-    return parsePkbListingHtml(html);
-  } catch (err) {
-    console.warn(`\u26a0\ufe0f Failed to fetch PKB careers portal: ${err.message}`);
-    return [];
-  } finally {
-    clearTimeout(timer);
+  const allJobs = [];
+
+  // Try multiple portal URLs
+  const urlsToTry = [CAREERS_PORTAL, CAREERS_PORTAL_IT, CAREERS_URL];
+
+  for (const url of urlsToTry) {
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), timeoutMs);
+    try {
+      const res = await fetch(url, {
+        signal: controller.signal,
+        headers: {
+          Accept: 'text/html',
+          'User-Agent': UA,
+        },
+        redirect: 'follow',
+      });
+      clearTimeout(timer);
+      if (!res.ok) continue;
+      const html = await res.text();
+      const jobs = parsePkbListingHtml(html);
+      if (jobs.length > 0) {
+        allJobs.push(...jobs);
+        break; // Found jobs, no need to try other URLs
+      }
+    } catch (err) {
+      clearTimeout(timer);
+      console.warn(`\u26a0\ufe0f Failed to fetch ${url}: ${err.message}`);
+    }
   }
+
+  // Deduplicate
+  const seen = new Set();
+  return allJobs.filter((j) => {
+    const key = j.title.toLowerCase();
+    if (seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  });
 }
 
 /**

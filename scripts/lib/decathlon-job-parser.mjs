@@ -1,19 +1,22 @@
 /**
- * Decathlon Suisse — joinus.decathlon.ch job parser
+ * Decathlon Suisse -- joinus.decathlon.ch job parser
  *
- * Decathlon uses Digital Recruiters as their ATS. The careers page at
- * joinus.decathlon.ch/it_CH/annonces is a Nuxt.js SPA that loads jobs
- * from the Digital Recruiters API:
- *   https://api.digitalrecruiters.com/careers/v1/...
+ * Decathlon uses Digital Recruiters (Cegid HR) as their ATS. The careers
+ * page at joinus.decathlon.ch/it_CH/annonces is a Nuxt.js SPA backed by
+ * the Digital Recruiters API.
  *
- * This module provides parsing for HTML job listing/detail pages and
- * location filtering for Ticino-relevant positions.
+ * The page HTML includes an embedded Nuxt state object with:
+ *   - jobAds: array of job ad objects (may be empty)
+ *   - API base URLs for fetching more data
  *
- * Exports:
- *   parseDecathlonListingPage(html)  — extract job links from listing page
- *   parseDecathlonDetailPage(html)   — extract job data from detail page
- *   isDecathlonTicinoJob(job)        — filter for Ticino positions
- *   DECATHLON_API_BASE               — Digital Recruiters API base URL
+ * When jobAds is empty in the state, there are no open positions.
+ * When it contains entries, each has id, title, location, contract etc.
+ *
+ * This module provides:
+ *   parseDecathlonListingPage(html) -- extract job links from listing/state
+ *   parseDecathlonDetailPage(html)  -- extract job data from detail page
+ *   isDecathlonTicinoJob(job)       -- filter for Ticino positions
+ *   DECATHLON_API_BASE              -- Digital Recruiters API base URL
  */
 
 export const DECATHLON_API_BASE = 'https://api.digitalrecruiters.com';
@@ -47,8 +50,27 @@ function stripHtml(html = '') {
 }
 
 /**
+ * Try to extract Nuxt state data from the HTML.
+ * The page embeds state as: window.__NUXT__= or __NUXT_DATA__.
+ * The jobAds array lives inside this state.
+ */
+function extractNuxtJobAds(html) {
+  // Try to find jobAds JSON array in the embedded state
+  const jobAdsMatch = html.match(/"jobAds"\s*:\s*(\[[\s\S]*?\])\s*[,}]/);
+  if (jobAdsMatch) {
+    try {
+      return JSON.parse(jobAdsMatch[1]);
+    } catch { /* ignore parse errors */ }
+  }
+  return [];
+}
+
+/**
  * Extract job links from a Decathlon listing page HTML.
- * The page may contain rendered job cards with links to detail pages.
+ *
+ * Strategy 1: Parse embedded Nuxt state for jobAds array
+ * Strategy 2: Look for job card links in rendered HTML
+ * Strategy 3: Extract from annonce/annonces URL patterns
  *
  * @param {string} html - Raw HTML of the listing page
  * @returns {{ url: string, title: string, location: string }[]}
@@ -57,7 +79,24 @@ export function parseDecathlonListingPage(html = '') {
   if (!html) return [];
 
   const results = [];
-  // Look for job card links — Decathlon uses /it_CH/annonces/{id} pattern
+
+  // Strategy 1: Extract from Nuxt embedded state
+  const nuxtAds = extractNuxtJobAds(html);
+  for (const ad of nuxtAds) {
+    if (!ad) continue;
+    const id = ad.id || ad.slug || '';
+    const title = normalizeSpace(ad.title || ad.name || '');
+    const location = normalizeSpace(ad.city || ad.location || '');
+    if (id && title) {
+      results.push({
+        url: `https://joinus.decathlon.ch/it_CH/annonces/${id}`,
+        title,
+        location,
+      });
+    }
+  }
+
+  // Strategy 2: Look for /it_CH/annonces/{slug} links
   const linkPattern = /href="(\/it_CH\/annonces\/[^"]+)"[^>]*>([\s\S]*?)<\/a>/gi;
   let match;
   while ((match = linkPattern.exec(html)) !== null) {
@@ -72,7 +111,7 @@ export function parseDecathlonListingPage(html = '') {
     }
   }
 
-  // Also look for links to /annonce/ pattern (singular)
+  // Strategy 3: /annonce/ singular pattern
   const singularPattern = /href="(\/it_CH\/annonce\/[^"]+)"[^>]*>([\s\S]*?)<\/a>/gi;
   while ((match = singularPattern.exec(html)) !== null) {
     const relUrl = match[1];

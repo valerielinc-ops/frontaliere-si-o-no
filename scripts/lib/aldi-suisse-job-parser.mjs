@@ -1,24 +1,27 @@
 /**
- * ALDI Suisse — jobs.aldi.ch job parser
+ * ALDI Suisse -- jobs.aldi.ch job parser
  *
  * ALDI Suisse uses SAP SuccessFactors as their ATS
- * (career5.successfactors.eu/company=aldisuis). The main careers page
- * at jobs.aldi.ch shows featured positions and links to the full
- * SuccessFactors portal.
+ * (career5.successfactors.eu, company=HoferSELive). The careers page
+ * at jobs.aldi.ch renders job cards via JavaScript but also includes
+ * direct job detail URLs in the SSR HTML as /job/{id} paths.
  *
  * ALDI has stores across Ticino including locations in Lugano area,
  * Bellinzona, and other TI municipalities.
  *
  * Exports:
- *   parseAldiListingPage(html)     — extract job links from listing page
- *   parseAldiDetailPage(html)      — extract job data from detail page
- *   isAldiTicinoJob(job)           — filter for Ticino positions
- *   isAldiJob(job)                 — match ALDI jobs in dataset
- *   ALDI_SUCCESSFACTORS_BASE       — SuccessFactors base URL
+ *   parseAldiListingPage(html)     -- extract job links from listing page
+ *   parseAldiDetailPage(html)      -- extract job data from detail page
+ *   isAldiTicinoJob(job)           -- filter for Ticino positions
+ *   isAldiJob(job)                 -- match ALDI jobs in dataset
+ *   ALDI_SUCCESSFACTORS_BASE       -- SuccessFactors base URL
  */
 
 /** SAP SuccessFactors base URL for ALDI Suisse */
 export const ALDI_SUCCESSFACTORS_BASE = 'https://career5.successfactors.eu/career?company=aldisuis';
+
+/** ALDI Suisse job detail URL prefix */
+export const ALDI_JOB_BASE = 'https://www.jobs.aldi.ch';
 
 /** Ticino locations where ALDI operates */
 const TICINO_LOCATIONS = [
@@ -50,7 +53,10 @@ function stripHtml(html = '') {
 
 /**
  * Extract job links from the ALDI Suisse listing page.
- * The page shows featured positions as carousel cards.
+ *
+ * The homepage (jobs.aldi.ch) and the Italian version (/it) contain
+ * carousel cards linking directly to job detail pages via /job/{numericId}.
+ * It also has links to SuccessFactors for some positions.
  *
  * @param {string} html - Raw HTML of the listing page
  * @returns {{ url: string, title: string, location: string, percentage: string }[]}
@@ -60,27 +66,36 @@ export function parseAldiListingPage(html = '') {
 
   const results = [];
 
-  // ALDI uses carousel cards with job title + location
-  // Look for links that lead to job detail pages
-  const linkPattern = /href="([^"]*(?:career5\.successfactors|jobs\.aldi\.ch\/it\/[^"]*ricerca|jobs\.aldi\.ch\/[^"]*stelle)[^"]*)"/gi;
+  // Primary: /job/{numericId} pattern on jobs.aldi.ch
+  const jobIdPattern = /href="(\/job\/\d+)"/gi;
   let match;
-  while ((match = linkPattern.exec(html)) !== null) {
-    const url = match[1].startsWith('http') ? match[1] : `https://www.jobs.aldi.ch${match[1]}`;
+  while ((match = jobIdPattern.exec(html)) !== null) {
+    const url = `${ALDI_JOB_BASE}${match[1]}`;
     results.push({ url, title: '', location: '', percentage: '' });
   }
 
-  // Also look for direct job title + location patterns in the HTML
-  const jobCardPattern = /<a[^>]*href="([^"]+)"[^>]*>([\s\S]*?)<\/a>/gi;
+  // Also full URLs with /job/ pattern
+  const fullJobPattern = /href="(https?:\/\/[^"]*jobs\.aldi\.ch\/job\/\d+)"/gi;
+  while ((match = fullJobPattern.exec(html)) !== null) {
+    results.push({ url: match[1], title: '', location: '', percentage: '' });
+  }
+
+  // SuccessFactors direct links
+  const sfPattern = /href="(https?:\/\/career5\.successfactors[^"]+(?:aldisuis|HoferSELive)[^"]*)"/gi;
+  while ((match = sfPattern.exec(html)) !== null) {
+    results.push({ url: match[1], title: '', location: '', percentage: '' });
+  }
+
+  // Also look for links that look like job postings (have percentage or "Mostra")
+  const jobCardPattern = /href="([^"]+)"[^>]*>([\s\S]*?)<\/a>/gi;
   while ((match = jobCardPattern.exec(html)) !== null) {
     const href = match[1];
     const content = normalizeSpace(stripHtml(match[2]));
-    // Skip if it's a navigation link
     if (!content || content.length < 5) continue;
     if (/^(home|menu|login|kontakt|contatti)/i.test(content)) continue;
 
-    // Check if it looks like a job posting (has percentage or Mostra/Show)
     if (/\d+\s*%|mostra|show|vedi|anzeigen/i.test(content)) {
-      const url = href.startsWith('http') ? href : `https://www.jobs.aldi.ch${href}`;
+      const url = href.startsWith('http') ? href : `${ALDI_JOB_BASE}${href}`;
       results.push({ url, title: content, location: '', percentage: '' });
     }
   }

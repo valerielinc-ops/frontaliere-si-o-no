@@ -5,12 +5,20 @@
  * Denner is a subsidiary of Migros Group. Their jobs are listed on the
  * Migros Group portal at jobs.migros.ch under the Denner SA company filter.
  *
- * Denner has numerous stores across Ticino, making their positions
- * highly relevant for Italian cross-border workers.
+ * The Migros portal is a Nuxt.js SSR application — listing pages are
+ * server-rendered with real <a href="..."> links to detail pages.
+ *
+ * Listing URL:
+ *   https://jobs.migros.ch/it/le-nostre-imprese/denner-sa/posti-di-lavoro-vacanti?REGION=871
+ *
+ * Detail page URL pattern:
+ *   /it/le-nostre-imprese/job/denner-sa/{job-slug}/{uuid}
+ *   /de/unsere-unternehmen/job/denner-ag/{job-slug}/{uuid}
+ *   /fr/nos-entreprises/job/denner-sa/{job-slug}/{uuid}
  *
  * This script:
- *   1. Fetches the Migros Group portal page filtered for Denner
- *   2. Extracts job detail URLs
+ *   1. Fetches the Migros listing pages for Denner (all regions + Ticino)
+ *   2. Extracts job detail URLs from SSR HTML
  *   3. Updates adapter seed URLs
  *   4. Runs base crawler for detail parsing/localization
  *   5. Validates locale coverage
@@ -48,11 +56,29 @@ const ADAPTERS_DIR = path.resolve(ROOT, 'data', 'jobs-crawler-adapters', 'adapte
 const DENNER_KEY = 'denner';
 const DENNER_COMPANY_NAME = 'Denner';
 const DENNER_HOST = 'jobs.migros.ch';
-const DENNER_LISTING_URL = 'https://jobs.migros.ch/it/le-nostre-imprese/denner-sa';
+const DENNER_LISTING_BASE = 'https://jobs.migros.ch/it/le-nostre-imprese/denner-sa/posti-di-lavoro-vacanti';
+
+/**
+ * Region IDs for the Migros portal:
+ *   871 = Svizzera meridionale (Southern Switzerland — includes Ticino)
+ *   868 = Grigioni
+ */
+const REGION_IDS = { 'Svizzera meridionale': '871', Grigioni: '868' };
 
 const UA =
   process.env.JOBS_CRAWLER_USER_AGENT ||
   'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)';
+
+/**
+ * Regex to match Denner job detail hrefs from Migros SSR HTML.
+ *
+ * Migros Nuxt renders detail links as:
+ *   /it/le-nostre-imprese/job/denner-sa/{slug}/{uuid}
+ *   /de/unsere-unternehmen/job/denner-ag/{slug}/{uuid}
+ *   /fr/nos-entreprises/job/denner-sa/{slug}/{uuid}
+ *   /en/our-companies/job/denner-sa/{slug}/{uuid}
+ */
+const JOB_DETAIL_HREF_RE = /href="(\/(?:it|de|fr|en)\/(?:le-nostre-imprese|unsere-unternehmen|nos-entreprises|our-companies)\/job\/[^"]+)"/gi;
 
 /* ── Matchers ──────────────────────────────────────────────── */
 function isDennerJob(job) {
@@ -73,44 +99,86 @@ function isDennerJob(job) {
 
 /* ── Discovery ─────────────────────────────────────────────── */
 async function fetchDennerJobUrls() {
+  const allUrls = new Set();
   const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 15000;
-  console.log(`🔍 Fetching Denner listing page: ${DENNER_LISTING_URL}`);
 
-  try {
-    const controller = new AbortController();
-    const timer = setTimeout(() => controller.abort(), timeoutMs);
+  // Fetch listing pages for Ticino regions + all-regions page
+  const pagesToFetch = [
+    ...Object.entries(REGION_IDS).map(([name, id]) => ({
+      name,
+      url: `${DENNER_LISTING_BASE}?REGION=${id}`,
+    })),
+    { name: 'All regions', url: DENNER_LISTING_BASE },
+  ];
 
-    const res = await fetch(DENNER_LISTING_URL, {
-      signal: controller.signal,
-      headers: {
-        Accept: 'text/html,application/xhtml+xml',
-        'User-Agent': UA,
-      },
-      redirect: 'follow',
-    });
-    clearTimeout(timer);
+  for (const { name, url: listUrl } of pagesToFetch) {
+    let page = 0;
+    let hasMore = true;
 
-    if (!res.ok) {
-      console.warn(`⚠️ Denner listing page returned ${res.status}`);
-      return [];
+    while (hasMore) {
+      const fetchUrl =
+        page === 0
+          ? listUrl
+          : `${listUrl}${listUrl.includes('?') ? '&' : '?'}page=${page}`;
+      console.log(`\ud83d\udd0d Fetching Denner ${name} jobs (page ${page}): ${fetchUrl}`);
+
+      try {
+        const controller = new AbortController();
+        const timer = setTimeout(() => controller.abort(), timeoutMs);
+
+        const res = await fetch(fetchUrl, {
+          signal: controller.signal,
+          headers: {
+            Accept: 'text/html,application/xhtml+xml',
+            'User-Agent': UA,
+          },
+          redirect: 'follow',
+        });
+        clearTimeout(timer);
+
+        if (!res.ok) {
+          console.warn(`\u26a0\ufe0f Denner listing returned ${res.status} for ${name} page ${page}`);
+          break;
+        }
+
+        const html = await res.text();
+        const pageUrls = new Set();
+
+        // Extract job detail URLs from SSR HTML
+        let match;
+        while ((match = JOB_DETAIL_HREF_RE.exec(html)) !== null) {
+          const relPath = match[1];
+          // Only include Denner company URLs (denner-sa or denner-ag or denner-partner)
+          if (!/denner/i.test(relPath)) continue;
+          const fullUrl = `https://${DENNER_HOST}${relPath}`;
+          if (!allUrls.has(fullUrl)) {
+            pageUrls.add(fullUrl);
+            allUrls.add(fullUrl);
+          }
+        }
+        JOB_DETAIL_HREF_RE.lastIndex = 0;
+
+        console.log(`  \ud83d\udce6 ${name} page ${page}: ${pageUrls.size} new URL(s)`);
+
+        if (pageUrls.size === 0) {
+          hasMore = false;
+        } else {
+          // Check for pagination
+          const nextExists =
+            html.includes(`page=${page + 1}`) ||
+            html.includes(`page%3D${page + 1}`);
+          hasMore = nextExists;
+          if (hasMore) page++;
+        }
+      } catch (err) {
+        console.warn(`\u26a0\ufe0f Denner listing fetch failed for ${name} page ${page}: ${err.message}`);
+        break;
+      }
     }
-
-    const html = await res.text();
-
-    // Extract job detail URLs from the Migros portal
-    const urls = new Set();
-    const linkPattern = /href="(\/(?:it|de|fr)\/(?:offerte-di-lavoro|stellenangebote|offres-emploi)\/[^"]+)"/gi;
-    let match;
-    while ((match = linkPattern.exec(html)) !== null) {
-      urls.add(`https://${DENNER_HOST}${match[1]}`);
-    }
-
-    console.log(`✅ Discovered ${urls.size} Denner job detail URLs`);
-    return [...urls];
-  } catch (err) {
-    console.warn(`⚠️ Failed to fetch Denner listing page: ${err.message}`);
-    return [];
   }
+
+  console.log(`\u2705 Total unique Denner detail URLs discovered: ${allUrls.size}`);
+  return [...allUrls];
 }
 
 /* ── Adapter ───────────────────────────────────────────────── */
@@ -118,16 +186,16 @@ function ensureAdapterSeedUrls(seedUrls) {
   const adapterPath = path.join(ADAPTERS_DIR, `${DENNER_KEY}.json`);
 
   if (!fs.existsSync(adapterPath)) {
-    console.log(`⚠️ Adapter ${DENNER_KEY}.json not found — creating it.`);
+    console.log(`\u26a0\ufe0f Adapter ${DENNER_KEY}.json not found \u2014 creating it.`);
     const adapter = {
       companyKey: DENNER_KEY,
       companyName: DENNER_COMPANY_NAME,
       companyHost: DENNER_HOST,
       enabled: true,
       priority: 10,
-      crawlerModes: ['jsonld', 'html', 'generic_ats'],
-      seedUrls: seedUrls.length > 0 ? seedUrls : [DENNER_LISTING_URL],
-      notes: 'Denner (Migros Group subsidiary) careers via jobs.migros.ch. Nuxt.js SSR with GraphQL/Typesense.',
+      crawlerModes: ['generic_ats', 'html'],
+      seedUrls: seedUrls.length > 0 ? seedUrls : [DENNER_LISTING_BASE],
+      notes: 'Denner (Migros Group subsidiary) careers via jobs.migros.ch. Nuxt.js SSR with detail URLs scraped from listing pages.',
       updatedAt: new Date().toISOString(),
     };
     fs.mkdirSync(path.dirname(adapterPath), { recursive: true });
@@ -137,12 +205,15 @@ function ensureAdapterSeedUrls(seedUrls) {
 
   try {
     const adapter = JSON.parse(fs.readFileSync(adapterPath, 'utf-8'));
-    adapter.seedUrls = seedUrls.length > 0 ? seedUrls : adapter.seedUrls || [DENNER_LISTING_URL];
+    adapter.seedUrls = seedUrls.length > 0 ? seedUrls : adapter.seedUrls || [DENNER_LISTING_BASE];
+    adapter.crawlerModes = (adapter.crawlerModes || []).filter((m) => m !== 'jsonld');
+    if (!adapter.crawlerModes.includes('generic_ats')) adapter.crawlerModes.unshift('generic_ats');
+    if (!adapter.crawlerModes.includes('html')) adapter.crawlerModes.push('html');
     adapter.updatedAt = new Date().toISOString();
     fs.writeFileSync(adapterPath, JSON.stringify(adapter, null, 2) + '\n');
-    console.log(`📝 Adapter ${DENNER_KEY} updated with ${seedUrls.length} seed URLs.`);
+    console.log(`\ud83d\udcdd Adapter ${DENNER_KEY} updated with ${seedUrls.length} seed URLs.`);
   } catch (err) {
-    console.warn(`⚠️ Could not update adapter: ${err.message}`);
+    console.warn(`\u26a0\ufe0f Could not update adapter: ${err.message}`);
   }
 }
 
@@ -166,15 +237,15 @@ function runBaseCrawler() {
 /* ── Stats & Validation ────────────────────────────────────── */
 function logStats(beforeSnapshot = new Map()) {
   if (!fs.existsSync(DATA_JOBS)) {
-    console.log('ℹ️ jobs.json not found — no stats available.');
+    console.log('\u2139\ufe0f jobs.json not found \u2014 no stats available.');
     return { total: 0 };
   }
   const raw = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
   const allJobs = Array.isArray(raw) ? raw : [];
   const jobs = allJobs.filter(isDennerJob);
 
-  console.log(`\n📊 === Denner Job Stats ===`);
-  console.log(`  🏪 Total Denner jobs: ${jobs.length}`);
+  console.log(`\n\ud83d\udcca === Denner Job Stats ===`);
+  console.log(`  \ud83c\udfea Total Denner jobs: ${jobs.length}`);
   console.log('');
 
   const afterSnapshot = snapshotJobSlugs(jobs);
@@ -199,7 +270,7 @@ function validateLocaleCoverage() {
 /* ── Main ──────────────────────────────────────────────────── */
 async function main() {
   setCrawlerStartTime();
-  console.log('🏪 Running dedicated Denner jobs crawler...');
+  console.log('\ud83c\udfea Running dedicated Denner jobs crawler...');
   console.log(`   Portal: ${DENNER_HOST} (Migros Group portal)`);
   console.log('');
 
@@ -223,7 +294,7 @@ async function main() {
 
   const stats = logStats(_beforeSnapshot);
   if (stats.total === 0) {
-    console.log('ℹ️ No Denner jobs found after crawl. Exiting OK.');
+    console.log('\u2139\ufe0f No Denner jobs found after crawl. Exiting OK.');
     return;
   }
 
@@ -256,6 +327,6 @@ async function main() {
 }
 
 main().catch((err) => {
-  console.error(`❌ Denner crawler failed: ${err?.message || err}`);
+  console.error(`\u274c Denner crawler failed: ${err?.message || err}`);
   process.exit(1);
 });

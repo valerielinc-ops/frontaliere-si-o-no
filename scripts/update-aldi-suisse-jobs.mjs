@@ -3,14 +3,15 @@
  * Dedicated ALDI Suisse crawler runner.
  *
  * ALDI uses SAP SuccessFactors as their ATS. Their careers portal is at
- * jobs.aldi.ch with the backend on career5.successfactors.eu.
+ * jobs.aldi.ch. The homepage renders job cards via JavaScript but includes
+ * direct links to detail pages at /job/{numericId}.
  *
- * ALDI has multiple stores in Ticino, making their positions relevant
- * for Italian cross-border workers.
+ * Detail pages at jobs.aldi.ch/job/{id} are SSR HTML with full job
+ * descriptions, requirements, and benefits.
  *
  * This script:
- *   1. Fetches the ALDI careers listing page
- *   2. Extracts job URLs from the page
+ *   1. Fetches the ALDI homepage to discover job detail URLs (/job/{id})
+ *   2. Fetches each detail page for job data
  *   3. Updates adapter seed URLs
  *   4. Runs base crawler for detail parsing/localization
  *   5. Validates locale coverage
@@ -48,7 +49,17 @@ const ADAPTERS_DIR = path.resolve(ROOT, 'data', 'jobs-crawler-adapters', 'adapte
 const ALDI_KEY = 'aldi-suisse';
 const ALDI_COMPANY_NAME = 'ALDI SUISSE';
 const ALDI_HOST = 'www.jobs.aldi.ch';
-const ALDI_LISTING_URL = 'https://www.jobs.aldi.ch/it';
+const ALDI_BASE = 'https://www.jobs.aldi.ch';
+/**
+ * Pages to scrape for job links. The homepage shows featured positions,
+ * and the /it page shows the Italian version. Both may have different
+ * job cards visible.
+ */
+const ALDI_LISTING_URLS = [
+  'https://www.jobs.aldi.ch/',
+  'https://www.jobs.aldi.ch/it',
+  'https://www.jobs.aldi.ch/it/ricerca-posizione',
+];
 
 const UA =
   process.env.JOBS_CRAWLER_USER_AGENT ||
@@ -74,51 +85,54 @@ function isAldiJob(job) {
 
 /* ── Discovery ─────────────────────────────────────────────── */
 async function fetchAldiJobUrls() {
+  const allUrls = new Set();
   const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 12000;
-  console.log(`🔍 Fetching ALDI Suisse listing page: ${ALDI_LISTING_URL}`);
 
-  try {
-    const controller = new AbortController();
-    const timer = setTimeout(() => controller.abort(), timeoutMs);
+  for (const listUrl of ALDI_LISTING_URLS) {
+    console.log(`\ud83d\udd0d Fetching ALDI Suisse page: ${listUrl}`);
 
-    const res = await fetch(ALDI_LISTING_URL, {
-      signal: controller.signal,
-      headers: {
-        Accept: 'text/html',
-        'User-Agent': UA,
-      },
-    });
-    clearTimeout(timer);
+    try {
+      const controller = new AbortController();
+      const timer = setTimeout(() => controller.abort(), timeoutMs);
 
-    if (!res.ok) {
-      console.warn(`⚠️ ALDI listing page returned ${res.status}`);
-      return [];
+      const res = await fetch(listUrl, {
+        signal: controller.signal,
+        headers: { Accept: 'text/html', 'User-Agent': UA },
+      });
+      clearTimeout(timer);
+
+      if (!res.ok) {
+        console.warn(`\u26a0\ufe0f ALDI page returned ${res.status} for ${listUrl}`);
+        continue;
+      }
+
+      const html = await res.text();
+
+      // Extract /job/{numericId} links
+      const jobIdPattern = /href="(\/job\/\d+)"/gi;
+      let match;
+      while ((match = jobIdPattern.exec(html)) !== null) {
+        allUrls.add(`${ALDI_BASE}${match[1]}`);
+      }
+
+      // Extract full job URLs
+      const fullJobPattern = /href="(https?:\/\/[^"]*jobs\.aldi\.ch\/job\/\d+)"/gi;
+      while ((match = fullJobPattern.exec(html)) !== null) {
+        allUrls.add(match[1]);
+      }
+
+      // Extract SuccessFactors links
+      const sfPattern = /href="(https?:\/\/career5\.successfactors[^"]+(?:aldisuis|HoferSELive)[^"]*)"/gi;
+      while ((match = sfPattern.exec(html)) !== null) {
+        allUrls.add(match[1]);
+      }
+    } catch (err) {
+      console.warn(`\u26a0\ufe0f Failed to fetch ALDI page ${listUrl}: ${err.message}`);
     }
-
-    const html = await res.text();
-
-    // Extract job URLs from rendered HTML
-    const urls = new Set();
-    // Look for links to job detail pages or SuccessFactors
-    const linkPattern = /href="([^"]*(?:ricerca-posizione|stelle|career5\.successfactors)[^"]*)"/gi;
-    let match;
-    while ((match = linkPattern.exec(html)) !== null) {
-      const url = match[1].startsWith('http') ? match[1] : `https://${ALDI_HOST}${match[1]}`;
-      urls.add(url);
-    }
-
-    // Also extract direct job card links
-    const cardPattern = /href="(\/it\/[^"]*[a-z]-\d+[^"]*)"/gi;
-    while ((match = cardPattern.exec(html)) !== null) {
-      urls.add(`https://${ALDI_HOST}${match[1]}`);
-    }
-
-    console.log(`✅ Discovered ${urls.size} ALDI Suisse job URLs`);
-    return [...urls];
-  } catch (err) {
-    console.warn(`⚠️ Failed to fetch ALDI listing page: ${err.message}`);
-    return [];
   }
+
+  console.log(`\u2705 Discovered ${allUrls.size} ALDI Suisse job URLs`);
+  return [...allUrls];
 }
 
 /* ── Adapter ───────────────────────────────────────────────── */
@@ -126,16 +140,16 @@ function ensureAdapterSeedUrls(seedUrls) {
   const adapterPath = path.join(ADAPTERS_DIR, `${ALDI_KEY}.json`);
 
   if (!fs.existsSync(adapterPath)) {
-    console.log(`⚠️ Adapter ${ALDI_KEY}.json not found — creating it.`);
+    console.log(`\u26a0\ufe0f Adapter ${ALDI_KEY}.json not found \u2014 creating it.`);
     const adapter = {
       companyKey: ALDI_KEY,
       companyName: ALDI_COMPANY_NAME,
       companyHost: ALDI_HOST,
       enabled: true,
       priority: 10,
-      crawlerModes: ['jsonld', 'html', 'generic_ats'],
-      seedUrls: seedUrls.length > 0 ? seedUrls : [ALDI_LISTING_URL],
-      notes: 'ALDI Suisse careers portal (SAP SuccessFactors ATS). Filter for Ticino locations.',
+      crawlerModes: ['html', 'generic_ats'],
+      seedUrls: seedUrls.length > 0 ? seedUrls : ALDI_LISTING_URLS,
+      notes: 'ALDI Suisse careers portal (SAP SuccessFactors ATS). Job detail pages at /job/{id}.',
       updatedAt: new Date().toISOString(),
     };
     fs.mkdirSync(path.dirname(adapterPath), { recursive: true });
@@ -145,12 +159,12 @@ function ensureAdapterSeedUrls(seedUrls) {
 
   try {
     const adapter = JSON.parse(fs.readFileSync(adapterPath, 'utf-8'));
-    adapter.seedUrls = seedUrls.length > 0 ? seedUrls : adapter.seedUrls || [ALDI_LISTING_URL];
+    adapter.seedUrls = seedUrls.length > 0 ? seedUrls : adapter.seedUrls || ALDI_LISTING_URLS;
     adapter.updatedAt = new Date().toISOString();
     fs.writeFileSync(adapterPath, JSON.stringify(adapter, null, 2) + '\n');
-    console.log(`📝 Adapter ${ALDI_KEY} updated with ${seedUrls.length} seed URLs.`);
+    console.log(`\ud83d\udcdd Adapter ${ALDI_KEY} updated with ${seedUrls.length} seed URLs.`);
   } catch (err) {
-    console.warn(`⚠️ Could not update adapter: ${err.message}`);
+    console.warn(`\u26a0\ufe0f Could not update adapter: ${err.message}`);
   }
 }
 
@@ -174,15 +188,15 @@ function runBaseCrawler() {
 /* ── Stats & Validation ────────────────────────────────────── */
 function logStats(beforeSnapshot = new Map()) {
   if (!fs.existsSync(DATA_JOBS)) {
-    console.log('ℹ️ jobs.json not found — no stats available.');
+    console.log('\u2139\ufe0f jobs.json not found \u2014 no stats available.');
     return { total: 0 };
   }
   const raw = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
   const allJobs = Array.isArray(raw) ? raw : [];
   const jobs = allJobs.filter(isAldiJob);
 
-  console.log(`\n📊 === ALDI Suisse Job Stats ===`);
-  console.log(`  🛒 Total ALDI Suisse jobs: ${jobs.length}`);
+  console.log(`\n\ud83d\udcca === ALDI Suisse Job Stats ===`);
+  console.log(`  \ud83d\uded2 Total ALDI Suisse jobs: ${jobs.length}`);
   console.log('');
 
   const afterSnapshot = snapshotJobSlugs(jobs);
@@ -207,7 +221,7 @@ function validateLocaleCoverage() {
 /* ── Main ──────────────────────────────────────────────────── */
 async function main() {
   setCrawlerStartTime();
-  console.log('🛒 Running dedicated ALDI Suisse jobs crawler...');
+  console.log('\ud83d\uded2 Running dedicated ALDI Suisse jobs crawler...');
   console.log(`   Portal: ${ALDI_HOST} (SuccessFactors ATS)`);
   console.log('');
 
@@ -231,7 +245,7 @@ async function main() {
 
   const stats = logStats(_beforeSnapshot);
   if (stats.total === 0) {
-    console.log('ℹ️ No ALDI Suisse jobs found after crawl. Exiting OK.');
+    console.log('\u2139\ufe0f No ALDI Suisse jobs found after crawl. Exiting OK.');
     return;
   }
 
@@ -264,6 +278,6 @@ async function main() {
 }
 
 main().catch((err) => {
-  console.error(`❌ ALDI Suisse crawler failed: ${err?.message || err}`);
+  console.error(`\u274c ALDI Suisse crawler failed: ${err?.message || err}`);
   process.exit(1);
 });
