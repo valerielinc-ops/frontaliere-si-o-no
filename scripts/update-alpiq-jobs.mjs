@@ -22,6 +22,14 @@ const PUBLIC_DATA_JOBS = path.resolve(ROOT, 'public', 'data', 'jobs.json');
 const COMPANY_KEY = 'alpiq';
 const COMPANY_NAME = 'Alpiq';
 
+/** Alpiq location → postal code map (Swiss locations, Ticino focus) */
+const ALPIQ_PLZ = {
+  airolo: '6780', biasca: '6710', locarno: '6600', bellinzona: '6500',
+  lugano: '6900', mendrisio: '6850', chiasso: '6830', rodi: '6772',
+  ritom: '6772', piotta: '6772', lausanne: '1003', zurich: '8001',
+  olten: '4600', bern: '3001', baden: '5400',
+};
+
 function isCompanyJob(job) {
   const key = String(job?.companyKey || job?.company || '').toLowerCase();
   const url = String(job?.url || '').toLowerCase();
@@ -64,8 +72,14 @@ async function main() {
       company: COMPANY_NAME, companyKey: COMPANY_KEY, companyDomain: 'alpiq.com',
       title: raw.title, titleByLocale: { it: raw.title, en: raw.title, de: raw.title, fr: raw.title },
       description: desc, descriptionByLocale: { it: desc }, requirements: [], requirementsByLocale: { it: [], en: [], de: [], fr: [] },
-      location: raw.location || 'Switzerland', canton: raw.location && /airolo|biasca|locarno|bellinzona|lugano|rodi|ritom|piotta/i.test(raw.location) ? 'TI' : '',
-      addressLocality: raw.location || 'Switzerland', addressCountry: 'CH',
+      location: raw.location || 'Switzerland',
+      canton: raw.location && /airolo|biasca|locarno|bellinzona|lugano|mendrisio|chiasso|rodi|ritom|piotta/i.test(raw.location) ? 'TI' : '',
+      postalCode: ALPIQ_PLZ[raw.location?.toLowerCase()] || '',
+      streetAddress: '',
+      addressLocality: raw.location || 'Switzerland',
+      addressRegion: raw.location && /airolo|biasca|locarno|bellinzona|lugano|mendrisio|chiasso|rodi|ritom|piotta/i.test(raw.location) ? 'TI' : '',
+      addressCountry: 'CH',
+      employmentType: raw.percentage && parseInt(raw.percentage) < 100 ? 'PART_TIME' : 'FULL_TIME',
       category: 'energy', contract: raw.contractType === 'Temporary' ? 'temporary' : 'full-time',
       currency: 'CHF', featured: false, postedDate: new Date().toISOString().slice(0, 10),
       url: raw.url, applyUrl: raw.applyUrl, source: 'Alpiq Dedicated Parser', crawledAt: new Date().toISOString(),

@@ -55,6 +55,15 @@ const ALDI_LISTING_URLS = [
   'https://www.jobs.aldi.ch/it',
 ];
 
+/** Ticino city → postal code map for ALDI store locations */
+const TICINO_PLZ = {
+  lugano: '6900', bellinzona: '6500', locarno: '6600', mendrisio: '6850',
+  chiasso: '6830', biasca: '6710', giubiasco: '6512', agno: '6982',
+  manno: '6928', rivera: '6802', camorino: '6528', tenero: '6598',
+  losone: '6616', gordola: '6596', stabio: '6855', cadempino: '6814',
+  vezia: '6943', lamone: '6814',
+};
+
 const UA =
   process.env.JOBS_CRAWLER_USER_AGENT ||
   'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)';
@@ -244,9 +253,13 @@ async function fetchAndParseDetailPages(urls) {
         requirements: requirements.slice(0, 20),
         requirementsByLocale: { it: requirements.slice(0, 20) },
         location,
-        canton: '',
+        postalCode: TICINO_PLZ[location.toLowerCase()] || '',
+        canton: TICINO_PLZ[location.toLowerCase()] ? 'TI' : '',
         addressLocality: location,
+        addressRegion: TICINO_PLZ[location.toLowerCase()] ? 'TI' : '',
         addressCountry: 'CH',
+        streetAddress: '',
+        employmentType: workPct && parseInt(workPct) < 100 ? 'PART_TIME' : 'FULL_TIME',
         category: 'retail',
         contract: 'full-time',
         workPercentage: workPct,

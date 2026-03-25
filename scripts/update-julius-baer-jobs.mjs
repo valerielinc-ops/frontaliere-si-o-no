@@ -171,6 +171,8 @@ async function fetchJuliusBaerJobs() {
     jobs.push({
       url: publicUrl, applyUrl: publicUrl, title, company: COMPANY_NAME, companyKey: COMPANY_KEY,
       location: city || 'Lugano', canton: 'TI', country: 'CH',
+      addressLocality: city || 'Lugano', addressRegion: 'TI', addressCountry: 'CH',
+      postalCode: '6900', streetAddress: 'Via Pretorio 22',
       description: descEn, descriptionByLocale: { en: descEn, it: descIt },
       titleByLocale: { en: title }, slug, slugByLocale: { en: slug, it: slugify(title, 'julius-baer') },
       category: detectCategory(title), datePosted: info.startDate || new Date().toISOString().split('T')[0],

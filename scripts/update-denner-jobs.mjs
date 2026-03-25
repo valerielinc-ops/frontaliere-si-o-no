@@ -57,6 +57,17 @@ const DENNER_HOST = 'jobs.migros.ch';
 const DENNER_LISTING_BASE = 'https://jobs.migros.ch/it/le-nostre-imprese/denner-sa/posti-di-lavoro-vacanti';
 const REGION_IDS = { 'Svizzera meridionale': '871', Grigioni: '868' };
 
+/** Ticino city → postal code map for Denner store locations */
+const TICINO_PLZ = {
+  lugano: '6900', bellinzona: '6500', locarno: '6600', mendrisio: '6850',
+  chiasso: '6830', biasca: '6710', giubiasco: '6512', agno: '6982',
+  manno: '6928', rivera: '6802', camorino: '6528', tenero: '6598',
+  losone: '6616', gordola: '6596', minusio: '6648', massagno: '6900',
+  pregassona: '6963', viganello: '6962', paradiso: '6900', stabio: '6855',
+  balerna: '6828', novazzano: '6883', coldrerio: '6877', cadempino: '6814',
+  vezia: '6943', lamone: '6814', morbio: '6834', 'morbio inferiore': '6834',
+};
+
 const UA =
   process.env.JOBS_CRAWLER_USER_AGENT ||
   'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)';
@@ -250,10 +261,13 @@ async function fetchAndParseDetailPages(urls) {
         requirements: migrosData?.requirements || [],
         requirementsByLocale: { it: migrosData?.requirements || [] },
         location,
-        postalCode,
-        canton: '',
+        postalCode: postalCode || TICINO_PLZ[location.toLowerCase()] || '',
+        canton: TICINO_PLZ[location.toLowerCase()] ? 'TI' : '',
         addressLocality: location,
+        addressRegion: TICINO_PLZ[location.toLowerCase()] ? 'TI' : '',
         addressCountry: 'CH',
+        streetAddress: '',
+        employmentType: workPct && parseInt(workPct) < 100 ? 'PART_TIME' : 'FULL_TIME',
         category: 'retail',
         contract: migrosData?.employmentType || 'full-time',
         workPercentage: workPct,
