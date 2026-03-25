@@ -1,0 +1,56 @@
+{
+  "companyKey": "bancastato",
+  "companyName": "BancaStato",
+  "companyHost": "www.bancastato.ch",
+  "enabled": true,
+  "priority": 10,
+  "crawlerModes": [
+    "html"
+  ],
+  "seedUrls": [
+    "https://www.bancastato.ch/clienti-individuali/conti-e-carte/carte/prepaid-mastercard-bancastato",
+    "https://www.bancastato.ch/clienti-individuali/investimenti/prodotti-di-investimento",
+    "https://www.bancastato.ch/clienti-individuali/investimenti/prodotti-di-investimento/certificati-bancastato",
+    "https://www.bancastato.ch/supporto-e-contatti/formulario-di-contatto",
+    "https://www.bancastato.ch/tutti-i-prospetti",
+    "https://www.bancastato.ch/le-nostre-guide",
+    "https://www.bancastato.ch/private-banking/cio-che-ci-rende-unici/rapporto-diretto-e-personale-con-il-consulente",
+    "https://www.bancastato.ch/private-banking/cio-che-ci-rende-unici/supporto-di-specialisti-dellinvestimento"
+  ],
+  "seedMetaByUrl": {
+    "https://www.bancastato.ch/clienti-individuali/conti-e-carte/carte/prepaid-mastercard-bancastato": {
+      "company": "BancaStato",
+      "companyDomain": "bancastato.ch"
+    },
+    "https://www.bancastato.ch/clienti-individuali/investimenti/prodotti-di-investimento": {
+      "company": "BancaStato",
+      "companyDomain": "bancastato.ch"
+    },
+    "https://www.bancastato.ch/clienti-individuali/investimenti/prodotti-di-investimento/certificati-bancastato": {
+      "company": "BancaStato",
+      "companyDomain": "bancastato.ch"
+    },
+    "https://www.bancastato.ch/supporto-e-contatti/formulario-di-contatto": {
+      "company": "BancaStato",
+      "companyDomain": "bancastato.ch"
+    },
+    "https://www.bancastato.ch/tutti-i-prospetti": {
+      "company": "BancaStato",
+      "companyDomain": "bancastato.ch"
+    },
+    "https://www.bancastato.ch/le-nostre-guide": {
+      "company": "BancaStato",
+      "companyDomain": "bancastato.ch"
+    },
+    "https://www.bancastato.ch/private-banking/cio-che-ci-rende-unici/rapporto-diretto-e-personale-con-il-consulente": {
+      "company": "BancaStato",
+      "companyDomain": "bancastato.ch"
+    },
+    "https://www.bancastato.ch/private-banking/cio-che-ci-rende-unici/supporto-di-specialisti-dellinvestimento": {
+      "company": "BancaStato",
+      "companyDomain": "bancastato.ch"
+    }
+  },
+  "notes": "Cantonal bank of Ticino, HQ in Bellinzona. Career page HTML crawler.",
+  "updatedAt": "2026-03-25T09:27:41.478Z"
+}
