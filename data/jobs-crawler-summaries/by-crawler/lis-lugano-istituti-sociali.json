@@ -1,16 +1,16 @@
 {
   "key": "lis-lugano-istituti-sociali",
   "label": "LIS",
-  "generatedAt": "2026-03-25T09:35:58.639Z",
+  "generatedAt": "2026-03-25T20:49:25.500Z",
   "total": 13,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 13,
-  "durationMs": 22824,
-  "avgDurationMs": 22824,
+  "durationMs": 24010,
+  "avgDurationMs": 24010,
   "durationHistory": [
-    22824
+    24010
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -75,12 +75,16 @@
         "textHash": "a8b626f84a33e5762181",
         "source": "lis_regex_text",
         "confidence": 0.98,
-        "extractedAt": "2026-03-25T09:35:58.594Z"
+        "extractedAt": "2026-03-25T20:49:25.455Z"
       },
       "sourceLang": "it",
       "previousSlugs": [
         "capireparto"
-      ]
+      ],
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Infermieri",
@@ -141,12 +145,16 @@
         "textHash": "f56dd83696112341f6c6",
         "source": "lis_regex_text",
         "confidence": 0.98,
-        "extractedAt": "2026-03-25T09:35:58.595Z"
+        "extractedAt": "2026-03-25T20:49:25.456Z"
       },
       "sourceLang": "it",
       "previousSlugs": [
         "infermieri"
-      ]
+      ],
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Operatori Sociosanitari",
@@ -207,9 +215,13 @@
         "textHash": "4ad83b1c1daa214f3437",
         "source": "lis_regex_text",
         "confidence": 0.98,
-        "extractedAt": "2026-03-25T09:35:58.596Z"
+        "extractedAt": "2026-03-25T20:49:25.456Z"
       },
-      "sourceLang": "it"
+      "sourceLang": "it",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistenti di cura",
@@ -270,9 +282,13 @@
         "textHash": "772ab97c4b0f2c3acd83",
         "source": "lis_regex_text",
         "confidence": 0.98,
-        "extractedAt": "2026-03-25T09:35:58.596Z"
+        "extractedAt": "2026-03-25T20:49:25.457Z"
       },
-      "sourceLang": "it"
+      "sourceLang": "it",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Collaboratori sanitari",
@@ -333,9 +349,13 @@
         "textHash": "13c4160633476a4d7c8a",
         "source": "lis_regex_text",
         "confidence": 0.98,
-        "extractedAt": "2026-03-25T09:35:58.597Z"
+        "extractedAt": "2026-03-25T20:49:25.457Z"
       },
-      "sourceLang": "it"
+      "sourceLang": "it",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Operatori settore animazione",
@@ -396,9 +416,13 @@
         "textHash": "fc5cfea38eafafc6aae8",
         "source": "lis_regex_text",
         "confidence": 0.98,
-        "extractedAt": "2026-03-25T09:35:58.597Z"
+        "extractedAt": "2026-03-25T20:49:25.458Z"
       },
-      "sourceLang": "it"
+      "sourceLang": "it",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Fisioterapisti / Ergoterapisti",
@@ -459,9 +483,13 @@
         "textHash": "8dfb968aba7683134c88",
         "source": "lis_regex_text",
         "confidence": 0.98,
-        "extractedAt": "2026-03-25T09:35:58.597Z"
+        "extractedAt": "2026-03-25T20:49:25.458Z"
       },
-      "sourceLang": "it"
+      "sourceLang": "it",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Educatori sociali",
@@ -522,9 +550,13 @@
         "textHash": "5f929653a61e9b5afe83",
         "source": "lis_regex_text",
         "confidence": 0.98,
-        "extractedAt": "2026-03-25T09:35:58.598Z"
+        "extractedAt": "2026-03-25T20:49:25.459Z"
       },
-      "sourceLang": "it"
+      "sourceLang": "it",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Operatori socioassistenziali (infanza)",
@@ -585,9 +617,13 @@
         "textHash": "7c5289c47057ec4c7cba",
         "source": "lis_regex_text",
         "confidence": 0.98,
-        "extractedAt": "2026-03-25T09:35:58.598Z"
+        "extractedAt": "2026-03-25T20:49:25.459Z"
       },
-      "sourceLang": "it"
+      "sourceLang": "it",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Educatori dell'infanzia",
@@ -648,9 +684,13 @@
         "textHash": "48db8b9a76cda91ce3a9",
         "source": "lis_regex_text",
         "confidence": 0.98,
-        "extractedAt": "2026-03-25T09:35:58.599Z"
+        "extractedAt": "2026-03-25T20:49:25.460Z"
       },
-      "sourceLang": "it"
+      "sourceLang": "it",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Capisquadra - chef di cucina",
@@ -711,9 +751,13 @@
         "textHash": "94e7e7ea024d4b010a4f",
         "source": "lis_regex_text",
         "confidence": 0.98,
-        "extractedAt": "2026-03-25T09:35:58.599Z"
+        "extractedAt": "2026-03-25T20:49:25.460Z"
       },
-      "sourceLang": "it"
+      "sourceLang": "it",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Cuochi",
@@ -774,12 +818,16 @@
         "textHash": "13cd63461b8e80fab971",
         "source": "lis_regex_text",
         "confidence": 0.98,
-        "extractedAt": "2026-03-25T09:35:58.600Z"
+        "extractedAt": "2026-03-25T20:49:25.460Z"
       },
       "sourceLang": "it",
       "previousSlugs": [
         "cuochi"
-      ]
+      ],
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Addetti servizi alla casa",
@@ -840,9 +888,13 @@
         "textHash": "61df459007751ba06ccf",
         "source": "lis_regex_text",
         "confidence": 0.98,
-        "extractedAt": "2026-03-25T09:35:58.600Z"
+        "extractedAt": "2026-03-25T20:49:25.461Z"
       },
-      "sourceLang": "it"
+      "sourceLang": "it",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME"
     }
   ]
 }

@@ -1,6 +1,6 @@
 {
   "crawlerKey": "lis-lugano-istituti-sociali",
-  "assembledAt": "2026-03-25T09:35:58.637Z",
+  "assembledAt": "2026-03-25T20:49:25.499Z",
   "jobs": [
     {
       "title": "Capireparto",
@@ -43,6 +43,7 @@
       "salaryCurrency": "CHF",
       "salaryClass": "16",
       "crawledAt": "",
+      "needsRetranslation": true,
       "requirementsByLocale": {},
       "currency": "CHF",
       "baseSalary": {
@@ -60,12 +61,16 @@
         "textHash": "a8b626f84a33e5762181",
         "source": "lis_regex_text",
         "confidence": 0.98,
-        "extractedAt": "2026-03-25T09:35:58.594Z"
+        "extractedAt": "2026-03-25T20:49:25.455Z"
       },
       "sourceLang": "it",
       "previousSlugs": [
         "capireparto"
-      ]
+      ],
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Infermieri",
@@ -108,6 +113,7 @@
       "salaryCurrency": "CHF",
       "salaryClass": "15",
       "crawledAt": "",
+      "needsRetranslation": true,
       "requirementsByLocale": {},
       "currency": "CHF",
       "baseSalary": {
@@ -125,12 +131,16 @@
         "textHash": "f56dd83696112341f6c6",
         "source": "lis_regex_text",
         "confidence": 0.98,
-        "extractedAt": "2026-03-25T09:35:58.595Z"
+        "extractedAt": "2026-03-25T20:49:25.456Z"
       },
       "sourceLang": "it",
       "previousSlugs": [
         "infermieri"
-      ]
+      ],
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Operatori Sociosanitari",
@@ -173,6 +183,7 @@
       "salaryCurrency": "CHF",
       "salaryClass": "12",
       "crawledAt": "",
+      "needsRetranslation": true,
       "requirementsByLocale": {},
       "currency": "CHF",
       "baseSalary": {
@@ -190,9 +201,13 @@
         "textHash": "4ad83b1c1daa214f3437",
         "source": "lis_regex_text",
         "confidence": 0.98,
-        "extractedAt": "2026-03-25T09:35:58.596Z"
+        "extractedAt": "2026-03-25T20:49:25.456Z"
       },
-      "sourceLang": "it"
+      "sourceLang": "it",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistenti di cura",
@@ -235,6 +250,7 @@
       "salaryCurrency": "CHF",
       "salaryClass": "10",
       "crawledAt": "",
+      "needsRetranslation": true,
       "requirementsByLocale": {},
       "currency": "CHF",
       "baseSalary": {
@@ -252,9 +268,13 @@
         "textHash": "772ab97c4b0f2c3acd83",
         "source": "lis_regex_text",
         "confidence": 0.98,
-        "extractedAt": "2026-03-25T09:35:58.596Z"
+        "extractedAt": "2026-03-25T20:49:25.457Z"
       },
-      "sourceLang": "it"
+      "sourceLang": "it",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Collaboratori sanitari",
@@ -297,6 +317,7 @@
       "salaryCurrency": "CHF",
       "salaryClass": "7",
       "crawledAt": "",
+      "needsRetranslation": true,
       "requirementsByLocale": {},
       "currency": "CHF",
       "baseSalary": {
@@ -314,9 +335,13 @@
         "textHash": "13c4160633476a4d7c8a",
         "source": "lis_regex_text",
         "confidence": 0.98,
-        "extractedAt": "2026-03-25T09:35:58.597Z"
+        "extractedAt": "2026-03-25T20:49:25.457Z"
       },
-      "sourceLang": "it"
+      "sourceLang": "it",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Operatori settore animazione",
@@ -359,6 +384,7 @@
       "salaryCurrency": "CHF",
       "salaryClass": "14",
       "crawledAt": "",
+      "needsRetranslation": true,
       "requirementsByLocale": {},
       "currency": "CHF",
       "baseSalary": {
@@ -376,9 +402,13 @@
         "textHash": "fc5cfea38eafafc6aae8",
         "source": "lis_regex_text",
         "confidence": 0.98,
-        "extractedAt": "2026-03-25T09:35:58.597Z"
+        "extractedAt": "2026-03-25T20:49:25.458Z"
       },
-      "sourceLang": "it"
+      "sourceLang": "it",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Fisioterapisti / Ergoterapisti",
@@ -421,6 +451,7 @@
       "salaryCurrency": "CHF",
       "salaryClass": "15",
       "crawledAt": "",
+      "needsRetranslation": true,
       "requirementsByLocale": {},
       "currency": "CHF",
       "baseSalary": {
@@ -438,9 +469,13 @@
         "textHash": "8dfb968aba7683134c88",
         "source": "lis_regex_text",
         "confidence": 0.98,
-        "extractedAt": "2026-03-25T09:35:58.597Z"
+        "extractedAt": "2026-03-25T20:49:25.458Z"
       },
-      "sourceLang": "it"
+      "sourceLang": "it",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Educatori sociali",
@@ -483,6 +518,7 @@
       "salaryCurrency": "CHF",
       "salaryClass": "15",
       "crawledAt": "",
+      "needsRetranslation": true,
       "requirementsByLocale": {},
       "currency": "CHF",
       "baseSalary": {
@@ -500,9 +536,13 @@
         "textHash": "5f929653a61e9b5afe83",
         "source": "lis_regex_text",
         "confidence": 0.98,
-        "extractedAt": "2026-03-25T09:35:58.598Z"
+        "extractedAt": "2026-03-25T20:49:25.459Z"
       },
-      "sourceLang": "it"
+      "sourceLang": "it",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Operatori socioassistenziali (infanza)",
@@ -545,6 +585,7 @@
       "salaryCurrency": "CHF",
       "salaryClass": "12",
       "crawledAt": "",
+      "needsRetranslation": true,
       "requirementsByLocale": {},
       "currency": "CHF",
       "baseSalary": {
@@ -562,9 +603,13 @@
         "textHash": "7c5289c47057ec4c7cba",
         "source": "lis_regex_text",
         "confidence": 0.98,
-        "extractedAt": "2026-03-25T09:35:58.598Z"
+        "extractedAt": "2026-03-25T20:49:25.459Z"
       },
-      "sourceLang": "it"
+      "sourceLang": "it",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Educatori dell'infanzia",
@@ -607,6 +652,7 @@
       "salaryCurrency": "CHF",
       "salaryClass": "14",
       "crawledAt": "",
+      "needsRetranslation": true,
       "requirementsByLocale": {},
       "currency": "CHF",
       "baseSalary": {
@@ -624,9 +670,13 @@
         "textHash": "48db8b9a76cda91ce3a9",
         "source": "lis_regex_text",
         "confidence": 0.98,
-        "extractedAt": "2026-03-25T09:35:58.599Z"
+        "extractedAt": "2026-03-25T20:49:25.460Z"
       },
-      "sourceLang": "it"
+      "sourceLang": "it",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Capisquadra - chef di cucina",
@@ -669,6 +719,7 @@
       "salaryCurrency": "CHF",
       "salaryClass": "12",
       "crawledAt": "",
+      "needsRetranslation": true,
       "requirementsByLocale": {},
       "currency": "CHF",
       "baseSalary": {
@@ -686,9 +737,13 @@
         "textHash": "94e7e7ea024d4b010a4f",
         "source": "lis_regex_text",
         "confidence": 0.98,
-        "extractedAt": "2026-03-25T09:35:58.599Z"
+        "extractedAt": "2026-03-25T20:49:25.460Z"
       },
-      "sourceLang": "it"
+      "sourceLang": "it",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Cuochi",
@@ -731,6 +786,7 @@
       "salaryCurrency": "CHF",
       "salaryClass": "10",
       "crawledAt": "",
+      "needsRetranslation": true,
       "requirementsByLocale": {},
       "currency": "CHF",
       "baseSalary": {
@@ -748,12 +804,16 @@
         "textHash": "13cd63461b8e80fab971",
         "source": "lis_regex_text",
         "confidence": 0.98,
-        "extractedAt": "2026-03-25T09:35:58.600Z"
+        "extractedAt": "2026-03-25T20:49:25.460Z"
       },
       "sourceLang": "it",
       "previousSlugs": [
         "cuochi"
-      ]
+      ],
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Addetti servizi alla casa",
@@ -796,6 +856,7 @@
       "salaryCurrency": "CHF",
       "salaryClass": "7",
       "crawledAt": "",
+      "needsRetranslation": true,
       "requirementsByLocale": {},
       "currency": "CHF",
       "baseSalary": {
@@ -813,9 +874,13 @@
         "textHash": "61df459007751ba06ccf",
         "source": "lis_regex_text",
         "confidence": 0.98,
-        "extractedAt": "2026-03-25T09:35:58.600Z"
+        "extractedAt": "2026-03-25T20:49:25.461Z"
       },
-      "sourceLang": "it"
+      "sourceLang": "it",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME"
     }
   ]
 }
