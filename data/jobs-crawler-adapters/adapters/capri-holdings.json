@@ -1,19 +1,16 @@
 {
   "companyKey": "capri-holdings",
   "companyName": "Capri Holdings (Michael Kors / Versace)",
-  "companyHost": "capriholdings.wd1.myworkdayjobs.com",
+  "companyHost": "capri.wd1.myworkdayjobs.com",
   "enabled": true,
   "priority": 10,
   "crawlerModes": [
-    "jsonld",
-    "html",
-    "generic_ats"
+    "api"
   ],
   "seedUrls": [
-    "https://capriholdings.wd1.myworkdayjobs.com/Capri_Careers",
-    "https://versace.wd5.myworkdayjobs.com/Versace_Careers",
-    "https://michaelkors.wd5.myworkdayjobs.com/MichaelKors"
+    "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors",
+    "https://capri.wd1.myworkdayjobs.com/en-US/Versace"
   ],
-  "notes": "Capri Holdings (Michael Kors / Versace / Jimmy Choo) Workday ATS. Mendrisio logistics hub in Ticino.",
-  "updatedAt": "2026-03-25T09:28:32.464Z"
+  "notes": "Workday API at capri.wd1.myworkdayjobs.com — Michael Kors + Versace. Swiss positions (Mendrisio TI logistics hub).",
+  "updatedAt": "2026-03-25T11:10:17.763Z"
 }
