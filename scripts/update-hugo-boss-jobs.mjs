@@ -22,7 +22,7 @@ import { snapshotJobSlugs, computeCrawlDiff, printCrawlChangeSummary, writeCrawl
 import { writeJobsCrawlerSlice, writeSummaryCrawlerSlice, assembleJobsDataset } from './assemble-jobs-dataset.mjs';
 import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, mergeLocaleTextMap,
 } from './lib/dedicated-crawler-common.mjs';
-import { parseSearchPage, isHugoBossTargetLocation, buildDetailUrl, detectCategory, detectExperienceLevel } from './lib/hugo-boss-job-parser.mjs';
+import { parseSearchPage, isHugoBossTargetLocation, buildDetailUrl, detectCategory, detectExperienceLevel, inferEmploymentType } from './lib/hugo-boss-job-parser.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -95,6 +95,11 @@ async function fetchJobs() {
       location: raw.city || 'Coldrerio',
       canton: 'TI',
       country: 'CH',
+      addressLocality: raw.city || 'Coldrerio',
+      addressRegion: 'TI',
+      addressCountry: 'CH',
+      postalCode: '6862',
+      streetAddress: 'Hugo Boss Ticino SA, Rancate/Coldrerio',
       description: raw.description || `${raw.title} position at Hugo Boss in Coldrerio, Ticino, Switzerland.`,
       titleByLocale: { en: raw.title },
       descriptionByLocale: { en: raw.description || '' },
@@ -103,7 +108,7 @@ async function fetchJobs() {
       category: detectCategory(raw.title),
       datePosted: raw.postedDate || new Date().toISOString().split('T')[0],
       source: 'hugo-boss-careers-crawler',
-      employmentType: 'FULL_TIME',
+      employmentType: inferEmploymentType(raw.title, raw.description),
       experienceLevel: detectExperienceLevel(raw.title),
       sector: 'Moda / Lusso',
     };

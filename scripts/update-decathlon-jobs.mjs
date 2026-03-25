@@ -226,6 +226,36 @@ async function main() {
 
   await runBaseCrawler();
 
+  // Patch address fields on Decathlon jobs (use store locations when known, default to Lugano)
+  if (fs.existsSync(DATA_JOBS)) {
+    try {
+      const DECATHLON_STORES = {
+        'sant\'antonino': { postalCode: '6592', streetAddress: 'Centro Commerciale Serfontana' },
+        'santantonino': { postalCode: '6592', streetAddress: 'Centro Commerciale Serfontana' },
+        'losone': { postalCode: '6616', streetAddress: 'Via Locarno' },
+        'lugano': { postalCode: '6900', streetAddress: 'Lugano' },
+      };
+      const allJobs = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
+      let patched = 0;
+      for (const j of allJobs) {
+        if (!isDecathlonJob(j)) continue;
+        const loc = String(j.location || j.addressLocality || '').toLowerCase().trim();
+        const store = DECATHLON_STORES[loc] || DECATHLON_STORES['sant\'antonino'];
+        if (!j.addressLocality) j.addressLocality = j.location || "Sant'Antonino";
+        if (!j.addressRegion) j.addressRegion = 'TI';
+        if (!j.addressCountry) j.addressCountry = 'CH';
+        if (!j.postalCode) j.postalCode = store.postalCode;
+        if (!j.streetAddress) j.streetAddress = store.streetAddress;
+        if (!j.employmentType) j.employmentType = 'FULL_TIME';
+        patched++;
+      }
+      if (patched > 0) {
+        fs.writeFileSync(DATA_JOBS, JSON.stringify(allJobs, null, 2) + '\n');
+        console.log(`📍 Patched address fields on ${patched} Decathlon jobs.`);
+      }
+    } catch (err) { console.warn(`⚠️ Failed to patch Decathlon address fields: ${err.message}`); }
+  }
+
   await translateMissingJobLocales({
     dataJobsPath: DATA_JOBS,
     isTargetJob: isDecathlonJob,

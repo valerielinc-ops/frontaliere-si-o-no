@@ -13,7 +13,7 @@ import { snapshotJobSlugs, computeCrawlDiff, printCrawlChangeSummary, writeCrawl
 import { writeJobsCrawlerSlice, writeSummaryCrawlerSlice, assembleJobsDataset } from './assemble-jobs-dataset.mjs';
 import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, mergeLocaleTextMap,
 } from './lib/dedicated-crawler-common.mjs';
-import { parseListingPage, isSwissLocation, slugify, detectCategory, detectExperienceLevel } from './lib/interroll-job-parser.mjs';
+import { parseListingPage, isSwissLocation, slugify, detectCategory, detectExperienceLevel, inferEmploymentType } from './lib/interroll-job-parser.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -57,12 +57,14 @@ async function fetchJobs() {
       url: raw.url, applyUrl: raw.url, title: raw.title,
       company: COMPANY_NAME, companyKey: COMPANY_KEY,
       location: "Sant'Antonino", canton: 'TI', country: 'CH',
+      addressLocality: "Sant'Antonino", addressRegion: 'TI', addressCountry: 'CH',
+      postalCode: '6592', streetAddress: 'Via Gorelle 3',
       description: `${raw.title} position at Interroll Group in Sant'Antonino, Ticino. Interroll is a global technology company providing material handling solutions.`,
       titleByLocale: { en: raw.title }, descriptionByLocale: {},
       slug, slugByLocale: { en: slug, it: slug },
       category: detectCategory(raw.title),
       datePosted: new Date().toISOString().split('T')[0],
-      source: 'interroll-careers-crawler', employmentType: 'FULL_TIME',
+      source: 'interroll-careers-crawler', employmentType: inferEmploymentType(listing.title, detail.body),
       experienceLevel: detectExperienceLevel(raw.title),
       sector: 'Industria / Logistica',
     };

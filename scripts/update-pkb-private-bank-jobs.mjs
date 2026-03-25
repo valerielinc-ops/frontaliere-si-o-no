@@ -63,8 +63,9 @@ async function main() {
       company: COMPANY_NAME, companyKey: COMPANY_KEY, companyDomain: 'pkb.ch',
       title: raw.title, titleByLocale: { it: raw.title, en: raw.title, de: raw.title, fr: raw.title },
       description: desc, descriptionByLocale: { it: desc }, requirements: [], requirementsByLocale: { it: [], en: [], de: [], fr: [] },
-      location: 'Lugano', canton: 'TI', addressLocality: 'Lugano', addressCountry: 'CH',
-      category: 'finance', contract: 'full-time', currency: 'CHF', featured: false,
+      location: 'Lugano', canton: 'TI', addressLocality: 'Lugano', addressRegion: 'TI', addressCountry: 'CH',
+      postalCode: '6900', streetAddress: 'Via S. Balestra 1',
+      category: 'finance', contract: 'full-time', employmentType: 'FULL_TIME', currency: 'CHF', featured: false,
       postedDate: new Date().toISOString().slice(0, 10),
       url: raw.url, source: 'PKB Dedicated Parser', crawledAt: new Date().toISOString(),
     };

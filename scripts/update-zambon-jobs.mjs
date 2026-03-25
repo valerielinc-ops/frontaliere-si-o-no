@@ -17,7 +17,7 @@ import { fileURLToPath } from 'node:url';
 import { snapshotJobSlugs, computeCrawlDiff, printCrawlChangeSummary, writeCrawlChangeSummaryToGH, setCrawlerStartTime, getCrawlerElapsedMs } from './jobs-url-helper.mjs';
 import { writeJobsCrawlerSlice, writeSummaryCrawlerSlice, assembleJobsDataset } from './assemble-jobs-dataset.mjs';
 import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, mergeLocaleTextMap } from './lib/dedicated-crawler-common.mjs';
-import { parseListingPage, slugify, detectCategory, detectExperienceLevel } from './lib/zambon-job-parser.mjs';
+import { parseListingPage, slugify, detectCategory, detectExperienceLevel, inferEmploymentType } from './lib/zambon-job-parser.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -59,12 +59,14 @@ async function fetchJobs() {
       url: raw.url, applyUrl: raw.url, title: raw.title,
       company: COMPANY_NAME, companyKey: COMPANY_KEY,
       location: raw.location || 'Cadempino', canton: 'TI', country: 'CH',
+      addressLocality: 'Cadempino', addressRegion: 'TI', addressCountry: 'CH',
+      postalCode: '6814', streetAddress: 'Via Industria 13',
       description: `${raw.title} position at Zambon Svizzera SA in Cadempino, Ticino. Zambon is an international pharmaceutical company focused on respiratory and rare diseases.`,
       titleByLocale: { en: raw.title }, descriptionByLocale: {},
       slug, slugByLocale: { en: slug, it: slug },
       category: detectCategory(raw.title),
       datePosted: new Date().toISOString().split('T')[0],
-      source: 'zambon-careers-crawler', employmentType: 'FULL_TIME',
+      source: 'zambon-careers-crawler', employmentType: inferEmploymentType(listing.title, detail.body),
       experienceLevel: detectExperienceLevel(raw.title),
       sector: 'Farmaceutica',
     };

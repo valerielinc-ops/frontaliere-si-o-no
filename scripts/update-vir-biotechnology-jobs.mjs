@@ -22,7 +22,7 @@ import { printPublishedJobUrls, writeJobsSummary, snapshotJobSlugs, computeCrawl
 import { writeJobsCrawlerSlice, writeSummaryCrawlerSlice, assembleJobsDataset } from './assemble-jobs-dataset.mjs';
 import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, mergeLocaleTextMap,
 } from './lib/dedicated-crawler-common.mjs';
-import { parseGreenhouseJobs, slugify, normalizeSpace, GREENHOUSE_API } from './lib/vir-biotechnology-job-parser.mjs';
+import { parseGreenhouseJobs, slugify, normalizeSpace, GREENHOUSE_API, inferEmploymentType } from './lib/vir-biotechnology-job-parser.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -110,6 +110,11 @@ function buildJobFromGreenhouse(parsed) {
     location: parsed.city || 'Bellinzona',
     canton: parsed.canton || 'TI',
     country: 'CH',
+    addressLocality: parsed.city || 'Bellinzona',
+    addressRegion: parsed.canton || 'TI',
+    addressCountry: 'CH',
+    postalCode: '6500',
+    streetAddress: 'Via Mirasole 1',
     description: descEn,
     descriptionByLocale: { en: descEn, it: descIt },
     titleByLocale: { en: parsed.title },
@@ -118,7 +123,7 @@ function buildJobFromGreenhouse(parsed) {
     category: detectCategory(parsed.title),
     datePosted: parsed.datePosted || new Date().toISOString().split('T')[0],
     source: 'vir-greenhouse-crawler',
-    employmentType: 'FULL_TIME',
+    employmentType: inferEmploymentType(parsed.title, parsed.description),
     experienceLevel: detectExperienceLevel(parsed.title),
     sector: 'Biotecnologia / Farmaceutica',
     _targetScope: { canton: parsed.canton || 'TI', location: parsed.city || 'Bellinzona' },

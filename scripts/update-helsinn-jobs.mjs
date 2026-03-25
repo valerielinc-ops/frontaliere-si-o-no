@@ -15,7 +15,7 @@ import { fileURLToPath } from 'node:url';
 import { snapshotJobSlugs, computeCrawlDiff, printCrawlChangeSummary, writeCrawlChangeSummaryToGH, setCrawlerStartTime, getCrawlerElapsedMs } from './jobs-url-helper.mjs';
 import { writeJobsCrawlerSlice, writeSummaryCrawlerSlice, assembleJobsDataset } from './assemble-jobs-dataset.mjs';
 import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, mergeLocaleTextMap } from './lib/dedicated-crawler-common.mjs';
-import { parseListingPage, parseDetailPage, slugify, detectCategory, detectExperienceLevel } from './lib/helsinn-job-parser.mjs';
+import { parseListingPage, parseDetailPage, slugify, detectCategory, detectExperienceLevel, inferEmploymentType } from './lib/helsinn-job-parser.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -68,12 +68,14 @@ async function fetchJobs() {
       url: listing.url, applyUrl: listing.url, title: listing.title,
       company: COMPANY_NAME, companyKey: COMPANY_KEY,
       location: listing.location || 'Lugano', canton: 'TI', country: 'CH',
+      addressLocality: 'Lugano-Pambio Noranco', addressRegion: 'TI', addressCountry: 'CH',
+      postalCode: '6912', streetAddress: 'Via Pian Scairolo 9',
       description: `${listing.title} position at Helsinn Healthcare SA in Lugano, Ticino. Helsinn is a fully integrated biopharma company with a track record of over forty years.`,
       titleByLocale: { en: listing.title }, descriptionByLocale: {},
       slug, slugByLocale: { en: slug, it: slug },
       category: detectCategory(listing.title),
       datePosted: new Date().toISOString().split('T')[0],
-      source: 'helsinn-careers-crawler', employmentType: 'FULL_TIME',
+      source: 'helsinn-careers-crawler', employmentType: inferEmploymentType(listing.title, detail.body),
       experienceLevel: detectExperienceLevel(listing.title),
       sector: 'Farmaceutica / Biopharma',
     });

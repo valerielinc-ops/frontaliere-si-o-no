@@ -214,6 +214,28 @@ async function main() {
 
   await runBaseCrawler();
 
+  // Patch address fields on TPL jobs
+  if (fs.existsSync(DATA_JOBS)) {
+    try {
+      const allJobs = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
+      let patched = 0;
+      for (const j of allJobs) {
+        if (!isTplJob(j)) continue;
+        if (!j.addressLocality) j.addressLocality = 'Lugano';
+        if (!j.addressRegion) j.addressRegion = 'TI';
+        if (!j.addressCountry) j.addressCountry = 'CH';
+        if (!j.postalCode) j.postalCode = '6900';
+        if (!j.streetAddress) j.streetAddress = 'Via Campagna 15';
+        if (!j.employmentType) j.employmentType = 'FULL_TIME';
+        patched++;
+      }
+      if (patched > 0) {
+        fs.writeFileSync(DATA_JOBS, JSON.stringify(allJobs, null, 2) + '\n');
+        console.log(`📍 Patched address fields on ${patched} TPL jobs.`);
+      }
+    } catch (err) { console.warn(`⚠️ Failed to patch TPL address fields: ${err.message}`); }
+  }
+
   await translateMissingJobLocales({
     dataJobsPath: DATA_JOBS,
     isTargetJob: isTplJob,
