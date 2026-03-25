@@ -6,8 +6,10 @@
  * with a significant presence in Lugano, Canton Ticino.
  *
  * Uses Workday ATS:
- *   Listing: POST https://juliusbaer.wd3.myworkdayjobs.com/wday/cxs/juliusbaer/JuliusBaer/jobs
- *   Detail:  GET  https://juliusbaer.wd3.myworkdayjobs.com/wday/cxs/juliusbaer/JuliusBaer/job/{path}
+ *   Listing: POST https://juliusbaer.wd3.myworkdayjobs.com/wday/cxs/juliusbaer/External/jobs
+ *   Detail:  GET  https://juliusbaer.wd3.myworkdayjobs.com/wday/cxs/juliusbaer/External/job/{path}
+ *
+ * NOTE: Site name changed from "JuliusBaer" to "External" (2026-03-25).
  *
  * Filters for Lugano/Ticino positions only.
  */
@@ -138,7 +140,7 @@ async function mergeJobs(discoveredJobs) {
   for (const d of discoveredJobs) {
     const key = canonicalizeUrl(d.url);
     const ex = existingByUrl.get(key);
-    if (ex) { merged.push({ ...ex, title: d.title || ex.title, company: COMPANY_NAME, companyKey: COMPANY_KEY, source: 'julius-baer-workday-crawler', titleByLocale: { ...ex.titleByLocale, ...filterEmpty(d.titleByLocale) }, descriptionByLocale: { ...ex.descriptionByLocale, ...filterEmpty(d.descriptionByLocale) }, slugByLocale: { ...ex.slugByLocale, ...filterEmpty(d.slugByLocale) } }); updated++; }
+    if (ex) { merged.push(safeMergeJobLocales(ex, d)); updated++; }
     else { merged.push(d); added++; }
   }
   for (const [url] of existingByUrl) { if (!discoveredByUrl.has(url)) removed++; }

@@ -5,15 +5,17 @@
  * with a significant presence in Lugano, Canton Ticino.
  *
  * Workday API endpoints:
- *   Listing: POST https://juliusbaer.wd3.myworkdayjobs.com/wday/cxs/juliusbaer/JuliusBaer/jobs
- *   Detail:  GET  https://juliusbaer.wd3.myworkdayjobs.com/wday/cxs/juliusbaer/JuliusBaer/job/{externalPath}
+ *   Listing: POST https://juliusbaer.wd3.myworkdayjobs.com/wday/cxs/juliusbaer/External/jobs
+ *   Detail:  GET  https://juliusbaer.wd3.myworkdayjobs.com/wday/cxs/juliusbaer/External/job/{externalPath}
  *
  * Public URL base:
- *   https://juliusbaer.wd3.myworkdayjobs.com/en-US/JuliusBaer/job/{externalPath}
+ *   https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/{externalPath}
+ *
+ * NOTE: The Workday site name changed from "JuliusBaer" to "External" (discovered 2026-03-25).
  */
 
-export const WORKDAY_API_BASE = 'https://juliusbaer.wd3.myworkdayjobs.com/wday/cxs/juliusbaer/JuliusBaer';
-export const WORKDAY_PUBLIC_BASE = 'https://juliusbaer.wd3.myworkdayjobs.com/en-US/JuliusBaer';
+export const WORKDAY_API_BASE = 'https://juliusbaer.wd3.myworkdayjobs.com/wday/cxs/juliusbaer/External';
+export const WORKDAY_PUBLIC_BASE = 'https://juliusbaer.wd3.myworkdayjobs.com/en-US/External';
 export const COMPANY_HOST = 'juliusbaer.wd3.myworkdayjobs.com';
 
 /**

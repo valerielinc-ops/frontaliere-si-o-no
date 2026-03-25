@@ -5,22 +5,40 @@
  * Versace, and Jimmy Choo. Their Mendrisio (TI) logistics hub employs
  * hundreds of workers, making their positions relevant for frontalieri.
  *
- * They use Workday as their ATS. Workday career pages are SPAs that
- * load job data via internal API. The base crawler handles Workday
- * pages via JSON-LD extraction from server-rendered detail pages.
+ * Workday API (tenant: "capri", changed from "capriholdings" 2026-03-25):
+ *   Michael Kors: POST https://capri.wd1.myworkdayjobs.com/wday/cxs/capri/Michael_Kors/jobs
+ *   Versace:      POST https://capri.wd1.myworkdayjobs.com/wday/cxs/capri/Versace/jobs
+ *   Detail:       GET  https://capri.wd1.myworkdayjobs.com/wday/cxs/capri/{site}/job/{path}
+ *
+ * Public URL base:
+ *   https://capri.wd1.myworkdayjobs.com/en-US/{site}/job/{path}
  *
  * Exports:
  *   parseCapriHoldingsDetailPage(html)  — extract job data from detail HTML
  *   isCapriHoldingsSwissJob(job)        — filter for Swiss/Ticino positions
  *   isCapriHoldingsJob(job)             — match Capri Holdings jobs in dataset
  *   CAPRI_WORKDAY_HOSTS                 — known Workday hostnames
+ *   WORKDAY_API_BASE                    — Workday API base URL
+ *   WORKDAY_SITES                       — brand site configurations
  */
 
 /** Known Workday hosts for Capri Holdings brands */
 export const CAPRI_WORKDAY_HOSTS = [
+  'capri.wd1.myworkdayjobs.com',
+  // Legacy hosts (may still appear in existing job URLs)
   'capriholdings.wd1.myworkdayjobs.com',
   'versace.wd5.myworkdayjobs.com',
   'michaelkors.wd5.myworkdayjobs.com',
+];
+
+/** Workday API base (tenant changed from "capriholdings" to "capri") */
+export const WORKDAY_API_BASE = 'https://capri.wd1.myworkdayjobs.com/wday/cxs/capri';
+export const WORKDAY_PUBLIC_BASE = 'https://capri.wd1.myworkdayjobs.com/en-US';
+
+/** Brand sites within the "capri" Workday tenant */
+export const WORKDAY_SITES = [
+  { site: 'Michael_Kors', brand: 'Michael Kors' },
+  { site: 'Versace', brand: 'Versace' },
 ];
 
 /** Ticino/Swiss-Italian cities near Capri Holdings operations */
