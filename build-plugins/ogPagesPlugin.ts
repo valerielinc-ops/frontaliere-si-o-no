@@ -139,14 +139,22 @@ export function ogPagesPlugin(rootDir: string): Plugin {
         while ((bm = bsRx.exec(bsBlock)) !== null) {
           blogSlugs[bm[1]] = { it: bm[2], en: bm[3], de: bm[4], fr: bm[5] };
         }
-        // Parse blog index slug from SLUG_TABLES (just the 'blog:' entry per locale)
-        const stBlock = rSrc.match(/const SLUG_TABLES[\s\S]*?^};/m)?.[0] ?? '';
-        for (const loc of ['it', 'en', 'de', 'fr']) {
-          const lm = stBlock.match(new RegExp(`  ${loc}: \\{([\\s\\S]*?)\\n  \\}`, 'm'));
-          if (!lm) continue;
-          const bm2 = lm[1].match(/\bblog:\s*'([^']+)'/);
-          if (bm2) blogIndexSlug[loc] = bm2[1];
-        }
+        // Parse blog index slug from SLUG_TABLES in router.ts
+        try {
+          const routerSrc = fs.readFileSync(np.resolve(rootDir, 'services/router.ts'), 'utf-8');
+          const stBlock = routerSrc.match(/const SLUG_TABLES[\s\S]*?^};/m)?.[0] ?? '';
+          for (const loc of ['it', 'en', 'de', 'fr']) {
+            const lm = stBlock.match(new RegExp(`  ${loc}: \\{([\\s\\S]*?)\\n  \\}`, 'm'));
+            if (!lm) continue;
+            const bm2 = lm[1].match(/\bblog:\s*'([^']+)'/);
+            if (bm2) blogIndexSlug[loc] = bm2[1];
+          }
+        } catch { /* hreflang index slug will fall back to hardcoded values */ }
+        // Hardcoded fallbacks if parsing failed
+        if (!blogIndexSlug.it) blogIndexSlug.it = 'articoli-frontaliere';
+        if (!blogIndexSlug.en) blogIndexSlug.en = 'cross-border-articles';
+        if (!blogIndexSlug.de) blogIndexSlug.de = 'grenzgaenger-artikel';
+        if (!blogIndexSlug.fr) blogIndexSlug.fr = 'articles-frontalier';
       } catch { /* hreflang will be omitted */ }
 
       const unescapeTsString = (value: string): string =>
@@ -176,11 +184,11 @@ export function ogPagesPlugin(rootDir: string): Plugin {
       };
 
       const parseBlogBodyLocale = (locale: 'it' | 'en' | 'de' | 'fr') => {
-        const out: Record<string, { body1?: string; body2?: string; body3?: string }> = {};
+        const out: Record<string, Record<string, string>> = {};
         const dir = np.resolve(rootDir, 'services', 'locales', 'blog-body', locale);
         let files: string[] = [];
         try { files = fs.readdirSync(dir); } catch { return out; }
-        const rx = /'blog\.article\.([^']+)\.(body1|body2|body3)'\s*:\s*'((?:[^'\\]|\\.)*)'/g;
+        const rx = /'blog\.article\.([^']+)\.(body\d+)'\s*:\s*'((?:[^'\\]|\\.)*)'/g;
         for (const file of files) {
           if (!file.endsWith('.ts')) continue;
           let src = '';
@@ -188,7 +196,7 @@ export function ogPagesPlugin(rootDir: string): Plugin {
           let m: RegExpExecArray | null;
           while ((m = rx.exec(src)) !== null) {
             const articleId = m[1];
-            const field = m[2] as 'body1' | 'body2' | 'body3';
+            const field = m[2];
             const value = unescapeTsString(m[3]);
             if (!out[articleId]) out[articleId] = {};
             out[articleId][field] = value;
@@ -301,7 +309,12 @@ export function ogPagesPlugin(rootDir: string): Plugin {
           const localizedPageTitle = localizedMeta?.title ? `${localizedMeta.title} | Frontaliere Ticino` : en.title;
           const articleBodyLocale = (locale === 'it' || locale === 'en' || locale === 'de' || locale === 'fr') ? locale : 'it';
           const localizedBody = blogBodyByLocale[articleBodyLocale][en.articleId] ?? blogBodyByLocale.it[en.articleId];
-          const bodySections = cleanupArticleBodySections([localizedBody?.body1, localizedBody?.body2, localizedBody?.body3]);
+          const allBodyKeys = localizedBody ? Object.keys(localizedBody).sort((a, b) => {
+            const na = parseInt(a.replace('body', ''), 10);
+            const nb = parseInt(b.replace('body', ''), 10);
+            return na - nb;
+          }) : [];
+          const bodySections = cleanupArticleBodySections(allBodyKeys.map(k => localizedBody?.[k]));
           const canonicalPath = withTrailingSlash(urlPath);
           const full = `${BASE_URL}${canonicalPath}`;
           const imgU = `${BASE_URL}${en.img}`;
@@ -356,7 +369,7 @@ export function ogPagesPlugin(rootDir: string): Plugin {
 
           // BreadcrumbList for article pages (enables rich result breadcrumbs in Google)
           const sectionName = locale === 'en' ? 'Articles' : locale === 'de' ? 'Artikel' : locale === 'fr' ? 'Articles' : 'Articoli';
-          const sectionSlug = locale === 'en' ? 'frontier-articles' : locale === 'de' ? 'grenzgaenger-artikel' : locale === 'fr' ? 'articles-frontalier' : 'articoli-frontaliere';
+          const sectionSlug = blogIndexSlug[locale] || (locale === 'en' ? 'cross-border-articles' : locale === 'de' ? 'grenzgaenger-artikel' : locale === 'fr' ? 'articles-frontalier' : 'articoli-frontaliere');
           const breadcrumbLd = JSON.stringify({
             '@context': 'https://schema.org',
             '@type': 'BreadcrumbList',
