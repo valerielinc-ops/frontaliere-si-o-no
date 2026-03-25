@@ -958,7 +958,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
                     }).length;
                     Analytics.trackBorderTimeSelection('morning', count);
                   }}
-                  className={`flex-1 px-3 py-2 rounded-lg text-xs font-bold transition-all ${selectedTime === 'morning' ? 'bg-orange-500 text-white' : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-500'}`}
+                  className={`flex-1 px-3 py-2 rounded-lg text-xs font-bold transition-colors ${selectedTime === 'morning' ? 'bg-orange-500 text-white' : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-500'}`}
                 >
                   🌅 {t('guide.border.morning')} (7-9)
                 </button>
@@ -971,7 +971,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
                     }).length;
                     Analytics.trackBorderTimeSelection('evening', count);
                   }}
-                  className={`flex-1 px-3 py-2 rounded-lg text-xs font-bold transition-all ${selectedTime === 'evening' ? 'bg-purple-500 text-white' : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-500'}`}
+                  className={`flex-1 px-3 py-2 rounded-lg text-xs font-bold transition-colors ${selectedTime === 'evening' ? 'bg-purple-500 text-white' : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-500'}`}
                 >
                   🌆 {t('guide.border.evening')} (17-19)
                 </button>
@@ -981,7 +981,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
                     const count = borderCrossings.filter(b => b.hours === '24h' && b.traffic === 'low').length;
                     Analytics.trackBorderTimeSelection('night', count);
                   }}
-                  className={`flex-1 px-3 py-2 rounded-lg text-xs font-bold transition-all ${selectedTime === 'night' ? 'bg-indigo-500 text-white' : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-500'}`}
+                  className={`flex-1 px-3 py-2 rounded-lg text-xs font-bold transition-colors ${selectedTime === 'night' ? 'bg-indigo-500 text-white' : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-500'}`}
                 >
                   🌙 {t('guide.border.night')}
                 </button>
