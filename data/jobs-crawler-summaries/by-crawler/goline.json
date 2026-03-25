@@ -1,16 +1,16 @@
 {
   "key": "goline",
   "label": "GOLINE SA",
-  "generatedAt": "2026-03-25T09:28:09.161Z",
+  "generatedAt": "2026-03-25T20:40:04.649Z",
   "total": 1,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 1487,
-  "avgDurationMs": 1487,
+  "durationMs": 1604,
+  "avgDurationMs": 1604,
   "durationHistory": [
-    1487
+    1604
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -60,6 +60,7 @@
       "previousSlugs": [
         "web-full-stack-developer-backend-frontend-goline-sa-stabio-ticino-switzerland"
       ],
+      "needsRetranslation": true,
       "salaryMin": 72500,
       "salaryMax": 97500,
       "currency": "CHF",
@@ -73,7 +74,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6855"
+      "streetAddress": "Via Industria 5",
+      "postalCode": "6934"
     }
   ]
 }
