@@ -1,6 +1,6 @@
 {
   "crawlerKey": "dxt-commodities",
-  "assembledAt": "2026-03-25T20:33:27.857Z",
+  "assembledAt": "2026-03-25T21:43:04.959Z",
   "jobs": [
     {
       "url": "https://dxt.com/careers/?panel=20897_1",
@@ -42,6 +42,7 @@
         "location": "Lugano"
       },
       "crawledAt": "",
+      "needsRetranslation": true,
       "requirementsByLocale": {},
       "sourceLang": "en",
       "salaryMin": 61000,
