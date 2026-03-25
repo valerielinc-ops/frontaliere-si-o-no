@@ -1806,6 +1806,586 @@ export const FAQ_TRANSLATIONS: FaqLocaleMap = {
       q: "Cette page remplace-t-elle le conseil fiscal ?",
       a: "Non. La page aide à comprendre les scénarios et les ordres de grandeur, mais pour les cas particuliers il est conseillé de vérifier avec un professionnel fiscal spécialisé dans les frontaliers."
     }
+  },
+
+  // ── Calculator (homepage) FAQs ──
+  "Come funziona la simulazione tasse per nuovi frontalieri?": {
+    en: {
+      q: "How does the tax simulation work for new cross-border workers?",
+      a: "The simulator calculates net pay from annual gross salary in CHF. It applies Swiss deductions (AVS 5.3%, AC 1.1%, LPP by age), Ticino withholding tax using 2026 tables, and then Italian IRPEF with the €10,000 exemption under the new agreement. The result shows a comparison between Swiss residence (Permit B) and commuting from Italy (Permit G)."
+    },
+    de: {
+      q: "Wie funktioniert die Steuersimulation für neue Grenzgänger?",
+      a: "Der Simulator berechnet den Nettolohn ausgehend vom jährlichen Bruttolohn in CHF. Er wendet die Schweizer Abzüge (AHV 5,3 %, ALV 1,1 %, BVG nach Alter), die Tessiner Quellensteuer mit den Tabellen 2026 und dann die italienische IRPEF mit dem Freibetrag von 10.000 € gemäss dem neuen Abkommen an. Das Ergebnis zeigt einen Vergleich zwischen Wohnsitz in der Schweiz (Bewilligung B) und Pendeln aus Italien (Bewilligung G)."
+    },
+    fr: {
+      q: "Comment fonctionne la simulation fiscale pour les nouveaux frontaliers ?",
+      a: "Le simulateur calcule le salaire net à partir du brut annuel en CHF. Il applique les déductions suisses (AVS 5,3 %, AC 1,1 %, LPP selon l'âge), l'impôt à la source tessinois avec les barèmes 2026, puis l'IRPEF italienne avec la franchise de 10 000 € prévue par le nouvel accord. Le résultat montre une comparaison entre la résidence en Suisse (permis B) et le pendulaire depuis l'Italie (permis G)."
+    }
+  },
+  "Cosa cambia con il nuovo accordo frontalieri 2026?": {
+    en: {
+      q: "What changes with the new cross-border workers agreement in 2026?",
+      a: "From 2024, new cross-border workers pay taxes both in Switzerland (withholding tax) and in Italy (IRPEF with a €10,000 exemption). Old cross-border workers (hired before 17/07/2023) continue under the exclusive Swiss taxation regime until 2033. The simulator handles both scenarios automatically."
+    },
+    de: {
+      q: "Was ändert sich mit dem neuen Grenzgängerabkommen 2026?",
+      a: "Ab 2024 zahlen neue Grenzgänger Steuern sowohl in der Schweiz (Quellensteuer) als auch in Italien (IRPEF mit einem Freibetrag von 10.000 €). Altgrenzgänger (eingestellt vor dem 17.07.2023) unterliegen weiterhin der ausschliesslichen Schweizer Besteuerung bis 2033. Der Simulator verarbeitet beide Szenarien automatisch."
+    },
+    fr: {
+      q: "Qu'est-ce qui change avec le nouvel accord frontaliers 2026 ?",
+      a: "À partir de 2024, les nouveaux frontaliers paient des impôts à la fois en Suisse (impôt à la source) et en Italie (IRPEF avec une franchise de 10 000 €). Les anciens frontaliers (embauchés avant le 17/07/2023) continuent sous le régime d'imposition exclusivement suisse jusqu'en 2033. Le simulateur gère automatiquement les deux scénarios."
+    }
+  },
+  "Come si calcolano le tasse dei frontalieri oltre 20 km dal confine?": {
+    en: {
+      q: "How are taxes calculated for cross-border workers living more than 20 km from the border?",
+      a: "Cross-border workers residing more than 20 km from the Swiss border pay full withholding tax in Switzerland and full IRPEF in Italy (without the €10,000 exemption). The tax credit for Swiss taxes paid is deducted from IRPEF. The simulator automatically calculates the difference based on the municipality of residence."
+    },
+    de: {
+      q: "Wie werden die Steuern für Grenzgänger berechnet, die mehr als 20 km von der Grenze entfernt wohnen?",
+      a: "Grenzgänger mit Wohnsitz mehr als 20 km von der Schweizer Grenze zahlen die volle Quellensteuer in der Schweiz und die volle IRPEF in Italien (ohne den Freibetrag von 10.000 €). Die Steuergutschrift für die in der Schweiz gezahlten Steuern wird von der IRPEF abgezogen. Der Simulator berechnet den Unterschied automatisch anhand der Wohngemeinde."
+    },
+    fr: {
+      q: "Comment sont calculés les impôts des frontaliers résidant à plus de 20 km de la frontière ?",
+      a: "Les frontaliers résidant à plus de 20 km de la frontière suisse paient l'impôt à la source intégral en Suisse et l'IRPEF complète en Italie (sans franchise de 10 000 €). Le crédit d'impôt pour les impôts suisses payés est déduit de l'IRPEF. Le simulateur calcule automatiquement la différence en fonction de la commune de résidence."
+    }
+  },
+  "Quanto costa la simulazione tasse frontalieri?": {
+    en: {
+      q: "How much does the cross-border worker tax simulation cost?",
+      a: "The simulation is completely free. No registration required. Enter your gross salary, marital status, number of children, and municipality of residence to get a detailed net calculation in seconds."
+    },
+    de: {
+      q: "Was kostet die Steuersimulation für Grenzgänger?",
+      a: "Die Simulation ist völlig kostenlos. Keine Registrierung erforderlich. Geben Sie Bruttolohn, Familienstand, Kinderzahl und Wohngemeinde ein, um in wenigen Sekunden eine detaillierte Nettoberechnung zu erhalten."
+    },
+    fr: {
+      q: "Combien coûte la simulation fiscale pour frontaliers ?",
+      a: "La simulation est entièrement gratuite. Aucune inscription requise. Saisissez votre salaire brut, état civil, nombre d'enfants et commune de résidence pour obtenir un calcul détaillé du net en quelques secondes."
+    }
+  },
+
+  // ── Comparatori FAQs ──
+  "Quali servizi possono confrontare i frontalieri su questo sito?": {
+    en: {
+      q: "What services can cross-border workers compare on this site?",
+      a: "You can compare: CHF/EUR exchange rates (6 providers), mobile operators with Italy roaming, LAMal health insurance (14 health funds), Swiss and Italian banks, cross-border grocery prices, cost of living CH vs IT, and job offers in Ticino."
+    },
+    de: {
+      q: "Welche Dienste können Grenzgänger auf dieser Seite vergleichen?",
+      a: "Sie können vergleichen: CHF/EUR-Wechselkurse (6 Anbieter), Mobilfunkanbieter mit Italien-Roaming, LAMal-Krankenversicherungen (14 Krankenkassen), Schweizer und italienische Banken, grenzüberschreitende Lebensmittelpreise, Lebenshaltungskosten CH vs. IT und Stellenangebote im Tessin."
+    },
+    fr: {
+      q: "Quels services les frontaliers peuvent-ils comparer sur ce site ?",
+      a: "Vous pouvez comparer : taux de change CHF/EUR (6 fournisseurs), opérateurs mobiles avec roaming en Italie, assurances maladie LAMal (14 caisses), banques suisses et italiennes, prix des courses transfrontalières, coût de la vie CH vs IT, et offres d'emploi au Tessin."
+    }
+  },
+  "Quanto si risparmia confrontando i servizi per frontalieri?": {
+    en: {
+      q: "How much can you save by comparing services for cross-border workers?",
+      a: "Savings vary: on currency exchange up to CHF 150/month with Wise/Revolut vs traditional banks, on mobile plans up to CHF 30/month with low-cost operators, on health insurance up to CHF 200/month by choosing the right health fund."
+    },
+    de: {
+      q: "Wie viel spart man durch den Vergleich von Diensten für Grenzgänger?",
+      a: "Die Ersparnis variiert: beim Geldwechsel bis CHF 150/Monat mit Wise/Revolut im Vergleich zu traditionellen Banken, bei Mobilfunktarifen bis CHF 30/Monat mit Billiganbietern, bei der Krankenversicherung bis CHF 200/Monat durch die Wahl der richtigen Krankenkasse."
+    },
+    fr: {
+      q: "Combien économise-t-on en comparant les services pour frontaliers ?",
+      a: "Les économies varient : sur le change jusqu'à CHF 150/mois avec Wise/Revolut par rapport aux banques traditionnelles, sur la téléphonie jusqu'à CHF 30/mois avec les opérateurs low-cost, sur l'assurance maladie jusqu'à CHF 200/mois en choisissant la bonne caisse."
+    }
+  },
+  "I comparatori sono gratuiti?": {
+    en: {
+      q: "Are the comparison tools free?",
+      a: "Yes, all comparison tools and calculators on Frontaliere Ticino are completely free, with no registration required. The site also works offline as a Progressive Web App."
+    },
+    de: {
+      q: "Sind die Vergleichsrechner kostenlos?",
+      a: "Ja, alle Vergleichsrechner und Tools auf Frontaliere Ticino sind völlig kostenlos und ohne Registrierung nutzbar. Die Seite funktioniert auch offline als Progressive Web App."
+    },
+    fr: {
+      q: "Les comparateurs sont-ils gratuits ?",
+      a: "Oui, tous les comparateurs et outils de Frontaliere Ticino sont entièrement gratuits, sans inscription requise. Le site fonctionne également hors ligne en tant que Progressive Web App."
+    }
+  },
+  "Come vengono aggiornati i dati dei comparatori?": {
+    en: {
+      q: "How is the comparator data updated?",
+      a: "Exchange rates are updated in real time via API. Insurance premiums and service costs are updated monthly or when rates change. Job offers are updated daily from company websites."
+    },
+    de: {
+      q: "Wie werden die Vergleichsdaten aktualisiert?",
+      a: "Wechselkurse werden in Echtzeit über APIs aktualisiert. Versicherungsprämien und Servicekosten werden monatlich oder bei Tarifänderungen aktualisiert. Stellenangebote werden täglich von den Unternehmenswebseiten aktualisiert."
+    },
+    fr: {
+      q: "Comment les données des comparateurs sont-elles mises à jour ?",
+      a: "Les taux de change sont mis à jour en temps réel via API. Les primes d'assurance et les coûts des services sont mis à jour mensuellement ou lors de changements tarifaires. Les offres d'emploi sont mises à jour quotidiennement depuis les sites des entreprises."
+    }
+  },
+
+  // ── Exchange (Cambio Valuta) FAQs ──
+  "Qual è il miglior servizio per cambiare franchi svizzeri in euro?": {
+    en: {
+      q: "What is the best service to exchange Swiss francs to euros?",
+      a: "Wise and Revolut generally offer the most favourable rates with fees between 0.3% and 0.5%. Traditional banks (UBS, PostFinance) apply higher spreads, often 1–3%."
+    },
+    de: {
+      q: "Welcher ist der beste Dienst, um Schweizer Franken in Euro zu wechseln?",
+      a: "Wise und Revolut bieten in der Regel die günstigsten Kurse mit Gebühren zwischen 0,3 % und 0,5 %. Traditionelle Banken (UBS, PostFinance) wenden höhere Spreads an, oft 1–3 %."
+    },
+    fr: {
+      q: "Quel est le meilleur service pour changer des francs suisses en euros ?",
+      a: "Wise et Revolut offrent généralement les taux les plus avantageux avec des frais entre 0,3 % et 0,5 %. Les banques traditionnelles (UBS, PostFinance) appliquent des spreads plus élevés, souvent de 1 à 3 %."
+    }
+  },
+  "Quanto costa trasferire CHF in EUR con Wise?": {
+    en: {
+      q: "How much does it cost to transfer CHF to EUR with Wise?",
+      a: "Wise charges a transparent fee of 0.3–0.6% on the mid-market exchange rate. For a CHF 5,000 transfer, the typical cost is around CHF 15–30."
+    },
+    de: {
+      q: "Was kostet eine Überweisung von CHF in EUR mit Wise?",
+      a: "Wise berechnet eine transparente Gebühr von 0,3–0,6 % auf den Devisenmittelkurs. Bei einer Überweisung von CHF 5.000 betragen die typischen Kosten etwa CHF 15–30."
+    },
+    fr: {
+      q: "Combien coûte un transfert de CHF en EUR avec Wise ?",
+      a: "Wise applique des frais transparents de 0,3 à 0,6 % sur le taux moyen du marché. Pour un transfert de CHF 5 000, le coût typique est d'environ CHF 15 à 30."
+    }
+  },
+  "Conviene cambiare lo stipendio frontaliere in banca o con servizi online?": {
+    en: {
+      q: "Is it better to exchange a cross-border worker's salary at a bank or with online services?",
+      a: "Online services like Wise and Revolut are generally more cost-effective. On a monthly salary of CHF 5,000, the saving compared to a traditional bank can be CHF 50–150 per month."
+    },
+    de: {
+      q: "Lohnt es sich, das Grenzgängergehalt bei der Bank oder mit Online-Diensten zu wechseln?",
+      a: "Online-Dienste wie Wise und Revolut sind in der Regel günstiger. Bei einem Monatsgehalt von CHF 5.000 kann die Ersparnis gegenüber einer traditionellen Bank CHF 50–150 pro Monat betragen."
+    },
+    fr: {
+      q: "Vaut-il mieux changer le salaire de frontalier en banque ou avec des services en ligne ?",
+      a: "Les services en ligne comme Wise et Revolut sont généralement plus avantageux. Sur un salaire mensuel de CHF 5 000, l'économie par rapport à une banque traditionnelle peut atteindre CHF 50 à 150 par mois."
+    }
+  },
+  "Quando è il momento migliore per cambiare CHF in EUR?": {
+    en: {
+      q: "When is the best time to exchange CHF to EUR?",
+      a: "The CHF/EUR rate fluctuates daily. It is best to monitor the rate and exchange when the franc is strong (below 0.93 EUR). Avoid exchanging on weekends when spreads are wider."
+    },
+    de: {
+      q: "Wann ist der beste Zeitpunkt, um CHF in EUR zu wechseln?",
+      a: "Der CHF/EUR-Kurs schwankt täglich. Am besten den Kurs beobachten und wechseln, wenn der Franken stark ist (unter 0,93 EUR). Wechsel am Wochenende vermeiden, da die Spreads dann grösser sind."
+    },
+    fr: {
+      q: "Quel est le meilleur moment pour changer des CHF en EUR ?",
+      a: "Le taux CHF/EUR fluctue quotidiennement. Il est préférable de surveiller le taux et de changer lorsque le franc est fort (en dessous de 0,93 EUR). Évitez les changes le week-end lorsque les spreads sont plus larges."
+    }
+  },
+
+  // ── Mobile operators FAQs ──
+  "Quale operatore mobile svizzero ha il roaming illimitato in Italia?": {
+    en: {
+      q: "Which Swiss mobile operator offers unlimited roaming in Italy?",
+      a: "Swisscom, Salt, and Sunrise include European roaming (Italy included) in their premium plans. Yallo and Wingo offer plans with EU roaming from CHF 19.95/month. Always check the specific conditions."
+    },
+    de: {
+      q: "Welcher Schweizer Mobilfunkanbieter bietet unbegrenztes Roaming in Italien?",
+      a: "Swisscom, Salt und Sunrise bieten in ihren Premium-Tarifen europäisches Roaming (inkl. Italien) an. Yallo und Wingo bieten Tarife mit EU-Roaming ab CHF 19.95/Monat. Prüfen Sie stets die genauen Bedingungen."
+    },
+    fr: {
+      q: "Quel opérateur mobile suisse offre le roaming illimité en Italie ?",
+      a: "Swisscom, Salt et Sunrise incluent le roaming européen (Italie comprise) dans leurs forfaits premium. Yallo et Wingo proposent des forfaits avec roaming UE dès CHF 19.95/mois. Vérifiez toujours les conditions spécifiques."
+    }
+  },
+  "Quanto costa un abbonamento mobile in Svizzera per frontalieri?": {
+    en: {
+      q: "How much does a mobile plan cost in Switzerland for cross-border workers?",
+      a: "Plans start from CHF 9.95/month (Aldi Mobile) up to CHF 65/month (Swisscom premium). For cross-border workers, a good plan with Italy roaming costs around CHF 25–40/month."
+    },
+    de: {
+      q: "Was kostet ein Mobilfunkabo in der Schweiz für Grenzgänger?",
+      a: "Die Tarife beginnen bei CHF 9.95/Monat (Aldi Mobile) und reichen bis CHF 65/Monat (Swisscom Premium). Für Grenzgänger kostet ein guter Tarif mit Italien-Roaming etwa CHF 25–40/Monat."
+    },
+    fr: {
+      q: "Combien coûte un abonnement mobile en Suisse pour les frontaliers ?",
+      a: "Les forfaits vont de CHF 9.95/mois (Aldi Mobile) à CHF 65/mois (Swisscom premium). Pour les frontaliers, un bon forfait avec roaming Italie coûte environ CHF 25 à 40/mois."
+    }
+  },
+  "Posso usare una SIM italiana in Svizzera come frontaliere?": {
+    en: {
+      q: "Can I use an Italian SIM card in Switzerland as a cross-border worker?",
+      a: "Yes, but EU roaming has usage limits. After 4 months of predominantly using it abroad, the operator may apply surcharges. For daily use in Switzerland, a Swiss operator is more convenient."
+    },
+    de: {
+      q: "Kann ich als Grenzgänger eine italienische SIM-Karte in der Schweiz nutzen?",
+      a: "Ja, aber EU-Roaming hat Nutzungslimits. Nach 4 Monaten überwiegender Nutzung im Ausland kann der Anbieter Zuschläge berechnen. Für den täglichen Gebrauch in der Schweiz ist ein Schweizer Anbieter empfehlenswerter."
+    },
+    fr: {
+      q: "Puis-je utiliser une SIM italienne en Suisse en tant que frontalier ?",
+      a: "Oui, mais le roaming UE a des limites d'utilisation. Après 4 mois d'utilisation principalement à l'étranger, l'opérateur peut appliquer des surcharges. Pour un usage quotidien en Suisse, un opérateur suisse est plus avantageux."
+    }
+  },
+  "Qual è il piano mobile più economico con roaming per frontalieri?": {
+    en: {
+      q: "What is the cheapest mobile plan with roaming for cross-border workers?",
+      a: "Yallo and Wingo offer the cheapest plans with Italy roaming included, starting from CHF 19.95/month with unlimited calls in Switzerland and roaming data."
+    },
+    de: {
+      q: "Welcher Mobilfunktarif mit Roaming ist für Grenzgänger am günstigsten?",
+      a: "Yallo und Wingo bieten die günstigsten Tarife mit Italien-Roaming ab CHF 19.95/Monat, inklusive unbegrenzter Anrufe in der Schweiz und Roaming-Daten."
+    },
+    fr: {
+      q: "Quel est le forfait mobile le moins cher avec roaming pour les frontaliers ?",
+      a: "Yallo et Wingo proposent les forfaits les moins chers avec roaming Italie inclus, à partir de CHF 19.95/mois avec appels illimités en Suisse et données en roaming."
+    }
+  },
+
+  // ── Health insurance (LAMal) FAQs ──
+  "I frontalieri devono avere l'assicurazione sanitaria svizzera?": {
+    en: {
+      q: "Do cross-border workers need Swiss health insurance?",
+      a: "Yes, cross-border workers are required to take out LAMal health insurance in Switzerland within 3 months of starting work. Alternatively, they may exercise the right of option to remain covered by the Italian national health service (SSN)."
+    },
+    de: {
+      q: "Müssen Grenzgänger eine Schweizer Krankenversicherung haben?",
+      a: "Ja, Grenzgänger sind verpflichtet, innerhalb von 3 Monaten nach Arbeitsbeginn eine KVG-Krankenversicherung in der Schweiz abzuschliessen. Alternativ können sie das Optionsrecht ausüben und beim italienischen Gesundheitsdienst (SSN) versichert bleiben."
+    },
+    fr: {
+      q: "Les frontaliers doivent-ils avoir une assurance maladie suisse ?",
+      a: "Oui, les frontaliers sont tenus de souscrire une assurance maladie LAMal en Suisse dans les 3 mois suivant le début du travail. Ils peuvent sinon exercer le droit d'option pour rester couverts par le service national de santé italien (SSN)."
+    }
+  },
+  "Quanto costa l'assicurazione LAMal per un frontaliere in Ticino?": {
+    en: {
+      q: "How much does LAMal health insurance cost for a cross-border worker in Ticino?",
+      a: "Monthly premiums in Canton Ticino range from around CHF 200 (Assura/Agrisano with Telmed model and CHF 2,500 deductible) to around CHF 600 (standard model with a low deductible)."
+    },
+    de: {
+      q: "Was kostet die KVG-Krankenversicherung für einen Grenzgänger im Tessin?",
+      a: "Die monatlichen Prämien im Kanton Tessin reichen von ca. CHF 200 (Assura/Agrisano mit Telmed-Modell und Franchise CHF 2.500) bis ca. CHF 600 (Standardmodell mit niedriger Franchise)."
+    },
+    fr: {
+      q: "Combien coûte l'assurance maladie LAMal pour un frontalier au Tessin ?",
+      a: "Les primes mensuelles au Tessin vont d'environ CHF 200 (Assura/Agrisano avec modèle Telmed et franchise CHF 2 500) à environ CHF 600 (modèle standard avec franchise basse)."
+    }
+  },
+  "Qual è la cassa malati più economica per frontalieri?": {
+    en: {
+      q: "Which health fund is the cheapest for cross-border workers?",
+      a: "Assura and Agrisano generally offer the lowest premiums in Canton Ticino. With the Telmed model and CHF 2,500 deductible, premiums start from around CHF 200/month for adults."
+    },
+    de: {
+      q: "Welche Krankenkasse ist für Grenzgänger am günstigsten?",
+      a: "Assura und Agrisano bieten im Kanton Tessin in der Regel die tiefsten Prämien. Mit dem Telmed-Modell und einer Franchise von CHF 2.500 beginnen die Prämien bei etwa CHF 200/Monat für Erwachsene."
+    },
+    fr: {
+      q: "Quelle caisse maladie est la moins chère pour les frontaliers ?",
+      a: "Assura et Agrisano offrent généralement les primes les plus basses au Tessin. Avec le modèle Telmed et une franchise de CHF 2 500, les primes commencent à environ CHF 200/mois pour les adultes."
+    }
+  },
+  "Cos'è il diritto di opzione per l'assicurazione sanitaria dei frontalieri?": {
+    en: {
+      q: "What is the right of option for cross-border workers' health insurance?",
+      a: "The right of option allows cross-border workers to choose between Swiss LAMal and the Italian national health service (SSN) within 3 months of starting work. The choice is irrevocable for the entire duration of the employment relationship."
+    },
+    de: {
+      q: "Was ist das Optionsrecht bei der Krankenversicherung für Grenzgänger?",
+      a: "Das Optionsrecht erlaubt Grenzgängern, innerhalb von 3 Monaten nach Arbeitsbeginn zwischen der Schweizer KVG und dem italienischen Gesundheitsdienst (SSN) zu wählen. Die Wahl ist für die gesamte Dauer des Arbeitsverhältnisses unwiderruflich."
+    },
+    fr: {
+      q: "Qu'est-ce que le droit d'option pour l'assurance maladie des frontaliers ?",
+      a: "Le droit d'option permet aux frontaliers de choisir entre la LAMal suisse et le service national de santé italien (SSN) dans les 3 mois suivant le début du travail. Le choix est irrévocable pour toute la durée du rapport de travail."
+    }
+  },
+  "Cosa copre l'assicurazione LAMal per frontalieri?": {
+    en: {
+      q: "What does LAMal health insurance cover for cross-border workers?",
+      a: "LAMal covers medical, hospital, and pharmaceutical care in Switzerland. For treatment in Italy, the European Health Insurance Card (EHIC) is required. The annual deductible ranges from CHF 300 to CHF 2,500."
+    },
+    de: {
+      q: "Was deckt die KVG-Krankenversicherung für Grenzgänger ab?",
+      a: "Die KVG deckt ärztliche, stationäre und pharmazeutische Leistungen in der Schweiz ab. Für Behandlungen in Italien wird die Europäische Krankenversicherungskarte (EKVK) benötigt. Die jährliche Franchise reicht von CHF 300 bis CHF 2.500."
+    },
+    fr: {
+      q: "Que couvre l'assurance maladie LAMal pour les frontaliers ?",
+      a: "La LAMal couvre les soins médicaux, hospitaliers et pharmaceutiques en Suisse. Pour les soins en Italie, la carte européenne d'assurance maladie (CEAM) est nécessaire. La franchise annuelle va de CHF 300 à CHF 2 500."
+    }
+  },
+
+  // ── Border crossings FAQs ──
+  "Quali sono gli orari di apertura dei valichi di frontiera Svizzera-Italia?": {
+    en: {
+      q: "What are the opening hours of the Switzerland-Italy border crossings?",
+      a: "The main crossings (Chiasso motorway, Ponte Tresa) are open 24/7. Minor crossings (Gaggiolo, Stabio, Brogeda) have reduced hours, generally from 6:00 to 22:00."
+    },
+    de: {
+      q: "Wie sind die Öffnungszeiten der Grenzübergänge Schweiz-Italien?",
+      a: "Die Hauptübergänge (Autobahnzoll Chiasso, Ponte Tresa) sind rund um die Uhr geöffnet. Kleinere Übergänge (Gaggiolo, Stabio, Brogeda) haben eingeschränkte Öffnungszeiten, in der Regel von 6:00 bis 22:00 Uhr."
+    },
+    fr: {
+      q: "Quels sont les horaires d'ouverture des postes frontière Suisse-Italie ?",
+      a: "Les postes principaux (autoroute de Chiasso, Ponte Tresa) sont ouverts 24h/24. Les postes secondaires (Gaggiolo, Stabio, Brogeda) ont des horaires réduits, généralement de 6h00 à 22h00."
+    }
+  },
+  "Qual è il valico meno trafficato tra Svizzera e Italia?": {
+    en: {
+      q: "Which is the least congested border crossing between Switzerland and Italy?",
+      a: "Stabio and Gaggiolo are generally the least congested crossings. On weekdays, waiting times are often under 5 minutes compared to 15–30 minutes at Chiasso during rush hours."
+    },
+    de: {
+      q: "Welcher Grenzübergang zwischen der Schweiz und Italien ist am wenigsten befahren?",
+      a: "Stabio und Gaggiolo sind in der Regel die am wenigsten befahrenen Übergänge. An Werktagen betragen die Wartezeiten oft weniger als 5 Minuten, verglichen mit 15–30 Minuten in Chiasso zu Stosszeiten."
+    },
+    fr: {
+      q: "Quel est le poste frontière le moins fréquenté entre la Suisse et l'Italie ?",
+      a: "Stabio et Gaggiolo sont généralement les postes les moins fréquentés. En semaine, les temps d'attente sont souvent inférieurs à 5 minutes contre 15 à 30 minutes à Chiasso aux heures de pointe."
+    }
+  },
+  "A che ora c'è più traffico alla dogana di Chiasso?": {
+    en: {
+      q: "What time is there the most traffic at the Chiasso customs?",
+      a: "Rush hours are 7:00–8:30 (entering Switzerland) and 17:00–18:30 (returning to Italy). Monday and Friday are the busiest days."
+    },
+    de: {
+      q: "Wann ist der Verkehr am Zoll von Chiasso am stärksten?",
+      a: "Die Stosszeiten sind 7:00–8:30 Uhr (Einreise in die Schweiz) und 17:00–18:30 Uhr (Rückkehr nach Italien). Montag und Freitag sind die verkehrsreichsten Tage."
+    },
+    fr: {
+      q: "À quelle heure y a-t-il le plus de trafic à la douane de Chiasso ?",
+      a: "Les heures de pointe sont 7h00–8h30 (entrée en Suisse) et 17h00–18h30 (retour en Italie). Le lundi et le vendredi sont les jours les plus chargés."
+    }
+  },
+  "Come evitare le code alla frontiera Svizzera-Italia?": {
+    en: {
+      q: "How can you avoid queues at the Switzerland-Italy border?",
+      a: "Use alternative crossings (Stabio, Gaggiolo), leave before 7:00 or after 8:30. Avoid Monday mornings and Friday evenings. Alternatively, take the train: no customs checks."
+    },
+    de: {
+      q: "Wie kann man Warteschlangen an der Grenze Schweiz-Italien vermeiden?",
+      a: "Nutzen Sie alternative Übergänge (Stabio, Gaggiolo), fahren Sie vor 7:00 oder nach 8:30 Uhr los. Meiden Sie Montagmorgen und Freitagabend. Alternativ den Zug nehmen: keine Zollkontrolle."
+    },
+    fr: {
+      q: "Comment éviter les files d'attente à la frontière Suisse-Italie ?",
+      a: "Utilisez des postes alternatifs (Stabio, Gaggiolo), partez avant 7h00 ou après 8h30. Évitez le lundi matin et le vendredi soir. Autre option : le train, sans contrôle douanier."
+    }
+  },
+
+  // ── Holidays FAQs ──
+  "Quanti giorni festivi ci sono in Canton Ticino nel 2026?": {
+    en: {
+      q: "How many public holidays are there in Canton Ticino in 2026?",
+      a: "Canton Ticino has 15 official public holidays in 2026, including federal holidays (New Year, 1st August) and cantonal ones (St Joseph, Corpus Christi, Saints Peter and Paul, Assumption, All Saints, Immaculate Conception)."
+    },
+    de: {
+      q: "Wie viele Feiertage gibt es im Kanton Tessin im Jahr 2026?",
+      a: "Der Kanton Tessin hat 2026 15 offizielle Feiertage, darunter Bundesfeiertage (Neujahr, 1. August) und kantonale Feiertage (Josefstag, Fronleichnam, Peter und Paul, Mariä Himmelfahrt, Allerheiligen, Mariä Empfängnis)."
+    },
+    fr: {
+      q: "Combien de jours fériés y a-t-il au Tessin en 2026 ?",
+      a: "Le Tessin compte 15 jours fériés officiels en 2026, incluant les fêtes fédérales (Nouvel An, 1er août) et cantonales (Saint-Joseph, Fête-Dieu, Saints Pierre et Paul, Assomption, Toussaint, Immaculée Conception)."
+    }
+  },
+  "Le festività italiane valgono anche per chi lavora in Svizzera?": {
+    en: {
+      q: "Do Italian public holidays also apply to those working in Switzerland?",
+      a: "No, cross-border workers follow the Swiss/Ticino holiday calendar. Italian holidays (April 25th, June 2nd, patron saint's day) are not recognised in Switzerland. Cross-border workers must take annual leave for those days."
+    },
+    de: {
+      q: "Gelten italienische Feiertage auch für Personen, die in der Schweiz arbeiten?",
+      a: "Nein, Grenzgänger folgen dem Schweizer bzw. Tessiner Feiertagskalender. Italienische Feiertage (25. April, 2. Juni, Patronatsfest) werden in der Schweiz nicht anerkannt. Grenzgänger müssen für diese Tage Ferien beziehen."
+    },
+    fr: {
+      q: "Les jours fériés italiens s'appliquent-ils aussi à ceux qui travaillent en Suisse ?",
+      a: "Non, les frontaliers suivent le calendrier des jours fériés suisse/tessinois. Les jours fériés italiens (25 avril, 2 juin, saint patron) ne sont pas reconnus en Suisse. Les frontaliers doivent prendre des congés pour ces jours."
+    }
+  },
+  "Quanti giorni di ferie ha un frontaliere in Svizzera?": {
+    en: {
+      q: "How many vacation days does a cross-border worker have in Switzerland?",
+      a: "By Swiss law, the minimum is 4 weeks (20 working days) per year for adults and 5 weeks for workers under 20. Many collective labour agreements (CCL) provide 5 weeks after a certain seniority."
+    },
+    de: {
+      q: "Wie viele Ferientage hat ein Grenzgänger in der Schweiz?",
+      a: "Das Schweizer Gesetz sieht mindestens 4 Wochen (20 Arbeitstage) pro Jahr für Erwachsene und 5 Wochen für Arbeitnehmer unter 20 Jahren vor. Viele Gesamtarbeitsverträge (GAV) sehen nach einer gewissen Betriebszugehörigkeit 5 Wochen vor."
+    },
+    fr: {
+      q: "Combien de jours de vacances a un frontalier en Suisse ?",
+      a: "Selon la loi suisse, le minimum est de 4 semaines (20 jours ouvrables) par an pour les adultes et 5 semaines pour les travailleurs de moins de 20 ans. De nombreuses conventions collectives (CCT) prévoient 5 semaines après une certaine ancienneté."
+    }
+  },
+  "Quali sono i ponti migliori per frontalieri nel 2026?": {
+    en: {
+      q: "What are the best long weekends for cross-border workers in 2026?",
+      a: "The most convenient long weekends in 2026 are Easter (Good Friday + Easter Monday), Ascension (Thursday, one bridge day needed), and Corpus Christi (Thursday, one bridge day needed). Check our interactive calendar."
+    },
+    de: {
+      q: "Welche Brückentage sind 2026 für Grenzgänger am günstigsten?",
+      a: "Die günstigsten Brückentage 2026 sind Ostern (Karfreitag + Ostermontag), Auffahrt (Donnerstag, ein Brückentag nötig) und Fronleichnam (Donnerstag, ein Brückentag nötig). Schauen Sie in unseren interaktiven Kalender."
+    },
+    fr: {
+      q: "Quels sont les meilleurs ponts pour les frontaliers en 2026 ?",
+      a: "Les ponts les plus avantageux en 2026 sont Pâques (Vendredi saint + lundi de Pâques), l'Ascension (jeudi, un jour de pont nécessaire) et la Fête-Dieu (jeudi, un jour de pont nécessaire). Consultez notre calendrier interactif."
+    }
+  },
+
+  // ── Job board FAQs ──
+  "Come trovare offerte di lavoro in Ticino per frontalieri?": {
+    en: {
+      q: "How can I find job offers in Ticino for cross-border workers?",
+      a: "On Frontaliere Ticino you can browse offers updated daily from over 100 Ticino-based companies. Filter by sector (banking, tech, pharma, healthcare), location (Lugano, Mendrisio, Bellinzona), and contract type. Each offer includes a salary estimate and a direct link to apply."
+    },
+    de: {
+      q: "Wie finde ich Stellenangebote im Tessin für Grenzgänger?",
+      a: "Auf Frontaliere Ticino finden Sie täglich aktualisierte Angebote von über 100 Tessiner Unternehmen. Filtern Sie nach Branche (Banken, Tech, Pharma, Gesundheit), Standort (Lugano, Mendrisio, Bellinzona) und Vertragsart. Jedes Angebot enthält eine Gehaltsschätzung und einen direkten Link zur Bewerbung."
+    },
+    fr: {
+      q: "Comment trouver des offres d'emploi au Tessin pour les frontaliers ?",
+      a: "Sur Frontaliere Ticino, vous pouvez consulter des offres mises à jour quotidiennement provenant de plus de 100 entreprises tessinoises. Filtrez par secteur (banque, tech, pharma, santé), lieu (Lugano, Mendrisio, Bellinzona) et type de contrat. Chaque offre inclut une estimation salariale et un lien direct pour postuler."
+    }
+  },
+  "Quali sono i settori con più offerte di lavoro in Ticino?": {
+    en: {
+      q: "Which sectors have the most job offers in Ticino?",
+      a: "The sectors with the most offers for cross-border workers in Ticino are: pharma and life sciences, financial and banking services, technology and IT, healthcare and hospitals, logistics and transport, industry and manufacturing. Pharmaceutical companies in the Mendrisiotto area offer the best-paid positions."
+    },
+    de: {
+      q: "In welchen Branchen gibt es im Tessin die meisten Stellenangebote?",
+      a: "Die Branchen mit den meisten Angeboten für Grenzgänger im Tessin sind: Pharma und Life Sciences, Finanz- und Bankdienstleistungen, Technologie und IT, Gesundheitswesen und Spitäler, Logistik und Transport, Industrie und Fertigung. Pharmaunternehmen im Mendrisiotto bieten die bestbezahlten Stellen."
+    },
+    fr: {
+      q: "Quels secteurs ont le plus d'offres d'emploi au Tessin ?",
+      a: "Les secteurs avec le plus d'offres pour les frontaliers au Tessin sont : pharma et sciences de la vie, services financiers et bancaires, technologie et IT, santé et hôpitaux, logistique et transport, industrie et manufacture. Les entreprises pharmaceutiques du Mendrisiotto offrent les postes les mieux rémunérés."
+    }
+  },
+  "Serve il permesso G per lavorare in Ticino come frontaliere?": {
+    en: {
+      q: "Do you need a G permit to work in Ticino as a cross-border worker?",
+      a: "Yes, to work in Ticino as a cross-border worker you need a G permit (Grenzgängerbewilligung). The Swiss employer initiates the process. The permit is renewable every 5 years and requires daily return to the country of residence (Italy). Since 2023, under the new agreement, residents beyond 20 km from the border can also obtain a G permit."
+    },
+    de: {
+      q: "Braucht man eine G-Bewilligung, um als Grenzgänger im Tessin zu arbeiten?",
+      a: "Ja, um als Grenzgänger im Tessin zu arbeiten, benötigen Sie eine G-Bewilligung (Grenzgängerbewilligung). Der Schweizer Arbeitgeber leitet das Verfahren ein. Die Bewilligung ist alle 5 Jahre erneuerbar und erfordert die tägliche Rückkehr ins Wohnsitzland (Italien). Seit 2023 können auch Personen mit Wohnsitz über 20 km von der Grenze eine G-Bewilligung erhalten."
+    },
+    fr: {
+      q: "Faut-il un permis G pour travailler au Tessin comme frontalier ?",
+      a: "Oui, pour travailler au Tessin en tant que frontalier, il faut un permis G (Grenzgängerbewilligung). L'employeur suisse initie la démarche. Le permis est renouvelable tous les 5 ans et exige le retour quotidien dans le pays de résidence (Italie). Depuis 2023, avec le nouvel accord, les résidents à plus de 20 km de la frontière peuvent également obtenir un permis G."
+    }
+  },
+  "Quanto guadagna un frontaliere in Ticino?": {
+    en: {
+      q: "How much does a cross-border worker earn in Ticino?",
+      a: "Average salary for a cross-border worker in Ticino varies by sector: pharma CHF 85,000–120,000/year, finance CHF 80,000–110,000, IT CHF 75,000–100,000, healthcare CHF 65,000–90,000, retail CHF 55,000–70,000. Use our free tax simulator to calculate net pay after Swiss and Italian taxes."
+    },
+    de: {
+      q: "Wie viel verdient ein Grenzgänger im Tessin?",
+      a: "Das Durchschnittsgehalt eines Grenzgängers im Tessin variiert nach Branche: Pharma CHF 85.000–120.000/Jahr, Finanzen CHF 80.000–110.000, IT CHF 75.000–100.000, Gesundheit CHF 65.000–90.000, Handel CHF 55.000–70.000. Nutzen Sie unseren kostenlosen Steuerrechner, um den Nettolohn nach Schweizer und italienischen Steuern zu berechnen."
+    },
+    fr: {
+      q: "Combien gagne un frontalier au Tessin ?",
+      a: "Le salaire moyen d'un frontalier au Tessin varie selon le secteur : pharma CHF 85 000–120 000/an, finance CHF 80 000–110 000, IT CHF 75 000–100 000, santé CHF 65 000–90 000, commerce CHF 55 000–70 000. Utilisez notre simulateur fiscal gratuit pour calculer le net après impôts suisses et italiens."
+    }
+  },
+
+  // ── Calculator tools FAQs ──
+  "Come funziona il calcolatore stipendio per frontalieri?": {
+    en: {
+      q: "How does the salary calculator for cross-border workers work?",
+      a: "Enter your annual gross salary in CHF, marital status, number of children, municipality of residence, and type of cross-border worker (new or old). The simulator automatically calculates Swiss contributions (AVS, LPP, AC), Ticino withholding tax, Italian IRPEF with exemption, and shows the monthly net in CHF and EUR."
+    },
+    de: {
+      q: "Wie funktioniert der Lohnrechner für Grenzgänger?",
+      a: "Geben Sie Ihren jährlichen Bruttolohn in CHF, Familienstand, Kinderzahl, Wohngemeinde und den Grenzgängertyp (neu oder alt) ein. Der Simulator berechnet automatisch die Schweizer Beiträge (AHV, BVG, ALV), die Tessiner Quellensteuer, die italienische IRPEF mit Freibetrag und zeigt den monatlichen Nettolohn in CHF und EUR."
+    },
+    fr: {
+      q: "Comment fonctionne le calculateur de salaire pour les frontaliers ?",
+      a: "Saisissez votre salaire brut annuel en CHF, état civil, nombre d'enfants, commune de résidence et type de frontalier (nouveau ou ancien). Le simulateur calcule automatiquement les cotisations suisses (AVS, LPP, AC), l'impôt à la source tessinois, l'IRPEF italienne avec franchise, et affiche le net mensuel en CHF et EUR."
+    }
+  },
+  "Il calcolatore è aggiornato al 2026?": {
+    en: {
+      q: "Is the calculator updated for 2026?",
+      a: "Yes, the calculator uses 2026 rates: Ticino withholding tax tables, IRPEF brackets, AVS contributions at 5.3%, LPP by age group, and the real-time CHF/EUR exchange rate. The new tax agreement (€10,000 exemption for new cross-border workers) is fully integrated."
+    },
+    de: {
+      q: "Ist der Rechner auf dem Stand von 2026?",
+      a: "Ja, der Rechner verwendet die Sätze 2026: Tessiner Quellensteuertabellen, IRPEF-Stufen, AHV-Beiträge von 5,3 %, BVG nach Altersgruppe und den Echtzeit-Wechselkurs CHF/EUR. Das neue Steuerabkommen (Freibetrag 10.000 € für neue Grenzgänger) ist vollständig integriert."
+    },
+    fr: {
+      q: "Le calculateur est-il mis à jour pour 2026 ?",
+      a: "Oui, le calculateur utilise les taux 2026 : barèmes d'imposition à la source du Tessin, tranches IRPEF, cotisations AVS à 5,3 %, LPP par groupe d'âge et le taux de change CHF/EUR en temps réel. Le nouvel accord fiscal (franchise de 10 000 € pour les nouveaux frontaliers) est pleinement intégré."
+    }
+  },
+  "Qual è la differenza tra gli strumenti disponibili?": {
+    en: {
+      q: "What is the difference between the available tools?",
+      a: "The main simulator calculates net from gross. 'RAL Comparison' compares CH and IT salaries. 'Pay Slip' simulates a full pay slip. 'What-If' shows the impact of alternative scenarios (children, change of residence, promotion). 'Permit G vs B' compares costs and benefits between commuting and residence."
+    },
+    de: {
+      q: "Was ist der Unterschied zwischen den verfügbaren Tools?",
+      a: "Der Hauptsimulator berechnet den Nettolohn aus dem Brutto. 'RAL-Vergleich' vergleicht CH- und IT-Gehälter. 'Lohnabrechnung' simuliert eine vollständige Lohnabrechnung. 'What-If' zeigt die Auswirkungen alternativer Szenarien (Kinder, Wohnortwechsel, Beförderung). 'Bewilligung G vs. B' vergleicht Kosten und Vorteile zwischen Pendeln und Wohnsitz."
+    },
+    fr: {
+      q: "Quelle est la différence entre les outils disponibles ?",
+      a: "Le simulateur principal calcule le net à partir du brut. 'Comparaison RAL' compare les salaires CH et IT. 'Fiche de paie' simule une fiche de paie complète. 'What-If' montre l'impact de scénarios alternatifs (enfants, changement de résidence, promotion). 'Permis G vs B' compare les coûts et avantages entre le pendulaire et la résidence."
+    }
+  },
+  "Il simulatore funziona anche per i vecchi frontalieri?": {
+    en: {
+      q: "Does the simulator also work for old cross-border workers?",
+      a: "Yes. By selecting 'old cross-border worker' the simulator applies the transitional tax regime: exclusive taxation in Switzerland (no Italian IRPEF) until 2033. Old cross-border workers are those hired before 17 July 2023 residing within 20 km of the border."
+    },
+    de: {
+      q: "Funktioniert der Simulator auch für Altgrenzgänger?",
+      a: "Ja. Durch Auswahl von 'Altgrenzgänger' wendet der Simulator das Übergangssteuerregime an: ausschliessliche Besteuerung in der Schweiz (keine italienische IRPEF) bis 2033. Altgrenzgänger sind Personen, die vor dem 17. Juli 2023 eingestellt wurden und innerhalb von 20 km zur Grenze wohnen."
+    },
+    fr: {
+      q: "Le simulateur fonctionne-t-il aussi pour les anciens frontaliers ?",
+      a: "Oui. En sélectionnant 'ancien frontalier', le simulateur applique le régime fiscal transitoire : imposition exclusive en Suisse (pas d'IRPEF italienne) jusqu'en 2033. Les anciens frontaliers sont ceux embauchés avant le 17 juillet 2023 résidant dans un rayon de 20 km de la frontière."
+    }
+  },
+
+  // ── What-If simulator FAQs ──
+  "Come funziona il simulatore What-If per frontalieri?": {
+    en: {
+      q: "How does the What-If simulator for cross-border workers work?",
+      a: "Enter your current scenario (salary, marital status, children, residence) and then modify one or more variables to see in real time how your net pay changes. For example: what happens if a child arrives? If you change residence? If your salary increases by 10%?"
+    },
+    de: {
+      q: "Wie funktioniert der What-If-Simulator für Grenzgänger?",
+      a: "Geben Sie Ihr aktuelles Szenario ein (Gehalt, Familienstand, Kinder, Wohnsitz) und ändern Sie dann eine oder mehrere Variablen, um in Echtzeit zu sehen, wie sich Ihr Nettolohn verändert. Zum Beispiel: Was passiert bei einem Kind? Bei Wohnortwechsel? Bei 10 % Gehaltserhöhung?"
+    },
+    fr: {
+      q: "Comment fonctionne le simulateur What-If pour les frontaliers ?",
+      a: "Saisissez votre scénario actuel (salaire, état civil, enfants, résidence) puis modifiez une ou plusieurs variables pour voir en temps réel comment votre net évolue. Par exemple : que se passe-t-il si un enfant arrive ? Si vous changez de résidence ? Si votre salaire augmente de 10 % ?"
+    }
+  },
+  "Quali scenari posso simulare?": {
+    en: {
+      q: "What scenarios can I simulate?",
+      a: "You can simulate: birth of a child (impact on deductions and allowances), change of marital status (marriage/divorce), salary increase or decrease, change of residential area (within/beyond 20 km from the border), switch from old to new cross-border worker status, and CHF/EUR exchange rate variation."
+    },
+    de: {
+      q: "Welche Szenarien kann ich simulieren?",
+      a: "Sie können simulieren: Geburt eines Kindes (Auswirkung auf Abzüge und Zulagen), Änderung des Familienstands (Heirat/Scheidung), Gehaltserhöhung oder -senkung, Wechsel des Wohngebiets (innerhalb/ausserhalb von 20 km zur Grenze), Wechsel vom Alt- zum Neugrenzgänger und Veränderung des CHF/EUR-Wechselkurses."
+    },
+    fr: {
+      q: "Quels scénarios puis-je simuler ?",
+      a: "Vous pouvez simuler : naissance d'un enfant (impact sur les déductions et allocations), changement d'état civil (mariage/divorce), augmentation ou diminution du salaire, changement de zone de résidence (dans/au-delà de 20 km de la frontière), passage d'ancien à nouveau frontalier, et variation du taux de change CHF/EUR."
+    }
+  },
+  "La simulazione What-If è affidabile?": {
+    en: {
+      q: "Is the What-If simulation reliable?",
+      a: "The simulation uses the same tax tables as the main calculator: Ticino withholding tax rates 2026, IRPEF brackets, AVS/LPP/AC contributions. Results are indicative estimates, not professional tax advice."
+    },
+    de: {
+      q: "Ist die What-If-Simulation zuverlässig?",
+      a: "Die Simulation verwendet dieselben Steuertabellen wie der Hauptrechner: Tessiner Quellensteuersätze 2026, IRPEF-Stufen, AHV/BVG/ALV-Beiträge. Die Ergebnisse sind orientierende Schätzungen, keine professionelle Steuerberatung."
+    },
+    fr: {
+      q: "La simulation What-If est-elle fiable ?",
+      a: "La simulation utilise les mêmes barèmes fiscaux que le calculateur principal : taux d'imposition à la source du Tessin 2026, tranches IRPEF, cotisations AVS/LPP/AC. Les résultats sont des estimations indicatives, pas un conseil fiscal professionnel."
+    }
   }
 };
 
