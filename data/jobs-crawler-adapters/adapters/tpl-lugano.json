@@ -1,0 +1,16 @@
+{
+  "companyKey": "tpl-lugano",
+  "companyName": "TPL - Trasporti Pubblici Luganesi",
+  "companyHost": "www.tplsa.ch",
+  "enabled": true,
+  "priority": 10,
+  "crawlerModes": [
+    "html",
+    "generic_ats"
+  ],
+  "seedUrls": [
+    "https://www.tplsa.ch/2/50/tpl-lavora-con-noi.html"
+  ],
+  "notes": "TPL Lugano public transport careers page. Positions listed when available.",
+  "updatedAt": "2026-03-25T09:28:26.046Z"
+}
