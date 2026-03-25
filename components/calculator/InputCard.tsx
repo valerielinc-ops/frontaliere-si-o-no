@@ -35,8 +35,17 @@ const InfoTooltip = ({ text }: { text: string }) => (
   </div>
 );
 
+const iconBgMap: Record<string, string> = {
+  'text-indigo-600': 'bg-indigo-100 dark:bg-indigo-900/30 text-indigo-600',
+  'text-teal-500': 'bg-teal-100 dark:bg-teal-900/30 text-teal-500',
+  'text-gray-500': 'bg-gray-100 dark:bg-gray-900/30 text-gray-500',
+  'text-orange-500': 'bg-orange-100 dark:bg-orange-900/30 text-orange-500',
+  'text-amber-700': 'bg-amber-100 dark:bg-amber-900/30 text-amber-700',
+  'text-cyan-600': 'bg-cyan-100 dark:bg-cyan-900/30 text-cyan-600',
+};
+
 const SectionHeader = ({ title, icon: Icon, isOpen, onToggle, subtext, iconColor = "text-indigo-600", action }: any) => (
-  <div 
+  <div
     onClick={onToggle}
     role="button"
     tabIndex={0}
@@ -44,7 +53,7 @@ const SectionHeader = ({ title, icon: Icon, isOpen, onToggle, subtext, iconColor
     className={`w-full flex items-center justify-between p-4 rounded-xl transition-all duration-300 group cursor-pointer ${isOpen ? 'bg-white dark:bg-slate-800 shadow-sm' : 'hover:bg-white/50 dark:hover:bg-slate-800/50'}`}
   >
     <div className="flex items-center gap-3">
-      <div className={`p-2 rounded-lg transition-colors ${isOpen ? `bg-opacity-20 ${iconColor.replace('text-', 'bg-')} ${iconColor}` : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 group-hover:bg-white dark:group-hover:bg-slate-700'}`}>
+      <div className={`p-2 rounded-lg transition-colors ${isOpen ? (iconBgMap[iconColor] ?? `bg-slate-100 dark:bg-slate-700 ${iconColor}`) : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 group-hover:bg-white dark:group-hover:bg-slate-700'}`}>
         <Icon size={18} />
       </div>
       <div className="text-left">
@@ -610,7 +619,7 @@ export const InputCard: React.FC<Props> = ({ inputs, setInputs, onCalculate, foc
                           </div>
                           <input type="number" value={exp.amount || ''} onChange={e => updateExpense('CH', exp.id, { amount: Number(e.target.value) })} placeholder="0" className="w-14 sm:w-16 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg px-1 sm:px-2 py-2 text-[10px] font-mono font-bold outline-none focus:border-indigo-500 text-right transition-colors" />
                           <button onClick={() => updateExpense('CH', exp.id, { frequency: exp.frequency === 'MONTHLY' ? 'ANNUAL' : 'MONTHLY' })} className="px-1.5 sm:px-2 py-2 bg-slate-100 dark:bg-slate-800 rounded-lg text-[9px] font-bold uppercase text-slate-600 w-10 sm:w-12 text-center hover:bg-slate-200 transition-colors flex-shrink-0">{exp.frequency === 'MONTHLY' ? '/m' : '/a'}</button>
-                          <button onClick={() => removeExpense('CH', exp.id)} className="p-1 sm:p-1.5 text-slate-300 hover:text-red-500 transition-colors flex-shrink-0"><X size={14}/></button>
+                          <button onClick={() => removeExpense('CH', exp.id)} className="p-2 sm:p-2.5 -m-1 text-slate-300 hover:text-red-500 transition-colors flex-shrink-0"><X size={14}/></button>
                         </div>
                      ))}
                      {inputs.expensesCH.length === 0 && !showPresets && <div className="text-[10px] text-slate-600 italic text-center py-4 bg-slate-50/50 rounded-xl border border-dashed border-slate-200">{t('input.noExpenses')}</div>}
@@ -678,7 +687,7 @@ export const InputCard: React.FC<Props> = ({ inputs, setInputs, onCalculate, foc
                           </div>
                           <input type="number" value={exp.amount || ''} onChange={e => updateExpense('IT', exp.id, { amount: Number(e.target.value) })} placeholder="0" className="w-14 sm:w-16 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg px-1 sm:px-2 py-2 text-[10px] font-mono font-bold outline-none focus:border-indigo-500 text-right transition-colors" />
                           <button onClick={() => updateExpense('IT', exp.id, { frequency: exp.frequency === 'MONTHLY' ? 'ANNUAL' : 'MONTHLY' })} className="px-1.5 sm:px-2 py-2 bg-slate-100 dark:bg-slate-800 rounded-lg text-[9px] font-bold uppercase text-slate-600 w-10 sm:w-12 text-center hover:bg-slate-200 transition-colors flex-shrink-0">{exp.frequency === 'MONTHLY' ? '/m' : '/a'}</button>
-                          <button onClick={() => removeExpense('IT', exp.id)} className="p-1 sm:p-1.5 text-slate-300 hover:text-red-500 transition-colors flex-shrink-0"><X size={14}/></button>
+                          <button onClick={() => removeExpense('IT', exp.id)} className="p-2 sm:p-2.5 -m-1 text-slate-300 hover:text-red-500 transition-colors flex-shrink-0"><X size={14}/></button>
                         </div>
                      ))}
                       {inputs.expensesIT.length === 0 && !showPresets && <div className="text-[10px] text-slate-600 italic text-center py-4 bg-slate-50/50 rounded-xl border border-dashed border-slate-200">{t('input.noExpenses')}</div>}

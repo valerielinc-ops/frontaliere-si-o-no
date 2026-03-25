@@ -354,7 +354,7 @@ const SchoolDirectory: React.FC<{ t: (key: string) => string }> = ({ t }) => {
                             </div>
                           )}
                           {school.website && (
-                            <a href={school.website} target="_blank" rel="noopener noreferrer" className="p-1.5 rounded-lg bg-indigo-100 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 hover:bg-indigo-200 dark:hover:bg-indigo-800/30 transition-colors">
+                            <a href={school.website} target="_blank" rel="noopener noreferrer" className="p-2.5 rounded-lg bg-indigo-100 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 hover:bg-indigo-200 dark:hover:bg-indigo-800/30 transition-colors">
                               <ExternalLink size={12} />
                             </a>
                           )}
@@ -2550,7 +2550,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
           <div className="bg-gradient-to-br from-indigo-600 to-purple-700 text-white rounded-2xl shadow-2xl p-4 sm:p-5 border border-indigo-400/30">
             <button
               onClick={dismissBanner}
-              className="absolute top-2 right-2 p-1.5 text-white/70 hover:text-white hover:bg-white/20 rounded-full transition-colors"
+              className="absolute top-2 right-2 p-2 text-white/70 hover:text-white hover:bg-white/20 rounded-full transition-colors"
               aria-label={t('guide.closeBanner')}
             >
               <X size={16} />

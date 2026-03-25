@@ -201,7 +201,7 @@ const BonusCalculator: React.FC<BonusCalcProps> = ({ userProfile }) => {
         </h3>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           <div>
-            <label htmlFor="bonus-salary" className="block text-xs font-semibold text-slate-600 dark:text-slate-400 mb-1">
+            <label htmlFor="bonus-salary" className="block text-xs font-semibold text-slate-600 dark:text-slate-300 mb-1">
               {t('bonus.monthlySalary')} (CHF)
             </label>
             <input
@@ -213,7 +213,7 @@ const BonusCalculator: React.FC<BonusCalcProps> = ({ userProfile }) => {
             />
           </div>
           <div>
-            <label htmlFor="bonus-amount" className="block text-xs font-semibold text-slate-600 dark:text-slate-400 mb-1">
+            <label htmlFor="bonus-amount" className="block text-xs font-semibold text-slate-600 dark:text-slate-300 mb-1">
               {t('bonus.amount')} (CHF)
             </label>
             <input
@@ -225,7 +225,7 @@ const BonusCalculator: React.FC<BonusCalcProps> = ({ userProfile }) => {
             />
           </div>
           <div>
-            <label htmlFor="bonus-type" className="block text-xs font-semibold text-slate-600 dark:text-slate-400 mb-1">
+            <label htmlFor="bonus-type" className="block text-xs font-semibold text-slate-600 dark:text-slate-300 mb-1">
               {t('bonus.type')}
             </label>
             <select
@@ -240,7 +240,7 @@ const BonusCalculator: React.FC<BonusCalcProps> = ({ userProfile }) => {
             </select>
           </div>
           <div>
-            <label htmlFor="bonus-married" className="block text-xs font-semibold text-slate-600 dark:text-slate-400 mb-1">
+            <label htmlFor="bonus-married" className="block text-xs font-semibold text-slate-600 dark:text-slate-300 mb-1">
               {t('bonus.maritalStatus')}
             </label>
             <select
@@ -254,7 +254,7 @@ const BonusCalculator: React.FC<BonusCalcProps> = ({ userProfile }) => {
             </select>
           </div>
           <div>
-            <label htmlFor="bonus-children" className="block text-xs font-semibold text-slate-600 dark:text-slate-400 mb-1">
+            <label htmlFor="bonus-children" className="block text-xs font-semibold text-slate-600 dark:text-slate-300 mb-1">
               {t('bonus.children')}
             </label>
             <input
@@ -268,7 +268,7 @@ const BonusCalculator: React.FC<BonusCalcProps> = ({ userProfile }) => {
             />
           </div>
           <div>
-            <label htmlFor="bonus-exchange" className="block text-xs font-semibold text-slate-600 dark:text-slate-400 mb-1">
+            <label htmlFor="bonus-exchange" className="block text-xs font-semibold text-slate-600 dark:text-slate-300 mb-1">
               {t('bonus.exchangeRate')} (CHF→EUR)
             </label>
             <div className="flex gap-1">
@@ -302,7 +302,7 @@ const BonusCalculator: React.FC<BonusCalcProps> = ({ userProfile }) => {
           <h3 className="font-bold text-slate-800 dark:text-slate-200 flex items-center gap-2">
             <Euro size={18} className="text-emerald-700" /> {t('bonus.result')}
           </h3>
-          {expandedSection === 'result' ? <ChevronUp size={18} className="text-slate-400" /> : <ChevronDown size={18} className="text-slate-400" />}
+          {expandedSection === 'result' ? <ChevronUp size={18} className="text-slate-500 dark:text-slate-400" /> : <ChevronDown size={18} className="text-slate-500 dark:text-slate-400" />}
         </button>
         {expandedSection === 'result' && (
           <div className="px-4 pb-4 space-y-4 border-t border-slate-100 dark:border-slate-700 pt-4 animate-fade-in">
@@ -327,7 +327,7 @@ const BonusCalculator: React.FC<BonusCalcProps> = ({ userProfile }) => {
             </div>
             {/* Effective rate */}
             <div className="bg-slate-50 dark:bg-slate-700/50 rounded-xl p-4 text-center">
-              <p className="text-xs text-slate-500 dark:text-slate-400 mb-1">{t('bonus.effectiveRate')}</p>
+              <p className="text-xs text-slate-500 dark:text-slate-300 mb-1">{t('bonus.effectiveRate')}</p>
               <p className={`text-3xl font-bold ${result.effectiveTaxRate > 40 ? 'text-red-600 dark:text-red-400' : result.effectiveTaxRate > 25 ? 'text-amber-600 dark:text-amber-400' : 'text-emerald-700 dark:text-emerald-400'}`}>
                 {result.effectiveTaxRate}%
               </p>
@@ -342,11 +342,11 @@ const BonusCalculator: React.FC<BonusCalcProps> = ({ userProfile }) => {
           <h3 className="font-bold text-slate-800 dark:text-slate-200 flex items-center gap-2">
             <TrendingUp size={18} className="text-orange-600" /> {t('bonus.taxImpact')}
           </h3>
-          {expandedSection === 'taxImpact' ? <ChevronUp size={18} className="text-slate-400" /> : <ChevronDown size={18} className="text-slate-400" />}
+          {expandedSection === 'taxImpact' ? <ChevronUp size={18} className="text-slate-500 dark:text-slate-400" /> : <ChevronDown size={18} className="text-slate-500 dark:text-slate-400" />}
         </button>
         {expandedSection === 'taxImpact' && (
           <div className="px-4 pb-4 space-y-4 border-t border-slate-100 dark:border-slate-700 pt-4 animate-fade-in">
-            <p className="text-xs text-slate-500 dark:text-slate-400">{t('bonus.taxImpactDesc')}</p>
+            <p className="text-xs text-slate-500 dark:text-slate-300">{t('bonus.taxImpactDesc')}</p>
 
             {/* Comparison table */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 text-xs">
@@ -413,7 +413,7 @@ const BonusCalculator: React.FC<BonusCalcProps> = ({ userProfile }) => {
 
             {/* Effective rate on bonus only */}
             <div className="bg-slate-50 dark:bg-slate-700/50 rounded-xl p-4 text-center">
-              <p className="text-xs text-slate-500 dark:text-slate-400 mb-1">{t('bonus.effectiveBonusRate')}</p>
+              <p className="text-xs text-slate-500 dark:text-slate-300 mb-1">{t('bonus.effectiveBonusRate')}</p>
               <p className={`text-2xl font-bold ${result.effectiveTaxRate > 40 ? 'text-red-600 dark:text-red-400' : result.effectiveTaxRate > 25 ? 'text-amber-600 dark:text-amber-400' : 'text-emerald-700 dark:text-emerald-400'}`}>
                 {result.effectiveTaxRate}%
               </p>
@@ -429,7 +429,7 @@ const BonusCalculator: React.FC<BonusCalcProps> = ({ userProfile }) => {
           <h3 className="font-bold text-slate-800 dark:text-slate-200 flex items-center gap-2">
             <Info size={18} className="text-blue-600" /> {t('bonus.typesInfo')}
           </h3>
-          {expandedSection === 'info' ? <ChevronUp size={18} className="text-slate-400" /> : <ChevronDown size={18} className="text-slate-400" />}
+          {expandedSection === 'info' ? <ChevronUp size={18} className="text-slate-500 dark:text-slate-400" /> : <ChevronDown size={18} className="text-slate-500 dark:text-slate-400" />}
         </button>
         {expandedSection === 'info' && (
           <div className="px-4 pb-4 space-y-3 border-t border-slate-100 dark:border-slate-700 pt-4 animate-fade-in">
@@ -443,7 +443,7 @@ const BonusCalculator: React.FC<BonusCalcProps> = ({ userProfile }) => {
                     </span>
                   )}
                 </div>
-                <p className="text-xs text-slate-500 dark:text-slate-400">{t(`bonus.typesDesc.${bt.key}`)}</p>
+                <p className="text-xs text-slate-500 dark:text-slate-300">{t(`bonus.typesDesc.${bt.key}`)}</p>
               </div>
             ))}
           </div>

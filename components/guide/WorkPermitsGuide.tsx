@@ -305,7 +305,7 @@ const WorkPermitsGuide: React.FC = () => {
       {/* Header */}
       <div className="bg-gradient-to-br from-cyan-600 via-blue-600 to-indigo-600 rounded-3xl p-5 sm:p-8 text-white shadow-2xl">
         <div className="flex items-center gap-4 mb-4">
-          <div className="p-3 bg-white/20 rounded-2xl backdrop-blur-sm">
+          <div className="p-3 bg-white/20 dark:bg-white/8 rounded-2xl backdrop-blur-sm">
             <Shield size={32} />
           </div>
           <div>
@@ -352,17 +352,17 @@ const WorkPermitsGuide: React.FC = () => {
           </div>
           <p className="text-white/90 text-sm leading-relaxed">{permit.description}</p>
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 mt-4">
-            <div className="bg-white/15 rounded-xl p-3">
+            <div className="bg-white/15 dark:bg-white/5 rounded-xl p-3">
               <Clock size={14} className="text-white/70 mb-1" />
               <div className="text-xs text-white/70">{t('permits.duration')}</div>
               <div className="font-bold text-sm">{permit.duration}</div>
             </div>
-            <div className="bg-white/15 rounded-xl p-3">
+            <div className="bg-white/15 dark:bg-white/5 rounded-xl p-3">
               <Calendar size={14} className="text-white/70 mb-1" />
               <div className="text-xs text-white/70">{t('permits.processingTime')}</div>
               <div className="font-bold text-sm">{permit.processingTime}</div>
             </div>
-            <div className="bg-white/15 rounded-xl p-3">
+            <div className="bg-white/15 dark:bg-white/5 rounded-xl p-3">
               <Building2 size={14} className="text-white/70 mb-1" />
               <div className="text-xs text-white/70">{t('permits.cost')}</div>
               <div className="font-bold text-sm">{permit.cost}</div>
@@ -497,11 +497,12 @@ const WorkPermitsGuide: React.FC = () => {
       </div>
 
       {/* Comparison table */}
-      <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-4 sm:p-6 overflow-x-auto">
+      <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-4 sm:p-6">
         <h3 className="text-lg font-bold text-slate-800 dark:text-slate-100 mb-4 flex items-center gap-2">
           <Globe size={20} className="text-blue-600" />
           {t('permits.comparisonTitle')}
         </h3>
+        <div className="overflow-x-auto -mx-4 px-4 sm:mx-0 sm:px-0">
         <table className="w-full text-sm min-w-[600px]">
           <thead>
             <tr className="border-b-2 border-slate-200 dark:border-slate-700">
@@ -533,6 +534,7 @@ const WorkPermitsGuide: React.FC = () => {
             ))}
           </tbody>
         </table>
+        </div>
       </div>
     </div>
   );

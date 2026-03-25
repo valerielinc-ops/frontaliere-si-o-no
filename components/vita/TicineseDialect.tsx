@@ -339,13 +339,13 @@ const TicineseDialect: React.FC = () => {
               </div>
             </div>
             <div className="flex items-center gap-1">
-              <button onClick={() => pronounce(phraseOfDay)} className="p-1.5 rounded-lg hover:bg-amber-100 dark:hover:bg-amber-900/30" aria-label={tt('dialect.playAudio', 'Ascolta')}>
+              <button onClick={() => pronounce(phraseOfDay)} className="p-2.5 rounded-lg hover:bg-amber-100 dark:hover:bg-amber-900/30" aria-label={tt('dialect.playAudio', 'Ascolta')}>
                 <Volume2 size={16} className={playingKey === phraseOfDay.key ? 'text-emerald-600 animate-pulse' : 'text-amber-600 dark:text-amber-400'} />
               </button>
-              <button onClick={() => handleShare(phraseOfDay)} className="p-1.5 rounded-lg hover:bg-amber-100 dark:hover:bg-amber-900/30" aria-label={tt('dialect.share', 'Condividi')}>
+              <button onClick={() => handleShare(phraseOfDay)} className="p-2.5 rounded-lg hover:bg-amber-100 dark:hover:bg-amber-900/30" aria-label={tt('dialect.share', 'Condividi')}>
                 {copied ? <Check size={16} className="text-emerald-600" /> : <Share2 size={16} className="text-amber-600 dark:text-amber-400" />}
               </button>
-              <button onClick={() => setPhraseOfDayDismissed(true)} className="p-1.5 rounded-lg hover:bg-amber-100 dark:hover:bg-amber-900/30 text-amber-500" aria-label={tt('common.close', 'Chiudi')}>×</button>
+              <button onClick={() => setPhraseOfDayDismissed(true)} className="p-2.5 rounded-lg hover:bg-amber-100 dark:hover:bg-amber-900/30 text-amber-500" aria-label={tt('common.close', 'Chiudi')}>×</button>
             </div>
           </div>
         </div>

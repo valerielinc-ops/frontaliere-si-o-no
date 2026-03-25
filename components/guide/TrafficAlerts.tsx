@@ -21,6 +21,24 @@ const STATUS_COLORS: Record<string, string> = {
   red: '#ef4444',
 };
 
+const STATUS_BG_CLASSES: Record<string, string> = {
+  green: 'bg-emerald-100 text-emerald-800 dark:bg-emerald-900/30 dark:text-emerald-300',
+  yellow: 'bg-amber-100 text-amber-800 dark:bg-amber-900/30 dark:text-amber-300',
+  red: 'bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-300',
+};
+
+const STATUS_DOT_CLASSES: Record<string, string> = {
+  green: 'bg-emerald-500',
+  yellow: 'bg-amber-500',
+  red: 'bg-red-500',
+};
+
+const STATUS_TEXT_CLASSES: Record<string, string> = {
+  green: 'text-emerald-700 dark:text-emerald-300',
+  yellow: 'text-amber-600 dark:text-amber-300',
+  red: 'text-red-600 dark:text-red-300',
+};
+
 const STATUS_LABEL_KEYS: Record<string, string> = {
   green: 'traffic.status.green',
   yellow: 'traffic.status.yellow',
@@ -272,7 +290,7 @@ const TrafficAlerts: React.FC<TrafficAlertsProps> = ({ initialCrossingId }) => {
           <MapContainer
             center={mapCenter}
             zoom={11}
-            style={{ height: '500px', width: '100%' }}
+            style={{ height: 'clamp(240px, 40vh, 500px)', width: '100%' }}
             scrollWheelZoom={true}
           >
             <TileLayer
@@ -301,15 +319,16 @@ const TrafficAlerts: React.FC<TrafficAlertsProps> = ({ initialCrossingId }) => {
                     <div className="p-1">
                       <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
                         <div
-                          style={{ width: '16px', height: '16px', borderRadius: '50%', flexShrink: 0, background: STATUS_COLORS[status] }}
+                          className={`${STATUS_DOT_CLASSES[status]}`}
+                          style={{ width: '16px', height: '16px', borderRadius: '50%', flexShrink: 0 }}
                         />
-                        <h3 style={{ fontWeight: 800, fontSize: '16px', margin: 0, color: '#1e293b' }}>{crossing.name}</h3>
+                        <h3 className="text-slate-900 dark:text-slate-100" style={{ fontWeight: 800, fontSize: '16px', margin: 0 }}>{crossing.name}</h3>
                       </div>
 
                       <div style={{ display: 'flex', flexDirection: 'column', gap: '4px', fontSize: '14px' }}>
                         <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                           <span style={{ color: '#64748b' }}>{t('traffic.wait')}</span>
-                          <span style={{ fontWeight: 700, color: STATUS_COLORS[status] }}>
+                          <span className={`${STATUS_TEXT_CLASSES[status]}`} style={{ fontWeight: 700 }}>
                             {waitTime} min — {t(STATUS_LABEL_KEYS[status])}
                           </span>
                         </div>

@@ -3718,7 +3718,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
         {/* Close X button */}
         <div className="flex items-start justify-between">
           <div className="flex items-center gap-3">
-            <img src="/icons/icon-192x192.png" alt="Frontaliere Ticino" width={40} height={40} className="flex-shrink-0 rounded-xl" />
+            <img src="/icons/icon-192x192.png" alt="Frontaliere Ticino" width={40} height={40} className="flex-shrink-0 rounded-xl" loading="lazy" />
             <div>
               <h2 className="text-lg font-extrabold text-slate-900 dark:text-white">{t('jobBoard.authGateTitle')}</h2>
               <p className="text-xs font-medium text-indigo-600 dark:text-indigo-400">frontaliereticino.ch</p>
@@ -4991,7 +4991,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-6">
           <article className="lg:col-span-8 space-y-4 sm:space-y-5">
-            <header className="rounded-3xl border border-cyan-200/80 dark:border-cyan-800/70 bg-gradient-to-br from-cyan-50 via-white to-emerald-50 dark:from-cyan-950/40 dark:via-slate-900 dark:to-emerald-950/40 p-4 sm:p-6">
+            <header className="rounded-3xl border border-blue-100 dark:border-slate-700 bg-gradient-to-br from-cyan-50 via-white to-emerald-50 dark:from-cyan-950/40 dark:via-slate-900 dark:to-emerald-950/40 p-4 sm:p-6">
               <div className="flex items-start gap-3 sm:gap-4">
                 <a
                   href={applyUrl}
@@ -4999,7 +4999,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
                   rel="noopener noreferrer"
                   onClick={() => Analytics.trackSelectContent('job_board_apply_header_logo', `${selectedJob.company}_${selectedJob.title}`)}
                   aria-label={`${t('jobBoard.apply')} ${selectedJob.company}`}
-                  className="w-14 h-14 sm:w-20 sm:h-20 rounded-xl bg-white/90 dark:bg-slate-800/80 flex items-center justify-center overflow-hidden border border-cyan-200/80 dark:border-cyan-700/80 shrink-0 shadow-sm transition-transform hover:scale-[1.02] focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
+                  className="w-14 h-14 sm:w-20 sm:h-20 rounded-xl bg-white/90 dark:bg-slate-800/80 flex items-center justify-center overflow-hidden border border-blue-100 dark:border-slate-700 shrink-0 shadow-sm transition-transform hover:scale-[1.02] focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
                 >
                   {logo ? (
                     <img

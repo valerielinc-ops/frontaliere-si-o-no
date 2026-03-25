@@ -163,7 +163,6 @@ const App: React.FC = () => {
   const [result, setResult] = useState<SimulationResult | null>(null);
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [isFocusMode, setIsFocusMode] = useState(false);
-  const [showBlobs, setShowBlobs] = useState(false);
   const [showDeferredHomeWidgets, setShowDeferredHomeWidgets] = useState(false);
   // Read initial route from URL path (or migrate legacy hash)
   const [initialRoute] = useState(() => {
@@ -1147,16 +1146,6 @@ const App: React.FC = () => {
     };
   }, []);
 
-  // Defer expensive blob animations until after LCP
-  useEffect(() => {
-    const id = typeof requestIdleCallback === 'function'
-      ? requestIdleCallback(() => setShowBlobs(true))
-      : setTimeout(() => setShowBlobs(true), 1500) as unknown as number;
-    return () => {
-      if (typeof cancelIdleCallback === 'function') cancelIdleCallback(id);
-      else clearTimeout(id);
-    };
-  }, []);
 
   // Defer non-essential widgets to improve first paint on mobile.
   useEffect(() => {
@@ -2175,15 +2164,7 @@ const App: React.FC = () => {
     <TabContentContext.Provider value={tabContentValue}>
     <NavigationContext.Provider value={navContextValue}>
       <div className={`min-h-screen relative flex flex-col font-sans text-slate-800 dark:text-slate-100 transition-colors duration-300 overflow-hidden`}>
-        {/* Fun & Modern Background Blobs — deferred until after LCP for perf */}
-        <div className="absolute inset-0 bg-gradient-to-br from-indigo-50 via-slate-50 to-purple-50 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 -z-20" style={{ contain: 'strict' }}></div>
-        {showBlobs && (
-        <div className="absolute top-0 left-0 w-full h-full overflow-hidden -z-10 opacity-60 dark:opacity-30 pointer-events-none" style={{ contain: 'strict' }}>
-          <div className="absolute top-0 left-1/4 w-96 h-96 bg-purple-300 dark:bg-purple-900 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob" style={{ willChange: 'transform', contain: 'layout style paint' }}></div>
-          <div className="absolute top-0 right-1/4 w-96 h-96 bg-indigo-300 dark:bg-indigo-900 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob animation-delay-2000" style={{ willChange: 'transform', contain: 'layout style paint' }}></div>
-          <div className="absolute -bottom-32 left-1/3 w-96 h-96 bg-pink-300 dark:bg-pink-900 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob animation-delay-4000" style={{ willChange: 'transform', contain: 'layout style paint' }}></div>
-        </div>
-        )}
+        <div className="absolute inset-0 bg-slate-50 dark:bg-slate-950 -z-20" style={{ contain: 'strict' }}></div>
 
         {/* LinkedIn OAuth2 callback processing overlay */}
         {linkedInCallbackProcessing && (
@@ -3283,7 +3264,7 @@ const App: React.FC = () => {
           </div>
         </footer>
         {/* Mobile Bottom Navigation Bar */}
-        <nav aria-label="Navigazione mobile" className="fixed bottom-0 inset-x-0 z-50 md:hidden bg-white/80 dark:bg-slate-900/80 backdrop-blur-lg border-t border-slate-200/50 dark:border-slate-800/50 pb-[env(safe-area-inset-bottom)]">
+        <nav aria-label="Navigazione mobile" className="fixed bottom-0 inset-x-0 z-50 md:hidden bg-white/80 dark:bg-slate-900/80 backdrop-blur-lg border-t border-slate-200/50 dark:border-slate-800/50 pb-[env(safe-area-inset-bottom,0px)]">
           <div className="grid grid-cols-6 h-14">
             {([
               { tab: 'calculator' as const, icon: Calculator, label: t('nav.simulator'), activeClass: 'text-blue-600 dark:text-blue-400', barClass: 'bg-blue-600 dark:bg-blue-400' },
@@ -3299,7 +3280,7 @@ const App: React.FC = () => {
                   key={tab}
                   href={buildPath({ activeTab: tab })}
                   onClick={(e) => { e.preventDefault(); handleTabChange(tab); }}
-                  className={`relative flex flex-col items-center justify-center gap-0.5 transition-colors no-underline ${
+                  className={`relative flex flex-col items-center justify-center gap-0.5 transition-colors no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-1 ${
                     isActive ? activeClass : 'text-slate-500 dark:text-slate-500'
                   }`}
                 >

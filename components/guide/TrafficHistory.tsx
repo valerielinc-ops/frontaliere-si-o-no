@@ -304,12 +304,13 @@ export default function TrafficHistory() {
       </div>
 
       {/* Heatmap */}
-      <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-4 overflow-x-auto">
+      <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-4">
         <h3 className="text-sm font-semibold text-slate-700 dark:text-slate-200 mb-4 flex items-center gap-2">
           <AlertTriangle size={16} className="text-amber-500" />
           {t('trafficHistory.heatmapTitle')}
         </h3>
 
+        <div className="overflow-x-auto -mx-4 px-4 sm:mx-0 sm:px-0">
         <div className="min-w-[600px]">
           {/* Hour headers */}
           <div className="flex items-center mb-1">
@@ -339,6 +340,7 @@ export default function TrafficHistory() {
             </div>
           ))}
         </div>
+        </div>
 
         {/* Legend */}
         <div className="flex items-center gap-2 mt-4 text-xs text-slate-500 dark:text-slate-400">
@@ -362,8 +364,8 @@ export default function TrafficHistory() {
               <span className="w-10 text-sm font-medium text-slate-600 dark:text-slate-400">{d.name}</span>
               <div className="flex-1 h-6 bg-slate-100 dark:bg-slate-700 rounded-full overflow-hidden">
                 <div
-                  className={`h-full rounded-full transition-all ${d.avg > 18 ? 'bg-red-500' : d.avg > 10 ? 'bg-orange-400' : 'bg-emerald-700'}`}
-                  style={{ width: `${Math.min((d.avg / 30) * 100, 100)}%` }}
+                  className={`h-full w-full rounded-full transition-transform ${d.avg > 18 ? 'bg-red-500' : d.avg > 10 ? 'bg-orange-400' : 'bg-emerald-700'}`}
+                  style={{ transform: `scaleX(${Math.min(d.avg / 30, 1)})`, transformOrigin: 'left' }}
                 />
               </div>
               <div className="flex items-center gap-1 w-16 text-right">

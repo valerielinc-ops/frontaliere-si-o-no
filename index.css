@@ -49,6 +49,8 @@ input[type=number] { -moz-appearance: textfield; }
 }
 
 @theme {
+  --font-sans: 'Plus Jakarta Sans', ui-sans-serif, system-ui, -apple-system, sans-serif;
+
   --color-slate-850: #1e293b;
   --color-slate-950: #020617;
 
@@ -122,11 +124,11 @@ input[type=number] { -moz-appearance: textfield; }
   }
 
   @keyframes shrink {
-    0% {
-      width: 100%;
+    from {
+      transform: scaleX(1);
     }
-    100% {
-      width: 0%;
+    to {
+      transform: scaleX(0);
     }
   }
 

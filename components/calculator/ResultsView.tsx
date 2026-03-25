@@ -118,7 +118,7 @@ const BreakdownTable: React.FC<{ data: TaxBreakdownItem[]; currency: string; sho
               
               {!isTotal && item.description && (
                 <div className="group/tooltip relative inline-flex items-center flex-shrink-0">
-                  <Info size={12} className="text-slate-300 dark:text-slate-600 cursor-help group-hover/tooltip:text-indigo-500 transition-colors" />
+                  <Info size={12} className="text-slate-500 dark:text-slate-400 cursor-help group-hover/tooltip:text-indigo-500 transition-colors" />
                   <div className={`absolute bottom-full left-0 mb-2 ${showMobileTooltip ? 'block' : 'hidden'} group-hover/tooltip:block w-56 p-3 bg-slate-900 dark:bg-slate-800 text-white text-[11px] font-medium rounded-xl shadow-2xl z-50 animate-fade-in border border-slate-700`}>
                     {translateKey(item.description)}
                     <div className="absolute top-full left-2 -translate-x-1/2 border-8 border-transparent border-t-slate-900 dark:border-t-slate-800"></div>

@@ -338,7 +338,7 @@ const MobileCalcLayout: React.FC<Props> = ({
               ? 'bg-emerald-600 dark:bg-emerald-700'
               : 'bg-blue-600 dark:bg-blue-700'
           }`}>
-            <div className="p-1.5 bg-white/20 rounded-lg">
+            <div className="p-1.5 bg-white/20 dark:bg-slate-700/50 rounded-lg">
               {isBetterIT
                 ? <TrendingUp size={20} className="text-white" />
                 : <TrendingDown size={20} className="text-white" />

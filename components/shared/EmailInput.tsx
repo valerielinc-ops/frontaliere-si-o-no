@@ -182,6 +182,8 @@ interface EmailInputProps {
   className?: string;
   id?: string;
   name?: string;
+  /** Accessible label for the input when no visible <label> is associated */
+  ariaLabel?: string;
   /** Dark-on-dark theme (for compact newsletter on purple bg) */
   darkVariant?: boolean;
 }
@@ -194,6 +196,7 @@ const EmailInput: React.FC<EmailInputProps> = ({
   className = '',
   id,
   name = 'email',
+  ariaLabel,
   darkVariant = false,
 }) => {
   const { t } = useTranslation();
@@ -326,6 +329,7 @@ const EmailInput: React.FC<EmailInputProps> = ({
         name={name}
         inputMode="email"
         required={required}
+        aria-label={!id ? (ariaLabel ?? 'Indirizzo email') : ariaLabel}
         className={className}
         role="combobox"
         aria-expanded={showSuggestions}
@@ -393,7 +397,7 @@ const EmailInput: React.FC<EmailInputProps> = ({
                       : 'bg-indigo-50 dark:bg-indigo-950/30 text-indigo-700 dark:text-indigo-300'
                     : darkVariant
                       ? 'text-indigo-100 hover:bg-indigo-700'
-                      : 'text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-750'
+                      : 'text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700'
                 }`}
               >
                 <span>{localDisplay}</span>
