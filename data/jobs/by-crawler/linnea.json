@@ -1,6 +1,6 @@
 {
   "crawlerKey": "linnea",
-  "assembledAt": "2026-03-25T20:48:46.657Z",
+  "assembledAt": "2026-03-25T21:58:25.848Z",
   "jobs": [
     {
       "url": "https://www.linnea.ch/careers/?position=1",
@@ -42,6 +42,7 @@
         "location": "Riazzino"
       },
       "crawledAt": "",
+      "needsRetranslation": true,
       "requirementsByLocale": {},
       "sourceLang": "en",
       "salaryMin": 72000,
