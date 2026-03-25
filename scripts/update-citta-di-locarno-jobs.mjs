@@ -1,0 +1,89 @@
+#!/usr/bin/env node
+/**
+ * Dedicated Città di Locarno crawler runner.
+ *
+ * Source: https://www.locarno.ch/it/albo-comunale/assunzioni-personale
+ */
+import fs from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+import { snapshotJobSlugs, computeCrawlDiff, printCrawlChangeSummary, writeCrawlChangeSummaryToGH, printPublishedJobUrls, writeJobsSummary, setCrawlerStartTime, getCrawlerElapsedMs } from './jobs-url-helper.mjs';
+import { writeJobsCrawlerSlice, writeSummaryCrawlerSlice, assembleJobsDataset } from './assemble-jobs-dataset.mjs';
+import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, detectLang, deriveLocalizedSlug } from './lib/dedicated-crawler-common.mjs';
+import { fetchLocarnoJobs, slugify } from './lib/citta-di-locarno-job-parser.mjs';
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const ROOT = path.resolve(__dirname, '..');
+const DATA_JOBS = path.resolve(ROOT, 'data', 'jobs.json');
+const PUBLIC_DATA_JOBS = path.resolve(ROOT, 'public', 'data', 'jobs.json');
+const COMPANY_KEY = 'citta-di-locarno';
+const COMPANY_NAME = 'Citt\u00e0 di Locarno';
+
+function isCompanyJob(job) {
+  const key = String(job?.companyKey || job?.company || '').toLowerCase();
+  const url = String(job?.url || '').toLowerCase();
+  return key.includes(COMPANY_KEY) || key.includes('locarno') || url.includes('locarno.ch');
+}
+
+function writeJobsFiles(jobs) {
+  fs.writeFileSync(DATA_JOBS, `${JSON.stringify(jobs, null, 2)}\n`, 'utf-8');
+  if (fs.existsSync(PUBLIC_DATA_JOBS)) fs.writeFileSync(PUBLIC_DATA_JOBS, `${JSON.stringify(jobs, null, 2)}\n`, 'utf-8');
+}
+
+function mergeCompanyJobs(parsedJobs) {
+  const existing = fs.existsSync(DATA_JOBS) ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')) : [];
+  const allJobs = Array.isArray(existing) ? existing : [];
+  const others = allJobs.filter((j) => !isCompanyJob(j));
+  const byUrl = new Map();
+  for (const job of parsedJobs) { const k = String(job?.url || '').trim().replace(/\/+$/, ''); if (k) byUrl.set(k, job); }
+  const clean = [...byUrl.values()].sort((a, b) => String(b.postedDate || '').localeCompare(String(a.postedDate || '')));
+  writeJobsFiles([...others, ...clean]);
+  return clean;
+}
+
+async function main() {
+  setCrawlerStartTime();
+  console.log('\ud83c\udfe2 Running dedicated Citt\u00e0 di Locarno crawler...');
+
+  let _before = new Map();
+  if (fs.existsSync(DATA_JOBS)) { try { const p = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')); _before = snapshotJobSlugs(Array.isArray(p) ? p.filter(isCompanyJob) : []); } catch {} }
+
+  const rawJobs = await fetchLocarnoJobs();
+  if (rawJobs.length === 0) { console.log('\u26a0\ufe0f No Locarno jobs found. Keeping existing.'); return; }
+
+  console.log(`\ud83e\udde9 Found ${rawJobs.length} Locarno jobs.`);
+  const parsedJobs = rawJobs.map((raw) => {
+    const desc = `Concorso pubblico presso la ${COMPANY_NAME} per la posizione di ${raw.title}. Consultare il bando di concorso allegato per requisiti e modalit\u00e0 di candidatura.`;
+    return {
+      id: raw.id, slug: raw.slug, slugByLocale: { it: raw.slug, en: raw.slug, de: raw.slug, fr: raw.slug },
+      company: COMPANY_NAME, companyKey: COMPANY_KEY, companyDomain: 'locarno.ch',
+      title: raw.title, titleByLocale: { it: raw.title, en: raw.title, de: raw.title, fr: raw.title },
+      description: desc, descriptionByLocale: { it: desc }, requirements: [], requirementsByLocale: { it: [], en: [], de: [], fr: [] },
+      location: 'Locarno', canton: 'TI', addressLocality: 'Locarno', addressCountry: 'CH',
+      category: 'public-admin', contract: 'full-time', currency: 'CHF', featured: false,
+      postedDate: raw.datePosted,
+      url: raw.url, pdfUrl: raw.pdfUrl, applyUrl: raw.applyUrl,
+      source: 'Locarno Dedicated Parser', crawledAt: new Date().toISOString(),
+    };
+  });
+
+  const published = mergeCompanyJobs(parsedJobs);
+  printPublishedJobUrls(published, 'Locarno');
+  writeJobsSummary(published, 'Locarno');
+  const after = snapshotJobSlugs(published);
+  const diff = computeCrawlDiff(_before, after);
+  printCrawlChangeSummary(diff, 'Locarno');
+  writeCrawlChangeSummaryToGH(diff, 'Locarno');
+
+  await runDedicatedBaseCrawler({ root: ROOT, companyKeys: COMPANY_KEY, disableWorkdayForce: true, localizeExistingOnly: true, forceLocalizationWhenAiEnabledOnly: true });
+  validateDedicatedLocaleCoverage({ strictEnvVar: 'JOBS_LOCARNO_STRICT', label: 'Locarno', dataJobsPath: DATA_JOBS, isTargetJob: isCompanyJob, failOnMissingJobsFile: true, failWhenNoJobs: true, noJobsMessage: 'No Locarno jobs found.', detectSourceLang: (t) => detectLang(t, 'it'), deriveSlug: deriveLocalizedSlug });
+
+  const dur = getCrawlerElapsedMs();
+  const sr = fs.existsSync(DATA_JOBS) ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')) : [];
+  const sj = Array.isArray(sr) ? sr.filter(isCompanyJob) : [];
+  writeJobsCrawlerSlice(COMPANY_KEY, sj);
+  writeSummaryCrawlerSlice({ key: COMPANY_KEY, label: 'Locarno', generatedAt: new Date().toISOString(), total: sj.length, newCount: 0, updatedCount: 0, removedCount: 0, unchangedCount: sj.length, durationMs: dur, avgDurationMs: dur, durationHistory: [dur], newJobs: [], updatedJobs: [], removedJobs: [], unchangedJobs: sj.slice(0, 30) });
+  await assembleJobsDataset();
+}
+
+main().catch((err) => { console.error(`\u274c Locarno crawler failed: ${err?.message || err}`); process.exit(1); });

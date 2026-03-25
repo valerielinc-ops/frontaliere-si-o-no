@@ -1,0 +1,262 @@
+/**
+ * Ferrovia Retica (RhB) — job parser
+ *
+ * Rhaetian Railway publishes vacancies at:
+ *   https://www.rhb.ch/de/arbeitgeber (German)
+ *   https://www.rhb.ch/it/datore-di-lavoro (Italian)
+ *
+ * RhB is the largest employer in Grisons (Graubünden) with ~1400 employees.
+ * Relevant for frontalieri in Grigioni italiani (Poschiavo, Brusio, Valposchiavo).
+ *
+ * The career page typically uses structured HTML or embeds an external
+ * job portal (e.g., gateway.one or custom). Job listings include:
+ *   - Title, location (Chur, Poschiavo, Landquart, etc.)
+ *   - Employment type, percentage
+ *   - Link to detail page
+ *
+ * Exports: parseListingPage, parseDetailPage, buildJob, stripHtml, normalizeSpace,
+ *          isGrigioniItalianoJob
+ */
+
+/* ── Text helpers ──────────────────────────────────────────── */
+
+export function normalizeSpace(value = '') {
+  return String(value || '').replace(/\s+/g, ' ').trim();
+}
+
+export function stripHtml(html = '') {
+  return String(html || '')
+    .replace(/<script[^>]*>[\s\S]*?<\/script>/gi, '')
+    .replace(/<style[^>]*>[\s\S]*?<\/style>/gi, '')
+    .replace(/<noscript[^>]*>[\s\S]*?<\/noscript>/gi, '')
+    .replace(/<br\s*\/?>/gi, '\n')
+    .replace(/<[^>]+>/g, ' ')
+    .replace(/&nbsp;/gi, ' ')
+    .replace(/&amp;/gi, '&')
+    .replace(/&lt;/gi, '<')
+    .replace(/&gt;/gi, '>')
+    .replace(/&quot;/gi, '"')
+    .replace(/&apos;/gi, "'")
+    .replace(/&#(\d+);/g, (_, n) => String.fromCharCode(Number(n)))
+    .replace(/&#x([0-9a-fA-F]+);/g, (_, hex) => String.fromCharCode(parseInt(hex, 16)))
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+export function slugify(value = '') {
+  return String(value || '')
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^\p{L}\p{N}]+/gu, '-')
+    .replace(/^-+|-+$/g, '')
+    .replace(/-{2,}/g, '-')
+    .slice(0, 180);
+}
+
+/* ── Location helpers ──────────────────────────────────────── */
+
+const GRIGIONI_ITALIANO_LOCATIONS = [
+  'poschiavo', 'brusio', 'campocologno', 'le prese',
+  'valposchiavo', 'bernina', 'pontresina', 'samedan',
+  'st. moritz', 'saint moritz', 'san moritz',
+];
+
+const ALL_RHB_LOCATIONS = [
+  ...GRIGIONI_ITALIANO_LOCATIONS,
+  'chur', 'coira', 'landquart', 'davos', 'klosters',
+  'thusis', 'ilanz', 'disentis', 'arosa', 'filisur',
+  'tiefencastel', 'scuol', 'zernez',
+];
+
+/**
+ * Check if a job location is in the Italian-speaking part of Graubünden.
+ */
+export function isGrigioniItalianoJob(location = '', description = '') {
+  const combined = `${location} ${description}`.toLowerCase();
+  return GRIGIONI_ITALIANO_LOCATIONS.some((loc) => combined.includes(loc));
+}
+
+/**
+ * Infer location from job content.
+ */
+export function inferLocation(title = '', description = '') {
+  const combined = `${title} ${description}`.toLowerCase();
+  for (const loc of ALL_RHB_LOCATIONS) {
+    if (combined.includes(loc)) {
+      return loc.charAt(0).toUpperCase() + loc.slice(1);
+    }
+  }
+  return 'Chur'; // Default to HQ
+}
+
+/* ── Listing page parser ───────────────────────────────────── */
+
+/**
+ * Parse the RhB career listing page.
+ * Returns an array of { title, url, location, datePosted, percentage }.
+ */
+export function parseListingPage(html) {
+  if (!html || typeof html !== 'string') return [];
+
+  const jobs = [];
+  const seen = new Set();
+
+  // Pattern 1: Job cards with title and link (typical CMS structure)
+  const cardRe = /<(?:div|article|li)[^>]*class="[^"]*(?:job|vacancy|stelle|position)[^"]*"[^>]*>([\s\S]*?)(?:<\/(?:div|article|li)>)/gi;
+  let match;
+  while ((match = cardRe.exec(html)) !== null) {
+    const cardHtml = match[1];
+    const linkMatch = cardHtml.match(/<a[^>]+href="([^"]+)"[^>]*>([\s\S]*?)<\/a>/i);
+    if (!linkMatch) continue;
+
+    const url = linkMatch[1];
+    const title = normalizeSpace(stripHtml(linkMatch[2]));
+    if (!title || title.length < 5) continue;
+
+    const fullUrl = url.startsWith('http') ? url : `https://www.rhb.ch${url}`;
+    if (seen.has(fullUrl)) continue;
+    seen.add(fullUrl);
+
+    // Extract percentage if present (e.g., "80-100%")
+    const pctMatch = cardHtml.match(/(\d{1,3})\s*[-–]\s*(\d{1,3})\s*%/);
+    const percentage = pctMatch ? `${pctMatch[1]}-${pctMatch[2]}%` : '';
+
+    // Extract location from card
+    const location = inferLocation(title, stripHtml(cardHtml));
+
+    jobs.push({ title, url: fullUrl, location, datePosted: '', percentage });
+  }
+
+  // Pattern 2: Simple link list with job-related URLs
+  const linkRe = /<a[^>]+href="([^"]*(?:stellen|jobs|offene|vacancies)[^"]*)"[^>]*>([\s\S]*?)<\/a>/gi;
+  while ((match = linkRe.exec(html)) !== null) {
+    const url = match[1];
+    const title = normalizeSpace(stripHtml(match[2]));
+    if (!title || title.length < 5) continue;
+
+    const fullUrl = url.startsWith('http') ? url : `https://www.rhb.ch${url}`;
+    if (seen.has(fullUrl)) continue;
+    seen.add(fullUrl);
+
+    jobs.push({
+      title,
+      url: fullUrl,
+      location: inferLocation(title, ''),
+      datePosted: '',
+      percentage: '',
+    });
+  }
+
+  return jobs;
+}
+
+/* ── Detail page parser ────────────────────────────────────── */
+
+/**
+ * Parse an RhB job detail page.
+ * Returns { title, description, location, canton, sections[], requirements[] }
+ */
+export function parseDetailPage(html) {
+  if (!html || typeof html !== 'string') return null;
+
+  const h1Match = html.match(/<h1[^>]*>([\s\S]*?)<\/h1>/i);
+  const title = h1Match ? normalizeSpace(stripHtml(h1Match[1])) : '';
+  if (!title || title.length < 3) return null;
+
+  const mainMatch = html.match(/<main[^>]*>([\s\S]*?)<\/main>/i)
+    || html.match(/<article[^>]*>([\s\S]*?)<\/article>/i);
+  const contentHtml = mainMatch ? mainMatch[1] : html;
+  const description = normalizeSpace(stripHtml(contentHtml));
+
+  const sections = [];
+  const headingRe = /<h[2-3][^>]*>([\s\S]*?)<\/h[2-3]>/gi;
+  const headings = [];
+  let m;
+  while ((m = headingRe.exec(contentHtml)) !== null) {
+    headings.push({ text: normalizeSpace(stripHtml(m[1])), index: m.index, length: m[0].length });
+  }
+
+  for (let i = 0; i < headings.length; i++) {
+    const start = headings[i].index + headings[i].length;
+    const end = i + 1 < headings.length ? headings[i + 1].index : contentHtml.length;
+    const sectionHtml = contentHtml.slice(start, end);
+    const items = [];
+    const liRe = /<li[^>]*>([\s\S]*?)<\/li>/gi;
+    let li;
+    while ((li = liRe.exec(sectionHtml)) !== null) {
+      const text = normalizeSpace(stripHtml(li[1]));
+      if (text.length > 5) items.push(text);
+    }
+    if (items.length > 0 || normalizeSpace(stripHtml(sectionHtml)).length > 30) {
+      sections.push({ heading: headings[i].text, items });
+    }
+  }
+
+  const location = inferLocation(title, description);
+  const canton = 'GR';
+
+  const requirements = sections
+    .filter((s) => /anforderung|profil|voraussetz|mitbring|qualifikat|requisit|competen/i.test(s.heading))
+    .flatMap((s) => s.items);
+
+  return {
+    title,
+    description: description.length > 50 ? description : '',
+    location,
+    canton,
+    sections,
+    requirements,
+    sourceTextLength: description.length,
+  };
+}
+
+/* ── Job builder ───────────────────────────────────────────── */
+
+export function buildJob(raw) {
+  if (!raw || !raw.title) return null;
+
+  const title = normalizeSpace(raw.title);
+  if (!title || title.length < 3) return null;
+
+  const location = raw.location || 'Chur';
+  const description = raw.description || `${title} presso la Ferrovia Retica (RhB), la più grande azienda di trasporti dei Grigioni con circa 1400 collaboratori. La RhB gestisce la rete ferroviaria a scartamento ridotto più estesa della Svizzera, inclusa la tratta patrimonio UNESCO dell'Albula/Bernina. Sede: ${location}.`;
+
+  return {
+    title,
+    company: 'Ferrovia Retica (RhB)',
+    companyKey: 'ferrovia-retica',
+    url: raw.url || '',
+    location,
+    canton: 'GR',
+    country: 'CH',
+    category: detectCategory(title, description),
+    description,
+    postedDate: raw.datePosted || new Date().toISOString().slice(0, 10),
+    source: 'company-website',
+    slug: slugify(`${title}-ferrovia-retica-${location}`),
+    slugByLocale: {
+      it: slugify(`${title}-ferrovia-retica-${location}`),
+      en: slugify(`${title}-rhaetian-railway-${location}`),
+      de: slugify(`${title}-rhaetische-bahn-${location}`),
+      fr: slugify(`${title}-chemin-de-fer-rhetique-${location}`),
+    },
+    titleByLocale: { it: title, en: title, de: title, fr: title },
+    percentage: raw.percentage || '',
+  };
+}
+
+/* ── Category detection ────────────────────────────────────── */
+
+function detectCategory(title = '', description = '') {
+  const combined = `${title} ${description}`.toLowerCase();
+  if (/lokführer|macchinista|conducent|zugbegleit|capotreno/i.test(combined)) return 'transport';
+  if (/gleisbau|binari|infrastruktur|infrastruttur|manutenz|unterhalt/i.test(combined)) return 'engineering';
+  if (/elektri|meccanico|techniker|tecnico|werkstatt|officina/i.test(combined)) return 'engineering';
+  if (/it\b|software|informatik|informatica|digital/i.test(combined)) return 'technology';
+  if (/kaufm|commerci|administrat|amministrativ|büro|ufficio/i.test(combined)) return 'administration';
+  if (/marketing|kommunikation|comunicazion|verkauf|vendita/i.test(combined)) return 'marketing';
+  if (/finanz|contabil|buchhalt|controlling/i.test(combined)) return 'finance';
+  if (/hr\b|personal|risorse umane/i.test(combined)) return 'hr';
+  return 'transport'; // Default for railway company
+}

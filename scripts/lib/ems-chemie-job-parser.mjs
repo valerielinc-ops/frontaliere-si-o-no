@@ -1,0 +1,283 @@
+/**
+ * EMS-Chemie AG — job parser
+ *
+ * EMS-Group publishes vacancies at:
+ *   https://www.ems-group.com/en/career/job-vacancies/
+ *   https://www.ems-group.com/de/karriere/offene-stellen/
+ *
+ * EMS-Chemie is headquartered in Domat/Ems (GR) with ~3000 employees
+ * globally. The company is a leading specialty chemicals producer.
+ *
+ * The career page lists jobs with title, location, and link to detail
+ * pages with full descriptions.
+ *
+ * Exports: parseListingPage, parseDetailPage, buildJob, stripHtml, normalizeSpace
+ */
+
+/* ── Text helpers ──────────────────────────────────────────── */
+
+export function normalizeSpace(value = '') {
+  return String(value || '').replace(/\s+/g, ' ').trim();
+}
+
+export function stripHtml(html = '') {
+  return String(html || '')
+    .replace(/<script[^>]*>[\s\S]*?<\/script>/gi, '')
+    .replace(/<style[^>]*>[\s\S]*?<\/style>/gi, '')
+    .replace(/<noscript[^>]*>[\s\S]*?<\/noscript>/gi, '')
+    .replace(/<br\s*\/?>/gi, '\n')
+    .replace(/<[^>]+>/g, ' ')
+    .replace(/&nbsp;/gi, ' ')
+    .replace(/&amp;/gi, '&')
+    .replace(/&lt;/gi, '<')
+    .replace(/&gt;/gi, '>')
+    .replace(/&quot;/gi, '"')
+    .replace(/&apos;/gi, "'")
+    .replace(/&#(\d+);/g, (_, n) => String.fromCharCode(Number(n)))
+    .replace(/&#x([0-9a-fA-F]+);/g, (_, hex) => String.fromCharCode(parseInt(hex, 16)))
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+export function slugify(value = '') {
+  return String(value || '')
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^\p{L}\p{N}]+/gu, '-')
+    .replace(/^-+|-+$/g, '')
+    .replace(/-{2,}/g, '-')
+    .slice(0, 180);
+}
+
+/* ── Location helpers ──────────────────────────────────────── */
+
+/**
+ * Infer location from job title and description.
+ * EMS has sites in Domat/Ems (HQ), Romanshorn, and internationally.
+ */
+export function inferLocation(title = '', description = '') {
+  const combined = `${title} ${description}`.toLowerCase();
+  if (/domat\/ems|domat.ems|ems\s*\(gr\)|7013/i.test(combined)) return 'Domat/Ems';
+  if (/romanshorn/i.test(combined)) return 'Romanshorn';
+  if (/zurich|zürich|zurigo/i.test(combined)) return 'Zürich';
+  if (/shanghai|china/i.test(combined)) return 'Shanghai';
+  if (/usa|america|sumter/i.test(combined)) return 'USA';
+  if (/japan|tokyo/i.test(combined)) return 'Japan';
+  return 'Domat/Ems'; // Default to HQ
+}
+
+/**
+ * Check if a job location is in Switzerland (Graubünden).
+ */
+export function isSwissJob(location = '') {
+  const loc = String(location || '').toLowerCase();
+  return /domat|ems|romanshorn|graubünden|grigioni|schweiz|svizzera|switzerland|suisse/i.test(loc)
+    || loc === '' // Default location is Swiss
+    || loc === 'domat/ems';
+}
+
+/* ── Listing page parser ───────────────────────────────────── */
+
+/**
+ * Parse the EMS-Group career listing page.
+ * Returns an array of { title, url, location, datePosted }.
+ */
+export function parseListingPage(html) {
+  if (!html || typeof html !== 'string') return [];
+
+  const jobs = [];
+  const seen = new Set();
+
+  // Pattern 1: Job listing table rows or cards
+  const rowRe = /<tr[^>]*>([\s\S]*?)<\/tr>/gi;
+  let match;
+  while ((match = rowRe.exec(html)) !== null) {
+    const rowHtml = match[1];
+    const linkMatch = rowHtml.match(/<a[^>]+href="([^"]+)"[^>]*>([\s\S]*?)<\/a>/i);
+    if (!linkMatch) continue;
+
+    const url = linkMatch[1];
+    const title = normalizeSpace(stripHtml(linkMatch[2]));
+    if (!title || title.length < 5) continue;
+
+    const fullUrl = url.startsWith('http') ? url : `https://www.ems-group.com${url}`;
+    if (seen.has(fullUrl)) continue;
+    seen.add(fullUrl);
+
+    const location = inferLocation(title, stripHtml(rowHtml));
+
+    // Extract cells for additional info
+    const tdRe = /<td[^>]*>([\s\S]*?)<\/td>/gi;
+    const cells = [];
+    let td;
+    while ((td = tdRe.exec(rowHtml)) !== null) {
+      cells.push(normalizeSpace(stripHtml(td[1])));
+    }
+
+    jobs.push({
+      title,
+      url: fullUrl,
+      location,
+      datePosted: '',
+      department: cells[1] || '',
+    });
+  }
+
+  // Pattern 2: Card-based layout
+  const cardRe = /<(?:div|article|li)[^>]*class="[^"]*(?:job|vacanc|stelle|career)[^"]*"[^>]*>([\s\S]*?)<\/(?:div|article|li)>/gi;
+  while ((match = cardRe.exec(html)) !== null) {
+    const cardHtml = match[1];
+    const linkMatch = cardHtml.match(/<a[^>]+href="([^"]+)"[^>]*>([\s\S]*?)<\/a>/i);
+    if (!linkMatch) continue;
+
+    const url = linkMatch[1];
+    const title = normalizeSpace(stripHtml(linkMatch[2]));
+    if (!title || title.length < 5) continue;
+
+    const fullUrl = url.startsWith('http') ? url : `https://www.ems-group.com${url}`;
+    if (seen.has(fullUrl)) continue;
+    seen.add(fullUrl);
+
+    jobs.push({
+      title,
+      url: fullUrl,
+      location: inferLocation(title, stripHtml(cardHtml)),
+      datePosted: '',
+    });
+  }
+
+  // Pattern 3: Simple link list in career section
+  const linkRe = /<a[^>]+href="(\/(?:en|de)\/career\/[^"]+)"[^>]*>([\s\S]*?)<\/a>/gi;
+  while ((match = linkRe.exec(html)) !== null) {
+    const url = match[1];
+    const title = normalizeSpace(stripHtml(match[2]));
+    if (!title || title.length < 5) continue;
+
+    const fullUrl = `https://www.ems-group.com${url}`;
+    if (seen.has(fullUrl)) continue;
+    seen.add(fullUrl);
+
+    jobs.push({
+      title,
+      url: fullUrl,
+      location: inferLocation(title, ''),
+      datePosted: '',
+    });
+  }
+
+  return jobs;
+}
+
+/* ── Detail page parser ────────────────────────────────────── */
+
+/**
+ * Parse an EMS-Chemie job detail page.
+ * Returns { title, description, location, canton, sections[], requirements[] }
+ */
+export function parseDetailPage(html) {
+  if (!html || typeof html !== 'string') return null;
+
+  const h1Match = html.match(/<h1[^>]*>([\s\S]*?)<\/h1>/i);
+  const title = h1Match ? normalizeSpace(stripHtml(h1Match[1])) : '';
+  if (!title || title.length < 3) return null;
+
+  const mainMatch = html.match(/<main[^>]*>([\s\S]*?)<\/main>/i)
+    || html.match(/<article[^>]*>([\s\S]*?)<\/article>/i)
+    || html.match(/<div[^>]*class="[^"]*content[^"]*"[^>]*>([\s\S]*?)<\/div>/i);
+  const contentHtml = mainMatch ? mainMatch[1] : html;
+  const description = normalizeSpace(stripHtml(contentHtml));
+
+  const sections = [];
+  const headingRe = /<h[2-3][^>]*>([\s\S]*?)<\/h[2-3]>/gi;
+  const headings = [];
+  let m;
+  while ((m = headingRe.exec(contentHtml)) !== null) {
+    headings.push({ text: normalizeSpace(stripHtml(m[1])), index: m.index, length: m[0].length });
+  }
+
+  for (let i = 0; i < headings.length; i++) {
+    const start = headings[i].index + headings[i].length;
+    const end = i + 1 < headings.length ? headings[i + 1].index : contentHtml.length;
+    const sectionHtml = contentHtml.slice(start, end);
+    const items = [];
+    const liRe = /<li[^>]*>([\s\S]*?)<\/li>/gi;
+    let li;
+    while ((li = liRe.exec(sectionHtml)) !== null) {
+      const text = normalizeSpace(stripHtml(li[1]));
+      if (text.length > 5) items.push(text);
+    }
+    if (items.length > 0 || normalizeSpace(stripHtml(sectionHtml)).length > 30) {
+      sections.push({ heading: headings[i].text, items });
+    }
+  }
+
+  const location = inferLocation(title, description);
+  const canton = location === 'Romanshorn' ? 'TG' : 'GR';
+
+  const requirements = sections
+    .filter((s) => /anforderung|profil|voraussetz|mitbring|qualifikat|requirements|skills/i.test(s.heading))
+    .flatMap((s) => s.items);
+
+  return {
+    title,
+    description: description.length > 50 ? description : '',
+    location,
+    canton,
+    sections,
+    requirements,
+    sourceTextLength: description.length,
+  };
+}
+
+/* ── Job builder ───────────────────────────────────────────── */
+
+export function buildJob(raw) {
+  if (!raw || !raw.title) return null;
+
+  const title = normalizeSpace(raw.title);
+  if (!title || title.length < 3) return null;
+
+  const location = raw.location || 'Domat/Ems';
+  const canton = location === 'Romanshorn' ? 'TG' : 'GR';
+  const description = raw.description || `${title} presso EMS-Chemie AG, azienda leader nel settore dei polimeri speciali e della chimica fine con sede a Domat/Ems (Grigioni). EMS-Chemie è il più grande produttore mondiale di poliammidi ad alte prestazioni, con circa 3000 collaboratori in tutto il mondo. Sede di lavoro: ${location}.`;
+
+  return {
+    title,
+    company: 'EMS-Chemie AG',
+    companyKey: 'ems-chemie',
+    url: raw.url || '',
+    location,
+    canton,
+    country: 'CH',
+    category: detectCategory(title, description),
+    description,
+    postedDate: raw.datePosted || new Date().toISOString().slice(0, 10),
+    source: 'company-website',
+    slug: slugify(`${title}-ems-chemie-${location}`),
+    slugByLocale: {
+      it: slugify(`${title}-ems-chemie-${location}`),
+      en: slugify(`${title}-ems-chemie-${location}`),
+      de: slugify(`${title}-ems-chemie-${location}`),
+      fr: slugify(`${title}-ems-chemie-${location}`),
+    },
+    titleByLocale: { it: title, en: title, de: title, fr: title },
+  };
+}
+
+/* ── Category detection ────────────────────────────────────── */
+
+function detectCategory(title = '', description = '') {
+  const combined = `${title} ${description}`.toLowerCase();
+  if (/chemik|chimico|labor|analy|forsch|ricerca|r&d|entwicklung/i.test(combined)) return 'science';
+  if (/produktion|produzion|anlage|impianto|schicht|turno/i.test(combined)) return 'manufacturing';
+  if (/ingenieur|ingegnere|engineer|technik|tecnic/i.test(combined)) return 'engineering';
+  if (/it\b|software|informatik|informatica|system|sap/i.test(combined)) return 'technology';
+  if (/kaufm|commerci|administrat|amministrativ|büro|ufficio/i.test(combined)) return 'administration';
+  if (/logistik|logistica|lager|magazz|supply chain/i.test(combined)) return 'logistics';
+  if (/verkauf|vendita|sales|marketing|vertrieb/i.test(combined)) return 'sales';
+  if (/finanz|contabil|buchhalt|controlling|finanza/i.test(combined)) return 'finance';
+  if (/hr\b|personal|risorse umane/i.test(combined)) return 'hr';
+  if (/qualität|qualita|quality/i.test(combined)) return 'quality';
+  return 'manufacturing'; // Default for chemicals company
+}

@@ -1,0 +1,402 @@
+#!/usr/bin/env node
+/**
+ * Dedicated Rivopharm SA crawler runner.
+ *
+ * Rivopharm SA is a Swiss pharmaceutical company headquartered in Manno, Canton Ticino.
+ * Founded in 1961, it specialises in generic pharmaceuticals (psychiatric,
+ * antidepressant, anti-inflammatory, epilepsy, diabetes medications).
+ * ~200 employees, operating in over 50 countries.
+ *
+ * Career page: https://rivopharm.com/careers
+ *
+ * Discovery flow:
+ *   1. Fetch the careers page HTML
+ *   2. Parse job listings from the HTML
+ *   3. Build job objects with metadata
+ *   4. Merge into data/jobs.json
+ *   5. Run the base crawler for AI localization (4 locales)
+ *   6. Post-process: fix company name, location, canton
+ *   7. Validate locale coverage across IT/EN/DE/FR
+ */
+import fs from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+import { printPublishedJobUrls, writeJobsSummary, snapshotJobSlugs, computeCrawlDiff, printCrawlChangeSummary, writeCrawlChangeSummaryToGH, setCrawlerStartTime, getCrawlerElapsedMs } from './jobs-url-helper.mjs';
+import {
+  writeJobsCrawlerSlice,
+  writeSummaryCrawlerSlice,
+  assembleJobsDataset,
+} from './assemble-jobs-dataset.mjs';
+import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage } from './lib/dedicated-crawler-common.mjs';
+import { parseRivopharmJobs, slugify, normalizeSpace, htmlToText } from './lib/rivopharm-job-parser.mjs';
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const ROOT = path.resolve(__dirname, '..');
+const DATA_JOBS = path.resolve(ROOT, 'data', 'jobs.json');
+const PUBLIC_JOBS = path.resolve(ROOT, 'public', 'data', 'jobs.json');
+const ADAPTERS_DIR = path.resolve(ROOT, 'data', 'jobs-crawler-adapters', 'adapters');
+
+const COMPANY_KEY = 'rivopharm';
+const COMPANY_NAME = 'Rivopharm SA';
+const COMPANY_HOST = 'rivopharm.com';
+const CAREERS_URL = 'https://rivopharm.com/careers';
+const LOCALES = ['it', 'en', 'de', 'fr'];
+
+// ─────────────────────────────────────────────────────────────
+// Helpers
+// ─────────────────────────────────────────────────────────────
+
+function normalize(value = '') {
+  return String(value || '').trim().toLowerCase();
+}
+
+function isRivopharmJob(job) {
+  const key = normalize(job?.companyKey || job?.company || '')
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+  const company = normalize(job?.company || '');
+  const url = String(job?.url || '').toLowerCase();
+
+  return (
+    key === COMPANY_KEY ||
+    key.startsWith('rivopharm') ||
+    company.includes('rivopharm') ||
+    url.includes('rivopharm.com')
+  );
+}
+
+function isTrustedDomain(rawUrl = '') {
+  try {
+    const host = new URL(rawUrl).hostname.toLowerCase();
+    return host === COMPANY_HOST || host.endsWith('.rivopharm.com');
+  } catch {
+    return false;
+  }
+}
+
+function detectCategory(title = '') {
+  const t = normalize(title);
+  if (/engineer|developer|software|it\b|system|data/i.test(t)) return 'technology';
+  if (/qa|quality|validation|compliance|regulator/i.test(t)) return 'quality';
+  if (/scientist|research|r&d|laboratory|lab\b|clinical/i.test(t)) return 'science';
+  if (/produc|manufactur|operator|technic/i.test(t)) return 'production';
+  if (/sales|commercial|marketing|communication/i.test(t)) return 'sales';
+  if (/legal|counsel/i.test(t)) return 'legal';
+  if (/account|financ|controller|audit/i.test(t)) return 'finance';
+  if (/hr|human|recruit|people|talent/i.test(t)) return 'hr';
+  if (/logistic|supply|warehouse|procurement/i.test(t)) return 'logistics';
+  if (/pharma|formul|galenic|packaging|batch/i.test(t)) return 'pharma';
+  if (/manag|director|head|lead|chief/i.test(t)) return 'management';
+  return 'general';
+}
+
+function detectExperienceLevel(title = '') {
+  const t = normalize(title);
+  if (/junior|jr\.?|entry|intern|stage|stagist|apprenti/i.test(t)) return 'ENTRY';
+  if (/senior|sr\.?|lead|head|director|manager|principal|chief/i.test(t)) return 'SENIOR';
+  return 'MID';
+}
+
+// ─────────────────────────────────────────────────────────────
+// Fetch careers page
+// ─────────────────────────────────────────────────────────────
+
+async function fetchCareersPage() {
+  const timeoutMs = parseInt(process.env.JOBS_CRAWLER_TIMEOUT_MS || '15000', 10);
+  try {
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), timeoutMs);
+    const res = await fetch(CAREERS_URL, {
+      signal: controller.signal,
+      headers: {
+        'User-Agent': process.env.JOBS_CRAWLER_USER_AGENT ||
+          'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)',
+        Accept: 'text/html,application/xhtml+xml',
+        'Accept-Language': 'en,it-CH;q=0.9',
+      },
+    });
+    clearTimeout(timer);
+    if (!res.ok) {
+      console.warn(`⚠️ HTTP ${res.status} for ${CAREERS_URL}`);
+      return null;
+    }
+    return await res.text();
+  } catch (err) {
+    console.warn(`⚠️ Fetch failed for ${CAREERS_URL}: ${err.message}`);
+    return null;
+  }
+}
+
+// ─────────────────────────────────────────────────────────────
+// Build job objects
+// ─────────────────────────────────────────────────────────────
+
+function buildJobFromParsed(parsed) {
+  const title = parsed.title;
+  const slug = slugify(title, 'rivopharm-sa');
+  const descEn = parsed.descriptionText || `${title} position at Rivopharm SA in Manno, Canton Ticino, Switzerland.`;
+  const descIt = `Posizione aperta presso Rivopharm SA a Manno, Cantone Ticino.\nRuolo: ${title}.\n\nRivopharm SA è un'azienda farmaceutica svizzera con sede a Manno, specializzata in farmaci generici.`;
+  const url = parsed.url
+    ? (parsed.url.startsWith('http') ? parsed.url : `https://rivopharm.com${parsed.url}`)
+    : CAREERS_URL;
+
+  return {
+    url,
+    applyUrl: url,
+    title,
+    company: COMPANY_NAME,
+    companyKey: COMPANY_KEY,
+    location: parsed.location || 'Manno',
+    canton: 'TI',
+    country: 'CH',
+    description: descEn,
+    descriptionByLocale: { en: descEn, it: descIt },
+    titleByLocale: { en: title },
+    slug,
+    slugByLocale: { en: slug, it: slugify(title, 'rivopharm-sa') },
+    category: detectCategory(title),
+    datePosted: new Date().toISOString().split('T')[0],
+    source: 'rivopharm-html-crawler',
+    employmentType: 'FULL_TIME',
+    experienceLevel: detectExperienceLevel(title),
+    sector: 'Farmaceutica / Generici',
+    _targetScope: { canton: 'TI', location: parsed.location || 'Manno' },
+  };
+}
+
+// ─────────────────────────────────────────────────────────────
+// Merge into data/jobs.json
+// ─────────────────────────────────────────────────────────────
+
+function canonicalizeUrl(url = '') {
+  try { return new URL(url).href.replace(/\/$/, '').toLowerCase(); }
+  catch { return normalize(url); }
+}
+
+function filterEmpty(obj = {}) {
+  if (!obj || typeof obj !== 'object') return {};
+  const out = {};
+  for (const [k, v] of Object.entries(obj)) {
+    if (v && String(v).trim()) out[k] = v;
+  }
+  return out;
+}
+
+async function mergeJobs(discoveredJobs) {
+  const existing = fs.existsSync(DATA_JOBS)
+    ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'))
+    : [];
+  const allJobs = Array.isArray(existing) ? [...existing] : [];
+  const nonCompanyJobs = allJobs.filter((j) => !isRivopharmJob(j));
+  const existingCompanyJobs = allJobs.filter(isRivopharmJob);
+  const existingByUrl = new Map();
+  for (const job of existingCompanyJobs) existingByUrl.set(canonicalizeUrl(job.url), job);
+  const discoveredByUrl = new Map();
+  for (const job of discoveredJobs) discoveredByUrl.set(canonicalizeUrl(job.url), job);
+
+  let added = 0, updated = 0, removed = 0;
+  const merged = [];
+
+  for (const discovered of discoveredJobs) {
+    const key = canonicalizeUrl(discovered.url);
+    const existing = existingByUrl.get(key);
+    if (existing) {
+      merged.push({
+        ...existing,
+        title: discovered.title || existing.title,
+        company: COMPANY_NAME, companyKey: COMPANY_KEY,
+        location: discovered.location || existing.location,
+        canton: 'TI', country: 'CH',
+        source: 'rivopharm-html-crawler',
+        titleByLocale: { ...existing.titleByLocale, ...filterEmpty(discovered.titleByLocale) },
+        descriptionByLocale: { ...existing.descriptionByLocale, ...filterEmpty(discovered.descriptionByLocale) },
+        slugByLocale: { ...existing.slugByLocale, ...filterEmpty(discovered.slugByLocale) },
+      });
+      updated++;
+    } else {
+      merged.push(discovered);
+      added++;
+    }
+  }
+  for (const [url] of existingByUrl) { if (!discoveredByUrl.has(url)) removed++; }
+
+  const final = [...nonCompanyJobs, ...merged];
+  fs.writeFileSync(DATA_JOBS, JSON.stringify(final, null, 2) + '\n');
+  fs.mkdirSync(path.dirname(PUBLIC_JOBS), { recursive: true });
+  fs.writeFileSync(PUBLIC_JOBS, JSON.stringify(final, null, 2) + '\n');
+
+  console.log(`\n📦 Merge results:`);
+  console.log(`  ➕ Added: ${added}`);
+  console.log(`  🔄 Updated: ${updated}`);
+  console.log(`  🗑️  Removed (stale): ${removed}`);
+  console.log(`  📊 Total jobs in file: ${final.length}`);
+  return { added, updated, removed, total: final.length };
+}
+
+// ─────────────────────────────────────────────────────────────
+// Adapter, base crawler, post-process, stats, validation
+// ─────────────────────────────────────────────────────────────
+
+function updateAdapterConfig() {
+  const adapterPath = path.join(ADAPTERS_DIR, `${COMPANY_KEY}.json`);
+  const adapter = fs.existsSync(adapterPath) ? JSON.parse(fs.readFileSync(adapterPath, 'utf-8')) : {};
+  adapter.companyKey = COMPANY_KEY;
+  adapter.companyName = COMPANY_NAME;
+  adapter.companyHost = COMPANY_HOST;
+  adapter.enabled = true;
+  adapter.priority = Math.max(adapter.priority || 0, 10);
+  adapter.crawlerModes = ['html'];
+  adapter.seedUrls = [CAREERS_URL];
+  adapter.notes = 'Custom HTML parser on rivopharm.com/careers — Manno TI.';
+  adapter.updatedAt = new Date().toISOString();
+  fs.mkdirSync(path.dirname(adapterPath), { recursive: true });
+  fs.writeFileSync(adapterPath, JSON.stringify(adapter, null, 2) + '\n');
+  console.log(`📝 Adapter ${COMPANY_KEY} updated.`);
+}
+
+function runBaseCrawler() {
+  return runDedicatedBaseCrawler({
+    root: ROOT,
+    companyKeys: COMPANY_KEY,
+    localizeOnlyCompanyKeys: COMPANY_KEY,
+    forceLocalizeKeys: COMPANY_KEY,
+    localizeExistingOnly: true,
+    extraEnv: { JOBS_CRAWLER_MAX_JOB_LINKS: '30', JOBS_CRAWLER_MAX_GENERIC_DETAIL_PAGES: '30' },
+  });
+}
+
+function postProcess() {
+  if (!fs.existsSync(DATA_JOBS)) return;
+  const raw = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
+  const jobs = Array.isArray(raw) ? raw : [];
+  let fixed = 0;
+  for (const job of jobs) {
+    if (!isRivopharmJob(job)) continue;
+    if (job.company !== COMPANY_NAME) { job.company = COMPANY_NAME; fixed++; }
+    if (job.companyKey !== COMPANY_KEY) { job.companyKey = COMPANY_KEY; fixed++; }
+    job.country = 'CH';
+    if (!job.canton) { job.canton = 'TI'; fixed++; }
+    if (!job.location) { job.location = 'Manno'; fixed++; }
+  }
+  if (fixed > 0) {
+    fs.writeFileSync(DATA_JOBS, JSON.stringify(jobs, null, 2) + '\n');
+    fs.writeFileSync(PUBLIC_JOBS, JSON.stringify(jobs, null, 2) + '\n');
+    console.log(`🔧 Post-processed ${fixed} Rivopharm jobs.`);
+  }
+}
+
+function logStats(beforeSnapshot = new Map()) {
+  if (!fs.existsSync(DATA_JOBS)) { console.log('ℹ️ jobs.json not found.'); return { total: 0 }; }
+  const raw = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
+  const allJobs = Array.isArray(raw) ? raw : [];
+  const companyJobs = allJobs.filter(isRivopharmJob);
+  console.log(`\n📊 === Rivopharm SA Job Stats ===`);
+  console.log(`  🏢 Total Rivopharm jobs: ${companyJobs.length}`);
+  if (companyJobs.length > 0) {
+    for (const job of companyJobs) console.log(`     - ${job.title} (${job.location || 'unknown'})`);
+  }
+  const afterSnapshot = snapshotJobSlugs(companyJobs);
+  const crawlDiff = computeCrawlDiff(beforeSnapshot, afterSnapshot);
+  printCrawlChangeSummary(crawlDiff, 'Rivopharm SA');
+  writeCrawlChangeSummaryToGH(crawlDiff, 'Rivopharm SA');
+  return { total: companyJobs.length };
+}
+
+function validateLocales() {
+  validateDedicatedLocaleCoverage({
+    strictEnvVar: 'JOBS_RIVOPHARM_STRICT',
+    label: 'Rivopharm SA',
+    dataJobsPath: DATA_JOBS,
+    isTargetJob: isRivopharmJob,
+    locales: LOCALES,
+    isTrustedDomain: isTrustedDomain,
+    untrustedDomainReason: 'url_not_rivopharm_domain',
+    failWhenNoJobs: false,
+    noJobsMessage: 'No Rivopharm jobs found — the company may not have active openings.',
+  });
+}
+
+// ─────────────────────────────────────────────────────────────
+// Main
+// ─────────────────────────────────────────────────────────────
+
+async function main() {
+  setCrawlerStartTime();
+  console.log('═══════════════════════════════════════════════');
+  console.log('  Rivopharm SA — Dedicated Crawler');
+  console.log('═══════════════════════════════════════════════');
+  console.log(`  Career page: ${CAREERS_URL}\n`);
+
+  let beforeSnapshot = new Map();
+  if (fs.existsSync(DATA_JOBS)) {
+    try {
+      const pre = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
+      beforeSnapshot = snapshotJobSlugs(Array.isArray(pre) ? pre.filter(isRivopharmJob) : []);
+    } catch { /* ignore */ }
+  }
+
+  // Phase 1: Fetch careers page
+  const html = await fetchCareersPage();
+  if (!html) {
+    console.log('\n⚠️ Could not fetch Rivopharm careers page.');
+    console.log('   Keeping existing jobs — no changes.');
+    logStats(beforeSnapshot);
+    return;
+  }
+
+  // Phase 2: Parse jobs
+  const parsed = parseRivopharmJobs(html);
+  console.log(`  📋 Jobs parsed from HTML: ${parsed.length}`);
+  const discoveredJobs = parsed.map(buildJobFromParsed);
+
+  if (discoveredJobs.length === 0) {
+    console.log('\n⚠️ No Rivopharm jobs discovered from careers page.');
+    console.log('   The page may have no current openings or changed structure.');
+    logStats(beforeSnapshot);
+    return;
+  }
+
+  // Phase 3: Update adapter config
+  updateAdapterConfig();
+
+  // Phase 4: Merge into data/jobs.json
+  await mergeJobs(discoveredJobs);
+
+  // Phase 5: Run base crawler for AI localization
+  console.log('\n🌐 Running base crawler for AI localization...');
+  await runBaseCrawler();
+
+  // Phase 6: Post-process
+  postProcess();
+
+  // Phase 7: Log stats
+  const stats = logStats(beforeSnapshot);
+  if (stats.total === 0) {
+    console.log('ℹ️ No Rivopharm jobs found after crawl.');
+    return;
+  }
+
+  // Phase 8: Validate locale coverage
+  validateLocales();
+
+  console.log('\n✅ Rivopharm SA crawler complete.');
+
+  const _durationMs = getCrawlerElapsedMs();
+  const _sliceRaw = fs.existsSync(DATA_JOBS) ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')) : [];
+  const _sliceJobs = Array.isArray(_sliceRaw) ? _sliceRaw.filter(isRivopharmJob) : [];
+  writeJobsCrawlerSlice(COMPANY_KEY, _sliceJobs);
+  writeSummaryCrawlerSlice({
+    key: COMPANY_KEY, label: 'Rivopharm SA', generatedAt: new Date().toISOString(),
+    total: _sliceJobs.length, newCount: 0, updatedCount: 0, removedCount: 0, unchangedCount: _sliceJobs.length,
+    durationMs: _durationMs, avgDurationMs: _durationMs, durationHistory: [_durationMs],
+    newJobs: [], updatedJobs: [], removedJobs: [], unchangedJobs: _sliceJobs.slice(0, 30),
+  });
+  await assembleJobsDataset();
+}
+
+main().catch((err) => {
+  console.error(`❌ Rivopharm SA crawler failed: ${err?.message || err}`);
+  process.exit(1);
+});
