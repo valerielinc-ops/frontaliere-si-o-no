@@ -425,8 +425,8 @@ export function getCreatorProductsForContext({
     // FRO-336: Enrich with real data from Creators API if available
     const apiData = _apiProductsByAsin.get(product.asin);
     // Only use the direct DP URL from API when we have confirmed real product data
-    // (non-empty title). In fallback mode titles are empty and DP URLs may point to
-    // products that don't exist on Amazon.it — prefer the contextual search URL.
+    // (non-empty title). In fallback mode the JSON has empty titles and the DP URLs
+    // may point to products that don't exist on Amazon.it — prefer the search URL.
     const hasRealApiData = Boolean(apiData?.title && apiData.title.trim() !== '');
     return {
       ...product,

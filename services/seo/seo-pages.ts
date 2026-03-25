@@ -508,7 +508,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
 
   vita: {
     title: 'Vita in Ticino per Frontalieri | Trasporti, Casa, Servizi',
-    description: 'Vita in Ticino per frontalieri: trasporti e pendolarismo, vivere in Svizzera vs Italia, aziende, scuole, attrazioni, asili nido, comuni di frontiera e.',
+    description: 'Vita in Ticino per frontalieri: trasporti e pendolarismo, vivere in Svizzera vs Italia, aziende, scuole, attrazioni, asili nido e comuni di frontiera.',
     keywords: 'vivere in ticino frontaliere, trasporti frontalieri svizzera, aziende ticino lavoro, scuole svizzera italiana, asili nido ticino, comuni frontiera svizzera italia, vivere svizzera vs italia',
     ogTitle: 'Vita in Ticino per Frontalieri 2026 | Guida Pratica',
     ogDescription: 'Tutto sulla vita in Ticino: trasporti, casa, servizi, scuole, aziende e confronto Svizzera vs Italia per frontalieri.',
@@ -1506,7 +1506,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
 
   'border-map': {
     title: 'Mappa Comuni di Frontiera | Addizionali IRPEF e Costi',
-    description: 'Mappa interattiva dei comuni italiani di frontiera vicini alla Svizzera. Confronta addizionali IRPEF, distanza dal confine, costo affitti e popolazione per.',
+    description: 'Mappa interattiva dei comuni italiani di frontiera vicini alla Svizzera. Confronta addizionali IRPEF, distanza dal confine, costo affitti e popolazione per ogni comune.',
     keywords: 'comuni frontiera svizzera, mappa comuni frontalieri, addizionale irpef comuni confine, dove vivere frontaliere, comuni como varese frontalieri, affitti comuni frontiera',
     ogTitle: 'Mappa Interattiva Comuni di Frontiera',
     ogDescription: '🗺️ Mappa dei comuni italiani vicini al confine svizzero: addizionali IRPEF, affitti, distanza dal confine.',
