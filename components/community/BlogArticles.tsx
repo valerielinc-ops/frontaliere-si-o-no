@@ -1175,7 +1175,6 @@ export default function BlogArticles({
     const articleCTAs = getArticleCTAs(selectedArticle);
 
     const sidePartners = getPartnersForCategory(article.category, 4);
-    const inlinePartner = sidePartners[0] ?? null;
     const creatorContextText = `${article.category} ${t(`blog.article.${article.id}.title`)} ${t(`blog.article.${article.id}.excerpt`)}`;
     const articleBody1 = t(`blog.article.${article.id}.body1`);
     const articleBody2 = t(`blog.article.${article.id}.body2`);
@@ -1221,39 +1220,6 @@ export default function BlogArticles({
       );
     };
 
-    /** Horizontal card for mobile inline between body sections */
-    const InlineRecommendation = ({ partner }: { partner: AffiliatePartner }) => {
-      const handleAffClick = () => {
-        Analytics.trackExternalLink(partner.url, `affiliate_${partner.id}`);
-        Analytics.trackSelectContent('affiliate_click', `${partner.id}_blog_inline`);
-      };
-      return (
-        <div className="xl:hidden my-5">
-          <a
-            href={buildAffiliateUrl(partner, `blog_inline`)}
-            target="_blank"
-            rel="noopener noreferrer sponsored"
-            onClick={handleAffClick}
-            className="group flex items-start gap-3 p-4 bg-slate-50/80 dark:bg-slate-900/40 rounded-xl border border-slate-200/50 dark:border-slate-700/50 hover:border-slate-300 dark:hover:border-slate-600 transition-all"
-          >
-            <span className="text-2xl shrink-0 mt-0.5">{partner.emoji}</span>
-            <div className="flex-1 min-w-0">
-              <div className="flex items-center gap-2 mb-0.5">
-                <span className="font-semibold text-sm text-slate-800 dark:text-slate-100">{partner.name}</span>
-                {partner.badgeKey && (
-                  <span className={`text-[10px] font-bold px-1.5 py-0.5 rounded-full bg-gradient-to-r ${partner.color} text-white`}>
-                    {t(partner.badgeKey)}
-                  </span>
-                )}
-              </div>
-              <p className="text-xs text-slate-600 dark:text-slate-500 leading-relaxed">{t(partner.descriptionKey)}</p>
-            </div>
-            <ExternalLink className="w-3.5 h-3.5 text-slate-500 group-hover:text-slate-600 dark:group-hover:text-slate-300 shrink-0 mt-1 opacity-0 group-hover:opacity-100 transition-opacity" />
-          </a>
-          <p className="text-[10px] text-slate-500 dark:text-slate-600 mt-1 text-center">{t('affiliate.disclosure')}</p>
-        </div>
-      );
-    };
 
     return (
       <div className="max-w-3xl xl:max-w-6xl mx-auto">
@@ -1455,12 +1421,16 @@ export default function BlogArticles({
 
             <div className="space-y-4">
               {renderFormattedContent(articleBody1, navigators)}
-              {/* Inline affiliate recommendation (mobile/tablet only) */}
-              {inlinePartner && <InlineRecommendation partner={inlinePartner} />}
+              {/* Amazon product picks — mobile/tablet inline (replaces affiliate card) */}
+              <div className="xl:hidden my-5">
+                <Suspense fallback={null}>
+                  <CreatorProducts contextText={creatorContextText} maxCards={2} />
+                </Suspense>
+              </div>
               {renderFormattedContent(articleBody2, navigators)}
 
-              {/* In-article ad — mobile only (conditional mount) */}
-              {isMobile && (
+              {/* In-article ad — mobile/tablet only (conditional mount) */}
+              {!isDesktopXl && (
                 <Suspense fallback={adEligibleInline ? <div style={{ minHeight: AD_SLOTS.ARTICLE_INLINE_MOBILE.placeholderMinHeight, contain: 'content' }} className="my-4" /> : null}>
                   <AdSenseBanner
                     adSlot={AD_SLOTS.ARTICLE_INLINE_MOBILE.slot}
