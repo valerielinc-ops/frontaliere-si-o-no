@@ -1769,6 +1769,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.datori-lavoro-cauti.title': 'Die Schweizer Arbeitgeber bleiben vorsichtig',
     'blog.article.datori-lavoro-cauti.excerpt': 'Verlangsamung der Beschäftigungsaussichten in der Schweiz, mit einer Zunahme des Einsatzes von Zeitarbeit',
     'blog.article.datori-lavoro-cauti.imageAlt': 'Büro in Lugano mit Seeblick',
+    'blog.article.chiasso-missione-emergenza-luci-blu.title': 'Chiasso in Missione emergenza: Entitäten des ersten Einsatzes in Kontakt mit der Bevölkerung',
+    'blog.article.chiasso-missione-emergenza-luci-blu.excerpt': 'Am 26. April 2026 wird Chiasso zehn Entitäten des ersten Einsatzes für die Missione emergenza aufnehmen, die Agenten und Mitarbeiter direkt mit der Bevölkerung in Kontakt bringen.',
+    'blog.article.chiasso-missione-emergenza-luci-blu.imageAlt': 'Chiasso, 26. April 2026: Die Stadt nimmt zehn Ersthelfer-Einheiten für die Notfallmission auf, die Agenten und Mitarbeiter direkt mit der Bevölkerung in Kontakt bringen.',
 };
 
 export default blogMetaDe;

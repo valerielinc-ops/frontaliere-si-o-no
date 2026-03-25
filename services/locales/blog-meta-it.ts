@@ -1769,6 +1769,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.datori-lavoro-cauti.title': 'I datori di lavoro svizzeri restano cauti',
     'blog.article.datori-lavoro-cauti.excerpt': 'Rallentamento delle prospettive occupazionali in Svizzera, con un aumento del ricorso al lavoro temporaneo',
     'blog.article.datori-lavoro-cauti.imageAlt': 'Ufficio a Lugano con vista sul lago',
+    'blog.article.chiasso-missione-emergenza-luci-blu.title': 'Chiasso in Missione emergenza: enti di primo intervento a contatto con la popolazione',
+    'blog.article.chiasso-missione-emergenza-luci-blu.excerpt': 'Il 26 aprile 2026, Chiasso accoglierà dieci enti di primo intervento per la Missione emergenza, mettendo a contatto agenti e operatori con la popolazione.',
+    'blog.article.chiasso-missione-emergenza-luci-blu.imageAlt': 'Chiasso, 26 aprile 2026: la cittadina accoglie dieci enti di primo intervento per la Missione emergenza, mettendo a contatto agenti e operatori con la popolazione.',
 };
 
 export default blogMetaIt;

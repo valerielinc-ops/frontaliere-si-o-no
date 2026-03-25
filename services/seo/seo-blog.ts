@@ -10231,6 +10231,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-chiasso-missione-emergenza-luci-blu': {
+    title: 'Chiasso in Missione emergenza: enti di primo intervento a contatto con | Frontaliere Ticino',
+    description: 'Chiasso accoglie enti di primo intervento per la Missione emergenza il 26 aprile 2026. Scopri di più su questa iniziativa. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, chiasso, missione, emergenza, enti',
+    ogTitle: 'Chiasso Missione emergenza: enti di primo intervento a contatto con la popolazione',
+    ogDescription: 'Il 26 aprile 2026, Chiasso accoglierà dieci enti di primo intervento per la Missione emergenza, mettendo a contatto agenti e operatori con la popolazione.',
+    canonicalPath: '/articoli-frontaliere/chiasso-missione-emergenza-luci-blu',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Chiasso in Missione emergenza: enti di primo intervento a contatto con la popolazione",
+      "description": "Chiasso accoglie enti di primo intervento per la Missione emergenza il 26 aprile 2026. Scopri di più su questa iniziativa. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/chiasso-missione-emergenza-luci-blu.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Chiasso, 26 aprile 2026: la cittadina accoglie dieci enti di primo intervento per la Missione emergenza, mettendo a contatto agenti e operatori con la popolazione."
+      },
+      "datePublished": "2026-03-25T05:07:20+00:00",
+      "dateModified": "2026-03-25T05:07:20+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/chiasso-missione-emergenza-luci-blu`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

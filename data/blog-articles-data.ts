@@ -5319,4 +5319,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/datori-lavoro-cauti.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'chiasso-missione-emergenza-luci-blu',
+    category: 'novita',
+    date: '2026-03-25T05:07:20.675Z',
+    image: '/images/blog/chiasso-missione-emergenza-luci-blu.jpg',
+    hasCalculator: true,
+  },
 ];

@@ -1711,6 +1711,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-ticinesi-e-frontalieri-comprano-case-su-laghi-verbano-e-ceresio': { name: 'Ticinesi e frontalieri', path: '/articoli-frontaliere/ticinesi-e-frontalieri-comprano-case-su-laghi-verbano-e-ceresio', parent: 'blog' },
     'blog-lavena-ponte-tresa-verde': { name: 'Annaffiatoi e aiuole, il centro si cura', path: '/articoli-frontaliere/lavena-ponte-tresa-verde', parent: 'blog' },
     'blog-datori-lavoro-cauti': { name: 'Lavoro', path: '/articoli-frontaliere/datori-lavoro-cauti', parent: 'blog' },
+    'blog-chiasso-missione-emergenza-luci-blu': { name: 'Chiasso Missione emergenza', path: '/articoli-frontaliere/chiasso-missione-emergenza-luci-blu', parent: 'blog' },
   };
 
   const info = sectionNames[section];

@@ -1769,6 +1769,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.datori-lavoro-cauti.title': 'Swiss Employers Remain Cautious',
     'blog.article.datori-lavoro-cauti.excerpt': 'Slowdown in employment prospects in Switzerland, with an increase in the use of temporary work',
     'blog.article.datori-lavoro-cauti.imageAlt': 'Office in Lugano with lake view',
+    'blog.article.chiasso-missione-emergenza-luci-blu.title': 'Chiasso in Emergency Mission: first response entities in contact with the population',
+    'blog.article.chiasso-missione-emergenza-luci-blu.excerpt': 'On April 26, 2026, Chiasso will host ten first response entities for the Emergency Mission, bringing agents and operators into direct contact with the population.',
+    'blog.article.chiasso-missione-emergenza-luci-blu.imageAlt': 'Chiasso, April 26, 2026: the town welcomes ten first-response entities for the Emergency Mission, bringing agents and operators into direct contact with the population.',
 };
 
 export default blogMetaEn;
