@@ -5,32 +5,28 @@
  * Denner is a subsidiary of Migros Group. Their jobs are listed on the
  * Migros Group portal at jobs.migros.ch under the Denner SA company filter.
  *
- * The Migros portal is a Nuxt.js SSR application — listing pages are
- * server-rendered with real <a href="..."> links to detail pages.
+ * The Migros portal is a Nuxt.js SSR application. Listing pages contain
+ * real <a href="..."> links. Detail pages have structured HTML sections
+ * (overview, tasks, skills, benefits, recruitment) and JSON-LD.
  *
- * Listing URL:
- *   https://jobs.migros.ch/it/le-nostre-imprese/denner-sa/posti-di-lavoro-vacanti?REGION=871
- *
- * Detail page URL pattern:
- *   /it/le-nostre-imprese/job/denner-sa/{job-slug}/{uuid}
- *   /de/unsere-unternehmen/job/denner-ag/{job-slug}/{uuid}
- *   /fr/nos-entreprises/job/denner-sa/{job-slug}/{uuid}
- *
- * This script:
- *   1. Fetches the Migros listing pages for Denner (all regions + Ticino)
- *   2. Extracts job detail URLs from SSR HTML
- *   3. Updates adapter seed URLs
- *   4. Runs base crawler for detail parsing/localization
- *   5. Validates locale coverage
+ * This crawler:
+ *   1. Fetches Migros listing pages filtered for Denner + Ticino regions
+ *   2. Extracts job detail URLs from the SSR HTML
+ *   3. Fetches each detail page and parses title/description/location
+ *   4. Merges parsed jobs into data/jobs.json
+ *   5. Runs localization + validation
  */
 import fs from 'node:fs';
 import path from 'node:path';
+import { createHash } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import {
   snapshotJobSlugs,
   computeCrawlDiff,
   printCrawlChangeSummary,
   writeCrawlChangeSummaryToGH,
+  printPublishedJobUrls,
+  writeJobsSummary,
   setCrawlerStartTime,
   getCrawlerElapsedMs,
 } from './jobs-url-helper.mjs';
@@ -41,46 +37,44 @@ import {
 } from './assemble-jobs-dataset.mjs';
 import {
   runDedicatedBaseCrawler,
-  translateMissingJobLocales,
   validateDedicatedLocaleCoverage,
+  detectLang,
+  deriveLocalizedSlug,
   normalize,
   normalizeKey,
 } from './lib/dedicated-crawler-common.mjs';
+import { extractMigrosStructuredData } from './lib/migros-job-parser.mjs';
 
-/* ── Constants ─────────────────────────────────────────────── */
+/* -- Constants --------------------------------------------------------- */
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
 const DATA_JOBS = path.resolve(ROOT, 'data', 'jobs.json');
-const ADAPTERS_DIR = path.resolve(ROOT, 'data', 'jobs-crawler-adapters', 'adapters');
+const PUBLIC_DATA_JOBS = path.resolve(ROOT, 'public', 'data', 'jobs.json');
 
 const DENNER_KEY = 'denner';
 const DENNER_COMPANY_NAME = 'Denner';
 const DENNER_HOST = 'jobs.migros.ch';
 const DENNER_LISTING_BASE = 'https://jobs.migros.ch/it/le-nostre-imprese/denner-sa/posti-di-lavoro-vacanti';
-
-/**
- * Region IDs for the Migros portal:
- *   871 = Svizzera meridionale (Southern Switzerland — includes Ticino)
- *   868 = Grigioni
- */
 const REGION_IDS = { 'Svizzera meridionale': '871', Grigioni: '868' };
 
 const UA =
   process.env.JOBS_CRAWLER_USER_AGENT ||
   'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)';
 
-/**
- * Regex to match Denner job detail hrefs from Migros SSR HTML.
- *
- * Migros Nuxt renders detail links as:
- *   /it/le-nostre-imprese/job/denner-sa/{slug}/{uuid}
- *   /de/unsere-unternehmen/job/denner-ag/{slug}/{uuid}
- *   /fr/nos-entreprises/job/denner-sa/{slug}/{uuid}
- *   /en/our-companies/job/denner-sa/{slug}/{uuid}
- */
 const JOB_DETAIL_HREF_RE = /href="(\/(?:it|de|fr|en)\/(?:le-nostre-imprese|unsere-unternehmen|nos-entreprises|our-companies)\/job\/[^"]+)"/gi;
 
-/* ── Matchers ──────────────────────────────────────────────── */
+function slugify(value = '') {
+  return String(value || '')
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^\p{L}\p{N}]+/gu, '-')
+    .replace(/^-+|-+$/g, '')
+    .replace(/-{2,}/g, '-')
+    .slice(0, 180);
+}
+
+/* -- Matchers ---------------------------------------------------------- */
 function isDennerJob(job) {
   const key = normalizeKey(job?.companyKey || job?.company || '');
   const company = normalize(job?.company || '');
@@ -97,12 +91,31 @@ function isDennerJob(job) {
   );
 }
 
-/* ── Discovery ─────────────────────────────────────────────── */
+/* -- File I/O ---------------------------------------------------------- */
+function writeJobsFiles(jobs) {
+  fs.writeFileSync(DATA_JOBS, `${JSON.stringify(jobs, null, 2)}\n`, 'utf-8');
+  if (fs.existsSync(PUBLIC_DATA_JOBS)) fs.writeFileSync(PUBLIC_DATA_JOBS, `${JSON.stringify(jobs, null, 2)}\n`, 'utf-8');
+}
+
+function mergeCompanyJobs(parsedJobs) {
+  const existing = fs.existsSync(DATA_JOBS) ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')) : [];
+  const allJobs = Array.isArray(existing) ? existing : [];
+  const others = allJobs.filter((j) => !isDennerJob(j));
+  const byUrl = new Map();
+  for (const job of parsedJobs) {
+    const k = String(job?.url || '').trim().replace(/\/+$/, '');
+    if (k) byUrl.set(k, job);
+  }
+  const clean = [...byUrl.values()].sort((a, b) => String(b.postedDate || '').localeCompare(String(a.postedDate || '')));
+  writeJobsFiles([...others, ...clean]);
+  return clean;
+}
+
+/* -- Discovery --------------------------------------------------------- */
 async function fetchDennerJobUrls() {
   const allUrls = new Set();
   const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 15000;
 
-  // Fetch listing pages for Ticino regions + all-regions page
   const pagesToFetch = [
     ...Object.entries(REGION_IDS).map(([name, id]) => ({
       name,
@@ -116,10 +129,7 @@ async function fetchDennerJobUrls() {
     let hasMore = true;
 
     while (hasMore) {
-      const fetchUrl =
-        page === 0
-          ? listUrl
-          : `${listUrl}${listUrl.includes('?') ? '&' : '?'}page=${page}`;
+      const fetchUrl = page === 0 ? listUrl : `${listUrl}${listUrl.includes('?') ? '&' : '?'}page=${page}`;
       console.log(`\ud83d\udd0d Fetching Denner ${name} jobs (page ${page}): ${fetchUrl}`);
 
       try {
@@ -128,45 +138,30 @@ async function fetchDennerJobUrls() {
 
         const res = await fetch(fetchUrl, {
           signal: controller.signal,
-          headers: {
-            Accept: 'text/html,application/xhtml+xml',
-            'User-Agent': UA,
-          },
+          headers: { Accept: 'text/html,application/xhtml+xml', 'User-Agent': UA },
           redirect: 'follow',
         });
         clearTimeout(timer);
 
-        if (!res.ok) {
-          console.warn(`\u26a0\ufe0f Denner listing returned ${res.status} for ${name} page ${page}`);
-          break;
-        }
+        if (!res.ok) { console.warn(`\u26a0\ufe0f Denner listing returned ${res.status} for ${name} page ${page}`); break; }
 
         const html = await res.text();
         const pageUrls = new Set();
 
-        // Extract job detail URLs from SSR HTML
         let match;
         while ((match = JOB_DETAIL_HREF_RE.exec(html)) !== null) {
           const relPath = match[1];
-          // Only include Denner company URLs (denner-sa or denner-ag or denner-partner)
           if (!/denner/i.test(relPath)) continue;
           const fullUrl = `https://${DENNER_HOST}${relPath}`;
-          if (!allUrls.has(fullUrl)) {
-            pageUrls.add(fullUrl);
-            allUrls.add(fullUrl);
-          }
+          if (!allUrls.has(fullUrl)) { pageUrls.add(fullUrl); allUrls.add(fullUrl); }
         }
         JOB_DETAIL_HREF_RE.lastIndex = 0;
 
         console.log(`  \ud83d\udce6 ${name} page ${page}: ${pageUrls.size} new URL(s)`);
 
-        if (pageUrls.size === 0) {
-          hasMore = false;
-        } else {
-          // Check for pagination
-          const nextExists =
-            html.includes(`page=${page + 1}`) ||
-            html.includes(`page%3D${page + 1}`);
+        if (pageUrls.size === 0) { hasMore = false; }
+        else {
+          const nextExists = html.includes(`page=${page + 1}`);
           hasMore = nextExists;
           if (hasMore) page++;
         }
@@ -181,101 +176,106 @@ async function fetchDennerJobUrls() {
   return [...allUrls];
 }
 
-/* ── Adapter ───────────────────────────────────────────────── */
-function ensureAdapterSeedUrls(seedUrls) {
-  const adapterPath = path.join(ADAPTERS_DIR, `${DENNER_KEY}.json`);
+/* -- Detail page fetching & parsing ------------------------------------ */
+async function fetchAndParseDetailPages(urls) {
+  const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 15000;
+  const concurrency = Number(process.env.JOBS_CRAWLER_CONCURRENCY) || 3;
+  const jobs = [];
 
-  if (!fs.existsSync(adapterPath)) {
-    console.log(`\u26a0\ufe0f Adapter ${DENNER_KEY}.json not found \u2014 creating it.`);
-    const adapter = {
-      companyKey: DENNER_KEY,
-      companyName: DENNER_COMPANY_NAME,
-      companyHost: DENNER_HOST,
-      enabled: true,
-      priority: 10,
-      crawlerModes: ['generic_ats', 'html'],
-      seedUrls: seedUrls.length > 0 ? seedUrls : [DENNER_LISTING_BASE],
-      notes: 'Denner (Migros Group subsidiary) careers via jobs.migros.ch. Nuxt.js SSR with detail URLs scraped from listing pages.',
-      updatedAt: new Date().toISOString(),
-    };
-    fs.mkdirSync(path.dirname(adapterPath), { recursive: true });
-    fs.writeFileSync(adapterPath, JSON.stringify(adapter, null, 2) + '\n');
-    return;
+  for (let i = 0; i < urls.length; i += concurrency) {
+    const batch = urls.slice(i, i + concurrency);
+    const results = await Promise.allSettled(
+      batch.map(async (url) => {
+        const controller = new AbortController();
+        const timer = setTimeout(() => controller.abort(), timeoutMs);
+        try {
+          const res = await fetch(url, {
+            signal: controller.signal,
+            headers: { Accept: 'text/html', 'User-Agent': UA },
+            redirect: 'follow',
+          });
+          clearTimeout(timer);
+          if (!res.ok) return null;
+          const html = await res.text();
+          return { url, html };
+        } catch {
+          clearTimeout(timer);
+          return null;
+        }
+      })
+    );
+
+    for (const r of results) {
+      if (r.status !== 'fulfilled' || !r.value) continue;
+      const { url, html } = r.value;
+
+      const migrosData = extractMigrosStructuredData(html);
+
+      let jsonLd = null;
+      const jsonLdMatch = html.match(/<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/i);
+      if (jsonLdMatch) { try { jsonLd = JSON.parse(jsonLdMatch[1]); } catch {} }
+
+      const h1Match = html.match(/<h1[^>]*>([\s\S]*?)<\/h1>/i);
+      const rawTitle = jsonLd?.title || (h1Match ? h1Match[1].replace(/<[^>]+>/g, '').trim() : '');
+      if (!rawTitle) continue;
+
+      const locMatch = html.match(/addressLocality['"]\s*:\s*['"]([^'"]+)/i);
+      const pcMatch = html.match(/postalCode['"]\s*:\s*['"](\d{4})/i);
+      let location = locMatch ? locMatch[1].trim() : '';
+      let postalCode = pcMatch ? pcMatch[1] : '';
+
+      if (!location) {
+        const metaLoc = rawTitle.match(/[-\u2013]\s*(\d{4})\s+([A-Z\u00C0-\u017E][a-z\u00e0-\u017e]+(?:\s+[A-Z\u00C0-\u017E][a-z\u00e0-\u017e]+)*)/);
+        if (metaLoc) { postalCode = metaLoc[1]; location = metaLoc[2]; }
+      }
+
+      const description = migrosData?.description || jsonLd?.description || '';
+      const pctMatch = rawTitle.match(/(\d+\s*-\s*\d+\s*%)/);
+      const workPct = pctMatch ? pctMatch[1] : (migrosData?.workPercentage || '');
+
+      const urlHash = createHash('sha1').update(url).digest('hex').slice(0, 12);
+      const jobSlug = slugify(`${rawTitle}-denner`);
+
+      jobs.push({
+        id: `denner-${urlHash}`,
+        slug: jobSlug,
+        slugByLocale: { it: jobSlug },
+        company: DENNER_COMPANY_NAME,
+        companyKey: DENNER_KEY,
+        companyDomain: 'denner.ch',
+        title: rawTitle.replace(/\s+/g, ' ').trim(),
+        titleByLocale: { it: rawTitle.replace(/\s+/g, ' ').trim() },
+        description: description || `Posizione aperta presso ${DENNER_COMPANY_NAME}. ${rawTitle}.`,
+        descriptionByLocale: { it: description || `Posizione aperta presso ${DENNER_COMPANY_NAME}. ${rawTitle}.` },
+        requirements: migrosData?.requirements || [],
+        requirementsByLocale: { it: migrosData?.requirements || [] },
+        location,
+        postalCode,
+        canton: '',
+        addressLocality: location,
+        addressCountry: 'CH',
+        category: 'retail',
+        contract: migrosData?.employmentType || 'full-time',
+        workPercentage: workPct,
+        currency: 'CHF',
+        featured: false,
+        postedDate: jsonLd?.datePosted || new Date().toISOString().slice(0, 10),
+        url,
+        source: 'Denner/Migros Dedicated Parser',
+        crawledAt: new Date().toISOString(),
+      });
+    }
   }
 
-  try {
-    const adapter = JSON.parse(fs.readFileSync(adapterPath, 'utf-8'));
-    adapter.seedUrls = seedUrls.length > 0 ? seedUrls : adapter.seedUrls || [DENNER_LISTING_BASE];
-    adapter.crawlerModes = (adapter.crawlerModes || []).filter((m) => m !== 'jsonld');
-    if (!adapter.crawlerModes.includes('generic_ats')) adapter.crawlerModes.unshift('generic_ats');
-    if (!adapter.crawlerModes.includes('html')) adapter.crawlerModes.push('html');
-    adapter.updatedAt = new Date().toISOString();
-    fs.writeFileSync(adapterPath, JSON.stringify(adapter, null, 2) + '\n');
-    console.log(`\ud83d\udcdd Adapter ${DENNER_KEY} updated with ${seedUrls.length} seed URLs.`);
-  } catch (err) {
-    console.warn(`\u26a0\ufe0f Could not update adapter: ${err.message}`);
-  }
+  return jobs;
 }
 
-/* ── Base Crawler ──────────────────────────────────────────── */
-function runBaseCrawler() {
-  return runDedicatedBaseCrawler({
-    root: ROOT,
-    companyKeys: DENNER_KEY,
-    localizeOnlyCompanyKeys: DENNER_KEY,
-    forceLocalizeKeys: DENNER_KEY,
-    disableWorkdayForce: true,
-    extraEnv: {
-      JOBS_CRAWLER_MAX_JOB_LINKS: process.env.JOBS_CRAWLER_MAX_JOB_LINKS || '100',
-      JOBS_CRAWLER_MAX_GENERIC_DETAIL_PAGES: process.env.JOBS_CRAWLER_MAX_GENERIC_DETAIL_PAGES || '100',
-      JOBS_CRAWLER_FETCH_RETRIES: process.env.JOBS_CRAWLER_FETCH_RETRIES || '2',
-      JOBS_CRAWLER_CONCURRENCY: process.env.JOBS_CRAWLER_CONCURRENCY || '3',
-    },
-  });
-}
-
-/* ── Stats & Validation ────────────────────────────────────── */
-function logStats(beforeSnapshot = new Map()) {
-  if (!fs.existsSync(DATA_JOBS)) {
-    console.log('\u2139\ufe0f jobs.json not found \u2014 no stats available.');
-    return { total: 0 };
-  }
-  const raw = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
-  const allJobs = Array.isArray(raw) ? raw : [];
-  const jobs = allJobs.filter(isDennerJob);
-
-  console.log(`\n\ud83d\udcca === Denner Job Stats ===`);
-  console.log(`  \ud83c\udfea Total Denner jobs: ${jobs.length}`);
-  console.log('');
-
-  const afterSnapshot = snapshotJobSlugs(jobs);
-  const crawlDiff = computeCrawlDiff(beforeSnapshot, afterSnapshot);
-  printCrawlChangeSummary(crawlDiff, 'Denner');
-  writeCrawlChangeSummaryToGH(crawlDiff, 'Denner');
-
-  return { total: jobs.length };
-}
-
-function validateLocaleCoverage() {
-  validateDedicatedLocaleCoverage({
-    strictEnvVar: 'JOBS_DENNER_STRICT',
-    label: 'Denner',
-    dataJobsPath: DATA_JOBS,
-    isTargetJob: isDennerJob,
-    noJobsMessage: 'No Denner jobs found after crawl.',
-    maxToleratedMissingDescriptions: 5,
-  });
-}
-
-/* ── Main ──────────────────────────────────────────────────── */
+/* -- Main -------------------------------------------------------------- */
 async function main() {
   setCrawlerStartTime();
   console.log('\ud83c\udfea Running dedicated Denner jobs crawler...');
   console.log(`   Portal: ${DENNER_HOST} (Migros Group portal)`);
   console.log('');
-
-  const detailUrls = await fetchDennerJobUrls();
-  ensureAdapterSeedUrls(detailUrls);
 
   let _beforeSnapshot = new Map();
   if (fs.existsSync(DATA_JOBS)) {
@@ -285,43 +285,73 @@ async function main() {
     } catch {}
   }
 
-  await runBaseCrawler();
-
-  await translateMissingJobLocales({
-    dataJobsPath: DATA_JOBS,
-    isTargetJob: isDennerJob,
-  });
-
-  const stats = logStats(_beforeSnapshot);
-  if (stats.total === 0) {
-    console.log('\u2139\ufe0f No Denner jobs found after crawl. Exiting OK.');
+  const detailUrls = await fetchDennerJobUrls();
+  if (detailUrls.length === 0) {
+    console.log('\u2139\ufe0f No Denner job URLs discovered. Exiting OK.');
     return;
   }
 
-  validateLocaleCoverage();
+  console.log(`\ud83d\udd0d Fetching ${detailUrls.length} detail pages...`);
+  const parsedJobs = await fetchAndParseDetailPages(detailUrls);
+  console.log(`\ud83e\udde9 Parsed ${parsedJobs.length} Denner jobs from detail pages.`);
 
-  const _durationMs = getCrawlerElapsedMs();
-  const _sliceRaw = fs.existsSync(DATA_JOBS)
-    ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'))
-    : [];
-  const _sliceJobs = Array.isArray(_sliceRaw) ? _sliceRaw.filter(isDennerJob) : [];
-  writeJobsCrawlerSlice(DENNER_KEY, _sliceJobs);
+  if (parsedJobs.length === 0) {
+    console.log('\u26a0\ufe0f No Denner jobs parsed from detail pages. Keeping existing.');
+    return;
+  }
+
+  const published = mergeCompanyJobs(parsedJobs);
+  printPublishedJobUrls(published, 'Denner');
+  writeJobsSummary(published, 'Denner');
+
+  await runDedicatedBaseCrawler({
+    root: ROOT,
+    companyKeys: DENNER_KEY,
+    disableWorkdayForce: true,
+    localizeExistingOnly: true,
+    forceLocalizationWhenAiEnabledOnly: true,
+  });
+
+  validateDedicatedLocaleCoverage({
+    strictEnvVar: 'JOBS_DENNER_STRICT',
+    label: 'Denner',
+    dataJobsPath: DATA_JOBS,
+    isTargetJob: isDennerJob,
+    failOnMissingJobsFile: true,
+    failWhenNoJobs: true,
+    noJobsMessage: 'No Denner jobs found.',
+    detectSourceLang: (t) => detectLang(t, 'it'),
+    deriveSlug: deriveLocalizedSlug,
+  });
+
+  const finalJobs = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
+  const dennerJobs = Array.isArray(finalJobs) ? finalJobs.filter(isDennerJob) : [];
+
+  console.log(`\n\ud83d\udcca === Denner Job Stats ===`);
+  console.log(`  \ud83c\udfea Total Denner jobs: ${dennerJobs.length}`);
+  const afterSnapshot = snapshotJobSlugs(dennerJobs);
+  const crawlDiff = computeCrawlDiff(_beforeSnapshot, afterSnapshot);
+  printCrawlChangeSummary(crawlDiff, 'Denner');
+  writeCrawlChangeSummaryToGH(crawlDiff, 'Denner');
+
+  const dur = getCrawlerElapsedMs();
+  writeJobsCrawlerSlice(DENNER_KEY, dennerJobs);
   writeSummaryCrawlerSlice({
     key: DENNER_KEY,
     label: 'Denner',
     generatedAt: new Date().toISOString(),
-    total: _sliceJobs.length,
+    total: dennerJobs.length,
     newCount: 0,
     updatedCount: 0,
     removedCount: 0,
-    unchangedCount: _sliceJobs.length,
-    durationMs: _durationMs,
-    avgDurationMs: _durationMs,
-    durationHistory: [_durationMs],
+    unchangedCount: dennerJobs.length,
+    durationMs: dur,
+    avgDurationMs: dur,
+    durationHistory: [dur],
     newJobs: [],
     updatedJobs: [],
     removedJobs: [],
-    unchangedJobs: _sliceJobs.slice(0, 30),
+    unchangedJobs: dennerJobs.slice(0, 30),
   });
   await assembleJobsDataset();
 }
