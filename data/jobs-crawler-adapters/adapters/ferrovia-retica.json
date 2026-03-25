@@ -1,0 +1,66 @@
+{
+  "companyKey": "ferrovia-retica",
+  "companyName": "Ferrovia Retica (RhB)",
+  "companyHost": "www.rhb.ch",
+  "enabled": true,
+  "priority": 10,
+  "crawlerModes": [
+    "html"
+  ],
+  "seedUrls": [
+    "https://www.rhb.ch/it/job/quereinsteiger-innen-zugbegleitung-standort-chur-100_2026-2165/",
+    "https://www.rhb.ch/it/job/quereinsteiger-innen-zugbegleitung-standort-samedan-100_2026-2166/",
+    "https://www.rhb.ch/it/job/leiter-in-fernsteuerung-50-100_2026-2163/",
+    "https://www.rhb.ch/it/job/praktikant-in-prozessmanagement-80-100_2026-2161/",
+    "https://www.rhb.ch/it/job/spezialist-in-anlagebuchhaltung-50-100_2026-2160/",
+    "https://www.rhb.ch/it/job/praktikant-in-unternehmenskommunikation-80-100_2026-2158/",
+    "https://www.rhb.ch/it/job/rangiermitarbeiter-in-50-100_2026-2157/",
+    "https://www.rhb.ch/it/job/praktikant-in-personal-und-organisationsentwicklung-50-100_2026-2156/",
+    "https://www.rhb.ch/it/job/projektleiter-in-lager-und-logistik-50-100_2025-2101/",
+    "https://www.rhb.ch/it/job/sap-modulverantwortliche-r-eam-pm-rollmaterial-50-100_2026-2153/"
+  ],
+  "seedMetaByUrl": {
+    "https://www.rhb.ch/it/job/quereinsteiger-innen-zugbegleitung-standort-chur-100_2026-2165/": {
+      "company": "Ferrovia Retica (RhB)",
+      "companyDomain": "rhb.ch"
+    },
+    "https://www.rhb.ch/it/job/quereinsteiger-innen-zugbegleitung-standort-samedan-100_2026-2166/": {
+      "company": "Ferrovia Retica (RhB)",
+      "companyDomain": "rhb.ch"
+    },
+    "https://www.rhb.ch/it/job/leiter-in-fernsteuerung-50-100_2026-2163/": {
+      "company": "Ferrovia Retica (RhB)",
+      "companyDomain": "rhb.ch"
+    },
+    "https://www.rhb.ch/it/job/praktikant-in-prozessmanagement-80-100_2026-2161/": {
+      "company": "Ferrovia Retica (RhB)",
+      "companyDomain": "rhb.ch"
+    },
+    "https://www.rhb.ch/it/job/spezialist-in-anlagebuchhaltung-50-100_2026-2160/": {
+      "company": "Ferrovia Retica (RhB)",
+      "companyDomain": "rhb.ch"
+    },
+    "https://www.rhb.ch/it/job/praktikant-in-unternehmenskommunikation-80-100_2026-2158/": {
+      "company": "Ferrovia Retica (RhB)",
+      "companyDomain": "rhb.ch"
+    },
+    "https://www.rhb.ch/it/job/rangiermitarbeiter-in-50-100_2026-2157/": {
+      "company": "Ferrovia Retica (RhB)",
+      "companyDomain": "rhb.ch"
+    },
+    "https://www.rhb.ch/it/job/praktikant-in-personal-und-organisationsentwicklung-50-100_2026-2156/": {
+      "company": "Ferrovia Retica (RhB)",
+      "companyDomain": "rhb.ch"
+    },
+    "https://www.rhb.ch/it/job/projektleiter-in-lager-und-logistik-50-100_2025-2101/": {
+      "company": "Ferrovia Retica (RhB)",
+      "companyDomain": "rhb.ch"
+    },
+    "https://www.rhb.ch/it/job/sap-modulverantwortliche-r-eam-pm-rollmaterial-50-100_2026-2153/": {
+      "company": "Ferrovia Retica (RhB)",
+      "companyDomain": "rhb.ch"
+    }
+  },
+  "notes": "Rhaetian Railway, largest employer in Graubünden. Career page HTML crawler.",
+  "updatedAt": "2026-03-25T09:34:28.963Z"
+}
