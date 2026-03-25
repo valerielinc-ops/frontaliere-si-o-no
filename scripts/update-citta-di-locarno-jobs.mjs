@@ -10,7 +10,7 @@ import { fileURLToPath } from 'node:url';
 import { snapshotJobSlugs, computeCrawlDiff, printCrawlChangeSummary, writeCrawlChangeSummaryToGH, printPublishedJobUrls, writeJobsSummary, setCrawlerStartTime, getCrawlerElapsedMs } from './jobs-url-helper.mjs';
 import { writeJobsCrawlerSlice, writeSummaryCrawlerSlice, assembleJobsDataset } from './assemble-jobs-dataset.mjs';
 import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, detectLang, deriveLocalizedSlug } from './lib/dedicated-crawler-common.mjs';
-import { fetchLocarnoJobs, slugify } from './lib/citta-di-locarno-job-parser.mjs';
+import { fetchLocarnoJobs, slugify, inferEmploymentType } from './lib/citta-di-locarno-job-parser.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -61,7 +61,7 @@ async function main() {
       description: desc, descriptionByLocale: { it: desc }, requirements: [], requirementsByLocale: { it: [], en: [], de: [], fr: [] },
       location: 'Locarno', canton: 'TI', addressLocality: 'Locarno', addressRegion: 'TI', addressCountry: 'CH',
       postalCode: '6600', streetAddress: 'Piazza Grande 18',
-      category: 'public-admin', contract: 'full-time', employmentType: 'FULL_TIME', currency: 'CHF', featured: false,
+      category: 'public-admin', contract: 'full-time', employmentType: inferEmploymentType(raw.title, raw.description || ''), currency: 'CHF', featured: false,
       postedDate: raw.datePosted,
       url: raw.url, pdfUrl: raw.pdfUrl, applyUrl: raw.applyUrl,
       source: 'Locarno Dedicated Parser', crawledAt: new Date().toISOString(),

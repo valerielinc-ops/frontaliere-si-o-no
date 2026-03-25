@@ -239,7 +239,7 @@ export function buildJob(raw) {
     addressCountry: 'CH',
     postalCode: '6917',
     streetAddress: 'Via Figino 6',
-    employmentType: 'FULL_TIME',
+    employmentType: inferEmploymentType(title, description),
     category: detectCategory(title, description),
     description,
     postedDate: raw.datePosted || new Date().toISOString().slice(0, 10),

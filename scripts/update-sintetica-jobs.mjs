@@ -12,7 +12,7 @@ import { fileURLToPath } from 'node:url';
 import { snapshotJobSlugs, computeCrawlDiff, printCrawlChangeSummary, writeCrawlChangeSummaryToGH, setCrawlerStartTime, getCrawlerElapsedMs } from './jobs-url-helper.mjs';
 import { writeJobsCrawlerSlice, writeSummaryCrawlerSlice, assembleJobsDataset } from './assemble-jobs-dataset.mjs';
 import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, mergeLocaleTextMap } from './lib/dedicated-crawler-common.mjs';
-import { parseListingPage, slugify, detectCategory, detectExperienceLevel } from './lib/sintetica-job-parser.mjs';
+import { parseListingPage, slugify, detectCategory, detectExperienceLevel, inferEmploymentType } from './lib/sintetica-job-parser.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -63,7 +63,7 @@ async function fetchJobs() {
       slug, slugByLocale: { en: slug, it: slug },
       category: detectCategory(raw.title),
       datePosted: new Date().toISOString().split('T')[0],
-      source: 'sintetica-careers-crawler', employmentType: 'FULL_TIME',
+      source: 'sintetica-careers-crawler', employmentType: inferEmploymentType(listing.title, detail.body),
       experienceLevel: detectExperienceLevel(raw.title),
       sector: 'Farmaceutica',
       _targetScope: { canton: 'TI', location: 'Mendrisio' },

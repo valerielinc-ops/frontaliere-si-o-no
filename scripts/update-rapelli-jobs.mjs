@@ -36,7 +36,7 @@ import {
 import {
   fetchRapelliJobUrls,
   fetchRapelliDetailPage,
-  slugify,
+  slugify, inferEmploymentType,
 } from './lib/rapelli-job-parser.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -118,7 +118,7 @@ async function main() {
       addressLocality: raw.location || 'Stabio',
       addressCountry: 'CH',
       category: 'manufacturing',
-      contract: 'full-time',
+      contract: 'full-time', employmentType: inferEmploymentType(raw.title, description),
       currency: 'CHF',
       featured: false,
       postedDate: new Date().toISOString().slice(0, 10),

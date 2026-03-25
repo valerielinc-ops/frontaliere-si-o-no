@@ -39,7 +39,7 @@ import {
 } from './lib/dedicated-crawler-common.mjs';
 import {
   parseBpsSuisseListingPage,
-  parseBpsSuisseDetailPage,
+  parseBpsSuisseDetailPage, inferEmploymentType,
 } from './lib/bps-suisse-job-parser.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -204,7 +204,7 @@ async function fetchJobs() {
       addressCountry: 'CH',
       postalCode: '6900',
       streetAddress: 'Via Giacomo Bentina 5',
-      employmentType: 'FULL_TIME',
+      employmentType: inferEmploymentType(listing.title, description),
       description,
       slug,
       slugByLocale: { it: slug, en: slug, de: slug, fr: slug },

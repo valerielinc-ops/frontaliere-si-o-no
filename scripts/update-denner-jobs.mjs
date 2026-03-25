@@ -44,6 +44,7 @@ import {
   normalizeKey,
 } from './lib/dedicated-crawler-common.mjs';
 import { extractMigrosStructuredData } from './lib/migros-job-parser.mjs';
+import { inferEmploymentType } from './lib/denner-job-parser.mjs';
 
 /* -- Constants --------------------------------------------------------- */
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -267,7 +268,7 @@ async function fetchAndParseDetailPages(urls) {
         addressRegion: TICINO_PLZ[location.toLowerCase()] ? 'TI' : '',
         addressCountry: 'CH',
         streetAddress: '',
-        employmentType: workPct && parseInt(workPct) < 100 ? 'PART_TIME' : 'FULL_TIME',
+        employmentType: inferEmploymentType(rawTitle, description, workPct || ''),
         category: 'retail',
         contract: migrosData?.employmentType || 'full-time',
         workPercentage: workPct,

@@ -37,6 +37,7 @@ import {
   normalize,
   normalizeKey,
 } from './lib/dedicated-crawler-common.mjs';
+import { inferEmploymentType } from './lib/decathlon-job-parser.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -246,7 +247,7 @@ async function main() {
         if (!j.addressCountry) j.addressCountry = 'CH';
         if (!j.postalCode) j.postalCode = store.postalCode;
         if (!j.streetAddress) j.streetAddress = store.streetAddress;
-        if (!j.employmentType) j.employmentType = 'FULL_TIME';
+        if (!j.employmentType) j.employmentType = inferEmploymentType(j.title || '', j.description || '');
         patched++;
       }
       if (patched > 0) {

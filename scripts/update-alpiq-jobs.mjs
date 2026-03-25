@@ -13,7 +13,7 @@ import { fileURLToPath } from 'node:url';
 import { snapshotJobSlugs, computeCrawlDiff, printCrawlChangeSummary, writeCrawlChangeSummaryToGH, printPublishedJobUrls, writeJobsSummary, setCrawlerStartTime, getCrawlerElapsedMs } from './jobs-url-helper.mjs';
 import { writeJobsCrawlerSlice, writeSummaryCrawlerSlice, assembleJobsDataset } from './assemble-jobs-dataset.mjs';
 import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, detectLang, deriveLocalizedSlug } from './lib/dedicated-crawler-common.mjs';
-import { fetchAlpiqListingPages, slugify } from './lib/alpiq-job-parser.mjs';
+import { fetchAlpiqListingPages, slugify, inferEmploymentType } from './lib/alpiq-job-parser.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -79,7 +79,7 @@ async function main() {
       addressLocality: raw.location || 'Switzerland',
       addressRegion: raw.location && /airolo|biasca|locarno|bellinzona|lugano|mendrisio|chiasso|rodi|ritom|piotta/i.test(raw.location) ? 'TI' : '',
       addressCountry: 'CH',
-      employmentType: raw.percentage && parseInt(raw.percentage) < 100 ? 'PART_TIME' : 'FULL_TIME',
+      employmentType: inferEmploymentType(raw.title, raw.description || '', raw.percentage || ''),
       category: 'energy', contract: raw.contractType === 'Temporary' ? 'temporary' : 'full-time',
       currency: 'CHF', featured: false, postedDate: new Date().toISOString().slice(0, 10),
       url: raw.url, applyUrl: raw.applyUrl, source: 'Alpiq Dedicated Parser', crawledAt: new Date().toISOString(),

@@ -239,7 +239,7 @@ export function buildJob(raw) {
     addressCountry: 'CH',
     postalCode: '6900',
     streetAddress: 'Piazza della Riforma',
-    employmentType: 'FULL_TIME',
+    employmentType: inferEmploymentType(title, finalDescription),
     category: detectCategory(title, finalDescription),
     description: finalDescription,
     postedDate: raw.datePosted || new Date().toISOString().slice(0, 10),
@@ -270,4 +270,23 @@ function detectCategory(title = '', description = '') {
   if (/comunicazion|marketing|relazioni/i.test(combined)) return 'marketing';
   if (/finanz|contabil|tesor/i.test(combined)) return 'finance';
   return 'administration'; // Default for public administration
+}
+
+/**
+ * Infer employment type from title, description and optional percentage field.
+ * Swiss job postings commonly include percentage (e.g. "80-100%").
+ * @param {string} title
+ * @param {string} description
+ * @param {string} percentage
+ * @returns {string} FULL_TIME or PART_TIME
+ */
+export function inferEmploymentType(title = '', description = '', percentage = '') {
+  const combined = `${title} ${percentage} ${description}`;
+  if (/part[- ]?time|teilzeit|tempo parziale|temps partiel/i.test(combined)) return 'PART_TIME';
+  const pctMatch = combined.match(/(\d{2,3})\s*[-–]\s*(\d{2,3})\s*%/) || combined.match(/(\d{2,3})\s*%/);
+  if (pctMatch) {
+    const maxPct = pctMatch[2] ? parseInt(pctMatch[2]) : parseInt(pctMatch[1]);
+    if (maxPct < 80) return 'PART_TIME';
+  }
+  return 'FULL_TIME';
 }

@@ -254,3 +254,22 @@ export function detectExperienceLevel(title = '') {
   if (/senior|sr\.?|lead|head|director|manager|principal/i.test(title)) return 'SENIOR';
   return 'MID';
 }
+
+/**
+ * Infer employment type from title, description and optional percentage field.
+ * Swiss job postings commonly include percentage (e.g. "80-100%").
+ * @param {string} title
+ * @param {string} description
+ * @param {string} percentage
+ * @returns {string} FULL_TIME or PART_TIME
+ */
+export function inferEmploymentType(title = '', description = '', percentage = '') {
+  const combined = `${title} ${percentage} ${description}`;
+  if (/part[- ]?time|teilzeit|tempo parziale|temps partiel/i.test(combined)) return 'PART_TIME';
+  const pctMatch = combined.match(/(\d{2,3})\s*[-–]\s*(\d{2,3})\s*%/) || combined.match(/(\d{2,3})\s*%/);
+  if (pctMatch) {
+    const maxPct = pctMatch[2] ? parseInt(pctMatch[2]) : parseInt(pctMatch[1]);
+    if (maxPct < 80) return 'PART_TIME';
+  }
+  return 'FULL_TIME';
+}

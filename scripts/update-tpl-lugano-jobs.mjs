@@ -36,7 +36,7 @@ import {
   normalize,
   normalizeKey,
 } from './lib/dedicated-crawler-common.mjs';
-import { parseTplListingPage } from './lib/tpl-lugano-job-parser.mjs';
+import { parseTplListingPage, inferEmploymentType } from './lib/tpl-lugano-job-parser.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -226,7 +226,7 @@ async function main() {
         if (!j.addressCountry) j.addressCountry = 'CH';
         if (!j.postalCode) j.postalCode = '6900';
         if (!j.streetAddress) j.streetAddress = 'Via Campagna 15';
-        if (!j.employmentType) j.employmentType = 'FULL_TIME';
+        if (!j.employmentType) j.employmentType = inferEmploymentType(j.title || '', j.description || '');
         patched++;
       }
       if (patched > 0) {
