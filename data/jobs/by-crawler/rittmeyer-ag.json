@@ -1,6 +1,6 @@
 {
   "crawlerKey": "rittmeyer-ag",
-  "assembledAt": "2026-03-25T09:43:18.476Z",
+  "assembledAt": "2026-03-25T20:59:10.161Z",
   "jobs": [
     {
       "title": "Sales Project Engineer (a) Ticino",
@@ -43,6 +43,7 @@
         "de": "verkaufsprojektingenieur-in-tessin-rittmeyer-ag-camorino",
         "fr": "ingenieur-commercial-projets-tessin-rittmeyer-ag-tessin"
       },
+      "needsRetranslation": true,
       "previousSlugs": [
         "sales-project-engineer-m-f-x-ticino-rittmeyer-ag-ticino",
         "verkaufsprojektingenieur-in-tessin-rittmeyer-ag-tessin",
@@ -61,7 +62,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6528"
+      "streetAddress": "Inwilerriedstrasse 57",
+      "postalCode": "6340"
     }
   ]
 }

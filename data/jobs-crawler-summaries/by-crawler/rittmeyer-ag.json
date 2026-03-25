@@ -1,16 +1,16 @@
 {
   "key": "rittmeyer-ag",
   "label": "Rittmeyer AG",
-  "generatedAt": "2026-03-25T09:43:18.476Z",
+  "generatedAt": "2026-03-25T20:59:10.170Z",
   "total": 1,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 2580,
-  "avgDurationMs": 2580,
+  "durationMs": 3037,
+  "avgDurationMs": 3037,
   "durationHistory": [
-    2580
+    3037
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -57,6 +57,7 @@
         "de": "verkaufsprojektingenieur-in-tessin-rittmeyer-ag-camorino",
         "fr": "ingenieur-commercial-projets-tessin-rittmeyer-ag-tessin"
       },
+      "needsRetranslation": true,
       "previousSlugs": [
         "sales-project-engineer-m-f-x-ticino-rittmeyer-ag-ticino",
         "verkaufsprojektingenieur-in-tessin-rittmeyer-ag-tessin",
@@ -75,7 +76,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6528"
+      "streetAddress": "Inwilerriedstrasse 57",
+      "postalCode": "6340"
     }
   ]
 }
