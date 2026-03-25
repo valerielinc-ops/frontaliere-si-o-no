@@ -1,0 +1,115 @@
+{
+  "crawlerKey": "swiss-medical-network",
+  "assembledAt": "2026-03-25T09:34:57.823Z",
+  "jobs": [
+    {
+      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000116187012-medico-ospedaliero",
+      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000116187012-medico-ospedaliero",
+      "title": "Medico Ospedaliero",
+      "company": "Swiss Medical Network",
+      "companyKey": "swiss-medical-network",
+      "location": "Sorengo",
+      "canton": "TI",
+      "country": "CH",
+      "description": "## Descrizione\n- Medico Ospedaliero at Clinica Sant'Anna, Sorengo, Canton Ticino, Switzerland\n- Swiss Medical Network is a leading private healthcare group in Switzerland",
+      "descriptionByLocale": {
+        "en": "## Descrizione\n- Medico Ospedaliero at Clinica Sant'Anna, Sorengo, Canton Ticino, Switzerland\n- Swiss Medical Network is a leading private healthcare group in Switzerland",
+        "it": "Posizione aperta presso Clinica Sant'Anna a Sorengo, Cantone Ticino.\nRuolo: Medico Ospedaliero.\n\nSwiss Medical Network è il principale gruppo sanitario privato in Svizzera.",
+        "de": "Descrizione - Medico Ospedaliero an der Clinica Sant'Anna, Sorengo, Kanton Tessin, Schweiz - Swiss Medical Network ist eine führende private Gesundheitsgruppe in der Schweiz",
+        "fr": "Descrizione - Medico Ospedaliero à la Clinica Sant'Anna, Sorengo, Canton du Tessin, Suisse - Swiss Medical Network est un groupe de soins de santé privé de premier plan en Suisse"
+      },
+      "titleByLocale": {
+        "it": "Medico Ospedaliero",
+        "de": "Krankenhausarzt",
+        "fr": "Praticien Hospitalier"
+      },
+      "slug": "medico-ospedaliero-swiss-medical-network",
+      "slugByLocale": {
+        "en": "medico-ospedaliero-swiss-medical-network-sorengo-soxdzh",
+        "it": "medico-ospedaliero-swiss-medical-network",
+        "de": "medico-ospedaliero-swiss-medical-network-sorengo-soxdzh",
+        "fr": "medico-ospedaliero-swiss-medical-network-sorengo-soxdzh"
+      },
+      "category": "medical",
+      "datePosted": "2026-03-25",
+      "source": "swiss-medical-smartrecruiters-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "MID",
+      "sector": "Sanità / Healthcare",
+      "_targetScope": {
+        "canton": "TI",
+        "location": "Sorengo"
+      },
+      "crawledAt": "",
+      "requirementsByLocale": {},
+      "salaryMin": 58000,
+      "salaryMax": 78000,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 58000,
+          "maxValue": 78000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000113431836-collaboratore-hr",
+      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000113431836-collaboratore-hr",
+      "title": "Collaboratore HR",
+      "company": "Swiss Medical Network",
+      "companyKey": "swiss-medical-network",
+      "location": "Lugano",
+      "canton": "TI",
+      "country": "CH",
+      "description": "## Descrizione\n\n- Collaboratore HR at Swiss Medical Network, Lugano, Canton Ticino, Switzerland.\n- Swiss Medical Network is a leading private healthcare group in Switzerland.",
+      "descriptionByLocale": {
+        "en": "## Descrizione\n\n- Collaboratore HR at Swiss Medical Network, Lugano, Canton Ticino, Switzerland.\n- Swiss Medical Network is a leading private healthcare group in Switzerland.",
+        "it": "Posizione aperta presso Swiss Medical Network a Lugano, Cantone Ticino.\nRuolo: Collaboratore HR.\n\nSwiss Medical Network è il principale gruppo sanitario privato in Svizzera.",
+        "de": "Descrizione - Collaboratore HR bei Swiss Medical Network, Lugano, Kanton Tessin, Schweiz. - Swiss Medical Network ist eine führende private Gesundheitsgruppe in der Schweiz.",
+        "fr": "Descrizione - Collaboratore HR au Swiss Medical Network, Lugano, Canton du Tessin, Suisse. - Swiss Medical Network est un groupe de soins de santé privé de premier plan en Suisse."
+      },
+      "titleByLocale": {
+        "en": "HR Contributor",
+        "it": "Collaboratore HR",
+        "de": "HR-Mitarbeiter",
+        "fr": "Collaborateur RH"
+      },
+      "slug": "collaboratore-hr-swiss-medical-network",
+      "slugByLocale": {
+        "en": "collaboratore-hr-swiss-medical-network-lugano-gca7b9",
+        "it": "collaboratore-hr-swiss-medical-network",
+        "de": "collaboratore-personalwesen-swiss-medical-network-lugano-gca7b9",
+        "fr": "collaboratore-ressources-humaines-swiss-medical-network-lugano-gca7b9"
+      },
+      "category": "technical",
+      "datePosted": "2026-03-25",
+      "source": "swiss-medical-smartrecruiters-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "MID",
+      "sector": "Sanità / Healthcare",
+      "_targetScope": {
+        "canton": "TI",
+        "location": "Lugano"
+      },
+      "crawledAt": "",
+      "requirementsByLocale": {},
+      "salaryMin": 58000,
+      "salaryMax": 78000,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 58000,
+          "maxValue": 78000,
+          "unitText": "YEAR"
+        }
+      }
+    }
+  ]
+}
