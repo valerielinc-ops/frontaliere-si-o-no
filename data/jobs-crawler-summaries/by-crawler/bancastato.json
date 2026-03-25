@@ -1,19 +1,470 @@
 {
   "key": "bancastato",
   "label": "BancaStato",
-  "generatedAt": "2026-03-25T09:27:43.118Z",
-  "total": 0,
+  "generatedAt": "2026-03-25T11:12:34.206Z",
+  "total": 8,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 2632,
-  "avgDurationMs": 2632,
+  "unchangedCount": 8,
+  "durationMs": 191676,
+  "avgDurationMs": 191676,
   "durationHistory": [
-    2632
+    191676
   ],
   "newJobs": [],
   "updatedJobs": [],
   "removedJobs": [],
-  "unchangedJobs": []
+  "unchangedJobs": [
+    {
+      "title": "PrePaid Mastercard",
+      "company": "BancaStato",
+      "companyKey": "bancastato",
+      "url": "https://www.bancastato.ch/clienti-individuali/conti-e-carte/carte/prepaid-mastercard-bancastato",
+      "location": "Bellinzona",
+      "canton": "TI",
+      "country": "CH",
+      "addressLocality": "Bellinzona",
+      "addressCountry": "CH",
+      "category": "finance",
+      "description": "## Descrizione\nPrePaid Mastercard presso Banca dello Stato del Cantone Ticino (BancaStato), istituto bancario cantonale con sede a Bellinzona. BancaStato è la banca di riferimento per famiglie, aziende e enti pubblici del Cantone Ticino, con filiali su tutto il territorio cantonale.\n\n## Mansioni\n- PrePaid Mastercard presso Banca dello Stato del Cantone Ticino (BancaStato)\n- Istituto bancario cantonale con sede a Bellinzona\n- Banca di riferimento per famiglie, aziende e enti pubblici del Cantone Ticino\n- Filiali su tutto il territorio cantonale\n\n## Requisiti\n- \n## Cosa offriamo\n- \n## Contatto\n-",
+      "postedDate": "2026-03-25",
+      "source": "company-website",
+      "slug": "mastercard-prepagata-bancastato-bellinzona",
+      "slugByLocale": {
+        "it": "mastercard-prepagata-bancastato-bellinzona",
+        "en": "prepaid-mastercard-bancastato-bellinzona-gndmpe",
+        "de": "prepaid-mastercard-bancastato-bellinzona-gndmpe",
+        "fr": "prepaid-mastercard-bancastato-bellinzona-gndmpe"
+      },
+      "titleByLocale": {
+        "it": "Mastercard prepagata",
+        "de": "PrePaid Mastercard",
+        "fr": "peut le faire.",
+        "en": "PrePaid Mastercard"
+      },
+      "_targetScope": {
+        "canton": "TI",
+        "location": "Bellinzona"
+      },
+      "crawledAt": "",
+      "descriptionByLocale": {
+        "it": "Descrizione PrePaid Mastercard presso Banca dello Stato del Cantone Ticino (BancaStato), istituto bancario cantonale con sede a Bellinzona. BancaStato è la banca di riferimento per famiglie, aziende e enti pubblici del Cantone Ticino, con filiali su tutto il territorio cantonale. ## Mansioni - PrePaid Mastercard presso Banca dello Stato del Cantone Ticino (BancaStato) - Istituto bancario cantonale con sede a Bellinzona - Banca di riferimento per famiglie, aziende e enti pubblici del Cantone Ticino - Filiali su tutto il territorio cantonale ## Requisiti - ## Cosa offriamo - ## Contatto",
+        "en": "PrePaid Mastercard at Banca dello Stato del Cantone Ticino (BancaStato), the cantonal bank with its headquarters in Bellinzona. BancaStato is the reference bank for families, businesses, and public entities in the Canton of Ticino, with branches throughout the cantonal territory. Responsibilities: - PrePaid Mastercard at Banca dello Stato del Cantone Ticino (BancaStato) - Cantonal bank with headquarters in Bellinzona - Reference bank for families, businesses, and public entities in the Canton of Ticino - Branches throughout the cantonal territory Requirements: - What We Offer: - Contact:",
+        "de": "PrePaid Mastercard bei der Banca dello Stato del Cantone Ticino (BancaStato), dem kantonalen Bankinstitut mit Sitz in Bellinzona. BancaStato ist die Referenzbank für Familien, Unternehmen und öffentliche Einrichtungen im Kanton Tessin, mit Filialen auf dem gesamten kantonalen Gebiet. Aufgaben: - PrePaid Mastercard bei der Banca dello Stato del Cantone Ticino (BancaStato) - Kantionale Bankinstitut mit Sitz in Bellinzona - Referenzbank für Familien, Unternehmen und öffentliche Einrichtungen im Kanton Tessin - Filialen auf dem gesamten kantonalen Gebiet Anforderungen: - Was wir bieten: - Kontakt:",
+        "fr": "Carte PréPayée Mastercard chez Banca dello Stato del Cantone Ticino (BancaStato), l'institut bancaire cantonal avec siège à Bellinzona. BancaStato est la banque de référence pour les familles, les entreprises et les entités publiques du canton du Tessin, avec des agences sur tout le territoire cantonal. Fonctions: - Carte PréPayée Mastercard chez Banca dello Stato del Cantone Ticino (BancaStato) - Institut bancaire cantonal avec siège à Bellinzona - Banque de référence pour les familles, les entreprises et les entités publiques du canton du Tessin - Agences sur tout le territoire cantonal Exigences: - Ce que nous offrons: - Contact:"
+      },
+      "requirementsByLocale": {},
+      "sourceLang": "it",
+      "needsRetranslation": true,
+      "previousSlugs": [
+        "prepaid-mastercard-bancastato-bellinzona"
+      ],
+      "salaryMin": 82500,
+      "salaryMax": 111500,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 82500,
+          "maxValue": 111500,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "6500"
+    },
+    {
+      "title": "Prodotti di investimento Panoramica Pensati e gestiti in Ticino I fondi di investimento del Gruppo BancaStato",
+      "company": "BancaStato",
+      "companyKey": "bancastato",
+      "url": "https://www.bancastato.ch/clienti-individuali/investimenti/prodotti-di-investimento",
+      "location": "Bellinzona",
+      "canton": "TI",
+      "country": "CH",
+      "addressLocality": "Bellinzona",
+      "addressCountry": "CH",
+      "category": "finance",
+      "description": "## Descrizione\n\nProdotti di investimento Panoramica Pensati e gestiti in Ticino I fondi di investimento del Gruppo BancaStato presso Banca dello Stato del Cantone Ticino (BancaStato), istituto bancario cantonale con sede a Bellinzona. BancaStato è la banca di riferimento per famiglie, aziende e enti pubblici del Cantone Ticino, con filiali su tutto il territorio cantonale.",
+      "postedDate": "2026-03-25",
+      "source": "company-website",
+      "slug": "prodotto-di-investimento-panoramica-pensieri-e-azioni-in-ticino-i-fondo-di-investimenti-del-gruppo-bancastato-bancastato",
+      "slugByLocale": {
+        "it": "prodotto-di-investimento-panoramica-pensieri-e-azioni-in-ticino-i-fondo-di-investimenti-del-gruppo-bancastato-bancastato",
+        "en": "prodotti-di-investimento-panoramica-pensati-e-gestiti-in-ticino-i-fondi-di-investimento-del-gruppo-bancastato-bancastato-bellinzona-1dwat2",
+        "de": "prodotti-di-investimento-panoramica-pensati-e-gestiti-in-ticino-i-fondi-di-investimento-del-gruppo-bancastato-bancastato-bellinzona-1dwat2",
+        "fr": "prodotti-di-investimento-panoramica-pensati-e-gestiti-in-ticino-i-fondi-di-investimento-del-gruppo-bancastato-bancastato-bellinzona-1dwat2"
+      },
+      "titleByLocale": {
+        "it": "Prodotto di investimento Panoramica Pensieri e azioni in Ticino I fondo di investimenti del Gruppo BancaStato",
+        "en": "Investment Products Overview – Designed and Managed in Ticino: BancaStato Group Investment Funds",
+        "de": "Übersicht über Investmentprodukte – Entworfen und verwaltet in Tessin: BancaStato Group Investmentfonds",
+        "fr": "Prodotti di investimento Panoramica Pensati e gestiti in Ticino I fondi di investimento del Gruppo BancaStato"
+      },
+      "_targetScope": {
+        "canton": "TI",
+        "location": "Bellinzona"
+      },
+      "crawledAt": "",
+      "descriptionByLocale": {
+        "it": "Descrizione Prodotti di investimento Panoramica Pensati e gestiti in Ticino I fondi di investimento del Gruppo BancaStato presso Banca dello Stato del Cantone Ticino (BancaStato), istituto bancario cantonale con sede a Bellinzona. BancaStato è la banca di riferimento per famiglie, aziende e enti pubblici del Cantone Ticino, con filiali su tutto il territorio cantonale.",
+        "en": "Description Investment products overview designed and managed in Ticino: the BancaStato Group investment funds at Banca dello Stato del Cantone Ticino (BancaStato), a cantonal banking institution headquartered in Bellinzona. BancaStato is the reference bank for families, companies and public entities in the Canton of Ticino, with branches throughout the cantonal territory.",
+        "de": "Beschreibung Produktübersicht für Investmentprodukte, entworfen und verwaltet in Tessin: die Investmentfonds der BancaStato Gruppe bei der Banca dello Stato del Cantone Ticino (BancaStato), einer kantonalen Bank mit Sitz in Bellinzona. BancaStato ist die Referenzbank für Familien, Unternehmen und öffentliche Einrichtungen im Kanton Tessin, mit Filialen im gesamten kantonalen Gebiet.",
+        "fr": "Description Vue d'ensemble des produits d'investissement conçus et gérés en Tessin : les fonds d'investissement du groupe BancaStato à la Banca dello Stato del Cantone Ticino (BancaStato), une institution bancaire cantonale dont le siège est à Bellinzona. BancaStato est la banque de référence pour les familles, les entreprises et les entités publiques du canton du Tessin, avec des agences sur tout le territoire cantonal."
+      },
+      "requirementsByLocale": {},
+      "sourceLang": "it",
+      "previousSlugs": [
+        "prodotti-di-investimento-panoramica-pensati-e-gestiti-in-ticino-i-fondi-di-investimento-del-gruppo-bancastato-bancastato-bellinzona"
+      ],
+      "salaryMin": 82500,
+      "salaryMax": 111500,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 82500,
+          "maxValue": 111500,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "6500"
+    },
+    {
+      "title": "Certificati BancaStato",
+      "company": "BancaStato",
+      "companyKey": "bancastato",
+      "url": "https://www.bancastato.ch/clienti-individuali/investimenti/prodotti-di-investimento/certificati-bancastato",
+      "location": "Bellinzona",
+      "canton": "TI",
+      "country": "CH",
+      "addressLocality": "Bellinzona",
+      "addressCountry": "CH",
+      "category": "finance",
+      "description": "## Descrizione\n- Certificati BancaStato presso Banca dello Stato del Cantone Ticino (BancaStato), istituto bancario cantonale con sede a Bellinzona.\n- BancaStato è la banca di riferimento per famiglie, aziende e enti pubblici del Cantone Ticino, con filiali su tutto il territorio cantonale.",
+      "postedDate": "2026-03-25",
+      "source": "company-website",
+      "slug": "certificati-bancastato-bancastato-bellinzona",
+      "slugByLocale": {
+        "it": "certificati-bancastato-bancastato-bellinzona",
+        "en": "certificati-bancastato-bancastato-bellinzona-6mpvjt",
+        "de": "certificati-bancastato-bancastato-bellinzona-6mpvjt",
+        "fr": "certificati-bancastato-bancastato-bellinzona-6mpvjt"
+      },
+      "titleByLocale": {
+        "it": "Certificati BancaStato",
+        "en": "Certificati BancaStato",
+        "de": "Certificati BancaStato",
+        "fr": "Certificati BancaStato"
+      },
+      "_targetScope": {
+        "canton": "TI",
+        "location": "Bellinzona"
+      },
+      "crawledAt": "",
+      "descriptionByLocale": {
+        "it": "Descrizione - Certificati BancaStato presso Banca dello Stato del Cantone Ticino (BancaStato), istituto bancario cantonale con sede a Bellinzona. - BancaStato è la banca di riferimento per famiglie, aziende e enti pubblici del Cantone Ticino, con filiali su tutto il territorio cantonale.",
+        "en": "Description - BancaStato Certificates at Banca dello Stato del Cantone Ticino (BancaStato), the cantonal bank with its headquarters in Bellinzona. - BancaStato is the reference bank for families, businesses, and public entities in the Canton of Ticino, with branches throughout the cantonal territory.",
+        "de": "Beschreibung - BancaStato-Zertifikate bei Banca dello Stato del Cantone Ticino (BancaStato), dem kantonalen Bankinstitut mit Sitz in Bellinzona. - BancaStato ist die Referenzbank für Familien, Unternehmen und öffentliche Einrichtungen im Kanton Tessin, mit Filialen auf dem gesamten kantonalen Gebiet.",
+        "fr": "Description - Certificats BancaStato chez Banca dello Stato del Cantone Ticino (BancaStato), l'institut bancaire cantonal avec siège à Bellinzona. - BancaStato est la banque de référence pour les familles, les entreprises et les entités publiques du canton du Tessin, avec des succursales sur tout le territoire cantonal."
+      },
+      "requirementsByLocale": {},
+      "sourceLang": "it",
+      "needsRetranslation": true,
+      "salaryMin": 82500,
+      "salaryMax": 111500,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 82500,
+          "maxValue": 111500,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "6500"
+    },
+    {
+      "title": "Come contattare BancaStato",
+      "company": "BancaStato",
+      "companyKey": "bancastato",
+      "url": "https://www.bancastato.ch/supporto-e-contatti/formulario-di-contatto",
+      "location": "Bellinzona",
+      "canton": "TI",
+      "country": "CH",
+      "addressLocality": "Bellinzona",
+      "addressCountry": "CH",
+      "category": "finance",
+      "description": "## Contatto\n- Per contattare BancaStato, rivolgiti a Banca dello Stato del Cantone Ticino (BancaStato), istituto bancario cantonale con sede a Bellinzona.\n\n## Descrizione\n- BancaStato è la banca di riferimento per famiglie, aziende e enti pubblici del Cantone Ticino, con filiali su tutto il territorio cantonale.",
+      "postedDate": "2026-03-25",
+      "source": "company-website",
+      "slug": "come-contattare-bancastato-bancastato-bellinzona",
+      "slugByLocale": {
+        "it": "come-contattare-bancastato-bancastato-bellinzona",
+        "en": "come-contattare-bancastato-bancastato-bellinzona-mc43u2",
+        "de": "come-contattare-bancastato-bancastato-bellinzona-mc43u2",
+        "fr": "come-contattare-bancastato-bancastato-bellinzona-mc43u2"
+      },
+      "titleByLocale": {
+        "it": "Come contattare BancaStato",
+        "en": "Contacting BancaStato",
+        "de": "BancaStato kontaktieren",
+        "fr": "Come contattare BancaStato"
+      },
+      "_targetScope": {
+        "canton": "TI",
+        "location": "Bellinzona"
+      },
+      "crawledAt": "",
+      "descriptionByLocale": {
+        "it": "Contatto - Per contattare BancaStato, rivolgiti a Banca dello Stato del Cantone Ticino (BancaStato), istituto bancario cantonale con sede a Bellinzona. ## Descrizione - BancaStato è la banca di riferimento per famiglie, aziende e enti pubblici del Cantone Ticino, con filiali su tutto il territorio cantonale.",
+        "en": "Contact - To contact BancaStato, please address Banca dello Stato del Cantone Ticino (BancaStato), the cantonal bank with its headquarters in Bellinzona. ## Description - BancaStato is the reference bank for families, businesses, and public entities in the Canton of Ticino, with branches throughout the cantonal territory.",
+        "de": "Kontakt - Um BancaStato zu kontaktieren, wende dich bitte an Banca dello Stato del Cantone Ticino (BancaStato), die kantonalen Bank mit Sitz in Bellinzona. ## Beschreibung - BancaStato ist die Referenzbank für Familien, Unternehmen und öffentliche Einrichtungen im Kanton Tessin, mit Filialen auf dem gesamten kantonalen Gebiet.",
+        "fr": "Contact - Pour contacter BancaStato, veuillez vous adresser à Banca dello Stato del Cantone Ticino (BancaStato), la banque cantonale avec siège à Bellinzona. ## Description - BancaStato est la banque de référence pour les familles, les entreprises et les entités publiques du canton du Tessin, avec des succursales sur l'ensemble du territoire cantonal."
+      },
+      "requirementsByLocale": {},
+      "sourceLang": "it",
+      "needsRetranslation": true,
+      "salaryMin": 82500,
+      "salaryMax": 111500,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 82500,
+          "maxValue": 111500,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "6500"
+    },
+    {
+      "title": "Tutti i prospetti BancaStato",
+      "company": "BancaStato",
+      "companyKey": "bancastato",
+      "url": "https://www.bancastato.ch/tutti-i-prospetti",
+      "location": "Bellinzona",
+      "canton": "TI",
+      "country": "CH",
+      "addressLocality": "Bellinzona",
+      "addressCountry": "CH",
+      "category": "finance",
+      "description": "## Descrizione\nTutti i prospetti BancaStato presso Banca dello Stato del Cantone Ticino (BancaStato), istituto bancario cantonale con sede a Bellinzona.\n\n## Mansioni\n- BancaStato è la banca di riferimento per famiglie, aziende e enti pubblici del Cantone Ticino,\n- con filiali su tutto il territorio cantonale.",
+      "postedDate": "2026-03-25",
+      "source": "company-website",
+      "slug": "tutti-i-prospetti-bancastato-bancastato-bellinzona",
+      "slugByLocale": {
+        "it": "tutti-i-prospetti-bancastato-bancastato-bellinzona",
+        "en": "tutti-i-prospetti-bancastato-bancastato-bellinzona-0z7r88",
+        "de": "tutti-i-prospetti-bancastato-bancastato-bellinzona-0z7r88",
+        "fr": "tutti-i-prospetti-bancastato-bancastato-bellinzona-0z7r88"
+      },
+      "titleByLocale": {
+        "it": "Tutti i prospetti BancaStato",
+        "en": "Tutti i prospetti BancaStato",
+        "de": "Tutti i prospetti BancaStato",
+        "fr": "Tutti i prospetti BancaStato"
+      },
+      "_targetScope": {
+        "canton": "TI",
+        "location": "Bellinzona"
+      },
+      "crawledAt": "",
+      "descriptionByLocale": {
+        "it": "Descrizione Tutti i prospetti BancaStato presso Banca dello Stato del Cantone Ticino (BancaStato), istituto bancario cantonale con sede a Bellinzona. ## Mansioni - BancaStato è la banca di riferimento per famiglie, aziende e enti pubblici del Cantone Ticino, - con filiali su tutto il territorio cantonale.",
+        "en": "Description BancaStato prospectus at Banca dello Stato del Cantone Ticino (BancaStato), the cantonal bank with its headquarters in Bellinzona. ## Responsibilities - BancaStato is the reference bank for families, businesses, and public entities in the Canton of Ticino, - with branches throughout the cantonal territory.",
+        "de": "Beschreibung BancaStato-Prospekt bei der Banca dello Stato del Cantone Ticino (BancaStato), dem kantonalen Bankinstitut mit Sitz in Bellinzona. ## Aufgaben - BancaStato ist die Referenzbank für Familien, Unternehmen und öffentliche Einrichtungen im Kanton Tessin, - mit Filialen auf dem gesamten kantonalen Gebiet.",
+        "fr": "Description Prospectus BancaStato au sein de la Banca dello Stato del Cantone Ticino (BancaStato), institut bancaire cantonal avec siège à Bellinzona. ## Tâches - BancaStato est la banque de référence pour les familles, les entreprises et les entités publiques du canton du Tessin, - avec des succursales sur l'ensemble du territoire cantonal."
+      },
+      "requirementsByLocale": {},
+      "sourceLang": "it",
+      "needsRetranslation": true,
+      "salaryMin": 82500,
+      "salaryMax": 111500,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 82500,
+          "maxValue": 111500,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "6500"
+    },
+    {
+      "title": "Esplorare le guide BancaStato",
+      "company": "BancaStato",
+      "companyKey": "bancastato",
+      "url": "https://www.bancastato.ch/le-nostre-guide",
+      "location": "Bellinzona",
+      "canton": "TI",
+      "country": "CH",
+      "addressLocality": "Bellinzona",
+      "addressCountry": "CH",
+      "category": "finance",
+      "description": "## Descrizione\n- Esplorare le guide BancaStato presso Banca dello Stato del Cantone Ticino (BancaStato)\n- Istituto bancario cantonale con sede a Bellinzona\n- BancaStato è la banca di riferimento per famiglie, aziende e enti pubblici del Cantone Ticino\n- Con filiali su tutto il territorio cantonale",
+      "postedDate": "2026-03-25",
+      "source": "company-website",
+      "slug": "esplorare-le-guide-bancastato-bancastato-bellinzona",
+      "slugByLocale": {
+        "it": "esplorare-le-guide-bancastato-bancastato-bellinzona",
+        "en": "esplorare-le-guide-bancastato-bancastato-bellinzona-jvkqyt",
+        "de": "esplorare-le-guide-bancastato-bancastato-bellinzona-jvkqyt",
+        "fr": "esplorare-le-guide-bancastato-bancastato-bellinzona-jvkqyt"
+      },
+      "titleByLocale": {
+        "it": "Esplorare le guide BancaStato",
+        "en": "Explore BancaStato Guides",
+        "de": "BancaStato-Führer erkunden",
+        "fr": "Explorer les guides BancaStato"
+      },
+      "_targetScope": {
+        "canton": "TI",
+        "location": "Bellinzona"
+      },
+      "crawledAt": "",
+      "descriptionByLocale": {
+        "it": "Descrizione - Esplorare le guide BancaStato presso Banca dello Stato del Cantone Ticino (BancaStato) - Istituto bancario cantonale con sede a Bellinzona - BancaStato è la banca di riferimento per famiglie, aziende e enti pubblici del Cantone Ticino - Con filiali su tutto il territorio cantonale",
+        "en": "Description - Explore BancaStato guides at Banca dello Stato del Cantone Ticino (BancaStato) - The cantonal banking institute with its headquarters in Bellinzona - BancaStato is the reference bank for families, businesses, and public entities in the Canton of Ticino - With branches throughout the cantonal territory ## Responsibilities - Explore the guides ## Requirements",
+        "de": "Beschreibung - BancaStato-Führer bei der Banca dello Stato del Cantone Ticino (BancaStato) erkunden - Kantonalbank mit Sitz in Bellinzona - BancaStato ist die Referenzbank für Familien, Unternehmen und öffentliche Einrichtungen im Kanton Tessin - Mit Filialen auf dem gesamten kantonalen Gebiet ## Aufgaben - BancaStato-Führer erkunden ## Anforderungen",
+        "fr": "Description - Explorer les guides BancaStato au Banca dello Stato del Cantone Ticino (BancaStato) - Institut bancaire cantonal avec siège à Bellinzona - BancaStato est la banque de référence pour les familles, les entreprises et les entités publiques du canton du Tessin - Avec des succursales sur tout le territoire cantonal ## Responsabilités - Explorer les guides ## Exigences"
+      },
+      "requirementsByLocale": {},
+      "sourceLang": "it",
+      "salaryMin": 82500,
+      "salaryMax": 111500,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 82500,
+          "maxValue": 111500,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "6500"
+    },
+    {
+      "title": "Rapporto diretto e personale con il consulente",
+      "company": "BancaStato",
+      "companyKey": "bancastato",
+      "url": "https://www.bancastato.ch/private-banking/cio-che-ci-rende-unici/rapporto-diretto-e-personale-con-il-consulente",
+      "location": "Bellinzona",
+      "canton": "TI",
+      "country": "CH",
+      "addressLocality": "Bellinzona",
+      "addressCountry": "CH",
+      "category": "hr",
+      "description": "## Descrizione\nRapporto diretto e personale con il consulente presso Banca dello Stato del Cantone Ticino (BancaStato), istituto bancario cantonale con sede a Bellinzona.\n\n## BancaStato\nBancaStato è la banca di riferimento per famiglie, aziende e enti pubblici del Cantone Ticino, con filiali su tutto il territorio cantonale.\n\n## Mansioni\n- Rapporto diretto e personale con il consulente presso BancaStato\n\n## Requisiti\n- Nessuna informazione disponibile\n\n## Cosa offriamo\n- Nessuna informazione disponibile\n\n## Contatto\n- Nessuna informazione disponibile",
+      "postedDate": "2026-03-25",
+      "source": "company-website",
+      "slug": "rapporto-diretto-e-personale-con-il-consulente-bancastato-bellinzona",
+      "slugByLocale": {
+        "it": "rapporto-diretto-e-personale-con-il-consulente-bancastato-bellinzona",
+        "en": "rapporto-diretto-e-personale-con-il-consulente-bancastato-bellinzona-gyd9e3",
+        "de": "rapporto-diretto-e-personale-con-il-consulente-bancastato-bellinzona-gyd9e3",
+        "fr": "rapporto-diretto-e-personale-con-il-consulente-bancastato-bellinzona-gyd9e3"
+      },
+      "titleByLocale": {
+        "it": "Rapporto diretto e personale con il consulente",
+        "en": "Direct and Personal Relationship with the Consultant",
+        "de": "Direkter und persönlicher Kontakt zum Berater",
+        "fr": "Relation directe et personnelle avec le conseiller"
+      },
+      "_targetScope": {
+        "canton": "TI",
+        "location": "Bellinzona"
+      },
+      "crawledAt": "",
+      "descriptionByLocale": {
+        "it": "Descrizione Rapporto diretto e personale con il consulente presso Banca dello Stato del Cantone Ticino (BancaStato), istituto bancario cantonale con sede a Bellinzona. ## BancaStato BancaStato è la banca di riferimento per famiglie, aziende e enti pubblici del Cantone Ticino, con filiali su tutto il territorio cantonale. ## Mansioni - Rapporto diretto e personale con il consulente presso BancaStato ## Requisiti - Nessuna informazione disponibile ## Cosa offriamo - Nessuna informazione disponibile ## Contatto - Nessuna informazione disponibile",
+        "en": "Description Direct and personal relationship with the consultant at Banca dello Stato del Cantone Ticino (BancaStato), the cantonal bank with its headquarters in Bellinzona. ## BancaStato BancaStato is the reference bank for families, businesses, and public entities in the Canton of Ticino, with branches throughout the cantonal territory. ## Responsibilities - Direct and personal relationship with the consultant at BancaStato ## Requirements - No information available ## What We Offer - No information available ## Contact - No information available",
+        "de": "Beschreibung Direkter und persönlicher Kontakt zum Berater bei der Banca dello Stato del Cantone Ticino (BancaStato), der kantonalen Bank mit Sitz in Bellinzona. ## BancaStato BancaStato ist die Referenzbank für Familien, Unternehmen und öffentliche Einrichtungen im Kanton Tessin, mit Filialen auf dem gesamten kantonalen Gebiet. ## Aufgaben - Direkter und persönlicher Kontakt zum Berater bei BancaStato ## Anforderungen - Keine Informationen verfügbar ## Was wir bieten - Keine Informationen verfügbar ## Kontakt - Keine Informationen verfügbar",
+        "fr": "Description Relation directe et personnelle avec le conseiller à la Banca dello Stato del Cantone Ticino (BancaStato), la banque cantonale avec son siège à Bellinzona. ## BancaStato BancaStato est la banque de référence pour les familles, les entreprises et les entités publiques du canton du Tessin, avec des agences sur l'ensemble du territoire cantonal. ## Responsabilités - Relation directe et personnelle avec le conseiller à BancaStato ## Exigences - Pas d'informations disponibles ## Ce que nous offrons - Pas d'informations disponibles ## Contact - Pas d'informations disponibles"
+      },
+      "requirementsByLocale": {},
+      "sourceLang": "it",
+      "salaryMin": 58000,
+      "salaryMax": 78000,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 58000,
+          "maxValue": 78000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "6500"
+    },
+    {
+      "title": "Supporto dello Specialista investimenti",
+      "company": "BancaStato",
+      "companyKey": "bancastato",
+      "url": "https://www.bancastato.ch/private-banking/cio-che-ci-rende-unici/supporto-di-specialisti-dellinvestimento",
+      "location": "Bellinzona",
+      "canton": "TI",
+      "country": "CH",
+      "addressLocality": "Bellinzona",
+      "addressCountry": "CH",
+      "category": "finance",
+      "description": "## Descrizione\nSupporto dello Specialista investimenti presso Banca dello Stato del Cantone Ticino (BancaStato), istituto bancario cantonale con sede a Bellinzona.\n\n## Mansioni\n- Supporto dello Specialista investimenti presso BancaStato\n- Istituto bancario cantonale con sede a Bellinzona\n\n## Requisiti\n- \n- \n\n## Cosa offriamo\n- \n- \n\n## Contatto\n-",
+      "postedDate": "2026-03-25",
+      "source": "company-website",
+      "slug": "supporto-dello-specialista-investimenti-bancastato-bellinzona",
+      "slugByLocale": {
+        "it": "supporto-dello-specialista-investimenti-bancastato-bellinzona",
+        "en": "supporto-dello-specialista-investimenti-bancastato-bellinzona-xthipu",
+        "de": "supporto-dello-specialista-investimenti-bancastato-bellinzona-xthipu",
+        "fr": "supporto-dello-specialista-investimenti-bancastato-bellinzona-xthipu"
+      },
+      "titleByLocale": {
+        "it": "Supporto dello Specialista investimenti",
+        "en": "Investments Specialist Support",
+        "de": "Unterstützung des Investments-Spezialisten",
+        "fr": "Soutien au Spécialiste des investissements"
+      },
+      "_targetScope": {
+        "canton": "TI",
+        "location": "Bellinzona"
+      },
+      "crawledAt": "",
+      "descriptionByLocale": {
+        "it": "Descrizione Supporto dello Specialista investimenti presso Banca dello Stato del Cantone Ticino (BancaStato), istituto bancario cantonale con sede a Bellinzona. ## Mansioni - Supporto dello Specialista investimenti presso BancaStato - Istituto bancario cantonale con sede a Bellinzona ## Requisiti - - ## Cosa offriamo - - ## Contatto",
+        "en": "Job Description Support the Investments Specialist at Banca dello Stato del Cantone Ticino (BancaStato), a cantonal bank with its headquarters in Bellinzona. ## Responsibilities - Support the Investments Specialist at BancaStato - Cantonal bank with its headquarters in Bellinzona ## Requirements - - ## What We Offer - - ## Contact",
+        "de": "Beschreibung Unterstützung des Investments-Spezialisten bei der Banca dello Stato del Cantone Ticino (BancaStato), einem kantonalen Bankinstitut mit Sitz in Bellinzona. ## Aufgaben - Unterstützung des Investments-Spezialisten bei der BancaStato - Kantionales Bankinstitut mit Sitz in Bellinzona ## Anforderungen - - ## Was wir bieten - - ## Kontakt",
+        "fr": "Description du poste Soutenir le Spécialiste des investissements à la Banca dello Stato del Cantone Ticino (BancaStato), une banque cantonale avec son siège à Bellinzona. ## Responsabilités - Soutenir le Spécialiste des investissements à la BancaStato - Banque cantonale avec son siège à Bellinzona ## Exigences - - ## Ce que nous offrons - - ## Contact"
+      },
+      "requirementsByLocale": {},
+      "sourceLang": "it",
+      "salaryMin": 82500,
+      "salaryMax": 111500,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 82500,
+          "maxValue": 111500,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "6500"
+    }
+  ]
 }
