@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-03-25T05:13:51.680Z",
+  "generatedAt": "2026-03-25T06:42:17.760Z",
   "sources": {
     "italy": {
       "provider": "MIMIT Open Data",
@@ -10,8 +10,8 @@
     "switzerland": {
       "provider": "TCS Benzinpreis",
       "providerUrl": "https://benzin.tcs.ch/de/map/SP95",
-      "stationCount": 227,
-      "latestObservedUpdate": "2026-03-25T05:03:17.831Z"
+      "stationCount": 228,
+      "latestObservedUpdate": "2026-03-25T06:30:11.625Z"
     },
     "exchangeRate": {
       "provider": "ECB",
@@ -24,8 +24,8 @@
     "municipalityCount": 518,
     "municipalitiesWithItalyPrices": 213,
     "municipalitiesWithSwissComparison": 135,
-    "cheaperItalyCount": 125,
-    "cheaperSwissCount": 9,
+    "cheaperItalyCount": 126,
+    "cheaperSwissCount": 8,
     "tieCount": 1,
     "cheapestItalyMunicipality": {
       "municipality": "Livigno",
@@ -629,16 +629,16 @@
         "sp95PriceEur": 1.826
       },
       {
-        "id": "1ocgiK8xQBj1t5X5MSuj",
-        "name": "Tankstelle Sufers.",
-        "brand": "SHELL",
-        "address": "Poststrasse 2, 7434 Sufers",
-        "lat": 46.56976,
-        "lng": 9.368508,
+        "id": "qlvR2KR99SrbrnlpsPTp",
+        "name": "Ruedi Rüssel Tankstelle",
+        "brand": "RUEDIRUSSEL",
+        "address": "Hauptstrasse 60, 7542 Susch",
+        "lat": 46.74812701,
+        "lng": 10.07789642,
         "sp95PriceChf": 1.69,
-        "updatedAt": "2026-03-08T15:46:31.767Z",
-        "nearestMunicipality": "Madesimo (SO)",
-        "nearestMunicipalityDistanceKm": 15.2,
+        "updatedAt": "2026-03-11T13:01:02.828Z",
+        "nearestMunicipality": "Livigno (SO)",
+        "nearestMunicipalityDistanceKm": 23.7,
         "sp95PriceEur": 1.848
       }
     ],
@@ -8569,11 +8569,11 @@
             "address": "Via al Foss 29, 6557 Cama",
             "lat": 46.270147,
             "lng": 9.169142,
-            "sp95PriceChf": 1.8900000000000001,
-            "updatedAt": "2026-03-21T14:03:44.317Z",
+            "sp95PriceChf": 1.9399999999999997,
+            "updatedAt": "2026-03-25T06:30:11.625Z",
             "nearestMunicipality": "Dosso del Liro (CO)",
             "nearestMunicipalityDistanceKm": 14.2,
-            "sp95PriceEur": 2.067,
+            "sp95PriceEur": 2.121,
             "distanceKm": 18
           },
           {
@@ -8739,11 +8739,11 @@
             "address": "Via al Foss 29, 6557 Cama",
             "lat": 46.270147,
             "lng": 9.169142,
-            "sp95PriceChf": 1.8900000000000001,
-            "updatedAt": "2026-03-21T14:03:44.317Z",
+            "sp95PriceChf": 1.9399999999999997,
+            "updatedAt": "2026-03-25T06:30:11.625Z",
             "nearestMunicipality": "Dosso del Liro (CO)",
             "nearestMunicipalityDistanceKm": 14.2,
-            "sp95PriceEur": 2.067,
+            "sp95PriceEur": 2.121,
             "distanceKm": 18.2
           },
           {
@@ -10153,11 +10153,11 @@
             "address": "Via al Foss 29, 6557 Cama",
             "lat": 46.270147,
             "lng": 9.169142,
-            "sp95PriceChf": 1.8900000000000001,
-            "updatedAt": "2026-03-21T14:03:44.317Z",
+            "sp95PriceChf": 1.9399999999999997,
+            "updatedAt": "2026-03-25T06:30:11.625Z",
             "nearestMunicipality": "Dosso del Liro (CO)",
             "nearestMunicipalityDistanceKm": 14.2,
-            "sp95PriceEur": 2.067,
+            "sp95PriceEur": 2.121,
             "distanceKm": 19.1
           }
         ],
@@ -10514,11 +10514,11 @@
             "address": "Via al Foss 29, 6557 Cama",
             "lat": 46.270147,
             "lng": 9.169142,
-            "sp95PriceChf": 1.8900000000000001,
-            "updatedAt": "2026-03-21T14:03:44.317Z",
+            "sp95PriceChf": 1.9399999999999997,
+            "updatedAt": "2026-03-25T06:30:11.625Z",
             "nearestMunicipality": "Dosso del Liro (CO)",
             "nearestMunicipalityDistanceKm": 14.2,
-            "sp95PriceEur": 2.067,
+            "sp95PriceEur": 2.121,
             "distanceKm": 16.9
           },
           {
@@ -11891,11 +11891,11 @@
             "address": "Via al Foss 29, 6557 Cama",
             "lat": 46.270147,
             "lng": 9.169142,
-            "sp95PriceChf": 1.8900000000000001,
-            "updatedAt": "2026-03-21T14:03:44.317Z",
+            "sp95PriceChf": 1.9399999999999997,
+            "updatedAt": "2026-03-25T06:30:11.625Z",
             "nearestMunicipality": "Dosso del Liro (CO)",
             "nearestMunicipalityDistanceKm": 14.2,
-            "sp95PriceEur": 2.067,
+            "sp95PriceEur": 2.121,
             "distanceKm": 15.3
           },
           {
@@ -14110,11 +14110,11 @@
             "address": "Via al Foss 29, 6557 Cama",
             "lat": 46.270147,
             "lng": 9.169142,
-            "sp95PriceChf": 1.8900000000000001,
-            "updatedAt": "2026-03-21T14:03:44.317Z",
+            "sp95PriceChf": 1.9399999999999997,
+            "updatedAt": "2026-03-25T06:30:11.625Z",
             "nearestMunicipality": "Dosso del Liro (CO)",
             "nearestMunicipalityDistanceKm": 14.2,
-            "sp95PriceEur": 2.067,
+            "sp95PriceEur": 2.121,
             "distanceKm": 18.8
           }
         ],
@@ -14504,11 +14504,11 @@
             "address": "Via al Foss 29, 6557 Cama",
             "lat": 46.270147,
             "lng": 9.169142,
-            "sp95PriceChf": 1.8900000000000001,
-            "updatedAt": "2026-03-21T14:03:44.317Z",
+            "sp95PriceChf": 1.9399999999999997,
+            "updatedAt": "2026-03-25T06:30:11.625Z",
             "nearestMunicipality": "Dosso del Liro (CO)",
             "nearestMunicipalityDistanceKm": 14.2,
-            "sp95PriceEur": 2.067,
+            "sp95PriceEur": 2.121,
             "distanceKm": 19.2
           },
           {
@@ -15337,11 +15337,11 @@
             "address": "Via al Foss 29, 6557 Cama",
             "lat": 46.270147,
             "lng": 9.169142,
-            "sp95PriceChf": 1.8900000000000001,
-            "updatedAt": "2026-03-21T14:03:44.317Z",
+            "sp95PriceChf": 1.9399999999999997,
+            "updatedAt": "2026-03-25T06:30:11.625Z",
             "nearestMunicipality": "Dosso del Liro (CO)",
             "nearestMunicipalityDistanceKm": 14.2,
-            "sp95PriceEur": 2.067,
+            "sp95PriceEur": 2.121,
             "distanceKm": 15.6
           },
           {
@@ -17937,11 +17937,11 @@
             "address": "Via al Foss 29, 6557 Cama",
             "lat": 46.270147,
             "lng": 9.169142,
-            "sp95PriceChf": 1.8900000000000001,
-            "updatedAt": "2026-03-21T14:03:44.317Z",
+            "sp95PriceChf": 1.9399999999999997,
+            "updatedAt": "2026-03-25T06:30:11.625Z",
             "nearestMunicipality": "Dosso del Liro (CO)",
             "nearestMunicipalityDistanceKm": 14.2,
-            "sp95PriceEur": 2.067,
+            "sp95PriceEur": 2.121,
             "distanceKm": 19.5
           }
         ],
@@ -18167,11 +18167,11 @@
             "address": "Via al Foss 29, 6557 Cama",
             "lat": 46.270147,
             "lng": 9.169142,
-            "sp95PriceChf": 1.8900000000000001,
-            "updatedAt": "2026-03-21T14:03:44.317Z",
+            "sp95PriceChf": 1.9399999999999997,
+            "updatedAt": "2026-03-25T06:30:11.625Z",
             "nearestMunicipality": "Dosso del Liro (CO)",
             "nearestMunicipalityDistanceKm": 14.2,
-            "sp95PriceEur": 2.067,
+            "sp95PriceEur": 2.121,
             "distanceKm": 16.7
           }
         ],
@@ -18665,11 +18665,11 @@
             "address": "Via al Foss 29, 6557 Cama",
             "lat": 46.270147,
             "lng": 9.169142,
-            "sp95PriceChf": 1.8900000000000001,
-            "updatedAt": "2026-03-21T14:03:44.317Z",
+            "sp95PriceChf": 1.9399999999999997,
+            "updatedAt": "2026-03-25T06:30:11.625Z",
             "nearestMunicipality": "Dosso del Liro (CO)",
             "nearestMunicipalityDistanceKm": 14.2,
-            "sp95PriceEur": 2.067,
+            "sp95PriceEur": 2.121,
             "distanceKm": 16.4
           },
           {
@@ -19671,11 +19671,11 @@
             "address": "Via al Foss 29, 6557 Cama",
             "lat": 46.270147,
             "lng": 9.169142,
-            "sp95PriceChf": 1.8900000000000001,
-            "updatedAt": "2026-03-21T14:03:44.317Z",
+            "sp95PriceChf": 1.9399999999999997,
+            "updatedAt": "2026-03-25T06:30:11.625Z",
             "nearestMunicipality": "Dosso del Liro (CO)",
             "nearestMunicipalityDistanceKm": 14.2,
-            "sp95PriceEur": 2.067,
+            "sp95PriceEur": 2.121,
             "distanceKm": 17.7
           },
           {
@@ -40519,36 +40519,22 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 3,
+        "optionCount": 4,
         "cheapestStation": {
-          "id": "1ocgiK8xQBj1t5X5MSuj",
-          "name": "Tankstelle Sufers.",
-          "brand": "SHELL",
-          "address": "Poststrasse 2, 7434 Sufers",
-          "lat": 46.56976,
-          "lng": 9.368508,
-          "sp95PriceChf": 1.69,
-          "updatedAt": "2026-03-08T15:46:31.767Z",
-          "nearestMunicipality": "Madesimo (SO)",
-          "nearestMunicipalityDistanceKm": 15.2,
-          "sp95PriceEur": 1.848,
-          "distanceKm": 19.1
+          "id": "5q0qzSZjRlQTUPExn0tU",
+          "name": "SOCAR Mesocco",
+          "brand": "SOCAR",
+          "address": "Stradón 111, 6563 Mesocco",
+          "lat": 46.395814,
+          "lng": 9.231129,
+          "sp95PriceChf": 1.78,
+          "updatedAt": "2026-03-03T13:30:46.390Z",
+          "nearestMunicipality": "Campodolcino (SO)",
+          "nearestMunicipalityDistanceKm": 9.1,
+          "sp95PriceEur": 1.946,
+          "distanceKm": 9.1
         },
         "nearbyStations": [
-          {
-            "id": "1ocgiK8xQBj1t5X5MSuj",
-            "name": "Tankstelle Sufers.",
-            "brand": "SHELL",
-            "address": "Poststrasse 2, 7434 Sufers",
-            "lat": 46.56976,
-            "lng": 9.368508,
-            "sp95PriceChf": 1.69,
-            "updatedAt": "2026-03-08T15:46:31.767Z",
-            "nearestMunicipality": "Madesimo (SO)",
-            "nearestMunicipalityDistanceKm": 15.2,
-            "sp95PriceEur": 1.848,
-            "distanceKm": 19.1
-          },
           {
             "id": "5q0qzSZjRlQTUPExn0tU",
             "name": "SOCAR Mesocco",
@@ -40564,27 +40550,55 @@
             "distanceKm": 9.1
           },
           {
+            "id": "1ocgiK8xQBj1t5X5MSuj",
+            "name": "Tankstelle Sufers.",
+            "brand": "SHELL",
+            "address": "Poststrasse 2, 7434 Sufers",
+            "lat": 46.56976,
+            "lng": 9.368508,
+            "sp95PriceChf": 1.86,
+            "updatedAt": "2026-03-25T05:14:51.815Z",
+            "nearestMunicipality": "Madesimo (SO)",
+            "nearestMunicipalityDistanceKm": 15.2,
+            "sp95PriceEur": 2.034,
+            "distanceKm": 19.1
+          },
+          {
             "id": "viYoAJMjWUU1BEwgcjDL",
             "name": "Stazione di servizio Migrol",
             "brand": "MIGROL",
             "address": "Via al Foss 29, 6557 Cama",
             "lat": 46.270147,
             "lng": 9.169142,
-            "sp95PriceChf": 1.8900000000000001,
-            "updatedAt": "2026-03-21T14:03:44.317Z",
+            "sp95PriceChf": 1.9399999999999997,
+            "updatedAt": "2026-03-25T06:30:11.625Z",
             "nearestMunicipality": "Dosso del Liro (CO)",
             "nearestMunicipalityDistanceKm": 14.2,
-            "sp95PriceEur": 2.067,
+            "sp95PriceEur": 2.121,
             "distanceKm": 19.9
+          },
+          {
+            "id": "NfBD6tEGJD6Y1UWaouvd",
+            "name": "SOCAR San Bernardino",
+            "brand": "SOCAR",
+            "address": "Strada del Pass 1, 6565 San Bernardino",
+            "lat": 46.463825,
+            "lng": 9.187387,
+            "sp95PriceChf": 1.99,
+            "updatedAt": "2026-03-25T05:39:11.331Z",
+            "nearestMunicipality": "Madesimo (SO)",
+            "nearestMunicipalityDistanceKm": 12.9,
+            "sp95PriceEur": 2.176,
+            "distanceKm": 14.4
           }
         ],
-        "minPriceChf": 1.69,
-        "minPriceEur": 1.848
+        "minPriceChf": 1.78,
+        "minPriceEur": 1.946
       },
       "comparison": {
-        "cheaperCountry": "CH",
-        "priceDeltaEur": -0.051,
-        "saving50LEur": 2.55
+        "cheaperCountry": "IT",
+        "priceDeltaEur": 0.047,
+        "saving50LEur": 2.35
       }
     },
     {
@@ -41015,11 +41029,11 @@
             "address": "Via al Foss 29, 6557 Cama",
             "lat": 46.270147,
             "lng": 9.169142,
-            "sp95PriceChf": 1.8900000000000001,
-            "updatedAt": "2026-03-21T14:03:44.317Z",
+            "sp95PriceChf": 1.9399999999999997,
+            "updatedAt": "2026-03-25T06:30:11.625Z",
             "nearestMunicipality": "Dosso del Liro (CO)",
             "nearestMunicipalityDistanceKm": 14.2,
-            "sp95PriceEur": 2.067,
+            "sp95PriceEur": 2.121,
             "distanceKm": 18.6
           }
         ],
@@ -41873,11 +41887,11 @@
             "address": "Via al Foss 29, 6557 Cama",
             "lat": 46.270147,
             "lng": 9.169142,
-            "sp95PriceChf": 1.8900000000000001,
-            "updatedAt": "2026-03-21T14:03:44.317Z",
+            "sp95PriceChf": 1.9399999999999997,
+            "updatedAt": "2026-03-25T06:30:11.625Z",
             "nearestMunicipality": "Dosso del Liro (CO)",
             "nearestMunicipalityDistanceKm": 14.2,
-            "sp95PriceEur": 2.067,
+            "sp95PriceEur": 2.121,
             "distanceKm": 15.3
           }
         ],
@@ -42655,36 +42669,22 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 3,
+        "optionCount": 4,
         "cheapestStation": {
-          "id": "1ocgiK8xQBj1t5X5MSuj",
-          "name": "Tankstelle Sufers.",
-          "brand": "SHELL",
-          "address": "Poststrasse 2, 7434 Sufers",
-          "lat": 46.56976,
-          "lng": 9.368508,
-          "sp95PriceChf": 1.69,
-          "updatedAt": "2026-03-08T15:46:31.767Z",
-          "nearestMunicipality": "Madesimo (SO)",
-          "nearestMunicipalityDistanceKm": 15.2,
-          "sp95PriceEur": 1.848,
-          "distanceKm": 15.2
+          "id": "5q0qzSZjRlQTUPExn0tU",
+          "name": "SOCAR Mesocco",
+          "brand": "SOCAR",
+          "address": "Stradón 111, 6563 Mesocco",
+          "lat": 46.395814,
+          "lng": 9.231129,
+          "sp95PriceChf": 1.78,
+          "updatedAt": "2026-03-03T13:30:46.390Z",
+          "nearestMunicipality": "Campodolcino (SO)",
+          "nearestMunicipalityDistanceKm": 9.1,
+          "sp95PriceEur": 1.946,
+          "distanceKm": 10
         },
         "nearbyStations": [
-          {
-            "id": "1ocgiK8xQBj1t5X5MSuj",
-            "name": "Tankstelle Sufers.",
-            "brand": "SHELL",
-            "address": "Poststrasse 2, 7434 Sufers",
-            "lat": 46.56976,
-            "lng": 9.368508,
-            "sp95PriceChf": 1.69,
-            "updatedAt": "2026-03-08T15:46:31.767Z",
-            "nearestMunicipality": "Madesimo (SO)",
-            "nearestMunicipalityDistanceKm": 15.2,
-            "sp95PriceEur": 1.848,
-            "distanceKm": 15.2
-          },
           {
             "id": "5q0qzSZjRlQTUPExn0tU",
             "name": "SOCAR Mesocco",
@@ -42712,10 +42712,38 @@
             "nearestMunicipalityDistanceKm": 20,
             "sp95PriceEur": 1.946,
             "distanceKm": 20
+          },
+          {
+            "id": "1ocgiK8xQBj1t5X5MSuj",
+            "name": "Tankstelle Sufers.",
+            "brand": "SHELL",
+            "address": "Poststrasse 2, 7434 Sufers",
+            "lat": 46.56976,
+            "lng": 9.368508,
+            "sp95PriceChf": 1.86,
+            "updatedAt": "2026-03-25T05:14:51.815Z",
+            "nearestMunicipality": "Madesimo (SO)",
+            "nearestMunicipalityDistanceKm": 15.2,
+            "sp95PriceEur": 2.034,
+            "distanceKm": 15.2
+          },
+          {
+            "id": "NfBD6tEGJD6Y1UWaouvd",
+            "name": "SOCAR San Bernardino",
+            "brand": "SOCAR",
+            "address": "Strada del Pass 1, 6565 San Bernardino",
+            "lat": 46.463825,
+            "lng": 9.187387,
+            "sp95PriceChf": 1.99,
+            "updatedAt": "2026-03-25T05:39:11.331Z",
+            "nearestMunicipality": "Madesimo (SO)",
+            "nearestMunicipalityDistanceKm": 12.9,
+            "sp95PriceEur": 2.176,
+            "distanceKm": 12.9
           }
         ],
-        "minPriceChf": 1.69,
-        "minPriceEur": 1.848
+        "minPriceChf": 1.78,
+        "minPriceEur": 1.946
       },
       "comparison": {
         "cheaperCountry": "NO_DATA",
@@ -42973,11 +43001,11 @@
             "address": "Via al Foss 29, 6557 Cama",
             "lat": 46.270147,
             "lng": 9.169142,
-            "sp95PriceChf": 1.8900000000000001,
-            "updatedAt": "2026-03-21T14:03:44.317Z",
+            "sp95PriceChf": 1.9399999999999997,
+            "updatedAt": "2026-03-25T06:30:11.625Z",
             "nearestMunicipality": "Dosso del Liro (CO)",
             "nearestMunicipalityDistanceKm": 14.2,
-            "sp95PriceEur": 2.067,
+            "sp95PriceEur": 2.121,
             "distanceKm": 16.7
           }
         ],
@@ -43952,11 +43980,11 @@
             "address": "Via al Foss 29, 6557 Cama",
             "lat": 46.270147,
             "lng": 9.169142,
-            "sp95PriceChf": 1.8900000000000001,
-            "updatedAt": "2026-03-21T14:03:44.317Z",
+            "sp95PriceChf": 1.9399999999999997,
+            "updatedAt": "2026-03-25T06:30:11.625Z",
             "nearestMunicipality": "Dosso del Liro (CO)",
             "nearestMunicipalityDistanceKm": 14.2,
-            "sp95PriceEur": 2.067,
+            "sp95PriceEur": 2.121,
             "distanceKm": 17.9
           }
         ],
@@ -44240,11 +44268,11 @@
             "address": "Via al Foss 29, 6557 Cama",
             "lat": 46.270147,
             "lng": 9.169142,
-            "sp95PriceChf": 1.8900000000000001,
-            "updatedAt": "2026-03-21T14:03:44.317Z",
+            "sp95PriceChf": 1.9399999999999997,
+            "updatedAt": "2026-03-25T06:30:11.625Z",
             "nearestMunicipality": "Dosso del Liro (CO)",
             "nearestMunicipalityDistanceKm": 14.2,
-            "sp95PriceEur": 2.067,
+            "sp95PriceEur": 2.121,
             "distanceKm": 17.6
           }
         ],
@@ -44276,7 +44304,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 2,
+        "optionCount": 3,
         "cheapestStation": {
           "id": "5q0qzSZjRlQTUPExn0tU",
           "name": "SOCAR Mesocco",
@@ -44313,12 +44341,26 @@
             "address": "Via al Foss 29, 6557 Cama",
             "lat": 46.270147,
             "lng": 9.169142,
-            "sp95PriceChf": 1.8900000000000001,
-            "updatedAt": "2026-03-21T14:03:44.317Z",
+            "sp95PriceChf": 1.9399999999999997,
+            "updatedAt": "2026-03-25T06:30:11.625Z",
             "nearestMunicipality": "Dosso del Liro (CO)",
             "nearestMunicipalityDistanceKm": 14.2,
-            "sp95PriceEur": 2.067,
+            "sp95PriceEur": 2.121,
             "distanceKm": 17.2
+          },
+          {
+            "id": "NfBD6tEGJD6Y1UWaouvd",
+            "name": "SOCAR San Bernardino",
+            "brand": "SOCAR",
+            "address": "Strada del Pass 1, 6565 San Bernardino",
+            "lat": 46.463825,
+            "lng": 9.187387,
+            "sp95PriceChf": 1.99,
+            "updatedAt": "2026-03-25T05:39:11.331Z",
+            "nearestMunicipality": "Madesimo (SO)",
+            "nearestMunicipalityDistanceKm": 12.9,
+            "sp95PriceEur": 2.176,
+            "distanceKm": 19.9
           }
         ],
         "minPriceChf": 1.78,
