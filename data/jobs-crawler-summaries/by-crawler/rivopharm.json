@@ -1,0 +1,78 @@
+{
+  "key": "rivopharm",
+  "label": "Rivopharm SA",
+  "generatedAt": "2026-03-25T11:12:39.053Z",
+  "total": 1,
+  "newCount": 0,
+  "updatedCount": 0,
+  "removedCount": 0,
+  "unchangedCount": 1,
+  "durationMs": 58400,
+  "avgDurationMs": 58400,
+  "durationHistory": [
+    58400
+  ],
+  "newJobs": [],
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
+    {
+      "url": "https://www.rivopharm.com",
+      "applyUrl": "https://www.rivopharm.com",
+      "title": "Rivopharm International",
+      "company": "Rivopharm SA",
+      "companyKey": "rivopharm",
+      "location": "Manno",
+      "canton": "TI",
+      "country": "CH",
+      "description": "## Descrizione\n- Rivopharm International position at Rivopharm SA in Manno, Canton Ticino, Switzerland\n- Rivopharm is a leading Swiss pharmaceutical company specializing in generic medications",
+      "descriptionByLocale": {
+        "en": "Descrizione - Rivopharm International position at Rivopharm SA in Manno, Canton Ticino, Switzerland - Rivopharm is a leading Swiss pharmaceutical company specializing in generic medications",
+        "it": "Descrizione - Posizione Rivopharm International presso Rivopharm SA a Manno, Canton Ticino, Svizzera - Rivopharm è un'azienda farmaceutica svizzera leader specializzata in farmaci generici",
+        "de": "Beschreibung - Rivopharm International Position bei Rivopharm SA in Manno, Kanton Tessin, Schweiz - Rivopharm ist ein führendes Schweizer Pharmaunternehmen, das sich auf Generika spezialisiert hat",
+        "fr": "Description - Poste Rivopharm International chez Rivopharm SA à Manno, Canton du Tessin, Suisse - Rivopharm est une entreprise pharmaceutique suisse de premier plan spécialisée dans les médicaments génériques"
+      },
+      "titleByLocale": {
+        "it": "Rivopharm International",
+        "de": "Rivopharm Deutschland GMBH",
+        "fr": "Rivopharm Belgique",
+        "en": "Rivopharm International"
+      },
+      "slug": "rivopharm-international-rivopharm-sa",
+      "slugByLocale": {
+        "en": "rivopharm-international-rivopharm-sa-manno-4riik4",
+        "it": "rivopharm-international-rivopharm-sa",
+        "de": "rivopharm-international-rivopharm-sa-manno-4riik4",
+        "fr": "rivopharm-international-rivopharm-sa-manno-4riik4"
+      },
+      "category": "general",
+      "datePosted": "2026-03-25",
+      "source": "rivopharm-html-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "ENTRY",
+      "sector": "Farmaceutica / Generici",
+      "_targetScope": {
+        "canton": "TI",
+        "location": "Manno"
+      },
+      "crawledAt": "",
+      "requirementsByLocale": {},
+      "sourceLang": "en",
+      "needsRetranslation": true,
+      "salaryMin": 58000,
+      "salaryMax": 78000,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 58000,
+          "maxValue": 78000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "6928"
+    }
+  ]
+}
