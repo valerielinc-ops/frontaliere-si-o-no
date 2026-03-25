@@ -17,9 +17,9 @@ on:
         required: false
         type: string
       skip_ai_translation:
-        description: "Skip AI translation (1=yes, cache only)"
+        description: "Skip AI translation (1=yes cache only, 0=use AI)"
         required: false
-        default: "0"
+        default: "1"
         type: string
 
 concurrency:
