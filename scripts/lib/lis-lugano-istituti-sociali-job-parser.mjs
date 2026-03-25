@@ -29,7 +29,9 @@
  *   <span itemprop="industry">SECTOR</span>
  *   <span itemprop="datePosted">DD/MM/YYYY</span>
  *   <strong itemprop="validThrough">DD/MM/YYYY</strong>
- *   <div class="descriptionContainer">FULL DESCRIPTION</div>
+ *   <div itemprop="description">FULL DESCRIPTION</div>       ← preferred source
+ *   <div class="jobDescription">FULL DESCRIPTION</div>       ← Arca24 variant
+ *   <div class="descriptionContainer">SHORT SNIPPET</div>    ← fallback only
  */
 
 const LIS_HOST = 'lavoraconnoi.lugano-lis.ch';
@@ -162,6 +164,48 @@ export function parseArca24ListingPage(html, baseUrl = LIS_BASE) {
   return jobs;
 }
 
+// ── Salary extraction ────────────────────────────────────────
+
+/**
+ * Extract salary information from LIS/ROCIS-style description text.
+ * Patterns:
+ *   "classe 7 min. CHF 64'017 / max. CHF 82'602"
+ *   "classe 7: min. CHF 64'017.00 / max. CHF 82'602.00"
+ *   "classe 9 min. CHF 72'636 / max. CHF 93'731"
+ * When multiple classes are present, returns the highest salary range.
+ * @returns {{ salaryClass: string, min: number, max: number, currency: string } | null}
+ */
+export function extractLisSalary(text) {
+  if (!text) return null;
+  // Match all "classe X ... min. CHF YYY / max. CHF ZZZ" occurrences
+  const classRe = /classe\s+(\d{1,2})\s*:?\s*min\.?\s*CHF\s*([\d''\u2019.]+)\s*\/\s*max\.?\s*CHF\s*([\d''\u2019.]+)/gi;
+  let m;
+  let bestResult = null;
+  while ((m = classRe.exec(text)) !== null) {
+    const cls = m[1];
+    const min = Number(m[2].replace(/['''\u2019.]/g, '').replace(/(\d)(\d{2})$/, '$1$2'));
+    const max = Number(m[3].replace(/['''\u2019.]/g, '').replace(/(\d)(\d{2})$/, '$1$2'));
+    if (Number.isFinite(min) && Number.isFinite(max) && min > 10000 && max > min) {
+      if (!bestResult || max > bestResult.max) {
+        bestResult = { salaryClass: cls, min, max, currency: 'CHF' };
+      }
+    }
+  }
+  if (bestResult) return bestResult;
+
+  // Fallback: Swiss salary range pattern "CHF XX'XXX / CHF YY'YYY" without class
+  const rangeMatch = text.match(/CHF\s*([\d''\u2019]{5,}(?:\.\d{2})?)\s*\/\s*(?:max\.?\s*)?CHF\s*([\d''\u2019]{5,}(?:\.\d{2})?)/i);
+  if (rangeMatch) {
+    const min = Number(rangeMatch[1].replace(/['''\u2019.]/g, ''));
+    const max = Number(rangeMatch[2].replace(/['''\u2019.]/g, ''));
+    if (Number.isFinite(min) && Number.isFinite(max) && min > 10000 && max > min) {
+      return { salaryClass: '', min, max, currency: 'CHF' };
+    }
+  }
+
+  return null;
+}
+
 // ── Detail page parser ───────────────────────────────────────
 
 /**
@@ -216,20 +260,46 @@ export function parseArca24DetailPage(html, pageUrl = '') {
   const validThrough = parseArca24Date(extractItemprop(html, 'validThrough'));
 
   // Description: extract main body content
-  // The main description is in a large descriptionContainer that is NOT inside
-  // the "related jobs" section. We look for the largest descriptionContainer.
-  const descContainers = [];
-  const descRegex = /<div\s+class="descriptionContainer[^"]*"[^>]*>([\s\S]*?)<\/div>/gi;
-  let dm;
-  while ((dm = descRegex.exec(html)) !== null) {
-    const text = normalizeSpace(stripHtml(dm[1]));
-    if (text.length > 50) {
-      descContainers.push(text);
+  // Priority 1: <div itemprop="description"> — the semantic job description
+  // Priority 2: <div class="jobDescription"> — common Arca24 variant
+  // Priority 3: largest <div class="descriptionContainer"> — fallback
+  let description = '';
+
+  // Priority 1: itemprop="description" (may contain nested HTML)
+  const itemDescMatch = html.match(/<div\s+[^>]*itemprop=["']description["'][^>]*>([\s\S]*?)<\/div>/i);
+  if (itemDescMatch) {
+    const candidate = normalizeSpace(stripHtml(itemDescMatch[1]));
+    if (candidate.length > 50) description = candidate;
+  }
+
+  // Priority 2: <div class="jobDescription">
+  if (!description) {
+    const jobDescMatch = html.match(/<div\s+class="jobDescription[^"]*"[^>]*>([\s\S]*?)<\/div>/i);
+    if (jobDescMatch) {
+      const candidate = normalizeSpace(stripHtml(jobDescMatch[1]));
+      if (candidate.length > 50) description = candidate;
     }
   }
-  // Sort by length descending - the largest is the main description
-  descContainers.sort((a, b) => b.length - a.length);
-  const description = descContainers[0] || '';
+
+  // Priority 3: largest descriptionContainer (skips short "related jobs" snippets)
+  if (!description) {
+    const descContainers = [];
+    const descRegex = /<div\s+class="descriptionContainer[^"]*"[^>]*>([\s\S]*?)<\/div>/gi;
+    let dm;
+    while ((dm = descRegex.exec(html)) !== null) {
+      const text = normalizeSpace(stripHtml(dm[1]));
+      if (text.length > 50) {
+        descContainers.push(text);
+      }
+    }
+    descContainers.sort((a, b) => b.length - a.length);
+    description = descContainers[0] || '';
+  }
+
+  // Extract salary from description if present
+  // Pattern: "classe X min. CHF XX'XXX.XX / max. CHF XX'XXX.XX" (LIS/ROCIS format)
+  // or "classe X: min. CHF XX'XXX / max. CHF XX'XXX"
+  const salary = extractLisSalary(description);
 
   // Company name from microdata
   const orgMatch = html.match(/itemprop=["']name["'][^>]*>([^<]*LIS[^<]*Lugano[^<]*Istituti[^<]*)/i);
@@ -246,6 +316,7 @@ export function parseArca24DetailPage(html, pageUrl = '') {
     datePosted,
     validThrough,
     description,
+    salary,
     url: pageUrl,
   };
 }
@@ -317,7 +388,7 @@ export function buildLisJob(url, parsed) {
   const slug = slugify(parsed.title);
   if (!slug || slug.length < 3) return null;
 
-  return {
+  const job = {
     title: parsed.title,
     company: COMPANY_NAME,
     companyKey: 'lis-lugano-istituti-sociali',
@@ -339,4 +410,16 @@ export function buildLisJob(url, parsed) {
     slugByLocale: { it: slug, en: slug, de: slug, fr: slug },
     descriptionByLocale: { it: parsed.description || '', en: '', de: '', fr: '' },
   };
+
+  // Add salary data if extracted from description
+  if (parsed.salary) {
+    job.salaryMin = parsed.salary.min;
+    job.salaryMax = parsed.salary.max;
+    job.salaryCurrency = parsed.salary.currency;
+    if (parsed.salary.salaryClass) {
+      job.salaryClass = parsed.salary.salaryClass;
+    }
+  }
+
+  return job;
 }

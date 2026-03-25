@@ -13,6 +13,7 @@ import {
   normalizeSpace,
   stripHtml,
   slugify,
+  extractLisSalary,
 } from '@/scripts/lib/lis-lugano-istituti-sociali-job-parser.mjs';
 
 // ── Fixture: Arca24 listing page with 2 job results ──
@@ -146,11 +147,16 @@ const DETAIL_HTML = `
     </tr>
   </table>
 </div>
+<div itemprop="description">
+  <p>Il Consiglio di Amministrazione dell'Ente Autonomo Lugano Istituti Sociali apre il concorso pubblico (valido per l'anno 2026) per l'assunzione di capireparto alle condizioni del Regolamento Organico dei Collaboratori (ROCIS) dell'Ente Autonomo Lugano Istituti Sociali (LIS) e del capitolato di concorso.</p>
+  <p>Il Consiglio di Amministrazione puo prevedere delle classi stipendiali comprese tra la classe 7 min. CHF 64'017 / max. CHF 82'602 e la classe 9 min. CHF 72'636 / max. CHF 93'731 della tabella degli stipendi secondo ROCIS.</p>
+  <p>La documentazione completa relativa al concorso e le condizioni di assunzione sono consultabili sul sito www.lugano-lis.ch. Le candidature dovranno essere inoltrate esclusivamente per il tramite del sito internet.</p>
+</div>
 <div class="descriptionContainer">
-  <span>Short snippet only for listing</span>
+  <span>Short snippet from related jobs section that should NOT be used as description.</span>
 </div>
 <div class="descriptionContainer ">
-  <span>Il Consiglio di Amministrazione dell'Ente Autonomo Lugano Istituti Sociali apre il concorso pubblico (valido per l'anno 2026) per l'assunzione di capireparto alle condizioni del Regolamento Organico dei Collaboratori (ROCIS) dell'Ente Autonomo Lugano Istituti Sociali (LIS) e del capitolato di concorso. Il Consiglio di Amministrazione puo prevedere delle classi stipendiali comprese tra la classe 7 min. CHF 64'017 / max. CHF 82'602 e la classe 9 min. CHF 72'636 / max. CHF 93'731 della tabella degli stipendi secondo ROCIS.</span>
+  <span>Another short snippet from related jobs.</span>
 </div>
 </body>
 </html>
@@ -197,8 +203,11 @@ const DETAIL_HTML_ENTITIES = `
     </tr>
   </table>
 </div>
-<div class="descriptionContainer ">
+<div itemprop="description">
   <span>Il Consiglio di Amministrazione dell&apos;Ente Autonomo Lugano Istituti Sociali apre il concorso pubblico &lpar;valido per l&apos;anno 2026&rpar; per l&apos;assunzione di&NewLine;&NewLine;infermieri&NewLine;&NewLine;alle condizioni del Regolamento Organico dei Collaboratori &lpar;ROCIS&rpar;.</span>
+</div>
+<div class="descriptionContainer ">
+  <span>Short related-job snippet that should not be used.</span>
 </div>
 </body>
 </html>
@@ -271,11 +280,41 @@ describe('LIS Arca24 parser — detail page', () => {
     expect(parsed!.validThrough).toBe('2026-12-13');
   });
 
-  it('extracts the longest description container', () => {
+  it('prefers itemprop="description" over descriptionContainer', () => {
     const parsed = parseArca24DetailPage(DETAIL_HTML);
-    // The main description is the longer container
+    // The description should come from itemprop="description", not from descriptionContainer
     expect(parsed!.description).toContain('Regolamento Organico dei Collaboratori');
-    expect(parsed!.description.length).toBeGreaterThan(100);
+    expect(parsed!.description).toContain('La documentazione completa');
+    expect(parsed!.description.length).toBeGreaterThan(200);
+    // Must NOT contain the short snippet from descriptionContainer
+    expect(parsed!.description).not.toContain('Short snippet from related jobs');
+  });
+
+  it('falls back to descriptionContainer when itemprop="description" is absent', () => {
+    // Build a page with only descriptionContainer (no itemprop="description")
+    const htmlNoItemprop = `
+      <html><body>
+      <h1 itemprop="title">Test Job <a>Invia</a></h1>
+      <span itemprop="addressLocality">Pregassona</span>
+      <span itemprop="datePosted">01/01/2026</span>
+      <div class="descriptionContainer">
+        <p>This is a sufficiently long description from the descriptionContainer fallback path that should be extracted when no itemprop description is available.</p>
+      </div>
+      </body></html>
+    `;
+    const parsed = parseArca24DetailPage(htmlNoItemprop);
+    expect(parsed).not.toBeNull();
+    expect(parsed!.description).toContain('sufficiently long description');
+  });
+
+  it('extracts salary from description', () => {
+    const parsed = parseArca24DetailPage(DETAIL_HTML);
+    expect(parsed!.salary).not.toBeNull();
+    // Should pick the highest salary range (classe 9)
+    expect(parsed!.salary!.salaryClass).toBe('9');
+    expect(parsed!.salary!.min).toBe(72636);
+    expect(parsed!.salary!.max).toBe(93731);
+    expect(parsed!.salary!.currency).toBe('CHF');
   });
 
   it('handles HTML entities in description', () => {
@@ -294,6 +333,34 @@ describe('LIS Arca24 parser — detail page', () => {
   });
 });
 
+describe('LIS Arca24 parser — extractLisSalary', () => {
+  it('extracts salary from ROCIS-style text with multiple classes', () => {
+    const text = 'classi stipendiali comprese tra la classe 7 min. CHF 64\'017 / max. CHF 82\'602 e la classe 9 min. CHF 72\'636 / max. CHF 93\'731';
+    const salary = extractLisSalary(text);
+    expect(salary).not.toBeNull();
+    // Should pick the highest (classe 9)
+    expect(salary!.salaryClass).toBe('9');
+    expect(salary!.min).toBe(72636);
+    expect(salary!.max).toBe(93731);
+    expect(salary!.currency).toBe('CHF');
+  });
+
+  it('extracts salary from single class pattern', () => {
+    const text = 'la classe 5: min. CHF 55\'000 / max. CHF 70\'000 secondo ROCIS';
+    const salary = extractLisSalary(text);
+    expect(salary).not.toBeNull();
+    expect(salary!.salaryClass).toBe('5');
+    expect(salary!.min).toBe(55000);
+    expect(salary!.max).toBe(70000);
+  });
+
+  it('returns null when no salary pattern found', () => {
+    expect(extractLisSalary('Nessun riferimento stipendiale.')).toBeNull();
+    expect(extractLisSalary('')).toBeNull();
+    expect(extractLisSalary(null as any)).toBeNull();
+  });
+});
+
 describe('LIS Arca24 parser — buildLisJob', () => {
   it('builds a complete job object from parsed detail data', () => {
     const parsed = parseArca24DetailPage(DETAIL_HTML, 'https://lavoraconnoi.lugano-lis.ch/job/view-job.php?id=25');
@@ -309,6 +376,16 @@ describe('LIS Arca24 parser — buildLisJob', () => {
     expect(job!.slug).toBe('capireparto');
     expect(job!.source).toBe('arca24');
     expect(job!.datePosted).toBe('2026-01-26');
+  });
+
+  it('includes salary fields when salary is present in description', () => {
+    const parsed = parseArca24DetailPage(DETAIL_HTML, 'https://lavoraconnoi.lugano-lis.ch/job/view-job.php?id=25');
+    const job = buildLisJob('https://lavoraconnoi.lugano-lis.ch/job/view-job.php?id=25', parsed!);
+    expect(job).not.toBeNull();
+    expect(job!.salaryMin).toBe(72636);
+    expect(job!.salaryMax).toBe(93731);
+    expect(job!.salaryCurrency).toBe('CHF');
+    expect(job!.salaryClass).toBe('9');
   });
 
   it('returns null when parsed data is null', () => {
