@@ -1,0 +1,19 @@
+{
+  "companyKey": "bps-suisse",
+  "companyName": "BPS (Banca Popolare di Sondrio) SUISSE",
+  "companyHost": "www.bps-suisse.ch",
+  "enabled": true,
+  "priority": 10,
+  "crawlerModes": [
+    "html",
+    "generic_ats"
+  ],
+  "seedUrls": [
+    "https://www.bps-suisse.ch/carriera-consulente_clientela_individuale__100_.php",
+    "https://www.bps-suisse.ch/carriera-collaboratore_trice_gestione_crediti__100_.php",
+    "https://www.bps-suisse.ch/carriera-consulente_alla_clientela_commerciale_ipotecaria__100_2.php",
+    "https://www.bps-suisse.ch/carriera-seniorkundenberater_mit_f_uuml_hrungserfahrung23.php"
+  ],
+  "notes": "BPS Suisse careers portal (simple HTML). Detail pages at carriera-*.php. Lugano-based banking.",
+  "updatedAt": "2026-03-25T09:28:25.108Z"
+}
