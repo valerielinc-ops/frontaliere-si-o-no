@@ -4,8 +4,12 @@
   "companyHost": "www.hoval.it",
   "enabled": true,
   "priority": 18,
-  "crawlerModes": ["api"],
-  "seedUrls": ["https://www.hoval.it/it_IT/jobs"],
+  "crawlerModes": [
+    "api"
+  ],
+  "seedUrls": [
+    "https://www.hoval.it/it_IT/jobs"
+  ],
   "notes": "Dedicated Hoval crawler uses SAP Hybris JSON API (/jobs/results?q=:sortIndex:country:Switzerland) filtered by country. Extracts description from detail pages. ATS: Umantis (recruitingapp-2710.umantis.com). Hoval has ~10 Swiss positions, with 3-4 in Ticino (Mezzovico).",
   "updatedAt": "2026-03-13T00:00:00.000Z",
   "seedMetaByUrl": {}

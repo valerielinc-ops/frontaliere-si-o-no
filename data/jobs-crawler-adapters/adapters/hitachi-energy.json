@@ -4,7 +4,9 @@
   "companyHost": "www.hitachienergy.com",
   "enabled": true,
   "priority": 18,
-  "crawlerModes": ["api"],
+  "crawlerModes": [
+    "api"
+  ],
   "seedUrls": [
     "https://www.hitachienergy.com/careers/open-jobs?filterable587622750-location=Switzerland"
   ],

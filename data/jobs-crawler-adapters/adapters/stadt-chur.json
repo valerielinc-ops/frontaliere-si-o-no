@@ -4,7 +4,10 @@
   "companyHost": "jobs.chur.ch",
   "enabled": true,
   "priority": 10,
-  "crawlerModes": ["html", "generic_ats"],
+  "crawlerModes": [
+    "html",
+    "generic_ats"
+  ],
   "seedUrls": [
     "https://jobs.chur.ch/stellenangebote.html"
   ],

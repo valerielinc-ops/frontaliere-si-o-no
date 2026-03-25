@@ -4,7 +4,9 @@
   "companyHost": "fenaco.com",
   "enabled": true,
   "priority": 10,
-  "crawlerModes": ["html_scraping"],
+  "crawlerModes": [
+    "html_scraping"
+  ],
   "seedUrls": [],
   "notes": "Volg Konsumwaren AG is a subsidiary of fenaco cooperative. Jobs served via Prospective.ch career center (ID 1001859) at ohws.prospective.ch. Includes Volg, LANDI, TRAVECO, AGROLA and other fenaco subsidiaries in GR/TI/VS.",
   "updatedAt": "2026-03-16T00:00:00.000Z"

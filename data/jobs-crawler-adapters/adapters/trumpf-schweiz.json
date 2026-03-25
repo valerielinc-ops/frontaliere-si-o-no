@@ -4,7 +4,9 @@
   "companyHost": "trumpf.com",
   "enabled": true,
   "priority": 10,
-  "crawlerModes": ["json_api"],
+  "crawlerModes": [
+    "json_api"
+  ],
   "seedUrls": [],
   "notes": "TRUMPF Schweiz AG — high-tech laser and machine tool manufacturer. Jobs via Workday ATS at trumpf.wd3.myworkdayjobs.com. Filtered for GR canton (Grüsch). ~19000 employees globally, Swiss HQ in Grüsch.",
   "updatedAt": "2026-03-16T00:00:00.000Z"

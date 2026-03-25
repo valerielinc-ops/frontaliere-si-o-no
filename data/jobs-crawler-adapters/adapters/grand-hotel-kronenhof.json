@@ -4,7 +4,9 @@
   "companyHost": "kronenhof.com",
   "enabled": true,
   "priority": 10,
-  "crawlerModes": ["json_api"],
+  "crawlerModes": [
+    "json_api"
+  ],
   "seedUrls": [
     "https://careers.kronenhof.com/en/vacancies/json"
   ],

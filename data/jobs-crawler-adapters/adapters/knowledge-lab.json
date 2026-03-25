@@ -4,8 +4,12 @@
   "companyHost": "knowledge-lab.ch",
   "enabled": true,
   "priority": 18,
-  "crawlerModes": ["api"],
-  "seedUrls": ["https://knowledge-lab.ch/en/who-we-are/careers"],
+  "crawlerModes": [
+    "api"
+  ],
+  "seedUrls": [
+    "https://knowledge-lab.ch/en/who-we-are/careers"
+  ],
   "notes": "Dedicated Knowledge Lab crawler uses Freshteam API (klab.freshteam.com/api/job_postings). Single API call returns all published jobs with descriptions. Banking IT and digital consulting. Offices in Zurich (HQ), Mendrisio (TI), Madrid, Belgrade.",
   "updatedAt": "2026-03-13T00:00:00.000Z",
   "seedMetaByUrl": {}
