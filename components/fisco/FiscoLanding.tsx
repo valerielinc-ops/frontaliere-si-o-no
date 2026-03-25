@@ -14,7 +14,7 @@ import React from 'react';
 import {
   FileText, Banknote, Calendar, Heart, BarChart2,
   PiggyBank, TrendingUp, Receipt, ArrowRight,
-  Landmark, Shield, Clock, Sparkles,
+  Landmark, Shield, Clock, Sparkles, Users,
   Calculator, BookOpen, Scale,
 } from 'lucide-react';
 import { useTranslation } from '@/services/i18n';
@@ -39,6 +39,7 @@ const FISCO_TOOLS: FiscoTool[] = [
   { key: 'pension',           icon: PiggyBank,  titleKey: 'nav.pension',                descKey: 'fisco.landing.tool.pension.desc',          badge: 'popular' },
   { key: 'pillar3',           icon: TrendingUp, titleKey: 'pension.pillar3',            descKey: 'fisco.landing.tool.pillar3.desc' },
   { key: 'tax-credit',        icon: Receipt,    titleKey: 'taxCredit.navLabel',         descKey: 'fisco.landing.tool.taxCredit.desc' },
+  { key: 'new-frontier-tax-sim', icon: Users,  titleKey: 'newFrontierTaxSim.navLabel', descKey: 'fisco.landing.tool.newFrontierTaxSim.desc', badge: 'new' },
   { key: 'holidays',          icon: Heart,      titleKey: 'guide.tabs.holidays',        descKey: 'fisco.landing.tool.holidays.desc' },
 ];
 

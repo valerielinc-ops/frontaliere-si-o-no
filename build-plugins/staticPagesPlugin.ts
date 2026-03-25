@@ -1094,6 +1094,12 @@ export function staticPagesPlugin(rootDir: string): Plugin {
               `Il tracker dei ristorni monitora i compensi finanziari che il Canton Ticino versa ai comuni italiani di confine per compensare i costi sostenuti a favore dei frontalieri residenti: circa il 40 % dell'imposta alla fonte è restituito ai comuni entro 20 km dal confine.`,
               `Con il Nuovo Accordo 2024, la quota dei ristorni è destinata a diminuire progressivamente man mano che l'Italia assume la tassazione concorrente. I comuni più interessati sono quelli della fascia dei 20 km dalla frontiera.`,
             );
+          } else if (canonicalPath.startsWith('/tasse-e-pensione/simulazione-tasse-nuovi-frontalieri')) {
+            editorialBlocks.push(
+              `Con il Nuovo Accordo fiscale Italia-Svizzera entrato in vigore il 17 luglio 2023, i frontalieri assunti a partire da quella data — i cosiddetti "nuovi frontalieri" — sono soggetti a una tassazione concorrente: pagano l'imposta alla fonte in Svizzera (all'80 % dell'aliquota ordinaria se residenti entro 20 km dal confine) e l'IRPEF in Italia con una franchigia di 10.000 EUR sul reddito da lavoro estero.`,
+              `Il simulatore fiscale calcola in modo automatico tutte le componenti del netto mensile: contributi AVS/AI/IPG (5,3 %), AC (1,1 %), LPP variabile per fascia d'età, imposta alla fonte Ticino 2026 secondo le tabelle A/B/C/H, e poi la parte italiana con IRPEF, addizionale regionale e comunale, al netto della franchigia e del credito per imposte estere. Il risultato mostra il netto reale in EUR al tasso di cambio aggiornato.`,
+              `Per evitare la doppia imposizione, il credito d'imposta previsto dall'accordo bilaterale permette di detrarre le imposte svizzere già pagate dall'IRPEF italiana dovuta, fino a concorrenza della quota relativa al reddito estero. Il simulatore stima automaticamente questo credito insieme al saldo fiscale finale, così puoi vedere in anticipo quanto pagherai in ciascun paese e pianificare la dichiarazione dei redditi.`,
+            );
           } else if (canonicalPath.startsWith('/tasse-e-pensione/')) {
             editorialBlocks.push(
               `Questa sezione copre gli aspetti fiscali e previdenziali del lavoro transfrontaliero: imposta alla fonte svizzera, IRPEF italiana, contributi AVS/LPP e pianificazione pensionistica.`,

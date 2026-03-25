@@ -143,6 +143,7 @@ const criticalTranslations: Record<string, string> = {
   'pension.pillar3': '3° Pilastro',
   'taxCredit.navLabel': 'Credito Imposta',
   'withholdingRates.navLabel': 'Aliquote Fonte',
+  'newFrontierTaxSim.navLabel': 'Tasse Nuovi',
   // profile (from it-vita.ts — visible in navbar)
   'profile.title': 'Il tuo Profilo',
   'profile.signIn': 'Accedi',

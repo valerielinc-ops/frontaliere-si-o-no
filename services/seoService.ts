@@ -1040,6 +1040,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     quiz: { name: 'Quiz Fiscale', path: '/tasse-e-pensione/quiz-fiscale', parent: 'fisco' },
     taxCredit: { name: 'Credito d\'Imposta', path: '/tasse-e-pensione/credito-imposta', parent: 'fisco' },
     withholdingRates: { name: 'Aliquote imposta alla fonte', path: '/tasse-e-pensione/aliquote-imposta-alla-fonte-ticino-2026', parent: 'fisco' },
+    newFrontierTaxSim: { name: 'Simulazione Tasse Nuovi Frontalieri', path: '/tasse-e-pensione/simulazione-tasse-nuovi-frontalieri', parent: 'fisco' },
     stats: { name: 'Statistiche', path: '/statistiche' },
     salarySurvey: { name: 'Confronto Stipendi', path: '/statistiche/confronta-stipendi', parent: 'stats' },
     salaryCompare: { name: 'Confronto Stipendi', path: '/statistiche/confronta-stipendi', parent: 'stats' },

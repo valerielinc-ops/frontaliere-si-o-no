@@ -502,6 +502,17 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
       keywords: ['imposta alla fonte', 'aliquote', 'tabelle a b c h', 'quellensteuer', 'withholding tax', 'ticino 2026', 'barèmes', 'source tax'],
     },
     {
+      id: 'fisco-new-frontier-tax-sim',
+      title: t('newFrontierTaxSim.title') || 'Simulazione Tasse Nuovi Frontalieri 2026',
+      description: 'Calcola imposta alla fonte CH + IRPEF Italia con franchigia €10.000 e credito d\'imposta',
+      section: t('nav.fisco') || 'Fisco',
+      tab: 'fisco',
+      subTab: 'new-frontier-tax-sim',
+      icon: Coins,
+      color: 'text-emerald-700',
+      keywords: ['simulazione tasse nuovi frontalieri', 'nuovo accordo fiscale', 'franchigia 10000', 'doppia imposizione', 'credito imposta', 'new cross-border workers', 'tax simulation', 'neue grenzgaenger steuer'],
+    },
+    {
       id: 'stats-ristorni',
       title: t('guide.tabs.ristorni') || 'Ristorni Fiscali',
       description: 'Calcola e verifica i ristorni fiscali dal Canton Ticino ai comuni italiani',

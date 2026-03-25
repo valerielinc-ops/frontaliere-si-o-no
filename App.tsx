@@ -3165,6 +3165,7 @@ const App: React.FC = () => {
                       { sub: 'pension' as const, label: t('nav.pension') },
                       { sub: 'pillar3' as const, label: t('pension.pillar3') },
                       { sub: 'tax-credit' as const, label: t('taxCredit.navLabel') },
+                      { sub: 'new-frontier-tax-sim' as const, label: t('newFrontierTaxSim.navLabel') },
                       { sub: 'quiz' as const, label: t('guide.tabs.quiz') },
                     ] as const).map(({ sub, label }) => (
                       <li key={sub}>

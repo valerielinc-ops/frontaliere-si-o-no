@@ -506,6 +506,63 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
     ]
   },
 
+  newFrontierTaxSim: {
+    title: 'Simulazione Tasse Nuovi Frontalieri 2026 | Calcolo IRPEF e Imposta alla Fonte',
+    description: 'Simulazione tasse per nuovi frontalieri (post 17/07/2023): calcola imposta alla fonte Ticino, IRPEF Italia con franchigia \u20AC10.000, credito d\'imposta e stipendio netto 2026.',
+    keywords: 'simulazione tasse nuovi frontalieri, calcolo tasse nuovi frontalieri 2026, imposta alla fonte nuovi frontalieri, IRPEF frontalieri franchigia 10000, nuovo accordo frontalieri tasse, doppia imposizione nuovi frontalieri',
+    ogTitle: 'Simulazione Tasse Nuovi Frontalieri 2026',
+    ogDescription: 'Calcola le tasse come nuovo frontaliere: imposta alla fonte CH + IRPEF Italia con franchigia \u20AC10.000 e credito d\'imposta. Simulatore gratuito.',
+    canonicalPath: '/tasse-e-pensione/simulazione-tasse-nuovi-frontalieri',
+    structuredData: [
+      {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "Simulazione Tasse Nuovi Frontalieri 2026",
+        "url": `${BASE_URL}/tasse-e-pensione/simulazione-tasse-nuovi-frontalieri`,
+        "description": "Guida e simulatore per il calcolo delle tasse dei nuovi frontalieri secondo il nuovo accordo fiscale Italia-Svizzera 2024.",
+        "dateModified": BUILD_DATE_ISO,
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Come vengono tassati i nuovi frontalieri dal 2024?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "I nuovi frontalieri (assunti dopo il 17/07/2023) pagano l'imposta alla fonte in Svizzera (80% dell'aliquota ordinaria in Ticino) e l'IRPEF in Italia con una franchigia di \u20AC10.000 sul reddito estero. Un credito d'imposta evita la doppia imposizione."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Cos'\u00e8 la franchigia di \u20AC10.000 per i nuovi frontalieri?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "La franchigia di \u20AC10.000 \u00e8 una deduzione sul reddito da lavoro dipendente prodotto in Svizzera: i primi \u20AC10.000 di reddito non vengono tassati in Italia. Si applica solo ai nuovi frontalieri residenti entro 20 km dal confine."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Come funziona il credito d'imposta per evitare la doppia tassazione?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Le imposte pagate in Svizzera (imposta alla fonte) vengono detratte dall'IRPEF italiana tramite il credito d'imposta nel quadro CE della dichiarazione dei redditi. Il credito non pu\u00f2 superare la quota di IRPEF relativa al reddito estero."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Come calcolo lo stipendio netto come nuovo frontaliere?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Usa il simulatore gratuito: inserisci lo stipendio lordo annuo in CHF, stato civile, figli e comune di residenza. Il calcolatore applica automaticamente contributi svizzeri (AVS, LPP, AC), imposta alla fonte Ticino, IRPEF con franchigia e credito d'imposta, mostrando il netto mensile in EUR."
+            }
+          }
+        ]
+      }
+    ]
+  },
+
   vita: {
     title: 'Vita in Ticino per Frontalieri | Trasporti, Casa, Servizi',
     description: 'Vita in Ticino per frontalieri: trasporti e pendolarismo, vivere in Svizzera vs Italia, aziende, scuole, attrazioni, asili nido e comuni di frontiera.',

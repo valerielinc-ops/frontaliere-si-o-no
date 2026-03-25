@@ -9,6 +9,7 @@ const SeoContentBlock = lazyRetry(() => import('@/components/shared/SeoContentBl
 const FrontierGuide = lazyRetry(() => import('@/components/guide/FrontierGuide'));
 const TaxReturnGuide = lazyRetry(() => import('@/components/fisco/TaxReturnGuide'));
 const WithholdingRatesHub = lazyRetry(() => import('@/components/fisco/WithholdingRatesHub'));
+const NewFrontierTaxSimHub = lazyRetry(() => import('@/components/fisco/NewFrontierTaxSimHub'));
 const TaxCalendar = lazyRetry(() => import('@/components/fisco/TaxCalendar'));
 const RistorniTracker = lazyRetry(() => import('@/components/fisco/RistorniTracker'));
 const PensionPlanner = lazyRetry(() => import('@/components/fisco/PensionPlanner'));
@@ -43,6 +44,8 @@ export default function FiscoTabContent() {
         <Suspense fallback={<SkeletonFisco />}><WeeklyQuiz /></Suspense>
       ) : fiscoSubTab === 'tax-credit' ? (
         <Suspense fallback={<SkeletonFisco />}><TaxCreditCalculator /></Suspense>
+      ) : fiscoSubTab === 'new-frontier-tax-sim' ? (
+        <Suspense fallback={<SkeletonFisco />}><NewFrontierTaxSimHub /></Suspense>
       ) : null}
 
       {/* AdSense — bottom multiplex */}
