@@ -1,19 +1,864 @@
 {
   "key": "sintetica",
   "label": "Sintetica SA",
-  "generatedAt": "2026-03-25T09:27:30.825Z",
-  "total": 0,
+  "generatedAt": "2026-03-25T11:11:34.728Z",
+  "total": 13,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 2411,
-  "avgDurationMs": 2411,
+  "unchangedCount": 13,
+  "durationMs": 137262,
+  "avgDurationMs": 137262,
   "durationHistory": [
-    2411
+    137262
   ],
   "newJobs": [],
   "updatedJobs": [],
   "removedJobs": [],
-  "unchangedJobs": []
+  "unchangedJobs": [
+    {
+      "url": "https://app.ncoreplat.com/jobposition/788434/front-desk-amp-office-support-mendrisio-site-ticino-ch/sintetica",
+      "applyUrl": "https://app.ncoreplat.com/jobposition/788434/front-desk-amp-office-support-mendrisio-site-ticino-ch/sintetica",
+      "title": "Front Desk & Office Support (50 - 70%) - Mendrisio site (Ticino)",
+      "company": "Sintetica SA",
+      "companyKey": "sintetica",
+      "location": "Mendrisio",
+      "canton": "TI",
+      "country": "CH",
+      "addressLocality": "Mendrisio",
+      "addressCountry": "CH",
+      "description": "## Descrizione\n- Front Desk & Office Support (50 - 70%) - Mendrisio site (Ticino) — posizione aperta presso Sintetica SA a Mendrisio, Canton Ticino, Svizzera\n- Sintetica SA è un'azienda farmaceutica svizzera specializzata nella produzione di farmaci sterili iniettabili\n- Con sede a Mendrisio, l'azienda offre un ambiente di lavoro innovativo nel settore farmaceutico, con opportunità di crescita professionale nel cuore del Ticino",
+      "titleByLocale": {
+        "en": "Front Desk & Office Support (50 - 70%) - Mendrisio site (Ticino)",
+        "it": "Front Desk & Office Support (50 - 70%) - Mendrisio site (Ticino)",
+        "de": "Front Desk & Office Support (50 - 70%) - Mendrisio site (Ticino)",
+        "fr": "Front Desk & Office Support (50 - 70%) - Mendrisio site (Ticino)"
+      },
+      "descriptionByLocale": {
+        "it": "Descrizione - Front Desk & Office Support (50 - 70%) - Mendrisio site (Ticino) — posizione aperta presso Sintetica SA a Mendrisio, Canton Ticino, Svizzera - Sintetica SA è un'azienda farmaceutica svizzera specializzata nella produzione di farmaci sterili iniettabili - Con sede a Mendrisio, l'azienda offre un ambiente di lavoro innovativo nel settore farmaceutico, con opportunità di crescita professionale nel cuore del Ticino",
+        "en": "Description - Front Desk & Office Support (50 - 70%) - Mendrisio site (Ticino) — position open at Sintetica SA in Mendrisio, Canton Ticino, Switzerland - Sintetica SA is a Swiss pharmaceutical company specializing in the production of sterile injectable drugs - Based in Mendrisio, the company offers an innovative working environment in the pharmaceutical sector, with opportunities for professional growth in the heart of Ticino",
+        "de": "Beschreibung - Front Desk & Office Support (50 - 70%) - Standort Mendrisio (Tessin) — offene Position bei Sintetica SA in Mendrisio, Kanton Tessin, Schweiz - Sintetica SA ist ein Schweizer Pharmaunternehmen, das sich auf die Herstellung steriler injizierbarer Arzneimittel spezialisiert hat - Mit Sitz in Mendrisio bietet das Unternehmen ein innovatives Arbeitsumfeld im Pharmasektor sowie Möglichkeiten zur beruflichen Weiterentwicklung im Herzen des Tessins",
+        "fr": "Description - Front Desk & Office Support (50 - 70%) - site de Mendrisio (Tessin) — poste ouvert chez Sintetica SA à Mendrisio, Canton du Tessin, Suisse - Sintetica SA est une entreprise pharmaceutique suisse spécialisée dans la production de médicaments injectables stériles - Basée à Mendrisio, l'entreprise offre un environnement de travail innovant dans le secteur pharmaceutique, avec des opportunités de développement professionnel au cœur du Tessin"
+      },
+      "slug": "front-desk-office-support-50-70-mendrisio-site-ticino-sintetica",
+      "slugByLocale": {
+        "en": "front-desk-office-support-50-70-mendrisio-site-ticino-sintetica-sa-mendrisio-bgpruz",
+        "it": "front-desk-office-support-50-70-mendrisio-site-ticino-sintetica",
+        "de": "front-desk-office-support-50-70-mendrisio-site-ticino-sintetica-sa-mendrisio-bgpruz",
+        "fr": "front-desk-office-support-50-70-mendrisio-site-ticino-sintetica-sa-mendrisio-bgpruz"
+      },
+      "category": "general",
+      "datePosted": "2026-03-25",
+      "source": "sintetica-careers-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "MID",
+      "sector": "Farmaceutica",
+      "_targetScope": {
+        "canton": "TI",
+        "location": "Mendrisio"
+      },
+      "crawledAt": "",
+      "requirementsByLocale": {},
+      "sourceLang": "it",
+      "needsRetranslation": true,
+      "salaryMin": 58000,
+      "salaryMax": 78000,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 58000,
+          "maxValue": 78000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "6850"
+    },
+    {
+      "url": "https://app.ncoreplat.com/jobposition/788452/data-manager-mendrisio-site-ticino-ch/sintetica",
+      "applyUrl": "https://app.ncoreplat.com/jobposition/788452/data-manager-mendrisio-site-ticino-ch/sintetica",
+      "title": "Data Manager - Mendrisio site (Ticino)",
+      "company": "Sintetica SA",
+      "companyKey": "sintetica",
+      "location": "Mendrisio",
+      "canton": "TI",
+      "country": "CH",
+      "addressLocality": "Mendrisio",
+      "addressCountry": "CH",
+      "description": "## Descrizione\n\n- Data Manager - Mendrisio site (Ticino) — posizione aperta presso Sintetica SA a Mendrisio, Canton Ticino, Svizzera.\n- Sintetica SA è un'azienda farmaceutica svizzera specializzata nella produzione di farmaci sterili iniettabili.\n- Con sede a Mendrisio, l'azienda offre un ambiente di lavoro innovativo nel settore farmaceutico, con opportunità di crescita professionale nel cuore del Ticino.",
+      "titleByLocale": {
+        "en": "Data Manager - Mendrisio site (Ticino)",
+        "it": "Data Manager - Mendrisio site (Ticino)",
+        "de": "Data Manager - Mendrisio site (Ticino)",
+        "fr": "Data Manager - Mendrisio site (Ticino)"
+      },
+      "descriptionByLocale": {
+        "it": "Descrizione - Data Manager - Mendrisio site (Ticino) — posizione aperta presso Sintetica SA a Mendrisio, Canton Ticino, Svizzera. - Sintetica SA è un'azienda farmaceutica svizzera specializzata nella produzione di farmaci sterili iniettabili. - Con sede a Mendrisio, l'azienda offre un ambiente di lavoro innovativo nel settore farmaceutico, con opportunità di crescita professionale nel cuore del Ticino.",
+        "en": "Description - Data Manager – Mendrisio Site (Ticino) — open position at Sintetica SA in Mendrisio, Canton Ticino, Switzerland. - Sintetica SA is a Swiss pharmaceutical company specialized in the production of sterile injectable medicines. - Headquartered in Mendrisio, the company offers an innovative working environment in the pharmaceutical sector, with professional growth opportunities in the heart of Ticino.",
+        "de": "Beschreibung - Data Manager – Standort Mendrisio (Tessin) – offene Stelle bei Sintetica SA in Mendrisio, Kanton Tessin, Schweiz. - Sintetica SA ist ein Schweizer Pharmaunternehmen, das auf die Herstellung steriler Injektionspräparate spezialisiert ist. - Mit Hauptsitz in Mendrisio bietet das Unternehmen eine innovative Arbeitsumgebung im Pharmasektor mit Entwicklungsmöglichkeiten im Herzen des Tessins.",
+        "fr": "Description - Data Manager – Site de Mendrisio (Tessin) – poste ouvert chez Sintetica SA à Mendrisio, Canton du Tessin, Suisse. - Sintetica SA est une entreprise pharmaceutique suisse spécialisée dans la production de médicaments stériles injectables. - Basée à Mendrisio, l’entreprise offre un environnement de travail innovant dans le secteur pharmaceutique, avec des opportunités de croissance professionnelle au cœur du Tessin."
+      },
+      "slug": "data-manager-mendrisio-site-ticino-sintetica",
+      "slugByLocale": {
+        "en": "data-manager-mendrisio-site-ticino-sintetica-sa-mendrisio-b5l51m",
+        "it": "data-manager-mendrisio-site-ticino-sintetica",
+        "de": "data-manager-mendrisio-site-ticino-sintetica-sa-mendrisio-b5l51m",
+        "fr": "data-manager-mendrisio-site-ticino-sintetica-sa-mendrisio-b5l51m"
+      },
+      "category": "technology",
+      "datePosted": "2026-03-25",
+      "source": "sintetica-careers-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "SENIOR",
+      "sector": "Farmaceutica",
+      "_targetScope": {
+        "canton": "TI",
+        "location": "Mendrisio"
+      },
+      "crawledAt": "",
+      "requirementsByLocale": {},
+      "sourceLang": "it",
+      "needsRetranslation": true,
+      "salaryMin": 72000,
+      "salaryMax": 97000,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 72000,
+          "maxValue": 97000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "6850"
+    },
+    {
+      "url": "https://app.ncoreplat.com/jobposition/788026/pharmaceutical-development-project-manager-ch/sintetica",
+      "applyUrl": "https://app.ncoreplat.com/jobposition/788026/pharmaceutical-development-project-manager-ch/sintetica",
+      "title": "Pharmaceutical Development Project Manager - Mendrisio site (Ticino)",
+      "company": "Sintetica SA",
+      "companyKey": "sintetica",
+      "location": "Mendrisio",
+      "canton": "TI",
+      "country": "CH",
+      "addressLocality": "Mendrisio",
+      "addressCountry": "CH",
+      "description": "## Pharmaceutico Development Project Manager - Mendrisio site (Ticino)\n\n### posizione aperta presso Sintetica SA a Mendrisio, Canton Ticino, Svizzera\n\n### Sintetica SA è un'azienda farmaceutica svizzera specializzata nella produzione di farmaci sterili iniettabili\n\n### Con sede a Mendrisio, l'azienda offre un ambiente di lavoro innovativo nel settore farmaceutico, con opportunità di crescita professionale nel cuore del Ticino\n\n## Descrizione\n\n- Pharmaceutical Development Project Manager - posizione aperta presso Sintetica SA a Mendrisio, Canton Ticino, Svizzera\n- Sintetica SA è un'azienda farmaceutica svizzera specializzata nella produzione di farmaci sterili iniettabili\n- Con sede a Mendrisio, l'azienda offre un ambiente di lavoro innovativo nel settore farmaceutico, con opportunità di crescita professionale nel cuore del Ticino\n\n## Mansioni\n\n## Requisiti\n\n## Cosa offriamo\n\n## Contatto",
+      "titleByLocale": {
+        "en": "Pharmaceutical Development Project Manager - Mendrisio site (Ticino)",
+        "it": "Responsabile Progetto Sviluppo Farmaceutico - Sede di Mendrisio (Ticino)",
+        "de": "Pharmazeutische Entwicklung-Projektmanager - Standort Mendrisio (Ticino)",
+        "fr": "Responsable de développement pharmaceutique - Site de Mendrisio (Ticino)"
+      },
+      "descriptionByLocale": {
+        "it": "Pharmaceutico Development Project Manager - Mendrisio site (Ticino) ### posizione aperta presso Sintetica SA a Mendrisio, Canton Ticino, Svizzera ### Sintetica SA è un'azienda farmaceutica svizzera specializzata nella produzione di farmaci sterili iniettabili ### Con sede a Mendrisio, l'azienda offre un ambiente di lavoro innovativo nel settore farmaceutico, con opportunità di crescita professionale nel cuore del Ticino ## Descrizione - Pharmaceutical Development Project Manager - posizione aperta presso Sintetica SA a Mendrisio, Canton Ticino, Svizzera - Sintetica SA è un'azienda farmaceutica svizzera specializzata nella produzione di farmaci sterili iniettabili - Con sede a Mendrisio, l'azienda offre un ambiente di lavoro innovativo nel settore farmaceutico, con opportunità di crescita professionale nel cuore del Ticino ## Mansioni ## Requisiti ## Cosa offriamo ## Contatto",
+        "en": "Pharmaceutical Development Project Manager - Mendrisio site (Ticino) ### Open position at Sintetica SA in Mendrisio, Canton Ticino, Switzerland ### Sintetica SA is a Swiss pharmaceutical company specialized in the production of sterile injectable drugs ### With its headquarters in Mendrisio, the company offers an innovative work environment in the pharmaceutical sector, with opportunities for professional growth in the heart of Ticino ## Description - Pharmaceutical Development Project Manager - open position at Sintetica SA in Mendrisio, Canton Ticino, Switzerland - Sintetica SA is a Swiss pharmaceutical company specialized in the production of sterile injectable drugs - With its headquarters in Mendrisio, the company offers an innovative work environment in the pharmaceutical sector, with opportunities for professional growth in the heart of Ticino ## Responsibilities ## Requirements ## What We Offer ## Contact",
+        "de": "Pharmazeutische Entwicklung-Projektmanager - Standort Mendrisio (Ticino) ### Offene Stelle bei Sintetica SA in Mendrisio, Kanton Tessin, Schweiz ### Sintetica SA ist ein schweizerisches Arzneimittelunternehmen, das auf die Herstellung von steril einsetzbaren Arzneimitteln spezialisiert ist ### Mit Sitz in Mendrisio bietet das Unternehmen ein innovatives Arbeitsumfeld im Pharmabereich, mit Möglichkeiten für berufliche Entwicklung in der Herz der Tessiner ## Beschreibung - Pharmazeutische Entwicklung-Projektmanager - offene Stelle bei Sintetica SA in Mendrisio, Kanton Tessin, Schweiz - Sintetica SA ist ein schweizerisches Arzneimittelunternehmen, das auf die Herstellung von steril einsetzbaren Arzneimitteln spezialisiert ist - Mit Sitz in Mendrisio bietet das Unternehmen ein innovatives Arbeitsumfeld im Pharmabereich, mit Möglichkeiten für berufliche Entwicklung in der Herz der Tessiner ## Aufgaben ## Anforderungen ## Was wir bieten ## Kontakt",
+        "fr": "Responsable de développement pharmaceutique - Site de Mendrisio (Ticino) ### Poste ouvert chez Sintetica SA à Mendrisio, canton du Tessin, Suisse ### Sintetica SA est une entreprise pharmaceutique suisse spécialisée dans la production de médicaments stériles injectables ### Avec son siège à Mendrisio, l'entreprise offre un environnement de travail innovant dans le secteur pharmaceutique, avec des opportunités de croissance professionnelle au cœur du Tessin ## Description - Responsable de développement pharmaceutique - poste ouvert chez Sintetica SA à Mendrisio, canton du Tessin, Suisse - Sintetica SA est une entreprise pharmaceutique suisse spécialisée dans la production de médicaments stériles injectables - Avec son siège à Mendrisio, l'entreprise offre un environnement de travail innovant dans le secteur pharmaceutique, avec des opportunités de croissance professionnelle au cœur du Tessin ## Tâches ## Exigences ## Ce que nous offrons ## Contact"
+      },
+      "slug": "responsabile-progetto-sviluppo-farmaceutico-sede-di-mendrisio-ticino-sintetica-sa-mendrisio",
+      "slugByLocale": {
+        "en": "pharmaceutical-development-project-manager-mendrisio-site-ticino-sintetica-sa-mendrisio-5fae1u",
+        "it": "responsabile-progetto-sviluppo-farmaceutico-sede-di-mendrisio-ticino-sintetica-sa-mendrisio",
+        "de": "pharmaceutical-development-project-manager-mendrisio-site-ticino-sintetica-sa-mendrisio-5fae1u",
+        "fr": "pharmaceutical-development-project-manager-mendrisio-site-ticino-sintetica-sa-mendrisio-5fae1u"
+      },
+      "category": "pharma",
+      "datePosted": "2026-03-25",
+      "source": "sintetica-careers-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "SENIOR",
+      "sector": "Farmaceutica",
+      "_targetScope": {
+        "canton": "TI",
+        "location": "Mendrisio"
+      },
+      "crawledAt": "",
+      "requirementsByLocale": {},
+      "sourceLang": "it",
+      "previousSlugs": [
+        "pharmaceutical-development-project-manager-mendrisio-site-ticino-sintetica"
+      ],
+      "salaryMin": 98000,
+      "salaryMax": 133000,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 98000,
+          "maxValue": 133000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "6850"
+    },
+    {
+      "url": "https://app.ncoreplat.com/jobposition/788177/pharmaceutical-development-laboratory-project-manager-formulation-expert-mendrisio-site-ticino-ch/sintetica",
+      "applyUrl": "https://app.ncoreplat.com/jobposition/788177/pharmaceutical-development-laboratory-project-manager-formulation-expert-mendrisio-site-ticino-ch/sintetica",
+      "title": "Pharmaceutical Development Laboratory Project Manager (Formulation expert) - Mendrisio site (Ticino)",
+      "company": "Sintetica SA",
+      "companyKey": "sintetica",
+      "location": "Mendrisio",
+      "canton": "TI",
+      "country": "CH",
+      "addressLocality": "Mendrisio",
+      "addressCountry": "CH",
+      "description": "## Descrizione\n\nPharmaceutical Development Laboratory Project Manager (Formulation expert) - Mendrisio site (Ticino) — posizione aperta presso Sintetica SA a Mendrisio, Canton Ticino, Svizzera. Sintetica SA è un'azienda farmaceutica svizzera specializzata nella produzione di farmaci sterili iniettabili. Con sede a Mendrisio, l'azienda offre un ambiente di lavoro innovativo nel settore farmaceutico, con opportunità di crescita professionale nel cuore del Ticino.",
+      "titleByLocale": {
+        "en": "Pharmaceutical Development Laboratory Project Manager (Formulation expert) - Mendrisio site (Ticino)",
+        "de": "Projektleiter Labor Pharmazeutische Entwicklung (Formulierungsexperte) – Standort Mendrisio (Tessin)",
+        "fr": "Chef de projet Laboratoire Développement Pharmaceutique (Expert en formulation) – Site de Mendrisio (Tessin)",
+        "it": "Pharmaceutical Development Laboratory Project Manager (Formulation expert) - Mendrisio site (Ticino)"
+      },
+      "descriptionByLocale": {
+        "it": "Descrizione Pharmaceutical Development Laboratory Project Manager (Formulation expert) - Mendrisio site (Ticino) — posizione aperta presso Sintetica SA a Mendrisio, Canton Ticino, Svizzera. Sintetica SA è un'azienda farmaceutica svizzera specializzata nella produzione di farmaci sterili iniettabili. Con sede a Mendrisio, l'azienda offre un ambiente di lavoro innovativo nel settore farmaceutico, con opportunità di crescita professionale nel cuore del Ticino.",
+        "en": "Description Pharmaceutical Development Laboratory Project Manager (Formulation Expert) – Mendrisio Site (Ticino) — open position at Sintetica SA in Mendrisio, Canton Ticino, Switzerland. Sintetica SA is a Swiss pharmaceutical company specialized in the production of sterile injectable drugs. Headquartered in Mendrisio, the company offers an innovative working environment in the pharmaceutical sector, with professional growth opportunities in the heart of Ticino.",
+        "de": "Beschreibung Projektleiter Labor Pharmazeutische Entwicklung (Formulierungsexperte) – Standort Mendrisio (Tessin) — offene Stelle bei Sintetica SA in Mendrisio, Kanton Tessin, Schweiz. Sintetica SA ist ein Schweizer Pharmaunternehmen, das auf die Herstellung steriler Injektionspräparate spezialisiert ist. Mit Hauptsitz in Mendrisio bietet das Unternehmen eine innovative Arbeitsumgebung im Pharmasektor mit Entwicklungsmöglichkeiten im Herzen des Tessins.",
+        "fr": "Description Chef de projet Laboratoire Développement Pharmaceutique (Expert en formulation) – Site de Mendrisio (Tessin) — poste ouvert chez Sintetica SA à Mendrisio, Canton du Tessin, Suisse. Sintetica SA est une entreprise pharmaceutique suisse spécialisée dans la production de médicaments stériles injectables. Basée à Mendrisio, l’entreprise offre un environnement de travail innovant dans le secteur pharmaceutique, avec des opportunités de croissance professionnelle au cœur du Tessin."
+      },
+      "slug": "pharmaceutical-development-laboratory-project-manager-formulation-expert-mendrisio-site-ti",
+      "slugByLocale": {
+        "en": "pharmaceutical-development-laboratory-project-manager-formulation-expert-mendrisio-site-ticino-sintetica-sa-mendrisio-t1imk1",
+        "it": "pharmaceutical-development-laboratory-project-manager-formulation-expert-mendrisio-site-ti",
+        "de": "pharmaceutical-development-laboratory-project-manager-formulation-expert-mendrisio-site-ticino-sintetica-sa-mendrisio-t1imk1",
+        "fr": "pharmaceutical-development-laboratory-project-manager-formulation-expert-mendrisio-site-ticino-sintetica-sa-mendrisio-t1imk1"
+      },
+      "category": "science",
+      "datePosted": "2026-03-25",
+      "source": "sintetica-careers-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "SENIOR",
+      "sector": "Farmaceutica",
+      "_targetScope": {
+        "canton": "TI",
+        "location": "Mendrisio"
+      },
+      "crawledAt": "",
+      "requirementsByLocale": {
+        "en": [
+          "Master’s degree in Pharmaceutical Sciences, Chemistry, or related field",
+          "Minimum 5 years of experience in sterile injectable formulation development",
+          "Proven track record managing pharmaceutical R&D projects",
+          "Deep knowledge of cGMP, ICH and FDA/EMA guidelines",
+          "Hands-on expertise in parenteral dosage forms and aseptic processing",
+          "Strong leadership, communication and cross-functional coordination skills",
+          "Fluent in English; Italian or German is a plus",
+          "Willingness to work on-site in Mendrisio, Ticino"
+        ],
+        "de": [
+          "Master-Abschluss in Pharmazeutischen Wissenschaften, Chemie oder verwandtem Fachgebiet",
+          "Mindestens 5 Jahre Erfahrung in der Formulierungsentwicklung steriler Injektionspräparate",
+          "Nachweisliche Erfahrung in der Leitung von Pharma-F&E-Projekten",
+          "Vertiefte Kenntnisse der cGMP-, ICH- sowie FDA/EMA-Leitlinien",
+          "Praktische Expertise für parenterale Darreichungsformen und aseptische Verfahren",
+          "Ausgeprägte Führungs-, Kommunikations- und Schnittstellenmanagement-Kenntnisse",
+          "Fließende Englischkenntnisse; Italienisch oder Deutsch von Vorteil",
+          "Bereitschaft zur Arbeit vor Ort in Mendrisio, Tessin"
+        ],
+        "fr": [
+          "Master en sciences pharmaceutiques, chimie ou domaine apparenté",
+          "Minimum 5 ans d’expérience en développement de formulations injectables stériles",
+          "Expérience avérée dans la gestion de projets R&D pharmaceutiques",
+          "Connaissances approfondies des BPF, ICH et lignes directrices FDA/EMA",
+          "Expertise pratique des formes parentérales et procédés aseptiques",
+          "Solides compétences en leadership, communication et coordination transversale",
+          "Anglais courant; l’italien ou l’allemand est un atout",
+          "Disponibilité à travailler sur site à Mendrisio, Tessin"
+        ]
+      },
+      "sourceLang": "it",
+      "salaryMin": 72000,
+      "salaryMax": 97000,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 72000,
+          "maxValue": 97000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "6850"
+    },
+    {
+      "url": "https://app.ncoreplat.com/jobposition/780433/apprendista-tecnologo-di-chimica-e-chimica-farmaceutica-con-maturita-professionale-mendrisio-site-ticino-ch/sintetica",
+      "applyUrl": "https://app.ncoreplat.com/jobposition/780433/apprendista-tecnologo-di-chimica-e-chimica-farmaceutica-con-maturita-professionale-mendrisio-site-ticino-ch/sintetica",
+      "title": "Apprendista tecnologo di chimica e chimica farmaceutica con maturità professionale - Mendrisio site (Ticino)",
+      "company": "Sintetica SA",
+      "companyKey": "sintetica",
+      "location": "Mendrisio",
+      "canton": "TI",
+      "country": "CH",
+      "addressLocality": "Mendrisio",
+      "addressCountry": "CH",
+      "description": "## Descrizione\n- Apprendista tecnologo di chimica e chimica farmaceutica con maturità professionale - Mendrisio site (Ticino) — posizione aperta presso Sintetica SA a Mendrisio, Canton Ticino, Svizzera.\n- Sintetica SA è un'azienda farmaceutica svizzera specializzata nella produzione di farmaci sterili iniettabili.\n- Con sede a Mendrisio, l'azienda offre un ambiente di lavoro innovativo nel settore farmaceutico, con opportunità di crescita professionale nel cuore del Ticino.",
+      "titleByLocale": {
+        "en": "Chemical & Pharmaceutical Technology Apprentice with Vocational Baccalaureate – Mendrisio Site (Ticino)",
+        "it": "Apprendista tecnologo di chimica e chimica farmaceutica con maturità professionale - Mendrisio site (Ticino)",
+        "de": "Technologe EFZ Chemie & Pharmachemie Lehrling mit Berufsmatur – Standort Mendrisio (Tessin)",
+        "fr": "Apprenti technicien en chimie et chimie pharmaceutique avec maturité professionnelle – Site de Mendrisio (Tessin)"
+      },
+      "descriptionByLocale": {
+        "it": "Descrizione - Apprendista tecnologo di chimica e chimica farmaceutica con maturità professionale - Mendrisio site (Ticino) — posizione aperta presso Sintetica SA a Mendrisio, Canton Ticino, Svizzera. - Sintetica SA è un'azienda farmaceutica svizzera specializzata nella produzione di farmaci sterili iniettabili. - Con sede a Mendrisio, l'azienda offre un ambiente di lavoro innovativo nel settore farmaceutico, con opportunità di crescita professionale nel cuore del Ticino.",
+        "en": "Description - Chemical & Pharmaceutical Technology Apprentice with Vocational Baccalaureate – Mendrisio Site (Ticino) — open position at Sintetica SA in Mendrisio, Canton Ticino, Switzerland. - Sintetica SA is a Swiss pharmaceutical company specialized in the production of sterile injectable medicines. - Headquartered in Mendrisio, the company offers an innovative working environment in the pharmaceutical sector, with opportunities for professional growth in the heart of Ticino.",
+        "de": "Beschreibung - Technologe EFZ Chemie & Pharmachemie Lehrling mit Berufsmatur – Standort Mendrisio (Tessin) — offene Stelle bei Sintetica SA in Mendrisio, Kanton Tessin, Schweiz. - Sintetica SA ist ein Schweizer Pharmaunternehmen, das auf die Herstellung steriler Injektionspräparate spezialisiert ist. - Mit Hauptsitz in Mendrisio bietet das Unternehmen eine innovative Arbeitsumgebung im Pharmabereich mit Entwicklungsmöglichkeiten im Herzen des Tessins.",
+        "fr": "Description - Apprenti technicien en chimie et chimie pharmaceutique avec maturité professionnelle – Site de Mendrisio (Tessin) — poste ouvert chez Sintetica SA à Mendrisio, Canton du Tessin, Suisse. - Sintetica SA est une entreprise pharmaceutique suisse spécialisée dans la production de médicaments stériles injectables. - Basée à Mendrisio, l’entreprise offre un environnement de travail novateur dans le secteur pharmaceutique, avec des opportunités de développement professionnel au cœur du Tessin."
+      },
+      "slug": "apprendista-tecnologo-di-chimica-e-chimica-farmaceutica-con-maturita-professionale-mendris",
+      "slugByLocale": {
+        "en": "apprendista-tecnologo-di-chimica-e-chimica-farmaceutica-con-maturita-professionale-mendrisio-site-ticino-sintetica-sa-mendrisio-oj6vo7",
+        "it": "apprendista-tecnologo-di-chimica-e-chimica-farmaceutica-con-maturita-professionale-mendris",
+        "de": "apprendista-tecnologo-di-chimica-e-chimica-farmaceutica-con-maturita-professionale-mendrisio-site-ticino-sintetica-sa-mendrisio-oj6vo7",
+        "fr": "apprendista-tecnologo-di-chimica-e-chimica-farmaceutica-con-maturita-professionale-mendrisio-site-ticino-sintetica-sa-mendrisio-oj6vo7"
+      },
+      "category": "technology",
+      "datePosted": "2026-03-25",
+      "source": "sintetica-careers-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "ENTRY",
+      "sector": "Farmaceutica",
+      "_targetScope": {
+        "canton": "TI",
+        "location": "Mendrisio"
+      },
+      "crawledAt": "",
+      "requirementsByLocale": {
+        "en": [
+          "Hold or be close to completing a Federal Vocational Baccalaureate (MP2) in Chemistry or Life Sciences",
+          "Strong interest in pharmaceutical manufacturing and sterile production processes",
+          "Good command of Italian (written and spoken); basic German or English is an advantage",
+          "Precise, reliable and quality-oriented mindset",
+          "Ability to work safely in a GMP-regulated environment",
+          "Willingness to learn and rotate through different production areas",
+          "Swiss or EU/EFTA citizenship or valid work permit for Switzerland"
+        ],
+        "de": [
+          "Abgeschlossene oder kurz vor dem Abschluss stehende Berufsmatur (MP2) im Bereich Chemie oder Life Sciences",
+          "Ausgeprägtes Interesse an pharmazeutischer Produktion und sterilen Herstellungsprozessen",
+          "Gute Italienischkenntnisse in Wort und Schrift; Grundkenntnisse in Deutsch oder Englisch von Vorteil",
+          "Präzise, zuverlässige und qualitätsorientierte Arbeitsweise",
+          "Fähigkeit, sicher in einer GMP-regulierten Umgebung zu arbeiten",
+          "Lernbereitschaft und Rotation durch verschiedene Produktionsbereiche",
+          "Schweizer oder EU/EFTA-Bürger:in bzw. gültige Schweizer Arbeitserlaubnis"
+        ],
+        "fr": [
+          "Maturité professionnelle (MP2) en chimie ou sciences de la vie obtenue ou en cours d’obtention",
+          "Vif intérêt pour la fabrication pharmaceutique et les procédés de production stérile",
+          "Bonne maîtrise de l’italien (oral et écrit); notions d’allemand ou d’anglais souhaitées",
+          "Esprit précis, fiable et tourné vers la qualité",
+          "Capacité à travailler en toute sécurité dans un environnement réglementé GMP",
+          "Volonté d’apprendre et de tourner dans différents secteurs de production",
+          "Citoyenneté suisse ou UE/AELE, ou permis de travail suisse valide"
+        ]
+      },
+      "sourceLang": "it",
+      "salaryMin": 46500,
+      "salaryMax": 62500,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 46500,
+          "maxValue": 62500,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "6850"
+    },
+    {
+      "url": "https://app.ncoreplat.com/jobposition/778848/quality-control-microbiological-laboratory-technician-ch/sintetica",
+      "applyUrl": "https://app.ncoreplat.com/jobposition/778848/quality-control-microbiological-laboratory-technician-ch/sintetica",
+      "title": "Quality Control Microbiological Laboratory Technician - Mendrisio Site (Ticino)",
+      "company": "Sintetica SA",
+      "companyKey": "sintetica",
+      "location": "Mendrisio",
+      "canton": "TI",
+      "country": "CH",
+      "addressLocality": "Mendrisio",
+      "addressCountry": "CH",
+      "description": "## Descrizione\n\nQuality Control Microbiological Laboratory Technician - Mendrisio Site (Ticino) — posizione aperta presso Sintetica SA a Mendrisio, Canton Ticino, Svizzera. Sintetica SA è un'azienda farmaceutica svizzera specializzata nella produzione di farmaci sterili iniettabili. Con sede a Mendrisio, l'azienda offre un ambiente di lavoro innovativo nel settore farmaceutico, con opportunità di crescita professionale nel cuore del Ticino.",
+      "titleByLocale": {
+        "en": "Quality Control Microbiological Laboratory Technician - Mendrisio Site (Ticino)",
+        "it": "Tecnico Laboratorio Microbiologico Controllo Qualità - Sede di Mendrisio (Ticino)",
+        "de": "Qualität Control Microbiological Laboratory Techniker - Mendrisio Site (Ticino)",
+        "fr": "Technicien laboratoire QC microbiologie – Site de Mendrisio (Tessin)"
+      },
+      "descriptionByLocale": {
+        "it": "Descrizione Quality Control Microbiological Laboratory Technician - Mendrisio Site (Ticino) — posizione aperta presso Sintetica SA a Mendrisio, Canton Ticino, Svizzera. Sintetica SA è un'azienda farmaceutica svizzera specializzata nella produzione di farmaci sterili iniettabili. Con sede a Mendrisio, l'azienda offre un ambiente di lavoro innovativo nel settore farmaceutico, con opportunità di crescita professionale nel cuore del Ticino.",
+        "en": "Description Quality Control Microbiological Laboratory Technician – Mendrisio Site (Ticino) — open position at Sintetica SA in Mendrisio, Canton Ticino, Switzerland. Sintetica SA is a Swiss pharmaceutical company specialised in the production of sterile injectable drugs. Headquartered in Mendrisio, the company offers an innovative working environment in the pharmaceutical sector, with professional growth opportunities in the heart of Ticino.",
+        "de": "Beschreibung Quality Control Microbiological Laboratory Technician – Mendrisio Site (Ticino) – offene Stelle bei Sintetica SA in Mendrisio, Kanton Tessin, Schweiz. Sintetica SA ist ein Schweizer Pharmaunternehmen, das auf die Produktion von sterilen Injektionspräparaten spezialisiert ist. Mit Hauptsitz in Mendrisio bietet das Unternehmen eine innovative Arbeitsumgebung im Pharmasektor mit Entwicklungsmöglichkeiten im Herzen des Tessins.",
+        "fr": "Description Quality Control Microbiological Laboratory Technician – Mendrisio Site (Ticino) – poste ouvert chez Sintetica SA à Mendrisio, canton du Tessin, Suisse. Sintetica SA est une entreprise pharmaceutique suisse spécialisée dans la production de médicaments stériles injectables. Basée à Mendrisio, l’entreprise offre un environnement de travail innovant dans le secteur pharmaceutique, avec des opportunités de croissance professionnelle au cœur du Tessin."
+      },
+      "slug": "tecnico-laboratorio-microbiologico-controllo-qualita-sede-di-mendrisio-ticino-sintetica-sa-mendrisio",
+      "slugByLocale": {
+        "en": "quality-control-microbiological-laboratory-technician-mendrisio-site-ticino-sintetica-sa-mendrisio-0pikhs",
+        "it": "tecnico-laboratorio-microbiologico-controllo-qualita-sede-di-mendrisio-ticino-sintetica-sa-mendrisio",
+        "de": "mikrobiologie-qc-labortechniker-standort-mendrisio-tessin-sintetica-sa-mendrisio",
+        "fr": "technicien-laboratoire-qc-microbiologie-site-de-mendrisio-tessin-sintetica-sa-mendrisio"
+      },
+      "category": "science",
+      "datePosted": "2026-03-25",
+      "source": "sintetica-careers-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "MID",
+      "sector": "Farmaceutica",
+      "_targetScope": {
+        "canton": "TI",
+        "location": "Mendrisio"
+      },
+      "crawledAt": "",
+      "requirementsByLocale": {},
+      "sourceLang": "it",
+      "previousSlugs": [
+        "quality-control-microbiological-laboratory-technician-mendrisio-site-ticino-sintetica",
+        "qualitat-control-microbiological-laboratory-techniker-mendrisio-site-ticino-sintetica-sa-mendrisio-0pikhs",
+        "qualite-control-microbiological-laboratory-technicien-mendrisio-site-ticino-sintetica-sa-mendrisio-0pikhs"
+      ],
+      "salaryMin": 58000,
+      "salaryMax": 78000,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 58000,
+          "maxValue": 78000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "6850"
+    },
+    {
+      "url": "https://app.ncoreplat.com/jobposition/774403/regulatory-affairs-specialist-mendrisio-site-ticino-ch/sintetica",
+      "applyUrl": "https://app.ncoreplat.com/jobposition/774403/regulatory-affairs-specialist-mendrisio-site-ticino-ch/sintetica",
+      "title": "Regulatory Affairs Specialist - Mendrisio site (Ticino)",
+      "company": "Sintetica SA",
+      "companyKey": "sintetica",
+      "location": "Mendrisio",
+      "canton": "TI",
+      "country": "CH",
+      "addressLocality": "Mendrisio",
+      "addressCountry": "CH",
+      "description": "## Descrizione\n- Regulatory Affairs Specialist - Mendrisio site (Ticino) — posizione aperta presso Sintetica SA a Mendrisio, Canton Ticino, Svizzera.\n- Sintetica SA è un'azienda farmaceutica svizzera specializzata nella produzione di farmaci sterili iniettabili.\n- Con sede a Mendrisio, l'azienda offre un ambiente di lavoro innovativo nel settore farmaceutico, con opportunità di crescita professionale nel cuore del Ticino.",
+      "titleByLocale": {
+        "en": "Regulatory Affairs Specialist - Mendrisio site (Ticino)",
+        "it": "Specialista Affari Regolatori - Sede di Mendrisio (Ticino)",
+        "fr": "Spécialiste des Affaires Réglementaires - Site de Mendrisio (Tessin)",
+        "de": "Regulatory Affairs Spezialist - Mendrisio site (Ticino)"
+      },
+      "descriptionByLocale": {
+        "it": "Descrizione - Regulatory Affairs Specialist - Mendrisio site (Ticino) — posizione aperta presso Sintetica SA a Mendrisio, Canton Ticino, Svizzera. - Sintetica SA è un'azienda farmaceutica svizzera specializzata nella produzione di farmaci sterili iniettabili. - Con sede a Mendrisio, l'azienda offre un ambiente di lavoro innovativo nel settore farmaceutico, con opportunità di crescita professionale nel cuore del Ticino.",
+        "en": "Regulatory Affairs Specialist - Mendrisio site (Ticino) — position open at Sintetica SA in Mendrisio, Canton Ticino, Switzerland. Sintetica SA is a Swiss pharmaceutical company specialized in the production of sterile injectable drugs. With its headquarters in Mendrisio, the company offers an innovative work environment in the pharmaceutical sector, with opportunities for professional growth in the heart of Ticino.",
+        "de": "Regulatory Affairs Specialist - Standort Mendrisio (Tessin) — Stelle offen bei Sintetica SA in Mendrisio, Kanton Tessin, Schweiz. Sintetica SA ist ein Schweizer Pharmakonzern, der auf die Herstellung von sterilen injizierbaren Arzneimitteln spezialisiert ist. Mit Sitz in Mendrisio bietet das Unternehmen ein innovatives Arbeitsumfeld im Pharmabereich, mit Möglichkeiten für berufliche Entwicklung im Herzen des Tessins.",
+        "fr": "Spécialiste des Affaires Réglementaires - Site de Mendrisio (Tessin) — poste ouvert chez Sintetica SA à Mendrisio, canton du Tessin, Suisse. Sintetica SA est une entreprise pharmaceutique suisse spécialisée dans la production de médicaments injectables stériles. Avec son siège à Mendrisio, l'entreprise offre un environnement de travail innovant dans le secteur pharmaceutique, avec des opportunités de croissance professionnelle au cœur du Tessin."
+      },
+      "slug": "specialista-affari-regolatori-sede-di-mendrisio-ticino-sintetica-sa-mendrisio",
+      "slugByLocale": {
+        "en": "regulatory-affairs-specialist-mendrisio-site-ticino-sintetica-sa-mendrisio-2kc1p0",
+        "it": "specialista-affari-regolatori-sede-di-mendrisio-ticino-sintetica-sa-mendrisio",
+        "de": "regulatory-affairs-spezialist-mendrisio-site-ticino-sintetica-sa-mendrisio-2kc1p0",
+        "fr": "regulatory-affairs-specialiste-mendrisio-site-ticino-sintetica-sa-mendrisio-2kc1p0"
+      },
+      "category": "pharma",
+      "datePosted": "2026-03-25",
+      "source": "sintetica-careers-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "MID",
+      "sector": "Farmaceutica",
+      "_targetScope": {
+        "canton": "TI",
+        "location": "Mendrisio"
+      },
+      "crawledAt": "",
+      "requirementsByLocale": {},
+      "sourceLang": "it",
+      "previousSlugs": [
+        "regulatory-affairs-specialist-mendrisio-site-ticino-sintetica"
+      ],
+      "salaryMin": 76500,
+      "salaryMax": 103500,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 76500,
+          "maxValue": 103500,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "6850"
+    },
+    {
+      "url": "https://app.ncoreplat.com/jobposition/767962/apprendista-operatore-di-edifici-e-infrastrutture-afc-ch/sintetica",
+      "applyUrl": "https://app.ncoreplat.com/jobposition/767962/apprendista-operatore-di-edifici-e-infrastrutture-afc-ch/sintetica",
+      "title": "Apprendista operatore di edifici e infrastrutture AFC",
+      "company": "Sintetica SA",
+      "companyKey": "sintetica",
+      "location": "Mendrisio",
+      "canton": "TI",
+      "country": "CH",
+      "addressLocality": "Mendrisio",
+      "addressCountry": "CH",
+      "description": "## Apprendista operatore di edifici e infrastrutture AFC\n\n### Descrizione\n\nApprendista operatore di edifici e infrastrutture AFC — posizione aperta presso Sintetica SA a Mendrisio, Canton Ticino, Svizzera.\n\n### Sintetica SA\n\n- Sintetica SA è un'azienda farmaceutica svizzera specializzata nella produzione di farmaci sterili iniettabili.\n- Con sede a Mendrisio, l'azienda offre un ambiente di lavoro innovativo nel settore farmaceutico, con opportunità di crescita professionale nel cuore del Ticino.\n\n## Contatto\n\n(Non presente nella descrizione originale)",
+      "titleByLocale": {
+        "en": "AFC Building and Infrastructure Operator Trainee",
+        "it": "Apprendista operatore di edifici e infrastrutture AFC",
+        "de": "AFC Gebäude- und Infrastruktur-Operateur-Lehrling",
+        "fr": "Apprenti opérateur de bâtiments et d'infrastructures AFC"
+      },
+      "descriptionByLocale": {
+        "it": "Apprendista operatore di edifici e infrastrutture AFC ### Descrizione Apprendista operatore di edifici e infrastrutture AFC — posizione aperta presso Sintetica SA a Mendrisio, Canton Ticino, Svizzera. ### Sintetica SA - Sintetica SA è un'azienda farmaceutica svizzera specializzata nella produzione di farmaci sterili iniettabili. - Con sede a Mendrisio, l'azienda offre un ambiente di lavoro innovativo nel settore farmaceutico, con opportunità di crescita professionale nel cuore del Ticino. ## Contatto (Non presente nella descrizione originale)",
+        "en": "AFC Building and Infrastructure Operator Trainee AFC Building and Infrastructure Operator Trainee position open at Sintetica SA in Mendrisio, Canton Ticino, Switzerland. ### Sintetica SA - Sintetica SA is a Swiss pharmaceutical company specialized in the production of sterile injectable pharmaceuticals. - With its headquarters in Mendrisio, the company offers an innovative work environment in the pharmaceutical sector, with opportunities for professional growth in the heart of Ticino. ## Contact Please note that the contact information is not provided in the original description.",
+        "de": "AFC Gebäude- und Infrastruktur-Operateur-Lehrling AFC Gebäude- und Infrastruktur-Operateur-Lehrling-Stelle offen bei Sintetica SA in Mendrisio, Kanton Tessin, Schweiz. ### Sintetica SA - Sintetica SA ist ein Schweizer Pharmakonzern, der auf die Herstellung von steril einsetzbaren Arzneimitteln spezialisiert ist. - Mit Sitz in Mendrisio bietet das Unternehmen ein innovatives Arbeitsumfeld im Pharmabereich, mit Möglichkeiten für berufliche Entwicklung im Herzen des Tessins. ## Kontakt Bitte beachten Sie, dass die Kontaktinformationen nicht in der ursprünglichen Beschreibung enthalten sind.",
+        "fr": "Apprenti opérateur de bâtiments et d'infrastructures AFC Poste d'apprenti opérateur de bâtiments et d'infrastructures AFC ouvert chez Sintetica SA à Mendrisio, canton du Tessin, Suisse. ### Sintetica SA - Sintetica SA est une entreprise pharmaceutique suisse spécialisée dans la production de médicaments stériles injectables. - Avec son siège à Mendrisio, l'entreprise offre un environnement de travail innovant dans le secteur pharmaceutique, avec des opportunités de croissance professionnelle au cœur du Tessin. ## Contact Veuillez noter que les informations de contact ne sont pas fournies dans la description d'origine."
+      },
+      "slug": "apprendista-operatore-di-edifici-e-infrastrutture-afc-sintetica",
+      "slugByLocale": {
+        "en": "apprendista-operatore-di-edifici-e-infrastrutture-afc-sintetica-sa-mendrisio-suxo60",
+        "it": "apprendista-operatore-di-edifici-e-infrastrutture-afc-sintetica",
+        "de": "apprendista-operatore-di-edifici-e-infrastrutture-afc-sintetica-sa-mendrisio-suxo60",
+        "fr": "apprendista-operatore-di-edifici-e-infrastrutture-afc-sintetica-sa-mendrisio-suxo60"
+      },
+      "category": "production",
+      "datePosted": "2026-03-25",
+      "source": "sintetica-careers-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "ENTRY",
+      "sector": "Farmaceutica",
+      "_targetScope": {
+        "canton": "TI",
+        "location": "Mendrisio"
+      },
+      "crawledAt": "",
+      "requirementsByLocale": {},
+      "sourceLang": "it",
+      "salaryMin": 54500,
+      "salaryMax": 73500,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 54500,
+          "maxValue": 73500,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "6850"
+    },
+    {
+      "url": "https://app.ncoreplat.com/jobposition/767976/apprendista-laboratorista-in-biologia-afc-ch/sintetica",
+      "applyUrl": "https://app.ncoreplat.com/jobposition/767976/apprendista-laboratorista-in-biologia-afc-ch/sintetica",
+      "title": "Apprendista laboratorista in biologia (AFC)",
+      "company": "Sintetica SA",
+      "companyKey": "sintetica",
+      "location": "Mendrisio",
+      "canton": "TI",
+      "country": "CH",
+      "addressLocality": "Mendrisio",
+      "addressCountry": "CH",
+      "description": "## Apprendista laboratorista in biologia (AFC)\n\n### Descrizione\nApprendista laboratorista in biologia (AFC) — posizione aperta presso Sintetica SA a Mendrisio, Canton Ticino, Svizzera.\n\n### Sintetica SA\nSintetica SA è un'azienda farmaceutica svizzera specializzata nella produzione di farmaci sterili iniettabili.\n\n### L'azienda\nCon sede a Mendrisio, l'azienda offre un ambiente di lavoro innovativo nel settore farmaceutico, con opportunità di crescita professionale nel cuore del Ticino.",
+      "titleByLocale": {
+        "it": "Apprendista laboratorista in biologia (AFC)",
+        "fr": "Assistant de laboratoire en biologie (AFC)",
+        "en": "Apprendista laboratorista in biologia (AFC)",
+        "de": "Apprendista laboratorista in biologia (AFC)"
+      },
+      "descriptionByLocale": {
+        "it": "Apprendista laboratorista in biologia (AFC) ### Descrizione Apprendista laboratorista in biologia (AFC) — posizione aperta presso Sintetica SA a Mendrisio, Canton Ticino, Svizzera. ### Sintetica SA Sintetica SA è un'azienda farmaceutica svizzera specializzata nella produzione di farmaci sterili iniettabili. ### L'azienda Con sede a Mendrisio, l'azienda offre un ambiente di lavoro innovativo nel settore farmaceutico, con opportunità di crescita professionale nel cuore del Ticino.",
+        "en": "Biological Laboratory Assistant (AFC) Biological Laboratory Assistant (AFC) — open position at Sintetica SA in Mendrisio, Canton Ticino, Switzerland. ### Sintetica SA Sintetica SA is a Swiss pharmaceutical company specializing in the production of sterile injectable pharmaceuticals. ### The Company With its headquarters in Mendrisio, the company offers an innovative work environment in the pharmaceutical sector, with opportunities for professional growth in the heart of Ticino.",
+        "de": "Laborant in Biologie (AFC) Laborant in Biologie (AFC) — offene Stelle bei Sintetica SA in Mendrisio, Kanton Tessin, Schweiz. ### Sintetica SA Sintetica SA ist ein Schweizer Pharmakonzern, der auf die Herstellung von sterilen injizierbaren Arzneimitteln spezialisiert ist. ### Das Unternehmen Mit Sitz in Mendrisio bietet das Unternehmen ein innovatives Arbeitsumfeld im Pharmasektor, mit Möglichkeiten für berufliche Entwicklung im Herzen des Tessins.",
+        "fr": "Assistant de laboratoire en biologie (AFC) Assistant de laboratoire en biologie (AFC) — poste ouvert chez Sintetica SA à Mendrisio, canton du Tessin, Suisse. ### Sintetica SA Sintetica SA est une entreprise pharmaceutique suisse spécialisée dans la production de médicaments stériles injectables. ### L'entreprise Avec son siège à Mendrisio, l'entreprise offre un environnement de travail innovant dans le secteur pharmaceutique, avec des opportunités de croissance professionnelle au cœur du Tessin."
+      },
+      "slug": "apprendista-laboratorista-in-biologia-afc-sintetica",
+      "slugByLocale": {
+        "en": "apprendista-laboratorista-in-biologia-afc-sintetica-sa-mendrisio-ded591",
+        "it": "apprendista-laboratorista-in-biologia-afc-sintetica",
+        "de": "apprendista-laboratorista-in-biologia-afc-sintetica-sa-mendrisio-ded591",
+        "fr": "apprendista-laboratorista-in-biologia-afc-sintetica-sa-mendrisio-ded591"
+      },
+      "category": "internship",
+      "datePosted": "2026-03-25",
+      "source": "sintetica-careers-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "ENTRY",
+      "sector": "Farmaceutica",
+      "_targetScope": {
+        "canton": "TI",
+        "location": "Mendrisio"
+      },
+      "crawledAt": "",
+      "requirementsByLocale": {},
+      "sourceLang": "it",
+      "needsRetranslation": true,
+      "salaryMin": 46500,
+      "salaryMax": 62500,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 46500,
+          "maxValue": 62500,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "6850"
+    },
+    {
+      "url": "https://app.ncoreplat.com/jobposition/767980/apprendista-laboratorista-in-chimica-afc-ch/sintetica",
+      "applyUrl": "https://app.ncoreplat.com/jobposition/767980/apprendista-laboratorista-in-chimica-afc-ch/sintetica",
+      "title": "Apprendista laboratorista in chimica (AFC)",
+      "company": "Sintetica SA",
+      "companyKey": "sintetica",
+      "location": "Mendrisio",
+      "canton": "TI",
+      "country": "CH",
+      "addressLocality": "Mendrisio",
+      "addressCountry": "CH",
+      "description": "## Apprendista laboratorista in chimica (AFC)\n\n### Descrizione\nApprendista laboratorista in chimica (AFC) — posizione aperta presso Sintetica SA a Mendrisio, Canton Ticino, Svizzera.\n\n### Sintetica SA\nSintetica SA è un'azienda farmaceutica svizzera specializzata nella produzione di farmaci sterili iniettabili.\n\n### L'azienda\nCon sede a Mendrisio, l'azienda offre un ambiente di lavoro innovativo nel settore farmaceutico, con opportunità di crescita professionale nel cuore del Ticino.",
+      "titleByLocale": {
+        "it": "Apprendista laboratorista in chimica (AFC)",
+        "de": "Laborantin (AFC) in Chemie",
+        "fr": "Assistant(e) de laboratoire en chimie (AFC)",
+        "en": "Apprendista laboratorista in chimica (AFC)"
+      },
+      "descriptionByLocale": {
+        "it": "Apprendista laboratorista in chimica (AFC) ### Descrizione Apprendista laboratorista in chimica (AFC) — posizione aperta presso Sintetica SA a Mendrisio, Canton Ticino, Svizzera. ### Sintetica SA Sintetica SA è un'azienda farmaceutica svizzera specializzata nella produzione di farmaci sterili iniettabili. ### L'azienda Con sede a Mendrisio, l'azienda offre un ambiente di lavoro innovativo nel settore farmaceutico, con opportunità di crescita professionale nel cuore del Ticino.",
+        "en": "Chemistry Laboratory Assistant (AFC) Chemistry Laboratory Assistant (AFC) — open position at Sintetica SA in Mendrisio, Canton Ticino, Switzerland. ### Sintetica SA Sintetica SA is a Swiss pharmaceutical company specialized in the production of sterile injectable pharmaceuticals. ### The Company With its headquarters in Mendrisio, the company offers an innovative work environment in the pharmaceutical sector, with opportunities for professional growth in the heart of Ticino.",
+        "de": "Laborantin (AFC) in Chemie Laborantin (AFC) — offene Stelle bei Sintetica SA in Mendrisio, Kanton Tessin, Schweiz. ### Sintetica SA Sintetica SA ist ein Schweizer Arzneimittelunternehmen, das auf die Herstellung von steril einsetzbaren Arzneimitteln spezialisiert ist. ### Das Unternehmen Mit Sitz in Mendrisio bietet das Unternehmen ein innovatives Arbeitsumfeld im Arzneimittelbereich, mit Möglichkeiten für berufliche Entwicklung im Herzen des Tessins.",
+        "fr": "Assistant(e) de laboratoire en chimie (AFC) Assistant(e) de laboratoire en chimie (AFC) — poste ouvert à Sintetica SA à Mendrisio, canton du Tessin, Suisse. ### Sintetica SA Sintetica SA est une entreprise pharmaceutique suisse spécialisée dans la production de médicaments stériles injectables. ### L'entreprise Avec son siège à Mendrisio, l'entreprise offre un environnement de travail innovant dans le secteur pharmaceutique, avec des opportunités de croissance professionnelle au cœur du Tessin."
+      },
+      "slug": "apprendista-laboratorista-in-chimica-afc-sintetica",
+      "slugByLocale": {
+        "en": "apprendista-laboratorista-in-chimica-afc-sintetica-sa-mendrisio-3s50zc",
+        "it": "apprendista-laboratorista-in-chimica-afc-sintetica",
+        "de": "apprendista-laboratorista-in-chimica-afc-sintetica-sa-mendrisio-3s50zc",
+        "fr": "apprendista-laboratorista-in-chimica-afc-sintetica-sa-mendrisio-3s50zc"
+      },
+      "category": "internship",
+      "datePosted": "2026-03-25",
+      "source": "sintetica-careers-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "ENTRY",
+      "sector": "Farmaceutica",
+      "_targetScope": {
+        "canton": "TI",
+        "location": "Mendrisio"
+      },
+      "crawledAt": "",
+      "requirementsByLocale": {},
+      "sourceLang": "it",
+      "needsRetranslation": true,
+      "salaryMin": 46500,
+      "salaryMax": 62500,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 46500,
+          "maxValue": 62500,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "6850"
+    },
+    {
+      "url": "https://app.ncoreplat.com/jobposition/767993/apprendista-impiegato-di-commercio-afc-ch/sintetica",
+      "applyUrl": "https://app.ncoreplat.com/jobposition/767993/apprendista-impiegato-di-commercio-afc-ch/sintetica",
+      "title": "Apprendista impiegato di commercio (AFC)",
+      "company": "Sintetica SA",
+      "companyKey": "sintetica",
+      "location": "Mendrisio",
+      "canton": "TI",
+      "country": "CH",
+      "addressLocality": "Mendrisio",
+      "addressCountry": "CH",
+      "description": "## Apprendista impiegato di commercio (AFC)\n\n### Descrizione\nApprendista impiegato di commercio (AFC) — posizione aperta presso Sintetica SA a Mendrisio, Canton Ticino, Svizzera. Sintetica SA è un'azienda farmaceutica svizzera specializzata nella produzione di farmaci sterili iniettabili. Con sede a Mendrisio, l'azienda offre un ambiente di lavoro innovativo nel settore farmaceutico, con opportunità di crescita professionale nel cuore del Ticino.\n\n## Mansioni\n- Apprendista impiegato di commercio (AFC) \n\n## Requisiti\n- \n\n## Cosa offriamo\n- \n\n## Contatto\n-",
+      "titleByLocale": {
+        "en": "Commercial Trainee (AFC)",
+        "it": "Apprendista impiegato di commercio (AFC)",
+        "de": "Ausbildungskaufmann (AFC)",
+        "fr": "Stagiaire en commerce (AFC)"
+      },
+      "descriptionByLocale": {
+        "it": "Apprendista impiegato di commercio (AFC) ### Descrizione Apprendista impiegato di commercio (AFC) — posizione aperta presso Sintetica SA a Mendrisio, Canton Ticino, Svizzera. Sintetica SA è un'azienda farmaceutica svizzera specializzata nella produzione di farmaci sterili iniettabili. Con sede a Mendrisio, l'azienda offre un ambiente di lavoro innovativo nel settore farmaceutico, con opportunità di crescita professionale nel cuore del Ticino. ## Mansioni - Apprendista impiegato di commercio (AFC) ## Requisiti - ## Cosa offriamo - ## Contatto",
+        "en": "Commercial Trainee (AFC) Commercial Trainee (AFC) — open position at Sintetica SA in Mendrisio, Canton Ticino, Switzerland. Sintetica SA is a Swiss pharmaceutical company specialized in the production of sterile injectable pharmaceuticals. With its headquarters in Mendrisio, the company offers an innovative work environment in the pharmaceutical sector, with opportunities for professional growth in the heart of Ticino. ## Responsibilities - Commercial Trainee (AFC) ## Requirements - ## What We Offer - ## Contact",
+        "de": "Ausbildungskaufmann (AFC) Ausbildungskaufmann (AFC) — offene Stelle bei Sintetica SA in Mendrisio, Kanton Tessin, Schweiz. Sintetica SA ist ein Schweizer Pharmakonzern, der auf die Herstellung von sterilen injizierbaren Arzneimitteln spezialisiert ist. Mit Sitz in Mendrisio bietet das Unternehmen ein innovatives Arbeitsumfeld im Pharmabereich, mit Möglichkeiten für berufliche Entwicklung im Herzen des Tessins. ## Aufgaben - Ausbildungskaufmann (AFC) ## Anforderungen - ## Was wir bieten - ## Kontakt",
+        "fr": "Stagiaire en commerce (AFC) Stagiaire en commerce (AFC) — poste ouvert chez Sintetica SA à Mendrisio, canton du Tessin, Suisse. Sintetica SA est une société pharmaceutique suisse spécialisée dans la production de médicaments stériles injectables. Avec son siège à Mendrisio, l'entreprise offre un environnement de travail innovant dans le secteur pharmaceutique, avec des opportunités de croissance professionnelle au cœur du Tessin. ## Tâches - Stagiaire en commerce (AFC) ## Exigences - ## Ce que nous offrons - ## Contact"
+      },
+      "slug": "apprendista-impiegato-di-commercio-afc-sintetica",
+      "slugByLocale": {
+        "en": "apprendista-impiegato-di-commercio-afc-sintetica-sa-mendrisio-mawo6w",
+        "it": "apprendista-impiegato-di-commercio-afc-sintetica",
+        "de": "apprendista-impiegato-di-commercio-afc-sintetica-sa-mendrisio-mawo6w",
+        "fr": "apprendista-impiegato-di-commercio-afc-sintetica-sa-mendrisio-mawo6w"
+      },
+      "category": "internship",
+      "datePosted": "2026-03-25",
+      "source": "sintetica-careers-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "ENTRY",
+      "sector": "Farmaceutica",
+      "_targetScope": {
+        "canton": "TI",
+        "location": "Mendrisio"
+      },
+      "crawledAt": "",
+      "requirementsByLocale": {},
+      "sourceLang": "it",
+      "salaryMin": 46500,
+      "salaryMax": 62500,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 46500,
+          "maxValue": 62500,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "6850"
+    },
+    {
+      "url": "https://app.ncoreplat.com/jobposition/286485/spontaneous-application-mendrisio-site-ticino-ch/sintetica",
+      "applyUrl": "https://app.ncoreplat.com/jobposition/286485/spontaneous-application-mendrisio-site-ticino-ch/sintetica",
+      "title": "Spontaneous application - Mendrisio site (Ticino)",
+      "company": "Sintetica SA",
+      "companyKey": "sintetica",
+      "location": "Mendrisio",
+      "canton": "TI",
+      "country": "CH",
+      "addressLocality": "Mendrisio",
+      "addressCountry": "CH",
+      "description": "## Descrizione\n- Spontaneous application - Mendrisio site (Ticino) — posizione aperta presso Sintetica SA a Mendrisio, Canton Ticino, Svizzera.\n- Sintetica SA è un'azienda farmaceutica svizzera specializzata nella produzione di farmaci sterili iniettabili.\n- Con sede a Mendrisio, l'azienda offre un ambiente di lavoro innovativo nel settore farmaceutico, con opportunità di crescita professionale nel cuore del Ticino.\n\n## Mansioni\n- (nessuna informazione disponibile)\n\n## Requisiti\n- (nessuna informazione disponibile)\n\n## Cosa offriamo\n- (nessuna informazione disponibile)\n\n## Contatto\n- (nessuna informazione disponibile)",
+      "titleByLocale": {
+        "en": "Spontaneous application - Mendrisio site (Ticino)",
+        "it": "Candidatura spontanea - Sede di Mendrisio (Ticino)",
+        "de": "Spontane Anstellung - Standort Mendrisio (Tessin)",
+        "fr": "Candidature Spontanée - Site de Mendrisio (Tessin)"
+      },
+      "descriptionByLocale": {
+        "it": "Descrizione - Spontaneous application - Mendrisio site (Ticino) — posizione aperta presso Sintetica SA a Mendrisio, Canton Ticino, Svizzera. - Sintetica SA è un'azienda farmaceutica svizzera specializzata nella produzione di farmaci sterili iniettabili. - Con sede a Mendrisio, l'azienda offre un ambiente di lavoro innovativo nel settore farmaceutico, con opportunità di crescita professionale nel cuore del Ticino. ## Mansioni - (nessuna informazione disponibile) ## Requisiti - (nessuna informazione disponibile) ## Cosa offriamo - (nessuna informazione disponibile) ## Contatto - (nessuna informazione disponibile)",
+        "en": "Description - Spontaneous application - Mendrisio site (Ticino) — open position at Sintetica SA in Mendrisio, Canton Ticino, Switzerland. - Sintetica SA is a Swiss pharmaceutical company specialized in the production of sterile injectable pharmaceuticals. - With its headquarters in Mendrisio, the company offers an innovative work environment in the pharmaceutical sector, with opportunities for professional growth in the heart of Ticino. ## Responsibilities - (no information available) ## Requirements - (no information available) ## What We Offer - (no information available) ## Contact - (no information available)",
+        "de": "Beschreibung - Spontane Anstellung - Standort Mendrisio (Tessin) — offene Stelle bei Sintetica SA in Mendrisio, Kanton Tessin, Schweiz. - Sintetica SA ist ein schweizerisches Arzneimittelunternehmen, das auf die Herstellung von steril einsetzbaren Arzneimitteln spezialisiert ist. - Mit Sitz in Mendrisio bietet das Unternehmen ein innovatives Arbeitsumfeld im Pharmabereich, mit Möglichkeiten für berufliche Entwicklung im Herzen des Tessins. ## Aufgaben - (keine Informationen verfügbar) ## Anforderungen - (keine Informationen verfügbar) ## Was wir bieten - (keine Informationen verfügbar) ## Kontakt - (keine Informationen verfügbar)",
+        "fr": "Description - Candidature spontanée - Site de Mendrisio (Tessin) — poste ouvert chez Sintetica SA à Mendrisio, canton du Tessin, Suisse. - Sintetica SA est une entreprise pharmaceutique suisse spécialisée dans la production de médicaments stériles injectables. - Avec son siège à Mendrisio, l'entreprise offre un environnement de travail innovant dans le secteur pharmaceutique, avec des opportunités de croissance professionnelle au cœur du Tessin. ## Tâches - (pas d'informations disponibles) ## Exigences - (pas d'informations disponibles) ## Ce que nous offrons - (pas d'informations disponibles) ## Contact - (pas d'informations disponibles)"
+      },
+      "slug": "candidatura-spontanea-sede-di-mendrisio-ticino-sintetica-sa-mendrisio",
+      "slugByLocale": {
+        "en": "spontaneous-application-mendrisio-site-ticino-sintetica-sa-mendrisio-ys8ib5",
+        "it": "candidatura-spontanea-sede-di-mendrisio-ticino-sintetica-sa-mendrisio",
+        "de": "spontaneous-application-mendrisio-site-ticino-sintetica-sa-mendrisio-ys8ib5",
+        "fr": "spontaneous-application-mendrisio-site-ticino-sintetica-sa-mendrisio-ys8ib5"
+      },
+      "category": "general",
+      "datePosted": "2026-03-25",
+      "source": "sintetica-careers-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "MID",
+      "sector": "Farmaceutica",
+      "_targetScope": {
+        "canton": "TI",
+        "location": "Mendrisio"
+      },
+      "crawledAt": "",
+      "requirementsByLocale": {},
+      "sourceLang": "it",
+      "previousSlugs": [
+        "spontaneous-application-mendrisio-site-ticino-sintetica"
+      ],
+      "salaryMin": 58000,
+      "salaryMax": 78000,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 58000,
+          "maxValue": 78000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "6850"
+    },
+    {
+      "url": "https://app.ncoreplat.com/jobposition/286490/spontaneous-application-couvet-site-neuchatel-ch/sintetica-couvet",
+      "applyUrl": "https://app.ncoreplat.com/jobposition/286490/spontaneous-application-couvet-site-neuchatel-ch/sintetica-couvet",
+      "title": "Spontaneous application - Couvet Site (Neuchâtel)",
+      "company": "Sintetica SA",
+      "companyKey": "sintetica",
+      "location": "Mendrisio",
+      "canton": "TI",
+      "country": "CH",
+      "addressLocality": "Mendrisio",
+      "addressCountry": "CH",
+      "description": "## Descrizione\n- Spontaneous application - Couvet Site (Neuchâtel) — posizione aperta presso Sintetica SA a Mendrisio, Canton Ticino, Svizzera.\n- Sintetica SA è un'azienda farmaceutica svizzera specializzata nella produzione di farmaci sterili iniettabili.\n- Con sede a Mendrisio, l'azienda offre un ambiente di lavoro innovativo nel settore farmaceutico, con opportunità di crescita professionale nel cuore del Ticino.\n\n## Mansioni\n- (nessuna informazione disponibile)\n\n## Requisiti\n- (nessuna informazione disponibile)\n\n## Cosa offriamo\n- (nessuna informazione disponibile)\n\n## Contatto\n- (nessuna informazione disponibile)",
+      "titleByLocale": {
+        "en": "Spontaneous application - Couvet Site (Neuchâtel)",
+        "de": "Spontane Anwendung - Couvet Site (Neuenburg)",
+        "fr": "Application spontanée - Couvet Site (Neuchâtel)",
+        "it": "Spontaneous application - Couvet Site (Neuchâtel)"
+      },
+      "descriptionByLocale": {
+        "it": "Descrizione - Spontaneous application - Couvet Site (Neuchâtel) — posizione aperta presso Sintetica SA a Mendrisio, Canton Ticino, Svizzera. - Sintetica SA è un'azienda farmaceutica svizzera specializzata nella produzione di farmaci sterili iniettabili. - Con sede a Mendrisio, l'azienda offre un ambiente di lavoro innovativo nel settore farmaceutico, con opportunità di crescita professionale nel cuore del Ticino. ## Mansioni - (nessuna informazione disponibile) ## Requisiti - (nessuna informazione disponibile) ## Cosa offriamo - (nessuna informazione disponibile) ## Contatto - (nessuna informazione disponibile)",
+        "en": "Description - Spontaneous application - Couvet Site (Neuchâtel) — open position at Sintetica SA in Mendrisio, Canton of Ticino, Switzerland. - Sintetica SA is a Swiss pharmaceutical company specialized in the production of sterile injectable drugs. - Based in Mendrisio, the company offers an innovative working environment in the pharmaceutical sector, with opportunities for professional growth in the heart of Ticino. ## Duties - (no information available) ## Requirements - (no information available) ## What we offer - (no information available) ## Contact - (no information available)",
+        "de": "Beschreibung – Initiativbewerbung – Standort Couvet (Neuchâtel) – offene Stelle bei Sintetica SA in Mendrisio, Kanton Tessin, Schweiz. - Sintetica SA ist ein Schweizer Pharmaunternehmen, das auf die Herstellung steriler injizierbarer Medikamente spezialisiert ist. - Das in Mendrisio ansässige Unternehmen bietet ein innovatives Arbeitsumfeld im Pharmasektor mit Möglichkeiten zur beruflichen Weiterentwicklung im Herzen des Tessins. ## Aufgaben - (keine Informationen verfügbar) ## Anforderungen - (keine Informationen verfügbar) ## Was wir bieten - (keine Informationen verfügbar) ## Kontakt - (keine Informationen verfügbar)",
+        "fr": "Description - Candidature spontanée - Site de Couvet (Neuchâtel) — poste ouvert chez Sintetica SA à Mendrisio, Canton du Tessin, Suisse. - Sintetica SA est une société pharmaceutique suisse spécialisée dans la production de médicaments injectables stériles. - Basée à Mendrisio, l'entreprise offre un environnement de travail innovant dans le secteur pharmaceutique, avec des opportunités d'évolution professionnelle au cœur du Tessin. ## Fonctions - (aucune information disponible) ## Exigences - (aucune information disponible) ## Ce que nous proposons - (aucune information disponible) ## Contact - (aucune information disponible)"
+      },
+      "slug": "spontaneous-application-couvet-site-neuchatel-sintetica",
+      "slugByLocale": {
+        "en": "spontaneous-application-couvet-site-neuchatel-sintetica-sa-mendrisio-6qz9pp",
+        "it": "spontaneous-application-couvet-site-neuchatel-sintetica",
+        "de": "spontaneous-application-couvet-site-neuchatel-sintetica-sa-mendrisio-6qz9pp",
+        "fr": "spontaneous-application-couvet-site-neuchatel-sintetica-sa-mendrisio-6qz9pp"
+      },
+      "category": "general",
+      "datePosted": "2026-03-25",
+      "source": "sintetica-careers-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "MID",
+      "sector": "Farmaceutica",
+      "_targetScope": {
+        "canton": "TI",
+        "location": "Mendrisio"
+      },
+      "crawledAt": "",
+      "requirementsByLocale": {},
+      "sourceLang": "it",
+      "salaryMin": 58000,
+      "salaryMax": 78000,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 58000,
+          "maxValue": 78000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "6850"
+    }
+  ]
 }
