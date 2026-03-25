@@ -1778,6 +1778,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.carburanti-prezzo-rialzo-ticino.title': 'Kraftstoffpreise steigen: Dieselpreis über 2 Euro im Tessin',
     'blog.article.carburanti-prezzo-rialzo-ticino.excerpt': 'Die Preise für Benzin und Diesel steigen, wobei der Diesel die 2-Euro-Marke überschreitet. Hier ist, was Sie wissen müssen.',
     'blog.article.carburanti-prezzo-rialzo-ticino.imageAlt': 'Blick auf den Luganersee mit umliegenden Bergen.',
+    'blog.article.guida-michelin-ticino.title': 'Die Schweiz italienisch in der Michelin-Guides der schönsten Dörfer',
+    'blog.article.guida-michelin-ticino.excerpt': 'Die 7 schönsten Orte im Tessin, wie sie die Michelin-Guide 2026 empfiehlt',
+    'blog.article.guida-michelin-ticino.imageAlt': 'Mittelalterliche Siedlung mit Schloss in der Schweiz',
 };
 
 export default blogMetaDe;

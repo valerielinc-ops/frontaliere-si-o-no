@@ -1778,6 +1778,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.carburanti-prezzo-rialzo-ticino.title': 'Carburanti in rialzo: prezzo diesel oltre 2 euro in Ticino',
     'blog.article.carburanti-prezzo-rialzo-ticino.excerpt': 'Il prezzo di benzina e diesel aumenta, con il gasolio che supera i 2 euro. Ecco cosa sapere.',
     'blog.article.carburanti-prezzo-rialzo-ticino.imageAlt': 'Vista del Lago di Lugano con montagne circostanti.',
+    'blog.article.guida-michelin-ticino.title': 'Anche la Svizzera italiana nella Guida Michelin dei borghi più belli',
+    'blog.article.guida-michelin-ticino.excerpt': 'I 7 luoghi più belli da visitare nel Ticino secondo la Guida Michelin 2026',
+    'blog.article.guida-michelin-ticino.imageAlt': 'Borgo medievale con castello in Svizzera',
 };
 
 export default blogMetaIt;

@@ -5340,4 +5340,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/carburanti-prezzo-rialzo-ticino.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'guida-michelin-ticino',
+    category: 'novita',
+    date: '2026-03-25T13:45:35.530Z',
+    image: '/images/blog/guida-michelin-ticino.jpg',
+    hasCalculator: true,
+  },
 ];

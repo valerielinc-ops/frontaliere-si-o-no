@@ -1778,6 +1778,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.carburanti-prezzo-rialzo-ticino.title': 'Fuel Prices on the Rise: Diesel Exceeds 2 Euros in Ticino',
     'blog.article.carburanti-prezzo-rialzo-ticino.excerpt': 'The price of gasoline and diesel is increasing, with diesel surpassing 2 euros. Here’s what you need to know.',
     'blog.article.carburanti-prezzo-rialzo-ticino.imageAlt': 'View of Lake Lugano with surrounding mountains.',
+    'blog.article.guida-michelin-ticino.title': 'Switzerland\'s Italian Region Featured in Michelin Guide to the Most Beautiful Villages',
+    'blog.article.guida-michelin-ticino.excerpt': '7 must-visit destinations in Ticino according to the Michelin Guide 2026',
+    'blog.article.guida-michelin-ticino.imageAlt': 'Medieval town with castle in Switzerland',
 };
 
 export default blogMetaEn;

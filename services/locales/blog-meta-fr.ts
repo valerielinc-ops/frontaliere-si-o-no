@@ -1778,6 +1778,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.carburanti-prezzo-rialzo-ticino.title': 'Carburants en hausse : le diesel dépasse 2 euros au Tessin',
     'blog.article.carburanti-prezzo-rialzo-ticino.excerpt': 'Les prix de l\'essence et du diesel augmentent, le gazole franchissant les 2 euros. Voici ce qu\'il faut savoir.',
     'blog.article.carburanti-prezzo-rialzo-ticino.imageAlt': 'Vue du lac de Lugano avec les montagnes environnantes.',
+    'blog.article.guida-michelin-ticino.title': 'La Suisse italienne dans la Guide Michelin des plus beaux villages',
+    'blog.article.guida-michelin-ticino.excerpt': '7 lieux incontournables à visiter dans le Tessin selon la Guide Michelin 2026',
+    'blog.article.guida-michelin-ticino.imageAlt': 'Village médiéval avec château en Suisse',
 };
 
 export default blogMetaFr;

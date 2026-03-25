@@ -10318,6 +10318,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-guida-michelin-ticino': {
+    title: 'Anche la Svizzera italiana nella Guida Michelin dei borghi più belli | Frontaliere Ticino',
+    description: 'Scopri i 7 luoghi più belli da visitare nel Ticino secondo la Guida Michelin 2026. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, anche, italiana, nella, michelin',
+    ogTitle: 'Guida Michelin Ticino 2026 - Borghi più belli da visitare',
+    ogDescription: 'Scopri i 7 luoghi più belli da visitare nel Ticino secondo la Guida Michelin 2026',
+    canonicalPath: '/articoli-frontaliere/guida-michelin-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Guida Michelin Ticino 2026: i 7 luoghi più belli da visitare",
+      "description": "Scopri i 7 luoghi più belli da visitare nel Ticino secondo la Guida Michelin 2026. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/guida-michelin-ticino.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Borgo medievale con castello in Svizzera"
+      },
+      "datePublished": "2026-03-25T13:45:35+00:00",
+      "dateModified": "2026-03-25T13:45:35+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/guida-michelin-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

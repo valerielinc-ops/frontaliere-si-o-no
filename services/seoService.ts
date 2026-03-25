@@ -1714,6 +1714,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-chiasso-missione-emergenza-luci-blu': { name: 'Chiasso Missione emergenza', path: '/articoli-frontaliere/chiasso-missione-emergenza-luci-blu', parent: 'blog' },
     'blog-aggregazione-basso-mendrisiotto-rizza-chiasso-autocritica': { name: 'Aggregazione Basso Mendrisiotto', path: '/articoli-frontaliere/aggregazione-basso-mendrisiotto-rizza-chiasso-autocritica', parent: 'blog' },
     'blog-carburanti-prezzo-rialzo-ticino': { name: 'Prezzo carburanti', path: '/articoli-frontaliere/carburanti-prezzo-rialzo-ticino', parent: 'blog' },
+    'blog-guida-michelin-ticino': { name: 'Guida Michelin Ticino', path: '/articoli-frontaliere/guida-michelin-ticino', parent: 'blog' },
   };
 
   const info = sectionNames[section];
