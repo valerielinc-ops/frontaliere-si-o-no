@@ -64,10 +64,13 @@ jobs:
           echo "╚══════════════════════════════════════════════════════════╝"
           echo ""
 
-          # FRO-326/FRO-424: Volume-based staggering — increased to spread AI quota
-          # Large crawlers (>50 jobs): 600s delay between each (10 minutes)
-          # Medium crawlers (10-50 jobs): 180s delay (3 minutes)
-          # Small crawlers (<10 jobs): 60s delay (1 minute)
+          # FRO-326/FRO-424: Volume-based staggering.
+          # AI quota spreading is no longer needed here (skip_ai_translation=1 is passed
+          # to all crawlers; translation runs centrally via translate-pending.yml).
+          # Delays exist only to avoid GitHub API rate limits and runner contention.
+          # Large crawlers (>50 jobs): 120s delay (2 minutes)
+          # Medium crawlers (10-50 jobs): 60s delay (1 minute)
+          # Small crawlers (<10 jobs): 20s delay
           # Coop is excluded (runs at 06:00 UTC separately)
 
           # Known large crawlers (>50 estimated jobs per run)
@@ -82,12 +85,12 @@ jobs:
             # Skip Coop — it has its own schedule
             if [[ "$base" == "coop"* ]]; then echo "SKIP"; return; fi
             for lg in $LARGE_CRAWLERS; do
-              if [[ "$lg" == "update-jobs-$base" ]]; then echo "600"; return; fi
+              if [[ "$lg" == "update-jobs-$base" ]]; then echo "120"; return; fi
             done
             for md in $MEDIUM_CRAWLERS; do
-              if [[ "$md" == "update-jobs-$base" ]]; then echo "180"; return; fi
+              if [[ "$md" == "update-jobs-$base" ]]; then echo "60"; return; fi
             done
-            echo "60"
+            echo "20"
           }
 
           # Discover all crawler workflow files
