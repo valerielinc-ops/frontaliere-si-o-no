@@ -1,6 +1,6 @@
 {
   "crawlerKey": "manor",
-  "assembledAt": "2026-03-25T09:37:11.864Z",
+  "assembledAt": "2026-03-25T20:50:32.638Z",
   "jobs": [
     {
       "title": "Collaboratore/trice servizio (Manora) 50%",
@@ -35,6 +35,7 @@
         "fr": "Collaboratore/trice servizio (Manora) 50%"
       },
       "crawledAt": "",
+      "needsRetranslation": true,
       "requirementsByLocale": {},
       "sourceLang": "it",
       "salaryMin": 57500,
@@ -50,7 +51,12 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6600"
+      "streetAddress": "Piazza Dante",
+      "postalCode": "6900",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Collaborateur/trice service (Manora) 50%",
@@ -85,6 +91,7 @@
         "fr": "Collaborateur/trice service (Manora) 50%"
       },
       "crawledAt": "",
+      "needsRetranslation": true,
       "requirementsByLocale": {},
       "sourceLang": "it",
       "salaryMin": 57500,
@@ -100,7 +107,12 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6600"
+      "streetAddress": "Piazza Dante",
+      "postalCode": "6900",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Apprendista Polydesigner 3D AFC 100%",
@@ -135,6 +147,7 @@
         "fr": "Apprendista Polydesigner 3D AFC 100%"
       },
       "crawledAt": "",
+      "needsRetranslation": true,
       "requirementsByLocale": {},
       "sourceLang": "it",
       "salaryMin": 46500,
@@ -150,7 +163,12 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6900"
+      "streetAddress": "Piazza Dante",
+      "postalCode": "6900",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Polydesigner 3D AFC 100%",
@@ -185,6 +203,7 @@
         "de": "Polydesigner 3D AFC 100%"
       },
       "crawledAt": "",
+      "needsRetranslation": true,
       "requirementsByLocale": {},
       "sourceLang": "it",
       "salaryMin": 58000,
@@ -200,7 +219,12 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6900"
+      "streetAddress": "Piazza Dante",
+      "postalCode": "6900",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME"
     }
   ]
 }

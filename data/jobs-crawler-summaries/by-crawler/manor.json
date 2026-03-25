@@ -1,16 +1,16 @@
 {
   "key": "manor",
   "label": "Manor",
-  "generatedAt": "2026-03-25T09:37:11.865Z",
+  "generatedAt": "2026-03-25T20:50:32.638Z",
   "total": 4,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 4,
-  "durationMs": 9472,
-  "avgDurationMs": 9472,
+  "durationMs": 8509,
+  "avgDurationMs": 8509,
   "durationHistory": [
-    9472
+    8509
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -65,7 +65,12 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6600"
+      "streetAddress": "Piazza Dante",
+      "postalCode": "6900",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Collaborateur/trice service (Manora) 50%",
@@ -116,7 +121,12 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6600"
+      "streetAddress": "Piazza Dante",
+      "postalCode": "6900",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Apprendista Polydesigner 3D AFC 100%",
@@ -167,7 +177,12 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6900"
+      "streetAddress": "Piazza Dante",
+      "postalCode": "6900",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Polydesigner 3D AFC 100%",
@@ -218,7 +233,12 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6900"
+      "streetAddress": "Piazza Dante",
+      "postalCode": "6900",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME"
     }
   ]
 }
