@@ -148,9 +148,14 @@ const expectedPath = normalizePathname(requestedUrl.pathname);
 const expectedOgTitleNormalized = normalize(expectedOgTitle);
 const expectedOgImageNormalized = normalizeUrlForCompare(expectedOgImage);
 
+let titlePathMatchCount = 0;
+const IMAGE_SOFT_THRESHOLD = 3; // Accept after 3 consecutive title+path matches without image
+
 while (Date.now() < deadline) {
   try {
-    const res = await fetch(url, {
+    const cacheBustUrl = new URL(url);
+    cacheBustUrl.searchParams.set('_cb', Date.now().toString(36));
+    const res = await fetch(cacheBustUrl.href, {
       redirect: 'follow',
       headers: {
         'user-agent': 'FrontaliereTicinoMetaWait/1.0 (+https://frontaliereticino.ch)',
@@ -176,6 +181,19 @@ while (Date.now() < deadline) {
     ].filter(([, path]) => Boolean(path));
     const matchedPathSource = pathCandidates.find(([, path]) => path === expectedPath)?.[0] || '';
     const pathMatches = Boolean(matchedPathSource);
+
+    if (res.ok && titleMatches && pathMatches && !imageMatches) {
+      titlePathMatchCount++;
+      if (titlePathMatchCount >= IMAGE_SOFT_THRESHOLD) {
+        console.log(`⚠️  Image not yet matching after ${titlePathMatchCount} checks — accepting (CDN lag)`);
+        console.log(`   expected: ${expectedOgImageNormalized}`);
+        console.log(`   actual:   ${normalizeUrlForCompare(ogImage)}`);
+        console.log(`✅ Live article metadata ready (title+path confirmed): ${url}`);
+        process.exit(0);
+      }
+    } else if (!(res.ok && titleMatches && pathMatches)) {
+      titlePathMatchCount = 0; // Reset if title/path don't match
+    }
 
     if (res.ok && titleMatches && imageMatches && pathMatches) {
       console.log(`✅ Live article metadata ready: ${url}`);

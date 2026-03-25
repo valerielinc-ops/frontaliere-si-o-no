@@ -86,10 +86,14 @@ async function runWaitScript(articleUrl: string, expectedTitle = 'Articolo di te
   });
 }
 
+function getPathname(reqUrl: string | undefined): string {
+  try { return new URL(reqUrl || '/', 'http://localhost').pathname; } catch { return reqUrl || '/'; }
+}
+
 describe('wait-for-live-article-meta', () => {
   it('accepts og:url when the live page adds a trailing slash', async () => {
     const server = http.createServer((req, res) => {
-      if (req.url === '/articoli-frontaliere/test-article') {
+      if (getPathname(req.url) === '/articoli-frontaliere/test-article') {
         const baseUrl = `http://127.0.0.1:${(server.address() as any).port}`;
         res.writeHead(200, { 'content-type': 'text/html; charset=utf-8' });
         res.end(createArticleHtml({ baseUrl }));
@@ -114,7 +118,7 @@ describe('wait-for-live-article-meta', () => {
 
   it('falls back to the final response URL when og:url is missing', async () => {
     const server = http.createServer((req, res) => {
-      if (req.url === '/articoli-frontaliere/test-article') {
+      if (getPathname(req.url) === '/articoli-frontaliere/test-article') {
         const baseUrl = `http://127.0.0.1:${(server.address() as any).port}`;
         res.writeHead(200, { 'content-type': 'text/html; charset=utf-8' });
         res.end(createArticleHtml({ baseUrl, ogUrl: '' }));
@@ -140,7 +144,7 @@ describe('wait-for-live-article-meta', () => {
   it('waits through GitHub Pages fallback responses and succeeds once article metadata is live', async () => {
     let requestCount = 0;
     const server = http.createServer((req, res) => {
-      if (req.url === '/articoli-frontaliere/test-article') {
+      if (getPathname(req.url) === '/articoli-frontaliere/test-article') {
         requestCount += 1;
         const baseUrl = `http://127.0.0.1:${(server.address() as any).port}`;
         res.writeHead(requestCount < 3 ? 404 : 200, { 'content-type': 'text/html; charset=utf-8' });
@@ -177,7 +181,7 @@ describe('wait-for-live-article-meta', () => {
 
   it('normalizes HTML entities and www/apex differences when comparing OG title and image', async () => {
     const server = http.createServer((req, res) => {
-      if (req.url === '/articoli-frontaliere/test-article') {
+      if (getPathname(req.url) === '/articoli-frontaliere/test-article') {
         const baseUrl = `http://127.0.0.1:${(server.address() as any).port}`;
         res.writeHead(200, { 'content-type': 'text/html; charset=utf-8' });
         res.end(

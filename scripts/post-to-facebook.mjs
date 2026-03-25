@@ -107,6 +107,26 @@ async function main() {
     console.log('');
   }
 
+  // Force Facebook to scrape/refresh OG metadata for the article URL
+  console.log('🔄 Forcing Facebook OG cache refresh...');
+  try {
+    const scrapeRes = await fetch(`https://graph.facebook.com/v21.0/?id=${encodeURIComponent(articleUrl)}&scrape=true&access_token=${FB_PAGE_ACCESS_TOKEN}`, {
+      method: 'POST',
+    });
+    const scrapeData = await scrapeRes.json();
+    if (scrapeData.title) {
+      console.log(`✅ Facebook OG refreshed: "${scrapeData.title}"`);
+      console.log(`   og:image = ${scrapeData.image?.[0]?.url || '(none)'}`);
+    } else {
+      console.log(`⚠️  Facebook scrape response: ${JSON.stringify(scrapeData).slice(0, 200)}`);
+    }
+  } catch (e) {
+    console.log(`⚠️  Facebook scrape failed: ${e.message}`);
+  }
+
+  // Wait for Facebook's cache to propagate after scrape
+  await new Promise(r => setTimeout(r, 3000));
+
   try {
     const url = `https://graph.facebook.com/v21.0/${FB_PAGE_ID}/feed`;
     const body = new URLSearchParams({
