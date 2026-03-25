@@ -34,7 +34,8 @@ import {
   writeSummaryCrawlerSlice,
   assembleJobsDataset,
 } from './assemble-jobs-dataset.mjs';
-import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, detectLang } from './lib/dedicated-crawler-common.mjs';
+import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, detectLang, mergeLocaleTextMap,
+} from './lib/dedicated-crawler-common.mjs';
 import { isTargetSwissLocation, inferSwissTargetCanton } from './lib/target-swiss-locations.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -470,9 +471,9 @@ async function mergeZegnaJobs(discoveredJobs) {
         source: 'zegna-careers-crawler',
         brand: discovered.brand || existing.brand,
         contractType: discovered.contractType || existing.contractType,
-        titleByLocale: { ...existing.titleByLocale, ...filterEmpty(discovered.titleByLocale) },
-        descriptionByLocale: { ...existing.descriptionByLocale, ...filterEmpty(discovered.descriptionByLocale) },
-        slugByLocale: { ...existing.slugByLocale, ...filterEmpty(discovered.slugByLocale) },
+        titleByLocale: mergeLocaleTextMap(existing.titleByLocale, discovered.titleByLocale, 3),
+        descriptionByLocale: mergeLocaleTextMap(existing.descriptionByLocale, discovered.descriptionByLocale, 30),
+        slugByLocale: mergeLocaleTextMap(existing.slugByLocale, discovered.slugByLocale, 3),
       };
 
       if (discovered.description && discovered.description.length > (existing.description || '').length) {

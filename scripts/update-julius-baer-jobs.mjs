@@ -18,7 +18,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { printPublishedJobUrls, writeJobsSummary, snapshotJobSlugs, computeCrawlDiff, printCrawlChangeSummary, writeCrawlChangeSummaryToGH, setCrawlerStartTime, getCrawlerElapsedMs } from './jobs-url-helper.mjs';
 import { writeJobsCrawlerSlice, writeSummaryCrawlerSlice, assembleJobsDataset } from './assemble-jobs-dataset.mjs';
-import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage } from './lib/dedicated-crawler-common.mjs';
+import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, mergeLocaleTextMap } from './lib/dedicated-crawler-common.mjs';
 import { parseWorkdayListings, parseWorkdayJobDetail, slugify, normalizeSpace, stripHtml, WORKDAY_API_BASE, WORKDAY_PUBLIC_BASE, COMPANY_HOST, isTicinoLocation, detectCategory, detectExperienceLevel, detectEmploymentType, buildPublicUrl } from './lib/julius-baer-job-parser.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -200,7 +200,14 @@ async function mergeJobs(discoveredJobs) {
   for (const d of discoveredJobs) {
     const key = canonicalizeUrl(d.url);
     const ex = existingByUrl.get(key);
-    if (ex) { merged.push(safeMergeJobLocales(ex, d)); updated++; }
+    if (ex) { merged.push({
+      ...ex,
+      ...d,
+      titleByLocale: mergeLocaleTextMap(ex.titleByLocale, d.titleByLocale, 3),
+      descriptionByLocale: mergeLocaleTextMap(ex.descriptionByLocale, d.descriptionByLocale, 30),
+      slugByLocale: mergeLocaleTextMap(ex.slugByLocale, d.slugByLocale, 3),
+      previousSlugs: [...new Set([...(ex.previousSlugs || []), ...(d.previousSlugs || [])])].slice(0, 20),
+    }); updated++; }
     else { merged.push(d); added++; }
   }
   for (const [url] of existingByUrl) { if (!discoveredByUrl.has(url)) removed++; }

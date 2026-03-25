@@ -38,7 +38,8 @@ import {
   assembleJobsDataset,
 } from './assemble-jobs-dataset.mjs';
 import { validateJobUrls } from './lib/validate-job-url.mjs';
-import { translateMissingJobLocales, validateDedicatedLocaleCoverage } from './lib/dedicated-crawler-common.mjs';
+import { translateMissingJobLocales, validateDedicatedLocaleCoverage, mergeLocaleTextMap,
+} from './lib/dedicated-crawler-common.mjs';
 import { buildPdfBackedDescription, extractPdfJobContentFromUrl } from './lib/pdf-job-content.mjs';
 import { extractDrupalNodeId, extractIrsolDetailPage, MIN_IRSOL_BODY_LENGTH } from './lib/irsol-html-parser.mjs';
 import { translateTextWithLocalPipeline } from './lib/job-localization-pipeline.mjs';
@@ -792,9 +793,9 @@ async function mergeUsiJobs(discoveredJobs) {
         sector: discovered.sector || existing.sector,
         source: 'usi-drupal-crawler',
         // Merge locale data (keep AI-localized content, update source locales)
-        titleByLocale: { ...existing.titleByLocale, ...filterEmpty(discovered.titleByLocale) },
-        descriptionByLocale: { ...existing.descriptionByLocale, ...filterEmpty(discovered.descriptionByLocale) },
-        slugByLocale: { ...existing.slugByLocale, ...filterEmpty(discovered.slugByLocale) },
+        titleByLocale: mergeLocaleTextMap(existing.titleByLocale, discovered.titleByLocale, 3),
+        descriptionByLocale: mergeLocaleTextMap(existing.descriptionByLocale, discovered.descriptionByLocale, 30),
+        slugByLocale: mergeLocaleTextMap(existing.slugByLocale, discovered.slugByLocale, 3),
       };
 
       // Update base description only if it's richer

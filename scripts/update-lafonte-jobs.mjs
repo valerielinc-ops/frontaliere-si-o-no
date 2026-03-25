@@ -42,6 +42,7 @@ import {
   runDedicatedBaseCrawler,
   translateMissingJobLocales,
   validateDedicatedLocaleCoverage,
+  mergeLocaleTextMap,
 } from './lib/dedicated-crawler-common.mjs';
 import {
   htmlToMarkdown,
@@ -432,18 +433,9 @@ async function mergeJobs(discoveredJobs) {
         category: discovered.category || ex.category,
         sector: discovered.sector || ex.sector,
         source: 'la-fonte-crawler',
-        titleByLocale: {
-          ...ex.titleByLocale,
-          ...filterEmpty(discovered.titleByLocale),
-        },
-        descriptionByLocale: {
-          ...ex.descriptionByLocale,
-          ...filterEmpty(discovered.descriptionByLocale),
-        },
-        slugByLocale: {
-          ...ex.slugByLocale,
-          ...filterEmpty(discovered.slugByLocale),
-        },
+        titleByLocale: mergeLocaleTextMap(ex.titleByLocale, discovered.titleByLocale, 3),
+        descriptionByLocale: mergeLocaleTextMap(ex.descriptionByLocale, discovered.descriptionByLocale, 30),
+        slugByLocale: mergeLocaleTextMap(ex.slugByLocale, discovered.slugByLocale, 3),
       };
 
       if (

@@ -32,6 +32,7 @@ import {
   translateMissingJobLocales,
   validateDedicatedLocaleCoverage,
   detectLang,
+  mergeLocaleTextMap,
 } from './lib/dedicated-crawler-common.mjs';
 import {
   parseLombardiListingPage,
@@ -209,9 +210,9 @@ function mergeJobs(discoveredJobs) {
     const clean = {
       ...prev,
       ...job,
-      titleByLocale: { ...(prev.titleByLocale || {}), ...(job.titleByLocale || {}) },
+      titleByLocale: mergeLocaleTextMap(prev.titleByLocale, job.titleByLocale, 3),
       descriptionByLocale: { ...prevDesc, ...(job.descriptionByLocale || {}) },
-      slugByLocale: { ...(prev.slugByLocale || {}), ...(job.slugByLocale || {}) },
+      slugByLocale: mergeLocaleTextMap(prev.slugByLocale, job.slugByLocale, 3),
     };
     delete clean._enrichedFromDetail;
     return clean;

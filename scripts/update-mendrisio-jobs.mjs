@@ -40,6 +40,7 @@ import {
 import {
   runDedicatedBaseCrawler,
   validateDedicatedLocaleCoverage,
+  mergeLocaleTextMap,
 } from './lib/dedicated-crawler-common.mjs';
 import {
   buildPdfBackedDescription,
@@ -617,18 +618,9 @@ async function mergeMendrisioJobs(discoveredJobs) {
         sector: discovered.sector || existing.sector,
         source: 'mendrisio-concorsi-crawler',
         validThrough: discovered.validThrough || existing.validThrough,
-        titleByLocale: {
-          ...prevTitleByLocale,
-          ...filterEmpty(discovered.titleByLocale),
-        },
-        descriptionByLocale: {
-          ...prevDescByLocale,
-          ...filterEmpty(discovered.descriptionByLocale),
-        },
-        slugByLocale: {
-          ...prevSlugByLocale,
-          ...filterEmpty(discovered.slugByLocale),
-        },
+        titleByLocale: mergeLocaleTextMap(prevTitleByLocale, discovered.titleByLocale, 3),
+        descriptionByLocale: mergeLocaleTextMap(prevDescByLocale, discovered.descriptionByLocale, 30),
+        slugByLocale: mergeLocaleTextMap(prevSlugByLocale, discovered.slugByLocale, 3),
       };
 
       if (

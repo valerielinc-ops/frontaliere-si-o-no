@@ -33,6 +33,7 @@ import {
 import {
   runDedicatedBaseCrawler,
   validateDedicatedLocaleCoverage,
+  mergeLocaleTextMap,
 } from './lib/dedicated-crawler-common.mjs';
 import { inferSwissTargetCanton } from './lib/target-swiss-locations.mjs';
 
@@ -443,9 +444,9 @@ async function mergeIstJobs(discoveredJobs) {
         category: discovered.category || existingJob.category,
         sector: discovered.sector || existingJob.sector,
         source: 'ist-inspirededu-crawler',
-        titleByLocale: { ...existingJob.titleByLocale, ...filterEmpty(discovered.titleByLocale) },
-        descriptionByLocale: { ...existingJob.descriptionByLocale, ...filterEmpty(discovered.descriptionByLocale) },
-        slugByLocale: { ...existingJob.slugByLocale, ...filterEmpty(discovered.slugByLocale) },
+        titleByLocale: mergeLocaleTextMap(existingJob.titleByLocale, discovered.titleByLocale, 3),
+        descriptionByLocale: mergeLocaleTextMap(existingJob.descriptionByLocale, discovered.descriptionByLocale, 30),
+        slugByLocale: mergeLocaleTextMap(existingJob.slugByLocale, discovered.slugByLocale, 3),
       };
 
       if (discovered.description && discovered.description.length > (existingJob.description || '').length) {

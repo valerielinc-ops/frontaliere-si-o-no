@@ -14,7 +14,8 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { printPublishedJobUrls, writeJobsSummary, snapshotJobSlugs, computeCrawlDiff, printCrawlChangeSummary, writeCrawlChangeSummaryToGH, setCrawlerStartTime, getCrawlerElapsedMs } from './jobs-url-helper.mjs';
 import { writeJobsCrawlerSlice, writeSummaryCrawlerSlice, assembleJobsDataset } from './assemble-jobs-dataset.mjs';
-import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage } from './lib/dedicated-crawler-common.mjs';
+import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, mergeLocaleTextMap,
+} from './lib/dedicated-crawler-common.mjs';
 import { parseSwissMedicalJobs, slugify, normalizeSpace, TICINO_REGION_UUID } from './lib/swiss-medical-network-job-parser.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -126,7 +127,7 @@ async function mergeJobs(discoveredJobs) {
   for (const d of discoveredJobs) {
     const key = canonicalizeUrl(d.url);
     const ex = existingByUrl.get(key);
-    if (ex) { merged.push({ ...ex, title: d.title || ex.title, company: COMPANY_NAME, companyKey: COMPANY_KEY, source: 'swiss-medical-smartrecruiters-crawler', titleByLocale: { ...ex.titleByLocale, ...filterEmpty(d.titleByLocale) }, descriptionByLocale: { ...ex.descriptionByLocale, ...filterEmpty(d.descriptionByLocale) }, slugByLocale: { ...ex.slugByLocale, ...filterEmpty(d.slugByLocale) } }); updated++; }
+    if (ex) { merged.push({ ...ex, title: d.title || ex.title, company: COMPANY_NAME, companyKey: COMPANY_KEY, source: 'swiss-medical-smartrecruiters-crawler', titleByLocale: mergeLocaleTextMap(ex.titleByLocale, d.titleByLocale, 3), descriptionByLocale: mergeLocaleTextMap(ex.descriptionByLocale, d.descriptionByLocale, 30), slugByLocale: mergeLocaleTextMap(ex.slugByLocale, d.slugByLocale, 3) }); updated++; }
     else { merged.push(d); added++; }
   }
   for (const [url] of existingByUrl) { if (!discoveredByUrl.has(url)) removed++; }

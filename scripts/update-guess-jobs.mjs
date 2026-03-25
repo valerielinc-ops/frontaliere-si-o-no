@@ -35,6 +35,7 @@ import {
   translateMissingJobLocales,
   validateDedicatedLocaleCoverage,
   detectLang,
+  mergeLocaleTextMap,
 } from './lib/dedicated-crawler-common.mjs';
 import {
   GUESS_WORKABLE_ACCOUNT_ID,
@@ -267,27 +268,14 @@ async function mergeJobs(discoveredJobs) {
     const key = jobMatchKey(discovered);
     const existingJob = existingByKey.get(key);
     if (existingJob) {
-      const next = {
+      merged.push({
         ...existingJob,
         ...discovered,
-        titleByLocale: {
-          ...(existingJob.titleByLocale || {}),
-          ...(discovered.titleByLocale || {}),
-        },
-        descriptionByLocale: {
-          ...(existingJob.descriptionByLocale || {}),
-          ...(discovered.descriptionByLocale || {}),
-        },
-        slugByLocale: {
-          ...(existingJob.slugByLocale || {}),
-          ...(discovered.slugByLocale || {}),
-        },
-        requirementsByLocale: {
-          ...(existingJob.requirementsByLocale || {}),
-          ...(discovered.requirementsByLocale || {}),
-        },
-      };
-      merged.push(next);
+        titleByLocale: mergeLocaleTextMap(existingJob.titleByLocale, discovered.titleByLocale, 3),
+        descriptionByLocale: mergeLocaleTextMap(existingJob.descriptionByLocale, discovered.descriptionByLocale, 30),
+        slugByLocale: mergeLocaleTextMap(existingJob.slugByLocale, discovered.slugByLocale, 3),
+        previousSlugs: [...new Set([...(existingJob.previousSlugs || []), ...(discovered.previousSlugs || [])])].slice(0, 20),
+      });
       updated += 1;
     } else {
       merged.push(discovered);

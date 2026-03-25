@@ -43,6 +43,7 @@ import {
   normalize,
   normalizeKey,
   detectLang,
+  mergeLocaleTextMap,
 } from './lib/dedicated-crawler-common.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -620,9 +621,9 @@ function mergeJobs(discoveredJobs) {
     const merged = {
       ...prev,
       ...job,
-      titleByLocale: { ...(prev.titleByLocale || {}), ...(job.titleByLocale || {}) },
+      titleByLocale: mergeLocaleTextMap(prev.titleByLocale, job.titleByLocale, 3),
       descriptionByLocale: descByLocale,
-      slugByLocale: { ...(prev.slugByLocale || {}), ...(job.slugByLocale || {}) },
+      slugByLocale: mergeLocaleTextMap(prev.slugByLocale, job.slugByLocale, 3),
     };
     delete merged._enrichedFromDetail;
     return merged;

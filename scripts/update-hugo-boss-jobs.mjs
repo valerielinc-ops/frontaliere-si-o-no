@@ -20,7 +20,8 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { snapshotJobSlugs, computeCrawlDiff, printCrawlChangeSummary, writeCrawlChangeSummaryToGH, setCrawlerStartTime, getCrawlerElapsedMs } from './jobs-url-helper.mjs';
 import { writeJobsCrawlerSlice, writeSummaryCrawlerSlice, assembleJobsDataset } from './assemble-jobs-dataset.mjs';
-import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage } from './lib/dedicated-crawler-common.mjs';
+import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, mergeLocaleTextMap,
+} from './lib/dedicated-crawler-common.mjs';
 import { parseSearchPage, isHugoBossTargetLocation, buildDetailUrl, detectCategory, detectExperienceLevel } from './lib/hugo-boss-job-parser.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -122,7 +123,7 @@ async function mergeJobs(discoveredJobs) {
   for (const discovered of discoveredJobs) {
     const key = canonicalizeUrl(discovered.url);
     const old = existingByUrl.get(key);
-    if (old) { merged.push({ ...old, ...discovered, titleByLocale: { ...old.titleByLocale, ...discovered.titleByLocale }, descriptionByLocale: { ...old.descriptionByLocale, ...discovered.descriptionByLocale }, slugByLocale: { ...old.slugByLocale, ...discovered.slugByLocale } }); updated++; }
+    if (old) { merged.push({ ...old, ...discovered, titleByLocale: mergeLocaleTextMap(old.titleByLocale, discovered.titleByLocale, 3), descriptionByLocale: mergeLocaleTextMap(old.descriptionByLocale, discovered.descriptionByLocale, 30), slugByLocale: mergeLocaleTextMap(old.slugByLocale, discovered.slugByLocale, 3) }); updated++; }
     else { merged.push(discovered); added++; }
   }
   const final = [...nonCompanyJobs, ...merged];

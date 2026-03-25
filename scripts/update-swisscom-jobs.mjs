@@ -29,7 +29,8 @@ import {
   assembleJobsDataset,
 } from './assemble-jobs-dataset.mjs';
 import { validateJobUrls } from './lib/validate-job-url.mjs';
-import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage } from './lib/dedicated-crawler-common.mjs';
+import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, mergeLocaleTextMap,
+} from './lib/dedicated-crawler-common.mjs';
 import { parseSwisscomJobDescription } from './lib/swisscom-job-parser.mjs';
 import { inferSwissTargetCanton, isTargetSwissLocation } from './lib/target-swiss-locations.mjs';
 
@@ -470,13 +471,13 @@ async function mergeSwisscomJobs(discoveredJobs) {
         requirements: Array.isArray(discovered.requirements) && discovered.requirements.length > 0
           ? discovered.requirements
           : existing.requirements,
-        titleByLocale: { ...existing.titleByLocale, ...filterEmpty(discovered.titleByLocale) },
-        descriptionByLocale: { ...existing.descriptionByLocale, ...filterEmpty(discovered.descriptionByLocale) },
+        titleByLocale: mergeLocaleTextMap(existing.titleByLocale, discovered.titleByLocale, 3),
+        descriptionByLocale: mergeLocaleTextMap(existing.descriptionByLocale, discovered.descriptionByLocale, 30),
         requirementsByLocale: {
           ...(existing.requirementsByLocale || {}),
           ...filterEmptyArraysMap(discovered.requirementsByLocale),
         },
-        slugByLocale: { ...existing.slugByLocale, ...filterEmpty(discovered.slugByLocale) },
+        slugByLocale: mergeLocaleTextMap(existing.slugByLocale, discovered.slugByLocale, 3),
       };
 
       if (discovered.description) {

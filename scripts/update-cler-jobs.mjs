@@ -27,6 +27,7 @@ import {
   translateMissingJobLocales,
   validateDedicatedLocaleCoverage,
   detectLang,
+  mergeLocaleTextMap,
 } from './lib/dedicated-crawler-common.mjs';
 import {
   htmlToMarkdown,
@@ -317,9 +318,9 @@ function mergeJobs(discoveredJobs) {
     merged.push({
       ...prev,
       ...discovered,
-      titleByLocale: { ...(prev.titleByLocale || {}), ...filterEmpty(discovered.titleByLocale) },
-      descriptionByLocale: { ...prevLocaleDescs, ...filterEmpty(discovered.descriptionByLocale) },
-      slugByLocale: { ...(prev.slugByLocale || {}), ...filterEmpty(discovered.slugByLocale) },
+      titleByLocale: mergeLocaleTextMap(prev.titleByLocale, discovered.titleByLocale, 3),
+      descriptionByLocale: mergeLocaleTextMap(prevLocaleDescs, discovered.descriptionByLocale, 30),
+      slugByLocale: mergeLocaleTextMap(prev.slugByLocale, discovered.slugByLocale, 3),
     });
   }
 

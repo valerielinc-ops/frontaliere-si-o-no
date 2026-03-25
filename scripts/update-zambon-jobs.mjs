@@ -16,7 +16,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { snapshotJobSlugs, computeCrawlDiff, printCrawlChangeSummary, writeCrawlChangeSummaryToGH, setCrawlerStartTime, getCrawlerElapsedMs } from './jobs-url-helper.mjs';
 import { writeJobsCrawlerSlice, writeSummaryCrawlerSlice, assembleJobsDataset } from './assemble-jobs-dataset.mjs';
-import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage } from './lib/dedicated-crawler-common.mjs';
+import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, mergeLocaleTextMap } from './lib/dedicated-crawler-common.mjs';
 import { parseListingPage, slugify, detectCategory, detectExperienceLevel } from './lib/zambon-job-parser.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -81,7 +81,14 @@ async function mergeJobs(discoveredJobs) {
   const merged = []; let added = 0, updated = 0;
   for (const d of discoveredJobs) {
     const key = canonicalizeUrl(d.url); const old = existingByUrl.get(key);
-    if (old) { merged.push({ ...old, ...d, titleByLocale: { ...old.titleByLocale, ...d.titleByLocale }, descriptionByLocale: { ...old.descriptionByLocale, ...d.descriptionByLocale }, slugByLocale: { ...old.slugByLocale, ...d.slugByLocale } }); updated++; }
+    if (old) { merged.push({
+      ...old,
+      ...d,
+      titleByLocale: mergeLocaleTextMap(old.titleByLocale, d.titleByLocale, 3),
+      descriptionByLocale: mergeLocaleTextMap(old.descriptionByLocale, d.descriptionByLocale, 30),
+      slugByLocale: mergeLocaleTextMap(old.slugByLocale, d.slugByLocale, 3),
+      previousSlugs: [...new Set([...(old.previousSlugs || []), ...(d.previousSlugs || [])])].slice(0, 20),
+    }); updated++; }
     else { merged.push(d); added++; }
   }
   const final = [...nonCompanyJobs, ...merged];

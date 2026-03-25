@@ -40,6 +40,7 @@ import { validateJobUrls } from './lib/validate-job-url.mjs';
 import {
   runDedicatedBaseCrawler,
   validateDedicatedLocaleCoverage,
+  mergeLocaleTextMap,
 } from './lib/dedicated-crawler-common.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -436,9 +437,9 @@ async function mergeFnzJobs(discoveredJobs) {
         category: discovered.category || existingJob.category,
         sector: discovered.sector || existingJob.sector,
         source: 'fnz-workday-crawler',
-        titleByLocale: { ...existingJob.titleByLocale, ...filterEmpty(discovered.titleByLocale) },
-        descriptionByLocale: { ...existingJob.descriptionByLocale, ...filterEmpty(discovered.descriptionByLocale) },
-        slugByLocale: { ...existingJob.slugByLocale, ...filterEmpty(discovered.slugByLocale) },
+        titleByLocale: mergeLocaleTextMap(existingJob.titleByLocale, discovered.titleByLocale, 3),
+        descriptionByLocale: mergeLocaleTextMap(existingJob.descriptionByLocale, discovered.descriptionByLocale, 30),
+        slugByLocale: mergeLocaleTextMap(existingJob.slugByLocale, discovered.slugByLocale, 3),
       };
 
       if (discovered.description && discovered.description.length > (existingJob.description || '').length) {

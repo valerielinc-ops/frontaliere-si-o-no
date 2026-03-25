@@ -3405,35 +3405,40 @@ ${hreflangLinks}
         { '@type': 'ListItem', position: 3, name: jobTitle },
       ],
     })}</script>
-    <script type="application/ld+json">${JSON.stringify((() => {
+    ${(() => {
+      // Only emit JobPosting when we have real job data: title + expiredAt + company.
+      // Generic fallback titles ("Offerta non più disponibile") must NOT appear as
+      // JobPosting schema — they pollute Google's job index with low-quality entries
+      // and inflate the GSC valid-jobs count with meaningless entries.
+      const realTitle = ejData?.titleByLocale?.[locale] || ejData?.title || '';
+      const realExpiredAt = ejData?.expiredAt || '';
+      if (!realTitle || !realExpiredAt || !jobCompany) return '';
       const jp: Record<string, unknown> = {
         '@context': 'https://schema.org',
         '@type': 'JobPosting',
-        title: jobTitle,
+        title: realTitle,
         description: jobDescription || (() => {
           // Build an HTML description from template data to avoid plain-text fallback
           const parts: string[] = [];
           parts.push(`<p><strong>${esc(copy.banner)}</strong></p>`);
           if (locale === 'it') {
-            parts.push(`<p>Questa posizione di ${esc(jobTitle)}${jobCompany ? ` presso ${esc(jobCompany)}` : ''}${jobLocation ? ` a ${esc(jobLocation)}` : ' in Ticino'} non è più disponibile.</p>`);
+            parts.push(`<p>Questa posizione di ${esc(realTitle)} presso ${esc(jobCompany)}${jobLocation ? ` a ${esc(jobLocation)}` : ' in Ticino'} non è più disponibile.</p>`);
           } else if (locale === 'en') {
-            parts.push(`<p>This ${esc(jobTitle)} position${jobCompany ? ` at ${esc(jobCompany)}` : ''}${jobLocation ? ` in ${esc(jobLocation)}` : ' in Ticino'} is no longer available.</p>`);
+            parts.push(`<p>This ${esc(realTitle)} position at ${esc(jobCompany)}${jobLocation ? ` in ${esc(jobLocation)}` : ' in Ticino'} is no longer available.</p>`);
           } else if (locale === 'de') {
-            parts.push(`<p>Diese Stelle als ${esc(jobTitle)}${jobCompany ? ` bei ${esc(jobCompany)}` : ''}${jobLocation ? ` in ${esc(jobLocation)}` : ' im Tessin'} ist nicht mehr verfügbar.</p>`);
+            parts.push(`<p>Diese Stelle als ${esc(realTitle)} bei ${esc(jobCompany)}${jobLocation ? ` in ${esc(jobLocation)}` : ' im Tessin'} ist nicht mehr verfügbar.</p>`);
           } else {
-            parts.push(`<p>Ce poste de ${esc(jobTitle)}${jobCompany ? ` chez ${esc(jobCompany)}` : ''}${jobLocation ? ` à ${esc(jobLocation)}` : ' au Tessin'} n'est plus disponible.</p>`);
+            parts.push(`<p>Ce poste de ${esc(realTitle)} chez ${esc(jobCompany)}${jobLocation ? ` à ${esc(jobLocation)}` : ' au Tessin'} n'est plus disponible.</p>`);
           }
-          if (jobCompany) parts.push(`<p>${locale === 'it' ? 'Azienda' : locale === 'en' ? 'Company' : locale === 'de' ? 'Unternehmen' : 'Entreprise'}: ${esc(jobCompany)}</p>`);
+          parts.push(`<p>${locale === 'it' ? 'Azienda' : locale === 'en' ? 'Company' : locale === 'de' ? 'Unternehmen' : 'Entreprise'}: ${esc(jobCompany)}</p>`);
           if (jobLocation) parts.push(`<p>${locale === 'it' ? 'Sede' : locale === 'en' ? 'Location' : locale === 'de' ? 'Standort' : 'Lieu'}: ${esc(jobLocation)}</p>`);
           return parts.join('');
         })(),
         url: selfUrl,
-        validThrough: ejData?.expiredAt
-          ? new Date(ejData.expiredAt).toISOString()
-          : new Date(Date.now() - 86400000).toISOString(),
-        hiringOrganization: jobCompany
-          ? { '@type': 'Organization', name: jobCompany }
-          : { '@id': `${BASE_URL}/#organization` },
+        // Use real expiredAt — never use Date.now() fallback which refreshes every build
+        // and causes Google to see the job as "just expired" indefinitely.
+        validThrough: new Date(realExpiredAt).toISOString(),
+        hiringOrganization: { '@type': 'Organization', name: jobCompany },
       };
       // FRO-343: Enrich jobLocation with postalCode and streetAddress
       if (jobLocation) {
@@ -3476,8 +3481,8 @@ ${hreflangLinks}
           value: salaryValue,
         };
       }
-      return jp;
-    })())}</script>
+      return `<script type="application/ld+json">${JSON.stringify(jp)}</script>`;
+    })()}
     <script>window.__EXPIRED_JOB_DATA__=${expiredWindowData};window.__STATIC_BODY_HTML__=${staticBodyJson};</script>${hasSpaBundle ? `\n    <link rel="stylesheet" href="/assets/${entryCss}" crossorigin media="all">` : ''}
     ${SPA_ACTION_REDIRECT_SCRIPT}
   </head>

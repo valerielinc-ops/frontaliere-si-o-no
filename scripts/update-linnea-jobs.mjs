@@ -32,7 +32,8 @@ import {
   assembleJobsDataset,
 } from './assemble-jobs-dataset.mjs';
 import { validateJobUrls } from './lib/validate-job-url.mjs';
-import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage } from './lib/dedicated-crawler-common.mjs';
+import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, mergeLocaleTextMap,
+} from './lib/dedicated-crawler-common.mjs';
 import {
   parseAccordionJobs,
   normalizeSpace,
@@ -272,9 +273,9 @@ async function mergeLinneaJobs(discoveredJobs) {
         category: discovered.category || existing.category,
         sector: discovered.sector || existing.sector,
         source: 'linnea-careers-crawler',
-        titleByLocale: { ...existing.titleByLocale, ...filterEmpty(discovered.titleByLocale) },
-        descriptionByLocale: { ...existing.descriptionByLocale, ...filterEmpty(discovered.descriptionByLocale) },
-        slugByLocale: { ...existing.slugByLocale, ...filterEmpty(discovered.slugByLocale) },
+        titleByLocale: mergeLocaleTextMap(existing.titleByLocale, discovered.titleByLocale, 3),
+        descriptionByLocale: mergeLocaleTextMap(existing.descriptionByLocale, discovered.descriptionByLocale, 30),
+        slugByLocale: mergeLocaleTextMap(existing.slugByLocale, discovered.slugByLocale, 3),
       };
 
       if (discovered.description && discovered.description.length > (existing.description || '').length) {

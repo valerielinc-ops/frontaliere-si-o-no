@@ -21,6 +21,8 @@ import {
   translateMissingJobLocales,
   validateDedicatedLocaleCoverage,
   detectLang,
+  mergeLocaleTextMap,
+  slugify,
 } from './lib/dedicated-crawler-common.mjs';
 import {
   parseSkyguideListings,
@@ -230,9 +232,9 @@ function mergeJobs(discoveredJobs) {
     return {
       ...prev,
       ...job,
-      titleByLocale: { ...(prev.titleByLocale || {}), ...(job.titleByLocale || {}) },
-      descriptionByLocale: { ...(prev.descriptionByLocale || {}), ...(job.descriptionByLocale || {}) },
-      slugByLocale: { ...(prev.slugByLocale || {}), ...(job.slugByLocale || {}) },
+      titleByLocale: mergeLocaleTextMap(prev.titleByLocale, job.titleByLocale, 3),
+      descriptionByLocale: mergeLocaleTextMap(prev.descriptionByLocale, job.descriptionByLocale, 30),
+      slugByLocale: mergeLocaleTextMap(prev.slugByLocale, job.slugByLocale, 3),
     };
   });
 
@@ -259,10 +261,7 @@ function refreshLocalizedSlugs() {
       const localizedTitle = String(next.titleByLocale?.[locale] || '').trim();
       if (!localizedTitle) continue;
       const localizedLocation = String(next.addressLocality || next.location || 'Ticino').trim();
-      const slug = buildSkyguideLocalizedContent(
-        { title: localizedTitle, location: localizedLocation, description: '' },
-        COMPANY_NAME
-      ).slugByLocale.it;
+      const slug = slugify(`${localizedTitle} ${COMPANY_NAME} ${localizedLocation}`);
       if (slug && next.slugByLocale[locale] !== slug) {
         next.slugByLocale[locale] = slug;
         changed += 1;

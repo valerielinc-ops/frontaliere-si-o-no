@@ -24,6 +24,7 @@ import {
 import {
   runDedicatedBaseCrawler,
   validateDedicatedLocaleCoverage,
+  mergeLocaleTextMap,
 } from './lib/dedicated-crawler-common.mjs';
 import { callLLM, flushScores, isAnyModelAvailable } from './lib/ai-models.mjs';
 import {
@@ -1012,9 +1013,9 @@ async function crawlArca24Direct() {
     return {
       ...prev,
       ...job,
-      titleByLocale: { ...(prev.titleByLocale || {}), ...(job.titleByLocale || {}) },
-      descriptionByLocale: { ...(prev.descriptionByLocale || {}), ...(job.descriptionByLocale || {}) },
-      slugByLocale: { ...(prev.slugByLocale || {}), ...(job.slugByLocale || {}) },
+      titleByLocale: mergeLocaleTextMap(prev.titleByLocale, job.titleByLocale, 3),
+      descriptionByLocale: mergeLocaleTextMap(prev.descriptionByLocale, job.descriptionByLocale, 30),
+      slugByLocale: mergeLocaleTextMap(prev.slugByLocale, job.slugByLocale, 3),
     };
   });
 
