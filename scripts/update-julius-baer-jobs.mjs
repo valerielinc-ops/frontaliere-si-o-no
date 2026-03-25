@@ -57,18 +57,78 @@ async function fetchJson(url, options = {}) {
   } catch (err) { console.warn(`⚠️ Fetch failed for ${url}: ${err.message}`); return null; }
 }
 
+/**
+ * Discover Lugano/Ticino facet ID dynamically from the API.
+ * Falls back to known ID if the API doesn't return facets.
+ */
+async function discoverLuganoFacetId() {
+  const KNOWN_LUGANO_FACET = 'abb0edcf3353016df6283de5bd3b4518';
+  try {
+    const data = await fetchJson(`${WORKDAY_API_BASE}/jobs`, { method: 'POST', body: JSON.stringify({ appliedFacets: {}, limit: 1, offset: 0, searchText: 'Lugano' }) });
+    if (!data?.facets) return KNOWN_LUGANO_FACET;
+    for (const facet of data.facets) {
+      if (facet.facetParameter === 'Location_Region_State_Province') {
+        for (const v of facet.values || []) {
+          if (v.descriptor && v.descriptor.toLowerCase().includes('lugano')) return v.id;
+        }
+      }
+    }
+  } catch {}
+  return KNOWN_LUGANO_FACET;
+}
+
+/**
+ * List Ticino/Lugano jobs using multiple strategies:
+ * 1. Location facet filter for Lugano region
+ * 2. Text search for "Lugano", "Ticino", "Manno"
+ * This multi-strategy approach handles Workday API inconsistencies.
+ */
 async function listAllJobs() {
+  const seenPaths = new Set();
   const allPostings = [];
-  let offset = 0;
-  const limit = 20;
-  while (true) {
-    const body = JSON.stringify({ appliedFacets: {}, limit, offset, searchText: '' });
-    const data = await fetchJson(`${WORKDAY_API_BASE}/jobs`, { method: 'POST', body });
-    if (!data || !Array.isArray(data.jobPostings)) { if (offset === 0) console.warn('⚠️ Failed to fetch Workday listings.'); break; }
-    allPostings.push(...data.jobPostings);
-    if (allPostings.length >= (data.total || 0) || data.jobPostings.length < limit) break;
-    offset += limit;
+
+  // Strategy 1: Location facet filter (most reliable)
+  const luganoFacetId = await discoverLuganoFacetId();
+  console.log(`  🔍 Strategy 1: Location facet filter (Lugano: ${luganoFacetId})`);
+  {
+    let offset = 0;
+    const limit = 20;
+    while (true) {
+      const body = JSON.stringify({ appliedFacets: { Location_Region_State_Province: [luganoFacetId] }, limit, offset });
+      const data = await fetchJson(`${WORKDAY_API_BASE}/jobs`, { method: 'POST', body });
+      if (!data || !Array.isArray(data.jobPostings)) break;
+      for (const p of data.jobPostings) {
+        if (!seenPaths.has(p.externalPath)) { seenPaths.add(p.externalPath); allPostings.push(p); }
+      }
+      if (data.jobPostings.length < limit || allPostings.length >= (data.total || 0)) break;
+      offset += limit;
+    }
+    console.log(`     Found: ${allPostings.length} via facet`);
   }
+
+  // Strategy 2: Text search for Ticino location keywords
+  for (const searchText of ['Lugano', 'Ticino', 'Manno', 'Bellinzona']) {
+    console.log(`  🔍 Strategy 2: Text search "${searchText}"`);
+    let offset = 0;
+    const limit = 20;
+    let found = 0;
+    while (true) {
+      const body = JSON.stringify({ appliedFacets: {}, limit, offset, searchText });
+      const data = await fetchJson(`${WORKDAY_API_BASE}/jobs`, { method: 'POST', body });
+      if (!data || !Array.isArray(data.jobPostings)) break;
+      for (const p of data.jobPostings) {
+        if (!seenPaths.has(p.externalPath) && isTicinoLocation(p.locationsText || p.title || '')) {
+          seenPaths.add(p.externalPath);
+          allPostings.push(p);
+          found++;
+        }
+      }
+      if (data.jobPostings.length < limit) break;
+      offset += limit;
+    }
+    if (found > 0) console.log(`     Found: ${found} new via "${searchText}"`);
+  }
+
   return allPostings;
 }
 
