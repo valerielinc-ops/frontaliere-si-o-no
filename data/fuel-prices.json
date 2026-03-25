@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-03-25T03:29:04.028Z",
+  "generatedAt": "2026-03-25T05:13:51.680Z",
   "sources": {
     "italy": {
       "provider": "MIMIT Open Data",
@@ -11,7 +11,7 @@
       "provider": "TCS Benzinpreis",
       "providerUrl": "https://benzin.tcs.ch/de/map/SP95",
       "stationCount": 227,
-      "latestObservedUpdate": "2026-03-24T22:10:56.607Z"
+      "latestObservedUpdate": "2026-03-25T05:03:17.831Z"
     },
     "exchangeRate": {
       "provider": "ECB",
@@ -499,19 +499,6 @@
         "sp95PriceEur": 1.761
       },
       {
-        "id": "9YcO5vRiMVpWAiiKbSd9",
-        "name": "Gaudenz AG",
-        "brand": "AVIA",
-        "address": "Hauptstr. 1b, 7440 Andeer",
-        "lat": 46.605174,
-        "lng": 9.427398,
-        "sp95PriceChf": 1.64,
-        "updatedAt": "2026-03-05T08:02:11.874Z",
-        "nearestMunicipality": "Madesimo (SO)",
-        "nearestMunicipalityDistanceKm": 20,
-        "sp95PriceEur": 1.793
-      },
-      {
         "id": "DL8uVodWirvo5OOs0nkL",
         "name": "TAMOIL Liddes",
         "brand": "TAMOIL",
@@ -640,6 +627,19 @@
         "nearestMunicipality": "Tubre (BZ)",
         "nearestMunicipalityDistanceKm": 5.8,
         "sp95PriceEur": 1.826
+      },
+      {
+        "id": "1ocgiK8xQBj1t5X5MSuj",
+        "name": "Tankstelle Sufers.",
+        "brand": "SHELL",
+        "address": "Poststrasse 2, 7434 Sufers",
+        "lat": 46.56976,
+        "lng": 9.368508,
+        "sp95PriceChf": 1.69,
+        "updatedAt": "2026-03-08T15:46:31.767Z",
+        "nearestMunicipality": "Madesimo (SO)",
+        "nearestMunicipalityDistanceKm": 15.2,
+        "sp95PriceEur": 1.848
       }
     ],
     "bestCrossBorderSavings": [
@@ -20682,20 +20682,6 @@
             "distanceKm": 15.1
           },
           {
-            "id": "sGRKkbZsI7X2ry7BiFc6",
-            "name": "Piccadilly SA - Pica, Migrolino",
-            "brand": "UNDEFINED",
-            "address": "Via Stefano Franscini 2, Mendrisio",
-            "lat": 45.8678618,
-            "lng": 8.977782399999999,
-            "sp95PriceChf": 1.77,
-            "updatedAt": "2026-03-20T05:01:14.951Z",
-            "nearestMunicipality": "Clivio (VA)",
-            "nearestMunicipalityDistanceKm": 3.8,
-            "sp95PriceEur": 1.935,
-            "distanceKm": 18.5
-          },
-          {
             "id": "ukK4QQ2nixpThGubzzE3",
             "name": "Orcam",
             "brand": "UNDEFINED",
@@ -20722,6 +20708,20 @@
             "nearestMunicipalityDistanceKm": 2.7,
             "sp95PriceEur": 1.957,
             "distanceKm": 19
+          },
+          {
+            "id": "jyoUfNzRecwgKimvcY2C",
+            "name": "Carrozzeria San Giovanni SA",
+            "brand": "AVIA",
+            "address": "Via Campagna Adorna 13, 6850 Mendrisio",
+            "lat": 45.862217,
+            "lng": 8.972931,
+            "sp95PriceChf": 1.79,
+            "updatedAt": "2026-03-22T13:26:43.328Z",
+            "nearestMunicipality": "Clivio (VA)",
+            "nearestMunicipalityDistanceKm": 3.4,
+            "sp95PriceEur": 1.957,
+            "distanceKm": 17.9
           }
         ],
         "minPriceChf": 1.72,
@@ -21765,20 +21765,6 @@
             "distanceKm": 16.1
           },
           {
-            "id": "sGRKkbZsI7X2ry7BiFc6",
-            "name": "Piccadilly SA - Pica, Migrolino",
-            "brand": "UNDEFINED",
-            "address": "Via Stefano Franscini 2, Mendrisio",
-            "lat": 45.8678618,
-            "lng": 8.977782399999999,
-            "sp95PriceChf": 1.77,
-            "updatedAt": "2026-03-20T05:01:14.951Z",
-            "nearestMunicipality": "Clivio (VA)",
-            "nearestMunicipalityDistanceKm": 3.8,
-            "sp95PriceEur": 1.935,
-            "distanceKm": 19.5
-          },
-          {
             "id": "jyoUfNzRecwgKimvcY2C",
             "name": "Carrozzeria San Giovanni SA",
             "brand": "AVIA",
@@ -21805,6 +21791,20 @@
             "nearestMunicipalityDistanceKm": 2.8,
             "sp95PriceEur": 1.968,
             "distanceKm": 18.3
+          },
+          {
+            "id": "vbEF6LPJUVx6BKRmHD5T",
+            "name": "Station Allo Svincolo",
+            "brand": "UNDEFINED",
+            "address": "Via Francesco Borromini 6, 6850 Mendrisio",
+            "lat": 45.87329729581304,
+            "lng": 8.978156929315192,
+            "sp95PriceChf": 1.8,
+            "updatedAt": "2026-03-22T10:33:04.222Z",
+            "nearestMunicipality": "Clivio (VA)",
+            "nearestMunicipalityDistanceKm": 3.9,
+            "sp95PriceEur": 1.968,
+            "distanceKm": 19.8
           }
         ],
         "minPriceChf": 1.72,
@@ -26956,20 +26956,6 @@
             "distanceKm": 15.4
           },
           {
-            "id": "sGRKkbZsI7X2ry7BiFc6",
-            "name": "Piccadilly SA - Pica, Migrolino",
-            "brand": "UNDEFINED",
-            "address": "Via Stefano Franscini 2, Mendrisio",
-            "lat": 45.8678618,
-            "lng": 8.977782399999999,
-            "sp95PriceChf": 1.77,
-            "updatedAt": "2026-03-20T05:01:14.951Z",
-            "nearestMunicipality": "Clivio (VA)",
-            "nearestMunicipalityDistanceKm": 3.8,
-            "sp95PriceEur": 1.935,
-            "distanceKm": 18.8
-          },
-          {
             "id": "XLeLHwJ2EelmIu01vhOk",
             "name": "Piccadilly SA",
             "brand": "UNDEFINED",
@@ -26996,6 +26982,20 @@
             "nearestMunicipalityDistanceKm": 3.4,
             "sp95PriceEur": 1.957,
             "distanceKm": 18.2
+          },
+          {
+            "id": "BuLqgLtrkWKZWPB1oaHr",
+            "name": "BP Unbemannte Station Genestrerio",
+            "brand": "BP",
+            "address": "Via Adorna, 6852 Genestrerio",
+            "lat": 45.85708,
+            "lng": 8.96782,
+            "sp95PriceChf": 1.8,
+            "updatedAt": "2026-03-21T12:15:41.072Z",
+            "nearestMunicipality": "Bizzarone (CO)",
+            "nearestMunicipalityDistanceKm": 2.8,
+            "sp95PriceEur": 1.968,
+            "distanceKm": 17.5
           }
         ],
         "minPriceChf": 1.72,
@@ -27888,20 +27888,6 @@
             "distanceKm": 15.1
           },
           {
-            "id": "sGRKkbZsI7X2ry7BiFc6",
-            "name": "Piccadilly SA - Pica, Migrolino",
-            "brand": "UNDEFINED",
-            "address": "Via Stefano Franscini 2, Mendrisio",
-            "lat": 45.8678618,
-            "lng": 8.977782399999999,
-            "sp95PriceChf": 1.77,
-            "updatedAt": "2026-03-20T05:01:14.951Z",
-            "nearestMunicipality": "Clivio (VA)",
-            "nearestMunicipalityDistanceKm": 3.8,
-            "sp95PriceEur": 1.935,
-            "distanceKm": 18.5
-          },
-          {
             "id": "ukK4QQ2nixpThGubzzE3",
             "name": "Orcam",
             "brand": "UNDEFINED",
@@ -27914,6 +27900,20 @@
             "nearestMunicipalityDistanceKm": 4.6,
             "sp95PriceEur": 1.935,
             "distanceKm": 19.8
+          },
+          {
+            "id": "XLeLHwJ2EelmIu01vhOk",
+            "name": "Piccadilly SA",
+            "brand": "UNDEFINED",
+            "address": "Via S. Gottardo 12, 6877 Coldrerio",
+            "lat": 45.85575106,
+            "lng": 8.993432117,
+            "sp95PriceChf": 1.79,
+            "updatedAt": "2026-03-24T21:03:54.714Z",
+            "nearestMunicipality": "Ronago (CO)",
+            "nearestMunicipalityDistanceKm": 2.7,
+            "sp95PriceEur": 1.957,
+            "distanceKm": 19
           }
         ],
         "minPriceChf": 1.72,
@@ -42657,34 +42657,20 @@
         "searchRadiusKm": 20,
         "optionCount": 3,
         "cheapestStation": {
-          "id": "9YcO5vRiMVpWAiiKbSd9",
-          "name": "Gaudenz AG",
-          "brand": "AVIA",
-          "address": "Hauptstr. 1b, 7440 Andeer",
-          "lat": 46.605174,
-          "lng": 9.427398,
-          "sp95PriceChf": 1.64,
-          "updatedAt": "2026-03-05T08:02:11.874Z",
+          "id": "1ocgiK8xQBj1t5X5MSuj",
+          "name": "Tankstelle Sufers.",
+          "brand": "SHELL",
+          "address": "Poststrasse 2, 7434 Sufers",
+          "lat": 46.56976,
+          "lng": 9.368508,
+          "sp95PriceChf": 1.69,
+          "updatedAt": "2026-03-08T15:46:31.767Z",
           "nearestMunicipality": "Madesimo (SO)",
-          "nearestMunicipalityDistanceKm": 20,
-          "sp95PriceEur": 1.793,
-          "distanceKm": 20
+          "nearestMunicipalityDistanceKm": 15.2,
+          "sp95PriceEur": 1.848,
+          "distanceKm": 15.2
         },
         "nearbyStations": [
-          {
-            "id": "9YcO5vRiMVpWAiiKbSd9",
-            "name": "Gaudenz AG",
-            "brand": "AVIA",
-            "address": "Hauptstr. 1b, 7440 Andeer",
-            "lat": 46.605174,
-            "lng": 9.427398,
-            "sp95PriceChf": 1.64,
-            "updatedAt": "2026-03-05T08:02:11.874Z",
-            "nearestMunicipality": "Madesimo (SO)",
-            "nearestMunicipalityDistanceKm": 20,
-            "sp95PriceEur": 1.793,
-            "distanceKm": 20
-          },
           {
             "id": "1ocgiK8xQBj1t5X5MSuj",
             "name": "Tankstelle Sufers.",
@@ -42712,10 +42698,24 @@
             "nearestMunicipalityDistanceKm": 9.1,
             "sp95PriceEur": 1.946,
             "distanceKm": 10
+          },
+          {
+            "id": "9YcO5vRiMVpWAiiKbSd9",
+            "name": "Gaudenz AG",
+            "brand": "AVIA",
+            "address": "Hauptstr. 1b, 7440 Andeer",
+            "lat": 46.605174,
+            "lng": 9.427398,
+            "sp95PriceChf": 1.78,
+            "updatedAt": "2026-03-25T05:03:17.831Z",
+            "nearestMunicipality": "Madesimo (SO)",
+            "nearestMunicipalityDistanceKm": 20,
+            "sp95PriceEur": 1.946,
+            "distanceKm": 20
           }
         ],
-        "minPriceChf": 1.64,
-        "minPriceEur": 1.793
+        "minPriceChf": 1.69,
+        "minPriceEur": 1.848
       },
       "comparison": {
         "cheaperCountry": "NO_DATA",
