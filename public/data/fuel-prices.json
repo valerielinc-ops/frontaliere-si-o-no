@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-03-25T17:39:13.429Z",
+  "generatedAt": "2026-03-25T19:31:02.638Z",
   "sources": {
     "italy": {
       "provider": "MIMIT Open Data",
@@ -11,7 +11,7 @@
       "provider": "TCS Benzinpreis",
       "providerUrl": "https://benzin.tcs.ch/de/map/SP95",
       "stationCount": 232,
-      "latestObservedUpdate": "2026-03-25T17:39:11.930Z"
+      "latestObservedUpdate": "2026-03-25T18:10:22.432Z"
     },
     "exchangeRate": {
       "provider": "ECB",
@@ -10421,18 +10421,18 @@
             "distanceKm": 19.2
           },
           {
-            "id": "5LTmgyzdQyG1u08UnDu1",
-            "name": "Euro Service",
-            "brand": "UNDEFINED",
-            "address": "Via Cantonale 12, 6814 Cadempino",
-            "lat": 46.03291417576174,
-            "lng": 8.934531588842782,
-            "sp95PriceChf": 1.82,
-            "updatedAt": "2026-03-21T09:46:58.726Z",
-            "nearestMunicipality": "Campione d'Italia (CO)",
-            "nearestMunicipalityDistanceKm": 7.7,
-            "sp95PriceEur": 1.988,
-            "distanceKm": 19.8
+            "id": "SMWpqRkzxJsVEEzPyGOj",
+            "name": "Agrola Ponte Capriasca",
+            "brand": "AGROLA",
+            "address": "Via Arch A Da Ponte, 6946 Ponte Capriasca",
+            "lat": 46.060186,
+            "lng": 8.945836,
+            "sp95PriceChf": 1.81,
+            "updatedAt": "2026-03-24T06:42:16.601Z",
+            "nearestMunicipality": "Valsolda (CO)",
+            "nearestMunicipalityDistanceKm": 8.3,
+            "sp95PriceEur": 1.977,
+            "distanceKm": 18.9
           }
         ],
         "minPriceChf": 1.66,
@@ -36879,6 +36879,20 @@
             "distanceKm": 14.3
           },
           {
+            "id": "veI3WKDGDSSOZJLLaEN3",
+            "name": "TAMOIL Bellwald",
+            "brand": "TAMOIL",
+            "address": "Fuergangen, 3997 Bellwald",
+            "lat": 46.41086,
+            "lng": 8.151533,
+            "sp95PriceChf": 1.81,
+            "updatedAt": "2026-03-20T07:47:02.339Z",
+            "nearestMunicipality": "Formazza (VB)",
+            "nearestMunicipalityDistanceKm": 18.4,
+            "sp95PriceEur": 1.977,
+            "distanceKm": 18.4
+          },
+          {
             "id": "nQS9hnOs67lshsQWElha",
             "name": "Garage Grimsel",
             "brand": "UNDEFINED",
@@ -36891,20 +36905,6 @@
             "nearestMunicipalityDistanceKm": 14.1,
             "sp95PriceEur": 1.999,
             "distanceKm": 14.1
-          },
-          {
-            "id": "bd3HphmEpsrrKS17HtBv",
-            "name": "Stazione di servizio Migrol",
-            "brand": "MIGROL",
-            "address": "Via Valmaggina 67, 6675 Cevio",
-            "lat": 46.317947,
-            "lng": 8.601824,
-            "sp95PriceChf": 1.84,
-            "updatedAt": "2026-03-19T12:34:55.520Z",
-            "nearestMunicipality": "Formazza (VB)",
-            "nearestMunicipalityDistanceKm": 18.2,
-            "sp95PriceEur": 2.01,
-            "distanceKm": 18.2
           }
         ],
         "minPriceChf": 1.77,
