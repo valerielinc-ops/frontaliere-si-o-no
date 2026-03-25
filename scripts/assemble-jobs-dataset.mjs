@@ -41,6 +41,7 @@ import {
 } from './lib/crawler-summary-store.mjs';
 import { buildStableJobIdentity } from './lib/job-identity.mjs';
 import { hardenJobsWithStructuredSalary } from './lib/structured-salary.mjs';
+import { computeCrawlerQualityAggregate } from './lib/dedicated-crawler-common.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -310,6 +311,30 @@ function assembleSummaries() {
   // Keep existing entries that have NOT been migrated to per-crawler slices
   const legacyEntries = existingStore.summaries.filter((s) => !sliceKeys.has(s.key));
 
+  // ── FRO-585: Enrich summary entries with quality scores from job slices ──
+  const jobSliceFiles = listSliceFiles(JOBS_SLICES_DIR);
+  const jobsByCrawler = new Map();
+  for (const slicePath of jobSliceFiles) {
+    const slice = readJson(slicePath, null);
+    if (slice && Array.isArray(slice.jobs) && slice.crawlerKey) {
+      jobsByCrawler.set(slice.crawlerKey, slice.jobs);
+    }
+  }
+
+  for (const entry of sliceEntries) {
+    const crawlerJobs = jobsByCrawler.get(entry.key);
+    if (crawlerJobs && crawlerJobs.length > 0) {
+      const qualityAggregate = computeCrawlerQualityAggregate(crawlerJobs, entry.key);
+      entry.qualityScore = {
+        avgScore: qualityAggregate.avgScore,
+        breakdown: qualityAggregate.breakdown,
+        jobCount: qualityAggregate.jobCount,
+        lastUpdated: qualityAggregate.lastUpdated,
+        worstJobs: qualityAggregate.worstJobs,
+      };
+    }
+  }
+
   // Most-recently-generated entries first
   const sortedSliceEntries = [...sliceEntries].sort((a, b) => {
     const tA = a.generatedAt || '';
@@ -416,6 +441,48 @@ function generateMeta(jobCount) {
  * @param {object} [options]
  * @param {boolean} [options.withStats=false] - Whether to regenerate job board stats after assembly
  */
+
+// ── FRO-585: Firestore persistence for crawler quality scores ──────────
+const QUALITY_SCORES_COLLECTION = 'crawler-quality-scores';
+
+async function persistQualityScoresToFirestore(summaries) {
+  const entriesWithScores = summaries.filter((s) => s.qualityScore);
+  if (entriesWithScores.length === 0) return;
+
+  try {
+    const adminMod = await import('firebase-admin');
+    const admin = adminMod.default || adminMod;
+    if (!admin.apps.length) {
+      if (!process.env.GOOGLE_APPLICATION_CREDENTIALS) {
+        console.log('ℹ️  [QualityScores] No GOOGLE_APPLICATION_CREDENTIALS — skipping Firestore persistence');
+        return;
+      }
+      admin.initializeApp({ credential: admin.credential.applicationDefault() });
+    }
+    const db = admin.firestore();
+    const batch = db.batch();
+    const now = new Date().toISOString();
+
+    for (const entry of entriesWithScores) {
+      const docRef = db.collection(QUALITY_SCORES_COLLECTION).doc(entry.key);
+      batch.set(docRef, {
+        slug: entry.key,
+        avgScore: entry.qualityScore.avgScore,
+        breakdown: entry.qualityScore.breakdown,
+        jobCount: entry.qualityScore.jobCount,
+        lastUpdated: now,
+        worstJobs: (entry.qualityScore.worstJobs || []).slice(0, 5),
+      }, { merge: true });
+    }
+
+    await batch.commit();
+    console.log(`☁️  [QualityScores] Persisted ${entriesWithScores.length} crawler quality scores to Firestore`);
+  } catch (err) {
+    // Non-fatal: quality scores are also in the summary JSON
+    console.warn(`⚠️  [QualityScores] Firestore persistence failed (non-fatal): ${err?.message || err}`);
+  }
+}
+
 export async function assembleJobsDataset({ withStats = false } = {}) {
   // In slice-only mode crawlers skip assembly — it runs during deploy instead.
   if (String(process.env.CRAWLER_SLICE_ONLY || '0') === '1') {
@@ -479,6 +546,9 @@ export async function assembleJobsDataset({ withStats = false } = {}) {
   if (summaryStore !== null) {
     writeCrawlerSummaryStore(DATA_SUMMARIES, summaryStore);
     console.log(`✅ data/jobs-crawler-summaries.json assembled: ${summaryStore.summaries.length} crawler entries`);
+
+    // FRO-585: Persist quality scores to Firestore
+    await persistQualityScoresToFirestore(summaryStore.summaries);
   }
 
   // --- Stats (optional) ---

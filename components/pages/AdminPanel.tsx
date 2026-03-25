@@ -71,6 +71,14 @@ interface CrawlerSummaryLinkRow {
   slug: string;
 }
 
+interface CrawlerQualityScore {
+  avgScore: number;
+  breakdown: { cleanliness: number; richness: number; translation: number; completeness: number };
+  jobCount: number;
+  lastUpdated: string;
+  worstJobs: Array<{ slug: string; title: string; score: number; breakdown: { cleanliness: number; richness: number; translation: number; completeness: number } }>;
+}
+
 interface CrawlerSummaryRow {
   key: string;
   label: string;
@@ -86,9 +94,10 @@ interface CrawlerSummaryRow {
   updatedJobs: CrawlerSummaryLinkRow[];
   removedJobs: CrawlerSummaryLinkRow[];
   unchangedJobs: CrawlerSummaryLinkRow[];
+  qualityScore?: CrawlerQualityScore | null;
 }
 
-type CrawlerSortColumn = 'title' | 'schedule' | 'lastRun' | 'total' | 'newCount' | 'updatedCount' | 'removedCount' | 'unchangedCount' | 'duration' | 'status';
+type CrawlerSortColumn = 'title' | 'schedule' | 'lastRun' | 'total' | 'newCount' | 'updatedCount' | 'removedCount' | 'unchangedCount' | 'duration' | 'status' | 'quality';
 type CrawlerSortDirection = 'asc' | 'desc';
 
 type WorkflowContext = 'jobs' | 'content' | 'seo' | 'analytics';
@@ -586,6 +595,18 @@ export default function AdminPanel() {
             updatedJobs: Array.isArray(entry?.updatedJobs) ? entry.updatedJobs : [],
             removedJobs: Array.isArray(entry?.removedJobs) ? entry.removedJobs : [],
             unchangedJobs: Array.isArray(entry?.unchangedJobs) ? entry.unchangedJobs : [],
+            qualityScore: entry?.qualityScore ? {
+              avgScore: Number(entry.qualityScore.avgScore || 0),
+              breakdown: {
+                cleanliness: Number(entry.qualityScore.breakdown?.cleanliness || 0),
+                richness: Number(entry.qualityScore.breakdown?.richness || 0),
+                translation: Number(entry.qualityScore.breakdown?.translation || 0),
+                completeness: Number(entry.qualityScore.breakdown?.completeness || 0),
+              },
+              jobCount: Number(entry.qualityScore.jobCount || 0),
+              lastUpdated: String(entry.qualityScore.lastUpdated || ''),
+              worstJobs: Array.isArray(entry.qualityScore.worstJobs) ? entry.qualityScore.worstJobs : [],
+            } : null,
           })),
         );
       }
@@ -1590,6 +1611,9 @@ export default function AdminPanel() {
                   case 'status':
                     result = compareNumber(getCrawlerStatusRank(a), getCrawlerStatusRank(b));
                     break;
+                  case 'quality':
+                    result = compareNumber(a.summary?.qualityScore?.avgScore || 0, b.summary?.qualityScore?.avgScore || 0);
+                    break;
                 }
 
                 if (result !== 0) return result * direction;
@@ -1832,6 +1856,7 @@ export default function AdminPanel() {
                           <th className="text-center py-2 px-1.5 font-semibold text-slate-500 dark:text-slate-400 whitespace-nowrap" title="Offerte non cambiate nell'ultima esecuzione del crawler (Δ run — distinto dal delta giornaliero del job board)">{renderCrawlerSortHeader('unchangedCount', 'Invariati', { align: 'center', className: 'text-slate-500 dark:text-slate-400' })}</th>
                           <th className="text-center py-2 px-1.5 font-semibold text-violet-700 dark:text-violet-400 whitespace-nowrap">{renderCrawlerSortHeader('total', 'Attivi', { align: 'center', className: 'text-violet-700 dark:text-violet-400' })}</th>
                           <th className="text-center py-2 px-1.5 font-semibold text-slate-500 dark:text-slate-400 whitespace-nowrap">{renderCrawlerSortHeader('duration', '⏱️ Durata', { align: 'center', className: 'text-slate-500 dark:text-slate-400' })}</th>
+                          <th className="text-center py-2 px-1.5 font-semibold whitespace-nowrap" title="Quality score: media ponderata su pulizia testo, ricchezza contenuto, qualità traduzione, completezza dati (0–100)">{renderCrawlerSortHeader('quality', '📊 Qualità', { align: 'center' })}</th>
                           <th className="text-center py-2 px-2 font-semibold">{renderCrawlerSortHeader('status', 'Stato', { align: 'center' })}</th>
                           <th className="text-center py-2 px-2 font-semibold">Azioni</th>
                         </tr>
@@ -1936,6 +1961,37 @@ export default function AdminPanel() {
                                       )}
                                     </span>
                                   ) : '—'}
+                                </td>
+                                {/* Quality Score (FRO-585) */}
+                                <td className="text-center py-2 px-1.5">
+                                  {s?.qualityScore ? (() => {
+                                    const qs = s.qualityScore;
+                                    const avg = qs.avgScore;
+                                    const badgeColor = avg >= 75
+                                      ? 'bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300'
+                                      : avg >= 50
+                                        ? 'bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-300'
+                                        : 'bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-300';
+                                    const tooltipLines = [
+                                      `Pulizia: ${qs.breakdown.cleanliness}/25`,
+                                      `Ricchezza: ${qs.breakdown.richness}/25`,
+                                      `Traduzione: ${qs.breakdown.translation}/25`,
+                                      `Completezza: ${qs.breakdown.completeness}/25`,
+                                      `---`,
+                                      `Jobs analizzati: ${qs.jobCount}`,
+                                      ...(qs.worstJobs.length > 0 ? [`Peggiori:`, ...qs.worstJobs.slice(0, 3).map((w: CrawlerQualityScore['worstJobs'][0]) => `  ${w.score}/100 — ${w.title}`)] : []),
+                                    ].join('\n');
+                                    return (
+                                      <span
+                                        className={`inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-bold ${badgeColor} cursor-help`}
+                                        title={tooltipLines}
+                                      >
+                                        {avg}
+                                      </span>
+                                    );
+                                  })() : (
+                                    <span className="text-slate-400 dark:text-slate-600 text-[10px]">—</span>
+                                  )}
                                 </td>
                                 {/* Status */}
                                 <td className="text-center py-2 px-2">

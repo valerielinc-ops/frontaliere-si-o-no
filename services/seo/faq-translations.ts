@@ -2386,6 +2386,205 @@ export const FAQ_TRANSLATIONS: FaqLocaleMap = {
       q: "La simulation What-If est-elle fiable ?",
       a: "La simulation utilise les mêmes barèmes fiscaux que le calculateur principal : taux d'imposition à la source du Tessin 2026, tranches IRPEF, cotisations AVS/LPP/AC. Les résultats sont des estimations indicatives, pas un conseil fiscal professionnel."
     }
+  },
+
+  // ── Homepage FAQ (11 questions) ──────────────────────────────────────
+
+  "Qual è la differenza tra vecchio e nuovo frontaliere?": {
+    en: {
+      q: "What is the difference between old and new cross-border workers?",
+      a: "The old cross-border worker (hired before 17 July 2023 in municipalities within 20 km of the border) pays only Swiss withholding tax. The new cross-border worker pays both the reduced Swiss withholding tax (80%) and Italian IRPEF, with a tax credit and a EUR 10,000 exemption."
+    },
+    de: {
+      q: "Was ist der Unterschied zwischen alten und neuen Grenzgängern?",
+      a: "Der alte Grenzgänger (vor dem 17. Juli 2023 in Gemeinden bis 20 km zur Grenze eingestellt) zahlt nur die Schweizer Quellensteuer. Der neue Grenzgänger zahlt sowohl die reduzierte Schweizer Quellensteuer (80 %) als auch die italienische IRPEF, mit Steuergutschrift und Freibetrag von 10.000 EUR."
+    },
+    fr: {
+      q: "Quelle est la différence entre ancien et nouveau frontalier ?",
+      a: "L'ancien frontalier (engagé avant le 17 juillet 2023 dans les communes à moins de 20 km de la frontière) ne paie que l'impôt à la source suisse. Le nouveau frontalier paie à la fois l'impôt à la source suisse réduit (80 %) et l'IRPEF italienne, avec un crédit d'impôt et une franchise de 10 000 EUR."
+    }
+  },
+
+  "Conviene lavorare come vecchio o nuovo frontaliere nel 2026?": {
+    en: {
+      q: "Is it better to work as an old or new cross-border worker in 2026?",
+      a: "It depends on salary, marital status, children, and municipality of residence. The old regime is generally more advantageous for medium-high salaries (>CHF 60,000). The new regime can be more beneficial with lower salaries thanks to the EUR 10,000 exemption. Use the free simulator on frontaliereticino.ch to calculate your specific case."
+    },
+    de: {
+      q: "Lohnt es sich 2026 eher als alter oder neuer Grenzgänger zu arbeiten?",
+      a: "Das hängt von Gehalt, Familienstand, Kindern und Wohngemeinde ab. Das alte Regime ist bei mittleren bis hohen Löhnen (>CHF 60.000) generell vorteilhafter. Das neue Regime kann bei niedrigeren Löhnen dank des Freibetrags von 10.000 EUR günstiger sein. Nutzen Sie den kostenlosen Simulator auf frontaliereticino.ch."
+    },
+    fr: {
+      q: "Est-il plus avantageux de travailler comme ancien ou nouveau frontalier en 2026 ?",
+      a: "Cela dépend du salaire, de la situation familiale, des enfants et de la commune de résidence. L'ancien régime est généralement plus avantageux pour les salaires moyens-élevés (>CHF 60 000). Le nouveau régime peut être plus intéressant avec des salaires plus bas grâce à la franchise de 10 000 EUR. Utilisez le simulateur gratuit sur frontaliereticino.ch."
+    }
+  },
+
+  "Come si calcola l'imposta alla fonte in Canton Ticino nel 2026?": {
+    en: {
+      q: "How is the withholding tax calculated in Canton Ticino in 2026?",
+      a: "The withholding tax in Ticino is calculated on the gross annual salary with progressive rates: 0% below CHF 18,000, from 4% to 24% for higher incomes, varying by marital status (tables A single, B married single-income, C married dual-income, H single parent) and number of children. Each child reduces the rate by about 1-2 percentage points."
+    },
+    de: {
+      q: "Wie wird die Quellensteuer im Kanton Tessin 2026 berechnet?",
+      a: "Die Quellensteuer im Tessin wird auf dem Bruttojahresgehalt mit progressiven Sätzen berechnet: 0 % unter CHF 18.000, von 4 % bis 24 % für höhere Einkommen, je nach Familienstand (Tabelle A ledig, B verheiratet Alleinverdiener, C verheiratet Doppelverdiener, H alleinerziehend) und Kinderzahl. Jedes Kind reduziert den Satz um ca. 1-2 Prozentpunkte."
+    },
+    fr: {
+      q: "Comment est calculé l'impôt à la source au Tessin en 2026 ?",
+      a: "L'impôt à la source au Tessin est calculé sur le salaire brut annuel avec des taux progressifs : 0 % en dessous de CHF 18 000, de 4 % à 24 % pour les revenus supérieurs, selon la situation familiale (barème A célibataire, B marié revenu unique, C marié double revenu, H parent isolé) et le nombre d'enfants. Chaque enfant réduit le taux d'environ 1 à 2 points."
+    }
+  },
+
+  "Quanto guadagna netto un frontaliere con CHF 80.000 lordi nel 2026?": {
+    en: {
+      q: "How much does a cross-border worker earn net on CHF 80,000 gross in 2026?",
+      a: "A single cross-border worker without children earning CHF 80,000 gross/year earns about CHF 4,900-5,100/month net under the old agreement (withholding tax only), or about CHF 4,400-4,600/month net under the new agreement (reduced withholding tax + Italian IRPEF with EUR 10,000 exemption and tax credit). Swiss social contributions (AVS 5.3%, AC 1.1%, LAA, LPP) are deducted from gross."
+    },
+    de: {
+      q: "Wie viel verdient ein Grenzgänger netto bei CHF 80.000 brutto 2026?",
+      a: "Ein lediger Grenzgänger ohne Kinder mit CHF 80.000 brutto/Jahr verdient ca. CHF 4.900-5.100/Monat netto nach dem alten Abkommen (nur Quellensteuer), oder ca. CHF 4.400-4.600/Monat netto nach dem neuen Abkommen (reduzierte Quellensteuer + italienische IRPEF mit Freibetrag 10.000 EUR und Steuergutschrift). Schweizer Sozialabgaben (AHV 5,3 %, ALV 1,1 %, UVG, BVG) werden vom Bruttolohn abgezogen."
+    },
+    fr: {
+      q: "Combien gagne net un frontalier avec CHF 80 000 bruts en 2026 ?",
+      a: "Un frontalier célibataire sans enfants gagnant CHF 80 000 bruts/an touche environ CHF 4 900-5 100/mois nets avec l'ancien accord (impôt à la source uniquement), ou environ CHF 4 400-4 600/mois nets avec le nouvel accord (impôt à la source réduit + IRPEF italienne avec franchise de 10 000 EUR et crédit d'impôt). Les cotisations sociales suisses (AVS 5,3 %, AC 1,1 %, LAA, LPP) sont déduites du brut."
+    }
+  },
+
+  "Quanto costa l'assicurazione sanitaria LAMal per frontalieri?": {
+    en: {
+      q: "How much does LAMal health insurance cost for cross-border workers?",
+      a: "LAMal premiums for cross-border workers in Canton Ticino range from CHF 270 to CHF 560/month depending on the insurer, model (Standard, Telmed, HMO) and deductible (CHF 300-2,500). The cheapest options are Assura and Agrisano with Telmed model and CHF 2,500 deductible, at around CHF 270-300/month. The comparator on frontaliereticino.ch compares 14 insurers across 7 cantons."
+    },
+    de: {
+      q: "Was kostet die KVG-Krankenversicherung für Grenzgänger?",
+      a: "Die KVG-Prämien für Grenzgänger im Kanton Tessin liegen zwischen CHF 270 und CHF 560/Monat je nach Versicherer, Modell (Standard, Telmed, HMO) und Franchise (CHF 300-2.500). Die günstigsten Optionen sind Assura und Agrisano mit Telmed-Modell und CHF 2.500 Franchise, ab ca. CHF 270-300/Monat. Der Vergleichsrechner auf frontaliereticino.ch vergleicht 14 Versicherer in 7 Kantonen."
+    },
+    fr: {
+      q: "Combien coûte l'assurance maladie LAMal pour les frontaliers ?",
+      a: "Les primes LAMal pour frontaliers au Tessin varient de CHF 270 à CHF 560/mois selon l'assureur, le modèle (Standard, Telmed, HMO) et la franchise (CHF 300-2 500). Les options les moins chères sont Assura et Agrisano avec modèle Telmed et franchise CHF 2 500, à environ CHF 270-300/mois. Le comparateur sur frontaliereticino.ch compare 14 assureurs dans 7 cantons."
+    }
+  },
+
+  "Come funziona la pensione per i frontalieri svizzeri?": {
+    en: {
+      q: "How does the pension system work for Swiss cross-border workers?",
+      a: "Cross-border workers contribute to 3 pillars: 1st pillar AVS (state pension, 5.3% contribution, max CHF 2,450/month pension), 2nd pillar LPP (company pension fund, 7-18% contribution by age), and can contribute to the 3rd pillar 3a (max CHF 7,258/year in 2026, tax-deductible). On returning to Italy, LPP capital can be withdrawn as a lump sum."
+    },
+    de: {
+      q: "Wie funktioniert das Rentensystem für Schweizer Grenzgänger?",
+      a: "Grenzgänger zahlen in 3 Säulen ein: 1. Säule AHV (Staatsrente, 5,3 % Beitrag, max. CHF 2.450/Monat Rente), 2. Säule BVG (betriebliche Pensionskasse, 7-18 % Beitrag nach Alter), und können in die 3. Säule 3a einzahlen (max. CHF 7.258/Jahr 2026, steuerlich absetzbar). Bei Rückkehr nach Italien kann das BVG-Kapital als Einmalzahlung bezogen werden."
+    },
+    fr: {
+      q: "Comment fonctionne le système de retraite pour les frontaliers suisses ?",
+      a: "Les frontaliers cotisent à 3 piliers : 1er pilier AVS (retraite d'État, cotisation 5,3 %, rente max CHF 2 450/mois), 2e pilier LPP (caisse de pension d'entreprise, cotisation 7-18 % selon l'âge), et peuvent cotiser au 3e pilier 3a (max CHF 7 258/an en 2026, déductible fiscalement). Au retour en Italie, le capital LPP peut être retiré en capital."
+    }
+  },
+
+  "Qual è il modo migliore per cambiare CHF in EUR?": {
+    en: {
+      q: "What is the best way to exchange CHF to EUR?",
+      a: "Wise (formerly TransferWise) and Revolut offer the best rates with a 0.25-0.5% markup on the interbank rate. Traditional banks (UBS, PostFinance) charge 2-3% markup. For a cross-border worker exchanging CHF 5,000/month, Wise saves about CHF 100-150/month compared to a traditional bank, i.e. CHF 1,200-1,800/year."
+    },
+    de: {
+      q: "Was ist der beste Weg, CHF in EUR umzutauschen?",
+      a: "Wise (ehemals TransferWise) und Revolut bieten die besten Kurse mit einem Aufschlag von 0,25-0,5 % auf den Interbankenkurs. Traditionelle Banken (UBS, PostFinance) berechnen 2-3 % Aufschlag. Ein Grenzgänger, der monatlich CHF 5.000 wechselt, spart mit Wise ca. CHF 100-150/Monat gegenüber einer traditionellen Bank, also CHF 1.200-1.800/Jahr."
+    },
+    fr: {
+      q: "Quel est le meilleur moyen de changer des CHF en EUR ?",
+      a: "Wise (ex TransferWise) et Revolut offrent les meilleurs taux avec une marge de 0,25-0,5 % sur le taux interbancaire. Les banques traditionnelles (UBS, PostFinance) appliquent une marge de 2-3 %. Pour un frontalier changeant CHF 5 000/mois, Wise économise environ CHF 100-150/mois par rapport à une banque traditionnelle, soit CHF 1 200-1 800/an."
+    }
+  },
+
+  "I frontalieri devono fare la dichiarazione dei redditi in Italia?": {
+    en: {
+      q: "Do cross-border workers have to file a tax return in Italy?",
+      a: "New cross-border workers (hired from 17 July 2023) must file an Italian tax return (Form 730 or PF Income Model) to declare Swiss income and claim the tax credit for taxes paid in Switzerland. Old cross-border workers (hired before July 2023, within 20 km) are generally exempt for Swiss employment income."
+    },
+    de: {
+      q: "Müssen Grenzgänger eine Steuererklärung in Italien abgeben?",
+      a: "Neue Grenzgänger (ab 17. Juli 2023 eingestellt) müssen eine italienische Steuererklärung (Modell 730 oder PF-Einkommensmodell) abgeben, um das Schweizer Einkommen zu deklarieren und die Steuergutschrift für in der Schweiz gezahlte Steuern zu beantragen. Alte Grenzgänger (vor Juli 2023 eingestellt, bis 20 km) sind für das Schweizer Arbeitseinkommen grundsätzlich befreit."
+    },
+    fr: {
+      q: "Les frontaliers doivent-ils faire une déclaration de revenus en Italie ?",
+      a: "Les nouveaux frontaliers (engagés à partir du 17 juillet 2023) doivent obligatoirement déposer une déclaration de revenus italienne (Modèle 730 ou Modèle Revenus PF) pour déclarer le revenu suisse et demander le crédit d'impôt pour les impôts payés en Suisse. Les anciens frontaliers (engagés avant juillet 2023, à moins de 20 km) sont généralement exonérés pour le revenu d'emploi suisse."
+    }
+  },
+
+  "Quanti frontalieri lavorano in Canton Ticino?": {
+    en: {
+      q: "How many cross-border workers work in Canton Ticino?",
+      a: "About 79,000 cross-border workers commute daily from Italy to Canton Ticino (BFS 2025 data). Ticino is the Swiss canton with the highest concentration of cross-border workers, representing about 30% of the cantonal workforce. The number grows by 2-3% annually. Main sectors are manufacturing, construction, finance, healthcare, hospitality, and IT."
+    },
+    de: {
+      q: "Wie viele Grenzgänger arbeiten im Kanton Tessin?",
+      a: "Rund 79.000 Grenzgänger pendeln täglich von Italien in den Kanton Tessin (BFS-Daten 2025). Das Tessin ist der Schweizer Kanton mit der höchsten Grenzgängerkonzentration, die etwa 30 % der kantonalen Arbeitskräfte ausmachen. Die Zahl wächst jährlich um 2-3 %. Hauptsektoren sind Fertigung, Bau, Finanzen, Gesundheitswesen, Gastgewerbe und IT."
+    },
+    fr: {
+      q: "Combien de frontaliers travaillent au Canton du Tessin ?",
+      a: "Environ 79 000 travailleurs frontaliers font la navette quotidiennement de l'Italie au Canton du Tessin (données OFS 2025). Le Tessin est le canton suisse avec la plus forte concentration de frontaliers, représentant environ 30 % de la main-d'oeuvre cantonale. Le nombre augmente de 2-3 % par an. Les principaux secteurs sont l'industrie, la construction, la finance, la santé, l'hôtellerie et l'informatique."
+    }
+  },
+
+  "Cosa sono i ristorni fiscali?": {
+    en: {
+      q: "What are fiscal rebates (ristorni)?",
+      a: "Ristorni are fiscal compensations that Switzerland pays to Italian border municipalities. Under the old agreement, Switzerland returns 40% of the withholding tax collected from old cross-border workers to their municipalities of residence. Ristorni are being gradually eliminated during the 2024-2033 transition period, as new cross-border workers pay taxes directly in Italy."
+    },
+    de: {
+      q: "Was sind Steuerrückvergütungen (Ristorni)?",
+      a: "Ristorni sind steuerliche Ausgleichszahlungen, die die Schweiz an italienische Grenzgemeinden leistet. Nach dem alten Abkommen gibt die Schweiz 40 % der von alten Grenzgängern erhobenen Quellensteuer an deren Wohngemeinden zurück. Ristorni werden während der Übergangszeit 2024-2033 schrittweise abgeschafft, da neue Grenzgänger Steuern direkt in Italien zahlen."
+    },
+    fr: {
+      q: "Que sont les rétrocessions fiscales (ristorni) ?",
+      a: "Les ristorni sont des compensations fiscales que la Suisse verse aux communes frontalières italiennes. Avec l'ancien accord, la Suisse restitue 40 % de l'impôt à la source perçu sur les anciens frontaliers à leurs communes de résidence. Les ristorni sont progressivement supprimés pendant la période transitoire 2024-2033, car les nouveaux frontaliers paient les impôts directement en Italie."
+    }
+  },
+
+  // ── Simulazione tasse nuovi frontalieri page (4 missing) ─────────────
+
+  "Come vengono tassati i nuovi frontalieri dal 2024?": {
+    en: {
+      q: "How are new cross-border workers taxed from 2024?",
+      a: "From 2024, new cross-border workers (hired from 17 July 2023) are subject to dual taxation: Swiss withholding tax at source (80% stays in Switzerland) and Italian IRPEF with a EUR 10,000 exemption and tax credit for Swiss taxes paid. The Italian tax return is mandatory."
+    },
+    de: {
+      q: "Wie werden neue Grenzgänger ab 2024 besteuert?",
+      a: "Ab 2024 unterliegen neue Grenzgänger (ab 17. Juli 2023 eingestellt) einer Doppelbesteuerung: Schweizer Quellensteuer (80 % verbleiben in der Schweiz) und italienische IRPEF mit Freibetrag von 10.000 EUR und Steuergutschrift für gezahlte Schweizer Steuern. Die italienische Steuererklärung ist obligatorisch."
+    },
+    fr: {
+      q: "Comment les nouveaux frontaliers sont-ils imposés à partir de 2024 ?",
+      a: "À partir de 2024, les nouveaux frontaliers (engagés dès le 17 juillet 2023) sont soumis à une double imposition : impôt à la source suisse (80 % reste en Suisse) et IRPEF italienne avec franchise de 10 000 EUR et crédit d'impôt pour les impôts suisses payés. La déclaration fiscale italienne est obligatoire."
+    }
+  },
+
+  "Come funziona il credito d'imposta per evitare la doppia tassazione?": {
+    en: {
+      q: "How does the tax credit work to avoid double taxation?",
+      a: "The tax credit allows new cross-border workers to deduct Swiss taxes paid from Italian IRPEF, avoiding double taxation. The credit is limited to the lesser of Swiss tax paid and Italian tax due on the same income. It is claimed in the Italian tax return."
+    },
+    de: {
+      q: "Wie funktioniert die Steuergutschrift zur Vermeidung der Doppelbesteuerung?",
+      a: "Die Steuergutschrift ermöglicht neuen Grenzgängern, gezahlte Schweizer Steuern von der italienischen IRPEF abzuziehen und so eine Doppelbesteuerung zu vermeiden. Die Gutschrift ist auf den niedrigeren Betrag aus Schweizer Steuer und italienischer Steuer auf dasselbe Einkommen begrenzt. Sie wird in der italienischen Steuererklärung geltend gemacht."
+    },
+    fr: {
+      q: "Comment fonctionne le crédit d'impôt pour éviter la double imposition ?",
+      a: "Le crédit d'impôt permet aux nouveaux frontaliers de déduire les impôts suisses payés de l'IRPEF italienne, évitant ainsi la double imposition. Le crédit est limité au montant le plus faible entre l'impôt suisse payé et l'impôt italien dû sur le même revenu. Il est demandé dans la déclaration de revenus italienne."
+    }
+  },
+
+  "Come calcolo lo stipendio netto come nuovo frontaliere?": {
+    en: {
+      q: "How do I calculate my net salary as a new cross-border worker?",
+      a: "Use the free simulator on frontaliereticino.ch: enter gross salary, marital status, children, and municipality of residence. The tool calculates Swiss withholding tax, social contributions (AVS, AC, LPP), Italian IRPEF with EUR 10,000 exemption, and tax credit to show your exact net salary."
+    },
+    de: {
+      q: "Wie berechne ich mein Nettogehalt als neuer Grenzgänger?",
+      a: "Nutzen Sie den kostenlosen Simulator auf frontaliereticino.ch: Geben Sie Bruttogehalt, Familienstand, Kinder und Wohngemeinde ein. Das Tool berechnet Schweizer Quellensteuer, Sozialabgaben (AHV, ALV, BVG), italienische IRPEF mit Freibetrag 10.000 EUR und Steuergutschrift, um Ihr genaues Nettogehalt zu zeigen."
+    },
+    fr: {
+      q: "Comment calculer mon salaire net en tant que nouveau frontalier ?",
+      a: "Utilisez le simulateur gratuit sur frontaliereticino.ch : entrez le salaire brut, la situation familiale, les enfants et la commune de résidence. L'outil calcule l'impôt à la source suisse, les cotisations sociales (AVS, AC, LPP), l'IRPEF italienne avec franchise de 10 000 EUR et le crédit d'impôt pour afficher votre salaire net exact."
+    }
   }
 };
 

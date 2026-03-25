@@ -133,6 +133,7 @@ export function subscribe(listener: Listener): () => void {
 /** Priority constants */
 export const POPUP_PRIORITY = {
   CHATBOT_PANEL: 120,
+  INLINE_AUTH_GATE: 110,
   ACHIEVEMENT_TOAST: 100,
   EASTER_EGG_TOAST: 90,
   COOKIE_CONSENT: 85,

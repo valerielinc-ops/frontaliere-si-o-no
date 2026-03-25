@@ -3239,6 +3239,23 @@ const JobBoard: React.FC<JobBoardProps> = ({
     onJobRouteChange?.(redirectSlug);
   }, [authResolved, hasAccess, initialJobSlug, onJobRouteChange]);
 
+  // When the inline auth gate is visible (job detail + not logged in),
+  // register with the popup queue so achievement toasts are suppressed,
+  // and scroll the auth gate into view for small viewports.
+  const inlineAuthGateVisible = Boolean(selectedJob && authResolved && !hasAccess);
+  useEffect(() => {
+    if (!inlineAuthGateVisible) return;
+    requestSlot('job-inline-auth-gate', POPUP_PRIORITY.INLINE_AUTH_GATE);
+    // Scroll the auth gate into view after a short delay to let layout settle
+    const raf = requestAnimationFrame(() => {
+      document.getElementById('job-auth-gate')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    });
+    return () => {
+      cancelAnimationFrame(raf);
+      releaseSlot('job-inline-auth-gate');
+    };
+  }, [inlineAuthGateVisible]);
+
   const openDetail = (job: JobListing) => {
     if (!authResolved) return;
     if (!hasAccess) {
@@ -4699,11 +4716,11 @@ const JobBoard: React.FC<JobBoardProps> = ({
                 </div>
               </div>
             </div>
-            {/* Blurred description teaser */}
+            {/* Blurred description teaser — compact on mobile so auth gate stays visible */}
             {descriptionPreview && (
-              <div className="relative mt-4 w-full min-h-[132px] overflow-hidden rounded-lg sm:min-h-[148px]">
+              <div className="relative mt-4 w-full min-h-[80px] overflow-hidden rounded-lg sm:min-h-[148px]">
                 <p
-                  className="min-h-[132px] px-3 py-4 text-sm text-slate-600 dark:text-slate-400 leading-relaxed select-none blur-[6px] sm:min-h-[148px]"
+                  className="min-h-[80px] px-3 py-4 text-sm text-slate-600 dark:text-slate-400 leading-relaxed select-none blur-[6px] sm:min-h-[148px]"
                   aria-hidden="true"
                 >
                   {descriptionPreview}...
@@ -4713,7 +4730,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
             )}
 
             {/* Auth gate — embedded inline for all viewports (no extra click needed) */}
-            <div id="job-auth-gate" className="mt-3 rounded-2xl border border-indigo-200 dark:border-indigo-800 bg-gradient-to-br from-indigo-50 to-blue-50 dark:from-indigo-950/30 dark:to-blue-950/20 p-5 sm:p-6">
+            <div id="job-auth-gate" className="relative z-10 mt-3 scroll-mt-20 rounded-2xl border border-indigo-200 dark:border-indigo-800 bg-gradient-to-br from-indigo-50 to-blue-50 dark:from-indigo-950/30 dark:to-blue-950/20 p-5 sm:p-6">
               <div className="flex items-center gap-3 mb-3">
                 <div className="flex-shrink-0 p-2 bg-indigo-100 dark:bg-indigo-900/50 rounded-xl">
                   <Lock className="w-5 h-5 text-indigo-700 dark:text-indigo-400" />

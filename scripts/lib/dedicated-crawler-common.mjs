@@ -2853,6 +2853,163 @@ export function evaluateJobQuality(job, { minQualityScore, minDescriptionChars }
   return { accepted: reasons.length === 0, score, reasons };
 }
 
+// ─── Detailed Job Quality Score (FRO-585) ────────────────────────────────────
+// Computes a 0–100 quality score across 4 dimensions, each worth 0–25 points.
+// Used post-translation to measure crawler output quality.
+
+const HTML_RESIDUE_RE = /<\/?[a-z][\s\S]*?>/i;
+const ENCODED_ENTITY_RE = /&(?:amp|lt|gt|quot|#\d{2,5}|#x[0-9a-f]{2,4});/i;
+const SCRIPT_TAG_RE = /<script[\s\S]*?<\/script>/i;
+
+/**
+ * Compute a detailed quality score for a single job.
+ * @param {object} job - A job object (post-translation)
+ * @returns {{ total: number, breakdown: { cleanliness: number, richness: number, translation: number, completeness: number } }}
+ */
+export function computeJobQualityScore(job) {
+  let cleanliness = 25;
+  let richness = 0;
+  let translation = 0;
+  let completeness = 0;
+
+  // ── 1. Text cleanliness (0–25): deductions for HTML residue, encoded entities, script tags ──
+  const allText = [
+    String(job.title || ''),
+    String(job.description || ''),
+    ...Object.values(job.titleByLocale || {}),
+    ...Object.values(job.descriptionByLocale || {}),
+  ].join(' ');
+
+  if (SCRIPT_TAG_RE.test(allText)) cleanliness -= 15;
+  if (HTML_RESIDUE_RE.test(allText)) cleanliness -= 8;
+  if (ENCODED_ENTITY_RE.test(allText)) cleanliness -= 5;
+  cleanliness = Math.max(0, cleanliness);
+
+  // ── 2. Content richness (0–25): description length and meaningful detail ──
+  const desc = String(job.description || '').trim();
+  const descLen = desc.length;
+  if (descLen > 500) richness += 10;
+  else if (descLen > 200) richness += 6;
+  else if (descLen > 100) richness += 3;
+  // Not thin content (>50 words)
+  const wordCount = desc.split(/\s+/).filter(Boolean).length;
+  if (wordCount >= 50) richness += 8;
+  else if (wordCount >= 25) richness += 4;
+  // Has structured sections (headings, lists)
+  if (/^##\s/m.test(desc) || /^[-*]\s/m.test(desc)) richness += 4;
+  // Has requirements or meaningful detail
+  if (Array.isArray(job.requirements) && job.requirements.length > 0) richness += 3;
+  else if (/requisiti|requirements|anforderungen|exigences/i.test(desc)) richness += 2;
+  richness = Math.min(25, richness);
+
+  // ── 3. Translation quality (0–25): all 4 locales present, titles differ ──
+  const locales = ['it', 'en', 'de', 'fr'];
+  const titleByLocale = job.titleByLocale || {};
+  const descByLocale = job.descriptionByLocale || {};
+
+  // Count locales with non-empty title
+  const titleLocales = locales.filter(l => String(titleByLocale[l] || '').trim().length > 0);
+  const descLocales = locales.filter(l => String(descByLocale[l] || '').trim().length > 0);
+
+  // Points for locale coverage
+  translation += Math.round((titleLocales.length / 4) * 8);  // 0–8
+  translation += Math.round((descLocales.length / 4) * 8);   // 0–8
+
+  // Points for title differentiation (not just Italian copied)
+  const uniqueTitles = new Set(titleLocales.map(l => String(titleByLocale[l]).trim().toLowerCase()));
+  if (uniqueTitles.size >= 3) translation += 5;
+  else if (uniqueTitles.size >= 2) translation += 3;
+
+  // Points for description differentiation
+  const uniqueDescs = new Set(descLocales.map(l => String(descByLocale[l]).trim().toLowerCase().slice(0, 200)));
+  if (uniqueDescs.size >= 3) translation += 4;
+  else if (uniqueDescs.size >= 2) translation += 2;
+
+  translation = Math.min(25, translation);
+
+  // ── 4. Data completeness (0–25): salary, location, postal code, street, domain, URL ──
+  const hasSalary = !!(job.baseSalary || job.salaryMin || job.salaryMax);
+  const hasLocation = !!(job.addressLocality || job.location);
+  const hasPostalCode = !!job.postalCode;
+  const hasStreetAddress = !!job.streetAddress;
+  const hasDomain = !!job.companyDomain;
+  const hasUrl = !!job.url;
+  const hasCompany = !!(job.company && String(job.company).trim().length >= 2);
+  const hasPostedDate = !!job.postedDate;
+
+  if (hasSalary) completeness += 5;
+  if (hasLocation) completeness += 4;
+  if (hasPostalCode) completeness += 3;
+  if (hasStreetAddress) completeness += 3;
+  if (hasDomain) completeness += 3;
+  if (hasUrl) completeness += 3;
+  if (hasCompany) completeness += 2;
+  if (hasPostedDate) completeness += 2;
+  completeness = Math.min(25, completeness);
+
+  const total = cleanliness + richness + translation + completeness;
+  return { total, breakdown: { cleanliness, richness, translation, completeness } };
+}
+
+/**
+ * Compute aggregate quality scores for all jobs from a crawler.
+ * @param {Array} jobs - Array of job objects
+ * @param {string} crawlerSlug - The crawler key/slug
+ * @returns {{ slug: string, avgScore: number, breakdown: { cleanliness: number, richness: number, translation: number, completeness: number }, jobCount: number, lastUpdated: string, worstJobs: Array }}
+ */
+export function computeCrawlerQualityAggregate(jobs, crawlerSlug) {
+  if (!Array.isArray(jobs) || jobs.length === 0) {
+    return {
+      slug: crawlerSlug,
+      avgScore: 0,
+      breakdown: { cleanliness: 0, richness: 0, translation: 0, completeness: 0 },
+      jobCount: 0,
+      lastUpdated: new Date().toISOString(),
+      worstJobs: [],
+    };
+  }
+
+  const scored = jobs.map(job => {
+    const score = computeJobQualityScore(job);
+    return { job, score };
+  });
+
+  const sum = { cleanliness: 0, richness: 0, translation: 0, completeness: 0, total: 0 };
+  for (const { score } of scored) {
+    sum.total += score.total;
+    sum.cleanliness += score.breakdown.cleanliness;
+    sum.richness += score.breakdown.richness;
+    sum.translation += score.breakdown.translation;
+    sum.completeness += score.breakdown.completeness;
+  }
+
+  const n = scored.length;
+  const avg = (v) => Math.round((v / n) * 10) / 10;
+
+  // Top 5 worst jobs
+  scored.sort((a, b) => a.score.total - b.score.total);
+  const worstJobs = scored.slice(0, 5).map(({ job, score }) => ({
+    slug: job.slug || job.id || 'unknown',
+    title: String(job.title || '').slice(0, 80),
+    score: score.total,
+    breakdown: score.breakdown,
+  }));
+
+  return {
+    slug: crawlerSlug,
+    avgScore: avg(sum.total),
+    breakdown: {
+      cleanliness: avg(sum.cleanliness),
+      richness: avg(sum.richness),
+      translation: avg(sum.translation),
+      completeness: avg(sum.completeness),
+    },
+    jobCount: n,
+    lastUpdated: new Date().toISOString(),
+    worstJobs,
+  };
+}
+
 // ─── Job/career page classification ──────────────────────────────────────────
 
 const GENERIC_CAREER_TITLES = [

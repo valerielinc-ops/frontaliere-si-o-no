@@ -372,18 +372,15 @@ export function staticPagesPlugin(rootDir: string): Plugin {
         let s = js;
         // Replace BUILD_DATE_ISO variable reference with current build timestamp
         s = s.replace(/\bBUILD_DATE_ISO\b/g, `"${BUILD_DATE_ISO}"`);
-        // Replace ${BASE_URL} template literals
+        // Replace ${BASE_URL} template literals AND bare BASE_URL variable references
         s = s.replace(/\$\{BASE_URL\}/g, BASE_URL);
+        s = s.replace(/\bBASE_URL\b/g, `"${BASE_URL}"`);
         // Replace backtick strings with double-quoted strings
         s = s.replace(/`([^`]*)`/g, (_, content: string) => JSON.stringify(content));
-        // Replace single-quoted strings with double-quoted strings (careful with apostrophes)
-        s = s.replace(/'((?:[^'\\]|\\.)*)'/g, (_, content: string) => {
-          const unescaped = content.replace(/\\'/g, "'").replace(/"/g, '\\"');
-          return `"${unescaped}"`;
-        });
-        // Quote unquoted keys — only outside double-quoted strings
-        // Simple regex can't distinguish keys from "word:" patterns inside string values,
-        // so we scan character by character, skipping double-quoted string regions.
+        // Single-pass scanner: convert single-quoted strings to double-quoted,
+        // quote unquoted keys, and skip double-quoted string regions.
+        // This avoids the apostrophe-in-Italian-text problem where a naive regex
+        // would misinterpret l'imposta as a string boundary.
         {
           let out = '';
           let i = 0;
@@ -397,6 +394,25 @@ export function staticPagesPlugin(rootDir: string): Plugin {
                 j++;
               }
               out += s.substring(i, j);
+              i = j;
+              continue;
+            }
+            // Convert single-quoted strings to double-quoted (only at value positions)
+            if (s[i] === "'") {
+              let j = i + 1;
+              let content = '';
+              while (j < s.length) {
+                if (s[j] === '\\' && j + 1 < s.length) {
+                  const next = s[j + 1];
+                  if (next === "'") { content += "'"; j += 2; continue; }
+                  content += s[j] + next; j += 2; continue;
+                }
+                if (s[j] === "'") { j++; break; }
+                content += s[j]; j++;
+              }
+              // Escape double quotes inside the converted string
+              const escaped = content.replace(/"/g, '\\"');
+              out += `"${escaped}"`;
               i = j;
               continue;
             }
@@ -438,11 +454,18 @@ export function staticPagesPlugin(rootDir: string): Plugin {
       // Match entries like: 'key': { ... title: '...', ... canonicalPath: '...' ... }
       // Parse entries by finding top-level keys and their blocks
       // Entry keys can be quoted ('key': {) or unquoted (key: {)
+      // Skip known non-entry property names that happen to match the pattern
+      const NON_ENTRY_KEYS = new Set([
+        'structuredData', 'acceptedAnswer', 'areaServed', 'potentialAction',
+        'target', 'offers', 'logo', 'creator', 'spatialCoverage', 'step',
+        'itemListElement', 'mainEntity', 'author', 'publisher', 'image',
+      ]);
       const entryStartRx = /^\s{2,8}(?:'([^']+)'|([a-zA-Z_]\w*)):\s*\{/gm;
       const entryStarts: { key: string; pos: number }[] = [];
       let esm: RegExpExecArray | null;
       while ((esm = entryStartRx.exec(seoSrc)) !== null) {
         const key = esm[1] ?? esm[2];
+        if (NON_ENTRY_KEYS.has(key)) continue;
         entryStarts.push({ key, pos: esm.index });
       }
 
@@ -1358,9 +1381,9 @@ export function staticPagesPlugin(rootDir: string): Plugin {
           if (hasSpaBundle) {
             const useBlockingHomeCss = isHomeCriticalStaticPath(canonicalPath);
             const stylesheetMarkup = useBlockingHomeCss
-              ? `<link rel="stylesheet" href="/assets/${entryCss}" crossorigin>`
-              : `<link rel="stylesheet" href="/assets/${entryCss}" crossorigin media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" crossorigin href="/assets/${entryCss}"></noscript>
+              ? `<link rel="stylesheet" href="/assets/${entryCss}" crossorigin data-clarity-unmask="true">`
+              : `<link rel="stylesheet" href="/assets/${entryCss}" crossorigin media="print" onload="this.media='all'" data-clarity-unmask="true">
+    <noscript><link rel="stylesheet" crossorigin href="/assets/${entryCss}" data-clarity-unmask="true"></noscript>
     <script>setTimeout(function(){var l=document.querySelector('link[media="print"][href*="/assets/"]');if(l){l.media='all';try{sessionStorage.setItem('_cssFallbackInfo',JSON.stringify({href:l.href,delayMs:3000,pagePath:location.pathname+location.search,ts:new Date().toISOString()}))}catch(e){}}},3000)</script>`;
             return `<!DOCTYPE html>
 <html lang="${locale}">
@@ -1454,6 +1477,7 @@ ${hrefTags}
         } else {
           // Homepage special case: inject static content into Vite's index.html
           // so the empty <div id="root"></div> gets pre-rendered content for CLS/LCP.
+          // Structured data is already in index.html as static ld+json tags.
           if (url.path === '/' && seo) {
             try {
               const generatedPage = buildPage('it', url.path, seo, url.hreflangs);
