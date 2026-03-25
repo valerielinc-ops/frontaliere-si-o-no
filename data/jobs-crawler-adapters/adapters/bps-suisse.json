@@ -5,8 +5,7 @@
   "enabled": true,
   "priority": 10,
   "crawlerModes": [
-    "html",
-    "generic_ats"
+    "html"
   ],
   "seedUrls": [
     "https://www.bps-suisse.ch/carriera-consulente_clientela_individuale__100_.php",
@@ -15,5 +14,5 @@
     "https://www.bps-suisse.ch/carriera-seniorkundenberater_mit_f_uuml_hrungserfahrung23.php"
   ],
   "notes": "BPS Suisse careers portal (simple HTML). Detail pages at carriera-*.php. Lugano-based banking.",
-  "updatedAt": "2026-03-25T09:28:25.108Z"
+  "updatedAt": "2026-03-25T11:12:59.052Z"
 }
