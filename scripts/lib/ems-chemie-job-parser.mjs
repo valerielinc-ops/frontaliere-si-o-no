@@ -1,17 +1,18 @@
 /**
  * EMS-Chemie AG — job parser
  *
- * EMS-Group publishes vacancies at:
- *   https://www.ems-group.com/en/career/job-vacancies/
- *   https://www.ems-group.com/de/karriere/offene-stellen/
+ * EMS-Group publishes vacancies on their career portal:
+ *   https://jobs.ems-group.com/
+ *
+ * The old static page at ems-group.com/en/career/job-vacancies/ now loads
+ * jobs dynamically and returns empty HTML to crawlers. The actual job data
+ * lives on the jobs.ems-group.com portal.
  *
  * EMS-Chemie is headquartered in Domat/Ems (GR) with ~3000 employees
  * globally. The company is a leading specialty chemicals producer.
  *
- * The career page lists jobs with title, location, and link to detail
- * pages with full descriptions.
- *
- * Exports: parseListingPage, parseDetailPage, buildJob, stripHtml, normalizeSpace
+ * Exports: parseListingPage, parseDetailPage, buildJob, stripHtml, normalizeSpace,
+ *          inferLocation, isSwissJob
  */
 
 /* ── Text helpers ──────────────────────────────────────────── */
@@ -61,6 +62,7 @@ export function inferLocation(title = '', description = '') {
   if (/domat\/ems|domat.ems|ems\s*\(gr\)|7013/i.test(combined)) return 'Domat/Ems';
   if (/romanshorn/i.test(combined)) return 'Romanshorn';
   if (/zurich|zürich|zurigo/i.test(combined)) return 'Zürich';
+  if (/markdorf/i.test(combined)) return 'Markdorf';
   if (/shanghai|china/i.test(combined)) return 'Shanghai';
   if (/usa|america|sumter/i.test(combined)) return 'USA';
   if (/japan|tokyo/i.test(combined)) return 'Japan';
@@ -68,7 +70,7 @@ export function inferLocation(title = '', description = '') {
 }
 
 /**
- * Check if a job location is in Switzerland (Graubünden).
+ * Check if a job location is in Switzerland.
  */
 export function isSwissJob(location = '') {
   const loc = String(location || '').toLowerCase();
@@ -82,6 +84,11 @@ export function isSwissJob(location = '') {
 /**
  * Parse the EMS-Group career listing page.
  * Returns an array of { title, url, location, datePosted }.
+ *
+ * Handles multiple HTML structures:
+ * 1. jobs.ems-group.com portal (primary — cards with links to /offene-stellen/{slug}/{uuid})
+ * 2. Legacy ems-group.com table-based layout
+ * 3. Card-based layout
  */
 export function parseListingPage(html) {
   if (!html || typeof html !== 'string') return [];
@@ -89,81 +96,109 @@ export function parseListingPage(html) {
   const jobs = [];
   const seen = new Set();
 
-  // Pattern 1: Job listing table rows or cards
-  const rowRe = /<tr[^>]*>([\s\S]*?)<\/tr>/gi;
+  // Pattern 1: jobs.ems-group.com portal links (/offene-stellen/{slug}/{uuid})
+  const portalLinkRe = /<a[^>]+href="((?:https?:\/\/jobs\.ems-group\.com)?\/offene-stellen\/[^"]+\/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})"[^>]*>([\s\S]*?)<\/a>/gi;
   let match;
-  while ((match = rowRe.exec(html)) !== null) {
-    const rowHtml = match[1];
-    const linkMatch = rowHtml.match(/<a[^>]+href="([^"]+)"[^>]*>([\s\S]*?)<\/a>/i);
-    if (!linkMatch) continue;
-
-    const url = linkMatch[1];
-    const title = normalizeSpace(stripHtml(linkMatch[2]));
-    if (!title || title.length < 5) continue;
-
-    const fullUrl = url.startsWith('http') ? url : `https://www.ems-group.com${url}`;
-    if (seen.has(fullUrl)) continue;
-    seen.add(fullUrl);
-
-    const location = inferLocation(title, stripHtml(rowHtml));
-
-    // Extract cells for additional info
-    const tdRe = /<td[^>]*>([\s\S]*?)<\/td>/gi;
-    const cells = [];
-    let td;
-    while ((td = tdRe.exec(rowHtml)) !== null) {
-      cells.push(normalizeSpace(stripHtml(td[1])));
-    }
-
-    jobs.push({
-      title,
-      url: fullUrl,
-      location,
-      datePosted: '',
-      department: cells[1] || '',
-    });
-  }
-
-  // Pattern 2: Card-based layout
-  const cardRe = /<(?:div|article|li)[^>]*class="[^"]*(?:job|vacanc|stelle|career)[^"]*"[^>]*>([\s\S]*?)<\/(?:div|article|li)>/gi;
-  while ((match = cardRe.exec(html)) !== null) {
-    const cardHtml = match[1];
-    const linkMatch = cardHtml.match(/<a[^>]+href="([^"]+)"[^>]*>([\s\S]*?)<\/a>/i);
-    if (!linkMatch) continue;
-
-    const url = linkMatch[1];
-    const title = normalizeSpace(stripHtml(linkMatch[2]));
-    if (!title || title.length < 5) continue;
-
-    const fullUrl = url.startsWith('http') ? url : `https://www.ems-group.com${url}`;
-    if (seen.has(fullUrl)) continue;
-    seen.add(fullUrl);
-
-    jobs.push({
-      title,
-      url: fullUrl,
-      location: inferLocation(title, stripHtml(cardHtml)),
-      datePosted: '',
-    });
-  }
-
-  // Pattern 3: Simple link list in career section
-  const linkRe = /<a[^>]+href="(\/(?:en|de)\/career\/[^"]+)"[^>]*>([\s\S]*?)<\/a>/gi;
-  while ((match = linkRe.exec(html)) !== null) {
+  while ((match = portalLinkRe.exec(html)) !== null) {
     const url = match[1];
-    const title = normalizeSpace(stripHtml(match[2]));
-    if (!title || title.length < 5) continue;
+    const linkText = normalizeSpace(stripHtml(match[2]));
+    if (!linkText || linkText.length < 3) continue;
 
-    const fullUrl = `https://www.ems-group.com${url}`;
+    const fullUrl = url.startsWith('http') ? url : `https://jobs.ems-group.com${url}`;
     if (seen.has(fullUrl)) continue;
     seen.add(fullUrl);
 
+    // Extract location from surrounding HTML context
+    const contextStart = Math.max(0, match.index - 500);
+    const contextEnd = Math.min(html.length, match.index + match[0].length + 500);
+    const context = html.slice(contextStart, contextEnd);
+
     jobs.push({
-      title,
+      title: linkText,
       url: fullUrl,
-      location: inferLocation(title, ''),
+      location: inferLocation(linkText, stripHtml(context)),
       datePosted: '',
     });
+  }
+
+  // Pattern 2: Job listing table rows (legacy ems-group.com)
+  if (jobs.length === 0) {
+    const rowRe = /<tr[^>]*>([\s\S]*?)<\/tr>/gi;
+    while ((match = rowRe.exec(html)) !== null) {
+      const rowHtml = match[1];
+      const linkMatch = rowHtml.match(/<a[^>]+href="([^"]+)"[^>]*>([\s\S]*?)<\/a>/i);
+      if (!linkMatch) continue;
+
+      const url = linkMatch[1];
+      const title = normalizeSpace(stripHtml(linkMatch[2]));
+      if (!title || title.length < 5) continue;
+
+      // Reject navigation links (career section landing pages)
+      if (/\/career\/$|\/karriere\/$|\/job-vacancies\/$|\/offene-stellen\/$/i.test(url)) continue;
+
+      const fullUrl = url.startsWith('http') ? url : `https://www.ems-group.com${url}`;
+      if (seen.has(fullUrl)) continue;
+      seen.add(fullUrl);
+
+      const location = inferLocation(title, stripHtml(rowHtml));
+
+      jobs.push({
+        title,
+        url: fullUrl,
+        location,
+        datePosted: '',
+      });
+    }
+  }
+
+  // Pattern 3: Card-based layout
+  if (jobs.length === 0) {
+    const cardRe = /<(?:div|article|li)[^>]*class="[^"]*(?:job|vacanc|stelle|career|position)[^"]*"[^>]*>([\s\S]*?)<\/(?:div|article|li)>/gi;
+    while ((match = cardRe.exec(html)) !== null) {
+      const cardHtml = match[1];
+      const linkMatch = cardHtml.match(/<a[^>]+href="([^"]+)"[^>]*>([\s\S]*?)<\/a>/i);
+      if (!linkMatch) continue;
+
+      const url = linkMatch[1];
+      const title = normalizeSpace(stripHtml(linkMatch[2]));
+      if (!title || title.length < 5) continue;
+
+      const fullUrl = url.startsWith('http') ? url : `https://www.ems-group.com${url}`;
+      if (seen.has(fullUrl)) continue;
+      seen.add(fullUrl);
+
+      jobs.push({
+        title,
+        url: fullUrl,
+        location: inferLocation(title, stripHtml(cardHtml)),
+        datePosted: '',
+      });
+    }
+  }
+
+  // Pattern 4: Simple link list in career section (legacy)
+  if (jobs.length === 0) {
+    const linkRe = /<a[^>]+href="(\/(?:en|de)\/career\/[^"]+)"[^>]*>([\s\S]*?)<\/a>/gi;
+    while ((match = linkRe.exec(html)) !== null) {
+      const url = match[1];
+      const title = normalizeSpace(stripHtml(match[2]));
+      if (!title || title.length < 5) continue;
+
+      // Reject navigation links (career section landing pages)
+      if (/\/career\/$|\/career\/job-vacancies\/?$/i.test(url)) continue;
+      if (/\/career\/the-start-at-ems|\/career\/apprenticeship|\/career\/further-education|\/career\/employee-statements/i.test(url)) continue;
+
+      const fullUrl = `https://www.ems-group.com${url}`;
+      if (seen.has(fullUrl)) continue;
+      seen.add(fullUrl);
+
+      jobs.push({
+        title,
+        url: fullUrl,
+        location: inferLocation(title, ''),
+        datePosted: '',
+      });
+    }
   }
 
   return jobs;
@@ -250,6 +285,12 @@ export function buildJob(raw) {
     location,
     canton,
     country: 'CH',
+    postalCode: '7013',
+    streetAddress: 'Via Innovativa 1',
+    addressLocality: location,
+    addressRegion: canton,
+    addressCountry: 'CH',
+    employmentType: raw.employmentType || 'FULL_TIME',
     category: detectCategory(title, description),
     description,
     postedDate: raw.datePosted || new Date().toISOString().slice(0, 10),
@@ -273,11 +314,12 @@ function detectCategory(title = '', description = '') {
   if (/produktion|produzion|anlage|impianto|schicht|turno/i.test(combined)) return 'manufacturing';
   if (/ingenieur|ingegnere|engineer|technik|tecnic/i.test(combined)) return 'engineering';
   if (/it\b|software|informatik|informatica|system|sap/i.test(combined)) return 'technology';
-  if (/kaufm|commerci|administrat|amministrativ|büro|ufficio/i.test(combined)) return 'administration';
+  if (/kaufm|commerci|administrat|amministrativ|büro|ufficio|assistenz|controlling|buchhalt|finanzbuch/i.test(combined)) return 'administration';
   if (/logistik|logistica|lager|magazz|supply chain/i.test(combined)) return 'logistics';
-  if (/verkauf|vendita|sales|marketing|vertrieb/i.test(combined)) return 'sales';
-  if (/finanz|contabil|buchhalt|controlling|finanza/i.test(combined)) return 'finance';
+  if (/verkauf|vendita|sales|marketing|vertrieb|key account|area sales/i.test(combined)) return 'sales';
+  if (/finanz|contabil|buchhalt|controlling|finanza|leiter controlling|leiter finanzbuch/i.test(combined)) return 'finance';
   if (/hr\b|personal|risorse umane/i.test(combined)) return 'hr';
   if (/qualität|qualita|quality/i.test(combined)) return 'quality';
+  if (/projektleiter|project/i.test(combined)) return 'engineering';
   return 'manufacturing'; // Default for chemicals company
 }

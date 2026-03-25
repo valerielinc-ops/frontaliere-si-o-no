@@ -2,11 +2,15 @@
  * BancaStato (Banca dello Stato del Cantone Ticino) — job parser
  *
  * BancaStato publishes vacancies on their website at:
- *   https://www.bancastato.ch/la-banca/posti-vacanti
+ *   https://www.bancastato.ch/su-di-noi/chi-siamo/informazioni-utili/posti-vacanti-e-carriera.html
+ *   (Legacy URL: /la-banca/posti-vacanti was restructured in 2025)
  *
  * The career page lists jobs as structured HTML with title, location,
  * and link to detail pages. BancaStato is a cantonal bank with ~500
  * employees, headquartered in Bellinzona (TI).
+ *
+ * IMPORTANT: BancaStato frequently has zero open positions. This is normal
+ * and the parser should return an empty array — NOT fake/product pages.
  *
  * Exports: parseListingPage, parseDetailPage, buildJob, stripHtml, normalizeSpace
  */
@@ -47,16 +51,121 @@ export function slugify(value = '') {
     .slice(0, 180);
 }
 
+/* ── URL validation ──────────────────────────────────────── */
+
+/**
+ * Known NON-job path segments. If a link's path contains any of these,
+ * it's a product/service page, NOT a job listing.
+ */
+const REJECT_PATH_PATTERNS = [
+  /\/privati\//i,
+  /\/aziende\//i,
+  /\/prodotti\//i,
+  /\/servizi\//i,
+  /\/contatti\//i,
+  /\/mastercard/i,
+  /\/carta/i,
+  /\/conto/i,
+  /\/ipoteca/i,
+  /\/credito(?!-|[a-z])/i, // reject /credito/ but not "crediti" in job title
+  /\/investimenti/i,
+  /\/previdenza/i,
+  /\/assicurazion/i,
+  /\/sostenibilita/i,
+  /\/news/i,
+  /\/comunicati/i,
+  /\/rapporto-annuale/i,
+  /\/condizioni-generali/i,
+  /\/protezione-dati/i,
+  /\/disclaimer/i,
+  /\/impressum/i,
+  /\.pdf$/i,
+  /\.jpg$/i,
+  /\.png$/i,
+];
+
+/**
+ * Known job-related path segments. A link MUST contain at least one of these
+ * to be considered a job listing link.
+ */
+const ACCEPT_PATH_PATTERNS = [
+  /posti-vacanti/i,
+  /carriere?/i,
+  /offerte-lavoro/i,
+  /impieg/i,
+  /concors/i,
+  /candidatura/i,
+  /lavora-con-noi/i,
+  /job/i,
+  /career/i,
+  /stellen/i,
+  /vacanc/i,
+];
+
+/**
+ * Check if a URL path looks like a real job detail page
+ * (not a product, service, or generic navigation link).
+ */
+function isJobUrl(href = '') {
+  if (!href) return false;
+  const path = href.toLowerCase();
+
+  // Reject known non-job paths
+  for (const re of REJECT_PATH_PATTERNS) {
+    if (re.test(path)) return false;
+  }
+
+  // Must contain a job-related path segment
+  for (const re of ACCEPT_PATH_PATTERNS) {
+    if (re.test(path)) return true;
+  }
+
+  return false;
+}
+
+/**
+ * Check if a title looks like a real job title (not a product/service name).
+ */
+function isJobTitle(title = '') {
+  if (!title || title.length < 5) return false;
+  const t = title.toLowerCase();
+
+  // Reject product/service names
+  const rejectPatterns = [
+    /mastercard/i,
+    /prepaid/i,
+    /carta\s+di/i,
+    /conto\s/i,
+    /ipoteca/i,
+    /polizza/i,
+    /investiment/i,
+    /previdenza/i,
+    /assicurazion/i,
+    /contatti/i,
+    /sportelli/i,
+    /filiale/i,
+    /condizioni\s+general/i,
+    /protezione\s+dati/i,
+    /disclaimer/i,
+    /cookie/i,
+    /privacy/i,
+  ];
+  for (const re of rejectPatterns) {
+    if (re.test(t)) return false;
+  }
+
+  return true;
+}
+
 /* ── Listing page parser ───────────────────────────────────── */
 
 /**
  * Parse the BancaStato career listing page HTML.
  * Returns an array of { title, url, location, datePosted }.
  *
- * Expected HTML patterns:
- *   - Job links within <a> tags pointing to detail pages
- *   - Job titles in headings or link text
- *   - Location often mentioned in body or as "Bellinzona", "Lugano", etc.
+ * STRICT FILTERING: Only returns links that are clearly job postings.
+ * If the career page has no real job listings (common for BancaStato),
+ * returns an empty array. This is correct behavior — NOT an error.
  */
 export function parseListingPage(html) {
   if (!html || typeof html !== 'string') return [];
@@ -64,65 +173,35 @@ export function parseListingPage(html) {
   const jobs = [];
   const seen = new Set();
 
-  // Pattern 1: Links to job detail pages (typical career page structure)
-  // Match <a> tags with href containing job-related paths
-  const linkRe = /<a[^>]+href="([^"]*(?:posti-vacanti|offerte-lavoro|careers?|jobs?|stellen)[^"]*)"[^>]*>([\s\S]*?)<\/a>/gi;
+  // Pattern 1: Links within career/posti-vacanti section that point to job detail pages
+  const linkRe = /<a[^>]+href="([^"]*)"[^>]*>([\s\S]*?)<\/a>/gi;
   let match;
   while ((match = linkRe.exec(html)) !== null) {
-    const url = match[1];
+    const href = match[1];
     const linkText = normalizeSpace(stripHtml(match[2]));
 
     if (!linkText || linkText.length < 5) continue;
-    if (seen.has(url)) continue;
-    seen.add(url);
+    if (!isJobTitle(linkText)) continue;
 
-    jobs.push({
-      title: linkText,
-      url: url.startsWith('http') ? url : `https://www.bancastato.ch${url}`,
-      location: 'Bellinzona',
-      datePosted: '',
-    });
-  }
+    const fullUrl = href.startsWith('http') ? href : `https://www.bancastato.ch${href}`;
 
-  // Pattern 2: Structured job cards with h2/h3 + link
-  const cardRe = /<(?:h[2-4]|div)[^>]*class="[^"]*(?:job|vacancy|position|posto)[^"]*"[^>]*>[\s\S]*?<a[^>]+href="([^"]+)"[^>]*>([\s\S]*?)<\/a>/gi;
-  while ((match = cardRe.exec(html)) !== null) {
-    const url = match[1];
-    const title = normalizeSpace(stripHtml(match[2]));
+    // URL must contain a job-related path
+    if (!isJobUrl(fullUrl)) continue;
 
-    if (!title || title.length < 5) continue;
-    const fullUrl = url.startsWith('http') ? url : `https://www.bancastato.ch${url}`;
+    // The URL must be a detail page (not the listing page itself)
+    // It should have a path deeper than just the career section
+    const pathParts = new URL(fullUrl).pathname.split('/').filter(Boolean);
+    if (pathParts.length < 3) continue; // e.g., /carriere/ alone is too shallow
+
     if (seen.has(fullUrl)) continue;
     seen.add(fullUrl);
 
     jobs.push({
-      title,
+      title: linkText,
       url: fullUrl,
       location: 'Bellinzona',
       datePosted: '',
     });
-  }
-
-  // Pattern 3: Generic list items with links inside career section
-  const liRe = /<li[^>]*>\s*<a[^>]+href="(\/[^"]*)"[^>]*>([\s\S]*?)<\/a>\s*<\/li>/gi;
-  while ((match = liRe.exec(html)) !== null) {
-    const url = match[1];
-    const title = normalizeSpace(stripHtml(match[2]));
-
-    if (!title || title.length < 10) continue;
-    const fullUrl = `https://www.bancastato.ch${url}`;
-    if (seen.has(fullUrl)) continue;
-    seen.add(fullUrl);
-
-    // Only include if it looks like a job title
-    if (/bancastato|posti|lavoro|impieg|responsabil|collaborat|dirett|analista|special/i.test(title + url)) {
-      jobs.push({
-        title,
-        url: fullUrl,
-        location: 'Bellinzona',
-        datePosted: '',
-      });
-    }
   }
 
   return jobs;
@@ -238,8 +317,12 @@ export function buildJob(raw) {
     location,
     canton: raw.canton || 'TI',
     country: 'CH',
+    postalCode: '6500',
+    streetAddress: 'Viale Henri Guisan 5',
     addressLocality: location,
+    addressRegion: 'TI',
     addressCountry: 'CH',
+    employmentType: raw.employmentType || 'FULL_TIME',
     category: detectCategory(title, finalDescription),
     description: finalDescription,
     postedDate: raw.datePosted || new Date().toISOString().slice(0, 10),

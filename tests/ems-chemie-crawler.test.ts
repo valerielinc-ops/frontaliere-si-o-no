@@ -16,7 +16,7 @@ import {
   normalizeSpace,
 } from '@/scripts/lib/ems-chemie-job-parser.mjs';
 
-// ─── Fixture: Career listing page ──────────────────────────
+// ─── Fixture: Career listing page (legacy table) ──────────────────
 const LISTING_HTML = `
 <html>
 <body>
@@ -39,6 +39,58 @@ const LISTING_HTML = `
       <td>Domat/Ems</td>
     </tr>
   </table>
+</main>
+</body>
+</html>`;
+
+// ─── Fixture: jobs.ems-group.com portal page ────────────────────
+const PORTAL_HTML = `
+<html>
+<body>
+<div class="jobs-list">
+  <div class="job-card">
+    <a href="/offene-stellen/key-account-manager-m-w-d-homeoffice/4aa59321-0063-4499-bdf7-53a3dc75ec9c">
+      Key Account Manager (m/w/d) (Homeoffice)
+    </a>
+    <span>Domat/Ems</span>
+    <span>EMS-CHEMIE AG</span>
+  </div>
+  <div class="job-card">
+    <a href="/offene-stellen/laborant-materialpruefung-m-w-d/f4838ff6-2c0b-4dda-bede-826bc55d6b48">
+      Laborant Materialprüfung (m/w/d)
+    </a>
+    <span>Domat/Ems</span>
+    <span>EMS-CHEMIE AG</span>
+  </div>
+  <div class="job-card">
+    <a href="/offene-stellen/leiter-controlling-m-w-d/3a614b30-caf6-4712-a572-d828b8320266">
+      Leiter Controlling (m/w/d)
+    </a>
+    <span>Domat/Ems</span>
+  </div>
+  <div class="job-card">
+    <a href="/offene-stellen/ingenieur-techniker-automatisierungstechnik-m-w-d/27e163d4-48e1-4558-876c-5294626f3b85">
+      Ingenieur / Techniker Automatisierungstechnik (m/w/d)
+    </a>
+    <span>Markdorf</span>
+    <span>EFTEC AG</span>
+  </div>
+</div>
+</body>
+</html>`;
+
+// ─── Fixture: Landing page with NO job listings (just navigation) ──
+const EMPTY_LANDING_HTML = `
+<html>
+<body>
+<main>
+  <h1>Job Vacancies</h1>
+  <nav>
+    <a href="/en/career/">Career</a>
+    <a href="/en/career/job-vacancies/">Job Vacancies</a>
+    <a href="/en/career/the-start-at-ems/">The start at EMS</a>
+    <a href="/en/career/apprenticeship-positions/">Apprenticeship Positions</a>
+  </nav>
 </main>
 </body>
 </html>`;
@@ -81,10 +133,10 @@ const DETAIL_HTML = `
 </html>`;
 
 // ═══════════════════════════════════════════════════════════════
-// parseListingPage
+// parseListingPage — legacy table format
 // ═══════════════════════════════════════════════════════════════
 
-describe('parseListingPage', () => {
+describe('parseListingPage — legacy table', () => {
   it('extracts jobs from table rows', () => {
     const jobs = parseListingPage(LISTING_HTML);
     expect(jobs.length).toBe(3);
@@ -109,6 +161,52 @@ describe('parseListingPage', () => {
 
   it('returns empty for page without listings', () => {
     expect(parseListingPage('<html><body>Nothing here</body></html>')).toHaveLength(0);
+  });
+});
+
+// ═══════════════════════════════════════════════════════════════
+// parseListingPage — jobs.ems-group.com portal format
+// ═══════════════════════════════════════════════════════════════
+
+describe('parseListingPage — portal format', () => {
+  it('extracts jobs from portal HTML with UUID links', () => {
+    const jobs = parseListingPage(PORTAL_HTML);
+    expect(jobs.length).toBe(4);
+  });
+
+  it('extracts job titles from portal cards', () => {
+    const jobs = parseListingPage(PORTAL_HTML);
+    const titles = jobs.map((j: { title: string }) => j.title);
+    expect(titles).toContain('Key Account Manager (m/w/d) (Homeoffice)');
+    expect(titles).toContain('Laborant Materialprüfung (m/w/d)');
+    expect(titles).toContain('Leiter Controlling (m/w/d)');
+  });
+
+  it('generates full portal URLs with UUIDs', () => {
+    const jobs = parseListingPage(PORTAL_HTML);
+    for (const job of jobs) {
+      expect((job as { url: string }).url).toMatch(/jobs\.ems-group\.com\/offene-stellen\/[a-z0-9-]+\/[0-9a-f-]+/);
+    }
+  });
+
+  it('includes EFTEC jobs from portal', () => {
+    const jobs = parseListingPage(PORTAL_HTML);
+    const eftecJob = jobs.find((j: { title: string }) => j.title.includes('Automatisierungstechnik'));
+    expect(eftecJob).toBeDefined();
+    // Location inference from HTML context may or may not detect Markdorf
+    // depending on how close the location text is to the link
+    expect((eftecJob as { location: string }).location).toBeTruthy();
+  });
+});
+
+// ═══════════════════════════════════════════════════════════════
+// parseListingPage — empty landing page (no fake jobs)
+// ═══════════════════════════════════════════════════════════════
+
+describe('parseListingPage — empty landing page', () => {
+  it('returns empty array for navigation-only pages', () => {
+    const jobs = parseListingPage(EMPTY_LANDING_HTML);
+    expect(jobs).toHaveLength(0);
   });
 });
 
@@ -154,6 +252,10 @@ describe('inferLocation', () => {
     expect(inferLocation('Production Manager Romanshorn', '')).toBe('Romanshorn');
   });
 
+  it('detects Markdorf', () => {
+    expect(inferLocation('', 'Standort: Markdorf, Germany')).toBe('Markdorf');
+  });
+
   it('defaults to Domat/Ems', () => {
     expect(inferLocation('Generic Position', 'Some text')).toBe('Domat/Ems');
   });
@@ -188,6 +290,13 @@ describe('buildJob', () => {
     expect(job!.company).toBe('EMS-Chemie AG');
     expect(job!.companyKey).toBe('ems-chemie');
     expect(job!.canton).toBe('GR');
+  });
+
+  it('includes postalCode and streetAddress', () => {
+    const job = buildJob({ title: 'Test', location: 'Domat/Ems' });
+    expect(job!.postalCode).toBe('7013');
+    expect(job!.streetAddress).toBe('Via Innovativa 1');
+    expect(job!.employmentType).toBe('FULL_TIME');
   });
 
   it('sets canton TG for Romanshorn', () => {

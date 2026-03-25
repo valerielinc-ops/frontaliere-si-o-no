@@ -14,7 +14,7 @@ import {
   normalizeSpace,
 } from '@/scripts/lib/bancastato-job-parser.mjs';
 
-// ─── Fixture: Career page with job listings ────────────────
+// ─── Fixture: Career page with real job listings ────────────
 const LISTING_HTML = `
 <html>
 <body>
@@ -23,23 +23,42 @@ const LISTING_HTML = `
     <h1>Posti vacanti</h1>
     <ul>
       <li>
-        <a href="/la-banca/posti-vacanti/consulente-clientela-privata">
+        <a href="/carriere/posti-vacanti/consulente-clientela-privata">
           <strong>Consulente clientela privata</strong>
         </a>
         <span>Bellinzona</span>
       </li>
       <li>
-        <a href="/la-banca/posti-vacanti/analista-crediti">
+        <a href="/carriere/posti-vacanti/analista-crediti">
           <strong>Analista crediti</strong>
         </a>
         <span>Lugano</span>
       </li>
       <li>
-        <a href="/la-banca/posti-vacanti/specialista-compliance">
+        <a href="/carriere/posti-vacanti/specialista-compliance">
           <strong>Specialista compliance</strong>
         </a>
         <span>Bellinzona</span>
       </li>
+    </ul>
+  </div>
+</main>
+</body>
+</html>`;
+
+// ─── Fixture: Product/service pages (should NOT be parsed as jobs) ──
+const PRODUCT_HTML = `
+<html>
+<body>
+<main>
+  <div class="content">
+    <h1>I nostri servizi</h1>
+    <ul>
+      <li><a href="/privati/carte/prepaid-mastercard">PrePaid Mastercard</a></li>
+      <li><a href="/privati/investimenti/fondi">Fondi di investimento</a></li>
+      <li><a href="/aziende/servizi/e-banking">E-Banking per aziende</a></li>
+      <li><a href="/contatti/sportelli">I nostri sportelli</a></li>
+      <li><a href="/la-banca/posti-vacanti">Posti vacanti e carriera</a></li>
     </ul>
   </div>
 </main>
@@ -126,6 +145,21 @@ describe('parseListingPage', () => {
     const jobs = parseListingPage(EMPTY_HTML);
     expect(jobs).toHaveLength(0);
   });
+
+  it('does NOT extract product/service pages as jobs', () => {
+    const jobs = parseListingPage(PRODUCT_HTML);
+    expect(jobs).toHaveLength(0);
+  });
+
+  it('rejects links to product paths like /privati/, /aziende/, /contatti/', () => {
+    const html = `<html><body>
+      <a href="/privati/carte/prepaid-mastercard">PrePaid Mastercard</a>
+      <a href="/aziende/servizi/e-banking">E-Banking</a>
+      <a href="/contatti/sportelli">Sportelli</a>
+    </body></html>`;
+    const jobs = parseListingPage(html);
+    expect(jobs).toHaveLength(0);
+  });
 });
 
 // ═══════════════════════════════════════════════════════════════
@@ -175,7 +209,7 @@ describe('buildJob', () => {
   it('builds a complete job object from raw data', () => {
     const job = buildJob({
       title: 'Consulente clientela privata',
-      url: 'https://www.bancastato.ch/la-banca/posti-vacanti/consulente',
+      url: 'https://www.bancastato.ch/carriere/posti-vacanti/consulente',
       location: 'Bellinzona',
     });
     expect(job).not.toBeNull();
@@ -183,6 +217,13 @@ describe('buildJob', () => {
     expect(job!.companyKey).toBe('bancastato');
     expect(job!.canton).toBe('TI');
     expect(job!.country).toBe('CH');
+  });
+
+  it('includes postalCode and streetAddress', () => {
+    const job = buildJob({ title: 'Test Job', location: 'Bellinzona' });
+    expect(job!.postalCode).toBe('6500');
+    expect(job!.streetAddress).toBe('Viale Henri Guisan 5');
+    expect(job!.employmentType).toBe('FULL_TIME');
   });
 
   it('generates slug with company name', () => {

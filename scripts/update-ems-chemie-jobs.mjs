@@ -53,7 +53,18 @@ const ADAPTERS_DIR = path.resolve(ROOT, 'data', 'jobs-crawler-adapters', 'adapte
 const COMPANY_KEY = 'ems-chemie';
 const COMPANY_NAME = 'EMS-Chemie AG';
 const COMPANY_HOST = 'www.ems-group.com';
-const CAREERS_URL = 'https://www.ems-group.com/en/career/job-vacancies/';
+/**
+ * EMS-Group moved their job listings to a dedicated career portal.
+ * The old static page at ems-group.com/en/career/job-vacancies/ loads
+ * content dynamically and returns empty HTML to crawlers.
+ * We try the portal first, then fall back to legacy URLs.
+ */
+const CAREERS_URLS = [
+  'https://jobs.ems-group.com/',
+  'https://www.ems-group.com/en/career/job-vacancies/',
+  'https://www.ems-group.com/de/karriere/offene-stellen/',
+];
+const CAREERS_URL = CAREERS_URLS[0];
 const LOCALES = ['it', 'en', 'de', 'fr'];
 const UA = process.env.JOBS_CRAWLER_USER_AGENT || 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)';
 
@@ -77,7 +88,7 @@ function isCompanyJob(job) {
 function isTrustedDomain(rawUrl = '') {
   try {
     const host = new URL(rawUrl).hostname.toLowerCase();
-    return host === COMPANY_HOST || host === 'ems-group.com';
+    return host === COMPANY_HOST || host === 'ems-group.com' || host === 'jobs.ems-group.com';
   } catch { return false; }
 }
 
@@ -100,17 +111,29 @@ async function fetchJobs() {
   const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 15000;
   console.log(`🔍 Fetching ${COMPANY_NAME} career page...`);
 
-  let html;
-  try { html = await fetchHtml(CAREERS_URL, timeoutMs); } catch (err) {
-    console.error(`❌ Failed to fetch career page: ${err?.message || err}`);
-    throw err;
+  // Try each career URL until one returns job listings
+  let allListings = [];
+  for (const url of CAREERS_URLS) {
+    try {
+      const html = await fetchHtml(url, timeoutMs);
+      const rawListings = parseListingPage(html);
+      console.log(`  📋 ${url} → ${rawListings.length} listing(s)`);
+      if (rawListings.length > 0) {
+        allListings = rawListings;
+        break;
+      }
+    } catch (err) {
+      console.warn(`  ⚠️ Failed to fetch ${url}: ${err?.message || err}`);
+    }
   }
 
-  const rawListings = parseListingPage(html);
-  console.log(`📋 Found ${rawListings.length} listing(s) on career page.`);
+  if (allListings.length === 0) {
+    console.log('ℹ️  No job listings found on any career page URL.');
+    return [];
+  }
 
   const jobs = [];
-  for (const listing of rawListings) {
+  for (const listing of allListings) {
     const job = buildJob(listing);
     if (job) {
       console.log(`  ✅ ${job.title} (${job.location})`);

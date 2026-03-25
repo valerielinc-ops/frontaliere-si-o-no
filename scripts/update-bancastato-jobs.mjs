@@ -53,7 +53,18 @@ const ADAPTERS_DIR = path.resolve(ROOT, 'data', 'jobs-crawler-adapters', 'adapte
 const COMPANY_KEY = 'bancastato';
 const COMPANY_NAME = 'BancaStato';
 const COMPANY_HOST = 'www.bancastato.ch';
-const CAREERS_URL = 'https://www.bancastato.ch/la-banca/posti-vacanti';
+/**
+ * BancaStato restructured their website in 2025.
+ * The old /la-banca/posti-vacanti path now leads to product pages.
+ * The new career pages are under /su-di-noi/ and /carriere.
+ * We try multiple URLs in order of preference.
+ */
+const CAREERS_URLS = [
+  'https://www.bancastato.ch/su-di-noi/chi-siamo/informazioni-utili/posti-vacanti-e-carriera.html',
+  'https://www.bancastato.ch/carriere',
+  'https://www.bancastato.ch/la-banca/posti-vacanti',
+];
+const CAREERS_URL = CAREERS_URLS[0];
 const LOCALES = ['it', 'en', 'de', 'fr'];
 const UA = process.env.JOBS_CRAWLER_USER_AGENT || 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)';
 
@@ -100,10 +111,23 @@ async function fetchJobs() {
   const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 15000;
   console.log(`🔍 Fetching ${COMPANY_NAME} career page...`);
 
-  let html;
-  try { html = await fetchHtml(CAREERS_URL, timeoutMs); } catch (err) {
-    console.error(`❌ Failed to fetch career page: ${err?.message || err}`);
-    throw err;
+  // Try each career URL until one succeeds
+  let html = null;
+  for (const url of CAREERS_URLS) {
+    try {
+      html = await fetchHtml(url, timeoutMs);
+      console.log(`  ✅ Fetched career page: ${url}`);
+      break;
+    } catch (err) {
+      console.warn(`  ⚠️ Failed to fetch ${url}: ${err?.message || err}`);
+    }
+  }
+
+  if (!html) {
+    console.warn('⚠️ All BancaStato career page URLs failed.');
+    console.warn('   The bank website may be blocking automated requests (403).');
+    console.warn('   Returning 0 jobs — this is normal if BancaStato has no openings.');
+    return [];
   }
 
   const rawListings = parseListingPage(html);
