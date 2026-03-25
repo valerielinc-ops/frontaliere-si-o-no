@@ -1,6 +1,6 @@
 {
   "crawlerKey": "lis-lugano-istituti-sociali",
-  "assembledAt": "2026-03-25T20:49:25.499Z",
+  "assembledAt": "2026-03-25T21:59:02.819Z",
   "jobs": [
     {
       "title": "Capireparto",
@@ -43,6 +43,7 @@
       "salaryCurrency": "CHF",
       "salaryClass": "16",
       "crawledAt": "",
+      "needsRetranslation": true,
       "requirementsByLocale": {},
       "currency": "CHF",
       "baseSalary": {
@@ -60,7 +61,7 @@
         "textHash": "a8b626f84a33e5762181",
         "source": "lis_regex_text",
         "confidence": 0.98,
-        "extractedAt": "2026-03-25T20:49:25.455Z"
+        "extractedAt": "2026-03-25T21:59:02.773Z"
       },
       "sourceLang": "it",
       "previousSlugs": [
@@ -112,6 +113,7 @@
       "salaryCurrency": "CHF",
       "salaryClass": "15",
       "crawledAt": "",
+      "needsRetranslation": true,
       "requirementsByLocale": {},
       "currency": "CHF",
       "baseSalary": {
@@ -129,7 +131,7 @@
         "textHash": "f56dd83696112341f6c6",
         "source": "lis_regex_text",
         "confidence": 0.98,
-        "extractedAt": "2026-03-25T20:49:25.456Z"
+        "extractedAt": "2026-03-25T21:59:02.773Z"
       },
       "sourceLang": "it",
       "previousSlugs": [
@@ -181,6 +183,7 @@
       "salaryCurrency": "CHF",
       "salaryClass": "12",
       "crawledAt": "",
+      "needsRetranslation": true,
       "requirementsByLocale": {},
       "currency": "CHF",
       "baseSalary": {
@@ -198,7 +201,7 @@
         "textHash": "4ad83b1c1daa214f3437",
         "source": "lis_regex_text",
         "confidence": 0.98,
-        "extractedAt": "2026-03-25T20:49:25.456Z"
+        "extractedAt": "2026-03-25T21:59:02.774Z"
       },
       "sourceLang": "it",
       "addressLocality": "Lugano",
@@ -247,6 +250,7 @@
       "salaryCurrency": "CHF",
       "salaryClass": "10",
       "crawledAt": "",
+      "needsRetranslation": true,
       "requirementsByLocale": {},
       "currency": "CHF",
       "baseSalary": {
@@ -264,7 +268,7 @@
         "textHash": "772ab97c4b0f2c3acd83",
         "source": "lis_regex_text",
         "confidence": 0.98,
-        "extractedAt": "2026-03-25T20:49:25.457Z"
+        "extractedAt": "2026-03-25T21:59:02.774Z"
       },
       "sourceLang": "it",
       "addressLocality": "Lugano",
@@ -313,6 +317,7 @@
       "salaryCurrency": "CHF",
       "salaryClass": "7",
       "crawledAt": "",
+      "needsRetranslation": true,
       "requirementsByLocale": {},
       "currency": "CHF",
       "baseSalary": {
@@ -330,7 +335,7 @@
         "textHash": "13c4160633476a4d7c8a",
         "source": "lis_regex_text",
         "confidence": 0.98,
-        "extractedAt": "2026-03-25T20:49:25.457Z"
+        "extractedAt": "2026-03-25T21:59:02.775Z"
       },
       "sourceLang": "it",
       "addressLocality": "Lugano",
@@ -379,6 +384,7 @@
       "salaryCurrency": "CHF",
       "salaryClass": "14",
       "crawledAt": "",
+      "needsRetranslation": true,
       "requirementsByLocale": {},
       "currency": "CHF",
       "baseSalary": {
@@ -396,7 +402,7 @@
         "textHash": "fc5cfea38eafafc6aae8",
         "source": "lis_regex_text",
         "confidence": 0.98,
-        "extractedAt": "2026-03-25T20:49:25.458Z"
+        "extractedAt": "2026-03-25T21:59:02.775Z"
       },
       "sourceLang": "it",
       "addressLocality": "Lugano",
@@ -445,6 +451,7 @@
       "salaryCurrency": "CHF",
       "salaryClass": "15",
       "crawledAt": "",
+      "needsRetranslation": true,
       "requirementsByLocale": {},
       "currency": "CHF",
       "baseSalary": {
@@ -462,7 +469,7 @@
         "textHash": "8dfb968aba7683134c88",
         "source": "lis_regex_text",
         "confidence": 0.98,
-        "extractedAt": "2026-03-25T20:49:25.458Z"
+        "extractedAt": "2026-03-25T21:59:02.776Z"
       },
       "sourceLang": "it",
       "addressLocality": "Lugano",
@@ -511,6 +518,7 @@
       "salaryCurrency": "CHF",
       "salaryClass": "15",
       "crawledAt": "",
+      "needsRetranslation": true,
       "requirementsByLocale": {},
       "currency": "CHF",
       "baseSalary": {
@@ -528,7 +536,7 @@
         "textHash": "5f929653a61e9b5afe83",
         "source": "lis_regex_text",
         "confidence": 0.98,
-        "extractedAt": "2026-03-25T20:49:25.459Z"
+        "extractedAt": "2026-03-25T21:59:02.776Z"
       },
       "sourceLang": "it",
       "addressLocality": "Lugano",
@@ -577,6 +585,7 @@
       "salaryCurrency": "CHF",
       "salaryClass": "12",
       "crawledAt": "",
+      "needsRetranslation": true,
       "requirementsByLocale": {},
       "currency": "CHF",
       "baseSalary": {
@@ -594,7 +603,7 @@
         "textHash": "7c5289c47057ec4c7cba",
         "source": "lis_regex_text",
         "confidence": 0.98,
-        "extractedAt": "2026-03-25T20:49:25.459Z"
+        "extractedAt": "2026-03-25T21:59:02.777Z"
       },
       "sourceLang": "it",
       "addressLocality": "Lugano",
@@ -643,6 +652,7 @@
       "salaryCurrency": "CHF",
       "salaryClass": "14",
       "crawledAt": "",
+      "needsRetranslation": true,
       "requirementsByLocale": {},
       "currency": "CHF",
       "baseSalary": {
@@ -660,7 +670,7 @@
         "textHash": "48db8b9a76cda91ce3a9",
         "source": "lis_regex_text",
         "confidence": 0.98,
-        "extractedAt": "2026-03-25T20:49:25.460Z"
+        "extractedAt": "2026-03-25T21:59:02.777Z"
       },
       "sourceLang": "it",
       "addressLocality": "Lugano",
@@ -709,6 +719,7 @@
       "salaryCurrency": "CHF",
       "salaryClass": "12",
       "crawledAt": "",
+      "needsRetranslation": true,
       "requirementsByLocale": {},
       "currency": "CHF",
       "baseSalary": {
@@ -726,7 +737,7 @@
         "textHash": "94e7e7ea024d4b010a4f",
         "source": "lis_regex_text",
         "confidence": 0.98,
-        "extractedAt": "2026-03-25T20:49:25.460Z"
+        "extractedAt": "2026-03-25T21:59:02.778Z"
       },
       "sourceLang": "it",
       "addressLocality": "Lugano",
@@ -775,6 +786,7 @@
       "salaryCurrency": "CHF",
       "salaryClass": "10",
       "crawledAt": "",
+      "needsRetranslation": true,
       "requirementsByLocale": {},
       "currency": "CHF",
       "baseSalary": {
@@ -792,7 +804,7 @@
         "textHash": "13cd63461b8e80fab971",
         "source": "lis_regex_text",
         "confidence": 0.98,
-        "extractedAt": "2026-03-25T20:49:25.460Z"
+        "extractedAt": "2026-03-25T21:59:02.778Z"
       },
       "sourceLang": "it",
       "previousSlugs": [
@@ -844,6 +856,7 @@
       "salaryCurrency": "CHF",
       "salaryClass": "7",
       "crawledAt": "",
+      "needsRetranslation": true,
       "requirementsByLocale": {},
       "currency": "CHF",
       "baseSalary": {
@@ -861,7 +874,7 @@
         "textHash": "61df459007751ba06ccf",
         "source": "lis_regex_text",
         "confidence": 0.98,
-        "extractedAt": "2026-03-25T20:49:25.461Z"
+        "extractedAt": "2026-03-25T21:59:02.779Z"
       },
       "sourceLang": "it",
       "addressLocality": "Lugano",
