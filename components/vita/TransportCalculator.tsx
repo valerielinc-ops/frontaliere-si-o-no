@@ -508,7 +508,7 @@ const TransportCalculator: React.FC = () => {
             <a key={href} href={href} onClick={(e) => { e.preventDefault(); window.history.pushState(null, '', href); window.dispatchEvent(new PopStateEvent('popstate')); }} className="flex items-center gap-3 p-3 rounded-xl bg-slate-50 dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors group no-underline">
               <Icon size={18} className={color} />
               <span className="text-sm font-semibold text-slate-700 dark:text-slate-300 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">{label}</span>
-              <ArrowRight size={14} className="ml-auto text-slate-400 group-hover:text-blue-500 transition-colors" />
+              <ArrowRight size={14} className="ml-auto text-slate-400 dark:text-slate-300 group-hover:text-blue-500 transition-colors" />
             </a>
           ))}
         </div>

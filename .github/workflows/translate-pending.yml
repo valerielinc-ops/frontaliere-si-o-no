@@ -2,7 +2,7 @@ name: Translate Pending Jobs
 
 on:
   workflow_run:
-    workflows: ["Orchestrate Job Crawlers", "Update Coop Jobs (Dedicated)"]
+    workflows: ["Orchestrate Job Crawlers"]
     types: [completed]
   schedule:
     - cron: '0 12 * * *'   # Fallback: 12:00 UTC (after 08:00 orchestration)

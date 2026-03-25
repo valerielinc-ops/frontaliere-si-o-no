@@ -321,7 +321,7 @@ const SalarySurvey: React.FC = () => {
       {/* View Results */}
       <button
         onClick={handleShowResults}
-        className="w-full flex items-center justify-center gap-2 px-6 py-3 bg-white dark:bg-slate-800 border-2 border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-750 text-slate-700 dark:text-slate-300 rounded-xl font-bold transition-colors"
+        className="w-full flex items-center justify-center gap-2 px-6 py-3 bg-white dark:bg-slate-800 border-2 border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 rounded-xl font-bold transition-colors"
       >
         <Eye className="w-4 h-4" />
         {showResults ? t('salary.hideResults') : t('salary.viewResults')}

@@ -350,7 +350,7 @@ const CostOfLiving: React.FC = () => {
           const maxVal = Math.max(valCH_EUR, valIT_EUR);
 
           return (
-            <div key={cat.key} className="p-4 border-b border-slate-100 dark:border-slate-700/50 last:border-b-0 hover:bg-slate-50 dark:hover:bg-slate-750 transition-colors">
+            <div key={cat.key} className="p-4 border-b border-slate-100 dark:border-slate-700/50 last:border-b-0 hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors">
               <div className="grid grid-cols-2 sm:grid-cols-4 items-center gap-2">
                 <div className="flex items-center gap-2 col-span-2 sm:col-span-1">
                   <span className="text-violet-500">{cat.icon}</span>

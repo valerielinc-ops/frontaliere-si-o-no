@@ -93,7 +93,7 @@ const TaxReturnGuide: React.FC<TaxReturnGuideProps> = ({ initialCountry, onCount
           className={`relative overflow-hidden rounded-2xl p-5 text-left transition-all duration-300 ${
             countryTab === 'italia'
               ? 'bg-gradient-to-br from-emerald-600 to-green-700 text-white shadow-lg shadow-emerald-200 dark:shadow-emerald-900/40 ring-2 ring-emerald-400 dark:ring-emerald-500 scale-[1.02]'
-              : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-emerald-50 dark:hover:bg-slate-750 border-2 border-slate-200 dark:border-slate-700 hover:border-emerald-300 dark:hover:border-emerald-700'
+              : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-emerald-50 dark:hover:bg-slate-700 border-2 border-slate-200 dark:border-slate-700 hover:border-emerald-300 dark:hover:border-emerald-700'
           }`}
           aria-label={t('taxReturn.countryTab.italia')}
         >
@@ -120,7 +120,7 @@ const TaxReturnGuide: React.FC<TaxReturnGuideProps> = ({ initialCountry, onCount
           className={`relative overflow-hidden rounded-2xl p-5 text-left transition-all duration-300 ${
             countryTab === 'svizzera'
               ? 'bg-gradient-to-br from-red-600 to-red-700 text-white shadow-lg shadow-red-200 dark:shadow-red-900/40 ring-2 ring-red-400 dark:ring-red-500 scale-[1.02]'
-              : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-red-50 dark:hover:bg-slate-750 border-2 border-slate-200 dark:border-slate-700 hover:border-red-300 dark:hover:border-red-700'
+              : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-red-50 dark:hover:bg-slate-700 border-2 border-slate-200 dark:border-slate-700 hover:border-red-300 dark:hover:border-red-700'
           }`}
           aria-label={t('taxReturn.countryTab.svizzera')}
         >
@@ -251,7 +251,7 @@ const TaxReturnGuide: React.FC<TaxReturnGuideProps> = ({ initialCountry, onCount
                     type="checkbox"
                     checked={checkedDocs.has(doc.key)}
                     onChange={() => toggleDoc(doc.key)}
-                    className="mt-0.5 w-4 h-4 text-emerald-700 rounded border-slate-300 focus:ring-emerald-500"
+                    className="mt-0.5 w-4 h-4 text-emerald-700 rounded border-slate-300 dark:border-slate-600 focus:ring-emerald-500"
                   />
                   <div className="flex-1">
                     <div className="flex items-center gap-2">

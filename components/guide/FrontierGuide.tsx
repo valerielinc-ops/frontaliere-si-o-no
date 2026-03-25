@@ -280,7 +280,7 @@ const SchoolDirectory: React.FC<{ t: (key: string) => string }> = ({ t }) => {
         <div className="flex flex-wrap gap-1.5">
           <button
             onClick={() => setSchoolTypeFilter('all')}
-            className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${schoolTypeFilter === 'all' ? 'bg-indigo-600 text-white' : 'bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-500'}`}
+            className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-colors ${schoolTypeFilter === 'all' ? 'bg-indigo-600 text-white' : 'bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-500'}`}
           >
             {t('calendar.all') || 'Tutte'}
           </button>
@@ -288,7 +288,7 @@ const SchoolDirectory: React.FC<{ t: (key: string) => string }> = ({ t }) => {
             <button
               key={key}
               onClick={() => setSchoolTypeFilter(key)}
-              className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${schoolTypeFilter === key ? 'bg-indigo-600 text-white' : 'bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-500'}`}
+              className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-colors ${schoolTypeFilter === key ? 'bg-indigo-600 text-white' : 'bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-500'}`}
             >
               {cfg.emoji} {cfg.label}
             </button>
@@ -301,7 +301,7 @@ const SchoolDirectory: React.FC<{ t: (key: string) => string }> = ({ t }) => {
             <button
               key={n}
               onClick={() => setSchoolNatureFilter(n)}
-              className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${schoolNatureFilter === n ? 'bg-slate-800 dark:bg-slate-100 text-white dark:text-slate-900' : 'bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-500'}`}
+              className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-colors ${schoolNatureFilter === n ? 'bg-slate-800 dark:bg-slate-100 text-white dark:text-slate-900' : 'bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-500'}`}
             >
               {n === 'all' ? (t('calendar.all') || 'Tutte') : n === 'pubblica' ? '🏛️ Pubblica' : '🏫 Privata'}
             </button>
@@ -632,7 +632,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
                 <span className="text-sm font-bold text-slate-700 dark:text-slate-300">{t('guide.sortBy')}:</span>
                 <button
                   onClick={() => setSortBy('distance')}
-                  className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
+                  className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-colors ${
                     sortBy === 'distance'
                       ? 'bg-indigo-600 text-white shadow-md'
                       : 'bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-500 hover:bg-slate-200 dark:hover:bg-slate-600'
@@ -642,7 +642,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
                 </button>
                 <button
                   onClick={() => setSortBy('population')}
-                  className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
+                  className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-colors ${
                     sortBy === 'population'
                       ? 'bg-indigo-600 text-white shadow-md'
                       : 'bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-500 hover:bg-slate-200 dark:hover:bg-slate-600'
@@ -655,7 +655,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
                 <span className="text-sm font-bold text-slate-700 dark:text-slate-300">{t('guide.show')}:</span>
                 <button
                   onClick={() => setFilterType('all')}
-                  className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
+                  className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-colors ${
                     filterType === 'all'
                       ? 'bg-purple-600 text-white shadow-md'
                       : 'bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-500 hover:bg-slate-200 dark:hover:bg-slate-600'
@@ -665,7 +665,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
                 </button>
                 <button
                   onClick={() => setFilterType('new')}
-                  className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
+                  className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-colors ${
                     filterType === 'new'
                       ? 'bg-blue-600 text-white shadow-md'
                       : 'bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-500 hover:bg-slate-200 dark:hover:bg-slate-600'
@@ -675,7 +675,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
                 </button>
                 <button
                   onClick={() => setFilterType('old')}
-                  className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
+                  className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-colors ${
                     filterType === 'old'
                       ? 'bg-orange-600 text-white shadow-md'
                       : 'bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-500 hover:bg-slate-200 dark:hover:bg-slate-600'
@@ -692,7 +692,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
                 <button
                   key={p}
                   onClick={() => setFilterProvince(p)}
-                  className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
+                  className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-colors ${
                     filterProvince === p
                       ? 'bg-emerald-600 text-white shadow-md'
                       : 'bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-500 hover:bg-slate-200 dark:hover:bg-slate-600'
@@ -891,7 +891,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
                   const count = borderCrossings.filter(b => b.traffic !== 'closed').length;
                   Analytics.trackBorderFilter('all', count);
                 }}
-                className={`px-4 py-2.5 rounded-xl text-sm font-bold transition-all ${borderFilter === 'all' ? 'bg-indigo-500 text-white shadow-lg' : 'bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-500 hover:bg-slate-200 dark:hover:bg-slate-800'}`}
+                className={`px-4 py-2.5 rounded-xl text-sm font-bold transition-colors ${borderFilter === 'all' ? 'bg-indigo-500 text-white shadow-lg' : 'bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-500 hover:bg-slate-200 dark:hover:bg-slate-800'}`}
               >
                 🔍 {t('guide.all')} ({borderCrossings.filter(b => b.traffic !== 'closed').length})
               </button>
@@ -901,7 +901,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
                   const count = borderCrossings.filter(b => b.traffic === 'low').length;
                   Analytics.trackBorderFilter('low-traffic', count);
                 }}
-                className={`px-4 py-2.5 rounded-xl text-sm font-bold transition-all ${borderFilter === 'low-traffic' ? 'bg-emerald-700 text-white shadow-lg' : 'bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-500 hover:bg-slate-200 dark:hover:bg-slate-800'}`}
+                className={`px-4 py-2.5 rounded-xl text-sm font-bold transition-colors ${borderFilter === 'low-traffic' ? 'bg-emerald-700 text-white shadow-lg' : 'bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-500 hover:bg-slate-200 dark:hover:bg-slate-800'}`}
               >
                 ✅ {t('guide.border.lowTraffic')} ({borderCrossings.filter(b => b.traffic === 'low').length})
               </button>
@@ -911,7 +911,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
                   const count = borderCrossings.filter(b => b.hours === '24h').length;
                   Analytics.trackBorderFilter('24h', count);
                 }}
-                className={`px-4 py-2.5 rounded-xl text-sm font-bold transition-all ${borderFilter === '24h' ? 'bg-blue-500 text-white shadow-lg' : 'bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-500 hover:bg-slate-200 dark:hover:bg-slate-800'}`}
+                className={`px-4 py-2.5 rounded-xl text-sm font-bold transition-colors ${borderFilter === '24h' ? 'bg-blue-500 text-white shadow-lg' : 'bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-500 hover:bg-slate-200 dark:hover:bg-slate-800'}`}
               >
                 ⏰ {t('guide.border.open24h')} ({borderCrossings.filter(b => b.hours === '24h').length})
               </button>
@@ -924,7 +924,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
                   }).length;
                   Analytics.trackBorderFilter('morning', count);
                 }}
-                className={`px-4 py-2.5 rounded-xl text-sm font-bold transition-all ${borderFilter === 'morning' ? 'bg-orange-500 text-white shadow-lg' : 'bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-500 hover:bg-slate-200 dark:hover:bg-slate-800'}`}
+                className={`px-4 py-2.5 rounded-xl text-sm font-bold transition-colors ${borderFilter === 'morning' ? 'bg-orange-500 text-white shadow-lg' : 'bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-500 hover:bg-slate-200 dark:hover:bg-slate-800'}`}
               >
                 🌅 {t('guide.border.fastMorning')}
               </button>
@@ -937,7 +937,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
                   }).length;
                   Analytics.trackBorderFilter('evening', count);
                 }}
-                className={`px-4 py-2.5 rounded-xl text-sm font-bold transition-all ${borderFilter === 'evening' ? 'bg-purple-500 text-white shadow-lg' : 'bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-500 hover:bg-slate-200 dark:hover:bg-slate-800'}`}
+                className={`px-4 py-2.5 rounded-xl text-sm font-bold transition-colors ${borderFilter === 'evening' ? 'bg-purple-500 text-white shadow-lg' : 'bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-500 hover:bg-slate-200 dark:hover:bg-slate-800'}`}
               >
                 🌆 {t('guide.border.fastEvening')}
               </button>
@@ -1689,7 +1689,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
 
       {activeSection === 'calendar' && (
         <div className="animate-fade-in">
-          <Suspense fallback={<div className="flex items-center justify-center min-h-[600px]"><div className="animate-spin rounded-full h-8 w-8 border-2 border-blue-500 border-t-transparent" /></div>}>
+          <Suspense fallback={<div className="flex items-center justify-center min-h-[600px]"><div className="animate-spin rounded-full h-6 w-6 sm:h-8 sm:w-8 border-2 border-blue-500 border-t-transparent" /></div>}>
             <TaxCalendar initialTab="fiscal" />
           </Suspense>
         </div>
@@ -1697,7 +1697,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
 
       {activeSection === 'holidays' && (
         <div className="animate-fade-in">
-          <Suspense fallback={<div className="flex items-center justify-center min-h-[600px]"><div className="animate-spin rounded-full h-8 w-8 border-2 border-blue-500 border-t-transparent" /></div>}>
+          <Suspense fallback={<div className="flex items-center justify-center min-h-[600px]"><div className="animate-spin rounded-full h-6 w-6 sm:h-8 sm:w-8 border-2 border-blue-500 border-t-transparent" /></div>}>
             <TaxCalendar initialTab="holidays" />
           </Suspense>
         </div>
@@ -1705,7 +1705,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
 
       {activeSection === 'permits' && (
         <div className="animate-fade-in">
-          <Suspense fallback={<div className="flex items-center justify-center min-h-[600px]"><div className="animate-spin rounded-full h-8 w-8 border-2 border-blue-500 border-t-transparent" /></div>}>
+          <Suspense fallback={<div className="flex items-center justify-center min-h-[600px]"><div className="animate-spin rounded-full h-6 w-6 sm:h-8 sm:w-8 border-2 border-blue-500 border-t-transparent" /></div>}>
             <WorkPermitsGuide />
           </Suspense>
         </div>
@@ -1713,7 +1713,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
 
       {activeSection === 'companies' && (
         <div className="animate-fade-in">
-          <Suspense fallback={<div className="flex items-center justify-center min-h-[400px]"><div className="animate-spin rounded-full h-8 w-8 border-2 border-blue-500 border-t-transparent" /></div>}>
+          <Suspense fallback={<div className="flex items-center justify-center min-h-[400px]"><div className="animate-spin rounded-full h-6 w-6 sm:h-8 sm:w-8 border-2 border-blue-500 border-t-transparent" /></div>}>
             <TicinoCompanies />
           </Suspense>
         </div>
@@ -2500,7 +2500,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
 
       {activeSection === 'first-day' && (
         <div className="animate-fade-in">
-          <Suspense fallback={<div className="flex items-center justify-center min-h-[600px]"><div className="animate-spin rounded-full h-8 w-8 border-2 border-blue-500 border-t-transparent" /></div>}>
+          <Suspense fallback={<div className="flex items-center justify-center min-h-[600px]"><div className="animate-spin rounded-full h-6 w-6 sm:h-8 sm:w-8 border-2 border-blue-500 border-t-transparent" /></div>}>
             <FirstDayGuide />
           </Suspense>
         </div>
@@ -2508,7 +2508,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
 
       {activeSection === 'car-transfer' && (
         <div className="animate-fade-in">
-          <Suspense fallback={<div className="flex items-center justify-center min-h-[600px]"><div className="animate-spin rounded-full h-8 w-8 border-2 border-indigo-500 border-t-transparent" /></div>}>
+          <Suspense fallback={<div className="flex items-center justify-center min-h-[600px]"><div className="animate-spin rounded-full h-6 w-6 sm:h-8 sm:w-8 border-2 border-indigo-500 border-t-transparent" /></div>}>
             <CarTransferGuide />
           </Suspense>
         </div>
@@ -2516,7 +2516,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
 
       {activeSection === 'quiz' && (
         <div className="animate-fade-in">
-          <Suspense fallback={<div className="flex items-center justify-center min-h-[400px]"><div className="animate-spin rounded-full h-8 w-8 border-2 border-indigo-500 border-t-transparent" /></div>}>
+          <Suspense fallback={<div className="flex items-center justify-center min-h-[400px]"><div className="animate-spin rounded-full h-6 w-6 sm:h-8 sm:w-8 border-2 border-indigo-500 border-t-transparent" /></div>}>
             <WeeklyQuiz />
           </Suspense>
         </div>
@@ -2524,7 +2524,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
 
       {activeSection === 'glossary' && (
         <div className="animate-fade-in">
-          <Suspense fallback={<div className="flex items-center justify-center min-h-[400px]"><div className="animate-spin rounded-full h-8 w-8 border-2 border-indigo-500 border-t-transparent" /></div>}>
+          <Suspense fallback={<div className="flex items-center justify-center min-h-[400px]"><div className="animate-spin rounded-full h-6 w-6 sm:h-8 sm:w-8 border-2 border-indigo-500 border-t-transparent" /></div>}>
             <Glossary />
           </Suspense>
         </div>
@@ -2532,7 +2532,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
 
       {activeSection === 'faq' && (
         <div className="animate-fade-in">
-          <Suspense fallback={<div className="flex items-center justify-center min-h-[400px]"><div className="animate-spin rounded-full h-8 w-8 border-2 border-indigo-500 border-t-transparent" /></div>}>
+          <Suspense fallback={<div className="flex items-center justify-center min-h-[400px]"><div className="animate-spin rounded-full h-6 w-6 sm:h-8 sm:w-8 border-2 border-indigo-500 border-t-transparent" /></div>}>
             <FaqSection />
           </Suspense>
         </div>
@@ -2568,7 +2568,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
                 </p>
               </div>
             </div>
-            {/* Auto-dismiss progress bar */}
+            {/* 15s countdown progress bar — duration is intentional */}
             <div className="mt-3 h-1 bg-white/20 rounded-full overflow-hidden">
               <div className="h-full bg-white/60 rounded-full animate-[shrink_15s_linear_0.5s_forwards]" />
             </div>

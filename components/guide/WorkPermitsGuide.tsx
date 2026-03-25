@@ -283,7 +283,7 @@ const WorkPermitsGuide: React.FC = () => {
           tabIndex={0}
           onClick={() => toggleSection(id)}
           onKeyDown={(e) => e.key === 'Enter' && toggleSection(id)}
-          className="flex items-center justify-between p-4 cursor-pointer hover:bg-slate-50 dark:hover:bg-slate-750 transition-colors"
+          className="flex items-center justify-between p-4 cursor-pointer hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors"
         >
           <div className="flex items-center gap-3">
             <Icon size={20} className="text-slate-500" />

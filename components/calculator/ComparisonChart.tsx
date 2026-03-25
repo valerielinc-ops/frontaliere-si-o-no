@@ -16,6 +16,30 @@ interface Props {
   isFocusMode?: boolean;
 }
 
+/** Centralized Recharts color palette — hex values required by Recharts (cannot use Tailwind classes) */
+const CHART_COLORS = {
+  // Pie / breakdown categories
+  default: '#cbd5e1',       // slate-300
+  social: '#8b5cf6',        // violet-500
+  pension: '#a78bfa',       // violet-400
+  tax: '#64748b',           // slate-500
+  health: '#f43f5e',        // rose-500
+  expense: '#f59e0b',       // amber-500
+  netResidual: '#10b981',   // emerald-500
+  // Line chart series
+  residentCH: '#3b82f6',    // blue-500
+  newLess20km: '#6366f1',   // indigo-500
+  newMore20km: '#f97316',   // orange-500
+  oldFrontier: '#10b981',   // emerald-500
+  // Area chart
+  savings: '#10b981',       // emerald-500
+  // Grid & axes
+  gridDark: '#334155',      // slate-700
+  gridLight: '#f1f5f9',     // slate-50
+  tickDark: '#94a3b8',      // slate-400
+  tickLight: '#64748b',     // slate-500
+} as const;
+
 // Custom Tooltip for Charts
 const CustomTooltip = ({ active, payload, label, isDarkMode, currency = "CHF" }: any) => {
   if (active && payload && payload.length) {
@@ -97,13 +121,13 @@ export const ComparisonChart: React.FC<Props> = ({ result, inputs, isDarkMode, i
       return res.breakdown
         .filter(item => !item.label.includes('grossIncome') && !item.label.includes('Allowance') && !item.label.includes('netAnnual'))
         .map(item => {
-           let color = '#cbd5e1'; 
+           let color: string = CHART_COLORS.default;
            const l = item.label.toLowerCase();
-           if(l.includes('social') || l.includes('avs')) color = '#8b5cf6'; 
-           if(l.includes('pension') || l.includes('lpp')) color = '#a78bfa'; 
-           if(l.includes('tax') || l.includes('source') || l.includes('irpef')) color = '#64748b'; 
-           if(l.includes('health') || l.includes('ssn')) color = '#f43f5e'; 
-           if(l.includes('expense')) color = '#f59e0b'; 
+           if(l.includes('social') || l.includes('avs')) color = CHART_COLORS.social;
+           if(l.includes('pension') || l.includes('lpp')) color = CHART_COLORS.pension;
+           if(l.includes('tax') || l.includes('source') || l.includes('irpef')) color = CHART_COLORS.tax;
+           if(l.includes('health') || l.includes('ssn')) color = CHART_COLORS.health;
+           if(l.includes('expense')) color = CHART_COLORS.expense;
            
            return {
                name: t(item.label.split('|')[0]),
@@ -111,7 +135,7 @@ export const ComparisonChart: React.FC<Props> = ({ result, inputs, isDarkMode, i
                color: color
            };
         })
-        .concat([{ name: t('chart.net_residual'), value: res.netIncomeAnnual, color: '#10b981' }]);
+        .concat([{ name: t('chart.net_residual'), value: res.netIncomeAnnual, color: CHART_COLORS.netResidual }]);
   };
 
   const pieDataCH = getDetailedPieData(chResident);
@@ -325,18 +349,18 @@ export const ComparisonChart: React.FC<Props> = ({ result, inputs, isDarkMode, i
                   <AreaChart data={projectionData} margin={{ top: 20, right: 30, left: 0, bottom: 5 }}>
                      <defs>
                         <linearGradient id="colorSavings" x1="0" y1="0" x2="0" y2="1">
-                          <stop offset="5%" stopColor="#10b981" stopOpacity={0.3}/>
-                          <stop offset="95%" stopColor="#10b981" stopOpacity={0}/>
+                          <stop offset="5%" stopColor={CHART_COLORS.savings} stopOpacity={0.3}/>
+                          <stop offset="95%" stopColor={CHART_COLORS.savings} stopOpacity={0}/>
                         </linearGradient>
                      </defs>
-                     <CartesianGrid strokeDasharray="3 3" vertical={false} stroke={isDarkMode ? "#334155" : "#f1f5f9"} />
-                     <XAxis dataKey="year" axisLine={false} tickLine={false} tick={{fill: isDarkMode ? '#94a3b8' : '#64748b', fontSize: 12, fontWeight: 700}} />
+                     <CartesianGrid strokeDasharray="3 3" vertical={false} stroke={isDarkMode ? CHART_COLORS.gridDark : CHART_COLORS.gridLight} />
+                     <XAxis dataKey="year" axisLine={false} tickLine={false} tick={{fill: isDarkMode ? CHART_COLORS.tickDark : CHART_COLORS.tickLight, fontSize: 12, fontWeight: 700}} />
                      <YAxis hide />
                      <Tooltip content={<CustomTooltip isDarkMode={isDarkMode} />} />
-                     <Area 
-                        type="monotone" 
-                        dataKey={t('chart.accumulated_difference')} 
-                        stroke="#10b981" 
+                     <Area
+                        type="monotone"
+                        dataKey={t('chart.accumulated_difference')}
+                        stroke={CHART_COLORS.savings}
                         strokeWidth={3} 
                         fillOpacity={1} 
                         fill="url(#colorSavings)" 
@@ -347,15 +371,15 @@ export const ComparisonChart: React.FC<Props> = ({ result, inputs, isDarkMode, i
                ) : (
                   // ADVANCED BREAK-EVEN CHART (Multi-Line)
                   <LineChart data={breakEvenData} margin={{ top: 20, right: 30, left: 0, bottom: 5 }}>
-                     <CartesianGrid strokeDasharray="3 3" vertical={false} stroke={isDarkMode ? "#334155" : "#f1f5f9"} />
-                     <XAxis dataKey="ral" axisLine={false} tickLine={false} tick={{fill: isDarkMode ? '#94a3b8' : '#64748b', fontSize: 10, fontWeight: 700}} />
+                     <CartesianGrid strokeDasharray="3 3" vertical={false} stroke={isDarkMode ? CHART_COLORS.gridDark : CHART_COLORS.gridLight} />
+                     <XAxis dataKey="ral" axisLine={false} tickLine={false} tick={{fill: isDarkMode ? CHART_COLORS.tickDark : CHART_COLORS.tickLight, fontSize: 10, fontWeight: 700}} />
                      <YAxis hide domain={['auto', 'auto']} />
                      <Tooltip content={<CustomTooltip isDarkMode={isDarkMode} />} />
-                     
-                     <Line type="monotone" dataKey={t('chart.resident_ch')} stroke="#3b82f6" strokeWidth={3} dot={false} activeDot={{ r: 6 }} />
-                     <Line type="monotone" dataKey={t('chart.new_less_20km')} stroke="#6366f1" strokeWidth={3} dot={false} activeDot={{ r: 6 }} />
-                     <Line type="monotone" dataKey={t('chart.new_more_20km')} stroke="#f97316" strokeWidth={3} strokeDasharray="5 5" dot={false} activeDot={{ r: 6 }} />
-                     <Line type="monotone" dataKey={t('chart.old_frontier')} stroke="#10b981" strokeWidth={2} strokeDasharray="3 3" dot={false} activeDot={{ r: 4 }} opacity={0.6} />
+
+                     <Line type="monotone" dataKey={t('chart.resident_ch')} stroke={CHART_COLORS.residentCH} strokeWidth={3} dot={false} activeDot={{ r: 6 }} />
+                     <Line type="monotone" dataKey={t('chart.new_less_20km')} stroke={CHART_COLORS.newLess20km} strokeWidth={3} dot={false} activeDot={{ r: 6 }} />
+                     <Line type="monotone" dataKey={t('chart.new_more_20km')} stroke={CHART_COLORS.newMore20km} strokeWidth={3} strokeDasharray="5 5" dot={false} activeDot={{ r: 6 }} />
+                     <Line type="monotone" dataKey={t('chart.old_frontier')} stroke={CHART_COLORS.oldFrontier} strokeWidth={2} strokeDasharray="3 3" dot={false} activeDot={{ r: 4 }} opacity={0.6} />
                      
                      <Legend content={<FixedLegend isDarkMode={isDarkMode} />} />
                   </LineChart>

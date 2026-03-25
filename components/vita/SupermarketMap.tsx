@@ -39,6 +39,7 @@ export default function SupermarketMap({ supermarkets }: Props) {
           key={s.id}
           center={[s.lat, s.lng]}
           radius={8}
+          // Leaflet pathOptions — cannot use Tailwind, must remain hex values
           pathOptions={{
             fillColor: CHAIN_COLORS[s.chain] || '#94a3b8',
             color: s.country === 'CH' ? '#dc2626' : '#16a34a',
@@ -56,6 +57,7 @@ export default function SupermarketMap({ supermarkets }: Props) {
                 {s.address}, {s.city}
               </div>
               <div className="text-xs mt-1">
+                {/* Dynamic chain color — must use inline style as value comes from runtime map */}
                 <span
                   className="inline-block w-2.5 h-2.5 rounded-full mr-1"
                   style={{ backgroundColor: CHAIN_COLORS[s.chain] || '#94a3b8' }}

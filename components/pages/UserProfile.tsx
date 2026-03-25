@@ -392,7 +392,7 @@ const FamilyMemberRow: React.FC<{
             checked={member.dependent}
             onChange={(e) => onUpdate({ ...member, dependent: e.target.checked })}
             disabled={disabled}
-            className="rounded border-slate-300 text-indigo-600 focus:ring-indigo-500"
+            className="rounded border-slate-300 dark:border-slate-600 text-indigo-600 focus:ring-indigo-500"
           />
           {t('profile.family.dependent')}
         </label>
@@ -402,7 +402,7 @@ const FamilyMemberRow: React.FC<{
             checked={member.liveTogether}
             onChange={(e) => onUpdate({ ...member, liveTogether: e.target.checked })}
             disabled={disabled}
-            className="rounded border-slate-300 text-indigo-600 focus:ring-indigo-500"
+            className="rounded border-slate-300 dark:border-slate-600 text-indigo-600 focus:ring-indigo-500"
           />
           {t('profile.family.liveTogether')}
         </label>

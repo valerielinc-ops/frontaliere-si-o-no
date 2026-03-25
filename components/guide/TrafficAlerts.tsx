@@ -322,44 +322,44 @@ const TrafficAlerts: React.FC<TrafficAlertsProps> = ({ initialCrossingId }) => {
                           className={`${STATUS_DOT_CLASSES[status]}`}
                           style={{ width: '16px', height: '16px', borderRadius: '50%', flexShrink: 0 }}
                         />
-                        <h3 className="text-slate-900 dark:text-slate-100" style={{ fontWeight: 800, fontSize: '16px', margin: 0 }}>{crossing.name}</h3>
+                        <h3 className="font-extrabold text-base text-slate-900 dark:text-slate-100" style={{ margin: 0 }}>{crossing.name}</h3>
                       </div>
 
                       <div style={{ display: 'flex', flexDirection: 'column', gap: '4px', fontSize: '14px' }}>
                         <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                          <span style={{ color: '#64748b' }}>{t('traffic.wait')}</span>
-                          <span className={`${STATUS_TEXT_CLASSES[status]}`} style={{ fontWeight: 700 }}>
+                          <span className="text-slate-500 dark:text-slate-400">{t('traffic.wait')}</span>
+                          <span className={`font-bold ${STATUS_TEXT_CLASSES[status]}`}>
                             {waitTime} min — {t(STATUS_LABEL_KEYS[status])}
                           </span>
                         </div>
                         <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                          <span style={{ color: '#64748b' }}>{t('traffic.type')}</span>
-                          <span style={{ fontWeight: 700, textTransform: 'capitalize' as const }}>{crossing.type}</span>
+                          <span className="text-slate-500 dark:text-slate-400">{t('traffic.type')}</span>
+                          <span className="font-bold" style={{ textTransform: 'capitalize' as const }}>{crossing.type}</span>
                         </div>
                         <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                          <span style={{ color: '#64748b' }}>{t('traffic.zone')}</span>
-                          <span style={{ fontWeight: 700 }}>{crossing.canton} — {crossing.province}</span>
+                          <span className="text-slate-500 dark:text-slate-400">{t('traffic.zone')}</span>
+                          <span className="font-bold">{crossing.canton} — {crossing.province}</span>
                         </div>
                         <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                          <span style={{ color: '#64748b' }}>{t('traffic.hours')}</span>
-                          <span style={{ fontWeight: 700 }}>{crossing.open24h ? '24/7' : t('traffic.limited')}</span>
+                          <span className="text-slate-500 dark:text-slate-400">{t('traffic.hours')}</span>
+                          <span className="font-bold">{crossing.open24h ? '24/7' : t('traffic.limited')}</span>
                         </div>
                         {crossing.customsPresent && (
                           <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                            <span style={{ color: '#64748b' }}>{t('traffic.customs')}</span>
-                            <span style={{ fontWeight: 700, color: '#2563eb' }}>{t('traffic.customsPresent')}</span>
+                            <span className="text-slate-500 dark:text-slate-400">{t('traffic.customs')}</span>
+                            <span className="font-bold text-blue-600 dark:text-blue-400">{t('traffic.customsPresent')}</span>
                           </div>
                         )}
                         {traffic?.direction && (
                           <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                            <span style={{ color: '#64748b' }}>{t('traffic.direction')}</span>
-                            <span style={{ fontWeight: 700 }}>{traffic.direction}</span>
+                            <span className="text-slate-500 dark:text-slate-400">{t('traffic.direction')}</span>
+                            <span className="font-bold">{traffic.direction}</span>
                           </div>
                         )}
                         {traffic?.source && (
                           <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                            <span style={{ color: '#64748b' }}>{t('traffic.source')}</span>
-                            <span style={{ fontWeight: 700 }}>
+                            <span className="text-slate-500 dark:text-slate-400">{t('traffic.source')}</span>
+                            <span className="font-bold">
                               {traffic.source === 'mock' ? `🎲 ${t('traffic.simulated')}` : '📍 Google Maps'}
                             </span>
                           </div>

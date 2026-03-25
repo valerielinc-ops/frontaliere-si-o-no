@@ -4,9 +4,16 @@
     "superpowers@superpowers-dev": true,
     "context7@claude-plugins-official": true,
     "superpowers@claude-plugins-official": true,
-    "claude-mem@thedotmack": true
+    "claude-mem@thedotmack": true,
+    "impeccable@impeccable": true
   },
   "extraKnownMarketplaces": {
+    "impeccable": {
+      "source": {
+        "source": "github",
+        "repo": "pbakaus/impeccable"
+      }
+    },
     "thedotmack": {
       "source": {
         "source": "git",

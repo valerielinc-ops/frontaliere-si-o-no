@@ -409,7 +409,7 @@ const TicineseDialect: React.FC = () => {
 
       <div className="flex flex-wrap gap-3 items-center">
         <div className="relative flex-1 min-w-[220px]">
-          <Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" />
+          <Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 dark:text-slate-500" />
           <input
             type="text"
             value={searchTerm}
@@ -489,7 +489,7 @@ const TicineseDialect: React.FC = () => {
                       <span className="text-xs text-slate-500 dark:text-slate-400 block truncate">{italian}</span>
                     </div>
                   </div>
-                  {isExpanded ? <ChevronUp size={16} className="text-slate-400 shrink-0" /> : <ChevronDown size={16} className="text-slate-400 shrink-0" />}
+                  {isExpanded ? <ChevronUp size={16} className="text-slate-400 dark:text-slate-300 shrink-0" /> : <ChevronDown size={16} className="text-slate-400 dark:text-slate-300 shrink-0" />}
                 </button>
 
                 {isExpanded && (

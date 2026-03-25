@@ -227,7 +227,7 @@ function DetailSection({
               </div>
             ))}
             {!row.italy.stations.length && (
-              <div className="rounded-2xl border border-dashed border-slate-300 bg-white px-4 py-6 text-center text-sm text-slate-500">
+              <div className="rounded-2xl border border-dashed border-slate-300 dark:border-slate-600 bg-white px-4 py-6 text-center text-sm text-slate-500">
                 {tt('fuelPrices.noItalyStations', 'Nessuna stazione italiana trovata per questo comune.')}
               </div>
             )}
@@ -255,7 +255,7 @@ function DetailSection({
               </div>
             ))}
             {!row.swiss.nearbyStations.length && (
-              <div className="rounded-2xl border border-dashed border-slate-300 bg-white px-4 py-6 text-center text-sm text-slate-500">
+              <div className="rounded-2xl border border-dashed border-slate-300 dark:border-slate-600 bg-white px-4 py-6 text-center text-sm text-slate-500">
                 {tt('fuelPrices.noSwissStations', 'Nessuna stazione svizzera utile nel raggio di confronto.')}
               </div>
             )}
@@ -507,7 +507,7 @@ export default function FuelPriceStats() {
 
           <div className="rounded-3xl border border-slate-200 bg-gradient-to-br from-slate-50 to-white p-4 sm:p-5">
             {!homeMunicipality || !personalizedRecommendation?.best ? (
-              <div className="flex h-full items-center justify-center rounded-2xl border border-dashed border-slate-300 px-5 py-10 text-center text-sm text-slate-500">
+              <div className="flex h-full items-center justify-center rounded-2xl border border-dashed border-slate-300 dark:border-slate-600 px-5 py-10 text-center text-sm text-slate-500">
                 {tt('fuelPrices.personalizedEmpty', 'Seleziona un comune censito per ricevere il consiglio personalizzato su dove conviene fare benzina tenendo conto anche dei chilometri.')}
               </div>
             ) : (
@@ -695,7 +695,7 @@ export default function FuelPriceStats() {
             })}
 
             {!rows.length && (
-              <div className="rounded-3xl border border-dashed border-slate-300 bg-slate-50 px-5 py-10 text-center text-sm text-slate-500">
+              <div className="rounded-3xl border border-dashed border-slate-300 dark:border-slate-600 bg-slate-50 px-5 py-10 text-center text-sm text-slate-500">
                 {tt('fuelPrices.noMatches', 'Nessun comune trovato con i filtri attuali.')}
               </div>
             )}
