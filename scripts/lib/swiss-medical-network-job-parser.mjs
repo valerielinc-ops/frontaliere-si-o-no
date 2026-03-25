@@ -205,3 +205,86 @@ export function parseSmartRecruiterLinks(html = '') {
   }
   return urls;
 }
+
+/**
+ * Map clinic names to postal codes and addresses.
+ */
+export const CLINIC_ADDRESSES = {
+  'Clinica Sant\'Anna': { postalCode: '6924', streetAddress: 'Via Sant\'Anna 1, 6924 Sorengo', city: 'Sorengo' },
+  'Clinica Ars Medica': { postalCode: '6929', streetAddress: 'Via Cantonale 26, 6929 Gravesano', city: 'Gravesano' },
+  'Clinica Moncucco': { postalCode: '6900', streetAddress: 'Via Moncucco 2, 6900 Lugano', city: 'Lugano' },
+  'Sana Cure Sagl': { postalCode: '6900', streetAddress: 'Via Moncucco 2, 6900 Lugano', city: 'Lugano' },
+  'Centro Medico Blenio': { postalCode: '6716', streetAddress: 'Via Campagna 6, 6716 Acquarossa', city: 'Acquarossa' },
+  'Genolier Management & Services': { postalCode: '6830', streetAddress: 'Via Besso 23, 6830 Chiasso', city: 'Chiasso' },
+};
+
+/**
+ * Get address data for a clinic name.
+ */
+export function getClinicAddress(clinicName = '', city = '') {
+  for (const [name, data] of Object.entries(CLINIC_ADDRESSES)) {
+    if (clinicName.toLowerCase().includes(name.toLowerCase())) return data;
+  }
+  // Try matching by city
+  for (const data of Object.values(CLINIC_ADDRESSES)) {
+    if (city && data.city.toLowerCase() === city.toLowerCase()) return data;
+  }
+  // Default to Lugano HQ
+  return { postalCode: '6900', streetAddress: 'Via Moncucco 2, 6900 Lugano', city: 'Lugano' };
+}
+
+/**
+ * Parse a SmartRecruiters detail page for full job description.
+ *
+ * SmartRecruiters pages typically have:
+ *   - <h1> with job title
+ *   - Job description in a section with rich text (responsibilities, requirements, etc.)
+ *   - Location info in structured data or meta
+ *
+ * @param {string} html - Raw HTML of the SmartRecruiters detail page
+ * @returns {{ title: string, description: string, location: string }}
+ */
+export function parseSmartRecruiterDetail(html = '') {
+  if (!html || typeof html !== 'string') return { title: '', description: '', location: '' };
+
+  const titleMatch = html.match(/<h1[^>]*>([\s\S]*?)<\/h1>/i);
+  const title = titleMatch ? normalizeSpace(htmlToText(titleMatch[1])) : '';
+
+  // Strategy 1: Look for the job description content section
+  let contentHtml = '';
+  // SmartRecruiters typically has a .job-description or [data-automation="jobDescription"] section
+  const descSectionMatch = html.match(/<div[^>]*(?:class="[^"]*job-?desc[^"]*"|data-automation="jobDescription")[^>]*>([\s\S]*?)<\/div>/i)
+    || html.match(/<section[^>]*class="[^"]*(?:description|content)[^"]*"[^>]*>([\s\S]*?)<\/section>/i);
+
+  if (descSectionMatch) {
+    contentHtml = descSectionMatch[1];
+  } else {
+    // Strategy 2: Get main/article content
+    const mainMatch = html.match(/<main[^>]*>([\s\S]*?)<\/main>/i)
+      || html.match(/<article[^>]*>([\s\S]*?)<\/article>/i);
+    if (mainMatch) contentHtml = mainMatch[1];
+    else {
+      // Strategy 3: Get body content minus nav/header/footer
+      const bodyMatch = html.match(/<body[^>]*>([\s\S]*?)<\/body>/i);
+      if (bodyMatch) contentHtml = bodyMatch[1];
+    }
+  }
+
+  // Clean up
+  contentHtml = contentHtml
+    .replace(/<nav[^>]*>[\s\S]*?<\/nav>/gi, '')
+    .replace(/<header[^>]*>[\s\S]*?<\/header>/gi, '')
+    .replace(/<footer[^>]*>[\s\S]*?<\/footer>/gi, '')
+    .replace(/<script[^>]*>[\s\S]*?<\/script>/gi, '')
+    .replace(/<style[^>]*>[\s\S]*?<\/style>/gi, '')
+    .replace(/<noscript[^>]*>[\s\S]*?<\/noscript>/gi, '');
+
+  const description = normalizeSpace(htmlToText(contentHtml));
+
+  // Try to extract location from structured data or meta
+  const locMatch = html.match(/"jobLocation"[^}]*"addressLocality"\s*:\s*"([^"]+)"/i)
+    || html.match(/<meta[^>]*name="geo\.placename"[^>]*content="([^"]+)"/i);
+  const location = locMatch ? normalizeSpace(locMatch[1]) : '';
+
+  return { title, description, location };
+}

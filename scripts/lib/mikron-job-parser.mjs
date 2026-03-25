@@ -166,6 +166,11 @@ export function parseMikronJobs(html = '', options = {}) {
 /**
  * Parse a Mikron job detail page for description.
  *
+ * The detail pages on mikron.com typically have:
+ *   - <h1> with the job title
+ *   - Main content in <article>, <main>, or div.node/field--body
+ *   - Sections for responsibilities, requirements, what we offer
+ *
  * @param {string} html - Raw HTML of the job detail page
  * @returns {{ title: string, description: string, location: string, division: string }}
  */
@@ -175,11 +180,37 @@ export function parseMikronJobDetail(html = '') {
   const titleMatch = html.match(/<h1[^>]*>([\s\S]*?)<\/h1>/i);
   const title = titleMatch ? normalizeSpace(htmlToText(titleMatch[1])) : '';
 
-  // Try to find the main content area
-  const mainContentMatch = html.match(/<(?:article|div)[^>]*class="[^"]*(?:node|content|job-detail|field--body)[^"]*"[^>]*>([\s\S]*?)<\/(?:article|div)>/i);
-  const description = mainContentMatch
-    ? normalizeSpace(htmlToText(mainContentMatch[1]))
-    : normalizeSpace(htmlToText(html.match(/<main[^>]*>([\s\S]*?)<\/main>/i)?.[1] || ''));
+  // Strategy 1: Look for the main content area (article/main/content nodes)
+  let contentHtml = '';
+  const articleMatch = html.match(/<article[^>]*>([\s\S]*?)<\/article>/i);
+  const mainMatch = html.match(/<main[^>]*>([\s\S]*?)<\/main>/i);
+  const nodeMatch = html.match(/<div[^>]*class="[^"]*(?:node|content|job-detail|field--body|layout-content|block-system)[^"]*"[^>]*>([\s\S]*?)<\/div>\s*(?:<\/div>|<div[^>]*class="[^"]*(?:footer|sidebar))/i);
+
+  if (articleMatch) contentHtml = articleMatch[1];
+  else if (mainMatch) contentHtml = mainMatch[1];
+  else if (nodeMatch) contentHtml = nodeMatch[1];
+
+  // Strategy 2: Extract all paragraphs, lists, and headings between h1 and footer/nav
+  if (!contentHtml || normalizeSpace(htmlToText(contentHtml)).length < 50) {
+    // Get everything after h1 up to footer/nav
+    const afterH1 = html.match(/<\/h1>([\s\S]*?)(?:<footer|<nav[^>]*class="[^"]*(?:footer|nav)|<div[^>]*id="footer")/i);
+    if (afterH1) contentHtml = afterH1[1];
+    else {
+      // Fallback: get all content between body tags
+      const bodyMatch = html.match(/<body[^>]*>([\s\S]*?)<\/body>/i);
+      if (bodyMatch) contentHtml = bodyMatch[1];
+    }
+  }
+
+  // Strip navigation, scripts, styles, and header elements from content
+  contentHtml = contentHtml
+    .replace(/<nav[^>]*>[\s\S]*?<\/nav>/gi, '')
+    .replace(/<header[^>]*>[\s\S]*?<\/header>/gi, '')
+    .replace(/<script[^>]*>[\s\S]*?<\/script>/gi, '')
+    .replace(/<style[^>]*>[\s\S]*?<\/style>/gi, '')
+    .replace(/<noscript[^>]*>[\s\S]*?<\/noscript>/gi, '');
+
+  const description = normalizeSpace(htmlToText(contentHtml));
 
   const locationMatch = html.match(/(?:location|standort)[:\s]*(Switzerland\s*,\s*[A-Za-z]+)/i);
   const location = locationMatch ? normalizeSpace(locationMatch[1]) : '';

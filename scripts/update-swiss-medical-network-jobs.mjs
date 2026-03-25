@@ -16,7 +16,7 @@ import { printPublishedJobUrls, writeJobsSummary, snapshotJobSlugs, computeCrawl
 import { writeJobsCrawlerSlice, writeSummaryCrawlerSlice, assembleJobsDataset } from './assemble-jobs-dataset.mjs';
 import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, mergeLocaleTextMap,
 } from './lib/dedicated-crawler-common.mjs';
-import { parseSwissMedicalJobs, slugify, normalizeSpace, TICINO_REGION_UUID } from './lib/swiss-medical-network-job-parser.mjs';
+import { parseSwissMedicalJobs, parseSmartRecruiterDetail, getClinicAddress, slugify, normalizeSpace, TICINO_REGION_UUID } from './lib/swiss-medical-network-job-parser.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -68,24 +68,44 @@ function detectExperienceLevel(title = '') {
   return 'MID';
 }
 
-async function fetchCareersPage() {
+async function fetchPage(url) {
   const timeoutMs = parseInt(process.env.JOBS_CRAWLER_TIMEOUT_MS || '20000', 10);
   try {
     const controller = new AbortController();
     const timer = setTimeout(() => controller.abort(), timeoutMs);
-    const res = await fetch(CAREERS_URL, { signal: controller.signal, headers: { 'User-Agent': process.env.JOBS_CRAWLER_USER_AGENT || 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)', Accept: 'text/html', 'Accept-Language': 'en,it-CH;q=0.9' } });
+    const res = await fetch(url, { signal: controller.signal, headers: { 'User-Agent': process.env.JOBS_CRAWLER_USER_AGENT || 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)', Accept: 'text/html', 'Accept-Language': 'en,it-CH;q=0.9' } });
     clearTimeout(timer);
-    if (!res.ok) { console.warn(`⚠️ HTTP ${res.status} for ${CAREERS_URL}`); return null; }
+    if (!res.ok) { console.warn(`⚠️ HTTP ${res.status} for ${url}`); return null; }
     return await res.text();
-  } catch (err) { console.warn(`⚠️ Fetch failed: ${err.message}`); return null; }
+  } catch (err) { console.warn(`⚠️ Fetch failed for ${url}: ${err.message}`); return null; }
 }
 
-function buildJobFromParsed(parsed) {
+async function fetchCareersPage() {
+  return fetchPage(CAREERS_URL);
+}
+
+/**
+ * Build a rich fallback description (>50 words) for Swiss Medical Network.
+ */
+function buildFallbackDescription(title, clinic, city, locale = 'en') {
+  if (locale === 'it') {
+    return `Posizione aperta: ${title} presso ${clinic} a ${city}, Cantone Ticino, Svizzera.\n\nSwiss Medical Network è il principale gruppo sanitario privato in Svizzera, fondato nel 2002. Il gruppo gestisce oltre 20 strutture sanitarie tra cui cliniche, centri medici e istituti di riabilitazione in tutta la Svizzera. ${clinic} offre un ambiente di lavoro stimolante e dinamico, con condizioni di impiego allineate ai contratti collettivi di lavoro. Il gruppo è in costante crescita e offre opportunità di sviluppo professionale, formazione continua e un pacchetto retributivo competitivo con ottime prestazioni sociali. Candidarsi per entrare a far parte di un team appassionato e dedicato alla cura dei pazienti.`;
+  }
+  return `Open position: ${title} at ${clinic} in ${city}, Canton Ticino, Switzerland.\n\nSwiss Medical Network is Switzerland's leading private healthcare group, established in 2002. The group operates over 20 healthcare facilities including clinics, medical centers, and rehabilitation institutes across Switzerland. ${clinic} offers a stimulating and dynamic working environment, with employment terms aligned with collective bargaining agreements. The group is constantly growing and offers professional development opportunities, continuous training, and a competitive compensation package with excellent social benefits. Apply to become part of a passionate team dedicated to patient care.`;
+}
+
+function buildJobFromParsed(parsed, detailDescription = '') {
   const slug = slugify(parsed.title, 'swiss-medical-network');
   const clinic = parsed.clinic || 'Swiss Medical Network';
   const city = parsed.city || 'Lugano';
-  const descEn = `${parsed.title} at ${clinic}, ${city}, Canton Ticino, Switzerland. Swiss Medical Network is a leading private healthcare group in Switzerland.`;
-  const descIt = `Posizione aperta presso ${clinic} a ${city}, Cantone Ticino.\nRuolo: ${parsed.title}.\n\nSwiss Medical Network è il principale gruppo sanitario privato in Svizzera.`;
+  const address = getClinicAddress(clinic, city);
+
+  // Use detail description if rich enough, otherwise use fallback
+  let descEn = detailDescription;
+  if (!descEn || descEn.split(/\s+/).length < 50) {
+    descEn = buildFallbackDescription(parsed.title, clinic, city, 'en');
+  }
+  const descIt = buildFallbackDescription(parsed.title, clinic, city, 'it');
 
   return {
     url: parsed.applyUrl || `https://www.swissmedical.net/en/career/job-offers`,
@@ -96,6 +116,8 @@ function buildJobFromParsed(parsed) {
     location: city,
     canton: 'TI',
     country: 'CH',
+    postalCode: address.postalCode,
+    streetAddress: address.streetAddress,
     description: descEn,
     descriptionByLocale: { en: descEn, it: descIt },
     titleByLocale: { en: parsed.title },
@@ -166,7 +188,30 @@ async function main() {
 
   const parsed = parseSwissMedicalJobs(html);
   console.log(`  📋 Ticino jobs parsed: ${parsed.length}`);
-  const discoveredJobs = parsed.map(buildJobFromParsed);
+
+  // Fetch detail pages from SmartRecruiters for rich descriptions
+  const discoveredJobs = [];
+  for (const p of parsed) {
+    let detailDescription = '';
+    if (p.applyUrl) {
+      console.log(`    🔗 Fetching detail page: ${p.applyUrl}`);
+      const detailHtml = await fetchPage(p.applyUrl);
+      if (detailHtml) {
+        const detail = parseSmartRecruiterDetail(detailHtml);
+        if (detail.description && detail.description.split(/\s+/).length >= 30) {
+          detailDescription = detail.description;
+          console.log(`    ✅ Detail description: ${detailDescription.split(/\s+/).length} words`);
+        } else {
+          console.log(`    ⚠️ Detail page description too short (${(detail.description || '').split(/\s+/).length} words), using fallback`);
+        }
+      } else {
+        console.log(`    ⚠️ Could not fetch detail page, using fallback`);
+      }
+      // Small delay to be respectful to SmartRecruiters
+      await new Promise((r) => setTimeout(r, 500));
+    }
+    discoveredJobs.push(buildJobFromParsed(p, detailDescription));
+  }
 
   if (discoveredJobs.length === 0) { console.log('\n⚠️ No Ticino Swiss Medical Network jobs found.'); return; }
 

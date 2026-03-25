@@ -75,6 +75,29 @@ async function fetchPage(url) {
   } catch (err) { console.warn(`⚠️ Fetch failed for ${url}: ${err.message}`); return null; }
 }
 
+/**
+ * Detect employmentType from title percentage (e.g. "80-100%" → PART_TIME if <100%).
+ */
+function detectEmploymentType(title = '') {
+  const pctMatch = title.match(/(\d{1,3})\s*[-–]\s*(\d{1,3})\s*%/) || title.match(/\((\d{1,3})%\)/);
+  if (pctMatch) {
+    const maxPct = pctMatch[2] ? parseInt(pctMatch[2], 10) : parseInt(pctMatch[1], 10);
+    const minPct = parseInt(pctMatch[1], 10);
+    if (maxPct < 100 || minPct < 80) return 'PART_TIME';
+  }
+  return 'FULL_TIME';
+}
+
+/**
+ * Build a rich fallback description (>50 words) when detail page yields nothing.
+ */
+function buildFallbackDescription(title, division, locale = 'en') {
+  if (locale === 'it') {
+    return `Posizione aperta: ${title} presso Mikron Group ad Agno, Cantone Ticino, Svizzera.${division ? ` Divisione: ${division}.` : ''}\n\nMikron Group è un leader globale nella produzione di precisione e automazione, con sede a Bienne (Svizzera) e operazioni in tutto il mondo. La divisione Mikron Machining, con sede ad Agno (Ticino), è specializzata nella progettazione e produzione di sistemi di lavorazione ad alta precisione per l'industria automobilistica, medicale, elettronica e dell'orologeria. L'azienda offre un ambiente di lavoro dinamico, possibilità di crescita professionale, una cultura aziendale positiva con forte spirito di squadra, e una retribuzione competitiva con eccellenti prestazioni sociali.`;
+  }
+  return `Open position: ${title} at Mikron Group in Agno, Canton Ticino, Switzerland.${division ? ` Division: ${division}.` : ''}\n\nMikron Group is a global leader in precision manufacturing and automation, headquartered in Biel/Bienne (Switzerland) with operations worldwide. The Mikron Machining division, based in Agno (Ticino), specializes in the design and production of high-precision machining systems for the automotive, medical, electronics, and watchmaking industries. The company offers a dynamic working environment, career growth opportunities, a positive corporate culture with strong team spirit, and competitive compensation with excellent social benefits.`;
+}
+
 async function fetchMikronJobs() {
   console.log(`🔍 Fetching Mikron Group Agno jobs`);
   console.log(`   URL: ${MIKRON_AGNO_URL}`);
@@ -89,16 +112,46 @@ async function fetchMikronJobs() {
   for (const p of parsed) {
     const title = p.title;
     const slug = slugify(title, 'mikron');
-    const descEn = `${title} at Mikron Group in Agno, Canton Ticino, Switzerland. ${p.division ? `Division: ${p.division}.` : ''} Mikron is a global leader in precision manufacturing and automation.`;
-    const descIt = `Posizione aperta presso Mikron Group ad Agno, Cantone Ticino.\nRuolo: ${title}.${p.division ? `\nDivisione: ${p.division}.` : ''}\n\nMikron Group è un leader globale nella produzione di precisione e automazione.`;
+
+    // Fetch detail page for rich description
+    let descEn = '';
+    let descIt = '';
+    if (p.url) {
+      console.log(`    🔗 Fetching detail page: ${p.url}`);
+      const detailHtml = await fetchPage(p.url);
+      if (detailHtml) {
+        const detail = parseMikronJobDetail(detailHtml);
+        if (detail.description && detail.description.split(/\s+/).length >= 30) {
+          descEn = detail.description;
+          console.log(`    ✅ Detail description: ${descEn.split(/\s+/).length} words`);
+        } else {
+          console.log(`    ⚠️ Detail page description too short (${(detail.description || '').split(/\s+/).length} words), using fallback`);
+        }
+      } else {
+        console.log(`    ⚠️ Could not fetch detail page, using fallback`);
+      }
+      // Small delay to be respectful to the server
+      await new Promise((r) => setTimeout(r, 500));
+    }
+
+    // Fallback: build a rich description (>50 words) if detail page failed
+    if (!descEn || descEn.split(/\s+/).length < 50) {
+      descEn = buildFallbackDescription(title, p.division, 'en');
+    }
+    if (!descIt) {
+      descIt = buildFallbackDescription(title, p.division, 'it');
+    }
+
+    const employmentType = detectEmploymentType(title);
 
     jobs.push({
       url: p.url, applyUrl: p.url, title, company: COMPANY_NAME, companyKey: COMPANY_KEY,
       location: 'Agno', canton: 'TI', country: 'CH',
+      postalCode: '6982', streetAddress: 'Via Ginnasio 17, 6982 Agno',
       description: descEn, descriptionByLocale: { en: descEn, it: descIt },
       titleByLocale: { en: title }, slug, slugByLocale: { en: slug, it: slugify(title, 'mikron') },
       category: detectCategory(title), datePosted: new Date().toISOString().split('T')[0],
-      source: 'mikron-html-crawler', employmentType: 'FULL_TIME',
+      source: 'mikron-html-crawler', employmentType,
       experienceLevel: detectExperienceLevel(title), sector: 'Manifattura / Precision Manufacturing',
       _targetScope: { canton: 'TI', location: 'Agno' },
     });

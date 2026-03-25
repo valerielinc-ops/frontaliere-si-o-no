@@ -8,11 +8,14 @@ import { describe, it, expect } from 'vitest';
 import {
   parseSwissMedicalJobs,
   parseSmartRecruiterLinks,
+  parseSmartRecruiterDetail,
+  getClinicAddress,
   isTicinoLocation,
   inferCity,
   normalizeSpace,
   slugify,
   TICINO_CLINICS,
+  CLINIC_ADDRESSES,
 } from '@/scripts/lib/swiss-medical-network-job-parser.mjs';
 
 // ─── Fixture: Ticino job listings with SmartRecruiters links ──────────────────
@@ -165,4 +168,79 @@ describe('inferCity', () => {
   it('infers Gravesano from Ars Medica', () => { expect(inferCity('Clinica Ars Medica')).toBe('Gravesano'); });
   it('infers Lugano from Moncucco', () => { expect(inferCity('Clinica Moncucco')).toBe('Lugano'); });
   it('defaults to Lugano for unknown Ticino text', () => { expect(inferCity('some unknown clinic')).toBe('Lugano'); });
+});
+
+// ─── getClinicAddress tests ──────────────────────────────────────────────────
+
+describe('getClinicAddress', () => {
+  it('returns correct address for Clinica Sant\'Anna', () => {
+    const addr = getClinicAddress('Clinica Sant\'Anna', 'Sorengo');
+    expect(addr.postalCode).toBe('6924');
+    expect(addr.streetAddress).toContain('Sant\'Anna');
+  });
+
+  it('returns correct address for Clinica Ars Medica', () => {
+    const addr = getClinicAddress('Clinica Ars Medica', 'Gravesano');
+    expect(addr.postalCode).toBe('6929');
+  });
+
+  it('returns correct address for Clinica Moncucco', () => {
+    const addr = getClinicAddress('Clinica Moncucco', 'Lugano');
+    expect(addr.postalCode).toBe('6900');
+  });
+
+  it('falls back by city when clinic name is unknown', () => {
+    const addr = getClinicAddress('Unknown Clinic', 'Sorengo');
+    expect(addr.postalCode).toBe('6924');
+  });
+
+  it('defaults to Lugano HQ for unknown clinic and city', () => {
+    const addr = getClinicAddress('Unknown', 'Unknown');
+    expect(addr.postalCode).toBe('6900');
+  });
+});
+
+// ─── parseSmartRecruiterDetail tests ─────────────────────────────────────────
+
+describe('parseSmartRecruiterDetail', () => {
+  const SR_DETAIL = `
+<html><body>
+<main>
+  <h1>Medico Ospedaliero</h1>
+  <div class="job-description">
+    <p>Swiss Medical Network, il principale gruppo sanitario privato in Svizzera, cerca un Medico Ospedaliero
+       per la Clinica Sant'Anna a Sorengo, Cantone Ticino. La posizione prevede responsabilità cliniche
+       nella gestione dei pazienti ricoverati, collaborazione con specialisti di diverse discipline,
+       partecipazione alla formazione dei medici assistenti e contributo allo sviluppo dei protocolli clinici.</p>
+    <h2>Requisiti</h2>
+    <ul>
+      <li>Laurea in Medicina con specializzazione completata</li>
+      <li>Riconoscimento MEBEKO per diplomi esteri</li>
+      <li>Ottima conoscenza della lingua italiana (minimo B2)</li>
+      <li>Esperienza clinica di almeno 3 anni</li>
+      <li>Ottime capacità relazionali e di lavoro in team</li>
+    </ul>
+    <h2>Offriamo</h2>
+    <p>Ambiente di lavoro stimolante in un gruppo in costante crescita, condizioni contrattuali
+       allineate ai CCL EOC, e opportunità di sviluppo professionale continuo.</p>
+  </div>
+</main>
+</body></html>`;
+
+  it('extracts title from h1', () => {
+    const result = parseSmartRecruiterDetail(SR_DETAIL);
+    expect(result.title).toBe('Medico Ospedaliero');
+  });
+
+  it('extracts rich description with >50 words', () => {
+    const result = parseSmartRecruiterDetail(SR_DETAIL);
+    const wordCount = result.description.split(/\s+/).length;
+    expect(wordCount).toBeGreaterThanOrEqual(50);
+  });
+
+  it('returns empty for null input', () => {
+    const result = parseSmartRecruiterDetail('');
+    expect(result.title).toBe('');
+    expect(result.description).toBe('');
+  });
 });

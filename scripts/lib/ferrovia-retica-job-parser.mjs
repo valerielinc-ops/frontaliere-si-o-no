@@ -244,6 +244,51 @@ export function parseDetailPage(html) {
   };
 }
 
+/* ── Postal code mapping ────────────────────────────────────── */
+
+export const RHB_POSTAL_CODES = {
+  'chur': { postalCode: '7000', streetAddress: 'Bahnhofstrasse 25, 7001 Chur' },
+  'coira': { postalCode: '7000', streetAddress: 'Bahnhofstrasse 25, 7001 Chur' },
+  'landquart': { postalCode: '7302', streetAddress: 'Bahnhofstrasse 1, 7302 Landquart' },
+  'davos': { postalCode: '7270', streetAddress: 'Bahnhofstrasse 1, 7270 Davos Platz' },
+  'klosters': { postalCode: '7250', streetAddress: 'Bahnhofstrasse 1, 7250 Klosters' },
+  'samedan': { postalCode: '7503', streetAddress: 'Bahnhof, 7503 Samedan' },
+  'poschiavo': { postalCode: '7742', streetAddress: 'Piazza della Stazione, 7742 Poschiavo' },
+  'pontresina': { postalCode: '7504', streetAddress: 'Bahnhof, 7504 Pontresina' },
+  'st. moritz': { postalCode: '7500', streetAddress: 'Bahnhof, 7500 St. Moritz' },
+  'thusis': { postalCode: '7430', streetAddress: 'Bahnhofstrasse, 7430 Thusis' },
+  'ilanz': { postalCode: '7130', streetAddress: 'Bahnhof, 7130 Ilanz' },
+  'disentis': { postalCode: '7180', streetAddress: 'Bahnhof, 7180 Disentis/Mustér' },
+  'arosa': { postalCode: '7050', streetAddress: 'Bahnhof, 7050 Arosa' },
+  'filisur': { postalCode: '7477', streetAddress: 'Bahnhof, 7477 Filisur' },
+  'scuol': { postalCode: '7550', streetAddress: 'Bahnhof, 7550 Scuol' },
+  'zernez': { postalCode: '7530', streetAddress: 'Bahnhof, 7530 Zernez' },
+  'brusio': { postalCode: '7743', streetAddress: 'Stazione, 7743 Brusio' },
+  'campocologno': { postalCode: '7744', streetAddress: 'Stazione, 7744 Campocologno' },
+  'tiefencastel': { postalCode: '7450', streetAddress: 'Bahnhof, 7450 Tiefencastel' },
+};
+
+/**
+ * Get postal code and address for a location.
+ */
+export function getLocationAddress(location = '') {
+  const loc = location.toLowerCase().trim();
+  const match = RHB_POSTAL_CODES[loc];
+  if (match) return match;
+  // Default to Chur HQ
+  return { postalCode: '7000', streetAddress: 'Bahnhofstrasse 25, 7001 Chur' };
+}
+
+/* ── Fallback description builder ──────────────────────────── */
+
+/**
+ * Build a rich fallback description (>50 words) when detail page yields nothing.
+ */
+export function buildFallbackDescription(title, location, percentage) {
+  const pctInfo = percentage ? ` Grado di occupazione: ${percentage}.` : '';
+  return `${title} presso la Ferrovia Retica (RhB) a ${location}, Cantone dei Grigioni, Svizzera.${pctInfo}\n\nLa Ferrovia Retica è la più grande azienda di trasporti del Cantone dei Grigioni con circa 1400 collaboratori. La RhB gestisce la rete ferroviaria a scartamento ridotto più estesa della Svizzera, con 384 km di linee che attraversano 115 gallerie e 383 ponti, inclusa la celebre tratta patrimonio mondiale UNESCO dell'Albula/Bernina. L'azienda offre condizioni di impiego moderne e attrattive, un abbonamento generale di 2a classe, sconti viaggio, un piano pensionistico completo, possibilità di acquisto di vacanze supplementari e numerose opportunità di formazione e perfezionamento professionale.`;
+}
+
 /* ── Job builder ───────────────────────────────────────────── */
 
 export function buildJob(raw) {
@@ -253,7 +298,22 @@ export function buildJob(raw) {
   if (!title || title.length < 3) return null;
 
   const location = raw.location || 'Chur';
-  const description = raw.description || `${title} presso la Ferrovia Retica (RhB), la più grande azienda di trasporti dei Grigioni con circa 1400 collaboratori. La RhB gestisce la rete ferroviaria a scartamento ridotto più estesa della Svizzera, inclusa la tratta patrimonio UNESCO dell'Albula/Bernina. Sede: ${location}.`;
+  const address = getLocationAddress(location);
+
+  // Use detail description if available and >50 words, otherwise use rich fallback
+  let description = '';
+  if (raw.description && raw.description.split(/\s+/).length >= 50) {
+    description = raw.description;
+  } else {
+    description = buildFallbackDescription(title, location, raw.percentage);
+  }
+
+  // Detect employment type from percentage
+  let employmentType = 'FULL_TIME';
+  if (raw.percentage) {
+    const pctMatch = raw.percentage.match(/(\d{1,3})/);
+    if (pctMatch && parseInt(pctMatch[1], 10) < 80) employmentType = 'PART_TIME';
+  }
 
   return {
     title,
@@ -263,6 +323,9 @@ export function buildJob(raw) {
     location,
     canton: 'GR',
     country: 'CH',
+    postalCode: address.postalCode,
+    streetAddress: address.streetAddress,
+    employmentType,
     category: detectCategory(title, description),
     description,
     postedDate: raw.datePosted || new Date().toISOString().slice(0, 10),

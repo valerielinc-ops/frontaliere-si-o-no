@@ -41,7 +41,7 @@ import {
   normalize,
   normalizeKey,
 } from './lib/dedicated-crawler-common.mjs';
-import { parseListingPage, parseDetailPage, buildJob, stripHtml } from './lib/ferrovia-retica-job-parser.mjs';
+import { parseListingPage, parseDetailPage, buildJob, buildFallbackDescription, stripHtml } from './lib/ferrovia-retica-job-parser.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -109,11 +109,33 @@ async function fetchJobs() {
   const rawListings = parseListingPage(html);
   console.log(`📋 Found ${rawListings.length} listing(s) on career page.`);
 
+  // Fetch detail pages to get rich descriptions
   const jobs = [];
   for (const listing of rawListings) {
+    if (listing.url) {
+      console.log(`    🔗 Fetching detail page: ${listing.url}`);
+      try {
+        const detailHtml = await fetchHtml(listing.url, timeoutMs);
+        if (detailHtml) {
+          const detail = parseDetailPage(detailHtml);
+          if (detail && detail.description && detail.description.split(/\s+/).length >= 30) {
+            listing.description = detail.description;
+            if (detail.location) listing.location = detail.location;
+            console.log(`    ✅ Detail description: ${detail.description.split(/\s+/).length} words`);
+          } else {
+            console.log(`    ⚠️ Detail page description too short (${(detail?.description || '').split(/\s+/).length} words), using fallback`);
+          }
+        }
+      } catch (err) {
+        console.log(`    ⚠️ Could not fetch detail page: ${err.message}`);
+      }
+      // Small delay to be respectful to the server
+      await new Promise((r) => setTimeout(r, 500));
+    }
+
     const job = buildJob(listing);
     if (job) {
-      console.log(`  ✅ ${job.title} (${job.location})`);
+      console.log(`  ✅ ${job.title} (${job.location}) — ${job.description.split(/\s+/).length} words`);
       jobs.push(job);
     }
   }

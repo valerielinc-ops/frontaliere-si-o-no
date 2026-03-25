@@ -10,6 +10,8 @@ import {
   parseListingPage,
   parseDetailPage,
   buildJob,
+  buildFallbackDescription,
+  getLocationAddress,
   isGrigioniItalianoJob,
   inferLocation,
   stripHtml,
@@ -211,5 +213,75 @@ describe('buildJob', () => {
   it('returns null for empty title', () => {
     expect(buildJob({ title: '' })).toBeNull();
     expect(buildJob(null as any)).toBeNull();
+  });
+
+  it('includes postalCode and streetAddress', () => {
+    const job = buildJob({ title: 'Macchinista', location: 'Poschiavo' });
+    expect(job!.postalCode).toBe('7742');
+    expect(job!.streetAddress).toContain('Poschiavo');
+  });
+
+  it('includes postalCode for Chur (default)', () => {
+    const job = buildJob({ title: 'Sachbearbeiter', location: 'Chur' });
+    expect(job!.postalCode).toBe('7000');
+  });
+
+  it('includes employmentType', () => {
+    const job = buildJob({ title: 'Test Job', location: 'Chur', percentage: '100%' });
+    expect(job!.employmentType).toBe('FULL_TIME');
+    const partTime = buildJob({ title: 'Test Job', location: 'Chur', percentage: '50-100%' });
+    expect(partTime!.employmentType).toBe('PART_TIME');
+  });
+
+  it('generates description with >=50 words (fallback)', () => {
+    const job = buildJob({ title: 'Lokführer/in', location: 'Poschiavo' });
+    const wordCount = job!.description.split(/\s+/).length;
+    expect(wordCount).toBeGreaterThanOrEqual(50);
+  });
+
+  it('uses detail description when provided and >50 words', () => {
+    const longDesc = Array(60).fill('word').join(' ');
+    const job = buildJob({ title: 'Test Job', location: 'Chur', description: longDesc });
+    expect(job!.description).toBe(longDesc);
+  });
+});
+
+// ═══════════════════════════════════════════════════════════════
+// getLocationAddress
+// ═══════════════════════════════════════════════════════════════
+
+describe('getLocationAddress', () => {
+  it('returns correct postal code for Poschiavo', () => {
+    expect(getLocationAddress('Poschiavo').postalCode).toBe('7742');
+  });
+
+  it('returns correct postal code for Chur', () => {
+    expect(getLocationAddress('Chur').postalCode).toBe('7000');
+  });
+
+  it('returns correct postal code for Davos', () => {
+    expect(getLocationAddress('Davos').postalCode).toBe('7270');
+  });
+
+  it('defaults to Chur for unknown location', () => {
+    expect(getLocationAddress('UnknownTown').postalCode).toBe('7000');
+  });
+});
+
+// ═══════════════════════════════════════════════════════════════
+// buildFallbackDescription
+// ═══════════════════════════════════════════════════════════════
+
+describe('buildFallbackDescription', () => {
+  it('generates description with >=50 words', () => {
+    const desc = buildFallbackDescription('Lokführer/in', 'Poschiavo', '80-100%');
+    const wordCount = desc.split(/\s+/).length;
+    expect(wordCount).toBeGreaterThanOrEqual(50);
+  });
+
+  it('includes job title and location', () => {
+    const desc = buildFallbackDescription('Macchinista', 'Poschiavo', '');
+    expect(desc).toContain('Macchinista');
+    expect(desc).toContain('Poschiavo');
   });
 });

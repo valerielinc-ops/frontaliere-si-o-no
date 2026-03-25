@@ -210,3 +210,54 @@ describe('htmlToText', () => {
     expect(htmlToText(null as any)).toBe('');
   });
 });
+
+// ─── Detail page description richness ─────────────────────────────────────────
+
+describe('parseMikronJobDetail — rich descriptions', () => {
+  const RICH_DETAIL = `
+<html><body>
+<main>
+  <h1>CNC Operator (100%)</h1>
+  <article class="node job-detail">
+    <p>We are seeking a skilled CNC Operator for our Machining division in Agno, Canton Ticino, Switzerland.
+       The ideal candidate has experience with multi-axis CNC machines and precision manufacturing of high-performance
+       cutting tools. You will work in a modern production facility with state-of-the-art equipment and be part of
+       an international team dedicated to excellence in precision engineering.</p>
+    <h2>Your Responsibilities</h2>
+    <ul>
+      <li>Operate and set up multi-axis CNC machines for precision manufacturing</li>
+      <li>Read and interpret technical drawings and CAD/CAM programs</li>
+      <li>Perform quality checks using precision measuring instruments</li>
+      <li>Maintain machines and tools in optimal condition</li>
+      <li>Collaborate with engineering team on process improvements</li>
+    </ul>
+    <h2>Your Profile</h2>
+    <ul>
+      <li>Technical diploma in mechanics or equivalent qualification</li>
+      <li>3+ years experience with CNC machines (Fanuc/Siemens preferred)</li>
+      <li>Knowledge of precision measuring tools and quality standards</li>
+      <li>Team player with attention to detail</li>
+      <li>Good knowledge of Italian and/or German language</li>
+    </ul>
+    <h2>We Offer</h2>
+    <p>A positive corporate culture with strong team spirit, varied work responsibilities,
+       comprehensive onboarding, and competitive compensation with excellent social benefits.</p>
+  </article>
+  <div>Division: Machining</div>
+  <div>Location: Switzerland, Agno</div>
+</main>
+</body></html>`;
+
+  it('extracts rich description from detail page with >50 words', () => {
+    const result = parseMikronJobDetail(RICH_DETAIL);
+    const wordCount = result.description.split(/\s+/).length;
+    expect(wordCount).toBeGreaterThanOrEqual(50);
+  });
+
+  it('preserves key content from detail page', () => {
+    const result = parseMikronJobDetail(RICH_DETAIL);
+    expect(result.description).toContain('CNC');
+    expect(result.description).toContain('precision');
+    expect(result.title).toBe('CNC Operator (100%)');
+  });
+});
