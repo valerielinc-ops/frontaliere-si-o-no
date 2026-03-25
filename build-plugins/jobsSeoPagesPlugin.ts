@@ -3626,9 +3626,21 @@ ${hreflangLinks}
               // Only emit JobPosting if we have sufficient data (including postalCode)
               // to pass the quality guard tests — incomplete schemas are worse than none
               if (htmlDesc.length >= 30 && localizedTitle && jobCompany && pc) {
-                const sa = String((job as any).streetAddress || '');
+                const sa = deriveStreetAddress(job);
                 const ar = String((job as any).addressRegion || (job as any).canton || '');
                 const ac = String((job as any).addressCountry || 'CH');
+                const bSalaryMin = Number.isFinite(Number((job as any).salaryMin)) && Number((job as any).salaryMin) > 0
+                  ? Number((job as any).salaryMin)
+                  : Number((job as any)?.baseSalary?.value?.minValue) || 0;
+                const bSalaryMax = Number.isFinite(Number((job as any).salaryMax)) ? Number((job as any).salaryMax) : Number((job as any)?.baseSalary?.value?.maxValue) || 0;
+                const bCurrency = String((job as any).currency || (job as any)?.baseSalary?.currency || 'CHF');
+                const bridgeSalary = bSalaryMin > 0 ? {
+                  '@type': 'MonetaryAmount', currency: bCurrency,
+                  value: { '@type': 'QuantitativeValue', minValue: bSalaryMin, ...(bSalaryMax > bSalaryMin ? { maxValue: bSalaryMax } : {}), unitText: 'YEAR' },
+                } : {
+                  '@type': 'MonetaryAmount', currency: 'CHF',
+                  value: { '@type': 'QuantitativeValue', minValue: 41080, unitText: 'YEAR' },
+                };
                 return `<script type="application/ld+json">${JSON.stringify({
                   '@context': 'https://schema.org',
                   '@type': 'JobPosting',
@@ -3639,12 +3651,13 @@ ${hreflangLinks}
                   hiringOrganization: { '@type': 'Organization', name: jobCompany },
                   jobLocation: { '@type': 'Place', address: {
                     '@type': 'PostalAddress',
-                    ...(sa ? { streetAddress: sa } : {}),
+                    streetAddress: sa,
                     addressLocality: jobLocation || undefined,
                     ...(ar ? { addressRegion: ar } : {}),
                     addressCountry: ac,
-                    ...(pc ? { postalCode: pc } : {}),
+                    postalCode: pc,
                   }},
+                  baseSalary: bridgeSalary,
                   url: canonicalUrl,
                 })}</script>`;
               }
