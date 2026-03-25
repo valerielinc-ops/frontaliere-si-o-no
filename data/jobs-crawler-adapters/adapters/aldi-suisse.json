@@ -1,0 +1,18 @@
+{
+  "companyKey": "aldi-suisse",
+  "companyName": "ALDI SUISSE",
+  "companyHost": "www.jobs.aldi.ch",
+  "enabled": true,
+  "priority": 10,
+  "crawlerModes": [
+    "jsonld",
+    "html",
+    "generic_ats"
+  ],
+  "seedUrls": [
+    "https://career5.successfactors.eu/career?career_company=HoferSELive&amp;site=VjItbUVvaVFkMnZMYXh2TmxuekE5Wmx3dz09&amp;lang=it_IT&amp;loginFlowRequired=true",
+    "https://www.jobs.aldi.ch/it/ricerca-posizione"
+  ],
+  "notes": "ALDI Suisse careers portal (SAP SuccessFactors ATS). Filter for Ticino locations.",
+  "updatedAt": "2026-03-25T09:28:30.953Z"
+}
