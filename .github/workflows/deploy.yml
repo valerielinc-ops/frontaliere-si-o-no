@@ -32,7 +32,7 @@ on:
         type: string
 
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 
@@ -77,6 +77,18 @@ jobs:
 
       - name: Assemble jobs dataset from per-crawler slices
         run: node scripts/assemble-jobs-dataset.mjs --stats
+
+      - name: Persist job stats history to git
+        continue-on-error: true
+        run: |
+          git config user.email "github-actions@github.com"
+          git config user.name "GitHub Actions"
+          git add data/jobs-stats-history.json data/jobs-keys-snapshot.json
+          git diff --cached --quiet && echo "No stats changes to commit" && exit 0
+          git commit -m "📈 Auto-update job board stats history"
+          git fetch origin main
+          git rebase origin/main
+          git push origin HEAD:main
 
       - name: Housekeeping (cross-crawler dedup + locale hardening)
         run: node scripts/cleanup-jobs.mjs

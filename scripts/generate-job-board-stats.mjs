@@ -2,15 +2,15 @@
 
 import fs from 'node:fs';
 import path from 'node:path';
-import { execSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 
-import { buildJobsStatsArtifacts } from './lib/job-board-stats.mjs';
+import { buildJobsStatsArtifacts, buildJobKeysSnapshot } from './lib/job-board-stats.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
 const DATA_JOBS_PATH = path.join(ROOT, 'data', 'jobs.json');
 const DATA_HISTORY_PATH = path.join(ROOT, 'data', 'jobs-stats-history.json');
+const DATA_KEYS_SNAPSHOT_PATH = path.join(ROOT, 'data', 'jobs-keys-snapshot.json');
 const DATA_SUMMARY_PATH = path.join(ROOT, 'data', 'jobs-stats.json');
 const PUBLIC_SUMMARY_PATH = path.join(ROOT, 'public', 'data', 'jobs-stats.json');
 
@@ -30,30 +30,35 @@ function writeJson(filePath, value, { compact = false } = {}) {
   fs.writeFileSync(filePath, json + '\n', 'utf8');
 }
 
-function readPreviousJobsFromHead() {
-  try {
-    const raw = execSync('git show HEAD:data/jobs.json', {
-      cwd: ROOT,
-      stdio: ['ignore', 'pipe', 'ignore'],
-      encoding: 'utf8',
-    });
-    const parsed = JSON.parse(raw);
-    return Array.isArray(parsed) ? parsed : [];
-  } catch {
-    return [];
+/**
+ * Reconstruct a minimal synthetic job object from a stable identity key so that
+ * computeJobDiff can identify which jobs were present in the previous run.
+ * We only need the fields that buildStableJobIdentity reads.
+ */
+function syntheticJobFromKey(key) {
+  if (key.startsWith('url:')) return { url: key.slice(4) };
+  if (key.startsWith('id:')) return { id: key.slice(3) };
+  if (key.startsWith('slug:')) return { slug: key.slice(5) };
+  if (key.startsWith('fallback:')) {
+    try { return JSON.parse(key.slice(9)); } catch { /* fall through */ }
   }
+  return {};
 }
 
 export function generateJobBoardStats(now = new Date().toISOString()) {
   const currentJobs = readJson(DATA_JOBS_PATH, []);
   const existingHistory = readJson(DATA_HISTORY_PATH, { version: 1, generatedAt: '', entries: [] });
-  const previousJobs = Array.isArray(existingHistory?.entries) && existingHistory.entries.length > 0
-    ? readPreviousJobsFromHead()
-    : currentJobs;
 
   if (!Array.isArray(currentJobs)) {
     throw new Error('data/jobs.json must be a JSON array');
   }
+
+  // Compute diff using a persisted keys snapshot rather than git-show (jobs.json is gitignored).
+  // On first run (no snapshot), treat as bootstrap: no diff so no inflated added counts.
+  const previousKeysList = readJson(DATA_KEYS_SNAPSHOT_PATH, null);
+  const previousJobs = previousKeysList !== null
+    ? previousKeysList.map(syntheticJobFromKey)
+    : currentJobs; // bootstrap: no diff
 
   const { history, summary } = buildJobsStatsArtifacts({
     previousJobs,
@@ -65,6 +70,9 @@ export function generateJobBoardStats(now = new Date().toISOString()) {
   writeJson(DATA_HISTORY_PATH, history, { compact: true });
   writeJson(DATA_SUMMARY_PATH, summary);
   writeJson(PUBLIC_SUMMARY_PATH, summary);
+
+  // Persist a compact snapshot of current job keys so the next run can compute an accurate diff.
+  writeJson(DATA_KEYS_SNAPSHOT_PATH, buildJobKeysSnapshot(currentJobs));
 
   return { history, summary };
 }

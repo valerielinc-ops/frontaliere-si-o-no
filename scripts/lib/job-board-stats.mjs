@@ -241,6 +241,10 @@ function deduplicateEntriesByDate(entries) {
   return Array.from(byDate.values());
 }
 
+export function buildJobKeysSnapshot(jobs = []) {
+  return safeArray(jobs).map((job) => buildStableJobIdentity(job)).sort();
+}
+
 export function computeJobDiff(previousJobs = [], currentJobs = []) {
   const beforeMap = new Map();
   for (const job of safeArray(previousJobs)) beforeMap.set(buildStableJobIdentity(job), job);
