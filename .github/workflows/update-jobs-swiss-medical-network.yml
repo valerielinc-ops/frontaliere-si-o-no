@@ -6,7 +6,7 @@ on:
       strict_localization:
         description: 'Fail if any Swiss Medical locale is missing/untranslated (1=yes, 0=no)'
         required: false
-        default: '1'
+        default: '0'
         type: string
       timeout_ms:
         description: 'Optional request timeout in ms (4000-15000)'

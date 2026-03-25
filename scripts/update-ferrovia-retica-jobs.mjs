@@ -3,7 +3,7 @@
  * Dedicated Ferrovia Retica (RhB) crawler runner.
  *
  * Source:
- *   https://www.rhb.ch/it/datore-di-lavoro
+ *   https://www.rhb.ch/it/lavoro-carriera/candidatura-posti-vacanti/job-uebersicht/
  *
  * Ferrovia Retica (RhB) is the largest employer in Graubünden,
  * operating the most extensive narrow-gauge railway in Switzerland (~1400 employees).
@@ -53,7 +53,7 @@ const ADAPTERS_DIR = path.resolve(ROOT, 'data', 'jobs-crawler-adapters', 'adapte
 const COMPANY_KEY = 'ferrovia-retica';
 const COMPANY_NAME = 'Ferrovia Retica (RhB)';
 const COMPANY_HOST = 'www.rhb.ch';
-const CAREERS_URL = 'https://www.rhb.ch/it/datore-di-lavoro';
+const CAREERS_URL = 'https://www.rhb.ch/it/lavoro-carriera/candidatura-posti-vacanti/job-uebersicht/';
 const LOCALES = ['it', 'en', 'de', 'fr'];
 const UA = process.env.JOBS_CRAWLER_USER_AGENT || 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)';
 

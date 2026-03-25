@@ -128,7 +128,40 @@ export function parseListingPage(html) {
     jobs.push({ title, url: fullUrl, location, datePosted: '', percentage });
   }
 
-  // Pattern 2: Simple link list with job-related URLs
+  // Pattern 2: Direct job links matching /it/job/ or /de/job/ URL pattern
+  // The job-uebersicht page lists jobs as links like /it/job/title-slug_YYYY-NNNN/
+  const jobLinkRe = /<a[^>]+href="(\/(?:it|de|en|fr)\/job\/[^"]+)"[^>]*>([\s\S]*?)<\/a>/gi;
+  while ((match = jobLinkRe.exec(html)) !== null) {
+    const url = match[1];
+    const rawTitle = normalizeSpace(stripHtml(match[2]));
+    if (!rawTitle || rawTitle.length < 5) continue;
+
+    const fullUrl = `https://www.rhb.ch${url}`;
+    if (seen.has(fullUrl)) continue;
+    seen.add(fullUrl);
+
+    // Extract location from title (e.g., "Standort Chur" or "Standort Samedan")
+    const standortMatch = rawTitle.match(/Standort\s+(\w+)/i);
+    const location = standortMatch ? standortMatch[1] : inferLocation(rawTitle, '');
+
+    // Extract percentage (e.g., "50-100%" or "100%")
+    const pctMatch = rawTitle.match(/(\d{1,3})\s*[-–]\s*(\d{1,3})\s*%/) || rawTitle.match(/\((\d{1,3})%\)/);
+    const percentage = pctMatch ? (pctMatch[2] ? `${pctMatch[1]}-${pctMatch[2]}%` : `${pctMatch[1]}%`) : '';
+
+    // Extract date from nearby context (DD. Month YYYY pattern)
+    const dateMatch = html.slice(Math.max(0, match.index - 200), match.index + match[0].length + 200)
+      .match(/(\d{1,2})\.\s*(gennaio|febbraio|marzo|aprile|maggio|giugno|luglio|agosto|settembre|ottobre|novembre|dicembre|Januar|Februar|März|April|Mai|Juni|Juli|August|September|Oktober|November|Dezember)\s*(\d{4})/i);
+    let datePosted = '';
+    if (dateMatch) {
+      const months = { gennaio: '01', febbraio: '02', marzo: '03', aprile: '04', maggio: '05', giugno: '06', luglio: '07', agosto: '08', settembre: '09', ottobre: '10', novembre: '11', dicembre: '12', januar: '01', februar: '02', 'märz': '03', april: '04', mai: '05', juni: '06', juli: '07', august: '08', september: '09', oktober: '10', november: '11', dezember: '12' };
+      const m = months[dateMatch[2].toLowerCase()] || '01';
+      datePosted = `${dateMatch[3]}-${m}-${dateMatch[1].padStart(2, '0')}`;
+    }
+
+    jobs.push({ title: rawTitle, url: fullUrl, location, datePosted, percentage });
+  }
+
+  // Pattern 3: Simple link list with job-related URLs (fallback)
   const linkRe = /<a[^>]+href="([^"]*(?:stellen|jobs|offene|vacancies)[^"]*)"[^>]*>([\s\S]*?)<\/a>/gi;
   while ((match = linkRe.exec(html)) !== null) {
     const url = match[1];
