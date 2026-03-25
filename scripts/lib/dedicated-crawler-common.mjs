@@ -2249,6 +2249,123 @@ export async function translateMissingJobLocales({ dataJobsPath, isTargetJob = n
   return { changed: true, translated, total: candidates.length, details, cacheHits, cacheMisses };
 }
 
+// ── Company HQ defaults for streetAddress / postalCode / employmentType ──
+// Used by hardenJobsRichResultsData to fill missing location fields on jobs
+// whose crawlers don't provide them.  Only fills fields that are absent/empty.
+export const COMPANY_DEFAULTS = {
+  'coop-ticino':                          { streetAddress: 'Via Laveggio 10',         postalCode: '6855', addressLocality: 'Stabio',            addressRegion: 'TI', addressCountry: 'CH' },
+  'eoc-ente-ospedaliero-cantonale':       { streetAddress: 'Viale Officina 3',        postalCode: '6500', addressLocality: 'Bellinzona',        addressRegion: 'TI', addressCountry: 'CH' },
+  'burkhalter-group':                     { streetAddress: 'Via Cantonale',            postalCode: '6928', addressLocality: 'Manno',             addressRegion: 'TI', addressCountry: 'CH' },
+  'volg-fenaco':                          { streetAddress: 'Via Industria 2',          postalCode: '6593', addressLocality: 'Cadenazzo',         addressRegion: 'TI', addressCountry: 'CH' },
+  'pemsa':                                { streetAddress: 'Via Industria 20',         postalCode: '6807', addressLocality: 'Taverne',           addressRegion: 'TI', addressCountry: 'CH' },
+  'convit-holding':                       { streetAddress: 'Via Balestra 12',          postalCode: '6900', addressLocality: 'Lugano',            addressRegion: 'TI', addressCountry: 'CH' },
+  'grand-hotel-kronenhof':                { streetAddress: 'Via Maistra',              postalCode: '7504', addressLocality: 'Pontresina',        addressRegion: 'GR', addressCountry: 'CH' },
+  'usi-universita-della-svizzera-italiana': { streetAddress: 'Via Giuseppe Buffi 13', postalCode: '6900', addressLocality: 'Lugano',            addressRegion: 'TI', addressCountry: 'CH' },
+  'vf-international-the-north-face-timberland': { streetAddress: 'Via Laveggio 5',    postalCode: '6855', addressLocality: 'Stabio',            addressRegion: 'TI', addressCountry: 'CH' },
+  'hamilton-bonaduz-ag':                  { streetAddress: 'Via Crusch 8',             postalCode: '7402', addressLocality: 'Bonaduz',           addressRegion: 'GR', addressCountry: 'CH' },
+  'amministrazione-cantonale-ti':         { streetAddress: 'Piazza Governo',           postalCode: '6501', addressLocality: 'Bellinzona',        addressRegion: 'TI', addressCountry: 'CH' },
+  'relewant':                             { streetAddress: 'Via Cantonale 2A',         postalCode: '6928', addressLocality: 'Manno',             addressRegion: 'TI', addressCountry: 'CH' },
+  'grand-hotel-des-bains-kempinski':      { streetAddress: 'Via Mezdi 27',             postalCode: '7500', addressLocality: 'St. Moritz',        addressRegion: 'GR', addressCountry: 'CH' },
+  'abb-svizzera-sede-ticino':             { streetAddress: 'Via Luserte Sud 9',        postalCode: '6572', addressLocality: 'Quartino',          addressRegion: 'TI', addressCountry: 'CH' },
+  'confederazione-ticino':                { streetAddress: 'Piazza Governo',           postalCode: '6501', addressLocality: 'Bellinzona',        addressRegion: 'TI', addressCountry: 'CH' },
+  'grace-la-margna':                      { streetAddress: 'Via Serlas 5',             postalCode: '7500', addressLocality: 'St. Moritz',        addressRegion: 'GR', addressCountry: 'CH' },
+  'axa-svizzera':                         { streetAddress: 'Via della Posta 2',        postalCode: '6901', addressLocality: 'Lugano',            addressRegion: 'TI', addressCountry: 'CH' },
+  'avaloq':                               { streetAddress: 'Via Industria 1',          postalCode: '6934', addressLocality: 'Bioggio',           addressRegion: 'TI', addressCountry: 'CH' },
+  'lwphr':                                { streetAddress: 'Via Cantonale 18',         postalCode: '6928', addressLocality: 'Manno',             addressRegion: 'TI', addressCountry: 'CH' },
+  'afry':                                 { streetAddress: 'Via Besso 23',             postalCode: '6900', addressLocality: 'Lugano',            addressRegion: 'TI', addressCountry: 'CH' },
+  'galenica':                             { streetAddress: 'Untermattweg 8',           postalCode: '3027', addressLocality: 'Bern',              addressRegion: 'BE', addressCountry: 'CH' },
+  'lidl-svizzera':                        { streetAddress: 'Via Industria 7',          postalCode: '6593', addressLocality: 'Cadenazzo',         addressRegion: 'TI', addressCountry: 'CH' },
+  'supsi-dti':                            { streetAddress: 'Via Cantonale 2C',         postalCode: '6928', addressLocality: 'Manno',             addressRegion: 'TI', addressCountry: 'CH' },
+  'ibsa-institut-biochimique':            { streetAddress: 'Via del Piano 29',         postalCode: '6926', addressLocality: 'Montagnola',        addressRegion: 'TI', addressCountry: 'CH' },
+  'board-international':                  { streetAddress: 'Via Campagna 11',          postalCode: '6982', addressLocality: 'Agno',              addressRegion: 'TI', addressCountry: 'CH' },
+  'colin-cie':                            { streetAddress: 'Via Nassa 15',             postalCode: '6900', addressLocality: 'Lugano',            addressRegion: 'TI', addressCountry: 'CH' },
+  'citta-di-mendrisio':                   { streetAddress: 'Via Municipio 13',         postalCode: '6850', addressLocality: 'Mendrisio',         addressRegion: 'TI', addressCountry: 'CH' },
+  'fincons-group':                        { streetAddress: 'Via Industria 3',          postalCode: '6934', addressLocality: 'Bioggio',           addressRegion: 'TI', addressCountry: 'CH' },
+  'guess-europe':                         { streetAddress: 'Via Industria 5',          postalCode: '6814', addressLocality: 'Cadempino',         addressRegion: 'TI', addressCountry: 'CH' },
+  'lombardi-group':                       { streetAddress: 'Via Arch. Frizzi 15',     postalCode: '6648', addressLocality: 'Minusio',           addressRegion: 'TI', addressCountry: 'CH' },
+  'agie-charmilles':                      { streetAddress: 'Via Goldau 7',             postalCode: '6616', addressLocality: 'Losone',            addressRegion: 'TI', addressCountry: 'CH' },
+  'corner-banca':                         { streetAddress: 'Via Canova 16',            postalCode: '6901', addressLocality: 'Lugano',            addressRegion: 'TI', addressCountry: 'CH' },
+  'lastminute-com':                       { streetAddress: 'Via Balestra 12',          postalCode: '6900', addressLocality: 'Lugano',            addressRegion: 'TI', addressCountry: 'CH' },
+  'swisscom-sede-ticino':                 { streetAddress: 'Via Ghiringhelli 15A',    postalCode: '6500', addressLocality: 'Bellinzona',        addressRegion: 'TI', addressCountry: 'CH' },
+  'tsmg':                                 { streetAddress: 'Via Cantonale 1',          postalCode: '6928', addressLocality: 'Manno',             addressRegion: 'TI', addressCountry: 'CH' },
+  'allianz-suisse':                       { streetAddress: 'Via Pretorio 22',          postalCode: '6900', addressLocality: 'Lugano',            addressRegion: 'TI', addressCountry: 'CH' },
+  'boggi-milano':                         { streetAddress: 'Via A. Maspoli 18',       postalCode: '6850', addressLocality: 'Mendrisio',         addressRegion: 'TI', addressCountry: 'CH' },
+  'ffs-officine-ferrovie-federali':       { streetAddress: 'Via Officina 3',           postalCode: '6500', addressLocality: 'Bellinzona',        addressRegion: 'TI', addressCountry: 'CH' },
+  'migros-ticino':                        { streetAddress: 'Via Lugano 2',             postalCode: '6500', addressLocality: 'Bellinzona',        addressRegion: 'TI', addressCountry: 'CH' },
+  'vtg':                                  { streetAddress: 'Via Stazione 31',          postalCode: '6500', addressLocality: 'Bellinzona',        addressRegion: 'TI', addressCountry: 'CH' },
+  'efg-international':                    { streetAddress: 'Via Pretorio 22',          postalCode: '6900', addressLocality: 'Lugano',            addressRegion: 'TI', addressCountry: 'CH' },
+  'hitachi-energy':                       { streetAddress: 'Via Lucino 53',            postalCode: '6900', addressLocality: 'Lugano',            addressRegion: 'TI', addressCountry: 'CH' },
+  'mks-pamp':                             { streetAddress: 'Via delle Fornaci',        postalCode: '6828', addressLocality: 'Balerna',           addressRegion: 'TI', addressCountry: 'CH' },
+  'trumpf-schweiz':                       { streetAddress: 'Via Campagna 4',           postalCode: '6982', addressLocality: 'Agno',              addressRegion: 'TI', addressCountry: 'CH' },
+  'a-group':                              { streetAddress: 'Via Cantonale 10',         postalCode: '6928', addressLocality: 'Manno',             addressRegion: 'TI', addressCountry: 'CH' },
+  'artisa-group':                         { streetAddress: 'Via Nassa 5',              postalCode: '6900', addressLocality: 'Lugano',            addressRegion: 'TI', addressCountry: 'CH' },
+  'centiel':                              { streetAddress: 'Via Luserte 11',           postalCode: '6572', addressLocality: 'Quartino',          addressRegion: 'TI', addressCountry: 'CH' },
+  'damiani-group':                        { streetAddress: 'Via Penate 12',            postalCode: '6850', addressLocality: 'Mendrisio',         addressRegion: 'TI', addressCountry: 'CH' },
+  'has-healthcare':                       { streetAddress: 'Via Motta 4',              postalCode: '6900', addressLocality: 'Lugano',            addressRegion: 'TI', addressCountry: 'CH' },
+  'la-fonte':                             { streetAddress: 'Via Lavizzari 2',          postalCode: '6900', addressLocality: 'Lugano',            addressRegion: 'TI', addressCountry: 'CH' },
+  'manor':                                { streetAddress: 'Piazza Dante',             postalCode: '6900', addressLocality: 'Lugano',            addressRegion: 'TI', addressCountry: 'CH' },
+  'mcdonald-s-switzerland':               { streetAddress: 'Corso San Gottardo',       postalCode: '6830', addressLocality: 'Chiasso',           addressRegion: 'TI', addressCountry: 'CH' },
+  'oscam':                                { streetAddress: 'Via Industria 10',         postalCode: '6807', addressLocality: 'Taverne',           addressRegion: 'TI', addressCountry: 'CH' },
+  'schindler':                            { streetAddress: 'Via Industria 11',         postalCode: '6934', addressLocality: 'Bioggio',           addressRegion: 'TI', addressCountry: 'CH' },
+  'tarchini-group':                       { streetAddress: 'Via Cantonale 12',         postalCode: '6533', addressLocality: 'Lumino',            addressRegion: 'TI', addressCountry: 'CH' },
+  'axpo-group':                           { streetAddress: 'Viale Stazione 31',        postalCode: '6500', addressLocality: 'Bellinzona',        addressRegion: 'TI', addressCountry: 'CH' },
+  'dot-life':                             { streetAddress: 'Via Balestra 12',          postalCode: '6900', addressLocality: 'Lugano',            addressRegion: 'TI', addressCountry: 'CH' },
+  'fust':                                 { streetAddress: 'Via Industria 1',          postalCode: '6593', addressLocality: 'Cadenazzo',         addressRegion: 'TI', addressCountry: 'CH' },
+  'hoval':                                { streetAddress: 'Via Pasquale Lucchini 4',  postalCode: '6900', addressLocality: 'Lugano',            addressRegion: 'TI', addressCountry: 'CH' },
+  'knowledge-lab':                        { streetAddress: 'Via Giuseppe Buffi 13',    postalCode: '6900', addressLocality: 'Lugano',            addressRegion: 'TI', addressCountry: 'CH' },
+  'banca-cler':                           { streetAddress: 'Via Pretorio 13',          postalCode: '6900', addressLocality: 'Lugano',            addressRegion: 'TI', addressCountry: 'CH' },
+  'baronie':                              { streetAddress: 'Via Cantonale',            postalCode: '6613', addressLocality: 'Porto Ronco',       addressRegion: 'TI', addressCountry: 'CH' },
+  'bracco':                               { streetAddress: 'Via E. Bracco 6',         postalCode: '6830', addressLocality: 'Chiasso',           addressRegion: 'TI', addressCountry: 'CH' },
+  'caseificio-gottardo':                  { streetAddress: 'Zona Industriale',         postalCode: '6780', addressLocality: 'Airolo',            addressRegion: 'TI', addressCountry: 'CH' },
+  'engel-voelkers':                       { streetAddress: 'Via Nassa 17',             postalCode: '6900', addressLocality: 'Lugano',            addressRegion: 'TI', addressCountry: 'CH' },
+  'ermenegildo-zegna-logistica':          { streetAddress: 'Via Lugano 13',            postalCode: '6855', addressLocality: 'Stabio',            addressRegion: 'TI', addressCountry: 'CH' },
+  'fart':                                 { streetAddress: 'Via Franzoni 1',           postalCode: '6601', addressLocality: 'Locarno',           addressRegion: 'TI', addressCountry: 'CH' },
+  'international-school-of-ticino':       { streetAddress: 'Via Ponteggia 23',         postalCode: '6814', addressLocality: 'Cadempino',         addressRegion: 'TI', addressCountry: 'CH' },
+  'posta-svizzera-centro-regionale':      { streetAddress: 'Via la Santa 1',           postalCode: '6500', addressLocality: 'Bellinzona',        addressRegion: 'TI', addressCountry: 'CH' },
+  'skyguide-sa':                          { streetAddress: 'Via Aeroporto',            postalCode: '6982', addressLocality: 'Agno',              addressRegion: 'TI', addressCountry: 'CH' },
+  'tinext':                               { streetAddress: 'Via Cantonale 18',         postalCode: '6928', addressLocality: 'Manno',             addressRegion: 'TI', addressCountry: 'CH' },
+  'agroscope':                            { streetAddress: 'Via Ramon Bentina 16',     postalCode: '6593', addressLocality: 'Cadenazzo',         addressRegion: 'TI', addressCountry: 'CH' },
+  'ail-lugano':                           { streetAddress: 'Via della Posta 8',        postalCode: '6900', addressLocality: 'Lugano',            addressRegion: 'TI', addressCountry: 'CH' },
+  'amag-group':                           { streetAddress: 'Via Industria 1',          postalCode: '6934', addressLocality: 'Bioggio',           addressRegion: 'TI', addressCountry: 'CH' },
+  'banca-raiffeisen-vedeggio-cassarate':  { streetAddress: 'Piazza Indipendenza',     postalCode: '6814', addressLocality: 'Cadempino',         addressRegion: 'TI', addressCountry: 'CH' },
+  'banca-sempione':                       { streetAddress: 'Via P. Peri 2',            postalCode: '6900', addressLocality: 'Lugano',            addressRegion: 'TI', addressCountry: 'CH' },
+  'cambiavalute':                         { streetAddress: 'Via Pessina 6',            postalCode: '6900', addressLocality: 'Lugano',            addressRegion: 'TI', addressCountry: 'CH' },
+  'dxt-commodities':                      { streetAddress: 'Corso Elvezia 14',        postalCode: '6900', addressLocality: 'Lugano',            addressRegion: 'TI', addressCountry: 'CH' },
+  'fnz':                                  { streetAddress: 'Via Nassa 5',              postalCode: '6900', addressLocality: 'Lugano',            addressRegion: 'TI', addressCountry: 'CH' },
+  'goline':                               { streetAddress: 'Via Industria 5',          postalCode: '6934', addressLocality: 'Bioggio',           addressRegion: 'TI', addressCountry: 'CH' },
+  'linnea':                               { streetAddress: 'Via Cantonale 35',         postalCode: '6595', addressLocality: 'Riazzino',          addressRegion: 'TI', addressCountry: 'CH' },
+  'rado':                                 { streetAddress: 'Bielstrasse 45',           postalCode: '2543', addressLocality: 'Lengnau',           addressRegion: 'BE', addressCountry: 'CH' },
+  'rittmeyer-ag':                         { streetAddress: 'Inwilerriedstrasse 57',    postalCode: '6340', addressLocality: 'Baar',              addressRegion: 'ZG', addressCountry: 'CH' },
+  'ruag-ag':                              { streetAddress: 'Via Campagna',             postalCode: '6517', addressLocality: 'Arbedo',            addressRegion: 'TI', addressCountry: 'CH' },
+  'sunrise-sede-ticino':                  { streetAddress: 'Via Industria 7',          postalCode: '6814', addressLocality: 'Cadempino',         addressRegion: 'TI', addressCountry: 'CH' },
+  'zucchetti-switzerland':                { streetAddress: 'Via Cantonale',            postalCode: '6928', addressLocality: 'Manno',             addressRegion: 'TI', addressCountry: 'CH' },
+  'lis-lugano-istituti-sociali':          { streetAddress: 'Via Trevano 55',           postalCode: '6900', addressLocality: 'Lugano',            addressRegion: 'TI', addressCountry: 'CH' },
+  'medacta-international':                { streetAddress: 'Strada Regina',            postalCode: '6874', addressLocality: 'Castel San Pietro', addressRegion: 'TI', addressCountry: 'CH' },
+  'zurich-insurance-sede-ticino':         { streetAddress: 'Via Pretorio 22',          postalCode: '6900', addressLocality: 'Lugano',            addressRegion: 'TI', addressCountry: 'CH' },
+};
+
+/**
+ * Apply company HQ defaults to a single job object.
+ * Only fills fields that are missing or empty — never overwrites existing data.
+ * Also sets employmentType to 'FULL_TIME' when absent.
+ */
+export function applyCompanyDefaults(job, companySlug) {
+  const slug = companySlug || job?.companyKey || '';
+  const defaults = COMPANY_DEFAULTS[slug];
+  if (defaults) {
+    if (!job.streetAddress)    job.streetAddress    = defaults.streetAddress;
+    if (!job.postalCode)       job.postalCode       = defaults.postalCode;
+    if (!job.addressLocality)  job.addressLocality  = defaults.addressLocality;
+    if (!job.addressRegion)    job.addressRegion     = defaults.addressRegion;
+    if (!job.addressCountry)   job.addressCountry   = defaults.addressCountry;
+  }
+  // Default employmentType for all jobs
+  if (!job.employmentType) {
+    job.employmentType = 'FULL_TIME';
+  }
+  return job;
+}
+
 export function hardenJobsRichResultsData({ dataJobsPath }) {
   if (!dataJobsPath || !fs.existsSync(dataJobsPath)) {
     return { changed: false, updated: 0, total: 0 };
@@ -2259,6 +2376,18 @@ export function hardenJobsRichResultsData({ dataJobsPath }) {
   }
 
   const { jobs: hardened, changed: salaryChanged, updated: salaryUpdated, total } = hardenJobsWithStructuredSalary(raw);
+
+  // ── Company HQ defaults: fill missing streetAddress / postalCode / employmentType ──
+  let companyDefaultsFilled = 0;
+  for (const job of hardened) {
+    const before = `${job.streetAddress || ''}|${job.postalCode || ''}|${job.addressLocality || ''}|${job.employmentType || ''}`;
+    applyCompanyDefaults(job);
+    const after = `${job.streetAddress || ''}|${job.postalCode || ''}|${job.addressLocality || ''}|${job.employmentType || ''}`;
+    if (before !== after) companyDefaultsFilled++;
+  }
+  if (companyDefaultsFilled > 0) {
+    console.log(`  🏢 Company defaults: enriched ${companyDefaultsFilled}/${total} jobs with HQ address/employmentType.`);
+  }
 
   // ── PostalCode enrichment from swiss-postal-codes.json ──
   let postalFilled = 0;
@@ -2293,8 +2422,8 @@ export function hardenJobsRichResultsData({ dataJobsPath }) {
     }
   }
 
-  const changed = salaryChanged || postalFilled > 0;
-  const updated = salaryUpdated + postalFilled;
+  const changed = salaryChanged || postalFilled > 0 || companyDefaultsFilled > 0;
+  const updated = salaryUpdated + postalFilled + companyDefaultsFilled;
 
   if (!changed) {
     return { changed: false, updated: 0, total };
